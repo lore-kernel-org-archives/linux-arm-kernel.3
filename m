@@ -4,58 +4,165 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B19C7C98325
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 25 Sep 2026 15:59:56 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 83D58C9830E
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 25 Sep 2026 16:16:08 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=zB+uphukWsYzwSOajdvh6cv5j11GNs+nqVXToUS/cgk=; b=wDIfF5x2OYvsTYEkOLnF9E0Mdm
-	uBN6yZ6HmQdFcpGQ7f1uzCOW0pE+Gsw8BTWgbxkqw26XmOngv/gG9zjS8Et5l5ZJbR3Un4CDWxlBL
-	W5i1heuvLxrl+vdl5TfI04ouFXsTExbVGQoy1evN8D1psmg0PYFrz2y7Q+hfTsFSbQm8owE1XEkUW
-	yVeSlqiH3Vz6djF8Doauqs1rA0scqx3hymhzGeJFKRiMFJ4EAZbh0PLJDUzU7OqburYtVSLY4WsAB
-	0ZrGD4u/A/CKdr3DhLksKIwjLB05r7Zq9TxAJWZ62asEC530U45GyQgbjMBHlIcYmQYnY+7wV9t9k
-	U2hhnw7A==;
+	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=Tgj0pJ1x6WPYmBNny5F7IjieDAqhdxo+8fFNU9Tw17w=; b=nESGepV9Kf2VDbZEl93s1SvN2z
+	iNt2jDwBdsAsQsZiiRQbFSIhadCJhnHae8fDXjhYOCVzks151idoCSCEjQ/Kga8bYDmUEoxcdE0wx
+	GAnqTYaUZOAb14zckiXm27YKRAV+V0ahqpyfiUy1pqXXeLWxtblH78cBsKgCNOjLMuIgHq7LHGDp6
+	BZzR+Osmyk8ZJ4Uw2PMJV7uToWZHt0CGdgRh/ut1rLi6+iRe57iFY6cKGEsHvNy213c/wSjuP0qvJ
+	zWmR/c93DrH7G5HPc0UOaJcVDrAQbbnq5FxipoMsFRAzAreBqM489Tc4JagxrreQtL8azy0eV96rT
+	x5l/+jfQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xA8Kx-0000000DtCQ-0xW2;
-	Fri, 25 Sep 2026 15:59:47 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1xA8ac-0000000DueV-39Vq;
+	Fri, 25 Sep 2026 16:15:58 +0000
+Received: from mx0b-0002e601.pphosted.com ([148.163.154.28])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xA8Kv-0000000DtBf-3RnG;
-	Fri, 25 Sep 2026 15:59:45 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 85E7B40DD3;
-	Fri, 25 Sep 2026 15:59:45 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 315751F000FF;
-	Fri, 25 Sep 2026 15:59:45 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1790351985;
-	bh=zB+uphukWsYzwSOajdvh6cv5j11GNs+nqVXToUS/cgk=;
-	h=From:To:Cc:Subject:Date;
-	b=fAKdsbzasz2R8m6Io4IM5xBe8i/yrGwfeDJvrrALc+l8G3IU7VScfmJbFY8PYuAkI
-	 GhAuWSBF6tPwubQ682VNHIisRZpv0rZ+VpLMKrHv76sco60/wy7NZ2nlElBr7vs65f
-	 gQ3rA83hKL1AQ2JKguWwqVTN+Sa/oPI8wLKOwyC3sb8f1V2+S/e3V+uwrWm08evL0u
-	 amr5Jwk87wbs0UKw41hOsM32fXdzKJekwKw23gKg627wRP9J341xERiFBdR9sfxRyC
-	 VKCuBcG2DISTPSxGP0F/By4qemd/ybYj6TU5Pc6SjL4D7TwY1BLA8OgRdeWuulD8L8
-	 YtGPz/tu8d+2w==
-From: "Rob Herring (Arm)" <robh@kernel.org>
-To: Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Matthias Brugger <matthias.bgg@gmail.com>,
-	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
-Cc: devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-mediatek@lists.infradead.org
-Subject: [PATCH] dt-bindings: power: Convert mediatek,mt2701-scpsys to DT schema
-Date: Fri, 25 Sep 2026 10:59:26 -0500
-Message-ID: <20260925155927.1707560-1-robh@kernel.org>
-X-Mailer: git-send-email 2.53.0
+	id 1xA8aY-0000000Dudb-3b1p
+	for linux-arm-kernel@lists.infradead.org;
+	Fri, 25 Sep 2026 16:15:57 +0000
+Received: from pps.filterd (m0374955.ppops.net [127.0.0.1])
+	by mx0b-0002e601.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 68PG1wt12962080;
+	Fri, 25 Sep 2026 11:15:51 -0500
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com; h=cc
+	:content-transfer-encoding:content-type:date:from:in-reply-to
+	:message-id:mime-version:references:subject:to; s=
+	proofpoint-05-2026; bh=Tgj0pJ1x6WPYmBNny5F7IjieDAqhdxo+8fFNU9Tw1
+	7w=; b=PHN3heUN2aaKKna5msBRIFVpw3/V/Y7CRbH/ymlsl9onRIYIv5Eg0CB2c
+	zZnROwSNycfIOJSbBGmzbbQLHtaAq1cAVDhhp06EVinXH6TIXenPbOBlQ7CkEwpd
+	tCV3ImRTscDtjHLu6S5S2VeGYTrJgS1G2zWP9dqSTPruV+1D+ZvLZjssaZn5q2A+
+	ZL4Bq9ja79HQQOHkGJD0rhYSho1tutoQT7uyerQbGFYHyJ8XmclKoS7v6r1DxfB7
+	xO4QqciNbIkv0Plpk7rmaMW5FgPX25Dp6B8qVzZmw7tNHqnF745RVDDpRvJWbZnn
+	vGkOHGbOYIufGisL0YQ2ER7cgJxQg==
+Received: from mw6pr02cu001.outbound.protection.outlook.com (mail-westus2azon11012046.outbound.protection.outlook.com [52.101.48.46])
+	by mx0b-0002e601.pphosted.com (PPS) with ESMTPS id 4gwkhrb2qj-1
+	(version=TLSv1.3 cipher=TLS_AES_256_GCM_SHA384 bits=256 verify=NOT);
+	Fri, 25 Sep 2026 11:15:51 -0500 (CDT)
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=gatan409ed4dRSvMGN5Z7FO+ezrHgGcrqvxF2JIuPERoJcnvLaZBbMYVxhUFAkOXSt4zHRFyTsEpW2HtiAnNj71BMk+VjNajErtdAIUN5+Fa8B4h0vsqQpYmJm8MF4zJbgdWDrZwWt1JuwyAkP8w1nEdLkndLNR0KruEKSd6Za0GagtyYoRnJ5UP6lcy/pX1HyBChrK+Nnqv/XscyPpv4F6Lsouyj3D4MvAaQtx70B+FwMF4BkX1B5Cgi6P6dwC5pdu89UXMymIhgmIIwF83Q+ZDb0Hhpwejk17+Far29J6vT3lC+p1AIMQOGPRNUTz+Tr1yOSKLcwTUorK9yEdLKw==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=Tgj0pJ1x6WPYmBNny5F7IjieDAqhdxo+8fFNU9Tw17w=;
+ b=T92cOvNwLBjX8urF8ksObPZ915Pw21ZUp6EbJEySqgaGWjObWhJ+37XstrEoePX5WREBLVonesXYUvbDPDHG38wG3BQqbE4cIdcSuky0MxQe25SBXK/6TazwcoZUdH3iIbEQock0cyDawfbandSq1Dftd1bQRQ8++MWHxvnveygwrn/eq2n91HVBu7OfqaQksvx3SV3qTiSAF1Wpk1dCfRuIHYsaerC35JqrFr4gXrqJQ5vwZ0NSRbPHJoNu9mxJvoSWZC4CRhc+A45QSOKxTrEcJYO6hVptYD45OaSEi9Y237v4/OMWPzo3ewGIDn/eq5uMqaCG9riVfb/SGf3JLw==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
+ 198.47.23.195) smtp.rcpttodomain=vger.kernel.org smtp.mailfrom=ti.com;
+ dmarc=pass (p=quarantine sp=none pct=100) action=none header.from=ti.com;
+ dkim=none (message not signed); arc=none (0)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=Tgj0pJ1x6WPYmBNny5F7IjieDAqhdxo+8fFNU9Tw17w=;
+ b=P6mtCxEwN78c7fziR4r5oWWwU18hsg2RGKhS9URgAp4UabW4feiqNJ3hnVnSOF11UyrZHAVJ9ssbHOt66XovYW44cRyebi/muWmtEmiRU4404xwE252It7EPQECRhac/FhNNuM/Jh7NGJE/FI1YNYs8rKHgMVwSLk0JgID7s8wM=
+Received: from BL1P221CA0041.NAMP221.PROD.OUTLOOK.COM (2603:10b6:208:5b5::19)
+ by CH0PR10MB5193.namprd10.prod.outlook.com (2603:10b6:610:c4::5) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.428.13; Fri, 25 Sep
+ 2026 16:15:44 +0000
+Received: from BN3PEPF0000B06D.namprd21.prod.outlook.com
+ (2603:10b6:208:5b5:cafe::a9) by BL1P221CA0041.outlook.office365.com
+ (2603:10b6:208:5b5::19) with Microsoft SMTP Server (version=TLS1_3,
+ cipher=TLS_AES_256_GCM_SHA384) id 15.21.451.19 via Frontend Transport; Fri,
+ 25 Sep 2026 16:15:44 +0000
+X-MS-Exchange-Authentication-Results: mx.microsoft.com 1; spf=pass (sender IP
+ is 198.47.23.195) smtp.mailfrom=ti.com; dkim=none (message not signed)
+ header.d=none;dmarc=pass action=none header.from=ti.com;
+Received-SPF: Pass (protection.outlook.com: domain of ti.com designates
+ 198.47.23.195 as permitted sender) receiver=protection.outlook.com;
+ client-ip=198.47.23.195; helo=lewvzet201.ext.ti.com; pr=C
+Received: from lewvzet201.ext.ti.com (198.47.23.195) by
+ BN3PEPF0000B06D.mail.protection.outlook.com (10.167.243.72) with Microsoft
+ SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.21.428.0 via Frontend Transport; Fri, 25 Sep 2026 16:15:44 +0000
+Received: from DLEE207.ent.ti.com (157.170.170.95) by lewvzet201.ext.ti.com
+ (10.4.14.104) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.45; Fri, 25 Sep
+ 2026 11:15:09 -0500
+Received: from DLEE201.ent.ti.com (157.170.170.76) by DLEE207.ent.ti.com
+ (157.170.170.95) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.45; Fri, 25 Sep
+ 2026 11:15:09 -0500
+Received: from lelvem-mr06.itg.ti.com (10.180.75.8) by DLEE201.ent.ti.com
+ (157.170.170.76) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.45 via Frontend
+ Transport; Fri, 25 Sep 2026 11:15:09 -0500
+Received: from [10.249.135.178] ([10.249.135.178])
+	by lelvem-mr06.itg.ti.com (8.18.1/8.18.1) with ESMTP id 68PGF4vY2154610;
+	Fri, 25 Sep 2026 11:15:05 -0500
+Message-ID: <09d30f40-f87b-4d33-af97-de8c1536f22e@ti.com>
+Date: Fri, 25 Sep 2026 21:45:03 +0530
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v3] arm64: dts: ti: k3-pinctrl: Add virtual GPIO select
+ mux macros
+To: Akashdeep Kaur <a-kaur@ti.com>, <nm@ti.com>, <vigneshr@ti.com>,
+        <kristo@kernel.org>, <robh@kernel.org>, <krzk+dt@kernel.org>,
+        <conor+dt@kernel.org>, <linux-arm-kernel@lists.infradead.org>,
+        <devicetree@vger.kernel.org>, <linux-kernel@vger.kernel.org>
+CC: <sebin.francis@ti.com>, <k-willis@ti.com>, <u-kumar1@ti.com>
+References: <20260922102629.3707296-1-a-kaur@ti.com>
+Content-Language: en-US
+From: "Kumar, Udit" <u-kumar1@ti.com>
+In-Reply-To: <20260922102629.3707296-1-a-kaur@ti.com>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: 7bit
+X-EOPAttributedMessage: 0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: BN3PEPF0000B06D:EE_|CH0PR10MB5193:EE_
+X-MS-Office365-Filtering-Correlation-Id: fb426ba3-f013-483d-605e-08df1b2040b2
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|376014|23010399003|1800799024|36860700016|82310400026|13003099007|921020|18002099003|22082099003|56012099006|6133799003|10067099003;
+X-Microsoft-Antispam-Message-Info: z85jC9/7pThrGEXpWnmbbPFrJYgld76dXt9a/sg0Sqg+paq9ANs9BJXRoqkhC2lLT0EwRIlSeS9wEMaF1RYDCEB7p5vGlBOd2Fgp+33h9hLsP0EFRNjFI6CtcrRj4O+D2T/ZQP147crxxmTv6wH9rXii0wWzshZoAI08be9YUtBZAhwNmb2ICPEgD1w5/MfDfxzieZDdzz4Ng0qAvOrZRcHJ7+/5NKW5caVNNJhfFUYTi5dwUjw0wySIHGbanHrHmdwckr4/CDyvZ20NVemdzChKpkErHLRNKWA9crhapGVddw9IyWYoW4cRg1dlq00bJbQ6XsjifOry7NP2PIESOr1qBy/HzS+A9WJJNn3nBkiCXKF3arlh2tbUNSC4iHATJNA2eE/n1qBOfQjXkFKqAC76buCxUxrrdOlmNLqYmt1j4YOEaM9lYHoyXRHH0Az32K7ZlqGOH1sq9fsUhglSy+KaygFqdS5ioMe9hA/BfQbd2EXEZNCNKIkSaZFcRGYvzBV+1lYsTIFC9HUx7xVU87NNfak7OodszZGbAAohLouncO31f52ktpcj1yWY2scaeZLJfyp53wGPIbI18I+0spvEezp0+24on1TXuVAIG2Hi4uBhhxECqBIdmwma0/wO1VrOuzDOfkE5FDNeP+rjT45TbK9qqy7FKexVkYwWyozPpmHfiAt53l6bCtFjDXMEtAbEkV2dwYMu2rF0IJaFdA/quhm7sn4GR60GCF4jU/G3+Bp60GX/GUOPLx3+5KAp
+X-Forefront-Antispam-Report: CIP:198.47.23.195;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:lewvzet201.ext.ti.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(376014)(23010399003)(1800799024)(36860700016)(82310400026)(13003099007)(921020)(18002099003)(22082099003)(56012099006)(6133799003)(10067099003);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: H/dTuZ3zIb1OtQ5abUzhGxfq4d/2kVx9ViJWRCiWq6AU1AHnAh0s8cU2moMCohxT3TfDKrk1QSj821nX159bAVnPUnd+rS3qz1P4j4LWiCHmRlgtWQ4TMKPzJzQlXkv7jLkNmdGG3z2trMfW8fHy0ZAxU4ioFbBmNjyvog9tIn13QaQu2Q3Ip4DvFX7pgcfwLEu1UxeoZM123fNUSOse8gqrTEk1x+eeflBg/V2EnxpN0ZsgLhpFrtfmWR/kL2KBic2hnB4f2UmIlEF/IDXRrHAcpjYsFP//43wdjCHenXU90NNtn3jVcIB/3hRRt+5k/CG/m49Erl672B6mjSTYeTs0WTpFGpc0NCUECvToXU53vKRBSjUJ0qhGUUdYlyjqvBcT3bNBptlNhTrvYE0gp4UlmGZvUqumVy8muzZCYWYA+W9LGrW34hsVteQIAsF/
+X-Exchange-RoutingPolicyChecked: sfOTsMHBm3ygxCRjThC0J7WL6Af5gbZxFO/c9dh4RghFviA9Etuejfu5Re9eTHYIpde4WE0/IJb1f06NwRrpfXP5NLQNAtXM/N2HZnr769lCVsUqN7kF4CycaD8wcTemKLh3BQCQUmCU0kmdByX55cCsABi8aiSQuQi0hhu18Wgdk+njv2vYoj7dgjkldogTDGzjawBYorNXjvt0SaET/ztecP+KQqwGP4XUL8IjJ96lM46ngUbf6elFif8eXjAJFkb/KqCvjCdog1h7rB4YPohMWprMePBGSOmljISO9jQcXjS0TwfFJJsWhrmmN9qy9Q4hmzQAdGOBQ+5B6PGhhA==
+X-OriginatorOrg: ti.com
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 25 Sep 2026 16:15:44.7137
+ (UTC)
+X-MS-Exchange-CrossTenant-Network-Message-Id: fb426ba3-f013-483d-605e-08df1b2040b2
+X-MS-Exchange-CrossTenant-Id: e5b49634-450b-4709-8abb-1e2b19b982b7
+X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=e5b49634-450b-4709-8abb-1e2b19b982b7;Ip=[198.47.23.195];Helo=[lewvzet201.ext.ti.com]
+X-MS-Exchange-CrossTenant-AuthSource: BN3PEPF0000B06D.namprd21.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Anonymous
+X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: CH0PR10MB5193
+X-Authority-Analysis: v=2.4 cv=Fv+QbGrq c=1 sm=1 tr=0 ts=6ab69e37 cx=c_pps
+ a=5EMrObNM7I5xfgT5kXX3QA==:117 a=f+v6EHfkeJbVwR46tk4DMg==:17
+ a=6eWqkTHjU83fiwn7nKZWdM+Sl24=:19 a=IkcTkHD0fZMA:10 a=VdqzKS8jKosA:10
+ a=s63m1ICgrNkA:10 a=V5UXEbMT0ywA:10 a=VkNPw1HP01LnGYTKEx00:22
+ a=Z8NIEmU8O1QQgoT56wFK:22 a=fPAWb5peG099m5CrUpKH:22 a=sozttTNsAAAA:8
+ a=VwQbUJbxAAAA:8 a=D0aBROiGLno-LiHwBcUA:9 a=QEXdDO2ut3YA:10
+X-Proofpoint-GUID: hBjpMXEa_77xKNCk2icSAkx0brUSqf4M
+X-Proofpoint-ORIG-GUID: hBjpMXEa_77xKNCk2icSAkx0brUSqf4M
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwOTI1MDA2NCBTYWx0ZWRfX6UBuKJSs0ALa
+ LN+ewW/yhWFYSFcguNqsIz/oTonsJF1hcPaAHEaLLb2WtMNOwrA7QaAvuL8ko6NtsTUQ6a180h8
+ w9s5KW+LVL6URRFBZ8lZvWk4J+zlBfltXsGv4Sb9UPVbQemctsM7fagh6d3AEzUoTO/xB0pNhdM
+ 8oTQdYwarPAuUqlHWlpRJyeL6/Z2NkgtSeVnbXgRXfQQBw+m2u74xmeD3c/ejFIxmW36lPx6Si6
+ Pka2kSpQfAOrimzqmuwMeJmDGpRZy24M3mpM+z/SULdKQZ+isScF6n3fWjy9LWqZDOZjxUy+ewC
+ FxIuXYbKvgWb2Am33/XCSkev2ytj14fIVs3XhvLvX8GK8xwXP2u8jIrqSQO/XZ2xs0n6YjxEGdH
+ Cq8KoDAg4nbn0LTqJ+yZWMc8ZQtQtsHzcRPjcWcJMF+vGnq8frpKa1PeoOap1Szn+js+CqK5k9r
+ FBk1jcbHlk+qMFTP35g==
+X-Proofpoint-Spam-Info: AW1haW4tMjYwOTI1MDA2NCBTYWx0ZWRfX1dkJsAYLugNc
+ lUsMfncmO/tXYsEkzNGBQPS2WnEyxSSemxDUH4J88K9NHjk0Q50Y3b67suV1Y/Sfyr5O58/PLqt
+ Q92K+KruNPjGLDKdywdJuOEKk977SMM=
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1176,Hydra:6.1.134,FMLib:17.12.100.49
+ definitions=2026-09-25_03,2026-09-21_02,2025-10-01_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
+ clxscore=1015 spamscore=0 impostorscore=0 lowpriorityscore=0 malwarescore=0
+ suspectscore=0 phishscore=0 priorityscore=1501 bulkscore=0 adultscore=0
+ classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
+ reason=mlx scancount=1 engine=8.22.0-2609040000 definitions=main-2609250064
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260925_091555_080672_25E47DBA 
+X-CRM114-Status: GOOD (  19.92  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -70,224 +177,84 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Convert the mediatek,mt2701-scpsys binding to DT schema. The mt6735 and
-mt6765 don't exist anywhere. The mt8183 is covered by
-mediatek,mt8195-scpsys.yaml schema. With those dropped, the clock-names
-are trimmed to drop mm-*, isp-*, cam-*, and venc_lt. The venc_lt and
-mfg_2d supplies are dropped as well.
 
-Assisted-by: LLM
-Signed-off-by: Rob Herring (Arm) <robh@kernel.org>
----
- .../power/mediatek,mt2701-scpsys.yaml         | 111 ++++++++++++++++++
- .../bindings/soc/mediatek/scpsys.txt          |  79 -------------
- 2 files changed, 111 insertions(+), 79 deletions(-)
- create mode 100644 Documentation/devicetree/bindings/power/mediatek,mt2701-scpsys.yaml
- delete mode 100644 Documentation/devicetree/bindings/soc/mediatek/scpsys.txt
 
-diff --git a/Documentation/devicetree/bindings/power/mediatek,mt2701-scpsys.yaml b/Documentation/devicetree/bindings/power/mediatek,mt2701-scpsys.yaml
-new file mode 100644
-index 000000000000..d991b8a008eb
---- /dev/null
-+++ b/Documentation/devicetree/bindings/power/mediatek,mt2701-scpsys.yaml
-@@ -0,0 +1,111 @@
-+# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
-+%YAML 1.2
-+---
-+$id: http://devicetree.org/schemas/power/mediatek,mt2701-scpsys.yaml#
-+$schema: http://devicetree.org/meta-schemas/core.yaml#
-+
-+title: MediaTek SCPSYS
-+
-+maintainers:
-+  - Matthias Brugger <matthias.bgg@gmail.com>
-+  - AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
-+
-+description: >
-+  The System Control Processor System (SCPSYS) has several power management
-+  related tasks in the system. The tasks include thermal measurement, dynamic
-+  voltage frequency scaling (DVFS), interrupt filter and lowlevel sleep control.
-+  The System Power Manager (SPM) inside the SCPSYS is for the MTCMOS power
-+  domain control.
-+
-+  It provides the power domains defined in:
-+    - include/dt-bindings/power/mt2701-power.h
-+    - include/dt-bindings/power/mt2712-power.h
-+    - include/dt-bindings/power/mt6797-power.h
-+    - include/dt-bindings/power/mt7622-power.h
-+    - include/dt-bindings/power/mt7623a-power.h
-+
-+properties:
-+  compatible:
-+    oneOf:
-+      - enum:
-+          - mediatek,mt7623a-scpsys
-+          - mediatek,mt6797-scpsys
-+      - items:
-+          - enum:
-+              - mediatek,mt2701-scpsys
-+              - mediatek,mt2712-scpsys
-+              - mediatek,mt7622-scpsys
-+          - const: syscon
-+      - items:
-+          - const: mediatek,mt7623-scpsys
-+          - const: mediatek,mt2701-scpsys
-+          - const: syscon
-+      - items:
-+          - const: mediatek,mt7629-scpsys
-+          - const: mediatek,mt7622-scpsys
-+
-+  '#power-domain-cells':
-+    description: Always 1
-+    const: 1
-+
-+  reg:
-+    maxItems: 1
-+
-+  interrupts:
-+    maxItems: 4
-+
-+  clocks:
-+    minItems: 1
-+    maxItems: 20
-+
-+  clock-names:
-+    minItems: 1
-+    maxItems: 6
-+    items:
-+      enum:
-+        - mm
-+        - mfg
-+        - ethif
-+        - venc
-+        - jpgdec
-+        - audio
-+        - vdec
-+        - hif_sel
-+
-+  vdec-supply: true
-+  venc-supply: true
-+  isp-supply: true
-+  mm-supply: true
-+  audio-supply: true
-+  usb-supply: true
-+  mfg_async-supply: true
-+  mfg-supply: true
-+
-+  infracfg:
-+    description: Infrastructure configuration controller phandle
-+    $ref: /schemas/types.yaml#/definitions/phandle
-+
-+required:
-+  - compatible
-+  - '#power-domain-cells'
-+  - reg
-+  - infracfg
-+  - clocks
-+  - clock-names
-+
-+additionalProperties: false
-+
-+examples:
-+  - |
-+    #include <dt-bindings/clock/mt2701-clk.h>
-+
-+    power-controller@10006000 {
-+        #power-domain-cells = <1>;
-+        compatible = "mediatek,mt2701-scpsys", "syscon";
-+        reg = <0x10006000 0x1000>;
-+        infracfg = <&infracfg>;
-+        clocks = <&topckgen CLK_TOP_MM_SEL>,
-+                  <&topckgen CLK_TOP_MFG_SEL>,
-+                  <&topckgen CLK_TOP_ETHIF_SEL>;
-+        clock-names = "mm", "mfg", "ethif";
-+    };
-diff --git a/Documentation/devicetree/bindings/soc/mediatek/scpsys.txt b/Documentation/devicetree/bindings/soc/mediatek/scpsys.txt
-deleted file mode 100644
-index 3530a6668b48..000000000000
---- a/Documentation/devicetree/bindings/soc/mediatek/scpsys.txt
-+++ /dev/null
-@@ -1,79 +0,0 @@
--MediaTek SCPSYS
--===============
--
--The System Control Processor System (SCPSYS) has several power management
--related tasks in the system. The tasks include thermal measurement, dynamic
--voltage frequency scaling (DVFS), interrupt filter and lowlevel sleep control.
--The System Power Manager (SPM) inside the SCPSYS is for the MTCMOS power
--domain control.
--
--The driver implements the Generic PM domain bindings described in
--power/power-domain.yaml. It provides the power domains defined in
--- include/dt-bindings/power/mt8173-power.h
--- include/dt-bindings/power/mt6797-power.h
--- include/dt-bindings/power/mt6765-power.h
--- include/dt-bindings/power/mt2701-power.h
--- include/dt-bindings/power/mt2712-power.h
--- include/dt-bindings/power/mt7622-power.h
--
--Required properties:
--- compatible: Should be one of:
--	- "mediatek,mt2701-scpsys"
--	- "mediatek,mt2712-scpsys"
--	- "mediatek,mt6735-scpsys"
--	- "mediatek,mt6765-scpsys"
--	- "mediatek,mt6797-scpsys"
--	- "mediatek,mt7622-scpsys"
--	- "mediatek,mt7623-scpsys", "mediatek,mt2701-scpsys": For MT7623 SoC
--	- "mediatek,mt7623a-scpsys": For MT7623A SoC
--	- "mediatek,mt7629-scpsys", "mediatek,mt7622-scpsys": For MT7629 SoC
--	- "mediatek,mt8173-scpsys"
--- #power-domain-cells: Must be 1
--- reg: Address range of the SCPSYS unit
--- infracfg: must contain a phandle to the infracfg controller
--- clock, clock-names: clocks according to the common clock binding.
--                      These are clocks which hardware needs to be
--                      enabled before enabling certain power domains.
--	Required clocks for MT2701 or MT7623: "mm", "mfg", "ethif"
--	Required clocks for MT2712: "mm", "mfg", "venc", "jpgdec", "audio", "vdec"
--	Required clocks for MT6765: MUX: "mm", "mfg"
--				    CG: "mm-0", "mm-1", "mm-2", "mm-3", "isp-0",
--					"isp-1", "cam-0", "cam-1", "cam-2",
--					"cam-3","cam-4"
--	Required clocks for MT6797: "mm", "mfg", "vdec"
--	Required clocks for MT7622 or MT7629: "hif_sel"
--	Required clocks for MT7623A: "ethif"
--	Required clocks for MT8173: "mm", "mfg", "venc", "venc_lt"
--
--Optional properties:
--- vdec-supply: Power supply for the vdec power domain
--- venc-supply: Power supply for the venc power domain
--- isp-supply: Power supply for the isp power domain
--- mm-supply: Power supply for the mm power domain
--- venc_lt-supply: Power supply for the venc_lt power domain
--- audio-supply: Power supply for the audio power domain
--- usb-supply: Power supply for the usb power domain
--- mfg_async-supply: Power supply for the mfg_async power domain
--- mfg_2d-supply: Power supply for the mfg_2d power domain
--- mfg-supply: Power supply for the mfg power domain
--
--Example:
--
--	scpsys: scpsys@10006000 {
--		#power-domain-cells = <1>;
--		compatible = "mediatek,mt8173-scpsys";
--		reg = <0 0x10006000 0 0x1000>;
--		infracfg = <&infracfg>;
--		clocks = <&clk26m>,
--			 <&topckgen CLK_TOP_MM_SEL>;
--			 <&topckgen CLK_TOP_VENC_SEL>,
--			 <&topckgen CLK_TOP_VENC_LT_SEL>;
--		clock-names = "mfg", "mm", "venc", "venc_lt";
--	};
--
--Example consumer:
--
--	afe: mt8173-afe-pcm@11220000 {
--		compatible = "mediatek,mt8173-afe-pcm";
--		power-domains = <&scpsys MT8173_POWER_DOMAIN_AUDIO>;
--	};
--- 
-2.53.0
+On 9/22/2026 3:56 PM, Akashdeep Kaur wrote:
+> Add virtual GPIO select mux macros for configuring the vgpio_sel
+> field in pad configuration registers. This field selects GPIO
+> controller routing. The meaning of each value is SoC-specific -
+> refer to the Technical Reference Manual for the specific SoC.
+> 
+> For example, on AM62L, values 0 and 1 select GPIO controller 0 and 2
+> respectively, while on J784S4, values 0-3 select different GPIO
+> controller pairs based on the pin. Pad configuration register
+> field details can be found in each SoC's Technical Reference
+> Manual (example: section 14.2.1.2.1 of [1]).
+> 
+> [1] AM62L TRM: https://www.ti.com/lit/ug/sprujb4a/sprujb4a.pdf
+> 
+> Signed-off-by: Akashdeep Kaur <a-kaur@ti.com>
+> ---
+> 
+> K3 SoC vgpio_sel Field Audit:
+>   All supported SoCs use bits [5:4] for vgpio_sel field.
+> 
+>   Supported SoCs:
+>     - J721E, J721S2, J7200, J784S4: 4 options (0-3) for MAIN GPIO,
+>       2 options (0-1) for WKUP GPIO
+>     - AM62L: 2 options (0-1)
+> 
+>   Not supported (field reserved):
+>     - AM62X, AM62AX, AM62PX, AM62D, AM64X, AM65X, J722S
+> 
+> Changes in v3:
+>  - Use tabs for macro alignment
+>  - Add comment warning that field is SoC specific
+>  - Link to v2: https://lore.kernel.org/all/20260921063505.3986565-1-a-kaur@ti.com/
+> 
+> Changes in v2:
+>   - Add all four PIN_VGPIO_SEL[0-3] macros instead of just two
+>   - Use generic value-based naming to support all K3 SoCs
+>   - Update commit message to clarify SoC-specific behavior
+>   - Link to v1: https://lore.kernel.org/all/20260917111539.3844577-1-a-kaur@ti.com/
+>   
+> ---
+>  arch/arm64/boot/dts/ti/k3-pinctrl.h | 10 ++++++++++
+>  1 file changed, 10 insertions(+)
+> 
+> diff --git a/arch/arm64/boot/dts/ti/k3-pinctrl.h b/arch/arm64/boot/dts/ti/k3-pinctrl.h
+> index 4491898d8294..e8ca69a97b65 100644
+> --- a/arch/arm64/boot/dts/ti/k3-pinctrl.h
+> +++ b/arch/arm64/boot/dts/ti/k3-pinctrl.h
+> @@ -8,6 +8,7 @@
+>  #ifndef DTS_ARM64_TI_K3_PINCTRL_H
+>  #define DTS_ARM64_TI_K3_PINCTRL_H
+>  
+> +#define VGPIO_SEL_SHIFT		(4)
+
+
+>  #define WKUP_LVL_EN_SHIFT	(7)
+>  #define WKUP_LVL_POL_SHIFT	(8)
+>  #define DEBOUNCE_SHIFT		(11)
+> @@ -111,6 +112,15 @@
+>  #define PIN_WKUP_EN_LEVEL_HIGH		(WKUP_ENABLE | WKUP_ON_LEVEL | WKUP_LEVEL_HIGH)
+>  #define PIN_WKUP_EN			(WKUP_ENABLE | WKUP_ON_EDGE)
+>  
+> +/*
+> + * SoC-specific field - Refer to the SoC Technical Reference Manual to
+> + * determine which GPIO controller each value selects.
+> + */
+> +#define PIN_VGPIO_SEL0		(0 << VGPIO_SEL_SHIFT)
+> +#define PIN_VGPIO_SEL1		(1 << VGPIO_SEL_SHIFT)
+> +#define PIN_VGPIO_SEL2		(2 << VGPIO_SEL_SHIFT)
+> +#define PIN_VGPIO_SEL3		(3 << VGPIO_SEL_SHIFT)
+
+Reviewed-by: Udit Kumar <u-kumar1@ti.com>
+
+
+> +
+>  /* Default mux configuration for gpio-ranges to use with pinctrl */
+>  #define PIN_GPIO_RANGE_IOPAD	(PIN_INPUT | 7)
+>  
 
 
