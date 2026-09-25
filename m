@@ -4,116 +4,83 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C2B3CC9830E
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 25 Sep 2026 19:48:51 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D88E1C98321
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 25 Sep 2026 20:03:00 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Jmxowlh8dx4cnk1PAZboFsGtd98nrGjzJK5X1uKxjhc=; b=nCYw/WlULZtPKUELP+opFQ3pP/
-	JGR+9EGWkNm0TFQ4PZ9dpfKjoyi6kyGp51kCu+WBWUlZIGKMAyS0tTI0+RJy6ZooHfB7zRm9jkYIX
-	O0z/uKkOwiDNzttwtPxhnBi2NUP+i3oalpsOCqmogOESm6Dvfp70EVE8gTeKN//lEuJ2+iANFAIwB
-	04DM7Aa8SGA6kciJQNkuHvzoFuTkHqoJYyEVkux1qAugN/grUESqHlmDX4s2Z6V9y/uaUJ+v5p+kK
-	Ui56HRho7i3wraVe9AKcPOHz9jjWqwC62EJvh73M77kKsPja26IVKLNh75aNkUmFMo24RWch1Jpzn
-	U4ePwXXg==;
+	bh=I87a+TgPwoFR/xesW1OS3yyO05m0/4fbwy3NLcAtNm8=; b=RdutI/KNdVT0B+ucA2OCjVZZYT
+	yDk+ua62HXg9/QMHuunxxz7HnbvkjlKIrFBJSZ2k7JicsoGoWtaoTyBfOAONIZgNaAt5ItG/QvQp9
+	DhicGtsgU+PmECM9ka1db2UwZQqO1Q1Q9BHQ3+Xi/b1Zrc1XbI/uHbWfATs79V4NfxllanXXe7DCN
+	kJWbMYUO5Q122GiopmauAvKhgCR1G5vHcsY7gwy7EBvz3YnYrHVpsO0DT/zmATPswXDyhDzwqTNzS
+	sfpe8xEqYNEr/3uA05+qYZ+0PwTEt6D+NWUoJ1D+E2OKwQ+bqnN8Hx8dhUAQXHuECPppgMPXXmOl4
+	wWA5QsWQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xABuX-0000000EIgs-294e;
-	Fri, 25 Sep 2026 19:48:45 +0000
-Received: from ixit.cz ([84.42.129.46])
+	id 1xAC8D-0000000EJzc-0nva;
+	Fri, 25 Sep 2026 20:02:53 +0000
+Received: from smtpout-04.galae.net ([185.171.202.116])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xABuV-0000000EIdn-1TKv
+	id 1xAC88-0000000EJy3-3jQe
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 25 Sep 2026 19:48:44 +0000
-Received: from [IPV6:2a02:830a:f787:8f00:d622:eaa3:3dd6:8f5e] (unknown [IPv6:2a02:830a:f787:8f00:d622:eaa3:3dd6:8f5e])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange x25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
-	(No client certificate requested)
-	by ixit.cz (Postfix) with ESMTPSA id A1FBB53401E9;
-	Fri, 25 Sep 2026 21:48:22 +0200 (CEST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ixit.cz; s=dkim;
-	t=1790365702;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references:autocrypt:autocrypt;
-	bh=Jmxowlh8dx4cnk1PAZboFsGtd98nrGjzJK5X1uKxjhc=;
-	b=z1ixV01+hyamCp5xeWVL638GCR/f7wHS/bpW1dQ30RP07ohwuQCOz6fi3w3jlp0GTT1o/3
-	Q+Q6aILwO7dPr728wn/JpreOUKdMkCIMJJPOYfJF2sHN1RFvJH+SbPqtyqi9KS1IrQXXWg
-	JXWh2/21dV3FFkFlAxqpEuvWlphVxmE=
-Message-ID: <f8a5ce16-bc6b-4dbe-9262-cd5be0e33451@ixit.cz>
-Date: Fri, 25 Sep 2026 21:48:22 +0200
+	Fri, 25 Sep 2026 20:02:51 +0000
+Received: from smtpout-01.galae.net (smtpout-01.galae.net [212.83.139.233])
+	by smtpout-04.galae.net (Postfix) with ESMTPS id B09D7C63441;
+	Fri, 25 Sep 2026 20:03:33 +0000 (UTC)
+Received: from mail.galae.net (mail.galae.net [212.83.136.155])
+	by smtpout-01.galae.net (Postfix) with ESMTPS id 896446073B;
+	Fri, 25 Sep 2026 20:02:45 +0000 (UTC)
+Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 24A9B102F1E35;
+	Fri, 25 Sep 2026 22:02:25 +0200 (CEST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=dkim;
+	t=1790366560; h=from:subject:date:message-id:to:cc:mime-version:content-type:
+	 content-transfer-encoding:content-language:in-reply-to:references;
+	bh=I87a+TgPwoFR/xesW1OS3yyO05m0/4fbwy3NLcAtNm8=;
+	b=ftAqJu03PKELrq/9DVzKPyaxyLEbv8nks7KxPKkhG6WIpbSLyHDyRc2riMwEi6JVOBt8nm
+	YK8iwOQK31hgIIKb87uF2joMZID5OP2sQlwexE5QcoIEsSfnW7mwi3kj1ws4GlJ2URzOl6
+	aTPgFsf7fXn2eYqnCs1hB9UB0YxVBqZIXwLRVNRLEAs9/J6Y96L8q4x82pte9mYoOf+OhV
+	aQF/njcNUtOa2YnqeravxM1Udogx++NzjCT/64+PFKqwXp9UmjdNoA2PFd3VDGBryAELgz
+	0SfuEl5j4GPQcxfsd5JQ5Axy5LmKX4X1MtkbhlNn9V3pVzP5jG0wHMX/itdfIw==
+Message-ID: <d704ea9d-6cca-4f2f-b18b-0267a9082e18@bootlin.com>
+Date: Fri, 25 Sep 2026 22:02:25 +0200
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v7 2/4] dt-bindings: input: touchscreen: st,stmfts:
- Introduce STM FTS5
-To: Dmitry Torokhov <dmitry.torokhov@gmail.com>
-Cc: Maxime Coquelin <mcoquelin.stm32@gmail.com>,
+Subject: Re: [PATCH net v4 0/7] net: stmmac: More selftest-related fixes
+To: Jakub Kicinski <kuba@kernel.org>
+Cc: Andrew Lunn <andrew+netdev@lunn.ch>, davem@davemloft.net,
+ Eric Dumazet <edumazet@google.com>, Paolo Abeni <pabeni@redhat.com>,
+ Russell King <linux@armlinux.org.uk>, Heiner Kallweit
+ <hkallweit1@gmail.com>, =?UTF-8?Q?Alexis_Lothor=C3=A9?=
+ <alexis.lothore@bootlin.com>, Maxime Coquelin <mcoquelin.stm32@gmail.com>,
  Alexandre Torgue <alexandre.torgue@foss.st.com>,
- Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
- Conor Dooley <conor+dt@kernel.org>, Henrik Rydberg <rydberg@bitmath.org>,
- Bjorn Andersson <andersson@kernel.org>,
- Konrad Dybcio <konradybcio@kernel.org>,
- Petr Hodina <petr.hodina@protonmail.com>, linux-input@vger.kernel.org,
- linux-stm32@st-md-mailman.stormreply.com,
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
- Krzysztof Kozlowski <krzk@kernel.org>, devicetree@vger.kernel.org,
- linux-arm-msm@vger.kernel.org, phone-devel@vger.kernel.org
-References: <20260907-stmfts5-v7-0-4a53381cd038@ixit.cz>
- <20260907-stmfts5-v7-2-4a53381cd038@ixit.cz> <arbIsdvRzPCqPXfs@google.com>
-Content-Language: en-US, cs-CZ
-From: David Heidelberg <david@ixit.cz>
-Autocrypt: addr=david@ixit.cz; keydata=
- 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
-In-Reply-To: <arbIsdvRzPCqPXfs@google.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
+ Emil Renner Berthing <kernel@esmil.dk>,
+ Minda Chen <minda.chen@starfivetech.com>,
+ Neil Armstrong <neil.armstrong@linaro.org>,
+ Kevin Hilman <khilman@baylibre.com>, Jerome Brunet <jbrunet@baylibre.com>,
+ Martin Blumenstingl <martin.blumenstingl@googlemail.com>,
+ Jan Petrous <jan.petrous@oss.nxp.com>,
+ Ovidiu Panait <ovidiu.panait.rb@renesas.com>, Jose.Abreu@synopsys.com,
+ Nicolai Buchwitz <nb@tipi-net.de>, netdev@vger.kernel.org,
+ linux-kernel@vger.kernel.org, thomas.petazzoni@bootlin.com,
+ linux-arm-kernel@lists.infradead.org,
+ linux-stm32@st-md-mailman.stormreply.com, PKneuper@dspace.de,
+ David Laight <david.laight.linux@gmail.com>
+References: <20260917215339.2022523-1-maxime.chevallier@bootlin.com>
+ <20260921152202.64d4c67a@kernel.org>
+ <f8fc89b7-15ff-4915-8f1c-49c3b2357699@bootlin.com>
+ <20260925122202.611d655a@kernel.org>
+Content-Language: en-US
+From: Maxime Chevallier <maxime.chevallier@bootlin.com>
+In-Reply-To: <20260925122202.611d655a@kernel.org>
+Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
+X-Last-TLS-Session-Version: TLSv1.3
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260925_124843_682166_FC7898D0 
-X-CRM114-Status: GOOD (  12.05  )
+X-CRM114-CacheID: sfid-20260925_130249_124145_5E5C9D1F 
+X-CRM114-Status: GOOD (  10.40  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -128,40 +95,31 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 25/09/2026 21:19, Dmitry Torokhov wrote:
-> Hi David,
-> 
-> On Mon, Sep 07, 2026 at 12:50:20PM +0200, David Heidelberg via B4 Relay wrote:
->>           touchscreen@49 {
->>               compatible = "st,stmfts";
->>               reg = <0x49>;
->> -            interrupt-parent = <&gpa1>;
->> -            interrupts = <1 IRQ_TYPE_LEVEL_LOW>;
->> -            touchscreen-size-x = <1599>;
->> -            touchscreen-size-y = <2559>;
->> +            interrupts-extended = <&gpa1 1 IRQ_TYPE_LEVEL_LOW>;
->> +            touchscreen-size-x = <1600>;
->> +            touchscreen-size-y = <2560>;
-> 
-> Krzysztof questioned this change. You need to explain why this is being
-> changed (and potentially split it into a separate patch as it does not
-> seem to be related to STMFT5 introduction).
+On 9/25/26 21:22, Jakub Kicinski wrote:
 
-Oh, sorry about that, I thought I addressed it, but apparently not.
-I'll just split it.
+> BTW - I see you have a thing called "netdev series report"
+> I've been meaning to ask someone if they want us to add to SUIE
+> subsystem tracking (https://netdev.bots.linux.dev/suie.html)
+> I could easily add a drop down to filter just stmmac patches there.
+> On the scale of 1 to 10 how useful would that be?
 
-David
+I'd say, 10/10. To give you a very concrete example, I was on training
+for the past 4 days, with little time to look at my inbox.
 
-> 
->>               touch-key-connected;
->>               avdd-supply = <&ldo30_reg>;
->>               vdd-supply = <&ldo31_reg>;
->>               ledvdd-supply = <&ldo33_reg>;
->>           };
->>       };
->>
-> 
-> Thanks.
-> 
+Today was a struggle to just browse through the stmmac pending
+patches, some being straightforward patches, some complex but from
+well-known contributors, some large glue series that are 10+ patches,
+and then some likely AI-generated series sent as-is without real clarity
+on whether the author actually fully grasps what's being sent.
 
+So, I resorted to SUIE, ctrl-f stmmac, and going over that list in order...
+
+I think you're asking this question at the best possible time, at least
+for me :)
+
+> Is there something beyond "active series" that you need to see?
+
+All the info I'm interested in is already there I think :)
+
+Maxime
 
