@@ -4,73 +4,152 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6FB54C9832A
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 25 Sep 2026 14:45:45 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id AF42EC98321
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 25 Sep 2026 14:46:17 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=VUQq2CN0kwI6CR2TsRzNcN1hu+UJjhLB79sv4tXb9WE=; b=X4HI0vTm8ymXBoxOa8D5QROMvG
-	mo26w0J64n5sudsY1/fA9aA+ykD4okeBB0+Urb1txkZmaoXk833w2A0rgBDY6H/FjaAOLdjQrPrVV
-	KIGXLUNru97j2Fu4SNOHzlMJjmm552WdDcTba36DZe9Z9pfxrXTZi89s+UWZkt9jPAmomvfxuu6Ie
-	paajODlKZahWOLho4qYz/vmCNCMdNrsO8hn71dh43va70MjcBNxoLmsSc/hgB8WGnL2F40Nj7jRk9
-	9UwHp6I/JTQ3soxVV39G5hav8N6rPOR6N95Ql7F7qetOXxzVmCme7Ou6nf0RjKHbdyErlswPCOIt/
-	N34EvIRA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
+	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=bhpVTrDr2g6eMmoCiBaOsemavw3N/0BNszyS+LBl82o=; b=TTe4ZrgMFDEij+GGt+HYQ//rau
+	gv1lo7fQvA46mTSs4/fMrdbxxAKc6m4CYyx8pi+gxjrWlTiMqGPxKhv+chWmgYN/fmr7okSTnybpG
+	ZI95paYzB/dEUq1/M3RKmfkpFZ7SbtqxZLNRNODHY9DAAGEP6XdPgOXanU0ncglH8ZrgYLgTew1fH
+	sL/k8e+KAV180VdF3kVztedwMkd899+BTeVyodRFBbHcs2KL3hhHQPXw+5CZpsKfkzYy8T4u+EAhU
+	gT76pV4YUgF/UD6X5/Gl0kXkXMHa4gje52aZREvXOZiUjkn66CruE1IGUBmhWUdWEH8An2er1bziG
+	h1QkVMTw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xA7BA-0000000DdZm-2SmA;
-	Fri, 25 Sep 2026 14:45:36 +0000
-Received: from smtpout-02.galae.net ([185.246.84.56])
+	id 1xA7Bj-0000000DdrE-1DDa;
+	Fri, 25 Sep 2026 14:46:11 +0000
+Received: from mail-northeuropeazon11012063.outbound.protection.outlook.com ([52.101.66.63] helo=DUZPR83CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xA7Aq-0000000DdON-4ACY
-	for linux-arm-kernel@lists.infradead.org;
-	Fri, 25 Sep 2026 14:45:19 +0000
-Received: from smtpout-01.galae.net (smtpout-01.galae.net [212.83.139.233])
-	by smtpout-02.galae.net (Postfix) with ESMTPS id 7FD5F1A0FF7;
-	Fri, 25 Sep 2026 14:45:15 +0000 (UTC)
-Received: from mail.galae.net (mail.galae.net [212.83.136.155])
-	by smtpout-01.galae.net (Postfix) with ESMTPS id 5343E6073B;
-	Fri, 25 Sep 2026 14:45:15 +0000 (UTC)
-Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id BD895102F1E17;
-	Fri, 25 Sep 2026 16:45:10 +0200 (CEST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=dkim;
-	t=1790347513; h=from:subject:date:message-id:to:cc:mime-version:content-type:
-	 content-transfer-encoding:in-reply-to:references;
-	bh=VUQq2CN0kwI6CR2TsRzNcN1hu+UJjhLB79sv4tXb9WE=;
-	b=pu6oXZIYldRyVAOr9WYWF0+Y8Ofas14oM73Y3zOBKgb99WZGRQbKuDkHdpxNYFqYMsbdxf
-	VBsMQHD05HP9S2yneWrpmmgHenYfjYumS3RrFlNLL3VRuOePoI2bVfqfEuFORFRLjmu4sC
-	u0mBeeV6/CV2HIBNnIR8mPxV00hUVnMHjE2i+nZVNtObINtQMBOTvQlxmud2MLzwiH+Ecf
-	/xHwt9JwthT+jRHIuQYwD6SmVKnhTggl6FwTnBU5fNat0W98M3LfDgOdypJewpsph9hzV4
-	OJ8NX7A8STfthNxOagmzNTAcvb1rP+mhmOlxMZ6hHIgSQTfyaSEoUZ/fsQOM3A==
-From: Miquel Raynal <miquel.raynal@bootlin.com>
-Date: Fri, 25 Sep 2026 16:44:24 +0200
-Subject: [PATCH v3 5/6] clk: nuvoton: ma35d1: Use clk_hw pointers as mux
- parents
+	id 1xA7Bf-0000000Ddmt-09N9;
+	Fri, 25 Sep 2026 14:46:09 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=bIZkMwHRCAylQ/doY2HaBF6do3oCHPAdyRNw7uhn0gXHtLn/B9SPjchxsYObsdGIph9Um270IPptEGmRM8RLc4OsA4dT0CQE38bnhrkj3xRLj/BpppnzsLbfD5p+TIsCOHnd/Rux8FcbTC10gHlkK7KV8pE2cylrlNyEETQru8mTla4KUTdWp7QNWGtz6Op5XakGm1daTbA989FIxXeVFzqWN046oAnb3Wwfi5DCooqxxpNb7lS5Z1kiYi21d0e2pAcEe8G7SqPYANewFhwWVy4afx0NEAJVBGWyfcA7SghHcBvmEPkh0g7HuMnxf3BfQofc9KhpuhP2JAyobwXeOA==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=bhpVTrDr2g6eMmoCiBaOsemavw3N/0BNszyS+LBl82o=;
+ b=HAwpn374snQbNrbgcfUAdYaRbx+KrzNhFmg6O2/6j/CuAssU9J96WG2Ae1/3SUW3JhzopcIlJ9GvKyhXFXGsDH/6ih3/V65qsPo4sDn/ZhSbCZq7as9wqOB0UbIf4YRg4nwexCL0AaL3QcTFtAvmkRHO3LrcDTNMtHq8R82rENYdP1/MzU0wBpzAN6meda4PEXFnFXz42IHJUOolZESGAW2+O6jiAQ4u2PEVZ5f+oTc/OMwo9D9DPbv3XcUYgHTuYy7zou0rvjgSyhfEy0ztGDJmpiRwo+3B+5ACVpnl0pdkXfaNFysqCJ1W6dOMd2yc4nN9O10j144ShkU0FtFOXQ==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
+ dkim=pass header.d=oss.nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
+ s=selector1-NXP1-onmicrosoft-com;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=bhpVTrDr2g6eMmoCiBaOsemavw3N/0BNszyS+LBl82o=;
+ b=uKraH9brIuRifwygcDMU25VdxgZ8ljWdF1Wu7ZqWPIOtcmIchUXzDVCCpve/WUhEJbMoEwF6YgUZKfL1Jbwv9SQ3SV1Q/fIpZackSLq2II+POivwyPz6FzOH2VJyhf+oI4pt5RGeAwnWFJVFVOfIwXvzjYoKCng8tMfg6V7Tv2FO4NnzRY5RV36JmscXVHHLbtA1+HyZpSqa4r6/42xCFBujbEWK6KXeq9MUCsC/XsN8kc3zTpUW5SN6ND3RB0dGw+Mx17FjuvGixIalcj125KrOwoBezZDybTPEo7yMnPOiG/zpca2TH0RQrltaTrHbv4U3MitX9W6yQ4zUu7sF9Q==
+Authentication-Results: mx.microsoft.com 1; dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=oss.nxp.com;
+Received: from AM0PR04MB5858.eurprd04.prod.outlook.com (2603:10a6:208:132::23)
+ by BR0PR04MB337759.eurprd04.prod.outlook.com (2603:10a6:2c8:60::21) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.451.18; Fri, 25 Sep
+ 2026 14:46:01 +0000
+Received: from AM0PR04MB5858.eurprd04.prod.outlook.com
+ ([fe80::bdf4:c9d1:4e3f:68c6]) by AM0PR04MB5858.eurprd04.prod.outlook.com
+ ([fe80::bdf4:c9d1:4e3f:68c6%3]) with mapi id 15.21.0451.014; Fri, 25 Sep 2026
+ 14:46:01 +0000
+From: Ciprian Costea <ciprianmarian.costea@oss.nxp.com>
+To: Marc Kleine-Budde <mkl@pengutronix.de>,
+	Vincent Mailhol <mailhol@kernel.org>,
+	Nicolas Ferre <nicolas.ferre@microchip.com>,
+	Alexandre Belloni <alexandre.belloni@bootlin.com>,
+	Claudiu Beznea <claudiu.beznea@tuxon.dev>,
+	Dario Binacchi <dario.binacchi@amarulasolutions.com>,
+	Max Staudt <max@enpas.org>,
+	Markus Schneider-Pargmann <msp@baylibre.com>,
+	Heiko Stuebner <heiko@sntech.de>,
+	Manivannan Sadhasivam <mani@kernel.org>,
+	Thomas Kopp <thomas.kopp@microchip.com>,
+	Ming Yu <tmyu0@nuvoton.com>
+Cc: kernel@pengutronix.de,
+	linux-can@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	linux-rockchip@lists.infradead.org,
+	NXP S32 Linux Team <s32@nxp.com>,
+	imx@lists.linux.dev,
+	Haibo Chen <haibo.chen@nxp.com>,
+	Enric Balletbo <eballetb@redhat.com>,
+	Ciprian Marian Costea <ciprianmarian.costea@oss.nxp.com>
+Subject: [PATCH v6 0/3] can: rx-offload: add a per-IRQ receive context
+Date: Fri, 25 Sep 2026 16:45:55 +0200
+Message-ID: <20260925144558.2909639-1-ciprianmarian.costea@oss.nxp.com>
+X-Mailer: git-send-email 2.43.0
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 8bit
+X-ClientProxiedBy: FR5P281CA0012.DEUP281.PROD.OUTLOOK.COM
+ (2603:10a6:d10:f2::9) To AM0PR04MB5858.eurprd04.prod.outlook.com
+ (2603:10a6:208:132::23)
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20260925-perso-ma35d1-upstream-clk-v3-5-ffbae7e020a8@bootlin.com>
-References: <20260925-perso-ma35d1-upstream-clk-v3-0-ffbae7e020a8@bootlin.com>
-In-Reply-To: <20260925-perso-ma35d1-upstream-clk-v3-0-ffbae7e020a8@bootlin.com>
-To: Jacky Huang <ychuang3@nuvoton.com>, Shan-Chun Hung <schung@nuvoton.com>, 
- Michael Turquette <mturquette@baylibre.com>, 
- Stephen Boyd <sboyd@kernel.org>, Richard Cochran <richardcochran@gmail.com>, 
- Arnd Bergmann <arnd@arndb.de>, Brian Masney <bmasney+clk@redhat.com>, 
- Jerome Brunet <jbrunet+clk@baylibre.com>, Rob Herring <robh@kernel.org>, 
- Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>
-Cc: Thomas Petazzoni <thomas.petazzoni@bootlin.com>, 
- Steam Lin <STLin2@winbond.com>, linux-arm-kernel@lists.infradead.org, 
- linux-clk@vger.kernel.org, linux-kernel@vger.kernel.org, 
- Krzysztof Kozlowski <krzk@kernel.org>, devicetree@vger.kernel.org, 
- Miquel Raynal <miquel.raynal@bootlin.com>, stable@vger.kernel.org
-X-Mailer: b4 0.14.3
-X-Last-TLS-Session-Version: TLSv1.3
+X-MS-Exchange-MessageSentRepresentingType: 1
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: AM0PR04MB5858:EE_|BR0PR04MB337759:EE_
+X-MS-Office365-Filtering-Correlation-Id: fa479e71-8de2-4f67-6a1d-08df1b13b785
+X-MS-Exchange-SharedMailbox-RoutingAgent-Processed: True
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|19092799006|1800799024|23010399003|376014|7416014|366016|921020|11063799006|6133799003|10067099003|56012099006|18002099003;
+X-Microsoft-Antispam-Message-Info: wiu1x8HCp9pTcf4DRB+Z8rqvQaMdfdIlkOfflEXYZalZDPli/Q9s3ekJQJsWpSea/yOrFMZcEPBL3kXxmzq71jOLNA9y4vy4HuBSqOXSI9VEMW0Vqnvx+8UBiFEOmGFwIyAz993CT/ZDpJ3Rc2UWz+csL8V83P+wwzx1XmKKyeNP3cc5xYmIj8bu09k17Q+IZWchYQOREsoqH9Zih2fbsKBa0CyAAuxtyNJ7W32LbJ/J8/XN1N+LDNBJgsxSlzfW5O98Y+ZZTpuuRT6HbBBc4xCzbTb/u6tbPRAK2WGUgQ7jDfceurktQnLdSlX5SBDeWHKRDCuWLLq7YjE91wjnzUi7GSDn3Mg4keghi6+snyiyfeMDXH3ZAXC9MiCp3lWhtwiOU1+LTcgnadA3rkUI6UDduUtBuRX9Q7JVpvRJcRLHpg3ZXz34IR5Xf53OslB+tdcVL8nVnrqcpkwKrbk9uJgmIEGOxH01XQ887OHmB7/n3+rGbmVE9OtymrINOZz1bYLjKSDeLWeXo7lKXSnSncmdQWbazEhLkVWX0txxtvKKFg0SDXC2cMccBh4YKTtTbxyEiAUIhSfoiFNzXPrtCmvcpsjVkwrNSKGrwRqeDBqgNd6e5fKP8UdKN1nT5Bw3cWOAzqQqtv3ez75mY9ZFFOb0iZ0hY0B6ekZdZSITQ140K/D7OUeH5GsLgCzksuOVV3LSmz/DCfcG9eZ22DgPhA==
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:AM0PR04MB5858.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(19092799006)(1800799024)(23010399003)(376014)(7416014)(366016)(921020)(11063799006)(6133799003)(10067099003)(56012099006)(18002099003);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?bFBoMEZwVlN2aEdwVGRucytDREgyUEdFalNPaUVtMmNIdC9HU3V3bUxpOTIv?=
+ =?utf-8?B?UzRHN0o5VEk2MkNUdXlMU1VLNklYeGQwNWE5dU4vcGJRQzJEZFgrKytVdlZn?=
+ =?utf-8?B?UEZUZVdJcGFMN01jbGlGcUhXYk0wMWhtRWxtc3l2TUFKZDlXcVVMR0hNMWFD?=
+ =?utf-8?B?VXhVclJLRklRY1VnQVo5Uit5Vll0VS9BTGN0dFFoM1RLUzVYUXFrR2w0VE1s?=
+ =?utf-8?B?Y09keURUQ0g2VjhmZU1XeExsMUJPYWU3M3hueDhGamJBMlVNTnlsZnh2emp2?=
+ =?utf-8?B?bkhnTEZkT2tRVmd0MzBCSTNxb1NjTXU3blFtNFNNMHRlQkNUWXBieUxjVkd2?=
+ =?utf-8?B?UkZGZkhmUjJWNnhqTzBOMjlzQ3NwQTkxdVpzWDFndlMzMHJ0Zjc0a2dBNDVh?=
+ =?utf-8?B?L2syMWZMYVFNVXkvU2RBZk5MUjBpdlgwVUZ0SjA2M1BKbnBMV3c1ZHlrOXFL?=
+ =?utf-8?B?VVI3V05VMVEzZzB6QkZKSFJuVVpvZFh2VkVtL1JlckhFV0lHbjhGeDlYZ05T?=
+ =?utf-8?B?ejhzOERneDh0UHMvUEhhK2NDb05nUks4anpYbW5IeXdkSXYyYWFnZEFYSjdG?=
+ =?utf-8?B?RC9IYi94cFo3RkNTb0VrWjJWdy9hN05MazBVTUgwYmVSakNkcTJEeG40dHA1?=
+ =?utf-8?B?SlFRb1lTSXM3QVVReWdxRDhTUHI0RiswQi9wZHEwc2c3TG1nMVFQZTg5YXlG?=
+ =?utf-8?B?Q09ZQTkyQmtnWDMrYWFLRWNBcHF2MGZ5R05tWGxnaGF3a01MQXBydHg3Wjl4?=
+ =?utf-8?B?Z0NOVHlZeTVTbGcvTXJqV2htY0pjRzkvWjBUTTVUSldtMzAyQy9ZaHJJUUZM?=
+ =?utf-8?B?U3M5SS9LWlhDRjErcFFRSkdzaEZJQllIUHBidVV1c1d0UWR2UnBIVDZrMVZO?=
+ =?utf-8?B?eGZZcm56dmM1L2t1bWZENEYvbkJsUWtxODVKY0hPeW5WdU9xQ1pqd0F0ZWFR?=
+ =?utf-8?B?aEJtVW15N3Jsb2lhY2hJcjNKRlZuZXFKUmtwTDBaQm1xZTc0R2I0NGF3b1gy?=
+ =?utf-8?B?cjhsa2lyaGlnTS9ML1l6YXl2eTNoc2tWa2lpVnpjTG84RDk2RGZFSklXem9R?=
+ =?utf-8?B?eGo1ZGtha1ptU01EZnpMUlpPOEpVa0xybTFUcnc4ZTJRaGZxcVhZS3pmcnJB?=
+ =?utf-8?B?VmhZcnlvNGZuYnBJUVZvSjUyU2Q0RUVTZHdEMTJDMlEyVWhUUndZY09rYmI2?=
+ =?utf-8?B?S1FjNUhFQjF5VGJzaEdJY1hMWndDNGNzcmp5QmY5SVlpQ0FVRkVjSEg0L2g0?=
+ =?utf-8?B?UVl5ZHo4YWFWRlo2NXVWU3l2LzRDZUpkTjYvbTBvYjdOeElZTHBRaVpFQnp6?=
+ =?utf-8?B?dmtoVllUWEZ3bDljclp3N0ZlVC80d3prSCt4YUZUWGwreWh3Wjg0NnRiWTNS?=
+ =?utf-8?B?MFo1MHRXT0N3c3gwdlNoR2UvY2p3VHp4MUZMUGtwRWJKS2VNNzRjZ25sVENq?=
+ =?utf-8?B?R1B2d1lkMCtZZWx0K3BoQnNHcnYzQ0JKZ2ZhcDlZcjBTTU1oN0xrMDlZd0l2?=
+ =?utf-8?B?bk5QeSsvMm5OOUpKcmEyc294Q1NjMG56SVFjTHJPNHE0ckFjQlZ4dy9qNEZp?=
+ =?utf-8?B?bGNIL3lEbE91YVFtN3lISndaeWR4TGdMNmZSTEVvamxSSzhLSTVaUzdmRVpy?=
+ =?utf-8?B?WTVKVHNBcHVtOHdBMkxyYkwzWXVvVGdIQjZrSnNrMDN1Q0dqNUQ0VWlOVzNj?=
+ =?utf-8?B?RS9EU3BWZm1uVWlMOENVaDFLdWRtWXM3Tnp5Q3NocXFYeGU0Z1V0YmN4dnlD?=
+ =?utf-8?B?SFlXZjV4dFdlTWFTTllMUUNNcFR1Z215dmtQVWJqZmNUZmxyNVlzRDRwV1pw?=
+ =?utf-8?B?azNYdElGNlpFWG9qVTRVL1NFZkhFeVU0VVBQN0R3bmFpUGVGRndhTHlLSEVK?=
+ =?utf-8?B?Vy9jK2pRZHFqZzZLWS96RUZqMThUTnVVL0xjZGdFREZmMTVUUHhBdmxzelBR?=
+ =?utf-8?B?d2dqNnpVQkpvRHJvMGZuOTVlc2VHOUdYRkUxVWNnWUV2ODlWd3hGa3lqV2dh?=
+ =?utf-8?B?R3RhM2tadUhlTVNVWXkzZUdEWnA2cEE1bUhJcEE1aUlFVEVEalJ0VEwyckU1?=
+ =?utf-8?B?SEJwVmE2enlFbHozdWU1TG16UkFGbzBhYlZVNEdXZFRxTEQ1KzVaYmFGNHpF?=
+ =?utf-8?B?cUtLS092cmxnbWRONFV1WUFyZENzellLbk1mWXlDZW5Mc3FIb2pJeHprYzBN?=
+ =?utf-8?B?NGJ4RG9qMGJaSjhXUVFtL1FyVkordVFBZU52VXJUOTluc0poWm11Ni9ZaG5R?=
+ =?utf-8?B?ejlsTTNoTXR3SHhXdkhmOGpod2RObll3VmZEREJFaDNCb1dMaHJrL1JTd1JQ?=
+ =?utf-8?B?NGsyMEJ1eXJURDdHTnhXbFU5cW9Zdk9ISE9yajdRNDc2STVmQ2c5Y1E2eTVB?=
+ =?utf-8?Q?12VIOGdmAbSFRZNs=3D?=
+X-OriginatorOrg: oss.nxp.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: fa479e71-8de2-4f67-6a1d-08df1b13b785
+X-MS-Exchange-CrossTenant-AuthSource: AM0PR04MB5858.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 25 Sep 2026 14:46:01.1306
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: XHEbTueyahMkB533D55FQIh+xXmxeGl1Lyzb0RGL6R1JrHfoqgORWGGvaw0dLL2tBR/I36XusxRjcOeTYTnohTguNFDhUhE1rwDyUKL1NFw=
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: BR0PR04MB337759
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260925_074517_510044_2C39089F 
-X-CRM114-Status: GOOD (  12.43  )
+X-CRM114-CacheID: sfid-20260925_074607_894788_38717B7D 
+X-CRM114-Status: GOOD (  16.81  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -85,1039 +164,100 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The MA35D1 clock provider registers its muxes with parent data
-structures filling .fw_name. This is not the ideal approach since that
-would require a massive amount of internal clock names declaration in
-the DT. Since the DT does not play the game of exposing all these names,
-none of the parent lookups performed when instantiating the muxes
-succeed. As a result, these muxes get registered as root clocks, leading
-to a sadly flat clock tree and no frequency assigned to most of the
-peripheral clocks:
+From: Ciprian Marian Costea <ciprianmarian.costea@oss.nxp.com>
 
-                                 enable  prepare  protect
-   clock                          count    count    count        rate
+The rx-offload IRQ handler fills skb_irq_queue without a lock and the
+finish helpers splice it into skb_queue under skb_queue.lock. This only
+works with a single producer. flexcan requests the same handler on every
+IRQ line: the mailbox line, the bus off and error lines
+(FLEXCAN_QUIRK_NR_IRQ_3) and a second mailbox line
+(FLEXCAN_QUIRK_SECONDARY_MB_IRQ). On NXP S32G2 all four are used, so the
+handlers can run at the same time on different CPUs and corrupt the queue.
 
- usbphy1                             0       0        0        480000000
- usbphy0                             0       0        0        480000000
-    husbh1_gate                      0       0        0        480000000
-    husbh0_gate                      0       0        0        480000000
-    usbh_gate                        0       0        0        480000000
-    usbd_gate                        0       0        0        480000000
- syspll                              0       0        0        180000000
- lirc                                0       0        0        32000
-    lirc_gate                        0       0        0        32000
- hirc                                0       0        0        12000000
-    gtmr_gate                        0       0        0        12000000
-    hirc_gate                        0       0        0        12000000
- lxt                                 0       0        0        32768
-    rtc_gate                         0       0        0        32768
-    lxt_gate                         0       0        0        32768
- hxt                                 0       0        0        24000000
-    vpll                             0       0        0        1224000000
-       dcup_div                      0       0        0        612000000
-    epll                             0       0        0        6000000000
-       epll_div8                     0       0        0        750000000
+As Marc suggested, each IRQ line now gets its own receive context, similar
+to NAPI. struct can_rx_offload_irq holds skb_irq_queue, skb_queue_len_max
+and the mailbox range, skb_queue and napi stay in struct can_rx_offload.
+With a single context the finish helpers still use
+skb_queue_splice_tail_init(), with more than one the skbs are sorted into
+skb_queue.
 
-       epll_div4                     0       0        0        1500000000
-       epll_div2                     0       0        0        3000000000
-          emac1_gate                 0       0        0        3000000000
+Patch 1 is an at91_can fix, independent of the rest. Patch 2 adds the
+per-IRQ context and converts all rx-offload users. Patch 3 gives each
+flexcan IRQ line its own context.
 
-          emac0_gate                 0       0        0        3000000000
+All lines still read the whole mailbox range, so two of them can read the
+same mailbox. This series does not change that, the range split is part
+of the flexcan multi-IRQ patches along with the S32N79 FlexCAN support.
 
-    apll                             0       0        0        6048000000
-    ddrpll                           0       0        0        266460000
-       ddr_gate                      0       0        0        266460000
-       ddr6_gate                     0       0        0        266460000
-       ddr0_gate                     0       0        0        266460000
-    capll                            0       0        0        2400000000
-    hxt_gate                         0       0        0        24000000
- clk_hxt                             0       0        0        24000000
- spi3_mux                            0       0        0        0
-    spi3_gate                        0       0        0        0
- spi2_mux                            0       0        0        0
-    spi2_gate                        0       0        0        0
- spi1_mux                            0       0        0        0
-    spi1_gate                        0       0        0        0
- spi0_mux                            0       0        0        0
-    spi0_gate                        0       0        0        0
- i2s1_mux                            0       0        0        0
-    i2s1_gate                        0       0        0        0
- i2s0_mux                            0       0        0        0
-    i2s0_gate                        0       0        0        0
-...
+Testing on S32G2 is in progress, I will follow up in this thread.
 
-Apart from the wrong clock tree representation, it means that none of
-the device drivers (spi & i2c in the excerpt above) can actually query
-their clock rate, or they would get 0Hz.
+Changes since v5:
 
-Instead of declaring the parents in the clk_parent_data structure, use
-the actual HW clocks to lookup the parents directly: parents are
-described by an array of indices into the controller's main clock table
-(like in other clock controller drivers), which the "new" mux helper now
-resolves.
+- Replaced the per-CPU skb_irq_queue, which does not work in preemptible
+  context, with a per-IRQ receive context, as suggested by Marc Kleine-Budde.
+- Added patch 3 with the flexcan conversion. The bus off and error lines get
+  their own context too, not only the mailbox lines.
+- Moved the at91_can fix to its own patch.
+- Dropped the gs_usb can_rx_offload_add_manual() return value check, the
+  NULL pointer dereference it guarded against went away with the per-CPU
+  allocation.
+- Dropped Haibo's Reviewed-by from the rx-offload patch, since it was
+  rewritten.
+- Added Assisted-by tags.
 
-The WDT and WWDT muxes list the /4096 children of PCLK3 and PCLK4 among
-their possible parents. Those two clocks are now registered by the
-previous commit, so their entries in the parent tables are restored
-instead of being turned into invalid slots.
+Changes since v4:
+- rx-offload: expand the comment above the for_each_possible_cpu() loop
+  in can_rx_offload_threaded_irq_finish() to add the single-producer
+  assumption (IRQ requested with IRQF_ONESHOT / handler non-reentrant).
+  Suggested by Haibo Chen.
+- rx-offload: add Reviewed-by: Haibo Chen <haibo.chen@nxp.com>
 
-                                 enable  prepare  protect
-   clock                          count    count    count        rate
+Changes since v3:
 
- usbphy1                             0       0        0        480000000
- usbphy0                             0       0        0        480000000
-    husbh1_gate                      0       0        0        480000000
-    husbh0_gate                      0       0        0        480000000
-    usbh_gate                        0       0        0        480000000
-    usbd_gate                        0       0        0        480000000
- syspll                              1       1        0        180000000
-    dbg_mux                          0       0        0        180000000
-    sdh1_mux                         0       0        0        180000000
-       sdh1_gate                     0       0        0        180000000
-    sdh0_mux                         0       0        0        180000000
-       sdh0_gate                     0       0        0        180000000
-    sysclk1_mux                      2       2        0        180000000
-       pclk4                         0       0        0        90000000
-       pclk3                         0       0        0        90000000
-          sspcc_gate                 0       0        0        90000000
-          ssmcc_gate                 0       0        0        90000000
-       hclk3                         0       0        0        90000000
-       pclk2                         0       0        0        180000000
-          eadc_div                   0       0        0        90000000
-             eadc_gate               0       0        0        90000000
-          qei1_gate                  0       0        0        180000000
-          ecap1_gate                 0       0        0        180000000
-          spi3_mux                   0       0        0        180000000
-             spi3_gate               0       0        0        180000000
-          spi1_mux                   0       0        0        180000000
-             spi1_gate               0       0        0        180000000
-          epwm1_gate                 0       0        0        180000000
-          i2c5_gate                  0       0        0        180000000
-          i2c2_gate                  0       0        0        180000000
-       pclk1                         0       0        0        180000000
-          qei2_gate                  0       0        0        180000000
-          qei0_gate                  0       0        0        180000000
-          ecap2_gate                 0       0        0        180000000
-          ecap0_gate                 0       0        0        180000000
-          spi2_mux                   0       0        0        180000000
-             spi2_gate               0       0        0        180000000
-          spi0_mux                   0       0        0        180000000
-             spi0_gate               0       0        0        180000000
-          epwm2_gate                 0       0        0        180000000
-          epwm0_gate                 0       0        0        180000000
-          i2c4_gate                  0       0        0        180000000
-          i2c1_gate                  0       0        0        180000000
-       pclk0                         1       1        0        180000000
-          adc_div                    0       0        0        90000000
-             adc_gate                0       0        0        90000000
-          qspi1_mux                  0       0        0        180000000
-             qspi1_gate              0       0        0        180000000
-          qspi0_mux                  1       1        0        180000000
-             qspi0_gate              1       1        0        180000000
+- In gs_usb driver, check the can_rx_offload_add_manual() return value,
+  the same NULL-deref the per-CPU change exposes.
 
-          i2c3_gate                  0       0        0        180000000
-          i2c0_gate                  0       0        0        180000000
+Changes since v2:
 
-Fixes: f50a000b4219 ("clk: nuvoton: Use clk_parent_data instead of string for parent clock")
-Cc: stable@vger.kernel.org
-Signed-off-by: Miquel Raynal <miquel.raynal@bootlin.com>
----
- drivers/clk/nuvoton/clk-ma35d1.c | 626 +++++++++++----------------------------
- 1 file changed, 177 insertions(+), 449 deletions(-)
+- at91_can: also add can_rx_offload_del() on the register_candev() error
+  path and check the can_rx_offload_add_timestamp() return value.
 
-diff --git a/drivers/clk/nuvoton/clk-ma35d1.c b/drivers/clk/nuvoton/clk-ma35d1.c
-index 5d706f5c30a5..538ec87afeea 100644
---- a/drivers/clk/nuvoton/clk-ma35d1.c
-+++ b/drivers/clk/nuvoton/clk-ma35d1.c
-@@ -63,300 +63,49 @@ static DEFINE_SPINLOCK(ma35d1_lock);
- #define PLL_MODE_FRAC           1
- #define PLL_MODE_SS             2
- 
--static const struct clk_parent_data ca35clk_sel_clks[] = {
--	{ .fw_name = "hxt", },
--	{ .fw_name = "capll", },
--	{ .fw_name = "ddrpll", },
--};
-+#define MA35D1_MUX_MAX_PARENTS	10
- 
--static const struct clk_parent_data sysclk0_sel_clks[] = {
--	{ .fw_name = "epll_div2", },
--	{ .fw_name = "syspll", },
--};
--
--static const struct clk_parent_data sysclk1_sel_clks[] = {
--	{ .fw_name = "hxt", },
--	{ .fw_name = "syspll", },
--};
--
--static const struct clk_parent_data axiclk_sel_clks[] = {
--	{ .fw_name = "capll_div2", },
--	{ .fw_name = "capll_div4", },
--};
--
--static const struct clk_parent_data ccap_sel_clks[] = {
--	{ .fw_name = "hxt", },
--	{ .fw_name = "vpll", },
--	{ .fw_name = "apll", },
--	{ .fw_name = "syspll", },
--};
--
--static const struct clk_parent_data sdh_sel_clks[] = {
--	{ .fw_name = "syspll", },
--	{ .fw_name = "apll", },
--};
--
--static const struct clk_parent_data dcu_sel_clks[] = {
--	{ .fw_name = "epll_div2", },
--	{ .fw_name = "syspll", },
--};
--
--static const struct clk_parent_data gfx_sel_clks[] = {
--	{ .fw_name = "epll", },
--	{ .fw_name = "syspll", },
--};
--
--static const struct clk_parent_data dbg_sel_clks[] = {
--	{ .fw_name = "hirc", },
--	{ .fw_name = "syspll", },
--};
--
--static const struct clk_parent_data timer0_sel_clks[] = {
--	{ .fw_name = "hxt", },
--	{ .fw_name = "lxt", },
--	{ .fw_name = "pclk0", },
--	{ .index = -1, },
--	{ .index = -1, },
--	{ .fw_name = "lirc", },
--	{ .index = -1, },
--	{ .fw_name = "hirc", },
--};
--
--static const struct clk_parent_data timer1_sel_clks[] = {
--	{ .fw_name = "hxt", },
--	{ .fw_name = "lxt", },
--	{ .fw_name = "pclk0", },
--	{ .index = -1, },
--	{ .index = -1, },
--	{ .fw_name = "lirc", },
--	{ .index = -1, },
--	{ .fw_name = "hirc", },
--};
--
--static const struct clk_parent_data timer2_sel_clks[] = {
--	{ .fw_name = "hxt", },
--	{ .fw_name = "lxt", },
--	{ .fw_name = "pclk1", },
--	{ .index = -1, },
--	{ .index = -1, },
--	{ .fw_name = "lirc", },
--	{ .index = -1, },
--	{ .fw_name = "hirc", },
--};
--
--static const struct clk_parent_data timer3_sel_clks[] = {
--	{ .fw_name = "hxt", },
--	{ .fw_name = "lxt", },
--	{ .fw_name = "pclk1", },
--	{ .index = -1, },
--	{ .index = -1, },
--	{ .fw_name = "lirc", },
--	{ .index = -1, },
--	{ .fw_name = "hirc", },
--};
--
--static const struct clk_parent_data timer4_sel_clks[] = {
--	{ .fw_name = "hxt", },
--	{ .fw_name = "lxt", },
--	{ .fw_name = "pclk2", },
--	{ .index = -1, },
--	{ .index = -1, },
--	{ .fw_name = "lirc", },
--	{ .index = -1, },
--	{ .fw_name = "hirc", },
--};
--
--static const struct clk_parent_data timer5_sel_clks[] = {
--	{ .fw_name = "hxt", },
--	{ .fw_name = "lxt", },
--	{ .fw_name = "pclk2", },
--	{ .index = -1, },
--	{ .index = -1, },
--	{ .fw_name = "lirc", },
--	{ .index = -1, },
--	{ .fw_name = "hirc", },
--};
--
--static const struct clk_parent_data timer6_sel_clks[] = {
--	{ .fw_name = "hxt", },
--	{ .fw_name = "lxt", },
--	{ .fw_name = "pclk0", },
--	{ .index = -1, },
--	{ .index = -1, },
--	{ .fw_name = "lirc", },
--	{ .index = -1, },
--	{ .fw_name = "hirc", },
--};
--
--static const struct clk_parent_data timer7_sel_clks[] = {
--	{ .fw_name = "hxt", },
--	{ .fw_name = "lxt", },
--	{ .fw_name = "pclk0", },
--	{ .index = -1, },
--	{ .index = -1, },
--	{ .fw_name = "lirc", },
--	{ .index = -1, },
--	{ .fw_name = "hirc", },
--};
--
--static const struct clk_parent_data timer8_sel_clks[] = {
--	{ .fw_name = "hxt", },
--	{ .fw_name = "lxt", },
--	{ .fw_name = "pclk1", },
--	{ .index = -1, },
--	{ .index = -1, },
--	{ .fw_name = "lirc", },
--	{ .index = -1, },
--	{ .fw_name = "hirc", },
--};
--
--static const struct clk_parent_data timer9_sel_clks[] = {
--	{ .fw_name = "hxt", },
--	{ .fw_name = "lxt", },
--	{ .fw_name = "pclk1", },
--	{ .index = -1, },
--	{ .index = -1, },
--	{ .fw_name = "lirc", },
--	{ .index = -1, },
--	{ .fw_name = "hirc", },
--};
--
--static const struct clk_parent_data timer10_sel_clks[] = {
--	{ .fw_name = "hxt", },
--	{ .fw_name = "lxt", },
--	{ .fw_name = "pclk2", },
--	{ .index = -1, },
--	{ .index = -1, },
--	{ .fw_name = "lirc", },
--	{ .index = -1, },
--	{ .fw_name = "hirc", },
--};
--
--static const struct clk_parent_data timer11_sel_clks[] = {
--	{ .fw_name = "hxt", },
--	{ .fw_name = "lxt", },
--	{ .fw_name = "pclk2", },
--	{ .index = -1, },
--	{ .index = -1, },
--	{ .fw_name = "lirc", },
--	{ .index = -1, },
--	{ .fw_name = "hirc", },
--};
--
--static const struct clk_parent_data uart_sel_clks[] = {
--	{ .fw_name = "hxt", },
--	{ .fw_name = "sysclk1_div2", },
--};
--
--static const struct clk_parent_data wdt0_sel_clks[] = {
--	{ .index = -1, },
--	{ .fw_name = "lxt", },
--	{ .fw_name = "pclk3_div4096", },
--	{ .fw_name = "lirc", },
--};
--
--static const struct clk_parent_data wdt1_sel_clks[] = {
--	{ .index = -1, },
--	{ .fw_name = "lxt", },
--	{ .fw_name = "pclk3_div4096", },
--	{ .fw_name = "lirc", },
--};
--
--static const struct clk_parent_data wdt2_sel_clks[] = {
--	{ .index = -1, },
--	{ .fw_name = "lxt", },
--	{ .fw_name = "pclk4_div4096", },
--	{ .fw_name = "lirc", },
--};
--
--static const struct clk_parent_data wwdt0_sel_clks[] = {
--	{ .index = -1, },
--	{ .index = -1, },
--	{ .fw_name = "pclk3_div4096", },
--	{ .fw_name = "lirc", },
--};
--
--static const struct clk_parent_data wwdt1_sel_clks[] = {
--	{ .index = -1, },
--	{ .index = -1, },
--	{ .fw_name = "pclk3_div4096", },
--	{ .fw_name = "lirc", },
--};
--
--static const struct clk_parent_data wwdt2_sel_clks[] = {
--	{ .index = -1, },
--	{ .index = -1, },
--	{ .fw_name = "pclk4_div4096", },
--	{ .fw_name = "lirc", },
--};
--
--static const struct clk_parent_data spi0_sel_clks[] = {
--	{ .fw_name = "pclk1", },
--	{ .fw_name = "apll", },
--};
--
--static const struct clk_parent_data spi1_sel_clks[] = {
--	{ .fw_name = "pclk2", },
--	{ .fw_name = "apll", },
--};
--
--static const struct clk_parent_data spi2_sel_clks[] = {
--	{ .fw_name = "pclk1", },
--	{ .fw_name = "apll", },
--};
--
--static const struct clk_parent_data spi3_sel_clks[] = {
--	{ .fw_name = "pclk2", },
--	{ .fw_name = "apll", },
--};
--
--static const struct clk_parent_data qspi0_sel_clks[] = {
--	{ .fw_name = "pclk0", },
--	{ .fw_name = "apll", },
--};
--
--static const struct clk_parent_data qspi1_sel_clks[] = {
--	{ .fw_name = "pclk0", },
--	{ .fw_name = "apll", },
--};
--
--static const struct clk_parent_data i2s0_sel_clks[] = {
--	{ .fw_name = "apll", },
--	{ .fw_name = "sysclk1_div2", },
--};
--
--static const struct clk_parent_data i2s1_sel_clks[] = {
--	{ .fw_name = "apll", },
--	{ .fw_name = "sysclk1_div2", },
--};
--
--static const struct clk_parent_data can_sel_clks[] = {
--	{ .fw_name = "apll", },
--	{ .fw_name = "vpll", },
--};
--
--static const struct clk_parent_data cko_sel_clks[] = {
--	{ .fw_name = "hxt", },
--	{ .fw_name = "lxt", },
--	{ .fw_name = "hirc", },
--	{ .fw_name = "lirc", },
--	{ .fw_name = "capll_div4", },
--	{ .fw_name = "syspll", },
--	{ .fw_name = "ddrpll", },
--	{ .fw_name = "epll_div2", },
--	{ .fw_name = "apll", },
--	{ .fw_name = "vpll", },
--};
--
--static const struct clk_parent_data smc_sel_clks[] = {
--	{ .fw_name = "hxt", },
--	{ .fw_name = "pclk4", },
--};
--
--static const struct clk_parent_data kpi_sel_clks[] = {
--	{ .fw_name = "hxt", },
--	{ .fw_name = "lxt", },
--};
-+/* Mux parent selection, by index into the controller's clock table */
-+static const int ca35clk_parent_idx[] = { HXT, CAPLL, DDRPLL };
-+static const int sysclk0_parent_idx[] = { EPLL_DIV2, SYSPLL };
-+static const int sysclk1_parent_idx[] = { HXT, SYSPLL };
-+static const int axiclk_parent_idx[] = { AXICLK_DIV2, AXICLK_DIV4 };
-+static const int ccap_parent_idx[] = { HXT, VPLL, APLL, SYSPLL };
-+static const int sdh_parent_idx[] = { SYSPLL, APLL };
-+static const int dcu_parent_idx[] = { EPLL_DIV2, SYSPLL };
-+static const int gfx_parent_idx[] = { EPLL, SYSPLL };
-+static const int dbg_parent_idx[] = { HIRC, SYSPLL };
-+static const int timer0_parent_idx[] = { HXT, LXT, PCLK0, -1, -1, LIRC, -1, HIRC };
-+static const int timer1_parent_idx[] = { HXT, LXT, PCLK0, -1, -1, LIRC, -1, HIRC };
-+static const int timer2_parent_idx[] = { HXT, LXT, PCLK1, -1, -1, LIRC, -1, HIRC };
-+static const int timer3_parent_idx[] = { HXT, LXT, PCLK1, -1, -1, LIRC, -1, HIRC };
-+static const int timer4_parent_idx[] = { HXT, LXT, PCLK2, -1, -1, LIRC, -1, HIRC };
-+static const int timer5_parent_idx[] = { HXT, LXT, PCLK2, -1, -1, LIRC, -1, HIRC };
-+static const int timer6_parent_idx[] = { HXT, LXT, PCLK0, -1, -1, LIRC, -1, HIRC };
-+static const int timer7_parent_idx[] = { HXT, LXT, PCLK0, -1, -1, LIRC, -1, HIRC };
-+static const int timer8_parent_idx[] = { HXT, LXT, PCLK1, -1, -1, LIRC, -1, HIRC };
-+static const int timer9_parent_idx[] = { HXT, LXT, PCLK1, -1, -1, LIRC, -1, HIRC };
-+static const int timer10_parent_idx[] = { HXT, LXT, PCLK2, -1, -1, LIRC, -1, HIRC };
-+static const int timer11_parent_idx[] = { HXT, LXT, PCLK2, -1, -1, LIRC, -1, HIRC };
-+static const int uart_parent_idx[] = { HXT, SYSCLK1_DIV2 };
-+static const int wdt0_parent_idx[] = { -1, LXT, PCLK3_DIV4096, LIRC };
-+static const int wdt1_parent_idx[] = { -1, LXT, PCLK3_DIV4096, LIRC };
-+static const int wdt2_parent_idx[] = { -1, LXT, PCLK4_DIV4096, LIRC };
-+static const int wwdt0_parent_idx[] = { -1, -1, PCLK3_DIV4096, LIRC };
-+static const int wwdt1_parent_idx[] = { -1, -1, PCLK3_DIV4096, LIRC };
-+static const int wwdt2_parent_idx[] = { -1, -1, PCLK4_DIV4096, LIRC };
-+static const int spi0_parent_idx[] = { PCLK1, APLL };
-+static const int spi1_parent_idx[] = { PCLK2, APLL };
-+static const int spi2_parent_idx[] = { PCLK1, APLL };
-+static const int spi3_parent_idx[] = { PCLK2, APLL };
-+static const int qspi_parent_idx[] = { PCLK0, APLL };
-+static const int i2s_parent_idx[] = { APLL, SYSCLK1_DIV2 };
-+static const int can_parent_idx[] = { APLL, VPLL };
-+static const int cko_parent_idx[] = { HXT, LXT, HIRC, LIRC,
-+				      AXICLK_DIV4, SYSPLL, DDRPLL,
-+				      EPLL_DIV2, APLL, VPLL };
-+static const int smc_parent_idx[] = { HXT, PCLK4 };
-+static const int kpi_parent_idx[] = { HXT, LXT };
- 
- static const struct clk_div_table ip_div_table[] = {
- 	{0, 2}, {1, 4}, {2, 6}, {3, 8}, {4, 10},
-@@ -375,24 +124,20 @@ static struct clk_hw *ma35d1_clk_fixed(const char *name, int rate)
- 	return clk_hw_register_fixed_rate(NULL, name, NULL, 0, rate);
- }
- 
--static struct clk_hw *ma35d1_clk_mux_parent(struct device *dev, const char *name,
--					    void __iomem *reg, u8 shift, u8 width,
--					    const struct clk_parent_data *pdata,
--					    int num_pdata)
--{
--	return clk_hw_register_mux_parent_data(dev, name, pdata, num_pdata,
--					       CLK_SET_RATE_NO_REPARENT, reg, shift,
--					       width, 0, &ma35d1_lock);
--}
--
- static struct clk_hw *ma35d1_clk_mux(struct device *dev, const char *name,
- 				     void __iomem *reg, u8 shift, u8 width,
--				     const struct clk_parent_data *pdata,
--				     int num_pdata)
-+				     struct clk_hw **hws,
-+				     const int *parent_idx, int num_parents)
- {
--	return clk_hw_register_mux_parent_data(dev, name, pdata, num_pdata,
--					       CLK_SET_RATE_NO_REPARENT, reg, shift,
--					       width, 0, &ma35d1_lock);
-+	const struct clk_hw *parent_hws[MA35D1_MUX_MAX_PARENTS] = {};
-+	int i;
-+
-+	for (i = 0; i < num_parents; i++)
-+		parent_hws[i] = (parent_idx[i] >= 0) ? hws[parent_idx[i]] : NULL;
-+
-+	return clk_hw_register_mux_hws(dev, name, parent_hws, num_parents,
-+				       CLK_SET_RATE_NO_REPARENT, reg, shift,
-+				       width, 0, &ma35d1_lock);
- }
- 
- static struct clk_hw *ma35d1_clk_divider(struct device *dev, const char *name,
-@@ -515,22 +260,17 @@ static int ma35d1_clocks_probe(struct platform_device *pdev)
- 	hws[EPLL_DIV4] = ma35d1_clk_fixed_factor(dev, "epll_div4", "epll", 1, 4);
- 	hws[EPLL_DIV8] = ma35d1_clk_fixed_factor(dev, "epll_div8", "epll", 1, 8);
- 
--	hws[CA35CLK_MUX] = ma35d1_clk_mux_parent(dev, "ca35clk_mux",
--						 clk_base + REG_CLK_CLKSEL0, 0, 2,
--						 ca35clk_sel_clks,
--						 ARRAY_SIZE(ca35clk_sel_clks));
-+	hws[CA35CLK_MUX] = ma35d1_clk_mux(dev, "ca35clk_mux", clk_base + REG_CLK_CLKSEL0, 0, 2, hws,
-+					  ca35clk_parent_idx, ARRAY_SIZE(ca35clk_parent_idx));
- 	hws[AXICLK_DIV2] = ma35d1_clk_fixed_factor(dev, "capll_div2", "ca35clk_mux", 1, 2);
- 	hws[AXICLK_DIV4] = ma35d1_clk_fixed_factor(dev, "capll_div4", "ca35clk_mux", 1, 4);
- 
--	hws[AXICLK_MUX] = ma35d1_clk_mux(dev, "axiclk_mux", clk_base + REG_CLK_CLKDIV0,
--					 26, 1, axiclk_sel_clks,
--					 ARRAY_SIZE(axiclk_sel_clks));
--	hws[SYSCLK0_MUX] = ma35d1_clk_mux(dev, "sysclk0_mux", clk_base + REG_CLK_CLKSEL0,
--					  2, 1, sysclk0_sel_clks,
--					  ARRAY_SIZE(sysclk0_sel_clks));
--	hws[SYSCLK1_MUX] = ma35d1_clk_mux(dev, "sysclk1_mux", clk_base + REG_CLK_CLKSEL0,
--					  4, 1, sysclk1_sel_clks,
--					  ARRAY_SIZE(sysclk1_sel_clks));
-+	hws[AXICLK_MUX] = ma35d1_clk_mux(dev, "axiclk_mux", clk_base + REG_CLK_CLKDIV0, 26, 1, hws,
-+					 axiclk_parent_idx, ARRAY_SIZE(axiclk_parent_idx));
-+	hws[SYSCLK0_MUX] = ma35d1_clk_mux(dev, "sysclk0_mux", clk_base + REG_CLK_CLKSEL0, 2, 1, hws,
-+					  sysclk0_parent_idx, ARRAY_SIZE(sysclk0_parent_idx));
-+	hws[SYSCLK1_MUX] = ma35d1_clk_mux(dev, "sysclk1_mux", clk_base + REG_CLK_CLKSEL0, 4, 1, hws,
-+					  sysclk1_parent_idx, ARRAY_SIZE(sysclk1_parent_idx));
- 	hws[SYSCLK1_DIV2] = ma35d1_clk_fixed_factor(dev, "sysclk1_div2", "sysclk1_mux", 1, 2);
- 
- 	/* HCLK0~3 & PCLK0~4 */
-@@ -556,41 +296,41 @@ static int ma35d1_clocks_probe(struct platform_device *pdev)
- 	hws[DDR6_GATE] = ma35d1_clk_gate(dev, "ddr6_gate", "ddrpll",
- 					 clk_base + REG_CLK_SYSCLK0, 5);
- 
--	hws[CAN0_MUX] = ma35d1_clk_mux(dev, "can0_mux", clk_base + REG_CLK_CLKSEL4,
--				       16, 1, can_sel_clks, ARRAY_SIZE(can_sel_clks));
-+	hws[CAN0_MUX] = ma35d1_clk_mux(dev, "can0_mux", clk_base + REG_CLK_CLKSEL4, 16, 1, hws,
-+				       can_parent_idx, ARRAY_SIZE(can_parent_idx));
- 	hws[CAN0_DIV] = ma35d1_clk_divider_table(dev, "can0_div", "can0_mux",
- 						 clk_base + REG_CLK_CLKDIV0,
- 						 0, 3, ip_div_table);
- 	hws[CAN0_GATE] = ma35d1_clk_gate(dev, "can0_gate", "can0_div",
- 					 clk_base + REG_CLK_SYSCLK0, 8);
--	hws[CAN1_MUX] = ma35d1_clk_mux(dev, "can1_mux", clk_base + REG_CLK_CLKSEL4,
--				       17, 1, can_sel_clks, ARRAY_SIZE(can_sel_clks));
-+	hws[CAN1_MUX] = ma35d1_clk_mux(dev, "can1_mux", clk_base + REG_CLK_CLKSEL4, 17, 1, hws,
-+				       can_parent_idx, ARRAY_SIZE(can_parent_idx));
- 	hws[CAN1_DIV] = ma35d1_clk_divider_table(dev, "can1_div", "can1_mux",
- 						 clk_base + REG_CLK_CLKDIV0,
- 						 4, 3, ip_div_table);
- 	hws[CAN1_GATE] = ma35d1_clk_gate(dev, "can1_gate", "can1_div",
- 					 clk_base + REG_CLK_SYSCLK0, 9);
--	hws[CAN2_MUX] = ma35d1_clk_mux(dev, "can2_mux", clk_base + REG_CLK_CLKSEL4,
--				       18, 1, can_sel_clks, ARRAY_SIZE(can_sel_clks));
-+	hws[CAN2_MUX] = ma35d1_clk_mux(dev, "can2_mux", clk_base + REG_CLK_CLKSEL4, 18, 1, hws,
-+				       can_parent_idx, ARRAY_SIZE(can_parent_idx));
- 	hws[CAN2_DIV] = ma35d1_clk_divider_table(dev, "can2_div", "can2_mux",
- 						 clk_base + REG_CLK_CLKDIV0,
- 						 8, 3, ip_div_table);
- 	hws[CAN2_GATE] = ma35d1_clk_gate(dev, "can2_gate", "can2_div",
- 					 clk_base + REG_CLK_SYSCLK0, 10);
--	hws[CAN3_MUX] = ma35d1_clk_mux(dev, "can3_mux", clk_base + REG_CLK_CLKSEL4,
--				       19, 1, can_sel_clks, ARRAY_SIZE(can_sel_clks));
-+	hws[CAN3_MUX] = ma35d1_clk_mux(dev, "can3_mux", clk_base + REG_CLK_CLKSEL4, 19, 1, hws,
-+				       can_parent_idx, ARRAY_SIZE(can_parent_idx));
- 	hws[CAN3_DIV] = ma35d1_clk_divider_table(dev, "can3_div", "can3_mux",
- 						 clk_base + REG_CLK_CLKDIV0,
- 						 12, 3, ip_div_table);
- 	hws[CAN3_GATE] = ma35d1_clk_gate(dev, "can3_gate", "can3_div",
- 					 clk_base + REG_CLK_SYSCLK0, 11);
- 
--	hws[SDH0_MUX] = ma35d1_clk_mux(dev, "sdh0_mux", clk_base + REG_CLK_CLKSEL0,
--				       16, 2, sdh_sel_clks, ARRAY_SIZE(sdh_sel_clks));
-+	hws[SDH0_MUX] = ma35d1_clk_mux(dev, "sdh0_mux", clk_base + REG_CLK_CLKSEL0, 16, 2, hws,
-+				       sdh_parent_idx, ARRAY_SIZE(sdh_parent_idx));
- 	hws[SDH0_GATE] = ma35d1_clk_gate(dev, "sdh0_gate", "sdh0_mux",
- 					 clk_base + REG_CLK_SYSCLK0, 16);
--	hws[SDH1_MUX] = ma35d1_clk_mux(dev, "sdh1_mux", clk_base + REG_CLK_CLKSEL0,
--				       18, 2, sdh_sel_clks, ARRAY_SIZE(sdh_sel_clks));
-+	hws[SDH1_MUX] = ma35d1_clk_mux(dev, "sdh1_mux", clk_base + REG_CLK_CLKSEL0, 18, 2, hws,
-+				       sdh_parent_idx, ARRAY_SIZE(sdh_parent_idx));
- 	hws[SDH1_GATE] = ma35d1_clk_gate(dev, "sdh1_gate", "sdh1_mux",
- 					 clk_base + REG_CLK_SYSCLK0, 17);
- 
-@@ -606,14 +346,14 @@ static int ma35d1_clocks_probe(struct platform_device *pdev)
- 	hws[HUSBH1_GATE] = ma35d1_clk_gate(dev, "husbh1_gate", "usbphy0",
- 					   clk_base + REG_CLK_SYSCLK0, 22);
- 
--	hws[GFX_MUX] = ma35d1_clk_mux(dev, "gfx_mux", clk_base + REG_CLK_CLKSEL0,
--				      26, 1, gfx_sel_clks, ARRAY_SIZE(gfx_sel_clks));
-+	hws[GFX_MUX] = ma35d1_clk_mux(dev, "gfx_mux", clk_base + REG_CLK_CLKSEL0, 26, 1, hws,
-+				      gfx_parent_idx, ARRAY_SIZE(gfx_parent_idx));
- 	hws[GFX_GATE] = ma35d1_clk_gate(dev, "gfx_gate", "gfx_mux",
- 					clk_base + REG_CLK_SYSCLK0, 24);
- 	hws[VC8K_GATE] = ma35d1_clk_gate(dev, "vc8k_gate", "sysclk0_mux",
- 					 clk_base + REG_CLK_SYSCLK0, 25);
--	hws[DCU_MUX] = ma35d1_clk_mux(dev, "dcu_mux", clk_base + REG_CLK_CLKSEL0,
--				      24, 1, dcu_sel_clks, ARRAY_SIZE(dcu_sel_clks));
-+	hws[DCU_MUX] = ma35d1_clk_mux(dev, "dcu_mux", clk_base + REG_CLK_CLKSEL0, 24, 1, hws,
-+				      dcu_parent_idx, ARRAY_SIZE(dcu_parent_idx));
- 	hws[DCU_GATE] = ma35d1_clk_gate(dev, "dcu_gate", "dcu_mux",
- 					clk_base + REG_CLK_SYSCLK0, 26);
- 	hws[DCUP_DIV] = ma35d1_clk_divider_table(dev, "dcup_div", "vpll",
-@@ -625,14 +365,14 @@ static int ma35d1_clocks_probe(struct platform_device *pdev)
- 	hws[EMAC1_GATE] = ma35d1_clk_gate(dev, "emac1_gate", "epll_div2",
- 					  clk_base + REG_CLK_SYSCLK0, 28);
- 
--	hws[CCAP0_MUX] = ma35d1_clk_mux(dev, "ccap0_mux", clk_base + REG_CLK_CLKSEL0,
--					12, 1, ccap_sel_clks, ARRAY_SIZE(ccap_sel_clks));
-+	hws[CCAP0_MUX] = ma35d1_clk_mux(dev, "ccap0_mux", clk_base + REG_CLK_CLKSEL0, 12, 1, hws,
-+					ccap_parent_idx, ARRAY_SIZE(ccap_parent_idx));
- 	hws[CCAP0_DIV] = ma35d1_clk_divider(dev, "ccap0_div", "ccap0_mux",
- 					    clk_base + REG_CLK_CLKDIV1, 8, 4);
- 	hws[CCAP0_GATE] = ma35d1_clk_gate(dev, "ccap0_gate", "ccap0_div",
- 					  clk_base + REG_CLK_SYSCLK0, 29);
--	hws[CCAP1_MUX] = ma35d1_clk_mux(dev, "ccap1_mux", clk_base + REG_CLK_CLKSEL0,
--					14, 1, ccap_sel_clks, ARRAY_SIZE(ccap_sel_clks));
-+	hws[CCAP1_MUX] = ma35d1_clk_mux(dev, "ccap1_mux", clk_base + REG_CLK_CLKSEL0, 14, 1, hws,
-+					ccap_parent_idx, ARRAY_SIZE(ccap_parent_idx));
- 	hws[CCAP1_DIV] = ma35d1_clk_divider(dev, "ccap1_div", "ccap1_mux",
- 					    clk_base + REG_CLK_CLKDIV1,
- 					    12, 4);
-@@ -670,13 +410,13 @@ static int ma35d1_clocks_probe(struct platform_device *pdev)
- 	hws[TRA_GATE] = ma35d1_clk_gate(dev, "tra_gate", "hclk0",
- 					clk_base + REG_CLK_SYSCLK1, 11);
- 
--	hws[DBG_MUX] = ma35d1_clk_mux(dev, "dbg_mux", clk_base + REG_CLK_CLKSEL0,
--				      27, 1, dbg_sel_clks, ARRAY_SIZE(dbg_sel_clks));
-+	hws[DBG_MUX] = ma35d1_clk_mux(dev, "dbg_mux", clk_base + REG_CLK_CLKSEL0, 27, 1, hws,
-+				      dbg_parent_idx, ARRAY_SIZE(dbg_parent_idx));
- 	hws[DBG_GATE] = ma35d1_clk_gate(dev, "dbg_gate", "hclk0",
- 					clk_base + REG_CLK_SYSCLK1, 12);
- 
--	hws[CKO_MUX] = ma35d1_clk_mux(dev, "cko_mux", clk_base + REG_CLK_CLKSEL4,
--				      24, 4, cko_sel_clks, ARRAY_SIZE(cko_sel_clks));
-+	hws[CKO_MUX] = ma35d1_clk_mux(dev, "cko_mux", clk_base + REG_CLK_CLKSEL4, 24, 4, hws,
-+				      cko_parent_idx, ARRAY_SIZE(cko_parent_idx));
- 	hws[CKO_DIV] = ma35d1_clk_divider_pow2(dev, "cko_div", "cko_mux",
- 					       clk_base + REG_CLK_CLKOCTL, 0, 4);
- 	hws[CKO_GATE] = ma35d1_clk_gate(dev, "cko_gate", "cko_div",
-@@ -714,181 +454,169 @@ static int ma35d1_clocks_probe(struct platform_device *pdev)
- 	hws[GPN_GATE] = ma35d1_clk_gate(dev, "gpn_gate", "hclk0",
- 					clk_base + REG_CLK_SYSCLK1, 29);
- 
--	hws[TMR0_MUX] = ma35d1_clk_mux(dev, "tmr0_mux", clk_base + REG_CLK_CLKSEL1,
--				       0, 3, timer0_sel_clks,
--				       ARRAY_SIZE(timer0_sel_clks));
-+	hws[TMR0_MUX] = ma35d1_clk_mux(dev, "tmr0_mux", clk_base + REG_CLK_CLKSEL1, 0, 3, hws,
-+				       timer0_parent_idx, ARRAY_SIZE(timer0_parent_idx));
- 	hws[TMR0_GATE] = ma35d1_clk_gate(dev, "tmr0_gate", "tmr0_mux",
- 					 clk_base + REG_CLK_APBCLK0, 0);
--	hws[TMR1_MUX] = ma35d1_clk_mux(dev, "tmr1_mux", clk_base + REG_CLK_CLKSEL1,
--				       4, 3, timer1_sel_clks,
--				       ARRAY_SIZE(timer1_sel_clks));
-+	hws[TMR1_MUX] = ma35d1_clk_mux(dev, "tmr1_mux", clk_base + REG_CLK_CLKSEL1, 4, 3, hws,
-+				       timer1_parent_idx, ARRAY_SIZE(timer1_parent_idx));
- 	hws[TMR1_GATE] = ma35d1_clk_gate(dev, "tmr1_gate", "tmr1_mux",
- 					 clk_base + REG_CLK_APBCLK0, 1);
--	hws[TMR2_MUX] = ma35d1_clk_mux(dev, "tmr2_mux", clk_base + REG_CLK_CLKSEL1,
--				       8, 3, timer2_sel_clks,
--				       ARRAY_SIZE(timer2_sel_clks));
-+	hws[TMR2_MUX] = ma35d1_clk_mux(dev, "tmr2_mux", clk_base + REG_CLK_CLKSEL1, 8, 3, hws,
-+				       timer2_parent_idx, ARRAY_SIZE(timer2_parent_idx));
- 	hws[TMR2_GATE] = ma35d1_clk_gate(dev, "tmr2_gate", "tmr2_mux",
- 					 clk_base + REG_CLK_APBCLK0, 2);
--	hws[TMR3_MUX] = ma35d1_clk_mux(dev, "tmr3_mux", clk_base + REG_CLK_CLKSEL1,
--				       12, 3, timer3_sel_clks,
--				       ARRAY_SIZE(timer3_sel_clks));
-+	hws[TMR3_MUX] = ma35d1_clk_mux(dev, "tmr3_mux", clk_base + REG_CLK_CLKSEL1, 12, 3, hws,
-+				       timer3_parent_idx, ARRAY_SIZE(timer3_parent_idx));
- 	hws[TMR3_GATE] = ma35d1_clk_gate(dev, "tmr3_gate", "tmr3_mux",
- 					 clk_base + REG_CLK_APBCLK0, 3);
--	hws[TMR4_MUX] = ma35d1_clk_mux(dev, "tmr4_mux", clk_base + REG_CLK_CLKSEL1,
--				       16, 3, timer4_sel_clks,
--				       ARRAY_SIZE(timer4_sel_clks));
-+	hws[TMR4_MUX] = ma35d1_clk_mux(dev, "tmr4_mux", clk_base + REG_CLK_CLKSEL1, 16, 3, hws,
-+				       timer4_parent_idx, ARRAY_SIZE(timer4_parent_idx));
- 	hws[TMR4_GATE] = ma35d1_clk_gate(dev, "tmr4_gate", "tmr4_mux",
- 					 clk_base + REG_CLK_APBCLK0, 4);
--	hws[TMR5_MUX] = ma35d1_clk_mux(dev, "tmr5_mux", clk_base + REG_CLK_CLKSEL1,
--				       20, 3, timer5_sel_clks,
--				       ARRAY_SIZE(timer5_sel_clks));
-+	hws[TMR5_MUX] = ma35d1_clk_mux(dev, "tmr5_mux", clk_base + REG_CLK_CLKSEL1, 20, 3, hws,
-+				       timer5_parent_idx, ARRAY_SIZE(timer5_parent_idx));
- 	hws[TMR5_GATE] = ma35d1_clk_gate(dev, "tmr5_gate", "tmr5_mux",
- 					 clk_base + REG_CLK_APBCLK0, 5);
--	hws[TMR6_MUX] = ma35d1_clk_mux(dev, "tmr6_mux", clk_base + REG_CLK_CLKSEL1,
--				       24, 3, timer6_sel_clks,
--				       ARRAY_SIZE(timer6_sel_clks));
-+	hws[TMR6_MUX] = ma35d1_clk_mux(dev, "tmr6_mux", clk_base + REG_CLK_CLKSEL1, 24, 3, hws,
-+				       timer6_parent_idx, ARRAY_SIZE(timer6_parent_idx));
- 	hws[TMR6_GATE] = ma35d1_clk_gate(dev, "tmr6_gate", "tmr6_mux",
- 					 clk_base + REG_CLK_APBCLK0, 6);
--	hws[TMR7_MUX] = ma35d1_clk_mux(dev, "tmr7_mux", clk_base + REG_CLK_CLKSEL1,
--				       28, 3, timer7_sel_clks,
--				       ARRAY_SIZE(timer7_sel_clks));
-+	hws[TMR7_MUX] = ma35d1_clk_mux(dev, "tmr7_mux", clk_base + REG_CLK_CLKSEL1, 28, 3, hws,
-+				       timer7_parent_idx, ARRAY_SIZE(timer7_parent_idx));
- 	hws[TMR7_GATE] = ma35d1_clk_gate(dev, "tmr7_gate", "tmr7_mux",
- 					 clk_base + REG_CLK_APBCLK0, 7);
--	hws[TMR8_MUX] = ma35d1_clk_mux(dev, "tmr8_mux", clk_base + REG_CLK_CLKSEL2,
--				       0, 3, timer8_sel_clks,
--				       ARRAY_SIZE(timer8_sel_clks));
-+	hws[TMR8_MUX] = ma35d1_clk_mux(dev, "tmr8_mux", clk_base + REG_CLK_CLKSEL2, 0, 3, hws,
-+				       timer8_parent_idx, ARRAY_SIZE(timer8_parent_idx));
- 	hws[TMR8_GATE] = ma35d1_clk_gate(dev, "tmr8_gate", "tmr8_mux",
- 					 clk_base + REG_CLK_APBCLK0, 8);
--	hws[TMR9_MUX] = ma35d1_clk_mux(dev, "tmr9_mux", clk_base + REG_CLK_CLKSEL2,
--				       4, 3, timer9_sel_clks,
--				       ARRAY_SIZE(timer9_sel_clks));
-+	hws[TMR9_MUX] = ma35d1_clk_mux(dev, "tmr9_mux", clk_base + REG_CLK_CLKSEL2, 4, 3, hws,
-+				       timer9_parent_idx, ARRAY_SIZE(timer9_parent_idx));
- 	hws[TMR9_GATE] = ma35d1_clk_gate(dev, "tmr9_gate", "tmr9_mux",
- 					 clk_base + REG_CLK_APBCLK0, 9);
--	hws[TMR10_MUX] = ma35d1_clk_mux(dev, "tmr10_mux", clk_base + REG_CLK_CLKSEL2,
--					8, 3, timer10_sel_clks,
--					ARRAY_SIZE(timer10_sel_clks));
-+	hws[TMR10_MUX] = ma35d1_clk_mux(dev, "tmr10_mux", clk_base + REG_CLK_CLKSEL2, 8, 3, hws,
-+					timer10_parent_idx, ARRAY_SIZE(timer10_parent_idx));
- 	hws[TMR10_GATE] = ma35d1_clk_gate(dev, "tmr10_gate", "tmr10_mux",
- 					  clk_base + REG_CLK_APBCLK0, 10);
--	hws[TMR11_MUX] = ma35d1_clk_mux(dev, "tmr11_mux", clk_base + REG_CLK_CLKSEL2,
--					12, 3, timer11_sel_clks,
--					ARRAY_SIZE(timer11_sel_clks));
-+	hws[TMR11_MUX] = ma35d1_clk_mux(dev, "tmr11_mux", clk_base + REG_CLK_CLKSEL2, 12, 3, hws,
-+					timer11_parent_idx, ARRAY_SIZE(timer11_parent_idx));
- 	hws[TMR11_GATE] = ma35d1_clk_gate(dev, "tmr11_gate", "tmr11_mux",
- 					  clk_base + REG_CLK_APBCLK0, 11);
- 
--	hws[UART0_MUX] = ma35d1_clk_mux(dev, "uart0_mux", clk_base + REG_CLK_CLKSEL2,
--					16, 2, uart_sel_clks, ARRAY_SIZE(uart_sel_clks));
-+	hws[UART0_MUX] = ma35d1_clk_mux(dev, "uart0_mux", clk_base + REG_CLK_CLKSEL2, 16, 2, hws,
-+					uart_parent_idx, ARRAY_SIZE(uart_parent_idx));
- 	hws[UART0_DIV] = ma35d1_clk_divider(dev, "uart0_div", "uart0_mux",
- 					    clk_base + REG_CLK_CLKDIV1,
- 					    16, 4);
- 	hws[UART0_GATE] = ma35d1_clk_gate(dev, "uart0_gate", "uart0_div",
- 					  clk_base + REG_CLK_APBCLK0, 12);
--	hws[UART1_MUX] = ma35d1_clk_mux(dev, "uart1_mux", clk_base + REG_CLK_CLKSEL2,
--					18, 2, uart_sel_clks, ARRAY_SIZE(uart_sel_clks));
-+	hws[UART1_MUX] = ma35d1_clk_mux(dev, "uart1_mux", clk_base + REG_CLK_CLKSEL2, 18, 2, hws,
-+					uart_parent_idx, ARRAY_SIZE(uart_parent_idx));
- 	hws[UART1_DIV] = ma35d1_clk_divider(dev, "uart1_div", "uart1_mux",
- 					    clk_base + REG_CLK_CLKDIV1,
- 					    20, 4);
- 	hws[UART1_GATE] = ma35d1_clk_gate(dev, "uart1_gate", "uart1_div",
- 					  clk_base + REG_CLK_APBCLK0, 13);
--	hws[UART2_MUX] = ma35d1_clk_mux(dev, "uart2_mux", clk_base + REG_CLK_CLKSEL2,
--					20, 2, uart_sel_clks, ARRAY_SIZE(uart_sel_clks));
-+	hws[UART2_MUX] = ma35d1_clk_mux(dev, "uart2_mux", clk_base + REG_CLK_CLKSEL2, 20, 2, hws,
-+					uart_parent_idx, ARRAY_SIZE(uart_parent_idx));
- 	hws[UART2_DIV] = ma35d1_clk_divider(dev, "uart2_div", "uart2_mux",
- 					    clk_base + REG_CLK_CLKDIV1,
- 					    24, 4);
- 	hws[UART2_GATE] = ma35d1_clk_gate(dev, "uart2_gate", "uart2_div",
- 					  clk_base + REG_CLK_APBCLK0, 14);
--	hws[UART3_MUX] = ma35d1_clk_mux(dev, "uart3_mux", clk_base + REG_CLK_CLKSEL2,
--					22, 2, uart_sel_clks, ARRAY_SIZE(uart_sel_clks));
-+	hws[UART3_MUX] = ma35d1_clk_mux(dev, "uart3_mux", clk_base + REG_CLK_CLKSEL2, 22, 2, hws,
-+					uart_parent_idx, ARRAY_SIZE(uart_parent_idx));
- 	hws[UART3_DIV] = ma35d1_clk_divider(dev, "uart3_div", "uart3_mux",
- 					    clk_base + REG_CLK_CLKDIV1,
- 					    28, 4);
- 	hws[UART3_GATE] = ma35d1_clk_gate(dev, "uart3_gate", "uart3_div",
- 					  clk_base + REG_CLK_APBCLK0, 15);
--	hws[UART4_MUX] = ma35d1_clk_mux(dev, "uart4_mux", clk_base + REG_CLK_CLKSEL2,
--					24, 2, uart_sel_clks, ARRAY_SIZE(uart_sel_clks));
-+	hws[UART4_MUX] = ma35d1_clk_mux(dev, "uart4_mux", clk_base + REG_CLK_CLKSEL2, 24, 2, hws,
-+					uart_parent_idx, ARRAY_SIZE(uart_parent_idx));
- 	hws[UART4_DIV] = ma35d1_clk_divider(dev, "uart4_div", "uart4_mux",
- 					    clk_base + REG_CLK_CLKDIV2,
- 					    0, 4);
- 	hws[UART4_GATE] = ma35d1_clk_gate(dev, "uart4_gate", "uart4_div",
- 					  clk_base + REG_CLK_APBCLK0, 16);
--	hws[UART5_MUX] = ma35d1_clk_mux(dev, "uart5_mux", clk_base + REG_CLK_CLKSEL2,
--					26, 2, uart_sel_clks, ARRAY_SIZE(uart_sel_clks));
-+	hws[UART5_MUX] = ma35d1_clk_mux(dev, "uart5_mux", clk_base + REG_CLK_CLKSEL2, 26, 2, hws,
-+					uart_parent_idx, ARRAY_SIZE(uart_parent_idx));
- 	hws[UART5_DIV] = ma35d1_clk_divider(dev, "uart5_div", "uart5_mux",
- 					    clk_base + REG_CLK_CLKDIV2,
- 					    4, 4);
- 	hws[UART5_GATE] = ma35d1_clk_gate(dev, "uart5_gate", "uart5_div",
- 					  clk_base + REG_CLK_APBCLK0, 17);
--	hws[UART6_MUX] = ma35d1_clk_mux(dev, "uart6_mux", clk_base + REG_CLK_CLKSEL2,
--					28, 2, uart_sel_clks, ARRAY_SIZE(uart_sel_clks));
-+	hws[UART6_MUX] = ma35d1_clk_mux(dev, "uart6_mux", clk_base + REG_CLK_CLKSEL2, 28, 2, hws,
-+					uart_parent_idx, ARRAY_SIZE(uart_parent_idx));
- 	hws[UART6_DIV] = ma35d1_clk_divider(dev, "uart6_div", "uart6_mux",
- 					    clk_base + REG_CLK_CLKDIV2,
- 					    8, 4);
- 	hws[UART6_GATE] = ma35d1_clk_gate(dev, "uart6_gate", "uart6_div",
- 					  clk_base + REG_CLK_APBCLK0, 18);
--	hws[UART7_MUX] = ma35d1_clk_mux(dev, "uart7_mux", clk_base + REG_CLK_CLKSEL2,
--					30, 2, uart_sel_clks, ARRAY_SIZE(uart_sel_clks));
-+	hws[UART7_MUX] = ma35d1_clk_mux(dev, "uart7_mux", clk_base + REG_CLK_CLKSEL2, 30, 2, hws,
-+					uart_parent_idx, ARRAY_SIZE(uart_parent_idx));
- 	hws[UART7_DIV] = ma35d1_clk_divider(dev, "uart7_div", "uart7_mux",
- 					    clk_base + REG_CLK_CLKDIV2,
- 					    12, 4);
- 	hws[UART7_GATE] = ma35d1_clk_gate(dev, "uart7_gate", "uart7_div",
- 					  clk_base + REG_CLK_APBCLK0, 19);
--	hws[UART8_MUX] = ma35d1_clk_mux(dev, "uart8_mux", clk_base + REG_CLK_CLKSEL3,
--					0, 2, uart_sel_clks, ARRAY_SIZE(uart_sel_clks));
-+	hws[UART8_MUX] = ma35d1_clk_mux(dev, "uart8_mux", clk_base + REG_CLK_CLKSEL3, 0, 2, hws,
-+					uart_parent_idx, ARRAY_SIZE(uart_parent_idx));
- 	hws[UART8_DIV] = ma35d1_clk_divider(dev, "uart8_div", "uart8_mux",
- 					    clk_base + REG_CLK_CLKDIV2,
- 					    16, 4);
- 	hws[UART8_GATE] = ma35d1_clk_gate(dev, "uart8_gate", "uart8_div",
- 					  clk_base + REG_CLK_APBCLK0, 20);
--	hws[UART9_MUX] = ma35d1_clk_mux(dev, "uart9_mux", clk_base + REG_CLK_CLKSEL3,
--					2, 2, uart_sel_clks, ARRAY_SIZE(uart_sel_clks));
-+	hws[UART9_MUX] = ma35d1_clk_mux(dev, "uart9_mux", clk_base + REG_CLK_CLKSEL3, 2, 2, hws,
-+					uart_parent_idx, ARRAY_SIZE(uart_parent_idx));
- 	hws[UART9_DIV] = ma35d1_clk_divider(dev, "uart9_div", "uart9_mux",
- 					    clk_base + REG_CLK_CLKDIV2,
- 					    20, 4);
- 	hws[UART9_GATE] = ma35d1_clk_gate(dev, "uart9_gate", "uart9_div",
- 					  clk_base + REG_CLK_APBCLK0, 21);
--	hws[UART10_MUX] = ma35d1_clk_mux(dev, "uart10_mux", clk_base + REG_CLK_CLKSEL3,
--					 4, 2, uart_sel_clks, ARRAY_SIZE(uart_sel_clks));
-+	hws[UART10_MUX] = ma35d1_clk_mux(dev, "uart10_mux", clk_base + REG_CLK_CLKSEL3, 4, 2, hws,
-+					 uart_parent_idx, ARRAY_SIZE(uart_parent_idx));
- 	hws[UART10_DIV] = ma35d1_clk_divider(dev, "uart10_div", "uart10_mux",
- 					     clk_base + REG_CLK_CLKDIV2,
- 					     24, 4);
- 	hws[UART10_GATE] = ma35d1_clk_gate(dev, "uart10_gate", "uart10_div",
- 					   clk_base + REG_CLK_APBCLK0, 22);
--	hws[UART11_MUX] = ma35d1_clk_mux(dev, "uart11_mux", clk_base + REG_CLK_CLKSEL3,
--					 6, 2, uart_sel_clks, ARRAY_SIZE(uart_sel_clks));
-+	hws[UART11_MUX] = ma35d1_clk_mux(dev, "uart11_mux", clk_base + REG_CLK_CLKSEL3, 6, 2, hws,
-+					 uart_parent_idx, ARRAY_SIZE(uart_parent_idx));
- 	hws[UART11_DIV] = ma35d1_clk_divider(dev, "uart11_div", "uart11_mux",
- 					     clk_base + REG_CLK_CLKDIV2,
- 					     28, 4);
- 	hws[UART11_GATE] = ma35d1_clk_gate(dev, "uart11_gate", "uart11_div",
- 					   clk_base + REG_CLK_APBCLK0, 23);
--	hws[UART12_MUX] = ma35d1_clk_mux(dev, "uart12_mux", clk_base + REG_CLK_CLKSEL3,
--					 8, 2, uart_sel_clks, ARRAY_SIZE(uart_sel_clks));
-+	hws[UART12_MUX] = ma35d1_clk_mux(dev, "uart12_mux", clk_base + REG_CLK_CLKSEL3, 8, 2, hws,
-+					 uart_parent_idx, ARRAY_SIZE(uart_parent_idx));
- 	hws[UART12_DIV] = ma35d1_clk_divider(dev, "uart12_div", "uart12_mux",
- 					     clk_base + REG_CLK_CLKDIV3,
- 					     0, 4);
- 	hws[UART12_GATE] = ma35d1_clk_gate(dev, "uart12_gate", "uart12_div",
- 					   clk_base + REG_CLK_APBCLK0, 24);
--	hws[UART13_MUX] = ma35d1_clk_mux(dev, "uart13_mux", clk_base + REG_CLK_CLKSEL3,
--					 10, 2, uart_sel_clks, ARRAY_SIZE(uart_sel_clks));
-+	hws[UART13_MUX] = ma35d1_clk_mux(dev, "uart13_mux", clk_base + REG_CLK_CLKSEL3, 10, 2, hws,
-+					 uart_parent_idx, ARRAY_SIZE(uart_parent_idx));
- 	hws[UART13_DIV] = ma35d1_clk_divider(dev, "uart13_div", "uart13_mux",
- 					     clk_base + REG_CLK_CLKDIV3,
- 					     4, 4);
- 	hws[UART13_GATE] = ma35d1_clk_gate(dev, "uart13_gate", "uart13_div",
- 					   clk_base + REG_CLK_APBCLK0, 25);
--	hws[UART14_MUX] = ma35d1_clk_mux(dev, "uart14_mux", clk_base + REG_CLK_CLKSEL3,
--					 12, 2, uart_sel_clks, ARRAY_SIZE(uart_sel_clks));
-+	hws[UART14_MUX] = ma35d1_clk_mux(dev, "uart14_mux", clk_base + REG_CLK_CLKSEL3, 12, 2, hws,
-+					 uart_parent_idx, ARRAY_SIZE(uart_parent_idx));
- 	hws[UART14_DIV] = ma35d1_clk_divider(dev, "uart14_div", "uart14_mux",
- 					     clk_base + REG_CLK_CLKDIV3,
- 					     8, 4);
- 	hws[UART14_GATE] = ma35d1_clk_gate(dev, "uart14_gate", "uart14_div",
- 					   clk_base + REG_CLK_APBCLK0, 26);
--	hws[UART15_MUX] = ma35d1_clk_mux(dev, "uart15_mux", clk_base + REG_CLK_CLKSEL3,
--					 14, 2, uart_sel_clks, ARRAY_SIZE(uart_sel_clks));
-+	hws[UART15_MUX] = ma35d1_clk_mux(dev, "uart15_mux", clk_base + REG_CLK_CLKSEL3, 14, 2, hws,
-+					 uart_parent_idx, ARRAY_SIZE(uart_parent_idx));
- 	hws[UART15_DIV] = ma35d1_clk_divider(dev, "uart15_div", "uart15_mux",
- 					     clk_base + REG_CLK_CLKDIV3,
- 					     12, 4);
- 	hws[UART15_GATE] = ma35d1_clk_gate(dev, "uart15_gate", "uart15_div",
- 					   clk_base + REG_CLK_APBCLK0, 27);
--	hws[UART16_MUX] = ma35d1_clk_mux(dev, "uart16_mux", clk_base + REG_CLK_CLKSEL3,
--					 16, 2, uart_sel_clks, ARRAY_SIZE(uart_sel_clks));
-+	hws[UART16_MUX] = ma35d1_clk_mux(dev, "uart16_mux", clk_base + REG_CLK_CLKSEL3, 16, 2, hws,
-+					 uart_parent_idx, ARRAY_SIZE(uart_parent_idx));
- 	hws[UART16_DIV] = ma35d1_clk_divider(dev, "uart16_div", "uart16_mux",
- 					     clk_base + REG_CLK_CLKDIV3,
- 					     16, 4);
-@@ -900,8 +628,8 @@ static int ma35d1_clocks_probe(struct platform_device *pdev)
- 	hws[DDR_GATE] = ma35d1_clk_gate(dev, "ddr_gate", "ddrpll",
- 					clk_base + REG_CLK_APBCLK0, 30);
- 
--	hws[KPI_MUX] = ma35d1_clk_mux(dev, "kpi_mux", clk_base + REG_CLK_CLKSEL4,
--				      30, 1, kpi_sel_clks, ARRAY_SIZE(kpi_sel_clks));
-+	hws[KPI_MUX] = ma35d1_clk_mux(dev, "kpi_mux", clk_base + REG_CLK_CLKSEL4, 30, 1, hws,
-+				      kpi_parent_idx, ARRAY_SIZE(kpi_parent_idx));
- 	hws[KPI_DIV] = ma35d1_clk_divider(dev, "kpi_div", "kpi_mux",
- 					  clk_base + REG_CLK_CLKDIV4,
- 					  24, 8);
-@@ -921,49 +649,49 @@ static int ma35d1_clocks_probe(struct platform_device *pdev)
- 	hws[I2C5_GATE] = ma35d1_clk_gate(dev, "i2c5_gate", "pclk2",
- 					 clk_base + REG_CLK_APBCLK1, 5);
- 
--	hws[QSPI0_MUX] = ma35d1_clk_mux(dev, "qspi0_mux", clk_base + REG_CLK_CLKSEL4,
--					8, 2, qspi0_sel_clks, ARRAY_SIZE(qspi0_sel_clks));
-+	hws[QSPI0_MUX] = ma35d1_clk_mux(dev, "qspi0_mux", clk_base + REG_CLK_CLKSEL4, 8, 2, hws,
-+					qspi_parent_idx, ARRAY_SIZE(qspi_parent_idx));
- 	hws[QSPI0_GATE] = ma35d1_clk_gate(dev, "qspi0_gate", "qspi0_mux",
- 					  clk_base + REG_CLK_APBCLK1, 6);
--	hws[QSPI1_MUX] = ma35d1_clk_mux(dev, "qspi1_mux", clk_base + REG_CLK_CLKSEL4,
--					10, 2, qspi1_sel_clks, ARRAY_SIZE(qspi1_sel_clks));
-+	hws[QSPI1_MUX] = ma35d1_clk_mux(dev, "qspi1_mux", clk_base + REG_CLK_CLKSEL4, 10, 2, hws,
-+					qspi_parent_idx, ARRAY_SIZE(qspi_parent_idx));
- 	hws[QSPI1_GATE] = ma35d1_clk_gate(dev, "qspi1_gate", "qspi1_mux",
- 					  clk_base + REG_CLK_APBCLK1, 7);
- 
--	hws[SMC0_MUX] = ma35d1_clk_mux(dev, "smc0_mux", clk_base + REG_CLK_CLKSEL4,
--					28, 1, smc_sel_clks, ARRAY_SIZE(smc_sel_clks));
-+	hws[SMC0_MUX] = ma35d1_clk_mux(dev, "smc0_mux", clk_base + REG_CLK_CLKSEL4, 28, 1, hws,
-+				       smc_parent_idx, ARRAY_SIZE(smc_parent_idx));
- 	hws[SMC0_DIV] = ma35d1_clk_divider(dev, "smc0_div", "smc0_mux",
- 					   clk_base + REG_CLK_CLKDIV1,
- 					   0, 4);
- 	hws[SMC0_GATE] = ma35d1_clk_gate(dev, "smc0_gate", "smc0_div",
- 					 clk_base + REG_CLK_APBCLK1, 12);
--	hws[SMC1_MUX] = ma35d1_clk_mux(dev, "smc1_mux", clk_base + REG_CLK_CLKSEL4,
--					 29, 1, smc_sel_clks, ARRAY_SIZE(smc_sel_clks));
-+	hws[SMC1_MUX] = ma35d1_clk_mux(dev, "smc1_mux", clk_base + REG_CLK_CLKSEL4, 29, 1, hws,
-+				       smc_parent_idx, ARRAY_SIZE(smc_parent_idx));
- 	hws[SMC1_DIV] = ma35d1_clk_divider(dev, "smc1_div", "smc1_mux",
- 					   clk_base + REG_CLK_CLKDIV1,
- 					   4, 4);
- 	hws[SMC1_GATE] = ma35d1_clk_gate(dev, "smc1_gate", "smc1_div",
- 					 clk_base + REG_CLK_APBCLK1, 13);
- 
--	hws[WDT0_MUX] = ma35d1_clk_mux(dev, "wdt0_mux", clk_base + REG_CLK_CLKSEL3,
--				       20, 2, wdt0_sel_clks, ARRAY_SIZE(wdt0_sel_clks));
-+	hws[WDT0_MUX] = ma35d1_clk_mux(dev, "wdt0_mux", clk_base + REG_CLK_CLKSEL3, 20, 2, hws,
-+				       wdt0_parent_idx, ARRAY_SIZE(wdt0_parent_idx));
- 	hws[WDT0_GATE] = ma35d1_clk_gate(dev, "wdt0_gate", "wdt0_mux",
- 					 clk_base + REG_CLK_APBCLK1, 16);
--	hws[WDT1_MUX] = ma35d1_clk_mux(dev, "wdt1_mux", clk_base + REG_CLK_CLKSEL3,
--				       24, 2, wdt1_sel_clks, ARRAY_SIZE(wdt1_sel_clks));
-+	hws[WDT1_MUX] = ma35d1_clk_mux(dev, "wdt1_mux", clk_base + REG_CLK_CLKSEL3, 24, 2, hws,
-+				       wdt1_parent_idx, ARRAY_SIZE(wdt1_parent_idx));
- 	hws[WDT1_GATE] = ma35d1_clk_gate(dev, "wdt1_gate", "wdt1_mux",
- 					 clk_base + REG_CLK_APBCLK1, 17);
--	hws[WDT2_MUX] = ma35d1_clk_mux(dev, "wdt2_mux", clk_base + REG_CLK_CLKSEL3,
--				       28, 2, wdt2_sel_clks, ARRAY_SIZE(wdt2_sel_clks));
-+	hws[WDT2_MUX] = ma35d1_clk_mux(dev, "wdt2_mux", clk_base + REG_CLK_CLKSEL3, 28, 2, hws,
-+				       wdt2_parent_idx, ARRAY_SIZE(wdt2_parent_idx));
- 	hws[WDT2_GATE] = ma35d1_clk_gate(dev, "wdt2_gate", "wdt2_mux",
- 				       clk_base + REG_CLK_APBCLK1, 18);
- 
--	hws[WWDT0_MUX] = ma35d1_clk_mux(dev, "wwdt0_mux", clk_base + REG_CLK_CLKSEL3,
--					22, 2, wwdt0_sel_clks, ARRAY_SIZE(wwdt0_sel_clks));
--	hws[WWDT1_MUX] = ma35d1_clk_mux(dev, "wwdt1_mux", clk_base + REG_CLK_CLKSEL3,
--					26, 2, wwdt1_sel_clks, ARRAY_SIZE(wwdt1_sel_clks));
--	hws[WWDT2_MUX] = ma35d1_clk_mux(dev, "wwdt2_mux", clk_base + REG_CLK_CLKSEL3,
--					30, 2, wwdt2_sel_clks, ARRAY_SIZE(wwdt2_sel_clks));
-+	hws[WWDT0_MUX] = ma35d1_clk_mux(dev, "wwdt0_mux", clk_base + REG_CLK_CLKSEL3, 22, 2, hws,
-+					wwdt0_parent_idx, ARRAY_SIZE(wwdt0_parent_idx));
-+	hws[WWDT1_MUX] = ma35d1_clk_mux(dev, "wwdt1_mux", clk_base + REG_CLK_CLKSEL3, 26, 2, hws,
-+					wwdt1_parent_idx, ARRAY_SIZE(wwdt1_parent_idx));
-+	hws[WWDT2_MUX] = ma35d1_clk_mux(dev, "wwdt2_mux", clk_base + REG_CLK_CLKSEL3, 30, 2, hws,
-+					wwdt2_parent_idx, ARRAY_SIZE(wwdt2_parent_idx));
- 
- 	hws[EPWM0_GATE] = ma35d1_clk_gate(dev, "epwm0_gate", "pclk1",
- 					  clk_base + REG_CLK_APBCLK1, 24);
-@@ -972,12 +700,12 @@ static int ma35d1_clocks_probe(struct platform_device *pdev)
- 	hws[EPWM2_GATE] = ma35d1_clk_gate(dev, "epwm2_gate", "pclk1",
- 					  clk_base + REG_CLK_APBCLK1, 26);
- 
--	hws[I2S0_MUX] = ma35d1_clk_mux(dev, "i2s0_mux", clk_base + REG_CLK_CLKSEL4,
--				       12, 2, i2s0_sel_clks, ARRAY_SIZE(i2s0_sel_clks));
-+	hws[I2S0_MUX] = ma35d1_clk_mux(dev, "i2s0_mux", clk_base + REG_CLK_CLKSEL4, 12, 2, hws,
-+				       i2s_parent_idx, ARRAY_SIZE(i2s_parent_idx));
- 	hws[I2S0_GATE] = ma35d1_clk_gate(dev, "i2s0_gate", "i2s0_mux",
- 					 clk_base + REG_CLK_APBCLK2, 0);
--	hws[I2S1_MUX] = ma35d1_clk_mux(dev, "i2s1_mux", clk_base + REG_CLK_CLKSEL4,
--				       14, 2, i2s1_sel_clks, ARRAY_SIZE(i2s1_sel_clks));
-+	hws[I2S1_MUX] = ma35d1_clk_mux(dev, "i2s1_mux", clk_base + REG_CLK_CLKSEL4, 14, 2, hws,
-+				       i2s_parent_idx, ARRAY_SIZE(i2s_parent_idx));
- 	hws[I2S1_GATE] = ma35d1_clk_gate(dev, "i2s1_gate", "i2s1_mux",
- 					 clk_base + REG_CLK_APBCLK2, 1);
- 
-@@ -986,20 +714,20 @@ static int ma35d1_clocks_probe(struct platform_device *pdev)
- 	hws[SSPCC_GATE] = ma35d1_clk_gate(dev, "sspcc_gate", "pclk3",
- 					  clk_base + REG_CLK_APBCLK2, 3);
- 
--	hws[SPI0_MUX] = ma35d1_clk_mux(dev, "spi0_mux", clk_base + REG_CLK_CLKSEL4,
--				       0, 2, spi0_sel_clks, ARRAY_SIZE(spi0_sel_clks));
-+	hws[SPI0_MUX] = ma35d1_clk_mux(dev, "spi0_mux", clk_base + REG_CLK_CLKSEL4, 0, 2, hws,
-+				       spi0_parent_idx, ARRAY_SIZE(spi0_parent_idx));
- 	hws[SPI0_GATE] = ma35d1_clk_gate(dev, "spi0_gate", "spi0_mux",
- 					 clk_base + REG_CLK_APBCLK2, 4);
--	hws[SPI1_MUX] = ma35d1_clk_mux(dev, "spi1_mux", clk_base + REG_CLK_CLKSEL4,
--				       2, 2, spi1_sel_clks, ARRAY_SIZE(spi1_sel_clks));
-+	hws[SPI1_MUX] = ma35d1_clk_mux(dev, "spi1_mux", clk_base + REG_CLK_CLKSEL4, 2, 2, hws,
-+				       spi1_parent_idx, ARRAY_SIZE(spi1_parent_idx));
- 	hws[SPI1_GATE] = ma35d1_clk_gate(dev, "spi1_gate", "spi1_mux",
- 					 clk_base + REG_CLK_APBCLK2, 5);
--	hws[SPI2_MUX] = ma35d1_clk_mux(dev, "spi2_mux", clk_base + REG_CLK_CLKSEL4,
--				       4, 2, spi2_sel_clks, ARRAY_SIZE(spi2_sel_clks));
-+	hws[SPI2_MUX] = ma35d1_clk_mux(dev, "spi2_mux", clk_base + REG_CLK_CLKSEL4, 4, 2, hws,
-+				       spi2_parent_idx, ARRAY_SIZE(spi2_parent_idx));
- 	hws[SPI2_GATE] = ma35d1_clk_gate(dev, "spi2_gate", "spi2_mux",
- 					 clk_base + REG_CLK_APBCLK2, 6);
--	hws[SPI3_MUX] = ma35d1_clk_mux(dev, "spi3_mux", clk_base + REG_CLK_CLKSEL4,
--				       6, 2, spi3_sel_clks, ARRAY_SIZE(spi3_sel_clks));
-+	hws[SPI3_MUX] = ma35d1_clk_mux(dev, "spi3_mux", clk_base + REG_CLK_CLKSEL4, 6, 2, hws,
-+				       spi3_parent_idx, ARRAY_SIZE(spi3_parent_idx));
- 	hws[SPI3_GATE] = ma35d1_clk_gate(dev, "spi3_gate", "spi3_mux",
- 					 clk_base + REG_CLK_APBCLK2, 7);
- 
+Changes since v1:
+
+- The enqueue helpers used this_cpu_ptr() without disabling preemption.
+  All four enqueue helpers now use get_cpu_ptr()/put_cpu_ptr().
+- Guard can_rx_offload_del() against skb_irq_queue == NULL.
+- Fix 'at91_can' memory leak by adding missing 'can_rx_offload_del'.
+
+Ciprian Marian Costea (3):
+  can: at91_can: release the rx-offload on teardown
+  can: rx-offload: add a per-IRQ receive context
+  can: flexcan: use one rx-offload context per IRQ line
+
+ drivers/net/can/at91_can.c                    |  28 ++-
+ drivers/net/can/bxcan.c                       |  14 +-
+ drivers/net/can/can327.c                      |   8 +-
+ drivers/net/can/dev/rx-offload.c              | 196 ++++++++++++------
+ drivers/net/can/flexcan/flexcan-core.c        | 109 ++++++++--
+ drivers/net/can/flexcan/flexcan-ethtool.c     |   4 +-
+ drivers/net/can/flexcan/flexcan.h             |   4 +
+ drivers/net/can/m_can/m_can.c                 |   7 +-
+ drivers/net/can/m_can/m_can.h                 |   1 +
+ .../net/can/rockchip/rockchip_canfd-core.c    |   9 +-
+ drivers/net/can/rockchip/rockchip_canfd-rx.c  |   2 +-
+ drivers/net/can/rockchip/rockchip_canfd-tx.c  |   2 +-
+ drivers/net/can/rockchip/rockchip_canfd.h     |   1 +
+ .../net/can/spi/mcp251xfd/mcp251xfd-core.c    |  13 +-
+ drivers/net/can/spi/mcp251xfd/mcp251xfd-rx.c  |   2 +-
+ drivers/net/can/spi/mcp251xfd/mcp251xfd-tef.c |   2 +-
+ drivers/net/can/spi/mcp251xfd/mcp251xfd.h     |   1 +
+ drivers/net/can/ti_hecc.c                     |  18 +-
+ drivers/net/can/usb/gs_usb.c                  |  23 +-
+ drivers/net/can/usb/nct6694_canfd.c           |  20 +-
+ include/linux/can/rx-offload.h                |  48 ++++-
+ 21 files changed, 349 insertions(+), 163 deletions(-)
 
 -- 
-2.55.0
+2.43.0
 
 
