@@ -4,94 +4,76 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9DC50C98321
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 25 Sep 2026 14:24:16 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2775EC98321
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 25 Sep 2026 14:29:21 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=E0I0TIKEyiasgHy1ngA6HhdOkD8Gr+np1P2q8hO6FMM=; b=Uh6vHyaOQWDFHn+381D8PFKmmd
-	eXjbbe+VDc19BPZdb+LnjMiYnf4lVh2SZl+6XndzC9arTlAz+PRQiyJnD3XtMmOdelWar9htwvlwz
-	YeWurGbUSEZjTMk20PUSOy4C502bxgLt9CCEk2Auc6ngANmYhZ8cdqEYDvEFksIe6h+Hz2yc2qvdv
-	DmrcxuHLRvXFg2sw46U+gX/ySr4Dg9YkMsqmwdTf5MjayoZEy12CqORlBbRTzVNkgIkO+M6CQjdYT
-	wzoMau84CgoUPFkGygkm0JB1V8h7OPCdVFge8QeKijWmzk/CZj7KJ6mQY2j1UlqPCYK1BJW2KW58C
-	gfcJCeOA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:Date:Message-Id:Subject:References:In-Reply-To:Cc:
+	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=B9SAdsKIM9po5e3COkJx3/f5eCr9H91R3DRSye2x0s0=; b=kc9xez45MPq757OBaYMC/Qvsnl
+	UfLn5d4UeCediAePwpqDcNCsozgGo348AgeFzLhOzteM6byW2rAv7OwpN+bQgl0XzuGsUyiD0A4aX
+	bBLMGe+gdRVLqfxkuctrkUqR4OOAxQyKVDWiVqw1ZLHW1uimjgJdeO5ryhgB3/7SEaSyNyaadDPRJ
+	8IsXd0EYMpGUpaUkHvDyKXZFWICY/5FU9rPuNpA9OwA1I4e4/hpYFpTSPGltPVUEuedjzFs7Z/YAP
+	BofqKQt0R+Jc8e6Z2ECwHK2O5aT2siIuCRa3DJWSvhxGX0tuCAm1IYumu3S9yIzFu9BhdlAoqBL0m
+	a0xgOang==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xA6qP-0000000DZOT-1Z68;
-	Fri, 25 Sep 2026 14:24:09 +0000
-Received: from mail-pj2-x10.google.com ([2607:f8b0:4864:39::10])
+	id 1xA6vJ-0000000Da9k-0srM;
+	Fri, 25 Sep 2026 14:29:13 +0000
+Received: from smtpout-04.galae.net ([185.171.202.116])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xA6qN-0000000DZNk-0Flr
-	for linux-arm-kernel@lists.infradead.org;
-	Fri, 25 Sep 2026 14:24:08 +0000
-Received: by mail-pj2-x10.google.com with SMTP id d9443c01a7336-2d747ec6188so4091105ad.3
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 25 Sep 2026 07:24:06 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1790346246; x=1790951046; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:content-type:mime-version
-         :references:message-id:subject:cc:to:from:date:sender:from:to:cc
-         :subject:date:message-id:reply-to:content-type;
-        bh=E0I0TIKEyiasgHy1ngA6HhdOkD8Gr+np1P2q8hO6FMM=;
-        b=Ho6cMfC7dhp1rQ+h4v+1olLNoJ85jIPyJ/YozX0QHy7ITvNxt99zo/1JjCdxN68ZsB
-         QARZb/2VK7FyOKtn8hizpBUzenAxjTTKrK+SSLXwG+RQPf3o4MHz5spQDjcAmFUVuG7V
-         9g+eJBgz1XQ67uiWFDOtvuKyZW0jRCPNZ5MOwAl7Gh/X7m20PQMet91qiyTphUgOEmnP
-         +BWvv7Yol62H/OSr9e1/OVm/YnVZ5/a8cQqX4BVvbPeghfgK2hrFJXEEC6MLuuU0LAmg
-         lc/i9CHMABXDHiSar6MqVa8Q1vUT+bNNrstWsZ6EuvJhxVmvnOL0fngfoeOBNPvm0uTt
-         SQ3w==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1790346246; x=1790951046;
-        h=in-reply-to:content-disposition:content-type:mime-version
-         :references:message-id:subject:cc:to:from:date:sender:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=E0I0TIKEyiasgHy1ngA6HhdOkD8Gr+np1P2q8hO6FMM=;
-        b=Ml2dwda6+2I9GhVWZYI26ruRo4BDMk/HmZofQnjbww//ZlZlVzgC042A+5lz2nPxY0
-         j61CqtQ9dWefNZGYjvtpBzj0luo6KWC2rEUjjE1zwMamDrmSI3/pE84ubfLqPU5eYDqI
-         yjtFUxID57OkpU8RaJkUIQjaL2Q9grMrmmVUqfk7DH2uY6KY48zL/IMlQHIJaA8Qo4az
-         9Cm2gtSBpWCX15NL/Y8FEOQmWpQlFAYX/NKMjhHklVMy/FuLEZmQX5G3+nvxETcnDhqN
-         c+792iwMchEy/fmCwBv7n6/GnSVn/nGSyp0nMccEoA07ij6BQ0Ow04tLSiFUhIDaOis5
-         As7A==
-X-Forwarded-Encrypted: i=1; AKwUvBznM5a1oEGXRfyvtNuWLLKj0rCFqky6MjbsYlHeiMpF/nCOA9ERY/DbZVVlRe6fP/IS/adjQCdhSLBTBEYbVI77@lists.infradead.org
-X-Gm-Message-State: AFuF++ntgV4mGpEzw9vndAum/siatF/8msQzK2ue/ItVd4IeKbWf0fOU
-	PLdKE0YRXxBgSS9bQ4ppIHh3b7VJg163fb5DT7iGZOKx/54rg/VKwAdb
-X-Gm-Gg: AYBFou04CHcC2/gLftoQ0RT9OKr61onW0SToD0Ul2UUxHw8ZsSDt0TrW0QWiB3VhEHF
-	2yZa0mWjIgOT2ndfU+gBU/IGviLHet2y6jKjZzlUM+da62YdFt5EyORNBhdeq1Gs7OpetE5LDdJ
-	xHzb2xPFc0kNwqVAeO1DkO5NNGMOPPFynMGfkgSPs5D9Lv7trDTMiunQPbFPpwl+ydvEZLa8ESp
-	WGgJP5io7FEBU0oQ4rCEX0ZkX52b0AdXebLzYylxiHJJXWhVERSFYlLkw3Vf4NaxGW2Q/ZZiF6a
-	b3IlwiGCorZn/N7QozOWiHgEeffQWg61GJ1hrcGlCfytKIPsSzukMvWlnbeckv/98XR9UJaNjyD
-	QasUt31iKi6Dwakg15iNzq0/Jk3KwIDsK8owKW8zEmCJY7H7ibMtFpmMpypOGh/M6JTjeJZYikS
-	whLGGmjycMF3iXB1pcwTkMBrdYPW8VGrMBH9g3Vl42iKzinM8WpyV1UaVsjjttvuXoo5h4d29s+
-	eAuuCC4pFJ2
-X-Received: by 2002:a17:902:d481:b0:2dd:b83b:fe1e with SMTP id d9443c01a7336-2df7de9309fmr49802315ad.22.1790346241220;
-        Fri, 25 Sep 2026 07:24:01 -0700 (PDT)
-Received: from server.roeck-us.net ([2600:1700:e321:62f0:da43:aeff:fecc:bfd5])
-        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2df913e032bsm11754115ad.27.2026.09.25.07.24.00
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 25 Sep 2026 07:24:00 -0700 (PDT)
-Date: Fri, 25 Sep 2026 07:23:59 -0700
-From: Guenter Roeck <linux@roeck-us.net>
-To: Ryan Brue <ryanbrue.dev@gmail.com>
-Cc: Wim Van Sebroeck <wim@linux-watchdog.org>,
-	Matthias Brugger <matthias.bgg@gmail.com>,
-	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
-	"freddy.hsin" <freddy.hsin@mediatek.com>,
-	linux-watchdog@vger.kernel.org, linux-kernel@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-mediatek@lists.infradead.org
-Subject: Re: [PATCH] watchdog: mediatek: Apply the driver's mode to a
- watchdog left running
-Message-ID: <559c625b-8191-439b-b613-d35afe24c4b1@roeck-us.net>
-References: <20260923-rbrue-suez-upstreaming-mtk-wdt-dual-mode-v1-1-0970852315e4@gmail.com>
+	id 1xA6vG-0000000Da6c-2lOr;
+	Fri, 25 Sep 2026 14:29:12 +0000
+Received: from smtpout-01.galae.net (smtpout-01.galae.net [212.83.139.233])
+	by smtpout-04.galae.net (Postfix) with ESMTPS id 81CA4C653F9;
+	Fri, 25 Sep 2026 14:29:56 +0000 (UTC)
+Received: from mail.galae.net (mail.galae.net [212.83.136.155])
+	by smtpout-01.galae.net (Postfix) with ESMTPS id 8F3196073B;
+	Fri, 25 Sep 2026 14:29:08 +0000 (UTC)
+Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 55F52102F08C8;
+	Fri, 25 Sep 2026 16:28:55 +0200 (CEST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=dkim;
+	t=1790346546; h=from:subject:date:message-id:to:cc:mime-version:content-type:
+	 content-transfer-encoding:in-reply-to:references;
+	bh=B9SAdsKIM9po5e3COkJx3/f5eCr9H91R3DRSye2x0s0=;
+	b=ijk3lvV5Ytolj7ONBao+6E1jKrnPnfqy9PllVh0sQCIKiPAby37e8RfcmECcCv+xY5uLnP
+	4JvEKceRY00bMEL3lG2XtcvoIuwGkJbZaS3yZV+5WifBxC67dfZ3v9AwpGbE99XT75VJto
+	q7Tak5DIT/J8DVIyRCsa/db6qkwEwG/Mae2miTe95upekFvjLycmzNk2ERWRoHGxA+gRg0
+	9w6BtmJ+qGCeIm0mKS50LpaDZVzGFdRx/AYZV9Kh8nSShWs+CGTqXxyQVc9pdtgZW6DcOJ
+	vsy96kev8o5HMZpeYOx/l14ApShn4aI5DXIWAe3q8tpuxM8k4H0KA69523GogQ==
+From: Miquel Raynal <miquel.raynal@bootlin.com>
+To: Vignesh Raghavendra <vigneshr@ti.com>, 
+ Tudor Ambarus <tudor.ambarus@linaro.org>, 
+ Richard Weinberger <richard@nod.at>, 
+ Keguang Zhang <keguang.zhang@gmail.com>, Vladimir Zapolskiy <vz@mleia.com>, 
+ Piotr Wojtaszczyk <piotr.wojtaszczyk@timesys.com>, 
+ Niravkumar L Rabara <niravkumarlaxmidas.rabara@altera.com>, 
+ Alok Tiwari <alok.a.tiwari@oracle.com>, Chen Ni <nichen@iscas.ac.cn>, 
+ Runyu Xiao <runyu.xiao@seu.edu.cn>, Frank Li <Frank.Li@nxp.com>, 
+ Pengpeng Hou <pengpeng@iscas.ac.cn>, Haotian Zhang <vulab@iscas.ac.cn>, 
+ Johan Hovold <johan@kernel.org>, 
+ =?utf-8?q?Uwe_Kleine-K=C3=B6nig_=28The_Capable_Hub=29?= <u.kleine-koenig@baylibre.com>, 
+ Rosen Penev <rosenp@gmail.com>, linux-mtd@lists.infradead.org, 
+ linux-kernel@vger.kernel.org, linux-mips@vger.kernel.org, 
+ linux-arm-kernel@lists.infradead.org, Frank.Li@oss.nxp.com
+Cc: imx@lists.linux.dev, vkoul@kernel.org
+In-Reply-To: <20260917204724.1289912-1-Frank.Li@oss.nxp.com>
+References: <20260917204724.1289912-1-Frank.Li@oss.nxp.com>
+Subject: Re: [PATCH 1/1] mtd: use dmaengine_get_dma_device() instead of
+ chan->device->dev
+Message-Id: <179034653501.1166139.9018677426507757712.b4-ty@bootlin.com>
+Date: Fri, 25 Sep 2026 16:28:55 +0200
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20260923-rbrue-suez-upstreaming-mtk-wdt-dual-mode-v1-1-0970852315e4@gmail.com>
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 8bit
+X-Mailer: b4 0.14.3
+X-Last-TLS-Session-Version: TLSv1.3
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260925_072407_165500_9EE7A460 
-X-CRM114-Status: GOOD (  13.93  )
+X-CRM114-CacheID: sfid-20260925_072910_899776_EC78E03D 
+X-CRM114-Status: UNSURE (   6.92  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -106,26 +88,26 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Sep 23, 2026 at 10:10:41PM -0500, Ryan Brue wrote:
-> When the bootloader leaves the watchdog enabled, probe only marks it
-> running and sets the timeout, so WDT_MODE keeps whatever the bootloader
-> wrote. The Amazon Fire HD 10 (2017) bootloader leaves dual mode with the
-> bark IRQ enabled, and no pretimeout is configured, so each timeout only
-> raises the IRQ and restarts the count: with the 20 s timeout systemd
-> sets, a hung system was reset after 37.95-39.76 s, and after 18.25-20.92 s
-> once IRQ_EN was cleared by hand.
+On Thu, 17 Sep 2026 16:47:06 -0400, Frank.Li@oss.nxp.com wrote:
+> Replace direct dma_chan::device::dev access with the proper
+> dmaengine_get_dma_device() for consumer API.
 > 
-> Program the mode as mtk_wdt_start() does, which also applies
-> mediatek,disable-extrst and mediatek,reset-by-toprgu to a running
-> watchdog; read those two properties first.
+> chan->device->dev is not always the device used for DMA mapping.
+> Some DMA engines support per-channel IOMMU mappings, so different
+> channels may use different DMA devices.  dmaengine_get_dma_device()
+> returns the correct device for each channel.
 > 
-> Fixes: bbece05c0d3a ("watchdog: mtk_wdt: Remove mtk_wdt_stop() in probe() to prevent the system freeze and it doesn't reboot by watchdog problem")
-> Assisted-by: LLM
-> Signed-off-by: Ryan Brue <ryanbrue.dev@gmail.com>
-> ---
+> [...]
 
-Applied.
+Applied to mtd/next, thanks!
 
-Thanks,
-Guenter
+[1/1] mtd: use dmaengine_get_dma_device() instead of chan->device->dev
+      commit: a018524a2ec96da5bb1965053967a20e0069ed9e
+
+Patche(s) should be available on mtd/linux.git and will be
+part of the next PR (provided that no robot complains by then).
+
+Kind regards,
+Miquèl
+
 
