@@ -4,69 +4,117 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A06B4C98321
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 25 Sep 2026 06:34:33 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 00A1CC9830D
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 25 Sep 2026 06:40:13 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=rUtj2Sr5gs9R557K5H+4iH70W6+BzWz3euZXf8iY86U=; b=UxLx/Alm1NVvpytmtDrdlHrhLD
-	zkhfreq42r4pYE33DKetXZCbjLm1ZDsyLM3iosYaTnquo1T6YBjTi7GcjPMbAPsAgyQXsOIxozK9r
-	WEm2pHQfK2FyKpDYAxtQjNy2PiVyH2OJwZzlEvAsrL7dIjDisRO7lUWJBfDvvOxVQRB1NYHq7DyQL
-	CLNgqVDeAY1HVbDaLY4IMPwFsJooMCVRwDTE5xyDHJb9rD6h3kwtxavJfk/+sLPyO3x5f+sedpftU
-	AZrXoNEzoIZurM7C41aeAFES9hnTbbHcZLHbpQCYSU4iyalcaNNMK2ieB1ymSQ3XKU7a2WCrPbJHc
-	Dp6J3fIA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=8Wx74CcjZN2KpLzFAPrGCL0wBHdALz/M9ECkC+f9nFw=; b=4Hf9aOIMD1DwebCeN+iObhxfeC
+	/s5baBXAyeUvDQutTuoWA6rWhcZV+9z/GfmQmTaUCehEg6HzJTXVxTTxHJdP9EnfDcPnhbR/9fMv3
+	QWMA90l01/pxb00D2Yj5GcoIXe3chC7aJ9rI/1GeVL3Zlh85GHZ2Y2bD8PfUTKuI80ozhACevhdX2
+	AtNFwi/EBcs4HwbXWOHab7Ez+EtcM7NhNtcHTWA5ortNvFL25cLi1Jd5dziejuSZbo60uw9GEk3NH
+	H/8ank0dPCuwexRrUCUSDyvgcmh7vtA0ZEr8+M4zU7Q9px9F0/6FB9VlqkjA00qSgxpnLyukAeGw9
+	JW5KWU9g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x9zVr-0000000Cko0-0GAQ;
-	Fri, 25 Sep 2026 06:34:27 +0000
+	id 1x9zbI-0000000ClTU-1jA4;
+	Fri, 25 Sep 2026 06:40:04 +0000
 Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x9zVp-0000000Cknh-32R6;
-	Fri, 25 Sep 2026 06:34:25 +0000
+	id 1x9zbE-0000000ClSs-1u0I
+	for linux-arm-kernel@bombadil.infradead.org;
+	Fri, 25 Sep 2026 06:40:01 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=In-Reply-To:Content-Type:MIME-Version:
-	References:Message-ID:Subject:Cc:To:From:Date:Sender:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description;
-	bh=rUtj2Sr5gs9R557K5H+4iH70W6+BzWz3euZXf8iY86U=; b=ABj0TqcNVWA11fM/YwiTMOV8F3
-	DHdHvVDITLy6y1dyRembvqXUbVsMKWxfMMttZYxbRbqdoMCBbUapSiPzBZn6yRNnq1ndO7qxyiplz
-	ZtJ+n3l1zVMxxY6LsSJBXUwVnuxgW235n7G+6jxUrXVr3hgyoi3a1lU0rxjJE/kKbSJr/qkDwb/m5
-	2nA1GNtzED6+O87yrMGtL+eyHdJ0fAdA0elw7fhv6JHmuuWYeCD/YDShr9zUDpJes7eIg7mLcn8oa
-	38qeGuMwJlnxk06CFQRm+kK4QgKAsUZsOT3rxkwHZ6o6y0faaO9yL0kymIbZURMJJr+U86qkNM4hp
-	TNEogjlw==;
-Received: from mail.8bytes.org ([85.214.250.239])
-	by desiato.infradead.org with esmtp (Exim 4.99.2 #2 (Red Hat Linux))
-	id 1x9zVl-0000000GeZx-32f3;
-	Fri, 25 Sep 2026 06:34:24 +0000
-Received: from 8bytes.org (p200300f6af404a000b03c3c046b119f0.dip0.t-ipconnect.de [IPv6:2003:f6:af40:4a00:b03:c3c0:46b1:19f0])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange ECDHE (prime256v1) server-signature RSA-PSS (2048 bits) server-digest SHA256)
-	(No client certificate requested)
-	by mail.8bytes.org (Postfix) with ESMTPSA id 62B4C1C7759;
-	Fri, 25 Sep 2026 08:34:17 +0200 (CEST)
-Date: Fri, 25 Sep 2026 08:34:16 +0200
-From: "Joerg Roedel (AMD)" <joro@8bytes.org>
-To: Daniel Drake <dan@reactivated.net>
-Cc: Will Deacon <will@kernel.org>, Robin Murphy <robin.murphy@arm.com>, 
-	Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
-	Conor Dooley <conor+dt@kernel.org>, Florian Fainelli <florian.fainelli@broadcom.com>, 
-	Broadcom internal kernel review list <bcm-kernel-feedback-list@broadcom.com>, iommu@lists.linux.dev, linux-kernel@vger.kernel.org, 
-	devicetree@vger.kernel.org, linux-rpi-kernel@lists.infradead.org, 
-	linux-arm-kernel@lists.infradead.org, nick.hollinghurst@raspberrypi.com, james.quinlan@broadcom.com, 
-	Jason Gunthorpe <jgg@ziepe.ca>, Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
-Subject: Re: [PATCH v6 0/6] Add support for Broadcom BCM2712 IOMMU driver
- (Raspberry Pi 5)
-Message-ID: <arYVR2QK4WPpTmTg@8bytes.org>
-References: <20260924-bcm2712-iommu-submit-v6-0-7b3cace86973@reactivated.net>
+	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:MIME-Version
+	:Message-ID:Date:Subject:Cc:To:From:Sender:Reply-To:Content-Type:Content-ID:
+	Content-Description:In-Reply-To:References;
+	bh=8Wx74CcjZN2KpLzFAPrGCL0wBHdALz/M9ECkC+f9nFw=; b=MAufHtVsoj6duAeiSPmf3LKVd+
+	m1FUd6ZcE9ZxHo5DCzzXks2L8mMPtO6cRkIHuXFA+WoDPdLGLYUqxDtT0PjC2mLvkTsPBwR3zDlbL
+	btVueUiqqAKdfm0pgbNUKdRBZ2DIarMe4N7h1K6gsPXXTGUROqv/HeOAZNgQ1o0z1X0OmqcsaPGHd
+	N5hrfYQh/NPvd+a1bS4AieBHxgGLYY41bT6kQ0ddy8Gg6BDqO8j6JIlUOrK4nCiZGTxnmEO5kukyX
+	Byai7QVuH74LuRRdvYFo1CCLHxzCkvM3rNql1wzj+LZndPYlmRZC5isHoRs09DgncAY/2H9oLcwlW
+	fmnExmPg==;
+Received: from mx0a-00069f02.pphosted.com ([205.220.165.32])
+	by desiato.infradead.org with esmtps (Exim 4.99.2 #2 (Red Hat Linux))
+	id 1x9zb9-0000000GemS-0QpG
+	for linux-arm-kernel@lists.infradead.org;
+	Fri, 25 Sep 2026 06:39:59 +0000
+Received: from pps.filterd (m0246627.ppops.net [127.0.0.1])
+	by mx0b-00069f02.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 68OLMsG63847423;
+	Fri, 25 Sep 2026 06:39:44 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=oracle.com; h=cc
+	:content-transfer-encoding:date:from:message-id:mime-version
+	:subject:to; s=corp-2025-04-25; bh=8Wx74CcjZN2KpLzFAPrGCL0wBHdAL
+	z/M9ECkC+f9nFw=; b=nUa5SS5TRMPNKD4rFZtDSqIinJhsGrNrwioh5MGQBw1GL
+	sHj78NFoIT9IFp8K8dbe9RogaWgfaXbuHZjSIbhGpnlVllDSwXQgrPioxpK60P6k
+	VNmW/Q2LEKhpa5rw5jpKPo3b1Oews1wnJRpERDdvOp/Ow9GbIidm9wgE9rRDGq5y
+	IIMtAzeQjK9ex7zhzS3tQwy/dOQv9/Vx5H1eyMBnBsUWBAkcfWWPtYtGvivFJd7/
+	qGuV+mzXPFRqHBe3NWjSOS7inp6wm4XkEvZJPUg0002qcbGRDqv//GkvgViMPOBa
+	cvpwD77QGAPMe42oKA35d2ipqm4XH6geJhnz89bJw==
+Received: from phxpaimrmta02.imrmtpd1.prodappphxaev1.oraclevcn.com (phxpaimrmta02.appoci.oracle.com [147.154.114.232])
+	by mx0b-00069f02.pphosted.com (PPS) with ESMTPS id 4gsjxb8xc2-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
+	Fri, 25 Sep 2026 06:39:43 +0000 (GMT)
+Received: from pps.filterd (phxpaimrmta02.imrmtpd1.prodappphxaev1.oraclevcn.com [127.0.0.1])
+	by phxpaimrmta02.imrmtpd1.prodappphxaev1.oraclevcn.com (8.18.1.7/8.18.1.7) with ESMTP id 68P6Yq7L023634;
+	Fri, 25 Sep 2026 06:39:43 GMT
+Received: from pps.reinject (localhost [127.0.0.1])
+	by phxpaimrmta02.imrmtpd1.prodappphxaev1.oraclevcn.com (PPS) with ESMTPS id 4gtegpxu13-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
+	Fri, 25 Sep 2026 06:39:43 +0000 (GMT)
+Received: from phxpaimrmta02.imrmtpd1.prodappphxaev1.oraclevcn.com (phxpaimrmta02.imrmtpd1.prodappphxaev1.oraclevcn.com [127.0.0.1])
+	by pps.reinject (8.18.1.12/8.18.1.12) with ESMTP id 68P6dgLM036692;
+	Fri, 25 Sep 2026 06:39:42 GMT
+Received: from ca-dev112.us.oracle.com (ca-dev112.us.oracle.com [10.129.136.47])
+	by phxpaimrmta02.imrmtpd1.prodappphxaev1.oraclevcn.com (PPS) with ESMTP id 4gtegpxu0a-1;
+	Fri, 25 Sep 2026 06:39:42 +0000 (GMT)
+From: Harshit Mogalapalli <harshit.m.mogalapalli@oracle.com>
+To: Steen Hegelund <Steen.Hegelund@microchip.com>,
+        Daniel Machon <daniel.machon@microchip.com>,
+        UNGLinuxDriver@microchip.com, Andrew Lunn <andrew+netdev@lunn.ch>,
+        "David S. Miller" <davem@davemloft.net>,
+        Eric Dumazet <edumazet@google.com>, Jakub Kicinski <kuba@kernel.org>,
+        Paolo Abeni <pabeni@redhat.com>, linux-arm-kernel@lists.infradead.org,
+        netdev@vger.kernel.org, linux-kernel@vger.kernel.org
+Cc: kernel-janitors@vger.kernel.org, error27@gmail.com,
+        harshit.m.mogalapalli@oracle.com
+Subject: [PATCH] net: microchip: vcap: stop scanning after deleting key field
+Date: Thu, 24 Sep 2026 23:39:36 -0700
+Message-ID: <20260925063937.963430-1-harshit.m.mogalapalli@oracle.com>
+X-Mailer: git-send-email 2.52.0
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20260924-bcm2712-iommu-submit-v6-0-7b3cace86973@reactivated.net>
+Content-Transfer-Encoding: 8bit
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1176,Hydra:6.1.134,FMLib:17.12.100.49
+ definitions=2026-09-25_02,2026-09-21_02,2025-10-01_01
+X-Proofpoint-Spam-Details: rule=notspam policy=default score=0 malwarescore=0
+ mlxlogscore=999 lowpriorityscore=0 spamscore=0 mlxscore=0 suspectscore=0
+ phishscore=0 adultscore=0 bulkscore=0 classifier=spam adjust=0 reason=mlx
+ scancount=1 engine=8.19.0-2609040000 definitions=main-2609250026
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwOTI1MDAyNiBTYWx0ZWRfX75AOeZb2Rkov
+ W4XinyGdG2OydliU3JylfdNGIAMNNE00n51FPootjAO5/wyElKh/UbE4yFoMSp0JnYWReA5489I
+ AVn2ri1JglkoicToQv1BUAJWV+ooLvrPmlp2zCj5BJjZol2ZfEgV5YSIGaOe7H3hXS+A70MZnEF
+ u3pwvwqyimTp7LTUxYcRZ+3jFP3QytyPFMfZG2XIaFG0JYBpGiu07scclTuB9QOA8ZGWQxzoulB
+ D8kJYFqVGJuc5kNwY5ZgIUZ4Nw6dYSKxKDGS7/fgkcKM7jNIfKospFwCbwUi4z4B0JXhoWd3yNu
+ oFSIn622bCXfgsxgp5bVn8XmEHbMLz1ywdFqhbyHdJ4O31nqlTgACqAREs8IGusmlKM6hAfVlGw
+ gfia59Z2TglYrcmbY8mbdFg0h1hjkZhYA1EQEDSaWLSCV7wE7TCbDqmOD9pAB50bZjPGxJVGgd6
+ hy4TWi6OTx5NzXsTgWw==
+X-Proofpoint-ORIG-GUID: H3bv3TOXvrw2tKZOqmCs9849OdC1-jvv
+X-Authority-Analysis: v=2.4 cv=UINIjyfy c=1 sm=1 tr=0 ts=6ab6172f cx=c_pps
+ a=OOZaFjgC48PWsiFpTAqLcw==:117 a=OOZaFjgC48PWsiFpTAqLcw==:17
+ a=VdqzKS8jKosA:10 a=VkNPw1HP01LnGYTKEx00:22 a=jiCTI4zE5U7BLdzWsZGv:22
+ a=RD47p0oAkeU5bO7t-o6f:22 a=VwQbUJbxAAAA:8 a=pGLkceISAAAA:8 a=yPCof4ZbAAAA:8
+ a=uVw-QqTyBSQbbWnki_UA:9
+X-Proofpoint-GUID: H3bv3TOXvrw2tKZOqmCs9849OdC1-jvv
+X-Proofpoint-Spam-Info: AW1haW4tMjYwOTI1MDAyNiBTYWx0ZWRfX40ygXbz5QkSY
+ 3fM645nqsrGRdY5a2IztYiU4rfgTZdGZkvnwSXZSSdtlcDWSGtC8f2DvXnLJ2CQQyOGVN1Grlef
+ Wz0vOgR1VfjbgLxcpO4NJK2PLb0LyAT2B9br/72NOD/cw66PolZa
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260925_073422_425264_B7C0443C 
-X-CRM114-Status: GOOD (  10.11  )
+X-CRM114-CacheID: sfid-20260925_073956_132138_7EDBFD30 
+X-CRM114-Status: GOOD (  15.73  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -81,22 +129,43 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Sep 24, 2026 at 10:10:50PM +0100, Daniel Drake wrote:
-> Daniel Drake (6):
->       iommu_pt: Fix test_pgsize_boundary() failure on narrow-OA formats
->       dt-bindings: iommu: Add Broadcom BCM2712 IOMMU
->       dt-bindings: display: brcm,bcm2835-hvs: Document iommus property
->       iommu/generic_pt: Add Broadcom BCM2712 page table format
->       iommu: Add Broadcom BCM2712 IOMMU driver
->       arm64: dts: broadcom: bcm2712: Add GPU IOMMU and IOMMU cache nodes
+The only call outside the KUnit tests is in
+sparx5_tc_add_rule_copy(), which passes a fixed key list with no
+duplicate entries. Therefore, the potential double-free is not
+currently reachable in tree.
 
-Something got lost along the way, I didn't receive patches 5 and 6. While patch
-5 made it to lore at least, patch 6 is missing there as well.
+However, vcap_filter_rule_keys() is exported and does not require its
+key list entries to be unique. If a future or external caller supplies
+the same key at another position that the inner loop visits, it calls
+list_del() and kfree() a second time on the freed field, leading to a
+potential double-free.
 
-Can you please investigate and resend the full series? As Florian requested I
-will then apply only 1-5.
+Break the inner loop after removing a matching field. The outer safe
+list traversal continues to process the remaining rule fields.
 
-Thanks, 
+Fixes: 465a38a269e9 ("net: microchip: sparx5: Support for copying and modifying rules in the API")
+Reported-by: Dan Carpenter <error27@gmail.com>
+Closes: https://lore.kernel.org/all/ahs-lCAXXikkaHky@stanley.mountain/
+Signed-off-by: Harshit Mogalapalli <harshit.m.mogalapalli@oracle.com>
+---
+ drivers/net/ethernet/microchip/vcap/vcap_api.c | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
 
-	Joerg
+diff --git a/drivers/net/ethernet/microchip/vcap/vcap_api.c b/drivers/net/ethernet/microchip/vcap/vcap_api.c
+index 788c0728d763..0f8d98f2094d 100644
+--- a/drivers/net/ethernet/microchip/vcap/vcap_api.c
++++ b/drivers/net/ethernet/microchip/vcap/vcap_api.c
+@@ -3527,8 +3527,8 @@ int vcap_filter_rule_keys(struct vcap_rule *rule,
+ 				if (key == keylist[idx]) {
+ 					list_del(&ckf->ctrl.list);
+ 					kfree(ckf);
+-					idx++;
+ 					err = 0;
++					break;
+ 				}
+ 		}
+ 	}
+-- 
+2.52.0
+
 
