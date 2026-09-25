@@ -4,108 +4,97 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5D057C98318
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 25 Sep 2026 00:07:56 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5B0C3C9831E
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 25 Sep 2026 00:09:21 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:References:Cc:To
+	:From:Subject:Message-Id:Date:Content-Type:Content-Transfer-Encoding:
+	Mime-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=QtjK9f50/jK8SHecvHOqY5pCCQhpN2otdhXEwvLzMjs=; b=caurXhaia2tq4V5n+agykzur8T
-	Mtmma/417T6QJuKkMSM2VzeT8jxN6yGncKlL7EIfSvX2/NgBL9g5no2NgHV9VGuwEloZg93Us0px+
-	McliYxHXlr1I7U7yIjLDdT4d/3Mw4MD2ZR5bBrjJZ0FUV1Q7htZh0js+j4M9t1G5dB7EBnnM6aTZH
-	qFASfGGrWztca/X7cQQ8cp3Jf1ceT39qtFZ3wTViOxR5m2Mg+13/5dRAbl1kWMXiGct5Dd01sGHQE
-	gjHVk5FXzis1+OfwFw7XEbPo+WKM0DZQn4toUjJFWWwwkM0hO8UAR6gqIqYnqDo6TGJ2ahzIeH+Vm
-	wmGsWdsw==;
+	bh=x/1axvX4nN0CV5MjaicWKNBMunNziYiH3mIqVnl5Qs4=; b=u4uRUTb5ldcvGw5kaXb91T8rbH
+	Rtz8Adx8v1zkujn3AEdkKZY4sJA63vgUYfHemKjnWrO18uqY/iKmL2mzCYxFb0KQyuWeVsB/FD/pp
+	EkUlVV5/bOEql1VxSfaHRZSW7DSRTbaBU1rTlzpAVXmYL2W85LBiGViqxu4fI30jvF+s/aODhVrxv
+	jRxZbxDSeTRa8vccuFScMPAMurpRbGBOEy/2x7R++cGmmoGOYwlMpICQeH+RsehiD5GW8gnceVyx0
+	LNppoNOJnVoEEYtImMB0OhAMv8Fs13Mtmt+1xq+WAt6vcjswhBKHBm03wEDpJCIv/YKwUIYuLs8sW
+	hLHTripA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x9tTh-0000000CR2e-3MRA;
-	Fri, 25 Sep 2026 00:07:49 +0000
-Received: from us-smtp-delivery-124.mimecast.com ([170.10.129.124])
+	id 1x9tV4-0000000CRB4-48K1;
+	Fri, 25 Sep 2026 00:09:14 +0000
+Received: from mail-dy2-x19.google.com ([2607:f8b0:4864:36::19])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x9tTe-0000000CR1o-3UB0
+	id 1x9tV2-0000000CRAf-2XG1
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 25 Sep 2026 00:07:48 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1790294865;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=QtjK9f50/jK8SHecvHOqY5pCCQhpN2otdhXEwvLzMjs=;
-	b=F3awLiiBniggHGjUD8BAJfzOzOFE9VrPiYefLhSvcIuJ5/TMVOWNqTfsueWn1c3PqhQ8oa
-	3B3rdmOMeMonmuVcvPHG9hf+67XUp/DAr/f58F7s+2tHnrlCovmGH6hCNDXW47zBcUWmJY
-	SOEjdJ6UqEFUlU+C5zalai+n5LPreqA=
-Received: from mail-pj1-f71.google.com (mail-pj1-f71.google.com
- [209.85.216.71]) by relay.mimecast.com with ESMTP with STARTTLS
- (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
- us-mta-7-LR9nRyqLM6eSpipunVaD4Q-1; Thu, 24 Sep 2026 20:07:43 -0400
-X-MC-Unique: LR9nRyqLM6eSpipunVaD4Q-1
-X-Mimecast-MFC-AGG-ID: LR9nRyqLM6eSpipunVaD4Q_1790294863
-Received: by mail-pj1-f71.google.com with SMTP id 98e67ed59e1d1-38f97b3f853so448173a91.3
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 24 Sep 2026 17:07:43 -0700 (PDT)
+	Fri, 25 Sep 2026 00:09:14 +0000
+Received: by mail-dy2-x19.google.com with SMTP id 5a478bee46e88-33e46a156f4so151334eec.0
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 24 Sep 2026 17:09:12 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=nexthop.ai; s=google; t=1790294951; x=1790899751; darn=lists.infradead.org;
+        h=in-reply-to:references:cc:to:from:subject:message-id:date
+         :content-type:content-transfer-encoding:mime-version:from:to:cc
+         :subject:date:message-id:reply-to:content-type;
+        bh=x/1axvX4nN0CV5MjaicWKNBMunNziYiH3mIqVnl5Qs4=;
+        b=RXQy1Bg0BmFi5PCG0VscOGEInjLwFKvz7LOgN6coh5yJ5XEnKPcjfmYnqESItTfLTf
+         LAa0Sz7EVRXCoUvjGd4qQdz41/a4cntoq0MY+ddIlEGPggWzdOKKeYijf97zWhlSYWHE
+         n3WhpmpxOSDY7J8nP2lOG+2xK5pqzVqiu4rAbSkLckmmdfvlGBng/87eV2W0Yr1uQceJ
+         ssFJBlEiUciMqnB5M4wC7o67Zp43R0KUxTRlD2+w6ClzZT5QFpN6M2CfzFnuL5oSMi3S
+         o3ae0f4pZkzG9ETf+ccDzmwIBDFR6jDYGiRWT6iTlEKyz/a0DCSXGv9S8+mVXq8mrD3R
+         OrMQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1790294863; x=1790899663;
-        h=content-transfer-encoding:content-type:in-reply-to:from
-         :content-language:references:cc:to:subject:user-agent:mime-version
-         :date:message-id:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=QtjK9f50/jK8SHecvHOqY5pCCQhpN2otdhXEwvLzMjs=;
-        b=XK0W7D6hxQOjPwcbSmCPamdaqR5ro/0llQAhgYJVSfqRr7YeyVWfFYFfFlURNoBQaR
-         8fnnKqlqIQPAi1ST6/Yr6YUD+lZQ8/3CpC+1+X91NtLU262wAdfIAUPZN4q04jWnJxRd
-         WdTn1bI/aoAiIC/WBeMBH/Ch3W7u/tWXMXR5NTsYmeUWjZhinLrWpX0+ZxP85BgV+JZp
-         2W62VpuOtnhiPmkR2GaUGp6YZaFI581450DJgZcL+6NqNCqfIdHUu+veiePleQWjaslr
-         /8vv4SMs/qGotFeZVjg2Hmi1rKjNnhfOv/MMi3OML22a9mjyfSLT4iLWNkjOkmNTc4Ye
-         n4wA==
-X-Forwarded-Encrypted: i=1; AKwUvBxDHoEA3UHcU4Eh1eEYzpjUAle9P+7/O40ABEXRIIPPcexQzeE9MoP9P0Gd2QmGUAevIzVLV3xC5HtBbIW/p+Mm@lists.infradead.org
-X-Gm-Message-State: AFuF++muKMUgdS3UNZaWEHu7CuX9Db+AT3bSVd7n62Sr2Sd73LbiRyGL
-	pZ2HPXXyLy9V8RPy/UHPuufXZgmce7tcmdo/b29Xo9td7sICPxARXJDPqvx+EOP2u6fS5/75HX1
-	6+3qxTiJKqm7vGl8dKg2WRU1qyCvlfTrVdkutC2gsvpOxzvv5hka2PGB2b5Hx6iK6tBrQpLGMuq
-	Pz
-X-Gm-Gg: AYBFou3gTtJn0FJdP9MZuYnV4zqdtXad9nYIFmYmrfOZAOTuRJp5u0knNOpFlw2p6G+
-	wCReuGtysmvqtDvUNtF7/WIfAifqHT+8uZL6nrFedj4PmjKsEU7r5cm+IVRB1AdhWBu+Bpykyk9
-	mqvj4X5zR53NrK0FI7s0wMBNsBNkX3aBbHM1mr2cKqFeZP6nZy77vTiKw6WqkrUbbYz+i2Tc/mX
-	poorowR5l0fa8xZj2qdNqgQyV+hJHj6Tlp3nVYRJoDsCseZr0ei0sUAojWi0SHkksQO7m8k46d6
-	8TiFXUv4LllfPr+mgfL5qrKAvb45zDJb04FwaqwN/mzXeRdmGzbZ5dGOuP33wy9EnYKaG6NViYI
-	Fle8xR8ypLcZGi8gD5rFO2717Fk+5fWyQlYIjuSfUxQ==
-X-Received: by 2002:a17:90b:49:b0:3a0:9ed5:5420 with SMTP id 98e67ed59e1d1-3a0bb6139bdmr380654a91.44.1790294862465;
-        Thu, 24 Sep 2026 17:07:42 -0700 (PDT)
-X-Received: by 2002:a17:90b:49:b0:3a0:9ed5:5420 with SMTP id 98e67ed59e1d1-3a0bb6139bdmr380627a91.44.1790294861906;
-        Thu, 24 Sep 2026 17:07:41 -0700 (PDT)
-Received: from [192.168.68.52] (n175-34-8-244.mrk21.qld.optusnet.com.au. [175.34.8.244])
-        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-3a0b9355e49sm997611a91.4.2026.09.24.17.07.35
+        d=1e100.net; s=20260707; t=1790294951; x=1790899751;
+        h=in-reply-to:references:cc:to:from:subject:message-id:date
+         :content-type:content-transfer-encoding:mime-version:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=x/1axvX4nN0CV5MjaicWKNBMunNziYiH3mIqVnl5Qs4=;
+        b=lxKCeI7Q0FtXv2LTFYD2BQ/Sy8SCHmSK6M7phupe0q7m4JaimXxRIWrBTPFxhlgQ/n
+         NDNffN/iZkIhITiW+Kd39tVMyH8lv2LQF7p7qS/K7Nh6Jp0mCRFn9vsCYSFCvkQKGsUC
+         aIqFcF79Fqm1GbV3cjrL3sMVPBaSGPB6oZc249trobwWeQnclWIT6uDr2pwcTevxHg2c
+         fL4wo+/d4MpsaHqHnjTTZ5W5+F4L15P3IpJKhNWR/FPjWNh6KFEh9pio6oDGmr7O9yGz
+         NylT42ur45bp4IkSj5qcNdYwKCMpW0Hftsr7tuZv/SLaE0SNkLeAovEwytG+CODPnhsA
+         e8TQ==
+X-Forwarded-Encrypted: i=1; AKwUvBzNHLnd8g/m0SmU7i0LAKcQVXIOpHBlHefN8Nl9EQOlCmitc3asGGQw7TAv+9d0YXV9jrnNs3lUE4wtVbtahMBp@lists.infradead.org
+X-Gm-Message-State: AFuF++mp21PMPA729nqCVhHyea4RUcziXrKzQrqGFN/noO80ctEonOLx
+	7bTWOVuXqfi38zRgBoqAiwWzuvea2g0vPk5OvpmRhe6yUwTo57pkZeubb2H00WX74uY=
+X-Gm-Gg: AYBFou0Xi/uxr08nVaiDHOxuqV1jbYB9iAuq1LM6poWBiBlifX9VzM8MhwURqW0Z94B
+	4aXRVJ6L0fC+7w7/m+AWHAfr7Ifw4IUh5reIa4Aa1XU46+nVXPYkM+Yd745+zNWf0BJMzw3srqv
+	6FHGclNl+xVdr8HhzYN+HbVsshziz+yiYkaPmWxcx7wHXAXX7BSjC+AYb0GeH9NyAevemXs1bhq
+	gDO/U+zhAA0VjIJ2yy7FQecJfdg2mdMqAA5IfTb8KjeciMFcP4uD+H6acSnnm/H3hImE6rh8ocl
+	Rwr9WOrh5+jCYuDbwG2On4Cw40k0rstkTpsBNKksHEn7FZXBTqoD7x3aqSrYwvP1EOAxpaVQI2q
+	Ls8KDxRoo7tto2Qv6qhrLZ+60oazAxvUHmQ8/cQa1c6bc8fb8qD5pnVpGKoBnAMP2mhgzav6TmD
+	SKKWq/pIm6HOpWgSrbzPgaFtqVpwYcAnXclfgc2Bw/rvlQFWvxUIi5drOc71SsGXR0NiGdLwM=
+X-Received: by 2002:a05:7300:8aa3:b0:340:f935:5fa with SMTP id 5a478bee46e88-340f9350b79mr1651254eec.40.1790294951369;
+        Thu, 24 Sep 2026 17:09:11 -0700 (PDT)
+Received: from localhost ([50.145.100.174])
+        by smtp.gmail.com with ESMTPSA id 5a478bee46e88-341463ec3ecsm1874059eec.31.2026.09.24.17.09.10
         (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Thu, 24 Sep 2026 17:07:41 -0700 (PDT)
-Message-ID: <a3984ac2-ca04-4e46-87e9-6277491acf7c@redhat.com>
-Date: Fri, 25 Sep 2026 10:07:34 +1000
-MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v19 6/7] firmware: arm_rmm: Ensure the RMM has GPT entries
- for memory
-To: Suzuki K Poulose <suzuki.poulose@arm.com>, kvm@vger.kernel.org,
- kvmarm@lists.linux.dev
-Cc: maz@kernel.org, will@kernel.org, catalin.marinas@arm.com,
- linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- steven.price@arm.com, aneesh.kumar@kernel.org, oupton@kernel.org,
- joey.gouly@arm.com, tabba@google.com, yuzenghui@huawei.com,
- linux-coco@lists.linux.dev, gankulkarni@os.amperecomputing.com,
- sdonthineni@nvidia.com, alpergun@google.com, fj0570is@fujitsu.com,
- WeiLin.Chang@arm.com, lpieralisi@kernel.org, enju.kohei@fujitsu.com,
- sudeep.holla@arm.com, jonathan.cameron@oss.qualcomm.com
-References: <20260924135201.850038-1-suzuki.poulose@arm.com>
- <20260924135201.850038-7-suzuki.poulose@arm.com>
-From: Gavin Shan <gshan@redhat.com>
-In-Reply-To: <20260924135201.850038-7-suzuki.poulose@arm.com>
-X-Mimecast-Spam-Score: 0
-X-Mimecast-MFC-PROC-ID: 5M7UytwIzDVDKp587pQ8PI98nMXaeFV1-a1Uiuxre4U_1790294863
-X-Mimecast-Originator: redhat.com
-Content-Language: en-US
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
+        Thu, 24 Sep 2026 17:09:10 -0700 (PDT)
+Mime-Version: 1.0
+Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset=UTF-8
+Date: Thu, 24 Sep 2026 17:09:10 -0700
+Message-Id: <DLNYLDZ4WO92.16A9I7PRTH3WL@nexthop.ai>
+Subject: Re: [PATCH v6 1/3] i2c: xiic: preserve PEC byte length in SMBus
+ block read setup
+From: "Abdurrahman Hussain" <abdurrahman@nexthop.ai>
+To: "Andi Shyti" <andi.shyti@kernel.org>, "Abdurrahman Hussain"
+ <abdurrahman@nexthop.ai>
+Cc: "Michal Simek" <michal.simek@amd.com>, "Wolfram Sang"
+ <wsa+renesas@sang-engineering.com>, "Raviteja Narayanam"
+ <raviteja.narayanam@xilinx.com>, "Wolfram Sang" <wsa@kernel.org>,
+ "Manikanta Guntupalli" <manikanta.guntupalli@amd.com>, "Shubhrajyoti Datta"
+ <shubhrajyoti.datta@amd.com>, <linux-arm-kernel@lists.infradead.org>,
+ <linux-i2c@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
+ <stable@vger.kernel.org>
+X-Mailer: aerc 0.22.0
+References: <20260923-i2c-xiic-v6-0-3a15b6397f5a@nexthop.ai>
+ <20260923-i2c-xiic-v6-1-3a15b6397f5a@nexthop.ai>
+ <arWC6PFh3YVgU1Pd@zenone.zhora.eu>
+In-Reply-To: <arWC6PFh3YVgU1Pd@zenone.zhora.eu>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260924_170746_949643_360E850F 
-X-CRM114-Status: GOOD (  23.80  )
+X-CRM114-CacheID: sfid-20260924_170912_684787_66BEF0DF 
+X-CRM114-Status: GOOD (  16.57  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -120,74 +109,71 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 9/24/26 11:52 PM, Suzuki K Poulose wrote:
-> From: Steven Price <steven.price@arm.com>
-> 
-> The RMM maintains the state of all the granules in the system to make
-> sure that the host is abiding by the rules. This state can be maintained
-> at different granularity, per page (TRACKING_FINE) or per region
-> (TRACKING_COARSE or TRACKING_INTERMEDIATE). The region size depends on the
-> underlying "RMI_GRANULE_SIZE". For a "coarse"/"intermediate" region,
-> all pages in the region must be of the same state, this implies we need to
-> have "fine" tracking for DRAM, so that we can delegate individual pages.
-> 
-> For now we only support a statically carved out memory for tracking
-> granules for the "fine" regions. This can be extended in the future to
-> allow modifying the tracking granularity and remove the need for a
-> static allocation by the firmware.
-> 
-> Similarly, the firmware may create L0 GPT entries describing the total
-> address space. But if we change the "PAS" (Physical Address Space) of a
-> granule, then the firmware may need to create L1 tables to track the PAS
-> at a finer granularity. Linux therefore checks if the platform firmware
-> manages the PAR region. i.e., the firmware is in charge of managing the
-> L1 GPTs (creation and the required memory for the GPT tables - via static
-> carveouts) without host intervention. Support for dynamic GPT creation by
-> the host will be added later.
-> 
-> If the firmware requires us to manage the tracking or GPT memory,
-> deactivate the RMM and reclaim any memory donated at RMM activation.
-> 
-> Apply the same checks when hotplugged memory is brought online.
-> 
-> Signed-off-by: Steven Price <steven.price@arm.com>
-> [ Switch to RMI_GPT_L1_INFO for checking GPTs and deactivate RMM ]
-> Co-developed-by: Suzuki K Poulose <suzuki.poulose@arm.com>
-> Signed-off-by: Suzuki K Poulose <suzuki.poulose@arm.com>
-> ---
->   Changes since v19:
->       * Avoid mixing gotos with __free cleanups for arm64_init_rmi()
->   Changes since v18:
->       * Handle buggy RMM to make forward progress for RMI_GPT_INFO and
->         RMI_GRANULE_TRACKING_GET
->       * Make sure the memory ranges are not inverted and reject such ranges.
->       * Move granule_tracking_get/gpt_info wrappers closer to the callers
->         Drop "inline", let the compiler do its job
->   Changes since v17:
->       * Move wrappers that may not be used elsewhere, out of arm-rmi-cmds.h
->   Changes since v16:
->       * Check fine tracking and create L1 GPTs for hotplug-added memory.
->       * Clarify the L1 GPT setup and move the explanatory comment.
->       * Switch to using RMI_GPT_INFO command for checking the GPTs.
->       * Deactivate the RMM and reclaim the memory if we can't proceed.
->   Changes since v15:
->       * Skip firmware-reserved NOMAP memory in rmi_init_metadata()
->       * Handle negative error codes from wrappers.
->   Changes since v14:
->       * Move the implementation into drivers/firmware/arm_rmm.
->   Changes since v13:
->       * Moved out of KVM
-> ---
->   drivers/firmware/arm_rmm/rmi.c | 218 ++++++++++++++++++++++++++++++++-
->   include/linux/arm-rmi-cmds.h   |   2 +
->   2 files changed, 219 insertions(+), 1 deletion(-)
-> 
+Hi Andi,
 
-With Jonathan's comments addressed:
+On Thu Sep 24, 2026 at 1:09 PM PDT, Andi Shyti wrote:
+> what if rxmsg is 1? Before this could never happen because we
+> were checking for rxmsg_len =3D=3D 0 or 1 and we were ending up here
+> for values greater than 1.
+>
+> In patch 2 you fix things, but we don't want to have dependencies
+> between patches.
+>
 
-Reviewed-by: Gavin Shan <gshan@redhat.com>
+Confirmed. The widened condition makes the else branch reachable with
+rxmsg_len < 2, where rfd_set =3D rxmsg_len - 2 wraps the u8. Traced on
+hardware against a zero-length block read, sweeping pec_len:
 
-Thanks,
-Gavin
+  pec_len:             0    1     2      3
+  v6 patch 1 rfd_set:  0    0    254    254
+  v7 patch 1 rfd_set:  0    0     0      1
+
+It doesn't actually hang on my boards -- 254 lands in the 4-bit RFD
+field as 14, and both slaves I have keep clocking past the end of the
+block, so the FIFO still reaches 15. The programmed value is wrong
+regardless.
+
+Restoring the old "(rxmsg_len =3D=3D 1) || (rxmsg_len =3D=3D 0)" isn't righ=
+t
+either: pec_len isn't limited to 0 or 1, because i2c-dev sets msg->len
+from caller-supplied buf[0]. At rxmsg_len =3D=3D 1, pec_len =3D=3D 2 the pa=
+dded
+branch would record smbus_actual_len =3D 4 while draining only 3.
+
+So v7 moves the bounds into patch 1, where the arithmetic is introduced:
+
+  - the guard becomes (rxmsg_len + pec_len > IIC_RX_FIFO_DEPTH), which
+    is what keeps rfd_set inside the 4-bit field;
+  - the else branch becomes rfd_set =3D rxmsg_len + pec_len - 2, identical
+    to the old expression at pec_len =3D=3D 0 and unable to underflow, sinc=
+e
+    the padded branch already takes everything below MIN_LEN total.
+
+Patch 2 is then just - 2 to - 1. Resulting tree is identical to v6.
+
+I also finally exercised the atomic trim you asked for in v5, by routing
+transfers through xiic_xfer_atomic: it fires, and block lengths 0 to 32
+read back correctly on that path.
+
+Two notes from the per-patch run. Unpatched, pmbus_core creates no mfr_*
+files for these devices and every PEC block read returns -EIO; with the
+series they read correctly. But patch 1 alone isn't observable
+end-to-end (patch 3's -EIO masks it), and patch 2 changes nothing I can
+measure on my two slaves -- its bug needs one that NACKs promptly rather
+than streaming.
+
+While I have your attention: the other xiic patch, "i2c: xiic: restore
+non-managed runtime PM to fix clk WARN flood", is still unapplied. Andy
+acked it on 10 Sep and the review comment it had is closed. It fixes a
+regression from my own 50c63491ff26, which is in both v7.1 and v7.2, so
+7.3-rcX would be a good target if it looks right to you.
+
+  https://patch.msgid.link/20260821-i2c-xiic-restore-runtime-pm-teardown-v7=
+-1-954e06765144@nexthop.ai
+
+Unrelated, for later: smbus_block_read is only cleared in the BNB
+handler, which the atomic path never reaches.
+
+Abdurrahman
 
 
