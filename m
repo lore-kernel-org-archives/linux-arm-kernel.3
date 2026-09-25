@@ -4,94 +4,85 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D6508C9830D
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 25 Sep 2026 08:56:38 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 40AECC9830D
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 25 Sep 2026 08:57:29 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:References:Content-Type:
+	Content-Transfer-Encoding:In-Reply-To:Cc:To:Subject:From:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=j1v+S80dUo//p+15Rqn0T4DE2Wzaj20kwbdF2DBjtus=; b=0kK7MEeSDQWl42mrgorjnj37fa
-	+4+/U9oEIGn72U4JbPsWoeLnFJ7iO5lMSDl/MA08qM8YUDQ+QRsv+HcrIkdw9sNAHQyUvUiZs4bQk
-	hlC5UqvxUZ094oVAYzzngTIST7+qOs0xsDWk2m8kITkrgwSIg6kx/fjCR/lDShe4iNhbFs4eyrXxl
-	0N9EZSGGAPxjfdZfVaLhMwicg8KL8bLDNGmdBnjGb2AjiTj5r+8kUiUCARxGhjoEFie6VLinARBOA
-	MheTKrgh84iwtaJKNExcTNN+9D08H7Vhl+gEQOUQR8edhTFpnezeFcyU4CpTlK8qi4iJdNQWBtmIX
-	2XT+JUTg==;
+	bh=fRkS/AwRvXfqS9hACKPrCrxlhkEVLAdRbTDbRYWa8VU=; b=yWfQ6sFLWlTaxbJVaBe4fJOh+2
+	ylkMBWnnAf4gIU+Zj1YMP1X5Dhb69f3sker6OcWsx/qKUouM8Lno0CsZpfspdYyKK9Mdl6a+Uto4Q
+	BVfFtpr6X2DSVFP6hRdF8wVY0NQYd+QoG7cJG6W1QD0iGW5e4PdhcFTIgq+9/IsM3vCz+2xHK1rSP
+	p8GK1qF2QV1k0OwyWe4ExfGoC44lSw65AUFklQQq4Yf9Ai6DWuiPuTnMg8sBaI4fxZlZIFsKyrhIh
+	CNsy1NFcNdo1xh5A72nrfM27jWzXv4qIgI/Ntf/Zq3MCe6gT7tJiW1IduziL2JKMRheEgRCvRrcIn
+	5jnrHj9A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xA1jL-0000000CxNU-2YVu;
-	Fri, 25 Sep 2026 08:56:31 +0000
-Received: from mail-pj2-x10.google.com ([2607:f8b0:4864:39::10])
+	id 1xA1k9-0000000CxSG-38BH;
+	Fri, 25 Sep 2026 08:57:21 +0000
+Received: from mailout2.w1.samsung.com ([210.118.77.12])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xA1jI-0000000CxMh-1DoQ
-	for linux-arm-kernel@lists.infradead.org;
-	Fri, 25 Sep 2026 08:56:29 +0000
-Received: by mail-pj2-x10.google.com with SMTP id 98e67ed59e1d1-396ccda24a3so434022a91.0
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 25 Sep 2026 01:56:27 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1790326587; x=1790931387; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=j1v+S80dUo//p+15Rqn0T4DE2Wzaj20kwbdF2DBjtus=;
-        b=c8gDkl+alU2K837p8DN5YY2Jk0KlowBz1qUU93kP+jtYfVmm4Se4B+KJ/pw2BlZkv9
-         eOk+RkATKxnORh3oFeZf3XSUrZeu9yoGxDtIS0XJNfJkDBqlV8Yh1UsY8aL/9c/MrUpl
-         bYMzqaIgxksMt0pNB5sH5fqzgtf2cwAbZhEFD5VeFe0KZvt1Ed7/YAB//5Tm6m5SU8ki
-         krls3HQQsoNjh/u+DHF5lefTBX86W20+xb3qwSlW5ZVkM8GexYwrthhR86/8Csai+Lu7
-         ZC3zJOIXae0kOWKVTrXOXuZTi9PqItRW0nlneRT78wuYw5mS52IOLpVXSzwipBYG+QYH
-         pekQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1790326587; x=1790931387;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=j1v+S80dUo//p+15Rqn0T4DE2Wzaj20kwbdF2DBjtus=;
-        b=mrT6YZGkgd/niG0SNEjhJDDx3kQEvOdw5105IZOspGOQ78Qk0+MxzCWUkt7D+AYxUe
-         BW3OWB2lmKpiGyYEG2pEtX/1dEMP1WoS19dLWfj0sPHuGKdhqr65oqJLCITrMA4D/L8H
-         2Uk4uuduAejVJc97Fr/bBD9wBw2bZKZmCmj28Cdo1QUjDpxp8T7OmWpGA+LrtwXfbfKf
-         o/eatpdVcfl3AbbWlffY0qLrTLYhVbOckzk+WKyyU2Pa4Tj0Gm/rWqxgRjPVCNQYYKDe
-         HIUBqOaPyag+vegExFTo0DD9qNpfcnsl6lkH5rjvKyipO+mov2/omqGyORU/bN3UczBF
-         nLJw==
-X-Forwarded-Encrypted: i=1; AKwUvBzDPIyg/tQezpkFUEAmGVwiGX2COMQvlvNbRxGYMsynpSpRREwRuIthZCvDKYZUwEqHFPjOH1Pd8+4K6hfygYQR@lists.infradead.org
-X-Gm-Message-State: AFuF++m0mG97kRCO7ARYteFqxYqBFXjLGbwVlIb28HkjwZM6Qsw9czXN
-	rdq8+R/AGidN4rUdHTdKM5rpiSoWS2rniOgc+xWExozvlcQEoiiHRfuM
-X-Gm-Gg: AYBFou3d1FRhaaxYlqa/5r8qi4NhFC4Mm1K0XIFoEQABL+pZTPtb+AQ7bmp0Hns+awK
-	k0YsS5TLmaRviL8CxtluUYlIrDJGo8kLOnTePP1ESpxC6/r5tUmh7HFn1H7xxGwDtxTEwEsGpNj
-	y0tyrLSCH40ArKG+qrUF/h2PrXLmNp1LLNWszRPPls0v8dOdODF2Gs3c4l7lOZe27nKnUWOlsCY
-	riPPu7pFla2KIoYhip6QBSs2f/u5bbFJEuPEKcNsNJVy3sVuFb2T87ZyVwT/0ti+75cY+zXSXK+
-	UA7nZgFXUM226sAWPCCkSLPzLJWMbNdXRuluWyivJbOuFw6JQkfriahba/LO8KOOBmwRo/t6Fzl
-	M+BsePqvj6yTkfv9LnlhOM7DsocLtXjwcXM9hc4sWz9UoKNg8Rvc5q1lv/LNoyDFIhNVmCzDGES
-	9LQP9yJ3ysudMIH9+yDWbxptSibf7O5Gl/vErmFPTg5iuJGPYmT5dpedULH+aECemZDf+vNMfk9
-	NkZNQPY78IPMxtccc7kmhZipAtfcQjKX19vCPYI9p+htDHSR4yN6/7mJchcdV+ULa2U7/D4c12K
-	YhRni0kn1bAUwyvjv+UiOT7lF3hW2IOuR38lK6nYYiFNqUguzgdGRZOwkgr5
-X-Received: by 2002:a17:90b:28c5:b0:39e:6a81:c923 with SMTP id 98e67ed59e1d1-3a098729524mr3899330a91.22.1790326586359;
-        Fri, 25 Sep 2026 01:56:26 -0700 (PDT)
-Received: from spider.bream-herring.ts.net ([103.6.151.236])
-        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-3a0976cacbesm9381069a91.13.2026.09.25.01.56.23
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 25 Sep 2026 01:56:25 -0700 (PDT)
-From: Matthias Goergens <matthias.goergens@gmail.com>
-To: maz@kernel.org
-Cc: oupton@kernel.org,
-	fuad.tabba@linux.dev,
-	joey.gouly@arm.com,
-	seiden@linux.ibm.com,
-	suzuki.poulose@arm.com,
-	yuzenghui@huawei.com,
-	linux-arm-kernel@lists.infradead.org,
-	kvmarm@lists.linux.dev
-Subject: [RFC PATCH] Documentation/process: Add a maintainer entry profile for KVM/arm64
-Date: Fri, 25 Sep 2026 16:56:21 +0800
-Message-ID: <20260925085621.562448-1-matthias.goergens@gmail.com>
-X-Mailer: git-send-email 2.55.0
-In-Reply-To: <875wzu4vuv.wl-maz@kernel.org>
-References: <20260924033536.3624334-1-matthias.goergens@gmail.com> <877bkb3zjq.wl-maz@kernel.org> <20260924083036.1744194-1-matthias.goergens@gmail.com> <875wzu4vuv.wl-maz@kernel.org>
+	id 1xA1k4-0000000CxRU-26Sf;
+	Fri, 25 Sep 2026 08:57:20 +0000
+Received: from eucas1p1.samsung.com (unknown [182.198.249.206])
+	by mailout2.w1.samsung.com (KnoxPortal) with ESMTP id 20260925085711euoutp023034b78e8628550a3ae5d7840b37570c~YhJYCLvL92670226702euoutp022;
+	Fri, 25 Sep 2026 08:57:11 +0000 (GMT)
+DKIM-Filter: OpenDKIM Filter v2.11.0 mailout2.w1.samsung.com 20260925085711euoutp023034b78e8628550a3ae5d7840b37570c~YhJYCLvL92670226702euoutp022
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=samsung.com;
+	s=mail20170921; t=1790326631;
+	bh=fRkS/AwRvXfqS9hACKPrCrxlhkEVLAdRbTDbRYWa8VU=;
+	h=Date:From:Subject:To:Cc:In-Reply-To:References:From;
+	b=vanVKrSk5T6FjDTn74/1SUO/LMXVqJxekusjmh+babZgiVJMQp94HjScOSgxnGlOR
+	 5d4koPLRi1e6pSrU0IEHhOTj75hlbtCMapcYoGSA9uiDQv+BCXn4dZic+bQLLvKziH
+	 LU69fdmLb9XCyuTFLtUEuYD6O202XJ3H6/pu8JBg=
+Received: from eusmtip2.samsung.com (unknown [203.254.199.222]) by
+	eucas1p1.samsung.com (KnoxPortal) with ESMTPA id
+	20260925085711eucas1p1485ce5a6153e8db654ed3cd6ed2fb70c~YhJX0T9dK1519715197eucas1p1s;
+	Fri, 25 Sep 2026 08:57:11 +0000 (GMT)
+Received: from [106.210.134.192] (unknown [106.210.134.192]) by
+	eusmtip2.samsung.com (KnoxPortal) with ESMTPA id
+	20260925085707eusmtip2203bb57f8f737ff31c8cf3ba1f2b8a50~YhJULSaYY1254612546eusmtip2q;
+	Fri, 25 Sep 2026 08:57:07 +0000 (GMT)
+Message-ID: <40d8c179-f240-486d-b446-c76549d72772@samsung.com>
+Date: Fri, 25 Sep 2026 10:57:07 +0200
 MIME-Version: 1.0
+User-Agent: Betterbird (Windows)
+From: Marek Szyprowski <m.szyprowski@samsung.com>
+Subject: Re: [PATCH v6 0/8] dma: swiotlb: Centralize default pool policy and
+ sizing
+To: "Aneesh Kumar K.V (Arm)" <aneesh.kumar@kernel.org>,
+	iommu@lists.linux.dev, linux-kernel@vger.kernel.org
+Cc: Robin Murphy <robin.murphy@arm.com>, Will Deacon <will@kernel.org>, Mark
+	Rutland <mark.rutland@arm.com>, Marc Zyngier <maz@kernel.org>, Steven Price
+	<steven.price@arm.com>, Suzuki K Poulose <Suzuki.Poulose@arm.com>, Catalin
+	Marinas <catalin.marinas@arm.com>, Jiri Pirko <jiri@resnulli.us>, Jason
+	Gunthorpe <jgg@ziepe.ca>, Mostafa Saleh <smostafa@google.com>, Petr Tesarik
+	<ptesarik@suse.com>, Alexey Kardashevskiy <aik@amd.com>, Dan Williams
+	<dan.j.williams@intel.com>, Xu Yilun <yilun.xu@linux.intel.com>, Madhavan
+	Srinivasan <maddy@linux.ibm.com>, WANG Xuerui <kernel@xen0n.name>, Albert Ou
+	<aou@eecs.berkeley.edu>, Andy Lutomirski <luto@kernel.org>, Peter Zijlstra
+	<peterz@infradead.org>, Thomas Gleixner <tglx@kernel.org>, Ingo Molnar
+	<mingo@redhat.com>, Borislav Petkov <bp@alien8.de>, Dave Hansen
+	<dave.hansen@linux.intel.com>, "H. Peter Anvin" <hpa@zytor.com>,
+	linux-arm-kernel@lists.infradead.org, loongarch@lists.linux.dev,
+	linux-mips@vger.kernel.org, linuxppc-dev@lists.ozlabs.org,
+	linux-riscv@lists.infradead.org, linux-s390@vger.kernel.org, x86@kernel.org
+Content-Language: en-US
+In-Reply-To: <20260924060756.1325156-1-aneesh.kumar@kernel.org>
 Content-Transfer-Encoding: 8bit
+X-CMS-MailID: 20260925085711eucas1p1485ce5a6153e8db654ed3cd6ed2fb70c
+X-Msg-Generator: CA
+Content-Type: text/plain; charset="utf-8"
+X-RootMTR: 20260924060823eucas1p1d27fbf57221c9b4c0e9831a9b0cdd7d3
+X-EPHeader: CA
+X-CMS-RootMailID: 20260924060823eucas1p1d27fbf57221c9b4c0e9831a9b0cdd7d3
+References: <CGME20260924060823eucas1p1d27fbf57221c9b4c0e9831a9b0cdd7d3@eucas1p1.samsung.com>
+	<20260924060756.1325156-1-aneesh.kumar@kernel.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260925_015628_345568_4B713C0D 
-X-CRM114-Status: GOOD (  35.49  )
+X-CRM114-CacheID: sfid-20260925_015717_928946_1C60B465 
+X-CRM114-Status: GOOD (  20.69  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -106,233 +97,67 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-KVM/arm64 has no P: entry in MAINTAINERS, so nothing tells a contributor
-that the kvmarm tree is used for integration only, or that most patches
-are expected to be based on a tag from Linus' tree rather than on
-kvmarm/next or linux-next.  Marc Zyngier said a profile would help and
-pointed at the KVM x86 one as a starting point, noting where KVM/arm64
-differs: the absence of topic branches, the references to documentation,
-and the base for most patches.
+On 24.09.2026 08:07, Aneesh Kumar K.V (Arm) wrote:
+> This series centralizes swiotlb default-pool selection and sizing, and
+> simplifies the initialization flags used to describe pool placement.
+>
+> The first patch replaces the addressing-limit argument with initialization
+> flags and introduces explicit policies for the different reasons a default
+> pool may be needed. Architectures now report DMA addressing constraints with
+> SWIOTLB_INIT_ADDRESSING_LIMIT, while the core selects the corresponding pool
+> policy.
+>
+> The second patch moves the reduced sizing used when the pool is needed only
+> for unaligned kmalloc bouncing from arm64 and RISC-V into the swiotlb core.
+>
+> The third patch centralizes swiotlb sizing for memory-encrypted systems. It
+> moves the existing x86 guest-sizing policy into the core. Host memory
+> encryption retains the normal pool size, and a shared default pool is not
+> selected solely for guest memory encryption when a restricted DMA pool is
+> present.
+>
+> The fourth patch removes SWIOTLB_ANY. Pool placement is derived directly from
+> SWIOTLB_INIT_ADDRESSING_LIMIT: pools required for limited DMA addressing are
+> allocated below the architecture's low address limit, while other pools may
+> be allocated anywhere in directly mapped memory. Xen continues to request a
+> pool explicitly with SWIOTLB_INIT_REMAP without imposing a low-address
+> constraint.
 
-Add a profile covering the trees and how changes flow through them, the
-base for patches, recipients, subject prefixes, architecture references,
-testing, key cycle dates and review cadence, and point the KVM/arm64
-entry at it.
 
-Link: https://lore.kernel.org/all/875wzu4vuv.wl-maz@kernel.org/
-Signed-off-by: Matthias Goergens <matthias.goergens@gmail.com>
----
-Marc, this is the profile you said would help, in the thread this
-replies to.  Where you and Oliver haven't said anything on the list, it
-follows the KVM x86 profile and general practice, so please correct
-anything that doesn't match how you work.  Three things need your call
-in particular; they are marked [?: ...] in the text:
+I would like to give this patchset some tests in linux-next and merge this to
+v7.4-rc1, as this is important continuation of the code already merged to v7.3.
 
-- master: once it follows -rc1, should the profile mention it?
 
-- Cross-tree changes: the draft says there are no standing topic
-  branches for contributors, and that when a series also touches arm64
-  code the maintainers may set up a shared stable branch on an -rc tag.
-  Is that right?
+Any chance to get some more acks from arch maintainers (especially x86)?
+Unfortunately I had to reduce the CC list due to my smtp limits...
 
-- Cut-offs: which is the last -rc for new features, and when do you
-  decide what goes into the merge window?
+> ...
+>
+>  Documentation/core-api/swiotlb.rst   |   8 +-
+>  arch/arm/mm/init.c                   |   6 +-
+>  arch/arm/xen/mm.c                    |   2 +-
+>  arch/arm64/mm/init.c                 |  14 +-
+>  arch/loongarch/kernel/setup.c        |   2 +-
+>  arch/mips/cavium-octeon/dma-octeon.c |   2 +-
+>  arch/mips/loongson64/dma.c           |   2 +-
+>  arch/mips/sibyte/common/dma.c        |   2 +-
+>  arch/powerpc/kernel/dma-swiotlb.c    |   4 +-
+>  arch/powerpc/mm/mem.c                |  17 ++-
+>  arch/powerpc/platforms/pseries/svm.c |  10 --
+>  arch/powerpc/sysdev/fsl_pci.c        |   1 +
+>  arch/riscv/mm/init.c                 |  24 +---
+>  arch/s390/mm/init.c                  |   2 +-
+>  arch/x86/include/asm/crash_reserve.h |   4 +-
+>  arch/x86/kernel/pci-dma.c            |  23 +++-
+>  arch/x86/mm/mem_encrypt.c            |  24 ----
+>  include/linux/swiotlb.h              |  17 ++-
+>  kernel/dma/swiotlb.c                 | 193 +++++++++++++++++++--------
+>  19 files changed, 210 insertions(+), 147 deletions(-)
 
-I've kept this RFC to the people in this thread.  Once you're happy
-with it, I'll widen the circle to the documentation maintainers and
-lists.
+Best regards
 
- .../process/maintainer-kvm-arm64.rst          | 163 ++++++++++++++++++
- MAINTAINERS                                   |   2 +
- 2 files changed, 165 insertions(+)
- create mode 100644 Documentation/process/maintainer-kvm-arm64.rst
-
-diff --git a/Documentation/process/maintainer-kvm-arm64.rst b/Documentation/process/maintainer-kvm-arm64.rst
-new file mode 100644
-index 000000000000..deba2f812cef
---- /dev/null
-+++ b/Documentation/process/maintainer-kvm-arm64.rst
-@@ -0,0 +1,163 @@
-+.. SPDX-License-Identifier: GPL-2.0
-+
-+KVM/arm64
-+=========
-+
-+This document describes how KVM/arm64 (``arch/arm64/kvm/`` and the other
-+files listed under "KERNEL VIRTUAL MACHINE FOR ARM64 (KVM/arm64)" in
-+MAINTAINERS) is maintained.  It supplements
-+Documentation/process/submitting-patches.rst.
-+
-+Overview
-+--------
-+
-+KVM/arm64 is maintained by Marc Zyngier and Oliver Upton, assisted by the
-+reviewers listed in MAINTAINERS.  Patches are discussed on
-+kvmarm@lists.linux.dev, and linux-arm-kernel@lists.infradead.org is Cc'd as
-+well.
-+
-+Trees
-+~~~~~
-+
-+The KVM/arm64 tree is::
-+
-+  git://git.kernel.org/pub/scm/linux/kernel/git/kvmarm/kvmarm.git
-+
-+This tree is used for integration only: no development happens in it, and
-+most patches should not be based on it (see `Base for patches`_).  Its
-+branches are:
-+
-+``next``
-+  Changes queued for the next merge window.  linux-next merges this branch.
-+
-+``fixes``
-+  Fixes for the release currently in its -rc phase.  linux-next merges this
-+  branch too.
-+
-+[?: ``master`` still points at a 2020 commit.  Once it follows -rc1, should
-+this document mention it?]
-+
-+Changes leave the tree as signed tags, which are pulled into the main KVM tree
-+(``git://git.kernel.org/pub/scm/virt/kvm/kvm.git``) and from there reach Linus
-+Torvalds.
-+
-+Unlike the KVM x86 tree, KVM/arm64 has no standing topic branches for
-+contributors to base their work on.  Where a series also touches code
-+maintained elsewhere, most often the arm64 architecture code, the maintainers
-+may set up a shared stable branch, based on an -rc tag, that both trees merge.
-+Say in the cover letter which parts of a series touch other subsystems.
-+[?: Is this an accurate description of topic branches and of how
-+cross-tree changes are handled?]
-+
-+Base for patches
-+~~~~~~~~~~~~~~~~
-+
-+Base your patches on a tag published in Linus Torvalds' tree.  Patches based
-+on linux-next or on ``kvmarm/next`` are discouraged.
-+
-+If your series depends on something that is not yet in mainline, such as
-+another series under review or work already queued in ``kvmarm/next``, say so
-+in the cover letter and name exactly what it applies on top of.  The
-+maintainers may also ask for a series to be rebased onto ``kvmarm/next`` when
-+it conflicts with work queued there.
-+
-+Use ``git format-patch --base`` so that the base commit is recorded in the
-+patches.
-+
-+Submit Checklist Addendum
-+-------------------------
-+
-+Recipients and threading
-+~~~~~~~~~~~~~~~~~~~~~~~~
-+
-+Send the whole series to all of the maintainers and reviewers listed for
-+KVM/arm64, not a selection of them.  Post each new version as a new thread,
-+with a cover letter for anything longer than a single patch.
-+
-+Subject lines
-+~~~~~~~~~~~~~
-+
-+Changes to KVM/arm64 use the ``KVM: arm64:`` prefix, often followed by a
-+sub-topic such as ``nv:`` or ``vgic:``.  Selftest changes use ``KVM: arm64:
-+selftests:`` or ``KVM: selftests:``.
-+``git log --oneline`` on the files you touch shows what is in use.
-+
-+Architecture references
-+~~~~~~~~~~~~~~~~~~~~~~~
-+
-+KVM/arm64 code tracks the Arm Architecture Reference Manual (the "Arm ARM",
-+document DDI0487) closely.  Where a change depends on architected behavior,
-+explain why the change is needed and cite the Arm ARM in the commit message
-+or in a comment.  Section numbers change between revisions of the Arm ARM,
-+so give the revision along with the section, for example ``DDI0487L.a
-+D24.2.70``.
-+
-+This differs from KVM x86, whose profile asks contributors not to cite
-+section numbers.
-+
-+Testing
-+~~~~~~~
-+
-+Say in the cover letter how the series was tested: which tests, and on which
-+hardware or model.  The KVM selftests (``tools/testing/selftests/kvm/``) and
-+kvm-unit-tests are the usual test suites.  Put selftest changes in patches of
-+their own, separate from the KVM changes.
-+
-+KVM/arm64 can run in several modes, which are described under
-+``kvm-arm.mode=`` in Documentation/admin-guide/kernel-parameters.txt.  Test
-+the modes your change can affect.
-+
-+Do not draw conclusions about performance on hardware from measurements made
-+on a software model such as QEMU or the Arm FVP.
-+
-+Changes to nested virtualization in particular are unlikely to be merged
-+without test coverage.  Depending on the change, selftests may not be enough;
-+the maintainers may ask for testing with a VMM, for example.
-+
-+Userspace API
-+~~~~~~~~~~~~~
-+
-+Document changes to the userspace API, usually in
-+Documentation/virt/kvm/api.rst or in the files under
-+Documentation/virt/kvm/devices/ and Documentation/virt/kvm/arm/.
-+
-+Fixes
-+~~~~~
-+
-+Add a ``Fixes:`` tag for bug fixes.  If the fix should go to stable kernels,
-+add ``Cc: stable@vger.kernel.org``; the maintainers may add it when applying
-+if the bug calls for it.
-+
-+Key Cycle Dates
-+---------------
-+
-+Fixes for the current release are queued on ``fixes`` and sent throughout
-+the -rc phase.  Changes for the next merge window are queued on ``next``.
-+
-+[?: What are the cut-offs: the last -rc for submitting new features, and the
-+last -rc at which the maintainers decide what goes into the next merge
-+window?]
-+
-+Review Cadence
-+--------------
-+
-+Unless the maintainers ask for a new version sooner, allow at least a week
-+between versions of a series, and only post a new version once there has
-+been enough review to justify it.  Posting more often
-+delays review rather than speeding it up.
-+
-+Pinging a series that has had no response is fine.
-+
-+Applied patches are normally acknowledged in reply to the posting, naming the
-+branch (``next`` or ``fixes``) and the commits.  Commit IDs can still change
-+before they reach mainline.
-+
-+Minor problems are often fixed up by the maintainers when applying; if they
-+say "no need to resend", don't.
-+
-+Security issues
-+---------------
-+
-+Bugs that let a guest attack its host, or a nested guest attack its guest
-+hypervisor, should be reported as described in
-+Documentation/process/security-bugs.rst.
-diff --git a/MAINTAINERS b/MAINTAINERS
-index 140eafcbbd78..129d7ef2c3ec 100644
---- a/MAINTAINERS
-+++ b/MAINTAINERS
-@@ -14301,7 +14301,9 @@ R:	Zenghui Yu <yuzenghui@huawei.com>
- L:	linux-arm-kernel@lists.infradead.org (moderated for non-subscribers)
- L:	kvmarm@lists.linux.dev
- S:	Maintained
-+P:	Documentation/process/maintainer-kvm-arm64.rst
- T:	git git://git.kernel.org/pub/scm/linux/kernel/git/kvmarm/kvmarm.git
-+F:	Documentation/process/maintainer-kvm-arm64.rst
- F:	Documentation/virt/kvm/arm/
- F:	Documentation/virt/kvm/devices/arm*
- F:	arch/arm64/include/asm/kvm*
-
-base-commit: 62f4c998b297cf233997a2b4cd6fc2d2df0319c9
 -- 
-2.55.0
+Marek Szyprowski, PhD
+Samsung R&D Institute Poland
 
 
