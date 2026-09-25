@@ -4,112 +4,61 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C5171C9830E
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 25 Sep 2026 09:48:10 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 00490C9830D
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 25 Sep 2026 09:48:53 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=FKrsPM1b2jKe3kZvS/DYTtfcN8visrVVzc3p9LNJVVg=; b=3Me01mBA7unyrh4lDokizHloPT
-	iU0hlkrDI4p3+jellShU89dgMQP8ieU/l1UmzZgXX7jUhotbFo/y7EvCgngj14NJSP5F6nEFTr1p5
-	nCnETiXhNIDTM5pWlJ4jvnOJuKVetAZgajDy+jZln2TwiLAr8N11EGzN8WoOPyDKvrINo5hBdOcVd
-	/5Zw8YH0JGoWZqvqjlVp+BulML/bz2D4DDkl5V6Af0IbpXG6aXKJTKyfcROdZ+N9MPsPnbLjLJTTl
-	WW+QCSmGska4OMxknYrD5L+0La+0hLW4kTcXRh4JRTMUrcjjvHo2nuSOYEE3BWdfWmR5PDlJZ6qda
-	6zOqalHA==;
+	bh=otTZPdVoKvw8luLeLUDPJQFJKPErGVRpX3bFB7ulP0A=; b=eSI2UGv4VFV95B+mDOpHslic50
+	zAfgcODr9SmTmj1ymOYtxXebi3QK59ZUe7nXprwtR/eLwSmrJYHzCidUk5sc70eBou1mrUy7BcxLt
+	sABbPcGPjE56bEWklf523Jd0Dux2aYv0pAoc6+RBSWYMHrjBMJ8Z8rtSDfoQBUWOhgjIUkUkzoNxP
+	x9UNtq6fntNLTDf/K9aG6HGrHwWtphvPs32tBPJtVaJB563NOQB8Lfc1865g5YNpKuPtCZnnu1ApC
+	r84kZAe7T0HHGCdjMhOh2IwdWe5C4sDXD82oNAsyF9OP7+1SKrV82XJmSX0w1QcV0fZ4afG64GrbJ
+	dRVKX7DA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xA2XE-0000000D1p7-18MT;
-	Fri, 25 Sep 2026 09:48:04 +0000
-Received: from fout-a3-smtp.messagingengine.com ([103.168.172.146])
+	id 1xA2Xv-0000000D2cA-286L;
+	Fri, 25 Sep 2026 09:48:47 +0000
+Received: from perceval.ideasonboard.com ([213.167.242.64])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xA2X6-0000000D1eS-0jaQ;
-	Fri, 25 Sep 2026 09:47:57 +0000
-Received: from phl-compute-09.internal (phl-compute-09.internal [10.202.2.49])
-	by mailfout.phl.internal (Postfix) with ESMTP id 56DE0EC01A7;
-	Fri, 25 Sep 2026 05:47:55 -0400 (EDT)
-Received: from phl-frontend-04 ([10.202.2.163])
-  by phl-compute-09.internal (MEProxy); Fri, 25 Sep 2026 05:47:55 -0400
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=jannau.net; h=cc
-	:cc:content-transfer-encoding:content-type:content-type:date
-	:date:from:from:in-reply-to:in-reply-to:message-id:mime-version
-	:references:reply-to:subject:subject:to:to; s=fm3; t=1790329675;
-	 x=1790416075; bh=FKrsPM1b2jKe3kZvS/DYTtfcN8visrVVzc3p9LNJVVg=; b=
-	RR6lrjD0+xjZKyP8BpgxpLM3qfVxKob83DDQzZS2NqWW9DE2U1D4vTddAszuVqQA
-	RTB3apLGkzlUfj+EfXWJsWVMX39sx9Fr6sg2MP9d4vaN/BIMNjlWSaFntNkZ6sHf
-	niYdJ2JU44NB/fe5MrWXOFdWbRqI3vMie9F+0yt3lfOnHQqoArsTKWUrKLp9UxL6
-	CjaDULPowIyEVhLyGU2NhCbJSDv3jhW+AbePjPLsLMUyNFtSB5Uzym7C0n/FddyU
-	wS9jdes0RjNlHjaArFuidmJ7AYcSwMtOPJmfjTWrbih8ikVImyE3LnGyONjMkTWF
-	dcpVlCXXGGd8rMDaG7W1fg==
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
-	messagingengine.com; h=cc:cc:content-transfer-encoding
-	:content-type:content-type:date:date:feedback-id:feedback-id
-	:from:from:in-reply-to:in-reply-to:message-id:mime-version
-	:references:reply-to:subject:subject:to:to:x-me-proxy
-	:x-me-sender:x-me-sender:x-sasl-enc; s=fm1; t=1790329675; x=
-	1790416075; bh=FKrsPM1b2jKe3kZvS/DYTtfcN8visrVVzc3p9LNJVVg=; b=p
-	848kTUYf3OebsyBDwiks8mXpXyZSwggJUFkUahqKUvaauaGOwCkjyQEzlAclvZPT
-	Ao3OkmPVcPt64M8SUxm+vlqN6WToTPQjK0fCD70xn47sK3D4X1Tkmlw/Um/WShrl
-	oTkLNyEYOprUIoTZYVOk27XPR5oGF9g3tg9JoLmddSuwHrDh7Ohdrxvlnj4S+ow/
-	E6Ok4OlGSycO9XqKYZi9Pe35X0JnNWIBBz0ZslOR86F9XXy4IXpCyBFA48hVkQDB
-	vHTLHevpllSLDYCTnsf8PievWuoSzy0TaFWtQineFChbUtDj/+3uXpm8Nps83w2C
-	KYV4QbeBi63WM/xQQhtgg==
-X-ME-Sender: <xms:SkO2arQ1FmfITNakwmBA9jTDtU7_flYhV3YNf2h44jidR3sMQiW66Q>
-    <xme:SkO2atNcEY52XO2yaxPog2fO_hnu3hWV0dRL4YsJFPZku9WDkfwggJ0_7sOQtvkot
-    pcHh-HilsmCokDdzNwgFoPGCTQOMjEmT6jlZRr56F3m0cAOz96Y0ZI_>
-X-ME-Received: <xmr:SkO2amRbDHgysunKxK7edd37caWTiG8uI1y2vegaPSU12Wt7EsT3n036g3wT1tEpoPk9wwA>
-X-ME-Proxy-Cause: dmFkZTEwps/QxAWSkagPSHBbcYwuI37XW4DvirwdiYOGwq9AEZKxmSwYz63+coJ7wZHluP
-    jgjVctfghm5b5XWz2n07A9q1QaNev+5azhP7D1mIEnWcc7GyMeAKCOuAf09Zm6QFlhMejE
-    gEXz+W+bKMz+kccVLYaqKBvNoAlmwe4qHn6j33++Tfk8NkCZ/4YxJmJFnYYt6bNYB5JyX7
-    wU1UqpqLmMC5vJwj6KME23vX03QIuAPw+2Jxt7R/8XYigoV9KzDK+UG3MNfCxO5B75MboJ
-    lkHYESZxGP1e30qhetVcIgSKr1zAlGTH0xqrbEx7tCd6z8+Rraubfup+2SsfcRLuC6VyDj
-    vah13dLsEtIh2kbwx38xLkiiz77plwhH8qDYtUShkJw0slpRyOxJZBpaxrgH8I4aeiEJnU
-    SGvJkV4mEIGTId9wutnvsH5srs9LG1RLEOQnkBxunfGnBgX8kwqYfl668bbItCE6VrIZEj
-    hqK19htMTraOfEljILtswA2Ix9Ln+XlSWJN0kgQtLMocFLGv3itHoft+z1ByP8QIGM1RXA
-    1KhvX0aOQg1G1vxqN2NXoId/GcxUTDBM53sdQTTrt3MXnOxNpxGv3HXRS6+51hzyosIUn8
-    CuB2kYos3kacOjB6zpyGV4or9C1aZmVJhxGcoeczY5f4H8ntOoOoRehgwCnQ
-X-ME-Proxy: <xmx:SkO2ao8Yx0UqWR76YWTlAG56S721sZD0hx49iOMK6ac4-xCvDEFdLQ>
-    <xmx:S0O2aoVnYTNYWKGAyxDEQhXMnhHzrExWZaQBO5IxFBjRZYaUMTTFBw>
-    <xmx:S0O2auOY3z1l43c9cZm7zPGbl5WrkH009GP2XxBpM51b4utqqgddMw>
-    <xmx:S0O2agfwlW2sJJa5jpIgnbMG-BlDKq9jcBsOURBwjZAmf_jV_YC4Vg>
-    <xmx:S0O2aqMNQtx_YHc1j1RCxRmM4lZAcmE4YEyoHjERFcT3_d5IXL94hfZx>
-Feedback-ID: i47b949f6:Fastmail
-Received: by mail.messagingengine.com (Postfix) with ESMTPA; Fri,
- 25 Sep 2026 05:47:54 -0400 (EDT)
-From: Janne Grunau <j@jannau.net>
-Date: Fri, 25 Sep 2026 10:22:54 +0200
-Subject: [PATCH 7/7] arm64: dts: apple: t8122: Add NVMe device nodes
+	id 1xA2Xe-0000000D2Kf-1Rq4
+	for linux-arm-kernel@lists.infradead.org;
+	Fri, 25 Sep 2026 09:48:32 +0000
+Received: from [192.168.0.43] (chfd-03-b2-v4wan-176392-cust229.vm15.cable.virginm.net [82.19.20.230])
+	by perceval.ideasonboard.com (Postfix) with ESMTPSA id 6287CC1;
+	Fri, 25 Sep 2026 11:46:37 +0200 (CEST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=ideasonboard.com;
+	s=mail; t=1790329597;
+	bh=NjLVS14if/D56akbo8g2fO7dZ7ShBsZeA5Bs4VPK77c=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=HZJBU2S38eHmYkJYdhFyGl8wwCYNYICMMceHhEhukIUcbJQM/rs40VjkPxN3hnkQm
+	 DzRQiY1n34360T2ICePutfbxXgCgaclf8S8coQEkbDGqXPryqixNl3huQM5iZj5Jxk
+	 +Zvz3vCy78OP3KnzG/1Wi8//t7eSLgqtiWUk7QWk=
+Message-ID: <b9db2577-77f1-466e-b6b8-1eb6501d079f@ideasonboard.com>
+Date: Fri, 25 Sep 2026 10:48:22 +0100
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH 1/2] arm64: dts: renesas: r9a09g057: Add IVC and ISP nodes
+To: Linus Walleij <linusw@kernel.org>,
+ Geert Uytterhoeven <geert@linux-m68k.org>
+Cc: Magnus Damm <magnus.damm@gmail.com>, Rob Herring <robh@kernel.org>,
+ linux-renesas-soc@vger.kernel.org, devicetree@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org
+References: <20260922-mali-c55-renesas-dts-v1-0-cd63cdb51033@kernel.org>
+ <20260922-mali-c55-renesas-dts-v1-1-cd63cdb51033@kernel.org>
+ <CAMuHMdVkhSNDn3BpBt-9K8FPKhmODYVF-PCKr+AH8B+o4GHuJA@mail.gmail.com>
+ <CAD++jLk6015ShhR0XAB+NfKF1Gf9ZWA8Z_=9uU6zNZ+wHS97fg@mail.gmail.com>
+Content-Language: en-US
+From: Dan Scally <dan.scally@ideasonboard.com>
+In-Reply-To: <CAD++jLk6015ShhR0XAB+NfKF1Gf9ZWA8Z_=9uU6zNZ+wHS97fg@mail.gmail.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 7bit
-Message-Id: <20260925-apple-m3-nvme-v1-7-5e832e2f4aa9@jannau.net>
-References: <20260925-apple-m3-nvme-v1-0-5e832e2f4aa9@jannau.net>
-In-Reply-To: <20260925-apple-m3-nvme-v1-0-5e832e2f4aa9@jannau.net>
-To: Sven Peter <sven@kernel.org>, Neal Gompa <neal@gompa.dev>, 
- Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>, "Joerg Roedel (AMD)" <joro@8bytes.org>, 
- Will Deacon <will@kernel.org>, Robin Murphy <robin.murphy@arm.com>, 
- Jassi Brar <jassisinghbrar@gmail.com>, Keith Busch <kbusch@kernel.org>, 
- Christoph Hellwig <hch@lst.de>, Sagi Grimberg <sagi@grimberg.me>, 
- Jens Axboe <axboe@kernel.dk>, Jens Axboe <axboe@kernel.dk>
-Cc: linux-nvme@lists.infradead.org, asahi@lists.linux.dev, 
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
- devicetree@vger.kernel.org, iommu@lists.linux.dev, 
- Janne Grunau <j@jannau.net>, Michael Reeves <michael.reeves077@gmail.com>
-X-Mailer: b4 0.16.0
-X-Developer-Signature: v=1; a=openpgp-sha256; l=2081; i=j@jannau.net;
- h=from:subject:message-id; bh=19Hv0hKKWlJhIfvihHJebyj8UmWVLiDDYFirA9GLXFI=;
- b=owGbwMvMwCW2UNrmdq9+ahrjabUkhqxtzjqW7xsXa0VMlPM6UiDvHpzcXhOg9v5XuLKOpVHly
- gThPLWOiSwMYlwMlmKKLEnaLzsYVtcoxtQ+CIOZw8oEMkRapIEBCFgY+HIT80qNdIz0TLUN9QyN
- dIx1jBi4OAVgqlNkGP6HTU/elDZH//rL9eGJm2evt39hfYvt0D6x2yENz27LSs1QZmRYq+90bIX
- F6d6CWZECe1yDY+R6w4V2/X3/rUbMU3pa2SEOAA==
-X-Developer-Key: i=j@jannau.net; a=openpgp;
- fpr=8B336A6BE4E5695E89B8532B81E806F586338419
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260925_024756_294462_60C2CDC7 
-X-CRM114-Status: UNSURE (   9.48  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260925_024830_676716_63CF378A 
+X-CRM114-Status: GOOD (  13.22  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -124,76 +73,46 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Michael Reeves <michael.reeves077@gmail.com>
+Hi all
 
-On Apple Silicon, NVMe communication is mediated by a
-coprocessor known as the ANS, and protected by its own
-IOMMU known as the SART.
+On 23/09/2026 18:17, Linus Walleij wrote:
+> Hi Geert,
+> 
+>> Hi Linus,
+>>
+>> Thanks for your patch!
+>>
+>> On Tue, 22 Sept 2026 at 15:34, Linus Walleij <linusw@kernel.org> wrote:
+>>> From: Daniel Scally <dan.scally@ideasonboard.com>
+>>>
+>>> Add the Input Video Control Block and Arm Mali-C55 ISP to the device
+>>> tree file for the RZ/V2H(P) SoC.
+>>>
+>>> [Rebase onto v7.3-rc1, place the nodes in address order, and sort
+>>>   the interrupt properties. - Linus Walleij]
+>>>
+>>> Assisted-by: LLM
+>>
+>> Dear LLM: Please take into account the review comments on the original
+>> submission:
+>> https://lore.kernel.org/CAMuHMdVCeMaQ8yFnMgr1Nko+0yQxn69BR9fGJ2WPvADMc2gvRQ@mail.gmail.com/
+> 
+> Don't blame the LLM, it's me.
+> 
+> I didn't find Daniel's original submission, just noticed this
+> never made it upstream.
+> 
+> I'll address the comments and send a v2.
 
-Add the following nodes to the M3 (t8122) device tree:
-- Mailbox for the ANS coprocessor
-- SART (IOMMU for the ANS coprocessor)
-- The NVMe / ANS coprocessor itself
+Huh; not sure why I never followed up on this. I haven't touched the board in some time, so it must 
+have slipped my mind. I can pick it back up and address the comments, including adding the other 
+interrupts.
 
-Signed-off-by: Michael Reeves <michael.reeves077@gmail.com>
-Signed-off-by: Janne Grunau <j@jannau.net>
----
- arch/arm64/boot/dts/apple/t8122.dtsi | 40 ++++++++++++++++++++++++++++++++++++
- 1 file changed, 40 insertions(+)
+Thanks
+Dan
 
-diff --git a/arch/arm64/boot/dts/apple/t8122.dtsi b/arch/arm64/boot/dts/apple/t8122.dtsi
-index 52257fa22631..959ddf36efa1 100644
---- a/arch/arm64/boot/dts/apple/t8122.dtsi
-+++ b/arch/arm64/boot/dts/apple/t8122.dtsi
-@@ -454,6 +454,46 @@ pinctrl_aop: pinctrl@2f4824000 {
- 
- 			apple,npins = <54>;
- 		};
-+
-+		ans_mbox: mbox@309408000 {
-+			compatible = "apple,t8122-asc-mailbox",
-+				     "apple,asc-mailbox-v4";
-+			reg = <0x3 0x09408000 0x0 0x4000>;
-+
-+			interrupt-parent = <&aic>;
-+			interrupts = <AIC_IRQ 730 IRQ_TYPE_LEVEL_HIGH>,
-+				     <AIC_IRQ 731 IRQ_TYPE_LEVEL_HIGH>,
-+				     <AIC_IRQ 732 IRQ_TYPE_LEVEL_HIGH>,
-+				     <AIC_IRQ 733 IRQ_TYPE_LEVEL_HIGH>;
-+			interrupt-names = "send-empty", "send-not-empty",
-+					  "recv-empty", "recv-not-empty";
-+
-+			#mbox-cells = <0>;
-+			power-domains = <&ps_ans>;
-+		};
-+
-+		sart: sart@30dc50000 {
-+			compatible = "apple,t8122-sart", "apple,t6000-sart";
-+			reg = <0x3 0x0dc50000 0x0 0x10000>;
-+			power-domains = <&ps_ans>;
-+		};
-+
-+		nvme: nvme@30dcc0000 {
-+			compatible = "apple,t8122-nvme-ans2",
-+				     "apple,t8103-nvme-ans2";
-+			reg = <0x3 0x0dcc0000 0x0 0x60000>,
-+			      <0x3 0x09400000 0x0 0x4000>;
-+			reg-names = "nvme", "ans";
-+
-+			interrupt-parent = <&aic>;
-+			interrupts = <AIC_IRQ 742 IRQ_TYPE_LEVEL_HIGH>;
-+			mboxes = <&ans_mbox>;
-+			power-domains = <&ps_ans>, <&ps_apcie_st>;
-+			power-domain-names = "ans", "apcie0";
-+			resets = <&ps_ans>;
-+
-+			apple,sart = <&sart>;
-+		};
- 	};
- 
- 	timer {
-
--- 
-2.55.0
+> 
+> Yours,
+> Linus Walleij
 
 
