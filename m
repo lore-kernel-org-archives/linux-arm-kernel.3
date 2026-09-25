@@ -4,59 +4,66 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 64F95C9830D
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 25 Sep 2026 09:30:27 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 21EF6C9830D
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 25 Sep 2026 09:37:42 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=zNL174vwz/tCDdI4eZqR8gpeHvejmSBfEPzOVpQopd4=; b=yzRWeIZgAu4zx0YZNpe+1WGEn/
-	sKxjXqQZf/P/AS9GLJMQ6Ws4EQ7taFJq6isEoc5cgfyqx98MaJPumBSQSmGr33ibJB939DnvcODD3
-	hd7pj6Vf49x3ekEY7ecD1XvhYkNdVjpKZ+Fa9XiO/2vxFvwT76pI+Hf9cvDYt5YBpGXYHGk8gLKIi
-	2HEKSymMW1Z0PiCxwbF6uNAylnG+z8/v5hlI9+eWqkM/tEbgffcGWjbPIXtIBX47Vk0AwF4Jd9UZh
-	lCJf5N4J9HKExItwZuRN+yEWLTkn4C6NI3ECpyyqKe5+rKmxUtRqPF0511iu+BwjvO1aEFx6C65ny
-	P3X0W21g==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:
+	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=S8rbBY7tOZS1I6xbunY/ZVWqlDUxt7wQouXNVOazbTE=; b=mkjdROjxPwBZEMYt4fdY4V8Flt
+	l+FsqdAGJ97qi9l31NYB3a9bLOWfvs+NcgGxJIV/yen3YAfi+qNcsPkBzsKvje7Qp2jiK3VzyoMBm
+	Wvs5snlbyJJ8Hj8IL/JT2WjVOgSsyYsS/DCXuPGQoSM4zLyD5ie8yXCIMe4sM9HS6frKiyAtw03P0
+	zXhVDqTrhnhQOHzr+qP39l+OQ2MiaFZ/o6IPvH3D/QhtyuRd959EseD8fQWi9mw8LnpZKI2vCx+Z9
+	Zh/BPQ2JQ/LyUo8xCVJO0EOWtAes2vykRmjbpiWtyZAEEjPVLtMkNgdYOSvxiBijKZmJtH6TJlzk4
+	ZQftVWfA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xA2G4-0000000CzwX-2uhT;
-	Fri, 25 Sep 2026 09:30:20 +0000
-Received: from perceval.ideasonboard.com ([213.167.242.64])
+	id 1xA2N5-0000000D0YG-2vMf;
+	Fri, 25 Sep 2026 09:37:35 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xA2G1-0000000Czvd-1jMS
+	id 1xA2N4-0000000D0Y9-3DxB
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 25 Sep 2026 09:30:18 +0000
-Received: from killaraus.ideasonboard.com (2001-14ba-70f3-e800--a06.rev.dnainternet.fi [IPv6:2001:14ba:70f3:e800::a06])
-	by perceval.ideasonboard.com (Postfix) with ESMTPSA id 78AF4C1;
-	Fri, 25 Sep 2026 11:28:24 +0200 (CEST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=ideasonboard.com;
-	s=mail; t=1790328504;
-	bh=nJ0/J95KwyInOWIEWMeBvCOCvt3BjxmuACXDJLcEw5s=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=luk3ajdZNh4jrsQxH9iD6EKfviUNIh76eiSR0zLlBBarwNrHk26waD4shVQ1GdjTP
-	 pH3hy8YERnil0rmBJqyMJLtKFnRdJpkgovKxU6BbNTCuVFj2oKQredB78LF6PP+uM/
-	 6LVUyn6Sk5xGNh8j67z4FOO9foPQcPnbsXU+hYrM=
-Date: Fri, 25 Sep 2026 12:30:11 +0300
-From: Laurent Pinchart <laurent.pinchart@ideasonboard.com>
-To: Linus Walleij <linusw@kernel.org>
-Cc: Geert Uytterhoeven <geert+renesas@glider.be>,
-	Magnus Damm <magnus.damm@gmail.com>, Rob Herring <robh@kernel.org>,
-	Daniel Scally <dan.scally@ideasonboard.com>,
-	linux-renesas-soc@vger.kernel.org, devicetree@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org
-Subject: Re: [PATCH 2/2] arm64: dts: renesas: r9a09g057h44-rzv2h-evk: Add ISP
- and IVC nodes
-Message-ID: <20260925093011.GA332413@killaraus.ideasonboard.com>
-References: <20260922-mali-c55-renesas-dts-v1-0-cd63cdb51033@kernel.org>
- <20260922-mali-c55-renesas-dts-v1-2-cd63cdb51033@kernel.org>
+	Fri, 25 Sep 2026 09:37:34 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by tor.source.kernel.org (Postfix) with ESMTP id EBF0560230;
+	Fri, 25 Sep 2026 09:37:33 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 8AE971F000FF;
+	Fri, 25 Sep 2026 09:37:31 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1790329053;
+	bh=S8rbBY7tOZS1I6xbunY/ZVWqlDUxt7wQouXNVOazbTE=;
+	h=From:To:Cc:Subject:Date:In-Reply-To:References;
+	b=CVRtW7FvQnz7sJUapIeWFHWtBZxeNPl06POWsm3SXZLQ7JECJhstj6KdcqV2+f1QZ
+	 /rstgiDLOxl3XA6skseO//CDvsWpCbbftmBGo12Q3AtMvv4enKR7vEHrB+C9904Ryu
+	 fe1BKW6hMtPKxkihTRYeiHeULSe6N2JPKOeBx+MESgwnX7NQwE8w426Z4AmdMy6vLQ
+	 +Gbxe5UcX/JlWt/5UcldQKFv518kXmXlv1NTV1u5q+Zw2lqbLc2fzTjY13atj32s5N
+	 +PclzoZvBEICCrq+GXb5loNgNgLVUAt1TST32633kOb/kmJ1uT5GNySwcDWYYY/OIC
+	 vJvFo81AzG21Q==
+From: Sudeep Holla <sudeep.holla@kernel.org>
+To: Bjorn Andersson <andersson@kernel.org>,
+	Cristian Marussi <cristian.marussi@arm.com>,
+	Hans de Goede <johannes.goede@oss.qualcomm.com>
+Cc: Sudeep Holla <sudeep.holla@kernel.org>,
+	Daniel Lezcano <daniel.lezcano@oss.qualcomm.com>,
+	Bjorn Andersson <bjorn.andersson@oss.qualcomm.com>,
+	Frank.Li@kernel.org,
+	arm-scmi@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-arm-msm@vger.kernel.org,
+	imx@lists.linux.dev,
+	linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v7 0/2] firmware: arm_scmi: fix module auto-loading
+Date: Fri, 25 Sep 2026 10:37:26 +0100
+Message-ID: <179032900575.1420945.238832920241309403.b4-ty@b4>
+X-Mailer: git-send-email 2.43.0
+In-Reply-To: <20260918092951.5656-1-johannes.goede@oss.qualcomm.com>
+References: <20260918092951.5656-1-johannes.goede@oss.qualcomm.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-In-Reply-To: <20260922-mali-c55-renesas-dts-v1-2-cd63cdb51033@kernel.org>
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260925_023017_606013_E1F46B4C 
-X-CRM114-Status: GOOD (  16.08  )
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 8bit
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -71,52 +78,27 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Sep 22, 2026 at 03:34:01PM +0200, Linus Walleij wrote:
-> From: Daniel Scally <dan.scally@ideasonboard.com>
+On Fri, 18 Sep 2026 11:29:49 +0200, Hans de Goede wrote:
+> Here is v7 of the patch series fixing arm_scmi module autoloading this
+> combines:
 > 
-> Add nodes to devicetree enabling the ISP and IVC that are found on
-> the RZ/V2H(P) SoC.
+> 1. Patch 1/2 from Bjorn to add support for scmi bus modaliases to modpost:
+> https://lore.kernel.org/all/20260618-scmi-modalias-v2-1-8c7547c1be21@oss.qualcomm.com/
 > 
-> [Rebase onto v7.3-rc1 and sort the board overrides by label.
->  - Linus Walleij]
-
-Geert commented on the commit message in the original series, that
-comment seems to have been ignored.
-
+> 2. A new patch 2/2 to always create devices for standard protocols,
+> replacing Cristian's patch to pre-register the standard protocol device-ids
+> from v4.
 > 
-> Assisted-by: LLM
+> [...]
 
-This gives the impression that Dan's original patch was LLM-assisted,
-which wasn't the case.
+Applied to sudeep.holla/linux (for-next/scmi/updates), thanks!
 
-> Signed-off-by: Daniel Scally <dan.scally@ideasonboard.com>
-> Signed-off-by: Linus Walleij <linusw@kernel.org>
-> ---
->  arch/arm64/boot/dts/renesas/r9a09g057h44-rzv2h-evk.dts | 8 ++++++++
->  1 file changed, 8 insertions(+)
-> 
-> diff --git a/arch/arm64/boot/dts/renesas/r9a09g057h44-rzv2h-evk.dts b/arch/arm64/boot/dts/renesas/r9a09g057h44-rzv2h-evk.dts
-> index 637fc92dcc26..74b75be599ae 100644
-> --- a/arch/arm64/boot/dts/renesas/r9a09g057h44-rzv2h-evk.dts
-> +++ b/arch/arm64/boot/dts/renesas/r9a09g057h44-rzv2h-evk.dts
-> @@ -305,6 +305,14 @@ versa3: clock-generator@69 {
->  	};
->  };
->  
-> +&isp {
-> +	status = "okay";
-> +};
-> +
-> +&ivc {
-> +	status = "okay";
-> +};
-> +
->  &mdio0 {
->  	phy0: ethernet-phy@0 {
->  		compatible = "ethernet-phy-id0022.1640";
-
+[1/2] module: add SCMI device table alias support
+      https://git.kernel.org/sudeep.holla/c/d59717cfbe1e
+[2/2] firmware: arm_scmi: Always create devices for standard protocols
+      https://git.kernel.org/sudeep.holla/c/aac4e67d6eb9
 -- 
 Regards,
+Sudeep
 
-Laurent Pinchart
 
