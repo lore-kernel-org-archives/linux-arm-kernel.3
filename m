@@ -4,60 +4,74 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6403DC9830D
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 25 Sep 2026 11:32:40 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 96B2CC9830D
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 25 Sep 2026 11:32:57 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=PHp1U1kutG6t+AyptcXmG49o3LX2wmq5MBgrLhVKgvw=; b=dBYzxK/B0qWGl1tskTNnqA1Fjj
-	3ZxwjYMB0dis/oe8VskLf+4qT5sfzvv7k+X3QRFJ8Pd7L8/Bhqn0PDRkNZ9NVlUKUCEKZ1gYKlWm+
-	1UGFuuuaWnXVE1IbpuY0qkQeQ06heN5qHiz+HE3eqQUy7usWRmcZVIxL57zDwYcDZjtOv0uXv7WPi
-	/lzf+UCSK7qzL4qohPldbOtTtvaVZz22WX86qU+SjHNjWtvAewlh5bm/RaKGC0xib9lgdjFihA8F+
-	/AjQM2BWqbNbdZH/mTlVQ0PaINA/18tiUvyElPzJ9ziqTIobhDBK3hHGAW44JK+ASXLkH0Q2XUHq0
-	jP9otF5Q==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=7hGEN5Pw3qyGq1o8/Aw8crO7pIFvigQKaSany5lXKEo=; b=b9CBENV4f4DTF3weIcTmnNBbjL
+	rm3UGs21EP3HpJTeckwa/jNA9hMQIzZljdha8AmdiGOLOqaRpw/1azbEXsCWk27odNcN/+zSJLVrU
+	JqTiLWOc/1pJHk2cfVGAvhte467OjW0l5GvO8tb2UqqEcEzCfHea7vfpFBdurEv9vJ3xYzxZILnBI
+	5mZNFBDPXKtYy4VppgHJYnIRT26vEQEwM7o674mEGS4nzLsHkpjQ2Ug4E42Zr8ewB9Qtqu/S+WyxG
+	d6LYpb9NL1upnAx2FLYn6jS715HdqtpWwODcSi9U9X58xyUJFk8ePCY330PsLs4VSJHDZ53fSt1Z5
+	1DPMXAmg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xA4AK-0000000DCf0-3jDF;
-	Fri, 25 Sep 2026 11:32:32 +0000
-Received: from mx.socionext.com ([202.248.49.38])
-	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xA4AE-0000000DCdy-1kvg
+	id 1xA4Ad-0000000DCjI-004t;
+	Fri, 25 Sep 2026 11:32:51 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1xA4AS-0000000DCgZ-1BaG
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 25 Sep 2026 11:32:28 +0000
-Received: from unknown (HELO kinkan3-ex.css.socionext.com) ([172.31.9.52])
-  by mx.socionext.com with ESMTP; 25 Sep 2026 20:32:22 +0900
-Received: from mail.mfilter.local (mail-arc01.css.socionext.com [10.213.46.36])
-	by kinkan3-ex.css.socionext.com (Postfix) with ESMTP id 9C1BF20695D1;
-	Fri, 25 Sep 2026 20:32:22 +0900 (JST)
-Received: from iyokan3.css.socionext.com ([172.31.9.53]) by m-FILTER with ESMTP; Fri, 25 Sep 2026 20:32:22 +0900
-Received: from [10.212.247.157] (unknown [10.212.247.157])
-	by iyokan3.css.socionext.com (Postfix) with ESMTP id 2932A10A019;
-	Fri, 25 Sep 2026 20:32:22 +0900 (JST)
-Message-ID: <3ea1f574-ddb5-46a6-9bc1-7a8ea84c54bd@socionext.com>
-Date: Fri, 25 Sep 2026 20:32:20 +0900
-MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2] serial: 8250_uniphier: Use devm_clk_get_enabled()
+	Fri, 25 Sep 2026 11:32:40 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by sea.source.kernel.org (Postfix) with ESMTP id B63E643C8F;
+	Fri, 25 Sep 2026 11:32:39 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id B2BEE1F00899;
+	Fri, 25 Sep 2026 11:32:34 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1790335959;
+	bh=7hGEN5Pw3qyGq1o8/Aw8crO7pIFvigQKaSany5lXKEo=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=K7td/OLi9HNrH+3v52Wtzwe7VfnGioRCKEGdblQS4OqMr7PYJX8K7WJ9AQ3NYNX0l
+	 HuvsuH+44lOpARJtiTohrYQYPMjANbSrqq0KASM6ufl5DR7CPkGm8DNOCogaU8nThY
+	 DumpgT+70w4CJnCwFqfBnyziF//nDmrVHip4zb/zlgjQGP4JWPBr2P5GVwnuVWl+LT
+	 GjSbxQmHXWneQS8XAPt2JDEzWWO3rx08EyvfPIsQ4j25UcYVzU+fSS9GCy1wKOFcEI
+	 f3+S+UvDhkT2fsGtaAUQkCI3bVtjtpinBLLUqrfmgOzrfEaJHBEcB8rT14mraIib/b
+	 qusSihdr/8tNg==
+Date: Fri, 25 Sep 2026 13:32:32 +0200
+From: Lorenzo Pieralisi <lpieralisi@kernel.org>
 To: Andy Shevchenko <andriy.shevchenko@linux.intel.com>
-Cc: Malathi A <malathi.a2000@gmail.com>,
- Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
- Jiri Slaby <jirislaby@kernel.org>, Masami Hiramatsu <mhiramat@kernel.org>,
- linux-kernel@vger.kernel.org, linux-serial@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org
-References: <20260917040511.103232-1-malathi.a2000@gmail.com>
- <97e4ab26-b147-4cf4-97f9-307903f14e61@socionext.com>
- <arUvJyvChXXcasSu@ashevche-desk.local>
-Content-Language: en-US
-From: Kunihiko Hayashi <hayashi.kunihiko@socionext.com>
-In-Reply-To: <arUvJyvChXXcasSu@ashevche-desk.local>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260925_043226_584498_BD643C05 
-X-CRM114-Status: GOOD (  22.31  )
+Cc: "Rafael J. Wysocki" <rafael@kernel.org>,
+	Mark Rutland <mark.rutland@arm.com>, Marc Zyngier <maz@kernel.org>,
+	Daniel Lezcano <daniel.lezcano@kernel.org>,
+	Thomas Gleixner <tglx@kernel.org>,
+	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+	Danilo Krummrich <dakr@kernel.org>,
+	Hanjun Guo <guohanjun@huawei.com>,
+	Sudeep Holla <sudeep.holla@kernel.org>,
+	Wim Van Sebroeck <wim@linux-watchdog.org>,
+	Guenter Roeck <linux@roeck-us.net>,
+	Robin Murphy <robin.murphy@arm.com>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Will Deacon <will@kernel.org>,
+	Bartosz Golaszewski <brgl@kernel.org>, linux-acpi@vger.kernel.org,
+	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+	driver-core@lists.linux.dev, linux-watchdog@vger.kernel.org
+Subject: Re: [PATCH RFC 02/11] ACPI: Introduce irq_get() for static fwnodes
+Message-ID: <arZb0Cj3I7IvfmeK@red-moon>
+References: <20260925-acpi-static-table-irq-probe-defer-v1-0-2c62125d0085@kernel.org>
+ <20260925-acpi-static-table-irq-probe-defer-v1-2-2c62125d0085@kernel.org>
+ <arZDwutoadki7tiZ@ashevche-desk.local>
+ <arZNL9BnTGK0Klwc@red-moon>
+ <arZS4vwxps01dGb7@ashevche-desk.local>
+MIME-Version: 1.0
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <arZS4vwxps01dGb7@ashevche-desk.local>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -72,63 +86,102 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-
-
-On 2026/09/24 23:09, Andy Shevchenko wrote:
-> On Thu, Sep 24, 2026 at 06:07:37PM +0900, Kunihiko Hayashi wrote:
->> On 2026/09/17 13:05, Malathi A wrote:
->>> uniphier_uart_probe() enables priv->clk by hand and is then
-> responsible
->>> for disabling it again on every error path. It misses one: when
->>> uart_read_port_properties() fails the function returns directly,
-> leaving
->>> the clock prepared and enabled. The neighbouring path, taken when
->>> serial8250_register_8250_port() fails, does call
-> clk_disable_unprepare(),
->>> which shows the leak is an oversight rather than intent.
->>>
->>> Rather than adding another manual unwind, switch to
->>> devm_clk_get_enabled() so the clock is released by devres. That
-> removes
->>> the error path entirely, along with the explicit disables in the
->>> register failure path and in uniphier_uart_remove().
->>>
->>> The clock is still disabled and re-enabled by hand across system
-> sleep,
->>> which stays balanced: only SET_SYSTEM_SLEEP_PM_OPS is used, so the
->>> device cannot be unbound while suspended and devres always sees an
->>> enabled clock at detach.
+On Fri, Sep 25, 2026 at 01:54:26PM +0300, Andy Shevchenko wrote:
+> On Fri, Sep 25, 2026 at 12:30:07PM +0200, Lorenzo Pieralisi wrote:
+> > On Fri, Sep 25, 2026 at 12:49:54PM +0300, Andy Shevchenko wrote:
+> > > On Fri, Sep 25, 2026 at 09:48:01AM +0200, Lorenzo Pieralisi wrote:
 > 
 > ...
 > 
->> I'm a bit concerned about the error path in uniphier_uart_resume().
->> The clock may have been disabled in uniphier_uart_suspend(), and
->> clk_prepare_enable() can fail when trying to enable it again.
->>
->> In that case, wouldn't devres try to disable an already disabled
->> clock on detach?
+> > > > +static int acpi_static_fwnode_read_u32_prop_index(const struct fwnode_handle *fwnode,
+> > > > +						  const char *propname,
+> > > > +						  unsigned int index, u32 *value)
+> > > > +{
+> > > > +	u32 *values;
+> > > > +	int ret, count;
+> > > > +
+> > > > +	count = fwnode_property_count_u32(fwnode, propname);
+> > > > +	if (count < 0)
+> > > > +		return count;
+> > > > +
+> > > > +	if (index >= count)
+> > > > +		return -ENOENT;
+> > > > +
+> > > > +	values = kcalloc(count, sizeof(*values), GFP_KERNEL);
+> > > > +	if (!values)
+> > > > +		return -ENOMEM;
+> > > > +
+> > > > +	ret = fwnode_property_read_u32_array(fwnode, propname, values, count);
+> > > > +	if (!ret)
+> > > > +		*value = values[index];
+> > > 
+> > > Use standard pattern, id est
+> > > 
+> > > 	if (ret)
+> > > 		...
+> > > 
+> > > > +	kfree(values);
+> > > 
+> > > You want to use __free()
+> > > 
+> > > > +	return ret;
+> > > > +}
+> > > 
+> > > I believe the whole approach is suboptimal, if you wish get indexed value (but why?)
+> > 
+> > Why what (that's what the irq_get() interface requires ?) I agree it is
+> > suboptimal - the whole point of the series is an RFC on using properties
+> > to store GSI number/flags, then how to read them we will optimize it
+> > when/if we agree that's the approach to be taken.
 > 
-> Isn't there is a guarantee that the .remove() is called with PM runtime on
-> and
-> get, meaning it's called with the enabled clock? But if not the case, we
-> might
-> use PM runtime force operations (resume and suspend in the respective
-> cases.
+> Why to have indexed APIs. The callers usually do not want a single item from an
+> array, they want all of them or a big pile (exception is the array of strings,
+> but we have matching functions for that).
 > 
+> As per approach, this patch is against device property and I don't think we are
+> going to agree on the approach taken in *this* patch.
+> 
+> > > it needs to be retrieved as that in the guts of ACPI. Allocating memory for the whole
+> > > array to retrieve a single element is simply wrong.
+> 
+> ...
+> 
+> > > > +#define ACPI_IRQ_PROP_GSI		"linux,acpi-gsi"
+> > > > +#define ACPI_IRQ_PROP_GSI_TRIGGER	"linux,acpi-gsi-trigger"
+> > > > +#define ACPI_IRQ_PROP_GSI_POLARITY	"linux,acpi-gsi-polarity"
+> > > 
+> > > Oh... This sounds like a big ugly hack.
+> > 
+> > That does not help much I am afraid.
+> > 
+> > What's a ugly hack ? Property names ? Using properties for this purpose ?
+> 
+> Yes, properties started with "linux," for some core functionality.
 
-My concern was just the case where clk_prepare_enable() in the system
-resume callback fails, leaving the clock disabled before devres cleanup.
+I added a name for those out of thin air, again - the question is on
+the approch, properties I can call them whatever we like.
 
-This driver currently only uses SET_SYSTEM_SLEEP_PM_OPS(), so I wasn't
-considering runtime PM here.
+I am not a fan of those myself, as mentioned in the cover letter.
 
-I don't have a strong opinion on whether runtime PM should be involved,
-but if it guarantees that the clock is enabled before .remove(),
-that would address my concern.
+> Yes, using properties for this also doesn't sound right. I think the problem
+> here is in the table specifications or somewhere that deep. That's why we
+> ended up in this series.
+> 
+> > Again, it is an RFC for this specific reason and I mentioned that in the
+> > cover letter, thank you for your inputs.
+> 
+> And here we have a discussion started :-)
 
-Thank you,
+Thanks !
 
----
-Best Regards
-Kunihiko Hayashi
+> P.S. Looks like I was too quick to jump into this thread. I will wait for
+> others to share their view on all this.
+
+No, thank you for chiming in so promptly. The main aim is to keep most
+of the drivers and API unchanged for a bunch of devices created out of
+static tables - ie minimize changes as much as possible, that's the
+purpose.
+
+Thanks,
+Lorenzo
 
