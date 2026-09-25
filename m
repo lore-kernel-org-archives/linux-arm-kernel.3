@@ -4,67 +4,66 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5706AC98321
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 25 Sep 2026 15:24:04 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 57E0CC98325
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 25 Sep 2026 15:28:38 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=0Mn9LHpATQYD60MMDJFhSmPSAE1hoAUrprtOqwvk3jQ=; b=rVPEhknGqug99MeQej7laxZM5r
-	0Yto66zzmekKiwIuPQ/LeDzhKDdc+O2r6LoHNBLNlsf4LBTZbupkz3h5jp/pWIU0VPITqyYqSmn8R
-	wB0hUjmYjaHRmmIN7oVrRmcAsomxOwqJsqB3wFhaSXGWHAS9Lhxv3VpKenP0RwaQPKbZPsiarRk2C
-	5aIBCmMcLeiX+3wxETBEMQHM7ZadaZsrCth7NJ6oGH6TqUam/R2npE+zm281AXOdL1OrJT9fDwKQz
-	NHr4m/OI/Rk3Wzs+7Jre/zmueI7FhsAO/9SevP9pk5f1OsF6NAzhIjFJ0/QeI6scjdPy4uU5KC4Bh
-	lyFMA9JQ==;
+	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=HX/yjkeGZhu54QuTdGe2SqLBuSkENDQfw+HyBnEMbZk=; b=kJvipEIKOiOpTgP3gtbwX3WHc0
+	ZJgXL5E0jXQKz0kb/C5JdPTHWXIdfGKDEfK8b8vkw/pIDFzdU3/iVo2vAtItyU5Ic66GPUG1kdAYX
+	maKZKfgnDklfLhN2+ofR0S7bWLRfoy5qSJjx7PVL/VdbAcg2kmbB4+WvEdxvQcRhqmCu3uSxTB3aE
+	+QcKpKuZllhr6LPxurXTHmGJsgNM1j8QXdNAtPXhupuS8EokZJTLGRa10Ax3BVjk2W5iHb4b15hBO
+	6a83N0oah6fiJgUPdtvxuCdIu3Gxcozo2pnwHtk6RU6nCPRZ8l/ccw5certUCTXTpF4R6xR+026i3
+	Q0rONMpA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xA7mI-0000000Dm3c-0VAv;
-	Fri, 25 Sep 2026 15:23:58 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xA7mF-0000000Dm3C-2mzV
-	for linux-arm-kernel@lists.infradead.org;
-	Fri, 25 Sep 2026 15:23:57 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 2E24B1688;
-	Fri, 25 Sep 2026 08:23:51 -0700 (PDT)
-Received: from [10.57.10.17] (unknown [10.57.10.17])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 863F73F882;
-	Fri, 25 Sep 2026 08:23:51 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1790349834; bh=//y9dPhjHq/ujPCrO92ZhJvyqsgBfC/qyzgIoS31GyY=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=hiPkvze6xWnuXgjf7isAW+6ZYs+8hiozwT76bIXaPIMZqQDQFSopSgQ6Ul8qjMvDN
-	 1dn7ziLWqkMm5w1VMB5N5WKNtRd5RVjl7Wmcv+VRFKuQCVGYi7yYBkALg4o1GccVnq
-	 VNXBzkBnu5Ats955xS9i5iq3lPWyOYFAmdJTS9MI=
-Message-ID: <f7662116-ef8e-4f97-90a4-07173236617b@arm.com>
-Date: Fri, 25 Sep 2026 16:23:49 +0100
+	id 1xA7qh-0000000DnJd-2DgT;
+	Fri, 25 Sep 2026 15:28:31 +0000
+Received: from m16.mail.163.com ([220.197.31.2])
+	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1xA7qe-0000000DnIf-3f9m;
+	Fri, 25 Sep 2026 15:28:30 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=163.com;
+	s=s110527; h=From:To:Subject:Date:Message-Id:MIME-Version; bh=HX
+	/yjkeGZhu54QuTdGe2SqLBuSkENDQfw+HyBnEMbZk=; b=VdUTcKNV8FUaX58nhD
+	Etv3gN4SrbpUREKihrQWUTnmp8uEH3CwRDAArfGxvtvb1LCojDR30KT1QTC0rJWq
+	3Pe4vAgDO0pcBLGEMqAfvM1hpMdALgZJrmK7WrX2QxawOp5+WKk/FexDPS709IEG
+	RHIGjN9rt0BjmWCFh6TGBsOjg=
+Received: from pc.localdomain (unknown [])
+	by gzga-smtp-mtada-g1-1 (Coremail) with SMTP id _____wD3H5cAk7Zq7VoPAw--.4331S2;
+	Fri, 25 Sep 2026 23:28:01 +0800 (CST)
+From: Jiale Yao <yaojiale02@163.com>
+To: Felix Fietkau <nbd@nbd.name>,
+	Lorenzo Bianconi <lorenzo@kernel.org>,
+	Ryder Lee <ryder.lee@mediatek.com>,
+	Shayne Chen <shayne.chen@mediatek.com>,
+	Sean Wang <sean.wang@mediatek.com>,
+	Matthias Brugger <matthias.bgg@gmail.com>,
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
+	Kalle Valo <kvalo@kernel.org>,
+	linux-wireless@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-mediatek@lists.infradead.org
+Cc: Jiale Yao <yaojiale02@163.com>
+Subject: [PATCH] wifi: mt76: mt76x02: validate RX padding before use
+Date: Fri, 25 Sep 2026 23:27:54 +0800
+Message-Id: <20260925152754.2323624-1-yaojiale02@163.com>
+X-Mailer: git-send-email 2.34.1
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v19 2/7] firmware: arm_rmm: Check for RMI support at init
-Content-Language: en-GB
-To: Catalin Marinas <catalin.marinas@arm.com>
-Cc: kvm@vger.kernel.org, kvmarm@lists.linux.dev, maz@kernel.org,
- will@kernel.org, linux-kernel@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, steven.price@arm.com,
- aneesh.kumar@kernel.org, oupton@kernel.org, gshan@redhat.com,
- joey.gouly@arm.com, tabba@google.com, yuzenghui@huawei.com,
- linux-coco@lists.linux.dev, gankulkarni@os.amperecomputing.com,
- sdonthineni@nvidia.com, alpergun@google.com, fj0570is@fujitsu.com,
- WeiLin.Chang@arm.com, lpieralisi@kernel.org, enju.kohei@fujitsu.com,
- sudeep.holla@arm.com, jonathan.cameron@oss.qualcomm.com
-References: <20260924135201.850038-1-suzuki.poulose@arm.com>
- <20260924135201.850038-3-suzuki.poulose@arm.com> <arZQCiF3iqp9eCsy@arm.com>
-From: Suzuki K Poulose <suzuki.poulose@arm.com>
-In-Reply-To: <arZQCiF3iqp9eCsy@arm.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
+Content-Transfer-Encoding: 8bit
+X-CM-TRANSID: _____wD3H5cAk7Zq7VoPAw--.4331S2
+X-Coremail-Antispam: 1Uf129KBjvJXoW7WF17Gw47Gw1UJF1xZFWUArb_yoW8AFy8pF
+	W5K342vr45Gr48uw18Aa1kCFWrGw1fKFy5KFySg3WrZa40krn8JFyF9FyFvryFyFsYk3WS
+	kF1qvanxGFyDu3JanT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
+	9KBjDUYxBIdaVFxhVjvjDU0xZFpf9x0pRCJPAUUUUU=
+X-CM-SenderInfo: x1dryxhdohiji6rwjhhfrp/xtbCzgEtZ2q2kwHW6gAA33
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260925_082356_146875_FFC5330B 
-X-CRM114-Status: UNSURE (   9.97  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260925_082829_376710_C395D9D1 
+X-CRM114-Status: GOOD (  11.28  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -79,29 +78,51 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 25/09/2026 11:42, Catalin Marinas wrote:
-> On Thu, Sep 24, 2026 at 02:51:56PM +0100, Suzuki K Poulose wrote:
->> diff --git a/arch/arm64/kernel/cpufeature.c b/arch/arm64/kernel/cpufeature.c
->> index 32102c3912fa7..e8b29983b0021 100644
->> --- a/arch/arm64/kernel/cpufeature.c
->> +++ b/arch/arm64/kernel/cpufeature.c
->> @@ -293,6 +293,7 @@ static const struct arm64_ftr_bits ftr_id_aa64isar3[] = {
->>   static const struct arm64_ftr_bits ftr_id_aa64pfr0[] = {
->>   	ARM64_FTR_BITS(FTR_HIDDEN, FTR_NONSTRICT, FTR_LOWER_SAFE, ID_AA64PFR0_EL1_CSV3_SHIFT, 4, 0),
->>   	ARM64_FTR_BITS(FTR_HIDDEN, FTR_NONSTRICT, FTR_LOWER_SAFE, ID_AA64PFR0_EL1_CSV2_SHIFT, 4, 0),
->> +	ARM64_FTR_BITS(FTR_HIDDEN, FTR_NONSTRICT, FTR_LOWER_SAFE, ID_AA64PFR0_EL1_RME_SHIFT, 4, 0),
-> 
-> I think we end up exposing this to (any) guest unless we mask it out in
-> sanitise_id_aa64dfr0_el1(). Do the guests care about the RME version? I
+The RX descriptor provides L2 and PN padding lengths that are used to
+locate the CCMP IV and determine how many bytes to remove from the packet.
+These lengths are not checked against the received skb length before the
+IV is read or mt76x02_remove_hdr_pad() is called.
 
-Valid point. I personally don't think this matters. The FEAT_RME alone
-is not useful or harmful. I could mask it in KVM as a safe bet.
+Reject frames whose IV does not fit within the skb or whose header padding
+would extend past the end of the skb.
 
-Cheers
-Suzuki
+Fixes: 30ce7f4456ae ("mt76: validate rx CCMP PN")
+Signed-off-by: Jiale Yao <yaojiale02@163.com>
+---
+ drivers/net/wireless/mediatek/mt76/mt76x02_mac.c | 11 +++++++++--
+ 1 file changed, 9 insertions(+), 2 deletions(-)
 
-> don't think they should, especially the non-realm ones. For nested it's
-> masked away already (limit_nv_id_reg()).
-> 
+diff --git a/drivers/net/wireless/mediatek/mt76/mt76x02_mac.c b/drivers/net/wireless/mediatek/mt76/mt76x02_mac.c
+index 21f8b1e64101..73a42cc4edae 100644
+--- a/drivers/net/wireless/mediatek/mt76/mt76x02_mac.c
++++ b/drivers/net/wireless/mediatek/mt76/mt76x02_mac.c
+@@ -809,9 +809,13 @@ int mt76x02_mac_process_rx(struct mt76x02_dev *dev, struct sk_buff *skb,
+ 	len = FIELD_GET(MT_RXWI_CTL_MPDU_LEN, ctl);
+ 	pn_len = FIELD_GET(MT_RXINFO_PN_LEN, rxinfo);
+ 	if (pn_len) {
+-		int offset = ieee80211_get_hdrlen_from_skb(skb) + pad_len;
+-		u8 *data = skb->data + offset;
++		unsigned int offset = ieee80211_get_hdrlen_from_skb(skb) + pad_len;
++		u8 *data;
+ 
++		if (offset + 8 > skb->len)
++			return -EINVAL;
++
++		data = skb->data + offset;
+ 		status->iv[0] = data[7];
+ 		status->iv[1] = data[6];
+ 		status->iv[2] = data[5];
+@@ -831,6 +835,9 @@ int mt76x02_mac_process_rx(struct mt76x02_dev *dev, struct sk_buff *skb,
+ 		}
+ 	}
+ 
++	if (pad_len + ieee80211_get_hdrlen_from_skb(skb) > skb->len)
++		return -EINVAL;
++
+ 	mt76x02_remove_hdr_pad(skb, pad_len);
+ 
+ 	if ((rxinfo & MT_RXINFO_BA) && !(rxinfo & MT_RXINFO_NULL))
+-- 
+2.34.1
 
 
