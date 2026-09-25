@@ -4,75 +4,62 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0FE14C9830E
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 25 Sep 2026 13:26:21 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 978CDC9830D
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 25 Sep 2026 13:27:11 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:References:In-Reply-To:Message-ID:Date
+	:Cc:To:From:Subject:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=tbI7BY1/DMfC1o6Nu52xiZ2zV1iIXaUIFyG9Dk4Azbw=; b=Hiqv/Tjcg7trnyAe54OBjwoIiF
-	cwVbE0IUg5Q4I1wid3r5meoKQyUv7Zdq7mSW0HJJpoS8E4wKwNv4VJocsxJSDQjA4XDQ6sfia1y+G
-	EUba4DvTOv+3xgPzo2eM0WVDzN7N9qwhTXMyxYFtikj+iLaRN36R4Fd4/MrEZDQPyDxAS/EG1tcb7
-	ewydA9TA8gfWHOttd4Xv12FiGBP9GKagRdWFQSuFiPRC1mQ8SxnCIg23x7bguo/2xPZ2BtttUG6gJ
-	dkn6WUemSTaYtMcShTz3NEap1f0os/SsZJ6/BEnSTTHhEBsP7utHk6gp0pdcLre7dvgHm1SM10Qgc
-	aajCGpWw==;
+	bh=VD6FgJ9svZjAMPBnEBckl3XokQ600+zqEuofdo3YE4I=; b=mQ5dX39q1RRaqOqNLXphp1I8sR
+	KYvBVgBe3mHjZQDiyA0TG1XbxQtlAVsETVSaS0ZGeZS8/1Z92YcUxsZDPtNkThyz0t457enLj/2vk
+	4FvpweSV9Em61snxpU3pJfdYUy1rtpypg2qyTGD71nE+zo/qzX3u6qUxcVjALcU0dGB6wkaLdUj3E
+	5JtczSXg2x3uFpV6LJUEGdOqN1vOc1WWERashzypXzApgMO9PXSpVtiXS+a8clLIFDWDhM9um7WqG
+	r/diRfG4jjjxafvsEdyFLM5RHikIHSeSa7CBfj1NIy3NmVftZXSYWWBQv0EZjJgzlpDEGp5XBWITd
+	mWwUbt4g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xA5wM-0000000DQMz-1bFF;
-	Fri, 25 Sep 2026 13:26:14 +0000
-Received: from sender5-op-o11.zoho.com ([165.173.182.11])
+	id 1xA5xA-0000000DQTJ-3G5f;
+	Fri, 25 Sep 2026 13:27:04 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xA5wK-0000000DQMQ-0Dwp;
-	Fri, 25 Sep 2026 13:26:13 +0000
-ARC-Seal: i=1; a=rsa-sha256; t=1790342763; cv=none; 
-	d=zohomail.com; s=zohoarc; 
-	b=V5FLorA8Lb3aR+vcL5FBo9HDzvNr64Cf6wlrnB53DORVFlYjiOs35o0mAH9WXbcVJtuCN5+bKVz1vO569f6YLvWjRy7AmXuVr+CBZ9fkfR38T9XJsur6Se7qCODeKZxCyDCzXXmvAMmwIg3m5s8Xg8pRfDp84AwXsDTw/EyFs+Q=
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=zohomail.com; s=zohoarc; 
-	t=1790342763; h=Content-Type:Cc:Cc:Date:Date:From:From:In-Reply-To:MIME-Version:Message-ID:Subject:Subject:To:To:Message-Id:Reply-To; 
-	bh=tbI7BY1/DMfC1o6Nu52xiZ2zV1iIXaUIFyG9Dk4Azbw=; 
-	b=gCWWqz1hZ6/B0eBdHBhvi63kX9mJEe9OrAuvd0w3nkMv4nM8H82ZJ6cWfkNpOomro6me3pa7KVLKdQFIeLo1e+7Q7xYGNCHmHXuIggMPF2xfGWapJdPp3N1L87OKAV8BcYiQf3WWKCc6o+6B3+wHHW5deabV/kZUqykWFxgdgqk=
-ARC-Authentication-Results: i=1; mx.zohomail.com;
-	dkim=pass  header.i=collabora.com;
-	spf=pass  smtp.mailfrom=sebastian.reichel@collabora.com;
-	dmarc=pass header.from=<sebastian.reichel@collabora.com>
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; t=1790342763;
-	s=zohomail; d=collabora.com; i=sebastian.reichel@collabora.com;
-	h=Date:Date:From:From:To:To:Cc:Cc:Subject:Subject:Message-ID:MIME-Version:Content-Type:In-Reply-To:Message-Id:Reply-To;
-	bh=tbI7BY1/DMfC1o6Nu52xiZ2zV1iIXaUIFyG9Dk4Azbw=;
-	b=jUSgJNOb5k/1s87wXZmGFXUJYpjBsFnNjpGjDRb7G8nxlk//Jj7ztMph0CXv85ue
-	Q9dzAnDSlGxTMMPL5iam1h7Gun8hUcotu+7ZAjXsav0wmiS1/g7NyXogVxct6TdkvAU
-	SdP79mNybPZxo3zmdQF9/MJ6Gp1JigCyINqy6IO0=
-Received: by smtp.zohomail.com with SMTPS id 1790342761292221.70362510434052;
-	Fri, 25 Sep 2026 06:26:01 -0700 (PDT)
-Received: by venus (Postfix, from userid 1000)
-	id 4DE3E180809; Fri, 25 Sep 2026 15:25:57 +0200 (CEST)
-Date: Fri, 25 Sep 2026 15:25:57 +0200
-From: Sebastian Reichel <sebastian.reichel@collabora.com>
-To: Adam Wermuth <adam@wermuth.pl>
-Cc: Jonas Karlman <jonas@kwiboo.se>, Heiko Stuebner <heiko@sntech.de>, 
-	Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
-	Conor Dooley <conor+dt@kernel.org>, devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
-	linux-rockchip@lists.infradead.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH 1/3] arm64: dts: rockchip: Enable USB 2.0 host1 on Radxa
- ROCK 3B
-Message-ID: <arZ0nqBvHDzSbZOE@venus>
-References: <20260924071445.441822-1-adam@wermuth.pl>
- <20260924071445.441822-2-adam@wermuth.pl>
- <e03db2e9-085b-49ff-8d4a-bc112bc4ddd7@kwiboo.se>
- <CABkrwJ6uvjS8bez6j0MZbp2Y+O9RhyU09YOLrUzHaeUEVC=Qkg@mail.gmail.com>
+	id 1xA5x9-0000000DQT4-1fRz
+	for linux-arm-kernel@lists.infradead.org;
+	Fri, 25 Sep 2026 13:27:03 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by sea.source.kernel.org (Postfix) with ESMTP id EF6BF4024E;
+	Fri, 25 Sep 2026 13:27:02 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id DF9A71F00893;
+	Fri, 25 Sep 2026 13:27:01 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1790342822;
+	bh=VD6FgJ9svZjAMPBnEBckl3XokQ600+zqEuofdo3YE4I=;
+	h=Subject:From:To:Cc:Date:In-Reply-To:References;
+	b=Hmr9KJ7VixG3UBMg7vOIZapDA1hh/Y4+vkWD8tojHBLRZrUxV2iw1Ul0CacJ0t1iv
+	 fv4nFhCFRrFfMWK+twPtcacTNUz0hQIzqdpyBGVtq5Mk3P/fbOr0cN7Bksc6hti/eF
+	 c9QtheEJQ1KKtyPbQulxFPGhUKShJwYS6n0O5fb0I+yJHKLaTctYdu+cgmG/1qcLjz
+	 BRsVQt7R4XKgKCbIubfP73SoE6sX5Rwp9c+HqdUWT/eR/Z8Xu9A5RLprccH9bJUIi/
+	 WBPd1IMCAtPVu/VCa/BqYbWNA49QWQh5xZ0PzG/86/oCKF2iUC1g2IbiyimhI7elo5
+	 SXb6l1kdavAGg==
+Subject: Re: [PATCH net-next v2] net: stmmac: add XDP multi-buff support for TX side
+From: netdev-bot+sashiko@kernel.org
+To: lorenzo.bianconi@oss.qualcomm.com
+Cc: maxime.chevallier@bootlin.com, andrew+netdev@lunn.ch, davem@davemloft.net,
+ edumazet@google.com, kuba@kernel.org, pabeni@redhat.com,
+ mcoquelin.stm32@gmail.com, alexandre.torgue@foss.st.com, ast@kernel.org,
+ daniel@iogearbox.net, hawk@kernel.org, john.fastabend@gmail.com,
+ sdf@fomichev.me, netdev@vger.kernel.org,
+ linux-stm32@st-md-mailman.stormreply.com,
+ linux-arm-kernel@lists.infradead.org, bpf@vger.kernel.org
+Date: Fri, 25 Sep 2026 13:27:01 +0000
+Message-ID: <179034282133.2160803.6796326011241134301@kernel.org>
+In-Reply-To: <20260924-b4-stmmac-xmit-mb-v2-1-003347b7bc25@oss.qualcomm.com>
+References: <20260924-b4-stmmac-xmit-mb-v2-1-003347b7bc25@oss.qualcomm.com>
+X-sashiko-severity: Medium
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 8bit
 MIME-Version: 1.0
-Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="ezpnci3ypobxl7j4"
-Content-Disposition: inline
-In-Reply-To: <CABkrwJ6uvjS8bez6j0MZbp2Y+O9RhyU09YOLrUzHaeUEVC=Qkg@mail.gmail.com>
-X-Zoho-Virus-Status: 1
-X-Zoho-AV-Stamp: zmail-av-0.2.13.1.5.4/290.314.86
-X-ZohoMailClient: External
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260925_062612_153211_5B211E9B 
-X-CRM114-Status: GOOD (  29.42  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -87,120 +74,169 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+Thank you for your contribution! Sashiko AI review found 3 potential
+issue(s) to consider.
 
---ezpnci3ypobxl7j4
-Content-Type: text/plain; protected-headers=v1; charset=utf-8
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
-Subject: Re: [PATCH 1/3] arm64: dts: rockchip: Enable USB 2.0 host1 on Radxa
- ROCK 3B
-MIME-Version: 1.0
+Critical: 0 · High: 0 · Medium: 2 · Low: 1
 
-Hi,
+If you believe none of the issues are legitimate, please reply to each
+issue of Medium severity or higher and explain why the AI is wrong.
+If any of them are legitimate and you plan to respin, please let patchwork
+know by including "pw-bot: cr" as a separate line at the end of your reply
+(one such reply per series is enough).
 
-On Thu, Sep 24, 2026 at 09:03:00PM +0200, Adam Wermuth wrote:
-> On Thu, 24 Sep 2026 6:12 PM, Jonas Karlman wrote:
-> > This and next patch is likely best suited as an dt-overlay.
->=20
-> Thanks for the review. That makes sense, as the B-key slot is not
-> always populated.
->=20
-> For v2 I will move the host1 enablement and the WWAN power, RESET#
-> and W_DISABLE1# handling into a new rk3568-rock-3b-wwan.dtso overlay,
-> and keep only the fan patch in the base DT.
+- [Medium] The patch adds multi-buffer (frag) handling to
+  stmmac_xdp_xmit_xdpf() in…
+- [Medium] In stmmac_xdp_xmit_xdpf()
+  (drivers/net/ethernet/stmicro/stmmac/stmmac_main.c), the patch removes…
+- [Low] A new comment in stmmac_xdp_xmit_xdpf()
+  (drivers/net/ethernet/stmicro/stmmac/stmmac_main.c:5332-5334) reads…
 
-Why would this be better suited as an Overlay? Nothing describes the
-specific card plugged in as it is auto-discovered via USB. The
-overlays are mostly required for things that cannot easily be
-auto-detected. FWIW we don't have M.2 Key M as a DT overlay either.
+--
 
-Something to consider is, that for Key E and Key M there is a proper
-DT binding now: Documentation/devicetree/bindings/connector/pcie-m2-*.yaml
+net: stmmac: add XDP multi-buff support for TX side
 
-We probably want the same for Key B.
+This commit extends stmmac_xdp_xmit_xdpf() so it can send XDP frames that
+carry fragments. The frame head and each frag are mapped and placed in
+their own TX descriptor. The OWN bit on the first descriptor is set only
+after all the descriptors are filled in.
 
-Greetings,
+Link: https://lore.kernel.org/r/20260923-b4-stmmac-xmit-mb-v1-1-a71a1c522142@oss.qualcomm.com
 
--- Sebastian
+> diff --git a/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c b/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
+> index bf9e7e4cb1c31..089281ef9e612 100644
+> --- a/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
+> +++ b/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
+> @@ -5239,77 +5239,117 @@ static unsigned int stmmac_rx_buf2_len(struct stmmac_priv *priv,
+>  static int stmmac_xdp_xmit_xdpf(struct stmmac_priv *priv, int queue,
+>  				struct xdp_frame *xdpf, bool dma_map)
+>  {
 
+[ ... ]
 
->=20
->=20
-> czw., 24 wrz 2026 o 18:12 Jonas Karlman <jonas@kwiboo.se> napisa=C5=82(a):
-> >
-> > Hi Adam,
-> >
-> > On 9/24/2026 9:14 AM, Adam Wermuth wrote:
-> > > The USB 2.0 data lines of the M.2 B-key slot are routed to USB2_HOST3,
-> > > which is served by usb_host1_ehci/ohci through the host port of
-> > > usb2phy1. Enable the controllers and the PHY port so that modules in
-> > > the B-key slot, such as LTE modems, can enumerate.
-> >
-> > This and next patch is likely best suited as an dt-overlay.
-> >
-> > Regards,
-> > Jonas
-> >
-> > >
-> > > Signed-off-by: Adam Wermuth <adam@wermuth.pl>
-> > > ---
-> > >  arch/arm64/boot/dts/rockchip/rk3568-rock-3b.dts | 13 +++++++++++++
-> > >  1 file changed, 13 insertions(+)
-> > >
-> > > diff --git a/arch/arm64/boot/dts/rockchip/rk3568-rock-3b.dts b/arch/a=
-rm64/boot/dts/rockchip/rk3568-rock-3b.dts
-> > > index 149a5306bb03..ad9a91c0d0d0 100644
-> > > --- a/arch/arm64/boot/dts/rockchip/rk3568-rock-3b.dts
-> > > +++ b/arch/arm64/boot/dts/rockchip/rk3568-rock-3b.dts
-> > > @@ -758,6 +758,14 @@ &usb_host0_xhci {
-> > >       status =3D "okay";
-> > >  };
-> > >
-> > > +&usb_host1_ehci {
-> > > +     status =3D "okay";
-> > > +};
-> > > +
-> > > +&usb_host1_ohci {
-> > > +     status =3D "okay";
-> > > +};
-> > > +
-> > >  &usb_host1_xhci {
-> > >       status =3D "okay";
-> > >  };
-> > > @@ -780,6 +788,11 @@ &usb2phy1 {
-> > >       status =3D "okay";
-> > >  };
-> > >
-> > > +&usb2phy1_host {
-> > > +     phy-supply =3D <&vcc5v0_usb_host>;
-> > > +     status =3D "okay";
-> > > +};
-> > > +
-> > >  &usb2phy1_otg {
-> > >       phy-supply =3D <&vcc5v0_usb_host>;
-> > >       status =3D "okay";
-> >
->=20
+> -	if (stmmac_tx_avail(priv, queue) < STMMAC_TX_THRESH(priv))
+> +	if (unlikely(xdp_frame_has_frags(xdpf)))
+> +		num_frames += sinfo->nr_frags;
 
---ezpnci3ypobxl7j4
-Content-Type: application/pgp-signature; name="signature.asc"
+[Severity: Medium]
+Can a frame with frags reach this function from either caller?
 
------BEGIN PGP SIGNATURE-----
+On the ndo_xdp_xmit path, stmmac_xdp_set_prog() still registers the
+redirect target without SG support:
 
-iQIzBAABCgAdFiEE72YNB0Y/i3JqeVQT2O7X88g7+poFAmq2dloACgkQ2O7X88g7
-+pr/mg/7B+OoEEnFA754wyjYfRo8dxmBN2hNuzkDTAK9Nt3BsF9Isgc9nHMJ+u05
-nnyo/WzdkZA1PxvQHfCdAvM0GvqiGfjMJGrHSdlY9Oe49aVSDqz9nKiHWg2CWmDu
-zbTryJ8NW+5V/xeDGBHdM6cyMijY163EbOGYjiADvp5s5BRuHAtjyBp7mR1ioIQv
-WvJH80zO5zKZ+HEBrEQb7Ubtu1nutrdi1+dv0gd6+lLwLclsAz02GOzORBC3m4QG
-wm5tKVHKvatK2qNvPvqwOzagDLzRboJRizUK9xpsl0cFo8vUUhTBzyqANTxDr1f/
-ZnlntysqzIlUryj7lFxCUnR3faIMEZ/gNd19z87+JtMnyMpoMry5JSnaU+wcS9aO
-rLdK79wUux7VW3xMH35NWR7Tzh5OYXyizncw5TJ0l6vwlH8qGgS2M3wuisDtrzax
-lAkNhwXKCjokbemj2/JBGX632TZY/ZUHq+4mVQ27+6pjfx13efMiM6+FRfav2pfU
-BqONw6uZkbTi3RURfYMumfftnjczwQtqAd5sYV3cdVg9ufHRgs3yRgfVHbboKYPV
-dfJoj3w/UldTw4TB3VHzBdcQiQ7boCIVjIAJQkhTTil2nT2QqXk1ZATN+RDz3Q3n
-nILT8M3CGNu+7No4ijr1nksfo9Hev19qsbkVU4nORonCCwTvgUA=
-=rQLU
------END PGP SIGNATURE-----
+drivers/net/ethernet/stmicro/stmmac/stmmac_xdp.c:stmmac_xdp_set_prog() {
+    ...
+	if (prog)
+		xdp_features_set_redirect_target(dev, false);
+    ...
+}
 
---ezpnci3ypobxl7j4--
+The static mask in stmmac_dvr_probe() is only NETDEV_XDP_ACT_BASIC,
+NETDEV_XDP_ACT_REDIRECT and NETDEV_XDP_ACT_XSK_ZEROCOPY. Because
+NETDEV_XDP_ACT_NDO_XMIT_SG is never set, devmap drops fragmented frames
+before they get to stmmac_xdp_xmit():
+
+kernel/bpf/devmap.c:__xdp_enqueue() {
+    ...
+	if (unlikely(!(dev->xdp_features & NETDEV_XDP_ACT_NDO_XMIT_SG) &&
+		     xdp_frame_has_frags(xdpf)))
+		return -EOPNOTSUPP;
+    ...
+}
+
+is_valid_dst() does the same check on the broadcast path.
+
+On the XDP_TX path, stmmac_xdp_xmit_back() only gets frames built by the
+stmmac RX path, and that path never builds a multi-buffer xdp_buff. The
+driver has no xdp_buff_add_frag() or xdp_buff_set_frags() calls.
+stmmac_xdp_set_prog() also rejects XDP when mtu > ETH_DATA_LEN,
+stmmac_change_mtu() blocks jumbo MTU while XDP is loaded, and SPH is turned
+off for XDP.
+
+If so, the frag loop, the skb_frag_dma_map() and skb_frag_off() handling,
+and the multi-descriptor error_dma_unmap unwind can't be run or tested. The
+subject "add XDP multi-buff support for TX side" also doesn't match what
+the driver advertises.
+
+Should this patch advertise NDO_XMIT_SG as well, for example by calling
+xdp_features_set_redirect_target(dev, true)?
+
+[ ... ]
+
+> +		stmmac_set_tx_dma_entry(tx_q, entry, buf_type, dma_addr, len,
+> +					dma_map && frag);
+> +		stmmac_set_desc_addr(priv, desc, dma_addr);
+> +		stmmac_prepare_tx_desc(priv, desc, !i, len, csum,
+> +				       priv->descriptor_mode, !!i, last_frame,
+> +				       xdp_get_frame_len(xdpf));
+> +		tx_q->xdpf[entry] = last_frame ? xdpf : NULL;
+> +		if (last_frame) {
+> +			stmmac_set_tx_dma_last_segment(tx_q, entry);
+> +			break;
+> +		}
+>  
+> -	stmmac_prepare_tx_desc(priv, tx_desc, 1, xdpf->len,
+> -			       csum, priv->descriptor_mode, true, true,
+> -			       xdpf->len);
+
+[Severity: Medium]
+Does this drop the dma_wmb() that used to come before the OWN bit on the
+normal single-buffer XDP_TX and ndo_xdp_xmit path?
+
+The old call passed is_fs=1 and tx_own=true. That hit the barrier in
+enh_desc_prepare_tx_desc(), and the dwmac4 and dwxgmac2 versions have the
+same one:
+
+drivers/net/ethernet/stmicro/stmmac/enh_desc.c:enh_desc_prepare_tx_desc() {
+    ...
+	if (is_fs && tx_own)
+		/* When the own bit, for the first frame, has to be set, all
+		 * descriptors for the same frame has to be set before, to
+		 * avoid race condition.
+		 */
+		dma_wmb();
+
+	p->des0 = cpu_to_le32(tdes0);
+}
+
+Now the first descriptor is prepared with is_fs=1 and tx_own=0, and the
+frag descriptors with is_fs=0. Neither combination reaches the barrier.
+OWN on first_entry is set later by stmmac_set_tx_owner(). Every
+implementation of that is a plain read-modify-write with no barrier:
+
+static void enh_desc_set_tx_owner(struct dma_desc *p)
+{
+	p->des0 |= cpu_to_le32(ETDES0_OWN);
+}
+
+dwmac100 and dwmac1000 cores have no tail pointer.
+dwmac_enable_dma_transmission() only writes DMA_CHAN_XMT_POLL_DEMAND, and a
+DMA that is already running keeps fetching owned descriptors. On a weakly
+ordered CPU, can the DMA see OWN=1 before the new des1/des2 buffer length
+and address? It could then send a stale address left over from the slot's
+earlier use.
+
+stmmac_xmit() has the same pattern, but that is not new. Would adding a
+dma_wmb() just before stmmac_set_tx_owner() on first_entry restore the old
+ordering?
+
+[ ... ]
+
+> +	/* Set the OWN bit on the first descriptor now that all descriptors
+> +	 * for this skb are populated.
+> +	 */
+
+[Severity: Low]
+This isn't a bug, but this comment appears to come from stmmac_xmit(). This
+function transmits an xdp_frame and does not use an skb.
+
+> +	desc = stmmac_get_tx_desc(priv, tx_q, first_entry);
+> +	stmmac_set_tx_owner(priv, desc);
+> +	tx_q->cur_tx = STMMAC_NEXT_ENTRY(entry, priv->dma_conf.dma_tx_size);
+>  	stmmac_enable_dma_transmission(priv, priv->ioaddr, queue);
+
+[ ... ]
+
+-- 
+Sashiko AI review · https://netdev-ai.bots.linux.dev/sashiko/#/patchset/20260924-b4-stmmac-xmit-mb-v2-1-003347b7bc25%40oss.qualcomm.com
 
