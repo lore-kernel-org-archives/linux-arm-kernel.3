@@ -4,61 +4,60 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4A63BC9830D
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 25 Sep 2026 11:14:55 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6403DC9830D
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 25 Sep 2026 11:32:40 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:References:In-Reply-To:Message-ID:Date
-	:Cc:To:From:Subject:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=xqZvzrdwp5abRn7IYM0pqfB5k12MK5VAXrtZcoWY4gY=; b=LKYleQMYRTSGdM0xAT/aSiRwlx
-	zx4LCoPbQJpxJe95dKnV4bTrTfi1WPJfQEIRPTR+Y/J4ZAetEejtdwVC0TtKF8n3MP40y3nH3zHMH
-	75Esa01JJR1aWmHrhA/tsmxEMlfzZEj7NgXotgfHG1iZIvyPgJ5tvjF/Jn65sU8aU7bhotL9/6rX2
-	k0c5wZuK8dksDD1NeARKtjWfQySXaH5Redf2803DcK5L0m3Pv8Rz1iZjZaaCvDIJfeYmavIkMlLAW
-	06DrcnKGKJlChWcIaa9pFfLp+4I4b1ArxG1vYeP4evy3rApgElnzwyHLhM16sMMkGW4fbL23OTX1m
-	DfjBIgZg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=PHp1U1kutG6t+AyptcXmG49o3LX2wmq5MBgrLhVKgvw=; b=dBYzxK/B0qWGl1tskTNnqA1Fjj
+	3ZxwjYMB0dis/oe8VskLf+4qT5sfzvv7k+X3QRFJ8Pd7L8/Bhqn0PDRkNZ9NVlUKUCEKZ1gYKlWm+
+	1UGFuuuaWnXVE1IbpuY0qkQeQ06heN5qHiz+HE3eqQUy7usWRmcZVIxL57zDwYcDZjtOv0uXv7WPi
+	/lzf+UCSK7qzL4qohPldbOtTtvaVZz22WX86qU+SjHNjWtvAewlh5bm/RaKGC0xib9lgdjFihA8F+
+	/AjQM2BWqbNbdZH/mTlVQ0PaINA/18tiUvyElPzJ9ziqTIobhDBK3hHGAW44JK+ASXLkH0Q2XUHq0
+	jP9otF5Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xA3tA-0000000DAhK-3fFH;
-	Fri, 25 Sep 2026 11:14:48 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
-	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xA3t0-0000000DAed-2vEP
+	id 1xA4AK-0000000DCf0-3jDF;
+	Fri, 25 Sep 2026 11:32:32 +0000
+Received: from mx.socionext.com ([202.248.49.38])
+	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1xA4AE-0000000DCdy-1kvg
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 25 Sep 2026 11:14:38 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 127584200C;
-	Fri, 25 Sep 2026 11:14:38 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 377E11F00893;
-	Fri, 25 Sep 2026 11:14:37 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1790334878;
-	bh=xqZvzrdwp5abRn7IYM0pqfB5k12MK5VAXrtZcoWY4gY=;
-	h=Subject:From:To:Cc:Date:In-Reply-To:References;
-	b=EPql0FwJVwIdAesbh+JfdXxGcitCAl+UAthKjEIx9NIdOUQ59b6Y1EkQ9Wy5UU7wQ
-	 57FDs2scOUIaxbqqaKtPkGRCUsrm1BhBzK0Irnb09slL8XXI2HAwjKxmSMS7dkb7FW
-	 mz2EU3054+gEPZ8JVqWBrHV2Lts7iOSy/ZskfPTrSMNpqCbYaD9OSn5nFGP6lW1k5m
-	 B2TL90dIkgX6RAYXXYjtFiTRD0QwwJr2oV83hz+EXx2OVKlT/e9b5QfwgopTCjhgjd
-	 +fCv0W0aYfrJ/BLhvanBmbzSSeV7v7w2cnXABJKcP5Rgu3e8NYsD6vzZO3fUeVSp5/
-	 zrHw/+R5syXiQ==
-Subject: Re: [PATCH net-next v2 2/2] net: stmmac: align real_num_tx_queues to
- mqprio configuration
-From: netdev-bot+sashiko@kernel.org
-To: lorenzo.bianconi@oss.qualcomm.com
-Cc: maxime.chevallier@bootlin.com, andrew+netdev@lunn.ch, davem@davemloft.net,
- edumazet@google.com, kuba@kernel.org, pabeni@redhat.com,
- mcoquelin.stm32@gmail.com, alexandre.torgue@foss.st.com, daniel@riscstar.com,
- netdev@vger.kernel.org, linux-stm32@st-md-mailman.stormreply.com,
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-Date: Fri, 25 Sep 2026 11:14:36 +0000
-Message-ID: <179033487678.2160803.10600059804699788917@kernel.org>
-In-Reply-To: <20260924-stmmac-mqprio-prio-offload-v2-2-fdd8b69efccf@oss.qualcomm.com>
-References: <20260924-stmmac-mqprio-prio-offload-v2-2-fdd8b69efccf@oss.qualcomm.com>
-X-sashiko-severity: High
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 8bit
+	Fri, 25 Sep 2026 11:32:28 +0000
+Received: from unknown (HELO kinkan3-ex.css.socionext.com) ([172.31.9.52])
+  by mx.socionext.com with ESMTP; 25 Sep 2026 20:32:22 +0900
+Received: from mail.mfilter.local (mail-arc01.css.socionext.com [10.213.46.36])
+	by kinkan3-ex.css.socionext.com (Postfix) with ESMTP id 9C1BF20695D1;
+	Fri, 25 Sep 2026 20:32:22 +0900 (JST)
+Received: from iyokan3.css.socionext.com ([172.31.9.53]) by m-FILTER with ESMTP; Fri, 25 Sep 2026 20:32:22 +0900
+Received: from [10.212.247.157] (unknown [10.212.247.157])
+	by iyokan3.css.socionext.com (Postfix) with ESMTP id 2932A10A019;
+	Fri, 25 Sep 2026 20:32:22 +0900 (JST)
+Message-ID: <3ea1f574-ddb5-46a6-9bc1-7a8ea84c54bd@socionext.com>
+Date: Fri, 25 Sep 2026 20:32:20 +0900
 MIME-Version: 1.0
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v2] serial: 8250_uniphier: Use devm_clk_get_enabled()
+To: Andy Shevchenko <andriy.shevchenko@linux.intel.com>
+Cc: Malathi A <malathi.a2000@gmail.com>,
+ Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+ Jiri Slaby <jirislaby@kernel.org>, Masami Hiramatsu <mhiramat@kernel.org>,
+ linux-kernel@vger.kernel.org, linux-serial@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org
+References: <20260917040511.103232-1-malathi.a2000@gmail.com>
+ <97e4ab26-b147-4cf4-97f9-307903f14e61@socionext.com>
+ <arUvJyvChXXcasSu@ashevche-desk.local>
+Content-Language: en-US
+From: Kunihiko Hayashi <hayashi.kunihiko@socionext.com>
+In-Reply-To: <arUvJyvChXXcasSu@ashevche-desk.local>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260925_043226_584498_BD643C05 
+X-CRM114-Status: GOOD (  22.31  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -73,187 +72,63 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Thank you for your contribution! Sashiko AI review found 4 potential
-issue(s) to consider.
 
-Critical: 0 · High: 2 · Medium: 0 · Low: 2
 
-If you believe none of the issues are legitimate, please reply to each
-issue of Medium severity or higher and explain why the AI is wrong.
-If any of them are legitimate and you plan to respin, please let patchwork
-know by including "pw-bot: cr" as a separate line at the end of your reply
-(one such reply per series is enough).
+On 2026/09/24 23:09, Andy Shevchenko wrote:
+> On Thu, Sep 24, 2026 at 06:07:37PM +0900, Kunihiko Hayashi wrote:
+>> On 2026/09/17 13:05, Malathi A wrote:
+>>> uniphier_uart_probe() enables priv->clk by hand and is then
+> responsible
+>>> for disabling it again on every error path. It misses one: when
+>>> uart_read_port_properties() fails the function returns directly,
+> leaving
+>>> the clock prepared and enabled. The neighbouring path, taken when
+>>> serial8250_register_8250_port() fails, does call
+> clk_disable_unprepare(),
+>>> which shows the leak is an oversight rather than intent.
+>>>
+>>> Rather than adding another manual unwind, switch to
+>>> devm_clk_get_enabled() so the clock is released by devres. That
+> removes
+>>> the error path entirely, along with the explicit disables in the
+>>> register failure path and in uniphier_uart_remove().
+>>>
+>>> The clock is still disabled and re-enabled by hand across system
+> sleep,
+>>> which stays balanced: only SET_SYSTEM_SLEEP_PM_OPS is used, so the
+>>> device cannot be unbound while suspended and devres always sees an
+>>> enabled clock at detach.
+> 
+> ...
+> 
+>> I'm a bit concerned about the error path in uniphier_uart_resume().
+>> The clock may have been disabled in uniphier_uart_suspend(), and
+>> clk_prepare_enable() can fail when trying to enable it again.
+>>
+>> In that case, wouldn't devres try to disable an already disabled
+>> clock on detach?
+> 
+> Isn't there is a guarantee that the .remove() is called with PM runtime on
+> and
+> get, meaning it's called with the enabled clock? But if not the case, we
+> might
+> use PM runtime force operations (resume and suspend in the respective
+> cases.
+> 
 
-- [High] After this patch, stmmac_hw_setup() sets the real TX queue count
-  from the cached priv->xmit_qdisc.num_tx_queues instead of…
-- [High] __stmmac_dvr_probe() sets priv->xmit_qdisc.num_tx_queues =
-  priv->plat->tx_queues_to_use (line 7926) before calling…
-- [Low] The commit message says the new field 'is restored to
-  [plat->tx_queues_to_use] when the mqprio qdisc is destroyed or its…
-- [Low] The patch fixes a user-visible inconsistency: on reopen,
-  real_num_tx_queues is reset to plat->tx_queues_to_use while the netdev…
+My concern was just the case where clk_prepare_enable() in the system
+resume callback fails, leaving the clock disabled before devres cleanup.
 
---
+This driver currently only uses SET_SYSTEM_SLEEP_PM_OPS(), so I wasn't
+considering runtime PM here.
 
-net: stmmac: align real_num_tx_queues to mqprio configuration
+I don't have a strong opinion on whether runtime PM should be involved,
+but if it guarantees that the clock is enabled before .remove(),
+that would address my concern.
 
-This commit adds priv->xmit_qdisc.num_tx_queues to hold the number of TX
-queues enabled by the current mqprio offload. stmmac_hw_setup() now uses
-it instead of plat->tx_queues_to_use when setting real_num_tx_queues on
-open. The field is set at probe, and reset when the mqprio offload is
-removed.
+Thank you,
 
-> The field defaults to plat->tx_queues_to_use at probe time and is restored
-> to it when the mqprio qdisc is destroyed or its setup fails, so a device
-> without an active mqprio offload keeps the devicetree configured queue
-> count across reopens.
-
-[Severity: Low]
-
-Is the "or its setup fails" part accurate? In tc_setup_dwmac510_mqprio(),
-the new field is only assigned on the success path:
-
-	priv->xmit_qdisc.num_tx_queues = num_tx_queues;
-
-	return 0;
-
-error_reset_num_tx_queues:
-	...
-error_reset_tc:
-	...
-
-The error labels roll back algo, the TC map and real_num_tx_queues. They
-leave num_tx_queues at the previous configuration's value.
-
-stmmac_reset_tc_mqprio() does not run on a failed setup either. Because
-hw_offload was never set, mqprio_destroy() calls netdev_set_num_tc(dev, 0)
-instead of ndo_setup_tc.
-
-Keeping the previous value matches commit 02fffd1939f6 ("net: stmmac:
-preserve real_num_tx_queues on mqprio setup failure"). So the code looks
-right, and it is the description that differs.
-
-The message also calls plat->tx_queues_to_use "the devicetree value".
-stmmac_hw_init() clamps that value, and ethtool -L can change it at
-runtime (see the comments below).
-
-> Signed-off-by: Lorenzo Bianconi <lorenzo.bianconi@oss.qualcomm.com>
-
-[Severity: Low]
-
-Should this have a Fixes: tag? The mqprio offload has been lowering
-real_num_tx_queues since commit 195e4f409a40 ("net: stmmac: support fp
-parameter of tc-mqprio"). The related fix 02fffd1939f6 carries
-Fixes: 195e4f409a40.
-
-> diff --git a/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c b/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
-> index 0c9083f8846e0..ad6be5166b956 100644
-> --- a/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
-> +++ b/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
-> @@ -3772,7 +3772,7 @@ static int stmmac_hw_setup(struct net_device *dev)
->  
->  	/* Configure real RX and TX queues */
->  	netif_set_real_num_rx_queues(dev, priv->plat->rx_queues_to_use);
-> -	netif_set_real_num_tx_queues(dev, priv->plat->tx_queues_to_use);
-> +	netif_set_real_num_tx_queues(dev, priv->xmit_qdisc.num_tx_queues);
-
-[Severity: High]
-
-What keeps priv->xmit_qdisc.num_tx_queues in sync with
-plat->tx_queues_to_use when the channel count is changed with ethtool?
-
-stmmac_set_channels()->stmmac_reinit_queues() only updates the plat
-fields before it reopens the device:
-
-stmmac_reinit_queues() {
-    ...
-	priv->plat->rx_queues_to_use = rx_cnt;
-	priv->plat->tx_queues_to_use = tx_cnt;
-    ...
-}
-
-The new field is only written in three places: __stmmac_dvr_probe(),
-stmmac_reset_tc_mqprio() and the success path of
-tc_setup_dwmac510_mqprio().
-
-Take "ethtool -L eth0 tx 2" on a 4-queue device with no mqprio offload.
-The reopen then does this:
-
-__stmmac_open()
-  alloc_dma_tx_desc_resources()   /* rings for queues 0..1 only */
-  stmmac_hw_setup()
-    netif_set_real_num_tx_queues(dev, 4)
-    stmmac_start_all_dma()        /* starts 2 TX channels */
-
-The netif_set_real_num_tx_queues() call succeeds because its only upper
-bound is dev->num_tx_queues, which is MTL_MAX_TX_QUEUES. Since dma_conf
-is freshly kzalloc'd, tx_queue[2..3].tx_skbuff and dma_tx are NULL.
-
-stmmac has no ndo_select_queue, so skb_tx_hash() can pick queue 2 or 3.
-stmmac_xmit() takes skb_get_queue_mapping() without a bounds check and
-then does:
-
-	WARN_ON(tx_q->tx_skbuff[first_entry]);
-
-Can this dereference a NULL tx_skbuff? stmmac_tso_xmit() seems to have
-the same problem. The same thing happens if the channel change is made
-while the interface is down and applied on the next open.
-
-In the other direction, when TX channels are increased, the extra queues
-are never exposed. ethtool -L then silently has no effect on TX, and
-ethtool -l reports a count the netdev does not use.
-
-Before this patch, stmmac_hw_setup() always used the current
-plat->tx_queues_to_use, so real_num_tx_queues matched the allocated rings.
-
-Would it make sense to update or clamp the cached value in
-stmmac_reinit_queues()? Using min(xmit_qdisc.num_tx_queues,
-plat->tx_queues_to_use) in stmmac_hw_setup() would also work.
-
-Either way, what should happen to an active mqprio offload whose ranges
-no longer fit the new count? It could be reset, or the channel change
-could be rejected.
-
-[ ... ]
-
-> @@ -7923,6 +7923,7 @@ static int __stmmac_dvr_probe(struct device *device,
->  		priv->xmit_qdisc.prio[i] = priv->plat->tx_queues_cfg[i].prio;
->  	}
->  	priv->xmit_qdisc.algo = priv->plat->tx_sched_algorithm;
-> +	priv->xmit_qdisc.num_tx_queues = priv->plat->tx_queues_to_use;
-
-[Severity: High]
-
-Is this set too early in probe? __stmmac_dvr_probe() calls
-stmmac_hw_init() later, and that can lower plat->tx_queues_to_use:
-
-stmmac_hw_init() {
-    ...
-	if (priv->dma_cap.number_tx_queues &&
-	    priv->plat->tx_queues_to_use > priv->dma_cap.number_tx_queues) {
-		dev_warn(priv->device,
-			 "Number of Tx queues (%u) exceeds dma capability\n",
-			 priv->plat->tx_queues_to_use);
-		priv->plat->tx_queues_to_use = priv->dma_cap.number_tx_queues;
-	}
-    ...
-}
-
-The cached value keeps the count from before the clamp. Take a platform
-where the devicetree or glue driver asks for more TX queues than the core
-has. Every open then calls netif_set_real_num_tx_queues() with the larger
-count.
-
-Ring allocation, DMA init, NAPI and stmmac_start_all_dma() all use the
-clamped plat->tx_queues_to_use.
-
-Could traffic hashed to the extra queues hit the same NULL
-tx_q->tx_skbuff dereference in stmmac_xmit()? That would need no
-reconfiguration, only opening the interface and sending traffic.
-
-The only thing that brings the cache back in sync is installing and then
-removing an mqprio qdisc, through stmmac_reset_tc_mqprio().
-
--- 
-Sashiko AI review · https://netdev-ai.bots.linux.dev/sashiko/#/patchset/20260924-stmmac-mqprio-prio-offload-v2-0-fdd8b69efccf%40oss.qualcomm.com
+---
+Best Regards
+Kunihiko Hayashi
 
