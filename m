@@ -4,54 +4,53 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id AC06DC98321
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 25 Sep 2026 18:53:01 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C30CCC9830E
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 25 Sep 2026 18:53:14 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:MIME-Version:Message-ID:Subject:Cc:From:To:Date:Reply-To:
 	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
 	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=2xR7Qwp0o8G+y7oSeBf74kipM/J3H4hlNEeshGOMywQ=; b=MrBcFSnvOX5QAvq7EgYU249byE
-	vxp11J5oysbmos692sNK1ya+7q7UUw8HtFXHhquolvVnUm2Sa7rZDv62dcEWkQmWwl6gwCvMS6THB
-	VTkNGZ2EFJVbbH/LcN8T1ZerLMQpZTBL9/KjiJq1vjdpeVhCf/hKR/LCliIbs2/b5euWxfTB5I+DD
-	18IP8jfGnL244zvoLuA3fTGMGTdlX2oqTQXB1Mg79U+19JCfEOsxULzWEqv0V93Bm/23eh5bc9JL2
-	nVrrJi48npfutCxCDAM/hfF84L2bO+zsCEDvdeHJ3ulMPLUH6p1b6q9K//L6FEydjzc/vcjMtfnjN
-	jsEhy3Nw==;
+	bh=U9kby6pcI1OMpLkgnQZ2bZQgP5zb/td94MppquZEeEA=; b=UIY/XjpND1NKccC1PWCMkpubXl
+	WPrAv+vHZFN4Bz08T0WeLGde5+npV4lvvJhv4UjpeXA+eb9C5IT0zXvmdL5pj9OhXg6n5GvDZ6Ac9
+	iHgw3Bpz5YjIIDGtxYrP05afOHeFYEV3FMWe0QnhKLyMRTb7r87UH/dPIBr6xvcnRdA1/zH6mQ/TA
+	RSJ6XmFNgx5QvnSBzolo0HwHkPAeXvAw5/mR1NYuO7cCL0KyR4AH9gWJBIDIRD+/te/rHfh902dnj
+	M3hA3PJIzg0bB9/jRL0ztNk8RAPad3JcVP1ccq5xm+zjsSyU3ZUICGTYS1S0AY9FraxUKpXJpfv8S
+	qx+OO19g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xAB2V-0000000EBoy-26KM;
-	Fri, 25 Sep 2026 18:52:55 +0000
-Received: from mail-43166.protonmail.ch ([185.70.43.166])
+	id 1xAB2i-0000000EBtY-2y5o;
+	Fri, 25 Sep 2026 18:53:08 +0000
+Received: from mail-10699.protonmail.ch ([79.135.106.99])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xAB2S-0000000EBo4-1vFi
-	for linux-arm-kernel@lists.infradead.org;
-	Fri, 25 Sep 2026 18:52:54 +0000
+	id 1xAB2g-0000000EBsg-1EC3;
+	Fri, 25 Sep 2026 18:53:07 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=protonmail.com;
-	s=protonmail3; t=1790362369; x=1790621569;
-	bh=2xR7Qwp0o8G+y7oSeBf74kipM/J3H4hlNEeshGOMywQ=;
+	s=protonmail3; t=1790362383; x=1790621583;
+	bh=U9kby6pcI1OMpLkgnQZ2bZQgP5zb/td94MppquZEeEA=;
 	h=Date:To:From:Cc:Subject:Message-ID:Feedback-ID:From:To:Cc:Date:
 	 Subject:Reply-To:Feedback-ID:Message-ID:BIMI-Selector;
-	b=bEKB22VCjPnLwBqODYqvVBRNN/8BvPOKDNFaJJ4LkjeqXfY1hfr96seW7SkkeShxR
-	 eWlKJ2kozfXAZH9nHfi3uCvIHwlpGdXR4vn+nvSDsePBGg+oWwbD7jftjFWnAW+hdG
-	 RhYr7xZgUsnTRnL62d3pfF4PAJyWMWObKfKU3qzWbE1XBfoqSUbW+3CGOTbe3k0jiR
-	 mhM8Rz5pideD+OhYi/EnoOBfl+b6Mrkyzhi2RkRJ0J/RvV9Oax7gBuMl+xoFscBij+
-	 Td90tL3Xv1lRYkVqQ7shGVRPP6QzQW4izHHad7C840YsbZMZDmO0YeqtB+6l/N08zx
-	 q27zcwkb/FplA==
-Date: Fri, 25 Sep 2026 18:52:43 +0000
+	b=zCUACAccINOUkL4zC1sZ5TLXTZrXfu6qReT8Z2XHv19SPjiF6uvxeR3J42mjfNPVA
+	 Q+uRi+uEyflx2vmU12TO6E7lulAd8k5yZxPPPW5WIy3fv7SkU9vqFbH/akojEOcyOF
+	 g2QUK+eKJhvHgOgffIwRlapxUVJcwYXdAfWVIC2XmOhae9lZqfe9euVRA+df1yisLy
+	 3qIFeDGwQTnDYcmZbzRnES4qd5clSGQ5C0kub4iNXboHhn12wVSekwOHQtewgmzJw+
+	 x6uyHNgT9uwYa84sOWcvg75Q0lAuMyHIS3QJ71IgjAGv9DstBCfIp6SD4XBpGnYKy4
+	 FEtV3egc/Xofw==
+Date: Fri, 25 Sep 2026 18:52:57 +0000
 To: Sean Wang <sean.wang@kernel.org>, Linus Walleij <linusw@kernel.org>, Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, Matthias Brugger <matthias.bgg@gmail.com>, AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, Andy Teng <andy.teng@mediatek.com>
 From: Yassine Oudjana <y.oudjana@protonmail.com>
 Cc: Yassine Oudjana <y.oudjana@protonmail.com>, linux-mediatek@lists.infradead.org, linux-gpio@vger.kernel.org, devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org
-Subject: [PATCH v10 1/6] dt-bindings: pinctrl: mediatek,mt6779-pinctrl: Pull pinctrl node changes from MT6795 document
-Message-ID: <20260925-mt6735-pinctrl-v9-v10-1-cc042983c565@protonmail.com>
+Subject: [PATCH v10 2/6] dt-bindings: pinctrl: mediatek,mt6779-pinctrl: Improve pinctrl subnode and property descriptions
+Message-ID: <20260925-mt6735-pinctrl-v9-v10-2-cc042983c565@protonmail.com>
 Feedback-ID: 6882736:user:proton
-X-Pm-Message-ID: 1036b730375ac2fc4a5d8395d6009d28bbfd9034
+X-Pm-Message-ID: 47a0544b51a3a5be9418fa196cf84e2ced4cd6e4
 MIME-Version: 1.0
 Content-Type: text/plain; charset=utf-8
 Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260925_115252_645198_6CA7C124 
-X-CRM114-Status: UNSURE (   8.59  )
+X-CRM114-CacheID: sfid-20260925_115306_491074_B9BEF045 
+X-CRM114-Status: UNSURE (   7.40  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -67,113 +66,82 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-mediatek,pinctrl-mt6795.yaml has different node name patterns which match
-bindings of other MediaTek pin controllers, ref for pinmux-node.yaml which
-has a description of the pinmux property, as well as some additional
-descriptions for some pin configuration properties. Pull those changes
-into mediatek,mt6779-pinctrl.yaml and adjust the example DTS to match in
-preparation to combine the MT6795 document into it.
+Change "subnodes" to "subnode" in subnode description for better
+grammatical accuracy, wrap all descriptions at 80 characters, and remove
+literal style indicators from descriptions that don't need their new lines
+preserved.
 
 Signed-off-by: Yassine Oudjana <y.oudjana@protonmail.com>
-Reviewed-by: Rob Herring (Arm) <robh@kernel.org>
+Reviewed-by: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabor=
+a.com>
+Acked-by: Rob Herring <robh@kernel.org>
 ---
- .../bindings/pinctrl/mediatek,mt6779-pinctrl.yaml  | 38 ++++++++++++++++--=
+ .../bindings/pinctrl/mediatek,mt6779-pinctrl.yaml         | 15 ++++++++---=
 ----
- 1 file changed, 28 insertions(+), 10 deletions(-)
+ 1 file changed, 8 insertions(+), 7 deletions(-)
 
 diff --git a/Documentation/devicetree/bindings/pinctrl/mediatek,mt6779-pinc=
 trl.yaml b/Documentation/devicetree/bindings/pinctrl/mediatek,mt6779-pinctr=
 l.yaml
-index f4bab7a132d3c..0dcbca5ca8f92 100644
+index 0dcbca5ca8f92..4dc9504e24ad5 100644
 --- a/Documentation/devicetree/bindings/pinctrl/mediatek,mt6779-pinctrl.yam=
 l
 +++ b/Documentation/devicetree/bindings/pinctrl/mediatek,mt6779-pinctrl.yam=
 l
-@@ -111,12 +111,12 @@ allOf:
-         - "#interrupt-cells"
-=20
- patternProperties:
--  '-[0-9]*$':
-+  '-pins$':
-     type: object
-     additionalProperties: false
-=20
-     patternProperties:
--      '-pins*$':
-+      '^pins':
+@@ -119,11 +119,11 @@ patternProperties:
+       '^pins':
          type: object
          description:
-           A pinctrl node should contain at least one subnodes representing=
+-          A pinctrl node should contain at least one subnodes representing=
  the
-@@ -124,7 +124,9 @@ patternProperties:
-           pins it needs, and how they should be configured, with regard to=
++          A pinctrl node should contain at least one subnode representing =
+the
+           pinctrl groups available on the machine. Each subnode will list =
+the
+-          pins it needs, and how they should be configured, with regard to=
  muxer
-           configuration, pullups, drive strength, input enable/disable and=
+-          configuration, pullups, drive strength, input enable/disable and=
  input
-           schmitt.
--        $ref: /schemas/pinctrl/pincfg-node.yaml
-+        allOf:
-+          - $ref: pinmux-node.yaml
-+          - $ref: pincfg-node.yaml
-=20
-         properties:
-           pinmux:
-@@ -135,9 +137,25 @@ patternProperties:
+-          schmitt.
++          pins it needs, and how they should be configured, with regard to
++          muxer configuration, pullups, drive strength, input enable/disab=
+le
++          and input schmitt.
+         allOf:
+           - $ref: pinmux-node.yaml
+           - $ref: pincfg-node.yaml
+@@ -133,7 +133,8 @@ patternProperties:
+             description:
+               Integer array, represents gpio pin number and mux setting.
+               Supported pin number and mux varies for different SoCs, and =
+are
+-              defined as macros in dt-bindings/pinctrl/<soc>-pinfunc.h dir=
+ectly.
++              defined as macros in dt-bindings/pinctrl/<soc>-pinfunc.h
++              directly.
 =20
            bias-disable: true
 =20
--          bias-pull-up: true
--
--          bias-pull-down: true
-+          bias-pull-up:
-+            oneOf:
-+              - type: boolean
-+              - enum: [100, 101, 102, 103]
-+                description: Pull up PUPD/R0/R1 type define value.
-+            description: |
-+              For normal pull up type, it is not necessary to specify R1R0
-+              values; When pull up type is PUPD/R0/R1, adding R1R0 defines
-+              will set different resistance values.
-+
-+          bias-pull-down:
-+            oneOf:
-+              - type: boolean
-+              - enum: [100, 101, 102, 103]
-+                description: Pull down PUPD/R0/R1 type define value.
-+            description: |
-+              For normal pull down type, it is not necessary to specify R1=
+@@ -142,7 +143,7 @@ patternProperties:
+               - type: boolean
+               - enum: [100, 101, 102, 103]
+                 description: Pull up PUPD/R0/R1 type define value.
+-            description: |
++            description:
+               For normal pull up type, it is not necessary to specify R1R0
+               values; When pull up type is PUPD/R0/R1, adding R1R0 defines
+               will set different resistance values.
+@@ -152,7 +153,7 @@ patternProperties:
+               - type: boolean
+               - enum: [100, 101, 102, 103]
+                 description: Pull down PUPD/R0/R1 type define value.
+-            description: |
++            description:
+               For normal pull down type, it is not necessary to specify R1=
 R0
-+              values; When pull down type is PUPD/R0/R1, adding R1R0 defin=
+               values; When pull down type is PUPD/R0/R1, adding R1R0 defin=
 es
-+              will set different resistance values.
-=20
-           input-enable: true
-=20
-@@ -221,8 +239,8 @@ examples:
-             #interrupt-cells =3D <2>;
-             interrupts =3D <GIC_SPI 204 IRQ_TYPE_LEVEL_HIGH>;
-=20
--            mmc0_pins_default: mmc0-0 {
--                cmd-dat-pins {
-+            mmc0_pins_default: mmc0-pins {
-+                pins-cmd-dat {
-                     pinmux =3D <PINMUX_GPIO168__FUNC_MSDC0_DAT0>,
-                         <PINMUX_GPIO172__FUNC_MSDC0_DAT1>,
-                         <PINMUX_GPIO169__FUNC_MSDC0_DAT2>,
-@@ -235,11 +253,11 @@ examples:
-                     input-enable;
-                     mediatek,pull-up-adv =3D <1>;
-                 };
--                clk-pins {
-+                pins-clk {
-                     pinmux =3D <PINMUX_GPIO176__FUNC_MSDC0_CLK>;
-                     mediatek,pull-down-adv =3D <2>;
-                 };
--                rst-pins {
-+                pins-rst {
-                     pinmux =3D <PINMUX_GPIO178__FUNC_MSDC0_RSTB>;
-                     mediatek,pull-up-adv =3D <0>;
-                 };
+               will set different resistance values.
 
 --=20
 2.55.0
