@@ -4,129 +4,68 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E4019C98321
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 25 Sep 2026 15:06:06 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8C423C98321
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 25 Sep 2026 15:06:31 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
-	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=oDf4fRv22RPZqQV/m2PYAk90MFWNIhb7qs3TxYULo+Q=; b=VyEU1qQn0vxcE6FgQDfeFBK+b0
-	eN7/JpUeCj1Ec0lkgxRwAmn1j7fVvqZrvgow9p02mVCio6gbvEVT72SuPnjyY/9Avsg01VlKoeeey
-	BcJkYywl1UypUTmjGmxE1ycLVnXViA+lnqNletejKOqzAMYkN0lXIQxq6UlBroPwlpavlXgvH4cbV
-	+QSfikBP/Iw8/SJr/Twf3XCIHV7+50k28p7esexlroule6IJnNiJaZYZpIJaLUcrJlmc23SJDUyKT
-	f6X/QHYNk7Y5fUjgyb43yTR0q+M/LV3tFyvDv7zbtN8uoCFCer+CfpfeGbDcmIGfbRuvafxEqz1+m
-	aG7Rur6A==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=WzdROanWlTNrH8RVUU2vkB9x2qZKNDOucbvjx4s09js=; b=Kg+S7CA6hTgmM21zBLJwjd3jmu
+	q8gDRca+1SGLtUpNulkFr2Aw5xRnDN+RLsY8cNEr6Akcl8+q1J8yJMnEi3l2RMNYmfpousVvTa3j/
+	aM4Q41MCekaK0qjaHcHy7AUJmSUTNaz3QC+OQeKzUZ7V9+MlgmUmkOwIQ34+EPXI04P2WM2ASDhBp
+	cF/IJRkWm3coZwE6mhCezq1JPAuBBLxtn36eX5gueG2E5Yhf5ckoU2aaySSIpx/3Y5+CqC1A59NC0
+	nIY5GRO7p7NIUNd0TEZxYgAWIlUa7wMqcexwIKVxRpBKBpVDlJVp3RBCN19Rh9p1p7Q3+3FU0MYOW
+	0PM9uuuA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xA7Uu-0000000DhQ3-2j4i;
-	Fri, 25 Sep 2026 15:06:00 +0000
-Received: from mail-westeuropeazlp170130006.outbound.protection.outlook.com ([2a01:111:f403:c201::6] helo=AM0PR02CU008.outbound.protection.outlook.com)
+	id 1xA7VI-0000000DhZB-3qL3;
+	Fri, 25 Sep 2026 15:06:24 +0000
+Received: from m16.mail.163.com ([117.135.210.5])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xA7Us-0000000DhP0-0ISz;
-	Fri, 25 Sep 2026 15:05:59 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=Rab5uVJChRhWXDraaALVIyp+oUpOrv9gZoFatZ1NEZ7efBakgsQU1Un8BEBos/GF+zWcn/MPuBXlpZ4CtPrTGURy9R6wQBe4cLUYmZqWr4XUSLFfDZNPmOPUizekWV9ToO88K9rZGXLFoGVTvGpZkkGL+B20x4ldsfU/91WY7QAGftEHUhBREqHRucaiLTrnhTPa46hnecD452mC1c2xOTuJfdOD6cBTToLEX/aWYHe5zuOzuG6/gyJyVkUuE1sd0jTlyHUj0APBNVNtWB68jHzgtEOEudJK/R1p7d5NXnFYKE1vcPeeqGorgJ62+YAoew/yLfZBDz5I9cKvY9qUIQ==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=oDf4fRv22RPZqQV/m2PYAk90MFWNIhb7qs3TxYULo+Q=;
- b=c7z2EmD15m7QMydld5GiCAjZo1HAWEhQ/ptoSMCLSmoLV+ldB+B6+WMAQ5xwtgVkb0mdZvNs9QQH0LDPCXKHOCYaPQlFMofSdbOiww2zUxPD76eSbrJoP7u3NcQM+7cCb2XcroJJPH+414vmxrLoSA3EW1qOw47RSgQvJqKwJVBuodMPLi06u4ZVjURz7IL1/6ZRcLVk0NDAFIVx2MB4E64NrRdY+2CquJJVbIW68GCXrGKYKI8L6i2Kp0hKLKfIFsV6a9T2roJ4z/uXw5sdU2xjIvfyB0uKZjpnjyJZXLOLFSvH6kgZfTXi87L2ai5cyocUjgsQJSl46ph6dJX43w==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
- dkim=pass header.d=oss.nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
- s=selector1-NXP1-onmicrosoft-com;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=oDf4fRv22RPZqQV/m2PYAk90MFWNIhb7qs3TxYULo+Q=;
- b=d33yMXrb5RWVwHIi9kGPYYPrlVfjeOVYIkBzdRawHLHscoTQhAfICsD32OLKqyuiLRc7WezEEty2IoSKxZ/DKebKmVXu6bJhG6RiVg46GDXWIo4ab3/9WCD26vo4QZXzgVf1l/V/tGI6sRRk/USE+dNFqxVAsYk0WXanLGYKfjOaweOGnmvYH5c79xiT6rSbLVB/OrUs1b0AcsND0LvL7m4JbBpXGw87Z6uzzBJLIoENuMhYVPKfy2OQfE1g7nMszFIjfeSOKCseeWkp36dkD8Sv9wYugg43M3APEjKbjAr0bsmSV3/3DucvqqDzCYHl7ZQYc2rRQqe59osNApoLWA==
-Authentication-Results: mx.microsoft.com 1; dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=oss.nxp.com;
-Received: from GV2PR04MB11799.eurprd04.prod.outlook.com (2603:10a6:150:2cf::9)
- by AS8PR04MB8834.eurprd04.prod.outlook.com (2603:10a6:20b:42d::12) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.451.18; Fri, 25 Sep
- 2026 15:05:53 +0000
-Received: from GV2PR04MB11799.eurprd04.prod.outlook.com
- ([fe80::2146:83a2:5329:b7c]) by GV2PR04MB11799.eurprd04.prod.outlook.com
- ([fe80::2146:83a2:5329:b7c%7]) with mapi id 15.21.0451.014; Fri, 25 Sep 2026
- 15:05:53 +0000
-Date: Fri, 25 Sep 2026 10:05:42 -0500
-From: Frank Li <Frank.li@oss.nxp.com>
-To: Benjamin Gaignard <benjamin.gaignard@collabora.com>
-Cc: nicolas.dufresne@collabora.com, p.zabel@pengutronix.de,
-	mchehab@kernel.org, robh@kernel.org, krzk+dt@kernel.org,
-	conor+dt@kernel.org, Frank.Li@nxp.com, s.hauer@pengutronix.de,
-	kernel@pengutronix.de, festevam@gmail.com, conor@kernel.org,
-	linux-media@vger.kernel.org, linux-rockchip@lists.infradead.org,
-	devicetree@vger.kernel.org, imx@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
-	kernel@collabora.com
-Subject: Re: [PATCH v4 3/3] media: verisilicon: Remove useless internal fields
-Message-ID: <araNxsUtc_nfiSO_@SMW015318>
-References: <20260925085152.41852-1-benjamin.gaignard@collabora.com>
- <20260925085152.41852-4-benjamin.gaignard@collabora.com>
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20260925085152.41852-4-benjamin.gaignard@collabora.com>
-X-ClientProxiedBy: CYXPR02CA0046.namprd02.prod.outlook.com
- (2603:10b6:930:cc::13) To GV2PR04MB11799.eurprd04.prod.outlook.com
- (2603:10a6:150:2cf::9)
+	id 1xA7VE-0000000DhV5-1nQu;
+	Fri, 25 Sep 2026 15:06:23 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=163.com;
+	s=s110527; h=From:To:Subject:Date:Message-Id:MIME-Version; bh=Wz
+	dROanWlTNrH8RVUU2vkB9x2qZKNDOucbvjx4s09js=; b=DVcs3mEJ/3/NyJ1bLz
+	66RyjCWIQ9ZhktvE+Qr48b9Z0dgaPWWog1qncyjcpLs0toYOfqK77ayhEqMcSTQt
+	BLH+NBSA56n6m1OnwZNxtkaFG2ObLcKEG+Ugtxk065IRWYJv7KiIGbp236MvYK4J
+	nATBwJ0Km9Oh8AprQAXFMmDp4=
+Received: from pc.localdomain (unknown [])
+	by gzga-smtp-mtada-g0-3 (Coremail) with SMTP id _____wD3J8zYjbZq2yQpAw--.5414S3;
+	Fri, 25 Sep 2026 23:06:02 +0800 (CST)
+From: Jiale Yao <yaojiale02@163.com>
+To: Felix Fietkau <nbd@nbd.name>,
+	Lorenzo Bianconi <lorenzo@kernel.org>,
+	Ryder Lee <ryder.lee@mediatek.com>,
+	Shayne Chen <shayne.chen@mediatek.com>,
+	Sean Wang <sean.wang@mediatek.com>,
+	Matthias Brugger <matthias.bgg@gmail.com>,
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
+	Markus Theil <markus.theil@tu-ilmenau.de>,
+	linux-wireless@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-mediatek@lists.infradead.org
+Cc: Jiale Yao <yaojiale02@163.com>
+Subject: [PATCH 1/2] wifi: mt76: usb: fix source overread in mt76u_copy
+Date: Fri, 25 Sep 2026 23:05:54 +0800
+Message-Id: <20260925150556.2304003-2-yaojiale02@163.com>
+X-Mailer: git-send-email 2.34.1
+In-Reply-To: <20260925150556.2304003-1-yaojiale02@163.com>
+References: <20260925150556.2304003-1-yaojiale02@163.com>
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: GV2PR04MB11799:EE_|AS8PR04MB8834:EE_
-X-MS-Office365-Filtering-Correlation-Id: 90e1e0ca-534b-4f7a-07be-08df1b167e26
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|7416014|376014|19092799006|366016|23010399003|11063799006|10067099003|56012099006|4143699003|18002099003|22082099003;
-X-Microsoft-Antispam-Message-Info: LBU9G90VMK06yJrS8sLojx8kVVP9x3c+fmkEMLPevBQkphkwlfPitKAS/8NCmLxd8yY8aNo3S65KNu2QXiUZ00pAJBbiSqAU3dIVx0N0pmfLYiqkEaku7AePVUiio5g94WxZlqz/JuZpA7EEF/fpcejgwz9t+IDB5JGzSBiKoVXCcE4kASQQG8ZShKLbO1Wc36mUJuhhJoR+3mwcHj1v8kOuHdIoTq5gslE70BtuAx8nucmFtCdMkQ+S3OTGqy7mR7YGDA6n2kokWVaNxVbXtKIjY2u295VwM/pp4p+YPerMzDIhhBR7wxBDk0Yq5XUXVUnzB1EYK7oZoy5lt4LsY+0k1dgHS2S7ypHunZHy1AvkFG8rrbE9CvQSf7mJOXIgA7HaWzdzzZISKMce1sSo2dHxlRRTnYR97XSFAJzcIHfY0TzYFgOleCwx4FxgCLD9QcrCwr1MsKRYqXumDNr9SkxChUqvh7Jnnqor72+MsSla88v9QvVusjW+CSEPYyDpRHD583p7DQMlqsaNeEr5V5JRZAyBGDKu9+NhSkU2y4RljNT11ThqE5P7SW01r1RzZcF2IGoUgM3I9cHg7JXPyFBOVvSRe6ArMtPAxgNt4Kwk6xOt2VBFrt+Hrtf46uW8HPrUGdeesYwORQPNI8gIU7sJH6Osx3jkX0QtokO9mVw=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:GV2PR04MB11799.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(7416014)(376014)(19092799006)(366016)(23010399003)(11063799006)(10067099003)(56012099006)(4143699003)(18002099003)(22082099003);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?Jtid8gVLnBOH7eIjS8sTV7FUxqt4al96l1wpmkOntH++lkaCfCdrx2Bqo2yp?=
- =?us-ascii?Q?wRxDnDGnPKXKDfqhbguvX+jYNPJ83++n/2EQjc7fsjzWxndT9xAFqlgluTmM?=
- =?us-ascii?Q?MoXq7TdPXROUzCGVzD74OGnQR74EfOr5Jcpc1j2f4KBNsarjSb25AtANeDlf?=
- =?us-ascii?Q?BueFYmnFEycBkiaPbiTx4VzNRFXSWEefzdLkTYG/4FkT8qEJYYA/oxEvj8FB?=
- =?us-ascii?Q?rFH5uvKJvMWdL9xpkKdm1P3+uUzF7HFteFHvjqDYZ07Vc+KWOP0NgLmW6w8C?=
- =?us-ascii?Q?WbmViPdwJQmnZsRJZeEGv9SS36Eb1CSZUIqatCMvqSemGdSATlnN+d7Tv8rU?=
- =?us-ascii?Q?0J9cNQMSuHpBVNAd6Scxs9hi7r90jXRwoIA/Hqky3MiJbyAGquGSwCGuVbWn?=
- =?us-ascii?Q?hJNZGpl1FpnjfBEhjHSa5NtYbwT3O5nik97fQUxKN8VRh+g3sonJ1SEV4N7u?=
- =?us-ascii?Q?5lhr2JWkcBonECN2rdBZZfaPoJN3dYgzkiISXOmExXGdzPGSK3tZNjPwmWwx?=
- =?us-ascii?Q?QqNOo5XjjTIKnCqMg0eFkyAzHgoM3aUsXA0QIYevXVx0qhmItTb8KEYP7y5q?=
- =?us-ascii?Q?utxYOQhM2NuId/w34CZ6y0MVc1Sl9uF69T9UMahCw7wd3CGOjV6WDyE8BTmK?=
- =?us-ascii?Q?Jz9XVULvfJnMk3p+cwM/KRM++GJSg42ufv0mDOq5fSfGfukwJn/TqVCHyayF?=
- =?us-ascii?Q?jD+ZY64egIg2uRmFuYepAi0vFD1veroc/hb57ss7xfAMqOUViv1e2c6NEhwb?=
- =?us-ascii?Q?ksQtK2SllFZu7LCbCItf7vSSHFmRz+md/4mTgfj4ph3iRmBXUnsydaX5gSky?=
- =?us-ascii?Q?eUZBObe2ugOguWVD0Bb6RoG2RN/potGpq1up/A26KGKeWSaUprvMBGG8kkNB?=
- =?us-ascii?Q?+l8ljk11VMw6hCGYulW3aA5W65r8GiK47ebqQKpGYQa4hAh8OxBbWjtYeBVM?=
- =?us-ascii?Q?8dwjYCzIdVrGL8eKNE7vltJEC00kHsmRTJwrYGmxglw6rACtg+o4SvdCFuBq?=
- =?us-ascii?Q?MoC+KHvNS/yFSu1sDLt80wi6bScwvUpwceQKYto1aK5ZsuhvK/mTFSWtHIMh?=
- =?us-ascii?Q?Quj2WmwRiCs36KZjvqfs4xVLkAqTq78vvzPFUWRYYlvrjWBU8drXYA1XIhne?=
- =?us-ascii?Q?5U+zcr9tbhOknxnB+aHaGaFSraUqh6Os4gtCKvglVBRTm/Wb2xI/SxYcu6Vq?=
- =?us-ascii?Q?InLBgMLs0q1sGR/pcdMe7BpOPk0i3McH9EWZfnAjGENtW5lEpZMoJgDY+Ptv?=
- =?us-ascii?Q?Bz/84azxPlgRBXe9MRdd4HYuaJYsJ/byhOjHsjtjE5fmL6699y6rhkKftMgh?=
- =?us-ascii?Q?KGcifqenzJo2NscNHcAJoqeFg1ubqcLjkfbygl5juwalEcuwbxmJzr++uRCs?=
- =?us-ascii?Q?v4BYTZjysR4eqyu35WZCeTO7dHucsGRGpTxWSPmzJWuiRzy1L5uwhVMgJQ19?=
- =?us-ascii?Q?s6I5PZS4nPs3H8lDbKMjIosBUjcp2pSXoe/1iD2p8MSMCBbdIiR7ggnqh+n0?=
- =?us-ascii?Q?5zVo76Satp4xlPqb6IEQscIrpfRU6UzK5dk1fbwTfBLQ+iicDpxLbepdLw+N?=
- =?us-ascii?Q?4sIj9QjV44Hkf43L+YXidv+E10p1tfNpa5hbYkZChV1otC551f0EgixxHkWh?=
- =?us-ascii?Q?53F6OBWBkgA8FihdhBj7xyPa/5vEZ1NF9iMPsVLEGXTpUfxE8fxdYOcX/1rp?=
- =?us-ascii?Q?/P6LADVN8JGDecVan8zdY/3v9+WzVUHMEjELt4v71mb9uy82+1d64f5LtOTT?=
- =?us-ascii?Q?h2oCSw0bzCROnS2YyxI5bpzBYb74pU6NRIgW95Cd3J//EnuFoKIO?=
-X-OriginatorOrg: oss.nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 90e1e0ca-534b-4f7a-07be-08df1b167e26
-X-MS-Exchange-CrossTenant-AuthSource: GV2PR04MB11799.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 25 Sep 2026 15:05:53.2231
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: AIVLfYtG2gRzYMhWiMN8iaqswC1Kmb44KkjuafuiLX1FySszPO59vkNHxGuoi0gf8RVoK84WcQFw7tnPD/Rnb5DrRGclioMdFlL9GgaoL/VJ5AxI8TembcFzPi3kTmFJ
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: AS8PR04MB8834
+Content-Transfer-Encoding: 8bit
+X-CM-TRANSID: _____wD3J8zYjbZq2yQpAw--.5414S3
+X-Coremail-Antispam: 1Uf129KBjvJXoW7Ww4UWFy5ZFW5uw45Zr4kCrg_yoW8ZF4kpF
+	Z7KFya9rZxGF17Jw4xAan8AF93ZayIkryDKrZ3Za4fu395Jw18KFy8KFyUKrWUZF4Sgr12
+	yrnFyr97W3s8taUanT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
+	9KBjDUYxBIdaVFxhVjvjDU0xZFpf9x0pENeOiUUUUU=
+X-CM-SenderInfo: x1dryxhdohiji6rwjhhfrp/xtbC7xvhHGq2jdsjagAA3K
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260925_080558_114267_9BCD2F16 
-X-CRM114-Status: GOOD (  21.63  )
+X-CRM114-CacheID: sfid-20260925_080621_664195_0921C277 
+X-CRM114-Status: GOOD (  12.97  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -141,111 +80,59 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, Sep 25, 2026 at 10:51:52AM +0200, Benjamin Gaignard wrote:
-> No more variants are using multiple registers regions so rename
-> reg_bases to reg_base.
+mt76u_copy() rounds up len to a multiple of four and uses the rounded
+length as the bound for memcpy() from the source buffer. When the
+caller's length is not four-byte aligned, the final copy reads up to
+three bytes past the source buffer.
 
-Nit: add empty line between paragraph
+Keep the original length for the source copy and zero the remaining
+bytes in the transmit buffer so that the hardware access width remains
+four-byte aligned.
 
-> Remove the useless fields and simplify driver code.
->
-> Signed-off-by: Benjamin Gaignard <benjamin.gaignard@collabora.com>
-> ---
+Fixes: 9446248669968 ("mt76: speed up usb bulk copy")
+Signed-off-by: Jiale Yao <yaojiale02@163.com>
+---
+ drivers/net/wireless/mediatek/mt76/usb.c | 16 +++++++++++-----
+ 1 file changed, 11 insertions(+), 5 deletions(-)
 
-Reviewed-by: Frank Li <Frank.Li@nxp.com>
+diff --git a/drivers/net/wireless/mediatek/mt76/usb.c b/drivers/net/wireless/mediatek/mt76/usb.c
+index a9af3aa6b80a..a42a33f4e907 100644
+--- a/drivers/net/wireless/mediatek/mt76/usb.c
++++ b/drivers/net/wireless/mediatek/mt76/usb.c
+@@ -171,8 +171,10 @@ static void mt76u_copy(struct mt76_dev *dev, u32 offset,
+ {
+ 	struct mt76_usb *usb = &dev->usb;
+ 	const u8 *val = data;
+-	int ret;
+ 	int current_batch_size;
++	int len_aligned;
++	int copy_len;
++	int ret;
+ 	int i = 0;
+ 
+ 	/* Assure that always a multiple of 4 bytes are copied,
+@@ -180,12 +182,16 @@ static void mt76u_copy(struct mt76_dev *dev, u32 offset,
+ 	 * See: "mt76: round up length on mt76_wr_copy"
+ 	 * Commit 850e8f6fbd5d0003b0
+ 	 */
+-	len = round_up(len, 4);
++	len_aligned = round_up(len, 4);
+ 
+ 	mutex_lock(&usb->usb_ctrl_mtx);
+-	while (i < len) {
+-		current_batch_size = min_t(int, usb->data_len, len - i);
+-		memcpy(usb->data, val + i, current_batch_size);
++	while (i < len_aligned) {
++		current_batch_size = min_t(int, usb->data_len, len_aligned - i);
++		copy_len = min_t(int, current_batch_size, len - i);
++		memcpy(usb->data, val + i, copy_len);
++		if (copy_len < current_batch_size)
++			memset(usb->data + copy_len, 0,
++			       current_batch_size - copy_len);
+ 		ret = __mt76u_vendor_request(dev, MT_VEND_MULTI_WRITE,
+ 					     USB_DIR_OUT | USB_TYPE_VENDOR,
+ 					     0, offset + i, usb->data,
+-- 
+2.34.1
 
-> changes in v4:
-> - rework commits messages
-> - add r-b tag
->
->  drivers/media/platform/verisilicon/hantro.h   |  9 ++-------
->  .../media/platform/verisilicon/hantro_drv.c   | 20 +++++--------------
->  2 files changed, 7 insertions(+), 22 deletions(-)
->
-> diff --git a/drivers/media/platform/verisilicon/hantro.h b/drivers/media/platform/verisilicon/hantro.h
-> index 0353de154a1e..ca03bc690fbf 100644
-> --- a/drivers/media/platform/verisilicon/hantro.h
-> +++ b/drivers/media/platform/verisilicon/hantro.h
-> @@ -72,8 +72,6 @@ struct hantro_irq {
->   * @num_irqs:			number of irqs in the array
->   * @clk_names:			array of clock names
->   * @num_clocks:			number of clocks in the array
-> - * @reg_names:			array of register range names
-> - * @num_regs:			number of register range names in the array
->   * @double_buffer:		core needs double buffering
->   * @legacy_regs:		core uses legacy register set
->   * @late_postproc:		postproc must be set up at the end of the job
-> @@ -97,8 +95,6 @@ struct hantro_variant {
->  	int num_irqs;
->  	const char * const *clk_names;
->  	int num_clocks;
-> -	const char * const *reg_names;
-> -	int num_regs;
->  	unsigned int double_buffer : 1;
->  	unsigned int legacy_regs : 1;
->  	unsigned int late_postproc : 1;
-> @@ -184,7 +180,7 @@ hantro_vdev_to_func(struct video_device *vdev)
->   *			dev_ macros.
->   * @clocks:		Array of clock handles.
->   * @resets:		Array of reset handles.
-> - * @reg_bases:		Mapped addresses of VPU registers.
-> + * @reg_base:		Mapped address of VPU registers.
->   * @enc_base:		Mapped address of VPU encoder register for convenience.
->   * @dec_base:		Mapped address of VPU decoder register for convenience.
->   * @ctrl_base:		Mapped address of VPU control block.
-> @@ -204,10 +200,9 @@ struct hantro_dev {
->  	struct device *dev;
->  	struct clk_bulk_data *clocks;
->  	struct reset_control *resets;
-> -	void __iomem **reg_bases;
-> +	void __iomem *reg_base;
->  	void __iomem *enc_base;
->  	void __iomem *dec_base;
-> -	void __iomem *ctrl_base;
->
->  	struct mutex vpu_mutex;	/* video_device lock */
->  	spinlock_t irqlock;
-> diff --git a/drivers/media/platform/verisilicon/hantro_drv.c b/drivers/media/platform/verisilicon/hantro_drv.c
-> index 12c804dcc669..6e3a24156a69 100644
-> --- a/drivers/media/platform/verisilicon/hantro_drv.c
-> +++ b/drivers/media/platform/verisilicon/hantro_drv.c
-> @@ -1080,7 +1080,6 @@ static int hantro_probe(struct platform_device *pdev)
->  {
->  	const struct of_device_id *match;
->  	struct hantro_dev *vpu;
-> -	int num_bases;
->  	int i, ret;
->
->  	vpu = devm_kzalloc(&pdev->dev, sizeof(*vpu), GFP_KERNEL);
-> @@ -1128,21 +1127,12 @@ static int hantro_probe(struct platform_device *pdev)
->  	if (IS_ERR(vpu->resets))
->  		return PTR_ERR(vpu->resets);
->
-> -	num_bases = vpu->variant->num_regs ?: 1;
-> -	vpu->reg_bases = devm_kcalloc(&pdev->dev, num_bases,
-> -				      sizeof(*vpu->reg_bases), GFP_KERNEL);
-> -	if (!vpu->reg_bases)
-> -		return -ENOMEM;
-> +	vpu->reg_base = devm_platform_ioremap_resource(pdev, 0);
-> +	if (IS_ERR(vpu->reg_base))
-> +		return PTR_ERR(vpu->reg_base);
->
-> -	for (i = 0; i < num_bases; i++) {
-> -		vpu->reg_bases[i] = vpu->variant->reg_names ?
-> -		      devm_platform_ioremap_resource_byname(pdev, vpu->variant->reg_names[i]) :
-> -		      devm_platform_ioremap_resource(pdev, 0);
-> -		if (IS_ERR(vpu->reg_bases[i]))
-> -			return PTR_ERR(vpu->reg_bases[i]);
-> -	}
-> -	vpu->enc_base = vpu->reg_bases[0] + vpu->variant->enc_offset;
-> -	vpu->dec_base = vpu->reg_bases[0] + vpu->variant->dec_offset;
-> +	vpu->enc_base = vpu->reg_base + vpu->variant->enc_offset;
-> +	vpu->dec_base = vpu->reg_base + vpu->variant->dec_offset;
->
->  	/**
->  	 * TODO: Eventually allow taking advantage of full 64-bit address space.
-> --
-> 2.53.0
->
->
 
