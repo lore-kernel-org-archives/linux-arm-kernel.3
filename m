@@ -4,165 +4,91 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 83D58C9830E
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 25 Sep 2026 16:16:08 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D2FD3C9830E
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 25 Sep 2026 16:26:02 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Tgj0pJ1x6WPYmBNny5F7IjieDAqhdxo+8fFNU9Tw17w=; b=nESGepV9Kf2VDbZEl93s1SvN2z
-	iNt2jDwBdsAsQsZiiRQbFSIhadCJhnHae8fDXjhYOCVzks151idoCSCEjQ/Kga8bYDmUEoxcdE0wx
-	GAnqTYaUZOAb14zckiXm27YKRAV+V0ahqpyfiUy1pqXXeLWxtblH78cBsKgCNOjLMuIgHq7LHGDp6
-	BZzR+Osmyk8ZJ4Uw2PMJV7uToWZHt0CGdgRh/ut1rLi6+iRe57iFY6cKGEsHvNy213c/wSjuP0qvJ
-	zWmR/c93DrH7G5HPc0UOaJcVDrAQbbnq5FxipoMsFRAzAreBqM489Tc4JagxrreQtL8azy0eV96rT
-	x5l/+jfQ==;
+	bh=6fYDLPuw7TdEq9beCl8lZHCEAKip/STw7RgtlWkrkg8=; b=39LHwqAzmL3B3q7WnKeW/k2r+U
+	zj/xjHDnqyFDo6X0yuZSx482+FSt8ZB4uHqXnIp36K3/CPvsgVsCwMRNrRVrdNaY6iIoxkgOR90e/
+	wSs2xH2CP3+wJ1f8WbH8PX5NCrV51oUnGjlMaZDp/J6PIv77wQ9y+CY8MUlvHnihyXO729bJnfOZq
+	tXWmcdV8qts5mdF+RToY7kU5aMTDLL4ZP8K/bI7ouPmJGry6SknUZSyD9RKen+xmm2S0Ei9Wppwif
+	3r46ZRcys2FdFrsl5Ir5Uti3M39dLy87Nmz2jluefunrWFK/sesHWwdLYFIpdoX4H4h44prx5l67K
+	yB8SsAjQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xA8ac-0000000DueV-39Vq;
-	Fri, 25 Sep 2026 16:15:58 +0000
-Received: from mx0b-0002e601.pphosted.com ([148.163.154.28])
+	id 1xA8kE-0000000DvXl-32ca;
+	Fri, 25 Sep 2026 16:25:54 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xA8aY-0000000Dudb-3b1p
+	id 1xA8kD-0000000DvXN-0Yi0
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 25 Sep 2026 16:15:57 +0000
-Received: from pps.filterd (m0374955.ppops.net [127.0.0.1])
-	by mx0b-0002e601.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 68PG1wt12962080;
-	Fri, 25 Sep 2026 11:15:51 -0500
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com; h=cc
-	:content-transfer-encoding:content-type:date:from:in-reply-to
-	:message-id:mime-version:references:subject:to; s=
-	proofpoint-05-2026; bh=Tgj0pJ1x6WPYmBNny5F7IjieDAqhdxo+8fFNU9Tw1
-	7w=; b=PHN3heUN2aaKKna5msBRIFVpw3/V/Y7CRbH/ymlsl9onRIYIv5Eg0CB2c
-	zZnROwSNycfIOJSbBGmzbbQLHtaAq1cAVDhhp06EVinXH6TIXenPbOBlQ7CkEwpd
-	tCV3ImRTscDtjHLu6S5S2VeGYTrJgS1G2zWP9dqSTPruV+1D+ZvLZjssaZn5q2A+
-	ZL4Bq9ja79HQQOHkGJD0rhYSho1tutoQT7uyerQbGFYHyJ8XmclKoS7v6r1DxfB7
-	xO4QqciNbIkv0Plpk7rmaMW5FgPX25Dp6B8qVzZmw7tNHqnF745RVDDpRvJWbZnn
-	vGkOHGbOYIufGisL0YQ2ER7cgJxQg==
-Received: from mw6pr02cu001.outbound.protection.outlook.com (mail-westus2azon11012046.outbound.protection.outlook.com [52.101.48.46])
-	by mx0b-0002e601.pphosted.com (PPS) with ESMTPS id 4gwkhrb2qj-1
-	(version=TLSv1.3 cipher=TLS_AES_256_GCM_SHA384 bits=256 verify=NOT);
-	Fri, 25 Sep 2026 11:15:51 -0500 (CDT)
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=gatan409ed4dRSvMGN5Z7FO+ezrHgGcrqvxF2JIuPERoJcnvLaZBbMYVxhUFAkOXSt4zHRFyTsEpW2HtiAnNj71BMk+VjNajErtdAIUN5+Fa8B4h0vsqQpYmJm8MF4zJbgdWDrZwWt1JuwyAkP8w1nEdLkndLNR0KruEKSd6Za0GagtyYoRnJ5UP6lcy/pX1HyBChrK+Nnqv/XscyPpv4F6Lsouyj3D4MvAaQtx70B+FwMF4BkX1B5Cgi6P6dwC5pdu89UXMymIhgmIIwF83Q+ZDb0Hhpwejk17+Far29J6vT3lC+p1AIMQOGPRNUTz+Tr1yOSKLcwTUorK9yEdLKw==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=Tgj0pJ1x6WPYmBNny5F7IjieDAqhdxo+8fFNU9Tw17w=;
- b=T92cOvNwLBjX8urF8ksObPZ915Pw21ZUp6EbJEySqgaGWjObWhJ+37XstrEoePX5WREBLVonesXYUvbDPDHG38wG3BQqbE4cIdcSuky0MxQe25SBXK/6TazwcoZUdH3iIbEQock0cyDawfbandSq1Dftd1bQRQ8++MWHxvnveygwrn/eq2n91HVBu7OfqaQksvx3SV3qTiSAF1Wpk1dCfRuIHYsaerC35JqrFr4gXrqJQ5vwZ0NSRbPHJoNu9mxJvoSWZC4CRhc+A45QSOKxTrEcJYO6hVptYD45OaSEi9Y237v4/OMWPzo3ewGIDn/eq5uMqaCG9riVfb/SGf3JLw==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
- 198.47.23.195) smtp.rcpttodomain=vger.kernel.org smtp.mailfrom=ti.com;
- dmarc=pass (p=quarantine sp=none pct=100) action=none header.from=ti.com;
- dkim=none (message not signed); arc=none (0)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=Tgj0pJ1x6WPYmBNny5F7IjieDAqhdxo+8fFNU9Tw17w=;
- b=P6mtCxEwN78c7fziR4r5oWWwU18hsg2RGKhS9URgAp4UabW4feiqNJ3hnVnSOF11UyrZHAVJ9ssbHOt66XovYW44cRyebi/muWmtEmiRU4404xwE252It7EPQECRhac/FhNNuM/Jh7NGJE/FI1YNYs8rKHgMVwSLk0JgID7s8wM=
-Received: from BL1P221CA0041.NAMP221.PROD.OUTLOOK.COM (2603:10b6:208:5b5::19)
- by CH0PR10MB5193.namprd10.prod.outlook.com (2603:10b6:610:c4::5) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.428.13; Fri, 25 Sep
- 2026 16:15:44 +0000
-Received: from BN3PEPF0000B06D.namprd21.prod.outlook.com
- (2603:10b6:208:5b5:cafe::a9) by BL1P221CA0041.outlook.office365.com
- (2603:10b6:208:5b5::19) with Microsoft SMTP Server (version=TLS1_3,
- cipher=TLS_AES_256_GCM_SHA384) id 15.21.451.19 via Frontend Transport; Fri,
- 25 Sep 2026 16:15:44 +0000
-X-MS-Exchange-Authentication-Results: mx.microsoft.com 1; spf=pass (sender IP
- is 198.47.23.195) smtp.mailfrom=ti.com; dkim=none (message not signed)
- header.d=none;dmarc=pass action=none header.from=ti.com;
-Received-SPF: Pass (protection.outlook.com: domain of ti.com designates
- 198.47.23.195 as permitted sender) receiver=protection.outlook.com;
- client-ip=198.47.23.195; helo=lewvzet201.ext.ti.com; pr=C
-Received: from lewvzet201.ext.ti.com (198.47.23.195) by
- BN3PEPF0000B06D.mail.protection.outlook.com (10.167.243.72) with Microsoft
- SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.21.428.0 via Frontend Transport; Fri, 25 Sep 2026 16:15:44 +0000
-Received: from DLEE207.ent.ti.com (157.170.170.95) by lewvzet201.ext.ti.com
- (10.4.14.104) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.45; Fri, 25 Sep
- 2026 11:15:09 -0500
-Received: from DLEE201.ent.ti.com (157.170.170.76) by DLEE207.ent.ti.com
- (157.170.170.95) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.45; Fri, 25 Sep
- 2026 11:15:09 -0500
-Received: from lelvem-mr06.itg.ti.com (10.180.75.8) by DLEE201.ent.ti.com
- (157.170.170.76) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.45 via Frontend
- Transport; Fri, 25 Sep 2026 11:15:09 -0500
-Received: from [10.249.135.178] ([10.249.135.178])
-	by lelvem-mr06.itg.ti.com (8.18.1/8.18.1) with ESMTP id 68PGF4vY2154610;
-	Fri, 25 Sep 2026 11:15:05 -0500
-Message-ID: <09d30f40-f87b-4d33-af97-de8c1536f22e@ti.com>
-Date: Fri, 25 Sep 2026 21:45:03 +0530
+	Fri, 25 Sep 2026 16:25:53 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by sea.source.kernel.org (Postfix) with ESMTP id 8CFEC4435C
+	for <linux-arm-kernel@lists.infradead.org>; Fri, 25 Sep 2026 16:25:52 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 758D01F00899
+	for <linux-arm-kernel@lists.infradead.org>; Fri, 25 Sep 2026 16:25:52 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1790353552;
+	bh=6fYDLPuw7TdEq9beCl8lZHCEAKip/STw7RgtlWkrkg8=;
+	h=References:In-Reply-To:From:Date:Subject:To:Cc;
+	b=SkZTyo4xxfFfIHkKIcVzKt/r6NVyGCRHYPlxBuj/CfdOc5/UiPnHhsNeysafJ83uT
+	 PrsApt20TbtzJyRpj/ArQV+ysPRtw70TjqJbVdGUsvZcqDtlWD9Kq6uCr9e2hR5TcQ
+	 WqHkFq31PmtukKbdE6y/W8GS9/XSR4o73yuajz9jGmCx6GdhINz2kzewMKYZle40Rz
+	 Jc4eglh/tm38aa+rDhaE+rYk23PpYcf8o3TBVaTamJ/idDzDGvcrFiD2suq/GxYFWK
+	 zgFkLbpLOozrM5LhUI306UQ1mmZ30ZjqiBsz8Sk4d6Pq2YHLUgL3h7x5LiWU8/PFE8
+	 PJ7V94nNq5nFA==
+Received: by mail-lf2-f12.google.com with SMTP id 2adb3069b0e04-5b8eb39a8edso580403e87.0
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 25 Sep 2026 09:25:52 -0700 (PDT)
+X-Forwarded-Encrypted: i=1; AKwUvBzBC6YRUyoDxpzbvarFZKFxM1nlyKOUtHeaJ7yjm5fohLPtYiGXdIGKek+8gk6WRsSUCEK0vUZz0Phyao7bIJBk@lists.infradead.org
+X-Gm-Message-State: AFuF++mDVdJ6Qu2BHKavz30dpgoq8NIVmig1pGYCDE/qBi/o3uFU+t4V
+	+AL0Gj4h3yg4kICD/0hd69rs5i9Idk0NJJmeX9vbZKwKasiAL7KSJqudFnpavSe6h0FVOpZgpIE
+	mLeMD1LEwdaV5umS7A7t+T/g2aRbKT5I=
+X-Received: by 2002:a05:6512:1344:b0:5b6:1a7c:59db with SMTP id
+ 2adb3069b0e04-5b8df0d22f7mr2083445e87.53.1790353550897; Fri, 25 Sep 2026
+ 09:25:50 -0700 (PDT)
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v3] arm64: dts: ti: k3-pinctrl: Add virtual GPIO select
- mux macros
-To: Akashdeep Kaur <a-kaur@ti.com>, <nm@ti.com>, <vigneshr@ti.com>,
-        <kristo@kernel.org>, <robh@kernel.org>, <krzk+dt@kernel.org>,
-        <conor+dt@kernel.org>, <linux-arm-kernel@lists.infradead.org>,
-        <devicetree@vger.kernel.org>, <linux-kernel@vger.kernel.org>
-CC: <sebin.francis@ti.com>, <k-willis@ti.com>, <u-kumar1@ti.com>
-References: <20260922102629.3707296-1-a-kaur@ti.com>
-Content-Language: en-US
-From: "Kumar, Udit" <u-kumar1@ti.com>
-In-Reply-To: <20260922102629.3707296-1-a-kaur@ti.com>
+References: <20260916-drm-bridge-every-panel-v3-0-83afb4f1a707@bootlin.com>
+ <20260916-drm-bridge-every-panel-v3-12-83afb4f1a707@bootlin.com>
+ <arInho2bsfJiCgjV@houat> <DLNCQEG62F5N.O98WAO4U2FJO@bootlin.com>
+ <CAD++jLkk-a0MrQUiaDD8OoDDoYVwBwSjFTj5ZBy=Xo7MS4+01g@mail.gmail.com> <arTlpd-KAsVpj3UH@houat>
+In-Reply-To: <arTlpd-KAsVpj3UH@houat>
+From: Linus Walleij <linusw@kernel.org>
+Date: Fri, 25 Sep 2026 18:25:35 +0200
+X-Gmail-Original-Message-ID: <CAD++jLmktDoqn2EbXsNnyGRudo-q2NCxUf+9ZjeU+WrY4CBMWw@mail.gmail.com>
+X-Gm-Features: AclHuK_fq2ZWJ1A-qMmc6hpV7kHeTfdnkXq9HUzMYWRHIkAmDRIf8rPpfyjUW1o
+Message-ID: <CAD++jLmktDoqn2EbXsNnyGRudo-q2NCxUf+9ZjeU+WrY4CBMWw@mail.gmail.com>
+Subject: Re: [PATCH v3 12/19] drm/mcde: dsi: don't create a panel_bridge
+To: Maxime Ripard <mripard@kernel.org>
+Cc: Luca Ceresoli <luca.ceresoli@bootlin.com>, Andrzej Hajda <andrzej.hajda@intel.com>, 
+	Neil Armstrong <neil.armstrong@linaro.org>, Robert Foss <rfoss@kernel.org>, 
+	Laurent Pinchart <Laurent.pinchart@ideasonboard.com>, Jonas Karlman <jonas@kwiboo.se>, 
+	Jernej Skrabec <jernej.skrabec@gmail.com>, 
+	Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, Thomas Zimmermann <tzimmermann@suse.de>, 
+	David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>, 
+	Jessica Zhang <jesszhan0024@gmail.com>, Laurentiu Palcu <laurentiu.palcu@oss.nxp.com>, 
+	Lucas Stach <l.stach@pengutronix.de>, Frank Li <Frank.Li@nxp.com>, 
+	Sascha Hauer <s.hauer@pengutronix.de>, Pengutronix Kernel Team <kernel@pengutronix.de>, 
+	Fabio Estevam <festevam@gmail.com>, Paul Cercueil <paul@crapouillou.net>, 
+	Paul Kocialkowski <paulk@sys-base.io>, Inki Dae <inki.dae@samsung.com>, 
+	Jagan Teki <jagan@amarulasolutions.com>, Marek Szyprowski <m.szyprowski@samsung.com>, 
+	Sean Paul <sean@poorly.run>, Jonathan Corbet <corbet@lwn.net>, Shuah Khan <skhan@linuxfoundation.org>, 
+	Randy Dunlap <rdunlap@infradead.org>, Albert Esteve <aesteve@redhat.com>, 
+	Anusha Srivatsa <asrivats@redhat.com>, Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>, 
+	Hui Pu <Hui.Pu@gehealthcare.com>, Ian Ray <ian.ray@gehealthcare.com>, 
+	Thomas Petazzoni <thomas.petazzoni@bootlin.com>, dri-devel@lists.freedesktop.org, 
+	linux-kernel@vger.kernel.org, imx@lists.linux.dev, 
+	linux-arm-kernel@lists.infradead.org, linux-mips@vger.kernel.org, 
+	linux-rockchip@lists.infradead.org, linux-stm32@st-md-mailman.stormreply.com, 
+	asahi@lists.linux.dev, linux-arm-msm@vger.kernel.org, 
+	freedreno@lists.freedesktop.org, linux-tegra@vger.kernel.org, 
+	linux-doc@vger.kernel.org, linux-samsung-soc@vger.kernel.org
 Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: 7bit
-X-EOPAttributedMessage: 0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: BN3PEPF0000B06D:EE_|CH0PR10MB5193:EE_
-X-MS-Office365-Filtering-Correlation-Id: fb426ba3-f013-483d-605e-08df1b2040b2
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|376014|23010399003|1800799024|36860700016|82310400026|13003099007|921020|18002099003|22082099003|56012099006|6133799003|10067099003;
-X-Microsoft-Antispam-Message-Info: z85jC9/7pThrGEXpWnmbbPFrJYgld76dXt9a/sg0Sqg+paq9ANs9BJXRoqkhC2lLT0EwRIlSeS9wEMaF1RYDCEB7p5vGlBOd2Fgp+33h9hLsP0EFRNjFI6CtcrRj4O+D2T/ZQP147crxxmTv6wH9rXii0wWzshZoAI08be9YUtBZAhwNmb2ICPEgD1w5/MfDfxzieZDdzz4Ng0qAvOrZRcHJ7+/5NKW5caVNNJhfFUYTi5dwUjw0wySIHGbanHrHmdwckr4/CDyvZ20NVemdzChKpkErHLRNKWA9crhapGVddw9IyWYoW4cRg1dlq00bJbQ6XsjifOry7NP2PIESOr1qBy/HzS+A9WJJNn3nBkiCXKF3arlh2tbUNSC4iHATJNA2eE/n1qBOfQjXkFKqAC76buCxUxrrdOlmNLqYmt1j4YOEaM9lYHoyXRHH0Az32K7ZlqGOH1sq9fsUhglSy+KaygFqdS5ioMe9hA/BfQbd2EXEZNCNKIkSaZFcRGYvzBV+1lYsTIFC9HUx7xVU87NNfak7OodszZGbAAohLouncO31f52ktpcj1yWY2scaeZLJfyp53wGPIbI18I+0spvEezp0+24on1TXuVAIG2Hi4uBhhxECqBIdmwma0/wO1VrOuzDOfkE5FDNeP+rjT45TbK9qqy7FKexVkYwWyozPpmHfiAt53l6bCtFjDXMEtAbEkV2dwYMu2rF0IJaFdA/quhm7sn4GR60GCF4jU/G3+Bp60GX/GUOPLx3+5KAp
-X-Forefront-Antispam-Report: CIP:198.47.23.195;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:lewvzet201.ext.ti.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(376014)(23010399003)(1800799024)(36860700016)(82310400026)(13003099007)(921020)(18002099003)(22082099003)(56012099006)(6133799003)(10067099003);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: H/dTuZ3zIb1OtQ5abUzhGxfq4d/2kVx9ViJWRCiWq6AU1AHnAh0s8cU2moMCohxT3TfDKrk1QSj821nX159bAVnPUnd+rS3qz1P4j4LWiCHmRlgtWQ4TMKPzJzQlXkv7jLkNmdGG3z2trMfW8fHy0ZAxU4ioFbBmNjyvog9tIn13QaQu2Q3Ip4DvFX7pgcfwLEu1UxeoZM123fNUSOse8gqrTEk1x+eeflBg/V2EnxpN0ZsgLhpFrtfmWR/kL2KBic2hnB4f2UmIlEF/IDXRrHAcpjYsFP//43wdjCHenXU90NNtn3jVcIB/3hRRt+5k/CG/m49Erl672B6mjSTYeTs0WTpFGpc0NCUECvToXU53vKRBSjUJ0qhGUUdYlyjqvBcT3bNBptlNhTrvYE0gp4UlmGZvUqumVy8muzZCYWYA+W9LGrW34hsVteQIAsF/
-X-Exchange-RoutingPolicyChecked: sfOTsMHBm3ygxCRjThC0J7WL6Af5gbZxFO/c9dh4RghFviA9Etuejfu5Re9eTHYIpde4WE0/IJb1f06NwRrpfXP5NLQNAtXM/N2HZnr769lCVsUqN7kF4CycaD8wcTemKLh3BQCQUmCU0kmdByX55cCsABi8aiSQuQi0hhu18Wgdk+njv2vYoj7dgjkldogTDGzjawBYorNXjvt0SaET/ztecP+KQqwGP4XUL8IjJ96lM46ngUbf6elFif8eXjAJFkb/KqCvjCdog1h7rB4YPohMWprMePBGSOmljISO9jQcXjS0TwfFJJsWhrmmN9qy9Q4hmzQAdGOBQ+5B6PGhhA==
-X-OriginatorOrg: ti.com
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 25 Sep 2026 16:15:44.7137
- (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: fb426ba3-f013-483d-605e-08df1b2040b2
-X-MS-Exchange-CrossTenant-Id: e5b49634-450b-4709-8abb-1e2b19b982b7
-X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=e5b49634-450b-4709-8abb-1e2b19b982b7;Ip=[198.47.23.195];Helo=[lewvzet201.ext.ti.com]
-X-MS-Exchange-CrossTenant-AuthSource: BN3PEPF0000B06D.namprd21.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Anonymous
-X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: CH0PR10MB5193
-X-Authority-Analysis: v=2.4 cv=Fv+QbGrq c=1 sm=1 tr=0 ts=6ab69e37 cx=c_pps
- a=5EMrObNM7I5xfgT5kXX3QA==:117 a=f+v6EHfkeJbVwR46tk4DMg==:17
- a=6eWqkTHjU83fiwn7nKZWdM+Sl24=:19 a=IkcTkHD0fZMA:10 a=VdqzKS8jKosA:10
- a=s63m1ICgrNkA:10 a=V5UXEbMT0ywA:10 a=VkNPw1HP01LnGYTKEx00:22
- a=Z8NIEmU8O1QQgoT56wFK:22 a=fPAWb5peG099m5CrUpKH:22 a=sozttTNsAAAA:8
- a=VwQbUJbxAAAA:8 a=D0aBROiGLno-LiHwBcUA:9 a=QEXdDO2ut3YA:10
-X-Proofpoint-GUID: hBjpMXEa_77xKNCk2icSAkx0brUSqf4M
-X-Proofpoint-ORIG-GUID: hBjpMXEa_77xKNCk2icSAkx0brUSqf4M
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwOTI1MDA2NCBTYWx0ZWRfX6UBuKJSs0ALa
- LN+ewW/yhWFYSFcguNqsIz/oTonsJF1hcPaAHEaLLb2WtMNOwrA7QaAvuL8ko6NtsTUQ6a180h8
- w9s5KW+LVL6URRFBZ8lZvWk4J+zlBfltXsGv4Sb9UPVbQemctsM7fagh6d3AEzUoTO/xB0pNhdM
- 8oTQdYwarPAuUqlHWlpRJyeL6/Z2NkgtSeVnbXgRXfQQBw+m2u74xmeD3c/ejFIxmW36lPx6Si6
- Pka2kSpQfAOrimzqmuwMeJmDGpRZy24M3mpM+z/SULdKQZ+isScF6n3fWjy9LWqZDOZjxUy+ewC
- FxIuXYbKvgWb2Am33/XCSkev2ytj14fIVs3XhvLvX8GK8xwXP2u8jIrqSQO/XZ2xs0n6YjxEGdH
- Cq8KoDAg4nbn0LTqJ+yZWMc8ZQtQtsHzcRPjcWcJMF+vGnq8frpKa1PeoOap1Szn+js+CqK5k9r
- FBk1jcbHlk+qMFTP35g==
-X-Proofpoint-Spam-Info: AW1haW4tMjYwOTI1MDA2NCBTYWx0ZWRfX1dkJsAYLugNc
- lUsMfncmO/tXYsEkzNGBQPS2WnEyxSSemxDUH4J88K9NHjk0Q50Y3b67suV1Y/Sfyr5O58/PLqt
- Q92K+KruNPjGLDKdywdJuOEKk977SMM=
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1176,Hydra:6.1.134,FMLib:17.12.100.49
- definitions=2026-09-25_03,2026-09-21_02,2025-10-01_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- clxscore=1015 spamscore=0 impostorscore=0 lowpriorityscore=0 malwarescore=0
- suspectscore=0 phishscore=0 priorityscore=1501 bulkscore=0 adultscore=0
- classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
- reason=mlx scancount=1 engine=8.22.0-2609040000 definitions=main-2609250064
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260925_091555_080672_25E47DBA 
-X-CRM114-Status: GOOD (  19.92  )
+Content-Transfer-Encoding: quoted-printable
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -177,84 +103,35 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+On Thu, Sep 24, 2026 at 10:57=E2=80=AFAM Maxime Ripard <mripard@kernel.org>=
+ wrote:
+> On Thu, Sep 24, 2026 at 09:51:53AM +0200, Linus Walleij wrote:
 
+> > > Linus, unless you have more info I'm going to apply the patch as
+> > > is. Removing this special case would be welcome as a later patch.
+> >
+> > I'd say go ahead as-is.
+>
+> I'm fine with that, but I really want this removed at some point.
 
-On 9/22/2026 3:56 PM, Akashdeep Kaur wrote:
-> Add virtual GPIO select mux macros for configuring the vgpio_sel
-> field in pad configuration registers. This field selects GPIO
-> controller routing. The meaning of each value is SoC-specific -
-> refer to the Technical Reference Manual for the specific SoC.
-> 
-> For example, on AM62L, values 0 and 1 select GPIO controller 0 and 2
-> respectively, while on J784S4, values 0-3 select different GPIO
-> controller pairs based on the pin. Pad configuration register
-> field details can be found in each SoC's Technical Reference
-> Manual (example: section 14.2.1.2.1 of [1]).
-> 
-> [1] AM62L TRM: https://www.ti.com/lit/ug/sprujb4a/sprujb4a.pdf
-> 
-> Signed-off-by: Akashdeep Kaur <a-kaur@ti.com>
-> ---
-> 
-> K3 SoC vgpio_sel Field Audit:
->   All supported SoCs use bits [5:4] for vgpio_sel field.
-> 
->   Supported SoCs:
->     - J721E, J721S2, J7200, J784S4: 4 options (0-3) for MAIN GPIO,
->       2 options (0-1) for WKUP GPIO
->     - AM62L: 2 options (0-1)
-> 
->   Not supported (field reserved):
->     - AM62X, AM62AX, AM62PX, AM62D, AM64X, AM65X, J722S
-> 
-> Changes in v3:
->  - Use tabs for macro alignment
->  - Add comment warning that field is SoC specific
->  - Link to v2: https://lore.kernel.org/all/20260921063505.3986565-1-a-kaur@ti.com/
-> 
-> Changes in v2:
->   - Add all four PIN_VGPIO_SEL[0-3] macros instead of just two
->   - Use generic value-based naming to support all K3 SoCs
->   - Update commit message to clarify SoC-specific behavior
->   - Link to v1: https://lore.kernel.org/all/20260917111539.3844577-1-a-kaur@ti.com/
->   
-> ---
->  arch/arm64/boot/dts/ti/k3-pinctrl.h | 10 ++++++++++
->  1 file changed, 10 insertions(+)
-> 
-> diff --git a/arch/arm64/boot/dts/ti/k3-pinctrl.h b/arch/arm64/boot/dts/ti/k3-pinctrl.h
-> index 4491898d8294..e8ca69a97b65 100644
-> --- a/arch/arm64/boot/dts/ti/k3-pinctrl.h
-> +++ b/arch/arm64/boot/dts/ti/k3-pinctrl.h
-> @@ -8,6 +8,7 @@
->  #ifndef DTS_ARM64_TI_K3_PINCTRL_H
->  #define DTS_ARM64_TI_K3_PINCTRL_H
->  
-> +#define VGPIO_SEL_SHIFT		(4)
+If Luca wanna fix this up (drop this path) that's fine by me,
+else send a patch immediately after this is applied and I'll
+ACK it.
 
+> > I do have the idea to code up and submit the AV8100 encoder
+> > and I have the hardware to test it, but every other user should
+> > be using panels directly, and I would be the only non-panel
+> > user so I can deal with it when it comes up.
+>
+> It won't change a thing. All existing "panel" users will be bridge users
+> after this patch is merged. So whether you want to enable a bridge or
+> not shouldn't matter, the only thing that does is whether the existing
+> users would still work.
 
->  #define WKUP_LVL_EN_SHIFT	(7)
->  #define WKUP_LVL_POL_SHIFT	(8)
->  #define DEBOUNCE_SHIFT		(11)
-> @@ -111,6 +112,15 @@
->  #define PIN_WKUP_EN_LEVEL_HIGH		(WKUP_ENABLE | WKUP_ON_LEVEL | WKUP_LEVEL_HIGH)
->  #define PIN_WKUP_EN			(WKUP_ENABLE | WKUP_ON_EDGE)
->  
-> +/*
-> + * SoC-specific field - Refer to the SoC Technical Reference Manual to
-> + * determine which GPIO controller each value selects.
-> + */
-> +#define PIN_VGPIO_SEL0		(0 << VGPIO_SEL_SHIFT)
-> +#define PIN_VGPIO_SEL1		(1 << VGPIO_SEL_SHIFT)
-> +#define PIN_VGPIO_SEL2		(2 << VGPIO_SEL_SHIFT)
-> +#define PIN_VGPIO_SEL3		(3 << VGPIO_SEL_SHIFT)
+I know, all it does is create a snag that I would run into myself.
 
-Reviewed-by: Udit Kumar <u-kumar1@ti.com>
+But it's not gonna be a problem for anyone else, that's all I meant.
 
-
-> +
->  /* Default mux configuration for gpio-ranges to use with pinctrl */
->  #define PIN_GPIO_RANGE_IOPAD	(PIN_INPUT | 7)
->  
-
+Yours,
+Linus Walleij
 
