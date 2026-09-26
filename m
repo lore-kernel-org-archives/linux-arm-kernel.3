@@ -4,61 +4,65 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BA49DC98328
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 26 Sep 2026 08:01:10 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3D210C98328
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 26 Sep 2026 08:23:25 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=QK32ylyDoH0zAV4vwyAyLOZNTmoVdUY+VttMWRrH5ew=; b=CuC4e1NE+LRSS1pozZmSOPjQ+U
-	nWSuieBgrJpypiFe3CyTEAspQWqx7iPZAP4Qq5XkPlPnNRsja31okigAZyKyp/xWy7W0u5VCFQclp
-	iKfPpD8pCy50x1eJSjtr0Vo1uC5wlWjoH4vDNMxi9V6V1SFMZV62Z1pCepmN+o+ZKMI/fmzFiw60I
-	yxGvGxMmw8sVIUJeL0xZamoqYnaWVZa9uvDXEbMvQyh785kLC7HWWBQxtvJEopB1m1udl2dXW8aTl
-	lWkV2lPTrDdE02ZTJpC/7rEmfMmPYZuvdbdTSNcdJGYfhebPoZ2Jbpqx4spzQCC0U53fhQLBhMQyw
-	C9LcEQNw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=DmmflsCJs+O4XzU3h43GHEyo2nPD54EvzzNcB6z/E44=; b=1dEX8GGLbaW9G/BevT1cU1hw+/
+	zpDlpZ6zi498vlTkx9whTMzVWugU37jNnVYhrfzWxZD4iT0J25iBBQEi6L4Tpc3Gi0mW9MHmChhL8
+	EdTJ8no6aHUjihoKGBJI5SOruG5WIks8yhgCQQuv0bGCrAs0xEIrlf6GmLy3iciv/xOftdRFxNqDi
+	Z95ujDCH5MAsPoiLgG2a+IkW8BDfLzaUIEVkVfVTBisUWaYb0WCgIYROnHfAami9w+zwg6+tslss8
+	Q+AlNAr7l8CP7FI1wQREn/yAHaPVOGwm6mBl0RhRY6v03PGZ+NoKSS/5wthd2PocAVSENzgqq3XIk
+	qqR2SSBw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xANLE-0000000F91L-3Sj8;
-	Sat, 26 Sep 2026 08:01:04 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1xANgh-0000000F9VL-2f8g;
+	Sat, 26 Sep 2026 08:23:15 +0000
+Received: from m16.mail.126.com ([220.197.31.7])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xANLD-0000000F913-2x6j;
-	Sat, 26 Sep 2026 08:01:03 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id 2EC6D601E4;
-	Sat, 26 Sep 2026 08:01:02 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 22B771F000FF;
-	Sat, 26 Sep 2026 08:00:56 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1790409661;
-	bh=QK32ylyDoH0zAV4vwyAyLOZNTmoVdUY+VttMWRrH5ew=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=jBH2GJ7TlAbuheZ6f41Ha5r5OuPJBAKdtbR7zFb51DfgxlYVjB+KOTXLoN+MIeSGa
-	 A6oM80uvpfX+5F/Ct9kLzOyoHcQ5skBmxCMBj4uiyG1Zi+CyJYmGKTnpHhXvy1o9NJ
-	 H1+ji0PTns1m+JixHXGSiXWoktZmnYZTDxCbm1ExkZK73vwhghEt/D89Vl1FOuWSa+
-	 kNM1XVhXB7XTSL7zchwmJOkJcDw4getq2OkP7DCdBUTpDLyzukur3cnJLjVfse5/2l
-	 qRHydKSXcoG0luBEDAacKNRW5qUpFlr3BXxa9qczM0sRqYbKwFTZHYzvNgMZ0A1Jrt
-	 TPSUB5wC0lqMA==
-Date: Sat, 26 Sep 2026 10:00:47 +0200
-From: Manivannan Sadhasivam <mani@kernel.org>
-To: Sebastian Reichel <sebastian.reichel@collabora.com>
-Cc: Vinod Koul <vkoul@kernel.org>, 
-	Neil Armstrong <neil.armstrong@linaro.org>, Heiko Stuebner <heiko@sntech.de>, 
-	Zhang Yubing <yubing.zhang@rock-chips.com>, Frank Wang <frank.wang@rock-chips.com>, 
-	linux-phy@lists.infradead.org, linux-arm-kernel@lists.infradead.org, 
-	linux-rockchip@lists.infradead.org, linux-kernel@vger.kernel.org, kernel@collabora.com, 
-	Igor Paunovic <royalnet026@gmail.com>
-Subject: Re: [PATCH v15 5/6] phy: rockchip: usbdp: Re-init PHY on mux change
-Message-ID: <j4mqvu3tjzcjb2ghnwhwiyaf3qjdmwqvqtcary5tm4ni3dhbyk@yvqphx5drlmc>
-References: <20260915-b4-rockchip-usbdp-cleanup-part3-v15-0-9ad90a456953@collabora.com>
- <20260915-b4-rockchip-usbdp-cleanup-part3-v15-5-9ad90a456953@collabora.com>
+	id 1xANgd-0000000F9Ul-3T3S
+	for linux-arm-kernel@lists.infradead.org;
+	Sat, 26 Sep 2026 08:23:13 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=126.com;
+	s=s110527; h=Message-ID:Date:MIME-Version:Subject:To:From:
+	Content-Type; bh=DmmflsCJs+O4XzU3h43GHEyo2nPD54EvzzNcB6z/E44=;
+	b=hOrucROUvk7Az/fM59lAs7lVr4tq1vYJkMdKQXLuvRPHv1Qjbe+xavGHdkQ8E+
+	esttqk3pnj1P64myVpFZ+E1UQ+b0xLHhFpFMMzGEwM5GiqggxlblnW5VvVSVaCX2
+	wMk/3TXi92ppK4zmOvWmYLJaGYb2L75eWSyKM3PukW6HI=
+Message-ID: <9ecf6f60-a2ab-4905-9ba6-011523684547@126.com>
+Date: Sat, 26 Sep 2026 16:22:10 +0800
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-Content-Transfer-Encoding: 8bit
-In-Reply-To: <20260915-b4-rockchip-usbdp-cleanup-part3-v15-5-9ad90a456953@collabora.com>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH net v3] net: stmmac: request the MDIO reset GPIO only once
+To: Jakub Kicinski <kuba@kernel.org>
+Cc: maxime.chevallier@bootlin.com, andrew+netdev@lunn.ch,
+ davem@davemloft.net, edumazet@google.com, pabeni@redhat.com,
+ mcoquelin.stm32@gmail.com, alexandre.torgue@foss.st.com,
+ lorenzo.bianconi@oss.qualcomm.com, netdev@vger.kernel.org,
+ linux-stm32@st-md-mailman.stormreply.com,
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+ Linkui Xiao <xiaolinkui@kylinos.cn>, stable@vger.kernel.org
+References: <20260921015727.2643540-1-xiaolinkui@126.com>
+ <20260924093720.1aaa697e@kernel.org>
+Content-Language: en-US
+From: Linkui Xiao <xiaolinkui@126.com>
+In-Reply-To: <20260924093720.1aaa697e@kernel.org>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
+X-CM-TRANSID: _____wD3NzuygLdqIQa8AA--.62328S2
+X-Coremail-Antispam: 1Uf129KBjvdXoWrKF1xtF13tw15Gry7CrW3Wrg_yoWxKFc_uw
+	nF9r97Cr4DXrn3Cw1rur4aqa9F9rsrt3WqgF1SgF98K34kX3yxurs0yrnIyFW8WrnavFn8
+	Jrn8t34fAws7KjkaLaAFLSUrUUUUjb8apTn2vfkv8UJUUUU8Yxn0WfASr-VFAUDa7-sFnT
+	9fnUUvcSsGvfC2KfnxnUUI43ZEXa7IUjc18PUUUUU==
+X-CM-SenderInfo: p0ld0z5lqn3xa6rslhhfrp/xtbBqBPUq2q3gLNy3QAA3F
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260926_012312_450510_691C09F1 
+X-CRM114-Status: UNSURE (   6.96  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -73,22 +77,30 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Sep 15, 2026 at 05:32:52PM +0200, Sebastian Reichel wrote:
-> Ensure that the right part of the PHY are powered up when the
-> mode changes. This ensures the PHY is re-initialized in the
-> following two scenarios, which are currently broken:
+Hi Jakub,
+
+On 2026/9/25 00:37, Jakub Kicinski wrote:
+> On Mon, 21 Sep 2026 09:57:27 +0800 Linkui Xiao wrote:
+>> +struct gpio_desc;
+>>   struct stmmac_pcs;
+>>   
+>>   struct stmmac_resources {
+>> @@ -287,6 +288,8 @@ struct stmmac_priv {
+>>   
+>>   	unsigned int pause_time;
+>>   	struct mii_bus *mii;
+>> +	struct gpio_desc *mdio_reset_gpio;
+>> +	u32 mdio_reset_delays[3];
 > 
->  - cable orientation changes without DP being involved
->  - switching from DP-only into a mode with USB support
-> 
-> Fixes: 2f70bbddeb45 ("phy: rockchip: add usbdp combo phy driver")
-> Tested-by: Igor Paunovic <royalnet026@gmail.com> # Orange Pi 5 Plus
-> Signed-off-by: Sebastian Reichel <sebastian.reichel@collabora.com>
+> Someone already marked it as changes requested but also no need to
+> forward declare structs unless first use is as function arguemnt.
+Thanks for the review. I'll remove the forward declaration of
+struct gpio_desc and include <linux/gpio/consumer.h> in stmmac.h
+instead, since its first use is as a struct member.
 
-Reviewed-by: Manivannan Sadhasivam <manivannan.sadhasivam@oss.qualcomm.com>
+I'll send v4 shortly.
 
-- Mani
+Thanks,
+Linkui
 
--- 
-மணிவண்ணன் சதாசிவம்
 
