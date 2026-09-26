@@ -4,75 +4,74 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3E68BC9832F
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 26 Sep 2026 19:38:15 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D91E3C9832A
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 26 Sep 2026 21:01:24 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=LYe49kOMn0vSPqjYDLCxciDWRAv8kzL3j3Sod1atpTY=; b=dmh1R2lZhP4s/9Bz78un0u4TQ/
-	EYAEKsURbjpK6gggL5/zJ3+0UxCjoZ/iqgw4hQFKEX+iAXPhel8BkAwpvfziA28H6y8BXrKZlOigG
-	B5a68H1WjOc63ai/2gRTXu+qyGD3NqKg7RxcjwpFyvCXWS9tvULlcy2yljRN/66Db+WlBt4yHf51I
-	n+D03djWpgOqiZBKwEELojPfAY1FJVwrMiYhYceCio31MKz42K0ei0xT/K1rF1UjttTFPHyW3Z8qn
-	Haev381PVwAQJd0/H09yiELgoLbAxDsW8nOe9r0bANhsehWCrm0AG0t0XFFp3hAC1sdpKevCxcvc5
-	AJ9S73nw==;
+	bh=Pj1uucL4M3zJ3KDkppzQhixOfCGgqRJ28eK/71kmnzQ=; b=oSWr2ePKy0PyISBHL7wLwRSd1t
+	bRdGwZR0d0z67qf55EXUM+tsDBPtmdSLqf6cERNVxj3/ZTdmKzPZuawXJ1dUmJ1znZNTpaMZctVjt
+	FAtWiehW/LfeKpYDVWEdOWVbR3oR4wwjaNbDDthPHpfke0gfjL1bLE3rJm3vJ+vCSOs1/rBDeP0Sa
+	XlDEGg4MTC57rFv0kKBagSIew64Lp/r99+R8ho3XVk3jH+vj9Q8fMgqsWQa7CdD7YAR9snPKffLLR
+	MCJsiNk1e4N73zD48BpmJXcqKB7Wb6yAJs84g1nlt1tXrNJOBdYOSnKz2nPl0xrCL5W0xFHd525W0
+	K+F9jROg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xAYDk-0000000FlUP-3zGn;
-	Sat, 26 Sep 2026 19:38:04 +0000
-Received: from smtpout-03.galae.net ([185.246.85.4])
+	id 1xAZWC-0000000FnVN-3CCR;
+	Sat, 26 Sep 2026 21:01:12 +0000
+Received: from smtpout-04.galae.net ([185.171.202.116])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xAYDi-0000000FlU3-0zNN
+	id 1xAZW8-0000000FnUz-3M6g
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 26 Sep 2026 19:38:04 +0000
+	Sat, 26 Sep 2026 21:01:10 +0000
 Received: from smtpout-01.galae.net (smtpout-01.galae.net [212.83.139.233])
-	by smtpout-03.galae.net (Postfix) with ESMTPS id CC9584E41080;
-	Sat, 26 Sep 2026 19:37:58 +0000 (UTC)
+	by smtpout-04.galae.net (Postfix) with ESMTPS id C0B15C62208;
+	Sat, 26 Sep 2026 21:01:53 +0000 (UTC)
 Received: from mail.galae.net (mail.galae.net [212.83.136.155])
-	by smtpout-01.galae.net (Postfix) with ESMTPS id 8F51860749;
-	Sat, 26 Sep 2026 19:37:58 +0000 (UTC)
-Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id E4A73102F1E4C;
-	Sat, 26 Sep 2026 21:37:49 +0200 (CEST)
+	by smtpout-01.galae.net (Postfix) with ESMTPS id 1523F60749;
+	Sat, 26 Sep 2026 21:01:05 +0000 (UTC)
+Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id ABF53102F1E3A;
+	Sat, 26 Sep 2026 23:00:56 +0200 (CEST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=dkim;
-	t=1790451477; h=from:subject:date:message-id:to:cc:mime-version:content-type:
+	t=1790456463; h=from:subject:date:message-id:to:cc:mime-version:content-type:
 	 content-transfer-encoding:content-language:in-reply-to:references;
-	bh=LYe49kOMn0vSPqjYDLCxciDWRAv8kzL3j3Sod1atpTY=;
-	b=R62xE1mTaQxatCb33DR/HwgfJGSTvghkJi850RfagXCdxe6q46ez5v2SX72SXW4yBSE4l9
-	rS1AGxMot7mXdZ6ZiC0HGfcyLmdjqBYB3gCnBNj7XTrhmmwpAuwTZQhhX2VYlEVCWSP6fy
-	bSXQ0pHL2S2TtsU/oEmWEJ3N4CLe2YTORmjsGbJzfMZ53ie3vSfXpObeIcWob32y/adB02
-	+JDblpk8pw4wnFDkKML0eBbTOnVHhCSE4H1QcuKH/ZZX1myiGgTIq7Ve091r2xE0AUOqn6
-	xoVQjWJs5rEmiBEJJIWA8uQO9/v3DZIMxlEq4A4N0rFlfGssXUgN2HTbsD0QkA==
-Message-ID: <3bcac28b-71ce-4c08-97a2-4cd59ab76c8c@bootlin.com>
-Date: Sat, 26 Sep 2026 21:37:49 +0200
+	bh=Pj1uucL4M3zJ3KDkppzQhixOfCGgqRJ28eK/71kmnzQ=;
+	b=GuSb6QGHqCU5QR5aVBlz5zFyO4woFpqPZ+mULDcVnusmfq/uh7lPz4Kj1z/cCha4O9l6Nl
+	gN+T29O5w/oATed7BDFEPJXLdQo+32hqYPOQUqP/8W2WPrhVnlfVZOus/Z1gs+YwS6rMvb
+	8kBq7wLYk8HtFfMI0zj6/9YfyVSiyYLC17KHwnd6MmhO1Vo2bqF+oRvclPI5Glt9bHun2b
+	7Xqn3y1M29Q3oNdhPdp46rSlHTcxYUfRf5Z8m/GztiJgabTf0KM3ViR9g1w/Ib+TWA7I3W
+	p8etIKyxY3Hjkp2McbK+hriXl/fNT7atXTx/hRjfvvZt9v62jqZ39JIvb6W7Xg==
+Message-ID: <c011f95b-1293-4fa0-8080-f4dc9a418f89@bootlin.com>
+Date: Sat, 26 Sep 2026 23:00:56 +0200
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH net] net: stmmac: Don't set or get RSS parameters when not
- supported
-To: Nicolai Buchwitz <nb@tipi-net.de>
-Cc: Andrew Lunn <andrew+netdev@lunn.ch>, Jakub Kicinski <kuba@kernel.org>,
- davem@davemloft.net, Eric Dumazet <edumazet@google.com>,
- Paolo Abeni <pabeni@redhat.com>, Simon Horman <horms@kernel.org>,
+Subject: Re: [PATCH net v2] net: stmmac: fix rx Scatter-Gather support
+To: Lorenzo Bianconi <lorenzo.bianconi@oss.qualcomm.com>,
+ Andrew Lunn <andrew+netdev@lunn.ch>, "David S. Miller"
+ <davem@davemloft.net>, Eric Dumazet <edumazet@google.com>,
+ Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
  Maxime Coquelin <mcoquelin.stm32@gmail.com>,
  Alexandre Torgue <alexandre.torgue@foss.st.com>,
- Russell King <linux@armlinux.org.uk>,
- Jitendra Vegiraju <jitendra.vegiraju@broadcom.com>,
- thomas.petazzoni@bootlin.com, =?UTF-8?Q?Alexis_Lothor=C3=A9?=
- <alexis.lothore@bootlin.com>, netdev@vger.kernel.org,
- linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-stm32@st-md-mailman.stormreply.com
-References: <20260926093343.292181-1-maxime.chevallier@bootlin.com>
- <250ecb58e80b191865bcf03f7146f7c2@tipi-net.de>
+ Jose Abreu <Jose.Abreu@synopsys.com>, Alexei Starovoitov <ast@kernel.org>,
+ Daniel Borkmann <daniel@iogearbox.net>,
+ Jesper Dangaard Brouer <hawk@kernel.org>,
+ John Fastabend <john.fastabend@gmail.com>,
+ Stanislav Fomichev <sdf@fomichev.me>
+Cc: netdev@vger.kernel.org, linux-stm32@st-md-mailman.stormreply.com,
+ linux-arm-kernel@lists.infradead.org, bpf@vger.kernel.org
+References: <20260921-stmmac-rx-sg-fix-v2-1-b6d88c5ac2d7@oss.qualcomm.com>
 Content-Language: en-US
 From: Maxime Chevallier <maxime.chevallier@bootlin.com>
-In-Reply-To: <250ecb58e80b191865bcf03f7146f7c2@tipi-net.de>
+In-Reply-To: <20260921-stmmac-rx-sg-fix-v2-1-b6d88c5ac2d7@oss.qualcomm.com>
 Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 8bit
+Content-Transfer-Encoding: 7bit
 X-Last-TLS-Session-Version: TLSv1.3
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260926_123802_441766_ECFCEFCF 
-X-CRM114-Status: GOOD (  19.34  )
+X-CRM114-CacheID: sfid-20260926_140109_013773_C00BF726 
+X-CRM114-Status: GOOD (  17.84  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -87,93 +86,57 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Nicolai,
+Hi Lorenzo,
 
-On 9/26/26 20:41, Nicolai Buchwitz wrote:
-> Hi Maxime
+On 9/21/26 16:47, Lorenzo Bianconi wrote:
+> When a received frame is larger than dma_buf_sz, the DMA scatters it
+> across multiple RX descriptors (rx Scatter-Gather). The secondary RX
+> buffer (sec_page) was only allocated and programmed when split-header
+> (SPH) was active, so for regular frames buffer2 was neither allocated
+> nor backed by a valid mapping. As soon as an incoming frame overflowed
+> buffer1, the DMA wrote the overflow into the unmapped secondary-buffer
+> address, triggering an SMMU translation fault on IOMMU-based platforms:
 > 
-> On 26.9.2026 11:33, Maxime Chevallier wrote:
->> The RSS kselftests fail on stmmac, and this is partly due to the driver
->> reporting bogus data for the RSS ops :
->>
->>  - ethtool -x reports an indirection table and a key while the hardware
->>    doesn't have any of that
->>  - ethtool -X fails with -EINVAL.
->>
->> Let's return early in the rss ops if we know the hardware and platform
->> don't support RSS.
->>
->> Note that RSS is currently not supported on any devices upstream, so
->> code that was already useless is now effectively dead. It has been the
->> case since 2019 when the code was added, as platforms need to set rss_en
->> in their plat data, and no glue ever did that.
->>
->> Russell King ran a poll in february 2026 [1] asking if the code should
->> be dropped, without any reply going in either direction.
->>
->> Jitendra Vegiraju from Broadcom sent 9 iterations of a Broadcom PCIe glue
->> driver [2] that actually sets rss_en = 1, so there's some hope that this
->> may be used in the future.
->>
->> [1] : https://lore.kernel.org/netdev/aYd4BkAeNW6d0iIC@shell.armlinux.org.uk/
->> [2] : https://lore.kernel.org/netdev/20260402213629.1996133-1-jitendra.vegiraju@broadcom.com/
->>
->> Fixes: 76067459c686 ("net: stmmac: Implement RSS and enable it in XGMAC core")
->> Signed-off-by: Maxime Chevallier <maxime.chevallier@bootlin.com>
->> ---
->> Jitendra, do you have plans to continue iterating on the BCM8958x glue ?
->>
->> Thanks,
->>
->> Maxime
->>
->>  drivers/net/ethernet/stmicro/stmmac/stmmac_ethtool.c | 12 ++++++++++++
->>  1 file changed, 12 insertions(+)
->>
->> diff --git a/drivers/net/ethernet/stmicro/stmmac/stmmac_ethtool.c b/drivers/net/ethernet/stmicro/stmmac/stmmac_ethtool.c
->> index 1be5310ca766..4e917a448271 100644
->> --- a/drivers/net/ethernet/stmicro/stmmac/stmmac_ethtool.c
->> +++ b/drivers/net/ethernet/stmicro/stmmac/stmmac_ethtool.c
->> @@ -927,6 +927,9 @@ static u32 stmmac_get_rxfh_key_size(struct net_device *dev)
->>  {
->>      struct stmmac_priv *priv = netdev_priv(dev);
->>
->> +    if (!priv->dma_cap.rssen || !priv->plat->rss_en)
+> arm-smmu 15000000.iommu: Unhandled context fault: fsr=0x402, iova=0x00000000, fsynr=0x7f0011, cbfrsynra=0x1c90, cb=11
+> arm-smmu 15000000.iommu: FSR    = 00000402 [Format=2 TF], SID=0x1c90
+> arm-smmu 15000000.iommu: FSYNR0 = 007f0011 [S1CBNDX=127 WNR PLVL=1]
 > 
-> Should this pattern become a helper? Counting 6 instances so far.
+> Enable scatter-gather for non-SPH frames on cores that can program an
+> independent secondary RX buffer (GMAC4/XGMAC): allocate and mark buffer2
+> as valid in stmmac_init_rx_buffers() and stmmac_rx_refill(), and account
+> for it in the buffer length computation. Legacy cores have no set_sec_addr
+> op, so they keep buffer2 disabled.
+> 
+> Since buffer2 is handed to the DMA at page offset 0, the page pool sync
+> window is widened to cover both buffers in every mode: offset is set to 0
+> and max_len to dma_buf_sz + stmmac_rx_offset().
+> 
+> The FCS can straddle the buffer1/buffer2 boundary and a descriptor
+> boundary, so it is now stripped from the tail of the assembled frame with
+> skb_trim() instead of from a single buffer, avoiding an unsigned underflow
+> for frames that overflow a buffer by 1..3 bytes. For single-buffer frames
+> the XDP program must not see the FCS, so it is removed from the XDP buffer
+> before the program runs.
+> 
+> Native XDP currently only supports single-buffer (linear) frames. An
+> oversized frame accepted by the MAC (jumbo enabled) is received via
+> buffer2; the XDP program only sees buffer1, so on a TX/REDIRECT verdict
+> the frame is forwarded truncated. XDP multi-buffer support to handle
+> this case is planned as a follow-up.
+> 
+> AF_XDP zero-copy RX is not covered by this change: a ZC queue still
+> programs buffer2 at DMA address 0 (and XGMAC has no buffer2-valid bit),
+> so an oversized frame overflowing buffer1 can still trigger the same
+> SMMU translation fault. Handling is planned as a follow-up.
+> 
+> Fixes: 88ebe2cf7f3f ("net: stmmac: Rework stmmac_rx()")
+> Signed-off-by: Lorenzo Bianconi <lorenzo.bianconi@oss.qualcomm.com>
 
-yeah why not :)
+I was able to test that on DWMAC4 (stm32mp157) sending oversized frames,
+and they correctly spill over the next descriptor, no crashes no stall,
+the only limitation being the RX fifo size now.
 
-> 
->> +        return 0;
->> +
->>      return sizeof(priv->rss.key);
->>  }
->>
->> @@ -934,6 +937,9 @@ static u32 stmmac_get_rxfh_indir_size(struct net_device *dev)
->>  {
->>      struct stmmac_priv *priv = netdev_priv(dev);
->>
->> +    if (!priv->dma_cap.rssen || !priv->plat->rss_en)
->> +        return 0;
->> +
->>      return ARRAY_SIZE(priv->rss.table);
->>  }
->>
->> @@ -943,6 +949,9 @@ static int stmmac_get_rxfh(struct net_device *dev,
->>      struct stmmac_priv *priv = netdev_priv(dev);
->>      int i;
->>
->> +    if (!priv->dma_cap.rssen || !priv->plat->rss_en)
->> +        return -EOPNOTSUPP;
-> 
-> Not a blocker, but a full netlink RSS dump (like the one in rss_ctx.py)
-> now stops at this device. Naybe rss_dump_one_dev() should skip -EOPNOTSUPP
-> like ethnl_default_dumpit() does?
-there are other drivers that report -EOPNOTSUPP, we could have that as
-a separate patch yeah
-
-Thanks for looking at this,
+Tested-by: Maxime Chevallier <maxime.chevallier@bootlin.com>
 
 Maxime
 
