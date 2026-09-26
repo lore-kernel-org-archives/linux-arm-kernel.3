@@ -4,67 +4,142 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5268BC9832F
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 26 Sep 2026 18:42:23 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id ACDCEC9832F
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 26 Sep 2026 18:46:16 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Message-ID:References:In-Reply-To:Subject:Cc:To:From:Date:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=iL7bExJVs925q9yLa7sDRxI7vyv/YZQ4FfCbe5s6qaw=; b=SFZZW3ampQyZDTPimQ01c1g3mI
-	hq3ybHU3qAvhjTenhM6+mBv99iFPY5/CDnxsEjbhQlH1r5juPensHHTAgFPgbxQiF6p4eYWlBdZgn
-	HmQBQLdX58H3o2wTr8hO3kHSceq270n07PRHo3EvLJeEXk6X0GR4OJiY9zKEpmjGpMBg3ybZQx/p3
-	iKXoavyJYZPXhy8RRx3gNi6P3rPeiVCuc3dOa0L+sOn4qGH0188lGDDr1DuBmEB6hv7OhqHJlted1
-	d3Z2+FVNadde3Iuo9jVCsae5VSzFQUmdc29h1Qqh1UMf9ehMMSegmZ/l249AD3dX9HrPJTldq9r7U
-	GkneoTNA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
+	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=rPJSWCK+lwQS5s8kV2JpbENy9VWhMOo8bp2XUDLokKM=; b=lYQID0DPPsBOjL40iytu3RVmBx
+	oF/q6uyqnJ9eqfvEepHELbuikxDibg1uRY2Me4XLFkWsxo2FeAjyETu2jRvmhfh8ppn51Is+b0474
+	/KiWIYALlNKX5dS1W5L6NeLcfbFP9tIC0YeSF5l71X2EsfI9FqgS3GrD5bUhYHyZdKrgAk6EPgGS+
+	7r5nA4zje0kYcDbbbLxursPVxHIGXyndtQilA+WT+oDPAE1JTYxEUpCz8ssBcmOg+UrijzC5X6I6l
+	xjRzULP/LYp/X5PZ0X3bxb5zaaZJAr55sYCWRNDLyz0Ock8Y69/cWFOIMN+hB5uHPJJwIVQScrGMB
+	naw7M46g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xAXLj-0000000Fiid-21XQ;
-	Sat, 26 Sep 2026 18:42:15 +0000
-Received: from mail.tipi-net.de ([194.13.80.246])
+	id 1xAXPW-0000000Fiv5-0KQf;
+	Sat, 26 Sep 2026 18:46:10 +0000
+Received: from mail-southcentralusazlp170130001.outbound.protection.outlook.com ([2a01:111:f403:c10c::1] helo=SA9PR02CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xAXLg-0000000Fii9-0Vn3
-	for linux-arm-kernel@lists.infradead.org;
-	Sat, 26 Sep 2026 18:42:14 +0000
-Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 09A4AA4AA2;
-	Sat, 26 Sep 2026 20:41:55 +0200 (CEST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=tipi-net.de; s=dkim;
-	t=1790448121; h=from:subject:date:message-id:to:cc:mime-version:content-type:
-	 content-transfer-encoding:in-reply-to:references;
-	bh=iL7bExJVs925q9yLa7sDRxI7vyv/YZQ4FfCbe5s6qaw=;
-	b=1dsdev+JmRZnw3115yp6qfis+T3iSQGzi3JYZ/7T6qiCS/Wsv/VVMsrvfWvE9xE5y19uLk
-	z9ze0EH3Kc4/u+mxFNkI8mfo8/D6bbAvdLqKZCDtw2XGmkk+5oiBjRXMCI5svDDjOJjBxr
-	+/PP5B87RQGztnx+m1pCJNAYyDzH29dHMRkAyraodZdGodWR2StIsLmwj+nYfvyEsH+NjU
-	xQCDQHYQySYJUm4uVbDeqJclmabSctGSqxeEs168ouEHRDtBFVZIpIIQso4liqOX+h9Fas
-	73m90TEPNJNvyCDwPyU3ag942wotJxybVa1N67ueMki1Nj5v3FZDXRf0boLmew==
+	id 1xAXPS-0000000Fiua-2boZ;
+	Sat, 26 Sep 2026 18:46:08 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=WvCIvyGe09xnt0xNQ1qXMF5w8kJU4YBHKRMSAOSGVljqY9fQhGi5qoyuoj5MmnVxJcstFckNdE782t2IMkJljQ/LoKDlQl404EwU6VSzNVjiVopzTGUFuvouHbEaMLOdFvhd1Ih6RWUTwlDEEuYpeMso7TR6kqbDtI78sapfwmbxAx9a7aoqm0qLPx6/iiU+8ltCXmAguXz5Tl0Ml+jqaVr1R/eE14avVOsRodQq1YxspcUB9xPFE8bjZ7PeVeIm5/B2xCFdYSvoRGZUYePZS+DGSNiWX6ebFDOxXhpK69yz2zxWP4vODiTAgkBEO1nftz5fxoBTUCpXLBy+Hhq7xA==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=rPJSWCK+lwQS5s8kV2JpbENy9VWhMOo8bp2XUDLokKM=;
+ b=CK8K9uIkXtExeVog0Q+OTjfH4QYBSDW8MNuiFJEYbXYg9z3LbG/n48YnMjc+xDVyC1tK+dKh1KA4p+weuwytrH5l1XhEN/641P+kZVmeouj0mPdEZWVKx3r1Wmkn8ECvFcSlfm5Yhlimn9/Co5Fc2vc9c4DQ+sEjvvaFbVnlDkJgQM9g4Cp8P6OupLvjWfnIcxm4bRxqfhcxxrEschwMJax8w+cD6u05Aw7AgNPjfT1WkXG04RQ8xuytd6zrPRDDp3p+GVTb8A+PZVpZdsI8t9cJH9EwrzsRT8hDOEP3RJsqKRdt1MgvfKmoLHshgdCSbIOmnxI6VDo1K6Tlj7CL8w==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=nvidia.com; dmarc=pass action=none header.from=nvidia.com;
+ dkim=pass header.d=nvidia.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
+ s=selector2;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=rPJSWCK+lwQS5s8kV2JpbENy9VWhMOo8bp2XUDLokKM=;
+ b=IrGl31j1sUfpCEOBnVadQb/Uws64VnWDw8qb3jVzFKhmr0g5OCpf+HilhFl7gTSpvOfW5sMiRtdxS077B05WR0Z8fgSnV7KZZ6WFXanoruui6uMmTM4AbsN4WiVBDnrY/hCkPj8seWZXYYcV6lUkMcwMvfwIcGfoc7hlxUhTxhNxAjwOVEXYZ1wWiCxxrYZlseCJGb9/9OW0kO9CUsMrPEk0wYH8LNxe3rdQx9sRNw3QfKzUU2MCM/DPYBBmCaNrFWneOKpH6nW/2bxeUAeLMpamSYWYy1iN4aT6Bj9lhVXUGMbqvXqlTY7DDJJpYUuGn0Y5zDN26DA0OxbY7L6AFA==
+Authentication-Results: mx.microsoft.com 1; dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=nvidia.com;
+Received: from CHBPR12MB731189.namprd12.prod.outlook.com
+ (2603:10b6:610:33d::12) by LV8PR12MB9690.namprd12.prod.outlook.com
+ (2603:10b6:408:296::16) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.451.19; Sat, 26 Sep
+ 2026 18:45:59 +0000
+Received: from CHBPR12MB731189.namprd12.prod.outlook.com
+ ([fe80::b0e5:123d:fe06:e10d]) by CHBPR12MB731189.namprd12.prod.outlook.com
+ ([fe80::b0e5:123d:fe06:e10d%6]) with mapi id 15.21.0451.014; Sat, 26 Sep 2026
+ 18:45:59 +0000
+Date: Sat, 26 Sep 2026 15:45:58 -0300
+From: Jason Gunthorpe <jgg@nvidia.com>
+To: Jonathan Cameron <jonathan.cameron@oss.qualcomm.com>
+Cc: Alexandre Ghiti <alex@ghiti.fr>, Albert Ou <aou@eecs.berkeley.edu>,
+	Ard Biesheuvel <ardb@kernel.org>, Arnd Bergmann <arnd@arndb.de>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Jonathan Corbet <corbet@lwn.net>, David Sterba <dsterba@suse.com>,
+	Ilias Apalodimas <ilias.apalodimas@linaro.org>,
+	linux-arch@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+	linux-doc@vger.kernel.org, linux-efi@vger.kernel.org,
+	linux-riscv@lists.infradead.org,
+	Mark Rutland <mark.rutland@arm.com>,
+	Palmer Dabbelt <palmer@dabbelt.com>, Paul Walmsley <pjw@kernel.org>,
+	Randy Dunlap <rdunlap@infradead.org>,
+	Simon Glass <sjg@chromium.org>,
+	Shuah Khan <skhan@linuxfoundation.org>,
+	Nick Terrell <terrelln@fb.com>, Will Deacon <will@kernel.org>,
+	Alexandre Ghiti <alexghiti@rivosinc.com>,
+	Conor Dooley <conor.dooley@microchip.com>,
+	linux-integrity@vger.kernel.org,
+	Palmer Dabbelt <palmer@rivosinc.com>, patches@lists.linux.dev,
+	Ross Philipson <ross.philipson@gmail.com>,
+	Sami Tolvanen <samitolvanen@google.com>,
+	Song Shuai <songshuaishuai@tinylab.org>
+Subject: Re: [PATCH 16/16] efi/arm64: Implement ARM64 DRTM in the stub
+Message-ID: <20260926184558.GB473004@nvidia.com>
+References: <0-v1-27d06b313981+8b-arm64_drtm_jgg@nvidia.com>
+ <16-v1-27d06b313981+8b-arm64_drtm_jgg@nvidia.com>
+ <20260925113709.00005cd1@oss.qualcomm.com>
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20260925113709.00005cd1@oss.qualcomm.com>
+X-ClientProxiedBy: YT4P288CA0066.CANP288.PROD.OUTLOOK.COM
+ (2603:10b6:b01:d2::29) To CHBPR12MB731189.namprd12.prod.outlook.com
+ (2603:10b6:610:33d::12)
 MIME-Version: 1.0
-Date: Sat, 26 Sep 2026 20:41:55 +0200
-From: Nicolai Buchwitz <nb@tipi-net.de>
-To: Maxime Chevallier <maxime.chevallier@bootlin.com>
-Cc: Andrew Lunn <andrew+netdev@lunn.ch>, Jakub Kicinski <kuba@kernel.org>,
- davem@davemloft.net, Eric Dumazet <edumazet@google.com>, Paolo Abeni
- <pabeni@redhat.com>, Simon Horman <horms@kernel.org>, Maxime Coquelin
- <mcoquelin.stm32@gmail.com>, Alexandre Torgue
- <alexandre.torgue@foss.st.com>, Russell King <linux@armlinux.org.uk>,
- Jitendra Vegiraju <jitendra.vegiraju@broadcom.com>,
- thomas.petazzoni@bootlin.com, =?UTF-8?Q?Alexis_Lothor=C3=A9?=
- <alexis.lothore@bootlin.com>, netdev@vger.kernel.org,
- linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-stm32@st-md-mailman.stormreply.com
-Subject: Re: [PATCH net] net: stmmac: Don't set or get RSS parameters when not
- supported
-In-Reply-To: <20260926093343.292181-1-maxime.chevallier@bootlin.com>
-References: <20260926093343.292181-1-maxime.chevallier@bootlin.com>
-Message-ID: <250ecb58e80b191865bcf03f7146f7c2@tipi-net.de>
-X-Sender: nb@tipi-net.de
-Content-Type: text/plain; charset=US-ASCII;
- format=flowed
-Content-Transfer-Encoding: 7bit
-X-Last-TLS-Session-Version: TLSv1.3
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: CHBPR12MB731189:EE_|LV8PR12MB9690:EE_
+X-MS-Office365-Filtering-Correlation-Id: 39cdece0-8545-42b4-d2b8-08df1bfe6806
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|7416014|376014|366016|1800799024|23010399003|4143699003|10067099003|6133799003|11063799006|56012099006|22082099003|18002099003|3023799007;
+X-Microsoft-Antispam-Message-Info: UwO2XeLf0Co06FtjTdaIaZNTHERoAvQmy/Ul6JHxMmh+sTHufnArVpyS8rrtWHvVd6Qu7hHHVpjaUmDlIu2RXPl0Jf1fEd/O/IloHJxdzYjlOPRdA1dd1zpayyCDFkk6Px+6/4+SSEzwT0sZwf0+2iLQv9bSe4NfS1CxDyTsirN2Zo8HwFzDOAKmB3AL+5Ll5K15LwQ3+g+y2if7cMTQuCJpEjKssOzXz+FdOyopAzneG1eu8CkPXg3E4WDcgu5AZJpBYJteIjTbc3y6fhK1zRh0lX3XR+NE8QTSNubQ1IjVr53+2rUp5fh1WLArRv8IcWJjeawO3BAC86/HLMxdF8vJpZAyflAqaTQ7wxZop2hNBRqSsPyghnuj7fOwQQKDVfrFBckRHUY2Qdiqg9prtAQjbYIYOFTeJjWe+249hRv2cMJmNPgsmX4J5vQAk9RecL4+bmQ6nX39gnLXbuVUETColQjXQDGa2vxC2yyF2FIhKcwBduUxFNmWhmMci4qkK1ZAkDm5pe4fTapM8UE8SaMS+fP/6Hfkt5yB9r5VWHRMcCv4wPOBjihUTJLXdrYgewnG9bBRm+LpwwvUPXDlZQSaRpNLjSW3W5493kYpdIJlQE0yrVp0lzOymdkZaEcj7WBzzlQJDdHbBfCck04EPMDX7a3QGu/bg9prlPGFcQ4=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:CHBPR12MB731189.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(7416014)(376014)(366016)(1800799024)(23010399003)(4143699003)(10067099003)(6133799003)(11063799006)(56012099006)(22082099003)(18002099003)(3023799007);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?jentSjukOMJtDkl8RkK5YMqSvkDGw981oOi/PpHNphryJJzVOOzszncv4kuD?=
+ =?us-ascii?Q?J6Ko7mgkq/MNvzQ7BRvwt3SkLLasxmXDuh9pngKGmn+9oObDvFP4Zaj4U4B3?=
+ =?us-ascii?Q?ToybcmoG8knMQwRWAmqUfmAgp/3WlWv0vabd0jQOS1ccgiVGyu1jxX8wEsgv?=
+ =?us-ascii?Q?xerHyUvmTFFtiWhoFi5cXPOD0553CoxiDxdPC3XgGYOl9KUlNeN89DZf66ey?=
+ =?us-ascii?Q?aQQmFH9JixuJHHDlpM5coVyz6o4TaS0NbIQ1ssELO65ErslgN+PFtdhNbhTv?=
+ =?us-ascii?Q?obMI7uWHlcRZ+noWypmkogO71UIiRMgfrbI5fWbwqpPXEurgVbJMXYy6og38?=
+ =?us-ascii?Q?ita1LyuG6PKg7guXgz1ln+eyeEwb/Sl2YOPUoOlaSM1WlH5QYkpWuxk4qhQb?=
+ =?us-ascii?Q?/WLqQK7QzSABfmzncSK7DWy9XBVcckTJZyUg8Bd0pwbmytxMGA9RCmVfhMTd?=
+ =?us-ascii?Q?Vs0tvGf5e+ek26xNjwoJZR8zsxgN+oeM4XqDYJZtsegW9dLS6KxrCqC+jJva?=
+ =?us-ascii?Q?Myna6TO1RrBJw+uqIChFDhmEQ5d1EufKOHIc3hLckIlrIZl9yETGHAsfl+Fh?=
+ =?us-ascii?Q?EUvp6dNsQQ46sJF9ltM2Le5vakuZXfpoLwHPYaHW53LD58V8u53mmadUZoqv?=
+ =?us-ascii?Q?qcQ1dHL+TSSx+M//It6Ef2tzLoUQz44kaZt5qIGjsiv9mMDeQXJybAhNCl2K?=
+ =?us-ascii?Q?4k/bnNAeSZNDjoSbRBJ1s7LuTiDT8/BYTimyrNuSPogVV0Ux3aSfNFQcsNPI?=
+ =?us-ascii?Q?ZqIF+VydglKnx12qNHsVbwhvtxfaYhFomjUTvUtmZFXhlDBELwNCuabhb9XK?=
+ =?us-ascii?Q?M+QdlO4zmQPinWIRytJP8rj/hYtF+EtdXHGbtY8AS7beAGvnNH3ndhvmy5Ri?=
+ =?us-ascii?Q?JwkWDhrtyZ+8mVKw13lDabmH/vSQzYDFMSzxo8NBdrYHhBmtCwfC/u3ezplV?=
+ =?us-ascii?Q?KLSxsOXKzBjX0KRLHtECzAwWuDiyCk41FFsfV+aKEFYFNBIw0AKd91+opVLq?=
+ =?us-ascii?Q?9NoQc7ZzF/yasJ4O3sOQ7T8fc20bj+RwYiDkAPfzoq7B43We/J+FLZ/GanWL?=
+ =?us-ascii?Q?TKRjGnDBgK8SKRsLANd0KBteFygc3CooDNaUdLrSqEhrK+ucDkN71tO50E/N?=
+ =?us-ascii?Q?tBm9peXqOx3Ot9WapPtaAqHyixOqcwPeDp2SX4boXsQrQfnAvEJCGR9n9qjd?=
+ =?us-ascii?Q?khVfEQtsMPGKKeAtYVYb0IA3XV2Zeh843JpyEAQY4KoK7mq+XmclJfXGbRM8?=
+ =?us-ascii?Q?hW6dd1/yBVmjCdH92a7+Kg6Fpbb5Q2OuXCXTSuVS8TW5fgIp6Vo6L7CWyS7U?=
+ =?us-ascii?Q?DQ7s1bKdYQ8LgcvRgEGtc2Hez+TRIX0ANmqrqzoEtsdC0q8lzxTyj8KX3g2H?=
+ =?us-ascii?Q?AImmDkUQN4lENF53mTaTzR3AKRoIf/Cffy7opz3qbszoNQqFmBqpUW3VSuCj?=
+ =?us-ascii?Q?HUVkuQy/G/B+/XCQf8fk54WVDzHFdMUOOiHl7iEoU0qdCNqPndamZNpUOatw?=
+ =?us-ascii?Q?tmsh3lqzxSjfAcZ8+nl2SAnh2CebDrRw+pOknpvVyp3Pphv1EYRnfxlsRy1s?=
+ =?us-ascii?Q?KrsIvr2/d8MVJLCW6Gz5U3zg1uZWxtwN6IV48OwVJdN2ZE3OMxduQJcS7n/S?=
+ =?us-ascii?Q?3bvZsVciAWhxp3NmhTxdKJRjPsmnvebnOVtm51MtYno5iJvIs5BtRA0g9XEM?=
+ =?us-ascii?Q?Zs38WX2KtnVIgl23GX261WoTASuwEa+XDZPRLTGPoxk6TbpV?=
+X-OriginatorOrg: Nvidia.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 39cdece0-8545-42b4-d2b8-08df1bfe6806
+X-MS-Exchange-CrossTenant-AuthSource: CHBPR12MB731189.namprd12.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 26 Sep 2026 18:45:59.1485
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: 7sDJZQhd6yOVoRS+drHRbqMh/xB9L2gYKQk3AeSz8RWtmpB88bww5E+IleDVdghS
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: LV8PR12MB9690
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260926_114212_321927_BD3CC511 
-X-CRM114-Status: GOOD (  25.24  )
+X-CRM114-CacheID: sfid-20260926_114606_690372_7AB27D53 
+X-CRM114-Status: GOOD (  19.19  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -79,110 +154,67 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Maxime
+On Fri, Sep 25, 2026 at 11:37:09AM -0700, Jonathan Cameron wrote:
+> > +efi_status_t efi_drtm_prepare(void)
+> > +{
+> > +	s64 feature_status;
+> > +	u16 major, minor;
+> > +	s32 status;
+> > +
+> > +	if (efi_drtm_policy == EFI_DRTM_OFF)
+> > +		return EFI_SUCCESS;
+> > +
+> > +	if (!efi_arm64_psci_smccc_compatible())
+> > +		return efi_drtm_failure();
+> > +
+> > +	/* VERSION must be the first DRTM call. */
+> 
+> Words like 'must' should be backed by a specific spec reference.
+> I couldn't immediately fine one other than common sense suggesting it should
+> be called to check we have a version we understand ho to talk to.
 
-On 26.9.2026 11:33, Maxime Chevallier wrote:
-> The RSS kselftests fail on stmmac, and this is partly due to the driver
-> reporting bogus data for the RSS ops :
-> 
->  - ethtool -x reports an indirection table and a key while the hardware
->    doesn't have any of that
->  - ethtool -X fails with -EINVAL.
-> 
-> Let's return early in the rss ops if we know the hardware and platform
-> don't support RSS.
-> 
-> Note that RSS is currently not supported on any devices upstream, so
-> code that was already useless is now effectively dead. It has been the
-> case since 2019 when the code was added, as platforms need to set 
-> rss_en
-> in their plat data, and no glue ever did that.
-> 
-> Russell King ran a poll in february 2026 [1] asking if the code should
-> be dropped, without any reply going in either direction.
-> 
-> Jitendra Vegiraju from Broadcom sent 9 iterations of a Broadcom PCIe 
-> glue
-> driver [2] that actually sets rss_en = 1, so there's some hope that 
-> this
-> may be used in the future.
-> 
-> [1] : 
-> https://lore.kernel.org/netdev/aYd4BkAeNW6d0iIC@shell.armlinux.org.uk/
-> [2] : 
-> https://lore.kernel.org/netdev/20260402213629.1996133-1-jitendra.vegiraju@broadcom.com/
-> 
-> Fixes: 76067459c686 ("net: stmmac: Implement RSS and enable it in XGMAC 
-> core")
-> Signed-off-by: Maxime Chevallier <maxime.chevallier@bootlin.com>
-> ---
-> Jitendra, do you have plans to continue iterating on the BCM8958x glue 
-> ?
-> 
-> Thanks,
-> 
-> Maxime
-> 
->  drivers/net/ethernet/stmicro/stmmac/stmmac_ethtool.c | 12 ++++++++++++
->  1 file changed, 12 insertions(+)
-> 
-> diff --git a/drivers/net/ethernet/stmicro/stmmac/stmmac_ethtool.c 
-> b/drivers/net/ethernet/stmicro/stmmac/stmmac_ethtool.c
-> index 1be5310ca766..4e917a448271 100644
-> --- a/drivers/net/ethernet/stmicro/stmmac/stmmac_ethtool.c
-> +++ b/drivers/net/ethernet/stmicro/stmmac/stmmac_ethtool.c
-> @@ -927,6 +927,9 @@ static u32 stmmac_get_rxfh_key_size(struct 
-> net_device *dev)
->  {
->  	struct stmmac_priv *priv = netdev_priv(dev);
-> 
-> +	if (!priv->dma_cap.rssen || !priv->plat->rss_en)
+	/*
+	 * v1.4B section 3.2.1 "DRTM_VERSION usage" explains that a new major
+	 * ABI version may "Change behavior of existing functions". Verify the
+	 * major version before calling anything so we don't trigger unknown
+	 * behavior.
+	 */
+	status = arm_drtm_version(&major, &minor); 
 
-Should this pattern become a helper? Counting 6 instances so far.
+> > +	/*
+> > +	 * See arch/arm64/kernel/vmlinux.lds.S for the DRTM Memory layout. After
+> > +	 * the DLME we choose to place the Normal World DCE region followed by
+> > +	 * the aligned DRTM_PARAMETERS structure.
+> > +	 */
+> > +	memset((void *)dlme_start, 0, efi_drtm_get_extra_size());
+> 
+> Is that efi_drtm_get_extra_size() adding much? 
 
-> +		return 0;
-> +
->  	return sizeof(priv->rss.key);
->  }
-> 
-> @@ -934,6 +937,9 @@ static u32 stmmac_get_rxfh_indir_size(struct 
-> net_device *dev)
->  {
->  	struct stmmac_priv *priv = netdev_priv(dev);
-> 
-> +	if (!priv->dma_cap.rssen || !priv->plat->rss_en)
-> +		return 0;
-> +
->  	return ARRAY_SIZE(priv->rss.table);
->  }
-> 
-> @@ -943,6 +949,9 @@ static int stmmac_get_rxfh(struct net_device *dev,
->  	struct stmmac_priv *priv = netdev_priv(dev);
->  	int i;
-> 
-> +	if (!priv->dma_cap.rssen || !priv->plat->rss_en)
-> +		return -EOPNOTSUPP;
+Yeah, it is the one place we compute the extra amount that was
+allocated. How about:
 
-Not a blocker, but a full netlink RSS dump (like the one in rss_ctx.py)
-now stops at this device. Naybe rss_dump_one_dev() should skip 
--EOPNOTSUPP
-like ethnl_default_dumpit() does?
+	/*
+	 * For robustness zero all the trailing space at the end of the
+	 * alocation. This contains the DRTM_PARAMETERS structure too, so
+	 * must be done before filling it.
+	 */
+	memset((void *)dlme_start, 0, efi_drtm_get_extra_size());
 
-> +
->  	if (rxfh->indir) {
->  		for (i = 0; i < ARRAY_SIZE(priv->rss.table); i++)
->  			rxfh->indir[i] = priv->rss.table[i];
-> @@ -962,6 +971,9 @@ static int stmmac_set_rxfh(struct net_device *dev,
->  	struct stmmac_priv *priv = netdev_priv(dev);
->  	int i;
+
+> Maybe it is worth keeping for the big comment in there, but it does
+> feel like that and what we have here could be combined.
+
+efi_drtm_get_extra_size() is called by the generic EFI code, I can't
+remove it.
+
+> > +	/*
+> > +	 * DEN0113 section 3.4 returns from DYNAMIC_LAUNCH only on error. Boot
 > 
-> +	if (!priv->dma_cap.rssen || !priv->plat->rss_en)
-> +		return -EOPNOTSUPP;
-> +
->  	if (rxfh->hfunc != ETH_RSS_HASH_NO_CHANGE &&
->  	    rxfh->hfunc != ETH_RSS_HASH_TOP)
->  		return -EOPNOTSUPP;
+> I'd use a spec version for references + ideally title of section.
+> As much as folk may try, sometimes these things move around.
+
+I tightened all of this
 
 Thanks,
-Nicolai
+Jason
 
