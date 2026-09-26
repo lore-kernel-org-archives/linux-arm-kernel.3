@@ -4,71 +4,88 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C5582C98332
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 26 Sep 2026 12:31:58 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4439EC98318
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 26 Sep 2026 12:33:12 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=1iBLZkIxA8ap1qqaUdvl37Rh8tiElL4QP7IPYChkI5I=; b=o3Png/xh79PaaU58zEs9zKkFQS
-	CoduVXR2P3xDZymxPFgUU9hzmf32fcMP33WYyU64q+sS6byn6vVTALrAGxJy9376jWQUMKun9Snph
-	9Aq2m/2DHBLXZ+LCRTe1m4qJ8f6yZAqeTyt2E4y+aUtftcu7rPmJgmuk1z7P1DfHn1J9exnmRLaxG
-	MKJHEnN/qqHdK1WASvr3UeKREhQyT0yqF4wCZnmJ0cTPQS5YvhZw4W51vJwF4JmT2EvMkyXWTalZM
-	kFyoj1pr8Xc29jlxtf/BAsm9Wu1dsKkTRaSSoO9MQlGR2wrZoa7ffr6nFhQAVSRJrkMeStmnlxf+Y
-	BXyvXrhA==;
+	bh=wN9D2nKA01y/2x8IJdWZfEnnjMzwFRK3N4mVnSJjkBY=; b=l4l0j3UDsKalOK4hZ6BHdl81/r
+	jStnAQ4FfhZcd2v9ZYkZAEz89p21EJkxN/eaS5D9IFyeDFhTuiOGX+kNFqk4rmoqhdiNmz1EBVGvD
+	dMKMA1OZSV5/mdN8oeW8kWFyLvQoBs7xr10uyd8T0FsFxpMISfssrmRQqwsHrO8FoAa08mpszB/hN
+	3u00TkfbfUSybVhMAtVJofbIgoCZ/Jr5Y9+d9I9CRzLyPbtDZSzgGpfTNl6GkJFQmnJBcBuBEKIQs
+	I4hPTNkIGUUNaXh1yChXHIpdolTYB9OQiLNcZP80422IcGZ/e20zTQbk8Dhc4bhyyWDxBroQyRsYK
+	2QUH49wg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xARHM-0000000FMCu-08om;
-	Sat, 26 Sep 2026 12:13:20 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1xARaU-0000000FNpM-1DoP;
+	Sat, 26 Sep 2026 12:33:06 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xARHK-0000000FMCj-2SNe
-	for linux-arm-kernel@lists.infradead.org;
-	Sat, 26 Sep 2026 12:13:18 +0000
+	id 1xARaS-0000000FNoz-3ryW;
+	Sat, 26 Sep 2026 12:33:05 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id F2F1A43EA1;
-	Sat, 26 Sep 2026 12:13:17 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 308001F000FF;
-	Sat, 26 Sep 2026 12:13:10 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1790424797;
-	bh=1iBLZkIxA8ap1qqaUdvl37Rh8tiElL4QP7IPYChkI5I=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=dqVt/WH/30yxap89q3hdsyv/l61o3KLu/CiWmh2GBWsGOMCAyDd4oeItuV0KhN+p0
-	 8X1zpWVayYa47zet2Ur/sfY1kFJQbab8BoOoxfXHV/YQI1RJpJcGzgkU0qRjc535uU
-	 dggfLeW1RAGQ6iAvuoLIhb9T4V0FhhXIBy9i/I8pCdGeLVYzIySIXLMOZwMi3YRe/f
-	 zKl3WL7aj0w8pTnJ2Nyfs5DX0DqPx3wVLkn3TmGkc+E39Db2pmRZ/OB9D3wxZRvvWf
-	 SDM2RCWwifBB//vbUuDdgvoBbZaeCV/2vJDbDTyZiZ4mMxvo0MoVSBtV+WGkAlY0zm
-	 09Lh/Q+rpzwkA==
-Date: Sat, 26 Sep 2026 17:43:08 +0530
-From: Sumit Garg <sumit.garg@kernel.org>
-To: Will Deacon <will@kernel.org>, brendan.jackman@linux.dev
-Cc: Vincent Donnefort <vdonnefort@google.com>, catalin.marinas@arm.com,
-	rppt@kernel.org, akpm@linux-foundation.org, sudeep.holla@kernel.org,
-	jenswi@kernel.org, robh@kernel.org, mark.rutland@arm.com,
-	ardb@kernel.org, thierry.reding@kernel.org, david@kernel.org,
-	danielmentz@google.com, linux-arm-kernel@lists.infradead.org,
-	linux-mm@kvack.org, op-tee@lists.trustedfirmware.org,
-	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v2 0/8] arm64: Unmap FF-A lent memory from direct map
-Message-ID: <are21BjeS1O3RYE3@sumit-xelite>
-Mail-Followup-To: Will Deacon <will@kernel.org>, brendan.jackman@linux.dev,
-	Vincent Donnefort <vdonnefort@google.com>, catalin.marinas@arm.com,
-	rppt@kernel.org, akpm@linux-foundation.org, sudeep.holla@kernel.org,
-	jenswi@kernel.org, robh@kernel.org, mark.rutland@arm.com,
-	ardb@kernel.org, thierry.reding@kernel.org, david@kernel.org,
-	danielmentz@google.com, linux-arm-kernel@lists.infradead.org,
-	linux-mm@kvack.org, op-tee@lists.trustedfirmware.org,
-	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org
-References: <20260921110050.3977591-1-vdonnefort@google.com>
- <arIYtjmSKCs14SqO@sumit-xelite>
- <arKW_91EeKA-w96m@willie-the-truck>
+	by tor.source.kernel.org (Postfix) with ESMTP id DB1AB6020C;
+	Sat, 26 Sep 2026 12:33:03 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id C15541F000FF;
+	Sat, 26 Sep 2026 12:32:59 +0000 (UTC)
+Authentication-Results: smtp.kernel.org;
+	dkim=pass (1024-bit key, unprotected) header.d=zx2c4.com header.i=@zx2c4.com header.a=rsa-sha256 header.s=20210105 header.b=jlCeeByi
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=zx2c4.com; s=20210105;
+	t=1790425978;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 in-reply-to:in-reply-to:references:references;
+	bh=wN9D2nKA01y/2x8IJdWZfEnnjMzwFRK3N4mVnSJjkBY=;
+	b=jlCeeByiKyNAkRDIl4L4BWyGHQY1JK/6GovcSrkf8oXtiWNghruM3MspMqAjQRrS0A5Y4N
+	9+00l0im2/J3X1CtQ1hGQXUesbacPr8oKkkGy3jQrUfnbQNxrABBNqKeaKwtQlF9FRtom+
+	IijiL9NA1TH1lfYG6igzuyjRxzyvjCg=
+Received: by mail.zx2c4.com (OpenSMTPD) with ESMTPSA id 6d775622 (TLSv1.3:TLS_AES_256_GCM_SHA384:256:NO);
+	Sat, 26 Sep 2026 12:32:58 +0000 (UTC)
+Date: Sat, 26 Sep 2026 14:32:49 +0200
+From: "Jason A. Donenfeld" <Jason@zx2c4.com>
+To: Nathan Chancellor <nathan@kernel.org>
+Cc: Andreas Schwab <schwab@linux-m68k.org>,
+	Andy Lutomirski <luto@kernel.org>,
+	Thomas Gleixner <tglx@kernel.org>, Theodore Ts'o <tytso@mit.edu>,
+	Vincenzo Frascino <vincenzo.frascino@arm.com>,
+	Nick Desaulniers <ndesaulniers@google.com>,
+	Bill Wendling <morbo@google.com>,
+	Justin Stitt <justinstitt@google.com>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Will Deacon <will@kernel.org>, Mark Rutland <mark.rutland@arm.com>,
+	Huacai Chen <chenhuacai@kernel.org>,
+	WANG Xuerui <kernel@xen0n.name>,
+	Madhavan Srinivasan <maddy@linux.ibm.com>,
+	Michael Ellerman <mpe@ellerman.id.au>,
+	Nicholas Piggin <npiggin@gmail.com>,
+	"Christophe Leroy (CS GROUP)" <chleroy@kernel.org>,
+	Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>,
+	Heiko Carstens <hca@linux.ibm.com>,
+	Vasily Gorbik <gor@linux.ibm.com>,
+	Alexander Gordeev <agordeev@linux.ibm.com>,
+	Christian Borntraeger <borntraeger@linux.ibm.com>,
+	Sven Schnelle <svens@linux.ibm.com>, Ingo Molnar <mingo@redhat.com>,
+	Borislav Petkov <bp@alien8.de>,
+	Dave Hansen <dave.hansen@linux.intel.com>,
+	"H. Peter Anvin" <hpa@zytor.com>, x86@kernel.org,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+	loongarch@lists.linux.dev, linuxppc-dev@lists.ozlabs.org,
+	linux-riscv@lists.infradead.org, linux-s390@vger.kernel.org,
+	llvm@lists.linux.dev
+Subject: Re: [PATCH v2] random: vDSO: Avoid call to memset() when zeroing
+ reserved in __cvdso_getrandom_data()
+Message-ID: <are7cfMIHZZn6jLz@zx2c4.com>
+References: <20260925-vdso-getrandom-avoid-memset-llvm-24-v2-1-ce640f872393@kernel.org>
+ <87zex4ic68.fsf@linux-m68k.org>
+ <20260926121927.GA1486962@ax162>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii; format=flowed
+Content-Type: text/plain; charset=utf-8
 Content-Disposition: inline
-In-Reply-To: <arKW_91EeKA-w96m@willie-the-truck>
+In-Reply-To: <20260926121927.GA1486962@ax162>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -83,102 +100,41 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Adding Brendan to this thread.
+On Sat, Sep 26, 2026 at 01:19:27PM +0100, Nathan Chancellor wrote:
+> On Sat, Sep 26, 2026 at 11:39:43AM +0200, Andreas Schwab wrote:
+> > On Sep 25 2026, Nathan Chancellor wrote:
+> > 
+> > > +#if __has_builtin(__builtin_memset_inline)
+> > > +#define memset_inline(dst, value, size) __builtin_memset_inline(dst, value, size)
+> > > +#elif IS_ENABLED(CONFIG_CC_HAS_OPT_INLINE_MEMSET)
+> > > +#define memset_inline(dst, value, size) __builtin_memset(dst, value, size)
+> > > +#else
+> > > +static inline void *memset_inline(void *dst, int value, size_t size)
+> > > +{
+> > > +	char *d = dst;
+> > > +
+> > > +	while (size--)
+> > > +		*d++ = value;
+> > > +
+> > > +	return d;
+> > > +}
+> > > +#endif
+> > > +
+> > 
+> > memset actually returns the original pointer, not the incremented one.
+> > Nothing uses the return value of memset_inline here, but it is
+> > confusing.
+> 
+> Whoops, good catch, I guess my fingers gave up on those last two
+> characters :) I will fix this for v3 once there has been some time for
+> further review.
 
-Will,
+Do we even need to return a value at all? Might as well just make the
+function two lines:
 
-Looks like you dropped me from your reply.
++       for (char *d = dst; size--;)
++               *d++ = value;
 
-On Tue, 22 Sep 2026 at 15:55:59 +0100, Will Deacon wrote:
->On Tue, Sep 22, 2026 at 11:27:10AM +0530, Sumit Garg wrote:
->> On Mon, 21 Sep 2026 at 12:00:42 +0100, Vincent Donnefort wrote:
->> > This series is a follow-up to the discussion that has started here [1].
->> >
->> > When memory is lent to the Secure world via FF-A, CPU speculative
->> > accesses from NS to the lent pages can still occur as long as it retains
->> > a cacheable mapping to it.
->> >
->> > Ideally, lent memory would be "no-map" but that would mean giving up
->> > MiBs of useful memory, so let's try to do better with the help of a CMA
->> > pool.
->> >
->> > On arm64, modifying the direct map at runtime is generally restricted
->> > because the linear map defaults to block mapping and splitting blocks at
->> > runtime may trigger fatal page fault, unless the CPU implements BBML3
->> > or the entire direct map was mapped at page granularity from boot.
->> > Forcing last-level mappings system-wide incurs a severe penalty we want
->> > to avoid. Instead, this series introduces targeted last-level mappings
->> > for designated memory regions, along with the "arm,ffa-lend-pool" CMA
->> > driver to manage unmapping and remapping on lend/reclaim transitions:
->> >
->> > 1. memblock:
->> >   - Introduce MEMBLOCK_PTEMAP to force PTE mappings only for a specific region.
->> >
->> > 2. set_memory infrastructure:
->> >   - Introduce can_set_direct_map_range() to check if a specific address
->> >     range is mapped with last-level entries and can be modified safely.
->> >   - Introduce __set_direct_map_*() variants that bypass redundant checks
->> >     when the caller has already validated the range.
->> >
->> > 3. "arm,ffa-lend-pool" driver
->> >   - Introduce the "arm,ffa-lend-pool" CMA reserved-memory driver, which
->> >     unmaps pages prior to lending (ffa_prepare_lend()) and restores them
->> >     when reclaimed (ffa_lend_reclaimed()).
->> >
->> > 4. Optee support
->> >   - Hook OP-TEE dynamic protected memory pools to "arm,ffa-lend-pool" for
->> >     both SMC (via DT memory-region phandle) and FF-A (via
->> >     ffa_lend_pool_attach()) transports.
->>
->>
->> Thanks for your proposal in trying to solve this hard problem of
->> unmapping pages from kernel linear map. I remember discussing this
->> problem last year at LPC too.
->>
->> Have you had a chance to look at a more generic MM proposal around this
->> issue here [1]?
->>
->> One of the major concern for me with your proposal is tying the
->> protected memory allocation to fixed sized platform specific pool size
->> based on DT. Then the cost of granular mappings/unmapping if the
->> platforms choose to enlarge these pools.
->>
->> As you maybe aware one of the major use-cases here for protected DMAbufs
->> is the secure media pipeline use-case which is memory intensive
->> workload. IMO, the solution proposed at [1] seems to address it although
->> people have flagged rough edges there but should be addressable.
->>
->> Can you try a port of [1] for arm64 since the author did all the work
->> with x86 as reference?
->>
->> [1] https://lore.kernel.org/all/20260726-page_alloc-unmapped-v3-0-6f5729aa9832@google.com/
->
->I spoke to Brendan at LPC (?) last year but this doesn't really work
->for arm64 because it relies on being able to unmap arbitrary parts of
->the linear map, which isn't generally possible unless you force pte-level
->mappings for everything, which is prohibitive for perf/power.
-
-As per the cover letter it's about allocating pages that are not present
-in the direct map. This essentially fits the protected DMABufs use-case
-where we don't want any kernel mapping to exist at any time. Bufers
-allocated from protected DMABufs are only meant to be accessed by the
-TEE implementation or HW accelerators like in the secure media pipeline.
-
->
->Vincent's series tackles that by using a pool so that only that part of
->memory requires the pte-level mappings in the linear map. That's the
->whole point of it, so I don't think it makes sense to drop it in favour
->of Brendan's approach (which doesn't work).
->
-
-For protected DMABufs, we even don't require any pte-level mappings in
-linear map. The whole idea of mapping and unmapping is just a bottleneck
-for performance sensitive secure media pipeline use-cases. That's why if
-we can support __GFP_UNMAPPED with the memory allocator on arm64 would
-be the best fit for this use-case.
-
-Now the question is why arm64 can't support __GFP_UNMAPPED similar to
-how Brendan is doing it for x86?
-
--Sumit
+(Technically that could even be one, but maybe that sort of golf loses
+clarity. Your choice.)
 
