@@ -4,91 +4,94 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B064DC9832A
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 26 Sep 2026 16:04:37 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B96B4C9832F
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 26 Sep 2026 16:20:13 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
+	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=04CycRj95YLfmA7hA1DhHUf9OsDpKgTDD3cyHvnkUEc=; b=fnVbKpztY1zClP6BLXUMueyTWi
-	BAxq+hP3ac4rQVt17rlQhCfRlwsiy0+mJN/A/MG/as/ZKdqe3rFU45WadDg/S1+YsifiGaVmJVl4N
-	bBXis6E+GUBejmvPeaJhw6tTo86E5pJdGZz3KcgWGXLBMb9Hzh4Ff73ve7wVp43W45APNN+L3Nq5H
-	M3ipH3u9lh71I/SpdUz1huzHNQUkpDTWroHkouD/Io7JythCvM7R0Ny8xdAQOcUEIK84II3mcGC9N
-	hIBEVn3CnzamhruqHpISzO+VtFxmieyB1SbFRqH0xELU2oxFkWd1cMHIXKdzhm7AkUYxPjG1VqcBH
-	2HjEswPw==;
+	bh=eRtKYg0sOGgBmCELm1fPJpD8C1O0ubIGfHJNiovVGiE=; b=qWTwFN+QXvBFHN/DJh+x0lVuCn
+	VNTQg+GAcQXID0YH2nvYdGN2EEB0zztUhWmpbJqxgXqp4i08TNtV7D44Yy5reIacemTDroNIMWKhS
+	agor2y9t7eX+w0j+aXaVO55w4uE65xhdKzm5IwkFSzN37/oXOw7T+XlIvX8D+JlFKb4mPS9lPs2oG
+	raMqECxXGAABSAoo1d/67hfIXLQGRO7C88Qm+tV7NbS3VK9v8bgqEfm1eE2haPenOb6SFzChaIId9
+	gwSWV0wC4+WBS16RzsALLLeKJnHwQHqWrT3n0mac4AaDHhSkBPcrY4ZdAUhxvw2lwjoWOOwjKhlsB
+	Gjqorh+A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xAUt3-0000000FdV1-26iU;
-	Sat, 26 Sep 2026 16:04:29 +0000
-Received: from mail-oo2-x0e.google.com ([2607:f8b0:4864:31::e])
+	id 1xAV87-0000000FduL-1Pu1;
+	Sat, 26 Sep 2026 16:20:03 +0000
+Received: from mail-wm2-x11.google.com ([2a00:1450:4864:31::11])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xAUt1-0000000FdUd-2Azh
+	id 1xAV83-0000000Fdtd-1W0B
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 26 Sep 2026 16:04:28 +0000
-Received: by mail-oo2-x0e.google.com with SMTP id 46e09a7af769-81b8e8e9cb0so18380a34.3
-        for <linux-arm-kernel@lists.infradead.org>; Sat, 26 Sep 2026 09:04:26 -0700 (PDT)
+	Sat, 26 Sep 2026 16:20:00 +0000
+Received: by mail-wm2-x11.google.com with SMTP id 5b1f17b1804b1-49e6c0fce17so9173715e9.1
+        for <linux-arm-kernel@lists.infradead.org>; Sat, 26 Sep 2026 09:19:58 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1790438666; x=1791043466; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:content-type:mime-version
-         :references:message-id:subject:cc:to:from:date:from:to:cc:subject
-         :date:message-id:reply-to:content-type;
-        bh=04CycRj95YLfmA7hA1DhHUf9OsDpKgTDD3cyHvnkUEc=;
-        b=SdhNmXy35+OVkd3vb+o19FWs/ieSbuf1HlBzR+QvZKSHgd8/R0LRUDkTdoP2iJV5Ax
-         v4EcVXkipHW/4ofLY9XV1upqWUrWx662JwUA8KN3N3L/vHKqICjNf4Kcisa0TglCBXOY
-         f52hD+XVoprWpuc1YVmbFdbP6+jtC9oewaxvKUmYKuhO3xs0xRWo9hbSNNFqO0Bo3P8G
-         p/51KLQ/7gtxlh6k/Tf1rQvMbkv4LzVIMGdXfONmJTK0dasVz6dAtdfNzm9SZpXphEH+
-         BkZ2r7HtW47CgV8Bcjumd+fuNy68ehmiIwhLFYL+xhhb54mAfoGe7ZrDmMaNQOni4Sro
-         pYZw==
+        d=gmail.com; s=20251104; t=1790439597; x=1791044397; darn=lists.infradead.org;
+        h=in-reply-to:content-transfer-encoding:content-disposition
+         :content-type:mime-version:references:message-id:subject:cc:to:from
+         :date:from:to:cc:subject:date:message-id:reply-to:content-type;
+        bh=eRtKYg0sOGgBmCELm1fPJpD8C1O0ubIGfHJNiovVGiE=;
+        b=URwEeoug1Bz34RizGbqWoe6STu1yv4ZWGFztniQnCl2j3YTh5RoyICrqLhraAOrzRZ
+         QDH4wWMZytO2OMP/wi4D0s5sB8W5EjRxaFBzxNAMY56Mv1Rs+Fo90YFzqmaiA/mHgPpB
+         YDlqAkUamcE4eLlcQU4D2Zd0zod+J/k7uwPp4wPerYsUxbSrlA35Cnqk9o/8A1SDnP3y
+         fhrM+IMJ7n8+NqQ59otgMj++RQu1VWSPy07MMw2m3UxFwVYSNp0A4xlerhQpNkr5Ciei
+         +qbsvPRNDGUHnnu5XfAxGuyw/hXX6XrpPXMqUWhv8xzLj7q1/ejXbKGyulbY4E4WttX8
+         SWQQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1790438666; x=1791043466;
-        h=in-reply-to:content-disposition:content-type:mime-version
-         :references:message-id:subject:cc:to:from:date:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=04CycRj95YLfmA7hA1DhHUf9OsDpKgTDD3cyHvnkUEc=;
-        b=LylQxpZcRXOIliq+2obES+6rHTNn1f9D54Ow24m+GsazHntJOlouq4pD+Y0wpYa5nO
-         v2JjrjRVZsTCRhuPq31xFL+pLtblfcD2P5hMKbspnPuZ6KtBuAKeiWh5QJhYuWSmxi4D
-         7nUpivh2stSevw4XNLkqcGcDEp5KQY2DJkhi0vdkjQC90aIV1sbrHCL/Y+XM5Gsr9kOW
-         buXDjyXKwBsYELbZo5riT9uQkbWw7KZjMKIYcmtHN4hlqrFbMMici9v0/2U5tEmPrIXY
-         9AcJp69Ufh7GBp7jiymYCfZEZWxXfXTLIn9T+24RyPYEylIsv3osDYTIPPL4FQpWoa5z
-         M6ww==
-X-Forwarded-Encrypted: i=1; AKwUvBz9JkuDoOfNSc2lFsQH01/2WbJMO06/l1UAt+i8D+b2W8KZhS/pmaqYJL5EWG5XhZym9JsDPf30UmqPPf9JQLpu@lists.infradead.org
-X-Gm-Message-State: AFuF++mWMJ+QL/U4fztDyWDwtJA/IMprFQF+Z48TzgdSOT9nRQKQI4s8
-	I35vw9JUlSq3fT5Q8Pot+bbDbLdOm2CbWJL+izT2Ry32fExn6Io1/YpI
-X-Gm-Gg: AYBFou27zGmqQlTsV0eLVxeJCbpuwZhYA5edaUryXvpSm4j4+s2eZjk4cwkyb8JhZgZ
-	7VYDiJL44wpyTuCvV4zHfnlEE20qojBuMUw+zgu6fVOAIzMY9AcoA5seqYWuX8TCQOYrpxdPncE
-	OcmMbSO03umwBnDJupQ+ky9R+0+HRoBdvpoQkMZIPf8b9dmi0Vjj2OQbAPpsHH/AwTIsR0Iz+qL
-	CXmuzj21bgLL+342aumcSAHTgBm/s0FC0ZuhfWQNqprY5G3uHCfk+vfKRm58Z1aqb7QsM9OyBtL
-	bZYtAziFlMwEwCxYOigQ4OP38bImVny+rLvk+K+0Ec7qYbzpIsu9GbQT+pabp+Fc09aXBRueRu0
-	p6DOOF2kudlhXyaTjDa/L7yOdb4MkASIF4Jvvo2/fu1WgDAGK1m+9MLirvwjBsi28FoPL7GQjgv
-	ByVFjX9+qLE37mrWojLDbKMkYc44ojwPIDmNhIawY7R1FNaglVCWivw8XHa6qiZU50Ox5dkVNvI
-	prIMvYqYh0TeoTAqc0QQRqXWUAj4akPBOAZgPhC331KTE6lJUwoplJ9Srp4vprQORQIqS6RonQl
-	Jo/RTBGGs3TU9g==
-X-Received: by 2002:a05:6820:4b08:b0:6b1:afc8:3162 with SMTP id 006d021491bc7-6d43f2c6fd5mr9089210eaf.7.1790438665895;
-        Sat, 26 Sep 2026 09:04:25 -0700 (PDT)
-Received: from fedora-laptop ([172.245.82.59])
-        by smtp.gmail.com with ESMTPSA id 006d021491bc7-6d581dc58dasm6182919eaf.4.2026.09.26.09.04.21
+        d=1e100.net; s=20260707; t=1790439597; x=1791044397;
+        h=in-reply-to:content-transfer-encoding:content-disposition
+         :content-type:mime-version:references:message-id:subject:cc:to:from
+         :date:x-gm-gg:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to:content-type;
+        bh=eRtKYg0sOGgBmCELm1fPJpD8C1O0ubIGfHJNiovVGiE=;
+        b=w5IvXAuR9D1lPeHVCGCBgT6q5xqQnwaMn5fECUzezII+porqEZ1tVqN9/TDMNHdqfL
+         qtdyr5mj0rE1PbuK++jUIwslo38K5d3kX4mPPila0roeHxhdrp5wGJk0gcK20e2RcdwB
+         uS0UyDCY3DYYjhGEeqy9wXGADfVL1HVgEItluOzBfuRUZcl2icmEq3PxSq8Sjsr3H8zh
+         iKNFrAjIIxd32v7xBFAu2zcEbZtUFGz0YOg2hTeZTPtHkQhXGICJ95yteVqOPvGkPABg
+         t+nED5WCLm7n3PAW4RPVmhYATKMXau1Md2rstsdCsKewee220MD+OoacBjRZ9+ERVHUo
+         RVsw==
+X-Forwarded-Encrypted: i=1; AKwUvBz11q3+hqEQA5ytJryASIlSLnSv8JLScPZtVyHDogK/lgEpiCxzG3QBc7Ba4jVcCs1X+F9sHxycbGURox6n8xe3@lists.infradead.org
+X-Gm-Message-State: AFuF++kJmHTy3Ou7979JwUdG/qgRCtnjAFMVDG0WG959k6/Id4T5BanG
+	AgJi5RgDJvEHFS35mF6Cb2ErRQBzZR3noES4JffLvx6AhgDIBkK5dl2J
+X-Gm-Gg: AYBFou2U8j3Byzha0qzbC21o0Q3E8iKdPtWhOWyq/9vcQa6Yj2w8ASzZMuCgwCtLwkz
+	0JDgPygSMzpfXEOI8LojkTw5umNY6AnIsITu2WyMqfDQHRwACqKSGPVfBzZqZO1MHUMXltdQcXg
+	u5SYZquG0zOffXhf+isaUHof8Yum4RyQnH6r7QNGtz274IqwoAaVBeFVaG1ha5RjjIPkNy96nXU
+	55fMRiFMTl9EXhI7JGVOZxbralp4gdXoCkTZUGjabm8TZcwnkH2hT/EkU8zT8p3VZsgp8Xi+PYK
+	g3ADWTmXHNo8dUMlDFNSHTaFExqaBTc4zLwkM/KxEn0fDJBkEXxCV4O4IDqbK6xfqfntYBHZtY8
+	N1ZMzlgophBwS3fpQ9cYuOPfJSeJoQgO2/W6Oy5ISEgkWCIcKO/a+cIhwn5Fang7gA7dfi3ReAq
+	iBhiNqRiiC8YsFHFN6MSGhYOdpACaSaq38OGZK1K6FfpaiooAGjesl8CR9AitqlqzsvT5yadvl6
+	kItjGGzFZic27wnl91EiRE7oXSgKFOfThzDHJcCJBXdBy70TBxYI/O4ISaityBPyUrS250MwzsN
+	sTe6IRQr23nHPpUVrmooN2/h01axXSBzD9rOWTIliPJhTDYB3eYC+L91GcnrcTKcMT0zvd8NYOQ
+	XQ6JM
+X-Received: by 2002:a05:600c:4703:b0:49c:fc6e:a3e1 with SMTP id 5b1f17b1804b1-49fe66fd374mr152026325e9.32.1790439597094;
+        Sat, 26 Sep 2026 09:19:57 -0700 (PDT)
+Received: from unknown748F3CBA5068 (dynamic-2a02-3100-b162-c701-4960-a998-3de8-2fce.310.pool.telefonica.de. [2a02:3100:b162:c701:4960:a998:3de8:2fce])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-49fef60da94sm102924275e9.4.2026.09.26.09.19.56
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sat, 26 Sep 2026 09:04:25 -0700 (PDT)
-Date: Sat, 26 Sep 2026 11:04:14 -0500
-From: Ming Lei <tom.leiming@gmail.com>
-To: Jens Axboe <axboe@kernel.dk>
-Cc: io-uring@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org, tglx@kernel.org, mingo@redhat.com,
-	peterz@infradead.org
-Subject: Re: [RFC PATCH 00/15] io_uring: thread identity handoff for blocking
- inline issue
-Message-ID: <arfs_kX_gkH1o_S-@fedora-laptop>
-References: <20260911154148.644489-1-axboe@kernel.dk>
+        Sat, 26 Sep 2026 09:19:56 -0700 (PDT)
+Date: Sat, 26 Sep 2026 18:19:54 +0200
+From: Karl Mehltretter <kmehltretter@gmail.com>
+To: Muchun Song <muchun.song@linux.dev>
+Cc: Russell King <linux@armlinux.org.uk>, 
+	linux-arm-kernel@lists.infradead.org, Oscar Salvador <osalvador@suse.de>, 
+	Andrew Morton <akpm@linux-foundation.org>, David Hildenbrand <david@kernel.org>, linux-mm@kvack.org, 
+	linux-kernel@vger.kernel.org
+Subject: Re: [PATCH] ARM: mm: align hugetlb mappings to the huge page size
+Message-ID: <arfwK6XInu-S9COc@gmail.com>
+References: <20260901085740.66283-1-kmehltretter@gmail.com>
+ <5AB6FE85-4CB9-41EF-A700-BC5E071F29F5@linux.dev>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
+Content-Type: text/plain; charset=utf-8
 Content-Disposition: inline
-In-Reply-To: <20260911154148.644489-1-axboe@kernel.dk>
+Content-Transfer-Encoding: 8bit
+In-Reply-To: <5AB6FE85-4CB9-41EF-A700-BC5E071F29F5@linux.dev>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260926_090427_562849_E01AF62F 
-X-CRM114-Status: GOOD (  13.28  )
+X-CRM114-CacheID: sfid-20260926_091959_419185_29962E8E 
+X-CRM114-Status: GOOD (  11.71  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -103,34 +106,27 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, Sep 11, 2026 at 09:40:50AM -0600, Jens Axboe wrote:
-> Hi,
->
-
-...
-
+On Thu, Sep 24, 2026 at 04:41:30PM +0100, Muchun Song wrote:
+> > Fixes: 7bd3f1e1a9ae ("mm: make hugetlb mappings go through mm_get_unmapped_area_vmflags")
+> > Cc: stable@vger.kernel.org
+> > Assisted-by: LLM
+> > Signed-off-by: Karl Mehltretter <kmehltretter@gmail.com>
 > 
-> This is obviously an RFC, in terms of what I'd love people to take a
-> closer look at:
+> Besides 32-bit Arm, the same regression appears to affect MIPS and
+> SuperH: both support HugeTLB and provide custom arch_get_unmapped_area*()
+> implementations that only enforce cache-colouring alignment, not the
+> hstate’s huge-page alignment.
 > 
-> - The scheduler hook and the identity move itself, kernel/thread_handoff.c.
->   Is the set of refused states complete enough, and is moving
->   thread group leadership this way (the leader must stay first on
->   ->thread_head, like de_thread() keeps it) acceptable / kosher.
-> - The x86 and arm64 register state handling. x86 refuses AMX users,
->   and arm64 refuses SME.
-> - Whether anyone relies on a task's user identity staying on one
->   task_struct in ways not covered above in the series.
+> Acked-by: Muchun Song <muchun.song@linux.dev>
 
-This way may break ublk server given 'task_struct *' can be changed because
-the server issues blocking OP(fallocate, ...), then the `current` check in
-ublk_dispatch_req() can be hit.
+Hi Muchun,
 
-Also there is risk in 'task_struct *' keyed bpf task storage.
+Thanks for the ack. I've now submitted the patch to Russell's
+patch tracker:
 
-task_work queuing could become tricky too.
+https://www.armlinux.org.uk/developer/patches/viewpatch.php?id=9524/1
 
+I'll also take a look at the MIPS and SuperH cases you mentioned.
 
-Thanks,
-Ming
+Karl
 
