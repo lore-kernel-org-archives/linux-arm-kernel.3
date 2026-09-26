@@ -4,50 +4,47 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 469C6C9833F
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 81C2CCA5FA0
 	for <linux-arm-kernel@archiver.kernel.org>; Sat, 26 Sep 2026 13:16:28 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
+	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=6Ye/NaLuBknhmOQtXuZUKPosIFvKEUkt9bpcl1xaD+g=; b=EECBbArJJ6ZlJh
-	QVMdHZWPnHBikW2UOT43f/UJNv9mtrMcdmqXudPYTmS9Xcpr9UgaO+rGq5zNtwDrPL1QEb+3XDySE
-	Km8/f4IPgIYTUyr83iuuVgCtPmeb1/iI7I8xipXaSFGtGklOZpiLLxcHVS4YBBHBpPse2suZ+fPN3
-	qryAOCifId9WzNypX9mfBkDdogQyrU8xUDS908uOSp/hobJGE5um20r8apYAaOSfyCsJdkOauuCG7
-	ZS3YR0nu4HHcC+kz5gWK9lAdvKvHpoLucVUTFbI30h1bw4FkfRfusBEv53Xa7f+GfnSYFqq4AKW3D
-	U0ud+5Nw0+V+xHcWHGRA==;
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=SbjAO6RCrxPvhLUjb8LVZwbaasaaTTV8jKAHmhfN8Y8=; b=ZR2LcJX1lVlQ6AL7fzMCWDJAW8
+	eXX+pmj6pfgPbSfgoFmUD6cBxLwKvJJ7pCj5Q2yNaA6IxObpj/4uXXoopGhHs43MVvIQCUBW/w3v0
+	VcTFg8VDWzNroI7cuXUiiR2N5gdXDm28crk7V9JgQMNQHEdQ+w8YpRI6X68VqsI9sRDsrpE8wmcTq
+	pJTRT15IWG0FyIQGGVU1/QwA2ApFWxAw2q/7XffiBzk5ofFO639+XLk2JCfJgqFX1Y7ItnQIsVlDN
+	t7Eeu9TFFL9BSkyM2oUtD29zpO9V0YhKPQdhrCspXCTRnYNbALKtiGiyVJwktkt2e12ffLvzH2kxU
+	/kGx+dZA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xASGL-0000000FQ65-3Van;
+	id 1xASGL-0000000FQ6O-3xqQ;
 	Sat, 26 Sep 2026 13:16:21 +0000
-Received: from mr-2001e-snip6-11.eps.apple.com ([2a01:b747:3000:200::33] helo=outbound.mr.icloud.com)
+Received: from mr-2005a-snip6-2.eps.apple.com ([2a01:b747:3000:206::c] helo=outbound.mr.icloud.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xASGA-0000000FQ1q-22ne
+	id 1xASGB-0000000FQ2L-0oU4
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 26 Sep 2026 13:16:12 +0000
+	Sat, 26 Sep 2026 13:16:13 +0000
 Received: from outbound.mr.icloud.com (unknown [127.0.0.2])
-	by p00-icloudmta-asmtp-us-west-2a-60-percent-2 (Postfix) with ESMTPS id BFBF118019F2;
-	Sat, 26 Sep 2026 13:16:00 +0000 (UTC)
-X-ICL-RepId: 01a0dddb-bd65-7ef8-ab6a-19eca2026e38
-X-ICL-Out-Info: HUtFAUMEWwJACUgBTUQeDx5WFlZNRAJCTQFMHV8EUxxCDFYAXRcOVk1KF1UYREVRMFAbXwJCDxwTVhUTC1NWWxNVF0YJGQhdHRkKUFAGXRIYXBRcUFgeRhJWDV0JGQZAXlAbXwJCDxwTVhUTHUMZDysISgRDB0UCXgslEwlTVlsTVRdGCRkIXR0ZFVoJClcAQAtOA1QFXR8RTxweGwVGAl1cG1YPUl1TQw9MCwh3AlEcVg1XQ1QEX04ZDEodUlZbE1UXRgk=
-Dkim-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=icloud.com; s=1a1hai; t=1790428562; x=1793020562; bh=6Ye/NaLuBknhmOQtXuZUKPosIFvKEUkt9bpcl1xaD+g=; h=From:Subject:Date:Message-Id:MIME-Version:Content-Type:To:x-icloud-hme; b=WiUwkdiKp592Zm8r23Yr0Y/aofxQsA0feMaYQRVhmbI6tIxzbeav+dR9OnJjlH5cfnekqf9Xff+Ig96bW9llWf6zoD7T5tybrUNxkjlVOIAF5QRbO8M6LQwcaT/8K4gk4Ou2pfi5A4KsEEdNbBVlVVbOw+KHbRFkDGP/T2NpBGy9fleUBcFWv8373nYL39yZIuR8Bbr0xpjMiWCZZJixSvHjrhLUzKlBW3+LY8ROm0XKjktc9uJTbh0kr0+3agi2FXDZKMZK78F0w5E1DiuqOfO6z0n7ptbFFWP7LB4tWusjycjK1n7U37aNiuZjPYRsUrNbBsjN4s/8pCv2z2o3Eg==
+	by p00-icloudmta-asmtp-us-west-2a-60-percent-2 (Postfix) with ESMTPS id 0BF0718019FC;
+	Sat, 26 Sep 2026 13:16:06 +0000 (UTC)
+X-ICL-RepId: 01a0dddb-d5ae-7c4a-bda6-96e155af0343
+X-ICL-Out-Info: HUtFAUMEWwJACUgBTUQeDx5WFlZNRAJCTQFMHV8EUxxCDFYAXRcOVk1KF1UYREVRMFAbXwJCDxwTVhUTC1NWWxNVF0YJGQhdHRkKUFAGXRIYXBRcUFgeRhJWDV0JGQZAXlAbXwJCDxwTVhUTHUMZDysISgRDB0UCXgslEwlTVlsTVRdGCRkIXR0ZFVoJClcAQAtOA1QFXR8RTxweGwVGAF1cG1YPUl1TQw9MCwh3AlEcVg1XQ1QEX04ZDEodUlZbE1UXRgk=
+Dkim-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=icloud.com; s=1a1hai; t=1790428570; x=1793020570; bh=SbjAO6RCrxPvhLUjb8LVZwbaasaaTTV8jKAHmhfN8Y8=; h=From:Date:Subject:MIME-Version:Content-Type:Message-Id:To:x-icloud-hme; b=kSI6kBHovO/zvdlA/XXBRhXOiGquhld6cVQZ+tgUonU1LeD2it+kgQBEdXLgG8z2bevatw0TAsKA2lX4m7mWHykCnZT7DRPZOFMbOjA1630oP/pP4cy56G8F/m9raQDrzn7UMac0oNbYlAGZWXGKTdQQJpePqfSJpdNv6F1SXGzc+dxhH0VJK2dsyooZAYq0vaP2NJtMK8Cb2RRMWYkxI/ckmOP29OjoyqYq/ZxGm0o1Fw/fRqRz9A6nnt8C7FkvqSyIo8UlEe/lsnWRArcsNbzJ4C2rj0a61Ll6wG/o2DL4MjAm4Tc8gu1x+SP2hk7FIn+lJP4wMjnscEUkzQ/Zhw==
 Received: from [127.0.0.1] (unknown [17.156.200.36])
-	by p00-icloudmta-asmtp-us-west-2a-60-percent-2 (Postfix) with ESMTPSA id A2D9F18019F5;
-	Sat, 26 Sep 2026 13:15:57 +0000 (UTC)
+	by p00-icloudmta-asmtp-us-west-2a-60-percent-2 (Postfix) with ESMTPSA id B31E71800561;
+	Sat, 26 Sep 2026 13:16:03 +0000 (UTC)
 From: Sofus Forstreuter <sofus.c@icloud.com>
-Subject: [PATCH v2 00/17] media: apple: add avd driver
-Date: Sat, 26 Sep 2026 15:14:39 +0200
-Message-Id: <20260926-avd-v2-0-ecebe6a3648e@icloud.com>
+Date: Sat, 26 Sep 2026 15:14:41 +0200
+Subject: [PATCH v2 02/17] media: v4l2: Add P210 pixel format
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-X-B4-Tracking: v=1; b=H4sIAAAAAAAC/zWNwQ6CMBAFf4Xs2RpaC6We/A/DAdpF1ig1LTQa0
- n8XajxOMm/eCgE9YYBzsYLHSIHctIE4FGDGbrohI7sxiFLUpeaKddEyhVhJJXtZNwY28+VxoHe
- uXNsfh6W/o5n36W6MFGbnP/km8t37F5tcjJyVTGqtlD7xQVbVhczDLfZo3BPalNIXkKJLTakAA
- AA=
-X-Change-ID: 20260917-avd-7ee5474b468c
+Message-Id: <20260926-avd-v2-2-ecebe6a3648e@icloud.com>
+References: <20260926-avd-v2-0-ecebe6a3648e@icloud.com>
+In-Reply-To: <20260926-avd-v2-0-ecebe6a3648e@icloud.com>
 To: Sven Peter <sven@kernel.org>, Janne Grunau <j@jannau.net>, 
  Neal Gompa <neal@gompa.dev>, Mauro Carvalho Chehab <mchehab@kernel.org>, 
  Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
@@ -57,27 +54,23 @@ Cc: asahi@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
  linux-media@vger.kernel.org, devicetree@vger.kernel.org, 
  linux-kernel@vger.kernel.org, linux-rockchip@lists.infradead.org
 X-Mailer: b4 0.15.2
-X-Proofpoint-ORIG-GUID: qLH5h3CH5f4NReoJdHgu3vQ3lGpCw_hO
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwOTI2MDA1MiBTYWx0ZWRfX8w3gITNlMfQZ
- 4nenGojk19ugBJ+TyYrNjkclGipL0+laUczsmz4i4KJdCzz0ygNfOI15AWFmWt/ekiIFxh+XLPo
- NrVuutvh0b1RcygKl30btYOoGsFNw6orublk4tdohfwBErzAmCOceQv4LVi6lg/cMWGskrdZpHM
- 4zNlAZLV/8r8YFXeAw6mKZazjT2aAsvlZpwClraNdk7O/g1xBUKWeLM9AzRAoqiK6uMXI5uZ6q3
- Jkj3kpQBmrNnrylCfTRI27aZed46kTyqN9mD69xIx8OEPcOxdeS607lTNzFPE7MWoUl2jitSsDj
- CI7fVdJDHWHWfXJk8BNBdy6H95SuCrHi308gD5AwwoBHnoLsO4ILWxnNc1RhHI=
-X-Proofpoint-GUID: qLH5h3CH5f4NReoJdHgu3vQ3lGpCw_hO
-X-Authority-Info-Out: v=2.4 cv=J6enLQnS c=1 sm=1 tr=0 ts=6ab7c591
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwOTI2MDA1MiBTYWx0ZWRfX4OvueoAjfGvP
+ QhSI0gJXUrRy6NrZMFPgegicnwGF54s7DGTbB+bCKBuZUoaMEBDUkf+f8gC3xNmC8W6UIZnJXTo
+ tBaz40OeG1fCN0yI5i6RR6UEPq72W1GrB8Medhy6IoK/WcTI2EzLmTThJtkcdosz6XfGQ8h0mLT
+ 5X8teE54R95Pi0kdTbYphUSGC2JWttRWOT+Zeh+aL4/JYUeXI5UPgTgP66hZXpCN0Iwyr4Sk3Eh
+ APC6yb184kv17P5xohAUiSB/FCINnMHsTjrdbiL1X3TznaWqR8tLzyAG/6IIuEmMYlWd5NPUMsZ
+ 1FpQIsaEeQ92YkPMpU6lpX1sEb9vsxkuRa/hLIs2iTumPGsiCJJY8xpYQJekc8=
+X-Authority-Info-Out: v=2.4 cv=Cueys34D c=1 sm=1 tr=0 ts=6ab7c598
  cx=c_apl:c_pps:t_out a=9mRn2PO/+PIrVdEbaIuMPg==:117
  a=9mRn2PO/+PIrVdEbaIuMPg==:17 a=IkcTkHD0fZMA:10 a=VdqzKS8jKosA:10
  a=x7bEGLp0ZPQA:10 a=kLM9Tyy99jAA:10 a=VkNPw1HP01LnGYTKEx00:22
- a=NEAV23lmAAAA:8 a=bC-a23v3AAAA:8 a=pGLkceISAAAA:8 a=v3ZZPjhaAAAA:8
- a=VwQbUJbxAAAA:8 a=dOLNmq4gAAAA:8 a=JfrnYn6hAAAA:8 a=jHwbcGeO01bA_06mPPQA:9
- a=QEXdDO2ut3YA:10 a=FO4_E8m0qiDe52t0p3_H:22 a=_m6CO-mWuQdSFutSHjXj:22
- a=1CNFftbPRP8L7MoqJWF3:22
-X-JNJ: AAAAAAABhPT3xgwkHYNBpTTg4Yg4VppZVD/leoZorA8/6JCyKzUhp6liLcApoEoeedTuzLYDY4UJwWWh/qT0yzJUm1H3ooCtOe8qJr3mxQAde3eOOehl4/7+6kFX4jf/zLWQmOa9sLtAE6v5BvL2sLCNMhH6bB2KoRNpWtRn/cQ9h0IjCBe8vlQfrqjL+57RR+lDrKw3le5ntFoBZfIBJQh/zdqpgK22ove6vbybJ5wxFHakv+mmXAO+/AF80WpJhVD+bRJPhqQSDEo2410/D0w8E+M3yuMSz+aTKbl670H3pxC1YoN+pKs2Tme2ENYNiqlLRxbKlCQrdIzByTd5zAE4lUgzTfMi4mghhedNMshzLuw4eUqKIgMKJbW/W95vY7jlYQjNxiVzjwVjh2sr7SWAtYx9uqLYq9QobYu8LPidSGE0mlN4mKpvGxw+asR0zPSLZzBC6EbDgkQ0X8mWiX7cqS6wCQPO4u0lMKcEPGL7mnMYEwbYh+ofV4aftIorkB4/238gXsS85aG8MIpJhfq562sWd8m5cIeLV/ro9IGr8XQrrVtGb+l0isZ7MFwYwcT7Lco3FZ4wRQ5fxVCu+tbAkYbUY3TXCxlfT17aAb7mDqVp8FKUEfEACZDuCNyVkpzmHdizf6579p9mSNLW/8t61dga/SserbyUyZpr86MxO2os+cng/zZcE7IJzK2VMVTrkZpD71stjTD+zI/4rpfTl4vbpLgjldM9his/yjxLhJtMv4xHM2+k49v7aOHDdXGsMjOt+j/MzTZr1s4eXaM9dJ4rWfWiZP3L+jVceKuGHEL7HDN7oxQNmYjmKUWYTw+pwee9+ckapoSy6VkKz29LVrxPq9G7r4X6Onu4UvCDRsqxKpZrJedbMTj51lzGdNoH4BZSBpz8WIgMauWQPn3lFv3QcKxkfMV8QHGYW8Ivc2Rw0Dvwj5QSag/3dnzLo0zdGW2RsFLtNc9lc0jn8gr5jHDiIaN
- 5nLYASTG7HTQy7nj+KhLtXC7TnUCwwEb0Fu1i5bfijlnWraElbtri6InUa47A92Eeaf/0jyiRdIxBRQHi9JNCV1/ghqq0Fm19SwGZvMmHcR6uxUKEcEtTo+xcwHiwEq1cei1h5k723ySUFuaht8DP5l9rIOMsQZLhLE9t7C+dimn/1mfpZoXYGRS8DhuZBJdwIx4OZLi5gNHjia8hsYIN0JVUIYtU4aUaY12vYI3ED8Awmb7ExiMP9cIH8gKz6nj/HU53i7jn4bWnhWMc3/gmd18XIDMtopisnooLnIoXAQ7EHUyfV8QYUX/Ps+OTG7XlSSJ5QHrojLp3k8kZQn3IPc6UMP7ST9WX4X4Qoz5w8q0kfvnYW8dqo/d41n2RhVyoOFTQcs3sWlaP2PVsHbASFpvVtV7+J7sfbNk=
+ a=v3ZZPjhaAAAA:8 a=SpoKuckLgBGHDaJ8CcoA:9 a=QEXdDO2ut3YA:10
+X-Proofpoint-GUID: TU6flb-C-9bfHnhEPkGy2Orw4psOvjY5
+X-Proofpoint-ORIG-GUID: TU6flb-C-9bfHnhEPkGy2Orw4psOvjY5
+X-JNJ: AAAAAAABVsmIbxZnVkp53me1UNAV74zABVixJIEdZlm+bElrWOF0OLmt/PRJ+ggWbUXGqHqhUuh+2vmRSdmYguP23zrjfgOAzbVq/a9l/M92gm7Dw0/rzL+pXcrgpE9wfQG4di+zly5K/SlM/4sBm7iEHkPtPMBd0F5gd8G/gKvFN4F2wlBNxjXGKeiJhjnpl+JY1HmfHlM7GJRQL1YIavThbwc/nxjsyHQlQn7jJvx5IYrr19q0TzO9juJ5I/RUBvYvNwjkRKehgpm5z7nYlGBgfVzbs6BrHMQv7MI2sCcQRGh6Put22g2fRblL9YbgnBEbmZ7xOUg4rfwqQ7YXZZY//QVZNOynjWJNz1/IWRbGERfi7a1RDxJo/UwH1oBKItiW4l1kJ7sYrIcYOCLA5UftNVfPZnXhGeSEVcH8VqgtF5fDEwBQASYnQAECvZ9d6+F3rdJuF66jYTlmag6M2/fPH/k2XwYsIb4uCtqeYmxbQmwd1drdbZZcP7ZOpe6Zhq2xF56tjijlgwB08cfahjoed0Urm87fQ0YNdlMICOhSqxuRwmirwSl8w8nTObG4yh5m9i0erVel5jDIySXTsZg24eRPaOIzatyd+cWDuJRbQV5FDfobKisIQb/oj2gA3YsEQSh4ic4fJOqkrDPCEJdx5GRjKprmm9eTnep5r7pua+tRhR3fWjB3sA8IMayG4a2h5Q+WWtkCAl8WFhvzFvY9gwe/TG37sWdi4kma2bd+iATK8RuamdYfvzTCIVRVCDuiMlu7JS/5fRBMdcNY4kqq2dzLkhKIN8/GnFpEO8GOHzDDxlhAlIb4u0JMwMJmybJNKT4cftrYMaDqkpJNKDY0DmzHYPhoS7qVUYF5GySxcIuMTUvv3g==
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260926_061610_550810_CBD3A050 
-X-CRM114-Status: GOOD (  21.30  )
+X-CRM114-CacheID: sfid-20260926_061611_249040_1F3ABFC1 
+X-CRM114-Status: GOOD (  12.68  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -92,157 +85,90 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi,
-
-This series enables hardware video decoding on Apple Silicon M1, M2 and
-M3 SoCs. It adds support for all the codecs AVD (Apple Video Decoder)
-supports, which is H264, H265, VP9 and AV1 (only on M3+).
-
-The AVD is a bit unique both as a video decoder and an IP block on Apple
-Silicon SoCs. Instead of following the normal "a register for each
-parameter", AVD is programmed through one single register. This means
-the order of the writes are important, but its also important to ensure
-we dont write faster than the hardware can process. To solve this, we
-use the included Cortex-M3 co-processor. The CM3 accepts unsigned code,
-which we take advantage off [1].
-The driver prepares the instructions and writes them into segments,
-which are submitted to the CM3. The CM3 then programs the hardware and
-notifies the AP when the job is done or if an error occurred.
-
-The driver implements the V4L2 M2M stateless decoder API. The driver's
-framework is based very heavy on rkvdecs driver. It therefore comes as
-no suprise that `v4l2-compliance` reports no errors:
-Total for avd device /dev/video0: 49, Succeeded: 49, Failed: 0, Warnings: 0
-
-The fluster scores are:
-JVT-AVC_V1: 77/135
-JVT-FR-EXT: 42/69
-VP9-TEST-VECTORS: 216/305
-VP9-TEST-VECTORS-HIGH: 1/6
-JCT-VC-HEVC_V1: 143/147
-AV1-TEST-VECTORS: 238/242
-
-Since not all unsupported H264 streams are rejected, the scores
-depend on the reset working, this only works with a patch to the
-apple-dart driver so that the IOMMU attach/detach trick works.
-
-All codecs support 4:2:2, 4:2:0, in 10 and 8 bit. By default, AVD
-outputs in NV12, NV16, P010 and P210. Support for 4:4:4 and 12 bit
-formats has not been added yet.
-
-Internally the AVD uses an Apple specific compressed and tiled format
-called Interchange to store reference image data. This is stored after
-image data across all codecs. Apple Interchange is used for sharing
-buffers with other hardware blocks (GPU, display controller), support
-for this is on its way [2].
-The V4L2 pixel formats have been added to help with calculating sizes.
-
-This driver has been tested on most Apple Silicon SoCs in our downstream
-tree [3]. Its expected this driver will work on M4, M5, M6 and the Neo,
-with firmware already being written for all except the M6 SoCs [4].
-
-The groundwork for this was laid many years ago by Jamie, R and Eileen,
-who through a combined effort managed to reverse engineer many core
-parts of the AVD block.
-This driver would not have been possible without the work done by
-Eileen, who wrote initial support for H264, H265, VP9 and excellent
-tooling [5], allowing me to reverse engineer AV1 and make the driver
-conformant.
-
-[1] https://github.com/sofus13/avd-fw/tree/avd-next-fw
-[2] https://patch.msgid.link/20260917-apple-interchange-modifier-v1-1-875294689c48@gmail.com
-[3] https://github.com/AsahiLinux/linux
-[4] https://github.com/AsahiLinux/avd-fw
-[5] https://github.com/eiln/avd/tree/main
+P210 is a YUV format with 10-bits per component with interleaved UV.
 
 Signed-off-by: Sofus Forstreuter <sofus.c@icloud.com>
 ---
-Changes in v2:
-- Patch order
-- Fixed dt-bindings by constraining all properties
-- Fixed dts, add interrupts, iommus and regs. Drop labels, fix names
-- Add Apple Interchange format
-- Add more av1 and vp9 validation to v4l2-ctrls
-- Validate more codec parameters
-- Use the new CM3 firmware (drop avd-hw, drop submission loops)
-- Updated cover to reflect changes
-- Link to v1: https://patch.msgid.link/20260918-avd-v1-0-49977931f455@icloud.com
+ .../userspace-api/media/v4l/pixfmt-yuv-planar.rst          | 14 ++++++++++++--
+ drivers/media/v4l2-core/v4l2-common.c                      |  1 +
+ drivers/media/v4l2-core/v4l2-ioctl.c                       |  1 +
+ include/uapi/linux/videodev2.h                             |  1 +
+ 4 files changed, 15 insertions(+), 2 deletions(-)
 
-To: Sven Peter <sven@kernel.org>
-To: Janne Grunau <j@jannau.net>
-To: Neal Gompa <neal@gompa.dev>
-To: Mauro Carvalho Chehab <mchehab@kernel.org>
-To: Rob Herring <robh@kernel.org>
-To: Krzysztof Kozlowski <krzk+dt@kernel.org>
-To: Conor Dooley <conor+dt@kernel.org>
-To: Sofus Forstreuter <sofus.c@icloud.com>
-To: Philipp Zabel <p.zabel@pengutronix.de>
-To: Heiko Stuebner <heiko@sntech.de>
-Cc: asahi@lists.linux.dev
-Cc: linux-arm-kernel@lists.infradead.org
-Cc: linux-media@vger.kernel.org
-Cc: devicetree@vger.kernel.org
-Cc: linux-kernel@vger.kernel.org
-Cc: linux-rockchip@lists.infradead.org
+diff --git a/Documentation/userspace-api/media/v4l/pixfmt-yuv-planar.rst b/Documentation/userspace-api/media/v4l/pixfmt-yuv-planar.rst
+index 0631919bd667..f2d2e79698fa 100644
+--- a/Documentation/userspace-api/media/v4l/pixfmt-yuv-planar.rst
++++ b/Documentation/userspace-api/media/v4l/pixfmt-yuv-planar.rst
+@@ -138,6 +138,13 @@ All components are stored with the same number of bits per component.
+       - Cb, Cr
+       - No
+       - Linear
++    * - V4L2_PIX_FMT_P210
++      - 'P210'
++      - 10
++      - 4:2:2
++      - Cb, Cr
++      - Yes
++      - Linear
+     * - V4L2_PIX_FMT_NV15
+       - 'NV15'
+       - 10
+@@ -834,12 +841,15 @@ number of lines as the luma plane.
+ 
+ .. _V4L2_PIX_FMT_P010:
+ .. _V4L2-PIX-FMT-P010-4L4:
++.. _V4L2-PIX-FMT-P210:
+ 
+-P010 and tiled P010
+--------------------
++P010, tiled P010 and P210
++-------------------------
+ 
+ P010 is like NV12 with 10 bits per component, expanded to 16 bits.
+ Data in the 10 high bits, zeros in the 6 low bits, arranged in little endian order.
++P210 is the same as P010 but the chroma plane is only subsampled by 2 in the
++horizontal direction.
+ 
+ .. flat-table:: Sample 4x4 P010 Image
+     :header-rows:  0
+diff --git a/drivers/media/v4l2-core/v4l2-common.c b/drivers/media/v4l2-core/v4l2-common.c
+index c825820fd481..b78fc0845a16 100644
+--- a/drivers/media/v4l2-core/v4l2-common.c
++++ b/drivers/media/v4l2-core/v4l2-common.c
+@@ -325,6 +325,7 @@ const struct v4l2_format_info *v4l2_format_info(u32 format)
+ 		{ .format = V4L2_PIX_FMT_NV42,    .pixel_enc = V4L2_PIXEL_ENC_YUV, .mem_planes = 1, .comp_planes = 2, .bpp = { 1, 2, 0, 0 }, .bpp_div = { 1, 1, 1, 1 }, .hdiv = 1, .vdiv = 1 },
+ 		{ .format = V4L2_PIX_FMT_P010,    .pixel_enc = V4L2_PIXEL_ENC_YUV, .mem_planes = 1, .comp_planes = 2, .bpp = { 2, 2, 0, 0 }, .bpp_div = { 1, 1, 1, 1 }, .hdiv = 2, .vdiv = 1 },
+ 		{ .format = V4L2_PIX_FMT_P012,    .pixel_enc = V4L2_PIXEL_ENC_YUV, .mem_planes = 1, .comp_planes = 2, .bpp = { 2, 4, 0, 0 }, .bpp_div = { 1, 1, 1, 1 }, .hdiv = 2, .vdiv = 2 },
++		{ .format = V4L2_PIX_FMT_P210,    .pixel_enc = V4L2_PIXEL_ENC_YUV, .mem_planes = 1, .comp_planes = 2, .bpp = { 2, 4, 0, 0 }, .bpp_div = { 1, 1, 1, 1 }, .hdiv = 2, .vdiv = 1 },
+ 
+ 		{ .format = V4L2_PIX_FMT_YUV410,  .pixel_enc = V4L2_PIXEL_ENC_YUV, .mem_planes = 1, .comp_planes = 3, .bpp = { 1, 1, 1, 0 }, .bpp_div = { 1, 1, 1, 1 }, .hdiv = 4, .vdiv = 4 },
+ 		{ .format = V4L2_PIX_FMT_YVU410,  .pixel_enc = V4L2_PIXEL_ENC_YUV, .mem_planes = 1, .comp_planes = 3, .bpp = { 1, 1, 1, 0 }, .bpp_div = { 1, 1, 1, 1 }, .hdiv = 4, .vdiv = 4 },
+diff --git a/drivers/media/v4l2-core/v4l2-ioctl.c b/drivers/media/v4l2-core/v4l2-ioctl.c
+index 17ba1ae70735..1f2519ffeb2b 100644
+--- a/drivers/media/v4l2-core/v4l2-ioctl.c
++++ b/drivers/media/v4l2-core/v4l2-ioctl.c
+@@ -1369,6 +1369,7 @@ static void v4l_fill_fmtdesc(struct v4l2_fmtdesc *fmt)
+ 	case V4L2_PIX_FMT_NV42:		descr = "Y/VU 4:4:4"; break;
+ 	case V4L2_PIX_FMT_P010:		descr = "10-bit Y/UV 4:2:0"; break;
+ 	case V4L2_PIX_FMT_P012:		descr = "12-bit Y/UV 4:2:0"; break;
++	case V4L2_PIX_FMT_P210:		descr = "10-bit Y/UV 4:2:2"; break;
+ 	case V4L2_PIX_FMT_NV12_4L4:	descr = "Y/UV 4:2:0 (4x4 Linear)"; break;
+ 	case V4L2_PIX_FMT_NV12_16L16:	descr = "Y/UV 4:2:0 (16x16 Linear)"; break;
+ 	case V4L2_PIX_FMT_NV12_32L32:   descr = "Y/UV 4:2:0 (32x32 Linear)"; break;
+diff --git a/include/uapi/linux/videodev2.h b/include/uapi/linux/videodev2.h
+index 5373dba640fa..5472e433ed06 100644
+--- a/include/uapi/linux/videodev2.h
++++ b/include/uapi/linux/videodev2.h
+@@ -659,6 +659,7 @@ struct v4l2_pix_format {
+ #define V4L2_PIX_FMT_NV42    v4l2_fourcc('N', 'V', '4', '2') /* 24  Y/CrCb 4:4:4  */
+ #define V4L2_PIX_FMT_P010    v4l2_fourcc('P', '0', '1', '0') /* 24  Y/CbCr 4:2:0 10-bit per component */
+ #define V4L2_PIX_FMT_P012    v4l2_fourcc('P', '0', '1', '2') /* 24  Y/CbCr 4:2:0 12-bit per component */
++#define V4L2_PIX_FMT_P210    v4l2_fourcc('P', '2', '1', '0') /* 32  Y/CbCr 4:2:2 10-bit per component */
+ 
+ /* two non contiguous planes - one Y, one Cr + Cb interleaved  */
+ #define V4L2_PIX_FMT_NV12M   v4l2_fourcc('N', 'M', '1', '2') /* 12  Y/CbCr 4:2:0  */
 
----
-Sofus Forstreuter (17):
-      dt-bindings: media: add apple,avd
-      media: v4l2: Add P210 pixel format
-      media: v4l2: Add Apple interchange pixel formats
-      media: v4l2-ctrls: validate av1 tile info
-      media: v4l2-ctrls: validate vp9 tile_rows_log2
-      media: apple: add avd driver
-      media: apple: avd: add h264 support
-      media: apple: avd: add vp9 support
-      media: apple: avd: add hevc support
-      media: apple: avd: add av1 support
-      arm64: dts: apple: t8103: add avd nodes
-      arm64: dts: apple: t8112: add avd nodes
-      arm64: dts: apple: t8122: add avd nodes
-      arm64: dts: apple: t600x: add avd nodes
-      arm64: dts: apple: t602x: add avd nodes
-      arm64: dts: apple: t6030: add avd nodes
-      arm64: dts: apple: t6031: add avd nodes
-
- .../devicetree/bindings/media/apple,avd.yaml       |  127 +
- .../userspace-api/media/v4l/pixfmt-yuv-planar.rst  |   14 +-
- MAINTAINERS                                        |    2 +
- arch/arm64/boot/dts/apple/t600x-dieX.dtsi          |   32 +
- arch/arm64/boot/dts/apple/t602x-dieX.dtsi          |   32 +
- arch/arm64/boot/dts/apple/t6030.dtsi               |   32 +
- arch/arm64/boot/dts/apple/t6031-dieX.dtsi          |   32 +
- arch/arm64/boot/dts/apple/t8103.dtsi               |   32 +
- arch/arm64/boot/dts/apple/t8112.dtsi               |   32 +
- arch/arm64/boot/dts/apple/t8122.dtsi               |   32 +
- drivers/media/platform/Kconfig                     |    1 +
- drivers/media/platform/Makefile                    |    1 +
- drivers/media/platform/apple/Kconfig               |    5 +
- drivers/media/platform/apple/Makefile              |    3 +
- drivers/media/platform/apple/avd/Kconfig           |   18 +
- drivers/media/platform/apple/avd/Makefile          |    5 +
- .../media/platform/apple/avd/avd-av1-entropymode.c | 4698 ++++++++++++++++++++
- .../media/platform/apple/avd/avd-av1-entropymode.h |  284 ++
- drivers/media/platform/apple/avd/avd-av1.c         | 1432 ++++++
- drivers/media/platform/apple/avd/avd-drv.c         |  776 ++++
- drivers/media/platform/apple/avd/avd-h264.c        |  862 ++++
- drivers/media/platform/apple/avd/avd-hevc.c        | 1340 ++++++
- drivers/media/platform/apple/avd/avd-inst.h        |  210 +
- drivers/media/platform/apple/avd/avd-v4l2.c        |  992 +++++
- drivers/media/platform/apple/avd/avd-vp9.c         | 1054 +++++
- drivers/media/platform/apple/avd/avd.h             |  299 ++
- drivers/media/v4l2-core/v4l2-common.c              |    8 +
- drivers/media/v4l2-core/v4l2-ctrls-core.c          |   17 +-
- drivers/media/v4l2-core/v4l2-ioctl.c               |    7 +
- include/uapi/linux/v4l2-controls.h                 |    2 +-
- include/uapi/linux/videodev2.h                     |    9 +
- 31 files changed, 12386 insertions(+), 4 deletions(-)
----
-base-commit: 4efa625593e1e9c76346232413997556dea1d89f
-change-id: 20260917-avd-7ee5474b468c
-
-Best regards,
---  
-Sofus Forstreuter <sofus.c@icloud.com>
+-- 
+2.55.0
 
 
