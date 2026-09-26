@@ -4,69 +4,143 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1E3EAC9832F
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 26 Sep 2026 18:06:26 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 519EDC9832F
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 26 Sep 2026 18:31:11 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
+	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=wYYaiwkOPUjr+j4UaQRgxxzscg0L0EnuNJCXdqEfXQA=; b=KOswLaegjAteso9R8xLsPsGF/S
-	xA6wIBXGaIHzDuHZGE31H1LKGajz7bHIZlzmQ+IgcpXoeD7/zuAe/LrF3aju2+26MWsVkpZdMsnUU
-	MFtNUWVeediV5S3KjtdMrhXBuXSboS4CHi2/vUourE3ZEN0Ebt459TJrR1+Iqb4Hr6fp8g9e8+1+y
-	sQSwdH6clcqM895+BxigH5L30ZrXsa2DdlZ+oJUHJXIgbzcjmVed/Jkc4/AAPt+B1c9abaKbTmw7a
-	iCCZ7YLgZXkX5NPSl/d+SNWjqKIRCjEPEELtVtDM+tEbPDeWF7XYWI7iQXxeATI8ekNw5Bl27qZ6H
-	e4/e8nBw==;
+	bh=aJsRb1/nw4q/dpsi/IT2Cexb4DylEARhC1JgpVcCMuA=; b=FRobLtqRL8NlpV55L2WwM38wEo
+	/8SzxaPTLlmrEXpP+onjkemtxBwo6HpEh/pPVrylvRJxhPtJWOdzpNTPUIEgJOmQzQLPFjesp2aGv
+	I4/ExjjT5w7kqtC1KxhQwZNZyltoHVc12oBaCfLjoL20OjtcsBpXuCbAMKzuGQk6hUEtwzIe4zAjd
+	eRGXfiPWtdr2oeiF8vqn0FpXlQ5iWDTUi8nFSSl9tFHjr9RK3dXEKvRp4j6nl7Ki0Eym/vPMZIOYA
+	Eg28nDFpoxug2MeRowitwv2F2oH0H3FqICs7j4V9HBZTKlNqx3OYNw7sG/v/ZhwfGAYwsUahnMV0g
+	2UyD5cAg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xAWmt-0000000FhM9-1v4r;
-	Sat, 26 Sep 2026 18:06:15 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1xAXAp-0000000FiCy-1QYA;
+	Sat, 26 Sep 2026 18:30:59 +0000
+Received: from mail-centralusazon11010042.outbound.protection.outlook.com ([52.101.61.42] helo=DM1PR04CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xAWmr-0000000FhLu-23S2;
-	Sat, 26 Sep 2026 18:06:13 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id A31C9415AB;
-	Sat, 26 Sep 2026 18:06:12 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id ACD071F000FF;
-	Sat, 26 Sep 2026 18:06:09 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1790445972;
-	bh=wYYaiwkOPUjr+j4UaQRgxxzscg0L0EnuNJCXdqEfXQA=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=C3PKcs1G4z0FBX4/p60m8PgMsiYXohlNrKywBMGRldUPqllqJx0F14cckjHQvfkG8
-	 QCW+MZ5gc3DA1+BJteWB9rZx/KBR1o/BTKZkhAbaJwZ5LAf6aHKvt/XCSEF3WtqQQ6
-	 on5j+9CYViLcFfz0F+OTSvy8Lc1eXPnmkQyP64+tpawKHo0+KdG6dntzT8pU/XWgcp
-	 Fy25Fuz46gPGN+/NavM4wGEmi3M3Cqzf9AEEqk/S/1xp2OS5aW1m2YqZnyTUdYJshq
-	 xipS//mCqGJk+0DVEmnG/7MK9EqtWjtMf4rAZEJn8GVQX4R7xb6amKddJagXh/ISBY
-	 F7si8ncPH5aHQ==
-Date: Sat, 26 Sep 2026 19:06:07 +0100
-From: Conor Dooley <conor@kernel.org>
-To: linux-kernel-dev@aliel.fr
-Cc: Uwe =?iso-8859-1?Q?Kleine-K=F6nig?= <ukleinek@kernel.org>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Heiner Kallweit <hkallweit1@gmail.com>,
-	Neil Armstrong <neil.armstrong@linaro.org>,
-	Kevin Hilman <khilman@baylibre.com>,
-	Jerome Brunet <jbrunet@baylibre.com>,
-	Martin Blumenstingl <martin.blumenstingl@googlemail.com>,
-	linux-pwm@vger.kernel.org, devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-	linux-amlogic@lists.infradead.org
-Subject: Re: [PATCH v2 1/3] dt-bindings: pwm: amlogic: Add core clock for T7
-Message-ID: <20260926-landless-prowess-df404db4d910@spud>
-References: <20260925-add-t7-sys-pwm-clk-v2-0-f23a22b71a5c@aliel.fr>
- <20260925-add-t7-sys-pwm-clk-v2-1-f23a22b71a5c@aliel.fr>
- <20260925-facial-follow-032de22361c1@spud>
- <8e23838a-da5e-499c-a8be-3e2a7a0939e7@aliel.fr>
-MIME-Version: 1.0
-Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="LVLyBwFl5JS2r2Gm"
+	id 1xAXAn-0000000FiCU-2Gp0;
+	Sat, 26 Sep 2026 18:30:58 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=nosdLy8nRUby5Ns2d3DeOrfyeQE9v42k0EeYwi3sxA6bNHOIy63raEhII3ZPTuzG2ASWQpIXWjASsA5UmkL+dpC2jtCo8UrZLy9OO4dwzB3Kd5kGESw4vXx+SkaFjpgb6j9CBV1eYq2CVRjJBmAX7qOlHLV9oS5NhlBzeAJ2SGr3lRF5W31vRxqXxHcx04dhw9c7gB7P4E4gLgIps1KuBG+sEvhqd4umccEeKb8RjQ3/wwtGGqYZvzHkGRqsIWs/osijajrPRGtIJx4do7T0V8immCEAE8NRhPHVbz3C0VODLgH/jeM9Skw0Yr77ThvzDMp1/QUYXeXy/z2/9HmT6w==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=aJsRb1/nw4q/dpsi/IT2Cexb4DylEARhC1JgpVcCMuA=;
+ b=HxOJu63San3DCKeC3TVCWUDFPrrJxRMqF0PlzH/esCG1OKkDI2FrvzfHZkJlb0WVT5F3KblaEECSDKkzewBlmavBAsSAFDUNPl9UiXsfNaa8O8Lf8PrB7PqKnWwgFelQAQNv4klTuoOSMyDQHxuJeJo6eI7eCHEKDUkZiyDEF7Am+uBx6VW7qppQb6PFjl6NcVktA/HHATf03PlU5nIBIdAqrnZpLDP/W4HTbcgPZ5JiZBCak/AyFzUzq3NmbFrTUeCBfKKQKV7cVtD61dDL2W9Y91XajeWx3Kl0cTd6HgUfe/dtsCJs9cIu/kV2mLV5TCL9ucb0SMcFkPzH5AauPw==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=nvidia.com; dmarc=pass action=none header.from=nvidia.com;
+ dkim=pass header.d=nvidia.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
+ s=selector2;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=aJsRb1/nw4q/dpsi/IT2Cexb4DylEARhC1JgpVcCMuA=;
+ b=C/3QEAyLw7YN3p4mjp158Mo3XEDA6ZWcHsfOc63EdDbV2JR1FZLsCyBLqCIKYKRaWHWvJTH6RK7+s8bTLfQsXtTn7fLsSO2Of+pWa6oQ22itZr5Sg23sK9nEz591V49kC8lSN9vRTyLYkjwLnauhaUv9nI3CG11T/K1wwdqMJCyRWgz4gsdKxVVSQPHxT6jZd5X5mK27VKJd7OTUjyHwwG2Tqg9/xNgWKyVegv1nu2oE3I6sj38eZLERQuSAyh/y9xaC6clncTqRPvNNNL+7fjmKoG1qbL6wuq9Hgyb73BObFqbXF0XczqUopjQJY6FibAGFTLGzx1aeImTHo3iEkA==
+Authentication-Results: mx.microsoft.com 1; dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=nvidia.com;
+Received: from CHBPR12MB731189.namprd12.prod.outlook.com
+ (2603:10b6:610:33d::12) by MW6PR12MB8868.namprd12.prod.outlook.com
+ (2603:10b6:303:242::20) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.451.18; Sat, 26 Sep
+ 2026 18:27:38 +0000
+Received: from CHBPR12MB731189.namprd12.prod.outlook.com
+ ([fe80::b0e5:123d:fe06:e10d]) by CHBPR12MB731189.namprd12.prod.outlook.com
+ ([fe80::b0e5:123d:fe06:e10d%6]) with mapi id 15.21.0451.014; Sat, 26 Sep 2026
+ 18:27:38 +0000
+Date: Sat, 26 Sep 2026 15:27:36 -0300
+From: Jason Gunthorpe <jgg@nvidia.com>
+To: Jonathan Cameron <jonathan.cameron@oss.qualcomm.com>
+Cc: Alexandre Ghiti <alex@ghiti.fr>, Albert Ou <aou@eecs.berkeley.edu>,
+	Ard Biesheuvel <ardb@kernel.org>, Arnd Bergmann <arnd@arndb.de>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Jonathan Corbet <corbet@lwn.net>, David Sterba <dsterba@suse.com>,
+	Ilias Apalodimas <ilias.apalodimas@linaro.org>,
+	linux-arch@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+	linux-doc@vger.kernel.org, linux-efi@vger.kernel.org,
+	linux-riscv@lists.infradead.org,
+	Mark Rutland <mark.rutland@arm.com>,
+	Palmer Dabbelt <palmer@dabbelt.com>, Paul Walmsley <pjw@kernel.org>,
+	Randy Dunlap <rdunlap@infradead.org>,
+	Simon Glass <sjg@chromium.org>,
+	Shuah Khan <skhan@linuxfoundation.org>,
+	Nick Terrell <terrelln@fb.com>, Will Deacon <will@kernel.org>,
+	Alexandre Ghiti <alexghiti@rivosinc.com>,
+	Conor Dooley <conor.dooley@microchip.com>,
+	linux-integrity@vger.kernel.org,
+	Palmer Dabbelt <palmer@rivosinc.com>, patches@lists.linux.dev,
+	Ross Philipson <ross.philipson@gmail.com>,
+	Sami Tolvanen <samitolvanen@google.com>,
+	Song Shuai <songshuaishuai@tinylab.org>,
+	Suzuki K Poulose <suzuki.poulose@arm.com>
+Subject: Re: [PATCH 12/16] arm64: drtm: Add macro definitions for DEN0113
+Message-ID: <20260926182736.GA473004@nvidia.com>
+References: <0-v1-27d06b313981+8b-arm64_drtm_jgg@nvidia.com>
+ <12-v1-27d06b313981+8b-arm64_drtm_jgg@nvidia.com>
+ <20260924172952.0000527e@oss.qualcomm.com>
+Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <8e23838a-da5e-499c-a8be-3e2a7a0939e7@aliel.fr>
+In-Reply-To: <20260924172952.0000527e@oss.qualcomm.com>
+X-ClientProxiedBy: YT4P288CA0023.CANP288.PROD.OUTLOOK.COM
+ (2603:10b6:b01:d4::24) To CHBPR12MB731189.namprd12.prod.outlook.com
+ (2603:10b6:610:33d::12)
+MIME-Version: 1.0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: CHBPR12MB731189:EE_|MW6PR12MB8868:EE_
+X-MS-Office365-Filtering-Correlation-Id: eede5eb7-558e-4978-4183-08df1bfbd7e2
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|366016|23010399003|1800799024|376014|7416014|3023799007|6133799003|10067099003|11063799006|4143699003|56012099006|22082099003|18002099003;
+X-Microsoft-Antispam-Message-Info: UA+sCkz5pHrUIm2WiWp0NTTEu0/ziz1MYhhlIhK3UyJlLeFUiagSpQxvrmFJYnbQsxity7uqDDKtyt2NKod6lOuJ8m3bM0hbdX7k9rIBXdOkvb12UYNkWN0n5NhpxfaTCavMPhpbUB0edxCGx8eg+k2GIcsTSaP54lb1WE9EsTj/SCBhw3VFukUdczUn8IM+RZLi9QS5XUJ16RGq/et4KdaNrWNWzWyTmQ6azAmfeNXgqlu2dzetfH8+n0M9352Lo+EyYb8/e7jm1ouJR6zoNt7bXcpxGH5QKolCM9/JDkkzXX+3/+FVSv16FbCyWMw8m74F5zG/EpeSFkuBjJ5lF9FfhFwGw1azS0AJh5HtkeBYQpVByWzv+Krcm3vDvHPMFyYe3lnDbnBnqMkagj38AB39rVPDf+gCjqgwzRsc0VYOznHS4iS1lchzBf7NANAbZnHQGpNyDAfoEx23XFyDsHRrUQr+5B4NG8F2d6NxdM5425FUV7bCoratt8Br/B6JVS+Em+wD74xl65SbwlfJ/TzvITr9Wk4gmGBfhRkJ+CNUCoF/3G7aDa/dd+0l9G7+o5KIM+vm0Q/rE+HD/GE8ppG9ZYXD8cVPG2pwanCALZ5HfTm+20hmUXxE32YHXhC9NoS6xdlET1c2AZvvbZYdkPITSo5AjgfhyWWmNhXCwr0=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:CHBPR12MB731189.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(23010399003)(1800799024)(376014)(7416014)(3023799007)(6133799003)(10067099003)(11063799006)(4143699003)(56012099006)(22082099003)(18002099003);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?D+hMZDL5GTVRnJXhX1ycnCQKro2VyOEevI/a0FU7AAg28ujiSf+rHIhhO12m?=
+ =?us-ascii?Q?k4QQ9yzrDo+oELqawOVMREAnHiJR5NFinC3U2xcGDFq673x7w5VZS/at7Raj?=
+ =?us-ascii?Q?0J+c0p9WC4nE8hJH0jnM5ERRStnlE0nUKVXSwMZ5exij8mUwbwqzI5hCGa+m?=
+ =?us-ascii?Q?Bg015eaqX2VgtIePU8gIYGgxmGiFExRLd6Uc2wLCAhDXiAi9NKmy7XJBnTRv?=
+ =?us-ascii?Q?GGZo0+hy6qGNEiGmcwCHC4vf65QgK6D62nQ4MGhltAPriahvYpBplDOv1uaU?=
+ =?us-ascii?Q?ozv5SkiwEkfrhYwnbUKFP0P6xHCKKFrH/Yl+5bHitWBCAyQ8jH5HiWWDoPZp?=
+ =?us-ascii?Q?zGoF3critkIlrvNjLKqX6u84q4giDV9sMQF2jeA/+O6gBW7IjJbCnT6FOLop?=
+ =?us-ascii?Q?v0CcFtVDNMJJ+vPVApe4Ys7aSLXLrqMghOFdTMCNEcSKlnzSEiovJ0mHaa1W?=
+ =?us-ascii?Q?MItcwDCKoFJ/6cFwyRAQ+uZx2f3j9GJuf6RKMiDVsdCpeJbKeTuXspl8OMm3?=
+ =?us-ascii?Q?IaHKbwPdPoTmToFdnxI2NSf17mtzs9fa6XmpQpH8W0Fs8qV+fXF7YJYwgVDr?=
+ =?us-ascii?Q?BEJSSsNXUk9ZE3rtO5N7YxBm5DMrAYlgnbkkrQqFj4KZOXQ0EqDNkQVGSdE/?=
+ =?us-ascii?Q?NnAtXd8Hnw36E8iW4quo8bO0qDrDTOaju73R3EqUw8Xv1q8oS+8bH6IApzaC?=
+ =?us-ascii?Q?VGTpYt4nDjsyzLxvjYBWVI5gyA3QfT2UV6uFkl9M2Kp9AQmrCfJj6g6LPn8f?=
+ =?us-ascii?Q?89Ocn5Qh6ALlVH+QAalVUfabKUMT8Q7tAN8i/QRBkNurisbILo2/aWpLPUNM?=
+ =?us-ascii?Q?uVky9WDRqqQ7Vcy1H3FcMQv9FFyyd2TDqmNKEREh9EOXOuCHKXy2oumCHkTD?=
+ =?us-ascii?Q?TbzLGP/regQaBHa0oGpc2t+48aMa2meAeuAvgYaC0aGf25tGmgZoGff4cx5b?=
+ =?us-ascii?Q?TQHMBcx84NLpV15YBDnxcS2h6p3IHmI26OsV2WdmmBxGnPXA9+nXC+w6BN2O?=
+ =?us-ascii?Q?jhBVsgq8MDTc3ytMMW5d7BT84vZa2UJPUjWs9WOYBb3erhmKWm990o/ljjpR?=
+ =?us-ascii?Q?8Y38CuOIy/8aNlDO5FVdbbO1JrTlTLYW23gl+AF9v9HwVP1Bbz3gmxQ6GKlg?=
+ =?us-ascii?Q?8PXCltQczsne/uBFFmgZmLQqqxDBz/OGFJ9aXGCOWbKZFTdnGqtkuhgRKSAh?=
+ =?us-ascii?Q?tvPo+pXMX2HE5Fow6d5qN617leVavFOuEVfFA56AP7ZXLnczDarPnzMN4VDo?=
+ =?us-ascii?Q?sbnC3Xew2EaQvoW6YIlimQgqpG/J3Y3xC4TrkHDSZBqjWHpzFrs9BuuS1RN8?=
+ =?us-ascii?Q?aA7DRE19LJmt58DiI9fPo1Y6Y3zm8NG4MaJxkQVUi1pBiriAijhyPVuEpafG?=
+ =?us-ascii?Q?VgBw+X3Wq5lekPbkP2/RygtNhSfMIsPHUCPjDiiH+ImbD8Q+/3poNBmx/j7M?=
+ =?us-ascii?Q?tUtB2rP4cgCNXqxXk4E7fSJHcA5R1iU8cPL5FAju27US1F/hDtZq5hKWUtP+?=
+ =?us-ascii?Q?P7UXGDIeJTeuBA10sJK2B2h5qXlJbLfCoZ4/0UJ4UMxJZPI7i8OOTgoD5yXB?=
+ =?us-ascii?Q?ELgQDvmMz/jI8YGWWobLSeEii5waOIl8pwclhMyju0214ku/67ZSGVL8LIbm?=
+ =?us-ascii?Q?jQEOqIs58IjIPIv9VPhB7TQxoj0KfMJkR+KPehLdgxlqYdzaPjZtda+nysm1?=
+ =?us-ascii?Q?vtNrgp1rrcYJXrD5D2up/cDZoFHnjvi9jL8tdRv2118OYZmu?=
+X-OriginatorOrg: Nvidia.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: eede5eb7-558e-4978-4183-08df1bfbd7e2
+X-MS-Exchange-CrossTenant-AuthSource: CHBPR12MB731189.namprd12.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 26 Sep 2026 18:27:38.3404
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: 4WkVDWy9d1m2jBxVXSVCgjtHKEoJtN8zmy/AWLWcfFFM9j7383msZvR4xirS9tTG
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: MW6PR12MB8868
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260926_113057_603585_E0F9DBFE 
+X-CRM114-Status: GOOD (  29.49  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -81,137 +155,132 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
---LVLyBwFl5JS2r2Gm
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
+On Thu, Sep 24, 2026 at 05:29:52PM -0700, Jonathan Cameron wrote:
+> This one at least does it via base and sum.  But that then separates it from
+> the spec?   That is sort of the case anyway because the spec has the full
+> number.  0xC400_0110 so I guess not too bad.
 
-On Sat, Sep 26, 2026 at 11:43:20AM +0200, linux-kernel-dev@aliel.fr wrote:
-> On 9/25/26 6:41 PM, Conor Dooley wrote:
-> > On Fri, Sep 25, 2026 at 05:13:28PM +0200, Ronald Claveau via B4 Relay w=
-rote:
-> >> From: Ronald Claveau <linux-kernel-dev@aliel.fr>
-> >>
-> >> The T7, A1, C3, and S4 PWM controllers have a system clock in
-> >> addition to the two input clocks of channels A and B.
-> >>
-> >> The channel clocks are acquired by index in the pwm driver,
-> >> where the core clock is fetched by name, with optional get
-> >> which is silent when not provided.
-> >>
-> >> Require clock-names and minimum 3 items for T7, where the
-> >> PWM devices do not work without all 3 clocks.
-> >>
-> >> Add an example showing T7 usage with its fallback to
-> >> amlogic,meson-s4-pwm.
-> >>
-> >> Signed-off-by: Ronald Claveau <linux-kernel-dev@aliel.fr>
-> >> ---
-> >>  .../devicetree/bindings/pwm/pwm-amlogic.yaml       | 33 +++++++++++++=
-+++++++--
-> >>  1 file changed, 31 insertions(+), 2 deletions(-)
-> >>
-> >> diff --git a/Documentation/devicetree/bindings/pwm/pwm-amlogic.yaml b/=
-Documentation/devicetree/bindings/pwm/pwm-amlogic.yaml
-> >> index c337d85da40f1..59320f288552b 100644
-> >> --- a/Documentation/devicetree/bindings/pwm/pwm-amlogic.yaml
-> >> +++ b/Documentation/devicetree/bindings/pwm/pwm-amlogic.yaml
-> >> @@ -62,7 +62,7 @@ properties:
-> >> =20
-> >>    clock-names:
-> >>      minItems: 1
-> >> -    maxItems: 2
-> >> +    maxItems: 3
-> >> =20
-> >>    power-domains:
-> >>      maxItems: 1
-> >> @@ -140,13 +140,34 @@ allOf:
-> >>      then:
-> >>        properties:
-> >>          clocks:
-> >> +          minItems: 2
-> >>            items:
-> >>              - description: input clock of PWM channel A
-> >>              - description: input clock of PWM channel B
-> >> -        clock-names: false
-> >> +            - description: gate clock for the PWM controller
-> >> +        clock-names:
-> >> +          minItems: 2
-> >> +          items:
-> >> +            - const: channel-a
-> >> +            - const: channel-b
-> >> +            - const: core
-> >>        required:
-> >>          - clocks
-> >> =20
-> >> +  - if:
-> >> +      properties:
-> >> +        compatible:
-> >> +          contains:
-> >> +            const: amlogic,t7-pwm
-> >=20
-> > Shouldn't this (based on your reply on the previous version) be s4?
-> >=20
->=20
-> The change above is for S4 and SOCs which fallback to S4. It allows the
-> third clock but let the schema validation compatible with two clocks
-> existing DTS. Here for the T7, I add requirement for the exact 3 clocks.
->=20
-> Do you recommend to require the 3 clocks for all S4 and S4 fallback, and
-> update the associated dtsi files ?
+I wasn't sure what to do with this since the spec had the full hex and
+we have these helper macros.. I made it look more like something else
+with the offset style instead of the function call style:
 
-Yes, I think so. Sounds to me like they only work because of the
-CLK_IGNORE_UNUSED set in their clock controller drivers, so the correct
-thing to do is make them all require the third clock.
+> > +#define ARM_DRTM_SMC_VERSION			(ARM_DRTM_SMC_FN_BASE + 0x00)
 
-Chers,
-Conor.
->=20
-> >> +    then:
-> >> +      properties:
-> >> +        clocks:
-> >> +          minItems: 3
-> >> +        clock-names:
-> >> +          minItems: 3
-> >> +      required:
-> >> +        - clock-names
-> >> +
-> >>    - if:
-> >>        properties:
-> >>          compatible:
-> >> @@ -182,3 +203,11 @@ examples:
-> >>        clocks =3D <&pwm_src_a>, <&pwm_src_b>;
-> >>        #pwm-cells =3D <3>;
-> >>      };
-> >> +  - |
-> >> +    pwm@60000 {
-> >> +      compatible =3D "amlogic,t7-pwm", "amlogic,meson-s4-pwm";
-> >> +      reg =3D <0x60000 0x24>;
-> >> +      clocks =3D <&channel_a>, <&channel_b>, <&core>;
-> >> +      clock-names =3D "channel-a", "channel-b", "core";
-> >> +      #pwm-cells =3D <3>;
-> >> +    };
-> >>
-> >> --=20
-> >> 2.49.0
-> >>
-> >>
->=20
->=20
-> --=20
-> Best regards,
-> Ronald
+IDK, maybe ARM_DRTM_SMC_FN_BASE(0x110) is more connected to the spec,
+but I'm used to doing it like this from ioctl land which is very
+similar.
 
---LVLyBwFl5JS2r2Gm
-Content-Type: application/pgp-signature; name=signature.asc
 
------BEGIN PGP SIGNATURE-----
+> > +#define ARM_DRTM_FEATURE_SELECTOR	BIT_U64(63)
+> > +#define ARM_DRTM_FEATURE_TPM		0x01
+> > +#define ARM_DRTM_FEATURE_MIN_MEMORY	0x02
+> > +#define ARM_DRTM_FEATURE_DMA_PROTECTION	0x03
+> > +#define ARM_DRTM_FEATURE_BOOT_PE	0x04
+> > +#define ARM_DRTM_FEATURE_TCB_HASH	0x05
+> > +#define ARM_DRTM_FEATURE_IMAGE_AUTH	0x06
+>
+> Nice to have a mask for the 8 bits of the feature field.
 
-iHUEABYKAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCargJjwAKCRB4tDGHoIJi
-0hGlAPwPcQT485NFPVpsmaLttMgeXLihgXcxvovjhjL6RFevHAEAhbpFtA4RAfsa
-N/8aLtpv423553Psdr1Wrc70RFZcTwA=
-=Qo82
------END PGP SIGNATURE-----
+OK
 
---LVLyBwFl5JS2r2Gm--
+> Also nice to keep order the same as the SMC defines which would put this after
+> version.  That also puts it next to the values returned for each feature.
+
+I reorganized everything
+
+> > +#define ARM_DRTM_TPM_ALG_MASK		GENMASK_U64(15, 0)
+> > +#define ARM_DRTM_TPM_HASHING		BIT_U64(32)
+> > +#define ARM_DRTM_PCR_SCHEMA_MASK	GENMASK_U64(36, 33)
+> > +#define ARM_DRTM_PCR_SCHEMA_DEFAULT	BIT_U64(33)
+> > +#define ARM_DRTM_PCR_SCHEMA_AUTHORITIES	BIT_U64(34)
+> 
+> Ah.  Always love a field made up of a bunch of bits. Hard to define
+> cleanly.   Do you actually need the PCR_SCHEMA_MASK?  
+
+I did it with a field content which gets reused in the launch struct:
+
+/*
+ * PCR schema numbers. ARM_DRTM_PCR_SCHEMA_MASK is a bitmap indexed by these,
+ * and the Launch Features ARM_DRTM_LAUNCH_PCR_SCHEMA_MASK field holds one.
+ */
+#define ARM_DRTM_PCR_SCHEMA_DEFAULT		0
+#define ARM_DRTM_PCR_SCHEMA_AUTHORITIES		1
+
+/*
+ * DMA protection types. ARM_DRTM_DMA_PROTECTION_MASK is a bitmap indexed by
+ * these, and the Launch Features ARM_DRTM_LAUNCH_DMA_PROTECTION_MASK field
+ * holds one.
+ */
+#define ARM_DRTM_DMA_PROTECTION_COMPLETE	0
+#define ARM_DRTM_DMA_PROTECTION_REGION		1
+
+Have to use BIT() to get the bitmap encoding.
+
+> Same here.  I vaguely wonder if it is worth adding something
+> reflecting the relevant feature ID to each of these defines
+> so we know what the are referring to?
+
+I added comments and spec references for everything
+
+> > +#define ARM_DRTM_LAUNCH_HASH_FIRMWARE	0
+> > +#define ARM_DRTM_LAUNCH_HASH_TPM	BIT_U32(0)
+> 
+> I'd rather see them as fields and field value pairs but
+> can see that is going to get a bit verbose.
+
+I think that would be too verbose in this case, and the usage is very
+limited.
+
+
+> > +static inline s64 arm_drtm_features(u64 function_or_feature, u64 *value)
+> > +{
+> > +	struct arm_smccc_res res;
+> > +	s64 status;
+> > +
+> > +	arm_smccc_1_1_smc(ARM_DRTM_SMC_FEATURES, function_or_feature,
+> > +			  0, 0, 0, 0, 0, 0, &res);
+> > +	status = res.a0;
+> > +	if (status >= 0 && value)
+> > +		*value = res.a1;
+> If status == 0, is res.a1 useful?
+> You have a helpful comment at the call site in the final patch but none
+> the less I have read the spec section a couple of times and have no idea.
+
+I read the spec as 0 is not allowed.
+
+I changed this around to have two wrapper functions, which works a bit
+better.
+
+static inline s64 arm_drtm_query_function(u64 function_id)
+{
+	struct arm_smccc_res res;
+
+	arm_smccc_1_1_smc(ARM_DRTM_SMC_FEATURES, function_id, 0, 0, 0, 0, 0, 0,
+			  &res);
+	return res.a0;
+}
+
+/*
+ * v1.4b Section 3.3.1 says:
+ *   A return value of greater than 0 means the feature ID is
+ *   implemented, and there are other feature-specific
+ *   feature or capability bits available in other return value
+ *   registers.
+ * And for FEATURE_SELECTOR all defined features return data in other
+ * registers, so 0 is not an allowed return.
+ */
+static inline s64 arm_drtm_query_feature(u64 feature, u64 *value)
+{
+	struct arm_smccc_res res;
+
+	arm_smccc_1_1_smc(ARM_DRTM_SMC_FEATURES,
+			  ARM_DRTM_FEATURE_SELECTOR |
+				  FIELD_PREP(ARM_DRTM_FEATURE_ID_MASK, feature),
+			  0, 0, 0, 0, 0, 0, &res);
+	*value = res.a1;
+	return res.a0;
+}
+
+Thanks,
+Jason
 
