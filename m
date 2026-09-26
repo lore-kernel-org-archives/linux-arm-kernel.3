@@ -4,73 +4,73 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 957D5C98318
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 26 Sep 2026 11:06:33 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 966D7C98332
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 26 Sep 2026 11:06:50 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=OuCfL206+SFfyH6z1qMo483rq8R+i1flYwR2z4BngNg=; b=Yr9H9XkaFg6H6Bd9XuUHHp6GaE
-	xaEmWlU33u+Pwi7eojiyOhDyDSXoIJhpqYMVi4r6zhEE1e5O+x/GdtQn8UOF1aMrlc32AfLipsl0b
-	Dauw9l05iVV0j3VutX5M31CGZu3cA25mYYJ5S/nSWMA9fYPPSbqbBgDKvXHZqaMlFpzSDJQASmiKQ
-	SuPL3yPweyRe2GuRgxJ3pU0La2hxkVwOyoH+qobbra3kvaUid8CDIA/k//n/XuGrCa0rUgqJG3RAB
-	OZ5jRVG0vZAPz1GwSgqv+nMm2Qeb1eoFEPY4T6tNKCuOaRGDuKmcu0Ii79lhgzw+harSttVLom0Cj
-	hkUgHJ/Q==;
+	bh=MQ0vYFkxdaMqMwyx9qeAx1+aO+J669PDRxhR9FqldJw=; b=vtXJ5v8OG+EO3ZwDZx5VSYTVxR
+	wGuqM40ipy2ncvs1mAWedkN0lszg5kDpY2zTEBG41A+QhZsQb2/ofshG/wIft5R0dFPGngh3RxViD
+	PiplY6eDf9+IwEI4bLvsMb5WwRpWHYoB2KuJvAeG1jzTJrydgNhC4oAt6hfS0d0/8TTmHUL0SkJNe
+	s20wmskFrzAw03yk52T7K3FiIIOQ8T8CcSaNXol5jJ8xRt7o5zmFblNZ8rZdaZRDRvVmHTSG1D9pv
+	kzATJWQouuPhfZyeghKAr90Cn4Ssm7rJamfrqrT4AWPuWBKkSOISiGqV57xAUHU7KcDNIPxzpUoWT
+	VraYpC8g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xAQEG-0000000FI5T-44Oo;
-	Sat, 26 Sep 2026 11:06:04 +0000
-Received: from mail-wm2-x10.google.com ([2a00:1450:4864:31::10])
+	id 1xAQEu-0000000FISk-0NYE;
+	Sat, 26 Sep 2026 11:06:44 +0000
+Received: from mail-wr2-x10.google.com ([2a00:1450:4864:30::10])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xAQE7-0000000FI25-4327
+	id 1xAQEN-0000000FIAw-3iV6
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 26 Sep 2026 11:05:57 +0000
-Received: by mail-wm2-x10.google.com with SMTP id 5b1f17b1804b1-49b912d3931so13139375e9.3
-        for <linux-arm-kernel@lists.infradead.org>; Sat, 26 Sep 2026 04:05:55 -0700 (PDT)
+	Sat, 26 Sep 2026 11:06:13 +0000
+Received: by mail-wr2-x10.google.com with SMTP id ffacd0b85a97d-482f6350f91so953647f8f.1
+        for <linux-arm-kernel@lists.infradead.org>; Sat, 26 Sep 2026 04:06:11 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1790420754; x=1791025554; darn=lists.infradead.org;
+        d=gmail.com; s=20251104; t=1790420770; x=1791025570; darn=lists.infradead.org;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to:content-type;
-        bh=OuCfL206+SFfyH6z1qMo483rq8R+i1flYwR2z4BngNg=;
-        b=jXZ0i8zT8OScA0L13BnDe6yEP9nCGQUic+4kQYgP7H1v4SrsedCApvoDsjU4SeUT9r
-         wUst9iZ/tibDNwvEovP6Z6lgQ8LMKLEUa9KgwPmBJ1dUMTyBxpck1vpsme9hjD87vxFN
-         UOxhItCABxQpsFQAaRn6gzQ79Pi+WBtRLtsxDI6mMGcbW23DK4irp2V1HsgyqkTFsZLN
-         hcz0niPDsX+5TyFGK7BTVl+GNZGQs0/FFn3SFx4guWsAmbM4UYatIvpGjEgfC0BWToau
-         P5DyTkooQe0RAqoQxuM7NQeOWtoZB69aLSrCURfMC9lM0IiwcQbAWYNj836HCmhgJElS
-         ufhA==
+        bh=MQ0vYFkxdaMqMwyx9qeAx1+aO+J669PDRxhR9FqldJw=;
+        b=pb5OwvuBwIRN9hXORa115YiYRa24J+NUj2sKj1TriPL9wddIOs8eVvtsRM6D5+8wJc
+         Qaj/tDA/8Q2Ttpt98Dr/T/XtqGXkapMiJTZj1gR2a4YgyyMRIwmPOhfqRNz2ExRn73Ep
+         vy5OZgjBJAc0meG/EtL8q4mhigaZQsQn56F6icx75V3DbPqlb+mUCGg36LOG1Fed4J4K
+         E32t+MZiRRsYMJp5XPeo532AjOLoV2d5QGxkqjO+ZyFtWPoalrv0ttzuINT4iZAcdx8Q
+         58OxvMJoMGoPMO+zzugZl3mIatXnLyDS4sJsc8quEVMvnd9YSwNUlZteoKhp8pCjVYdt
+         ifBw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1790420754; x=1791025554;
+        d=1e100.net; s=20260707; t=1790420770; x=1791025570;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
          :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=OuCfL206+SFfyH6z1qMo483rq8R+i1flYwR2z4BngNg=;
-        b=xGilZWeeHxREhAVF30IwPVSBaP64un+GSSjB3YS+7eUYWtB13c7jEdN4e/FnXgNOpz
-         J4LkgUMSX4FtWOm6byH8IhiChyQekTkZi+YgxB1jwG8e1AjHGKb8mx06tQHEpdCg6N+I
-         sJC8Gw1WyWQLaQnpJ+5WY2nHykjWmmI/E73lNN+y7fO0e4TbvazfgyCMOa3jEsuonzJY
-         6MRodnmZBT2B8jM3BE4SOYmc3lu06GEmaySeFMiMuC4OQ9JiELxg2VtxTz9nFls+RTYt
-         GSwgLmZuxxWmSbknMxOmCuNC7wGv/iwyw8hwYqntbnxFNjEDjsvMdk+qAihpsV/gZP+E
-         +l0g==
-X-Forwarded-Encrypted: i=1; AKwUvBxN13G5efJ7a0Bx1trZDFGDc5xQqyRTw5Y81iJj1GVzimBXsYg3VfvjZbx8vWeRoIx//oi9FLE2bmLhTQpYUbUH@lists.infradead.org
-X-Gm-Message-State: AFuF++ntfHxs3pziT/Fx0Qroa573fNcnxY7F0wvlXb6fyyVQcTTSWkpa
-	EceBqIKyV8BQNOTkaWWLIMXNKLP7TiWDZubdmLV6gDde+6IMChW0bO1r
-X-Gm-Gg: AYBFou0HbEl4uX/oFKRuAEugkB9kk1yu0S+SZ65kC3xeu+c5e0Mp8eC7HsW67Nexi0N
-	7+vdF0dyfX8Q4rjkeaRz5XUq1l8Ynymeb9YforzdQPxZXUaHefx1IeUV+qsR75aLK975Yjz1kaN
-	RUUGSZGQ7ZvqsrWenQRI7mqh0r5ruyd1nyywAo+0WbAVr11gngHvh2TgoxbVT3Fb6TRwVpqJ7IZ
-	NLDPZGrSitP1JgnLcFuebfpf/958MSXuzbBc+oioLztzesJg6GIEvFS7IR++xlR3nv0jef/2FCN
-	XZmvZd39mXpsROoJoNu/LgWGcMiepO1XKSZ25EFqk2mdVoOv2s20XDB4ZSxfZQaeyJGPGyPNOL4
-	vQ7MXuBlvd6127Ajan+NKc3BVTj3M9V/ic7OMpqz7abRaVzeqvKx1Tqwbe4lGsR7p8GyZavOz+Z
-	LSo8QkSewBw3aF/DkloBRGRVCZrHX2FEKc76AUGnv6yTG1y1pJAtnwga2n8xQ6ZVP8j29Ck3qn3
-	GBKp4kLq+zypTuX1QsyEcuGYYUqPYaLjaxfO/dtoy+gKmcRAgrZ5HiL15KQq0IhFFEA/Pn9uc+2
-	9UtBOnV7jil+aUWGa9JYIQ==
-X-Received: by 2002:a05:600c:4754:b0:49c:c96a:d36b with SMTP id 5b1f17b1804b1-49fe66d1663mr148201725e9.12.1790420753924;
-        Sat, 26 Sep 2026 04:05:53 -0700 (PDT)
+        bh=MQ0vYFkxdaMqMwyx9qeAx1+aO+J669PDRxhR9FqldJw=;
+        b=UULCmueTJob2eVUiIkhiK35OIR9ngmkv3Xweh0CzJC0+HYLVQ/+1Nybxcnry0dO3Vi
+         szqfNkcY4REPsDx18afbDK4mYh80jj5J7dcDP3poa9bmkdx/NGlynrMSDZaOrzJHrCHD
+         UucDUwrPGM9iyAjMAtOUPF3QJJhOJ1F9B26G4kXXQdhakS2edvL3rYvFHF1GeWepLo8t
+         3WhG27kU9wsUhik9hKhFwz8uQZpscy7XoPR8mV2/GPCmSkyiX37Hy+RHMjtdUw4U3Uqm
+         A0YmUEjmCSZK8xYCV2PxNYOepBPsL/hDgODZCMe4T2nxH30g2r90omqBEBjbsehp1L2F
+         z5Sw==
+X-Forwarded-Encrypted: i=1; AKwUvBzWVyg1NXf6Epgkefon6wN50sS70g7ey4R6c6p733tTDuaAHZsTBbD1ppeO2bEUoP14xK/ZD/pMWrnFWxmV2vXi@lists.infradead.org
+X-Gm-Message-State: AFq9FYLbUPbryPZnXSlzjv/rcf1EPb7fCCljsnYYXQ/eYSAPU7yW1ZoQ
+	fp4XkuFcrXV0dO+UPV6pJ3J6BmatyIhSzPDd2QVN6zb1oXx0BX7NM5CF
+X-Gm-Gg: AYBFou2oZJnEtW+3uKn0yY9IYZM52U3QTg4rwIrw0UQ2Y4LyjBQGdhi2pkYKOHTsuXG
+	iUl4i7832f0uaFxQDao5CsHG0ZB6fCJSisdgRRg6HUsS74r8w8S3Fq0tCFyqGPjbJ4VozwAta0z
+	trd2slRRIp6W+2VgE701zOQp11gPIHiPOFTc9+ZkcFnt8ciBUCXQrDhciRE518YeyyWc/6Ag/Mb
+	Baa/lMl7Bl1kyrjBbfVs2xKAp7XtR2/CAwgQBnL9WklsYiFlW8Q94Aa3R9lN1DvYgRWDtEob97u
+	j56Da2O8hMKt+rdoysTmZP99zJ2ndyvVCcmR7/Bzur4Mc61sntSh6OFTASvccdaAhDoApJEiDxx
+	b1e4yf0Y7Kg75JP/RL01sU3UQ08uqW4Cdi/tXBgtxJKLrun1r2+5YgkMOuI1qn2/auJyne5t6VJ
+	NbESTCRHp19ZAwJEtW3P/744hpZCTdCvpV3LAuDEhdk++K2orVLBlKcbiSvsZaH8SWFP0/BdgoB
+	sc5mSRrKnm8gr/U3SQDmCheT57PJpUI/6eEDg19gAhlQnRzqmoVuA3XmAiK2VM+T8sFXyfO+pNK
+	x4HjXMnPDSl35BPVJ/LbQQ==
+X-Received: by 2002:a05:6000:4607:b0:487:1646:8740 with SMTP id ffacd0b85a97d-4887db2d06dmr8287661f8f.29.1790420770200;
+        Sat, 26 Sep 2026 04:06:10 -0700 (PDT)
 Received: from Lord-Beerus.station ([31.27.155.43])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-4887a64f795sm12124664f8f.31.2026.09.26.04.05.52
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-4887a64f795sm12124664f8f.31.2026.09.26.04.06.08
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sat, 26 Sep 2026 04:05:53 -0700 (PDT)
+        Sat, 26 Sep 2026 04:06:09 -0700 (PDT)
 From: Stefano Radaelli <stefano.radaelli21@gmail.com>
 X-Google-Original-From: Stefano Radaelli <stefano.r@variscite.com>
 To: Frank Li <Frank.Li@nxp.com>,
@@ -103,17 +103,17 @@ Cc: pierluigi.p@variscite.com,
 	Hugo Villeneuve <hvilleneuve@dimonoff.com>,
 	Stefan Eichenberger <eichest@gmail.com>,
 	netdev@vger.kernel.org
-Subject: [PATCH v2 02/11] dt-bindings: net: micrel: Fix RMII clock select property type
-Date: Sat, 26 Sep 2026 13:05:30 +0200
-Message-ID: <6580cb8231c0ccada44d3e510374f6c21b65d283.1790413032.git.stefano.r@variscite.com>
+Subject: [PATCH v2 11/11] ARM: dts: imx6ul: Enable Variscite i.MX6UL board DTBs
+Date: Sat, 26 Sep 2026 13:05:39 +0200
+Message-ID: <18c922ead3419fbc68e88d3ce1233faa9b1a2e63.1790413032.git.stefano.r@variscite.com>
 X-Mailer: git-send-email 2.47.3
 In-Reply-To: <cover.1790413032.git.stefano.r@variscite.com>
 References: <cover.1790413032.git.stefano.r@variscite.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260926_040556_028488_82B2FA67 
-X-CRM114-Status: GOOD (  11.21  )
+X-CRM114-CacheID: sfid-20260926_040611_988013_5D4AB207 
+X-CRM114-Status: GOOD (  11.04  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -130,76 +130,131 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 
 From: Stefano Radaelli <stefano.r@variscite.com>
 
-The binding describes micrel,rmii-reference-clock-select-25-mhz as a
-boolean. dt-schema requires properties ending in -mhz to contain an
-unsigned integer value. A bare property therefore produces a
-property-units.yaml type warning.
+Add Makefile targets for the VAR-SOM-6UL and DART-6UL board variants
+based on i.MX6UL, i.MX6ULL and i.MX6ULZ.
 
-Describe 25 MHz selection as <1> and keep the property restricted to
-KSZ8021, KSZ8031, KSZ8081 and KSZ8091 PHYs, which have the RMII
-reference clock select bit. The driver checks only for the property
-presence, so this does not change runtime behavior.
+Keep the existing Concerto DTB targets enabled alongside the new
+carrier, storage, wireless and audio combinations.
 
 Signed-off-by: Stefano Radaelli <stefano.r@variscite.com>
 ---
 v1->v2:
  - 
 
- .../devicetree/bindings/net/micrel.yaml       | 27 ++++++++++++++-----
- 1 file changed, 20 insertions(+), 7 deletions(-)
+ arch/arm/boot/dts/nxp/imx/Makefile | 92 +++++++++++++++++++++++++++++-
+ 1 file changed, 91 insertions(+), 1 deletion(-)
 
-diff --git a/Documentation/devicetree/bindings/net/micrel.yaml b/Documentation/devicetree/bindings/net/micrel.yaml
-index 6fa568057b92..a1f876dc00de 100644
---- a/Documentation/devicetree/bindings/net/micrel.yaml
-+++ b/Documentation/devicetree/bindings/net/micrel.yaml
-@@ -63,6 +63,14 @@ properties:
-     minimum: 0
-     maximum: 3
+diff --git a/arch/arm/boot/dts/nxp/imx/Makefile b/arch/arm/boot/dts/nxp/imx/Makefile
+index c5caca92ea10..cdca939b10a9 100644
+--- a/arch/arm/boot/dts/nxp/imx/Makefile
++++ b/arch/arm/boot/dts/nxp/imx/Makefile
+@@ -377,6 +377,36 @@ dtb-$(CONFIG_SOC_IMX6UL) += \
+ 	imx6ul-tx6ul-mainboard.dtb \
+ 	imx6ul-var-som-concerto.dtb \
+ 	imx6ul-var-som-concerto-full.dtb \
++	imx6ul-var-dart-emmc-sd-card-wm8731-6ulcustomboard.dtb \
++	imx6ul-var-dart-emmc-sd-card-6ulcustomboard.dtb \
++	imx6ul-var-dart-emmc-wifi-brcm-wm8731-6ulcustomboard.dtb \
++	imx6ul-var-dart-emmc-wifi-brcm-6ulcustomboard.dtb \
++	imx6ul-var-dart-emmc-wifi-iw61x-6ulcustomboard.dtb \
++	imx6ul-var-dart-nand-sd-card-wm8731-6ulcustomboard.dtb \
++	imx6ul-var-dart-nand-sd-card-6ulcustomboard.dtb \
++	imx6ul-var-dart-nand-wifi-brcm-wm8731-6ulcustomboard.dtb \
++	imx6ul-var-dart-nand-wifi-brcm-6ulcustomboard.dtb \
++	imx6ul-var-dart-nand-wifi-iw61x-6ulcustomboard.dtb \
++	imx6ul-var-som-emmc-sd-card-wm8731-concerto-board.dtb \
++	imx6ul-var-som-emmc-sd-card-concerto-board.dtb \
++	imx6ul-var-som-emmc-wifi-brcm-wm8731-concerto-board.dtb \
++	imx6ul-var-som-emmc-wifi-brcm-concerto-board.dtb \
++	imx6ul-var-som-emmc-wifi-iw61x-concerto-board.dtb \
++	imx6ul-var-som-nand-sd-card-wm8731-concerto-board.dtb \
++	imx6ul-var-som-nand-sd-card-concerto-board.dtb \
++	imx6ul-var-som-nand-wifi-brcm-wm8731-concerto-board.dtb \
++	imx6ul-var-som-nand-wifi-brcm-concerto-board.dtb \
++	imx6ul-var-som-nand-wifi-iw61x-concerto-board.dtb \
++	imx6ul-var-som-emmc-sd-card-wm8731-symphony-board.dtb \
++	imx6ul-var-som-emmc-sd-card-symphony-board.dtb \
++	imx6ul-var-som-emmc-wifi-brcm-wm8731-symphony-board.dtb \
++	imx6ul-var-som-emmc-wifi-brcm-symphony-board.dtb \
++	imx6ul-var-som-emmc-wifi-iw61x-symphony-board.dtb \
++	imx6ul-var-som-nand-sd-card-wm8731-symphony-board.dtb \
++	imx6ul-var-som-nand-sd-card-symphony-board.dtb \
++	imx6ul-var-som-nand-wifi-brcm-wm8731-symphony-board.dtb \
++	imx6ul-var-som-nand-wifi-brcm-symphony-board.dtb \
++	imx6ul-var-som-nand-wifi-iw61x-symphony-board.dtb \
+ 	imx6ull-14x14-evk.dtb \
+ 	imx6ull-colibri-aster.dtb \
+ 	imx6ull-colibri-emmc-aster.dtb \
+@@ -417,8 +447,68 @@ dtb-$(CONFIG_SOC_IMX6UL) += \
+ 	imx6ull-uti260b.dtb \
+ 	imx6ull-var-som-concerto.dtb \
+ 	imx6ull-var-som-concerto-full.dtb \
++	imx6ull-var-dart-emmc-sd-card-wm8731-6ulcustomboard.dtb \
++	imx6ull-var-dart-emmc-sd-card-6ulcustomboard.dtb \
++	imx6ull-var-dart-emmc-wifi-brcm-wm8731-6ulcustomboard.dtb \
++	imx6ull-var-dart-emmc-wifi-brcm-6ulcustomboard.dtb \
++	imx6ull-var-dart-emmc-wifi-iw61x-6ulcustomboard.dtb \
++	imx6ull-var-dart-nand-sd-card-wm8731-6ulcustomboard.dtb \
++	imx6ull-var-dart-nand-sd-card-6ulcustomboard.dtb \
++	imx6ull-var-dart-nand-wifi-brcm-wm8731-6ulcustomboard.dtb \
++	imx6ull-var-dart-nand-wifi-brcm-6ulcustomboard.dtb \
++	imx6ull-var-dart-nand-wifi-iw61x-6ulcustomboard.dtb \
++	imx6ull-var-som-emmc-sd-card-wm8731-concerto-board.dtb \
++	imx6ull-var-som-emmc-sd-card-concerto-board.dtb \
++	imx6ull-var-som-emmc-wifi-brcm-wm8731-concerto-board.dtb \
++	imx6ull-var-som-emmc-wifi-brcm-concerto-board.dtb \
++	imx6ull-var-som-emmc-wifi-iw61x-concerto-board.dtb \
++	imx6ull-var-som-nand-sd-card-wm8731-concerto-board.dtb \
++	imx6ull-var-som-nand-sd-card-concerto-board.dtb \
++	imx6ull-var-som-nand-wifi-brcm-wm8731-concerto-board.dtb \
++	imx6ull-var-som-nand-wifi-brcm-concerto-board.dtb \
++	imx6ull-var-som-nand-wifi-iw61x-concerto-board.dtb \
++	imx6ull-var-som-emmc-sd-card-wm8731-symphony-board.dtb \
++	imx6ull-var-som-emmc-sd-card-symphony-board.dtb \
++	imx6ull-var-som-emmc-wifi-brcm-wm8731-symphony-board.dtb \
++	imx6ull-var-som-emmc-wifi-brcm-symphony-board.dtb \
++	imx6ull-var-som-emmc-wifi-iw61x-symphony-board.dtb \
++	imx6ull-var-som-nand-sd-card-wm8731-symphony-board.dtb \
++	imx6ull-var-som-nand-sd-card-symphony-board.dtb \
++	imx6ull-var-som-nand-wifi-brcm-wm8731-symphony-board.dtb \
++	imx6ull-var-som-nand-wifi-brcm-symphony-board.dtb \
++	imx6ull-var-som-nand-wifi-iw61x-symphony-board.dtb \
+ 	imx6ulz-14x14-evk.dtb \
+-	imx6ulz-bsh-smm-m2.dtb
++	imx6ulz-bsh-smm-m2.dtb \
++	imx6ulz-var-dart-emmc-sd-card-wm8731-6ulcustomboard.dtb \
++	imx6ulz-var-dart-emmc-sd-card-6ulcustomboard.dtb \
++	imx6ulz-var-dart-emmc-wifi-brcm-wm8731-6ulcustomboard.dtb \
++	imx6ulz-var-dart-emmc-wifi-brcm-6ulcustomboard.dtb \
++	imx6ulz-var-dart-emmc-wifi-iw61x-6ulcustomboard.dtb \
++	imx6ulz-var-dart-nand-sd-card-wm8731-6ulcustomboard.dtb \
++	imx6ulz-var-dart-nand-sd-card-6ulcustomboard.dtb \
++	imx6ulz-var-dart-nand-wifi-brcm-wm8731-6ulcustomboard.dtb \
++	imx6ulz-var-dart-nand-wifi-brcm-6ulcustomboard.dtb \
++	imx6ulz-var-dart-nand-wifi-iw61x-6ulcustomboard.dtb \
++	imx6ulz-var-som-emmc-sd-card-wm8731-concerto-board.dtb \
++	imx6ulz-var-som-emmc-sd-card-concerto-board.dtb \
++	imx6ulz-var-som-emmc-wifi-brcm-wm8731-concerto-board.dtb \
++	imx6ulz-var-som-emmc-wifi-brcm-concerto-board.dtb \
++	imx6ulz-var-som-emmc-wifi-iw61x-concerto-board.dtb \
++	imx6ulz-var-som-nand-sd-card-wm8731-concerto-board.dtb \
++	imx6ulz-var-som-nand-sd-card-concerto-board.dtb \
++	imx6ulz-var-som-nand-wifi-brcm-wm8731-concerto-board.dtb \
++	imx6ulz-var-som-nand-wifi-brcm-concerto-board.dtb \
++	imx6ulz-var-som-nand-wifi-iw61x-concerto-board.dtb \
++	imx6ulz-var-som-emmc-sd-card-wm8731-symphony-board.dtb \
++	imx6ulz-var-som-emmc-sd-card-symphony-board.dtb \
++	imx6ulz-var-som-emmc-wifi-brcm-wm8731-symphony-board.dtb \
++	imx6ulz-var-som-emmc-wifi-brcm-symphony-board.dtb \
++	imx6ulz-var-som-emmc-wifi-iw61x-symphony-board.dtb \
++	imx6ulz-var-som-nand-sd-card-wm8731-symphony-board.dtb \
++	imx6ulz-var-som-nand-sd-card-symphony-board.dtb \
++	imx6ulz-var-som-nand-wifi-brcm-wm8731-symphony-board.dtb \
++	imx6ulz-var-som-nand-wifi-brcm-symphony-board.dtb \
++	imx6ulz-var-som-nand-wifi-iw61x-symphony-board.dtb
  
-+  micrel,rmii-reference-clock-select-25-mhz:
-+    enum: [ 1 ]
-+    description: |
-+      RMII Reference Clock Select bit selects 25 MHz mode.
-+
-+      Setting the RMII Reference Clock Select bit enables 25 MHz rather
-+      than 50 MHz clock mode.
-+
- allOf:
-   - $ref: ethernet-phy.yaml#
-   - if:
-@@ -90,6 +98,18 @@ allOf:
-     then:
-       properties:
-         micrel,led-mode: false
-+  - if:
-+      not:
-+        properties:
-+          compatible:
-+            contains:
-+              enum:
-+                - ethernet-phy-id0022.1555
-+                - ethernet-phy-id0022.1556
-+                - ethernet-phy-id0022.1560
-+    then:
-+      properties:
-+        micrel,rmii-reference-clock-select-25-mhz: false
-   - if:
-       properties:
-         compatible:
-@@ -105,13 +125,6 @@ allOf:
-           description:
-             The RMII reference input clock. Used to determine the XI input
-             clock.
--        micrel,rmii-reference-clock-select-25-mhz:
--          type: boolean
--          description: |
--            RMII Reference Clock Select bit selects 25 MHz mode
--
--            Setting the RMII Reference Clock Select bit enables 25 MHz rather
--            than 50 MHz clock mode.
- 
- dependentRequired:
-   micrel,rmii-reference-clock-select-25-mhz: [ clock-names ]
+ imx7d-colibri-emmc-aster-panel-cap-touch-7inch-parallel-dtbs := \
+ 	imx7d-colibri-emmc-aster.dtb \
 -- 
 2.47.3
 
