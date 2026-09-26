@@ -4,81 +4,79 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 71945C98332
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 26 Sep 2026 10:56:06 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CBAD6C98332
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 26 Sep 2026 11:04:41 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=M3v70KpW/UEgjbC3QoaHE8/Wwn5JI4Q7Nay7Ujw/kRM=; b=hUmQGsKkoJYnok7ubozhy32jct
-	wABpQ3N/zSxAL4V2dLL8lnmYuaU0s6bFceOxESIuEDNspNTcqr7jUMVc6nmpDkKgmIpYYWJb+n/dy
-	853HYBO+PFb7Wskcm0RJsDBJPQ9Py816oEKcGppvgH+KreGJvxiXic5sW8sS2002w96CYHhuTyJTh
-	sV+4uF83GB4/q40waaWgSkihxKlWATUcgNzTeBnlf/RWq+7v3lG9klBwqvxMTfs+yO+FdNLn/+EAZ
-	aAT+Q6Mm9HSrLB1h3mK3EHYSMnEz/6zX2RcAmCx3bVjs1DftN59mbEd1PUC2F6ExUVnHg1fjFqLsU
-	yuILrn5w==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
+	:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=rjuEah86VS9smQcbw1BPf2x1MuqJ0in2mIL+HloaBaM=; b=V2W2vn8A/BEqK9ZMFonYNY73AM
+	Mx28uwWRn2Zh2za0eDtkd/i0CMdgEUi2AdvthmewslXLPPNVuU8Yxsv2Vw/xNnecTQteDjYh8qz02
+	8h8eIxc98jvaMibJPA8a1dLEJQLayVWe7S50sgqpju1k+Sqji7vvTIumOIxp1BKwAi6kmbEKGYycN
+	gVUsn7iGCE5EwDHu5N1b3HHS6JrZek6TG4XQKuOmJJr6+WUfmqQW004AELRDFFvPV9g+hczF+AkuE
+	8PP2xcK7N7sgERGy2RCa8apklWQ0dxiusfG1yv3UEt9/0iprqU/gF7ig2qO20KeCiz9YOibIuzdHl
+	pNdZY+UA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xAQ4N-0000000FHVA-0DBe;
-	Sat, 26 Sep 2026 10:55:51 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1xAQCn-0000000FHsK-0UhW;
+	Sat, 26 Sep 2026 11:04:33 +0000
+Received: from sender4-pp-f112.zoho.com ([136.143.188.112])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xAQ4L-0000000FHUu-3og5;
-	Sat, 26 Sep 2026 10:55:49 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 361FE434E8;
-	Sat, 26 Sep 2026 10:55:49 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 4FF751F000FF;
-	Sat, 26 Sep 2026 10:55:37 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1790420149;
-	bh=M3v70KpW/UEgjbC3QoaHE8/Wwn5JI4Q7Nay7Ujw/kRM=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To;
-	b=IHBSTyxMLUw3GVcRSy3mO/ECQ4hJ1yBZZ2Fg+yVS1RarSpt8dFI4iFDIo95Lwa9PP
-	 cfvHzKodI/lFDD0B3BiP+pmPS6/+dMiXZ2aYTlQwawo1uA30hTSbG1OzGWKCm4ceR/
-	 1izip1d0LM1TP3PdLeyH/9HabEnFS8hE2+FPHy1cSMnD8uz2cVae8sQwCx9X7neF2a
-	 h/mYvHClf0b2Gc5QDjffkFvIyKKai+xRudGhuP9ff+JJWIqFsSYpef0O2k7Z5UotR5
-	 45FLjP0GWzu1GyLnWI1k8axuM4LPHOIjh+CUhWiw4yNmf82WYJU9QnBsbdZoxRdUfP
-	 6jdo8KZfLDGTQ==
-Message-ID: <9d1c338b-368f-4ea2-a12e-c28d49adff5e@kernel.org>
-Date: Sat, 26 Sep 2026 12:55:34 +0200
+	id 1xAQCk-0000000FHrf-0M4P;
+	Sat, 26 Sep 2026 11:04:31 +0000
+ARC-Seal: i=1; a=rsa-sha256; t=1790420616; cv=none; 
+	d=zohomail.com; s=zohoarc; 
+	b=J+d73KLeGearmnB+EsTVJtGDCcSURFACrgEwh5Gb7M21chj2jV1Iiit5g2XuHpnZOgApomGnOFshy2+ZE30TYmi6nLvX7XWaX3ZQ0NJbncOpDrpapmGFi2JDH4aar3UCF6ltRb51TYA3VIhMcspdRiaMrqpDZxado9d02/xh/JI=
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=zohomail.com; s=zohoarc; 
+	t=1790420616; h=Content-Type:Content-Transfer-Encoding:Cc:Cc:Date:Date:From:From:In-Reply-To:MIME-Version:Message-ID:Subject:Subject:To:To:Message-Id:Reply-To; 
+	bh=rjuEah86VS9smQcbw1BPf2x1MuqJ0in2mIL+HloaBaM=; 
+	b=OsZKRAMkF8q9LsPcTuoqp84kacZgiIo6b+GtRP0r9W02fJtB+IdlVaEptr8d2jnOGWX4MJlaY71EqZAPEL5e3kGCysQa8cnPXjb7P0ohs7tXOGQlJrSM9eVbm+ROS9y06UMDSypBdEj6EGQtP5fotEzox+qOcsnX7OlEIregMpY=
+ARC-Authentication-Results: i=1; mx.zohomail.com;
+	dkim=pass  header.i=collabora.com;
+	spf=pass  smtp.mailfrom=nicolas.frattaroli@collabora.com;
+	dmarc=pass header.from=<nicolas.frattaroli@collabora.com>
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; t=1790420616;
+	s=zohomail; d=collabora.com; i=nicolas.frattaroli@collabora.com;
+	h=From:From:To:To:Cc:Cc:Subject:Subject:Date:Date:Message-ID:In-Reply-To:MIME-Version:Content-Transfer-Encoding:Content-Type:Message-Id:Reply-To;
+	bh=rjuEah86VS9smQcbw1BPf2x1MuqJ0in2mIL+HloaBaM=;
+	b=de3Qat5DuIdjZb7RKGMxcOSJibnNV+AOyda+7rjD/9kRdWeCv7eaCxRumnTNw0yg
+	2GK8KFKG72pJhpMyjbDG6PYCUF7AxmkDaBzBmMxAdLJMCyTH44V0un6ZpbVSV3AYipJ
+	+U6jHbOPfKhZYVu42mAeHC4//ujgMDLEI+MuFvhk=
+Received: by smtp.zohomail.com with SMTPS id 1790420615376767.1283057968208;
+	Sat, 26 Sep 2026 04:03:35 -0700 (PDT)
+From: Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
+To: Vidith Madhu <vmadhu@nvidia.com>
+Cc: "Borah, Chaitanya Kumar" <chaitanya.kumar.borah@intel.com>,
+ Leo Li <sunpeng.li@amd.com>, Daniel Stone <daniels@collabora.com>,
+ Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
+ Maxime Ripard <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>,
+ David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>,
+ Helge Deller <deller@gmx.de>, Andrzej Hajda <andrzej.hajda@intel.com>,
+ Neil Armstrong <neil.armstrong@linaro.org>, Robert Foss <rfoss@kernel.org>,
+ Laurent Pinchart <Laurent.pinchart@ideasonboard.com>,
+ Jonas Karlman <jonas@kwiboo.se>, Jernej Skrabec <jernej.skrabec@gmail.com>,
+ Luca Ceresoli <luca.ceresoli@bootlin.com>, Sandy Huang <hjc@rock-chips.com>,
+ Heiko =?UTF-8?B?U3TDvGJuZXI=?= <heiko@sntech.de>,
+ Andy Yan <andy.yan@rock-chips.com>, dri-devel@lists.freedesktop.org,
+ linux-kernel@vger.kernel.org, linux-fbdev@vger.kernel.org,
+ linux-rockchip@lists.infradead.org, linux-arm-kernel@lists.infradead.org,
+ kernel@collabora.com, Derek Foreman <derek.foreman@collabora.com>,
+ wayland-devel@lists.freedesktop.org
+Subject: Re: [PATCH RFC 06/25] drm/connector: hdmi: Add VTEM EMP generation
+Date: Sat, 26 Sep 2026 13:03:27 +0200
+Message-ID: <FJ8OpdCORV2b1oivG9-G9Q@collabora.com>
+In-Reply-To: <a5bc012a-9b9e-eb2b-d67e-a91f2d93d6bf@nvidia.com>
+References: <20260921-vrr-limiter-uapi-v1-0-2fcd7d011646@collabora.com>
+ <20260921-vrr-limiter-uapi-v1-6-2fcd7d011646@collabora.com>
+ <a5bc012a-9b9e-eb2b-d67e-a91f2d93d6bf@nvidia.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2] random: vDSO: Avoid call to memset() when zeroing
- reserved in __cvdso_getrandom_data()
-To: "Jason A. Donenfeld" <Jason@zx2c4.com>,
- Nick Desaulniers <ndesaulniers@google.com>
-Cc: Nathan Chancellor <nathan@kernel.org>, Andy Lutomirski <luto@kernel.org>,
- Thomas Gleixner <tglx@kernel.org>, Theodore Ts'o <tytso@mit.edu>,
- Vincenzo Frascino <vincenzo.frascino@arm.com>,
- Bill Wendling <morbo@google.com>, Justin Stitt <justinstitt@google.com>,
- Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
- Mark Rutland <mark.rutland@arm.com>, Huacai Chen <chenhuacai@kernel.org>,
- WANG Xuerui <kernel@xen0n.name>, Madhavan Srinivasan <maddy@linux.ibm.com>,
- Michael Ellerman <mpe@ellerman.id.au>, Nicholas Piggin <npiggin@gmail.com>,
- Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>,
- Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>,
- Heiko Carstens <hca@linux.ibm.com>, Vasily Gorbik <gor@linux.ibm.com>,
- Alexander Gordeev <agordeev@linux.ibm.com>,
- Christian Borntraeger <borntraeger@linux.ibm.com>,
- Sven Schnelle <svens@linux.ibm.com>, Ingo Molnar <mingo@redhat.com>,
- Borislav Petkov <bp@alien8.de>, Dave Hansen <dave.hansen@linux.intel.com>,
- "H. Peter Anvin" <hpa@zytor.com>, x86@kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
- loongarch@lists.linux.dev, linuxppc-dev@lists.ozlabs.org,
- linux-riscv@lists.infradead.org, linux-s390@vger.kernel.org,
- llvm@lists.linux.dev
-References: <20260925-vdso-getrandom-avoid-memset-llvm-24-v2-1-ce640f872393@kernel.org>
- <CAKwvOdmuvn0LZkYEsH84hnOGTYhTtzuWs3wMARtWdTeL6dD9sA@mail.gmail.com>
- <CAKwvOdnxKVpn=nAFaqP+9PTx4PqgHsUVWv6e60Pcr29W_eZrpQ@mail.gmail.com>
- <CAKwvOdmNZL3eFvV3v77GXDzL+XLgz+BT9TA=my0yTnbsHqVeSg@mail.gmail.com>
- <areYMjNcaqe86ds4@zx2c4.com>
-Content-Language: fr-FR
-From: "Christophe Leroy (CS GROUP)" <chleroy@kernel.org>
-In-Reply-To: <areYMjNcaqe86ds4@zx2c4.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 8bit
+Content-Transfer-Encoding: 7Bit
+Content-Type: text/plain; charset="utf-8"
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260926_040430_219301_BC41333B 
+X-CRM114-Status: GOOD (  35.06  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -93,207 +91,183 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Jason,
-
-Le 26/09/2026 à 12:02, Jason A. Donenfeld a écrit :
-> On Fri, Sep 25, 2026 at 03:00:46PM -0700, Nick Desaulniers wrote:
->> On Fri, Sep 25, 2026 at 2:56 PM Nick Desaulniers
->> <ndesaulniers@google.com> wrote:
->>>
->>> On Fri, Sep 25, 2026 at 2:53 PM Nick Desaulniers
->>> <ndesaulniers@google.com> wrote:
->>>>
->>>> On Fri, Sep 25, 2026 at 2:46 PM Nathan Chancellor <nathan@kernel.org> wrote:
->>>>>
->>>>> After a recent change in LLVM [1], builds with the random vDSO
->>>>> implementation, such as PowerPC and RISC-V, fail when checking the vDSO:
->>>>>
->>>>>    arch/powerpc/kernel/vdso/vdso32.so.dbg: dynamic relocations are not supported
->>>>>    arch/riscv/kernel/vdso/vdso.so.dbg: dynamic relocations are not supported
->>>>>
->>>>> memset() is now generated when zeroing params->reserved for some builds
->>>>> because LLVM has an optimization (now run in more instances) that can
->>>>> recognize at compile time when it is assigning a static value to a
->>>>> contiguous area of memory and turn that into a call to memset(). Both
->>>>> clang and GCC assume memset() is always available [2].
->>>>>
->>>>> clang provides a builtin, __builtin_memset_inline [3][4], that can be
->>>>> used to ensure an external function call is not generated when zeroing
->>>>> this memory. Use it when it is available.
->>>>>
->>>>> While GCC has no issues with the current code, it has generated memset()
->>>>> before, as seen in commit b7bad082e113 ("random: vDSO: avoid call to out
->>>>> of line memset()"). GCC 14 provides '-finline-stringops=memset' [5][6]
->>>>> with a similar guarantee to the clang builtin, so use it and
->>>>> __builtin_memset() when available.
->>>>>
->>>>> If no option is available, provide a simple memset_inline() like the one
->>>>> from lib/string.c to avoid adding an ugly ifdef.
->>>>>
->>>>> Link: https://eur01.safelinks.protection.outlook.com/?url=https%3A%2F%2Fgithub.com%2Fllvm%2Fllvm-project%2Fcommit%2F90cebef1411617fc3eedd359bdf00cb44b1c2439&data=05%7C02%7Cchristophe.leroy%40csgroup.eu%7C4df96063ffd94e6204df08df1bb54e3d%7C8b87af7d86474dc78df45f69a2011bb5%7C0%7C0%7C639260137659627802%7CUnknown%7CTWFpbGZsb3d8eyJFbXB0eU1hcGkiOnRydWUsIlYiOiIwLjAuMDAwMCIsIlAiOiJXaW4zMiIsIkFOIjoiTWFpbCIsIldUIjoyfQ%3D%3D%7C0%7C%7C%7C&sdata=ku4l8Ol5OJ2qi%2BcSblspxxUKOA6rNpiUO3ZvGSoAb1s%3D&reserved=0 [1]
->>>>> Link: https://eur01.safelinks.protection.outlook.com/?url=https%3A%2F%2Fgcc.gnu.org%2Fonlinedocs%2Fgcc-16.2.0%2Fgcc%2FStandards.html%23index-ffreestanding&data=05%7C02%7Cchristophe.leroy%40csgroup.eu%7C4df96063ffd94e6204df08df1bb54e3d%7C8b87af7d86474dc78df45f69a2011bb5%7C0%7C0%7C639260137659651194%7CUnknown%7CTWFpbGZsb3d8eyJFbXB0eU1hcGkiOnRydWUsIlYiOiIwLjAuMDAwMCIsIlAiOiJXaW4zMiIsIkFOIjoiTWFpbCIsIldUIjoyfQ%3D%3D%7C0%7C%7C%7C&sdata=jQa1eTDLk3cPNTa3GEBwVEohHh67ukShaRHMZvA%2FHDg%3D&reserved=0 [2]
->>>>> Link: https://eur01.safelinks.protection.outlook.com/?url=https%3A%2F%2Fgithub.com%2Fllvm%2Fllvm-project%2Fcommit%2F38637ee477541370a90b37f149069d8e5c0c2efd&data=05%7C02%7Cchristophe.leroy%40csgroup.eu%7C4df96063ffd94e6204df08df1bb54e3d%7C8b87af7d86474dc78df45f69a2011bb5%7C0%7C0%7C639260137659668579%7CUnknown%7CTWFpbGZsb3d8eyJFbXB0eU1hcGkiOnRydWUsIlYiOiIwLjAuMDAwMCIsIlAiOiJXaW4zMiIsIkFOIjoiTWFpbCIsIldUIjoyfQ%3D%3D%7C0%7C%7C%7C&sdata=zY7Kr9ZZNNZR%2FVsnwYRlubPRpbMaKe9QtMD2snd8ZvA%3D&reserved=0 [3]
->>>>> Link: https://eur01.safelinks.protection.outlook.com/?url=https%3A%2F%2Fclang.llvm.org%2Fdocs%2FLanguageExtensions.html%23guaranteed-inlined-memset&data=05%7C02%7Cchristophe.leroy%40csgroup.eu%7C4df96063ffd94e6204df08df1bb54e3d%7C8b87af7d86474dc78df45f69a2011bb5%7C0%7C0%7C639260137659678360%7CUnknown%7CTWFpbGZsb3d8eyJFbXB0eU1hcGkiOnRydWUsIlYiOiIwLjAuMDAwMCIsIlAiOiJXaW4zMiIsIkFOIjoiTWFpbCIsIldUIjoyfQ%3D%3D%7C0%7C%7C%7C&sdata=vUU2fhCVcUWsbQD3IsRaUzSO8KVSpxwSpgr9San4aq0%3D&reserved=0 [4]
->>>>> Link: https://eur01.safelinks.protection.outlook.com/?url=https%3A%2F%2Fgcc.gnu.org%2Fgit%2F%3Fp%3Dgcc.git%3Ba%3Dcommit%3Bh%3D1ff6d9f7428b0668cd8ab0b3e3ab94f1d733124d&data=05%7C02%7Cchristophe.leroy%40csgroup.eu%7C4df96063ffd94e6204df08df1bb54e3d%7C8b87af7d86474dc78df45f69a2011bb5%7C0%7C0%7C639260137659687815%7CUnknown%7CTWFpbGZsb3d8eyJFbXB0eU1hcGkiOnRydWUsIlYiOiIwLjAuMDAwMCIsIlAiOiJXaW4zMiIsIkFOIjoiTWFpbCIsIldUIjoyfQ%3D%3D%7C0%7C%7C%7C&sdata=qHRqxAO252imwH1W93yHlp6jdcFGkFOr2Y2hXbG2MLU%3D&reserved=0 [5]
->>>>> Link: https://eur01.safelinks.protection.outlook.com/?url=https%3A%2F%2Fgcc.gnu.org%2Fonlinedocs%2Fgcc%2FOptimize-Options.html%23index-finline-stringops&data=05%7C02%7Cchristophe.leroy%40csgroup.eu%7C4df96063ffd94e6204df08df1bb54e3d%7C8b87af7d86474dc78df45f69a2011bb5%7C0%7C0%7C639260137659698298%7CUnknown%7CTWFpbGZsb3d8eyJFbXB0eU1hcGkiOnRydWUsIlYiOiIwLjAuMDAwMCIsIlAiOiJXaW4zMiIsIkFOIjoiTWFpbCIsIldUIjoyfQ%3D%3D%7C0%7C%7C%7C&sdata=0ecc%2BXd6o3nozh3N71aq%2F98Xam%2Fdol7GUHmC637Iv7I%3D&reserved=0 [6]
->>>>> Suggested-by: "Jason A. Donenfeld" <Jason@zx2c4.com>
->>>>> Suggested-by: Nick Desaulniers <ndesaulniers@google.com>
->>>>> Signed-off-by: Nathan Chancellor <nathan@kernel.org>
->>>>> ---
->>>>> Changes in v2:
->>>>> - Switch approach entirely (Jason, Nick)
->>>>>    - clang: use __builtin_memset_inline() to avoid external call
->>>>>    - GCC 14+: use __builtin_memset + -finline-stringops=memset (hence the
->>>>>      massive CC list increase)
->>>>>    - GCC < 14: no issues currently but avoid ifdef with simple memset
->>>>>      implementation
->>>>> - Link to v1: https://eur01.safelinks.protection.outlook.com/?url=https%3A%2F%2Fpatch.msgid.link%2F20260916-vdso-getrandom-avoid-memset-llvm-24-v1-1-80a92f2e225a%40kernel.org&data=05%7C02%7Cchristophe.leroy%40csgroup.eu%7C4df96063ffd94e6204df08df1bb54e3d%7C8b87af7d86474dc78df45f69a2011bb5%7C0%7C0%7C639260137659712983%7CUnknown%7CTWFpbGZsb3d8eyJFbXB0eU1hcGkiOnRydWUsIlYiOiIwLjAuMDAwMCIsIlAiOiJXaW4zMiIsIkFOIjoiTWFpbCIsIldUIjoyfQ%3D%3D%7C0%7C%7C%7C&sdata=%2Ftq3tUHqDmbXesqB69w6umXAuaTsfzOIhk54Jy76cwo%3D&reserved=0
->>>>> ---
->>>>>   arch/arm64/kernel/vdso/Makefile     |  2 +-
->>>>>   arch/loongarch/vdso/Makefile        |  1 +
->>>>>   arch/powerpc/kernel/vdso/Makefile   |  1 +
->>>>>   arch/riscv/kernel/vdso/Makefile     |  1 +
->>>>>   arch/s390/kernel/vdso/Makefile      |  1 +
->>>>>   arch/x86/entry/vdso/vdso64/Makefile |  2 +-
->>>>>   init/Kconfig                        |  7 +++++++
->>>>>   lib/vdso/getrandom.c                | 19 +++++++++++++++++--
->>>>>   8 files changed, 30 insertions(+), 4 deletions(-)
->>>>>
->>>>> diff --git a/arch/arm64/kernel/vdso/Makefile b/arch/arm64/kernel/vdso/Makefile
->>>>> index 7dec05dd33b7..f6619e1cb2ce 100644
->>>>> --- a/arch/arm64/kernel/vdso/Makefile
->>>>> +++ b/arch/arm64/kernel/vdso/Makefile
->>>>> @@ -41,7 +41,7 @@ CC_FLAGS_REMOVE_VDSO := $(CC_FLAGS_FTRACE) -Os $(CC_FLAGS_SCS) \
->>>>>                          $(CC_FLAGS_LTO) $(CC_FLAGS_CFI) \
->>>>>                          -Wmissing-prototypes -Wmissing-declarations
->>>>>
->>>>> -CC_FLAGS_ADD_VDSO := -O2 -mcmodel=tiny -fasynchronous-unwind-tables
->>>>> +CC_FLAGS_ADD_VDSO := -O2 -mcmodel=tiny -fasynchronous-unwind-tables $(CONFIG_CC_OPT_INLINE_MEMSET)
->>>>>
->>>>>   CFLAGS_REMOVE_vgettimeofday.o = $(CC_FLAGS_REMOVE_VDSO)
->>>>>   CFLAGS_REMOVE_vgetrandom.o = $(CC_FLAGS_REMOVE_VDSO)
->>>>> diff --git a/arch/loongarch/vdso/Makefile b/arch/loongarch/vdso/Makefile
->>>>> index 9c9181bb4071..0b84892d084b 100644
->>>>> --- a/arch/loongarch/vdso/Makefile
->>>>> +++ b/arch/loongarch/vdso/Makefile
->>>>> @@ -16,6 +16,7 @@ ccflags-vdso := \
->>>>>          $(filter -m64,$(KBUILD_CFLAGS)) \
->>>>>          $(filter -march=%,$(KBUILD_CFLAGS)) \
->>>>>          $(filter -m%-float,$(KBUILD_CFLAGS)) \
->>>>> +       $(CONFIG_CC_OPT_INLINE_MEMSET) \
->>>>>          $(CLANG_FLAGS) \
->>>>>          -D__VDSO__
->>>>>
->>>>> diff --git a/arch/powerpc/kernel/vdso/Makefile b/arch/powerpc/kernel/vdso/Makefile
->>>>> index 368759f81708..0d1a49529885 100644
->>>>> --- a/arch/powerpc/kernel/vdso/Makefile
->>>>> +++ b/arch/powerpc/kernel/vdso/Makefile
->>>>> @@ -43,6 +43,7 @@ ccflags-y := -fno-common -fno-builtin -DBUILD_VDSO
->>>>>   ccflags-y += $(DISABLE_LATENT_ENTROPY_PLUGIN)
->>>>>   ccflags-y += $(call cc-option, -fno-stack-protector)
->>>>>   ccflags-y += -DDISABLE_BRANCH_PROFILING
->>>>> +ccflags-y += $(CONFIG_CC_OPT_INLINE_MEMSET)
->>>>>   ccflags-y += -ffreestanding -fasynchronous-unwind-tables
->>>>>   ccflags-remove-y := $(CC_FLAGS_FTRACE)
->>>>>   ldflags-y := -Wl,--hash-style=both -nostdlib -shared -z noexecstack $(CLANG_FLAGS)
->>>>> diff --git a/arch/riscv/kernel/vdso/Makefile b/arch/riscv/kernel/vdso/Makefile
->>>>> index 8dbf2532a573..c023046a3fd7 100644
->>>>> --- a/arch/riscv/kernel/vdso/Makefile
->>>>> +++ b/arch/riscv/kernel/vdso/Makefile
->>>>> @@ -36,6 +36,7 @@ endif
->>>>>   ccflags-y := -fno-stack-protector
->>>>>   ccflags-y += -DDISABLE_BRANCH_PROFILING
->>>>>   ccflags-y += -fno-builtin
->>>>> +ccflags-y += $(CONFIG_CC_OPT_INLINE_MEMSET)
->>>>>   ccflags-y += $(KBUILD_BASE_ISA)$(CFI_MARCH)
->>>>>   ccflags-y += $(CFI_FULL)
->>>>>   asflags-y += $(KBUILD_BASE_ISA)$(CFI_MARCH)
->>>>> diff --git a/arch/s390/kernel/vdso/Makefile b/arch/s390/kernel/vdso/Makefile
->>>>> index 35c834b895ec..54bcf2984ca1 100644
->>>>> --- a/arch/s390/kernel/vdso/Makefile
->>>>> +++ b/arch/s390/kernel/vdso/Makefile
->>>>> @@ -29,6 +29,7 @@ KBUILD_CFLAGS_VDSO := $(filter-out -munaligned-symbols,$(KBUILD_CFLAGS_VDSO))
->>>>>   KBUILD_CFLAGS_VDSO := $(filter-out -fno-asynchronous-unwind-tables,$(KBUILD_CFLAGS_VDSO))
->>>>>   KBUILD_CFLAGS_VDSO += -fPIC -fno-common -fno-builtin -fasynchronous-unwind-tables
->>>>>   KBUILD_CFLAGS_VDSO += -fno-stack-protector $(DISABLE_KSTACK_ERASE)
->>>>> +KBUILD_CFLAGS_VDSO += $(CONFIG_CC_OPT_INLINE_MEMSET)
->>>>>   ldflags-y := -shared -soname=linux-vdso.so.1 \
->>>>>               --hash-style=both --build-id=sha1 \
->>>>>               $(call ld-option, --eh-frame-hdr) -T
->>>>> diff --git a/arch/x86/entry/vdso/vdso64/Makefile b/arch/x86/entry/vdso/vdso64/Makefile
->>>>> index 7c0790065b5e..c2353a065279 100644
->>>>> --- a/arch/x86/entry/vdso/vdso64/Makefile
->>>>> +++ b/arch/x86/entry/vdso/vdso64/Makefile
->>>>> @@ -14,7 +14,7 @@ vobjs-$(CONFIG_X86_SGX)                       += vsgx.o
->>>>>   vobjs-$(CONFIG_FUTEX_ROBUST_UNLOCK)    += vfutex.o
->>>>>
->>>>>   # Compilation flags
->>>>> -flags-y                                := -DBUILD_VDSO64 -m64 -mcmodel=small
->>>>> +flags-y                                := -DBUILD_VDSO64 -m64 -mcmodel=small $(CONFIG_CC_OPT_INLINE_MEMSET)
->>>>>
->>>>>   # The location of this include matters!
->>>>>   include $(src)/../common/Makefile.include
->>>>> diff --git a/init/Kconfig b/init/Kconfig
->>>>> index 8583d9f06c52..ff3f8475dd2f 100644
->>>>> --- a/init/Kconfig
->>>>> +++ b/init/Kconfig
->>>>> @@ -173,6 +173,13 @@ config CC_HAS_ALLOC_TOKEN
->>>>>   config CC_HAS_MULTIDIMENSIONAL_NONSTRING
->>>>>          def_bool $(success,echo 'char tag[][4] __attribute__((__nonstring__)) = { };' | $(CC) $(CLANG_FLAGS) -x c - -c -o /dev/null -Werror)
->>>>>
->>>>> +config CC_HAS_OPT_INLINE_MEMSET
->>>>> +       def_bool $(cc-option,-finline-stringops=memset)
->>>>> +
->>>>> +config CC_OPT_INLINE_MEMSET
->>>>> +       string
->>>>> +       default "-finline-stringops=memset" if CC_HAS_OPT_INLINE_MEMSET
->>>>> +
->>>>>   config LD_CAN_USE_KEEP_IN_OVERLAY
->>>>>          # ld.lld prior to 21.0.0 did not support KEEP within an overlay description
->>>>>          # https://eur01.safelinks.protection.outlook.com/?url=https%3A%2F%2Fgithub.com%2Fllvm%2Fllvm-project%2Fpull%2F130661&data=05%7C02%7Cchristophe.leroy%40csgroup.eu%7C4df96063ffd94e6204df08df1bb54e3d%7C8b87af7d86474dc78df45f69a2011bb5%7C0%7C0%7C639260137659727352%7CUnknown%7CTWFpbGZsb3d8eyJFbXB0eU1hcGkiOnRydWUsIlYiOiIwLjAuMDAwMCIsIlAiOiJXaW4zMiIsIkFOIjoiTWFpbCIsIldUIjoyfQ%3D%3D%7C0%7C%7C%7C&sdata=03eAQvPTDs%2FN28bYiiZAVYcx2JFSkuOM7x2iwFU%2F%2FxA%3D&reserved=0
->>>>> diff --git a/lib/vdso/getrandom.c b/lib/vdso/getrandom.c
->>>>> index 2851afa9154f..f5cad5641985 100644
->>>>> --- a/lib/vdso/getrandom.c
->>>>> +++ b/lib/vdso/getrandom.c
->>>>> @@ -29,6 +29,22 @@
->>>>>          }                                                                       \
->>>>>   } while (0)
->>>>>
->>>>> +#if __has_builtin(__builtin_memset_inline)
->>>>> +#define memset_inline(dst, value, size) __builtin_memset_inline(dst, value, size)
->>>>> +#elif IS_ENABLED(CONFIG_CC_HAS_OPT_INLINE_MEMSET)
->>>>> +#define memset_inline(dst, value, size) __builtin_memset(dst, value, size)
->>>>> +#else
->>>>> +static inline void *memset_inline(void *dst, int value, size_t size)
->>>>> +{
->>>>> +       char *d = dst;
->>>>> +
->>>>> +       while (size--)
->>>>> +               *d++ = value;
->>>>> +
->>>>> +       return d;
->>>>> +}
->>>>> +#endif
->>>>
->>>> Does this work?
->>>> https://eur01.safelinks.protection.outlook.com/?url=https%3A%2F%2Fgodbolt.org%2Fz%2FTx6EaGMfb&data=05%7C02%7Cchristophe.leroy%40csgroup.eu%7C4df96063ffd94e6204df08df1bb54e3d%7C8b87af7d86474dc78df45f69a2011bb5%7C0%7C0%7C639260137659741160%7CUnknown%7CTWFpbGZsb3d8eyJFbXB0eU1hcGkiOnRydWUsIlYiOiIwLjAuMDAwMCIsIlAiOiJXaW4zMiIsIkFOIjoiTWFpbCIsIldUIjoyfQ%3D%3D%7C0%7C%7C%7C&sdata=Xv0rle85Js5BH2qNUL4q2Iv2ZwgJhJ4FaTuHYAvvEVo%3D&reserved=0
->>>
->>> Hmmm...possibly.
->>> https://eur01.safelinks.protection.outlook.com/?url=https%3A%2F%2Fgodbolt.org%2Fz%2Fec9rzd9Yf&data=05%7C02%7Cchristophe.leroy%40csgroup.eu%7C4df96063ffd94e6204df08df1bb54e3d%7C8b87af7d86474dc78df45f69a2011bb5%7C0%7C0%7C639260137659754022%7CUnknown%7CTWFpbGZsb3d8eyJFbXB0eU1hcGkiOnRydWUsIlYiOiIwLjAuMDAwMCIsIlAiOiJXaW4zMiIsIkFOIjoiTWFpbCIsIldUIjoyfQ%3D%3D%7C0%7C%7C%7C&sdata=bLajY6c3CbYOZMJlBA4bYlVE3bNVc%2Fxe1KYk0rUJgjM%3D&reserved=0
->>> I don't get it...
->>
->> Just keep it under 2 pages, it will be fine:
->> https://eur01.safelinks.protection.outlook.com/?url=https%3A%2F%2Fgodbolt.org%2Fz%2FqqoMqfxev&data=05%7C02%7Cchristophe.leroy%40csgroup.eu%7C4df96063ffd94e6204df08df1bb54e3d%7C8b87af7d86474dc78df45f69a2011bb5%7C0%7C0%7C639260137659763804%7CUnknown%7CTWFpbGZsb3d8eyJFbXB0eU1hcGkiOnRydWUsIlYiOiIwLjAuMDAwMCIsIlAiOiJXaW4zMiIsIkFOIjoiTWFpbCIsIldUIjoyfQ%3D%3D%7C0%7C%7C%7C&sdata=Bcp1%2B%2Fir05tsPwf08OQkJx4vDkPliaSppam1e%2BTPprk%3D&reserved=0
+On Friday, 25 September 2026 05:48:54 Central European Summer Time Vidith Madhu wrote:
 > 
-> https://eur01.safelinks.protection.outlook.com/?url=https%3A%2F%2Fgodbolt.org%2Fz%2F9W9f5a7Wx&data=05%7C02%7Cchristophe.leroy%40csgroup.eu%7C4df96063ffd94e6204df08df1bb54e3d%7C8b87af7d86474dc78df45f69a2011bb5%7C0%7C0%7C639260137659773169%7CUnknown%7CTWFpbGZsb3d8eyJFbXB0eU1hcGkiOnRydWUsIlYiOiIwLjAuMDAwMCIsIlAiOiJXaW4zMiIsIkFOIjoiTWFpbCIsIldUIjoyfQ%3D%3D%7C0%7C%7C%7C&sdata=YPGYXcKrnM4e1Q2nHdshRUaMT36w%2BRkHuIWIgcbpA94%3D&reserved=0
+> On Mon, 21 Sep 2026, Nicolas Frattaroli wrote:
 > 
-> Apparently not on RISCV, which is what prompted this patch in the first
-> place. So I suspect Nathan's v2 here is the way to go.
+> > From: Derek Foreman <derek.foreman@collabora.com>
+> > 
+> > Add VTEM EMP generation to enable variable refresh rate signalling over
+> > HDMI.
+> > 
+> > These infoframes are only generated if the sink supports VRR.
+> > 
+> > Signed-off-by: Derek Foreman <derek.foreman@collabora.com>
+> > Signed-off-by: Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
+> > ---
+> >  drivers/gpu/drm/display/drm_hdmi_state_helper.c | 60 +++++++++++++++++++++++++
+> >  include/drm/drm_connector.h                     |  5 +++
+> >  2 files changed, 65 insertions(+)
+> > 
+> > diff --git a/drivers/gpu/drm/display/drm_hdmi_state_helper.c b/drivers/gpu/drm/display/drm_hdmi_state_helper.c
+> > index d55548399687..33d0c9491643 100644
+> > --- a/drivers/gpu/drm/display/drm_hdmi_state_helper.c
+> > +++ b/drivers/gpu/drm/display/drm_hdmi_state_helper.c
+> > @@ -853,6 +853,56 @@ static int hdmi_generate_hdmi_vendor_infoframe(const struct drm_connector *conne
+> >  	return 0;
+> >  }
+> >  
+> > +static int hdmi_generate_emp_infoframe_vtem(const struct drm_connector *connector,
+> > +					    struct drm_connector_state *conn_state)
+> > +{
+> > +	const struct drm_display_info *info = &connector->display_info;
+> > +	const struct drm_crtc_state *crtc_state =
+> > +		drm_atomic_get_crtc_state(conn_state->state, conn_state->crtc);
+> > +	struct drm_connector_hdmi_infoframe *infoframe =
+> > +		&conn_state->hdmi.infoframes.vtem;
+> > +	struct hdmi_emp_infoframe_vtem *vtem =
+> > +		&infoframe->data.vtem;
+> > +	const struct drm_crtc_vrr_state *vrr = &crtc_state->vrr_state;
+> > +	int vfront;
+> > +
+> > +	infoframe->set = false;
+> > +
+> > +	if (!connector->hdmi.funcs->vtem.write_infoframe)
+> > +		return 0;
+> > +
+> > +	if (!info->hdmi.vrr_capable)
+> > +		return 0;
+> > +
+> > +	hdmi_emp_infoframe_vtem_init(vtem);
+> > +	if (!crtc_state->vrr_enabled || vrr->vic) {
+> > +		vtem->base_refresh_rate = 0;
+> > +		vtem->base_vfront = 0;
+> It shouldn't hurt to always populate base_refresh_rate and base_vfront, 
+> might be cleaner to skip this check.
+
+Hm, I thought they had to be blank when the vic was non-zero. If that's more
+of a "they can be blank" then yeah I'm fine with skipping it. But that makes
+me question the purpose of vrr->vic, which is then no longer needed as it's
+not used anywhere else.
+
+> > +	} else {
+> > +		vtem->base_refresh_rate = drm_mode_vrefresh(&crtc_state->mode);
+> > +		vfront = crtc_state->adjusted_mode.crtc_vsync_start -
+> > +			 crtc_state->adjusted_mode.crtc_vdisplay;
+> > +		if (vfront > U8_MAX || vfront < 0)
+> > +			return -EINVAL;
+> > +
+> > +		vtem->base_vfront = vfront;
+> > +	}
+> > +	vtem->fva_factor_m1 = 0;
+> > +	infoframe->set = true;
+> > +
+> > +	if (!crtc_state->vrr_enabled) {
+> I don't think we should use the vrr_enabled CRTC property to determine 
+> VRR_EN in the VTEM EMP. Transitioning the VRR mode sink-side typically causes
+> blanking, and it was discussed in patch [03/25] that drivers should be 
+> free to handle vrr_enabled changes as a seamless switch since it only 
+> concerns source-side VRR state (this is how the NVIDIA driver handles it).
+
+I'll be honest, this is the first time I've thought about the VRR state
+communicated from userspace to kernel to be different to the VRR state
+communicated from kernel to display.
+
+> Maybe it would make sense to extend the qms_enabled connector property 
+> introduced in this patchset to an enum of {Off, Gaming, QMS}? This would allow
+> a standard path to control the VRR state on the sink, separately from
+> vrr_enabled.
+
+An earlier version of the patch series I was working on internally had a
+VRR limiter property that would either be Off (i.e. Game), Game-Limited,
+QMS-Limited, and it self-inflicted some amount of confusion because of
+the way things were named, so I refactored it to the limiter values being
+what determines whether a limiter is used, and the QMS enable to determine
+whether QMS is used to apply said limit. So my initial reaction is to be
+hesitant about expanding the collection of possible states exposed through
+the uAPI.
+
+To help my understanding: what does
+
+ vrr_enabled=true
+ $new_property=Off
+
+mean for presentation? Another state I'm curious about is
+
+ vrr_enabled=false
+ $new_property=Game
+
+which I assume is the case you're interested in, where the compositor does
+not want VRR presentation but we're keeping the sink in Game mode to avoid
+having the display go blank.
+
+is that correct, and something that does need an expanded property? I feel
+like userspace could be smart enough to do that by keeping vrr_enabled=true
+and then setting a fixed target, if the goal is to have non-VRR but with the
+display still in VRR mode.
+
+Kind regards,
+Nicolas Frattaroli
+
+> > +		vtem->m_const = false;
+> > +		vtem->game_vrr_en = false;
+> > +		return 0;
+> > +	}
+> > +
+> > +	vtem->game_vrr_en = true;
+> > +
+> > +	vtem->m_const = !vrr->dynamic;
+> > +
+> > +	return 0;
+> > +}
+> > +
+> >  static int
+> >  hdmi_generate_infoframes(const struct drm_connector *connector,
+> >  			 struct drm_connector_state *conn_state)
+> > @@ -884,6 +934,10 @@ hdmi_generate_infoframes(const struct drm_connector *connector,
+> >  	if (ret)
+> >  		return ret;
+> >  
+> > +	ret = hdmi_generate_emp_infoframe_vtem(connector, conn_state);
+> > +	if (ret)
+> > +		return ret;
+> > +
+> >  	return 0;
+> >  }
+> >  
+> > @@ -1494,6 +1548,12 @@ int drm_atomic_helper_connector_hdmi_update_infoframes(struct drm_connector *con
+> >  			goto out;
+> >  	}
+> >  
+> > +	if (info->hdmi.vrr_capable)
+> > +		ret = write_or_clear_infoframe(connector,
+> > +					&funcs->vtem, "VTEM",
+> > +					&old_conn_state->hdmi.infoframes.vtem,
+> > +					&new_conn_state->hdmi.infoframes.vtem);
+> > +
+> >  out:
+> >  	mutex_unlock(&connector->hdmi.infoframes.lock);
+> >  	return ret;
+> > diff --git a/include/drm/drm_connector.h b/include/drm/drm_connector.h
+> > index e561a444515f..6e431eb81705 100644
+> > --- a/include/drm/drm_connector.h
+> > +++ b/include/drm/drm_connector.h
+> > @@ -1180,6 +1180,11 @@ struct drm_connector_hdmi_state {
+> >  		 * matching our state.
+> >  		 */
+> >  		struct drm_connector_hdmi_infoframe hdmi;
+> > +
+> > +		/**
+> > +		 * @vtem: VTEM EMP infoframes structure matching our state.
+> > +		 */
+> > +		struct drm_connector_hdmi_infoframe vtem;
+> >  	} infoframes;
+> >  
+> >  	/**
+> > 
+> 
 
 
-Don't you have -fno-builtin on RISCV like we have on powerpc ?
 
-Or is it clang that is missing this option ?
 
-Christophe
 
