@@ -4,109 +4,97 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A24BBC9832A
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 26 Sep 2026 01:06:27 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 10A20C9830E
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 26 Sep 2026 02:03:31 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
-	:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=uPh7h4QVBO0+zLyzuNTJsDnUZi453ATtVOhNG9pw0Zg=; b=L8dwBNpWyBNb1o7aI90Y7sTgJB
-	02jNXbPFxi5hEqcDgHCyTYmv7dw/0aKgQFYzqF2almIeGh6/RdOXgRTULaaQVp5FSNXjm8uZ0yQsA
-	Agq4CCIETS9/FV7JcYuimti4kgZQs/5jGCOXQpDJiwL9UCVnJnU1U0JN+tvwaDKvlSoSTsPBx4RA0
-	vEO/0QLLjJEpYE52Vh+uwu9abagLQaw0uqHtgC1nrmugVkVDrF3zLDLbS67vej9PJmuTcBOV6sUqC
-	E7qOylv9r+ssJR6Xoag4GBf7XHW/yQnLLDyBhzTbGUpHs8pR75OupIpnWmmpoI/1p8mGJSII8y8UM
-	Uw67K6Qg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=lAXbW0zIqThSvZBW3q+aJhA/JQ2MT3RMwWvhV448ODw=; b=kzDnFcDyW9ZdxlYK4Ge1DqYHP2
+	dWPk7SFenMEWesspzDr6xaHCPPGref03acxRie1mQo0rcMMgactvidyqmNjbPTBcG9uYDRooB54i+
+	Gmg4BjSmDZci/tiS00Jmt9lUAWaCE0rDha0njqnFtoZeqCiDdnDqdH3d7MeGxh/zV3NVX2aRWY5Ih
+	EIudjGol5rsd/7/qG+HFSAPsF2chF0hL3eAtdQz1xUIo52apriu85NOKnaeJa9k8PTA176m0DONxV
+	BLwZC1iu9bnkiffCkP3e4zd95Tv4zymZZ7QBBkR2a03DWmWVox57piJFJwCwo9D9y5O7dlxo+hNzE
+	xikMvz3w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xAGrq-0000000Empc-35dJ;
-	Sat, 26 Sep 2026 01:06:18 +0000
-Received: from mail-pj2-x0d.google.com ([2607:f8b0:4864:39::d])
+	id 1xAHl3-0000000EqDb-0Fw8;
+	Sat, 26 Sep 2026 02:03:21 +0000
+Received: from mail-ot1-x32f.google.com ([2607:f8b0:4864:20::32f])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xAGro-0000000Emoy-0v35
+	id 1xAHl0-0000000EqDE-47GW
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 26 Sep 2026 01:06:17 +0000
-Received: by mail-pj2-x0d.google.com with SMTP id d9443c01a7336-2df964b6893so6530335ad.2
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 25 Sep 2026 18:06:15 -0700 (PDT)
+	Sat, 26 Sep 2026 02:03:20 +0000
+Received: by mail-ot1-x32f.google.com with SMTP id 46e09a7af769-7f4df360cc9so1550918a34.1
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 25 Sep 2026 19:03:18 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1790384775; x=1790989575; darn=lists.infradead.org;
-        h=content-type:content-transfer-encoding:mime-version:references
-         :in-reply-to:message-id:date:subject:cc:to:from:from:to:cc:subject
-         :date:message-id:reply-to:content-type;
-        bh=uPh7h4QVBO0+zLyzuNTJsDnUZi453ATtVOhNG9pw0Zg=;
-        b=hEVFZv0eQKmIGUmyNPAwFSS3Y+KpdqWvh7RSUoSaCW/C8h2ysPWEkDAnZ+g9DiZI0r
-         s6fWq7UjzbRp3YP+E35EIVZxXbGOSlP0v6JHvMN1GNBH2Kje/XUX+nRM5e5tOOgT7r3G
-         g0HoZ5R5G2hgRQUsvt49Q/mBZ2H6GX66AScN7nXwJdRzDzxLqgYRn6geroRjAMNaOVXe
-         CJWTNreLg/L3j2IK3xpZDfn8yLo5vzEvqzWkqdZxdlROqvNqMjJEdGDIFugDmh6q1hsK
-         tN3YxmMC/rW83aF+Vfzx4rY9MPFulOxIKIUsoS37gG8EevbOwnWW/hPjjLm5F7VDlpEH
-         94IA==
+        d=gmail.com; s=20251104; t=1790388197; x=1790992997; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=lAXbW0zIqThSvZBW3q+aJhA/JQ2MT3RMwWvhV448ODw=;
+        b=COo7niDD9Mc/7Zyqq7OyZYu3DyWyzyifIK/tPB0cj/f6TsRVFvKBcVpMsMMwAesAoi
+         gZ8Qx4s59Nqc5SkBmWQIWxbykiRLzeeaOll0z96Jwgo6cRMRsXxJDiGhKCNXOuoVGbXQ
+         VF5sejTlt18hWithBztXymtLNqgEBbrC1201Rl8bw2nxXzFGueibHv7/H0v6KWeEs/8W
+         +kzLYkgxi0Ja5OrFHO2XzBGWIwtZ3oBnvIW1L1JAR3CvP6KRmh2UX9YUrPhi4tthr31p
+         S9lDqJVWFkgYGX8Ansonnm6UNhzCPxBR18jQB05HyRxAqDyPsm4ZKmWC2yTNBo1Y2rhe
+         NM4A==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1790384775; x=1790989575;
-        h=content-type:content-transfer-encoding:mime-version:references
-         :in-reply-to:message-id:date:subject:cc:to:from:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=uPh7h4QVBO0+zLyzuNTJsDnUZi453ATtVOhNG9pw0Zg=;
-        b=iOKVj3bc3UMAk46NISLyFdVARyJ9uJB5ta2gvHdrhzXUykR0SQedE4NvyQk+bv9mM4
-         bDp/0r1Tdy41tMtB5ou6l3eCCFf+mhRjwGCLI6/XbaPw0EHb0aKTA3WSXvqo1thINBq6
-         jb9BMKZJXY7HgLHxeEPQjCsZIOrDWoN8nCyBC0RVwjJeJ3s52gX6LscefDQC7UnyXssw
-         wFlNwXIeMiHpPHb7llSbp7C5i36Uqrpwe49h8EE4ETM2j103GYm6vjSzflkTdNgBZoYZ
-         mxm1GS0dpC1I85QFMNKeHBOk8s5VDm90lhLGpxRe++z/+MeNyyrDOLHQVGvqgb3uCmh7
-         mJRw==
-X-Forwarded-Encrypted: i=1; AKwUvBzk2SgTSK0nOVG+bIEiBticuVn+GwiIiEmapeBhoWZrjsJ0zSoS2vXHio324LDUt39B9tXI6pNz9wq3+ej3ytkH@lists.infradead.org
-X-Gm-Message-State: AFuF++msXcB/cD4k8LOywhy6CRga4bpEvKtvywS+uGBY9b0KpCS/xGRS
-	KRLf6FNRO8rsuum6tAMgFVRv7prwoSyTNeB/poXX99BItHbwzcggkJa8
-X-Gm-Gg: AYBFou1L6P/2cPFs6cHgg1+NHCxCd9kCqQMcDkDsFP36OQIVSDSsUjsAdQqOV+YEICE
-	uOONnPvMu7n/WopSCm3bVh7uA7QfIGPdSJtYEMEbhRAj45SBD9pgzsWJaUq3K2HZ80bEYwLlmJD
-	leKcGoleEG9hiJ2l/QVVOyJN8vBUl8shC/lspLR/ZN4K//jNvRMVHIuERefd1LXodEu0krXFceJ
-	TwJmSTO1tWnff4iRGRDx22TLiSfQ0he8LkBK3m/mDmFwezT6YRqSikSo9i7nEeocnDS2uNwuZpy
-	yTHa5bEb2CS+9LtUxEkSrNAqmpZGq+csVaeMow2NvqjdBVPX30sIX9bZlNTWwBpTnkOw6kJXPpw
-	gaVGdQrqTLp/5ildBbJu8Own+5NIcijtQl0ptfYhY8WM78+SddOKZdEJc5+vTcbENmGRiPgZncT
-	Xgg06giDThJViTekdHqmRHx36XQKHHcTW5UnTj7x8U5K6HFSUxgAApVQkUl+z1tfCohMRwHivcT
-	qkKdw60e3rIbTLzhM+376BP2+rfCgKWKz7EkkOT4T+qTigE8zh6p457XaEYdF7QW+XPvdwqfoOl
-	7RcRyF334pyHYcVJdzJH7fkSeZEhh/IdbIp9yrnAb7RUPFqq/j4=
-X-Received: by 2002:a17:903:245:b0:2dd:8e7d:90f7 with SMTP id d9443c01a7336-2df7da6101cmr56469765ad.9.1790384774750;
-        Fri, 25 Sep 2026 18:06:14 -0700 (PDT)
-Received: from setsuna.localnet ([2403:581e:d87e:0:fc2d:ed31:e80e:412d])
-        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2df913e032bsm17424215ad.27.2026.09.25.18.06.04
+        d=1e100.net; s=20260707; t=1790388197; x=1790992997;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
+         :to:cc:subject:date:message-id:reply-to:content-type;
+        bh=lAXbW0zIqThSvZBW3q+aJhA/JQ2MT3RMwWvhV448ODw=;
+        b=KZnJRaPg0gCxhElmUq3pA7Qf+gR8HMMc4RolvoTINzuLsSPF0N1iT9SLnzvXW14kXc
+         AHALIjPUMq54kGR8yFTmkS34oaMCQplAHCzjNbG9yEGkpAQa9EEWvD2EwcyAS6T3J7un
+         Ss5KZA9SR3QO3nPV/jPb5k//J9S2i7kYTG5nzaqePNhqU3q5oWfyK9Shc+YVpS7USE3A
+         oCjDnEcX6Las2Eqyk4j0RN7HCJLMfPutWum3XB6FsmH+AMIayprXO8VzHdHehxsSqjIu
+         TAyv+PKpQ04cbETKpigvgqeXIYh7XYGrSIhfoOm5HqIZj2qiUxYyOpyKyIty6p/aVHa6
+         QmFg==
+X-Forwarded-Encrypted: i=1; AKwUvBxUnAKOx4cGbVhWa0TVLDfyYsC1ix09sjyvYhdX2qDYPPthQpJffI7BagBBC7jFcexzHaRXckGRsz0eTmrOyCBO@lists.infradead.org
+X-Gm-Message-State: AFuF++kXDLuvHj17kXtqbt76YGjiEMX14/tMzmKEmIki8ni77f69pfxW
+	cLdGtoKA3GlLH0rdojh5riGpdsCJCbdSP6lnRH2P5JQ7Y8M3/tyqQdb1
+X-Gm-Gg: AYBFou3q3OYeIODvlB5V4epJjjfYpt6vEW4loqHCgudbV0gSpw59jxkhbrCoT15uc/L
+	HJjcNscYPrBzEXJ+Q1XmT2WP6j6ciaXeUvFnj9He7EfM/XpAwH8yllxZLIgawm5HlV0GGOuZboh
+	ghNZWABvxydXtXavaH80p2EC/GFUYoQplZV5YD2xxz3IAq+Vp6PSQBg+KbLO0FrAaR1Rj9doOiA
+	wYWqfJ3618viY1eY2oIRaeV7GfB/YhTqvDFyMoUO2Yq6RQ+dqKj00h1OAR22RMFTBmdQ5IkKp8X
+	AVVNzXbHnezdXiOfoizFauFziA82Mki7R6t5/Nm90/+AE8SSju7tLJcoQqUAJD2bNGwKjrrA0Q7
+	NkU2MiGnSfl4/zxofm3E//A8jyshK/xcJ+M8HbaXIElag6F/7PXIxcXP0DtB2bSEjpRz+ZcnsH7
+	Pzh8kGNxPTczt0d1+RTcOGQjhDuCHXC87lsXq7rzJPtwvewH9gcaCqyXPKWkEjPodwXO7QQsRg4
+	uCgAbSR6pPhPBixK55jEY6BHydBmUZ3dAKVBGNC2bBOeuxrbw==
+X-Received: by 2002:a05:6830:a18a:20b0:816:f1c2:d6b8 with SMTP id 46e09a7af769-81780a93afbmr4940499a34.9.1790388197052;
+        Fri, 25 Sep 2026 19:03:17 -0700 (PDT)
+Received: from AMD.home.internal (dhcp-9-244-8-156.gobrightspeed.net. [9.244.8.156])
+        by smtp.gmail.com with ESMTPSA id 46e09a7af769-81903f5f25csm3719365a34.18.2026.09.25.19.03.14
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 25 Sep 2026 18:06:13 -0700 (PDT)
-From: James Calligeros <jcalligeros99@gmail.com>
-To: Mark Brown <broonie@kernel.org>
-Cc: Martin =?UTF-8?B?UG92acWhZXI=?= <povik+lin@cutebit.org>,
- Liam Girdwood <lgirdwood@gmail.com>, Rob Herring <robh@kernel.org>,
- Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>,
- Sven Peter <sven@kernel.org>, Janne Grunau <j@jannau.net>,
- Neal Gompa <neal@gompa.dev>, David Rhodes <david.rhodes@cirrus.com>,
- Richard Fitzgerald <rf@opensource.cirrus.com>,
- Jaroslav Kysela <perex@perex.cz>, Takashi Iwai <tiwai@suse.com>,
- Ulf Hansson <ulfh@kernel.org>, Amit Kucheria <amit.kucheria@linaro.org>,
- "Rafael J. Wysocki" <rafael.j.wysocki@intel.com>,
- Lars-Peter Clausen <lars@metafoo.de>, Vinod Koul <vkoul@kernel.org>,
- Matthias Brugger <matthias.bgg@gmail.com>,
- AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
- Shenghao Ding <shenghao-ding@ti.com>, Kevin Lu <kevin-lu@ti.com>,
- Baojun Xu <baojun.xu@ti.com>, Sen Wang <sen@ti.com>,
- James Schulman <james.schulman@cirrus.com>, asahi@lists.linux.dev,
- linux-sound@vger.kernel.org, devicetree@vger.kernel.org,
- linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- patches@opensource.cirrus.com, Takashi Iwai <tiwai@suse.de>,
- linux-mediatek@lists.infradead.org, Hector Martin <marcan@marcan.st>,
- Sasha Finkelstein <k@chaosmail.tech>
-Subject: Re: [PATCH 16/28] ASoC: apple: Add macaudio machine driver
-Date: Sat, 26 Sep 2026 11:06:02 +1000
-Message-ID: <6dv6M3LAS9mol5fvC8Ie-w@gmail.com>
-In-Reply-To: <arJMrsl45g2_bLPB@sirena.co.uk>
-References: <20260920-macaudio-v1-0-741cc20a74e5@gmail.com>
- <20260920-macaudio-v1-16-741cc20a74e5@gmail.com>
- <arJMrsl45g2_bLPB@sirena.co.uk>
+        Fri, 25 Sep 2026 19:03:15 -0700 (PDT)
+From: Enzo Adriano <enzo.adriano.code@gmail.com>
+To: junhui.liu@pigmoral.tech
+Cc: Stephen Boyd <sboyd@kernel.org>,
+	Brian Masney <bmasney+clk@redhat.com>,
+	Jerome Brunet <jbrunet+clk@baylibre.com>,
+	Chen-Yu Tsai <wens@kernel.org>,
+	Jernej Skrabec <jernej.skrabec@gmail.com>,
+	Samuel Holland <samuel@sholland.org>,
+	Andre Przywara <andre.przywara@arm.com>,
+	linux-clk@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-sunxi@lists.linux.dev,
+	linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v4 7/8] clk: sunxi-ng: a733: Add bus clock gates
+Date: Fri, 25 Sep 2026 22:03:13 -0400
+Message-ID: <20260926020313.911537-1-enzo.adriano.code@gmail.com>
+X-Mailer: git-send-email 2.53.0
+In-Reply-To: <DLLYUYMR3CZT.17I8APGBH9H8S@pigmoral.tech>
+References: <20260921-a733-clk-v4-0-9c184ebe9ac1@pigmoral.tech>  <20260921-a733-clk-v4-7-9c184ebe9ac1@pigmoral.tech>  <20260921200512.3179109-1-enzo.adriano.code@gmail.com> <DLLYUYMR3CZT.17I8APGBH9H8S@pigmoral.tech>
 MIME-Version: 1.0
-Content-Transfer-Encoding: quoted-printable
-Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260925_180616_269962_67A82DB8 
-X-CRM114-Status: GOOD (  19.71  )
+X-CRM114-CacheID: sfid-20260925_190319_029778_2DEAD82B 
+X-CRM114-Status: UNSURE (   9.73  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -121,55 +109,36 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Mark,
+Hi Junhui,
 
-On Tuesday, 22 September 2026 7:38:54=E2=80=AFpm Australian Eastern Standar=
-d Time Mark Brown wrote:
-> > +static void macaudio_vlimit_update(struct macaudio_snd_data *ma)
-> > +{
-> >=20
-> > +
-> > +	/* Check that *every* limited control is locked by the same owner */
-> > +	list_for_each_entry(kctl, &ma->card.snd_card->controls, list) {
-> > +		if (!snd_soc_control_matches(kctl, volume_control_names[ma->cfg->amp=
-]))
-> > +			continue;
->=20
-> This is used from the volume limit timeout work which doesn't hold the
-> controls_rwsem, userspace can add or remove user controls which would
-> change the list so the work needs to lock the controls list.
->=20
+Thanks for reproducing the ahb-cpus issue. Adding clk_ignore_unused lets
+the Cubie A7S reach an interactive initramfs shell.
 
-Would it be sufficient to scoped_guard the controls_rwsem wherever we
-use this pattern?
+I reused the September 21 uninstrumented comparator: v7.3-rc1 plus the
+four single-divider patches, CCU v4, the seven pinctrl patches, and the
+minimal test DT, with only ahb_cpus_clk marked CLK_IS_CRITICAL. The Image,
+DTB and initramfs were byte-identical to that earlier comparator; the
+only boot-argument change was adding clk_ignore_unused.
 
-> > +static int macaudio_dpcm_hw_params(struct snd_pcm_substream *substream,
-> > +				   struct snd_pcm_hw_params *params)
-> > +{
-> > +	struct snd_soc_pcm_runtime *rtd =3D snd_soc_substream_to_rtd(substrea=
-m);
-> > +	struct macaudio_snd_data *ma =3D snd_soc_card_get_drvdata(rtd->card);
-> > +	struct macaudio_link_props *props =3D &ma->link_props[rtd->dai_link->=
-id];
-> > +	struct snd_soc_dai *cpu_dai =3D snd_soc_rtd_to_cpu(rtd, 0);
-> > +	struct snd_interval *rate =3D hw_param_interval(params,
-> > +						      SNDRV_PCM_HW_PARAM_RATE);
-> > +	int bclk_ratio =3D macaudio_get_runtime_bclk_ratio(substream);
-> > +	int i;
-> > +
-> > +	if (props->is_sense) {
-> > +		rate->min =3D rate->max =3D cpu_dai->symmetric_rate;
-> > +		return 0;
-> > +	}
->=20
-> It feels like this DAI ought to have separate ops...  Also, for the
-> sense link will we definitely already have a rate set up?
+Without the flag, that comparator stopped producing serial output at
+"clk: Disabling unused clocks". With it, the confirmation run recorded:
 
-AIUI, the cpu rate should always be set up by the time we hit
-this path as it is only taken when setting up the VISENSE FE (after the
-playback stuff is already set up).
+  [    1.263452] clk: Not disabling unused clocks
+  [    1.292364] Run /bin/sh as init process
+  [    1.526500] mmc0: new high speed SDXC card at address 544c
 
+Commands issued after the shell prompt returned the expected readiness
+and completion markers. No panic, oops or SError appeared in the capture.
+The RAM-only run was followed by a guarded 120-second power-off recovery,
+which restored the vendor kernel and eMMC root.
 
+This narrows the second failure to the path bypassed by clk_ignore_unused,
+but does not identify an individual clock: the flag also bypasses the
+runtime-PM acquisition and traversal before the per-clock disable calls.
+I therefore still cannot add a Tested-by for v4 as posted.
 
+Assisted-by: Codex:gpt-6
 
+Regards,
+Enzo
 
