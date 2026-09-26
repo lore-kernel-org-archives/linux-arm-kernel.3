@@ -4,44 +4,44 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E8538C9831E
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 26 Sep 2026 04:06:51 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DBE60C9831E
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 26 Sep 2026 04:10:46 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
 	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
 	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=nxfWuHGoS4AD08RES316n80ZMluVFGGsrpPDIgi9EWI=; b=glW6VLrGQqj+Xd22V+WWE9neKQ
-	pZaMdGYG5T2bWT0+SgWsIqEd7F5gkhLw4fMVIE49cFczIBt+MSlZ9ZfmP7CYBsr+M0slXXg5jSDwT
-	6IoZvVgSTFjH2X2w3Vs4wQFOhThc11KfMm/JI64XLKkmYQfAqSktj6aLn+YXanGOC4kihC2fTbAN/
-	vLh5z/+ddSgD4qdrj6fIblScAwlG9QBc2B0CMT66NbMaZrQmhH2iJ69tks3rl2Suq7iTcUOQGVVvj
-	SWJWVsvwNBwxrVjK9nE211T0bm/iZgTrBgjtINL3LC4AyVa0Ls3EKoND7vwp4hrjf86MXtOxZt8/8
-	KYsCXUjA==;
+	bh=zHnANxNG9dMQBtJ/mshlG1MygeNIbtgRmVltQ972YrI=; b=CsuJ5Wj0MIQrbVKhGsfwRs0Iso
+	oDlV+yx/s2fgLzzNq3QWRcK+FUQnElkb2gqJMuc9bFrxOWdeyRYxjBOBKchkov5kO51UV0hG4tGzW
+	PNZwn2gfO6Es+IGqMUDJhLJqMUurd7OcaAMwGLfz8d1qcotxFBgdHrhuYv9dpTH30uyfgjDg4U7yO
+	+PpyVvkAQ0B+BvpHqSEizYn0/4FxfC+Hu5mIkHSpzCATooxkAtXKg+EJVqFEg7Oj6jrR75Pl5vIik
+	CJ9UsOzv1HTtsWTa4TqhfH55tnhsxE7LBocQmnj8WzZrzzttujnH+QBQ0Hs+75ylPfWf5ugKjshci
+	MVIFFb9Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xAJgS-0000000EwCA-0r49;
-	Sat, 26 Sep 2026 04:06:44 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1xAJkG-0000000EwPN-2pI2;
+	Sat, 26 Sep 2026 04:10:40 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xAJgQ-0000000EwBx-1jLu;
-	Sat, 26 Sep 2026 04:06:42 +0000
+	id 1xAJkG-0000000EwP7-0a9V;
+	Sat, 26 Sep 2026 04:10:40 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 1BEDD434F9;
-	Sat, 26 Sep 2026 04:06:42 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 745B61F000FF;
-	Sat, 26 Sep 2026 04:06:35 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 420BE60136;
+	Sat, 26 Sep 2026 04:10:39 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 43FC21F000FF;
+	Sat, 26 Sep 2026 04:10:33 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1790395602;
-	bh=nxfWuHGoS4AD08RES316n80ZMluVFGGsrpPDIgi9EWI=;
+	s=k20260515; t=1790395839;
+	bh=zHnANxNG9dMQBtJ/mshlG1MygeNIbtgRmVltQ972YrI=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=XJu+a058PFy9AuXoNx2lJIIXcpKT3fHF6QBAJj/v0wp5P+Nz0JRMJbldY9RWwFrIK
-	 oKVn3VZuRorua0NW1T5FZqDwSDJuuq0MMlCjkqEgspsvOl0thUe8+adh+IAHHR0tWJ
-	 Kghwxgyjyy7S/93Vu8sKh2FK8UPE2Hdk4LKg14j2SW7x1FbK/r6dk6RNJixi5JtHbN
-	 PsZuu47kxAJ6vXgRz/76JZ3rVQH4/ZLpsynTmse6449dxcksS+1a4f1rSGcyCKnOjW
-	 FFDfbdKFBEXdtqwa0ynHpSYxaiFzH/vy0T3wKx8PHJVTNOS0HaqY4tz7HT25ux3NjX
-	 0KbaAplpZfkpQ==
-Date: Sat, 26 Sep 2026 06:06:27 +0200
+	b=bb1X/hiOxHw1uvCg6ghPzXAKXXqXViNCBG+FEqhewcJhb74QmTQEU0YNRa8RgV1ah
+	 IUVtjL/neZNwFvZPDuHoPd3ZL+aMBpiYv+fFK61nn/gdw7pZOfsyqT6wmA4mI0p8dN
+	 e7jNUQMd9PzAohJqClAiCqolfhBouqKktYCDSwmo6j3NaVpVZfh+j3fFyXI8NsB7+B
+	 bxFdaWD+j4sitQwHumZ7JigiKJP+TXMlVs1J1Ci5hLC8EpI9p41MSNG8g94nyoF8VD
+	 uGx1V/l0TLwPfJjImOMTBG2peB6CbjuDoL1C/CorOpWEkbqqo7AsA4ew6R1r0xaZbL
+	 9JWGpmMVI/c9A==
+Date: Sat, 26 Sep 2026 06:10:19 +0200
 From: Manivannan Sadhasivam <mani@kernel.org>
 To: Sebastian Reichel <sebastian.reichel@collabora.com>
 Cc: Vinod Koul <vkoul@kernel.org>, 
@@ -54,15 +54,15 @@ Cc: Vinod Koul <vkoul@kernel.org>,
 	linux-phy@lists.infradead.org, linux-arm-kernel@lists.infradead.org, 
 	linux-rockchip@lists.infradead.org, linux-kernel@vger.kernel.org, kernel@collabora.com, 
 	devicetree@vger.kernel.org
-Subject: Re: [PATCH v15 13/16] phy: rockchip: usbdp: Rename DP lane functions
-Message-ID: <btcylnhxrbd5ks7wt437ddisiiktlqmr3zuwt43otydzd2vse2@7ydv5pircguh>
+Subject: Re: [PATCH v15 14/16] phy: rockchip: usbdp: Use FIELD_PREP_WM16_CONST
+Message-ID: <d3smhq5cy4tqigiwwnyc2o2phgqzfthlq3og2642s7axdt25v4@oawozf76va37>
 References: <20260915-rockchip-usbdp-cleanup-v15-0-80e2c11d1ce8@collabora.com>
- <20260915-rockchip-usbdp-cleanup-v15-13-80e2c11d1ce8@collabora.com>
+ <20260915-rockchip-usbdp-cleanup-v15-14-80e2c11d1ce8@collabora.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=utf-8
 Content-Disposition: inline
 Content-Transfer-Encoding: 8bit
-In-Reply-To: <20260915-rockchip-usbdp-cleanup-v15-13-80e2c11d1ce8@collabora.com>
+In-Reply-To: <20260915-rockchip-usbdp-cleanup-v15-14-80e2c11d1ce8@collabora.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -77,10 +77,9 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Sep 15, 2026 at 03:50:00PM +0200, Sebastian Reichel wrote:
-> The common prefix for DisplayPort related functions is rk_udphy_dp_
-> (with a final _), so update the two DP lane functions to follow that
-> scheme.
+On Tue, Sep 15, 2026 at 03:50:01PM +0200, Sebastian Reichel wrote:
+> Cleanup code by replacing open-coded version of FIELD_PREP_WM16_CONST
+> with the existing helper macro.
 > 
 > Reviewed-by: Neil Armstrong <neil.armstrong@linaro.org>
 > Tested-by: Igor Paunovic <royalnet026@gmail.com> # Orange Pi 5 Plus
