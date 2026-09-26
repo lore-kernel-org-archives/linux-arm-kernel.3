@@ -4,44 +4,44 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3A7DFC9831E
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 26 Sep 2026 05:09:20 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9CC3AC9831E
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 26 Sep 2026 05:10:22 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
 	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
 	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=cwcHuq8u8FHk1FhGe1zoIDQ4d8vQB2fIMXLhU4nJyvo=; b=XIfq9k5mCvmSYkb07u8L1PSm7c
-	2+fEHsXpEqLGzOCwdTP22mZ+1pTSqWLmgCo5N3QIoyX9fAyaU+yOGeyMWMe0ireDIX6B9dFz7pDIc
-	evE6OzbPS/xU5AGZ2S8F25pZhp1n2Rv5RpxAXZ7s9z6TTdYt+n2OIlYHjDtxQF5lP0HjRwb8addoe
-	735ipo2HmLVDO+V2N+OxVSSfMp3TVWizqv/7xkcLZAA1eJb6xSvXgSkTAh8ou1pJfQXrEaEte9M3J
-	PPkqCbbnbM/TksG/VVGhfR1l6v0qowmWMCgfOpW+uO6CVeg/lIBWK/44I46ku0QAcywbtNGYauigY
-	7jDnuk0Q==;
+	bh=3s5j8pQOgmFzwxdXRIENQONtbgTBd1Lm5Dh5URd63UI=; b=itRt/82dGLtep18Yd+786Jaae4
+	xg6oKnOMp/RXFniOUqTRfWmb/oo0LrkzIgKwL45B0DjJmZVShXB0Kw+ZJAopQrkdN2z4cleR0Lww4
+	0Xj/EaPVld1vMabFMHJ64UG66tjDGfSyysLSbbiOUwh1l8twxDjizapPIaTKV0AwO8yaCOXgfGElV
+	HWmZBWH+ZxbIrWiKKMdM6Mg6/pbFWq7e4J2WtnDhq6GDmZoCU9PvmPCvARshS250ofmzYfkmJvyrq
+	kiGXtEw3oMvy1Ch4HTSFa/ar0OQfbM91Rh+KIhcwXkZm8sPssrtEmHbWGPuy593crS9YswlZ3HVdE
+	7XqUZ1/g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xAKew-0000000Ezie-02z8;
-	Sat, 26 Sep 2026 05:09:14 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1xAKfw-0000000EzxY-2PrN;
+	Sat, 26 Sep 2026 05:10:16 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xAKeu-0000000EziR-2wek;
-	Sat, 26 Sep 2026 05:09:12 +0000
+	id 1xAKfv-0000000EzxD-3uqN;
+	Sat, 26 Sep 2026 05:10:15 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 22F9743E18;
-	Sat, 26 Sep 2026 05:09:12 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 36F871F000FF;
-	Sat, 26 Sep 2026 05:09:07 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 5D6E860136;
+	Sat, 26 Sep 2026 05:10:15 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 344C91F000FF;
+	Sat, 26 Sep 2026 05:10:10 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1790399352;
-	bh=cwcHuq8u8FHk1FhGe1zoIDQ4d8vQB2fIMXLhU4nJyvo=;
+	s=k20260515; t=1790399415;
+	bh=3s5j8pQOgmFzwxdXRIENQONtbgTBd1Lm5Dh5URd63UI=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=mks3qAiBGR93ufgz/Xo+BYSXDzczpPlBZniZYq2OgkBMacrDNz9Oe8AFi0IMCxL3r
-	 2xYo9pX2hPtn15inzJWMZkLli0QEFcQSajWd44u/rkVfXW4eHmiqqU1dfGu2dapBN7
-	 50m0clm7/lE7QZnHRwX2G5wUzdU8r8di00MpJCclyGUsitXn9eKOZGuhEE0r0FHcCR
-	 KEh6vwQEo7VfL83jDqCnRwWyt8hdQgK8GFXGf8nZWhHSUaQai7TK+vQReuWr/a4PeW
-	 JDLtMfmphMbkHalT76BUVKvCEtFPQHB4sccXEAen0/2N2YnkEPv5J9puAyB4U+rfx7
-	 Qeo909NLQX3qA==
-Date: Sat, 26 Sep 2026 07:08:54 +0200
+	b=AhQczImnptOx3Wl0t9RACVb7zDVsmdDN2QGtMqcFS+poWoK1lQJsjWjv7KpZeAHSk
+	 ZVr8zmhHV2/PZaGzHyn6T59UekemJrS5OIkgredV3WHHwDbfFacU6D55uImbKTJZkv
+	 Rr1fBTjKf66aLN3FXh9tJtsGF0WCZW6LO7NYk34ib73wX7jtKR6ZuD447qikH+GCwF
+	 wAm6MSV58RrRj7epuSfylBt94azyMmISkdnV8LAg6HahlKdHViQBihsn/WGPPVr/RG
+	 m+rOW1ME57Gps8OoPKtBp760PfcQnqW8FQoTNmgPFMzgatuDanDulrKi16njfZMD4/
+	 wR9xZ9QHy29ag==
+Date: Sat, 26 Sep 2026 07:10:03 +0200
 From: Manivannan Sadhasivam <mani@kernel.org>
 To: Sebastian Reichel <sebastian.reichel@collabora.com>
 Cc: Vinod Koul <vkoul@kernel.org>, 
@@ -50,16 +50,16 @@ Cc: Vinod Koul <vkoul@kernel.org>,
 	linux-phy@lists.infradead.org, linux-arm-kernel@lists.infradead.org, 
 	linux-rockchip@lists.infradead.org, linux-kernel@vger.kernel.org, kernel@collabora.com, 
 	Igor Paunovic <royalnet026@gmail.com>
-Subject: Re: [PATCH v15 03/11] phy: rockchip: usbdp: Re-init the PHY on
- orientation change
-Message-ID: <5rmluc5rcni32h2f4yv63xvcfnavzfckibj3vls2spt5nnxynh@3bjtgsqhvm4j>
+Subject: Re: [PATCH v15 04/11] phy: rockchip: usbdp: Factor out lane_mux_sel
+ setup
+Message-ID: <wwybb3nfv4tawgh7z3s2iunlm7cgh4cindkoy4bhlemnlivslu@rttrqzbvj6hb>
 References: <20260915-rockchip-usbdp-cleanup-part2-v15-0-8d507cb1174f@collabora.com>
- <20260915-rockchip-usbdp-cleanup-part2-v15-3-8d507cb1174f@collabora.com>
+ <20260915-rockchip-usbdp-cleanup-part2-v15-4-8d507cb1174f@collabora.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=utf-8
 Content-Disposition: inline
 Content-Transfer-Encoding: 8bit
-In-Reply-To: <20260915-rockchip-usbdp-cleanup-part2-v15-3-8d507cb1174f@collabora.com>
+In-Reply-To: <20260915-rockchip-usbdp-cleanup-part2-v15-4-8d507cb1174f@collabora.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -74,10 +74,9 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Sep 15, 2026 at 05:06:06PM +0200, Sebastian Reichel wrote:
-> Changing the cable orientation reconfigures the lane muxing, which
-> requires re-initializing the PHY. Without this DP functionality
-> breaks, if the cable is re-plugged with swapped orientation.
+On Tue, Sep 15, 2026 at 05:06:07PM +0200, Sebastian Reichel wrote:
+> Avoid describing the USB+DP lane_mux_sel logic twice by introducing
+> a helper function to reduce code duplication.
 > 
 > Tested-by: Igor Paunovic <royalnet026@gmail.com> # Orange Pi 5 Plus
 > Signed-off-by: Sebastian Reichel <sebastian.reichel@collabora.com>
