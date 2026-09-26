@@ -4,95 +4,105 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id AE00DC9832A
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 26 Sep 2026 19:13:57 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E1C82C9832A
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 26 Sep 2026 19:25:19 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
 	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
 	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=WFiz624ouLEyAAyXLCnZKvLJThEjNkHlXSnv7jS5fHY=; b=eCdnsEre4wioo+/TcS/IZz1MTk
-	Xk8R6xZdjT1SikK6dRk+jPghF/dxnhkBFfEM3+HiHsf0L2RPVggxisR18XVFmIVdXzbDaN6YOkVLa
-	Rz6dkBbDBdN5Dx/cxXMKTs2P4VBmM/dRUuxApZNQn+qZpkqeC5aSDq+stqX9w7xI/5oJ6eYWobm0i
-	bBZg7veu1RwGG6I6lCRFpQySoGZshpn0dc35LVe9LQkCeB3FD3zcf1JwoDiDMrE9wlnmeL9HIzahS
-	zEr/wwisRjKkGMWtSoQulIz8U3T56d1UzsUnUjOGYTgVOsoPuaLl8/kmMmNK9YOCLwMGuXATqcWCR
-	cBb2fPNA==;
+	bh=aAoDWVuRpxNlTIg9DRKgevYj0ImdfdGD3NJ5Lik81No=; b=agvJ5UtQupocIIPaix8+o8hwJL
+	yvGo7Aoy3S90FvlWISMvDhUEnVEYeg9f4R9DQCwRT5elzAUVh5MDsoDEOoJkuuQc9eatosIgCp/mn
+	KMykpoV2FTPgksHcb+PKyoq9fUHvlfQuJdwvsebDYRNGOdLXLCj40/TqZtTpYi1tET4Uh4+hiYxN9
+	R5TgeyuY6RsJOKToBFxT8NHQpOUqyiIVuefi8YvnhfgoHha+rYOvgbDgmsqC3FlPKQzyRlAtzYRGz
+	KI4JynqYqyRkcgT/QOt1C6am5nGJfV7npkSj9L58VHXBW8hGxsA7OfnQskTnxjfzNyKRFEDuVQV0a
+	dEhAVIBw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xAXqD-0000000FkTX-36bj;
-	Sat, 26 Sep 2026 19:13:45 +0000
-Received: from mail-wr2-x10.google.com ([2a00:1450:4864:30::10])
+	id 1xAY1C-0000000FknY-33kU;
+	Sat, 26 Sep 2026 19:25:06 +0000
+Received: from smtp-relay-internal-0.canonical.com ([185.125.188.122])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xAXqB-0000000FkT9-0wXJ
+	id 1xAY18-0000000FkmP-0fJs
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 26 Sep 2026 19:13:44 +0000
-Received: by mail-wr2-x10.google.com with SMTP id ffacd0b85a97d-48449f62b93so613906f8f.0
-        for <linux-arm-kernel@lists.infradead.org>; Sat, 26 Sep 2026 12:13:42 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1790450021; x=1791054821; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
-        bh=WFiz624ouLEyAAyXLCnZKvLJThEjNkHlXSnv7jS5fHY=;
-        b=eso9dPljR/AikXwi4IkSmOgdUTSvb5N8Y4NtLkfTy/7El2evZAA5lkJSXkzTZVtS7/
-         3DTD2E04XCE3yAhQD4NbWFjk0QJGsvEe/mqYInhEUKEFEkZ+Fj/Ub5gSuGr/t6tPq83y
-         LBOib0NkWyU6qyWY8TH0e430O0oIppXhE1GHCjL9QWVkKLYOJhZFes5l5vlMSRmAdlad
-         3TK/Q+DbBCALKqbMCKmgV1Tg/ZfanfXU+c91/N6ne6/Snnz4/mVklhaoTKaCQf+xr/S9
-         Mn3D6Nqgm/afv9WR/M2LkdauBuJXL7k256zPVb7+rA1HDocZQluQEuZSoJwUVfGLs7IH
-         RF+Q==
+	Sat, 26 Sep 2026 19:25:04 +0000
+Received: from mail-wm1-f70.google.com (mail-wm1-f70.google.com [209.85.128.70])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
+	(No client certificate requested)
+	by smtp-relay-internal-0.canonical.com (Postfix) with ESMTPS id 7FB7740259
+	for <linux-arm-kernel@lists.infradead.org>; Sat, 26 Sep 2026 19:24:57 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=canonical.com;
+	s=20251003; t=1790450697;
+	bh=aAoDWVuRpxNlTIg9DRKgevYj0ImdfdGD3NJ5Lik81No=;
+	h=From:To:Cc:Subject:Date:Message-ID:MIME-Version;
+	b=TpdUp71eKEG/ywXMeLpBTOgcv1iaMO8MoiwvOZ5s0zvInPq7Hgsd1cWNJPqgryobH
+	 6f6Y5XwsHdHSQhKhuLVVcTptQxUfL8S9HgKljlNXYlYUUCb9IiFdXe3Pv0gGMV4wqN
+	 DJbMg/cMkeiRyURVQeTCCs5Gir1YynueCzA8ZBvib6HK9UZonlEp/fIZUvV39hRUu1
+	 hetZ8AR6LBkDDF3vAft4JZeYFKOjZxH6sWXtCYXRWNoDT44v94vS9MKA1U7HiXeloA
+	 Z+Lt3C9gER45hIFIazu7iC8v+wXGC5+e4I8rAcWvjHNl42j9LGcxXs4JbcnOmz9Fk3
+	 ONY6r2Fnt1qc4EB0bDOVu9JzgCkBy+ZuKH40DtLNTGMCeEj3J5kz+KGpEXph7SaIzi
+	 fbGePWZghQteKIP0yd+qzOX+BYVfaRnC7f6T6R1q9stfZvcJT0ZCt2Tu81bbKd9xe0
+	 hPB9a9HdMnZ0EkeTRN4snurm1oBYuUIPWyu9JDSZGZOSHy73br637NmpxLY4ZbZ0Xb
+	 VuAWmj+k4E/pluW+5PjpJCiUH6AhVDeZsWcLS0Fvz0sO2AkBxnIVE4pBSry+OMFshX
+	 YLNuY1JYE/a/N3zeR5QBNwoBxCE8F7uANugDrEomFURxnlcf1TLH277v3tIhPDKpGM
+	 LM4yLMCa00B2MOeXnGWLCqAo=
+Received: by mail-wm1-f70.google.com with SMTP id 5b1f17b1804b1-49ffe287240so3377875e9.2
+        for <linux-arm-kernel@lists.infradead.org>; Sat, 26 Sep 2026 12:24:57 -0700 (PDT)
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1790450021; x=1791054821;
+        d=1e100.net; s=20260707; t=1790450697; x=1791055497;
         h=content-transfer-encoding:mime-version:message-id:date:subject:cc
          :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
          :message-id:reply-to:content-type;
-        bh=WFiz624ouLEyAAyXLCnZKvLJThEjNkHlXSnv7jS5fHY=;
-        b=OfJhYvoS2YbAvDCp0VBke3eF6xsEGCAfmXyju4DkcUXpmiGv+8OCuEy/Hk/8TEFTAh
-         ul/Mlpkh5OtES3HizQEbvLSZ/lL2mraf8pA/KCy4XIAyzJKldXO5FArwsEo0ZabTrIK0
-         RNmtvY32iB429fTBg+G8TGOhKGDk2uxY79sgdC0UsvQF4+opFGe8YafZycfcMs43Rmp4
-         7ADzQ10/HxGfCo2tP6NnTq1KA7EObSmxDaNYXQ0t0GuLIDnt/VD+78mhatgzpwi5haQN
-         idA7isHtfQnNk/hooAr6FWGvJuem6BqeeONI6fvezR/SDwrQYfAMuDIphhBP9Emff/Vi
-         Ahwg==
-X-Forwarded-Encrypted: i=1; AKwUvByH2/fOCqaszUH5bOyTD5cFcBd1IBHcq3RlCCFSC1UP7Am/mU0xzq6d9bdnrtu2xYxh6AxaFPClLVMFxQoXaeD0@lists.infradead.org
-X-Gm-Message-State: AFq9FYJ85W6TmjtdwcTHL7/xCl4lCXK/FaTxi06fmVOViRWQ+JYEA7Di
-	82J72VWQTQEiq5JTqB3gha+0Of/IMCXu4j5yEA5l0iYIIz9LlHx83RON
-X-Gm-Gg: AYBFou29Bb8FQ2C30Dihkf+NpV3/6Lfxuu0LYmMKlmrL2ElJlHGTORmMSW/Q+cw88vt
-	p2TBX9pIJF8wtUepRRCsvizflgB156VFkd6q+u3B2FfSnXz8fwisZL6WiWumEipTJ2a5VQaP4NS
-	kV9OAY5JR7dImAlgObxnYpO9th3P9ll4gNQacAgXPvM8jI0NDwOHFLAWzyeNhN3Sk9BsEWnoU7K
-	UVYQimMOM5eroIq6Ig6WdT8jqhjdhWzkKeyaVBAQ2hgr2z6/rMAx7ZdzkDpl4zWAD/zgiu/5mLb
-	mt8/JQo0k7GjtVB3kdCRYXzt43Cg+5WXUPbN7Fuk0S8THADQ9VlwyO/TVKNURSQHnJUOX46+L3I
-	+U5wUHllds6MhPAwBdqok/d5LMCheZbNsCHhollIwqbaIQLY8wIl6YZyLjI7O9bwmLr/0f0+oZB
-	A85qvqz6VFppOEnrYNg0LCmOxRApKnMXIx6JgCgwcK6h+CTOocIR7kOIiqm6RvArpIhcLnx4Tq6
-	RwyLvrd8E1H6I7HJYQIeMRVVMXQupBlujADLMw+1zoSZcO4D+080DfYAmaPJEKkaQAeZrIedsYI
-	DB9IcdtIJpmd+WP0Ifb7n2D/K70I8XNJxMe5AcInZoi1XjVeD3iGvfCGPv0BaI+N9LjA6TFhNKP
-	z9w==
-X-Received: by 2002:a05:6000:2383:b0:488:81d4:8bfc with SMTP id ffacd0b85a97d-48881d48c0bmr10171258f8f.11.1790450020913;
-        Sat, 26 Sep 2026 12:13:40 -0700 (PDT)
-Received: from localhost.localdomain (dynamic-2a02-3100-b162-c701-4960-a998-3de8-2fce.310.pool.telefonica.de. [2a02:3100:b162:c701:4960:a998:3de8:2fce])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-4887a36189bsm15364391f8f.21.2026.09.26.12.13.39
-        (version=TLS1_3 cipher=TLS_CHACHA20_POLY1305_SHA256 bits=256/256);
-        Sat, 26 Sep 2026 12:13:40 -0700 (PDT)
-From: Karl Mehltretter <kmehltretter@gmail.com>
-To: Catalin Marinas <catalin.marinas@arm.com>,
-	Will Deacon <will@kernel.org>
-Cc: Karl Mehltretter <kmehltretter@gmail.com>,
-	Mark Rutland <mark.rutland@arm.com>,
-	Qi Zheng <qi.zheng@linux.dev>,
-	Arnd Bergmann <arnd@arndb.de>,
-	Andrey Konovalov <andreyknvl@gmail.com>,
-	Alexander Potapenko <glider@google.com>,
-	Dmitry Vyukov <dvyukov@google.com>,
-	kasan-dev@googlegroups.com,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org
-Subject: [PATCH] arm64: irq: exclude the softirq stack switch from KCOV
-Date: Sat, 26 Sep 2026 21:13:25 +0200
-Message-Id: <20260926191325.79047-1-kmehltretter@gmail.com>
-X-Mailer: git-send-email 2.39.5 (Apple Git-154)
+        bh=aAoDWVuRpxNlTIg9DRKgevYj0ImdfdGD3NJ5Lik81No=;
+        b=L0WH1v+GfGLX2jjj+3kJnfo0mXMEzwVxK+sT8yiskgAybfJLIZ00EtxSKU6r+vaVXw
+         4h1oWDx0J7DE12IIK5ZmXw8oYgvazVc8Np8JgcEZMij4NcIZ8+FT9bCsiawKmP+7HaDm
+         SE8fagOsQwAxzLfR1vQ8l4ke1OPS/dZqCCb/KXKWsVpQpuS19kvFSiyTp8IlyCt/WTkf
+         g9ZDON5HOm6br7PZNUbRV60iccstZpcEj8AeogF5cacnCnH6TnENSf6hpbWGnFl6MheJ
+         qThkxREkxiCjAEtUlsznmqqzEXHa1TWLYGrDALvpCPFPVAoN3uhXSaEPBc+LpsPtlToH
+         dF/Q==
+X-Gm-Message-State: AFuF++lHNwx4jqyYSdZXsduLex16iaUMpaQ2qExYKfE9lDYWMbTM+LCA
+	Ya8mMFmO24xD23mz17BuWv+URlBf5NX5jD+vyviS7ucBlXOXcS1KCdRkaNsUhpq1fK4yp18SzFw
+	t8RY1LjUp6S2rDf4hGnGH5933Swq7+VWBTmww0rT7NgyLpfAkR4nLuHEniM40hd3+Wff1XY3geA
+	shnFMqHtH12c8MKwVn
+X-Gm-Gg: AYBFou2DoZUTbUDtIQbK18lZb7fZ3xmW7r1wxZMKN+TbyQPn1NcEsxGenxBfaBZiWNa
+	zcArOWq5lESVTUGeQnPDbOl4kZKIXURXq2SwqJXUGKXsYtiSMlMlPHgFkS1o1Q6cGPz1Xi6K1mT
+	1kZz4WrnD0grheHWKtmeDHcEgzLZ1C82Rabhz4LqaO+zIQKcvAc+M3NBdPuN5EOZ4NXsN0i4YP2
+	iY3IrHcLwmPaUp9gkQloggKMPnl7lIdhWzY8R89R90T6o7OJ/2YN0Yjz5aEc+4EJWSF+Vkwn+7L
+	zdFQNyu435Rz5pZ7TB2K6c39iNL+dukJsjbp2NJEf+lrY6+x0oAW4LqVIbNGVc5HhbHzjtmXy/0
+	8FtIBeok4nuIqIdXW1RtxLWQ1aaa5ZT25jg==
+X-Received: by 2002:a05:600c:1d0d:b0:49c:f4e1:4c2d with SMTP id 5b1f17b1804b1-49fe66f144fmr165830555e9.16.1790450697041;
+        Sat, 26 Sep 2026 12:24:57 -0700 (PDT)
+X-Received: by 2002:a05:600c:1d0d:b0:49c:f4e1:4c2d with SMTP id 5b1f17b1804b1-49fe66f144fmr165830285e9.16.1790450696753;
+        Sat, 26 Sep 2026 12:24:56 -0700 (PDT)
+Received: from k6.lan (141.175.65.37.rev.sfr.net. [37.65.175.141])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-49ff21cc844sm59706145e9.3.2026.09.26.12.24.55
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Sat, 26 Sep 2026 12:24:56 -0700 (PDT)
+From: Valentin Haudiquet <valentin.haudiquet@canonical.com>
+To: linux-mediatek@lists.infradead.org
+Cc: linux-arm-kernel@lists.infradead.org,
+	linux-pm@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	Valentin Haudiquet <valentin.haudiquet@canonical.com>,
+	Jian Hui Lee <jianhui.lee@canonical.com>,
+	stable@vger.kernel.org,
+	Krzysztof Kozlowski <krzk@kernel.org>,
+	Yong Wu <yong.wu@mediatek.com>,
+	Matthias Brugger <matthias.bgg@gmail.com>,
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
+	"Rafael J. Wysocki" <rafael@kernel.org>,
+	Ulf Hansson <ulf.hansson@linaro.org>
+Subject: [PATCH v2] memory: mtk-smi: fail larb runtime resume until component bind
+Date: Sat, 26 Sep 2026 21:24:17 +0200
+Message-ID: <20260926192417.1448813-1-valentin.haudiquet@canonical.com>
+X-Mailer: git-send-email 2.53.0
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260926_121343_294179_BE409239 
-X-CRM114-Status: GOOD (  13.95  )
+X-CRM114-CacheID: sfid-20260926_122502_584339_1273899E 
+X-CRM114-Status: GOOD (  30.94  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -107,112 +117,194 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On IRQ exit, __irq_exit_rcu() drops HARDIRQ_OFFSET before calling
-invoke_softirq(). The arm64 do_softirq_own_stack() wrapper and its
-____do_softirq() trampoline run before __do_softirq() establishes
-softirq context, so KCOV records their PCs in the interrupted task's
-coverage buffer. They also run outside softirq accounting when
-local_bh_enable() reaches do_softirq().
+With the mtk-smi and mtk-iommu drivers built as modules, a consumer
+device probe (e.g. mediatek-drm on MT8183) can race the iommu's
+component master bind.  The consumer's probe path runtime-resumes its
+smi-larb suppliers, and the larb's runtime resume then runs
+mtk_smi_larb_config_port_gen2_general(), which dereferences
+larb->mmu and larb->bank.  Those pointers are only populated by
+mtk_smi_larb_bind() when the component master completes, so a larb
+resumed inside the window dereferences NULL and oopses in the module
+loader's initcall context.  The module loader is then stuck and the
+rest of the boot dies.  On MT8183 (krane), mediatek-drm module init
+hits this:
 
-The IRQ-exit coverage makes the KCOV boot selftest fail even after
-the scheduler and timer coverage leaks are suppressed. The generic
-softirq.o is already excluded from KCOV, but that exclusion does not
-cover the separately compiled arm64 wrappers.
+  Internal error: Oops: 0000000096000004 [#1] SMP
+  CPU: 4 UID: 0 PID: 270 Comm: (udev-worker) Tainted: G W
+  pc : mtk_smi_larb_config_port_gen2_general+0xe0/0x660 [mtk_smi]
+  lr : mtk_smi_larb_resume+0xb8/0x1b8 [mtk_smi]
+  Call trace:
+   mtk_smi_larb_config_port_gen2_general+0xe0/0x660 [mtk_smi] (P)
+   mtk_smi_larb_resume+0xb8/0x1b8 [mtk_smi]
+   pm_generic_runtime_resume+0x38/0x80
+   genpd_runtime_resume+0x118/0x320
+   rpm_callback+0x8c/0xc8
+   rpm_resume+0x558/0x758
+   __pm_runtime_resume+0x64/0xd8
+   pm_runtime_get_suppliers+0x6c/0xb8
+   __driver_probe_device+0x68/0x230
+   driver_probe_device+0xdc/0x1b0
+   __driver_attach+0x10c/0x2c8
+   bus_add_driver+0x17c/0x2e0
+   __platform_register_drivers+0x7c/0x1c0
+   mtk_drm_init+0x38/0xfd0 [mediatek_drm]
+   do_one_initcall+0x60/0x4e0
+   do_init_module+0xa0/0x308
+   init_module_from_file+0x10c/0x180
+   idempotent_init_module+0x1f8/0x2f0
+   __arm64_sys_finit_module+0x74/0x120
 
-Exclude irq.o from KCOV instrumentation, as is already done for the
-arm64 entry code. This covers both wrappers even with compilers that
-lack the no_sanitize_coverage attribute. The softirq action functions
-remain instrumented for explicit remote coverage.
+The oopsing udev worker exits holding the module loader's locks, so
+every later module load soft-locks and the boot dies in the initrd.
+The same oops was reported on MT8188 (Genio 700 EVK) from mtk_mdp3
+module init.
 
-Fixes: 8eb858c44b98 ("arm64: run softirqs on the per-CPU IRQ stack")
+Publish the bind state with smp_store_release() and check it with
+smp_load_acquire() in mtk_smi_larb_resume(); that answers how the
+check synchronizes between CPUs.  Fail the resume with -EAGAIN: the
+larb stays RPM_SUSPENDED and retryable, the error is dropped by
+pm_runtime_get_suppliers() on the driver-core probe path, and the
+consumer's first runtime resume after the bind (at display enable,
+mtk_crtc_atomic_enable()) re-runs the callback, which configures the
+larb ports then.  Failing rather than skipping keeps the larb
+suspended instead of marking it active with unconfigured MMU ports,
+which would only turn the crash into silent iommu faults.
+
+A failed supplier resume does not break the consumer's probe.
+pm_runtime_get_suppliers() is void and drops the error, so a probe
+inside the window just proceeds.  The display components do not touch
+the larb in probe: mtk_disp_ovl_probe() and its siblings only call
+pm_runtime_enable(), and mdp3 only enables runtime PM for its
+DMA-capable components (mtk-mdp3-comp.c).  The first real runtime
+resume happens later, at display enable: mtk_crtc_atomic_enable()
+does pm_runtime_resume_and_get() and the device links resume the
+larb first.  By then the component master bind has completed, so the
+larb configures its ports and the resume succeeds.  There is no
+deadlock either: the bind only records the larb pointers, it does not
+resume the larb, so the window closes when the bind completes
+regardless of what consumers do.  -ENODEV is not an alternative;
+like -EPROBE_DEFER it is recorded in dev->power.runtime_error
+instead of being exempted.
+
+The bind state is a separate flag rather than a NULL test on
+larb->mmu so that the publication explicitly covers both larb->mmu
+and larb->bank.  mtk_smi_larb_unbind() clears it again with
+WRITE_ONCE(), which is all the clear side needs since it publishes
+nothing, so an iommu removal or module unload can not leave a stale
+bound state pointing at the freed iommu data.  A resume in flight
+while the iommu goes away is a pre-existing teardown hazard (the
+data it reads belongs to the iommu device, whose removal breaks
+bound consumers anyway); clearing the flag makes every resume that
+starts after the clear fail safely instead.
+
+Tested on MT8183 (krane) with the full MTK stack built as modules:
+with this change applied the machine boots reliably, the iommu
+probes and binds all larbs, and the display stack comes up fully
+functional.
+
+The Fixes: tag points at 4f0a1a1ae351, which moved the port
+configuration into the runtime resume.  The device links that open
+the race window are added on the mtk-iommu side, but the dereference
+guarded here is the one that commit introduced.
+
+Fixes: 4f0a1a1ae351 ("memory: mtk-smi: Invoke pm runtime_callback to enable clocks")
+Reported-by: Jian Hui Lee <jianhui.lee@canonical.com>
+Closes: https://lore.kernel.org/linux-arm-kernel/20251111124853.2916889-1-jianhui.lee@canonical.com/
 Cc: stable@vger.kernel.org
-Assisted-by: LLM
-Signed-off-by: Karl Mehltretter <kmehltretter@gmail.com>
+Cc: Krzysztof Kozlowski <krzk@kernel.org>
+Cc: Yong Wu <yong.wu@mediatek.com>
+Cc: Jian Hui Lee <jianhui.lee@canonical.com>
+Cc: Matthias Brugger <matthias.bgg@gmail.com>
+Cc: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
+Cc: Rafael J. Wysocki <rafael@kernel.org>
+Cc: Ulf Hansson <ulf.hansson@linaro.org>
+Cc: linux-mediatek@lists.infradead.org
+Cc: linux-arm-kernel@lists.infradead.org
+Cc: linux-pm@vger.kernel.org
+Cc: linux-kernel@vger.kernel.org
+Signed-off-by: Valentin Haudiquet <valentin.haudiquet@canonical.com>
 ---
-This patch applies without my other pending KCOV or softirq patches.
-For testing, the pause series [1] suppresses the other known
-timer/scheduler leaks, and the selftest diagnostic [2] reports the
-remaining PCs.
 
-Tested on mainline 40288c9206c17 with both prerequisites applied:
-- GCC 15.2 arm64 builds, KCOV_INSTRUMENT_ALL and KCOV_SELFTEST enabled.
-- QEMU virt/cortex-a76: baseline reports 15 PCs alternating between
-  the two wrappers and panics. The fix passes three boots with KASLR
-  and three with nokaslr. All KASLR boots have nonzero relocation.
-- Raspberry Pi 500, BCM2712 D0: baseline records seven PCs from each
-  wrapper. The fixed kernel completes the strict selftest with zero
-  PCs. The baseline alone replaces the final panic with a diagnostic
-  and return so SSH can retrieve its log. Recording is unchanged.
-- Clang 21 W=1 object builds: irq.o has no KCOV callbacks after the
-  change, while syscall.o retains its instrumentation.
-- Fixed QEMU image: positive PC and comparison coverage remains live
-  for getpid() and close(-1), with neither buffer saturated.
+A fix for this was posted by Jian Hui Lee in November 2025, but the
+thread went quiet after review.  This revision is not from the
+original poster: it is an independent rework of the same fix,
+submitted because the same problem was hit on krane and the machine
+needed a working kernel.
 
-My softirq IRQ-exit v3 patch [3] makes the boot selftest pass in QEMU
-and on the Pi without this patch. It does not cover the task-context
-path through local_bh_enable(). A five-send loopback UDP test shows:
+Changes in v2:
+ - publish the bind state with smp_store_release()/smp_load_acquire()
+   instead of a bare NULL check, answering the "how does this
+   synchronize between CPUs" question from the v1 review
+ - fail the resume with -EAGAIN instead of silently skipping the port
+   configuration; the larb stays RPM_SUSPENDED and the retry is
+   demand-driven (the consumer's next runtime resume, after the bind)
+ - clear the flag in mtk_smi_larb_unbind() so an iommu removal can not
+   leave a stale bound state pointing at the freed iommu data
+ - quote the oops backtrace and add proper tags
+ drivers/memory/mtk-smi.c | 27 ++++++++++++++++++++++++++-
+ 1 file changed, 26 insertions(+), 1 deletion(-)
 
-                                    v3    v3 + this patch
-  Wrapper PC entries (five sends)  10    0
-  Sends covering udp_sendmsg()     5/5   5/5
-
-A bounded syzkaller replay compared my softirq v4 patch [4] alone
-against v4 plus this patch. It used 18 reviewed programs with 40
-executions per program and variant across four fresh boots in A-B-B-A
-order. A is v4 alone; B adds this patch:
-
-                                    v4          v4 + this patch
-  Program executions               720         720
-  Wrapper PC entries (40 sends)    80          0
-  Stable non-wrapper locations     7,172       7,172
-  Executions to reach 99%          17          17
-  Greedy fixed corpus              16/4,068 B  16/4,068 B
-  Executor time                    3.932 s     3.956 s
-
-This fixed replay measures coverage cleanup, not syz-manager discovery
-or corpus growth.
-
-A longer replay used the same A-B-B-A order and ran the workload for
-30 minutes per variant. Excluding a 30-second warmup from each 15-minute
-session left 29 measured minutes per variant:
-
-                                    v4          v4 + this patch
-  Program executions               119,883     119,868
-  Programs/s                       68.898      68.890
-  Mean executor time/program       5.256 ms    5.285 ms
-  90%-stable non-wrapper locations 6,959       6,953
-  Wrapper PC entries (40 sends)    80          0
-  KCOV overflows                   0           0
-
-The 80 entries are 40 instances of each wrapper PC. The variants shared
-6,952 stable non-wrapper locations; the six unmatched locations were
-route-lookup PCs. The timing differences were not material.
-
-Apply checks pass on v6.1, v6.6, v6.12 and v6.18; those older kernels
-have not been built or boot-tested here.
-
-[1] https://lore.kernel.org/all/20260914054632.12877-1-kmehltretter@gmail.com/
-[2] https://lore.kernel.org/all/20260919080220.37633-1-kmehltretter@gmail.com/
-[3] https://lore.kernel.org/all/20260924041538.52574-1-kmehltretter@gmail.com/
-[4] https://lore.kernel.org/r/20260926143505.66024-1-kmehltretter@gmail.com/
-
- arch/arm64/kernel/Makefile | 3 +++
- 1 file changed, 3 insertions(+)
-
-diff --git a/arch/arm64/kernel/Makefile b/arch/arm64/kernel/Makefile
-index d2690c3ec5288..ea66339435bf0 100644
---- a/arch/arm64/kernel/Makefile
-+++ b/arch/arm64/kernel/Makefile
-@@ -25,6 +25,9 @@ KASAN_SANITIZE_stacktrace.o := n
- KCOV_INSTRUMENT_entry-common.o := n
- KCOV_INSTRUMENT_idle.o := n
+diff --git a/drivers/memory/mtk-smi.c b/drivers/memory/mtk-smi.c
+index aaeba8ab2..dfc65b208 100644
+--- a/drivers/memory/mtk-smi.c
++++ b/drivers/memory/mtk-smi.c
+@@ -157,6 +157,7 @@ struct mtk_smi_larb { /* larb: local arbiter */
+ 	int				larbid;
+ 	u32				*mmu;
+ 	unsigned char			*bank;
++	bool				bound; /* set once the iommu binds us */
+ };
  
-+# Softirq stack switching can run outside interrupt context.
-+KCOV_INSTRUMENT_irq.o := n
+ static int
+@@ -171,6 +172,11 @@ mtk_smi_larb_bind(struct device *dev, struct device *master, void *data)
+ 			larb->larbid = i;
+ 			larb->mmu = &larb_mmu[i].mmu;
+ 			larb->bank = larb_mmu[i].bank;
++			/*
++			 * Publish larb->mmu and larb->bank; pairs with
++			 * smp_load_acquire() in mtk_smi_larb_resume().
++			 */
++			smp_store_release(&larb->bound, true);
+ 			return 0;
+ 		}
+ 	}
+@@ -180,7 +186,13 @@ mtk_smi_larb_bind(struct device *dev, struct device *master, void *data)
+ static void
+ mtk_smi_larb_unbind(struct device *dev, struct device *master, void *data)
+ {
+-	/* Do nothing as the iommu is always enabled. */
++	struct mtk_smi_larb *larb = dev_get_drvdata(dev);
 +
- # Object file lists.
- obj-y			:= debug-monitors.o entry.o irq.o fpsimd.o		\
- 			   entry-common.o process.o ptrace.o			\
++	/*
++	 * The iommu data recorded at bind time is going away; make the
++	 * next runtime resume wait for a fresh bind.
++	 */
++	WRITE_ONCE(larb->bound, false);
+ }
+ 
+ static const struct component_ops mtk_smi_larb_component_ops = {
+@@ -697,6 +709,19 @@ static int __maybe_unused mtk_smi_larb_resume(struct device *dev)
+ 	const struct mtk_smi_larb_gen *larb_gen = larb->larb_gen;
+ 	int ret;
+ 
++	/*
++	 * With modular builds a consumer device probe can runtime-resume
++	 * the larb (pm_runtime_get_suppliers()) before the iommu's
++	 * component master bind has populated larb->mmu and larb->bank.
++	 * Fail the resume with -EAGAIN: the larb stays RPM_SUSPENDED and
++	 * retryable, and the next resume after the bind configures the
++	 * larb ports.
++	 */
++	if (!smp_load_acquire(&larb->bound)) {
++		dev_dbg(dev, "not yet bound to an iommu, skipping port configuration\n");
++		return -EAGAIN;
++	}
++
+ 	ret = clk_bulk_prepare_enable(larb->smi.clk_num, larb->smi.clks);
+ 	if (ret)
+ 		return ret;
+base-commit: 93f51579e7df248780214094418f205253383cc5
 -- 
 2.53.0
+
 
