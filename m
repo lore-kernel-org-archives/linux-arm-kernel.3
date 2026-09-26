@@ -4,65 +4,60 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7BE2DC9830E
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 26 Sep 2026 02:17:46 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E5131C9832A
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 26 Sep 2026 02:50:37 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Mime-Version:References:In-Reply-To:Message-Id:Subject:Cc:To:
-	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ps+oS/5gQqK+NmJA68Mxz4+l0q54PE+5qHL7AWHAnAQ=; b=ghKlH1c6g1xmfkzbtZGI+Ol0Vs
-	b/fmfl08U6LnmItqTH7yUZT3Bzz7+hPtCJjFuygvu0VFVm3/I0Tl0L7JMD3rf060LyYtIhQNzemwg
-	9RnXKzObisu4mOx8Vl/I4uQJ51pYYScUdRouZl5+zU7ZVeWznhhuG9n/mbx3dMb43NqqcKv3e2Zhi
-	38Nd0EJbAoPNV+eZvxFZlhJJ1Y5LzpnbF4Ox7zJtTZUouyk8PVFHRvXwu9ZAX29ce0+HjdccBrs+v
-	eltoIWUwAkVW3gw8hJM5U6fOB97km3tpoNtee+MaT7QRni7MsZTv5Q8+pZ7szb3gaYEHlsPDZC5q4
-	7CoJV9AA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
+	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=q1D/hTfHpEkj4ENhT/+CFwGkVCSkmz0nULHdaqKDKiw=; b=vRjSf3Ug5DgJfqfaYZNFYAAqwQ
+	P/Zpvo4k43B/9hwgyTIiERLidm9yOD1Ulhjd3ClAykQkUbD1911IsOl3G70DIwTEn2P6KrXc3IXkL
+	gJA3sqRorW7k9cDePSpzAvNc1ExjScwj1VgQpXcwZGq+zPtlrO3kVrXaIcyaAMJAFB/Wg40N/Kixo
+	Go358PczgnPOqhk1OWq8PuYcPWycqM15EWJnHgkBcFBkDc9XBgbnbN68pO17SAN3NHOfFH0DZlQg1
+	rFymksHFVkAZfaaW6z9Rg735QsoTTOTWb43y7AhE8KefXURnpVP3EyH7IMnF90QetUUE7xyxc8VZi
+	yhBfNw2g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xAHyr-0000000Eqiv-3RQ1;
-	Sat, 26 Sep 2026 02:17:37 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1xAIUe-0000000Es1p-1UPP;
+	Sat, 26 Sep 2026 02:50:28 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xAHyr-0000000Eqii-0s49
-	for linux-arm-kernel@lists.infradead.org;
-	Sat, 26 Sep 2026 02:17:37 +0000
+	id 1xAIUc-0000000Es1c-3dzx;
+	Sat, 26 Sep 2026 02:50:26 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 922FC4378B;
-	Sat, 26 Sep 2026 02:17:36 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 8016D1F000FF;
-	Sat, 26 Sep 2026 02:17:31 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id CBBDD60136;
+	Sat, 26 Sep 2026 02:50:25 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 57B651F000FF;
+	Sat, 26 Sep 2026 02:50:21 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1790389056;
-	bh=ps+oS/5gQqK+NmJA68Mxz4+l0q54PE+5qHL7AWHAnAQ=;
-	h=Date:From:To:Cc:Subject:In-Reply-To:References;
-	b=IqHIiKFm9l2a0fqUsXNGp6IeHUhq+lcCM7frCzSD1tlB1UNwXAiseUhw7HtTqyQgf
-	 gn5SswmAQ3G8SZdpGofsob70Rc0+ayWNYwKNBf29504lBuWQcLznojwBP65Lbi1PLm
-	 n5odsrc5dScuGMRo5ZiIe3PjTLxIkc5ywQ+NXekPYon0prRD1JttxY3TFiP/tD99OC
-	 9FPNQfZMP4oUwtFmvty5YjmMApBUHDvmHCKmKWFQgdXZnjmnrwhwclzXW6JhxehaPD
-	 EHQ61QJIwjog1pHvkwUYOaweaaHQzkMaClXc4v1N2X6ZV9+eiIIB9ax+gNeQFPh34o
-	 8QSMrIdIFyQpA==
-Date: Sat, 26 Sep 2026 11:17:29 +0900
-From: Masami Hiramatsu (Google) <mhiramat@kernel.org>
-To: bot+bpf-ci@kernel.org
-Cc: josef@toxicpanda.com, paulmck@kernel.org, frederic@kernel.org,
- ast@kernel.org, rostedt@goodmis.org, boqun@kernel.org,
- mark.rutland@arm.com, peterz@infradead.org, tglx@kernel.org,
- daniel@iogearbox.net, andrii@kernel.org, puranjay@kernel.org,
- rcu@vger.kernel.org, bpf@vger.kernel.org,
- linux-trace-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-kernel@vger.kernel.org, martin.lau@kernel.org, eddyz87@gmail.com,
- yonghong.song@linux.dev, mason@kernel.org, ihor.solodrai@linux.dev
-Subject: Re: [PATCH] kprobes: Make optprobe optimizer multi-generational and
- asynchronous
-Message-Id: <20260926111729.f580fa6a8eaac448649fc8e3@kernel.org>
-In-Reply-To: <6469f266e0c06de407583746d4f533a03a002fa8d7871124196b0bb568fe38fa@mail.kernel.org>
-References: <179017148080.466588.9116221556625712980.stgit@devnote2>
-	<6469f266e0c06de407583746d4f533a03a002fa8d7871124196b0bb568fe38fa@mail.kernel.org>
-X-Mailer: Sylpheed 3.8.0beta1 (GTK+ 2.24.33; x86_64-pc-linux-gnu)
-Mime-Version: 1.0
-Content-Type: text/plain; charset=US-ASCII
-Content-Transfer-Encoding: 7bit
+	s=k20260515; t=1790391025;
+	bh=q1D/hTfHpEkj4ENhT/+CFwGkVCSkmz0nULHdaqKDKiw=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=iSMIW41maQwL2ehdH0TNscsz5QmADA5AcVjc15u5+KuWioJR0ySjmMolmOtmqcqtd
+	 euVIrdW1itg1oKyM81AVGjjga1yCF1A+UkhHwXhfBCz+/lUhPG3IFMKmDQybddT+qD
+	 u1YAOjRBpaff2pUjvcnftQXSGCCX8A7U29UXB6BmCmspa97quzeHpjVdhREDTNiiUQ
+	 zyi+BXrlvm4K8QWWcaur7u586K3UIibc0L1IYpyj6jhAqRpadzemGRIBaC168MYY5q
+	 MPnz7difEO9IITvT/Y8WX6aky3IP2Wn7N0KYuta7GaJ77RmltWKYjbmUyNk7qtAErn
+	 NJqPxZYV8+CQw==
+Date: Sat, 26 Sep 2026 04:50:07 +0200
+From: Manivannan Sadhasivam <mani@kernel.org>
+To: Sebastian Reichel <sebastian.reichel@collabora.com>
+Cc: Vinod Koul <vkoul@kernel.org>, 
+	Neil Armstrong <neil.armstrong@linaro.org>, Heiko Stuebner <heiko@sntech.de>, 
+	Maxime Chevallier <maxime.chevallier@bootlin.com>, linux-phy@lists.infradead.org, 
+	linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org, linux-kernel@vger.kernel.org, 
+	Igor Paunovic <royalnet026@gmail.com>, kernel@collabora.com
+Subject: Re: [PATCH] phy: rockchip: inno-usb2: ensure PHY is running when
+ clock is requested
+Message-ID: <xnvakstneih6njyxfe27kdx54vy3zpnth24o4mjlzuoykb2pfh@np7dx62waujo>
+References: <20260908-phy-rockchip-inno-usb2-clock-fix-v1-1-f7d59c31b908@collabora.com>
+MIME-Version: 1.0
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+Content-Transfer-Encoding: 8bit
+In-Reply-To: <20260908-phy-rockchip-inno-usb2-clock-fix-v1-1-f7d59c31b908@collabora.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -77,131 +72,77 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, 24 Sep 2026 16:17:38 +0000 (UTC)
-bot+bpf-ci@kernel.org wrote:
+On Tue, Sep 08, 2026 at 06:07:42PM +0200, Sebastian Reichel wrote:
+> On RK3588 the OHCI controller registers can only be accessed when the
+> PHY's 480MHz clock is running. After system suspend the controller is
+> resumed before the PHY.
 
-> > diff --git a/kernel/kprobes.c b/kernel/kprobes.c
-> > index 6337da5cab9e..1e25980303c4 100644
-> > --- a/kernel/kprobes.c
-> > +++ b/kernel/kprobes.c
-> 
-> [ ... ]
-> 
-> > @@ -530,50 +553,78 @@ static DECLARE_COMPLETION(optimizer_completion);
-> >
-> >  #define OPTIMIZE_DELAY 5
-> >
-> > +static bool optprobe_has_queued_probes(void)
-> > +{
-> > +	struct optprobe_generation *gen = &optprobe_gens[optprobe_cur_gen];
-> > +
-> > +	return !list_empty(&gen->optimizing_list) ||
-> > +	       !list_empty(&gen->unoptimizing_list);
-> > +}
-> 
-> Does this logic need to check gen->freeing_list as well?
+This statement is slightly confusing. There is no PM ops in this PHY driver.
 
-Ah, indeed. It should check the freeing_list too.
-
-[ ... ]
+> The controller requests the clock, which opens
+> the gate in the PHY's clock prepare function. But with the PHY suspended
+> this just results in a dead clock being routed. The OHCI driver will
+> then continue to access its registers resulting in a board hang.
 > 
-> > @@ -622,67 +675,119 @@ static void do_free_cleaned_kprobes(void)
-> >
-> >  static void kick_kprobe_optimizer(void);
-> >
-> > +static void optprobe_generation_rcu_cb(struct rcu_head *rcu)
-> > +{
-> > +	struct optprobe_generation *gen;
-> > +
-> > +	gen = container_of(rcu, struct optprobe_generation, rcu);
-> > +	WRITE_ONCE(gen->ready, true);
-> > +	wake_up(&kprobe_optimizer_wait);
-> > +}
-> > +
-> > +static void optprobe_finalize_generation(struct optprobe_generation *gen)
-> > +{
-> > +	lockdep_assert_held(&kprobe_mutex);
-> > +
-> > +	scoped_guard(cpus_read_lock) {
-> > +		guard(mutex)(&text_mutex);
-> > +
-> > +		/* Optimization never be done when disarmed */
-> > +		if (!kprobes_all_disarmed && kprobes_allow_optimization &&
-> > +		    !list_empty(&gen->optimizing_list))
-> > +			arch_optimize_kprobes(&gen->optimizing_list);
-> > +	}
-> > +
-> > +	/* Free cleaned kprobes after quiescence period */
-> > +	do_free_cleaned_kprobes(&gen->freeing_list);
-> > +
-> > +	gen->in_flight = false;
-> > +	WRITE_ONCE(gen->ready, false);
-> > +}
-> > +
-> > +static void optprobe_dispatch_generation(void)
-> > +{
-> > +	struct optprobe_generation *gen;
-> > +
-> > +	lockdep_assert_held(&kprobe_mutex);
-> > +
-> > +	if (!optprobe_can_fire() || !optprobe_has_queued_probes())
-> > +		return;
-> > +
-> > +	gen = &optprobe_gens[optprobe_cur_gen];
-> > +
-> > +	scoped_guard(cpus_read_lock) {
-> > +		guard(mutex)(&text_mutex);
-> > +
-> > +		/*
-> > +		 * Unoptimize kprobes and collect cleaned (unused and disarmed)
-> > +		 * kprobes before waiting for quiescence period.
-> > +		 */
-> > +		do_unoptimize_kprobes(&gen->unoptimizing_list, &gen->freeing_list);
-> > +	}
-> > +
-> > +	/* Advance cur_gen to the next generation slot */
-> > +	optprobe_cur_gen = (optprobe_cur_gen + 1) % OPTPROBE_GEN_MAX;
-> > +
-> > +	gen->in_flight = true;
-> > +	WRITE_ONCE(gen->ready, false);
-> > +
-> > +	call_rcu_tasks(&gen->rcu, optprobe_generation_rcu_cb);
-> > +}
+> Fix this by resuming the suspended PHY in the clock's prepare function,
+> so that the clock is really prepared once the function returns.
 > 
-> Now that kprobe_mutex is dropped during the Tasks RCU grace period, can
-> an aggregator probe that was unoptimized but is still in use be freed
-> while a task is still preempted inside its detour buffer?
-
-Good catch! Yes, we need to keep tracking the unoptimized but not
-freed kprobes until finalize it.
-
-[ ... ]
+> Signed-off-by: Sebastian Reichel <sebastian.reichel@collabora.com>
+> ---
+> This was noticed on RK3588 EVB1 when resuming from system suspend. This
+> is technically a fix, but its unclear when the bug was introduced and
+> system suspend is broken on RK3588 for quite a while and not just due
+> to this problem. So I think this fix can be merged the normal way via
+> linux-next.
+> ---
+>  drivers/phy/rockchip/phy-rockchip-inno-usb2.c | 37 +++++++++++++++++++++++++++
+>  1 file changed, 37 insertions(+)
 > 
-> > @@ -707,12 +812,11 @@ static void wait_for_kprobe_optimizer_locked(void)
-> >  {
-> >  	lockdep_assert_held(&kprobe_mutex);
-> >
-> > -	while (!list_empty(&optimizing_list) || !list_empty(&unoptimizing_list)) {
-> > +	while (optprobe_optimizer_busy()) {
-> >  		init_completion(&optimizer_completion);
-> > -		/*
-> > -		 * Set state to OPTIMIZER_ST_FLUSHING and wake up the thread if it's
-> > -		 * idle. If it's already kicked, it will see the state change.
-> > -		 */
-> > +		optprobe_flush_requested = true;
-> > +
-> > +		/* Wake up optimizer thread */
-> >  		if (atomic_xchg_acquire(&optimizer_state,
-> >  			OPTIMIZER_ST_FLUSHING) != OPTIMIZER_ST_FLUSHING)
-> >  			wake_up(&kprobe_optimizer_wait);
-> 
-> Andrea Parri raised a concern on 2026-09-24 about a race condition in
-> this code (https://lore.kernel.org/all/arTuBodyGqQ0mErI@andreayoga.localdomain/).
+> diff --git a/drivers/phy/rockchip/phy-rockchip-inno-usb2.c b/drivers/phy/rockchip/phy-rockchip-inno-usb2.c
+> index 7d8a533f24ae..07d400967def 100644
+> --- a/drivers/phy/rockchip/phy-rockchip-inno-usb2.c
+> +++ b/drivers/phy/rockchip/phy-rockchip-inno-usb2.c
+> @@ -332,6 +332,39 @@ rockchip_usb2phy_clk480m_clkout_ctl(struct clk_hw *hw, struct regmap **base,
+>  	}
+>  }
+>  
+> +static int rockchip_usb2phy_clk480m_leave_suspend(struct clk_hw *hw)
+> +{
+> +	struct rockchip_usb2phy *rphy = container_of(hw, struct rockchip_usb2phy, clk480m_hw);
+> +	bool relock = false;
+> +	int ret, i;
+> +
+> +	/* Limit to single port; it's unclear how multi-port should be handled */
+> +	if (rphy->phy_cfg->num_ports > 1)
+> +		return 0;
+> +
+> +	for (i = 0; i < rphy->phy_cfg->num_ports; i++) {
+> +		struct rockchip_usb2phy_port *rport = &rphy->ports[i];
+> +		const struct rockchip_usb2phy_port_cfg *port_cfg = rport->port_cfg;
+> +
+> +		if (!rport->phy || !port_cfg || !port_cfg->phy_sus.enable)
+> +			continue;
+> +		if (property_enabled(rphy->grf, &port_cfg->phy_sus)) {
+> +			property_enable(rphy->grf, &port_cfg->phy_sus,
+> +					false);
+> +			relock = true;
+> +		}
+> +	}
+> +
+> +	if (relock) {
+> +		ret = rockchip_usb2phy_reset(rphy);
+> +		if (ret)
+> +			return ret;
+> +		usleep_range(1500, 2000);
+> +	}
+> +
 
-Yes, so I pick his patch at first and rebase this on it.
+This looks like a duplication of rockchip_usb2phy_power_on(). So I'm assuming
+that phy_power_on() is not called by the OHCI driver before accessing the
+registers. So why don't you fix that instead?
 
-Thanks,
+- Mani
 
 -- 
-Masami Hiramatsu (Google) <mhiramat@kernel.org>
+மணிவண்ணன் சதாசிவம்
 
