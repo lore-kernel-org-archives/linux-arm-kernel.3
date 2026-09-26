@@ -4,142 +4,95 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id ACDCEC9832F
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 26 Sep 2026 18:46:16 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id AE00DC9832A
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 26 Sep 2026 19:13:57 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
-	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=rPJSWCK+lwQS5s8kV2JpbENy9VWhMOo8bp2XUDLokKM=; b=lYQID0DPPsBOjL40iytu3RVmBx
-	oF/q6uyqnJ9eqfvEepHELbuikxDibg1uRY2Me4XLFkWsxo2FeAjyETu2jRvmhfh8ppn51Is+b0474
-	/KiWIYALlNKX5dS1W5L6NeLcfbFP9tIC0YeSF5l71X2EsfI9FqgS3GrD5bUhYHyZdKrgAk6EPgGS+
-	7r5nA4zje0kYcDbbbLxursPVxHIGXyndtQilA+WT+oDPAE1JTYxEUpCz8ssBcmOg+UrijzC5X6I6l
-	xjRzULP/LYp/X5PZ0X3bxb5zaaZJAr55sYCWRNDLyz0Ock8Y69/cWFOIMN+hB5uHPJJwIVQScrGMB
-	naw7M46g==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=WFiz624ouLEyAAyXLCnZKvLJThEjNkHlXSnv7jS5fHY=; b=eCdnsEre4wioo+/TcS/IZz1MTk
+	Xk8R6xZdjT1SikK6dRk+jPghF/dxnhkBFfEM3+HiHsf0L2RPVggxisR18XVFmIVdXzbDaN6YOkVLa
+	Rz6dkBbDBdN5Dx/cxXMKTs2P4VBmM/dRUuxApZNQn+qZpkqeC5aSDq+stqX9w7xI/5oJ6eYWobm0i
+	bBZg7veu1RwGG6I6lCRFpQySoGZshpn0dc35LVe9LQkCeB3FD3zcf1JwoDiDMrE9wlnmeL9HIzahS
+	zEr/wwisRjKkGMWtSoQulIz8U3T56d1UzsUnUjOGYTgVOsoPuaLl8/kmMmNK9YOCLwMGuXATqcWCR
+	cBb2fPNA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xAXPW-0000000Fiv5-0KQf;
-	Sat, 26 Sep 2026 18:46:10 +0000
-Received: from mail-southcentralusazlp170130001.outbound.protection.outlook.com ([2a01:111:f403:c10c::1] helo=SA9PR02CU001.outbound.protection.outlook.com)
+	id 1xAXqD-0000000FkTX-36bj;
+	Sat, 26 Sep 2026 19:13:45 +0000
+Received: from mail-wr2-x10.google.com ([2a00:1450:4864:30::10])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xAXPS-0000000Fiua-2boZ;
-	Sat, 26 Sep 2026 18:46:08 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=WvCIvyGe09xnt0xNQ1qXMF5w8kJU4YBHKRMSAOSGVljqY9fQhGi5qoyuoj5MmnVxJcstFckNdE782t2IMkJljQ/LoKDlQl404EwU6VSzNVjiVopzTGUFuvouHbEaMLOdFvhd1Ih6RWUTwlDEEuYpeMso7TR6kqbDtI78sapfwmbxAx9a7aoqm0qLPx6/iiU+8ltCXmAguXz5Tl0Ml+jqaVr1R/eE14avVOsRodQq1YxspcUB9xPFE8bjZ7PeVeIm5/B2xCFdYSvoRGZUYePZS+DGSNiWX6ebFDOxXhpK69yz2zxWP4vODiTAgkBEO1nftz5fxoBTUCpXLBy+Hhq7xA==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=rPJSWCK+lwQS5s8kV2JpbENy9VWhMOo8bp2XUDLokKM=;
- b=CK8K9uIkXtExeVog0Q+OTjfH4QYBSDW8MNuiFJEYbXYg9z3LbG/n48YnMjc+xDVyC1tK+dKh1KA4p+weuwytrH5l1XhEN/641P+kZVmeouj0mPdEZWVKx3r1Wmkn8ECvFcSlfm5Yhlimn9/Co5Fc2vc9c4DQ+sEjvvaFbVnlDkJgQM9g4Cp8P6OupLvjWfnIcxm4bRxqfhcxxrEschwMJax8w+cD6u05Aw7AgNPjfT1WkXG04RQ8xuytd6zrPRDDp3p+GVTb8A+PZVpZdsI8t9cJH9EwrzsRT8hDOEP3RJsqKRdt1MgvfKmoLHshgdCSbIOmnxI6VDo1K6Tlj7CL8w==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nvidia.com; dmarc=pass action=none header.from=nvidia.com;
- dkim=pass header.d=nvidia.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
- s=selector2;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=rPJSWCK+lwQS5s8kV2JpbENy9VWhMOo8bp2XUDLokKM=;
- b=IrGl31j1sUfpCEOBnVadQb/Uws64VnWDw8qb3jVzFKhmr0g5OCpf+HilhFl7gTSpvOfW5sMiRtdxS077B05WR0Z8fgSnV7KZZ6WFXanoruui6uMmTM4AbsN4WiVBDnrY/hCkPj8seWZXYYcV6lUkMcwMvfwIcGfoc7hlxUhTxhNxAjwOVEXYZ1wWiCxxrYZlseCJGb9/9OW0kO9CUsMrPEk0wYH8LNxe3rdQx9sRNw3QfKzUU2MCM/DPYBBmCaNrFWneOKpH6nW/2bxeUAeLMpamSYWYy1iN4aT6Bj9lhVXUGMbqvXqlTY7DDJJpYUuGn0Y5zDN26DA0OxbY7L6AFA==
-Authentication-Results: mx.microsoft.com 1; dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nvidia.com;
-Received: from CHBPR12MB731189.namprd12.prod.outlook.com
- (2603:10b6:610:33d::12) by LV8PR12MB9690.namprd12.prod.outlook.com
- (2603:10b6:408:296::16) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.451.19; Sat, 26 Sep
- 2026 18:45:59 +0000
-Received: from CHBPR12MB731189.namprd12.prod.outlook.com
- ([fe80::b0e5:123d:fe06:e10d]) by CHBPR12MB731189.namprd12.prod.outlook.com
- ([fe80::b0e5:123d:fe06:e10d%6]) with mapi id 15.21.0451.014; Sat, 26 Sep 2026
- 18:45:59 +0000
-Date: Sat, 26 Sep 2026 15:45:58 -0300
-From: Jason Gunthorpe <jgg@nvidia.com>
-To: Jonathan Cameron <jonathan.cameron@oss.qualcomm.com>
-Cc: Alexandre Ghiti <alex@ghiti.fr>, Albert Ou <aou@eecs.berkeley.edu>,
-	Ard Biesheuvel <ardb@kernel.org>, Arnd Bergmann <arnd@arndb.de>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Jonathan Corbet <corbet@lwn.net>, David Sterba <dsterba@suse.com>,
-	Ilias Apalodimas <ilias.apalodimas@linaro.org>,
-	linux-arch@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-	linux-doc@vger.kernel.org, linux-efi@vger.kernel.org,
-	linux-riscv@lists.infradead.org,
+	id 1xAXqB-0000000FkT9-0wXJ
+	for linux-arm-kernel@lists.infradead.org;
+	Sat, 26 Sep 2026 19:13:44 +0000
+Received: by mail-wr2-x10.google.com with SMTP id ffacd0b85a97d-48449f62b93so613906f8f.0
+        for <linux-arm-kernel@lists.infradead.org>; Sat, 26 Sep 2026 12:13:42 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20251104; t=1790450021; x=1791054821; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
+        bh=WFiz624ouLEyAAyXLCnZKvLJThEjNkHlXSnv7jS5fHY=;
+        b=eso9dPljR/AikXwi4IkSmOgdUTSvb5N8Y4NtLkfTy/7El2evZAA5lkJSXkzTZVtS7/
+         3DTD2E04XCE3yAhQD4NbWFjk0QJGsvEe/mqYInhEUKEFEkZ+Fj/Ub5gSuGr/t6tPq83y
+         LBOib0NkWyU6qyWY8TH0e430O0oIppXhE1GHCjL9QWVkKLYOJhZFes5l5vlMSRmAdlad
+         3TK/Q+DbBCALKqbMCKmgV1Tg/ZfanfXU+c91/N6ne6/Snnz4/mVklhaoTKaCQf+xr/S9
+         Mn3D6Nqgm/afv9WR/M2LkdauBuJXL7k256zPVb7+rA1HDocZQluQEuZSoJwUVfGLs7IH
+         RF+Q==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1790450021; x=1791054821;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=WFiz624ouLEyAAyXLCnZKvLJThEjNkHlXSnv7jS5fHY=;
+        b=OfJhYvoS2YbAvDCp0VBke3eF6xsEGCAfmXyju4DkcUXpmiGv+8OCuEy/Hk/8TEFTAh
+         ul/Mlpkh5OtES3HizQEbvLSZ/lL2mraf8pA/KCy4XIAyzJKldXO5FArwsEo0ZabTrIK0
+         RNmtvY32iB429fTBg+G8TGOhKGDk2uxY79sgdC0UsvQF4+opFGe8YafZycfcMs43Rmp4
+         7ADzQ10/HxGfCo2tP6NnTq1KA7EObSmxDaNYXQ0t0GuLIDnt/VD+78mhatgzpwi5haQN
+         idA7isHtfQnNk/hooAr6FWGvJuem6BqeeONI6fvezR/SDwrQYfAMuDIphhBP9Emff/Vi
+         Ahwg==
+X-Forwarded-Encrypted: i=1; AKwUvByH2/fOCqaszUH5bOyTD5cFcBd1IBHcq3RlCCFSC1UP7Am/mU0xzq6d9bdnrtu2xYxh6AxaFPClLVMFxQoXaeD0@lists.infradead.org
+X-Gm-Message-State: AFq9FYJ85W6TmjtdwcTHL7/xCl4lCXK/FaTxi06fmVOViRWQ+JYEA7Di
+	82J72VWQTQEiq5JTqB3gha+0Of/IMCXu4j5yEA5l0iYIIz9LlHx83RON
+X-Gm-Gg: AYBFou29Bb8FQ2C30Dihkf+NpV3/6Lfxuu0LYmMKlmrL2ElJlHGTORmMSW/Q+cw88vt
+	p2TBX9pIJF8wtUepRRCsvizflgB156VFkd6q+u3B2FfSnXz8fwisZL6WiWumEipTJ2a5VQaP4NS
+	kV9OAY5JR7dImAlgObxnYpO9th3P9ll4gNQacAgXPvM8jI0NDwOHFLAWzyeNhN3Sk9BsEWnoU7K
+	UVYQimMOM5eroIq6Ig6WdT8jqhjdhWzkKeyaVBAQ2hgr2z6/rMAx7ZdzkDpl4zWAD/zgiu/5mLb
+	mt8/JQo0k7GjtVB3kdCRYXzt43Cg+5WXUPbN7Fuk0S8THADQ9VlwyO/TVKNURSQHnJUOX46+L3I
+	+U5wUHllds6MhPAwBdqok/d5LMCheZbNsCHhollIwqbaIQLY8wIl6YZyLjI7O9bwmLr/0f0+oZB
+	A85qvqz6VFppOEnrYNg0LCmOxRApKnMXIx6JgCgwcK6h+CTOocIR7kOIiqm6RvArpIhcLnx4Tq6
+	RwyLvrd8E1H6I7HJYQIeMRVVMXQupBlujADLMw+1zoSZcO4D+080DfYAmaPJEKkaQAeZrIedsYI
+	DB9IcdtIJpmd+WP0Ifb7n2D/K70I8XNJxMe5AcInZoi1XjVeD3iGvfCGPv0BaI+N9LjA6TFhNKP
+	z9w==
+X-Received: by 2002:a05:6000:2383:b0:488:81d4:8bfc with SMTP id ffacd0b85a97d-48881d48c0bmr10171258f8f.11.1790450020913;
+        Sat, 26 Sep 2026 12:13:40 -0700 (PDT)
+Received: from localhost.localdomain (dynamic-2a02-3100-b162-c701-4960-a998-3de8-2fce.310.pool.telefonica.de. [2a02:3100:b162:c701:4960:a998:3de8:2fce])
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-4887a36189bsm15364391f8f.21.2026.09.26.12.13.39
+        (version=TLS1_3 cipher=TLS_CHACHA20_POLY1305_SHA256 bits=256/256);
+        Sat, 26 Sep 2026 12:13:40 -0700 (PDT)
+From: Karl Mehltretter <kmehltretter@gmail.com>
+To: Catalin Marinas <catalin.marinas@arm.com>,
+	Will Deacon <will@kernel.org>
+Cc: Karl Mehltretter <kmehltretter@gmail.com>,
 	Mark Rutland <mark.rutland@arm.com>,
-	Palmer Dabbelt <palmer@dabbelt.com>, Paul Walmsley <pjw@kernel.org>,
-	Randy Dunlap <rdunlap@infradead.org>,
-	Simon Glass <sjg@chromium.org>,
-	Shuah Khan <skhan@linuxfoundation.org>,
-	Nick Terrell <terrelln@fb.com>, Will Deacon <will@kernel.org>,
-	Alexandre Ghiti <alexghiti@rivosinc.com>,
-	Conor Dooley <conor.dooley@microchip.com>,
-	linux-integrity@vger.kernel.org,
-	Palmer Dabbelt <palmer@rivosinc.com>, patches@lists.linux.dev,
-	Ross Philipson <ross.philipson@gmail.com>,
-	Sami Tolvanen <samitolvanen@google.com>,
-	Song Shuai <songshuaishuai@tinylab.org>
-Subject: Re: [PATCH 16/16] efi/arm64: Implement ARM64 DRTM in the stub
-Message-ID: <20260926184558.GB473004@nvidia.com>
-References: <0-v1-27d06b313981+8b-arm64_drtm_jgg@nvidia.com>
- <16-v1-27d06b313981+8b-arm64_drtm_jgg@nvidia.com>
- <20260925113709.00005cd1@oss.qualcomm.com>
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20260925113709.00005cd1@oss.qualcomm.com>
-X-ClientProxiedBy: YT4P288CA0066.CANP288.PROD.OUTLOOK.COM
- (2603:10b6:b01:d2::29) To CHBPR12MB731189.namprd12.prod.outlook.com
- (2603:10b6:610:33d::12)
+	Qi Zheng <qi.zheng@linux.dev>,
+	Arnd Bergmann <arnd@arndb.de>,
+	Andrey Konovalov <andreyknvl@gmail.com>,
+	Alexander Potapenko <glider@google.com>,
+	Dmitry Vyukov <dvyukov@google.com>,
+	kasan-dev@googlegroups.com,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org
+Subject: [PATCH] arm64: irq: exclude the softirq stack switch from KCOV
+Date: Sat, 26 Sep 2026 21:13:25 +0200
+Message-Id: <20260926191325.79047-1-kmehltretter@gmail.com>
+X-Mailer: git-send-email 2.39.5 (Apple Git-154)
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: CHBPR12MB731189:EE_|LV8PR12MB9690:EE_
-X-MS-Office365-Filtering-Correlation-Id: 39cdece0-8545-42b4-d2b8-08df1bfe6806
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|7416014|376014|366016|1800799024|23010399003|4143699003|10067099003|6133799003|11063799006|56012099006|22082099003|18002099003|3023799007;
-X-Microsoft-Antispam-Message-Info: UwO2XeLf0Co06FtjTdaIaZNTHERoAvQmy/Ul6JHxMmh+sTHufnArVpyS8rrtWHvVd6Qu7hHHVpjaUmDlIu2RXPl0Jf1fEd/O/IloHJxdzYjlOPRdA1dd1zpayyCDFkk6Px+6/4+SSEzwT0sZwf0+2iLQv9bSe4NfS1CxDyTsirN2Zo8HwFzDOAKmB3AL+5Ll5K15LwQ3+g+y2if7cMTQuCJpEjKssOzXz+FdOyopAzneG1eu8CkPXg3E4WDcgu5AZJpBYJteIjTbc3y6fhK1zRh0lX3XR+NE8QTSNubQ1IjVr53+2rUp5fh1WLArRv8IcWJjeawO3BAC86/HLMxdF8vJpZAyflAqaTQ7wxZop2hNBRqSsPyghnuj7fOwQQKDVfrFBckRHUY2Qdiqg9prtAQjbYIYOFTeJjWe+249hRv2cMJmNPgsmX4J5vQAk9RecL4+bmQ6nX39gnLXbuVUETColQjXQDGa2vxC2yyF2FIhKcwBduUxFNmWhmMci4qkK1ZAkDm5pe4fTapM8UE8SaMS+fP/6Hfkt5yB9r5VWHRMcCv4wPOBjihUTJLXdrYgewnG9bBRm+LpwwvUPXDlZQSaRpNLjSW3W5493kYpdIJlQE0yrVp0lzOymdkZaEcj7WBzzlQJDdHbBfCck04EPMDX7a3QGu/bg9prlPGFcQ4=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:CHBPR12MB731189.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(7416014)(376014)(366016)(1800799024)(23010399003)(4143699003)(10067099003)(6133799003)(11063799006)(56012099006)(22082099003)(18002099003)(3023799007);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?jentSjukOMJtDkl8RkK5YMqSvkDGw981oOi/PpHNphryJJzVOOzszncv4kuD?=
- =?us-ascii?Q?J6Ko7mgkq/MNvzQ7BRvwt3SkLLasxmXDuh9pngKGmn+9oObDvFP4Zaj4U4B3?=
- =?us-ascii?Q?ToybcmoG8knMQwRWAmqUfmAgp/3WlWv0vabd0jQOS1ccgiVGyu1jxX8wEsgv?=
- =?us-ascii?Q?xerHyUvmTFFtiWhoFi5cXPOD0553CoxiDxdPC3XgGYOl9KUlNeN89DZf66ey?=
- =?us-ascii?Q?aQQmFH9JixuJHHDlpM5coVyz6o4TaS0NbIQ1ssELO65ErslgN+PFtdhNbhTv?=
- =?us-ascii?Q?obMI7uWHlcRZ+noWypmkogO71UIiRMgfrbI5fWbwqpPXEurgVbJMXYy6og38?=
- =?us-ascii?Q?ita1LyuG6PKg7guXgz1ln+eyeEwb/Sl2YOPUoOlaSM1WlH5QYkpWuxk4qhQb?=
- =?us-ascii?Q?/WLqQK7QzSABfmzncSK7DWy9XBVcckTJZyUg8Bd0pwbmytxMGA9RCmVfhMTd?=
- =?us-ascii?Q?Vs0tvGf5e+ek26xNjwoJZR8zsxgN+oeM4XqDYJZtsegW9dLS6KxrCqC+jJva?=
- =?us-ascii?Q?Myna6TO1RrBJw+uqIChFDhmEQ5d1EufKOHIc3hLckIlrIZl9yETGHAsfl+Fh?=
- =?us-ascii?Q?EUvp6dNsQQ46sJF9ltM2Le5vakuZXfpoLwHPYaHW53LD58V8u53mmadUZoqv?=
- =?us-ascii?Q?qcQ1dHL+TSSx+M//It6Ef2tzLoUQz44kaZt5qIGjsiv9mMDeQXJybAhNCl2K?=
- =?us-ascii?Q?4k/bnNAeSZNDjoSbRBJ1s7LuTiDT8/BYTimyrNuSPogVV0Ux3aSfNFQcsNPI?=
- =?us-ascii?Q?ZqIF+VydglKnx12qNHsVbwhvtxfaYhFomjUTvUtmZFXhlDBELwNCuabhb9XK?=
- =?us-ascii?Q?M+QdlO4zmQPinWIRytJP8rj/hYtF+EtdXHGbtY8AS7beAGvnNH3ndhvmy5Ri?=
- =?us-ascii?Q?JwkWDhrtyZ+8mVKw13lDabmH/vSQzYDFMSzxo8NBdrYHhBmtCwfC/u3ezplV?=
- =?us-ascii?Q?KLSxsOXKzBjX0KRLHtECzAwWuDiyCk41FFsfV+aKEFYFNBIw0AKd91+opVLq?=
- =?us-ascii?Q?9NoQc7ZzF/yasJ4O3sOQ7T8fc20bj+RwYiDkAPfzoq7B43We/J+FLZ/GanWL?=
- =?us-ascii?Q?TKRjGnDBgK8SKRsLANd0KBteFygc3CooDNaUdLrSqEhrK+ucDkN71tO50E/N?=
- =?us-ascii?Q?tBm9peXqOx3Ot9WapPtaAqHyixOqcwPeDp2SX4boXsQrQfnAvEJCGR9n9qjd?=
- =?us-ascii?Q?khVfEQtsMPGKKeAtYVYb0IA3XV2Zeh843JpyEAQY4KoK7mq+XmclJfXGbRM8?=
- =?us-ascii?Q?hW6dd1/yBVmjCdH92a7+Kg6Fpbb5Q2OuXCXTSuVS8TW5fgIp6Vo6L7CWyS7U?=
- =?us-ascii?Q?DQ7s1bKdYQ8LgcvRgEGtc2Hez+TRIX0ANmqrqzoEtsdC0q8lzxTyj8KX3g2H?=
- =?us-ascii?Q?AImmDkUQN4lENF53mTaTzR3AKRoIf/Cffy7opz3qbszoNQqFmBqpUW3VSuCj?=
- =?us-ascii?Q?HUVkuQy/G/B+/XCQf8fk54WVDzHFdMUOOiHl7iEoU0qdCNqPndamZNpUOatw?=
- =?us-ascii?Q?tmsh3lqzxSjfAcZ8+nl2SAnh2CebDrRw+pOknpvVyp3Pphv1EYRnfxlsRy1s?=
- =?us-ascii?Q?KrsIvr2/d8MVJLCW6Gz5U3zg1uZWxtwN6IV48OwVJdN2ZE3OMxduQJcS7n/S?=
- =?us-ascii?Q?3bvZsVciAWhxp3NmhTxdKJRjPsmnvebnOVtm51MtYno5iJvIs5BtRA0g9XEM?=
- =?us-ascii?Q?Zs38WX2KtnVIgl23GX261WoTASuwEa+XDZPRLTGPoxk6TbpV?=
-X-OriginatorOrg: Nvidia.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 39cdece0-8545-42b4-d2b8-08df1bfe6806
-X-MS-Exchange-CrossTenant-AuthSource: CHBPR12MB731189.namprd12.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 26 Sep 2026 18:45:59.1485
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: 7sDJZQhd6yOVoRS+drHRbqMh/xB9L2gYKQk3AeSz8RWtmpB88bww5E+IleDVdghS
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: LV8PR12MB9690
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260926_114606_690372_7AB27D53 
-X-CRM114-Status: GOOD (  19.19  )
+X-CRM114-CacheID: sfid-20260926_121343_294179_BE409239 
+X-CRM114-Status: GOOD (  13.95  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -154,67 +107,112 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, Sep 25, 2026 at 11:37:09AM -0700, Jonathan Cameron wrote:
-> > +efi_status_t efi_drtm_prepare(void)
-> > +{
-> > +	s64 feature_status;
-> > +	u16 major, minor;
-> > +	s32 status;
-> > +
-> > +	if (efi_drtm_policy == EFI_DRTM_OFF)
-> > +		return EFI_SUCCESS;
-> > +
-> > +	if (!efi_arm64_psci_smccc_compatible())
-> > +		return efi_drtm_failure();
-> > +
-> > +	/* VERSION must be the first DRTM call. */
-> 
-> Words like 'must' should be backed by a specific spec reference.
-> I couldn't immediately fine one other than common sense suggesting it should
-> be called to check we have a version we understand ho to talk to.
+On IRQ exit, __irq_exit_rcu() drops HARDIRQ_OFFSET before calling
+invoke_softirq(). The arm64 do_softirq_own_stack() wrapper and its
+____do_softirq() trampoline run before __do_softirq() establishes
+softirq context, so KCOV records their PCs in the interrupted task's
+coverage buffer. They also run outside softirq accounting when
+local_bh_enable() reaches do_softirq().
 
-	/*
-	 * v1.4B section 3.2.1 "DRTM_VERSION usage" explains that a new major
-	 * ABI version may "Change behavior of existing functions". Verify the
-	 * major version before calling anything so we don't trigger unknown
-	 * behavior.
-	 */
-	status = arm_drtm_version(&major, &minor); 
+The IRQ-exit coverage makes the KCOV boot selftest fail even after
+the scheduler and timer coverage leaks are suppressed. The generic
+softirq.o is already excluded from KCOV, but that exclusion does not
+cover the separately compiled arm64 wrappers.
 
-> > +	/*
-> > +	 * See arch/arm64/kernel/vmlinux.lds.S for the DRTM Memory layout. After
-> > +	 * the DLME we choose to place the Normal World DCE region followed by
-> > +	 * the aligned DRTM_PARAMETERS structure.
-> > +	 */
-> > +	memset((void *)dlme_start, 0, efi_drtm_get_extra_size());
-> 
-> Is that efi_drtm_get_extra_size() adding much? 
+Exclude irq.o from KCOV instrumentation, as is already done for the
+arm64 entry code. This covers both wrappers even with compilers that
+lack the no_sanitize_coverage attribute. The softirq action functions
+remain instrumented for explicit remote coverage.
 
-Yeah, it is the one place we compute the extra amount that was
-allocated. How about:
+Fixes: 8eb858c44b98 ("arm64: run softirqs on the per-CPU IRQ stack")
+Cc: stable@vger.kernel.org
+Assisted-by: LLM
+Signed-off-by: Karl Mehltretter <kmehltretter@gmail.com>
+---
+This patch applies without my other pending KCOV or softirq patches.
+For testing, the pause series [1] suppresses the other known
+timer/scheduler leaks, and the selftest diagnostic [2] reports the
+remaining PCs.
 
-	/*
-	 * For robustness zero all the trailing space at the end of the
-	 * alocation. This contains the DRTM_PARAMETERS structure too, so
-	 * must be done before filling it.
-	 */
-	memset((void *)dlme_start, 0, efi_drtm_get_extra_size());
+Tested on mainline 40288c9206c17 with both prerequisites applied:
+- GCC 15.2 arm64 builds, KCOV_INSTRUMENT_ALL and KCOV_SELFTEST enabled.
+- QEMU virt/cortex-a76: baseline reports 15 PCs alternating between
+  the two wrappers and panics. The fix passes three boots with KASLR
+  and three with nokaslr. All KASLR boots have nonzero relocation.
+- Raspberry Pi 500, BCM2712 D0: baseline records seven PCs from each
+  wrapper. The fixed kernel completes the strict selftest with zero
+  PCs. The baseline alone replaces the final panic with a diagnostic
+  and return so SSH can retrieve its log. Recording is unchanged.
+- Clang 21 W=1 object builds: irq.o has no KCOV callbacks after the
+  change, while syscall.o retains its instrumentation.
+- Fixed QEMU image: positive PC and comparison coverage remains live
+  for getpid() and close(-1), with neither buffer saturated.
 
+My softirq IRQ-exit v3 patch [3] makes the boot selftest pass in QEMU
+and on the Pi without this patch. It does not cover the task-context
+path through local_bh_enable(). A five-send loopback UDP test shows:
 
-> Maybe it is worth keeping for the big comment in there, but it does
-> feel like that and what we have here could be combined.
+                                    v3    v3 + this patch
+  Wrapper PC entries (five sends)  10    0
+  Sends covering udp_sendmsg()     5/5   5/5
 
-efi_drtm_get_extra_size() is called by the generic EFI code, I can't
-remove it.
+A bounded syzkaller replay compared my softirq v4 patch [4] alone
+against v4 plus this patch. It used 18 reviewed programs with 40
+executions per program and variant across four fresh boots in A-B-B-A
+order. A is v4 alone; B adds this patch:
 
-> > +	/*
-> > +	 * DEN0113 section 3.4 returns from DYNAMIC_LAUNCH only on error. Boot
-> 
-> I'd use a spec version for references + ideally title of section.
-> As much as folk may try, sometimes these things move around.
+                                    v4          v4 + this patch
+  Program executions               720         720
+  Wrapper PC entries (40 sends)    80          0
+  Stable non-wrapper locations     7,172       7,172
+  Executions to reach 99%          17          17
+  Greedy fixed corpus              16/4,068 B  16/4,068 B
+  Executor time                    3.932 s     3.956 s
 
-I tightened all of this
+This fixed replay measures coverage cleanup, not syz-manager discovery
+or corpus growth.
 
-Thanks,
-Jason
+A longer replay used the same A-B-B-A order and ran the workload for
+30 minutes per variant. Excluding a 30-second warmup from each 15-minute
+session left 29 measured minutes per variant:
+
+                                    v4          v4 + this patch
+  Program executions               119,883     119,868
+  Programs/s                       68.898      68.890
+  Mean executor time/program       5.256 ms    5.285 ms
+  90%-stable non-wrapper locations 6,959       6,953
+  Wrapper PC entries (40 sends)    80          0
+  KCOV overflows                   0           0
+
+The 80 entries are 40 instances of each wrapper PC. The variants shared
+6,952 stable non-wrapper locations; the six unmatched locations were
+route-lookup PCs. The timing differences were not material.
+
+Apply checks pass on v6.1, v6.6, v6.12 and v6.18; those older kernels
+have not been built or boot-tested here.
+
+[1] https://lore.kernel.org/all/20260914054632.12877-1-kmehltretter@gmail.com/
+[2] https://lore.kernel.org/all/20260919080220.37633-1-kmehltretter@gmail.com/
+[3] https://lore.kernel.org/all/20260924041538.52574-1-kmehltretter@gmail.com/
+[4] https://lore.kernel.org/r/20260926143505.66024-1-kmehltretter@gmail.com/
+
+ arch/arm64/kernel/Makefile | 3 +++
+ 1 file changed, 3 insertions(+)
+
+diff --git a/arch/arm64/kernel/Makefile b/arch/arm64/kernel/Makefile
+index d2690c3ec5288..ea66339435bf0 100644
+--- a/arch/arm64/kernel/Makefile
++++ b/arch/arm64/kernel/Makefile
+@@ -25,6 +25,9 @@ KASAN_SANITIZE_stacktrace.o := n
+ KCOV_INSTRUMENT_entry-common.o := n
+ KCOV_INSTRUMENT_idle.o := n
+ 
++# Softirq stack switching can run outside interrupt context.
++KCOV_INSTRUMENT_irq.o := n
++
+ # Object file lists.
+ obj-y			:= debug-monitors.o entry.o irq.o fpsimd.o		\
+ 			   entry-common.o process.o ptrace.o			\
+-- 
+2.53.0
 
