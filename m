@@ -4,44 +4,44 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0108AC98328
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 26 Sep 2026 05:07:02 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9A115C9831E
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 26 Sep 2026 05:08:00 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
 	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
 	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=qA9qIAMmCjARz40JpTVfVIYnp5V1ZghuG0xkDAvl1gk=; b=OwPkTMpGDVuQPGKpM7lAXGPL5p
-	j8VnReU39xAlvxM5bDekRZLxQxugeuqLTwfSVOhqIMx1y95VveSg6fcNjFC/CmJLbcSsBiCmo5EEX
-	BS5wwCiH0VEMiONAk5GHUSAZtN58dheOpTg3N0xL6vtMHUgWqoQrA6eR+dB6HeJqqNxXuuWzJIaY0
-	2ueGJyoo1/VTmoUm1JKS3iRofdK0Z9OUdVLCM11FfNibrc2h5DRwtqommVpFaP2Q84wuoyGVfQxdF
-	alCajRv5OiEGtT4qy+DDuUblP6vaS70fCOPJWSCBEGPx+qxE3SNm489LShBDXJDfmI3QfEPSpaluC
-	hPHILJAQ==;
+	bh=uBIWcy1vQsXuPrlyorhunI9NkbUS7DCLeu13z27U1xQ=; b=rX4x5eD5eF2eWiXoOCmrUghPa4
+	ui93iotrDKxaks1DVZhwnNuJE4Z/TXl5g9Bq5aF97wttAHzWLBlNyp7RrrEI3ufBtvedySs37OM5c
+	hbJzry3/fQ/AhpuwbcvIe9F7wwMDOdRoO75oowxX2n5ze4U4Jy44yStWZl6JIKdU/c4lkbQLhLah3
+	eQiWT8Huyd1JryCGRsCoAjAqSeQvZICaKLABTl+WTQYd0O3AAodAIlrdKACXBK7Tq0uWpkD0cfkZW
+	AK+VGyT0YDmpUkOl6/ifdhi2tkcTEecpDtOUbLrlgPTXnH41uvWLT3Yw2dgDidSO8X7a3j3QY+tLm
+	NWGF5AIQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xAKch-0000000EzOi-1hVu;
-	Sat, 26 Sep 2026 05:06:55 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1xAKde-0000000EzXU-2oHy;
+	Sat, 26 Sep 2026 05:07:54 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xAKcg-0000000EzOT-167p;
-	Sat, 26 Sep 2026 05:06:54 +0000
+	id 1xAKdd-0000000EzXH-0uR8;
+	Sat, 26 Sep 2026 05:07:53 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id DB9A360136;
-	Sat, 26 Sep 2026 05:06:52 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 7EBF11F000FF;
-	Sat, 26 Sep 2026 05:06:47 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id AE17460136;
+	Sat, 26 Sep 2026 05:07:51 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 77C1F1F000FF;
+	Sat, 26 Sep 2026 05:07:47 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1790399212;
-	bh=qA9qIAMmCjARz40JpTVfVIYnp5V1ZghuG0xkDAvl1gk=;
+	s=k20260515; t=1790399271;
+	bh=uBIWcy1vQsXuPrlyorhunI9NkbUS7DCLeu13z27U1xQ=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=dQxII6A84G7BX1W95dZr8YSk/GpL9r3wOZ0CJCl6ye1NEVUs+nFWEeU8pl4/WCzDI
-	 g/HMSZOXWcJa6a8SgyVV143dtZEH/KRK76UYLioRIb+fWpLG5dD5wBj8ps/F1yaepO
-	 uk5A0UjeL0hDGnT086DfmQzQJuhHk8FYMxzJsYOjFjKZnoYxFH4sqLpV4EJQIbmN88
-	 yU9U/GZlnwyFWYL+mBfrSatlNKFH0DuxxsD8HoJyM0H5j0mvC4damy9VmNIlPAvufA
-	 2Rb32EKwNFTvrK8Piv3gu/uR3LBgIwzhGsyP5XFR9EOtCR4ZmEe9opH5XG7s9IEO2T
-	 rGBQoqJSRGL2A==
-Date: Sat, 26 Sep 2026 07:06:33 +0200
+	b=IzsJ9KSPcy59rat2nVUbGyObxX9QWfGKaDnFH0gNG5g7VeLa1pKxsPv8J7E6tzqhU
+	 ExufGabs0NSfALHSt8Eh2IgwDT8RDtLJ3kN6GMMYi5QDyqLsxKmH4qJ9MF+FRDtQJD
+	 h/DozJzhDvY/3vBjDjO9vKsSkDJB9Q4d4hgBu75pT7r08a21cZEqDCSGw4Yw7az51X
+	 8lu1HaHXceMzOWOcMWScUGN4AttB7f8ckAnhRLJxJdCWlOidRdBwEPrSsdzYZmAwSr
+	 Ao+RXyzbrE9XfdzNdMMNfOYPPjjDK/IP1kcU6dv3LCO5hsQrnR0zKiQxZYe9WHtbqh
+	 kTqXqVkLlnsvQ==
+Date: Sat, 26 Sep 2026 07:07:37 +0200
 From: Manivannan Sadhasivam <mani@kernel.org>
 To: Sebastian Reichel <sebastian.reichel@collabora.com>
 Cc: Vinod Koul <vkoul@kernel.org>, 
@@ -50,15 +50,16 @@ Cc: Vinod Koul <vkoul@kernel.org>,
 	linux-phy@lists.infradead.org, linux-arm-kernel@lists.infradead.org, 
 	linux-rockchip@lists.infradead.org, linux-kernel@vger.kernel.org, kernel@collabora.com, 
 	Igor Paunovic <royalnet026@gmail.com>
-Subject: Re: [PATCH v15 01/11] phy: rockchip: usbdp: Drop DP HPD handling
-Message-ID: <tvoejocogt3s5fle4lm2cmlattki7nuzbyl7wzrfnvyn7etqa7@ltfhc3qvjmgt>
+Subject: Re: [PATCH v15 02/11] phy: rockchip: usbdp: Rename mode_change to
+ phy_needs_reinit
+Message-ID: <hcvfjkpdmdjwguxuiaskugz57hp5w3srymnixmoak77renx2po@zmrjqrey7yot>
 References: <20260915-rockchip-usbdp-cleanup-part2-v15-0-8d507cb1174f@collabora.com>
- <20260915-rockchip-usbdp-cleanup-part2-v15-1-8d507cb1174f@collabora.com>
+ <20260915-rockchip-usbdp-cleanup-part2-v15-2-8d507cb1174f@collabora.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=utf-8
 Content-Disposition: inline
 Content-Transfer-Encoding: 8bit
-In-Reply-To: <20260915-rockchip-usbdp-cleanup-part2-v15-1-8d507cb1174f@collabora.com>
+In-Reply-To: <20260915-rockchip-usbdp-cleanup-part2-v15-2-8d507cb1174f@collabora.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -73,19 +74,14 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Sep 15, 2026 at 05:06:04PM +0200, Sebastian Reichel wrote:
-> Drop the HPD handling logic from the USBDP PHY. The registers involved
-> require the display controller power domain being enabled and thus the
-> HPD signal should be handled by the displayport controller itself.
-> Apart from that the HPD handling as it is done here is incorrect and
-> misses hotplug events happening after the USB-C connector (e.g. when
-> a USB-C to HDMI adapter is involved and the HDMI cable is replugged).
-> 
-> Proper USB-C DP HPD support requires some restructuring of the DP
-> controller driver, which will happen independent of this patch. The
-> mainline kernel does not yet support USB-C DP AltMode on RK3588 and
-> RK3576, so it is fine to drop this code without adding the counterpart
-> in the DRM in an atomic change.
+On Tue, Sep 15, 2026 at 05:06:05PM +0200, Sebastian Reichel wrote:
+> Right now the mode_change property is set whenever the mode changes
+> between USB-only, DP-only and USB-DP. It is needed, because on any
+> mode change the PHY needs to be re-initialized. Apparently at least
+> DP also requires a re-init when the cable orientation is changed,
+> which is currently not being done (except when the orientation switch
+> also involves a mode change). Prepare for this by renaming mode_change
+> to phy_needs_reinit.
 > 
 > Tested-by: Igor Paunovic <royalnet026@gmail.com> # Orange Pi 5 Plus
 > Signed-off-by: Sebastian Reichel <sebastian.reichel@collabora.com>
