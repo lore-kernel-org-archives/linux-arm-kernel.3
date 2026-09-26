@@ -4,141 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 21E2EC98318
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 26 Sep 2026 12:31:01 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C5582C98332
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 26 Sep 2026 12:31:58 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Content-Type:
-	Content-Transfer-Encoding:Message-ID:Date:Subject:Cc:To:From:Reply-To:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=abD+KsnFWSmUh8F1wZceMC0ht6cpp3prLqIlmdZ+jr8=; b=P6OrdSwJlJHsmqC15t72FHO7e2
-	YjDCGbWTQxq8NiKLve8xR0vn4ubGeHlm26JuQNpUvl7JGkkKjLX091riYBYXAtRz2TvJcNjWDSOCn
-	3LrLViJYbEdXFLpf4Ygws+z8lqeGAXaliArOspDendHB1b00mT+ElxKpQnDXnSJscHwZsEfobGAa3
-	T3deNEXNhzBEANjjmTXZAie5JyVhSB6/lFhtJ1s1MtBZIPfoPt1FMDQ2/BNbLDE2GOH4338ZlLKrD
-	yIlQ0j2/tT/8LYGGCB6KdqfD1u5Wg8AR+LkEzkr/YWLI9QgWp/y2Ab8kNQbfwM8sv91EGGslsvv50
-	YCSdCUVg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=1iBLZkIxA8ap1qqaUdvl37Rh8tiElL4QP7IPYChkI5I=; b=o3Png/xh79PaaU58zEs9zKkFQS
+	CoduVXR2P3xDZymxPFgUU9hzmf32fcMP33WYyU64q+sS6byn6vVTALrAGxJy9376jWQUMKun9Snph
+	9Aq2m/2DHBLXZ+LCRTe1m4qJ8f6yZAqeTyt2E4y+aUtftcu7rPmJgmuk1z7P1DfHn1J9exnmRLaxG
+	MKJHEnN/qqHdK1WASvr3UeKREhQyT0yqF4wCZnmJ0cTPQS5YvhZw4W51vJwF4JmT2EvMkyXWTalZM
+	kFyoj1pr8Xc29jlxtf/BAsm9Wu1dsKkTRaSSoO9MQlGR2wrZoa7ffr6nFhQAVSRJrkMeStmnlxf+Y
+	BXyvXrhA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xARYL-0000000FNY5-3vlE;
-	Sat, 26 Sep 2026 12:30:53 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1xARHM-0000000FMCu-08om;
+	Sat, 26 Sep 2026 12:13:20 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xARYK-0000000FNWw-12eT;
-	Sat, 26 Sep 2026 12:30:52 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=MIME-Version:Content-Type:
-	Content-Transfer-Encoding:Message-ID:Date:Subject:Cc:To:From:Sender:Reply-To:
-	Content-ID:Content-Description:In-Reply-To:References;
-	bh=abD+KsnFWSmUh8F1wZceMC0ht6cpp3prLqIlmdZ+jr8=; b=RtGDM2luS5gjatxXl6jsmNW49l
-	xYkdLKJIOOv+NMek/UrivU4pz6EX5wPgGbH3xF+e9TQd89ssE3l1LizhDC28cYUbTJJF+oXdvcrzS
-	FzgBa4ccu1MmfXmIiWb7na2/sbEEFCAuobabRuU7iwthm6vXRwup3yggHuFa2Za5cGPmO4tfqLbnM
-	CuzNi6TtEWP4dmRNly/IK5AlSxVijygwOG6aYdErPtKAfCJrM0byFhCRts8XsWSgmwIPOs9uPMk0f
-	Zm977/Bg9tQHvU6Onbj0u7R+fw7ccDYTo1qfxWETVXhJ+Aprj0cLq+HzS883fbjNxUtHQxZFoMD9b
-	j399M+dg==;
-Received: from mail-westus3azlp170110003.outbound.protection.outlook.com ([2a01:111:f403:c107::3] helo=PH0PR06CU001.outbound.protection.outlook.com)
-	by desiato.infradead.org with esmtps (Exim 4.99.2 #2 (Red Hat Linux))
-	id 1xARYG-00000000Ak4-3hrZ;
-	Sat, 26 Sep 2026 12:30:50 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=MHGXs7FX2VpedzM5icJXwvu3j8eVlo7rGmQnT9sGzP5urPJZTuTu1Qpb0etZYfn26Z1xyFsRHsFqV6BVOLGpLe1tYicIRYPcl9KNLAP4cAO192qxtCIg7K4UiOSk4UJ3LSB0ZfJnKBXR9mVfqhEd/gbi5O0A0a4oJVbJ1GSlYwHUDFX3sCgPeJj3KsPTgSCW7/oaxUVDdR7MVv3InBgyJlOL/h9PMMyi997xl7AYwONGpRatcOvDnsj6UBaSKJElE/ffc3rRXih/i6zGXJm1RjzIU5aUo+yONyhkUed4NGcB49/Ctczw9dWff+eo7sGL/tO9oy3zBtlmlzu0tu67RA==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=abD+KsnFWSmUh8F1wZceMC0ht6cpp3prLqIlmdZ+jr8=;
- b=ldCzHHY1BCjhlEbrRuUO4nrcZY5zPnAY/b+q2D0Rz2TWj+/SN8GU7LERSMiL0ZMCt0PkaZUL+tzwRboVW5lBjl/md8bklPWGbe3WVWnKnEZHLXEYAKz6YqLo403/T2xMguwZbrwYLcz3Q7qtviUMssjrwff9wOdwWNsqXat8761tO64XhyYKk7BD6Jdi2TM7Tsg3SAviAd9+HC6kAIj0/4LZdbxkT3kMCRydGslJTkQJ3ZXg+Jg4px/St/u5qRT1i7LRgZ5iX6Ok9nn+8vCG2M8T48HB8FUi/QjRmCSGytLtx1gTV8UhG7XaV2FY3HudJFbhltk+tm8+7Ame2xIo9g==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=inmusicbrands.com; dmarc=pass action=none
- header.from=inmusicbrands.com; dkim=pass header.d=inmusicbrands.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=inmusicbrands.com;
- s=selector2;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=abD+KsnFWSmUh8F1wZceMC0ht6cpp3prLqIlmdZ+jr8=;
- b=N50bi+htjzT+NbYGu5qZYS8+bF9NYUDmzq5vaHJGHCGaISRUWpM2mhdOHb7wCxmRFq435HtKrAQ658JjF1Peb+xjxrtZ0MWaQCUEyItiiT5tFCBjzLGFmgIBhg88soKfcm4LFjPIbaihUg+DM67J9aA/BFmVsmYjl/hJ0uz9aX8=
-Authentication-Results: mx.microsoft.com 1; dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=inmusicbrands.com;
-Received: from BY1PR08MB10263.namprd08.prod.outlook.com
- (2603:10b6:a03:5ad::14) by SA6PR08MB10427.namprd08.prod.outlook.com
- (2603:10b6:806:43a::16) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.451.19; Sat, 26 Sep
- 2026 12:30:16 +0000
-Received: from BY1PR08MB10263.namprd08.prod.outlook.com
- ([fe80::399d:caec:5af7:cd51]) by BY1PR08MB10263.namprd08.prod.outlook.com
- ([fe80::399d:caec:5af7:cd51%6]) with mapi id 15.21.0451.014; Sat, 26 Sep 2026
- 12:30:16 +0000
-From: John Keeping <jkeeping@inmusicbrands.com>
-To: linux-media@vger.kernel.org
-Cc: John Keeping <jkeeping@inmusicbrands.com>,
-	Jacob Chen <jacob-chen@iotwrt.com>,
-	Ezequiel Garcia <ezequiel@vanguardiasur.com.ar>,
-	Mauro Carvalho Chehab <mchehab@kernel.org>,
-	Heiko Stuebner <heiko@sntech.de>,
-	linux-rockchip@lists.infradead.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org
-Subject: [PATCH v2] media: rockchip: rga: fix rotation on rev0 hardware
-Date: Sat, 26 Sep 2026 13:30:04 +0100
-Message-ID: <20260926123004.3874721-1-jkeeping@inmusicbrands.com>
-X-Mailer: git-send-email 2.55.0
-Content-Transfer-Encoding: 8bit
-Content-Type: text/plain
-X-ClientProxiedBy: LO4P123CA0662.GBRP123.PROD.OUTLOOK.COM
- (2603:10a6:600:316::18) To BY1PR08MB10263.namprd08.prod.outlook.com
- (2603:10b6:a03:5ad::14)
+	id 1xARHK-0000000FMCj-2SNe
+	for linux-arm-kernel@lists.infradead.org;
+	Sat, 26 Sep 2026 12:13:18 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by sea.source.kernel.org (Postfix) with ESMTP id F2F1A43EA1;
+	Sat, 26 Sep 2026 12:13:17 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 308001F000FF;
+	Sat, 26 Sep 2026 12:13:10 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1790424797;
+	bh=1iBLZkIxA8ap1qqaUdvl37Rh8tiElL4QP7IPYChkI5I=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=dqVt/WH/30yxap89q3hdsyv/l61o3KLu/CiWmh2GBWsGOMCAyDd4oeItuV0KhN+p0
+	 8X1zpWVayYa47zet2Ur/sfY1kFJQbab8BoOoxfXHV/YQI1RJpJcGzgkU0qRjc535uU
+	 dggfLeW1RAGQ6iAvuoLIhb9T4V0FhhXIBy9i/I8pCdGeLVYzIySIXLMOZwMi3YRe/f
+	 zKl3WL7aj0w8pTnJ2Nyfs5DX0DqPx3wVLkn3TmGkc+E39Db2pmRZ/OB9D3wxZRvvWf
+	 SDM2RCWwifBB//vbUuDdgvoBbZaeCV/2vJDbDTyZiZ4mMxvo0MoVSBtV+WGkAlY0zm
+	 09Lh/Q+rpzwkA==
+Date: Sat, 26 Sep 2026 17:43:08 +0530
+From: Sumit Garg <sumit.garg@kernel.org>
+To: Will Deacon <will@kernel.org>, brendan.jackman@linux.dev
+Cc: Vincent Donnefort <vdonnefort@google.com>, catalin.marinas@arm.com,
+	rppt@kernel.org, akpm@linux-foundation.org, sudeep.holla@kernel.org,
+	jenswi@kernel.org, robh@kernel.org, mark.rutland@arm.com,
+	ardb@kernel.org, thierry.reding@kernel.org, david@kernel.org,
+	danielmentz@google.com, linux-arm-kernel@lists.infradead.org,
+	linux-mm@kvack.org, op-tee@lists.trustedfirmware.org,
+	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v2 0/8] arm64: Unmap FF-A lent memory from direct map
+Message-ID: <are21BjeS1O3RYE3@sumit-xelite>
+Mail-Followup-To: Will Deacon <will@kernel.org>, brendan.jackman@linux.dev,
+	Vincent Donnefort <vdonnefort@google.com>, catalin.marinas@arm.com,
+	rppt@kernel.org, akpm@linux-foundation.org, sudeep.holla@kernel.org,
+	jenswi@kernel.org, robh@kernel.org, mark.rutland@arm.com,
+	ardb@kernel.org, thierry.reding@kernel.org, david@kernel.org,
+	danielmentz@google.com, linux-arm-kernel@lists.infradead.org,
+	linux-mm@kvack.org, op-tee@lists.trustedfirmware.org,
+	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org
+References: <20260921110050.3977591-1-vdonnefort@google.com>
+ <arIYtjmSKCs14SqO@sumit-xelite>
+ <arKW_91EeKA-w96m@willie-the-truck>
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: BY1PR08MB10263:EE_|SA6PR08MB10427:EE_
-X-MS-Office365-Filtering-Correlation-Id: e8b85b2c-ef97-4c36-6fe8-08df1bc9eb88
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|376014|52116014|366016|1800799024|23010399003|38350700014|5023799004|10067099003|56012099006|18002099003|3023799007;
-X-Microsoft-Antispam-Message-Info: /YbZgtKUiO5Crx8OgzwCsEdmrLhQP+c3XgsIsu70OHplX1zaPHoqTIW6mooUCMh+pifVYYI58WME2az1cK6aX342ly/NlrsOJT9uHtx0atqbH0PPjZkvALr4K4RoPegAEsY7673WFXwvLmVm6FxlRD4xZfjtWkNKhM2dQLYlLaPNUszR0d2fDbgU3cPlvCehBOz3QD8gdJhCaKssnDskqsBX25G7JaNZ22s/KR5gqLel9bg7UlwyVWIalVz0pztRWm3R3mLzWZSFvpP0h4nvBpuxK8yH3YkI2/CufCIEPrOQmIEkWskBUUl04hqVUgxWi8g6JF7vDkLIKquHuHVRJUZXINjhJJzD0lQ5dd079KJi0VGkbp4+5dTDo2icV5IFgHbbold8fYlUqSsiVVUrWUBC25aRb+57QNOIhH6EYONGn4xi+JgT/Zw95c75MahY6Y7cqPiO8qpT+9SarLQfD908EIYBDRnqp43petbKAdBK5axU0GD28HazPfJ4FaerH/Isa8OH5u5PoDL+bv2fxh6t8J0i/Ms3viMw/EFtFGmiS/QsfzVinRCRe9HDE2/9IMuBmYNkoGKcY5NnPrUlSBEH0XHDiHpOEJR5n+0Hxu+Qz2wcZSQTarEdlWQrLHjS4Czbi2HWu/H9dEHwhtxnGimu+H+uU0ekoZeWkWpFJ6bd8wninXXupBSZDN3u+B4I02F8ekg3FTQ2k99ek4dl2qQsnG76qWK6Q8CEs6t9wXI=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:BY1PR08MB10263.namprd08.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(376014)(52116014)(366016)(1800799024)(23010399003)(38350700014)(5023799004)(10067099003)(56012099006)(18002099003)(3023799007);DIR:OUT;SFP:1102;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?YgkWg6cDtv/C4nnweSqYgVpnQvbNyBtKdE4trDqFIRLN42ttTv+zghO5qQiU?=
- =?us-ascii?Q?kL0DnamkWcPMXQgEcYCixYQsjOU5r4Mr7pbWkCYLawS+0hcuoE4xdDhirsT9?=
- =?us-ascii?Q?QFU/o/AqE8pYhVKGn7CISCni7Fj/FAWM6OlUED3Sl2vhKE6UdHUVDVZR0gqp?=
- =?us-ascii?Q?j5gGa0E0ftaiVU6rwCLKwEKgHDbsB0n8AFIlKkaJFcSSMzPdSaerS7UEnYsS?=
- =?us-ascii?Q?zxllZ/j2KIHxYEfkblGry+cqe6PHKc1myducgRiOu+3TUdSKky31qbxmPI6m?=
- =?us-ascii?Q?JzhBnHO3XaTd6r2CBuBLOI6qghcercYjiIv9wfGI6seR9uaCH3u+KrBXwx6d?=
- =?us-ascii?Q?+yEzdhYT99py5GHYYJE1HcRRYSfr2WhViqI7lZIyz0u0EvjCdMRz9GnI/uj1?=
- =?us-ascii?Q?t6uQzdZm2stxWjHdpbul0jwB62UAPFgHF4QUylM4J+JpLOKNR3Fp++8J/XbP?=
- =?us-ascii?Q?kIJjXgKbMKEFwXFrrlDXzc1rmA3FJmDpsyzWYVw+kyCNHRV8qgd5cEprqT2B?=
- =?us-ascii?Q?m5OewB0Sihxxm10Dxm3j/ccmBQfJgnqqmqm39XKXpeTbtiQTKiS7S7myr6+x?=
- =?us-ascii?Q?D+okzDwdeqoK3JK0A/2qEbZd1blnU6zzKaDy7ujuABxElUHBlJ7YV26WPUGr?=
- =?us-ascii?Q?z4uhU9NKV9mIj6km44uMOoctv6gI60BrTWLrF1qug+3XhFvxSXg6N0vU22JC?=
- =?us-ascii?Q?FusouUTJX1J330+Y2TaMyY4OPHSJuK+3C6E/bcJRZStooppLYAv9U9tFVH31?=
- =?us-ascii?Q?YOCM3+lMIvqLc7jrwUxznd0yV5+UTfuwj0Hw/ZzVM2J1vZ44JYdtMFqdVzQz?=
- =?us-ascii?Q?LUbafd03kpNt4hcBvqLZGULtGJZoPtgIGHa4vp2qw3hg0gm1PSHkF+m31/rX?=
- =?us-ascii?Q?saQ1kPvsY8dmqos9Hjfjfpuv+GEz2aBiWMtI88JCKom1Ph2dCq6/nUgwTwGK?=
- =?us-ascii?Q?9d2NPybdncogZJ9p7BZJN4JU4dsdgTufSKpUq05zBqxbdPHyS0LzpkKb3YE3?=
- =?us-ascii?Q?4xRoxjhvtUNchsvJtzgaEJmYFHoUUm1mTzLlzzu8WF34q3X/5AEzqC7FPVF/?=
- =?us-ascii?Q?mSzCZ5dcqTTiDXKYde/D99qoyo6dUdLj7/WsxlmYBlig7/6jmzYQ6sM4yPQq?=
- =?us-ascii?Q?6qOlXsn5SwFuyoMMQctlKxUnPhXtqdjhhI0YCSRdXQI1SvmAiGrBXWctRhL4?=
- =?us-ascii?Q?GRbSe5jKVaPbQTIDmtT82gI65b3GSmT07idOW0SyZxOx7AA7PbGjDRCoAq0l?=
- =?us-ascii?Q?Ah1o3SgAGjCp6wGMpT5UjkLJx1f7JCenK6y1BL2mjY2YLRm7hkNv8xHSFiw2?=
- =?us-ascii?Q?2+geGmbScMbr+44bYwfRMu2wrtPDDOkhEhUK6OL//9MeAFTG/A/uKv3k45lv?=
- =?us-ascii?Q?UWXfFCsPToKleusnQKF4SSiUMW2LmUAtWCOlcT8wYbw/mPQ2/LVKkXLD7FZa?=
- =?us-ascii?Q?DmyYZdkgzgvJP68SEXG43KdMPHhIjg/kRXGjXJH/LUcQU8svRLfOa8RvUCyK?=
- =?us-ascii?Q?GZLUhaltTuUyd+nFO1nq9os8NZkPVMlWacJ8rtB8yCTvFWMjp+35/1mm1pOO?=
- =?us-ascii?Q?VUqtV0alc5vdPUcxrZwImlAa64NZX0Azyf46p7CXIjKp0O11YMwjcUuaEarX?=
- =?us-ascii?Q?x7PU++omNrZ433k9jUbCLClykNzz8up7IaN2fMFkEwn++0km2lXZ8izC/AjU?=
- =?us-ascii?Q?IrgP3kLDdiUZ3otHZOmoUCJ4IVY4cgB6vo8l7LgzdBz8KacgfwvTv3hKhwVO?=
- =?us-ascii?Q?VhTX5tU9Kux0ljX23fA0bi2uQXFlxeg=3D?=
-X-OriginatorOrg: inmusicbrands.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: e8b85b2c-ef97-4c36-6fe8-08df1bc9eb88
-X-MS-Exchange-CrossTenant-AuthSource: BY1PR08MB10263.namprd08.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 26 Sep 2026 12:30:16.4908
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 24507e43-fb7c-4b60-ab03-f78fafaf0a65
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: 8jZFxo9VoWY3d2R6ZpXtvGZL/04Kg39O/93iGXxFwGOY1HxGkyoGBf+4xNmlqFtR4uaxMr5xCVcaHCmY/weFJ5U+45mSG+VWVydQTVTdgeQ=
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: SA6PR08MB10427
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260926_133049_273999_C7E572B1 
-X-CRM114-Status: GOOD (  15.32  )
+Content-Type: text/plain; charset=us-ascii; format=flowed
+Content-Disposition: inline
+In-Reply-To: <arKW_91EeKA-w96m@willie-the-truck>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -153,62 +83,102 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On RK3288 where the RGA reports version zero [1], rotating a buffer
-gives corrupt output where one edge will be truncated.  This is a result
-of some adjustment done specifically for hardware revision zero.  But it
-seems this is not necessary and there is no evidence for why this
-adjustment should be applied on these hardware revisions.
+Adding Brendan to this thread.
 
-Comparing the TRMs between RK3288 with revision zero and RK3588 with
-revision 3.2 there is evidence of new features supported by later
-hardware, but nothing indicating any difference in behaviour for
-rotation which is supported by all hardware revisions.
+Will,
 
-The logic here looks wrong anyway, since it's bizarre that minor
-revision zero would need the adjustment for _all_ major revisions.  This
-was added with the initial version of the driver in commit f7e7b48e6d796
-("[media] rockchip/rga: v4l2 m2m support") so there is no detail in the
-Git history to indicate why this special-case might be needed.
+Looks like you dropped me from your reply.
 
-[1] Comparing with the vendor code, it seems this is actually 1.3 with
-    the hardware reporting zero more by coincidence than design since the
-    version register is not defined for RK3288.
+On Tue, 22 Sep 2026 at 15:55:59 +0100, Will Deacon wrote:
+>On Tue, Sep 22, 2026 at 11:27:10AM +0530, Sumit Garg wrote:
+>> On Mon, 21 Sep 2026 at 12:00:42 +0100, Vincent Donnefort wrote:
+>> > This series is a follow-up to the discussion that has started here [1].
+>> >
+>> > When memory is lent to the Secure world via FF-A, CPU speculative
+>> > accesses from NS to the lent pages can still occur as long as it retains
+>> > a cacheable mapping to it.
+>> >
+>> > Ideally, lent memory would be "no-map" but that would mean giving up
+>> > MiBs of useful memory, so let's try to do better with the help of a CMA
+>> > pool.
+>> >
+>> > On arm64, modifying the direct map at runtime is generally restricted
+>> > because the linear map defaults to block mapping and splitting blocks at
+>> > runtime may trigger fatal page fault, unless the CPU implements BBML3
+>> > or the entire direct map was mapped at page granularity from boot.
+>> > Forcing last-level mappings system-wide incurs a severe penalty we want
+>> > to avoid. Instead, this series introduces targeted last-level mappings
+>> > for designated memory regions, along with the "arm,ffa-lend-pool" CMA
+>> > driver to manage unmapping and remapping on lend/reclaim transitions:
+>> >
+>> > 1. memblock:
+>> >   - Introduce MEMBLOCK_PTEMAP to force PTE mappings only for a specific region.
+>> >
+>> > 2. set_memory infrastructure:
+>> >   - Introduce can_set_direct_map_range() to check if a specific address
+>> >     range is mapped with last-level entries and can be modified safely.
+>> >   - Introduce __set_direct_map_*() variants that bypass redundant checks
+>> >     when the caller has already validated the range.
+>> >
+>> > 3. "arm,ffa-lend-pool" driver
+>> >   - Introduce the "arm,ffa-lend-pool" CMA reserved-memory driver, which
+>> >     unmaps pages prior to lending (ffa_prepare_lend()) and restores them
+>> >     when reclaimed (ffa_lend_reclaimed()).
+>> >
+>> > 4. Optee support
+>> >   - Hook OP-TEE dynamic protected memory pools to "arm,ffa-lend-pool" for
+>> >     both SMC (via DT memory-region phandle) and FF-A (via
+>> >     ffa_lend_pool_attach()) transports.
+>>
+>>
+>> Thanks for your proposal in trying to solve this hard problem of
+>> unmapping pages from kernel linear map. I remember discussing this
+>> problem last year at LPC too.
+>>
+>> Have you had a chance to look at a more generic MM proposal around this
+>> issue here [1]?
+>>
+>> One of the major concern for me with your proposal is tying the
+>> protected memory allocation to fixed sized platform specific pool size
+>> based on DT. Then the cost of granular mappings/unmapping if the
+>> platforms choose to enlarge these pools.
+>>
+>> As you maybe aware one of the major use-cases here for protected DMAbufs
+>> is the secure media pipeline use-case which is memory intensive
+>> workload. IMO, the solution proposed at [1] seems to address it although
+>> people have flagged rough edges there but should be addressable.
+>>
+>> Can you try a port of [1] for arm64 since the author did all the work
+>> with x86 as reference?
+>>
+>> [1] https://lore.kernel.org/all/20260726-page_alloc-unmapped-v3-0-6f5729aa9832@google.com/
+>
+>I spoke to Brendan at LPC (?) last year but this doesn't really work
+>for arm64 because it relies on being able to unmap arbitrary parts of
+>the linear map, which isn't generally possible unless you force pte-level
+>mappings for everything, which is prohibitive for perf/power.
 
-Signed-off-by: John Keeping <jkeeping@inmusicbrands.com>
----
-v2:
-- Remove "rga" variable which is unused after this change
+As per the cover letter it's about allocating pages that are not present
+in the direct map. This essentially fits the protected DMABufs use-case
+where we don't want any kernel mapping to exist at any time. Bufers
+allocated from protected DMABufs are only meant to be accessed by the
+TEE implementation or HW accelerators like in the secure media pipeline.
 
- drivers/media/platform/rockchip/rga/rga-hw.c | 8 --------
- 1 file changed, 8 deletions(-)
+>
+>Vincent's series tackles that by using a pool so that only that part of
+>memory requires the pte-level mappings in the linear map. That's the
+>whole point of it, so I don't think it makes sense to drop it in favour
+>of Brendan's approach (which doesn't work).
+>
 
-diff --git a/drivers/media/platform/rockchip/rga/rga-hw.c b/drivers/media/platform/rockchip/rga/rga-hw.c
-index be1bc8ddbd03b..2e7ec8b7c20f7 100644
---- a/drivers/media/platform/rockchip/rga/rga-hw.c
-+++ b/drivers/media/platform/rockchip/rga/rga-hw.c
-@@ -158,7 +158,6 @@ static void rga_cmd_set_dst_addr(struct rga_ctx *ctx, dma_addr_t dma_addr)
- 
- static void rga_cmd_set_trans_info(struct rga_ctx *ctx)
- {
--	struct rockchip_rga *rga = ctx->rga;
- 	u32 *dest = ctx->cmdbuf_virt;
- 	unsigned int scale_dst_w, scale_dst_h;
- 	unsigned int src_h, src_w, dst_h, dst_w;
-@@ -251,13 +250,6 @@ static void rga_cmd_set_trans_info(struct rga_ctx *ctx)
- 	 */
- 	if (src_info.data.rot_mode == RGA_SRC_ROT_MODE_90_DEGREE ||
- 	    src_info.data.rot_mode == RGA_SRC_ROT_MODE_270_DEGREE) {
--		if (rga->version.major == 0 || rga->version.minor == 0) {
--			if (dst_w == src_h)
--				src_h -= 8;
--			if (abs(src_w - dst_h) < 16)
--				src_w -= 16;
--		}
--
- 		scale_dst_h = dst_w;
- 		scale_dst_w = dst_h;
- 	} else {
--- 
-2.55.0
+For protected DMABufs, we even don't require any pte-level mappings in
+linear map. The whole idea of mapping and unmapping is just a bottleneck
+for performance sensitive secure media pipeline use-cases. That's why if
+we can support __GFP_UNMAPPED with the memory allocator on arm64 would
+be the best fit for this use-case.
 
+Now the question is why arm64 can't support __GFP_UNMAPPED similar to
+how Brendan is doing it for x86?
+
+-Sumit
 
