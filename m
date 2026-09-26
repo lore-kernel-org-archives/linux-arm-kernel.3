@@ -4,86 +4,74 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 07DD2C98328
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 26 Sep 2026 12:49:57 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BF330C98328
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 26 Sep 2026 13:16:27 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=VcwH+9dD3jn1cikX304Fn2/psmP9ex3vbb4X9xZ4y0w=; b=Wc0nricGL7CBj2a/XWP5RxzbyX
-	qvcNkfvFMePemegmDMkatkLZ1EXvC5cY26K2lK+koRGuezvJAvdQ0N4Zp0/dP9M7YZD2uRQzsf0+4
-	SSLLEKzls2MjoAD/QvxT2JYMYWVyO05I0mvMDmR/hRbd4RcJBg0H+7Ck4uxtZnEAceUXNJa9cvsZ0
-	w+kmT0/k/QcJUxLJ4al3L+VQwggv1RB7NnU5KSErSDF33spuDYI4CHcEHpupWiwrT8yw57o2nATLe
-	rWFMmCefMwk9dPgkXIarzxpUqj8q0aq5DClDmxW9MwqE7ZNPe1MXeMjtlX84vaHz3YYBkl69oE2Lo
-	fBeayqaw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
+	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=4tQrqFmskGMxOqrEHJkoZAQL7YVs5Ut8I4pEsgnJ0F4=; b=byaejsvJL1Lj8ukCTfmGLhiS2H
+	57A7P7B4AVokEjAEbb7MzxpubfrPjql8XNKj3jAiakBuJUztYIssbLlwSqeV5nn7OFUQYk50EdNmH
+	P/LlEuetonbRpQmrxOtfwC/gEXsP2ltdf2nhz+axmCz8lCVNn5y1sjUlBtpEhSBbkKoeTW3a2WpUr
+	dfYSHTdDp7H54jOM3TweiCPpaznRcdFFPSvOSY48CUhF0kTW8STQODmToWTcD8aIH5KNdaqVj73ZL
+	c88GU2PO6LlmPp4ixOmsqlf5N+haYbbwy/DHMy058tJiMJTIadkuMAUP7MoIffzRJvwL+Omwe+I+z
+	mz3XxjOQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xARqg-0000000FPAm-1ddZ;
-	Sat, 26 Sep 2026 12:49:50 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1xASGC-0000000FQ3j-35Z3;
+	Sat, 26 Sep 2026 13:16:12 +0000
+Received: from mr-2001b-snip6-4.eps.apple.com ([2a01:b747:3000:200::f] helo=outbound.mr.icloud.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xARqe-0000000FPAd-1h9p;
-	Sat, 26 Sep 2026 12:49:48 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id AC4E943D49;
-	Sat, 26 Sep 2026 12:49:47 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id B6DC21F000FF;
-	Sat, 26 Sep 2026 12:49:40 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1790426987;
-	bh=VcwH+9dD3jn1cikX304Fn2/psmP9ex3vbb4X9xZ4y0w=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=fd5egb/9VQIjjOqS4QVt0JCgY3CjQEWPCjDbq1JPvTO/u/NWzV+lbMU2GnucpD8Cg
-	 fQBncBItUBiNpft5Xle3TNZkvASdQXwYT782WczpRC4jNHKnURx/VR4lMI4JBZAg4b
-	 za0ej8mPU5YqIeMJVF26LmaALHmhJznID0Q97bqr7HNfNTSy14hNnajBL2yZtPoDr6
-	 ZPeKxz/NhMbw/6kJedmpg94MnX+XYJsijQGDTgqkeXja/IGUPPqM+mRcQX86S0NU8a
-	 AaymHjbxISsM0nBUg8bnqDkatbTzLbXwZiMwQwM34QeqRDonyX/y1rrUsoEZSMn7fp
-	 RycokNiL9jKuw==
-Date: Sat, 26 Sep 2026 13:49:38 +0100
-From: Nathan Chancellor <nathan@kernel.org>
-To: "Jason A. Donenfeld" <Jason@zx2c4.com>
-Cc: Andreas Schwab <schwab@linux-m68k.org>,
-	Andy Lutomirski <luto@kernel.org>,
-	Thomas Gleixner <tglx@kernel.org>, Theodore Ts'o <tytso@mit.edu>,
-	Vincenzo Frascino <vincenzo.frascino@arm.com>,
-	Nick Desaulniers <ndesaulniers@google.com>,
-	Bill Wendling <morbo@google.com>,
-	Justin Stitt <justinstitt@google.com>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Will Deacon <will@kernel.org>, Mark Rutland <mark.rutland@arm.com>,
-	Huacai Chen <chenhuacai@kernel.org>,
-	WANG Xuerui <kernel@xen0n.name>,
-	Madhavan Srinivasan <maddy@linux.ibm.com>,
-	Michael Ellerman <mpe@ellerman.id.au>,
-	Nicholas Piggin <npiggin@gmail.com>,
-	"Christophe Leroy (CS GROUP)" <chleroy@kernel.org>,
-	Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>,
-	Heiko Carstens <hca@linux.ibm.com>,
-	Vasily Gorbik <gor@linux.ibm.com>,
-	Alexander Gordeev <agordeev@linux.ibm.com>,
-	Christian Borntraeger <borntraeger@linux.ibm.com>,
-	Sven Schnelle <svens@linux.ibm.com>, Ingo Molnar <mingo@redhat.com>,
-	Borislav Petkov <bp@alien8.de>,
-	Dave Hansen <dave.hansen@linux.intel.com>,
-	"H. Peter Anvin" <hpa@zytor.com>, x86@kernel.org,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
-	loongarch@lists.linux.dev, linuxppc-dev@lists.ozlabs.org,
-	linux-riscv@lists.infradead.org, linux-s390@vger.kernel.org,
-	llvm@lists.linux.dev
-Subject: Re: [PATCH v2] random: vDSO: Avoid call to memset() when zeroing
- reserved in __cvdso_getrandom_data()
-Message-ID: <20260926124938.GC1486962@ax162>
-References: <20260925-vdso-getrandom-avoid-memset-llvm-24-v2-1-ce640f872393@kernel.org>
- <87zex4ic68.fsf@linux-m68k.org>
- <20260926121927.GA1486962@ax162>
- <are7cfMIHZZn6jLz@zx2c4.com>
+	id 1xASGA-0000000FQ1o-1dIq
+	for linux-arm-kernel@lists.infradead.org;
+	Sat, 26 Sep 2026 13:16:11 +0000
+Received: from outbound.mr.icloud.com (unknown [127.0.0.2])
+	by p00-icloudmta-asmtp-us-west-2a-60-percent-2 (Postfix) with ESMTPS id 143F21800176;
+	Sat, 26 Sep 2026 13:16:03 +0000 (UTC)
+X-ICL-RepId: 01a0dddb-ca17-7952-a455-5d561ad04297
+X-ICL-Out-Info: HUtFAUMEWwJACUgBTUQeDx5WFlZNRAJCTQFMHV8EUxxCDFYAXRcOVk1KF1UYREVRMFAbXwJCDxwTVhUTC1NWWxNVF0YJGQhdHRkKUFAGXRIYXBRcUFgeRhJWDV0JGQZAXlAbXwJCDxwTVhUTHUMZDysISgRDB0UCXgslEwlTVlsTVRdGCRkIXR0ZFVoJClcAQAtOA1QFXR8RTxweGwVGA11cG1YPUl1TQw9MCwh3AlEcVg1XQ1QEX04ZDEodUlZbE1UXRgk=
+Dkim-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=icloud.com; s=1a1hai; t=1790428568; x=1793020568; bh=4tQrqFmskGMxOqrEHJkoZAQL7YVs5Ut8I4pEsgnJ0F4=; h=From:Date:Subject:MIME-Version:Content-Type:Message-Id:To:x-icloud-hme; b=UQQqwPhwtVwJbcvywoiaqyoEqJQyva4V4mzzFcJk8g4gDOhOzxMbMNaIaKghAQG8SqhQsJ3EBZhiyQB/P0GN4waxvzniCXp+AGZaymEHT+WODJBY/ZDvlbQe+7rkiPLArp2PD6GYJWpgTZaKSfgOl3L7eQ0Tl68aYJEIjF76aMD9SRuYHGL+Xi0Wob2a9GY06u0xWkwT0zgmFdF41blxpf3Cm0S26Qrjr/UrZ2UKhjP4e63Fcd6Tnmo18xM4SusGCvl9xNc1eexNEaWpf0SHoDneS/ZJ2iOz/SEAKtH6oh76eBEORXNHIzxtz6r3Vho4pFnNoQTzhAQPqhcb+bvngQ==
+Received: from [127.0.0.1] (unknown [17.156.200.36])
+	by p00-icloudmta-asmtp-us-west-2a-60-percent-2 (Postfix) with ESMTPSA id B56A118019E9;
+	Sat, 26 Sep 2026 13:16:00 +0000 (UTC)
+From: Sofus Forstreuter <sofus.c@icloud.com>
+Date: Sat, 26 Sep 2026 15:14:40 +0200
+Subject: [PATCH v2 01/17] dt-bindings: media: add apple,avd
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <are7cfMIHZZn6jLz@zx2c4.com>
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+Message-Id: <20260926-avd-v2-1-ecebe6a3648e@icloud.com>
+References: <20260926-avd-v2-0-ecebe6a3648e@icloud.com>
+In-Reply-To: <20260926-avd-v2-0-ecebe6a3648e@icloud.com>
+To: Sven Peter <sven@kernel.org>, Janne Grunau <j@jannau.net>, 
+ Neal Gompa <neal@gompa.dev>, Mauro Carvalho Chehab <mchehab@kernel.org>, 
+ Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, Sofus Forstreuter <sofus.c@icloud.com>, 
+ Philipp Zabel <p.zabel@pengutronix.de>, Heiko Stuebner <heiko@sntech.de>
+Cc: asahi@lists.linux.dev, linux-arm-kernel@lists.infradead.org, 
+ linux-media@vger.kernel.org, devicetree@vger.kernel.org, 
+ linux-kernel@vger.kernel.org, linux-rockchip@lists.infradead.org
+X-Mailer: b4 0.15.2
+X-Proofpoint-GUID: _lP8MCVoO0kmLsDWJo_473_ojsJwn96U
+X-Proofpoint-ORIG-GUID: _lP8MCVoO0kmLsDWJo_473_ojsJwn96U
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwOTI2MDA1MiBTYWx0ZWRfX9EUcw8xUk4rZ
+ HUFThdmfChzT2aNZ/obkbECU36PIcpU9X+ikMZmsBCx3EiOwolegMLeEnvbT3YzYK7vcHO6akU5
+ 6vBT8cLedoUAT+QpBJHKny5ILbtFZOAKzl2QvmSu/+GTf17INl8iWDVg2wVZ+2xpqzmYz/ViLBc
+ LEEF20r7/RALfbXI/dGieLi5/dlYVw8HpGp4HSFfS2+goXD/xa1kv0IGbRVcD3+mAVC7ADsI3lG
+ j6niSQREo+1mukmubP9j8vpxuN5Qu9FqkZhdP2YitJFqLdRug85Z/NleQfWpwHX0ZSRLcIQNdSu
+ uFueIHuJmHesmpZszGRmfcdldVmV0kALweDlIRIQFfkIUPXkhY07a9YYZxUGNo=
+X-Authority-Info-Out: v=2.4 cv=JLM2csKb c=1 sm=1 tr=0 ts=6ab7c595
+ cx=c_apl:c_pps:t_out a=9mRn2PO/+PIrVdEbaIuMPg==:117
+ a=9mRn2PO/+PIrVdEbaIuMPg==:17 a=IkcTkHD0fZMA:10 a=VdqzKS8jKosA:10
+ a=x7bEGLp0ZPQA:10 a=kLM9Tyy99jAA:10 a=VkNPw1HP01LnGYTKEx00:22
+ a=gEfo2CItAAAA:8 a=v3ZZPjhaAAAA:8 a=8V0BG8AgQ9fJwKtalr0A:9 a=QEXdDO2ut3YA:10
+ a=sptkURWiP4Gy88Gu7hUp:22
+X-JNJ: AAAAAAABf9uCoICivkxEzGY+g/e21yv2FZv8RZIX6rLqFdY0G/H11m5nsmfuYf1FZhV7Eb1hKZlXH/0hSB61UCzr9h/Ju9pg4NFb/hXDKvilEL91kBT/Qrq7OhYJ7ME54duPgjilfm7m/+TVSxN3trP3JobNFJe1WS6NcLZaQfR8R3SUsGXimV735clWTpZ1T67dqLgx+Pn54+HlO0au8hmq44qeB4mU5hNrjZBGuX+pBtDDPzZmv4SbqWHal1V4Jy9ihvF/iyNjrLwRSPBTbmAk09AxOIWJVt9PBwI4yvPH2YPloLCkZBDE+rB0Bzd5kX5JjbK5Bc7X2cr6/EnfQH85WnWIZz97lp4PPVYnZESnQ41DCsrxljpeuAAbESKCqBdignmHeNHgD8AgPaJglZjwfVlJzNHUJ84GGojIyl/U91u+pjkq8n3XZnO9k5mJSaaTd5eu1/Kx7ZpMQTvucXd+EeuIz6/qKKEC66dGbiSmaJMb6b4NOGpkvMnJ6QbK+pwoGAL6HG8XZ/gaLrvtLHopG5NJqhhb51QI/m9xLR324rFhtf2lmdoAJvHIkGuBJMjl15BbI+XSycZzmOTxJmGl/7PFkSQaql88Y/gE4GAp/f4t9pwI7Kkq9kjaVA0fdQzd0W6wa3lsR5sxZ5UDpoYPpunPeg/qsmkb68erBcurlIMRW2jWh52rr4N0E1hrqjGI2O/Rsnc4r2smW0zsvFMDdD7r7F1eRh4b+yA1ct0xPs/2+eG5LMJOi/ivdnUFC1nUYwrwn5i0JzA0PkG88grIBsNKizlFH4XkSPpPuZniODn8Xiu+1V91pBxConxNaUa6vioJPFRSQwqbhzitzFZp7pDJpSwArspqgdyQQByEEIpQlX+mC0IBIBQwrFRmkO7umYr4pwWiAZgv1SlgvBYT+VM=
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260926_061610_453982_18D3CEA3 
+X-CRM114-Status: GOOD (  12.77  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -98,52 +86,162 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Sat, Sep 26, 2026 at 02:32:49PM +0200, Jason A. Donenfeld wrote:
-> On Sat, Sep 26, 2026 at 01:19:27PM +0100, Nathan Chancellor wrote:
-> > On Sat, Sep 26, 2026 at 11:39:43AM +0200, Andreas Schwab wrote:
-> > > On Sep 25 2026, Nathan Chancellor wrote:
-> > > 
-> > > > +#if __has_builtin(__builtin_memset_inline)
-> > > > +#define memset_inline(dst, value, size) __builtin_memset_inline(dst, value, size)
-> > > > +#elif IS_ENABLED(CONFIG_CC_HAS_OPT_INLINE_MEMSET)
-> > > > +#define memset_inline(dst, value, size) __builtin_memset(dst, value, size)
-> > > > +#else
-> > > > +static inline void *memset_inline(void *dst, int value, size_t size)
-> > > > +{
-> > > > +	char *d = dst;
-> > > > +
-> > > > +	while (size--)
-> > > > +		*d++ = value;
-> > > > +
-> > > > +	return d;
-> > > > +}
-> > > > +#endif
-> > > > +
-> > > 
-> > > memset actually returns the original pointer, not the incremented one.
-> > > Nothing uses the return value of memset_inline here, but it is
-> > > confusing.
-> > 
-> > Whoops, good catch, I guess my fingers gave up on those last two
-> > characters :) I will fix this for v3 once there has been some time for
-> > further review.
-> 
-> Do we even need to return a value at all? Might as well just make the
-> function two lines:
-> 
-> +       for (char *d = dst; size--;)
-> +               *d++ = value;
+Document the Apple Video Decoder. A hardware video decoder present on
+Apple hardware.
 
-Yeah, good point, no point in returning something that we don't need
-plus this is basically what we had before, just with a different pointer
-type. Thanks for the suggestion.
+Signed-off-by: Sofus Forstreuter <sofus.c@icloud.com>
+---
+ .../devicetree/bindings/media/apple,avd.yaml       | 127 +++++++++++++++++++++
+ MAINTAINERS                                        |   1 +
+ 2 files changed, 128 insertions(+)
 
-> (Technically that could even be one, but maybe that sort of golf loses
-> clarity. Your choice.)
-
-I'll keep it two lines just for the sake of clarity.
+diff --git a/Documentation/devicetree/bindings/media/apple,avd.yaml b/Documentation/devicetree/bindings/media/apple,avd.yaml
+new file mode 100644
+index 000000000000..0aa2cffae50f
+--- /dev/null
++++ b/Documentation/devicetree/bindings/media/apple,avd.yaml
+@@ -0,0 +1,127 @@
++# SPDX-License-Identifier: GPL-2.0-only OR BSD-2-Clause
++%YAML 1.2
++---
++$id: http://devicetree.org/schemas/media/apple,avd.yaml#
++$schema: http://devicetree.org/meta-schemas/core.yaml#
++
++title: Apple Video Decoder (AVD)
++
++description: |
++  AVD is a stateless video decode IP block present on Apple devices.
++  Notably it includes an ARM Cortex-M3 and associated DMA controller.
++  AVD is capable of decoding H264, H265, VP9 and AV1 on newer SoCs.
++
++  The IP does not change much, with changes being mostly the CM3 having more
++  memory and interrupts.
++
++maintainers:
++  - Sofus Forstreuter <sofus.c@icloud.com>
++
++properties:
++  compatible:
++    oneOf:
++      - items:
++          - enum:
++              - apple,t6030-avd
++              - apple,t6031-avd
++          - const: apple,t8122-avd
++      - enum:
++          - apple,t8103-avd
++          - apple,t8112-avd
++          - apple,t8122-avd
++          - apple,t6000-avd
++          - apple,t6020-avd
++
++  reg:
++    items:
++      - description: DMA control
++      - description: Cortex-M3 code (unsigned)
++      - description: Cortex-M3 sram
++      - description: Mailbox
++      - description: Video decode control
++
++  reg-names:
++    items:
++      - const: piodma
++      - const: code
++      - const: sram
++      - const: mbox
++      - const: ctrl
++
++  iommus:
++    items:
++      - description: Decode related
++      - description: DMA controller
++
++  power-domains:
++    maxItems: 1
++
++  resets:
++    maxItems: 1
++
++  interrupts:
++    items:
++      - description: mailbox 0
++      - description: mailbox 1
++      - description: mailbox 2
++      - description: mailbox 3
++      - description: flag 0
++      - description: flag 1
++      - description: DMA status
++    description: |
++      Notably there are no decode related interrupts. All decode related
++      interrupts are sent to the CM3.
++
++  interrupt-names:
++    items:
++      - const: mbox0
++      - const: mbox1
++      - const: mbox2
++      - const: mbox3
++      - const: flag0
++      - const: flag1
++      - const: piodma
++
++required:
++  - compatible
++  - reg
++  - interrupts
++  - reg-names
++  - iommus
++  - power-domains
++  - resets
++
++additionalProperties: false
++
++examples:
++  - |
++    #include <dt-bindings/interrupt-controller/apple-aic.h>
++    #include <dt-bindings/interrupt-controller/irq.h>
++
++    soc {
++        #address-cells = <2>;
++        #size-cells = <2>;
++
++        video-codec@289070000 {
++            compatible = "apple,t8122-avd";
++            reg = <0x2 0x89070000 0x0 0x4000>,
++                  <0x2 0x89080000 0x0 0x10000>,
++                  <0x2 0x89092000 0x0 0x14000>,
++                  <0x2 0x890a4000 0x0 0x4000>,
++                  <0x2 0x89100000 0x0 0x10000>;
++            reg-names = "piodma", "code", "sram", "mbox", "ctrl";
++            interrupt-parent = <&aic>;
++            interrupts = <AIC_IRQ 679 IRQ_TYPE_LEVEL_HIGH>,
++                         <AIC_IRQ 680 IRQ_TYPE_LEVEL_HIGH>,
++                         <AIC_IRQ 681 IRQ_TYPE_LEVEL_HIGH>,
++                         <AIC_IRQ 682 IRQ_TYPE_LEVEL_HIGH>,
++                         <AIC_IRQ 683 IRQ_TYPE_LEVEL_HIGH>,
++                         <AIC_IRQ 684 IRQ_TYPE_LEVEL_HIGH>,
++                         <AIC_IRQ 685 IRQ_TYPE_LEVEL_HIGH>;
++            interrupt-names = "mbox0", "mbox1", "mbox2", "mbox3",
++                              "flag0", "flag1", "piodma";
++            power-domains = <&ps_avd_sys>;
++            resets = <&ps_avd_sys>;
++            iommus = <&avd_dart 0>, <&avd_dart 1>;
++        };
++    };
+diff --git a/MAINTAINERS b/MAINTAINERS
+index 4cc4a2dc6d30..3c7c5fe3f0bc 100644
+--- a/MAINTAINERS
++++ b/MAINTAINERS
+@@ -2643,6 +2643,7 @@ F:	Documentation/devicetree/bindings/iommu/apple,dart.yaml
+ F:	Documentation/devicetree/bindings/iommu/apple,sart.yaml
+ F:	Documentation/devicetree/bindings/leds/backlight/apple,dwi-bl.yaml
+ F:	Documentation/devicetree/bindings/mailbox/apple,mailbox.yaml
++F:	Documentation/devicetree/bindings/media/apple,avd.yaml
+ F:	Documentation/devicetree/bindings/mfd/apple,smc.yaml
+ F:	Documentation/devicetree/bindings/net/bluetooth/brcm,bcm4377-bluetooth.yaml
+ F:	Documentation/devicetree/bindings/nvme/apple,nvme-ans.yaml
 
 -- 
-Cheers,
-Nathan
+2.55.0
+
 
