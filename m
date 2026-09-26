@@ -4,62 +4,58 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D7D1EC98332
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 26 Sep 2026 14:51:50 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 84463C98338
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 26 Sep 2026 14:52:22 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=FSZSNvXIbxinhOWwX8RXwgMptdfYZOHfLPwJUx7KQK4=; b=vRbsf17z1uqO7d8BAf1rPGlXMV
-	DMztv/L4LrWZvgPugtEGV7LO60bGAb1tHMiZjxtqed1+jhPG+pB29AO2Uh+sW8UOlv2nWORACvD9d
-	jScZhAzd+TJRVtBAcaHy59M0lKfHyAEzrE+TeaQTqJgTHmKBJoZMcP83+FY8d/RTQyj4eniYTsPUD
-	LCHVAThVgsCgKE+uuinAfRMR/WU15fuQoWTccvunWUya+T0hsUDvjtaYwhFd90Xk8UIK9iaWIB0KJ
-	Yt+RFD3p7BWmdWYExIEt9nTRNWdE+qhTynx2RbHAnzRD8+kyxG2S05CWb5fZiT3Emu37NPX5s0LbT
-	1iBU/g5Q==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
+	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=pMERds1aQrUorYxnjOG7U3TBg9X08veCZQ/DwuVV+W8=; b=Jm70+NbGUq80wX8qa8oY9eiWqE
+	UAT4Mdb+TqQRsbmDZhpgJBm+96GwgtMKwx90/EdOe0bPwZUQhBGB+EO1ZRjBr07tLPyAWT65JtVmZ
+	2l34kGL9DLXUWQdcr7nCXpgEnhv7s09vsUtWnYXE5J7YSilA47w523OpqH2I3fFUToK/M/YcyD6Ca
+	LxyqU8ZP93t/9CQYO0Vap8krn/H8pOYMJBZzfbEzUiSJ+D96y7R4hcfoQWWa/Di8kz7AnUMAN9nF+
+	AQlp+6wMwb9bqMmL8L0OqQZ1RxTYxCY95VJwLYuoR1xxomfbt4gsWFJOrmcoXF/WplekuwUHWVOiB
+	pyDIMInw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xATkc-0000000FXxC-10KT;
-	Sat, 26 Sep 2026 14:51:42 +0000
-Received: from perceval.ideasonboard.com ([213.167.242.64])
+	id 1xATlA-0000000FY5F-2ADp;
+	Sat, 26 Sep 2026 14:52:16 +0000
+Received: from mail.cyberchaos.dev ([2a0f:4ac0::3a11])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xATkZ-0000000FXwg-1c5X
+	id 1xATl7-0000000FY3U-2mXN
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 26 Sep 2026 14:51:41 +0000
-Received: from killaraus.ideasonboard.com (2001-14ba-70f3-e800--a06.rev.dnainternet.fi [IPv6:2001:14ba:70f3:e800::a06])
-	by perceval.ideasonboard.com (Postfix) with ESMTPSA id 9022BB5;
-	Sat, 26 Sep 2026 16:49:48 +0200 (CEST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=ideasonboard.com;
-	s=mail; t=1790434188;
-	bh=pZTeVCBlihakj8ZvNv1lAbjxoAd+n7SrGIEcG9d3MYs=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=kgnQyVoJjxp560wpTUaSNxt8ZRBb32HnVlVcX03MbARetRBUPqWOIAOFVDozVx52n
-	 MKRWUAA9xeLYfsE1Cf5qmbcAQa5CfPZEe7WcBTw0GUe2hbOcFjvOl/cmKkN/yHfaLE
-	 CjfEReU7M9nONodqmbLmRfImeplZEmP7oJpEjehE=
-Date: Sat, 26 Sep 2026 17:51:35 +0300
-From: Laurent Pinchart <laurent.pinchart@ideasonboard.com>
-To: Rishikesh Donadkar <r-donadkar@ti.com>
-Cc: linux-media@vger.kernel.org, linux-kernel@vger.kernel.org,
-	devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-	tomi.valkeinen@ideasonboard.com, mchehab@kernel.org,
-	robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org, nm@ti.com,
-	vigneshr@ti.com, kristo@kernel.org, sakari.ailus@linux.intel.com,
-	mripard@kernel.org, jai.luthra@linux.dev,
-	jai.luthra@ideasonboard.com, devarsht@ti.com,
-	y-abhilashchandra@ti.com, mirela.rabulea@nxp.com
-Subject: Re: [RFC PATCH 1/8] dt-bindings: media: Add bindings for Omnivision
- OV2312
-Message-ID: <20260926145135.GC764757@killaraus.ideasonboard.com>
-References: <20260925133001.2780868-1-r-donadkar@ti.com>
- <20260925133001.2780868-2-r-donadkar@ti.com>
+	Sat, 26 Sep 2026 14:52:15 +0000
+From: Yureka Lilian <yureka@cyberchaos.dev>
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=cyberchaos.dev;
+	s=mail; t=1790434329;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=pMERds1aQrUorYxnjOG7U3TBg9X08veCZQ/DwuVV+W8=;
+	b=xFl6egS/phrUrCgkYxRPqLQxfqS5RP3ZKrYS1/5OajXWDTiAb7N1l5MP69vR5jHB9KsSFz
+	cTWg8UIMCWGQy26ugxRqy3MUfeu+B0jIqmlZKqqBhOl7gjxRDduPd+92qAftJ+Cn49LKLD
+	EFc3CWQEWdKDYA5n8oijwhmX2MaMavc=
+Date: Sat, 26 Sep 2026 16:51:46 +0200
+Subject: [PATCH v2 2/2] pinctrl: apple: Add t8140-pinctrl support
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-In-Reply-To: <20260925133001.2780868-2-r-donadkar@ti.com>
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+Message-Id: <20260926-apple-pinctrl-t8140-v2-2-620bd11cd2a1@cyberchaos.dev>
+References: <20260926-apple-pinctrl-t8140-v2-0-620bd11cd2a1@cyberchaos.dev>
+In-Reply-To: <20260926-apple-pinctrl-t8140-v2-0-620bd11cd2a1@cyberchaos.dev>
+To: Sven Peter <sven@kernel.org>, Janne Grunau <j@jannau.net>, 
+ Neal Gompa <neal@gompa.dev>, Linus Walleij <linusw@kernel.org>, 
+ Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, Mark Kettenis <kettenis@openbsd.org>
+Cc: Yureka Lilian <yureka@cyberchaos.dev>, asahi@lists.linux.dev, 
+ linux-arm-kernel@lists.infradead.org, linux-gpio@vger.kernel.org, 
+ devicetree@vger.kernel.org, linux-kernel@vger.kernel.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260926_075139_569780_4AE69BFF 
-X-CRM114-Status: GOOD (  16.17  )
+X-CRM114-CacheID: sfid-20260926_075213_942009_5103FC20 
+X-CRM114-Status: GOOD (  16.32  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -74,122 +70,81 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, Sep 25, 2026 at 06:59:54PM +0530, Rishikesh Donadkar wrote:
-> From: Jai Luthra <j-luthra@ti.com>
-> 
-> Add DT bindings for Omnivision OV2312 camera sensor.
-> 
-> Signed-off-by: Jai Luthra <j-luthra@ti.com>
-> Signed-off-by: Rishikesh Donadkar <r-donadkar@ti.com>
-> ---
->  .../bindings/media/i2c/ovti,ov2312.yaml       | 79 +++++++++++++++++++
->  1 file changed, 79 insertions(+)
->  create mode 100644 Documentation/devicetree/bindings/media/i2c/ovti,ov2312.yaml
-> 
-> diff --git a/Documentation/devicetree/bindings/media/i2c/ovti,ov2312.yaml b/Documentation/devicetree/bindings/media/i2c/ovti,ov2312.yaml
-> new file mode 100644
-> index 000000000000..76929fcc6550
-> --- /dev/null
-> +++ b/Documentation/devicetree/bindings/media/i2c/ovti,ov2312.yaml
-> @@ -0,0 +1,79 @@
-> +# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
-> +%YAML 1.2
-> +---
-> +$id: http://devicetree.org/schemas/media/i2c/ovti,ov2312.yaml#
-> +$schema: http://devicetree.org/meta-schemas/core.yaml#
-> +
-> +title: OmniVision OV2312 Camera Sensor
-> +
-> +maintainers:
-> +  - Jai Luthra <j-luthra@ti.com>
-> +
-> +description: |-
-> +  Omnvision OV2312 is a camera sensor with an active array size of 1600x1300.
+Ensure the regmap does not attempt to read REG_GPIOx of any of the pins
+marked with gpio-reserved-ranges. For this purpose, move the regmap_init
+just before the first regmap_read, at which point the valid_mask has
+been populated from the gpio-reserved-ranges device tree property.
+With this, make the driver accept the new t8140 base compatible as with
+this modifications the driver can now be loaded on this SoC without
+crashing.
 
-s/Omnvision/OmniVision/
+Signed-off-by: Yureka Lilian <yureka@cyberchaos.dev>
+---
+ drivers/pinctrl/pinctrl-apple-gpio.c | 21 ++++++++++++++++-----
+ 1 file changed, 16 insertions(+), 5 deletions(-)
 
-(although they now seem to style the company name as OMNIVISION)
-
-> +  It supports capture of frames with a 4x4 RGB-IR bayer pattern. This provides
-> +  both human (RGB) and machine vision (IR) capabilities in low-light scenarios.
-> +
-> +properties:
-> +  compatible:
-> +    enum:
-> +      - ovti,ov2312
-> +
-> +  reg:
-> +    maxItems: 1
-> +
-> +  clocks:
-> +    maxItems: 1
-> +
-> +  clock-names:
-> +    const: xvclk
-
-If there's a single clock, drop the name.
-
-> +
-> +  reset-gpios:
-> +    maxItems: 1
-> +    description:
-> +      Specifier for the GPIO connected to the RESET pin.
-
-You also need regulators.
-
-> +
-> +  port:
-> +    $ref: /schemas/graph.yaml#/properties/port
-> +    additionalProperties: false
-> +
-> +    properties:
-> +      endpoint:
-> +        $ref: ../video-interfaces.yaml#
-> +        unevaluatedProperties: false
-
-The sensor supports both CSI-2 and parallel output. You need to be more
-precise here regarding the supported properties. The bus type, in
-particular, needs to be defined.
-
-> +
-> +required:
-> +  - compatible
-> +  - reg
-> +  - clocks
-> +  - clock-names
-> +  - port
-> +
-> +additionalProperties: false
-> +
-> +examples:
-> +  - |
-> +    #include <dt-bindings/gpio/gpio.h>
-> +
-> +    i2c {
-> +        #address-cells = <1>;
-> +        #size-cells = <0>;
-> +
-> +        camera@60 {
-> +            compatible = "ovti,ov2312";
-> +            reg = <0x60>;
-> +
-> +            clocks = <&fixed_clock>;
-> +            clock-names = "xvclk";
-> +
-> +            reset-gpios = <&gpio4 17 GPIO_ACTIVE_LOW>;
-> +
-> +            port {
-> +                camera1: endpoint {
-> +                    remote-endpoint = <&vin1a_ep>;
-> +                };
-> +            };
-> +        };
-> +    };
-> +
-> +...
+diff --git a/drivers/pinctrl/pinctrl-apple-gpio.c b/drivers/pinctrl/pinctrl-apple-gpio.c
+index 6305b96aaa73..6b26a23d283c 100644
+--- a/drivers/pinctrl/pinctrl-apple-gpio.c
++++ b/drivers/pinctrl/pinctrl-apple-gpio.c
+@@ -66,6 +66,13 @@ struct apple_gpio_pinctrl {
+ #define REG_GPIOx_DRIVE_STRENGTH1 GENMASK(23, 22)
+ #define REG_IRQ(g, x)        (0x800 + 0x40 * (g) + 4 * ((x) >> 5))
+ 
++static bool apple_gpio_readable_register(struct device *dev, unsigned int reg)
++{
++	struct apple_gpio_pinctrl *pctl = dev_get_drvdata(dev);
++
++	return gpiochip_line_is_valid(&pctl->gpio_chip, reg / 4);
++}
++
+ static const struct regmap_config regmap_config = {
+ 	.reg_bits = 32,
+ 	.val_bits = 32,
+@@ -75,6 +82,7 @@ static const struct regmap_config regmap_config = {
+ 	.num_reg_defaults_raw = 512,
+ 	.use_relaxed_mmio = true,
+ 	.use_raw_spinlock = true,
++	.readable_reg = apple_gpio_readable_register,
+ };
+ 
+ /* No locking needed to mask/unmask IRQs as the interrupt mode is per pin-register. */
+@@ -90,6 +98,13 @@ static u32 apple_gpio_get_reg(struct apple_gpio_pinctrl *pctl,
+ 	int ret;
+ 	u32 val;
+ 
++	if (!pctl->map)	{
++		pctl->map = devm_regmap_init_mmio(pctl->dev, pctl->base, &regmap_config);
++		if (IS_ERR(pctl->map))
++			return dev_err_probe(pctl->dev, PTR_ERR(pctl->map),
++					"Failed to create regmap\n");
++	}
++
+ 	ret = regmap_read(pctl->map, REG_GPIO(pin), &val);
+ 	if (ret)
+ 		return 0;
+@@ -475,11 +490,6 @@ static int apple_gpio_pinctrl_probe(struct platform_device *pdev)
+ 	if (IS_ERR(pctl->base))
+ 		return PTR_ERR(pctl->base);
+ 
+-	pctl->map = devm_regmap_init_mmio(&pdev->dev, pctl->base, &regmap_config);
+-	if (IS_ERR(pctl->map))
+-		return dev_err_probe(&pdev->dev, PTR_ERR(pctl->map),
+-				     "Failed to create regmap\n");
+-
+ 	for (i = 0; i < npins; i++) {
+ 		pins[i].number = i;
+ 		pins[i].name = devm_kasprintf(&pdev->dev, GFP_KERNEL, "PIN%u", i);
+@@ -522,6 +532,7 @@ static int apple_gpio_pinctrl_probe(struct platform_device *pdev)
+ }
+ 
+ static const struct of_device_id apple_gpio_pinctrl_of_match[] = {
++	{ .compatible = "apple,t8140-pinctrl", },
+ 	{ .compatible = "apple,t8103-pinctrl", },
+ 	{ .compatible = "apple,pinctrl", },
+ 	{ }
 
 -- 
-Regards,
+2.55.0
 
-Laurent Pinchart
 
