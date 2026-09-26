@@ -4,88 +4,65 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 136BAC98318
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 26 Sep 2026 04:24:24 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id F184CC98318
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 26 Sep 2026 04:29:09 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=qtAmnq7GHFyoC+l0IK8HL+LJqCl6RnngBlg4/6pPAk0=; b=en16TbyjQkBELN/AkBbgXryP/J
-	zV//9OhvelVVObvVXQwPb59OctupAAX/6yfD+sqx8vZSpI7NRd9xSR/HCUBeuhcbF4RmcHi2D3yCD
-	0oByKDr8x2WWw8GPq9KQ72FDP015vFzaL5QtJjxIPe1h6ekOykCkhDwTJJAXzcX+cFEBNRluN6t8v
-	llLU+B72iUqLc3PZL1TiHC8obL+4fPOdtCusGqY99u7clOzzWBIDOln/dy+dxhQ0IYxM1UjDqk6/G
-	p9HMGQfEKuKUkHLXHkXQdU7MOFiKODUy7uZFCmX16gji3/+ercsmMTzhyGmNN6uET2AtbMOA5BSkN
-	JjsA9XPw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
+	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=boCS0SjFdnwWnbkE5+zTwiuOZv4ydq9+oFzVHWADI/0=; b=bv5Wxrvb9FpnNYtPCqGQMFd+nT
+	L5+ZcePnC+kquOu076h4ZSxnMMG9E0Y7K1FDi5nZEA3vMMupBteSc/ynxW6HsxrDejVwNy7SX/BgB
+	Bk0KCoOTLXUtImUpDzhWXEEaT0FMXOJLSPMj9lhtNzSUVNLv3g3Tl1QuG6mShxlHyRHoSqP4JHaeI
+	pM1GXliVRddQaROCsX6wj1Q71nMP3WLlPf7avGdwfe42f7ow9vezIfKjUwvFBqC7m/FAHs3vN9U8Q
+	q2pJjKmcMz3442Qme5UBjbep5VEEH0x1kj/60cuZX9DjreNYl2SUjnTtxfRIqUb66btt6pmL+RUEB
+	IrCaGwSQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xAJxQ-0000000Ewr0-0f4O;
-	Sat, 26 Sep 2026 04:24:16 +0000
-Received: from mail-pz2-x0f.google.com ([2607:f8b0:4864:3b::f])
+	id 1xAK23-0000000Ex50-3aqN;
+	Sat, 26 Sep 2026 04:29:03 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xAJxN-0000000Ewqd-2fNL
-	for linux-arm-kernel@lists.infradead.org;
-	Sat, 26 Sep 2026 04:24:14 +0000
-Received: by mail-pz2-x0f.google.com with SMTP id d2e1a72fcca58-8693af0d7c4so956509b3a.3
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 25 Sep 2026 21:24:13 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1790396653; x=1791001453; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
-        bh=qtAmnq7GHFyoC+l0IK8HL+LJqCl6RnngBlg4/6pPAk0=;
-        b=DtUjHB43GPBqJ2vF9ic33bjRgni9mTLsvOaQR4BvUhRtJzKR4bOi53Yqx6N0EN4Fd2
-         42WnwICtCibvodRJ4dImkxgHjoK9dMJhto/lPnOdfOyPEpgDihncWnGBFQt0Yqg/kPvm
-         1IBs9+dPoyhG9Y42emGg9TIWEXdUq4azF+kVycwrGZGAKb3Qh+EAwlMr16u+fUiFk+7Y
-         nOaYTVAJ4ybnmi9G7CXjWSqFmmpl5lnpTiawDY714Mr0sgIip2QTCZ2/yTco8GK0O++t
-         KDVoYe+Htefm3+MA4gUs9TK+iyxml4lBplILe3Nj0DcpcJHlkq+ApBOWlYXEFNbFsbjq
-         s+gw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1790396653; x=1791001453;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=qtAmnq7GHFyoC+l0IK8HL+LJqCl6RnngBlg4/6pPAk0=;
-        b=rQBGWtLZLGvFtbpu6as5SMIfKXPHv0TqGJt9+byEq8ws13f11jWwNdcNCy6DHuG2Gt
-         5iW9j9yDketSGOTBZEez9YIBK2PrCyfGJWhurCW8cntt0mSl+kzNb1w8KySti8QuXK3Z
-         ztVMV174oeUfN8z7PQfjJiJuip5tB1TI5P60OrM2/hJHC1Iyok+X5c7qrTfvpxZgSEXT
-         RaPahxDowv9Fu8PdgtMa7udw11tRUD9tc93CDh3wmmhjs3Am2hQ7EcuSEtOb4Gri80LQ
-         io4og24U1i2iA7otjsHJ2BcLy3e/+kKxqBj36XW7pgTk6CfKDYOZ68v8BoEnbrHmKNTq
-         iVhw==
-X-Forwarded-Encrypted: i=1; AKwUvByAH2kquh8HKG7g8B2DfUNHVZtK3SZUhpaX52k/z9mwcW0RJrxAt32qtj4HIqOUhjqB0f3MSF34Uh+ZJyvgDh62@lists.infradead.org
-X-Gm-Message-State: AFuF++lsMqTjpIupIW7pLGlXBSKXrHBMHIfoJEDqfylFPrkCpYHsnFUW
-	CEbp5HfAhyxtMcU1K8tLIWdDrTZ5OJ6AoRcA79wTmn+be0mdqCTWhifw
-X-Gm-Gg: AYBFou1VDBa7egDMvjrzMYmTODBtNtqgm3HYAOylBCyOnUOD9YPHvLJlie2ufESYcXY
-	lAPUizkxWQlV7kyLw7Mk0mHm/Iwo4ADPHxzPhzL/AoXja6eMKfrZTOZiXfBAmyTxn4g/CyCUNJ3
-	glesCt3Wy96hObudLyjKkzDRQukoWCU/ceNpLIHsoJJzNLJAp1NC/Bo4QadhMxWgLfGfCpW3Jse
-	mrIRD3P5y3ldeky6Pc3yI9hQtQ/pqW6EPmvK0GeOr7b/0I+MpZv2f0B/s5m/Co+eogVlfRvj7t0
-	l/07MNBQf/DIwxO4Tk6wcYhQf3gCYx9HJRYsGJ5CVLO+lxT2wYr7lL5s6WssLKJ3t1bads9U9pA
-	rIeI21xbIu56vWQwp9BbRnzUS0/izc+8IZevlZ0tTWx6RwG+MOpYExYunPlfa/EgAoJHrQ9gbHk
-	ql4GJQPPDVbYRZnNYh52zZOwXDcu6bk3VJrZDBoVJ9fKLvmkdrmAU5+x+15j+/eNJvMAVPvI1Yo
-	kKsGMwVyZ7TKTSVTQnqzVSo1/bZKk8m56NGjfCu1zH/87U84nLCWfSNQzTqe5kDpCInlrFCM4/+
-	/3wQYfCjPpEi3AnIBbB6Qjwwp81DvcduxRetzCSDkC+k/UJC5Q==
-X-Received: by 2002:a17:90a:2ce6:b0:3a0:a055:1741 with SMTP id 98e67ed59e1d1-3a0a0552127mr3650622a91.27.1790396652570;
-        Fri, 25 Sep 2026 21:24:12 -0700 (PDT)
-Received: from dell-pro-max-tower-t2.cse.unsw.EDU.AU (pag-t2-pc.cse.unsw.EDU.AU. [129.94.173.199])
-        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-3a0ca127237sm2005316a91.4.2026.09.25.21.24.10
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 25 Sep 2026 21:24:12 -0700 (PDT)
-From: Weigang He <geoffreyhe2@gmail.com>
-To: Antoine Tenart <atenart@kernel.org>
-Cc: Arnd Bergmann <arnd@arndb.de>,
-	Russell King <linux@armlinux.org.uk>,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	Weigang He <geoffreyhe2@gmail.com>
-Subject: [PATCH] ARM: alpine: fix device_node refcount leak in alpine_cpu_pm_init()
-Date: Sat, 26 Sep 2026 14:23:32 +1000
-Message-ID: <20260926042332.1633698-1-geoffreyhe2@gmail.com>
-X-Mailer: git-send-email 2.43.0
+	id 1xAK22-0000000Ex4f-49ne;
+	Sat, 26 Sep 2026 04:29:03 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by sea.source.kernel.org (Postfix) with ESMTP id 5AEDC43F9A;
+	Sat, 26 Sep 2026 04:29:02 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id ADB011F000FF;
+	Sat, 26 Sep 2026 04:28:56 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1790396942;
+	bh=boCS0SjFdnwWnbkE5+zTwiuOZv4ydq9+oFzVHWADI/0=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=TKhnyb6h2ZXJuRPB7K6KSjYmrAU0t8F8802JIMaGkYXTN1UnVX95iG270wGedFOFB
+	 OjD6OxumDMzEvCVgTvyZ26ktX2/yqIwilYPSa+gJdFsTRSNX5qefzMlMSCnDsx4Vrr
+	 +uAhHNZWotyyYVSqsUYxMAIwzgmT58tKMTOIckzCBnOXX67mC61AMhNGAz3EYFtuh8
+	 HUWHcMfdFv/MK7sxsB3NmrKeLBbrR2rhwGXD/dfjb6hQmTLr3z0gRdUleI6HYDsorL
+	 ypNAdQuwwpqGRNMTC8FgiHLUoqQtzyZXcq6IKLegWdzWoNET0/1BbYubCck+P3poZS
+	 YSpwL+UzM0iUg==
+Date: Sat, 26 Sep 2026 06:28:42 +0200
+From: Manivannan Sadhasivam <mani@kernel.org>
+To: Sebastian Reichel <sebastian.reichel@collabora.com>
+Cc: Vinod Koul <vkoul@kernel.org>, 
+	Neil Armstrong <neil.armstrong@linaro.org>, Heiko Stuebner <heiko@sntech.de>, 
+	Frank Wang <frank.wang@rock-chips.com>, Rob Herring <robh@kernel.org>, 
+	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
+	Philipp Zabel <p.zabel@pengutronix.de>, Andy Yan <andy.yan@rock-chips.com>, 
+	Dmitry Baryshkov <lumag@kernel.org>, Yubing Zhang <yubing.zhang@rock-chips.com>, 
+	Alexey Charkov <alchark@flipper.net>, Igor Paunovic <royalnet026@gmail.com>, 
+	linux-phy@lists.infradead.org, linux-arm-kernel@lists.infradead.org, 
+	linux-rockchip@lists.infradead.org, linux-kernel@vger.kernel.org, kernel@collabora.com, 
+	devicetree@vger.kernel.org
+Subject: Re: [PATCH v15 16/16] phy: rockchip: usbdp: Register DP aux bridge
+Message-ID: <ti26a3uyhfftlkhojhv56gxi3wzfeo7wj6a6rbm5eyqwgrxyxm@snn2psfln6d2>
+References: <20260915-rockchip-usbdp-cleanup-v15-0-80e2c11d1ce8@collabora.com>
+ <20260915-rockchip-usbdp-cleanup-v15-16-80e2c11d1ce8@collabora.com>
 MIME-Version: 1.0
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
 Content-Transfer-Encoding: 8bit
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260925_212413_709514_D24AD2FB 
-X-CRM114-Status: GOOD (  10.97  )
+In-Reply-To: <20260915-rockchip-usbdp-cleanup-v15-16-80e2c11d1ce8@collabora.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -100,51 +77,37 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-of_find_compatible_node() returns the matching device_node with its
-refcount incremented; the caller must drop it with of_node_put().
-alpine_cpu_pm_init() obtains the "al,alpine-cpu-resume" node, maps it
-with of_iomap() and never releases the reference. The function is
-__init and runs once, so this is a one-shot leak of a single refcount
-during boot, with no functional impact.
+On Tue, Sep 15, 2026 at 03:50:03PM +0200, Sebastian Reichel wrote:
+> Add support to use USB-C connectors with the DP altmode helper code on
+> devicetree based platforms. To get this working there must be a DRM
+> bridge chain from the DisplayPort controller to the USB-C connector.
+> E.g. on Rockchip RK3576:
+> 
+> root@rk3576 # cat /sys/kernel/debug/dri/0/encoder-0/bridges
+> bridge[0]: dw_dp_bridge_funcs
+>         refcount: 7
+>         type: [10] DP
+>         OF: /soc/dp@27e40000:rockchip,rk3576-dp
+>         ops: [0x47] detect edid hpd
+> bridge[1]: drm_aux_bridge_funcs
+>         refcount: 4
+>         type: [0] Unknown
+>         OF: /soc/phy@2b010000:rockchip,rk3576-usbdp-phy
+>         ops: [0x0]
+> bridge[2]: drm_aux_hpd_bridge_funcs
+>         refcount: 5
+>         type: [10] DP
+>         OF: /soc/i2c@2ac50000/typec-portc@22/connector:usb-c-connector
+>         ops: [0x4] hpd
+> 
+> Reviewed-by: Neil Armstrong <neil.armstrong@linaro.org>
+> Tested-by: Igor Paunovic <royalnet026@gmail.com> # Orange Pi 5 Plus
+> Signed-off-by: Sebastian Reichel <sebastian.reichel@collabora.com>
 
-Drop the reference after of_iomap(), which does not retain it; np is
-not used afterwards.
+Reviewed-by: Manivannan Sadhasivam <manivannan.sadhasivam@oss.qualcomm.com>
 
-Found by static analysis tool CodeQL.
+- Mani
 
-Fixes: e9e06f2853dd ("ARM: Alpine: smp support")
-Assisted-by: LLM codeql
-Signed-off-by: Weigang He <geoffreyhe2@gmail.com>
----
-
-Notes:
-    Compile-tested only (ARCH=arm multi_v7_defconfig, W=1). Not tested on
-    hardware; I have no Alpine board.
-    
-    The CodeQL query behind this report was synthesized with LLM assistance,
-    and the fix and changelog were drafted with LLM assistance; I have
-    reviewed them.
-
- arch/arm/mach-alpine/alpine_cpu_pm.c | 1 +
- 1 file changed, 1 insertion(+)
-
-diff --git a/arch/arm/mach-alpine/alpine_cpu_pm.c b/arch/arm/mach-alpine/alpine_cpu_pm.c
-index b48da6f12b6cc..332c3c00d3680 100644
---- a/arch/arm/mach-alpine/alpine_cpu_pm.c
-+++ b/arch/arm/mach-alpine/alpine_cpu_pm.c
-@@ -50,6 +50,7 @@ void __init alpine_cpu_pm_init(void)
- 
- 	np = of_find_compatible_node(NULL, NULL, "al,alpine-cpu-resume");
- 	al_cpu_resume_regs = of_iomap(np, 0);
-+	of_node_put(np);
- 
- 	wakeup_supported = !IS_ERR(al_sysfabric) && al_cpu_resume_regs;
- 
-
-base-commit: 165768bb70265b5c38cf0b73fafd75be235f8b14
-prerequisite-patch-id: c5a3be8688fd8e88a00352acb1374e91fcb52a03
-prerequisite-patch-id: 67693e2c08624df0841619cc085ce9200f4385fc
 -- 
-2.43.0
-
+மணிவண்ணன் சதாசிவம்
 
