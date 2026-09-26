@@ -4,73 +4,83 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 936D7C98318
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 26 Sep 2026 09:34:13 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6AD21C98318
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 26 Sep 2026 09:40:14 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=3ImgzvPCPqF/pLzMmEdPt+sptLiEtWyXUVBfTOmQMrw=; b=zqNuCGT8XWaIciI2RUoN41UwFm
-	sCwJhpyy6/GDx7IxYcikX+CTFAkmR42t9jazNqmLmNk4ME1PomzwS2LNSMCgcHdWtQXkOiaPcCVhe
-	eQ4HsnfioluFd6XQZL1DrRBz8wevg4Zj6uRYq53AeaQ+0ftMrnGl3gPDuE1nhadEvAURfOP0RDcuA
-	1fLUPePKXR53O2ahXuWyYPtDMRi4u9pf1Qcc3itxBfJJjOtwTryXppz6nwtF67GqVBsLnVEUhm6Zx
-	Zcepfr6T3tcMgefJWBETuK4G5L0U+MYjht5VcB1kTXmobrb6IiwNFE3K+oiwdJ/K82tGuEXTy+myT
-	fyQA7+OA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	Message-ID:Date:References:In-Reply-To:Subject:Cc:To:From:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=KhakconhrGu2oZYTr+VE77hBjiLRqXZ4OFKpCDCtIwM=; b=z0djSebuZYteI5V7MH7izC2K+9
+	3/rrUlX5Bg3TNr3R/K0L0zGiOKfFOxPrpdHvXZQ/MBAtycuvMvGJ5koguUfCy0PXjZ6Kdi2d5sjvk
+	+7b9zbZKhKRTmIlESalFj7zStNbF5GsKlqIjriKvsJaP7PIhRM4diyXPr6JWGPtPXteK6vsjNAiFo
+	cdf2TBQ+f/bXDWKKfmdirwdii556R5uh7ToRP8tsY8yKY4r+AerChAYt2Pmh1o4Y1saD2086zuqJc
+	hYX6Y3dSr6JASLvf3qEK0hzLxzvO0yKLvGWSleSON9z2mP0QzBGIrgmdCEuvtk4mcH4OZSq3jkaxQ
+	dBVtOmrg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xAOnH-0000000FDLP-22h3;
-	Sat, 26 Sep 2026 09:34:07 +0000
-Received: from smtpout-03.galae.net ([185.246.85.4])
+	id 1xAOt6-0000000FDsD-0nmQ;
+	Sat, 26 Sep 2026 09:40:08 +0000
+Received: from mail-out.m-online.net ([212.18.0.10])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xAOn8-0000000FDIQ-2Uv2
-	for linux-arm-kernel@lists.infradead.org;
-	Sat, 26 Sep 2026 09:34:00 +0000
-Received: from smtpout-01.galae.net (smtpout-01.galae.net [212.83.139.233])
-	by smtpout-03.galae.net (Postfix) with ESMTPS id 941D64E41086;
-	Sat, 26 Sep 2026 09:33:53 +0000 (UTC)
-Received: from mail.galae.net (mail.galae.net [212.83.136.155])
-	by smtpout-01.galae.net (Postfix) with ESMTPS id 6037F60749;
-	Sat, 26 Sep 2026 09:33:53 +0000 (UTC)
-Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 590B1102F1E39;
-	Sat, 26 Sep 2026 11:33:45 +0200 (CEST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=dkim;
-	t=1790415232; h=from:subject:date:message-id:to:cc:mime-version:
-	 content-transfer-encoding; bh=3ImgzvPCPqF/pLzMmEdPt+sptLiEtWyXUVBfTOmQMrw=;
-	b=I76U5edAiNk+tI0IhQ05Cc52pq6tuflYYxmk1SZmxC+bS1xPTDF3ANb7wcjQO45rXuUYkh
-	QLdT41nwmwoAY+f3i0Ilm+gb1r7DOOv4OjntzDfitSJJ4yDLMt0FN9AZu7cV+6M5NFjRDk
-	LifbniLduUQFsBdI9+GK8Mw1Pdmr5k5b4TSkbuz8UoHmZSpu6GrWNHYnqJyWcsioeVw7nE
-	1oF30/5A07q4wdM/P3ehdyplfFnMCloa5DABjEVwKuy0C7M2jmmCKNQPy9e1ZffmWqWn7R
-	tRQbvNGe4LHgjajZfXEws1gYmOZSHqYAn2q1BNDlVTh2kGJWPHXyGrdA2isLUA==
-From: Maxime Chevallier <maxime.chevallier@bootlin.com>
-To: Andrew Lunn <andrew+netdev@lunn.ch>,
-	Jakub Kicinski <kuba@kernel.org>,
-	davem@davemloft.net,
-	Eric Dumazet <edumazet@google.com>,
-	Paolo Abeni <pabeni@redhat.com>,
-	Simon Horman <horms@kernel.org>,
-	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
-	Alexandre Torgue <alexandre.torgue@foss.st.com>,
-	Russell King <linux@armlinux.org.uk>,
-	Jitendra Vegiraju <jitendra.vegiraju@broadcom.com>
-Cc: Maxime Chevallier <maxime.chevallier@bootlin.com>,
-	thomas.petazzoni@bootlin.com,
-	=?UTF-8?q?Alexis=20Lothor=C3=A9?= <alexis.lothore@bootlin.com>,
-	netdev@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-stm32@st-md-mailman.stormreply.com
-Subject: [PATCH net] net: stmmac: Don't set or get RSS parameters when not supported
-Date: Sat, 26 Sep 2026 11:33:41 +0200
-Message-ID: <20260926093343.292181-1-maxime.chevallier@bootlin.com>
-X-Mailer: git-send-email 2.55.0
+	id 1xAOt3-0000000FDqi-0bt3;
+	Sat, 26 Sep 2026 09:40:07 +0000
+Received: from mail-out.m-online.net (mail-out.m-online.net [212.18.0.10])
+	by mail-out.m-online.net (Postfix) with ESMTP id 4hsMx95lHWz1sPSD;
+	Sat, 26 Sep 2026 11:39:57 +0200 (CEST)
+Received: from frontend03.mail.m-online.net (unknown [192.168.6.182])
+	by mail-out.m-online.net (Postfix) with ESMTP id 4hsMx35nYKz1sPRy;
+	Sat, 26 Sep 2026 11:39:51 +0200 (CEST)
+Received: from localhost (dynscan3.mnet-online.de [192.168.6.87])
+	by mail.m-online.net (Postfix) with ESMTP id 4hsMx319yNz1qqlR;
+	Sat, 26 Sep 2026 11:39:51 +0200 (CEST)
+X-Virus-Scanned: amavis at mnet-online.de
+Received: from mail.mnet-online.de ([192.168.6.182])
+ by localhost (dynscan3.mail.m-online.net [192.168.6.87]) (amavis, port 10024)
+ with ESMTP id r0-zxGatOHrc; Sat, 26 Sep 2026 11:39:43 +0200 (CEST)
+X-Auth-Info: wFe88JiXbDxEAWB88fOER1RGk4p+sTXtzQeYAh7Q9amIwrx952rztx0YkIPQk3RO
+Received: from tiger (aftr-82-135-83-101.dynamic.mnet-online.de [82.135.83.101])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange ECDHE (P-256) server-signature RSA-PSS (2048 bits) server-digest SHA256)
+	(No client certificate requested)
+	by mail.mnet-online.de (Postfix) with ESMTPSA;
+	Sat, 26 Sep 2026 11:39:43 +0200 (CEST)
+From: Andreas Schwab <schwab@linux-m68k.org>
+To: Nathan Chancellor <nathan@kernel.org>
+Cc: Andy Lutomirski <luto@kernel.org>,  Thomas Gleixner <tglx@kernel.org>,
+  Theodore Ts'o <tytso@mit.edu>,  "Jason A. Donenfeld" <Jason@zx2c4.com>,
+  Vincenzo Frascino <vincenzo.frascino@arm.com>,  Nick Desaulniers
+ <ndesaulniers@google.com>,  Bill Wendling <morbo@google.com>,  Justin
+ Stitt <justinstitt@google.com>,  Catalin Marinas
+ <catalin.marinas@arm.com>,  Will Deacon <will@kernel.org>,  Mark Rutland
+ <mark.rutland@arm.com>,  Huacai Chen <chenhuacai@kernel.org>,  WANG Xuerui
+ <kernel@xen0n.name>,  Madhavan Srinivasan <maddy@linux.ibm.com>,  Michael
+ Ellerman <mpe@ellerman.id.au>,  Nicholas Piggin <npiggin@gmail.com>,
+  "Christophe Leroy (CS GROUP)" <chleroy@kernel.org>,  Paul Walmsley
+ <pjw@kernel.org>,  Palmer Dabbelt <palmer@dabbelt.com>,  Albert Ou
+ <aou@eecs.berkeley.edu>,  Alexandre Ghiti <alex@ghiti.fr>,  Heiko Carstens
+ <hca@linux.ibm.com>,  Vasily Gorbik <gor@linux.ibm.com>,  Alexander
+ Gordeev <agordeev@linux.ibm.com>,  Christian Borntraeger
+ <borntraeger@linux.ibm.com>,  Sven Schnelle <svens@linux.ibm.com>,  Ingo
+ Molnar <mingo@redhat.com>,  Borislav Petkov <bp@alien8.de>,  Dave Hansen
+ <dave.hansen@linux.intel.com>,  "H. Peter Anvin" <hpa@zytor.com>,
+  x86@kernel.org,  linux-arm-kernel@lists.infradead.org,
+  linux-kernel@vger.kernel.org,  loongarch@lists.linux.dev,
+  linuxppc-dev@lists.ozlabs.org,  linux-riscv@lists.infradead.org,
+  linux-s390@vger.kernel.org,  llvm@lists.linux.dev
+Subject: Re: [PATCH v2] random: vDSO: Avoid call to memset() when zeroing
+ reserved in __cvdso_getrandom_data()
+In-Reply-To: <20260925-vdso-getrandom-avoid-memset-llvm-24-v2-1-ce640f872393@kernel.org>
+References: <20260925-vdso-getrandom-avoid-memset-llvm-24-v2-1-ce640f872393@kernel.org>
+Date: Sat, 26 Sep 2026 11:39:43 +0200
+Message-ID: <87zex4ic68.fsf@linux-m68k.org>
+User-Agent: Gnus/5.13 (Gnus v5.13)
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-X-Last-TLS-Session-Version: TLSv1.3
+Content-Type: text/plain
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260926_023358_799489_8408AF71 
-X-CRM114-Status: GOOD (  14.34  )
+X-CRM114-CacheID: sfid-20260926_024005_337116_99B29611 
+X-CRM114-Status: GOOD (  10.07  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -85,88 +95,31 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The RSS kselftests fail on stmmac, and this is partly due to the driver
-reporting bogus data for the RSS ops :
+On Sep 25 2026, Nathan Chancellor wrote:
 
- - ethtool -x reports an indirection table and a key while the hardware
-   doesn't have any of that
- - ethtool -X fails with -EINVAL.
+> +#if __has_builtin(__builtin_memset_inline)
+> +#define memset_inline(dst, value, size) __builtin_memset_inline(dst, value, size)
+> +#elif IS_ENABLED(CONFIG_CC_HAS_OPT_INLINE_MEMSET)
+> +#define memset_inline(dst, value, size) __builtin_memset(dst, value, size)
+> +#else
+> +static inline void *memset_inline(void *dst, int value, size_t size)
+> +{
+> +	char *d = dst;
+> +
+> +	while (size--)
+> +		*d++ = value;
+> +
+> +	return d;
+> +}
+> +#endif
+> +
 
-Let's return early in the rss ops if we know the hardware and platform
-don't support RSS.
+memset actually returns the original pointer, not the incremented one.
+Nothing uses the return value of memset_inline here, but it is
+confusing.
 
-Note that RSS is currently not supported on any devices upstream, so
-code that was already useless is now effectively dead. It has been the
-case since 2019 when the code was added, as platforms need to set rss_en
-in their plat data, and no glue ever did that.
-
-Russell King ran a poll in february 2026 [1] asking if the code should
-be dropped, without any reply going in either direction.
-
-Jitendra Vegiraju from Broadcom sent 9 iterations of a Broadcom PCIe glue
-driver [2] that actually sets rss_en = 1, so there's some hope that this
-may be used in the future.
-
-[1] : https://lore.kernel.org/netdev/aYd4BkAeNW6d0iIC@shell.armlinux.org.uk/
-[2] : https://lore.kernel.org/netdev/20260402213629.1996133-1-jitendra.vegiraju@broadcom.com/
-
-Fixes: 76067459c686 ("net: stmmac: Implement RSS and enable it in XGMAC core")
-Signed-off-by: Maxime Chevallier <maxime.chevallier@bootlin.com>
----
-Jitendra, do you have plans to continue iterating on the BCM8958x glue ?
-
-Thanks,
-
-Maxime
-
- drivers/net/ethernet/stmicro/stmmac/stmmac_ethtool.c | 12 ++++++++++++
- 1 file changed, 12 insertions(+)
-
-diff --git a/drivers/net/ethernet/stmicro/stmmac/stmmac_ethtool.c b/drivers/net/ethernet/stmicro/stmmac/stmmac_ethtool.c
-index 1be5310ca766..4e917a448271 100644
---- a/drivers/net/ethernet/stmicro/stmmac/stmmac_ethtool.c
-+++ b/drivers/net/ethernet/stmicro/stmmac/stmmac_ethtool.c
-@@ -927,6 +927,9 @@ static u32 stmmac_get_rxfh_key_size(struct net_device *dev)
- {
- 	struct stmmac_priv *priv = netdev_priv(dev);
- 
-+	if (!priv->dma_cap.rssen || !priv->plat->rss_en)
-+		return 0;
-+
- 	return sizeof(priv->rss.key);
- }
- 
-@@ -934,6 +937,9 @@ static u32 stmmac_get_rxfh_indir_size(struct net_device *dev)
- {
- 	struct stmmac_priv *priv = netdev_priv(dev);
- 
-+	if (!priv->dma_cap.rssen || !priv->plat->rss_en)
-+		return 0;
-+
- 	return ARRAY_SIZE(priv->rss.table);
- }
- 
-@@ -943,6 +949,9 @@ static int stmmac_get_rxfh(struct net_device *dev,
- 	struct stmmac_priv *priv = netdev_priv(dev);
- 	int i;
- 
-+	if (!priv->dma_cap.rssen || !priv->plat->rss_en)
-+		return -EOPNOTSUPP;
-+
- 	if (rxfh->indir) {
- 		for (i = 0; i < ARRAY_SIZE(priv->rss.table); i++)
- 			rxfh->indir[i] = priv->rss.table[i];
-@@ -962,6 +971,9 @@ static int stmmac_set_rxfh(struct net_device *dev,
- 	struct stmmac_priv *priv = netdev_priv(dev);
- 	int i;
- 
-+	if (!priv->dma_cap.rssen || !priv->plat->rss_en)
-+		return -EOPNOTSUPP;
-+
- 	if (rxfh->hfunc != ETH_RSS_HASH_NO_CHANGE &&
- 	    rxfh->hfunc != ETH_RSS_HASH_TOP)
- 		return -EOPNOTSUPP;
 -- 
-2.55.0
-
+Andreas Schwab, schwab@linux-m68k.org
+GPG Key fingerprint = 7578 EB47 D4E5 4D69 2510  2552 DF73 E780 A9DA AEC1
+"And now for something completely different."
 
