@@ -4,94 +4,80 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0662DC9831E
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 26 Sep 2026 05:55:15 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 144D7C9832A
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 26 Sep 2026 06:34:32 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=X/jLk3hOfvplWvnh8rdzJHMk4Xuu5RA6BKKGh8ixgRc=; b=L4b+HnN3tjjwQ2ql9O+19CLHTA
-	H4ieNP90YgsMS5VHvoS1nV0yx4DiIGK5Wb6c0XQkoagkQgYj1T709oF+Fnsn8dCnequ7mH2ESMLvK
-	djIEyeL1lPE9fl18BdcvXKvT4Qa7GRP0pd4Qx597PL2FQ3Mfh6pvN6wsoJtjac8LjEzhFeJPMnKXZ
-	V4Xgy2vTStNFcbXY99NQWXmFgyHgSBo1GI1oPGZTJ9IXfd/aMIAnK7GSzdtkNQw4VaRjNyKqTZ49f
-	zktkrLHmelt9UMtGEMaiSl6W9WXfqKqpsClhnEgIvxT82Q2eyLHqmaij88tbivVFkLLCzwqfhPYT2
-	DuRPuUgw==;
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=PGoBOYGQFMmgkg0THkTOdUI30C4ST2Titdv6ASdq6z8=; b=4nhl3k5WDPFMrrKGlJ5CKT3fKC
+	PON1yGUQaQ0cVtqwZMqoG4cfZiwViD1oscYY6k+5dJ2cOZSGxL4H+LyodLjFfIwnf1j3hxNvsvmN7
+	vszdpy143VAPRVf0/2trJH11ncyhBpu9EGM7yAFRx/JxoDnylWcQMsbtW/iKtkC97lPUG8WWwL+bK
+	NA5dehJfyv91O2gMQOh0FKQyRj744WYDgNlq1mlVZqmW+hMyYXIzv/oWsdVA73cUBKNmaonYofYxl
+	rhZt8+b+YjVE29eMU5mtZ3CPF4VFU7qul/OGZQjR5UJ0KOdI3Zx2lRmJEIkFjuBkw/l3smjp9WLcl
+	F9gzjoMg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xALNL-0000000F3QR-0IVN;
-	Sat, 26 Sep 2026 05:55:07 +0000
-Received: from mail-pz2-x2b.google.com ([2607:f8b0:4864:3b::2b])
+	id 1xALzK-0000000F55Y-3e0l;
+	Sat, 26 Sep 2026 06:34:22 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xALNJ-0000000F3Q4-0aFp
-	for linux-arm-kernel@lists.infradead.org;
-	Sat, 26 Sep 2026 05:55:06 +0000
-Received: by mail-pz2-x2b.google.com with SMTP id d2e1a72fcca58-880adb5d043so465620b3a.2
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 25 Sep 2026 22:55:04 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1790402104; x=1791006904; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
-        bh=X/jLk3hOfvplWvnh8rdzJHMk4Xuu5RA6BKKGh8ixgRc=;
-        b=QN7PKBzTYLGM8XtppuNahxvToPo9Z9Ow2MkjE9uOpO386+6OHyndzbdUW/jQqrWQMT
-         z5Hu54I8HugypoAV82CXo57uXAheDaBVlcdPhVK/zvvopPNcMfF5oLuVuy4xyirwvtlw
-         JurAde3dRlgh92k7JL9i1onS6PeMiknPsMLJj0NhNQ2iaYDeZ/Q9OM1YsJQPECOFrk1T
-         lvwU9UG2QuopMeBMd5jvMmHpvyvG57HiCsjuhxTgjKqJs8j7f+qeLKwkv+RHc6ExZpPj
-         pDxyILR5LucVtuYvXaMgeZzb1n3ijtIZaJ3CzheHObW+jFyJzGnY0vZlj5VZYKG9YdGv
-         hQNg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1790402104; x=1791006904;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=X/jLk3hOfvplWvnh8rdzJHMk4Xuu5RA6BKKGh8ixgRc=;
-        b=h04QbdJcwKmjZ90evhyuVzURjiMAdfAhTiJVy3jm0Xi0ix5TEJJI/OhoM2fqjFkZMg
-         LftHWdRd2t+QCI5o8oEzIS/EqqEkrOpPAm5ZJoCurMLDt+p+yysRAk2OHNiS5vehuYrv
-         MKZI4OhdH6mIldY99SIzTG91c5q/lHqQcE0v5bLN+FFIH9rhypr1IUGPF0aLGPN8YpV+
-         zkoGNUkUQOYlfsQlbZlaKPe0RRa5URIMNBFYipnfDs+KngeFbFQzCE3VbTy2kQLK9tzk
-         Us7SYEHjupMBeYEJRI/kMSa/tXT0dvYzwaPnB05lH8inM7gSd97hB0aVt7am6h/pPVCe
-         5ElA==
-X-Forwarded-Encrypted: i=1; AKwUvBwFafosqojo0se94roYvl6sTy4q3V1ZEXig6Zrio4pfAArMOtbCfRpF6aZHskU58qAPuY18vHAHYpBHlUs4XFjI@lists.infradead.org
-X-Gm-Message-State: AFuF++l5KCBdSsn6Zd1g4y5WOsM7iPAuQ/tzhNGozDSHVB2m38e5nJiA
-	/5pRogxcUArKRCn9sWf98LuAv5VPGQSrDTxxD0xXhckY9XQdF0SDb952
-X-Gm-Gg: AYBFou2klz3S9z7MQdvTR7RGkqmyoWWrqWFIBqegB9pjfqgs9Cdh5dJesT0JsoaHMd1
-	YZ7MnXZ6SPV3gzg/MHtA3kYRcBn0XUTDsYzUy+eG0i4AYzrqkC1d92jk8L4y6byFqPvjdQxNMHm
-	FiFlhAaz+FqwhaC7mh0r4PSFYKzHcYm6qUYbPRAKvZs/BkPr2y7zQI6IoodladbtCwfNqUNpgn9
-	MS747f99ycRVMXJFxNapr0nyRpwrDzIES4LdhudipxWZD4apb99ud2jVMhaaMFYK8iT/jPoaEMh
-	aLgSdzVCLRqxwXGQnxlPEJ9SaiBT0EIs6Wsc6M3mPajfgnwvKBIHVeRSEGdAQBF06KgOlWk7X51
-	iv4gc+GMv0dPc0i+eYMBuOkdij9rXsx3R230I2t1MLML/ufWuWalZp4pMhE8lcyNEeZ4EW8+zwB
-	fgh4vSoEO3cAXT+mnw6vTyuM0/rn7GuT7Q/i8eRDG6WwDZIdpwszkewdK2cQA3FcgX+PmSVP74G
-	LTTtfOe2KU+oQoTbgQwjEU49TYfVDvir32wMJNuQ8gZ/ln+3lBqrl1jDKGTxBSFKr1lHhZnL5W9
-	ma9RbiRO8sCO3pMq00u5tH9MXyDi4KKRs1mc9mCAAF2U2NUb
-X-Received: by 2002:a05:6a00:a203:b0:878:3538:8f7e with SMTP id d2e1a72fcca58-87e9f82210amr5561877b3a.44.1790402104209;
-        Fri, 25 Sep 2026 22:55:04 -0700 (PDT)
-Received: from dell-pro-max-tower-t2.cse.unsw.EDU.AU (pag-t2-pc.cse.unsw.EDU.AU. [129.94.173.199])
-        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-87feac93380sm1964103b3a.33.2026.09.25.22.54.59
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 25 Sep 2026 22:55:03 -0700 (PDT)
-From: Weigang He <geoffreyhe2@gmail.com>
-To: Jonathan Cameron <jic23@kernel.org>,
-	Sai Krishna Potthuri <sai.krishna.potthuri@amd.com>,
-	Conall O'Griofa <conall.ogriofa@amd.com>
-Cc: David Lechner <dlechner@baylibre.com>,
-	=?UTF-8?q?Nuno=20S=C3=A1?= <nuno.sa@analog.com>,
-	Andy Shevchenko <andy@kernel.org>,
-	Michal Simek <michal.simek@amd.com>,
-	linux-iio@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	Weigang He <geoffreyhe2@gmail.com>,
-	stable@vger.kernel.org
-Subject: [PATCH] iio: adc: xilinx-ams: fix out-of-bounds accesses when parsing channels
-Date: Sat, 26 Sep 2026 15:54:56 +1000
-Message-ID: <20260926055456.3289189-1-geoffreyhe2@gmail.com>
-X-Mailer: git-send-email 2.43.0
+	id 1xALzJ-0000000F54x-0sRm;
+	Sat, 26 Sep 2026 06:34:21 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by tor.source.kernel.org (Postfix) with ESMTP id 3B078601E4;
+	Sat, 26 Sep 2026 06:34:20 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id C00571F000FF;
+	Sat, 26 Sep 2026 06:34:09 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1790404459;
+	bh=PGoBOYGQFMmgkg0THkTOdUI30C4ST2Titdv6ASdq6z8=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To;
+	b=X3keQOxp1tBtuWVBA/GBtSTLiUQRxOBSNxRdAlOlbGfr7T3RKDQAP1hU9UbGqlC/w
+	 3PJ85mcmhlsLwmq6yVlRoD28izVuDgabWq/+5UM7kpOBE3Pk4Go9B9ehwO9gn0Bhev
+	 iTAl61Ikfsa33CGlRO1QkLudvPEperBl2X1NsI2lSzQMy65KohW5DWudmwPtA2CcV2
+	 T66a7nZlZZzbltX3v1DTuvDm+99chPB2HuXc5lYYlWIkTQ+0UMV3AL4FjdI7+rMVN7
+	 OF4JtgtAHZvxID7lezJ9eYLLkQQUepVcO0JWZGTfrVT0/Q7Lnt+hslscKk5CoLHGie
+	 QdYcU5p96v9XQ==
+Message-ID: <76f4039a-d591-4b6a-af7e-83eb90266719@kernel.org>
+Date: Sat, 26 Sep 2026 08:34:06 +0200
 MIME-Version: 1.0
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v2] random: vDSO: Avoid call to memset() when zeroing
+ reserved in __cvdso_getrandom_data()
+To: Nick Desaulniers <ndesaulniers@google.com>,
+ Nathan Chancellor <nathan@kernel.org>
+Cc: Andy Lutomirski <luto@kernel.org>, Thomas Gleixner <tglx@kernel.org>,
+ Theodore Ts'o <tytso@mit.edu>, "Jason A. Donenfeld" <Jason@zx2c4.com>,
+ Vincenzo Frascino <vincenzo.frascino@arm.com>,
+ Bill Wendling <morbo@google.com>, Justin Stitt <justinstitt@google.com>,
+ Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
+ Mark Rutland <mark.rutland@arm.com>, Huacai Chen <chenhuacai@kernel.org>,
+ WANG Xuerui <kernel@xen0n.name>, Madhavan Srinivasan <maddy@linux.ibm.com>,
+ Michael Ellerman <mpe@ellerman.id.au>, Nicholas Piggin <npiggin@gmail.com>,
+ Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>,
+ Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>,
+ Heiko Carstens <hca@linux.ibm.com>, Vasily Gorbik <gor@linux.ibm.com>,
+ Alexander Gordeev <agordeev@linux.ibm.com>,
+ Christian Borntraeger <borntraeger@linux.ibm.com>,
+ Sven Schnelle <svens@linux.ibm.com>, Ingo Molnar <mingo@redhat.com>,
+ Borislav Petkov <bp@alien8.de>, Dave Hansen <dave.hansen@linux.intel.com>,
+ "H. Peter Anvin" <hpa@zytor.com>, x86@kernel.org,
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+ loongarch@lists.linux.dev, linuxppc-dev@lists.ozlabs.org,
+ linux-riscv@lists.infradead.org, linux-s390@vger.kernel.org,
+ llvm@lists.linux.dev
+References: <20260925-vdso-getrandom-avoid-memset-llvm-24-v2-1-ce640f872393@kernel.org>
+ <CAKwvOdmuvn0LZkYEsH84hnOGTYhTtzuWs3wMARtWdTeL6dD9sA@mail.gmail.com>
+ <CAKwvOdnxKVpn=nAFaqP+9PTx4PqgHsUVWv6e60Pcr29W_eZrpQ@mail.gmail.com>
+ <CAKwvOdmNZL3eFvV3v77GXDzL+XLgz+BT9TA=my0yTnbsHqVeSg@mail.gmail.com>
+Content-Language: fr-FR
+From: "Christophe Leroy (CS GROUP)" <chleroy@kernel.org>
+In-Reply-To: <CAKwvOdmNZL3eFvV3v77GXDzL+XLgz+BT9TA=my0yTnbsHqVeSg@mail.gmail.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 8bit
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260925_225505_190258_9D6B0501 
-X-CRM114-Status: GOOD (  17.57  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -106,142 +92,238 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-ams_parse_firmware() allocates room for ARRAY_SIZE(ams_ps_channels) +
-ARRAY_SIZE(ams_pl_channels) + ARRAY_SIZE(ams_ctrl_channels) = 51
-channel specs and lets ams_init_module() fill them for the AMS node and
-each of its children, without telling it how much room is left.
 
-For the PL-SYSMON node, ams_get_ext_chan() appends one channel per
-"channel@N" child after the 10 fixed PL channels. The binding allows
-reg values 20..50, so a PL node can have up to 31 such children, i.e.
-up to 41 PL channels, while only 31 are budgeted for it. Together with
-the 13 PS and 7 AMS control channels, this writes past the end of the
-buffer. Since the modules are filled in device tree order, the fixed
-channel blocks copied after the PL node can overflow as well.
 
-ams_get_ext_chan() also only checks the upper bound of reg. ext_chan is
-unsigned, so a reg below 20 makes it wrap and ams_pl_channels[] is read
-far out of bounds.
+Le 26/09/2026 à 00:00, Nick Desaulniers a écrit :
+> On Fri, Sep 25, 2026 at 2:56 PM Nick Desaulniers
+> <ndesaulniers@google.com> wrote:
+>>
+>> On Fri, Sep 25, 2026 at 2:53 PM Nick Desaulniers
+>> <ndesaulniers@google.com> wrote:
+>>>
+>>> On Fri, Sep 25, 2026 at 2:46 PM Nathan Chancellor <nathan@kernel.org> wrote:
+>>>>
+>>>> After a recent change in LLVM [1], builds with the random vDSO
+>>>> implementation, such as PowerPC and RISC-V, fail when checking the vDSO:
+>>>>
+>>>>    arch/powerpc/kernel/vdso/vdso32.so.dbg: dynamic relocations are not supported
+>>>>    arch/riscv/kernel/vdso/vdso.so.dbg: dynamic relocations are not supported
+>>>>
+>>>> memset() is now generated when zeroing params->reserved for some builds
+>>>> because LLVM has an optimization (now run in more instances) that can
+>>>> recognize at compile time when it is assigning a static value to a
+>>>> contiguous area of memory and turn that into a call to memset(). Both
+>>>> clang and GCC assume memset() is always available [2].
+>>>>
+>>>> clang provides a builtin, __builtin_memset_inline [3][4], that can be
+>>>> used to ensure an external function call is not generated when zeroing
+>>>> this memory. Use it when it is available.
+>>>>
+>>>> While GCC has no issues with the current code, it has generated memset()
+>>>> before, as seen in commit b7bad082e113 ("random: vDSO: avoid call to out
+>>>> of line memset()"). GCC 14 provides '-finline-stringops=memset' [5][6]
+>>>> with a similar guarantee to the clang builtin, so use it and
+>>>> __builtin_memset() when available.
+>>>>
+>>>> If no option is available, provide a simple memset_inline() like the one
+>>>> from lib/string.c to avoid adding an ugly ifdef.
+>>>>
+>>>> Link: https://eur01.safelinks.protection.outlook.com/?url=https%3A%2F%2Fgithub.com%2Fllvm%2Fllvm-project%2Fcommit%2F90cebef1411617fc3eedd359bdf00cb44b1c2439&data=05%7C02%7Cchristophe.leroy%40csgroup.eu%7C8130be3fe7304659b8e308df1b507f25%7C8b87af7d86474dc78df45f69a2011bb5%7C0%7C0%7C639259704683663121%7CUnknown%7CTWFpbGZsb3d8eyJFbXB0eU1hcGkiOnRydWUsIlYiOiIwLjAuMDAwMCIsIlAiOiJXaW4zMiIsIkFOIjoiTWFpbCIsIldUIjoyfQ%3D%3D%7C0%7C%7C%7C&sdata=TzFmsIf6K0ZNffmwZjFRWcrFHJ4akhMw%2FxcWeHR4hFY%3D&reserved=0 [1]
+>>>> Link: https://eur01.safelinks.protection.outlook.com/?url=https%3A%2F%2Fgcc.gnu.org%2Fonlinedocs%2Fgcc-16.2.0%2Fgcc%2FStandards.html%23index-ffreestanding&data=05%7C02%7Cchristophe.leroy%40csgroup.eu%7C8130be3fe7304659b8e308df1b507f25%7C8b87af7d86474dc78df45f69a2011bb5%7C0%7C0%7C639259704683681786%7CUnknown%7CTWFpbGZsb3d8eyJFbXB0eU1hcGkiOnRydWUsIlYiOiIwLjAuMDAwMCIsIlAiOiJXaW4zMiIsIkFOIjoiTWFpbCIsIldUIjoyfQ%3D%3D%7C0%7C%7C%7C&sdata=A6PdZfaF0MvKQ0TEuJEnFWmXpMKD5CPz6Ko2fWh9ZGY%3D&reserved=0 [2]
+>>>> Link: https://eur01.safelinks.protection.outlook.com/?url=https%3A%2F%2Fgithub.com%2Fllvm%2Fllvm-project%2Fcommit%2F38637ee477541370a90b37f149069d8e5c0c2efd&data=05%7C02%7Cchristophe.leroy%40csgroup.eu%7C8130be3fe7304659b8e308df1b507f25%7C8b87af7d86474dc78df45f69a2011bb5%7C0%7C0%7C639259704683693796%7CUnknown%7CTWFpbGZsb3d8eyJFbXB0eU1hcGkiOnRydWUsIlYiOiIwLjAuMDAwMCIsIlAiOiJXaW4zMiIsIkFOIjoiTWFpbCIsIldUIjoyfQ%3D%3D%7C0%7C%7C%7C&sdata=ordMFwd99jKGsM6%2F5jqb6T%2FCzJZ%2BccJTNL6Zyyz38S4%3D&reserved=0 [3]
+>>>> Link: https://eur01.safelinks.protection.outlook.com/?url=https%3A%2F%2Fclang.llvm.org%2Fdocs%2FLanguageExtensions.html%23guaranteed-inlined-memset&data=05%7C02%7Cchristophe.leroy%40csgroup.eu%7C8130be3fe7304659b8e308df1b507f25%7C8b87af7d86474dc78df45f69a2011bb5%7C0%7C0%7C639259704683704121%7CUnknown%7CTWFpbGZsb3d8eyJFbXB0eU1hcGkiOnRydWUsIlYiOiIwLjAuMDAwMCIsIlAiOiJXaW4zMiIsIkFOIjoiTWFpbCIsIldUIjoyfQ%3D%3D%7C0%7C%7C%7C&sdata=mqgeAxJp0cTsBD1qngk%2BliTUC1kID648Z81H6hiKYDI%3D&reserved=0 [4]
+>>>> Link: https://eur01.safelinks.protection.outlook.com/?url=https%3A%2F%2Fgcc.gnu.org%2Fgit%2F%3Fp%3Dgcc.git%3Ba%3Dcommit%3Bh%3D1ff6d9f7428b0668cd8ab0b3e3ab94f1d733124d&data=05%7C02%7Cchristophe.leroy%40csgroup.eu%7C8130be3fe7304659b8e308df1b507f25%7C8b87af7d86474dc78df45f69a2011bb5%7C0%7C0%7C639259704683713563%7CUnknown%7CTWFpbGZsb3d8eyJFbXB0eU1hcGkiOnRydWUsIlYiOiIwLjAuMDAwMCIsIlAiOiJXaW4zMiIsIkFOIjoiTWFpbCIsIldUIjoyfQ%3D%3D%7C0%7C%7C%7C&sdata=hNiJSMBbn6k7Pq4uBYQ5Bi6fO8ttW8KXVK6hPLEfJCM%3D&reserved=0 [5]
+>>>> Link: https://eur01.safelinks.protection.outlook.com/?url=https%3A%2F%2Fgcc.gnu.org%2Fonlinedocs%2Fgcc%2FOptimize-Options.html%23index-finline-stringops&data=05%7C02%7Cchristophe.leroy%40csgroup.eu%7C8130be3fe7304659b8e308df1b507f25%7C8b87af7d86474dc78df45f69a2011bb5%7C0%7C0%7C639259704683722844%7CUnknown%7CTWFpbGZsb3d8eyJFbXB0eU1hcGkiOnRydWUsIlYiOiIwLjAuMDAwMCIsIlAiOiJXaW4zMiIsIkFOIjoiTWFpbCIsIldUIjoyfQ%3D%3D%7C0%7C%7C%7C&sdata=BwB1lUSynGcGGLwkspnlVbkBAkdeRo4ItXk19ffMU44%3D&reserved=0 [6]
+>>>> Suggested-by: "Jason A. Donenfeld" <Jason@zx2c4.com>
+>>>> Suggested-by: Nick Desaulniers <ndesaulniers@google.com>
+>>>> Signed-off-by: Nathan Chancellor <nathan@kernel.org>
+>>>> ---
+>>>> Changes in v2:
+>>>> - Switch approach entirely (Jason, Nick)
+>>>>    - clang: use __builtin_memset_inline() to avoid external call
+>>>>    - GCC 14+: use __builtin_memset + -finline-stringops=memset (hence the
+>>>>      massive CC list increase)
+>>>>    - GCC < 14: no issues currently but avoid ifdef with simple memset
+>>>>      implementation
+>>>> - Link to v1: https://eur01.safelinks.protection.outlook.com/?url=https%3A%2F%2Fpatch.msgid.link%2F20260916-vdso-getrandom-avoid-memset-llvm-24-v1-1-80a92f2e225a%40kernel.org&data=05%7C02%7Cchristophe.leroy%40csgroup.eu%7C8130be3fe7304659b8e308df1b507f25%7C8b87af7d86474dc78df45f69a2011bb5%7C0%7C0%7C639259704683731836%7CUnknown%7CTWFpbGZsb3d8eyJFbXB0eU1hcGkiOnRydWUsIlYiOiIwLjAuMDAwMCIsIlAiOiJXaW4zMiIsIkFOIjoiTWFpbCIsIldUIjoyfQ%3D%3D%7C0%7C%7C%7C&sdata=Z1w8wFKZCVjlUIwkIjffeIBIPkDhRRln3l7xot3daRc%3D&reserved=0
+>>>> ---
+>>>>   arch/arm64/kernel/vdso/Makefile     |  2 +-
+>>>>   arch/loongarch/vdso/Makefile        |  1 +
+>>>>   arch/powerpc/kernel/vdso/Makefile   |  1 +
+>>>>   arch/riscv/kernel/vdso/Makefile     |  1 +
+>>>>   arch/s390/kernel/vdso/Makefile      |  1 +
+>>>>   arch/x86/entry/vdso/vdso64/Makefile |  2 +-
+>>>>   init/Kconfig                        |  7 +++++++
+>>>>   lib/vdso/getrandom.c                | 19 +++++++++++++++++--
+>>>>   8 files changed, 30 insertions(+), 4 deletions(-)
+>>>>
+>>>> diff --git a/arch/arm64/kernel/vdso/Makefile b/arch/arm64/kernel/vdso/Makefile
+>>>> index 7dec05dd33b7..f6619e1cb2ce 100644
+>>>> --- a/arch/arm64/kernel/vdso/Makefile
+>>>> +++ b/arch/arm64/kernel/vdso/Makefile
+>>>> @@ -41,7 +41,7 @@ CC_FLAGS_REMOVE_VDSO := $(CC_FLAGS_FTRACE) -Os $(CC_FLAGS_SCS) \
+>>>>                          $(CC_FLAGS_LTO) $(CC_FLAGS_CFI) \
+>>>>                          -Wmissing-prototypes -Wmissing-declarations
+>>>>
+>>>> -CC_FLAGS_ADD_VDSO := -O2 -mcmodel=tiny -fasynchronous-unwind-tables
+>>>> +CC_FLAGS_ADD_VDSO := -O2 -mcmodel=tiny -fasynchronous-unwind-tables $(CONFIG_CC_OPT_INLINE_MEMSET)
+>>>>
+>>>>   CFLAGS_REMOVE_vgettimeofday.o = $(CC_FLAGS_REMOVE_VDSO)
+>>>>   CFLAGS_REMOVE_vgetrandom.o = $(CC_FLAGS_REMOVE_VDSO)
+>>>> diff --git a/arch/loongarch/vdso/Makefile b/arch/loongarch/vdso/Makefile
+>>>> index 9c9181bb4071..0b84892d084b 100644
+>>>> --- a/arch/loongarch/vdso/Makefile
+>>>> +++ b/arch/loongarch/vdso/Makefile
+>>>> @@ -16,6 +16,7 @@ ccflags-vdso := \
+>>>>          $(filter -m64,$(KBUILD_CFLAGS)) \
+>>>>          $(filter -march=%,$(KBUILD_CFLAGS)) \
+>>>>          $(filter -m%-float,$(KBUILD_CFLAGS)) \
+>>>> +       $(CONFIG_CC_OPT_INLINE_MEMSET) \
+>>>>          $(CLANG_FLAGS) \
+>>>>          -D__VDSO__
+>>>>
+>>>> diff --git a/arch/powerpc/kernel/vdso/Makefile b/arch/powerpc/kernel/vdso/Makefile
+>>>> index 368759f81708..0d1a49529885 100644
+>>>> --- a/arch/powerpc/kernel/vdso/Makefile
+>>>> +++ b/arch/powerpc/kernel/vdso/Makefile
+>>>> @@ -43,6 +43,7 @@ ccflags-y := -fno-common -fno-builtin -DBUILD_VDSO
+>>>>   ccflags-y += $(DISABLE_LATENT_ENTROPY_PLUGIN)
+>>>>   ccflags-y += $(call cc-option, -fno-stack-protector)
+>>>>   ccflags-y += -DDISABLE_BRANCH_PROFILING
+>>>> +ccflags-y += $(CONFIG_CC_OPT_INLINE_MEMSET)
+>>>>   ccflags-y += -ffreestanding -fasynchronous-unwind-tables
+>>>>   ccflags-remove-y := $(CC_FLAGS_FTRACE)
+>>>>   ldflags-y := -Wl,--hash-style=both -nostdlib -shared -z noexecstack $(CLANG_FLAGS)
+>>>> diff --git a/arch/riscv/kernel/vdso/Makefile b/arch/riscv/kernel/vdso/Makefile
+>>>> index 8dbf2532a573..c023046a3fd7 100644
+>>>> --- a/arch/riscv/kernel/vdso/Makefile
+>>>> +++ b/arch/riscv/kernel/vdso/Makefile
+>>>> @@ -36,6 +36,7 @@ endif
+>>>>   ccflags-y := -fno-stack-protector
+>>>>   ccflags-y += -DDISABLE_BRANCH_PROFILING
+>>>>   ccflags-y += -fno-builtin
+>>>> +ccflags-y += $(CONFIG_CC_OPT_INLINE_MEMSET)
+>>>>   ccflags-y += $(KBUILD_BASE_ISA)$(CFI_MARCH)
+>>>>   ccflags-y += $(CFI_FULL)
+>>>>   asflags-y += $(KBUILD_BASE_ISA)$(CFI_MARCH)
+>>>> diff --git a/arch/s390/kernel/vdso/Makefile b/arch/s390/kernel/vdso/Makefile
+>>>> index 35c834b895ec..54bcf2984ca1 100644
+>>>> --- a/arch/s390/kernel/vdso/Makefile
+>>>> +++ b/arch/s390/kernel/vdso/Makefile
+>>>> @@ -29,6 +29,7 @@ KBUILD_CFLAGS_VDSO := $(filter-out -munaligned-symbols,$(KBUILD_CFLAGS_VDSO))
+>>>>   KBUILD_CFLAGS_VDSO := $(filter-out -fno-asynchronous-unwind-tables,$(KBUILD_CFLAGS_VDSO))
+>>>>   KBUILD_CFLAGS_VDSO += -fPIC -fno-common -fno-builtin -fasynchronous-unwind-tables
+>>>>   KBUILD_CFLAGS_VDSO += -fno-stack-protector $(DISABLE_KSTACK_ERASE)
+>>>> +KBUILD_CFLAGS_VDSO += $(CONFIG_CC_OPT_INLINE_MEMSET)
+>>>>   ldflags-y := -shared -soname=linux-vdso.so.1 \
+>>>>               --hash-style=both --build-id=sha1 \
+>>>>               $(call ld-option, --eh-frame-hdr) -T
+>>>> diff --git a/arch/x86/entry/vdso/vdso64/Makefile b/arch/x86/entry/vdso/vdso64/Makefile
+>>>> index 7c0790065b5e..c2353a065279 100644
+>>>> --- a/arch/x86/entry/vdso/vdso64/Makefile
+>>>> +++ b/arch/x86/entry/vdso/vdso64/Makefile
+>>>> @@ -14,7 +14,7 @@ vobjs-$(CONFIG_X86_SGX)                       += vsgx.o
+>>>>   vobjs-$(CONFIG_FUTEX_ROBUST_UNLOCK)    += vfutex.o
+>>>>
+>>>>   # Compilation flags
+>>>> -flags-y                                := -DBUILD_VDSO64 -m64 -mcmodel=small
+>>>> +flags-y                                := -DBUILD_VDSO64 -m64 -mcmodel=small $(CONFIG_CC_OPT_INLINE_MEMSET)
+>>>>
+>>>>   # The location of this include matters!
+>>>>   include $(src)/../common/Makefile.include
+>>>> diff --git a/init/Kconfig b/init/Kconfig
+>>>> index 8583d9f06c52..ff3f8475dd2f 100644
+>>>> --- a/init/Kconfig
+>>>> +++ b/init/Kconfig
+>>>> @@ -173,6 +173,13 @@ config CC_HAS_ALLOC_TOKEN
+>>>>   config CC_HAS_MULTIDIMENSIONAL_NONSTRING
+>>>>          def_bool $(success,echo 'char tag[][4] __attribute__((__nonstring__)) = { };' | $(CC) $(CLANG_FLAGS) -x c - -c -o /dev/null -Werror)
+>>>>
+>>>> +config CC_HAS_OPT_INLINE_MEMSET
+>>>> +       def_bool $(cc-option,-finline-stringops=memset)
+>>>> +
+>>>> +config CC_OPT_INLINE_MEMSET
+>>>> +       string
+>>>> +       default "-finline-stringops=memset" if CC_HAS_OPT_INLINE_MEMSET
+>>>> +
+>>>>   config LD_CAN_USE_KEEP_IN_OVERLAY
+>>>>          # ld.lld prior to 21.0.0 did not support KEEP within an overlay description
+>>>>          # https://eur01.safelinks.protection.outlook.com/?url=https%3A%2F%2Fgithub.com%2Fllvm%2Fllvm-project%2Fpull%2F130661&data=05%7C02%7Cchristophe.leroy%40csgroup.eu%7C8130be3fe7304659b8e308df1b507f25%7C8b87af7d86474dc78df45f69a2011bb5%7C0%7C0%7C639259704683740883%7CUnknown%7CTWFpbGZsb3d8eyJFbXB0eU1hcGkiOnRydWUsIlYiOiIwLjAuMDAwMCIsIlAiOiJXaW4zMiIsIkFOIjoiTWFpbCIsIldUIjoyfQ%3D%3D%7C0%7C%7C%7C&sdata=JlYxG81FQsC5sm3aLe4M6uUIaU5QNmdbupcy3LuGPGQ%3D&reserved=0
+>>>> diff --git a/lib/vdso/getrandom.c b/lib/vdso/getrandom.c
+>>>> index 2851afa9154f..f5cad5641985 100644
+>>>> --- a/lib/vdso/getrandom.c
+>>>> +++ b/lib/vdso/getrandom.c
+>>>> @@ -29,6 +29,22 @@
+>>>>          }                                                                       \
+>>>>   } while (0)
+>>>>
+>>>> +#if __has_builtin(__builtin_memset_inline)
+>>>> +#define memset_inline(dst, value, size) __builtin_memset_inline(dst, value, size)
+>>>> +#elif IS_ENABLED(CONFIG_CC_HAS_OPT_INLINE_MEMSET)
+>>>> +#define memset_inline(dst, value, size) __builtin_memset(dst, value, size)
+>>>> +#else
+>>>> +static inline void *memset_inline(void *dst, int value, size_t size)
+>>>> +{
+>>>> +       char *d = dst;
+>>>> +
+>>>> +       while (size--)
+>>>> +               *d++ = value;
+>>>> +
+>>>> +       return d;
+>>>> +}
+>>>> +#endif
+>>>
+>>> Does this work?
+>>> https://eur01.safelinks.protection.outlook.com/?url=https%3A%2F%2Fgodbolt.org%2Fz%2FTx6EaGMfb&data=05%7C02%7Cchristophe.leroy%40csgroup.eu%7C8130be3fe7304659b8e308df1b507f25%7C8b87af7d86474dc78df45f69a2011bb5%7C0%7C0%7C639259704683749874%7CUnknown%7CTWFpbGZsb3d8eyJFbXB0eU1hcGkiOnRydWUsIlYiOiIwLjAuMDAwMCIsIlAiOiJXaW4zMiIsIkFOIjoiTWFpbCIsIldUIjoyfQ%3D%3D%7C0%7C%7C%7C&sdata=3MCx7IwcEz2ieYYZzQ2dLdrxFTjJiUqH0c1qiOXeLlo%3D&reserved=0
+>>
+>> Hmmm...possibly.
+>> https://eur01.safelinks.protection.outlook.com/?url=https%3A%2F%2Fgodbolt.org%2Fz%2Fec9rzd9Yf&data=05%7C02%7Cchristophe.leroy%40csgroup.eu%7C8130be3fe7304659b8e308df1b507f25%7C8b87af7d86474dc78df45f69a2011bb5%7C0%7C0%7C639259704683758681%7CUnknown%7CTWFpbGZsb3d8eyJFbXB0eU1hcGkiOnRydWUsIlYiOiIwLjAuMDAwMCIsIlAiOiJXaW4zMiIsIkFOIjoiTWFpbCIsIldUIjoyfQ%3D%3D%7C0%7C%7C%7C&sdata=5T4oq%2B4AfVJBqvBNA19kzNq19kRYM9u8YzYcP%2B8P7Mw%3D&reserved=0
+>> I don't get it...
+> 
+> Just keep it under 2 pages, it will be fine:
+> https://eur01.safelinks.protection.outlook.com/?url=https%3A%2F%2Fgodbolt.org%2Fz%2FqqoMqfxev&data=05%7C02%7Cchristophe.leroy%40csgroup.eu%7C8130be3fe7304659b8e308df1b507f25%7C8b87af7d86474dc78df45f69a2011bb5%7C0%7C0%7C639259704683768107%7CUnknown%7CTWFpbGZsb3d8eyJFbXB0eU1hcGkiOnRydWUsIlYiOiIwLjAuMDAwMCIsIlAiOiJXaW4zMiIsIkFOIjoiTWFpbCIsIldUIjoyfQ%3D%3D%7C0%7C%7C%7C&sdata=FrwGHnEXsSp8scH8GtL%2BlqjymHfVokSrtaOqhp2iZPg%3D&reserved=0
+> 
 
-Pass the remaining capacity down to ams_init_module() and
-ams_get_ext_chan() and fail with -EINVAL when a module does not fit,
-instead of writing past the buffer. Also reject reg values below 20, as
-the binding requires.
+Doesn't work on powerpc (gcc 13.4):
 
-Found by static analysis tool CodeQL.
+foo:
+         li 5,8192
+         li 4,0
+         b memset
+foo2:
+         li 5,8193
+         li 4,0
+         b memset
 
-Fixes: d5c70627a794 ("iio: adc: Add Xilinx AMS driver")
-Cc: stable@vger.kernel.org
-Assisted-by: LLM codeql
-Signed-off-by: Weigang He <geoffreyhe2@gmail.com>
----
+But that's the reason why vdso Makefile has option  -fno-builtin, that 
+option gives instead:
 
-Notes:
-    Compile-tested only (ARCH=arm64 allmodconfig, W=1). Not tested on
-    hardware, and there is no reproducer.
-    
-    The CodeQL query behind this report was synthesized with LLM assistance,
-    and the fix and changelog were drafted with LLM assistance; I have
-    reviewed them.
+foo:
+         li 10,2048
+         li 9,0
+         addi 3,3,-1
+         mtctr 10
+.L2:
+         stb 9,1(3)
+         stb 9,2(3)
+         stb 9,3(3)
+         stbu 9,4(3)
+         bdnz .L2
+         blr
+foo2:
+         li 9,0
+         li 10,2048
+         stb 9,0(3)
+         mtctr 10
+.L10:
+         stb 9,1(3)
+         stb 9,2(3)
+         stb 9,3(3)
+         stbu 9,4(3)
+         bdnz .L10
+         blr
 
- drivers/iio/adc/xilinx-ams.c | 29 +++++++++++++++++++++++------
- 1 file changed, 23 insertions(+), 6 deletions(-)
 
-diff --git a/drivers/iio/adc/xilinx-ams.c b/drivers/iio/adc/xilinx-ams.c
-index 158e6133abf50..373a9e799ee63 100644
---- a/drivers/iio/adc/xilinx-ams.c
-+++ b/drivers/iio/adc/xilinx-ams.c
-@@ -1142,7 +1142,8 @@ static const struct iio_chan_spec ams_ctrl_channels[] = {
- };
- 
- static int ams_get_ext_chan(struct fwnode_handle *chan_node,
--			    struct iio_chan_spec *channels, int num_channels)
-+			    struct iio_chan_spec *channels, int num_channels,
-+			    int max_channels)
- {
- 	struct iio_chan_spec *chan;
- 	struct fwnode_handle *child;
-@@ -1151,9 +1152,15 @@ static int ams_get_ext_chan(struct fwnode_handle *chan_node,
- 
- 	fwnode_for_each_child_node(chan_node, child) {
- 		ret = fwnode_property_read_u32(child, "reg", &reg);
--		if (ret || reg > AMS_PL_MAX_EXT_CHANNEL + 30)
-+		if (ret || reg < 30 - AMS_PL_MAX_FIXED_CHANNEL ||
-+		    reg > AMS_PL_MAX_EXT_CHANNEL + 30)
- 			continue;
- 
-+		if (num_channels >= max_channels) {
-+			fwnode_handle_put(child);
-+			return -EINVAL;
-+		}
-+
- 		chan = &channels[num_channels];
- 		ext_chan = reg + AMS_PL_MAX_FIXED_CHANNEL - 30;
- 		memcpy(chan, &ams_pl_channels[ext_chan], sizeof(*channels));
-@@ -1183,7 +1190,7 @@ static void ams_iounmap_pl(void *data)
- 
- static int ams_init_module(struct iio_dev *indio_dev,
- 			   struct fwnode_handle *fwnode,
--			   struct iio_chan_spec *channels)
-+			   struct iio_chan_spec *channels, int max_channels)
- {
- 	struct device *dev = indio_dev->dev.parent;
- 	struct ams *ams = iio_priv(indio_dev);
-@@ -1191,6 +1198,9 @@ static int ams_init_module(struct iio_dev *indio_dev,
- 	int ret;
- 
- 	if (fwnode_device_is_compatible(fwnode, "xlnx,zynqmp-ams-ps")) {
-+		if (max_channels < ARRAY_SIZE(ams_ps_channels))
-+			return -EINVAL;
-+
- 		ams->ps_base = fwnode_iomap(fwnode, 0);
- 		if (!ams->ps_base)
- 			return -ENXIO;
-@@ -1202,6 +1212,9 @@ static int ams_init_module(struct iio_dev *indio_dev,
- 		memcpy(channels, ams_ps_channels, sizeof(ams_ps_channels));
- 		num_channels = ARRAY_SIZE(ams_ps_channels);
- 	} else if (fwnode_device_is_compatible(fwnode, "xlnx,zynqmp-ams-pl")) {
-+		if (max_channels < AMS_PL_MAX_FIXED_CHANNEL)
-+			return -EINVAL;
-+
- 		ams->pl_base = fwnode_iomap(fwnode, 0);
- 		if (!ams->pl_base)
- 			return -ENXIO;
-@@ -1214,8 +1227,11 @@ static int ams_init_module(struct iio_dev *indio_dev,
- 		memcpy(channels, ams_pl_channels, AMS_PL_MAX_FIXED_CHANNEL * sizeof(*channels));
- 		num_channels += AMS_PL_MAX_FIXED_CHANNEL;
- 		num_channels = ams_get_ext_chan(fwnode, channels,
--						num_channels);
-+						num_channels, max_channels);
- 	} else if (fwnode_device_is_compatible(fwnode, "xlnx,zynqmp-ams")) {
-+		if (max_channels < ARRAY_SIZE(ams_ctrl_channels))
-+			return -EINVAL;
-+
- 		/* add AMS channels to iio device channels */
- 		memcpy(channels, ams_ctrl_channels, sizeof(ams_ctrl_channels));
- 		num_channels += ARRAY_SIZE(ams_ctrl_channels);
-@@ -1245,7 +1261,7 @@ static int ams_parse_firmware(struct iio_dev *indio_dev)
- 		return -ENOMEM;
- 
- 	if (fwnode_device_is_available(fwnode)) {
--		ret = ams_init_module(indio_dev, fwnode, ams_channels);
-+		ret = ams_init_module(indio_dev, fwnode, ams_channels, ams_size);
- 		if (ret < 0)
- 			return ret;
- 
-@@ -1253,7 +1269,8 @@ static int ams_parse_firmware(struct iio_dev *indio_dev)
- 	}
- 
- 	device_for_each_child_node_scoped(dev, child) {
--		ret = ams_init_module(indio_dev, child, ams_channels + num_channels);
-+		ret = ams_init_module(indio_dev, child, ams_channels + num_channels,
-+				      ams_size - num_channels);
- 		if (ret < 0)
- 			return ret;
- 
 
-base-commit: 165768bb70265b5c38cf0b73fafd75be235f8b14
--- 
-2.43.0
-
+Christophe
 
