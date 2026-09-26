@@ -4,79 +4,84 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id EBCB2C98332
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 26 Sep 2026 12:14:29 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 40965C98338
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 26 Sep 2026 12:19:47 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
-	:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=NeIgan50r491jqmuR3ZRoobvDzKxm124IC7JCVTX4Hg=; b=dAWCXHfh6rfu4FbP1SuSXQ8qem
-	65N3xX39mZa4wUvwdOu2rosnAHtOcwqUCZg4l59HFhJYks7pX1Rf3iyGI1+eVnbZKjw2up2xsLdq1
-	5KC2UAAyKEf3vQDrtf6D0hTdHorNQLhSwVQI4yUhbqOyHYMx2bpT4FO7d1l+ZmPH63jesLZ4vWYJ0
-	yMacRQLuWENkB5keEPADBsHIUXlgIC2m5uMfeInaAmdabYn7hMWcgfAlFTPAoPGzTg64PWt4U5IYV
-	UoXishOS77UOwkGl8ka9iHi8mtO5n29f/fwyGRpioc41r9ia2cao7EuhZMtIEyRMPsJsEBpAa2/Sd
-	mj9sz1/g==;
+	bh=fX1UOorzk2WNkUzS8vq28akGhPcRScYxSKIHc7khZsE=; b=mZ9aHkXjd3Agdvm385F4LXMQfZ
+	k2ZPNokggkequBtzX9fg3/dXIIYzalLUpMt6qifg6XM29sB6evu1xf59IYN6yqF+vtNqxG9KWLxfj
+	hFsdoZMfMJoqyfHAMAhNQerZ1nPy0h+PXctvMHZ1tUajuvY6DCU4izh/OPbXzzuzunZj6I+ci/NFP
+	5WIptQutJGRm59CagcaWYKVYg1yuw9Mv+8lkJc4fG86INcGDKHP1ECe5yQi+cYeWxQEF3tTPA3ZbF
+	4NvfXwdxrcHOYfJeXFKEhZy9aiAFHY5R2iG+5Y69VY79A5WwEWSuqE4eFXaheSTFJmJE8nzlauPRo
+	0ic6pJmw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xARIM-0000000FMX2-3Qa9;
-	Sat, 26 Sep 2026 12:14:22 +0000
-Received: from sender4-pp-f112.zoho.com ([136.143.188.112])
+	id 1xARNT-0000000FMtW-1gWj;
+	Sat, 26 Sep 2026 12:19:39 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xARIJ-0000000FMVT-3CKR;
-	Sat, 26 Sep 2026 12:14:21 +0000
-ARC-Seal: i=1; a=rsa-sha256; t=1790424821; cv=none; 
-	d=zohomail.com; s=zohoarc; 
-	b=nasoSrIl9KcUqK0DT8SzV5nVDXuxQRhCTTDweswR05ZrmYaXHn3oz9PlTU3oA5BvzEo1i9/OrERg6U/HNFW93k8Y1FFVHeNeLOk8fTw/1O/PiFtLVHvMrvWnGp9JbPR28G4UP3uNujBwxR1jPTFTHnysG9c7Y84viUOakjicA7o=
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=zohomail.com; s=zohoarc; 
-	t=1790424821; h=Content-Type:Content-Transfer-Encoding:Cc:Cc:Date:Date:From:From:In-Reply-To:MIME-Version:Message-ID:Subject:Subject:To:To:Message-Id:Reply-To; 
-	bh=NeIgan50r491jqmuR3ZRoobvDzKxm124IC7JCVTX4Hg=; 
-	b=U473Jxzs+gWttpqIClZECT9YHH0jfQMLHBhh78p2EE/W09lZmOmZbbuci6brvPYwSv1By9IHwDx+JZpVloBKcVbjxeL7eJy6mkILltw/k7pXJMKxzeIhH7FzyccCAXI+kOhoZInEaqVNHPdnZCr/kfNNHgTlLDl4ZBY8ng5k1Wc=
-ARC-Authentication-Results: i=1; mx.zohomail.com;
-	dkim=pass  header.i=collabora.com;
-	spf=pass  smtp.mailfrom=nicolas.frattaroli@collabora.com;
-	dmarc=pass header.from=<nicolas.frattaroli@collabora.com>
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; t=1790424821;
-	s=zohomail; d=collabora.com; i=nicolas.frattaroli@collabora.com;
-	h=From:From:To:To:Cc:Cc:Subject:Subject:Date:Date:Message-ID:In-Reply-To:MIME-Version:Content-Transfer-Encoding:Content-Type:Message-Id:Reply-To;
-	bh=NeIgan50r491jqmuR3ZRoobvDzKxm124IC7JCVTX4Hg=;
-	b=iPv2CDHqWUGmUCmjfvIt2UOD5Nt5e7yhBJIBrktXvKsWVZr4Ffm4/i3FnSCBsc4s
-	lE69f5fnxybJi3c8wAATYcUHA0sXHztWAWr36Hczs6UzJ0wzxOGdyAhhsIlM6Wv2MgP
-	3p00SA60uTQWk8DmNWDlt8XbFNXG8n3Py8lS/njo=
-Received: by smtp.zohomail.com with SMTPS id 179042481925589.85921556278674;
-	Sat, 26 Sep 2026 05:13:39 -0700 (PDT)
-From: Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
-To: "Borah, Chaitanya Kumar" <chaitanya.kumar.borah@intel.com>,
- Daniel Stone <daniels@collabora.com>,
- Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
- Maxime Ripard <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>,
- David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>,
- Helge Deller <deller@gmx.de>, Andrzej Hajda <andrzej.hajda@intel.com>,
- Neil Armstrong <neil.armstrong@linaro.org>, Robert Foss <rfoss@kernel.org>,
- Laurent Pinchart <Laurent.pinchart@ideasonboard.com>,
- Jonas Karlman <jonas@kwiboo.se>, Jernej Skrabec <jernej.skrabec@gmail.com>,
- Luca Ceresoli <luca.ceresoli@bootlin.com>, Sandy Huang <hjc@rock-chips.com>,
- Heiko =?UTF-8?B?U3TDvGJuZXI=?= <heiko@sntech.de>,
- Andy Yan <andy.yan@rock-chips.com>, Leo Li <sunpeng.li@amd.com>
-Cc: dri-devel@lists.freedesktop.org, linux-kernel@vger.kernel.org,
- linux-fbdev@vger.kernel.org, linux-rockchip@lists.infradead.org,
- linux-arm-kernel@lists.infradead.org, kernel@collabora.com,
- Derek Foreman <derek.foreman@collabora.com>,
- wayland-devel@lists.freedesktop.org
-Subject: Re: [PATCH RFC 13/25] drm: Add VRR target frame rate properties
-Date: Sat, 26 Sep 2026 14:13:32 +0200
-Message-ID: <Fw4fv4KvQKui7PMYotsPFw@collabora.com>
-In-Reply-To: <8a3b2902-3255-4dd9-82f0-75a7747b710e@amd.com>
-References: <20260921-vrr-limiter-uapi-v1-0-2fcd7d011646@collabora.com>
- <VERVf-aJRRKsBOI_3dpScg@collabora.com>
- <8a3b2902-3255-4dd9-82f0-75a7747b710e@amd.com>
+	id 1xARNR-0000000FMtM-4BQY;
+	Sat, 26 Sep 2026 12:19:38 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by sea.source.kernel.org (Postfix) with ESMTP id 22F39434A1;
+	Sat, 26 Sep 2026 12:19:37 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 20C6B1F000FF;
+	Sat, 26 Sep 2026 12:19:29 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1790425176;
+	bh=fX1UOorzk2WNkUzS8vq28akGhPcRScYxSKIHc7khZsE=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=fUXIg6SjJk+Qr1M0g3x4kQiPdWY0pMcyzGHOa/cNhZMob/KEO2PpiVHQtdd6QWG3x
+	 dZ1y+306fsaJBZodcxplS8L82NhW9YwwaaW61njzxIIsMh2aygiTjvDyx579LwgTlk
+	 TiNEAn/LIYOFBCadmux7/TrQTROL8C9DBsngCTXN5FvYS+wlAGeerAjS/qGI8F8zSt
+	 zNqskNZyO093mE4xSamxYt4pPd91MQE+lyJXBwlx8zyyl/XlWLoHwQD1qUMS1tbOL6
+	 bgAKynwX99Ez+3lc/SWDJSSB8c5kqNCTcs0gDxMX99zbcw5tfAFyKVemNQNOkTs/aX
+	 D6EfHEKDJYwZw==
+Date: Sat, 26 Sep 2026 13:19:27 +0100
+From: Nathan Chancellor <nathan@kernel.org>
+To: Andreas Schwab <schwab@linux-m68k.org>
+Cc: Andy Lutomirski <luto@kernel.org>, Thomas Gleixner <tglx@kernel.org>,
+	Theodore Ts'o <tytso@mit.edu>,
+	"Jason A. Donenfeld" <Jason@zx2c4.com>,
+	Vincenzo Frascino <vincenzo.frascino@arm.com>,
+	Nick Desaulniers <ndesaulniers@google.com>,
+	Bill Wendling <morbo@google.com>,
+	Justin Stitt <justinstitt@google.com>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Will Deacon <will@kernel.org>, Mark Rutland <mark.rutland@arm.com>,
+	Huacai Chen <chenhuacai@kernel.org>,
+	WANG Xuerui <kernel@xen0n.name>,
+	Madhavan Srinivasan <maddy@linux.ibm.com>,
+	Michael Ellerman <mpe@ellerman.id.au>,
+	Nicholas Piggin <npiggin@gmail.com>,
+	"Christophe Leroy (CS GROUP)" <chleroy@kernel.org>,
+	Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>,
+	Heiko Carstens <hca@linux.ibm.com>,
+	Vasily Gorbik <gor@linux.ibm.com>,
+	Alexander Gordeev <agordeev@linux.ibm.com>,
+	Christian Borntraeger <borntraeger@linux.ibm.com>,
+	Sven Schnelle <svens@linux.ibm.com>, Ingo Molnar <mingo@redhat.com>,
+	Borislav Petkov <bp@alien8.de>,
+	Dave Hansen <dave.hansen@linux.intel.com>,
+	"H. Peter Anvin" <hpa@zytor.com>, x86@kernel.org,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+	loongarch@lists.linux.dev, linuxppc-dev@lists.ozlabs.org,
+	linux-riscv@lists.infradead.org, linux-s390@vger.kernel.org,
+	llvm@lists.linux.dev
+Subject: Re: [PATCH v2] random: vDSO: Avoid call to memset() when zeroing
+ reserved in __cvdso_getrandom_data()
+Message-ID: <20260926121927.GA1486962@ax162>
+References: <20260925-vdso-getrandom-avoid-memset-llvm-24-v2-1-ce640f872393@kernel.org>
+ <87zex4ic68.fsf@linux-m68k.org>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 7Bit
-Content-Type: text/plain; charset="utf-8"
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260926_051419_838856_81BAF71E 
-X-CRM114-Status: GOOD (  30.02  )
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <87zex4ic68.fsf@linux-m68k.org>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -91,100 +96,35 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Friday, 25 September 2026 20:42:05 Central European Summer Time Leo Li wrote:
+On Sat, Sep 26, 2026 at 11:39:43AM +0200, Andreas Schwab wrote:
+> On Sep 25 2026, Nathan Chancellor wrote:
 > 
-> On 2026-09-22 11:26, Nicolas Frattaroli wrote:
-> >>> + * VRR Limiter/Target Properties
-> >>> + * ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-> >>> + *
-> >>> + * The ``VRR_{MIN,MAX}_{NUMERATOR,DENOMINATOR}`` properties expose a mechanism
-> >>> + * through which userspace can control the desired range of refresh rates in
-> >>> + * which VRR is allowed to operate. Each rate is expressed as a
-> >>> + * numerator/denominator fraction of refresh rates in Hz, allowing for rational
-> >>> + * target rates like 24/1.001 Hz with no loss of precision or ambiguity.
-> >>> + *
-> >>> + * If the minimum and maximum rate are set to the same value (and not 0), they
-> >>> + * are understood as a fixed target rate. This is especially useful for media
-> >>> + * playback, where the content's frame rate is both constant and known in
-> >>> + * advance. In such cases, a refresh rate that is not an integer multiple of the
-> >>> + * content's frame rate will introduce judder, since not every frame is
-> >>> + * displayed for the same amount of time. A modeset of the display with a
-> >>> + * compatible rate may in those cases be either undesirable or impossible, but
-> >>> + * the rate can still effectively be reached through VRR.
-> >>> + *
-> >>> + * .. _VRR-MIN-NUMERATOR:
-> >>> + *
-> >>> + * "VRR_MIN_NUMERATOR":
-> >>> + *	Default &drm_crtc integer property forming the numerator of a
-> >>> + *	numerator/denominator pair of a frame rate to set as the minimum VRR
-> >>> + *	target rate. Set to 0 to disable.
-> >>> + *
-> >>> + * "VRR_MIN_DENOMINATOR":
-> >>> + *	Default &drm_crtc integer property forming the denominator of a
-> >>> + *	numerator/denominator pair of a frame rate to set as the minimum VRR
-> >>> + *	target rate. If :ref:`VRR_MIN_NUMERATOR <VRR-MIN-NUMERATOR>` is not
-> >>> + *	zero, it must be non-zero.
-> >>> + *	Otherwise, must also be zero.
-> >>> + *
-> >>> + * .. _VRR-MAX-NUMERATOR:
-> >>> + *
-> >>> + * "VRR_MAX_NUMERATOR":
-> >>> + *	Default &drm_crtc integer property forming the numerator of a
-> >>> + *	numerator/denominator pair of a frame rate to set as the maximum VRR
-> >>> + *	target rate. Set to 0 to disable.
-> >>> + *
-> >>> + * "VRR_MAX_DENOMINATOR":
-> >>> + *	Default &drm_crtc integer property forming the denominator of a
-> >>> + *	numerator/denominator pair of a frame rate to set as the maximum VRR
-> >>> + *	target rate. If :ref:`VRR_MAX_NUMERATOR <VRR-MAX-NUMERATOR>` is not
-> >>> + *	zero, it must be non-zero. Otherwise, must also be zero.
-> >>>   */
-> >> If VRR_MIN_NUMERATOR == 0 && VRR_MAX_NUMERATOR > 0, do we interpret that as
-> >> vrr limiting is disabled?
-> > You can picture VRR limiting as always being active, but with a limit rational
-> > of 0 it uses the display's limit as per the EDID, which is what unlimited game
-> > mode is. So with how it's implemented right now in hdmi_validate_vrr(), your
-> > example would set a maximum target, but leave the minimum at whatever the
-> > display defaults to.
-> > 
-> > Now that I'm thinking through this, a possible problem is that
-> > drm_crtc_helper_vrr_is_fixed_rate() operates on the user supplied limits, but
-> > if the display supplied lower limit is equal to the user supplied upper limit,
-> > then we have a fixed rate scenario without recognising it as such. I think I
-> > need to have a ponder on what the least surprising behaviour for userspace
-> > is in that instance. The display limit stuff gets a bit complex due to
-> > CinemaVRR and QMS TFRmin/TFRmax.
-> > 
-> > I'll improve the documentation on the next revision to make the meanings more
-> > explicit.
+> > +#if __has_builtin(__builtin_memset_inline)
+> > +#define memset_inline(dst, value, size) __builtin_memset_inline(dst, value, size)
+> > +#elif IS_ENABLED(CONFIG_CC_HAS_OPT_INLINE_MEMSET)
+> > +#define memset_inline(dst, value, size) __builtin_memset(dst, value, size)
+> > +#else
+> > +static inline void *memset_inline(void *dst, int value, size_t size)
+> > +{
+> > +	char *d = dst;
+> > +
+> > +	while (size--)
+> > +		*d++ = value;
+> > +
+> > +	return d;
+> > +}
+> > +#endif
+> > +
 > 
-> Perhaps a simple way is to require simultaneous setting MIN and MAX pairs?
-> IOW, require userspace to set MIN and MAX simultaneously to >0, or =0. For example:
-> 
-> if ((vrr_min_n == 0 || vrr_min_d == 0 ||
->      vrr_max_n == 0 || vrr_max_d == 0) &&
->     (vrr_min_n > 0 || vrr_max_n > 0))
-> 	return -EINVAL;
-> 
-> That way, it's never ambiguous what userspace has requested for the range.
-> They can copy the EDID supported range if they don't care about limiting
-> one side, rather than leaving it at 0. It's then also clear if they requested
-> a static Hz.
+> memset actually returns the original pointer, not the incremented one.
+> Nothing uses the return value of memset_inline here, but it is
+> confusing.
 
-That's a good thought. It makes a lot of the logic simpler to catch bad
-conditions, and it's the kind of thing that can definitely be checked in
-connector-agnostic shared CRTC atomic_check code.
+Whoops, good catch, I guess my fingers gave up on those last two
+characters :) I will fix this for v3 once there has been some time for
+further review.
 
-Thanks for the suggestion, I'll likely adopt it for the next revision!
-
-Kind regards,
-Nicolas Frattaroli
-
-> 
-> Thanks,
-> Leo
->  
-
-
-
+-- 
+Cheers,
+Nathan
 
