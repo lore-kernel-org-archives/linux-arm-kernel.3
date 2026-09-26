@@ -4,109 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3C0DDC9832A
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 26 Sep 2026 17:21:40 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1E3EAC9832F
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 26 Sep 2026 18:06:26 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=HvyozJOaCBCBuN/SvwKhJCZbcYQBkuG7QNbutM7h4GE=; b=xxL4ZP4LRod5yzgZ31ydbmtnTB
-	nJUOba2io7cXaLSXHMh+ZaT4bT0Dy0KRWbDre5Rvs/MLq/BVKELS0s2beaKcBEebUoQr+vtlpSGh5
-	iHYQG7VMoY7NWCdRobg4SDxrQnL+iQOTMSeCsTQbsPJoGR3G48bbtFgexh0T0OkzPlm3Qu6vzv0gD
-	heNl/+x6lFGCZ7SV+i9sCRpvneCtZ10XGmDz4Y9DC3MVNyx0JDf9BJ58bYkzwEIscS3Y4DabdtmJz
-	1MmFFNlR1se//uWEms17Mq2/gmT29IcB0n6YQ8Fh/SULtsfA6n6Lfku+2xHjfkhycybvWA21OJYBD
-	iq9IeUXw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=wYYaiwkOPUjr+j4UaQRgxxzscg0L0EnuNJCXdqEfXQA=; b=KOswLaegjAteso9R8xLsPsGF/S
+	xA6wIBXGaIHzDuHZGE31H1LKGajz7bHIZlzmQ+IgcpXoeD7/zuAe/LrF3aju2+26MWsVkpZdMsnUU
+	MFtNUWVeediV5S3KjtdMrhXBuXSboS4CHi2/vUourE3ZEN0Ebt459TJrR1+Iqb4Hr6fp8g9e8+1+y
+	sQSwdH6clcqM895+BxigH5L30ZrXsa2DdlZ+oJUHJXIgbzcjmVed/Jkc4/AAPt+B1c9abaKbTmw7a
+	iCCZ7YLgZXkX5NPSl/d+SNWjqKIRCjEPEELtVtDM+tEbPDeWF7XYWI7iQXxeATI8ekNw5Bl27qZ6H
+	e4/e8nBw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xAW5d-0000000Ffut-0QT4;
-	Sat, 26 Sep 2026 17:21:33 +0000
-Received: from mail-ed2-x25.google.com ([2a00:1450:4864:33::25])
+	id 1xAWmt-0000000FhM9-1v4r;
+	Sat, 26 Sep 2026 18:06:15 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xAW5a-0000000FfuX-2C7t
-	for linux-arm-kernel@lists.infradead.org;
-	Sat, 26 Sep 2026 17:21:31 +0000
-Received: by mail-ed2-x25.google.com with SMTP id 4fb4d7f45d1cf-6aaf1149da7so135929a12.0
-        for <linux-arm-kernel@lists.infradead.org>; Sat, 26 Sep 2026 10:21:29 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1790443288; cv=none;
-        d=google.com; s=arc-20260327;
-        b=OX/Dc1KQClllstZ9WwZ5HDzxpW9a+rThqncjSVuS/mftlwHdFZkl4aqTelc4afYjUz
-         XHMjK1hBH8F/f3nihWFHf7mtPZWe5EbmJebtcV/ecc06S5BGM5XR0VkOxK1f71SuFZ4m
-         JWnVtcLS19LrqFZ7P/09utbcBnVZm6HpWl/7+5eTEzBY25S2T3iBll9x3jd3ACa5sfbz
-         XkxCL2Zc3J60oO2ptJRRahTf/qhsaG2joewHfNvJqXYfyyv1csZdrb0GVJkT1hJEXyVo
-         /d3x/5ozEVQ6HElIlsdq8YSJVy+UCh3dlRs8cmqZLYmBQy5N5HoDAMMK6gKys7iyOo3z
-         8w8w==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:dkim-signature;
-        bh=HvyozJOaCBCBuN/SvwKhJCZbcYQBkuG7QNbutM7h4GE=;
-        fh=Z6RdooJk7SBk4NuA2H+V+kflsyZjJRhuaDdpA1vq5kI=;
-        b=VDHPtO8DsIHGEdkQoLjVIc7cGRI+nl1+xp3lSxDaeMGH0hF79Ns0NKuDcZj6OwuDV/
-         nLKezvnwkPJ+YLaYKMR8osfOYYw4gATryaTvAod2e/ej+F4eKlSnuaQT/A6TzZjizpuj
-         SK6RTZVdHngEFonozu7hpncFC9WD+O9cIjGbArPAEe6hVbaIGOGKfFp5vujWFS9shJ7T
-         R8NSIlrJ4RKUbwGVVvItpHPyR9ZW6f1G+8+LFvz4Xm2COhlvts+mVGEL82FBVfDIQsAe
-         v6jdPArpiuLk8bP7ESEW2+i02dVD0yKg7rEsQE9JuFQ5bDvMWXOMygVw2TC4bHWBnUMM
-         LaMw==;
-        darn=lists.infradead.org
-ARC-Authentication-Results: i=1; mx.google.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1790443288; x=1791048088; darn=lists.infradead.org;
-        h=content-transfer-encoding:content-type:cc:to:subject:message-id
-         :date:from:in-reply-to:references:mime-version:from:to:cc:subject
-         :date:message-id:reply-to:content-type;
-        bh=HvyozJOaCBCBuN/SvwKhJCZbcYQBkuG7QNbutM7h4GE=;
-        b=PAagmnq4mW8Epm233FwI9igS4eBcy/XpaShKL+JCLkeJH3YCF4SxZQ4MVghICgcDpG
-         rC9GFOIzKBtFgprq/oEPl+8Tt1JyhOZc/KuNynzaUN3kLd5VCI8m2zE+4GEIcpzdwoAt
-         /fr5wp4LjKaRNxW6nc9V7be24RfTmU9OMZP6uqx/I/HCi02bhtQJj1lh7c3zS7/eHlgf
-         +/y9NTvjtQk05kTPBmXxS8kc94cynbF46BINikizhng1hWAosaP/a7lCj4QwQ8oCEiki
-         y/2fmYywc5udLJzPve/+FnXmHC12XlQ+mQfRRdbS5nFkQDovN8e0Bb8FK8tjdmBrruq8
-         46QQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1790443288; x=1791048088;
-        h=content-transfer-encoding:content-type:cc:to:subject:message-id
-         :date:from:in-reply-to:references:mime-version:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=HvyozJOaCBCBuN/SvwKhJCZbcYQBkuG7QNbutM7h4GE=;
-        b=o4J/dO5uEhtzCKEmn0df4+G49g0RyKlRso757/Wu+cF0YdL5Oe25CRLZV0p7KuiZ4+
-         qCpCxSHRv2PCJH53HhAyvKHyzLJNHMiRkLS23Q+uSYxdqReFtRjz3UxRi6z3OTNvIjHY
-         kjKTMe2gTnJ7u2L7TbH3DmHO7tZVtY7FVf5A1bzynm6jCVjLzbviQXvriOEfHZQoYWYK
-         SCD2dwV5WCyoUjtdMhaChkagdCIgc2ARbKho7XuFVMe6pwrWNuI81fqVEtpdhaE1HDuw
-         7LKNuqnMk2ifhmhF6i9/oBNYeb+wc8cntFMA7NSzBxFkN0ym+EuDpD7FUBv7+4Kf3CuL
-         jwGA==
-X-Forwarded-Encrypted: i=1; AKwUvBw4IVUckQ+OgxznBYZqSuzW+I1/H4UiUdGd/koVwifx2bdKpyHJ4Kh5XQ/ZxGz7CetbgYiF7X5vOkSwyX5H8MsR@lists.infradead.org
-X-Gm-Message-State: AFq9FYJDlLVTQ+n7dcWwHkYiCNoGyMYOTxQu6zwYTQJd3Gh6GX5ujqlG
-	kqTyOal1P3uu/ubP9pcgvf6H+d6tnSt/zkDyuyd5psJGMsLWWoB1IG+59hhLCtu4ZniNZajouYD
-	3OrHftA+1Iab+vHW/vQ6LBgpapmD1JB0=
-X-Gm-Gg: AYBFou1jrHznoOKX7DGQloJ/GSMJYTmKDjCwxPqX1AY8oDrrhROrfFSbbbcT64W4kgV
-	vmFScUpw5GzYa2aeDZ/j/QRn0/akKAt7S72LkW1GA+YSStnuIK9QNthULENSOcM12nh3PujTSeC
-	KZ9qhJL+otO/CLTj9YLNrK84dqxMlOoJciofMqxI2ZIJOz9hz/Mpcup75K4WyeDIj7MIYWd1cKN
-	3zTvA927EaiAftOuEfpn6vSlmfLAgRi3YQVFRWWQGiMYZZ853VtdADxhaQEsCOuIQpTT6RG95Qz
-	zir12EXgBHWDn7Y5MlxKuwSDJUiIvJ8her/Aki0ExHuBu+OQ4Wm1JUFEvi6mfUyyCmERqb1VBMS
-	3rVoYw1MCcKY=
-X-Received: by 2002:a05:6402:13ca:b0:6aa:13d6:888f with SMTP id
- 4fb4d7f45d1cf-6aae1fa590cmr5300101a12.1.1790443287630; Sat, 26 Sep 2026
- 10:21:27 -0700 (PDT)
+	id 1xAWmr-0000000FhLu-23S2;
+	Sat, 26 Sep 2026 18:06:13 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by sea.source.kernel.org (Postfix) with ESMTP id A31C9415AB;
+	Sat, 26 Sep 2026 18:06:12 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id ACD071F000FF;
+	Sat, 26 Sep 2026 18:06:09 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1790445972;
+	bh=wYYaiwkOPUjr+j4UaQRgxxzscg0L0EnuNJCXdqEfXQA=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=C3PKcs1G4z0FBX4/p60m8PgMsiYXohlNrKywBMGRldUPqllqJx0F14cckjHQvfkG8
+	 QCW+MZ5gc3DA1+BJteWB9rZx/KBR1o/BTKZkhAbaJwZ5LAf6aHKvt/XCSEF3WtqQQ6
+	 on5j+9CYViLcFfz0F+OTSvy8Lc1eXPnmkQyP64+tpawKHo0+KdG6dntzT8pU/XWgcp
+	 Fy25Fuz46gPGN+/NavM4wGEmi3M3Cqzf9AEEqk/S/1xp2OS5aW1m2YqZnyTUdYJshq
+	 xipS//mCqGJk+0DVEmnG/7MK9EqtWjtMf4rAZEJn8GVQX4R7xb6amKddJagXh/ISBY
+	 F7si8ncPH5aHQ==
+Date: Sat, 26 Sep 2026 19:06:07 +0100
+From: Conor Dooley <conor@kernel.org>
+To: linux-kernel-dev@aliel.fr
+Cc: Uwe =?iso-8859-1?Q?Kleine-K=F6nig?= <ukleinek@kernel.org>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Heiner Kallweit <hkallweit1@gmail.com>,
+	Neil Armstrong <neil.armstrong@linaro.org>,
+	Kevin Hilman <khilman@baylibre.com>,
+	Jerome Brunet <jbrunet@baylibre.com>,
+	Martin Blumenstingl <martin.blumenstingl@googlemail.com>,
+	linux-pwm@vger.kernel.org, devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+	linux-amlogic@lists.infradead.org
+Subject: Re: [PATCH v2 1/3] dt-bindings: pwm: amlogic: Add core clock for T7
+Message-ID: <20260926-landless-prowess-df404db4d910@spud>
+References: <20260925-add-t7-sys-pwm-clk-v2-0-f23a22b71a5c@aliel.fr>
+ <20260925-add-t7-sys-pwm-clk-v2-1-f23a22b71a5c@aliel.fr>
+ <20260925-facial-follow-032de22361c1@spud>
+ <8e23838a-da5e-499c-a8be-3e2a7a0939e7@aliel.fr>
 MIME-Version: 1.0
-References: <20260926171049.841335-1-tien.nguyenminh@embeddedlinux.blog>
-In-Reply-To: <20260926171049.841335-1-tien.nguyenminh@embeddedlinux.blog>
-From: Chengfeng Ye <nicoyip.dev@gmail.com>
-Date: Sun, 27 Sep 2026 01:21:16 +0800
-X-Gm-Features: AclHuK_oi-zKoshtXCuOOr3CsOX0yKq1NGgpk2U78md_ZK4k1diCt_1GHatAQ2s
-Message-ID: <CAAo+4rUpf=e+rVKR4FhTOuGb+xGx+yTz7KOZbrRc29ErgznuCQ@mail.gmail.com>
-Subject: Re: [PATCH v3] dmaengine: sun6i: Fix potential deadlock on &sdev->lock
-To: Nguyen Minh Tien <tien.nguyenminh@embeddedlinux.blog>
-Cc: Vinod Koul <vkoul@kernel.org>, Frank Li <Frank.Li@kernel.org>, 
-	Chen-Yu Tsai <wens@kernel.org>, Jernej Skrabec <jernej.skrabec@gmail.com>, 
-	Samuel Holland <samuel@sholland.org>, dmaengine@vger.kernel.org, 
-	linux-arm-kernel@lists.infradead.org, linux-sunxi@lists.linux.dev, 
-	linux-kernel@vger.kernel.org, stable@vger.kernel.org
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260926_102130_602221_D32360E5 
-X-CRM114-Status: GOOD (  20.48  )
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="LVLyBwFl5JS2r2Gm"
+Content-Disposition: inline
+In-Reply-To: <8e23838a-da5e-499c-a8be-3e2a7a0939e7@aliel.fr>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -121,55 +81,137 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Sun, Sep 27, 2026 at 1:10=E2=80=AFAM Nguyen Minh Tien
-<tien.nguyenminh@embeddedlinux.blog> wrote:
->
-> From: Chengfeng Ye <dg573847474@gmail.com>
->
-> As &sdev->lock is taken by the tasklet sun6i_dma_tasklet() in softirq
-> context, other users of the lock in process context should disable
-> interrupts, otherwise the tasklet can preempt a holder of the lock on
-> the same CPU and deadlock. sun6i_dma_terminate_all() and
-> sun6i_dma_pause() take it without disabling interrupts.
->
-> This was found by an experimental static analysis tool for irq-related
-> deadlocks. Lockdep reports it too on an Allwinner T113, where the lock
-> is also taken inside the HARDIRQ-safe vc->lock:
->
->   [  299.389380] WARNING: possible irq lock inversion dependency detected
->   [  299.411196] c7109568 (&sdc->lock){+.-.}-{3:3}, at: sun6i_dma_termina=
-te_all+0x40/0x2c4
->   [  299.419137] but this lock was taken by another, HARDIRQ-safe lock in=
- the past:
->   [  299.426398]  (&vc->lock){-.-.}-{3:3}
->
-> Use spin_lock_irqsave() in both places, as
-> sun6i_dma_free_chan_resources() already does.
->
-> Fixes: 555859308723 ("dmaengine: sun6i: Add driver for the Allwinner A31 =
-DMA controller")
-> Cc: stable@vger.kernel.org
-> Signed-off-by: Chengfeng Ye <dg573847474@gmail.com>
-> [tien: rebased, added the lockdep report from a T113, Fixes and Cc stable=
-]
-> Signed-off-by: Nguyen Minh Tien <tien.nguyenminh@embeddedlinux.blog>
-> ---
-> I ran into this on a MangoPi MQ-Dual (Allwinner T113-S3): with lockdep
-> on, stopping dmatest set off the report above in
-> sun6i_dma_terminate_all(), and a small test module set it off in
-> sun6i_dma_pause(). While looking for a fix I found Chengfeng's v2 from
-> 2023. It never got a review and no longer applies, so I rebased it on
-> dmaengine next and added the lockdep report, a Fixes tag and Cc stable.
-> Chengfeng, I hope you don't mind me picking it up.
->
-> With it, lockdep stays quiet on both paths on 7.3-rc4, and dmatest on
-> four channels passes while another channel is paused, resumed and
-> terminated in a loop.
+--LVLyBwFl5JS2r2Gm
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
 
+On Sat, Sep 26, 2026 at 11:43:20AM +0200, linux-kernel-dev@aliel.fr wrote:
+> On 9/25/26 6:41 PM, Conor Dooley wrote:
+> > On Fri, Sep 25, 2026 at 05:13:28PM +0200, Ronald Claveau via B4 Relay w=
+rote:
+> >> From: Ronald Claveau <linux-kernel-dev@aliel.fr>
+> >>
+> >> The T7, A1, C3, and S4 PWM controllers have a system clock in
+> >> addition to the two input clocks of channels A and B.
+> >>
+> >> The channel clocks are acquired by index in the pwm driver,
+> >> where the core clock is fetched by name, with optional get
+> >> which is silent when not provided.
+> >>
+> >> Require clock-names and minimum 3 items for T7, where the
+> >> PWM devices do not work without all 3 clocks.
+> >>
+> >> Add an example showing T7 usage with its fallback to
+> >> amlogic,meson-s4-pwm.
+> >>
+> >> Signed-off-by: Ronald Claveau <linux-kernel-dev@aliel.fr>
+> >> ---
+> >>  .../devicetree/bindings/pwm/pwm-amlogic.yaml       | 33 +++++++++++++=
++++++++--
+> >>  1 file changed, 31 insertions(+), 2 deletions(-)
+> >>
+> >> diff --git a/Documentation/devicetree/bindings/pwm/pwm-amlogic.yaml b/=
+Documentation/devicetree/bindings/pwm/pwm-amlogic.yaml
+> >> index c337d85da40f1..59320f288552b 100644
+> >> --- a/Documentation/devicetree/bindings/pwm/pwm-amlogic.yaml
+> >> +++ b/Documentation/devicetree/bindings/pwm/pwm-amlogic.yaml
+> >> @@ -62,7 +62,7 @@ properties:
+> >> =20
+> >>    clock-names:
+> >>      minItems: 1
+> >> -    maxItems: 2
+> >> +    maxItems: 3
+> >> =20
+> >>    power-domains:
+> >>      maxItems: 1
+> >> @@ -140,13 +140,34 @@ allOf:
+> >>      then:
+> >>        properties:
+> >>          clocks:
+> >> +          minItems: 2
+> >>            items:
+> >>              - description: input clock of PWM channel A
+> >>              - description: input clock of PWM channel B
+> >> -        clock-names: false
+> >> +            - description: gate clock for the PWM controller
+> >> +        clock-names:
+> >> +          minItems: 2
+> >> +          items:
+> >> +            - const: channel-a
+> >> +            - const: channel-b
+> >> +            - const: core
+> >>        required:
+> >>          - clocks
+> >> =20
+> >> +  - if:
+> >> +      properties:
+> >> +        compatible:
+> >> +          contains:
+> >> +            const: amlogic,t7-pwm
+> >=20
+> > Shouldn't this (based on your reply on the previous version) be s4?
+> >=20
+>=20
+> The change above is for S4 and SOCs which fallback to S4. It allows the
+> third clock but let the schema validation compatible with two clocks
+> existing DTS. Here for the T7, I add requirement for the exact 3 clocks.
+>=20
+> Do you recommend to require the 3 clocks for all S4 and S4 fallback, and
+> update the associated dtsi files ?
 
-Not at all, thanks for picking this three-year-old patch up and
-testing it on hardware. I=E2=80=99m glad to see the patch can move forward.
+Yes, I think so. Sounds to me like they only work because of the
+CLK_IGNORE_UNUSED set in their clock controller drivers, so the correct
+thing to do is make them all require the third clock.
 
-Best regards,
-Chengfeng
+Chers,
+Conor.
+>=20
+> >> +    then:
+> >> +      properties:
+> >> +        clocks:
+> >> +          minItems: 3
+> >> +        clock-names:
+> >> +          minItems: 3
+> >> +      required:
+> >> +        - clock-names
+> >> +
+> >>    - if:
+> >>        properties:
+> >>          compatible:
+> >> @@ -182,3 +203,11 @@ examples:
+> >>        clocks =3D <&pwm_src_a>, <&pwm_src_b>;
+> >>        #pwm-cells =3D <3>;
+> >>      };
+> >> +  - |
+> >> +    pwm@60000 {
+> >> +      compatible =3D "amlogic,t7-pwm", "amlogic,meson-s4-pwm";
+> >> +      reg =3D <0x60000 0x24>;
+> >> +      clocks =3D <&channel_a>, <&channel_b>, <&core>;
+> >> +      clock-names =3D "channel-a", "channel-b", "core";
+> >> +      #pwm-cells =3D <3>;
+> >> +    };
+> >>
+> >> --=20
+> >> 2.49.0
+> >>
+> >>
+>=20
+>=20
+> --=20
+> Best regards,
+> Ronald
+
+--LVLyBwFl5JS2r2Gm
+Content-Type: application/pgp-signature; name=signature.asc
+
+-----BEGIN PGP SIGNATURE-----
+
+iHUEABYKAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCargJjwAKCRB4tDGHoIJi
+0hGlAPwPcQT485NFPVpsmaLttMgeXLihgXcxvovjhjL6RFevHAEAhbpFtA4RAfsa
+N/8aLtpv423553Psdr1Wrc70RFZcTwA=
+=Qo82
+-----END PGP SIGNATURE-----
+
+--LVLyBwFl5JS2r2Gm--
 
