@@ -4,44 +4,44 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3297DC9831E
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 26 Sep 2026 04:03:55 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D79E3C9831E
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 26 Sep 2026 04:04:43 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
 	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
 	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Ez96NEwvtT1k9tGbEFCVRqt3OZGVg5le4zsDZGm02ag=; b=HZoxk38DZ0agdvn8gXFtVkktxW
-	xw9pDsfTm3oZ+Z2FHrsZiNojFJcnpt4kvAKhZoF0FH2bHpM5rR/j0NpO3rxhsh3jJlV2qC4KPmC7P
-	t7iCc9ZEBIyuxtJZXARXjT7BASfg8hs87pMQfziv6Itdh+/Kapp1eph3VVZalm6HvrSdXEooo69o1
-	XClzinQErmfYBppXLAns9l6iNx2UFf3DubIxDiP8+/+uoZ4SB5fERM6oy8esyw+pLedhGsXEIfcbc
-	u/xw2Y6qpWHJ9obgP+vz/LHu5fv0UaIT6BCskQDYkIsjZm8Xq4wj2Cx7HrVhFgZVAKCua+IycBjnY
-	Ayzc6hFA==;
+	bh=xOUdZyaE4ZM74h/zxVnXNgegJ6IkaZJcYOAv1Dl9nzE=; b=mjUKAXhwRZNmLgQemCHPuwyCq7
+	t0DQr5Ez4MZJGlCQhDYqusy2Hiy8V3WBiZTPyGBspr2BJYruD25TRpFQg43gI3SYhxtKO6vVw2ZGq
+	u0oiA+YGnuzkSiFgQaNMpTATOypX7AoeTeWyG4/BRarzyAs144Xwd+v38NUwlOunTEhva3kWtIUzq
+	wu0NCtSfOw6Up3JyOgvYeUkAjh4MJCSsmVy4XqtYHbelfrz0fq7otw9uJWmtp2+Y6xxptRnmnqQ0Z
+	TDlVgJtA/eth4x2XPLu6zA3xLPsUPkYhRnVF6K49Ogx8I30mWn2wmcMrsUlpq+DYr9FKW2LsRd1Td
+	YiWcmZ5A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xAJdc-0000000EvqP-3MfQ;
-	Sat, 26 Sep 2026 04:03:48 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1xAJeP-0000000EvyH-0PRa;
+	Sat, 26 Sep 2026 04:04:37 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xAJda-0000000Evq1-3t7h;
-	Sat, 26 Sep 2026 04:03:46 +0000
+	id 1xAJeO-0000000Evy3-1F3M;
+	Sat, 26 Sep 2026 04:04:36 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 5B64243AA0;
-	Sat, 26 Sep 2026 04:03:45 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 2BB071F000FF;
-	Sat, 26 Sep 2026 04:03:38 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id F3F5943DB2;
+	Sat, 26 Sep 2026 04:04:35 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id ED4BD1F000FF;
+	Sat, 26 Sep 2026 04:04:29 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1790395425;
-	bh=Ez96NEwvtT1k9tGbEFCVRqt3OZGVg5le4zsDZGm02ag=;
+	s=k20260515; t=1790395475;
+	bh=xOUdZyaE4ZM74h/zxVnXNgegJ6IkaZJcYOAv1Dl9nzE=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=MJwntA0ZZjmKHhtCfYKPc1LdDWePisGyWu8LaXPwzLQ4Pfts2Xg//JV1tbCUu3BsV
-	 qop38+KgeqO3AENA5+YDBY2UVXMb7iMwLCFaiyQlKE6EO2ZrR07dc4fkC1eZp+JH2v
-	 pHaAZos4DE401O3IAgWfuidm7tqXPy8/aa+Bris7KcAYiuqn/saDuRnuqHs68iWnro
-	 MfuSof7ZmnjBSVZww9WmbvKE2UWTSVwiWARhSVmPjQGDRwNU9pKFOTZzncjIG9oCo+
-	 rQZWESHElx82csYwiw3KEFFE8IdJrEeERI4EJm2njWFBVjoN5HhZMT8yNraHiLaeH8
-	 iXG1yAE6+ulRQ==
-Date: Sat, 26 Sep 2026 06:03:25 +0200
+	b=FpM5+rnVVdGtECbvQlEoMK/d8cozDmixctv/d+o5Q68UYuWWjUE5b3QM3bEtuna1v
+	 xeAvjVWg9mOisCT6dkPzPHbD6I2b3WetxQMK2N35naNQINRGZ7AO0UwiuHKakbqOXY
+	 f+3A0clTtptG0MApsK2tZ05Idw98vZLzGfzuKbxZbGxWmiVsBeH8TULsr+8VFkQ5Tb
+	 UnruqkD+Xl8jI7dK3BpQcEl4Hv4oU1DEffFOO5FoqSa5cxCeJpfWRoGDc3jNJAOpsZ
+	 +s/zbtOWFrkPHeh96WiHvs4R2iAt6OPLt32e+oc/RnkE8souTrvCbO6L1HLy6yDESb
+	 mOqnK7avDNFEg==
+Date: Sat, 26 Sep 2026 06:04:16 +0200
 From: Manivannan Sadhasivam <mani@kernel.org>
 To: Sebastian Reichel <sebastian.reichel@collabora.com>
 Cc: Vinod Koul <vkoul@kernel.org>, 
@@ -53,16 +53,17 @@ Cc: Vinod Koul <vkoul@kernel.org>,
 	Alexey Charkov <alchark@flipper.net>, Igor Paunovic <royalnet026@gmail.com>, 
 	linux-phy@lists.infradead.org, linux-arm-kernel@lists.infradead.org, 
 	linux-rockchip@lists.infradead.org, linux-kernel@vger.kernel.org, kernel@collabora.com, 
-	devicetree@vger.kernel.org
-Subject: Re: [PATCH v15 11/16] phy: rockchip: usbdp: Support single-lane DP
-Message-ID: <2z4yirs6dzf34ajrc7u4gv62v466iusxt6lqam6zjmxmbutd6d@fwdwmcvtiv74>
+	devicetree@vger.kernel.org, Sashiko <sashiko-bot@kernel.org>
+Subject: Re: [PATCH v15 12/16] phy: rockchip: usbdp: Limit DP lane count to
+ muxed lanes
+Message-ID: <rzxb3np7snoj52rn2cx2rfemelk3kyjpd2dr5v357td4vkrpma@cxun5v7lnojp>
 References: <20260915-rockchip-usbdp-cleanup-v15-0-80e2c11d1ce8@collabora.com>
- <20260915-rockchip-usbdp-cleanup-v15-11-80e2c11d1ce8@collabora.com>
+ <20260915-rockchip-usbdp-cleanup-v15-12-80e2c11d1ce8@collabora.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=utf-8
 Content-Disposition: inline
 Content-Transfer-Encoding: 8bit
-In-Reply-To: <20260915-rockchip-usbdp-cleanup-v15-11-80e2c11d1ce8@collabora.com>
+In-Reply-To: <20260915-rockchip-usbdp-cleanup-v15-12-80e2c11d1ce8@collabora.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -77,12 +78,18 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Sep 15, 2026 at 03:49:58PM +0200, Sebastian Reichel wrote:
-> From: Zhang Yubing <yubing.zhang@rock-chips.com>
+On Tue, Sep 15, 2026 at 03:49:59PM +0200, Sebastian Reichel wrote:
+> In theory the DP controller could request 4 lanes when the PHY is
+> restricted to 2 lanes as the other half is used by USB3.
 > 
-> Implement support for using just a single DisplayPort line.
+> With the current user (DW-DP) this cannot happen, but as the check is
+> cheap and users might change in the future protect things accordingly.
+> Not doing so would corrupt USB3 usage by the following code configuring
+> the voltages.
 > 
-> Signed-off-by: Zhang Yubing <yubing.zhang@rock-chips.com>
+> Fixes: 2f70bbddeb45 ("phy: rockchip: add usbdp combo phy driver")
+> Reported-by: Sashiko <sashiko-bot@kernel.org>
+> Closes: https://lore.kernel.org/linux-phy/20260612165546.98E1F1F000E9@smtp.kernel.org/
 > Tested-by: Igor Paunovic <royalnet026@gmail.com> # Orange Pi 5 Plus
 > Signed-off-by: Sebastian Reichel <sebastian.reichel@collabora.com>
 
