@@ -4,60 +4,61 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 10BB6C9833D
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 26 Sep 2026 14:52:30 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5EDE7C98332
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 26 Sep 2026 14:52:55 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
-	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=A9v+lq5mWAV72Yfuty4BldqMgAV25TnkmTFu7i2y98Q=; b=LAoGYgipZPipax
-	GDP+a7gG1AytViizUR60eHQoThDxUX0vaXjKh35hhwI3QAnH58N78QelK/+7cpm4+LPNHuX/iEo47
-	YjKzngrjRkS5kgGYIEQAl2RCA6OXSgxXBk5+IcePECR683kCV5/6P07pnli9Eja7xpQ/5Nl+vXzgE
-	Rs40r1Jcc4r0s6u+PP+lhDu3Si5/0ohQgitdxbuQrWDYus8QS2gL7KkUDQtyeJF3B04f+XiaNdYID
-	TBadFY58dUX8CmBtNVQaLoHMdivVppfvICMl4cDn8Cfakxg8RS7aVxtOYQV53s6qnEbHj8IF2A15b
-	2qMRtggwfVGaX00VLkGw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=eExyfgyGvnSwGZZv3x3RB39koM5ueuCo752RubzSJvo=; b=pimtu0KW+CjGDjDLZZ6ak+Z6z+
+	/ZMM6JNAjuL8mTwqHL4naKP8FYVcXDJVqZcjBXWd+7vn/p2LKUhNexk7z1ygJy6W8PIDhKXhMNOIF
+	J4PSd+41lcuXtvHyfrfZVlIvAmlXjWegcEe2U9jUDUxGnJiGJXsjoQu/NKfZHJbAKal88zDtIZnBP
+	+7RZNQp6molfVNHg7Z0cgjq5cgRciHCE3dJVKHrWWyAACK42CqmPktmjXdVBQIofdHpJk9GeBsjxR
+	mVOZdDqy07BrES8nsIs4l7T3GAdXUzH949eeJGaKw5BBzycedl/lpOYFFY7i3sCR2KQ5I8VVLrcxP
+	QNtjwOUw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xATlI-0000000FY7h-38Hh;
-	Sat, 26 Sep 2026 14:52:24 +0000
-Received: from mail.cyberchaos.dev ([195.39.247.168])
+	id 1xATlf-0000000FYFA-3obx;
+	Sat, 26 Sep 2026 14:52:47 +0000
+Received: from perceval.ideasonboard.com ([213.167.242.64])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xATl7-0000000FY3L-2sMA
+	id 1xATld-0000000FYED-30RC
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 26 Sep 2026 14:52:16 +0000
-From: Yureka Lilian <yureka@cyberchaos.dev>
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=cyberchaos.dev;
-	s=mail; t=1790434325;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding;
-	bh=A9v+lq5mWAV72Yfuty4BldqMgAV25TnkmTFu7i2y98Q=;
-	b=LWxRlisfozjEhIessbuyZAk7IaeAMUg+HKCT5qMWQvG1zpBKMqtED9r5oByf6asRZD8SE+
-	gbfL1ThShjc3nKZ9Hax3VbKgf1d0prqblzjcFU6L/zhuC1aKBo0G9TGKavkXh5Y6Ps4FFT
-	LSxt4WXpb+plKo2MG/8iz+kitjTUKhU=
-Subject: [PATCH v2 0/2] pinctrl: apple: Add t8140-pinctrl support
-Date: Sat, 26 Sep 2026 16:51:44 +0200
-Message-Id: <20260926-apple-pinctrl-t8140-v2-0-620bd11cd2a1@cyberchaos.dev>
+	Sat, 26 Sep 2026 14:52:46 +0000
+Received: from killaraus.ideasonboard.com (2001-14ba-70f3-e800--a06.rev.dnainternet.fi [IPv6:2001:14ba:70f3:e800::a06])
+	by perceval.ideasonboard.com (Postfix) with ESMTPSA id 5C2F3B5;
+	Sat, 26 Sep 2026 16:50:55 +0200 (CEST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=ideasonboard.com;
+	s=mail; t=1790434255;
+	bh=5nYPgDSdmjoHrFmhSCM6PMGjRbRiiimao5/hFbMD5hE=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=p51V39gZ8aT6M5NNgPyVe2RExP7bZxkQ98ATLfBsk1wddDV9on8MHphIsy22g7KZc
+	 uytzvVMpV6Nn1HFTxchYHaPrAqoPqLE4o43RI7eF/+9R+4VPrxNZ823B7DmRwNBnB1
+	 tEUefqY2UvLDkLrN7q5a4jgyLaeTepvg3daU3XFU=
+Date: Sat, 26 Sep 2026 17:52:42 +0300
+From: Laurent Pinchart <laurent.pinchart@ideasonboard.com>
+To: Rishikesh Donadkar <r-donadkar@ti.com>
+Cc: linux-media@vger.kernel.org, linux-kernel@vger.kernel.org,
+	devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+	tomi.valkeinen@ideasonboard.com, mchehab@kernel.org,
+	robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org, nm@ti.com,
+	vigneshr@ti.com, kristo@kernel.org, sakari.ailus@linux.intel.com,
+	mripard@kernel.org, jai.luthra@linux.dev,
+	jai.luthra@ideasonboard.com, devarsht@ti.com,
+	y-abhilashchandra@ti.com, mirela.rabulea@nxp.com
+Subject: Re: [RFC PATCH 4/8] media: cadence: csi2rx: Add RAW10 RGBIr formats
+Message-ID: <20260926145242.GD764757@killaraus.ideasonboard.com>
+References: <20260925133001.2780868-1-r-donadkar@ti.com>
+ <20260925133001.2780868-5-r-donadkar@ti.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-X-B4-Tracking: v=1; b=H4sIAAAAAAAC/32OwQqDMBBEf0X23JRsULE99T/EQ4ybukU0JGmoi
- P/eaO89Pph5MxsE8kwB7sUGnhIHXuYM6lKAGfX8JMFDZlBS1fKmKqGdm0g4nk30k4gNllJIUkr
- bEmvbGMhN58ny57S23Y/Du3+RiYfqSIwc4uLXczbhkfu/kFBIgVhhP2irrLUPs/bk88UlXAdK0
- O37/gVqM55VzQAAAA==
-X-Change-ID: 20260925-apple-pinctrl-t8140-0e22af416f8c
-To: Sven Peter <sven@kernel.org>, Janne Grunau <j@jannau.net>, 
- Neal Gompa <neal@gompa.dev>, Linus Walleij <linusw@kernel.org>, 
- Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>, Mark Kettenis <kettenis@openbsd.org>
-Cc: Yureka Lilian <yureka@cyberchaos.dev>, asahi@lists.linux.dev, 
- linux-arm-kernel@lists.infradead.org, linux-gpio@vger.kernel.org, 
- devicetree@vger.kernel.org, linux-kernel@vger.kernel.org
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+In-Reply-To: <20260925133001.2780868-5-r-donadkar@ti.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260926_075213_940170_E7B468E9 
-X-CRM114-Status: GOOD (  11.41  )
+X-CRM114-CacheID: sfid-20260926_075245_900262_F569EDA6 
+X-CRM114-Status: GOOD (  13.60  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -72,52 +73,43 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-This patch series has fixes for probing the pinctrl_ap GPIO controller
-on the MacBook Neo. The previous code would crash in the regmap_init on
-this device, since reading the REG_GPIOx for certain pins causes an
-SError.
-To mitigate this, we adapt the gpio-reserved-ranges property to describe
-pins which are unusable and whose REG_GPIOx should not be accessed.
+On Fri, Sep 25, 2026 at 06:59:57PM +0530, Rishikesh Donadkar wrote:
+> From: Jai Luthra <j-luthra@ti.com>
+> 
+> Add 10-bit RGBIr formats to the table to allow capturing them.
+> 
+> Signed-off-by: Jai Luthra <j-luthra@ti.com>
+> Signed-off-by: Rishikesh Donadkar <r-donadkar@ti.com>
+> ---
+>  drivers/media/platform/cadence/cdns-csi2rx.c | 8 ++++++++
+>  1 file changed, 8 insertions(+)
+> 
+> diff --git a/drivers/media/platform/cadence/cdns-csi2rx.c b/drivers/media/platform/cadence/cdns-csi2rx.c
+> index de7cce76397a..8ed730452d3c 100644
+> --- a/drivers/media/platform/cadence/cdns-csi2rx.c
+> +++ b/drivers/media/platform/cadence/cdns-csi2rx.c
+> @@ -173,6 +173,14 @@ static const struct csi2rx_fmt formats[] = {
+>  	{ .code	= MEDIA_BUS_FMT_RGB565_1X16,  .bpp = 16, .max_pixels = 1, },
+>  	{ .code	= MEDIA_BUS_FMT_RGB888_1X24,  .bpp = 24, .max_pixels = 1, },
+>  	{ .code	= MEDIA_BUS_FMT_BGR888_1X24,  .bpp = 24, .max_pixels = 1, },
+> +	{ .code	= MEDIA_BUS_FMT_SRGGI10_1X10, .bpp = 10, .max_pixels = 2 },
+> +	{ .code	= MEDIA_BUS_FMT_SGRIG10_1X10, .bpp = 10, .max_pixels = 2 },
+> +	{ .code	= MEDIA_BUS_FMT_SBGGI10_1X10, .bpp = 10, .max_pixels = 2 },
+> +	{ .code	= MEDIA_BUS_FMT_SGBIG10_1X10, .bpp = 10, .max_pixels = 2 },
+> +	{ .code	= MEDIA_BUS_FMT_SGIRG10_1X10, .bpp = 10, .max_pixels = 2 },
+> +	{ .code	= MEDIA_BUS_FMT_SIGGR10_1X10, .bpp = 10, .max_pixels = 2 },
+> +	{ .code	= MEDIA_BUS_FMT_SGIBG10_1X10, .bpp = 10, .max_pixels = 2 },
+> +	{ .code	= MEDIA_BUS_FMT_SIGGB10_1X10, .bpp = 10, .max_pixels = 2 },
 
-Also add the new t8140 base compatible to the dt-bindings, signifying
-the different behavior of the t8140 pinctrl_ap device, and make the
-driver accept it since it now respects the gpio-reserved-ranges property.
+Raw formats will allow supporting all possible CFA patterns without
+having to extend each driver every time a new pattern is added.
 
-Signed-off-by: Yureka Lilian <yureka@cyberchaos.dev>
----
-Changes in v2:
-- EDITME: describe what is new in this series revision.
-- EDITME: use bulletpoints and terse descriptions.
-- Link to v1: https://patch.msgid.link/20260925-apple-pinctrl-t8140-v1-0-1151bdaf2fff@cyberchaos.dev
+>  };
+>  
+>  static void csi2rx_configure_error_irq_mask(void __iomem *base,
 
-To: Sven Peter <sven@kernel.org>
-To: Janne Grunau <j@jannau.net>
-To: Neal Gompa <neal@gompa.dev>
-To: Linus Walleij <linusw@kernel.org>
-To: Rob Herring <robh@kernel.org>
-To: Krzysztof Kozlowski <krzk+dt@kernel.org>
-To: Conor Dooley <conor+dt@kernel.org>
-To: Mark Kettenis <kettenis@openbsd.org>
-Cc: asahi@lists.linux.dev
-Cc: linux-arm-kernel@lists.infradead.org
-Cc: linux-gpio@vger.kernel.org
-Cc: devicetree@vger.kernel.org
-Cc: linux-kernel@vger.kernel.org
+-- 
+Regards,
 
----
-Yureka Lilian (2):
-      dt-bindings: pinctrl: apple,pinctrl: Add t8140 compatible
-      pinctrl: apple: Add t8140-pinctrl support
-
- .../devicetree/bindings/pinctrl/apple,pinctrl.yaml  | 12 ++++++++++++
- drivers/pinctrl/pinctrl-apple-gpio.c                | 21 ++++++++++++++++-----
- 2 files changed, 28 insertions(+), 5 deletions(-)
----
-base-commit: 63fcbd85bbb795805ce1014637de186c647fa59d
-change-id: 20260925-apple-pinctrl-t8140-0e22af416f8c
-
-Best regards,
---  
-Yureka Lilian <yureka@cyberchaos.dev>
-
+Laurent Pinchart
 
