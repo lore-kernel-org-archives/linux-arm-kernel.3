@@ -4,90 +4,95 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 185E6C98318
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 26 Sep 2026 10:02:51 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0D6A1C98328
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 26 Sep 2026 10:10:45 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=b4UQCU/ng7lvOfRadkfffYlo+ZYxoOXVPEaR6txbrSk=; b=dfsMdqteahzBrPatQ4Bg1tW7yN
-	pUMr8arDttUOq+8s2UI/4YmTyIddKrmL56Uc/yYp0DeLQRddFUeX5qdpNuvS7As87lXCbQ1tifTa8
-	4CVlv83Ssr5zdtKn50QP4w4NmdwMWnxcnQxR7JLxKD7OuukMO1S5CHsMoseBlP6cPoLQAldXSKvOO
-	YL8iS2vj50NJ8LMEx+oMntE0sqtI5ALZZz0bdXnvMIz0DbmP9HRbie5jin1djH5UNB/lExL6E20+H
-	yLIEZT/hryyc2dgnyYvyKRwCoVPGsDVUYIkbrOFSlsR4iTN0/umTn19eC9ppOFnBxby/xRGu+jwiT
-	wtTAnAuQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:Message-Id:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:From:
+	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
+	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=a2QwrJTjNePGvVoDDQsoh5hhf8GU4fREmLPOvIhMRHQ=; b=thTcse2PSQaw9/BTUpwGl9i2Kc
+	wMMoKFqnkSorYrlbu8gASWgQW5nuuKSro3axut37JPhP8FwGAMCr0pKpwf+zFYS0ybPGPPVvUslkW
+	vqiUHIqpHmbBMQh8FWoduCPm4betkKp1HG18nZM5Yw0/LTMuQBo++X8pBkmFb12Ti80xDm4Rk/6kw
+	bZ5Gx/tafWOqTQFs/DiBB+tXWd9fRRmVvhIC56VO5mlvu1McMcN4qPVv3DQcRrIJasmXL43cqPMQB
+	vpn39LdCRzm+RgLK/bumpMHfL/5c1ACrIcv5pTg54wBxcCGLWqUWF37XLTIpPqP6odYaNZmXcfrvn
+	MZEkWuUQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xAPEx-0000000FFB7-3L2i;
-	Sat, 26 Sep 2026 10:02:43 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1xAPMa-0000000FFhG-22m4;
+	Sat, 26 Sep 2026 10:10:36 +0000
+Received: from mail-qk2-x11.google.com ([2607:f8b0:4864:34::11])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xAPEw-0000000FFAt-1E5q;
-	Sat, 26 Sep 2026 10:02:42 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id 1DBCD6020C;
-	Sat, 26 Sep 2026 10:02:41 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 6A5C31F000FF;
-	Sat, 26 Sep 2026 10:02:37 +0000 (UTC)
-Authentication-Results: smtp.kernel.org;
-	dkim=pass (1024-bit key, unprotected) header.d=zx2c4.com header.i=@zx2c4.com header.a=rsa-sha256 header.s=20210105 header.b=OfuqufY7
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=zx2c4.com; s=20210105;
-	t=1790416955;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=b4UQCU/ng7lvOfRadkfffYlo+ZYxoOXVPEaR6txbrSk=;
-	b=OfuqufY7Zlzrp2MAniYFVjK13GMq17YgmuZGEkdWoZWzrVashWdc1VY7gG6iw5f1ay+UGR
-	OIx/M6Kn9cb9R3rhwYAPHY8tFbYHBh11+x4RCQ49ugzXpzm2kx17CtXFw7mIf9ioCavt+m
-	sUgBH7n/oWVrLYceHgWDzsrCpDBOGJA=
-Received: by mail.zx2c4.com (OpenSMTPD) with ESMTPSA id da1c29b1 (TLSv1.3:TLS_AES_256_GCM_SHA384:256:NO);
-	Sat, 26 Sep 2026 10:02:35 +0000 (UTC)
-Date: Sat, 26 Sep 2026 12:02:26 +0200
-From: "Jason A. Donenfeld" <Jason@zx2c4.com>
-To: Nick Desaulniers <ndesaulniers@google.com>
-Cc: Nathan Chancellor <nathan@kernel.org>,
-	Andy Lutomirski <luto@kernel.org>,
-	Thomas Gleixner <tglx@kernel.org>, Theodore Ts'o <tytso@mit.edu>,
-	Vincenzo Frascino <vincenzo.frascino@arm.com>,
-	Bill Wendling <morbo@google.com>,
-	Justin Stitt <justinstitt@google.com>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Will Deacon <will@kernel.org>, Mark Rutland <mark.rutland@arm.com>,
-	Huacai Chen <chenhuacai@kernel.org>,
-	WANG Xuerui <kernel@xen0n.name>,
-	Madhavan Srinivasan <maddy@linux.ibm.com>,
-	Michael Ellerman <mpe@ellerman.id.au>,
-	Nicholas Piggin <npiggin@gmail.com>,
-	"Christophe Leroy (CS GROUP)" <chleroy@kernel.org>,
-	Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>,
-	Heiko Carstens <hca@linux.ibm.com>,
-	Vasily Gorbik <gor@linux.ibm.com>,
-	Alexander Gordeev <agordeev@linux.ibm.com>,
-	Christian Borntraeger <borntraeger@linux.ibm.com>,
-	Sven Schnelle <svens@linux.ibm.com>, Ingo Molnar <mingo@redhat.com>,
-	Borislav Petkov <bp@alien8.de>,
-	Dave Hansen <dave.hansen@linux.intel.com>,
-	"H. Peter Anvin" <hpa@zytor.com>, x86@kernel.org,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
-	loongarch@lists.linux.dev, linuxppc-dev@lists.ozlabs.org,
-	linux-riscv@lists.infradead.org, linux-s390@vger.kernel.org,
-	llvm@lists.linux.dev
-Subject: Re: [PATCH v2] random: vDSO: Avoid call to memset() when zeroing
- reserved in __cvdso_getrandom_data()
-Message-ID: <areYMjNcaqe86ds4@zx2c4.com>
-References: <20260925-vdso-getrandom-avoid-memset-llvm-24-v2-1-ce640f872393@kernel.org>
- <CAKwvOdmuvn0LZkYEsH84hnOGTYhTtzuWs3wMARtWdTeL6dD9sA@mail.gmail.com>
- <CAKwvOdnxKVpn=nAFaqP+9PTx4PqgHsUVWv6e60Pcr29W_eZrpQ@mail.gmail.com>
- <CAKwvOdmNZL3eFvV3v77GXDzL+XLgz+BT9TA=my0yTnbsHqVeSg@mail.gmail.com>
+	id 1xAPMX-0000000FFgk-3Bbr
+	for linux-arm-kernel@lists.infradead.org;
+	Sat, 26 Sep 2026 10:10:34 +0000
+Received: by mail-qk2-x11.google.com with SMTP id d75a77b69052e-530de452c33so16718321cf.1
+        for <linux-arm-kernel@lists.infradead.org>; Sat, 26 Sep 2026 03:10:33 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20251104; t=1790417432; x=1791022232; darn=lists.infradead.org;
+        h=cc:to:message-id:content-transfer-encoding:content-type
+         :mime-version:subject:date:from:from:to:cc:subject:date:message-id
+         :reply-to:content-type;
+        bh=a2QwrJTjNePGvVoDDQsoh5hhf8GU4fREmLPOvIhMRHQ=;
+        b=gyZQJ2Csz7munCHwH4G+xOggajppR2xW3YhXSns0RrkNnmJwSKfkj4Eh4HIny1VdKk
+         aR0JMpdE93yHnWbFtyBcKX12+x6s771h6I5x6ETJ9Qu1hwuhiTlPLz3bQ4K3AwuWpY2q
+         MUGmCGsxuDy2kZDSjWlpOdt4X+aKYPmG1IN8uuIx2i0OVZnMlcNYXOtt9Irytx+mUEZV
+         mgcmk9hsmGPPnJPzozohd4Zc/rpFukadopjVzkV7vUl3nL9wJknFYlohE9vpDrZj3Jt8
+         wyzBTuAUyTp0p2m/KQxO4lHV38bolpR8bqMkM1HUDhtjRcLn0HLN6izflujMu1KyKLpo
+         SNsw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1790417432; x=1791022232;
+        h=cc:to:message-id:content-transfer-encoding:content-type
+         :mime-version:subject:date:from:x-gm-gg:x-gm-message-state:from:to
+         :cc:subject:date:message-id:reply-to:content-type;
+        bh=a2QwrJTjNePGvVoDDQsoh5hhf8GU4fREmLPOvIhMRHQ=;
+        b=oROkIIskZDW1+kMXtQTP7QonQVbNEow/jE1RqgWATMIMfRaajF4lPP7QpBTZBFK9Lm
+         rqPhTbSOdgYoYRUj38jEV6VBvqa79KFCsn7nFHpCwVBp9LvUb9QwMT2sAg9RgMdzAUnN
+         c6QHaHa3c+7ufQnz2rN3EBzuAOJhlbYGWkew1q/e9DNLc/ObIrxeT5gROdngMcEJMLJL
+         mqkyv7iJp6AwJrmEF6Zvs/Fw1vL0Kvn29Fmx1f3YYpCF1seryJ0VCPKfyYJPisZmyh/i
+         dmO/O6Md28Ud+B970CPcVV+OefbHRBU+Puau63ybPzx6Qx7p0mkVilxpgcMoyzosE/Kf
+         mVig==
+X-Forwarded-Encrypted: i=1; AKwUvBzmuZWJOzB6IpWe2Vpa1EriqfSPf2ANJ91/jSUD5BZcwK8GzRx2CUhc3YD+6PbK4WwHgqqGXnJ+aTJE8BJdpTl0@lists.infradead.org
+X-Gm-Message-State: AFuF++kER/W6ZkGdte4e35kH77Gg7EDobSHDY/EEpgy3pS5mUvgQWeSp
+	c/uy2g47XZ2TVkJIF1BQBl3+a2MnHQwKR6ZhXF/Xnol3daQ1qxEmeITn5qoI3a6t
+X-Gm-Gg: AYBFou0pGqb7nclicCR0mcqUr59f0Rjo3Yk1L13GL+F1i6phmOhyk9tXbPtBBlgerRq
+	Ww/QXNfymQHjmtSqHt2eziHcKHNtqqFhd8GjKoGJ+Hc9wvYswmbAel1llWEp5rpvvNJvffBMT2o
+	6VlF8QfSdEbB6ONkcdfhz4N5/OEBG13enKGMRDkHktDMf7rtHD7oPXjD/pwHyGrX8WnV0H4/Dqf
+	EPgKG0Oqu/hgl74Uh4WWjZVnc77rRCM+4P9714b2d9S7Xe9Z45BLSBVN8azAv9PwmkCy0ECT5k6
+	zgibOF+GxVxzlBI4lK7BhXrSqPsG3MkI1nyoROBJ9xlYeCX5nRuYwYCFEv9bNnC9C/0Cczhhoyq
+	+dHaa/FrMeANv0MrQTkrMtLrevkaUlgkxu178CVmhCjSLIppXvM6h42QWzjzp6oEr9EWJ5uL7Bp
+	vL4OpIjlK7H1wzvRDYihBTmtmWiw7mBaevmGIxEzHF4Ve2zb0zFcYKjGthayj85a6GP6ref6NSF
+	wxdMIVKvkatKbdZg8dZYqQIvSOA3ZlU9A==
+X-Received: by 2002:a17:90b:17c9:b0:3a0:c833:de75 with SMTP id 98e67ed59e1d1-3a0c833e54amr3104087a91.30.1790417063447;
+        Sat, 26 Sep 2026 03:04:23 -0700 (PDT)
+Received: from localhost.localdomain ([104.28.254.47])
+        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-3a0b9481e17sm8806891a91.8.2026.09.26.03.04.19
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Sat, 26 Sep 2026 03:04:23 -0700 (PDT)
+From: Chuanhong Guo <gch981213@gmail.com>
+Date: Sat, 26 Sep 2026 18:04:14 +0800
+Subject: [PATCH] pinctrl: mediatek: mt7629: fix the 2.4 GHz Wi-Fi pin mode
+ array
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-Content-Transfer-Encoding: 8bit
-In-Reply-To: <CAKwvOdmNZL3eFvV3v77GXDzL+XLgz+BT9TA=my0yTnbsHqVeSg@mail.gmail.com>
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+Message-Id: <20260926-b4-mt7629-pinctrl-v1-1-23904cb0c3f3@gmail.com>
+X-B4-Tracking: v=1; b=H4sIAAAAAAAC/x3MQQrCMBBA0auUWTuYDJISryIukjjagXYsSSqB0
+ rsbXb7F/zsUzsIFrsMOmT9S5K0d9jRAmoK+GOXRDWTIGU8O4wWXOjryuIqmmme0yXmybJyjEXq
+ 3Zn5K+z9v9+4YCmPMQdP0O82iW0PlVs9LKJUzHMcXouaD74cAAAA=
+X-Change-ID: 20260926-b4-mt7629-pinctrl-1c6921e06627
+To: Sean Wang <sean.wang@kernel.org>, Linus Walleij <linusw@kernel.org>, 
+ Ryder Lee <ryder.lee@mediatek.com>
+Cc: Matthias Brugger <matthias.bgg@gmail.com>, 
+ AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, 
+ linux-mediatek@lists.infradead.org, linux-gpio@vger.kernel.org, 
+ linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+ Chuanhong Guo <gch981213@gmail.com>
+X-Mailer: b4 0.14.3
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260926_031033_863029_F2BBE59C 
+X-CRM114-Status: GOOD (  11.93  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -102,199 +107,40 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, Sep 25, 2026 at 03:00:46PM -0700, Nick Desaulniers wrote:
-> On Fri, Sep 25, 2026 at 2:56 PM Nick Desaulniers
-> <ndesaulniers@google.com> wrote:
-> >
-> > On Fri, Sep 25, 2026 at 2:53 PM Nick Desaulniers
-> > <ndesaulniers@google.com> wrote:
-> > >
-> > > On Fri, Sep 25, 2026 at 2:46 PM Nathan Chancellor <nathan@kernel.org> wrote:
-> > > >
-> > > > After a recent change in LLVM [1], builds with the random vDSO
-> > > > implementation, such as PowerPC and RISC-V, fail when checking the vDSO:
-> > > >
-> > > >   arch/powerpc/kernel/vdso/vdso32.so.dbg: dynamic relocations are not supported
-> > > >   arch/riscv/kernel/vdso/vdso.so.dbg: dynamic relocations are not supported
-> > > >
-> > > > memset() is now generated when zeroing params->reserved for some builds
-> > > > because LLVM has an optimization (now run in more instances) that can
-> > > > recognize at compile time when it is assigning a static value to a
-> > > > contiguous area of memory and turn that into a call to memset(). Both
-> > > > clang and GCC assume memset() is always available [2].
-> > > >
-> > > > clang provides a builtin, __builtin_memset_inline [3][4], that can be
-> > > > used to ensure an external function call is not generated when zeroing
-> > > > this memory. Use it when it is available.
-> > > >
-> > > > While GCC has no issues with the current code, it has generated memset()
-> > > > before, as seen in commit b7bad082e113 ("random: vDSO: avoid call to out
-> > > > of line memset()"). GCC 14 provides '-finline-stringops=memset' [5][6]
-> > > > with a similar guarantee to the clang builtin, so use it and
-> > > > __builtin_memset() when available.
-> > > >
-> > > > If no option is available, provide a simple memset_inline() like the one
-> > > > from lib/string.c to avoid adding an ugly ifdef.
-> > > >
-> > > > Link: https://github.com/llvm/llvm-project/commit/90cebef1411617fc3eedd359bdf00cb44b1c2439 [1]
-> > > > Link: https://gcc.gnu.org/onlinedocs/gcc-16.2.0/gcc/Standards.html#index-ffreestanding [2]
-> > > > Link: https://github.com/llvm/llvm-project/commit/38637ee477541370a90b37f149069d8e5c0c2efd [3]
-> > > > Link: https://clang.llvm.org/docs/LanguageExtensions.html#guaranteed-inlined-memset [4]
-> > > > Link: https://gcc.gnu.org/git/?p=gcc.git;a=commit;h=1ff6d9f7428b0668cd8ab0b3e3ab94f1d733124d [5]
-> > > > Link: https://gcc.gnu.org/onlinedocs/gcc/Optimize-Options.html#index-finline-stringops [6]
-> > > > Suggested-by: "Jason A. Donenfeld" <Jason@zx2c4.com>
-> > > > Suggested-by: Nick Desaulniers <ndesaulniers@google.com>
-> > > > Signed-off-by: Nathan Chancellor <nathan@kernel.org>
-> > > > ---
-> > > > Changes in v2:
-> > > > - Switch approach entirely (Jason, Nick)
-> > > >   - clang: use __builtin_memset_inline() to avoid external call
-> > > >   - GCC 14+: use __builtin_memset + -finline-stringops=memset (hence the
-> > > >     massive CC list increase)
-> > > >   - GCC < 14: no issues currently but avoid ifdef with simple memset
-> > > >     implementation
-> > > > - Link to v1: https://patch.msgid.link/20260916-vdso-getrandom-avoid-memset-llvm-24-v1-1-80a92f2e225a@kernel.org
-> > > > ---
-> > > >  arch/arm64/kernel/vdso/Makefile     |  2 +-
-> > > >  arch/loongarch/vdso/Makefile        |  1 +
-> > > >  arch/powerpc/kernel/vdso/Makefile   |  1 +
-> > > >  arch/riscv/kernel/vdso/Makefile     |  1 +
-> > > >  arch/s390/kernel/vdso/Makefile      |  1 +
-> > > >  arch/x86/entry/vdso/vdso64/Makefile |  2 +-
-> > > >  init/Kconfig                        |  7 +++++++
-> > > >  lib/vdso/getrandom.c                | 19 +++++++++++++++++--
-> > > >  8 files changed, 30 insertions(+), 4 deletions(-)
-> > > >
-> > > > diff --git a/arch/arm64/kernel/vdso/Makefile b/arch/arm64/kernel/vdso/Makefile
-> > > > index 7dec05dd33b7..f6619e1cb2ce 100644
-> > > > --- a/arch/arm64/kernel/vdso/Makefile
-> > > > +++ b/arch/arm64/kernel/vdso/Makefile
-> > > > @@ -41,7 +41,7 @@ CC_FLAGS_REMOVE_VDSO := $(CC_FLAGS_FTRACE) -Os $(CC_FLAGS_SCS) \
-> > > >                         $(CC_FLAGS_LTO) $(CC_FLAGS_CFI) \
-> > > >                         -Wmissing-prototypes -Wmissing-declarations
-> > > >
-> > > > -CC_FLAGS_ADD_VDSO := -O2 -mcmodel=tiny -fasynchronous-unwind-tables
-> > > > +CC_FLAGS_ADD_VDSO := -O2 -mcmodel=tiny -fasynchronous-unwind-tables $(CONFIG_CC_OPT_INLINE_MEMSET)
-> > > >
-> > > >  CFLAGS_REMOVE_vgettimeofday.o = $(CC_FLAGS_REMOVE_VDSO)
-> > > >  CFLAGS_REMOVE_vgetrandom.o = $(CC_FLAGS_REMOVE_VDSO)
-> > > > diff --git a/arch/loongarch/vdso/Makefile b/arch/loongarch/vdso/Makefile
-> > > > index 9c9181bb4071..0b84892d084b 100644
-> > > > --- a/arch/loongarch/vdso/Makefile
-> > > > +++ b/arch/loongarch/vdso/Makefile
-> > > > @@ -16,6 +16,7 @@ ccflags-vdso := \
-> > > >         $(filter -m64,$(KBUILD_CFLAGS)) \
-> > > >         $(filter -march=%,$(KBUILD_CFLAGS)) \
-> > > >         $(filter -m%-float,$(KBUILD_CFLAGS)) \
-> > > > +       $(CONFIG_CC_OPT_INLINE_MEMSET) \
-> > > >         $(CLANG_FLAGS) \
-> > > >         -D__VDSO__
-> > > >
-> > > > diff --git a/arch/powerpc/kernel/vdso/Makefile b/arch/powerpc/kernel/vdso/Makefile
-> > > > index 368759f81708..0d1a49529885 100644
-> > > > --- a/arch/powerpc/kernel/vdso/Makefile
-> > > > +++ b/arch/powerpc/kernel/vdso/Makefile
-> > > > @@ -43,6 +43,7 @@ ccflags-y := -fno-common -fno-builtin -DBUILD_VDSO
-> > > >  ccflags-y += $(DISABLE_LATENT_ENTROPY_PLUGIN)
-> > > >  ccflags-y += $(call cc-option, -fno-stack-protector)
-> > > >  ccflags-y += -DDISABLE_BRANCH_PROFILING
-> > > > +ccflags-y += $(CONFIG_CC_OPT_INLINE_MEMSET)
-> > > >  ccflags-y += -ffreestanding -fasynchronous-unwind-tables
-> > > >  ccflags-remove-y := $(CC_FLAGS_FTRACE)
-> > > >  ldflags-y := -Wl,--hash-style=both -nostdlib -shared -z noexecstack $(CLANG_FLAGS)
-> > > > diff --git a/arch/riscv/kernel/vdso/Makefile b/arch/riscv/kernel/vdso/Makefile
-> > > > index 8dbf2532a573..c023046a3fd7 100644
-> > > > --- a/arch/riscv/kernel/vdso/Makefile
-> > > > +++ b/arch/riscv/kernel/vdso/Makefile
-> > > > @@ -36,6 +36,7 @@ endif
-> > > >  ccflags-y := -fno-stack-protector
-> > > >  ccflags-y += -DDISABLE_BRANCH_PROFILING
-> > > >  ccflags-y += -fno-builtin
-> > > > +ccflags-y += $(CONFIG_CC_OPT_INLINE_MEMSET)
-> > > >  ccflags-y += $(KBUILD_BASE_ISA)$(CFI_MARCH)
-> > > >  ccflags-y += $(CFI_FULL)
-> > > >  asflags-y += $(KBUILD_BASE_ISA)$(CFI_MARCH)
-> > > > diff --git a/arch/s390/kernel/vdso/Makefile b/arch/s390/kernel/vdso/Makefile
-> > > > index 35c834b895ec..54bcf2984ca1 100644
-> > > > --- a/arch/s390/kernel/vdso/Makefile
-> > > > +++ b/arch/s390/kernel/vdso/Makefile
-> > > > @@ -29,6 +29,7 @@ KBUILD_CFLAGS_VDSO := $(filter-out -munaligned-symbols,$(KBUILD_CFLAGS_VDSO))
-> > > >  KBUILD_CFLAGS_VDSO := $(filter-out -fno-asynchronous-unwind-tables,$(KBUILD_CFLAGS_VDSO))
-> > > >  KBUILD_CFLAGS_VDSO += -fPIC -fno-common -fno-builtin -fasynchronous-unwind-tables
-> > > >  KBUILD_CFLAGS_VDSO += -fno-stack-protector $(DISABLE_KSTACK_ERASE)
-> > > > +KBUILD_CFLAGS_VDSO += $(CONFIG_CC_OPT_INLINE_MEMSET)
-> > > >  ldflags-y := -shared -soname=linux-vdso.so.1 \
-> > > >              --hash-style=both --build-id=sha1 \
-> > > >              $(call ld-option, --eh-frame-hdr) -T
-> > > > diff --git a/arch/x86/entry/vdso/vdso64/Makefile b/arch/x86/entry/vdso/vdso64/Makefile
-> > > > index 7c0790065b5e..c2353a065279 100644
-> > > > --- a/arch/x86/entry/vdso/vdso64/Makefile
-> > > > +++ b/arch/x86/entry/vdso/vdso64/Makefile
-> > > > @@ -14,7 +14,7 @@ vobjs-$(CONFIG_X86_SGX)                       += vsgx.o
-> > > >  vobjs-$(CONFIG_FUTEX_ROBUST_UNLOCK)    += vfutex.o
-> > > >
-> > > >  # Compilation flags
-> > > > -flags-y                                := -DBUILD_VDSO64 -m64 -mcmodel=small
-> > > > +flags-y                                := -DBUILD_VDSO64 -m64 -mcmodel=small $(CONFIG_CC_OPT_INLINE_MEMSET)
-> > > >
-> > > >  # The location of this include matters!
-> > > >  include $(src)/../common/Makefile.include
-> > > > diff --git a/init/Kconfig b/init/Kconfig
-> > > > index 8583d9f06c52..ff3f8475dd2f 100644
-> > > > --- a/init/Kconfig
-> > > > +++ b/init/Kconfig
-> > > > @@ -173,6 +173,13 @@ config CC_HAS_ALLOC_TOKEN
-> > > >  config CC_HAS_MULTIDIMENSIONAL_NONSTRING
-> > > >         def_bool $(success,echo 'char tag[][4] __attribute__((__nonstring__)) = { };' | $(CC) $(CLANG_FLAGS) -x c - -c -o /dev/null -Werror)
-> > > >
-> > > > +config CC_HAS_OPT_INLINE_MEMSET
-> > > > +       def_bool $(cc-option,-finline-stringops=memset)
-> > > > +
-> > > > +config CC_OPT_INLINE_MEMSET
-> > > > +       string
-> > > > +       default "-finline-stringops=memset" if CC_HAS_OPT_INLINE_MEMSET
-> > > > +
-> > > >  config LD_CAN_USE_KEEP_IN_OVERLAY
-> > > >         # ld.lld prior to 21.0.0 did not support KEEP within an overlay description
-> > > >         # https://github.com/llvm/llvm-project/pull/130661
-> > > > diff --git a/lib/vdso/getrandom.c b/lib/vdso/getrandom.c
-> > > > index 2851afa9154f..f5cad5641985 100644
-> > > > --- a/lib/vdso/getrandom.c
-> > > > +++ b/lib/vdso/getrandom.c
-> > > > @@ -29,6 +29,22 @@
-> > > >         }                                                                       \
-> > > >  } while (0)
-> > > >
-> > > > +#if __has_builtin(__builtin_memset_inline)
-> > > > +#define memset_inline(dst, value, size) __builtin_memset_inline(dst, value, size)
-> > > > +#elif IS_ENABLED(CONFIG_CC_HAS_OPT_INLINE_MEMSET)
-> > > > +#define memset_inline(dst, value, size) __builtin_memset(dst, value, size)
-> > > > +#else
-> > > > +static inline void *memset_inline(void *dst, int value, size_t size)
-> > > > +{
-> > > > +       char *d = dst;
-> > > > +
-> > > > +       while (size--)
-> > > > +               *d++ = value;
-> > > > +
-> > > > +       return d;
-> > > > +}
-> > > > +#endif
-> > >
-> > > Does this work?
-> > > https://godbolt.org/z/Tx6EaGMfb
-> >
-> > Hmmm...possibly.
-> > https://godbolt.org/z/ec9rzd9Yf
-> > I don't get it...
-> 
-> Just keep it under 2 pages, it will be fine:
-> https://godbolt.org/z/qqoMqfxev
+The wf0_2g group contains nine pins but only eight mux values.
+mtk_pinmux_set_mux() indexes the mode array once for each pin, reading
+past its end when configuring pin 78 (WF0_2G_HB6). This can select an
+unrelated mux value or fail with -EINVAL, preventing the Wi-Fi device
+from probing.
 
-https://godbolt.org/z/9W9f5a7Wx
+Add the missing mode 1 entry for WF0_2G_HB6.
 
-Apparently not on RISCV, which is what prompted this patch in the first
-place. So I suspect Nathan's v2 here is the way to go.
+Fixes: b44677375fee ("pinctrl: mediatek: add pinctrl support for MT7629 SoC")
+Signed-off-by: Chuanhong Guo <gch981213@gmail.com>
+---
+ drivers/pinctrl/mediatek/pinctrl-mt7629.c | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
 
-Jason
+diff --git a/drivers/pinctrl/mediatek/pinctrl-mt7629.c b/drivers/pinctrl/mediatek/pinctrl-mt7629.c
+index 385d66b8e3fb..29a4c171e8b6 100644
+--- a/drivers/pinctrl/mediatek/pinctrl-mt7629.c
++++ b/drivers/pinctrl/mediatek/pinctrl-mt7629.c
+@@ -294,7 +294,7 @@ static int mt7629_pwm_1_funcs[] = { 2, };
+ 
+ /* WF 2G */
+ static int mt7629_wf0_2g_pins[] = { 70, 71, 72, 73, 74, 75, 76, 77, 78, };
+-static int mt7629_wf0_2g_funcs[] = { 1, 1, 1, 1, 1, 1, 1, 1, };
++static int mt7629_wf0_2g_funcs[] = { 1, 1, 1, 1, 1, 1, 1, 1, 1, };
+ 
+ /* WF 5G */
+ static int mt7629_wf0_5g_pins[] = { 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, };
+
+---
+base-commit: f5f84daefcd92d7a630066635ecea1433ed5eac7
+change-id: 20260926-b4-mt7629-pinctrl-1c6921e06627
+
+Best regards,
+-- 
+Chuanhong Guo <gch981213@gmail.com>
+
 
