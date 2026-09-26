@@ -4,107 +4,75 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 15BF1C9832F
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 26 Sep 2026 19:29:47 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3E68BC9832F
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 26 Sep 2026 19:38:15 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:References:Cc:To:Subject:From:MIME-Version:Date:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=RII7KH71ddmT/n6y6BydIJU7a3otHfuo1n/mYhsl0VA=; b=ygCdbvhK5V18BJSg8mwfU87NuP
-	DRhbdp/RvNrYwXkEHiYdIHDCk61nPHnHzl/uOiJqZeJCTDnog+I4bcBz2vIHuXU69DgvWUfmtlfrm
-	44/YRRGB6260Nsi2AN4eYsTLIWOkP/znWqNAfotauK6Wqzptd0QR/Wop04BJYTriDE4nKE8sNdYP1
-	4ORD4015j/MeYbVEn0WTaMrY8xXE4H1Xg/4egm64jX8h/bR6dDtb7Rv22x84IJtGEn8NyKXihu/Ld
-	DgecYF3uP6gbsFmCMKHvqv1x49AtnZjU4gq6KThxHfoGZU4XERAV1bO1Ydbaub11ubkBJM2P7M6B2
-	9y5ciOTA==;
+	bh=LYe49kOMn0vSPqjYDLCxciDWRAv8kzL3j3Sod1atpTY=; b=dmh1R2lZhP4s/9Bz78un0u4TQ/
+	EYAEKsURbjpK6gggL5/zJ3+0UxCjoZ/iqgw4hQFKEX+iAXPhel8BkAwpvfziA28H6y8BXrKZlOigG
+	B5a68H1WjOc63ai/2gRTXu+qyGD3NqKg7RxcjwpFyvCXWS9tvULlcy2yljRN/66Db+WlBt4yHf51I
+	n+D03djWpgOqiZBKwEELojPfAY1FJVwrMiYhYceCio31MKz42K0ei0xT/K1rF1UjttTFPHyW3Z8qn
+	Haev381PVwAQJd0/H09yiELgoLbAxDsW8nOe9r0bANhsehWCrm0AG0t0XFFp3hAC1sdpKevCxcvc5
+	AJ9S73nw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xAY5b-0000000Fl2h-0WRb;
-	Sat, 26 Sep 2026 19:29:39 +0000
-Received: from mail-pj2-x0f.google.com ([2607:f8b0:4864:39::f])
+	id 1xAYDk-0000000FlUP-3zGn;
+	Sat, 26 Sep 2026 19:38:04 +0000
+Received: from smtpout-03.galae.net ([185.246.85.4])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xAY5Z-0000000Fl2D-10Pt
+	id 1xAYDi-0000000FlU3-0zNN
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 26 Sep 2026 19:29:38 +0000
-Received: by mail-pj2-x0f.google.com with SMTP id 98e67ed59e1d1-396ccafb752so978704a91.0
-        for <linux-arm-kernel@lists.infradead.org>; Sat, 26 Sep 2026 12:29:36 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1790450976; x=1791055776; darn=lists.infradead.org;
-        h=content-transfer-encoding:content-type:in-reply-to:content-language
-         :references:cc:to:subject:from:user-agent:mime-version:date
-         :message-id:from:to:cc:subject:date:message-id:reply-to:content-type;
-        bh=RII7KH71ddmT/n6y6BydIJU7a3otHfuo1n/mYhsl0VA=;
-        b=XKjFzmC6J09J5jy4oN0JvdgqPAoX6kyEX7IpedbvWXOjDCFw9+4FU/qJSkgwWjqbby
-         nzP3r5HQkoBjiLlbA7s7KQLN67LqNTcjV8knIXI1Ty5opJDILNz40oR7r6DDK54h6ZkQ
-         +D0dayyy4RM/q+fNKse4jvL87XCJo4EdeHsGn07/Xsr6kplho/8TOgSaflVwFZ9PSnDt
-         uk9M47l8bt2bRW5FkNgmGyrroeXKN/hBHJ+S2N/jD2oN9aJ1QSpcnhQqmzjMPNRzT/dY
-         I2GVq3UwvBsA2rNxUpRvL4sefCqX6DJOBefNX3wgSdiZa94i7UfTFcIKoFqE0ulAk70x
-         SJIw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1790450976; x=1791055776;
-        h=content-transfer-encoding:content-type:in-reply-to:content-language
-         :references:cc:to:subject:from:user-agent:mime-version:date
-         :message-id:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=RII7KH71ddmT/n6y6BydIJU7a3otHfuo1n/mYhsl0VA=;
-        b=IwCz6HbCh39ZkzT0LACaTCyrqCTZmO1m3LxCLzj9X8W9TK+YIqcadQ5XpJmBM8QF63
-         TZNfj27isWXAC5I4JuxB3HCHz+LBuC5kw0am8Y8gUnOSeNh261u8J+wZUsGkkKQoT7R0
-         SgBOUczwsW9/GKRGBVeTc5A2rsgvZhVtTSC08eUKApflVSy6bRotftcNh11YdTeNnAcP
-         usmlNBcvKDtCvhJC4Px4wBZSprFWrnP41MzVHWpKqUhByTGLvx9RQjesL23V3RTu+rDj
-         rb8oSeHnj3IC5v1rTDAmBcSA1ifKYk1q8FobudYmFw2Wsf7ZY9go1ZvMMTJKb6mlbteX
-         vCeA==
-X-Forwarded-Encrypted: i=1; AKwUvBxu64+oLSamJYHv4XCYe64X6CXJuEwdf/0hlvjbLqQl9Od2q7FpuNiYpXHoNJq7XP9KpRNRGQGokRUFnJkW2GUP@lists.infradead.org
-X-Gm-Message-State: AFq9FYJCCed23Dc8UgdY70NIfnUG/RVZR6u9LUQQe4aAYRKLui3jjYGR
-	IsVr+X/XID4vbLFjqxSR+oWiN+oP0hF8oJpjP7vX4LZSdZsqSxSE+HQT
-X-Gm-Gg: AYBFou3A2EKwCPWn09GA9eBhIkSkvD+z5q++x0Dkgnjn4Hh2kTQKBfMY3Nb33Lizkwf
-	l0vjKs0jOHKFgh29XWlqJMaDnqbsIbBo1ttFkBM6GhTqMwFmlrUzIfKkaadPNNk3sBbx1MeC8g6
-	DTC6Apt/0oLkiIt6sNvfaeTyPFGPgffAf32mV0QRZ8ZmstDqp0HwitPi5Drq2HSOlTQucsqSxEC
-	3IUWcpSCbdQk5o702c4HVuoA6+kUrqUD2tFMhrGLp+OjPGKRNha9fqPu39ZCi3ZsgCquL1Px2Pf
-	pR0JZiJvdK/v5wSw4OHtazw/CZwuxmK8EZdCNgspM1dNf9EY1lc9ZzN1T7lAJZ0oCLtH8JU49YQ
-	bEoi7Y9B0MaNpIB0wSUYYzUjvxSdSW3HebJOiTuQv9H/CzK9ccXDLuql7h0CapNXhT2xKcz+GhC
-	8rc109v+YVNMGhWjgNL2aQ1frOKyavtHkKWNYzTJsFlqRuNFUgSKvqS64zYvcL9Ps0Cam1tfOzt
-	TpxX5LcpILgLWvq332RDBecRaQkG4S6N04jTMUX7e8=
-X-Received: by 2002:a17:90a:e7d2:b0:3a0:eb54:2e60 with SMTP id 98e67ed59e1d1-3a0eb543751mr1574379a91.31.1790450976021;
-        Sat, 26 Sep 2026 12:29:36 -0700 (PDT)
-Received: from [192.168.11.3] (215.96.231.218.rev.ocx2915.net. [218.231.96.215])
-        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-3a0ba31f408sm3564492a91.3.2026.09.26.12.29.28
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Sat, 26 Sep 2026 12:29:35 -0700 (PDT)
-Message-ID: <df064f9e-ad54-43fb-9b25-9e2869506732@gmail.com>
-Date: Sun, 27 Sep 2026 04:29:26 +0900
+	Sat, 26 Sep 2026 19:38:04 +0000
+Received: from smtpout-01.galae.net (smtpout-01.galae.net [212.83.139.233])
+	by smtpout-03.galae.net (Postfix) with ESMTPS id CC9584E41080;
+	Sat, 26 Sep 2026 19:37:58 +0000 (UTC)
+Received: from mail.galae.net (mail.galae.net [212.83.136.155])
+	by smtpout-01.galae.net (Postfix) with ESMTPS id 8F51860749;
+	Sat, 26 Sep 2026 19:37:58 +0000 (UTC)
+Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id E4A73102F1E4C;
+	Sat, 26 Sep 2026 21:37:49 +0200 (CEST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=dkim;
+	t=1790451477; h=from:subject:date:message-id:to:cc:mime-version:content-type:
+	 content-transfer-encoding:content-language:in-reply-to:references;
+	bh=LYe49kOMn0vSPqjYDLCxciDWRAv8kzL3j3Sod1atpTY=;
+	b=R62xE1mTaQxatCb33DR/HwgfJGSTvghkJi850RfagXCdxe6q46ez5v2SX72SXW4yBSE4l9
+	rS1AGxMot7mXdZ6ZiC0HGfcyLmdjqBYB3gCnBNj7XTrhmmwpAuwTZQhhX2VYlEVCWSP6fy
+	bSXQ0pHL2S2TtsU/oEmWEJ3N4CLe2YTORmjsGbJzfMZ53ie3vSfXpObeIcWob32y/adB02
+	+JDblpk8pw4wnFDkKML0eBbTOnVHhCSE4H1QcuKH/ZZX1myiGgTIq7Ve091r2xE0AUOqn6
+	xoVQjWJs5rEmiBEJJIWA8uQO9/v3DZIMxlEq4A4N0rFlfGssXUgN2HTbsD0QkA==
+Message-ID: <3bcac28b-71ce-4c08-97a2-4cd59ab76c8c@bootlin.com>
+Date: Sat, 26 Sep 2026 21:37:49 +0200
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-From: Yoshifumi SHU <envzhu@gmail.com>
-Subject: Re: [PATCH v2 00/14] ARM: deprecated platform removal
-To: Linus Walleij <linusw@kernel.org>
-Cc: arnd@kernel.org, Frank.Li@nxp.com, aaro.koskinen@iki.fi,
- alexander.sverdlin@siemens.com, alexandre.belloni@bootlin.com,
- alexandre.torgue@foss.st.com, andreas@kemnade.info, andrew@lunn.ch,
- arnd@arndb.de, claudiu.beznea@tuxon.dev, conor+dt@kernel.org,
- david@kernel.org, devicetree@vger.kernel.org, enelsonmoore@gmail.com,
- festevam@gmail.com, geert@linux-m68k.org, gregory.clement@bootlin.com,
- imx@lists.linux.dev, kernel@pengutronix.de, khilman@baylibre.com,
- kmehltretter@gmail.com, kristoffer.ericson@gmail.com, krzk@kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-doc@vger.kernel.org,
- linux-kernel@vger.kernel.org, linux-omap@vger.kernel.org,
- linux-stm32@st-md-mailman.stormreply.com, linux@armlinux.org.uk,
- liviu.dudau@arm.com, lpieralisi@kernel.org, mcoquelin.stm32@gmail.com,
- nicolas.ferre@microchip.com, npitre@baylibre.com, robert.jarzmik@free.fr,
- robh@kernel.org, rogerq@kernel.org, s.hauer@pengutronix.de,
- sebastian.hesselbarth@gmail.com, shawnguo@kernel.org, soc@lists.linux.dev,
- stefan@agner.ch, sudeep.holla@kernel.org, tony@atomide.com, vz@mleia.com,
- thehajime@gmail.com
-References: <20260914140821.1805449-1-arnd@kernel.org>
- <17a74e90-27d1-4954-86a8-491267f00cb8@gmail.com>
- <CAD++jL=VJsnk-GzAvR4oR8oKJayQzq9Oes+ZW7K=iHGrQ1jh0w@mail.gmail.com>
+Subject: Re: [PATCH net] net: stmmac: Don't set or get RSS parameters when not
+ supported
+To: Nicolai Buchwitz <nb@tipi-net.de>
+Cc: Andrew Lunn <andrew+netdev@lunn.ch>, Jakub Kicinski <kuba@kernel.org>,
+ davem@davemloft.net, Eric Dumazet <edumazet@google.com>,
+ Paolo Abeni <pabeni@redhat.com>, Simon Horman <horms@kernel.org>,
+ Maxime Coquelin <mcoquelin.stm32@gmail.com>,
+ Alexandre Torgue <alexandre.torgue@foss.st.com>,
+ Russell King <linux@armlinux.org.uk>,
+ Jitendra Vegiraju <jitendra.vegiraju@broadcom.com>,
+ thomas.petazzoni@bootlin.com, =?UTF-8?Q?Alexis_Lothor=C3=A9?=
+ <alexis.lothore@bootlin.com>, netdev@vger.kernel.org,
+ linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-stm32@st-md-mailman.stormreply.com
+References: <20260926093343.292181-1-maxime.chevallier@bootlin.com>
+ <250ecb58e80b191865bcf03f7146f7c2@tipi-net.de>
 Content-Language: en-US
-In-Reply-To: <CAD++jL=VJsnk-GzAvR4oR8oKJayQzq9Oes+ZW7K=iHGrQ1jh0w@mail.gmail.com>
+From: Maxime Chevallier <maxime.chevallier@bootlin.com>
+In-Reply-To: <250ecb58e80b191865bcf03f7146f7c2@tipi-net.de>
 Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+Content-Transfer-Encoding: 8bit
+X-Last-TLS-Session-Version: TLSv1.3
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260926_122937_288428_C0240399 
-X-CRM114-Status: GOOD (  10.86  )
+X-CRM114-CacheID: sfid-20260926_123802_441766_ECFCEFCF 
+X-CRM114-Status: GOOD (  19.34  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -119,21 +87,94 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 2026/09/25 22:30, Linus Walleij wrote:
-> All right, now we're talking! Could you test and review this patch:
-> https://lore.kernel.org/linux-arm-kernel/20260910-arm-generic-irq-entry-v7-1-v3-1-5fd90f6859e1@kernel.org/
+Hi Nicolai,
 
-Thanks! I'll take a closer look at the patch and the discussion thread.
+On 9/26/26 20:41, Nicolai Buchwitz wrote:
+> Hi Maxime
+> 
+> On 26.9.2026 11:33, Maxime Chevallier wrote:
+>> The RSS kselftests fail on stmmac, and this is partly due to the driver
+>> reporting bogus data for the RSS ops :
+>>
+>>  - ethtool -x reports an indirection table and a key while the hardware
+>>    doesn't have any of that
+>>  - ethtool -X fails with -EINVAL.
+>>
+>> Let's return early in the rss ops if we know the hardware and platform
+>> don't support RSS.
+>>
+>> Note that RSS is currently not supported on any devices upstream, so
+>> code that was already useless is now effectively dead. It has been the
+>> case since 2019 when the code was added, as platforms need to set rss_en
+>> in their plat data, and no glue ever did that.
+>>
+>> Russell King ran a poll in february 2026 [1] asking if the code should
+>> be dropped, without any reply going in either direction.
+>>
+>> Jitendra Vegiraju from Broadcom sent 9 iterations of a Broadcom PCIe glue
+>> driver [2] that actually sets rss_en = 1, so there's some hope that this
+>> may be used in the future.
+>>
+>> [1] : https://lore.kernel.org/netdev/aYd4BkAeNW6d0iIC@shell.armlinux.org.uk/
+>> [2] : https://lore.kernel.org/netdev/20260402213629.1996133-1-jitendra.vegiraju@broadcom.com/
+>>
+>> Fixes: 76067459c686 ("net: stmmac: Implement RSS and enable it in XGMAC core")
+>> Signed-off-by: Maxime Chevallier <maxime.chevallier@bootlin.com>
+>> ---
+>> Jitendra, do you have plans to continue iterating on the BCM8958x glue ?
+>>
+>> Thanks,
+>>
+>> Maxime
+>>
+>>  drivers/net/ethernet/stmicro/stmmac/stmmac_ethtool.c | 12 ++++++++++++
+>>  1 file changed, 12 insertions(+)
+>>
+>> diff --git a/drivers/net/ethernet/stmicro/stmmac/stmmac_ethtool.c b/drivers/net/ethernet/stmicro/stmmac/stmmac_ethtool.c
+>> index 1be5310ca766..4e917a448271 100644
+>> --- a/drivers/net/ethernet/stmicro/stmmac/stmmac_ethtool.c
+>> +++ b/drivers/net/ethernet/stmicro/stmmac/stmmac_ethtool.c
+>> @@ -927,6 +927,9 @@ static u32 stmmac_get_rxfh_key_size(struct net_device *dev)
+>>  {
+>>      struct stmmac_priv *priv = netdev_priv(dev);
+>>
+>> +    if (!priv->dma_cap.rssen || !priv->plat->rss_en)
+> 
+> Should this pattern become a helper? Counting 6 instances so far.
 
-> I do avoid touching the v7m path and it worked last time I tested
-> it  (on an STM32) but I'd like to see your take on it, AFAICT generic
-> entry is not really possible (easily) on v7m because of the
-> pendable service call mechanism but maybe we can think of a
-> really complicated solution? ;)
+yeah why not :)
 
-I have experience wrestling with a PendSV-related problem in an RTOS kernel,
-so I believe I can contribute to that part!
+> 
+>> +        return 0;
+>> +
+>>      return sizeof(priv->rss.key);
+>>  }
+>>
+>> @@ -934,6 +937,9 @@ static u32 stmmac_get_rxfh_indir_size(struct net_device *dev)
+>>  {
+>>      struct stmmac_priv *priv = netdev_priv(dev);
+>>
+>> +    if (!priv->dma_cap.rssen || !priv->plat->rss_en)
+>> +        return 0;
+>> +
+>>      return ARRAY_SIZE(priv->rss.table);
+>>  }
+>>
+>> @@ -943,6 +949,9 @@ static int stmmac_get_rxfh(struct net_device *dev,
+>>      struct stmmac_priv *priv = netdev_priv(dev);
+>>      int i;
+>>
+>> +    if (!priv->dma_cap.rssen || !priv->plat->rss_en)
+>> +        return -EOPNOTSUPP;
+> 
+> Not a blocker, but a full netlink RSS dump (like the one in rss_ctx.py)
+> now stops at this device. Naybe rss_dump_one_dev() should skip -EOPNOTSUPP
+> like ethnl_default_dumpit() does?
+there are other drivers that report -EOPNOTSUPP, we could have that as
+a separate patch yeah
 
-Best regards,
-Yoshifumi SHU
+Thanks for looking at this,
+
+Maxime
+
 
