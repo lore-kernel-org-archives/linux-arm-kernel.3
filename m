@@ -4,62 +4,61 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1742BC98338
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 26 Sep 2026 14:41:13 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 87A39C98332
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 26 Sep 2026 14:44:22 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
+	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=IlD0YDSE04Y+5bJskt4+hQwN0h9rXzRpXfuOy5CeM8M=; b=fneF7BiVOtQtcYvebbv6C8fgwu
-	7ELlsK0fAB/tdp6GIj4jRoHajDBYCWoTv+MSIf7c7x+IeZZwZoDijn4yaan89HxQKeImFthk/hUY5
-	9pmCenJrBFQQ+kp4Nl60MM9qFrD0Beof6q5LYiHrbkM4AfhYEDTljwQLf/J5/tTwpwDTaPryxHnYX
-	SaIjytTQJsSwQK08bQ9Z3u6FbdJdrXe7YYgr6LrefEZuYI5aXQz9/rstNfqKBvkZL09gmfKKcjpBy
-	cqMkSt1CJ3ghHGnipkLSittdDHlZAsCZSJni1du30siOABMPvDE7WCswQa8TDv6+Hhki0UPydyfPp
-	YIgDbL4w==;
+	bh=bwY7/29HHpQWT9XDUVLycOQgESR1fkxFiSXrbYhJD5g=; b=3aL5klsuckJFWmFGX1PoICVWLr
+	rGJJtBjQaUN1l4jdFMHDkvTfcZ4XDMWr6fgtzBx6SK4Gp1D8RNGKzs1JU0xHimPFE2sM5JfuflUeu
+	N0zH2KXhi0ssVdnjGYfk5bXK7Bf+rDhXNMkfHuP/xKhZaabhRmJ63sh/mcEyIHx43TsHJB2CX/Bqh
+	S1W7mXFILuSC9TSANwcrgc5L/djKUFrW1BFHXXsl08G+JALiF5FKIZ9gtgFQIMDVJ7a8avXNf6cC+
+	IS0ZRj4bz6SFp++N7dKhwEvk/sRKyO20PsFuTmbgwAER798NJvy3Yr4ctq1OeQhnqIjw1m4LRNZUU
+	hUzg3c0g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xATaM-0000000FXCs-3NA9;
-	Sat, 26 Sep 2026 14:41:06 +0000
-Received: from perceval.ideasonboard.com ([213.167.242.64])
+	id 1xATdP-0000000FXMh-0nz9;
+	Sat, 26 Sep 2026 14:44:15 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xATaJ-0000000FXCP-1Vk6
-	for linux-arm-kernel@lists.infradead.org;
-	Sat, 26 Sep 2026 14:41:04 +0000
-Received: from killaraus.ideasonboard.com (2001-14ba-70f3-e800--a06.rev.dnainternet.fi [IPv6:2001:14ba:70f3:e800::a06])
-	by perceval.ideasonboard.com (Postfix) with ESMTPSA id 1D413B5;
-	Sat, 26 Sep 2026 16:39:12 +0200 (CEST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=ideasonboard.com;
-	s=mail; t=1790433552;
-	bh=E9yMgEo6STLiVrzfsMVu1vPUXzCzM+z5oz0S/J8IlK0=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=KRG/h3bUkX4dzx7hUD6d5wd88e8sMpED/LDWWwnwO2PE9G0VD8XIbWKad7IEqcK1u
-	 M+XDzTyQAJylGTfrVdngChYYWbTuTl7DaBJ14mvbaqVla2OhA63oWdaAAmUaiLUf+9
-	 7s45fSeEUIPAk5cflmvjDN9MgKK3wHn7ToHLSjhU=
-Date: Sat, 26 Sep 2026 17:40:58 +0300
-From: Laurent Pinchart <laurent.pinchart@ideasonboard.com>
-To: Sakari Ailus <sakari.ailus@linux.intel.com>
-Cc: Rishikesh Donadkar <r-donadkar@ti.com>, linux-media@vger.kernel.org,
-	linux-kernel@vger.kernel.org, devicetree@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	tomi.valkeinen@ideasonboard.com, mchehab@kernel.org,
-	robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org, nm@ti.com,
-	vigneshr@ti.com, kristo@kernel.org, mripard@kernel.org,
-	jai.luthra@linux.dev, jai.luthra@ideasonboard.com, devarsht@ti.com,
-	y-abhilashchandra@ti.com, mirela.rabulea@nxp.com
-Subject: Re: [RFC PATCH 2/8] media: v4l: Add 10-bit RGBIr formats
-Message-ID: <20260926144058.GB764757@killaraus.ideasonboard.com>
-References: <20260925133001.2780868-1-r-donadkar@ti.com>
- <20260925133001.2780868-3-r-donadkar@ti.com>
- <arfW_sncBRNsyP4L@kekkonen.localdomain>
+	id 1xATdN-0000000FXMX-34RY;
+	Sat, 26 Sep 2026 14:44:13 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by tor.source.kernel.org (Postfix) with ESMTP id 674CC6020C;
+	Sat, 26 Sep 2026 14:44:11 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 980611F000FF;
+	Sat, 26 Sep 2026 14:44:07 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1790433851;
+	bh=bwY7/29HHpQWT9XDUVLycOQgESR1fkxFiSXrbYhJD5g=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=mlqcXi1Gyp8b2SoMKvkuvH9nUjMi7xR7VgmS0m0l9ThhCy22APYZ9PgPjU1FZ6Ord
+	 pPcBsNgXBzoM8fMYJpb+A7uMYiZAPfGCMf7s/TYQjZyTegjCiwQh/vK/Uk3eBiE/By
+	 G8rsi4xB73Dq6xe80AXs1JuQ0di/8dxxyQkXzf1e4w50cam3ABYDrrLSnTDfzKdpr4
+	 hZZhVC1QfdPLjmQQUylEM90UdxXAze/xnI5ZGPCVwN+sE4xtYm2R1f1KU5yGM8CAfe
+	 ZzB1S5J3G0Q3MIAxyAc8tONEro3xKbIv4ThH+FdvYzULKUBGvLTqnL/Bx5DNty0RX6
+	 kwx+KIRp6g+5Q==
+Date: Sat, 26 Sep 2026 16:43:58 +0200
+From: Manivannan Sadhasivam <mani@kernel.org>
+To: Christian Marangi <ansuelsmth@gmail.com>
+Cc: Vinod Koul <vkoul@kernel.org>, 
+	Neil Armstrong <neil.armstrong@linaro.org>, Rob Herring <robh@kernel.org>, 
+	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
+	Lorenzo Bianconi <lorenzo@kernel.org>, linux-arm-kernel@lists.infradead.org, 
+	linux-phy@lists.infradead.org, devicetree@vger.kernel.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v11 2/3] phy: move and rename Airoha PCIe PHY driver to
+ dedicated directory
+Message-ID: <ewwhqmrwcvc3ztsvubktvhcpmiodsweycyiyo5bfzozj5qjs44@2cqndno33uj2>
+References: <20260724184523.193661-1-ansuelsmth@gmail.com>
+ <20260724184523.193661-3-ansuelsmth@gmail.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=utf-8
 Content-Disposition: inline
-In-Reply-To: <arfW_sncBRNsyP4L@kekkonen.localdomain>
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260926_074103_574824_91023D14 
-X-CRM114-Status: GOOD (  14.63  )
+Content-Transfer-Encoding: 8bit
+In-Reply-To: <20260724184523.193661-3-ansuelsmth@gmail.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -74,41 +73,147 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Sat, Sep 26, 2026 at 05:30:22PM +0300, Sakari Ailus wrote:
-> Hi Rishikesh,
+On Fri, Jul 24, 2026 at 08:45:21PM +0200, Christian Marangi wrote:
+> To keep the generic PHY directory tidy, move the PCIe PHY driver for
+> Airoha AN7581 SoC to a dedicated directory.
 > 
-> On Fri, Sep 25, 2026 at 06:59:55PM +0530, Rishikesh Donadkar wrote:
-> > From: Jai Luthra <j-luthra@ti.com>
-> > 
-> > Some camera sensors now use an expanded CFA pattern to capture near-IR
-> > light along with the visible spectrum (R,G,B). This allows capturing
-> > light in both low-light and day-light scenarios using the same sensor.
-> > 
-> > Instead of having a 2x2 repetition of B,G,R like in older bayer formats,
-> > here we have a 4x4 repetition of B,G,R,Ir where the number of G pixels
-> > are the same, but half the B and R pixels are replaced with Ir. Thus
-> > instead of having 4 total phases, we now have 8 total phases or
-> > re-arrangements of this pattern.
-> > 
-> > Co-developed-by: Rahul T R <r-ravikumar@ti.com>
-> > Signed-off-by: Rahul T R <r-ravikumar@ti.com>
-> > Signed-off-by: Jai Luthra <j-luthra@ti.com>
-> > Co-developed-by: Rishikesh Donadkar <r-donadkar@ti.com>
-> > Signed-off-by: Rishikesh Donadkar <r-donadkar@ti.com>
+> Also rename the driver and add the relevant SoC name to the .c and .h
+> file in preparation for support of PCIe and USB PHY driver for Airoha
+> AN7583 SoC that use a completely different implementation and
+> calibration for PHYs and will have their own dedicated drivers.
 > 
-> I think we need to use the common raw mbus and pixel formats for the
-> patterns that have IR pixels. See
-> <URL:https://git.linuxtv.org/sailus/media_tree.git/log/?h=metadata>.
+> The rename permits to better identify the specific usage of the driver
+> in the future once the airoha PHY directory will have multiple driver
+> for multiple SoC.
+> 
+> The config is changed from PHY_AIROHA_PCIE to PHY_AIROHA_AN7581_PCIE.
+> 
+> Signed-off-by: Christian Marangi <ansuelsmth@gmail.com>
+> Acked-by: Lorenzo Bianconi <lorenzo@kernel.org>
+> ---
+>  MAINTAINERS                                         |  4 ++--
+>  drivers/phy/Kconfig                                 | 11 +----------
+>  drivers/phy/Makefile                                |  4 ++--
+>  drivers/phy/airoha/Kconfig                          | 13 +++++++++++++
+>  drivers/phy/airoha/Makefile                         |  3 +++
+>  .../phy-an7581-pcie-regs.h}                         |  2 +-
+>  .../{phy-airoha-pcie.c => airoha/phy-an7581-pcie.c} |  6 +++---
+>  7 files changed, 25 insertions(+), 18 deletions(-)
+>  create mode 100644 drivers/phy/airoha/Kconfig
+>  create mode 100644 drivers/phy/airoha/Makefile
+>  rename drivers/phy/{phy-airoha-pcie-regs.h => airoha/phy-an7581-pcie-regs.h} (99%)
+>  rename drivers/phy/{phy-airoha-pcie.c => airoha/phy-an7581-pcie.c} (99%)
+> 
+> diff --git a/MAINTAINERS b/MAINTAINERS
+> index 05e90c3f7fe0..952653034c4c 100644
+> --- a/MAINTAINERS
+> +++ b/MAINTAINERS
+> @@ -765,8 +765,8 @@ M:	Lorenzo Bianconi <lorenzo@kernel.org>
+>  L:	linux-arm-kernel@lists.infradead.org (moderated for non-subscribers)
+>  S:	Maintained
+>  F:	Documentation/devicetree/bindings/phy/airoha,en7581-pcie-phy.yaml
+> -F:	drivers/phy/phy-airoha-pcie-regs.h
+> -F:	drivers/phy/phy-airoha-pcie.c
+> +F:	drivers/phy/airoha/phy-an7581-pcie-regs.h
+> +F:	drivers/phy/airoha/phy-an7581-pcie.c
+>  
+>  AIROHA SPI SNFI DRIVER
+>  M:	Lorenzo Bianconi <lorenzo@kernel.org>
+> diff --git a/drivers/phy/Kconfig b/drivers/phy/Kconfig
+> index 19f3b7d12b7d..e93951a4a898 100644
+> --- a/drivers/phy/Kconfig
+> +++ b/drivers/phy/Kconfig
+> @@ -46,16 +46,6 @@ config GENERIC_PHY_MIPI_DPHY
+>  	  Provides a number of helpers a core functions for MIPI D-PHY
+>  	  drivers to us.
+>  
+> -config PHY_AIROHA_PCIE
+> -	tristate "Airoha PCIe-PHY Driver"
+> -	depends on ARCH_AIROHA || COMPILE_TEST
+> -	depends on OF
+> -	select GENERIC_PHY
+> -	help
+> -	  Say Y here to add support for Airoha PCIe PHY driver.
+> -	  This driver create the basic PHY instance and provides initialize
+> -	  callback for PCIe GEN3 port.
+> -
+>  config PHY_CAN_TRANSCEIVER
+>  	tristate "CAN transceiver PHY"
+>  	select GENERIC_PHY
+> @@ -168,6 +158,7 @@ config PHY_XGENE
+>  	help
+>  	  This option enables support for APM X-Gene SoC multi-purpose PHY.
+>  
+> +source "drivers/phy/airoha/Kconfig"
+>  source "drivers/phy/allwinner/Kconfig"
+>  source "drivers/phy/amlogic/Kconfig"
+>  source "drivers/phy/apple/Kconfig"
+> diff --git a/drivers/phy/Makefile b/drivers/phy/Makefile
+> index d7aa516bcc49..4ca4a07963fc 100644
+> --- a/drivers/phy/Makefile
+> +++ b/drivers/phy/Makefile
+> @@ -7,7 +7,6 @@ obj-$(CONFIG_PHY_COMMON_PROPS)		+= phy-common-props.o
+>  obj-$(CONFIG_PHY_COMMON_PROPS_TEST)	+= phy-common-props-test.o
+>  obj-$(CONFIG_GENERIC_PHY)		+= phy-core.o
+>  obj-$(CONFIG_GENERIC_PHY_MIPI_DPHY)	+= phy-core-mipi-dphy.o
+> -obj-$(CONFIG_PHY_AIROHA_PCIE)		+= phy-airoha-pcie.o
+>  obj-$(CONFIG_PHY_CAN_TRANSCEIVER)	+= phy-can-transceiver.o
+>  obj-$(CONFIG_PHY_ECONET_PCIE)		+= phy-econet-pcie.o
+>  obj-$(CONFIG_PHY_EYEQ5_ETH)		+= phy-eyeq5-eth.o
+> @@ -20,7 +19,8 @@ obj-$(CONFIG_PHY_PISTACHIO_USB)		+= phy-pistachio-usb.o
+>  obj-$(CONFIG_PHY_SNPS_EUSB2)		+= phy-snps-eusb2.o
+>  obj-$(CONFIG_PHY_XGENE)			+= phy-xgene.o
+>  
+> -obj-$(CONFIG_GENERIC_PHY)		+= allwinner/	\
+> +obj-$(CONFIG_GENERIC_PHY)		+= airoha/	\
+> +					   allwinner/	\
+>  					   amlogic/	\
+>  					   apple/	\
+>  					   axiado/	\
+> diff --git a/drivers/phy/airoha/Kconfig b/drivers/phy/airoha/Kconfig
+> new file mode 100644
+> index 000000000000..9a1b625a7701
+> --- /dev/null
+> +++ b/drivers/phy/airoha/Kconfig
+> @@ -0,0 +1,13 @@
+> +# SPDX-License-Identifier: GPL-2.0-only
+> +#
+> +# Phy drivers for Airoha devices
+> +#
+> +config PHY_AIROHA_AN7581_PCIE
+> +	tristate "Airoha AN7581 PCIe-PHY Driver"
+> +	depends on ARCH_AIROHA || COMPILE_TEST
+> +	depends on OF
+> +	select GENERIC_PHY
+> +	help
+> +	  Say Y here to add support for Airoha AN7581 PCIe PHY driver.
+> +	  This driver create the basic PHY instance and provides initialize
+> +	  callback for PCIe GEN3 port.
+> diff --git a/drivers/phy/airoha/Makefile b/drivers/phy/airoha/Makefile
+> new file mode 100644
+> index 000000000000..912f3e11a061
+> --- /dev/null
+> +++ b/drivers/phy/airoha/Makefile
+> @@ -0,0 +1,3 @@
+> +# SPDX-License-Identifier: GPL-2.0
+> +
+> +obj-$(CONFIG_PHY_AIROHA_AN7581_PCIE)	+= phy-an7581-pcie.o
+> diff --git a/drivers/phy/phy-airoha-pcie-regs.h b/drivers/phy/airoha/phy-an7581-pcie-regs.h
+> similarity index 99%
+> rename from drivers/phy/phy-airoha-pcie-regs.h
+> rename to drivers/phy/airoha/phy-an7581-pcie-regs.h
+> index 58572c793722..b938a7b468fe 100644
+> --- a/drivers/phy/phy-airoha-pcie-regs.h
+> +++ b/drivers/phy/airoha/phy-an7581-pcie-regs.h
+> @@ -1,4 +1,4 @@
+> -/* SPDX-License-Identifier: GPL-2.0-only */
+> +// SPDX-License-Identifier: GPL-2.0-only
 
-That's right, we shouldn't add new CFA-specific media bus codes. They
-just don't scale.
+As per Documentation/process/license-rules.rst, the existing license header was
+the correct one. So this change should be dropped.
 
-> That's mostly pending on userspace support now.
-> 
-> Can the sensor output Bayer pattern as well?
+- Mani
 
 -- 
-Regards,
-
-Laurent Pinchart
+மணிவண்ணன் சதாசிவம்
 
