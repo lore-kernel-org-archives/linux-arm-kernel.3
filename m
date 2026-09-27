@@ -4,108 +4,63 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8D667C98328
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 27 Sep 2026 02:57:13 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 59376C98324
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 27 Sep 2026 03:29:05 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Zx161GO4leyejnwa92HDTsrJTQOft6nH8qorocIvjzU=; b=I8bQfW4iKxOSsMvmpfvSwj0kzv
-	RYIkgiGOubKfF1aSV0EOQI154p47D1x5qTpRwjH2COtePTN9V/ACU7ELBH4KHJI+/xf6qosAVmId5
-	rWBgig0I0b/ETjFWx91pz1Rx+DOkQbh8TnGfJSXRiyehvXUOmly6akK58AOVtHR7Hat3QGpFGQc4W
-	AepkQ61w2flavCDlmuT/yJNySFs0GCUOZbQtYAN1wIeeF5+IDdJSxHXqALNqrgC0DPS4CilYo08+X
-	oREKa/QLEpuigcXuy+JrWFcY+8hCchLvxn/nrH5XgXG4POwmSyGwZEOU5xrRpRNg5cNFp2usOsbU9
-	zKcaAGhA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:References:In-Reply-To:Message-ID:Date
+	:Cc:To:From:Subject:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=6a0VT1f5TCixo51k9+lY1+LlgZn70eiYSlEvJbKsfbU=; b=Ta32HVEciDcqbrtWbsugGFzEoa
+	9qgZCQlfI4IzvLGRK/y8ZHHYobIk1laJ3WWU8CpPLodMV0qEtJnLcAgx+emQ47RSE6LIFugJaB0vi
+	Cwvv24F/YAF+1zRCindtPVy4QSZg47ewwrAO9dMC6r/6BP7DvcGXFh1oEQrQTAHmm6Bp5Y/WWaJ/W
+	NJGSDa8txIyIvEYLeV7tSxjZUvfUr5DEwSxoa6c67DmFqUbq3Fih1TSUmSHWvSgPWRu15SwcFjzJA
+	YYMz0ajMbyVb9aFMCrok9qzVCg4ZowKAsaBKgPJwb5ihnh6olj/kMEUzg/yCePykKh4HZFsaLjUc4
+	8kXscQYw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xAf4c-0000000FxfQ-2ZTb;
-	Sun, 27 Sep 2026 02:57:06 +0000
-Received: from mail-pj2-x10.google.com ([2607:f8b0:4864:39::10])
+	id 1xAfZP-0000000Fyt4-2Rl4;
+	Sun, 27 Sep 2026 03:28:55 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xAf4R-0000000FxZX-2Rx8
+	id 1xAfZO-0000000Fysy-0HeD
 	for linux-arm-kernel@lists.infradead.org;
-	Sun, 27 Sep 2026 02:56:56 +0000
-Received: by mail-pj2-x10.google.com with SMTP id d9443c01a7336-2dd88a115ebso10873765ad.2
-        for <linux-arm-kernel@lists.infradead.org>; Sat, 26 Sep 2026 19:56:55 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=embeddedlinux.blog; s=google; t=1790477815; x=1791082615; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=Zx161GO4leyejnwa92HDTsrJTQOft6nH8qorocIvjzU=;
-        b=hIye7C3rexDGDQdK+EnHU+tbnMQhSPbfapqUlw58Njy3dPvwtITxPBZIZYgt6x6oJx
-         sY5Bh13TV+NWielI1D5sIS8F27YWX+f0sXXyfEu0Uzju+77s47mFeBVgn3sOUCYXskcg
-         fqK649qit3NGm+Lp1fdyrb8TPTKz1XJoKoUVBqEv9iWXKV8UTsc6Qf0V7lLKSr6MB1lD
-         d3+H9GFSiIjXW9u9gT63RGkO6h8yNw+eJUOtUbjbkJf0vynK6WSXas5sZpfHQSyE1hYY
-         12/2+niDcDA9hOoMCY9TccW0NGt/xbj4DOb7MsK56UqGMy1MQEwcsbETdy39LAaavryR
-         OgyQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1790477815; x=1791082615;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=Zx161GO4leyejnwa92HDTsrJTQOft6nH8qorocIvjzU=;
-        b=yPyKzJcIxrHrDM4C1xBsF0Y/uh9D4GSXoEQa4WyDQyJKVO42VQBQRabhaC7e0Rai4P
-         Xh+VhpJpYIQknNX9iL2i/mM8HyKE4Lg8p8L4cqVRvclOD5k+w+wDCQBs4rPTjj1s+7UG
-         acDmxWg2Xo4/mw+qRptaoelL82cfaMLvtYHinF6ko7satBa3tDslucwmlvyGFd/lJx73
-         QZtwAElT6WhqXes8qYmi5Yn/Pq10BUjGUk/fZ56As5LbLLBmHI7h3eSjOOOA8gaKvjaA
-         F0dWQ/DV3UErdKYTgM7p9jmsQvA2RHYcdCh3u6JyNogw5n2e87FA9PZgs9RksImsG1ma
-         vOSA==
-X-Forwarded-Encrypted: i=1; AKwUvBxb3Y0n3v05aPQtFDeOfoCIqXUJrAFLw+tdasD8DhPQId3W7GwV40h3zuZLJ3vl5G8osjJh6IZzT8RgM6aKP0Wx@lists.infradead.org
-X-Gm-Message-State: AFq9FYLlOelGl1vyP2I1S7wuI9JACGoMZbwWTgHfSTysyHrCtHSQiA7w
-	ANlYLNZqt+0SVN/P/1NeWdyxPFBorJy9siUnCrYCcmpu3NQCtvi2vBi5KRv03/A2t9so
-X-Gm-Gg: AYBFou24q2siEDRvZw1K6yFEru/0Rv9xHLppQrzgIjUeYsdQgfdh2n8Ci6rdk4/3r/n
-	JVu2oyyyjPdVB40XmWhYr0SaZ8mIR2Y5MHkN0GLiiea+sQTrvbNLfjzeMkZeu5AKphZ5vJauleO
-	hSev/l1aKxIqK/WnkcS+NpVmT/Ol52Xh5H5Hx9hHa7J+/cs0tLN2MerxaPLl3rnfKDoFJoygeqs
-	vz7t5a/u891BbLb2xkVSPy1C1jK6FkmwplSQH8IHMfwBgaTA/QH5+YqKKtd+ykFmz7Lf98hoHIO
-	kWppFUI6Wmhq6KQ6EZo9JAqNiDYM3iDNVi/UdCoJ0qMO7ioWeLBkChdPVBqMX0DpO8vbViK9YwP
-	Q1+5JnaGQMZjGeR5rs6CDWtrp8EJKDCulyVevwxTi1x2nkYLITNfN2RX9n/MNXtkBnRtFfLYWqf
-	HfEe+mfcuJ2sh1BHfH/T1WXkkW0Y0r1Bwpk4n6HZc3bU8tjzEdsyPfANk2WjfLKSSUVOyvY2Jui
-	4o1
-X-Received: by 2002:a17:903:984:b0:2dd:c100:4246 with SMTP id d9443c01a7336-2df7e13c585mr80615525ad.42.1790477814644;
-        Sat, 26 Sep 2026 19:56:54 -0700 (PDT)
-Received: from ltu.. ([171.245.4.151])
-        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2df9142bfd4sm25512285ad.52.2026.09.26.19.56.47
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sat, 26 Sep 2026 19:56:52 -0700 (PDT)
-From: Nguyen Minh Tien <tien.nguyenminh@embeddedlinux.blog>
-To: Wilken Gottwalt <wilken.gottwalt@posteo.net>,
-	Bjorn Andersson <andersson@kernel.org>
-Cc: Baolin Wang <baolin.wang@linux.alibaba.com>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Chen-Yu Tsai <wens@kernel.org>,
-	Jernej Skrabec <jernej.skrabec@gmail.com>,
-	Samuel Holland <samuel@sholland.org>,
-	Paul Walmsley <pjw@kernel.org>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>,
-	Alexandre Ghiti <alex@ghiti.fr>,
-	Philipp Zabel <p.zabel@pengutronix.de>,
-	Andre Przywara <andre.przywara@arm.com>,
-	Bastian Germann <bage@debian.org>,
-	linux-remoteproc@vger.kernel.org,
-	devicetree@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-sunxi@lists.linux.dev,
-	linux-riscv@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	tien.nguyenminh@embeddedlinux.blog
-Subject: [PATCH 3/3] riscv: dts: allwinner: d1-t113: Add the hardware spinlock
-Date: Sun, 27 Sep 2026 09:56:26 +0700
-Message-Id: <20260927025626.69614-4-tien.nguyenminh@embeddedlinux.blog>
-X-Mailer: git-send-email 2.34.1
-In-Reply-To: <20260927025626.69614-1-tien.nguyenminh@embeddedlinux.blog>
-References: <20260927025626.69614-1-tien.nguyenminh@embeddedlinux.blog>
-MIME-Version: 1.0
+	Sun, 27 Sep 2026 03:28:54 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by sea.source.kernel.org (Postfix) with ESMTP id 33E4E407B0;
+	Sun, 27 Sep 2026 03:28:52 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 2E44D1F000FF;
+	Sun, 27 Sep 2026 03:28:51 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1790479732;
+	bh=6a0VT1f5TCixo51k9+lY1+LlgZn70eiYSlEvJbKsfbU=;
+	h=Subject:From:To:Cc:Date:In-Reply-To:References;
+	b=V6HXz66qKIOMxyMLQqbHBfABI8ZMt3ztYEXexLFaEcHpKsfAO011oTmtM2YiDL6aK
+	 95W1VtJ+zSd0ooFRvlwTsi0CC2TbDkmimEbQHQ0n5RAyymDHztuTE4oQOlSPZ7mrwz
+	 28Ss9VqUwjIrsOR1rz+ne6ZUcxyYeEgRxuN5Box2kaL0ESMV4lgj2kCkoedrAK7jtc
+	 hVlr4jLAI6heNJOYLeA2FccBChv1H7AVtKF0OrIAJFTDotFqEBvdev59C4GjT2g3xI
+	 4fVwZzpIrcFDYQkatavpHrNX0Vew1pTblL2QgeB/Zii+5pcOHYvE2jUEl2au1PsaqC
+	 aBDSPGTwFkA+w==
+Subject: Re: [PATCH net-next 1/2] dt-bindings: net: altr,socfpga-stmmac: Add
+ altr,socfpga-stmmac-agilex5-tsn compatible
+From: netdev-bot+sashiko@kernel.org
+To: muhammad.nazim.amirul.nazle.asmade@altera.com
+Cc: netdev@vger.kernel.org, maxime.chevallier@bootlin.com,
+ andrew+netdev@lunn.ch, davem@davemloft.net, edumazet@google.com,
+ kuba@kernel.org, pabeni@redhat.com, robh@kernel.org, krzk+dt@kernel.org,
+ conor+dt@kernel.org, dinguyen@kernel.org, mcoquelin.stm32@gmail.com,
+ alexandre.torgue@foss.st.com, devicetree@vger.kernel.org,
+ linux-stm32@st-md-mailman.stormreply.com,
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+Date: Sun, 27 Sep 2026 03:28:50 +0000
+Message-ID: <179047973070.2160803.3411978604945361082@kernel.org>
+In-Reply-To: <20260923021823.46649-2-muhammad.nazim.amirul.nazle.asmade@altera.com>
+References: <20260923021823.46649-2-muhammad.nazim.amirul.nazle.asmade@altera.com>
+X-sashiko-severity: Medium
+Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260926_195655_632409_699718C6 
-X-CRM114-Status: UNSURE (   9.77  )
-X-CRM114-Notice: Please train this message.
+MIME-Version: 1.0
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -120,35 +75,112 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add the hardware spinlock of the D1 and T113. It goes in
-sunxi-d1-t113.dtsi rather than sunxi-d1s-t113.dtsi, as the D1s manual
-has no spinlock in its memory map.
+Thank you for your contribution! Sashiko AI review found 2 potential
+issue(s) to consider.
 
-Signed-off-by: Nguyen Minh Tien <tien.nguyenminh@embeddedlinux.blog>
----
- arch/riscv/boot/dts/allwinner/sunxi-d1-t113.dtsi | 9 +++++++++
- 1 file changed, 9 insertions(+)
+Critical: 0 · High: 0 · Medium: 1 · Low: 1
 
-diff --git a/arch/riscv/boot/dts/allwinner/sunxi-d1-t113.dtsi b/arch/riscv/boot/dts/allwinner/sunxi-d1-t113.dtsi
-index 3b077dc086..228cc5c074 100644
---- a/arch/riscv/boot/dts/allwinner/sunxi-d1-t113.dtsi
-+++ b/arch/riscv/boot/dts/allwinner/sunxi-d1-t113.dtsi
-@@ -11,5 +11,14 @@ dsp_wdt: watchdog@1700400 {
- 			clock-names = "hosc", "losc";
- 			status = "reserved";
- 		};
-+
-+		hwlock: hwlock@3005000 {
-+			compatible = "allwinner,sun20i-d1-hwspinlock",
-+				     "allwinner,sun6i-a31-hwspinlock";
-+			reg = <0x3005000 0x1000>;
-+			clocks = <&ccu CLK_BUS_SPINLOCK>;
-+			resets = <&ccu RST_BUS_SPINLOCK>;
-+			#hwlock-cells = <1>;
-+		};
- 	};
- };
+If you believe none of the issues are legitimate, please reply to each
+issue of Medium severity or higher and explain why the AI is wrong.
+If any of them are legitimate and you plan to respin, please let patchwork
+know by including "pw-bot: cr" as a separate line at the end of your reply
+(one such reply per series is enough).
+
+- [Medium] The binding patch makes the new compatible "altr,socfpga-
+  stmmac-agilex5-tsn" a peer of "altr,socfpga-stmmac-agilex5" in the…
+- [Low] At this commit, socfpga_dwmac_match in
+  drivers/net/ethernet/stmicro/stmmac/dwmac-socfpga.c has no entry for…
+
+--
+
+dt-bindings: net: altr,socfpga-stmmac: Add altr,socfpga-stmmac-agilex5-tsn compatible
+
+This adds the altr,socfpga-stmmac-agilex5-tsn compatible for the Agilex5
+gmac1 port, which has an FPGA GMII-to-RGMII converter in front of the PHY.
+The new string goes in the same enum as altr,socfpga-stmmac-agilex5, with
+snps,dwxgmac-2.10 as the fallback. Plain agilex5 is intentionally not used
+as a fallback.
+
+> diff --git a/Documentation/devicetree/bindings/net/altr,socfpga-stmmac.yaml b/Documentation/devicetree/bindings/net/altr,socfpga-stmmac.yaml
+> index d8f90d36d2469..ca768937d8905 100644
+> --- a/Documentation/devicetree/bindings/net/altr,socfpga-stmmac.yaml
+> +++ b/Documentation/devicetree/bindings/net/altr,socfpga-stmmac.yaml
+
+[ ... ]
+
+> @@ -42,7 +43,9 @@ properties:
+>            - const: snps,dwmac-3.74a
+>            - const: snps,dwmac
+>        - items:
+> -          - const: altr,socfpga-stmmac-agilex5
+> +          - enum:
+> +              - altr,socfpga-stmmac-agilex5
+> +              - altr,socfpga-stmmac-agilex5-tsn
+>            - const: snps,dwxgmac-2.10
+
+[Severity: Medium]
+Should the allOf conditional further down in this file also cover the new
+compatible? It still matches only the plain agilex5 string:
+
+  - if:
+      properties:
+        compatible:
+          contains:
+            const: altr,socfpga-stmmac-agilex5
+    then:
+      properties:
+        interrupts:
+          minItems: 17
+
+        interrupt-names:
+          minItems: 17
+
+        dma-coherent: true
+    else:
+      properties:
+        interrupts:
+          maxItems: 1
+
+        interrupt-names:
+          maxItems: 1
+
+        dma-coherent: false
+
+The TSN port deliberately does not list agilex5 as a fallback. A node with
+compatible = "altr,socfpga-stmmac-agilex5-tsn", "snps,dwxgmac-2.10] will
+therefore never match the if. It falls into the else branch, which holds
+the Cyclone5/Arria10/Stratix10 limits.
+
+The TSN board would override the gmac1: ethernet@10820000 node in
+arch/arm64/boot/dts/intel/socfpga_agilex5.dtsi. That node has 17
+interrupts (macirq, tx-queue-0..7, rx-queue-0..7) and dma-coherent.
+
+If a board DTS switches gmac1 to the TSN compatible, wouldn't it fail
+dtbs_check even though it describes the hardware correctly?
+
+In the companion driver patch, socfpga_agilex5_tsn_gmac_setup_plat_dat()
+calls socfpga_agilex5_setup_plat_dat() and changes only mac_interface.
+That suggests the MAC-side constraints match plain agilex5. Would
+something like this work instead:
+
+          contains:
+            enum:
+              - altr,socfpga-stmmac-agilex5
+              - altr,socfpga-stmmac-agilex5-tsn
+
+[Severity: Low]
+At this commit, socfpga_dwmac_match in
+drivers/net/ethernet/stmicro/stmmac/dwmac-socfpga.c has no entry for
+altr,socfpga-stmmac-agilex5-tsn.
+
+Would a node using the new compatible bind through the
+snps,dwxgmac-2.10 entry in dwmac_generic_match instead? That path would
+skip the SoCFPGA sysmgr, reset and platform data setup.
+
+The next patch in the series, "net: stmmac: dwmac-socfpga: Add support
+for Agilex5 TSN GMAC with FPGA converter", adds the match entry. No
+in-tree DTS uses the new compatible before that patch.
+
 -- 
-2.34.1
-
+Sashiko AI review · https://netdev-ai.bots.linux.dev/sashiko/#/patchset/20260923021823.46649-1-muhammad.nazim.amirul.nazle.asmade%40altera.com
 
