@@ -4,74 +4,61 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 758D4C98338
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 27 Sep 2026 19:15:48 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 940FAC9832F
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 27 Sep 2026 19:28:13 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:References:In-Reply-To:Date:Cc:To:From
+	:Subject:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=NqRBQ/l/KshauKybq+sCIFSt1P3/4rPlGdvjwaBtLAY=; b=d9WCzAi7e7UPCWaW4qedyEapqb
-	dJ+ItNa02OiMet26gfSghXZTYR2w0UP8wL7saWr/zwmwTmX7/XdsbP2BHY4PSPgGUyX2sa7OOJrt1
-	OYl9QAOVWqW46XVX5MmNi+Y7MHyYXqmVcDbEOmgXRbrFGp9eRv2on6TnKYBKEoRGswvi91FmyvZal
-	aqEART/UUDFQkex38sWgdiPg2HXS/SBOtmUqOTJJZD498KGai8XtGyaesagY2vWIKlZNJ0bxbm66v
-	vwkA1xvl6AO+4pswO8GoRbqGwKdFkoaqS4MyrmftI1zlNZyuFfdcZNJsgH46J2BZ1B4kt8G/xkRVW
-	j7U/VT6A==;
+	bh=QtfTve+l0Bn1liFHczvM4NssYuY0+18nCKACP2I4taQ=; b=A8xtTW0msmaWn3QD3kgh17rUOX
+	OvGjYwojEqHpPfDuwze83OWCSA5jUOEywFgM/cln81DIBahP5az6Z4y5G1d9hx+eB39GGD85J50wl
+	PaIncrb+VZLKMYrr7/AYW4hhZsGTmW8hVq4LnFGCoZU4ICK0LQykeBGF/d8GhnZ72BoXFv9q0LnLR
+	eIAz/0FYNIpm1Fzy6D5y2UsdxVwZ7Us0H5HOeogarDngv1URrP6TdyT+J6xllnsm+dO9B8NFJaWYt
+	7to9lUCrbBoq2fOlpSMalgaIZu1p/3esRA9gIGYeEDN/pQCO1lWRP0VD6GSRYj8mTzxyRaZnCN0Fw
+	oUWquC0w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xAuLd-0000000GkJP-2tDY;
-	Sun, 27 Sep 2026 19:15:41 +0000
-Received: from vps0.lunn.ch ([156.67.10.101])
+	id 1xAuXc-0000000GkmO-3J32;
+	Sun, 27 Sep 2026 19:28:04 +0000
+Received: from xs1.mindbit.ro ([80.86.107.70] helo=mail.mindbit.ro)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xAuLb-0000000GkIt-0S3n;
-	Sun, 27 Sep 2026 19:15:40 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=lunn.ch;
-	s=20171124; h=In-Reply-To:Content-Disposition:Content-Type:MIME-Version:
-	References:Message-ID:Subject:Cc:To:From:Date:From:Sender:Reply-To:Subject:
-	Date:Message-ID:To:Cc:MIME-Version:Content-Type:Content-Transfer-Encoding:
-	Content-ID:Content-Description:Content-Disposition:In-Reply-To:References;
-	bh=NqRBQ/l/KshauKybq+sCIFSt1P3/4rPlGdvjwaBtLAY=; b=NRDOCaSxs31myX620RHNR3NtbD
-	DlO/eHfwjSO2o1fszpdlSXh2acAKvIRswjuUu1MGGz9cmWY6uPQsWR+wpABZ3YVXMOEQ9M2QmS/U3
-	kNgqBqiQsXDHZ9xTK4RknHJ9VA3VJphoUQvDhss9bvsB8OG/gn+EKGhhxHZ3aPhfl/0Q=;
-Received: from andrew by vps0.lunn.ch with local (Exim 4.94.2)
-	(envelope-from <andrew@lunn.ch>)
-	id 1xAuLM-007YXi-VD; Sun, 27 Sep 2026 21:15:24 +0200
-Date: Sun, 27 Sep 2026 21:15:24 +0200
-From: Andrew Lunn <andrew@lunn.ch>
-To: Christian Marangi <ansuelsmth@gmail.com>
-Cc: Lee Jones <lee@kernel.org>, Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Andrew Lunn <andrew+netdev@lunn.ch>,
-	"David S. Miller" <davem@davemloft.net>,
-	Eric Dumazet <edumazet@google.com>,
-	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
-	Vladimir Oltean <olteanv@gmail.com>,
-	Matthias Brugger <matthias.bgg@gmail.com>,
-	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
-	"Chester A. Unal" <chester.a.unal@arinc9.com>,
-	Daniel Golle <daniel@makrotopia.org>,
-	Heiner Kallweit <hkallweit1@gmail.com>,
-	Russell King <linux@armlinux.org.uk>,
-	Simon Horman <horms@kernel.org>,
-	linux-arm-kernel@lists.infradead.org,
-	linux-mediatek@lists.infradead.org, netdev@vger.kernel.org,
-	mfd@lists.linux.dev, devicetree@vger.kernel.org,
+	id 1xAuXZ-0000000Gkld-13oo
+	for linux-arm-kernel@lists.infradead.org;
+	Sun, 27 Sep 2026 19:28:04 +0000
+Received: from dog.kanata.rendec.net (pool-174-112-193-187.cpe.net.cable.rogers.com [174.112.193.187])
+	by mail.mindbit.ro (Postfix) with ESMTPSA id 332B3D07D4;
+	Sun, 27 Sep 2026 22:27:53 +0300 (EEST)
+DKIM-Filter: OpenDKIM Filter v2.11.0 mail.mindbit.ro 332B3D07D4
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=rendec.net;
+	s=default; t=1790537274;
+	bh=QtfTve+l0Bn1liFHczvM4NssYuY0+18nCKACP2I4taQ=;
+	h=Subject:From:To:Cc:Date:In-Reply-To:References:From;
+	b=s/GDD/QkK3EHLSnNLOmLc3cfl3aeIvD9lajBxn41xHrO5KCIi0YTFDjkpKzlBHHJG
+	 PjdZqGkoSOtIiZgRo+hxWxy5GtNhd7UEq7/KL9TJJkUjAAADmUZBaVocQr3PQcp7rC
+	 ICAPX2Kdb/q0oWNmur7kM+iYhe+W26u39mQ3+FQnD5Vw69KmyNR5ju8dbg/CFjqxTo
+	 SpIWweU8j2ccWCmDUXhdWwghP3C+22xl4qAQv0jirCDRbu4fFNfqf7ZWmt7lVmFcT+
+	 dC52hz+ryf1SSXLGe9QyuUYgonHi7LQp4LeHaD3LK9DyG5EvmQ7OzIfApZ9o4fKyik
+	 +Xb4XoPvZ3xng==
+Message-ID: <4c7d561c341018d9cbcfd95707bff718d0a840bf.camel@rendec.net>
+Subject: Re: [PATCH v3] irqchip/gic: Fix UBSAN shift-out-of-bounds in GIC
+ helpers
+From: Radu Rendec <radu@rendec.net>
+To: Zhu Ling <zhuling2709@phytium.com.cn>, maz@kernel.org, tglx@kernel.org
+Cc: zenghui.yu@linux.dev, linux-arm-kernel@lists.infradead.org, 
 	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH net-next v23 9/9] net: dsa: Add Airoha AN8855 5-Port
- Gigabit DSA Switch driver
-Message-ID: <c56b0621-a4c7-4276-91a7-dafb5c6cd5a8@lunn.ch>
-References: <20260925182435.21207-1-ansuelsmth@gmail.com>
- <20260925182435.21207-10-ansuelsmth@gmail.com>
+Date: Sun, 27 Sep 2026 15:27:51 -0400
+In-Reply-To: <20260923082804.13197-1-zhuling2709@phytium.com.cn>
+References: <6b668efe-ef7a-474a-957c-893755ebba46@linux.dev>
+	 <20260923082804.13197-1-zhuling2709@phytium.com.cn>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
+User-Agent: Evolution 3.58.3 (3.58.3-1.fc43) 
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20260925182435.21207-10-ansuelsmth@gmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260927_121539_170944_4F3540BD 
-X-CRM114-Status: UNSURE (   8.47  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260927_122801_650548_74E5B04D 
+X-CRM114-Status: GOOD (  21.81  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -86,15 +73,111 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, Sep 25, 2026 at 08:24:31PM +0200, Christian Marangi wrote:
-> Add Airoha AN8855 5-Port Gigabit DSA switch. Switch can support
-> 10M, 100M, 1Gb, 2.5G and 5G Ethernet Speed but 5G is currently error out
-> as it's not currently supported as requires additional configuration for
-> the PCS.
-> 
-> Signed-off-by: Christian Marangi <ansuelsmth@gmail.com>
+On Wed, 2026-09-23 at 16:28 +0800, Zhu Ling wrote:
+> When running with UBSAN enabled, enabling a GPIO controller that uses a
+> GIC interrupt as its parent triggers several shift-out-of-bounds warnings=
+:
+>=20
+> =C2=A0 shift-out-of-bounds in drivers/irqchip/irq-gic-common.c:50:21
+> =C2=A0 left shift of 2 by 30 places cannot be represented in type 'int'
+>=20
+> Similar reports are emitted from gic_poke_irq() and gic_peek_irq() in
+> drivers/irqchip/irq-gic-v3.c. The corresponding GICv2 helpers use the
+> same signed-shift pattern. These masks are generated by shifting signed
+> integer constants, which invokes undefined behavior when bit 31 is
+> selected.
+>=20
+> Use BIT() to generate the masks with an unsigned type and make their
+> intent explicit.
+>=20
+> Signed-off-by: Zhu Ling <zhuling2709@phytium.com.cn>
 
-Reviewed-by: Andrew Lunn <andrew@lunn.ch>
+The patch itself looks good to me, but I believe it deserves some Fixes
+tags. It's not explicitly mentioned in the documentation, so I spent a
+bit of time trying to understand if fixing a UBSAN warning is considered
+a bug fix. The answer seems to be yes.
 
-    Andrew
+> ---
+> Changes in v3:
+> - Fix the same issue in the GICv2 gic_poke_irq() and gic_peek_irq()
+> =C2=A0 helpers, as pointed out by Zenghui.
+>=20
+> Changes in v2:
+> - Use BIT() instead of explicit unsigned shifts, as suggested by Marc.
+> - Drop the redundant introductory text from the email.
+> - Update the author email address.
+>=20
+> Link: https://lore.kernel.org/r/2fJDwUUYdEf2_eaRa041L9xkT8RkSWFeo7euOnqMb=
+bPhUatLlEaAvGfB6sOspDmXaxO87Eh7bQLV9UolyjbMtZBT1wB2UGypjPOo0Z-RC0Q=3D@proto=
+n.me
+> ---
+> =C2=A0drivers/irqchip/irq-gic-common.c | 2 +-
+> =C2=A0drivers/irqchip/irq-gic-v3.c=C2=A0=C2=A0=C2=A0=C2=A0 | 4 ++--
+> =C2=A0drivers/irqchip/irq-gic.c=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=
+ | 4 ++--
+> =C2=A03 files changed, 5 insertions(+), 5 deletions(-)
+>=20
+> diff --git a/drivers/irqchip/irq-gic-common.c b/drivers/irqchip/irq-gic-c=
+ommon.c
+> index c776f9142610..8bd1eaa54295 100644
+> --- a/drivers/irqchip/irq-gic-common.c
+> +++ b/drivers/irqchip/irq-gic-common.c
+> @@ -48,7 +48,7 @@ void gic_enable_quirks(u32 iidr, const struct gic_quirk=
+ *quirks,
+> =C2=A0int gic_configure_irq(unsigned int irq, unsigned int type,
+> =C2=A0		=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 void __iomem *base)
+> =C2=A0{
+> -	u32 confmask =3D 0x2 << ((irq % 16) * 2);
+> +	u32 confmask =3D BIT(((irq % 16) * 2) + 1);
+> =C2=A0	u32 confoff =3D (irq / 16) * 4;
+> =C2=A0	u32 val, oldval;
+> =C2=A0	int ret =3D 0;
+> diff --git a/drivers/irqchip/irq-gic-v3.c b/drivers/irqchip/irq-gic-v3.c
+> index 6e1fa5b247fc..15110d47ddb0 100644
+> --- a/drivers/irqchip/irq-gic-v3.c
+> +++ b/drivers/irqchip/irq-gic-v3.c
+> @@ -457,7 +457,7 @@ static int gic_peek_irq(struct irq_data *d, u32 offse=
+t)
+> =C2=A0	u32 index, mask;
+> =C2=A0
+> =C2=A0	offset =3D convert_offset_index(d, offset, &index);
+> -	mask =3D 1 << (index % 32);
+> +	mask =3D BIT(index % 32);
+> =C2=A0
+> =C2=A0	if (gic_irq_in_rdist(d))
+> =C2=A0		base =3D gic_data_rdist_sgi_base();
+> @@ -473,7 +473,7 @@ static void gic_poke_irq(struct irq_data *d, u32 offs=
+et)
+> =C2=A0	u32 index, mask;
+> =C2=A0
+> =C2=A0	offset =3D convert_offset_index(d, offset, &index);
+> -	mask =3D 1 << (index % 32);
+> +	mask =3D BIT(index % 32);
+> =C2=A0
+> =C2=A0	if (gic_irq_in_rdist(d))
+> =C2=A0		base =3D gic_data_rdist_sgi_base();
+> diff --git a/drivers/irqchip/irq-gic.c b/drivers/irqchip/irq-gic.c
+> index f6bc29f515fb..fb7a55f5b394 100644
+> --- a/drivers/irqchip/irq-gic.c
+> +++ b/drivers/irqchip/irq-gic.c
+> @@ -178,14 +178,14 @@ static inline bool cascading_gic_irq(struct irq_dat=
+a *d)
+> =C2=A0 */
+> =C2=A0static void gic_poke_irq(struct irq_data *d, u32 offset)
+> =C2=A0{
+> -	u32 mask =3D 1 << (irqd_to_hwirq(d) % 32);
+> +	u32 mask =3D BIT(irqd_to_hwirq(d) % 32);
+> =C2=A0
+> =C2=A0	writel_relaxed(mask, gic_dist_base(d) + offset + (irqd_to_hwirq(d)=
+ / 32) * 4);
+> =C2=A0}
+> =C2=A0
+> =C2=A0static int gic_peek_irq(struct irq_data *d, u32 offset)
+> =C2=A0{
+> -	u32 mask =3D 1 << (irqd_to_hwirq(d) % 32);
+> +	u32 mask =3D BIT(irqd_to_hwirq(d) % 32);
+> =C2=A0
+> =C2=A0	return !!(readl_relaxed(gic_dist_base(d) + offset + (irqd_to_hwirq=
+(d) / 32) * 4) & mask);
+> =C2=A0}
 
