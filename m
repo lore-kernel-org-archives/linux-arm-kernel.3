@@ -4,93 +4,98 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B3B4EC98332
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 27 Sep 2026 15:12:19 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 33F69C9832F
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 27 Sep 2026 15:12:33 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=rs4mPvhdimrxqSm9i6pYQocUZNbH6k7UKi/I3AiX7uM=; b=uFyTlwz9vgn8aKjYk2klb8wqgt
-	9IeV0weI6Rjhr/WcnzEt0AxMs1hzoqtkNjOTrXBpV/EB4xaaKYDycxjjzKOX3+W2pFSdULHLohqEa
-	1J83003RSMXYDeTcDnt1FSkM96zlwhzcgqI1ctOWGVycXQrC75GS9dsBvzZM1tNaoTqiT7p9GUCOt
-	ZyNPauyxdTzr1IAT9q7KiWQBR3TTJkCQKBUT5vR0GU8dEnnhtLr29KyS8f6iai+HZJ84rdQdCZ6Fg
-	0Gq/+HbSkaELAhbagF/TU58A7ZsHckAZkMTjzFHFv4cDu0/1Vl8ri04JAA+rJ7LJFvcEtB2LqYkSG
-	HgJIuGtQ==;
+	bh=qQkzg0CGegWquCnbwRamX/sZPF4fvz02MpKEACpVE4E=; b=lw3leX0lR2REqZN9VLuo/41IMM
+	we85SM96h6hErnvmX6V5IN0zFNwJ4LeuDZu++ka1G3hhkjKagjMScc8TNcOn17Vr2sQ6QsTu0/keG
+	Sb+n/JfcOSAn2PWZW6b6CFp1EA2rbjBqIBQjhZeRkRWWOVhEQnvzJG+FUdRfKGgQBLCcUb876ufTn
+	drekSwGUJDu3zNk2O4vgE6/fWPEDnpYDTUAyzHln/PqUZrhQqVR8mCnhjM5d2HhqXu4Sv49Splwzl
+	36ZFKQLRud5FKO1zs+CoSxNQ4eNCo4pNMDAV5ITtJ5FhNc9WcN+RgHfv+ViXrmRm0C2gF7lLA6SSB
+	ppOXB5tg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xAqY1-0000000GUmj-2fBd;
-	Sun, 27 Sep 2026 15:12:13 +0000
-Received: from mail-wr2-x0c.google.com ([2a00:1450:4864:30::c])
+	id 1xAqYE-0000000GUrH-35EE;
+	Sun, 27 Sep 2026 15:12:26 +0000
+Received: from mail-wr2-x10.google.com ([2a00:1450:4864:30::10])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xAqXz-0000000GUl9-1hvm
+	id 1xAqYC-0000000GUqJ-2c14
 	for linux-arm-kernel@lists.infradead.org;
-	Sun, 27 Sep 2026 15:12:12 +0000
-Received: by mail-wr2-x0c.google.com with SMTP id ffacd0b85a97d-482f6350f91so1274854f8f.1
-        for <linux-arm-kernel@lists.infradead.org>; Sun, 27 Sep 2026 08:12:10 -0700 (PDT)
+	Sun, 27 Sep 2026 15:12:25 +0000
+Received: by mail-wr2-x10.google.com with SMTP id ffacd0b85a97d-4843378fb37so1310241f8f.3
+        for <linux-arm-kernel@lists.infradead.org>; Sun, 27 Sep 2026 08:12:24 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1790521929; x=1791126729; darn=lists.infradead.org;
+        d=gmail.com; s=20251104; t=1790521943; x=1791126743; darn=lists.infradead.org;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to:content-type;
-        bh=rs4mPvhdimrxqSm9i6pYQocUZNbH6k7UKi/I3AiX7uM=;
-        b=d8v1JsZaNPns5DJIjWwJWuNPnozsJGHT3f0JJR0eKC/VtXo46JMEvqBgdSCIga21O6
-         752S0ninFD7Zi8WWEVGviWI6dBDDS4qMVfA3YcD5qNxSVZidAd2KAbdTr8yrW21+p7e3
-         yF95IzklUpGR12Lq+lpD4LYE1D0nVgXNxiF2uM9bE4X29SI1lN8j4mGgmE7HR9q/SIBD
-         j0jp0SUBhqIAKPhlOlFb0BUweNeTzAyyHFN/0O9QgZ/zIOJks6Qwa10MxpIDpREAwHzz
-         C6dEQ/4Tksfe8JGdpPBXutr66avJ5fEhsVyHuAXeMtPNkwC2150Z7yit7ZLt8eEXPGnw
-         I9cw==
+        bh=qQkzg0CGegWquCnbwRamX/sZPF4fvz02MpKEACpVE4E=;
+        b=fPn+S7pBsh+JzdwLDf7dSHHMe5PtTZMU79RPcKuh+Xf/uXGsdGpx0T1a+L1iP6rWhh
+         FfAIeSyAoNkpgMzwHoSytCkkKwEHtRNRuck4oqR9Df998agjlZ1Lt1OL1guTw7LtTO1g
+         mgBa/LEidA4QaxwG+QfibUftrdNQRIILJ2F7f7HV29JfgkHvqeo9J3RBAkapiIeo2pOx
+         VI7eh7rpegt4IsXd7H8KpqXt/twpuTVPummWxetH6BPi38W159nuY6tRpK81ECfNhU8U
+         trWtuzw4AR2XRi6NaUvYpIIaEIuowu0aBpn63Kd/p1fTCuu05DoxOeR4Id4Uq1LXwqrM
+         QnZA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1790521929; x=1791126729;
+        d=1e100.net; s=20260707; t=1790521943; x=1791126743;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
          :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=rs4mPvhdimrxqSm9i6pYQocUZNbH6k7UKi/I3AiX7uM=;
-        b=hTJsihfc3kOeoVyBC4uVZhj7ihOFoXyryk/ju43ed5BrWufjaJr+7hXL5r6DQC6WAL
-         BTOsCDALe3cJEZVN1iUf4KbZX3+JIqyCArN0yemdxP20K+13BhX3ajYpxD/ryIHa4nji
-         WndBOhIndl2Kk2robPdWhrZLDHkSHSaYK8W0/xaaN9cieiGQGsHVEY1Uu/Rt1N1reqMo
-         MZHb3zRSshetAGiXzcsqQFV0FzITeopmKsetj49EI9mYNHaCZJNeRmd9uR1S5hQgSQqd
-         3TyC0Xq61VbEl/AOC9zQYBlXsbDH+iguHVWL7QfMXImRHmxUDfU0TN93hKbAUNBg69xI
-         s8jg==
-X-Forwarded-Encrypted: i=1; AKwUvBxSJOGsyDFxtbjC8fdiP0E7cLG0ec8WzLbjjr2A1UvpAGebz2MefWi3djrRBE+lNdSHgef69o3ibt1c1+4TF/eQ@lists.infradead.org
-X-Gm-Message-State: AFq9FYKB28C/HA2l31hGuGLMNSG6yrIs9VXwIq83hF6GzSKAwmyogNU3
-	n5rlUu+mHWeF+tsYQNwqg+WWvMmeYQKxVMudFEJJc66lqxZBqBAc1CT3
-X-Gm-Gg: AYBFou1wfURbCfgl1sTVcrmKoB4iN+13kc1UgWRBngpGfUYsPstUsDRRlPgCfdCUEfH
-	EpftBiphtLwkxJhcne1BOaYfj42JwxTfjQt65jRfBEVFB+hyU4AWgEPcr//kV5NdhEpTUS/y8BU
-	7dL36snpBtdgCfcm1dkMn8VCmObf+EDUMYivqgexU3HavMHOR83h7xBsk52XhdZgswUkDB6CG4N
-	rJvdJlzYcBmOKYEuTqSY2gLs4Bh+830gzKm64QxpfPlh+bI6Q+YakN7yXcLVQPwwQ/uRcZ+hQ1O
-	B6Je2sze4O/DFxDzag5SSOw+wdTtOR1geRzJHvRxqeIB72kw7wkDmXo57bYXqpLzl81JP/6W7aQ
-	QAdUJ/1FlnaC/hbbRGv9BFC/kNNAmFIrAuozVkf3S2ZW9gk1peS8vp1+WDzex046v8cVhi/UcMo
-	3GJnlrIiTjKfdcxd5+PdkJqck8aCWcFdjsWzWL6qyRicMjwce8MJys5vVf5SetdYF/gBC8zpTzT
-	S2As1bwiYJwtAuyC877mVUlay/RTqWg
-X-Received: by 2002:a05:6000:4692:b0:488:6ed9:b11d with SMTP id ffacd0b85a97d-48884e0d903mr5840808f8f.52.1790521929459;
-        Sun, 27 Sep 2026 08:12:09 -0700 (PDT)
+        bh=qQkzg0CGegWquCnbwRamX/sZPF4fvz02MpKEACpVE4E=;
+        b=sE8/amcMIW+Hefr7u1Msi3apEdguALfLA7kd+wvgp6Y90jMHpXQeQLkaz7M0hI3Yxf
+         Pqz6AioHjKqejD6RkEPINMeM1uXzr3ipkmQT7lreHVEqRJ012w11yqyjZlkOXhtqNv5e
+         7W3BhZywLEI+zusk6VOQqwPAVMAikybWdqO2NCBUVuPPJP7Gbj+ajJ3dSAZX7nx0Gzj4
+         RjjNPO6Fz4mIK9LI58NHj7Jmqt2+6ezEe2Ocn2GbISLydfzA9aLb91SoCKo9gAUGnRQl
+         2qwhAawF5146YBfUst7UcWUoba6Lyx30BhtnH833ak5jwBU8aFssSGM49CA2RFcXIfZg
+         rUWw==
+X-Forwarded-Encrypted: i=1; AKwUvBzQjyURjXUYgg7k+hvx/xsVQ9VZKSy1ywgJWLB2bxlxz7t+xWUSD9uAljhQM4a6qlq+gnOtB2u3dfQbvr8L1L+Q@lists.infradead.org
+X-Gm-Message-State: AFq9FYIW3z74IcFMoYZA9XB7S55bMbOjK+thbcQl6AT1oo4S4YNDs4xM
+	2pBkvFO06Uu7DFAI+2HPmUvNVaZZugmDIAlI/jgKCYwE/8K5gQFqMqDV
+X-Gm-Gg: AYBFou3DYVEoY/jb+qDXP5piccDWHRwkuli5AqJ6NoV05bLGnIQQEg/tVy5ZR9YHsKd
+	AbuKL2pwPseRSwM0hx/XyUeCXj9tmZ8LuTHruGY8N+NqM10EwiXDSKmDsO9oUdKonDXH31QwdbR
+	neS2UPu/i5rTgO94FFznop43UlG7oL62+9ZdGOLaugqGrZsPoiM5uHQUxHji2NO4fnA80v69T0w
+	6u1Seh6HEiPyD7QmeFbEbhuLVjL+jHKszxQnAz3uKZPocHDQR+F1bBcRienJ1/HjAOG6nqdJapu
+	mVsu6+CMolH5hxFo8XlZk1TiDc6Xv4/i05aqkVCGs0U/0SqkwFRY9UEvZIOSK8NrdoZbJuR657U
+	DaZsZu2/494/1mXBetEiPFrm1jT5UYCn+0fH6ejpDO5rVPjZX//IseQGd1IwU1BStNfK93OYxTZ
+	DsVWIqiDjXKr99nsZQZBTehXsy1mQy6kPI784a+aUvo2Azz7S0a3NTkhyMye1UkMgfOqUGwznh9
+	H0f9JOSsCOL0JVxrn6Zxfs6PFaiIX5Y
+X-Received: by 2002:a05:6000:4693:b0:487:342:d141 with SMTP id ffacd0b85a97d-488774f4f02mr11163439f8f.23.1790521942896;
+        Sun, 27 Sep 2026 08:12:22 -0700 (PDT)
 Received: from debian (ip-78-137-176-146.broadband.digiweb.ie. [78.137.176.146])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-4887a746c57sm19764208f8f.35.2026.09.27.08.12.08
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-4887a746c57sm19764208f8f.35.2026.09.27.08.12.20
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sun, 27 Sep 2026 08:12:08 -0700 (PDT)
+        Sun, 27 Sep 2026 08:12:22 -0700 (PDT)
 From: Pablo Mazzini <pmazzini@gmail.com>
-To: Chen-Yu Tsai <wens@kernel.org>,
+To: Alexandre Belloni <alexandre.belloni@bootlin.com>,
+	Chen-Yu Tsai <wens@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
 	Jernej Skrabec <jernej.skrabec@gmail.com>,
-	Linus Walleij <linusw@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Maxime Ripard <mripard@kernel.org>,
+	Rob Herring <robh@kernel.org>,
 	Samuel Holland <samuel@sholland.org>
 Cc: Pablo Mazzini <pmazzini@gmail.com>,
+	devicetree@vger.kernel.org,
 	linux-arm-kernel@lists.infradead.org,
-	linux-gpio@vger.kernel.org,
 	linux-kernel@vger.kernel.org,
+	linux-rtc@vger.kernel.org,
 	linux-sunxi@lists.linux.dev
-Subject: [PATCH v2 04/11] pinctrl: sunxi: add Allwinner B288 pin controller driver
-Date: Sun, 27 Sep 2026 16:10:09 +0100
-Message-ID: <20260927151016.186493-5-pmazzini@gmail.com>
+Subject: [PATCH v2 05/11] dt-bindings: rtc: sun6i-a31: add Allwinner B288
+Date: Sun, 27 Sep 2026 16:10:10 +0100
+Message-ID: <20260927151016.186493-6-pmazzini@gmail.com>
 X-Mailer: git-send-email 2.53.0
 In-Reply-To: <20260927151016.186493-1-pmazzini@gmail.com>
 References: <20260927151016.186493-1-pmazzini@gmail.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260927_081211_476723_66C25F86 
-X-CRM114-Status: GOOD (  19.65  )
+X-CRM114-CacheID: sfid-20260927_081224_674618_3D5A076A 
+X-CRM114-Status: GOOD (  10.13  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -105,109 +110,33 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-80 pins across ports B, C, D, F and G; the mux values come from the DT.
-Port C has no external interrupts. PH0 is BSP FPGA-only and omitted.
+The B288 RTC wires one alarm interrupt, not two.
 
 Signed-off-by: Pablo Mazzini <pmazzini@gmail.com>
 ---
- drivers/pinctrl/sunxi/Kconfig              | 10 ++++
- drivers/pinctrl/sunxi/Makefile             |  1 +
- drivers/pinctrl/sunxi/pinctrl-sun8i-b288.c | 53 ++++++++++++++++++++++
- 3 files changed, 64 insertions(+)
- create mode 100644 drivers/pinctrl/sunxi/pinctrl-sun8i-b288.c
+ .../devicetree/bindings/rtc/allwinner,sun6i-a31-rtc.yaml        | 2 ++
+ 1 file changed, 2 insertions(+)
 
-diff --git a/drivers/pinctrl/sunxi/Kconfig b/drivers/pinctrl/sunxi/Kconfig
-index dc62eba96348..a08186133090 100644
---- a/drivers/pinctrl/sunxi/Kconfig
-+++ b/drivers/pinctrl/sunxi/Kconfig
-@@ -56,6 +56,16 @@ config PINCTRL_SUN8I_A23_R
- 	default MACH_SUN8I
- 	select PINCTRL_SUNXI
- 
-+config PINCTRL_SUN8I_B288
-+	bool "Support for the Allwinner B288 PIO"
-+	default MACH_SUN8I
-+	select PINCTRL_SUNXI
-+	help
-+	  Say Y here to enable pin controller and GPIO support for the
-+	  Allwinner B288 (sun8iw10p1) SoC, as used in e-book readers such
-+	  as the PocketBook Verse. This covers ports B, C, D, F and G,
-+	  including the four banks of external interrupt capable pins.
-+
- config PINCTRL_SUN8I_H3
- 	bool "Support for the Allwinner H3 PIO"
- 	default MACH_SUN8I
-diff --git a/drivers/pinctrl/sunxi/Makefile b/drivers/pinctrl/sunxi/Makefile
-index 951b3f1e4b4f..5129c0f19f3e 100644
---- a/drivers/pinctrl/sunxi/Makefile
-+++ b/drivers/pinctrl/sunxi/Makefile
-@@ -18,6 +18,7 @@ obj-$(CONFIG_PINCTRL_SUN50I_A100)	+= pinctrl-sun50i-a100.o
- obj-$(CONFIG_PINCTRL_SUN50I_A100_R)	+= pinctrl-sun50i-a100-r.o
- obj-$(CONFIG_PINCTRL_SUN8I_A83T)	+= pinctrl-sun8i-a83t.o
- obj-$(CONFIG_PINCTRL_SUN8I_A83T_R)	+= pinctrl-sun8i-a83t-r.o
-+obj-$(CONFIG_PINCTRL_SUN8I_B288)	+= pinctrl-sun8i-b288.o
- obj-$(CONFIG_PINCTRL_SUN8I_H3)		+= pinctrl-sun8i-h3.o
- obj-$(CONFIG_PINCTRL_SUN8I_H3_R)	+= pinctrl-sun8i-h3-r.o
- obj-$(CONFIG_PINCTRL_SUN8I_V3S)		+= pinctrl-sun8i-v3s.o
-diff --git a/drivers/pinctrl/sunxi/pinctrl-sun8i-b288.c b/drivers/pinctrl/sunxi/pinctrl-sun8i-b288.c
-new file mode 100644
-index 000000000000..98dd4ead4c32
---- /dev/null
-+++ b/drivers/pinctrl/sunxi/pinctrl-sun8i-b288.c
-@@ -0,0 +1,53 @@
-+// SPDX-License-Identifier: GPL-2.0-only
-+/*
-+ * Allwinner B288 (sun8iw10p1) SoC pinctrl driver.
-+ *
-+ * Bank sizes and the interrupt mux derived from Allwinner's BSP driver
-+ * pinctrl-sun8iw10p1.c, which is:
-+ * Copyright (C) 2014 Jackie Hwang <huangshr@allwinnertech.com>
-+ */
-+
-+#include <linux/module.h>
-+#include <linux/platform_device.h>
-+#include <linux/of.h>
-+#include <linux/pinctrl/pinctrl.h>
-+
-+#include "pinctrl-sunxi.h"
-+
-+/* PH0 exists only on the BSP's FPGA platform and is omitted. */
-+static const u8 b288_nr_bank_pins[SUNXI_PINCTRL_MAX_BANKS] =
-+/*	  PA  PB  PC  PD  PE  PF  PG */
-+	{  0, 17, 15, 29,  0,  7, 12 };
-+
-+/* Port C has no external interrupts. */
-+static const unsigned int b288_irq_bank_map[] = { 1, 3, 5, 6 };
-+
-+static const u8 b288_irq_bank_muxes[SUNXI_PINCTRL_MAX_BANKS] =
-+/*	  PA  PB  PC  PD  PE  PF  PG */
-+	{  0,  6,  0,  6,  0,  6,  6 };
-+
-+static struct sunxi_pinctrl_desc b288_pinctrl_data = {
-+	.irq_banks	= ARRAY_SIZE(b288_irq_bank_map),
-+	.irq_bank_map	= b288_irq_bank_map,
-+};
-+
-+static int b288_pinctrl_probe(struct platform_device *pdev)
-+{
-+	return sunxi_pinctrl_dt_table_init(pdev, b288_nr_bank_pins,
-+					   b288_irq_bank_muxes,
-+					   &b288_pinctrl_data, 0);
-+}
-+
-+static const struct of_device_id b288_pinctrl_match[] = {
-+	{ .compatible = "allwinner,sun8i-b288-pinctrl", },
-+	{}
-+};
-+
-+static struct platform_driver b288_pinctrl_driver = {
-+	.probe	= b288_pinctrl_probe,
-+	.driver	= {
-+		.name		= "sun8i-b288-pinctrl",
-+		.of_match_table	= b288_pinctrl_match,
-+	},
-+};
-+builtin_platform_driver(b288_pinctrl_driver);
+diff --git a/Documentation/devicetree/bindings/rtc/allwinner,sun6i-a31-rtc.yaml b/Documentation/devicetree/bindings/rtc/allwinner,sun6i-a31-rtc.yaml
+index f2b91186ed37..1699e3576b91 100644
+--- a/Documentation/devicetree/bindings/rtc/allwinner,sun6i-a31-rtc.yaml
++++ b/Documentation/devicetree/bindings/rtc/allwinner,sun6i-a31-rtc.yaml
+@@ -19,6 +19,7 @@ properties:
+       - enum:
+           - allwinner,sun6i-a31-rtc
+           - allwinner,sun8i-a23-rtc
++          - allwinner,sun8i-b288-rtc
+           - allwinner,sun8i-h3-rtc
+           - allwinner,sun8i-r40-rtc
+           - allwinner,sun8i-v3-rtc
+@@ -162,6 +163,7 @@ allOf:
+         compatible:
+           contains:
+             enum:
++              - allwinner,sun8i-b288-rtc
+               - allwinner,sun8i-r40-rtc
+               - allwinner,sun50i-h616-rtc
+               - allwinner,sun50i-r329-rtc
 -- 
 2.53.0
 
