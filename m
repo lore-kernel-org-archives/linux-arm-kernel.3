@@ -4,62 +4,67 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E051FC9830E
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 27 Sep 2026 09:29:49 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 75D33C98324
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 27 Sep 2026 10:11:18 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:References:In-Reply-To:Message-ID:Date
-	:Cc:To:From:Subject:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=INavZqeMc0eO79yHUbiOt6/BYPBdvZYebGmXYLddT6k=; b=iQkz6SS4wP03VGfSGITXFim8yw
-	hx8wZfPxrCyFTl/RuJZwA0xAh7rMQLORCL9dfewNzMid7xKebvwjQl4uBfWKRxHE0gNhVZ0NC6lj2
-	sKICmSFgvPhQtV1GcVjpM9M1T3n+itII+6b6PtI0DeAqbe4MESur6dKZHPnqyF/wZAHbfs3h+2OiT
-	d+QNrNx0dBkUkHTCddWmx3U+ikUxk3B0uBsMorjJOROofLOlWuCWrJak5nO978p4g/fmIJjKJOP0F
-	7KmxuKY/d/qC1Ys8q3/Z+vf1ANTa1xiRNdKRHbphTLNYK/dmJ1BKh0fU0yFbZKsEctpVn6brbEiZl
-	9ZSAeegg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=GM5K3YMcvdK6ZyeBlGyhLaLE+gMTP73HJSvrqEJgq7k=; b=Odcwlilv8CkBvFb7IrlgX2Fu6f
+	a92KjHhIoFtO6q71yLWg9/9cgybJUqL40lXkVLQDEopmOY3IZKOUro0hVaKWQtBBgRFQzceiMRjGw
+	97aqWm0aN2oiCOV4DwIrdLYEgqob9898jVN9BNSl9s3rUc0+vm3rSv8HiUiDDeQJ6Byq49Q8GoveR
+	OcY9yy8IeQ4N/MgPhXvZzeIMsDYvW282w2l9Y7kTanPXD7/D65togmxOeNOR9/VjtxPsmUpFXqiUj
+	W9v2zwSFT2bo2fVlQr0UpqnYIa2n7zWSDVz6f5LmMg+ri4MFhgBYvXn+YqhPI4RL0gHym7hxnubFc
+	V3VMqf3g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xAlCY-0000000GBPc-3kZQ;
-	Sun, 27 Sep 2026 09:29:42 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1xAlqg-0000000GCid-0rcW;
+	Sun, 27 Sep 2026 10:11:10 +0000
+Received: from m16.mail.163.com ([220.197.31.3])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xAlCX-0000000GBPV-1iSd
-	for linux-arm-kernel@lists.infradead.org;
-	Sun, 27 Sep 2026 09:29:41 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id 5D929600D1;
-	Sun, 27 Sep 2026 09:29:40 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 06B621F000FF;
-	Sun, 27 Sep 2026 09:29:38 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1790501380;
-	bh=INavZqeMc0eO79yHUbiOt6/BYPBdvZYebGmXYLddT6k=;
-	h=Subject:From:To:Cc:Date:In-Reply-To:References;
-	b=J9oCRj5/vYAvbUhX/S4umkjI9p3UllemN0NrOCqWLldFTzh60d9k8IsCRWShZC1RG
-	 VF0Dhl1HU0wnpFnwi2pXO/YDEQeti2SwyS9+zrUDAq7GQnJ6MatyaPcqn4d8JVKzHn
-	 iuDC9pHc5x9/NzcCAfzOJk1B7+I3UkD9vcejnn3pISmJm6RrBaEFFxR9gVsufJ5yrC
-	 wz3WU18dkR8KmP4OkBa86G36p6m1gUE0xMa0l2xmZ2X1ez+dq2zNqDLxCdennubyhF
-	 +HxyzN+WYJGtWUPSnSOFOzguMuGBJ5VSf4VMukDGMZYcqoMPC+scF1drkHPp7YTmgF
-	 LsSvTS97hLPjQ==
-Subject: Re: [PATCH net v3] net: stmmac: fix rx Scatter-Gather support
-From: netdev-bot+sashiko@kernel.org
-To: lorenzo.bianconi@oss.qualcomm.com
-Cc: maxime.chevallier@bootlin.com, andrew+netdev@lunn.ch, davem@davemloft.net,
- edumazet@google.com, kuba@kernel.org, pabeni@redhat.com,
- mcoquelin.stm32@gmail.com, alexandre.torgue@foss.st.com,
- Jose.Abreu@synopsys.com, ast@kernel.org, daniel@iogearbox.net,
- hawk@kernel.org, john.fastabend@gmail.com, sdf@fomichev.me,
- netdev@vger.kernel.org, linux-stm32@st-md-mailman.stormreply.com,
- linux-arm-kernel@lists.infradead.org, bpf@vger.kernel.org
-Date: Sun, 27 Sep 2026 09:29:38 +0000
-Message-ID: <179050137856.2160803.6310706653062051206@kernel.org>
-In-Reply-To: <20260923-stmmac-rx-sg-fix-v3-1-ed26fea7180d@oss.qualcomm.com>
-References: <20260923-stmmac-rx-sg-fix-v3-1-ed26fea7180d@oss.qualcomm.com>
-X-sashiko-severity: High
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 8bit
+	id 1xAlqc-0000000GCi9-2JtA;
+	Sun, 27 Sep 2026 10:11:08 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=163.com;
+	s=s110527; h=From:To:Subject:Date:Message-Id:MIME-Version; bh=GM
+	5K3YMcvdK6ZyeBlGyhLaLE+gMTP73HJSvrqEJgq7k=; b=lf6wZSq3haUkfV3A+q
+	fbSDB1uG3Ch6cXFx0NOtpxEYeuFOEnwi+dkEE/5O1u96q7LbOVEV+zi2rdU8zU60
+	gYfiURpavW1TaYPQB51PMxli2saZPg43nxBdtvs86AlriiDjNOuDWaiJPSaFwJgA
+	24OliH9h4ivqFTH7cCpIXlkew=
+Received: from pc.localdomain (unknown [])
+	by gzga-smtp-mtada-g1-1 (Coremail) with SMTP id _____wDnn52j67hqFV5yBA--.63529S2;
+	Sun, 27 Sep 2026 18:10:44 +0800 (CST)
+From: Jiale Yao <yaojiale02@163.com>
+To: Felix Fietkau <nbd@nbd.name>,
+	Lorenzo Bianconi <lorenzo@kernel.org>,
+	Ryder Lee <ryder.lee@mediatek.com>,
+	Shayne Chen <shayne.chen@mediatek.com>,
+	Sean Wang <sean.wang@mediatek.com>,
+	Matthias Brugger <matthias.bgg@gmail.com>,
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
+	linux-wireless@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-mediatek@lists.infradead.org
+Cc: Jiale Yao <yaojiale02@163.com>,
+	stable@vger.kernel.org
+Subject: [PATCH] wifi: mt76: mt7615: cancel reset work during unregister
+Date: Sun, 27 Sep 2026 18:10:40 +0800
+Message-Id: <20260927101041.957362-1-yaojiale02@163.com>
+X-Mailer: git-send-email 2.34.1
 MIME-Version: 1.0
+Content-Transfer-Encoding: 8bit
+X-CM-TRANSID: _____wDnn52j67hqFV5yBA--.63529S2
+X-Coremail-Antispam: 1Uf129KBjvJXoWxJrW3XFWkKw4kKF4fZrWkZwb_yoW8GFWDpa
+	y5K3y5u340gF4DKw4UZa1xAa45WanagrW3Cry8Xw4UW395AryFyrW0vFyjy340ya1kCa4Y
+	yrWUtry3ua4qvaDanT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
+	9KBjDUYxBIdaVFxhVjvjDU0xZFpf9x0piPCztUUUUU=
+X-CM-SenderInfo: x1dryxhdohiji6rwjhhfrp/xtbCzQXsJ2q466WNDQAA3f
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260927_031107_061714_161ECAC5 
+X-CRM114-Status: UNSURE (   7.95  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -74,377 +79,37 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Thank you for your contribution! Sashiko AI review found 5 potential
-issue(s) to consider.
-
-Critical: 0 · High: 3 (2) · Medium: 1 · Low: 1
-
-If you believe none of the issues are legitimate, please reply to each
-issue of Medium severity or higher and explain why the AI is wrong.
-If any of them are legitimate and you plan to respin, please let patchwork
-know by including "pw-bot: cr" as a separate line at the end of your reply
-(one such reply per series is enough).
-
-- [High] The new XDP FCS strip in stmmac_rx() (`if
-  (stmmac_xdp_is_enabled(priv) && !buf2_len) { buf1_len -= ETH_FCS_LEN;…
-- [High] The page_pool sync length no longer matches its offset base on
-  the XDP_CONSUMED path.
-- [High] Out-of-bounds buffer2 fragment after an XDP_TX/REDIRECT verdict
-  in the middle of a frame.
-- [Medium] stmmac_rx() removes the FCS with the wrong length when XDP has
-  changed the frame.
-- [Low] Some new or kept comments do not match the code.
-
-Pre-existing issues:
-- [High] This problem wasn't introduced by this patch, but the same
-  unbacked buffer2 DMA destination is still reachable on AF_XDP zero-…
-- [High] This problem wasn't introduced by this patch, but in
-  stmmac_rx(), when napi_build_skb() fails, buf->page is returned to the…
-
---
-
-net: stmmac: fix rx Scatter-Gather support
-
-This patch enables the secondary RX buffer (buffer2) for non-SPH frames on
-GMAC4/XGMAC cores. Frames larger than dma_buf_sz should then no longer spill
-into an unmapped address. It also moves the page_pool sync window to page
-offset 0, and strips the FCS by trimming the assembled skb with pskb_trim()
-(or from the XDP buffer for single-buffer frames).
-
-> diff --git a/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c b/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
-> index d5a984ad864f2..36ecd32921c8e 100644
-> --- a/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
-> +++ b/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
-> @@ -1629,6 +1629,16 @@ static void stmmac_clear_descriptors(struct stmmac_priv *priv,
->  		stmmac_clear_tx_descriptors(priv, dma_conf, queue);
->  }
->  
-> +static bool stmmac_rx_check_buf2_cap(struct stmmac_priv *priv)
-> +{
-> +	/* Only cores that can program an independent secondary RX buffer
-> +	 * (used for scatter-gather overflow or split-header payload) back
-> +	 * buffer2. Legacy cores have no set_sec_addr op, so buffer2 is
-> +	 * never handed to the hardware there.
-> +	 */
-
-[Severity: Low]
-This isn't a bug, but is "buffer2 is never handed to the hardware there"
-accurate? In ring mode with dma_buf_sz == BUF_SIZE_16KiB, legacy cores do
-program DES3 as a second buffer in ring_mode.c:
-
-    static void init_desc3(struct dma_desc *p)
-    {
-            p->des3 = cpu_to_le32(le32_to_cpu(p->des2) + BUF_SIZE_8KiB);
-    }
-
-refill_desc3() does the same thing.
-
-The comments in stmmac_rx_buf2_len() have the same problem. The
-"/* GMAC4 or last descriptor */" label no longer matches the new condition,
-because the code after it now runs for GMAC4 with SPH active, or for the
-last descriptor. The block comment above it still says "'plen - len' always
-gives the correct length of buf2", but the patch adds a clamp there.
-
-> +	return priv->hw->desc && priv->hw->desc->set_sec_addr;
-> +}
-
-[ ... ]
-
-> @@ -2256,13 +2263,8 @@ static int __alloc_dma_rx_desc_resources(struct stmmac_priv *priv,
->  	pp_params.nid = dev_to_node(priv->device);
->  	pp_params.dev = priv->device;
->  	pp_params.dma_dir = xdp_prog ? DMA_BIDIRECTIONAL : DMA_FROM_DEVICE;
-> -	pp_params.offset = stmmac_rx_offset(priv);
-> -	pp_params.max_len = dma_conf->dma_buf_sz;
-> -
-> -	if (priv->sph_active) {
-> -		pp_params.offset = 0;
-> -		pp_params.max_len += stmmac_rx_offset(priv);
-> -	}
-> +	pp_params.offset = 0;
-> +	pp_params.max_len = dma_conf->dma_buf_sz + stmmac_rx_offset(priv);
-
-[Severity: High]
-Does the XDP_CONSUMED recycle path still sync the right range after this
-change?
-
-With XDP loaded, stmmac_xdp_set_prog() forces SPH off:
-
-    priv->sph_active = priv->sph_capable && !stmmac_xdp_is_enabled(priv);
-
-So before this patch, pp_params.offset in XDP mode was always equal to
-buf->page_offset.
-
-stmmac_rx() still computes sync_len relative to buf->page_offset:
-
-    sync_len = ctx.xdp.data_end - ctx.xdp.data_hard_start -
-               buf->page_offset;
-    ...
-    page_pool_put_page(rx_q->page_pool,
-                       virt_to_head_page(ctx.xdp.data),
-                       sync_len, true);
-
-__page_pool_dma_sync_for_device() then syncs starting at the pool offset:
-
-    dma_sync_size = min(dma_sync_size, pool->p.max_len);
-    __dma_sync_single_for_device(pool->p.dev, dma_addr + pool->p.offset,
-                                 dma_sync_size, pool->p.dma_dir);
-
-With offset now 0, wouldn't this sync [0, sync_len) instead of
-[page_offset, page_offset + sync_len)? The last page_offset bytes the CPU
-touched would not be cleaned for the device. That is up to 258 bytes, and it
-includes the Ethernet header that an XDP_TX program may have rewritten
-before the TX ring filled up.
-
-On non-coherent platforms, could a dirty line left there be written back
-over the next frame DMA'd into the recycled page? One case is
-dma_sync_single_for_cpu() on the unaligned buf->addr, which cleans and
-invalidates the first line.
-
-This can happen for XDP_DROP or XDP_ABORTED after the program wrote the
-packet, for a failed XDP_REDIRECT, or for XDP_TX with a full TX ring.
-
-[ ... ]
-
-> @@ -5099,7 +5101,7 @@ static inline void stmmac_rx_refill(struct stmmac_priv *priv, u32 queue)
->  				break;
->  		}
->  
-> -		if (priv->sph_active && !buf->sec_page) {
-> +		if (stmmac_rx_check_buf2_cap(priv) && !buf->sec_page) {
->  			buf->sec_page = page_pool_alloc_pages(rx_q->page_pool, gfp);
->  			if (!buf->sec_page)
->  				break;
-
-[Severity: High]
-This isn't a bug introduced by this patch, but it concerns how refill
-reuses buf->page. In stmmac_rx(), when napi_build_skb() fails, the page is
-recycled but buf->page still points at it:
-
-    skb = napi_build_skb(page_address(buf->page),
-                         rx_q->napi_skb_frag_size);
-    if (!skb) {
-            page_pool_recycle_direct(rx_q->page_pool,
-                                     buf->page);
-            rx_dropped++;
-            count++;
-            goto drain_data;
-    }
-
-stmmac_rx_refill() only allocates when !buf->page, so it re-arms the
-descriptor with the recycled page. The same page also sits in the pool's
-direct cache, and the next page_pool_alloc_pages() can hand it out again.
-
-Refill now also allocates sec_page for every consumed secondary buffer on
-GMAC4/XGMAC, which makes that reuse more likely. Can two descriptors end up
-DMAing into the same page, with both owners later recycling it?
-
-Should buf->page be set to NULL after page_pool_recycle_direct()?
-
-> @@ -5110,10 +5112,8 @@ static inline void stmmac_rx_refill(struct stmmac_priv *priv, u32 queue)
->  		buf->addr = page_pool_get_dma_addr(buf->page) + buf->page_offset;
->  
->  		stmmac_set_desc_addr(priv, p, buf->addr);
-> -		if (priv->sph_active)
-> -			stmmac_set_desc_sec_addr(priv, p, buf->sec_addr, true);
-> -		else
-> -			stmmac_set_desc_sec_addr(priv, p, buf->sec_addr, false);
-> +		stmmac_set_desc_sec_addr(priv, p, buf->sec_addr,
-> +					 stmmac_rx_check_buf2_cap(priv));
-
-[Severity: High]
-This is a pre-existing issue, and the commit message already says AF_XDP
-zero-copy is not covered. Still, the same unbacked buffer2 can be reached
-on XGMAC ZC queues. stmmac_rx_refill_zc() does:
-
-    stmmac_set_desc_sec_addr(priv, rx_desc, 0, false);
-
-and dwxgmac2_set_sec_addr() ignores is_valid:
-
-    static void dwxgmac2_set_sec_addr(struct dma_desc *p, dma_addr_t addr, bool is_valid)
-    {
-            p->des2 = cpu_to_le32(lower_32_bits(addr));
-            p->des3 = cpu_to_le32(upper_32_bits(addr));
-    }
-
-stmmac_set_queue_rx_buf_size() gives a ZC queue a buffer size of
-xsk_pool_get_rx_frame_size(), which is about 3840 bytes with 4 KiB chunks.
-XGMAC_CORE_INIT_RX accepts frames up to 16368 bytes.
-
-On a ZC queue, would a frame that overflows buffer1 be written to DMA
-address 0? That would give the same SMMU fault this patch fixes, or a write
-to physical address 0 on systems without an IOMMU.
-
-[ ... ]
-
-> @@ -5190,14 +5193,15 @@ static unsigned int stmmac_rx_buf2_len(struct stmmac_priv *priv,
->  	 * Thus 'plen - len' always gives the correct length of buf2.
->  	 */
->  
-> -	/* Not GMAC4 and not last descriptor */
-> -	if (priv->plat->core_type != DWMAC_CORE_GMAC4 && (status & rx_not_ls))
-> +	/* Not GMAC4, or non-SPH and not last descriptor */
-> +	if ((priv->plat->core_type != DWMAC_CORE_GMAC4 || !priv->sph_active) &&
-> +	    (status & rx_not_ls))
->  		return priv->dma_conf.dma_buf_sz;
->  
->  	/* GMAC4 or last descriptor */
->  	plen = stmmac_get_rx_frame_len(priv, p, coe);
->  
-> -	return plen - len;
-> +	return plen > len ? plen - len : 0;
->  }
-
-[Severity: High]
-buffer2 is now enabled in non-SPH mode, which is always the case with XDP
-loaded. Can this return more than dma_buf_sz?
-
-When the XDP program returns TX or REDIRECT on a non-last descriptor,
-stmmac_rx() does:
-
-    } else if (xdp_res & (STMMAC_XDP_TX |
-                          STMMAC_XDP_REDIRECT)) {
-            xdp_status |= xdp_res;
-            buf->page = NULL;
-            skb = NULL;
-            count++;
-            continue;
-    }
-
-The top of the loop then resets len to 0 even though the frame isn't
-finished. The next descriptor is handled as a new frame, and on the last
-descriptor plen - len is no longer limited to one descriptor.
-
-For example, take GMAC4 with dma_buf_sz 1536 and a 6000 byte frame. desc0
-is transmitted, and desc1 (the last one) gets buf1_len 1536 and buf2_len
-4464.
-
-If XDP then returns PASS for that chunk, stmmac_rx() does:
-
-    dma_sync_single_for_cpu(priv->device, buf->sec_addr,
-                            buf2_len, dma_dir);
-    skb_add_rx_frag(skb, skb_shinfo(skb)->nr_frags,
-                    buf->sec_page, 0, buf2_len,
-                    priv->dma_conf.dma_buf_sz);
-
-sec_page is an order-0 page here. Wouldn't the fragment run past the end of
-the page, so that adjacent memory and stale pool contents reach the stack?
-GMAC4 accepts frames up to about 9018 bytes with JE set, and XGMAC up to
-16368.
-
-Before this patch, buf2_len was always 0 without SPH.
-
-[ ... ]
-
-> @@ -5809,24 +5814,25 @@ static int stmmac_rx(struct stmmac_priv *priv, int limit, u32 queue)
->  		len += buf2_len;
->  
->  		/* ACS is disabled; strip manually. */
-> -		if (likely(!(status & rx_not_ls))) {
-> -			if (buf2_len) {
-> -				buf2_len -= ETH_FCS_LEN;
-> -				len -= ETH_FCS_LEN;
-> -			} else if (buf1_len) {
-> -				buf1_len -= ETH_FCS_LEN;
-> -				len -= ETH_FCS_LEN;
-> -			}
-> -		}
-> +		if (likely(!(status & rx_not_ls)))
-> +			len -= ETH_FCS_LEN;
->  
->  		if (!skb) {
->  			unsigned int pre_len, sync_len;
->  
-> +			/* Each frame starts here: reset the FCS handling */
-> +			fcs_stripped = false;
-> +
->  			dma_sync_single_for_cpu(priv->device, buf->addr,
->  						buf1_len, dma_dir);
->  			net_prefetch(page_address(buf->page) +
->  				     buf->page_offset);
->  
-> +			if (stmmac_xdp_is_enabled(priv) && !buf2_len) {
-> +				buf1_len -= ETH_FCS_LEN;
-> +				fcs_stripped = true;
-> +			}
-
-[Severity: High]
-Is buf1_len guaranteed to be at least ETH_FCS_LEN here, and is this always
-the last descriptor?
-
-On GMAC4/XGMAC, an XDP_CONSUMED verdict on a non-last descriptor does goto
-read_again with skb = NULL, and len keeps the bytes counted so far. The next
-descriptor then enters this block as if it were a new frame.
-
-Take a frame of n * 2 * dma_buf_sz + r bytes with r = 1..3, for example 3073
-to 3075 bytes with dma_buf_sz 1536. The last descriptor gets
-buf1_len = min(dma_buf_sz, plen - len) = r from stmmac_rx_buf1_len() and
-buf2_len = 0, so this subtraction wraps:
-
-    buf1_len -= ETH_FCS_LEN;
-
-xdp_prepare_buff() then gets data_end < data, and on XDP_PASS this passes a
-value around 0xfffffffd to skb_put():
-
-    buf1_len = ctx.xdp.data_end - ctx.xdp.data;
-    ...
-    skb_put(skb, buf1_len);
-
-Could this send an skb with len around 4 GiB to eth_type_trans() and the IP
-stack, where later trims can put the tail past the napi frag?
-
-On legacy cores without set_sec_addr, stmmac_rx_buf2_len() returns 0 for
-every descriptor, so !buf2_len doesn't mean last descriptor there either.
-Wouldn't the first descriptor of a multi-descriptor frame lose 4 bytes of
-payload, and the final pskb_trim() then be skipped so the real FCS stays at
-the tail?
-
-Before this patch the strip only happened on the last descriptor. buf1_len
-there was min(dma_buf_sz, plen), so it could not be 1..3.
-
-> +
->  			xdp_init_buff(&ctx.xdp, bufsz, &rx_q->xdp_rxq);
->  			xdp_prepare_buff(&ctx.xdp, page_address(buf->page),
->  					 buf->page_offset, buf1_len, true);
-> @@ -5926,6 +5932,15 @@ static int stmmac_rx(struct stmmac_priv *priv, int limit, u32 queue)
->  
->  		/* Got entire packet into SKB. Finish it. */
->  
-> +		/* Remove FCS if needed */
-> +		if (!fcs_stripped && pskb_trim(skb, len)) {
-
-[Severity: Medium]
-Does len still match the skb here when an XDP program has changed the size
-of the frame?
-
-For a frame that uses buffer2 on the first descriptor, fcs_stripped stays
-false. On XDP_PASS the skb head is built from the adjusted XDP boundaries:
-
-    buf1_len = ctx.xdp.data_end - ctx.xdp.data;
-    ...
-    skb_reserve(skb, head_pad_len);
-    skb_put(skb, buf1_len);
-
-len, however, comes only from the descriptor lengths minus ETH_FCS_LEN. It
-never includes the bpf_xdp_adjust_head() or bpf_xdp_adjust_tail() delta.
-
-pskb_trim() takes an absolute length and does nothing when len >= skb->len:
-
-    return (len < skb->len) ? __pskb_trim(skb, len) : 0;
-
-So wouldn't a program that pushes N bytes lose N bytes of payload from the
-tail? And wouldn't one that pulls or shrinks by 4 or more bytes leave the
-FCS in place?
-
-Would pskb_trim(skb, skb->len - ETH_FCS_LEN) be more robust here?
-
-> +			dev_kfree_skb_any(skb);
-> +			skb = NULL;
-> +			rx_dropped++;
-> +			count++;
-> +			continue;
-> +		}
-
+The MCU error interrupt handler queues reset_work on the device workqueue.
+Device removal can reach mt76_unregister_device() while that work is still
+pending, since the workqueue is not destroyed until mt76_free_device().
+
+If reset_work runs in this window, it operates on an unregistered hw and
+can requeue mac_work after ieee80211_unregister_hw() has torn the device
+down. Cancel it before unregistering the device so it cannot outlive the
+registered hw.
+
+Fixes: 61c4fa721968 ("mt76: mt7615: implement hardware reset support")
+Cc: stable@vger.kernel.org
+Signed-off-by: Jiale Yao <yaojiale02@163.com>
+---
+ drivers/net/wireless/mediatek/mt76/mt7615/pci_init.c | 1 +
+ 1 file changed, 1 insertion(+)
+
+diff --git a/drivers/net/wireless/mediatek/mt76/mt7615/pci_init.c b/drivers/net/wireless/mediatek/mt76/mt7615/pci_init.c
+index a9178e077fd6..7d8580720cd8 100644
+--- a/drivers/net/wireless/mediatek/mt76/mt7615/pci_init.c
++++ b/drivers/net/wireless/mediatek/mt76/mt7615/pci_init.c
+@@ -116,6 +116,7 @@ void mt7615_unregister_device(struct mt7615_dev *dev)
+ 	mcu_running = mt7615_wait_for_mcu_init(dev);
+ 
+ 	mt7615_unregister_ext_phy(dev);
++	cancel_work_sync(&dev->reset_work);
+ 	mt76_unregister_device(&dev->mt76);
+ 	if (mcu_running)
+ 		mt7615_mcu_exit(dev);
+
+base-commit: 93f51579e7df248780214094418f205253383cc5
 -- 
-Sashiko AI review · https://netdev-ai.bots.linux.dev/sashiko/#/patchset/20260923-stmmac-rx-sg-fix-v3-1-ed26fea7180d%40oss.qualcomm.com
+2.34.1
+
 
