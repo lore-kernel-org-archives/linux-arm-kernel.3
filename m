@@ -4,108 +4,95 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E75C0C98338
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 27 Sep 2026 17:34:21 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id AB2F9C98338
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 27 Sep 2026 17:44:30 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:To:In-Reply-To:Cc:References
-	:Message-Id:Date:Subject:Mime-Version:From:Content-Transfer-Encoding:
-	Content-Type:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:To:
+	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=MuL0v1f3+J9yyQw0yqK0TvcdFgWSs593LTmvyHRza0g=; b=LtGawJFCivXDdh0eq5cOdaavjI
-	miqUFvP6Xd/vj+bHipldMziRqFFlBzpx+5YxIcrkHq2NDnc2BaHoSsGKhFHBljDI/1BuMu3pyXuuU
-	iaU5V7oK85T4U4C2I/444ch7soVbkipKtbMlWvv3tICFPMGiSuOxmhDu2r56cvhXOC+tP77MGEqxc
-	IF9edLA6zp8/j7idRwal6LmdLNMPU7HzLGkHNXyk4BRN1pkhrxUqLNTuxgPZaFl742Ci0Xobaet/r
-	14WrsOHw3n2uZZUGjMUl0Yz+ZXpyIs7wfEKNwkNOJ7QkVtCn1gINR9Z1bxoyzZ/5AToTqCsz0FeeO
-	Y17wYGVg==;
+	bh=aFdg28cjkK57y5Nms1NhKpYwFl6OCJWFse4hVSZd8CY=; b=dAhq1NnRctWHZM3NXv5d7k/ktn
+	DA54vPQ38fiYRasyYFzDchetgED1z95LA4AhdvsXCc4xzowk+Ds1TSx5kvDaAoLmofx7JA7j9F+o9
+	kVu2X4dq8OHXrBrk+YDM9S0+Kork1fSi00YVhuzToGmZURvdXZigjnF6X7v5Ag7aNqmdiYaX589wK
+	K8HqZcRmh39eAwKrDhuzwY/5Wt6pSBaS5lAyufMH/nLQ2fccFkq5774shFLr4422/2C5uejF52uto
+	0JyfQlXTKo0C/gGWdt+NeUbjc2u/M1QG8VSBcSFpuQ/rJDFbU56ce3puuvGZfXpOfV+WD2WHhiCUY
+	Am+xG8bA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xAslR-0000000GeX4-23Oh;
-	Sun, 27 Sep 2026 17:34:13 +0000
-Received: from mail-oo2-x2a.google.com ([2607:f8b0:4864:31::2a])
+	id 1xAsvH-0000000GfS9-0rko;
+	Sun, 27 Sep 2026 17:44:23 +0000
+Received: from mail-wr2-x10.google.com ([2a00:1450:4864:30::10])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xAslO-0000000GeWX-1qFm
+	id 1xAsvF-0000000GfRn-1mBv
 	for linux-arm-kernel@lists.infradead.org;
-	Sun, 27 Sep 2026 17:34:11 +0000
-Received: by mail-oo2-x2a.google.com with SMTP id 46e09a7af769-81be5042c56so356208a34.0
-        for <linux-arm-kernel@lists.infradead.org>; Sun, 27 Sep 2026 10:34:09 -0700 (PDT)
+	Sun, 27 Sep 2026 17:44:22 +0000
+Received: by mail-wr2-x10.google.com with SMTP id ffacd0b85a97d-485984ebf5cso1825541f8f.0
+        for <linux-arm-kernel@lists.infradead.org>; Sun, 27 Sep 2026 10:44:20 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=amacapital-net.20251104.gappssmtp.com; s=20251104; t=1790530448; x=1791135248; darn=lists.infradead.org;
-        h=to:in-reply-to:cc:references:message-id:date:subject:mime-version
-         :from:content-transfer-encoding:content-type:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=MuL0v1f3+J9yyQw0yqK0TvcdFgWSs593LTmvyHRza0g=;
-        b=ywtxqQclqIzAmytIK6LKNhUjRylWTxEYFCgJj6uq7hzSjDoeXYVNnk4edNZaSuiMc6
-         trxLoHksMX3BFg42vBrnt2CHtnf1cz8CYGuYiEencnWSncTyvD9llUzmQU3PeKyh+KY2
-         aelDURbwGwU1tqxLfh3ANBpaS7pDV5B4LzuTpaxaPigexDO2o3sYqB5kF48FjDzqUR6w
-         l/6052zqTj1vrTLJF05+Jls8IhT6aPxPyxLWnDBNq82DK5lZtL/GiAjzSgpBa7y4kyuZ
-         nzHh+wYT/KfixNfFCgftEmbePAQ8Q85p9H8Kl4zkJIzgJGOsMa54yYZsVjFVAcYz+PSx
-         Hk6w==
+        d=gmail.com; s=20251104; t=1790531059; x=1791135859; darn=lists.infradead.org;
+        h=content-transfer-encoding:content-type:mime-version:references
+         :in-reply-to:message-id:subject:cc:to:from:date:from:to:cc:subject
+         :date:message-id:reply-to:content-type;
+        bh=aFdg28cjkK57y5Nms1NhKpYwFl6OCJWFse4hVSZd8CY=;
+        b=XJd+TGzjoQ0KEXU0ekRkGL0Q9oFiDBo8DqWlMugdrYkIQCqIDXqBIW1Qw9XoIB1OCS
+         ijq1g6fi1BfpcMCVkuHkJi6j2Pyl/kkeX+LkPbxfg54oc88YxcOp75ekj52f7ft7At6c
+         Qvvbqbid8/Y9YlFv/iv7MeSX1hKr0OHweFbxFkZpzpTxIPq/0iV35DIpuCS/RJHQhfjF
+         miTEHm+t+EVIwU6cy5+g5CHPTQZn/rLhXrZQB5VtosTG+UcnoTcUQh2qqpCo7RCFIe59
+         drxReorswra6DflpSOdbJbfPaGAvLJiqmpcT6lh8xjwxEwW/mxsSJdMj1dX2EDb79QLj
+         MDfw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1790530448; x=1791135248;
-        h=to:in-reply-to:cc:references:message-id:date:subject:mime-version
-         :from:content-transfer-encoding:content-type:x-gm-gg
+        d=1e100.net; s=20260707; t=1790531059; x=1791135859;
+        h=content-transfer-encoding:content-type:mime-version:references
+         :in-reply-to:message-id:subject:cc:to:from:date:x-gm-gg
          :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
          :content-type;
-        bh=MuL0v1f3+J9yyQw0yqK0TvcdFgWSs593LTmvyHRza0g=;
-        b=rw9Ahutdz/X890a/qCxp8IdS3caSlklvsA0aSQ4EBOdfyu/vKNLi1ZbcRMuY73W62u
-         uGQQ8a06zVeJi3+sw9H6G0VUkk5LUTrdsf2nYnnb+2AVLjHWTbPBTBBGWWQgBM1jdpCe
-         cUvJJYem0yrMEMbVUv5Li0TRNQZU7q4zgo+jI51WF78P0/9Y82oSU+HUIt9cMyJhIUAY
-         hbawEt11qQbJhIqpsgzBVjw4ecCbR/CTMHSjQI1YtGzv3GGafSHhDUusm4YpH/S5GMRZ
-         NN/TpGU4+KB5a/PW135byGLlcmXRdrKxbS05UlpvHbgIVdnKOj/HGpvyV9BA2i+KwrdX
-         5CTQ==
-X-Forwarded-Encrypted: i=1; AKwUvBy2IESSZlqA7C/AsNLzGuFRZQSOVQ/8H1MXeZuvmUvRgMCk0LWWeiADphhwO4tFMfMQxW/XUQhlrysXy1BytTNw@lists.infradead.org
-X-Gm-Message-State: AFuF++mApeq0mDZ6flCyMjUwXTR7U/qFWeA0My/cxbHcSc3vjfq6itj0
-	e4NSHdqhtvB733clsuNZSLn+39zq+2tchRxbnjvqQmLVSnSoL7RsW9aOFg2uoUggjw==
-X-Gm-Gg: AYBFou3OCscSJNQTgqTYaayQkpO6itTxtS0+AFAZHDQNGbCALV1jwT6A3YNhssm7E8g
-	X0/dMKihUgJXSBOKJahM5j2tw/Rdmbq4/dgwzzwqmNc2a6fF8g34LjvAJaL7/vNOz/gaGNDqnGp
-	Iz0MlT5VlRMCt3+nKzotcwayOGlXNb7ZGtiU9Id6+6XSeVjLsx+bWpyhFn4MVoSDjO1yxPcmdjR
-	NTaE73cSfGLmn+m9kKE0t5ir/36YWrk5bsuA0zbRwjvkW6+7vbkFNhpyRD9JQtIeymahFilmv4X
-	LhZwOnw1lrDgn0O9SvtPLI2gizS3Kiie3UpSKCT8F3AQ1r1ICuXqwfqAXill8tqKv6lBzpyqFFS
-	+3YiZxTz2kzTRGe1RkYuAlg5lnz1qFWYgplSZJR9OJPJi1BzBKYFrmHtiWCny1ioocxUt2WDVaw
-	khWXNutILjcc/RWgvBznQzO9rcXMgmrD816kLKbjhrhiWEQjdKGj72OwLxMZliQ3jXcGV0JkH+O
-	sUuK+cYTVjimi9FgPr4ctWYPqO3GQ==
-X-Received: by 2002:a05:6820:820:b0:6cd:3ffc:64d2 with SMTP id 006d021491bc7-6d5bac3e146mr7371645eaf.77.1790530448403;
-        Sun, 27 Sep 2026 10:34:08 -0700 (PDT)
-Received: from smtpclient.apple ([2600:381:5ba1:a8b2:19d5:7f67:de2b:c3a5])
-        by smtp.gmail.com with ESMTPSA id 006d021491bc7-6d883394af1sm2755239eaf.13.2026.09.27.10.34.05
+        bh=aFdg28cjkK57y5Nms1NhKpYwFl6OCJWFse4hVSZd8CY=;
+        b=u94Vq9e5QNmg41DV45r0Fqrl36E3zNbGfwZNlojTbAjfc3Jc+B+ReFFnWscdo3oTps
+         FZ+SI1EqPrsE65INKP4T0bi2qccvGXqIwyD2qIIPEkZYzWx5tSNb39NTaiGhziRGpQBY
+         +6OL+QG57wwJAQbiqWq+O/S/RopLr6SqUmkt3CLoapu08c8FgAlCl545QF7O2ipdqSbO
+         LX2rOD0y4+kl+gVRXKf1DAW4+4SsDXGSqIVJATZ4NO13rwtzMiXrxXK1M4eX/mel31zh
+         unqvUDVmmCW4t0EWT2HWIUKn0JegryNcWLlIsqvm8mwN+ddARlvW1t8SMT7HlQPurUd7
+         bSFw==
+X-Forwarded-Encrypted: i=1; AKwUvBykGig7vhImaVG5TBBIgf8MwW0faoL4l+m/A/I9NiimrOXlF2UZiKJKmmU96YCmJaEIx+9YQ19UFBTBsgaHX3Ke@lists.infradead.org
+X-Gm-Message-State: AFq9FYIqY9S+FM64fMumK3uKHboo0NiVli8soOM078MMsWRkPRXYjc1G
+	Y47XK368xoB+F7f1WA7I57lN8VW1vP0YL6I0exVPoAycLMsb2N2fFhNE
+X-Gm-Gg: AYBFou0q7ZwU6/ej7WjIa5IO4bG1I7DncRfXQ/PrGH7HIUREfkNpTXkQmpHQZc5eacy
+	AgLPkZkZa0EHQiyRnkUiEdQZK5iav6/H6slYDaJE30DsyOffV0OdDB94bJGmfP2zuQLd9++f2Oa
+	y22uUsvQZ/mdTASxvEE8EqvEGwmaHUX5U9xXmH4P9+sQHO3qFwMlwO+Eyoi5lYk/ZkPhD96buD6
+	nLHbpZORVHlEcVHwwHrjxJMHth6lfNlbemZiU2u9QflSFVwjlxdeSk5ZLv6bB1FEtuIYKEx7+Hg
+	3Rx7jvRcE7q6+k10Fdr6jT/auBbW62IHOc9SFlrnBBvkXGoazyfX0XzwA6i/a/hJrmnqbkDCSyC
+	BCMKb/Zf5Dk18ujOmVE+Bzh8RMCCeD7+NF5S+L7DNAGgyXJFBJEAZIiefOQfoWhVLQNR6lbETzi
+	nzpj0NFS9KYNXnzubIGpyh3ef8cQBojbzad6Wq/FK07VhD25fDjiSHXGLf7zyHOe77FGsU5ZGlM
+	gJHWjDgK8c58ax+cYueAopNdlMrzIFm4uI=
+X-Received: by 2002:a05:6000:3105:b0:488:8192:c768 with SMTP id ffacd0b85a97d-4888192c8f5mr13570954f8f.30.1790531059310;
+        Sun, 27 Sep 2026 10:44:19 -0700 (PDT)
+Received: from pumpkin (82-69-66-36.dsl.in-addr.zen.co.uk. [82.69.66.36])
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-4887a34a4e9sm18464590f8f.11.2026.09.27.10.44.18
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sun, 27 Sep 2026 10:34:06 -0700 (PDT)
-Content-Type: text/plain; charset=utf-8
-Content-Transfer-Encoding: quoted-printable
-From: Andy Lutomirski <luto@amacapital.net>
-Mime-Version: 1.0 (1.0)
-Subject: Re: [RFC PATCH v2 0/4] mm/swap: reserve swap areas for deliberate offload
-Date: Sun, 27 Sep 2026 10:33:53 -0700
-Message-Id: <3FDF3191-94A5-42B3-A33E-12021344D7BD@amacapital.net>
-References: <20260926045517.3458413-1-matthias.goergens@gmail.com>
-Cc: Andrew Morton <akpm@linux-foundation.org>,
- Chris Li <chrisl@kernel.org>, Kairui Song <kasong@tencent.com>,
- Johannes Weiner <hannes@cmpxchg.org>, David Hildenbrand <david@kernel.org>,
- Michal Hocko <mhocko@kernel.org>, Shakeel Butt <shakeel.butt@linux.dev>,
- Kemeng Shi <shikemeng@huaweicloud.com>, Nhat Pham <nphamcs@gmail.com>,
- Yosry Ahmed <yosry@kernel.org>, Youngjun Park <youngjun.park@lge.com>,
- Baoquan He <baoquan.he@linux.dev>, Barry Song <baohua@kernel.org>,
- linux-mm@kvack.org, linux-kernel@vger.kernel.org, cgroups@vger.kernel.org,
- linux-api@vger.kernel.org, Alejandro Colomar <alx@kernel.org>,
- linux-man@vger.kernel.org, Karel Zak <kzak@redhat.com>,
- util-linux@vger.kernel.org, Jani Nikula <jani.nikula@linux.intel.com>,
- Joonas Lahtinen <joonas.lahtinen@linux.intel.com>,
- Vivi Rodrigo <rodrigo.vivi@intel.com>,
- Tvrtko Ursulin <tursulin@ursulin.net>, David Airlie <airlied@gmail.com>,
- Simona Vetter <simona@ffwll.ch>, intel-gfx@lists.freedesktop.org,
- dri-devel@lists.freedesktop.org, Rafael J Wysocki <rafael@kernel.org>,
- Pavel Machek <pavel@kernel.org>, Catalin Marinas <catalin.marinas@arm.com>,
- Will Deacon <will@kernel.org>, linux-pm@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, Shuah Khan <shuah@kernel.org>,
- linux-kselftest@vger.kernel.org,
- Matthias Goergens <matthias.goergens@gmail.com>
-In-Reply-To: <20260926045517.3458413-1-matthias.goergens@gmail.com>
-To: Matthias Goergens <matthias.goergens@gmail.com>
-X-Mailer: iPhone Mail (23G90)
+        Sun, 27 Sep 2026 10:44:18 -0700 (PDT)
+Date: Sun, 27 Sep 2026 18:44:14 +0100
+From: David Laight <david.laight.linux@gmail.com>
+To: Demian Shulhan <demyansh@gmail.com>
+Cc: Catalin Marinas <catalin.marinas@arm.com>, Will Deacon
+ <will@kernel.org>, Mark Rutland <mark.rutland@arm.com>, Eric Biggers
+ <ebiggers@kernel.org>, Andrew Morton <akpm@linux-foundation.org>, Marco
+ Elver <elver@google.com>, Ard Biesheuvel <ardb@kernel.org>, Robin Murphy
+ <robin.murphy@arm.com>, David Gow <davidgow@google.com>, Brendan Higgins
+ <brendan.higgins@linux.dev>, Nathan Chancellor <nathan@kernel.org>,
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+ kunit-dev@googlegroups.com, netdev@vger.kernel.org, llvm@lists.linux.dev
+Subject: Re: [PATCH 0/2] arm64: csum: Add fused copy and Internet checksum
+Message-ID: <20260927184414.6c0c8867@pumpkin>
+In-Reply-To: <20260927131838.6774-1-demyansh@gmail.com>
+References: <20260927131838.6774-1-demyansh@gmail.com>
+X-Mailer: Claws Mail 4.1.1 (GTK 3.24.38; arm-unknown-linux-gnueabihf)
+MIME-Version: 1.0
+Content-Type: text/plain; charset=US-ASCII
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260927_103410_748499_FDE77E0A 
-X-CRM114-Status: GOOD (  14.42  )
+X-CRM114-CacheID: sfid-20260927_104421_487632_4532C604 
+X-CRM114-Status: GOOD (  20.41  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -120,46 +107,74 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+On Sun, 27 Sep 2026 15:17:56 +0200
+Demian Shulhan <demyansh@gmail.com> wrote:
 
+> arm64 currently uses the generic csum_partial_copy_nocheck(), which
+> performs memcpy() followed by a second pass for csum_partial(). This
+> double pass exerts unnecessary pressure on the L1 cache.
 
-> On Sep 25, 2026, at 9:55=E2=80=AFPM, Matthias Goergens <matthias.goergens@=
-gmail.com> wrote:
->=20
-> =EF=BB=BFThis RFC adds offload-only swap areas for deliberate cold-page of=
-fload to
-> backends unsuitable for pressure reclaim. ZFS zvol swap has documented
-> deadlocks under memory pressure [3]; compressed swap is another target
-> because writes may need memory despite free logical slots.
+Which workload actually needs this?
+Most modern ethernet MAC support checksum setting on transmit and
+checking on receive.
+So the software checksum shouldn't be needed very often.
 
-This seems unnecessarily annoying to configure. It seems to me that you=E2=80=
-=99re creating a bizarrely named administrative flag that means, roughly, =E2=
-=80=9Cswapping to this location may allocate memory=E2=80=9D.  Why can=E2=80=
-=99t the kernel figure this out itself?
+IIRC there is also code to defer UDP checksum validation until the
+copy_to_user().
+I'd bet (a few pints of beer) that the complication this adds isn't
+actually worth while.
+Even Linus can't remember why it was done, my guess is it improved the
+performance of the userspace NFS (over UDP) daemon that would be
+doing 8k UDP send/receive (fragmented by IP).
 
+There is certainly still code to checksum data during copy_from_user()
+in send().
+Last time I looked I couldn't see why send on TCP sockets didn't go through it.
+On x86 (in particular) copies can be done far faster than ones that
+include a checksum.
 
-For that matter, how well does this even work in practice?  If I configure t=
-wo swap devices, one =E2=80=9Coffload-only=E2=80=9D and one conventional, it=
- seems like the relative fullness of the devices will be mostly an accident o=
-f what triggers swap as the system is running. If the conventional swap fill=
-s up, is there a means to proactively empty it?  Under OOM conditions, will a=
-nything preferentially kill tasks that reference memory in conventional swap=
-?
+David
 
-Is the locking and recursion structure of the mm code such that we won=E2=80=
-=99t have deadlocks where cgroup triggers swap to an =E2=80=9Coffload-only=E2=
-=80=9D device, which allocates, which causes memory pressure, which then tri=
-es to swap more to conventional swap?  (Maybe this works fine.)
-
-For that matter, if the system is under overall memory pressure, why do you c=
-are what triggered the particular swap operation that is being processed?
-
-
-
-The remainder of the writeup is IMO somewhat incoherent.  To the extent that=
- AI was used, can you read it and make sure it makes sense?
-
-And the first few hundred lines of patch I skimmed seem like incomprehensibl=
-e churn.  Adding =E2=80=9Celigible=E2=80=9D to a bunch of calls does nothing=
- to explain what=E2=80=99s going on.
+> 
+> Replace it with a single-pass implementation. The new implementation
+> provides a general-purpose register path for short buffers and atomic
+> contexts, and a kernel-mode NEON path for lengths >= 1024 bytes.
+> 
+> Measured in-kernel on an Ampere Altra (Neoverse-N1):
+> - Scalar path: 1.2x-1.6x faster for lengths < 1024 bytes.
+> - NEON path: 1.2x faster at 1024 bytes, scaling up to 1.6x-1.8x at
+>   4096 bytes.
+> On Apple M-series cores, gains are 1.3-1.7x below 1024 bytes and
+> 1.6-2.4x above. No length or alignment regresses on either
+> microarchitecture.
+> 
+> Patch 1 implements the fused routines and the dispatcher.
+> Patch 2 adds KUnit test coverage for the new API and internal paths.
+> 
+> Tested: in-kernel benchmark module on Neoverse-N1 with both
+> implementations cross-checked (0 mismatches); KUnit suite under QEMU
+> (with/without KASAN, with PREEMPT_RT), exhaustive and random userspace
+> testing of both routines against a naive reference with PROT_NONE guard
+> pages, gcc 13 and clang 18 W=1 builds, checkpatch --strict.
+> 
+> Demian Shulhan (2):
+>   arm64: csum: Add fused copy and Internet checksum
+>   lib/tests: checksum: Add KUnit tests for csum_partial_copy_nocheck()
+> 
+>  arch/arm64/include/asm/checksum.h |   3 +
+>  arch/arm64/lib/Makefile           |   7 +-
+>  arch/arm64/lib/csum-copy-neon.c   | 168 +++++++++++
+>  arch/arm64/lib/csum-copy.c        | 108 +++++++
+>  arch/arm64/lib/csum-copy.h        |  84 ++++++
+>  arch/arm64/lib/csum.c             |  54 ++++
+>  lib/Kconfig.debug                 |  10 +
+>  lib/tests/checksum_kunit.c        | 463 ++++++++++++++++++++++++++++++
+>  8 files changed, 896 insertions(+), 1 deletion(-)
+>  create mode 100644 arch/arm64/lib/csum-copy-neon.c
+>  create mode 100644 arch/arm64/lib/csum-copy.c
+>  create mode 100644 arch/arm64/lib/csum-copy.h
+> 
+> 
+> base-commit: 93f51579e7df248780214094418f205253383cc5
 
 
