@@ -4,63 +4,97 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A916DC9832F
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 27 Sep 2026 18:47:49 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 873C1C98338
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 27 Sep 2026 18:48:29 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:To:
-	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:References:To:
+	From:Subject:Cc:Message-Id:Date:Content-Type:Content-Transfer-Encoding:
+	Mime-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=rTGkk6MKJYEzG3GcMmmmeg6WnVpHww0g7NA09ykyC/4=; b=Bo8G19UvhqdWEz1PAFvvutFsJe
-	dZnlNx+lwIAYBqVSjL1LWul+xEfA5YMVdxOCG13gS7srrAGFQALco5vNQ0yDXkHISBt+DKnWV/Pj/
-	VGEqgv4QNb3dFG78/JaJHIBvngK0lBTviy8AW/Hk7Tal7k2sVrfJpWsjLAF+gomKRgFlxvBQV37j8
-	IKMXanCUn4GJpKsgySIGVcPxXlKe1oHXWazG6LQ7PZsGqh+uu6y3kWbghiFHRYc/7jnIzBFmpN/Xo
-	URglKg2suamjuV9W4A6Frn6h1mBrm8oqYS/25pt1D34R+WjA5iIFzHq6J7JLZ1eCrIE5lPLt9egU4
-	xXfAjTSg==;
+	bh=yqlZZ1RhSPYEVPxxu8nVXKmxPulry40jU+yUEBcr1Ew=; b=Mx4zCsJ0/QSVJ6kyGW/56C6MoE
+	BUE+Q68cZ3Dghu0A9lo2I/bNqa0gsV8un9CIMLhIfx01ImQtQlSjENpr1Tx1okTIFuPEH2tPIoTPS
+	PhbhybUyy1hVm6EP2MXYoIRaA9X47mBhChYSADaEErcdvP2uSykFu/ehaxVs+ywoJTGFwjqatp5ja
+	skrjkzugnrGlyVwcAHvgKCedunG8+b6Pdsi0vWtMZ9u72BxvarksR7vjjmvjibtyXo6ZZQ4pDO6cd
+	tgsfHY0WJSatNy1Zf+dhiE3M0c1EBbEQQ362QMwepl1BpHOS25PBH7uBRVB6+UanraHRb06sVCi0B
+	3Vy8QF3w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xAtuZ-0000000GiDv-2Yx6;
-	Sun, 27 Sep 2026 18:47:43 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1xAtvC-0000000GiI9-3HjN;
+	Sun, 27 Sep 2026 18:48:22 +0000
+Received: from mail-dy1-x1332.google.com ([2607:f8b0:4864:20::1332])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xAtuY-0000000GiDo-3sRU
+	id 1xAtvA-0000000GiHR-45Kn
 	for linux-arm-kernel@lists.infradead.org;
-	Sun, 27 Sep 2026 18:47:43 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id 12EBF601F7;
-	Sun, 27 Sep 2026 18:47:42 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 2C85C1F000FF;
-	Sun, 27 Sep 2026 18:47:39 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1790534861;
-	bh=rTGkk6MKJYEzG3GcMmmmeg6WnVpHww0g7NA09ykyC/4=;
-	h=Date:From:To:Cc:Subject:In-Reply-To:References;
-	b=XiouCllzQ8ykayo10Wtw+WZ9XUHvKJYxIdOip1YinuSyngXjM6haeQeLkKxhkYMWh
-	 TEz97N/hVI+VL6sO9QCwcl0Hv2/P2G8FIsgYsoeBBCujZIwMrpMfkogK0OX77JosxG
-	 872EwwComyyYJvmkAxQaDjK2Z1y/jNw6UYUXQltl7Kw4goXb+9PPH7XPg6diolzM8d
-	 CtoHzhvC3dsG1UjptevwG1lfIp7eASokpg+hub9c1h1AawVUeGVtPBxxt8V3bWnZhT
-	 tey8FMJLq52mxDjR4COhdZNzCbsQ94N4WYx4riJmDIgbe9ALxgAoiq9M8NPYxdgko7
-	 h4J6/NSUw0vUA==
-Date: Sun, 27 Sep 2026 19:47:34 +0100
-From: Jonathan Cameron <jic23@kernel.org>
-To: Fabrice Gasnier <fabrice.gasnier@foss.st.com>
-Cc: David Lechner <dlechner@baylibre.com>, Nuno =?UTF-8?B?U8Oh?=
- <nuno.sa@analog.com>, "Andy Shevchenko" <andy@kernel.org>, Maxime Coquelin
- <mcoquelin.stm32@gmail.com>, Alexandre Torgue
- <alexandre.torgue@foss.st.com>, Olivier Moysan
- <olivier.moysan@foss.st.com>, <linux-iio@vger.kernel.org>,
- <linux-stm32@st-md-mailman.stormreply.com>,
- <linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>,
- Cheick Traore <cheick.traore-ext@st.com>, <stable@vger.kernel.org>
-Subject: Re: [PATCH] iio: adc: stm32: fix minimum sampling time values
-Message-ID: <20260927194734.7bc017a2@jic23-hlaptop>
-In-Reply-To: <20260924-adc-fix-sampling-v1-1-13814954d8d7@foss.st.com>
-References: <20260924-adc-fix-sampling-v1-1-13814954d8d7@foss.st.com>
-X-Mailer: Claws Mail 4.4.0 (GTK 3.24.52; x86_64-pc-linux-gnu)
-MIME-Version: 1.0
-Content-Type: text/plain; charset=US-ASCII
-Content-Transfer-Encoding: 7bit
+	Sun, 27 Sep 2026 18:48:22 +0000
+Received: by mail-dy1-x1332.google.com with SMTP id 5a478bee46e88-3425f2b24a4so945809eec.0
+        for <linux-arm-kernel@lists.infradead.org>; Sun, 27 Sep 2026 11:48:20 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=nexthop.ai; s=google; t=1790534900; x=1791139700; darn=lists.infradead.org;
+        h=in-reply-to:references:to:from:subject:cc:message-id:date
+         :content-type:content-transfer-encoding:mime-version:from:to:cc
+         :subject:date:message-id:reply-to:content-type;
+        bh=yqlZZ1RhSPYEVPxxu8nVXKmxPulry40jU+yUEBcr1Ew=;
+        b=X28um71EXAUz/81PoXqJ5piPSNOFHoNie2y9JAsx4+1zJIUlEiRGeESbYLoHYJZyi0
+         9cmYNCdEdFKkn6F4+8Vmuc4ylQnrTRqTlmyeN9CblsS2BMsmEyvV6sr4shlqsCRW6SVv
+         gb30+flCOlzhgG8JpdwXA4amWzQBRAsa/Y4smlHAkznf3Yl7uijdOA+QIKP8++yE5q+D
+         JkzloIk3LsHx5hesaXoSGZo+KyEYsUFi08M1Cw292zMdSJGGnMZk57xWXakEy9dWqstb
+         p9aOa+JujYNL4H2wd6w0p78b/mhpbbsaDEgqM7IazGaULZN6q4fCBKqxO5XMfBsEmbCH
+         HIbg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1790534900; x=1791139700;
+        h=in-reply-to:references:to:from:subject:cc:message-id:date
+         :content-type:content-transfer-encoding:mime-version:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=yqlZZ1RhSPYEVPxxu8nVXKmxPulry40jU+yUEBcr1Ew=;
+        b=rXDeRfoyPnF4w0hcOjBV90vVp/1PjyG8Iz0duXwnwe1wXx3Sml/6NGKxsGYwXbGwm+
+         4w1CPHSuHqvVevEM+D0HOZv9y0M4F2uA/WrqM0am0ZyJF+3V4+3EHkrYC1jsgjUJObI9
+         /gzF1Dw16qkPMlnmLWdNxpkz0ilIKYrD+/9xomFPeDJ39VRAJrRtXwukvZX7lW4S5DfE
+         GN+sna+PzOT3GIfX5dc5pnkQFz5NIFzbHMOki9Wf1FklMkzga4XMiLJzMpJDBp7x7/p3
+         OMsFKvn7aMkABmRS0oHH+F+24BY5ufB1N7ULiHS+/BS6F+wxuSig0Zm0eZn5HE1Nneq1
+         Azjw==
+X-Forwarded-Encrypted: i=1; AKwUvBxjeNNWzagoL4/MPf9ril0P6bhY2/obeaQ+nVRTbdB+y5E4Iczm3mm/JTa8PX86a4201QIYEmbSi2Qj4R7ldh8a@lists.infradead.org
+X-Gm-Message-State: AFq9FYK1qKBx4OYkg6FqGqaJbchzG+V6EWyqFBeeurfxGh3sIYUojpJz
+	1uKMmpXXli0eD2qRKkTlMW9ysASN05ubZb1GNjP4b9d7UNFrfRm2GxT0J+ZGLl79dNU=
+X-Gm-Gg: AYBFou32THIfeY2L4YtEmDhoOMJw+22wXgqsj6bPwpB0yyq83q1U18hLCGyI9SCpgxm
+	JHVYQeGONvlR33/WjU9XM0eTOYKRiyW5BepFxt86uZs26JMvu6qQHtEfEXR7RPVqFK2mDnDMaD2
+	ypaVBZtMvCM5cMWPGwQAfPhQWUcDDAzyOPW4lWbK1BpzOwEpbtMQ+w0atJOsIBAcGeDjFip6lB9
+	lkg+U3ZQMWeidkpq/QvZAohMfIEv1+H2DwnmNnC4MPypt+LUto7eO+c7Rxfm04yinJJ3/o8Y9x/
+	gcE7VUGcXf73lP18dyIdSu2SqOVWKd/zzDgiv3jpywxC/J4b7/w3wHLRyxuw8fM4YvjQHbTJR+D
+	+ZzEWKDGv+GoQaHsSBwPrOpzMjcS6z1R099ADg//8x95VCMCiKREY7PRw1FiA48aHXOPRy8N1E0
+	gbnwCtr7nCzCjDuNSSj3jBAV4cnxCM7cASv2xhHSiCUHd5mvFwiwWa1AsHWuK/mRv2xJ7ZMGk=
+X-Received: by 2002:a05:693c:62dc:b0:332:946c:4778 with SMTP id 5a478bee46e88-342721805c8mr5904589eec.14.1790534899604;
+        Sun, 27 Sep 2026 11:48:19 -0700 (PDT)
+Received: from localhost ([50.145.100.174])
+        by smtp.gmail.com with ESMTPSA id 5a478bee46e88-347323f5a7esm2044300eec.15.2026.09.27.11.48.18
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Sun, 27 Sep 2026 11:48:18 -0700 (PDT)
+Mime-Version: 1.0
+Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset=UTF-8
+Date: Sun, 27 Sep 2026 11:48:18 -0700
+Message-Id: <DLQBNCNNWZNO.1AIPW6NRU3GWS@nexthop.ai>
+Cc: "Michal Simek" <michal.simek@amd.com>, "Wolfram Sang"
+ <wsa+renesas@sang-engineering.com>, "Raviteja Narayanam"
+ <raviteja.narayanam@xilinx.com>, "Wolfram Sang" <wsa@kernel.org>,
+ "Manikanta Guntupalli" <manikanta.guntupalli@amd.com>, "Shubhrajyoti Datta"
+ <shubhrajyoti.datta@amd.com>, <linux-arm-kernel@lists.infradead.org>,
+ <linux-i2c@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
+ <stable@vger.kernel.org>
+Subject: Re: [SPAM] [PATCH v7 0/3] i2c: xiic: fix SMBus block read and PEC
+ support
+From: "Abdurrahman Hussain" <abdurrahman@nexthop.ai>
+To: "Andi Shyti" <andi.shyti@kernel.org>, "Abdurrahman Hussain"
+ <abdurrahman@nexthop.ai>
+X-Mailer: aerc 0.22.0
+References: <20260924-i2c-xiic-v7-0-df7e752332ef@nexthop.ai>
+ <arkAZJEJTtNsCjmF@zenone.zhora.eu>
+In-Reply-To: <arkAZJEJTtNsCjmF@zenone.zhora.eu>
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260927_114821_019433_1D69DA6F 
+X-CRM114-Status: UNSURE (   8.20  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -75,67 +109,19 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, 24 Sep 2026 11:53:56 +0200
-Fabrice Gasnier <fabrice.gasnier@foss.st.com> wrote:
+On Sun Sep 27, 2026 at 4:40 AM PDT, Andi Shyti wrote:
+> Hi Abdurraham,
+>
+>> Abdurrahman Hussain (3):
+>>       i2c: xiic: preserve PEC byte length in SMBus block read setup
+>>       i2c: xiic: defer RX_FULL until all trailing bytes are in FIFO
+>>       i2c: xiic: don't clobber msg->len to signal block-read completion
+>
+> pushed to i2c/i2c-fixes-2.
+>
+> Thanks,
+> Andi
 
-> From: Cheick Traore <cheick.traore-ext@st.com>
-> 
-> - On stm32mp15: vddcpu and vddq_ddr are not connected to internal
-> channel, so their sampling time shouldn't be set.
-> 
-> - On stm32mp13: vddcpu and vddq_ddr are connected to internal channels
-> and the value for vddcore was not correct. Values from the datasheet
-> are 1us (e.g. 1000ns) for ts_vddcore, ts_vddcpu and ts_vddq_ddr.
-> 
-> Fixes: 7cb2303dd024 ("iio: adc: stm32: manage min sampling time on all internal channels")
-> Cc: stable@vger.kernel.org
-> Signed-off-by: Cheick Traore <cheick.traore-ext@st.com>
-> Signed-off-by: Fabrice Gasnier <fabrice.gasnier@foss.st.com>
-Hi Cheick, Fabrice
-
-Given we are fairly late in the cycle and that we have Fabrice's
-other series poking at this same driver I've queued this up on
-the testing branch of iio.git rather than taking a (possibly) faster
-path.  That means it will go upstream in the next merge window.
-
-Thanks,
-
-Jonathan
-
-> ---
->  drivers/iio/adc/stm32-adc.c | 4 ++--
->  1 file changed, 2 insertions(+), 2 deletions(-)
-> 
-> diff --git a/drivers/iio/adc/stm32-adc.c b/drivers/iio/adc/stm32-adc.c
-> index 90f0e257e6d1..b024326775ae 100644
-> --- a/drivers/iio/adc/stm32-adc.c
-> +++ b/drivers/iio/adc/stm32-adc.c
-> @@ -2734,7 +2734,7 @@ static const struct stm32_adc_cfg stm32h7_adc_cfg = {
->  	.set_ovs = stm32h7_adc_set_ovs,
->  };
->  
-> -static const unsigned int stm32_adc_min_ts_mp1[] = { 100, 100, 100, 4300, 9800 };
-> +static const unsigned int stm32_adc_min_ts_mp1[] = { 100, 0, 0, 4300, 9800 };
->  static_assert(ARRAY_SIZE(stm32_adc_min_ts_mp1) == STM32_ADC_INT_CH_NB);
->  
->  static const struct stm32_adc_cfg stm32mp1_adc_cfg = {
-> @@ -2756,7 +2756,7 @@ static const struct stm32_adc_cfg stm32mp1_adc_cfg = {
->  	.set_ovs = stm32h7_adc_set_ovs,
->  };
->  
-> -static const unsigned int stm32_adc_min_ts_mp13[] = { 100, 0, 0, 4300, 9800 };
-> +static const unsigned int stm32_adc_min_ts_mp13[] = { 1000, 1000, 1000, 4300, 9800 };
->  static_assert(ARRAY_SIZE(stm32_adc_min_ts_mp13) == STM32_ADC_INT_CH_NB);
->  
->  static const struct stm32_adc_cfg stm32mp13_adc_cfg = {
-> 
-> ---
-> base-commit: 182c47735554925da9605dc9dd90a8c15a1bbae5
-> change-id: 20260924-adc-fix-sampling-526f0f26829b
-> 
-> Best regards,
-> --  
-> Fabrice Gasnier <fabrice.gasnier@foss.st.com>
-> 
-
+Thanks a lot!
+Abdurrahman
 
