@@ -4,56 +4,55 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DDAD7C9832F
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 27 Sep 2026 16:07:27 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 406FCC9830E
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 27 Sep 2026 16:11:03 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=+oMeoZ4pGEsBia+lJYpRLMOIzaRZRIDGRSGowGGDiv0=; b=U8odThUr1bsZnG1aBguXLTLMgZ
-	Vj2mLJpf/MI+WiargH/YU4YHNJEF5MtTLohN9vs8sNEkuOVfFhbkbgi5TG5h2VvEODKIvfL03ivs/
-	1pSKE0sxPRdyxMehNay2jnJ1kFYhMn2DnJSTwESRSdak4Fpl3oBGxQJPHmhcgwbZ5GrRJQ7wtPINO
-	lMcnEaM6JqFL0/s8TtmKTUVzL7ODXWz00HG+xhZz0SsSXj5hJJm4oIhSGzcZrkHs4eD3fjt2J4VxQ
-	+x0pQlDMsiOwfLDnSH7vCkp6W9Lt6DVX5hCOLGKdR6vHcqyNcc8BOLALqtvE+ljwyuzhX2fzAZcJu
-	X9DhVRjA==;
+	bh=Qkb44GxQlkJlaGvSbdXr/VqLO2OL9eSsLbx5+2uugSw=; b=RNyGLgGuFM2+H6wqQm1fWZZMv+
+	ZK0YZbKHHIlL4HyP+8vR2lARrmxaHcDJIkQagKbcVB2Bb0B0LMrkjRbjycit2VDTa50m3ohfd5p9Y
+	4UpL95pCrRkbS7+0w8i/5NNLB18knb1C1g+0n4PmG3hF4FcmPhCNqINYaAl1VBftCxKl6Zvs9aPhr
+	N4N4mMgTlBXoHssg+9y1WQ7FESeAy/HxH7uQ449/A4j2hjYaYIRnALEbLjcYP29mxZccqeuSoR0pb
+	OUwQqj//uOTxUlMo5yj1FXttrWbfraNEzqqBEreBwYMZUBXIKnV5O+KKdaK1Uxp8Zv9BweV8HLI6a
+	qPFDjJWA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xArPD-0000000GY1g-0b7r;
-	Sun, 27 Sep 2026 16:07:11 +0000
+	id 1xArSp-0000000GYD0-2lP4;
+	Sun, 27 Sep 2026 16:10:55 +0000
 Received: from vps0.lunn.ch ([156.67.10.101])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xArPA-0000000GY14-1fYz;
-	Sun, 27 Sep 2026 16:07:09 +0000
+	id 1xArSn-0000000GYCE-0MhQ;
+	Sun, 27 Sep 2026 16:10:54 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=lunn.ch;
 	s=20171124; h=In-Reply-To:Content-Disposition:Content-Type:MIME-Version:
 	References:Message-ID:Subject:Cc:To:From:Date:From:Sender:Reply-To:Subject:
 	Date:Message-ID:To:Cc:MIME-Version:Content-Type:Content-Transfer-Encoding:
 	Content-ID:Content-Description:Content-Disposition:In-Reply-To:References;
-	bh=+oMeoZ4pGEsBia+lJYpRLMOIzaRZRIDGRSGowGGDiv0=; b=ygKYUhErkjokFDjmsL3hU3RSsU
-	SpM9nL/uVB5J5zwuyqTNQI3AHDGE41RqsI65O/FkM+cZAWxH5Ep7WAu4VtblAqpuI0anUL/Jk/pNl
-	61CuC6DFHZndKNr3B1Rp83apg17/rhmquKp6VMptUxdBN6QuMx+uafyfcNvuDtLmXWs4=;
+	bh=Qkb44GxQlkJlaGvSbdXr/VqLO2OL9eSsLbx5+2uugSw=; b=QJ9NYif8+G+w6Kao0mVbEdQGg2
+	ip5qdp0JOj3TqDJ6gbeys1zKRezu1GqXg0YeQAXaewSJHK15K03NVP2Nm8KX5Bk0nXr8E45Kfdfhb
+	LWU51QcP+wDLt/PMs1ffXuaCjnux5t+Is5Qhmy+PKjP/7WLiIWYsjia5CYEkaputd39Q=;
 Received: from andrew by vps0.lunn.ch with local (Exim 4.94.2)
 	(envelope-from <andrew@lunn.ch>)
-	id 1xArP3-007XMX-3k; Sun, 27 Sep 2026 18:07:01 +0200
-Date: Sun, 27 Sep 2026 18:07:01 +0200
+	id 1xArSk-007XPL-HJ; Sun, 27 Sep 2026 18:10:50 +0200
+Date: Sun, 27 Sep 2026 18:10:50 +0200
 From: Andrew Lunn <andrew@lunn.ch>
 To: BG9OXA <bg9oxa@163.com>
 Cc: linux-rockchip@lists.infradead.org,
 	linux-arm-kernel@lists.infradead.org, devicetree@vger.kernel.org,
 	Heiko Stuebner <heiko@sntech.de>
-Subject: Re: [PATCH 2/2] arm64: dts: rockchip: add ALIENTEK QuarkPi-CA2
-Message-ID: <89731a27-4d5f-4a01-88b1-26c2e0d65ef9@lunn.ch>
-References: <179051260955.4055.15953866975694461812@163.com>
- <179051262683.4055.12205303753370851498@163.com>
+Subject: Re: [PATCH v2 0/2] arm64: dts: rockchip: add ALIENTEK QuarkPi-CA2
+Message-ID: <de8c3f72-26d1-4c9a-86c6-12afb3fe97d6@lunn.ch>
+References: <179051708448.31632.16350193430088134671@163.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <179051262683.4055.12205303753370851498@163.com>
+In-Reply-To: <179051708448.31632.16350193430088134671@163.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260927_090708_439737_3D64C769 
-X-CRM114-Status: UNSURE (   8.80  )
+X-CRM114-CacheID: sfid-20260927_091053_128261_D48DA38C 
+X-CRM114-Status: UNSURE (   7.08  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -69,21 +68,15 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-> +&gmac1 {
-> +	/* Use rgmii-rxid mode to disable rx delay inside Soc */
-> +	phy-mode = "rgmii-rxid";
+On Sun, Sep 27, 2026 at 09:51:24PM +0800, BG9OXA wrote:
 
-https://elixir.bootlin.com/linux/v6.15/source/Documentation/devicetree/bindings/net/ethernet-controller.yaml#L287
+> Changes in v2:
 
-phy-mode describes the PCB. Does the PCB have an extra long clock line
-for RX?
+How much time was there between v1 and v2? You need to give reviewers
+time to actually do a review and point out issues.
 
-If the MAC has a delay which cannot be disabled, the MAC driver needs
-to handle this and mask the value passed to the PHY.
+At minimum, wait 24 hours, but ideally 2-3 work days, and allow the
+discussion to come to a conclusion.
 
-Rockchip DTs are often messed up in this respect, but i've not seen
-any indication the MAC really does have delay which cannot be
-disabled. So this seems double wrong.
-
-    Andrew
+	   Andrew
 
