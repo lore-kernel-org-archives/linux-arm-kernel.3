@@ -4,63 +4,81 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C2256C9830E
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 27 Sep 2026 14:34:46 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9CBB3C9832F
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 27 Sep 2026 14:37:11 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:References:Cc:To:Subject:From:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=z9q1TTq+WFXZtSDkuhQJ5tGQi1IBegt1uXiG1V/FjDs=; b=pTaYGXgoptXhZssNNYQnRGse0g
-	oHVGhKc5oc6zeHMAYGzKA+hQ+3C+jyEsK56+uByH5Pmun6YHfkWt51fhzEKqg+t3Zt2atS3VPyWbT
-	XE/o7CaaWmdS8BrqWOgS0B645TVlV7vnaugeOGm7N/0GA38kT/vfC0UsL4S1SOIxptj8AZKKNLEfS
-	J5Y9Hh5mq8WsEQaktZwDVyw5HhYl/mkaEnQ5SUEbYY6QR8Xc2pcJh6NH88ZKLPRpEOwmr1zoiRTXx
-	UQa7s4WAOP12p+uIbOb9ajlQiMyH7sKriSOAhKIb/1yAFqKc75ICgBCgVo8BYWg+oeJ1z6zXN3cqP
-	gl1t3Ymg==;
+	bh=YykgsTf2njON9z5GHeLVBm60hVBnfILOEK01VR9+szo=; b=qZeKPAHQGtt0bi8MG/4nbwKiLd
+	O7/kDNX/q9X2S/WV1osi2TeEcAs4jhh5Wk2hgmqjn3BWWGpvTwqPeij/GB5AbRr1AyLmyDQ4W+8QW
+	P96qO7Jq/ckhx0xtieFunyUhJ3v8bGdOJ0KPfxZelYDavxnBDQgAVw/mx10x2jsv1S97dntGEMeLL
+	5GfZcvEGZ03Zpu8qadMcUc+BUntotmi3S8mkbEGV5qeHDHkRLWe1qK1jvVUQ/SQ6lGHnXQnSk8lQp
+	3Opkfif3LXugJfmnLaIO19TBzZrgzn5NR2l+0FysH4sop8rNzau5oF1byINL7ePRANMICM5K5w7xC
+	/8sw4wEw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xApxe-0000000GSG2-0rzG;
-	Sun, 27 Sep 2026 14:34:38 +0000
-Received: from courrier.aliel.fr ([65.21.61.41])
-	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xApxa-0000000GSF5-2bIG;
-	Sun, 27 Sep 2026 14:34:36 +0000
-Message-ID: <80268113-e85f-410d-880d-84598d3b39ca@aliel.fr>
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=aliel.fr;
-	s=courrier-s1; t=1790519659;
-	bh=ztJhP76JayIyO0vestWNJjdUJp+q5q9ZNKkeqnfojU0=;
-	h=Date:From:Subject:To:Cc:References:In-Reply-To;
-	b=TRXtbZOBVpquhw7aODGwXsianL++tf49/r+mxiGRB52OrT7mzX3oCYHo3lGvJc0yE
-	 CACasfZmg9DjFEWdXlSk7o3LoQpM3oeILuMZwzyLCo368JV2ulEp8NFXwpmPG61WYQ
-	 n0mdxnWO8uJLB+//9dIdHpSfMjZVq8N1ISvz1FgE=
-Date: Sun, 27 Sep 2026 16:33:02 +0200
+	id 1xApzx-0000000GSYP-1vLQ;
+	Sun, 27 Sep 2026 14:37:01 +0000
+Received: from azure-sdnproxy.icoremail.net ([13.75.44.102])
+	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1xApzt-0000000GSXZ-1K7s
+	for linux-arm-kernel@lists.infradead.org;
+	Sun, 27 Sep 2026 14:37:00 +0000
+Received: from zju.edu.cn (unknown [10.98.66.117])
+	by mtasvr (Coremail) with SMTP id _____wBnQT79Kblqt4s+AQ--.15488S3;
+	Sun, 27 Sep 2026 22:36:46 +0800 (CST)
+Received: from localhost.localdomain (unknown [10.98.66.117])
+	by mail-app1 (Coremail) with UTF8SMTPA id yy_KCgAnOIX9Kblq_MYPAA--.17236S2;
+	Sun, 27 Sep 2026 22:36:45 +0800 (CST)
+From: Fan Wu <fanwu01@zju.edu.cn>
+To: Greg Kroah-Hartman <gregkh@linuxfoundation.org>
+Cc: Jiri Slaby <jirislaby@kernel.org>,
+	Frank Li <Frank.Li@nxp.com>,
+	Sascha Hauer <s.hauer@pengutronix.de>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Fabio Estevam <festevam@gmail.com>,
+	linux-serial@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	imx@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org,
+	stable@vger.kernel.org
+Subject: Re: [PATCH] serial: imx: cancel RS485 trigger hrtimers in shutdown and remove
+Date: Sun, 27 Sep 2026 14:35:50 +0000
+Message-Id: <20260927143550.608878-1-fanwu01@zju.edu.cn>
+X-Mailer: git-send-email 2.34.1
+In-Reply-To: <2026092332-limes-washhouse-44a5@gregkh>
+References: <20260819021916.442827-1-fanwu01@zju.edu.cn> <2026092332-limes-washhouse-44a5@gregkh>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird Beta
-From: linux-kernel-dev@aliel.fr
-Subject: Re: [PATCH v2 1/3] dt-bindings: pwm: amlogic: Add core clock for T7
-To: Conor Dooley <conor@kernel.org>
-Cc: =?UTF-8?Q?Uwe_Kleine-K=C3=B6nig?= <ukleinek@kernel.org>,
- Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
- Conor Dooley <conor+dt@kernel.org>, Heiner Kallweit <hkallweit1@gmail.com>,
- Neil Armstrong <neil.armstrong@linaro.org>,
- Kevin Hilman <khilman@baylibre.com>, Jerome Brunet <jbrunet@baylibre.com>,
- Martin Blumenstingl <martin.blumenstingl@googlemail.com>,
- linux-pwm@vger.kernel.org, devicetree@vger.kernel.org,
- linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-amlogic@lists.infradead.org
-References: <20260925-add-t7-sys-pwm-clk-v2-0-f23a22b71a5c@aliel.fr>
- <20260925-add-t7-sys-pwm-clk-v2-1-f23a22b71a5c@aliel.fr>
- <20260925-facial-follow-032de22361c1@spud>
- <8e23838a-da5e-499c-a8be-3e2a7a0939e7@aliel.fr>
- <20260926-landless-prowess-df404db4d910@spud>
-Content-Language: en-US
-In-Reply-To: <20260926-landless-prowess-df404db4d910@spud>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+Content-Transfer-Encoding: 8bit
+X-CM-TRANSID: yy_KCgAnOIX9Kblq_MYPAA--.17236S2
+X-CM-SenderInfo: qrstjiaswqq6lmxovvfxof0/
+X-CM-DELIVERINFO: =?B?MqzmwQXKKxbFmtjJiESix3B1w3vZ3A9ovKVTomAyoQazvoRs/NHSP8GI2EvgeEEW7R
+	sfnRrXgS1QiyEChzQk8Vd3wxXuzNSIt5oHScgQHGJ2/oAqvolBXwXZexsXeyIfgEeLu8p+
+	3z5wFYKTjAW7lsu4O7XN5RPxYw6l01w8CbPzC/8w
+X-Coremail-Antispam: 1Uk129KBj93XoW7Kr4xWr1xKr4xJFWDKF43CFX_yoW8tw4DpF
+	Z8trZ8Ar4kAr4jqa12yFs7WFWfZa13GrW7Gr1rKw1j93WfGr4IgF4IvF1Yva1q9rn7uFWa
+	krZ5C3y3uF1UtagCm3ZEXasCq-sJn29KB7ZKAUJUUUUU529EdanIXcx71UUUUU7KY7ZEXa
+	sCq-sGcSsGvfJ3Ic02F40EFcxC0VAKzVAqx4xG6I80ebIjqfuFe4nvWSU5nxnvy29KBjDU
+	0xBIdaVrnRJUUUP0b4IE77IF4wAFF20E14v26r4j6ryUM7CY07I20VC2zVCF04k26cxKx2
+	IYs7xG6rWj6s0DM7CIcVAFz4kK6r1j6r18M28lY4IEw2IIxxk0rwA2F7IY1VAKz4vEj48v
+	e4kI8wA2z4x0Y4vE2Ix0cI8IcVAFwI0_tr0E3s1l84ACjcxK6xIIjxv20xvEc7CjxVAFwI
+	0_Gr1j6F4UJwA2z4x0Y4vEx4A2jsIE14v26rxl6s0DM28EF7xvwVC2z280aVCY1x0267AK
+	xVW0oVCq3wAac4AC62xK8xCEY4vEwIxC4wAS0I0E0xvYzxvE52x082IY62kv0487Mc804V
+	CY07AIYIkI8VC2zVCFFI0UMc02F40EFcxC0VAKzVAqx4xG6I80ewAv7VC0I7IYx2IY67AK
+	xVWUJVWUGwAv7VC2z280aVAFwI0_Jr0_Gr1lOx8S6xCaFVCjc4AY6r1j6r4UM4x0Y48Icx
+	kI7VAKI48JM4x0Y48IcxkI7VAKI48G6xCjnVAKz4kxM4IIrI8v6xkF7I0E8cxan2IY04v7
+	MxAIw28IcxkI7VAKI48JMxC20s026xCaFVCjc4AY6r1j6r4UMI8I3I0E5I8CrVAFwI0_Jr
+	0_Jr4lx2IqxVCjr7xvwVAFwI0_JrI_JrWlx4CE17CEb7AF67AKxVWUtVW8ZwCIc40Y0x0E
+	wIxGrwCI42IY6xIIjxv20xvE14v26r1j6r1xMIIF0xvE2Ix0cI8IcVCY1x0267AKxVW8JV
+	WxJwCI42IY6xAIw20EY4v20xvaj40_Jr0_JF4lIxAIcVC2z280aVAFwI0_Jr0_Gr1lIxAI
+	cVC2z280aVCY1x0267AKxVW8JVW8JrUvcSsGvfC2KfnxnUUI43ZEXa7IU85l1PUUUUU==
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260927_073435_104177_1C6B4F9E 
-X-CRM114-Status: GOOD (  19.10  )
+X-CRM114-CacheID: sfid-20260927_073657_653963_60BD569A 
+X-CRM114-Status: UNSURE (   8.77  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -75,123 +93,59 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 9/26/26 8:06 PM, Conor Dooley wrote:
-> On Sat, Sep 26, 2026 at 11:43:20AM +0200, linux-kernel-dev@aliel.fr wrote:
->> On 9/25/26 6:41 PM, Conor Dooley wrote:
->>> On Fri, Sep 25, 2026 at 05:13:28PM +0200, Ronald Claveau via B4 Relay wrote:
->>>> From: Ronald Claveau <linux-kernel-dev@aliel.fr>
->>>>
->>>> The T7, A1, C3, and S4 PWM controllers have a system clock in
->>>> addition to the two input clocks of channels A and B.
->>>>
->>>> The channel clocks are acquired by index in the pwm driver,
->>>> where the core clock is fetched by name, with optional get
->>>> which is silent when not provided.
->>>>
->>>> Require clock-names and minimum 3 items for T7, where the
->>>> PWM devices do not work without all 3 clocks.
->>>>
->>>> Add an example showing T7 usage with its fallback to
->>>> amlogic,meson-s4-pwm.
->>>>
->>>> Signed-off-by: Ronald Claveau <linux-kernel-dev@aliel.fr>
->>>> ---
->>>>  .../devicetree/bindings/pwm/pwm-amlogic.yaml       | 33 ++++++++++++++++++++--
->>>>  1 file changed, 31 insertions(+), 2 deletions(-)
->>>>
->>>> diff --git a/Documentation/devicetree/bindings/pwm/pwm-amlogic.yaml b/Documentation/devicetree/bindings/pwm/pwm-amlogic.yaml
->>>> index c337d85da40f1..59320f288552b 100644
->>>> --- a/Documentation/devicetree/bindings/pwm/pwm-amlogic.yaml
->>>> +++ b/Documentation/devicetree/bindings/pwm/pwm-amlogic.yaml
->>>> @@ -62,7 +62,7 @@ properties:
->>>>  
->>>>    clock-names:
->>>>      minItems: 1
->>>> -    maxItems: 2
->>>> +    maxItems: 3
->>>>  
->>>>    power-domains:
->>>>      maxItems: 1
->>>> @@ -140,13 +140,34 @@ allOf:
->>>>      then:
->>>>        properties:
->>>>          clocks:
->>>> +          minItems: 2
->>>>            items:
->>>>              - description: input clock of PWM channel A
->>>>              - description: input clock of PWM channel B
->>>> -        clock-names: false
->>>> +            - description: gate clock for the PWM controller
->>>> +        clock-names:
->>>> +          minItems: 2
->>>> +          items:
->>>> +            - const: channel-a
->>>> +            - const: channel-b
->>>> +            - const: core
->>>>        required:
->>>>          - clocks
->>>>  
->>>> +  - if:
->>>> +      properties:
->>>> +        compatible:
->>>> +          contains:
->>>> +            const: amlogic,t7-pwm
->>>
->>> Shouldn't this (based on your reply on the previous version) be s4?
->>>
->>
->> The change above is for S4 and SOCs which fallback to S4. It allows the
->> third clock but let the schema validation compatible with two clocks
->> existing DTS. Here for the T7, I add requirement for the exact 3 clocks.
->>
->> Do you recommend to require the 3 clocks for all S4 and S4 fallback, and
->> update the associated dtsi files ?
-> 
-> Yes, I think so. Sounds to me like they only work because of the
-> CLK_IGNORE_UNUSED set in their clock controller drivers, so the correct
-> thing to do is make them all require the third clock.
-> 
+Hi Greg,
 
-Great, Thank you for your feedback, I sent a V3 matching this.
+Honestly: when I sent the patch it was compile-tested only
+(CONFIG_SERIAL_IMX=m, drivers/tty/serial/imx.o rebuilt with no warnings).
+I should have said so.  There was no runtime test behind it.
 
->>
->>>> +    then:
->>>> +      properties:
->>>> +        clocks:
->>>> +          minItems: 3
->>>> +        clock-names:
->>>> +          minItems: 3
->>>> +      required:
->>>> +        - clock-names
->>>> +
->>>>    - if:
->>>>        properties:
->>>>          compatible:
->>>> @@ -182,3 +203,11 @@ examples:
->>>>        clocks = <&pwm_src_a>, <&pwm_src_b>;
->>>>        #pwm-cells = <3>;
->>>>      };
->>>> +  - |
->>>> +    pwm@60000 {
->>>> +      compatible = "amlogic,t7-pwm", "amlogic,meson-s4-pwm";
->>>> +      reg = <0x60000 0x24>;
->>>> +      clocks = <&channel_a>, <&channel_b>, <&core>;
->>>> +      clock-names = "channel-a", "channel-b", "core";
->>>> +      #pwm-cells = <3>;
->>>> +    };
->>>>
->>>> -- 
->>>> 2.49.0
->>>>
->>>>
->>
->>
->> -- 
->> Best regards,
->> Ronald
+After your mail I built a QEMU/KASAN reproduction (i.MX6UL EVK machine,
+armhf, kernel = this patch's base a13c140cc289 + CONFIG_KASAN).  The
+remove-side race is deterministic on the unpatched base:
 
+  - ttymxc0 is a registered console; configure RS485 via TIOCSRS485 with
+    delay_rts_after_send set (driver clamps it to 100 ms), write() - TX
+    completes and imx_uart_stop_tx() arms trigger_stop_tx
+  - with the port still open, unbind: for console ports
+    tty_port_shutdown() returns early, and serial_core_remove_one_port()
+    never calls the driver .shutdown, so nothing sync-cancels the timer
+  - imx_uart_remove() returns, devres frees struct imx_port, the queued
+    hrtimer expires and the hrtimer core walks the freed object:
 
--- 
-Best regards,
-Ronald
+BUG: KASAN: slab-use-after-free in rb_erase_linked+0x54/0xa8
+Write of size 4 at addr c4046a8c by task swapper/0
+Call trace:
+ rb_erase_linked from __remove_hrtimer+0x50/0x124
+ __remove_hrtimer from __hrtimer_run_queues+0x198/0x25c
+ __hrtimer_run_queues from hrtimer_interrupt+0x26c/0x624
+ hrtimer_interrupt from arch_timer_handler_phys+0x38/0x40
+ ...
+Allocated by task 1:
+ devm_kmalloc+0x34/0x144
+ imx_uart_probe+0x90/0xacc
+ ...
+Freed by task 1:
+ kfree+0xc8/0x2d8
+ devres_release_all+0x100/0x18c
+ device_unbind_cleanup+0x3c/0xe4
+ device_release_driver_internal+0x23c/0x294
+ unbind_store+0x64/0xa4
+ ...
+The buggy address is located 652 bytes inside of
+ freed 1024-byte region [c4046800, c4046c00)
+
+i.e. the expired timer is still enqueued inside the freed struct imx_port.
+A second report fires from task context via hrtimer_try_to_cancel ->
+rb_erase, same alloc/free stacks.
+
+With the patch applied the same sequence (fd-open unbind, and the
+last-close-then-unbind variant) completes cleanly; repeated RS485
+write/close/unbind cycles on a non-console port stay clean too, with no
+new warnings or hangs.  This is QEMU only - no i.MX hardware test yet,
+so I have not added a Tested-by.  I can send the reproducer initramfs and
+the QEMU command line if that is useful.
+
+Thanks,
+Fan
+
 
