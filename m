@@ -4,71 +4,90 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B7A1EC98324
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 27 Sep 2026 09:20:57 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 50D5BC9830E
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 27 Sep 2026 09:26:59 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
 	References:In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=OsH0bMd9YqMqOaabYQzUoiaMXLlzQlFvj2cX0wC1/+Y=; b=c5YoX+8vfJel6FIZHYJF9TCR2f
-	TG9vwUfO+slWgJeEOUGaOBp+5SanUkog2y2gu79qNjV29Zk4rCCcqOnSKXHw1cuxhxaxsbJUSZqQI
-	DrsFnZH4GbXLtLR5JcUvLD5L5p0eKFHMJ/KY4gE8XLfHLiNf5Lq1a0eNl21p2qqmTTI9+3s/gcfyh
-	0lq6We7sIWSVuygS2gGNa+oVHXfaaVSBodYp39yAAD/3F8FZeWSDh7slVIi+Uf3RYc2JJWed1atte
-	R8tAp63qzrInW4enMkFAR6c2YjQDmVx3oGCuuw1jRXl8jkBDwlncAkJwiiBLvNpbIvyyaxFejQFQE
-	A0ACChWw==;
+	bh=3onWVfvrHSYSeqY8OGyYXzuHU2DeYUoxFP2LAD1MXJA=; b=SnGbsz2252LjMU7h6lUR491D9X
+	9go9zUKDUVigXLb/67FaZeECo5dHpLuPszyOBSS+inK5jpV3mD2WbpwruxMNwcRIfsCch8HA5dwzu
+	hWcvBZy2hXVDObIo57H6N7oGxQ8RZnHipnvkatb4s2BuytcWcSjCPAe6vPvL0r3mJSt2ooJgRwMNd
+	z/nXzOKdA9EmpwKmGki+S1AzkKD3fD0mMIjyT1vOOuu/duMgk9pY6BhzyWXEsnWaUJVBXE30+vyAM
+	HcmxfF+DoAcazquwb2mtTABlmeYFr6OGctiLWp1s8W2vYgAxmIbhCbaLFHXTFo/26pbaAS2QidwFH
+	udxPkuDg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xAl3y-0000000GAq0-3fP1;
-	Sun, 27 Sep 2026 09:20:50 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1xAl9o-0000000GBEu-2ERc;
+	Sun, 27 Sep 2026 09:26:52 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xAl3w-0000000GApu-3pUv
+	id 1xAl9m-0000000GBEo-27fb
 	for linux-arm-kernel@lists.infradead.org;
-	Sun, 27 Sep 2026 09:20:48 +0000
+	Sun, 27 Sep 2026 09:26:50 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 3556A40408;
-	Sun, 27 Sep 2026 09:20:48 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 166131F000FF;
-	Sun, 27 Sep 2026 09:20:48 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 3B649600CB;
+	Sun, 27 Sep 2026 09:26:49 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id E07901F000FF;
+	Sun, 27 Sep 2026 09:26:48 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1790500848;
-	bh=OsH0bMd9YqMqOaabYQzUoiaMXLlzQlFvj2cX0wC1/+Y=;
+	s=k20260515; t=1790501208;
+	bh=3onWVfvrHSYSeqY8OGyYXzuHU2DeYUoxFP2LAD1MXJA=;
 	h=Date:From:To:Cc:Subject:In-Reply-To:References;
-	b=Hr5lpLoPzc59zoryjKROdhXjYHWA4R0M67tQHgwK4+X0Jx9hx8jrXGzlRcRW8KhZ5
-	 dIeNgku4gtK7xMYcB2PLGUScclpIW+/pmZY6DieO3ev3s4BrdXvMN7knY0S+w7vieB
-	 gNbXA0Svof0Jm3ZabLmd6xj/ePJo6XyhuKXHYgz9jIPUFSJ6KfR6XqtjfjukSXOOCd
-	 Jmoe1MXOwsOKkFo5ZIEnN80aUjOPcKRC2ufGVjLZLzKYtER6nFyTu2afyV5WXRrVe3
-	 E4IEAz20A2nR1ZXtWBIvVT7nGoiIJaTc4ZnftGIBnZxK8dfP9c24Fn0bjIjEGRNwKg
-	 rzmIW2Qvw/v7g==
+	b=nahUchTvDhWpdqx0fKMdmnMg8P1zwnwqPQ4MN2q4WiuMkzK4PNA4ndLQdkxZqtwH7
+	 ohUW54YcrMQwDWq7cDYlUo21+zhoYMdjuOT66WHZxCJM2WnoI2uLdS6ntKf8Yw6bO3
+	 RRWxM3n2xkS5qQZvXv4uSDsHo+F/Ho6Wh5hl4exfF8tY/tnjq/Qlsk5pX3yP4mVZWU
+	 PjuC9TIEqAoRE5Tu7V4Ul+zXJHL8BxXIggtZZWj2e58QR9HKjxasdgX5wZJ34Joke6
+	 /Fig+uZrfMoIKjOAnvWi4HTG/OM63RQhX84Wb43BNG2aH9+6K5VN9/Vfzf4fkX4k7l
+	 ueSWVq1IOg/yA==
 Received: from sofa.misterjones.org ([185.219.108.64] helo=lobster-girl.misterjones.org)
 	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
 	(Exim 4.98.2)
 	(envelope-from <maz@kernel.org>)
-	id 1xAl3u-0000000DxF3-0hn6;
-	Sun, 27 Sep 2026 09:20:46 +0000
-Date: Sun, 27 Sep 2026 10:23:53 +0100
-Message-ID: <87wls72gk6.wl-maz@kernel.org>
+	id 1xAl9i-0000000DxKg-2ofv;
+	Sun, 27 Sep 2026 09:26:46 +0000
+Date: Sun, 27 Sep 2026 10:29:54 +0100
+Message-ID: <87v77r2ga5.wl-maz@kernel.org>
 From: Marc Zyngier <maz@kernel.org>
-To: Fuad Tabba <fuad.tabba@linux.dev>
-Cc: Thomas Gleixner <tglx@kernel.org>,
-	Radu Rendec <radu@rendec.net>,
-	James Morse <james.morse@arm.com>,
-	Will Deacon <will@kernel.org>,
-	Fuad Tabba <tabba@google.com>,
+To: Suzuki K Poulose <suzuki.poulose@arm.com>
+Cc: Catalin Marinas <catalin.marinas@arm.com>,
+	kvm@vger.kernel.org,
+	kvmarm@lists.linux.dev,
+	will@kernel.org,
+	linux-kernel@vger.kernel.org,
 	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v2 0/3] irqchip/gic-v3: Memory-safety fixes on the probe paths
-In-Reply-To: <20260925085000.753400-1-fuad.tabba@linux.dev>
-References: <20260925085000.753400-1-fuad.tabba@linux.dev>
+	steven.price@arm.com,
+	aneesh.kumar@kernel.org,
+	oupton@kernel.org,
+	gshan@redhat.com,
+	joey.gouly@arm.com,
+	tabba@google.com,
+	yuzenghui@huawei.com,
+	linux-coco@lists.linux.dev,
+	gankulkarni@os.amperecomputing.com,
+	sdonthineni@nvidia.com,
+	alpergun@google.com,
+	fj0570is@fujitsu.com,
+	WeiLin.Chang@arm.com,
+	lpieralisi@kernel.org,
+	enju.kohei@fujitsu.com,
+	sudeep.holla@arm.com,
+	jonathan.cameron@oss.qualcomm.com
+Subject: Re: [PATCH v19 2/7] firmware: arm_rmm: Check for RMI support at init
+In-Reply-To: <f7662116-ef8e-4f97-90a4-07173236617b@arm.com>
+References: <20260924135201.850038-1-suzuki.poulose@arm.com>
+	<20260924135201.850038-3-suzuki.poulose@arm.com>
+	<arZQCiF3iqp9eCsy@arm.com>
+	<f7662116-ef8e-4f97-90a4-07173236617b@arm.com>
 User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
  FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/30.1
  (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
 MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
 Content-Type: text/plain; charset=US-ASCII
 X-SA-Exim-Connect-IP: 185.219.108.64
-X-SA-Exim-Rcpt-To: fuad.tabba@linux.dev, tglx@kernel.org, radu@rendec.net, james.morse@arm.com, will@kernel.org, tabba@google.com, linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+X-SA-Exim-Rcpt-To: suzuki.poulose@arm.com, catalin.marinas@arm.com, kvm@vger.kernel.org, kvmarm@lists.linux.dev, will@kernel.org, linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, steven.price@arm.com, aneesh.kumar@kernel.org, oupton@kernel.org, gshan@redhat.com, joey.gouly@arm.com, tabba@google.com, yuzenghui@huawei.com, linux-coco@lists.linux.dev, gankulkarni@os.amperecomputing.com, sdonthineni@nvidia.com, alpergun@google.com, fj0570is@fujitsu.com, WeiLin.Chang@arm.com, lpieralisi@kernel.org, enju.kohei@fujitsu.com, sudeep.holla@arm.com, jonathan.cameron@oss.qualcomm.com
 X-SA-Exim-Mail-From: maz@kernel.org
 X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
 X-BeenThere: linux-arm-kernel@lists.infradead.org
@@ -85,46 +104,30 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, 25 Sep 2026 09:49:57 +0100,
-Fuad Tabba <fuad.tabba@linux.dev> wrote:
+On Fri, 25 Sep 2026 16:23:49 +0100,
+Suzuki K Poulose <suzuki.poulose@arm.com> wrote:
 > 
-> Hi folks,
+> On 25/09/2026 11:42, Catalin Marinas wrote:
+> > On Thu, Sep 24, 2026 at 02:51:56PM +0100, Suzuki K Poulose wrote:
+> >> diff --git a/arch/arm64/kernel/cpufeature.c b/arch/arm64/kernel/cpufeature.c
+> >> index 32102c3912fa7..e8b29983b0021 100644
+> >> --- a/arch/arm64/kernel/cpufeature.c
+> >> +++ b/arch/arm64/kernel/cpufeature.c
+> >> @@ -293,6 +293,7 @@ static const struct arm64_ftr_bits ftr_id_aa64isar3[] = {
+> >>   static const struct arm64_ftr_bits ftr_id_aa64pfr0[] = {
+> >>   	ARM64_FTR_BITS(FTR_HIDDEN, FTR_NONSTRICT, FTR_LOWER_SAFE, ID_AA64PFR0_EL1_CSV3_SHIFT, 4, 0),
+> >>   	ARM64_FTR_BITS(FTR_HIDDEN, FTR_NONSTRICT, FTR_LOWER_SAFE, ID_AA64PFR0_EL1_CSV2_SHIFT, 4, 0),
+> >> +	ARM64_FTR_BITS(FTR_HIDDEN, FTR_NONSTRICT, FTR_LOWER_SAFE, ID_AA64PFR0_EL1_RME_SHIFT, 4, 0),
+> > 
+> > I think we end up exposing this to (any) guest unless we mask it out in
+> > sanitise_id_aa64dfr0_el1(). Do the guests care about the RME version? I
 > 
-> Changes since v1 [1]:
->   - Patch 3 marks the skipped CPU in broken_rdists, so it's kept
->     offline. (Marc, sashiko)
-> 
-> Three probe-time bugs in the GICv3 drivers. The kernel keeps running
-> after each of them, so the memory involved is live rather than on the
-> way to a reset.
-> 
-> The first two free memory an enabled ITS still points at. Boot carries
-> on because its_init() discards a failed probe and gic_init_bases()
-> discards what its_init() returns. The third is a write past the end of
-> redist_regs[] for an enabled GICC with a zero GICR base, on a MADT with
-> no GICR entries. fa2dabe57220e's commit message says such tables exist,
-> and I haven't seen one.
-> 
-> Based on Linux 7.3-rc4 (93f51579e7df2).
-> 
-> Cheers,
-> /fuad
-> 
-> [1] https://lore.kernel.org/all/20260924161514.1112730-1-fuad.tabba@linux.dev/
-> 
-> Fuad Tabba (3):
->   irqchip/gic-v3-its: Don't free a vPE table shared with another ITS
->   irqchip/gic-v3-its: Don't free the tables of an enabled ITS
->   irqchip/gic-v3: Don't register a redistributor that was never counted
-> 
->  drivers/irqchip/irq-gic-v3-its.c | 16 +++++++++++-----
->  drivers/irqchip/irq-gic-v3.c     | 11 +++++++++++
->  2 files changed, 22 insertions(+), 5 deletions(-)
-> 
-> 
-> base-commit: 93f51579e7df248780214094418f205253383cc5
+> Valid point. I personally don't think this matters. The FEAT_RME alone
+> is not useful or harmful. I could mask it in KVM as a safe bet.
 
-Reviewed-by: Marc Zyngier <maz@kernel.org>
+Is there *any* case where the guest (realm or not) should know it is
+running on RME enabled HW? I can perfectly imagine that someone would
+implement something looking like CCA on non-RME systems.
 
 	M.
 
