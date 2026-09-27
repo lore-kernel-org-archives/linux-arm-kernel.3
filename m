@@ -4,95 +4,74 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id AB2F9C98338
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 27 Sep 2026 17:44:30 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0E4FFC9832F
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 27 Sep 2026 17:48:42 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:To:
-	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=aFdg28cjkK57y5Nms1NhKpYwFl6OCJWFse4hVSZd8CY=; b=dAhq1NnRctWHZM3NXv5d7k/ktn
-	DA54vPQ38fiYRasyYFzDchetgED1z95LA4AhdvsXCc4xzowk+Ds1TSx5kvDaAoLmofx7JA7j9F+o9
-	kVu2X4dq8OHXrBrk+YDM9S0+Kork1fSi00YVhuzToGmZURvdXZigjnF6X7v5Ag7aNqmdiYaX589wK
-	K8HqZcRmh39eAwKrDhuzwY/5Wt6pSBaS5lAyufMH/nLQ2fccFkq5774shFLr4422/2C5uejF52uto
-	0JyfQlXTKo0C/gGWdt+NeUbjc2u/M1QG8VSBcSFpuQ/rJDFbU56ce3puuvGZfXpOfV+WD2WHhiCUY
-	Am+xG8bA==;
+	bh=AfLFefFTZ9CCY0LnSyMHekNeX2TotPch4ikL4DSCq7U=; b=1a/FIxiJbK9RVHmiKeDSrw388t
+	mrjeS2AXBN+pKjLnWTjfdaXsbNJI/y14rrFs0/a2mzIVUrZbua3wvjapeRES2PpTR4ImGSnZV5Jw6
+	Zs4Wj7D0z4RN8II3JXvRz/EfJfLUJxhKKnmn/OfVWtUx9GkSIOsVGMWrkvxaayzoDVhDC/LDzKD/z
+	jfnOgyhcucVlZQFO5xuV/jM4oH7S6RZLDDb7FJnjRs4A0e19sQiFsPuiH/QliBa2/Hg5F1qUIM4hl
+	PLQ6kce+rzGkmOx8OWuPrzMLw97+kppHxccFSD2Op3bjy6lEefcjtfU0pCx6lfbaiPu1l8M4TkiZA
+	QHGTnpSA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xAsvH-0000000GfS9-0rko;
-	Sun, 27 Sep 2026 17:44:23 +0000
-Received: from mail-wr2-x10.google.com ([2a00:1450:4864:30::10])
+	id 1xAszL-0000000GffQ-3FvJ;
+	Sun, 27 Sep 2026 17:48:35 +0000
+Received: from smtpout-04.galae.net ([185.171.202.116])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xAsvF-0000000GfRn-1mBv
+	id 1xAszI-0000000Gff0-2V0U
 	for linux-arm-kernel@lists.infradead.org;
-	Sun, 27 Sep 2026 17:44:22 +0000
-Received: by mail-wr2-x10.google.com with SMTP id ffacd0b85a97d-485984ebf5cso1825541f8f.0
-        for <linux-arm-kernel@lists.infradead.org>; Sun, 27 Sep 2026 10:44:20 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1790531059; x=1791135859; darn=lists.infradead.org;
-        h=content-transfer-encoding:content-type:mime-version:references
-         :in-reply-to:message-id:subject:cc:to:from:date:from:to:cc:subject
-         :date:message-id:reply-to:content-type;
-        bh=aFdg28cjkK57y5Nms1NhKpYwFl6OCJWFse4hVSZd8CY=;
-        b=XJd+TGzjoQ0KEXU0ekRkGL0Q9oFiDBo8DqWlMugdrYkIQCqIDXqBIW1Qw9XoIB1OCS
-         ijq1g6fi1BfpcMCVkuHkJi6j2Pyl/kkeX+LkPbxfg54oc88YxcOp75ekj52f7ft7At6c
-         Qvvbqbid8/Y9YlFv/iv7MeSX1hKr0OHweFbxFkZpzpTxIPq/0iV35DIpuCS/RJHQhfjF
-         miTEHm+t+EVIwU6cy5+g5CHPTQZn/rLhXrZQB5VtosTG+UcnoTcUQh2qqpCo7RCFIe59
-         drxReorswra6DflpSOdbJbfPaGAvLJiqmpcT6lh8xjwxEwW/mxsSJdMj1dX2EDb79QLj
-         MDfw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1790531059; x=1791135859;
-        h=content-transfer-encoding:content-type:mime-version:references
-         :in-reply-to:message-id:subject:cc:to:from:date:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=aFdg28cjkK57y5Nms1NhKpYwFl6OCJWFse4hVSZd8CY=;
-        b=u94Vq9e5QNmg41DV45r0Fqrl36E3zNbGfwZNlojTbAjfc3Jc+B+ReFFnWscdo3oTps
-         FZ+SI1EqPrsE65INKP4T0bi2qccvGXqIwyD2qIIPEkZYzWx5tSNb39NTaiGhziRGpQBY
-         +6OL+QG57wwJAQbiqWq+O/S/RopLr6SqUmkt3CLoapu08c8FgAlCl545QF7O2ipdqSbO
-         LX2rOD0y4+kl+gVRXKf1DAW4+4SsDXGSqIVJATZ4NO13rwtzMiXrxXK1M4eX/mel31zh
-         unqvUDVmmCW4t0EWT2HWIUKn0JegryNcWLlIsqvm8mwN+ddARlvW1t8SMT7HlQPurUd7
-         bSFw==
-X-Forwarded-Encrypted: i=1; AKwUvBykGig7vhImaVG5TBBIgf8MwW0faoL4l+m/A/I9NiimrOXlF2UZiKJKmmU96YCmJaEIx+9YQ19UFBTBsgaHX3Ke@lists.infradead.org
-X-Gm-Message-State: AFq9FYIqY9S+FM64fMumK3uKHboo0NiVli8soOM078MMsWRkPRXYjc1G
-	Y47XK368xoB+F7f1WA7I57lN8VW1vP0YL6I0exVPoAycLMsb2N2fFhNE
-X-Gm-Gg: AYBFou0q7ZwU6/ej7WjIa5IO4bG1I7DncRfXQ/PrGH7HIUREfkNpTXkQmpHQZc5eacy
-	AgLPkZkZa0EHQiyRnkUiEdQZK5iav6/H6slYDaJE30DsyOffV0OdDB94bJGmfP2zuQLd9++f2Oa
-	y22uUsvQZ/mdTASxvEE8EqvEGwmaHUX5U9xXmH4P9+sQHO3qFwMlwO+Eyoi5lYk/ZkPhD96buD6
-	nLHbpZORVHlEcVHwwHrjxJMHth6lfNlbemZiU2u9QflSFVwjlxdeSk5ZLv6bB1FEtuIYKEx7+Hg
-	3Rx7jvRcE7q6+k10Fdr6jT/auBbW62IHOc9SFlrnBBvkXGoazyfX0XzwA6i/a/hJrmnqbkDCSyC
-	BCMKb/Zf5Dk18ujOmVE+Bzh8RMCCeD7+NF5S+L7DNAGgyXJFBJEAZIiefOQfoWhVLQNR6lbETzi
-	nzpj0NFS9KYNXnzubIGpyh3ef8cQBojbzad6Wq/FK07VhD25fDjiSHXGLf7zyHOe77FGsU5ZGlM
-	gJHWjDgK8c58ax+cYueAopNdlMrzIFm4uI=
-X-Received: by 2002:a05:6000:3105:b0:488:8192:c768 with SMTP id ffacd0b85a97d-4888192c8f5mr13570954f8f.30.1790531059310;
-        Sun, 27 Sep 2026 10:44:19 -0700 (PDT)
-Received: from pumpkin (82-69-66-36.dsl.in-addr.zen.co.uk. [82.69.66.36])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-4887a34a4e9sm18464590f8f.11.2026.09.27.10.44.18
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sun, 27 Sep 2026 10:44:18 -0700 (PDT)
-Date: Sun, 27 Sep 2026 18:44:14 +0100
-From: David Laight <david.laight.linux@gmail.com>
-To: Demian Shulhan <demyansh@gmail.com>
-Cc: Catalin Marinas <catalin.marinas@arm.com>, Will Deacon
- <will@kernel.org>, Mark Rutland <mark.rutland@arm.com>, Eric Biggers
- <ebiggers@kernel.org>, Andrew Morton <akpm@linux-foundation.org>, Marco
- Elver <elver@google.com>, Ard Biesheuvel <ardb@kernel.org>, Robin Murphy
- <robin.murphy@arm.com>, David Gow <davidgow@google.com>, Brendan Higgins
- <brendan.higgins@linux.dev>, Nathan Chancellor <nathan@kernel.org>,
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
- kunit-dev@googlegroups.com, netdev@vger.kernel.org, llvm@lists.linux.dev
-Subject: Re: [PATCH 0/2] arm64: csum: Add fused copy and Internet checksum
-Message-ID: <20260927184414.6c0c8867@pumpkin>
-In-Reply-To: <20260927131838.6774-1-demyansh@gmail.com>
-References: <20260927131838.6774-1-demyansh@gmail.com>
-X-Mailer: Claws Mail 4.1.1 (GTK 3.24.38; arm-unknown-linux-gnueabihf)
+	Sun, 27 Sep 2026 17:48:34 +0000
+Received: from smtpout-01.galae.net (smtpout-01.galae.net [212.83.139.233])
+	by smtpout-04.galae.net (Postfix) with ESMTPS id E9E1AC5CD41;
+	Sun, 27 Sep 2026 17:49:15 +0000 (UTC)
+Received: from mail.galae.net (mail.galae.net [212.83.136.155])
+	by smtpout-01.galae.net (Postfix) with ESMTPS id 06961604FF;
+	Sun, 27 Sep 2026 17:48:27 +0000 (UTC)
+Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 8AD2B102F1E7E;
+	Sun, 27 Sep 2026 19:48:17 +0200 (CEST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=dkim;
+	t=1790531305; h=from:subject:date:message-id:to:cc:mime-version:content-type:
+	 content-transfer-encoding:content-language:in-reply-to:references;
+	bh=AfLFefFTZ9CCY0LnSyMHekNeX2TotPch4ikL4DSCq7U=;
+	b=TdsNNYUEGR/IlBVUa5FG0wm302dtB1cFBSLS4xtjpv0xlLK2c5SQFG14+2O+6kp8Zkzf+5
+	6auCNcbQvePq9bPfeHYNzImSnb4sxVuebq2UkFT59Y9cdJv7wxFy5XhQTM2ZKpD2AHOqVP
+	LU9zy2Z3/fcjkHK4MZAcVp+lnl/jMxIizh07sIJ6HCO5D/vMmLxC/iDBk/bPd7nPdzGSOT
+	G9xJBcGeVqr7fvZ1let+m6wXw6tAqNqgemQTI36cO0QmcGTwbGp17wf82fOTa3m4fxzI8j
+	FLvQBl3dtHJ/iysB5ksUHdtxADjdQ9a81tSbFup5guiEaGsrlhGHoScMxTSs5A==
+Message-ID: <9f7d6b86-3ccb-4ccf-8758-c4b8c6ad2ef1@bootlin.com>
+Date: Sun, 27 Sep 2026 19:48:16 +0200
 MIME-Version: 1.0
-Content-Type: text/plain; charset=US-ASCII
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH net v3] net: stmmac: fix rx Scatter-Gather support
+To: Lorenzo Bianconi <lorenzo.bianconi@oss.qualcomm.com>,
+ Andrew Lunn <andrew+netdev@lunn.ch>, "David S. Miller"
+ <davem@davemloft.net>, Eric Dumazet <edumazet@google.com>,
+ Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
+ Maxime Coquelin <mcoquelin.stm32@gmail.com>,
+ Alexandre Torgue <alexandre.torgue@foss.st.com>,
+ Jose Abreu <Jose.Abreu@synopsys.com>, Alexei Starovoitov <ast@kernel.org>,
+ Daniel Borkmann <daniel@iogearbox.net>,
+ Jesper Dangaard Brouer <hawk@kernel.org>,
+ John Fastabend <john.fastabend@gmail.com>,
+ Stanislav Fomichev <sdf@fomichev.me>
+Cc: netdev@vger.kernel.org, linux-stm32@st-md-mailman.stormreply.com,
+ linux-arm-kernel@lists.infradead.org, bpf@vger.kernel.org
+References: <20260923-stmmac-rx-sg-fix-v3-1-ed26fea7180d@oss.qualcomm.com>
+Content-Language: en-US
+From: Maxime Chevallier <maxime.chevallier@bootlin.com>
+In-Reply-To: <20260923-stmmac-rx-sg-fix-v3-1-ed26fea7180d@oss.qualcomm.com>
+Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
+X-Last-TLS-Session-Version: TLSv1.3
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260927_104421_487632_4532C604 
-X-CRM114-Status: GOOD (  20.41  )
+X-CRM114-CacheID: sfid-20260927_104832_833650_FA5EBE3A 
+X-CRM114-Status: GOOD (  19.16  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -107,74 +86,61 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Sun, 27 Sep 2026 15:17:56 +0200
-Demian Shulhan <demyansh@gmail.com> wrote:
+Hi Lorenzo,
 
-> arm64 currently uses the generic csum_partial_copy_nocheck(), which
-> performs memcpy() followed by a second pass for csum_partial(). This
-> double pass exerts unnecessary pressure on the L1 cache.
+On 9/23/26 11:14, Lorenzo Bianconi wrote:
+> When a received frame is larger than dma_buf_sz, the DMA scatters it
+> across multiple RX descriptors (rx Scatter-Gather). The secondary RX
+> buffer (sec_page) was only allocated and programmed when split-header
+> (SPH) was active, so for regular frames buffer2 was neither allocated
+> nor backed by a valid mapping. As soon as an incoming frame overflowed
+> buffer1, the DMA wrote the overflow into the unmapped secondary-buffer
+> address, triggering an SMMU translation fault on IOMMU-based platforms:
+> 
+> arm-smmu 15000000.iommu: Unhandled context fault: fsr=0x402, iova=0x00000000, fsynr=0x7f0011, cbfrsynra=0x1c90, cb=11
+> arm-smmu 15000000.iommu: FSR    = 00000402 [Format=2 TF], SID=0x1c90
+> arm-smmu 15000000.iommu: FSYNR0 = 007f0011 [S1CBNDX=127 WNR PLVL=1]
+> 
+> Enable scatter-gather for non-SPH frames on cores that can program an
+> independent secondary RX buffer (GMAC4/XGMAC): allocate and mark buffer2
+> as valid in stmmac_init_rx_buffers() and stmmac_rx_refill(), and account
+> for it in the buffer length computation. Legacy cores have no set_sec_addr
+> op, so they keep buffer2 disabled.
+> 
+> Since buffer2 is handed to the DMA at page offset 0, the page pool sync
+> window is widened to cover both buffers in every mode: offset is set to 0
+> and max_len to dma_buf_sz + stmmac_rx_offset().
+> 
+> The FCS can straddle the buffer1/buffer2 boundary and a descriptor
+> boundary, so it is now stripped from the tail of the assembled frame with
+> pskb_trim() instead of from a single buffer, avoiding an unsigned underflow
+> for frames that overflow a buffer by 1..3 bytes. For single-buffer frames
+> the XDP program must not see the FCS, so it is removed from the XDP buffer
+> before the program runs.
+> 
+> Native XDP currently only supports single-buffer (linear) frames. An
+> oversized frame accepted by the MAC (jumbo enabled) is received via
+> buffer2; the XDP program only sees buffer1, so on a TX/REDIRECT verdict
+> the frame is forwarded truncated. XDP multi-buffer support to handle
+> this case is planned as a follow-up.
+> 
+> AF_XDP zero-copy RX is not covered by this change: a ZC queue still
+> programs buffer2 at DMA address 0 (and XGMAC has no buffer2-valid bit),
+> so an oversized frame overflowing buffer1 can still trigger the same
+> SMMU translation fault. Handling is planned as a follow-up.
+> 
+> Fixes: 88ebe2cf7f3f ("net: stmmac: Rework stmmac_rx()")
+> Signed-off-by: Lorenzo Bianconi <lorenzo.bianconi@oss.qualcomm.com>
 
-Which workload actually needs this?
-Most modern ethernet MAC support checksum setting on transmit and
-checking on receive.
-So the software checksum shouldn't be needed very often.
+Meh I replied to the previous iteration... I did test V3 actually, so
+here's the blurb I said on V2 + tag :
 
-IIRC there is also code to defer UDP checksum validation until the
-copy_to_user().
-I'd bet (a few pints of beer) that the complication this adds isn't
-actually worth while.
-Even Linus can't remember why it was done, my guess is it improved the
-performance of the userspace NFS (over UDP) daemon that would be
-doing 8k UDP send/receive (fragmented by IP).
+I was able to test that on DWMAC4 (stm32mp157) sending oversized frames,
+and they correctly spill over the next descriptor, no crashes no stall,
+the only limitation being the RX fifo size now.
 
-There is certainly still code to checksum data during copy_from_user()
-in send().
-Last time I looked I couldn't see why send on TCP sockets didn't go through it.
-On x86 (in particular) copies can be done far faster than ones that
-include a checksum.
+Tested-by: Maxime Chevallier <maxime.chevallier@bootlin.com>
 
-David
-
-> 
-> Replace it with a single-pass implementation. The new implementation
-> provides a general-purpose register path for short buffers and atomic
-> contexts, and a kernel-mode NEON path for lengths >= 1024 bytes.
-> 
-> Measured in-kernel on an Ampere Altra (Neoverse-N1):
-> - Scalar path: 1.2x-1.6x faster for lengths < 1024 bytes.
-> - NEON path: 1.2x faster at 1024 bytes, scaling up to 1.6x-1.8x at
->   4096 bytes.
-> On Apple M-series cores, gains are 1.3-1.7x below 1024 bytes and
-> 1.6-2.4x above. No length or alignment regresses on either
-> microarchitecture.
-> 
-> Patch 1 implements the fused routines and the dispatcher.
-> Patch 2 adds KUnit test coverage for the new API and internal paths.
-> 
-> Tested: in-kernel benchmark module on Neoverse-N1 with both
-> implementations cross-checked (0 mismatches); KUnit suite under QEMU
-> (with/without KASAN, with PREEMPT_RT), exhaustive and random userspace
-> testing of both routines against a naive reference with PROT_NONE guard
-> pages, gcc 13 and clang 18 W=1 builds, checkpatch --strict.
-> 
-> Demian Shulhan (2):
->   arm64: csum: Add fused copy and Internet checksum
->   lib/tests: checksum: Add KUnit tests for csum_partial_copy_nocheck()
-> 
->  arch/arm64/include/asm/checksum.h |   3 +
->  arch/arm64/lib/Makefile           |   7 +-
->  arch/arm64/lib/csum-copy-neon.c   | 168 +++++++++++
->  arch/arm64/lib/csum-copy.c        | 108 +++++++
->  arch/arm64/lib/csum-copy.h        |  84 ++++++
->  arch/arm64/lib/csum.c             |  54 ++++
->  lib/Kconfig.debug                 |  10 +
->  lib/tests/checksum_kunit.c        | 463 ++++++++++++++++++++++++++++++
->  8 files changed, 896 insertions(+), 1 deletion(-)
->  create mode 100644 arch/arm64/lib/csum-copy-neon.c
->  create mode 100644 arch/arm64/lib/csum-copy.c
->  create mode 100644 arch/arm64/lib/csum-copy.h
-> 
-> 
-> base-commit: 93f51579e7df248780214094418f205253383cc5
+Maxime
 
 
