@@ -4,56 +4,83 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 406FCC9830E
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 27 Sep 2026 16:11:03 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D732DC9830E
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 27 Sep 2026 16:27:08 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	References:In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Qkb44GxQlkJlaGvSbdXr/VqLO2OL9eSsLbx5+2uugSw=; b=RNyGLgGuFM2+H6wqQm1fWZZMv+
-	ZK0YZbKHHIlL4HyP+8vR2lARrmxaHcDJIkQagKbcVB2Bb0B0LMrkjRbjycit2VDTa50m3ohfd5p9Y
-	4UpL95pCrRkbS7+0w8i/5NNLB18knb1C1g+0n4PmG3hF4FcmPhCNqINYaAl1VBftCxKl6Zvs9aPhr
-	N4N4mMgTlBXoHssg+9y1WQ7FESeAy/HxH7uQ449/A4j2hjYaYIRnALEbLjcYP29mxZccqeuSoR0pb
-	OUwQqj//uOTxUlMo5yj1FXttrWbfraNEzqqBEreBwYMZUBXIKnV5O+KKdaK1Uxp8Zv9BweV8HLI6a
-	qPFDjJWA==;
+	bh=7kW7yGXjKhbeDUHOmR2h0QTxavzpIFMKdj9dx2ZV444=; b=XIiLLAS717Vr6ymtwQQi9LOEeF
+	deKrIXzQAuisrDo/fvWiDC0pInstwCO6rfBpTuf+0we9eceBiO/Em56vzykWcm/fDH8GA5Q3L1C48
+	Rg8OyXNbbDR+MEb1Cv5Jf+PYaBaAujmoyk2e2lR2qDGKDO3d5ZiUb8D/TW7kGGmPooNMGSRt6CCfN
+	urNHmTmE+yCOhoo/s5fl+Z5pGx7uyZDT6kkb2EINGzk8RccQYpqPM5NRkBeCZTzML3kB5RUxdjpyV
+	wJXlV0x/q3qgrUBpltAh3IPZUSBIJHiCij8hik/zl2Nt4RgKUndKyuaIWITwg5ieF1pdWmsJHHxfh
+	rHNsKPWw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xArSp-0000000GYD0-2lP4;
-	Sun, 27 Sep 2026 16:10:55 +0000
-Received: from vps0.lunn.ch ([156.67.10.101])
+	id 1xAriO-0000000GYcD-3yKF;
+	Sun, 27 Sep 2026 16:27:00 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xArSn-0000000GYCE-0MhQ;
-	Sun, 27 Sep 2026 16:10:54 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=lunn.ch;
-	s=20171124; h=In-Reply-To:Content-Disposition:Content-Type:MIME-Version:
-	References:Message-ID:Subject:Cc:To:From:Date:From:Sender:Reply-To:Subject:
-	Date:Message-ID:To:Cc:MIME-Version:Content-Type:Content-Transfer-Encoding:
-	Content-ID:Content-Description:Content-Disposition:In-Reply-To:References;
-	bh=Qkb44GxQlkJlaGvSbdXr/VqLO2OL9eSsLbx5+2uugSw=; b=QJ9NYif8+G+w6Kao0mVbEdQGg2
-	ip5qdp0JOj3TqDJ6gbeys1zKRezu1GqXg0YeQAXaewSJHK15K03NVP2Nm8KX5Bk0nXr8E45Kfdfhb
-	LWU51QcP+wDLt/PMs1ffXuaCjnux5t+Is5Qhmy+PKjP/7WLiIWYsjia5CYEkaputd39Q=;
-Received: from andrew by vps0.lunn.ch with local (Exim 4.94.2)
-	(envelope-from <andrew@lunn.ch>)
-	id 1xArSk-007XPL-HJ; Sun, 27 Sep 2026 18:10:50 +0200
-Date: Sun, 27 Sep 2026 18:10:50 +0200
-From: Andrew Lunn <andrew@lunn.ch>
-To: BG9OXA <bg9oxa@163.com>
-Cc: linux-rockchip@lists.infradead.org,
-	linux-arm-kernel@lists.infradead.org, devicetree@vger.kernel.org,
-	Heiko Stuebner <heiko@sntech.de>
-Subject: Re: [PATCH v2 0/2] arm64: dts: rockchip: add ALIENTEK QuarkPi-CA2
-Message-ID: <de8c3f72-26d1-4c9a-86c6-12afb3fe97d6@lunn.ch>
-References: <179051708448.31632.16350193430088134671@163.com>
-MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <179051708448.31632.16350193430088134671@163.com>
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260927_091053_128261_D48DA38C 
-X-CRM114-Status: UNSURE (   7.08  )
-X-CRM114-Notice: Please train this message.
+	id 1xAriN-0000000GYc7-43dn
+	for linux-arm-kernel@lists.infradead.org;
+	Sun, 27 Sep 2026 16:27:00 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by tor.source.kernel.org (Postfix) with ESMTP id 1DF5E601F7;
+	Sun, 27 Sep 2026 16:26:59 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id C42401F000FF;
+	Sun, 27 Sep 2026 16:26:58 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1790526418;
+	bh=7kW7yGXjKhbeDUHOmR2h0QTxavzpIFMKdj9dx2ZV444=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References;
+	b=kqOdXy5Ke1C4DXMhLh+tKnpi1VA6ACyj2ZCmtln93wuOHC0CZYNXqBC5DcX/HVSUw
+	 tcgmukQomsbc2JVRGFIuORep+DRAqGwpuP9jMPA6tmnYol4uLHfhOUmuP3tukUUF4r
+	 0OVKuAliLvavecpPcItmrPAh22SWniGndqa0I3Wcd2Z9Z3RER6HxuPlM26380u+c1G
+	 lZ2GLm04mH4CsjPf0kRs6+43lbluRPwtR9gw3+xOhZ16mPGEKSnJUIKccslE4qrBlU
+	 8xnS2a7IdA/Gh/KRBm9VrP1mXGHH4z2vQ71jFe5unBvo2djW+vjsBvVEzyVhpsCLnT
+	 tsWxMiqF7tnIA==
+Received: from sofa.misterjones.org ([185.219.108.64] helo=lobster-girl.misterjones.org)
+	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.98.2)
+	(envelope-from <maz@kernel.org>)
+	id 1xAriK-0000000E2Eb-1Xaj;
+	Sun, 27 Sep 2026 16:26:56 +0000
+Date: Sun, 27 Sep 2026 17:30:04 +0100
+Message-ID: <87qzie3beb.wl-maz@kernel.org>
+From: Marc Zyngier <maz@kernel.org>
+To: Wei-Lin Chang <weilin.chang@arm.com>
+Cc: Vincent Donnefort <vdonnefort@google.com>,
+	oupton@kernel.org,
+	kvmarm@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org,
+	joey.gouly@arm.com,
+	seiden@linux.ibm.com,
+	suzuki.poulose@arm.com,
+	yuzenghui@huawei.com,
+	catalin.marinas@arm.com,
+	will@kernel.org,
+	kernel-team@android.com,
+	fuad.tabba@linux.dev,
+	qperret@google.com,
+	Sashiko <sashiko-bot@kernel.org>,
+	stable@vger.kernel.org
+Subject: Re: [PATCH v1 5/6] KVM: arm64: Use kvm_s2_fault_vma_info in gmem_abort()
+In-Reply-To: <am2rfnuwjkglavbtzkt2lk2gclahvca5irrv5me4vppzkotexf@yauajpybhsnm>
+References: <20260922130821.1666713-1-vdonnefort@google.com>
+	<20260922130821.1666713-6-vdonnefort@google.com>
+	<am2rfnuwjkglavbtzkt2lk2gclahvca5irrv5me4vppzkotexf@yauajpybhsnm>
+User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
+ FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/30.1
+ (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
+MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
+Content-Type: text/plain; charset=US-ASCII
+X-SA-Exim-Connect-IP: 185.219.108.64
+X-SA-Exim-Rcpt-To: weilin.chang@arm.com, vdonnefort@google.com, oupton@kernel.org, kvmarm@lists.linux.dev, linux-arm-kernel@lists.infradead.org, joey.gouly@arm.com, seiden@linux.ibm.com, suzuki.poulose@arm.com, yuzenghui@huawei.com, catalin.marinas@arm.com, will@kernel.org, kernel-team@android.com, fuad.tabba@linux.dev, qperret@google.com, sashiko-bot@kernel.org, stable@vger.kernel.org
+X-SA-Exim-Mail-From: maz@kernel.org
+X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -68,15 +95,104 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Sun, Sep 27, 2026 at 09:51:24PM +0800, BG9OXA wrote:
+On Fri, 25 Sep 2026 18:36:42 +0100,
+Wei-Lin Chang <weilin.chang@arm.com> wrote:
+> 
+> On Tue, Sep 22, 2026 at 02:08:20PM +0100, Vincent Donnefort wrote:
+> > From: Fuad Tabba <fuad.tabba@linux.dev>
+> > 
+> > gmem_abort() maps at s2fd->fault_ipa, which HPFAR_EL2 holds at 4K
+> > granularity whatever the page size. The generic page-table code aligns
+> > it, but pkvm_pgtable_stage2_map() looks up existing mappings over
+> > [addr, addr + size), so on a pKVM host with pages larger than 4K a
+> > guest_memfd-backed guest that faults past the first 4K of a page can
+> > find its neighbour's mapping, get -EAGAIN and take the same fault
+> > forever.
+> > 
+> > Take the addresses from kvm_s2_fault_vma_info instead, as
+> > user_mem_abort() does, and report the gfn kvm_gmem_get_pfn() failed on
+> > in the memory fault exit. kvm_s2_fault_get_vma_info() itself isn't
+> > called: a guest_memfd memslot's userspace_addr doesn't need to be
+> > backed by a VMA.
+> > 
+> > Fixes: a7b57e0995927 ("KVM: arm64: Handle guest_memfd-backed guest page faults")
+> > Reported-by: Sashiko <sashiko-bot@kernel.org>
+> > Closes: https://lore.kernel.org/r/20260913175105.A57AC1F000FF@smtp.kernel.org
+> > Cc: stable@vger.kernel.org
+> > Signed-off-by: Fuad Tabba <fuad.tabba@linux.dev>
+> > Signed-off-by: Vincent Donnefort <vdonnefort@google.com>
+> > ---
+> >  arch/arm64/kvm/mmu.c | 28 +++++++++++++---------------
+> >  1 file changed, 13 insertions(+), 15 deletions(-)
+> > 
+> > diff --git a/arch/arm64/kvm/mmu.c b/arch/arm64/kvm/mmu.c
+> > index 5aac624b0442..ee0fcca838c1 100644
+> > --- a/arch/arm64/kvm/mmu.c
+> > +++ b/arch/arm64/kvm/mmu.c
+> > @@ -1953,11 +1953,9 @@ static int gmem_abort(const struct kvm_s2_fault_desc *s2fd)
+> >  	enum kvm_pgtable_walk_flags flags = KVM_PGTABLE_WALK_SHARED;
+> >  	enum kvm_pgtable_prot prot = KVM_PGTABLE_PROT_R;
+> >  	struct kvm_pgtable *pgt = s2fd->vcpu->arch.hw_mmu->pgt;
+> > -	unsigned long mmu_seq;
+> > -	struct page *page;
+> > +	struct kvm_s2_fault_vma_info s2vi = {};
+> 
+> I'd say it's unfortunate this struct's name contains vma :P
 
-> Changes in v2:
+If that was the only thing that is wrong in the MMU code, we'd be in a
+pretty good position! ;-)
 
-How much time was there between v1 and v2? You need to give reviewers
-time to actually do a review and point out issues.
+> 
+> >  	struct kvm *kvm = s2fd->vcpu->kvm;
+> >  	void *memcache = NULL;
+> > -	kvm_pfn_t pfn;
+> >  	gfn_t gfn;
+> >  	int ret;
+> >  
+> > @@ -1968,23 +1966,22 @@ static int gmem_abort(const struct kvm_s2_fault_desc *s2fd)
+> >  			return ret;
+> >  	}
+> >  
+> > -	if (s2fd->nested)
+> > -		gfn = kvm_s2_trans_output(s2fd->nested) >> PAGE_SHIFT;
+> > -	else
+> > -		gfn = s2fd->fault_ipa >> PAGE_SHIFT;
+> > +	s2vi.vma_pagesize = PAGE_SIZE;
+> > +	s2vi.gfn = ALIGN_DOWN(s2fd->fault_ipa, s2vi.vma_pagesize) >> PAGE_SHIFT;
+> > +	gfn = get_canonical_gfn(s2fd, &s2vi);
+> 
+> Perhaps it is worth reserving plain "gfn" for the value we use as the
+> IA of the (shadow) page table, and name this variable something like
+> canonical_gfn. Similar to what kvm_s2_fault_map() does.
 
-At minimum, wait 24 hours, but ideally 2-3 work days, and allow the
-discussion to come to a conclusion.
+Maybe. We have gfn in the vncr fault handling code as well, but that
+one is the result of a S1 walk, so maybe more obvious.
 
-	   Andrew
+> 
+> >  
+> >  	write_fault = kvm_is_write_fault(s2fd->vcpu);
+> >  	exec_fault = kvm_vcpu_trap_is_exec_fault(s2fd->vcpu);
+> >  
+> >  	VM_WARN_ON_ONCE(write_fault && exec_fault);
+> >  
+> > -	mmu_seq = kvm->mmu_invalidate_seq;
+> > +	s2vi.mmu_seq = kvm->mmu_invalidate_seq;
+> >  	/* Pairs with the smp_wmb() in kvm_mmu_invalidate_end(). */
+> >  	smp_rmb();
+> >  
+> > -	ret = kvm_gmem_get_pfn(kvm, s2fd->memslot, gfn, &pfn, &page, NULL);
+> > +	ret = kvm_gmem_get_pfn(kvm, s2fd->memslot, gfn, &s2vi.pfn, &s2vi.page, NULL);
+> >  	if (ret) {
+> > -		kvm_prepare_memory_fault_exit(s2fd->vcpu, s2fd->fault_ipa, PAGE_SIZE,
+> > +		kvm_prepare_memory_fault_exit(s2fd->vcpu, gfn_to_gpa(gfn), s2vi.vma_pagesize,
+> 
+> Huh, I guess you also fixed a bug here? s2fd->fault_ipa could be the
+> nested ipa instead of the canonical ipa.
+
+Yeah, it appears so. Worth capturing in Fixes: as well.
+
+	M.
+
+-- 
+Jazz isn't dead. It just smells funny.
 
