@@ -4,74 +4,76 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 874D9C9833F
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 27 Sep 2026 16:30:14 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A9472C9832F
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 27 Sep 2026 16:35:16 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:References:In-Reply-To:Message-ID:Date
-	:Cc:To:From:Subject:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=2fuOrU+/aRvKHB+bkuI9ZfEA7MdxiGHZ/hwHu+G3Nb8=; b=WnaxLxRZXa66wjcFP5lY/nKf6P
-	gtGs6MOWrNzU20H8BoxCFLXL2smeMxLr5NISuUoFnCvdhfATyubW5KEdFruW06DMEFRMgWTy8o5Jk
-	h6xuAQ9nBqpHyjJR6AKsj0rU77Lj42MlX+3RFVgO+xLinH+TscQANYWobi9E9O9srEGfjIhXeshyH
-	qdkcin9Cp1c5Yuf3BW7xNJINNP8nqZh5yqcxvk7NsH6Vy1fiHWF7/fWeYana5WErF4DRjWPR1y/EB
-	hpbfIR95oD6s9CHSPL1EVmonW2UPlQu99myM9X0S6tDADteutCtrfHGHnnFXubG00tPu7f/ogr4tl
-	YUZ2QMCA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:
+	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=RujpUbO0P+3HoDW6lFgN2NaCd44XmjPJC5yHMUlOFrg=; b=XzCFc5EXE5e1UEzJ2872Mbj5Vr
+	F2Cps5BopTYYjcB1c07CAfXyu1ESBXLebNeDcnRsTNzJOGqwWc1n8oWalzlFEPwAamjGA1vLmMtMh
+	gMfjLX15u+AD4Fi1U/7x+xrw8xdDAzLKQsS9nOWmD7wGpg3Q29D8mV168S23gjLhxl+uwc72XmKd7
+	tftYk4NOcsMxkq7RGi9mx+f3b9ck/wgIBvm9ZN49p7hCBi7r+K+14j0Ayz1QjIMP84dDDOHNZ/GQW
+	oEMxifxM/PJdrcCgVegXQCyNM5HjKWewaROn8yR2wNsvwtg3JObm6CE+7AP1YlyxxIaCpaBSE62xM
+	AorTf/oA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xArlQ-0000000Ga1S-1FZY;
-	Sun, 27 Sep 2026 16:30:08 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1xArqI-0000000GbEJ-1sPd;
+	Sun, 27 Sep 2026 16:35:10 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xArkd-0000000GZ13-1Z4C;
-	Sun, 27 Sep 2026 16:29:19 +0000
+	id 1xArqH-0000000GbE6-0tbV
+	for linux-arm-kernel@lists.infradead.org;
+	Sun, 27 Sep 2026 16:35:09 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id B989F60D78;
-	Sun, 27 Sep 2026 16:29:18 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 2088D1F00898;
-	Sun, 27 Sep 2026 16:29:16 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id BB79F400E1;
+	Sun, 27 Sep 2026 16:35:08 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 9D2001F000FF;
+	Sun, 27 Sep 2026 16:35:08 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1790526558;
-	bh=2fuOrU+/aRvKHB+bkuI9ZfEA7MdxiGHZ/hwHu+G3Nb8=;
-	h=Subject:From:To:Cc:Date:In-Reply-To:References;
-	b=YGEyjPbV6JT1GifxMINWmW6xewJZG4mUegS88xxSJzhf8hg24ChLvOVnMAPybvpuz
-	 gpLgdCKWq4S4Dx3Eomi8CZX1jvuZIx0K+YsacmlCmaqevD9BN2hbRq5LJpsP6oVQgZ
-	 jWWeCbevU2LtknBmZmf293Wyk/Ft8HLcpo86nvV+OiY4vzcXSH6Esp8dRT6S3oHQkp
-	 eh7XLBVV3ZiGUfNuYUdBUotyeBvqP9E28hXu200SmJmZusHYKQXw4S7D0zshWL3qPY
-	 QzdUPDQtFOkjQy/6eI3WLjZyWVzsojMWBc0tx5e0OBXPgaC+NZzW4WvUCWU8ZpLdYT
-	 ZPOQInYXwFMNA==
-Subject: Re: [PATCH net-next v15 6/9] net: stmmac: qcom-ethqos: update
- phy_mode to the resolved interface in mac_finish()
-From: netdev-bot+sashiko@kernel.org
-To: bartosz.golaszewski@oss.qualcomm.com
-Cc: andersson@kernel.org, konradybcio@kernel.org, robh@kernel.org,
- krzk+dt@kernel.org, conor+dt@kernel.org, andrew+netdev@lunn.ch,
- davem@davemloft.net, edumazet@google.com, kuba@kernel.org, pabeni@redhat.com,
- mcoquelin.stm32@gmail.com, alexandre.torgue@foss.st.com, vkoul@kernel.org,
- peppe.cavallaro@st.com, wens@kernel.org, jernej.skrabec@gmail.com,
- neil.armstrong@linaro.org, khilman@baylibre.com, jbrunet@baylibre.com,
- shawnguo@kernel.org, festevam@gmail.com, jan.petrous@oss.nxp.com, s32@nxp.com,
- mohd.anwar@oss.qualcomm.com, romain.gantois@bootlin.com,
- geert+renesas@glider.be, magnus.damm@gmail.com, mripard@kernel.org,
- christophe.roullier@foss.st.com, brgl@kernel.org, radu@rendec.net,
- linux-arm-msm@vger.kernel.org, devicetree@vger.kernel.org,
- linux-kernel@vger.kernel.org, netdev@vger.kernel.org,
- linux-stm32@st-md-mailman.stormreply.com,
- linux-arm-kernel@lists.infradead.org, dfustini@tenstorrent.com,
- linux-sunxi@lists.linux.dev, linux-amlogic@lists.infradead.org,
- linux-mips@vger.kernel.org, imx@lists.linux.dev,
- linux-renesas-soc@vger.kernel.org, linux-rockchip@lists.infradead.org,
- sophgo@lists.linux.dev, linux-riscv@lists.infradead.org,
- bartosz.golaszewski@linaro.org
-Date: Sun, 27 Sep 2026 16:29:15 +0000
-Message-ID: <179052655571.2160803.8220457316051367747@kernel.org>
-In-Reply-To: <20260923-qcom-sa8255p-emac-v15-6-e82f33720737@oss.qualcomm.com>
-References: <20260923-qcom-sa8255p-emac-v15-6-e82f33720737@oss.qualcomm.com>
-X-sashiko-severity: Low
+	s=k20260515; t=1790526908;
+	bh=RujpUbO0P+3HoDW6lFgN2NaCd44XmjPJC5yHMUlOFrg=;
+	h=From:To:Cc:Subject:Date:In-Reply-To:References;
+	b=RcA3jvfgqnPMNyRGlqN0CgN02mPLov1sw6eJux27LWTLQwbXs7AkfDKsDMEBikvPx
+	 ptoQbXFsHQTinml1srSBUafLUmTNBSIgrpC7JHWPwUFDRe6yC1foPjSI9FI/Wu4VCF
+	 7GX364aXDAXiURlsz/9UT46fEoGOsuUTDZSZrcOMHvRnJxOt59PHl3bLW0XqJ1nNqT
+	 QsxoYsBEmIGVkiXNwZm70kZBYoHX1DmAfQzpm+UKRAf+Ha7XThjOfsVPo1FMjKSAHz
+	 /MVUb7+iMkciuDM8ZjR8wou1Qog3P9E6DL7VPANVpfdXr/XjTNaj2oqLJVUgtXbOAI
+	 gcuJb6EQ3yYCQ==
+Received: from sofa.misterjones.org ([185.219.108.64] helo=valley-girl.lan)
+	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.98.2)
+	(envelope-from <maz@kernel.org>)
+	id 1xArqE-0000000E2Sa-3OLw;
+	Sun, 27 Sep 2026 16:35:06 +0000
+From: Marc Zyngier <maz@kernel.org>
+To: Oliver Upton <oupton@kernel.org>,
+	Fuad Tabba <fuad.tabba@linux.dev>
+Cc: Joey Gouly <joey.gouly@arm.com>,
+	Steffen Eiden <seiden@linux.ibm.com>,
+	Suzuki K Poulose <suzuki.poulose@arm.com>,
+	Zenghui Yu <yuzenghui@huawei.com>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Will Deacon <will@kernel.org>,
+	Mark Rutland <mark.rutland@arm.com>,
+	linux-arm-kernel@lists.infradead.org,
+	kvmarm@lists.linux.dev,
+	linux-kernel@vger.kernel.org
+Subject: Re: [PATCH 1/2] KVM: arm64: Report SMCCC_VERSION and SMCCC_ARCH_FEATURES as implemented
+Date: Sun, 27 Sep 2026 17:35:03 +0100
+Message-ID: <179052685156.3528802.11780401181301860028.b4-ty@b4>
+X-Mailer: git-send-email 2.47.3
+In-Reply-To: <20260914125827.1645980-1-fuad.tabba@linux.dev>
+References: <20260914125827.1645980-1-fuad.tabba@linux.dev>
+MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit
-MIME-Version: 1.0
+X-SA-Exim-Connect-IP: 185.219.108.64
+X-SA-Exim-Rcpt-To: oupton@kernel.org, fuad.tabba@linux.dev, joey.gouly@arm.com, seiden@linux.ibm.com, suzuki.poulose@arm.com, yuzenghui@huawei.com, catalin.marinas@arm.com, will@kernel.org, mark.rutland@arm.com, linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev, linux-kernel@vger.kernel.org
+X-SA-Exim-Mail-From: maz@kernel.org
+X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -86,103 +88,28 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Thank you for your contribution! Sashiko AI review found more severe
-issue(s) in other patches of this series. This mail is only an FYI, in case
-you want to address the nit picks below when you respin.
+On Mon, 14 Sep 2026 13:58:26 +0100, Fuad Tabba wrote:
+> KVM reports SMCCC v1.1 to guests, which makes SMCCC_VERSION and
+> SMCCC_ARCH_FEATURES mandatory, and DEN0028H 7.3.6 requires
+> SMCCC_ARCH_FEATURES to return SUCCESS for both function ids: "This
+> function must return SUCCESS when arch_func_id is the SMCCC_VERSION or
+> SMCCC_ARCH_FEATURES function id." With arch_func_id set to either, KVM's
+> guest handler returns NOT_SUPPORTED. Return SUCCESS.
+> 
+> [...]
 
-Low priority / nit picks for your consideration:
+Applied to next, thanks!
 
-- [Low] This patch fixes a regression added by the previous patch in the
-  same series, "net: stmmac: qcom-ethqos: set serdes mode before…
-- [Low] The new comment in ethqos_mac_finish_serdes() (dwmac-qcom-
-  ethqos.c:638-641) says phy_mode is kept in sync "for later…
+[1/2] KVM: arm64: Report SMCCC_VERSION and SMCCC_ARCH_FEATURES as implemented
+      commit: 7ef1b9e11dd7b3832124e26a6fee703b342d6f7f
+[2/2] KVM: arm64: selftests: Check the mandatory SMCCC_ARCH_FEATURES queries
+      commit: 67d00fcc00761e9fe4debeac781eb4f992dd8506
 
---
+Cheers,
 
-net: stmmac: qcom-ethqos: update phy_mode to the resolved interface in mac_finish()
-
-This patch updates ethqos->phy_mode in ethqos_mac_finish_serdes() from the
-interface that phylink resolved, so later serdes_powerup() calls program
-the SerDes to the correct mode. It also widens the guard in
-qcom_ethqos_set_sgmii_loopback() to cover PHY_INTERFACE_MODE_SGMII. This
-keeps the loopback in place on resume with a 1G SGMII link.
-
-> ethqos->phy_mode is read by serdes_powerup() and
-> qcom_ethqos_set_sgmii_loopback() to configure the SerDes and its
-> wrapper for the correct interface. It is set once at probe from the DT
-> phy-mode property and never updated.
-
-[Severity: Low]
-Is this a long-standing problem, or was it added earlier in this series?
-
-As far as I can tell, serdes_powerup() only started reading phy_mode in
-the preceding patch, "net: stmmac: qcom-ethqos: set serdes mode before
-powerup". That patch added this to qcom_ethqos_serdes_powerup():
-
-	ret = phy_set_mode_ext(ethqos->serdes_phy, PHY_MODE_ETHERNET,
-			       ethqos->phy_mode);
-
-Before that patch, power-up never used the stale probe-time value.
-
-With only that patch applied, every open/resume replaces the resolved
-interface held by the SerDes PHY driver (data->interface in
-phy-qcom-sgmii-eth.c) with the DT mode. This stays in effect until
-phylink_mac_initial_config()->ethqos_mac_finish_serdes() programs the
-resolved mode again.
-
-The commit message doesn't mention this dependency, so backporters won't
-know about it. Bisection can also stop on the intermediate commit.
-
-Both patches are in the same unmerged series, so a Fixes: tag isn't the
-right fit here. Could this change be folded into "set serdes mode before
-powerup", or placed before it? Could the commit message then say so?
-
-> diff --git a/drivers/net/ethernet/stmicro/stmmac/dwmac-qcom-ethqos.c b/drivers/net/ethernet/stmicro/stmmac/dwmac-qcom-ethqos.c
-> index 47b70b5e706f2..e067ceee01621 100644
-> --- a/drivers/net/ethernet/stmicro/stmmac/dwmac-qcom-ethqos.c
-> +++ b/drivers/net/ethernet/stmicro/stmmac/dwmac-qcom-ethqos.c
-
-[ ... ]
-
-> @@ -634,6 +635,12 @@ static int ethqos_mac_finish_serdes(struct net_device *ndev, void *priv,
->  
->  	qcom_ethqos_set_sgmii_loopback(ethqos, false);
->  
-> +	/* The interface mode is only known once phylink has resolved it and
-> +	 * may change at runtime, so keep it in sync for later
-> +	 * serdes_powerup()/serdes_powerdown() calls.
-> +	 */
-
-[Severity: Low]
-This isn't a bug, but is the mention of serdes_powerdown() accurate?
-qcom_ethqos_serdes_powerdown() never reads ethqos->phy_mode:
-
-static void qcom_ethqos_serdes_powerdown(struct net_device *ndev, void *priv)
-{
-	struct qcom_ethqos *ethqos = priv;
-
-	phy_power_off(ethqos->serdes_phy);
-	phy_exit(ethqos->serdes_phy);
-}
-
-The comment also leaves out qcom_ethqos_set_sgmii_loopback(). That
-function is called from ethqos_clks_config(true) on every open/resume:
-
-	qcom_ethqos_set_sgmii_loopback(ethqos, true);
-	ethqos_set_func_clk_en(ethqos);
-
-After this patch, its loopback decision depends on this assignment,
-which is why the guard had to be widened.
-
-Would it be clearer to list serdes_powerup() and
-qcom_ethqos_set_sgmii_loopback() as the readers?
-
-> +	ethqos->phy_mode = interface;
-> +
->  	if (interface == PHY_INTERFACE_MODE_SGMII ||
->  	    interface == PHY_INTERFACE_MODE_2500BASEX)
->  		ret = phy_set_mode_ext(ethqos->serdes_phy, PHY_MODE_ETHERNET,
-
+	M.
 -- 
-Sashiko AI review · https://netdev-ai.bots.linux.dev/sashiko/#/patchset/20260923-qcom-sa8255p-emac-v15-0-e82f33720737%40oss.qualcomm.com
+Without deviation from the norm, progress is not possible.
+
+
 
