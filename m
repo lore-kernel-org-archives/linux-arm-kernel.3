@@ -4,72 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 85588C9830E
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 27 Sep 2026 22:55:22 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id ABE61CA5FA2
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 27 Sep 2026 23:50:00 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=fonZKBEVnLUi3nmIxkkXaoCZILdYms0d8ZYuqeeaJBg=; b=pkmWK2HSi6pjzog7VK61oatKYH
-	M+kH8Zw/7hFnp7ZPm6FqzfOfTBDymHzzvd/boEhemWsMkQdckkr95aL3NoPVIzH95XkWHbZa+Bbpx
-	mKFTfOLqGDYYqmudxINy9l/ouSS9z+VgkZofoj5GpFb0mOSvs2McpIWfT+drr3Ua+JlE+fYXKv4qo
-	0adO9ma4mxxfkh4SxNjo9+IdLNBeEogdJlKoDZ1v5+s/yioSMKTkJkiQjqsppjeXAYw9Lbtr/8eID
-	bkqB1m4Y7jsQ9zaCTs6qp7UxU+yZ4RJAC0blRNCjpqT1BmBEnBVzW3LML7wQ5U6+09snoomSDfgqg
-	Px7ZpLIQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	Message-ID:Subject:To:From:Date:Reply-To:Cc:Content-Transfer-Encoding:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=/+5I+7WAGSp20q9tdOoOfwKzRULV4kbqPsm7TOSdKx0=; b=LdH0WwICBUrXhF/o4b4fBk1oET
+	zx0Wx5fBmVS1wTTHPSHcObmm8/4IklFbH0H5UXzyP+k7GnNlkCW6fgNbq/LfMMJfHRWm7wqT9Y2YC
+	yJfgE2CbTypo94RL7VCD2y/DrCcHqwOX2I3oGH7lA3cof3iKwLnWT1nDEj1/jZdiydMv16rpejIoO
+	KrCaKj8Y+KhIlT8KizJHZmFtJI+gkhDoMASeh3SJG8m3d8U31f/fF+BUwUGgvP0PAu212tTYjQv5Z
+	2fi7OsiLvcG6iKwkkEDWEv31YW14QWfB0YEfSeMb29VXGhnqX3U+ZdyvwyHNrtEjajaRmo8uYVG3R
+	nS8DkiDg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xAxm0-0000000GyiM-3iTg;
-	Sun, 27 Sep 2026 22:55:08 +0000
-Received: from casper.infradead.org ([2001:8b0:10b:1236::1])
+	id 1xAycw-0000000H0o3-2Zx2;
+	Sun, 27 Sep 2026 23:49:50 +0000
+Received: from pidgin.makrotopia.org ([2a07:2ec0:3002::65])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xAxlz-0000000GyiA-21Ot;
-	Sun, 27 Sep 2026 22:55:07 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=casper.20170209; h=In-Reply-To:Content-Type:MIME-Version:
-	References:Message-ID:Subject:Cc:To:From:Date:Sender:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description;
-	bh=fonZKBEVnLUi3nmIxkkXaoCZILdYms0d8ZYuqeeaJBg=; b=eIGI0kb8JoQ6f59QATnKY4VWTy
-	KlWA18PX6hX10BKhOmxNq0tGi3u1aRfvl4+RCRxnypG+Q3zub+tAGfPLahvJ7UxrqebG6Hw87AV+5
-	pjJ5wII77N8SG6ISTZur4tDlzHyQJG/AruwRnBvYUL5h5vM1R4LIVih5MQuljHXPOD6svEMX0vt5w
-	fN1uh3q8xkndWOy2mJeEInuuRC2htXs6SWKt9eP27BmPHjB6Elzy1vZxpqCT0Gl7etIkQcBpxUbK4
-	n8v611VA11zwhLqKPmNANUdBBOafXd7NBkYlngO75KzUN/H3oVubmt74amemlxLWMaFpHJpsXr2/5
-	Lk6vs5tg==;
-Received: from willy by casper.infradead.org with local (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xAxlt-000000025TY-0cPK;
-	Sun, 27 Sep 2026 22:55:01 +0000
-Date: Sun, 27 Sep 2026 23:55:01 +0100
-From: Matthew Wilcox <willy@infradead.org>
-To: "Lorenzo Stoakes (ARM)" <ljs@kernel.org>
-Cc: Hongru Zhang <zhanghongru06@gmail.com>, akpm@linux-foundation.org,
-	linux-mm@kvack.org, linux-kernel@vger.kernel.org, baohua@kernel.org,
-	surenb@google.com, david@kernel.org, liam@infradead.org,
-	mhocko@suse.com, rppt@kernel.org, shakeel.butt@linux.dev,
-	vbabka@kernel.org, zhaonanzhe@xiaomi.com, linux@armlinux.org.uk,
-	catalin.marinas@arm.com, will@kernel.org, mark.rutland@arm.com,
-	linux-arm-kernel@lists.infradead.org, chenhuacai@kernel.org,
-	kernel@xen0n.name, loongarch@lists.linux.dev, maddy@linux.ibm.com,
-	mpe@ellerman.id.au, npiggin@gmail.com, chleroy@kernel.org,
-	linuxppc-dev@lists.ozlabs.org, pjw@kernel.org, palmer@dabbelt.com,
-	aou@eecs.berkeley.edu, alex@ghiti.fr,
-	linux-riscv@lists.infradead.org, agordeev@linux.ibm.com,
-	gerald.schaefer@linux.ibm.com, hca@linux.ibm.com, gor@linux.ibm.com,
-	borntraeger@linux.ibm.com, svens@linux.ibm.com,
-	linux-s390@vger.kernel.org, dave.hansen@linux.intel.com,
-	luto@kernel.org, peterz@infradead.org, tglx@kernel.org,
-	mingo@redhat.com, bp@alien8.de, x86@kernel.org, hpa@zytor.com,
-	Hongru Zhang <zhanghongru@xiaomi.com>
-Subject: Re: [PATCH v6] mm: retry page faults once under the per-VMA lock
-Message-ID: <armexcXDiG8ryZd6@casper.infradead.org>
-References: <20260911025613.1220845-1-zhanghongru@xiaomi.com>
- <arFYRAa-i7CIwmHL@gremlin>
- <arF-E3Nsw9ZliH0t@casper.infradead.org>
- <arI_w2wTfA00Mgy9@gremlin>
+	id 1xAyct-0000000H0mj-2ZNV;
+	Sun, 27 Sep 2026 23:49:49 +0000
+Received: from local
+	by pidgin.makrotopia.org with esmtpsa (TLS1.3:TLS_AES_256_GCM_SHA384:256:X25519MLKEM768)
+	 (Exim 4.100)
+	(envelope-from <daniel@makrotopia.org>)
+	id 1xAycX-000000000jo-2nQP;
+	Sun, 27 Sep 2026 23:49:25 +0000
+Date: Mon, 28 Sep 2026 00:49:22 +0100
+From: Daniel Golle <daniel@makrotopia.org>
+To: Andrzej Hajda <andrzej.hajda@intel.com>,
+	Neil Armstrong <neil.armstrong@linaro.org>,
+	Robert Foss <rfoss@kernel.org>,
+	Laurent Pinchart <Laurent.pinchart@ideasonboard.com>,
+	Jonas Karlman <jonas@kwiboo.se>,
+	Jernej Skrabec <jernej.skrabec@gmail.com>,
+	Luca Ceresoli <luca.ceresoli@bootlin.com>,
+	Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
+	Maxime Ripard <mripard@kernel.org>,
+	Thomas Zimmermann <tzimmermann@suse.de>,
+	David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>,
+	Matthias Brugger <matthias.bgg@gmail.com>,
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
+	Hermes Wu <hermes.wu@ite.com.tw>,
+	Allen Chen <allen.chen@ite.com.tw>,
+	Pin-yen Lin <treapking@chromium.org>,
+	Chen-Yu Tsai <wenst@chromium.org>, dri-devel@lists.freedesktop.org,
+	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+	linux-mediatek@lists.infradead.org
+Subject: [PATCH v8 00/14] drm/bridge: it6505: DP audio support + shared-DAI
+ hw_params fix
+Message-ID: <cover.1790552614.git.daniel@makrotopia.org>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <arI_w2wTfA00Mgy9@gremlin>
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260927_164947_805481_02853BC4 
+X-CRM114-Status: GOOD (  16.29  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -84,36 +76,142 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Sep 22, 2026 at 09:55:23AM +0100, Lorenzo Stoakes (ARM) wrote:
-> On Mon, Sep 21, 2026 at 07:57:23PM +0100, Matthew Wilcox wrote:
-> > more to say on this in two weeks at Plumbers.
-> 
-> I look forward to it :)
+Revive HDMI/DP audio support for the it6505, originally posted by
+Jiaxin Yu [1], rebased onto current -next with the review feedback
+addressed: &client->dev is gone (the driver gained it6505->dev) and
+"#sound-dai-cells" has since been added by commit 325af1bef5b9
+("dt-bindings: display: bridge: it6505: Add #sound-dai-cells").
 
-So while doing my slides, I realised that what we need to avoid doing
-is (a) sleeping while holding the mmap_lock (b) returning RETRY while
-holding the VMA lock
+Patches 1-12 fix pre-existing bugs found during review of earlier
+versions of this series; they carry Fixes: tags and are ordered first
+so stable trees can pick them.
 
-And that turns out to be as simple as this patch:
+Patch 13 wires up the it6505 audio helpers via hdmi_codec_ops,
+unblocking the mt8186-mt6366 sound card which references it6505 as
+the I2S3 codec. Patch 14 makes hw_params succeed with no display
+attached, needed when the I2S bus is shared with another codec as on
+MT8186 "steelix" Chromebooks, where the speaker path must keep
+working regardless of the it6505 link state.
 
-diff --git a/include/linux/mm.h b/include/linux/mm.h
-index dd09c438fa23..94ed2333f8d8 100644
---- a/include/linux/mm.h
-+++ b/include/linux/mm.h
-@@ -723,6 +723,8 @@ enum {
-  */
- static inline bool fault_flag_allow_retry_first(enum fault_flag flags)
- {
-+	if (flags & FAULT_FLAG_VMA_LOCK)
-+		return false;
- 	return (flags & FAULT_FLAG_ALLOW_RETRY) &&
- 	    (!(flags & FAULT_FLAG_TRIED));
- }
+Tested on a MT8186 (google,steelix) Chromebook: the sound card comes
+up, speakers, microphone and headset jack work. HDMI/DP audio output
+itself could not be tested for lack of a suitable adapter cable.
 
-OK, this is a hack.  The function is spectacularly badly named, and
-needs to be renamed before a patch can go upstream.  But this should
-fix the contention on mmap_lock.
+[1] https://lore.kernel.org/all/20230730180803.22570-4-jiaxin.yu@mediatek.com/
+---
+v8:
+ * patch 4: keep the DP AUX unregister in remove() as well, so an i2c
+   unbind waits for in-flight AUX device users before the regmap is
+   freed; flagged by the Sashiko AI review of v7
+ * patch 5: terminate the new dev_err() messages with a newline
+ * patch 13: it6505_poweron() sets the powered flag and runs the
+   logic reset and init sequence under audio_lock, closing a race
+   with the delayed enable work flagged by the Sashiko AI review of
+   v7; newline for the new dev_err() message
+ * rebased onto next-20260925
+ * patches 1-3, 6-12 and 14: no changes
 
-Could somebody try it?  I've verified it boots and runs some userspace
-fine, but I don't have the workload to test the contention.
+v7:
+ * new patch 2: cancel link_works, hdcp_wait_ksv_list and hdcp_work
+   in it6505_poweroff() so link training and HDCP authentication
+   cannot run into a chip being powered off; pre-existing, found
+   while assessing the Sashiko AI review of v6
+ * patch 13 (was 12): it6505_poweroff() clears the powered flag
+   under audio_lock, closing the race between the codec ops and a
+   concurrent power-off flagged by the Sashiko AI review of v6; the
+   it6505_enable_audio() wrapper is folded into the delayed work
+ * the remaining v6 review findings are already fixed by later
+   patches of this series (patches 3, 4, 6, 8, 11 and 12), concern
+   pre-existing code outside its scope (whole-register restore in
+   it6505_audio_input(), unchecked reads in it6505_aux_i2c_wait()
+   and it6505_calc_video_info(), regulator disable order) or do not
+   apply (AUX unregister on unbind, missing newline in dev_err())
+ * rebased onto next-20260923
+ * patches 1, 3-12 and 14: no changes
+
+v6:
+ * patch 1: track notifier registration in a flag instead of
+   clearing notifier_call, which a chain traversal racing the
+   unregistration could have called as NULL (extcon traverses its
+   raw notifier chain unlocked); flagged by Sashiko AI review of v5.
+   The in-flight-callback race also flagged there is an extcon core
+   limitation affecting all its consumers and cannot be closed from
+   a consumer driver.
+ * patch 4: note that a failed regulator_disable() leaks the
+   reference either way
+ * new patches 10 and 11: two more pre-existing fixes from v5
+   review, an uninitialised link-frequencies value and an error
+   code written back to the reset register
+ * patches 2, 3, 5-9, 12 and 13: no changes
+
+v5:
+ * patch 1: serialise notifier registration state with extcon_lock
+ * patch 2: also drop the runtime PM usage ref held for a connected
+   display; retitled
+ * new patches 3-7 and 9: more pre-existing fixes from v4 review
+   (AUX unregister symmetry, poweroff error path, IRQ status read
+   errors, two divisions by zero, of_node_put before use)
+ * patch 10 (was 4): update plugged_cb/codec_dev under mode_lock
+ * patches 8 and 11: no changes
+
+v4:
+ * patch 1: quiesce extcon notifier and IRQ before cancelling work,
+   initialise extcon_wq in probe; retitled
+ * new patch 2: disable runtime PM on remove
+ * patch 3 (was 2): collected Chen-Yu Tsai's Reviewed-by
+ * patch 4 (was 3): start out muted; mute state and cached
+   parameters updated under audio_lock; unregister codec after
+   quiesce
+ * patch 5 (was 4): apply audio defaults at probe time
+
+v3:
+ * new patches 1 and 2, fixing a pre-existing use-after-free on
+   remove() and an out-of-bounds read with channel_count == 0
+ * patch 3 (was 1): serialise audio enable/disable with audio_lock;
+   track mute state so the FIFO-error IRQ cannot undo a mute
+ * patch 4 (was 2): no changes
+
+v2:
+ * keep and unregister the hdmi-codec platform_device on remove
+ * initialise delayed_audio before registering the codec device
+ * cancel delayed_audio synchronously on shutdown and remove
+ * disable audio immediately when muting
+ * patch 2: drop the encoder check instead of returning 0 early
+
+v1: https://lore.kernel.org/all/cover.1784393979.git.daniel@makrotopia.org/
+v2: https://lore.kernel.org/all/cover.1784561622.git.daniel@makrotopia.org/
+v3: https://lore.kernel.org/all/cover.1784600387.git.daniel@makrotopia.org/
+v4: https://lore.kernel.org/all/cover.1784681487.git.daniel@makrotopia.org/
+v5: https://lore.kernel.org/all/cover.1784717129.git.daniel@makrotopia.org/
+v6: https://lore.kernel.org/all/cover.1784947240.git.daniel@makrotopia.org/
+v7: https://lore.kernel.org/all/cover.1790275151.git.daniel@makrotopia.org/
+
+Daniel Golle (13):
+  drm/bridge: it6505: quiesce event sources and work on remove()
+  drm/bridge: it6505: quiesce work items before powering off
+  drm/bridge: it6505: balance and disable runtime PM on remove
+  drm/bridge: it6505: unregister DP AUX adapter on bridge detach
+  drm/bridge: it6505: complete poweroff even if disabling regulators
+    fails
+  drm/bridge: it6505: bail out of the IRQ handler when status reads fail
+  drm/bridge: it6505: avoid division by zero in pixel clock calculation
+  drm/bridge: it6505: avoid division by zero in audio FS debug print
+  drm/bridge: it6505: guard against zero channel count in audio
+    infoframe
+  drm/bridge: it6505: hold endpoint OF node reference while parsing it
+  drm/bridge: it6505: reject a too short link-frequencies property
+  drm/bridge: it6505: don't write an error code back to the reset
+    register
+  drm/bridge: it6505: Don't reject audio hw_params without an encoder
+
+Jiaxin Yu (1):
+  drm/bridge: it6505: Add audio support
+
+ drivers/gpu/drm/bridge/ite-it6505.c | 263 +++++++++++++++++++++-------
+ 1 file changed, 202 insertions(+), 61 deletions(-)
+
+
+base-commit: f5f84daefcd92d7a630066635ecea1433ed5eac7
+-- 
+2.55.0
 
