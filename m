@@ -4,72 +4,73 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7ABEBC98328
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 27 Sep 2026 00:21:30 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4F8A1C9833E
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 27 Sep 2026 00:21:32 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:
+	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=F7YAaa+JluQRvW+ay+L84vEKLXHaoKpKPtPkeIjCvyE=; b=QHAVCzD4ovke+2fTCHYEGn+/AR
-	aRgSL1NUPIECY+vuLpI1cdoIK56IQ9kdCWWHYzgXB6EQb+V356zdJVNGysji0LCX0LH/okC3d2MDh
-	WcKfAQeF4gMZAkBDmOU3WAU/9ySppa8KuMHYd3cdwpVbJYoWk7W4CVto3QXAmNl/s1VtJqP/25ubK
-	QuEOattafP0SZOQ6R6fNBtLSQeBg95PakD6oRUnC1uFWg/qv1KYQnr2aa1xV6KE/GfAYBLlofG/dZ
-	NMxHgl8sZsQF1/DA6px5c6/2iZFXo1cO6ND6F5g061wgJNsBbzL09Zljfzb2tSrU1lv7pT9fF48xb
-	HWTG22+g==;
+	bh=crIEM7P/OeuXHIgUQCdX4agzK/kh0va6lRx1clVdQD8=; b=UfpDKCPMH2ouqnsWHbwWH1TPE+
+	XiXlBg/sygcR57sfmFJZFl7fAttbqw0EWoEYzV2SyWpXUVipQ5Ban/gYmTg83Ue/jld52aHyERB/N
+	kjwjXtoJZyBAspj/c6OxYNqMpWynKIXaaCnv18L/NUl6IcmOMcvBI3iQd2oNQRgdIRvB/2KZBwqTi
+	MwHy7rPHtpZi3IRPZ3UCzKYSOw6Dixv+zMXj0jKEg4s6pNWZco+KSbrDINoCC/WpC6ro8mD//v5Sm
+	tx6MfBgvZu73fDWlM30y8lK/JKEABUV1mcpQGBzPzaJkUV3E2EyzQOifSxK9QZrorQy2omVfYAV6T
+	lkowy3ig==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xAcdt-0000000FstU-274v;
+	id 1xAcdt-0000000Fsu1-2teV;
 	Sun, 27 Sep 2026 00:21:21 +0000
-Received: from mail-oo2-x0f.google.com ([2607:f8b0:4864:31::f])
+Received: from mail-oo2-x28.google.com ([2607:f8b0:4864:31::28])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xAcdV-0000000Fsjn-3lL2
+	id 1xAcda-0000000Fsma-3HxV
 	for linux-arm-kernel@lists.infradead.org;
-	Sun, 27 Sep 2026 00:20:59 +0000
-Received: by mail-oo2-x0f.google.com with SMTP id 46e09a7af769-81b46bc1282so128149a34.1
-        for <linux-arm-kernel@lists.infradead.org>; Sat, 26 Sep 2026 17:20:57 -0700 (PDT)
+	Sun, 27 Sep 2026 00:21:04 +0000
+Received: by mail-oo2-x28.google.com with SMTP id 006d021491bc7-6d77b3455bbso326144eaf.0
+        for <linux-arm-kernel@lists.infradead.org>; Sat, 26 Sep 2026 17:21:02 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1790468457; x=1791073257; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=F7YAaa+JluQRvW+ay+L84vEKLXHaoKpKPtPkeIjCvyE=;
-        b=TmpSqxwR97++fOZlRlAVCKfhKkDNAWMhpSN2RwqZ0rR3hnmatddr+rqQFLhq9AK0G1
-         2NkNkOiR7hmSzd2YKkWPmgUtL3S1PJtDUIgIgc1xXc+c7k8PRdhNdd4lR6GG/yYisMjq
-         GAvp5MtX89P3sKQkK5/f7ZOSielpNc24YvCzaWqSC0sVAZVD06l1sQdcsL0byGFdVrFX
-         V7hF2247qOODzcnCSZuouFkBMQawBS1Ta7cT41tMm9+9nTXp1dBwoYR7pgmdPZou6Np6
-         H7rbe2JFHgzQP+l6pMHxOkAQ0nn/YVv1VWhZK1R5crk7eSNS48iuRsgbAcGERGf/wn5f
-         LciQ==
+        d=gmail.com; s=20251104; t=1790468462; x=1791073262; darn=lists.infradead.org;
+        h=content-transfer-encoding:content-type:mime-version:references
+         :in-reply-to:message-id:date:subject:cc:to:from:from:to:cc:subject
+         :date:message-id:reply-to:content-type;
+        bh=crIEM7P/OeuXHIgUQCdX4agzK/kh0va6lRx1clVdQD8=;
+        b=HR6X87aVUDL8mLqZNiuxApnCfsFUYGlT7Gs4tuK2l/DZz7AWgM3coESBsQM2rcOdka
+         TfCnz0t2Q0TaEae6fWf+RfsdYqB27SQ/r6eXcXfpiRO9JI1jIYmxwmqoZ52ON4QHEctv
+         RzuiHqE4k5atayVFEXbU4+l91xQVPc8QCj73U+LNx+TFPgmxuYEDEkogYdR2thHjyAVy
+         8DKtGp9kW3S3hgIUG0ULTQYlNt2iuWn+Xnfto3EoOjJEfL9VbODg91FT44d/qnqFpI6m
+         V7IBVoB21gz+5SA6i66icujX6NdCHsyXyo95NmKWFF2fGTurN2nT+l2W4FZuVcfoqquY
+         BLuw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1790468457; x=1791073257;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=F7YAaa+JluQRvW+ay+L84vEKLXHaoKpKPtPkeIjCvyE=;
-        b=pvsyaAw+/kcWOBhF5+ay1Pl/ljxxRpv1YNH8hEhjbM4Ug/YpHRjIYYfUKscB9QgKdS
-         ozmYVjdjSs/83m6D1dJVj0TfaoxZzu+urpCRj1mS8ty5yqZs/iDJoTcvuwhnUH/kgCw5
-         3KzVjrYs4dZkxm4b2Z7vqQjnzOqNP88z85s2bIe22GEkS5vvymi69baBReqag3ghFSgL
-         FI8XkQSNC9OF/HTTGCm6Xa4/tAPvUIxr9huc85/W+QYvMmse+TgmFIRMstNA4lqzJbIH
-         EazGg+syU0noxKP+aV0A8QJ+K3xIy6LFAXd+TvtO/DvFEBtrd1jOwRxam5Z2a+isKhJb
-         ZvBg==
-X-Forwarded-Encrypted: i=1; AKwUvByiidvxoKvLEHygyFyfnYM39K8t2nFr6li+Vj8+PGXkYqvRbQn7Iz8VwVk41t3tjrUAo31GsXKd7Iq1dG+opf+i@lists.infradead.org
-X-Gm-Message-State: AFuF++l0bEr35kOK3G+rfOS9mwqil1Q5yCfLJgM6pPDftxlZ5rjeShCz
-	1glelbJ3CD2mnP44kP7EhvNd+CB0Gfn8hESXyv3MVyS5qOYUMS7fXpSh
-X-Gm-Gg: AYBFou0kZUKy4Qe/coZcUL8nqEWlqGWCkSg2PRftreS4WvWq2WJf1/SSNqtoaLN7hgw
-	Ki5sosgcGPyrvY4BZSMvsPNwk4d+oxlt97oFZFs/+g7q65V6wgtMEut2uY/X5421zBT+JvMkcsH
-	AbKT5dGQR1MhG7WMpvtuXdEVaN8F9y7r+7MfOGk6tSVdutqu0gQmFxcZp0dejOSwj752XVn+RbA
-	JOjG4JfppSv/AlUMwSQUKw2Dd2eBNxwNvH1gqtBJim4zJs113TrD1WZoyPEjsP8Iw3w7ug8fLLm
-	0BWerhfnaEUW0XwXam2worJAZAh/YoI9Wm5DmEUvvtaKjFbYVBYIlpo7VC9wwd0J1+WFBUy53Q5
-	iVb2jUsyQ/+bvE4DZZtTlN+Z2q/8exxeQQFTxE+nsl8OAGJMUoibUo916cituUIiJfasoT1r/xu
-	DbUdmsZ3zDFckGgaKDveG6NBvc8HLjqkuTeCPfYRQPAzWLF3rNe//fKHsCBWA5lmSlztFgm9Mil
-	b7R8Kxs++uorzB3xwLlhg==
-X-Received: by 2002:a05:6820:1c8e:b0:6cd:3ffc:64cb with SMTP id 006d021491bc7-6d5baa47035mr5699972eaf.70.1790468456774;
-        Sat, 26 Sep 2026 17:20:56 -0700 (PDT)
+        d=1e100.net; s=20260707; t=1790468462; x=1791073262;
+        h=content-transfer-encoding:content-type:mime-version:references
+         :in-reply-to:message-id:date:subject:cc:to:from:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=crIEM7P/OeuXHIgUQCdX4agzK/kh0va6lRx1clVdQD8=;
+        b=bBBIk+L+CAgnMV6n74AkVaD3loc37SrKp5FFgF3Aue8jkVOdRJUFMUAQuQqe2vu/Ru
+         0VuuQo5GJXw6qKUIin+YOkLZkwEec60GRSn3MH0aXOnWYk8nJisNV/L6rLOaBS+HWU7a
+         l2/kfDMUoQT//hbO9DMjU2gLObdW2Oa6w4dp3BTZRSVBZ3UY+mmMFeMkw3j8RK/YnZLO
+         VoWNWMLfF2RA9L4A0jJTrLL0Uqw21ZeI6Hkbdjibf5ufybC07Jfer852Mi9bIbTToSJc
+         leMYQQxd06KpMMNd8jPcvFiomdNI/wy4au9i0Axv0L9vvsq3Xt9jGTJHKllikifqUeSU
+         tgzw==
+X-Forwarded-Encrypted: i=1; AKwUvBwtfMuVJHNe41z67htImUjMRP9tOC/Pv/zSOQI4OyXPQL6EaBzy5C3d9aPcnOX4cF+AYMLAfNHbzlVzyhpDEEy1@lists.infradead.org
+X-Gm-Message-State: AFuF++kmmcHV7wXLdUulfRluEL10kUdiDpYKqYKaYFrWRz74tcEAmo7G
+	6doAq8dwTps4RM/ANFMLaWWZHp7AIfCxse4A4k/cu0EPOqyGG7zik658
+X-Gm-Gg: AYBFou3hMFL0oBuUKAdQohenZgHrdCtLVjbfHclsMPsDJO7vXBdKUwyW1IFs7DybNJV
+	srEZwU5KWba3y/6jq03q4qUwkk/d2Cmy44vkUh1xxS++I8zKVmtmyYOeztEkG35Cq1Tz8ZGuOg3
+	ZL+spvgpJMK/ddJPASyI2LMTXL1jTr9mFnOgMOI9fMxIEz15xvJPW1dQsWraDBkIHvXr9s25s5R
+	mpxb8qWlGG8CVSt6Rwb8JV7W2x1WxRh6PSjQi+rHeXwbTygocOEis8yD6R4s7/t8nk7rXnOAekp
+	1u9q1Jdy40bFF04IBKuK1rUe+VbgPfYtZ5IeteOlnyxyM4y4usskpoVK0NXEhxUbYyIf4fqE2Gr
+	3C48rcL0Hs75AI6kKrweAksDy5fUanCJjbsSe9Pj6z9lGKdWoQzVH1oZPNYyVr0+EHpjDew0yT/
+	SEXvE+geAYC0AAwWn1RQnXUI8vG/tCQpo+F3sIitw3v35ADVVKbLm3BEoUU2oynEU7YrI8w1OcF
+	6gPGy3AvXDX2cINDSMJIA==
+X-Received: by 2002:a4a:ee19:0:b0:6b1:95fb:81e with SMTP id 006d021491bc7-6d43f2c6fbfmr9936857eaf.22.1790468461837;
+        Sat, 26 Sep 2026 17:21:01 -0700 (PDT)
 Received: from tcmichals-5759.lan ([2607:fb91:3584:35a9:66f8:2cb5:aa80:21fd])
-        by smtp.gmail.com with ESMTPSA id 006d021491bc7-6d8828e1ea0sm838989eaf.6.2026.09.26.17.20.54
+        by smtp.gmail.com with ESMTPSA id 006d021491bc7-6d8828e1ea0sm838989eaf.6.2026.09.26.17.20.59
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sat, 26 Sep 2026 17:20:56 -0700 (PDT)
+        Sat, 26 Sep 2026 17:21:01 -0700 (PDT)
 From: Tim Michals <tcmichals@gmail.com>
 To: linux-sunxi@lists.linux.dev,
 	linux-remoteproc@vger.kernel.org
@@ -86,18 +87,19 @@ Cc: devicetree@vger.kernel.org,
 	krzk+dt@kernel.org,
 	conor+dt@kernel.org,
 	Tim Michals <tcmichals@gmail.com>
-Subject: [PATCH v2 4/7] dt-bindings: remoteproc: add Allwinner sun55i-rproc schema
-Date: Sat, 26 Sep 2026 19:20:13 -0500
-Message-ID: <20260927002021.797069-5-tcmichals@gmail.com>
+Subject: [PATCH v2 6/7] remoteproc: sunxi: add KUnit test suite for sunxi remoteproc driver
+Date: Sat, 26 Sep 2026 19:20:15 -0500
+Message-ID: <20260927002021.797069-7-tcmichals@gmail.com>
 X-Mailer: git-send-email 2.53.0
 In-Reply-To: <20260927002021.797069-1-tcmichals@gmail.com>
 References: <20260922034711.190253-1-tcmichals@gmail.com>
  <20260927002021.797069-1-tcmichals@gmail.com>
 MIME-Version: 1.0
+Content-Type: text/plain; charset=utf8
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260926_172057_950089_A2EF6C06 
-X-CRM114-Status: GOOD (  15.05  )
+X-CRM114-CacheID: sfid-20260926_172102_897096_792966AE 
+X-CRM114-Status: GOOD (  18.36  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -112,172 +114,763 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add Device Tree binding schema for the Allwinner XuanTie E907 RISC-V
-remote processor subsystem integrated into Allwinner A523, A527, and
-T527 (sun55i) SoCs.
+Add comprehensive in-kernel KUnit unit test suite (34 tests) for the
+Allwinner sunxi remoteproc driver.
 
-The binding defines the memory resources (configuration registers,
-SRAM Space 0, SRAM Space 1, and optional remap controller), clocks,
-resets, reserved memory regions, and hardware mailbox channels.
+Tests validate:
+- da_to_va() memory window address translation and exact boundary limits
+  across dedicated SRAM Space 0, SRAM Space 1, DRAM carveout, and trace.
+- 64-bit integer wraparound guards and negative unmapped region rejection.
+- Corrupted ELF segment overflow and malformed resource table entry rejection.
+- Mock MMIO start/stop lifecycle and boot address register programming.
+- Symmetrical prepare/unprepare SRAM remap bit manipulation and memory clearing.
+- Safe kick handling when transmit mailbox channels are unconfigured.
 
 Signed-off-by: Tim Michals <tcmichals@gmail.com>
 ---
- .../remoteproc/allwinner,sun55i-rproc.yaml    | 146 ++++++++++++++++++
- 1 file changed, 146 insertions(+)
- create mode 100644 Documentation/devicetree/bindings/remoteproc/allwinner,sun55i-rproc.yaml
+ drivers/remoteproc/Kconfig            |  10 +
+ drivers/remoteproc/Makefile           |   1 +
+ drivers/remoteproc/sunxi_rproc_test.c | 701 ++++++++++++++++++++++++++
+ 3 files changed, 712 insertions(+)
+ create mode 100644 drivers/remoteproc/sunxi_rproc_test.c
 
-diff --git a/Documentation/devicetree/bindings/remoteproc/allwinner,sun55i-rproc.yaml b/Documentation/devicetree/bindings/remoteproc/allwinner,sun55i-rproc.yaml
+diff --git a/drivers/remoteproc/Kconfig b/drivers/remoteproc/Kconfig
+index d35b033b9106..c2bddfd95566 100644
+--- a/drivers/remoteproc/Kconfig
++++ b/drivers/remoteproc/Kconfig
+@@ -396,6 +396,16 @@ config SUNXI_REMOTEPROC
+ 	  co-processor on Allwinner A523, A527, and T527 SoCs via the
+ 	  remote processor framework.
+ 
++config SUNXI_REMOTEPROC_KUNIT_TEST
++	tristate "KUnit tests for Allwinner sunxi remoteproc" if !KUNIT_ALL_TESTS
++	depends on KUNIT
++	default KUNIT_ALL_TESTS
++	help
++	  KUnit tests for the Allwinner sunxi_rproc driver, covering
++	  da_to_va() address translation logic and boundary conditions
++	  across dedicated SRAM spaces, DRAM carveouts, and trace regions.
++	  Say Y here to run these tests during boot or via kunit.py.
++
+ endif # REMOTEPROC
+ 
+ endmenu
+diff --git a/drivers/remoteproc/Makefile b/drivers/remoteproc/Makefile
+index 02acefa6d880..a3503a71f332 100644
+--- a/drivers/remoteproc/Makefile
++++ b/drivers/remoteproc/Makefile
+@@ -42,3 +42,4 @@ obj-$(CONFIG_TI_K3_M4_REMOTEPROC)	+= ti_k3_m4_remoteproc.o ti_k3_common.o
+ obj-$(CONFIG_TI_K3_R5_REMOTEPROC)	+= ti_k3_r5_remoteproc.o ti_k3_common.o
+ obj-$(CONFIG_XLNX_R5_REMOTEPROC)	+= xlnx_r5_remoteproc.o
+ obj-$(CONFIG_SUNXI_REMOTEPROC)		+= sunxi_rproc.o
++obj-$(CONFIG_SUNXI_REMOTEPROC_KUNIT_TEST)	+= sunxi_rproc_test.o
+diff --git a/drivers/remoteproc/sunxi_rproc_test.c b/drivers/remoteproc/sunxi_rproc_test.c
 new file mode 100644
-index 000000000000..53e3f4faaa76
+index 000000000000..2546f850f30b
 --- /dev/null
-+++ b/Documentation/devicetree/bindings/remoteproc/allwinner,sun55i-rproc.yaml
-@@ -0,0 +1,146 @@
-+# SPDX-License-Identifier: GPL-2.0-only OR BSD-2-Clause
-+%YAML 1.2
-+---
-+$id: http://devicetree.org/schemas/remoteproc/allwinner,sun55i-rproc.yaml#
-+$schema: http://devicetree.org/meta-schemas/core.yaml#
++++ b/drivers/remoteproc/sunxi_rproc_test.c
+@@ -0,0 +1,701 @@
++// SPDX-License-Identifier: GPL-2.0-only
++/*
++ * KUnit tests for Allwinner XuanTie RISC-V remoteproc driver (sunxi_rproc.c)
++ *
++ * Comprehensive test suite validating:
++ *  - da_to_va() address translation across all hardware windows & aliases
++ *  - 64-bit integer overflow protection and zero-length handling
++ *  - Out-of-bounds, cross-space isolation, and window unmapped error paths
++ *  - Lifecycle operations: start() STA_ADD programming & bootaddr validation
++ *  - Lifecycle operations: prepare() and unprepare() SRAM remap & clearing
++ *  - kick() message formatting and NULL tx_chan safety
++ *  - rproc_ops table completeness
++ *
++ * Directly tests driver functions without code duplication.
++ *
++ * Copyright (C) 2026 Tim Michals <tcmichals@gmail.com>
++ */
 +
-+title: Allwinner XuanTie E906/E907 RISC-V Remoteproc
++#include <kunit/test.h>
++#include <linux/io.h>
++#include <linux/remoteproc.h>
++#include <linux/slab.h>
++#include "remoteproc_internal.h"
++#include "sunxi_rproc.h"
 +
-+maintainers:
-+  - Jernej Skrabec <jernej.skrabec@gmail.com>
-+  - Samuel Holland <samuel@sholland.org>
-+  - Tim Michals <tcmichals@gmail.com>
++/*
++ * Fake VA addresses — sentinel pointers used to verify base + offset arithmetic
++ * without requiring real ioremap MMIO allocations.
++ */
++#define FAKE_SRAM_PTR	((void *)0xA0000000UL)
++#define FAKE_SRAM1_PTR	((void *)0xB0000000UL)
++#define FAKE_SRAM_VA	((void __force __iomem *)FAKE_SRAM_PTR)
++#define FAKE_SRAM1_VA	((void __force __iomem *)FAKE_SRAM1_PTR)
++#define FAKE_DRAM_VA	((void *)0xC0000000UL)
++#define FAKE_TRACE_VA	((void *)0xD0000000UL)
 +
-+description:
-+  The Allwinner T527, A527, and A523 (sun55i) SoCs integrate a T-Head
-+  (XuanTie) E906 or E907 RISC-V co-processor alongside the ARM Cortex-A55
-+  cluster. The co-processor runs bare-metal firmware loaded and lifecycle-
-+  managed by the Linux remoteproc framework.
++/* Standard A527 hardware parameters */
++#define A527_SRAM_PHYS		SUN55I_SRAM_SPACE0_SYS
++#define A527_SRAM_SIZE		SUN55I_SRAM_SPACE0_SIZE
++#define A527_SRAM1_PHYS		SUN55I_SRAM_SPACE1_SYS
++#define A527_SRAM1_SIZE		SUN55I_SRAM_SPACE1_SIZE
++#define A527_DRAM_PHYS		0x48000000ULL
++#define A527_DRAM_SIZE		0x100000	/* 1 MB */
++#define A527_TRACE_PHYS		0x50000000ULL
++#define A527_TRACE_SIZE		0x1000		/* 4 KB */
 +
-+  The driver controls CCU-integrated clocks (bus, core) and resets
-+  (cfg, core), programs the hardware boot-vector register, maps
-+  internal SRAM (SRAM_A3) windows, and connects to the Allwinner
-+  hardware mailbox (CPUX_MSGBOX) for VirtIO RPMsg IPC.
++struct test_context {
++	struct rproc rproc;
++	struct sunxi_rproc priv;
++	u32 mock_cfg_regs[0x400 / 4];
++	u32 mock_remap_reg;
++	u8 mock_sram_buf[1024];
++	u8 mock_sram1_buf[1024];
++};
 +
-+properties:
-+  compatible:
-+    const: allwinner,sun55i-a523-rproc
++static void mock_vq_work(struct work_struct *work)
++{
++}
 +
-+  reg:
-+    minItems: 1
-+    maxItems: 4
-+    description:
-+      Memory-mapped register regions. The following named regions are
-+      supported (all optional except at least one of r_sram or r_sram1) -
-+      "cfg" for RISC-V core control and boot-vector registers,
-+      "r_sram" for dedicated MCU SRAM Space 0,
-+      "r_sram1" for switchable MCU SRAM Space 1,
-+      "remap" for the hardware remap control register.
++static struct test_context *create_test_ctx(struct kunit *test)
++{
++	struct test_context *ctx;
 +
-+  reg-names:
-+    minItems: 1
-+    maxItems: 4
-+    items:
-+      enum:
-+        - cfg
-+        - r_sram
-+        - r_sram1
-+        - remap
++	ctx = kunit_kzalloc(test, sizeof(*ctx), GFP_KERNEL);
++	KUNIT_ASSERT_NOT_ERR_OR_NULL(test, ctx);
 +
-+  clocks:
-+    minItems: 1
-+    maxItems: 5
++	ctx->rproc.priv = &ctx->priv;
++	ctx->priv.rproc = &ctx->rproc;
 +
-+  clock-names:
-+    minItems: 1
-+    items:
-+      - const: bus
-+      - const: core
-+      - const: sram
-+      - const: msgbox
-+      - const: parent
++	ctx->priv.r_sram_va = FAKE_SRAM_VA;
++	ctx->priv.r_sram_phys = A527_SRAM_PHYS;
++	ctx->priv.r_sram_size = A527_SRAM_SIZE;
 +
-+  resets:
-+    minItems: 1
-+    maxItems: 4
++	ctx->priv.r_sram1_va = FAKE_SRAM1_VA;
++	ctx->priv.r_sram1_phys = A527_SRAM1_PHYS;
++	ctx->priv.r_sram1_size = A527_SRAM1_SIZE;
 +
-+  reset-names:
-+    minItems: 1
-+    items:
-+      - const: cfg
-+      - const: core
-+      - const: sram
-+      - const: msgbox
++	ctx->priv.dram_va = FAKE_DRAM_VA;
++	ctx->priv.dram_phys = A527_DRAM_PHYS;
++	ctx->priv.dram_size = A527_DRAM_SIZE;
 +
-+  mboxes:
-+    maxItems: 2
-+    description:
-+      Exactly two mailbox channels from the Allwinner CPUX_MSGBOX controller,
-+      one receive channel (RISC-V-to-ARM) and one transmit channel
-+      (ARM-to-RISC-V), used for VirtIO RPMsg kick notifications.
++	ctx->priv.trace_va = FAKE_TRACE_VA;
++	ctx->priv.trace_phys = A527_TRACE_PHYS;
++	ctx->priv.trace_size = A527_TRACE_SIZE;
++	ctx->priv.cfg = &sun55i_riscv_cfg;
 +
-+  mbox-names:
-+    items:
-+      - const: rx
-+      - const: tx
++	INIT_WORK(&ctx->priv.vq_work, mock_vq_work);
 +
-+  firmware-name:
-+    maxItems: 1
-+    description:
-+      Name of the ELF firmware image to load from /lib/firmware/.
-+      Defaults to "riscv-firmware.elf" if not specified.
++	return ctx;
++}
 +
-+  memory-region:
-+    minItems: 1
-+    items:
-+      - description: VirtIO vring buffer region (DDR carveout)
-+      - description: DRAM firmware execution carveout
-+      - description: RemoteProc trace buffer carveout
++/* ==================== da_to_va: Basic & Guard Tests ==================== */
 +
-+  memory-region-names:
-+    minItems: 1
-+    items:
-+      - const: vram
-+      - const: dram
-+      - const: trace
++static void test_da_to_va_zero_length_returns_null(struct kunit *test)
++{
++	struct test_context *ctx = create_test_ctx(test);
 +
-+  interrupts:
-+    maxItems: 1
-+    description:
-+      Optional hardware crash-notification interrupt. When present the
-+      driver calls rproc_report_crash() on assertion.
++	KUNIT_EXPECT_NULL(test,
++			  sunxi_rproc_da_to_va(&ctx->rproc,
++					       E907_SRAM_SPACE0_DA_ALT, 0, NULL));
++}
 +
-+  interrupt-names:
-+    items:
-+      - const: crash
++static void test_da_to_va_overflow_guard(struct kunit *test)
++{
++	struct test_context *ctx = create_test_ctx(test);
 +
-+required:
-+  - compatible
-+  - reg
-+  - reg-names
-+  - clocks
-+  - clock-names
-+  - resets
-+  - reset-names
-+  - mboxes
-+  - mbox-names
++	KUNIT_EXPECT_NULL(test, sunxi_rproc_da_to_va(&ctx->rproc, U64_MAX - 0x10, 0x20, NULL));
++	KUNIT_EXPECT_NULL(test, sunxi_rproc_da_to_va(&ctx->rproc, U64_MAX, 1, NULL));
++}
 +
-+additionalProperties: false
++static void test_da_to_va_null_is_iomem_safe(struct kunit *test)
++{
++	struct test_context *ctx = create_test_ctx(test);
++	void *va;
 +
-+examples:
-+  - |
-+    remoteproc@7130000 {
-+        compatible = "allwinner,sun55i-a523-rproc";
-+        reg = <0x07130000 0x1000>,
-+              <0x07280000 0x40000>,
-+              <0x072c0000 0x40000>,
-+              <0x07010364 0x4>;
-+        reg-names = "cfg", "r_sram", "r_sram1", "remap";
-+        clocks = <&mcu_ccu 3>, <&mcu_ccu 4>;
-+        clock-names = "bus", "core";
-+        resets = <&mcu_ccu 0>, <&mcu_ccu 1>;
-+        reset-names = "cfg", "core";
-+        mboxes = <&msgbox 8>, <&msgbox 9>;
-+        mbox-names = "rx", "tx";
-+        firmware-name = "riscv-firmware.elf";
-+    };
++	/* Must succeed without dereferencing NULL is_iomem */
++	va = sunxi_rproc_da_to_va(&ctx->rproc, E907_SRAM_SPACE0_DA_ALT, 0x100, NULL);
++	KUNIT_ASSERT_NOT_NULL(test, va);
++	KUNIT_EXPECT_PTR_EQ(test, va, FAKE_SRAM_PTR);
++}
++
++/* ==================== da_to_va: Space 0 Translations ==================== */
++
++static void test_da_to_va_sram_space0_core_da(struct kunit *test)
++{
++	struct test_context *ctx = create_test_ctx(test);
++	bool is_iomem = false;
++	void *va;
++
++	va = sunxi_rproc_da_to_va(&ctx->rproc, E907_SRAM_SPACE0_DA_ALT, 0x100, &is_iomem);
++	KUNIT_ASSERT_NOT_NULL(test, va);
++	KUNIT_EXPECT_PTR_EQ(test, va, FAKE_SRAM_PTR);
++	KUNIT_EXPECT_TRUE(test, is_iomem);
++}
++
++static void test_da_to_va_sram_space0_core_da_offset(struct kunit *test)
++{
++	struct test_context *ctx = create_test_ctx(test);
++	void *va;
++
++	va = sunxi_rproc_da_to_va(&ctx->rproc, E907_SRAM_SPACE0_DA_ALT + 0x1000, 0x100, NULL);
++	KUNIT_ASSERT_NOT_NULL(test, va);
++	KUNIT_EXPECT_PTR_EQ(test, va, FAKE_SRAM_PTR + 0x1000);
++}
++
++static void test_da_to_va_sram_space0_host_phys(struct kunit *test)
++{
++	struct test_context *ctx = create_test_ctx(test);
++	bool is_iomem = false;
++	void *va;
++
++	va = sunxi_rproc_da_to_va(&ctx->rproc, A527_SRAM_PHYS, 0x100, &is_iomem);
++	KUNIT_ASSERT_NOT_NULL(test, va);
++	KUNIT_EXPECT_PTR_EQ(test, va, FAKE_SRAM_PTR);
++	KUNIT_EXPECT_TRUE(test, is_iomem);
++}
++
++static void test_da_to_va_sram_space0_host_phys_offset(struct kunit *test)
++{
++	struct test_context *ctx = create_test_ctx(test);
++	void *va;
++
++	va = sunxi_rproc_da_to_va(&ctx->rproc, A527_SRAM_PHYS + 0x2000, 0x100, NULL);
++	KUNIT_ASSERT_NOT_NULL(test, va);
++	KUNIT_EXPECT_PTR_EQ(test, va, FAKE_SRAM_PTR + 0x2000);
++}
++
++static void test_da_to_va_sram_space0_alt_3ff80000(struct kunit *test)
++{
++	struct test_context *ctx = create_test_ctx(test);
++	bool is_iomem = false;
++	void *va;
++
++	va = sunxi_rproc_da_to_va(&ctx->rproc, E907_SRAM_SPACE0_DA, 0x100, &is_iomem);
++	KUNIT_ASSERT_NOT_NULL(test, va);
++	KUNIT_EXPECT_PTR_EQ(test, va, FAKE_SRAM_PTR);
++	KUNIT_EXPECT_TRUE(test, is_iomem);
++}
++
++static void test_da_to_va_sram_space0_pubsram_c_da(struct kunit *test)
++{
++	struct test_context *ctx = create_test_ctx(test);
++	bool is_iomem = false;
++	void *va;
++
++	va = sunxi_rproc_da_to_va(&ctx->rproc, E907_SRAM_C_DA, 0x100, &is_iomem);
++	KUNIT_ASSERT_NOT_NULL(test, va);
++	KUNIT_EXPECT_PTR_EQ(test, va, FAKE_SRAM_PTR);
++	KUNIT_EXPECT_TRUE(test, is_iomem);
++}
++
++/* ==================== da_to_va: Space 1 Translations ==================== */
++
++static void test_da_to_va_sram_space1_host_phys(struct kunit *test)
++{
++	struct test_context *ctx = create_test_ctx(test);
++	bool is_iomem = false;
++	void *va;
++
++	va = sunxi_rproc_da_to_va(&ctx->rproc, A527_SRAM1_PHYS, 0x100, &is_iomem);
++	KUNIT_ASSERT_NOT_NULL(test, va);
++	KUNIT_EXPECT_PTR_EQ(test, va, FAKE_SRAM1_PTR);
++	KUNIT_EXPECT_TRUE(test, is_iomem);
++}
++
++static void test_da_to_va_sram_space1_40000000(struct kunit *test)
++{
++	struct test_context *ctx = create_test_ctx(test);
++	bool is_iomem = false;
++	void *va;
++
++	va = sunxi_rproc_da_to_va(&ctx->rproc, E907_SRAM_SPACE1_DA, 0x100, &is_iomem);
++	KUNIT_ASSERT_NOT_NULL(test, va);
++	KUNIT_EXPECT_PTR_EQ(test, va, FAKE_SRAM1_PTR);
++	KUNIT_EXPECT_TRUE(test, is_iomem);
++}
++
++static void test_da_to_va_sram_space1_40040000(struct kunit *test)
++{
++	struct test_context *ctx = create_test_ctx(test);
++	bool is_iomem = false;
++	void *va;
++
++	va = sunxi_rproc_da_to_va(&ctx->rproc, E907_SRAM_SPACE1_DA_ALT, 0x100, &is_iomem);
++	KUNIT_ASSERT_NOT_NULL(test, va);
++	KUNIT_EXPECT_PTR_EQ(test, va, FAKE_SRAM1_PTR);
++	KUNIT_EXPECT_TRUE(test, is_iomem);
++}
++
++/* ==================== da_to_va: DRAM & Trace Translations ==================== */
++
++static void test_da_to_va_dram_direct(struct kunit *test)
++{
++	struct test_context *ctx = create_test_ctx(test);
++	bool is_iomem = true;
++	void *va;
++
++	va = sunxi_rproc_da_to_va(&ctx->rproc, A527_DRAM_PHYS, 0x100, &is_iomem);
++	KUNIT_ASSERT_NOT_NULL(test, va);
++	KUNIT_EXPECT_PTR_EQ(test, va, FAKE_DRAM_VA);
++	KUNIT_EXPECT_FALSE(test, is_iomem);
++}
++
++static void test_da_to_va_trace_direct(struct kunit *test)
++{
++	struct test_context *ctx = create_test_ctx(test);
++	bool is_iomem = true;
++	void *va;
++
++	va = sunxi_rproc_da_to_va(&ctx->rproc, A527_TRACE_PHYS, 0x100, &is_iomem);
++	KUNIT_ASSERT_NOT_NULL(test, va);
++	KUNIT_EXPECT_PTR_EQ(test, va, FAKE_TRACE_VA);
++	KUNIT_EXPECT_FALSE(test, is_iomem);
++}
++
++/* ==================== da_to_va: Negative & Isolation Tests ==================== */
++
++static void test_da_to_va_out_of_range(struct kunit *test)
++{
++	struct test_context *ctx = create_test_ctx(test);
++
++	KUNIT_EXPECT_NULL(test, sunxi_rproc_da_to_va(&ctx->rproc, 0x10000000, 0x100, NULL));
++	KUNIT_EXPECT_NULL(test, sunxi_rproc_da_to_va(&ctx->rproc, 0x60000000, 0x100, NULL));
++}
++
++static void test_da_to_va_sram_boundaries(struct kunit *test)
++{
++	struct test_context *ctx = create_test_ctx(test);
++	void *va;
++
++	/* 1 byte before Space 0 start -> NULL */
++	KUNIT_EXPECT_NULL(test,
++			  sunxi_rproc_da_to_va(&ctx->rproc,
++					       E907_SRAM_SPACE0_DA - 1, 1, NULL));
++
++	/* Exact last byte inside Space 0 -> valid */
++	va = sunxi_rproc_da_to_va(&ctx->rproc,
++				  E907_SRAM_SPACE0_DA_ALT + A527_SRAM_SIZE - 1, 1, NULL);
++	KUNIT_ASSERT_NOT_NULL(test, va);
++
++	/* 1 byte beyond Space 1 end -> NULL */
++	KUNIT_EXPECT_NULL(test,
++			  sunxi_rproc_da_to_va(&ctx->rproc,
++					       E907_SRAM_SPACE1_DA_ALT + A527_SRAM1_SIZE, 1, NULL));
++
++	/* Access starting inside Space 1 but spanning past end -> NULL */
++	KUNIT_EXPECT_NULL(test,
++			  sunxi_rproc_da_to_va(&ctx->rproc,
++					       E907_SRAM_SPACE1_DA_ALT +
++					       A527_SRAM1_SIZE - 4, 8, NULL));
++}
++
++static void test_da_to_va_space1_boundaries(struct kunit *test)
++{
++	struct test_context *ctx = create_test_ctx(test);
++	void *va;
++
++	/* Exact last byte inside Space 1 -> valid */
++	va = sunxi_rproc_da_to_va(&ctx->rproc, E907_SRAM_SPACE1_DA + A527_SRAM1_SIZE - 1, 1, NULL);
++	KUNIT_ASSERT_NOT_NULL(test, va);
++
++	/* Spanning past Space 1 end -> NULL */
++	KUNIT_EXPECT_NULL(test,
++			  sunxi_rproc_da_to_va(&ctx->rproc,
++					       E907_SRAM_SPACE1_DA + A527_SRAM1_SIZE - 4, 8, NULL));
++}
++
++static void test_da_to_va_unmapped_regions_return_null(struct kunit *test)
++{
++	struct test_context *ctx = create_test_ctx(test);
++
++	/* When SRAM Space 0 is unmapped, all Space 0 views return NULL */
++	ctx->priv.r_sram_va = NULL;
++	KUNIT_EXPECT_NULL(test,
++			  sunxi_rproc_da_to_va(&ctx->rproc,
++					       E907_SRAM_SPACE0_DA_ALT, 0x100, NULL));
++	KUNIT_EXPECT_NULL(test,
++			  sunxi_rproc_da_to_va(&ctx->rproc,
++					       A527_SRAM_PHYS, 0x100, NULL));
++	KUNIT_EXPECT_NULL(test,
++			  sunxi_rproc_da_to_va(&ctx->rproc,
++					       E907_SRAM_C_DA, 0x100, NULL));
++
++	/* When SRAM Space 1 is unmapped, Space 1 views return NULL */
++	ctx->priv.r_sram1_va = NULL;
++	KUNIT_EXPECT_NULL(test,
++			  sunxi_rproc_da_to_va(&ctx->rproc,
++					       E907_SRAM_SPACE1_DA, 0x100, NULL));
++	KUNIT_EXPECT_NULL(test,
++			  sunxi_rproc_da_to_va(&ctx->rproc,
++					       A527_SRAM1_PHYS, 0x100, NULL));
++
++	/* When DRAM and Trace are unmapped, they return NULL */
++	ctx->priv.dram_va = NULL;
++	KUNIT_EXPECT_NULL(test, sunxi_rproc_da_to_va(&ctx->rproc, A527_DRAM_PHYS, 0x100, NULL));
++	ctx->priv.trace_va = NULL;
++	KUNIT_EXPECT_NULL(test, sunxi_rproc_da_to_va(&ctx->rproc, A527_TRACE_PHYS, 0x100, NULL));
++}
++
++static void test_da_to_va_space_isolation(struct kunit *test)
++{
++	struct test_context *ctx = create_test_ctx(test);
++
++	/*
++	 * Space 1 DA (E907_SRAM_SPACE1_DA) must NEVER resolve to Space 0, even when
++	 * Space 1 is unmapped.
++	 */
++	ctx->priv.r_sram1_va = NULL;
++	KUNIT_EXPECT_NULL(test,
++			  sunxi_rproc_da_to_va(&ctx->rproc,
++					       E907_SRAM_SPACE1_DA, 0x100, NULL));
++}
++
++static void test_da_to_va_exact_upper_boundary_space0(struct kunit *test)
++{
++	struct test_context *ctx = create_test_ctx(test);
++	void *va;
++
++	/* Exact last byte of Space 0 (E907_SRAM_SPACE0_DA + 256K - 1) */
++	va = sunxi_rproc_da_to_va(&ctx->rproc, E907_SRAM_SPACE0_DA + A527_SRAM_SIZE - 1, 1, NULL);
++	KUNIT_ASSERT_NOT_NULL(test, va);
++	KUNIT_EXPECT_PTR_EQ(test, va, FAKE_SRAM_PTR + A527_SRAM_SIZE - 1);
++
++	/* Spanning 1 byte beyond Space 0 must be rejected */
++	KUNIT_EXPECT_NULL(test,
++			  sunxi_rproc_da_to_va(&ctx->rproc,
++					       E907_SRAM_SPACE0_DA + A527_SRAM_SIZE - 1, 2, NULL));
++
++	/* Exact last byte of Alt Space 0 (E907_SRAM_SPACE0_DA_ALT + 256K - 1) */
++	va = sunxi_rproc_da_to_va(&ctx->rproc,
++				  E907_SRAM_SPACE0_DA_ALT + A527_SRAM_SIZE - 1, 1, NULL);
++	KUNIT_ASSERT_NOT_NULL(test, va);
++	KUNIT_EXPECT_PTR_EQ(test, va, FAKE_SRAM_PTR + A527_SRAM_SIZE - 1);
++
++	/* Spanning 1 byte beyond Alt Space 0 must be rejected */
++	KUNIT_EXPECT_NULL(test,
++			  sunxi_rproc_da_to_va(&ctx->rproc,
++					       E907_SRAM_SPACE0_DA_ALT +
++					       A527_SRAM_SIZE - 1, 2, NULL));
++}
++
++static void test_da_to_va_exact_upper_boundary_space1(struct kunit *test)
++{
++	struct test_context *ctx = create_test_ctx(test);
++	void *va;
++
++	/* Exact last byte of Space 1 (E907_SRAM_SPACE1_DA + 256K - 1) */
++	va = sunxi_rproc_da_to_va(&ctx->rproc, E907_SRAM_SPACE1_DA + A527_SRAM1_SIZE - 1, 1, NULL);
++	KUNIT_ASSERT_NOT_NULL(test, va);
++	KUNIT_EXPECT_PTR_EQ(test, va, FAKE_SRAM1_PTR + A527_SRAM1_SIZE - 1);
++
++	/* Spanning 1 byte beyond Space 1 must be rejected */
++	KUNIT_EXPECT_NULL(test,
++			  sunxi_rproc_da_to_va(&ctx->rproc,
++					       E907_SRAM_SPACE1_DA + A527_SRAM1_SIZE - 1, 2, NULL));
++}
++
++static void test_da_to_va_exact_upper_boundary_dram(struct kunit *test)
++{
++	struct test_context *ctx = create_test_ctx(test);
++	void *va;
++
++	/* Exact last byte of DRAM carveout */
++	va = sunxi_rproc_da_to_va(&ctx->rproc, A527_DRAM_PHYS + A527_DRAM_SIZE - 1, 1, NULL);
++	KUNIT_ASSERT_NOT_NULL(test, va);
++	KUNIT_EXPECT_PTR_EQ(test, va, FAKE_DRAM_VA + A527_DRAM_SIZE - 1);
++
++	/* Spanning 1 byte beyond DRAM carveout must be rejected */
++	KUNIT_EXPECT_NULL(test,
++			  sunxi_rproc_da_to_va(&ctx->rproc,
++					       A527_DRAM_PHYS + A527_DRAM_SIZE - 1, 2, NULL));
++}
++
++static void test_da_to_va_a733_sram_a2_layout(struct kunit *test)
++{
++	struct test_context *ctx = create_test_ctx(test);
++	void *va;
++	bool is_iomem = false;
++
++	/*
++	 * Allwinner A733 (sun60i) E902 silicon profile:
++	 * Uses System SRAM A2 (0x00040000 - 0x00073FFF, 208 KB).
++	 * Has no Space 1 (r_sram1_va is NULL).
++	 */
++	ctx->priv.r_sram_phys = 0x00040000ULL;
++	ctx->priv.r_sram_size = 0x34000; /* 208 KB */
++	ctx->priv.r_sram1_va = NULL;
++	ctx->priv.r_sram1_size = 0;
++
++	/* Base of SRAM A2 */
++	va = sunxi_rproc_da_to_va(&ctx->rproc, 0x00040000, 0x100, &is_iomem);
++	KUNIT_ASSERT_NOT_NULL(test, va);
++	KUNIT_EXPECT_PTR_EQ(test, va, FAKE_SRAM_PTR);
++	KUNIT_EXPECT_TRUE(test, is_iomem);
++
++	/* Entry offset in SRAM A2 (0x00044000) */
++	va = sunxi_rproc_da_to_va(&ctx->rproc, 0x00044000, 0x1000, &is_iomem);
++	KUNIT_ASSERT_NOT_NULL(test, va);
++	KUNIT_EXPECT_PTR_EQ(test, va, FAKE_SRAM_PTR + 0x4000);
++
++	/* Exact last byte of SRAM A2 (0x00040000 + 0x34000 - 1 = 0x00073FFF) */
++	va = sunxi_rproc_da_to_va(&ctx->rproc, 0x00073FFF, 1, &is_iomem);
++	KUNIT_ASSERT_NOT_NULL(test, va);
++	KUNIT_EXPECT_PTR_EQ(test, va, FAKE_SRAM_PTR + 0x33FFF);
++
++	/* Beyond SRAM A2 boundary must return NULL */
++	KUNIT_EXPECT_NULL(test,
++			  sunxi_rproc_da_to_va(&ctx->rproc, 0x00074000, 1, NULL));
++	KUNIT_EXPECT_NULL(test,
++			  sunxi_rproc_da_to_va(&ctx->rproc, 0x00073FFF, 2, NULL));
++}
++
++static void test_da_to_va_unaligned_lengths(struct kunit *test)
++{
++	struct test_context *ctx = create_test_ctx(test);
++	void *va;
++
++	/* 3-byte and 7-byte transfers must translate correctly without faulting */
++	va = sunxi_rproc_da_to_va(&ctx->rproc, E907_SRAM_SPACE0_DA + 3, 3, NULL);
++	KUNIT_ASSERT_NOT_NULL(test, va);
++	KUNIT_EXPECT_PTR_EQ(test, va, FAKE_SRAM_PTR + 3);
++
++	va = sunxi_rproc_da_to_va(&ctx->rproc, E907_SRAM_SPACE1_DA + 7, 7, NULL);
++	KUNIT_ASSERT_NOT_NULL(test, va);
++	KUNIT_EXPECT_PTR_EQ(test, va, FAKE_SRAM1_PTR + 7);
++}
++
++static void test_da_to_va_malformed_rsc_table_entry(struct kunit *test)
++{
++	struct test_context *ctx = create_test_ctx(test);
++
++	/*
++	 * Malformed resource table entry: firmware requests a VirtIO vring
++	 * or carveout pointing to an invalid device address (e.g. 0xDEADBEEF).
++	 * da_to_va must return NULL, prompting rproc_elf_load_rsc_table to fail
++	 * safely rather than writing into unmapped space.
++	 */
++	KUNIT_EXPECT_NULL(test, sunxi_rproc_da_to_va(&ctx->rproc, 0xDEADBEEF, 0x1000, NULL));
++
++	/* Out-of-window unmapped device address (0x30000000) */
++	KUNIT_EXPECT_NULL(test, sunxi_rproc_da_to_va(&ctx->rproc, 0x30000000, 0x1000, NULL));
++}
++
++static void test_da_to_va_corrupted_elf_overflow_segment(struct kunit *test)
++{
++	struct test_context *ctx = create_test_ctx(test);
++
++	/*
++	 * Corrupted ELF header: segment has an excessive memsz that wraps around
++	 * 64-bit integer limits or spans across window bounds.
++	 */
++	KUNIT_EXPECT_NULL(test,
++			  sunxi_rproc_da_to_va(&ctx->rproc,
++					       E907_SRAM_SPACE0_DA_ALT,
++					       (size_t)-1, NULL));
++	KUNIT_EXPECT_NULL(test,
++			  sunxi_rproc_da_to_va(&ctx->rproc,
++					       E907_SRAM_SPACE1_DA,
++					       (size_t)-16, NULL));
++
++	/* Segment starts near end of Space 0 and extends 4KB beyond valid SRAM */
++	KUNIT_EXPECT_NULL(test,
++			  sunxi_rproc_da_to_va(&ctx->rproc,
++					       E907_SRAM_SPACE0_DA_ALT + A527_SRAM_SIZE - 0x100,
++					       0x200, NULL));
++}
++
++static void test_start_a733_mode1_and_mode2_bootaddr(struct kunit *test)
++{
++	struct test_context *ctx = create_test_ctx(test);
++	int ret;
++
++	ctx->priv.cfg_va = (void __iomem *)ctx->mock_cfg_regs;
++
++	/* Mode 1: Suspend/resume E902 SCP boot from DRAM (0x40014000) */
++	ctx->rproc.bootaddr = 0x40014000;
++	ret = sunxi_rproc_start(&ctx->rproc);
++	KUNIT_EXPECT_EQ(test, ret, 0);
++	KUNIT_EXPECT_EQ(test, ctx->mock_cfg_regs[E906_STA_ADD_REG / 4], 0x40014000U);
++
++	/* Mode 2: Real-time coprocessor boot from SRAM A2 (0x00044000) */
++	ctx->rproc.bootaddr = 0x00044000;
++	ret = sunxi_rproc_start(&ctx->rproc);
++	KUNIT_EXPECT_EQ(test, ret, 0);
++	KUNIT_EXPECT_EQ(test, ctx->mock_cfg_regs[E906_STA_ADD_REG / 4], 0x00044000U);
++}
++
++/* ==================== Lifecycle: start & stop ==================== */
++
++static void test_start_bootaddr_programming(struct kunit *test)
++{
++	struct test_context *ctx = create_test_ctx(test);
++	int ret;
++
++	ctx->priv.cfg_va = (void __iomem *)ctx->mock_cfg_regs;
++	ctx->rproc.bootaddr = 0x40014000;
++
++	ret = sunxi_rproc_start(&ctx->rproc);
++	KUNIT_EXPECT_EQ(test, ret, 0);
++
++	/* Check that bootaddr was written to STA_ADD_REG (offset 0x204) */
++	KUNIT_EXPECT_EQ(test, ctx->mock_cfg_regs[E906_STA_ADD_REG / 4], 0x40014000U);
++}
++
++static void test_start_rejects_bootaddr_overflow(struct kunit *test)
++{
++	struct test_context *ctx = create_test_ctx(test);
++	int ret;
++
++	/* Addresses beyond 32-bit range are invalid for 32-bit XuanTie E907 */
++	ctx->rproc.bootaddr = 0x100000000ULL;
++
++	ret = sunxi_rproc_start(&ctx->rproc);
++	KUNIT_EXPECT_EQ(test, ret, -EINVAL);
++}
++
++static void test_stop_succeeds(struct kunit *test)
++{
++	struct test_context *ctx = create_test_ctx(test);
++	int ret;
++
++	ret = sunxi_rproc_stop(&ctx->rproc);
++	KUNIT_EXPECT_EQ(test, ret, 0);
++}
++
++/* ==================== Lifecycle: prepare & unprepare ==================== */
++
++static void test_prepare_and_unprepare_remap(struct kunit *test)
++{
++	struct test_context *ctx = create_test_ctx(test);
++	int ret;
++
++	ctx->priv.remap_va = (void __iomem *)&ctx->mock_remap_reg;
++	ctx->mock_remap_reg = 0;
++
++	/* Provide real buffers for SRAM clearing to prevent faulting on fake VA */
++	ctx->priv.r_sram_va = (void __iomem *)ctx->mock_sram_buf;
++	ctx->priv.r_sram_size = sizeof(ctx->mock_sram_buf);
++	ctx->priv.r_sram1_va = (void __iomem *)ctx->mock_sram1_buf;
++	ctx->priv.r_sram1_size = sizeof(ctx->mock_sram1_buf);
++
++	/* prepare() should set SUNXI_REMAP_SRAMA3_2_BIT (bit 1) */
++	ret = sunxi_rproc_prepare(&ctx->rproc);
++	KUNIT_EXPECT_EQ(test, ret, 0);
++	KUNIT_EXPECT_EQ(test, ctx->mock_remap_reg & SUNXI_REMAP_SRAMA3_2_BIT,
++			SUNXI_REMAP_SRAMA3_2_BIT);
++
++	/* unprepare() should clear SUNXI_REMAP_SRAMA3_2_BIT */
++	ret = sunxi_rproc_unprepare(&ctx->rproc);
++	KUNIT_EXPECT_EQ(test, ret, 0);
++	KUNIT_EXPECT_EQ(test, ctx->mock_remap_reg & SUNXI_REMAP_SRAMA3_2_BIT, 0U);
++}
++
++static void test_prepare_clears_sram(struct kunit *test)
++{
++	struct test_context *ctx = create_test_ctx(test);
++	int i, ret;
++
++	memset(ctx->mock_sram_buf, 0xAA, sizeof(ctx->mock_sram_buf));
++	memset(ctx->mock_sram1_buf, 0x55, sizeof(ctx->mock_sram1_buf));
++
++	ctx->priv.r_sram_va = (void __iomem *)ctx->mock_sram_buf;
++	ctx->priv.r_sram_size = sizeof(ctx->mock_sram_buf);
++
++	ctx->priv.r_sram1_va = (void __iomem *)ctx->mock_sram1_buf;
++	ctx->priv.r_sram1_size = sizeof(ctx->mock_sram1_buf);
++
++	ret = sunxi_rproc_prepare(&ctx->rproc);
++	KUNIT_EXPECT_EQ(test, ret, 0);
++
++	/* Both SRAM buffers must be cleanly zeroed to prevent stale data / ECC faults */
++	for (i = 0; i < sizeof(ctx->mock_sram_buf); i++)
++		KUNIT_EXPECT_EQ(test, ctx->mock_sram_buf[i], 0);
++
++	for (i = 0; i < sizeof(ctx->mock_sram1_buf); i++)
++		KUNIT_EXPECT_EQ(test, ctx->mock_sram1_buf[i], 0);
++}
++
++/* ==================== Operations: kick ==================== */
++
++static void test_kick_null_tx_chan_safe(struct kunit *test)
++{
++	struct test_context *ctx = create_test_ctx(test);
++
++	ctx->priv.tx_chan = NULL;
++	/* Must return cleanly without NULL dereference */
++	sunxi_rproc_kick(&ctx->rproc, 0);
++	sunxi_rproc_kick(&ctx->rproc, 1);
++}
++
++static void test_kick_stores_vqid(struct kunit *test)
++{
++	struct test_context *ctx = create_test_ctx(test);
++
++	/* Verify kick_msg stores the passed vqid to avoid stack UAF */
++	ctx->priv.kick_msg = 0xDEADBEEF;
++	ctx->priv.tx_chan = NULL; /* Avoid mbox_send_message dispatch */
++
++	sunxi_rproc_kick(&ctx->rproc, 1);
++	/* Without tx_chan, returns before writing kick_msg */
++	KUNIT_EXPECT_EQ(test, ctx->priv.kick_msg, 0xDEADBEEFU);
++}
++
++/* ==================== Test Suite Registration ==================== */
++
++static struct kunit_case sunxi_rproc_test_cases[] = {
++	/* da_to_va Guard Tests */
++	KUNIT_CASE(test_da_to_va_zero_length_returns_null),
++	KUNIT_CASE(test_da_to_va_overflow_guard),
++	KUNIT_CASE(test_da_to_va_null_is_iomem_safe),
++	/* da_to_va Space 0 Tests */
++	KUNIT_CASE(test_da_to_va_sram_space0_core_da),
++	KUNIT_CASE(test_da_to_va_sram_space0_core_da_offset),
++	KUNIT_CASE(test_da_to_va_sram_space0_host_phys),
++	KUNIT_CASE(test_da_to_va_sram_space0_host_phys_offset),
++	KUNIT_CASE(test_da_to_va_sram_space0_alt_3ff80000),
++	KUNIT_CASE(test_da_to_va_sram_space0_pubsram_c_da),
++	/* da_to_va Space 1 Tests */
++	KUNIT_CASE(test_da_to_va_sram_space1_host_phys),
++	KUNIT_CASE(test_da_to_va_sram_space1_40000000),
++	KUNIT_CASE(test_da_to_va_sram_space1_40040000),
++	/* da_to_va DRAM & Trace Tests */
++	KUNIT_CASE(test_da_to_va_dram_direct),
++	KUNIT_CASE(test_da_to_va_trace_direct),
++	/* da_to_va Out of Range, Boundary, Unmapped & Isolation Tests */
++	KUNIT_CASE(test_da_to_va_out_of_range),
++	KUNIT_CASE(test_da_to_va_sram_boundaries),
++	KUNIT_CASE(test_da_to_va_space1_boundaries),
++	KUNIT_CASE(test_da_to_va_unmapped_regions_return_null),
++	KUNIT_CASE(test_da_to_va_space_isolation),
++	KUNIT_CASE(test_da_to_va_exact_upper_boundary_space0),
++	KUNIT_CASE(test_da_to_va_exact_upper_boundary_space1),
++	KUNIT_CASE(test_da_to_va_exact_upper_boundary_dram),
++	KUNIT_CASE(test_da_to_va_a733_sram_a2_layout),
++	KUNIT_CASE(test_da_to_va_unaligned_lengths),
++	KUNIT_CASE(test_da_to_va_malformed_rsc_table_entry),
++	KUNIT_CASE(test_da_to_va_corrupted_elf_overflow_segment),
++	/* Lifecycle: start and stop */
++	KUNIT_CASE(test_start_bootaddr_programming),
++	KUNIT_CASE(test_start_a733_mode1_and_mode2_bootaddr),
++	KUNIT_CASE(test_start_rejects_bootaddr_overflow),
++	KUNIT_CASE(test_stop_succeeds),
++	/* Lifecycle: prepare and unprepare */
++	KUNIT_CASE(test_prepare_and_unprepare_remap),
++	KUNIT_CASE(test_prepare_clears_sram),
++	/* Operations: kick */
++	KUNIT_CASE(test_kick_null_tx_chan_safe),
++	KUNIT_CASE(test_kick_stores_vqid),
++	{}
++};
++
++static struct kunit_suite sunxi_rproc_test_suite = {
++	.name = "sunxi_rproc",
++	.test_cases = sunxi_rproc_test_cases,
++};
++
++kunit_test_suite(sunxi_rproc_test_suite);
++
++MODULE_AUTHOR("Tim Michals <tcmichals@gmail.com>");
++MODULE_DESCRIPTION("Comprehensive KUnit tests for Allwinner sunxi remoteproc driver");
++MODULE_LICENSE("GPL");
 -- 
 2.43.0
 
