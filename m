@@ -4,51 +4,118 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CFC20C9832F
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 27 Sep 2026 13:51:57 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3598EC9830E
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 27 Sep 2026 13:58:39 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:References:In-Reply-To:
-	Message-ID:Date:Subject:Cc:To:From:Reply-To:MIME-Version:Content-Type:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=w34/8p0Hfs9ZVAIJrnKZU2yBQhaPaMVIzPSASGnpxbA=; b=otj/pSdV+EB4NJoZyKqJWTHbqe
-	PCoD+uOKhuSW3yV8LkEJvMw0Uc4NtVjody64WDBMEDWzwkB2K/CLY5oBCqOqE+1Q2U2pylZo9jjyQ
-	jHOXwZbNWNF22VNWu8B2+8veXcu5t/UIo6Lz59LkyiWeyrez0zzJq3gpvE1h56aeJ9Vrq+DxqbPcm
-	CLYWEKatyl37MFzuTfrmgpFaRbezil3UAhPmNIC/KfFFPQfyV0KogBsnfJrX0m1RF3flQcdiE72kk
-	6kJCSbZptjOWzcNk0kQvAZMKlXXZeSJB2HGTGaFdz+JRYmfrrIdatONl8kt7+D3SiEDGTIeGB9z+A
-	OgO0Bejg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=G2qVhNq/ulYcGTI2MPiVjpYeX+WOZy3cqFCk18HRP7A=; b=Wz5Q1+0SY2xSocv99Mt7ezBWV9
+	PbL74vjkYzE66H3fhBvU3NeD+Nok0aI3K+fhf4AuW4o2miLyIYFuJpYUUntAUHax/tr7Y0pq0rKkc
+	hSLzzWlOOtN0GoOj3knBU9TcScOsj+MLjvPH+JPi52NTa2ZXN3Ln5gXhFl3WDxjw/qRAUiRCJyp9S
+	jYlDciEhrppv0mYeD9au6hyyx0rc0iU6PWDe6b238yhzdpOlxd7Olwk7fyIC69QqrrAI2AkufcVmu
+	Bv5MielXQiHtRjIGgeLUnM+Li4tivBitiKfSLEPicTYarZtqUux+BKVkKmTTKZTr7dBVdmg3ijwbC
+	Vh51nuSw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xApIE-0000000GPgv-2W1D;
-	Sun, 27 Sep 2026 13:51:50 +0000
-Received: from [117.135.210.5] (helo=m16.mail.163.com)
+	id 1xAoHs-0000000GL6n-3eTf;
+	Sun, 27 Sep 2026 12:47:24 +0000
+Received: from mail-wm2-x10.google.com ([2a00:1450:4864:31::10])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xApI0-0000000GPYY-1F1o;
-	Sun, 27 Sep 2026 13:51:39 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=163.com;
-	s=s110527; h=From:To:Subject:Date:Message-ID; bh=w34/8p0Hfs9ZVAI
-	JrnKZU2yBQhaPaMVIzPSASGnpxbA=; b=NggaaphqlQMSCyXbdnmU61RnbmJTx4T
-	gcv5jzoCgJDveNPYocQF//dQfNexTztLXarix+N3Lucra3LNltjTSn90jxk4A7mM
-	hoDZ1bKfZJuvpadIzdRfyHyBQH0uVsArGyQLwq5tBXlwzqBBMCYl+LhnwkJ8c1mu
-	nJJeqMnPbUbk=
-From: BG9OXA <bg9oxa@163.com>
-To: linux-rockchip@lists.infradead.org
-Cc: linux-arm-kernel@lists.infradead.org, devicetree@vger.kernel.org, Heiko Stuebner <heiko@sntech.de>
-Subject: [PATCH v2 2/2] arm64: dts: rockchip: add ALIENTEK QuarkPi-CA2
-Date: Sun, 27 Sep 2026 21:51:32 +0800
-Message-ID: <179051709216.31632.15211548199122954003@163.com>
-In-Reply-To: <179051707448.31632.10412780322071844492@163.com>
-References: <179051707448.31632.10412780322071844492@163.com>
-X-CM-TRANSID: _____wDnT61kH7lqV4XuBA--.14721S2
-X-Coremail-Antispam: 1Uf129KBjvAXoWDJr1UuFWfGw43trW3WFW5Awb_yoWruF1rCo
-	W2vryF9F48KF1fWr1ktFWUC3WxGrWkGana9F45Kr15Wr4fXwnIyr4Yka1UWFy3tr4jkF1D
-	Z3WfJFy5Jw12v3s5n29KB7ZKAUJUUUU8529EdanIXcx71UUUUU7v73VFW2AGmfu7bjvjm3
-	AaLaJ3UbIYCTnIWIevJa73UjIFyTuYvjxU8tx6UUUUU
-X-CM-SenderInfo: lejz05rd6rljoofrz/xtbC3gTpV2q5H2SLvgAA35
+	id 1xAoHG-0000000GKgD-17XF
+	for linux-arm-kernel@lists.infradead.org;
+	Sun, 27 Sep 2026 12:46:47 +0000
+Received: by mail-wm2-x10.google.com with SMTP id 5b1f17b1804b1-49ff9621c5dso7102635e9.0
+        for <linux-arm-kernel@lists.infradead.org>; Sun, 27 Sep 2026 05:46:45 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20251104; t=1790513205; x=1791118005; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=G2qVhNq/ulYcGTI2MPiVjpYeX+WOZy3cqFCk18HRP7A=;
+        b=gTdOvqf1V7jwDMSWfmXM64Sqlgpezqlwxkk7LMbt/+vd6cuf4+yIAVEB/O3pt+wy5S
+         YbxyP9Wx3TBaxi5njkxxm+hubyJfS7luHcjeFKqy/tm1yaVogIKycSn00CHKoYnpn4NJ
+         wIIRQYbd5IP2VVtJ6cGy7A9KaSCPchcX3MmkV4ye8m9a904xmy+QNqiFqV3qdvZYFWLa
+         8EjctxLlPEuGLB1oSaTD9dPUYmERsNMy+w/TEx5QQyJIeiKzL0etvhbrtj3PjMlRh5h1
+         FRYN/DPorSEBEUHYsZJH5Qfn1Hozr25dWueCFLwdgWKLZ+oOTS9NozY+qTPZT7f2bfaQ
+         2p1g==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1790513205; x=1791118005;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
+         :to:cc:subject:date:message-id:reply-to:content-type;
+        bh=G2qVhNq/ulYcGTI2MPiVjpYeX+WOZy3cqFCk18HRP7A=;
+        b=QaNGx4xXXmlV1sKw+0dmYktNqrbPgJwIMg0F5zXzZxMMNTFPCWcdJFEwkh6NAND6U8
+         TcSoCu51i1fLa9uZ7BrtwwnxTxV9dID+aVYGP5Dc7goZxlL22s3zyIa6AKukTuCWsC/W
+         zaRvjh+cgAuyloQoGH+QnYVIMTY9injSWD1iTOrGSAhDpEk0NpCS0FK3cT4XZbr4MrkV
+         VmcopXQvvUTiuqh6G0Wf26GOhu/Lq521Fmcb/Ci5nvnhRoh2GoaAn2LfXdYyKSLs2UR9
+         8ZD1Qqkc13VL6OzeurWFT932gGbrmNUajPm5OBTWR8cRWBu7KdB4NnJl+nACV/zR6mPI
+         SWUg==
+X-Forwarded-Encrypted: i=1; AKwUvBzYfwaXseDv2p+DNQPmiMPLRtNeau5cBiyMCt1J0zHK59sCKwfCw+r1JooMghjzm0WyRqBjH4ygnHBj5j+CR9Dv@lists.infradead.org
+X-Gm-Message-State: AFuF++kjKYbgzaPkD9jvbbgwuLwlQZjE+UgIDnyYVbBCfSaSgn+wouN8
+	Q9TrppxzR3U3yy6XQpZzFHekCKoyHIhGvR1XjZz5yK2iEjR6xa7MLHkP
+X-Gm-Gg: AYBFou10J4LJ6Djfu3MLKDEpzpPSjo8AxUmQvcqo1wOd8GKt7Ztc7v2eO/pJA7m39zc
+	JjXCJcvef71v6quHH1I+P9YUluq0ECMTUyq/pBXSsIakheENhnFPywEqYhV/WEyCbBlGbHvp/pH
+	pIJWUKIDffQvE9tO2ffwCVAJ+EMkJFpi/smNPtKfdac8prcxeSFbjvbiOnOmXemZ0eXDD9uqeGa
+	6dDGbcaz2fxHCANK91KCCYHyHXILHbNz28dHYiAxv3UtXffQ3jAcGO09zyCtx3pnFxkZnTlRwq3
+	2KicYnjTR0PS2C+fK0Rc1h1wyHg73NT38nFdyTWUDxYxRd4BW5qzA5y7mJBdSKz2UEW0HEgBFbu
+	HsAHiUVyhtSWZw+XWpXbO7lYTTNN9t4EZkLjMmf/0MS9/PwQfEZeJwkTTrir7ENlrIUPPq8XBm/
+	PmXHKFgbpkpm4zgXWCu62MGBdNMoo8Mx6GRzLqYoDo/+fTOqBk+33lDf2TX9yOqrhHfXVXGsbzt
+	RBWO/lPIv3FeLyTXX4k5m87L78X4j5T+MLT0VdH4apy1X83V6eGb7oGjaySsSl5Mq1BM6vPDSyj
+	dudJ24YCrS75RelngGML3g==
+X-Received: by 2002:a05:600c:628c:b0:4a0:f4:1c76 with SMTP id 5b1f17b1804b1-4a000f41d51mr30627785e9.4.1790513204572;
+        Sun, 27 Sep 2026 05:46:44 -0700 (PDT)
+Received: from Lord-Beerus.station ([31.27.155.43])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-49fef60da94sm148440605e9.4.2026.09.27.05.46.41
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Sun, 27 Sep 2026 05:46:43 -0700 (PDT)
+From: Stefano Radaelli <stefano.radaelli21@gmail.com>
+X-Google-Original-From: Stefano Radaelli <stefano.r@variscite.com>
+To: Frank Li <Frank.Li@nxp.com>,
+	linux-kernel@vger.kernel.org,
+	devicetree@vger.kernel.org,
+	imx@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org
+Cc: pierluigi.p@variscite.com,
+	Stefano Radaelli <stefano.r@variscite.com>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Andrew Lunn <andrew+netdev@lunn.ch>,
+	"David S. Miller" <davem@davemloft.net>,
+	Eric Dumazet <edumazet@google.com>,
+	Jakub Kicinski <kuba@kernel.org>,
+	Paolo Abeni <pabeni@redhat.com>,
+	Sascha Hauer <s.hauer@pengutronix.de>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Fabio Estevam <festevam@gmail.com>,
+	Heiner Kallweit <hkallweit1@gmail.com>,
+	Russell King <linux@armlinux.org.uk>,
+	Shawn Guo <shawnguo@kernel.org>,
+	Daniel Baluta <daniel.baluta@nxp.com>,
+	Joseph Guo <qijian.guo@nxp.com>,
+	Josua Mayer <josua@solid-run.com>,
+	Ernest Van Hoecke <ernest.vanhoecke@toradex.com>,
+	Mehmet Fide <mehmet.fide@screeningeagle.com>,
+	Markus Niebel <Markus.Niebel@ew.tq-group.com>,
+	Francesco Dolcini <francesco.dolcini@toradex.com>,
+	Maud Spierings <maudspierings@gocontroll.com>,
+	Hugo Villeneuve <hvilleneuve@dimonoff.com>,
+	Stefan Eichenberger <eichest@gmail.com>,
+	netdev@vger.kernel.org
+Subject: [PATCH v3 06/12] ARM: dts: imx6ul: Add Variscite storage and wireless files
+Date: Sun, 27 Sep 2026 14:46:21 +0200
+Message-ID: <335592bb96129d875cf77bd87cabb77f1f9476da.1790512621.git.stefano.r@variscite.com>
+X-Mailer: git-send-email 2.47.3
+In-Reply-To: <cover.1790512621.git.stefano.r@variscite.com>
+References: <cover.1790512621.git.stefano.r@variscite.com>
+MIME-Version: 1.0
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260927_065136_990120_13ADE77A 
-X-CRM114-Status: GOOD (  10.72  )
+X-CRM114-CacheID: sfid-20260927_054646_401087_C6D02C67 
+X-CRM114-Status: GOOD (  17.44  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -63,1638 +130,239 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add a device tree for the ALIENTEK QuarkPi-CA2, an RK3588S based
-single board computer.
+From: Stefano Radaelli <stefano.r@variscite.com>
 
-Tested on hardware: UART console, eMMC, microSD, gigabit Ethernet,
-HDMI video and audio, ES8388 analog audio, the USB 2.0 host ports
-and the USB 3.0 (Type-A) host port.
+Add shared DTSI files for eMMC, NAND, Broadcom Wi-Fi and NXP
+IW61x options on VAR-SOM-6UL and DART-6UL. These options have the
+same descriptions on both modules, so use one file for each.
 
-Signed-off-by: BG9OXA <bg9oxa@163.com>
+Keep the module options independent of the carrier board so each
+board DTS can select its assembled storage and wireless devices.
+The IW61x SDIO host has no child node, so it needs no address or
+size cell properties.
+
+Signed-off-by: Stefano Radaelli <stefano.r@variscite.com>
 ---
-diff --git a/arch/arm64/boot/dts/rockchip/rk3588s-quarkpi-ca2.dts b/arch/arm64/boot/dts/rockchip/rk3588s-quarkpi-ca2.dts
+v2->v3:
+ - Share identical eMMC, NAND, Broadcom Wi-Fi and IW61x DTSI files
+   between the two modules.
+ - Drop address and size cells from the IW61x SDIO host, which has no
+   child node.
+
+ .../dts/nxp/imx/imx6ul-imx6ull-var-emmc.dtsi  | 32 ++++++++++
+ .../dts/nxp/imx/imx6ul-imx6ull-var-nand.dtsi  | 63 +++++++++++++++++++
+ .../nxp/imx/imx6ul-imx6ull-var-wifi-brcm.dtsi | 42 +++++++++++++
+ .../imx/imx6ul-imx6ull-var-wifi-iw61x.dtsi    | 43 +++++++++++++
+ 4 files changed, 180 insertions(+)
+ create mode 100644 arch/arm/boot/dts/nxp/imx/imx6ul-imx6ull-var-emmc.dtsi
+ create mode 100644 arch/arm/boot/dts/nxp/imx/imx6ul-imx6ull-var-nand.dtsi
+ create mode 100644 arch/arm/boot/dts/nxp/imx/imx6ul-imx6ull-var-wifi-brcm.dtsi
+ create mode 100644 arch/arm/boot/dts/nxp/imx/imx6ul-imx6ull-var-wifi-iw61x.dtsi
+
+diff --git a/arch/arm/boot/dts/nxp/imx/imx6ul-imx6ull-var-emmc.dtsi b/arch/arm/boot/dts/nxp/imx/imx6ul-imx6ull-var-emmc.dtsi
 new file mode 100644
-diff --git a/arch/arm64/boot/dts/rockchip/Makefile b/arch/arm64/boot/dts/rockchip/Makefile
---- a/arch/arm64/boot/dts/rockchip/Makefile
-+++ b/arch/arm64/boot/dts/rockchip/Makefile
-@@ -236,6 +236,7 @@
- dtb-$(CONFIG_ARCH_ROCKCHIP) += rk3588s-orangepi-5b.dtb
- dtb-$(CONFIG_ARCH_ROCKCHIP) += rk3588s-orangepi-5-pro.dtb
- dtb-$(CONFIG_ARCH_ROCKCHIP) += rk3588s-orangepi-cm5-base.dtb
-+dtb-$(CONFIG_ARCH_ROCKCHIP) += rk3588s-quarkpi-ca2.dtb
- dtb-$(CONFIG_ARCH_ROCKCHIP) += rk3588s-radxa-cm5-io.dtb
- dtb-$(CONFIG_ARCH_ROCKCHIP) += rk3588s-roc-pc.dtb
- dtb-$(CONFIG_ARCH_ROCKCHIP) += rk3588s-rock-5a.dtb
+index 000000000000..26c8ca8f21a0
 --- /dev/null
-+++ b/arch/arm64/boot/dts/rockchip/rk3588s-quarkpi-ca2.dts
-@@ -0,0 +1,1608 @@
-+// SPDX-License-Identifier: (GPL-2.0+ OR MIT)
++++ b/arch/arm/boot/dts/nxp/imx/imx6ul-imx6ull-var-emmc.dtsi
+@@ -0,0 +1,32 @@
++// SPDX-License-Identifier: GPL-2.0+
 +/*
-+ * Copyright (c) 2021 Rockchip Electronics Co., Ltd.
++ * Copyright (C) 2026 Variscite Ltd. - https://www.variscite.com
 + */
 +
-+/dts-v1/;
++&usdhc2 {
++	pinctrl-names = "default";
++	pinctrl-0 = <&pinctrl_usdhc2>;
++	bus-width = <8>;
++	no-1-8-v;
++	non-removable;
++	keep-power-in-suspend;
++	wakeup-source;
++	status = "okay";
++};
 +
-+#include <dt-bindings/gpio/gpio.h>
-+#include <dt-bindings/interrupt-controller/irq.h>
-+#include <dt-bindings/input/input.h>
-+#include <dt-bindings/leds/common.h>
-+#include <dt-bindings/media/video-interfaces.h>
-+#include <dt-bindings/pinctrl/rockchip.h>
-+#include <dt-bindings/soc/rockchip,vop2.h>
-+#include <dt-bindings/thermal/thermal.h>
-+#include "rk3588s.dtsi"
++&iomuxc {
++	pinctrl_usdhc2: usdhc2-grp {
++		fsl,pins = <
++			MX6UL_PAD_NAND_RE_B__USDHC2_CLK		0x10069
++			MX6UL_PAD_NAND_WE_B__USDHC2_CMD		0x17059
++			MX6UL_PAD_NAND_DATA00__USDHC2_DATA0	0x17059
++			MX6UL_PAD_NAND_DATA01__USDHC2_DATA1	0x17059
++			MX6UL_PAD_NAND_DATA02__USDHC2_DATA2	0x17059
++			MX6UL_PAD_NAND_DATA03__USDHC2_DATA3	0x17059
++			MX6UL_PAD_NAND_DATA04__USDHC2_DATA4	0x17059
++			MX6UL_PAD_NAND_DATA05__USDHC2_DATA5	0x17059
++			MX6UL_PAD_NAND_DATA06__USDHC2_DATA6	0x17059
++			MX6UL_PAD_NAND_DATA07__USDHC2_DATA7	0x17059
++		>;
++	};
++};
+diff --git a/arch/arm/boot/dts/nxp/imx/imx6ul-imx6ull-var-nand.dtsi b/arch/arm/boot/dts/nxp/imx/imx6ul-imx6ull-var-nand.dtsi
+new file mode 100644
+index 000000000000..1522b5d7e092
+--- /dev/null
++++ b/arch/arm/boot/dts/nxp/imx/imx6ul-imx6ull-var-nand.dtsi
+@@ -0,0 +1,63 @@
++// SPDX-License-Identifier: GPL-2.0+
++/*
++ * Copyright (C) 2026 Variscite Ltd. - https://www.variscite.com
++ */
++
++&gpmi {
++	pinctrl-names = "default";
++	pinctrl-0 = <&pinctrl_gpmi_nand_1>;
++	status = "okay";
++
++	partitions {
++		compatible = "fixed-partitions";
++		#address-cells = <1>;
++		#size-cells = <1>;
++
++		partition@0 {
++			label = "spl";
++			reg = <0x00000000 0x00200000>;
++		};
++
++		partition@200000 {
++			label = "uboot";
++			reg = <0x00200000 0x00200000>;
++		};
++
++		partition@400000 {
++			label = "uboot-env";
++			reg = <0x00400000 0x00100000>;
++		};
++
++		partition@500000 {
++			label = "kernel";
++			reg = <0x00500000 0x00c00000>;
++		};
++
++		partition@1100000 {
++			label = "rootfs";
++			reg = <0x01100000 0x3ef00000>;
++		};
++	};
++};
++
++&iomuxc {
++	pinctrl_gpmi_nand_1: gpmi-nand-1-grp {
++		fsl,pins = <
++			MX6UL_PAD_NAND_CLE__RAWNAND_CLE		0xb0b1
++			MX6UL_PAD_NAND_ALE__RAWNAND_ALE		0xb0b1
++			MX6UL_PAD_NAND_WP_B__RAWNAND_WP_B	0xb0b1
++			MX6UL_PAD_NAND_READY_B__RAWNAND_READY_B	0xb000
++			MX6UL_PAD_NAND_CE0_B__RAWNAND_CE0_B	0xb0b1
++			MX6UL_PAD_NAND_RE_B__RAWNAND_RE_B	0xb0b1
++			MX6UL_PAD_NAND_WE_B__RAWNAND_WE_B	0xb0b1
++			MX6UL_PAD_NAND_DATA00__RAWNAND_DATA00	0xb0b1
++			MX6UL_PAD_NAND_DATA01__RAWNAND_DATA01	0xb0b1
++			MX6UL_PAD_NAND_DATA02__RAWNAND_DATA02	0xb0b1
++			MX6UL_PAD_NAND_DATA03__RAWNAND_DATA03	0xb0b1
++			MX6UL_PAD_NAND_DATA04__RAWNAND_DATA04	0xb0b1
++			MX6UL_PAD_NAND_DATA05__RAWNAND_DATA05	0xb0b1
++			MX6UL_PAD_NAND_DATA06__RAWNAND_DATA06	0xb0b1
++			MX6UL_PAD_NAND_DATA07__RAWNAND_DATA07	0xb0b1
++		>;
++	};
++};
+diff --git a/arch/arm/boot/dts/nxp/imx/imx6ul-imx6ull-var-wifi-brcm.dtsi b/arch/arm/boot/dts/nxp/imx/imx6ul-imx6ull-var-wifi-brcm.dtsi
+new file mode 100644
+index 000000000000..d7952233a1ee
+--- /dev/null
++++ b/arch/arm/boot/dts/nxp/imx/imx6ul-imx6ull-var-wifi-brcm.dtsi
+@@ -0,0 +1,42 @@
++// SPDX-License-Identifier: GPL-2.0+
++/*
++ * Copyright (C) 2026 Variscite Ltd. - https://www.variscite.com
++ */
++
 +/ {
-+	model = "Alientek QuarkPI-CA2";
-+	compatible = "alientek,quarkpi-ca2", "rockchip,rk3588s";
-+
-+	/* Crash log retention (pstore/ramoops).  The shared rk3588-ramoops.dtsi
-+	 * used by the vendor BSP is not part of mainline, so the node is inlined
-+	 * here.  The reserved region layout follows the vendor BSP device tree.
-+	 */
-+	reserved-memory {
-+		#address-cells = <2>;
-+		#size-cells = <2>;
-+		ranges;
-+
-+		ramoops: ramoops@118000 {
-+			compatible = "ramoops";
-+			reg = <0 0x118000 0 0xd8000>;
-+			console-size = <0x80000>;
-+			ftrace-size = <0x00000>;
-+			pmsg-size = <0x30000>;
-+			record-size = <0x14000>;
-+		};
-+	};
-+
-+	aliases {
-+		mmc0 = &sdhci;
-+		mmc1 = &sdmmc;
-+		ethernet0 = &gmac1;
-+	};
-+
-+	chosen {
-+		stdout-path = "serial2:1500000n8";
-+	};
-+
-+	adc_keys: adc-keys {
-+		compatible = "adc-keys";
-+		io-channels = <&saradc 1>;
-+		io-channel-names = "buttons";
-+		keyup-threshold-microvolt = <1800000>;
-+		poll-interval = <100>;
-+
-+		button-vol-up {
-+			label = "volume up";
-+			linux,code = <KEY_VOLUMEUP>;
-+			press-threshold-microvolt = <17000>;
-+		};
-+
-+		button-vol-down {
-+			label = "volume down";
-+			linux,code = <KEY_VOLUMEDOWN>;
-+			press-threshold-microvolt = <417000>;
-+		};
-+	};
-+
-+	leds: leds {
-+		compatible = "gpio-leds";
-+
-+		work_led: led-0 {
-+			/* Mainline deprecated 'label' (dtbs_check reports an
-+			 * "Unevaluated properties" error); use 'function' instead.
-+			 */
-+			function = LED_FUNCTION_HEARTBEAT;
-+			gpios = <&gpio1 RK_PD7 GPIO_ACTIVE_HIGH>;
-+			linux,default-trigger = "heartbeat";
-+			pinctrl-names = "default";
-+			pinctrl-0 = <&work_led_pin>;
-+		};
-+	};
-+
-+	fan: pwm-fan {
-+		compatible = "pwm-fan";
-+		#cooling-cells = <2>;
-+		pwms = <&pwm7 0 50000 0>;
-+		cooling-levels = <0 50 100 150 200 255>;
-+	};
-+
-+	vcc12v_dcin: vcc12v-dcin {
++	reg_sd1_vmmc: regulator-sd1-vmmc {
 +		compatible = "regulator-fixed";
-+		regulator-name = "vcc12v_dcin";
-+		regulator-always-on;
-+		regulator-boot-on;
-+		regulator-min-microvolt = <12000000>;
-+		regulator-max-microvolt = <12000000>;
-+	};
-+
-+	vcc5v0_sys: vcc5v0-sys {
-+		compatible = "regulator-fixed";
-+		regulator-name = "vcc5v0_sys";
-+		regulator-always-on;
-+		regulator-boot-on;
-+		regulator-min-microvolt = <5000000>;
-+		regulator-max-microvolt = <5000000>;
-+		vin-supply = <&vcc12v_dcin>;
-+	};
-+
-+	vcc5v0_usb: vcc5v0-usb {
-+		compatible = "regulator-fixed";
-+		regulator-name = "vcc5v0_usb";
-+		regulator-always-on;
-+		regulator-boot-on;
-+		regulator-min-microvolt = <5000000>;
-+		regulator-max-microvolt = <5000000>;
-+		vin-supply = <&vcc5v0_sys>;
-+	};
-+
-+	vcc_1v1_nldo_s3: vcc-1v1-nldo-s3 {
-+		compatible = "regulator-fixed";
-+		regulator-name = "vcc_1v1_nldo_s3";
-+		regulator-always-on;
-+		regulator-boot-on;
-+		regulator-min-microvolt = <1100000>;
-+		regulator-max-microvolt = <1100000>;
-+		vin-supply = <&vcc5v0_sys>;
-+	};
-+
-+	vcc_3v3_sd_s0: vcc-3v3-sd-s0-regulator {
-+		compatible = "regulator-fixed";
-+		gpios = <&gpio0 RK_PA0 GPIO_ACTIVE_LOW>;
-+		pinctrl-names = "default";
-+		pinctrl-0 = <&sd_s0_pwr>;
-+		regulator-name = "vcc_3v3_sd_s0";
++		regulator-name = "VSD_3V3";
 +		regulator-min-microvolt = <3300000>;
 +		regulator-max-microvolt = <3300000>;
-+		vin-supply = <&vcc_3v3_s3>;
 +	};
 +};
 +
-+&spi2 {
-+	status = "okay";
-+	assigned-clocks = <&cru CLK_SPI2>;
-+	assigned-clock-rates = <200000000>;
-+	num-cs = <1>;
-+	pinctrl-names = "default";
-+	pinctrl-0 = <&spi2m2_cs0 &spi2m2_pins>;
-+
-+	pmic@0 {
-+		compatible = "rockchip,rk806";
-+		reg = <0x0>;
-+		interrupt-parent = <&gpio0>;
-+		interrupts = <7 IRQ_TYPE_LEVEL_LOW>;
-+		pinctrl-names = "default";
-+		pinctrl-0 = <&pmic_pins>, <&rk806_dvs1_null>,
-+			    <&rk806_dvs2_null>, <&rk806_dvs3_null>;
-+		spi-max-frequency = <1000000>;
-+		system-power-controller;
-+
-+		gpio-controller;
-+		#gpio-cells = <2>;
-+
-+		vcc1-supply = <&vcc5v0_sys>;
-+		vcc2-supply = <&vcc5v0_sys>;
-+		vcc3-supply = <&vcc5v0_sys>;
-+		vcc4-supply = <&vcc5v0_sys>;
-+		vcc5-supply = <&vcc5v0_sys>;
-+		vcc6-supply = <&vcc5v0_sys>;
-+		vcc7-supply = <&vcc5v0_sys>;
-+		vcc8-supply = <&vcc5v0_sys>;
-+		vcc9-supply = <&vcc5v0_sys>;
-+		vcc10-supply = <&vcc5v0_sys>;
-+		vcc11-supply = <&vcc_2v0_pldo_s3>;
-+		vcc12-supply = <&vcc5v0_sys>;
-+		vcc13-supply = <&vcc_1v1_nldo_s3>;
-+		vcc14-supply = <&vcc_1v1_nldo_s3>;
-+		vcca-supply = <&vcc5v0_sys>;
-+
-+		rk806_dvs1_null: dvs1-null-pins {
-+			pins = "gpio_pwrctrl1";
-+			function = "pin_fun0";
-+		};
-+
-+		rk806_dvs2_null: dvs2-null-pins {
-+			pins = "gpio_pwrctrl2";
-+			function = "pin_fun0";
-+		};
-+
-+		rk806_dvs3_null: dvs3-null-pins {
-+			pins = "gpio_pwrctrl3";
-+			function = "pin_fun0";
-+		};
-+
-+		regulators {
-+			vdd_gpu_s0: dcdc-reg1 {
-+				regulator-name = "vdd_gpu_s0";
-+				regulator-boot-on;
-+				regulator-min-microvolt = <550000>;
-+				regulator-max-microvolt = <950000>;
-+				regulator-ramp-delay = <12500>;
-+				regulator-enable-ramp-delay = <400>;
-+
-+				regulator-state-mem {
-+					regulator-off-in-suspend;
-+				};
-+			};
-+
-+			vdd_cpu_lit_s0: vdd_cpu_lit_mem_s0: dcdc-reg2 {
-+				regulator-name = "vdd_cpu_lit_s0";
-+				regulator-always-on;
-+				regulator-boot-on;
-+				regulator-min-microvolt = <550000>;
-+				regulator-max-microvolt = <950000>;
-+				regulator-ramp-delay = <12500>;
-+
-+				regulator-state-mem {
-+					regulator-off-in-suspend;
-+				};
-+			};
-+
-+			vdd_log_s0: dcdc-reg3 {
-+				regulator-name = "vdd_log_s0";
-+				regulator-always-on;
-+				regulator-boot-on;
-+				regulator-min-microvolt = <675000>;
-+				regulator-max-microvolt = <750000>;
-+				regulator-ramp-delay = <12500>;
-+
-+				regulator-state-mem {
-+					regulator-off-in-suspend;
-+					regulator-suspend-microvolt = <750000>;
-+				};
-+			};
-+
-+			vdd_vdenc_s0: vdd_vdenc_mem_s0: dcdc-reg4 {
-+				regulator-name = "vdd_vdenc_s0";
-+				regulator-always-on;
-+				regulator-boot-on;
-+				regulator-min-microvolt = <550000>;
-+				regulator-max-microvolt = <950000>;
-+				regulator-ramp-delay = <12500>;
-+
-+				regulator-state-mem {
-+					regulator-off-in-suspend;
-+				};
-+			};
-+
-+			vdd_ddr_s0: dcdc-reg5 {
-+				regulator-name = "vdd_ddr_s0";
-+				regulator-always-on;
-+				regulator-boot-on;
-+				regulator-min-microvolt = <675000>;
-+				regulator-max-microvolt = <900000>;
-+				regulator-ramp-delay = <12500>;
-+
-+				regulator-state-mem {
-+					regulator-off-in-suspend;
-+					regulator-suspend-microvolt = <850000>;
-+				};
-+			};
-+
-+			vdd2_ddr_s3: dcdc-reg6 {
-+				regulator-name = "vdd2_ddr_s3";
-+				regulator-always-on;
-+				regulator-boot-on;
-+
-+				regulator-state-mem {
-+					regulator-on-in-suspend;
-+				};
-+			};
-+
-+			vcc_2v0_pldo_s3: dcdc-reg7 {
-+				regulator-name = "vcc_2v0_pldo_s3";
-+				regulator-always-on;
-+				regulator-boot-on;
-+				regulator-min-microvolt = <2000000>;
-+				regulator-max-microvolt = <2000000>;
-+				regulator-ramp-delay = <12500>;
-+
-+				regulator-state-mem {
-+					regulator-on-in-suspend;
-+					regulator-suspend-microvolt = <2000000>;
-+				};
-+			};
-+
-+			vcc_3v3_s3: dcdc-reg8 {
-+				regulator-name = "vcc_3v3_s3";
-+				regulator-always-on;
-+				regulator-boot-on;
-+				regulator-min-microvolt = <3300000>;
-+				regulator-max-microvolt = <3300000>;
-+
-+				regulator-state-mem {
-+					regulator-on-in-suspend;
-+					regulator-suspend-microvolt = <3300000>;
-+				};
-+			};
-+
-+			vddq_ddr_s0: dcdc-reg9 {
-+				regulator-name = "vddq_ddr_s0";
-+				regulator-always-on;
-+				regulator-boot-on;
-+
-+				regulator-state-mem {
-+					regulator-off-in-suspend;
-+				};
-+			};
-+
-+			vcc_1v8_s3: dcdc-reg10 {
-+				regulator-name = "vcc_1v8_s3";
-+				regulator-always-on;
-+				regulator-boot-on;
-+				regulator-min-microvolt = <1800000>;
-+				regulator-max-microvolt = <1800000>;
-+
-+				regulator-state-mem {
-+					regulator-on-in-suspend;
-+					regulator-suspend-microvolt = <1800000>;
-+				};
-+			};
-+
-+			avcc_1v8_s0: pldo-reg1 {
-+				regulator-name = "avcc_1v8_s0";
-+				regulator-always-on;
-+				regulator-boot-on;
-+				regulator-min-microvolt = <1800000>;
-+				regulator-max-microvolt = <1800000>;
-+
-+				regulator-state-mem {
-+					regulator-off-in-suspend;
-+				};
-+			};
-+
-+			vcc_1v8_s0: pldo-reg2 {
-+				regulator-name = "vcc_1v8_s0";
-+				regulator-always-on;
-+				regulator-boot-on;
-+				regulator-min-microvolt = <1800000>;
-+				regulator-max-microvolt = <1800000>;
-+
-+				regulator-state-mem {
-+					regulator-off-in-suspend;
-+					regulator-suspend-microvolt = <1800000>;
-+				};
-+			};
-+
-+			avdd_1v2_s0: pldo-reg3 {
-+				regulator-name = "avdd_1v2_s0";
-+				regulator-always-on;
-+				regulator-boot-on;
-+				regulator-min-microvolt = <1200000>;
-+				regulator-max-microvolt = <1200000>;
-+
-+				regulator-state-mem {
-+					regulator-off-in-suspend;
-+				};
-+			};
-+
-+			vcc_3v3_s0: pldo-reg4 {
-+				regulator-name = "vcc_3v3_s0";
-+				regulator-always-on;
-+				regulator-boot-on;
-+				regulator-min-microvolt = <3300000>;
-+				regulator-max-microvolt = <3300000>;
-+
-+				regulator-state-mem {
-+					regulator-off-in-suspend;
-+				};
-+			};
-+
-+			vccio_sd_s0: pldo-reg5 {
-+				regulator-name = "vccio_sd_s0";
-+				regulator-always-on;
-+				regulator-boot-on;
-+				regulator-min-microvolt = <1800000>;
-+				regulator-max-microvolt = <3300000>;
-+				regulator-ramp-delay = <12500>;
-+
-+				regulator-state-mem {
-+					regulator-off-in-suspend;
-+				};
-+			};
-+
-+			pldo6_s3: pldo-reg6 {
-+				regulator-name = "pldo6_s3";
-+				regulator-always-on;
-+				regulator-boot-on;
-+				regulator-min-microvolt = <1800000>;
-+				regulator-max-microvolt = <1800000>;
-+
-+				regulator-state-mem {
-+					regulator-on-in-suspend;
-+					regulator-suspend-microvolt = <1800000>;
-+				};
-+			};
-+
-+			vdd_0v75_s3: nldo-reg1 {
-+				regulator-name = "vdd_0v75_s3";
-+				regulator-always-on;
-+				regulator-boot-on;
-+				regulator-min-microvolt = <750000>;
-+				regulator-max-microvolt = <750000>;
-+
-+				regulator-state-mem {
-+					regulator-on-in-suspend;
-+					regulator-suspend-microvolt = <750000>;
-+				};
-+			};
-+
-+			vdd_ddr_pll_s0: nldo-reg2 {
-+				regulator-name = "vdd_ddr_pll_s0";
-+				regulator-always-on;
-+				regulator-boot-on;
-+				regulator-min-microvolt = <850000>;
-+				regulator-max-microvolt = <850000>;
-+
-+				regulator-state-mem {
-+					regulator-off-in-suspend;
-+					regulator-suspend-microvolt = <850000>;
-+				};
-+			};
-+
-+			avdd_0v75_s0: nldo-reg3 {
-+				regulator-name = "avdd_0v75_s0";
-+				regulator-always-on;
-+				regulator-boot-on;
-+				regulator-min-microvolt = <837500>;
-+				regulator-max-microvolt = <837500>;
-+
-+				regulator-state-mem {
-+					regulator-off-in-suspend;
-+				};
-+			};
-+
-+			vdd_0v85_s0: nldo-reg4 {
-+				regulator-name = "vdd_0v85_s0";
-+				regulator-always-on;
-+				regulator-boot-on;
-+				regulator-min-microvolt = <850000>;
-+				regulator-max-microvolt = <850000>;
-+
-+				regulator-state-mem {
-+					regulator-off-in-suspend;
-+				};
-+			};
-+
-+			vdd_0v75_s0: nldo-reg5 {
-+				regulator-name = "vdd_0v75_s0";
-+				regulator-always-on;
-+				regulator-boot-on;
-+				regulator-min-microvolt = <750000>;
-+				regulator-max-microvolt = <750000>;
-+
-+				regulator-state-mem {
-+					regulator-off-in-suspend;
-+				};
-+			};
-+		};
-+	};
-+};
-+
-+&i2c0 {
-+	pinctrl-names = "default";
-+	pinctrl-0 = <&i2c0m2_xfer>;
-+	status = "okay";
-+
-+	vdd_cpu_big0_s0: regulator@42 {
-+		compatible = "rockchip,rk8602";
-+		reg = <0x42>;
-+		fcs,suspend-voltage-selector = <1>;
-+		regulator-name = "vdd_cpu_big0_s0";
-+		regulator-always-on;
-+		regulator-boot-on;
-+		regulator-min-microvolt = <550000>;
-+		regulator-max-microvolt = <1050000>;
-+		regulator-ramp-delay = <2300>;
-+		vin-supply = <&vcc5v0_sys>;
-+
-+		regulator-state-mem {
-+			regulator-off-in-suspend;
-+		};
-+	};
-+
-+	vdd_cpu_big1_s0: regulator@43 {
-+		compatible = "rockchip,rk8603", "rockchip,rk8602";
-+		reg = <0x43>;
-+		fcs,suspend-voltage-selector = <1>;
-+		regulator-name = "vdd_cpu_big1_s0";
-+		regulator-always-on;
-+		regulator-boot-on;
-+		regulator-min-microvolt = <550000>;
-+		regulator-max-microvolt = <1050000>;
-+		regulator-ramp-delay = <2300>;
-+		vin-supply = <&vcc5v0_sys>;
-+
-+		regulator-state-mem {
-+			regulator-off-in-suspend;
-+		};
-+	};
-+};
-+
-+&i2c2 {
-+	pinctrl-names = "default";
-+	pinctrl-0 = <&i2c2m0_xfer>;
-+	status = "okay";
-+
-+	vdd_npu_s0: vdd_npu_mem_s0: regulator@42 {
-+		compatible = "rockchip,rk8602";
-+		reg = <0x42>;
-+		fcs,suspend-voltage-selector = <1>;
-+		regulator-name = "vdd_npu_s0";
-+		regulator-always-on;
-+		regulator-boot-on;
-+		regulator-min-microvolt = <550000>;
-+		regulator-max-microvolt = <950000>;
-+		regulator-ramp-delay = <2300>;
-+		vin-supply = <&vcc5v0_sys>;
-+
-+		regulator-state-mem {
-+			regulator-off-in-suspend;
-+		};
-+		};
-+
-+		/*
-+		* Type-C PD controller HUSB311, ported from the vendor 6.1 dtb
-+		* (vendor node: i2c2@0x4e, status = "okay").
-+		*
-+		* WARNING: both compatibles are required. The of_match table of
-+		* mainline tcpci_rt1711h.c has no "hynetek,husb311" entry, so the
-+		* device is matched through the "richtek,rt1711h" fallback.
-+		* See Documentation/devicetree/bindings/usb/richtek,rt1711h.yaml
-+		* ("hynetek,husb311" must be followed by "richtek,rt1711h");
-+		* mainline rk3588-hlink-h88k-v31.dts uses the same chip.
-+		*
-+		* Interrupt: vendor pinctrl usbc0-int = <0x01 0x04 0x00> =>
-+		*            gpio1 PA4; vendor interrupts = <0x04 0x08> =>
-+		*            pin 4 + IRQ_TYPE_LEVEL_LOW.
-+		* VBUS: vbus-supply = <&vbus5v0_typec>, switched by gpio1 PD5.
-+		*
-+		* Data path (orientation switch / DP altmode mux) is wired up: see
-+		* the DP section at the end of this file -- usbdp_phy0 carries
-+		* orientation-switch / mode-switch and the SBU1/SBU2 DC switches
-+		* (gpio4-6/7, vendor values); the connector side adds port@2 (SBU).
-+		* DP output works at 1920x1080 and does not affect HDMI (vp0).
-+		*/
-+		husb311: husb311@4e {
-+		status = "okay";
-+		compatible = "hynetek,husb311", "richtek,rt1711h";
-+		reg = <0x4e>;
-+		interrupt-parent = <&gpio1>;
-+		interrupts = <RK_PA4 IRQ_TYPE_LEVEL_LOW>;
-+		pinctrl-names = "default";
-+		pinctrl-0 = <&usbc0_int>;
-+		vbus-supply = <&vbus5v0_typec>;
-+
-+		/* Vendor connector PD parameters (values taken as-is) */
-+		usb_con: connector {
-+			compatible = "usb-c-connector";
-+			label = "USB-C";
-+			power-role = "dual";
-+			data-role = "dual";
-+			try-power-role = "sink";
-+			source-pdos = <0x401912c>;
-+			sink-pdos = <0x4019064>;
-+			op-sink-microwatt = <1000000>;
-+
-+			/* DP alt mode: the connector SBU pairs have to be linked to
-+			 *   usbdp_phy0's dp_out for the DP link to be complete.
-+			 *   Only port@2 (SBU) is added; HS/SS stay untouched so the
-+			 *   USB3 host keeps working. */
-+			altmodes {
-+				displayport {
-+					svid = /bits/ 16 <0xff01>;
-+					vdo = <0xffffffff>;
-+				};
-+			};
-+
-+			ports {
-+				#address-cells = <1>;
-+				#size-cells = <0>;
-+
-+				port@0 {
-+					reg = <0>;
-+					usbc0_hs: endpoint {
-+						remote-endpoint = <&usb_host0_hs_ep>;
-+					};
-+				};
-+
-+				port@1 {
-+					reg = <1>;
-+					usbc0_ss: endpoint {
-+						remote-endpoint = <&usb_host0_ss_ep>;
-+					};
-+				};
-+
-+				port@2 {
-+					reg = <2>;
-+					usbc0_sbu: endpoint {
-+						remote-endpoint = <&usbdp_phy0_dp_out>;
-+					};
-+				};
-+			};
-+		};
-+		};
-+		};
-+
-+		&cpu_l0 {
-+	cpu-supply = <&vdd_cpu_lit_s0>;
-+	mem-supply = <&vdd_cpu_lit_mem_s0>;
-+};
-+
-+&cpu_l1 {
-+	cpu-supply = <&vdd_cpu_lit_s0>;
-+	mem-supply = <&vdd_cpu_lit_mem_s0>;
-+};
-+
-+&cpu_l2 {
-+	cpu-supply = <&vdd_cpu_lit_s0>;
-+	mem-supply = <&vdd_cpu_lit_mem_s0>;
-+};
-+
-+&cpu_l3 {
-+	cpu-supply = <&vdd_cpu_lit_s0>;
-+	mem-supply = <&vdd_cpu_lit_mem_s0>;
-+};
-+
-+&cpu_b0 {
-+	cpu-supply = <&vdd_cpu_big0_s0>;
-+	mem-supply = <&vdd_cpu_big0_s0>;
-+};
-+
-+&cpu_b1 {
-+	cpu-supply = <&vdd_cpu_big0_s0>;
-+	mem-supply = <&vdd_cpu_big0_s0>;
-+};
-+
-+&cpu_b2 {
-+	cpu-supply = <&vdd_cpu_big1_s0>;
-+	mem-supply = <&vdd_cpu_big1_s0>;
-+};
-+
-+&cpu_b3 {
-+	cpu-supply = <&vdd_cpu_big1_s0>;
-+	mem-supply = <&vdd_cpu_big1_s0>;
-+};
-+
-+&gpu {
-+	mali-supply = <&vdd_gpu_s0>;
-+	status = "okay";
-+};
-+
-+&rknn_core_0 {
-+	npu-supply = <&vdd_npu_s0>;
-+	sram-supply = <&vdd_npu_mem_s0>;
-+	status = "okay";
-+};
-+
-+&rknn_core_1 {
-+	npu-supply = <&vdd_npu_s0>;
-+	sram-supply = <&vdd_npu_mem_s0>;
-+	status = "okay";
-+};
-+
-+&rknn_core_2 {
-+	npu-supply = <&vdd_npu_s0>;
-+	sram-supply = <&vdd_npu_mem_s0>;
-+	status = "okay";
-+};
-+
-+&sdhci {
-+	bus-width = <8>;
-+	no-sdio;
-+	no-sd;
-+	non-removable;
-+	max-frequency = <200000000>;
-+	mmc-hs400-1_8v;
-+	mmc-hs400-enhanced-strobe;
-+	vmmc-supply = <&vcc_3v3_s3>;
-+	vqmmc-supply = <&vcc_1v8_s3>;
-+	status = "okay";
-+};
-+
-+&sdmmc {
-+	max-frequency = <150000000>;
-+	no-sdio;
-+	no-mmc;
-+	bus-width = <4>;
-+	cap-mmc-highspeed;
-+	cap-sd-highspeed;
-+	disable-wp;
-+	sd-uhs-sdr104;
-+	vmmc-supply = <&vcc_3v3_sd_s0>;
-+	vqmmc-supply = <&vccio_sd_s0>;
-+	pinctrl-names = "default";
-+	pinctrl-0 = <&sdmmc_bus4 &sdmmc_clk &sdmmc_cmd &sdmmc_det>;
-+	status = "okay";
-+};
-+
-+&uart2 {
-+	pinctrl-0 = <&uart2m0_xfer>;
-+	status = "okay";
-+};
-+
-+&gmac1 {
-+	/* Use rgmii-rxid mode to disable rx delay inside Soc */
-+	phy-mode = "rgmii-rxid";
-+	clock_in_out = "input";
-+
-+	snps,reset-gpio = <&gpio0 RK_PD5 GPIO_ACTIVE_LOW>;
-+	snps,reset-active-low;
-+	/* Reset time is 20ms, 100ms for rtl8211f */
-+	snps,reset-delays-us = <0 20000 100000>;
-+
-+	pinctrl-names = "default";
-+	pinctrl-0 = <&gmac1_miim
-+		     &gmac1_tx_bus2
-+		     &gmac1_rx_bus2
-+		     &gmac1_rgmii_clk
-+		     &gmac1_rgmii_bus
-+		     &gmac1_clkinout>;
-+
-+	tx_delay = <0x2f>;
-+	rx_delay = <0x00>;
-+
-+	phy-handle = <&rgmii_phy1>;
-+	status = "okay";
-+};
-+
-+&mdio1 {
-+	rgmii_phy1: ethernet-phy@1 {
-+		compatible = "ethernet-phy-ieee802.3-c22";
-+		reg = <0x1>;
-+
-+		/*
-+		 * gmac1 runs with clock_in_out = "input": the MAC gets its 125M
-+		 * clock from the PHY CLKOUT pin (routed through gmac1_clkinout).
-+		 * The mainline motorcomm driver disables clock output by default
-+		 * (clk-out-frequency-hz defaults to 0), so it has to be enabled
-+		 * explicitly, otherwise the MAC gets no clock: MDIO works and the
-+		 * link comes up, but the first open() times out on DMA/VLAN_TAG
-+		 * and the TX watchdog fires.
-+		 */
-+		motorcomm,clk-out-frequency-hz = <125000000>;
-+		/* Keep the PLL/clock output enabled while the link is down so
-+		 * the MAC can be initialised.
-+		 */
-+		motorcomm,keep-pll-enabled;
-+	};
-+};
-+
-+/* USB2.0 HOST0 (PHY2) */
-+&u2phy2 {
-+	status = "okay";
-+};
-+
-+&u2phy2_host {
-+	phy-supply = <&vcc5v0_usb>;
-+	status = "okay";
-+};
-+
-+&usb_host0_ehci {
-+	status = "okay";
-+};
-+
-+&usb_host0_ohci {
-+	status = "okay";
-+};
-+
-+/* USB2.0 HOST1 (PHY3) */
-+&u2phy3 {
-+	status = "okay";
-+};
-+
-+&u2phy3_host {
-+	phy-supply = <&vcc5v0_usb>;
-+	status = "okay";
-+};
-+
-+&usb_host1_ehci {
-+	status = "okay";
-+};
-+
-+&usb_host1_ohci {
-+	status = "okay";
-+};
-+
-+&pwm7 {
-+	pinctrl-0 = <&pwm7m0_pins>;
-+	status = "okay";
-+};
-+
-+&saradc {
-+	status = "okay";
-+	vref-supply = <&vcc_1v8_s0>;
-+};
-+
-+&tsadc {
-+	status = "okay";
-+};
-+
-+&pinctrl {
-+	sdmmc {
-+		sd_s0_pwr: sd-s0-pwr {
-+			rockchip,pins = <0 RK_PA0 RK_FUNC_GPIO &pcfg_pull_none>;
-+		};
-+	};
-+
-+	pcie {
-+		pcie2x1l2_perstn: pcie2x1l2-perstn {
-+			/* The vendor dtsi only provides reset-gpios, not the mux,
-+			 * so select the GPIO function explicitly here.
-+			 */
-+			rockchip,pins = <3 RK_PB2 RK_FUNC_GPIO &pcfg_pull_none>;
-+		};
-+	};
-+
-+	usb-typec {
-+		typec5v_pwren: typec5v-pwren {
-+			/* Vendor value <0x01 0x1d 0x00>: bank1 pin 0x1d = 29,
-+			 * i.e. PD5. Note: PC5 is i2s0_lrck; driving it would
-+			 * collide with the I2S LRCLK, so vbus5v0-typec fails
-+			 * to probe and xhci gets no VBUS.
-+			 */
-+			rockchip,pins = <1 RK_PD5 RK_FUNC_GPIO &pcfg_pull_none>;
-+			};
-+
-+			usbc0_int: usbc0-int {
-+			/* Vendor value <0x01 0x04 0x00>: bank1 pin 4 => PA4
-+			 * (HUSB311 interrupt pin).
-+			 */
-+			rockchip,pins = <1 RK_PA4 RK_FUNC_GPIO &pcfg_pull_up>;
-+			};
-+			};
-+
-+			leds {
-+		work_led_pin: work-led-pin {
-+			rockchip,pins = <1 RK_PD7 RK_FUNC_GPIO &pcfg_pull_down>;
-+		};
-+	};
-+};
-+
-+/*
-+ * Fan thermal control
-+ *
-+ * The vendor BSP uses the private rockchip,temp-trips property to do fan
-+ * control inside the driver (mainline pwm-fan does not support it). Use
-+ * the standard mainline approach instead: attach the fan to the package
-+ * thermal zone trips + cooling maps. The thresholds follow the vendor dtsi
-+ * (50/55/60/65/70 degrees C) and the steps match cooling-levels
-+ * <0 50 100 150 200 255> (duty 0/50/100/150/200/255).
-+ *
-+ * WARNING: polling-delay defaults to 0 (no polling) in the SoC dtsi and
-+ *    the board file has to enable it, otherwise temperature changes never
-+ *    change the fan step: the fan runs at a fixed speed and cur_state
-+ *    stays at max.
-+ */
-+&package_thermal {
-+	polling-delay = <1000>;
-+
-+	trips {
-+		fan_trip0: fan-trip0 {
-+			temperature = <50000>;
-+			hysteresis = <2000>;
-+			type = "active";
-+		};
-+
-+		fan_trip1: fan-trip1 {
-+			temperature = <55000>;
-+			hysteresis = <2000>;
-+			type = "active";
-+		};
-+
-+		fan_trip2: fan-trip2 {
-+			temperature = <60000>;
-+			hysteresis = <2000>;
-+			type = "active";
-+		};
-+
-+		fan_trip3: fan-trip3 {
-+			temperature = <65000>;
-+			hysteresis = <2000>;
-+			type = "active";
-+		};
-+
-+		fan_trip4: fan-trip4 {
-+			temperature = <70000>;
-+			hysteresis = <2000>;
-+			type = "active";
-+		};
-+	};
-+
-+	cooling-maps {
-+		map0 {
-+			trip = <&fan_trip0>;
-+			cooling-device = <&fan THERMAL_NO_LIMIT 1>;
-+		};
-+
-+		map1 {
-+			trip = <&fan_trip1>;
-+			cooling-device = <&fan 1 2>;
-+		};
-+
-+		map2 {
-+			trip = <&fan_trip2>;
-+			cooling-device = <&fan 2 3>;
-+		};
-+
-+		map3 {
-+			trip = <&fan_trip3>;
-+			cooling-device = <&fan 3 4>;
-+		};
-+
-+		map4 {
-+			trip = <&fan_trip4>;
-+			cooling-device = <&fan 4 THERMAL_NO_LIMIT>;
-+		};
-+	};
-+};
-+
-+/*
-+ * HDMI0 output (VOP VP0 -> hdmi0 -> hdptxphy0)
-+ *
-+ * The pin map comes from the vendor BSP dtb, all mux 5:
-+ *   CEC = gpio4 PC1    HPD = gpio1 PA5
-+ *   SCL = gpio4 PB7    SDA = gpio4 PC0
-+ * It matches the mainline hdmim0_tx0_* pinctrl groups bit for bit, so they
-+ * are referenced directly and no custom group is needed.
-+ *
-+ * Enable pin: the vendor dtsi sets
-+ * enable-gpios = <&gpio4 RK_PB6 GPIO_ACTIVE_HIGH>; the mainline dw-hdmi-qp
-+ * driver only knows frl-enable-gpios and calls gpiod_set_value(..., 0) once
-+ * (de-assert), so with GPIO_ACTIVE_LOW the pin is driven high, which
-+ * matches the vendor ACTIVE_HIGH enable semantics. Mainline rk3588s boards
-+ * with the same pin (indiedroid-nova, coolpi-4b) are written the same way.
-+ */
-+&hdmi0 {
-+	frl-enable-gpios = <&gpio4 RK_PB6 GPIO_ACTIVE_LOW>;
-+	pinctrl-0 = <&hdmim0_tx0_cec &hdmim0_tx0_hpd
-+		     &hdmim0_tx0_scl &hdmim0_tx0_sda>;
-+	pinctrl-names = "default";
-+	status = "okay";
-+};
-+
-+&hdmi0_in {
-+	hdmi0_in_vp0: endpoint {
-+		remote-endpoint = <&vp0_out_hdmi0>;
-+	};
-+};
-+
-+&hdmi0_out {
-+	hdmi0_out_con: endpoint {
-+		remote-endpoint = <&hdmi0_con_in>;
-+	};
-+};
-+
-+&hdptxphy0 {
-+	status = "okay";
-+};
-+
-+&vop {
-+	status = "okay";
-+};
-+
-+&vop_mmu {
-+	status = "okay";
-+};
-+
-+&vp0 {
-+	vp0_out_hdmi0: endpoint@ROCKCHIP_VOP2_EP_HDMI0 {
-+		reg = <ROCKCHIP_VOP2_EP_HDMI0>;
-+		remote-endpoint = <&hdmi0_in_vp0>;
-+	};
-+};
-+
-+/*
-+ * HDMI0 audio
-+ *
-+ * Mainline rk3588-base.dtsi already provides the hdmi0_sound card
-+ * (disabled by default); it only has to be enabled together with
-+ * i2s5_8ch, so no simple-audio-card has to be added here.
-+ *
-+ * Cross-check against the vendor 6.1 dtb:
-+ *   vendor hdmi0-sound: cpu   = i2s@fddf0000   = mainline i2s5_8ch
-+ *                       codec = hdmi@fde80000  = mainline hdmi0
-+ *                       mclk-fs = 0x80 = 128   = mainline 128
-+ * Other boards of the same SoC (RK3588S) do the same:
-+ *   rk3588s-orangepi-5.dtsi:127/214, rk3588s-nanopi-r6.dtsi:258/346
-+ *   only set the status of both nodes to okay.
-+ */
-+&i2s5_8ch {
-+	status = "okay";
-+};
-+
-+&hdmi0_sound {
-+	status = "okay";
-+};
-+
-+/*
-+ * PCIe 2.0 x1 -- M.2 socket (over combphy0_ps)
-+ *
-+ * WARNING: sata0 and pcie2x1l2 share combphy0_ps, so sata0 must stay
-+ *    disabled (the vendor dtsi does the same), otherwise both fight over
-+ *    the same PHY.
-+ * Reset pin gpio3 RK_PB2 (vendor dtb value); the 3.3V rail is always on
-+ * and comes from vcc_3v3_s3.
-+ */
-+&sata0 {
++&tsc {
 +	status = "disabled";
 +};
 +
-+&combphy0_ps {
-+	status = "okay";
-+};
-+
-+&pcie2x1l2 {
-+	pinctrl-names = "default";
-+	pinctrl-0 = <&pcie2x1l2_perstn>;
-+	reset-gpios = <&gpio3 RK_PB2 GPIO_ACTIVE_HIGH>;
-+	vpcie3v3-supply = <&vcc_3v3_s3>;
-+	status = "okay";
-+};
-+
-+/*
-+ * USB3 -- Type-C port (over usbdp_phy0 + u2phy0)
-+ *
-+ * Mainline has no HUSB311 (TCPC) driver, so Type-C plug orientation and
-+ * role switching (CC detection) are unavailable; fix the port to host
-+ * mode as rock-5c does and do not use OTG/DP altmode.
-+ * VBUS is controlled by vbus5v0_typec (GPIO = gpio1 PD5, vendor dtb value).
-+ */
-+&u2phy0 {
-+	status = "okay";
-+};
-+
-+&u2phy0_otg {
-+	phy-supply = <&vbus5v0_typec>;
-+	status = "okay";
-+};
-+
-+/*
-+ * USB3.0 Type-A host port (the blue, upper connector).
-+ * The SuperSpeed lanes are wired to usb_host2_xhci through combphy2_psu.
-+ * The vendor BSP enables both; without them the port's SS lanes have no
-+ * driver and the connector only ever links at 480M (USB2).
-+ * combphy2_psu is free here: this board uses pcie2x1l2 (combphy0_ps) for M.2.
-+ */
-+&combphy2_psu {
-+	status = "okay";
-+};
-+
-+&usb_host2_xhci {
-+	status = "okay";
-+};
-+
-+&usb_host0_xhci {
-+	dr_mode = "host";
++&usdhc1 {
++	#address-cells = <1>;
++	#size-cells = <0>;
++	pinctrl-names = "default", "state_100mhz", "state_200mhz";
++	pinctrl-0 = <&pinctrl_usdhc1>, <&pinctrl_32k_clk>, <&pinctrl_wifi>;
++	pinctrl-1 = <&pinctrl_usdhc1_100mhz>, <&pinctrl_32k_clk>, <&pinctrl_wifi>;
++	pinctrl-2 = <&pinctrl_usdhc1_200mhz>, <&pinctrl_32k_clk>, <&pinctrl_wifi>;
++	keep-power-in-suspend;
++	vmmc-supply = <&reg_sd1_vmmc>;
 +	status = "okay";
 +
-+	/* USB-C connector HS/SS port graph. The binding requires port@0 and
-+	 * the SS port should be port@1.
-+	 */
-+	ports {
-+		#address-cells = <1>;
-+		#size-cells = <0>;
-+
-+		port@0 {
-+			reg = <0>;
-+			usb_host0_hs_ep: endpoint {
-+				remote-endpoint = <&usbc0_hs>;
-+			};
-+		};
-+
-+		port@1 {
-+			reg = <1>;
-+			usb_host0_ss_ep: endpoint {
-+				remote-endpoint = <&usbc0_ss>;
-+			};
-+		};
++	brcmf: wifi@1 {
++		compatible = "brcm,bcm4329-fmac";
++		reg = <1>;
 +	};
 +};
++
++&iomuxc {
++	pinctrl_32k_clk: 32k-clk-grp {
++		fsl,pins = <
++			MX6UL_PAD_GPIO1_IO03__OSC32K_32K_OUT	0x03029
++		>;
++	};
++};
+diff --git a/arch/arm/boot/dts/nxp/imx/imx6ul-imx6ull-var-wifi-iw61x.dtsi b/arch/arm/boot/dts/nxp/imx/imx6ul-imx6ull-var-wifi-iw61x.dtsi
+new file mode 100644
+index 000000000000..d2f116bc8d70
+--- /dev/null
++++ b/arch/arm/boot/dts/nxp/imx/imx6ul-imx6ull-var-wifi-iw61x.dtsi
+@@ -0,0 +1,43 @@
++// SPDX-License-Identifier: GPL-2.0+
++/*
++ * Copyright 2026 Variscite Ltd. - https://www.variscite.com
++ */
 +
 +/ {
-+	hdmi0-con {
-+		compatible = "hdmi-connector";
-+		type = "a";
-+
-+		port {
-+			hdmi0_con_in: endpoint {
-+				remote-endpoint = <&hdmi0_out_con>;
-+			};
-+		};
-+	};
-+
-+	/*
-+	 * Type-C port VBUS 5V -- the vendor dtb has gpio = <&gpio1 0x1d 0>,
-+	 * i.e. gpio1 PD5 (enable-active-high; ACTIVE_HIGH is equivalent).
-+	 * Note: PC5 is i2s0_lrck (the audio LRCLK), so driving the regulator
-+	 *    from it takes the audio pin over and leaves the real PD5
-+	 *    undriven, which means VBUS is never switched on (self-powered
-+	 *    devices still work, so such a mistake is easy to miss).
-+	 */
-+	vbus5v0_typec: vbus5v0-typec {
++	reg_sd1_vmmc: regulator-sd1-vmmc {
 +		compatible = "regulator-fixed";
-+		regulator-name = "vbus5v0_typec";
-+		regulator-min-microvolt = <5000000>;
-+		regulator-max-microvolt = <5000000>;
-+		gpios = <&gpio1 RK_PD5 GPIO_ACTIVE_HIGH>;
-+		vin-supply = <&vcc5v0_sys>;
-+		pinctrl-names = "default";
-+		pinctrl-0 = <&typec5v_pwren>;
-+	};
-+};
-+
-+/*
-+ * ===== ES8388 audio (ported from the vendor BSP) =====
-+ *
-+ * Pins: the vendor BSP i2s0 group matches the mainline
-+ *   rk3588-base-pinctrl group 1:1
-+ *   mclk=PC2 m1   sclk=PC3 m1   lrck=PC5 m1   sdo0=PC7 m1   sdi0=PD4 m2
-+ * i2c1(fea90000): the vendor uses i2c1m4 = PD2/PD3 mux9
-+ * Headphone detect PC4, amplifier enable PC6 (vendor hp-det-gpio /
-+ * hp-con-gpio, both mux0 = GPIO)
-+ *
-+ * WARNING: the vendor uses the private rockchip,multicodecs-card, which
-+ * mainline does not have, so use a standard simple-audio-card instead.
-+ * WARNING: the vendor ADC headphone detect and play-pause key are not
-+ * supported by mainline and are omitted.
-+ * WARNING: the driver is built in: CONFIG_SND_SOC_ES8328_I2C=y (the
-+ * es8328 driver binds everest,es8388).
-+ */
-+&i2c1 {
-+	pinctrl-names = "default";
-+	pinctrl-0 = <&i2c1m4_xfer>;
-+	status = "okay";
-+
-+	es8388: audio-codec@11 {
-+		/* everest,es8323 must be listed first.
-+		 *   Reasons (driver source plus the module present on the board):
-+		 *   - Mainline es8328.c is the simplified driver (888 lines),
-+		 *     es8323.c is the complete one (791 lines, with set_dai_fmt /
-+		 *     set_dai_sysclk / pcm_hw_params and the coeff_div table).
-+		 *   - compatible lists are matched in order: with
-+		 *     'everest,es8388' first, es8328 claims the device, so es8323
-+		 *     has to come first for the complete driver to bind.
-+		 *   - The driver is built as a module (module alias
-+		 *     of:N*T*Ceverest,es8323), so it binds once the node exists.
-+		 *   - The upstream board with the same codec,
-+		 *     rk3588-youyeetoo-yy3588.dts, also lists only
-+		 *     es8323.
-+		 *   - The vendor 6.1 BSP dtb uses the same pair,
-+		 *     "everest,es8388","everest,es8323".
-+		 */
-+		compatible = "everest,es8323", "everest,es8388";
-+		reg = <0x11>;
-+		/* The codec clock phandle must use the _TO_IO variant (the
-+		 *   segment that reaches the pin). Using the internal segment
-+		 *   without the suffix leaves i2s0_8ch_mclkout_to_io
-+		 *   deviceless/disabled, so MCLK never reaches the codec pin even
-+		 *   though registers, DAPM and volume all look correct, and there
-+		 *   is no sound at all. The mainline board with the same codec,
-+		 *   rk3588-youyeetoo-yy3588.dts, does it the same way:
-+		 *   assigned-clocks uses the internal segment for the rate, clocks
-+		 *   uses the _TO_IO segment to drive the pin.
-+		 */
-+		clocks = <&cru I2S0_8CH_MCLKOUT_TO_IO>;
-+		/* clock-names is mandatory. The complete driver gets the clock by
-+		 *   name (es8323.c:618):
-+		 *       es8323->mclk = devm_clk_get_optional(component->dev, "mclk");
-+		 *   Without clock-names it gets NULL, so later in hw_params
-+		 *       coeff = get_coeff(es8323->sysclk, rate)
-+		 *   cannot derive the right MCLK/LRCK divider from the
-+		 *   coefficient table, the codec is clocked wrongly and stays
-+		 *   silent. The vendor 6.1 BSP dtb codec node also carries
-+		 *   clock-names = "mclk"; both sides have to match.
-+		 */
-+		clock-names = "mclk";
-+		assigned-clocks = <&cru I2S0_8CH_MCLKOUT>;
-+		assigned-clock-rates = <12288000>;
-+		AVDD-supply = <&vcc_3v3_s0>;
-+		DVDD-supply = <&vcc_1v8_s0>;
-+		HPVDD-supply = <&vcc_3v3_s0>;
-+		PVDD-supply = <&vcc_3v3_s0>;
-+		#sound-dai-cells = <0>;
-+	};
-+
-+	/*
-+	 * Camera (CAM3 connector, D-PHY0 path)
-+	 *
-+	 * Why CAM3: in mainline 6.18 rk3588-base.dtsi both CSI hosts are bound
-+	 * to the D-PHYs:
-+	 *     csi2@fdd30000  phys = <&csi_dphy0>
-+	 *     csi4@fdd50000  phys = <&csi_dphy1>
-+	 * while both DC-PHYs are bound to DSI only:
-+	 *     dsi0@fde20000  phys = <&mipidcphy0 PHY_TYPE_DPHY>
-+	 *     dsi1@fde30000  phys = <&mipidcphy1 PHY_TYPE_DPHY>
-+	 *   => mainline has no DC-PHY to CSI path (no precedent in the tree,
-+	 *      and no board connects a sensor to a DC-PHY)
-+	 *   => the DC-PHY based CAM1/CAM2 connectors are unusable on 6.18; of
-+	 *      the three connectors on this board only CAM3 uses D-PHY0.
-+	 *
-+	 * Wiring (from the vendor 6.1 dtb; GPIO numbers are linear, so
-+	 * pin8 = PB0):
-+	 *   CAM3 = i2c1(fea90000), reset = gpio1 PB4(ACTIVE_LOW),
-+	 *          power = gpio1 PB5(ACTIVE_HIGH),
-+	 *          MCLK pinctrl = mipim0_camera3_clk, DPHY = csi2_dphy0
-+	 * Aligned with the vendor overlay for the same sensor:
-+	 *   rk3588-rock-5b-plus-radxa-cam4k-cam0.dtso
-+	 *   (IMX415 + csi_dphy0 + csi2 + vicap) -- its MCLK is also
-+	 *   CLK_MIPI_CAMARAOUT_M3, matching this connector.
-+	 */
-+	imx415: camera-sensor@1a {
-+		compatible = "sony,imx415";
-+		reg = <0x1a>;
-+		clocks = <&cru CLK_MIPI_CAMARAOUT_M3>;
-+		assigned-clocks = <&cru CLK_MIPI_CAMARAOUT_M3>;
-+		assigned-clock-rates = <37125000>;
-+		avdd-supply = <&cam_pwr>;
-+		dvdd-supply = <&cam_pwr>;
-+		ovdd-supply = <&cam_pwr>;
-+		reset-gpios = <&gpio1 RK_PB4 GPIO_ACTIVE_LOW>;
-+		pinctrl-names = "default";
-+		pinctrl-0 = <&mipim0_camera3_clk>;
-+
-+		port {
-+			imx415_out: endpoint {
-+				data-lanes = <1 2 3 4>;
-+				link-frequencies = /bits/ 64 <445500000>;
-+				remote-endpoint = <&csi2_input>;
-+			};
-+		};
-+	};
-+};
-+
-+&i2s0_8ch {
-+	pinctrl-names = "default";
-+	pinctrl-0 = <&i2s0_lrck &i2s0_mclk &i2s0_sclk &i2s0_sdi0 &i2s0_sdo0>;
-+	status = "okay";
-+};
-+
-+&pinctrl {
-+	headphone {
-+		hp_det: hp-det {
-+			rockchip,pins = <1 RK_PC4 RK_FUNC_GPIO &pcfg_pull_none>;
-+		};
-+
-+		hp_con: hp-con {
-+			rockchip,pins = <1 RK_PC6 RK_FUNC_GPIO &pcfg_pull_none>;
-+		};
-+	};
-+};
-+
-+/ {
-+	analog_sound: analog-sound {
-+		compatible = "simple-audio-card";
-+		pinctrl-names = "default";
-+		pinctrl-0 = <&hp_det &hp_con>;
-+		simple-audio-card,name = "QuarkPi-CA2 ES8388";
-+		simple-audio-card,format = "i2s";
-+		simple-audio-card,bitclock-master = <&sound_cpu>;
-+		simple-audio-card,frame-master = <&sound_cpu>;
-+		simple-audio-card,mclk-fs = <256>;
-+		simple-audio-card,aux-devs = <&hp_amp>;
-+		/* Vendor <0x13d 0x14 0x00>: flags = 0 => ACTIVE_HIGH (the on-board
-+		 * detect circuit is active high). With ACTIVE_LOW a plugged
-+		 * headset reads as unplugged, pin-switches stay open and there is
-+		 * no output at all; gpio-20 reads high, so an active high level
-+		 * means "plugged".
-+		 */
-+		simple-audio-card,hp-det-gpios = <&gpio1 RK_PC4 GPIO_ACTIVE_HIGH>;
-+		/*
-+		 * The card level controls must be declared here first, otherwise
-+		 *    the names used in routing do not exist (as in roc-pc: the
-+		 *    first entry is the widget type, Headphone/Microphone, and the
-+		 *    second one is the control name)
-+		 */
-+		simple-audio-card,pin-switches = "Headphones";
-+		simple-audio-card,widgets =
-+			"Headphone", "Headphones",
-+			"Microphone", "Headset Mic",
-+			"Microphone", "Main Mic";
-+		simple-audio-card,routing =
-+			/* The vendor BSP routing has two direct entries,
-+			 *   "Headphone","LOUT1" and "Headphone","ROUT1"; they are
-+			 *   added here so the jack still gets a signal from
-+			 *   LOUT1/ROUT1 even if the amplifier or the switch fails.
-+			 */
-+			"Headphones", "LOUT1",
-+			"Headphones", "ROUT1",
-+			/* Vendor "Headphone Power" path (DAPM must power it) */
-+			"Headphones", "Headphone Power OUTL",
-+			"Headphones", "Headphone Power OUTR",
-+			"Headphone Power INL", "LOUT1",
-+			"Headphone Power INR", "ROUT1",
-+			/* Fallback: wire LOUT2/ROUT2 as well. The vendor
-+			 * reference board routes the speaker to that output
-+			 * pair; this board has no speaker, so these two
-+			 * entries recover the jack if it is actually wired
-+			 * to route 2. */
-+			"Headphone Power INL", "LOUT2",
-+			"Headphone Power INR", "ROUT2",
-+			"LINPUT1", "Headset Mic",
-+			"LINPUT2", "Main Mic",
-+			"RINPUT1", "Headset Mic",
-+			"RINPUT2", "Main Mic";
-+
-+		sound_cpu: simple-audio-card,cpu {
-+			sound-dai = <&i2s0_8ch>;
-+		};
-+
-+		sound_codec: simple-audio-card,codec {
-+			sound-dai = <&es8388>;
-+			system-clock-frequency = <12288000>;
-+		};
-+	};
-+
-+	/* Headphone amplifier enable (vendor hp-con-gpio = gpio1 PC6) */
-+	hp_amp: audio-amplifier-hp {
-+		compatible = "simple-audio-amplifier";
-+		/* Same name as the vendor BSP "Headphone Power" control: the
-+		 *   amplifier is only powered when it appears in the DAPM routing;
-+		 *   listing it in aux-devs alone is not enough (with aux-devs
-+		 *   only, the amp INL/OUTL never got powered and the jack had no
-+		 *   signal).
-+		 */
-+		sound-name-prefix = "Headphone Power";
-+		/* hp-con selects the headphone path (plugging in a headset
-+		 *   switches to it and stops the speaker). The vendor dtb flags = 0
-+		 *   can mean the opposite in the private multicodecs driver, since
-+		 *   it is not a standard enable-gpios.
-+		 */
-+		/* hp-con selects the headphone/speaker path (plugging in a
-+		 *   headset switches to it and stops the speaker). The vendor BSP
-+		 *   has hp-con-gpio = <&gpio1 22 0> with flags = 0, i.e.
-+		 *   ACTIVE_HIGH. With ACTIVE_LOW, DAPM asserting the pin pulls it
-+		 *   low, which the vendor hardware reads as "off", so audio is
-+		 *   routed to the amplifier/speaker side and the jack stays silent
-+		 *   (/sys/kernel/debug/gpio shows gpio-22 = out lo ACTIVE LOW
-+		 *   while playing).
-+		 */
-+		enable-gpios = <&gpio1 RK_PC6 GPIO_ACTIVE_HIGH>;
-+	};
-+};
-+
-+/*
-+ * Camera module power: fixed regulator controlled by gpio1 PB5 (the
-+ * module carries its own LDO, so all three supplies share this 3.3V rail)
-+ *
-+ * WARNING: it has to live under the root node and must not be put inside
-+ *    an i2c bus -- i2c child nodes all require a reg property, otherwise
-+ *    dtc reports "missing or empty reg property".
-+ *    The vendor overlay rk3588-rock-5b-plus-radxa-cam4k-cam0.dtso puts
-+ *    the regulator under &{/} as well.
-+ */
-+&{/} {
-+	cam_pwr: regulator-cam-pwren {
-+		compatible = "regulator-fixed";
-+		regulator-name = "cam_pwr";
++		regulator-name = "VSD_3V3";
 +		regulator-min-microvolt = <3300000>;
 +		regulator-max-microvolt = <3300000>;
-+		gpio = <&gpio1 RK_PB5 GPIO_ACTIVE_HIGH>;
-+		enable-active-high;
-+		vin-supply = <&vcc_3v3_s3>;
++	};
++
++	iw61x_pwrseq: mmc-pwrseq {
++		compatible = "mmc-pwrseq-simple";
++		post-power-on-delay-ms = <100>;
++		power-off-delay-us = <10000>;
++		reset-gpios = <&gpio5 6 GPIO_ACTIVE_LOW>, /* WIFI_RESET */
++			      <&gpio5 2 GPIO_ACTIVE_LOW>; /* WIFI_PWR_EN */
 +	};
 +};
 +
-+/*
-+ * Camera pipeline: sensor -> csi_dphy0 (D-PHY0) -> csi2 (host) -> vicap
-+ *
-+ * Every node and port already exists in mainline rk3588-base.dtsi, so
-+ * they only have to be enabled and two endpoints added:
-+ *   csi2 port@0 = csi2_in (sensor input), port@1 = csi2_out -> vicap_mipi2_input
-+ * The structure matches the vendor overlay
-+ * rk3588-rock-5b-plus-radxa-cam4k-cam0.dtso exactly.
-+ *
-+ * Kernel side needs no changes:
-+ *   PHY_ROCKCHIP_INNO_CSIDPHY=y (built in, supports
-+ *   rockchip,rk3588-csi-dphy), VIDEO_ROCKCHIP_CIF=m,
-+ *   VIDEO_DW_MIPI_CSI2RX=m, VIDEO_IMX415=m
-+ */
-+&csi_dphy0 {
-+	status = "okay";
++&tsc {
++	status = "disabled";
 +};
 +
-+&csi2 {
-+	status = "okay";
-+};
-+
-+&csi2_in {
-+	csi2_input: endpoint {
-+		bus-type = <MEDIA_BUS_TYPE_CSI2_DPHY>;
-+		data-lanes = <1 2 3 4>;
-+		link-frequencies = /bits/ 64 <445500000>;
-+		remote-endpoint = <&imx415_out>;
++&uart2 {
++	bluetooth_iw61x: bluetooth {
++		compatible = "nxp,88w8987-bt";
 +	};
 +};
 +
-+&vicap {
++&usdhc1 {
++	pinctrl-names = "default", "state_100mhz", "state_200mhz";
++	pinctrl-0 = <&pinctrl_usdhc1>, <&pinctrl_wifi>;
++	pinctrl-1 = <&pinctrl_usdhc1_100mhz>, <&pinctrl_wifi>;
++	pinctrl-2 = <&pinctrl_usdhc1_200mhz>, <&pinctrl_wifi>;
++	keep-power-in-suspend;
++	non-removable;
++	vmmc-supply = <&reg_sd1_vmmc>;
++	mmc-pwrseq = <&iw61x_pwrseq>;
 +	status = "okay";
 +};
-+
-+&vicap_mmu {
-+	status = "okay";
-+};
-+
-+/* ==========================================================================
-+ * Multiplexed function pins of the 40-pin header (J11, marked RPI40pin
-+ * compatible in the schematic)
-+ *
-+ * These controllers are disabled by default in rk3588-base.dtsi and were
-+ * never enabled on this board, so those header pins could only be used as
-+ * GPIOs. The schematic net names carry the mux suffix (_M1/_M2/_M3), so
-+ * the matching mainline mux group can be selected directly. Group names
-+ * and pins were checked one by one against rk3588-base-pinctrl.dtsi:
-+ *    I2C3_M1 : gpio3-15(SCL) / gpio3-16(SDA)           => header pin5 / pin3
-+ *    I2C5_M2 : gpio4-6(SCL)  / gpio4-7(SDA)            => header pin28/ pin27
-+ *    UART5_M1: gpio3-20(TX)  / gpio3-21(RX)            => header pin8 / pin10
-+ *    SPI0_M3 : gpio3-27(CLK)/gpio3-25(MISO)/gpio3-26(MOSI)
-+ *              gpio3-28(CS0)/gpio3-29(CS1)             => header pin23/21/19/24/26
-+ * WARNING: when referencing a group name, make sure the file is
-+ *    rk3588-*-pinctrl.dtsi -- a wildcard grep also matches same-named
-+ *    groups in rk3528/rk3576, whose pins are completely different.
-+ * ========================================================================== */
-+&i2c3 {
-+	pinctrl-names = "default";
-+	pinctrl-0 = <&i2c3m1_xfer>;
-+	status = "okay";
-+};
-+
-+/* WARNING: do not enable &i2c5 here (the i2c5m2_xfer group is gpio4-6/7):
-+ *   1) in the vendor 6.1 tree i2c@fead0000 (i2c5) is status = "disabled"
-+ *      and was never enabled;
-+ *   2) gpio4-6 / gpio4-7 are the usbdp_phy0 sbu1-dc-gpios /
-+ *      sbu2-dc-gpios (the SBU DC switch controls used by DP alt mode) in
-+ *      the same vendor tree, so the two uses conflict physically;
-+ *   3) in the J11 header pin table the net names of pin27/pin28 are
-+ *      SDA0/SCL0 (I2C0), not i2c5m2 either.
-+ *   => header pins of a multiplexed function must not be inferred from the
-+ *      schematic labels; use measured values instead.
-+ */
-+
-+&uart5 {
-+	pinctrl-names = "default";
-+	pinctrl-0 = <&uart5m1_xfer>;
-+	status = "okay";
-+};
-+
-+&spi0 {
-+	pinctrl-names = "default";
-+	pinctrl-0 = <&spi0m3_pins>, <&spi0m3_cs0>, <&spi0m3_cs1>;
-+	num-cs = <2>;
-+	status = "okay";
-+
-+};
-+
-+/* ==========================================================================
-+ * RGA3 2D acceleration -- rk3588-base.dtsi:1265/1287 already have
-+ * rga@fdb60000 / rga@fdb70000 (compatible = "rockchip,rk3588-rga3") and
-+ * the kernel config has CONFIG_VIDEO_ROCKCHIP_RGA=m, so only status has to
-+ * be enabled here.
-+ * ========================================================================== */
-+&rga3_core0 {
-+	status = "okay";
-+};
-+
-+&rga3_core1 {
-+	status = "okay";
-+};
-+
-+/* ==========================================================================
-+ * IR receiver
-+ *
-+ * Hardware path: the on-board IR receiver output drives net PWM_IR into
-+ * SoC GPIO0_D4 (= gpio0-28); the vendor BSP uses it as PWM3_M0 (the
-+ *    mainline pin group is even called `pwm3_ir_m0`).
-+ *
-+ * Why the GPIO route: mainline drivers/media/rc/ has pwm-ir-tx (transmit)
-+ *    only and no PWM IR receive driver, and `rockchip,remotectl-pwm` is
-+ *    vendor private, so use the mainline gpio-ir-recv instead: treat the
-+ *    pin as a plain GPIO input, let the driver sample the pulse widths and
-+ *    have rc-core decode NEC in software.
-+ *
-+ * Kernel side needs no changes: CONFIG_IR_GPIO_CIR=m,
-+ * CONFIG_IR_NEC_DECODER=m, CONFIG_RC_CORE=y and CONFIG_RC_MAP=y are
-+ * all set.
-+ *   Note: the Kconfig symbol is IR_GPIO_CIR.
-+ * The driver has its own of_device_id (compatible = "gpio-ir-receiver"), so
-+ *   udev loads it automatically once this node exists; `modprobe
-+ *   gpio-ir-recv` can be used by hand if needed.
-+ * The remote key map is loaded from userspace: /etc/rc_keymaps +
-+ *   ir-keytable (vendor map: usercode 0xFF00, 20 keys), so
-+ *   linux,rc-map-name is not set here.
-+ * ========================================================================== */
-+&pinctrl {
-+	/* WARNING: this must use the two-level "function node -> group node"
-+	 *   structure. rockchip_pinctrl_parse_dt() calls parse_functions() for
-+	 *   every child of pinctrl, and that walks the children of the child
-+	 *   node as groups (see pinctrl-rockchip.c:4440). Writing groups "flat"
-+	 *   below &pinctrl gives of_get_child_count() = 0, the groups are never
-+	 *   registered and the kernel reports "unable to find group for node
-+	 *   xxx" when a device requests them.
-+	 *   The leds / usb-typec / sdmmc / headphone groups in this file all
-+	 *   use this two-level form. */
-+	ir {
-+		ir_receiver_pin: ir-receiver-pin {
-+			/* gpio0-28 = GPIO0_D4, GPIO function (0) with pull-up
-+			 * (receiver outputs are usually open drain)
-+			 */
-+			rockchip,pins = <0 RK_PD4 RK_FUNC_GPIO &pcfg_pull_up>;
-+		};
-+	};
-+};
-+
-+/* MIPI DSI0 / DSI1 (2 ports): deliberately not enabled
-+ * Enabling &dsi0/&dsi1/&mipidcphy0/&mipidcphy1 all at once, straight from
-+ *   the vendor tree, makes HDMI stop working: the four nodes do come up
-+ *   (rockchip,rk3588-mipi-dsi2 / mipi-dcphy), but the HDMI connectors in
-+ *   /sys/class/drm/ drop from 1 to 0 and the sound cards from 2 to 1, with
-+ *   dmesg reporting "platform hdmi0-sound: deferred probe pending:
-+ *   asoc-simple-card: parse error": the RK3588S VOP2 video port (VP) is
-+ *   taken over by DSI and HDMI0 loses its output.
-+ * => do not enable DSI on a board without a display: it cannot be verified
-+ *    and it breaks the working HDMI. Add the DSI nodes together with
-+ *    panel/bridge nodes only once a display is available, and accept that
-+ *    HDMI has to give way or the VP assignment has to change.
-+ */
-+
-+&{/} {
-+	ir_receiver: ir-receiver {
-+		compatible = "gpio-ir-receiver";
-+		/* The polarity must be ACTIVE_LOW: the IR receiver idles
-+		 *   high and pulls low on a carrier, while rc-core wants
-+		 *   the active level to be the pulse. The three mainline
-+		 *   gpio-ir-receiver examples (rk3568-rock-3b /
-+		 *   rk3328-roc-pc / rk3566-box-demo) all use
-+		 *   GPIO_ACTIVE_LOW. */
-+		gpios = <&gpio0 RK_PD4 GPIO_ACTIVE_LOW>;
-+		pinctrl-names = "default";
-+		pinctrl-0 = <&ir_receiver_pin>;
-+	};
-+};
-+
-+/* ==========================================================================
-+ * DP output (DP alt mode on Type-C0)
-+ *
-+ * Evidence, all from the vendor 6.1 tree plus a mainline board of the same
-+ * SoC:
-+ *   1) vendor tree dp@fde50000 = status "okay", phys = <the dp-port of
-+ *      &usbdp_phy0>;
-+ *   2) vendor tree usbdp_phy0: dp-port = okay, sbu1-dc-gpios = gpio4-6,
-+ *      sbu2-dc-gpios = gpio4-7;
-+ *   3) DP uses video port vp1 (vendor tree vp1_out_dp0 =
-+ *      /vop/ports/port@1/endpoint@0, and the mainline reference board
-+ *      rk3588s-indiedroid-nova also uses vp1 -> dp0), which does not clash
-+ *      with the vp0 used by HDMI0;
-+ *   4) the mainline kernel config is complete: ROCKCHIP_DW_DP=y /
-+ *      PHY_ROCKCHIP_USBDP=y / TYPEC=y / TYPEC_TCPCI=y.
-+ *
-+ * ========================================================================== */
-+
-+&dp0 {
-+	status = "okay";
-+};
-+
-+&dp0_in {
-+	dp0_in_vp1: endpoint {
-+		remote-endpoint = <&vp1_out_dp0>;
-+	};
-+};
-+
-+&dp0_out {
-+	dp0_out_con: endpoint {
-+		remote-endpoint = <&usbdp_phy0_dp_in>;
-+	};
-+};
-+
-+&vp1 {
-+	vp1_out_dp0: endpoint@a {
-+		reg = <ROCKCHIP_VOP2_EP_DP0>;
-+		remote-endpoint = <&dp0_in_vp1>;
-+	};
-+};
-+
-+&usbdp_phy0 {
-+	orientation-switch;
-+	mode-switch;
-+	/* Vendor tree values: SBU1/SBU2 DC switch controls = GPIO4_A6 / GPIO4_A7 */
-+	sbu1-dc-gpios = <&gpio4 RK_PA6 GPIO_ACTIVE_HIGH>;
-+	sbu2-dc-gpios = <&gpio4 RK_PA7 GPIO_ACTIVE_HIGH>;
-+	rockchip,dp-lane-mux = <2 3>;
-+	status = "okay";
-+
-+	port {
-+		#address-cells = <1>;
-+		#size-cells = <0>;
-+
-+		usbdp_phy0_dp_in: endpoint@2 {
-+			reg = <2>;
-+			remote-endpoint = <&dp0_out_con>;
-+		};
-+
-+		usbdp_phy0_dp_out: endpoint@3 {
-+			reg = <3>;
-+			remote-endpoint = <&usbc0_sbu>;
-+		};
-+	};
-+};
-
+-- 
+2.47.3
 
