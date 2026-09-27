@@ -4,97 +4,52 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id AAA99C98324
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 27 Sep 2026 12:24:35 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 22758C98324
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 27 Sep 2026 12:37:24 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:References:Content-Type:
-	Content-Transfer-Encoding:In-Reply-To:From:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=P49ZMU53FicxNQXQjDxDy7KxdjeVCJlhMGoMoRje+gw=; b=1hlYRhh5KK9sqDavvuqPFfnqcV
-	iUEPngMAQkToVapDWqDmeQ+BJ/NsYViAdY4871Y181IhUk0HXhtu5krTs59nHzHIvgOnXuN/klLGN
-	DiSyI2XZpljXwnFXIPLjehE1teAzh6jTh8w6vljXDjcUNJ/hfIk6BFzOGYA4sOTj07MTZIp6GJhwu
-	dxD4k27depgzQgGKSROe0zKiuYIS1tjPTIhJoMYZp3JWX8zcPKp+bpx5J9RLQ/k9YatOVjp1sYQTB
-	fCeLdoiniQErnAjeLc0dnpLpx4nN9nrE79Oex3DSGiPJYnq53tOyJZ/5eveW3QzGADciaVKI76Sbg
-	ZPBXvy1w==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:References:In-Reply-To:
+	Message-ID:Date:Subject:Cc:To:From:Reply-To:MIME-Version:Content-Type:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=copIDOk9MPWo/ov98Kor/uunS41vMva72FnQRKJ6hn0=; b=i62Kku/sS8ru7iIbyDWGBK41aj
+	cy8nAvTJE2IrcGQZFYjK7V3AiujmMx7kpVO87tzgfFgzHTAJFTGBBtu7UcOxfltq2IAhou92IUwM2
+	Go3415dRRSljWD95UzGZ7Z/GWa6+/Gb0Azv6DmhfMKuG5Q83EyBA3Ez6OQbHamr9P31ibRgK615yr
+	o8UdIA9YStVvn0B+XrX2kj87qNeTSKwp0vAf7Nahg2CbAadCYdxtxr4zxz/ZpwC0iPL1GY5xHS3Vd
+	kdt1zN2VZVVeirVplRosIbDdJFEaYg63i72CD9pQIAt1OwMGp6heGinotu/Q4geHphuQCCmu91SrE
+	tPCS8u2w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xAnve-0000000GIse-2CJn;
-	Sun, 27 Sep 2026 12:24:26 +0000
-Received: from mailout2.w1.samsung.com ([210.118.77.12])
+	id 1xAo86-0000000GJlp-0mJD;
+	Sun, 27 Sep 2026 12:37:18 +0000
+Received: from m16.mail.163.com ([220.197.31.2])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xAnvb-0000000GIs0-0jZk;
-	Sun, 27 Sep 2026 12:24:25 +0000
-Received: from eucas1p1.samsung.com (unknown [182.198.249.206])
-	by mailout2.w1.samsung.com (KnoxPortal) with ESMTP id 20260927122417euoutp02c11f1b951ae847b50bcd234c1cea70a3~ZLQxMbr_w0190201902euoutp02E;
-	Sun, 27 Sep 2026 12:24:17 +0000 (GMT)
-DKIM-Filter: OpenDKIM Filter v2.11.0 mailout2.w1.samsung.com 20260927122417euoutp02c11f1b951ae847b50bcd234c1cea70a3~ZLQxMbr_w0190201902euoutp02E
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=samsung.com;
-	s=mail20170921; t=1790511857;
-	bh=P49ZMU53FicxNQXQjDxDy7KxdjeVCJlhMGoMoRje+gw=;
-	h=Date:Subject:To:Cc:From:In-Reply-To:References:From;
-	b=RsvsBSoDQhTUVnfXDVSkrdrOYQ/Wsh1BtDWKN2OEHAmBv6/x/wUDE7dGn4v+y3IEz
-	 GVq1Qr7+km89frEDkm6XtTfcTKG+fawbhnA8f3Xzbe0L0H+SxxVsn3GOl+LN6Aiq1A
-	 6D6JssYUQkL1uITQAXH8aFS2M5L7bk1syryiiLFM=
-Received: from eusmtip2.samsung.com (unknown [203.254.199.222]) by
-	eucas1p1.samsung.com (KnoxPortal) with ESMTPA id
-	20260927122417eucas1p13bf27abd0a8e031bbc3a449d6390076b~ZLQwv5zRV1213312133eucas1p1O;
-	Sun, 27 Sep 2026 12:24:17 +0000 (GMT)
-Received: from [192.168.1.44] (unknown [106.210.136.40]) by
-	eusmtip2.samsung.com (KnoxPortal) with ESMTPA id
-	20260927122415eusmtip2cb25e97ede526048fb85b90aa2ad6fdb~ZLQu-_M9m0941609416eusmtip2-;
-	Sun, 27 Sep 2026 12:24:15 +0000 (GMT)
-Message-ID: <b8777bd3-960a-4d2a-88f7-f8c818407298@samsung.com>
-Date: Sun, 27 Sep 2026 14:24:15 +0200
-MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v4 00/20] drm: starfive: jh7110: Enable display
- subsystem
-To: Joshua Peisach <jpeisach@ubuntu.com>, Vinod Koul <vkoul@kernel.org>,
-	Neil Armstrong <neil.armstrong@linaro.org>, Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
-	<conor+dt@kernel.org>, Andrzej Hajda <andrzej.hajda@intel.com>, Robert Foss
-	<rfoss@kernel.org>, Laurent Pinchart <Laurent.pinchart@ideasonboard.com>,
-	Jonas Karlman <jonas@kwiboo.se>, Jernej Skrabec <jernej.skrabec@gmail.com>,
-	Luca Ceresoli <luca.ceresoli@bootlin.com>, Maarten Lankhorst
-	<maarten.lankhorst@linux.intel.com>, Maxime Ripard <mripard@kernel.org>,
-	Thomas Zimmermann <tzimmermann@suse.de>, Lee Jones <lee@kernel.org>, Andy
-	Yan <andy.yan@rock-chips.com>, Philipp Zabel <p.zabel@pengutronix.de>, Emil
-	Renner Berthing <kernel@esmil.dk>, Hal Feng <hal.feng@starfivetech.com>,
-	Michael Turquette <mturquette@baylibre.com>, Stephen Boyd
-	<sboyd@kernel.org>, Heiko Stuebner <heiko@sntech.de>, Paul Walmsley
-	<pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou
-	<aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>, Dominique
-	Belhachemi <db@domibel.de>, Brian Masney <bmasney+clk@redhat.com>, Jerome
-	Brunet <jbrunet+clk@baylibre.com>
-Cc: linux-phy@lists.infradead.org, devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org, dri-devel@lists.freedesktop.org,
-	mfd@lists.linux.dev, linux-clk@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org,
-	linux-riscv@lists.infradead.org, Marek Szyprowski
-	<m.szyprowski@samsung.com>, Maud Spierings <maud_spierings@murena.io>,
-	Graham Markall <hello@big-grey.co.uk>, Icenowy Zheng
-	<zhengxingda@iscas.ac.cn>, Chaoyi Chen <chaoyi.chen@rock-chips.com>,
-	=?UTF-8?Q?Uwe_Kleine-K=C3=B6nig?= <u.kleine-koenig@baylibre.com>
-Content-Language: en-US
-From: Michal Wilczynski <m.wilczynski@samsung.com>
-In-Reply-To: <DLIJUQCKB76W.3RHK9KPO5JSOZ@ubuntu.com>
-Content-Transfer-Encoding: 7bit
-X-CMS-MailID: 20260927122417eucas1p13bf27abd0a8e031bbc3a449d6390076b
-X-Msg-Generator: CA
-Content-Type: text/plain; charset="utf-8"
-X-RootMTR: 20260915153213eucas1p148f013af239a334fc78cdc249c0f8a61
-X-EPHeader: CA
-X-CMS-RootMailID: 20260915153213eucas1p148f013af239a334fc78cdc249c0f8a61
-References: <CGME20260915153213eucas1p148f013af239a334fc78cdc249c0f8a61@eucas1p1.samsung.com>
-	<20260915-jh7110-clean-send-v4-0-f0e4fd6f2cc8@samsung.com>
-	<DLGBPXP4F8E0.9X0QMZ9GFQVF@ubuntu.com>
-	<136d6789-2f0c-4a91-ab2d-de3a3f119d5d@samsung.com>
-	<DLIJUQCKB76W.3RHK9KPO5JSOZ@ubuntu.com>
+	id 1xAo7u-0000000GJgW-2ZE4;
+	Sun, 27 Sep 2026 12:37:07 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=163.com;
+	s=s110527; h=From:To:Subject:Date:Message-ID; bh=copIDOk9MPWo/ov
+	98Kor/uunS41vMva72FnQRKJ6hn0=; b=aE29hHC5gz8S6ghSp3XCSwSTHiznpde
+	i5w4eYoZRSE5vhjgnMiaAEcH/HSzG5T2N7RhRbKCJO4McWZ+hlsHiLv+9dEZc9yQ
+	mC5gIYzugCotRXtG3tEKFkNFCbW/WN85xG0JVo9DDCcmQGmseOZsyp1EDjw2hHiW
+	audXVx07DvaE=
+From: BG9OXA <bg9oxa@163.com>
+To: linux-rockchip@lists.infradead.org
+Cc: linux-arm-kernel@lists.infradead.org, devicetree@vger.kernel.org, Heiko Stuebner <heiko@sntech.de>
+Subject: [PATCH 1/2] dt-bindings: arm: rockchip: add ALIENTEK QuarkPi-CA2
+Date: Sun, 27 Sep 2026 20:37:03 +0800
+Message-ID: <179051262312.4055.11698105707712320261@163.com>
+In-Reply-To: <179051260955.4055.15953866975694461812@163.com>
+References: <179051260955.4055.15953866975694461812@163.com>
+X-CM-TRANSID: _____wD39xzvDblqvR2yBA--.43291S2
+X-Coremail-Antispam: 1Uf129KBjvdXoW7Xry3CF48Cw47ur1xCr1xXwb_yoW3ArXEk3
+	WxuF15uFWrXFyFgw4rAFs7WFyqvw42krZ3AF1UAF1kA3yvkrs3KFZ5t342ya4xWr43urn3
+	CFn5tryxWFnxJjkaLaAFLSUrUUUUjb8apTn2vfkv8UJUUUU8Yxn0WfASr-VFAUDa7-sFnT
+	9fnUUvcSsGvfC2KfnxnUUI43ZEXa7IUjp6zUUUUUU==
+X-CM-SenderInfo: lejz05rd6rljoofrz/xtbC3g+H9Gq5De98IwAA3M
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260927_052423_837656_A35820AE 
-X-CRM114-Status: GOOD (  26.46  )
+X-CRM114-CacheID: sfid-20260927_053706_956757_92102FB8 
+X-CRM114-Status: UNSURE (   4.09  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -109,161 +64,26 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+Document the ALIENTEK QuarkPi-CA2, an RK3588S based single board computer.
 
-
-On 9/18/26 17:32, Joshua Peisach wrote:
-> On Thu Sep 17, 2026 at 1:22 PM EDT, Michal Wilczynski wrote:
->>
->>
->> On 9/16/26 02:45, Joshua Peisach wrote:
->>> On Tue Sep 15, 2026 at 11:32 AM EDT, Michal Wilczynski wrote:
->>>>
->>>> Testing
->>>> =======
->>>>
->>>> Tested on a VisionFive 2 v1.3B using modetest.
->>>
->>> I.. got nothing. I did have to manually modprobe the modules, but
->>> unless I am doing something wrong.. I didn't get anything and modetest
->>> just gave -2.
->>
->> Hmm have you also changed the DTB not just the kernel and the modules
->> (you can also built in everything).
->>
-> Yes (I didn't built-in everything, but I did make sure the DTB was
-> copied and flash-kernel was run)
-> 
->> Also note modetest needs -M verisilicon.
->>
-> 
-> "failed to open device 'versilicon' with busid '(null)': No such file
-> or directory"
-> 
-> 
->> If that is not it, could you send "dmesg | grep -iE
->> 'verisilicon|inno|hdmi|vout'" and "ls /sys/class/drm/"?
->>
-> the dmesg output:
-> 
-> [    0.090950] /soc/display-subsystem@29400000/hdmi@29590000/controller: Fixed dependency cycle(s) with /soc/display-subsystem@29400000/display@29400000
-> [    0.091029] /soc/display-subsystem@29400000/display@29400000: Fixed dependency cycle(s) with /soc/display-subsystem@29400000/hdmi@29590000/controller
-> [    0.104227] /hdmi-connector: Fixed dependency cycle(s) with /soc/display-subsystem@29400000/hdmi@29590000/controller
-> [    0.104272] /soc/display-subsystem@29400000/hdmi@29590000/controller: Fixed dependency cycle(s) with /hdmi-connector
-> 
-> 
-> /sys/class/drm only contains the file "version"
-
-Typo - it is "verisilicon" you are missing the i.
-
-But that is not the real problem: /sys/class/drm holding only "version"
-means no DRM device registered at all and your dmesg shows no probe
-output from any of the drivers, so they are not being loaded.
-
-I would suspect something is missing from the .config.
-
-Those are relevant options for this series:
-
-CONFIG_DRM_VERISILICON_DC=y
-CONFIG_CLK_STARFIVE_JH7110_VOUT=y
-CONFIG_SOC_STARFIVE_JH7110_VOUT_SUBSYSTEM=y
-CONFIG_SOC_STARFIVE_JH7110_HDMI_SUBSYSTEM=y
-CONFIG_PHY_STARFIVE_JH7110_INNO_HDMI=y
-CONFIG_DRM_STARFIVE_JH7110_INNO_HDMI=y
-
-easiest to build them in.
-
-Run "make olddefconfig" after editing .config - DRM_VERISILICON_DC
-selects DRM_BRIDGE_CONNECTOR, DRM_DISPLAY_HELPER and DRM_GEM_DMA_HELPER,
-and if those did not get pulled in the DC never registers. Also verify
-after building how .config actually looks like.
-
-With those options and correct dtb the drivers should probe correctly
-and there would be a trace in dmesg.
-
-
-> 
-> -Josh
-> 
->>>
->>>> ---
->>>> Michal Wilczynski (20):
->>>>       dt-bindings: phy: Add starfive,jh7110-inno-hdmi-phy
->>>>       dt-bindings: display: bridge: Add starfive,jh7110-inno-hdmi-controller
->>>>       dt-bindings: mfd: Add starfive,jh7110-hdmi-subsystem
->>>>       dt-bindings: soc: starfive: Add starfive,jh7110-vout-syscon
->>>>       dt-bindings: display: verisilicon: Add starfive,jh7110-dc8200
->>>>       dt-bindings: soc: starfive: Add starfive,jh7110-vout-subsystem
->>>>       drm/bridge: inno-hdmi: Split probe out of bind
->>>>       drm/bridge: inno-hdmi: Allow the register map to come from a parent
->>>>       drm/bridge: inno-hdmi: Add .disable platform operation
->>>>       drm/bridge: inno-hdmi: Add .mode_valid platform operation
->>>>       drm/bridge: inno-hdmi: Make the PHY configuration table optional
->>>>       soc: starfive: Add jh7110-hdmi-subsystem driver
->>>>       soc: starfive: Add jh7110-vout-subsystem driver
->>>>       clk: starfive: jh7110-vout: Allow pixel clock rate propagation
->>>>       drm/bridge: starfive: Add JH7110 HDMI controller driver
->>>>       phy: Add common Innosilicon HDMI PHY helpers
->>>>       phy: rockchip: inno-hdmi: Use the common Innosilicon PHY helpers
->>>>       phy: starfive: Add jh7110-inno-hdmi-phy driver
->>>>       riscv: dts: starfive: jh7110: Update DT for display subsystem
->>>>       MAINTAINERS: Add StarFive JH7110 display subsystem entry
->>>>
->>>>  .../starfive,jh7110-inno-hdmi-controller.yaml      | 121 +++++
->>>>  .../bindings/display/verisilicon,dc.yaml           |   1 +
->>>>  .../mfd/starfive,jh7110-hdmi-subsystem.yaml        |  95 ++++
->>>>  .../phy/starfive,jh7110-inno-hdmi-phy.yaml         |  49 ++
->>>>  .../soc/starfive/starfive,jh7110-syscon.yaml       |   1 +
->>>>  .../starfive/starfive,jh7110-vout-subsystem.yaml   | 218 ++++++++
->>>>  MAINTAINERS                                        |  13 +
->>>>  arch/riscv/boot/dts/starfive/jh7110-common.dtsi    | 121 ++++-
->>>>  arch/riscv/boot/dts/starfive/jh7110.dtsi           | 105 +++-
->>>>  drivers/clk/starfive/clk-starfive-jh7110-vout.c    |   6 +-
->>>>  drivers/gpu/drm/bridge/Kconfig                     |  11 +
->>>>  drivers/gpu/drm/bridge/Makefile                    |   1 +
->>>>  drivers/gpu/drm/bridge/inno-hdmi.c                 | 112 +++-
->>>>  drivers/gpu/drm/bridge/jh7110-inno-hdmi.c          | 297 +++++++++++
->>>>  drivers/phy/Kconfig                                |   8 +
->>>>  drivers/phy/Makefile                               |   1 +
->>>>  drivers/phy/phy-inno-hdmi.c                        | 298 +++++++++++
->>>>  drivers/phy/rockchip/Kconfig                       |   1 +
->>>>  drivers/phy/rockchip/phy-rockchip-inno-hdmi.c      | 168 +-----
->>>>  drivers/phy/starfive/Kconfig                       |  20 +
->>>>  drivers/phy/starfive/Makefile                      |   1 +
->>>>  drivers/phy/starfive/phy-jh7110-inno-hdmi.c        | 579 +++++++++++++++++++++
->>>>  drivers/soc/Kconfig                                |   1 +
->>>>  drivers/soc/Makefile                               |   1 +
->>>>  drivers/soc/starfive/Kconfig                       |  43 ++
->>>>  drivers/soc/starfive/Makefile                      |   3 +
->>>>  drivers/soc/starfive/jh7110-hdmi-subsystem.c       |  73 +++
->>>>  drivers/soc/starfive/jh7110-vout-subsystem.c       |  82 +++
->>>>  include/drm/bridge/inno_hdmi.h                     |  10 +-
->>>>  include/linux/phy/inno-hdmi-phy.h                  |  85 +++
->>>>  30 files changed, 2337 insertions(+), 188 deletions(-)
->>>> ---
->>>> base-commit: fd73f4a6659897191fa0d40695fe370925dd3780
->>>> change-id: 20251031-jh7110-clean-send-7d2242118026
->>>>
->>>> Best regards,
->>>
->>> By the way, something weird happenined while I applied the patches
->>> using git am. Somehow, some were out of order. The 10th patch
->>> adding .mode_valid tried to be applied before .disable even though
->>> in the series, the order is correctly set? git would obviously
->>> fail because the .disable entry did not exist in the header, so I had
->>> to manually put those in.
->>>
->>> I guess it's possible that something went wrong here? I personally
->>> pulled the mailbox from the lore.kernel.org mbox.gz file.
->>
->> I would recommend using b4 shazam instead
->>
->>>
->>
->> Best regards,
-> 
-> 
-
-Best regards,
+Signed-off-by: BG9OXA <bg9oxa@163.com>
+---
+diff --git a/Documentation/devicetree/bindings/arm/rockchip.yaml b/Documentation/devicetree/bindings/arm/rockchip.yaml
+--- a/Documentation/devicetree/bindings/arm/rockchip.yaml
++++ b/Documentation/devicetree/bindings/arm/rockchip.yaml
+@@ -182,6 +182,11 @@
+           - const: alientek,clrv1126f
+           - const: rockchip,rv1126
+ 
++      - description: Alientek QuarkPi-CA2 board
++        items:
++          - const: alientek,quarkpi-ca2
++          - const: rockchip,rk3588s
++
+       - description: Edgeble Neural Compute Module 2(Neu2) SoM based boards
+         items:
+           - const: edgeble,neural-compute-module-2-io   # Edgeble Neural Compute Module 2 IO Board
 -- 
-Michal Wilczynski <m.wilczynski@samsung.com>
+2.43.0
+
 
