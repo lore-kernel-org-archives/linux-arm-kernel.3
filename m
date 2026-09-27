@@ -4,73 +4,118 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4E3BDC9830E
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 27 Sep 2026 12:38:23 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5E8E5C98332
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 27 Sep 2026 12:46:57 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
-	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=NuKsMEW2bmL3HYEzGzn4/Q1vMLgkj5WzRXYhVoZ/eTE=; b=A3IzVhUyqYce3QCuqy9yII3fGV
-	G45byqt0Nx6dNUoDRMQfFHYTt72BtEfsenOyPIhk1jRNqv5utKdsZ8fk8HLN/Qf7fia8sLbGSDyl+
-	CtiiE2n+tYJXoyqQHuCcyTQDNjkkoUL54oGeMhIQtgt3pK373yjvlomd1uX1tZ4cqJW9ihuWsic8p
-	eZnwUaITsMih049P4lQwUV/PuGi1Bmnulmlq1AIRqDKeFSIEauuwG0Uy6NY2IB4TpKJRgWZy3FKWe
-	MP+lpbRxQV4HbDyYkLNahLxIYTr/6lg8ScFdR6uGJn21W8S/eL8aoBW6Ub6xofPjPisZ12GdOMrSV
-	EncBadag==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=jQEEneNhkSGMagWc44r//3s8R86QBncqDPoJlJvrhsg=; b=bV0tUBSBj6nMk5VcJgxk+4S+53
+	DvvWHPWFWuy+uc5ANJScKPzy7Z3SjcYwTK/Aq3A8X/qLHaZwrqvCYa5/yXpWWTIRKvwh+v8QPgGzj
+	i8p47gVNXjesdX3Ik8t01HWCFoXtcBrV3hqc5Id9RBW5G7EZ7vQ3o47slqHDmv2HWyHASd4LWk1rf
+	RASu++8FhoR/aP3X/ieNcAPxUW5WQ24ctPMlyxfIegvSe4bUJitP4G/OoKe4213x2/E1WNyicZILN
+	XTJ9GfD0nRa2zigGp37GI4DypAaQnKN/L3mYOxgErEdN7veGwI+77SjLPgluxJNCKCGqQPUmf5LGw
+	/a/CU1Yg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xAo92-0000000GK8Q-3WoU;
-	Sun, 27 Sep 2026 12:38:16 +0000
-Received: from out-29.mta1.migadu.com ([2001:41d0:203:375::1d] helo=mta1.migadu.com)
+	id 1xAoHG-0000000GKhj-11Eo;
+	Sun, 27 Sep 2026 12:46:46 +0000
+Received: from mail-wm2-x10.google.com ([2a00:1450:4864:31::10])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xAo8x-0000000GK6H-2ikX
+	id 1xAoHD-0000000GKfG-1oQf
 	for linux-arm-kernel@lists.infradead.org;
-	Sun, 27 Sep 2026 12:38:15 +0000
-X-Envelope-To: linux-arm-kernel@lists.infradead.org
-DKIM-Signature: a=rsa-sha256; bh=NuKsMEW2bmL3HYEzGzn4/Q1vMLgkj5WzRXYhVoZ/eTE=;
- c=simple/simple; d=linux.dev;
- h=from:to:subject:date:message-id:mime-version:content-type; s=key1;
- t=1790512687; v=1; x=1791117487;
- b=YoOy7FYI07NfKhq/rxl+c8ufiWB9B28zFEShCUlnm5Y7nQYNHkw9kZsJr7lIobFgRXspYp7n
- 0EcrpMr/wVykj3uZyhMO/VAnkuU1o6IlmIikfEa23q9V09g26IcWWyi3S17EtSANCYAYqk+OP4B
- /wM4Qld+qoUW7E8/+6jn0HGc=
-X-Envelope-To: linux-arm-kernel@lists.infradead.org
-Received: by smtp.migadu.com with ESMTPS id d8f7900bf8c04d17;
-	Sun, 27 Sep 2026 12:38:07 +0000
-X-Mizu-Trace-ID: d8f7900bf8c04d17
-X-Migadu-Flow: FLOW_OUT
-Received: by mail-lf1-f53.google.com with SMTP id 2adb3069b0e04-5b8ea0ca5baso4744e87.1
-        for <linux-arm-kernel@lists.infradead.org>; Sun, 27 Sep 2026 05:38:02 -0700 (PDT)
-X-Forwarded-Encrypted: i=1; AKwUvBxRGXwFcqNi20aFWNpW4HZE9+xbT8PTfngKK3+0Oxi5npf/3JlxbnveyR/JNUpz89E3O25uz/Foae3pGqZfd/t7@lists.infradead.org
-X-Gm-Message-State: AFq9FYI0S78kX6mZvIfXa1TQvt9zCnuXhyj9Lru/I8jLVDtF6jXTAAST
-	L64sHxWHq+oS01Fmx/omwU7lfLGiRRTele1RPZYIpEpk72DHZw9vwrGbTmf4zmGCDfmP9wqYC4W
-	9n16wycYmcI2qCZzc5aEvbpvwMvpxHOibFU4gYGxb
-X-Received: by 2002:a05:6512:b8d:b0:5b6:bcb:26c4 with SMTP id
- 2adb3069b0e04-5b8ef285eb3mr99786e87.16.1790512681261; Sun, 27 Sep 2026
- 05:38:01 -0700 (PDT)
+	Sun, 27 Sep 2026 12:46:44 +0000
+Received: by mail-wm2-x10.google.com with SMTP id 5b1f17b1804b1-49ce364488dso5889065e9.0
+        for <linux-arm-kernel@lists.infradead.org>; Sun, 27 Sep 2026 05:46:43 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20251104; t=1790513202; x=1791118002; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=jQEEneNhkSGMagWc44r//3s8R86QBncqDPoJlJvrhsg=;
+        b=m4AgrnIhXsznFJvlF34efBfZZzz32SL7px2+xfWA0AF1orNxn57tTS0kccnoMRQZj3
+         ZOvnKq54RxcJOHalBBlzTXdCmpZApYOZOusL+SbYVYjpham3HVuLmz22MkuzfoOLm6sf
+         B3S14pR/iDcNg2Tdbb8yem7lrmqCqGEfGCnw8C7MpbaeOG7dI6n9RzjJpDAIvBFCPrnj
+         SLEs54OD6wom9dbIAugsXkiy7kP6cju5CiXVItdzZjhjV2syIkz42z6F/gt1A+axcS0T
+         vN/Imsu3wvpHQzADYPEkKhw7COiuAWEntyqKV95vBrVjlB6WkKQShpqpnme/FvglH7yD
+         S3Wg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1790513202; x=1791118002;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
+         :to:cc:subject:date:message-id:reply-to:content-type;
+        bh=jQEEneNhkSGMagWc44r//3s8R86QBncqDPoJlJvrhsg=;
+        b=UGG90jnKwfvTfCLnUdqlJrTH7Btf8ksYYvlGNcssW/x5UlXdxX3ir4+pAsEY/SfIzB
+         /f+bRTgYSZpjcwq94PBKcO6u7gbEeGtd2Xm+i9ziQ9j2dCuRC1bspQbOP9UTVzRsd6a1
+         ZiIOOB0UPn+6+6gjVb+tLKd0tLUWnxop73WRL1Je6m8cgNt9DQf2exMrzLl/fJpgKibz
+         mBIIeheJom5v98DBl+RLRoF/jPhgYBh2aZVQiPLKnLRzGD8Wi75yzlHD8OWV4m5YsoVf
+         TMqrWmVWRLEkIq8l3lQ7MFu9EIrIbEn/ivG96oT7tdPxaGdfKNeiJcOgjSaXBCBdXlRD
+         WTwA==
+X-Forwarded-Encrypted: i=1; AKwUvBwzHeape0X0TRcquEajiJUq0WIlNNvxzcyGaWzLbi6HJ7+lV+CuZmpoOWiewv9cPa9f54fvA+V5Xbj95KiWJfsM@lists.infradead.org
+X-Gm-Message-State: AFuF++kbeWcaK4SKpf2d9WDkttJlWuMhaaCZaVu6KiUfObWBa7MTGXXt
+	oAxNRUBBjBnyjPRTa/PYtQ2Qi+qMm+6YZt8y6wgo0v+iwF5mNGEn465g
+X-Gm-Gg: AYBFou36t/w/Yb35E9CmvvVSgngfEieWwFySGpxKDOvsaHWYHxVU/g09BsAUSUFP8d6
+	PF21WQy6KVGTHlsarDJ2rY3qbl2Dl4vYpHjqz7TB7VL0sop03RIqDUXBB5O4S88rNnpNiAA1+/T
+	iooEJ41b4Y6nJmRY2PyYV0WScyDH4zBcg57nIBF4a4TEau/5XStwBYtWh79RKL5N/dTx2sk6fw6
+	/9XyTzIRi0WZM5md3fR0ksjNlWS1Znep3fH7FACcMjHgDS54G1yKMjXTxnr2WVkDffqabk2dKKi
+	c5tB1M08EEznjLutMWCN/OZ3t6NBBJ4J16Y5ASHhRYyicc2LSp5PVQu6lhFVpVWgfkOrf32gET8
+	zesr2DrdpqWiqej6c8BPnYC7VwzSI41lW3TN8yW5LY9CaDOlTs4QahWPCQoP7kKBsF1JdBBpeKi
+	YDUF5D65P2jqgJQJ30bdp58T4ilSwKega6OAqcsXlAWz1AESoSeclQr0xZA/onwZZZYiHDVJ0l/
+	fR2SCXuRkCccmwRWkvYLdGxawQ/zZ4X5RclklCuCg36fgUX74PKLtg4XCDr9smpZq/uPUIXwSg8
+	LNv3rFELZnp7pAa8f7yIGw==
+X-Received: by 2002:a05:600c:6986:b0:49f:c5aa:9ef4 with SMTP id 5b1f17b1804b1-49fe66d05d7mr172482935e9.8.1790513201680;
+        Sun, 27 Sep 2026 05:46:41 -0700 (PDT)
+Received: from Lord-Beerus.station ([31.27.155.43])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-49fef60da94sm148440605e9.4.2026.09.27.05.46.39
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Sun, 27 Sep 2026 05:46:41 -0700 (PDT)
+From: Stefano Radaelli <stefano.radaelli21@gmail.com>
+X-Google-Original-From: Stefano Radaelli <stefano.r@variscite.com>
+To: Frank Li <Frank.Li@nxp.com>,
+	linux-kernel@vger.kernel.org,
+	devicetree@vger.kernel.org,
+	imx@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org
+Cc: pierluigi.p@variscite.com,
+	Stefano Radaelli <stefano.r@variscite.com>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Andrew Lunn <andrew+netdev@lunn.ch>,
+	"David S. Miller" <davem@davemloft.net>,
+	Eric Dumazet <edumazet@google.com>,
+	Jakub Kicinski <kuba@kernel.org>,
+	Paolo Abeni <pabeni@redhat.com>,
+	Sascha Hauer <s.hauer@pengutronix.de>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Fabio Estevam <festevam@gmail.com>,
+	Heiner Kallweit <hkallweit1@gmail.com>,
+	Russell King <linux@armlinux.org.uk>,
+	Shawn Guo <shawnguo@kernel.org>,
+	Daniel Baluta <daniel.baluta@nxp.com>,
+	Joseph Guo <qijian.guo@nxp.com>,
+	Josua Mayer <josua@solid-run.com>,
+	Ernest Van Hoecke <ernest.vanhoecke@toradex.com>,
+	Mehmet Fide <mehmet.fide@screeningeagle.com>,
+	Markus Niebel <Markus.Niebel@ew.tq-group.com>,
+	Francesco Dolcini <francesco.dolcini@toradex.com>,
+	Maud Spierings <maudspierings@gocontroll.com>,
+	Hugo Villeneuve <hvilleneuve@dimonoff.com>,
+	Stefan Eichenberger <eichest@gmail.com>,
+	netdev@vger.kernel.org
+Subject: [PATCH v3 05/12] ARM: dts: imx6ul: Add Variscite audio codec files
+Date: Sun, 27 Sep 2026 14:46:20 +0200
+Message-ID: <d82767680658b3d9452b72578aa68ad681318870.1790512621.git.stefano.r@variscite.com>
+X-Mailer: git-send-email 2.47.3
+In-Reply-To: <cover.1790512621.git.stefano.r@variscite.com>
+References: <cover.1790512621.git.stefano.r@variscite.com>
 MIME-Version: 1.0
-References: <20260914113338.159227-1-fuad.tabba@linux.dev> <20260914113338.159227-16-fuad.tabba@linux.dev>
- <86a4ph5fb9.wl-maz@kernel.org> <CA+EHjTzCQkeXQQcCDwABLR2w+NTmKTG3V6RSmhzYNayaoYXw3g@mail.gmail.com>
- <865x045mke.wl-maz@kernel.org> <aq0628Ci4pfEj0KG@willie-the-truck> <871paf3y1n.wl-maz@kernel.org>
-In-Reply-To: <871paf3y1n.wl-maz@kernel.org>
-From: Fuad Tabba <fuad.tabba@linux.dev>
-Date: Sun, 27 Sep 2026 13:37:25 +0100
-X-Gmail-Original-Message-ID: <CA+EHjTzmGzwhVg=6jkHxzV6LF_WsdR1drobOFNTVWNyB1ZDGiw@mail.gmail.com>
-X-Gm-Features: AclHuK83YcLXY0C9NhVVfgcTUZxPrypRPxP9P25GK7wvjm4osxpyz56DMnGRBu4
-Message-ID: <CA+EHjTzmGzwhVg=6jkHxzV6LF_WsdR1drobOFNTVWNyB1ZDGiw@mail.gmail.com>
-Subject: Re: [PATCH v3 15/18] KVM: arm64: Reject host access to protected VM
- private state
-To: Marc Zyngier <maz@kernel.org>
-Cc: Will Deacon <will@kernel.org>, oupton@kernel.org, kvmarm@lists.linux.dev, 
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
-	catalin.marinas@arm.com, joey.gouly@arm.com, seiden@linux.ibm.com, 
-	suzuki.poulose@arm.com, yuzenghui@huawei.com, mark.rutland@arm.com, 
-	steven.price@arm.com, vdonnefort@google.com, qperret@google.com
-Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260927_053812_439885_AAEFCF42 
-X-CRM114-Status: GOOD (  20.22  )
+X-CRM114-CacheID: sfid-20260927_054643_510638_B548AEEE 
+X-CRM114-Status: GOOD (  16.65  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -85,47 +130,220 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Marc, Will,
+From: Stefano Radaelli <stefano.r@variscite.com>
 
-On Sun, 27 Sep 2026 09:20:52 +0100, Marc Zyngier <maz@kernel.org> wrote:
-[...]
-> > and it would be really helpful to discuss it on the list. As you probably
-> > know, on Android, pKVM has the semantics you describe above: the ONE_REG
-> > calls succeed, but the register state isn't propagated to the guest once
-> > it's started running. I think we largely did it this way because we were
-> > solving a million problems at once during the initial development and
-> > having to pipe-clean VMMs wasn't particularly appealing at the time.
-> > It's also worth adding that, to my knowledge, we've never had any issues
-> > in Android because of this decision.
+Add shared WM8904 and WM8731 audio option DTSI files for
+VAR-SOM-6UL and DART-6UL. Keep the codec, SAI2 setup and pinctrl
+out of the module base so each board selects its fitted codec.
 
-That's Android 15 (6.6). Android 16 and 17 reject ONE_REG once a
-protected vCPU is finalized, except x0-x3 during one forwarded
-hypercall so the VMM can complete it [1]. crosvm has shipped against
-that on both.
+The DART-6UL WM8904 wrapper adds the microphone routes to IN2L,
+IN2R and MICBIAS. Both modules use the same WM8731 description.
 
-[...]
-> > If it's helpful, we can ask the crosvm developers here if they have
-> > opinions for/against the two behaviours?
->
-> I guess that'd be useful to know what they'd prefer, and also to look
-> into what QEMU does in this case -- I'm not exactly a good judge when
-> it comes to UAPI definition... ;-)
+Signed-off-by: Stefano Radaelli <stefano.r@variscite.com>
+---
+v1->v2:
+ - Share the WM8904 description with a DART-specific microphone
+   routing wrapper, and consolidate the identical WM8731 files.
 
-QEMU stops syncing registers once it has marked the guest state
-protected [2] (bar the virtual counter save/restore on stop/cont), and
-the QEMU CCA series sets that flag when the VM starts [3].
+ .../imx/imx6ul-imx6ull-var-dart-wm8904.dtsi   | 17 ++++
+ .../nxp/imx/imx6ul-imx6ull-var-wm8731.dtsi    | 71 ++++++++++++++++
+ .../nxp/imx/imx6ul-imx6ull-var-wm8904.dtsi    | 85 +++++++++++++++++++
+ 3 files changed, 173 insertions(+)
+ create mode 100644 arch/arm/boot/dts/nxp/imx/imx6ul-imx6ull-var-dart-wm8904.dtsi
+ create mode 100644 arch/arm/boot/dts/nxp/imx/imx6ul-imx6ull-var-wm8731.dtsi
+ create mode 100644 arch/arm/boot/dts/nxp/imx/imx6ul-imx6ull-var-wm8904.dtsi
 
-On the kernel side, the CCA series rejects a SET_ONE_REG for a realm
-outside the GPRs, PC and two configuration registers with -EINVAL, and
-lets GET return what its message calls "(stale)" values [4].
-
-Given that, are you ok with v4 keeping the error? :D
-
-Cheers,
-/fuad
-
-[1] https://android.googlesource.com/kernel/common/+/cfc696b1fb110
-[2] https://gitlab.com/qemu-project/qemu/-/commit/5c3131c392f84c660033d511ec39872d8beb4b1e
-[3] https://lore.kernel.org/all/20260903193611.1058589-5-mathieu.poirier@linaro.org/
-[4] https://lore.kernel.org/all/20260924160504.853911-23-suzuki.poulose@arm.com/
+diff --git a/arch/arm/boot/dts/nxp/imx/imx6ul-imx6ull-var-dart-wm8904.dtsi b/arch/arm/boot/dts/nxp/imx/imx6ul-imx6ull-var-dart-wm8904.dtsi
+new file mode 100644
+index 000000000000..236022f3da10
+--- /dev/null
++++ b/arch/arm/boot/dts/nxp/imx/imx6ul-imx6ull-var-dart-wm8904.dtsi
+@@ -0,0 +1,17 @@
++// SPDX-License-Identifier: GPL-2.0+
++/*
++ * Copyright (C) 2026 Variscite Ltd. - https://www.variscite.com
++ */
++
++#include "imx6ul-imx6ull-var-wm8904.dtsi"
++
++&sound_wm8904 {
++	simple-audio-card,routing =
++		"Headphone Jack", "HPOUTL",
++		"Headphone Jack", "HPOUTR",
++		"IN1L", "Line In Jack",
++		"IN1R", "Line In Jack",
++		"IN2L", "Microphone Jack",
++		"IN2R", "Microphone Jack",
++		"Microphone Jack", "MICBIAS";
++};
+diff --git a/arch/arm/boot/dts/nxp/imx/imx6ul-imx6ull-var-wm8731.dtsi b/arch/arm/boot/dts/nxp/imx/imx6ul-imx6ull-var-wm8731.dtsi
+new file mode 100644
+index 000000000000..7d74fc3b7014
+--- /dev/null
++++ b/arch/arm/boot/dts/nxp/imx/imx6ul-imx6ull-var-wm8731.dtsi
+@@ -0,0 +1,71 @@
++// SPDX-License-Identifier: GPL-2.0+
++/*
++ * Copyright (C) 2026 Variscite Ltd. - https://www.variscite.com
++ */
++
++/ {
++	sound {
++		compatible = "simple-audio-card";
++		simple-audio-card,bitclock-master = <&sound_master>;
++		simple-audio-card,format = "i2s";
++		simple-audio-card,frame-master = <&sound_master>;
++		simple-audio-card,name = "wm8731audio";
++		simple-audio-card,routing =
++			"Headphone Jack", "RHPOUT",
++			"Headphone Jack", "LHPOUT",
++			"LLINEIN", "Line Jack",
++			"RLINEIN", "Line Jack",
++			"MICIN", "Mic Bias",
++			"Mic Bias", "Mic Jack";
++		simple-audio-card,widgets =
++			"Headphone", "Headphone Jack",
++			"Line", "Line Jack",
++			"Microphone", "Mic Jack";
++
++		sound_master: simple-audio-card,cpu {
++			sound-dai = <&sai2>;
++		};
++
++		simple-audio-card,codec {
++			sound-dai = <&codec>;
++			system-clock-frequency = <12288000>;
++		};
++	};
++};
++
++&i2c2 {
++	codec: audio-codec@1a {
++		compatible = "wlf,wm8731";
++		reg = <0x1a>;
++		#sound-dai-cells = <0>;
++		clocks = <&clks IMX6UL_CLK_SAI2>;
++		clock-names = "mclk";
++		AVDD-supply = <&reg_3p3v>;
++		DBVDD-supply = <&reg_3p3v>;
++		DCVDD-supply = <&reg_3p3v>;
++		HPVDD-supply = <&reg_3p3v>;
++	};
++};
++
++&sai2 {
++	pinctrl-names = "default";
++	pinctrl-0 = <&pinctrl_sai2>;
++	assigned-clocks = <&clks IMX6UL_CLK_SAI2_SEL>,
++			  <&clks IMX6UL_CLK_SAI2>;
++	assigned-clock-parents = <&clks IMX6UL_CLK_PLL4_AUDIO_DIV>;
++	assigned-clock-rates = <0>, <12288000>;
++	fsl,sai-mclk-direction-output;
++	status = "okay";
++};
++
++&iomuxc {
++	pinctrl_sai2: sai2-grp {
++		fsl,pins = <
++			MX6UL_PAD_JTAG_TDI__SAI2_TX_BCLK	0x17088
++			MX6UL_PAD_JTAG_TDO__SAI2_TX_SYNC	0x17088
++			MX6UL_PAD_JTAG_TRST_B__SAI2_TX_DATA	0x11088
++			MX6UL_PAD_JTAG_TCK__SAI2_RX_DATA	0x11088
++			MX6UL_PAD_JTAG_TMS__SAI2_MCLK		0x17088
++		>;
++	};
++};
+diff --git a/arch/arm/boot/dts/nxp/imx/imx6ul-imx6ull-var-wm8904.dtsi b/arch/arm/boot/dts/nxp/imx/imx6ul-imx6ull-var-wm8904.dtsi
+new file mode 100644
+index 000000000000..dd5f6e4edad5
+--- /dev/null
++++ b/arch/arm/boot/dts/nxp/imx/imx6ul-imx6ull-var-wm8904.dtsi
+@@ -0,0 +1,85 @@
++// SPDX-License-Identifier: GPL-2.0+
++/*
++ * Copyright (C) 2026 Variscite Ltd. - https://www.variscite.com
++ */
++
++/ {
++	sound_wm8904: sound {
++		compatible = "simple-audio-card";
++		simple-audio-card,bitclock-master = <&sound_master>;
++		simple-audio-card,format = "i2s";
++		simple-audio-card,frame-master = <&sound_master>;
++		simple-audio-card,name = "wm8904audio";
++		simple-audio-card,routing =
++			"Headphone Jack", "HPOUTL",
++			"Headphone Jack", "HPOUTR",
++			"IN1L", "Line In Jack",
++			"IN1R", "Line In Jack";
++		simple-audio-card,widgets =
++			"Microphone", "Microphone Jack",
++			"Headphone", "Headphone Jack",
++			"Line", "Line In Jack";
++		simple-audio-card,mclk-fs = <256>;
++
++		simple-audio-card,cpu {
++			sound-dai = <&sai2>;
++		};
++
++		sound_master: simple-audio-card,codec {
++			sound-dai = <&codec>;
++		};
++	};
++};
++
++&i2c2 {
++	codec: audio-codec@1a {
++		compatible = "wlf,wm8904";
++		reg = <0x1a>;
++		#sound-dai-cells = <0>;
++		clocks = <&clks IMX6UL_CLK_SAI2>;
++		clock-names = "mclk";
++		AVDD-supply = <&reg_3p3v>;
++		CPVDD-supply = <&reg_3p3v>;
++		DBVDD-supply = <&reg_3p3v>;
++		DCVDD-supply = <&reg_3p3v>;
++		MICVDD-supply = <&reg_3p3v>;
++		wlf,drc-cfg-names = "default", "peaklimiter", "tradition",
++				    "soft", "music";
++		/*
++		 * Config registers per name, respectively:
++		 * KNEE_IP = 0,   KNEE_OP = 0,     HI_COMP = 1,   LO_COMP = 1
++		 * KNEE_IP = -24, KNEE_OP = -6,    HI_COMP = 1/4, LO_COMP = 1
++		 * KNEE_IP = -42, KNEE_OP = -3,    HI_COMP = 0,   LO_COMP = 1
++		 * KNEE_IP = -45, KNEE_OP = -9,    HI_COMP = 1/8, LO_COMP = 1
++		 * KNEE_IP = -30, KNEE_OP = -10.5, HI_COMP = 1/4, LO_COMP = 1
++		 */
++		wlf,drc-cfg-regs = /bits/ 16 <0x01af 0x3248 0x0000 0x0000>,
++				   /bits/ 16 <0x04af 0x324b 0x0010 0x0408>,
++				   /bits/ 16 <0x04af 0x324b 0x0028 0x0704>,
++				   /bits/ 16 <0x04af 0x324b 0x0018 0x078c>,
++				   /bits/ 16 <0x04af 0x324b 0x0010 0x050e>;
++	};
++};
++
++&sai2 {
++	pinctrl-names = "default";
++	pinctrl-0 = <&pinctrl_sai2>;
++	assigned-clocks = <&clks IMX6UL_CLK_SAI2_SEL>,
++			  <&clks IMX6UL_CLK_SAI2>;
++	assigned-clock-parents = <&clks IMX6UL_CLK_PLL4_AUDIO_DIV>;
++	assigned-clock-rates = <0>, <11565177>;
++	fsl,sai-mclk-direction-output;
++	status = "okay";
++};
++
++&iomuxc {
++	pinctrl_sai2: sai2-grp {
++		fsl,pins = <
++			MX6UL_PAD_JTAG_TDI__SAI2_TX_BCLK	0x17088
++			MX6UL_PAD_JTAG_TDO__SAI2_TX_SYNC	0x17088
++			MX6UL_PAD_JTAG_TRST_B__SAI2_TX_DATA	0x11088
++			MX6UL_PAD_JTAG_TCK__SAI2_RX_DATA	0x11088
++			MX6UL_PAD_JTAG_TMS__SAI2_MCLK		0x17088
++		>;
++	};
++};
+-- 
+2.47.3
 
