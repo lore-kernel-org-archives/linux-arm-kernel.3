@@ -4,112 +4,106 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 460A3C98324
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 27 Sep 2026 07:02:52 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2DAF5C98324
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 27 Sep 2026 07:29:10 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:To:
-	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=RJKp/brBpZ8U6kwJIcmM4FiZnVhsdc/GYabd2hj9ep0=; b=eFF+jyjAVx8aP2Y/+QTq2bmBD0
-	28jQ3Bo1fwC56J44/+aozYYXWPA9lE2+qnJNaVr3A8+ywXrw4JUpJO1dp7Gg4L8XIIF+eXpuvdE9K
-	KFXufB9G+GoYKepiyPQGblwUoSJ63vi7AuH2W8q/jgsb1H9gp9neb1Pt2Xjn53rHwKOfX1tTF3VCi
-	qcBRlKUE4v1zPjJ0m/Vd6G47gykWhkCbbkvXIWrZ7gHC+RtsJ61rLq6pwjs7ubjMdsjrs8x9wZZl3
-	su8OPdFNn2n6OhsoC1SdYbuautuQjkAcGIGpCLFxhMVY3sjPlXdG8QPoZ0JU4GSM3Od10EUH7vfux
-	r43Xckcw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
+	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=/XyK2jKdoKkKL5T7snSnH60cAWdSpGKwMQSo4tA4mUM=; b=4K+e9184jbnanOpjBDK5GuZrOm
+	gvpV2kawfjg37lQJdyPuQw1TXlgwxyly5y9UA2b+7g9i2y/0H1uOlnC6MTFes/DTO+67+0b0/9zUN
+	q5MMmnLgAeiUoX0iQMPiYU8DdX3zMKs/77+gVyHzKEFj0IDFlvZgUUouyczsQoTL2KZhibwb9mFOO
+	IfjkxkrpTaR7iW3/AtEHfOysv3R8nh8X/g/UtUlqT8lJ+wWXZmBYd+RmKqPgp2waxXECgW1TYjEsp
+	cGRzRJaw96yELI6iUkzZUMcKpV2+X/5XpLHzMz/skfo1oUtjoYQIvpKLBvmu+ZcyafARz3KehFaPx
+	+BybqaUg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xAiu9-0000000G5O3-1HLG;
-	Sun, 27 Sep 2026 07:02:33 +0000
-Received: from mail-wr2-x0f.google.com ([2a00:1450:4864:30::f])
+	id 1xAjJk-0000000G6N7-3XgU;
+	Sun, 27 Sep 2026 07:29:00 +0000
+Received: from mail-lf2-x10.google.com ([2a00:1450:4864:36::10])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xAiu6-0000000G5NG-2Hxx
+	id 1xAjJi-0000000G6MW-1amf
 	for linux-arm-kernel@lists.infradead.org;
-	Sun, 27 Sep 2026 07:02:31 +0000
-Received: by mail-wr2-x0f.google.com with SMTP id ffacd0b85a97d-48882c1f261so624632f8f.0
-        for <linux-arm-kernel@lists.infradead.org>; Sun, 27 Sep 2026 00:02:29 -0700 (PDT)
+	Sun, 27 Sep 2026 07:28:59 +0000
+Received: by mail-lf2-x10.google.com with SMTP id 2adb3069b0e04-5b8eb39a8edso1472083e87.0
+        for <linux-arm-kernel@lists.infradead.org>; Sun, 27 Sep 2026 00:28:57 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1790494135; cv=none;
+        d=google.com; s=arc-20260327;
+        b=dA/ebAp7R6anhkytg9Y4LqBwSeiieviR/4/3iso5bqNgNuA8p/OIv+5kPinUdQFOBr
+         ZT964+Bz63iBHISQbD+B4ZmvdH0RuNj8aor8O9F9J/TBU8Em+lHEh0+gvsIWNYpQnCJN
+         wQoER4vNOaArtJqVRTVix3J/c8nmVxF1+BBbxKrzp7Ws415tZ62/Te23POdGqt+VkX9g
+         k8mdrVkx67ba34hn0WLZNsCuzOtAJzFObC9coIHry6NLXcQnDHclLDZCp462RO18sBOd
+         sSee1uwUyLImtjS37oPv4ILIWMERKfz3HDk4IQJmIbEg4P9xjEvVexpufxeKOtlN2clw
+         v/tg==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:dkim-signature;
+        bh=/XyK2jKdoKkKL5T7snSnH60cAWdSpGKwMQSo4tA4mUM=;
+        fh=ZQiXOSfCk8HkS7RsS2XU0dFbyOmDQ98n3C0B87K03YU=;
+        b=O4VhA0AKsLuYPQkZmCIpWlkOe3Fg+xj2JtKqr3xA64Xc3BVwBt87M2i3KsL8S2PJFi
+         pTtUM2Azf8OJUQETAAfvRitqbigEm/t/TmC0gwsyJI/ZE8tZ92KS8w/ZwGmv51btsOl/
+         EQeN3ApUQpcYBWEE7n3lrIeQ9GAbhoO20yqXpat0S7hZOu5vqZ5NgMaCrDI4R4FlCVns
+         KcRq3m/uRs1DLkgfJKm/gOMKM5Qto4JpbODkB+TgFVCVPPxG0nWfTU+hmUa3cZjP5jSs
+         9+kuPN41Norr7OiWWTvPqOB9oNDEbUkFvvm4p7KqXBplWxKr5CY2YSmydabUj3sD9XUS
+         sL8Q==;
+        darn=lists.infradead.org
+ARC-Authentication-Results: i=1; mx.google.com; arc=none
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1790492548; x=1791097348; darn=lists.infradead.org;
-        h=content-transfer-encoding:content-type:mime-version:references
-         :in-reply-to:message-id:subject:cc:to:from:date:from:to:cc:subject
-         :date:message-id:reply-to:content-type;
-        bh=RJKp/brBpZ8U6kwJIcmM4FiZnVhsdc/GYabd2hj9ep0=;
-        b=sh9xIpS95lfenlEobk6PO5gnn/WyjELws59JQ8FC9HXW8WOVLUmEgFvGRNIrnjy4nc
-         dAL4XkDM5I4OBzO7w6z86qIB+56op+9zT2coUZxXZ4LLcw/GL5Y7uq8jtS3L08/VsNI+
-         mOySkoJByPRxh7ljPjpJihZ6zeKsONFeWE/ejBCA662s/Hn5/z3edm9TA55JmscyE1de
-         jm4EGcwfAaGkUDu8zr1iU8/vslNnr6RPCVPNPZ6xpm6QZPPCE8/hIfNhPEbeDwSBS4an
-         Qcu6KpUQNCJd8Vsl7kvJ0zjaN1oJ8XC9iMgksXJwqSJiDk4VzeW5R/krFu13dzRsU8m6
-         zFNg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1790492548; x=1791097348;
-        h=content-transfer-encoding:content-type:mime-version:references
-         :in-reply-to:message-id:subject:cc:to:from:date:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+        d=gmail.com; s=20251104; t=1790494135; x=1791098935; darn=lists.infradead.org;
+        h=content-type:cc:to:subject:message-id:date:from:in-reply-to
+         :references:mime-version:from:to:cc:subject:date:message-id:reply-to
          :content-type;
-        bh=RJKp/brBpZ8U6kwJIcmM4FiZnVhsdc/GYabd2hj9ep0=;
-        b=2my7BJtW3LhWOf284ftLnFSdJQYdm3BUiqhXmL0BubW6vEifSZk38C0pehthXbTaBi
-         F/oJdcgoFG+wj3MYvft7JrkFAABYCmoKsunsjiYE72XMkR7g6w+AOqn4a99kaf2wdNIn
-         kVjyT9TdtLIJuS+FsEeCP1P6B+udMLYD47bTljrMXNihpWodzXz3ktdmU7Tz2JU9eKFa
-         4PFahzXdTycXZYs5yW8SXlVIoln7Sb/q/nOjiLuE0M9OS7fQEk9NngNiLsVBokP2YIVJ
-         rHtbdToqCUedPqHyV9SwjYB6pGV0/7an8HmRTp0VpJiUoDw+8i6F57vS/p8vyxRknkUj
-         NPXw==
-X-Forwarded-Encrypted: i=1; AKwUvByXGBJYP67p7ZCtPywLF3PhVrWu9y/yD/D8SAolLib8PW7uGwlu9zCpLIaCYzagZMO7eq8/v0U1cW5/H7Juynl9@lists.infradead.org
-X-Gm-Message-State: AFuF++lAC6K62gLaGkOQkvrpWnTQ4pLUfkYM/7YTVvq8dPcwxiASFXEq
-	V4HcghdWd0MQVa4QBGzBA/M4EMyd1o1kplrWV5ppnj5XKEM5Xd8a1c5n
-X-Gm-Gg: AYBFou1iRdqoRnVehZQ0/GRxywVFpeWi+mFb6yPVlw7O11dQv2kx1gufpQtYQz3Beyh
-	v6e8uinPRzdaMLk0784/JQQtCQAmz6xRrDVvvnv6WWlAXCeDQ6rtS4gMiPwJ1Ey4aTMTV9VUPdr
-	OjAXZYmwD4XXzRd09SAhuUNYH8Sl87X8yZ7F2zOxvurl0VMX3JVf50SyO2OIM6J8D2BREBpgGSp
-	MXTPkx63O4tsZIbX6wwu08x339Phm2z8iWkmm2K4SPnyXsvtF2kB2T7/AY6Ah5eSt7tnXEAv+W9
-	QhLenNpgzFlFSYw5qUf9mp9mKIZElkHlIOtLtZKj6vcclW9Vf4OKp5jyKsM2U7MHHPAMcojO9K8
-	Kgx9gAkatFmtDEj7xEJVyCmEwDoiDqxWOPrs3GTh9X9GncL3NATaRoUVrDtQwMwHUFpD/yepeAV
-	ua+Kc6dQchpx4mztsG/Z5dWVa3C/Iyq373VSlUG7sNJ28R0FbIiUSi8zDo4HJmwYGU4OkFRiBbU
-	CZh1rXlRD3NUw+4SU4RgmSzDv78rrqVBR7o
-X-Received: by 2002:a05:600c:1f83:b0:49b:8f5e:51fb with SMTP id 5b1f17b1804b1-49fe66c8087mr175447355e9.3.1790492548064;
-        Sun, 27 Sep 2026 00:02:28 -0700 (PDT)
-Received: from pumpkin (82-69-66-36.dsl.in-addr.zen.co.uk. [82.69.66.36])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4a0018f0e79sm57015315e9.7.2026.09.27.00.02.26
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sun, 27 Sep 2026 00:02:27 -0700 (PDT)
-Date: Sun, 27 Sep 2026 08:02:25 +0100
-From: David Laight <david.laight.linux@gmail.com>
-To: "Jason A. Donenfeld" <Jason@zx2c4.com>
-Cc: Nathan Chancellor <nathan@kernel.org>, Andreas Schwab
- <schwab@linux-m68k.org>, Andy Lutomirski <luto@kernel.org>, Thomas Gleixner
- <tglx@kernel.org>, Theodore Ts'o <tytso@mit.edu>, Vincenzo Frascino
- <vincenzo.frascino@arm.com>, Nick Desaulniers <ndesaulniers@google.com>,
- Bill Wendling <morbo@google.com>, Justin Stitt <justinstitt@google.com>,
- Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
- Mark Rutland <mark.rutland@arm.com>, Huacai Chen <chenhuacai@kernel.org>,
- WANG Xuerui <kernel@xen0n.name>, Madhavan Srinivasan <maddy@linux.ibm.com>,
- Michael Ellerman <mpe@ellerman.id.au>, Nicholas Piggin <npiggin@gmail.com>,
- "Christophe Leroy (CS GROUP)" <chleroy@kernel.org>, Paul Walmsley
- <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou
- <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>, Heiko Carstens
- <hca@linux.ibm.com>, Vasily Gorbik <gor@linux.ibm.com>, Alexander Gordeev
- <agordeev@linux.ibm.com>, Christian Borntraeger
- <borntraeger@linux.ibm.com>, Sven Schnelle <svens@linux.ibm.com>, Ingo
- Molnar <mingo@redhat.com>, Borislav Petkov <bp@alien8.de>, Dave Hansen
- <dave.hansen@linux.intel.com>, "H. Peter Anvin" <hpa@zytor.com>,
- x86@kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-kernel@vger.kernel.org, loongarch@lists.linux.dev,
- linuxppc-dev@lists.ozlabs.org, linux-riscv@lists.infradead.org,
- linux-s390@vger.kernel.org, llvm@lists.linux.dev
-Subject: Re: [PATCH v2] random: vDSO: Avoid call to memset() when zeroing
- reserved in __cvdso_getrandom_data()
-Message-ID: <20260927080225.37534e7c@pumpkin>
-In-Reply-To: <are7cfMIHZZn6jLz@zx2c4.com>
-References: <20260925-vdso-getrandom-avoid-memset-llvm-24-v2-1-ce640f872393@kernel.org>
-	<87zex4ic68.fsf@linux-m68k.org>
-	<20260926121927.GA1486962@ax162>
-	<are7cfMIHZZn6jLz@zx2c4.com>
-X-Mailer: Claws Mail 4.1.1 (GTK 3.24.38; arm-unknown-linux-gnueabihf)
+        bh=/XyK2jKdoKkKL5T7snSnH60cAWdSpGKwMQSo4tA4mUM=;
+        b=TsrVlfC2B46zVUkmhWdx1qM1Cd6EcVLdL90b3z+TvlYLvnfJnZsHAWxoHT1l4uftvU
+         JzvjbrNk+3xU67IHATLwG2sLqT+MUXkh6ar33bggr4XsefPY3r0u4GASLYgW4YhtsXCK
+         EieXi0XgbtKrdfNFEraaiL1arZekdRrcC9UnGg4onxAEe1SDl+JYNYoLJLx1hy8lNP4S
+         0mzqW/zworQZHUBN3EpS5vDHW3bzFh2e5y6YJ57UgA0bIyJN4SucGjNW89/vtqFrvwIa
+         Qai3mCryCXiaZc4pMXUpLvh1sKsp+bkQwyV3BbCsogfOHSNqCKea94JtG1wOxFUwLew1
+         0J7Q==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1790494135; x=1791098935;
+        h=content-type:cc:to:subject:message-id:date:from:in-reply-to
+         :references:mime-version:x-gm-gg:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to:content-type;
+        bh=/XyK2jKdoKkKL5T7snSnH60cAWdSpGKwMQSo4tA4mUM=;
+        b=PjNZHS4ja6Esw4toHKi/r7J6T1QWpGZMPok9EWYJ5NyoaHrf7BO4FeVtOJKMC0B+db
+         iEmyeVANmRUvrZWfa79SE1QGOzveT0gJsw2lEupsVi0aytqOyPw7J2E93Z18yhjOplkj
+         kq088Z4AmoMA99dCNNjZE3fEf6TrKlV5AUV5t6hLo+iZxi31qemT8vEhqc/3Z/OgI6I5
+         roEnQ/Bpd6qaJHuuDHDMgoRmKBfcbjsQEyoxPAcBcsJKPUTIb+01c4SbNtJ80xNJYDRN
+         RKoFP1P5B5UEepustC4wM7R4d6u04JTqfD66zhW9X1e2IiLTkueytYTIyQaiXw6ybawu
+         bcsQ==
+X-Forwarded-Encrypted: i=1; AKwUvBxlJvyjIXeQ8Pf78iRl5S8WsPH/390VcWPaV78IMQ87s+LWLA9F0562A1eZeZryIrhJ2xWbeGuPEcG2mqO7xVwO@lists.infradead.org
+X-Gm-Message-State: AFq9FYJXHz9Y+A1IH17V0vEQOSgSLknV7KlsORFk+z4e1eTAQlQTg5UI
+	Qq7z2zG/l61sUojLz6uTN4JcJHWuUj+l3HK11Nvu4vtakNTYXol4lvNC3bLdmRlm1Bai2YqwZHq
+	glsX2pmTG4PbbscZu/flhd977EdVa+98=
+X-Gm-Gg: AYBFou21gYNhyWuW6K8n6HIhZWGcA7C03Oubp2tr0mXXPklhStarHh7TjbySUA8w6pK
+	YeWF0LCzTmF/8UXcatmJRFcwoJw+7psNT5zF2xGuE4YZGWliFWLnwZdlCcB+FQW88cB4A3oaXQC
+	c0uV2VlhSMU0zoXnNdx/Vt7vevKPFzpiPt74ylm5b14BCV2nbEiAHPRVDPLzRACwOtyrQmRPOCq
+	UQsmp94EC6OZd7dM5n+q1oqhsrsUMCjpz+BFQ8oukqkWd0ModB6Vl0hcslEHft6Q/Tl1Jyleu0U
+	cLJaMp/g+Mx1WplvDoRxUg9eUZME++t/hL6JNI3Ol4zgn0EhPaPjbw==
+X-Received: by 2002:a05:6512:39c3:b0:5b8:f42b:ee35 with SMTP id
+ 2adb3069b0e04-5b8f42bf011mr467408e87.51.1790494135280; Sun, 27 Sep 2026
+ 00:28:55 -0700 (PDT)
 MIME-Version: 1.0
-Content-Type: text/plain; charset=US-ASCII
-Content-Transfer-Encoding: 7bit
+References: <20260924135116.185161-1-maimon.sagi@gmail.com>
+In-Reply-To: <20260924135116.185161-1-maimon.sagi@gmail.com>
+From: Sagi Maimon <maimon.sagi@gmail.com>
+Date: Sun, 27 Sep 2026 10:28:29 +0300
+X-Gm-Features: AclHuK9jR81YtUx1RQCcrT9bGJMnvoX8CDMxKrKA2UGl4RFqsdHHmwLzPsS4b9g
+Message-ID: <CAMuE1bE9XGm31fKRf62kD_rP7xFvkjjePRTPfRSjwH815PPbBA@mail.gmail.com>
+Subject: Re: [PATCH net v2 0/4] net: axienet: fix TX queue handling around a
+ DMA error reset
+To: netdev@vger.kernel.org
+Cc: radhey.shyam.pandey@amd.com, michal.simek@amd.com, andrew+netdev@lunn.ch, 
+	davem@davemloft.net, edumazet@google.com, kuba@kernel.org, pabeni@redhat.com, 
+	linux@armlinux.org.uk, daniel@iogearbox.net, andybnac@gmail.com, 
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260927_000230_643055_CA6894EE 
-X-CRM114-Status: GOOD (  22.14  )
+X-CRM114-CacheID: sfid-20260927_002858_439537_6ABF3CBC 
+X-CRM114-Status: GOOD (  10.95  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -124,52 +118,22 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Sat, 26 Sep 2026 14:32:49 +0200
-"Jason A. Donenfeld" <Jason@zx2c4.com> wrote:
+I am withdrawing this series.
 
-> On Sat, Sep 26, 2026 at 01:19:27PM +0100, Nathan Chancellor wrote:
-> > On Sat, Sep 26, 2026 at 11:39:43AM +0200, Andreas Schwab wrote:  
-> > > On Sep 25 2026, Nathan Chancellor wrote:
-> > >   
-> > > > +#if __has_builtin(__builtin_memset_inline)
-> > > > +#define memset_inline(dst, value, size) __builtin_memset_inline(dst, value, size)
-> > > > +#elif IS_ENABLED(CONFIG_CC_HAS_OPT_INLINE_MEMSET)
-> > > > +#define memset_inline(dst, value, size) __builtin_memset(dst, value, size)
-> > > > +#else
-> > > > +static inline void *memset_inline(void *dst, int value, size_t size)
-> > > > +{
-> > > > +	char *d = dst;
-> > > > +
-> > > > +	while (size--)
-> > > > +		*d++ = value;
-> > > > +
-> > > > +	return d;
-> > > > +}
-> > > > +#endif
-> > > > +  
-> > > 
-> > > memset actually returns the original pointer, not the incremented one.
-> > > Nothing uses the return value of memset_inline here, but it is
-> > > confusing.  
-> > 
-> > Whoops, good catch, I guess my fingers gave up on those last two
-> > characters :) I will fix this for v3 once there has been some time for
-> > further review.  
-> 
-> Do we even need to return a value at all? Might as well just make the
-> function two lines:
-> 
-> +       for (char *d = dst; size--;)
-> +               *d++ = value;
+The review of v2 found a real gap in 3/4: axienet_open() and
+axienet_resume() can still wake the queue while the error handler is
+running, so the claim that the handler owns the queue state for its
+whole duration does not hold.  4/4 has a smaller hole in the same resume
+window.  The other findings are older problems on the same paths:
+axienet_open() ignores the result of axienet_device_reset(),
+axienet_resume() ignores the result of axienet_open(), and the dmaengine
+stop path has the same suspend race as the legacy one.
 
-Wouldn't it be better to add a barrier() or similar in there to
-stop the compiler playing unwanted games>
+Fixing that properly means reworking open, suspend and resume together,
+and I cannot test suspend and resume on the hardware I have.  I would
+rather not keep posting partial fixes for paths I cannot test, so I am
+dropping the series.  The TX buffer leak in axienet_dma_bd_release() is
+posted as a separate patch.
 
-David
-
-> 
-> (Technically that could even be one, but maybe that sort of golf loses
-> clarity. Your choice.)
-> 
-
+pw-bot: cr
 
