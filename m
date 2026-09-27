@@ -4,96 +4,104 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 70DFDC9830E
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 27 Sep 2026 11:44:52 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CC3C8C9830E
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 27 Sep 2026 11:50:00 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
-	:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=hfsvOd/SdIwAhDO4f+o0wspmtu0+CDGRWfBBsuzDu0g=; b=1HpsygIvpbwruGVe2zQDr9XF9G
-	sUgddAi3pA6KqH4WfYfHahzKG7QVgdBQQtSYMPTrenf3mCNbDXaBntJ0pdc3hQW+dKOxjmvvQE++k
-	6jM+8VWyaihoBVMoSVMkRdmiRg8iCUuwJpLj6X/GTCtyud5z3Pk8KQAL7aARBlqpZ0BLaT7bVsHlq
-	J2SDCwi+8E//kdiMeMHMld8rGs5/lzh6tsJkS+oduTR6TRe5mbKqE3X6jomkadLnG46HSGph9Gbrz
-	eMMLMADb4bFjHti6Rq2xgc/ScIFBmWSchgy01VuNDbbZ6iZiCJLZExPtEjE1t9xRLpSTDFMfOX1xC
-	tJzlGsBg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=71g56uPtScUsuXicGPFTJJ9Hw3/l51368qJ69c37ce0=; b=VVhHNR+7KZlB6ANcj0zqOykDjq
+	J0wBuroEcg0oyMs6yOoTw/jWZ6xgE5BflARR6JtKBcaIgenxx6BjLcNglYnQLR3DU+s5hk/U90ymq
+	to4IBJ1R4xS6QF9SEQqExQqaCCZMGreKxR080n8d1+FVKgvlJwBskaLb6xk0r/cgyk6VHlm484Lhy
+	1IVff06khVyyN4auq+lrsi5ofaU2cXph+cYVjP3uU8pMA5vvpmZQhKL5JGQg4ER3XrRKDmZqUpt3o
+	QBoxg+mehGiapQHSIkfpBU/pbM6AVu3dPDuFeTNcvCbohR3LluFEcDKwHTMF71dR/w5SRGzMOyzg2
+	mps/lYBQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xAnJE-0000000GGI6-3Oa5;
-	Sun, 27 Sep 2026 11:44:44 +0000
+	id 1xAnOE-0000000GGYW-1ncq;
+	Sun, 27 Sep 2026 11:49:54 +0000
 Received: from mail-wm2-x10.google.com ([2a00:1450:4864:31::10])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xAnJC-0000000GGHc-2tiR
+	id 1xAnOA-0000000GGX5-2SNT
 	for linux-arm-kernel@lists.infradead.org;
-	Sun, 27 Sep 2026 11:44:43 +0000
-Received: by mail-wm2-x10.google.com with SMTP id 5b1f17b1804b1-4a003bd18e5so454765e9.0
-        for <linux-arm-kernel@lists.infradead.org>; Sun, 27 Sep 2026 04:44:41 -0700 (PDT)
+	Sun, 27 Sep 2026 11:49:53 +0000
+Received: by mail-wm2-x10.google.com with SMTP id 5b1f17b1804b1-49fff6f0f87so3961765e9.3
+        for <linux-arm-kernel@lists.infradead.org>; Sun, 27 Sep 2026 04:49:49 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1790509480; x=1791114280; darn=lists.infradead.org;
-        h=content-type:content-transfer-encoding:mime-version:references
-         :in-reply-to:message-id:date:subject:cc:to:from:from:to:cc:subject
-         :date:message-id:reply-to:content-type;
-        bh=hfsvOd/SdIwAhDO4f+o0wspmtu0+CDGRWfBBsuzDu0g=;
-        b=J7THZWF5iRy9/VuUMsr4+/e7ixEhyACBw461beMYoedkGVtW/D2woNJseXqq3KQwAO
-         mDNB01YCnBOttufjXfkxyapLSNsg4myTeEKFdDBcideX3WVwyCiaW9mHOVp8kPIX1yLH
-         WNpcL6Mrc1qU/txwavCXT4zfwOK89kN7OJ+pkEUYHha7BjlD4Kqgaw7vDps4A5FPuHtB
-         3fAPcCEAIRedsxeWjtEkNQM8hmg3dSygB4iVs8Xvp+lZyCst/bgD0mGghnu/VZjAmP3X
-         QCaS3MfXOxAw0ovDihJhWv/Y8ld7DaTZKWoLnb8BqW9mmREpTu1OHDkuoGVBa/P08/py
-         qFGA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1790509480; x=1791114280;
-        h=content-type:content-transfer-encoding:mime-version:references
-         :in-reply-to:message-id:date:subject:cc:to:from:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+        d=osyx-tech.20251104.gappssmtp.com; s=20251104; t=1790509788; x=1791114588; darn=lists.infradead.org;
+        h=content-transfer-encoding:content-type:mime-version:message-id:date
+         :subject:cc:to:from:from:to:cc:subject:date:message-id:reply-to
          :content-type;
-        bh=hfsvOd/SdIwAhDO4f+o0wspmtu0+CDGRWfBBsuzDu0g=;
-        b=dcIgBPv12tI2O/af2RO1soGIpppvepb5wcq3+LO0xJMAibwsxGlhM8AlduatThE+fu
-         R82FSqzeSpDzGI8cCxvxLag4JTX7boXfpMXzD+4cevIV3DDFqsCu4XG7ajTmxFx4UR2P
-         ed5hiXcyuLCvXx+fNnNcFFQak2GNo3k62OR7tA9qAc1LXRkR43q/OswYDTLCxCtTQzMF
-         Xf07oE01A/7TwfFciQc06Hgvj1JIMCDa+fPbcYBYmn+273+ECQ3PnKsE+B3NfqhiHPJ0
-         UTL4pCse5N4VHTXhGyn+ZRt3aMTBwGihg/rCgLkg/ZTsxIJpHVAQLfg/WhfCXLGy1WEj
-         00vg==
-X-Forwarded-Encrypted: i=1; AKwUvBwOzEGHMldocx8tr5a537Bd7xQG6Spvey26jCjdgW0RPtTK20biUa1GkmisbVtRuPRyH/nDtZ+jSqvzo5sGYhk3@lists.infradead.org
-X-Gm-Message-State: AFuF++nEVtrCK0jVp/HuQS/QBfs4T4C9LkyEAwzk+y9fET4JgyPF639T
-	rAd1QRzBKXWfTFAxzBxg8/TPTh1YeqbncXAZojGuC/Oqc/8YmomioISU
-X-Gm-Gg: AYBFou2C8xFS7QII/optxpNHXk7oC84ilD1h6WHMMh2kE5V7sqTvpkxJNjFLqx6/YXM
-	fY9m47S7U1VeGhvsP1+QrmuwrJiAE3hlxuWJdfguWJAZxZnsmBow0ivOz5jDJWQJDcoAmzaeveS
-	hQF6Z9kGkA/+H1w9EdA5P8eRX+dtg61g/aOX+AOn+4unnHsrIKYuFdvwFRiwz3yFEHxlJXjtVPm
-	lsDf04OctX3IZFcsMxFvnBOmZOIqmVqDmd3xaEhQcbah9X1ojbILTb1Bwg4Tm4qKde3nxNAjofL
-	I/8iIUp2z577hxvJHukg3zqk6FoCBoHInqZnJFa2FwLays4iAubKpf+CFJ2vqOt6eAM8wWLCJCe
-	kkhWR2XOHT6uiHioGbpF4wfYuH/WrvlZ7quR47jhbglz2qxwRgKOvk/4eISqdNxe8uD2cQLeuib
-	q1LNttlR381zgCa1SRoIPs87HVTTGIk2UmBGowsMNbQuOz9GBxF2zEiBJRhFYBzhfBg9i/pAmiJ
-	bQw+9G/H8CtLU2sFs2K6MoffnCTpLDZTJftf0Z8RfQlOZn58HxiRb8XeWDWMtUvtKAs2vuid1JR
-	wyBdhz9IUZt/G9hk9l1ENDBb9iuhkYHyMsH7UTxPpADbJox/7pbB5y3dXvMF8HQqcsFW8rROTJE
-	xU+t61ofrDmUBN2CimjSTbW10oIR9zY19WWXoce93M5/OWQw/ImFSzfDpdohrW2Ia6TxDPXlwTP
-	SwixMWq7ehHFwUZ41Q
-X-Received: by 2002:a05:600c:8518:b0:49f:d325:9912 with SMTP id 5b1f17b1804b1-49ff06bcd79mr118283635e9.10.1790509480319;
-        Sun, 27 Sep 2026 04:44:40 -0700 (PDT)
-Received: from jernej-laptop.localnet (77-38-7-79.dynamic.telemach.net. [77.38.7.79])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4a0018dcf59sm72964095e9.1.2026.09.27.04.44.39
+        bh=71g56uPtScUsuXicGPFTJJ9Hw3/l51368qJ69c37ce0=;
+        b=LHIZfo26yHNdN1I9TUkofy91/6ta9nBiPSQ7D0izhaiXdFK6xZ0J7SdOrLfK5FZx9/
+         9jOuozilQ6JTK1FW5mTf0SMENHI5TBEJHfCkEQ9wV9dMuQ0GXj8zPp5OH0n/ZoJr+JF2
+         MToHnYioaeJyQLKxoSHviMBZPVMI4LdIs/FuUmMgMXBFlhp00cmFFscyuPoK6fgPOjk/
+         6U9UyYs+PTzFEocKR8vpLas/X5Fl9AuJW+/ytUHD8KrtEONGWF6eNRGtvKA3qhxHoiGs
+         e2na3ecoDGaRW+0wvHjf5Ns46QgDdCGFGdZ4nEgMdgCDEZGZxkbNeAJc/qLurPBzDRp5
+         adzw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1790509788; x=1791114588;
+        h=content-transfer-encoding:content-type:mime-version:message-id:date
+         :subject:cc:to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject
+         :date:message-id:reply-to:content-type;
+        bh=71g56uPtScUsuXicGPFTJJ9Hw3/l51368qJ69c37ce0=;
+        b=KrmwrcaEMguEsVzDn9lqGCT75Imajn9XkGSDcuP4a3UgdmtpEZ9KnNVGh7cgBaXvtD
+         gTOWbhW8NJ8p2bfwO06amrWfjGxgM1eNfLMb7nfHpIJwUiEZlIhPCeDqrllO+P+x4JFO
+         d/cXmIIq3L/pRXE6aZjG393a1j/SMU0lVu2DDSfny6NUzloi68IuxmLutpch68IE6pf3
+         iHdjyBbVYrHbVhDXxZlaacwMQyn2nFURDpPeqr29hMCA2h72c2j5RfGCuuS/mGrw6PNR
+         yljpZ0Ol5OWFuHcfg4NYOGquYfY3V5ssUvemPW5sGtbqbnTbZXnKlUCcJvpWmfeWqxzE
+         KE5Q==
+X-Forwarded-Encrypted: i=1; AKwUvBxRR2RYIaVXqK8jx2tlVBPaMQQEOtUzFspWyuidllmOiTd8tRgWMESKFMN5fh45sLkIecYFO610hJBmlV5o6a/j@lists.infradead.org
+X-Gm-Message-State: AFuF++mANJJ/F7E5yeaD172RXsxVff7xEaXqtmvlg1FcBeIZJ+iCe3Yp
+	4ao+X2v+0TwiVhZh5cLwQxHvX9tKLIGSQRK1k4AOA/4aLk9oG1rmV2wAV/zzXMM4mxuS
+X-Gm-Gg: AYBFou3+d2hRvF3d8n7NSoVdcQ2vIu2xiUp/6DjeK4Q2iQ0rHRL38ql1CImoULo2o/d
+	H18rbQH5fkMmouZmTsBM67cSEfQYV9c003dCWcdPqs9gSm8jk0c1Xln/uIsg23JKTEK3X7zftzQ
+	6WOkA2QZkesd1UN5INbwptZL+g/YTn64fhsTxZpn5ZeMGos6pf4wX5CgvOMycIwBT3QEh1A1/PF
+	KdFbr125iq208D8JShu7bBo+REXcHuHo49Hoc2Kb5I7HJO5X5swba0TPfh6hjGIZpilcaWRdvlV
+	ydpTKi/S61+eTkVInxco6Aomwk97xIQ5zTRz5tcssm3s352XIuMw8VkKBgFLofJLWyW/Nxwg8Rf
+	uPIaDDrkSBSyu8MwLGduAdnDlTdmuaACZiG6ruaUJZTDmwZzcjefwsuk9CeaEYpRsAMh/BKXUps
+	BMehV7IRL2lOF6GAOWosoTF52McS1IwAL4N1RBPkVSJmjtF0mpiBPp8GvhyWFC0T4QUQcQ8eXFv
+	KaqGuPda3We4oVvl3s7paFosQ4ACA==
+X-Received: by 2002:a05:600c:4744:b0:49c:e1cd:536 with SMTP id 5b1f17b1804b1-49fe7b6371bmr185299995e9.12.1790509788255;
+        Sun, 27 Sep 2026 04:49:48 -0700 (PDT)
+Received: from jp-linux.tailbfef0e.ts.net ([2001:8a0:f59c:a900:6d6e:8514:ff1c:6c57])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4a00178bebasm57095935e9.11.2026.09.27.04.49.45
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sun, 27 Sep 2026 04:44:39 -0700 (PDT)
-From: Jernej =?UTF-8?B?xaBrcmFiZWM=?= <jernej.skrabec@gmail.com>
-To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
- Conor Dooley <conor+dt@kernel.org>, Chen-Yu Tsai <wens@kernel.org>,
- Samuel Holland <samuel@sholland.org>, Andre Przywara <andre.przywara@arm.com>
-Cc: devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-sunxi@lists.linux.dev, Per Larsson <per@palvencia.se>
-Subject: Re: [PATCH v2 1/2] arm64: dts: allwinner: a523: add EPHY 25MHz clock fanout
- pins
-Date: Sun, 27 Sep 2026 13:44:38 +0200
-Message-ID: <IuUnKM8SQNWFRyzY1ves-g@gmail.com>
-In-Reply-To: <20260926232142.5244-2-andre.przywara@arm.com>
-References: <20260926232142.5244-1-andre.przywara@arm.com>
- <20260926232142.5244-2-andre.przywara@arm.com>
+        Sun, 27 Sep 2026 04:49:47 -0700 (PDT)
+From: =?UTF-8?q?Jo=C3=A3o=20Peixoto?= <jpeixoto@osyx.tech>
+To: gregkh@linuxfoundation.org,
+	will@kernel.org
+Cc: catalin.marinas@arm.com,
+	andrew.jones@oss.qualcomm.com,
+	pjw@kernel.org,
+	palmer@dabbelt.com,
+	aou@eecs.berkeley.edu,
+	alex@ghiti.fr,
+	krzk+dt@kernel.org,
+	robh@kernel.org,
+	conor+dt@kernel.org,
+	corbet@lwn.net,
+	skhan@linuxfoundation.org,
+	rdunlap@infradead.org,
+	jose@osyx.tech,
+	davidmcerdeira@osyx.tech,
+	linux-kernel@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-riscv@lists.infradead.org,
+	linux-doc@vger.kernel.org,
+	devicetree@vger.kernel.org
+Subject: [PATCH v4 0/3] virt: bao: add Bao hypervisor IPC and I/O dispatcher drivers
+Date: Sun, 27 Sep 2026 12:49:21 +0100
+Message-ID: <cover.1790357735.git.jpeixoto@osyx.tech>
+X-Mailer: git-send-email 2.43.0
 MIME-Version: 1.0
-Content-Transfer-Encoding: quoted-printable
-Content-Type: text/plain; charset="utf-8"
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260927_044442_789773_C6B3F256 
-X-CRM114-Status: UNSURE (   9.20  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260927_044950_919422_661D8EF7 
+X-CRM114-Status: GOOD (  24.87  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -108,24 +116,141 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Dne nedelja, 27. september 2026 ob 01:21:41 Srednjeevropski poletni =C4=8Da=
-s je Andre Przywara napisal(a):
-> The Allwinner A523 SoC family provides two clock fanout pins, which are
-> backed by gated clocks fixed to 25 MHz, divided down from the main
-> peripheral PLL. Those are meant to clock an Ethernet PHY, and allow to
-> save an external crystal oscillator typically employed for that purpose.
->=20
-> Add the pin descriptions of the two pins for those clocks, one is within
-> the RGMII0 pins, the other within the RGMII1 pins, although the clock
-> fanout works completely independently from the two MACs.
->=20
-> Signed-off-by: Andre Przywara <andre.przywara@arm.com>
+This series adds guest-side drivers for the Bao static-partitioning
+hypervisor: an IPC shared-memory driver, an I/O dispatcher that lets a
+backend guest service VirtIO I/O for frontend guests, their UAPI and a
+MAINTAINERS entry.
 
-Reviewed-by: Jernej Skrabec <jernej.skrabec@gmail.com>
+Bao is a lightweight static-partitioning hypervisor for embedded and
+safety-critical systems (https://github.com/bao-project).
 
-Best regards,
-Jernej
+- The IPC shared-memory driver lets Bao guests exchange data through a
+  shared-memory region split into a read and a write channel, exposed
+  as a misc character device (read(), write(), mmap()).
+- The I/O dispatcher bridges Bao's Remote I/O mechanism to a userspace
+  VMM: the VMM creates each device model from /dev/bao, receives the
+  frontend's MMIO accesses and completes them, with ioeventfd/irqfd
+  support for the fast paths.
+
+Changes since v3
+----------------
+The two design comments on v3 changed the shape of the series, which
+went from six patches to three.
+
+- No device tree (Krzysztof Kozlowski): both bindings and the "bao"
+  vendor prefix are dropped. The IPC channels are a software contract
+  between the hypervisor and the guest and are now declared on the
+  kernel command line (bao_ipcshmem.channels=...). The set of device
+  models a backend serves is a contract between the hypervisor and the
+  VMM, so, following drivers/virt/acrn, the I/O dispatcher exposes a
+  single /dev/bao control device and the VMM creates each device model
+  with BAO_IOCTL_CREATE_DM (shared-memory region + notification line),
+  which returns a per-DM file descriptor; the DM lives as long as the
+  descriptor. The notification line is resolved against the device
+  tree's root interrupt parent, like any device's interrupt.
+- No architecture code (Will Deacon): the hypercall helpers moved to
+  drivers/virt/bao/bao_hypercall.h and use arm_smccc_hvc() for the IPC
+  hypercall and, because the Remote I/O hypercall returns the request
+  in x1-x6, the SMCCC v1.2 arm_smccc_1_2_hvc(). RISC-V uses sbi_ecall()
+  for IPC and a local ecall for Remote I/O (see open items). 32-bit Arm
+  has no SMCCC v1.2 helper, so the I/O dispatcher is limited to arm64
+  and RISC-V for now; the IPC driver still supports 32-bit Arm through
+  SMCCC v1.1 (HAVE_ARM_SMCCC).
+- The standalone "consolidate the IPC hypercall ID" patch is folded into
+  the driver patches (Andrew Jones).
+- All findings of the Sashiko review of v3 are addressed, among them:
+  the DM id is taken from the file descriptor instead of userspace; the
+  irqfd/ioeventfd teardown races and the ioeventfd deassign fall-through
+  are fixed; the interrupt handler is per DM and the request_irq() name
+  is persistent; queued requests are capped and requests that cannot be
+  delivered are completed back to the hypervisor; the UAPI structures
+  have no implicit padding; signals return -ERESTARTSYS; the IPC driver
+  orders the shared-memory writes before the notify hypercall, refuses
+  writable mappings of the read region, validates page-aligned regions
+  and has an llseek. Details are in the per-patch changelogs.
+- The ioctl type is now 0xA7: 7.3-rc1 registered 0xA6 for memory
+  allocation profiling.
+- Found while testing: the two modules were both named bao.ko (now
+  bao_ipcshmem and bao_io_dispatcher), the ioeventfd kernel thread could
+  exit before kthread_stop(), per-DM dispatcher state was kept in static
+  arrays, a list walk used the wrong structure type, the UAPI header did
+  not include linux/ioctl.h, and the dispatcher workqueue now passes
+  WQ_PERCPU as required since 7.x.
+
+Testing
+-------
+Built on v7.3-rc1 with GCC (W=1, sparse) for arm64, arm and riscv, as
+modules and built-in, and with clang for arm64 and riscv. Run-time tested
+under Bao v2.0.0 on QEMU aarch64 virt and QEMU riscv64 virt with the
+bao-demos demos: the IPC driver exchanging messages in both directions
+between a Linux 7.3-rc1 guest and a FreeRTOS guest (linux+freertos demo),
+and the I/O dispatcher with a Linux backend serving console, network and
+block device models to a FreeRTOS guest and two Linux guests (virtio
+demo). 32-bit Arm is compile-tested only.
+
+Open items
+----------
+- RISC-V: the Bao SBI extension still uses the experimental extension
+  space (0x08000ba0), and the Remote I/O hypercall returns the request
+  in a2-a7, which does not follow the SBI calling convention (Andrew
+  Jones, v2). Changing that means a hypervisor ABI change (status in
+  a0/a1, request through shared memory); the RISC-V support is marked
+  experimental until then, or it can be split out of this series if
+  preferred.
+- Bao does not implement the SMCCC vendor-hypervisor UID call, so the
+  drivers cannot detect the hypervisor yet; adding it is planned on the
+  hypervisor side.
+
+v3: https://lore.kernel.org/all/cover.1786010512.git.jpeixoto@osyx.tech/
+
+João Peixoto (3):
+  virt: bao: add IPC shared-memory driver
+  virt: bao: add I/O dispatcher driver
+  MAINTAINERS: add Bao hypervisor entry
+
+ .../userspace-api/ioctl/ioctl-number.rst      |   2 +
+ MAINTAINERS                                   |   8 +
+ drivers/virt/Kconfig                          |   2 +
+ drivers/virt/Makefile                         |   1 +
+ drivers/virt/bao/Kconfig                      |   5 +
+ drivers/virt/bao/Makefile                     |   4 +
+ drivers/virt/bao/bao_hypercall.h              | 190 ++++++++
+ drivers/virt/bao/io-dispatcher/Kconfig        |  20 +
+ drivers/virt/bao/io-dispatcher/Makefile       |   4 +
+ drivers/virt/bao/io-dispatcher/bao_drv.h      | 389 ++++++++++++++++
+ drivers/virt/bao/io-dispatcher/dm.c           | 334 ++++++++++++++
+ drivers/virt/bao/io-dispatcher/driver.c       |  70 +++
+ drivers/virt/bao/io-dispatcher/intc.c         | 150 +++++++
+ drivers/virt/bao/io-dispatcher/io_client.c    | 423 ++++++++++++++++++
+ .../virt/bao/io-dispatcher/io_dispatcher.c    | 159 +++++++
+ drivers/virt/bao/io-dispatcher/ioeventfd.c    | 326 ++++++++++++++
+ drivers/virt/bao/io-dispatcher/irqfd.c        | 315 +++++++++++++
+ drivers/virt/bao/ipcshmem/Kconfig             |  16 +
+ drivers/virt/bao/ipcshmem/Makefile            |   3 +
+ drivers/virt/bao/ipcshmem/ipcshmem.c          | 358 +++++++++++++++
+ include/uapi/linux/bao.h                      | 116 +++++
+ 21 files changed, 2895 insertions(+)
+ create mode 100644 drivers/virt/bao/Kconfig
+ create mode 100644 drivers/virt/bao/Makefile
+ create mode 100644 drivers/virt/bao/bao_hypercall.h
+ create mode 100644 drivers/virt/bao/io-dispatcher/Kconfig
+ create mode 100644 drivers/virt/bao/io-dispatcher/Makefile
+ create mode 100644 drivers/virt/bao/io-dispatcher/bao_drv.h
+ create mode 100644 drivers/virt/bao/io-dispatcher/dm.c
+ create mode 100644 drivers/virt/bao/io-dispatcher/driver.c
+ create mode 100644 drivers/virt/bao/io-dispatcher/intc.c
+ create mode 100644 drivers/virt/bao/io-dispatcher/io_client.c
+ create mode 100644 drivers/virt/bao/io-dispatcher/io_dispatcher.c
+ create mode 100644 drivers/virt/bao/io-dispatcher/ioeventfd.c
+ create mode 100644 drivers/virt/bao/io-dispatcher/irqfd.c
+ create mode 100644 drivers/virt/bao/ipcshmem/Kconfig
+ create mode 100644 drivers/virt/bao/ipcshmem/Makefile
+ create mode 100644 drivers/virt/bao/ipcshmem/ipcshmem.c
+ create mode 100644 include/uapi/linux/bao.h
 
 
+base-commit: cee9395acd8043be0644b25c34bfa86623f2b935
+-- 
+2.43.0
 
 
