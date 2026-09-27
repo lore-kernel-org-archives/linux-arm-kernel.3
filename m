@@ -4,45 +4,45 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DA78DC9833F
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 27 Sep 2026 16:30:10 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 874D9C9833F
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 27 Sep 2026 16:30:14 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
 	Content-Transfer-Encoding:Content-Type:References:In-Reply-To:Message-ID:Date
 	:Cc:To:From:Subject:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=zoTLegbFfnJOrfpouRcz/WJeOTR3x5k8yoa9csThsL4=; b=BxW9DAO+OeE8HD8DLuCiRQ8trk
-	ITFVwisotf4TEAAidNc2yEemAIKsqD2xwlkvT6COpzrrqkXL/yzc15VWSwtHpaVT7WxzQ+I2dAmc+
-	Vjcf3kqMM794HkdP7uOFdAxh8OzlyJ3/Wnp51mPKivWzMiithZn7K3e5WullAxyr69DXeFZGeQ0Wg
-	kA2J5xF/66eTzjlRpRtqzFQOJ/dQcFys7KBPB5bjIEsh6dptHSrhLc+3C93DDbJ31JnBoUTQ5ra0/
-	FKvlG/fGfnQeIlQ6pKG3IONVQWs2Egbqz1KvDx8xgLVqN0D5UGFLmtubsWyInde67hg7jNlT3HSP3
-	0k9XV87w==;
+	bh=2fuOrU+/aRvKHB+bkuI9ZfEA7MdxiGHZ/hwHu+G3Nb8=; b=WnaxLxRZXa66wjcFP5lY/nKf6P
+	gtGs6MOWrNzU20H8BoxCFLXL2smeMxLr5NISuUoFnCvdhfATyubW5KEdFruW06DMEFRMgWTy8o5Jk
+	h6xuAQ9nBqpHyjJR6AKsj0rU77Lj42MlX+3RFVgO+xLinH+TscQANYWobi9E9O9srEGfjIhXeshyH
+	qdkcin9Cp1c5Yuf3BW7xNJINNP8nqZh5yqcxvk7NsH6Vy1fiHWF7/fWeYana5WErF4DRjWPR1y/EB
+	hpbfIR95oD6s9CHSPL1EVmonW2UPlQu99myM9X0S6tDADteutCtrfHGHnnFXubG00tPu7f/ogr4tl
+	YUZ2QMCA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xArlL-0000000GZuO-2TXa;
-	Sun, 27 Sep 2026 16:30:03 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1xArlQ-0000000Ga1S-1FZY;
+	Sun, 27 Sep 2026 16:30:08 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xArki-0000000GZ8s-45qB;
-	Sun, 27 Sep 2026 16:29:25 +0000
+	id 1xArkd-0000000GZ13-1Z4C;
+	Sun, 27 Sep 2026 16:29:19 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id B4977433D3;
-	Sun, 27 Sep 2026 16:29:24 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 434BB1F00893;
-	Sun, 27 Sep 2026 16:29:22 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id B989F60D78;
+	Sun, 27 Sep 2026 16:29:18 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 2088D1F00898;
+	Sun, 27 Sep 2026 16:29:16 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1790526564;
-	bh=zoTLegbFfnJOrfpouRcz/WJeOTR3x5k8yoa9csThsL4=;
+	s=k20260515; t=1790526558;
+	bh=2fuOrU+/aRvKHB+bkuI9ZfEA7MdxiGHZ/hwHu+G3Nb8=;
 	h=Subject:From:To:Cc:Date:In-Reply-To:References;
-	b=fasPIneYM039A2YmPrOM+hwgTjDSA4RpxXcuABCxGj4qge9l8d8vOlRXpQUCuBKIf
-	 EKDDxJhKdCWKMqDURCeksM8gBY7HCgJh8CqAWrVLo+hHtzlWriiotKkmwmV4dhEAeI
-	 GIhwzy+b+gArY2IxjFLsmwQo9DzyTgeS4AidS3xsYcCcU0V+JlbowXGrR8XKTaZjzC
-	 iMoYlU7rqRtNwZ8430QticP/BGWJZy4hOgL+fYPr8JRdW3yaFGO/6M3n7JFjLDw9fQ
-	 LaTiVU99BI2uubFo4yectHfpuyYGEKmiAsnkfbDQZaE7HoJg7IP1mJ9fCZOPJX3/cl
-	 dG554urWeC5/g==
-Subject: Re: [PATCH net-next v15 9/9] net: stmmac: qcom-ethqos: add support
- for sa8255p
+	b=YGEyjPbV6JT1GifxMINWmW6xewJZG4mUegS88xxSJzhf8hg24ChLvOVnMAPybvpuz
+	 gpLgdCKWq4S4Dx3Eomi8CZX1jvuZIx0K+YsacmlCmaqevD9BN2hbRq5LJpsP6oVQgZ
+	 jWWeCbevU2LtknBmZmf293Wyk/Ft8HLcpo86nvV+OiY4vzcXSH6Esp8dRT6S3oHQkp
+	 eh7XLBVV3ZiGUfNuYUdBUotyeBvqP9E28hXu200SmJmZusHYKQXw4S7D0zshWL3qPY
+	 QzdUPDQtFOkjQy/6eI3WLjZyWVzsojMWBc0tx5e0OBXPgaC+NZzW4WvUCWU8ZpLdYT
+	 ZPOQInYXwFMNA==
+Subject: Re: [PATCH net-next v15 6/9] net: stmmac: qcom-ethqos: update
+ phy_mode to the resolved interface in mac_finish()
 From: netdev-bot+sashiko@kernel.org
 To: bartosz.golaszewski@oss.qualcomm.com
 Cc: andersson@kernel.org, konradybcio@kernel.org, robh@kernel.org,
@@ -64,11 +64,11 @@ Cc: andersson@kernel.org, konradybcio@kernel.org, robh@kernel.org,
  linux-renesas-soc@vger.kernel.org, linux-rockchip@lists.infradead.org,
  sophgo@lists.linux.dev, linux-riscv@lists.infradead.org,
  bartosz.golaszewski@linaro.org
-Date: Sun, 27 Sep 2026 16:29:21 +0000
-Message-ID: <179052656185.2160803.1751830002645522416@kernel.org>
-In-Reply-To: <20260923-qcom-sa8255p-emac-v15-9-e82f33720737@oss.qualcomm.com>
-References: <20260923-qcom-sa8255p-emac-v15-9-e82f33720737@oss.qualcomm.com>
-X-sashiko-severity: Medium
+Date: Sun, 27 Sep 2026 16:29:15 +0000
+Message-ID: <179052655571.2160803.8220457316051367747@kernel.org>
+In-Reply-To: <20260923-qcom-sa8255p-emac-v15-6-e82f33720737@oss.qualcomm.com>
+References: <20260923-qcom-sa8255p-emac-v15-6-e82f33720737@oss.qualcomm.com>
+X-sashiko-severity: Low
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit
 MIME-Version: 1.0
@@ -86,259 +86,102 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Thank you for your contribution! Sashiko AI review found 4 potential
-issue(s) to consider.
+Thank you for your contribution! Sashiko AI review found more severe
+issue(s) in other patches of this series. This mail is only an FYI, in case
+you want to address the nit picks below when you respin.
 
-Critical: 0 · High: 0 · Medium: 2 · Low: 2
+Low priority / nit picks for your consideration:
 
-If you believe none of the issues are legitimate, please reply to each
-issue of Medium severity or higher and explain why the AI is wrong.
-If any of them are legitimate and you plan to respin, please let patchwork
-know by including "pw-bot: cr" as a separate line at the end of your reply
-(one such reply per series is enough).
-
-- [Medium] With Wake-on-LAN armed, system suspend on sa8255p powers off
-  the MAC's SCMI "core"/"mdio" domains, and on resume the EMAC wrapper…
-- [Medium] The SCMI variant has no CSR/application clock, and nothing
-  substitutes a rate for it.
-- [Low] The new sa8255p (SCMI) variant accepts RGMII phy-modes but
-  silently misconfigures them.
-- [Low] The new comment in ethqos_scmi_setup() and the commit message
-  misdescribe what the code does.
+- [Low] This patch fixes a regression added by the previous patch in the
+  same series, "net: stmmac: qcom-ethqos: set serdes mode before…
+- [Low] The new comment in ethqos_mac_finish_serdes() (dwmac-qcom-
+  ethqos.c:638-641) says phy_mode is kept in sync "for later…
 
 --
 
-net: stmmac: qcom-ethqos: add support for sa8255p
+net: stmmac: qcom-ethqos: update phy_mode to the resolved interface in mac_finish()
 
-This adds a new sa8255p variant to the qcom-ethqos glue driver. On this
-variant, firmware handles power management over SCMI, and Linux models it
-with power domains. It adds a new emac data variant with a fixed PTP clock
-rate, plus a separate ethqos_scmi_setup() callback.
+This patch updates ethqos->phy_mode in ethqos_mac_finish_serdes() from the
+interface that phylink resolved, so later serdes_powerup() calls program
+the SerDes to the correct mode. It also widens the guard in
+qcom_ethqos_set_sgmii_loopback() to cover PHY_INTERFACE_MODE_SGMII. This
+keeps the loopback in place on resume with a 1G SGMII link.
+
+> ethqos->phy_mode is read by serdes_powerup() and
+> qcom_ethqos_set_sgmii_loopback() to configure the SerDes and its
+> wrapper for the correct interface. It is set once at probe from the DT
+> phy-mode property and never updated.
+
+[Severity: Low]
+Is this a long-standing problem, or was it added earlier in this series?
+
+As far as I can tell, serdes_powerup() only started reading phy_mode in
+the preceding patch, "net: stmmac: qcom-ethqos: set serdes mode before
+powerup". That patch added this to qcom_ethqos_serdes_powerup():
+
+	ret = phy_set_mode_ext(ethqos->serdes_phy, PHY_MODE_ETHERNET,
+			       ethqos->phy_mode);
+
+Before that patch, power-up never used the stale probe-time value.
+
+With only that patch applied, every open/resume replaces the resolved
+interface held by the SerDes PHY driver (data->interface in
+phy-qcom-sgmii-eth.c) with the DT mode. This stays in effect until
+phylink_mac_initial_config()->ethqos_mac_finish_serdes() programs the
+resolved mode again.
+
+The commit message doesn't mention this dependency, so backporters won't
+know about it. Bisection can also stop on the intermediate commit.
+
+Both patches are in the same unmerged series, so a Fixes: tag isn't the
+right fit here. Could this change be folded into "set serdes mode before
+powerup", or placed before it? Could the commit message then say so?
 
 > diff --git a/drivers/net/ethernet/stmicro/stmmac/dwmac-qcom-ethqos.c b/drivers/net/ethernet/stmicro/stmmac/dwmac-qcom-ethqos.c
-> index 509a5368e69a8..3d4bc950a72ac 100644
+> index 47b70b5e706f2..e067ceee01621 100644
 > --- a/drivers/net/ethernet/stmicro/stmmac/dwmac-qcom-ethqos.c
 > +++ b/drivers/net/ethernet/stmicro/stmmac/dwmac-qcom-ethqos.c
 
 [ ... ]
 
-> @@ -756,6 +788,80 @@ static int ethqos_hlos_setup(struct qcom_ethqos *ethqos,
->  	return 0;
->  }
+> @@ -634,6 +635,12 @@ static int ethqos_mac_finish_serdes(struct net_device *ndev, void *priv,
 >  
-> +static const char *const ethqos_scmi_pd_names[] = { "core", "mdio" };
-> +
-> +static int ethqos_scmi_setup(struct qcom_ethqos *ethqos,
-> +			     struct plat_stmmacenet_data *plat_dat)
-> +{
-> +	const struct dev_pm_domain_attach_data pd_data = {
-> +		.pd_names	= ethqos_scmi_pd_names,
-> +		.num_pd_names	= ARRAY_SIZE(ethqos_scmi_pd_names),
-> +		.pd_flags	= PD_FLAG_DEV_LINK_ON,
-> +	};
-> +
-> +	struct platform_device *pdev = ethqos->pdev;
-> +	struct device *dev = &pdev->dev;
-> +	int ret;
-> +
-> +	ret = devm_pm_domain_attach_list(dev, &pd_data, &ethqos->pds);
-> +	if (ret < 0)
-> +		return dev_err_probe(dev, ret,
-> +				     "Failed to attach power domains\n");
-
-[Severity: Medium]
-What happens to these two domains during system suspend when Wake-on-LAN
-is armed?
-
-devm_pm_domain_attach_list() creates virtual genpd devices through
-genpd_dev_pm_attach_by_id(). Those devices have no parent:
-
-drivers/pmdomain/core.c:genpd_dev_pm_attach_by_id() {
-    ...
-	dev_set_name(virt_dev, "genpd:%u:%s", index, dev_name(dev));
-	virt_dev->bus = &genpd_bus_type;
-	virt_dev->release = genpd_release_dev;
-	virt_dev->of_node = of_node_get(dev->of_node);
-    ...
-}
-
-dpm_propagate_wakeup_to_parent() only passes wakeup_path to dev->parent.
-It does not reach device-link suppliers, so device_awake_path(virt_dev)
-stays false.
-
-SCMI domains set GENPD_FLAG_ACTIVE_WAKEUP. Even so, genpd_finish_suspend()
-falls through to genpd_sync_power_off():
-
-	if (device_awake_path(dev) && genpd_is_active_wakeup(genpd) &&
-	    !device_out_band_wakeup(dev))
-		return 0;
-
-qcom_ethqos_probe() also sets plat_dat->pmt = true for this variant, so
-WoL can be enabled with ethtool. With priv->wolopts set,
-stmmac_pltfr_noirq_suspend() and stmmac_pltfr_noirq_resume() skip
-pm_runtime_force_suspend() and pm_runtime_force_resume():
-
-	if (!priv->wolopts) {
-		/* enable the clk previously disabled */
-		ret = pm_runtime_force_resume(dev);
-
-As a result, ethqos_clks_config(true) does not run on resume.
-
-If firmware really power-cycles the MAC and wrapper when the "core" and
-"mdio" domains are turned off, can WoL fail to wake the system? Would the
-SGMII loopback and FUNC_CLK_EN bits at rgmii_base also be lost, so that
-stmmac_resume()->stmmac_hw_setup() hits the DMA SW-reset timeout that the
-comment below describes?
-
-On the HLOS variants, the single GDSC is the MAC's own pm_domain, so the
-awake-path check applies to the MAC device itself. This looks specific to
-the multi-domain attach used here. The kernel tree can't show whether
-firmware actually removes power on that request.
-
-> +
-> +	/*
-> +	 * The SerDes lane, its clocks and the MAC AXI/AHB clocks are owned by
-> +	 * firmware and brought up through the SCMI power domains above. The
-> +	 * MAC wrapper itself, however is in the kernel's register space: the
-> +	 * wrapper bit that loops the PHY TX clock into the MAC's clk_rx_i -
-> +	 * needed because no recovered RX clock exists yet - is not
-> +	 * configured by firmware. Without it, clk_rx_i never toggles and the
-> +	 * DMA SW-reset polled in dwmac4_dma_reset() never completes.
-
-[Severity: Low]
-Is this comment right about where the SerDes power comes from?
-
-The sa8255p SerDes PHY binding (qcom,sa8255p-dwmac-sgmii-phy.yaml)
-requires a power-domain of its own. phy-qcom-sgmii-eth-scmi.c votes for
-it through the PHY device's runtime PM (devm_pm_runtime_enable() before
-devm_phy_create()), and set_mode() sets its performance state.
-
-qcom_ethqos_probe() still gets the "serdes" phy and installs
-qcom_ethqos_serdes_powerup(). The PHY TX clock that is looped into
-clk_rx_i therefore comes from serdes_powerup() in stmmac_open(), before
-__stmmac_open()->stmmac_hw_setup(). It does not come from the "core" and
-"mdio" domains attached above.
-
-The current ordering works. Could the comment name the SerDes PHY's own
-domain instead, so later changes to the SerDes or PM ordering are not
-misled?
-
-The commit message also says only:
-
-  Unlike the previously supported variants, this one's power management
-  is done in the firmware over SCMI. This is modeled in linux using power
-  domains so add a new emac data variant and a separate setup callback.
-
-Could it also mention the following?
-
-  - The kernel still maps and programs the "rgmii" wrapper registers
-    (SGMII loopback and FUNC_CLK_EN) at probe and on every runtime resume.
-  - set_clk_tx_rate and dump_debug_regs are dropped for this variant.
-  - A fixed 230.4 MHz PTP reference rate is hardcoded in
-    emac_v4_0_0_scmi_data.
-
-> +	 *
-> +	 * Map the wrapper and program the same loopback/functional clock bits
-> +	 * the non-firmware platforms rely on (see ethqos_clks_config) so the
-> +	 * RX clock is present by the time the DMA engine is reset.
+>  	qcom_ethqos_set_sgmii_loopback(ethqos, false);
+>  
+> +	/* The interface mode is only known once phylink has resolved it and
+> +	 * may change at runtime, so keep it in sync for later
+> +	 * serdes_powerup()/serdes_powerdown() calls.
 > +	 */
 
-[ ... ]
-
-> +	ret = devm_add_action_or_reset(dev, ethqos_clks_disable, ethqos);
-> +	if (ret)
-> +		return ret;
-> +
-> +	plat_dat->clk_ptp_rate = ethqos->data->ptp_clk_rate;
-
-[Severity: Medium]
-The PTP rate gets a fixed value here, but what about the CSR clock?
-
-The sa8255p binding has no clocks property. stmmac_probe_config_dt()
-therefore fails devm_clk_get("stmmaceth") and leaves plat->stmmac_clk
-NULL:
-
-	plat->stmmac_clk = devm_clk_get(&pdev->dev,
-					STMMAC_RESOURCE_NAME);
-	if (IS_ERR(plat->stmmac_clk)) {
-		dev_warn(&pdev->dev, "Cannot get CSR clock\n");
-		plat->stmmac_clk = NULL;
-
-dwmac4_core_init() then runs this on every stmmac_hw_setup():
-
-	clk_rate = clk_get_rate(priv->plat->stmmac_clk);
-	writel((clk_rate / 1000000) - 1, ioaddr + GMAC4_MAC_ONEUS_TIC_COUNTER);
-
-With clk_rate == 0, won't this write 0xFFFFFFFF into
-GMAC4_MAC_ONEUS_TIC_COUNTER? That would break the LPI/EEE timers, which
-count in microseconds.
-
-plat_dat->clk_ref_rate is not set either, so stmmac_usec2riwt() and
-stmmac_riwt2usec() return 0:
-
-	unsigned long clk = clk_get_rate(priv->plat->stmmac_clk);
-
-	if (!clk) {
-		clk = priv->plat->clk_ref_rate;
-		if (!clk)
-			return 0;
-
-Would ethtool -C rx-usecs then fail the MIN_DMA_RIWT check, and would
-rx-usecs be reported as 0?
-
-> +
-> +	switch (ethqos->phy_mode) {
-> +	case PHY_INTERFACE_MODE_2500BASEX:
-> +	case PHY_INTERFACE_MODE_SGMII:
-> +		plat_dat->fix_mac_speed = ethqos_fix_mac_speed_sgmii;
-> +		break;
-> +	default:
-> +		break;
-> +	}
-
 [Severity: Low]
-What happens here if the device tree sets an RGMII phy-mode on a
-qcom,sa8255p-ethqos node?
+This isn't a bug, but is the mention of serdes_powerdown() accurate?
+qcom_ethqos_serdes_powerdown() never reads ethqos->phy_mode:
 
-qcom_ethqos_probe() accepts PHY_INTERFACE_MODE_RGMII, _ID, _RXID and _TXID
-for every compatible, and the sa8255p binding does not constrain
-phy-mode. For RGMII, this switch takes the default branch, so none of the
-following happens:
+static void qcom_ethqos_serdes_powerdown(struct net_device *ndev, void *priv)
+{
+	struct qcom_ethqos *ethqos = priv;
 
-  - no fix_mac_speed is installed
-  - no set_clk_tx_rate is installed
-  - no RGMII IO macro or DLL programming is done (emac_v4_0_0_scmi_data
-    has no rgmii_por)
-
-qcom_ethqos_set_sgmii_loopback() also returns early for non-SGMII modes.
-
-The SCMI SerDes provider rejects RGMII as well:
-
-drivers/phy/qualcomm/phy-qcom-sgmii-eth-scmi.c:qcom_dwmac_sgmii_phy_scmi_validate() {
-	switch (submode) {
-	case PHY_INTERFACE_MODE_SGMII:
-	case PHY_INTERFACE_MODE_1000BASEX:
-	case PHY_INTERFACE_MODE_2500BASEX:
-		return 0;
-	default:
-		return -EINVAL;
-    ...
+	phy_power_off(ethqos->serdes_phy);
+	phy_exit(ethqos->serdes_phy);
 }
 
-With a phys property, qcom_ethqos_serdes_powerup()->phy_set_mode_ext()
-fails at open time. Without one, the MAC runs in RGMII mode with no
-wrapper configuration. In both cases probe succeeds, but the interface
-never works.
+The comment also leaves out qcom_ethqos_set_sgmii_loopback(). That
+function is called from ethqos_clks_config(true) on every open/resume:
 
-Would it be better for ethqos_scmi_setup() to return -EINVAL for modes
-that don't use the SerDes, or for the binding to limit phy-mode to an
-enum, or both?
+	qcom_ethqos_set_sgmii_loopback(ethqos, true);
+	ethqos_set_func_clk_en(ethqos);
 
+After this patch, its loopback decision depends on this assignment,
+which is why the guard had to be widened.
+
+Would it be clearer to list serdes_powerup() and
+qcom_ethqos_set_sgmii_loopback() as the readers?
+
+> +	ethqos->phy_mode = interface;
 > +
-> +	return 0;
-> +}
-
-[ ... ]
+>  	if (interface == PHY_INTERFACE_MODE_SGMII ||
+>  	    interface == PHY_INTERFACE_MODE_2500BASEX)
+>  		ret = phy_set_mode_ext(ethqos->serdes_phy, PHY_MODE_ETHERNET,
 
 -- 
 Sashiko AI review · https://netdev-ai.bots.linux.dev/sashiko/#/patchset/20260923-qcom-sa8255p-emac-v15-0-e82f33720737%40oss.qualcomm.com
