@@ -4,83 +4,76 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8BA5CC98324
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 27 Sep 2026 08:17:58 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9BC64C98324
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 27 Sep 2026 08:37:23 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
 	References:In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=fItMYEYFxRZozAGThUr9nMPH+C4/6G6ZtlrfAYGEGZQ=; b=uP1+pEerWeZjGMfeYNh6E7io94
-	LCQDoaBNzF4Qh2mXpVMiaC8OwEKvCa3ycPi7qgiVRXDjh7lARp+0Yi8RRZvyusXlycDA4UV+pdl/u
-	MggubgAbiW8lIt0wOtPIBGScPFsfiWgBmocvloLN+1tnay7v8ZBkrawnwfd4S8EuwliCQhw4EVsi2
-	skCKi2qYHcY86X4wEw61hUhsIEFljAzOjVdOOs6d4dQEzEeHEG8OEGjzXnyqRz48vVHwxfEtCC+0q
-	bWsSQMyEtdMbc7ZzbpB290EHegPltnDf5wVaTfPYS0iW/SO0OjazNW+Yp1Dat8LthPv8ubE16fZlE
-	su3fU6Bw==;
+	bh=899MDx3EJ3AoKnMe6g2fG4UCe2OzBFO/jrXfzKh7DOc=; b=O3Kt+QrpG41QPaW/7Yalu6VOsS
+	DB4p3csJttCUdQKTI+yR/70TX6j1IePulbSd+KIL1gD++p9E5NTchgLKgADcjxEDvL1xOgW9DbN6F
+	1DDWZCy2t5joay10/VKDzGYrYFw3fmjBXB/c6UHglzyrM1zlIJULsLBrrEHjdDqhRLdb/AQ1ewq92
+	AK7+scf7SOGjIUnyj0zLG8L4XopTH8E7v75oJbY5pVVzXjTD8zcP2ND335TkDZ2lUkWmcx/hJN1yh
+	e20jaGVoLgMOld6s+zse/b774nFgTwT8vi7A/rMutJfiDDdY8nIPLFnw2W4YqcT81MhPqNzyILv5T
+	Yd9Am+VQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xAk51-0000000G8Hb-0L9l;
-	Sun, 27 Sep 2026 08:17:51 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1xAkNo-0000000G9PE-1zk6;
+	Sun, 27 Sep 2026 08:37:16 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xAk4z-0000000G8HT-2SzF
+	id 1xAkNn-0000000G9P8-2xr9
 	for linux-arm-kernel@lists.infradead.org;
-	Sun, 27 Sep 2026 08:17:49 +0000
+	Sun, 27 Sep 2026 08:37:15 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id 7DA05600CB;
-	Sun, 27 Sep 2026 08:17:46 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 34A9E1F000FF;
-	Sun, 27 Sep 2026 08:17:46 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 621A742BA4;
+	Sun, 27 Sep 2026 08:37:14 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 2B9641F000FF;
+	Sun, 27 Sep 2026 08:37:14 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1790497066;
-	bh=fItMYEYFxRZozAGThUr9nMPH+C4/6G6ZtlrfAYGEGZQ=;
+	s=k20260515; t=1790498234;
+	bh=899MDx3EJ3AoKnMe6g2fG4UCe2OzBFO/jrXfzKh7DOc=;
 	h=Date:From:To:Cc:Subject:In-Reply-To:References;
-	b=LkuTICPdiKXjSEy5TexoCBRONDl83Lj/gqzP/WNb5L/dw7AuzwErgwPYEq25OI3zu
-	 jW7HLf1qzEFI8XjXQpIx1V/owXFJhCEa+Fh+gnPIORstaScdgLCujj34Sqw7rOVLUC
-	 FMxOcieFYM7taFoeLYTYvoHSnoJ7Uudv38jQyW4cu+7IHOwwLc27VWZA1a3ht4sryf
-	 H816Yi7JiVSN79KDLsYVV65y+hZns1CerKMrb++IKsngAApEUnjP8vgjB15NyjfnRv
-	 eCIorX9Nb8F6gA8+hxhvbEnd2nZrD+zRTd1syKuHtNRc+qXBzxAu/+8JoHbiQCu/pv
-	 yIXIADufnXYtg==
+	b=k/G4+Q/oNdW0Oj7HZuHBv5NmaksPbEb8QWtIRP3WPDPWOEwX/RF96bkk57paV/9vx
+	 gl9Ze8n++4gXqEid/Kaqkg6ZZ1dNZww2HC33FzDxc65VlkjFyDiwdH5v4UHS7ghU/s
+	 HPyjcp8+3OChVXYEfQSroRJXedeZ9HHMldkFtACn2ENhfY/aUElfue+Ub/MOkpxNgT
+	 Qp7U/wDShBj08hGfo+uMx1C67Qk7qu4dw+UeGf1juHUNgnJoMGjHaMbS7I0dfHlzbK
+	 oELQ1SqSV0OyLVnmGeHmLC/c6SaYsy3utU6h5jjDt3fY8cmvX0+TnLhdGzpShNj9Ob
+	 JyWof/sHhGtAA==
 Received: from sofa.misterjones.org ([185.219.108.64] helo=lobster-girl.misterjones.org)
 	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
 	(Exim 4.98.2)
 	(envelope-from <maz@kernel.org>)
-	id 1xAk4t-0000000Dw13-3aXr;
-	Sun, 27 Sep 2026 08:17:43 +0000
-Date: Sun, 27 Sep 2026 09:20:52 +0100
-Message-ID: <871paf3y1n.wl-maz@kernel.org>
+	id 1xAkNk-0000000DwHF-0Reo;
+	Sun, 27 Sep 2026 08:37:12 +0000
+Date: Sun, 27 Sep 2026 09:40:20 +0100
+Message-ID: <87zex32ikr.wl-maz@kernel.org>
 From: Marc Zyngier <maz@kernel.org>
-To: Will Deacon <will@kernel.org>
-Cc: Fuad Tabba <fuad.tabba@linux.dev>,
+To: Fuad Tabba <fuad.tabba@linux.dev>
+Cc: Vincent Donnefort <vdonnefort@google.com>,
 	oupton@kernel.org,
 	kvmarm@lists.linux.dev,
 	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	catalin.marinas@arm.com,
 	joey.gouly@arm.com,
 	seiden@linux.ibm.com,
 	suzuki.poulose@arm.com,
 	yuzenghui@huawei.com,
-	mark.rutland@arm.com,
-	steven.price@arm.com,
-	vdonnefort@google.com,
-	qperret@google.com
-Subject: Re: [PATCH v3 15/18] KVM: arm64: Reject host access to protected VM private state
-In-Reply-To: <aq0628Ci4pfEj0KG@willie-the-truck>
-References: <20260914113338.159227-1-fuad.tabba@linux.dev>
-	<20260914113338.159227-16-fuad.tabba@linux.dev>
-	<86a4ph5fb9.wl-maz@kernel.org>
-	<CA+EHjTzCQkeXQQcCDwABLR2w+NTmKTG3V6RSmhzYNayaoYXw3g@mail.gmail.com>
-	<865x045mke.wl-maz@kernel.org>
-	<aq0628Ci4pfEj0KG@willie-the-truck>
+	catalin.marinas@arm.com,
+	will@kernel.org,
+	kernel-team@android.com
+Subject: Re: [PATCH] KVM: arm64: Remove PAGE_SIZE alignment for hyp event ELF sections
+In-Reply-To: <CA+EHjTzOZi-N4XCRKGBKqa2=PJZRyVskooGgT4HWAwErUTMROA@mail.gmail.com>
+References: <20260924095154.807726-1-vdonnefort@google.com>
+	<CA+EHjTzOZi-N4XCRKGBKqa2=PJZRyVskooGgT4HWAwErUTMROA@mail.gmail.com>
 User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
  FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/30.1
  (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
 MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
 Content-Type: text/plain; charset=US-ASCII
 X-SA-Exim-Connect-IP: 185.219.108.64
-X-SA-Exim-Rcpt-To: will@kernel.org, fuad.tabba@linux.dev, oupton@kernel.org, kvmarm@lists.linux.dev, linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, catalin.marinas@arm.com, joey.gouly@arm.com, seiden@linux.ibm.com, suzuki.poulose@arm.com, yuzenghui@huawei.com, mark.rutland@arm.com, steven.price@arm.com, vdonnefort@google.com, qperret@google.com
+X-SA-Exim-Rcpt-To: fuad.tabba@linux.dev, vdonnefort@google.com, oupton@kernel.org, kvmarm@lists.linux.dev, linux-arm-kernel@lists.infradead.org, joey.gouly@arm.com, seiden@linux.ibm.com, suzuki.poulose@arm.com, yuzenghui@huawei.com, catalin.marinas@arm.com, will@kernel.org, kernel-team@android.com
 X-SA-Exim-Mail-From: maz@kernel.org
 X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
 X-BeenThere: linux-arm-kernel@lists.infradead.org
@@ -97,103 +90,24 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Will,
-
-Sorry for the delay replying, I'm catching up on email between
-travels...
-
-On Fri, 18 Sep 2026 14:21:31 +0100,
-Will Deacon <will@kernel.org> wrote:
+On Thu, 24 Sep 2026 17:14:54 +0100,
+Fuad Tabba <fuad.tabba@linux.dev> wrote:
 > 
-> Hi Marc, Fuad,
-
-[...]
-
-> > > > I'm not keen on returning -EPERM for the ONE_REG stuff. For a start,
-> > > > X0 *is* valid on MMIO, and when you want to support LD64B and co,
-> > > > you'll need to show the actual data there.
-> > > >
-> > > > I'd rather return what is in the host vcpu structure, as normal.
+> Hi Vincent,
 > 
-> I just wanted to chuck my thoughts in here, as some of this is my fault
-> and it would be really helpful to discuss it on the list. As you probably
-> know, on Android, pKVM has the semantics you describe above: the ONE_REG
-> calls succeed, but the register state isn't propagated to the guest once
-> it's started running. I think we largely did it this way because we were
-> solving a million problems at once during the initial development and
-> having to pipe-clean VMMs wasn't particularly appealing at the time.
-> It's also worth adding that, to my knowledge, we've never had any issues
-> in Android because of this decision.
+> On Thu, 24 Sep 2026 10:51:54 +0100, Vincent Donnefort
+> <vdonnefort@google.com> wrote:
+> > .hyp.event_ids is mapped as part of .hyp.rodata. As a consequence this
+> > section does not need any page-alignment. Remove it to save a page worth
+> > of memory.
+> >
+> > Fixes: 0a90fbc8a170 ("KVM: arm64: Add event support to the nVHE/pKVM hyp and trace remote")
 > 
-> So, based on that, it really sounds like it's the best option. If it ain't
-> broke, don't fix it!
-> 
-> *However*, I can't think of another upstream interface that behaves like
-> that and, when we came to document it, it was quite difficult to explain
-> it in a way that could be extended in the future. If we say that ONE_REG
-> doesn't propagate to the vCPU after first run and returns whatever was
-> last written, then userspace could (even accidentally) rely on that. If
-> we wanted to extend it, I think we'd not only need a method to advertise
-> the new behaviour (which I think you probably want even if ONE_REG
-> returned an error before) but also an opt-in for userspace to say that
-> it's ok with the new behaviour. In some ways, it feels a bit like the
-> "unchecked flags" problem for syscall arguments.
+> Could you either drop the Fixes: tag or say in the message what goes
+> wrong without this patch? As it stands the message describes a
+> one-page saving, and the tag makes it a candidate for stable.
 
-My take on this is that by asking for a protected VM, userspace has
-already acknowledged that it may not be able to access the guest state
-at all, and that trying to access it could result in stale data being
-obtained.
-
-For example, we don't have any particular "buy-in" for the anonymous
-memory that the guest has mapped and that userspace then tries to
-access. We don't slap it on the wrist, but instead give it a page full
-of zeroes.
-
-[...]
-
-> > > once the vCPU has run, the copy is the VMM's
-> > > boot state plus what the exit handlers copy out, and the VMM can't
-> > > distinguish them. x0 on MMIO is one of those fields, but the VMM reads
-> > > it from kvm_run->mmio. For LD64B, EL2 would copy the operands out the
-> > > same way and the error could be relaxed to those registers. Loosening
-> > > later breaks nobody. The comment and the message do overstate it by
-> > > calling the copy "not the guest's state", and I'll reword both in v4.
-> > > More on the kvmtool thread [1].
-> > 
-> > A protected-aware VMM already knows it cannot obtain the registers.
-> 
-> I think you can use that argument both ways: if the VMM knows it cannot
-> obtain the registers, then it's fine to return an error if the VMM does
-> something wrong.
-
-But this is introducing unnecessary friction for userspace to support
-pKVM/CCA/whatever hypervisors.
-
-> 
-> In our recent investigation, it turned out that both kvmtool and crosvm
-> were perfectly happy with ONE_REG returning an error in normal operation
-> but we needed a handful of fixes for kvmtool [1] to handle things like
-> the 'debug' command.
-> 
-> If it's helpful, we can ask the crosvm developers here if they have
-> opinions for/against the two behaviours?
-
-I guess that'd be useful to know what they'd prefer, and also to look
-into what QEMU does in this case -- I'm not exactly a good judge when
-it comes to UAPI definition... ;-)
-
-> 
-> > I don't want to have to revisit the userspace interface once you have
-> > to relax it, because I know for sure that you will have to.
-> 
-> I think we'll have to do that either way, no? The VMM needs a way to
-> know that ONE_REG works and the situations in which it works. If the old
-> behaviour wasn't to return an error, it's also going to need a way to
-> enable the new behaviour.
-
-As above: my take is that this is being covered by creating a
-protected VM. But let's find out from the VMM folks what behaviour
-they prefer. After all, they have to deal with this...
+I've dropped the tag when applying the patch.
 
 Thanks,
 
