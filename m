@@ -4,65 +4,73 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 785F9C98338
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 27 Sep 2026 18:58:11 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id ECBD7C9832F
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 27 Sep 2026 19:02:33 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:To:
-	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=sBCRchsp1sI03Um1rqvmQqGg1HFVn6OU3UOiqPFqQvc=; b=upsX18j8unvqCVndNEuUCl86hs
-	AxP5x9//8otAX6FrdFoJNRt3Y3EJo1FwuO81LocvGC4dwLJFuzRbPM/cEJWjJmS2D559JmjmTc+q1
-	lauB4+HfMcQ3c3AhFsulC65Vdea8cgAYHcWwNjyCoZx4qViCG+/G2MNr7Ymprx7HYbvLa775e20io
-	SK8GZQVyx2wg3d0LA34aZhg9qhu33ojCxIqX3zvxLfZXgQfRSV30T02CzKVPRzpNFl4mAXTkyfQtA
-	5pajRY4gkmdXo6xjMfgU8wfoLseOZhLfIXxBM+vTUYt8kHrgSqwcJFuQ+JbM+RyK0Upx39FDvjqun
-	eRG/s6yw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=UQrtppGpAREwEBox3klCIQcjsYbUf0EeTuSwQEhRl+0=; b=xwuAxUZ/Du4hw/rkuTNeD93eNo
+	uDdx18S6utafhGlSPYkSJlImgBBgjRPZ80I/iwfzywT9mC5o9NB6RRlleaX+WxUZ/AZP8KxjXoYTs
+	HDN9xEjrqPkdwcEY++R7U+a/4Y6OoERnlqrrAwLb49sFpXhJDl+faGOfOXIjSyVJLXqnrMYZ3t5VW
+	zyVQesHIPG1Awf4PnVBtJha2Mh+FizJ9jss4d1cyWoGwj1VLUkRGtX1PlvPqIAmuG9S9EFjxINTgf
+	/kgx2/LJ8jjoXmgewK7dra8rQwvSrWGVNeE+AN4DkQanHyeWyRsGaumSR6EU5EYfzsJKxKgPH663P
+	ehUZwljA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xAu4a-0000000Gj6k-3szs;
-	Sun, 27 Sep 2026 18:58:04 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1xAu8o-0000000GjYc-3e00;
+	Sun, 27 Sep 2026 19:02:26 +0000
+Received: from vps0.lunn.ch ([156.67.10.101])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xAu4Z-0000000Gj6c-120u
-	for linux-arm-kernel@lists.infradead.org;
-	Sun, 27 Sep 2026 18:58:03 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id 5A08F60052;
-	Sun, 27 Sep 2026 18:58:00 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 117261F000FF;
-	Sun, 27 Sep 2026 18:57:58 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1790535480;
-	bh=sBCRchsp1sI03Um1rqvmQqGg1HFVn6OU3UOiqPFqQvc=;
-	h=Date:From:To:Cc:Subject:In-Reply-To:References;
-	b=CYSYylrnQBbvqDP1Ohbo7pOzh7ldRMiIiuzY7lH7ltD3BZBygrRIPavnJZKMWTeAp
-	 HNgjmomDh54IocKkHvRtXClN/puPkQkltlkHSnWByL3IZM1HixHkA7+InOUE0mZ9AZ
-	 x8UeJtGevKQbV7baTntZjfzSMqHihJ8M222HGCBjVNlFsudJOAVa+GjfozDRo0Porl
-	 KAZINSynBWQa4SvgkrLun0Cg4K/vjOZjd9kHTVeCmV6qc+IMI6r5lWSdzDkYzxN9bp
-	 BQH6Wtj5nM218LfyKOhMmxQ7XBiFjIulJwPh7Jr994MWfcxdjmB4C5Ydl5rxQ9fjbq
-	 twlDpd+GJ1BRg==
-Date: Sun, 27 Sep 2026 19:57:53 +0100
-From: Jonathan Cameron <jic23@kernel.org>
-To: Fabrice Gasnier <fabrice.gasnier@foss.st.com>
-Cc: David Lechner <dlechner@baylibre.com>, Nuno =?UTF-8?B?U8Oh?=
- <nuno.sa@analog.com>, "Andy Shevchenko" <andy@kernel.org>, Rob Herring
- <robh@kernel.org>, "Krzysztof Kozlowski" <krzk+dt@kernel.org>, Conor Dooley
- <conor+dt@kernel.org>, "Maxime Coquelin" <mcoquelin.stm32@gmail.com>,
- Alexandre Torgue <alexandre.torgue@foss.st.com>, Marek Vasut
- <marex@nabladev.com>, <linux-iio@vger.kernel.org>,
- <devicetree@vger.kernel.org>, <linux-stm32@st-md-mailman.stormreply.com>,
- <linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>
-Subject: Re: [PATCH v2 02/14] iio: adc: stm32-adc: core: manage clock
- prescaler diversity
-Message-ID: <20260927195753.307af72f@jic23-hlaptop>
-In-Reply-To: <20260923-adc-stm32mp25-v1-v2-2-46bc019537c6@foss.st.com>
-References: <20260923-adc-stm32mp25-v1-v2-0-46bc019537c6@foss.st.com>
-	<20260923-adc-stm32mp25-v1-v2-2-46bc019537c6@foss.st.com>
-X-Mailer: Claws Mail 4.4.0 (GTK 3.24.52; x86_64-pc-linux-gnu)
+	id 1xAu8m-0000000GjYF-3LYa;
+	Sun, 27 Sep 2026 19:02:25 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=lunn.ch;
+	s=20171124; h=In-Reply-To:Content-Disposition:Content-Type:MIME-Version:
+	References:Message-ID:Subject:Cc:To:From:Date:From:Sender:Reply-To:Subject:
+	Date:Message-ID:To:Cc:MIME-Version:Content-Type:Content-Transfer-Encoding:
+	Content-ID:Content-Description:Content-Disposition:In-Reply-To:References;
+	bh=UQrtppGpAREwEBox3klCIQcjsYbUf0EeTuSwQEhRl+0=; b=GXE3mkqRY/t8zgm8M7PViX9qlw
+	2P5+5y4FfOjpjW3YAfRO/RNQR2B+mjHhHaLVo3V2PgXSwur4ZbiWg79L3t/UZde82dIYBCQgljmVE
+	MS+vGcDHhJ/arNtWKId8I4qV50ynJtihdgrIfdpN+Ohg7VE/tKgxabpA7UB6mN3tPwX8=;
+Received: from andrew by vps0.lunn.ch with local (Exim 4.94.2)
+	(envelope-from <andrew@lunn.ch>)
+	id 1xAu8X-007YUJ-0o; Sun, 27 Sep 2026 21:02:09 +0200
+Date: Sun, 27 Sep 2026 21:02:09 +0200
+From: Andrew Lunn <andrew@lunn.ch>
+To: Christian Marangi <ansuelsmth@gmail.com>
+Cc: Lee Jones <lee@kernel.org>, Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Andrew Lunn <andrew+netdev@lunn.ch>,
+	"David S. Miller" <davem@davemloft.net>,
+	Eric Dumazet <edumazet@google.com>,
+	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
+	Vladimir Oltean <olteanv@gmail.com>,
+	Matthias Brugger <matthias.bgg@gmail.com>,
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
+	"Chester A. Unal" <chester.a.unal@arinc9.com>,
+	Daniel Golle <daniel@makrotopia.org>,
+	Heiner Kallweit <hkallweit1@gmail.com>,
+	Russell King <linux@armlinux.org.uk>,
+	Simon Horman <horms@kernel.org>,
+	linux-arm-kernel@lists.infradead.org,
+	linux-mediatek@lists.infradead.org, netdev@vger.kernel.org,
+	mfd@lists.linux.dev, devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org
+Subject: Re: [PATCH net-next v23 8/9] net: dsa: mt7530: generalize and move
+ common function to lib module
+Message-ID: <cd200dee-1bde-4cc2-a296-c93d704cb906@lunn.ch>
+References: <20260925182435.21207-1-ansuelsmth@gmail.com>
+ <20260925182435.21207-9-ansuelsmth@gmail.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=US-ASCII
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20260925182435.21207-9-ansuelsmth@gmail.com>
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260927_120224_835230_0EF51AD7 
+X-CRM114-Status: GOOD (  17.71  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -77,48 +85,44 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, 23 Sep 2026 17:39:05 +0200
-Fabrice Gasnier <fabrice.gasnier@foss.st.com> wrote:
-
-> Make the clock prescaler selection configurable, to prepare stm32mp2
-> support.
-> Reuse existing stm32f4_adc_clk_sel(). Rename it so it's no longer
-> specific to stm32f4. Add configuration data to handle upcoming
-> differences on:
-> - registers and bits
-> - division ratio
-> No functional change intended.
+On Fri, Sep 25, 2026 at 08:24:30PM +0200, Christian Marangi wrote:
+> In preparation of support of DSA Switch from Airoha, create a mt7530
+> library module and move there all the common function.
 > 
-> Signed-off-by: Fabrice Gasnier <fabrice.gasnier@foss.st.com>
-Hi Fabrice,
-
-One small suggestion to use field_prep() rather than having
-to carry the shift around.
->  
-> -	priv->common.rate = rate / stm32f4_pclk_div[i];
-> -	val = readl_relaxed(priv->common.base + STM32F4_ADC_CCR);
-> -	val &= ~STM32F4_ADC_ADCPRE_MASK;
-> -	val |= i << STM32F4_ADC_ADCPRE_SHIFT;
-> -	writel_relaxed(val, priv->common.base + STM32F4_ADC_CCR);
-> +	priv->common.rate = rate / priv->cfg->presc[i];
-> +	val = readl_relaxed(priv->common.base + priv->cfg->regs->ccr);
-> +	val &= ~priv->cfg->regs->presc_msk;
-> +	val |= i << priv->cfg->regs->presc_shift;
-
-I think this isn't a particularly hot path, so we can use
-field_prep()  (the lower case one doesn't mind non const masks)
-
-The we don't need to store the shift as well as the mask.
-
-Maybe it is worth thinking about adding a field_modify() similar
-to FIELD_MODIFY(). Perhaps that's not a thing to do in this patch set
-though.
-
-> +	writel_relaxed(val, priv->common.base + priv->cfg->regs->ccr);
->  
->  	dev_dbg(&pdev->dev, "Using analog clock source at %ld kHz\n",
->  		priv->common.rate / 1000);
-
+> Function are generalized to use the reg_field regmap API but still apply
+> the same exact logic. Every function is renamed to mt7530_lib prefix to
+> better identify it.
 > 
+> Minimum modification are needed to the register header and common enum and
+> macro are moved to the mt7530 library header to permit reuse.
+> 
+> A library struct is introduced with everything required for the common
+> functions.
+> 
+> The generalization and the introduction of reg_field regmap API have the
+> side effect of permitting to clean the mirror functions that required
+> special handling for MT7530 and MT7531 based switch that had different
+> registers. This is done by declaring a common MT7530 reg_field and a
+> specific one in the Switch match table.
+> 
+> No behaviour change is expected by this change as it's just a code move and
+> reimplementation.
+> 
+> Signed-off-by: Christian Marangi <ansuelsmth@gmail.com>
+> ---
+>  drivers/net/dsa/Kconfig       |    4 +
+>  drivers/net/dsa/Makefile      |    1 +
+>  drivers/net/dsa/mt7530-lib.c  | 1128 +++++++++++++++++++++++++++
+>  drivers/net/dsa/mt7530-lib.h  |  391 ++++++++++
+>  drivers/net/dsa/mt7530-mdio.c |    4 +
+>  drivers/net/dsa/mt7530-mmio.c |    4 +
+>  drivers/net/dsa/mt7530.c      | 1368 ++++++++-------------------------
+>  drivers/net/dsa/mt7530.h      |  256 ++----
 
+The number of mt* file keep going up. Is it time to move it into a
+subdirectory?
+
+Reviewed-by: Andrew Lunn <andrew@lunn.ch>
+
+    Andrew
 
