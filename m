@@ -4,81 +4,94 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D6B52CA5FA1
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 27 Sep 2026 14:56:29 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 312CBC98332
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 27 Sep 2026 15:11:13 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=MAut5IltjfVwMEAj0UZBB/L822Xsn2hU0qj03knXC+I=; b=SHMKatwwGsztb+eqGN0BAXsUkj
-	AWDB2npP1qbbdS3GHP1S3MtZNb947dIBhDHhB3nA9o3UiNY+K2KYcNebugIbB4J/mJsMjeuvlOxcv
-	eX5/O6Ig7MOJbXB063wo9uktO1QzGKK2/k+5WUve+CAMed0OHnGrOKq3ZkwMZR2Lr/o7g+R5N3zDy
-	6BOsvw1tOe0sIE3REZBJbfDrAv/vE7wMa/DHHeKxXt75phjFpXHhJFKtvqg7buFI9Sh2kVVitn0RS
-	8kkZ6Qfth4kOxlUBELYjlfTOotoX84PLPnvBBJqB8G0Esb6uEBQ0oLbKdRu6jPkiwhVy/W1kC46h+
-	acqKcjEg==;
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=iq7QY59go/yg3a2RnQSLtv6/NhXKFuv9l2HYC5eUWJQ=; b=GndP8v9F1he61RjGh+ADyRjL+H
+	Powo8geGoGEpbY0pcItnwHYfUxjzuiIMJO533lajFi1iU6b6WtoI10w4JYZrjUNz49+I9cfMMtZZl
+	w6L4kA0TqQJNnlFeBOW0VR+5PCey0p3cR8cP8w/KFVkGFvNQhTrVpyrsqDW3P9v0X6L3mNiokOB24
+	1KcrYUL2iJHfy9OuUxaDms+STcOpVI7TE2O2rO99u1F3aWOKTXP1jNonP14UsR3onOfpcWDfIfr82
+	sMGxbRdy+JRJ4poNCJzN5p40ZNhTITUrX6cVfCL5if9EKuc750NtujzDTR2vO5zHQLt4lk9Y90yYz
+	ORpE9SIA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xAqIf-0000000GTJI-2iYq;
-	Sun, 27 Sep 2026 14:56:21 +0000
-Received: from ci-2003f-snip6-11.eps.apple.com ([2a01:b747:3005:200::3f] helo=outbound.ci.icloud.com)
+	id 1xAqWu-0000000GUUS-3wF9;
+	Sun, 27 Sep 2026 15:11:04 +0000
+Received: from mail-wr2-x10.google.com ([2a00:1450:4864:30::10])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xAqIP-0000000GTEl-2ejW
+	id 1xAqWr-0000000GUU0-2bZq
 	for linux-arm-kernel@lists.infradead.org;
-	Sun, 27 Sep 2026 14:56:07 +0000
-Received: from outbound.ci.icloud.com (unknown [127.0.0.2])
-	by p00-icloudmta-asmtp-us-central-1k-60-percent-7 (Postfix) with ESMTPS id 54A66180060A;
-	Sun, 27 Sep 2026 14:56:00 +0000 (UTC)
-X-ICL-RepId: 01a0e35d-a50a-7fc7-9edb-3f90319b3995
-X-ICL-Out-Info: HUtFAUMEWwJACUgATUQeDx5WFlZNRAJCTQhPAEMGXAVeC1YBXwFLVxQEDloDVA5cBBcbXwJCH1sVSzhaDlsERxQXG1wAFw1WTVAbXwJCDxwTVhUTH1RWA0gZEFYBWFZdBU0aXBhZDxwTUFZaDlsERxQXG1wAFxtGAgQjAl8ARQJeCVYBMBcPVk1QG18CQg8cE1YVEwBeDw9MC0gBWwdSAEcITAZYBFMcQgpLBlkPRgZdTxFdDlIFRl5aFFwYQwJXAnkRUAFYHlZeWhdeUxcfSwBcRVoOWwRHFA==
-Dkim-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=icloud.com; s=1a1hai; t=1790520963; x=1793112963; bh=MAut5IltjfVwMEAj0UZBB/L822Xsn2hU0qj03knXC+I=; h=From:To:Subject:Date:Message-ID:MIME-Version:x-icloud-hme; b=rQnDXkdAOJKS1MXBzMTZDw0OjgUTeyqm+GptPAcjs/EDZmQMEN3AmDniDTgZLIlcZ9syy2KCWHc6C0Z/hJBmw5FPKyUx/X8gQXOiJLk4LXWSrlw1cZrE3v/8frC1P6pI2O/BAaJ+oOsatAb6vny38kUlw8sYT/j8g3UcAtigOW9pg7EerL8B6SQlzwTQ7S/pJJaXTToeep5l1awvOfsPG3qjLxravnBDEmyKChmPSWDJzibU7awDSJEh4gJhSCNg4sZ/4gJgB4ChGrB5+DzVL72j6JcGDhP0x4GS6KoOHH0wxiByXXnUxZD4PPHG6rJkcBRT2ZaHZncNIdGFLCBnyg==
-Received: from bigre.tail98293.ts.net (unknown [17.57.156.36])
-	by p00-icloudmta-asmtp-us-central-1k-60-percent-7 (Postfix) with ESMTPSA id EE6C518001BB;
-	Sun, 27 Sep 2026 14:55:58 +0000 (UTC)
-From: Vincent Cloutier <vincent.cloutier@icloud.com>
-To: sre@kernel.org
-Cc: linux-pm@vger.kernel.org,
+	Sun, 27 Sep 2026 15:11:02 +0000
+Received: by mail-wr2-x10.google.com with SMTP id ffacd0b85a97d-4843796e373so1260827f8f.1
+        for <linux-arm-kernel@lists.infradead.org>; Sun, 27 Sep 2026 08:11:00 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20251104; t=1790521859; x=1791126659; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
+        bh=iq7QY59go/yg3a2RnQSLtv6/NhXKFuv9l2HYC5eUWJQ=;
+        b=Jq7/tVTz4LtzZxqKUOAt+SQ2TTF2xp8s7NtMUPOCxhAuJVcmrT5ehU31ZYgIg9gg3T
+         FYhdTOLZYgqnL/8HAtdhBt8aOfSJ9H19uTll5PjSR912qeClw+le/SikLN9vNF1me20J
+         kj+z3EULM2DoUUZ7uxydNz1KMYfW4Kr4nr/MzxYamCIDcHmzLZVHQ4j1tLowRBeUieiQ
+         IlogTMoNVSMkFIBS7HUZsTk/68hFKMYE5in8OvYB+UXF9Wx5HlnRQ9MH3IYiEcf9LK89
+         qXY9xlHYBgrKtnLNM6cooxhrXoTcs77a34gTAHz/ZwfjOrweAyX2sUfhuiYxvGkATeK0
+         cu0g==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1790521859; x=1791126659;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=iq7QY59go/yg3a2RnQSLtv6/NhXKFuv9l2HYC5eUWJQ=;
+        b=Q+UcBLaos4rYmJoqxEHPYV4Fkugf9rrLJRfGzsUuxVdWogxHaPvXmFYECeOpOQJKYS
+         N6zRb2IXr1bfCb+N1mAVSQCnlNR2Z1ZurhBO9EDyljL7WsfGvjzniahO95qFX5Bkljhh
+         +CEFsZHpz69AnfF9GWh6LtBD9579EqBiz47JLjRskKVUtkq1agjcCvcAebVqGABBzmv/
+         KG9gNZH0VuchXQxBnFDouO57rm6cvtkMGlTOLtSnyR43Kpl7ZjMIa8reYrXT/ewLWhWy
+         CIgs21mwXW5rfvEquFhwJ4noI1LaMPJqm1tcS8RxU0iMMRFNm34NsLlD3Zo7Ng+kwMnu
+         H6tg==
+X-Forwarded-Encrypted: i=1; AKwUvBxQ4GQbmOUBypiDWkhwXLQcdCHkJ3wRO9c6sVGlCw7k9lX3NFLsqOuR+flj4/LyypxgNdfXtq280/G7JtS7rM2X@lists.infradead.org
+X-Gm-Message-State: AFq9FYIUOsc/mq1eSx2j1Au8gGYaVZzBW44pJ9AWP4FPfqaMLt+cmfbW
+	oo1rlvP62HhUIjr/naaZdAM6yFPBlktvLB16M6paE7Z5divmzU7DloP/
+X-Gm-Gg: AYBFou1EgxpYRJHkS7GPillfmxlPl6u3ACSkCpmMr+eLbV97l8Yh8LVHA09cku5oIF5
+	BBumvJCzWuTkubzW0C0DZ9BorVYyiNVJaEPfO8s3+gqv/SNstGHietGUNiBoYs0fiTcBqV//wl1
+	mVApqjG5fpB1LR59DytgSD0YM8v+n7LkOVyFeoXb6JkxRvzKJDuLCOCKDx+QOJog/UOIa8T1qhP
+	svx63sWLg12H47BQeRLGz6U4d14lVwV7+0Op3C7Q6i8BPomCrKmRWcaG+zRbQm/Qb6JcWkMXLc+
+	UFh488M0IVvoWTDsUt2eNTDfX/eauQoGoopuToN2Yxgz0M8uIlRPVkN4eQ+GLwV9mlmhAvheMVE
+	zEwnVE8smxL7U86VC2zn/bBRPGTiU2GScUJV3RsFz2BpGy9XuSnBLND+7vS6UC6xRzB/rdVUp+1
+	+KdrQfTlfFv+DQsZO9WGlR0UHO9ROtm/A3KBm4zDUvNq1MS3Ncv6c/COeNp2hH99zohaVUSzreR
+	n0UhgcsddTLz4Hlb7ZMg3Qv1PRpDzRNUfhbwkya/zA=
+X-Received: by 2002:a05:6000:402a:b0:488:8bc1:a2eb with SMTP id ffacd0b85a97d-4888bc1a693mr4386678f8f.39.1790521859115;
+        Sun, 27 Sep 2026 08:10:59 -0700 (PDT)
+Received: from debian (ip-78-137-176-146.broadband.digiweb.ie. [78.137.176.146])
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-4887a746c57sm19764208f8f.35.2026.09.27.08.10.57
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Sun, 27 Sep 2026 08:10:58 -0700 (PDT)
+From: Pablo Mazzini <pmazzini@gmail.com>
+To: Chen-Yu Tsai <wens@kernel.org>,
+	Jernej Skrabec <jernej.skrabec@gmail.com>,
+	Samuel Holland <samuel@sholland.org>
+Cc: Pablo Mazzini <pmazzini@gmail.com>,
 	devicetree@vger.kernel.org,
 	linux-arm-kernel@lists.infradead.org,
-	imx@lists.linux.dev,
+	linux-clk@vger.kernel.org,
+	linux-gpio@vger.kernel.org,
+	linux-i2c@vger.kernel.org,
 	linux-kernel@vger.kernel.org,
-	robh@kernel.org,
-	krzk+dt@kernel.org,
-	conor+dt@kernel.org,
-	Frank.Li@nxp.com,
-	s.hauer@pengutronix.de,
-	kernel@pengutronix.de,
-	festevam@gmail.com,
-	daniel.baluta@nxp.com,
-	shawnguo@kernel.org,
-	agx@sigxcpu.org,
-	angus@akkea.ca,
-	Vincent Cloutier <vincent@cloutier.co>
-Subject: [PATCH v1 3/4] power: supply: bq25890: Add input voltage limit
-Date: Sun, 27 Sep 2026 10:55:37 -0400
-Message-ID: <20260927145538.233548-4-vincent.cloutier@icloud.com>
-X-Mailer: git-send-email 2.55.0
-In-Reply-To: <20260927145538.233548-1-vincent.cloutier@icloud.com>
-References: <20260927145538.233548-1-vincent.cloutier@icloud.com>
+	linux-mmc@vger.kernel.org,
+	linux-rtc@vger.kernel.org,
+	linux-sunxi@lists.linux.dev
+Subject: [PATCH v2 00/11] ARM: sunxi: add Allwinner B288 and the PocketBook Verse
+Date: Sun, 27 Sep 2026 16:10:05 +0100
+Message-ID: <20260927151016.186493-1-pmazzini@gmail.com>
+X-Mailer: git-send-email 2.53.0
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
-X-Authority-Info-Out: v=2.4 cv=d6v4CBjE c=1 sm=1 tr=0 ts=6ab92e82
- cx=c_apl:c_pps:t_out a=2G65uMN5HjSv0sBfM2Yj2w==:117
- a=2G65uMN5HjSv0sBfM2Yj2w==:17 a=VdqzKS8jKosA:10 a=x7bEGLp0ZPQA:10
- a=5j__JWfIoqoA:10 a=VkNPw1HP01LnGYTKEx00:22 a=CrHkPnLHL-1v8ukjNXAA:9
-X-Proofpoint-GUID: uOnhdEiy9fP_bs1hYuL9E9R0Bb5Lilkh
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwOTI3MDA1OSBTYWx0ZWRfX59jGLZMWNluT
- m6EnobpqFEBE8q5eSHV8LiNOeXwCedanUWgTTJjP9kPCiZ8hNlnJcLZ97oF20mgKBUoTrmzQpHI
- 95PrTxmVHsJZteS/MbaiCQCTln+qNvaRVITgCocx4/I5H0PMaY9WrA9hONkfvK+aUx8x35sSMbN
- 6JbkE/d9/gRO40cz4hGNcusaWnv9gq9elB0eVg1NEcrFHvmVZC/+oEGQIyAicv3pzW562drPYru
- BLlEt/gejYko88n46xVxEy6eq5Hj3MAXYqrUeL3rZNOJJrxJsxhR2lFfME9lZYnxtDm1TOl6VOr
- I7WCKQa8XezU9uQiVRzISpjgCb5ZWzSWGm0nV3YSGg51yp41DVMPkPCedqDers=
-X-Proofpoint-ORIG-GUID: uOnhdEiy9fP_bs1hYuL9E9R0Bb5Lilkh
-X-JNJ: AAAAAAABIpnGXC4J8ZevAQpaIz9RiTNanlqd/8pCXRaZ92A+sBSfvn5MK3x6oxhFr7WRsCa90gKGvufuZuB6D6QMGy8ZnjpVCfaZGE/+UsOee1OMj7/fUh6C/3AeUSOuYGrqmMprCF2wU0NtoBevc0q/pJ67so0rCgTekw8pDNSmsPlkNGDIr2+xQeSsRajzsMGz2trPIhQguf0o+CJdYIxuAo09vYxmqOR8xIaBnDDh1nfP3mHGL8kUOzYTymyqzyyQTXQqko8fVRG9LjzEWXfIVT50Lys4uidYcz3jhNssPDHB15wD08SzTWEWuHpogrHvoue//vcyMnO7Te7xB5/iGgSD7Qqy+J8Z853ZQeYXTseyszZy2R+ctc77Bp7zhxAj2ro5XayqscXaKw34trUcnPvZzEBQAcc1UuqUnI4ljMFKnB3ISltS2RR2tBEhNV3WRzz6zzQZzl43yt3Km8Z21YGwJ+ug+qU9BbXT/mejespevqW18OvCp261NqbTAmfZWte7rxM3hwAVVCefGQ88UAayqCmp1TabIUE9v40n5GCjtibUoInJlmHT0/X3C0VTtxjxO00Po+AMpcHmUKXnln1SocQgr9yHNoSpviWseOsIiIJbI80FEvXYcq8OcAVmZJwGcxEzbFdk3XGADYfc/jVA2WEjFQgZ0Fr6jBtyoR+5OGc+iprx4prXZldv2J/O0wAEldPxtO4sGzxU7u9Vw3bF/YzmgvCGIn1DEpJInzsHuKl3zLO0Udv+HYydxw21hE0JV0W6gQWu26efoqjQwi8mdKRthe2y74GF+JsHnPYWydsWrEtVn020HK+Y5Yr84agvjT161x2tinMkjkMzzh4jmJh6Oi7J0R5A33fp/ndvgBr81Wzh5hcv+5a3VC4j7Of2sjOPhOz2mugrVfFdS3Z1jbSfILqEixNySI+q+sNHMspZst6/l+U=
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260927_075605_726972_BAF6F470 
-X-CRM114-Status: GOOD (  19.10  )
+X-CRM114-CacheID: sfid-20260927_081101_701842_0A9915A5 
+X-CRM114-Status: GOOD (  12.81  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -93,178 +106,65 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Vincent Cloutier <vincent@cloutier.co>
+The Allwinner B288 (sun8iw10p1) is a dual Cortex-A7 SoC used in e-book
+readers. This series adds the CCU and pin controller drivers, the RTC,
+I2C, MMC and NMI compatibles, the SoC .dtsi, and one board: the
+PocketBook Verse (PB629), a 6" reader.
 
-The BQ25890 family supports an absolute input voltage dynamic power
-management threshold. Read input-voltage-limit-microvolt from firmware,
-enable absolute VINDPM, and then program the requested threshold. Only
-program and restore VINDPM when this property is parsed. Without it,
-retain the existing VINDPM behavior.
+The B288 is closest to the A64: most of its PLLs are bit-identical.
+The clock and pin descriptions come from Allwinner's BSP, cross-checked
+against ccu-sun50i-a64.c. Tested on a PB629, boots to userspace.
 
-As with the other initialization properties, linux,read-back-settings
-bypasses parsing this property. Do not read back VINDPM into the requested
-settings, so a firmware-configured absolute threshold does not implicitly
-enable restoration.
+Changes since v1:
+  - Add this cover letter.
+  - Drop both new bindings; add the compatibles to the existing
+    allwinner,sun4i-a10-{ccu,pinctrl}.yaml instead.
+  - Rewrite the pinctrl driver in the DT-provided pinmux style.
 
-The BQ25896 resets FORCE_VINDPM and VINDPM when an input source is
-inserted. Source detection and VINDPM threshold selection generate
-separate interrupts, so compare the fields with the requested values on
-every online state refresh before returning for unchanged charger state.
-Restore them only when they differ to avoid an interrupt loop. Report a
-successful restoration as a handled interrupt even when the tracked state
-is unchanged, without sending a redundant power-supply change notification.
+Pablo Mazzini (11):
+  dt-bindings: clock: sun4i-a10-ccu: add Allwinner B288
+  clk: sunxi-ng: add Allwinner B288 CCU driver
+  dt-bindings: pinctrl: sun4i-a10: add Allwinner B288
+  pinctrl: sunxi: add Allwinner B288 pin controller driver
+  dt-bindings: rtc: sun6i-a31: add Allwinner B288
+  rtc: sun6i: add Allwinner B288 compatible
+  dt-bindings: i2c: mv64xxx: add Allwinner B288
+  dt-bindings: mmc: sun4i-a10-mmc: add Allwinner B288
+  dt-bindings: interrupt-controller: add Allwinner B288 NMI
+  dt-bindings: arm: sunxi: add PocketBook Verse
+  ARM: sunxi: add B288 and the PocketBook Verse board
 
-Repeat the comparison during resume because an input insertion while
-suspended may not leave a visible offline-to-online transition.
+ .../devicetree/bindings/arm/sunxi.yaml        |   5 +
+ .../clock/allwinner,sun4i-a10-ccu.yaml        |   1 +
+ .../bindings/i2c/marvell,mv64xxx-i2c.yaml     |   1 +
+ .../allwinner,sun7i-a20-sc-nmi.yaml           |   1 +
+ .../bindings/mmc/allwinner,sun4i-a10-mmc.yaml |   2 +
+ .../pinctrl/allwinner,sun4i-a10-pinctrl.yaml  |  23 +
+ .../bindings/rtc/allwinner,sun6i-a31-rtc.yaml |   2 +
+ arch/arm/boot/dts/allwinner/Makefile          |   1 +
+ .../allwinner/sun8i-b288-pocketbook-verse.dts | 122 ++++
+ arch/arm/boot/dts/allwinner/sun8i-b288.dtsi   | 304 ++++++++
+ arch/arm/mach-sunxi/sunxi.c                   |   1 +
+ drivers/clk/sunxi-ng/Kconfig                  |   5 +
+ drivers/clk/sunxi-ng/Makefile                 |   1 +
+ drivers/clk/sunxi-ng/ccu-sun8i-b288.c         | 660 ++++++++++++++++++
+ drivers/clk/sunxi-ng/ccu-sun8i-b288.h         |  10 +
+ drivers/pinctrl/sunxi/Kconfig                 |  10 +
+ drivers/pinctrl/sunxi/Makefile                |   1 +
+ drivers/pinctrl/sunxi/pinctrl-sun8i-b288.c    |  53 ++
+ drivers/rtc/rtc-sun6i.c                       |   1 +
+ include/dt-bindings/clock/sun8i-b288-ccu.h    |  88 +++
+ include/dt-bindings/reset/sun8i-b288-ccu.h    |  45 ++
+ 21 files changed, 1337 insertions(+)
+ create mode 100644 arch/arm/boot/dts/allwinner/sun8i-b288-pocketbook-verse.dts
+ create mode 100644 arch/arm/boot/dts/allwinner/sun8i-b288.dtsi
+ create mode 100644 drivers/clk/sunxi-ng/ccu-sun8i-b288.c
+ create mode 100644 drivers/clk/sunxi-ng/ccu-sun8i-b288.h
+ create mode 100644 drivers/pinctrl/sunxi/pinctrl-sun8i-b288.c
+ create mode 100644 include/dt-bindings/clock/sun8i-b288-ccu.h
+ create mode 100644 include/dt-bindings/reset/sun8i-b288-ccu.h
 
-The BQ25896-specific restoration path has not been tested on hardware.
-
-Assisted-by: OpenCode:gpt-5.6-sol
-Assisted-by: OpenCode:gpt-6-astra
-Signed-off-by: Vincent Cloutier <vincent@cloutier.co>
----
- drivers/power/supply/bq25890_charger.c | 74 +++++++++++++++++++++++++-
- 1 file changed, 73 insertions(+), 1 deletion(-)
-
-diff --git a/drivers/power/supply/bq25890_charger.c b/drivers/power/supply/bq25890_charger.c
-index 741a45cc5f35..71d6cf179667 100644
---- a/drivers/power/supply/bq25890_charger.c
-+++ b/drivers/power/supply/bq25890_charger.c
-@@ -88,6 +88,8 @@ struct bq25890_init_data {
- 	u8 boosti;	/* boost current limit		*/
- 	u8 boostf;	/* boost frequency		*/
- 	u8 ilim_en;	/* enable ILIM pin		*/
-+	bool force_vindpm; /* explicit absolute VINDPM request */
-+	u8 vindpm;	/* absolute VINDPM threshold	*/
- 	u8 treg;	/* thermal regulation threshold */
- 	u8 rbatcomp;	/* IBAT sense resistor value    */
- 	u8 vclamp;	/* IBAT compensation voltage limit */
-@@ -284,6 +286,7 @@ enum bq25890_table_ids {
- 	TBL_VBUSV,
- 	TBL_VBATCOMP,
- 	TBL_RBATCOMP,
-+	TBL_VINDPM,
- 
- 	/* lookup tables */
- 	TBL_TREG,
-@@ -351,6 +354,7 @@ static const union {
- 	[TBL_VBUSV] =	 { .rt = {2600000, 15300000, 100000} },	 /* uV */
- 	[TBL_VBATCOMP] = { .rt = {0,         224000, 32000} },	 /* uV */
- 	[TBL_RBATCOMP] = { .rt = {0,         140000, 20000} },	 /* uOhm */
-+	[TBL_VINDPM] =   { .rt = {2600000, 15300000, 100000} },	 /* uV */
- 
- 	/* lookup tables */
- 	[TBL_TREG] =	{ .lt = {bq25890_treg_tbl, BQ25890_TREG_TBL_SIZE} },
-@@ -814,18 +818,67 @@ static int bq25890_get_chip_state(struct bq25890_device *bq,
- 	return 0;
- }
- 
-+static int bq25890_set_vindpm(struct bq25890_device *bq)
-+{
-+	int ret;
-+
-+	if (!bq->init_data.force_vindpm)
-+		return 0;
-+
-+	ret = bq25890_field_write(bq, F_FORCE_VINDPM, 1);
-+	if (ret < 0)
-+		return ret;
-+
-+	return bq25890_field_write(bq, F_VINDPM, bq->init_data.vindpm);
-+}
-+
-+/* Return 1 if restored, 0 if unchanged, or a negative error. */
-+static int bq25890_restore_vindpm(struct bq25890_device *bq)
-+{
-+	int force, vindpm, ret;
-+
-+	if (!bq->init_data.force_vindpm || bq->chip_version != BQ25896)
-+		return 0;
-+
-+	force = bq25890_field_read(bq, F_FORCE_VINDPM);
-+	if (force < 0)
-+		return force;
-+
-+	vindpm = bq25890_field_read(bq, F_VINDPM);
-+	if (vindpm < 0)
-+		return vindpm;
-+
-+	if (force && vindpm == bq->init_data.vindpm)
-+		return 0;
-+
-+	ret = bq25890_set_vindpm(bq);
-+	if (ret < 0)
-+		return ret;
-+
-+	return 1;
-+}
-+
- static irqreturn_t __bq25890_handle_irq(struct bq25890_device *bq)
- {
- 	bool adc_conv_rate, new_adc_conv_rate;
- 	struct bq25890_state new_state;
-+	irqreturn_t irq_ret = IRQ_NONE;
- 	int ret;
- 
- 	ret = bq25890_get_chip_state(bq, &new_state);
- 	if (ret < 0)
- 		return IRQ_NONE;
- 
-+	if (new_state.online) {
-+		ret = bq25890_restore_vindpm(bq);
-+		if (ret < 0)
-+			goto error;
-+		if (ret > 0)
-+			irq_ret = IRQ_HANDLED;
-+	}
-+
- 	if (!memcmp(&bq->state, &new_state, sizeof(new_state)))
--		return IRQ_NONE;
-+		return irq_ret;
- 
- 	/*
- 	 * Restore HiZ bit in case it was set by user. The chip does not retain
-@@ -932,6 +985,9 @@ static int bq25890_rw_init_data(struct bq25890_device *bq)
- 		}
- 	}
- 
-+	if (write)
-+		return bq25890_set_vindpm(bq);
-+
- 	return 0;
- }
- 
-@@ -1386,6 +1442,18 @@ static int bq25890_fw_read_u32_props(struct bq25890_device *bq)
- 						       props[i].tbl_id);
- 	}
- 
-+	if (device_property_present(bq->dev,
-+				    "input-voltage-limit-microvolt")) {
-+		ret = device_property_read_u32(bq->dev,
-+					       "input-voltage-limit-microvolt",
-+					       &property);
-+		if (ret < 0)
-+			return ret;
-+
-+		init->vindpm = bq25890_find_idx(property, TBL_VINDPM);
-+		init->force_vindpm = true;
-+	}
-+
- 	return 0;
- }
- 
-@@ -1609,6 +1677,10 @@ static int bq25890_resume(struct device *dev)
- 
- 	/* Re-enable ADC only if charger is plugged in. */
- 	if (bq->state.online) {
-+		ret = bq25890_restore_vindpm(bq);
-+		if (ret < 0)
-+			goto unlock;
-+
- 		ret = bq25890_field_write(bq, F_CONV_RATE, 1);
- 		if (ret < 0)
- 			goto unlock;
 -- 
-2.55.0
+2.53.0
 
 
