@@ -4,99 +4,96 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B2EFDC9830E
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 27 Sep 2026 12:03:09 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2D722C98332
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 27 Sep 2026 12:06:00 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:References:Content-Type:
+	Content-Transfer-Encoding:In-Reply-To:From:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Z+V9unX6aBDFJuuH1gIxp0fin+EUilc5XMo2mblqJ30=; b=R3U8xpBPY+8lCVrYzhRUhcvAT6
-	fyEQ8utzwCVAfDQENSJXhSsRnGVTwvOLSZrCEAo1I6ONbQP4kHttqcx0qJ5YaHabCpGVvuP1XEWO9
-	koIka9BsYWI2MTbYbMvi2vOCLiFu0IVGibBQRFKTs+pKRW6ikyn9rh7FxUFvDZwMtf1D48pp2r2fI
-	CTOFDw+/2CzerdbzFgPRzwOyKG6K01BQ9Zjfep/+/txyWgcy3FT33UHBzD5cvVgD4kC+pq5JlIR+I
-	jJABLcR0f3sHN1LUILJfv3VRZShktje4jt0fYqsxWdsM2TlsYTrAGsYd01iTCZB6bKuT0f1OctVaE
-	53/uQCzQ==;
+	bh=XG8+gWff0Kb6xp+rIzHqMb+FVejaqE783kZJda9sveQ=; b=vPfX1IPRyw4R2xdvTkhMqMQIoo
+	tdvAfE76h1R7v5/S2KQtc15/nr2ZlZhflFxX0JAcZFF0vlFNr/kHwEjUB9mV8BIVbWMmp8FOTUdw+
+	FC0BUpaQmsPahUKm9nc9kafhbMOG2bhmeCWWSi7zWRQxemNxnSa88WfCJGGbs/eQixP/SoGMpsxpa
+	DPgWvSEpZRX0muK1cF10V5UYWG6bIEpcYsIC5seiihl4QBaAmsc2s3StrgdVeiFP0NA+refgLrKqG
+	0u2B46IGLCz6NXwHRzJr8W8KxmzB6p/Jetony3QH4kg2HHKR2iT8LNYlehTo6TwqNw8N7/Yxl2RDd
+	oKKiW8cg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xAnax-0000000GHc7-2pf6;
-	Sun, 27 Sep 2026 12:03:03 +0000
-Received: from mail-wr2-x10.google.com ([2a00:1450:4864:30::10])
+	id 1xAndc-0000000GHwY-1Iy7;
+	Sun, 27 Sep 2026 12:05:48 +0000
+Received: from mailout1.w1.samsung.com ([210.118.77.11])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xAnav-0000000GHb6-0tSZ
-	for linux-arm-kernel@lists.infradead.org;
-	Sun, 27 Sep 2026 12:03:02 +0000
-Received: by mail-wr2-x10.google.com with SMTP id ffacd0b85a97d-4843af75de5so209795f8f.3
-        for <linux-arm-kernel@lists.infradead.org>; Sun, 27 Sep 2026 05:03:00 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1790510579; x=1791115379; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=Z+V9unX6aBDFJuuH1gIxp0fin+EUilc5XMo2mblqJ30=;
-        b=lq8A3EYeE/vl3dZYV9s3QF26GsxwJ7TgqcBE/Jq1sb5AqhzJIAmtRAky4dTjEUNW08
-         sepp658isBPnP4Xw702J9Q4cmrwX25pJ1U5eS4MnFhxEZm43k9SHNg3uC1GE8Q5Onkmv
-         oI9beTi3IGWNJ/Ix5auMCcPjlAgL/nNl7nqvmd/TEN4hkVZ9vmvOLvVkiIV3sRbnMZ8N
-         IWObcR93IAioDW5ug9bIzi6HVajbsNWFyzK9jfmiMrRVPCZLQE18XWsxBJ4ukWqpY8gS
-         F0GG9CjmgHR4oz75kb0ZpZHzlmTFCd9AN8nnaaJ0RWyS47PbvCyV5TX/aS4VYn9ZXp24
-         +LHg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1790510579; x=1791115379;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=Z+V9unX6aBDFJuuH1gIxp0fin+EUilc5XMo2mblqJ30=;
-        b=xvwObaV170+lAJ1Z+yYtF9fxvZi/WMamQ78kimpB6jOWj13A0hqzDtloVYDbj59Uq5
-         ep4OnBMPT+yvfTEuSdHDZRG6KsRYAVxA0PonB/te8SG25Rq2931+d8FeFu1TqLn/IdkQ
-         RQNZqJPC5evQXIebYOaaS9JmoTjpOQjkJy3Cc60cymJhX6ZGS9gxxm6VHJHv3zI5hQpA
-         +f1dXaP87qRgkZSt5X7Mu5szpyDeyEICI6+7KgjgJ83zqsh/BS9u90mTlPhj/vhWjKpN
-         sY7ylwJc0Ct5EZkH6gLRmA8H+LLpV8DD7VSw3Y0dKyc8N6LwFwco3HELmBLnyMM3iPkz
-         0l3g==
-X-Forwarded-Encrypted: i=1; AKwUvBzeW+aBR91kcDyeTTqC4Y8AT317mUIU7/6J4De/UAWHMzH3NkjJDUi7KRTxfPggkqGK0JwzxCV+auhPuboM20Sq@lists.infradead.org
-X-Gm-Message-State: AFq9FYICsk0JrjSTlgamI2iJp2knGoNqCMHTc6/6KuewaLt6F4fI9Gbg
-	XQpgVcaEraat/Xovik5cmZIJKdaqWUDTgeceRlRDbW8D2RcUEsYqEFuh
-X-Gm-Gg: AYBFou3a3Gp0zNTlYyXbSz5sC6tacnmWNscPcRh/LJxt13nk0LzvtPV3BhgkTjCuPkV
-	U0B4BOXWsgp1dKub+Cuppw1Wh4vul8hiXzmveienNdnQ2/uP8HAualFFj1TPEtom7bcmsJXQQwc
-	/S7kkAqJqE5jep8sfbs30zuSumKLzmSwpaKbH1JhBAbm15DFzetaK83zNNFu99BrcOhUtlijIQW
-	8inM3aMXodWozT629gz4dnp+UV072jKUacgEIYOiXuUTffoaYGbMZ/c1UNBOkmHPJHPj+nXBLvZ
-	SPuj0wSqMgXf7K3esJXIq/g6mN3Djx4ogNBc13tREWZFVYsSzLYHSSBDG/TTjQ+EpF1No4RUHOf
-	AIZrjMv8QV6Vb4+zkAmFcmgGVchV0E1Nl6ToeOnVnCPVqHIyR3JPy+YIcOSXTghgGMCVPTKKAIp
-	cKzNnJgrcFYtKt5Gb02ixaHA5Ur/Qz29Ef66Q7ZAZl6ZT9BmDcrnAKf9d2Kt/D8KOdPqzZvllXv
-	JbNA/cjpmKJGRM5IcILBoB/kLcZ76OjlNzWlGJuEnNQyXUh4qc/y49lqaAIwtv3rxCX4V7yO7DD
-	YUo=
-X-Received: by 2002:a05:6000:184f:b0:487:fa3:7630 with SMTP id ffacd0b85a97d-4887acd8844mr13892557f8f.6.1790510579294;
-        Sun, 27 Sep 2026 05:02:59 -0700 (PDT)
-Received: from OrangePi5-Plus.BB-HOME (20014C4E1B89A9009A7C72AB6C68D3F9.dsl.pool.telekom.hu. [2001:4c4e:1b89:a900:9a7c:72ab:6c68:d3f9])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-4887a74538asm19548417f8f.34.2026.09.27.05.02.57
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sun, 27 Sep 2026 05:02:58 -0700 (PDT)
-From: Igor Paunovic <royalnet026@gmail.com>
-To: Sebastian Reichel <sebastian.reichel@collabora.com>
-Cc: Igor Paunovic <royalnet026@gmail.com>,
-	Thinh Nguyen <Thinh.Nguyen@synopsys.com>,
-	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
-	Heiko Stuebner <heiko@sntech.de>,
-	Vinod Koul <vkoul@kernel.org>,
-	Neil Armstrong <neil.armstrong@linaro.org>,
-	Manivannan Sadhasivam <mani@kernel.org>,
-	linux-kernel@vger.kernel.org,
-	linux-usb@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-rockchip@lists.infradead.org,
-	linux-phy@lists.infradead.org,
-	kernel@collabora.com
-Subject: Re: [PATCH v16 6/6] usb: dwc3: rockchip: fix USB-C reconnect in gadget mode
-Date: Sun, 27 Sep 2026 14:02:47 +0200
-Message-ID: <20260927120247.9807-1-royalnet026@gmail.com>
-X-Mailer: git-send-email 2.53.0
-In-Reply-To: <20260924-b4-rockchip-dwc3-rockchip-glue-v16-6-126a2e9133c3@collabora.com>
-References: <20260924-b4-rockchip-dwc3-rockchip-glue-v16-0-126a2e9133c3@collabora.com> <20260924-b4-rockchip-dwc3-rockchip-glue-v16-6-126a2e9133c3@collabora.com>
+	id 1xAndY-0000000GHvf-2er4;
+	Sun, 27 Sep 2026 12:05:47 +0000
+Received: from eucas1p2.samsung.com (unknown [182.198.249.207])
+	by mailout1.w1.samsung.com (KnoxPortal) with ESMTP id 20260927120537euoutp019c6217f2f172d5798b71ccad819cde66~ZLAeRpbfb0961109611euoutp01G;
+	Sun, 27 Sep 2026 12:05:37 +0000 (GMT)
+DKIM-Filter: OpenDKIM Filter v2.11.0 mailout1.w1.samsung.com 20260927120537euoutp019c6217f2f172d5798b71ccad819cde66~ZLAeRpbfb0961109611euoutp01G
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=samsung.com;
+	s=mail20170921; t=1790510737;
+	bh=XG8+gWff0Kb6xp+rIzHqMb+FVejaqE783kZJda9sveQ=;
+	h=Date:Subject:To:Cc:From:In-Reply-To:References:From;
+	b=GfNjHoD7g834Dcl8ZapG6XaA2n8JLOknTzlw7hqfOTAo9LAYC2MsOnIIDyjT8ZLP2
+	 l5hKnOlzHW9ec1yco0+wCoH4olnd4//rBjjAIeXDtkaOcBZYd7z4B8k29ZiShT270L
+	 oFgdZaGafVbmpg9ZujF/q9SlESV9rt/e7uROppyI=
+Received: from eusmtip2.samsung.com (unknown [203.254.199.222]) by
+	eucas1p2.samsung.com (KnoxPortal) with ESMTPA id
+	20260927120537eucas1p2940a6c268f23ab72fb7eb581fe0bfee8~ZLAd4yZaM2953129531eucas1p2J;
+	Sun, 27 Sep 2026 12:05:37 +0000 (GMT)
+Received: from [192.168.1.44] (unknown [106.210.136.40]) by
+	eusmtip2.samsung.com (KnoxPortal) with ESMTPA id
+	20260927120535eusmtip28a1a6cb637e2a20e2b9abd75be01ad38~ZLAbod2Iw3245532455eusmtip2F;
+	Sun, 27 Sep 2026 12:05:34 +0000 (GMT)
+Message-ID: <4b1d51e9-1d83-4ad7-ac60-36de54e57bc2@samsung.com>
+Date: Sun, 27 Sep 2026 14:05:34 +0200
 MIME-Version: 1.0
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v4 18/20] phy: starfive: Add jh7110-inno-hdmi-phy driver
+To: Dominique Belhachemi <domibel@debian.org>
+Cc: Vinod Koul <vkoul@kernel.org>, Neil Armstrong
+	<neil.armstrong@linaro.org>, Rob Herring <robh@kernel.org>, Krzysztof
+	Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, Andrzej
+	Hajda <andrzej.hajda@intel.com>, Robert Foss <rfoss@kernel.org>, Laurent
+	Pinchart <Laurent.pinchart@ideasonboard.com>, Jonas Karlman
+	<jonas@kwiboo.se>, Jernej Skrabec <jernej.skrabec@gmail.com>, Luca Ceresoli
+	<luca.ceresoli@bootlin.com>, Maarten Lankhorst
+	<maarten.lankhorst@linux.intel.com>, Maxime Ripard <mripard@kernel.org>,
+	Thomas Zimmermann <tzimmermann@suse.de>, Lee Jones <lee@kernel.org>, Andy
+	Yan <andy.yan@rock-chips.com>, Philipp Zabel <p.zabel@pengutronix.de>, Emil
+	Renner Berthing <kernel@esmil.dk>, Hal Feng <hal.feng@starfivetech.com>,
+	Michael Turquette <mturquette@baylibre.com>, Stephen Boyd
+	<sboyd@kernel.org>, Heiko Stuebner <heiko@sntech.de>, Paul Walmsley
+	<pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou
+	<aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>, Dominique
+	Belhachemi <db@domibel.de>, Brian Masney <bmasney+clk@redhat.com>, Jerome
+	Brunet <jbrunet+clk@baylibre.com>, linux-phy@lists.infradead.org,
+	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+	dri-devel@lists.freedesktop.org, mfd@lists.linux.dev,
+	linux-clk@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+	linux-rockchip@lists.infradead.org, linux-riscv@lists.infradead.org, Marek
+	Szyprowski <m.szyprowski@samsung.com>, Maud Spierings
+	<maud_spierings@murena.io>, Graham Markall <hello@big-grey.co.uk>, Icenowy
+	Zheng <zhengxingda@iscas.ac.cn>, Chaoyi Chen <chaoyi.chen@rock-chips.com>,
+	Joshua Peisach <jpeisach@ubuntu.com>, =?UTF-8?Q?Uwe_Kleine-K=C3=B6nig?=
+	<u.kleine-koenig@baylibre.com>
+Content-Language: en-US
+From: Michal Wilczynski <m.wilczynski@samsung.com>
+In-Reply-To: <CAAvaLCzm1o=m6P88KNeHCG9BuTBu4AQmAec90kN3MMC6ZpALaQ@mail.gmail.com>
 Content-Transfer-Encoding: 8bit
+X-CMS-MailID: 20260927120537eucas1p2940a6c268f23ab72fb7eb581fe0bfee8
+X-Msg-Generator: CA
+Content-Type: text/plain; charset="utf-8"
+X-RootMTR: 20260915153246eucas1p289987fd8757c89ff865c99b6465708a8
+X-EPHeader: CA
+X-CMS-RootMailID: 20260915153246eucas1p289987fd8757c89ff865c99b6465708a8
+References: <CGME20260915153246eucas1p289987fd8757c89ff865c99b6465708a8@eucas1p2.samsung.com>
+	<20260915-jh7110-clean-send-v4-0-f0e4fd6f2cc8@samsung.com>
+	<20260915-jh7110-clean-send-v4-18-f0e4fd6f2cc8@samsung.com>
+	<CAAvaLCzm1o=m6P88KNeHCG9BuTBu4AQmAec90kN3MMC6ZpALaQ@mail.gmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260927_050301_270050_2D3E18B9 
-X-CRM114-Status: GOOD (  16.46  )
+X-CRM114-CacheID: sfid-20260927_050545_227780_9E7DC1E5 
+X-CRM114-Status: GOOD (  19.87  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -111,62 +108,59 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Sebastian,
+Hi Dominique,
 
-I tested gadget mode on the Orange Pi 5 Plus with the same v16
-kernel as in my reply to the cover letter. The board was an ACM
-gadget (configfs) on fc000000.usb, with the Type-C port set to
-port_type=sink for the test, connected with a USB-C to USB-C cable
-to a USB4 port of an x86 host (Ubuntu 24.04, kernel
-7.0.0-30-generic).
+On 9/26/26 05:31, Dominique Belhachemi wrote:
+> On Tue, Sep 15, 2026 at 11:32 AM Michal Wilczynski
+> <m.wilczynski@samsung.com> wrote:
+>>
+>> +static int starfive_hdmi_phy_probe(struct platform_device *pdev)
+>> +{
+>> +       ret = clk_set_rate(inno->phyclk, 297000000);
+>> +       if (ret) {
+>> +               dev_err(dev, "Failed to set default rate: %d\n", ret);
+>> +               goto err_del_clk_provider;
+>> +       }
+> 
+> Hi Michal,
+> 
+> Can we drop these 5 lines?
+> When my 4K monitor comes up in mode (3840x2160@30, 297 MHz) the screen
+> stays blank.
+> 
+> When the first real modeset requests a mode whose pixel clock is also 297 MHz,
+> clk_set_rate(hdmi_pclk, 297000000) then sees cur == want and does nothing.
+> So the pre-PLL is never actually programmed.
+> 
+> Without these 5 lines inno->pixclock stays 0,
+> so the first modeset's clk_set_rate() always runs .set_rate() for real.
+> 
+> Together with my forgotten fix from May we can have working 4K@30 on the VF2.
+> https://lore.kernel.org/all/20260528184145.384114-1-domibel@debian.org/
 
-dwc3 forbids runtime PM by default, and with power/control left at
-"on" the controller never suspends, so the case from the commit
-message does not come up. For the test I set power/control to
-"auto", unplugged the cable, waited until runtime_status was
-"suspended" (about 6 s after the unplug; autosuspend_delay_ms is
-5000), then plugged it back in. I did this 12 times, 2 of them with
-the connector flipped. Each time the controller resumed and the
-host enumerated the gadget again at SuperSpeed; where my script
-timed it, the UDC was "configured" 0.9-1.5 s after the Type-C
-partner appeared. Apart from the message mentioned below, neither
-the board nor the host logged USB, Type-C or PHY warnings or errors.
+Yeah, these lines are a problem in another way too. Marek Szyprowski
+reported that v4 hangs when everything is built as modules, which
+is what made me look at them.
 
-On sashiko's question about the early return [1]: I have ftrace
-output for 6 of the 12 cycles (the trace of the second run was
-lost). usb_udc_vbus_handler() was called 12 times, once on each
-unplug and once on each plug, always from dwc3_rockchip_set_role()
-and never from dwc3_usb3_phy_notify(). The PHY notifier ran only
-inside the runtime suspend and resume, twice each time, never while
-the controller was suspended. In each PRE_RESET
-pm_runtime_get_if_active() took no reference and the VBUS call was
-not reached, so the early return does happen. On each plug the
-resume was started by dwc3_gadget_pullup() from
-usb_gadget_connect_locked(), after the VBUS update from the
-pre_set_role hook, and the gadget reconnected.
-About 50 us later a second resume request came from another worker;
-from the code this looks like the pm_runtime_get_sync() in
-__dwc3_set_mode(). I did not trace that function, so I cannot say
-whether it alone would reconnect the gadget without this patch.
+The write lands in registers gated by the controller's system clock,
+inside PD_VOUT and the PHY holds neither - it cannot hold that clock
+without creating a probe cycle with voutcrg. His config is as follows:
+CONFIG_CLK_STARFIVE_JH7110_VOUT=y with the vout subsystem, hdmi
+subsystem, controller and phy all as modules so voutcrg is up long
+before the PHY arrives from userspace. If nothing is holding hdmi_tx_sys
+by then - clk_disable_unused() gates it at late_initcall_sync  and the
+write wedges the bus. I could not reproduce his exact failure, but could
+reproduce this with fw_devlink=off hopefully this is fixing his issue as
+well.
 
-Not tested: the board without this patch, data transfer (only
-enumeration), sashiko's other three points, system suspend, and a
-host with a dual-role port. On every unplug dwc3 logs "request ...
-was not queued to ep1in", also with runtime PM forbidden; I did not
-look into it.
+Anyway this code will be removed in v5.
 
-In one of the 12 cycles my script first marked a failure: the
-board's Ethernet link dropped while I handled the cables, and the
-script checks the host over ssh. The host's kernel log shows the
-gadget enumerated normally in that cycle.
+> 
+> Best
+> -Dominique
+> 
 
-An LLM assistant wrote the test script, analysed the logs and the
-ftrace output and drafted this mail. I ran the test on the board
-and did the cable pulls.
-
-Tested-by: Igor Paunovic <royalnet026@gmail.com> # Orange Pi 5 Plus
-
-[1] https://lore.kernel.org/all/20260924174014.366B21F000FF@smtp.kernel.org/
-
-Igor
+Best regards,
+-- 
+Michal Wilczynski <m.wilczynski@samsung.com>
 
