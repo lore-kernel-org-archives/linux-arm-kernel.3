@@ -4,74 +4,74 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A9472C9832F
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 27 Sep 2026 16:35:16 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9B900C9832F
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 27 Sep 2026 16:35:37 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:
 	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=RujpUbO0P+3HoDW6lFgN2NaCd44XmjPJC5yHMUlOFrg=; b=XzCFc5EXE5e1UEzJ2872Mbj5Vr
-	F2Cps5BopTYYjcB1c07CAfXyu1ESBXLebNeDcnRsTNzJOGqwWc1n8oWalzlFEPwAamjGA1vLmMtMh
-	gMfjLX15u+AD4Fi1U/7x+xrw8xdDAzLKQsS9nOWmD7wGpg3Q29D8mV168S23gjLhxl+uwc72XmKd7
-	tftYk4NOcsMxkq7RGi9mx+f3b9ck/wgIBvm9ZN49p7hCBi7r+K+14j0Ayz1QjIMP84dDDOHNZ/GQW
-	oEMxifxM/PJdrcCgVegXQCyNM5HjKWewaROn8yR2wNsvwtg3JObm6CE+7AP1YlyxxIaCpaBSE62xM
-	AorTf/oA==;
+	bh=TDbZyGGFBP9eRmkAQH9I9cvotS6ESn1jbu9Gooo903A=; b=wokno4sFOcMxpov59OxaPhUeXk
+	342ibJm5q9sBwFRlJKtymd5F7YTqotRWIX+vXjYTQoYa6xO1SqWlKk72mFE5mMxZSP2NyBM0FTiNO
+	2/zIVAjgE4f1eimfN8OS6Iruj3GP2crruuNbToA9IWm12kdcLY/7mojl91QPBKlhXwjAnZVrjfBOU
+	PpXvoNNzIHV3N7dIiBJj5uddO6pWaGGU73U+y813hrjdapSUkHgM7lev5X1VCrnoZDB/E0azzwMW+
+	Eif9oPFJyQYQfn2UwPKGD6qbckGSUBYPBRiFu1WI5lD9F1/iyDYxrGJ78vSmQX4yOvbIbgzmizanM
+	y1wde2Eg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xArqI-0000000GbEJ-1sPd;
-	Sun, 27 Sep 2026 16:35:10 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1xArqd-0000000GbIT-2rBV;
+	Sun, 27 Sep 2026 16:35:31 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xArqH-0000000GbE6-0tbV
+	id 1xArqP-0000000GbFr-1ElQ
 	for linux-arm-kernel@lists.infradead.org;
-	Sun, 27 Sep 2026 16:35:09 +0000
+	Sun, 27 Sep 2026 16:35:17 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id BB79F400E1;
-	Sun, 27 Sep 2026 16:35:08 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 9D2001F000FF;
-	Sun, 27 Sep 2026 16:35:08 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id C11004450A;
+	Sun, 27 Sep 2026 16:35:16 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id A3C6D1F000FF;
+	Sun, 27 Sep 2026 16:35:16 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1790526908;
-	bh=RujpUbO0P+3HoDW6lFgN2NaCd44XmjPJC5yHMUlOFrg=;
+	s=k20260515; t=1790526916;
+	bh=TDbZyGGFBP9eRmkAQH9I9cvotS6ESn1jbu9Gooo903A=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References;
-	b=RcA3jvfgqnPMNyRGlqN0CgN02mPLov1sw6eJux27LWTLQwbXs7AkfDKsDMEBikvPx
-	 ptoQbXFsHQTinml1srSBUafLUmTNBSIgrpC7JHWPwUFDRe6yC1foPjSI9FI/Wu4VCF
-	 7GX364aXDAXiURlsz/9UT46fEoGOsuUTDZSZrcOMHvRnJxOt59PHl3bLW0XqJ1nNqT
-	 QsxoYsBEmIGVkiXNwZm70kZBYoHX1DmAfQzpm+UKRAf+Ha7XThjOfsVPo1FMjKSAHz
-	 /MVUb7+iMkciuDM8ZjR8wou1Qog3P9E6DL7VPANVpfdXr/XjTNaj2oqLJVUgtXbOAI
-	 gcuJb6EQ3yYCQ==
+	b=IN8Fdi0MoUEdZdXcpinsQhC6TT/NgBySUO13qZw0oRL0GY6+/GP6qeVDZcXpntnSL
+	 bZJMRt97jWseNirMzkftBQkp3QP6vha/ScbyKsN1dZdtIJvCrO+VRHgsb7YSaJjs/h
+	 aNOKKS0i5AIw6YyfXI5eSE2xCuJ0dXoFHLvusgXlm6T1SMofedlrzIdsWfeKZZbcbn
+	 i9VPBkPOqsO1iWQZh3gklHeHqZnRpE7yRqnZ+gRWthMKpyck+NBXSAPVhnHP8PnYh4
+	 jpA2K0b4/71XOlHfYqkNwC68OApiZ6NH0RaUZyf4PjwtvWRdCVF70NZoP8TXM11+y6
+	 nxrwAdQBbYhkA==
 Received: from sofa.misterjones.org ([185.219.108.64] helo=valley-girl.lan)
 	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
 	(Exim 4.98.2)
 	(envelope-from <maz@kernel.org>)
-	id 1xArqE-0000000E2Sa-3OLw;
-	Sun, 27 Sep 2026 16:35:06 +0000
+	id 1xArqM-0000000E2St-3Rlt;
+	Sun, 27 Sep 2026 16:35:14 +0000
 From: Marc Zyngier <maz@kernel.org>
-To: Oliver Upton <oupton@kernel.org>,
-	Fuad Tabba <fuad.tabba@linux.dev>
-Cc: Joey Gouly <joey.gouly@arm.com>,
-	Steffen Eiden <seiden@linux.ibm.com>,
-	Suzuki K Poulose <suzuki.poulose@arm.com>,
-	Zenghui Yu <yuzenghui@huawei.com>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Will Deacon <will@kernel.org>,
-	Mark Rutland <mark.rutland@arm.com>,
-	linux-arm-kernel@lists.infradead.org,
+To: oupton@kernel.org,
 	kvmarm@lists.linux.dev,
-	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH 1/2] KVM: arm64: Report SMCCC_VERSION and SMCCC_ARCH_FEATURES as implemented
-Date: Sun, 27 Sep 2026 17:35:03 +0100
-Message-ID: <179052685156.3528802.11780401181301860028.b4-ty@b4>
+	linux-arm-kernel@lists.infradead.org,
+	Vincent Donnefort <vdonnefort@google.com>
+Cc: joey.gouly@arm.com,
+	seiden@linux.ibm.com,
+	suzuki.poulose@arm.com,
+	yuzenghui@huawei.com,
+	catalin.marinas@arm.com,
+	will@kernel.org,
+	kernel-team@android.com,
+	fuad.tabba@linux.dev
+Subject: Re: [PATCH v2] KVM: arm64: Disable stage-2 ptdump of pKVM
+Date: Sun, 27 Sep 2026 17:35:09 +0100
+Message-ID: <179052685158.3528802.17360317443596680597.b4-ty@b4>
 X-Mailer: git-send-email 2.47.3
-In-Reply-To: <20260914125827.1645980-1-fuad.tabba@linux.dev>
-References: <20260914125827.1645980-1-fuad.tabba@linux.dev>
+In-Reply-To: <20260924100459.831013-1-vdonnefort@google.com>
+References: <20260924100459.831013-1-vdonnefort@google.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit
 X-SA-Exim-Connect-IP: 185.219.108.64
-X-SA-Exim-Rcpt-To: oupton@kernel.org, fuad.tabba@linux.dev, joey.gouly@arm.com, seiden@linux.ibm.com, suzuki.poulose@arm.com, yuzenghui@huawei.com, catalin.marinas@arm.com, will@kernel.org, mark.rutland@arm.com, linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev, linux-kernel@vger.kernel.org
+X-SA-Exim-Rcpt-To: oupton@kernel.org, kvmarm@lists.linux.dev, linux-arm-kernel@lists.infradead.org, vdonnefort@google.com, joey.gouly@arm.com, seiden@linux.ibm.com, suzuki.poulose@arm.com, yuzenghui@huawei.com, catalin.marinas@arm.com, will@kernel.org, kernel-team@android.com, fuad.tabba@linux.dev
 X-SA-Exim-Mail-From: maz@kernel.org
 X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
 X-BeenThere: linux-arm-kernel@lists.infradead.org
@@ -88,22 +88,20 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, 14 Sep 2026 13:58:26 +0100, Fuad Tabba wrote:
-> KVM reports SMCCC v1.1 to guests, which makes SMCCC_VERSION and
-> SMCCC_ARCH_FEATURES mandatory, and DEN0028H 7.3.6 requires
-> SMCCC_ARCH_FEATURES to return SUCCESS for both function ids: "This
-> function must return SUCCESS when arch_func_id is the SMCCC_VERSION or
-> SMCCC_ARCH_FEATURES function id." With arch_func_id set to either, KVM's
-> guest handler returns NOT_SUPPORTED. Return SUCCESS.
+On Thu, 24 Sep 2026 11:04:59 +0100, Vincent Donnefort wrote:
+> With pKVM enabled, guest stage-2 page tables are owned and managed by
+> the hypervisor. The host's pgt is uninitialised.
+> 
+> Skip registering stage-2 ptdump debugfs files when protected KVM is
+> enabled.
+> 
 > 
 > [...]
 
 Applied to next, thanks!
 
-[1/2] KVM: arm64: Report SMCCC_VERSION and SMCCC_ARCH_FEATURES as implemented
-      commit: 7ef1b9e11dd7b3832124e26a6fee703b342d6f7f
-[2/2] KVM: arm64: selftests: Check the mandatory SMCCC_ARCH_FEATURES queries
-      commit: 67d00fcc00761e9fe4debeac781eb4f992dd8506
+[1/1] KVM: arm64: Disable stage-2 ptdump of pKVM
+      commit: 0dea17ffe6757a6249d143e607e786144aceee9c
 
 Cheers,
 
