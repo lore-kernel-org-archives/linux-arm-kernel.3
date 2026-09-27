@@ -4,64 +4,81 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 16A1FC9830E
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 27 Sep 2026 14:19:31 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 706C7C9830E
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 27 Sep 2026 14:29:21 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=r64dufVmVhn/Dj9g44P0J/Y0d/WhqSN95lx5ctN2MVA=; b=dzOdSJk/IojMJdUbwS4BBSleEa
-	yCLsuXNSE4IMtS7M96P3AOOrU7bfMqOE1Ls6oYHqbtrmdOy1BdVHaj8O+2ayVZN7w7v5xnH1U9DKY
-	W9ilIx0oyGqtEHLKdn/61m+EWnJSLqTQv99QosA4qxdAC+Q5imXMJJksOMahqYUTQZocRq/yO+KKD
-	KcRsawrwBcDmMzXAjo7NbqjFQA3TYH2lQI74aNQMuRni4ECiuH0qdJAYH1rXNlYtTUs9bjvHuCAO6
-	vJfAsQiUCshUoJdXrTs77arAIf0u6lRa/ZuOdKAZ7DWO3MQ8+sRpIRqHVv9P4pbr28SIvlr+FodZG
-	Msou+7dg==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
+	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
+	From:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=Q2Kb1BQzSKFOOKP1ibYDzqH/0JI08KpwfwEsbioZ49U=; b=jrkRrMThdfTShZD4CVQgXGMZ69
+	HsgsNdBNaxRPrZiBatBA2gL9kxj6Snqg+8tWvt1zxXh3dG8nKpooEXNQ1c9M6ycaLE///tPcoJ8LC
+	rn/W+4V8g5V7Hbyx/W08P8AlOPqOLp6azBwXnBjFnmgbGI6LcZ/KeNhx5xUKRBGPAFg2eTUph+k3G
+	GSihcDgy5uIukmx7MPpGIr6NGxDrpgE/Ahv0MH+PLLkLT40RDpoU26CF1unwpBeLHXiQP6I5vpU1C
+	YJLSBE9uA/O9lY+bMD105R0sK6CyNc7uwEmGP6P+xbG6QIObc0owBJAQ2XRvVpfoJllFMd+mBnXhx
+	u4VmIZkQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xApiq-0000000GR2k-4B54;
-	Sun, 27 Sep 2026 14:19:20 +0000
-Received: from perceval.ideasonboard.com ([213.167.242.64])
+	id 1xApsR-0000000GRRu-0Qz8;
+	Sun, 27 Sep 2026 14:29:15 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xApin-0000000GR2E-02WF
-	for linux-arm-kernel@lists.infradead.org;
-	Sun, 27 Sep 2026 14:19:19 +0000
-Received: from killaraus.ideasonboard.com (2001-14ba-70f3-e800--a06.rev.dnainternet.fi [IPv6:2001:14ba:70f3:e800::a06])
-	by perceval.ideasonboard.com (Postfix) with ESMTPSA id 3CA75FBE;
-	Sun, 27 Sep 2026 16:17:24 +0200 (CEST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=ideasonboard.com;
-	s=mail; t=1790518644;
-	bh=XuV1pUSSKMp45rUiY7+W9cj7hDLqz3FCd/AFGxCjcKE=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=tmX4gfNuT1kMtkv1BJjzUol4CGIpJX8+OyjH+SP2ichnX7Ziz3RLC7YjAbSCkKoi/
-	 w7U536Qw7zDaZwUjagSV0ECUl4S5c56QTZMxVKTwZ17IZ4ky7TsMUK1lBbpbMTsQy2
-	 sVn+m52iSpsMceuB5mLlunK1n/GBAoa2tqgB7SK4=
-Date: Sun, 27 Sep 2026 17:19:12 +0300
-From: Laurent Pinchart <laurent.pinchart@ideasonboard.com>
-To: Rishikesh Donadkar <r-donadkar@ti.com>
-Cc: linux-media@vger.kernel.org, linux-kernel@vger.kernel.org,
-	devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-	tomi.valkeinen@ideasonboard.com, mchehab@kernel.org,
-	robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org, nm@ti.com,
-	vigneshr@ti.com, kristo@kernel.org, sakari.ailus@linux.intel.com,
-	mripard@kernel.org, jai.luthra@linux.dev,
-	jai.luthra@ideasonboard.com, devarsht@ti.com,
-	y-abhilashchandra@ti.com, mirela.rabulea@nxp.com
-Subject: Re: [RFC PATCH 4/8] media: cadence: csi2rx: Add RAW10 RGBIr formats
-Message-ID: <20260927141912.GA4406@killaraus.ideasonboard.com>
-References: <20260925133001.2780868-1-r-donadkar@ti.com>
- <20260925133001.2780868-5-r-donadkar@ti.com>
- <20260926145242.GD764757@killaraus.ideasonboard.com>
- <7e6eff37-832c-4a40-a4f5-4e3699bf3a5b@ti.com>
+	id 1xApsP-0000000GRQv-25Wc;
+	Sun, 27 Sep 2026 14:29:13 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id C80F244095;
+	Sun, 27 Sep 2026 14:29:12 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPS id 9A807C2BCF4;
+	Sun, 27 Sep 2026 14:29:12 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1790519352;
+	bh=Bm6KfZ7u9ug9v+paHUFif7W0StQp/b1CbFmbCFUeJx8=;
+	h=From:Subject:Date:To:Cc:Reply-To:From;
+	b=fv4/psJLU8zK9Vhxiw3lCB1uuVJmRPsMm+rRepjXlxpzTg3ZtF2KUlnZ8nLW3YhYF
+	 EjkP4ldHa2/+gH+0mI3MR5y+iv/P3rECldawgo+Jkpvnh9UTdczXcyV8JKS6eF7HQd
+	 r+Wh/HXoW/uPdryOlAGOUgfffczy7RnZoM7rBE1SewjnBEdCMVz6eJxuwv63hGSaoQ
+	 gWXsKa93q/L08iXBbo3kVTbRXY9/1Gt6J2jKEmuf33dHl70LsUXqfhAOAcvIixqXsf
+	 m35n6gZr2JsMHDYALbdwVQjSWL9zrzFHtIE9JZw8nnpoA0WCXEuakxElKu6DG6muBV
+	 pgA1s5noslE8g==
+Received: from aws-us-west-2-korg-lkml-1.web.codeaurora.org (localhost.localdomain [127.0.0.1])
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 80B4FC98332;
+	Sun, 27 Sep 2026 14:29:12 +0000 (UTC)
+From: Ronald Claveau via B4 Relay <devnull+linux-kernel-dev.aliel.fr@kernel.org>
+Subject: [PATCH v3 0/3] Add T7 PWM core clock support
+Date: Sun, 27 Sep 2026 16:28:14 +0200
+Message-Id: <20260927-add-t7-sys-pwm-clk-v3-0-18d66abea4d1@aliel.fr>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-Content-Transfer-Encoding: 8bit
-In-Reply-To: <7e6eff37-832c-4a40-a4f5-4e3699bf3a5b@ti.com>
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260927_071917_216267_9425FCE7 
-X-CRM114-Status: GOOD (  21.29  )
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+X-B4-Tracking: v=1; b=H4sIAAAAAAAC/33NQQ6CMBCF4auQrh3TDiLgynsYF6VMZSICaUmVE
+ O5uYcXCuPxfMt/MwpNj8uKSzMJRYM99FyM9JMI0unsQcB1boMSzLPEEuq5hzMFPHob3C0z7BCv
+ J2kJVRKhEPBwcWf5s6O0eu2E/9m7afgS1rn+5oECCzKpSUZFbqcurbpnao3Vi1QLuheyngFGwm
+ GrEKlc6MzthWZYvcuDbJvUAAAA=
+X-Change-ID: 20260924-add-t7-sys-pwm-clk-f0eff81bee21
+To: =?utf-8?q?Uwe_Kleine-K=C3=B6nig?= <ukleinek@kernel.org>, 
+ Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, Heiner Kallweit <hkallweit1@gmail.com>, 
+ Neil Armstrong <neil.armstrong@linaro.org>, 
+ Kevin Hilman <khilman@baylibre.com>, Jerome Brunet <jbrunet@baylibre.com>, 
+ Martin Blumenstingl <martin.blumenstingl@googlemail.com>
+Cc: linux-pwm@vger.kernel.org, devicetree@vger.kernel.org, 
+ linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+ linux-amlogic@lists.infradead.org, 
+ Ronald Claveau <linux-kernel-dev@aliel.fr>
+X-Mailer: b4 0.14.3
+X-Developer-Signature: v=1; a=openpgp-sha256; l=2647;
+ i=linux-kernel-dev@aliel.fr; h=from:subject:message-id;
+ bh=Bm6KfZ7u9ug9v+paHUFif7W0StQp/b1CbFmbCFUeJx8=;
+ b=owGbwMvMwCWm1SvKXP3cUInxtFoSQ9ZODbmtX2uurLDrK6qa5DL/+woWsymnbTZKrGjS/fRzj
+ W7Wnn8nO0pZGMS4GGTFFFn651qeeHf56Jmve9RTYOawMoEMYeDiFICJXChl+B9b9MC+esHT1y8+
+ XdK1spzyfvOSzTvXvHq5QbDIxzZB13c9w3/fZX1es8sYnEJXrDsgEPnH7UK0ydknKc1rNwmmz2S
+ S8+UHAA==
+X-Developer-Key: i=linux-kernel-dev@aliel.fr; a=openpgp;
+ fpr=DFD863F61375BF917F0012173953305EF1D0EC3E
+X-Endpoint-Received: by B4 Relay for linux-kernel-dev@aliel.fr/default with
+ auth_id=744
+X-Original-From: Ronald Claveau <linux-kernel-dev@aliel.fr>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -73,62 +90,68 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
+Reply-To: linux-kernel-dev@aliel.fr
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Sun, Sep 27, 2026 at 10:50:30AM +0530, Rishikesh Donadkar wrote:
-> On 26/09/26 20:22, Laurent Pinchart wrote:
-> > On Fri, Sep 25, 2026 at 06:59:57PM +0530, Rishikesh Donadkar wrote:
-> >> From: Jai Luthra <j-luthra@ti.com>
-> >>
-> >> Add 10-bit RGBIr formats to the table to allow capturing them.
-> >>
-> >> Signed-off-by: Jai Luthra <j-luthra@ti.com>
-> >> Signed-off-by: Rishikesh Donadkar <r-donadkar@ti.com>
-> >> ---
-> >>   drivers/media/platform/cadence/cdns-csi2rx.c | 8 ++++++++
-> >>   1 file changed, 8 insertions(+)
-> >>
-> >> diff --git a/drivers/media/platform/cadence/cdns-csi2rx.c b/drivers/media/platform/cadence/cdns-csi2rx.c
-> >> index de7cce76397a..8ed730452d3c 100644
-> >> --- a/drivers/media/platform/cadence/cdns-csi2rx.c
-> >> +++ b/drivers/media/platform/cadence/cdns-csi2rx.c
-> >> @@ -173,6 +173,14 @@ static const struct csi2rx_fmt formats[] = {
-> >>   	{ .code	= MEDIA_BUS_FMT_RGB565_1X16,  .bpp = 16, .max_pixels = 1, },
-> >>   	{ .code	= MEDIA_BUS_FMT_RGB888_1X24,  .bpp = 24, .max_pixels = 1, },
-> >>   	{ .code	= MEDIA_BUS_FMT_BGR888_1X24,  .bpp = 24, .max_pixels = 1, },
-> >> +	{ .code	= MEDIA_BUS_FMT_SRGGI10_1X10, .bpp = 10, .max_pixels = 2 },
-> >> +	{ .code	= MEDIA_BUS_FMT_SGRIG10_1X10, .bpp = 10, .max_pixels = 2 },
-> >> +	{ .code	= MEDIA_BUS_FMT_SBGGI10_1X10, .bpp = 10, .max_pixels = 2 },
-> >> +	{ .code	= MEDIA_BUS_FMT_SGBIG10_1X10, .bpp = 10, .max_pixels = 2 },
-> >> +	{ .code	= MEDIA_BUS_FMT_SGIRG10_1X10, .bpp = 10, .max_pixels = 2 },
-> >> +	{ .code	= MEDIA_BUS_FMT_SIGGR10_1X10, .bpp = 10, .max_pixels = 2 },
-> >> +	{ .code	= MEDIA_BUS_FMT_SGIBG10_1X10, .bpp = 10, .max_pixels = 2 },
-> >> +	{ .code	= MEDIA_BUS_FMT_SIGGB10_1X10, .bpp = 10, .max_pixels = 2 },
-> > 
-> > Raw formats will allow supporting all possible CFA patterns without
-> > having to extend each driver every time a new pattern is added.
-> 
-> Yes, makes sense !
-> 
-> I noticed that patches for RAW format support are present here
-> 
-> https://git.linuxtv.org/sailus/media_tree.git/log/?h=metadata
-> 
-> Is there a plan to merge these into media tree in the near future?
-> If they are still under review and need more time to get merged, I’ll 
-> plan to cherry-pick them and rebase my work on top of them.
+The PWM controllers on the Amlogic S4 SoC have a system clock that
+controls access to the controller, in addition to the two input
+clocks of channels A and B. The A1,C3,T7 which fallback to S4 have
+this third clock too.
 
-Jai is working on the userspace implementation in libcamera to test out
-the API. Once that completes, we'll update the API is issues are found,
-and then merge it.
+It is currently not described in the device tree, so it is neither
+referenced nor enabled by the driver.
 
-> >>   };
-> >>   
-> >>   static void csi2rx_configure_error_irq_mask(void __iomem *base,
+This series adds support for it:
 
+  - patch 1 extends the binding with a third "core" clock for
+    amlogic,meson-s4-pwm, and makes clock-names required for it;
+  - patch 2 makes the driver get and enable the optional "core"
+    clock, leaving existing DTS' unaffected;
+  - patch 3 describes the system clock in the A1-C3-S4-T7
+    device tree for all the PWM controllers.
+
+`dt_binding_check DT_SCHEMA_FILES=pwm-amlogic.yaml` test is ok
+
+  CHKDT   ./Documentation/devicetree/bindings
+warning: python package 'yamllint' not installed, skipping
+  STYLE   ./Documentation/devicetree/bindings
+  DTEX    Documentation/devicetree/bindings/pwm/pwm-amlogic.example.dts
+  DTC [C] Documentation/devicetree/bindings/pwm/pwm-amlogic.example.dtb
+
+Signed-off-by: Ronald Claveau <linux-kernel-dev@aliel.fr>
+---
+Changes in v3:
+- PATCH 1: Require the third clock for S4 and all SoC which fallback to it.
+- PATCH 3: Add the third clock to A1, C3 and S4.
+- Link to v2: https://lore.kernel.org/r/20260925-add-t7-sys-pwm-clk-v2-0-f23a22b71a5c@aliel.fr
+
+Changes in v2:
+- PATCH 1: Permits to use "core" clock on S4 SoC and all the ones that fallback to it.
+           Rename "clk_a" and "clk_b" to "channel-a" and "channel-b". Thx to Conor's feedback.
+- PATCH 3: Rename channel clock-names as done on patch 1.
+- Link to v1: https://lore.kernel.org/r/20260924-add-t7-sys-pwm-clk-v1-0-05b91e87f0a9@aliel.fr
+
+---
+Ronald Claveau (3):
+      dt-bindings: pwm: amlogic: Add core clock for S4 like
+      pwm: meson: Add optional core clock for S4 PWM
+      arm64: dts: amlogic: a1-c3-s4-t7: Add core clock to PWM controller nodes
+
+ .../devicetree/bindings/pwm/pwm-amlogic.yaml       | 21 +++++++++++++---
+ arch/arm64/boot/dts/amlogic/amlogic-c3.dtsi        | 28 ++++++++++++++++------
+ arch/arm64/boot/dts/amlogic/amlogic-t7.dtsi        | 28 ++++++++++++++++------
+ arch/arm64/boot/dts/amlogic/meson-a1.dtsi          | 12 +++++++---
+ arch/arm64/boot/dts/amlogic/meson-s4.dtsi          | 20 ++++++++++++----
+ drivers/pwm/pwm-meson.c                            |  5 ++++
+ 6 files changed, 89 insertions(+), 25 deletions(-)
+---
+base-commit: f5f84daefcd92d7a630066635ecea1433ed5eac7
+change-id: 20260924-add-t7-sys-pwm-clk-f0eff81bee21
+
+Best regards,
 -- 
-Regards,
+Ronald Claveau <linux-kernel-dev@aliel.fr>
 
-Laurent Pinchart
+
 
