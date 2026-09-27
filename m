@@ -4,70 +4,108 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 71706C98338
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 27 Sep 2026 17:13:26 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E75C0C98338
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 27 Sep 2026 17:34:21 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:References:From:
-	To:Subject:Cc:Message-Id:Date:Content-Type:Content-Transfer-Encoding:
-	Mime-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:To:In-Reply-To:Cc:References
+	:Message-Id:Date:Subject:Mime-Version:From:Content-Transfer-Encoding:
+	Content-Type:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=7wFClM8+pAQczxdhJUJqKMlAR1HmGxjlTK3IxTJCg2g=; b=XXOGFqh9nhNtkvtHaaipNB8HzQ
-	gCOqh23rHWjWo5rnWYy9PvVgDA2Xw9Z2eerVsyLzc1NEXFfvycQV0Oi9cmK8YXIdR87+R9Fwc+35B
-	FMvQCelKGF2QLFn2fNCXn1dA7zI1nWqm8DAYV6NUSCXGkaa8j/4fB5ZjSFPSg2qxpq+49DgQsVrdW
-	bymAQX1/yuRErCTNoz+jE2Og1WyYx7CLpnnZDk/H+0ZaHrJLM94mqsZpIbFmZ/YsYCklp2LcpKO4z
-	qL9wemFIzn6ZFXt/vPrZdDHJL+eTe1bSWW0pFPOC19LbY3pBLL0uMUgX3WZabMwGi7qd1XRyQHUB7
-	houaOxzw==;
+	bh=MuL0v1f3+J9yyQw0yqK0TvcdFgWSs593LTmvyHRza0g=; b=LtGawJFCivXDdh0eq5cOdaavjI
+	miqUFvP6Xd/vj+bHipldMziRqFFlBzpx+5YxIcrkHq2NDnc2BaHoSsGKhFHBljDI/1BuMu3pyXuuU
+	iaU5V7oK85T4U4C2I/444ch7soVbkipKtbMlWvv3tICFPMGiSuOxmhDu2r56cvhXOC+tP77MGEqxc
+	IF9edLA6zp8/j7idRwal6LmdLNMPU7HzLGkHNXyk4BRN1pkhrxUqLNTuxgPZaFl742Ci0Xobaet/r
+	14WrsOHw3n2uZZUGjMUl0Yz+ZXpyIs7wfEKNwkNOJ7QkVtCn1gINR9Z1bxoyzZ/5AToTqCsz0FeeO
+	Y17wYGVg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xAsR6-0000000Gdih-3l7I;
-	Sun, 27 Sep 2026 17:13:12 +0000
-Received: from vinatta.cz ([2a03:3b40:fe:428::1])
+	id 1xAslR-0000000GeX4-23Oh;
+	Sun, 27 Sep 2026 17:34:13 +0000
+Received: from mail-oo2-x2a.google.com ([2607:f8b0:4864:31::2a])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xAsR4-0000000Gdho-1Gy2
+	id 1xAslO-0000000GeWX-1qFm
 	for linux-arm-kernel@lists.infradead.org;
-	Sun, 27 Sep 2026 17:13:12 +0000
-DKIM-Signature: a=rsa-sha256; bh=7wFClM8+pAQczxdhJUJqKMlAR1HmGxjlTK3IxTJCg2g=;
- c=relaxed/relaxed; d=vinatta.cz;
- h=Subject:Subject:Sender:To:To:Cc:Cc:From:From:Date:Date:MIME-Version:MIME-Version:Content-Type:Content-Type:Content-Transfer-Encoding:Content-Transfer-Encoding:Reply-To:In-Reply-To:In-Reply-To:Message-Id:Message-Id:References:References:Autocrypt:Openpgp;
- i=@vinatta.cz; s=default; t=1790529144; v=1; x=1790961144;
- b=o/oOCS/AFc0OjfWcZe5MxNwXS6fDKe/EMD55e5ERTrXjHgqe6OUKdYWia3HW/I7e0okeLwKn
- ayhBroQ/58yk0do/jUapZ40tqgOdoU1OnLXZXNAVOiVYtGZ1w1KBxcoOiMhmt4XEbPV/O8J7BEF
- 606PN+T8JycaxJ2BKdTJeD38bsTnT3pFAeRXkB6PbjRA7eUhQpyGhjOnk/t5ppT6E2Q6vYj+hAu
- hopCkhFeh0InMztWieMVMG3RNKypEgxs497OW4zpHlwdTgk1Uegtn1TqZJl2fk0A+JGaRbSECKn
- xB8Y6wPms7petV9XW6NabhiQLirznwv9VJOB8nmitke0g==
-Received: by vinatta.cz (envelope-sender <karel@vinatta.cz>) with ESMTPS id
- 713fe9e7; Sun, 27 Sep 2026 19:12:24 +0200
-Mime-Version: 1.0
+	Sun, 27 Sep 2026 17:34:11 +0000
+Received: by mail-oo2-x2a.google.com with SMTP id 46e09a7af769-81be5042c56so356208a34.0
+        for <linux-arm-kernel@lists.infradead.org>; Sun, 27 Sep 2026 10:34:09 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=amacapital-net.20251104.gappssmtp.com; s=20251104; t=1790530448; x=1791135248; darn=lists.infradead.org;
+        h=to:in-reply-to:cc:references:message-id:date:subject:mime-version
+         :from:content-transfer-encoding:content-type:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=MuL0v1f3+J9yyQw0yqK0TvcdFgWSs593LTmvyHRza0g=;
+        b=ywtxqQclqIzAmytIK6LKNhUjRylWTxEYFCgJj6uq7hzSjDoeXYVNnk4edNZaSuiMc6
+         trxLoHksMX3BFg42vBrnt2CHtnf1cz8CYGuYiEencnWSncTyvD9llUzmQU3PeKyh+KY2
+         aelDURbwGwU1tqxLfh3ANBpaS7pDV5B4LzuTpaxaPigexDO2o3sYqB5kF48FjDzqUR6w
+         l/6052zqTj1vrTLJF05+Jls8IhT6aPxPyxLWnDBNq82DK5lZtL/GiAjzSgpBa7y4kyuZ
+         nzHh+wYT/KfixNfFCgftEmbePAQ8Q85p9H8Kl4zkJIzgJGOsMa54yYZsVjFVAcYz+PSx
+         Hk6w==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1790530448; x=1791135248;
+        h=to:in-reply-to:cc:references:message-id:date:subject:mime-version
+         :from:content-transfer-encoding:content-type:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=MuL0v1f3+J9yyQw0yqK0TvcdFgWSs593LTmvyHRza0g=;
+        b=rw9Ahutdz/X890a/qCxp8IdS3caSlklvsA0aSQ4EBOdfyu/vKNLi1ZbcRMuY73W62u
+         uGQQ8a06zVeJi3+sw9H6G0VUkk5LUTrdsf2nYnnb+2AVLjHWTbPBTBBGWWQgBM1jdpCe
+         cUvJJYem0yrMEMbVUv5Li0TRNQZU7q4zgo+jI51WF78P0/9Y82oSU+HUIt9cMyJhIUAY
+         hbawEt11qQbJhIqpsgzBVjw4ecCbR/CTMHSjQI1YtGzv3GGafSHhDUusm4YpH/S5GMRZ
+         NN/TpGU4+KB5a/PW135byGLlcmXRdrKxbS05UlpvHbgIVdnKOj/HGpvyV9BA2i+KwrdX
+         5CTQ==
+X-Forwarded-Encrypted: i=1; AKwUvBy2IESSZlqA7C/AsNLzGuFRZQSOVQ/8H1MXeZuvmUvRgMCk0LWWeiADphhwO4tFMfMQxW/XUQhlrysXy1BytTNw@lists.infradead.org
+X-Gm-Message-State: AFuF++mApeq0mDZ6flCyMjUwXTR7U/qFWeA0My/cxbHcSc3vjfq6itj0
+	e4NSHdqhtvB733clsuNZSLn+39zq+2tchRxbnjvqQmLVSnSoL7RsW9aOFg2uoUggjw==
+X-Gm-Gg: AYBFou3OCscSJNQTgqTYaayQkpO6itTxtS0+AFAZHDQNGbCALV1jwT6A3YNhssm7E8g
+	X0/dMKihUgJXSBOKJahM5j2tw/Rdmbq4/dgwzzwqmNc2a6fF8g34LjvAJaL7/vNOz/gaGNDqnGp
+	Iz0MlT5VlRMCt3+nKzotcwayOGlXNb7ZGtiU9Id6+6XSeVjLsx+bWpyhFn4MVoSDjO1yxPcmdjR
+	NTaE73cSfGLmn+m9kKE0t5ir/36YWrk5bsuA0zbRwjvkW6+7vbkFNhpyRD9JQtIeymahFilmv4X
+	LhZwOnw1lrDgn0O9SvtPLI2gizS3Kiie3UpSKCT8F3AQ1r1ICuXqwfqAXill8tqKv6lBzpyqFFS
+	+3YiZxTz2kzTRGe1RkYuAlg5lnz1qFWYgplSZJR9OJPJi1BzBKYFrmHtiWCny1ioocxUt2WDVaw
+	khWXNutILjcc/RWgvBznQzO9rcXMgmrD816kLKbjhrhiWEQjdKGj72OwLxMZliQ3jXcGV0JkH+O
+	sUuK+cYTVjimi9FgPr4ctWYPqO3GQ==
+X-Received: by 2002:a05:6820:820:b0:6cd:3ffc:64d2 with SMTP id 006d021491bc7-6d5bac3e146mr7371645eaf.77.1790530448403;
+        Sun, 27 Sep 2026 10:34:08 -0700 (PDT)
+Received: from smtpclient.apple ([2600:381:5ba1:a8b2:19d5:7f67:de2b:c3a5])
+        by smtp.gmail.com with ESMTPSA id 006d021491bc7-6d883394af1sm2755239eaf.13.2026.09.27.10.34.05
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Sun, 27 Sep 2026 10:34:06 -0700 (PDT)
+Content-Type: text/plain; charset=utf-8
 Content-Transfer-Encoding: quoted-printable
-Content-Type: text/plain; charset=UTF-8
-Date: Sun, 27 Sep 2026 19:12:24 +0200
-Message-Id: <DLQ9LXDE2P29.248MPYCJMT0DL@matfyz.cz>
-Cc: "Francesco Dolcini" <francesco@dolcini.it>, "Johannes Berg"
- <johannes@sipsolutions.net>, "Rob Herring" <robh@kernel.org>, "Krzysztof
- Kozlowski" <krzk+dt@kernel.org>, "Conor Dooley" <conor+dt@kernel.org>,
- =?utf-8?q?Duje_Mihanovi=C4=87?= <duje@dujemihanovic.xyz>, "Andrew Lunn"
- <andrew@lunn.ch>, "Gregory Clement" <gregory.clement@bootlin.com>,
- "Sebastian Hesselbarth" <sebastian.hesselbarth@gmail.com>, "Ulf Hansson"
- <ulf.hansson@linaro.org>, "Frank Li" <Frank.Li@nxp.com>,
- <linux-wireless@vger.kernel.org>, <devicetree@vger.kernel.org>,
- <linux-kernel@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
- <linux-mmc@vger.kernel.org>, <~postmarketos/upstreaming@lists.sr.ht>,
- <phone-devel@vger.kernel.org>, "Jeff Chen" <jeff.chen_1@nxp.com>, "Peng
- Fan" <peng.fan@nxp.com>, <david@ixit.cz>, "Johannes Berg"
- <johannes.berg@intel.com>
-Subject: Re: [DONOTAPPLY RFC PATCH v2 0/4] WiFi support for
- samsung,coreprimevelte
-To: "Brian Norris" <briannorris@chromium.org>
-From: "Karel Balej" <balejk@matfyz.cz>
-References: <20251026182602.26464-1-balejk@matfyz.cz>
- <DEJL1ATTQMVE.120JV9YW59I27@matfyz.cz>
- <aSnWYS2g5slVFaSk@gaggiata.pivistrello.it>
- <DI5L100Q1RKO.1A68EJIPWYSRC@matfyz.cz> <afI8y70U7wFT_07h@google.com>
-In-Reply-To: <afI8y70U7wFT_07h@google.com>
+From: Andy Lutomirski <luto@amacapital.net>
+Mime-Version: 1.0 (1.0)
+Subject: Re: [RFC PATCH v2 0/4] mm/swap: reserve swap areas for deliberate offload
+Date: Sun, 27 Sep 2026 10:33:53 -0700
+Message-Id: <3FDF3191-94A5-42B3-A33E-12021344D7BD@amacapital.net>
+References: <20260926045517.3458413-1-matthias.goergens@gmail.com>
+Cc: Andrew Morton <akpm@linux-foundation.org>,
+ Chris Li <chrisl@kernel.org>, Kairui Song <kasong@tencent.com>,
+ Johannes Weiner <hannes@cmpxchg.org>, David Hildenbrand <david@kernel.org>,
+ Michal Hocko <mhocko@kernel.org>, Shakeel Butt <shakeel.butt@linux.dev>,
+ Kemeng Shi <shikemeng@huaweicloud.com>, Nhat Pham <nphamcs@gmail.com>,
+ Yosry Ahmed <yosry@kernel.org>, Youngjun Park <youngjun.park@lge.com>,
+ Baoquan He <baoquan.he@linux.dev>, Barry Song <baohua@kernel.org>,
+ linux-mm@kvack.org, linux-kernel@vger.kernel.org, cgroups@vger.kernel.org,
+ linux-api@vger.kernel.org, Alejandro Colomar <alx@kernel.org>,
+ linux-man@vger.kernel.org, Karel Zak <kzak@redhat.com>,
+ util-linux@vger.kernel.org, Jani Nikula <jani.nikula@linux.intel.com>,
+ Joonas Lahtinen <joonas.lahtinen@linux.intel.com>,
+ Vivi Rodrigo <rodrigo.vivi@intel.com>,
+ Tvrtko Ursulin <tursulin@ursulin.net>, David Airlie <airlied@gmail.com>,
+ Simona Vetter <simona@ffwll.ch>, intel-gfx@lists.freedesktop.org,
+ dri-devel@lists.freedesktop.org, Rafael J Wysocki <rafael@kernel.org>,
+ Pavel Machek <pavel@kernel.org>, Catalin Marinas <catalin.marinas@arm.com>,
+ Will Deacon <will@kernel.org>, linux-pm@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, Shuah Khan <shuah@kernel.org>,
+ linux-kselftest@vger.kernel.org,
+ Matthias Goergens <matthias.goergens@gmail.com>
+In-Reply-To: <20260926045517.3458413-1-matthias.goergens@gmail.com>
+To: Matthias Goergens <matthias.goergens@gmail.com>
+X-Mailer: iPhone Mail (23G90)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260927_101310_799159_418324BA 
-X-CRM114-Status: GOOD (  11.40  )
+X-CRM114-CacheID: sfid-20260927_103410_748499_FDE77E0A 
+X-CRM114-Status: GOOD (  14.42  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -82,23 +120,46 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Brian,
 
-Brian Norris, 2026-04-29T10:15:55-07:00:
->> Brian, what are the options here now? Would it be possible to make an
->> exception and accept the patches without the firmware being in
->> linux-firmware? This is an old device with no mainstream audience so I
->> expect everyone who will want to use it will be able to supply the
->> firmware themselves
-[...]
-> I suppose I'll leave it up to Johannes on this part, and may be willing
-> to retract my NAK [1].
 
-I have not been able to get a response from Johannes for these last five
-months, despite pinging twice =E2=80=93 is there any chance you might be ab=
-le to
-help with that in any way, please?
+> On Sep 25, 2026, at 9:55=E2=80=AFPM, Matthias Goergens <matthias.goergens@=
+gmail.com> wrote:
+>=20
+> =EF=BB=BFThis RFC adds offload-only swap areas for deliberate cold-page of=
+fload to
+> backends unsuitable for pressure reclaim. ZFS zvol swap has documented
+> deadlocks under memory pressure [3]; compressed swap is another target
+> because writes may need memory despite free logical slots.
 
-Kind regards,
-Karel
+This seems unnecessarily annoying to configure. It seems to me that you=E2=80=
+=99re creating a bizarrely named administrative flag that means, roughly, =E2=
+=80=9Cswapping to this location may allocate memory=E2=80=9D.  Why can=E2=80=
+=99t the kernel figure this out itself?
+
+
+For that matter, how well does this even work in practice?  If I configure t=
+wo swap devices, one =E2=80=9Coffload-only=E2=80=9D and one conventional, it=
+ seems like the relative fullness of the devices will be mostly an accident o=
+f what triggers swap as the system is running. If the conventional swap fill=
+s up, is there a means to proactively empty it?  Under OOM conditions, will a=
+nything preferentially kill tasks that reference memory in conventional swap=
+?
+
+Is the locking and recursion structure of the mm code such that we won=E2=80=
+=99t have deadlocks where cgroup triggers swap to an =E2=80=9Coffload-only=E2=
+=80=9D device, which allocates, which causes memory pressure, which then tri=
+es to swap more to conventional swap?  (Maybe this works fine.)
+
+For that matter, if the system is under overall memory pressure, why do you c=
+are what triggered the particular swap operation that is being processed?
+
+
+
+The remainder of the writeup is IMO somewhat incoherent.  To the extent that=
+ AI was used, can you read it and make sure it makes sense?
+
+And the first few hundred lines of patch I skimmed seem like incomprehensibl=
+e churn.  Adding =E2=80=9Celigible=E2=80=9D to a bunch of calls does nothing=
+ to explain what=E2=80=99s going on.
+
 
