@@ -4,45 +4,45 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 68754C9832F
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 27 Sep 2026 16:29:47 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 77E8FC9833F
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 27 Sep 2026 16:30:07 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
 	Content-Transfer-Encoding:Content-Type:References:In-Reply-To:Message-ID:Date
 	:Cc:To:From:Subject:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Gu8ErsYBV4PgFuSVNd6NTMG6a/XMTjplo6GasQz5ZLc=; b=W90JhU64r+DN2j9zz3IRAxjaWw
-	MPYyqRxzNo9hRLe67FSjq3wIBt8XLWRo10BrGgix066HIfaafWt0CsNZTcPEU0sMFz52NCADQpXHf
-	5kEmJRSBiiRh1SMvo8smod9g39255YICkGg04TXFI8jWxNdBbesOgEAa59JEZiTnhKgFB8C431ItQ
-	z/JDMJAyseZfzelK63lUDePPkHr/nEqLpdBHrFPj7muSrDLlLcnE6dVG0B5HzOvnbLur3Aj/W6kXi
-	lgjf1HQjW9pS5glAAb4Ht9tT6vA7VxfuZG17H9OOis3p2txp7OnRraOhQlxci3lellZD+Vo5qT2tS
-	4DJfFfgg==;
+	bh=260s97xmu8zFr2zsFwdEpzWatQ1+IA3lnCWULTwRUcY=; b=Ir7dcUxU/0CQ5VOB9PE2rhV0pz
+	OBzK/8nBY8OnpNgJais+cgsBPgC1XYKKE1uje4K0Ey8cxAFzsw5UnUpAmGV1trU9PtfhmrwFGhRxs
+	uQlPJaxvZGfzYoaMJFR4msiAgX8XKym5hnukWT3/+of1QlOkRoCkJBTLcNN+ckBSdk1ooC8wINgId
+	Js0XSDWCrRzoeJEFIVsXGvPzvM0Wk6/GXDQnE/jMOYhRYpIneCd7ygP+4bVSpaDoWOf+2qIQn6ckH
+	27XiMICwCfjyqjoOcctgKoCYcb3NfGTvvE7bjlJ97YfAMB5WjW0k08vtenlZ8X7Z//dkHkrNXS8Wm
+	YZMBEH3Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xArkz-0000000GZRz-0fRc;
-	Sun, 27 Sep 2026 16:29:41 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1xArlG-0000000GZmC-1b0Y;
+	Sun, 27 Sep 2026 16:29:58 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xArka-0000000GYyj-4ANj;
-	Sun, 27 Sep 2026 16:29:17 +0000
+	id 1xArkg-0000000GZ5f-0CYj;
+	Sun, 27 Sep 2026 16:29:22 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id CE09160D78;
-	Sun, 27 Sep 2026 16:29:15 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id F37B31F00893;
-	Sun, 27 Sep 2026 16:29:12 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id C412143E5A;
+	Sun, 27 Sep 2026 16:29:21 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 15F9D1F000FF;
+	Sun, 27 Sep 2026 16:29:19 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1790526555;
-	bh=Gu8ErsYBV4PgFuSVNd6NTMG6a/XMTjplo6GasQz5ZLc=;
+	s=k20260515; t=1790526561;
+	bh=260s97xmu8zFr2zsFwdEpzWatQ1+IA3lnCWULTwRUcY=;
 	h=Subject:From:To:Cc:Date:In-Reply-To:References;
-	b=iDY33W3T4QiioPZtBknBI0Hq0QgYFuTcCI7P1JfrkjQgq1FCbxJ1S8bhxkF6Mj8V4
-	 CmD4CJv5XTM/MAPSN4+zoZmBy3jcKvTOXF5u+gi5KNLLj0V2Nxs0PDwqqW1sRfmpSW
-	 dDL/CSRmlVQtRYf3EPkIIl8orwyCtq2sO4OeN0mWIk1TIKXxbadkhug4vJrrfxbnu+
-	 SKik9AGA1zrqyXJv93oBRLX7Z7Cn9pKD8TveuPwAnt2b9zyz2m6cnv1HqhAj9OfkGm
-	 XwaBadjHMC6PZkU/2g7NHVsAOsRBgmAvU7QJny8hm/K3BCFo0tHuL0xiCfq80EyEuM
-	 XSOFGK03vXxIA==
-Subject: Re: [PATCH net-next v15 5/9] net: stmmac: qcom-ethqos: set serdes
- mode before powerup
+	b=iiEoH2i8VyKhpRnwyi0TmGQTxs0NI7Ek1IOo4QciPW41dzAT4kOFVgmlbN7Kb4tXD
+	 +R/rp9EHahMP6mU1UqulOKsC/EepNoZvcxpBk+RQ1/El+WOy2noKdyFt2HvQakT36I
+	 hg2DW9J4iZCOD93HDpaK2GTegDQFkgV5WPBfT6OyZf5E/0rCVMBmQiaXYYSR1lK/v0
+	 y2Bgl34nzNP/qasFh32Jb0wNk0GEgss/4YpeEzgw0zCowH3HjGKtnVz+VlCViLBP0k
+	 areTSI1UvGuEN1KcnkPzKS3HMF3GNUdaS8d6cBYXE4JeYxlltWBlfNSBoJntp9HV7O
+	 dGhMQFUVJVAmA==
+Subject: Re: [PATCH net-next v15 8/9] net: stmmac: qcom-ethqos: factor out
+ linux-level setup into a separate function
 From: netdev-bot+sashiko@kernel.org
 To: bartosz.golaszewski@oss.qualcomm.com
 Cc: andersson@kernel.org, konradybcio@kernel.org, robh@kernel.org,
@@ -64,11 +64,11 @@ Cc: andersson@kernel.org, konradybcio@kernel.org, robh@kernel.org,
  linux-renesas-soc@vger.kernel.org, linux-rockchip@lists.infradead.org,
  sophgo@lists.linux.dev, linux-riscv@lists.infradead.org,
  bartosz.golaszewski@linaro.org
-Date: Sun, 27 Sep 2026 16:29:12 +0000
-Message-ID: <179052655254.2160803.14087106323968541578@kernel.org>
-In-Reply-To: <20260923-qcom-sa8255p-emac-v15-5-e82f33720737@oss.qualcomm.com>
-References: <20260923-qcom-sa8255p-emac-v15-5-e82f33720737@oss.qualcomm.com>
-X-sashiko-severity: Medium
+Date: Sun, 27 Sep 2026 16:29:18 +0000
+Message-ID: <179052655862.2160803.476962840384562724@kernel.org>
+In-Reply-To: <20260923-qcom-sa8255p-emac-v15-8-e82f33720737@oss.qualcomm.com>
+References: <20260923-qcom-sa8255p-emac-v15-8-e82f33720737@oss.qualcomm.com>
+X-sashiko-severity: Low
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit
 MIME-Version: 1.0
@@ -86,131 +86,132 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Thank you for your contribution! Sashiko AI review found 1 potential
-issue(s) to consider.
+Thank you for your contribution! Sashiko AI review found more severe
+issue(s) in other patches of this series. This mail is only an FYI, in case
+you want to address the nit picks below when you respin.
 
-Critical: 0 · High: 0 · Medium: 1 · Low: 0
+Low priority / nit picks for your consideration:
 
-If you believe none of the issues are legitimate, please reply to each
-issue of Medium severity or higher and explain why the AI is wrong.
-If any of them are legitimate and you plan to respin, please let patchwork
-know by including "pw-bot: cr" as a separate line at the end of your reply
-(one such reply per series is enough).
-
-- [Medium] In qcom_ethqos_serdes_powerup()
-  (drivers/net/ethernet/stmicro/stmmac/dwmac-qcom-ethqos.c), the patch…
+- [Low] The commit message does not describe the refactor boundary
+  accurately.
+- [Low] The patch deletes the comment that justified the hard-coded MDC
+  divider ('The clocks are controlled by firmware, so we don't know for…
 
 --
 
-net: stmmac: qcom-ethqos: set serdes mode before powerup
+net: stmmac: qcom-ethqos: factor out linux-level setup into a separate function
 
-This patch adds a call to phy_set_mode_ext() before phy_power_on() in
-qcom_ethqos_serdes_powerup(). On SCMI systems the PHY driver needs it to
-pick the right performance level, which sets the link speed. It prepares
-for adding support for the firmware-managed EMAC on Qualcomm sa8255p.
+This patch adds a setup() callback to struct ethqos_emac_driver_data. It
+implements the callback as ethqos_hlos_setup() for the existing EMAC
+variants. The rgmii mapping, link clock handling and several plat_dat
+callbacks move from qcom_ethqos_probe() into it, ahead of support for
+firmware-controlled (SCMI) EMAC variants.
 
 > diff --git a/drivers/net/ethernet/stmicro/stmmac/dwmac-qcom-ethqos.c b/drivers/net/ethernet/stmicro/stmmac/dwmac-qcom-ethqos.c
-> index ac7d6d3e205a1..47b70b5e706f2 100644
+> index ab1bcb7eb18e2..509a5368e69a8 100644
 > --- a/drivers/net/ethernet/stmicro/stmmac/dwmac-qcom-ethqos.c
 > +++ b/drivers/net/ethernet/stmicro/stmmac/dwmac-qcom-ethqos.c
-> @@ -601,10 +601,19 @@ static int qcom_ethqos_serdes_powerup(struct net_device *ndev, void *priv)
->  	if (ret)
->  		return ret;
->  
-> +	ret = phy_set_mode_ext(ethqos->serdes_phy, PHY_MODE_ETHERNET,
-> +			       ethqos->phy_mode);
-> +	if (ret)
-> +		goto err_out;
 
-[Severity: Medium]
-What happens here if ethqos->phy_mode is one of the RGMII variants?
+[ ... ]
 
-qcom_ethqos_probe() accepts RGMII, RGMII_ID, RGMII_RXID and RGMII_TXID.
-It installs serdes_powerup whenever a "serdes" PHY is found, whatever the
-phy_mode is:
-
-qcom_ethqos_probe() {
-    ...
-	if (ethqos->serdes_phy) {
-		plat_dat->serdes_powerup = qcom_ethqos_serdes_powerup;
-		plat_dat->serdes_powerdown  = qcom_ethqos_serdes_powerdown;
-	}
-    ...
-}
-
-The qcom,ethqos binding allows this combination too. It has "phys: true"
-and "phy-names: const: serdes", with no condition on phy-mode.
-
-Both SerDes PHY drivers reject any submode other than SGMII, 1000BASEX
-and 2500BASEX. In phy-qcom-sgmii-eth.c, qcom_dwmac_sgmii_phy_validate()
-is called from qcom_dwmac_sgmii_phy_set_mode():
-
-	if (submode == PHY_INTERFACE_MODE_SGMII ||
-	    submode == PHY_INTERFACE_MODE_1000BASEX ||
-	    submode == PHY_INTERFACE_MODE_2500BASEX)
-		return 0;
-
-	return -EINVAL;
-
-The new qcom_dwmac_sgmii_phy_scmi_validate() in
-phy-qcom-sgmii-eth-scmi.c does the same.
-
-Take a DT that sets phy-mode = "rgmii*" and also references an enabled
-serdes PHY. With this patch, powerup would fail like this:
-
-stmmac_open()
-  stmmac_legacy_serdes_power_up()
-    qcom_ethqos_serdes_powerup()
-      phy_set_mode_ext()
-        qcom_dwmac_sgmii_phy_set_mode()
-          qcom_dwmac_sgmii_phy_validate() returns -EINVAL
-      goto err_out -> phy_exit()
-
-"SerDes powerup failed" is logged, and both stmmac_open() and
-stmmac_resume() fail. Before this patch the same DT powered the SerDes
-on without an error.
-
-The other caller of this API in the same file already limits the call to
-SerDes modes:
-
-ethqos_mac_finish_serdes() {
-    ...
-	if (interface == PHY_INTERFACE_MODE_SGMII ||
-	    interface == PHY_INTERFACE_MODE_2500BASEX)
-		ret = phy_set_mode_ext(ethqos->serdes_phy, PHY_MODE_ETHERNET,
-				       interface);
-    ...
-}
-
-Later patches in the series don't change serdes_powerup. The patch that
-updates phy_mode to the resolved interface in mac_finish() only touches
-phy_mode inside mac_finish. mac_finish is only installed for SGMII and
-2500BASEX, so an RGMII phy_mode would still reach this call at the end
-of the series.
-
-I checked the in-tree DTs. The boards that reference a serdes PHY
-(lemans.dtsi and monaco.dtsi based) all use sgmii or 2500base-x. The
-RGMII boards have no serdes PHY. So "harmless for existing users" holds
-for in-tree users, and this only affects DTs the binding allows but that
-aren't in the tree.
-
-Should the call be guarded the same way as in ethqos_mac_finish_serdes()
-(SGMII, 1000BASEX and 2500BASEX only)? Another option would be to
-install serdes_powerup only for SerDes phy-modes in qcom_ethqos_probe(),
-or to restrict the binding.
-
-> +
->  	ret = phy_power_on(ethqos->serdes_phy);
->  	if (ret)
-> -		phy_exit(ethqos->serdes_phy);
-> +		goto err_out;
->  
-> +	return 0;
-> +
-> +err_out:
-> +	phy_exit(ethqos->serdes_phy);
->  	return ret;
+> @@ -692,6 +704,58 @@ static void ethqos_ptp_clk_freq_config(struct stmmac_priv *priv)
+>  	netdev_dbg(priv->dev, "PTP rate %lu\n", plat_dat->clk_ptp_rate);
 >  }
+>  
+> +static int ethqos_hlos_setup(struct qcom_ethqos *ethqos,
+> +			     struct plat_stmmacenet_data *plat_dat)
+> +{
+> +	struct platform_device *pdev = ethqos->pdev;
+> +	struct device *dev = &pdev->dev;
+> +	int ret;
+> +
+> +	ethqos->rgmii_base = devm_platform_ioremap_resource_byname(pdev, "rgmii");
+> +	if (IS_ERR(ethqos->rgmii_base))
+> +		return dev_err_probe(dev, PTR_ERR(ethqos->rgmii_base),
+> +				     "Failed to map rgmii resource\n");
+> +
+> +	ethqos->link_clk = devm_clk_get(dev, ethqos->data->link_clk_name ?: "rgmii");
+> +	if (IS_ERR(ethqos->link_clk))
+> +		return dev_err_probe(dev, PTR_ERR(ethqos->link_clk),
+> +				     "Failed to get link_clk\n");
+> +
+> +	plat_dat->clks_config = ethqos_clks_config;
+> +
+> +	ret = ethqos_clks_config(ethqos, true);
+> +	if (ret)
+> +		return ret;
+> +
+> +	ret = devm_add_action_or_reset(dev, ethqos_clks_disable, ethqos);
+> +	if (ret)
+> +		return ret;
+> +
+
+[ ... ]
+
+> +	case PHY_INTERFACE_MODE_2500BASEX:
+> +	case PHY_INTERFACE_MODE_SGMII:
+> +		plat_dat->fix_mac_speed = ethqos_fix_mac_speed_sgmii;
+> +		break;
+> +	default:
+> +		break;
+> +	}
+
+[Severity: Low]
+This isn't a bug, but is the commit message accurate about what moves into
+the callback? It says the patch will:
+
+  "move all operations not required in SCMI mode into it."
+
+SCMI mode also needs several of the steps moved into ethqos_hlos_setup():
+
+  - mapping the "rgmii" wrapper
+  - setting plat_dat->clks_config
+  - the first ethqos_clks_config(ethqos, true) call, along with its
+    devm_add_action_or_reset(dev, ethqos_clks_disable, ethqos) cleanup
+  - selecting ethqos_fix_mac_speed_sgmii for SGMII/2500BASEX
+
+Later in the series, the ethqos_scmi_setup() added by "net: stmmac:
+qcom-ethqos: add support for sa8255p" repeats each of these steps. Its own
+comment says the wrapper loopback and functional clock bits are required.
+Without them, the DMA SW-reset in dwmac4_dma_reset() never completes.
+
+As a result, the same setup code exists in two places instead of once in
+qcom_ethqos_probe().
+
+Could the shared steps stay in qcom_ethqos_probe() or move to a common
+helper, leaving only the HLOS-only parts in ethqos_hlos_setup()? If not,
+could the commit message describe the split more precisely?
+
+[ ... ]
+
+> @@ -765,21 +815,8 @@ static int qcom_ethqos_probe(struct platform_device *pdev)
+>  		return dev_err_probe(dev, PTR_ERR(ethqos->serdes_phy),
+>  				     "Failed to get serdes phy\n");
+>  
+> -	ethqos_set_clk_tx_rate(ethqos, NULL, plat_dat->phy_interface,
+> -			       SPEED_1000);
+> -
+> -	qcom_ethqos_set_sgmii_loopback(ethqos, true);
+> -	ethqos_set_func_clk_en(ethqos);
+> -
+> -	/* The clocks are controlled by firmware, so we don't know for certain
+> -	 * what clock rate is being used. Hardware documentation mentions that
+> -	 * the AHB slave clock will be in the range of 50 to 100MHz, which
+> -	 * equates to a MDC between 1.19 and 2.38MHz.
+> -	 */
+>  	plat_dat->clk_csr = STMMAC_CSR_60_100M;
+
+[Severity: Low]
+Was this comment meant to be removed?
+
+qcom_ethqos_probe() still sets plat_dat->clk_csr = STMMAC_CSR_60_100M for
+every variant, but the comment explaining the hard-coded MDC divider is
+gone.
+
+The commit message describes the change as code motion and does not
+mention removing the comment. No later patch in the series restores it.
+
+Could the comment be kept above the clk_csr assignment?
 
 -- 
 Sashiko AI review · https://netdev-ai.bots.linux.dev/sashiko/#/patchset/20260923-qcom-sa8255p-emac-v15-0-e82f33720737%40oss.qualcomm.com
