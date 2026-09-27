@@ -4,65 +4,113 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2587CC9832F
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 27 Sep 2026 21:04:42 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D16F5C98338
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 27 Sep 2026 21:11:09 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:To:
-	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=jfDqhPISRULKrUo48D5cmiM75e4HKBRGSaeEuhMiqWU=; b=BdRSpeQldSLgew43sT7DkJiqeZ
-	1wbVZa0L82xvuyG3RfjLbr8aAssibJd4fqMMJCkwzsqLwFDUy3O0kGbpjvuOQLVsxgEggkzlmSrEs
-	zfwYmOP+OSTlC3o4Af7d2No+02zzIAi3zlh7MTu87+v1eQXconacNDPGvNK7mg0GEHAF4i0LgjaJl
-	lPauGd+y7DzN1L/wOFIBksJ3Q2ssGl4Dc49MHoFTjZNukKQCEcWQPmRcGv1mZZtlVqE3wI/n5E+mN
-	D7NUB9bF1F9bRQUgtMs0rGFXZL5QAsa1Qwmf3iRnnMghM5sVBpnA2y2R+GevGha5M/dsExBSky8xm
-	um4NHSPg==;
+	bh=K+JP+LPdxc4vpdnaEOF+IpoVDd3fTmu6ZNu6gMPY2s8=; b=jRLh4lPLSOrxj9d1L/5ILQyoGX
+	dx8nPO1AzLg9eiLlzj44rRPIw714Ve6KDXF/XnV3CLqfMeb8ybZ/DMWWUUGfwgI4ho1ERmMJmNY0q
+	ZT+7bSmczHiooKSob4MDAw7svW/0DX4xCRHzw5or8h5e1XGjK+f/y4W6nvcn1EeC0EOhinmUsPwb0
+	pl2DQm+3kLwHhCBEoRLwR7McUpXc/1FfiVrFiVqzRDiXQ4AdncZhAPe0NW/3VW4lgS2EP7jO04Qs4
+	pYQd0lTSK25l7Cg58kqIixBOn1oXtkiaSleGut3nDzY/9+CEI937Pxf6uxl7D2XzrP+Ui3zNlwUSX
+	OcgXovgA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xAw31-0000000GreL-0lH1;
-	Sun, 27 Sep 2026 21:04:35 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1xAw9A-0000000GsGD-0zxD;
+	Sun, 27 Sep 2026 21:10:56 +0000
+Received: from mail-ed2-x22.google.com ([2a00:1450:4864:33::22])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xAw2z-0000000GreE-1bRS
+	id 1xAw97-0000000GsFC-3Rdd
 	for linux-arm-kernel@lists.infradead.org;
-	Sun, 27 Sep 2026 21:04:33 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id B0A3860052;
-	Sun, 27 Sep 2026 21:04:32 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id E89BC1F000FF;
-	Sun, 27 Sep 2026 21:04:30 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1790543072;
-	bh=jfDqhPISRULKrUo48D5cmiM75e4HKBRGSaeEuhMiqWU=;
-	h=Date:From:To:Cc:Subject:In-Reply-To:References;
-	b=MhDiLzFQriDGDMF6BYyMYjoLBGEyg2EO67Q1XdyuITdqJuoaOByuufsDJI+ZAfi0C
-	 1m7Z5w6x2Z6RZETJG8fckbp4aEdbLVdVSAkPu5JgIt21QF5qEyxFfdPyrx3BG8Nz9w
-	 meYtOb9T5f3JKablixSIYOL8iqeM5ZPyYZvjrwT08UrYjbtNU67p/8epkeoDS+nrJa
-	 Dv8DztnGnPY1mefunG09+YqJdgv4lmD9rmhAEqcFfYbiHO1EG07PRbFIBlBZKNmMcT
-	 Eae6LG4ODf9QNIVD0oHCvOxQT/uthf0jOiuQmM10N5/piQULThOLX6D0tsk5z/Z76W
-	 ZePDxRa5Ek+ZA==
-Date: Sun, 27 Sep 2026 22:04:26 +0100
-From: Jonathan Cameron <jic23@kernel.org>
-To: Joshua Crofts <joshua.crofts1@gmail.com>
-Cc: Guangshuo Li <lgs201920130244@gmail.com>, Eugen Hristev
- <ehristev@kernel.org>, David Lechner <dlechner@baylibre.com>, Nuno
- =?UTF-8?B?U8Oh?= <nuno.sa@analog.com>, Andy Shevchenko <andy@kernel.org>,
- Nicolas Ferre <nicolas.ferre@microchip.com>, Alexandre Belloni
- <alexandre.belloni@bootlin.com>, Claudiu Beznea <claudiu.beznea@tuxon.dev>,
- linux-iio@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-kernel@vger.kernel.org, stable@vger.kernel.org
-Subject: Re: [PATCH] iio: adc: at91-sama5d2: disable autosuspend on remove
-Message-ID: <20260927220426.7b657976@jic23-hlaptop>
-In-Reply-To: <20260927195519.76c2885b@systembl0wer>
-References: <20260914113422.1689331-1-lgs201920130244@gmail.com>
-	<20260914145339.00002f0b@gmail.com>
-	<20260917041128.6d10a2f6@jic23-hlaptop>
-	<20260927195519.76c2885b@systembl0wer>
-X-Mailer: Claws Mail 4.4.0 (GTK 3.24.52; x86_64-pc-linux-gnu)
+	Sun, 27 Sep 2026 21:10:54 +0000
+Received: by mail-ed2-x22.google.com with SMTP id 4fb4d7f45d1cf-6aaf8415866so2614718a12.0
+        for <linux-arm-kernel@lists.infradead.org>; Sun, 27 Sep 2026 14:10:52 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1790543451; cv=none;
+        d=google.com; s=arc-20260327;
+        b=ThMscW8hD9AZ37ErAnelc0NLdW1PiRwv9OkWLDwwwMmKq7UW7OmP7zpKhuErpPD0o1
+         mo8uo/ZcXGHsULdekw9GtFIsJTR29vBXXsEUQiOaR0s9VPgoVgDWBmev9evf4tRoSiUh
+         5QGq0OrOA0gojixGwzZGZasQmPMPxLf/IsMwxARn8O6iailPcs07kfPwcu4f9MG5+B/b
+         J53HRK53OeO4Xjx7lKh00Q2AcPXW7JqRMs2S4JVUgufEdzX7uBimb+75ClbTGJ3zuSDQ
+         tPMxki3n/y9uWB/d2S/sxXaquOCb0u9BMWQ88Oe32Lhf4xoDTeY/wM7jHyMT0HauxDkO
+         sXMQ==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:dkim-signature;
+        bh=K+JP+LPdxc4vpdnaEOF+IpoVDd3fTmu6ZNu6gMPY2s8=;
+        fh=1igTJLnEOrZZdvk/Wu7M4Q47jVPmnSMfQEvhwtR+blU=;
+        b=NaQyYVfGM+Q4ErfkLd9/J6AgxUv4GENKwy80wGXvXqoFW3hnqFCQgSdEiGC1MQcF1B
+         ABkA+G8tbRZR0j6vUG8OHWZF37LGEGWf30TSJAKeADzZrc4Tmx8jQTi04sR433I8J//I
+         A8PUVBbM3Kv8Cu8c1oYnXQFhWumKNdO6Ms0lGjUj81VsuITr8zGz1rc1L7uc01aW3kcF
+         08GuQQz/zLNe6O8Qe/dU2CKKvrYszGY7otnajLVVGFtoHG1PXdbEuXM+ctyg0lrteBPP
+         lTEibflwLGCkYJ2YfkmrgsGYDoLBJRynkE8HEuwC4o13pBrGlYE+DMXP0/W+XD4g517Z
+         Di5g==;
+        darn=lists.infradead.org
+ARC-Authentication-Results: i=1; mx.google.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20251104; t=1790543451; x=1791148251; darn=lists.infradead.org;
+        h=content-transfer-encoding:content-type:cc:to:subject:message-id
+         :date:from:in-reply-to:references:mime-version:from:to:cc:subject
+         :date:message-id:reply-to:content-type;
+        bh=K+JP+LPdxc4vpdnaEOF+IpoVDd3fTmu6ZNu6gMPY2s8=;
+        b=SzX5vey1pELBR2OfIK6PKYohnLYwGzZWE2MjCBKxobmAdaul8kuk1iWLEEXYQ4n32r
+         his6sZsYt7W611RpHA8LFBpaFDiHND/g+2UXxQt1S1QaUF9oAWo/68OmfbXa7euvff1a
+         CLS6mKhth9hgN1Xi8Fb6DFONTloF/MnFv1rOtj/U9e6m3i+T1TJPXZyj8nul0qt3Aqac
+         LRB1flxFFPd1EaQv85j+KQ3BzJ4/cAo8WLgkiWguNg5lcIPYVE6rfjpyZpL0UO5Yf8j8
+         ppdnoB/T1LaIyCjU8w9KnA27fdMETaFNiGxmHgzdrTIbl0dS/dfKkIxnb3rKRLd4iGXm
+         rBbg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1790543451; x=1791148251;
+        h=content-transfer-encoding:content-type:cc:to:subject:message-id
+         :date:from:in-reply-to:references:mime-version:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=K+JP+LPdxc4vpdnaEOF+IpoVDd3fTmu6ZNu6gMPY2s8=;
+        b=JwFS9Wt0II5LplT4brh9b8dZjXrLxZBwlvkfwcygC/tDobyPZmqzCCsdsm3/r2du/t
+         HQEsHHnjZmwRl4Q65nl7CCNqWx5HVsrTJ8bzCgDxRzKWe/uauryGRvz9WU89BbXZg7RI
+         y6TmVQURwJCN5TtaNswxMGI2jLRl7mw2wtCTuUWOa7CUpHtDBvLltCjqEIGoRCvddBpo
+         UUuQ7daOC/y5vpGqg4ga7F5uzGpAv+MJvARqXLcdqL5TdSUBgX9yceGk1WRWUFjFFwmQ
+         e7nPKfmtlQNVcpJZnyYkksIQqIC6nE37IFQLisZb4uTbU1dXaFqYvhGVHMo7swgZXV9m
+         q/cQ==
+X-Forwarded-Encrypted: i=1; AKwUvBxnzdVZLzOpyv0hy2emLwsC97ebxbqhVfYIYnvWnqwr3jry+u7bGLocrbCfEXtFhhRoHsxFrYeI1qMET/r6VUF4@lists.infradead.org
+X-Gm-Message-State: AFq9FYLCKH6OQWsR69PIFm1PcIX095Nat6Sh+lKKNUFS/dudHmO+cCAS
+	M2oa7Pu0cbrHWdqvaukwF/Mte2WSSAEc/B5JaHV/Uk958l8l/KGgTdrI4S1L/317oXP5Z6VGPTL
+	Y9viC4dLfswyqO6+rSO7Y2smjOqekZNs=
+X-Gm-Gg: AYBFou2N4+bR0PUnkd10C6K3Wn9K6RpUExhzf5kG6wzn25AjwPcRhAztP8YK2tER3KA
+	8nYF5f72+O+4UFScJiEhyTSy8B/WgC99UNsFNZgR1G55xdlr5jsP8n0mHxvbJa/eNQGSL1W7tjo
+	h2QZtkKhbOlhV+GPGyrRcw9eY7H7E6lRXbyL2yXz50DdAHxD9mwO7HFIwbEVDyUN0jj6hM61Nub
+	kiRR+IIMnSryIh2krtQPfaSeXP8q63W6vbP+kz/qUMlVEfGUo9L5GzxeYg3DjVTJuhhKwPeR0D9
+	1DRJ0XBhr9gOYiA5ZKiNY5JMiM7TAkTuTRLo/HSvcckjzm5vuUTp4pxod04YtA2kbAXdLFg0x3L
+	jU1FCrUh/DAS3bOOXjBQjAQn7Ujl30kz4S7CopYTT5WyH8zsIK/wukR2OYDfOQntir42/r3yUzA
+	wx47rygxbvUVQSJCdHQZd8ctFi8Aan09sgjAVNctcAPr2iAyCpRmQ59T0pC1QldU/VNg==
+X-Received: by 2002:a05:6402:1e93:b0:6a6:37a3:2b0f with SMTP id
+ 4fb4d7f45d1cf-6aac8ecf40cmr8425968a12.8.1790543451233; Sun, 27 Sep 2026
+ 14:10:51 -0700 (PDT)
 MIME-Version: 1.0
-Content-Type: text/plain; charset=US-ASCII
-Content-Transfer-Encoding: 7bit
+References: <20260924233831.127617-1-rosenp@gmail.com> <feeed1f5-0e82-4b6f-8640-f38f3a892d20@kernel.org>
+In-Reply-To: <feeed1f5-0e82-4b6f-8640-f38f3a892d20@kernel.org>
+From: Rosen Penev <rosenp@gmail.com>
+Date: Sun, 27 Sep 2026 14:10:40 -0700
+X-Gm-Features: AclHuK9nXtwhKZKT8OEvWTXnJF3sAiZwWnAZputjHhM41eg1WXS42W-4ztR4xkU
+Message-ID: <CAKxU2N8JeJi=cNkXKKdCS7HChvhGHziCTz3j-wm27Nr04RMD-g@mail.gmail.com>
+Subject: Re: [PATCHv3 0/2] usb: bcma: control VBUS via a regulator
+To: Krzysztof Kozlowski <krzk@kernel.org>
+Cc: linux-usb@vger.kernel.org, 
+	Florian Fainelli <florian.fainelli@broadcom.com>, Hauke Mehrtens <hauke@hauke-m.de>, 
+	=?UTF-8?B?UmFmYcWCIE1pxYJlY2tp?= <zajec5@gmail.com>, 
+	Broadcom internal kernel review list <bcm-kernel-feedback-list@broadcom.com>, Rob Herring <robh@kernel.org>, 
+	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
+	Greg Kroah-Hartman <gregkh@linuxfoundation.org>, 
+	"moderated list:BROADCOM BCM5301X ARM ARCHITECTURE" <linux-arm-kernel@lists.infradead.org>, 
+	"open list:OPEN FIRMWARE AND FLATTENED DEVICE TREE BINDINGS" <devicetree@vger.kernel.org>, open list <linux-kernel@vger.kernel.org>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260927_141053_878029_55203A7E 
+X-CRM114-Status: GOOD (  16.95  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -77,70 +125,34 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Sun, 27 Sep 2026 19:55:19 +0200
-Joshua Crofts <joshua.crofts1@gmail.com> wrote:
-
-> On Thu, 17 Sep 2026 04:11:28 +0100
-> Jonathan Cameron <jic23@kernel.org> wrote:
-> 
-> > On Mon, 14 Sep 2026 14:53:39 +0200
-> > Joshua Crofts <joshua.crofts1@gmail.com> wrote:
-> >   
-> > > On Mon, 14 Sep 2026 19:34:22 +0800
-> > > Guangshuo Li <lgs201920130244@gmail.com> wrote:
-> > >     
-> > > > at91_adc_probe() enables runtime PM autosuspend with
-> > > > pm_runtime_use_autosuspend(). The probe error path correctly undoes
-> > > > this setting with pm_runtime_dont_use_autosuspend(), but the normal
-> > > > remove path only disables runtime PM.
-> > > > 
-> > > > The runtime PM API requires pm_runtime_use_autosuspend() to be undone
-> > > > with pm_runtime_dont_use_autosuspend() at driver exit unless runtime PM
-> > > > was enabled with devm_pm_runtime_enable(). Leaving the autosuspend flag
-> > > > set therefore leaves the runtime PM state incompletely cleaned up after
-> > > > the driver is unbound.
-> > > > 
-> > > > Add the missing pm_runtime_dont_use_autosuspend() call to the remove
-> > > > path.
-> > > > 
-> > > > This issue was found by manual code inspection.
-> > > > 
-> > > > Fixes: 75d7556ac0e4 ("iio: adc: at91-sama5d2_adc: add runtime pm support")
-> > > > Cc: stable@vger.kernel.org
-> > > > Signed-off-by: Guangshuo Li <lgs201920130244@gmail.com>
-> > > > ---
-> > > >  drivers/iio/adc/at91-sama5d2_adc.c | 1 +
-> > > >  1 file changed, 1 insertion(+)
-> > > > 
-> > > > diff --git a/drivers/iio/adc/at91-sama5d2_adc.c b/drivers/iio/adc/at91-sama5d2_adc.c
-> > > > index e8a5285bb6d4..e68632e628c7 100644
-> > > > --- a/drivers/iio/adc/at91-sama5d2_adc.c
-> > > > +++ b/drivers/iio/adc/at91-sama5d2_adc.c
-> > > > @@ -2487,6 +2487,7 @@ static void at91_adc_remove(struct platform_device *pdev)
-> > > >  
-> > > >  	pm_runtime_disable(st->dev);
-> > > >  	pm_runtime_set_suspended(st->dev);
-> > > > +	pm_runtime_dont_use_autosuspend(st->dev);
-> > > >  	clk_disable_unprepare(st->per_clk);
-> > > >  
-> > > >  	regulator_disable(st->vref);      
-> > > 
-> > > Reviewed-by: Joshua Crofts <joshua.crofts1@gmail.com>    
-> > Applied.
-> > 
-> > Please make sure to take into account both Joshua and Krzystof's
-> > feedback that multiple near identical changes to drivers in the
-> > same subsystem should be in a series.
-> >   
-> 
-> FYI, patches like these will become redundant as I have a patch adding
-> this to pm_runtime_reinit() so driver core calls this automatically on
-> unbind queued for 7.4 [1].
-> 
-> [1] https://lore.kernel.org/all/20260919-move-dont-use-autosuspend-v1-1-f6e2d1315c23@gmail.com/
-> 
-
-Nice. Thanks for the heads up.
-
-J
+On Thu, Sep 24, 2026 at 11:54=E2=80=AFPM Krzysztof Kozlowski <krzk@kernel.o=
+rg> wrote:
+>
+> On 25/09/2026 01:38, Rosen Penev wrote:
+> > bcma-hcd currently drives the USB power line by grabbing the
+> > undocumented "vcc-gpio" property from the controller node and poking
+> > it through gpiolib. Besides relying on a non-standard binding, this
+> > cannot work on boards such as the NETGEAR R7000 and R8000 where one
+> > chipcommon GPIO powers both the USB2 and USB3 cores: the two
+> > controllers each request that GPIO exclusively, so the second one
+> > fails with -EBUSY and its port stays dead.
+> >
+> > Instead, switch the driver to the standard regulator interface and
+> > express the power rails as regulator-fixed nodes bound to the
+> > chipcommon GPIOs. The regulator core reference-counts enable/disable
+> > requests, letting both controllers share one GPIO without conflicts.
+>
+> Please use standard email subjects, so with the PATCH keyword in the
+> title. `git format-patch -vX` helps here to create proper versioned
+> patches. Another useful tool is b4. Skipping the PATCH keyword makes
+> filtering of emails more difficult thus making the review process less
+> convenient.
+I will make this change going forward.
+>
+> Almost all your patches for months now do everything to escape my filters=
+.
+That explains a lot.
+>
+> Best regards,
+> Krzysztof
 
