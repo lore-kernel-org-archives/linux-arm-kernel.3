@@ -4,66 +4,72 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 45D85C9830E
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 27 Sep 2026 22:51:04 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 85588C9830E
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 27 Sep 2026 22:55:22 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=JEunWAHORE7QJB/neAIW01XaMMmd387JTP0GNMR9sns=; b=MbdES4IqTS/P4EzkKkZo+OYxaB
-	saefc+UWk2FNxB3xVkB6dctG/Uau4DABqmrhleajiRpKqzj0BE/3AgjUdDnBQE7VvcgCE7M3qlOHg
-	YdaOrZRsMuw/vFt709CYxU01INOgN3jqA+0TN4VY15l5LT4K/+eFAEphQZhzQRQLYEuqHWM5RzILx
-	xPYNBTYKCKg8M6wmoTmnqIA/+iIzxVqEowISOwKureEk3cYPLje6oRFe+ne2YR2WP5EtSdF3gbxPH
-	RMkmKO63BqFsgXiFNsbSz36XIEHd2DgRyLIrroNRa3KqaDAZWVKosB8Vr5kX4+r3ZuipTepb0sQb1
-	xcujNn8A==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=fonZKBEVnLUi3nmIxkkXaoCZILdYms0d8ZYuqeeaJBg=; b=pkmWK2HSi6pjzog7VK61oatKYH
+	M+kH8Zw/7hFnp7ZPm6FqzfOfTBDymHzzvd/boEhemWsMkQdckkr95aL3NoPVIzH95XkWHbZa+Bbpx
+	mKFTfOLqGDYYqmudxINy9l/ouSS9z+VgkZofoj5GpFb0mOSvs2McpIWfT+drr3Ua+JlE+fYXKv4qo
+	0adO9ma4mxxfkh4SxNjo9+IdLNBeEogdJlKoDZ1v5+s/yioSMKTkJkiQjqsppjeXAYw9Lbtr/8eID
+	bkqB1m4Y7jsQ9zaCTs6qp7UxU+yZ4RJAC0blRNCjpqT1BmBEnBVzW3LML7wQ5U6+09snoomSDfgqg
+	Px7ZpLIQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xAxhw-0000000GyWx-206P;
-	Sun, 27 Sep 2026 22:50:56 +0000
-Received: from mx3.wp.pl ([212.77.101.9])
+	id 1xAxm0-0000000GyiM-3iTg;
+	Sun, 27 Sep 2026 22:55:08 +0000
+Received: from casper.infradead.org ([2001:8b0:10b:1236::1])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xAxht-0000000GyW9-0rHG
-	for linux-arm-kernel@lists.infradead.org;
-	Sun, 27 Sep 2026 22:50:55 +0000
-Received: (wp-smtpd smtp.wp.pl 24064 invoked from network); 28 Sep 2026 00:50:48 +0200
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=wp.pl; s=20241105;
-          t=1790549448; bh=JEunWAHORE7QJB/neAIW01XaMMmd387JTP0GNMR9sns=;
-          h=Subject:To:Cc:From;
-          b=SW4bKTD99CIEBzOAOnbCdCbxnLD5oiN19v3D6iKcSp24mV0bwXxSx7X/F0SWsjB82
-           Wr1YVt/6ztmLR9WI5jKeIX0c6o81L+OMFCs5M9iZ5LrCbs+S+0f3O3IILshw+N3F7g
-           c/BN3T3+gKZPrrDV5Humvar+bNqYE7UNykB1wzbNIhbHU0jfmDJir5gOTLEXhzCAaY
-           KcLKwep19qDWLvSReDnVSCJKcs/SOFJu81gxtLouNHVCjF9CzwwUV4xU0jVBsatGny
-           hv1cJE4+LVxVumBDpjGLfLv5+ToX6ZPl+vMkoLqRJZN4wIAi0hXaOeqZHMUbcf/owd
-           Rd2EKszugdfOA==
-Received: from [192.168.3.224] (83.5.247.9.ipv4.supernova.orange.pl [83.5.247.9])
-          (envelope-sender <olek2@wp.pl>)
-          by smtp.wp.pl (WP-SMTPD) with TLS_AES_256_GCM_SHA384 encrypted SMTP
-          for <andre.przywara@arm.com>; 28 Sep 2026 00:50:48 +0200
-Message-ID: <c643fc84-4f6d-4d69-8f22-4ca12a0fc125@wp.pl>
-Date: Mon, 28 Sep 2026 00:50:48 +0200
+	id 1xAxlz-0000000GyiA-21Ot;
+	Sun, 27 Sep 2026 22:55:07 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=casper.20170209; h=In-Reply-To:Content-Type:MIME-Version:
+	References:Message-ID:Subject:Cc:To:From:Date:Sender:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description;
+	bh=fonZKBEVnLUi3nmIxkkXaoCZILdYms0d8ZYuqeeaJBg=; b=eIGI0kb8JoQ6f59QATnKY4VWTy
+	KlWA18PX6hX10BKhOmxNq0tGi3u1aRfvl4+RCRxnypG+Q3zub+tAGfPLahvJ7UxrqebG6Hw87AV+5
+	pjJ5wII77N8SG6ISTZur4tDlzHyQJG/AruwRnBvYUL5h5vM1R4LIVih5MQuljHXPOD6svEMX0vt5w
+	fN1uh3q8xkndWOy2mJeEInuuRC2htXs6SWKt9eP27BmPHjB6Elzy1vZxpqCT0Gl7etIkQcBpxUbK4
+	n8v611VA11zwhLqKPmNANUdBBOafXd7NBkYlngO75KzUN/H3oVubmt74amemlxLWMaFpHJpsXr2/5
+	Lk6vs5tg==;
+Received: from willy by casper.infradead.org with local (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1xAxlt-000000025TY-0cPK;
+	Sun, 27 Sep 2026 22:55:01 +0000
+Date: Sun, 27 Sep 2026 23:55:01 +0100
+From: Matthew Wilcox <willy@infradead.org>
+To: "Lorenzo Stoakes (ARM)" <ljs@kernel.org>
+Cc: Hongru Zhang <zhanghongru06@gmail.com>, akpm@linux-foundation.org,
+	linux-mm@kvack.org, linux-kernel@vger.kernel.org, baohua@kernel.org,
+	surenb@google.com, david@kernel.org, liam@infradead.org,
+	mhocko@suse.com, rppt@kernel.org, shakeel.butt@linux.dev,
+	vbabka@kernel.org, zhaonanzhe@xiaomi.com, linux@armlinux.org.uk,
+	catalin.marinas@arm.com, will@kernel.org, mark.rutland@arm.com,
+	linux-arm-kernel@lists.infradead.org, chenhuacai@kernel.org,
+	kernel@xen0n.name, loongarch@lists.linux.dev, maddy@linux.ibm.com,
+	mpe@ellerman.id.au, npiggin@gmail.com, chleroy@kernel.org,
+	linuxppc-dev@lists.ozlabs.org, pjw@kernel.org, palmer@dabbelt.com,
+	aou@eecs.berkeley.edu, alex@ghiti.fr,
+	linux-riscv@lists.infradead.org, agordeev@linux.ibm.com,
+	gerald.schaefer@linux.ibm.com, hca@linux.ibm.com, gor@linux.ibm.com,
+	borntraeger@linux.ibm.com, svens@linux.ibm.com,
+	linux-s390@vger.kernel.org, dave.hansen@linux.intel.com,
+	luto@kernel.org, peterz@infradead.org, tglx@kernel.org,
+	mingo@redhat.com, bp@alien8.de, x86@kernel.org, hpa@zytor.com,
+	Hongru Zhang <zhanghongru@xiaomi.com>
+Subject: Re: [PATCH v6] mm: retry page faults once under the per-VMA lock
+Message-ID: <armexcXDiG8ryZd6@casper.infradead.org>
+References: <20260911025613.1220845-1-zhanghongru@xiaomi.com>
+ <arFYRAa-i7CIwmHL@gremlin>
+ <arF-E3Nsw9ZliH0t@casper.infradead.org>
+ <arI_w2wTfA00Mgy9@gremlin>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH] arm64: dts: allwiner: h5: OrangePi PC2: add ethernet LEDs
-To: Andre Przywara <andre.przywara@arm.com>
-Cc: robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org, wens@csie.org,
- jernej.skrabec@gmail.com, samuel@sholland.org, devicetree@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-sunxi@lists.linux.dev,
- linux-kernel@vger.kernel.org
-References: <20250818163520.1004528-1-olek2@wp.pl>
- <20250909012422.43b755a4@minigeek.lan>
-Content-Language: pl
-From: Aleksander Jan Bajkowski <olek2@wp.pl>
-In-Reply-To: <20250909012422.43b755a4@minigeek.lan>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 8bit
-X-WP-MailID: 2d5fbca267295a9889e4413d24c1aeb8
-X-WP-AV: skaner antywirusowy Poczty Wirtualnej Polski
-X-WP-SPAM: NO 0000000 [8ROs]                               
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260927_155053_721264_B35B8185 
-X-CRM114-Status: GOOD (  14.85  )
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <arI_w2wTfA00Mgy9@gremlin>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,43 +84,36 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Andre,
-I see that my previous reply didn't reach lkml
+On Tue, Sep 22, 2026 at 09:55:23AM +0100, Lorenzo Stoakes (ARM) wrote:
+> On Mon, Sep 21, 2026 at 07:57:23PM +0100, Matthew Wilcox wrote:
+> > more to say on this in two weeks at Plumbers.
+> 
+> I look forward to it :)
 
-On 09/09/2025 02:24, Andre Przywara wrote:
-> On Mon, 18 Aug 2025 18:35:13 +0200
-> Aleksander Jan Bajkowski <olek2@wp.pl> wrote:
->
->> This patch adds support for Ethernet LEDs.
-> So I tried this on my OPi-PC2, but I cannot influence the LEDs. I have
-> CONFIG_LED_TRIGGER_PHY and CONFIG_LEDS_TRIGGER_NETDEV built in, and I
-> see mdio_mux-0.2:01:amber:lan and mdio_mux-0.2:01:green:lan in
-> /sys/class/leds, but anything I write into trigger does not seem to
-> change the output: it always stays on the network functionality, I
-> guess because it's still configured to the PHY hardware wired function?
->
-> What am I missing?
->
->
+So while doing my slides, I realised that what we need to avoid doing
+is (a) sleeping while holding the mmap_lock (b) returning RETRY while
+holding the VMA lock
 
-You should also set up the name of the device that controls the activity:
+And that turns out to be as simple as this patch:
 
-Example:
-root@OpenWrt:/sys/class/leds/mdio_mux-0.2:01:green:lan# echo "eth0" > 
-device_name
-root@OpenWrt:/sys/class/leds/mdio_mux-0.2:01:green:lan# echo "1" > link_10
-root@OpenWrt:/sys/class/leds/mdio_mux-0.2:01:green:lan# echo "1" > 
-link_1000
-root@OpenWrt:/sys/class/leds/mdio_mux-0.2:01:amber:lan# echo "eth0" > 
-device_name
-root@OpenWrt:/sys/class/leds/mdio_mux-0.2:01:amber:lan# echo "1" > rx
-root@OpenWrt:/sys/class/leds/mdio_mux-0.2:01:amber:lan# echo "1" > tx
+diff --git a/include/linux/mm.h b/include/linux/mm.h
+index dd09c438fa23..94ed2333f8d8 100644
+--- a/include/linux/mm.h
++++ b/include/linux/mm.h
+@@ -723,6 +723,8 @@ enum {
+  */
+ static inline bool fault_flag_allow_retry_first(enum fault_flag flags)
+ {
++	if (flags & FAULT_FLAG_VMA_LOCK)
++		return false;
+ 	return (flags & FAULT_FLAG_ALLOW_RETRY) &&
+ 	    (!(flags & FAULT_FLAG_TRIED));
+ }
 
+OK, this is a hack.  The function is spectacularly badly named, and
+needs to be renamed before a patch can go upstream.  But this should
+fix the contention on mmap_lock.
 
-In the second iteration, I added the default-spate = “keep” property. By 
-default,
-the LEDs will be activated as before.
-
-Regards,
-Aleksander
+Could somebody try it?  I've verified it boots and runs some userspace
+fine, but I don't have the workload to test the contention.
 
