@@ -4,75 +4,75 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 16E44C98338
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 27 Sep 2026 22:20:12 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 40E48C98338
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 27 Sep 2026 22:30:03 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:To:
-	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=308i+ynqxKiGdxe2Ownd10fFXxGBXHadKMPci0rGYLc=; b=yyPUN30nrGJ8cNJRg7T9+Gk3O3
-	pZr/5qjD8Tbl6ofKeHc6VuBBdT7NaeDOmNfk8IGYVrEKQePN6Ut2KQe7KJk0GfeqZVs9Z/da/5wb4
-	5JjMy3zAjPI7FXyN02808DjYc2yTjPPeSd5QW0RMyvzm3CrJObwyouv/rOSSk2x4GmpBNLlxYE9Ux
-	xp/NEr9xnotPj7qKRopIeP7rYBhbTgG3GUTvwOaSmrhNAMWJ6EyUDvA3wc+NIikjQ781vum+5OxCs
-	HkqYhZoxCqIzmX5mX6xOU1TzhX5lTclgqugpP4zfWFnL5hbzBCj6tPZWxc3ymBbovUD/0OdY49L4Z
-	p0y1FwZw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=uRCO1hCvm+HcqUF0cIAAS7cPIp9rv+bSF/z0y9cWaHQ=; b=1dyjffkMULxrFd5JBl8/az8jyN
+	MPz8j6v0YdMrupnHBHsIn3dskf3S5qdnuog5OjqqXiP5F5ZBAtWPEN89bckvWJxlCISsB1MEuXdbq
+	Gcm54wwV+4EGPb9bPYzmcEUeAu+fIpRNaiBlRjXGHUaUaHwIEZNzllMsF6MF+jm/SrlS2De9djYBG
+	FUzdgDbCsdQJD6DKMTg8UYuLGCk27CXkfJO/eu29b/akrvVydjx9Sz7/IYo+jiTidj5PWS653o3QV
+	nFhUK6Bj6c8Js98SZ5jwGlMiYiGY+j607DHMWpi7NvVamingJcMxRPjQ3B3gEUX7fBMTp36ensPyq
+	QWwluznw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xAxE4-0000000Gvcg-2zel;
-	Sun, 27 Sep 2026 22:20:04 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1xAwjt-0000000GuJO-2F5Y;
+	Sun, 27 Sep 2026 21:48:53 +0000
+Received: from vps0.lunn.ch ([156.67.10.101])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xAxE3-0000000GvcP-34P1
-	for linux-arm-kernel@lists.infradead.org;
-	Sun, 27 Sep 2026 22:20:03 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id E901E40F83;
-	Sun, 27 Sep 2026 22:20:02 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id E84EE1F000FF;
-	Sun, 27 Sep 2026 22:20:01 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1790547602;
-	bh=308i+ynqxKiGdxe2Ownd10fFXxGBXHadKMPci0rGYLc=;
-	h=Date:From:To:Cc:Subject:In-Reply-To:References;
-	b=hipIpSoCjJO/Gxnb3untPZTbfBc7Ohv2TWF70x1n4HM4124/KEgHZv2yOLxbLPF3k
-	 pC4uodg2jo52DB3Z3De9d4GdZ1BbfaFrxYcFVtTy7tNjUan31acJ0EvMfG9rANmZT4
-	 45ActnRL4ofZb1/RJ14JzBD5CteRslTTjDgvIb+0wu5hHiY5RfF7lN/6g5gw5unXw+
-	 KlocbpIZHYFXNcFdcps8Tng4CP2Sao8goPn/HvYo6ySFU5LuMHJHh+lJ/nANRMLUfN
-	 qlRR10XFhCjnhqEsoQTEWN+dqydd2ALKSiSoJ4Rv6MqmWLONUpz6YjBjHT6SkL1YQR
-	 TgbjWzc/XtfCg==
-Date: Sun, 27 Sep 2026 15:20:01 -0700
-From: Jakub Kicinski <kuba@kernel.org>
-To: Maxime Chevallier <maxime.chevallier@bootlin.com>
-Cc: Andrew Lunn <andrew+netdev@lunn.ch>, davem@davemloft.net, Eric Dumazet
- <edumazet@google.com>, Paolo Abeni <pabeni@redhat.com>, Russell King
- <linux@armlinux.org.uk>, Heiner Kallweit <hkallweit1@gmail.com>, Alexis
- =?UTF-8?B?TG90aG9yw6k=?= <alexis.lothore@bootlin.com>, Maxime Coquelin
- <mcoquelin.stm32@gmail.com>, Alexandre Torgue
- <alexandre.torgue@foss.st.com>, Emil Renner Berthing <kernel@esmil.dk>,
- Minda Chen <minda.chen@starfivetech.com>, Neil Armstrong
- <neil.armstrong@linaro.org>, Kevin Hilman <khilman@baylibre.com>, Jerome
- Brunet <jbrunet@baylibre.com>, Martin Blumenstingl
- <martin.blumenstingl@googlemail.com>, Jan Petrous
- <jan.petrous@oss.nxp.com>, Ovidiu Panait <ovidiu.panait.rb@renesas.com>,
- Jose.Abreu@synopsys.com, Nicolai Buchwitz <nb@tipi-net.de>,
- netdev@vger.kernel.org, linux-kernel@vger.kernel.org,
- thomas.petazzoni@bootlin.com, linux-arm-kernel@lists.infradead.org,
- linux-stm32@st-md-mailman.stormreply.com, PKneuper@dspace.de, David Laight
- <david.laight.linux@gmail.com>
-Subject: Re: [PATCH net v4 0/7] net: stmmac: More selftest-related fixes
-Message-ID: <20260927152001.2e890f9b@kernel.org>
-In-Reply-To: <20260925132204.03ce9495@kernel.org>
-References: <20260917215339.2022523-1-maxime.chevallier@bootlin.com>
-	<20260921152202.64d4c67a@kernel.org>
-	<f8fc89b7-15ff-4915-8f1c-49c3b2357699@bootlin.com>
-	<20260925122202.611d655a@kernel.org>
-	<d704ea9d-6cca-4f2f-b18b-0267a9082e18@bootlin.com>
-	<20260925132204.03ce9495@kernel.org>
+	id 1xAwjr-0000000GuIt-0YeD;
+	Sun, 27 Sep 2026 21:48:52 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=lunn.ch;
+	s=20171124; h=In-Reply-To:Content-Disposition:Content-Type:MIME-Version:
+	References:Message-ID:Subject:Cc:To:From:Date:From:Sender:Reply-To:Subject:
+	Date:Message-ID:To:Cc:MIME-Version:Content-Type:Content-Transfer-Encoding:
+	Content-ID:Content-Description:Content-Disposition:In-Reply-To:References;
+	bh=uRCO1hCvm+HcqUF0cIAAS7cPIp9rv+bSF/z0y9cWaHQ=; b=Oef4GSQIwPZhqB72EoCeNbmCAq
+	irFkql9KZPdDbyxsCkLuIvvPTBcEDaProqDUuRc/XEMrrz43SR/x9RNcawsFv2BRBxChM/DczMi4e
+	EmNeU5/fV2D+Jcox6GfO+YtEQV7awuKJOQKbUjo9CPeqGOjyKYGTnwRPtOm6g2+qRdFY=;
+Received: from andrew by vps0.lunn.ch with local (Exim 4.94.2)
+	(envelope-from <andrew@lunn.ch>)
+	id 1xAwjU-007ZW8-Q9; Sun, 27 Sep 2026 23:48:28 +0200
+Date: Sun, 27 Sep 2026 23:48:28 +0200
+From: Andrew Lunn <andrew@lunn.ch>
+To: Christian Marangi <ansuelsmth@gmail.com>
+Cc: Lee Jones <lee@kernel.org>, Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Andrew Lunn <andrew+netdev@lunn.ch>,
+	"David S. Miller" <davem@davemloft.net>,
+	Eric Dumazet <edumazet@google.com>,
+	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
+	Vladimir Oltean <olteanv@gmail.com>,
+	Matthias Brugger <matthias.bgg@gmail.com>,
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
+	"Chester A. Unal" <chester.a.unal@arinc9.com>,
+	Daniel Golle <daniel@makrotopia.org>,
+	Heiner Kallweit <hkallweit1@gmail.com>,
+	Russell King <linux@armlinux.org.uk>,
+	Simon Horman <horms@kernel.org>,
+	linux-arm-kernel@lists.infradead.org,
+	linux-mediatek@lists.infradead.org, netdev@vger.kernel.org,
+	mfd@lists.linux.dev, devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org
+Subject: Re: [PATCH net-next v23 8/9] net: dsa: mt7530: generalize and move
+ common function to lib module
+Message-ID: <f4fb3c02-34ec-4ce4-8abe-d85e1d09cb5c@lunn.ch>
+References: <20260925182435.21207-1-ansuelsmth@gmail.com>
+ <20260925182435.21207-9-ansuelsmth@gmail.com>
+ <cd200dee-1bde-4cc2-a296-c93d704cb906@lunn.ch>
+ <6ab97c6e.f5ac67e6.37e70.11e5@mx.google.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=US-ASCII
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <6ab97c6e.f5ac67e6.37e70.11e5@mx.google.com>
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260927_144851_177375_D82B68BB 
+X-CRM114-Status: GOOD (  26.24  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -87,30 +87,60 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, 25 Sep 2026 13:22:04 -0700 Jakub Kicinski wrote:
-> > > BTW - I see you have a thing called "netdev series report"
-> > > I've been meaning to ask someone if they want us to add to SUIE
-> > > subsystem tracking (https://netdev.bots.linux.dev/suie.html)
-> > > I could easily add a drop down to filter just stmmac patches there.
-> > > On the scale of 1 to 10 how useful would that be?    
+On Sun, Sep 27, 2026 at 10:28:25PM +0200, Christian Marangi wrote:
+> On Sun, Sep 27, 2026 at 09:02:09PM +0200, Andrew Lunn wrote:
+> > On Fri, Sep 25, 2026 at 08:24:30PM +0200, Christian Marangi wrote:
+> > > In preparation of support of DSA Switch from Airoha, create a mt7530
+> > > library module and move there all the common function.
+> > > 
+> > > Function are generalized to use the reg_field regmap API but still apply
+> > > the same exact logic. Every function is renamed to mt7530_lib prefix to
+> > > better identify it.
+> > > 
+> > > Minimum modification are needed to the register header and common enum and
+> > > macro are moved to the mt7530 library header to permit reuse.
+> > > 
+> > > A library struct is introduced with everything required for the common
+> > > functions.
+> > > 
+> > > The generalization and the introduction of reg_field regmap API have the
+> > > side effect of permitting to clean the mirror functions that required
+> > > special handling for MT7530 and MT7531 based switch that had different
+> > > registers. This is done by declaring a common MT7530 reg_field and a
+> > > specific one in the Switch match table.
+> > > 
+> > > No behaviour change is expected by this change as it's just a code move and
+> > > reimplementation.
+> > > 
+> > > Signed-off-by: Christian Marangi <ansuelsmth@gmail.com>
+> > > ---
+> > >  drivers/net/dsa/Kconfig       |    4 +
+> > >  drivers/net/dsa/Makefile      |    1 +
+> > >  drivers/net/dsa/mt7530-lib.c  | 1128 +++++++++++++++++++++++++++
+> > >  drivers/net/dsa/mt7530-lib.h  |  391 ++++++++++
+> > >  drivers/net/dsa/mt7530-mdio.c |    4 +
+> > >  drivers/net/dsa/mt7530-mmio.c |    4 +
+> > >  drivers/net/dsa/mt7530.c      | 1368 ++++++++-------------------------
+> > >  drivers/net/dsa/mt7530.h      |  256 ++----
 > > 
-> > I'd say, 10/10. To give you a very concrete example, I was on training
-> > for the past 4 days, with little time to look at my inbox.
-> > 
-> > Today was a struggle to just browse through the stmmac pending
-> > patches, some being straightforward patches, some complex but from
-> > well-known contributors, some large glue series that are 10+ patches,
-> > and then some likely AI-generated series sent as-is without real clarity
-> > on whether the author actually fully grasps what's being sent.
-> > 
-> > So, I resorted to SUIE, ctrl-f stmmac, and going over that list in order...
-> > 
-> > I think you're asking this question at the best possible time, at least
-> > for me :)  
+> > The number of mt* file keep going up. Is it time to move it into a
+> > subdirectory?
 > 
-> Excellent, let me work on this over the weekend.
+> The problem as always is that mediatek directory will also contain airoha
+> stuff...
 
-Added the per-MAINTAINERs entry filters under the funnel icon
-(Note that you also have to enable the filter as a while with 
-the checkbox at the top, or middle-click on the funnel to toggle)
+That is only a Marketing problem, and Mainline generally ignores
+marketing. Companies get bought and sold all the time. We don't rename
+anything because of that.
+
+> I would like to fix some trivial things pointed out by sashiko. Can I apply
+> those and keep the review tag? For this patch for example it's just the
+> typo for the multicast MIB.
+> 
+> For the other patch is also very trivial stuff. 
+
+Yes, not a problem. If you make major changes then drop it, but
+trivial stuff is fine.
+
+	Andrew
 
