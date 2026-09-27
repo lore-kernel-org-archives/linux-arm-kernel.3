@@ -4,63 +4,173 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 29FC2C98324
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 27 Sep 2026 03:29:13 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id EAFD8C98324
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 27 Sep 2026 05:09:18 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:References:In-Reply-To:Message-ID:Date
-	:Cc:To:From:Subject:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=T8rpIYRxynmwj+YRABxKQ0KfUWj0r0144BFAQo26olI=; b=POAzsuHH2HHXAd2NtjUdO7cnGF
-	tWsO19dkP4s+Jmo07u+H0BDxsNjtjsxm8zHbOKY/iljJUkDa0lHRhUkhmE98ZoUZdkHlFv6gO+WaF
-	MO01+3nVCuGtlzBoXIelU3bm1WTLb1C0Rb/BlNkaKztoOgR6HpONhtIJH/+11aB9WpCYuBXmmEEh3
-	lGA+BPbh5f3N6IDL6Wr+ZiisdDwS2u6zehWeGOBWfsjrDKUP40FH2HQsxEjXomN8Wj2TtEuDlOyLI
-	H0aAbh7gSwTdCo4nzWtpp9YmrDagNT7WudoA3PXi6/fzrblE1ur9cda+kqL9yj0AVKiCSxg68tQN1
-	X3RD8jsg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=J6wu/bjgnHInMC0MuxTm+tB5fd96wxkJCd0o8PsPdAQ=; b=RFMoXPmd6GZZV1rjeQtgYxcDRg
+	kAr6atTvljMcEVY3t+58joFtCwru3ODSmEzFnQUWHmtAwRsRCkWQkcGZFZs7WF73sa6DntzkArxPD
+	NjpvqArVvi5M9GqYKIPRI8p8sZMN4wzrmgW2UhmnFCOBSr5L2d3K5MvhUjXHnA4h8XTb3crHaoBmE
+	GkFna53fuvmrV6VLZ2KPk21YH7HcjWh1/SJsXnlL6l8KvhWFMixULRXFHuwbRzJ5C3r4mIZRht8lB
+	D334TqAIYzHVDPuUVP35kHDTiueNH4cK9q74zyLF4T+CKZKg9tEQEzPCpQwDFM+T4Cuovi8kluSHE
+	tMoxIo7w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xAfZa-0000000FyvJ-2yBG;
-	Sun, 27 Sep 2026 03:29:06 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1xAh83-0000000G1OP-1B3n;
+	Sun, 27 Sep 2026 05:08:47 +0000
+Received: from mx0a-0002e601.pphosted.com ([148.163.150.75])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xAfZQ-0000000FytA-3ETA
+	id 1xAh80-0000000G1O4-29cB
 	for linux-arm-kernel@lists.infradead.org;
-	Sun, 27 Sep 2026 03:28:56 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id 08AB6600D1;
-	Sun, 27 Sep 2026 03:28:54 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id ACC851F00898;
-	Sun, 27 Sep 2026 03:28:52 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1790479733;
-	bh=T8rpIYRxynmwj+YRABxKQ0KfUWj0r0144BFAQo26olI=;
-	h=Subject:From:To:Cc:Date:In-Reply-To:References;
-	b=Y/AZBRhhh5ofOp6wIPoGangQ/tgm6Xp4WgpEvyZMIrzB09IvsuHzfbLRNkw4+r4ae
-	 KtZdcjgzIMk3ZVcT43g4jcWaaKhE/ylgOB4YW3hiXlUfPwM5BB5CTe+fpJ9+18pbI+
-	 G7obYyL0VlEOE0nCtpOhmNw0WNNTnr51VeqSaoIyVJzg+GfhHerKNtR186mbXH0/H4
-	 473Kv5ekO/MxAdohDugDOnY2jaGJ7tLrbiwW4XZDZZVBRPnoclY7tPSQlHsSQ9Tvmf
-	 Fzrxz5Gl0vN3sjMrZC77Leyopm6EiAIWMat48rOGsyI0774/Ls5SOaHtq2VeaaCp69
-	 0OpV243eC76dA==
-Subject: Re: [PATCH net-next 2/2] net: stmmac: dwmac-socfpga: Add support for
- Agilex5 TSN GMAC with FPGA converter
-From: netdev-bot+sashiko@kernel.org
-To: muhammad.nazim.amirul.nazle.asmade@altera.com
-Cc: netdev@vger.kernel.org, maxime.chevallier@bootlin.com,
- andrew+netdev@lunn.ch, davem@davemloft.net, edumazet@google.com,
- kuba@kernel.org, pabeni@redhat.com, robh@kernel.org, krzk+dt@kernel.org,
- conor+dt@kernel.org, dinguyen@kernel.org, mcoquelin.stm32@gmail.com,
- alexandre.torgue@foss.st.com, devicetree@vger.kernel.org,
- linux-stm32@st-md-mailman.stormreply.com,
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-Date: Sun, 27 Sep 2026 03:28:52 +0000
-Message-ID: <179047973223.2160803.17475492528833274893@kernel.org>
-In-Reply-To: <20260923021823.46649-3-muhammad.nazim.amirul.nazle.asmade@altera.com>
-References: <20260923021823.46649-3-muhammad.nazim.amirul.nazle.asmade@altera.com>
-X-sashiko-severity: Medium
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 8bit
+	Sun, 27 Sep 2026 05:08:46 +0000
+Received: from pps.filterd (m0380145.ppops.net [127.0.0.1])
+	by m0380145.ppops.net (8.18.1.11/8.18.1.11) with ESMTP id 68QH14Ej1205526;
+	Sun, 27 Sep 2026 00:08:24 -0500
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com; h=cc
+	:content-transfer-encoding:content-type:date:from:in-reply-to
+	:message-id:mime-version:references:subject:to; s=
+	proofpoint-05-2026; bh=J6wu/bjgnHInMC0MuxTm+tB5fd96wxkJCd0o8PsPd
+	AQ=; b=I/RDPxkG0hz2mmfRuJ+Yt0yT6mjIbKo+vYrAyktn69o3rz+3hjSDTyxVt
+	/CH6HgSoSGrBs0pkXB7/4t2wYoYwprR9C0XmMJz7dHbXKUWbIa359WA7ctLFy2EQ
+	YwQGNYx331STZL5xDhuOTc+Lvb90a93H8Ea3uLcvEyQpe+w1vDb7Nbe3AeYmgL3I
+	2hhS8iEWev71pwMJT24Xa76x/9scNKvyATpEAO/Xv61ifKn5E3Wbe0j6dwQfkGhC
+	3T/NH7CVyuw/2CPxwj6ZGQlJ7WYLTlc6fBml8IMzRIuIimuk49j65S4kMKSJC1dU
+	wbTnMxer/OZ31SRi+LhIhRhlaCbYg==
+Received: from sn4pr2101cu001.outbound.protection.outlook.com (mail-southcentralusazon11012070.outbound.protection.outlook.com [40.93.195.70])
+	by m0380145.ppops.net (PPS) with ESMTPS id 4gwybrnvey-1
+	(version=TLSv1.3 cipher=TLS_AES_256_GCM_SHA384 bits=256 verify=NOT);
+	Sun, 27 Sep 2026 00:08:24 -0500 (CDT)
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=HULOOMf410dbpFB4S8d14KYOAYCtqmfiqNEgbCvrA/DRhavGAr7s6IBrnMznKn+AnEiFwf9yFXmI8NE5Bmo/jDG7oAp1JiGNfF/hcyOoSQbwwRophPFNAaFfslvz/YBkyUTRYercbdHEx52Gj1kudYldLIMqTSjOXgriwXNP5EVBZKee59bi6jIql8RYk5756BVcmMtzVf97mH/3Dt8E9gXyYFn6HXT14rM2o+PpDorrm75VrPKwtMxLd//paG8jjP0gRXJAx9/TL6s1C1+VJkE3r8bI8Q6X6yal9vcvd9iQsROkhq9eMqz6aC8FBwJwYDRltZV/HNxzLA+fEF752g==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=J6wu/bjgnHInMC0MuxTm+tB5fd96wxkJCd0o8PsPdAQ=;
+ b=jXkSyDIK8IC8CJswwoVFCkI/khyJ3QBacwyQb/Uso18PYLrWxZynxBTm/iB1Jsohcwlq+wqZzsc1vr4kOL26/T9IN9mhbLkO4pjnkNgszuRf3Cje0Z3blzA4oEKhA6BKVZ1heyrCVEDNLhE4xBbCbcD3AzJGoPkr1EINxeBMqFK7m2zNpzbjHryHDhkQyrTCb25Gc2i9zB2T1O1hFEO7eU1tzotnI28X1Dby1lJ+3AWB1LcxWRP3hPvjU9+gZ3f3B+VUtzKsXdezKI9nF81MiXlJsfcLrQM02j8gyYWVjFFZYwyIlJKkYFohSWjns0njYPyE2PGqu73vuYwmbDfVfA==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
+ 198.47.23.195) smtp.rcpttodomain=ideasonboard.com smtp.mailfrom=ti.com;
+ dmarc=pass (p=quarantine sp=none pct=100) action=none header.from=ti.com;
+ dkim=none (message not signed); arc=none (0)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=J6wu/bjgnHInMC0MuxTm+tB5fd96wxkJCd0o8PsPdAQ=;
+ b=fZgpLac+4KYvYNVbo+pEDlp5u2RYLMj2pHyUHDfCI7vs05cIy0M8eRSgXsZNOA/BTs4F4PG1dU5JFy//Z/JHGajH56Xd7cZBYnwsL5Um+E4H0WnloTADoHbdOnR/3tJyG5MXe/jsAfOpgWMeAKnfh3oir3Vn33qqyoOZy2XKf44=
+Received: from SJ2P220CA0001.NAMP220.PROD.OUTLOOK.COM (2603:10b6:a03:5da::12)
+ by IA6PR10MB997586.namprd10.prod.outlook.com (2603:10b6:208:5db::23) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.451.13; Sun, 27 Sep
+ 2026 05:08:22 +0000
+Received: from SJ1PEPF000023CE.namprd02.prod.outlook.com
+ (2603:10b6:a03:5da:cafe::59) by SJ2P220CA0001.outlook.office365.com
+ (2603:10b6:a03:5da::12) with Microsoft SMTP Server (version=TLS1_3,
+ cipher=TLS_AES_256_GCM_SHA384) id 15.21.451.23 via Frontend Transport; Sun,
+ 27 Sep 2026 05:08:21 +0000
+X-MS-Exchange-Authentication-Results: mx.microsoft.com 1; spf=pass (sender IP
+ is 198.47.23.195) smtp.mailfrom=ti.com; dkim=none (message not signed)
+ header.d=none;dmarc=pass action=none header.from=ti.com;
+Received-SPF: Pass (protection.outlook.com: domain of ti.com designates
+ 198.47.23.195 as permitted sender) receiver=protection.outlook.com;
+ client-ip=198.47.23.195; helo=lewvzet201.ext.ti.com; pr=C
+Received: from lewvzet201.ext.ti.com (198.47.23.195) by
+ SJ1PEPF000023CE.mail.protection.outlook.com (10.167.244.10) with Microsoft
+ SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.21.451.8 via Frontend Transport; Sun, 27 Sep 2026 05:08:21 +0000
+Received: from DLEE212.ent.ti.com (157.170.170.114) by lewvzet201.ext.ti.com
+ (10.4.14.104) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.45; Sun, 27 Sep
+ 2026 00:08:13 -0500
+Received: from DLEE210.ent.ti.com (157.170.170.112) by DLEE212.ent.ti.com
+ (157.170.170.114) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.45; Sun, 27 Sep
+ 2026 00:08:13 -0500
+Received: from lelvem-mr06.itg.ti.com (10.180.75.8) by DLEE210.ent.ti.com
+ (157.170.170.112) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.45 via Frontend
+ Transport; Sun, 27 Sep 2026 00:08:13 -0500
+Received: from [10.24.52.125] (ws.dhcp.ti.com [10.24.52.125])
+	by lelvem-mr06.itg.ti.com (8.18.1/8.18.1) with ESMTP id 68R587fq674405;
+	Sun, 27 Sep 2026 00:08:07 -0500
+Message-ID: <81dbeb60-2531-4a1e-ba04-2add8e819e0a@ti.com>
+Date: Sun, 27 Sep 2026 10:38:06 +0530
 MIME-Version: 1.0
+User-Agent: Mozilla Thunderbird
+Subject: Re: [RFC PATCH 2/8] media: v4l: Add 10-bit RGBIr formats
+To: Sakari Ailus <sakari.ailus@linux.intel.com>
+CC: <linux-media@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
+        <devicetree@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
+        <tomi.valkeinen@ideasonboard.com>, <mchehab@kernel.org>,
+        <robh@kernel.org>, <krzk+dt@kernel.org>, <conor+dt@kernel.org>,
+        <nm@ti.com>, <vigneshr@ti.com>, <kristo@kernel.org>,
+        <mripard@kernel.org>, <jai.luthra@linux.dev>,
+        <jai.luthra@ideasonboard.com>, <devarsht@ti.com>,
+        <y-abhilashchandra@ti.com>, <mirela.rabulea@nxp.com>,
+        <laurent.pinchart@ideasonboard.com>
+References: <20260925133001.2780868-1-r-donadkar@ti.com>
+ <20260925133001.2780868-3-r-donadkar@ti.com>
+ <arfW_sncBRNsyP4L@kekkonen.localdomain>
+Content-Language: en-US
+From: Rishikesh Donadkar <r-donadkar@ti.com>
+In-Reply-To: <arfW_sncBRNsyP4L@kekkonen.localdomain>
+Content-Type: text/plain; charset="UTF-8"; format=flowed
+Content-Transfer-Encoding: 7bit
+X-EOPAttributedMessage: 0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: SJ1PEPF000023CE:EE_|IA6PR10MB997586:EE_
+X-MS-Office365-Filtering-Correlation-Id: 7d4e54db-834c-4aa6-747a-08df1c5559f7
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|82310400026|23010399003|1800799024|36860700016|7416014|376014|3023799007|4143699003|10067099003|56012099006|18002099003|22082099003;
+X-Microsoft-Antispam-Message-Info: gEo5WXYSI+lXmcAHa3s/lfNGpE1YZcgyqKdjtSasBOvDdecBh4cTrzvbEC/6A+fSUUlFaqNTMH00594cdjRLuy8bOYixEpFe8PixtmVBgh/ZgBPttVSb8OsnL5uieHuoqAgyamin8e5+mo+2h/aA5Vx/aYoY5HQWYeu8wZBWlcDP5QvsULnwVCTUwv5neL+9cOc68EyBEDxg2g5r2YDlSp83NS/SYUcQlSEbsAeDvvszb1KGDkEbw55nFIBBVXPEu6hhXJF16Oa0YyMk0GKH9Y3awihtXGFNtkHx9/vVFPlZ7zn7D60j9KtZKxbpb7slLo6fVQ5GMFaqmV88NDy/EEf9v8Sr9eFBxRq/Gw6DblfqfAB6Q/AwWAfpD/6fIpcN5tzz87R/Vn0ZrK5F2UIKVbknaPIYpVf7zHrJD4Ho68lgSXgT3Wa3aHzGRnAn2GlPMN3ag7D4lf21j2fC/dn6GpgCKbrkqdDk9df06/ZA4jipw77T05yiEuGROPtRqq12ie8rMAovcqvTUePGcKtpzySpEzpnw7ni5/ZseHxSVCpEAcrpgKM77kkklTNAHuByb5fpuvDo8S1ueZDZ4Qcz22uR1NM6vjXqU/5pcllJPB0YPjkhOONzANmmoqfiO0dxJcIKP2MziBKZJOeAQ54apOLa/Wrye4kd9I9K+Mu+IBrjAJJWsakVRrbddisrTu5ziO14RWLGNLZMCMVhvQUQ1w==
+X-Forefront-Antispam-Report: CIP:198.47.23.195;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:lewvzet201.ext.ti.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(82310400026)(23010399003)(1800799024)(36860700016)(7416014)(376014)(3023799007)(4143699003)(10067099003)(56012099006)(18002099003)(22082099003);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: FKeZ+XLb+75dZuHY5TZn641V2O+RWWrVCoeDuMHUqv3nqoO8KoQNBTN0EKYCGsH8dMptaZexNQhms/WzyWpRR2Ju9Bt5U0n/ZO4j7YPqux37J/6q1X+1eZMYkHXURVp27Nf8PMasIVUPUVLTkNr6VDB359DVmNnwM4DGZf1GQMZaeJIN5dVmZmjb7cKGeCvJSCNskyL28sXKIc4burvMbaUD//0x6Ty0NutwDrGLfTXpKM+eDvlLLOolKx130xYy6w+R/nYbmtA1D/cxatjh7s8oOtIrRvBFoKjCMhk5uPFLwXX62JylY3MzeascL2HFCr0nxMGCH3YnBnZ/YQrvxGGjKkQfXcI9c+5k0HdZjqqco/VgSJYtM8QP6AkdyIKLJPzc5gozryzdeDyCHt8kCShamQCeemrXfoGvBcpimvzJGK350uRSLho9puUU0Xl1
+X-Exchange-RoutingPolicyChecked: jyB+f3stHrn8fOSKngclE+pb70GU3MU4XxviatBhh6In60pQiMzS2L4oP/WhtGzuQoj8CsEbUF6d0271PBZWlKG83t6McYrAqx/WqGjdagBELRW9bOtLYvfVB/6K7uQVB3CBAzqzoxR3QcE9GNx0nmR4D2MBfo1FhDUgok9gxxbfqoiQKbAS9If61zMoSCTePnCxe0ppNUv4FVoXwPE56e6LZG+d7uJo1vipu7iG+o/at5zFbturRpMylfx2YmKFnkvpty/cxbgkrdWCjlMVzxXxjSnC3bN4MHGyFAeQlPTMFKeqGlCPPvzgxcyTg9X3etXUZUsJh7oPsDhYf37ISg==
+X-OriginatorOrg: ti.com
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 27 Sep 2026 05:08:21.5651
+ (UTC)
+X-MS-Exchange-CrossTenant-Network-Message-Id: 7d4e54db-834c-4aa6-747a-08df1c5559f7
+X-MS-Exchange-CrossTenant-Id: e5b49634-450b-4709-8abb-1e2b19b982b7
+X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=e5b49634-450b-4709-8abb-1e2b19b982b7;Ip=[198.47.23.195];Helo=[lewvzet201.ext.ti.com]
+X-MS-Exchange-CrossTenant-AuthSource: SJ1PEPF000023CE.namprd02.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Anonymous
+X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: IA6PR10MB997586
+X-Authority-Analysis: v=2.4 cv=PMKaavqC c=1 sm=1 tr=0 ts=6ab8a4c8 cx=c_pps
+ a=bGC7MwCPNpf+Sn14ocfQJQ==:117 a=f+v6EHfkeJbVwR46tk4DMg==:17
+ a=6eWqkTHjU83fiwn7nKZWdM+Sl24=:19 a=IkcTkHD0fZMA:10 a=VdqzKS8jKosA:10
+ a=s63m1ICgrNkA:10 a=V5UXEbMT0ywA:10 a=VkNPw1HP01LnGYTKEx00:22
+ a=Z8NIEmU8O1QQgoT56wFK:22 a=gO1vWkAQAl3rybz1DQOp:22 a=xq3W2uTSAAAA:8
+ a=sozttTNsAAAA:8 a=L9BjFGM3hW5MZg63a2UA:9 a=QEXdDO2ut3YA:10
+ a=P5L7wpMTXyg1GfFA3Gwx:22
+X-Proofpoint-ORIG-GUID: -IgIlLkoz5obT-bwSYmVbseCbUq1Sjdu
+X-Proofpoint-GUID: -IgIlLkoz5obT-bwSYmVbseCbUq1Sjdu
+X-Proofpoint-Spam-Info: AW1haW4tMjYwOTI3MDAyMCBTYWx0ZWRfX0DlND1ZHGvWZ
+ wPP7/L97AzlD81TjcVbrv/8Eap+e4UWOGlZrK+6sZ0ux6pPKwZANbqhHIaM4S6fasIg6iOoXrBO
+ lYVwlRtdHzyYnVcdLvBN2aX+gzcH9bY=
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwOTI3MDAyMCBTYWx0ZWRfX1eAhHFqXGBOW
+ rQSqDPB+kVGrTxv+8YyRT52fZtH+2kePZM3yGt9YxghFfHYHejVkWpwg8E09eU9U8KVYINQDjYL
+ OuZU3MNWHYWaSA/Fbb9bd3BIrLLgryByXx3dcCTbKeJU2ddZDLlQaCWmqoA9BqK/jeS1/FEI8IU
+ SiKNOZ6rJdPahJH5i+vLWguCfC7mCwSq5cvbnGbxCS0HxsXCf/GVdXYZrrMzRoY3vtMDtv7q74J
+ 7ouP4fkDnFKXWau8YBGxNUhjymh5azB53qr6+DyIs216vCev1jkOhiFYb0RNV98mR4dihVL5W1Q
+ 5/bLou6yPYSQ9oS/lagPqFSwrucumtaNM+DcztWm2nm0i2FP7plw8T7aX3ROIG3VddC895Pg1lN
+ HsIuLFqwZPbPUGHOzC7HFrvOlYSrjLqVPWKSJ1WyALfGQ7e0BhF4WLH4uSe/r/BRYuB8z1eqttq
+ IXxG6rgprB7GEsxdjJg==
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1176,Hydra:6.1.134,FMLib:17.12.100.49
+ definitions=2026-09-26_05,2026-09-21_02,2025-10-01_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
+ clxscore=1015 adultscore=0 malwarescore=0 phishscore=0 bulkscore=0
+ spamscore=0 priorityscore=1501 lowpriorityscore=0 suspectscore=0
+ impostorscore=0 classifier=typeunknown authscore=0 authtc= authcc=
+ route=outbound adjust=0 reason=mlx scancount=1 engine=8.22.0-2609040000
+ definitions=main-2609270020
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260926_220844_716466_255B19D2 
+X-CRM114-Status: GOOD (  14.29  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -75,189 +185,45 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Thank you for your contribution! Sashiko AI review found 3 potential
-issue(s) to consider.
 
-Critical: 0 · High: 0 · Medium: 2 · Low: 1
 
-If you believe none of the issues are legitimate, please reply to each
-issue of Medium severity or higher and explain why the AI is wrong.
-If any of them are legitimate and you plan to respin, please let patchwork
-know by including "pw-bot: cr" as a separate line at the end of your reply
-(one such reply per series is enough).
+On 26/09/26 20:00, Sakari Ailus wrote:
+> Hi Rishikesh,
+> 
+> On Fri, Sep 25, 2026 at 06:59:55PM +0530, Rishikesh Donadkar wrote:
+>> From: Jai Luthra <j-luthra@ti.com>
+>>
+>> Some camera sensors now use an expanded CFA pattern to capture near-IR
+>> light along with the visible spectrum (R,G,B). This allows capturing
+>> light in both low-light and day-light scenarios using the same sensor.
+>>
+>> Instead of having a 2x2 repetition of B,G,R like in older bayer formats,
+>> here we have a 4x4 repetition of B,G,R,Ir where the number of G pixels
+>> are the same, but half the B and R pixels are replaced with Ir. Thus
+>> instead of having 4 total phases, we now have 8 total phases or
+>> re-arrangements of this pattern.
+>>
+>> Co-developed-by: Rahul T R <r-ravikumar@ti.com>
+>> Signed-off-by: Rahul T R <r-ravikumar@ti.com>
+>> Signed-off-by: Jai Luthra <j-luthra@ti.com>
+>> Co-developed-by: Rishikesh Donadkar <r-donadkar@ti.com>
+>> Signed-off-by: Rishikesh Donadkar <r-donadkar@ti.com>
+> 
+> I think we need to use the common raw mbus and pixel formats for the
+> patterns that have IR pixels. See
+> <URL:https://git.linuxtv.org/sailus/media_tree.git/log/?h=metadata>.
 
-- [Medium] The DT binding's allOf conditional was not updated for the new
-  compatible.
-- [Medium] socfpga_agilex5_tsn_gmac_setup_plat_dat() rewrites every RGMII
-  variant (rgmii, rgmii-id, rgmii-rxid, rgmii-txid) to…
-- [Low] socfpga_get_plat_phymode() (dwmac-socfpga.c:76-79) now returns
-  dwmac->mac_interface, the MAC-side interface selector, instead of…
+Sure, I will use the RAW mbus pixel formats.
 
---
+> 
+> That's mostly pending on userspace support now.
+> 
+> Can the sensor output Bayer pattern as well?
 
-net: stmmac: dwmac-socfpga: Add support for Agilex5 TSN GMAC with FPGA converter
+No, the sensor give only gives out RGB+Ir where the CFA is a 4x4 
+repetition of B,G,R and Ir.
 
-This adds an "altr,socfpga-stmmac-agilex5-tsn" compatible for an Agilex5
-board that has an FPGA GMII-to-RGMII converter between gmac1 and its PHY.
-The new setup_plat_dat callback reuses the Agilex5 setup and forces GMII
-for the MAC interface selector. It also rewrites any RGMII phy_interface
-to plain RGMII.
+Rishikesh
+> 
 
-> diff --git a/drivers/net/ethernet/stmicro/stmmac/dwmac-socfpga.c b/drivers/net/ethernet/stmicro/stmmac/dwmac-socfpga.c
-> index 1d7f0a57d2889..0632105b420f1 100644
-> --- a/drivers/net/ethernet/stmicro/stmmac/dwmac-socfpga.c
-> +++ b/drivers/net/ethernet/stmicro/stmmac/dwmac-socfpga.c
-> @@ -69,12 +69,13 @@ struct socfpga_dwmac {
->  	void __iomem *tse_pcs_base;
->  	void __iomem *sgmii_adapter_base;
->  	bool f2h_ptp_ref_clk;
-> +	phy_interface_t mac_interface;
->  	const struct socfpga_dwmac_ops *ops;
->  };
->  
->  static phy_interface_t socfpga_get_plat_phymode(struct socfpga_dwmac *dwmac)
->  {
-> -	return dwmac->plat_dat->phy_interface;
-> +	return dwmac->mac_interface;
->  }
-
-[Severity: Low]
-This isn't a bug, but socfpga_get_plat_phymode() now returns the MAC-side
-interface selector, not plat_dat->phy_interface. The comment in
-socfpga_gen10_set_phy_mode() was not changed:
-
-	/* Overwrite val to GMII if splitter core is enabled. The phymode here
-	 * is the actual phy mode on phy hardware, but phy interface from
-	 * EMAC core is GMII.
-	 */
-
-With the TSN ops, phymode is GMII and the PHY hardware runs RGMII, so
-this comment now says the opposite of what happens.
-
-Could the helper be renamed? The comments in socfpga_gen5_set_phy_mode()
-and socfpga_gen10_set_phy_mode() would also need updating to match.
-
-[ ... ]
-
-> @@ -670,10 +673,28 @@ static const struct socfpga_dwmac_ops socfpga_agilex5_ops = {
->  	.setup_plat_dat = socfpga_agilex5_setup_plat_dat,
->  };
->  
-> +static void socfpga_agilex5_tsn_gmac_setup_plat_dat(struct socfpga_dwmac *dwmac)
-> +{
-> +	struct plat_stmmacenet_data *plat_dat = dwmac->plat_dat;
-> +
-> +	socfpga_agilex5_setup_plat_dat(dwmac);
-> +
-> +	/* FPGA converter supplies RGMII delays; MAC uses GMII, PHY gets plain RGMII */
-> +	dwmac->mac_interface = PHY_INTERFACE_MODE_GMII;
-> +	if (phy_interface_mode_is_rgmii(plat_dat->phy_interface))
-> +		plat_dat->phy_interface = PHY_INTERFACE_MODE_RGMII;
-> +}
-
-[Severity: Medium]
-Should phy-mode values that this hardware cannot support be rejected here?
-At the moment every RGMII variant is turned into plain RGMII.
-
-The commit message says the FPGA converter provides both the TX and RX
-delays. Under the phy-mode rules in ethernet-controller.yaml, that leaves
-"rgmii-id" as the only consistent DT value. "rgmii" means the PCB already
-provides both delays. "rgmii-txid" and "rgmii-rxid" mean the PCB provides
-one of them. The binding also says:
-
-  # link. Thus the MAC should report a fatal error for any modes which
-  # cannot be supported.
-
-stmmac already has a path for this in stmmac_pltfr_probe():
-
-	if (plat->has_internal_tx_delay || plat->has_internal_rx_delay) {
-		plat->phy_interface =
-			phy_fix_phy_mode_for_mac_delays(plat->phy_interface,
-							plat->has_internal_tx_delay,
-							plat->has_internal_rx_delay);
-		if (plat->phy_interface == PHY_INTERFACE_MODE_NA)
-			return dev_err_probe(&pdev->dev, -EINVAL,
-					     "unsupported phy interface mode\n");
-	}
-
-When both delays are internal, phy_fix_phy_mode_for_mac_delays() converts
-rgmii-id to rgmii. For any other mode it returns PHY_INTERFACE_MODE_NA.
-
-This patch does its own conversion instead. A DT with phy-mode = "rgmii",
-"rgmii-txid" or "rgmii-rxid" then probes with no error. The converter then
-adds its own delay on top of the PCB delay.
-
-The phy-mode enum in altr,socfpga-stmmac.yaml accepts all four RGMII
-variants, so dtbs_check won't catch this either.
-
-Would setting plat_dat->has_internal_tx_delay and has_internal_rx_delay
-work here? That would let stmmac_pltfr_probe() do the conversion and the
-validation.
-
-> +
-> +static const struct socfpga_dwmac_ops socfpga_agilex5_tsn_gmac_ops = {
-> +	.set_phy_mode = socfpga_gen10_set_phy_mode,
-> +	.setup_plat_dat = socfpga_agilex5_tsn_gmac_setup_plat_dat,
-> +};
-> +
->  static const struct of_device_id socfpga_dwmac_match[] = {
->  	{ .compatible = "altr,socfpga-stmmac", .data = &socfpga_gen5_ops },
->  	{ .compatible = "altr,socfpga-stmmac-a10-s10", .data = &socfpga_gen10_ops },
->  	{ .compatible = "altr,socfpga-stmmac-agilex5", .data = &socfpga_agilex5_ops },
-> +	{ .compatible = "altr,socfpga-stmmac-agilex5-tsn", .data = &socfpga_agilex5_tsn_gmac_ops },
-
-[Severity: Medium]
-Does the allOf conditional in the binding also need the new compatible?
-
-In Documentation/devicetree/bindings/net/altr,socfpga-stmmac.yaml, the if
-block matches only the plain Agilex5 string:
-
-  - if:
-      properties:
-        compatible:
-          contains:
-            const: altr,socfpga-stmmac-agilex5
-    then:
-      properties:
-        interrupts:
-          minItems: 17
-        ...
-        dma-coherent: true
-    else:
-      properties:
-        interrupts:
-          maxItems: 1
-
-        interrupt-names:
-          maxItems: 1
-
-        dma-coherent: false
-
-The earlier binding patch in this series added
-altr,socfpga-stmmac-agilex5-tsn to select and to the compatible enum. It
-also says agilex5 should not be used as a fallback. A node with
-"altr,socfpga-stmmac-agilex5-tsn", "snps,dwxgmac-2.10" therefore gets the
-else constraints.
-
-The driver treats this compatible as full Agilex5 XGMAC hardware. It calls
-socfpga_agilex5_setup_plat_dat(), which sets up the XGMAC core, TSO, TBS
-on TX queues 6/7 and cross-timestamping. The gmac1 node in
-socfpga_agilex5.dtsi, which the TSN board overrides, has 17 interrupts and
-dma-coherent.
-
-Won't dtbs_check reject a correct TSN gmac1 node, and accept one with a
-single interrupt and no dma-coherent? Should the if block match both
-strings, for example:
-
-          contains:
-            enum:
-              - altr,socfpga-stmmac-agilex5
-              - altr,socfpga-stmmac-agilex5-tsn
-
->  	{ }
->  };
->  MODULE_DEVICE_TABLE(of, socfpga_dwmac_match);
-
--- 
-Sashiko AI review · https://netdev-ai.bots.linux.dev/sashiko/#/patchset/20260923021823.46649-1-muhammad.nazim.amirul.nazle.asmade%40altera.com
 
