@@ -4,60 +4,68 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id ACEE6C9832F
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 27 Sep 2026 17:55:52 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E3912C98338
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 27 Sep 2026 18:06:53 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=XN3adG8n48aXlFD1oGyPwbYbvAFkDP/CnzFiAMWmyQ4=; b=0MSKnCN/YQguEGTP60yatjXymc
-	dTMzCDk8EM63A833a8WEykeHzUkGa2ujvBMggec1zYuoGSWDETSa2BEn7nJOy9tqbd4f9AsEL8Hk+
-	RLtIHMnVosNi2GcizonR9DlIL+nxf7dVz4F7UGeFUE71/0u+PIViqKSY6322ngkMbawcT/Em1YMZt
-	3BlrBvEvx34qpki1yp2Wo6zoKveTGk69NAmzpaUx6Coso8oI+3xdOk7iKqLtV/ZtiiHsmoZHqmpg7
-	kWrPVnhSmIh0Scd2tdI1wHCHmtJd87CCGydKyuuOyoSHzTtRDCv+8bEGVQE97XpPtG5fag8h59/m6
-	1ILp0gnw==;
+	bh=6XEoCOiEHSF66Tl36XozdroZPLAJ+sF9zsLneNYmRCk=; b=lgJItP40fzuuF+XhZpucM6Hrer
+	pJ+QCKFG4iGyBHq/iguY/FI+dRMpNmjearQMqJ0pUp/QqeIBKKJTd4kjKdAKRPxzZ6drKSL+xV4OC
+	CMCrt8rQz1fXu2uXoe08AN2P2URRwk+0HIjT83rXuFL6/GBpp4zOBpC84usK6BAnUpDDBEvy94CxT
+	SNvfoUxzsQ45AJJ0A4zfHM1BKDsf7QgxP84/WJXCeCeRlZDgj+iBjRnfJhlaS4dxAvKUYUBOfAtUp
+	W5yl/Z2Zozxf5ty9JMRYza7UGZerOs29DOvPIMbaI0O4RXZlb1iKMdGGnWaJJBcrBl+u3XeWNGJdn
+	s/eXSdwQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xAt6I-0000000Gg4w-2Nf0;
-	Sun, 27 Sep 2026 17:55:46 +0000
-Received: from vps0.lunn.ch ([156.67.10.101])
+	id 1xAtGw-0000000GgRL-2HmZ;
+	Sun, 27 Sep 2026 18:06:46 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xAt69-0000000Gg3U-04g0
+	id 1xAtGu-0000000GgR3-3hql
 	for linux-arm-kernel@lists.infradead.org;
-	Sun, 27 Sep 2026 17:55:38 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=lunn.ch;
-	s=20171124; h=In-Reply-To:Content-Disposition:Content-Type:MIME-Version:
-	References:Message-ID:Subject:Cc:To:From:Date:From:Sender:Reply-To:Subject:
-	Date:Message-ID:To:Cc:MIME-Version:Content-Type:Content-Transfer-Encoding:
-	Content-ID:Content-Description:Content-Disposition:In-Reply-To:References;
-	bh=XN3adG8n48aXlFD1oGyPwbYbvAFkDP/CnzFiAMWmyQ4=; b=hEp60/fnREcY6JQT7sBraSKoyp
-	FrNRR2k2n55oXex+eD3KgkOyCycM0kBHzK4jAnF0ybvsKFaZVCrFN20fsfaMcUllSvx8k3zUzZ6La
-	DRVU8leSB/IKcQq4+c5FAtfDDK7tKiZAaB5Woc8H1uOWNSzGqdEUEWZP5P1BpVeX00mE=;
-Received: from andrew by vps0.lunn.ch with local (Exim 4.94.2)
-	(envelope-from <andrew@lunn.ch>)
-	id 1xAt5z-007Y7E-CH; Sun, 27 Sep 2026 19:55:27 +0200
-Date: Sun, 27 Sep 2026 19:55:27 +0200
-From: Andrew Lunn <andrew@lunn.ch>
-To: Sagi Maimon <maimon.sagi@gmail.com>
-Cc: netdev@vger.kernel.org, radhey.shyam.pandey@amd.com,
-	michal.simek@amd.com, andrew+netdev@lunn.ch, davem@davemloft.net,
-	edumazet@google.com, kuba@kernel.org, pabeni@redhat.com,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
-	linux@armlinux.org.uk, vadim.fedorenko@linux.dev
-Subject: Re: [PATCH net-next 1/2] net: axienet: use device_property and
- fwnode APIs for probe-time config
-Message-ID: <6ab4896c-c4d0-499b-befe-045cafa8e470@lunn.ch>
-References: <20260927073843.346910-1-maimon.sagi@gmail.com>
- <20260927073843.346910-2-maimon.sagi@gmail.com>
+	Sun, 27 Sep 2026 18:06:44 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by tor.source.kernel.org (Postfix) with ESMTP id CE7BD60D79;
+	Sun, 27 Sep 2026 18:06:43 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 896241F000FF;
+	Sun, 27 Sep 2026 18:06:42 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1790532403;
+	bh=6XEoCOiEHSF66Tl36XozdroZPLAJ+sF9zsLneNYmRCk=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=SF0P6tTscRw/xse4NZsRmcE0+XRrIguAUwdAlc2M7cQYDKKuDz7fI7K1x16wUjYzv
+	 sbKVLwmEcN55ZBNFi1iI9LRbaE/0GWphRfSFq1D1Izs+ppcmPDlmkr79i50uNbvEZs
+	 lBGaZbyZ0ajSJMcbPgOqgHt0LE9jciMyqnZxjxRQbQjZQqMuC/tRPUIV51jSWjy10z
+	 TXu+PiScqIDCEzsqXSrH2EmX3+U6pwqp6KAlUgd9BepoKpd6hevIPG1+Yt080JaI22
+	 5C5BtKtXO5gsZ3lp8BwM7a6yKxZaFj/AlvZ3WH+3hLuUAfRE7vtkDuB8K7i4RMZ8MZ
+	 yjJCn647PNBVA==
+Date: Sun, 27 Sep 2026 20:06:39 +0200
+From: Krzysztof Kozlowski <krzk@kernel.org>
+To: James Hilliard <james.hilliard1@gmail.com>
+Cc: Richard Genoud <richard.genoud@bootlin.com>, 
+	Maxime Chevallier <maxime.chevallier@bootlin.com>, Andrew Lunn <andrew+netdev@lunn.ch>, 
+	"David S. Miller" <davem@davemloft.net>, Eric Dumazet <edumazet@google.com>, 
+	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>, Chen-Yu Tsai <wens@kernel.org>, 
+	Jernej Skrabec <jernej.skrabec@gmail.com>, Samuel Holland <samuel@sholland.org>, 
+	Maxime Coquelin <mcoquelin.stm32@gmail.com>, Alexandre Torgue <alexandre.torgue@foss.st.com>, 
+	LABBE Corentin <clabbe.montjoie@gmail.com>, Rob Herring <robh@kernel.org>, 
+	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
+	Giuseppe Cavallaro <peppe.cavallaro@st.com>, Jose Abreu <joabreu@synopsys.com>, 
+	Alastair D'Silva <alastair@d-silva.org>, Maxime Ripard <mripard@kernel.org>, netdev@vger.kernel.org, 
+	linux-arm-kernel@lists.infradead.org, linux-sunxi@lists.linux.dev, 
+	linux-stm32@st-md-mailman.stormreply.com, linux-kernel@vger.kernel.org, devicetree@vger.kernel.org
+Subject: Re: [PATCH net-next v5 2/3] dt-bindings: net: allwinner: add H616
+ EMAC1
+Message-ID: <20260927-amazing-loris-of-criticism-bfb38b@quoll>
+References: <20260921-submit-h616-emac1-v1-v5-0-ada661ed9e9b@gmail.com>
+ <20260921-submit-h616-emac1-v1-v5-2-ada661ed9e9b@gmail.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
+Content-Type: text/plain; charset=utf-8
 Content-Disposition: inline
-In-Reply-To: <20260927073843.346910-2-maimon.sagi@gmail.com>
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260927_105537_062701_D316BB61 
-X-CRM114-Status: GOOD (  10.63  )
+In-Reply-To: <20260921-submit-h616-emac1-v1-v5-2-ada661ed9e9b@gmail.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -72,39 +80,26 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-> -	lp->switch_x_sgmii = of_property_read_bool(pdev->dev.of_node,
-> -						   "xlnx,switch-x-sgmii");
-> +	lp->switch_x_sgmii = device_property_read_bool(&pdev->dev,
-> +						       "xlnx,switch-x-sgmii");
+On Mon, Sep 21, 2026 at 06:45:25PM -0600, James Hilliard wrote:
+> The H616 secondary EMAC uses a separate system-control clock register
+> and supports only RMII at 10/100 Mbps. Add its distinct compatible
+> without an older fallback, since using the primary EMAC clock register
+> would not work.
+> 
+> Constrain the PHY interface mode to RMII, matching the hardware.
+> 
+> Reviewed-by: Alastair D'Silva <alastair@d-silva.org>
+> Tested-by: Alastair D'Silva <alastair@d-silva.org>
 
-What version of the core is being used:
+Tested-by is not applicable here, please drop. Don't blindly apply cover
+letter tags.
 
-6c8f06bb2e5147b2c25bdd726365df8416c13987
-Author: Robert Hancock <robert.hancock@calian.com>
-Date:   Fri Feb 12 18:23:56 2021 -0600
+With this corrected (and assuming Alastair actually did review the
+binding... otherwise just don't use blanket cover letter tags):
 
-    net: axienet: Support dynamic switching between 1000BaseX and SGMII
-    
-    Newer versions of the Xilinx AXI Ethernet core (specifically version 7.2 or
-    later) allow the core to be configured with a PHY interface mode of "Both",
-    allowing either 1000BaseX or SGMII modes to be selected at runtime. Add
-    support for this in the driver to allow better support for applications
-    which can use both fiber and copper SFP modules.
+Reviewed-by: Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
 
-If this property is not needed, please leave it as OF only.
+Best regards,
+Krzysztof
 
->  
->  	/* Start with the proprietary, and broken phy_type */
-> -	ret = of_property_read_u32(pdev->dev.of_node, "xlnx,phy-type", &value);
-> +	ret = device_property_read_u32(&pdev->dev, "xlnx,phy-type", &value);
-
-  xlnx,phy-type:
-    description:
-      Do not use, but still accepted in preference to phy-mode.
-    deprecated: true
-
-This property is deprecated. So it should remain an OF property and
-not get expanded in scope.
-
-	Andrew
 
