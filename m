@@ -4,35 +4,35 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 76990C9832F
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 27 Sep 2026 23:50:30 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 888C5C9830E
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 27 Sep 2026 23:50:37 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:To:From:Date:Reply-To:Cc:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=XMBKNX3mCHmPbnNScRXj4/DdBB8GT5w75znCORnXDgY=; b=iypVuRVz9WB4uBPIGDvqg51lnw
-	gbBoXzha6ld6QhAgIicIAdOBDl/k8Z7QIIKpX7OUiiMboJvjjEihbeH6jy6YfKNfifYBmfZW2Zgjo
-	UvsRjQU5a9Ryvl2h+oscohBgpzavRPpb6ikF4zoXGDwVv5TB1IzMbtkjpzovrK+HYNmw+nKkFvt07
-	LLX1A789FAnypddwS0a5gU8O88fvrkD4F1WHte3amFkWQmfCHzCH6lZjlFd8TSSwwBtgE5Tz7G4vU
-	IKMu/qh03YCupWwX3/vRMx350XU0ejEnwIDwy8++3xXOi80WkkbdTakfGVOy76mmD30Cswyg64eup
-	k2PVk8mw==;
+	bh=I5DiN4kAXn4QpbqQZ3g/ftzo1N06YjjcI3J8KHMZ7Ow=; b=MCwQBHfU/97ntpNX3hoybj82v4
+	lI7vjdS8h3X1+vEdIEZ8BesHtIxVgJmo+TlAIHrI+yHwi8qw8upCoFMZnLYq7BFnHstzaQkgltPZN
+	TnYEQeKCiJUPqAf8PVo6bXQlNUY+uYC2euQp700cCWZH+qeGKUbqk5pK7cB4VpyTtJsJSrjBNzZIW
+	CUUNhAi9maRptldKQ4lKYlOXY5twzSlS+UHBjAB8ALPcvUrc0Kuuwj2VrTh6m2aEoRyDuOZkfQld8
+	FFnluSdFPVMTEEOoVt6pskYLwIo37oRnNnG2zP94KGhShrnaFtz5oQCYwVbIQTrukytL/GZYtQbwR
+	Yx8jpHHA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xAydT-0000000H15r-01OD;
-	Sun, 27 Sep 2026 23:50:23 +0000
+	id 1xAydb-0000000H1Bb-12qk;
+	Sun, 27 Sep 2026 23:50:31 +0000
 Received: from pidgin.makrotopia.org ([2a07:2ec0:3002::65])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xAydI-0000000H0zJ-0iVM;
-	Sun, 27 Sep 2026 23:50:13 +0000
+	id 1xAydO-0000000H13O-34Q0;
+	Sun, 27 Sep 2026 23:50:19 +0000
 Received: from local
 	by pidgin.makrotopia.org with esmtpsa (TLS1.3:TLS_AES_256_GCM_SHA384:256:X25519MLKEM768)
 	 (Exim 4.100)
 	(envelope-from <daniel@makrotopia.org>)
-	id 1xAydC-000000000n7-2Fho;
-	Sun, 27 Sep 2026 23:50:06 +0000
-Date: Mon, 28 Sep 2026 00:50:03 +0100
+	id 1xAydK-000000000nx-0Xh8;
+	Sun, 27 Sep 2026 23:50:14 +0000
+Date: Mon, 28 Sep 2026 00:50:10 +0100
 From: Daniel Golle <daniel@makrotopia.org>
 To: Andrzej Hajda <andrzej.hajda@intel.com>,
 	Neil Armstrong <neil.armstrong@linaro.org>,
@@ -53,17 +53,17 @@ To: Andrzej Hajda <andrzej.hajda@intel.com>,
 	Chen-Yu Tsai <wenst@chromium.org>, dri-devel@lists.freedesktop.org,
 	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
 	linux-mediatek@lists.infradead.org
-Subject: [PATCH v8 04/14] drm/bridge: it6505: unregister DP AUX adapter on
- bridge detach
-Message-ID: <ae0941be8fb5e20a309f2e30b5e2d8818168aa38.1790552614.git.daniel@makrotopia.org>
+Subject: [PATCH v8 05/14] drm/bridge: it6505: complete poweroff even if
+ disabling regulators fails
+Message-ID: <94daa219c80275afc8d2dd85df72c602f0d3e646.1790552614.git.daniel@makrotopia.org>
 References: <cover.1790552614.git.daniel@makrotopia.org>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
 In-Reply-To: <cover.1790552614.git.daniel@makrotopia.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260927_165012_217589_4DEDD4A7 
-X-CRM114-Status: GOOD (  12.14  )
+X-CRM114-CacheID: sfid-20260927_165018_776706_0B4ED2F1 
+X-CRM114-Status: GOOD (  12.61  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,51 +78,51 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The DP AUX adapter is registered in .attach() but only unregistered
-in i2c remove(). Unbinding and rebinding the DRM device while the
-i2c driver stays bound registers the adapter a second time, which
-fails. Also unregister it in .detach() and on the .attach() error
-path, which so far leaked the registration. remove() keeps its call,
-which waits for in-flight AUX device users before devres frees the
-regmap; drm_dp_aux_unregister() does nothing for an adapter that is
-already unregistered.
+it6505_poweroff() returns early when regulator_disable() fails,
+leaving it6505->powered set with the IRQ already disabled. The next
+it6505_poweron() then takes its early return and never re-enables the
+IRQ, leaving the bridge deaf to hotplug and link training interrupts.
+The regulator core keeps the consumer's enable count on a failed
+disable either way, so bailing out only adds a wedged bridge on top of
+the leaked reference. Log the error and complete the power-off state
+transition instead.
 
 Fixes: b5c84a9edcd4 ("drm/bridge: add it6505 driver")
-Assisted-by: LLM
 Signed-off-by: Daniel Golle <daniel@makrotopia.org>
 ---
-v8: keep the unregister in remove() so an i2c unbind waits for
-    in-flight AUX device users before the regmap is freed
+v8: terminate the messages with a newline
 
 v7: no changes
 
-v6: no changes
+v6: note that the regulator reference is leaked either way
 
 v5: new patch
 ---
- drivers/gpu/drm/bridge/ite-it6505.c | 2 ++
- 1 file changed, 2 insertions(+)
+ drivers/gpu/drm/bridge/ite-it6505.c | 6 ++++--
+ 1 file changed, 4 insertions(+), 2 deletions(-)
 
 diff --git a/drivers/gpu/drm/bridge/ite-it6505.c b/drivers/gpu/drm/bridge/ite-it6505.c
-index 9c4aae383c1c5..7a0702e441ad7 100644
+index 7a0702e441ad7..6fd8f5ba9acca 100644
 --- a/drivers/gpu/drm/bridge/ite-it6505.c
 +++ b/drivers/gpu/drm/bridge/ite-it6505.c
-@@ -3096,6 +3096,7 @@ static int it6505_bridge_attach(struct drm_bridge *bridge,
- 		ret = it6505_use_notifier_module(it6505);
- 		if (ret < 0) {
- 			dev_err(dev, "use notifier module failed");
-+			drm_dp_aux_unregister(&it6505->aux);
- 			return ret;
- 		}
+@@ -2814,13 +2814,15 @@ static int it6505_poweroff(struct it6505 *it6505)
+ 	if (pdata->pwr18) {
+ 		err = regulator_disable(pdata->pwr18);
+ 		if (err)
+-			return err;
++			dev_err(dev, "cannot disable pwr18 regulator: %d\n",
++				err);
  	}
-@@ -3109,6 +3110,7 @@ static void it6505_bridge_detach(struct drm_bridge *bridge)
  
- 	flush_work(&it6505->link_works);
- 	it6505_remove_notifier_module(it6505);
-+	drm_dp_aux_unregister(&it6505->aux);
- }
+ 	if (pdata->ovdd) {
+ 		err = regulator_disable(pdata->ovdd);
+ 		if (err)
+-			return err;
++			dev_err(dev, "cannot disable ovdd regulator: %d\n",
++				err);
+ 	}
  
- static enum drm_mode_status
+ 	it6505->powered = false;
 -- 
 2.55.0
 
