@@ -4,62 +4,78 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 70979C98324
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 27 Sep 2026 10:15:52 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DEB33C9830E
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 27 Sep 2026 10:19:59 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:References:In-Reply-To:Message-ID:Date
-	:Cc:To:From:Subject:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	References:In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=i3ORYuE1lemrIpc3k3mvap+Y1TJv7srw+CrOudaTYP8=; b=uYWzCjvEJzGW0XlQ0ulyudPz9V
-	cYDiQtmIcr0G626O2SiOz4TUI0ECLoQHA061yqFMjOz2MBNvvIsTjQW4+S50pTIcQOcCscMGYxPQQ
-	T4Fr9z9c830bVcOPAyzr60UgboyYenPXwyyaDH+lSRQIGnV5mDoAHC97J4QK0wU8ElE+iVz+K2Fnu
-	NBVPBOwvgcseH+9fS0Pmg1xJtGA3NSn8EEq/8lF7HeoKWRY7rwZMFzrTT4qlaV8zdSutm7b0OdDAS
-	zHsW4+LpW3TT+j9nsbMCVvcIyKMAyxgnYg9GFGrdmkiWFLsKnQdORZt1RShGk3KQ7EfIJ5R7Smbo2
-	VwXpk7WA==;
+	bh=RcSdkn6nD9TyI/dhz9WpZ/FnxrEQXfP+A9HrldpwPyA=; b=XLUGuhroIRoiolqPEna8f+W5Tz
+	j4JQxHhCiZepFogS9So9itovLBa0OJjBOPtuBRBY6fG7xdPTIQ0y+TukWJD9wxZsozG6DvN6tcQvh
+	eLYIgQzQ1K3b6e28GKO0a11STxuE1Z9o3mF9GcY6a2JXewcG+1vMyXWN4rPpgJZozezHuvGP/kJzq
+	Kg/GiXpN8heLpSdsTqM6pGpuWS7t4BfvJKZ/9k7hUuw7POncmkVIbtjtBdCz0R6BmkqqT5Rs8Lqg+
+	S6+iu0Tr7oCs1N5PNSBO4MWAXRZWMgrQkVlpFLXqIzhc7hValusS2g1cTRU77YlZJjqKD89HNdltz
+	zMzdkwww==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xAlv6-0000000GCu6-2sYc;
-	Sun, 27 Sep 2026 10:15:44 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1xAlz7-0000000GD4D-0WYK;
+	Sun, 27 Sep 2026 10:19:53 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xAlv6-0000000GCu0-0Y4D
+	id 1xAlz6-0000000GD46-2EaX
 	for linux-arm-kernel@lists.infradead.org;
-	Sun, 27 Sep 2026 10:15:44 +0000
+	Sun, 27 Sep 2026 10:19:52 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 8473A409EB;
-	Sun, 27 Sep 2026 10:15:43 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 70FB71F000FF;
-	Sun, 27 Sep 2026 10:15:42 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 85B4360AB7;
+	Sun, 27 Sep 2026 10:19:51 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 1F9221F000FF;
+	Sun, 27 Sep 2026 10:19:51 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1790504143;
-	bh=i3ORYuE1lemrIpc3k3mvap+Y1TJv7srw+CrOudaTYP8=;
-	h=Subject:From:To:Cc:Date:In-Reply-To:References;
-	b=P0LvstUhrpLbGB1Ybykq4MfPVgGmarP94LAEQ0qVeGDUpGG05TbClgD1+ULSwj/oE
-	 DR1GCp047nqz+wQsH0s/qqyMrnBTnx/uEM+NwhiKXSlImt1Ff0jo0ugsUCP3V/C920
-	 XTS4LaDP4xMZW0X81P8MEcik5QlqohtaZoIqLClyh+emavmqEMDJUFN543SbOzB/kn
-	 c0BsQxkJqpdrDxYpCdquCx5DMOa2WNZ4AUHq4N7TeuTA6FrwlJoQuZlF6BBzoCfI3g
-	 a81axRwsBoFPB3Sh+N5fjEXD0bcNSMea4uQKJneIODrEo/3UaGFXltzgRGQNW/YHML
-	 Mp6iFxNXJNXKw==
-Subject: Re: [PATCH net-next] net: stmmac: add XDP multi-buff support for TX side
-From: netdev-bot+sashiko@kernel.org
-To: lorenzo.bianconi@oss.qualcomm.com
-Cc: maxime.chevallier@bootlin.com, andrew+netdev@lunn.ch, davem@davemloft.net,
- edumazet@google.com, kuba@kernel.org, pabeni@redhat.com,
- mcoquelin.stm32@gmail.com, alexandre.torgue@foss.st.com, ast@kernel.org,
- daniel@iogearbox.net, hawk@kernel.org, john.fastabend@gmail.com,
- sdf@fomichev.me, netdev@vger.kernel.org,
- linux-stm32@st-md-mailman.stormreply.com,
- linux-arm-kernel@lists.infradead.org, bpf@vger.kernel.org
-Date: Sun, 27 Sep 2026 10:15:41 +0000
-Message-ID: <179050414194.2160803.16900055348380255895@kernel.org>
-In-Reply-To: <20260923-b4-stmmac-xmit-mb-v1-1-a71a1c522142@oss.qualcomm.com>
-References: <20260923-b4-stmmac-xmit-mb-v1-1-a71a1c522142@oss.qualcomm.com>
-X-sashiko-severity: Medium
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 8bit
-MIME-Version: 1.0
+	s=k20260515; t=1790504391;
+	bh=RcSdkn6nD9TyI/dhz9WpZ/FnxrEQXfP+A9HrldpwPyA=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References;
+	b=SmZf4F/U9SLycJzVnNDN6qPQziHrRsKH8Jw5iivbECCJdLvh2goEmM090qekD5AWu
+	 dsFC8qwBpVWWvs/pZJLxL9aJGikyHrqE/tdxbl/WmsiKuzA3XrfAJHjqXYMPBEGznG
+	 y1oNguIuNOlpCvUWRAShDE8Uiq7eRMcbBbsUtYRS38IttqWZKvz8fOd2OLmDk76JTa
+	 GyO+eVIsgp+gud2nIDIWXZlV/fmWza0aMIPlRi93Z/AH+CMkGddbaoXwS1ia4j3/YU
+	 B/S2527y1g1wnB/5hDgdShimtaZf+8nmNv1wqvEpCkjAW7hvJ63HD0YXhwpvaAMI2s
+	 OMJRkA9VZIucg==
+Received: from sofa.misterjones.org ([185.219.108.64] helo=lobster-girl.misterjones.org)
+	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.98.2)
+	(envelope-from <maz@kernel.org>)
+	id 1xAlz3-0000000DxvQ-16Ag;
+	Sun, 27 Sep 2026 10:19:49 +0000
+Date: Sun, 27 Sep 2026 11:22:57 +0100
+Message-ID: <87tsnb2dtq.wl-maz@kernel.org>
+From: Marc Zyngier <maz@kernel.org>
+To: Matthias Goergens <matthias.goergens@gmail.com>,
+    Steffen Eiden <seiden@linux.ibm.com>
+Cc: oupton@kernel.org,
+	fuad.tabba@linux.dev,
+	joey.gouly@arm.com,
+	suzuki.poulose@arm.com,
+	yuzenghui@huawei.com,
+	linux-arm-kernel@lists.infradead.org,
+	kvmarm@lists.linux.dev
+Subject: Re: [RFC PATCH] Documentation/process: Add a maintainer entry profile for KVM/arm64
+In-Reply-To: <20260925085621.562448-1-matthias.goergens@gmail.com>
+References: <20260924033536.3624334-1-matthias.goergens@gmail.com>
+	<877bkb3zjq.wl-maz@kernel.org>
+	<20260924083036.1744194-1-matthias.goergens@gmail.com>
+	<875wzu4vuv.wl-maz@kernel.org>
+	<20260925085621.562448-1-matthias.goergens@gmail.com>
+User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
+ FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/30.1
+ (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
+MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
+Content-Type: text/plain; charset=US-ASCII
+X-SA-Exim-Connect-IP: 185.219.108.64
+X-SA-Exim-Rcpt-To: matthias.goergens@gmail.com, seiden@linux.ibm.com, oupton@kernel.org, fuad.tabba@linux.dev, joey.gouly@arm.com, suzuki.poulose@arm.com, yuzenghui@huawei.com, linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev
+X-SA-Exim-Mail-From: maz@kernel.org
+X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -74,254 +90,340 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Thank you for your contribution! Sashiko AI review found 5 potential
-issue(s) to consider.
+Hi Matthias,
 
-Critical: 0 · High: 0 (1) · Medium: 4 · Low: 1
-
-If you believe none of the issues are legitimate, please reply to each
-issue of Medium severity or higher and explain why the AI is wrong.
-If any of them are legitimate and you plan to respin, please let patchwork
-know by including "pw-bot: cr" as a separate line at the end of your reply
-(one such reply per series is enough).
-
-- [Medium] The commit says it adds XDP multi-buff TX support, but no
-  multi-buff frame can reach the new code.
-- [Medium] In stmmac_xdp_xmit_xdpf(), the ring-availability check changed
-  from `stmmac_tx_avail(priv, queue) < STMMAC_TX_THRESH(priv)`…
-- [Medium] stmmac_xdp_xmit_xdpf() now does `tx_q->tx_count_frames +=
-  num_frames` but still sets the IC bit only when…
-- [Medium] The patch changes how the XDP TX path hands descriptors to the
-  DMA, and in doing so drops the dma_wmb() before the OWN bit is set.
-- [Low] The new comment in stmmac_xdp_xmit_xdpf() was copied word for
-  word from stmmac_xmit() and says the OWN bit is set 'now that all…
-
-Pre-existing issues:
-- [High] stmmac_xdp_xmit_xdpf() computes `tx_q->tx_count_frames %
-  priv->tx_coal_frames[queue]` without checking that…
-
---
-
-net: stmmac: add XDP multi-buff support for TX side
-
-This commit extends stmmac_xdp_xmit_xdpf() to transmit XDP frames with
-fragments. The frame head and each frag are mapped and programmed into
-their own TX descriptor. The OWN bit on the first descriptor is set once
-all descriptors are populated.
-
-> diff --git a/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c b/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
-> index bf9e7e4cb1c31..41ccde6371ecd 100644
-> --- a/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
-> +++ b/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
-> @@ -5239,77 +5239,114 @@ static unsigned int stmmac_rx_buf2_len(struct stmmac_priv *priv,
->  static int stmmac_xdp_xmit_xdpf(struct stmmac_priv *priv, int queue,
->  				struct xdp_frame *xdpf, bool dma_map)
->  {
-
-[ ... ]
-
-> -	if (stmmac_tx_avail(priv, queue) < STMMAC_TX_THRESH(priv))
-> +	if (unlikely(xdp_frame_has_frags(xdpf)))
-> +		num_frames += sinfo->nr_frags;
-> +
-
-[Severity: Medium]
-After this patch, can a frame with frags actually reach this code?
-
-stmmac_xdp_set_prog() still registers the redirect target without SG
-support:
-
-drivers/net/ethernet/stmicro/stmmac/stmmac_xdp.c:stmmac_xdp_set_prog() {
-    ...
-	if (prog)
-		xdp_features_set_redirect_target(dev, false);
-    ...
-}
-
-The probe-time mask in stmmac_dvr_probe() has neither
-NETDEV_XDP_ACT_NDO_XMIT_SG nor NETDEV_XDP_ACT_RX_SG:
-
-	ndev->xdp_features = NETDEV_XDP_ACT_BASIC | NETDEV_XDP_ACT_REDIRECT |
-			     NETDEV_XDP_ACT_XSK_ZEROCOPY;
-
-Because of that, __xdp_enqueue() and is_valid_dst() in kernel/bpf/devmap.c
-drop frag frames before ndo_xdp_xmit is called:
-
-	if (unlikely(!(dev->xdp_features & NETDEV_XDP_ACT_NDO_XMIT_SG) &&
-		     xdp_frame_has_frags(xdpf)))
-		return -EOPNOTSUPP;
-
-The XDP_TX side (stmmac_xdp_xmit_back()->stmmac_xdp_xmit_xdpf()) is
-blocked too. The stmmac RX path never builds multi-buff xdp_buffs; there
-is no xdp_buff_add_frag() or xdp_buff_set_frags() in the driver. Also,
-stmmac_xdp_set_prog() still refuses XDP when mtu > ETH_DATA_LEN.
-
-So none of these can run: the skb_frag_dma_map() branch, the page_pool frag
-branch, the multi-descriptor loop, and the error_dma_unmap unwind.
-
-Should this patch also advertise NETDEV_XDP_ACT_NDO_XMIT_SG (and build
-multi-buff frames on RX), so that the multi-buff TX support described in
-the commit message can be used?
-
-> +	if (stmmac_tx_avail(priv, queue) < num_frames)
->  		return STMMAC_XDP_CONSUMED;
-
-[Severity: Medium]
-Is the STMMAC_TX_THRESH() reserve meant to go away for linear frames too?
-
-Before, XDP stopped using the ring once fewer than dma_tx_size / 4
-descriptors were free. Now a single-buffer frame (num_frames == 1) can take
-every free slot of the TX ring it shares with the stack. The XDP path never
-stops the netdev TX queue.
-
-stmmac_tx_clean() wakes the stack queue only above the threshold:
-
-	    stmmac_tx_avail(priv, queue) > STMMAC_TX_THRESH(priv)) {
-
-Once XDP fills the ring, the next stmmac_xmit() or stmmac_tso_xmit() call
-with the queue still awake takes the hard error path:
-
-			/* This is a hard error, log it. */
-			netdev_err(priv->dev,
-				   "%s: Tx Ring full when queue awake\n",
-				   __func__);
-		}
-		return NETDEV_TX_BUSY;
-
-Can sustained XDP_TX or redirect traffic starve stack traffic this way?
-
-The XSK zero-copy path in stmmac_xdp_xmit_zc() uses the same ring and keeps
-a reserve for this reason:
-
-		/* We are sharing with slow path and stop XSK TX desc submission when
-		 * available TX ring is less than threshold.
-		 */
-		if (unlikely(stmmac_tx_avail(priv, queue) < STMMAC_TX_XSK_AVAIL) ||
-
-Would a check like avail < max(STMMAC_TX_THRESH(priv), num_frames) keep the
-old behaviour and still account for frags?
-
-[ ... ]
-
-> +		stmmac_set_desc_addr(priv, desc, dma_addr);
-> +		stmmac_prepare_tx_desc(priv, desc, !i, len, csum,
-> +				       priv->descriptor_mode, !!i, last_frame,
-> +				       xdp_get_frame_len(xdpf));
-
-[ ... ]
-
-> -	stmmac_prepare_tx_desc(priv, tx_desc, 1, xdpf->len,
-> -			       csum, priv->descriptor_mode, true, true,
-> -			       xdpf->len);
-> +		entry = STMMAC_NEXT_ENTRY(entry, priv->dma_conf.dma_tx_size);
-> +		i++;
-> +	}
-> +	tx_q->tx_count_frames += num_frames;
+On Fri, 25 Sep 2026 09:56:21 +0100,
+Matthias Goergens <matthias.goergens@gmail.com> wrote:
 > 
-> -	tx_q->tx_count_frames++;
-> +	if (!(tx_q->tx_count_frames % priv->tx_coal_frames[queue])) {
+> KVM/arm64 has no P: entry in MAINTAINERS, so nothing tells a contributor
+> that the kvmarm tree is used for integration only, or that most patches
+> are expected to be based on a tag from Linus' tree rather than on
+> kvmarm/next or linux-next.  Marc Zyngier said a profile would help and
+> pointed at the KVM x86 one as a starting point, noting where KVM/arm64
+> differs: the absence of topic branches, the references to documentation,
+> and the base for most patches.
+> 
+> Add a profile covering the trees and how changes flow through them, the
+> base for patches, recipients, subject prefixes, architecture references,
+> testing, key cycle dates and review cadence, and point the KVM/arm64
+> entry at it.
+> 
+> Link: https://lore.kernel.org/all/875wzu4vuv.wl-maz@kernel.org/
+> Signed-off-by: Matthias Goergens <matthias.goergens@gmail.com>
+> ---
+> Marc, this is the profile you said would help, in the thread this
+> replies to.  Where you and Oliver haven't said anything on the list, it
+> follows the KVM x86 profile and general practice, so please correct
+> anything that doesn't match how you work.  Three things need your call
+> in particular; they are marked [?: ...] in the text:
+> 
+> - master: once it follows -rc1, should the profile mention it?
+> 
+> - Cross-tree changes: the draft says there are no standing topic
+>   branches for contributors, and that when a series also touches arm64
+>   code the maintainers may set up a shared stable branch on an -rc tag.
+>   Is that right?
+> 
+> - Cut-offs: which is the last -rc for new features, and when do you
+>   decide what goes into the merge window?
+> 
+> I've kept this RFC to the people in this thread.  Once you're happy
+> with it, I'll widen the circle to the documentation maintainers and
+> lists.
 
-[Severity: Medium]
-Can tx_count_frames step over every multiple of tx_coal_frames here?
+Thanks for starting this, much appreciated. See my remarks below.
 
-tx_count_frames now grows by num_frames, so the exact-multiple test can be
-skipped. With the default tx_coal_frames of 25, a step from 24 to 26 misses
-25. With an even threshold such as 64, one single-buffer frame followed by
-2-descriptor frames keeps the counter odd, so the IC bit is never set.
+> 
+>  .../process/maintainer-kvm-arm64.rst          | 163 ++++++++++++++++++
+>  MAINTAINERS                                   |   2 +
+>  2 files changed, 165 insertions(+)
+>  create mode 100644 Documentation/process/maintainer-kvm-arm64.rst
+> 
+> diff --git a/Documentation/process/maintainer-kvm-arm64.rst b/Documentation/process/maintainer-kvm-arm64.rst
+> new file mode 100644
+> index 000000000000..deba2f812cef
+> --- /dev/null
+> +++ b/Documentation/process/maintainer-kvm-arm64.rst
+> @@ -0,0 +1,163 @@
+> +.. SPDX-License-Identifier: GPL-2.0
+> +
+> +KVM/arm64
+> +=========
+> +
+> +This document describes how KVM/arm64 (``arch/arm64/kvm/`` and the other
+> +files listed under "KERNEL VIRTUAL MACHINE FOR ARM64 (KVM/arm64)" in
+> +MAINTAINERS) is maintained.  It supplements
+> +Documentation/process/submitting-patches.rst.
+> +
+> +Overview
+> +--------
+> +
+> +KVM/arm64 is maintained by Marc Zyngier and Oliver Upton, assisted by the
+> +reviewers listed in MAINTAINERS.  Patches are discussed on
+> +kvmarm@lists.linux.dev, and linux-arm-kernel@lists.infradead.org is Cc'd as
+> +well.
 
-stmmac_xmit() and stmmac_tso_xmit() already handle batched increments by
-checking whether the threshold was crossed:
+I don't think we need this. This should directly point to MAINTAINERS,
+and let that file be the reference. Maintainers and MLs have changed
+over time, and are likely to change again.
 
-	else if (tx_packets > priv->tx_coal_frames[queue])
-		set_ic = true;
-	else if ((tx_q->tx_count_frames %
-		  priv->tx_coal_frames[queue]) < tx_packets)
-		set_ic = true;
+> +
+> +Trees
+> +~~~~~
+> +
+> +The KVM/arm64 tree is::
+> +
+> +  git://git.kernel.org/pub/scm/linux/kernel/git/kvmarm/kvmarm.git
+> +
+> +This tree is used for integration only: no development happens in it, and
+> +most patches should not be based on it (see `Base for patches`_).  Its
+> +branches are:
+> +
+> +``next``
+> +  Changes queued for the next merge window.  linux-next merges this branch.
+> +
+> +``fixes``
+> +  Fixes for the release currently in its -rc phase.  linux-next merges this
+> +  branch too.
+> +
+> +[?: ``master`` still points at a 2020 commit.  Once it follows -rc1, should
+> +this document mention it?]
 
-Without a check like that, TX completion reclaim depends on the hrtimer.
-__stmmac_set_coalesce() accepts tx-usecs 0 when tx-frames is non-zero, and
-in that case stmmac_tx_timer_arm() returns early:
+I've pushed 7.3-rc3 there already.
 
-	if (!tx_coal_timer)
-		return;
+> +
+> +Changes leave the tree as signed tags, which are pulled into the main KVM tree
+> +(``git://git.kernel.org/pub/scm/virt/kvm/kvm.git``) and from there reach Linus
+> +Torvalds.
+> +
+> +Unlike the KVM x86 tree, KVM/arm64 has no standing topic branches for
+> +contributors to base their work on.  Where a series also touches code
+> +maintained elsewhere, most often the arm64 architecture code, the maintainers
+> +may set up a shared stable branch, based on an -rc tag, that both trees merge.
+> +Say in the cover letter which parts of a series touch other subsystems.
+> +[?: Is this an accurate description of topic branches and of how
+> +cross-tree changes are handled?]
 
-Would completions then stall until something else triggers TX cleaning?
+Yes, this is correct. Topic branches are directly managed by the
+maintainers in private trees, and only the result of the integration
+is pushed out. The exception to this is of course shared branches that
+are published when necessary.
 
-[Severity: High]
-This isn't a bug introduced by this patch, but since this line is being
-rewritten: can priv->tx_coal_frames[queue] be zero here?
+As for the impact on arch code, we are about to have extended
+dependencies with other architectures (s390). Steffen, can you have a
+look and prepare a short addition to this text that would apply to the
+KVM/arm64-on-S390 contraption?
 
-__stmmac_set_coalesce() rejects only the case where both values are zero:
+> +
+> +Base for patches
+> +~~~~~~~~~~~~~~~~
+> +
+> +Base your patches on a tag published in Linus Torvalds' tree.  Patches based
+> +on linux-next or on ``kvmarm/next`` are discouraged.
 
-	if ((ec->tx_coalesce_usecs == 0) &&
-	    (ec->tx_max_coalesced_frames == 0))
-		return -EINVAL;
+It is best to base the work on -rc1 to -rc3. If you rely on something
+past -rc3, please explain why (dependency on fixes merged in-rc4, for
+example).
 
-So "ethtool -C ethX tx-usecs 1000 tx-frames 0" stores tx_coal_frames[queue]
-= 0. stmmac_xmit(), stmmac_tso_xmit() and stmmac_xdp_xmit_zc() all guard
-the modulo:
+> +
+> +If your series depends on something that is not yet in mainline, such as
+> +another series under review or work already queued in ``kvmarm/next``, say so
+> +in the cover letter and name exactly what it applies on top of.  The
+> +maintainers may also ask for a series to be rebased onto ``kvmarm/next`` when
+> +it conflicts with work queued there.
 
-	else if (!priv->tx_coal_frames[queue])
-		set_ic = false;
+It is extremely rare that we'd ask for something of the sort. For a
+start, the -next branch is rebuilt very regularly, so picking a
+kvmarm/next commit is generally wrong. And we actually want to see
+conflicts, because this is a good indication that we need to dig a bit
+deeper. On the other hand, we welcome a proposed resolution of the
+conflicts.
 
-With that setting and an XDP program attached, each XDP_TX verdict
-(stmmac_xdp_xmit_back()) and each ndo_xdp_xmit redirect (stmmac_xdp_xmit())
-would divide by zero in softirq context. That traps on x86.
+The only exception I can think of is when a series is a strict
+continuation of another one that has already been queued.
 
-The old code had the same unguarded "% priv->tx_coal_frames[queue] == 0".
-Could a zero check be added while this code is being reworked?
+> +
+> +Use ``git format-patch --base`` so that the base commit is recorded in the
+> +patches.
+> +
+> +Submit Checklist Addendum
+> +-------------------------
+> +
+> +Recipients and threading
+> +~~~~~~~~~~~~~~~~~~~~~~~~
+> +
+> +Send the whole series to all of the maintainers and reviewers listed for
+> +KVM/arm64, not a selection of them.  Post each new version as a new thread,
+> +with a cover letter for anything longer than a single patch.
 
-[ ... ]
+The "new thread" is quite important, at least to me. I nearly missed
+this patch as you didn't follow this recommendation! :-/
 
-> +	/* Set the OWN bit on the first descriptor now that all descriptors
-> +	 * for this skb are populated.
-> +	 */
+> +
+> +Subject lines
+> +~~~~~~~~~~~~~
+> +
+> +Changes to KVM/arm64 use the ``KVM: arm64:`` prefix, often followed by a
+> +sub-topic such as ``nv:`` or ``vgic:``.  Selftest changes use ``KVM: arm64:
+> +selftests:`` or ``KVM: selftests:``.
+> +``git log --oneline`` on the files you touch shows what is in use.
 
-[Severity: Low]
-This isn't a bug, but this comment was copied from stmmac_xmit() and talks
-about an skb. This function sends an xdp_frame and its frags.
+nit: whatever comes out of the prefix list should start with a capital
+letter ("KVM: arm64: nv: Fix inverted frobinator polarity"). Yes, I
+have OCD... ;-)
 
-> +	desc = stmmac_get_tx_desc(priv, tx_q, first_entry);
-> +	stmmac_set_tx_owner(priv, desc);
+> +
+> +Architecture references
+> +~~~~~~~~~~~~~~~~~~~~~~~
+> +
+> +KVM/arm64 code tracks the Arm Architecture Reference Manual (the "Arm ARM",
+> +document DDI0487) closely.  Where a change depends on architected behavior,
+> +explain why the change is needed and cite the Arm ARM in the commit message
+> +or in a comment.  Section numbers change between revisions of the Arm ARM,
+> +so give the revision along with the section, for example ``DDI0487L.a
+> +D24.2.70``.
 
-[Severity: Medium]
-Does this need a dma_wmb() before stmmac_set_tx_owner()?
+Even better: when available, quote the rule identifier ("R_WXYZT")
+instead of the section. Such ids are immutable across versions, while
+the section numbers aren't. This also applies to other architecture
+documents (the ARM ARM is not the only one).
 
-The old code called stmmac_prepare_tx_desc() with is_fs = 1 and
-tx_own = true. In that case every backend issues a barrier before writing
-the OWN word. For example, enh_desc_prepare_tx_desc():
+> +
+> +This differs from KVM x86, whose profile asks contributors not to cite
+> +section numbers.
 
-	if (is_fs && tx_own)
-		/* When the own bit, for the first frame, has to be set, all
-		 * descriptors for the same frame has to be set before, to
-		 * avoid race condition.
-		 */
-		dma_wmb();
+I don't think we need to name "the other architecture"... ;-)
 
-The loop now passes tx_own = !!i, which is false for the first descriptor,
-so that barrier never runs. The set_tx_owner callbacks that now set OWN are
-plain read-modify-writes, for example:
+> +
+> +Testing
+> +~~~~~~~
+> +
+> +Say in the cover letter how the series was tested: which tests, and on which
+> +hardware or model.  The KVM selftests (``tools/testing/selftests/kvm/``) and
+> +kvm-unit-tests are the usual test suites.  Put selftest changes in patches of
+> +their own, separate from the KVM changes.
 
-static void dwmac4_set_tx_owner(struct dma_desc *p)
-{
-	p->des3 |= cpu_to_le32(TDES3_OWN);
-}
+... and usually at the end of the series.
 
-The common single-buffer XDP_TX and ndo_xdp_xmit case is affected as well.
-On dwmac4 and xgmac, the tail pointer update after wmb() in
-stmmac_flush_tx_descriptors() hides the missing barrier. dwmac100, dwmac1000
-and sun8i have no set_tx_tail_ptr, so a running TX DMA fetches the
-descriptor as soon as it sees OWN.
+> +
+> +KVM/arm64 can run in several modes, which are described under
+> +``kvm-arm.mode=`` in Documentation/admin-guide/kernel-parameters.txt.  Test
+> +the modes your change can affect.
+> +
+> +Do not draw conclusions about performance on hardware from measurements made
+> +on a software model such as QEMU or the Arm FVP.
 
-On weakly ordered architectures, can the device see OWN before the buffer
-address and length stores of the same descriptor? For multi-buff, can it
-see OWN before the following descriptors are written? It could then
-transmit from a stale address or length.
+If you submit a patch that aims to improve performance, describe the
+exact methodology you used to evaluate the performance, and provide
+enough information so that others can reproduce your findings.
 
-stmmac_xmit() has the same pattern, but for the XDP path this is new.
+> +
+> +Changes to nested virtualization in particular are unlikely to be merged
+> +without test coverage.
 
-[ ... ]
+That's not really true. Our NV coverage is incredibly poor, and yet we
+take patches for it. It is encouraged though.
+
+> Depending on the change, selftests may not be enough;
+> +the maintainers may ask for testing with a VMM, for example.
+> +
+> +Userspace API
+> +~~~~~~~~~~~~~
+> +
+> +Document changes to the userspace API, usually in
+> +Documentation/virt/kvm/api.rst or in the files under
+> +Documentation/virt/kvm/devices/ and Documentation/virt/kvm/arm/.
+> +
+> +Fixes
+> +~~~~~
+> +
+> +Add a ``Fixes:`` tag for bug fixes.  If the fix should go to stable kernels,
+> +add ``Cc: stable@vger.kernel.org``; the maintainers may add it when applying
+> +if the bug calls for it.
+> +
+> +Key Cycle Dates
+> +---------------
+> +
+> +Fixes for the current release are queued on ``fixes`` and sent throughout
+> +the -rc phase.  Changes for the next merge window are queued on ``next``.
+> +
+> +[?: What are the cut-offs: the last -rc for submitting new features, and the
+> +last -rc at which the maintainers decide what goes into the next merge
+> +window?]
+
+We usually stop merging new features once -rc6 is published, and only
+queue fixes from that point onward. This is not a hard rule, but one
+that we try to follow for our own sanity. Obviously, posting patches
+for a new feature just before -rc6 doesn't guarantee anything other
+than a French shrug...
+
+For fixes that are not part of the initial drop for a release, they
+are accumulated and sent upstream on a semi-regular basis, depending
+on the severity of the bugs that are being fixed. There is no cut-off
+for those, but maintainers may decide to defer a low priority fix to
+the following merge window.
+
+> +
+> +Review Cadence
+> +--------------
+> +
+> +Unless the maintainers ask for a new version sooner, allow at least a week
+> +between versions of a series, and only post a new version once there has
+> +been enough review to justify it.  Posting more often
+> +delays review rather than speeding it up.
+> +
+> +Pinging a series that has had no response is fine.
+> +
+> +Applied patches are normally acknowledged in reply to the posting, naming the
+> +branch (``next`` or ``fixes``) and the commits.  Commit IDs can still change
+> +before they reach mainline.
+
+They can change, but we try hard not to. However, note that commit IDs
+for merges are almost guaranteed to change, even if the commit IDs for
+individual patches are stable.
+
+I'd like to also add that reviews performed by bots (sashiko and co)
+are expected to be answered, even if it is to point out that they are
+plain wrong.
+
+However, for pre-existing problems outlined by these bots, we
+generally don't expect them to be addressed as part of the initial
+posting if they are unrelated issues. Yes, this is a fine line...
+
+> +
+> +Minor problems are often fixed up by the maintainers when applying; if they
+> +say "no need to resend", don't.
+> +
+> +Security issues
+> +---------------
+> +
+> +Bugs that let a guest attack its host, or a nested guest attack its guest
+> +hypervisor, should be reported as described in
+> +Documentation/process/security-bugs.rst.
+> diff --git a/MAINTAINERS b/MAINTAINERS
+> index 140eafcbbd78..129d7ef2c3ec 100644
+> --- a/MAINTAINERS
+> +++ b/MAINTAINERS
+> @@ -14301,7 +14301,9 @@ R:	Zenghui Yu <yuzenghui@huawei.com>
+>  L:	linux-arm-kernel@lists.infradead.org (moderated for non-subscribers)
+>  L:	kvmarm@lists.linux.dev
+>  S:	Maintained
+> +P:	Documentation/process/maintainer-kvm-arm64.rst
+>  T:	git git://git.kernel.org/pub/scm/linux/kernel/git/kvmarm/kvmarm.git
+> +F:	Documentation/process/maintainer-kvm-arm64.rst
+>  F:	Documentation/virt/kvm/arm/
+>  F:	Documentation/virt/kvm/devices/arm*
+>  F:	arch/arm64/include/asm/kvm*
+> 
+> base-commit: 62f4c998b297cf233997a2b4cd6fc2d2df0319c9
+
+This otherwise looks pretty good to me. Let's see what Oliver says,
+but I'm otherwise inclined to take something like this in 7.4.
+
+Thanks again,
+
+	M.
 
 -- 
-Sashiko AI review · https://netdev-ai.bots.linux.dev/sashiko/#/patchset/20260923-b4-stmmac-xmit-mb-v1-1-a71a1c522142%40oss.qualcomm.com
+Jazz isn't dead. It just smells funny.
 
