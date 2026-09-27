@@ -4,49 +4,88 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 331FAC98324
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 27 Sep 2026 13:00:49 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 47827C9830E
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 27 Sep 2026 13:09:37 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Message-ID:Date:Subject:Cc:
-	To:From:Reply-To:MIME-Version:Content-Type:Content-Transfer-Encoding:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=FyG054HNrO/kXG35lu7ivFIZVkhkQ5n7nZNjUmmDnN0=; b=svK2WVGGpCcDZO6i7Ts472tTVy
-	jUvhZnUKigehPSqE8R73l/+/1FgbmTDR+PP7qbtrAR8VXXGDPZLFGaWfU056LK9+CQweaqOXwclLR
-	lNkRxFt9f0OJGdJcmkYn5buvAYNazo2IIj0E0XcuF6srrdSkG1kWdoiH/lnfrRGLMf7sjdru18EYB
-	Rj2IYibuyWsPUKR11O5DJH+SQH5XSlUSSv1Q7tW8lSmTpChQNo9Ba4sAI3vnooIBe+ye1Bb10UUSG
-	4PyxklmjJMANKmTvkqm8eFqvI08g02Xi46oXnIwGZDXZJp+H4qchhZAYBSdXv/YHF+D5meUWGBIAp
-	Bk4gvPtw==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
+	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:
+	References:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:
+	Subject:Date:From:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=jTWVqg5kgZHclKGLvF2MA0D0VxEdp3Ov+OmIhdVJWW4=; b=0w/C0eb8c6TxZVFbFNrHZ+lO++
+	dcDwhAeKqUqod8/62yB04tgK6ZqTaErN0DMaDwWOhwUlqsYNdSQhm3i4cZU/mji4SScFxJ+TG6f2P
+	g2MQBdQ8NfwgR3P2Ek4gcQhYAO3kOUNVdle55QIO3uIeopUcqIepwMxGblUfDmnTu0Dj3axnT8uao
+	x0MvbZ/VfmmjzugFTwSqeVpX4ORPgVkWQs7epX1aI2PwQI8xcRVFpV8hkejGInyBaHp+KlGCTVFu8
+	oeq7li7y/LnRvWYXUUnrC5X+957UU9XxTc5bbkx6ezUxI52OelykLHf1+bciaZssi/wJ4NQYSYYO0
+	ObSQf1Yg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xAo7v-0000000GJhN-44x2;
-	Sun, 27 Sep 2026 12:37:07 +0000
-Received: from m16.mail.163.com ([220.197.31.5])
+	id 1xAodF-0000000GMjG-3Y6k;
+	Sun, 27 Sep 2026 13:09:29 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xAo7t-0000000GJgG-215m;
-	Sun, 27 Sep 2026 12:37:07 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=163.com;
-	s=s110527; h=From:To:Subject:Date:Message-ID; bh=FyG054HNrO/kXG3
-	5lu7ivFIZVkhkQ5n7nZNjUmmDnN0=; b=Pb6EUO5qprKbaZkU1rmsjzYX1x2sPi7
-	0ZiXE2URkpy+MwjQzbzphLWecu+/rVN+zErL1rkabQ/8S8r/Ob10Qj5IzowBy7Ah
-	V9ONBAFe90bPzuCFLQVXh1Z3QF1sHm8M5ogMCdwDp9JjBy1pWlo1eYKlXZaaV2kC
-	egkhAtgadJhY=
-From: BG9OXA <bg9oxa@163.com>
-To: linux-rockchip@lists.infradead.org
-Cc: linux-arm-kernel@lists.infradead.org, devicetree@vger.kernel.org, Heiko Stuebner <heiko@sntech.de>
-Subject: [PATCH 0/2] arm64: dts: rockchip: add ALIENTEK QuarkPi-CA2
-Date: Sun, 27 Sep 2026 20:36:59 +0800
-Message-ID: <179051261955.4055.4823239353832017342@163.com>
-X-CM-TRANSID: _____wD3_0TrDblqcxuyBA--.50921S2
-X-Coremail-Antispam: 1Uf129KBjvJXoWxGryUWr15Kw4ftryxAr4DXFb_yoW5ur1fpF
-	Z8ZrWfKrs7KF1xu3s3uFs8CFWrArs3Jay5WF1kW34ayws8Jr1UJF4Sv3Z0q3W7urnagFyj
-	qF4Y9348CF1DZF7anT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
-	9KBjDUYxBIdaVFxhVjvjDU0xZFpf9x07UTMKNUUUUU=
-X-CM-SenderInfo: lejz05rd6rljoofrz/xtbC3QyH9Gq5DexwsgAA3S
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260927_053705_830640_9F818F3C 
-X-CRM114-Status: GOOD (  17.46  )
+	id 1xAodE-0000000GMj2-2ooe;
+	Sun, 27 Sep 2026 13:09:28 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id B89C060D79;
+	Sun, 27 Sep 2026 13:09:27 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPS id 5ED25C4AF13;
+	Sun, 27 Sep 2026 13:09:27 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1790514567;
+	bh=VV3PcSRW35Gh+Yndg2F831wLiF0LGsxmujAoDExyn0g=;
+	h=From:Date:Subject:References:In-Reply-To:To:Cc:Reply-To:From;
+	b=YA+SdiUTDHUrzX4RMKaOq+lhn8PAPgEuhF25f2k7zwxR12n4kBjCd4rOj/umWp3eF
+	 AHpX4YndMFCE6QiLL5dKEiq9kKLG41wsOZ5jCEJrFTjSFb2JnZrprHEdXpJlvMkMyD
+	 JNmgOK7gBN1DHA1FvQKpaZxrl2uslxuCCGVinkpwxUkIPw9tdPHSy2quOBoKY5cnN9
+	 OWHd41rnZgzSRgGjqx7jShxCNENXwG9AxG4ZNs9E6EgSE+uR18ex8ugFBw+YV1/PzI
+	 d0XfASa08RCaq+C2tLvgYIpmxjHm+ypQPzEwBsdyCHws6k0CBkxeRIfzgaIQgcbCns
+	 JteDxE86s4wBQ==
+Received: from aws-us-west-2-korg-lkml-1.web.codeaurora.org (localhost.localdomain [127.0.0.1])
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 3E8B7C9830E;
+	Sun, 27 Sep 2026 13:09:27 +0000 (UTC)
+From: Daniel Drake via B4 Relay <devnull+dan.reactivated.net@kernel.org>
+Date: Sun, 27 Sep 2026 14:09:00 +0100
+Subject: [PATCH v7 1/6] iommu_pt: Fix test_pgsize_boundary() failure on
+ narrow-OA formats
+MIME-Version: 1.0
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+Message-Id: <20260927-bcm2712-iommu-submit-v7-1-dfa2b975cbc9@reactivated.net>
+References: <20260927-bcm2712-iommu-submit-v7-0-dfa2b975cbc9@reactivated.net>
+In-Reply-To: <20260927-bcm2712-iommu-submit-v7-0-dfa2b975cbc9@reactivated.net>
+To: "Joerg Roedel (AMD)" <joro@8bytes.org>, Will Deacon <will@kernel.org>, 
+ Robin Murphy <robin.murphy@arm.com>, Rob Herring <robh@kernel.org>, 
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, 
+ Florian Fainelli <florian.fainelli@broadcom.com>, 
+ Broadcom internal kernel review list <bcm-kernel-feedback-list@broadcom.com>, 
+ Daniel Drake <dan@reactivated.net>
+Cc: iommu@lists.linux.dev, linux-kernel@vger.kernel.org, 
+ devicetree@vger.kernel.org, linux-rpi-kernel@lists.infradead.org, 
+ linux-arm-kernel@lists.infradead.org, nick.hollinghurst@raspberrypi.com, 
+ james.quinlan@broadcom.com, Jason Gunthorpe <jgg@ziepe.ca>
+X-Mailer: b4 0.14.3
+X-Developer-Signature: v=1; a=openpgp-sha256; l=1340;
+ i=dan@reactivated.net; h=from:subject:message-id;
+ bh=JFow46Vnz8reduVDvIc0YSORwX6vyQZXYpGoWC0l8YY=;
+ b=kA0DAAoBw+aPsVMUR7sByyZiAGq5FYShEQEKIjovVnD1hOPwEinZcQ0OYFUbR7fJ9dJFV2SiT
+ IkCMwQAAQoAHRYhBDpF/SxQ/WISFd9V+MPmj7FTFEe7BQJquRWEAAoJEMPmj7FTFEe7Qv8P/i1o
+ 7q0v4JhmkVXw0zJ3ay5fArpJIAHgLXLRffJNLdwrOa9YfVsn+D0/FX3kLS9tAdMVGBNbT5Z1hR8
+ RjUtf+wj18jGAjjsE1d99HDuEFI5fVUlA9QR5QIgtnHTx07FYUITqCMHnYwLv88NlS29vqJESlQ
+ C6/6j+RRAkWz0ce+mDMwXwW/QBwZx8SCrfCkLoJa/7NGbIRXFMwa3EEL6bA4tCGYZqc+1kFBYqo
+ 2qcesp1j3zUAUPwgnb+0x16mD0jHaboMIDNqUT0lk+oUrSXbr8rHERHdv0Rrc8UDXEHGIKFzo98
+ 82IHDfIv/4Zuf7JXFrHMHtqhnYSdyucJP1qUffTeWok5vsADncPF0Yn+uHz6xyU38oIKnShjs7x
+ VyhC8bYCe1HpStUZVRdl2hSnWGErXQ3ndXMaZwt5JpAYiHa4feODm7rSowu0aMzLsOEPooWjsZG
+ B97JQ6SZZLzQO5dhLZWRO9Saaxz+2SGBtTaV6z04u1DNKyU9n+nd4rgVgwqCD3TVjTcrpQpNQB+
+ DhIWRvGUuIGcZvzgzFehHyztrPx3uxMLUiZiGJ1gBpdeYbFB5AMqogfYGkneIe9tk910cs+Pxpu
+ 6UYDWUNWbhkufG01535W/S2IAYLEPd5o/eQHcwtkVAek+lz+Bah1PpxaPXFU3DqhqfS+jQw3/vq
+ dU0yA
+X-Developer-Key: i=dan@reactivated.net; a=openpgp;
+ fpr=3A45FD2C50FD621215DF55F8C3E68FB1531447BB
+X-Endpoint-Received: by B4 Relay for dan@reactivated.net/default with
+ auth_id=1070
+X-Original-From: Daniel Drake <dan@reactivated.net>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -58,78 +97,45 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
+Reply-To: dan@reactivated.net
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi all,
+From: Daniel Drake <dan@reactivated.net>
 
-This short series adds support for the ALIENTEK QuarkPi-CA2, an RK3588S
-based single board computer.
+test_pgsize_boundary() tests boundary mapping with a hardcoded physical
+address that requires 38 bits of physical address space. However, the
+upcoming page table format for the Broadcom BCM2712 IOMMU only supports
+37 bits of output address space.
 
-Board summary:
- - Rockchip RK3588S (4x Cortex-A76 + 4x Cortex-A55), LPDDR4x
- - eMMC, microSD slot, M.2 socket (PCIe 2.0 x1)
- - Gigabit Ethernet, USB 3.0 Type-A, USB 2.0 Type-A ports and a USB-C
-   port (USB 2.0 plus DisplayPort altmode)
- - HDMI output, MIPI DSI and MIPI CSI connectors
- - ES8388 analog codec with 3.5 mm jack, HUSB311 USB-C PD controller
- - 40-pin header, RK806 PMIC, IR receiver
- - No SPI-NOR; the vendor bootloader reads extlinux.conf from the SD/eMMC
-   boot partition
+This causes a test failure as iommu_map() rejects the large address
+with -ERANGE.
 
-Patch 1 documents the board in the Rockchip platform bindings, patch 2
-adds the device tree itself (plus its Makefile entry).  The "alientek"
-vendor prefix is already present in vendor-prefixes.yaml, so no vendor
-prefix change is needed.
+Drop the high bits of the address (they are not relevant to the
+boundary calculations being tested) so that it fits into 32 bits.
 
-Tested on hardware with a 6.18 based kernel: boot from SD and eMMC,
-gigabit Ethernet, both USB 2.0 ports, the USB 3.0 Type-A port (5000 Mbps
-link), USB-C DisplayPort altmode, HDMI video and audio, ES8388 analog
-audio, M.2 PCIe, ADC keys, the IR receiver and ramoops.
+Reviewed-by: Jason Gunthorpe <jgg@nvidia.com>
+Signed-off-by: Daniel Drake <dan@reactivated.net>
+---
+ drivers/iommu/generic_pt/kunit_iommu_pt.h | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
 
-Notes worth the reviewer's attention:
-
- * The codec node keeps "clock-names = \"mclk\"" together with the
-   I2S0_8CH_MCLKOUT_TO_IO clock.  Without that name the MCLK never reaches
-   the codec pad and playback stays silent, even though every register,
-   the DAPM paths and the ALSA controls look correct.  Verified on
-   hardware both with and without the property.
-
- * The codec compatible list is "everest,es8323", "everest,es8388".  The
-   second entry is not cosmetic: sound/soc/codecs/es8328-i2c.c matches only
-   "everest,es8328" and "everest,es8388", so dropping it would leave the
-   codec without a driver.  Keeping it produces two dtbs_check warnings,
-   because an ES8323/ES8388 binding is not upstream yet and the node falls
-   back to everest,es8316.yaml (the compatible list is "too long" and
-   AVDD/DVDD/HPVDD/PVDD are unexpected).  Two mainline boards already use
-   "everest,es8323" with the same gap (rk3588-firefly-itx-3588j,
-   rk3588s-youyeetoo-r1), so it looks like a missing binding rather than a
-   board issue.  I left the binding out of this series to keep the board
-   port focused and will happily send it separately - please tell me which
-   form you prefer.
-
- * The USB 3.0 Type-A port is wired to usb_host2_xhci through combphy2_psu;
-   both are enabled here, as in the vendor BSP.  combphy2_psu is free on
-   this board because the M.2 socket uses pcie2x1l2 (combphy0_ps).
-
- * The MIPI CSI camera pipeline is described, but does not stream yet: the
-   sensor probes fine while the RK3588 VICAP/rkcif capture path is still
-   incomplete upstream, so those nodes are included for completeness only.
-
-This is my first patch to the Rockchip platform.  I am a Chinese hobbyist
-(amateur radio callsign BG9OXA) working on this board in my spare time, so
-please point out anything that does not follow the expected style.
-
-BG9OXA (2):
-  dt-bindings: arm: rockchip: add ALIENTEK QuarkPi-CA2
-  arm64: dts: rockchip: add ALIENTEK QuarkPi-CA2
-
- .../devicetree/bindings/arm/rockchip.yaml            |    5 +
- arch/arm64/boot/dts/rockchip/Makefile                |    1 +
- arch/arm64/boot/dts/rockchip/rk3588s-quarkpi-ca2.dts | 1508 +++++++++++++++++++
- 3 files changed, 1514 insertions(+)
+diff --git a/drivers/iommu/generic_pt/kunit_iommu_pt.h b/drivers/iommu/generic_pt/kunit_iommu_pt.h
+index ece1c9b8c55d..9fc71db74234 100644
+--- a/drivers/iommu/generic_pt/kunit_iommu_pt.h
++++ b/drivers/iommu/generic_pt/kunit_iommu_pt.h
+@@ -403,7 +403,7 @@ static void test_pgsize_boundary(struct kunit *test)
+ 	    priv->smallest_pgsz != SZ_4K)
+ 		kunit_skip(test, "Format does not have the required range");
+ 
+-	do_map(test, 0xfef80000, 0x208b95d000, 0xfef9ffff - 0xfef80000 + 1);
++	do_map(test, 0xfef80000, 0x8b95d000, 0xfef9ffff - 0xfef80000 + 1);
+ }
+ 
+ /* See https://lore.kernel.org/r/20250826143816.38686-1-eugkoira@amazon.com */
 
 -- 
-2.43.0
+2.55.0
+
 
 
