@@ -4,7 +4,7 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9B900C9832F
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 91835C9830E
 	for <linux-arm-kernel@archiver.kernel.org>; Sun, 27 Sep 2026 16:35:37 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
@@ -12,42 +12,42 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:
 	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=TDbZyGGFBP9eRmkAQH9I9cvotS6ESn1jbu9Gooo903A=; b=wokno4sFOcMxpov59OxaPhUeXk
-	342ibJm5q9sBwFRlJKtymd5F7YTqotRWIX+vXjYTQoYa6xO1SqWlKk72mFE5mMxZSP2NyBM0FTiNO
-	2/zIVAjgE4f1eimfN8OS6Iruj3GP2crruuNbToA9IWm12kdcLY/7mojl91QPBKlhXwjAnZVrjfBOU
-	PpXvoNNzIHV3N7dIiBJj5uddO6pWaGGU73U+y813hrjdapSUkHgM7lev5X1VCrnoZDB/E0azzwMW+
-	Eif9oPFJyQYQfn2UwPKGD6qbckGSUBYPBRiFu1WI5lD9F1/iyDYxrGJ78vSmQX4yOvbIbgzmizanM
-	y1wde2Eg==;
+	bh=iPKgJC8RbpP+9ibDNCnvvFbPTYvz5LnInWapqFpnif0=; b=J4dwvyuej4G6LyntB1aSzMUKnu
+	0e05hYIdqEB4c7rWlgK5Tt4pqL6kWePLYdfWaaovv/EeOok6S/jQQzC2lZS9py+PIRZ9Ipis2fv26
+	oqb4U8DGm996dHbjoyUAeAtQ/EFO0w2Yj9ZVyItImJprR8ENKsr2eXbqXfXw0Xz2hnalzUquZ9cWE
+	oX01/8K5gfHX2YufubWra9UO/DhP6Lrw03HOEZWXQD4K4Z+10BZOaa5SZZxonpyhoGKPmmNVCrnv+
+	EBLoZNMWFR5WV1zYrCp6/y9u1oD2Y30wkQ/OODXJDEG8HjRuXazNB7hA3KsMPF3y2xI8y7O9B0o0Q
+	UGLNKNPQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xArqd-0000000GbIT-2rBV;
+	id 1xArqd-0000000GbIB-2Qm7;
 	Sun, 27 Sep 2026 16:35:31 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xArqP-0000000GbFr-1ElQ
+	id 1xArqL-0000000GbF6-2c61
 	for linux-arm-kernel@lists.infradead.org;
-	Sun, 27 Sep 2026 16:35:17 +0000
+	Sun, 27 Sep 2026 16:35:13 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id C11004450A;
-	Sun, 27 Sep 2026 16:35:16 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id A3C6D1F000FF;
-	Sun, 27 Sep 2026 16:35:16 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 602EB60AAE;
+	Sun, 27 Sep 2026 16:35:11 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 160FD1F0089A;
+	Sun, 27 Sep 2026 16:35:11 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1790526916;
-	bh=TDbZyGGFBP9eRmkAQH9I9cvotS6ESn1jbu9Gooo903A=;
+	s=k20260515; t=1790526911;
+	bh=iPKgJC8RbpP+9ibDNCnvvFbPTYvz5LnInWapqFpnif0=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References;
-	b=IN8Fdi0MoUEdZdXcpinsQhC6TT/NgBySUO13qZw0oRL0GY6+/GP6qeVDZcXpntnSL
-	 bZJMRt97jWseNirMzkftBQkp3QP6vha/ScbyKsN1dZdtIJvCrO+VRHgsb7YSaJjs/h
-	 aNOKKS0i5AIw6YyfXI5eSE2xCuJ0dXoFHLvusgXlm6T1SMofedlrzIdsWfeKZZbcbn
-	 i9VPBkPOqsO1iWQZh3gklHeHqZnRpE7yRqnZ+gRWthMKpyck+NBXSAPVhnHP8PnYh4
-	 jpA2K0b4/71XOlHfYqkNwC68OApiZ6NH0RaUZyf4PjwtvWRdCVF70NZoP8TXM11+y6
-	 nxrwAdQBbYhkA==
+	b=DJnh36nn6WxhyaCJbJGkTanQoKzCjItyolhMxnEc22pXRpCgSLUh9BRCw4+lEcamN
+	 tIKd68LpYeUBraUKB2vRpJgNBIAXb0J7s6cYm3xfwsUsoL5SoXwHg0v81/rVOOIlUz
+	 tzrgQwQ04P9WXmsMGOw0rNNiDhNHIRnxhp3YHtSMIlxjsulriBl3KBQ9cx9WB/XxQV
+	 C+w7Gkmb7UsPZoAkXXCR0aOVWkghV7qt9E8nCip5ebUhL7xTeqa1Z9XrqJ23Kurrm/
+	 JWWE/nD5R7pRguabfOazZd/5OrSaHSSx24R/egUC792zx9KO0P65cnc+B10CicfYr5
+	 dZ8Khc/DmNzEg==
 Received: from sofa.misterjones.org ([185.219.108.64] helo=valley-girl.lan)
 	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
 	(Exim 4.98.2)
 	(envelope-from <maz@kernel.org>)
-	id 1xArqM-0000000E2St-3Rlt;
-	Sun, 27 Sep 2026 16:35:14 +0000
+	id 1xArqH-0000000E2Sj-1J3a;
+	Sun, 27 Sep 2026 16:35:09 +0000
 From: Marc Zyngier <maz@kernel.org>
 To: oupton@kernel.org,
 	kvmarm@lists.linux.dev,
@@ -61,12 +61,12 @@ Cc: joey.gouly@arm.com,
 	will@kernel.org,
 	kernel-team@android.com,
 	fuad.tabba@linux.dev
-Subject: Re: [PATCH v2] KVM: arm64: Disable stage-2 ptdump of pKVM
-Date: Sun, 27 Sep 2026 17:35:09 +0100
-Message-ID: <179052685158.3528802.17360317443596680597.b4-ty@b4>
+Subject: Re: [PATCH] KVM: arm64: Remove PAGE_SIZE alignment for hyp event ELF sections
+Date: Sun, 27 Sep 2026 17:35:06 +0100
+Message-ID: <179052685160.3528802.5901671854382290571.b4-ty@b4>
 X-Mailer: git-send-email 2.47.3
-In-Reply-To: <20260924100459.831013-1-vdonnefort@google.com>
-References: <20260924100459.831013-1-vdonnefort@google.com>
+In-Reply-To: <20260924095154.807726-1-vdonnefort@google.com>
+References: <20260924095154.807726-1-vdonnefort@google.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit
@@ -88,20 +88,15 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, 24 Sep 2026 11:04:59 +0100, Vincent Donnefort wrote:
-> With pKVM enabled, guest stage-2 page tables are owned and managed by
-> the hypervisor. The host's pgt is uninitialised.
-> 
-> Skip registering stage-2 ptdump debugfs files when protected KVM is
-> enabled.
-> 
-> 
-> [...]
+On Thu, 24 Sep 2026 10:51:54 +0100, Vincent Donnefort wrote:
+> .hyp.event_ids is mapped as part of .hyp.rodata. As a consequence this
+> section does not need any page-alignment. Remove it to save a page worth
+> of memory.
 
 Applied to next, thanks!
 
-[1/1] KVM: arm64: Disable stage-2 ptdump of pKVM
-      commit: 0dea17ffe6757a6249d143e607e786144aceee9c
+[1/1] KVM: arm64: Remove PAGE_SIZE alignment for hyp event ELF sections
+      commit: 8642afb74be6de014e49937c2c4de7576f45531c
 
 Cheers,
 
