@@ -4,68 +4,74 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E3912C98338
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 27 Sep 2026 18:06:53 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 26CC4C9832F
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 27 Sep 2026 18:45:37 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=6XEoCOiEHSF66Tl36XozdroZPLAJ+sF9zsLneNYmRCk=; b=lgJItP40fzuuF+XhZpucM6Hrer
-	pJ+QCKFG4iGyBHq/iguY/FI+dRMpNmjearQMqJ0pUp/QqeIBKKJTd4kjKdAKRPxzZ6drKSL+xV4OC
-	CMCrt8rQz1fXu2uXoe08AN2P2URRwk+0HIjT83rXuFL6/GBpp4zOBpC84usK6BAnUpDDBEvy94CxT
-	SNvfoUxzsQ45AJJ0A4zfHM1BKDsf7QgxP84/WJXCeCeRlZDgj+iBjRnfJhlaS4dxAvKUYUBOfAtUp
-	W5yl/Z2Zozxf5ty9JMRYza7UGZerOs29DOvPIMbaI0O4RXZlb1iKMdGGnWaJJBcrBl+u3XeWNGJdn
-	s/eXSdwQ==;
+	bh=XOZCUtTkrG5ksbg7GHum6vxlU/QGb8FKtSPAAJz104M=; b=2QSEYXmNXW7WX6yxjkJfHtIkgb
+	GNB1JKHL/NXA55ruIqHuhJ+l/7sXKvdS8wQaqB6ist5qZZoi66bqIwSbkU5DsjlfdubUvvu2532LB
+	q2yJ9EJmUY6LoC8hjXtOmHHzXNb27pU12E/jT/Cfo658EhtJO7Hn1y+jg5Ttrc2WAW/WfZ5LQvDGk
+	MfkEtMjX6l1tjP9h7XHFBk6thHT8BSNUkm5eRqTlwereuiVvTA0Dd2CTjylpD2rdbGO8yT5pktV3c
+	GyLHcI0u1XmyBtOgyOUzYbRzJjxTVHE41WJH/JG9EoApmK9I4XKrCGBZWNebjByOxgqHIBvFiQphM
+	nulUdKlw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xAtGw-0000000GgRL-2HmZ;
-	Sun, 27 Sep 2026 18:06:46 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1xAtsP-0000000Gi3V-17Yn;
+	Sun, 27 Sep 2026 18:45:29 +0000
+Received: from vps0.lunn.ch ([156.67.10.101])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xAtGu-0000000GgR3-3hql
-	for linux-arm-kernel@lists.infradead.org;
-	Sun, 27 Sep 2026 18:06:44 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id CE7BD60D79;
-	Sun, 27 Sep 2026 18:06:43 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 896241F000FF;
-	Sun, 27 Sep 2026 18:06:42 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1790532403;
-	bh=6XEoCOiEHSF66Tl36XozdroZPLAJ+sF9zsLneNYmRCk=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=SF0P6tTscRw/xse4NZsRmcE0+XRrIguAUwdAlc2M7cQYDKKuDz7fI7K1x16wUjYzv
-	 sbKVLwmEcN55ZBNFi1iI9LRbaE/0GWphRfSFq1D1Izs+ppcmPDlmkr79i50uNbvEZs
-	 lBGaZbyZ0ajSJMcbPgOqgHt0LE9jciMyqnZxjxRQbQjZQqMuC/tRPUIV51jSWjy10z
-	 TXu+PiScqIDCEzsqXSrH2EmX3+U6pwqp6KAlUgd9BepoKpd6hevIPG1+Yt080JaI22
-	 5C5BtKtXO5gsZ3lp8BwM7a6yKxZaFj/AlvZ3WH+3hLuUAfRE7vtkDuB8K7i4RMZ8MZ
-	 yjJCn647PNBVA==
-Date: Sun, 27 Sep 2026 20:06:39 +0200
-From: Krzysztof Kozlowski <krzk@kernel.org>
-To: James Hilliard <james.hilliard1@gmail.com>
-Cc: Richard Genoud <richard.genoud@bootlin.com>, 
-	Maxime Chevallier <maxime.chevallier@bootlin.com>, Andrew Lunn <andrew+netdev@lunn.ch>, 
-	"David S. Miller" <davem@davemloft.net>, Eric Dumazet <edumazet@google.com>, 
-	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>, Chen-Yu Tsai <wens@kernel.org>, 
-	Jernej Skrabec <jernej.skrabec@gmail.com>, Samuel Holland <samuel@sholland.org>, 
-	Maxime Coquelin <mcoquelin.stm32@gmail.com>, Alexandre Torgue <alexandre.torgue@foss.st.com>, 
-	LABBE Corentin <clabbe.montjoie@gmail.com>, Rob Herring <robh@kernel.org>, 
-	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
-	Giuseppe Cavallaro <peppe.cavallaro@st.com>, Jose Abreu <joabreu@synopsys.com>, 
-	Alastair D'Silva <alastair@d-silva.org>, Maxime Ripard <mripard@kernel.org>, netdev@vger.kernel.org, 
-	linux-arm-kernel@lists.infradead.org, linux-sunxi@lists.linux.dev, 
-	linux-stm32@st-md-mailman.stormreply.com, linux-kernel@vger.kernel.org, devicetree@vger.kernel.org
-Subject: Re: [PATCH net-next v5 2/3] dt-bindings: net: allwinner: add H616
- EMAC1
-Message-ID: <20260927-amazing-loris-of-criticism-bfb38b@quoll>
-References: <20260921-submit-h616-emac1-v1-v5-0-ada661ed9e9b@gmail.com>
- <20260921-submit-h616-emac1-v1-v5-2-ada661ed9e9b@gmail.com>
+	id 1xAtsN-0000000Gi34-1hUp;
+	Sun, 27 Sep 2026 18:45:28 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=lunn.ch;
+	s=20171124; h=In-Reply-To:Content-Disposition:Content-Type:MIME-Version:
+	References:Message-ID:Subject:Cc:To:From:Date:From:Sender:Reply-To:Subject:
+	Date:Message-ID:To:Cc:MIME-Version:Content-Type:Content-Transfer-Encoding:
+	Content-ID:Content-Description:Content-Disposition:In-Reply-To:References;
+	bh=XOZCUtTkrG5ksbg7GHum6vxlU/QGb8FKtSPAAJz104M=; b=rCiSnUJ2wDqcA0siV9Oe9iiKYI
+	c4LnjWW9IHv9TSgwZHH3Ae9tkM50pS7OsMeJKUQY+vb2yGMBePj8zqdyOddBug+P4Ir7N+US+D0sP
+	D9AkkjIOu4Kg/c7FkJMVT9QMweed7vJhBBNc/RNgZgVO3jJycd5kSvheRasKBeMLBLYU=;
+Received: from andrew by vps0.lunn.ch with local (Exim 4.94.2)
+	(envelope-from <andrew@lunn.ch>)
+	id 1xAts2-007YMh-Kf; Sun, 27 Sep 2026 20:45:06 +0200
+Date: Sun, 27 Sep 2026 20:45:06 +0200
+From: Andrew Lunn <andrew@lunn.ch>
+To: Christian Marangi <ansuelsmth@gmail.com>
+Cc: Lee Jones <lee@kernel.org>, Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Andrew Lunn <andrew+netdev@lunn.ch>,
+	"David S. Miller" <davem@davemloft.net>,
+	Eric Dumazet <edumazet@google.com>,
+	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
+	Vladimir Oltean <olteanv@gmail.com>,
+	Matthias Brugger <matthias.bgg@gmail.com>,
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
+	"Chester A. Unal" <chester.a.unal@arinc9.com>,
+	Daniel Golle <daniel@makrotopia.org>,
+	Heiner Kallweit <hkallweit1@gmail.com>,
+	Russell King <linux@armlinux.org.uk>,
+	Simon Horman <horms@kernel.org>,
+	linux-arm-kernel@lists.infradead.org,
+	linux-mediatek@lists.infradead.org, netdev@vger.kernel.org,
+	mfd@lists.linux.dev, devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org
+Subject: Re: [PATCH net-next v23 5/9] net: phy: Add Airoha AN8855 Internal
+ Switch Gigabit PHY
+Message-ID: <544bfdda-abdb-4fb6-a4c1-201dd8899703@lunn.ch>
+References: <20260925182435.21207-1-ansuelsmth@gmail.com>
+ <20260925182435.21207-6-ansuelsmth@gmail.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
+Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20260921-submit-h616-emac1-v1-v5-2-ada661ed9e9b@gmail.com>
+In-Reply-To: <20260925182435.21207-6-ansuelsmth@gmail.com>
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260927_114527_445931_3EB038C1 
+X-CRM114-Status: UNSURE (   9.91  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -80,26 +86,15 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Sep 21, 2026 at 06:45:25PM -0600, James Hilliard wrote:
-> The H616 secondary EMAC uses a separate system-control clock register
-> and supports only RMII at 10/100 Mbps. Add its distinct compatible
-> without an older fallback, since using the primary EMAC clock register
-> would not work.
+On Fri, Sep 25, 2026 at 08:24:27PM +0200, Christian Marangi wrote:
+> Add support for Airoha AN8855 Internal Switch Gigabit PHY.
 > 
-> Constrain the PHY interface mode to RMII, matching the hardware.
+> This is a simple PHY driver to configure and calibrate the PHY for the
+> AN8855 Switch with the use of NVMEM cells.
 > 
-> Reviewed-by: Alastair D'Silva <alastair@d-silva.org>
-> Tested-by: Alastair D'Silva <alastair@d-silva.org>
+> Signed-off-by: Christian Marangi <ansuelsmth@gmail.com>
 
-Tested-by is not applicable here, please drop. Don't blindly apply cover
-letter tags.
+Reviewed-by: Andrew Lunn <andrew@lunn.ch>
 
-With this corrected (and assuming Alastair actually did review the
-binding... otherwise just don't use blanket cover letter tags):
-
-Reviewed-by: Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
-
-Best regards,
-Krzysztof
-
+    Andrew
 
