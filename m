@@ -4,98 +4,96 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9A1ECC9832F
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 27 Sep 2026 15:12:49 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0F9DFC98332
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 27 Sep 2026 15:12:50 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=gSdVTPRqn06pkAsO84XJHQb2v3v0xthABnxiNhSpNuo=; b=wL5HPb9xcQbGTL8yHyN0AjasLF
-	2tYgN2kIgXqGE19tZV9JMIk5wBmBSmhsLb4/ubCgJiv5A0OfZymetjksfonGUDNQhoVlUp89PKkAQ
-	JlTt1hZ24trsCC9cV28/HETyxpTwQck5HLSIPsl0EqACFNNVf4B+AHAdqLgbYMM+G0nJIz/+iFbIr
-	dVVP83YfZkow8rz1EkpFXYjUbRx81+C7Z2GIXbazVgGyYi7NrsAddbPWY6a5sYMEINHgsrTNWffou
-	u3zUG7JhKgV7tnfhG+nqAakseNnFj0GWlwsUOGqGw0Fzmi0Bbp+3jnHeIkKdBz6bueoJEnYwCLrRy
-	pNmMLP0Q==;
+	bh=OBwIwOCuc7HMhoKI+9bOx8aeWrQw+h7eCYLVVq2oCws=; b=Fkg5gQE1Qq2XuX9ZuRs+euTd9A
+	4HF3+OPOc3vgPGrX9MSF4qBUUWm4RZGDKqFsOr+cAo/fm3H0WaxBngVI3jzcR5gg2ICV9J8aAVOGW
+	xdV09570M4vx+zNXdV9dNvyg+f3zOs7D6WsffVYNuBIBm3u21/ZCOu5UFgVbpwx7taCqyNwKh1HT3
+	WVxX/qLBYMfTikyZLRIMcYgtUo9MY7Cree2qQu3QpBb1hq49oWmnNmprJnkMEMQFCUz3H2nHwdv9P
+	2+kLc9g9YQruJw3KukP062XAa4PDyRBd3fm3/4RKzhyB7MF9e4+2+5GhUSo5/Sd91W/CGofLXt4xQ
+	Bz72uINQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xAqYV-0000000GV0u-0OBG;
+	id 1xAqYV-0000000GV1C-0pNr;
 	Sun, 27 Sep 2026 15:12:43 +0000
 Received: from mail-wr2-x0f.google.com ([2a00:1450:4864:30::f])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xAqYO-0000000GUw5-1ISP
+	id 1xAqYQ-0000000GUxf-08Zo
 	for linux-arm-kernel@lists.infradead.org;
-	Sun, 27 Sep 2026 15:12:38 +0000
-Received: by mail-wr2-x0f.google.com with SMTP id ffacd0b85a97d-488780459e2so2273447f8f.2
-        for <linux-arm-kernel@lists.infradead.org>; Sun, 27 Sep 2026 08:12:35 -0700 (PDT)
+	Sun, 27 Sep 2026 15:12:39 +0000
+Received: by mail-wr2-x0f.google.com with SMTP id ffacd0b85a97d-4885a1480a2so1217938f8f.3
+        for <linux-arm-kernel@lists.infradead.org>; Sun, 27 Sep 2026 08:12:37 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1790521954; x=1791126754; darn=lists.infradead.org;
+        d=gmail.com; s=20251104; t=1790521956; x=1791126756; darn=lists.infradead.org;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to:content-type;
-        bh=gSdVTPRqn06pkAsO84XJHQb2v3v0xthABnxiNhSpNuo=;
-        b=TRxNrhXupiAgzOUqkw7r1BGZDjesbi3s5qTm9YHuqILU2pHEaonJu+akekhOvBpaIK
-         5ntXy9nNmXHXjOyAZQ1XZzobs1YI9Xy7MsKzDqO3lZvJtllZTFWEHQ0hx4Ho6tlF4XIa
-         lX5ETIR4svBF5OklZ+HOsAhBUJ78gUuZ7XxKY0EDV/7mazH8Kqm+WOoM/iC8zb1vK79C
-         z3XSWF5B7N/udrR7sBTmbmwduYZpj0HRmXZIaIbTmd5J78jB0KFRiz0zzbx7blchBEMb
-         kG+nsqRV5/B7RXc1F4daS0PSNTFb0BgGgj9MUd/qbGueqeLKxn52C5v7y4u9q0p4QZZC
-         l/gA==
+        bh=OBwIwOCuc7HMhoKI+9bOx8aeWrQw+h7eCYLVVq2oCws=;
+        b=biBnOK9SJFrdAd8YvBjVVByRUlUGFhVgpeo64yJvnjBMx4pPjBa8v56NQPjLOxsXRi
+         2IxahcBvE6eFZZrtFZqtvWdUXuz9+BOdQVQIGV/0H/xvsQV3DiyRyWYvzb0kLyNrjGrc
+         73vWGVyNliX0Nnq8KfAdN581HRLUG838ZWzIejonYGl/2iXwWxe0T70zteTEBG1dhvtO
+         fKif6C87+eFimB8fBuxHcm7uCaz6sAp4v8Os5TIynVm2CHU5vvokZ3Evv0g8QNpVtK9j
+         gakCZ4mMqrPEcyeAo01wc4uID3r3zq9i0Sh4UmalDDMni3ko+1B3rhBje3+ayeM0Iwm2
+         e8SA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1790521954; x=1791126754;
+        d=1e100.net; s=20260707; t=1790521956; x=1791126756;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
          :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=gSdVTPRqn06pkAsO84XJHQb2v3v0xthABnxiNhSpNuo=;
-        b=ZNd6bTQp9XvQDzKbO4DB+LjUkyYTdiXV/A+Sjm2BmO7k29o+NyzT9J9WR50dfPf6oP
-         yk4tyz5b65vjEi88WimjDxXgDuq4jvPak6v++yFf2bnSTzkC//WEnmmw6Kqm/5NTm7Hr
-         x2/O1wprSg/HAU4mfhOZUryX9bgK83NQ9aPPaAkB2jqRBySrfGJKSZjlLrpCKXlqtraY
-         b7XHcg6+hr1F9vefBU1EW/tVobSvWBCq+DIks9WsHFgZw/ch/MVfBXOOBAe+GCbZjCeT
-         7OfY9yvP5CbugichK9clozFDDFpLdZXWBfBjof+rqowavCOmuXISyC6VrtvVNAx2i4Cm
-         sV/w==
-X-Forwarded-Encrypted: i=1; AKwUvBxQklKzpScrpidhi1ntSXVjKeXwuNfv58ninaVuaygrkgEH5UTgyhBFJj0EDuyx5n4Afnx44pHSwAVqV5Wdewny@lists.infradead.org
-X-Gm-Message-State: AFq9FYLYRHmdH302kcV+DARML5wsr4RDVxzyrBadnX++SwDyPjYfd5ZW
-	v5ORIRUZSo77m4ollrJ2AikuRtEDoQlZuYRt0DpafzLJb07nFzi2NPIU
-X-Gm-Gg: AYBFou1lSlNT500Zwb18MfzPubJUFQvp4K1j5ulUbY1yUKDVqYGcy5YXcfEh08HoIeT
-	LloI6xJqlw37GZuoznzezKNnCBNtbSyiMM3NT85PmtooPFhznVNZO+LvtXgXu2N+E6i9T3RWB8a
-	JFqa9RCaepgjGHde+S/OCE5Vgl1a8wY971yymBPRjFh98eKJe+GqUrhAK6aDxx/2vipokDrlhGS
-	cp2pV988+0wjejJe7+RteQUSeOa3mmVb162hIVvts3jp9vPcpJWRebnc/ycquBV4lcyI1jGeVMk
-	E3gQTCAN89vsWAK5RN+89oK7RvSdKyBaaFnH15sii1ZM8ccCL2/6OX+jN8GwQVzO9kcqeCjhu5g
-	eZ4xJi1JRapBUZuwvC0N3R3yTjQouGIfOgHSzRdMJg2ol0jfsGxo7iWpwnvee1Bfr0yXkyoYwG0
-	BxHy4rfZRJPYj0iaEcijlbloKH9RUvPcXWCSDx+C0UtxDW6R4IUVm8OZnk0m99PZVzLTP57/pFS
-	kJG4/5GIErrAgvqIGCwXEGkwTK4gxYh
-X-Received: by 2002:a05:6000:1a8a:b0:485:8cc8:1f5f with SMTP id ffacd0b85a97d-4887187595emr20616765f8f.42.1790521954539;
-        Sun, 27 Sep 2026 08:12:34 -0700 (PDT)
+        bh=OBwIwOCuc7HMhoKI+9bOx8aeWrQw+h7eCYLVVq2oCws=;
+        b=2WR/TSOBpjH6jc+GmXbifk8efVVKSrFVnYF2PPzwksyzgTZmxaRhxvbKwyCH0TAk4K
+         hPRX64vPq2w0qec7PAVv2FCmCh4ZvgbN0vpPQa80kLZHLiSSqmOQFh0whrWfdyLiO6m+
+         qgyskwKl4JB5tBP0f60rXGaljCX7wBdFe6sPNVo88he5wQIMz34XKWOGFVjAW1I2qSvK
+         Z54SXd2s2pBfxyp/5mPcbSkawtcFkngE1api01WkM5JfryBN1HnRO6//E4AGUR+wlxXN
+         3q0ywlW4/xwdOW+OwPLjHAQ8zRXxiJ1oDKvbgsZ7IEzMUJcop3HoFa52CTRvSGC1UK1Y
+         twOg==
+X-Forwarded-Encrypted: i=1; AKwUvBxx4r9r3hYExM0cG4PT1LtEsDU2EBVFHLkCgTrP4QNG/upfo9bVecIBmBz07mgfmKgfyKKwcNz24Ruj04Csw2Lm@lists.infradead.org
+X-Gm-Message-State: AFq9FYLtC6nO3R1YQOH8BX2GFLTVXwSG6+It4fz977aQsxj2W/yOXaAf
+	n4hiTdSFrQCAIWx5ePevVIlvBhAoJfbXgNDoJktDg8nIIGm0KIswszqz
+X-Gm-Gg: AYBFou33H5PtOSyDTaRJuGSQnx18jnmLj3rLhqIc/7u1IBPnUOjhRR5p/F4cf0/LXPe
+	mWUHuuj8FDmAwjHhVX0n+RURBkozFQbokPPwQSisHP8RP5mk57VSpJtvLWlXuS9tkGNjLherOJk
+	VAnNsgGBOqewrzGs9o2PWKtW2gd7aWgPFUZgCtdpjnb7+jcwSIYVe25u8pnt0r+FUJ/WHFhoCGD
+	4GbNVWK4eT4ONSW6+uLZXwiK3ByWj9fIOhGNAK4oQ+lCZPQXBwBNoe8ZJmyyOFakkquKsm9zC8C
+	llfW4bXiQhvexwH7be/+zEBKJlgk4db6Wcy5F/n7LO3S8QzxnyJAqX2lrQR3vY3DswMx+bnPLZd
+	k33NbZMG/MmSW3WdIAJgc5os1ypRR9qKp0tBPWkBv98Gbyg52mk9Sh1K7etuaAEPJGdcRby+2TY
+	JvAPHZldjoUSsxBHK64t9IhmqzueB2oRjm3nhTRVuAAKfl7UZ+HObDBJmlXQep1UkDb62tLP4O2
+	71hYWHl+jmYqOmVOMgIeHllxPjOTvH3
+X-Received: by 2002:a05:6000:4b09:b0:487:767:b301 with SMTP id ffacd0b85a97d-48879df7009mr13521375f8f.57.1790521956427;
+        Sun, 27 Sep 2026 08:12:36 -0700 (PDT)
 Received: from debian (ip-78-137-176-146.broadband.digiweb.ie. [78.137.176.146])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-4887a746c57sm19764208f8f.35.2026.09.27.08.12.33
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-4887a746c57sm19764208f8f.35.2026.09.27.08.12.35
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sun, 27 Sep 2026 08:12:33 -0700 (PDT)
+        Sun, 27 Sep 2026 08:12:35 -0700 (PDT)
 From: Pablo Mazzini <pmazzini@gmail.com>
 To: Chen-Yu Tsai <wens@kernel.org>,
 	Conor Dooley <conor+dt@kernel.org>,
 	Jernej Skrabec <jernej.skrabec@gmail.com>,
 	Krzysztof Kozlowski <krzk+dt@kernel.org>,
 	Maxime Ripard <mripard@kernel.org>,
-	Radu Rendec <radu@rendec.net>,
 	Rob Herring <robh@kernel.org>,
-	Samuel Holland <samuel@sholland.org>,
-	Thomas Gleixner <tglx@kernel.org>
+	Samuel Holland <samuel@sholland.org>
 Cc: Pablo Mazzini <pmazzini@gmail.com>,
 	devicetree@vger.kernel.org,
 	linux-arm-kernel@lists.infradead.org,
 	linux-kernel@vger.kernel.org,
 	linux-sunxi@lists.linux.dev
-Subject: [PATCH v2 09/11] dt-bindings: interrupt-controller: add Allwinner B288 NMI
-Date: Sun, 27 Sep 2026 16:10:14 +0100
-Message-ID: <20260927151016.186493-10-pmazzini@gmail.com>
+Subject: [PATCH v2 10/11] dt-bindings: arm: sunxi: add PocketBook Verse
+Date: Sun, 27 Sep 2026 16:10:15 +0100
+Message-ID: <20260927151016.186493-11-pmazzini@gmail.com>
 X-Mailer: git-send-email 2.53.0
 In-Reply-To: <20260927151016.186493-1-pmazzini@gmail.com>
 References: <20260927151016.186493-1-pmazzini@gmail.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260927_081236_401119_67DAFC43 
-X-CRM114-Status: GOOD (  10.24  )
+X-CRM114-CacheID: sfid-20260927_081238_120289_851EB128 
+X-CRM114-Status: GOOD (  10.11  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -110,25 +108,29 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Same register layout as the sun9i-a80 NMI, like the V3s.
+A 6" e-book reader built around the Allwinner B288.
 
 Signed-off-by: Pablo Mazzini <pmazzini@gmail.com>
 ---
- .../interrupt-controller/allwinner,sun7i-a20-sc-nmi.yaml         | 1 +
- 1 file changed, 1 insertion(+)
+ Documentation/devicetree/bindings/arm/sunxi.yaml | 5 +++++
+ 1 file changed, 5 insertions(+)
 
-diff --git a/Documentation/devicetree/bindings/interrupt-controller/allwinner,sun7i-a20-sc-nmi.yaml b/Documentation/devicetree/bindings/interrupt-controller/allwinner,sun7i-a20-sc-nmi.yaml
-index bb9273ec2457..179e7842bf46 100644
---- a/Documentation/devicetree/bindings/interrupt-controller/allwinner,sun7i-a20-sc-nmi.yaml
-+++ b/Documentation/devicetree/bindings/interrupt-controller/allwinner,sun7i-a20-sc-nmi.yaml
-@@ -29,6 +29,7 @@ properties:
-       - const: allwinner,sun55i-a523-nmi
-       - items:
-           - enum:
-+              - allwinner,sun8i-b288-nmi
-               - allwinner,sun8i-v3s-nmi
-               - allwinner,sun50i-a100-nmi
-               - allwinner,sun50i-h616-nmi
+diff --git a/Documentation/devicetree/bindings/arm/sunxi.yaml b/Documentation/devicetree/bindings/arm/sunxi.yaml
+index f04db28c630a..f66c681d3788 100644
+--- a/Documentation/devicetree/bindings/arm/sunxi.yaml
++++ b/Documentation/devicetree/bindings/arm/sunxi.yaml
+@@ -811,6 +811,11 @@ properties:
+           - const: pocketbook,614-plus
+           - const: allwinner,sun5i-a13
+ 
++      - description: PocketBook Verse (PB629)
++        items:
++          - const: pocketbook,verse
++          - const: allwinner,sun8i-b288
++
+       - description: Point of View Protab2-IPS9
+         items:
+           - const: pov,protab2-ips9
 -- 
 2.53.0
 
