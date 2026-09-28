@@ -4,74 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A73C4C9833E
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 28 Sep 2026 08:31:39 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B549FC9833E
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 28 Sep 2026 08:34:24 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
-	Message-ID:Date:References:MIME-Version:In-Reply-To:From:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=MuqpoHduVduL/y0wnBWdGHkHHicM70MFPxT5bKmE1Us=; b=lvi+mUHMlc/rE2l+0Hji6+GxA8
-	FcLMGvE5k0F5KmxrvriLFNM0R2kG/B08Qkjb75QmNPVQZ5ujV+qB1uLQxF4gxd41QdH5mq4j3dUTe
-	6QiaeOk+U3CV2CQ1bFvLID4erKTU+tn2b87L54QgPuOqjHtElfg4IC8oVrdw1T7eBuoX4RIe/F6+j
-	ptrOvJ8mIPCe8Qwmgqjj6vyl9L4LkSOhzjxxqIrtTwGd2TXfpr1ftlDOn56+HVCwq8DPGfh7vRpEY
-	sZ2YdTmFOrt71Eg8t6ALpWPLlQdsywSKHBmuEqxqW/nxuA8gp5uNXMjl+LN/fQKBtBeHqDKgWHpmT
-	iGff+BjQ==;
+	bh=qdltIrQtV/Sa43JqxqCgaPBwW4yMUqs8Fh418ryHzxQ=; b=V9DOIlPMmQXF0lRcUN7Qsfk0Dr
+	ML7fMnTvLV9PtVGEilw7DYDveD5K8qRWutL2lGkRWV2YjEAaRaRFJKiJTlfKAjF7i4cPnDcsOiN/C
+	TMWmE603MZGKnOi8vyhsf6i2zXQV2IfpZjf0QxPfgTYlJbcP2R5WnrJrxWK7FyQQ6Ydbvq4uLlNvw
+	NQ9In2CWMTBJ390R4p3qZF4KdhFwfBujms5LjQiBvuPLqagLNSNK0ixgsvYHpEtqapTKRGjUsXJLO
+	8i6xgCcroRgHQZ6vdO5aL4i1OXhYPZzAA1xT/e/1z1S4N/U0a0AFTJL9kt65C79sltuhUeMPM72wg
+	yNB18a6A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xB6lp-000000005m8-3IX0;
-	Mon, 28 Sep 2026 08:31:33 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
-	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xB6ln-000000005ls-35Dh
+	id 1xB6oU-000000006BC-1yFA;
+	Mon, 28 Sep 2026 08:34:18 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1xB6oS-000000006A4-077r
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 28 Sep 2026 08:31:32 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 25FC243CCB
-	for <linux-arm-kernel@lists.infradead.org>; Mon, 28 Sep 2026 08:31:31 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 095421F008A1
-	for <linux-arm-kernel@lists.infradead.org>; Mon, 28 Sep 2026 08:31:30 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1790584291;
-	bh=MuqpoHduVduL/y0wnBWdGHkHHicM70MFPxT5bKmE1Us=;
-	h=From:In-Reply-To:References:Date:Subject:To:Cc;
-	b=WdOItFxAVAnzGluXvaDDPCqN97XLfPMl6A4YDyzTSNHzz1xZ0O9nipQg6bqWldVC/
-	 bL5P14/A+KpZRX6/6d7cfBu+8IQFHbklBnqpXAhUhYWlJ4eIq3TLtRtOeuTktBrmdN
-	 aFOKcRw4xro1MwdgAj8WWPyzfjwtc6k87zPYO3UJOKiEYK4kNkcaiBMTIitBS5Fut1
-	 NebZzxCskzK8/PUepB1K4qmKLNbteeJzIedfndeLsC2nKSc7m9PkIj0IMaCwAs9yVU
-	 Ta2Pu0+eLOSVAFCdkb180/qey6U3G3M3sTybDecgX7XFbT4p0f3+BSR5cvMZ1Lr4Vq
-	 z8fkqXxbr90Lw==
-Received: by mail-lf1-f49.google.com with SMTP id 2adb3069b0e04-5b8eddcef9eso1593245e87.1
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 28 Sep 2026 01:31:30 -0700 (PDT)
-X-Forwarded-Encrypted: i=1; AKwUvBzyJux4tFblwLdaUCkuKoMdPrTXMq7nEY8USAmZnj1G7l83SS32c4d+YNtCpnpeA0AqEcV09piarjV+Xu7u4sXo@lists.infradead.org
-X-Gm-Message-State: AFq9FYLex0BspVvmYHVolAk+huWjw4JHUYX0jg99neJ3vff/feShzBAy
-	n9oApJgBSVoDZwNwCLtb1m8ihRDrhjgbxC+AvuhxmwJ0i4WtsfjwyDz/8rmaJdBQ00ehMjrrL5g
-	r95U9Nv/6aEACssPeiwMFMpbD19Ej9oucl+rGYBTLuw==
-X-Received: by 2002:a05:6512:3046:b0:5b8:c311:88e8 with SMTP id
- 2adb3069b0e04-5b8df1e6cf2mr3720055e87.26.1790584289662; Mon, 28 Sep 2026
- 01:31:29 -0700 (PDT)
-Received: from 969154062570 named unknown by gmailapi.google.com with
- HTTPREST; Mon, 28 Sep 2026 01:31:28 -0700
-Received: from 969154062570 named unknown by gmailapi.google.com with
- HTTPREST; Mon, 28 Sep 2026 01:31:28 -0700
-From: Bartosz Golaszewski <brgl@kernel.org>
-In-Reply-To: <20260925193008.127314-1-2000.costalucas@gmail.com>
+	Mon, 28 Sep 2026 08:34:17 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 3990D1570;
+	Mon, 28 Sep 2026 01:34:09 -0700 (PDT)
+Received: from localhost (unknown [10.2.196.114])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 506053F86F;
+	Mon, 28 Sep 2026 01:34:12 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
+	t=1790584452; bh=sjy+jOogKa1C0RGxmYJGrorGsiGN1pV70X0DLsrysPc=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=YRM4nm5fEynHDgWuBm3y1ICeroMFVhyCUHft4T4Qp0Kt4JMgIC+qaIvC01LZcQa3X
+	 6nujvNBv/arIA6xAFxZtfT0GPi6eh+EfrG31NYgy27zzHFDXnybuSv77FVsSuvxQ6X
+	 g5tZlyWTbdGjOgwB67jNes5KDT49OKr8rYhYDS4A=
+Date: Mon, 28 Sep 2026 09:34:10 +0100
+From: Leo Yan <leo.yan@arm.com>
+To: Peter Zijlstra <peterz@infradead.org>, Ingo Molnar <mingo@redhat.com>,
+	Will Deacon <will@kernel.org>,
+	Suzuki K Poulose <suzuki.poulose@arm.com>,
+	Mark Rutland <mark.rutland@arm.com>,
+	Adrian Hunter <adrian.hunter@intel.com>,
+	James Clark <james.clark@linaro.org>,
+	Mike Leach <mike.leach@arm.com>, Tamas Petz <tamas.petz@arm.com>,
+	Tamas Zsoldos <tamas.zsoldos@arm.com>
+Cc: linux-perf-users@vger.kernel.org, linux-kernel@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org, coresight@lists.linaro.org
+Subject: Re: [PATCH 1/3] perf/core: Export perf_event_itrace_started()
+Message-ID: <20260928083410.GB14479@e132581.arm.com>
+References: <20260901-perf_suppress_itrace_start_records-v1-0-c4fbc6860859@arm.com>
+ <20260901-perf_suppress_itrace_start_records-v1-1-c4fbc6860859@arm.com>
 MIME-Version: 1.0
-References: <20260923184450.135601-1-2000.costalucas@gmail.com> <20260925193008.127314-1-2000.costalucas@gmail.com>
-Date: Mon, 28 Sep 2026 01:31:28 -0700
-X-Gmail-Original-Message-ID: <CAMRc=Me3iGe9bxAM2Ph=kBU8PAvRZxq16NHk3FSKsp3EafhbdQ@mail.gmail.com>
-X-Gm-Features: AclHuK80sCVvVAPH0hKzq8SMRPB_tS6-QZBjVGjDspI-Uie2oIgZKXJbO_KiA9A
-Message-ID: <CAMRc=Me3iGe9bxAM2Ph=kBU8PAvRZxq16NHk3FSKsp3EafhbdQ@mail.gmail.com>
-Subject: Re: [PATCH v2] spi: bcm2835: fix device_node reference leak in bcm2835_spi_setup()
-To: Lucas Costa <2000.costalucas@gmail.com>
-Cc: Broadcom internal kernel review list <bcm-kernel-feedback-list@broadcom.com>, 
-	Bartosz Golaszewski <brgl@kernel.org>, linux-spi@vger.kernel.org, 
-	linux-rpi-kernel@lists.infradead.org, linux-arm-kernel@lists.infradead.org, 
-	linux-kernel@vger.kernel.org, stable@vger.kernel.org, 
-	Mark Brown <broonie@kernel.org>, Florian Fainelli <florian.fainelli@broadcom.com>, 
-	Ray Jui <rjui@broadcom.com>, Scott Branden <sbranden@broadcom.com>
-Content-Type: text/plain; charset="UTF-8"
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20260901-perf_suppress_itrace_start_records-v1-1-c4fbc6860859@arm.com>
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260928_013416_109401_C11EFACA 
+X-CRM114-Status: GOOD (  16.25  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -86,24 +76,32 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, 25 Sep 2026 21:30:08 +0200, Lucas Costa
-<2000.costalucas@gmail.com> said:
-> of_find_compatible_node() returns a device_node with its reference count
-> incremented, but bcm2835_spi_setup() only uses the return value to test
-> for a matching node in the loop and never releases it.
->
-> Declare the node with a scope-based __free(device_node) cleanup so the
-> reference is dropped automatically when leaving the loop body, matching
-> the existing __free(kfree) usage in the same function.
->
-> Fixes: e19c1272c80a ("spi: bcm2835: Restore native CS probing when pinctrl-bcm2835 is absent")
-> Cc: stable@vger.kernel.org
-> Signed-off-by: Lucas Costa <2000.costalucas@gmail.com>
+On Tue, Sep 01, 2026 at 05:36:15PM +0100, Leo Yan wrote:
+> Since Arm SPE and CoreSight drivers can be built as modules, export
+> perf_event_itrace_started() so that it can be used by these modules.
+> 
+> Signed-off-by: Leo Yan <leo.yan@arm.com>
+
+Gentle ping!
+
 > ---
-
-As Mark said: don't send new versions in response to older versions.
-
-In any case:
-
-Reviewed-by: Bartosz Golaszewski <bartosz.golaszewski@oss.qualcomm.com>
+>  kernel/events/core.c | 1 +
+>  1 file changed, 1 insertion(+)
+> 
+> diff --git a/kernel/events/core.c b/kernel/events/core.c
+> index a6c8e38a311042afab6b65814a84c67b87ba929b..8afe89179a62127eebae0f38f29cde045ba56251 100644
+> --- a/kernel/events/core.c
+> +++ b/kernel/events/core.c
+> @@ -10560,6 +10560,7 @@ void perf_event_itrace_started(struct perf_event *event)
+>  {
+>  	WRITE_ONCE(event->attach_state, event->attach_state | PERF_ATTACH_ITRACE);
+>  }
+> +EXPORT_SYMBOL_GPL(perf_event_itrace_started);
+>  
+>  static void perf_log_itrace_start(struct perf_event *event)
+>  {
+> 
+> -- 
+> 2.34.1
+> 
 
