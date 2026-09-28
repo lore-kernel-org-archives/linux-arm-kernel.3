@@ -4,67 +4,67 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1E15EC9833E
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 28 Sep 2026 09:43:25 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E59F8C9832F
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 28 Sep 2026 09:46:14 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
-	References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
+	:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=olO/hKKz89FHOaCKAaEXvx3zuxFgTV/VqCrzUGnPZ58=; b=WtmYLr9L0j7F2ENLgfjkMLIZ1u
-	/cLJ19q8RLcXMvcie0GwsD55kMdsFfGaiVBlIBJzr7MCdO/5oATyDFWcWZRbdxpMokj39ZM0PT4/r
-	5SUDCbgWMmXztyAzF8Aq2+zgbM6P7Jj6MB7hYeg9QFo5FVkIoe0NZg8rIGBa/jHnlxSX3nKGoM6ft
-	B7WH4XvKRFi6YSfHYCI6M5TmCorUpBobRm7kXfyVfVFRzoMr075mH3LZC1irmt56Krop4RJ4a+Dhs
-	A6Z2Prlixs+ga2Cs1KTKQlvaiJdSLWYy44hkshGHWdrJORWoQGzrM5O9sQLHL7hxHgQlMXSCtZrap
-	gVSElf8A==;
+	bh=4CuU+g3OS0jSsPnDL28a19vrBRSayq8z8NOABY2I9L0=; b=2COhSnKcyst/fGG4y1gKF7083u
+	u9hpr4/+mqu9ZHv3P3lHJknnIs7cjC+PaQ8e5j8piyw/Azc1IAglVG+DHDSYGsDzJ62hKZYHLM2ag
+	uiYv7ku1Thpwihc2MCGWT8qopWi+276v6kn3KQT8Y9DJ3T7yXNKDOc+Hs9JsASWEgtj1dAgVWMAAz
+	ir7CgqASsVKvxTxSzDP2zNKJhFcRY/I08wU5pxsdg/bZs4cwXsr34mIX/u2JMX8GNWq7Q/z4BxnGS
+	mhpXmg4KjXSNxmqXIJaiYx3fyK+Cl74W4DnqcceQbzDYEJnHDV1PKCeh3G2QviH528vf6rT11JguJ
+	2aFlXjkg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xB7tG-00000000FrZ-3JwQ;
-	Mon, 28 Sep 2026 09:43:18 +0000
+	id 1xB7vw-00000000GLv-0xn3;
+	Mon, 28 Sep 2026 09:46:04 +0000
 Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xB7tB-00000000Fqq-3hIK
+	id 1xB7vv-00000000GLe-2PAc
 	for linux-arm-kernel@bombadil.infradead.org;
-	Mon, 28 Sep 2026 09:43:14 +0000
+	Mon, 28 Sep 2026 09:46:03 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Content-Type:MIME-Version:References:
-	In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Sender:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description;
-	bh=olO/hKKz89FHOaCKAaEXvx3zuxFgTV/VqCrzUGnPZ58=; b=ZEoC/d7G7kvNJAZqcCiDfY0NvD
-	0trJEVY6fzuX5IHrOd43hlMS7ldUznlLLCAd5NDfRIvuzZYif9/Nje/wiBRIE2sVofrX+p4yheZ4J
-	Ehg5jYnekVzzvfzagqqGNNHO9kMarf+YZ1UcFzOXFZJBp5JGN3z8m1P4ViPqD8NoFGNA7aJDKWVH2
-	sDYUJQMQhaMAp8+dsnJwoiOOUweUknEnPUioXj2Aov5mM1JBxjMjRVzo/mK6mHPewpsTmLsH3S+2W
-	ree6qdot0Q8g3CzX9HaCeBDvqNCrPmiH5o/dfZxlJDdQAChanTKZpZjucfJFGuim7UGNpvXSF7P51
-	cjWILb2A==;
+	d=infradead.org; s=desiato.20200630; h=Content-Type:Content-Transfer-Encoding
+	:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Sender:Reply-To:Content-ID:Content-Description;
+	bh=4CuU+g3OS0jSsPnDL28a19vrBRSayq8z8NOABY2I9L0=; b=al/1dHSXUFT5DgGC4yxKZ23/+8
+	vgYwLIQLtdzKiy/1SAf0+V4i4o49wpTEQtk3GC0KhUlrB1ChRZGNFefNVN9idsBPgd6yKNusFBoXb
+	pbG0266sz+1/TvPPL2NEaIf5uRqVkqaRe3yrxf2Q1SK4vGzyMNMef6I9jqubqQWkZoDLMbtEU9MIw
+	JywxTscJrugOpKFWSPrAnoGHUx3NyKfg5Fa4MjyLMyQE0zEppxUTwKU+MlINWA/Gu6EsvrIo1CSx2
+	gTObGNVbbpCOKU7S44QO+27cIJpcvYAY5H+8XL+9uMLadX3pbVt39iwhyGkH5xHnvWz4E906XRCxQ
+	3rHrje0Q==;
 Received: from www537.your-server.de ([188.40.3.216])
 	by desiato.infradead.org with esmtps (Exim 4.99.2 #2 (Red Hat Linux))
-	id 1xB7t8-00000001Jyd-2zPm
+	id 1xB7vs-00000001KAV-1hDX
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 28 Sep 2026 09:43:12 +0000
+	Mon, 28 Sep 2026 09:46:02 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=ew.tq-group.com; s=default2602; h=Content-Type:MIME-Version:References:
-	In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Sender:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID;
-	bh=olO/hKKz89FHOaCKAaEXvx3zuxFgTV/VqCrzUGnPZ58=; b=KwLpC7olA7U1aRI29Mazglzkb7
-	a4K1/lsxm7GC55jLe1FYnqkJWuxGa7N3JT8J2ZNjXU+amYl0IR+zZadwhsAZA9vtdUVivYhf0JdGX
-	QDK2sJA9t2qzpna+JUGDDLsrVdBuRhyS0WJwyLZmkQ3VrGIs/2hp0TRz+CMsDQcSXqhL1wuKm4EIf
-	i1I5TJs/yCZ95vmR+ntlx9p6XdNqrVPuDbmJxEWLvxZ5eYSX7Xb/6Z9TJQq3Tah/IzOBJidDnKYxA
-	YqD0TvUkHgiQsovy2EteiM5OAMvbEyYMFIMjUNkS5ZYmyZCW/3RjLO7//3rtIciEOeH+AWpb01GAZ
-	78fNnhiQ==;
+	d=ew.tq-group.com; s=default2602; h=Content-Type:Content-Transfer-Encoding:
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Sender
+	:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID;
+	bh=4CuU+g3OS0jSsPnDL28a19vrBRSayq8z8NOABY2I9L0=; b=LRjkTP/07ZPNpeKypa4US1wvsw
+	OtyA1Aw8+Z6Rg+8XIxA4YkjoMtTXEi5Ob68KcJgImG2kaPWDOlZlwmIjq3cfuSNoUa25OLFa2712v
+	2DGk39CO7BJlWYrEdG/EbA+HpOJ5AhZYFtwJXsmtMtKzvJcEO6hS22X0/gnTaAib6dPdCO3kdLIak
+	RxvNM0ch90QAbVZlYhgVbwInb12fS3r+cTDjt+fBvsDhcKRX3BYoccNkDNSrcBKpN4ZR2JqoWAwVD
+	apeMddSF6FckTfjJl81A/bbAZflcGJTGXgA0WkclixC1qgDVGDmD/QOk5EGS4PO8xCRWWWFEcZPoD
+	VwVHK/eA==;
 Received: from sslproxy03.your-server.de ([88.198.220.132])
 	by www537.your-server.de with esmtpsa  (TLS1.3) tls TLS_AES_256_GCM_SHA384
 	(Exim 4.96.2)
 	(envelope-from <alexander.stein@ew.tq-group.com>)
-	id 1xB7sz-000JlS-1x;
-	Mon, 28 Sep 2026 11:43:01 +0200
+	id 1xB7vo-000KOD-39;
+	Mon, 28 Sep 2026 11:45:57 +0200
 Received: from localhost ([127.0.0.1])
 	by sslproxy03.your-server.de with esmtpsa  (TLS1.3) tls TLS_AES_256_GCM_SHA384
 	(Exim 4.96)
 	(envelope-from <alexander.stein@ew.tq-group.com>)
-	id 1xB7sz-000BEL-0v;
-	Mon, 28 Sep 2026 11:43:00 +0200
+	id 1xB7vo-000Jep-22;
+	Mon, 28 Sep 2026 11:45:56 +0200
 From: Alexander Stein <alexander.stein@ew.tq-group.com>
 To: Andrzej Hajda <andrzej.hajda@intel.com>,
  Neil Armstrong <neil.armstrong@linaro.org>, Robert Foss <rfoss@kernel.org>,
@@ -85,21 +85,21 @@ Cc: dri-devel@lists.freedesktop.org, devicetree@vger.kernel.org,
  linux-kernel@vger.kernel.org, imx@lists.linux.dev,
  linux-arm-kernel@lists.infradead.org, linux@ew.tq-group.com,
  Frank Li <Frank.Li@nxp.com>
-Subject: Re: [PATCH 4/8] arm64: dts: imx8mq: remove #address-cells and #size-cells in
- dsi@30a00000
-Date: Mon, 28 Sep 2026 11:42:58 +0200
-Message-ID: <2427808.ElGaqSPkdT@steina-w>
+Subject: Re: [PATCH 6/8] arm64: dts: imx: remove unnecessary #address-cells and
+ #size-cells
+Date: Mon, 28 Sep 2026 11:45:54 +0200
+Message-ID: <2280028.irdbgypaU6@steina-w>
 Organization: TQ-Systems GmbH
-In-Reply-To: <20260925-cleanup_dtb_warning-v1-4-f999fafbca60@nxp.com>
+In-Reply-To: <20260925-cleanup_dtb_warning-v1-6-f999fafbca60@nxp.com>
 References: <20260925-cleanup_dtb_warning-v1-0-f999fafbca60@nxp.com>
- <20260925-cleanup_dtb_warning-v1-4-f999fafbca60@nxp.com>
+ <20260925-cleanup_dtb_warning-v1-6-f999fafbca60@nxp.com>
 MIME-Version: 1.0
-Content-Type: multipart/signed; boundary="nextPart5106211.GXAFRqVoOG";
- micalg="pgp-sha512"; protocol="application/pgp-signature"
+Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset="iso-8859-1"
 X-Virus-Scanned: Clear (ClamAV 1.4.3/28137/Mon Sep 28 08:24:12 2026)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260928_104310_940932_70ED0C38 
-X-CRM114-Status: GOOD (  15.88  )
+X-CRM114-CacheID: sfid-20260928_104600_565056_8632C0CB 
+X-CRM114-Status: GOOD (  12.84  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -114,50 +114,175 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
---nextPart5106211.GXAFRqVoOG
-Content-Transfer-Encoding: quoted-printable
-Content-Type: text/plain; charset="iso-8859-1"; protected-headers="v1"
-From: Alexander Stein <alexander.stein@ew.tq-group.com>
-Date: Mon, 28 Sep 2026 11:42:58 +0200
-Message-ID: <2427808.ElGaqSPkdT@steina-w>
-Organization: TQ-Systems GmbH
-In-Reply-To: <20260925-cleanup_dtb_warning-v1-4-f999fafbca60@nxp.com>
-MIME-Version: 1.0
-
-Am Freitag, 25. September 2026, 18:37:53 CEST schrieb Frank.Li@oss.nxp.com:
+Am Freitag, 25. September 2026, 18:37:55 CEST schrieb Frank.Li@oss.nxp.com:
 > From: Frank Li <Frank.Li@nxp.com>
 >=20
-> No children nodes under dsi@30a00000, so remove '#address-cells' and
-> '#size-cells' to fix warning with (W=3D1):
->=20
-> arch/arm64/boot/dts/freescale/imx8mq.dtsi:1247.27-1297.6: Warning (avoid_=
-unnecessary_addr_size): /soc@0/bus@30800000/dsi@30a00000: unnecessary #addr=
-ess-cells/#size-cells without "ranges", "dma-ranges" or child "reg" or "ran=
-ges" property
->   DTC [C] arch/arm64/boot/dts/freescale/imx8mq-kontron-pitx-imx8m.dtb
+> Remove unnecessary #address-cells and #size-cells to fix the dtb W=3D1 wa=
+rning:
+>   Warning (avoid_unnecessary_addr_size): /soc@0/bus@30800000/i2c@30a20000=
+/gsc@20: unnecessary #address-cells/#size-cells without "ranges", "dma-rang=
+es" or child "reg" or "ranges" property
 >=20
 > Signed-off-by: Frank Li <Frank.Li@nxp.com>
 
-Acked-by: Alexander Stein <alexander.stein@ew.tq-group.com>
+Reviewed-by: Alexander Stein <alexander.stein@ew.tq-group.com> # TQMLX2160A
 
 > ---
->  arch/arm64/boot/dts/freescale/imx8mq.dtsi | 2 --
->  1 file changed, 2 deletions(-)
+>  arch/arm64/boot/dts/freescale/fsl-ls1088a-ten64.dts       | 4 ----
+>  arch/arm64/boot/dts/freescale/fsl-lx2160a-tqmlx2160a.dtsi | 4 ----
+>  arch/arm64/boot/dts/freescale/imx8mm-venice-gw7901.dts    | 2 --
+>  arch/arm64/boot/dts/freescale/imx8mm-venice-gw7902.dts    | 2 --
+>  arch/arm64/boot/dts/freescale/imx8mm-venice-gw7903.dts    | 2 --
+>  arch/arm64/boot/dts/freescale/imx8mm-venice-gw7904.dts    | 2 --
+>  arch/arm64/boot/dts/freescale/imx8mn-venice-gw7902.dts    | 2 --
+>  arch/arm64/boot/dts/freescale/imx8mq-nitrogen.dts         | 2 --
+>  arch/arm64/boot/dts/freescale/imx91-11x11-frdm-s.dts      | 2 --
+>  9 files changed, 22 deletions(-)
 >=20
-> diff --git a/arch/arm64/boot/dts/freescale/imx8mq.dtsi b/arch/arm64/boot/=
-dts/freescale/imx8mq.dtsi
-> index 5545b5b20ab2e..8d53df2be2280 100644
-> --- a/arch/arm64/boot/dts/freescale/imx8mq.dtsi
-> +++ b/arch/arm64/boot/dts/freescale/imx8mq.dtsi
-> @@ -1247,8 +1247,6 @@ sec_jr2: jr@3000 {
->  			mipi_dsi: dsi@30a00000 {
->  				compatible =3D "fsl,imx8mq-nwl-dsi";
->  				reg =3D <0x30a00000 0x300>;
-> -				#address-cells =3D <1>;
-> -				#size-cells =3D <0>;
->  				clocks =3D <&clk IMX8MQ_CLK_DSI_CORE>,
->  					 <&clk IMX8MQ_CLK_DSI_AHB>,
->  					 <&clk IMX8MQ_CLK_DSI_IPG_DIV>,
+> diff --git a/arch/arm64/boot/dts/freescale/fsl-ls1088a-ten64.dts b/arch/a=
+rm64/boot/dts/freescale/fsl-ls1088a-ten64.dts
+> index f51508952d51c..b762ad555ad9e 100644
+> --- a/arch/arm64/boot/dts/freescale/fsl-ls1088a-ten64.dts
+> +++ b/arch/arm64/boot/dts/freescale/fsl-ls1088a-ten64.dts
+> @@ -312,8 +312,6 @@ &qspi {
+> =20
+>  	en25s64: flash@0 {
+>  		compatible =3D "jedec,spi-nor";
+> -		#address-cells =3D <1>;
+> -		#size-cells =3D <1>;
+>  		reg =3D <0>;
+>  		spi-max-frequency =3D <20000000>;
+>  		spi-rx-bus-width =3D <4>;
+> @@ -363,8 +361,6 @@ partition@600000 {
+> =20
+>  	nand: flash@1 {
+>  		compatible =3D "spi-nand";
+> -		#address-cells =3D <1>;
+> -		#size-cells =3D <1>;
+>  		reg =3D <1>;
+>  		spi-max-frequency =3D <20000000>;
+>  		spi-rx-bus-width =3D <4>;
+> diff --git a/arch/arm64/boot/dts/freescale/fsl-lx2160a-tqmlx2160a.dtsi b/=
+arch/arm64/boot/dts/freescale/fsl-lx2160a-tqmlx2160a.dtsi
+> index cc6b6427ec8a6..aac0ae0ad40c7 100644
+> --- a/arch/arm64/boot/dts/freescale/fsl-lx2160a-tqmlx2160a.dtsi
+> +++ b/arch/arm64/boot/dts/freescale/fsl-lx2160a-tqmlx2160a.dtsi
+> @@ -41,8 +41,6 @@ &fspi {
+>  	flash0: flash@0 {
+>  		compatible =3D "jedec,spi-nor";
+>  		reg =3D <0>;
+> -		#address-cells =3D <1>;
+> -		#size-cells =3D <1>;
+>  		spi-max-frequency =3D <10000000>;
+>  		spi-rx-bus-width =3D <1>;
+>  		spi-tx-bus-width =3D <1>;
+> @@ -57,8 +55,6 @@ partitions {
+>  	flash1: flash@1 {
+>  		compatible =3D "jedec,spi-nor";
+>  		reg =3D <1>;
+> -		#address-cells =3D <1>;
+> -		#size-cells =3D <1>;
+>  		spi-max-frequency =3D <10000000>;
+>  		spi-rx-bus-width =3D <1>;
+>  		spi-tx-bus-width =3D <1>;
+> diff --git a/arch/arm64/boot/dts/freescale/imx8mm-venice-gw7901.dts b/arc=
+h/arm64/boot/dts/freescale/imx8mm-venice-gw7901.dts
+> index 272c2b223d167..1bb42116fc0b8 100644
+> --- a/arch/arm64/boot/dts/freescale/imx8mm-venice-gw7901.dts
+> +++ b/arch/arm64/boot/dts/freescale/imx8mm-venice-gw7901.dts
+> @@ -366,8 +366,6 @@ gsc: gsc@20 {
+>  		interrupts =3D <16 IRQ_TYPE_EDGE_FALLING>;
+>  		interrupt-controller;
+>  		#interrupt-cells =3D <1>;
+> -		#address-cells =3D <1>;
+> -		#size-cells =3D <0>;
+> =20
+>  		adc {
+>  			compatible =3D "gw,gsc-adc";
+> diff --git a/arch/arm64/boot/dts/freescale/imx8mm-venice-gw7902.dts b/arc=
+h/arm64/boot/dts/freescale/imx8mm-venice-gw7902.dts
+> index 468c7e993c52b..f53718221ad5b 100644
+> --- a/arch/arm64/boot/dts/freescale/imx8mm-venice-gw7902.dts
+> +++ b/arch/arm64/boot/dts/freescale/imx8mm-venice-gw7902.dts
+> @@ -317,8 +317,6 @@ gsc: gsc@20 {
+>  		interrupts =3D <6 IRQ_TYPE_EDGE_FALLING>;
+>  		interrupt-controller;
+>  		#interrupt-cells =3D <1>;
+> -		#address-cells =3D <1>;
+> -		#size-cells =3D <0>;
+> =20
+>  		adc {
+>  			compatible =3D "gw,gsc-adc";
+> diff --git a/arch/arm64/boot/dts/freescale/imx8mm-venice-gw7903.dts b/arc=
+h/arm64/boot/dts/freescale/imx8mm-venice-gw7903.dts
+> index 636daa3d6ca20..3eafff879e8d5 100644
+> --- a/arch/arm64/boot/dts/freescale/imx8mm-venice-gw7903.dts
+> +++ b/arch/arm64/boot/dts/freescale/imx8mm-venice-gw7903.dts
+> @@ -282,8 +282,6 @@ gsc: gsc@20 {
+>  		interrupts =3D <26 IRQ_TYPE_EDGE_FALLING>;
+>  		interrupt-controller;
+>  		#interrupt-cells =3D <1>;
+> -		#address-cells =3D <1>;
+> -		#size-cells =3D <0>;
+> =20
+>  		adc {
+>  			compatible =3D "gw,gsc-adc";
+> diff --git a/arch/arm64/boot/dts/freescale/imx8mm-venice-gw7904.dts b/arc=
+h/arm64/boot/dts/freescale/imx8mm-venice-gw7904.dts
+> index 99572961d9e16..fcbb40597b12c 100644
+> --- a/arch/arm64/boot/dts/freescale/imx8mm-venice-gw7904.dts
+> +++ b/arch/arm64/boot/dts/freescale/imx8mm-venice-gw7904.dts
+> @@ -335,8 +335,6 @@ gsc: gsc@20 {
+>  		interrupts =3D <26 IRQ_TYPE_EDGE_FALLING>;
+>  		interrupt-controller;
+>  		#interrupt-cells =3D <1>;
+> -		#address-cells =3D <1>;
+> -		#size-cells =3D <0>;
+> =20
+>  		adc {
+>  			compatible =3D "gw,gsc-adc";
+> diff --git a/arch/arm64/boot/dts/freescale/imx8mn-venice-gw7902.dts b/arc=
+h/arm64/boot/dts/freescale/imx8mn-venice-gw7902.dts
+> index 5aa0e2cd155ec..ecc12645d7691 100644
+> --- a/arch/arm64/boot/dts/freescale/imx8mn-venice-gw7902.dts
+> +++ b/arch/arm64/boot/dts/freescale/imx8mn-venice-gw7902.dts
+> @@ -315,8 +315,6 @@ gsc: gsc@20 {
+>  		interrupts =3D <6 IRQ_TYPE_EDGE_FALLING>;
+>  		interrupt-controller;
+>  		#interrupt-cells =3D <1>;
+> -		#address-cells =3D <1>;
+> -		#size-cells =3D <0>;
+> =20
+>  		adc {
+>  			compatible =3D "gw,gsc-adc";
+> diff --git a/arch/arm64/boot/dts/freescale/imx8mq-nitrogen.dts b/arch/arm=
+64/boot/dts/freescale/imx8mq-nitrogen.dts
+> index b91509bfc9c00..1043bf074f8e4 100644
+> --- a/arch/arm64/boot/dts/freescale/imx8mq-nitrogen.dts
+> +++ b/arch/arm64/boot/dts/freescale/imx8mq-nitrogen.dts
+> @@ -287,8 +287,6 @@ &lcdif {
+>  };
+> =20
+>  &mipi_dsi {
+> -	#address-cells =3D <1>;
+> -	#size-cells =3D <0>;
+>  	status =3D "okay";
+> =20
+>  	ports {
+> diff --git a/arch/arm64/boot/dts/freescale/imx91-11x11-frdm-s.dts b/arch/=
+arm64/boot/dts/freescale/imx91-11x11-frdm-s.dts
+> index c6019d76b9981..f3b647267c300 100644
+> --- a/arch/arm64/boot/dts/freescale/imx91-11x11-frdm-s.dts
+> +++ b/arch/arm64/boot/dts/freescale/imx91-11x11-frdm-s.dts
+> @@ -202,8 +202,6 @@ &flexspi1 {
+>  	flash@0 {
+>  		compatible =3D "spi-nand";
+>  		reg =3D <0>;
+> -		#address-cells =3D <1>;
+> -		#size-cells =3D <1>;
+>  		spi-max-frequency =3D <104000000>;
+>  		spi-rx-bus-width =3D <4>;
+>  		spi-tx-bus-width =3D <4>;
 >=20
 >=20
 
@@ -167,25 +292,6 @@ TQ-Systems GmbH | M=FChlstra=DFe 2, Gut Delling | 82229 Seefeld, Germany
 Amtsgericht M=FCnchen, HRB 105018
 Gesch=E4ftsf=FChrer: Detlef Schneider, R=FCdiger Stahl, Stefan Schneider
 http://www.tq-group.com/
---nextPart5106211.GXAFRqVoOG
-Content-Type: application/pgp-signature; name="signature.asc"
-Content-Description: This is a digitally signed message part.
-Content-Transfer-Encoding: 7Bit
-
------BEGIN PGP SIGNATURE-----
-
-iQEzBAABCgAdFiEEByESxqszIvkmWRwbaS+g2M0Z/iUFAmq6NqIACgkQaS+g2M0Z
-/iWtAwgAw15FHfti/QRK+BceI+JbLmo2ap+ZhC7g7WR4VoJdRdbn1hpE0FnZS7b6
-wrRfOlVB3IlXx2h+O70oTDLN9qOIUslWX9dZW9Pz7ng7Ypps/PvzybgXpPINblUg
-lmQK+gJ241/D8QVKv5aW9ps6obTjElmlDa6FFMoG3lXr/t5m6RYrxHC1hP6s+N2p
-8/8zMFTKK1vWCEaJlyTEbhxcGZKoXbwmFal4ZM6sr8ZlgfOXj7mNmKvqXZGLSytr
-lYClZ6YdWvj6qI6nJgtTbp2aJg4lQ7d914y646Kwlqx9UKMOHaRM49MFLepw4Sy1
-cdtbyGbU7UU9IOezebLj77RrgMw1qg==
-=uz4y
------END PGP SIGNATURE-----
-
---nextPart5106211.GXAFRqVoOG--
-
 
 
 
