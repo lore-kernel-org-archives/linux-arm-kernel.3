@@ -4,37 +4,37 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 75AC5C9833E
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 28 Sep 2026 04:50:40 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DF6D1C98328
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 28 Sep 2026 04:51:29 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
 	Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
 	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=hdXjwfXfeZ+Fq7eMqIyAKpDtsFXMjTukbof2nrAbsmw=; b=lOartqlE+Rh55+lauvVloSXdje
-	0r+y3p8hb93w0HHLoyYPX6HRFyTLr1yC/KxI/lC5WSW20/99VpRz3sHJNIrDHJyyXlqXEsLivQAWi
-	HAzJu83JzdLyFd/JfPy76Rl/DzRj8qadzB1Q2tm7L5VoF+EF6d+T5eG9GHaY2MP2HLmcbC0FPNVyv
-	uK5cub+FpCrL2FMNfFZ4V2A/J0Teg1onXXWRxkLxX9eCQBtP2M+HzKDoJZCIak2RNJl6tN8ssT1Gz
-	e1sL6QrcwqaJbYNePZYRQBy/Du3KdfIQWPgJkfpYxv/66URgCNCrVczD3G+lRP0dOMP2ONVfBMrW9
-	qGJxIxDQ==;
+	bh=Yat4vvbsS1dWn8Zuz06fJe+2qigpQL9C6hm5Alb+lWE=; b=mFnyg5W//+/vx0ZluyRoXcIQyx
+	OY/nAXpZwD7XOx63InaGweZfVhHQ1a1Q6hLZfNQndG5WGx8Hna9FwSrSAbzYdGRCAbdgW0Bjyr6Mm
+	Xn9AZ/V4VfB+y7vR8JX7GpUvF79lmaz64vHgqf5Wd1lvp/R424TI/P1MQ+sn866BAZsixBWrgP92w
+	DuFi7EVS7v8N1IuTTJhSUTcLjWj+oLV81eOeQTSlvU05+/prpX/zAUw5B2GBUIrYo4Qage9Bf74y+
+	hhq4eJ0puF1sZVrO3Gp/wNTRqmmH8erCAVVJYUS1s+1pREYuRBc3TedJij4iTWouSPKmJafvf5hSS
+	wHWkrMUQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xB3Jw-0000000HKyx-3DOh;
-	Mon, 28 Sep 2026 04:50:32 +0000
+	id 1xB3Kk-0000000HL4r-3qpP;
+	Mon, 28 Sep 2026 04:51:22 +0000
 Received: from sendmail.purelymail.com ([34.202.193.197])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xB3Ju-0000000HKyb-3AVm
+	id 1xB3Ki-0000000HL49-1QEt
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 28 Sep 2026 04:50:32 +0000
-DKIM-Signature: a=rsa-sha256; b=ePDXhUSY5lc5Uq5xX+SKH6zMZp6Sm9y9xcyymaaGJ8mFECNvIFgzqWPHKz+uBz0KDrpJ0A2Ish9U0h3jQRPsRmihbVMg6ghxrlqVBegdoeYIBl7ml9cdWDujEQQi1a544QWmrtCEogFr3kzaLkFDvAqmJKzyAuroA5u02G7kdXt6FB+EV9N9OokpXuyaZnThjElhwk+4x/MGM8KLVxCA0ymAb4a/KSpqm6pavbtPPW5rHt1hGOF3oFu7Gn0D2ASaLWPN/6dKh02MWG1TMavxlWJNtQmrT8hiJkPChXwvktsOhdfOL0DUWPwx+jbXXS5G7UmmDuuMg6HbNQN+jWZqXg==; s=purelymail3; d=q-lab.dev; v=1; bh=iIoekgFab81OFiXTGiIRoZtMuVVe9MzTU716fSB8Tvk=; h=Received:From:To:Subject:Date;
-DKIM-Signature: a=rsa-sha256; b=nOh8GLBbymmOZtBv9lrOCw9yOGJR3TNfCH4yIaxhFoUQXwgsMIALjdd6cj58enxbRg9R4ti1etsN7JJe3h9rwBGzca0RPCgyf0SHGWOBojDCY8qvzzRE/Wf9s66pcSQHO/Y/z+5T8AHRKV4ToVqiEt/xKhPBPZzSLyfcDXTNUW4s0kQ2diu27FMNv48+qZL+Xb+pv5F1izk6/K4gKlRWMZxbEUkVNsNRwLNR1dj27xOy6G8k7Pg+cD3FiaXrfeaq18zG5bl3i4ZCSJOMPMER3eYKtggxvOZiG1wFzBKaBDBqsgdSJGYl3GXXlP3sqfNC5FzQjlLs8Zp4X/2ht0cvNA==; s=purelymail3; d=purelymail.com; v=1; bh=iIoekgFab81OFiXTGiIRoZtMuVVe9MzTU716fSB8Tvk=; h=Feedback-ID:Received:From:To:Subject:Date;
+	Mon, 28 Sep 2026 04:51:21 +0000
+DKIM-Signature: a=rsa-sha256; b=qecHHOUgZgMmKF0IPDu3rIqFJjD3pXSGbH8z3eZUbIAn0TrG9Yvf+KTmhNq5h8lP+hNIlIwFo+h2QwX/BiFmkhaRS8gAF0ouCRzsXqvRg+AyRAkfUgSulNhbpC/IASjcsPytWS4oBNSe49fBa96srIqn5qtZLyxW02yygaY9NLVeg1k+P9y87PdcsTiH+HNYIFK1eKiwouOuNb9opAvWrd2G18so1I9GkaHcTmzSgwNoFD2i86QslbRNA+O+eTh+Uahp6o7PADjD7OKIARsFcGgajVuAtV9C2Ffw3/mKnYYQAAnag9vqXSivdNJL2dyzjIp8B5iE8d5DaBjWKz29cg==; s=purelymail3; d=q-lab.dev; v=1; bh=Mu0frYNG961E9MrWNHyD/bKWnVTPw+zQgOncEvVsdog=; h=Received:From:To:Subject:Date;
+DKIM-Signature: a=rsa-sha256; b=gnoMyJBViSkQkc0uFtQBajT/CsFyyTyya4bYrQ9S8PtiYxetZYqSeh894wyVmjAAyYPN6t6y9LaDBxCnuraRXlIGKeB7pNglgjlUjhb2kom6NuK6HHuhX8FEKipXrFFHn9N5sHBEU02sCdrzFp8gZIaX+74a6qt7fPzY+361n3qUpG/qr34X3ya1u4sr0affnBxLZsJAt53dOKoToagWdvz3Tfw5pK9rpT3bU6qDOpeH/p3l+Rh3/TuEH/6G7K2Ro4PPBSYxGQxR32tRgTkG4IvTpvYJW5mmIZGdPO/zk1alxYitKQaqWpRJ1s0vFAckjHoAx7KuFTz0o8Bex7jzXw==; s=purelymail3; d=purelymail.com; v=1; bh=Mu0frYNG961E9MrWNHyD/bKWnVTPw+zQgOncEvVsdog=; h=Feedback-ID:Received:From:To:Subject:Date;
 Feedback-ID: 284201:25281:null:purelymail
 X-Pm-Original-To: linux-arm-kernel@lists.infradead.org
 Authentication-Results: purelymail.com; auth=pass
-Received: by smtp.purelymail.com (Purelymail SMTP) with ESMTPSA id 877452934;
+Received: by smtp.purelymail.com (Purelymail SMTP) with ESMTPSA id 46625648;
           (version=TLSv1.3 cipher=TLS_AES_256_GCM_SHA384);
-          Mon, 28 Sep 2026 04:50:08 +0000 (UTC)
+          Mon, 28 Sep 2026 04:51:00 +0000 (UTC)
 From: Quentin Freimanis <quentin@q-lab.dev>
 To: netdev@vger.kernel.org
 Cc: Andrew Lunn <andrew+netdev@lunn.ch>,
@@ -45,20 +45,21 @@ Cc: Andrew Lunn <andrew+netdev@lunn.ch>,
 	Steen Hegelund <Steen.Hegelund@microchip.com>,
 	Daniel Machon <daniel.machon@microchip.com>,
 	UNGLinuxDriver@microchip.com,
-	Richard Cochran <richardcochran@gmail.com>,
+	Lars Povlsen <lars.povlsen@microchip.com>,
+	Bjarni Jonasson <bjarni.jonasson@microchip.com>,
 	linux-arm-kernel@lists.infradead.org,
 	linux-kernel@vger.kernel.org
-Subject: [PATCH net] net: sparx5: start the domain 0 TOD counter on non-PTP lan969x variants
-Date: Sun, 27 Sep 2026 21:47:33 -0700
-Message-ID: <20260928044955.29647-1-quentin@q-lab.dev>
+Subject: [PATCH net] net: sparx5: make ports inherit the switch base mac address type
+Date: Sun, 27 Sep 2026 21:50:12 -0700
+Message-ID: <20260928045012.30178-1-quentin@q-lab.dev>
 X-Mailer: git-send-email 2.55.0
 MIME-Version: 1.0
 Content-Transfer-Encoding: quoted-printable
 X-MIME-Autoconverted: from 8bit to quoted-printable by Purelymail
 Content-Type: text/plain; charset=UTF-8
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260927_215030_887852_44453131 
-X-CRM114-Status: GOOD (  13.74  )
+X-CRM114-CacheID: sfid-20260927_215120_466790_44307419 
+X-CRM114-Status: GOOD (  10.18  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -73,137 +74,67 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Currently the base non-PTP capable lan969x variants don't forward any
-ethernet frames. Testing showed that starting the domain 0 TOD counter
-gets them working again.
+When the switch uses a random base MAC address it does not mark each
+port's address as random:
 
-Fix by moving the TOD counter start code into a helper and calling it in
-sparx5_ptp_init(). Non-PTP capable lan969x parts now start the domain 0
-counter, and PTP-capable parts start all three, as they used to. A similar
-workaround that starts all three and registers the PHC clocks is
-implemented in the vendor BSP 6.18 kernel [1].
+  $ dmesg | grep "MAC addr"
+  sparx5-switch e00c0000.switch: MAC addr was not set, use random MAC
+  $ cat /sys/class/net/eth0/addr_assign_type
+  0
 
-[1] https://github.com/microchip-ung/linux/tree/bsp-6.18-2026
+0 is NET_ADDR_PERM, so userspace thinks this is a stable address. Fix by
+tracking the base MAC address assign type in the sparx5 struct and
+applying it to each port's netdev.
 
-Fixes: 207966787b71 ("net: sparx5: add feature support")
+Fixes: f3cad2611a77 ("net: sparx5: add hostmode with phylink support")
 Signed-off-by: Quentin Freimanis <quentin@q-lab.dev>
 ---
-If anyone with access to documentation more detailed than the
-register map knows WHY this clock needs to be running, I'd like to add
-that to the commit message.
+ drivers/net/ethernet/microchip/sparx5/sparx5_main.c   | 1 +
+ drivers/net/ethernet/microchip/sparx5/sparx5_main.h   | 1 +
+ drivers/net/ethernet/microchip/sparx5/sparx5_netdev.c | 1 +
+ 3 files changed, 3 insertions(+)
 
- .../ethernet/microchip/sparx5/sparx5_ptp.c    | 72 +++++++++++++------
- 1 file changed, 49 insertions(+), 23 deletions(-)
-
-diff --git a/drivers/net/ethernet/microchip/sparx5/sparx5_ptp.c b/drivers/n=
-et/ethernet/microchip/sparx5/sparx5_ptp.c
-index 5953e04ef14e..b436684ddae6 100644
---- a/drivers/net/ethernet/microchip/sparx5/sparx5_ptp.c
-+++ b/drivers/net/ethernet/microchip/sparx5/sparx5_ptp.c
-@@ -573,6 +573,42 @@ static int sparx5_ptp_adjtime(struct ptp_clock_info *p=
-tp, s64 delta)
- =09return 0;
- }
-=20
-+static int sparx5_ptp_tod_start(struct sparx5 *sparx5, u8 phc_mask)
-+{
-+=09u64 tod_adj =3D sparx5_ptp_get_nominal_value(sparx5);
-+=09int i;
-+
-+=09if (phc_mask > GENMASK(SPARX5_PHC_COUNT - 1, 0))
-+=09=09return -EINVAL;
-+
-+=09/* Disable master counters */
-+=09spx5_wr(PTP_PTP_DOM_CFG_PTP_ENA_SET(0), sparx5, PTP_PTP_DOM_CFG);
-+
-+=09/* Configure the nominal TOD increment per clock cycle */
-+=09spx5_rmw(PTP_PTP_DOM_CFG_PTP_CLKCFG_DIS_SET(phc_mask),
-+=09=09 PTP_PTP_DOM_CFG_PTP_CLKCFG_DIS,
-+=09=09 sparx5, PTP_PTP_DOM_CFG);
-+
-+=09for (i =3D 0; i < SPARX5_PHC_COUNT; ++i) {
-+=09=09if (!(phc_mask & BIT(i)))
-+=09=09=09continue;
-+
-+=09=09spx5_wr((u32)tod_adj & 0xFFFFFFFF, sparx5,
-+=09=09=09PTP_CLK_PER_CFG(i, 0));
-+=09=09spx5_wr((u32)(tod_adj >> 32), sparx5,
-+=09=09=09PTP_CLK_PER_CFG(i, 1));
-+=09}
-+
-+=09spx5_rmw(PTP_PTP_DOM_CFG_PTP_CLKCFG_DIS_SET(0),
-+=09=09 PTP_PTP_DOM_CFG_PTP_CLKCFG_DIS,
-+=09=09 sparx5, PTP_PTP_DOM_CFG);
-+
-+=09/* Enable master counters */
-+=09spx5_wr(PTP_PTP_DOM_CFG_PTP_ENA_SET(phc_mask), sparx5, PTP_PTP_DOM_CFG)=
-;
-+
-+=09return 0;
-+}
-+
- static struct ptp_clock_info sparx5_ptp_clock_info =3D {
- =09.owner=09=09=3D THIS_MODULE,
- =09.name=09=09=3D "sparx5 ptp",
-@@ -605,7 +641,6 @@ static int sparx5_ptp_phc_init(struct sparx5 *sparx5,
-=20
- int sparx5_ptp_init(struct sparx5 *sparx5)
- {
--=09u64 tod_adj =3D sparx5_ptp_get_nominal_value(sparx5);
- =09const struct sparx5_ops *ops =3D sparx5->data->ops;
- =09struct sparx5_port *port;
- =09int err, i;
-@@ -622,8 +657,17 @@ int sparx5_ptp_init(struct sparx5 *sparx5)
- =09=09sparx5->ptp =3D 1;
+diff --git a/drivers/net/ethernet/microchip/sparx5/sparx5_main.c b/drivers/=
+net/ethernet/microchip/sparx5/sparx5_main.c
+index dad713e9ddd5..b530fb6d3d0c 100644
+--- a/drivers/net/ethernet/microchip/sparx5/sparx5_main.c
++++ b/drivers/net/ethernet/microchip/sparx5/sparx5_main.c
+@@ -898,6 +898,7 @@ static int mchp_sparx5_probe(struct platform_device *pd=
+ev)
+ =09=09dev_info(sparx5->dev, "MAC addr was not set, use random MAC\n");
+ =09=09eth_random_addr(sparx5->base_mac);
+ =09=09sparx5->base_mac[5] =3D 0;
++=09=09sparx5->base_mac_assign_type =3D NET_ADDR_RANDOM;
  =09}
 =20
--=09if (!sparx5->ptp)
-+=09if (!sparx5->ptp) {
-+=09=09if (!is_sparx5(sparx5)) {
-+=09=09=09/* the base, non-ptp-capable lan969x variants need the first tod =
-counter
-+=09=09=09 * running to forward frames.
-+=09=09=09 */
-+=09=09=09err =3D sparx5_ptp_tod_start(sparx5, BIT(0));
-+=09=09=09if (err)
-+=09=09=09=09return err;
-+=09=09}
- =09=09return 0;
-+=09}
+ =09sparx5->fdma_irq =3D platform_get_irq_byname(sparx5->pdev, "fdma");
+diff --git a/drivers/net/ethernet/microchip/sparx5/sparx5_main.h b/drivers/=
+net/ethernet/microchip/sparx5/sparx5_main.h
+index eb57b86fbe22..0f7d8440f614 100644
+--- a/drivers/net/ethernet/microchip/sparx5/sparx5_main.h
++++ b/drivers/net/ethernet/microchip/sparx5/sparx5_main.h
+@@ -392,6 +392,7 @@ struct sparx5 {
+ =09struct notifier_block switchdev_blocking_nb;
+ =09/* Switch state */
+ =09u8 base_mac[ETH_ALEN];
++=09u8 base_mac_assign_type;
+ =09/* Associated bridge device (when bridged) */
+ =09struct net_device *hw_bridge_dev;
+ =09/* Bridged interfaces */
+diff --git a/drivers/net/ethernet/microchip/sparx5/sparx5_netdev.c b/driver=
+s/net/ethernet/microchip/sparx5/sparx5_netdev.c
+index 4dedf5d92641..b3725cf2dd44 100644
+--- a/drivers/net/ethernet/microchip/sparx5/sparx5_netdev.c
++++ b/drivers/net/ethernet/microchip/sparx5/sparx5_netdev.c
+@@ -294,6 +294,7 @@ struct net_device *sparx5_create_netdev(struct sparx5 *=
+sparx5, u32 portno)
+ =09ndev->ethtool_ops =3D &sparx5_ethtool_ops;
 =20
- =09for (i =3D 0; i < SPARX5_PHC_COUNT; ++i) {
- =09=09err =3D sparx5_ptp_phc_init(sparx5, i, &sparx5_ptp_clock_info);
-@@ -635,27 +679,9 @@ int sparx5_ptp_init(struct sparx5 *sparx5)
- =09spin_lock_init(&sparx5->ptp_ts_id_lock);
- =09mutex_init(&sparx5->ptp_lock);
+ =09eth_hw_addr_gen(ndev, sparx5->base_mac, portno + 1);
++=09ndev->addr_assign_type =3D sparx5->base_mac_assign_type;
 =20
--=09/* Disable master counters */
--=09spx5_wr(PTP_PTP_DOM_CFG_PTP_ENA_SET(0), sparx5, PTP_PTP_DOM_CFG);
--
--=09/* Configure the nominal TOD increment per clock cycle */
--=09spx5_rmw(PTP_PTP_DOM_CFG_PTP_CLKCFG_DIS_SET(0x7),
--=09=09 PTP_PTP_DOM_CFG_PTP_CLKCFG_DIS,
--=09=09 sparx5, PTP_PTP_DOM_CFG);
--
--=09for (i =3D 0; i < SPARX5_PHC_COUNT; ++i) {
--=09=09spx5_wr((u32)tod_adj & 0xFFFFFFFF, sparx5,
--=09=09=09PTP_CLK_PER_CFG(i, 0));
--=09=09spx5_wr((u32)(tod_adj >> 32), sparx5,
--=09=09=09PTP_CLK_PER_CFG(i, 1));
--=09}
--
--=09spx5_rmw(PTP_PTP_DOM_CFG_PTP_CLKCFG_DIS_SET(0),
--=09=09 PTP_PTP_DOM_CFG_PTP_CLKCFG_DIS,
--=09=09 sparx5, PTP_PTP_DOM_CFG);
--
--=09/* Enable master counters */
--=09spx5_wr(PTP_PTP_DOM_CFG_PTP_ENA_SET(0x7), sparx5, PTP_PTP_DOM_CFG);
-+=09err =3D sparx5_ptp_tod_start(sparx5, GENMASK(SPARX5_PHC_COUNT - 1, 0));
-+=09if (err)
-+=09=09return err;
-=20
- =09for (i =3D 0; i < sparx5->data->consts->n_ports; i++) {
- =09=09port =3D sparx5->ports[i];
+ =09return ndev;
+ }
 --=20
 2.55.0
 
