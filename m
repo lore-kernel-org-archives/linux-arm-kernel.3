@@ -4,41 +4,41 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 19138CA5FA2
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 28 Sep 2026 15:25:32 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8860ACA5FA2
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 28 Sep 2026 15:25:50 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=GIw3ZRoJ0YagiRcre3dFoDCd6NovRgT+4dVvR5vYdoA=; b=xN6p8SZgMovhx9CxyfdWgvOuyo
-	OiLrvQTNnq4glAbFWodGETIl418ulWt8zuMhHRcSQRZxDNoxLs097zH4EoM/Ve9Zodze8Vd7a0k7z
-	pqGXh4dENZZtZ3tL0m63MmEe5vfFpBQyNhohOubS9mPa/Gh56PR9Onc+URsFMxAe+PBFAyMlGyUKn
-	SMiOe0e8T+WUgbMs0IQyKC6KwgzGAFRYLeH/6UTlQNIigKHzGc+4YuAxaPq7BdEYpqn/b4kGW6gI9
-	lWONCRTWIpVohrOLzive0BfwSSN+uk00HDm/QaVr1gHmXUU9yUp4R3FU4pEXYTAIZ9MhpX2FMEW2V
-	M7zTw46A==;
+	bh=PfIILtbkqzHnfWchrCJP5wmaB7yCBAKrI10/fN0niXY=; b=LUFD+KXereyoH9ew852MgNTiVA
+	toVuqmo4EYikgdSrgHekukDScBTzSHgKhWTgmEqdiH0nfOno0pz06zRwZKoXJc+I92QLH81raFIwZ
+	kwqEGXfXBwaZJpxJ+WSfvBkZ5Wadymz9lt5gR2oMy7IgMywR+uq2MVYXKn1F+YsvTUm8gstJeRs5K
+	aq8msoLdtrRu4pelD1x8VrWibFUOsnGXLlAveFfXBChBjNR2JqwOxHCHL7bj8H8RuHQ86Rl8BSmXa
+	dEPJC/VTfuWunoyvxdNXy7GtSgpHqYsvCb3z4duZmjYcZD3Ksc0a4SAZkA8qtIaQ81h4IljCab4Zk
+	PmSrbyxw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xBDEL-00000000tM4-3VdU;
-	Mon, 28 Sep 2026 15:25:25 +0000
-Received: from out-45.mta1.migadu.com ([2001:41d0:203:375::2d] helo=mta1.migadu.com)
+	id 1xBDEe-00000000tSc-0Dt8;
+	Mon, 28 Sep 2026 15:25:44 +0000
+Received: from out-63.mta1.migadu.com ([2001:41d0:203:375::3f] helo=mta1.migadu.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xBDEC-00000000tJI-0ogU
+	id 1xBDEb-00000000tR4-0bgY
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 28 Sep 2026 15:25:17 +0000
+	Mon, 28 Sep 2026 15:25:42 +0000
 X-Envelope-To: linux-arm-kernel@lists.infradead.org
-DKIM-Signature: a=rsa-sha256; bh=r5HnM/f7PTKF6og9shC2Jz8ilToiTnP5/ASxGy5XQl4=;
+DKIM-Signature: a=rsa-sha256; bh=UsrrMKeoU6FyB7ktPMuLLTHGrlKvgJcUMP9CZWK2MkQ=;
  c=simple/simple; d=linux.dev;
  h=from:to:subject:date:message-id:mime-version:content-type; s=key1;
- t=1790609114; v=1; x=1791213914;
- b=L0QjN2NW/hnTiHV+/qUOvo0c8fE1vbZZSZPUCkWl/kSBY1mSoWmQlMjwWwL0nybqGIYWkZIv
- SnenD5YXVN9DEF5+2Syv6YzGRePKPswOIZZhbNRXCiF9CPIYIcGgrSMcudmhOXA8C368901pB3q
- XuKCY1o9SDkIKmOGx0K9oXns=
+ t=1790609139; v=1; x=1791213939;
+ b=nYt5ziIv/3E20y3DRnAM19W1Yns0ZSvwjweI4mhJwzoz+yuzHfSfNw8FeqnCdt9hupruQpSh
+ TTWfbJgMJfP9J5F/cI8RLuIs6TKRdCQH3lKxCe9zib9GpYBYM2xRUGJRjdgkZLkWyHbrpGDzaED
+ vXmxoA0NZNdmOqXFkaIxTd0A=
 X-Envelope-To: linux-arm-kernel@lists.infradead.org
-Received: by smtp.migadu.com with ESMTPS id 63cb18f08da356ba;
-	Mon, 28 Sep 2026 15:25:12 +0000
-X-Mizu-Trace-ID: 63cb18f08da356ba
+Received: by smtp.migadu.com with ESMTPS id 1db0060865db2ffe;
+	Mon, 28 Sep 2026 15:25:17 +0000
+X-Mizu-Trace-ID: 1db0060865db2ffe
 X-Migadu-Flow: FLOW_OUT
 From: Fuad Tabba <fuad.tabba@linux.dev>
 To: Marc Zyngier <maz@kernel.org>,
@@ -58,17 +58,17 @@ Cc: Joey Gouly <joey.gouly@arm.com>,
 	kvm@vger.kernel.org,
 	linux-doc@vger.kernel.org,
 	linux-kernel@vger.kernel.org
-Subject: [PATCH v1 01/10] KVM: arm64: Don't WARN on SMCCC filter reserved range allocation failure
-Date: Mon, 28 Sep 2026 16:24:58 +0100
-Message-Id: <20260928152507.2116110-2-fuad.tabba@linux.dev>
+Subject: [PATCH v1 02/10] KVM: arm64: nv: Don't WARN on an invalid VTCR_EL2
+Date: Mon, 28 Sep 2026 16:24:59 +0100
+Message-Id: <20260928152507.2116110-3-fuad.tabba@linux.dev>
 X-Mailer: git-send-email 2.39.5
 In-Reply-To: <20260928152507.2116110-1-fuad.tabba@linux.dev>
 References: <20260928152507.2116110-1-fuad.tabba@linux.dev>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260928_082516_374846_CF47A8BE 
-X-CRM114-Status: GOOD (  13.99  )
+X-CRM114-CacheID: sfid-20260928_082541_325464_821AF899 
+X-CRM114-Status: GOOD (  10.99  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -83,38 +83,33 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The first time userspace sets an SMCCC filter, kvm_smccc_set_filter()
-inserts the reserved architecture ranges into the maple tree and WARNs
-if that fails. The tree is empty and config_lock is held, so the only
-way it can fail is -ENOMEM. The allocation is GFP_KERNEL_ACCOUNT, so a
-memory cgroup limit is enough to hit the WARN from userspace.
+Before walking an L1 guest's stage-2 tables, KVM checks the starting
+level in VTCR_EL2.SL0 and the IPA size from T0SZ against the granule
+and PA size, and sets a stage-2 level 0 Translation fault when either
+is invalid. The check also WARNs, so an L1 guest that programs an
+invalid VTCR_EL2 triggers the WARN on every walk.
 
-The WARN goes back to when the ranges were inserted at VM creation and
-the error was dropped. Since commit d34b76489ea0c ("KVM: arm64: Only
-insert reserved ranges when SMCCC filter is used") the tree is emptied
-on failure and the error reaches userspace. Drop the WARN.
+Drop the WARN.
 
-Fixes: d34b76489ea0c ("KVM: arm64: Only insert reserved ranges when SMCCC filter is used")
-Reported-by: Sashiko <sashiko-bot@kernel.org>
-Closes: https://lore.kernel.org/all/20260829055809.29AD31F000E9@smtp.kernel.org/
+Fixes: 61e30b9eef7ff ("KVM: arm64: nv: Implement nested Stage-2 page table walk logic")
 Signed-off-by: Fuad Tabba <fuad.tabba@linux.dev>
 ---
- arch/arm64/kvm/hypercalls.c | 2 +-
+ arch/arm64/kvm/nested.c | 2 +-
  1 file changed, 1 insertion(+), 1 deletion(-)
 
-diff --git a/arch/arm64/kvm/hypercalls.c b/arch/arm64/kvm/hypercalls.c
-index b11b8821c9fbc..210a496733d0e 100644
---- a/arch/arm64/kvm/hypercalls.c
-+++ b/arch/arm64/kvm/hypercalls.c
-@@ -197,7 +197,7 @@ static int kvm_smccc_set_filter(struct kvm *kvm, struct kvm_smccc_filter __user
+diff --git a/arch/arm64/kvm/nested.c b/arch/arm64/kvm/nested.c
+index 3c4fc566eafc6..98c1f8c193319 100644
+--- a/arch/arm64/kvm/nested.c
++++ b/arch/arm64/kvm/nested.c
+@@ -279,7 +279,7 @@ static int walk_nested_s2_pgd(struct kvm_vcpu *vcpu, phys_addr_t ipa,
+ 		return -EFAULT;
  
- 	if (!kvm_smccc_filter_configured(kvm)) {
- 		r = kvm_smccc_filter_insert_reserved(kvm);
--		if (WARN_ON_ONCE(r))
-+		if (r)
- 			goto out_unlock;
+ 	ret = check_base_s2_limits(vcpu, wi, level, input_size, stride);
+-	if (WARN_ON(ret)) {
++	if (ret) {
+ 		out->esr = compute_fsc(0, ESR_ELx_FSC_FAULT);
+ 		return ret;
  	}
- 
 -- 
 2.39.5
 
