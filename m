@@ -4,108 +4,114 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CCD77C9833F
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 28 Sep 2026 13:42:47 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 346A9C9833F
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 28 Sep 2026 13:43:00 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:CC:To:From:
-	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
-	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=2BWagMlJqfAnZVtyLhu5DZce63V3CohG05Si//7v8FI=; b=diUvWMSvKnUSu1oS0J52S4bPWd
-	2RlvpTgyv0rOfvVwX23kNhoyYHk9bB2IWCBG+94yJ7YlOROW3/qwE3ZElC82h0PpIYxd2lZ5hFbJy
-	rTMReG3CnhtzlIBN6hVcx/wup89CRS2Oh0tKKqHXGM7uEYIv43feyorMZIEHT3QPbqfBE/peuoZqp
-	AB9C1aRnIg6SsiEzP0931qdz46mE9O9omFJDlAWObp/C1kS8BxJJ6IR8SwZgBg/KRUZN4TAmsPxn/
-	jDaFQLcBWoWRHnPKG2RnjWku8Y2T5JEH+sOW0zCPBQX43x0dVkFSSX0LTHYz2LVPMOncRfuUNNyVC
-	Xtky0kvA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=VoieX7gEf9mbaFA2GdnHRYMTOfTM4g2UWo3J9oxSSuw=; b=JtY2qrUymXGZVsfEL9cmA75z8u
+	JVeSs6tRu/yZI26zXChqcBVwdszxxyO6DoJ5qLC+EYCfk3j4M8iOCGgnmKJawmcN85BAJtMLMN6Ha
+	zcxC1Vnen6SZXq53NVPcbhCAQLuhaEpo1DMXvDp3Kupx5jOf5Ic0pE8GFyFFZBT34jaacWlydDyga
+	70sRM3JesLkzUd1gxyecyx7JJmRgPcDngOJIGbOEpvcX9qAiTZH++6k1ME2MTcAo91Kt/bW+Slull
+	2KHm6/398Agnxs0SHCUk4rQpcNeq8ZAEVq1FhrUYqZCBSUA7whrYAlrhs8lWpsUK0vcI2eMgLAkAM
+	lUl9IzKQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xBBcu-00000000gWX-4Bxp;
-	Mon, 28 Sep 2026 13:42:41 +0000
-Received: from mail-westus3azon11010034.outbound.protection.outlook.com ([52.101.201.34] helo=PH7PR06CU001.outbound.protection.outlook.com)
+	id 1xBBd8-00000000gcz-0SmG;
+	Mon, 28 Sep 2026 13:42:54 +0000
+Received: from mail-wr2-x0f.google.com ([2a00:1450:4864:30::f])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xBBco-00000000gUJ-2D3j
+	id 1xBBd2-00000000gZP-03Lg
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 28 Sep 2026 13:42:36 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=Gs/0lka33XPmCTAyQuO7GIS+ya8hG4nvyY51P8XyqZu8YO3cYSRNI0CZv5Fo6wFgJXO7wLKFQcaho1ivs9hgxzubXpU1RjA8CGyVXjoG2aK8ek3ylFT1IX1AoiAVZQFzx9HCNukzKwHTIfk7IvD9dA2weqbZEwu9/KnUJKHTQUvrYE8wQnKxe4Wl/wu7bBn8DsE0t3CIv5ObEJYDK8dBuu6ZFR4LqIet3yWdBy0o3H2XvXHqnOuGHRLBfYWCbiHGDnt0hTWMXWIa/z19908rZQJXaY93Ye8UGceDod3P9qQM1Tf+bzq4+KYwapu66Mj9y7a+jG34hTg3foSpqfUYGg==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=2BWagMlJqfAnZVtyLhu5DZce63V3CohG05Si//7v8FI=;
- b=sFzERzRDwdpJjuBFxYExEBoe0bJGGw3rjzy+eLpDKox664g1z4pmuenMu9WKXUmP9B1CdGxgrZ7hHc/xkyGrAbZ/6idVanePa5jT2GoBtX3846aL4OlyzGi39wuQIhW2/8TGqNXXkyEKALcTHCKIHW2l/moy0w/ceEkLomMKEZxNiwrfaC47NK+Iz/wyZSQPnHGXBXenaNEsbgYdJ2p5oGOvN7J/h4yofWQ+Ti9q9t37INyzdM7yN4U9WrjVEnM3X6BCBCXK9We7bnLTr9e9SbdBtaz0zMP5m7tQ2B5UO4wM9iTmXPy52AwfvygXEpuuxE4lmLLoD+zGbaOk1m/hAg==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
- 165.204.84.17) smtp.rcpttodomain=synopsys.com smtp.mailfrom=amd.com;
- dmarc=pass (p=quarantine sp=quarantine pct=100) action=none
- header.from=amd.com; dkim=none (message not signed); arc=none (0)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=amd.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=2BWagMlJqfAnZVtyLhu5DZce63V3CohG05Si//7v8FI=;
- b=Bb7PooCEiR9XgHWIoX+A+lF6gCSjkX7ewJVHjafoSD7bSVk+nOt2STjJuLoOv3p2HGHBe5P00wMLbHuSuoIXCb0NFzwWiJtYJvDq2T/l8qXARrjI1IlxO3DLpucPOjIrQR4wDdzducUd7sEtwW13ZscfU+/wXsU9JPAVua9S8LM=
-Received: from BL1PR13CA0251.namprd13.prod.outlook.com (2603:10b6:208:2ba::16)
- by DM4PR12MB6254.namprd12.prod.outlook.com (2603:10b6:8:a5::17) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.451.23; Mon, 28 Sep
- 2026 13:42:25 +0000
-Received: from LV8PEPF00000059.namprd02.prod.outlook.com
- (2603:10b6:208:2ba:cafe::25) by BL1PR13CA0251.outlook.office365.com
- (2603:10b6:208:2ba::16) with Microsoft SMTP Server (version=TLS1_3,
- cipher=TLS_AES_256_GCM_SHA384) id 15.21.472.14 via Frontend Transport; Mon,
- 28 Sep 2026 13:42:24 +0000
-X-MS-Exchange-Authentication-Results: mx.microsoft.com 1; spf=pass (sender IP
- is 165.204.84.17) smtp.mailfrom=amd.com; dkim=none (message not signed)
- header.d=none;dmarc=pass action=none header.from=amd.com;
-Received-SPF: Pass (protection.outlook.com: domain of amd.com designates
- 165.204.84.17 as permitted sender) receiver=protection.outlook.com;
- client-ip=165.204.84.17; helo=satlexmb07.amd.com; pr=C
-Received: from satlexmb07.amd.com (165.204.84.17) by
- LV8PEPF00000059.mail.protection.outlook.com (10.167.245.133) with Microsoft
- SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.21.472.14 via Frontend Transport; Mon, 28 Sep 2026 13:42:24 +0000
-Received: from satlexmb08.amd.com (10.181.42.217) by satlexmb07.amd.com
- (10.181.42.216) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.49; Mon, 28 Sep
- 2026 08:42:21 -0500
-Received: from xhdradheys41.xilinx.com (10.180.168.240) by satlexmb08.amd.com
- (10.181.42.217) with Microsoft SMTP Server id 15.2.2562.49 via Frontend
- Transport; Mon, 28 Sep 2026 08:42:19 -0500
-From: Radhey Shyam Pandey <radhey.shyam.pandey@amd.com>
-To: <Thinh.Nguyen@synopsys.com>, <gregkh@linuxfoundation.org>,
-	<michal.simek@amd.com>
-CC: <linux-usb@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
-	<linux-kernel@vger.kernel.org>, Radhey Shyam Pandey
-	<radhey.shyam.pandey@amd.com>
-Subject: [PATCH v2] usb: dwc3: xilinx: use device_get_match_data() in probe
-Date: Mon, 28 Sep 2026 19:12:15 +0530
-Message-ID: <20260928134215.3194328-1-radhey.shyam.pandey@amd.com>
-X-Mailer: git-send-email 2.43.0
+	Mon, 28 Sep 2026 13:42:53 +0000
+Received: by mail-wr2-x0f.google.com with SMTP id ffacd0b85a97d-4888129c46eso1639507f8f.1
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 28 Sep 2026 06:42:47 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1790602966; cv=none;
+        d=google.com; s=arc-20260327;
+        b=OpG+51AmBNy2+fe+hLlHTEWNrozvp1vxhR9kQnf5xlnif4xP5fiWxof8mSB8xJjOM1
+         18Z9CiSENzfNOgSMSPG/NY+xeNFnZYpmqCzlCzROykELjtfr7SL7lkIFiVDQ/avDHtpr
+         1AQXtYcX0udG22oRE92MnOMci5oIej91ar1ym9bBRGzBX/yIjyqtEr2GZuy5p5x4KhAD
+         hhVv6YSEJ9YQM4nklMAPzVF+1XuIMGg+y6CTknSuSJUVd6EU4tMH7vwJJAcSzTOl16qh
+         WcucND+nGoNWECj3Cpqfe9SZpZ6qS6x2uAXGndlFK+amBBnoHx3yP+jmcV0TugzTg+lQ
+         mHGA==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:dkim-signature;
+        bh=VoieX7gEf9mbaFA2GdnHRYMTOfTM4g2UWo3J9oxSSuw=;
+        fh=0zFFAKjij3OpYdjLbp9M2mgbWk2nMh9zq05B2QpINIg=;
+        b=JLlk/oxkQpZN85FYnxIZJs16Pa7L6GwkqE/UH/DHqvYIy/Q6eWGMq9yvdz7fCrLyXc
+         H0kSacgdPORa3ySM+zlBMcYlE/yjUVubKnK3XqRmI9m8F4IKfLL+KDsSCz2Q99D70xUZ
+         3BoagTGoLM0Gu40flEFl4YPNoGMGeW2YPQkQp9A6VDYM3lBXC0bhzoFTkJl+gg6uQOI8
+         Az4Pek0SfjHXI6+VpBzrSeB8QWymwTnl+6Xv+d1pl85/2c3PLhftbaLCI138XMzFqMdm
+         yXmjy3JmQ+YkgRfwsXgcrkiuFUMvVjfVDDesLkb1EI6l0raDhtAfohWwtUQGuoKydYuX
+         PqQw==;
+        darn=lists.infradead.org
+ARC-Authentication-Results: i=1; mx.google.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=brainfault.org; s=google; t=1790602966; x=1791207766; darn=lists.infradead.org;
+        h=content-transfer-encoding:content-type:cc:to:subject:message-id
+         :date:from:in-reply-to:references:mime-version:from:to:cc:subject
+         :date:message-id:reply-to:content-type;
+        bh=VoieX7gEf9mbaFA2GdnHRYMTOfTM4g2UWo3J9oxSSuw=;
+        b=qkefbo1ozjS/j8uOFJ76rR2TKhm37K1I3qyzUKD29DXvHbXh0I4gKc0Zdl8hO0JLZU
+         lZnbwEbrM9yI90pkDyMzANu5q3SOW4DDFSmY0vDO1i79sUYqqOCZ550zXE8ALg3oHEUr
+         Sr61x4NUO98kwC9rjgoiIjrHFmpowPqpWt2PDPFfhxuBQYkfBoa3tNtFClkwUuHvBMiE
+         Q5JatLLqj0a1ZHW261qJz8S7bDdxsp+L9KMGGVgwNEh9VIVaNZZ8e+Pb3i9+IiJDsNm4
+         EdkFM4rAw2Ja+rQ1B5IPeMUOy7pVKaU4xq8rNq/CBv8OMltw5ITzULBvDqSIHafzoBFk
+         drMA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1790602966; x=1791207766;
+        h=content-transfer-encoding:content-type:cc:to:subject:message-id
+         :date:from:in-reply-to:references:mime-version:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=VoieX7gEf9mbaFA2GdnHRYMTOfTM4g2UWo3J9oxSSuw=;
+        b=JNoOz6iDaZfeLL+3bLA9FZ/kWKAiKHOHt8W6P/ZKaMgEaLJhZq8GvwHrsYlPxjkj2i
+         nYCPuQivIqnPndqlL9+Yl3DKDKq0YoCtf+MG11vhS2pf7DPxlrLsk2jv9UFaS6B9x4LB
+         OljUqKNyXgYSn7HPgrDTiy0p6Y7hIeaLV1lr6i93r5/6oUIIr7mSsI5d6KToVQl+bzFR
+         wASTxD8fuhHt5Vz8OyiVwbf20TkmSv9hbGYI44JKQtXObin5IFXmyeAC8J0G/nrMxyZW
+         kbMEMLEhHGvqykPeQQy7BSOKD9D5Aui+xz/onlCLsUT3K7LOxwkjTlX9dolNQE8BPDNV
+         DLUg==
+X-Forwarded-Encrypted: i=1; AKwUvBww4pTPyFPJv7JyE431YKNP4ho5Yx8CR2E9RAWczHMPwHDNMlVv+rddQoMHCTeeCFQRplg1XlSyJrXS0+6k4IpT@lists.infradead.org
+X-Gm-Message-State: AFq9FYLmroW4X1lZU3xLIsPGfaaJK+qoKnqoLoL1ax8CrzyzNkgiO7fr
+	d83VCJTFMtrMBFo0Crzrw1em+EoJtA+ZtTFBI67rYT68sylpC9USGfnuQSdZLdN9+VFvASgVpI9
+	xdali2apWZGq0Yfcuzgrsx59hIr1YivYy+ZSlS/gTIQ==
+X-Gm-Gg: AYBFou1we4iSHf7P4l0dVC5dVncuTLeZIVh96CwmyFkrUBjqZYTx3zwzFwOukvXin/E
+	/91ZpD7Y+0pbR3gXzlAxEhhdKY23BqtAkiYju0eJeenpliEQj7C6Ifs5xhIp7zrLRYMCJPG96h5
+	7N3UHJrhixxflCav0ji9ZQv540/FrYZv888D1zG5B14rZTY8qhaHNHg3qX17DqhG3CE+uAH7LWn
+	8JBof8QQjAIG8JUidGYFvxJvUmrjpo7b52t9RkRhm0MqEWOTBqKGBhjMUraC2caoePc5iVwJ0V9
+	AJpt9PlC9oI/S9IxN6+btFLoSeJJn32Bcy8dy41bvRlrA4PvMFM6kvc+LV3bowYrI4EdNZuz4qd
+	w3UNO8qaYzeNkQz1kqGTpkYSl0LtWTVEEpFCPFofTHdAacPh1ePc1QMnRUl4Q+ryVyUFhlHgEvc
+	E=
+X-Received: by 2002:a5d:5d0e:0:b0:488:7f1d:2735 with SMTP id
+ ffacd0b85a97d-4887f1d288amr19321423f8f.57.1790602965883; Mon, 28 Sep 2026
+ 06:42:45 -0700 (PDT)
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-Content-Type: text/plain
-X-EOPAttributedMessage: 0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: LV8PEPF00000059:EE_|DM4PR12MB6254:EE_
-X-MS-Office365-Filtering-Correlation-Id: 6fed5be6-c083-4342-54a7-08df1d6653e2
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|36860700016|376014|23010399003|1800799024|82310400026|13003099007|6133799003|10067099003|260925021911599003|260925021311599003|260925022911599003|11063799006|56012099006|18002099003;
-X-Microsoft-Antispam-Message-Info: lezRrZijoLPr7BbR/IGmxfnLDMO7OMUV5aFdmFYwiD6Da1lAQtrfagTDLS4OnxeVf89mbaSCxk6M4KhFhMQsRwArXjzwjUq1N8nxZ1qv/ykGrhmvvAWU/aLksad8hepvBWP8pyb5BtT0QhKcI21Ff7sCXAgGs0jumGMlV28OrdhsbzZnGcNfkGrduLTvcZQpZGsg6Zlit69ICXbUSyfp9DOaAobfYUuxjIzBCJZvFVQ0i3bx7P1k/nbfW2bECHEpdAcYD6P2UoxK/j/cREEywDZDJ3Bn0i2/EKwiC4DlL9PqtEr59kby+B6bMcPVbs4uCIURcVmybIj8DVHKOE9330Acb1QHTACt0DIjLE7M6KYhGwL2HLJn34FL+Zsrk2Z0GWlvhwmbhYpTyudTC227TEbpeLEVmlmxofAk1scgwAjNTH86Mt4dLj8sxI+PQHc8uAxmtGwPJUieabc8qv3ohDH9mRdR6bVTkOekFCHczXURL6IG9mcLfyvinhdMWZcStdnENXD1NhU9XoEi0R+3vr5v51GQOssT9zjNy4aJOaqYCzoibGsTd8/a1ebT+dSA1Phb+xWe8RX0O1gQyz+lTZ1s0/V15TRsWS+6tQEoiHG3M8czOhGVUFQDHiWbGXqeqss6ZCgyGpZuiLYBNUe9c2pz8FkSkokh8TQLpz/fdEyBD78tbXIT4qQjy/gbAkIpmSM0ejur+A8XAGGFlP2i1w==
-X-Forefront-Antispam-Report: CIP:165.204.84.17;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:satlexmb07.amd.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(36860700016)(376014)(23010399003)(1800799024)(82310400026)(13003099007)(6133799003)(10067099003)(260925021911599003)(260925021311599003)(260925022911599003)(11063799006)(56012099006)(18002099003);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: Z3jRkGktL0+svlqap0ickRx3rP4tmULg7FLpbYETo0uwvOJYQwOwgP35t9XukAUnIM+uPP4lV/nOV2ZNviy7MS5A8EPzNcGIvWWRqeiIW5Ibgw06MyTgpVWQVijGuhETA8PFp7HQk69QVC8UgthZYx7ms/I+vGhWuMlBePUzcE0qVyC+wv41FcSOj1TADwzt/lzTninwGYGNfiRHMMZMy88O9WNw5MdsqmRoeZgrw6YNr/fqAT6UqtwXmz/hGhm9HcZjj5v3D+5dr3GfZK4df6qZubaYqztlqYhhhbHyZjusw9V4uyR7FVYZMom4Hc5Ci8JSyRXJ1dK4vww+pXWKK4rRkQz0bw0ZlpGeOWmTkZTLAdt0vhBWv2P/1ICqQybN8hsa+AaU/je36gnANywxUdka6zjq3w8MnbIkb1LYOr3/aGIhQzlulk+4cMUNU1eL
-X-OriginatorOrg: amd.com
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 28 Sep 2026 13:42:24.0685
- (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: 6fed5be6-c083-4342-54a7-08df1d6653e2
-X-MS-Exchange-CrossTenant-Id: 3dd8961f-e488-4e60-8e11-a82d994e183d
-X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=3dd8961f-e488-4e60-8e11-a82d994e183d;Ip=[165.204.84.17];Helo=[satlexmb07.amd.com]
-X-MS-Exchange-CrossTenant-AuthSource: LV8PEPF00000059.namprd02.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Anonymous
-X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: DM4PR12MB6254
+References: <20260928094739.2605-1-cp0613@linux.alibaba.com> <20260928094739.2605-3-cp0613@linux.alibaba.com>
+In-Reply-To: <20260928094739.2605-3-cp0613@linux.alibaba.com>
+From: Anup Patel <anup@brainfault.org>
+Date: Mon, 28 Sep 2026 19:12:33 +0530
+X-Gm-Features: AclHuK-74TWd3BjhOYFsGW8F1pliz-aGiiWKp_r2qgxigINlZVJkaGpvr4QoqNI
+Message-ID: <CAAhSdy0n7P+UP8M7pge7PHp_aifSsxqcsh8ahTEYjfUO8wengw@mail.gmail.com>
+Subject: Re: [PATCH 2/2] perf tsc: Replace the compile-time TSC support check
+ with a weak hook
+To: Chen Pei <cp0613@linux.alibaba.com>
+Cc: acme@kernel.org, peterz@infradead.org, mingo@redhat.com, 
+	namhyung@kernel.org, mark.rutland@arm.com, alexander.shishkin@linux.intel.com, 
+	jolsa@kernel.org, irogers@google.com, adrian.hunter@intel.com, 
+	james.clark@linaro.org, leo.yan@linux.dev, john.g.garry@oracle.com, 
+	will@kernel.org, mike.leach@arm.com, pjw@kernel.org, palmer@dabbelt.com, 
+	guoren@kernel.org, linux-perf-users@vger.kernel.org, 
+	linux-arm-kernel@lists.infradead.org, linux-riscv@lists.infradead.org, 
+	linux-kernel@vger.kernel.org
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260928_064234_580075_BA4B4B4D 
-X-CRM114-Status: GOOD (  13.10  )
+X-CRM114-CacheID: sfid-20260928_064248_109562_09A86D3E 
+X-CRM114-Status: GOOD (  29.95  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -120,60 +126,161 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Use device_get_match_data() to obtain the platform init callback from
-the OF match table instead of calling of_match_node() and dereferencing
-match->data directly.
+On Mon, Sep 28, 2026 at 3:18=E2=80=AFPM Chen Pei <cp0613@linux.alibaba.com>=
+ wrote:
+>
+> The "TSC support" subtest of the "Convert perf time to TSC" test decides
+> whether the architecture is covered by matching compiler macros for
+> x86_64, i386 and arm64.  That list has to be edited for every new
+> architecture, and it can drift apart from the set of architectures that
+> really provide a counter: util/tsc.c already ships a weak rdtsc() which
+> an architecture overrides with a strong definition when it has one.
+>
+> Add a weak arch__rdtsc_supported() next to the weak rdtsc(), let the
+> test query it instead of the macros, and have x86, arm64 and riscv
+> override it in the file where they implement rdtsc().  Support is then
+> declared next to the counter it describes, and a caller can tell a stub
+> apart from a real counter without keeping its own copy of the macro
+> list.  This follows the pattern of the other optional per-architecture
+> hooks in util/ such as get_cpuid_str().
+>
+> x86 and arm64 keep the same behaviour, and riscv starts running the
+> subtest because it gained rdtsc() in the previous patch.
+>
+> Signed-off-by: Chen Pei <cp0613@linux.alibaba.com>
 
-Acked-by: Thinh Nguyen <Thinh.Nguyen@synopsys.com>
-Signed-off-by: Radhey Shyam Pandey <radhey.shyam.pandey@amd.com>
----
-Changes for v2:
-Split as feature patch for usb-next from "[PATCH 0/5] usb: dwc3:
-xilinx: error handling and teardown fixes" series.
+LGTM from RISC-V perspective.
 
-Link to v1:
-https://lore.kernel.org/all/20260810174713.2325292-1-radhey.shyam.pandey@amd.com
----
- drivers/usb/dwc3/dwc3-xilinx.c | 8 +++++---
- 1 file changed, 5 insertions(+), 3 deletions(-)
+Reviewed-by: Anup Patel <anup@brainfault.org>
 
-diff --git a/drivers/usb/dwc3/dwc3-xilinx.c b/drivers/usb/dwc3/dwc3-xilinx.c
-index b832505e1b04..1a8619854d6d 100644
---- a/drivers/usb/dwc3/dwc3-xilinx.c
-+++ b/drivers/usb/dwc3/dwc3-xilinx.c
-@@ -12,6 +12,7 @@
- #include <linux/clk.h>
- #include <linux/of.h>
- #include <linux/platform_device.h>
-+#include <linux/property.h>
- #include <linux/dma-mapping.h>
- #include <linux/gpio/consumer.h>
- #include <linux/of_platform.h>
-@@ -279,7 +280,6 @@ static int dwc3_xlnx_probe(struct platform_device *pdev)
- 	struct dwc3_xlnx		*priv_data;
- 	struct device			*dev = &pdev->dev;
- 	struct device_node		*np = dev->of_node;
--	const struct of_device_id	*match;
- 	void __iomem			*regs;
- 	int				ret;
- 
-@@ -291,9 +291,11 @@ static int dwc3_xlnx_probe(struct platform_device *pdev)
- 	if (IS_ERR(regs))
- 		return dev_err_probe(dev, PTR_ERR(regs), "failed to map registers\n");
- 
--	match = of_match_node(dwc3_xlnx_of_match, pdev->dev.of_node);
-+	priv_data->pltfm_init = device_get_match_data(dev);
-+	if (!priv_data->pltfm_init)
-+		return dev_err_probe(dev, -ENODEV,
-+				     "missing platform init handler\n");
- 
--	priv_data->pltfm_init = match->data;
- 	priv_data->regs = regs;
- 	priv_data->dev = dev;
- 
+Regards,
+Anup
 
-base-commit: d58dffe9ee2c8883193959ff4ef995ec07932874
--- 
-2.44.4
-
+> ---
+>  tools/perf/arch/arm64/util/tsc.c    |  5 +++++
+>  tools/perf/arch/riscv/util/tsc.c    |  5 +++++
+>  tools/perf/arch/x86/util/tsc.c      |  5 +++++
+>  tools/perf/tests/perf-time-to-tsc.c | 12 +-----------
+>  tools/perf/util/tsc.c               |  9 +++++++++
+>  tools/perf/util/tsc.h               |  1 +
+>  6 files changed, 26 insertions(+), 11 deletions(-)
+>
+> diff --git a/tools/perf/arch/arm64/util/tsc.c b/tools/perf/arch/arm64/uti=
+l/tsc.c
+> index cc85bd9e73f1..fd7fba50d0a6 100644
+> --- a/tools/perf/arch/arm64/util/tsc.c
+> +++ b/tools/perf/arch/arm64/util/tsc.c
+> @@ -19,3 +19,8 @@ u64 rdtsc(void)
+>
+>         return val;
+>  }
+> +
+> +bool arch__rdtsc_supported(void)
+> +{
+> +       return true;
+> +}
+> diff --git a/tools/perf/arch/riscv/util/tsc.c b/tools/perf/arch/riscv/uti=
+l/tsc.c
+> index 7cc4710ac38c..312b0c755439 100644
+> --- a/tools/perf/arch/riscv/util/tsc.c
+> +++ b/tools/perf/arch/riscv/util/tsc.c
+> @@ -17,3 +17,8 @@ u64 rdtsc(void)
+>
+>         return val;
+>  }
+> +
+> +bool arch__rdtsc_supported(void)
+> +{
+> +       return true;
+> +}
+> diff --git a/tools/perf/arch/x86/util/tsc.c b/tools/perf/arch/x86/util/ts=
+c.c
+> index 3a439e4b12d2..6c01e96b5c2e 100644
+> --- a/tools/perf/arch/x86/util/tsc.c
+> +++ b/tools/perf/arch/x86/util/tsc.c
+> @@ -17,6 +17,11 @@ u64 rdtsc(void)
+>         return low | ((u64)high) << 32;
+>  }
+>
+> +bool arch__rdtsc_supported(void)
+> +{
+> +       return true;
+> +}
+> +
+>  /*
+>   * Derive the TSC frequency in Hz from the /proc/cpuinfo, for example:
+>   * ...
+> diff --git a/tools/perf/tests/perf-time-to-tsc.c b/tools/perf/tests/perf-=
+time-to-tsc.c
+> index f8f71fdd32b1..c91e22d93b53 100644
+> --- a/tools/perf/tests/perf-time-to-tsc.c
+> +++ b/tools/perf/tests/perf-time-to-tsc.c
+> @@ -22,16 +22,6 @@
+>  #include "tests.h"
+>  #include "util/sample.h"
+>
+> -/*
+> - * Except x86_64/i386 and Arm64, other archs don't support TSC in perf. =
+ Just
+> - * enable the test for x86_64/i386 and Arm64 archs.
+> - */
+> -#if defined(__x86_64__) || defined(__i386__) || defined(__aarch64__)
+> -#define TSC_IS_SUPPORTED 1
+> -#else
+> -#define TSC_IS_SUPPORTED 0
+> -#endif
+> -
+>  #define CHECK__(x) {                           \
+>         while ((x) < 0) {                       \
+>                 pr_debug(#x " failed!\n");      \
+> @@ -49,7 +39,7 @@
+>  static int test__tsc_is_supported(struct test_suite *test __maybe_unused=
+,
+>                                   int subtest __maybe_unused)
+>  {
+> -       if (!TSC_IS_SUPPORTED) {
+> +       if (!arch__rdtsc_supported()) {
+>                 pr_debug("Test not supported on this architecture\n");
+>                 return TEST_SKIP;
+>         }
+> diff --git a/tools/perf/util/tsc.c b/tools/perf/util/tsc.c
+> index ebf289bf6b9d..815621b1d112 100644
+> --- a/tools/perf/util/tsc.c
+> +++ b/tools/perf/util/tsc.c
+> @@ -113,6 +113,15 @@ u64 __weak rdtsc(void)
+>         return 0;
+>  }
+>
+> +/*
+> + * An architecture that implements rdtsc() with a real counter should ov=
+erride
+> + * this, so that users of the counter can tell a stub apart from support=
+.
+> + */
+> +bool __weak arch__rdtsc_supported(void)
+> +{
+> +       return false;
+> +}
+> +
+>  size_t perf_event__fprintf_time_conv(union perf_event *event, FILE *fp)
+>  {
+>         struct perf_record_time_conv *tc =3D (struct perf_record_time_con=
+v *)event;
+> diff --git a/tools/perf/util/tsc.h b/tools/perf/util/tsc.h
+> index 57ce8449647f..83e76b207365 100644
+> --- a/tools/perf/util/tsc.h
+> +++ b/tools/perf/util/tsc.h
+> @@ -25,6 +25,7 @@ int perf_read_tsc_conversion(const struct perf_event_mm=
+ap_page *pc,
+>  u64 perf_time_to_tsc(u64 ns, struct perf_tsc_conversion *tc);
+>  u64 tsc_to_perf_time(u64 cyc, struct perf_tsc_conversion *tc);
+>  u64 rdtsc(void);
+> +bool arch__rdtsc_supported(void);
+>  u64 arch_get_tsc_freq(void);
+>
+>  size_t perf_event__fprintf_time_conv(union perf_event *event, FILE *fp);
+> --
+> 2.50.1
+>
+>
 
