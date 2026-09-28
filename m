@@ -4,45 +4,45 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 92B7DCA5FA3
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 28 Sep 2026 19:21:57 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D3C90CA5FA3
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 28 Sep 2026 19:22:48 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=OjyoOz0KsWQkFno9NOBUUr/sWby/N/75GVMSb1/DBSc=; b=ZGZDijbHf0CLysph71SnkkPJPY
-	qyvks+woYOzbmDz1fbEP+cqLDdIu3cGgAGhQxNeH4AxCWzHmhftUOBMpsitgo/ggOlnXY6BeYyU52
-	anUYWAvlGbircEtRRwe2uIGLLiNIkCRFkyVUs4XfHwXPscODOpTQeikveNjsgljTMWPxT81zVHFrT
-	z6DI9lJna78rPysYrGcC95B++IPMklit+uA/fQL9FG33MnGk9QYs1rX0J2S/56xkjCG50qIOx6+1V
-	Y3A8mxIst/tKtvaMAr3ybMwNybPYA+J8A4zAl9zXxdrF6p2lGHVXpjQjsO+RMGr7e8QHETgzXGyro
-	ePYzGrlw==;
+	bh=BtQtx4AiOoxIUWF52v492teIG0M7J+4dI2QJwDWLz0I=; b=iYvPxB3QuQdf6BkcrFCUKEVgd4
+	sQdPF+BfTVgcRLfGxE6oEvTmomyc2/aZUcVBzdokEa/XlcHcE4epmyWkZA2FCrZzFiq42kUKpAze4
+	DMTzsVLJfkevUwD0jfzmj3SLbtYU0YwsMbaZfrFiUFygkyStBX2posP09xzYoLJwnMBeyLMNrxrfC
+	cF/fhrmJ1F0H0yWiIPZIRt/jtBAvQJlPb32kp+IsH+iQkbZDQtwGYYOnUwhFoqq5LKMkrnYRYYnwR
+	iX+OnIrxt26jQbi7B75fEYRTghXSPdJfLE83JTrMdT3sVh/uEswNRsYVE5jbX3Byb0ygKJk+RWTN+
+	1m1//EUQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xBGv9-00000001Q8Z-2Wt4;
-	Mon, 28 Sep 2026 19:21:51 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1xBGvy-00000001QHk-3cF6;
+	Mon, 28 Sep 2026 19:22:42 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xBGv8-00000001Q8K-020B
+	id 1xBGvx-00000001QHQ-2m1Q
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 28 Sep 2026 19:21:50 +0000
+	Mon, 28 Sep 2026 19:22:41 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 696F440AF9;
-	Mon, 28 Sep 2026 19:21:49 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id B41AA1F000FF;
-	Mon, 28 Sep 2026 19:21:48 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 1CF4060120;
+	Mon, 28 Sep 2026 19:22:41 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 66C361F000FF;
+	Mon, 28 Sep 2026 19:22:39 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1790623309;
-	bh=OjyoOz0KsWQkFno9NOBUUr/sWby/N/75GVMSb1/DBSc=;
+	s=k20260515; t=1790623360;
+	bh=BtQtx4AiOoxIUWF52v492teIG0M7J+4dI2QJwDWLz0I=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=MILeeDzRp99qBDIzkPGCbW2f53JAegthHipxBvkmjnNWzxzQ83S5u3cp9d/PkCCmc
-	 UCCxnOZ5Cx+mKajzqzKDzFlCF4GYYjCakrowKRwuAp9o8dJds6utDmIR1hp8aPD26D
-	 ZKZmEgLILYgMYp9emjLag8T3z3/XU8i0h98p+qZ9DSui+HMfabiubv1ap+hcBWtTLx
-	 pqEPtgBBjvL+/3oNu13qkaUpsfGDW+H44+tKLsnkuLpghkIC6Rzb/w46HE8WdI5no6
-	 EBIWbNMCdLarai8ktEfB5VItQnjYozThknmBZ0XgI01donUiERXuUsfMKhY5rZge7U
-	 j/657lUFBgNiA==
-Date: Mon, 28 Sep 2026 22:21:45 +0300
+	b=PbWcEIwaUcODHGEWBMbiqHhtpku8qEZ8fQhiKRaNWnk16t11t8skaxOev2PtGa0fU
+	 12Xb/igtIUBYB+dLAbDmyJMHBy4H57dPnbrKr3Jh0c718ZSQDgRDYXrmpqPnicFZBG
+	 SjE+Ug5FK9OVyGYh8gyFjJ/gy+cUzo9MqXOUBwhBFUNgpfEt3cqqQwTeXbxTqEI3BK
+	 GDJuEvvYsA3rwpwXNq7pYOlbBvXNbPTEQSVZUnPO9GLdV5HaqCPPuAUrtPyZXyAESY
+	 KaTPDy7yvIPdvqAhdOgbBtU8lxMCCAl+OKIItBJ8X+g0ooydylrHmdCtqMAxsTpmBQ
+	 tZjwOXvrOw/PA==
+Date: Mon, 28 Sep 2026 22:22:36 +0300
 From: Leon Romanovsky <leon@kernel.org>
 To: Jason Gunthorpe <jgg@nvidia.com>
 Cc: Alex Williamson <alex@shazbot.org>, David Matlack <dmatlack@google.com>,
@@ -59,15 +59,15 @@ Cc: Alex Williamson <alex@shazbot.org>, David Matlack <dmatlack@google.com>,
 	Suzuki K Poulose <suzuki.poulose@arm.com>,
 	Tariq Toukan <tariqt@nvidia.com>, Zenghui Yu <yuzenghui@huawei.com>,
 	patches@lists.linux.dev
-Subject: Re: [PATCH v7 02/10] net/mlx5: Move HW constant groups from
- device.h/cq.h to mlx5_ifc.h
-Message-ID: <20260928192145.GE563127@unreal>
+Subject: Re: [PATCH v7 03/10] net/mlx5: Extract MLX5_SET/GET macros into
+ mlx5_ifc_macros.h
+Message-ID: <20260928192236.GF563127@unreal>
 References: <0-v7-c6d30e8ce1e4+3dfa6-mlx5st_jgg@nvidia.com>
- <2-v7-c6d30e8ce1e4+3dfa6-mlx5st_jgg@nvidia.com>
+ <3-v7-c6d30e8ce1e4+3dfa6-mlx5st_jgg@nvidia.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <2-v7-c6d30e8ce1e4+3dfa6-mlx5st_jgg@nvidia.com>
+In-Reply-To: <3-v7-c6d30e8ce1e4+3dfa6-mlx5st_jgg@nvidia.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -82,31 +82,32 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Sep 21, 2026 at 07:35:42PM -0300, Jason Gunthorpe wrote:
-> Generally the IFC file should contain enums for the fields it
-> defines. Move the ones in device.h that are relevant to the VFIO
-> selftests over to the IFC file:
+On Mon, Sep 21, 2026 at 07:35:43PM -0300, Jason Gunthorpe wrote:
+> Extract the entire MLX5_SET/GET macro family and their internal
+> helpers from device.h into a new lightweight header
+> (include/linux/mlx5/mlx5_ifc_macros.h).  device.h cannot be
+> included by the VFIO selftest because it pulls in rdma/ib_verbs.h;
+> the macros themselves depend only on endian helpers, BUILD_BUG_ON,
+> and basic C types.
 > 
->   wqe_ctrl_seg_bits.opcode: all MLX5_OPCODE_* WQE opcodes
->   wqe_ctrl_seg_bits.ce: new MLX5_WQE_CE_* completion/event modes
->   cqe64_bits.opcode: all MLX5_CQE_* CQE opcode values
->   eqe_bits.event_type: enum mlx5_event (all event types)
->   cmd_out_bits.status: all MLX5_CMD_STAT_* status codes
->   query_hca_cap_in_bits.op_mod: enum mlx5_cap_mode
+> The moved macros include the internal helpers (__mlx5_nullp through
+> __mlx5_st_sz_bits), all size/address macros (MLX5_ST_SZ_BYTES,
+> MLX5_BYTE_OFF, MLX5_ADDR_OF, etc.), the 32-bit accessors (MLX5_SET,
+> MLX5_GET, MLX5_SET_TO_ONES, MLX5_ARRAY_SET, MLX5_GET_PR), the
+> 64-bit accessors (MLX5_SET64, MLX5_GET64, MLX5_ARRAY_SET64,
+> MLX5_GET64_PR), the 16-bit accessors (MLX5_GET16, MLX5_SET16), and
+> the big-endian getters (MLX5_GET64_BE, MLX5_GET_BE).
 > 
-> Tidy MLX5_PCI_CMD_XPORT which is an alias of
-> MLX5_CMD_QUEUE_ENTRY_TYPE_PCIE_CMD_IF_TRANSPORT.
-> 
-> No functional change. All existing users of device.h and cq.h
-> continue to see these constants through the include chain.
+> device.h includes the new header so existing kernel code is
+> unchanged.
 > 
 > Assisted-by: Claude:claude-opus-4.6
 > Signed-off-by: Jason Gunthorpe <jgg@nvidia.com>
 > ---
->  include/linux/mlx5/cq.h       |  10 ---
->  include/linux/mlx5/device.h   | 114 +------------------------------
->  include/linux/mlx5/mlx5_ifc.h | 123 ++++++++++++++++++++++++++++++++++
->  3 files changed, 124 insertions(+), 123 deletions(-)
+>  include/linux/mlx5/device.h          | 117 +----------------------
+>  include/linux/mlx5/mlx5_ifc_macros.h | 133 +++++++++++++++++++++++++++
+>  2 files changed, 134 insertions(+), 116 deletions(-)
+>  create mode 100644 include/linux/mlx5/mlx5_ifc_macros.h
 > 
 
 Thanks,
