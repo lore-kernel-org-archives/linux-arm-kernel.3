@@ -4,178 +4,119 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 292A5CA5FA2
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 28 Sep 2026 20:34:02 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 704E7CA5FA3
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 28 Sep 2026 20:35:17 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:CC:To:Message-ID:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:From:
-	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
-	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=bICb/K6TSnRngmGiic+tpZoZU6edlC/ZhmPWqSKD/uE=; b=K5ewh1Vu8lKL1w0CmhyuBU23Nk
-	tBdyuxgICh8Wzz8gmkMyx5N377U1VACburzJYaLeraSJNjg1zYdXiIrwQOagZz+Znzpbkt33r12n2
-	+Q1ZdxZEZTFgJLzIUA6rcRDGTWTz5UOVKUWrGIse8OBCO5eZ7zl+Q5rnkvyvQNbSekYLwJ5CGZc+/
-	ExNVqBTn24nbXc1HjmLcfU/g5odx67setPifo8pGkr8Fm6bowarQ06Z5ueFRyjUa8gbtpbb2CYgZU
-	+k0Lq99Uv3zVBgfBe7hk1xTRTsPkr9tpVdmBJh1EZOFfIXPsR0K4zMOI4cc0kOR1b2yZhw70C6RZ/
-	AcBn789w==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
+	:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=YMZqfY7M2hcLZrP3CUvA9xr0iCAn0oVyKHjdPucaEzs=; b=QVrlbtQjPDcUdyLKax4k05ANnA
+	hdlZSuAUm9BB4rTZ+jBi6cfQ0C/QJTCLtvFMRcDbclFPDv6z1atWhltcMFHqDNuwdSr7az7qxIIOF
+	b0ZlucDHmbageD0UtT/u6rMGFpVFhRXTN90s6M8ZA9pMazO6/R7NCtudeTwboEIXRQ0rv9Jyu5oAD
+	5LU0KE4Lihs2WHsGyZI/EgLoeuau2buwnjO09ZA26HVWLbQ67G1maRyTSlmn8yMSZF5uj0yW1ujAa
+	OLBA5X/iblO959CODYyqqHSF8Xa58xo+/sGQ72rqWhSPHLNZVz5ViiLQGrJSWobMUz9Ot0InLERU7
+	ihThygWg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xBI2r-00000001ZW5-0yOP;
-	Mon, 28 Sep 2026 20:33:53 +0000
-Received: from mx0b-0002e601.pphosted.com ([148.163.154.28])
+	id 1xBI46-00000001Zdi-1iIx;
+	Mon, 28 Sep 2026 20:35:10 +0000
+Received: from mail-japanwestazlp170110001.outbound.protection.outlook.com ([2a01:111:f403:c407::1] helo=OS0P286CU010.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xBI2o-00000001ZVc-37J7
+	id 1xBI42-00000001ZdG-3gci
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 28 Sep 2026 20:33:52 +0000
-Received: from pps.filterd (m0374955.ppops.net [127.0.0.1])
-	by mx0b-0002e601.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 68SJq8FL2844922;
-	Mon, 28 Sep 2026 15:33:45 -0500
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com; h=cc
-	:content-transfer-encoding:content-type:date:from:message-id
-	:mime-version:subject:to; s=proofpoint-05-2026; bh=bICb/K6TSnRng
-	mGiic+tpZoZU6edlC/ZhmPWqSKD/uE=; b=TSLPuS5Eyc3xwU9yoHTrJcnJ6GYL0
-	/XJu2N4L/bZqTcccRulXXBzfdhAk7GKTh7PYR9pPvNelGZY54nytVHDYb9YYlqe2
-	0wd7wNufnNdivPBrEsJD/bzon2U04XYlc+4J6Y9XY9ZCM0y/NyCTzCRqE0nSE7aQ
-	IOY0QdfoRsHiWoCzS6dwsqo+qvAS0OPkVOe0BzDg+AQPwNvSn3sEJBN+SI2o16xJ
-	zyP/HtPxonNlsnqks4a5ax1At1PIxV31+1pbTehBgo6EZ3uRUnHlyhV1Lw58k+Mj
-	4ssHf9f57ZtRJQ9yr4K+0hbC4zvKNT1e9fiiD3sAxP+11FZ2CVjf3kW3g==
-Received: from ch4pr04cu002.outbound.protection.outlook.com (mail-northcentralusazon11013049.outbound.protection.outlook.com [40.107.201.49])
-	by mx0b-0002e601.pphosted.com (PPS) with ESMTPS id 4gxwe5ru5w-1
-	(version=TLSv1.3 cipher=TLS_AES_256_GCM_SHA384 bits=256 verify=NOT);
-	Mon, 28 Sep 2026 15:33:45 -0500 (CDT)
+	Mon, 28 Sep 2026 20:35:08 +0000
 ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=l610xd/zxV38xm6DtV4pLw09Q/2lLJIHZdxq9B9UhgYamdZ41Fh56YwOaXR5zfcFGI3Ug6XfaeZaE504MjLOFca2NEnGNh76YaFm6Y1UZL6A8Fnw/sEqkLUlnzipAtzYzj2vka4B+BTD5uJih34h6BJlUteXuZ0nZNvGuJVKUu9fFB0XcuKUJ6d9lH9+SRgne7blmpRdOs4gZ7xEtO1nXOxjP52sszudVzD7ZoR2tbesb2CdfYnpzpHpzp86R/PPBtDlzvC1i2u9mXMbH4EIeSlQUG01gXj5zTvMEOTyd6Kyvz8NzGgraIhM0S4lmOpKcNJ9NXShyzKpEfsR6xkPFQ==
+ b=CBQYJGq7RrvHym43AHZhvGrDZvFTFJFhQ0WWTvVXl7Mz9zsi/9gfZ4QS0psO92asIfhmZnRCJl5eSvGiTRqUYD9GDrUMsUjj8nxx8vToSJY0vXnppGOCV/VUAyqPS1bKDN/K8/44YCeEqakcotIkfplQdyFulSUXh+ZO0lIYXtLdr6FXvkeAQry1uclkrIJpLb21+mn4JtOPzQV4+2KBKf3aLjx8W5ZjXu62eAug/vMKyZdfUd2ZbVHejw0tkWNDJChcRkSoxvjZpogOcMuaxch8lIM9Ww7UMAF41Z/fuldKL4xkhYresmRY9p915TsSIYqAI5WyL1dNmORiZ4f/Hw==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
  s=arcselector10001;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=bICb/K6TSnRngmGiic+tpZoZU6edlC/ZhmPWqSKD/uE=;
- b=mvWeP5F3Ui7IhKR4m+hXfp1R9pcMiBMrc6IsAs5mr1IcCIHzn64YPvDMZc5JpIvX3mZN7Bg+7wiZGp+6xEbboql748hRpUYU/jiq594yGN4r5OK7HLx4q4wBSlDT+l9hNzlXKg9qIcEgQ70nNRKDM/xIFLn3/8uoFK6IeTvN+5a3JovIb2VC/DtA0hepoEugdixgLmMsIjdrIkuv9hUosFBa5lCspIDmaELOcPibP1SMT6Se3d0r3Nn0dBbfHvyFG2ThfqHIbBgOXE3vEnAuLGeyfJhH4XE4U+spMNW6baBtlRjqCYb0AFW9/JOf2fhDM6y+gpIxHOhRJplqa65g3w==
+ bh=YMZqfY7M2hcLZrP3CUvA9xr0iCAn0oVyKHjdPucaEzs=;
+ b=oq6NrZMteOgrgScZJZIrQeWEDLKWBsQ6a5w8wtwUDiYZzsV+Jx3WlIo2sC96lg59hpe+kdk8q3ELJxf+TGorZ/VLRcXXqSczXp514MxLGUp6DbFYyPoiYMA6yPLYfjQFZyaap8ru2cI1F+Ee7x54m8KDFKhqe1Sajn9mHVfU6WwsS6wCPqV8uGS8LoR1m0PXN6tdPuD7PhxTCUpoOCyIoiVvrJyPdt9qwHVpxGqgjBGOaE6T74CHtzYUgmbevEPu+nnAC9VmfTY1tk8qxkHdvXsPWVm7+2neAuJFHjTlAfCvclJmuL5MXc9uv1txEnrj/13DXxp4riVNMGp+EZ7Ijw==
 ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
- 198.47.21.194) smtp.rcpttodomain=vger.kernel.org smtp.mailfrom=ti.com;
- dmarc=pass (p=quarantine sp=none pct=100) action=none header.from=ti.com;
+ 8.62.32.50) smtp.rcpttodomain=bootlin.com smtp.mailfrom=renesas.com;
+ dmarc=pass (p=none sp=none pct=100) action=none header.from=renesas.com;
  dkim=none (message not signed); arc=none (0)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=ticloud.onmicrosoft.com; s=selector1-ticloud-onmicrosoft-com;
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=renesas.com;
+ s=selector1;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=bICb/K6TSnRngmGiic+tpZoZU6edlC/ZhmPWqSKD/uE=;
- b=IRGRSfvQwmsntF+ABVzlUN11E7Sgptp6Zded+dQjZ75a7satEGQLmQ3B76ShoktMK0VpOcMCmgLYHOpJQSvocaYuMN7j+BEY6zDDo52X8IbtjswVWqPrYAg6GBR/VWfy48DE1ErnHRIp+9C217ZUdiM9dsvhM6jZCbB44jTEl5s=
-Received: from BN1PR13CA0002.namprd13.prod.outlook.com (2603:10b6:408:e2::7)
- by CH3PR10MB6833.namprd10.prod.outlook.com (2603:10b6:610:150::8) with
+ bh=YMZqfY7M2hcLZrP3CUvA9xr0iCAn0oVyKHjdPucaEzs=;
+ b=GBJC69n3/rc76YV2KulOlgsZ7gzJTsxZjq0GEh6hkvqPWqE916UREGd5XgpDhr83oi7Tgrynmqcz5oPC7HE9s2x0qtdYP9BI17sKWsSQdKPP9hQT5LsSFECwLfyqYyjzNNzeDXIEKeI8xYjS7dtRWhiry+LaG46XPo4SKYn/bJk=
+Received: from OS7PR01CA0288.jpnprd01.prod.outlook.com (2603:1096:604:25a::20)
+ by TYCPR01MB7060.jpnprd01.prod.outlook.com (2603:1096:400:c1::12) with
  Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.472.7; Mon, 28 Sep
- 2026 20:33:39 +0000
-Received: from BN1PEPF00004683.namprd03.prod.outlook.com
- (2603:10b6:408:e2:cafe::49) by BN1PR13CA0002.outlook.office365.com
- (2603:10b6:408:e2::7) with Microsoft SMTP Server (version=TLS1_3,
- cipher=TLS_AES_256_GCM_SHA384) id 15.21.472.14 via Frontend Transport; Mon,
- 28 Sep 2026 20:33:39 +0000
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.451.24; Mon, 28 Sep
+ 2026 20:34:56 +0000
+Received: from OS1PEPF0000D215.JPNP286.PROD.OUTLOOK.COM
+ (2603:1096:604:25a:cafe::92) by OS7PR01CA0288.outlook.office365.com
+ (2603:1096:604:25a::20) with Microsoft SMTP Server (version=TLS1_3,
+ cipher=TLS_AES_256_GCM_SHA384) id 15.21.451.24 via Frontend Transport; Mon,
+ 28 Sep 2026 20:34:56 +0000
 X-MS-Exchange-Authentication-Results: mx.microsoft.com 1; spf=pass (sender IP
- is 198.47.21.194) smtp.mailfrom=ti.com; dkim=none (message not signed)
- header.d=none;dmarc=pass action=none header.from=ti.com;
-Received-SPF: Pass (protection.outlook.com: domain of ti.com designates
- 198.47.21.194 as permitted sender) receiver=protection.outlook.com;
- client-ip=198.47.21.194; helo=flwvzet200.ext.ti.com; pr=C
-Received: from flwvzet200.ext.ti.com (198.47.21.194) by
- BN1PEPF00004683.mail.protection.outlook.com (10.167.243.89) with Microsoft
- SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.21.472.14 via Frontend Transport; Mon, 28 Sep 2026 20:33:37 +0000
-Received: from DFLE213.ent.ti.com (10.64.6.71) by flwvzet200.ext.ti.com
- (10.248.192.31) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.45; Mon, 28 Sep
- 2026 15:33:03 -0500
-Received: from DFLE204.ent.ti.com (10.64.6.62) by DFLE213.ent.ti.com
- (10.64.6.71) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.45; Mon, 28 Sep
- 2026 15:33:03 -0500
-Received: from lelvem-mr06.itg.ti.com (10.180.75.8) by DFLE204.ent.ti.com
- (10.64.6.62) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.45 via Frontend
- Transport; Mon, 28 Sep 2026 15:33:03 -0500
-Received: from [127.0.1.1] (uda0506412.dhcp.ti.com [128.247.81.196])
-	by lelvem-mr06.itg.ti.com (8.18.1/8.18.1) with ESMTP id 68SKX3hA3832939;
-	Mon, 28 Sep 2026 15:33:03 -0500
-From: Kendall Willis <k-willis@ti.com>
-Date: Mon, 28 Sep 2026 15:33:03 -0500
-Subject: [PATCH] ARM: dts: microchip: at91-kizbox3-hs: consolidate
- gpio-keys pinctrl
+ is 8.62.32.50) smtp.mailfrom=renesas.com; dkim=none (message not signed)
+ header.d=none;dmarc=pass action=none header.from=renesas.com;
+Received-SPF: Pass (protection.outlook.com: domain of renesas.com designates
+ 8.62.32.50 as permitted sender) receiver=protection.outlook.com;
+ client-ip=8.62.32.50; helo=ejcrelay004p.adwin.renesas.com; pr=E
+Received: from ejcrelay004p.adwin.renesas.com (8.62.32.50) by
+ OS1PEPF0000D215.mail.protection.outlook.com (10.167.240.22) with Microsoft
+ SMTP Server (version=TLS1_3, cipher=TLS_AES_256_GCM_SHA384) id 15.21.472.14
+ via Frontend Transport; Mon, 28 Sep 2026 20:34:55 +0000
+Received: from vm01.adwin.renesas.com (DEU-5CG20946WF.adwin.renesas.com [10.226.92.32])
+	by ejcrelay004p.adwin.renesas.com (Postfix) with ESMTP id D5BCE300027B;
+	Tue, 29 Sep 2026 05:34:50 +0900 (JST)
+From: Ovidiu Panait <ovidiu.panait.rb@renesas.com>
+To: maxime.chevallier@bootlin.com,
+	recv.jo@gmail.com,
+	andrew+netdev@lunn.ch,
+	davem@davemloft.net,
+	edumazet@kernel.org,
+	kuba@kernel.org,
+	pabeni@redhat.com,
+	mcoquelin.stm32@gmail.com,
+	alexandre.torgue@foss.st.com,
+	joabreu@synopsys.com,
+	jun.ann.lai@intel.com,
+	yi.fang.gan@intel.com
+Cc: netdev@vger.kernel.org,
+	linux-stm32@st-md-mailman.stormreply.com,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	Ovidiu Panait <ovidiu.panait.rb@renesas.com>
+Subject: [PATCH net v6 1/5] net: stmmac: Remove VLAN perfect matching dead code
+Date: Mon, 28 Sep 2026 20:34:37 +0000
+Message-ID: <20260928203441.34876-2-ovidiu.panait.rb@renesas.com>
+X-Mailer: git-send-email 2.43.0
+In-Reply-To: <20260928203441.34876-1-ovidiu.panait.rb@renesas.com>
+References: <20260928203441.34876-1-ovidiu.panait.rb@renesas.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-ID: <20260928-gpio-dt-binding-fix-v1-1-552e4b324a36@ti.com>
-X-B4-Tracking: v=1; b=H4sIAP7OumoC/x2MQQqAMAzAviI9W5gVxPkV8eBsnb1ssokIsr87P
- CaQvJAlqWSYmheS3Jo1hgpd28B2rMELKlcGMjQYSyP6UyPyhU4Da/C464OWLQn1Io4N1PJMUvV
- /nZdSPs2F6GhlAAAA
-X-Change-ID: 20260928-gpio-dt-binding-fix-9d92e23eebd0
-To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
-        Conor Dooley <conor+dt@kernel.org>,
-        Nicolas Ferre
-	<nicolas.ferre@microchip.com>,
-        Alexandre Belloni
-	<alexandre.belloni@bootlin.com>,
-        Claudiu Beznea <claudiu.beznea@tuxon.dev>
-CC: <s-kochidanadu@ti.com>, <a-kaur@ti.com>, <s-tripathi1@ti.com>,
-        <vishalm@ti.com>, <k-willis@ti.com>, <devicetree@vger.kernel.org>,
-        <linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>
-X-Mailer: b4 0.14.2
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1790627583; l=1834;
- i=k-willis@ti.com; s=20251230; h=from:subject:message-id;
- bh=wohc0AfnLRaKR3Sj6ST7h77A8mmuoO/MIgH7a/86VkU=;
- b=930AtfSkstd6p2QiAfEF57xSIgOxatp1c8lDbe8I4NQ4YUVmOmCpyMCFo1EatHSYBeilrGeBs
- 5y/o1CRaXDEAlfYG3CZStmyHnpriThp9DavcDeLghwtAPexF6nOQcAL
-X-Developer-Key: i=k-willis@ti.com; a=ed25519;
- pk=fQiPVFwmogfDAKdaAKq163RWSfgHZVE/MrsDzp0Xo1k=
+Content-Transfer-Encoding: 8bit
 X-EOPAttributedMessage: 0
 X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: BN1PEPF00004683:EE_|CH3PR10MB6833:EE_
-X-MS-Office365-Filtering-Correlation-Id: 2a25c753-d624-417a-b8f6-08df1d9fc671
+X-MS-TrafficTypeDiagnostic: OS1PEPF0000D215:EE_|TYCPR01MB7060:EE_
+Content-Type: text/plain
+X-MS-Office365-Filtering-Correlation-Id: 0383bfce-41af-4afd-e4b9-08df1d9ff52b
 X-MS-Exchange-SenderADCheck: 1
 X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|36860700016|23010399003|82310400026|376014|56012099006|10067099003|18002099003;
-X-Microsoft-Antispam-Message-Info: U/8Sm+xqgFx3vE+EtzhIbh/uF7q4+pBMB0yShk9gv0vBPKTsB1Ft7NUMzBcdoqC0aKU8fP1CrvWmK9AeuyvA3DNlc0q+RMFauTljArAio02S+21FAsxYULbez3z2ck6TzxVFHPC994Nern3MplyhHJTDLfMxdfAMh6lDLUcps2qi5Oz6kS2ft7DJngxuOh6CU272SXje5rBM0IkLz04Is7EJKJXiY4Np1uIT8gGAHg4mlcM2zJIAl8zbFwMwIEyhODGd+ZkllNDYnrDuAFxvcH9r41mtPqTYUoF3B3r0pPBsNtcKbXUMuVUs6lu1T15J7Ty6HwEDDMrAPXAsSoMCdIwD3bfxLWnj8Gda6WIgJji4Ef+fOg15ChVGjrhkGzKYCAqu29euT0IwRGW3msqtEwhSnMMCp8rfLn7Dp99CUUxw0sBbezzO2uzLWrKESajJ33oIJseISd1edOLX1s/GhclpXxwuUgLIXQKYJ/rkW4AC9ELx0JmXfiUx7ZgfVyvb64TvxHHks5Q8CAVBK1RTVte9CG1H4za6Kn+vHZJhDv4krOFF8rOtgIBZdY3iZ6Yd2ye3YZPlLjuJrHWB1ZaBUVOqRSOTc45Kr0Jy9enxt1t0y64BQphSZerXicL0mxh9p74JOS34mRHKIXG2XX8qjIrP3uQBEAKJgg9BFKJWrE+T8kY1JayIl7EXcJdTCcOnxL3crOtHOIPGU4IcOFF6/A==
-X-Forefront-Antispam-Report: CIP:198.47.21.194;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:flwvzet200.ext.ti.com;PTR:ErrorRetry;CAT:NONE;SFS:(13230040)(1800799024)(36860700016)(23010399003)(82310400026)(376014)(56012099006)(10067099003)(18002099003);DIR:OUT;SFP:1101;
+X-Microsoft-Antispam: BCL:0;ARA:13230040|23010399003|7416014|376014|1800799024|36860700016|82310400026|22082099003|921020|11063799006|10067099003|56012099006|18002099003;
+X-Microsoft-Antispam-Message-Info: yETSBadjaLH0iSwCNqldOMakTb0lzYvh+3bbmyoehIh5/Am+pMSQRbepmvsdyDW1ljEFNhkJiOwRugeEbywi9WxcbqlDkiCgdYEt+ISNlPa0h4sZo+qpuF5zClXud8n0d7snvuFYwVPVAB/IRTnncpvTrg1fannCCNa2vQUZfk93JCpNpYsIGlw/R/HSU+7jbXovecZUSNKtz/1uJVy/wy2vu8Fw9vXBwM7NiANvJ8MXCN8eS/I+1a3Rie+O2JOCEJllta0AsVOIAkCh1bbJ7VgNyb0mcZb/S3OR9TsklCj84RgAAZJeKhYRmY4yAgoWvZllyytG/J04vODq0RDHV9r0ss5Iqi+uHDTifLfjAKnrFmrmpjUFg78b3FrRQYDO2qff+HdsqqI/kkmeTDjV6JZzGJKHAcvVp+/Xh+HzBvQcUgBHzOo/3nzg2LzAjF9urtCMaHD+YAWGl+rOJKOBix/tiMZEmCvmDmI4Ck2rE8N6GjwlW7CFUf9L//kmSUipKMogldnU504utuNUUoV09LTikePw0KPkdWbkgM41vM4VAwIgdQrREXjIh+ar+sGFl3Zk8mzOGdBG1LrmPKDFzQfryrmFvXhMrRcJpdzn0UataiOyTok6mrhkgFiSPi53yV7BTL1DHW1wbGcSp9us7wJjr5UL3wXwde0SUIIl2v3LEWwQxmTzp6dFqu2OclgvIrhSrndhlpSTG4N2W64LW1aH7WhcykRlPRSMzS6P7+mNuNuh5Ne8GisLegcx+wyu
+X-Forefront-Antispam-Report: CIP:8.62.32.50;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:ejcrelay004p.adwin.renesas.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(23010399003)(7416014)(376014)(1800799024)(36860700016)(82310400026)(22082099003)(921020)(11063799006)(10067099003)(56012099006)(18002099003);DIR:OUT;SFP:1101;
 X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: IvbBvDj7i+xYW5KZgEABDXSeN+CHkeI6uv8JoSaBSh5q+EFvnR56ylh3bH1bGDoyY4pbGP61FVn5aVkFuBPJg+lKdtQXeRO0jYKXon3WlDiwhQqcDbpfD0ti35kVpy/dCS464AMht1+83B2Q6Rs1yi32EJojF/i5dOAWcdaCzMBfoLVNviFUWGU8m+LAhiUCHT8RDrdBmWq0qj+okYj+pGFcRQJ6Luxs7uSwv8OixglOn3t/XI6NXoXPrjuodCpd5n1njTjoECb4OLMhODCRgo8zTrVS99JmUcTBhZd94y1Gj+xsiLJmj5qdHSO/HlSiVw0KxGPBkstWfvr9sa/m7HSPLlx7U1FJarwniXPdeztYMonNDnlxrg7qIbAa/b5e2LNZirX3+SXqJSDH7Oil532+Ww6IzAAFBoml0AVegXTt6FHKqmJ1SzhERK/cWFZC
-X-Exchange-RoutingPolicyChecked: LtLi48Ue//F6qDJPw4PoHSqzH6GvnWG2zTLhfvfYSGuGsEB9O4PUBmnptoMZ0Le8j1oP2Xkh7P4NLqdWgTV63Fy48PyimsL0G8q8bUmRmvqZjq7/WcKp4iWarekDi4gx7YLaEJGrSEp90D9YdmCDm80Q44TNBzynNEBB+BSGIyiLpfMFVlGB+cLdwByCj0qpkEaUq/KIeXDgsmTRMuFjKqZ5odrpqszsOxMtQMyljSs1diV79Mj8U2XYlkgAm+HOEc5UhZRpb+6+0Xptj/BWUwLOa9jJ/AxoxbOV99qJ73sOC5csIT+Asbk+XyYXlWM4S33mM8DG2chUeRgm/Q5eQA==
-X-OriginatorOrg: ti.com
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 28 Sep 2026 20:33:37.4967
+X-MS-Exchange-AntiSpam-MessageData-0: r9+h4HwBXrEyOWyUALpK1/NdeOBK7YfqG+Z/tpOQMbP6TKXMrIfBHv10eB39reDmS3g3RL0wUtZclLfzc901cA0WpLc6gji+gWdEaLs7a48OL3OJ8M1gdhnDnFk37twTT+VgEtCgWN2hSwAp+gI4pQizOE+e0idrHK6rkWYfrXoPBlzZAAD67jORUl5XuLHQ9bM3AeqjEgEOcTvn214UvW6wpuZoafs+qGElVT1cws7/upYtQNgl7GX9gMslMddqGSUQbOoQFrqzPKaSrjiWeTqR1jqlrotm+rG8WH+abdmJWPy7b0zZkk2LTgFzh2Mtz9HczMFsM/qX87QNKJferhO2ie0grFqYleABKUis4NjFYa1lVgWiqOgV7mPdkWjzxLAi5+BrZpNkluDUZVDyGwJsCFepyz6viqSDhtOxL45ay429g2ynjkMx2tbkRlYY
+X-OriginatorOrg: renesas.com
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 28 Sep 2026 20:34:55.9591
  (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: 2a25c753-d624-417a-b8f6-08df1d9fc671
-X-MS-Exchange-CrossTenant-Id: e5b49634-450b-4709-8abb-1e2b19b982b7
-X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=e5b49634-450b-4709-8abb-1e2b19b982b7;Ip=[198.47.21.194];Helo=[flwvzet200.ext.ti.com]
-X-MS-Exchange-CrossTenant-AuthSource: BN1PEPF00004683.namprd03.prod.outlook.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 0383bfce-41af-4afd-e4b9-08df1d9ff52b
+X-MS-Exchange-CrossTenant-Id: 53d82571-da19-47e4-9cb4-625a166a4a2a
+X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=53d82571-da19-47e4-9cb4-625a166a4a2a;Ip=[8.62.32.50];Helo=[ejcrelay004p.adwin.renesas.com]
+X-MS-Exchange-CrossTenant-AuthSource: OS1PEPF0000D215.JPNP286.PROD.OUTLOOK.COM
 X-MS-Exchange-CrossTenant-AuthAs: Anonymous
 X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: CH3PR10MB6833
-X-Authority-Analysis: v=2.4 cv=aeP0Dhot c=1 sm=1 tr=0 ts=6abacf29 cx=c_pps
- a=Yfwwr8Yczqb7c+94X7Exug==:117 a=iwqwCZQqcuTv3JOpYdM7/Q==:17
- a=6eWqkTHjU83fiwn7nKZWdM+Sl24=:19 a=IkcTkHD0fZMA:10 a=VdqzKS8jKosA:10
- a=AlMIdn_sM9wA:10 a=VkNPw1HP01LnGYTKEx00:22 a=Z8NIEmU8O1QQgoT56wFK:22
- a=fPAWb5peG099m5CrUpKH:22 a=sozttTNsAAAA:8 a=Vv26XpkUteEjZrrwIqsA:9
- a=QEXdDO2ut3YA:10
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwOTI4MDA4MSBTYWx0ZWRfX0eAWe+yJEIWM
- pSMQvB+ao3B/UqzuL0/1CrNjxPYt0/oVn94F+ltmJhIKMWS62Z6B2B9B2A1fUEyy3+2PSNBKIoX
- pe0fQ6labh84aGQbDR9eqrmNMZwuUhfcR2HHFhCvLY/4W7OD4G8ffVFRLXzxsuYr2XWkQwGZiwX
- 0Ly454APZFnrbt/QP5Oz1uknrOz2Bfi2NodllHneJ8x2ZGciDscW8j8o+21cglwLQR+IzCTaagO
- l9nRH6+eNe8JDA56rZWiMNMKmJmjeLKMS2yKv9KO3trvktOBzJQqKoUEwx1vUgYkb7IZ2wmEFzM
- /3R3m4VGQ4eN46BfP5iz03hBpfsWHqyHP8fe2NV9mOGhmGxHfuG3CtMy/tYbYU5NBHnusPNdvGd
- SuqNrytHon3asbplr3CVdmT/DAMBqerN7xEwRjDVgAIkHJzhO7j8zLkJgaqrZbTvyc4bKt54IZp
- 7Y3Ltv4CbgKkPgyUmsA==
-X-Proofpoint-ORIG-GUID: PYYgRhoNoBiDDS-va89InjVir4Gn3HUv
-X-Proofpoint-GUID: PYYgRhoNoBiDDS-va89InjVir4Gn3HUv
-X-Proofpoint-Spam-Info: AW1haW4tMjYwOTI4MDA4MSBTYWx0ZWRfX5bmYWewRRWHM
- O9yMGZFPkodh3160LIQDkdZKO2/q5RnPn5IszunASYNKnAv9u2dQCKiSJadmKBSEMl3Vukp0+yL
- I2JKHfE25SvjMEwjDmrPXNV8/3/5yOM=
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1176,Hydra:6.1.134,FMLib:17.12.100.49
- definitions=2026-09-28_05,2026-09-21_02,2025-10-01_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- lowpriorityscore=0 suspectscore=0 phishscore=0 spamscore=0 clxscore=1011
- adultscore=0 bulkscore=0 malwarescore=0 priorityscore=1501 impostorscore=0
- classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
- reason=mlx scancount=1 engine=8.22.0-2609040000 definitions=main-2609280081
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: TYCPR01MB7060
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260928_133350_986592_F2C7EE70 
-X-CRM114-Status: GOOD (  11.00  )
+X-CRM114-CacheID: sfid-20260928_133506_938298_68DAF767 
+X-CRM114-Status: GOOD (  15.73  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -190,55 +131,155 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The gpio-keys node had five pinctrl entries (pinctrl-0 through pinctrl-4)
-all mapped to the same state name "default". Merge all phandles into a
-single pinctrl-0 property with one "default" state name. This causes no
-functional change, but is inline with the current kernel style of one
-pinctrl entry per state.
+stmmac_vlan_update() falls back to "perfect matching" when the VLAN hash
+filter is unavailable (!priv->dma_cap.vlhash). This fallback has been
+unreachable in normal operation since its introduction in
+commit c7ab0b8088d7 ("net: stmmac: Fallback to VLAN Perfect filtering if
+HASH is not available") because the NETIF_F_HW_VLAN_{CTAG,STAG}_FILTER
+features are advertised only when priv->dma_cap.vlhash is true.
 
-Signed-off-by: Kendall Willis <k-willis@ti.com>
+The fallback is also duplicating the code in vlan_add_hw_rx_fltr(), which
+is always available since stmmac_get_num_vlan() returns at least 1.
+
+Therefore, remove it.
+
+Fixes: c7ab0b8088d7 ("net: stmmac: Fallback to VLAN Perfect filtering if HASH is not available")
+Signed-off-by: Ovidiu Panait <ovidiu.panait.rb@renesas.com>
+Reviewed-by: Maxime Chevallier <maxime.chevallier@bootlin.com>
 ---
- arch/arm/boot/dts/microchip/at91-kizbox3-hs.dts | 20 ++++++++++----------
- 1 file changed, 10 insertions(+), 10 deletions(-)
+v6 changes: None.
 
-diff --git a/arch/arm/boot/dts/microchip/at91-kizbox3-hs.dts b/arch/arm/boot/dts/microchip/at91-kizbox3-hs.dts
-index 19a286dcc8a51fcce3e8119c2531198bcdb4db93..6156cb8e54b3e092f7bc4e30fb7604f08e181b25 100644
---- a/arch/arm/boot/dts/microchip/at91-kizbox3-hs.dts
-+++ b/arch/arm/boot/dts/microchip/at91-kizbox3-hs.dts
-@@ -57,16 +57,16 @@ led-6 {
+v5 changes: None
+
+v4 changes: None.
+
+ drivers/net/ethernet/stmicro/stmmac/hwif.h    |  2 +-
+ .../net/ethernet/stmicro/stmmac/stmmac_main.c | 13 +-----
+ .../net/ethernet/stmicro/stmmac/stmmac_vlan.c | 41 +------------------
+ 3 files changed, 4 insertions(+), 52 deletions(-)
+
+diff --git a/drivers/net/ethernet/stmicro/stmmac/hwif.h b/drivers/net/ethernet/stmicro/stmmac/hwif.h
+index 857f7562c6c6..df2126d71c2f 100644
+--- a/drivers/net/ethernet/stmicro/stmmac/hwif.h
++++ b/drivers/net/ethernet/stmicro/stmmac/hwif.h
+@@ -633,7 +633,7 @@ struct stmmac_est_ops {
+ struct stmmac_vlan_ops {
+ 	/* VLAN */
+ 	void (*update_vlan_hash)(struct mac_device_info *hw, u32 hash,
+-				 u16 perfect_match, bool is_double);
++				 bool is_double);
+ 	void (*enable_vlan)(struct mac_device_info *hw, u32 type);
+ 	void (*rx_hw_vlan)(struct mac_device_info *hw, struct dma_desc *rx_desc,
+ 			   struct sk_buff *skb);
+diff --git a/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c b/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
+index 3f34d491c959..14183f92663a 100644
+--- a/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
++++ b/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
+@@ -6838,29 +6838,18 @@ static u32 stmmac_vid_crc32_le(__le16 vid_le)
+ static int stmmac_vlan_update(struct stmmac_priv *priv, bool is_double)
+ {
+ 	u32 crc, hash = 0;
+-	u16 pmatch = 0;
+-	int count = 0;
+ 	u16 vid = 0;
  
- 	gpio-keys {
- 		compatible = "gpio-keys";
--		pinctrl-names = "default" , "default", "default",
--				"default", "default";
--		pinctrl-0 = <&pinctrl_key_gpio_default>;
--		pinctrl-1 = <&pinctrl_pio_rf &pinctrl_pio_wifi>;
--		pinctrl-2 = <&pinctrl_pio_io_boot
--			     &pinctrl_pio_io_reset
--			     &pinctrl_pio_io_test_radio>;
--		pinctrl-3 = <&pinctrl_pio_zbe_test_radio
--			     &pinctrl_pio_zbe_rst>;
--		pinctrl-4 = <&pinctrl_pio_input>;
-+		pinctrl-0 = <&pinctrl_key_gpio_default
-+			    &pinctrl_pio_rf
-+			    &pinctrl_pio_wifi
-+			    &pinctrl_pio_io_boot
-+			    &pinctrl_pio_io_reset
-+			    &pinctrl_pio_io_test_radio
-+			    &pinctrl_pio_zbe_test_radio
-+			    &pinctrl_pio_zbe_rst
-+			    &pinctrl_pio_input>;
-+		pinctrl-names = "default";
+ 	for_each_set_bit(vid, priv->active_vlans, VLAN_N_VID) {
+ 		__le16 vid_le = cpu_to_le16(vid);
+ 		crc = bitrev32(~stmmac_vid_crc32_le(vid_le)) >> 28;
+ 		hash |= (1 << crc);
+-		count++;
+-	}
+-
+-	if (!priv->dma_cap.vlhash) {
+-		if (count > 2) /* VID = 0 always passes filter */
+-			return -EOPNOTSUPP;
+-
+-		pmatch = vid;
+-		hash = 0;
+ 	}
  
- 		switch-1 {
- 			label = "SW1";
-
----
-base-commit: 72d3fcf802c45d00b300f25b848a93c3a2bd7c7e
-change-id: 20260928-gpio-dt-binding-fix-9d92e23eebd0
-
-Best regards,
+ 	if (!netif_running(priv->dev))
+ 		return 0;
+ 
+-	return stmmac_update_vlan_hash(priv, priv->hw, hash, pmatch, is_double);
++	return stmmac_update_vlan_hash(priv, priv->hw, hash, is_double);
+ }
+ 
+ /* FIXME: This may need RXC to be running, but it may be called with BH
+diff --git a/drivers/net/ethernet/stmicro/stmmac/stmmac_vlan.c b/drivers/net/ethernet/stmicro/stmmac/stmmac_vlan.c
+index e24efe3bfedb..983a90cb9767 100644
+--- a/drivers/net/ethernet/stmicro/stmmac/stmmac_vlan.c
++++ b/drivers/net/ethernet/stmicro/stmmac/stmmac_vlan.c
+@@ -162,7 +162,7 @@ static void vlan_restore_hw_rx_fltr(struct net_device *dev,
+ }
+ 
+ static void vlan_update_hash(struct mac_device_info *hw, u32 hash,
+-			     u16 perfect_match, bool is_double)
++			     bool is_double)
+ {
+ 	void __iomem *ioaddr = hw->pcsr;
+ 	u32 value;
+@@ -184,20 +184,6 @@ static void vlan_update_hash(struct mac_device_info *hw, u32 hash,
+ 		}
+ 
+ 		writel(value, ioaddr + VLAN_TAG);
+-	} else if (perfect_match) {
+-		u32 value = VLAN_ETV;
+-
+-		if (is_double) {
+-			value |= VLAN_EDVLP;
+-			value |= VLAN_ESVL;
+-			value |= VLAN_DOVLTC;
+-		} else {
+-			value &= ~VLAN_EDVLP;
+-			value &= ~VLAN_ESVL;
+-			value &= ~VLAN_DOVLTC;
+-		}
+-
+-		writel(value | perfect_match, ioaddr + VLAN_TAG);
+ 	} else {
+ 		value &= ~(VLAN_VTHM | VLAN_ETV);
+ 		value &= ~(VLAN_EDVLP | VLAN_ESVL);
+@@ -251,7 +237,7 @@ static void vlan_set_hw_mode(struct mac_device_info *hw)
+ }
+ 
+ static void dwxgmac2_update_vlan_hash(struct mac_device_info *hw, u32 hash,
+-				      u16 perfect_match, bool is_double)
++				      bool is_double)
+ {
+ 	void __iomem *ioaddr = hw->pcsr;
+ 
+@@ -279,29 +265,6 @@ static void dwxgmac2_update_vlan_hash(struct mac_device_info *hw, u32 hash,
+ 
+ 		value &= ~VLAN_VID;
+ 		writel(value, ioaddr + VLAN_TAG);
+-	} else if (perfect_match) {
+-		u32 value = readl(ioaddr + XGMAC_PACKET_FILTER);
+-
+-		value |= XGMAC_FILTER_VTFE;
+-
+-		writel(value, ioaddr + XGMAC_PACKET_FILTER);
+-
+-		value = readl(ioaddr + VLAN_TAG);
+-
+-		value &= ~VLAN_VTHM;
+-		value |= VLAN_ETV;
+-		if (is_double) {
+-			value |= VLAN_EDVLP;
+-			value |= VLAN_ESVL;
+-			value |= VLAN_DOVLTC;
+-		} else {
+-			value &= ~VLAN_EDVLP;
+-			value &= ~VLAN_ESVL;
+-			value &= ~VLAN_DOVLTC;
+-		}
+-
+-		value &= ~VLAN_VID;
+-		writel(value | perfect_match, ioaddr + VLAN_TAG);
+ 	} else {
+ 		u32 value = readl(ioaddr + XGMAC_PACKET_FILTER);
+ 
 -- 
-Kendall Willis <k-willis@ti.com>
+2.34.1
 
 
