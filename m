@@ -4,99 +4,100 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id AB2C8CA5FA3
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 28 Sep 2026 22:01:17 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 78FD3CA5FA3
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 28 Sep 2026 22:07:59 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
 	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=IIbizLL1IW50D5D/SYfMtdqVqG9t1BZagIkpl9KdDG8=; b=G46vguMB70IQLRd5248celaaZc
-	Jil2ZrcmOaj15waHo7TsKaq1gG2UTQ+7h8WdBpG98v46aU3uS6DXJPC4OG2F9ErLTocr7mR2HePbu
-	WUuMN6nbDFMqduP9O2WLIJ+MnKIBKFn3H4eIAHEhWuAz9XaeAwtQs/fQCf3jNQn7Lzea9y4qsZNjG
-	lXiwysnJFf/UZNR3x8kSmL02tXNj7dR24rIHQINE8GTpUKbwoQLRgRGQ8E22Uy+i7txtd5AtRoFsD
-	fD0gPmvdkIGtocPiF09rq2Kgu74pDXYLnd1Xau+BTyCK+YeVFP5LFXCdjBASQKoondaszE4n32wHP
-	+1vDIgpg==;
+	bh=+BryhTGoiN9HbpqdQW7fneRPfw3ZcJwzXwJqqFDDUAg=; b=0ylvewAKApQnLRmJ7dFwu8LFES
+	dLYziqkrpqgMnL6Mtd1TjhXiMGPxAQ+SGtNU2nretiWipO7LI2HSb15oh/U9fX4RtcP+/4lid0Os/
+	ogbDhImDjUmKfJnAKIkAhz/WfO+2cxsxrmZKi4Qvg5gfkcv3AT84jMN0CIcbScDrtfLc4R6jm5rSh
+	LcoPdYzvyGaeHZGZrSiorf9opq08dg4GbfVpUZ75xTVgPjq/RZ1Vwm7T4aVxOsQLJidz1xVSDtj8O
+	iJ6MCDqJe3LhbEw3HDNCLVp6/GidC9gX3qsuMY24QUu64T8fAE573TAxJaiCsJTAmNScZ5ikdqMNN
+	6Wtb9x6Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xBJPJ-00000001j3D-0Kdc;
-	Mon, 28 Sep 2026 22:01:09 +0000
-Received: from mail-vs2-x10.google.com ([2a00:1450:4864:3a::10])
+	id 1xBJVn-00000001jP5-3Iwm;
+	Mon, 28 Sep 2026 22:07:51 +0000
+Received: from mail-ua2-x10.google.com ([2a00:1450:4864:39::10])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xBJPF-00000001j2W-2crP
+	id 1xBJVl-00000001jOg-011Z
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 28 Sep 2026 22:01:07 +0000
-Received: by mail-vs2-x10.google.com with SMTP id ada2fe7eead31-790b4aeb66bso1772518137.0
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 28 Sep 2026 15:01:04 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1790632863; cv=none;
+	Mon, 28 Sep 2026 22:07:50 +0000
+Received: by mail-ua2-x10.google.com with SMTP id a1e0cc1a2514c-97e7c796e3aso729758241.1
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 28 Sep 2026 15:07:47 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1790633266; cv=none;
         d=google.com; s=arc-20260327;
-        b=Bd5DqAO55+VmSaGfjYaaCGm/B3n+U+td6h2EeRO3ZcaCT95vYVQgkt4IIWBtIybTPH
-         swSIJvR29NV/a5oPsKt5kSKCruwn6R6H/y4YlWeVRr5ZxLtGre3HBB31WDols8cxcBSK
-         kZePbAuvVjKzl6BwMY5KI6OsrNCF7G00L5gLFy8erJ883XEOz+8Dzfvx7KVwfjNg6CO4
-         Svpl8Aa/9eXiUnR7ww6ANk+5mXZkD7xYfJzPkKJjiUamYC58qFssaiqcHZ/SJDm3IYxD
-         Vw7xBgRwh0OR7Con7+i+Vmea0IFhsHL4boCngOYsicrmPZ74JoyhezOgZZ6ZgnzFburE
-         PuPQ==
+        b=SQF4JKdcjuxehW2ZHDeJi/d0xSVJ+FTyPjdEJlX54CXo2Ol65lwbekKcWEodahnCJj
+         IaPkWfzbr+2ooW89dK5uFBMbxXvsQgEgaqV1OAWNHK8kxGkY+CZA/u504aUFwuJpT3Ws
+         rM3psmkqEhgxUdNWopueeIhC4/7kOi4O1xd/d76j6PiMVCvpCa/ntN3Txw4O3+/QJZhm
+         AZK60lk1e6QiSvtYoedt97ETKn5XdaHMjYKQFuibiha9l2drEOLBItJOaf7ktyOs2EO1
+         sIHSGqp1AnC6aIClUIuQY3UeGl9sMuJr+u/W3kTMc8UioP+/Q7JrNWKE5gn2QnmrkYbb
+         4ZQA==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
         h=content-transfer-encoding:cc:to:subject:message-id:date:from
          :in-reply-to:references:mime-version:dkim-signature;
-        bh=IIbizLL1IW50D5D/SYfMtdqVqG9t1BZagIkpl9KdDG8=;
-        fh=xIKeWcADAQdelMGpCd8PO8PahK3CgN39mEtgmo2kqAs=;
-        b=VwRdO+soI5UURq4HZXxvsRjz2TZA2Ykg8PomLJiEcg75EGqdkZ4mixsMjkYHoEW04K
-         cHRGSsQQjvvPJ3Hqjpo9w5UrstWHfCYm/xOyPaiVbHjMcBUh6chA/w105rH3ZAX48Uqp
-         NqbLfWi8a7jnYxIuoUAevgJkkWKcix0qzbTRf+L3FHhEcrmv2oipSISvzD9KVh0xtAkK
-         Zm7ccVG3yc2nWvzi7f2ws4jC0CrCaVZstcHesX9nvMNzKv0fAWMAg3lcvP2bd7fN2pe5
-         Xe8k+qdAN2SSQJzy8WnHowAbYaJVAYl9h9rrxbTMi8HvLqVC+O4uUYOzoLg89VgskyW9
-         aA4w==;
+        bh=+BryhTGoiN9HbpqdQW7fneRPfw3ZcJwzXwJqqFDDUAg=;
+        fh=0NswkaVgjuq5tLd0LKoP7Lkshx31/mLNLclUtESvo0E=;
+        b=dmGEdNynRK3JeBD0xxoXuRAzyF8Is4/sl4HYak57OmM06VQ9Q8sdmcVQPW9c5vbGET
+         pLD1PYmmM2sLgjSru31Mqp7A867zgVZhAH+j5/htwD27g+zY9iVkR0iNlQXXGGhTfYbn
+         pitM/5zt+u5qG+37RfdPtJyKsqUj8JwJCCkh4kMDEvi00niilz25P56Dvv/2Q1e2V7LE
+         98hqz5rXoSf5JXlQrUu8Vk3We3wHBJAGw4E41Ve1//kigLr3ktOBLnc7JgnugYl50oJ1
+         PUqOYAqrU6aIUvMaPyu8CCAPrELblDUNFyIf17ChVunps7vaX97lSdU7+FSHF2crPuxq
+         jSxg==;
         darn=lists.infradead.org
 ARC-Authentication-Results: i=1; mx.google.com; arc=none
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20251104; t=1790632863; x=1791237663; darn=lists.infradead.org;
+        d=google.com; s=20251104; t=1790633266; x=1791238066; darn=lists.infradead.org;
         h=content-transfer-encoding:content-type:cc:to:subject:message-id
          :date:from:in-reply-to:references:mime-version:from:to:cc:subject
          :date:message-id:reply-to:content-type;
-        bh=IIbizLL1IW50D5D/SYfMtdqVqG9t1BZagIkpl9KdDG8=;
-        b=AF/gM5jO0ehStbE7N1D4NbkyovFW7CfP8oaUcFypzi/LANTzsM38wXMlKiPyXRcA6+
-         +FOKHI64cdkVslOXntm+01LQsemQEjh5Qef2JwdUUdvx92ttsSjiF/crEhHX1LEHuagr
-         vHmJnlaz/ftg2PIPeFPxTjdt1kjep2l/VYdNkqIV27XpHXTT9Y8mE/F7C+yDyGO3ez9U
-         jb/wQ1zHDGun7acuwvuhI9wGABcgvjzonQTlwQCq/kb+DA8C/j3T6eLJuDhRKIC11pwZ
-         aJYyTnIzYZdm72v94e4Tcj6OqsSGSKDZTpbgOpi9/o1PC3Xr1rYyE+GBSoOsz74J8kEr
-         jHyg==
+        bh=+BryhTGoiN9HbpqdQW7fneRPfw3ZcJwzXwJqqFDDUAg=;
+        b=kc+8hzGi0FQDuG74X36zGB1oURcjDv5ETjyutqhYl3aWG1mgX09jihCfwtbiklbBmA
+         xQA224YmKIUTOx9ZbZ3L5mOqFUe+VSXHJYAU8/mvH+BblilffXt1ZUBbroA7Qe30DKa7
+         x0Q+iSK3gvJhFfQ+SR6CpzYWqB3ZF732IrHoKlkFHD9xdoQTdzfYNI1eucDzbruywMVn
+         aNvjlh3rbTyIhHRMDN4/5y058w/AlcHulaAZ3RSjAyKlu9/Le+ZFg/UrcaAzIHuTfwQD
+         wMR3V+dsHKFl9d6EwC4WJfybJTMWJP7OlzGT5gvUzP70gNXEyilh2QlhD0HvK8fHavy/
+         Z2TQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1790632863; x=1791237663;
+        d=1e100.net; s=20260707; t=1790633266; x=1791238066;
         h=content-transfer-encoding:content-type:cc:to:subject:message-id
          :date:from:in-reply-to:references:mime-version:x-gm-gg
          :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
          :content-type;
-        bh=IIbizLL1IW50D5D/SYfMtdqVqG9t1BZagIkpl9KdDG8=;
-        b=bo3ju/avKmOz9f5GssdHv+KFVEAXGx5Lzw468DS40xcDhbM+af4kQ6bQJ7Wyo+0nyb
-         N1eqjZ/QSv/R75zxFCqh188ppAyDSZoQAoqnK8i2JWeUQwjA8ZPKo88Pf4WdDXfpUYGU
-         kHDMPVF0FqQ8N9hxmz9TIz2uErNzJdVeIJ+WirpH50Kmzkwcwwjjj4UDqzSZXktE362e
-         DE8BYT19z6pl3alE2x3HA6R66aUrCHTf9r8EXWR+Az85i8ItCiDe19r/3cHpKDMbVP7b
-         AF+SmtNlShWMW2EoO0Mlfoe1AEopIj0AxeFwaUI5oCo69sQaijJnV6G4GoupKf5tPgMy
-         lfPg==
-X-Forwarded-Encrypted: i=1; AKwUvBzIgVm4rh2WSgj8DMPEphkm2JLdqXKZIzxr8jE9j18sg1ADS+rZO26ILD4nJqqPvbn4CAIDrXxWxuU/zF7Nkv31@lists.infradead.org
-X-Gm-Message-State: AFq9FYKmuqwim+RfrK3Iwwfb7gdWt0EKAM4PJpdxE8FC5ViBkQpbYdN8
-	i1llUvex6pYWb9HKc93jAnQRzTTVTo/JeF9Hjzb8kZbxMLpNgswz2ox7HdYvgv4bQunwgAOjZQK
-	CFuVuDTp7Jk3oLK3NjeGpWYU19DFHcjJLrxlgXDTUpaw71BbyD6Es4QE=
-X-Gm-Gg: AYBFou3zE5ntkrmee0cton1+zddWY9ggiPH7dkk2nN+Y+7EE7CQ5m2bjI/bqNNZ44T3
-	IIgrEmHA2Yg8Qvit1ZTRYuJPnf6bPfY600jY00oENYnhiGIk2KMgijcYp9N24kpD8KZ9K4RKLK9
-	JktfxeUXQADZO09yUiai9zCkZ4HshcJ6qRWUOqzW6Jj0NmYLLYVoZ98Z+o9D1t9oox2+JHDQFjG
-	P6LaPbAyw66xHQJFgkUv9tnFeb0/HCeQpieBaAaQM5uDIDFpibuqIZ4AqFgNA9h/oBRpBxXV2ws
-	AFGZzBWlhaAAxMLWL/DUbgapqfAN1I2h5pltiEOMaxPgV1yvEmXquV1irdOu169szQTckDPE0G0
-	ZwfeC6U5e/57fjj/GsnIZFNv4ScBUggU=
-X-Received: by 2002:a05:6102:f9b:b0:7a5:2792:32d0 with SMTP id
- ada2fe7eead31-7af1ceaa02emr5908124137.15.1790632862303; Mon, 28 Sep 2026
- 15:01:02 -0700 (PDT)
+        bh=+BryhTGoiN9HbpqdQW7fneRPfw3ZcJwzXwJqqFDDUAg=;
+        b=j+grjmo1TNSBOI18zqiTtNPPFe4enenbqDxhMZ6acaW0r+aMnrZ/GpV8GVKm5EacyN
+         Qo1rn5ILAMiuYrcwudfnMUgmVre73CizBbO2FRZKT7359iP/GIeLvBnyqbkVhKhr125G
+         Ks4sZAAJgdMFv9hDhRvYb2577fVUhEtPhQ7eeQ6boDhIiyX7KZw3D+WMkMbR+1+xYIZt
+         FNNPg9p0NTs0BZNscMaka41zPzrjKAePh6vwLZdjEIDbv7p34bY8fLIdmBF2R69q9jHE
+         5sxCtlXZP29DpdXCXt0s6AebCRqP2NsGvL27JRETsAAsppMXgTy/Vtt3C1YDFI4GZWRj
+         YlsQ==
+X-Forwarded-Encrypted: i=1; AKwUvBzghjd8W7JWKToVAGNQZ6DDri/Faor5Qd2HLq4Dq+b3L/EWHJe7Zxg0q0HlNSm/KPT22L8C5QQMOxh+EWdI7JDf@lists.infradead.org
+X-Gm-Message-State: AFq9FYI/2GJppE0zipRE0CP8D8Rac7So1HfvyCx6SQ3YXNa9kDuW/k4T
+	F2VVPAE+UlT18CT7TDI5GNFBbJ8c2cLDb9as5N57kD5luUHkorBXnC24F5bFBqYzNGkz2FOxZQN
+	pAGDgEgybdDK96J2B/y+Pwhg9/JhjchgYrX1CEZTT
+X-Gm-Gg: AYBFou1Xy0PeCK7SU+qGmm75ZawsnzjF/94udwmVs/aesf0Ku42jJXC6ABDZqeoxlsD
+	SI6rThaq5VL58Ok3PjIdRCD0JXVaEpKFQzvZ55F3VJ5skTTm2o7JqDsbgzyTU1hB3I7QCLhv7sf
+	1RWgf8NIhjAmspYkswkayK1ckJWyLj1/Euzwq+BHHud3T5ScfGZO/1yrBNAk7bqgbcXBHdH6wk0
+	o3VeAp7NmdpSL9v02Khs6mYH04B0BhAITnE2/4jTWRS+UAhUNssUQ+Yz7Lt/2Dct8ooL1wZxj/2
+	5pMZJ4xoYBtJP0vOY7jMCyIF1BXx8iP7Qq3YBi/5LUYlZIYbdDh/WWZmo6u+CXAKMzJA1GFZM96
+	adBKtexA6rg==
+X-Received: by 2002:a05:6102:3f0d:b0:7b3:4199:2de0 with SMTP id
+ ada2fe7eead31-7b341994431mr2105212137.4.1790633265847; Mon, 28 Sep 2026
+ 15:07:45 -0700 (PDT)
 MIME-Version: 1.0
-References: <20260927190758.609156-1-nikitash.mariiaw@gmail.com> <arrfZ5CYyLt0vwu5@google.com>
-In-Reply-To: <arrfZ5CYyLt0vwu5@google.com>
-From: Bill Wendling <morbo@google.com>
-Date: Mon, 28 Sep 2026 15:00:45 -0700
-X-Gm-Features: AclHuK94P4MPekguKF_IY4W_INzWG9JHQ-jlAiJvXzpu9Cjfe5tqxJdexiBcwT8
-Message-ID: <CAGG=3QVY_OGjSYZgJ8i8Nb-EbwHKPOvZsbqqXfcbv+Vvq_wsww@mail.gmail.com>
+References: <20260927190758.609156-1-nikitash.mariiaw@gmail.com>
+ <arrfZ5CYyLt0vwu5@google.com> <CAGG=3QVY_OGjSYZgJ8i8Nb-EbwHKPOvZsbqqXfcbv+Vvq_wsww@mail.gmail.com>
+In-Reply-To: <CAGG=3QVY_OGjSYZgJ8i8Nb-EbwHKPOvZsbqqXfcbv+Vvq_wsww@mail.gmail.com>
+From: Justin Stitt <justinstitt@google.com>
+Date: Mon, 28 Sep 2026 15:07:34 -0700
+X-Gm-Features: AclHuK8nlJeFMJ-63_0sQ49qEkZQmIZd_Mx0rQvc5qKTUPlWeM5glCx-vJub4Og
+Message-ID: <CAFhGd8r_JfpaBvjod+AA6G3BE5S-L8Gs-nc9xMXrxp6_tLOgVw@mail.gmail.com>
 Subject: Re: [PATCH] pinctrl: samsung: Use snprintf() to construct pin bank names
-To: Justin Stitt <justinstitt@google.com>
+To: Bill Wendling <morbo@google.com>
 Cc: Mariia Nikitash <nikitash.mariiaw@gmail.com>, krzk@kernel.org, s.nawrocki@samsung.com, 
 	peter.griffin@linaro.org, linusw@kernel.org, alim.akhtar@samsung.com, 
 	linux-arm-kernel@lists.infradead.org, linux-samsung-soc@vger.kernel.org, 
@@ -106,8 +107,8 @@ Cc: Mariia Nikitash <nikitash.mariiaw@gmail.com>, krzk@kernel.org, s.nawrocki@sa
 Content-Type: text/plain; charset="UTF-8"
 Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260928_150105_714981_D4214D65 
-X-CRM114-Status: GOOD (  28.71  )
+X-CRM114-CacheID: sfid-20260928_150749_056765_1F5EA4F4 
+X-CRM114-Status: GOOD (  12.41  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -122,141 +123,24 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Sep 28, 2026 at 2:43=E2=80=AFPM Justin Stitt <justinstitt@google.co=
-m> wrote:
->
-> Hi,
->
-> On Sun, Sep 27, 2026 at 12:07:58PM -0700, Mariia Nikitash wrote:
-> > From: Bill Wendling <morbo@google.com>
-> >
-> > samsung_banks_node_get() constructs each pin bank node name by copying
-> > bank->name with strscpy() and appending the suffix with strlcat().
-> >
-> > In preparation for removing the deprecated strlcat() API[1], format the
-> > node name in a single snprintf() call, which preserves the existing
-> > truncation check against sizeof(node_name).
-> >
-> > Link: https://github.com/KSPP/linux/issues/370 [1]
-> > Cc: codemender-patching+linux@google.com
-> > Assisted-by: LLM
-> > Signed-off-by: Bill Wendling <morbo@google.com>
-> > Reviewed-by: Aleksandr Loktionov <aleksandr.loktionov@intel.com>
-> > Signed-off-by: Mariia Nikitash <nikitash.mariiaw@gmail.com>
->
-> Are you forwarding this patch on behalf of Bill? I see Bill as the
-> author of the commit and I recall seeing this in some series he sent
-> earlier [1] and this patch you've sent doesn't seem to be a v2.
->
-> Let me know what your role is on this patch and why it has been
-> separated out from Bill's series.
->
-> It is entirely possible that I am lacking context. Please fill me in :)
->
-She's been marsheling some of the strlcat patches I sent to the
-mailing list. It's possible I sent a "v2" of all patches, whether
-there were changes in them or not.
+Hi,
 
-The patch series needs to be separated a bit because of Kees's
-'seq_buf' changes, which will make some of the patches I sent
-obsolete.
+On Mon, Sep 28, 2026 at 3:01=E2=80=AFPM Bill Wendling <morbo@google.com> wr=
+ote:
+> She's been marsheling some of the strlcat patches I sent to the
+> mailing list. It's possible I sent a "v2" of all patches, whether
+> there were changes in them or not.
+>
+> The patch series needs to be separated a bit because of Kees's
+> 'seq_buf' changes, which will make some of the patches I sent
+> obsolete.
 
--bw
+ACK
 
-> > ---
-> >  drivers/pinctrl/samsung/pinctrl-samsung.c | 3 +--
-> >  1 file changed, 1 insertion(+), 2 deletions(-)
-> >
-> > diff --git a/drivers/pinctrl/samsung/pinctrl-samsung.c b/drivers/pinctr=
-l/samsung/pinctrl-samsung.c
-> > index 5ecc9ed4c44d..0d639eec689c 100644
-> > --- a/drivers/pinctrl/samsung/pinctrl-samsung.c
-> > +++ b/drivers/pinctrl/samsung/pinctrl-samsung.c
-> > @@ -1155,8 +1155,7 @@ static void samsung_banks_node_get(struct device =
-*dev, struct samsung_pinctrl_dr
-> >
-> >       bank =3D d->pin_banks;
-> >       for (i =3D 0; i < d->nr_banks; ++i, ++bank) {
-> > -             strscpy(node_name, bank->name, sizeof(node_name));
-> > -             len =3D strlcat(node_name, suffix, sizeof(node_name));
-> > +             len =3D snprintf(node_name, sizeof(node_name), "%s%s", ba=
-nk->name, suffix);
-> >               if (len >=3D sizeof(node_name)) {
-> >                       dev_err(dev, "Too long pin bank name '%s', ignori=
-ng\n",
-> >                               bank->name);
-> > --
-> > 2.43.0
-> >
-> >
 >
-> [1]: https://lore.kernel.org/all/20260915081910.4142719-17-morbo@google.c=
-om/
+> -bw
 >
-> Thanks
-> Justin
 
-On Mon, Sep 28, 2026 at 2:43=E2=80=AFPM Justin Stitt <justinstitt@google.co=
-m> wrote:
->
-> Hi,
->
-> On Sun, Sep 27, 2026 at 12:07:58PM -0700, Mariia Nikitash wrote:
-> > From: Bill Wendling <morbo@google.com>
-> >
-> > samsung_banks_node_get() constructs each pin bank node name by copying
-> > bank->name with strscpy() and appending the suffix with strlcat().
-> >
-> > In preparation for removing the deprecated strlcat() API[1], format the
-> > node name in a single snprintf() call, which preserves the existing
-> > truncation check against sizeof(node_name).
-> >
-> > Link: https://github.com/KSPP/linux/issues/370 [1]
-> > Cc: codemender-patching+linux@google.com
-> > Assisted-by: LLM
-> > Signed-off-by: Bill Wendling <morbo@google.com>
-> > Reviewed-by: Aleksandr Loktionov <aleksandr.loktionov@intel.com>
-> > Signed-off-by: Mariia Nikitash <nikitash.mariiaw@gmail.com>
->
-> Are you forwarding this patch on behalf of Bill? I see Bill as the
-> author of the commit and I recall seeing this in some series he sent
-> earlier [1] and this patch you've sent doesn't seem to be a v2.
->
-> Let me know what your role is on this patch and why it has been
-> separated out from Bill's series.
->
-> It is entirely possible that I am lacking context. Please fill me in :)
->
-> > ---
-> >  drivers/pinctrl/samsung/pinctrl-samsung.c | 3 +--
-> >  1 file changed, 1 insertion(+), 2 deletions(-)
-> >
-> > diff --git a/drivers/pinctrl/samsung/pinctrl-samsung.c b/drivers/pinctr=
-l/samsung/pinctrl-samsung.c
-> > index 5ecc9ed4c44d..0d639eec689c 100644
-> > --- a/drivers/pinctrl/samsung/pinctrl-samsung.c
-> > +++ b/drivers/pinctrl/samsung/pinctrl-samsung.c
-> > @@ -1155,8 +1155,7 @@ static void samsung_banks_node_get(struct device =
-*dev, struct samsung_pinctrl_dr
-> >
-> >       bank =3D d->pin_banks;
-> >       for (i =3D 0; i < d->nr_banks; ++i, ++bank) {
-> > -             strscpy(node_name, bank->name, sizeof(node_name));
-> > -             len =3D strlcat(node_name, suffix, sizeof(node_name));
-> > +             len =3D snprintf(node_name, sizeof(node_name), "%s%s", ba=
-nk->name, suffix);
-> >               if (len >=3D sizeof(node_name)) {
-> >                       dev_err(dev, "Too long pin bank name '%s', ignori=
-ng\n",
-> >                               bank->name);
-> > --
-> > 2.43.0
-> >
-> >
->
-> [1]: https://lore.kernel.org/all/20260915081910.4142719-17-morbo@google.c=
-om/
->
-> Thanks
-> Justin
+Thanks
+Justin
 
