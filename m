@@ -4,119 +4,138 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1969CCA5FA6
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 28 Sep 2026 20:35:44 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id EB03DCA5FA3
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 28 Sep 2026 20:36:33 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
-	:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
+	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
+	Content-Transfer-Encoding:Content-Type:In-Reply-To:References:Cc:To:Subject:
+	From:MIME-Version:Date:Message-ID:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=vCSwz9VNW563xpD2rG44QoXA+DsdtHhUzQ3zDgYen7g=; b=1mEvZkBUEeugmXY+NXBFGR0Ii6
-	KI+iy1lO3PqZ6Pd3tPt2OdG0heFeU4gidZQEKedFWQN3BERRbn+VsTb4M93hzr7OVSh6Z1l4ghdxS
-	IoesPHmk/mT9wyxPrTlwgO/wAaUrc05kcSBGlLo5VFQWDHkQozgugqO5ZF/OWmsKmCmoZ1u+8jkuq
-	fVvVxXO7pk4zEQo0C+ltQa3ZFzqacYgPoZeWjsRGMZ6ZfBjdYbxhfsN3VVa6/KQbEZPFBTh/hwegN
-	W4AqLIVS4KF+VIeEU5htSBbtteCD1ayhj+uaxF9RwVKVF5k3QKlXSieUk7My/7NXFLfAep7DIk7O0
-	gM8UmnfQ==;
+	bh=/wqE0gOeMMpr/nqn1OVJOAEQ+QHtmheZQZYs7E5QFRI=; b=0yv8/D9zP4QXe1QXlPcjAxEXI+
+	FIMgjbSgtDMjD5PJ1TH2f2DTwMbSKHlhb/zA+NM7XJ6Z08TOX09j8BBXCOlUALvZczcHbRevH71xL
+	fGuY/AwqMj2HD0tOrcSB/Qr9dh/eCL+kII1cTqzeIWmSGfspTfPzPTdMQbPgRGKPkLaBvvOLy6bE6
+	gfNjSwLgZXEbE9y4vzZJZQVLWRCUF0noN2+E+m+MqgIswWVRu2vsY3cdKZ1z9N6Akp54yyRV9v6zQ
+	EWhW5NJGzDnAwRQfxpUuC5MIFetFBozv6+3JTrz0n5qJGVfEzZ2BAAAhChi3Un1n5sAHohZwxt0jT
+	qXjW0kSA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xBI4V-00000001ZoY-0frm;
-	Mon, 28 Sep 2026 20:35:35 +0000
-Received: from mail-japanwestazon11010030.outbound.protection.outlook.com ([52.101.228.30] helo=OS0P286CU011.outbound.protection.outlook.com)
+	id 1xBI5K-00000001aBm-2Dww;
+	Mon, 28 Sep 2026 20:36:26 +0000
+Received: from mail-vs2-x2a.google.com ([2a00:1450:4864:3a::2a])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xBI4K-00000001ZjW-1eok
+	id 1xBI5H-00000001aAJ-1L4p
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 28 Sep 2026 20:35:25 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=Xj1lYCbN8jMsYKXLSJ4diHlSTcZ9WR5Zz3svEt+2Buak+bNF3PmtaJXx1NYALtAz7K553cyseag76PL1iuc7a3943+RgR4X3pX7u2f/tSqHgxD2HZUPL8OqdHmb9gTPOkTLxLNH3nLJAJivdRt67NYYarxTaJM8ujjEV0WK+xT8CLXvMgetbqvqhhcozdRRdugOpll3GmTxo8Vl1WDURGV/6LL0lDdvs8O1a/nA7W2fWu+BuCx085Id3WNcIz5nYPYJSWrZJi5KO/c43s5I9awnoI7aMyv9tfUNhMB3go0xi/Naw9piXKCtdJF2huSMVSkV4KqKzeVf2SzZp29A03A==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=vCSwz9VNW563xpD2rG44QoXA+DsdtHhUzQ3zDgYen7g=;
- b=UJ6Hs6V/FPk/Y3pIUzRA6fnp8PZc+cr6d/bNqn6qX2ZxpesgEDRehKh3BjWpb6ES+mhD4ItcNFZKaSYlTyDWnDnk579rMzEL4LhSNoqfq5ufTPYps+qLwwOi17+D2aZzMkNfGf68lJSG1IaEYmZ5CuBJ8ZfRxCuIM6KzDw2j4ySwFB3AiwaBniNSOEwTiR+4uFd7t4QYo0ktNmrjV5pIKOZiUZKzfXEIxLnwl0WpVFo5ZGa7puALK4R1xBCq68SP83nmFl9X5nY82moG8YTkZPauclfj2vEy+rnC59XIgP7IZnnSlrsZDfXLf+14EXiaq2CK2Ccz7i3AIXry935u1w==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
- 8.62.32.50) smtp.rcpttodomain=bootlin.com smtp.mailfrom=renesas.com;
- dmarc=pass (p=none sp=none pct=100) action=none header.from=renesas.com;
- dkim=none (message not signed); arc=none (0)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=renesas.com;
- s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=vCSwz9VNW563xpD2rG44QoXA+DsdtHhUzQ3zDgYen7g=;
- b=YfucQcxU6OFq9EmCilHejdnflcyOFH8q3w11TqImT8TqHc5fB0fYc77+ED0dnsjBnW0YUOcpgmpD2OofLuJ39HFfJ2I7rGRJJiGiBuJJ1KY5wlpCCb53jfYVn9YVO13H+Q5CNSTtJ48dNdAAP5wCtetTMNQ+EpvxAbkSSlOuu+A=
-Received: from TYCP286CA0065.JPNP286.PROD.OUTLOOK.COM (2603:1096:400:31a::6)
- by OS3PR01MB6840.jpnprd01.prod.outlook.com (2603:1096:604:117::5) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.451.24; Mon, 28 Sep
- 2026 20:35:19 +0000
-Received: from TY2PEPF00005623.JPNP286.PROD.OUTLOOK.COM
- (2603:1096:400:31a:cafe::96) by TYCP286CA0065.outlook.office365.com
- (2603:1096:400:31a::6) with Microsoft SMTP Server (version=TLS1_3,
- cipher=TLS_AES_256_GCM_SHA384) id 15.21.451.24 via Frontend Transport; Mon,
- 28 Sep 2026 20:35:19 +0000
-X-MS-Exchange-Authentication-Results: mx.microsoft.com 1; spf=pass (sender IP
- is 8.62.32.50) smtp.mailfrom=renesas.com; dkim=none (message not signed)
- header.d=none;dmarc=pass action=none header.from=renesas.com;
-Received-SPF: Pass (protection.outlook.com: domain of renesas.com designates
- 8.62.32.50 as permitted sender) receiver=protection.outlook.com;
- client-ip=8.62.32.50; helo=ejcrelay004p.adwin.renesas.com; pr=E
-Received: from ejcrelay004p.adwin.renesas.com (8.62.32.50) by
- TY2PEPF00005623.mail.protection.outlook.com (10.167.240.54) with Microsoft
- SMTP Server (version=TLS1_3, cipher=TLS_AES_256_GCM_SHA384) id 15.21.472.14
- via Frontend Transport; Mon, 28 Sep 2026 20:35:18 +0000
-Received: from vm01.adwin.renesas.com (DEU-5CG20946WF.adwin.renesas.com [10.226.92.32])
-	by ejcrelay004p.adwin.renesas.com (Postfix) with ESMTP id E456B300026E;
-	Tue, 29 Sep 2026 05:35:12 +0900 (JST)
-From: Ovidiu Panait <ovidiu.panait.rb@renesas.com>
-To: maxime.chevallier@bootlin.com,
-	recv.jo@gmail.com,
-	andrew+netdev@lunn.ch,
-	davem@davemloft.net,
-	edumazet@kernel.org,
-	kuba@kernel.org,
-	pabeni@redhat.com,
-	mcoquelin.stm32@gmail.com,
-	alexandre.torgue@foss.st.com,
-	joabreu@synopsys.com,
-	jun.ann.lai@intel.com,
-	yi.fang.gan@intel.com
-Cc: netdev@vger.kernel.org,
-	linux-stm32@st-md-mailman.stormreply.com,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	Ovidiu Panait <ovidiu.panait.rb@renesas.com>
-Subject: [PATCH net v6 5/5] net: stmmac: Disable S-Tag processing on dwmac4
-Date: Mon, 28 Sep 2026 20:34:41 +0000
-Message-ID: <20260928203441.34876-6-ovidiu.panait.rb@renesas.com>
-X-Mailer: git-send-email 2.43.0
-In-Reply-To: <20260928203441.34876-1-ovidiu.panait.rb@renesas.com>
-References: <20260928203441.34876-1-ovidiu.panait.rb@renesas.com>
+	Mon, 28 Sep 2026 20:36:24 +0000
+Received: by mail-vs2-x2a.google.com with SMTP id ada2fe7eead31-7b35eae3076so592396137.2
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 28 Sep 2026 13:36:22 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=linaro.org; s=google; t=1790627782; x=1791232582; darn=lists.infradead.org;
+        h=content-transfer-encoding:content-type:in-reply-to:organization
+         :autocrypt:content-language:references:cc:to:subject:reply-to:from
+         :user-agent:mime-version:date:message-id:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=/wqE0gOeMMpr/nqn1OVJOAEQ+QHtmheZQZYs7E5QFRI=;
+        b=v1EOToucsEexwjuLIXWVbN12IavTYM/XsITwuIlf04BjzMI3I0Sh151l/R2IFJ8JJ5
+         L1e8+hFTlE+R1ntrP8LdzWj8i491efotY7yvp92Pxc52xJgqaF2aP8cV6aBEBDPJTRe1
+         wpBXlobsfsNxmFQnIAx6IzvsTsYqNWjcxg7ZIdogxAlO/Q2s63GzEO6CstqPubwQHi9E
+         tR4u9zQnLf+vfgMWs+z0VGl80FTlugQioHijeOr1sw9LShil3KySXOa72Nz/3kanv36X
+         vaFBNoz6KlAxVbENTY77T6aJHu3Q6x5eCsxFmFVP5eaO2LAOK/392NIXRDSYmWTmGZel
+         koeg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1790627782; x=1791232582;
+        h=content-transfer-encoding:content-type:in-reply-to:organization
+         :autocrypt:content-language:references:cc:to:subject:reply-to:from
+         :user-agent:mime-version:date:message-id:x-gm-gg:x-gm-message-state
+         :from:to:cc:subject:date:message-id:reply-to:content-type;
+        bh=/wqE0gOeMMpr/nqn1OVJOAEQ+QHtmheZQZYs7E5QFRI=;
+        b=2Qz0oZdYhgkpict/hsEiuq2y4v8oYJ8aT6b/H6lVzDwpagLZryZNd/MeZrjtvWS4wL
+         2aLZdify9R1wS53S03WjxxfGRc2jfZZqobubU6Ninfq2MmyozERIrfXmmjFM8qbbg3GN
+         8dDJsBgllg3NK0a8FNYlAcWzhC1GUKmi/VPxp7nD7M1GkRd6hhmYpdT7xoUFPCrEEWnn
+         qQF8g5ZwdpVQQDanlfmQXQdBDAWfImI06hZ+r8jAziMPd5b+xvMnsUqpW8jbLKEdUQf/
+         BlDv5ZH7AX022Kt5Am5zMK5IyHB/h7aFLSd4CHM25togRrp+qO11gzttoRB+RRrFPWuv
+         yxKA==
+X-Forwarded-Encrypted: i=1; AKwUvBzdSZYdyke6485hBFcxmoy8Is3d16EufYd5dxsohkjd5JcuovTWyTpcipIeeFyyBDuAQtOsIvHRZBkwdH4M9xoQ@lists.infradead.org
+X-Gm-Message-State: AFq9FYKiZjZE7pXoLJdxU6ZHIeVQwrzQl3eRQXMn3AanjyGze3+coBJp
+	0SLqYvlorupnDsvmaWXeiwGYD163ys/bi8oKeF+bhEYqdURRJlgVWgA0yn3YWgJpcLw=
+X-Gm-Gg: AYBFou1zBCEOKdbpwM1mR8lYsJ5o8qQLnP5SorutPv6Of6S0sTJOOZd1HdBHmV6gZFW
+	UYi4fOqZpTJzFu7h/6ItegIIxYtmU9LYUXA5W3ugwG2K9eH7HqDHsv94AiU9uYysxG4j3PjCK7R
+	b27OILhlXoZEhgjySvRNA+wGKTxKp01j0ymIIjDRboF5SAzW0gd/naXMTox8m9C3/yNdHdL267o
+	x7y/Tc0ExhBjmAHZRcqHSnJdV+MTwvSnlL/o4qr/hB/hFUDoafhNMuIYRLpXf8avpNtHWW0moy+
+	78+7Di94YY/m2Oq+jPbhpJXelawIwAax9Nq6qnxVkV8IBM3fO5LeUiIOC3rmZYgtb46s4HzB2vK
+	RkGYBEw1mErAinqWX5GzpUNw6L6MB8mvNgXIfeljhYfAzVxHfWCzXdujUkbwzm4xImiuPH761bp
+	Oxg+kmDQa3hwFUhFsAVdMdtB0SWdbP/+kK+a/hoDoEx4MbcVLaTuNhgx/QmNgKk7ZbIkRNwBRU/
+	CMxdVBCmU+M8W8blKZVQyW+AnJhtNuxOO0f1zSHu6qgTiiW3RKTklzsHXDE8CVVdqhDFJo9Z7Nw
+	8ahMb39DjWRAHPfKtA==
+X-Received: by 2002:a05:6102:3972:b0:7b2:508e:3d57 with SMTP id ada2fe7eead31-7b2508e43dcmr1935899137.4.1790627781635;
+        Mon, 28 Sep 2026 13:36:21 -0700 (PDT)
+Received: from [10.21.51.184] (ipagstaticip-88fc351e-cb28-db3e-3f52-ad13c70f08da.sdsl.bell.ca. [142.127.77.63])
+        by smtp.gmail.com with ESMTPSA id a1e0cc1a2514c-9889afc5c7csm8438164241.2.2026.09.28.13.36.19
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Mon, 28 Sep 2026 13:36:21 -0700 (PDT)
+Message-ID: <674314b4-6b80-4b3a-ac15-eefd31cea607@linaro.org>
+Date: Mon, 28 Sep 2026 22:36:18 +0200
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-X-EOPAttributedMessage: 0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: TY2PEPF00005623:EE_|OS3PR01MB6840:EE_
-Content-Type: text/plain
-X-MS-Office365-Filtering-Correlation-Id: 9cee6ee1-1a2a-4d75-0684-08df1da0025c
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|23010399003|36860700016|376014|7416014|1800799024|82310400026|10067099003|56012099006|3023799007|22082099003|18002099003|921020|11063799006;
-X-Microsoft-Antispam-Message-Info: 4wLientPfbf0n5uc5dqz38NiWRgtbQ+GVLNvxlixLK8KJtUS/eZVA1uMF6WF3+S4+g3osrQ6hoWXvhKLq2QgG0Xegqx9baCA7yTyi52zvwHfQoOVF34wOwRCUBOQjnzKMerxq9OD2pjBeg9e7g5EGbOVBgFQlWIzPyrIa+MZ8rcbxRuURJ/ory9IH/htCUzC1W0xPIsbGoscKRQHs8QkhhgJyDgX5oUuYLfKxR0EHkOntiRw4Os9sis5ZUraqzX7P1CUYDRg+Ao67rCGnjej4sWj/8MCl34n7a13k6bjK49brWcNsvz6IaBZxwVL1iZsuVLjWdk6deL/vzbQpJgbrtZqqY92geyCIAeoGQ3rBnlv+Wo2t1u41u7L5GoY9fBHAkynPlqQatI9R+SIW4TkaN6UdPubNjYgQPEIBC7CMBzyeRDLONGuBIts6ey0NEovh7hQuk2seB0aF6d81HhOGtMB2t18pT3KrKYBPfldlMZBjUZLxA0Fz9r9IGQ3WoGyn0Ex8RIQhIWJpGoc8L8z7ZOderaVzI3Vnwei8TR/65ilBZQigd8kbWr1hJItE9saGx9+r1Kif+slABmnnDArYgmGer3v6JPh8H8KHuOFojSLqvwsKueUfas7vxj78SKsOHbKP2J2G1mC5fJqnSfAgVJMzQTVo0wi/RuV6ZNoPnIr0lcM3ZLAnBrOLLJH74z4EYwNiZC/hz/WqDzoT+9O5H+ODKOzWB891VKWRM2pgqzO+BItxi6Ekx7uPgv3GFUD
-X-Forefront-Antispam-Report: CIP:8.62.32.50;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:ejcrelay004p.adwin.renesas.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(23010399003)(36860700016)(376014)(7416014)(1800799024)(82310400026)(10067099003)(56012099006)(3023799007)(22082099003)(18002099003)(921020)(11063799006);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: Lpb+0CuMt7yO0B9m+USGyJ147CblnxRD3ZGcdMP2p5aO9q8b4SQmKQTpwWIFmM4/5IwfJFYDoQiQjxSu0FJIkWIBGrzizoAkJRy5tpb6ZHjLKHPEGnmyd2P6F0+9+HAS3/vRlRN2kFLDxeQbpme8/lYNwPVCdDd/AOVumFYphrSYakL8CbuXYVM05m24EdoiX33W1Cvrf+b8lsRmIu8zEBGNU9bjcCcqUaO3Kx4iYlr3/kU9A9ujYXPtkFruVucLFFu+3pToAsv45qzF+MafHX+h6E/c7jPEABRPBSfu2HiOe70AmG7dKvMbex+GNqlReDxqsze6ICN8QRQCJmkt+KUH9ypi6EfHhmC6N9Y7ZncopvEweli5rx/ItaFgINAIiYxWgemoP583iELQhfzyAl7AC5qVgFuEIHnSjgta4df+UmP0+rYjcPY7WrEtaz2f
-X-OriginatorOrg: renesas.com
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 28 Sep 2026 20:35:18.0962
- (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: 9cee6ee1-1a2a-4d75-0684-08df1da0025c
-X-MS-Exchange-CrossTenant-Id: 53d82571-da19-47e4-9cb4-625a166a4a2a
-X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=53d82571-da19-47e4-9cb4-625a166a4a2a;Ip=[8.62.32.50];Helo=[ejcrelay004p.adwin.renesas.com]
-X-MS-Exchange-CrossTenant-AuthSource: TY2PEPF00005623.JPNP286.PROD.OUTLOOK.COM
-X-MS-Exchange-CrossTenant-AuthAs: Anonymous
-X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: OS3PR01MB6840
+User-Agent: Mozilla Thunderbird
+From: Neil Armstrong <neil.armstrong@linaro.org>
+Subject: Re: [PATCH 0/6] drm/bridge: Add a BPF-based MIPI-DSI panel driver
+To: Benjamin Tissoires <bentiss@kernel.org>
+Cc: Maxime Ripard <mripard@kernel.org>, Jessica Zhang
+ <jesszhan0024@gmail.com>, David Airlie <airlied@gmail.com>,
+ Simona Vetter <simona@ffwll.ch>,
+ Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
+ Thomas Zimmermann <tzimmermann@suse.de>, Rob Herring <robh@kernel.org>,
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
+ <conor+dt@kernel.org>, Nathan Chancellor <nathan@kernel.org>,
+ Nick Desaulniers <ndesaulniers@google.com>, Bill Wendling
+ <morbo@google.com>, Justin Stitt <justinstitt@google.com>,
+ Florian Fainelli <florian.fainelli@broadcom.com>,
+ Broadcom internal kernel review list
+ <bcm-kernel-feedback-list@broadcom.com>,
+ Andrzej Hajda <andrzej.hajda@intel.com>, Robert Foss <rfoss@kernel.org>,
+ Laurent Pinchart <Laurent.pinchart@ideasonboard.com>,
+ Jonas Karlman <jonas@kwiboo.se>, Jernej Skrabec <jernej.skrabec@gmail.com>,
+ Luca Ceresoli <luca.ceresoli@bootlin.com>, Albert Esteve
+ <aesteve@redhat.com>, Dave Stevenson <dave.stevenson@raspberrypi.com>,
+ Javier Martinez Canillas <javierm@redhat.com>,
+ dri-devel@lists.freedesktop.org, devicetree@vger.kernel.org,
+ linux-kernel@vger.kernel.org, bpf@vger.kernel.org, llvm@lists.linux.dev,
+ linux-rpi-kernel@lists.infradead.org, linux-arm-kernel@lists.infradead.org
+References: <20260928-drm-mipi-dsi-panel-ebpf-v1-0-5244926aace4@kernel.org>
+ <6b80cb97-6706-412a-b013-9423f6f75153@linaro.org> <arqhwHiVf00j94J7@beelink>
+ <0259fe4b-3118-4ab0-9b62-55101bfd7f33@linaro.org> <arrAqg5n87INTHE6@beelink>
+Content-Language: en-US, fr
+Autocrypt: addr=neil.armstrong@linaro.org; keydata=
+ xsBNBE1ZBs8BCAD78xVLsXPwV/2qQx2FaO/7mhWL0Qodw8UcQJnkrWmgTFRobtTWxuRx8WWP
+ GTjuhvbleoQ5Cxjr+v+1ARGCH46MxFP5DwauzPekwJUD5QKZlaw/bURTLmS2id5wWi3lqVH4
+ BVF2WzvGyyeV1o4RTCYDnZ9VLLylJ9bneEaIs/7cjCEbipGGFlfIML3sfqnIvMAxIMZrvcl9
+ qPV2k+KQ7q+aXavU5W+yLNn7QtXUB530Zlk/d2ETgzQ5FLYYnUDAaRl+8JUTjc0CNOTpCeik
+ 80TZcE6f8M76Xa6yU8VcNko94Ck7iB4vj70q76P/J7kt98hklrr85/3NU3oti3nrIHmHABEB
+ AAHNKk5laWwgQXJtc3Ryb25nIDxuZWlsLmFybXN0cm9uZ0BsaW5hcm8ub3JnPsLAkQQTAQoA
+ OwIbIwULCQgHAwUVCgkICwUWAgMBAAIeAQIXgBYhBInsPQWERiF0UPIoSBaat7Gkz/iuBQJk
+ Q5wSAhkBAAoJEBaat7Gkz/iuyhMIANiD94qDtUTJRfEW6GwXmtKWwl/mvqQtaTtZID2dos04
+ YqBbshiJbejgVJjy+HODcNUIKBB3PSLaln4ltdsV73SBcwUNdzebfKspAQunCM22Mn6FBIxQ
+ GizsMLcP/0FX4en9NaKGfK6ZdKK6kN1GR9YffMJd2P08EO8mHowmSRe/ExAODhAs9W7XXExw
+ UNCY4pVJyRPpEhv373vvff60bHxc1k/FF9WaPscMt7hlkbFLUs85kHtQAmr8pV5Hy9ezsSRa
+ GzJmiVclkPc2BY592IGBXRDQ38urXeM4nfhhvqA50b/nAEXc6FzqgXqDkEIwR66/Gbp0t3+r
+ yQzpKRyQif3OwE0ETVkGzwEIALyKDN/OGURaHBVzwjgYq+ZtifvekdrSNl8TIDH8g1xicBYp
+ QTbPn6bbSZbdvfeQPNCcD4/EhXZuhQXMcoJsQQQnO4vwVULmPGgtGf8PVc7dxKOeta+qUh6+
+ SRh3vIcAUFHDT3f/Zdspz+e2E0hPV2hiSvICLk11qO6cyJE13zeNFoeY3ggrKY+IzbFomIZY
+ 4yG6xI99NIPEVE9lNBXBKIlewIyVlkOaYvJWSV+p5gdJXOvScNN1epm5YHmf9aE2ZjnqZGoM
+ Mtsyw18YoX9BqMFInxqYQQ3j/HpVgTSvmo5ea5qQDDUaCsaTf8UeDcwYOtgI8iL4oHcsGtUX
+ oUk33HEAEQEAAcLAXwQYAQIACQUCTVkGzwIbDAAKCRAWmrexpM/4rrXiB/sGbkQ6itMrAIfn
+ M7IbRuiSZS1unlySUVYu3SD6YBYnNi3G5EpbwfBNuT3H8//rVvtOFK4OD8cRYkxXRQmTvqa3
+ 3eDIHu/zr1HMKErm+2SD6PO9umRef8V82o2oaCLvf4WeIssFjwB0b6a12opuRP7yo3E3gTCS
+ KmbUuLv1CtxKQF+fUV1cVaTPMyT25Od+RC1K+iOR0F54oUJvJeq7fUzbn/KdlhA8XPGzwGRy
+ 4zcsPWvwnXgfe5tk680fEKZVwOZKIEuJC3v+/yZpQzDvGYJvbyix0lHnrCzq43WefRHI5XTT
+ QbM0WUIBIcGmq38+OgUsMYu4NzLu7uZFAcmp6h8g
+Organization: Linaro
+In-Reply-To: <arrAqg5n87INTHE6@beelink>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260928_133524_437686_ACA0A846 
-X-CRM114-Status: GOOD (  15.39  )
+X-CRM114-CacheID: sfid-20260928_133623_412832_9FB7E0E0 
+X-CRM114-Status: GOOD (  51.46  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -128,82 +147,178 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
+Reply-To: Neil Armstrong <neil.armstrong@linaro.org>
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Currently, hardware VLAN stripping is broken for 802.1ad tags. vlan_rx_hw()
-hardcodes ETH_P_8021Q when putting the hardware tag into the skb, rather
-than using the actual protocol from the packet. Because of this, packets
-that contain a 802.1ad outer tag are incorrectly passed up the stack as
-having an 802.1Q tag. This causes QinQ ping between two hosts to fail.
+On 9/28/26 21:48, Benjamin Tissoires wrote:
+> On Sep 28 2026, Neil Armstrong wrote:
+>> On 9/28/26 19:24, Benjamin Tissoires wrote:
+>>> On Sep 28 2026, Neil Armstrong wrote:
+>>>> Hi,
+>>>>
+>>>> On 9/28/26 18:22, Maxime Ripard wrote:
+>>>>> Hi,
+>>>>>
+>>>>> Panels in general, and MIPI-DSI panels in particular, are pretty
+>>>>> difficult to support and require pretty much a panel driver for each
+>>>>> panel produced. Most of them are pretty simple, and require an opaque
+>>>>> initialization sequence that is usually poorly documented.
+>>>>>
+>>>>> This creates a tension between OEMs and distros because OEMs will
+>>>>> typically get a new panel to react to a sourcing issue during
+>>>>> production, and thus need some swift turnaround between getting their
+>>>>> new panel and it being operational in the OS. Distributions on the other
+>>>>> hand can take years to ship a kernel with that new panel driver.
+>>>>>
+>>>>> To solve this, I followed the example of HID-BPF and wrote a panel
+>>>>> driver that will rely on BPF programs to perform the panel
+>>>>> initialization. That way, we can ship the programs separately from the
+>>>>> kernel, and with a different lifecycle. If this driver is accepted, the
+>>>>> plan is to have a userspace component started by udev to identify and
+>>>>> load the right BPF program for the panels found on the device.
+>>>>
+>>>> This is kind of late for serious applications except if we manage to
+>>>> solve the bootloader to Linux display engine transition.
+>>>>
+>>>>>
+>>>>> This driver is fully functional and works with both 5" and 7" Touch
+>>>>> Display 2 panels for the RaspberryPi. However, it breaks away from the
+>>>>> typical panel driver in multiple ways:
+>>>>>
+>>>>> - BPF programs can only be loaded by userspace. This leaves us with two
+>>>>>      choices:
+>>>>>
+>>>>>      * We prevent the driver from loading until the script itself is
+>>>>>        loaded. This has the side effect of preventing any other output to
+>>>>>        be used until the initramfs is ran at the earliest, and possibly
+>>>>>        ever if the loader isn't installed for example.
+>>>>
+>>>> This adds a dependency on user-space behavior and if somehow the
+>>>> initramfs doesn't load for a reason we won't have a way to display
+>>>> an error.
+>>>>
+>>>>>
+>>>>>      * Or we probe the driver all the time, but only report it as connected
+>>>>>        once a program has been registered. This is somewhat unconventional,
+>>>>>        but allows the other outputs to be functional, *and* allows the user
+>>>>>        to force the output if their panel doesn't require any
+>>>>>        initialization or during debugging. I chose this solution.
+>>>>
+>>>> Both options are not really great...
+>>>>
+>>>>>
+>>>>> - It's not a panel driver, but a bridge one, which is also pretty
+>>>>>      unconventional. This is required because panel drivers don't have
+>>>>>      access to a detect callback that is required for the above, but I also
+>>>>>      think that the recent work from Luca blurs the line from panels and
+>>>>>      bridges and we'll end up going that road anyway.
+>>>>
+>>>> On this point, DDIC _are_ bridges, but in the current panel API we blur the line between
+>>>> the panel and the DDIC. So being a bridge is fine, but in a general way we lack
+>>>> a proper way to describe the display/panel/monitor independently of the DDIC.
+>>>>
+>>>> At first glance it's a nice driver, but moving the timings into a blob moves something
+>>>> into possible proprietary binaries with possible closed licence and distribution
+>>>> restriction so it's a downgrade for the same of bringing up a panel faster.
+>>>
+>>> Quick answer on this, because I had the very same questions regarding
+>>> HID-BPF:
+>>> - in BPF, you can require (and by default it does) that only GPL
+>>> 	compatible BPF programs are loaded, closing the argument of "closed
+>>> 	licence and distribution restriction"
+>>> - also, a BPF program can be disassembled much easier than a binary
+>>> 	blob, and I remember Alexei showing me an example where you get almost
+>>> 	the source code from the BPF object in just one pass.
+>>
+>> Right, it "solve" one of my question, but doesn't really solve the issue
+>> of vendors providing "GPL" bpf programs with source available "somewhere".
+>>
+>> Another big issue is the API, I don't want to keep the current API as-is,
+>> we plan to support more advanced panel features and use try to use the
+>> atomic states to support rate switching for example, and I'm not confident
+>> it's a good idea since there's no "simple" and "forever valid" API
+>> to initialize panels...
+>>
+> 
+> That's exactly where BPF shines. The simple rule of thumb is: there is
+> no API stability guaranteed. Basically, thanks to the verifier and CORE
+> (Compile Once Run Everywhere), you don't need to keep the API stable and
+> available forever. There are multiple ways of dealing with it, but the
+> gist is that if a BPF is trying to load an "old" API, it will be
+> rejected by the verifier.
+> 
+> Then it's a matter of being nice enough in the kernel and provide ways
+> to deal with those.
+> 
+> To give you a few examples:
+> 
+> - in HID-BPF, in userspace, we keep old versions of APIs in separate
+> 	compiled objects. Each is incremented (by 10 so we have a little bit
+> 	of room in the middle). Then the loader tries first
+> 	0020-device-with-new-api.bpf.o, and if it fails, it tries
+> 	0010-device-with-old-api.bpf.o
+> 
+> 	I'm not saying we should do the same here, but that's one idea
+> 
+> - recently, a BPF commit broke the ABI of a function while removing
+> 	implicits: bpf_wq_set_callback_impl() was replaced by
+> 	bpf_wq_set_callback() with a different number of arguments. I simply
+> 	had to add a new function in my header which basically does:
+> 
+> 	static inline int
+> 	hid_bpf_wq_set_callback(struct bpf_wq *wq,
+> 	                        int (*callback_fn)(void *, int *, void *),
+> 	                        unsigned int flags)
+> 	{
+>        if (bpf_ksym_exists(bpf_wq_set_callback))
+>                return bpf_wq_set_callback(wq, callback_fn, flags);
+>        if (bpf_ksym_exists(bpf_wq_set_callback_impl))
+>                return bpf_wq_set_callback_impl(wq, callback_fn, flags, NULL);
+>    }
+> 
+>    And then I changed the bpf.c to use hid_bpf_wq_set_callback() and the
+>    bpf is compatible with both APIs
+> 
+> - with CORE, struct fields are relocated on the fly when you load the BPF
+>   
+>    So for instance, if my BPF only accesses fields .name, .phys and .id
+>    in the BPF, I can define:
+>    struct hid_device {
+>      char                       name[128];
+>      char                       phys[64];
+>      unsigned int               id;
+>    }
+> 
+>    Then when loading the bpf, the verifier replaces all offset to the
+>    ones actually used by the running kernel, and the program loads
+>    transparently, even if you add fields before/after or change the
+>    fields order in the kernel.
+> 
+> Changing the mindset is the hardest part of it. But once you are making
+> the shift, it's actually much better to work with. It doesn't mean you
+> can go yolo. You still need to be careful in your choices knowing the
+> impact on your users. But the API at version 0 is not frozen and you
+> don't need to maintain it forever, especially if you control the loader
+> and the headers used to compile the BPFs.
 
-vlan_rx_hw() is shared by dwxgmac2 and dwmac4: on dwxgmac2 the tag type
-is available in the RDES3 write-back descriptor (the ET_LT field), so the
-outer tag type can be determined based on that info. However, dwmac4
-doesn't seem to provide the tag type. The Length/Type field in RDES3 only
-indicates whether the packet is single or double-tagged, not which tag
-type was stripped.
+It's really impressive, but there's no way this would become the de-facto
+way to program the panels, and if the motivation is to make it simpler
+this implementation requires adding bindings and bpf programs which that
+are the same as native panel drivers, but won't be able to work until
+user-space starts and will require to be in initramfs or rootfs to
+have functional display.
 
-Since dwmac4 cannot report the stripped tag type, it cannot support
-hardware S-Tag stripping correctly. Therefore, restrict the
-NETIF_F_HW_VLAN_STAG_RX and NETIF_F_HW_VLAN_STAG_FILTER advertisement
-to dwxgmac2 only.
+Not sure to understand what are the positive features here
+except isolating the panel code in a safe bpf program (is this really needed ?).
 
-With this, 802.1ad tags are left in place and handled by the software
-VLAN path.
+I mean the idea is cool and bpf is a nice thing, but I'm really not
+convinced about it programming panels.
 
-Fixes: 750011e239a5 ("net: stmmac: Add support for HW-accelerated VLAN stripping")
-Signed-off-by: Ovidiu Panait <ovidiu.panait.rb@renesas.com>
-Reviewed-by: Maxime Chevallier <maxime.chevallier@bootlin.com>
----
-v6 changes: None.
+Neil
 
-v5 changes:
-- Rebased on top of latest changes.
-- Added Reviewed-by tag from Maxime.
-
-v4 changes:
-- Dropped all "double VLAN" references from the commit title/message.
-- Rebased on top of the S-VLAN rework.
-
- drivers/net/ethernet/stmicro/stmmac/stmmac_main.c | 10 +++++++---
- 1 file changed, 7 insertions(+), 3 deletions(-)
-
-diff --git a/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c b/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
-index b007ff120471..5af245fd9ba0 100644
---- a/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
-+++ b/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
-@@ -6211,7 +6211,7 @@ static netdev_features_t stmmac_fix_features(struct net_device *dev,
- 	if (priv->plat->bugged_jumbo && (dev->mtu > ETH_DATA_LEN))
- 		features &= ~NETIF_F_CSUM_MASK;
- 
--	if (dwmac_is_xmac(priv->plat->core_type)) {
-+	if (priv->plat->core_type == DWMAC_CORE_XGMAC) {
- 		if (features & NETIF_F_HW_VLAN_CTAG_RX)
- 			features |= NETIF_F_HW_VLAN_STAG_RX;
- 		else
-@@ -7990,14 +7990,18 @@ static int __stmmac_dvr_probe(struct device *device,
- 	ndev->watchdog_timeo = msecs_to_jiffies(watchdog);
- #ifdef STMMAC_VLAN_TAG_USED
- 	/* Both mac100 and gmac support receive VLAN tag detection */
--	ndev->features |= NETIF_F_HW_VLAN_CTAG_RX | NETIF_F_HW_VLAN_STAG_RX;
-+	ndev->features |= NETIF_F_HW_VLAN_CTAG_RX;
-+	if (priv->plat->core_type == DWMAC_CORE_XGMAC)
-+		ndev->features |= NETIF_F_HW_VLAN_STAG_RX;
-+
- 	if (dwmac_is_xmac(priv->plat->core_type)) {
- 		ndev->hw_features |= NETIF_F_HW_VLAN_CTAG_RX;
- 		priv->hw->hw_vlan_en = true;
- 	}
- 	if (priv->dma_cap.vlhash) {
- 		ndev->features |= NETIF_F_HW_VLAN_CTAG_FILTER;
--		ndev->features |= NETIF_F_HW_VLAN_STAG_FILTER;
-+		if (priv->plat->core_type == DWMAC_CORE_XGMAC)
-+			ndev->features |= NETIF_F_HW_VLAN_STAG_FILTER;
- 	}
- 	if (priv->dma_cap.vlins)
- 		ndev->features |= NETIF_F_HW_VLAN_CTAG_TX;
--- 
-2.34.1
+> 
+> Cheers,
+> Benjamin
 
 
