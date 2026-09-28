@@ -4,64 +4,139 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4EEC8C9832F
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 28 Sep 2026 08:04:00 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id EC04EC9833E
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 28 Sep 2026 08:04:08 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:References:In-Reply-To:Message-ID:Date
-	:Cc:To:From:Subject:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=d8sZX7sedqrjKDmZIkU7rI1DLwmYGwJUxtpLg+D3HK4=; b=F65xNPVmpoN09EuDS/eWHBQESk
-	MWIYCgH/RoLAoNieOaen77lQ0KZjVsZ2BUr3aG4RQzZG/6GNS8pLMk4cd/SjL8zdOyvFZ3BbALciL
-	whpPqiVjkWs9nqRyg8/yDIuxzuemqu7VSl8thba6TL3ohVG9t2Yw4wFbBMRF6Wg9DJWlQRHonqWA7
-	rY5D/5WPVTNQUe7dIXRNiGxBFCE8mRWL2xbUndZhniJ7g6sCaNvw8QV0Sz/wj8i2h88VTx+Ui96e6
-	dxzb/sOyzvZ2WneyA2p6A9ZC09k2Ji3sBvnyzLaaujUxTt11hF+P2Uqx9awdg89qQAVrZpnShbf6m
-	CLBgJy1Q==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=NrwHL2kcG+Vt4W3ByUonzTmcHea4Q9dyMEh/DeXT5Ok=; b=OJVB/rkKdcP/rOAu4lRlFZ6t/U
+	z0uUU0GEzRFlQ4XOVZVcC51Z58qx2HWfG/NHOaR9TRHKKYEKZbmNFAnb8147G3lwFHXFz1fV2hioN
+	afxXD+LXvxW8dbgPP12YoeafnWOrdvJ/1uNK9nYuOnB/+8iGsTTHIhFZSIQvDw/9HTcnrBubMwERU
+	3VZKttjtLD/KzYnvCCVJ9lv79SFeahEWxwD73rVeFBidv5a9fr3+mX4ED72E1nMP28Dj9Slf4L0HO
+	QeGenu/jx55Qif0PMpvXZ7d+sTmeQE0hoAPrVLEhU8sW6cqtaXzvQf3XYENquQUcBt1afpht4rta5
+	NrJ0VBEA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xB6L2-000000000Eg-2uYj;
-	Mon, 28 Sep 2026 08:03:52 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1xB6LC-000000000Li-2z0B;
+	Mon, 28 Sep 2026 08:04:02 +0000
+Received: from smtp-out2.suse.de ([195.135.223.131])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xB6Ks-000000000Ba-2GW9;
-	Mon, 28 Sep 2026 08:03:42 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 4C3B543E53;
-	Mon, 28 Sep 2026 08:03:42 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id F00AE1F00893;
-	Mon, 28 Sep 2026 08:03:40 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1790582622;
-	bh=d8sZX7sedqrjKDmZIkU7rI1DLwmYGwJUxtpLg+D3HK4=;
-	h=Subject:From:To:Cc:Date:In-Reply-To:References;
-	b=DPlhM0urkOWYZf+yfDXria2xkmkIqwWNL/u29ZF44FB5lIyzOQN7JtwSOGx8rayHP
-	 /nAiq8X0crQ7ID/rWp0T/+jGM7LD43/EiqonSEcqdsaRHukP3xrmCeuy+T7HHB2LWI
-	 Nad/Zkmn8Axd4qcJ1J62AYkRaWjbIQ6s5qwLvmvNCKDAVftSuRkLK7bV75sMOZG0lq
-	 I4scMoGDKQqCMcpKxcs+x4/ad/CmMX8y/owDOOgg/xRGBeYLIznOMzjbJnjCLHXMct
-	 CBdcxoYQw4pOAIk4OikFc5RJzkVz7eKhIKu+67xpSIMPSaz+8UtHWh8iCMJIGVkXP4
-	 tOXsqaAGVXfWA==
-Subject: Re: [PATCH net-next v2 5/7] net: stmmac: mediatek: use TX clock phase
- shift in RGMII mode with 1Gbps speed
-From: netdev-bot+sashiko@kernel.org
-To: louisalexis.eyraud@collabora.com
-Cc: andrew+netdev@lunn.ch, davem@davemloft.net, edumazet@google.com,
- kuba@kernel.org, pabeni@redhat.com, robh@kernel.org, krzk+dt@kernel.org,
- conor+dt@kernel.org, richardcochran@gmail.com, matthias.bgg@gmail.com,
- angelogioacchino.delregno@collabora.com, biao.huang@mediatek.com,
- maxime.chevallier@bootlin.com, mcoquelin.stm32@gmail.com,
- alexandre.torgue@foss.st.com, kernel@collabora.com, netdev@vger.kernel.org,
- devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org,
- linux-stm32@st-md-mailman.stormreply.com
-Date: Mon, 28 Sep 2026 08:03:40 +0000
-Message-ID: <179058262053.3145.11439692575591950530@kernel.org>
-In-Reply-To: <20260924-dwmac-mediatek-mt8189-v2-5-430bd74d5ef9@collabora.com>
-References: <20260924-dwmac-mediatek-mt8189-v2-5-430bd74d5ef9@collabora.com>
-X-sashiko-severity: Medium
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 8bit
+	id 1xB6Kr-000000000B8-0oAp;
+	Mon, 28 Sep 2026 08:03:43 +0000
+Received: from imap1.dmz-prg2.suse.org (unknown [10.150.64.97])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	by smtp-out2.suse.de (Postfix) with ESMTPS id C0A1D20084;
+	Mon, 28 Sep 2026 08:03:30 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=suse.de; s=susede2_rsa;
+	t=1790582614; h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
+	 mime-version:mime-version:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=NrwHL2kcG+Vt4W3ByUonzTmcHea4Q9dyMEh/DeXT5Ok=;
+	b=GXXhTurqn0eNGRiIbqULarONeNwsLXEHbtCFaCmbh5F5I7N62lMfcyQrqqOzAjgyNVAWCt
+	3zfrLw79iHSbgAKumtZ5MIvdm1l0v+apO1ShDmA6lQ2UK8jJdnsxeZD3R0fhAX4M7Z4eZJ
+	7MeEHmnEJV6qnodW7RwlxhdvYyphw3E=
+DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=suse.de;
+	s=susede2_ed25519; t=1790582614;
+	h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
+	 mime-version:mime-version:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=NrwHL2kcG+Vt4W3ByUonzTmcHea4Q9dyMEh/DeXT5Ok=;
+	b=sJ8mYUFPoYV34sERWc4q0aqS+frf9qgcSFeuHXnPvsKFZpKTNulL8dXTvke3c/KzKCz9FI
+	kPVy44nSZwy/VdAg==
+Authentication-Results: smtp-out2.suse.de;
+	none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=suse.de; s=susede2_rsa;
+	t=1790582610; h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
+	 mime-version:mime-version:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=NrwHL2kcG+Vt4W3ByUonzTmcHea4Q9dyMEh/DeXT5Ok=;
+	b=aWsBPFXLA45uA8dIR+Fk1L65MT0WfnhL7Ux3uvyBG4UEeMik66UH5qZBdMerwiMLHTT82k
+	Or9hBGJ7M1DmQ+FU9zbtAWeRrCD8Dj9+LfxbqLDCZ45y9XezzPWG3NPDsFJ2VpqGqh6xjk
+	LyIPQawDATSKeG/FAMafcsQmdVvUmaU=
+DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=suse.de;
+	s=susede2_ed25519; t=1790582610;
+	h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
+	 mime-version:mime-version:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=NrwHL2kcG+Vt4W3ByUonzTmcHea4Q9dyMEh/DeXT5Ok=;
+	b=q8YhD5lisDHaeh1/ZcD1ISVQ3QRDoVTH+N/qMWXwmCu11o+bKq5Hv0fw2mPO8Cdx9ZoWiv
+	AZxC9uDLs15BLWAg==
+Received: from imap1.dmz-prg2.suse.org (localhost [127.0.0.1])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	by imap1.dmz-prg2.suse.org (Postfix) with ESMTPS id F372F1340F;
+	Mon, 28 Sep 2026 08:03:29 +0000 (UTC)
+Received: from dovecot-director2.suse.de ([2a07:de40:b281:106:10:150:64:167])
+	by imap1.dmz-prg2.suse.org with ESMTPSA
+	id LwPoBFEfumpBYQAAD6G6ig:T2
+	(envelope-from <tzimmermann@suse.de>); Mon, 28 Sep 2026 08:03:29 +0000
+From: Thomas Zimmermann <tzimmermann@suse.de>
+To: jfalempe@redhat.com,
+	javierm@redhat.com,
+	maarten.lankhorst@linux.intel.com,
+	mripard@kernel.org,
+	airlied@gmail.com,
+	simona@ffwll.ch,
+	jani.nikula@linux.intel.com,
+	Alexander.Deucher@amd.com
+Cc: dri-devel@lists.freedesktop.org,
+	amd-gfx@lists.freedesktop.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-samsung-soc@vger.kernel.org,
+	intel-gfx@lists.freedesktop.org,
+	intel-xe@lists.freedesktop.org,
+	linux-arm-msm@vger.kernel.org,
+	freedreno@lists.freedesktop.org,
+	nouveau@lists.freedesktop.org,
+	linux-rockchip@lists.infradead.org,
+	linux-tegra@vger.kernel.org,
+	sashiko-reviews@lists.linux.dev,
+	Thomas Zimmermann <tzimmermann@suse.de>,
+	Alex Deucher <alexander.deucher@amd.com>
+Subject: [PATCH v4 1/2] drm/fbdev: Move fbdev module parameters next to module init
+Date: Mon, 28 Sep 2026 10:01:24 +0200
+Message-ID: <20260928080323.23909-2-tzimmermann@suse.de>
+X-Mailer: git-send-email 2.55.0
+In-Reply-To: <20260928080323.23909-1-tzimmermann@suse.de>
+References: <20260928080323.23909-1-tzimmermann@suse.de>
 MIME-Version: 1.0
+Content-Transfer-Encoding: 8bit
+X-Spamd-Result: default: False [-6.80 / 50.00];
+	REPLY(-4.00)[];
+	BAYES_HAM(-3.00)[100.00%];
+	MID_CONTAINS_FROM(1.00)[];
+	NEURAL_HAM_LONG(-1.00)[-1.000];
+	R_MISSING_CHARSET(0.50)[];
+	NEURAL_HAM_SHORT(-0.20)[-0.999];
+	MIME_GOOD(-0.10)[text/plain];
+	RCVD_COUNT_TWO(0.00)[2];
+	FROM_HAS_DN(0.00)[];
+	ARC_NA(0.00)[];
+	MIME_TRACE(0.00)[0:+];
+	TO_DN_SOME(0.00)[];
+	RCPT_COUNT_TWELVE(0.00)[22];
+	TO_MATCH_ENVRCPT_ALL(0.00)[];
+	RCVD_VIA_SMTP_AUTH(0.00)[];
+	FREEMAIL_TO(0.00)[redhat.com,linux.intel.com,kernel.org,gmail.com,ffwll.ch,amd.com];
+	DBL_BLOCKED_OPENRESOLVER(0.00)[suse.de:mid,suse.de:email,amd.com:email,imap1.dmz-prg2.suse.org:helo];
+	FROM_EQ_ENVFROM(0.00)[];
+	DKIM_SIGNED(0.00)[suse.de:s=susede2_rsa,suse.de:s=susede2_ed25519];
+	RCVD_TLS_ALL(0.00)[];
+	R_RATELIMIT(0.00)[to_ip_from(RLq3cifbxyhc6qbbynzfc6amns)];
+	FREEMAIL_ENVRCPT(0.00)[gmail.com]
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260928_010341_532283_5F256CDA 
+X-CRM114-Status: GOOD (  15.98  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -76,201 +151,154 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Thank you for your contribution! Sashiko AI review found 4 potential
-issue(s) to consider.
+Define the parameters for fbdev emulation in the source file with the
+module-initialization and exit code of drm_kms_helper.ko. The parameters
+control some aspects of DRM's fbdev emulation. Common usage looks like
 
-Critical: 0 · High: 0 · Medium: 3 · Low: 1
+  drm_kms_helper.drm_fbdev_overalloc=200
 
-If you believe none of the issues are legitimate, please reply to each
-issue of Medium severity or higher and explain why the AI is wrong.
-If any of them are legitimate and you plan to respin, please let patchwork
-know by including "pw-bot: cr" as a separate line at the end of your reply
-(one such reply per series is enough).
+on the kernel's command line. This has been possible for many years
+and changing it would likely upset users.
 
-- [Medium] At 1Gbps, mt8195_fix_mac_speed()
-  (drivers/net/ethernet/stmicro/stmmac/dwmac-mediatek.c) ignores the…
-- [Medium] mt8195_fix_mac_speed() and mt8195_set_delay() use different
-  rules for whether a TX delay is present.
-- [Medium] At SPEED_1000, mt8195_fix_mac_speed() sets reg_val to
-  MT8195_RGMII_TXC_PHASE_CTRL only (line 467).
-- [Low] In mt8195_fix_mac_speed(), `tx_delay_stage_val` is declared
-  without an initializer (line 445: `u32 tx_delay_stage_val,…
+The emulation code is supposed to be moved into the module for DRM
+clients. Keeping the parameters in drm_kms_helper.ko avoids breaking
+systems the use them in the way described above.
 
---
+Signed-off-by: Thomas Zimmermann <tzimmermann@suse.de>
+Reviewed-by: Alex Deucher <alexander.deucher@amd.com>
+---
+ drivers/gpu/drm/drm_crtc_helper_internal.h |  9 +++++
+ drivers/gpu/drm/drm_fb_helper.c            | 32 +-----------------
+ drivers/gpu/drm/drm_kms_helper_common.c    | 39 ++++++++++++++++++++++
+ 3 files changed, 49 insertions(+), 31 deletions(-)
 
-net: stmmac: mediatek: use TX clock phase shift in RGMII mode with 1Gbps speed
-
-This patch adds a fix_mac_speed callback to the MediaTek dwmac glue and
-implements it for MT8195. The callback runs when a TX delay is set in the
-devicetree and the PHY mode is rgmii or rgmii-rxid. It enables the fixed
-2ns TXC phase shift at 1Gbps and uses the HW delay macro circuit at
-10/100Mbps.
-
-> diff --git a/drivers/net/ethernet/stmicro/stmmac/dwmac-mediatek.c b/drivers/net/ethernet/stmicro/stmmac/dwmac-mediatek.c
-> index dee12cfa437d..6123efbbaf02 100644
-> --- a/drivers/net/ethernet/stmicro/stmmac/dwmac-mediatek.c
-> +++ b/drivers/net/ethernet/stmicro/stmmac/dwmac-mediatek.c
-
-[ ... ]
-
-> @@ -433,9 +436,62 @@ static int mt8195_set_delay(struct mediatek_dwmac_plat_data *plat)
->  	return 0;
->  }
->  
-> +static void mt8195_fix_mac_speed(void *priv, phy_interface_t interface,
-> +				 int speed, unsigned int mode)
-> +{
-> +	struct mediatek_dwmac_plat_data *priv_plat = priv;
-> +	const struct mediatek_dwmac_variant *variant;
-> +	struct mac_delay_struct *mac_delay;
-> +	u32 tx_delay_stage_val, reg_offset;
-> +	u32 reg_val = 0;
-> +
-> +	if (!priv_plat)
-> +		return;
-> +
-> +	mac_delay = &priv_plat->mac_delay;
-> +	variant = priv_plat->variant;
-> +
-> +	if (!mac_delay->tx_delay ||
-> +	    (interface != PHY_INTERFACE_MODE_RGMII &&
-> +	     interface != PHY_INTERFACE_MODE_RGMII_RXID))
-> +		return;
-
-[Severity: Medium]
-Should this check the stage count instead of the raw picosecond value?
-
-mt8195_set_delay() decides whether there is a TX delay from the number of
-stages:
-
-	tx_delay_stage_val = mac_delay->tx_delay / tx_delay_stage_div;
-	...
-	gtxc_delay_val |= FIELD_PREP(MT8195_DLY_GTXC_ENABLE,
-				     !!tx_delay_stage_val);
-
-Take mediatek,tx-delay-ps set to a value from 1 to 289. The binding says
-the value rounds down to 0, and the probe path applies no TX delay. The
-same value still passes the !mac_delay->tx_delay check here, so at
-SPEED_1000 the callback enables the fixed ~2ns TXC phase shift.
-
-The 10/100 branch further down has the same mismatch:
-
-	reg_val |= FIELD_PREP(MT8195_DLY_GTXC_ENABLE,
-			      !!mac_delay->tx_delay);
-
-That sets GTXC_ENABLE=1 with STAGES=0, which is not what probe wrote.
-
-Does this turn a documented "no delay" setting into a 2ns delay at 1G?
-
-> +
-> +	/*
-> +	 * When link speed is 1Gbps with RGMII interface, and a TX internal
-> +	 * delay needs to be applied on MAC, prefer to override the delay
-> +	 * settings with a 2ns fixed delay which is controlled by
-> +	 * RGMII_TXC_PHASE_CTRL. Otherwise, fallback to HW delay macro circuit
-> +	 * for 10/100Mbps link speeds.
-> +	 */
-> +	if (speed == SPEED_1000) {
-> +		reg_val = MT8195_RGMII_TXC_PHASE_CTRL;
-
-[Severity: Medium]
-Does this throw away the configured size of mediatek,tx-delay-ps at 1G?
-
-The property is only checked for non-zero above. Any value from 1 to 9279
-ps ends up writing only MT8195_RGMII_TXC_PHASE_CTRL here.
-MT8195_DLY_GTXC_ENABLE and MT8195_DLY_GTXC_STAGES are in the
-regmap_update_bits() mask, so the stages that mt8195_set_delay() programmed
-at probe and resume get cleared. As a result, <290>, <1160>, <2030> and
-<5000> all give the same 1G programming.
-
-The binding in Documentation/devicetree/bindings/net/mediatek-dwmac.yaml
-still describes the property as the internal TX delay:
-
-      For MT8188/MT8195 RGMII/RMII/MII interface, Allowed value need to be a
-      multiple of 290, or will round down. Range 0~31*290.
-
-It has no 1G exception, and this patch does not update it.
-
-The in-tree users (mt8395-genio-common.dtsi and mt8395-radxa-nio-12l.dts,
-both rgmii-rxid with <2030>) are close to 2ns. A board whose value was
-tuned for trace skew far from 2ns would get different 1G timing than
-before, with no warning.
-
-The commit message says the phase shift is used "when a delay needs to be
-inserted". It does not mention that the configured value is ignored.
-
-The later commit "net: stmmac: mediatek: add support for MT8189 SoC" reuses
-this callback unchanged, so this also applies to MT8189 with its 180 ps
-stages.
-
-Should the phase shift be used only when the configured delay is close to
-2ns? Otherwise, should the binding document the override?
-
-> +	} else {
-> +		if (variant->tx_delay_stage_div)
-> +			tx_delay_stage_val = mac_delay->tx_delay /
-> +					     variant->tx_delay_stage_div;
-> +
-> +		reg_val |= FIELD_PREP(MT8195_DLY_GTXC_ENABLE,
-> +				      !!mac_delay->tx_delay);
-> +		reg_val |= FIELD_PREP(MT8195_DLY_GTXC_STAGES,
-> +				      tx_delay_stage_val);
-
-[Severity: Low]
-Can tx_delay_stage_val be used uninitialized here?
-
-It is declared without an initializer and only assigned when
-variant->tx_delay_stage_div is non-zero. FIELD_PREP() always reads it,
-though, and the result is written to PERI_ETH_CTRL0.
-
-mt8195_set_delay() handles this case with an explicit else:
-
-	if (tx_delay_stage_div)
-		tx_delay_stage_val = mac_delay->tx_delay / tx_delay_stage_div;
-	else
-		tx_delay_stage_val = 0;
-
-clang's -Wsometimes-uninitialized is likely to warn here, which would break
-CONFIG_WERROR builds. Every current user has a non-zero divisor (290 for
-MT8195, and 180 for MT8189 later in the series), so this path is not hit at
-runtime today.
-
-> +		reg_val |= FIELD_PREP(MT8195_DLY_GTXC_INV,
-> +				      mac_delay->tx_inv);
-> +	}
-> +
-> +	reg_offset = variant->peri_eth_ctrl_offset + MT8195_PERI_ETH_CTRL0;
-> +	regmap_update_bits(priv_plat->peri_regmap,
-> +			   reg_offset,
-> +			   MT8195_RGMII_TXC_PHASE_CTRL |
-> +			   MT8195_DLY_GTXC_ENABLE |
-> +			   MT8195_DLY_GTXC_INV |
-> +			   MT8195_DLY_GTXC_STAGES,
-> +			   reg_val);
-> +}
-
-[Severity: Medium]
-At SPEED_1000, reg_val holds only MT8195_RGMII_TXC_PHASE_CTRL, but
-MT8195_DLY_GTXC_INV is part of the mask. Does this clear the TX clock
-inversion requested by mediatek,txc-inverse at 1G?
-
-mediatek_dwmac_config_dt() reads that property into mac_delay->tx_inv, and
-mt8195_set_delay() programs it at probe and resume. The 10/100 branch keeps
-it through FIELD_PREP(MT8195_DLY_GTXC_INV, mac_delay->tx_inv). The TX clock
-would then be inverted at 10/100 but not at 1G.
-
-The binding describes the property as:
-
-      1. tx clock will be inversed in MII/RGMII case,
-
-It has no speed exception. Neither the commit message nor the code comment
-mentions dropping the inversion.
-
-Is this intended, or does the hardware ignore GTXC_INV once PHASE_CTRL is
-set?
-
-[ ... ]
-
+diff --git a/drivers/gpu/drm/drm_crtc_helper_internal.h b/drivers/gpu/drm/drm_crtc_helper_internal.h
+index bae73936acf9..adcc9a2e24ee 100644
+--- a/drivers/gpu/drm/drm_crtc_helper_internal.h
++++ b/drivers/gpu/drm/drm_crtc_helper_internal.h
+@@ -29,6 +29,8 @@
+ #ifndef __DRM_CRTC_HELPER_INTERNAL_H__
+ #define __DRM_CRTC_HELPER_INTERNAL_H__
+ 
++#include <linux/types.h>
++
+ enum drm_mode_status;
+ struct drm_connector;
+ struct drm_crtc;
+@@ -36,6 +38,13 @@ struct drm_display_mode;
+ struct drm_encoder;
+ struct drm_modeset_acquire_ctx;
+ 
++/* drm_kms_helper_common.c */
++#if IS_ENABLED(CONFIG_DRM_FBDEV_EMULATION)
++extern bool drm_fbdev_emulation;
++extern int drm_fbdev_overalloc;
++extern bool drm_leak_fbdev_smem;
++#endif
++
+ /* drm_probe_helper.c */
+ enum drm_mode_status drm_crtc_mode_valid(struct drm_crtc *crtc,
+ 					 const struct drm_display_mode *mode);
+diff --git a/drivers/gpu/drm/drm_fb_helper.c b/drivers/gpu/drm/drm_fb_helper.c
+index d4664ed468b2..76195410db60 100644
+--- a/drivers/gpu/drm/drm_fb_helper.c
++++ b/drivers/gpu/drm/drm_fb_helper.c
+@@ -43,39 +43,9 @@
+ #include <drm/drm_vblank.h>
+ 
+ #include "drm_internal.h"
++#include "drm_crtc_helper_internal.h"
+ #include "drm_crtc_internal.h"
+ 
+-static bool drm_fbdev_emulation = true;
+-module_param_named(fbdev_emulation, drm_fbdev_emulation, bool, 0600);
+-MODULE_PARM_DESC(fbdev_emulation,
+-		 "Enable legacy fbdev emulation [default=true]");
+-
+-static int drm_fbdev_overalloc = CONFIG_DRM_FBDEV_OVERALLOC;
+-module_param(drm_fbdev_overalloc, int, 0444);
+-MODULE_PARM_DESC(drm_fbdev_overalloc,
+-		 "Overallocation of the fbdev buffer (%) [default="
+-		 __MODULE_STRING(CONFIG_DRM_FBDEV_OVERALLOC) "]");
+-
+-/*
+- * In order to keep user-space compatibility, we want in certain use-cases
+- * to keep leaking the fbdev physical address to the user-space program
+- * handling the fbdev buffer.
+- *
+- * This is a bad habit, essentially kept to support closed-source OpenGL
+- * drivers that should really be moved into open-source upstream projects
+- * instead of using legacy physical addresses in user space to communicate
+- * with other out-of-tree kernel modules.
+- *
+- * This module_param *should* be removed as soon as possible and be
+- * considered as a broken and legacy behaviour from a modern fbdev device.
+- */
+-static bool drm_leak_fbdev_smem;
+-#if IS_ENABLED(CONFIG_DRM_FBDEV_LEAK_PHYS_SMEM)
+-module_param_unsafe(drm_leak_fbdev_smem, bool, 0600);
+-MODULE_PARM_DESC(drm_leak_fbdev_smem,
+-		 "Allow unsafe leaking fbdev physical smem address [default=false]");
+-#endif
+-
+ /**
+  * DOC: fbdev helpers
+  *
+diff --git a/drivers/gpu/drm/drm_kms_helper_common.c b/drivers/gpu/drm/drm_kms_helper_common.c
+index b5d5b469b444..1e55ecac4698 100644
+--- a/drivers/gpu/drm/drm_kms_helper_common.c
++++ b/drivers/gpu/drm/drm_kms_helper_common.c
+@@ -25,10 +25,49 @@
+  *
+  */
+ 
++#include <linux/export.h>
+ #include <linux/module.h>
++#include <linux/moduleparam.h>
+ 
++#include "drm_crtc_helper_internal.h"
+ #include "drm_panic_internal.h"
+ 
++#if IS_ENABLED(CONFIG_DRM_FBDEV_EMULATION)
++bool drm_fbdev_emulation = true;
++EXPORT_SYMBOL(drm_fbdev_emulation);
++module_param_named(fbdev_emulation, drm_fbdev_emulation, bool, 0600);
++MODULE_PARM_DESC(fbdev_emulation, "Enable legacy fbdev emulation [default=true]");
++
++int drm_fbdev_overalloc = CONFIG_DRM_FBDEV_OVERALLOC;
++EXPORT_SYMBOL(drm_fbdev_overalloc);
++module_param(drm_fbdev_overalloc, int, 0444);
++MODULE_PARM_DESC(drm_fbdev_overalloc,
++		 "Overallocation of the fbdev buffer (%) [default="
++		 __MODULE_STRING(CONFIG_DRM_FBDEV_OVERALLOC) "]");
++
++/*
++ * In order to keep user-space compatibility, we want in certain use-cases
++ * to keep leaking the fbdev physical address to the user-space program
++ * handling the fbdev buffer.
++ *
++ * This is a bad habit, essentially kept to support closed-source OpenGL
++ * drivers that should really be moved into open-source upstream projects
++ * instead of using legacy physical addresses in user space to communicate
++ * with other out-of-tree kernel modules.
++ *
++ * This module_param *should* be removed as soon as possible and be
++ * considered as a broken and legacy behaviour from a modern fbdev device.
++ */
++bool drm_leak_fbdev_smem;
++EXPORT_SYMBOL(drm_leak_fbdev_smem);
++#if IS_ENABLED(CONFIG_DRM_FBDEV_LEAK_PHYS_SMEM)
++module_param_unsafe(drm_leak_fbdev_smem, bool, 0600);
++MODULE_PARM_DESC(drm_leak_fbdev_smem,
++		 "Allow unsafe leaking fbdev physical smem address [default=false]");
++#endif
++
++#endif
++
+ static int __init drm_kms_helper_init(void)
+ {
+ 	return drm_panic_helper_init();
 -- 
-Sashiko AI review · https://netdev-ai.bots.linux.dev/sashiko/#/patchset/20260924-dwmac-mediatek-mt8189-v2-0-430bd74d5ef9%40collabora.com
+2.55.0
+
 
