@@ -4,75 +4,74 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 956F4CA5FA1
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 28 Sep 2026 16:15:44 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5B4BBCA5FA1
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 28 Sep 2026 16:15:54 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
-	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=c06SVugHWJJNDeT83SdkPtIHJEt16Y1SGd4fojskXEI=; b=dB0d0b483THadXrMqNvmW/xzp7
-	iNAMjc6kV8g2MpbNTd0ngi0BRp5CBH6gOPWXh4gv+/cX5Q16+CIYtaCB5AkLP2GO1zQYI0UFl5lcH
-	KeJIEtqZWU03z85Y4+Xjk8Yz0h49rlbkAJE/J3fvxt7KpAMtRmpVKtsDS3dA/U3i7PNmYTBjnQ4sQ
-	gCyiTDndiWGc6ewJRZXu/9P6kRRXLKx2Flm9jkvnJcwO2dmiEvJwlw/Hj9ZwvMcH6lxLUDOnXNN44
-	+K601TO1+vzv848UCdCogTAbFWuXwULgfrO+oCyLb33WUhGifotZj2yXphkcCQfveW0QcashmRDBf
-	jqpL4URA==;
+	bh=l63NqOrmYS7OWhnyJ46rzvQOga2GpeIrimZGoJ6BZws=; b=yfj9jXFdJF7GEzVC2tILSErOXX
+	k8JFnXixD5yLuqTuFWwVYwpRee0REwRc/BfFnBDVH16TwOo3PnexCsqUd/+OUzYPRIEericKZfS5+
+	qWN7p43D3jOaM5RwOscMXP8F9DzjU8wXdWlCJX2tuS4GqlQOmwyIXL99e8ZqDUvHoC8oWhNS5pbyh
+	7CQMzp6WXKgyAxDZNMHe/zcWAbEHcTnoxaQWoOmSkrs7C5A/BPBqvodFEJxAu4jZCLEssfACpW3Db
+	MhPyROdNZmMHkObQ7e3T3Lho/7z30EogeE3JJjol42uIoT+jAN/ICTbgneSXxTwVBATZJvmwCdfCS
+	W4U8CsHg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xBE0w-00000000zJ0-2ZmN;
-	Mon, 28 Sep 2026 16:15:38 +0000
-Received: from out-162.mta1.migadu.com ([2001:41d0:203:375::a2] helo=mta1.migadu.com)
+	id 1xBE15-00000000zL6-37ua;
+	Mon, 28 Sep 2026 16:15:47 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xBE0u-00000000zIW-04P5
+	id 1xBE14-00000000zKq-0kRt
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 28 Sep 2026 16:15:37 +0000
-X-Envelope-To: linux-arm-kernel@lists.infradead.org
-DKIM-Signature: a=rsa-sha256; bh=c06SVugHWJJNDeT83SdkPtIHJEt16Y1SGd4fojskXEI=;
- c=simple/simple; d=linux.dev;
- h=from:to:subject:date:message-id:mime-version:content-type; s=key1;
- t=1790612134; v=1; x=1791216934;
- b=vKluE1yjdGr+r63jTd2Z5NMfzdedKowkOL8KxBqleTza0glCdut4v4F5iYoDrXrlaIE/4VUb
- VQIdGCiAax8It5F2ChRL9ILVuxjFUtruH7PSD7Sx5yLip2njcAgO/00nviDUw9o7GqB3NDC0Ndc
- m/joe0oB1pXyw6nIq4qYAt68=
-X-Envelope-To: linux-arm-kernel@lists.infradead.org
-Received: by smtp.migadu.com with ESMTPS id b904b37aa096d144;
-	Mon, 28 Sep 2026 16:15:34 +0000
-X-Mizu-Trace-ID: b904b37aa096d144
-X-Migadu-Flow: FLOW_OUT
-Received: by mail-lf1-f54.google.com with SMTP id 2adb3069b0e04-5b8ea0ca5baso11815e87.1
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 28 Sep 2026 09:15:30 -0700 (PDT)
-X-Forwarded-Encrypted: i=1; AKwUvBzfRloaKwBCcHRIfYAQjCCKK+Jx5+9SoDyfW8NdJw5erLFGLF6y0UERmOBTaqnzn73bCAtuKmbxe+deM0wItxND@lists.infradead.org
-X-Gm-Message-State: AFq9FYIv8/vyviAkKQIsijq6qtkvygQsjRc9X3uyBi0CEEsCJxEfl2Q/
-	T4a0isUS1Nf9S2RiSXRn4mlR2U4Aa5VGv7H4Jqi/Y8ZSBwPMoIF/eHUi6MTMef83DUuFlXcv7G0
-	8kRZsIDhkj1jQ40WeFcsEEVXr5HUojeislvUZ/jiF
-X-Received: by 2002:a05:6512:220c:b0:5ae:b726:5f1f with SMTP id
- 2adb3069b0e04-5b8ef277c63mr220456e87.8.1790612128596; Mon, 28 Sep 2026
- 09:15:28 -0700 (PDT)
+	Mon, 28 Sep 2026 16:15:46 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by tor.source.kernel.org (Postfix) with ESMTP id 5B66B600E2;
+	Mon, 28 Sep 2026 16:15:45 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 4B11C1F000FF;
+	Mon, 28 Sep 2026 16:15:40 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1790612145;
+	bh=l63NqOrmYS7OWhnyJ46rzvQOga2GpeIrimZGoJ6BZws=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=E7TBTailbJXOF3b09WyFbluQXA60619reCTcV7CQ8hJeZCyDd6THls1fDs19vu297
+	 rR8SB4jBUdSOQTOpSseq0eWB41RvN0qZxgmRWpVKttlRSOeEIH2zcQaW2s1qEQs69+
+	 7GHhCbXYaYZwxllF7ZgNBetbO0b5OTBSLiFcOwWXoZ70fNgQIn9EVOG7QvsjSN86h9
+	 bR9/gaur1nLKsyx/xu1xCgSsZcueblotdLbcBhLHDeKYXMNEY3/kvd0/mYVIRkENTn
+	 OTrF6qIVtKG2xPxWS4ltlL1jAN4ULI0HH5IKQvP7EWRacMLtO9t5xcrqInQ+Ur/f3K
+	 t5632UFq8n2PQ==
+Date: Mon, 28 Sep 2026 18:15:37 +0200
+From: Lorenzo Pieralisi <lpieralisi@kernel.org>
+To: Andy Shevchenko <andriy.shevchenko@linux.intel.com>
+Cc: "Rafael J. Wysocki" <rafael@kernel.org>,
+	Mark Rutland <mark.rutland@arm.com>, Marc Zyngier <maz@kernel.org>,
+	Daniel Lezcano <daniel.lezcano@kernel.org>,
+	Thomas Gleixner <tglx@kernel.org>,
+	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+	Danilo Krummrich <dakr@kernel.org>,
+	Hanjun Guo <guohanjun@huawei.com>,
+	Sudeep Holla <sudeep.holla@kernel.org>,
+	Wim Van Sebroeck <wim@linux-watchdog.org>,
+	Guenter Roeck <linux@roeck-us.net>,
+	Robin Murphy <robin.murphy@arm.com>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Will Deacon <will@kernel.org>,
+	Bartosz Golaszewski <brgl@kernel.org>, linux-acpi@vger.kernel.org,
+	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+	driver-core@lists.linux.dev, linux-watchdog@vger.kernel.org
+Subject: Re: [PATCH RFC 02/11] ACPI: Introduce irq_get() for static fwnodes
+Message-ID: <arqSqcoWAkhy-8do@red-moon>
+References: <20260925-acpi-static-table-irq-probe-defer-v1-0-2c62125d0085@kernel.org>
+ <20260925-acpi-static-table-irq-probe-defer-v1-2-2c62125d0085@kernel.org>
+ <arZDwutoadki7tiZ@ashevche-desk.local>
+ <arZNL9BnTGK0Klwc@red-moon>
+ <arZS4vwxps01dGb7@ashevche-desk.local>
 MIME-Version: 1.0
-References: <20260928152507.2116110-1-fuad.tabba@linux.dev>
- <20260928152507.2116110-2-fuad.tabba@linux.dev> <arqNu0rSxIz4-Mue@kernel.org>
-In-Reply-To: <arqNu0rSxIz4-Mue@kernel.org>
-From: Fuad Tabba <fuad.tabba@linux.dev>
-Date: Mon, 28 Sep 2026 17:14:52 +0100
-X-Gmail-Original-Message-ID: <CA+EHjTwiqsvxXV7fm8emQHWW7qYrQ79J4V+5Erot5Df2=YaLXQ@mail.gmail.com>
-X-Gm-Features: AclHuK89NS8J3Mx20bby02ytOoblOsUcBV9_SKsrfeTNez43AkDgos1HN6Dw7f0
-Message-ID: <CA+EHjTwiqsvxXV7fm8emQHWW7qYrQ79J4V+5Erot5Df2=YaLXQ@mail.gmail.com>
-Subject: Re: [PATCH v1 01/10] KVM: arm64: Don't WARN on SMCCC filter reserved
- range allocation failure
-To: Oliver Upton <oupton@kernel.org>
-Cc: Marc Zyngier <maz@kernel.org>, kvmarm@lists.linux.dev, 
-	linux-arm-kernel@lists.infradead.org, Joey Gouly <joey.gouly@arm.com>, 
-	Suzuki K Poulose <suzuki.poulose@arm.com>, Zenghui Yu <yuzenghui@huawei.com>, 
-	Steffen Eiden <seiden@linux.ibm.com>, Catalin Marinas <catalin.marinas@arm.com>, 
-	Will Deacon <will@kernel.org>, Mark Rutland <mark.rutland@arm.com>, 
-	Jing Zhang <jingzhangos@google.com>, Karl Mehltretter <kmehltretter@gmail.com>, kvm@vger.kernel.org, 
-	linux-doc@vger.kernel.org, linux-kernel@vger.kernel.org
-Content-Type: text/plain; charset="UTF-8"
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260928_091536_202159_70EAE88C 
-X-CRM114-Status: UNSURE (   8.39  )
-X-CRM114-Notice: Please train this message.
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <arZS4vwxps01dGb7@ashevche-desk.local>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -87,17 +86,122 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Oliver,
+On Fri, Sep 25, 2026 at 01:54:26PM +0300, Andy Shevchenko wrote:
+> On Fri, Sep 25, 2026 at 12:30:07PM +0200, Lorenzo Pieralisi wrote:
+> > On Fri, Sep 25, 2026 at 12:49:54PM +0300, Andy Shevchenko wrote:
+> > > On Fri, Sep 25, 2026 at 09:48:01AM +0200, Lorenzo Pieralisi wrote:
+> 
+> ...
+> 
+> > > > +static int acpi_static_fwnode_read_u32_prop_index(const struct fwnode_handle *fwnode,
+> > > > +						  const char *propname,
+> > > > +						  unsigned int index, u32 *value)
+> > > > +{
+> > > > +	u32 *values;
+> > > > +	int ret, count;
+> > > > +
+> > > > +	count = fwnode_property_count_u32(fwnode, propname);
+> > > > +	if (count < 0)
+> > > > +		return count;
+> > > > +
+> > > > +	if (index >= count)
+> > > > +		return -ENOENT;
+> > > > +
+> > > > +	values = kcalloc(count, sizeof(*values), GFP_KERNEL);
+> > > > +	if (!values)
+> > > > +		return -ENOMEM;
+> > > > +
+> > > > +	ret = fwnode_property_read_u32_array(fwnode, propname, values, count);
+> > > > +	if (!ret)
+> > > > +		*value = values[index];
+> > > 
+> > > Use standard pattern, id est
+> > > 
+> > > 	if (ret)
+> > > 		...
+> > > 
+> > > > +	kfree(values);
+> > > 
+> > > You want to use __free()
+> > > 
+> > > > +	return ret;
+> > > > +}
+> > > 
+> > > I believe the whole approach is suboptimal, if you wish get indexed value (but why?)
+> > 
+> > Why what (that's what the irq_get() interface requires ?) I agree it is
+> > suboptimal - the whole point of the series is an RFC on using properties
+> > to store GSI number/flags, then how to read them we will optimize it
+> > when/if we agree that's the approach to be taken.
+> 
+> Why to have indexed APIs. The callers usually do not want a single item from an
+> array, they want all of them or a big pile (exception is the array of strings,
+> but we have matching functions for that).
+> 
+> As per approach, this patch is against device property and I don't think we are
+> going to agree on the approach taken in *this* patch.
 
-On Mon, 28 Sep 2026 16:54:35 +0100, Oliver Upton <oupton@kernel.org> wrote:
-[...]
-> Eh, the warn is still useful. You could potentially add a check for
-> -ENOMEM but any other return value is a sign of something wrong in
-> KVM.
+Coming back to this, what is needed here is a way to stash the GSI number,
+flags and name in stardard storage (like OF nodes IRQ properties, ACPI objects
+_CRS, etc).
 
-Ack, I'll keep the WARN and exempt -ENOMEM in v2 (or the new series
-this becomes part of).
+To give you some background, I thought about adding an array of:
 
-Cheers,
-/fuad
+GSI [number, flags, name]
+
+to the ACPI static fwnode itself. Then basically the irq_get() API has got
+all the information it needs from the primary fwnode; while doing that I
+thought that this might have been a bit like reinventing software nodes
+(granted, software node properties are ways more general that what I suggest
+above and I don't expect any other property to be ever added to static fwnodes)
+that's why I put together the series as it is, precisely to understand what's
+best.
+
+When you say "against device property", what do you mean precisely ?
+
+I suppose you mean that this approach goes against software node properties
+usage guidelines ?
+
+Anyway, again, it is just to provide some context, we are talking about
+a bunch of platform devices, it is nice to have a generic solution but
+it has to be simple enough too given its scope, I understand very well
+your concern with this approach as-is - it is there to find a way
+forward together and show what the problem is.
+
+Thanks,
+Lorenzo
+
+> > > it needs to be retrieved as that in the guts of ACPI. Allocating memory for the whole
+> > > array to retrieve a single element is simply wrong.
+> 
+> ...
+> 
+> > > > +#define ACPI_IRQ_PROP_GSI		"linux,acpi-gsi"
+> > > > +#define ACPI_IRQ_PROP_GSI_TRIGGER	"linux,acpi-gsi-trigger"
+> > > > +#define ACPI_IRQ_PROP_GSI_POLARITY	"linux,acpi-gsi-polarity"
+> > > 
+> > > Oh... This sounds like a big ugly hack.
+> > 
+> > That does not help much I am afraid.
+> > 
+> > What's a ugly hack ? Property names ? Using properties for this purpose ?
+> 
+> Yes, properties started with "linux," for some core functionality.
+> Yes, using properties for this also doesn't sound right. I think the problem
+> here is in the table specifications or somewhere that deep. That's why we
+> ended up in this series.
+> 
+> > Again, it is an RFC for this specific reason and I mentioned that in the
+> > cover letter, thank you for your inputs.
+> 
+> And here we have a discussion started :-)
+> 
+> P.S. Looks like I was too quick to jump into this thread. I will wait for
+> others to share their view on all this.
+> 
+> -- 
+> With Best Regards,
+> Andy Shevchenko
+> 
+> 
 
