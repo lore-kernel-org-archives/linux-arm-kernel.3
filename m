@@ -4,65 +4,67 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1B513C9833F
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 28 Sep 2026 10:12:00 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 01A3AC9833F
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 28 Sep 2026 10:13:54 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=tthv4QNOxOyNYtXYDtFNIpSdoxUs9R0nFoXW+8tjMSo=; b=LC+FM5dwFq4ipCUfxwaZPDkao5
-	zYEhpMgyWOAiOXEGEiFq55/r4/RfFzKCbOchjZdwmLKLx+lQl/tYb3w7HsBXaTrmfkOU2eu2hLcqg
-	AMLECQslMPKBsHtWffSU9jCFNNZtIObTSyM81eRze9CaLJd4h6hIcjX8RZySZZ7Lk0Yziq3hr/12K
-	oRhfxUaVd/aU7yh84fdsgKdnquiIOtG3iaBJwhDkyEFsF8R4vNnw43iJqQIZLXjW78IIhTFcutRNy
-	JWNO4u3sUPxIdKMCrKQxdq7b2djuVNGeUWspYr7Nz28z2GoVCOdpVAnPLcnFPUyNjVpgyxOiPJuWR
-	b5yx4R+A==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=L0S3li9Bqt2bmvWzA3H4R51AJ0liwA7cd4Jrmw8r290=; b=WocQGqCBDZegtSTnLen8BTM0Uv
+	bpZLajxnGA8AL7nkaZpXjzYbM1jE8DyFMnJqoRsxMHtX3Q0ftTbUaNoGMjiIcLRzXDIcQuIe+jzva
+	wpoiuH/Ns8DF4qyAELKzYX+LTm3qMY9tMykYnVC/mf4U9kBB4hPzPjyJceSHBu+T4SA76Rr4g7V4Q
+	qN3LfnWFEdoO35HxmbjNV6VcgezQUILzjkL/1IO3MW7Z+w5YjW+lycJmaJdOrq+m8PC5BhSWwIriN
+	J4yKou28wGL38nJaJ9QjRl2SIVQzXPIHUtFBk/4nT16aETNCKJTY9bs86lujl+DK43xKjYShmiFTz
+	8icKfm9A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xB8Kv-00000000JqR-1B5l;
-	Mon, 28 Sep 2026 10:11:53 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
-	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xB8Ku-00000000JqI-02hT
+	id 1xB8Mm-00000000K2g-2GSN;
+	Mon, 28 Sep 2026 10:13:48 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1xB8Mj-00000000K28-2LVD
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 28 Sep 2026 10:11:52 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id 1934A600D1;
-	Mon, 28 Sep 2026 10:11:51 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 70EE21F000FF;
-	Mon, 28 Sep 2026 10:11:46 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1790590310;
-	bh=tthv4QNOxOyNYtXYDtFNIpSdoxUs9R0nFoXW+8tjMSo=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=IwoVBfytMJ26vx7VRAjMPhHT0Ffqs9BQ2ZYP5kxEBmUKcaENGeb7zDmVhkFzibn6v
-	 FGbmEXCW2QqchMYgGz+BAGy01o3uVy2GPxor17HloaNN2XR86uXtZccdGBPIwnUfKh
-	 tWzlQ/+SpPqsAtvY3LPK3BzBo3StorOtd+GS3cabBU2BTMW1Jkw5oZU9nKz3SLB+tW
-	 DhcMb81PbLLGB/Je4qZCirvJq/uEC5UWHsagVyNJYbIhnTHTnABuzc3xbGKE/CA+tg
-	 4lEqXPf0pyEt8il2auF3DzVUOPuaecCCTLSkEFpIvyxPDc+ckY/S8tVYMSxOlIyiFt
-	 bog7FN7tam35A==
-Date: Mon, 28 Sep 2026 11:11:43 +0100
-From: Simon Horman <horms@kernel.org>
-To: Quentin Freimanis <quentin@q-lab.dev>
-Cc: netdev@vger.kernel.org, Andrew Lunn <andrew+netdev@lunn.ch>,
-	"David S. Miller" <davem@davemloft.net>,
-	Eric Dumazet <edumazet@kernel.org>,
-	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
-	Steen Hegelund <Steen.Hegelund@microchip.com>,
-	Daniel Machon <daniel.machon@microchip.com>,
-	UNGLinuxDriver@microchip.com,
-	Lars Povlsen <lars.povlsen@microchip.com>,
-	Bjarni Jonasson <bjarni.jonasson@microchip.com>,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH net] net: sparx5: make ports inherit the switch base mac
- address type
-Message-ID: <20260928101143.GO13925@horms.kernel.org>
-References: <20260928045012.30178-1-quentin@q-lab.dev>
+	Mon, 28 Sep 2026 10:13:47 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 83A0D1595;
+	Mon, 28 Sep 2026 03:13:40 -0700 (PDT)
+Received: from [10.57.12.79] (unknown [10.57.12.79])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 8F3253F86F;
+	Mon, 28 Sep 2026 03:13:40 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
+	t=1790590424; bh=L4rj5sebU0MgVvbIqYSRSR7LTOTUxoD15WXyP2ljPok=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=FtXcuGe5Bf9/0/FkzKwLKEy+JoJg8ovzaYSX2D2/AliXaV5Mu/9pP37XIhE5v6fV3
+	 zwG/SPm1X9FHl8h9u4+rG242LQ2Y7sNXNJEj09s0mPMYE1rl1NvyZRqzOeDT+hBKCE
+	 BAvBPp1hyT7DyFZ0607j5nyKtRA6XXRnoD1oNYF4=
+Message-ID: <4fabad44-280f-40e6-95bb-49011cd2f185@arm.com>
+Date: Mon, 28 Sep 2026 11:13:39 +0100
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20260928045012.30178-1-quentin@q-lab.dev>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v19 4/7] firmware: arm_rmm: Add support for SRO
+Content-Language: en-GB
+To: Catalin Marinas <catalin.marinas@arm.com>
+Cc: kvm@vger.kernel.org, kvmarm@lists.linux.dev, maz@kernel.org,
+ will@kernel.org, linux-kernel@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, steven.price@arm.com,
+ aneesh.kumar@kernel.org, oupton@kernel.org, gshan@redhat.com,
+ joey.gouly@arm.com, tabba@google.com, yuzenghui@huawei.com,
+ linux-coco@lists.linux.dev, gankulkarni@os.amperecomputing.com,
+ sdonthineni@nvidia.com, alpergun@google.com, fj0570is@fujitsu.com,
+ WeiLin.Chang@arm.com, lpieralisi@kernel.org, enju.kohei@fujitsu.com,
+ sudeep.holla@arm.com, jonathan.cameron@oss.qualcomm.com,
+ Gareth Stockwell <Gareth.Stockwell@arm.com>
+References: <20260924135201.850038-1-suzuki.poulose@arm.com>
+ <20260924135201.850038-5-suzuki.poulose@arm.com> <arozNIQ-fQ0XQViI@arm.com>
+From: Suzuki K Poulose <suzuki.poulose@arm.com>
+In-Reply-To: <arozNIQ-fQ0XQViI@arm.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260928_031345_807317_7898A01D 
+X-CRM114-Status: GOOD (  22.80  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -77,22 +79,83 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Sun, Sep 27, 2026 at 09:50:12PM -0700, Quentin Freimanis wrote:
-> When the switch uses a random base MAC address it does not mark each
-> port's address as random:
+On 28/09/2026 10:28, Catalin Marinas wrote:
+> On Thu, Sep 24, 2026 at 02:51:58PM +0100, Suzuki K Poulose wrote:
+>> +long rmi_sro_memxfer_execute(struct rmi_sro_state *sro, gfp_t gfp)
+>> +{
+>> +	struct arm_smccc_1_2_regs *regs = &sro->regs;
+>> +	bool cancelled = false;
+>> +	unsigned long sro_handle;
+>> +
+>> +	rmi_smccc_invoke(regs);
+>> +
+>> +	sro_handle = regs->a1;
+>> +	while (RMI_RESULT_STATUS(regs->a0) == RMI_INCOMPLETE) {
+>> +		bool can_cancel = RMI_RESULT_CAN_CANCEL(regs->a0) == RMI_OP_CAN_CANCEL;
+>> +		int ret = 0;
+>> +
+>> +		switch (RMI_RESULT_MEMREQ(regs->a0)) {
+>> +		case RMI_OP_MEM_REQ_NONE:
+>> +			rmi_op_continue(sro_handle, RMI_CONTINUE_KEEP_GOING,
+>> +					regs);
+>> +			break;
+>> +		case RMI_OP_MEM_REQ_DONATE:
+>> +			ret = rmi_sro_donate(sro, sro_handle, regs->a2, regs,
+>> +					     gfp);
+>> +			break;
+>> +		case RMI_OP_MEM_REQ_RECLAIM:
+>> +			ret = rmi_sro_reclaim(sro, sro_handle, regs);
+>> +			break;
+>> +		default:
+>> +			WARN_ON_ONCE(1);
+>> +			ret = -ENXIO;
+>> +			break;
+>> +		}
 > 
->   $ dmesg | grep "MAC addr"
->   sparx5-switch e00c0000.switch: MAC addr was not set, use random MAC
->   $ cat /sys/class/net/eth0/addr_assign_type
->   0
-> 
-> 0 is NET_ADDR_PERM, so userspace thinks this is a stable address. Fix by
-> tracking the base MAC address assign type in the sparx5 struct and
-> applying it to each port's netdev.
-> 
-> Fixes: f3cad2611a77 ("net: sparx5: add hostmode with phylink support")
-> Signed-off-by: Quentin Freimanis <quentin@q-lab.dev>
+> Another thing I came across while looking whether we can defer the
+> activation. It seems that the spec (I_JVYCH) lists some SROs as
+> PE-bound. Nothing here or in rmi_sro_execute() disables migration and
+> the memory allocation paths can even sleep with GFP_KERNEL.
 
-Reviewed-by: Simon Horman <horms@kernel.org>
+No, this is not required. I agree this is confusing. I will get it
+clarified.
+
+So, there are two different sources for the SRO contexts. One is a 
+global pool and the other an Object.
+
+e.g., For an RMI operation on an Object, SRO context can be the object
+itself (e.g., REC_CREATE, REALM_ACTIVATE etc.)
+
+However, when there is no reliable object for the command (e.g., 
+RMI_GRANULE_RANGE_DELEGATE), the RMM must allocate a context from
+the global pool. Now, the "PE" in there comes from a recommendation
+to the RMM implementations, that the global pool size must depend on
+the number of PEs on the system. This doesn't mean that the SRO
+handles are only bound to those PEs. I will get this clarified
+in the RMM spec.
+
+Cheers
+Suzuki
+
+
+
+> 
+> Do we need to disable preemption (only for rmi_sro_execute()) or at
+> least migration (the memxfer path)? We did something similar for the RSI
+> attestation token loop, commit 24f55f511b9e ("virt: arm-cca-guest: use
+> migrate_disable() for attestation token requests").
+> 
+> With only migration disabled, another thread on the same CPU
+> issuing a PE-bound SRO would get RMI_BLOCKED (R_NDXSG). In theory, we
+> can get a priority inversion case (maybe this doesn't happen with the
+> current implementation, just looking at the API design). The RMI_BLOCKED
+> fix not to loop forever probably saves us but the caller would have to
+> actively sleep or give up before retrying (i.e. don't move the busy loop
+> higher app the call stack).
+> 
+> Another option is to have a per-CPU mutex here and serialise the SROs
+> which are PE-bound (there are some precedents for per-CPU mutexes in the
+> kernel).
+> 
 
 
