@@ -4,71 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D66B8CA5FA5
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 28 Sep 2026 13:55:48 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9AEFCC9833F
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 28 Sep 2026 13:55:49 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:To:From:Reply-To:
+	Cc:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=piB6olxsDjTKBBKWtT/80MoIuyo/txOuxpczb55KJIY=; b=rQ8Av45uMYXgNwCsYVNj/OIVMT
-	9cf1E6iT770rzW6UzSsd0saYAzHEnU7Pe0JSRWYu1X6AfjcTFoPWLd1AodWn1LWIgZHF8GSqTZqqK
-	wOtl4xGwNwybyx9wVuBg23DVK+v+9ITn6w3ome4p3KpjpnJCmF1rJz0DfMLhjM9+bDOzfAYcRZixM
-	929lRTOInevFotqV/yJ0IUql42liUzai3Z6TEGEVzAJbp583t/yRdTHfCIGF2OjymKPGArJ6VEpFE
-	WzwHi7vW7qbHbozyCI6tFCW8I+SqjM7TagS4M9qGYa3E9BKL23RNXtNK0G4Ghlxmn/4lhpwKk4Nw1
-	61wYvWiA==;
+	bh=RUWg5GWqhMeDrgGwJjMhc1B+7LHRy8TQo04xcORPTAE=; b=RRs1FLWuviHqDWXJh3MG0fOcB+
+	njktfkved34dmDg4DjNbOabi9qd46yRfxHukahdWkK0E6AA8M3CItFI3OHHz7xvE4G40pXw4X15B/
+	4KhUkL0omIvT3tnkOE9pciVR4banYCS9tU8R2xkUN3o4a9Piot613Rk2wPye/8jNH/7+LLUuuvL7B
+	unuEQeZQ0vq+5ANUcrjNo6lT3Alx8UIoSuIR0JSDawIpgMB238wa3vDLdQUSlhEnjuzYnHPaV93lV
+	63gZLb4dDO2hBvmPKHXY0gNCeBi9ZzvCeuMpUJzlRuVrOVTF0mJyrSLsv9myDXIyPx5MPLGfkRVYT
+	AqLj1CyQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xBBpW-00000000iU4-1qJV;
-	Mon, 28 Sep 2026 13:55:42 +0000
-Received: from mail-ej2-x0e.google.com ([2a00:1450:4864:34::e])
+	id 1xBBpX-00000000iUz-1x78;
+	Mon, 28 Sep 2026 13:55:43 +0000
+Received: from mail-ej2-x0f.google.com ([2a00:1450:4864:34::f])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xBBpK-00000000iNg-1mSD
+	id 1xBBpN-00000000iPf-1jpF
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 28 Sep 2026 13:55:34 +0000
-Received: by mail-ej2-x0e.google.com with SMTP id a640c23a62f3a-c2c996fd607so8303966b.0
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 28 Sep 2026 06:55:30 -0700 (PDT)
+	Mon, 28 Sep 2026 13:55:36 +0000
+Received: by mail-ej2-x0f.google.com with SMTP id a640c23a62f3a-c2af7721e4aso384132366b.1
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 28 Sep 2026 06:55:33 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=suse.com; s=google; t=1790603729; x=1791208529; darn=lists.infradead.org;
+        d=suse.com; s=google; t=1790603732; x=1791208532; darn=lists.infradead.org;
         h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=piB6olxsDjTKBBKWtT/80MoIuyo/txOuxpczb55KJIY=;
-        b=g/3Wzi5C0cCJZwm2a6XQMYpkF/YvgmWpc/RW3ia/e560aYJcoDqHpBPkzZ/9ZdMq5u
-         7wdqOvnhdxpHQyc78EgDlhzc6qt5TvwbUjO8uj7k480QIf5XHDPYeoh6xhvHnstQmgDa
-         G8hNtxuHsz0wHGW5ZSwK6rIAzuhKvpiV2AZcbPQ1tE7MtsCQSZuqD7BRgdsBxBEo8+hC
-         U2uCw6VYBZnA+j+i+s5xknh5bgYKTksGFheK1LPbfwxkh19KP8d7bHYNl7vIGyq9Ppws
-         tfuJIQFyp97hpf8J2rzTB0BrEj1pdoBL+2gl7y4jUKxTQ2tcD/tEbZk9b8xLjCg4omQx
-         Fffw==
+         :message-id:date:subject:to:from:from:to:cc:subject:date:message-id
+         :reply-to:content-type;
+        bh=RUWg5GWqhMeDrgGwJjMhc1B+7LHRy8TQo04xcORPTAE=;
+        b=L+pGDReK7c/z7bFzOyu9ByGR/LZCa8W94cKIWdQ0XJ7iJjduL2zKIhu3iiC52xiDO9
+         l+gUiEqn0OhR073HpD9Too65mmAQGoZZT4hmIOpE9Y4/gF6oBGcGQThXSr8LTLxoOjMS
+         6M1mGv3Ak7rtQmizLvCJk01pIGW1qIci8fT7dBVzyIsUiBIRDaq+7Glj+Tk+IibsmfAC
+         0rF9VOKlgEvfiWIHdeCHR48TC7GXJa5eB1c8zuA6f4x3cZVtBcHIny6X7sZ9WTQIs9nu
+         CRuAd8Jdd8Icvmfc3TaBhqrg/IuGm6OtWyoroCm929lzUWbAlb7fTFfj/UMgNk5t1xUD
+         LqRw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1790603729; x=1791208529;
+        d=1e100.net; s=20260707; t=1790603732; x=1791208532;
         h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=piB6olxsDjTKBBKWtT/80MoIuyo/txOuxpczb55KJIY=;
-        b=aKJlcwsqkeBntUknjRPv8lfnb+5+CbYOc5kb9fa+LcFDjG8ZPEd5dMtHKx6ohXiSHN
-         Lv41F0mn+TGe6uE0u3iF9vIyl/V0Jmd4DMkj5Fm7kiX6IYPZR5NBbVlFLEmAY1KT4b23
-         Vo8Cj0Ya5V0XDQwmiaHqb9/gOQiNL5hFOQnmlGVaHO6L0UMFyZ0o12qd4i9wgTH6FIN4
-         NAdpGkhzRHP7ZEVp68RMpJAVlM6A0urajMw4fs7Uc2y+uXdfrezFFNuO7ftM2LeIo2bP
-         s6FQSLMZTZZjb4lopX15sGEhOzcYU14E74caulLkflq7XOPsAhIJM6mfBbzf7JODunra
-         q+zA==
-X-Forwarded-Encrypted: i=1; AKwUvBzFr/YMcWhGcHgQ2/XyFPCY+Onv9xlVc+sVzISdjhm/aX52+sVyeubmtdF4ICLGd23NkYUQSem1TehvCDU94UdF@lists.infradead.org
-X-Gm-Message-State: AFuF++mWWp3uDn8uKR1vsCBdvIl/FKzCIhtRCW/i+b3mTx9YAWi2HGSI
-	WRv9/hCb/xlRtCIeiSqOm89l+u2eGiMW7vn5h3cCF47sCH0LzzvMq/blCAfRdB2VFVc=
-X-Gm-Gg: AYBFou0GiqyU8rQI6L61VCyUbMgs1RnMr9C0Z2neacWHoPhe5ABpwkJfUZhPAOrBoT5
-	/dnQtkSc64jL8ScHGor7iQOzM40Pz7wTCO2O95fDPtYJA2X82FaAhDLiE0iviqvatRP8kzrydUz
-	8TjR1EZbQfsKSkJMigHEK/UjfOOuny7d+BVApUQaTYQbpxLZVxBEdYXsxJjcP9KQmLdMGFNLYvz
-	jZvXtIKs03bzEvk+a4NLkuc6Ru0cgAc5ZWs6VKST9gFNqPsBlBgxOUiI6QUsDjoEcsiTUUEGw+H
-	kXpJXhtVSMiwxPsjxW2UEsvMVGDctDoCvzb4z5Iu3/LFMPbHI0KGGZPgZE8Y5aqTjQ0g49EFq0n
-	8UqRnhqIcJYFE4e3wAfqZDZj+N91zkNNZCIqcNPXLglKsB4qxn5NmX07H0WRU6VwiVY2a7ct6T7
-	VjkkeWdVCI48xutQTsqqm0g6HPaS9JpRIqGmZMgf+VcSNNR041AvYXTgagNVYoTXDnXwvD0Q==
-X-Received: by 2002:a17:907:c589:b0:c2d:c80e:8366 with SMTP id a640c23a62f3a-c2dc80e8413mr372966366b.0.1790603728763;
-        Mon, 28 Sep 2026 06:55:28 -0700 (PDT)
+         :message-id:date:subject:to:from:x-gm-gg:x-gm-message-state:from:to
+         :cc:subject:date:message-id:reply-to:content-type;
+        bh=RUWg5GWqhMeDrgGwJjMhc1B+7LHRy8TQo04xcORPTAE=;
+        b=QnyEsS6d45daTNas/khz46NWRG/FGpBtCtMwHgINnifllAU0awp0FZTHxx/km0D+h+
+         kbxYUI6zHpf8u6HWS32kn970OtDm0tScTnYOjaFmlgjPFdVseUN+byo+a8AS4zZd38+t
+         2ejytowPAGBXfc7kwGz75yjrOyauR6Q9d061X3hnV0ld8rnZ/2D2dyaUfhAe7x0vvcFj
+         2rUJbFh2/preBaO0vxqzcfAnxDjQiSMZApvRj6c3d7xFFnVi0rX0K6w6ndFEsb3eZHe8
+         eRUoGFuZtsZPy9ttX9EhEhdlRkffVVrDt5idDxA/yqLvB2scPJqwmOMdUFzzWiHpaQXs
+         oE3A==
+X-Forwarded-Encrypted: i=1; AKwUvBwbKMtbBz8rtncQbg9SWjc3g+YLDhLkqw8Ig+iTorkhTn7fsHhqOBfxJCktSCoqjGOg6PfKEZhXCeWIOh6NMoSe@lists.infradead.org
+X-Gm-Message-State: AFuF++mL0cFbj01Zpf1VALrnzCOqWNfQPx5kqVsWupWTOtmXToXpgEmH
+	WVTBQxVzdUcUV9SILvRhxsfZYcDqfbC60Z/1H7XnC0cQFBoDZQIPw50QhvEKqFoI6RY=
+X-Gm-Gg: AYBFou2Q/V3FWokjrE2SuaeonbgpgLYo5XeHls555yx/cRfsk3GmD/xCL6dVS6SQ1cL
+	otdysIJJ5rSYOa7ip77htZ0cfM6uDhvhLtTjbKqXa719/YZgL6wZnTq1lgHS7phPzjyGvJtLksV
+	I8yQzcJQzYfOBow4VQzNwggGUMtGORWy6L8WZTTjcUfhIFmXSrvkQgKy3+MwRBVgP4T6DtI+XvL
+	c0HWWpEiaEE5w2otHm+KK0VqNe+urHoGpGS1a4KE0hi6KWNoKUZZxVVOVSHcbfXMkmEMjZxabvU
+	+GJRPk/bBAwRpTU4IpEffAHnc3DpEV9udSpm8/1UAee8/9slrFhPOM27ymA0uGaCkyTFEvq1S3R
+	QKQyNkvAFwR2/vyaObuIw0phne+fR+VPqvq3PlioF0fDs0xgplUC42AjZeX8RwV3j4LXRw8g2k9
+	Hli9p6zkLtCUA7BBD1zKlRu2Qbij+9gvdFz2HedguQlvRExRTrG62W37o7FaER2vrPzQSK0g==
+X-Received: by 2002:a17:906:730d:b0:c29:4b79:e417 with SMTP id a640c23a62f3a-c2ac240e791mr1124305166b.16.1790603731805;
+        Mon, 28 Sep 2026 06:55:31 -0700 (PDT)
 Received: from localhost ([195.94.147.179])
-        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-c2dde41e1f0sm139221066b.11.2026.09.28.06.55.27
+        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-c2dc9a855adsm232416866b.60.2026.09.28.06.55.30
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 28 Sep 2026 06:55:28 -0700 (PDT)
+        Mon, 28 Sep 2026 06:55:30 -0700 (PDT)
 From: Andrea della Porta <andrea.porta@suse.com>
 To: =?UTF-8?q?Uwe=20Kleine-K=C3=B6nig?= <ukleinek@kernel.org>,
 	linux-pwm@vger.kernel.org,
@@ -89,18 +89,17 @@ To: =?UTF-8?q?Uwe=20Kleine-K=C3=B6nig?= <ukleinek@kernel.org>,
 	Julian Braha <julianbraha@gmail.com>,
 	"Gary Guo" <gary@garyguo.net>,
 	Christophe JAILLET <christophe.jaillet@wanadoo.fr>
-Cc: Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
-Subject: [PATCH v10 1/3] dt-bindings: pwm: Add Raspberry Pi RP1 PWM controller
-Date: Mon, 28 Sep 2026 15:59:00 +0200
-Message-ID: <ee0aa89faa14e0073f1271693bae28678652998b.1790603500.git.andrea.porta@suse.com>
+Subject: [PATCH v10 3/3] arm64: dts: broadcom: rpi-5: Add RP1 PWM node
+Date: Mon, 28 Sep 2026 15:59:02 +0200
+Message-ID: <b222c0aa1c77564090d3c783cc79baf299b5d59b.1790603500.git.andrea.porta@suse.com>
 X-Mailer: git-send-email 2.51.0
 In-Reply-To: <cover.1790603500.git.andrea.porta@suse.com>
 References: <cover.1790603500.git.andrea.porta@suse.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260928_065530_481640_434275DF 
-X-CRM114-Status: GOOD (  15.96  )
+X-CRM114-CacheID: sfid-20260928_065533_490872_9FBF3C36 
+X-CRM114-Status: GOOD (  12.50  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -115,93 +114,72 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Naushir Patuck <naush@raspberrypi.com>
+From: Stanimir Varbanov <svarbanov@suse.de>
 
-Add the devicetree binding documentation for the PWM
-controller found in the Raspberry Pi RP1 chipset.
+The RP1 chipset used on the Raspberry Pi 5 features an integrated
+PWM controller to drive the cooling fan.
 
-Signed-off-by: Naushir Patuck <naush@raspberrypi.com>
-Co-developed-by: Stanimir Varbanov <svarbanov@suse.de>
+Add the corresponding DT node for this PWM controller.
+
 Signed-off-by: Stanimir Varbanov <svarbanov@suse.de>
+Co-developed-by: Andrea della Porta <andrea.porta@suse.com>
 Signed-off-by: Andrea della Porta <andrea.porta@suse.com>
-Reviewed-by: Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
 ---
- .../bindings/pwm/raspberrypi,rp1-pwm.yaml     | 66 +++++++++++++++++++
- 1 file changed, 66 insertions(+)
- create mode 100644 Documentation/devicetree/bindings/pwm/raspberrypi,rp1-pwm.yaml
+ arch/arm64/boot/dts/broadcom/bcm2712-rpi-5-b.dts | 12 ++++++++++++
+ arch/arm64/boot/dts/broadcom/rp1-common.dtsi     |  9 +++++++++
+ 2 files changed, 21 insertions(+)
 
-diff --git a/Documentation/devicetree/bindings/pwm/raspberrypi,rp1-pwm.yaml b/Documentation/devicetree/bindings/pwm/raspberrypi,rp1-pwm.yaml
-new file mode 100644
-index 0000000000000..be020583fd0ba
---- /dev/null
-+++ b/Documentation/devicetree/bindings/pwm/raspberrypi,rp1-pwm.yaml
-@@ -0,0 +1,66 @@
-+# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
-+%YAML 1.2
-+---
-+$id: http://devicetree.org/schemas/pwm/raspberrypi,rp1-pwm.yaml#
-+$schema: http://devicetree.org/meta-schemas/core.yaml#
+diff --git a/arch/arm64/boot/dts/broadcom/bcm2712-rpi-5-b.dts b/arch/arm64/boot/dts/broadcom/bcm2712-rpi-5-b.dts
+index 0fc57e72632ed..748be8f1ee9e2 100644
+--- a/arch/arm64/boot/dts/broadcom/bcm2712-rpi-5-b.dts
++++ b/arch/arm64/boot/dts/broadcom/bcm2712-rpi-5-b.dts
+@@ -64,6 +64,12 @@ phy1: ethernet-phy@1 {
+ };
+ 
+ &rp1_gpio {
++	fan_pwm_default_state: fan-pwm-default-state {
++		function = "pwm1";
++		pins = "gpio45";
++		bias-pull-down;
++	};
 +
-+title: Raspberry Pi RP1 PWM controller
+ 	usb_vbus_default_state: usb-vbus-default-state {
+ 		function = "vbus1";
+ 		groups = "vbus1";
+@@ -94,6 +100,12 @@ &rp1_i2c6 {
+ 	pinctrl-names = "default";
+ };
+ 
++&rp1_pwm1 {
++	pinctrl-0 = <&fan_pwm_default_state>;
++	pinctrl-names = "default";
++	status = "okay";
++};
 +
-+maintainers:
-+  - Naushir Patuck <naush@raspberrypi.com>
-+  - Andrea della Porta <andrea.porta@suse.com>
-+  - Stanimir Varbanov <svarbanov@suse.de>
-+
-+allOf:
-+  - $ref: pwm.yaml#
-+
-+description: |
-+  The PWM peripheral is a flexible waveform generator with a
-+  variety of operational modes. It has the following features:
-+   - four independent output channels
-+   - 32-bit counter widths
-+   - Seven output generation modes
-+   - Optional per-channel output inversion
-+   - Optional duty-cycle data FIFO with DMA support
-+   - Optional sigma-delta noise shaping engine
-+  Serves as a fan speed provider to other nodes for a PWM-connected
-+  fan.
-+
-+properties:
-+  compatible:
-+    const: raspberrypi,rp1-pwm
-+
-+  reg:
-+    maxItems: 1
-+
-+  clocks:
-+    maxItems: 1
-+
-+  "#pwm-cells":
-+    const: 3
-+
-+  dmas:
-+    maxItems: 1
-+    description: |
-+      Phandle to the DMA controller and the channel specifier for
-+      the duty-cycle FIFO.
-+
-+  dma-names:
-+    items:
-+      - const: tx
-+
-+required:
-+  - compatible
-+  - reg
-+  - clocks
-+
-+unevaluatedProperties: false
-+
-+examples:
-+  - |
-+    pwm@98000 {
-+      compatible = "raspberrypi,rp1-pwm";
-+      reg = <0x98000 0x100>;
-+      clocks = <&rp1_clocks 17>;
-+      #pwm-cells = <3>;
-+    };
+ &rp1_usb0 {
+ 	pinctrl-0 = <&usb_vbus_default_state>;
+ 	pinctrl-names = "default";
+diff --git a/arch/arm64/boot/dts/broadcom/rp1-common.dtsi b/arch/arm64/boot/dts/broadcom/rp1-common.dtsi
+index 16f5359395835..df4c2d09c8d34 100644
+--- a/arch/arm64/boot/dts/broadcom/rp1-common.dtsi
++++ b/arch/arm64/boot/dts/broadcom/rp1-common.dtsi
+@@ -99,7 +99,16 @@ rp1_i2c6: i2c@40088000 {
+ 		clocks = <&rp1_clocks RP1_CLK_SYS>;
+ 		i2c-scl-rising-time-ns = <65>;
+ 		i2c-scl-falling-time-ns = <100>;
++		status = "disabled";
++	};
+ 
++	rp1_pwm1: pwm@4009c000 {
++		compatible = "raspberrypi,rp1-pwm";
++		reg = <0x00 0x4009c000  0x0 0x100>;
++		clocks = <&rp1_clocks RP1_CLK_PWM1>;
++		assigned-clocks = <&rp1_clocks RP1_CLK_PWM1>;
++		assigned-clock-rates = <50000000>;
++		#pwm-cells = <3>;
+ 		status = "disabled";
+ 	};
+ 
 -- 
 2.35.3
 
