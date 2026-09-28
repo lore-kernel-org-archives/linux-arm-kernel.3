@@ -4,62 +4,60 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 82141CA5FA5
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 28 Sep 2026 14:52:24 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D9D2DCA5FA2
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 28 Sep 2026 14:52:31 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=nTxf3g7MHfc46jtOlfQr/x3upd+z4/f4dUMPgxfxrHk=; b=tL0KVStVq44bk5sm37BZ6wb6iX
-	uWkxxmZyMD4EEueL95aVepJopjq7cxG1qrG1STHmnoCT75U2sp5J5iKG9Nq8sD5i8wC45P9RVK7dY
-	RFArqN4i9My1BxYyA9WJRcf+d90B6C9Euy8OmWVAXak+AhPIcc0A4zNbnrX8X3+ssB1x0SNpNbghE
-	ne8qN3WMUSfxQJDGOUttlLRKjMFaWLcSqfy1JRYuVEJ8hwMoDiZorQPBd7ORvIZlLnWsiFwFrAXyR
-	o58/dl0UPRKsHgkaGu5AZlKLNAjghbffhgqLbcjzZEL+l+rAZPmQDpE+XAH1OwSwmbgZ+SGruDOfs
-	F6VTKXEw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=iyr4NlLoxv6GaNC3SrdEUGuR321vIy25LjTkZeQG1eg=; b=NGOaXDOpetUq3VxzK9q6iDoA8b
+	Y2nEWso5uvbMoqpyYLBHzwxZxJYFeYJdPm/LHtZ30OzTg4VJ76R34438aniOkVlhC/LC/TrjTEHAA
+	nFrIA64euASaVvFWSLqC7oJJvDpIduIebW3ft5VFcWvTzPDB+EGQSBZCYy6f9y1BbavVgL3jx7b2K
+	oRA0hJwQMMdKdk77hn01mw+/ak2JZqUN0AxBuAtsR66cX0aFSgpl0ZTCSg2Pl0T6vHGe3SuHESJc3
+	kpyPVM3DMCqd5AOwaBUzz0hNKFO9HbGJPw5fSed2hW5YOXMk1V6LSb17wksI+DsOfcol6uKXnJOw9
+	dXOhXV+Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xBCiH-00000000p9o-2XUn;
-	Mon, 28 Sep 2026 14:52:17 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1xBCiP-00000000pEM-3dW4;
+	Mon, 28 Sep 2026 14:52:25 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xBCiG-00000000p9b-10Ib;
-	Mon, 28 Sep 2026 14:52:16 +0000
+	id 1xBCiJ-00000000pAa-1EzZ
+	for linux-arm-kernel@lists.infradead.org;
+	Mon, 28 Sep 2026 14:52:19 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id A199341363;
-	Mon, 28 Sep 2026 14:52:15 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 03E201F000FF;
-	Mon, 28 Sep 2026 14:52:12 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 6AB13600E2;
+	Mon, 28 Sep 2026 14:52:18 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id BD52F1F00893;
+	Mon, 28 Sep 2026 14:52:14 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1790607135;
-	bh=nTxf3g7MHfc46jtOlfQr/x3upd+z4/f4dUMPgxfxrHk=;
-	h=From:To:Cc:Subject:Date;
-	b=LP/RlWEYCcno73BsmdUCQ3MYvg9M5gY+QItkF6nEzp9DJgDTRP9s2iUvqDBaX9kcd
-	 4EoSagQq2MiWMgiyQNdG30Llr4nwZRM5zEwiDKZmB5k5M36xeq8CMig5C/rSr/9cjl
-	 /FKE/Fe/I4zBoiaqPeB3pFMiEWRwaIRR1JMReCwxyB9SRlyf77EHfWjAGw4qPctrwy
-	 y1qGCGYO/kB8hDgmnTmWD32H4BtcLs27d1kvBMFkOER5zGsWfawOpuZAInXJGC6fmp
-	 KEV77oNs0fGGmtzZjUq5QvP7M5Ip/hWhZGnj4QRL1ei89TIuE9rS0/3wP/xlc07AIj
-	 AepHjXkeD5vwA==
-From: Arnd Bergmann <arnd@kernel.org>
-To: Felix Fietkau <nbd@nbd.name>,
-	Lorenzo Bianconi <lorenzo@kernel.org>,
-	Ryder Lee <ryder.lee@mediatek.com>,
-	Matthias Brugger <matthias.bgg@gmail.com>,
-	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
-Cc: Arnd Bergmann <arnd@arndb.de>,
-	Shayne Chen <shayne.chen@mediatek.com>,
-	Sean Wang <sean.wang@mediatek.com>,
-	linux-wireless@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-mediatek@lists.infradead.org
-Subject: [PATCH] wifi: mt76: mt7996: add NET_AIROHA dependency
-Date: Mon, 28 Sep 2026 16:51:44 +0200
-Message-ID: <20260928145210.3153783-1-arnd@kernel.org>
-X-Mailer: git-send-email 2.53.0
+	s=k20260515; t=1790607138;
+	bh=iyr4NlLoxv6GaNC3SrdEUGuR321vIy25LjTkZeQG1eg=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=H5/6VexfmD1YPlou6xloCimV9QRguPtrF8QRjrw4xjAOGvd+KkOUeCenFHqpRBt/Q
+	 07Ia7DlGUiF7CQj+W7TMbGQYlRWEzPfNXbVGSgFP4VCwveBDoJWD8ZmXe6sdAhjGH9
+	 5Fc54nBFZsPn+WRjq5JRUplNI5ex8Ptt8Z9D6oLfCVJQBIOHa5cOQ6k85USeYjLYqO
+	 vsNU+K93+LmFmgZSBYBVkdw9/MvE0dyb8CqfdLR4AhhvY5n5L8Ac65O0rZ2MVAiO3q
+	 bCrTpCt/k0biI8TnpMBoe1hpHOZDU1F1fWdtBeaervXCJWzrBodrgBtEm76g5Zh35b
+	 6SCx+iwrmCGKw==
+Date: Mon, 28 Sep 2026 15:52:12 +0100
+From: "Lorenzo Stoakes (ARM)" <ljs@kernel.org>
+To: Mark Brown <broonie@kernel.org>
+Cc: Marc Zyngier <maz@kernel.org>, Oliver Upton <oupton@kernel.org>, 
+	Joey Gouly <joey.gouly@arm.com>, Steffen Eiden <seiden@linux.ibm.com>, 
+	Suzuki K Poulose <suzuki.poulose@arm.com>, Zenghui Yu <yuzenghui@huawei.com>, 
+	Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>, Fuad Tabba <fuad.tabba@linux.dev>, 
+	Peter Maydell <peter.maydell@linaro.org>, linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev, 
+	linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v3 0/3] KVM: arm64: ID register finalisation fixes
+Message-ID: <arp-IPET_HWSE85u@gremlin>
+References: <20260901-kvm-arm64-idreg-final-v3-0-a0ffa06fa872@kernel.org>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20260901-kvm-arm64-idreg-final-v3-0-a0ffa06fa872@kernel.org>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -74,58 +72,75 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Arnd Bergmann <arnd@arndb.de>
+On Tue, Sep 01, 2026 at 07:18:47PM +0100, Mark Brown wrote:
+> While looking at some feature enablement I noticed that there are some
+> scenarios where we can end up with an inconsistently configured vCPU due
+> to finalizing configuration based on ID registers before we have blocked
+> writes to the ID registers. This series aims to clean up these issues.
+>
+> Signed-off-by: Mark Brown <broonie@kernel.org>
 
-MT7996E fails to link as build-in when NET_AIROHA=m:
+Ran the 3/3 test locally and confirmed the test fails without 2/3, passes
+with it.
 
-WARNING: unmet direct dependencies detected for MT76_NPU
-  Depends on [m]: NETDEVICES [=y] && WLAN [=y] && WLAN_VENDOR_MEDIATEK [=y] && (NET_AIROHA_NPU [=y]=y [=y] || MT76_CORE [=y]=NET_AIROHA_NPU [=y]) && (NET_AIROHA [=m] || !NET_AIROHA [=m])
-  Selected by [y]:
-  - MT7996_NPU [=y] && NETDEVICES [=y] && WLAN [=y] && WLAN_VENDOR_MEDIATEK [=y] && MT7996E [=y] && (NET_AIROHA_NPU [=y]=y [=y] || MT76_CORE [=y]=NET_AIROHA_NPU [=y])
-arm-linux-gnueabi-ld: drivers/net/wireless/mediatek/mt76/npu.o: in function `mt76_npu_init':
-npu.c:(.text.mt76_npu_init+0x4c): undefined reference to `airoha_ppe_get_dev'
-arm-linux-gnueabi-ld: npu.c:(.text.mt76_npu_init+0xf8): undefined reference to `airoha_ppe_put_dev'
+Also got our AI overloads to test 1/3 locally by flipping
+ID_AA64PFR0_EL1.GIC after vGIC creation:
 
-Add another dependency to prevent this configuration, with an explicit
-special case to allow the NPU to be used while the PPE code is stubbed
-out with NET_AIROHA=n.
+Before:
+	GIC field after vGIC create: 1
+	GIC field after userspace write: 0
+	GIC field after first run:     1
+	HFGRTR_EL2 written 0000008000000000 read back 0000000000000000
+	RESULT: FAIL - ICC_IGRPENn_EL1 forced RES0 (NV masks computed with GIC=0)
 
-Fixes: 377aa17d2aed ("wifi: mt76: mt7996: Add NPU offload support to MT7996 driver")
-Signed-off-by: Arnd Bergmann <arnd@arndb.de>
----
-I am not sure what the use case is for using only the NPU but not
-the PPE code, and it would be good to add a comment near the
-dependency to clarify this, or possibly skip the complexity and
-just make it a hard dependency.
----
- drivers/net/wireless/mediatek/mt76/Kconfig        | 1 +
- drivers/net/wireless/mediatek/mt76/mt7996/Kconfig | 1 +
- 2 files changed, 2 insertions(+)
+After:
+	GIC field after vGIC create: 1
+	GIC field after userspace write: 0
+	GIC field after first run:     1
+	HFGRTR_EL2 written 0000008000000000 read back 0000008000000000
+	RESULT: PASS - ICC_IGRPENn_EL1 writable (NV masks match GIC=IMP)
 
-diff --git a/drivers/net/wireless/mediatek/mt76/Kconfig b/drivers/net/wireless/mediatek/mt76/Kconfig
-index 2ca96e0527c0..a4ece38f938d 100644
---- a/drivers/net/wireless/mediatek/mt76/Kconfig
-+++ b/drivers/net/wireless/mediatek/mt76/Kconfig
-@@ -40,6 +40,7 @@ config MT792x_USB
- config MT76_NPU
- 	tristate
- 	depends on NET_AIROHA_NPU=y || MT76_CORE=NET_AIROHA_NPU
-+	depends on NET_AIROHA=y || NET_AIROHA=n || MT76_CORE=NET_AIROHA
- 
- source "drivers/net/wireless/mediatek/mt76/mt76x0/Kconfig"
- source "drivers/net/wireless/mediatek/mt76/mt76x2/Kconfig"
-diff --git a/drivers/net/wireless/mediatek/mt76/mt7996/Kconfig b/drivers/net/wireless/mediatek/mt76/mt7996/Kconfig
-index 5742bce12fbb..3c51b402f44e 100644
---- a/drivers/net/wireless/mediatek/mt76/mt7996/Kconfig
-+++ b/drivers/net/wireless/mediatek/mt76/mt7996/Kconfig
-@@ -17,5 +17,6 @@ config MT7996_NPU
- 	bool "MT7996 (PCIe) NPU support"
- 	depends on MT7996E
- 	depends on NET_AIROHA_NPU=y || MT76_CORE=NET_AIROHA_NPU
-+	depends on NET_AIROHA=y || NET_AIROHA=n || MT76_CORE=NET_AIROHA
- 	select MT76_NPU
- 	default n
--- 
-2.53.0
+So for the whole series:
 
+Tested-by: Lorenzo Stoakes (ARM) <ljs@kernel.org>
+
+> ---
+> Changes in v3:
+> - Rebase onto v7.3-rc1.
+> - Explain why KVM_ARCH_FLAG_ID_REGS_INITIALIZED is not reused.
+> - Pull in Fuad's test cases.
+> - Link to v2: https://patch.msgid.link/20260803-kvm-arm64-idreg-final-v2-0-d7d7e4efc640@kernel.org
+>
+> Changes in v2:
+> - Also replace the kvm_vm_has_ran_once() usage in kvm_set_vm_id_rg() and
+>   kvm_vm_finalize_sys_regs() with kvm_id_regs_final().
+> - Link to v1: https://patch.msgid.link/20260731-kvm-arm64-idreg-final-v1-0-3de2a5616dc6@kernel.org
+>
+> ---
+> Fuad Tabba (1):
+>       KVM: arm64: selftests: Check ID regs are immutable after a failed run
+>
+> Mark Brown (2):
+>       KVM: arm64: Finalize guest-wide sysregs prior to per-vCPU sysregs
+>       KVM: arm64: Block ID register changes after we rely on the values
+>
+>  arch/arm64/include/asm/kvm_host.h               |   8 ++
+>  arch/arm64/kvm/arm.c                            |   2 +-
+>  arch/arm64/kvm/sys_regs.c                       |  57 ++++++++-----
+>  arch/arm64/kvm/sys_regs.h                       |   2 +-
+>  arch/arm64/kvm/vgic/vgic-init.c                 |   6 +-
+>  tools/testing/selftests/kvm/arm64/set_id_regs.c | 106 +++++++++++++++++++++++-
+>  6 files changed, 153 insertions(+), 28 deletions(-)
+> ---
+> base-commit: cee9395acd8043be0644b25c34bfa86623f2b935
+> change-id: 20260729-kvm-arm64-idreg-final-77cbc46b558a
+>
+> Best regards,
+> --
+> Mark Brown <broonie@kernel.org>
+>
+>
+
+--
+Cheers, Lorenzo
 
