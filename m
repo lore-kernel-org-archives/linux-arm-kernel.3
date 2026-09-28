@@ -4,131 +4,155 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E82D6CA5FA1
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 28 Sep 2026 16:16:19 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 94082CA5FA1
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 28 Sep 2026 16:17:53 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=tqCY0tWphzhWyHFpdwjWwuig9ZhPkf5YqjbeUt1I6uA=; b=YWiA0uUdHS51cAl2ZfZ3rg4Z+8
-	xz7JNsfnKS3XtmX6JHJNLBVULM4CBE7WfEnSYPlCsM+s/OB1ayCHVNVSg4Kynd29ThpKTeURUKxFv
-	gx0jI8fCw6Upc1wleM2cVL3DnfP68U4nZqg655rVSriJt+JGy+Q2zZI7mTuvYUmKHu3636asJEzm9
-	nfZ1tKlh39m6mjb0krPypRR03pAk2o86+w3oEurGUwuJcvs+yMqxKoPAbE31vEG3jBAkHFY3b7z9Z
-	bw8LIp7uDHkKR+A52svoF8thiTf0u0iJxg2CVaTNyYW1dG6n8BGFnC+iDIfN1EaiGFUG7l1J0tZMe
-	7ztxVvgA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=ZPG9/h412pdnG6FSVrrR7JhkCyfchpuJdtkMOSDic+A=; b=jTSiFK3b9Mu5gUmS5wmXGZM6bE
+	3m5KTiNaqy43k2yiBtbtqmrXynmsOfgYw3/9jtq+xmoQ8QhwX7FFV5lFa5seIoMSzhjL8B30RmRMq
+	l3/1ZSaELBcj7d4rBinA/kH/FlLp2Bk7+2mYLRmu1HJqfPl7lGZFyEosI7IzyNCKCP8bCgzXrQQ8a
+	GM/Gu3DU2lvD972OXP67CA6uS1D96xVDKUIQHlhtLUlILkbzSVMCKtQVY/FZt89KJZNpfMANny8uV
+	gu1lV3GDFUZZWqHWqH55QDCUtHWTexGff1UCYBLCwaSf01+aZ+FmT3+md4Xl8MdDPoUPUTjqO/Pdp
+	LgxOw9rA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xBE1V-00000000zRR-3eHV;
-	Mon, 28 Sep 2026 16:16:13 +0000
-Received: from mx0b-001b2d01.pphosted.com ([148.163.158.5])
+	id 1xBE31-00000000zl7-2DAj;
+	Mon, 28 Sep 2026 16:17:47 +0000
+Received: from mx0b-0031df01.pphosted.com ([205.220.180.131])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xBE1S-00000000zQ9-47Zm
+	id 1xBE2y-00000000zk3-1x3L
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 28 Sep 2026 16:16:12 +0000
-Received: from pps.filterd (m0353725.ppops.net [127.0.0.1])
-	by mx0a-001b2d01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 68SF5UR5216848;
-	Mon, 28 Sep 2026 16:15:57 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ibm.com; h=cc
-	:content-type:date:from:in-reply-to:message-id:mime-version
-	:references:subject:to; s=pp1; bh=tqCY0tWphzhWyHFpdwjWwuig9ZhPkf
-	5YqjbeUt1I6uA=; b=k99btnrmIQbXQhiNFlOlpqOSkqX6x4ivkIceiZAgkVkPmp
-	90Wr5xTzDine7WgmavgI1Ytag/Br2PCOhmSwR20Nl+6F5P4xz6spfuXVXTByiO3z
-	HVtzEHFV048q9X290W8Scx/NHbEyEAMwHNjUlLkXItUv+0fiQ1LfP//RJIJU7Msd
-	zPo3tZKilcjaWb3MCLHmPaY8fpQJ9DiYsZRwTGSw6tJvLVkV0yZDlIcjNja/H8MT
-	nP+PPpJJs81hmjGcOTPGPOBqQBtq3QU29ZsDMmNa4TyA+8dZpcBrRhwqh50IJZaq
-	g5Oefq9WkK2P7TYpVGjBHp9T4BHb7sCbd3AqiByQ==
-Received: from ppma21.wdc07v.mail.ibm.com (5b.69.3da9.ip4.static.sl-reverse.com [169.61.105.91])
-	by mx0a-001b2d01.pphosted.com (PPS) with ESMTPS id 4gx4fe27nq-1
-	(version=TLSv1.3 cipher=TLS_AES_256_GCM_SHA384 bits=256 verify=NOT);
-	Mon, 28 Sep 2026 16:15:56 +0000 (GMT)
-Received: from pps.filterd (ppma21.wdc07v.mail.ibm.com [127.0.0.1])
-	by ppma21.wdc07v.mail.ibm.com (8.18.1.11/8.18.1.11) with ESMTP id 68SElVgA251961;
-	Mon, 28 Sep 2026 16:15:56 GMT
-Received: from smtprelay02.fra02v.mail.ibm.com ([9.218.2.226])
-	by ppma21.wdc07v.mail.ibm.com (PPS) with ESMTPS id 4gxsck61mn-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Mon, 28 Sep 2026 16:15:56 +0000 (GMT)
-Received: from smtpav07.fra02v.mail.ibm.com (smtpav07.fra02v.mail.ibm.com [10.20.54.106])
-	by smtprelay02.fra02v.mail.ibm.com (8.14.9/8.14.9/NCO v10.0) with ESMTP id 68SGFnOn54460908
-	(version=TLSv1/SSLv3 cipher=DHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
-	Mon, 28 Sep 2026 16:15:49 GMT
-Received: from smtpav07.fra02v.mail.ibm.com (unknown [127.0.0.1])
-	by IMSVA (Postfix) with ESMTP id 1FBC920043;
-	Mon, 28 Sep 2026 16:15:49 +0000 (GMT)
-Received: from smtpav07.fra02v.mail.ibm.com (unknown [127.0.0.1])
-	by IMSVA (Postfix) with ESMTP id 3F8C620040;
-	Mon, 28 Sep 2026 16:15:48 +0000 (GMT)
-Received: from osiris (unknown [9.87.129.112])
-	by smtpav07.fra02v.mail.ibm.com (Postfix) with ESMTPS;
-	Mon, 28 Sep 2026 16:15:48 +0000 (GMT)
-Date: Mon, 28 Sep 2026 18:15:46 +0200
-From: Steffen Eiden <seiden@linux.ibm.com>
-To: Ilya Leoshkevich <iii@linux.ibm.com>
-Cc: kvm@vger.kernel.org, kvmarm@lists.linux.dev,
-        linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
-        linux-s390@vger.kernel.org, Alexander Gordeev <agordeev@linux.ibm.com>,
-        Andreas Grapentin <gra@linux.ibm.com>, Arnd Bergmann <arnd@arndb.de>,
-        Catalin Marinas <catalin.marinas@arm.com>,
-        Christian Borntraeger <borntraeger@linux.ibm.com>,
-        Claudio Imbrenda <imbrenda@linux.ibm.com>,
-        David Hildenbrand <david@kernel.org>,
-        Friedrich Welter <fritz@linux.ibm.com>, Fuad Tabba <tabba@google.com>,
-        Gautam Gala <ggala@linux.ibm.com>,
-        Hariharan Mari <hari55@linux.ibm.com>,
-        Heiko Carstens <hca@linux.ibm.com>,
-        Hendrik Brueckner <brueckner@linux.ibm.com>,
-        Janosch Frank <frankja@linux.ibm.com>, Joey Gouly <joey.gouly@arm.com>,
-        Marc Zyngier <maz@kernel.org>, Nico Boehr <nrb@linux.ibm.com>,
-        Nina Schoetterl-Glausch <oss@nina.schoetterlglausch.eu>,
-        Oliver Upton <oupton@kernel.org>, Paolo Bonzini <pbonzini@redhat.com>,
-        Suzuki K Poulose <suzuki.poulose@arm.com>,
-        Sven Schnelle <svens@linux.ibm.com>,
-        Ulrich Weigand <Ulrich.Weigand@de.ibm.com>,
-        Vasily Gorbik <gor@linux.ibm.com>, Will Deacon <will@kernel.org>,
-        Zenghui Yu <yuzenghui@huawei.com>
-Subject: Re: [PATCH v8 20/29] s390: Introduce Start Arm Execution instruction
-Message-ID: <20260928161546.428362-B-seiden@linux.ibm.com>
-References: <20260918133107.1042730-1-seiden@linux.ibm.com>
- <20260918133107.1042730-21-seiden@linux.ibm.com>
- <1e3b65b3-0c21-466f-ae09-8426eeacb97d@linux.ibm.com>
+	Mon, 28 Sep 2026 16:17:46 +0000
+Received: from pps.filterd (m0279873.ppops.net [127.0.0.1])
+	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 68SEe6HF1647369
+	for <linux-arm-kernel@lists.infradead.org>; Mon, 28 Sep 2026 16:17:43 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
+	cc:content-transfer-encoding:content-type:date:from:in-reply-to
+	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
+	ZPG9/h412pdnG6FSVrrR7JhkCyfchpuJdtkMOSDic+A=; b=Bi20cZ6fwwUWrbpt
+	a+Jf3Joqsq1wPQmmfSoOfR1hMJyArBHC42oglSaXxYtYKBB1i5IiKWNCevloVb9o
+	BKqMy5BThScgvlptiEqjd8x5WJLlLtpwfBw5GfLpiCnmeXl5WGVHzcAdxxcX9dyw
+	QuV9rhVUh1vCCZHDHSNgXeL0NEKvglbUmwuhrm8FVfsNNAZXIpmgzUl3llyIXe9y
+	XXmwN9Vpkj3H4XAMwdNZMZSlAQFrk5e2nIAhNI5UhcYaPFL8EMntToXkAnrQ3ZPI
+	NGsc5iVv29WINfCjpU76pOETnKY/cfkMCipVDt0NcjRLJ/RO4oeDh9UcQmaHOA8q
+	N/ottA==
+Received: from mail-pj1-f71.google.com (mail-pj1-f71.google.com [209.85.216.71])
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4gynbc1p06-1
+	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
+	for <linux-arm-kernel@lists.infradead.org>; Mon, 28 Sep 2026 16:17:43 +0000 (GMT)
+Received: by mail-pj1-f71.google.com with SMTP id 98e67ed59e1d1-39b77130a7fso3560933a91.2
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 28 Sep 2026 09:17:43 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1790612262; cv=none;
+        d=google.com; s=arc-20260327;
+        b=mS+uQlBzPN7dJdDjMGTP1wnlr52BNZdnhK3h0aGJTXq2bXIaV2xSJQ0NurfeNGbOeN
+         uLDL80k1NDUQ18NZ+wGGdX/XYLELHWdQTA5GTToFmti/+Iz926u5EamRXHP1ADHymuIk
+         a6+wecvxmS7MwOFXYF9ANFMj3rfysp7I3butUxQzBl/uA+RHRIR53gdg3L7L5dtKvDG8
+         dUGd/dE6OdhjP7nxyUA7uMZOmv6QWQ0Xfd3lQX2FGoKX7VaOM2BMmcMm6DFuRGeLt3xX
+         4YG+zbr+S8coW9daMZOX2uT3MjbnX17jCCTHlLnE0MdmiLgBfxWNAXoZmO0AonLJMloj
+         Cwjw==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:dkim-signature;
+        bh=ZPG9/h412pdnG6FSVrrR7JhkCyfchpuJdtkMOSDic+A=;
+        fh=FuhiKc0RmmeHYGcOvZOJ2lcga2xFD5Whlbg3XCW8ue0=;
+        b=H0U+v1kbYkWF4NflS2B/niXHyM1CHw/IBPpkQ8i0uLrXOlVGrAQSVneRpMK+nEyNAG
+         djDeIDx/QHk/xuGZWMKWd832zuPoUhEuu98vHCa+dm9fzmwpgSuzBJQYm/3JeN7TQwm0
+         rPhPhaq/7jKx+eYiHStmBm86tfhsQdX0Pa/JfFOsyaqdk60zfo94nhc7FlT2AEUOQ7dv
+         0wjpuYcZwfBaB9E00Jsk52Ly1aGH9bRtd1dB7ClSs/9y6JA8ixubN8NFtjbLEQQbEZVb
+         Kz06F/xZc4Yr+3SZ+gFqVAspJrXWmsAF/TI62jxmE5TvlWpjaiukNleWF4QAVIXgqDiM
+         fFSQ==;
+        darn=lists.infradead.org
+ARC-Authentication-Results: i=1; mx.google.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=oss.qualcomm.com; s=google; t=1790612262; x=1791217062; darn=lists.infradead.org;
+        h=content-transfer-encoding:content-type:cc:to:subject:message-id
+         :date:from:in-reply-to:references:mime-version:from:to:cc:subject
+         :date:message-id:reply-to:content-type;
+        bh=ZPG9/h412pdnG6FSVrrR7JhkCyfchpuJdtkMOSDic+A=;
+        b=IJo64NbcQ/OByFduQQqlJXcg/qXT9hvMSdJvQcfjcEwmHwN1jQQx3bOzMrtapK7ukc
+         Y4GxC7a01DpdPbXNT5xSa0ucx6BUNf4rosWpwVkF0JsHSO+84vd5CVlvJtxUgPqxB7rK
+         xK8YnkneDw42XEx9WhERhHQkQI0jpxaHOX1Fd0e8owAtiMybnwANRHeTjFYEK1Z97Nd6
+         3vbCN47TsStgdCDeOzXLBMPQxN2TSaKo8KlgbSRG7hd4pw3bElOm2qz7neDE5WJ3t26S
+         4RLwC2wTYjwjW/OaTVkloazVDLrcdmT8UJXDeiMggq2PP+kjb/0ROQNo7HUTXoLs7Yzl
+         XQQw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1790612262; x=1791217062;
+        h=content-transfer-encoding:content-type:cc:to:subject:message-id
+         :date:from:in-reply-to:references:mime-version:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=ZPG9/h412pdnG6FSVrrR7JhkCyfchpuJdtkMOSDic+A=;
+        b=GNZYsctJZt/sBV/jf2EBouRyk4M43YYBDy7+mrz6PTphpwM7Nm3FnzeJnAd+nc4Lpa
+         wPH0C+a2gn4JKbLsHTJm+HT73Bed+FGh8+jOaUlGY1yUCkyz5/yJI1sJzdiPg/nLdF1x
+         heo8LTujKtfMp8/fFGrbphiAtgUxpQnVoaqUZLKCxoH5RHj4DxRzJ+ZEyYUfnE3y7xX2
+         sqxJ/nBoTjccb4vIfsiU4rlzT8BZ3aZX7vex+84nMi5r+TCMgFCLEGq5TWubgjlB01f1
+         jNyJMXtT6r2iPrhUs1E84EOK5vUfYvrSmfGgwRfcWAsspeu5F1EZ8CHGXojarjqZ6nmH
+         ybgQ==
+X-Forwarded-Encrypted: i=1; AKwUvBx5MZIxInwuslIzTM5ti/kdZqNMvByQyqfHZ75g+d+369rPvbvVEVLyCdyMw2uSYc+oKA8wd0GIZLvuezr6+KwS@lists.infradead.org
+X-Gm-Message-State: AFq9FYLEo0Jn38vWSY9jGSJh39fZwFdQdgPRK3CCg/+c4YW7Kp5LQkYO
+	SwDpnEcF/wEeth6OlR3ishkZc38+v7OX/j64twSlVxlfYSqigSzZlEKoGkiPGWFut311ucoYc72
+	OATx04iGGjzwwukYXOXFn3jOypgTJfiTZ9+/HIBnfkJWtxVLyjaM+I0ruv3Ba7fZ6cLLEztXgj8
+	V0tPa1VrrBEdHQMJUeH0whR4pM5FUzyIgn7O+wPvzTRZBQN3nVqzHl
+X-Gm-Gg: AYBFou2Bxb9xMIOdhRipMo8ROfeboo2eFS84ICZB51HylKBqjluaw479w9XNrthUABC
+	Whb0Kmzu7CjW/7Ac6B+Co7qoCUQi6EsrdrSW4acMBv7tmHOjR0zRW3FupAFydG3RT0ncuC4IqoU
+	Mei+cNmPkwG6luE1Ttw9yHPsnmUHhxQHr+kCImYd8K+B0uc4CshfCA64fNfQ==
+X-Received: by 2002:a17:90b:3c45:b0:3a4:77fe:d478 with SMTP id 98e67ed59e1d1-3a477fed600mr2010796a91.25.1790612262295;
+        Mon, 28 Sep 2026 09:17:42 -0700 (PDT)
+X-Received: by 2002:a17:90b:3c45:b0:3a4:77fe:d478 with SMTP id
+ 98e67ed59e1d1-3a477fed600mr2010764a91.25.1790612261755; Mon, 28 Sep 2026
+ 09:17:41 -0700 (PDT)
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <1e3b65b3-0c21-466f-ae09-8426eeacb97d@linux.ibm.com>
-X-TM-AS-GCONF: 00
-X-Proofpoint-Reinject: loops=2 maxloops=12
-X-Authority-Analysis: v=2.4 cv=FYWiV5+6 c=1 sm=1 tr=0 ts=6aba92bd cx=c_pps
- a=GFwsV6G8L6GxiO2Y/PsHdQ==:117 a=GFwsV6G8L6GxiO2Y/PsHdQ==:17
- a=kj9zAlcOel0A:10 a=VdqzKS8jKosA:10 a=VkNPw1HP01LnGYTKEx00:22
- a=RnoormkPH1_aCDwRdu11:22 a=V8glGbnc2Ofi9Qvn3v5h:22 a=VnNF1IyMAAAA:8
- a=e3H7mCSiy_dY2-7_aUoA:9 a=CjuIK1q_8ugA:10
-X-Proofpoint-Spam-Info: AW1haW4tMjYwOTI4MDA2NCBTYWx0ZWRfX3FSm3poY32ru
- XNpcZw6G5JilofWjVWIAL3oP4Ur3C8GgIIfLeX1MeJGeUvA+tByS9z0RHBt9xL4zxRF9vJaef8f
- NIGNJmu/RKV8WlV/FMOZH0MbVUwyyTg=
-X-Proofpoint-ORIG-GUID: u7gi_9HJKgoAJZK9_WrkyB0fwXIjcwUQ
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwOTI4MDA2NCBTYWx0ZWRfX6DJMgiDneped
- QSRu5a4Y/OkaqXFWEb5fmEwOY/3QV3AbBPgXGGv5B9jhsW5sdO51LB/lWwvdQOuMIX8xx8pHfq4
- bEPo7AIYAOxJzo4vgZ+CRTxb8Y5bOVl6Xj1S1suhouAJjFIst8GSNDYQj1otUv9o4eeeqF04Ind
- 2CIREBrvbcTKBikSaD1MivFC/xg6YfsOEvxK1AS8lTTBuDThSDdJxNZr9lUOmkV9g68YxvZl7tb
- anrOkjnQMnN6fjMAT035LPxzGd8IAFZ4PDVYNzMWao59alb/XDdFJa141lC7Ux2Vko4KCJEP0t7
- InhU1EMnFF9RZBBZGG5NdOUDNVEJHWmaS4b7k/YsA0YpRgk571Ms7AbnAW4IQl2bYyIV5zEP2Tn
- y9z8eVpGMf0DmsQ8oNmbgk4BhnXNBR+X1WsDJfbgl+HmZCyLDrv8O1Wqv+mRlszk98FPt26E0/0
- mYYFsmG+FgH/gT5vd9A==
-X-Proofpoint-GUID: P2tX3rfu3_XjSxABuwj_-1RkrjrsE3wJ
+References: <20260921191326.2146363-1-sanderson@brivo.com>
+In-Reply-To: <20260921191326.2146363-1-sanderson@brivo.com>
+From: Ulf Hansson <ulf.hansson@oss.qualcomm.com>
+Date: Mon, 28 Sep 2026 18:17:27 +0200
+X-Gm-Features: AclHuK_h-ClRM0tgPWKnM-eRAvfXYVsbs7ZT5xtGlCXk84AjgUs2ZbGoR93rbsU
+Message-ID: <CAPx+jO8g-y+uc4YXUeZ3yOH6s44WFpytNu3-f6iLSjtHAVPd+A@mail.gmail.com>
+Subject: Re: [PATCH] mmc: meson-gx: Convert host->lock to raw spinlock
+To: Sean Anderson <sanderson@brivo.com>
+Cc: Ulf Hansson <ulfh@kernel.org>, linux-mmc@vger.kernel.org,
+        Martin Blumenstingl <martin.blumenstingl@googlemail.com>,
+        Neil Armstrong <neil.armstrong@linaro.org>,
+        Kevin Hilman <khilman@baylibre.com>,
+        Heiner Kallweit <hkallweit1@gmail.com>,
+        linux-arm-kernel@lists.infradead.org,
+        Jerome Brunet <jbrunet@baylibre.com>, linux-kernel@vger.kernel.org,
+        linux-amlogic@lists.infradead.org
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
+X-Authority-Analysis: v=2.4 cv=Sq4Fe/O0 c=1 sm=1 tr=0 ts=6aba9327 cx=c_pps
+ a=UNFcQwm+pnOIJct1K4W+Mw==:117 a=IkcTkHD0fZMA:10 a=VdqzKS8jKosA:10
+ a=s4-Qcg_JpJYA:10 a=VkNPw1HP01LnGYTKEx00:22 a=u7WPNUs3qKkmUXheDGA7:22
+ a=rJkE3RaqiGZ5pbrm-msn:22 a=GX7wjADfAAAA:8 a=PBpPEWVgUkDHuXiRGYoA:9
+ a=QEXdDO2ut3YA:10 a=uKXjsCUrEbL0IQVhDsJ9:22
+X-Proofpoint-GUID: T2guNO6iDtTkc957KPneNUyG3tjSyuwx
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwOTI4MDA2NCBTYWx0ZWRfX6MKxkKvEGBqj
+ Jy9eDHT+wok4ahID7gqH6EHGPdh9DIkQQK15jvJoaIr3EA44a1+VQOUuqBNGgToR1DQckERb/WB
+ BNoTVe9Jt800IFU3UGWzylI2ErzhCCHM9hlFxVJfZrddyUiobu620XSjjRNVgCCS8e2At+ahEIV
+ SljEKU5CTn+GfmYvPWHELJ8YUvFhSeho/P4kPH2SorLkj1LPOEKNT/h5kwCQk6NXvckXD/oL1je
+ tNtlqRwOIxMMfEYshswRTg1Ht8mDqzMwh3Wzd6S03+PEjsnszuAwAW7MsIPvde4HJ1ig9Ak7AEC
+ JXQlDXuRWv+0SQu1y/XPb0C9Zldr6T4ZmLC77QtYPbBpNMi/wOGRqRSo3zKAbpu88SbsSGA/yrB
+ kYPpRZF8yXNOyAn6OcUa8LcLosr+JfvsYUKZvcOa5QLkY8sQQ+ldkSyYeXWYRS6IlYKaM/3jp8+
+ /y2riQ8/EC7vHMbgVDQ==
+X-Proofpoint-Spam-Info: AW1haW4tMjYwOTI4MDA2NCBTYWx0ZWRfXz4eB4k4MNnCo
+ mBf+qxXTJduKVwndk7yN39RQAJ84ss9kF2gJodHnsVQH0SvTngS3i+KpeslEw9Ziuzp3fwZSj3c
+ 7d4rLxeKr5v76Uf8Xhqp+vMy1y4RhCs=
+X-Proofpoint-ORIG-GUID: T2guNO6iDtTkc957KPneNUyG3tjSyuwx
 X-Proofpoint-Virus-Version: vendor=baseguard
  engine=ICAP:2.0.293,Aquarius:18.0.1176,Hydra:6.1.134,FMLib:17.12.100.49
  definitions=2026-09-28_04,2026-09-21_02,2025-10-01_01
 X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- adultscore=0 clxscore=1015 impostorscore=0 spamscore=0 phishscore=0
- priorityscore=1501 malwarescore=0 bulkscore=0 lowpriorityscore=0
- suspectscore=0 classifier=typeunknown authscore=0 authtc= authcc=
- route=outbound adjust=0 reason=mlx scancount=1 engine=8.22.0-2609040000
- definitions=main-2609280064
+ impostorscore=0 clxscore=1015 priorityscore=1501 bulkscore=0 malwarescore=0
+ adultscore=0 phishscore=0 spamscore=0 lowpriorityscore=0 suspectscore=0
+ classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
+ reason=mlx scancount=1 engine=8.22.0-2609040000 definitions=main-2609280064
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260928_091611_144108_9FDAEB8A 
-X-CRM114-Status: GOOD (  30.72  )
+X-CRM114-CacheID: sfid-20260928_091744_620895_8C7590A5 
+X-CRM114-Status: GOOD (  23.28  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -143,96 +167,84 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Sep 28, 2026 at 05:53:33PM +0200, Ilya Leoshkevich wrote:
-> 
-> 
-> On 9/18/26 15:30, Steffen Eiden wrote:
-> > The Start Arm Execution (SAE) instruction is the centerpiece for
-> > executing arm64 (KVM) guests on s390. Its purpose is, similar to SIE, to
-> > enable accelerated execution of arm64 virtual machines. SAE expects the
-> > physical address of a control block as the only argument.
-> > 
-> > The host is responsible to save & restore
-> >   - GPRs 0-13
-> >   - access register 0-15
->              ^^^^^^^^
->              registers>   - breaking event register (BEAR)
-> >   - vector/floating point registers
-> > between SAE executions to guarantee host consistency.
-> > 
-> > GPRs and BEAR are save and restores in the asm functions. The other
->                     ^^^^^^^^^^^^^^^^^
->                     saved and restored
-> 
-> > register are handled in within C code. Access registers are handled in a
->   ^^^^^^^^             ^^
->   registers            not needed probably?
-> 
-> > later patch and SVEs will be handled when they are introduced in a
-> > future series. Most arm64 registers are handled by a satellite block
-> > called save_area. Some registers, frequently used by hypervisors, are
-> > placed into the SAE control block itself.
-> > 
-> > Enlighten asm/kvm_host_types.h for the new header variant. The new
-> > header is chosen instead of asm/kvm_host_s390_types.h if KVM_S390_ARM64
-> > is defined.
-> > 
-> > Co-developed-by: Andreas Grapentin <gra@linux.ibm.com>
-> > Signed-off-by: Andreas Grapentin <gra@linux.ibm.com>
-> > Co-developed-by: Nina Schoetterl-Glausch <nsg@linux.ibm.com>
-> > Signed-off-by: Nina Schoetterl-Glausch <nsg@linux.ibm.com>
-> > Signed-off-by: Steffen Eiden <seiden@linux.ibm.com>
-> > ---
-> >   arch/s390/include/asm/asm-prototypes.h       |   1 +
-> >   arch/s390/include/asm/kvm_host_arm64_types.h | 124 +++++++++++++++++++
-> >   arch/s390/include/asm/kvm_host_types.h       |   4 +
-> >   arch/s390/include/asm/sae.h                  |  58 +++++++++
-> >   arch/s390/include/asm/stacktrace.h           |   5 +
-> >   arch/s390/kernel/asm-offsets.c               |   1 +
-> >   arch/s390/kernel/entry.S                     |  22 ++++
-> >   arch/s390/tools/opcodes.txt                  |   3 +
-> >   8 files changed, 218 insertions(+)
-> >   create mode 100644 arch/s390/include/asm/kvm_host_arm64_types.h
-> >   create mode 100644 arch/s390/include/asm/sae.h
-> 
-> [...]
->    > +#if IS_ENABLED(CONFIG_KVM)
-> > +/*
-> > + * __sae64a calling convention:
-> > + * %r2 pointer to sae control block physical address
->           ^^^^^^^^^^ I guess it's just a physical address and not a
->                      pointer to it?
-> 
-yes. Fixing.
+On Mon, Sep 21, 2026 at 9:14=E2=80=AFPM Sean Anderson <sanderson@brivo.com>=
+ wrote:
+>
+> The primary handler for IRQF_ONESHOT interrupts is always run without
+> threading, even on PREEMPT_RT. Therefore, we must use a raw spinlock,
+> which will never sleep (even on PREEMPT_RT).
 
+Sorry, but I don't quite understand the above. Are you saying that
+IRQF_ONESHOT only works with raw spinlocks?
 
->                      ^^^ sometimes it's called "sae", sometimes "SAE" -
->                          it would be nice to have some consistency> + */
-Thanks, I will convert everything to SAE
+Kind regards
+Uffe
 
-
-> > +SYM_FUNC_START(__sae64a)
-> > +	stmg	%r6,%r14,__SF_GPRS(%r15)	# store kernel registers
-> 
-> Strictly speaking we don't need to save %r14, but I guess you do this
-> for unwinding?
-yes. Also, some later (unsent) patch needs this and before I forget this, let's
-do it now. 
-
-> 
-> > +	STBEAR	__SF_SAE_BEAR(%r15)		# save breaking event address register
-> > +	.insn	rre,0xb9a50000,%r2,0		# Start Arm Execution
-> > +	LBEAR	__SF_SAE_BEAR(%r15)		# restore breaking event address register
-> > +	lmg	%r6,%r14,__SF_GPRS(%r15)	# restore kernel registers
-> > +	xgr	%r0,%r0				# clear guest registers to
-> > +	xgr	%r1,%r1				# prevent speculative use
-> > +	xgr	%r2,%r2
-> > +	xgr	%r3,%r3
-> > +	xgr	%r4,%r4
-> > +	xgr	%r5,%r5
-> > +	BR_EX	%r14
-> > +SYM_FUNC_END(__sae64a)
-> > +EXPORT_SYMBOL(__sae64a)
-> > +#endif
-> [...]
+>
+> Fixes: 066ecde6d826 ("mmc: meson-gx: add SDIO interrupt support")
+> Signed-off-by: Sean Anderson <sanderson@brivo.com>
+> ---
+>
+>  drivers/mmc/host/meson-gx-mmc.c | 12 ++++++------
+>  1 file changed, 6 insertions(+), 6 deletions(-)
+>
+> diff --git a/drivers/mmc/host/meson-gx-mmc.c b/drivers/mmc/host/meson-gx-=
+mmc.c
+> index 694bb443d5f3f..d5365c0404cb9 100644
+> --- a/drivers/mmc/host/meson-gx-mmc.c
+> +++ b/drivers/mmc/host/meson-gx-mmc.c
+> @@ -176,7 +176,7 @@ struct meson_host {
+>
+>         bool needs_pre_post_req;
+>
+> -       spinlock_t lock;
+> +       raw_spinlock_t lock;
+>  };
+>
+>  #define CMD_CFG_LENGTH_MASK GENMASK(8, 0)
+> @@ -953,10 +953,10 @@ static irqreturn_t meson_mmc_irq(int irq, void *dev=
+_id)
+>         cmd =3D host->cmd;
+>
+>         if (status & IRQ_SDIO) {
+> -               spin_lock(&host->lock);
+> +               raw_spin_lock(&host->lock);
+>                 __meson_mmc_enable_sdio_irq(host->mmc, 0);
+>                 sdio_signal_irq(host->mmc);
+> -               spin_unlock(&host->lock);
+> +               raw_spin_unlock(&host->lock);
+>                 status &=3D ~IRQ_SDIO;
+>                 if (!status)
+>                         return IRQ_HANDLED;
+> @@ -1112,9 +1112,9 @@ static void meson_mmc_enable_sdio_irq(struct mmc_ho=
+st *mmc, int enable)
+>         struct meson_host *host =3D mmc_priv(mmc);
+>         unsigned long flags;
+>
+> -       spin_lock_irqsave(&host->lock, flags);
+> +       raw_spin_lock_irqsave(&host->lock, flags);
+>         __meson_mmc_enable_sdio_irq(mmc, enable);
+> -       spin_unlock_irqrestore(&host->lock, flags);
+> +       raw_spin_unlock_irqrestore(&host->lock, flags);
+>  }
+>
+>  static void meson_mmc_ack_sdio_irq(struct mmc_host *mmc)
+> @@ -1225,7 +1225,7 @@ static int meson_mmc_probe(struct platform_device *=
+pdev)
+>         if (ret)
+>                 goto err_init_clk;
+>
+> -       spin_lock_init(&host->lock);
+> +       raw_spin_lock_init(&host->lock);
+>
+>         if (host->dram_access_quirk) {
+>                 /* Limit segments to 1 due to low available sram memory *=
+/
+> ---
+> base-commit: 587858367581b9c55c3690f4e63382ad622719d4
+> branch: meson_mmc_raw
+>
+> --
+> 2.53.0
+>
 
