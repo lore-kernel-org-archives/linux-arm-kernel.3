@@ -4,71 +4,149 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4A2E9C9833E
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 28 Sep 2026 07:28:46 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2B67DC9833E
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 28 Sep 2026 07:39:53 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:Cc:To:
+	Subject:Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=DVxdq8//FM3NRi4orw0PRtSQhnfVCCad5P6oHOhCXp4=; b=MEYLzriq3X04zy6KbsAJhh8fmV
-	ODSY5HVuK4ouhdiWRPPFuL5Bdr1SbsudrMAOIAbNcv8/vTWchrZMUHWkDTRwkGogliqePAnFnom7t
-	gPwqqFLvH7J3WbtUwLeycEKycRoRH3GPHr3uopvAV/1bCYJgbf8an5UNu2+JwPmKMYTiMKrpml30a
-	qC7i+A/Z13P05H+xK34qISZCUR28L2dl+2Jo7UFHvROilyMcard95DVd62T5uu5iZC/dwDbJa0mzo
-	QMXMoFuYT2lpDmQj1hQEwIPo5qOYbqEb1vdk2LRIN/GMBTwJpzOOtStUVKTz/0L5o7Ox1aaftK5mn
-	Ie5yhEiA==;
+	bh=AxfdRPBCnW2cZJuYiTid8FtTDf0UXr/U5DuD52+YWSQ=; b=L5X1pw2msgwPnF8kY4N1ez3ONJ
+	jMGU1gay+zdddWtFdx+jOTROj9LqYRAu3h/J9CRB+9vmxutAw3lgmoZa1OL8zoWJdUK3gMMWvcipH
+	A3KT/wLmSsLpy89iPYbe7sUdPGcsU6R91udV6DVxrTHB04LcI7L9tG8JTUGEuKj+yNeb5OCsnobR0
+	MAa9jmmxeLb8jXS1neo52dBb3XUf3POVG6QWAmqzWfZWM4b3ry2ak3BqiTcuZjNY0rFsaH5KeOW+r
+	AY9MGSaFIUrLaf6B7rcEbYboQf9crrobZstr6qGAfLa4pfiK3v1MrIqo2McL9J/2CqCbaCpl5G5Vx
+	x/9lKslw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xB5mv-0000000HXy7-1hh1;
-	Mon, 28 Sep 2026 07:28:39 +0000
-Received: from galois.linutronix.de ([2a0a:51c0:0:12e:550::1])
+	id 1xB5xg-0000000HZ33-04qi;
+	Mon, 28 Sep 2026 07:39:44 +0000
+Received: from mail-norwayeastazlp170130007.outbound.protection.outlook.com ([2a01:111:f403:c20f::7] helo=OSPPR02CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xB5ms-0000000HXwp-16qf;
-	Mon, 28 Sep 2026 07:28:35 +0000
-Date: Mon, 28 Sep 2026 09:28:28 +0200
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linutronix.de;
-	s=2020; t=1790580510;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=DVxdq8//FM3NRi4orw0PRtSQhnfVCCad5P6oHOhCXp4=;
-	b=l5Wi5KkV34SIYibgi7B1IIstb/CHwUtXk9ntnhluuJEfQl1OT9Jea26ThlOFLanwk8jFDB
-	Zti8t4ScB5D0u77XW0o4XoikwtgWgBxJ58pMV+VwObaKQ7b81scqrrMQi1/+NINz2GF6nz
-	Hu/hsGc6nTil/mW7lKd5RZyMj2NFmiSXl9IGyaZmDVNgg/ObHdBpsyZGXOLbiRFo6l+bgH
-	rDk5p6ciBzOm2XFphPfOtHtExMARfCs4l2HjIfP0v27qG18/QrsT3MdsWgNwv2W1FIc/67
-	ysOcpAqywlSDq3HwzpDmYFTi5kg59oiQlSONUWpHPMOMo6uBKSvzDrtGQjaGYQ==
-DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=linutronix.de;
-	s=2020e; t=1790580510;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=DVxdq8//FM3NRi4orw0PRtSQhnfVCCad5P6oHOhCXp4=;
-	b=XBMuDDRQqjW8J464HX5I9r7EJFwcjgmNayJJ5ouWzp00LpyydwKh3mImP13GgXqwP0h/RO
-	s6R4E0RpBI0IHRAw==
-From: Gregor Herburger <gregor.herburger@linutronix.de>
-To: Florian Fainelli <florian.fainelli@broadcom.com>, 
-	Broadcom internal kernel review list <bcm-kernel-feedback-list@broadcom.com>, Ray Jui <rjui@broadcom.com>, 
-	Scott Branden <sbranden@broadcom.com>, Rob Herring <robh@kernel.org>, 
-	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
-	Eric Anholt <eric@anholt.net>, Stefan Wahren <wahrenst@gmx.net>
-Cc: linux-rpi-kernel@lists.infradead.org, 
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, devicetree@vger.kernel.org, 
-	Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
-Subject: Re: [PATCH v4 0/4] firmware: raspberrypi: Add support for the
- tryboot mode
-Message-ID: <stvm3nzpcde6ukl35wfnukyztp7r2n2yuzjwu4brrumomzemfa@kazuwkb75e77>
-References: <20260904-rpi-tryboot-v4-0-fdee8bc53ff7@linutronix.de>
-MIME-Version: 1.0
-Content-Type: text/plain; charset=iso-8859-1
-Content-Disposition: inline
+	id 1xB5xc-0000000HZ1w-1r8N;
+	Mon, 28 Sep 2026 07:39:42 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=v2biOePqz1o4suZe2dWt95T1NrAcxXVyvQzChCL7UG8oxJhXB1AXuTGBWn/o7Sy1pF314kRvdoTp6iksyysgryzDzU7vBmQXWNXajg5eaS+s6VTigbPEeKwR/E2Zs/KkTjSMRL0KGckCvHm1i90RS0NFgXsOMZfHNFFZGy7yh4pPrORA1V2yxzwpm6UD09TJdYGyimYScMJGrJVvL9d5cKmVSPnsQj3bpk9cuJQW7SprD1pnLDnMSDEcsmmzWfgWgQPVhy6qMb39zFlqDsw00Q8w4a+d+Gbg0ep+sT8vEspgcFfUkyZGWUxNEm9codgzlrbidt3ACcICTeW2MgqxOA==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=AxfdRPBCnW2cZJuYiTid8FtTDf0UXr/U5DuD52+YWSQ=;
+ b=ts6j5kOMG6B0Fuu4jvCYmPkxwLup6sRw1ihp0+4meaCZLd9L4/LwSx1fmWfwq20LnlIj/ux7IKR+0ML8aVmuQqMYqtmv2krEsB3/pgVIn0xbTu5dMbJJP6l3O0hG+WNwKcrmdp+DkH4oNmTQb5GmEb6cIH4YAGToMh14MxtgI3mCHiXcQh0POcvSogcjDi4aGyNSGuUBIs3GXzH5cVjDStUjNGthSN/8V7/oBoFK7zR82cAXNfF0MnghDZVtsJ7QK17ZaglB3JO+ri/0ueNZ4CParRFvZFe0QzoisGNKGWNe2DCBrX+I4B1ObPWxFjTUX9bmvBXadfaDGf5Z+IlTDw==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
+ dkim=pass header.d=oss.nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
+ s=selector1-NXP1-onmicrosoft-com;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=AxfdRPBCnW2cZJuYiTid8FtTDf0UXr/U5DuD52+YWSQ=;
+ b=gXQWgb0OTlkLAgdU9rPLk1yvsFi7gzUoF9UifHuSbhYfcSI9ANIqUHefsmuTKmkS1D2hnj4oKTVSzpQR7UJNNVnpeucbBwcvrBk9lVLhU3DNFTBkYdIRG2x7ZaT96M+ysbj3z0yl7gZgefnPSVFWmVXRLd07qA774+UmAH91200KJx6W4j9Vdi7wqlUJr4H5KeDqSi5ACMyGeQ78YRgX7mIxpbi5QOHPSXbm5i0cPoW8c/CKdBZYjVlwjG5OdU2l2OdE1009RDWYJUFcp49Ff+pU5ea8eFsPVU5wSCAR8GtS6xqXCFrZyMIVACl0i3SHgJ2C76XG3WKnXM6FspbnzQ==
+Authentication-Results: mx.microsoft.com 1; dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=oss.nxp.com;
+Received: from AM0PR04MB5858.eurprd04.prod.outlook.com (2603:10a6:208:132::23)
+ by DB9PR04MB9498.eurprd04.prod.outlook.com (2603:10a6:10:360::21) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.451.23; Mon, 28 Sep
+ 2026 07:39:32 +0000
+Received: from AM0PR04MB5858.eurprd04.prod.outlook.com
+ ([fe80::bdf4:c9d1:4e3f:68c6]) by AM0PR04MB5858.eurprd04.prod.outlook.com
+ ([fe80::bdf4:c9d1:4e3f:68c6%3]) with mapi id 15.21.0451.022; Mon, 28 Sep 2026
+ 07:39:32 +0000
+Message-ID: <b61c912e-2a3c-47c2-aa0e-9e1584c8d3a6@oss.nxp.com>
+Date: Mon, 28 Sep 2026 10:39:18 +0300
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v6 2/3] can: rx-offload: add a per-IRQ receive context
+To: Max Staudt <max@enpas.org>, Marc Kleine-Budde <mkl@pengutronix.de>,
+ Vincent Mailhol <mailhol@kernel.org>,
+ Nicolas Ferre <nicolas.ferre@microchip.com>,
+ Alexandre Belloni <alexandre.belloni@bootlin.com>,
+ Claudiu Beznea <claudiu.beznea@tuxon.dev>,
+ Dario Binacchi <dario.binacchi@amarulasolutions.com>,
+ Markus Schneider-Pargmann <msp@baylibre.com>,
+ Heiko Stuebner <heiko@sntech.de>, Manivannan Sadhasivam <mani@kernel.org>,
+ Thomas Kopp <thomas.kopp@microchip.com>, Ming Yu <tmyu0@nuvoton.com>
+Cc: kernel@pengutronix.de, linux-can@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+ linux-rockchip@lists.infradead.org, NXP S32 Linux Team <s32@nxp.com>,
+ imx@lists.linux.dev, Haibo Chen <haibo.chen@nxp.com>,
+ Enric Balletbo <eballetb@redhat.com>
+References: <20260925144558.2909639-1-ciprianmarian.costea@oss.nxp.com>
+ <20260925144558.2909639-3-ciprianmarian.costea@oss.nxp.com>
+ <0daea1b3-82ef-48f0-8d35-6ce0100b60bf@enpas.org>
+Content-Language: en-US
+From: Ciprian Marian Costea <ciprianmarian.costea@oss.nxp.com>
+In-Reply-To: <0daea1b3-82ef-48f0-8d35-6ce0100b60bf@enpas.org>
+Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 8bit
-In-Reply-To: <20260904-rpi-tryboot-v4-0-fdee8bc53ff7@linutronix.de>
+X-ClientProxiedBy: FR0P281CA0236.DEUP281.PROD.OUTLOOK.COM
+ (2603:10a6:d10:b2::8) To AM0PR04MB5858.eurprd04.prod.outlook.com
+ (2603:10a6:208:132::23)
+MIME-Version: 1.0
+X-MS-Exchange-MessageSentRepresentingType: 1
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: AM0PR04MB5858:EE_|DB9PR04MB9498:EE_
+X-MS-Office365-Filtering-Correlation-Id: cce91ffd-b157-4dc9-75fb-08df1d33a2cd
+X-MS-Exchange-SharedMailbox-RoutingAgent-Processed: True
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|376014|19092799006|7416014|366016|23010399003|10067099003|11063799006|921020|6133799003|22082099003|18002099003|4143699003|56012099006;
+X-Microsoft-Antispam-Message-Info: GgNxXys003GvR/QwnEiT8ZP71HvPEORGm4Oo6gUWGFF+wM5l/yBND9+U626nZL3t1Z2CqjFLA/dWi5VqV7DWGJSHc8sYrssnW0MRFw+Aq1AcNCZSDY8FAVP3eFO2amgSRjsqjXFMvwwS/oJkw9W93+jXMnl36flRHka+QJS0+NRF8M0ukrYjA48kGwBrrtvJDfQyQ5BWmm3HVY4diPu0vJY83PXimIaueUrOLP106vWZF5MES/vi+hFBVY8psbm6kn2KI1/yjL/hQAbS3arqH9k5l2CE1mh7PaTnyX3AEKdWqcqvFgWN5SvIXhvVheJJBnBbjWOZ5bWRefszLvnkj1A3cw7534qcONjaoexkVp1lR7eNksEWjGE+xgsg3EUNfvdXkniXD9DEV8MPStj4LWtQqooW+b/lxjDlXU6W1HVV8pnyVozwp16SKXDtTo+GdkGDSllsR65NIGJMToKuAEaSHqwoKqIWbp+MapnU47Wwftl61O3itR61XjOKeHC1GW4wKqMsC2LvD488lHYbHecPGBZOD2PQ7pxHmzd4pBCAF8j5OcjU9QR5RJRCysQf3ADpXjAvBQuK/ZzXbb1hVY3Tuo5QsKYuQFO673hUApi1y9cWmboIrPz13pQEuXR5v6rs8zd8l9pHzj4eznUMvh/Hg+tpB96GwTIhpiu5+/T9tzdS0sEydOwGiZ2OBOM+SbSidMRGrkZ0JEk2dS1laQ==
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:AM0PR04MB5858.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(376014)(19092799006)(7416014)(366016)(23010399003)(10067099003)(11063799006)(921020)(6133799003)(22082099003)(18002099003)(4143699003)(56012099006);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?aCtRYkVlMWVEQ2J0L09yMWFvRnFVWkhxK2JXa1hEaDNlaWh0SmhkZGZlWk1o?=
+ =?utf-8?B?VmM1ZFdlTnlWUjZQeXh0cGh0OHA3K0pnckcraEpTRW8za1VNR0VIYkNyV0w0?=
+ =?utf-8?B?N2N5d1VPWDRFNW0vcUZUdHZLbEZBOVllUWloREtHeFVaUVpNcG1FWEExQzhB?=
+ =?utf-8?B?ZG80ZldkbHpkNmJ1NGQvWUpIVER1MGplSWJIbDcwM1pSNnhmUTVONGluazcy?=
+ =?utf-8?B?OG9kd2ZrTGlFaW1IVFJQOVZtbDVUOWhkclJ2L2tSN3dRM1p4RSt1QUw2aGs1?=
+ =?utf-8?B?SjBlMjVRTkNLOTZ2SytuVWZEMXJDdWZtelVBRldaV3pBN0hZRVdnRjBsV1Rh?=
+ =?utf-8?B?Nk1jTllCZGFIbitNZHM1ZllGWHY2M2V5Rkppbm5VcTdUZ3BNS0Rzem5HeFho?=
+ =?utf-8?B?bTQ2NW1WK0RsQjZGdHhLT2paQnovWWdhazNzdzU3UGlVZ0p0TzZsWmFNbkM4?=
+ =?utf-8?B?dGZlYUxKYTB5Ky9zNUlkd3BicnUrLzB5Ymx5dUJRK2lqT2psWG9JdWhmTG1t?=
+ =?utf-8?B?WVdncUYzeVByeVJobkNELzJwKy82Q2MxcXZVbW5jQmUxTnVkUXFhY1Npcm5w?=
+ =?utf-8?B?ZUpORHppdVV6Z3UzRlViUmFGQXUwZExiK2wrZTNWV25VUWl0Vlk5aDROWWZ4?=
+ =?utf-8?B?aklRQ1FLV0I5dTlTWUd5WkpyZHMxbWU2OXFYWmEyVkUwaHVxaEc2dFQyRXFF?=
+ =?utf-8?B?MVljUmpPeGJCUVoxcWVJNFZyTDVKSC9LNlFwVHFtQ2I3MStTVGxNOFE0VjhR?=
+ =?utf-8?B?NWtkcUxzZExJa3dOcm5jcmVkMEttU2kzRVl1ZUd0bDNNRDM2ak15c3V6TVdO?=
+ =?utf-8?B?d1NZdWRwa1Y0Y2FIaFRUREJzZWtLUDBqL3pUM1hmOGk1ZG5yam5NeHhwc2tu?=
+ =?utf-8?B?V1FhVjk3NUlaUTVOZHFaaGJ6RXdveXg4N3RrTTg2cGhlWmt5Z05YWFdUalBs?=
+ =?utf-8?B?bUUxWWFNakZXZ3QycU5tVFY2QmsxZUtPdWZNNytxV0FtVS90Yk4xcWNMcmZU?=
+ =?utf-8?B?U3Y3bFRNRmpDMUxTcFhPaVQ2UFhjVzk3VnplVFNETFVyeTE2VFM5Z2tnUzRl?=
+ =?utf-8?B?a0w3cW1oNkFnZE5TeUgxbGVOcEl2WjRjdVV5TzNwcjg2NUxXRXBSMXlDWWtN?=
+ =?utf-8?B?LzRXeW5LS0tmeVpkMEZ0eXZqdmFUNTFvOGt4Qk5YaE5Xc2RHeUsxK3c3c3lH?=
+ =?utf-8?B?Vm1OZUM5c2lWWmxOUWNhWGREeUR2NjFjVktCNnVyTyt5T3EwT1dEUWxYa1dZ?=
+ =?utf-8?B?dDFnd2xOYXlGbEcrcWQ2ZjlFRkxneFJOM2k3M0hPVE1BdXI2bEwyOUlsN1Jx?=
+ =?utf-8?B?cTVlN3o1UCtlcjR6aW5ITDdjdzZKaW8wdjJWSmsxVnpIZUhGNDUrY3UrbzBR?=
+ =?utf-8?B?WUwzK1ZqYzZ6VWRwL2pUc1hsNDdGOXlQZXVmVFN5OFJsTHd4TlNGVC9pcUlq?=
+ =?utf-8?B?YXFzRWlXdGtMOWxvZWVGZGxuckk1Z2JPcnpLa0lma3h3RWZxMExXK1dZa01S?=
+ =?utf-8?B?c2g4eVpQZFpvclNjSENnYVJDNWtFZ1diUFl4WmJLTWxjUGJLVFNiSjkrWUVs?=
+ =?utf-8?B?b1Nxc3M5R29QenplSDdtZjNCR3oxQm9NSHRzZDZHT01uU3NEa0dqbmlSRWFS?=
+ =?utf-8?B?bnoxNDRQb2JkTG9SMUlLSWM4ZlZIektVMXBjMjNkZ0NTZTFqbUxSZGdGaGt5?=
+ =?utf-8?B?YVZlcUJYeXorSXdIVlZkRHdRTWpoVHdGS2txdnM0bEVzVmJrUUdOajZ5MFFp?=
+ =?utf-8?B?RmdaT1lKWVBoMVlUOVhGNkJwUGtXNjNwYnYwTkZQSTFRMW9HT2lOT3lyb3Vp?=
+ =?utf-8?B?bm5iZkxHZnVxZ2NuWnZsZFlpdEsxMGlkTFA2VE1QRElQdlhqb3p3UmR6czIw?=
+ =?utf-8?B?TU9SbXhTWVVwUWIrQ25CNS9jNGh4VTRPOERmd3J0R2RTZGd3eHMxWlVwK0N6?=
+ =?utf-8?B?OFB6dlRDWE1jc2xVYllIWmxnN3RqMmY5SXhtaGE3em43Rmx0ZllHYStPazlK?=
+ =?utf-8?B?WUxhUlI1VXBkNUVsV21WN0RkVU41dmthWm5lbk5halMvcWMrL0hpTkREWmFn?=
+ =?utf-8?B?R3NpWUE2TndDMlplb3ZZNVlBOTRYLzJ6cWxFd3ZNc0NhaFlTTDc3UitZbFJm?=
+ =?utf-8?B?TVpqMWU0VTIvZEhnUENtVFJ6cnNoazErdk82Zk8wMXJKemcwbDEwZ1QzcTN1?=
+ =?utf-8?B?alVrZUNGcUtuWHB1S1VUUWJZMitybmg5SElPZ2ZPckNzWXFOYnRTWlhGZlV3?=
+ =?utf-8?B?ZkNucERVdnZkNmVTSjg0Y1d2S2xBbUdnWldsMWFhc0hmRnRIRjZXSzM1Q3Q1?=
+ =?utf-8?B?bFRNbnFlQnMvUE44Z1pmT05NMEpwUDVRbDEyL3A3VVVqRmZCUEVsYnVCd3VS?=
+ =?utf-8?Q?gKCY5ncLwRiXYM0w=3D?=
+X-OriginatorOrg: oss.nxp.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: cce91ffd-b157-4dc9-75fb-08df1d33a2cd
+X-MS-Exchange-CrossTenant-AuthSource: AM0PR04MB5858.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 28 Sep 2026 07:39:32.3630
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: wVa5CUjRhq/HyV5xLGZSs4wsieiRLD20nij+JHa+WBxb8iY9xTNIEZD/ZPSEfe9mqUkSBTA0RT+vbkKCi6TVqDZrkEOx+7F4FF97Qg8cC+g=
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: DB9PR04MB9498
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260928_002834_448779_4CF80353 
-X-CRM114-Status: GOOD (  21.87  )
+X-CRM114-CacheID: sfid-20260928_003940_657826_422E87F6 
+X-CRM114-Status: GOOD (  39.39  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -83,72 +161,151 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi,
-
-Just a gentle ping on this series.
-
-Are there any outstanding comments, or is there anything else needed from my
-side to move this forward? I would ideally like to get this picked up before the
-next merge window.
-
-On Fri, Sep 04, 2026 at 09:46:48AM +0200, Gregor Herburger wrote:
-> This adds support for the tryboot mode on Raspberry Pis. As there is no
-> documentation other than the downstream implementation [0] the
-> implementation is based on this.
+On 9/26/2026 6:26 PM, Max Staudt wrote:
+> Thank you for your patch. The general idea sounds useful, and at a quick 
+> glance, the implementation seems sound. I'm not able to do a full review 
+> - please wait for a maintainer's reply.
 > 
-> I tested this on Raspberry Pi 5 and therefore I only added the
-> properties to this devicetree. But afaik this should work on all
-> Raspberry Pis. I will add it to the correspondings dts if I get some
-> hardware to test it.
-> 
-> [0] https://github.com/raspberrypi/linux/commit/eb56da0c1925c07e8929ce4c9fe8aeafa7cb8c7b
-> 
-> ---
-> Changes in v4:
-> - fix use-after-free error by moving devm_add_action_or_reset before devm_add_action_or_reset 
-> - Rebase onto v7.3-rc1
-> - Link to v3: https://patch.msgid.link/20260707-rpi-tryboot-v3-0-fda82fe7ed76@linutronix.de
-> 
-> Changes in v3:
-> - fix use-after-free error by using devm_add_action_or_reset
-> - ensure endianness of magic byte
-> - refactor reboot mode registration into separate function
-> - Link to v2: https://patch.msgid.link/20260630-rpi-tryboot-v2-0-f68d2dc6aa27@linutronix.de
-> 
-> Changes in v2:
-> - Remove unnecessary reboot_mode_unregister().
-> - dt-binding: restrict to mode-{normal,tryboot} and only allow 32bit value.
-> - Link to v1: https://patch.msgid.link/20260626-rpi-tryboot-v1-0-490b1c4c4970@linutronix.de
-> 
-> ---
-> Gregor Herburger (4):
->       firmware: raspberrypi: reorder rpi_firmware_property_tag enum
->       dt-bindings: raspberrypi,bcm2835-firmware: Include 'reboot-mode.yaml'
->       firmware: raspberrypi: Add reboot mode support
->       arm64: dts: broadcom: bcm2712: Add reboot modes to firmware node
-> 
->  .../arm/bcm/raspberrypi,bcm2835-firmware.yaml      |  9 +++++
->  .../boot/dts/broadcom/bcm2712-rpi-5-b-base.dtsi    |  2 ++
->  drivers/firmware/Kconfig                           |  2 ++
->  drivers/firmware/raspberrypi.c                     | 40 +++++++++++++++++++---
->  include/soc/bcm2835/raspberrypi-firmware.h         | 22 ++++++------
->  5 files changed, 60 insertions(+), 15 deletions(-)
-> ---
-> base-commit: cee9395acd8043be0644b25c34bfa86623f2b935
-> change-id: 20260623-rpi-tryboot-4292c92b0727
+> Comments below, from the point of view of a simple CAN driver's 
+> maintainer (can327).
 > 
 
-Best regards,
--- 
-Gregor Herburger
-Linutronix GmbH | Bahnhofstrasse 3 | D-88690 Uhldingen-M�hlhofen
-Phone: +49 7556 25 999 35; Fax.: +49 7556 25 999 99
+Hello Max,
 
-Hinweise zum Datenschutz finden Sie hier (Informations on data privacy 
-can be found here): https://linutronix.de/legal/data-protection.php
+Thank you for taking time in reviewing this patchset.
 
-Linutronix GmbH | Firmensitz (Registered Office): Uhldingen-M�hlhofen | 
-Registergericht (Registration Court): Amtsgericht Freiburg i.Br., HRB700 
-806 | Gesch�ftsf�hrer (Managing Directors): Dr. Wilfried Wessner, 
-Katharina Kopp, Alexander Gieringer
+> 
+> 
+> On 9/25/26 11:45 PM, Ciprian Costea wrote:
+>> From: Ciprian Marian Costea <ciprianmarian.costea@oss.nxp.com>
+>>
+>> The IRQ handler fills skb_irq_queue without a lock and the finish helpers
+>> then splice it into skb_queue under skb_queue.lock. This breaks when a
+>> driver uses the helpers from more than one IRQ line. On NXP S32G2, the
+>> flexcan handlers can run at the same time on different CPUs and corrupt
+>> skb_irq_queue.
+> 
+> Please add "Currently, " to the beginning of this paragraph.
+> 
+
+Will do in v7.
+
+> 
+>> Add struct can_rx_offload_irq, one per IRQ line, which holds
+>> skb_irq_queue, skb_queue_len_max and the mailbox range. skb_queue and 
+>> napi
+>> stay in struct can_rx_offload and are shared by all contexts.
+> 
+> The IRQ naming gives me a bit of a headache. It may be IRQ in the case 
+> of flexcan, but can be something else in other drivers. Also, _irq gives 
+> the impression that the struct stores an IRQ, or at least something 
+> related to it, but this really does not.
+> 
+> Can you please rename the new struct and concept to something else? 
+> Maybe _queue? And then the old struct can be renamed to _common or 
+> _shared or something. The maintainers may have better naming ideas.
+> 
+
+I agree. The name does not fit can327 or the USB drivers.
+I would rather avoid *_queue, since "queue" is already used for
+skb_queue, skb_irq_queue and the can_rx_offload_queue_*() helpers.
+What about struct can_rx_offload_source ? The fields and comments would
+follow (e.g. source_cnt).
+
+For struct can_rx_offload I would prefer to keep the name. It is
+embedded in every driver and used in the mailbox_read() callback, so
+renaming it adds a lot of noise for little gain.
+
+Marc, any preference or other view ?
+
+> I think you can keep the name skb_irq_queue inside the struct, my 
+> request is about the new struct's name itself. In the same vein, 
+> expanding the new struct's explanatory comment would help - please 
+> explain that *the purpose* of having this struct is so you can have one 
+> per source, *such as* one for each unique IRQ that the same CAN hardware 
+> may trigger.
+> 
+
+Thanks for this suggestion, I will expand the comment to add more
+context regarding the purpose of the new 'can_rx_offload_irq' struct.
+
+> 
+>> @@ -351,64 +378,88 @@ 
+>> EXPORT_SYMBOL_GPL(can_rx_offload_threaded_irq_finish);
+>>   static int can_rx_offload_init_queue(struct net_device *dev,
+>>                        struct can_rx_offload *offload,
+>> +                     struct can_rx_offload_irq *offload_irq,
+>>                        unsigned int weight)
+>>   {
+>> -    offload->dev = dev;
+>> -
+>> -    /* Limit queue len to 4x the weight (rounded to next power of 
+>> two) */
+>> -    offload->skb_queue_len_max = 2 << fls(weight);
+>> -    offload->skb_queue_len_max *= 4;
+>> -    skb_queue_head_init(&offload->skb_queue);
+>> -    __skb_queue_head_init(&offload->skb_irq_queue);
+>> +    struct can_rx_offload_irq *pos;
+>> +    u32 skb_queue_len_max;
+>> +
+>> +    offload_irq->offload = offload;
+>> +    __skb_queue_head_init(&offload_irq->skb_irq_queue);
+>> +
+>> +    /* The first registered IRQ initializes the shared state. */
+>> +    if (!offload->irq_cnt) {
+>> +        offload->dev = dev;
+>> +        skb_queue_head_init(&offload->skb_queue);
+>> +        INIT_LIST_HEAD(&offload->irqs);
+>> +        netif_napi_add_weight(dev, &offload->napi,
+>> +                      can_rx_offload_napi_poll, weight);
+>> +    } else if (weight > offload->napi.weight) {
+>> +        /* All contexts feed the same NAPI, keep the largest weight. */
+>> +        offload->napi.weight = weight;
+>> +    }
+>> +    list_add_tail(&offload_irq->node, &offload->irqs);
+>> +    offload->irq_cnt++;
+>> -    netif_napi_add_weight(dev, &offload->napi, can_rx_offload_napi_poll,
+>> -                  weight);
+>> +    /* Limit queue len to 4x the weight (rounded to next power of two).
+>> +     * All contexts feed the same skb_queue, so they share its limit.
+>> +     */
+>> +    skb_queue_len_max = 2 << fls(offload->napi.weight);
+>> +    skb_queue_len_max *= 4;
+>> +    list_for_each_entry(pos, &offload->irqs, node)
+>> +        pos->skb_queue_len_max = skb_queue_len_max;
+>>       dev_dbg(dev->dev.parent, "%s: skb_queue_len_max=%d\n",
+>> -        __func__, offload->skb_queue_len_max);
+>> +        __func__, skb_queue_len_max);
+>>       return 0;
+>>   }
+> 
+> This API is confusing now. It's called _init_queue(), but you've really 
+> changed it into something that acts like _init_or_add_queue(). Please 
+> rename this, and while at it, please add an explanatory comment for the 
+> function above it, since it has grown quite complex.
+
+Right. I am thinking about moving the shared setup done on the first
+registration into a separate helper, rename the rest into
+can_rx_offload_add_source() and document both.
+
+> 
+> The comment you added in can_rx_offload_del() is a positive example - 
+> having more of this stuff helps! Actually, that specific comment talks 
+> about "contexts" - please try to align that wording with whatever you 
+> rename the _irq struct to, such as "queue", to keep the code and 
+> comments consistent for the next reader.
+> 
+
+Will do, the comments will use the new name.
+
+I will wait a bit for Marc's feedback regarding the naming before
+sending v7.
+
+> 
+> Thanks,
+> Max
+
+Best Regards,
+Ciprian
+
 
