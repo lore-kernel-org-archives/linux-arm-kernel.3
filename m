@@ -4,79 +4,76 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 77100C9833F
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 28 Sep 2026 13:00:57 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3E107C9833F
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 28 Sep 2026 13:04:12 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=Vkm7SHhLjq1OSn5E4JsUgyYWZpx99XHrbc4OM7+gChQ=; b=WFRvNtRanvyVDAqmv+oymgj9+a
-	B1KQ7K0SjqlLs2+zTcBhf7L/gy2MuP4yWLFBsxDDcF7o/q9Q303a33Ilmr7fKVY3s39efLTOm4aBB
-	sirNPxilvWlX2m244PbVgLgA04aAmiKZzPMaRtI7q4cLAr1WlkaCC8iojzCrv9sC1UzSS3cMQpI34
-	+6re3ZIugZTSBgHBqF4KOMZFU9/zJUM5SECW8o9LwNuIHPiluH6o4lfaZfcGpN/5EoQwOE10XkK2M
-	tmSBqvdJoBrAY+BfaQFiilDg2pEg6474p4JRAQ8tEloV8USgNJP1mwdcF2QIyKq+Oa9q77gZgzG9W
-	Iu5Jeorg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:CC:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=5+0EUTg8Om0IPSNzG6rxy9lo4eUp9UvMyxb5DYuifRI=; b=ATE9DoOAP3PqfARdZ4DJHeGHwv
+	uaBVzrmPmPJE0l2tODazkfzYLccms9Vqhdqt2BYR01Z4eFYXXgzgo5/RjtTzKYnXPGHGdleWabPiZ
+	0ALU+ux81OLyRWI7V4xPmOvVThyNAZZdITIE/1Isefiz7cDF7nl2HQ6fa6sDv8yeGhjZ/gLlNoySV
+	0bPwo2wSn6R03qlgeOlIafIObpzwMCATV9CmFGTBrTEnuWGqY5nkutjax0QWEK6FRbOe+grXM0rK1
+	c/D0UWbO/qwrU9e3D0cKt0lG5b9WBMOaEGjt+pecPVmbKI8txug0b7rLBU+Te7dXujsXpvRUHQZjJ
+	H6X5frNg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xBAyQ-00000000c1W-2uxG;
-	Mon, 28 Sep 2026 13:00:50 +0000
-Received: from cp2.siel.si ([46.19.12.180])
+	id 1xBB1Y-00000000cRq-1t29;
+	Mon, 28 Sep 2026 13:04:04 +0000
+Received: from esa.microchip.iphmx.com ([68.232.153.233])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xBAyN-00000000bvW-0whK
+	id 1xBB1V-00000000cRI-0CFX
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 28 Sep 2026 13:00:49 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=norik.com;
-	s=default; h=Content-Transfer-Encoding:MIME-Version:Message-Id:Date:Subject:
-	Cc:To:From:Sender:Reply-To:Content-Type:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	In-Reply-To:References:List-Id:List-Help:List-Unsubscribe:
-	List-Unsubscribe-Post:List-Subscribe:List-Post:List-Owner:List-Archive;
-	bh=Vkm7SHhLjq1OSn5E4JsUgyYWZpx99XHrbc4OM7+gChQ=; b=XA0e57lU+7IZ0t80d/jog2GGck
-	UCdT2zZoj2UlgGvAjOpDy2nPyxJTG1jp/39ZPxthYiTVbkpwzJ0dxfuqdo1xtCVu2LykdTV0QgOCm
-	1K1c3lSqzlE8r7Yv7l5LzNNA59ud123b91EKJl2I4sW1/SCsIjxQJwceLKeGrt/0ERKbnsWmwsuQ2
-	m79/QJNpsiuhA+o1p7faQmfwO9ftAkWRcV8uSWcglRQZ4TmdS9iR0am3sqTFRJFxPjXC3RlLFVYET
-	hCwMFwiXS4BtEQZ3BD/Y53kNHxA79tO3Uw6vphCmIPn5cHevs1EGikM9NYu51dRa/rP/L9uBeRIkm
-	jwuh5zZg==;
-Received: from 89-212-21-243.static.t-2.net ([89.212.21.243]:35218 helo=localhost.localdomain)
-	by cp2.siel.si with esmtpsa  (TLS1.3) tls TLS_AES_256_GCM_SHA384
-	(Exim 4.100.1)
-	(envelope-from <primoz.fiser@norik.com>)
-	id 1xBAad-0000000Fp0t-1YMW;
-	Mon, 28 Sep 2026 14:36:14 +0200
-From: Primoz Fiser <primoz.fiser@norik.com>
-To: Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Frank Li <Frank.Li@nxp.com>,
-	Sascha Hauer <s.hauer@pengutronix.de>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Fabio Estevam <festevam@gmail.com>
-Cc: devicetree@vger.kernel.org,
-	imx@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	upstream@lists.phytec.de
-Subject: [PATCH] ARM: dts: imx6dl-phytec-mira: Add phyBOARD-Mira-i.MX6DL with eMMC
-Date: Mon, 28 Sep 2026 14:36:12 +0200
-Message-Id: <20260928123612.2250601-1-primoz.fiser@norik.com>
-X-Mailer: git-send-email 2.34.1
+	Mon, 28 Sep 2026 13:04:02 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=microchip.com; i=@microchip.com; q=dns/txt; s=mchp;
+  t=1790600641; x=1822136641;
+  h=date:from:to:cc:subject:message-id:references:
+   mime-version:in-reply-to;
+  bh=65+7vKuEvhuWFc/lEOTdpPleihYib6cFiBpcE5AQo5U=;
+  b=lJgOcj5g6jpbI5kvogzf9ZJwUgneieQtHVL0QGvNpvmVCojNNLTBL87E
+   XqKZM7MTaBUlfzYuOoMdT1yKVTtholB1it096ot1e9AyFaHRjmxfLAFXg
+   UKWI92vEaXofFT6CmFThSMXwhLwjfGf92TUg43jKz7KTKGYidqcg4f43K
+   1SWpivhQmDwu15G75/UT41434f3j44BSxxYgGy1oV5RWtm66QIlKWF6lU
+   MLaKIodTpd49u9wezEPkq8UW8cbmPsy86V/W+/tEDxwxJArJ9v3QskFIv
+   zhWETg6DFjR/y3DrunFshw9MY7asOAGaaEzKdMWafrTWtE1W9xEObOT/N
+   g==;
+X-CSE-ConnectionGUID: iXTAp/08Sci8x7ZxUFv50w==
+X-CSE-MsgGUID: hNDEykj2RiuvUDcZN6ZVLw==
+X-IronPort-AV: E=Sophos;i="6.27,128,1787036400"; 
+   d="scan'208";a="295665390"
+X-Amp-Result: SKIPPED(no attachment in message)
+Received: from unknown (HELO email.microchip.com) ([170.129.1.10])
+  by esa5.microchip.iphmx.com with ESMTP/TLS/ECDHE-RSA-AES128-GCM-SHA256; 28 Sep 2026 06:04:00 -0700
+Received: from chn-vm-ex04.mchp-main.com (10.10.85.152) by
+ chn-vm-ex02.mchp-main.com (10.10.85.144) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
+ 15.1.2507.58; Mon, 28 Sep 2026 06:03:58 -0700
+Received: from DEN-DL-M70577 (10.10.85.11) by chn-vm-ex04.mchp-main.com
+ (10.10.85.152) with Microsoft SMTP Server id 15.1.2507.58 via Frontend
+ Transport; Mon, 28 Sep 2026 06:03:56 -0700
+Date: Mon, 28 Sep 2026 15:03:55 +0200
+From: Daniel Machon <daniel.machon@microchip.com>
+To: Quentin Freimanis <quentin@q-lab.dev>
+CC: <netdev@vger.kernel.org>, Andrew Lunn <andrew+netdev@lunn.ch>, "David S.
+ Miller" <davem@davemloft.net>, Eric Dumazet <edumazet@kernel.org>, "Jakub
+ Kicinski" <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>, Steen Hegelund
+	<Steen.Hegelund@microchip.com>, <UNGLinuxDriver@microchip.com>, "Richard
+ Cochran" <richardcochran@gmail.com>, Horatiu Vultur
+	<horatiu.vultur@microchip.com>, <linux-arm-kernel@lists.infradead.org>,
+	<linux-kernel@vger.kernel.org>
+Subject: Re: [PATCH net] net: sparx5: skip ptp deinit if init was skipped
+Message-ID: <20260928130355.jxs4iqcd6jfoxezp@DEN-DL-M70577>
+References: <20260928044542.29287-1-quentin@q-lab.dev>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-X-AntiAbuse: This header was added to track abuse, please include it with any abuse report
-X-AntiAbuse: Primary Hostname - cp2.siel.si
-X-AntiAbuse: Original Domain - lists.infradead.org
-X-AntiAbuse: Originator/Caller UID/GID - [47 12] / [47 12]
-X-AntiAbuse: Sender Address Domain - norik.com
-X-Get-Message-Sender-Via: cp2.siel.si: authenticated_id: primoz.fiser@norik.com
-X-Authenticated-Sender: cp2.siel.si: primoz.fiser@norik.com
-X-Source: 
-X-Source-Args: 
-X-Source-Dir: 
+Content-Type: text/plain; charset="us-ascii"
+Content-Disposition: inline
+In-Reply-To: <20260928044542.29287-1-quentin@q-lab.dev>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260928_060047_775207_0494CE31 
-X-CRM114-Status: GOOD (  10.26  )
+X-CRM114-CacheID: sfid-20260928_060401_323756_6FECA986 
+X-CRM114-Status: GOOD (  11.94  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -91,112 +88,34 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add device-tree for PHYTEC phyBOARD-Mira-i.MX6 DL board with eMMC. The
-variant with NAND storage is already present in-tree. Now let's add the
-eMMC variant for which the compatible string "imx6dl-pbac06-emmc"
-already exists too but was not used until now.
+Hi Quentin,
 
-Signed-off-by: Primoz Fiser <primoz.fiser@norik.com>
----
- arch/arm/boot/dts/nxp/imx/Makefile            |  1 +
- .../nxp/imx/imx6dl-phytec-mira-rdk-emmc.dts   | 75 +++++++++++++++++++
- 2 files changed, 76 insertions(+)
- create mode 100644 arch/arm/boot/dts/nxp/imx/imx6dl-phytec-mira-rdk-emmc.dts
+> sparx5_ptp_init() returns early on the base lan969x variants
+> because they do not have the SPX5_FEATURE_PTP flag. It also returns early
+> when no "ptp" interrupt is described. Unbinding the driver then causes a
+> NULL pointer dereference when cleaning up uninitialized tx_skbs queues:
+> 
+>     Unable to handle kernel NULL pointer dereference at virtual address
+>     0000000000000008
+>     Call trace:
+>     skb_queue_purge_reason+0x68/0x120 (P)
+>     sparx5_ptp_deinit+0x64/0xc0
+>     mchp_sparx5_remove+0x38/0x70
+>     platform_remove+0x20/0x30
+>     device_remove+0x4c/0x80
+> 
+> Before per-port tx_skbs were added, a NULL dereference would have happened
+> when calling ptp_clock_unregister() on the never-registered PTP clocks.
+> 
+> Fix by returning early in sparx5_ptp_deinit() if PTP is not used.
+> 
+> Fixes: 0933bd04047c ("net: sparx5: Add support for ptp clocks")
+> Signed-off-by: Quentin Freimanis <quentin@q-lab.dev>
 
-diff --git a/arch/arm/boot/dts/nxp/imx/Makefile b/arch/arm/boot/dts/nxp/imx/Makefile
-index c5caca92ea10..4361708f70e3 100644
---- a/arch/arm/boot/dts/nxp/imx/Makefile
-+++ b/arch/arm/boot/dts/nxp/imx/Makefile
-@@ -136,6 +136,7 @@ dtb-$(CONFIG_SOC_IMX6Q) += \
- 	imx6dl-mba6b.dtb \
- 	imx6dl-nit6xlite.dtb \
- 	imx6dl-nitrogen6x.dtb \
-+	imx6dl-phytec-mira-rdk-emmc.dtb \
- 	imx6dl-phytec-mira-rdk-nand.dtb \
- 	imx6dl-phytec-pbab01.dtb \
- 	imx6dl-pico-dwarf.dtb \
-diff --git a/arch/arm/boot/dts/nxp/imx/imx6dl-phytec-mira-rdk-emmc.dts b/arch/arm/boot/dts/nxp/imx/imx6dl-phytec-mira-rdk-emmc.dts
-new file mode 100644
-index 000000000000..aa3239660bca
---- /dev/null
-+++ b/arch/arm/boot/dts/nxp/imx/imx6dl-phytec-mira-rdk-emmc.dts
-@@ -0,0 +1,75 @@
-+// SPDX-License-Identifier: (GPL-2.0+ OR MIT)
-+/*
-+ * Copyright (C) 2018 PHYTEC Messtechnik GmbH
-+ * Author: Christian Hemp <c.hemp@phytec.de>
-+ */
-+
-+/dts-v1/;
-+#include "imx6dl.dtsi"
-+#include "imx6dl-phytec-phycore-som.dtsi"
-+#include "imx6qdl-phytec-mira.dtsi"
-+#include "imx6qdl-phytec-mira-peb-eval-01.dtsi"
-+#include "imx6qdl-phytec-mira-peb-av-02.dtsi"
-+#include "imx6qdl-phytec-mira-peb-wlbt-05.dtsi"
-+
-+/ {
-+	model = "PHYTEC phyBOARD-Mira DualLite/Solo Carrier-Board with eMMC";
-+	compatible = "phytec,imx6dl-pbac06-emmc", "phytec,imx6dl-pbac06",
-+		     "phytec,imx6qdl-pcm058", "fsl,imx6dl";
-+
-+	chosen {
-+		stdout-path = &uart2;
-+	};
-+};
-+
-+&can1 {
-+	status = "okay";
-+};
-+
-+&fec {
-+	status = "okay";
-+};
-+
-+&hdmi {
-+	status = "okay";
-+};
-+
-+&i2c1 {
-+	status = "okay";
-+};
-+
-+&i2c2 {
-+	status = "okay";
-+};
-+
-+&i2c_rtc {
-+	status = "okay";
-+};
-+
-+&m25p80 {
-+	status = "okay";
-+};
-+
-+&pcie {
-+	status = "okay";
-+};
-+
-+&uart3 {
-+	status = "okay";
-+};
-+
-+&usbh1 {
-+	status = "okay";
-+};
-+
-+&usbotg {
-+	status = "okay";
-+};
-+
-+&usdhc1 {
-+	status = "okay";
-+};
-+
-+&usdhc4 {
-+	status = "okay";
-+};
--- 
-2.34.1
+Reviewed-by: Daniel Machon <daniel.machon@microchip.com>
+Tested-by: Daniel Machon <daniel.machon@microchip.com>
 
+Thanks!
+
+/Daniel
 
