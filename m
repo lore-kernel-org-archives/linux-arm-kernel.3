@@ -4,108 +4,110 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E2596C9833E
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 28 Sep 2026 06:57:02 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2DE47C9832F
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 28 Sep 2026 07:04:37 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
-	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=wAk85Ancg6OFmC+89rPAK+EUepKbCsC89fJMdetQk4k=; b=FgD7dHbS3UD3vlDDlU7ZUs55EC
-	ZxhEQ46D6MCkKncxR4ns1BCzV5e/Xcy6G+P9L8ve4XgJ+PmGfMTa1kETPss22s422i8cOrMTK6/g3
-	G0pb2kUDfN/ObvmIKLLCS8MC0T5OZbMguNMXk07OElIIxGOJd4YamGql5EweJpW1IfQZ5uMFqTU0b
-	L+GDuixvnyoRB6HcY21dc685YIHFG/mPFmXAhF7UHSvNJ2Wva2KSuZ9p21X/C7gDvfIGdgnC7j0s5
-	/ZTvzKEAlqydgsJ4gb70SiFneKNsZ7Y9hilE/IvJsfll9rQ3zqCbcjTdk8guG96xdQDRl2LpanCh9
-	2aj8hoSQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=8fmUSDAgYoEUGpnG4dyr2raLElAF9zIG7tCsXwnwAGw=; b=WgZyU+z/f873DFwcTpiHfG6Kul
+	Bq+/vCWj9GKebWZ/qiwhip0jwfdbx5cUNedtC3V8tcfeQf/XDaUtSHKINf0h9KOX4ULCWMnj1GQzj
+	CLmLNLMDAPzZqH9IbZ2OKyiNMM59GO97Lgd0+oDGS3YDmsYe/3Eb5l8JYNhz1MZvhhICg+G5f9TK+
+	gX1gq3SkX6A5JjgGJs4jYLsN/76Y+nv8b1OOwlzcH8DXOo0FlUruduqEGvH8pvz/VIalj9aBpBjmE
+	eWxTfILj8I8xE/E32kQ3mPeqo81w1s9vEGisec4xHwq/pVp+gwKbJhHE7xBtnG42QqPcaHmJMSAUT
+	tVnd7baQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xB5IG-0000000HV3i-1nut;
-	Mon, 28 Sep 2026 06:56:56 +0000
-Received: from mail-lf1-x132.google.com ([2a00:1450:4864:20::132])
+	id 1xB5PY-0000000HViz-1j8m;
+	Mon, 28 Sep 2026 07:04:28 +0000
+Received: from mail-lr2-x0e.google.com ([2a00:1450:4864:38::e])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xB5ID-0000000HV36-0don
+	id 1xB5PV-0000000HViV-3DSU
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 28 Sep 2026 06:56:54 +0000
-Received: by mail-lf1-x132.google.com with SMTP id 2adb3069b0e04-5b8c42da963so8991e87.0
-        for <linux-arm-kernel@lists.infradead.org>; Sun, 27 Sep 2026 23:56:52 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1790578611; cv=none;
+	Mon, 28 Sep 2026 07:04:26 +0000
+Received: by mail-lr2-x0e.google.com with SMTP id 38308e7fff4ca-3a65a351692so15031231fa.2
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 28 Sep 2026 00:04:25 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1790579063; cv=none;
         d=google.com; s=arc-20260327;
-        b=r50r37FdsCBRLWGNbwaqME8yX27rJNzwPidQmZIkuH2w6wouVOlSRmxjVfhpS1A3wV
-         Q6Ej2C/GI2Imu+FxYllp5tCLi8botBwf5NGVzzQSQi6lYr6ozsXN+2FAMsWuhqkrsx5m
-         75Bihk6R1bjB+xpmjM7J0MCsz0+PQSLOvvfDH5gP8cZDUW+vHXbHW+vJKDFWyw4oUZDL
-         GUSPbws/unXLKKevShofIRdhHpcQKorg+x//uhU34HuGJf5p+thr4g3T7+9nwJQdH0j6
-         PmyxsI/E2zBq7Ge2tYw0uCZZM4zS4XSYpJX9qrzkoniMXQ4YMzK6+lK71k46AFPsI6Pw
-         rp/Q==
+        b=Msn56NBa2DP64FICFYA/Bhg6Zorm9enl0mhrIBt95WYPad3CSMikxEeMXM8f2E7H53
+         CZxgN4YaUuePcrK2QaUP+Yf9RkEQXL5xUrAD3gAO1fLh0rBdN0j6a0ItQjFVdxypHqzD
+         1OIfle6Ca51tTVWGEmsB7z/I57LhlUmWa8Z0SlAbtPg6Cas6j5Xh5QcqI8ZuVvdMh0m5
+         YmOibK/BGarAinGbW/Ocw616SCPuTgGAYjNkfxthf98g9aANmpqyzG64RFpZuT8QoAIf
+         CKnvn54CP4mEDkh2U5/3nYq57zbJg/ph/UE07L94xb7tCofKEDPow2v14IVeHNEUfRFm
+         W4LA==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:dkim-signature;
-        bh=wAk85Ancg6OFmC+89rPAK+EUepKbCsC89fJMdetQk4k=;
-        fh=ycnpnbTenKZg59XWKeWcYftyCCb9R51ABQQyqtfuVtc=;
-        b=sjxJoPUayI3y41iaQmoQhDycKe99VPF75tTGiE1NXcK2Wayl+5RitFhhIlD3R71eG/
-         ORXcl1b4UmH+ieZ0Dtquvjs0aZBFk3VyH7JMWMPRbvCbm6bnPVsg9DuOwX2DkRs4v+3q
-         58T5JjNGFA9Kpbm/eFI5HcjX4T1+1uq5QfLqk692VwaOgjBUSNbXLMFQwPYKNk0QqMWL
-         eOOHSVXYclxM3WBs3XphXP5hmbX1BmQok34lcsaGuBIEgFAm7l0Tg9cx891FtbPJ+383
-         qnSmivpGieCGytlKIEm6Imc5KqfT1QTOttBLZynAIGqZLh1x64ye97BQokcY3FpySt+3
-         GxmQ==;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:dkim-signature;
+        bh=8fmUSDAgYoEUGpnG4dyr2raLElAF9zIG7tCsXwnwAGw=;
+        fh=OCpo4EgvnO/m/shz2db5iMgqwnAVOBIqGZ6RJlAatdA=;
+        b=cuGpqAtAvZ2t/mu7ojNv3g3D5hJTLyvZzHwEqAJCSx4mc749bqMlHT5VSQIFsfmOZm
+         R6phX7AI7HfxdkyfcGtdMurf1Axx6E8Bp8vV0ZYaaproMxTS2+X0T4HLilljF8BnYpxd
+         iUYETm4FLmJZDOWImESAyC5XYcj2F2MNHF7Lzt6uJJZrJ77DPKd3/bTqmSzYKR5yJGZc
+         YLkDmC1Zoz+W5x2iK5wqeT1fwWRkOXakVZ01W6+aOVlb4JIPn3NZDYE/yULuLrKgp2sd
+         LWVrZqHCAAN3sjSOYSj0Be7fSBXSvr1w3JdtcPrFWPW3Ta++9QG5aihElzsVv8r1vfDx
+         4Atg==;
         darn=lists.infradead.org
 ARC-Authentication-Results: i=1; mx.google.com; arc=none
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20251104; t=1790578611; x=1791183411; darn=lists.infradead.org;
-        h=content-type:cc:to:subject:message-id:date:from:in-reply-to
-         :references:mime-version:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=wAk85Ancg6OFmC+89rPAK+EUepKbCsC89fJMdetQk4k=;
-        b=IwQStIwDxf/DGnEgA+9rlzy+Z8+lZvrsVMJKx84y2nsxfB4X8mkduWBkL74oAGQv9k
-         GOFihucuby/okNrEfO0ozc6HQsdMS9NBz284TFRXn8H1GjrvMjlXcbw0qtqeNAzeNAyd
-         m1RMCTVjlPi7QiGjnu/V3a9kw/dJ9UPKNlpyfItcnM3GVkQ0IrmrbSAdREKjh/fH9WQ6
-         HHMSGJpPitlM25a+MVHrmnR7Fw+/kIX1x5C/Fyie4MimKI186Fioe+rrrBze81+zf2Ax
-         gWZ3PV/ziJ2nsvMY8Dw5Ya9HQMgIOAJHHqHviKoWYTu3sF4m11MOTfJcd0RqzNuCFY0N
-         86fw==
+        d=gmail.com; s=20251104; t=1790579063; x=1791183863; darn=lists.infradead.org;
+        h=content-transfer-encoding:content-type:cc:to:subject:message-id
+         :date:from:in-reply-to:references:mime-version:from:to:cc:subject
+         :date:message-id:reply-to:content-type;
+        bh=8fmUSDAgYoEUGpnG4dyr2raLElAF9zIG7tCsXwnwAGw=;
+        b=X9MJK0EOVF67w0AX+VyJZq8UXcEHrj544jlDwZProkPc18hKtRh8u//Oq50uvGioE/
+         Z5kNwg71mk7tJv0H832zh1wGMwMzzycvpcjgpm6Pl9p1RVPC9esijaCtoPSQDg+URRmr
+         /6meYEZpmYxffXNnh1aqpzzm04+5FwQCaFs185p2Zt31VEfB2ZFhzAUvWJBiugBaTlr3
+         N9mBWYdB+ihd7ewFGisbuQG0TJPvemYiKVRDkZeoKyPj44Ca3Dyh40XCZxgPLUrFMaXv
+         jQo3NiaiCoS2VNLSUHRxqGm6Ng9Fe0kj+15IP8WHFiXyhRKUZn7bzUPsWUueCy5TsHu3
+         dUcw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1790578611; x=1791183411;
-        h=content-type:cc:to:subject:message-id:date:from:in-reply-to
-         :references:mime-version:x-gm-gg:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to:content-type;
-        bh=wAk85Ancg6OFmC+89rPAK+EUepKbCsC89fJMdetQk4k=;
-        b=FTpmHoh6by5pjx1N/qw6mEirf5ODd4FqUbuKeDu09E1t56jJagVVJTgddudTchqYBk
-         6zQa4SAcVbW4jKgLAgpamSOVRocyjfK+V9G1fS5sGXV2a4fBVBQtyKLaBr4yt9d3gfUZ
-         fwcRemYQ0jJivGbRJ7cyCRr0Uy80DlPMNp7QfA289k+6LLghdt965+GgNyb1EpI2XGZs
-         AjmvP1wAr5G77T6Hsbp2jVobdeL6z3N1nAD0IpOTmhGma13N9ZpnJc8qUMtF3wU6/MeB
-         QiLnKnI8dpOueYQK2KwkGVDrhrngSEr9BleP8AiqJIuJOJ/MC4M47gDuCj5zdjbs+Cqs
-         HR1A==
-X-Forwarded-Encrypted: i=1; AKwUvBxcMJZTOC7r2+QYzI4TgtS0ZKcutS1fm/L/qsDPSlsswstpjrT8aN0f3UI5RsFu9lQmpctBBpEvqi8GORef2IKB@lists.infradead.org
-X-Gm-Message-State: AFq9FYKZOW2C55l8FnLgTc+xh/uxqXu7eP0xvoItFLhJzKGD7mw381Bj
-	aDIl4cRnuO17+4R6tG5rKajCHKleCMGR5SNCZefGTJ945VPRcgHdxW1UOXlq6ZwgCo/tgu53MHL
-	GsNNC4Zvv40D/+GNsgYMHO10GuB6VmTXvXnhiFWV4
-X-Gm-Gg: AYBFou2SJgehVtlwSCPBfu22gI3avrQ0A57vPMl6gZXEvhvz+fN5YDeNgYomLc4mA4v
-	JMvbGFj4QdA0OJ7JhxRbPiomM3Zf5vH1pP7YaXBO5+OQc4vmPUUnh5afa7ctZtVp7OMF9m0kka7
-	ijFVj4lQW9CXlNdJ4H+xKZe14xfh/ZQ6B9wLGJtEfnKt/EvWnlFQPhBYbYe3ThyOCYb7I34WeDY
-	CWgXl2u0vxsTRldT7Ad5Ml3CKQCBaXq7zKhUzdk5ozhT7crZfIlOBkH4DMjXTl2w87g4jUGIOSd
-	FAWPXH6wmQInazhEfmEp5ECXHes4ePrtxLkwwTZ4vx+Ir91dOJBgTdGID6rn7UuLb41VYtghhk9
-	/l6I+kxaZuUbEyP4X9LyPwlk=
-X-Received: by 2002:a05:6512:3d8e:b0:5b8:c8f2:16c4 with SMTP id
- 2adb3069b0e04-5b8ef255fa0mr155202e87.10.1790578610464; Sun, 27 Sep 2026
- 23:56:50 -0700 (PDT)
+        d=1e100.net; s=20260707; t=1790579063; x=1791183863;
+        h=content-transfer-encoding:content-type:cc:to:subject:message-id
+         :date:from:in-reply-to:references:mime-version:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=8fmUSDAgYoEUGpnG4dyr2raLElAF9zIG7tCsXwnwAGw=;
+        b=KQcM4Gz00YV2SPBY9Wy3fnWsssKlp2WDBxl9qHJEAWzVsXpyt0061YvNf01ELYIjYE
+         r0HqIJ6/MDIr/GYTC4DfBwFtz8iOI3dKHoltlhHJ2L7yILlm34BmDy1DqKa3Jw4zl2Yw
+         qmSL18g+ASGIe2Tm5s5G5ce+OFSJcFZOZ5NvuWiH9puEVrm9KbeIPSdXquf4sFQfrbc2
+         8DUljYB5NgMDUAjfbAOWyyv/E4jsPYqL3eYCCGlbuBw3zUBjsgHriIQYBrEVbZo1OjWt
+         l00ztnMkvl2NkZLuyGmP3/DeXicjZi4+DgHZ/gwPuh6Bo4WZiJMRzelI8Q4wV7zoMHr4
+         fd2g==
+X-Forwarded-Encrypted: i=1; AKwUvByNAFO1lXQx9iHalZYh9bQuqwcVj5uUHQgGjevKC/xeLgsWd3zZB8dA0CRbsKVjPBw6vPaaoajzdZbhcMbQOonI@lists.infradead.org
+X-Gm-Message-State: AFq9FYLFjWPGxhLS9Z0HpgQQImGWYU2ALWqFn3PUNz1J1J2j6mS/KLT+
+	Gd4QwEnyLyknH32GMY3BdwtwL3QG8VFeu7cvhEiofz1QodIxYSVIhkZcH1VY+0P3BBCs8JARJGK
+	95iHWGoNb/+LpCRi5UUNsWrlWyLLNqF8=
+X-Gm-Gg: AYBFou3MyyTB3gNHfBAh/je5BYx747l3+4CCrQwaYaOl1vQu4s7Y3CU8nMijmeP1gWm
+	AcNWrzWFHcMBQAhUcacrH+jsu2Z/9UNK0CWmbYTbu2HMs0AjBkgde+YZOlq7WLt2agvdIcXVK97
+	m21dqtlusi7ixfUFOQovji7H93t0liy6SAsjJSHeOFAi2sxDrOx/V4XX4Dzr6mzZpStre8CAFd7
+	PKhhR/caTfSXEjUT0yrkdlqFPGtFrnLmzgrljgki6I6XKtsu+7iXbGegBOJTHnN/KvCfUVtPeBb
+	QxCU4j28IfOUo109q+ArbY4VyCp5uWxZObPFTdiZJILiEg34gUnC0w==
+X-Received: by 2002:a05:651c:1990:b0:3a6:16aa:23c4 with SMTP id
+ 38308e7fff4ca-3a63c435595mr33846191fa.26.1790579063267; Mon, 28 Sep 2026
+ 00:04:23 -0700 (PDT)
 MIME-Version: 1.0
-References: <20260908145622.2828319-1-fuad.tabba@linux.dev>
-In-Reply-To: <20260908145622.2828319-1-fuad.tabba@linux.dev>
-From: Fuad Tabba <tabba@google.com>
-Date: Mon, 28 Sep 2026 07:56:14 +0100
-X-Gm-Features: AclHuK9Nt0wxmbd5-RZTKhrKH6f7Mij28E53-dg3AuD8R3c5qE6gQbIJDKPoGaw
-Message-ID: <CA+EHjTy6+JpcdwuP3wnxK9n2iR0REM7nFgxkLaS8RAOST4KY5g@mail.gmail.com>
-Subject: Re: [PATCH v3] arm64: mpam: Document when to set arm64.nompam
-To: Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>
-Cc: Mark Rutland <mark.rutland@arm.com>, Jonathan Corbet <corbet@lwn.net>, 
-	Shuah Khan <skhan@linuxfoundation.org>, Randy Dunlap <rdunlap@infradead.org>, 
-	Ben Horgan <ben.horgan@arm.com>, James Morse <james.morse@arm.com>, Xi Ruoyao <xry111@xry111.site>, 
-	Marc Zyngier <maz@kernel.org>, Bradley Morgan <brads@mainlining.org>, 
-	linux-arm-kernel@lists.infradead.org, linux-doc@vger.kernel.org, 
-	linux-kernel@vger.kernel.org
+References: <20260927073843.346910-1-maimon.sagi@gmail.com>
+ <20260927073843.346910-2-maimon.sagi@gmail.com> <6ab4896c-c4d0-499b-befe-045cafa8e470@lunn.ch>
+In-Reply-To: <6ab4896c-c4d0-499b-befe-045cafa8e470@lunn.ch>
+From: Sagi Maimon <maimon.sagi@gmail.com>
+Date: Mon, 28 Sep 2026 10:03:57 +0300
+X-Gm-Features: AclHuK_wqe69CS137GKI_RXY7GDJiYuGuITU57U4UyfMY3zuTBaG8dDbNTOU8AA
+Message-ID: <CAMuE1bEvTE5-MyXyP8Y_qekXEk8Uf0QUUFJ6DfFpc89TdYd4rA@mail.gmail.com>
+Subject: Re: [PATCH net-next 1/2] net: axienet: use device_property and fwnode
+ APIs for probe-time config
+To: Andrew Lunn <andrew@lunn.ch>
+Cc: netdev@vger.kernel.org, radhey.shyam.pandey@amd.com, michal.simek@amd.com, 
+	andrew+netdev@lunn.ch, davem@davemloft.net, edumazet@google.com, 
+	kuba@kernel.org, pabeni@redhat.com, linux-arm-kernel@lists.infradead.org, 
+	linux-kernel@vger.kernel.org, linux@armlinux.org.uk, 
+	vadim.fedorenko@linux.dev
 Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260927_235653_229252_7D4CDDF4 
-X-CRM114-Status: GOOD (  31.97  )
+X-CRM114-CacheID: sfid-20260928_000425_829662_8A466C9D 
+X-CRM114-Status: GOOD (  20.51  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -120,102 +122,63 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Catalin, Will,
+On Sun, Sep 27, 2026 at 8:55=E2=80=AFPM Andrew Lunn <andrew@lunn.ch> wrote:
+>
+> > -     lp->switch_x_sgmii =3D of_property_read_bool(pdev->dev.of_node,
+> > -                                                "xlnx,switch-x-sgmii")=
+;
+> > +     lp->switch_x_sgmii =3D device_property_read_bool(&pdev->dev,
+> > +                                                    "xlnx,switch-x-sgm=
+ii");
+>
+> What version of the core is being used:
+>
+> 6c8f06bb2e5147b2c25bdd726365df8416c13987
+> Author: Robert Hancock <robert.hancock@calian.com>
+> Date:   Fri Feb 12 18:23:56 2021 -0600
+>
+>     net: axienet: Support dynamic switching between 1000BaseX and SGMII
+>
+>     Newer versions of the Xilinx AXI Ethernet core (specifically version =
+7.2 or
+>     later) allow the core to be configured with a PHY interface mode of "=
+Both",
+>     allowing either 1000BaseX or SGMII modes to be selected at runtime. A=
+dd
+>     support for this in the driver to allow better support for applicatio=
+ns
+>     which can use both fiber and copper SFP modules.
+>
+> If this property is not needed, please leave it as OF only.
+>
 
-On Tue, 8 Sept 2026 at 15:56, Fuad Tabba <fuad.tabba@linux.dev> wrote:
->
-> arm64.nompam skips the MPAM2_EL2 and MPAMHCR_EL2 writes in
-> finalise_el2_state and leaves the ARM64_MPAM cpucap unset. Where EL3
-> firmware has cleared MPAM3_EL3.TRAPLOWER, the EL2 trap controls are
-> left unwritten, at reset values that are UNKNOWN, and KVM still hides
-> MPAM from the guest but no longer enables the traps that stop a guest
-> from using it. KVM never saves or restores MPAM0_EL1, MPAM1_EL1 and
-> MPAMSM_EL1, so what one guest writes reaches the next guest and the
-> host. Nor can the kernel make the EL2 writes unconditionally: they trap
-> to EL3 on the firmware the option exists for, and TRAPLOWER cannot be
-> read below EL3.
->
-> Say so in mpam.rst, and add the rule and a pointer to the
-> kernel-parameters entry.
+It is not needed here.  The X2's MAC is wired to the FPGA fabric over a
+fixed link in "internal" mode, so there is no SGMII/1000BASE-X switching
+to do.
 
-Gentle ping on this one; it has Ben's and Bradley's R-b. I think it
-still stands regardless of the other cpufeature work going on now.
-Anything else needed for it to go in?
+> >
+> >       /* Start with the proprietary, and broken phy_type */
+> > -     ret =3D of_property_read_u32(pdev->dev.of_node, "xlnx,phy-type", =
+&value);
+> > +     ret =3D device_property_read_u32(&pdev->dev, "xlnx,phy-type", &va=
+lue);
+>
+>   xlnx,phy-type:
+>     description:
+>       Do not use, but still accepted in preference to phy-mode.
+>     deprecated: true
+>
+> This property is deprecated. So it should remain an OF property and
+> not get expanded in scope.
+>
+Agreed.  v2 converts only what the software node provides: xlnx,rxmem,
+phy-mode, the MAC address and the PHY connection, for the fixed-link.
+xlnx,switch-x-sgmii and xlnx,phy-type stay OF only, and so do
+xlnx,txcsum, xlnx,rxcsum and the "dmas" test, which the X2 does not use
+either.
 
-Cheers,
-/fuad
+Thanks,
+Sagi
 
->
-> Suggested-by: Ben Horgan <ben.horgan@arm.com>
-> Link: https://lore.kernel.org/all/CA+EHjTxeWxZiuSmnKLGLxTBXP4oJT7-LuffbPAyCSZZ5TW=5Ew@mail.gmail.com/
-> Reviewed-by: Bradley Morgan <brads@mainlining.org>
-> Signed-off-by: Fuad Tabba <fuad.tabba@linux.dev>
-> ---
->
-> Notes:
->     Changes since v2:
->      - Add MPAMSM_EL1 to the registers a guest can reach (Ben).
->      - Carry Bradley's Reviewed-by, dropped at v2 and reaffirmed there.
->
->     v1: https://lore.kernel.org/all/20260903084809.2027326-1-fuad.tabba@linux.dev/
->     v2: https://lore.kernel.org/all/20260904103131.627392-1-fuad.tabba@linux.dev/
->
->  .../admin-guide/kernel-parameters.txt         |  3 ++-
->  Documentation/arch/arm64/mpam.rst             | 26 +++++++++++++++++++
->  2 files changed, 28 insertions(+), 1 deletion(-)
->
-> diff --git a/Documentation/admin-guide/kernel-parameters.txt b/Documentation/admin-guide/kernel-parameters.txt
-> index 68647ff4bdd24..e6d543de3cde5 100644
-> --- a/Documentation/admin-guide/kernel-parameters.txt
-> +++ b/Documentation/admin-guide/kernel-parameters.txt
-> @@ -575,7 +575,8 @@ Kernel parameters
->                         Set instructions support
->
->         arm64.nompam    [ARM64] Unconditionally disable Memory Partitioning And
-> -                       Monitoring support
-> +                       Monitoring support. Only for a machine that does not
-> +                       boot without it. See Documentation/arch/arm64/mpam.rst
->
->         arm64.nomte     [ARM64] Unconditionally disable Memory Tagging Extension
->                         support
-> diff --git a/Documentation/arch/arm64/mpam.rst b/Documentation/arch/arm64/mpam.rst
-> index 67fe515ed501c..e445f4078ee1a 100644
-> --- a/Documentation/arch/arm64/mpam.rst
-> +++ b/Documentation/arch/arm64/mpam.rst
-> @@ -87,6 +87,32 @@ The supported features are:
->    MBWU monitors can be exposed to the user after support for more monitoring
->    scopes is added to resctrl.
->
-> +Command line parameters
-> +=======================
-> +
-> +arm64.nompam
-> +------------
-> +Firmware controls MPAM through two bits of MPAM3_EL3. MPAMEN enables
-> +it: while set, the PARTID and PMG in the MPAMn_ELx registers label the
-> +CPU's memory requests. TRAPLOWER, which resets to 1, traps accesses to
-> +the MPAM system registers from the lower exception levels to EL3.
-> +Firmware must clear it, or handle the trap and emulate MPAM as disabled.
-> +Where it does neither, the CPUs still advertise MPAM in the ID registers,
-> +the kernel's MPAM register accesses trap to EL3, and the boot fails.
-> +``arm64.nompam`` exists for that firmware: it makes the kernel treat the
-> +CPUs as not implementing MPAM, so no MPAM system register is accessed.
-> +Set it only on a machine that does not boot without it.
-> +
-> +It is not a way to turn MPAM off. Where firmware has cleared TRAPLOWER,
-> +the option leaves the trap controls in MPAM2_EL2 and MPAMHCR_EL2
-> +unwritten, and their reset values are UNKNOWN. KVM still hides MPAM from
-> +guests but no longer enables the traps that stop a guest from using it,
-> +so a guest may be able to read and write MPAM0_EL1, MPAM1_EL1 and
-> +MPAMSM_EL1. KVM does not save or restore them, so what one guest writes
-> +is still there when the next guest runs on that CPU, and when the host
-> +does. With MPAMEN set, EL0 and EL1 requests then carry that PARTID and
-> +PMG.
-> +
->  Reporting Bugs
->  ==============
->  If you are not seeing the counters or controls you expect please share the
-> --
-> 2.39.5
->
+>         Andrew
 
