@@ -4,111 +4,65 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CB4B5C9833F
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 28 Sep 2026 12:30:49 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BD5CDCA5FA5
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 28 Sep 2026 12:33:00 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=XTyKOTKAooo2ab7rKhntAizVnn77+wfpctlc2hgSt4A=; b=vvYLoyDv/aqD8FzWing67IDVTS
-	FLPFB8c0uk9FzyRojrl6VRiOaZo/yusgyRdQha1D5qPU8PJxUqh08CvRn8U44P0P+AtuCgjPTyExK
-	RPQIygLyO748FKGa/oTMfqJ0oEbChyBZ8kyjCXJAv/MC03Z3fRMpSwVD/ONwX+4irFwwuqdqgKn+4
-	MzIOjEh07K2M0rnmgtfjvhhUlFEbCGjvvbj4Z+u4wsTT2CEbhsfuH2fxh5jp6Ql0iVmk0yB97egQp
-	whPx2+Y41eWj3IQoWtgWZPNoS6b6vZtU70bTfYx36lEwlFrm3E+rN3nR+sN4ZaHkqHBIB9INVyNLC
-	gOCeQR1g==;
+	bh=aCQ+H0c+wVftlMBVRbtm3uG4VWV5k7egRAeD7StXg4Y=; b=d+NRKT2ahHnXCgU/w/QXq9L/Hm
+	nqmP9LstFIVacOCCg/sRNyihcNx18MXN2mfKwQ8Z6TKmgrGma6aDQzZ/zqo2Z6DVCZbmgZMzF0qlt
+	jS47vRtbn6LBdtEmNZTJuueuaoSc+g0a8PQn26UZxJcwVwAIaZHNMD613gAH0T7I26jwA8ezhMHkB
+	A+TUVUQETtcb1lMtgCf0bMoi0cLPJXf6TiRa/xKejuLag4DO2hyqa+Cgi8MzxQCvQwHoC3gWgzQIQ
+	tiE9pH3hFoQ7HKE4cG4X0w4T48HB8sIt41UZDpaTBYUnXMtZBH4GBM6+tXYtw7S2cJtSAlJOHZ9+R
+	8uk0UhAg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xBAVH-00000000YeM-2uKq;
-	Mon, 28 Sep 2026 12:30:43 +0000
-Received: from mail-pj2-x0c.google.com ([2607:f8b0:4864:39::c])
+	id 1xBAXN-00000000Z2A-1l3M;
+	Mon, 28 Sep 2026 12:32:53 +0000
+Received: from m16.mail.126.com ([117.135.210.8])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xBAV8-00000000Ycd-32BK
+	id 1xBAXK-00000000Z0F-2YQV
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 28 Sep 2026 12:30:35 +0000
-Received: by mail-pj2-x0c.google.com with SMTP id d9443c01a7336-2dfaf76605dso5485305ad.0
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 28 Sep 2026 05:30:34 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1790598634; cv=none;
-        d=google.com; s=arc-20260327;
-        b=QwyOuZ3qTDr//qQLzxJ4g0dmDEkyxI9s1xZ+aFuNlBQNe+jT240ynTzcWm6TcRSAOS
-         ub+2YobqVZTfQni1OWy7a0cSLfQli9+KORIyBPjvoCBMNQlxn+VynBB8nGToslasKvc4
-         bh93wC3fxjrLmJuDqxiK3eXgAOtOtOZYCqFNcZqeuQh2O7BT5oTOevkG+QEPWslLeOVe
-         0oq9+OyK7MJja3NbCr/eaGN4kHfspMbhxxkIeFqnEIqCSp0MVkiS0r6e3qZLLt7N0ogC
-         b/SgQZ+p9hL8GJhCxTfyMFFMB4E3sQ9z0TIUtt6HfiH0NnGSE1V27b+xca74SduxxbFX
-         n2qg==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:dkim-signature;
-        bh=XTyKOTKAooo2ab7rKhntAizVnn77+wfpctlc2hgSt4A=;
-        fh=J32mPXhLbAOqityNnad3/FjeDepSzUQv4eSN9EhsLws=;
-        b=IC8WJ9DfCtQ0k0qh06zwLMfyUeT+mbvFtQ5fTnPGlLcR2hqqjAK50/vpk5aHwQtXLi
-         e6wurDqh5OXzA4s2bWD2wJJm3Ivy1nTAY0G73fiDbKeNs/ABreTZ24yAIAcJJLC72U1i
-         frpOL+xUpMFoW5tstzpiqX2RI6BtmmVEavssgZQmOZ8f/Qqw3lCwgKGVvGjiUZsafBWg
-         PWE8DJgTxSSCKKMKaGw1rBLXAjYmcFdcboQBGdftNOitqzwBrzuWc4Kcd3IrP4uHq/4N
-         r+E0I2hs+jmaGuMcIJJ6bENY7OiKzbTWkz42h1N32KAG6BWhtcVWm7zG435c4SKA+BOQ
-         0+rQ==;
-        darn=lists.infradead.org
-ARC-Authentication-Results: i=1; mx.google.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=sartura.hr; s=sartura; t=1790598634; x=1791203434; darn=lists.infradead.org;
-        h=content-transfer-encoding:content-type:cc:to:subject:message-id
-         :date:from:in-reply-to:references:mime-version:from:to:cc:subject
-         :date:message-id:reply-to:content-type;
-        bh=XTyKOTKAooo2ab7rKhntAizVnn77+wfpctlc2hgSt4A=;
-        b=YOj7g065S8t268cC+JfyYOPDaYSAMV5XNYdcuJkqq/Gs/5uG7jd8DYdO/scvgE7kGl
-         O3yPoRw42QB3YcVNfGtzF8nOkXiDKhzEdI4gyWqngrxOsQuWlvfMogZ4NXY1GTKedJ4d
-         N+5oEdRTg+y80M+SPIxFovLYHlzRbkZX3GL30zhntFZ9KRueWE1gHkYzuuvgJfN5pZRj
-         m6Begg5GDz9xSom7rUZ8TcmNDJIUMz2mlZPjaKzffJW1AgbnAC9GwvRgg9LD6FCwEvLc
-         fUOfZQbP6ydqb2ZdkYCZpqZYTSjATVer+qtSdDgRBxTnWydClqoUOA6AM4IE+20jYm/L
-         c/mw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1790598634; x=1791203434;
-        h=content-transfer-encoding:content-type:cc:to:subject:message-id
-         :date:from:in-reply-to:references:mime-version:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=XTyKOTKAooo2ab7rKhntAizVnn77+wfpctlc2hgSt4A=;
-        b=mplhuUZLAy6ZuFJ6QxJ8QkyQiPiNE/gZJFHcumfaI10oHvmdgqSlpf5bfUzOo67XL7
-         g1w4wbhTH8iLaxesxFL6U+xaQT+Y9nuLuKz6JfJWxRwy4KpnpvIRnkYXwQSfiySwvEMd
-         1nqLIuI5MIYgh48mLucipmcYJ1iBD3HpTb/WlLl+gP8K1iZXk1Pubgxd7vdj+RrTtwQi
-         xUV6mJoCSfSyC6bqanvY2DbnejAW0TRzjE15R8jNaCVn2lCRqwHj3uu6TCWcBdgBcYWy
-         9POuEDgT7ybeHekTfBsXjIIwB8syajJ7Dodt6Ajr63QnQQ6MoL6R5vfCEvBa6AkM+sZg
-         jflA==
-X-Forwarded-Encrypted: i=1; AKwUvByUgeZrcPe4x6csgcwOUcjnvhE4DBloq3WLWgS0MdVBdsYS72XCvox+RYXhXECVufhfjoOIbnHT6yl7jB7SPB+2@lists.infradead.org
-X-Gm-Message-State: AFq9FYLYRTTDpwHRpdskWlWCQfkc10MYyGwW9u7QlFhLCLSFWS2WKzYv
-	8gzhhGBbVrOGVOfpBXxjXtLjESYUUFJwQdsk9gaJuRzTCY5B9vWrj9beVfFi6MPWL2zRRjfXKo+
-	dmlos2cA7LgS1BBStbYLYYYYMda+jBRoKu57wSlSzWw==
-X-Gm-Gg: AYBFou3egsZuCHekX3yfioeApF5TtcG5R/HBqZmtZJ6EG/jMUC0LWrrvzva56RW4eec
-	Qh54rnc6mnY4XgnYG8DiFAGqXmVu3xOIVWMvv+dCWmYA77sJHpz+EzIy4kvO5ryv0SzWRsK3cpn
-	tP8i0Hq82jHakAwqqX+IvMs7iydpLNc9mzeBoiFDTFGJp+yX063dSaNbOMjUqwdzmw/dBqdxYM3
-	hpgRGLLioYX/kB6IBIH5REqzimkuxXpwffIhH+2qiTZDTVYnpbCdKmNdhmdne+3wdDI3Ea7eUvF
-	33gGjLUDI85ekNQjrvhOKTbS2eKJ1ZuIMzcAhNLOPBFsvGBNWetFRd+y9wBclDx3IZm/jXp3VgE
-	9jv53w0/OTIVAjqeV7oaue6A/W76uA0CLjoI=
-X-Received: by 2002:a17:902:f54a:b0:2df:736b:d7df with SMTP id
- d9443c01a7336-2df7dc59ed3mr102946795ad.42.1790598633625; Mon, 28 Sep 2026
- 05:30:33 -0700 (PDT)
+	Mon, 28 Sep 2026 12:32:52 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=126.com;
+	s=s110527; h=Message-ID:Date:MIME-Version:Subject:To:From:
+	Content-Type; bh=aCQ+H0c+wVftlMBVRbtm3uG4VWV5k7egRAeD7StXg4Y=;
+	b=n1Ukvfpz6YJb1tXnfP6VyeZouJ/gQl9yilQdCaZ2yCKmna6ZXRzvSjRhuRtH4O
+	b2UzA6Z4sTBjxVHzO+2D9c6UuYN7wNYlPDTxq/dfrhWCpGa3KtHXzx+jbuoV6kIU
+	Umv9UeC7wgfOCGR1B7e7i0lIgXhRJ+8WBlGm791iBx7DY=
+Message-ID: <9ae72d05-dd76-42d6-ae29-b49cfddf85e9@126.com>
+Date: Mon, 28 Sep 2026 20:32:00 +0800
 MIME-Version: 1.0
-References: <20260907132617.1198548-1-robert.marko@sartura.hr>
- <20260907132617.1198548-6-robert.marko@sartura.hr> <tl5ep4ze2e5ctv7c47jsjedvcpnibdspo5az7a73i5p7iwbivk@vbtd4rhtvroa>
-In-Reply-To: <tl5ep4ze2e5ctv7c47jsjedvcpnibdspo5az7a73i5p7iwbivk@vbtd4rhtvroa>
-From: Robert Marko <robert.marko@sartura.hr>
-Date: Mon, 28 Sep 2026 14:30:22 +0200
-X-Gm-Features: AclHuK_ApYIEoqpVKRFrihxpibz6Yiy03tz8KYmapFitKvFghmCeqBLThyFR5Fc
-Message-ID: <CA+HBbNFRufMuhuSiPnJSgSMrGMN6DeskS3kLLogwHk97oHzx1w@mail.gmail.com>
-Subject: Re: [PATCH v2 5/6] arm64: dts: microchip: ev23x71a: enable QSPI
-To: Claudiu Beznea <claudiu.beznea@kernel.org>
-Cc: ulfh@kernel.org, robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org, 
-	nicolas.ferre@microchip.com, alexandre.belloni@bootlin.com, 
-	claudiu.beznea@tuxon.dev, adrian.hunter@intel.com, 
-	aubin.constans@microchip.com, ehristev@kernel.org, linux-mmc@vger.kernel.org, 
-	devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
-	linux-kernel@vger.kernel.org, luka.perkov@sartura.hr
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH net v3] net: stmmac: do not cache the new TSO MSS before
+ it reaches the DMA
+To: netdev-bot+sashiko@kernel.org
+Cc: maxime.chevallier@bootlin.com, andrew+netdev@lunn.ch,
+ davem@davemloft.net, edumazet@google.com, kuba@kernel.org,
+ pabeni@redhat.com, mcoquelin.stm32@gmail.com, alexandre.torgue@foss.st.com,
+ netdev@vger.kernel.org, linux-stm32@st-md-mailman.stormreply.com,
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+ xiaolinkui@kylinos.cn, stable@vger.kernel.org,
+ lorenzo.bianconi@oss.qualcomm.com
+References: <20260922124408.645496-1-xiaolinkui@126.com>
+ <179016759614.2160803.12192059495158802876@kernel.org>
+Content-Language: en-US
+From: Linkui Xiao <xiaolinkui@126.com>
+In-Reply-To: <179016759614.2160803.12192059495158802876@kernel.org>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
+X-CM-TRANSID: PikvCgD3n_5AXrpq+9lyAg--.58147S2
+X-Coremail-Antispam: 1Uf129KBjvJXoWxJF48tFWkWw47uw47Kr1UAwb_yoW5WF15pa
+	y3Kwn0kr1DGFWSqF4xCw40ya4rZw4rtFy5Ar98KrW5Aws8WryIgrW3Ka4Y9Fy7Cw4kX34Y
+	yr4Yg3sxZFWDZrJanT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
+	9KBjDUYxBIdaVFxhVjvjDU0xZFpf9x07UuCJQUUUUU=
+X-CM-SenderInfo: p0ld0z5lqn3xa6rslhhfrp/xtbBqALwx2q6XkJr0AAA3q
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260928_053034_766495_890F4953 
-X-CRM114-Status: GOOD (  16.65  )
+X-CRM114-CacheID: sfid-20260928_053251_068785_FB15B9E0 
+X-CRM114-Status: GOOD (  13.40  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -123,59 +77,57 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Sep 28, 2026 at 10:09=E2=80=AFAM Claudiu Beznea
-<claudiu.beznea@kernel.org> wrote:
->
-> On Mon, Sep 07, 2026 at 03:25:33PM +0200, Robert Marko wrote:
-> > Enable the QSPI controller and describe the onboard SPI NOR flash.
-> >
-> > Signed-off-by: Robert Marko <robert.marko@sartura.hr>
->
-> Missing '---'
->
-> >
-> >  .../arm64/boot/dts/microchip/lan9696-ev23x71a.dts | 15 +++++++++++++++
-> >  1 file changed, 15 insertions(+)
-> >
-> > diff --git a/arch/arm64/boot/dts/microchip/lan9696-ev23x71a.dts b/arch/=
-arm64/boot/dts/microchip/lan9696-ev23x71a.dts
-> > index 4012ea7d07bb..985ca31e74e7 100644
-> > --- a/arch/arm64/boot/dts/microchip/lan9696-ev23x71a.dts
-> > +++ b/arch/arm64/boot/dts/microchip/lan9696-ev23x71a.dts
-> > @@ -463,6 +463,21 @@ phy27: phy@27 {
-> >       };
-> >  };
-> >
-> > +&qspi0 {
-> > +     status =3D "okay";
-> > +
-> > +     flash@0 {
-> > +             compatible =3D "jedec,spi-nor";
-> > +             reg =3D <0>;
-> > +             spi-max-frequency =3D <100000000>;
-> > +             #address-cells =3D <1>;
-> > +             #size-cells =3D <1>;
->
-> As sashiko pointed out, #address-cells, #size-cells, should not be
-> necessary here. I dropped them and applied to microchip-dt64.
+ > [Medium] Can this new write position re-publish a stale non-zero
+ > tx_q->mss after a concurrent TX channel reset has invalidated it?
 
-Thanks,
-Will drop it from future v3 then.
+Agreed, and v4 no longer moves the store: the value is now dropped on the
+paths that never hand the context descriptor to the DMA, which is what the
+commit message was claiming in the first place.
 
-Regards,
-Robert
->
-> Thank you,
-> Claudiu
+Two things are worth separating though.
 
+The interleaving itself is not introduced by the patch.
+stmmac_tx_err() is called from the DMA interrupt handler without any
+serialisation against ndo_start_xmit(), so a reset can land anywhere
+inside stmmac_tso_xmit(), and a reset that lands before the early
+"tx_q->mss = mss" -- anywhere between the entry of the function and that
+store, which includes stmmac_tso_get_num_desc() and the availability check
+-- leaves a non-zero cache for the channel that was just re-initialised
+with the old placement as well. So it is not true that "with the old
+placement a later reset always won"; what the patch did is widen that
+window by roughly the length of the mapping section holding the two
+dma_map_single()/skb_frag_dma_map() calls, and that is what the new
+placement has to answer for. Which it now does not: v4 keeps the store
+where it was and invalidates the cache on the error paths instead. Zero is
+what stmmac_reset_tx_queue() leaves behind, so it cannot republish
+anything even if the reset lands in between, and the next TSO frame
+programs the context descriptor again.
 
+Second, in that interleaving the cached MSS is not the only thing left out
+of step: the transmit path keeps running from its local first_entry, writes
+tx_q->cur_tx = entry and lets stmmac_flush_tx_descriptors() push the tail,
+while stmmac_init_tx_chan() has pointed the channel back at tx_q->dma_tx_phy
+-- the software ring state and the hardware no longer agree, which is what
+the reset is supposed to establish. Fixing that means the reset must stop
+racing ndo_start_xmit() altogether, and it cannot be a lock taken in the
+handler: the interrupted transmit path already holds the queue's
+_xmit_lock, so the handler would be waiting for the context it interrupted.
+That needs the channel reset moved out of hard IRQ context, and I would
+rather send it as a separate change than fold it into a -net fix for the
+ring wedge.
 
---=20
-Robert Marko
-Staff Embedded Linux Engineer
-Sartura d.d.
-Lendavska ulica 16a
-10000 Zagreb, Croatia
-Email: robert.marko@sartura.hr
-Web: www.sartura.hr
+v4 therefore:
+
+   1. drops tx_q->mss on the error paths of stmmac_tso_xmit() (new),
+   2. keeps filling the context descriptor at the slot tx_q->cur_tx points
+      to and releasing it explicitly on those paths (unchanged from v3),
+   3. leaves the store ahead of the mappings, so the patch no longer changes
+      the timing with respect to your interleaving at all.
+
+The subject changed accordingly: the patch no longer moves the store, it
+invalidates the cached value. Code changed, so the Acked-by from Lorenzo
+Bianconi is not carried over.
+
+pw-bot: cr
+
 
