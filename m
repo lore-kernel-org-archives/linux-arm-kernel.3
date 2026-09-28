@@ -4,105 +4,99 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 54E85CA5FA5
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 28 Sep 2026 14:57:16 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E5D7CCA5FA5
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 28 Sep 2026 15:01:07 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Go9hn601ofYGhTbmTXvodFkeQSZutx3QY5olFYU9dfU=; b=L7Gp1KKbaMh44QJesgPJGUcYKi
-	F9Uz18DlT1ByospLGpbR5t6pZw8iwwulaVGB7iKlUly+2FwGbv2qbf8dgAH2yv5zhd+2ckQctbgAI
-	t+59vrxpL1OWAHnQ+zJMibkE3yaVaFsirySabVo8n/MRPJMJ5GjGplranjbyFxevcIHwSXlOQeKyo
-	PFznmKzXOsQZsR3GGIsg47hzyma9nMwMm5gjFQRXmfYK6yexl2Sew6rYgFzRDq87My4FlYAS9l8Sb
-	isnQEddcrNK8WSD/isYlIiKwcPPLxjB9uUvFQgWzeWMLkihGJCYNVNr56bGdp1dnr5X0qrf9zp9fi
-	3u1QzY4g==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:Message-Id:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:From:
+	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
+	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=PNRLh31Iy3KvKfoOWiJ4SBBap26RwlK370O1RZcEP7U=; b=F/NlQm5kiPKDRpLQuCn4J5zRBA
+	HkcXEZOPycdTfUDiYQ2s/90uBSA6Tp0iqUaZHImN8tGiJciYXmRerbs5pfERy3Gblnwc9v/sbp9fW
+	BO+mh1HS4ouhaeX2CvSk75rgiSffb95gHv/SS1JWv1kKR/LEf9vL+aheBKesm7Kcy9IUyMi2sOol1
+	wMJFH+6AoSwghOuX2OSZ6zoq1S0XS9sZFtHbqvhfVhTRcNzRtVvH/QKYHwwVoiFko/oaeIgO+OU5N
+	nqbWwAZ4hT2VKXN0a9DW8xCVjmsR1tSVpKtRD/TRujHXf4E8RNTk90qJPpHgv9aKGrTrlKym8gR7g
+	6tJ8JRHQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xBCmy-00000000pru-2DG8;
-	Mon, 28 Sep 2026 14:57:08 +0000
-Received: from mail-pl1-x62d.google.com ([2607:f8b0:4864:20::62d])
+	id 1xBCqj-00000000qRt-1uuq;
+	Mon, 28 Sep 2026 15:01:01 +0000
+Received: from mail-wm2-x10.google.com ([2a00:1450:4864:31::10])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xBCmv-00000000pr9-31LG
+	id 1xBCqh-00000000qR0-1AQB
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 28 Sep 2026 14:57:06 +0000
-Received: by mail-pl1-x62d.google.com with SMTP id d9443c01a7336-2db33db4de9so92625ad.0
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 28 Sep 2026 07:57:05 -0700 (PDT)
+	Mon, 28 Sep 2026 15:01:00 +0000
+Received: by mail-wm2-x10.google.com with SMTP id 5b1f17b1804b1-49ffa15f67fso11321065e9.2
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 28 Sep 2026 08:00:58 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20251104; t=1790607425; x=1791212225; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:content-type:mime-version
-         :references:message-id:subject:cc:to:from:date:from:to:cc:subject
-         :date:message-id:reply-to:content-type;
-        bh=Go9hn601ofYGhTbmTXvodFkeQSZutx3QY5olFYU9dfU=;
-        b=HZacsRluONOEpnYeLyaq7mD/v+qALnXfgjMKHDQxgdtWWl+HSncTVgUPoNgU9so9eY
-         mvg3VvXZbncrWaWkNuX5lLQw7H4ZLNlN3tBinnu1hqlVinJEyAxp9P/FQy5hAi6tICRF
-         GRlv40gyjNce+XoLPbC3/RzLVz3sPUSK6ey98RYY6N2TZ7aki8FnId2tJBp2uz+Nv9Ws
-         SZLCs55YjsInetP4fB2BCSBrOLHYycQE2BcgrI7sHVOvvxORIrxuZ6FAJNNR5sIFSeUC
-         SVk0MjXhz8lznoSd+A950CReq/h82Uf0VmDOBwG0MRk9wEUnIXlqjITB8trK6uUfYzI8
-         YzSQ==
+        d=gmail.com; s=20251104; t=1790607657; x=1791212457; darn=lists.infradead.org;
+        h=cc:to:message-id:content-transfer-encoding:content-type
+         :mime-version:subject:date:from:from:to:cc:subject:date:message-id
+         :reply-to:content-type;
+        bh=PNRLh31Iy3KvKfoOWiJ4SBBap26RwlK370O1RZcEP7U=;
+        b=Eu9P2Ph2NkHSTPjyyHt7fpKbTDVn/+s9x7MYhLnRYlhfSFCNkg76FLEioupoAdoqeA
+         Q78EUgc8NCA24U0Cip+WzOvfmDonX2qVYPLF3C8MXFtqmiWJsgnobxZRhqhsNY+SE3qU
+         VtnVwI0m5csJaps0p+8pE7GIEYKpDfxMSlKrjlzajEArRevqPJhgyX6U3ugkEuVdiiJq
+         tm/kLJkjG4lKyk19gaCU2hDt4KvsLEm/BjCjwMNB7p1TkywnjACbBqB+kz+624mfdvKy
+         YVnRZDU3OcyPziGBSgLZEAsjJY54X0yjELDyOkJfJS+W6/lid3uQOdNqvrdBlGUIHADx
+         +PFw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1790607425; x=1791212225;
-        h=in-reply-to:content-disposition:content-type:mime-version
-         :references:message-id:subject:cc:to:from:date:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=Go9hn601ofYGhTbmTXvodFkeQSZutx3QY5olFYU9dfU=;
-        b=geMC9Xpz7d/Ro98MRYnztfkWS7X1/vR+QaSoMSMz/6tR8JxebpAwinJB56GnqbbJ9q
-         7yGpECK3NcIcDtoJjHHnVn00zB9SFvp7THtR/ZUdbYn8dZwXKmKRKdeQieJrm9TB8kNv
-         5XEvbuL5GaCCEHdtJng2Fs32cqcEP3lnd9Ej+3TEPtmWW1NjMa1e5W/PbWZPxEljTGFk
-         HshVroCSixH8+4345BJ2FAcxCJCbAIvJ4eHD6guxGmP00YlzlhHx6GCSEPGxbZq8n1JH
-         QfhH8qWVDAQ6yfCsmpNuyBltOmFjqnPwuk/ye9QZqzeAgwCBLSQMiN1hGissJiCH2j1Y
-         uPUQ==
-X-Forwarded-Encrypted: i=1; AKwUvByQ6YbkupWNKQ0xU/XxzscYUD38VETXlDmfQqE0T2M3VZNQkgVqKQNhJpJX9MZE8OxSbfG27el3csGbDHq26KYW@lists.infradead.org
-X-Gm-Message-State: AFq9FYJ/FHsVBcJd0B/DtVoDkwFwW4lvfdMHKYLapQeAqS1SNvKAQMAg
-	8nl/gKkDTg5/DTpf+7NVtvyuMaS55QMj8F9uCNo8CSLOYofpdWb0O1sK/02azjU6ew==
-X-Gm-Gg: AYBFou2z8vpsSAOZTXdpdysYWwJL70rr6kgZql3Q5ObSuqFFOTPXWehLhQ3pONQeyqT
-	4BdjslbHCi6RFlCdFbQtqKcXE2L5a4nMQbbz7yj92vS4wDxKTsGBDIhyNCHeh6CRPDpeiufIs4O
-	YEdb8ibKy4pSPGDL3Por9iZrZZ3gURPsA5ENqVRPo36NUUoQB0AOKasY/3xka9al1rJ6HP5LZaQ
-	e0aslJWCGmtPbmi0xAUmJNdctRLFsIQ7DZJFwOgPqbOhM531fOfz5orJD85HiKM7Q3dA9ZkcUX7
-	P3N8+7kp+WfiDaI8HgudJNKeNYTCRku6XoHy+DlShegH6NS+VqW2w7BcZBdAuicbA4S7+u0G+Ll
-	CTm9eIqLZ2FUb+tQrrq8xWKVMdg3xxcJuQv2MCNm2EXNcrU0tyRfHIieaJosxU34izq5vvbI/eQ
-	G47gsIqwyvHNqUn66qVr2S129kq9RU/mcVl8rJMO2EV6KPgeGjymso5XkYxGoXkc114iwUSwP7U
-	sGm+KOQyghw+BO60lpFCM8qm5gqdVitmHPO
-X-Received: by 2002:a17:902:d4d2:b0:2df:42af:2f9f with SMTP id d9443c01a7336-2dfa968ef1cmr5442355ad.1.1790607424172;
-        Mon, 28 Sep 2026 07:57:04 -0700 (PDT)
-Received: from google.com (105.211.142.34.bc.googleusercontent.com. [34.142.211.105])
-        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-3a0b9feddd0sm7198628a91.2.2026.09.28.07.56.59
+        d=1e100.net; s=20260707; t=1790607657; x=1791212457;
+        h=cc:to:message-id:content-transfer-encoding:content-type
+         :mime-version:subject:date:from:x-gm-gg:x-gm-message-state:from:to
+         :cc:subject:date:message-id:reply-to:content-type;
+        bh=PNRLh31Iy3KvKfoOWiJ4SBBap26RwlK370O1RZcEP7U=;
+        b=24hqiUNzw4wi5fmgEpWsrYpqHWb5/MwWOKb46/Pbfx7hp3GWvUFTkbEZuDLC2Kz00r
+         jvaK2RpK+A9uG/1Kvqo76ZIK5hk++dCIeRKsmPccnJPnFYaVvmcVNt3vh2KosL9GPy++
+         03oEsYG4unkpz6Ys1sEyPrSk9FHR+mNI+WwF7Sz7x8IV/qxSBAdVBCFyh4OObYavZEdB
+         Rrt1ndOJzLJ5lkuQHAQc7irMXSKqdRwg7hWJj2mh/8yFkmV4zUix4pucl7P1CS7S1sl5
+         04GRHpztRKvExKevHmtgWW/9FPJGtV+B5VY3Myd0M3JJBdYkiZbb38bFiEUD2GTfF3Ky
+         GVYQ==
+X-Forwarded-Encrypted: i=1; AKwUvBwvZoNzX+y2gnK6LuIuAXSC7rWT/01MbvnL+fPtbTYRS1bLKSoXhb4kY5eUT/1lc+9PbPwo2oBggK1IEqLjupRw@lists.infradead.org
+X-Gm-Message-State: AFuF++kB6VNyJC2YHPMLF1VXYb0hwVpuf+jlYKvutgQ7yJoeckL/Ow4H
+	b/oqvmUVR+EqIduomE0mz2JjUApwhPoSw7conPGvmC3lrNyer208I7wS
+X-Gm-Gg: AYBFou1bUWpO1GJKT0rGfT4UJNRTS0hCk5TWwR5QHPhL6VHoMjMZzNajKHzfwriONSU
+	LJzWvC63e8xA+h3LPTNDTvhwH3Zh4YYZlq/hAAz0H/AjM8mQCsRqurC0DoiGTp9K266k3jbDNzL
+	OYDk5aSq4+cek2gCjb2vPwBnsjVEh/FwB1Wzo7PRAFINxPSSRlBrh6C1zfNJfuna8oE2MLDiwI0
+	vuwFVU7/2oQLyefcxg08XYPCBCKj6bJYIvfuGsqzs4w8VUvmiMLuvt96wmSOQKW/8U7PtM4d8KI
+	DItgSp6ZscsrPDb5vWCn1Qn90gQueTFRqBtnzs4xewhin/bvZGkTZsCsCXabRvMmwf9WX0DZXGw
+	5bIubQAAKfugql8NfaY/ZR8QVodbpFRKH8YkG4Fe8C0Zf5I0tisA4KDOUa4oVERciD/dRJ2fPxB
+	9SztsLBp8r5WhEnPdKFio7LljK50xJ7jm56JSZHbhzSDFtOpt/VbFonA7Nxu4NJYMy4jusa+kqa
+	4CdnaJJUmVJN8odT24xx+Z0dSEwbRTSCvYOdq9sQyJHMw1Z+7ewjumHJfF3g1gF1X7DPPgs9GmZ
+	9lHfSOF+AcpqqjWDMYyoDSBW9tD8VuX1SOHQzMd3TEMPhZjq
+X-Received: by 2002:a05:600c:3b05:b0:4a0:321:6ddd with SMTP id 5b1f17b1804b1-4a003217170mr61722025e9.34.1790607655941;
+        Mon, 28 Sep 2026 08:00:55 -0700 (PDT)
+Received: from [127.0.1.1] (248.201.173.83.static.wline.lns.sme.cust.swisscom.ch. [83.173.201.248])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4a001922102sm151777245e9.15.2026.09.28.08.00.55
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 28 Sep 2026 07:57:03 -0700 (PDT)
-Date: Mon, 28 Sep 2026 14:56:54 +0000
-From: Pranjal Shrivastava <praan@google.com>
-To: Jason Gunthorpe <jgg@nvidia.com>
-Cc: Catalin Marinas <catalin.marinas@arm.com>,
-	Jonathan Corbet <corbet@lwn.net>, iommu@lists.linux.dev,
-	"Joerg Roedel (AMD)" <joro@8bytes.org>,
-	Jean-Philippe Brucker <jpb@kernel.org>,
-	linux-arm-kernel@lists.infradead.org, linux-doc@vger.kernel.org,
-	Mark Rutland <mark.rutland@arm.com>,
-	Randy Dunlap <rdunlap@infradead.org>,
-	Robin Murphy <robin.murphy@arm.com>,
-	Shuah Khan <skhan@linuxfoundation.org>,
-	Will Deacon <will@kernel.org>, David Matlack <dmatlack@google.com>,
-	Jean-Philippe Brucker <jean-philippe@linaro.org>,
-	Jonathan Cameron <Jonathan.Cameron@huawei.com>,
-	Nicolin Chen <nicolinc@nvidia.com>,
-	Pasha Tatashin <pasha.tatashin@soleen.com>, patches@lists.linux.dev,
-	Samiullah Khawaja <skhawaja@google.com>,
-	Mostafa Saleh <smostafa@google.com>, stable@vger.kernel.org,
-	Vijayanand Jitta <vijayanand.jitta@oss.qualcomm.com>
-Subject: Re: [PATCH v7 5/9] iommu/arm-smmu-v3: Keep track in arm_smmu_invs if
- range invalidation is used
-Message-ID: <arqANvAwIz6GSXJp@google.com>
-References: <0-v7-e84261bbe7cd+2ea80b-smmu_tlbi_jgg@nvidia.com>
- <5-v7-e84261bbe7cd+2ea80b-smmu_tlbi_jgg@nvidia.com>
+        Mon, 28 Sep 2026 08:00:55 -0700 (PDT)
+From: Franz Schnyder <fra.schnyder@gmail.com>
+Date: Mon, 28 Sep 2026 17:00:46 +0200
+Subject: [PATCH] arm64: dts: freescale: imx95-aquila: Enable I2C_3_DSI1 on
+ Clover board
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <5-v7-e84261bbe7cd+2ea80b-smmu_tlbi_jgg@nvidia.com>
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+Message-Id: <20260928-imx95-aquila-clover-enable-lpi2c8-v1-1-9a9755acb8cf@toradex.com>
+X-B4-Tracking: v=1; b=H4sIAB2BumoC/yXNQQ6CMBBG4auQWTsJHYNQr2JclPqrY2rBVggJ4
+ e5WXX6b91bKSIpMx2qlhFmzDrHA7CrydxdvYL0Uk9RyqK10rM/FNuxekwbHPgwzEiO6PoDDqOI
+ 7RmvMvoE10gqVzphw1eX3OJ3/zlP/gH9/w7RtH2AAF+uFAAAA
+X-Change-ID: 20260928-imx95-aquila-clover-enable-lpi2c8-e71135e91272
+To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, Frank Li <Frank.Li@nxp.com>, 
+ Sascha Hauer <s.hauer@pengutronix.de>, 
+ Pengutronix Kernel Team <kernel@pengutronix.de>, 
+ Fabio Estevam <festevam@gmail.com>, 
+ Antoine Gouby <antoine.gouby@toradex.com>
+Cc: devicetree@vger.kernel.org, imx@lists.linux.dev, 
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
+ Francesco Dolcini <francesco@dolcini.it>, 
+ Franz Schnyder <franz.schnyder@toradex.com>, stable@vger.kernel.org
+X-Mailer: b4 0.15.2
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260928_075705_806783_62FCD530 
-X-CRM114-Status: GOOD (  11.37  )
+X-CRM114-CacheID: sfid-20260928_080059_345428_030A9A94 
+X-CRM114-Status: GOOD (  10.94  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -117,19 +111,41 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Sep 21, 2026 at 08:55:13PM -0300, Jason Gunthorpe wrote:
-> Summarize if any of the inv entries will use range invalidation and if any
-> need ARM_SMMU_OPT_FULL_CONT_RANGE_INV. The next patch will use this to
-> avoid range invalidation pre-calculations unless the range commands will
-> be used.
-> 
-> Reviewed-by: Nicolin Chen <nicolinc@nvidia.com>
-> Reviewed-by: Mostafa Saleh <smostafa@google.com>
-> Tested-by: Nicolin Chen <nicolinc@nvidia.com>
-> Signed-off-by: Jason Gunthorpe <jgg@nvidia.com>
+From: Franz Schnyder <franz.schnyder@toradex.com>
 
-Reviewed-by: Pranjal Shrivastava <praan@google.com>
+Enable lpi2c8, which is used for the I2C_3_DSI1 signals on the Clover
+carrier board. It was left disabled by mistake in the initial commit.
 
-Thanks,
-Praan
+Fixes: 3f519121e120 ("arm64: dts: freescale: imx95-aquila: Add Clover carrier board")
+Cc: stable@vger.kernel.org
+Signed-off-by: Franz Schnyder <franz.schnyder@toradex.com>
+---
+ arch/arm64/boot/dts/freescale/imx95-aquila-clover.dts | 5 +++++
+ 1 file changed, 5 insertions(+)
+
+diff --git a/arch/arm64/boot/dts/freescale/imx95-aquila-clover.dts b/arch/arm64/boot/dts/freescale/imx95-aquila-clover.dts
+index 365bce73eddd3..07bf53240958b 100644
+--- a/arch/arm64/boot/dts/freescale/imx95-aquila-clover.dts
++++ b/arch/arm64/boot/dts/freescale/imx95-aquila-clover.dts
+@@ -197,6 +197,11 @@ &lpi2c5 {
+ 	status = "okay";
+ };
+ 
++/* Aquila I2C_3_DSI1 */
++&lpi2c8 {
++	status = "okay";
++};
++
+ /* Aquila SPI_1 */
+ &lpspi6 {
+ 	pinctrl-names = "default";
+
+---
+base-commit: bf184a29ad1b33bd8922029eb0ca3f2866007258
+change-id: 20260928-imx95-aquila-clover-enable-lpi2c8-e71135e91272
+
+Best regards,
+--  
+Franz Schnyder <franz.schnyder@toradex.com>
+
 
