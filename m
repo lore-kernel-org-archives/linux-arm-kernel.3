@@ -4,143 +4,75 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8601EC9833E
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 28 Sep 2026 06:13:36 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2CD9CC9833E
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 28 Sep 2026 06:27:32 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Content-Type:
-	Content-Transfer-Encoding:Message-Id:Date:Subject:Cc:To:From:Reply-To:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
+	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:Message-Id:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:From:
 	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
 	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=XFepkEKPMPiaIv2WvOYN+xxGutMPFJj2Qkk3QhSLJ7o=; b=2sbkqSdwNuIZIdekiFSaAahq79
-	cWFNZOYaOaakUsN5lf8MP7Q+X1ilvYX7RGhvbfYjkyV4TU8CHpauDAjPpGH7DV1wITLxuTnTmtp42
-	/ipDOeSBKtfIWg0iJvMG2XbEVLHL0zHK5hw//OsSxzZjQaCT50y012GsR3OpgF05cOMjXapL1e+JP
-	yVp8BbXQA/btzNa+y4TtTc6qC47K0U1D8J1/HRpQPNmFgQwIF9OKRLkxcHWPeuJLeC5irnqB55PxI
-	fF1xyKTAB1y5hkLNEvBtyrkohJqhTiLGgrpwUsnXcpM8CfmnQe/QyK4LiraVLmJ9RUukfjLc8xlmm
-	u2tfK8NQ==;
+	bh=NXV7/tYBc8Oc7wqFagoZzmcLWztp8gxjz/PSgOgeoqA=; b=3jJqnxLDGWW7U4MnCygR5Jlc8m
+	6XZ94GEerZeHANrbhxxHlMy1q2+WVNpJFsJ3w1DUTQUNPceG8zGkuxBuw5qNxKxdc1hvOZu/saXpx
+	nbKvDUF0dXZYxo58Hfn3jegX53ragbJMa53FZStAsi5Jg69XmzJsAbe0g52QIYvcKmip3rCA6QqUq
+	BWJrcYQzLUqDGEnaah2jHSJZUlYLQwpM6N3eUfRQ27VZasPg30lOZV0TNrRDDQ9N4nrYAEYPeuUsn
+	A1fFVkdCF+MlLMfvHVv1WLVX46vyW8Ol9zz4f/U4ZF+bo/Kkstl1k52BMvondwO1YKL9k6kXNp19I
+	Bl/du2sg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xB4cE-0000000HQuK-0hZX;
-	Mon, 28 Sep 2026 06:13:30 +0000
-Received: from mail-westeuropeazon11010042.outbound.protection.outlook.com ([52.101.69.42] helo=AM0PR83CU005.outbound.protection.outlook.com)
+	id 1xB4pb-0000000HRwn-24n8;
+	Mon, 28 Sep 2026 06:27:19 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xB4cB-0000000HQtc-310o
+	id 1xB4pZ-0000000HRwh-30U8
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 28 Sep 2026 06:13:28 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=c75hZuDYzbxlRbGWAPIIa93xFOQ+sccy4Zw37u4i3dpdDhVUThMm2QsCsqpGZKFSwKt06+WC7AdIbKhpjoNTPwL1R8KjB6e4fTiXlxOO1Gr4ww8fsUark8USH0UId7roZp18+vjNLGkzBeXgb+MJNSk+MZOQDoYk+vJMakv5FIZy3CzgOSvsscMTcogbatLpD+cngWGw8EcGe8i4mHoAdB9UvbD/7RzmVx2GNblbVNz2Y1m2PxkjRo0CDF3qS2L748znhYrJoeH8smhD2rRzYfeky69arPRBlldgRdsKRc2Kbfc4xiQ+MseV2jcZFJh7ULSyKw35XTPSEqQEz72YkA==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=XFepkEKPMPiaIv2WvOYN+xxGutMPFJj2Qkk3QhSLJ7o=;
- b=SxLCTd+0ilhLsNDA7G145WbbDO8iMtL1e5yc2ajZovz9/bpZwgkPDGkr5LNFwka95C3vuI3if29f/WyfOWS+CXVxesHjgii2WULF0jMaI31mSp0xfDTX05eu28i6l7gmdYZRFotLt7AXIjTxis3AWwelvy6M/5Fo2jtdR5KKsjyYx0sB+zKd4GRqTujv0LdRBrft80QB+7y6rimeAOGWM04s60eXEU0XNV/ezIINH/Zo+KY20RhTMq2pdAtt391VstNN8ynJuxSFbVVCHS8OCglYgdWQoHHPQFIp42cMD8zZsVsbumd3UMf91nSEVJfmo0k3qY7Eo6PW1VjDmIvdjQ==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
- dkim=pass header.d=oss.nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
- s=selector1-NXP1-onmicrosoft-com;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=XFepkEKPMPiaIv2WvOYN+xxGutMPFJj2Qkk3QhSLJ7o=;
- b=uSMTnp2HTpoHMoh99sgRwJhp0gpp1GsEwoIzRjNhnhRe71JiuJTH7QI4cZfrFC/oe9wC5YXZg6hjWD8AXF/OMTLZf15eOpXFEJIk30s86/uudXQIXj7gcyXtUJyyHEopOrsCm1qgf+hCn/RSf0ERbxY9k+3wcoItkBLBogC0QdLlTmbxxmqLFWsumi6hiHQQNAqKu1NLqs8AA3JXb5XWsdjhU7L8R9f4t6F0K7HgvfVMxX+WtsvE3L2LCnQvJSdq0iPuNL8ONOSQy5pCMsjPcsXHkpp1nnwnLsF/oCIJ3XgfrU0mHxHiCzzIYMf2IenbF7SqMUH7BnJ1mM2799e9tQ==
-Authentication-Results: mx.microsoft.com 1; dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=oss.nxp.com;
-Received: from PAXPR04MB9351.eurprd04.prod.outlook.com (2603:10a6:102:2b6::17)
- by PA1PR04MB10721.eurprd04.prod.outlook.com (2603:10a6:102:489::12) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.451.23; Mon, 28 Sep
- 2026 06:13:22 +0000
-Received: from PAXPR04MB9351.eurprd04.prod.outlook.com
- ([fe80::1058:a430:52c1:5aa]) by PAXPR04MB9351.eurprd04.prod.outlook.com
- ([fe80::1058:a430:52c1:5aa%6]) with mapi id 15.21.0451.022; Mon, 28 Sep 2026
- 06:13:21 +0000
-From: shengjiu.wang@oss.nxp.com
-To: lgirdwood@gmail.com,
-	broonie@kernel.org,
-	robh@kernel.org,
-	krzk+dt@kernel.org,
-	conor+dt@kernel.org,
-	Frank.Li@nxp.com,
-	s.hauer@pengutronix.de,
-	kernel@pengutronix.de,
-	festevam@gmail.com,
-	shawnguo@kernel.org,
-	linux-sound@vger.kernel.org,
-	devicetree@vger.kernel.org,
-	imx@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	shengjiu.wang@gmail.com,
-	Xiubo.Lee@gmail.com,
-	nicoleotsuka@gmail.com,
-	perex@perex.cz,
-	tiwai@suse.com,
-	linuxppc-dev@lists.ozlabs.org
-Cc: Shengjiu Wang <shengjiu.wang@nxp.com>,
-	Chancel Liu <chancel.liu@gmail.com>,
-	Daniel Baluta <daniel.baluta@nxp.com>
-Subject: [PATCH v6 5/5] ASoC: fsl_easrc: expose individual DAIs per conversion path
-Date: Mon, 28 Sep 2026 14:17:56 +0800
-Message-Id: <20260928061756.1844185-1-shengjiu.wang@oss.nxp.com>
-X-Mailer: git-send-email 2.34.1
-Content-Transfer-Encoding: 8bit
-Content-Type: text/plain
-X-ClientProxiedBy: MA5PR01CA0050.INDPRD01.PROD.OUTLOOK.COM
- (2603:1096:a01:1d6::10) To PAXPR04MB9351.eurprd04.prod.outlook.com
- (2603:10a6:102:2b6::17)
+	Mon, 28 Sep 2026 06:27:17 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id C2AB460204;
+	Mon, 28 Sep 2026 06:27:16 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPS id 6EFDDC2BCC7;
+	Mon, 28 Sep 2026 06:27:16 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1790576836;
+	bh=WcTHDnTmvOWE1C59mZdXUFRa8r2t2+nheTWFYpchz7Q=;
+	h=From:Date:Subject:To:Cc:Reply-To:From;
+	b=loomeO2nSRVAbBLtzicM08Hf/4WfIMCMKgsuyzEVofabOPj9tpiuevFNFD/n8+zml
+	 pzeWIcopCVAU6J9WQCATT9frMlnBGvmG0cCh8AKVqGmwis4RbghOJqJZHw1gONw1Bm
+	 YKCo0y9Zn4NffMn6zl9nxfSZBkz5130PyQji2covfkUlfNo7zbTOC6qjFN7DFOyiZz
+	 J2iwFeNBM1IQzqteouQsVwP9gMGzaOFiH/dtOvoYFtT07mG1PPhuUrvY0PpDldfdh4
+	 UhmX8EpFCNSEdVBc8JUTNnxhf0UkhssjLXagca2J/urmlhGRaWruaEjO3SaWoeamTR
+	 8nEW4I6MkyY3A==
+Received: from aws-us-west-2-korg-lkml-1.web.codeaurora.org (localhost.localdomain [127.0.0.1])
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 4AD89C9832F;
+	Mon, 28 Sep 2026 06:27:16 +0000 (UTC)
+From: Sam Day via B4 Relay <devnull+me.samcday.com@kernel.org>
+Date: Mon, 28 Sep 2026 16:27:15 +1000
+Subject: [PATCH] iommu/qcom: Invalidate TLB during context init
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: PAXPR04MB9351:EE_|PA1PR04MB10721:EE_
-X-MS-Office365-Filtering-Correlation-Id: 3f6b7060-ef53-44d1-47ea-08df1d2798b9
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|7416014|376014|1800799024|19092799006|366016|23010399003|921020|6133799003|10067099003|11063799006|56012099006|18002099003;
-X-Microsoft-Antispam-Message-Info: a9+2FvGyDOLZihCt+sj1iD9xovDaKHr7zwE1J1QXy9dBcTxjWXsqg50hSL0FGu+C0PdJOzHxjxGJ/yeOKEmdeTNf2ApKqWtom4bc6vyc1PnPyB8J1mbAA/SYPmYuuco2kZRz+tVPdRrMy7UW0/iVOoeKDtRtemFUEWdH70TtllqiiPfTtIRoLrCZfAdwYNt1lj/qj5i9xLX0+jCWdTeSjvSN1TPcTWHDlOM1Jf+yRdD3gOtMU8IsGL5pMkyCebzr2JDLYLpInH1WBHoE4Q9bM0VXcXbePiH0wGg7aAUtNS4oR5SwPkMMO837HZmnxlxNv5/doMthHxeFf1YjAiUdGDF9iM7zqTK3Wj6/uh+Rmj/aRbp2SXTULTp5HQIU4/gwUZ/Jtp35vNrdxBNkH9NJAicPxXzg5gZYYphMHF2N+grRYleTLqUy8pUbKnKh3JbidlazHEe5cM8ox7oYRfWmgMUwh649lQoVpp9omAFQhb9nGV2Wd2RgRUaLZ8UiyHSapLsbrUREAH0DT18mhsQcQXAWvWn/mfZ6DCCzR0d9tN4HtieHZkTFJQyAJeOZmcEDyJNxhSQvl6VQS0A5ZGpmJRnXXCQLX8Z/EdLdvptxsT7uzD/R60Fwnp7HpjOWXk6qSQHqR2L0nRF+41EQX5WSb05Zd/Rp5PerVD7522kzeEP/Vfqke+di8MrU3jviFtmg36oHcYjhWd5kRBXlNKVGjw==
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PAXPR04MB9351.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(7416014)(376014)(1800799024)(19092799006)(366016)(23010399003)(921020)(6133799003)(10067099003)(11063799006)(56012099006)(18002099003);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?S/77vvvWWI+h2zk1PGFRpOf1GzORdL+FoWZKh2RKUoh6dVq90hTW0Ic1TnME?=
- =?us-ascii?Q?jPZk5sKqs8Opm2Q2BlXJHlFFHuC1499aghZPV7LoLvL21vCL+L5HTa57S6WO?=
- =?us-ascii?Q?LGLrK/mEZOZCJHvWolG1z635VgkKINh5BTcFdU1VCxdiXWRCH0FbSdLeyAM6?=
- =?us-ascii?Q?kxNIrsrz0QXREK4AOAFjRmZ6eH3PCFQIN7ATTutLxtsHRLqU+KVuKoc9X2Dl?=
- =?us-ascii?Q?B5eizfYf5ZVIVrTIq9MDKWWZvQ5tRa2V//MtkaXrYxzeEy2ogy5fUlXWlMsN?=
- =?us-ascii?Q?ALXLksRv4xn0Plv1CyRZXTAWGquLUEOnUGN2szfHUYVKP7rt3gqTSiIO78Xx?=
- =?us-ascii?Q?m+QuwF4+jojnE3pyr8V8fYKRKfkwe7QGZSmOIKB/SvOLg/25y14oJ20AZVv6?=
- =?us-ascii?Q?sFDhxDIwylGy8HXhGjluT/xgj+XWf9+KV3Ua/gXyQ0/ApKTvHBNLmE/lJi0O?=
- =?us-ascii?Q?ObC4wAZYZMyd/OEVeg/mapyz0zECNAatWopeg5vBPIghk3k/HjP3RqvqsX6e?=
- =?us-ascii?Q?EbTU5sFBr7t8Rb6JSr6CO+is70Vy32ejnGUGwv4Bt06uheK7v95sUAUc8J6Z?=
- =?us-ascii?Q?SK0ByVusYQM4Zu0OjHO3eFX1ZcHFOo6ZFPzYghgRSZu0PRr5DEh7J+pTg27A?=
- =?us-ascii?Q?6MyrhFXHu1/8LKEQPgab9EpuIM7zAjRE5L40MDpjminhBBTbAw2z6jFN2Vro?=
- =?us-ascii?Q?mwm/CURwUvUaA59dQ7v7bCshCjjITuo4+B+zNcSZwcVApbFNi8F2UK/x+3Cm?=
- =?us-ascii?Q?CpU8ZWhrxgDWqXFmCa0gLM96PxOl56biaJqHEiNZ1/HJqKko63lxYhgyjn0K?=
- =?us-ascii?Q?LCFvp2o11phas1QkRfEi53w9L3rQCilx8KTskAm6YkMPt+khnDXouUtGPhe/?=
- =?us-ascii?Q?4+8lw4iA9DSr8dPu++RBwUgRt1kt1EBOoFkgwe8iidjIsD78TwEENX6uuj6M?=
- =?us-ascii?Q?rYuGzV//C1EVb2YX159iAjajF3CvZmH3ZL1lFePUXR8+yttzaW8EyOutv7RA?=
- =?us-ascii?Q?YPyK9wCsAM21GU2g0xbA21wL23g7daO+fJRESMcyWJWNfZmmD4diR7VUHOhx?=
- =?us-ascii?Q?G5XzNmXlPFWjG+R9pAK95Jt8PqHFXai3u33k+xLxbITJrHFCxnus+YZJTLpu?=
- =?us-ascii?Q?gLuiNSX0vT4uQ5cMNW51ujWwTU76XYLSw5J7XsSiKZi0QdSUBY6Gu66lvpOa?=
- =?us-ascii?Q?EB0Ac6olihOEHjZsBx6RbDP2s6A1iIf2/lFUgG2wYT+xsOkU/0PJx84x83UY?=
- =?us-ascii?Q?AFlH6TzI701YySCV2RHAVXoab07FSVNZZZPnsHyygvCGdURwTr0aHnxARD8V?=
- =?us-ascii?Q?D+Y/OIAQAXprpr+qC6GmuPHy1yfmoZTVIxp7sH2LKY8gXHH2D5ve8YZJ8YKT?=
- =?us-ascii?Q?+XgmjSs2fcQQlXTLy9qbfB6Q8CC4EC5+6R0gAg35FvnQbMNsmVpFv47E6il8?=
- =?us-ascii?Q?Pxq1y4bgasY2h/limbOYR2Qq59bwrBWu/XQdqhDDXsAdxYyRQnUrsJ5560r2?=
- =?us-ascii?Q?nk1gF/8gXHOwPVx/HkTuU2mly+jPO+hC1aBxRsuNec4vSRmwuVshGFhLhQ4r?=
- =?us-ascii?Q?9Sp50nfwuFEBfmUh4fEsb8FqjUpyZ4G4gqKvKOj/munBYw9AGiwkdEX7k5qS?=
- =?us-ascii?Q?/iBnk5kF/V9xPPUZS7yd/AHRvd85GESqbC06MmKo+FYRaURWqNNh4EPQWPIB?=
- =?us-ascii?Q?kgEs6e3kCheYeOXiPmRtmLfrzbguUNI7p95gxPbobzURgUVjJxk3dWpsBvoL?=
- =?us-ascii?Q?EtKyhJnwErXXxn8JZFd9dyaBdZ4ld48aZ9tmPeJXTBG9JLCXMW9w?=
-X-OriginatorOrg: oss.nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 3f6b7060-ef53-44d1-47ea-08df1d2798b9
-X-MS-Exchange-CrossTenant-AuthSource: PAXPR04MB9351.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 28 Sep 2026 06:13:21.7350
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: qqI6xTAXyoKcCKvLi3Lk5yCgBP3JZZtNdStLZu/iQkdfCKfbP/KMFbPdnBrQlalKaxPLH9FjQhVPnA/cpzlBhIDN5/fTxjyZnFjX8m0HJmp30awihBYh1e2H9KiAYM55
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: PA1PR04MB10721
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260927_231327_769881_B8B6E7DE 
-X-CRM114-Status: GOOD (  13.48  )
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+Message-Id: <20260928-qcom-iommu-clean-contexts-v1-1-c88fe2b4ff48@samcday.com>
+X-B4-Tracking: v=1; b=H4sIAAAAAAAA/x3MQQrCMBAF0KsMf92BGEupuYq4CJNRB0yiSZVC6
+ d2FvgO8DV2baUegDU1/1q0WBDoNBHnG8lC2hEDwzk/u4if+SM1sNecvy0tjYall0XXpfBZJcXa
+ juDlhILyb3m097utt3/9mwOBJawAAAA==
+X-Change-ID: 20260926-qcom-iommu-clean-contexts-3ccda804c08d
+To: Rob Clark <robin.clark@oss.qualcomm.com>, Will Deacon <will@kernel.org>, 
+ Robin Murphy <robin.murphy@arm.com>, "Joerg Roedel (AMD)" <joro@8bytes.org>, 
+ Joerg Roedel <jroedel@suse.de>
+Cc: iommu@lists.linux.dev, linux-arm-msm@vger.kernel.org, 
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
+ Sam Day <me@samcday.com>
+X-Mailer: b4 0.14.3
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1790576835; l=4431;
+ i=me@samcday.com; s=20240502; h=from:subject:message-id;
+ bh=dBYP37Vw4lAFJ1/z626JMlsCqPvHWtUxsdH66DNtfjA=;
+ b=DC/qs/AsRRQp10M7IFKDFE5qD0b0QaKZ7OQIDMMQU93+okhiU9MCBOUXNBxJeGaCW5GyuQmyo
+ 0R5tch/VaArCcPtPvZbTlApYW3PAyqLI9XCU6ysGOlySHjcxNjSenoa
+X-Developer-Key: i=me@samcday.com; a=ed25519;
+ pk=bzyS0akxWMqr9+AXzgBRIp28KKpEOs+GjYMc2yf+aeU=
+X-Endpoint-Received: by B4 Relay for me@samcday.com/20240502 with
+ auth_id=595
+X-Original-From: Sam Day <me@samcday.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -152,172 +84,124 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
+Reply-To: me@samcday.com
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Shengjiu Wang <shengjiu.wang@nxp.com>
+From: Sam Day <me@samcday.com>
 
-The i.MX EASRC hardware supports four independent conversion contexts
-(A, B, C, D). The driver previously registered a single DAI with generic
-stream names "ASRC-Playback" and "ASRC-Capture", which prevents
-multiple independent conversion paths from being used simultaneously.
+qcom_iommu derives each context bank's ASID from DT data, so a kernel
+booted via kexec reuses the same ASIDs as its predecessor.
 
-Replace the single fsl_easrc_dai instance with an array of four DAI
-drivers to allow up to four independent conversion paths to be active
-at the same time:
+Programming a new TTBR0 doesn't discard entries the SMMU has already
+cached under that ASID, so these residual and stale
+translations/table-walks will go into effect as soon as the context is
+enabled again.
 
-  easrc-0 -- ASRC-Playback / ASRC-Capture (backward compatible)
-  easrc-1 -- ASRC1-Playback / ASRC1-Capture
-  easrc-2 -- ASRC2-Playback / ASRC2-Capture
-  easrc-3 -- ASRC3-Playback / ASRC3-Capture
+On MSM8916 devices (I confirmed it on both a Samsung Galaxy A5 and a
+DragonBoard 410c) the result is MDP5 taking context faults on
+framebuffer IOVAs and stuck in a continuous underrun storm during scan
+out, if the previous kernel had itself initialized the display and
+programmed the SMMU.
 
-easrc-0 retains the original generic stream names to preserve backward
-compatibility with existing machine drivers and board configurations.
-Each DAI retains the same channel, rate and format capabilities as the
-original, including IEC958 subframe support on the capture side. Update
-the devm_snd_soc_register_component() call to register all four DAIs.
+arm-smmu invalidates the whole TLB in arm_smmu_device_reset() before
+enabling the SMMU. qcom_iommu can't do that on these TZ-managed devices
+(SMMU_SCR1.GASRAE=1), however.
 
-Signed-off-by: Shengjiu Wang <shengjiu.wang@nxp.com>
-Reviewed-by: Chancel Liu <chancel.liu@gmail.com>
-Reviewed-by: Frank Li <Frank.Li@nxp.com>
-Reviewed-by: Daniel Baluta <daniel.baluta@nxp.com>
+Instead, qcom_iommu now invalidates each context bank by ASID whilst it
+is still disabled, before programming it for the new domain. Secured
+contexts are protected by TZ so they're skipped.
+
+There's been previous discussion on the list (see link) about how to
+best deal with this kind of situation. This patch opts for a fix in the
+incoming kernel, rather than the outgoing one. This ensures newer
+kernels will always behave correctly, and also covers the kdump use
+case.
+
+Fixes: 0ae349a0f33f ("iommu/qcom: Add qcom_iommu")
+Link: https://lore.kernel.org/all/20240319154756.GB2901@willie-the-truck/
+Assisted-by: LLM
+Signed-off-by: Sam Day <me@samcday.com>
 ---
- sound/soc/fsl/fsl_easrc.c | 112 +++++++++++++++++++++++++++++++-------
- 1 file changed, 92 insertions(+), 20 deletions(-)
+Tested on my DragonBoard 410c. Starting from one unpatched kernel
+scanning out at 640x480 and kexecing into the same kernel at 1280x720
+results in context faults starting at the first IOVA past the previous
+kernel's mapped extent, with continuous MDP5 underruns thereafter.
+During this time I observed an all-blue HDMI signal. With the patch
+applied, the same kexec hop is free of faults, and the HDMI signal is
+clean throughout.
 
-diff --git a/sound/soc/fsl/fsl_easrc.c b/sound/soc/fsl/fsl_easrc.c
-index 4401c4e100b3..5d715bc07357 100644
---- a/sound/soc/fsl/fsl_easrc.c
-+++ b/sound/soc/fsl/fsl_easrc.c
-@@ -1589,27 +1589,99 @@ static const struct snd_soc_dai_ops fsl_easrc_dai_ops = {
- 	.hw_free	= fsl_easrc_hw_free,
- };
+Further, it was proven that kexecing into an unpatched kernel and
+causing the fault storm can then be resolved by subsequently kexecing
+into a patched kernel.
+---
+ drivers/iommu/arm/arm-smmu/qcom_iommu.c | 32 +++++++++++++++++++++-----------
+ 1 file changed, 21 insertions(+), 11 deletions(-)
+
+diff --git a/drivers/iommu/arm/arm-smmu/qcom_iommu.c b/drivers/iommu/arm/arm-smmu/qcom_iommu.c
+index 21d18ce67b982..a37955cd90d5e 100644
+--- a/drivers/iommu/arm/arm-smmu/qcom_iommu.c
++++ b/drivers/iommu/arm/arm-smmu/qcom_iommu.c
+@@ -111,23 +111,26 @@ iommu_readq(struct qcom_iommu_ctx *ctx, unsigned reg)
+ 	return readq_relaxed(ctx->base + reg);
+ }
  
--static struct snd_soc_dai_driver fsl_easrc_dai = {
--	.playback = {
--		.stream_name = "ASRC-Playback",
--		.channels_min = 1,
--		.channels_max = 32,
--		.rate_min = 8000,
--		.rate_max = 768000,
--		.rates = SNDRV_PCM_RATE_KNOT,
--		.formats = FSL_EASRC_FORMATS,
-+static struct snd_soc_dai_driver fsl_easrc_dai[] = {
-+	{
-+		.name = "easrc-0",
-+		.playback = {
-+			.stream_name = "ASRC-Playback",
-+			.channels_min = 1,
-+			.channels_max = 32,
-+			.rate_min = 8000,
-+			.rate_max = 768000,
-+			.rates = SNDRV_PCM_RATE_KNOT,
-+			.formats = FSL_EASRC_FORMATS,
-+		},
-+		.capture = {
-+			.stream_name = "ASRC-Capture",
-+			.channels_min = 1,
-+			.channels_max = 32,
-+			.rate_min = 8000,
-+			.rate_max = 768000,
-+			.rates = SNDRV_PCM_RATE_KNOT,
-+			.formats = FSL_EASRC_FORMATS |
-+				   SNDRV_PCM_FMTBIT_IEC958_SUBFRAME_LE,
-+		},
-+		.ops = &fsl_easrc_dai_ops,
- 	},
--	.capture = {
--		.stream_name = "ASRC-Capture",
--		.channels_min = 1,
--		.channels_max = 32,
--		.rate_min = 8000,
--		.rate_max = 768000,
--		.rates = SNDRV_PCM_RATE_KNOT,
--		.formats = FSL_EASRC_FORMATS |
--			   SNDRV_PCM_FMTBIT_IEC958_SUBFRAME_LE,
-+	{
-+		.name = "easrc-1",
-+		.playback = {
-+			.stream_name = "ASRC1-Playback",
-+			.channels_min = 1,
-+			.channels_max = 32,
-+			.rate_min = 8000,
-+			.rate_max = 768000,
-+			.rates = SNDRV_PCM_RATE_KNOT,
-+			.formats = FSL_EASRC_FORMATS,
-+		},
-+		.capture = {
-+			.stream_name = "ASRC1-Capture",
-+			.channels_min = 1,
-+			.channels_max = 32,
-+			.rate_min = 8000,
-+			.rate_max = 768000,
-+			.rates = SNDRV_PCM_RATE_KNOT,
-+			.formats = FSL_EASRC_FORMATS |
-+				   SNDRV_PCM_FMTBIT_IEC958_SUBFRAME_LE,
-+		},
-+		.ops = &fsl_easrc_dai_ops,
-+	},
-+	{
-+		.name = "easrc-2",
-+		.playback = {
-+			.stream_name = "ASRC2-Playback",
-+			.channels_min = 1,
-+			.channels_max = 32,
-+			.rate_min = 8000,
-+			.rate_max = 768000,
-+			.rates = SNDRV_PCM_RATE_KNOT,
-+			.formats = FSL_EASRC_FORMATS,
-+		},
-+		.capture = {
-+			.stream_name = "ASRC2-Capture",
-+			.channels_min = 1,
-+			.channels_max = 32,
-+			.rate_min = 8000,
-+			.rate_max = 768000,
-+			.rates = SNDRV_PCM_RATE_KNOT,
-+			.formats = FSL_EASRC_FORMATS |
-+				   SNDRV_PCM_FMTBIT_IEC958_SUBFRAME_LE,
-+		},
-+		.ops = &fsl_easrc_dai_ops,
-+	},
-+	{
-+		.name = "easrc-3",
-+		.playback = {
-+			.stream_name = "ASRC3-Playback",
-+			.channels_min = 1,
-+			.channels_max = 32,
-+			.rate_min = 8000,
-+			.rate_max = 768000,
-+			.rates = SNDRV_PCM_RATE_KNOT,
-+			.formats = FSL_EASRC_FORMATS,
-+		},
-+		.capture = {
-+			.stream_name = "ASRC3-Capture",
-+			.channels_min = 1,
-+			.channels_max = 32,
-+			.rate_min = 8000,
-+			.rate_max = 768000,
-+			.rates = SNDRV_PCM_RATE_KNOT,
-+			.formats = FSL_EASRC_FORMATS |
-+				   SNDRV_PCM_FMTBIT_IEC958_SUBFRAME_LE,
-+		},
-+		.ops = &fsl_easrc_dai_ops,
- 	},
--	.ops = &fsl_easrc_dai_ops,
- };
++static void qcom_iommu_ctx_tlb_sync(struct qcom_iommu_ctx *ctx)
++{
++	unsigned int val, ret;
++
++	iommu_writel(ctx, ARM_SMMU_CB_TLBSYNC, 0);
++
++	ret = readl_poll_timeout(ctx->base + ARM_SMMU_CB_TLBSTATUS, val,
++				 (val & 0x1) == 0, 0, 5000000);
++	if (ret)
++		dev_err(ctx->dev, "timeout waiting for TLB SYNC\n");
++}
++
+ static void qcom_iommu_tlb_sync(void *cookie)
+ {
+ 	struct qcom_iommu_domain *qcom_domain = cookie;
+ 	struct iommu_fwspec *fwspec = qcom_domain->fwspec;
+ 	unsigned i;
  
- static const struct snd_soc_component_driver fsl_easrc_component = {
-@@ -2234,7 +2306,7 @@ static int fsl_easrc_probe(struct platform_device *pdev)
- 	regcache_cache_only(easrc->regmap, true);
+-	for (i = 0; i < fwspec->num_ids; i++) {
+-		struct qcom_iommu_ctx *ctx = to_ctx(qcom_domain, fwspec->ids[i]);
+-		unsigned int val, ret;
+-
+-		iommu_writel(ctx, ARM_SMMU_CB_TLBSYNC, 0);
+-
+-		ret = readl_poll_timeout(ctx->base + ARM_SMMU_CB_TLBSTATUS, val,
+-					 (val & 0x1) == 0, 0, 5000000);
+-		if (ret)
+-			dev_err(ctx->dev, "timeout waiting for TLB SYNC\n");
+-	}
++	for (i = 0; i < fwspec->num_ids; i++)
++		qcom_iommu_ctx_tlb_sync(to_ctx(qcom_domain, fwspec->ids[i]));
+ }
  
- 	ret = devm_snd_soc_register_component(dev, &fsl_easrc_component,
--					      &fsl_easrc_dai, 1);
-+					      fsl_easrc_dai, ARRAY_SIZE(fsl_easrc_dai));
- 	if (ret) {
- 		dev_err(dev, "failed to register ASoC DAI\n");
- 		goto err_pm_disable;
+ static void qcom_iommu_tlb_inv_context(void *cookie)
+@@ -270,6 +273,13 @@ static int qcom_iommu_init_domain(struct iommu_domain *domain,
+ 		/* Disable context bank before programming */
+ 		iommu_writel(ctx, ARM_SMMU_CB_SCTLR, 0);
+ 
++		/* The TLB may still hold cached and stale entries for this
++		 * ASID, if a previous kernel programmed the SMMU before
++		 * a kexec into this kernel.
++		 */
++		iommu_writel(ctx, ARM_SMMU_CB_S1_TLBIASID, ctx->asid);
++		qcom_iommu_ctx_tlb_sync(ctx);
++
+ 		/* Clear context bank fault address fault status registers */
+ 		iommu_writel(ctx, ARM_SMMU_CB_FAR, 0);
+ 		iommu_writel(ctx, ARM_SMMU_CB_FSR, ARM_SMMU_CB_FSR_FAULT);
+
+---
+base-commit: 3339792beb5fb1c9c423c544ba2fbc235e7d7f75
+change-id: 20260926-qcom-iommu-clean-contexts-3ccda804c08d
+
+Best regards,
 -- 
-2.34.1
+Sam Day <me@samcday.com>
+
 
 
