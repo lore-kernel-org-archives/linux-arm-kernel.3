@@ -4,93 +4,62 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 81255CA5FA2
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 28 Sep 2026 14:51:23 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 82141CA5FA5
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 28 Sep 2026 14:52:24 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=A8fu8QWqXpe2Gyvs1H5hAyun/lTjh9IKFR/yCOmv8rI=; b=DrQqLTXVKNEckL3ohQXLwQSSjR
-	G44ko8tImuz84D1u9GcHPkt8SS2aszLt3AVPttBlcCm6KnC2N4NHxaOpVi9tqtTeqrunVwYHlCSQV
-	4nZOHl1h8EDlpQolbCP+/mz6ckiHZVQfhwfOCMvcgI8Zf9PDWJBYAqvSpeq4PoqvrS06F/qB9d+Vd
-	rgjDOXr3RVc3M7YOB1ODyYvss6I3U+ZcpfQJ0sPHoOoferwpGAHNqJRpBIjz1poBHI/cZcgnHQL6d
-	ad30beSmRvGD4YCCqmJzNNHzesgInNMtMKnrPmc1cqfM/f1q1pbKKDV8dtyM85yAKTnHVsfNw3dYQ
-	vYnRT49Q==;
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=nTxf3g7MHfc46jtOlfQr/x3upd+z4/f4dUMPgxfxrHk=; b=tL0KVStVq44bk5sm37BZ6wb6iX
+	uWkxxmZyMD4EEueL95aVepJopjq7cxG1qrG1STHmnoCT75U2sp5J5iKG9Nq8sD5i8wC45P9RVK7dY
+	RFArqN4i9My1BxYyA9WJRcf+d90B6C9Euy8OmWVAXak+AhPIcc0A4zNbnrX8X3+ssB1x0SNpNbghE
+	ne8qN3WMUSfxQJDGOUttlLRKjMFaWLcSqfy1JRYuVEJ8hwMoDiZorQPBd7ORvIZlLnWsiFwFrAXyR
+	o58/dl0UPRKsHgkaGu5AZlKLNAjghbffhgqLbcjzZEL+l+rAZPmQDpE+XAH1OwSwmbgZ+SGruDOfs
+	F6VTKXEw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xBChI-00000000ovc-3wWV;
-	Mon, 28 Sep 2026 14:51:16 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1xBCiH-00000000p9o-2XUn;
+	Mon, 28 Sep 2026 14:52:17 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xBCh7-00000000osy-0CFJ
-	for linux-arm-kernel@bombadil.infradead.org;
-	Mon, 28 Sep 2026 14:51:06 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:MIME-Version
-	:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Sender:Reply-To:
-	Content-Type:Content-ID:Content-Description;
-	bh=A8fu8QWqXpe2Gyvs1H5hAyun/lTjh9IKFR/yCOmv8rI=; b=nVXN1MLkFkLFcJII5OzeDl9jho
-	D3wGymraTitXTO+ZSKb4TMhYcLyIprftKC+en5R/RoBbKWaSKBCej1HnmwsB0hpMt990tEZzFDeIo
-	Tmbs88XTePtu7ZRO3dvaTQ9fWaJU6x0RSXR2ncyh4DBgLak/wnzjtiM7J3kKD09FLA3gG+W10P1KZ
-	OKxURkEisJ/TEWVsAXuwTRMIMQNYNkB2ef/O18ILWoGuO3rjMnKpRjZRjrfFrpvSjbTZx0sPRmm1Z
-	F7sJlfYGA0GPypXhU0jQROR8pECyVBPvHvzZBuQNvtxSlD6iduIKwP86Ykka+9Yc9vTkNZdXGeVwq
-	mgMgOxLw==;
-Received: from smtpout-02.galae.net ([185.246.84.56])
-	by desiato.infradead.org with esmtps (Exim 4.99.2 #2 (Red Hat Linux))
-	id 1xBCh3-00000001ad6-3iKp
-	for linux-arm-kernel@lists.infradead.org;
-	Mon, 28 Sep 2026 14:51:03 +0000
-Received: from smtpout-01.galae.net (smtpout-01.galae.net [212.83.139.233])
-	by smtpout-02.galae.net (Postfix) with ESMTPS id 06B281A1038;
-	Mon, 28 Sep 2026 14:50:59 +0000 (UTC)
-Received: from mail.galae.net (mail.galae.net [212.83.136.155])
-	by smtpout-01.galae.net (Postfix) with ESMTPS id CE6D7601BD;
-	Mon, 28 Sep 2026 14:50:58 +0000 (UTC)
-Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 3BC44103294FE;
-	Mon, 28 Sep 2026 16:50:54 +0200 (CEST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=dkim;
-	t=1790607057; h=from:subject:date:message-id:to:cc:mime-version:
-	 content-transfer-encoding:in-reply-to:references;
-	bh=A8fu8QWqXpe2Gyvs1H5hAyun/lTjh9IKFR/yCOmv8rI=;
-	b=vkqOSCIZmsSpcNDP7cjdZzfM5O/CDP/k33daOqxfqivgMuJXVPRAsS6D+JO7EjZES0Xhqp
-	gUPV+2NfXNLktFSaeBzAIp0sVJ7velx+4zAcB03tYsqPiai2Gu9wSi72WalfVlMe9/OZzO
-	KTDrethn4QQYloWqEGLyKx9V+KNJ2mrSpyIWRCSrwksI2v2Qvx1jS/HbBEqRafI94UuwGi
-	o63ryg1pdWCkRmOM7yFZjc+VX7N/KFKMt6NUr3MeM5uB0NUUUIgcvFTnmWB32rLNNjwdSP
-	2heIvm0s0ZjZlKUTHlGfrbntDzuNXiSUMftPUoBe070ky99Hk8YoVuClI7+Bsw==
-From: Maxime Chevallier <maxime.chevallier@bootlin.com>
-To: Andrew Lunn <andrew+netdev@lunn.ch>,
-	Jakub Kicinski <kuba@kernel.org>,
-	davem@davemloft.net,
-	Eric Dumazet <edumazet@google.com>,
-	Paolo Abeni <pabeni@redhat.com>,
-	Simon Horman <horms@kernel.org>,
-	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
-	Alexandre Torgue <alexandre.torgue@foss.st.com>,
-	Russell King <linux@armlinux.org.uk>,
-	Nicolai Buchwitz <nb@tipi-net.de>,
-	Jitendra Vegiraju <jitendra.vegiraju@broadcom.com>
-Cc: Maxime Chevallier <maxime.chevallier@bootlin.com>,
-	thomas.petazzoni@bootlin.com,
-	=?UTF-8?q?Alexis=20Lothor=C3=A9?= <alexis.lothore@bootlin.com>,
-	netdev@vger.kernel.org,
+	id 1xBCiG-00000000p9b-10Ib;
+	Mon, 28 Sep 2026 14:52:16 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by sea.source.kernel.org (Postfix) with ESMTP id A199341363;
+	Mon, 28 Sep 2026 14:52:15 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 03E201F000FF;
+	Mon, 28 Sep 2026 14:52:12 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1790607135;
+	bh=nTxf3g7MHfc46jtOlfQr/x3upd+z4/f4dUMPgxfxrHk=;
+	h=From:To:Cc:Subject:Date;
+	b=LP/RlWEYCcno73BsmdUCQ3MYvg9M5gY+QItkF6nEzp9DJgDTRP9s2iUvqDBaX9kcd
+	 4EoSagQq2MiWMgiyQNdG30Llr4nwZRM5zEwiDKZmB5k5M36xeq8CMig5C/rSr/9cjl
+	 /FKE/Fe/I4zBoiaqPeB3pFMiEWRwaIRR1JMReCwxyB9SRlyf77EHfWjAGw4qPctrwy
+	 y1qGCGYO/kB8hDgmnTmWD32H4BtcLs27d1kvBMFkOER5zGsWfawOpuZAInXJGC6fmp
+	 KEV77oNs0fGGmtzZjUq5QvP7M5Ip/hWhZGnj4QRL1ei89TIuE9rS0/3wP/xlc07AIj
+	 AepHjXkeD5vwA==
+From: Arnd Bergmann <arnd@kernel.org>
+To: Felix Fietkau <nbd@nbd.name>,
+	Lorenzo Bianconi <lorenzo@kernel.org>,
+	Ryder Lee <ryder.lee@mediatek.com>,
+	Matthias Brugger <matthias.bgg@gmail.com>,
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
+Cc: Arnd Bergmann <arnd@arndb.de>,
+	Shayne Chen <shayne.chen@mediatek.com>,
+	Sean Wang <sean.wang@mediatek.com>,
+	linux-wireless@vger.kernel.org,
 	linux-kernel@vger.kernel.org,
 	linux-arm-kernel@lists.infradead.org,
-	linux-stm32@st-md-mailman.stormreply.com,
-	Peter Robinson <pbrobinson@gmail.com>
-Subject: [PATCH net-next v2 1/2] net: stmmac: Introduce a helper to check RSS support
-Date: Mon, 28 Sep 2026 16:50:41 +0200
-Message-ID: <20260928145043.1228968-2-maxime.chevallier@bootlin.com>
-X-Mailer: git-send-email 2.55.0
-In-Reply-To: <20260928145043.1228968-1-maxime.chevallier@bootlin.com>
-References: <20260928145043.1228968-1-maxime.chevallier@bootlin.com>
+	linux-mediatek@lists.infradead.org
+Subject: [PATCH] wifi: mt76: mt7996: add NET_AIROHA dependency
+Date: Mon, 28 Sep 2026 16:51:44 +0200
+Message-ID: <20260928145210.3153783-1-arnd@kernel.org>
+X-Mailer: git-send-email 2.53.0
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
-X-Last-TLS-Session-Version: TLSv1.3
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260928_155102_120919_49737408 
-X-CRM114-Status: GOOD (  15.73  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -105,62 +74,58 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The RSS feature is only available in stmmac if the hardware reports it
-through the DMA caps and if the platform glue sets rss_en.
+From: Arnd Bergmann <arnd@arndb.de>
 
-Introduce a helper that checks both.
+MT7996E fails to link as build-in when NET_AIROHA=m:
 
-For now, no platform sets rss_en, but there's interest in the topic so
-leave the door open instead of dropping the feature altogether.
+WARNING: unmet direct dependencies detected for MT76_NPU
+  Depends on [m]: NETDEVICES [=y] && WLAN [=y] && WLAN_VENDOR_MEDIATEK [=y] && (NET_AIROHA_NPU [=y]=y [=y] || MT76_CORE [=y]=NET_AIROHA_NPU [=y]) && (NET_AIROHA [=m] || !NET_AIROHA [=m])
+  Selected by [y]:
+  - MT7996_NPU [=y] && NETDEVICES [=y] && WLAN [=y] && WLAN_VENDOR_MEDIATEK [=y] && MT7996E [=y] && (NET_AIROHA_NPU [=y]=y [=y] || MT76_CORE [=y]=NET_AIROHA_NPU [=y])
+arm-linux-gnueabi-ld: drivers/net/wireless/mediatek/mt76/npu.o: in function `mt76_npu_init':
+npu.c:(.text.mt76_npu_init+0x4c): undefined reference to `airoha_ppe_get_dev'
+arm-linux-gnueabi-ld: npu.c:(.text.mt76_npu_init+0xf8): undefined reference to `airoha_ppe_put_dev'
 
-No functional changes intended.
+Add another dependency to prevent this configuration, with an explicit
+special case to allow the NPU to be used while the PPE code is stubbed
+out with NET_AIROHA=n.
 
-Suggested-by: Nicolai Buchwitz <nb@tipi-net.de>
-Signed-off-by: Maxime Chevallier <maxime.chevallier@bootlin.com>
+Fixes: 377aa17d2aed ("wifi: mt76: mt7996: Add NPU offload support to MT7996 driver")
+Signed-off-by: Arnd Bergmann <arnd@arndb.de>
 ---
- drivers/net/ethernet/stmicro/stmmac/stmmac.h      | 5 +++++
- drivers/net/ethernet/stmicro/stmmac/stmmac_main.c | 4 ++--
- 2 files changed, 7 insertions(+), 2 deletions(-)
+I am not sure what the use case is for using only the NPU but not
+the PPE code, and it would be good to add a comment near the
+dependency to clarify this, or possibly skip the complexity and
+just make it a hard dependency.
+---
+ drivers/net/wireless/mediatek/mt76/Kconfig        | 1 +
+ drivers/net/wireless/mediatek/mt76/mt7996/Kconfig | 1 +
+ 2 files changed, 2 insertions(+)
 
-diff --git a/drivers/net/ethernet/stmicro/stmmac/stmmac.h b/drivers/net/ethernet/stmicro/stmmac/stmmac.h
-index 7582fca63741..e2873d46e049 100644
---- a/drivers/net/ethernet/stmicro/stmmac/stmmac.h
-+++ b/drivers/net/ethernet/stmicro/stmmac/stmmac.h
-@@ -433,6 +433,11 @@ struct timespec64 stmmac_calc_tas_basetime(ktime_t old_base_time,
- 					   ktime_t current_time,
- 					   u64 cycle_time);
+diff --git a/drivers/net/wireless/mediatek/mt76/Kconfig b/drivers/net/wireless/mediatek/mt76/Kconfig
+index 2ca96e0527c0..a4ece38f938d 100644
+--- a/drivers/net/wireless/mediatek/mt76/Kconfig
++++ b/drivers/net/wireless/mediatek/mt76/Kconfig
+@@ -40,6 +40,7 @@ config MT792x_USB
+ config MT76_NPU
+ 	tristate
+ 	depends on NET_AIROHA_NPU=y || MT76_CORE=NET_AIROHA_NPU
++	depends on NET_AIROHA=y || NET_AIROHA=n || MT76_CORE=NET_AIROHA
  
-+static inline bool stmmac_rss_is_supported(const struct stmmac_priv *priv)
-+{
-+	return priv->dma_cap.rssen && priv->plat->rss_en;
-+}
-+
- #if IS_ENABLED(CONFIG_STMMAC_SELFTESTS)
- void stmmac_selftest_run(struct net_device *dev,
- 			 struct ethtool_test *etest, u64 *buf);
-diff --git a/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c b/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
-index 4dee3542df3b..08feb18d62ba 100644
---- a/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
-+++ b/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
-@@ -3538,7 +3538,7 @@ static void stmmac_mac_config_rx_queues_routing(struct stmmac_priv *priv)
- 
- static void stmmac_mac_config_rss(struct stmmac_priv *priv)
- {
--	if (!priv->dma_cap.rssen || !priv->plat->rss_en) {
-+	if (!stmmac_rss_is_supported(priv)) {
- 		priv->rss.enable = false;
- 		return;
- 	}
-@@ -8037,7 +8037,7 @@ static int __stmmac_dvr_probe(struct device *device,
- 	for (i = 0; i < ARRAY_SIZE(priv->rss.table); i++)
- 		priv->rss.table[i] = ethtool_rxfh_indir_default(i, rxq);
- 
--	if (priv->dma_cap.rssen && priv->plat->rss_en)
-+	if (stmmac_rss_is_supported(priv))
- 		ndev->features |= NETIF_F_RXHASH;
- 
- 	ndev->vlan_features |= ndev->features;
+ source "drivers/net/wireless/mediatek/mt76/mt76x0/Kconfig"
+ source "drivers/net/wireless/mediatek/mt76/mt76x2/Kconfig"
+diff --git a/drivers/net/wireless/mediatek/mt76/mt7996/Kconfig b/drivers/net/wireless/mediatek/mt76/mt7996/Kconfig
+index 5742bce12fbb..3c51b402f44e 100644
+--- a/drivers/net/wireless/mediatek/mt76/mt7996/Kconfig
++++ b/drivers/net/wireless/mediatek/mt76/mt7996/Kconfig
+@@ -17,5 +17,6 @@ config MT7996_NPU
+ 	bool "MT7996 (PCIe) NPU support"
+ 	depends on MT7996E
+ 	depends on NET_AIROHA_NPU=y || MT76_CORE=NET_AIROHA_NPU
++	depends on NET_AIROHA=y || NET_AIROHA=n || MT76_CORE=NET_AIROHA
+ 	select MT76_NPU
+ 	default n
 -- 
-2.55.0
+2.53.0
 
 
