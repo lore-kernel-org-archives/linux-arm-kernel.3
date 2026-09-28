@@ -4,62 +4,104 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2CE8ACA5FA5
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 28 Sep 2026 14:36:58 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 28203CA5FA7
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 28 Sep 2026 14:39:17 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=/5itlcJu9srLLzT4QHX7WOkX7hh4MpPTH6x/emVYksg=; b=NSCfOTcvhsWNUIH/wdIOzTuU+v
-	khDaEo/vZs4d29GM1mvbBDTdpYLZngHmynf9cVvZuT15jvnrhb+zCsw6CWLrqPxwuWmbgNe9kNku1
-	HotNqnJiO46cTr7UMht2XQ5lG8Hq8Blua3v0k0ngcuDlGbCdSxqk0swpWxEORLn1X1d8U6WhM9tqd
-	pj85yV1Knkg7+q/xwbtEC3HBp5qb8Fv5JqGbXGA7dMs1r1gCxNLti48JB0CSwfu5kkwtyGpXfGqGY
-	6SP9IcnVviM5zfQWUI+xH7Aa8Xf7MXfuFYNjGCr/gK956gHJ3bz7q1mcB9pi5rfK2VMLYUQp3iH0U
-	AFtD11eA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:To:
+	From:Reply-To:Cc:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=hIq9o8C6NiP9XlYnGflFHeFN2bvfSHubqssGJibxA2c=; b=dt8jObz71xitrgG1h/7V69XUQw
+	qiOOYTI0pZArCaqFR9pWJi6gfyD6kheSRTjtu12+AB4+V8wK65R4P2+tBCwPuKVUV9NQOMMoy/4F4
+	PmsXHYfFjQaaEaTQV/FPvvaCCSZOHZM3/k6BRkvWZ+SCX13meJp/A9vkjC7UXmR96Z+CDdve4MZup
+	dRRQuqLsgH82SvOpqusAdYCBswsgg17ZdB2CaaojkoaM+MebZmm7cL09kRibgCCR9SPPJ88/OxavN
+	IApcQhfNs5qE8+16LN+2Z6g0i9SjqXvACX0HMtaVam862NStiIjZLeWwGKJep6Wbs37CBxCXBdHQr
+	W7v3/uSQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xBCTL-00000000mYD-2KVl;
-	Mon, 28 Sep 2026 14:36:51 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1xBCVY-00000000nFB-40f4;
+	Mon, 28 Sep 2026 14:39:08 +0000
+Received: from mail-wr2-x0f.google.com ([2a00:1450:4864:30::f])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xBCTK-00000000mY0-31OT
+	id 1xBCVV-00000000nBz-1uLC
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 28 Sep 2026 14:36:50 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 20D9641188;
-	Mon, 28 Sep 2026 14:36:50 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 4EE6A1F000FF;
-	Mon, 28 Sep 2026 14:36:39 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1790606210;
-	bh=/5itlcJu9srLLzT4QHX7WOkX7hh4MpPTH6x/emVYksg=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=JE/yzGbuzqBngwQWRR7pX+rNXVbom7QiV7DYqnEYiAhZWrEIfO1c1B65ffbcXnGST
-	 P4dQwgShY1Hhs5lfk7W8uKgzu5LTzla3YhEE296sRP3ZG6T2ngzXzxDanRA/zrbpg5
-	 e9yIsFanS4M7JFHjAf7slcL3aV+aI2XxSooQ33IzpsS6eXEeA3f8SnHh0V7t1BJU+q
-	 78/5BZfGBTUjvK4Pmk0oKeeLiDql2UYgX5f98mffzlq0HcGF9F11/OUbZmhN0Vnr3m
-	 zxic0mpOekQ3/1e65WOTbuvkpk0R6yEI7Ih/Sp7duEmJnoBzAnj+iToRlQQ/HGFOQz
-	 OUPp3JXR3SjwA==
-Date: Mon, 28 Sep 2026 15:36:36 +0100
-From: "Lorenzo Stoakes (ARM)" <ljs@kernel.org>
-To: Mark Brown <broonie@kernel.org>
-Cc: Marc Zyngier <maz@kernel.org>, Oliver Upton <oupton@kernel.org>, 
-	Joey Gouly <joey.gouly@arm.com>, Steffen Eiden <seiden@linux.ibm.com>, 
-	Suzuki K Poulose <suzuki.poulose@arm.com>, Zenghui Yu <yuzenghui@huawei.com>, 
-	Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>, Fuad Tabba <fuad.tabba@linux.dev>, 
-	Peter Maydell <peter.maydell@linaro.org>, linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev, 
-	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v3 2/3] KVM: arm64: Block ID register changes after we
- rely on the values
-Message-ID: <arpsY1oqmhvxRVpj@gremlin>
-References: <20260901-kvm-arm64-idreg-final-v3-0-a0ffa06fa872@kernel.org>
- <20260901-kvm-arm64-idreg-final-v3-2-a0ffa06fa872@kernel.org>
+	Mon, 28 Sep 2026 14:39:07 +0000
+Received: by mail-wr2-x0f.google.com with SMTP id ffacd0b85a97d-4885d4825adso1899001f8f.0
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 28 Sep 2026 07:39:04 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=suse.com; s=google; t=1790606344; x=1791211144; darn=lists.infradead.org;
+        h=content-transfer-encoding:content-type:mime-version:references
+         :in-reply-to:message-id:date:subject:to:from:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=hIq9o8C6NiP9XlYnGflFHeFN2bvfSHubqssGJibxA2c=;
+        b=Im5idDjcUY6RDTaqanbd9pLreN0BnbupBQr0mvcP+nMSwRygV2ghc2QCVp/306ZfdU
+         Ljo4zTjfkoakLpKAkKGWYsVmUoEUCPzybhQBceUEBDwbVa6GZi2BBcsLo7jVHj8M7ut9
+         bqjvgZhgcjs1A+/42N4ceLU7zYITCH0axuox+es/gvxJ5hkgVDzqe85hhoHbDgwREUwQ
+         QB6+YuixB9GO23D4+CNwmh9noolTMcAOk8qmP5t6CfuazOrreqfkEKpXgsjARrKq/td0
+         1GrwxVDTgW5H0oTSCyWuFov+xAVnficp48AhS5hYw/eOAyCkIksEAx0W6EG/peGzo0GQ
+         h+sQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1790606344; x=1791211144;
+        h=content-transfer-encoding:content-type:mime-version:references
+         :in-reply-to:message-id:date:subject:to:from:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=hIq9o8C6NiP9XlYnGflFHeFN2bvfSHubqssGJibxA2c=;
+        b=HK4J3eEBpjUYfdxjWIrtKfdSNqyf6JMB528vyGB863Mq+EjEfiT4Vr9OlsxhWqaHUI
+         4FTOs5WqmWKPmBiqkMAxkHMcM/TDpVYVTmZ5/f2ej743nKz7f3Sr6ECJ5QoSpfB6LB1n
+         xaQVlOXVaUJRS4X+PcXSRJkg2MfoqrXz/WOTTzOlTN618sheXqnvPMLay6Z+St35IXQs
+         jUr/4IcicDWyZg0cJqufT3EFxtGkIw20YkhiXR4AQ+MRysUWv6WFWD/W/nJFUa/+R6sL
+         Fx9uz7JfQFpvvrhv42qrjnlk8YmK/+SWMr0SruXq32HrCBwGZ+tkfLuike0ujVQQvb4o
+         C41Q==
+X-Forwarded-Encrypted: i=1; AKwUvBzS3uVCvLQZcEkzagbAsWcMp4jgjNGlOnlJedlYgvrsXRmWrEl243b7mpJsdMN6HyJt4lrQax/N3MJsIjYjpYC0@lists.infradead.org
+X-Gm-Message-State: AFuF++nq7y/yWNVWq8WUvGq+TOELfEFnTbpS0XfCGs/OMmcDcDgX4ZZu
+	ijbcuj1Gu+rNIZ3nJdULFEzOULjZU+DMZvzfB1OGetRoGf2qtuTFCnVSvRuQsR5MEAw=
+X-Gm-Gg: AYBFou1Mq+pAtsy9SvCvZG9RGCQrw+2xEjdjvQgon7fsZkgxIiizt3H5YGGYR/81ebx
+	JQbN58JMgZCAtNNI2zZZ5uv9IwmSNAQzA2hCX7g+jKUaN2fqCU1OZ07UisU1lhWbUzUzFtnjuhD
+	LjkAziatzKSRPkzEYNXaFgR+sGnLMjhQ/5SLvcMInV/seM2GJ2UpBDHPsPdXYyEpDOQC5vjLvtt
+	dk1uPVe4Ha+BTu6JQaF0Jok12RyGXTJp3XVDGqjy7TchZ1gS6BZ66/bP/KeFIsxV7LvRi7RUNw5
+	B/53QQTcABbk15kiX9JbgUYc+yubDzCN63SI7yPoTuImoPaf8GVNZOzdwY8SpQGYjhjqFhMeIpO
+	oQSO2GNVbEoZaUq41fUXdm/jB+svjBaZYHzlio7Q6cuM26luNLyEHlMoYnd9MEXNa1ES1DaClT/
+	GeEgUhC++KsVq5rj5QVIOxemKmaSoIZZBHz90gePHr9CCRDNumTO6Ryw5oCOMFRUVxFD5G+g==
+X-Received: by 2002:a05:600c:314a:b0:49e:6778:c2bd with SMTP id 5b1f17b1804b1-49fe66c86bcmr249130795e9.6.1790606343534;
+        Mon, 28 Sep 2026 07:39:03 -0700 (PDT)
+Received: from localhost ([195.94.147.179])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4a00179c729sm221012115e9.15.2026.09.28.07.39.03
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Mon, 28 Sep 2026 07:39:03 -0700 (PDT)
+From: Andrea della Porta <andrea.porta@suse.com>
+To: =?UTF-8?q?Uwe=20Kleine-K=C3=B6nig?= <ukleinek@kernel.org>,
+	linux-pwm@vger.kernel.org,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Florian Fainelli <florian.fainelli@broadcom.com>,
+	Broadcom internal kernel review list <bcm-kernel-feedback-list@broadcom.com>,
+	Andrea della Porta <andrea.porta@suse.com>,
+	devicetree@vger.kernel.org,
+	linux-rpi-kernel@lists.infradead.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	Naushir Patuck <naush@raspberrypi.com>,
+	Stanimir Varbanov <svarbanov@suse.de>,
+	mbrugger@suse.com,
+	Sean Young <sean@mess.org>,
+	Julian Braha <julianbraha@gmail.com>,
+	"Gary Guo" <gary@garyguo.net>,
+	Christophe JAILLET <christophe.jaillet@wanadoo.fr>
+Subject: [PATCH v10 2/3] pwm: rp1: Add RP1 PWM controller driver
+Date: Mon, 28 Sep 2026 16:42:41 +0200
+Message-ID: <b26a359bb0b8f8637955cf3428d0db5137d932e1.1790606188.git.andrea.porta@suse.com>
+X-Mailer: git-send-email 2.51.0
+In-Reply-To: <cover.1790606188.git.andrea.porta@suse.com>
+References: <cover.1790606188.git.andrea.porta@suse.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20260901-kvm-arm64-idreg-final-v3-2-a0ffa06fa872@kernel.org>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 8bit
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260928_073905_645907_01048AAB 
+X-CRM114-Status: GOOD (  34.75  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -74,233 +116,480 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Sep 01, 2026 at 07:18:49PM +0100, Mark Brown wrote:
-> In commit c5bac1ef7df6b ("KVM: arm64: Move existing feature disabling
-> over to FGU infrastructure") a check was added to suppress duplicate
-> recalculation of FGUs based on a flag KVM_ARCH_FLAG_FGU_INITIALIZED. This
+From: Naushir Patuck <naush@raspberrypi.com>
 
-Just for my understanding:
+The Raspberry Pi RP1 southbridge features an embedded PWM
+controller with 4 output channels, alongside an RPM interface
+to read the fan speed on the Raspberry Pi 5.
 
-FGU = Fine-Grained UNDEF -> if feature not present really act as if it's not
-present, don't just not advertise it.
+Add the supporting driver.
 
-And that's about ensuring RES0, RES1 handled correctly?
+Signed-off-by: Naushir Patuck <naush@raspberrypi.com>
+Co-developed-by: Stanimir Varbanov <svarbanov@suse.de>
+Signed-off-by: Stanimir Varbanov <svarbanov@suse.de>
+Co-developed-by: Andrea della Porta <andrea.porta@suse.com>
+Signed-off-by: Andrea della Porta <andrea.porta@suse.com>
+---
+ drivers/pwm/Kconfig   |   7 +
+ drivers/pwm/Makefile  |   1 +
+ drivers/pwm/pwm-rp1.c | 417 ++++++++++++++++++++++++++++++++++++++++++
+ 3 files changed, 425 insertions(+)
+ create mode 100644 drivers/pwm/pwm-rp1.c
 
-Also (just noting for myself here) - it's a bit in the arch.flags bitmask:
+diff --git a/drivers/pwm/Kconfig b/drivers/pwm/Kconfig
+index 7297760868790..523789e82355e 100644
+--- a/drivers/pwm/Kconfig
++++ b/drivers/pwm/Kconfig
+@@ -637,6 +637,13 @@ config PWM_ROCKCHIP
+ 	  Generic PWM framework driver for the PWM controller found on
+ 	  Rockchip SoCs.
+ 
++config PWM_RASPBERRYPI_RP1
++	tristate "RP1 PWM support"
++	depends on MISC_RP1 || COMPILE_TEST
++	depends on HAS_IOMEM
++	help
++	  PWM framework driver for Raspberry Pi RP1 controller.
++
+ config PWM_SAMSUNG
+ 	tristate "Samsung PWM support"
+ 	depends on PLAT_SAMSUNG || ARCH_S5PV210 || ARCH_EXYNOS || COMPILE_TEST
+diff --git a/drivers/pwm/Makefile b/drivers/pwm/Makefile
+index 5630a521a7cff..c07fd24f69f39 100644
+--- a/drivers/pwm/Makefile
++++ b/drivers/pwm/Makefile
+@@ -57,6 +57,7 @@ obj-$(CONFIG_PWM_RENESAS_RZG2L_GPT)	+= pwm-rzg2l-gpt.o
+ obj-$(CONFIG_PWM_RENESAS_RZ_MTU3)	+= pwm-rz-mtu3.o
+ obj-$(CONFIG_PWM_RENESAS_TPU)	+= pwm-renesas-tpu.o
+ obj-$(CONFIG_PWM_ROCKCHIP)	+= pwm-rockchip.o
++obj-$(CONFIG_PWM_RASPBERRYPI_RP1)	+= pwm-rp1.o
+ obj-$(CONFIG_PWM_SAMSUNG)	+= pwm-samsung.o
+ obj-$(CONFIG_PWM_SIFIVE)	+= pwm-sifive.o
+ obj-$(CONFIG_PWM_SL28CPLD)	+= pwm-sl28cpld.o
+diff --git a/drivers/pwm/pwm-rp1.c b/drivers/pwm/pwm-rp1.c
+new file mode 100644
+index 0000000000000..a993b86a5bf85
+--- /dev/null
++++ b/drivers/pwm/pwm-rp1.c
+@@ -0,0 +1,417 @@
++// SPDX-License-Identifier: GPL-2.0
++/*
++ * pwm-rp1.c
++ *
++ * Raspberry Pi RP1 PWM.
++ *
++ * Copyright © 2026 Raspberry Pi Ltd.
++ *
++ * Author: Naushir Patuck (naush@raspberrypi.com)
++ *
++ * Based on the pwm-bcm2835 driver by:
++ * Bart Tanghe <bart.tanghe@thomasmore.be>
++ *
++ * Datasheet: https://pip-assets.raspberrypi.com/categories/892-raspberry-pi-5/documents/RP-008370-DS-1-rp1-peripherals.pdf?disposition=inline
++ *
++ * Limitations:
++ * - Channels can be enabled/disabled through a global update flag, while the
++ *   period and duty per-channel registers are independently updatable, and
++ *   they are latched on the end of (specific channel) period strobe.
++ *   This means that period and duty changes might result in glitches if the
++ *   period/duty is changed exactly during an end of period strobe.
++ * - Since the duty/period registers are freely updatable (do not depend on
++ *   the global update flag), setting one of them close to the period end and
++ *   the other right afterwards results in a mixed output for that cycle because
++ *   the write ops are not atomic.
++ * - The global update flag prevents mis-sampling of multi-bit bus signals in
++ *   the PWM clock domain. This ensures that all PWM channel settings update
++ *   on the same PWM clock cycle. Channels start in sync only if they share the
++ *   same period.
++ * - If both duty and period are set to 0, the output is a constant low signal
++ *   if polarity is normal or a constant high signal if polarity is inversed.
++ * - When disabled the output is driven to 0 if polarity is normal, or to 1
++ *   if polarity is inversed.
++ * - Disabling the PWM stops the output immediately, without waiting for current
++ *   period to complete first.
++ * - Channels are phase-capable, but on RPi5, the firmware can use a channel
++ *   phase register to report the RPM of the fan connected to that PWM
++ *   channel. As a result, phase control will be ignored for now.
++ */
++
++#include <linux/bitfield.h>
++#include <linux/bits.h>
++#include <linux/clk.h>
++#include <linux/err.h>
++#include <linux/io.h>
++#include <linux/module.h>
++#include <linux/of.h>
++#include <linux/platform_device.h>
++#include <linux/pwm.h>
++#include <linux/units.h>
++
++#define RP1_PWM_GLB_CTRL			0x000
++#define RP1_PWM_GLB_CTRL_CHANNEL_ENABLE(chan)	BIT(chan)
++#define RP1_PWM_GLB_CTRL_SET_UPDATE		BIT(31)
++
++#define RP1_PWM_CHAN_CTRL(chan)			(0x014 + ((chan) * 0x10))
++#define RP1_PWM_CHAN_CTRL_POLARITY		BIT(3)
++#define RP1_PWM_CHAN_CTRL_FIFO_POP_MASK		BIT(8)
++#define RP1_PWM_CHAN_CTRL_MODE			GENMASK(2, 0)
++enum rp1_pwm_ctrl_mode {
++	RP1_PWM_CHAN_CTRL_MODE_ZERO,
++	RP1_PWM_CHAN_CTRL_MODE_TE_MS,
++	RP1_PWM_CHAN_CTRL_MODE_PC_MS,
++	RP1_PWM_CHAN_CTRL_MODE_PD_ENC,
++	RP1_PWM_CHAN_CTRL_MODE_MSB_SER,
++	RP1_PWM_CHAN_CTRL_MODE_PPM,
++	RP1_PWM_CHAN_CTRL_MODE_LE_MS,
++	RP1_PWM_CHAN_CTRL_MODE_LSB_SER,
++};
++
++#define RP1_PWM_CHAN_CTRL_DEFAULT		(RP1_PWM_CHAN_CTRL_FIFO_POP_MASK +  \
++						FIELD_PREP(RP1_PWM_CHAN_CTRL_MODE, \
++						RP1_PWM_CHAN_CTRL_MODE_TE_MS))
++
++#define RP1_PWM_RANGE(chan)			(0x018 + ((chan) * 0x10))
++#define RP1_PWM_PHASE(chan)			(0x01C + ((chan) * 0x10))
++#define RP1_PWM_DUTY(chan)			(0x020 + ((chan) * 0x10))
++
++#define RP1_PWM_NUM_PWMS			4
++
++struct rp1_pwm {
++	void __iomem *base;
++	struct clk *clk;
++	unsigned long clk_rate;
++	bool clk_enabled;
++};
++
++struct rp1_pwm_waveform {
++	u32 period_ticks;
++	u32 duty_ticks;
++	bool enabled;
++	bool inverted_polarity;
++};
++
++static void rp1_pwm_apply_config(struct pwm_chip *chip, struct pwm_device *pwm)
++{
++	struct rp1_pwm *rp1 = pwmchip_get_drvdata(chip);
++	u32 value;
++
++	/* update the changed registers on the next strobe to avoid glitches */
++	value = readl(rp1->base + RP1_PWM_GLB_CTRL);
++	value |= RP1_PWM_GLB_CTRL_SET_UPDATE;
++	writel(value, rp1->base + RP1_PWM_GLB_CTRL);
++}
++
++static int rp1_pwm_request(struct pwm_chip *chip, struct pwm_device *pwm)
++{
++	struct rp1_pwm *rp1 = pwmchip_get_drvdata(chip);
++	u32 value, polarity;
++
++	/* init channel to reset defaults, preserving the polarity bit */
++	value = readl(rp1->base + RP1_PWM_CHAN_CTRL(pwm->hwpwm));
++	polarity = FIELD_GET(RP1_PWM_CHAN_CTRL_POLARITY, value);
++	value = u32_replace_bits(RP1_PWM_CHAN_CTRL_DEFAULT, polarity, RP1_PWM_CHAN_CTRL_POLARITY);
++	writel(value, rp1->base + RP1_PWM_CHAN_CTRL(pwm->hwpwm));
++
++	return 0;
++}
++
++static int rp1_pwm_round_waveform_tohw(struct pwm_chip *chip,
++				       struct pwm_device *pwm,
++				       const struct pwm_waveform *wf,
++				       void *_wfhw)
++{
++	struct rp1_pwm *rp1 = pwmchip_get_drvdata(chip);
++	u64 period_ticks, duty_ticks, offset_ticks;
++	struct rp1_pwm_waveform *wfhw = _wfhw;
++	u64 clk_rate = rp1->clk_rate;
++	int ret = 0;
++
++	if (!wf->period_length_ns) {
++		*wfhw = (typeof(*wfhw)){
++			.enabled = false,
++			.inverted_polarity = false,
++		};
++		return 0;
++	}
++
++	period_ticks = mul_u64_u64_div_u64(wf->period_length_ns, clk_rate, NSEC_PER_SEC);
++
++	/*
++	 * The period is limited to U32_MAX, and it will be decremented by one later
++	 * to allow 100% duty cycle.
++	 */
++	if (period_ticks > U32_MAX) {
++		period_ticks = U32_MAX;
++	} else if (period_ticks < 2) {
++		period_ticks = 2;
++		ret = 1;
++	}
++
++	duty_ticks = mul_u64_u64_div_u64(wf->duty_length_ns, clk_rate, NSEC_PER_SEC);
++	duty_ticks = min(duty_ticks, period_ticks);
++	offset_ticks = mul_u64_u64_div_u64(wf->duty_offset_ns, clk_rate, NSEC_PER_SEC);
++	if (offset_ticks >= period_ticks)
++		offset_ticks = period_ticks - 1;
++	if (duty_ticks && offset_ticks &&
++	    duty_ticks + offset_ticks >= period_ticks) {
++		wfhw->duty_ticks = period_ticks - duty_ticks;
++		wfhw->inverted_polarity = true;
++	} else {
++		wfhw->duty_ticks = duty_ticks;
++		wfhw->inverted_polarity = false;
++	}
++	/* Account for the extra tick at the end of the period */
++	wfhw->period_ticks = period_ticks - 1;
++
++	wfhw->enabled = true;
++
++	return ret;
++}
++
++static int rp1_pwm_round_waveform_fromhw(struct pwm_chip *chip,
++					 struct pwm_device *pwm,
++					 const void *_wfhw,
++					 struct pwm_waveform *wf)
++{
++	struct rp1_pwm *rp1 = pwmchip_get_drvdata(chip);
++	const struct rp1_pwm_waveform *wfhw = _wfhw;
++	u64 clk_rate = rp1->clk_rate;
++	u64 ticks;
++
++	*wf = (struct pwm_waveform){ };
++
++	if (!wfhw->enabled)
++		return 0;
++
++	wf->period_length_ns = DIV_ROUND_UP_ULL(((u64)wfhw->period_ticks + 1) * NSEC_PER_SEC,
++						(u32)clk_rate);
++
++	if (!wfhw->inverted_polarity) {
++		ticks = min_t(u64, wfhw->duty_ticks, (u64)wfhw->period_ticks + 1);
++		wf->duty_length_ns = DIV_ROUND_UP_ULL(ticks * NSEC_PER_SEC,
++						      (u32)clk_rate);
++	} else {
++		if (wfhw->duty_ticks > (u64)wfhw->period_ticks + 1) {
++			/* 100% duty cycle case */
++			ticks = 0;
++		} else {
++			ticks = (u64)wfhw->period_ticks + 1 - wfhw->duty_ticks;
++		}
++		wf->duty_length_ns = DIV_ROUND_UP_ULL(ticks * NSEC_PER_SEC, (u32)clk_rate);
++		wf->duty_offset_ns = DIV_ROUND_UP_ULL((u64)(wfhw->period_ticks + 1 - ticks) *
++						      NSEC_PER_SEC, (u32)clk_rate);
++	}
++
++	return 0;
++}
++
++static int rp1_pwm_write_waveform(struct pwm_chip *chip,
++				  struct pwm_device *pwm,
++				  const void *_wfhw)
++{
++	struct rp1_pwm *rp1 = pwmchip_get_drvdata(chip);
++	const struct rp1_pwm_waveform *wfhw = _wfhw;
++	u32 value, ctrl;
++
++	/* set polarity */
++	value = readl(rp1->base + RP1_PWM_CHAN_CTRL(pwm->hwpwm));
++	if (!wfhw->inverted_polarity)
++		value &= ~RP1_PWM_CHAN_CTRL_POLARITY;
++	else
++		value |= RP1_PWM_CHAN_CTRL_POLARITY;
++	writel(value, rp1->base + RP1_PWM_CHAN_CTRL(pwm->hwpwm));
++
++	/* early exit if disabled */
++	ctrl = readl(rp1->base + RP1_PWM_GLB_CTRL);
++	if (!wfhw->enabled) {
++		ctrl &= ~RP1_PWM_GLB_CTRL_CHANNEL_ENABLE(pwm->hwpwm);
++		/* just disable the channel and bail out early */
++		writel(ctrl, rp1->base + RP1_PWM_GLB_CTRL);
++		rp1_pwm_apply_config(chip, pwm);
++		return 0;
++	}
++
++	/* set period and duty cycle */
++	writel(wfhw->period_ticks, rp1->base + RP1_PWM_RANGE(pwm->hwpwm));
++	writel(wfhw->duty_ticks, rp1->base + RP1_PWM_DUTY(pwm->hwpwm));
++
++	/* enable the channel */
++	ctrl |= RP1_PWM_GLB_CTRL_CHANNEL_ENABLE(pwm->hwpwm);
++	writel(ctrl,  rp1->base + RP1_PWM_GLB_CTRL);
++
++	rp1_pwm_apply_config(chip, pwm);
++
++	return 0;
++}
++
++static int rp1_pwm_read_waveform(struct pwm_chip *chip,
++				 struct pwm_device *pwm,
++				 void *_wfhw)
++{
++	struct rp1_pwm *rp1 = pwmchip_get_drvdata(chip);
++	struct rp1_pwm_waveform *wfhw = _wfhw;
++	u32 value;
++
++	*wfhw = (typeof(*wfhw)) {
++		.period_ticks = 0,
++		.duty_ticks = 0,
++	};
++
++	value = readl(rp1->base + RP1_PWM_GLB_CTRL);
++	wfhw->enabled = !!(value & RP1_PWM_GLB_CTRL_CHANNEL_ENABLE(pwm->hwpwm));
++
++	value = readl(rp1->base + RP1_PWM_CHAN_CTRL(pwm->hwpwm));
++	wfhw->inverted_polarity = !!(value & RP1_PWM_CHAN_CTRL_POLARITY);
++
++	if (wfhw->enabled) {
++		wfhw->period_ticks = readl(rp1->base + RP1_PWM_RANGE(pwm->hwpwm));
++		wfhw->duty_ticks = readl(rp1->base + RP1_PWM_DUTY(pwm->hwpwm));
++	}
++
++	return 0;
++}
++
++static const struct pwm_ops rp1_pwm_ops = {
++	.sizeof_wfhw = sizeof(struct rp1_pwm_waveform),
++	.request = rp1_pwm_request,
++	.round_waveform_tohw = rp1_pwm_round_waveform_tohw,
++	.round_waveform_fromhw = rp1_pwm_round_waveform_fromhw,
++	.read_waveform = rp1_pwm_read_waveform,
++	.write_waveform = rp1_pwm_write_waveform,
++};
++
++static int rp1_pwm_probe(struct platform_device *pdev)
++{
++	struct device *dev = &pdev->dev;
++	unsigned long clk_rate;
++	struct pwm_chip *chip;
++	struct rp1_pwm *rp1;
++	int ret;
++
++	chip = devm_pwmchip_alloc(dev, RP1_PWM_NUM_PWMS, sizeof(*rp1));
++	if (IS_ERR(chip))
++		return PTR_ERR(chip);
++
++	rp1 = pwmchip_get_drvdata(chip);
++
++	rp1->base = devm_platform_ioremap_resource(pdev, 0);
++	if (IS_ERR(rp1->base))
++		return PTR_ERR(rp1->base);
++
++	rp1->clk = devm_clk_get(dev, NULL);
++	if (IS_ERR(rp1->clk))
++		return dev_err_probe(dev, PTR_ERR(rp1->clk), "Clock not found\n");
++
++	ret = clk_prepare_enable(rp1->clk);
++	if (ret)
++		return dev_err_probe(dev, ret, "Failed to enable clock\n");
++	rp1->clk_enabled = true;
++
++	ret = devm_clk_rate_exclusive_get(dev, rp1->clk);
++	if (ret) {
++		dev_err_probe(dev, ret, "Failed to get exclusive rate\n");
++		goto err_disable_clk;
++	}
++
++	clk_rate = clk_get_rate(rp1->clk);
++	if (!clk_rate) {
++		ret = dev_err_probe(dev, -EINVAL, "Failed to get clock rate\n");
++		goto err_disable_clk;
++	}
++	/*
++	 * To prevent u64 overflow in period calculations:
++	 * mul_u64_u64_div_u64(period_ns, clk_rate, NSEC_PER_SEC)
++	 * If clk_rate > 1 GHz, the result can overflow.
++	 */
++	if (clk_rate > HZ_PER_GHZ) {
++		ret = dev_err_probe(dev, -EINVAL, "Clock rate > 1 GHz is not supported\n");
++		goto err_disable_clk;
++	}
++	rp1->clk_rate = clk_rate;
++
++	chip->ops = &rp1_pwm_ops;
++	chip->atomic = true;
++
++	platform_set_drvdata(pdev, chip);
++
++	ret = pwmchip_add(chip);
++	if (ret) {
++		dev_err_probe(dev, ret, "Failed to register PWM chip\n");
++		goto err_disable_clk;
++	}
++
++	return 0;
++
++err_disable_clk:
++	clk_disable_unprepare(rp1->clk);
++
++	return ret;
++}
++
++static void rp1_pwm_remove(struct platform_device *pdev)
++{
++	struct pwm_chip *chip = platform_get_drvdata(pdev);
++	struct rp1_pwm *rp1 = pwmchip_get_drvdata(chip);
++
++	pwmchip_remove(chip);
++
++	if (rp1->clk_enabled) {
++		clk_disable_unprepare(rp1->clk);
++		rp1->clk_enabled = false;
++	}
++}
++
++static int rp1_pwm_suspend(struct device *dev)
++{
++	struct pwm_chip *chip = dev_get_drvdata(dev);
++	struct rp1_pwm *rp1 = pwmchip_get_drvdata(chip);
++
++	if (rp1->clk_enabled) {
++		clk_disable_unprepare(rp1->clk);
++		rp1->clk_enabled = false;
++	}
++
++	return 0;
++}
++
++static int rp1_pwm_resume(struct device *dev)
++{
++	struct pwm_chip *chip = dev_get_drvdata(dev);
++	struct rp1_pwm *rp1 = pwmchip_get_drvdata(chip);
++	int ret;
++
++	ret = clk_prepare_enable(rp1->clk);
++	if (ret) {
++		dev_err(dev, "Failed to enable clock on resume: %pe\n", ERR_PTR(ret));
++		return ret;
++	}
++	rp1->clk_enabled = true;
++
++	return 0;
++}
++
++static DEFINE_SIMPLE_DEV_PM_OPS(rp1_pwm_pm_ops, rp1_pwm_suspend, rp1_pwm_resume);
++
++static const struct of_device_id rp1_pwm_of_match[] = {
++	{ .compatible = "raspberrypi,rp1-pwm" },
++	{ /* sentinel */ }
++};
++MODULE_DEVICE_TABLE(of, rp1_pwm_of_match);
++
++static struct platform_driver rp1_pwm_driver = {
++	.probe = rp1_pwm_probe,
++	.remove = rp1_pwm_remove,
++	.driver = {
++		.name = "rp1-pwm",
++		.of_match_table = rp1_pwm_of_match,
++		.pm = pm_ptr(&rp1_pwm_pm_ops),
++	},
++};
++module_platform_driver(rp1_pwm_driver);
++
++MODULE_DESCRIPTION("RP1 PWM driver");
++MODULE_AUTHOR("Naushir Patuck <naush@raspberrypi.com>");
++MODULE_AUTHOR("Andrea della Porta <andrea.porta@suse.com>");
++MODULE_LICENSE("GPL");
+-- 
+2.35.3
 
-kvm_calculate_traps() ->
-
-	if (test_bit(KVM_ARCH_FLAG_FGU_INITIALIZED, &kvm->arch.flags))
-		goto out;
-
-	...
-
-	set_bit(KVM_ARCH_FLAG_FGU_INITIALIZED, &kvm->arch.flags);
-
-> flag is set when we complete kvm_calculate_traps(), which is called from
-> kvm_arch_vcpu_run_pid_change(). There are several points where that
-> function could fail after we have calculated FGUs (eg, due to an invalid
-> timer configuration). If this happens then userspace will still be able
-> to write to the ID registers, writes to which are gated on
-> KVM_ARCH_FLAG_HAS_RAN_ONCE being set. This in turn means that the FGU
-
-OK so the issue is that the writes to registers are permitted while
-KVM_ARCH_FLAG_HAS_RAN_ONCE is cleared, but there's a dependency:
-
-	reg config -> what features enabled -> what FGU sets RES0/1 for
-
-So you can finalise FGU state on incorrect information.
-
-And RES0/RES1 matters meaningfully for NV because VNCR backs registers
-with... memory :) Whereas the actual sysregs will just do what they do.
-
-> configuration for a running guest may not match the ID register
-> configuration.
-
-Ack yeah.
-
->
-> This will result in issues based on the hypervisor assuming a consistent
-> configuration, for example it allows the creation of guests which have
-> untrapped access to system registers which are not context switched for
-> the guest.
->
-> A similar issue exists in kvm_init_nv_sysregs() where once sysreg_masks
-> is allocated the RES0/RES1 masks for registers are fixed based on the ID
-> register values at the time the function ran, and also for copying the
-> implementation ID registers to the hypervisor for pKVM.
->
-> There is a further issue with vGIC setup, creating a vGIC includes
-> updating the ID registers to reflect the GIC configuration. We refuse
-> to create a vGIC after the first vCPU has run but if a vCPU fails its
-> first run we may already have finalized the ID register values.
-
-It seems like all are similar to 1/3 in that there are dependencies that
-are not correctly expressed atm.
-
->
-> Avoid these issues by adding a new flag that we set when we finalize the
-> system registers, blocking ID register changes after that has been set
-> even if something fails later on. Do this in kvm_vm_finalize_sys_regs(),
-> this is where we finalize the GIC fields in the ID registers and happens
-> before we do the FGU and RES0/1 setup. A VMM which tries to create an
-
-OK so resolve things by tracking when the regs _should_ actually be set up
-by, rather than just gating on KVM_ARCH_FLAG_HAS_RAN_ONCE once.
-
-> irqchip after failing to run a vCPU will now get -EBUSY rather than a
-> likely misconfigured guest. Userspace is not expected to try to run a
-> guest that fails to start, never mind try to repair the guest
-> configuration after doing so, so this is not expected to have any impact
-> on practical users.
-
-Sounds reasonable.
-
->
-> There is a preexisting flag KVM_ARCH_FLAG_ID_REGS_INITIALIZED, this was
-> added as part of the series that originally enabled writable ID
-> registers[1].  That is set when the vCPU feature flags are finalized in
-> KVM_ARM_VCPU_INIT when we initiailise the ID registers, we need to be
-> able to write to the ID registers after that point since the features
-> can influence ID registers (eg, ID_AA64ZFR0_EL1).  Given this and the
-> fact that the flag was introduced as part of making the ID registers
-> writable it appears to be a deliberate and desired ABI design decision
-> to not use this flag to block writes to the ID registers.  Introducing
-> the new flag preserves the existing behaviour.
-
-Also sounds reasonable.
-
->
-> [1] https://lore.kernel.org/r/20230609190054.1542113-7-oliver.upton@linux.dev
->
-> Fixes: c5bac1ef7df6b ("KVM: arm64: Move existing feature disabling over to FGU infrastructure")
-> Fixes: 888f088070229 ("KVM: arm64: nv: Add sanitising to VNCR-backed sysregs")
-> Fixes: 03e1b89d051f ("KVM: arm64: Copy MIDR_EL1 into hyp VM when it is writable")
-> Fixes: 8a9866ff8600 ("KVM: arm64: Set ID_{AA64PFR0,PFR1}_EL1.GIC when GICv3 is configured")
-> Reviewed-by: Fuad Tabba <fuad.tabba@linux.dev>
-> Tested-by: Fuad Tabba <fuad.tabba@linux.dev>
-> Signed-off-by: Mark Brown <broonie@kernel.org>
-
-All LGTM so:
-
-Reviewed-by: Lorenzo Stoakes (ARM) <ljs@kernel.org>
-
-> ---
->  arch/arm64/include/asm/kvm_host.h |  8 ++++++++
->  arch/arm64/kvm/sys_regs.c         | 17 ++++++++++-------
->  arch/arm64/kvm/vgic/vgic-init.c   |  6 ++----
->  3 files changed, 20 insertions(+), 11 deletions(-)
->
-> diff --git a/arch/arm64/include/asm/kvm_host.h b/arch/arm64/include/asm/kvm_host.h
-> index 27fe0cd5b2d7..777c46b34bb5 100644
-> --- a/arch/arm64/include/asm/kvm_host.h
-> +++ b/arch/arm64/include/asm/kvm_host.h
-> @@ -367,6 +367,8 @@ struct kvm_arch {
->  #define KVM_ARCH_FLAG_WRITABLE_IMP_ID_REGS		10
->  	/* Unhandled SEAs are taken to userspace */
->  #define KVM_ARCH_FLAG_EXIT_SEA				11
-> +	/* No further ID register changes possible */
-> +#define KVM_ARCH_FLAG_ID_REGS_FINAL			12
->  	unsigned long flags;
->
->  	/* VM-wide vCPU feature set */
-> @@ -1149,6 +1151,12 @@ struct kvm_vcpu_arch {
->  #define vcpu_has_ptrauth(vcpu)		false
->  #endif
->
-> +#define kvm_id_regs_final(kvm)						\
-> +	test_bit(KVM_ARCH_FLAG_ID_REGS_FINAL, &(kvm)->arch.flags)
-> +
-> +#define vcpu_id_regs_final(vcpu)					\
-> +	kvm_id_regs_final((vcpu)->kvm)
-> +
->  #define vcpu_on_unsupported_cpu(vcpu)					\
->  	vcpu_get_flag(vcpu, ON_UNSUPPORTED_CPU)
->
-> diff --git a/arch/arm64/kvm/sys_regs.c b/arch/arm64/kvm/sys_regs.c
-> index 880f84248427..df0c3831094d 100644
-> --- a/arch/arm64/kvm/sys_regs.c
-> +++ b/arch/arm64/kvm/sys_regs.c
-> @@ -2511,9 +2511,10 @@ static int set_id_reg(struct kvm_vcpu *vcpu, const struct sys_reg_desc *rd,
->
->  	/*
->  	 * Once the VM has started the ID registers are immutable. Reject any
-> -	 * write that does not match the final register value.
-> +	 * write that does not match the final register value once we have
-> +	 * got far enough into first running the VM to use the values.
->  	 */
-> -	if (kvm_vm_has_ran_once(vcpu->kvm)) {
-> +	if (vcpu_id_regs_final(vcpu)) {
->  		if (val != read_id_reg(vcpu, rd))
->  			ret = -EBUSY;
->  		else
-> @@ -2547,7 +2548,7 @@ void kvm_set_vm_id_reg(struct kvm *kvm, u32 reg, u64 val)
->
->  	lockdep_assert_held(&kvm->arch.config_lock);
->
-> -	if (KVM_BUG_ON(kvm_vm_has_ran_once(kvm) || !p, kvm))
-> +	if (KVM_BUG_ON(kvm_id_regs_final(kvm) || !p, kvm))
->  		return;
->
->  	*p = val;
-> @@ -3243,10 +3244,10 @@ static int set_imp_id_reg(struct kvm_vcpu *vcpu, const struct sys_reg_desc *r,
->  		return -EINVAL;
->
->  	/*
-> -	 * Once the VM has started the ID registers are immutable. Reject the
-> -	 * write if userspace tries to change it.
-> +	 * Once we have been far enough into starting the VM the ID registers
-> +	 * are immutable. Reject the write if userspace tries to change it.
->  	 */
-> -	if (kvm_vm_has_ran_once(kvm))
-> +	if (kvm_id_regs_final(kvm))
->  		return -EBUSY;
->
->  	/*
-> @@ -5869,7 +5870,7 @@ void kvm_calculate_traps(struct kvm_vcpu *vcpu)
->   */
->  static int kvm_vm_finalize_sys_regs(struct kvm *kvm)
->  {
-> -	if (kvm_vm_has_ran_once(kvm))
-> +	if (kvm_id_regs_final(kvm))
->  		return 0;
->
->  	/*
-> @@ -5917,6 +5918,8 @@ static int kvm_vm_finalize_sys_regs(struct kvm *kvm)
->  		kvm_vgic_finalize_idregs(kvm);
->  	}
->
-> +	set_bit(KVM_ARCH_FLAG_ID_REGS_FINAL, &kvm->arch.flags);
-> +
->  	return 0;
->  }
->
-> diff --git a/arch/arm64/kvm/vgic/vgic-init.c b/arch/arm64/kvm/vgic/vgic-init.c
-> index 4012df6002ea..247c211bd68b 100644
-> --- a/arch/arm64/kvm/vgic/vgic-init.c
-> +++ b/arch/arm64/kvm/vgic/vgic-init.c
-> @@ -123,10 +123,8 @@ int kvm_vgic_create(struct kvm *kvm, u32 type)
->  		goto out_unlock;
->  	}
->
-> -	kvm_for_each_vcpu(i, vcpu, kvm) {
-> -		if (vcpu_has_run_once(vcpu))
-> -			goto out_unlock;
-> -	}
-> +	if (kvm_id_regs_final(kvm))
-> +		goto out_unlock;
-
-This is a nice improvement! :)
-
->  	ret = 0;
->
->  	if (type == KVM_DEV_TYPE_ARM_VGIC_V2)
->
-> --
-> 2.47.3
->
->
-
---
-Cheers, Lorenzo
 
