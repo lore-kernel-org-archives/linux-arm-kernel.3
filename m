@@ -4,119 +4,59 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1889EC9833F
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 28 Sep 2026 13:08:16 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 69089CA5FA2
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 28 Sep 2026 13:12:16 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=zxSNjVT4979CcDIB2eXyC2fXrOMFb2I45D/2gr/sDgg=; b=LaviRzrFS5pfU145kGwtH//7w3
-	mTWQ6Y3njfnuhLww3CsYQWRL+9xKMXod4RIuAhSU/2JTdl+dZdCU3gLYRYi0bHlH60e5GTaKOsBhY
-	C7qmX36THcAa3c7WC9p4EYouke2lglydjBJCF5gxaKpz39iWkN9V2SPORt0/7UKQhYNF0C2dTLNCx
-	76Wg8as5GCyu9f8ResJqShK28G3wZAcwranvxbUiR2QC7gK1QtXU4UXz19fa7aKGvEnvQ3OYlsr/c
-	/0IXSv/FGrIpIKE3oxVWyav0XMJN2TYbXRuMX3Q6wHxqgKbpGrfGycF6TbL3wxJjdmVrRAYPOOias
-	mH/Wit0g==;
+	bh=AFOBGkbyLEsT8oHbnv3Tx7r5hqOModam36oOeO/AXUQ=; b=TC4JxCUnse82uZIgOwMAWoy4me
+	3cC0dCQuowTZieMJkOThtGouXmh3wRG/b8OjlZyGtS/ErCdasSZX4X9pcCklfFBonWGnRr9NwvPq2
+	Wb1WAB4qTVGgslaKu2r7ZzeIPuoOVwRbowkdmwmsa7fMhkhvXT0XcyQoS9baXsoXUv0ug0x+wMtj0
+	0xZdxa4cXawBKXyfOstdo/4e/bRsJzTTHzPTa8fRpq208vJ3+HMDozXgS0xczcukjijqYQ+bb3Oi9
+	xroZuogzwJTQw2LNUPWGqwFz7wvqwzx/AoSUPtWbWcBP2V7FeN5QQ0L+TBua+yj4ajDLd7t9tBsGd
+	QUUfN2yQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xBB5U-00000000chW-3nYv;
-	Mon, 28 Sep 2026 13:08:08 +0000
-Received: from mail-norwayeastazon11013032.outbound.protection.outlook.com ([40.107.159.32] helo=OSPPR02CU001.outbound.protection.outlook.com)
-	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xBB5S-00000000ch9-2d4U
-	for linux-arm-kernel@lists.infradead.org;
-	Mon, 28 Sep 2026 13:08:07 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=a9/QLMXeaHyMof1y9fam15iyU08rxgGUUvnfj1X1HXxQ1198d6oyBcUGTriRFTv+dWAro5/+qS6afJzGXPaZ96Ck7KxLyvH0QXsmA2mX7TB4EOvZamjeETmnSbaiam67ySO4ebfQrRZLzEste01JhaF1+xTqmy4/ddB1i4th6f7WN+ZD9TETPxUWEwg2sdkQTj9/UvYR+sL4NuFlADVZ/buvinkLbKPjUD/DZOWdnG2YQ/JfwmePwm+7DNVm7E4k3MWUnYf5e0oAYTss0HLS35lKCR0ABBJSmFA+Jpj1Xng/KUhuXNpSL9XJt/IWF56Co+n6vFdHXnejth+G1/9vbg==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=zxSNjVT4979CcDIB2eXyC2fXrOMFb2I45D/2gr/sDgg=;
- b=yYCNkbNKtD28jgLPirVnBSuBH4YT8Cs5hkusRqCWsAXH5UOAW9oUvtQQUyZ8jwHddZho8OOVNDMuIOyC+Kv8P0Tn1vUU7+6R7yZX5myTtrF+TvMo5+9Upfj4uSW17hAR7hqCnB/qCxjTsQrU79SoHaFFxnTcmL+XKW8b3GFON5jZQ4Wg6YIRmceFnmOqktIBwi/sR0NsW8DBKNq2yGk6to9z+2L4Wp9uB+w7hTciWMG7uxx67DWlN26MBnX5KiLBbiV6PHXJqxQlJiXCg4b7KBvv4WLB5r7rdDOQBSf0XgXb/F7XTA2sg0/DMwa3uLeH55+gb1GBAeuKzrFurnA2Ng==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=fail (sender ip is
- 164.130.1.60) smtp.rcpttodomain=posteo.net smtp.mailfrom=foss.st.com;
- dmarc=fail (p=none sp=none pct=100) action=none header.from=foss.st.com;
- dkim=none (message not signed); arc=none (0)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=foss.st.com;
- s=selector2;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=zxSNjVT4979CcDIB2eXyC2fXrOMFb2I45D/2gr/sDgg=;
- b=kUJ8lmzQli1BIh+azhe0vqgHUmaViI1r7seGp50NyzLmZPw14Xmz/YusPXBY31a2JQqYmRe5pUUFy1TdwYx9WLPY29X5hn8WCaX7IvgF/o+qtyD9RIvQZvohlEi2ggDuxng3RJYolZtax2YuUORgoP2o7fJKB28SYw7hWDPzNJsc4hXLTEW95DqGBd5ZByeZ+wXTjPG+/0SE4dVWFTQTQ87AQunWLau/5VsawzbcvboqJYLOmnOY+I/EmySwGrUWgOdBdgyWxkpqANPTkyK1mHg9x66+IF8bJF4WpJTYk3h1712WBsXO25Fm8MtoFnxOrO8UPe3u+jRygUYS24rX6A==
-Received: from PAZP264CA0151.FRAP264.PROD.OUTLOOK.COM (2603:10a6:102:1f9::15)
- by PA1PR10MB8643.EURPRD10.PROD.OUTLOOK.COM (2603:10a6:102:443::16) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.451.23; Mon, 28 Sep
- 2026 13:07:59 +0000
-Received: from MAD0EPF000008AB.eurprd04.prod.outlook.com
- (2603:10a6:102:1f9:cafe::74) by PAZP264CA0151.outlook.office365.com
- (2603:10a6:102:1f9::15) with Microsoft SMTP Server (version=TLS1_3,
- cipher=TLS_AES_256_GCM_SHA384) id 15.21.451.23 via Frontend Transport; Mon,
- 28 Sep 2026 13:07:58 +0000
-X-MS-Exchange-Authentication-Results: mx.microsoft.com 1; spf=fail (sender IP
- is 164.130.1.60) smtp.mailfrom=foss.st.com; dkim=none (message not signed)
- header.d=none;dmarc=fail action=none header.from=foss.st.com;
-Received-SPF: Fail (protection.outlook.com: domain of foss.st.com does not
- designate 164.130.1.60 as permitted sender) receiver=protection.outlook.com;
- client-ip=164.130.1.60; helo=smtpO365.st.com;
-Received: from smtpO365.st.com (164.130.1.60) by
- MAD0EPF000008AB.mail.protection.outlook.com (10.167.241.183) with Microsoft
- SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.21.472.14 via Frontend Transport; Mon, 28 Sep 2026 13:07:58 +0000
-Received: from STKDAG1NODE2.st.com (10.75.128.133) by smtpO365.st.com
- (10.250.44.72) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.43; Mon, 28 Sep
- 2026 15:13:30 +0200
-Received: from [10.48.86.79] (10.48.86.79) by STKDAG1NODE2.st.com
- (10.75.128.133) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.43; Mon, 28 Sep
- 2026 15:07:36 +0200
-Message-ID: <a4c02a71-df8e-4370-8ec5-9f07210f8727@foss.st.com>
-Date: Mon, 28 Sep 2026 15:07:35 +0200
+	id 1xBB9N-00000000cvP-1si3;
+	Mon, 28 Sep 2026 13:12:09 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1xBB9L-00000000cux-1iAP;
+	Mon, 28 Sep 2026 13:12:08 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 533E31655;
+	Mon, 28 Sep 2026 06:12:00 -0700 (PDT)
+Received: from [10.0.153.43] (e121487-lin.cambridge.arm.com [10.0.153.43])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id CE63B3F763;
+	Mon, 28 Sep 2026 06:12:01 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
+	t=1790601123; bh=qARXK5luvst6TAFL4jAEw2OrBYm6ac8q5l9d2gaTyoI=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=METk7VeL7FwsyTZ8S6FYEwMaMolu9SL5gg4JMZJsCAms92flWQLNTO0HCiIMZ6cfw
+	 qXRx0RjbLUZdADGQpCoYLhb8BCNpJ0xcQFrbQ/jqAgP2/WoFXV2uaPsd8MpcvdyxML
+	 mmDDNJ6/WsrqTFMR7q06quekokzYF9NS/iDNscJ0=
+Message-ID: <845ef1a3-8d85-4007-aa2c-05e59e79afcd@arm.com>
+Date: Mon, 28 Sep 2026 14:11:42 +0100
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 0/2] arm64: dts: st: fix sai3b unit address on stm32mp2
-To: Mateusz Nowicki <mateusz.nowicki@posteo.net>, Maxime Coquelin
-	<mcoquelin.stm32@gmail.com>
-CC: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>, Olivier Moysan
-	<olivier.moysan@foss.st.com>, Amelie Delaunay <amelie.delaunay@foss.st.com>,
-	<devicetree@vger.kernel.org>, <linux-stm32@st-md-mailman.stormreply.com>,
-	<linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>
-References: <20260924193759.27881-1-mateusz.nowicki@posteo.net>
-Content-Language: en-US
-From: Alexandre TORGUE <alexandre.torgue@foss.st.com>
-In-Reply-To: <20260924193759.27881-1-mateusz.nowicki@posteo.net>
-Content-Type: text/plain; charset="UTF-8"; format=flowed
+Subject: Re: [PATCH] usb: mtu3: Fix double dereference in TP_printk
+To: linux-usb@vger.kernel.org
+Cc: linux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org,
+ linux-kernel@vger.kernel.org, chunfeng.yun@mediatek.com,
+ gregkh@linuxfoundation.org, rostedt@goodmis.org, paulmck@kernel.org,
+ mark.rutland@arm.com
+References: <20260922103756.104846-1-vladimir.murzin@arm.com>
+Content-Language: en-GB
+From: Vladimir Murzin <vladimir.murzin@arm.com>
+In-Reply-To: <20260922103756.104846-1-vladimir.murzin@arm.com>
+Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
-X-Originating-IP: [10.48.86.79]
-X-ClientProxiedBy: ENXCAS1NODE2.st.com (10.75.128.138) To STKDAG1NODE2.st.com
- (10.75.128.133)
-X-EOPAttributedMessage: 0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: MAD0EPF000008AB:EE_|PA1PR10MB8643:EE_
-X-MS-Office365-Filtering-Correlation-Id: 2334c1c3-3c14-4066-0d3b-08df1d6184c7
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|376014|23010399003|82310400026|36860700016|1800799024|10067099003|11063799006|18002099003|22082099003|56012099006;
-X-Microsoft-Antispam-Message-Info: dbnyIOIYHWsVnuu+/hwhMgU2ioMjjiYmTK64eAdQDXd8FPjLoE1cQru5YsHhQdHY13Pkm5UPGkQ99kFvTJ8ISmetHt+q7nQJAp/clJ4hXQfOKWIzz3dnKlAQDgunnE6tNCx+BTjtoBTEBrKKjgq2QvLeBRLHGPFOLM1BYWhaa6/90cCdXpY7D2rXkl73vhSaNwiMPENFya3oh3nC5Dio+CKaJ1KTWVMxXFv0mAGGXrHLaIVp/kQ6YIdjVUKqWAOobliv+o69FMHSVgk21Hw7N9JomIlOhCmicc7Or77ZHQ+T/2T7zZ2v5Yj/3iRccKMRNjTw/GCqTA40R09DtIxeGgqj4t7DFe9yOxpTxcY5FDx359CvTZuZembo7yuMT1Im7jpsCsBv08ESOMVvOPMxZgiDEIrO1curu0eK9tvdPmBf+TmFvO6INaKTqynebQnBnGOhYXXn1eMSaVgTFTkG4UkqqtxZlToNprPYtyv210zaF2jORptGKvkmzPBRtawWx0MVBOhoJibDxYErDYIMqCl530GpBHm1Gi+6EkG9WCF4PnMAUSATojzxlno3+UUZlte+b5Qvk5DtOvcArGeR1bLyrZT10WKnltXudR+IztRa1osOTJvJM8fKqhd0lCy30fg+JqCJbTME8bu0G/kz7+AEdzSWVGXUITQ+m9Chbxp0lmNK5iQOtE/mK1mAjYlF7+k2XsQUNmoiaU32cfVC9w==
-X-Forefront-Antispam-Report: CIP:164.130.1.60;CTRY:IT;LANG:en;SCL:1;SRV:;IPV:CAL;SFV:NSPM;H:smtpO365.st.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(376014)(23010399003)(82310400026)(36860700016)(1800799024)(10067099003)(11063799006)(18002099003)(22082099003)(56012099006);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: NvB43Fu3yn31YG4vvvysDsG6GuhtHwXjLo3Eyg2FGQVxH8CAk3mFUU9LHw/GAMVM2gFtodx479Z+XA0U2z8YIVIhvqHQ2EEDudiqB51W0oC3cYKXwv5bP+2Gb9+4pvqVSlQAxGQWpTS00dLUCjRE52/q8gXkLzqsROTxRyG+l1vrWZFf1wdR3XVvl5HKx5Wv/g8Prj+UJSIbK5+8tHRvkGZZGb3m2vVAfziK6JiL8KU7W2jFYCa6rY2RIrQFitP8rTBHtk80rpU9cs/jCfdrFDG5b8wsELwkS15x9z+JK+GhMRsH1lK/m4CwxqaWJ9fclY5BY493U9XEYVbHIST2WnlPe7eSfdDe74FYVf2cxfDkebtVzvomy7a4ArsWgRHAmFcAcNRAvN3m7jSQXAjHj44a3JCEtDu7Ec4tGYwrIaPJHfCEXLRIZhsMC5ORYvAK
-X-OriginatorOrg: foss.st.com
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 28 Sep 2026 13:07:58.5351
- (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: 2334c1c3-3c14-4066-0d3b-08df1d6184c7
-X-MS-Exchange-CrossTenant-Id: 75e027c9-20d5-47d5-b82f-77d7cd041e8f
-X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=75e027c9-20d5-47d5-b82f-77d7cd041e8f;Ip=[164.130.1.60];Helo=[smtpO365.st.com]
-X-MS-Exchange-CrossTenant-AuthSource: MAD0EPF000008AB.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Anonymous
-X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: PA1PR10MB8643
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260928_060806_786892_2FF88C52 
-X-CRM114-Status: UNSURE (   9.25  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260928_061207_551763_082CE744 
+X-CRM114-Status: GOOD (  20.38  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -131,30 +71,104 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi
+Hi All,
 
-On 9/24/26 21:38, Mateusz Nowicki wrote:
-> The sai3b node on stm32mp251 and stm32mp231 has a unit address taken
-> from the secure alias of SAI3, while its reg property and all other SAI
-> nodes use the non-secure alias. The reg property is correct, so there
-> is no functional change.
-> 
-> The typo comes from two different commits, so each SoC gets its own
-> patch with its own Fixes tag.
-> 
-> Mateusz Nowicki (2):
->    arm64: dts: st: fix sai3b unit address on stm32mp251
->    arm64: dts: st: fix sai3b unit address on stm32mp231
-> 
->   arch/arm64/boot/dts/st/stm32mp231.dtsi | 2 +-
->   arch/arm64/boot/dts/st/stm32mp251.dtsi | 2 +-
->   2 files changed, 2 insertions(+), 2 deletions(-)
-> 
-> 
-> base-commit: 2f92d900f262a16c8ae02daf53ae2910d07185f5
+Gentle ping... spat is still present in v7.3-rc5
 
-Applied on stm32-next.
+Cheers
+Vladimir
 
-thanks
-Alex
+On 9/22/26 11:37, Vladimir Murzin wrote:
+> Paul reported kernel splat:
+> 
+> [    0.000000] TRACE EVENT ERROR: Event mtu3_gadget_ep_set_halt has double dereference in TP_printk: &REC->gpd_ring->dma
+> [    0.000000] ------------[ cut here ]------------
+> [    0.000000] Event mtu3_gadget_ep_set_halt has double dereference in TP_printk: &REC->gpd_ring->dma
+> [    0.000000] WARNING: kernel/trace/trace_events.c:420 at test_double_dereference+0x144/0x14c, CPU#0: swapper/0/0
+> [    0.000000] Modules linked in:
+> [    0.000000] CPU: 0 UID: 0 PID: 0 Comm: swapper/0 Not tainted 7.3.0-rc1 #15247 PREEMPT
+> [    0.000000] Hardware name: linux,dummy-virt (DT)
+> [    0.000000] pstate: 600000c5 (nZCv daIF -PAN -UAO -TCO -DIT -SSBS BTYPE=--)
+> [    0.000000] pc : test_double_dereference+0x144/0x14c
+> [    0.000000] lr : test_double_dereference+0x144/0x14c
+> [    0.000000] sp : ffffc80aa7633bf0
+> [    0.000000] x29: ffffc80aa7633bf0 x28: ffffc80aa7c0f047 x27: 000508b58019388f
+> [    0.000000] x26: 0000000000000003 x25: 0000000000000007 x24: ffffc80aa5fceff8
+> [    0.000000] x23: ffffc80aa7c0f05a x22: ffffc80aa64edfe8 x21: ffffc80aa7c0fce8
+> [    0.000000] x20: ffffc80aa7c0f047 x19: 0000000000000013 x18: 0000000000000001
+> [    0.000000] x17: 6572656420656c62 x16: 756f642073616820 x15: 746c61685f746573
+> [    0.000000] x14: 0000000000000000 x13: ffff000139d90000 x12: 0000000000000045
+> [    0.000000] x11: 00000000000000cf x10: ffff00013f546428 x9 : ffff000139d90000
+> [    0.000000] x8 : 3fffffffffffc000 x7 : 0000000000000001 x6 : 0000000000000001
+> [    0.000000] x5 : ffff00013f4e6440 x4 : 0000000000000000 x3 : 0000000000000000
+> [    0.000000] x2 : 0000000000000000 x1 : 0000000000000000 x0 : ffffc80aa764a700
+> [    0.000000] Call trace:
+> [    0.000000]  test_double_dereference+0x144/0x14c (P)
+> [    0.000000]  trace_event_raw_init+0x37c/0x5d8
+> [    0.000000]  event_init+0x34/0xc0
+> [    0.000000]  trace_event_init+0xec/0x588
+> [    0.000000]  trace_init+0x24/0x6e0
+> [    0.000000]  start_kernel+0x4a0/0x8ec
+> [    0.000000]  __primary_switched+0x88/0x90
+> [    0.000000] irq event stamp: 0
+> [    0.000000] hardirqs last  enabled at (0): [<0000000000000000>] 0x0
+> [    0.000000] hardirqs last disabled at (0): [<0000000000000000>] 0x0
+> [    0.000000] softirqs last  enabled at (0): [<0000000000000000>] 0x0
+> [    0.000000] softirqs last disabled at (0): [<0000000000000000>] 0x0
+> [    0.000000] ---[ end trace 0000000000000000 ]---
+> [    0.000000] TRACE EVENT ERROR: Event mtu3_gadget_ep_disable has double dereference in TP_printk: &REC->gpd_ring->dma
+> [    0.000000] TRACE EVENT ERROR: Event mtu3_gadget_ep_enable has double dereference in TP_printk: &REC->gpd_ring->dma
+> 
+> Which also observed by Mark and myself.
+> 
+> The splat it result of new check introduced by b5cc230af5e5 ("tracing:
+> Warn when an event dereferences a pointer in TP_printk()") which
+> correctly catches issue with %pad dereferencing the address saved in
+> the ring buffer. TP_fast_assign() logic gets executed when the
+> tracepoint is triggered, however the TP_printk() is executed when the
+> user reads the trace buffer which could be seconds, minutes, hours,
+> days, even months later and nothing guarantee that __entry->gpd_ring
+> pointer will still be pointing to what it was when it was recorded.
+> 
+> Fix the issue by capturing immediate value of gpd_ring.dma when trace
+> point is triggered.
+> 
+> Reported-by: Paul E. McKenney <paulmck@kernel.org>
+> Tested-by: Mark Rutland <mark.rutland@arm.com>
+> Reviewed-by: Steven Rostedt <rostedt@goodmis.org>
+> Signed-off-by: Vladimir Murzin <vladimir.murzin@arm.com>
+> ---
+>  drivers/usb/mtu3/mtu3_trace.h | 4 +++-
+>  1 file changed, 3 insertions(+), 1 deletion(-)
+> 
+> diff --git a/drivers/usb/mtu3/mtu3_trace.h b/drivers/usb/mtu3/mtu3_trace.h
+> index 89870175d635..9aaa167d69c1 100644
+> --- a/drivers/usb/mtu3/mtu3_trace.h
+> +++ b/drivers/usb/mtu3/mtu3_trace.h
+> @@ -224,6 +224,7 @@ DECLARE_EVENT_CLASS(mtu3_log_ep,
+>  		__field(unsigned int, flags)
+>  		__field(unsigned int, direction)
+>  		__field(struct mtu3_gpd_ring *, gpd_ring)
+> +		__field(dma_addr_t, gpd_ring_dma)
+>  	),
+>  	TP_fast_assign(
+>  		__assign_str(name);
+> @@ -235,12 +236,13 @@ DECLARE_EVENT_CLASS(mtu3_log_ep,
+>  		__entry->flags = mep->flags;
+>  		__entry->direction = mep->is_in;
+>  		__entry->gpd_ring = &mep->gpd_ring;
+> +		__entry->gpd_ring_dma = mep->gpd_ring.dma
+>  	),
+>  	TP_printk("%s: type %s maxp %d slot %d mult %d burst %d ring %p/%pad flags %c:%c%c%c:%c",
+>  		__get_str(name), usb_ep_type_string(__entry->type),
+>  		__entry->maxp, __entry->slot,
+>  		__entry->mult, __entry->maxburst,
+> -		__entry->gpd_ring, &__entry->gpd_ring->dma,
+> +		__entry->gpd_ring, &__entry->gpd_ring_dma,
+>  		__entry->flags & MTU3_EP_ENABLED ? 'E' : 'e',
+>  		__entry->flags & MTU3_EP_STALL ? 'S' : 's',
+>  		__entry->flags & MTU3_EP_WEDGE ? 'W' : 'w',
+> -- 2.34.1
+> 
+
 
