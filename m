@@ -4,65 +4,68 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BD5CDCA5FA5
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 28 Sep 2026 12:33:00 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 193D6CA5FA2
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 28 Sep 2026 12:35:21 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=aCQ+H0c+wVftlMBVRbtm3uG4VWV5k7egRAeD7StXg4Y=; b=d+NRKT2ahHnXCgU/w/QXq9L/Hm
-	nqmP9LstFIVacOCCg/sRNyihcNx18MXN2mfKwQ8Z6TKmgrGma6aDQzZ/zqo2Z6DVCZbmgZMzF0qlt
-	jS47vRtbn6LBdtEmNZTJuueuaoSc+g0a8PQn26UZxJcwVwAIaZHNMD613gAH0T7I26jwA8ezhMHkB
-	A+TUVUQETtcb1lMtgCf0bMoi0cLPJXf6TiRa/xKejuLag4DO2hyqa+Cgi8MzxQCvQwHoC3gWgzQIQ
-	tiE9pH3hFoQ7HKE4cG4X0w4T48HB8sIt41UZDpaTBYUnXMtZBH4GBM6+tXYtw7S2cJtSAlJOHZ9+R
-	8uk0UhAg==;
+	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=zA/NU+RNAgeD9BOrpSB6bKryvPeGYSvBJqFkKYtNmis=; b=LJ8OKZY+3LhFtguhg8gDpn9LHb
+	VpcmSKCA5HvqkSf/qUuMqK0cP9b3lZRjFO/A1yXUl9n6oeWwues4jE0cONapQ3PS/K5twkfUOjvu2
+	HEInKfZ4kZ5vIKfKRvwt0qUuqiWY9arGTSwGcKDpXSTOLi06nAfBg2A4ELp5yHYFN5hjZK78H/z0M
+	c15Ha8VktfcPFycaTQqitndyc/HOdryiTUDKvgH/eYGIAgsrJGf5+XcibxssGm/WfzK1sbftfav/F
+	Jxhgpnx17Ap8u221ePrkkCQoS7eJ9bn9MvQ4Mi7AL8kv+QX65y8MubUUxLyILe7VbgYanzHvjm8xk
+	OJ6hIUqg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xBAXN-00000000Z2A-1l3M;
-	Mon, 28 Sep 2026 12:32:53 +0000
-Received: from m16.mail.126.com ([117.135.210.8])
+	id 1xBAZd-00000000ZK0-3yRk;
+	Mon, 28 Sep 2026 12:35:13 +0000
+Received: from m16.mail.126.com ([117.135.210.9])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xBAXK-00000000Z0F-2YQV
+	id 1xBAZa-00000000ZJO-3YDR
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 28 Sep 2026 12:32:52 +0000
+	Mon, 28 Sep 2026 12:35:12 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=126.com;
-	s=s110527; h=Message-ID:Date:MIME-Version:Subject:To:From:
-	Content-Type; bh=aCQ+H0c+wVftlMBVRbtm3uG4VWV5k7egRAeD7StXg4Y=;
-	b=n1Ukvfpz6YJb1tXnfP6VyeZouJ/gQl9yilQdCaZ2yCKmna6ZXRzvSjRhuRtH4O
-	b2UzA6Z4sTBjxVHzO+2D9c6UuYN7wNYlPDTxq/dfrhWCpGa3KtHXzx+jbuoV6kIU
-	Umv9UeC7wgfOCGR1B7e7i0lIgXhRJ+8WBlGm791iBx7DY=
-Message-ID: <9ae72d05-dd76-42d6-ae29-b49cfddf85e9@126.com>
-Date: Mon, 28 Sep 2026 20:32:00 +0800
-MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH net v3] net: stmmac: do not cache the new TSO MSS before
- it reaches the DMA
-To: netdev-bot+sashiko@kernel.org
-Cc: maxime.chevallier@bootlin.com, andrew+netdev@lunn.ch,
- davem@davemloft.net, edumazet@google.com, kuba@kernel.org,
- pabeni@redhat.com, mcoquelin.stm32@gmail.com, alexandre.torgue@foss.st.com,
- netdev@vger.kernel.org, linux-stm32@st-md-mailman.stormreply.com,
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
- xiaolinkui@kylinos.cn, stable@vger.kernel.org,
- lorenzo.bianconi@oss.qualcomm.com
-References: <20260922124408.645496-1-xiaolinkui@126.com>
- <179016759614.2160803.12192059495158802876@kernel.org>
-Content-Language: en-US
+	s=s110527; h=From:To:Subject:Date:Message-Id:MIME-Version; bh=zA
+	/NU+RNAgeD9BOrpSB6bKryvPeGYSvBJqFkKYtNmis=; b=AWBllJTokd4kPeZzb5
+	k8asaCq/kXPYcf0gWyyqx3rgebS7ek/aLQyFU4qvYPHa4KYZGnBpDaiTzfixQBxC
+	gBnsrmbfca7RnzFE7kUd3Fha2LdbifW4XMvxkP7slZWvenocYtFKLZwVqgX9gc+9
+	qdrZUuo5ipr93Zci/1ipXUAfw=
+Received: from localhost.localdomain (unknown [])
+	by gzga-smtp-mtada-g0-1 (Coremail) with SMTP id _____wD3P6HPXrpqTCkyAQ--.12557S2;
+	Mon, 28 Sep 2026 20:34:23 +0800 (CST)
 From: Linkui Xiao <xiaolinkui@126.com>
-In-Reply-To: <179016759614.2160803.12192059495158802876@kernel.org>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
-X-CM-TRANSID: PikvCgD3n_5AXrpq+9lyAg--.58147S2
-X-Coremail-Antispam: 1Uf129KBjvJXoWxJF48tFWkWw47uw47Kr1UAwb_yoW5WF15pa
-	y3Kwn0kr1DGFWSqF4xCw40ya4rZw4rtFy5Ar98KrW5Aws8WryIgrW3Ka4Y9Fy7Cw4kX34Y
-	yr4Yg3sxZFWDZrJanT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
-	9KBjDUYxBIdaVFxhVjvjDU0xZFpf9x07UuCJQUUUUU=
-X-CM-SenderInfo: p0ld0z5lqn3xa6rslhhfrp/xtbBqALwx2q6XkJr0AAA3q
+To: maxime.chevallier@bootlin.com,
+	andrew+netdev@lunn.ch,
+	davem@davemloft.net,
+	edumazet@google.com,
+	kuba@kernel.org,
+	pabeni@redhat.com,
+	mcoquelin.stm32@gmail.com,
+	alexandre.torgue@foss.st.com
+Cc: netdev@vger.kernel.org,
+	linux-stm32@st-md-mailman.stormreply.com,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	Linkui Xiao <xiaolinkui@kylinos.cn>,
+	stable@vger.kernel.org
+Subject: [PATCH net v4] net: stmmac: do not keep the new TSO MSS cached on mapping failures
+Date: Mon, 28 Sep 2026 20:34:22 +0800
+Message-Id: <20260928123422.1698785-1-xiaolinkui@126.com>
+X-Mailer: git-send-email 2.25.1
+MIME-Version: 1.0
+Content-Transfer-Encoding: 8bit
+X-CM-TRANSID: _____wD3P6HPXrpqTCkyAQ--.12557S2
+X-Coremail-Antispam: 1Uf129KBjvJXoWxAr17KFyUur4DJw43Aw13Arb_yoWrAF4rpF
+	W5Zws0k34kJr1Sqw48Cw48Xa4Fyayrtay5Cw1UK343Cwsxtr92grySgrWjg34UCFZ5Xr1S
+	9anxua43Cr4UJrJanT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
+	9KBjDUYxBIdaVFxhVjvjDU0xZFpf9x07ULFxUUUUUU=
+X-CM-SenderInfo: p0ld0z5lqn3xa6rslhhfrp/xtbBqA8U6mq6Xs9xjgAA3n
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260928_053251_068785_FB15B9E0 
-X-CRM114-Status: GOOD (  13.40  )
+X-CRM114-CacheID: sfid-20260928_053511_279118_BDD02564 
+X-CRM114-Status: GOOD (  18.59  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -77,57 +80,100 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
- > [Medium] Can this new write position re-publish a stale non-zero
- > tx_q->mss after a concurrent TX channel reset has invalidated it?
+From: Linkui Xiao <xiaolinkui@kylinos.cn>
 
-Agreed, and v4 no longer moves the store: the value is now dropped on the
-paths that never hand the context descriptor to the DMA, which is what the
-commit message was claiming in the first place.
+stmmac_tso_xmit() fills the MSS context descriptor and stores the new MSS
+in tx_q->mss right away, but the descriptor only gets its OWN bit much
+later, right before the frame is handed to the DMA. Every error path in
+between - the dma_map_single() of the linear part and the
+skb_frag_dma_map() of each fragment - returns with tx_q->mss already
+updated while the MAC is still programmed with the previous MSS.
 
-Two things are worth separating though.
+The context descriptor is now handled like the data descriptors are:
+tx_q->cur_tx is not advanced while it is being filled, so the slot stays
+where the next transmit fills it, and the error paths release it
+explicitly instead of leaving a descriptor the DMA will stop on in the
+middle of the ring. With the queue no longer wedged by that descriptor,
+the stale cached MSS is what remains: the next skb carrying the same
+gso_size compares equal to the cached value, no context descriptor is
+emitted, and the hardware segments the TCP stream with the MSS of an
+earlier frame, generating frames whose payload size does not match what
+the stack accounted for.
 
-The interleaving itself is not introduced by the patch.
-stmmac_tx_err() is called from the DMA interrupt handler without any
-serialisation against ndo_start_xmit(), so a reset can land anywhere
-inside stmmac_tso_xmit(), and a reset that lands before the early
-"tx_q->mss = mss" -- anywhere between the entry of the function and that
-store, which includes stmmac_tso_get_num_desc() and the availability check
--- leaves a non-zero cache for the channel that was just re-initialised
-with the old placement as well. So it is not true that "with the old
-placement a later reset always won"; what the patch did is widen that
-window by roughly the length of the mapping section holding the two
-dma_map_single()/skb_frag_dma_map() calls, and that is what the new
-placement has to answer for. Which it now does not: v4 keeps the store
-where it was and invalidates the cache on the error paths instead. Zero is
-what stmmac_reset_tx_queue() leaves behind, so it cannot republish
-anything even if the reset lands in between, and the next TSO frame
-programs the context descriptor again.
+Drop the cached value on those paths instead. Zero is what
+stmmac_reset_tx_queue() leaves behind, so the next TSO frame programs the
+context descriptor again.
 
-Second, in that interleaving the cached MSS is not the only thing left out
-of step: the transmit path keeps running from its local first_entry, writes
-tx_q->cur_tx = entry and lets stmmac_flush_tx_descriptors() push the tail,
-while stmmac_init_tx_chan() has pointed the channel back at tx_q->dma_tx_phy
--- the software ring state and the hardware no longer agree, which is what
-the reset is supposed to establish. Fixing that means the reset must stop
-racing ndo_start_xmit() altogether, and it cannot be a lock taken in the
-handler: the interrupted transmit path already holds the queue's
-_xmit_lock, so the handler would be waiting for the context it interrupted.
-That needs the channel reset moved out of hard IRQ context, and I would
-rather send it as a separate change than fold it into a -net fix for the
-ring wedge.
+The store itself stays ahead of the mappings, as before, rather than
+moving next to the OWN bit: stmmac_tx_err() reinitialises the channel and
+clears tx_q->mss from the DMA interrupt handler, which takes no TX queue
+lock, so it can run in the middle of stmmac_tso_xmit(). Publishing the
+cache after the descriptor has been handed over would widen the window in
+which such a reset is overwritten with an MSS that the reinitialised
+channel was never programmed with.
 
-v4 therefore:
+Fixes: f748be531d70 ("stmmac: support new GMAC4")
+Cc: stable@vger.kernel.org
+Signed-off-by: Linkui Xiao <xiaolinkui@kylinos.cn>
+---
+v3:
+- Link: https://lore.kernel.org/netdev/20260922124408.645496-1-xiaolinkui@126.com/
+Changes in v4:
+- Drop the cached MSS on the mapping failure paths instead of publishing it
+  after the context descriptor has been given to the DMA. The deferred store
+  widened the window in which a stmmac_tx_err() from the DMA interrupt
+  handler, which takes no TX queue lock, is overwritten again with the new
+  MSS for a channel that was never programmed with it; zero cannot
+  republish anything, as it is what the reset itself leaves behind.
+  (Sashiko AI review)
+- Not carrying over the Acked-by from Lorenzo Bianconi, as the cache
+  handling changed again.
 
-   1. drops tx_q->mss on the error paths of stmmac_tso_xmit() (new),
-   2. keeps filling the context descriptor at the slot tx_q->cur_tx points
-      to and releasing it explicitly on those paths (unchanged from v3),
-   3. leaves the store ahead of the mappings, so the patch no longer changes
-      the timing with respect to your interleaving at all.
+ .../net/ethernet/stmicro/stmmac/stmmac_main.c    | 16 +++++++++++++---
+ 1 file changed, 13 insertions(+), 3 deletions(-)
 
-The subject changed accordingly: the patch no longer moves the store, it
-invalidates the cached value. Code changed, so the Acked-by from Lorenzo
-Bianconi is not carried over.
-
-pw-bot: cr
+diff --git a/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c b/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
+index af2d38a2bb3d..a20b2366f61a 100644
+--- a/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
++++ b/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
+@@ -4564,9 +4564,6 @@ static netdev_tx_t stmmac_tso_xmit(struct sk_buff *skb, struct net_device *dev)
+ 
+ 		stmmac_set_mss(priv, mss_desc, mss);
+ 		tx_q->mss = mss;
+-		tx_q->cur_tx = STMMAC_NEXT_ENTRY(tx_q->cur_tx,
+-						priv->dma_conf.dma_tx_size);
+-		WARN_ON(tx_q->tx_skbuff[tx_q->cur_tx]);
+ 	}
+ 
+ 	if (netif_msg_tx_queued(priv)) {
+@@ -4577,6 +4574,9 @@ static netdev_tx_t stmmac_tso_xmit(struct sk_buff *skb, struct net_device *dev)
+ 	}
+ 
+ 	first_entry = tx_q->cur_tx;
++	if (mss_desc)
++		first_entry = STMMAC_NEXT_ENTRY(first_entry,
++						priv->dma_conf.dma_tx_size);
+ 	entry = first_entry;
+ 
+ 	WARN_ON(tx_q->tx_skbuff[entry]);
+@@ -4745,6 +4745,16 @@ error_dma_unmap:
+ 						priv->dma_conf.dma_tx_size);
+ 	}
+ error:
++	if (mss_desc) {
++		/* The context descriptor never reached the DMA, so the MAC is
++		 * still programmed with the previous MSS. Invalidate the cache
++		 * instead of leaving it ahead of the hardware; zero is the
++		 * value stmmac_reset_tx_queue() leaves behind.
++		 */
++		stmmac_release_tx_desc(priv, mss_desc, priv->descriptor_mode);
++		tx_q->mss = 0;
++	}
++
+ 	dev_err(priv->device, "Tx dma map failed\n");
+ 	dev_kfree_skb(skb);
+ 	priv->xstats.tx_dropped++;
+-- 
+2.25.1
 
 
