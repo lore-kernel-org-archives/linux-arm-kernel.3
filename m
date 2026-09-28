@@ -4,64 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 750AFC9833F
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 28 Sep 2026 13:41:22 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E0F2BC9833F
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 28 Sep 2026 13:42:10 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
 	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
 	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=IxIytfhZwO11x5KyBUMtw1q6leq9rKslQRYH/QA9PNk=; b=WSLZms0SiOtxhyOYEUpyjopp4O
-	yIkS7HtUmkOTmPqmb79GEw8sBvskCtNBFt5iA8suHKp77jBljbtigvQFIZ2wO+gxW9UHtnQveyJRg
-	WARl0MlgcqbDW9Pzy0xcQ7S1tmLwGSl/Ov7odURP3oj25AXtryh26nnMJ1asV+++jyl8v/CQ+5J0e
-	17UVaIVVtoHMFPQNJ1O2ae4fAc2LU+5XuveaRI9mYu/2fZ2otQup9swhx52efcElL+r5ncrGGoak1
-	aJp3JdvcXDwNWa0OcvseiGtkm2nLkoYVSgd96o1We3Pm1wHfZ8L75BW3bCFQKdgyzbIU8gKiF/8Pm
-	aNWPJF2A==;
+	bh=hRxg82xUfOW9mDQeH10Yx//tywA8mAwY9WlS188BwMI=; b=CSclxppx04EkouBNBqLNvRzpRR
+	GmbTbkkjS3/1QPzdbRV+AFRoYeI5JcF/h+VmHPdpy7Iizz98zJx8Hx+ndnd7oV1/JeDHKXjPmCqce
+	3xaWRf0mEpbIfSrAY+g3j67PEji5GwQ8BIGAuYM9jGZv7p8Yd7cU5qXeL2YkHTgtK+cnPR+/zZV86
+	P0APJ9SjVsq+L5DJKzknaARfqF3GTPonfZtaZGMeOVTwHVvsbn0N9qw7KCVvKSAoKjBjTlxDmc1IS
+	RZIgTMuNGATpoCyOka5B7osyoRZBSxzQuBGa0El8iKJ+C1hNa/SZdVbhYn5dGBnoNvhuavkV/jEOc
+	lVk2Xxcg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xBBbU-00000000gDI-35LF;
-	Mon, 28 Sep 2026 13:41:12 +0000
+	id 1xBBcK-00000000gNR-2lUB;
+	Mon, 28 Sep 2026 13:42:04 +0000
 Received: from mail-m49198.qiye.163.com ([45.254.49.198])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xBBbQ-00000000gBI-0mxu;
-	Mon, 28 Sep 2026 13:41:10 +0000
-Received: from LAPTOP-99KJFSET (unknown [36.153.54.109])
-	by smtp.qiye.163.com (Hmail) with ESMTP id 4f5d6f420;
-	Mon, 28 Sep 2026 21:40:55 +0800 (GMT+08:00)
+	id 1xBBcH-00000000gM9-2I0A
+	for linux-arm-kernel@lists.infradead.org;
+	Mon, 28 Sep 2026 13:42:02 +0000
+Received: from LAPTOP-99KJFSET (unknown [58.216.104.98])
+	by smtp.qiye.163.com (Hmail) with ESMTP id 4f5d6f440;
+	Mon, 28 Sep 2026 21:41:59 +0800 (GMT+08:00)
 From: Hongyan Xu <getshell@seu.edu.cn>
-To: lgirdwood@gmail.com,
-	broonie@kernel.org
-Cc: perex@perex.cz,
-	tiwai@suse.com,
-	matthias.bgg@gmail.com,
-	angelogioacchino.delregno@collabora.com,
-	phucduc.bui@gmail.com,
-	linux-sound@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
+To: gregkh@linuxfoundation.org,
+	vz@mleia.com
+Cc: piotr.wojtaszczyk@timesys.com,
+	johan@kernel.org,
+	make24@iscas.ac.cn,
+	kees@kernel.org,
+	linux-usb@vger.kernel.org,
 	linux-arm-kernel@lists.infradead.org,
-	linux-mediatek@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
 	jianhao.xu@seu.edu.cn,
 	Hongyan Xu <getshell@seu.edu.cn>
-Subject: [PATCH] ASoC: mt6359-accdet: manage private workqueues with devres
-Date: Mon, 28 Sep 2026 21:40:54 +0800
-Message-ID: <20260928134054.312-1-getshell@seu.edu.cn>
+Subject: [PATCH] usb: gadget: lpc32xx_udc: cancel pullup work on remove
+Date: Mon, 28 Sep 2026 21:41:58 +0800
+Message-ID: <20260928134158.117-1-getshell@seu.edu.cn>
 X-Mailer: git-send-email 2.50.1.windows.1
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
-X-HM-Tid: 0aa0e83f435803a1kunm0bf1d24120016b
+X-HM-Tid: 0aa0e8403a1503a1kunmf3b98a98200231
 X-HM-MType: 10
 X-HM-Spam-Status: e1kfGhgUHx5ZQUpXWQgPGg8OCBgUHx5ZQUlOS1dZFg8aDwILHllBWSg2Ly
-	tZV1koWUFITzdXWRgWCB1ZQUpXWS1ZQUlXWQ8JGhUIEh9ZQVlCHR4fVk1JSExDGR4eHh1MGFYeHw
-	5VEwETFhoSFyQUDg9ZV1kYEgtZQVlITVVKTkhVTk9VSktCWVdZFhoPEhUdFFlBWU9LSFVKS0hKT0
-	hMVUpLS1VKQktLWQY+
+	tZV1koWUFITzdXWRgWCB1ZQUpXWS1ZQUlXWQ8JGhUIEh9ZQVkaH04aVkMdHkoYH05CHk1KTVYeHw
+	5VEwETFhoSFyQUDg9ZV1kYEgtZQVlOQ1VJSk1VSktPVUJDWVdZFhoPEhUdFFlBWU9LSFVKS0lCQ0
+	NMVUpLS1VLWQY+
 DKIM-Signature: a=rsa-sha256;
-	b=HYvu/mlia949YOARa7esVLg1mr2vvgirO0MRgu39IikH90x6dAbIpAIwcZMuZBfGOo3U/NuaWKZTN9vSnIjVhKbFZO1xNk91juWrPjAbvK+Vl3/zlAd3j8pdqhhnfagWymTBipYz7yXdc/4Ou/7WSlry5jcqpoTv7yenUU5/CvA=; c=relaxed/relaxed; s=default; d=seu.edu.cn; v=1;
-	bh=IxIytfhZwO11x5KyBUMtw1q6leq9rKslQRYH/QA9PNk=;
+	b=a/YqVKu+cl/JdJzhOku1M4V7jBVYfxP8NwcttM9Gl8Z8x4FMD1Oj8R/E8SSNC9aqM8TPxSEjlpvBCoWlrU0soWlyOfHBUEZMoRyff6UieDJ924GkiKVtU3EssjxCRCf1TV3y1x19WtLMmyXNZErLNtBPgdAFbPKw/a+7L1TDufA=; c=relaxed/relaxed; s=default; d=seu.edu.cn; v=1;
+	bh=hRxg82xUfOW9mDQeH10Yx//tywA8mAwY9WlS188BwMI=;
 	h=date:mime-version:subject:message-id:from;
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260928_064108_831011_7C4A8782 
-X-CRM114-Status: GOOD (  12.31  )
+X-CRM114-CacheID: sfid-20260928_064201_749400_96CB9901 
+X-CRM114-Status: UNSURE (   6.91  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -76,104 +76,40 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The threaded jack-detect interrupts queue work on two private
-workqueues. Neither queue is destroyed on device removal, so queued
-callbacks can retain pointers to devm-allocated state after it is
-released. Probe error paths also leak the queues.
+Several device interrupts can queue pullup_job, whose callback accesses
+the UDC and its I2C transceiver. The IRQs are device-managed, so they
+remain registered throughout the driver remove callback, and no path
+drains work queued before the resources are released.
 
-Create and initialize both workqueues before requesting interrupts, then
-add a managed cleanup action. Since the managed IRQs are acquired
-afterwards, devres releases and synchronizes them before draining and
-destroying the workqueues on both removal and probe failure.
+Disable and synchronize all publishing IRQs, then cancel pullup_job
+before putting the I2C device and releasing the UDC resources.
 
-Fixes: eef07b9e0925 ("ASoC: mediatek: mt6359: add MT6359 accdet jack driver")
+Fixes: 24a28e428351 ("USB: gadget driver for LPC32xx")
 Signed-off-by: Hongyan Xu <getshell@seu.edu.cn>
 ---
- sound/soc/codecs/mt6359-accdet.c | 50 ++++++++++++++++++--------------
- 1 file changed, 28 insertions(+), 22 deletions(-)
+ drivers/usb/gadget/udc/lpc32xx_udc.c | 6 ++++++
+ 1 file changed, 6 insertions(+)
 
-diff --git a/sound/soc/codecs/mt6359-accdet.c b/sound/soc/codecs/mt6359-accdet.c
-index e1190c644021..54ec1c6bd64b 100644
---- a/sound/soc/codecs/mt6359-accdet.c
-+++ b/sound/soc/codecs/mt6359-accdet.c
-@@ -914,6 +914,14 @@ int mt6359_accdet_enable_jack_detect(struct snd_soc_component *component,
- }
- EXPORT_SYMBOL_GPL(mt6359_accdet_enable_jack_detect);
- 
-+static void mt6359_accdet_destroy_workqueues(void *data)
-+{
-+	struct mt6359_accdet *priv = data;
-+
-+	destroy_workqueue(priv->jd_workqueue);
-+	destroy_workqueue(priv->accdet_workqueue);
-+}
-+
- static int mt6359_accdet_probe(struct platform_device *pdev)
- {
- 	struct mt6359_accdet *priv;
-@@ -955,6 +963,26 @@ static int mt6359_accdet_probe(struct platform_device *pdev)
- 	}
- 	mutex_init(&priv->res_lock);
- 
-+	priv->accdet_workqueue = create_singlethread_workqueue("accdet");
-+	INIT_WORK(&priv->accdet_work, mt6359_accdet_work);
-+	if (!priv->accdet_workqueue) {
-+		dev_err(&pdev->dev, "Failed to create accdet workqueue\n");
-+		return -ENOMEM;
-+	}
-+
-+	priv->jd_workqueue = create_singlethread_workqueue("mt6359_accdet_jd");
-+	INIT_WORK(&priv->jd_work, mt6359_accdet_jd_work);
-+	if (!priv->jd_workqueue) {
-+		dev_err(&pdev->dev, "Failed to create jack detect workqueue\n");
-+		destroy_workqueue(priv->accdet_workqueue);
-+		return -ENOMEM;
-+	}
-+
-+	ret = devm_add_action_or_reset(&pdev->dev,
-+				       mt6359_accdet_destroy_workqueues, priv);
-+	if (ret)
-+		return ret;
-+
- 	priv->accdet_irq = platform_get_irq(pdev, 0);
- 	if (priv->accdet_irq >= 0) {
- 		ret = devm_request_threaded_irq(&pdev->dev, priv->accdet_irq,
-@@ -1000,22 +1028,6 @@ static int mt6359_accdet_probe(struct platform_device *pdev)
- 		}
+diff --git a/drivers/usb/gadget/udc/lpc32xx_udc.c b/drivers/usb/gadget/udc/lpc32xx_udc.c
+index 044c31869cfb..0a784c9252c5 100644
+--- a/drivers/usb/gadget/udc/lpc32xx_udc.c
++++ b/drivers/usb/gadget/udc/lpc32xx_udc.c
+@@ -3184,9 +3184,15 @@ static void lpc32xx_udc_remove(struct platform_device *pdev)
+ 		return;
  	}
  
--	priv->accdet_workqueue = create_singlethread_workqueue("accdet");
--	INIT_WORK(&priv->accdet_work, mt6359_accdet_work);
--	if (!priv->accdet_workqueue) {
--		dev_err(&pdev->dev, "Failed to create accdet workqueue\n");
--		ret = -1;
--		goto err_accdet_wq;
--	}
--
--	priv->jd_workqueue = create_singlethread_workqueue("mt6359_accdet_jd");
--	INIT_WORK(&priv->jd_work, mt6359_accdet_jd_work);
--	if (!priv->jd_workqueue) {
--		dev_err(&pdev->dev, "Failed to create jack detect workqueue\n");
--		ret = -1;
--		goto err_eint_wq;
--	}
--
- 	platform_set_drvdata(pdev, priv);
- 	ret = devm_snd_soc_register_component(&pdev->dev,
- 					      &mt6359_accdet_soc_driver,
-@@ -1034,12 +1046,6 @@ static int mt6359_accdet_probe(struct platform_device *pdev)
- 	mt6359_accdet_jack_report(priv);
++	disable_irq(udc->udp_irq[IRQ_USB_LP]);
++	disable_irq(udc->udp_irq[IRQ_USB_HP]);
++	disable_irq(udc->udp_irq[IRQ_USB_DEVDMA]);
++	disable_irq(udc->udp_irq[IRQ_USB_ATX]);
++
+ 	udc_clk_set(udc, 1);
+ 	udc_disable(udc);
+ 	pullup(udc, 0);
++	cancel_work_sync(&udc->pullup_job);
  
- 	return 0;
--
--err_eint_wq:
--	destroy_workqueue(priv->accdet_workqueue);
--err_accdet_wq:
--	dev_err(&pdev->dev, "%s error. now exit.!\n", __func__);
--	return ret;
- }
- 
- static struct platform_driver mt6359_accdet_driver = {
+ 	device_init_wakeup(&pdev->dev, 0);
+ 	remove_debug_file(udc);
 -- 
 2.50.1.windows.1
 
