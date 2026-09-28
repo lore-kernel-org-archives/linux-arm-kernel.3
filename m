@@ -4,70 +4,67 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C6F7BCA5FA1
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 28 Sep 2026 17:24:39 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 27F9BCA5FA2
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 28 Sep 2026 17:28:48 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=CzE2GE5JN/tI9+vf5ceSYktDtLDt2Ax4ATT81DGIpY4=; b=wKPtNbWx1Fo4ObI+c0OTDdnEe+
-	PyDhvRh25AHtcxHQDmx+OOfPmf0FPsvtYxFS29xokgF8xGY7pnI81mI/6UxeIvfcbgL6zAMFHIB79
-	9sZlM9NxHbF5673/8nRkAe94FWEQGTve7DcOp5KMGhMf1X1zZWNdJq/dOOh+ULTa4jx8aDtQ8W0NA
-	zz7oiUFTj6yOm7HYUxpWl3rSk3eGayYdmgze6G/FqOeTqY6N4BMJAVaxVO6ShZ4rpXI6JH6xuXfcu
-	h3GhuWOSDryb/m/wIOvb42iABIx4JRVazQsgwk5onoMWmgSfW52e8alQnR0mvCFTDrCwj9JwS3Osh
-	Nvfc3cyg==;
+	bh=+OMMv4ayOB9XN84RqKkzGwvOckJPEaGej6oVc9CDd28=; b=ORd11ijGRtCRsOmVdgeJrU5MKl
+	fVZrRRjIyFWkznMubD7fXDhl1NN8/FOowN0jVNRBZpQRRNC5CwmzRj769jdDCjl1FZORRsFzTRFes
+	QYhTxBUHzD4OnkFHgK3oKx5DWfSvPyE4I5LyZadi+1+A59PbgltX1vZNSpLpzZpiu+ieppEr63s4J
+	ef8+AIZncpUOpZkyQcLlfYg7xlf90J34rgABosIrXmuQdJrhbCQFTIP1c1eoG7FjmTsb62ZAvx2po
+	sPvPMM3Ek0L8nT0NyjHclZr3+E8eBWYAOJ+wwn1UzvFm3r6bkSVg2FTM/MeVYTwxOhopIU+kVVgms
+	yJPYEI3g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xBF5d-000000019co-1N09;
-	Mon, 28 Sep 2026 17:24:33 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
-	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xBF5b-000000019ce-3rhP;
-	Mon, 28 Sep 2026 17:24:31 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 48BCC40751;
-	Mon, 28 Sep 2026 17:24:31 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id C2A4B1F000FF;
-	Mon, 28 Sep 2026 17:24:24 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1790616271;
-	bh=CzE2GE5JN/tI9+vf5ceSYktDtLDt2Ax4ATT81DGIpY4=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=BTTnwgHo3e7c9o0rEnQRB7ZYUXhkhD5eIFXOeC520HyCwUZwp8jntGIY9n5YsIix9
-	 /Ym50PIIpYqM37fQQXINrRbjumZpkwgpqOull3Vidwl2FElBE4K/ZGUVeOGKt8cKu4
-	 a+UKkqCjaVec32acLq750VC4ry62UJhA1lTT4gGp/y+DstTdzx6MC0BJ24rg7StUJf
-	 dgv845cDIgkefff7Lc7OjPDgek/7/hApSlYTBXj74Uhnqg/3FzAsZ6YruF/Wkt4mBa
-	 F4lCS7i9EpYsGaacidhpQDKTKg3WlYFlUrNt18dgBccYqZ94wbeGNi0MRC87EwDbH+
-	 BDQNjNC1bQU2A==
-Date: Mon, 28 Sep 2026 19:24:21 +0200
-From: Benjamin Tissoires <bentiss@kernel.org>
-To: Neil Armstrong <neil.armstrong@linaro.org>
-Cc: Maxime Ripard <mripard@kernel.org>, 
-	Jessica Zhang <jesszhan0024@gmail.com>, David Airlie <airlied@gmail.com>, 
-	Simona Vetter <simona@ffwll.ch>, Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, 
-	Thomas Zimmermann <tzimmermann@suse.de>, Rob Herring <robh@kernel.org>, 
-	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
-	Nathan Chancellor <nathan@kernel.org>, Nick Desaulniers <ndesaulniers@google.com>, 
-	Bill Wendling <morbo@google.com>, Justin Stitt <justinstitt@google.com>, 
-	Florian Fainelli <florian.fainelli@broadcom.com>, 
-	Broadcom internal kernel review list <bcm-kernel-feedback-list@broadcom.com>, Andrzej Hajda <andrzej.hajda@intel.com>, 
-	Robert Foss <rfoss@kernel.org>, Laurent Pinchart <Laurent.pinchart@ideasonboard.com>, 
-	Jonas Karlman <jonas@kwiboo.se>, Jernej Skrabec <jernej.skrabec@gmail.com>, 
-	Luca Ceresoli <luca.ceresoli@bootlin.com>, Albert Esteve <aesteve@redhat.com>, 
-	Dave Stevenson <dave.stevenson@raspberrypi.com>, Javier Martinez Canillas <javierm@redhat.com>, 
-	dri-devel@lists.freedesktop.org, devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
-	bpf@vger.kernel.org, llvm@lists.linux.dev, linux-rpi-kernel@lists.infradead.org, 
-	linux-arm-kernel@lists.infradead.org
-Subject: Re: [PATCH 0/6] drm/bridge: Add a BPF-based MIPI-DSI panel driver
-Message-ID: <arqhwHiVf00j94J7@beelink>
-References: <20260928-drm-mipi-dsi-panel-ebpf-v1-0-5244926aace4@kernel.org>
- <6b80cb97-6706-412a-b013-9423f6f75153@linaro.org>
+	id 1xBF9c-00000001AFm-2IdT;
+	Mon, 28 Sep 2026 17:28:40 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1xBF9Z-00000001AEa-0pYu
+	for linux-arm-kernel@lists.infradead.org;
+	Mon, 28 Sep 2026 17:28:38 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 4497D1655;
+	Mon, 28 Sep 2026 10:28:32 -0700 (PDT)
+Received: from arm.com (usa-sjc-mx-foss1.foss.arm.com [172.31.20.19])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 3B4EC3F763;
+	Mon, 28 Sep 2026 10:28:32 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
+	t=1790616515; bh=NOwlg1fLIhsJpwRRWJEx28YKpYmKtZ7WGDsI1WtfweU=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=JYxAo8jR8/FlcEOgF0lfNeAhVBe1YM6gGqbAJOGgGoAcD5TwzeszFXE3Luz4YDa0X
+	 Ii/FE5eavzr3+dGKMrbQA2TWWA6/IxxcwbgeXhtUiWM9WbdL+yBH7ESoJ6RA3MNwWo
+	 qBK3Y8YEHYJu6sms16eIB8qUYi/47RJEbNZY0ywA=
+Date: Mon, 28 Sep 2026 18:28:21 +0100
+From: Catalin Marinas <catalin.marinas@arm.com>
+To: Suzuki K Poulose <suzuki.poulose@arm.com>
+Cc: kvm@vger.kernel.org, kvmarm@lists.linux.dev, maz@kernel.org,
+	will@kernel.org, linux-kernel@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org, steven.price@arm.com,
+	aneesh.kumar@kernel.org, oupton@kernel.org, gshan@redhat.com,
+	joey.gouly@arm.com, tabba@google.com, yuzenghui@huawei.com,
+	linux-coco@lists.linux.dev, gankulkarni@os.amperecomputing.com,
+	sdonthineni@nvidia.com, alpergun@google.com, fj0570is@fujitsu.com,
+	WeiLin.Chang@arm.com, lpieralisi@kernel.org, enju.kohei@fujitsu.com,
+	sudeep.holla@arm.com, jonathan.cameron@oss.qualcomm.com,
+	Gareth Stockwell <Gareth.Stockwell@arm.com>
+Subject: Re: [PATCH v19 4/7] firmware: arm_rmm: Add support for SRO
+Message-ID: <arqjteW-Y5u2XX2r@arm.com>
+References: <20260924135201.850038-1-suzuki.poulose@arm.com>
+ <20260924135201.850038-5-suzuki.poulose@arm.com>
+ <arozNIQ-fQ0XQViI@arm.com>
+ <4fabad44-280f-40e6-95bb-49011cd2f185@arm.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <6b80cb97-6706-412a-b013-9423f6f75153@linaro.org>
+In-Reply-To: <4fabad44-280f-40e6-95bb-49011cd2f185@arm.com>
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260928_102837_500698_A0EE92D1 
+X-CRM114-Status: GOOD (  29.27  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -82,84 +79,94 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Sep 28 2026, Neil Armstrong wrote:
-> Hi,
-> 
-> On 9/28/26 18:22, Maxime Ripard wrote:
-> > Hi,
+On Mon, Sep 28, 2026 at 11:13:39AM +0100, Suzuki K Poulose wrote:
+> On 28/09/2026 10:28, Catalin Marinas wrote:
+> > On Thu, Sep 24, 2026 at 02:51:58PM +0100, Suzuki K Poulose wrote:
+> > > +long rmi_sro_memxfer_execute(struct rmi_sro_state *sro, gfp_t gfp)
+> > > +{
+> > > +	struct arm_smccc_1_2_regs *regs = &sro->regs;
+> > > +	bool cancelled = false;
+> > > +	unsigned long sro_handle;
+> > > +
+> > > +	rmi_smccc_invoke(regs);
+> > > +
+> > > +	sro_handle = regs->a1;
+> > > +	while (RMI_RESULT_STATUS(regs->a0) == RMI_INCOMPLETE) {
+> > > +		bool can_cancel = RMI_RESULT_CAN_CANCEL(regs->a0) == RMI_OP_CAN_CANCEL;
+> > > +		int ret = 0;
+> > > +
+> > > +		switch (RMI_RESULT_MEMREQ(regs->a0)) {
+> > > +		case RMI_OP_MEM_REQ_NONE:
+> > > +			rmi_op_continue(sro_handle, RMI_CONTINUE_KEEP_GOING,
+> > > +					regs);
+> > > +			break;
+> > > +		case RMI_OP_MEM_REQ_DONATE:
+> > > +			ret = rmi_sro_donate(sro, sro_handle, regs->a2, regs,
+> > > +					     gfp);
+> > > +			break;
+> > > +		case RMI_OP_MEM_REQ_RECLAIM:
+> > > +			ret = rmi_sro_reclaim(sro, sro_handle, regs);
+> > > +			break;
+> > > +		default:
+> > > +			WARN_ON_ONCE(1);
+> > > +			ret = -ENXIO;
+> > > +			break;
+> > > +		}
 > > 
-> > Panels in general, and MIPI-DSI panels in particular, are pretty
-> > difficult to support and require pretty much a panel driver for each
-> > panel produced. Most of them are pretty simple, and require an opaque
-> > initialization sequence that is usually poorly documented.
-> > 
-> > This creates a tension between OEMs and distros because OEMs will
-> > typically get a new panel to react to a sourcing issue during
-> > production, and thus need some swift turnaround between getting their
-> > new panel and it being operational in the OS. Distributions on the other
-> > hand can take years to ship a kernel with that new panel driver.
-> > 
-> > To solve this, I followed the example of HID-BPF and wrote a panel
-> > driver that will rely on BPF programs to perform the panel
-> > initialization. That way, we can ship the programs separately from the
-> > kernel, and with a different lifecycle. If this driver is accepted, the
-> > plan is to have a userspace component started by udev to identify and
-> > load the right BPF program for the panels found on the device.
+> > Another thing I came across while looking whether we can defer the
+> > activation. It seems that the spec (I_JVYCH) lists some SROs as
+> > PE-bound. Nothing here or in rmi_sro_execute() disables migration and
+> > the memory allocation paths can even sleep with GFP_KERNEL.
 > 
-> This is kind of late for serious applications except if we manage to
-> solve the bootloader to Linux display engine transition.
+> No, this is not required. I agree this is confusing. I will get it
+> clarified.
 > 
-> > 
-> > This driver is fully functional and works with both 5" and 7" Touch
-> > Display 2 panels for the RaspberryPi. However, it breaks away from the
-> > typical panel driver in multiple ways:
-> > 
-> > - BPF programs can only be loaded by userspace. This leaves us with two
-> >    choices:
-> > 
-> >    * We prevent the driver from loading until the script itself is
-> >      loaded. This has the side effect of preventing any other output to
-> >      be used until the initramfs is ran at the earliest, and possibly
-> >      ever if the loader isn't installed for example.
+> So, there are two different sources for the SRO contexts. One is a global
+> pool and the other an Object.
 > 
-> This adds a dependency on user-space behavior and if somehow the
-> initramfs doesn't load for a reason we won't have a way to display
-> an error.
+> e.g., For an RMI operation on an Object, SRO context can be the object
+> itself (e.g., REC_CREATE, REALM_ACTIVATE etc.)
 > 
-> > 
-> >    * Or we probe the driver all the time, but only report it as connected
-> >      once a program has been registered. This is somewhat unconventional,
-> >      but allows the other outputs to be functional, *and* allows the user
-> >      to force the output if their panel doesn't require any
-> >      initialization or during debugging. I chose this solution.
-> 
-> Both options are not really great...
-> 
-> > 
-> > - It's not a panel driver, but a bridge one, which is also pretty
-> >    unconventional. This is required because panel drivers don't have
-> >    access to a detect callback that is required for the above, but I also
-> >    think that the recent work from Luca blurs the line from panels and
-> >    bridges and we'll end up going that road anyway.
-> 
-> On this point, DDIC _are_ bridges, but in the current panel API we blur the line between
-> the panel and the DDIC. So being a bridge is fine, but in a general way we lack
-> a proper way to describe the display/panel/monitor independently of the DDIC.
-> 
-> At first glance it's a nice driver, but moving the timings into a blob moves something
-> into possible proprietary binaries with possible closed licence and distribution
-> restriction so it's a downgrade for the same of bringing up a panel faster.
+> However, when there is no reliable object for the command (e.g.,
+> RMI_GRANULE_RANGE_DELEGATE), the RMM must allocate a context from
+> the global pool. Now, the "PE" in there comes from a recommendation
+> to the RMM implementations, that the global pool size must depend on
+> the number of PEs on the system. This doesn't mean that the SRO
+> handles are only bound to those PEs. I will get this clarified
+> in the RMM spec.
 
-Quick answer on this, because I had the very same questions regarding
-HID-BPF:
-- in BPF, you can require (and by default it does) that only GPL
-	compatible BPF programs are loaded, closing the argument of "closed
-	licence and distribution restriction"
-- also, a BPF program can be disassembled much easier than a binary
-	blob, and I remember Alexei showing me an example where you get almost
-	the source code from the BPF object in just one pass.
+This part of the spec needs rewriting, not clarifying. No matter how
+hard you try, there's no way you can read it as a "global pool". For
+example:
 
-Cheers,
-Benjamin
+D_GZLMRA	SRO context is bound to one of the following:
+		  - A PE
+		  - An RMM object
 
+And take a random command:
+
+B4.5.2 RMI_DPT_L0_CREATE command
+	Create a Level 0 DPT.
+	The RMI_DPT_L0_CREATE command may initiate a Stateful RMI
+	Operation whose context is bound to the current PE.
+
+"bound to the current PE" pretty clearly shows the intention was to
+disable preemption. It also doesn't say what happens when this pool is
+exhausted (presumably it returns RMI_BLOCKED).
+
+TBH, that's a pretty significant change for a bet3/4 release, though
+arguably it can be seen as a relaxation. Code that relies on disabling
+preemption should still work (somewhat, assuming the global pool is at
+least the number of PEs and the host plays nicely to complete or cancel
+all SROs).
+
+That said, such pool is a limited resource and we need some way to probe
+its size if we want to do something smarter in the kernel, like a
+semaphore to ensure we don't randomly fail because of an RMM limitation.
+I don't really see how the number of PEs is relevant to this global
+pool sizing, it's not that we limit the realms we can start to the
+online CPUs.
+
+-- 
+Catalin
 
