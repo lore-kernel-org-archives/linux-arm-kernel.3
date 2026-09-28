@@ -4,69 +4,135 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6744BCA5FA3
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 28 Sep 2026 16:23:21 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 765E8CA5FA2
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 28 Sep 2026 16:24:18 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=mKhdntCBuVlgMeNm8tbQb7Cnj6P4iyCp83pUTrwurPA=; b=LAKLaLICxQ5wCuhCIH6VFWnpqG
-	WHEFop5PRj3p79PixFJDsZO+z40K514v3lUSm3LBY7ozktwHUKXxfY9HUgvzMOG0qem6i7lUEj2Sd
-	s/Vrlvq/qgIQzQ1gIQLWSKLsxHSaIKHEop0cHx4aXc4bui9s2vPE5KlvIlfZiXN0MpheTpO2FW5LT
-	Mk+6MPnOgeAg1otuUayzKsL2f+B4FQtjYPzGUS8bKaznOaMPev5By+hk1JFZakqgVrO7/CkRHJuAb
-	GOjSXXvdJG4lmUA7Pqd3MSzshzuYVAxlbF5GtpC1tdewXR7airQMcsSjKqbWROJvtajIuhgyiqSJU
-	bz0ybM+w==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=VLDc/llN13lUZSgqW0UV1cwNBVNzFn5mHU9k0O/KgSI=; b=Ld3YhrKX57GxVffmyYNlpQGcaB
+	Bq/8UzeM6fsPRB79m/dAPDbqDr9jX11Y0T4nr3BbuznrU4nE09/Mnv1JE4TEmcHowJqT8UMX8ws0w
+	uiyLXQ/IfEyy6R7UnCZAtpooe4uuROpTXoJobKU7RqzNhBgiczJ5qpIJiC5xQdW4xdWgnlNdCiWQ2
+	kIJJ8HDrFuu7CcGfynf0Fl/V4q3HKbwodzevajefEWQ0INSMcS2YYiOT2zwQpz52PqwgFyaBufier
+	eM9MHtQSRzmBYCyGSMNem/eF9cSfRYMUegLVrXiusF65S6j7o8Ltztr7oFuZFZnEaA5k2/Xsb3TVo
+	tOqJ0bvA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xBE8H-000000010xS-1nUW;
-	Mon, 28 Sep 2026 16:23:13 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1xBDfw-00000000wyF-3dTo;
+	Mon, 28 Sep 2026 15:53:56 +0000
+Received: from mx0a-001b2d01.pphosted.com ([148.163.156.1])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xBE89-000000010rb-19Xj
+	id 1xBDfu-00000000wxv-1Mrm
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 28 Sep 2026 16:23:05 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 0E08E43C2E;
-	Mon, 28 Sep 2026 16:23:05 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 2AC6B1F00893;
-	Mon, 28 Sep 2026 16:23:01 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1790612584;
-	bh=mKhdntCBuVlgMeNm8tbQb7Cnj6P4iyCp83pUTrwurPA=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=URguE6+ZiJyeNC5QdcF7Gts/ltH2DJ1Qu7uSOCowGgCEcF+9C4KLrt51H2aotox5c
-	 cftSFvdc4aM96MQdsnRiHz8jfHhRtXQN8CuW76NXeXfkXQ+lDNFafy2obZFJ6IZmbh
-	 fWKv9kHbiVy6wLNYNRi7EFaePBs5HWNZDagIAfCUbo8J8Yph3pbiEx8h6AbgVtuNoG
-	 hReNO+zzzOI2P8iaXL///tviM8wsR7A4ObwmHP3Df2zhNFICi/E2w+dxkmV0IMrYr1
-	 0hsvzcKC/oF5vyxX/3Ad+PVQ/muGvnEe9xFhcEUipJ1KSfd9/SEan4DMwqV4t9ULUi
-	 fSeReojSssX5w==
-Date: Mon, 28 Sep 2026 17:22:59 +0100
-From: Mark Brown <broonie@kernel.org>
-To: "Lorenzo Stoakes (ARM)" <ljs@kernel.org>
-Cc: Marc Zyngier <maz@kernel.org>, Oliver Upton <oupton@kernel.org>,
-	Joey Gouly <joey.gouly@arm.com>,
-	Steffen Eiden <seiden@linux.ibm.com>,
-	Suzuki K Poulose <suzuki.poulose@arm.com>,
-	Zenghui Yu <yuzenghui@huawei.com>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Will Deacon <will@kernel.org>, Fuad Tabba <fuad.tabba@linux.dev>,
-	Peter Maydell <peter.maydell@linaro.org>,
-	linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev,
-	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v3 2/3] KVM: arm64: Block ID register changes after we
- rely on the values
-Message-ID: <09970eae-2283-44a9-bb47-6c6f459d71a4@sirena.org.uk>
-References: <20260901-kvm-arm64-idreg-final-v3-0-a0ffa06fa872@kernel.org>
- <20260901-kvm-arm64-idreg-final-v3-2-a0ffa06fa872@kernel.org>
- <arpsY1oqmhvxRVpj@gremlin>
+	Mon, 28 Sep 2026 15:53:55 +0000
+Received: from pps.filterd (m0353729.ppops.net [127.0.0.1])
+	by mx0a-001b2d01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 68SF5URZ3815523;
+	Mon, 28 Sep 2026 15:53:40 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ibm.com; h=cc
+	:content-transfer-encoding:content-type:date:from:in-reply-to
+	:message-id:mime-version:references:subject:to; s=pp1; bh=VLDc/l
+	lN13lUZSgqW0UV1cwNBVNzFn5mHU9k0O/KgSI=; b=nEd9jI6mJthJmt59GZ8Kg2
+	olIXgtmbDEDVIYzBSsFY3XyzFr4ySb3NkgNnNGYfo3oltuNPllNxdG0gHQLlsH/H
+	QZoOuCijUG/J5k4vOZEyk1gXekcKeEFo3EAojEcsTXmHIb60R/myKzXIs1VJo6XQ
+	O0e9abItDpT483haENdm/PWnP8kaAn5lGJ2lt3B/0a1S8YL3mswQPuLv+f94IAWw
+	U/FEJ/MMx7t6Pq3Y04W82qohdcCfdBn3FthHjlY1/zMJhZgeMtZBRBazw2kBd3MX
+	rz+p51nORDPbcN08PZ12mrq4x27L6+iEAh4fh3DRxOQbf6bmhmioF34lSOysvwsQ
+	==
+Received: from ppma21.wdc07v.mail.ibm.com (5b.69.3da9.ip4.static.sl-reverse.com [169.61.105.91])
+	by mx0a-001b2d01.pphosted.com (PPS) with ESMTPS id 4gx5qr2e8q-1
+	(version=TLSv1.3 cipher=TLS_AES_256_GCM_SHA384 bits=256 verify=NOT);
+	Mon, 28 Sep 2026 15:53:40 +0000 (GMT)
+Received: from pps.filterd (ppma21.wdc07v.mail.ibm.com [127.0.0.1])
+	by ppma21.wdc07v.mail.ibm.com (8.18.1.11/8.18.1.11) with ESMTP id 68SEleoc252320;
+	Mon, 28 Sep 2026 15:53:39 GMT
+Received: from smtprelay07.fra02v.mail.ibm.com ([9.218.2.229])
+	by ppma21.wdc07v.mail.ibm.com (PPS) with ESMTPS id 4gxsck5y4h-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Mon, 28 Sep 2026 15:53:38 +0000 (GMT)
+Received: from smtpav02.fra02v.mail.ibm.com (smtpav02.fra02v.mail.ibm.com [10.20.54.101])
+	by smtprelay07.fra02v.mail.ibm.com (8.14.9/8.14.9/NCO v10.0) with ESMTP id 68SFrY9941615810
+	(version=TLSv1/SSLv3 cipher=DHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
+	Mon, 28 Sep 2026 15:53:35 GMT
+Received: from smtpav02.fra02v.mail.ibm.com (unknown [127.0.0.1])
+	by IMSVA (Postfix) with ESMTP id DA9B02004B;
+	Mon, 28 Sep 2026 15:53:34 +0000 (GMT)
+Received: from smtpav02.fra02v.mail.ibm.com (unknown [127.0.0.1])
+	by IMSVA (Postfix) with ESMTP id D302B20040;
+	Mon, 28 Sep 2026 15:53:33 +0000 (GMT)
+Received: from [0.0.0.0] (unknown [9.111.81.16])
+	by smtpav02.fra02v.mail.ibm.com (Postfix) with ESMTP;
+	Mon, 28 Sep 2026 15:53:33 +0000 (GMT)
+Message-ID: <1e3b65b3-0c21-466f-ae09-8426eeacb97d@linux.ibm.com>
+Date: Mon, 28 Sep 2026 17:53:33 +0200
 MIME-Version: 1.0
-Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="uxnxKIWYwbBSuLhy"
-Content-Disposition: inline
-In-Reply-To: <arpsY1oqmhvxRVpj@gremlin>
-X-Cookie: All is fear in love and war.
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v8 20/29] s390: Introduce Start Arm Execution instruction
+To: Steffen Eiden <seiden@linux.ibm.com>, kvm@vger.kernel.org,
+        kvmarm@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
+        linux-kernel@vger.kernel.org, linux-s390@vger.kernel.org
+Cc: Alexander Gordeev <agordeev@linux.ibm.com>,
+        Andreas Grapentin <gra@linux.ibm.com>, Arnd Bergmann <arnd@arndb.de>,
+        Catalin Marinas <catalin.marinas@arm.com>,
+        Christian Borntraeger <borntraeger@linux.ibm.com>,
+        Claudio Imbrenda <imbrenda@linux.ibm.com>,
+        David Hildenbrand <david@kernel.org>,
+        Friedrich Welter
+ <fritz@linux.ibm.com>, Fuad Tabba <tabba@google.com>,
+        Gautam Gala <ggala@linux.ibm.com>,
+        Hariharan Mari <hari55@linux.ibm.com>,
+        Heiko Carstens <hca@linux.ibm.com>,
+        Hendrik Brueckner <brueckner@linux.ibm.com>,
+        Janosch Frank <frankja@linux.ibm.com>, Joey Gouly <joey.gouly@arm.com>,
+        Marc Zyngier <maz@kernel.org>, Nico Boehr <nrb@linux.ibm.com>,
+        Nina Schoetterl-Glausch <oss@nina.schoetterlglausch.eu>,
+        Oliver Upton <oupton@kernel.org>, Paolo Bonzini <pbonzini@redhat.com>,
+        Suzuki K Poulose <suzuki.poulose@arm.com>,
+        Sven Schnelle <svens@linux.ibm.com>,
+        Ulrich Weigand <Ulrich.Weigand@de.ibm.com>,
+        Vasily Gorbik
+ <gor@linux.ibm.com>, Will Deacon <will@kernel.org>,
+        Zenghui Yu <yuzenghui@huawei.com>
+References: <20260918133107.1042730-1-seiden@linux.ibm.com>
+ <20260918133107.1042730-21-seiden@linux.ibm.com>
+Content-Language: en-US
+From: Ilya Leoshkevich <iii@linux.ibm.com>
+In-Reply-To: <20260918133107.1042730-21-seiden@linux.ibm.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
+X-TM-AS-GCONF: 00
+X-Proofpoint-Reinject: loops=2 maxloops=12
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwOTI4MDA2MiBTYWx0ZWRfX5IOLAQ1ypl/K
+ KjNK6PnfBVYS+0nkqmog3tLJpLvxJM6ZvyCspTl/9oHY1E9yENoXvgUQS+8ZXERc/4ljr1ktcj6
+ iz4G0b/EXOQtOrHCJAIjGiPzF+tVFbH5BtqIi3lqIyNvAaJGaTDCY2mPXe09meD6w5bpTYpLvtv
+ 1ypIa2begl4Ea/LrNmnqEdxhApFy+a6cuHTlrAkU95ZTwOw2PIUJzBmoKs2fxLtyEj+iVfq+pBl
+ fd7DCSmcI0AdXSDpH5o5cdv8ocb+/Wdpgn482HGS18WYvp/IL+1OUZj2MeyGNndj2qV3oZH04uQ
+ 0+8WEJvxb6UdG9jjbcrAn92uN9UVwAiuEDxYHj8/uAxyZ/AjqV6qIRDfWiHBGKgCYlsrD0DduK4
+ pTZktwRhz67/tOw/rFH0sJuQWh4yvC+m6hZhO7dA7pBJRM57JpohUYGoTS5aqY39RvV42hNBdzq
+ WKciGdET8taUIQn19NQ==
+X-Authority-Analysis: v=2.4 cv=SPbXx+vH c=1 sm=1 tr=0 ts=6aba8d84 cx=c_pps
+ a=GFwsV6G8L6GxiO2Y/PsHdQ==:117 a=GFwsV6G8L6GxiO2Y/PsHdQ==:17
+ a=IkcTkHD0fZMA:10 a=VdqzKS8jKosA:10 a=VkNPw1HP01LnGYTKEx00:22
+ a=RnoormkPH1_aCDwRdu11:22 a=uAbxVGIbfxUO_5tXvNgY:22 a=VnNF1IyMAAAA:8
+ a=d-oHUx1cmsw_BqqcsnMA:9 a=QEXdDO2ut3YA:10
+X-Proofpoint-ORIG-GUID: gCzI-DYnJRIhG47JVwT8pS87k7M5ioA0
+X-Proofpoint-Spam-Info: AW1haW4tMjYwOTI4MDA2MiBTYWx0ZWRfX7aoz/WWt3x7T
+ DYX5ffMGEY+FCJVk12ryEWaSnJhmoUQm9TXcQt+3yrU1dRmvkORfRYxlzk3wN0rZufi3Oyg4PT4
+ xUZUKelvJfcv+VQc3FZeYFE/dp8dDHM=
+X-Proofpoint-GUID: p67iJAw6OpNowhkMyzhw4cZIAv9bM6SL
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1176,Hydra:6.1.134,FMLib:17.12.100.49
+ definitions=2026-09-28_04,2026-09-21_02,2025-10-01_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
+ priorityscore=1501 suspectscore=0 clxscore=1011 spamscore=0
+ lowpriorityscore=0 malwarescore=0 adultscore=0 bulkscore=0 impostorscore=0
+ phishscore=0 classifier=typeunknown authscore=0 authtc= authcc=
+ route=outbound adjust=0 reason=mlx scancount=1 engine=8.22.0-2609040000
+ definitions=main-2609280062
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260928_085354_388579_8B17F3C7 
+X-CRM114-Status: GOOD (  23.40  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -82,39 +148,85 @@ Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
 
---uxnxKIWYwbBSuLhy
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
 
-On Mon, Sep 28, 2026 at 03:36:36PM +0100, Lorenzo Stoakes (ARM) wrote:
-> On Tue, Sep 01, 2026 at 07:18:49PM +0100, Mark Brown wrote:
-> > In commit c5bac1ef7df6b ("KVM: arm64: Move existing feature disabling
-> > over to FGU infrastructure") a check was added to suppress duplicate
-> > recalculation of FGUs based on a flag KVM_ARCH_FLAG_FGU_INITIALIZED. This
+On 9/18/26 15:30, Steffen Eiden wrote:
+> The Start Arm Execution (SAE) instruction is the centerpiece for
+> executing arm64 (KVM) guests on s390. Its purpose is, similar to SIE, to
+> enable accelerated execution of arm64 virtual machines. SAE expects the
+> physical address of a control block as the only argument.
+> 
+> The host is responsible to save & restore
+>   - GPRs 0-13
+>   - access register 0-15
+              ^^^^^^^^
+              registers>   - breaking event register (BEAR)
+>   - vector/floating point registers
+> between SAE executions to guarantee host consistency.
+> 
+> GPRs and BEAR are save and restores in the asm functions. The other
+                     ^^^^^^^^^^^^^^^^^
+                     saved and restored
 
-> Just for my understanding:
+> register are handled in within C code. Access registers are handled in a
+   ^^^^^^^^             ^^
+   registers            not needed probably?
 
-> FGU = Fine-Grained UNDEF -> if feature not present really act as if it's not
-> present, don't just not advertise it.
+> later patch and SVEs will be handled when they are introduced in a
+> future series. Most arm64 registers are handled by a satellite block
+> called save_area. Some registers, frequently used by hypervisors, are
+> placed into the SAE control block itself.
+> 
+> Enlighten asm/kvm_host_types.h for the new header variant. The new
+> header is chosen instead of asm/kvm_host_s390_types.h if KVM_S390_ARM64
+> is defined.
+> 
+> Co-developed-by: Andreas Grapentin <gra@linux.ibm.com>
+> Signed-off-by: Andreas Grapentin <gra@linux.ibm.com>
+> Co-developed-by: Nina Schoetterl-Glausch <nsg@linux.ibm.com>
+> Signed-off-by: Nina Schoetterl-Glausch <nsg@linux.ibm.com>
+> Signed-off-by: Steffen Eiden <seiden@linux.ibm.com>
+> ---
+>   arch/s390/include/asm/asm-prototypes.h       |   1 +
+>   arch/s390/include/asm/kvm_host_arm64_types.h | 124 +++++++++++++++++++
+>   arch/s390/include/asm/kvm_host_types.h       |   4 +
+>   arch/s390/include/asm/sae.h                  |  58 +++++++++
+>   arch/s390/include/asm/stacktrace.h           |   5 +
+>   arch/s390/kernel/asm-offsets.c               |   1 +
+>   arch/s390/kernel/entry.S                     |  22 ++++
+>   arch/s390/tools/opcodes.txt                  |   3 +
+>   8 files changed, 218 insertions(+)
+>   create mode 100644 arch/s390/include/asm/kvm_host_arm64_types.h
+>   create mode 100644 arch/s390/include/asm/sae.h
 
-> And that's about ensuring RES0, RES1 handled correctly?
+[...]
+    > +#if IS_ENABLED(CONFIG_KVM)
+> +/*
+> + * __sae64a calling convention:
+> + * %r2 pointer to sae control block physical address
+           ^^^^^^^^^^ I guess it's just a physical address and not a
+                      pointer to it?
 
-That and registers that are just fully UNDEF.
+                      ^^^ sometimes it's called "sae", sometimes "SAE" -
+                          it would be nice to have some consistency> + */
+> +SYM_FUNC_START(__sae64a)
+> +	stmg	%r6,%r14,__SF_GPRS(%r15)	# store kernel registers
 
---uxnxKIWYwbBSuLhy
-Content-Type: application/pgp-signature; name="signature.asc"
+Strictly speaking we don't need to save %r14, but I guess you do this
+for unwinding?
 
------BEGIN PGP SIGNATURE-----
-
-iQEzBAABCgAdFiEEreZoqmdXGLWf4p/qJNaLcl1Uh9AFAmq6lGIACgkQJNaLcl1U
-h9CieQf7Bv8OrYHwyTU+Q8U2Ii8RoH7Y81j3ZZymc25xk67FyvKWoMlm90kSNr7m
-b2KvlUUujGzbrKqVYvyDLVGokWSypH8rJYoe5kzxiWxXaVb07D6L7uqWagY4JFjq
-uWESs4XLJrP3W2oOW+Mx/SSMTbVfep5+/WPaLY67zM1Lx67q3hS2mj5n8l6GQOcr
-JGR0DpX/8oxXJi7Q6VMY5wxNB0ElSPVnh39qfQPz9obagNaBlg6OEWoEHAZdThLD
-FDsuqz96LmeRxRlG/v+mF/8Oa5HoZ2F8usmq06X5GcbK8mfhAun/BL3tY4zARSdY
-sLLmnysxOOkZIv2VS7BT1jG/oR8lPA==
-=ZDVc
------END PGP SIGNATURE-----
-
---uxnxKIWYwbBSuLhy--
+> +	STBEAR	__SF_SAE_BEAR(%r15)		# save breaking event address register
+> +	.insn	rre,0xb9a50000,%r2,0		# Start Arm Execution
+> +	LBEAR	__SF_SAE_BEAR(%r15)		# restore breaking event address register
+> +	lmg	%r6,%r14,__SF_GPRS(%r15)	# restore kernel registers
+> +	xgr	%r0,%r0				# clear guest registers to
+> +	xgr	%r1,%r1				# prevent speculative use
+> +	xgr	%r2,%r2
+> +	xgr	%r3,%r3
+> +	xgr	%r4,%r4
+> +	xgr	%r5,%r5
+> +	BR_EX	%r14
+> +SYM_FUNC_END(__sae64a)
+> +EXPORT_SYMBOL(__sae64a)
+> +#endif
+[...]
 
