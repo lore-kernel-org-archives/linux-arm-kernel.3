@@ -4,126 +4,73 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3DE47CA5FA2
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 28 Sep 2026 19:01:18 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 72079CA5FA3
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 28 Sep 2026 19:01:36 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Content-Type:
-	Content-Transfer-Encoding:Message-ID:Date:Subject:Cc:To:From:Reply-To:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=5TS7H8i/KuqY63xpty6qC7vwjbTDcsWrXUN5TQk31oQ=; b=ilqMdk50SfBWN6Hnm3XsCHTKvZ
-	hxktx2JmE6RFxhyrt8m5ykEbv12hlDYm9kuZzCVMQ6aem5kZ/iRZmqmK6PW20mrxPUxEXSPm+ksyx
-	hh/m788x8OoKWtwBTCe5GRxi/9w0+tDpm/L5sN1R7VrULbAWcXu4yuTCi6NqY4f78A5Lh0gPv8sZE
-	qXP5spAWxzUwB/Y52qmYq5igD85OsdNEZ2UIJKgj6ozbN5JDweR11vqqqjijwQD0aTfqUIczrE7tm
-	1ImVMN23Vq0/klllQCv8Y4AcBF7gL7mWHPQx7V1wXfC3Cl3CIXWYE1NwmXwam326xUqIx9IEFwxnc
-	VnJSAOmg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
+	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=LoJoWSdVtQQnsqJJIZm/2aBV/AIaM+6m2UreLj3Rv8o=; b=3X6Ug+eyXfJk0Ic+6UXj1S9Ewu
+	mHdCAZUk237yf/Hj5D7+nwKllBUI2jOBEXqtn7fN2rhjYqzakXuYB3TdjfARYrsyQzyzxmUGdCzRd
+	Ap5pPVU7algbh7tdPB0FJVpIZJYpazywQZBph2XFSiA1XvxESsL737LETYVPe599oERII1VBRtjxj
+	cEAMbwYq3CxmsQ7CRYO0nqVM1wyIutGPW13ouEG8AxYREddqAOhtGjrM7SnhojliOxW5Cp5Mhglj6
+	4lxDuLOIGhkm4OwXFLW3aD7rDPvgQh80OEgkduA6BIH9NVRI4/YY4SJzjIALB2m69q7NTQHSjdBd0
+	QK455bPQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xBGb8-00000001OMj-24uA;
-	Mon, 28 Sep 2026 19:01:10 +0000
-Received: from mail-westeuropeazlp170130006.outbound.protection.outlook.com ([2a01:111:f403:c201::6] helo=AM0PR02CU008.outbound.protection.outlook.com)
+	id 1xBGbP-00000001OPR-2VEo;
+	Mon, 28 Sep 2026 19:01:27 +0000
+Received: from out-180.mta0.migadu.com ([2001:41d0:1004:224b::b4] helo=mta0.migadu.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xBGb5-00000001OLs-3MK2
+	id 1xBGbL-00000001OOP-0g2t
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 28 Sep 2026 19:01:09 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=khrguHSCSAPJaDftERI0A3LwEHXAIThSUhWrEUzjfLwKdPOi0PH+x09twB8gadFmohsG/6eiTMZRyyrwI+/xv5NhL0q0nEgruYowpPnzFjOkGzrfiiEvWmTuS5Bfbl35bdSL1rbbeXC7b8F7dn8SQMMp3ZuSvAA2OmBQDRB6eZtOKlup8WbLaYMYT4Wdgw4OzfyDTJ+pI69Q34S/MexC+vYI58Zt9kGneYqVE3nbVZCr5o8WDgcp81GtpmNPPyiqV1ZC66O/mdIpdRxufkNIML44DOQ5f92Pvud57PKUAJ92LqPHhvpWGoZZUzsu70SkJnGnjfvGYgGLP3C2KXY37A==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=5TS7H8i/KuqY63xpty6qC7vwjbTDcsWrXUN5TQk31oQ=;
- b=EcBBKFxw23ICcRvHroBzyEpR9E4dwun/xzEShtsICAUo/e5oIzSY0BLDcO2F6WHm6k2NGohENlm+GOn2PkWmC4ye3/fSGxT9QugVal35u/O+o2UmPOkCwejj42cc6nrsPDRgJctm4kluWt+3UYaait9tglco6AVFxZ0NJip+aLkQxofYURF6+XuojcpK9bFmqnhh47SCsYFYJWJIPovzlDwVidwWT9wea+ZfUDm1gwSjN7+WYnv9FkiPKPIZEGjypgQbFgc0dxvQ4VC360xKCy19eoSJP1xOa5FTDfsT65cx9SXOtJy8qXskJEOawqXckFldcq5YUsU/QPqvASJnnw==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
- dkim=pass header.d=oss.nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
- s=selector1-NXP1-onmicrosoft-com;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=5TS7H8i/KuqY63xpty6qC7vwjbTDcsWrXUN5TQk31oQ=;
- b=vzIhX98prB8XJrokxCfzHQwqBFIX4X/2nWORXi+T5TwzzSVziWsXqaJcN2XJS0HZ7s+4MELJp5ywxerRQXv9Y8P6MXEgVLPa+TJp1w1PTWztLqK+revyPEl+g0zWlEOFluqTkxqA9iKLlWKQ+kVJhpqYpzu7uosK0HdWpM5C1UucWsyb/CtzVVHXDqiag5AoGx/uud6pCvMM/Jm8pKsYcoSL6WNHHzOFWZzh8Mti+j9BWuDhs0fa0UvAgCCzCKpR1ACG8gcZEXIlsyvK4aFyW4YN80hmacRPP0Q05q99pLawvRDf9fPNUUtA/lH7QVFVy2E/ApDZBAW7FlcMfOPrIQ==
-Authentication-Results: mx.microsoft.com 1; dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=oss.nxp.com;
-Received: from GV2PR04MB11799.eurprd04.prod.outlook.com (2603:10a6:150:2cf::9)
- by GV1PR04MB10524.eurprd04.prod.outlook.com (2603:10a6:150:1d0::5) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.451.24; Mon, 28 Sep
- 2026 19:01:03 +0000
-Received: from GV2PR04MB11799.eurprd04.prod.outlook.com
- ([fe80::2146:83a2:5329:b7c]) by GV2PR04MB11799.eurprd04.prod.outlook.com
- ([fe80::2146:83a2:5329:b7c%7]) with mapi id 15.21.0451.022; Mon, 28 Sep 2026
- 19:01:02 +0000
-From: Frank.Li@oss.nxp.com
-To: soc@kernel.org
-Cc: Frank.Li@nxp.com,
-	kernel@pengutronix.de,
-	imx@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org,
-	gonglinkai@kylinos.cn
-Subject: [GIT PULL] i.MX drivers change for 7.4
-Date: Mon, 28 Sep 2026 15:00:54 -0400
-Message-ID: <20260928190055.1994853-1-Frank.Li@oss.nxp.com>
-X-Mailer: git-send-email 2.43.0
-Content-Transfer-Encoding: 8bit
-Content-Type: text/plain
-X-ClientProxiedBy: PH8PR21CA0019.namprd21.prod.outlook.com
- (2603:10b6:510:2ce::9) To GV2PR04MB11799.eurprd04.prod.outlook.com
- (2603:10a6:150:2cf::9)
+	Mon, 28 Sep 2026 19:01:25 +0000
+X-Envelope-To: linux-arm-kernel@lists.infradead.org
+DKIM-Signature: a=rsa-sha256; bh=LoJoWSdVtQQnsqJJIZm/2aBV/AIaM+6m2UreLj3Rv8o=;
+ c=simple/simple; d=linux.dev;
+ h=from:to:subject:date:message-id:mime-version:content-type; s=key1;
+ t=1790622080; v=1; x=1791226880;
+ b=iCohD+5SFFdx7nHdp2i6dg59hqRI9riBQxCfMOPtydJiqpEkGUxKpqwJaYWY79D8mdFyMoIi
+ 9UVxCDAtWlr/sfa5XCSTBz++B5TOi9Ps0JpZI56XQiCA4WPrVQGR0h3kc6gDAFgmMoMm4c6Rw/b
+ j8XWLVIFoF4mPlACprneuamM=
+X-Envelope-To: linux-arm-kernel@lists.infradead.org
+Received: by smtp.migadu.com with ESMTPS id 2170c8673dc25178;
+	Mon, 28 Sep 2026 19:01:19 +0000
+X-Mizu-Trace-ID: 2170c8673dc25178
+X-Migadu-Flow: FLOW_OUT
+Received: by mail-lf1-f54.google.com with SMTP id 2adb3069b0e04-5b8ea0ca5baso117e87.1
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 28 Sep 2026 12:01:19 -0700 (PDT)
+X-Forwarded-Encrypted: i=1; AKwUvBwEpomKflQa+FrEjDPQtUlv+xkME2l/pto8a91HY62Vex2zLUdDkaO9w5JN0X/6fHB/OWyhnOcX+cSa4aqZwE/P@lists.infradead.org
+X-Gm-Message-State: AFq9FYIkIiAV+SgAMJFRnSmcOESlNMumgagQ5bThyvJO99f5PGG/BwB5
+	RGfXjrjAlY6ecFq9WWToWxv6IzM1iNCiz5vlKRSTD0BQknrmWT5JfWVX86fVUX/714w1+8/Cc4I
+	6kNlUrhkCHtpiK5jkcn9Sh7UtdjYd/GnvDvjP7Ee2
+X-Received: by 2002:a05:6512:23aa:b0:5b8:c230:1241 with SMTP id
+ 2adb3069b0e04-5ba2e786d94mr6222e87.10.1790622078768; Mon, 28 Sep 2026
+ 12:01:18 -0700 (PDT)
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: GV2PR04MB11799:EE_|GV1PR04MB10524:EE_
-X-MS-Office365-Filtering-Correlation-Id: ec8e2393-c98b-45f0-44fc-08df1d92d770
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|366016|376014|23010399003|19092799006|10067099003|260925021311599003|11063799006|260925021911599003|260925022911599003|18002099003|56012099006;
-X-Microsoft-Antispam-Message-Info: K2/pk2Et3Ahl+tCY6AQR6oGiCErHtvuF2i+OogfhwCGNMSD1Au9MHHPw1Qdz1hfbSmJkB2DMFLwjsloULyj4Xi8CajhnoEu3TM35YeI8IdQijnoEXck7n805lh3cfB6Gu0DDpzs/UEm75rn2Lq4StjYvjjQaEiOL2WqxhifLWWEvspUffRn3Im5/LtbmqhuiWIOstPhA9qywnW6k6mHLfyHtP+J1xrKPHGYkobowRM7gaIzPDndU3BYFxSeGSnTUWZEkSCEIMEBD5ziZS8MES6SqiG9cI+gHGEONAC948umfML/hWq4A2jh1D50+hL2CIBe8V6kI9aExZNPGbVoiXX5ClF5FKGqS7KGy5V+jR4JOi/g/ncKpoUqKqs6ZO68A3GNX/3/9VMSHk0GGUqySWtl66IaLcRLbErloZk2MbluwTTaOdSjF1ZiVUrKWktl5TcYU1gQkzGSjTCUOegbXcwGFl+2aIt42t7HuwKa2zHQV55T3O3d417z3K7JpuAKexgyVPKODNHCC2JkXnvWXjxr5XkjqbOo7EL1oe4AkbWTtOjUWxmgCwZafH9ddeDYNlQLZnyIEIzOxfX6Y+N9wJukCf7XgKolmlCsDiRnwmZ5A1QeMsMD/eJkK4XHArm1HrK80LJYvTYMldmDLeYrhQMT5mfknHWKBxT8CODqMhd4=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:GV2PR04MB11799.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(366016)(376014)(23010399003)(19092799006)(10067099003)(260925021311599003)(11063799006)(260925021911599003)(260925022911599003)(18002099003)(56012099006);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?3rCTUadmu840J2N0UKjD88/QNhM+AcZpXHpOPEj5vfu0GKnk+w488eiCHm3T?=
- =?us-ascii?Q?j3oP40vXi4zg4UxOEn8SN9U4aGV6gi2vt9JVvlx3wHsolNm6vAbXnC2GzAbl?=
- =?us-ascii?Q?ePEacz5/mVhTuQRGecih5rUIPukE4S8Ibpnp5hETg2BWcc/Tey8GfgGtRovn?=
- =?us-ascii?Q?YiHlVgfgYGR7g/Rd6t9IaumJg52Y+VNnHYfH0BVcdhGhbqbNv1pJ5UlZ8D4f?=
- =?us-ascii?Q?DIXFGZVbEqiQDMbG0DK9g8lk/NgQCt2BazK+VEVJAgWxKZ4iRSJFWKmoRm00?=
- =?us-ascii?Q?PyH6Q9NU9MJHAkxB+/msMxRpfy9Aze+GJywTA0jmXzGARkBNeIDw2dgEybDY?=
- =?us-ascii?Q?ZfW8HwVPQXt1Vnixtoq4Az1/cFKeHJ1WPfvpvUQ+9LwQtWAyvE7HkPXytrzZ?=
- =?us-ascii?Q?1Qkgo9dGmBRWF87NBe4cuWULHqIai47LbjfZFXtE0F6Qk3TI+GFgnwTQN/jP?=
- =?us-ascii?Q?IMJg0oHCclyHgn6EDwAAQjE9WlojOCidF9WhYtMVuJP+bWh7es6jA0MBOq1A?=
- =?us-ascii?Q?AEW3etLzSNcTT3k/dtl47q7yQxJvuLkvRifjHmBdPtPxv8yag38+fK6pu5xH?=
- =?us-ascii?Q?bQKDRYXaC0AJf+pusuh7QHnlmHDCN2KupV4ofY1dKsZ3rNcrs3oZ9B5/ZhbD?=
- =?us-ascii?Q?Sb6JUUlbN2MBhCa+I9JsWEw1bYCV/fxM+/bTqLaUrEiS9tWzFka5gO2m4FSA?=
- =?us-ascii?Q?fFPiK6wEf7dqSaFxspkmh+TaL1I3USVS8ToM0SJ0T8iVKvCMLgJQ+EGJFWEt?=
- =?us-ascii?Q?5vNfg8ani4heRCaMD1yFxcc+6vZ4s++rxJwEt/W8sxf8wIh4YkI6E9I8KGsj?=
- =?us-ascii?Q?cjQZZeRS1I0a1akrl/TrfByo7jtEfoz0z5/NR1K7WwvvZQPez2wlSEGmHHF4?=
- =?us-ascii?Q?LlxBxi+8uwqDoKfYQOPSBpkkIjmRi/e/3MpSXM7W7cr4EGfH/HZTFDFXjMAn?=
- =?us-ascii?Q?qBFUln8fyKS61EfmCm4n+tREtzZF4IWfIwOQ9Nl+3oqO96GXM5MN4NBWgExv?=
- =?us-ascii?Q?mimmkDZKgHTq02rKOWPtPI6HaVsBxmz3WQh8tPzinPLzj+iDzSzpCYFHBYmx?=
- =?us-ascii?Q?vjxPrscENtdogaA2Hz2YCKGBIQCiBwuSFDIP2Pd5FlfIixlE8+LGmG4wCBNX?=
- =?us-ascii?Q?SzY0m3X1X3yHWlgsZByPQfH8lFUbMTYZSTUPBKTA3WG6uAGI5Z4m1dnqWkAX?=
- =?us-ascii?Q?WdqVoszvgSeQbWIfXlypgTKma3l/uzk8rAAbtWkkqrh/FQlSSmZRGC4EqIyL?=
- =?us-ascii?Q?QWJWFktIzi45vbj8xiY9zv+KJFE7iB0/55Ma6vfpLvyn5fWZqcFJwft5WxoT?=
- =?us-ascii?Q?1pYQzW+E4h7urFN64G6seC1L71nE8XSg6tSTAH1JbjZIlIY2ARh3PEUbzosn?=
- =?us-ascii?Q?Xx5xoELFPGwZ9Unrns2gN4B5jfSotdlYP5OhNY5qyV062SSWRWFOrVnLFfV5?=
- =?us-ascii?Q?4Eo8I68A5a88HIeaA6N3kX39eTFjCzoix46w14t8aGFWzNufIXakZBcsqZ3e?=
- =?us-ascii?Q?lPjKFuSaMDHa5gEW/Sr4wDpotpnPyifeiU0Z/M5snMfF/DcznycyY1qC6c73?=
- =?us-ascii?Q?utvEUdCvnGzpEm/KEUP/r7eGqOp6PsU4LOfmgdPZ7MA+KG7i5a963yhyIDDg?=
- =?us-ascii?Q?WQzzJTNdgjVBedJFiH2EB1YOryM+BVa9sEmeISTfxrNHBUPaJopbsgqYaDFh?=
- =?us-ascii?Q?mILYZFYOYOnKPp2+zlCJG9ZgCs158MCF8IxtBZ8Gz2VQdMKT6B44ojOgDEIG?=
- =?us-ascii?Q?BSMin+BvN9JtFOTZcDfxXeanhLllqqpBoClzuISzzVWnHyisLIby?=
-X-OriginatorOrg: oss.nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: ec8e2393-c98b-45f0-44fc-08df1d92d770
-X-MS-Exchange-CrossTenant-AuthSource: GV2PR04MB11799.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 28 Sep 2026 19:01:02.8761
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: 9ilW3X4RgZoAu1nScuuj6v9eWKfsi7hVXGdXcqPRDgV0TlTKKm0e3ex1aJee3RUKlREo7/tcPg7qHYMCJiTJkrSxH1Dg0yLydbQuMaiBixKqsbLTY7/5zbz5Ql26Acvn
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: GV1PR04MB10524
+References: <20260914113338.159227-1-fuad.tabba@linux.dev> <20260914113338.159227-16-fuad.tabba@linux.dev>
+ <86a4ph5fb9.wl-maz@kernel.org> <CA+EHjTzCQkeXQQcCDwABLR2w+NTmKTG3V6RSmhzYNayaoYXw3g@mail.gmail.com>
+ <865x045mke.wl-maz@kernel.org> <aq0628Ci4pfEj0KG@willie-the-truck> <871paf3y1n.wl-maz@kernel.org>
+In-Reply-To: <871paf3y1n.wl-maz@kernel.org>
+From: Fuad Tabba <fuad.tabba@linux.dev>
+Date: Mon, 28 Sep 2026 20:00:42 +0100
+X-Gmail-Original-Message-ID: <CA+EHjTw5yJ7PjCkHmg-kuZjdXL2cDa+5StZfiFOVT38FiJCS3g@mail.gmail.com>
+X-Gm-Features: AclHuK_A3LGm0XhIK4uWtuZLyyMDjjb433L7Zm1vN8E8cf96YxS-xxb0mI7O9p4
+Message-ID: <CA+EHjTw5yJ7PjCkHmg-kuZjdXL2cDa+5StZfiFOVT38FiJCS3g@mail.gmail.com>
+Subject: Re: [PATCH v3 15/18] KVM: arm64: Reject host access to protected VM
+ private state
+To: Marc Zyngier <maz@kernel.org>
+Cc: Will Deacon <will@kernel.org>, oupton@kernel.org, kvmarm@lists.linux.dev, 
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
+	catalin.marinas@arm.com, joey.gouly@arm.com, seiden@linux.ibm.com, 
+	suzuki.poulose@arm.com, yuzenghui@huawei.com, mark.rutland@arm.com, 
+	steven.price@arm.com, vdonnefort@google.com, qperret@google.com
+Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260928_120107_843246_FFBC0D65 
-X-CRM114-Status: UNSURE (   6.34  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260928_120123_728791_A180B133 
+X-CRM114-Status: GOOD (  23.12  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -138,29 +85,40 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Frank.Li@nxp.com
+Hi Marc, Will,
 
-The following changes since commit cee9395acd8043be0644b25c34bfa86623f2b935:
+On Sun, 27 Sept 2026 at 09:17, Marc Zyngier <maz@kernel.org> wrote:
+[...]
+> > > > once the vCPU has run, the copy is the VMM's
+> > > > boot state plus what the exit handlers copy out, and the VMM can't
+> > > > distinguish them. x0 on MMIO is one of those fields, but the VMM reads
+> > > > it from kvm_run->mmio. For LD64B, EL2 would copy the operands out the
+> > > > same way and the error could be relaxed to those registers. Loosening
+> > > > later breaks nobody. The comment and the message do overstate it by
+> > > > calling the copy "not the guest's state", and I'll reword both in v4.
+> > > > More on the kvmtool thread [1].
+> > >
+> > > A protected-aware VMM already knows it cannot obtain the registers.
+> >
+> > I think you can use that argument both ways: if the VMM knows it cannot
+> > obtain the registers, then it's fine to return an error if the VMM does
+> > something wrong.
+[...]
+> > If it's helpful, we can ask the crosvm developers here if they have
+> > opinions for/against the two behaviours?
+>
+> I guess that'd be useful to know what they'd prefer, and also to look
+> into what QEMU does in this case -- I'm not exactly a good judge when
+> it comes to UAPI definition... ;-)
 
-  Linux 7.3-rc1 (2026-08-30 13:34:40 -0700)
+I asked Frederick Mayle (CC'ed, AVF/pKVM support in crosvm) about what
+they think in crosvm. Their preference is an error rather than a
+silent failure: an explicit failure is easier to debug, and the
+earlier the error surfaces, the easier it is to correlate with the
+misbehaviour. Frederick also raised the MMIO case as a concrete risk
+of the silent option: a VMM could reasonably think it can complete an
+MMIO access with SET_ONE_REG and never find out that it was a no-op.
 
-are available in the Git repository at:
-
-  https://git.kernel.org/pub/scm/linux/kernel/git/frank.li/linux.git tags/imx-drivers-7.4
-
-for you to fetch changes up to e3631d0242842940f9e902afaea98202e56277e8:
-
-  firmware: imx: dsp: fix mailbox channel leak on kasprintf failure (2026-09-14 15:38:00 -0400)
-
-----------------------------------------------------------------
-i.MX drivers change for 7.4
-
-- fix mailbox channel leak on kasprintf failure for imx firmware dsp driver.
-
-----------------------------------------------------------------
-Linkai Gong (1):
-      firmware: imx: dsp: fix mailbox channel leak on kasprintf failure
-
- drivers/firmware/imx/imx-dsp.c | 6 ++++--
- 1 file changed, 4 insertions(+), 2 deletions(-)
+Cheers,
+/fuad
 
