@@ -4,84 +4,62 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C7AE5CA5FA5
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 28 Sep 2026 14:23:52 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2CE8ACA5FA5
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 28 Sep 2026 14:36:58 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Date:
-	Content-Transfer-Encoding:Content-Type:References:In-Reply-To:Cc:To:Subject:
-	From:Message-ID:Reply-To:MIME-Version:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=zDbYInZcYItsaSdA5N/JPrSpFCGeWb2y6Uv+tBN/tfw=; b=2K97Yn7gE5uZit
-	wzh6Uo7rJ/j4M/6AeLYL2/aegSehvCnB9L75Vftf9JpoPGK8OcYz+7RTeDvlWd3LVyqJhyBvr7P9H
-	9KsMFi35g7g/Oep4B0xyFgJOKWi0/L0L81kaffA0CUeDPYM1DSVSuxnILoz61h4W2+95OuZBvlQmY
-	iXB2LestjzUuaC1QCsHSOkm2ZdGVcfvhNFks5LGyM4RRucRWW2hk3hy7BKzjVEBi70B+gjOxXtuDr
-	B0X/zU7pmS/FOo1nV4sXVhaRZsIKkZCw77PcLoSAnopJ4j//5skHSYNrHjAG5lzZoovAowOZPpMSR
-	g/lW1je14lOZWON8yUIg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=/5itlcJu9srLLzT4QHX7WOkX7hh4MpPTH6x/emVYksg=; b=NSCfOTcvhsWNUIH/wdIOzTuU+v
+	khDaEo/vZs4d29GM1mvbBDTdpYLZngHmynf9cVvZuT15jvnrhb+zCsw6CWLrqPxwuWmbgNe9kNku1
+	HotNqnJiO46cTr7UMht2XQ5lG8Hq8Blua3v0k0ngcuDlGbCdSxqk0swpWxEORLn1X1d8U6WhM9tqd
+	pj85yV1Knkg7+q/xwbtEC3HBp5qb8Fv5JqGbXGA7dMs1r1gCxNLti48JB0CSwfu5kkwtyGpXfGqGY
+	6SP9IcnVviM5zfQWUI+xH7Aa8Xf7MXfuFYNjGCr/gK956gHJ3bz7q1mcB9pi5rfK2VMLYUQp3iH0U
+	AFtD11eA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xBCGg-00000000ki9-1FGT;
-	Mon, 28 Sep 2026 14:23:46 +0000
-Received: from mx1.white.stw.pengutronix.de ([185.203.200.13])
+	id 1xBCTL-00000000mYD-2KVl;
+	Mon, 28 Sep 2026 14:36:51 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xBCGc-00000000khO-3bzE;
-	Mon, 28 Sep 2026 14:23:45 +0000
-Received: from [127.0.0.1] (unknown [IPv6:2a02:560:5dd5:4b00:9ebf:dff:fe00:fdb5])
-	(Authenticated sender: sha@pengutronix.de)
-	by mx1.white.stw.pengutronix.de (Postfix) with ESMTPSA id 5A653201E30;
-	Mon, 28 Sep 2026 16:23:39 +0200 (CEST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=pengutronix.de;
-	s=20260414; t=1790605419;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=zDbYInZcYItsaSdA5N/JPrSpFCGeWb2y6Uv+tBN/tfw=;
-	b=OhPvoMTGchpmBpPgONHLp6L0gfu3PEfwkeZMrS0MuswERRQkJ6P3RjLdNUWJO3T6cWroDZ
-	NDSBQXPCwhARKXzy5QV9YRwgzuCu6EsZL2RmWzOSq+tVdTiJ97vq4oht+hhKTQARQNnNXj
-	7BTR3VT6t6SsC6SS7j9SPgpvFz9IoBjaUDUwSjZ7yLLqaRPxHUdov2/GMdn2GwQmnyaejv
-	dEQbOCIoruGlSzPK/tX6KxCCZdHkkDvGCjNgwfNvhnFSxB9VPQCCpUiJBRHDb4Yr574GNq
-	M7BKr6YxLBulJU3s0wvWgoCPtUYYltS6G2i4Vgbw5hEkcMfc/iAhH9Ec6T7NPQ==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=pengutronix.de;
-	s=20260414; t=1790605419;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=zDbYInZcYItsaSdA5N/JPrSpFCGeWb2y6Uv+tBN/tfw=;
-	b=FSufx7oeE1uQoqb6jfybVykZY9sFLuEDOHcXdo0nbt322M+wPcfaXkDjmhMz+gbb7S0Fi5
-	9R26RGnjmr+zGr6q6FQyQ4tT5MD5n5UyFiD5+BtJapkcLPnjgohRVUV/n2bRlHKNpLXqXi
-	uaN+CrXZdy7pbqj6qqUlSmMKGzzsx6uNmU66F9VG2RQQN0HqhsC02Mmdt4Ow7ylzzCt74C
-	bMLZ31Tavk3KUiE9EEcxBko/TNyMmzAEtq23HxN+hQyHSYGIOgJ4d4YIdOY9ubjWY5JexK
-	9IoKFKzGjNbkUNDC+R5JrKwN3rsr8Z1BiDg+c0WBfWDTMo9Mf28pJ7DRNutaEg==
-ARC-Seal: i=1; s=20260414; d=pengutronix.de; t=1790605419; a=rsa-sha256;
-	cv=none;
-	b=QYQn3EQTuscFiV1LHEzIueH9F0vXw2BeXsOAYm+nVsY8MYixbUMADy7vqGPxdt6X8eR4tM
-	igO1yBppPmCDQfmjMpfY9aVhpQIGgIZ1Loa7PcFkj6ITnpQ4rZaxrsXhv/L7xQTxD6X69F
-	T2I2gkph9lIuVL6TCh8xALIJ4KdJcOX/hFAirhKrj5CwU5fE2nxHpmgwkOX/tNr8HXy4uo
-	xNGx34eqtrSuiakAiL8TCUEreSZQvn6NTZ7i0A+MI+Xeov/iz/NDyhRP/BkFTeyqqAWg46
-	bOxAteH1Vodtbht4FLhKbeJa5bZxg7h43YQ0ChUa09Jku1BSNseW3IE2wZwcXA==
-ARC-Authentication-Results: i=1;
-	ORIGINATING;
-	auth=pass smtp.auth=sha@pengutronix.de smtp.mailfrom=s.hauer@pengutronix.de
-Message-ID: <97676b94-47f9-4937-a1aa-69e8bbd527df@pengutronix.de>
-From: "Sascha Hauer" <s.hauer@pengutronix.de>
-Subject: Re: [PATCH v5 2/4] media: rockchip: Add JPEG decoder driver
-To: "Nicolas Dufresne" <nicolas@ndufresne.ca>
-Cc: "Sascha Hauer" <s.hauer@pengutronix.de>, "Lucas Sinn" <lucas.sinn@wolfvision.net>, "Mauro
- Carvalho Chehab" <mchehab@kernel.org>, "Rob Herring" <robh@kernel.org>, "Krzysztof
- Kozlowski" <krzk+dt@kernel.org>, "Conor Dooley" <conor+dt@kernel.org>, "Heiko
- Stuebner" <heiko@sntech.de>, "Philipp Zabel" <p.zabel@pengutronix.de>, linux-media@vger.kernel.org, linux-rockchip@lists.infradead.org, devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-In-Reply-To: <8a559d812623457381e65e0e62699ba043de7861.camel@ndufresne.ca>
-References: <20260925-rockchip-jpegdec-v5-0-30658833cb68@pengutronix.de>
- <20260925-rockchip-jpegdec-v5-2-30658833cb68@pengutronix.de>
- <8a559d812623457381e65e0e62699ba043de7861.camel@ndufresne.ca>
-Content-Type: text/plain; charset=utf-8
-Content-Transfer-Encoding: quoted-printable
-Date: Mon, 28 Sep 2026 14:23:38 +0000
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260928_072343_225931_7D600C64 
-X-CRM114-Status: GOOD (  54.91  )
+	id 1xBCTK-00000000mY0-31OT
+	for linux-arm-kernel@lists.infradead.org;
+	Mon, 28 Sep 2026 14:36:50 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by sea.source.kernel.org (Postfix) with ESMTP id 20D9641188;
+	Mon, 28 Sep 2026 14:36:50 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 4EE6A1F000FF;
+	Mon, 28 Sep 2026 14:36:39 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1790606210;
+	bh=/5itlcJu9srLLzT4QHX7WOkX7hh4MpPTH6x/emVYksg=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=JE/yzGbuzqBngwQWRR7pX+rNXVbom7QiV7DYqnEYiAhZWrEIfO1c1B65ffbcXnGST
+	 P4dQwgShY1Hhs5lfk7W8uKgzu5LTzla3YhEE296sRP3ZG6T2ngzXzxDanRA/zrbpg5
+	 e9yIsFanS4M7JFHjAf7slcL3aV+aI2XxSooQ33IzpsS6eXEeA3f8SnHh0V7t1BJU+q
+	 78/5BZfGBTUjvK4Pmk0oKeeLiDql2UYgX5f98mffzlq0HcGF9F11/OUbZmhN0Vnr3m
+	 zxic0mpOekQ3/1e65WOTbuvkpk0R6yEI7Ih/Sp7duEmJnoBzAnj+iToRlQQ/HGFOQz
+	 OUPp3JXR3SjwA==
+Date: Mon, 28 Sep 2026 15:36:36 +0100
+From: "Lorenzo Stoakes (ARM)" <ljs@kernel.org>
+To: Mark Brown <broonie@kernel.org>
+Cc: Marc Zyngier <maz@kernel.org>, Oliver Upton <oupton@kernel.org>, 
+	Joey Gouly <joey.gouly@arm.com>, Steffen Eiden <seiden@linux.ibm.com>, 
+	Suzuki K Poulose <suzuki.poulose@arm.com>, Zenghui Yu <yuzenghui@huawei.com>, 
+	Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>, Fuad Tabba <fuad.tabba@linux.dev>, 
+	Peter Maydell <peter.maydell@linaro.org>, linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev, 
+	linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v3 2/3] KVM: arm64: Block ID register changes after we
+ rely on the values
+Message-ID: <arpsY1oqmhvxRVpj@gremlin>
+References: <20260901-kvm-arm64-idreg-final-v3-0-a0ffa06fa872@kernel.org>
+ <20260901-kvm-arm64-idreg-final-v3-2-a0ffa06fa872@kernel.org>
+MIME-Version: 1.0
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20260901-kvm-arm64-idreg-final-v3-2-a0ffa06fa872@kernel.org>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -96,553 +74,233 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 2026-09-25 10:31, Nicolas Dufresne wrote:
-> > +++ b/drivers/media/platform/rockchip/rkjpegd/Kconfig
-> > @@ -0,0 +1,16 @@
-> > +# SPDX-License-Identifier: GPL-2.0
-> > +config VIDEO_ROCKCHIP_JPEGD
-> > +	tristate "Rockchip JPEG decoder driver"
-> > +	depends on V4L_MEM2MEM_DRIVERS
-> > +	depends on ARCH_ROCKCHIP || COMPILE_TEST
-> > +	depends on VIDEO_DEV
-> > +	depends on PM
-> > +	select MEDIA_CONTROLLER
-> > +	select V4L2_JPEG_HELPER
-> > +	select V4L2_MEM2MEM_DEV
-> > +	select VIDEOBUF2_DMA_CONTIG
-> > +	help
-> > +	  Support for the JPEG decoder Rockchip integrates into a number of
-> > +	  its SoCs, decoding JPEG and MJPEG frames to NV12.
->=20
-> nit: Should this help contains reference to the exact model ? (e.g. VDPU7=
-20)
+On Tue, Sep 01, 2026 at 07:18:49PM +0100, Mark Brown wrote:
+> In commit c5bac1ef7df6b ("KVM: arm64: Move existing feature disabling
+> over to FGU infrastructure") a check was added to suppress duplicate
+> recalculation of FGUs based on a flag KVM_ARCH_FLAG_FGU_INITIALIZED. This
 
-Yes, will add.
+Just for my understanding:
 
-> > +
-> > +#define RKJPEGD_NAME "rockchip-jpegd"
-> > +
-> > +/*
-> > + * The reference manual gives 48x48 to 65536x65536, but a 32 bit sizei=
-mage
-> > + * wraps well before the top of that range.  Cap at four times 4K in e=
-ach
-> > + * direction and hold both the coded format and the bitstream to it.
-> > + */
-> > +#define RKJPEGD_MIN_WIDTH	48
-> > +#define RKJPEGD_MIN_HEIGHT	48
-> > +#define RKJPEGD_MAX_SIZE	16384
->=20
-> Seems quite strict and miss-leading, since you can't support stuff like
-> 65536x160, which is barely 10MB / image. Can't you semantically filter it=
-, or
-> let the allocation fails ?
+FGU = Fine-Grained UNDEF -> if feature not present really act as if it's not
+present, don't just not advertise it.
 
-I had some trouble with possible integer overflows when allowing the
-full 64k size, so I took the easy way of limiting to 16k which doesn't
-overflow. I changed to use 64bit math which allows us to drop this
-limitation.
+And that's about ensuring RES0, RES1 handled correctly?
 
-> > +/**
-> > + * struct rkjpegd_dev - the decoder device
-> > + *
-> > + * @ref:		held by the binding, dropped by devres after every
-> > + *			other devres resource is released, and by the video
-> > + *			device, dropped from its release callback.
-> > + * @v4l2_dev:		V4L2 device.
-> > + * @mdev:		media device.
-> > + * @vdev:		video device.
-> > + * @m2m_dev:		mem2mem device.
-> > + * @dev:		driver model device.
-> > + * @clocks:		clocks named by @rkjpegd_clk_names.
-> > + * @resets:		the block's reset lines, as one array control.
-> > + * @regs:		register window.
-> > + * @irq:		the block's interrupt, masked while the watchdog has
-> > + *			the hardware to itself.
-> > + * @vdev_lock:		serialises ioctls and the videobuf2 queues.
-> > + * @drain_lock:		serialises the mem2mem drain state between
-> > + *			V4L2_DEC_CMD_STOP/START and the completion of a job,
-> > + *			which runs from the interrupt handler and the
-> > + *			watchdog without @vdev_lock.
-> > + * @watchdog_work:	fires when a job does not complete in time.
-> > + * @needs_reset:	the block ended a job in error or without
-> > + *			%VDPU720_SOFT_RST_RDY and has to be reset before
-> > + *			the next one is programmed.  Set from the
-> > + *			interrupt handler, consumed by rkjpegd_vdpu720_run();
-> > + *			the reset itself sleeps and cannot be done in either
-> > + *			the interrupt handler or anywhere else atomic.
-> > + */
-> > +struct rkjpegd_dev {
-> > +	struct kref ref;
-> > +	struct v4l2_device v4l2_dev;
-> > +	struct media_device mdev;
->=20
-> What do you use this media device for ?
+Also (just noting for myself here) - it's a bit in the arch.flags bitmask:
 
-Turns out not at all. I'll drop it.
+kvm_calculate_traps() ->
 
-> > +static void rkjpegd_reset_fmts(struct rkjpegd_ctx *ctx)
-> > +{
-> > +	u32 width =3D ALIGN(RKJPEGD_MIN_WIDTH, RKJPEGD_RAW_STEP);
-> > +	u32 height =3D ALIGN(RKJPEGD_MIN_HEIGHT, RKJPEGD_RAW_STEP);
-> > +
-> > +	rkjpegd_fill_coded_fmt(&ctx->src_fmt, width, height, 0);
-> > +	rkjpegd_set_default_colorimetry(&ctx->src_fmt);
-> > +
-> > +	mutex_lock(&ctx->fmt_lock);
->=20
-> Have you considered using guard ?
+	if (test_bit(KVM_ARCH_FLAG_FGU_INITIALIZED, &kvm->arch.flags))
+		goto out;
 
-Will do, in case the lock actually survives this review.
+	...
 
-> > +static int rkjpegd_decoder_cmd(struct file *file, void *priv,
-> > +			       struct v4l2_decoder_cmd *cmd)
-> > +{
-> > +	struct rkjpegd_ctx *ctx =3D file_to_rkjpegd_ctx(file);
-> > +	struct rkjpegd_dev *jpegd =3D ctx->dev;
-> > +	bool source_change, stopped;
-> > +	unsigned long flags;
-> > +	int ret;
-> > +
-> > +	ret =3D v4l2_m2m_ioctl_try_decoder_cmd(file, priv, cmd);
-> > +	if (ret < 0)
-> > +		return ret;
-> > +
-> > +	if (!vb2_is_streaming(v4l2_m2m_get_src_vq(ctx->fh.m2m_ctx)))
-> > +		return 0;
-> > +
-> > +	if (cmd->cmd =3D=3D V4L2_DEC_CMD_STOP) {
-> > +		spin_lock_irqsave(&jpegd->drain_lock, flags);
-> > +		ret =3D v4l2_m2m_ioctl_decoder_cmd(file, priv, cmd);
-> > +		stopped =3D v4l2_m2m_has_stopped(ctx->fh.m2m_ctx);
-> > +		spin_unlock_irqrestore(&jpegd->drain_lock, flags);
-> > +		if (ret < 0)
-> > +			return ret;
-> > +
-> > +		if (stopped)
-> > +			v4l2_event_queue_fh(&ctx->fh, &rkjpegd_eos_event);
-> > +
-> > +		return 0;
-> > +	}
-> > +
-> > +	/* Resumes after a drain or a resolution change alike. */
-> > +	mutex_lock(&ctx->fmt_lock);
-> > +	source_change =3D ctx->source_change;
-> > +	mutex_unlock(&ctx->fmt_lock);
-> > +
-> > +	/* A drain the resolution change interrupted carries on. */
-> > +	spin_lock_irqsave(&jpegd->drain_lock, flags);
-> > +	if (!source_change || !ctx->fh.m2m_ctx->is_draining)
-> > +		ret =3D v4l2_m2m_ioctl_decoder_cmd(file, priv, cmd);
->=20
-> With guard, you could simply return here, and your could not need the ret
-> variable.
+	set_bit(KVM_ARCH_FLAG_FGU_INITIALIZED, &kvm->arch.flags);
 
-Yes.
+> flag is set when we complete kvm_calculate_traps(), which is called from
+> kvm_arch_vcpu_run_pid_change(). There are several points where that
+> function could fail after we have calculated FGUs (eg, due to an invalid
+> timer configuration). If this happens then userspace will still be able
+> to write to the ID registers, writes to which are gated on
+> KVM_ARCH_FLAG_HAS_RAN_ONCE being set. This in turn means that the FGU
 
-> > +static int vdpu720_fill_chroma(struct rkjpegd_ctx *ctx,
-> > +			       struct vb2_v4l2_buffer *dst_buf)
-> > +{
-> > +	struct rkjpegd_dev *jpegd =3D ctx->dev;
-> > +	struct vb2_buffer *vb =3D &dst_buf->vb2_buf;
-> > +	u32 y_size, size;
-> > +	void *dst_cpu;
-> > +	int ret;
-> > +
-> > +	mutex_lock(&ctx->fmt_lock);
->=20
-> I keep seeing this fmt lock over and over and can't get my head around wh=
-y you
-> would need that. There is implicit locking in the VIDIOC system that do p=
-rotect
-> these. Again, can you in your own word explain your choices ?
+OK so the issue is that the writes to registers are permitted while
+KVM_ARCH_FLAG_HAS_RAN_ONCE is cleared, but there's a dependency:
 
-It comes with dynamic resolution support. The check for a new resolution
-has to be done in device_run() to make sure the resolution change takes
-place on that exact frame. Doing it in buf_queue() would mean we get the
-frames still in the queue wrong. We can't take vdev_lock in
-device_run() which is why sashiko continuously stumbled upon missing
-locking of ctx->dst_fmt.
+	reg config -> what features enabled -> what FGU sets RES0/1 for
 
-I cannot judge how propable an actual race or how serious this missing
-locking is. But yes, the fmt_lock is a direct result of my LLM fighting
-against Sashiko.
+So you can finalise FGU state on incorrect information.
 
-So I could drop dynamic resolution support (which I don't need
-currently), or we could ignore Sashiko here.
+And RES0/RES1 matters meaningfully for NV because VNCR backs registers
+with... memory :) Whereas the actual sysregs will just do what they do.
 
->=20
-> > +	y_size =3D ctx->dst_fmt.plane_fmt[0].bytesperline * ctx->dst_fmt.heig=
-ht;
-> > +	size =3D ctx->dst_fmt.plane_fmt[0].sizeimage;
-> > +	mutex_unlock(&ctx->fmt_lock);
-> > +
-> > +	dst_cpu =3D vb2_plane_vaddr(vb, 0);
-> > +	if (!dst_cpu) {
-> > +		dev_err_ratelimited(jpegd->dev,
-> > +				    "JPEG capture buffer has no kernel mapping\n");
-> > +		return -EINVAL;
-> > +	}
-> > +
-> > +	ret =3D rkjpegd_begin_cpu_access(vb, DMA_TO_DEVICE);
-> > +	if (ret)
-> > +		return ret;
-> > +
-> > +	memset(dst_cpu + y_size, 0x80, size - y_size);
-> > +
-> > +	rkjpegd_end_cpu_access(vb, DMA_TO_DEVICE);
->=20
-> This had no place here, should be done by the io ops.
+> configuration for a running guest may not match the ID register
+> configuration.
 
-I'll switch to a single plane output format as you suggested.
-
-
-> > +	dma_sync_single_for_device(jpegd->dev, ctx->table_base.dma,
-> > +				   ctx->table_base.size, DMA_TO_DEVICE);
-> > +
-> > +	/*
-> > +	 * STRM_BASE must be 16-byte aligned, so split the address and record
-> > +	 * the sub-block start byte.  Both come from the start of the plane,
-> > +	 * not the payload: videobuf2 lets data_offset carry arbitrary low
-> > +	 * bits, which STRM_BASE has no way to encode.
-> > +	 */
-> > +	strm_off        =3D data_offset + hdr->ecs_offset;
-> > +	hw_strm_off     =3D strm_off & ~0xfU;
-> > +	strm_start_byte =3D strm_off & 0xfU;
-> > +	strm_len_blks   =3D (ALIGN(payload - hw_strm_off, 16) - 1) >> 4;
-> > +
-> > +	ret =3D vdpu720_fill_regs(ctx, hdr, ctx->table_base.dma,
-> > +				src_dma + hw_strm_off, strm_start_byte,
-> > +				strm_len_blks, dst_dma);
-> > +	if (ret)
-> > +		return ret;
-> > +
-> > +	if (hdr->frame.num_components =3D=3D 1) {
-> > +		ret =3D vdpu720_fill_chroma(ctx, dst_buf);
->=20
-> That seems crazy expensive. If the HW does not fill the chroma, why do yo=
-u pick
-> a multi-plane format in the first place. Use a Y only format instead.
-
-That's a better approach for sure.
-
->=20
-> Fixing that should let you skip kernel mapping of the destination buffer
-> perhaps.
-
-Yes.
-
->=20
-> > +		if (ret)
-> > +			return ret;
-> > +	}
-> > +
-> > +	rkjpegd_arm_watchdog(jpegd);
-> > +
-> > +	/*
-> > +	 * A frame whose entropy data ends early runs the decoder off the end
-> > +	 * of the stream, and with the condition masked it waits instead of
-> > +	 * reporting.  VDPU720_ERR_MASK already covers the status.
-> > +	 */
-> > +	rkjpegd_write(jpegd,
-> > +		      VDPU720_DEC_E | VDPU720_TIMEOUT_E | VDPU720_BUF_EMPTY_E,
-> > +		      VDPU720_REG_INT);
-> > +
-> > +	return 0;
-> > +}
-> > +
-> > +static irqreturn_t rkjpegd_vdpu720_irq(int irq, void *dev_id)
-> > +{
-> > +	struct rkjpegd_dev *jpegd =3D dev_id;
-> > +	enum vb2_buffer_state state;
-> > +	irqreturn_t ret =3D IRQ_NONE;
-> > +	u32 status;
-> > +
-> > +	/* The registers are only clocked while the device is runtime active.=
- */
-> > +	if (pm_runtime_get_if_active(jpegd->dev) <=3D 0)
-> > +		return IRQ_NONE;
->=20
-> Was that sashiko asking you to do that ?
-
-Yes, several times:
-
-  =E2=96=8E [High] The interrupt handler reads hardware registers without c=
-hecking if the device is active via=20
-  =E2=96=8E pm_runtime, leading to crashes on spurious interrupts.
-
-
-  =E2=96=8E [Severity: High]
-  =E2=96=8E This reads the VDPU720_REG_INT register unconditionally upon en=
-try. If a spurious interrupt or an=20
-  =E2=96=8E irqpoll event occurs while the device is in a runtime-suspended=
- state (with clocks and power domains=20
-  =E2=96=8E gated off), will this read trigger a synchronous external abort=
- on ARM? Should it use=20
-  =E2=96=8E pm_runtime_get_if_active() to verify the power state first?
-
-  =E2=96=8E If a spurious interrupt fires while the IP block is held in res=
-et, the rkjpegd_vdpu720_irq() handler=20
-  =E2=96=8E will run. Because PM runtime is still active, pm_runtime_get_if=
-_active() will succeed, and the handler
-  =E2=96=8E will try to read from the hardware (VDPU720_REG_INT), which can=
- cause a bus stall or kernel panic.
-
-> To start with, if you clock off the
-> device, you won't get the IRQ. If you clock off the device between the st=
-art of
-> this function and here in a race, you have some bigger problems in your d=
-river.
->=20
-> This type of IP is not free-running, its trigger based. When its triggere=
-d, it
-> should be busy and a PM ref should be held. Be careful with sashiko remar=
-ks, it
-> does not differentiate free-running IP from triggered IP.
->
-> I'm also a little worried that maybe you don't actually understand this, =
-since
-> its quite possible you simply fed sashiko into your llm to produce this v=
-5.
-
-Ok, shows I have to think a bit more before taking Sashiko things for
-granted.
+Ack yeah.
 
 >
-> > +
-> > +	status =3D rkjpegd_read(jpegd, VDPU720_REG_INT);
-> > +
-> > +	/* First phase of the IRQ clear, see VDPU720_IRQ_CLR_KEEP. */
-> > +	rkjpegd_write(jpegd, status & VDPU720_IRQ_CLR_KEEP, VDPU720_REG_INT);
-> > +
-> > +	if (!(status & VDPU720_IRQ_RAW))
-> > +		goto out_put;
-> > +
-> > +	rkjpegd_write(jpegd, 0, VDPU720_REG_INT);
-> > +
-> > +	state =3D (status & VDPU720_ERR_MASK) ?
-> > +		VB2_BUF_STATE_ERROR : VB2_BUF_STATE_DONE;
->=20
-> nit: Sometimes its nice to set the payload size to zero, to signal that t=
-his is
-> not minor data corruption but a complete decode failure. Looking below, m=
-ost
-> err_info imply this. Its not a bug in your implementation though.
+> This will result in issues based on the hypervisor assuming a consistent
+> configuration, for example it allows the creation of guests which have
+> untrapped access to system registers which are not context switched for
+> the guest.
+>
+> A similar issue exists in kvm_init_nv_sysregs() where once sysreg_masks
+> is allocated the RES0/RES1 masks for registers are fixed based on the ID
+> register values at the time the function ran, and also for copying the
+> implementation ID registers to the hypervisor for pKVM.
+>
+> There is a further issue with vGIC setup, creating a vGIC includes
+> updating the ID registers to reflect the GIC configuration. We refuse
+> to create a vGIC after the first vCPU has run but if a vCPU fails its
+> first run we may already have finalized the ID register values.
 
-Yes, will do.
+It seems like all are similar to 1/3 in that there are dependencies that
+are not correctly expressed atm.
 
-> > +/**
-> > + * rkjpegd_abort_job() - take a running job away from the hardware
-> > + * @jpegd:	device whose current job is to be ended
-> > + *
-> > + * Resets the block and hands the frame back as an error even if it did
-> > + * complete: the reset went through underneath it and cleared the inte=
-rrupt
-> > + * that would have said so.  The interrupt is masked across the sequen=
-ce so a
-> > + * completion arriving in the middle cannot finish the job a second ti=
-me.
-> > + *
-> > + * The caller must have stopped the watchdog from firing first.  Which=
- of the
-> > + * two completes a job is decided by the cancel_delayed_work() in
-> > + * rkjpegd_irq_done(), so a watchdog that is still armed makes this ra=
-cy.
-> > + */
-> > +static void rkjpegd_abort_job(struct rkjpegd_dev *jpegd)
-> > +{
-> > +	struct rkjpegd_ctx *ctx;
-> > +
-> > +	disable_irq(jpegd->irq);
->=20
-> That is not needed for triggered IP, drop.
+>
+> Avoid these issues by adding a new flag that we set when we finalize the
+> system registers, blocking ID register changes after that has been set
+> even if something fails later on. Do this in kvm_vm_finalize_sys_regs(),
+> this is where we finalize the GIC fields in the ID registers and happens
+> before we do the FGU and RES0/1 setup. A VMM which tries to create an
 
-Ok.
+OK so resolve things by tracking when the regs _should_ actually be set up
+by, rather than just gating on KVM_ARCH_FLAG_HAS_RAN_ONCE once.
 
-> > +static void rkjpegd_device_run(void *priv)
-> > +{
-> > +	struct rkjpegd_ctx *ctx =3D priv;
-> > +	struct rkjpegd_dev *jpegd =3D ctx->dev;
-> > +	struct vb2_v4l2_buffer *src, *dst;
-> > +	int ret;
-> > +
-> > +	src =3D v4l2_m2m_next_src_buf(ctx->fh.m2m_ctx);
-> > +	dst =3D v4l2_m2m_next_dst_buf(ctx->fh.m2m_ctx);
-> > +	if (WARN_ON(!src) || WARN_ON(!dst))
-> > +		return;
->=20
-> I don't think m2m framework will call run unless this condition is met, s=
-o this
-> si likely redundant, please verify.
+> irqchip after failing to run a vCPU will now get -EBUSY rather than a
+> likely misconfigured guest. Userspace is not expected to try to run a
+> guest that fails to start, never mind try to repair the guest
+> configuration after doing so, so this is not expected to have any impact
+> on practical users.
 
-Right, will remove.
+Sounds reasonable.
 
-> > +/**
-> > + * rkjpegd_has_eoi() - look for the end of image marker of a frame
-> > + * @data:	the frame
-> > + * @start:	offset of the entropy coded data in @data
-> > + * @len:	length of @data
-> > + *
-> > + * v4l2_jpeg_parse_header() never looks behind the start of scan, so a
->=20
-> If there is something about the common parser, fix the common parser. We =
-don't
-> want every driver to implement its own parsing. JPEG decoders are already=
- the
-> exception, this is why we have stateless decoders for everything that was=
- made
-> later.
+>
+> There is a preexisting flag KVM_ARCH_FLAG_ID_REGS_INITIALIZED, this was
+> added as part of the series that originally enabled writable ID
+> registers[1].  That is set when the vCPU feature flags are finalized in
+> KVM_ARM_VCPU_INIT when we initiailise the ID registers, we need to be
+> able to write to the ID registers after that point since the features
+> can influence ID registers (eg, ID_AA64ZFR0_EL1).  Given this and the
+> fact that the flag was introduced as part of making the ID registers
+> writable it appears to be a deliberate and desired ABI design decision
+> to not use this flag to block writes to the ID registers.  Introducing
+> the new flag preserves the existing behaviour.
 
-I introduced it because it happened that for large resolutions userspace
-passed buffers that couldn't fit a whole frame into them. Then decoding
-stopped in the middle of a frame and the next buffer started at that
-place inside a frame, so the buffers desynchronized with the frames.
+Also sounds reasonable.
 
-The hardware has a BUF_EMPTY_E interrupt which should catch this. I
-think by handling this properly we can get rid of this has_eoi check.
+>
+> [1] https://lore.kernel.org/r/20230609190054.1542113-7-oliver.upton@linux.dev
+>
+> Fixes: c5bac1ef7df6b ("KVM: arm64: Move existing feature disabling over to FGU infrastructure")
+> Fixes: 888f088070229 ("KVM: arm64: nv: Add sanitising to VNCR-backed sysregs")
+> Fixes: 03e1b89d051f ("KVM: arm64: Copy MIDR_EL1 into hyp VM when it is writable")
+> Fixes: 8a9866ff8600 ("KVM: arm64: Set ID_{AA64PFR0,PFR1}_EL1.GIC when GICv3 is configured")
+> Reviewed-by: Fuad Tabba <fuad.tabba@linux.dev>
+> Tested-by: Fuad Tabba <fuad.tabba@linux.dev>
+> Signed-off-by: Mark Brown <broonie@kernel.org>
 
-> > +static void rkjpegd_buf_queue(struct vb2_buffer *vb)
-> > +{
-> > +	struct vb2_v4l2_buffer *vbuf =3D to_vb2_v4l2_buffer(vb);
-> > +	struct rkjpegd_ctx *ctx =3D vb2_get_drv_priv(vb->vb2_queue);
-> > +
-> > +	if (V4L2_TYPE_IS_CAPTURE(vb->vb2_queue->type)) {
-> > +		if (vb2_is_streaming(vb->vb2_queue) &&
-> > +		    v4l2_m2m_dst_buf_is_last(ctx->fh.m2m_ctx)) {
-> > +			rkjpegd_last_buffer_done(ctx, vbuf);
-> > +			v4l2_m2m_mark_stopped(ctx->fh.m2m_ctx);
-> > +			v4l2_event_queue_fh(&ctx->fh, &rkjpegd_eos_event);
-> > +			return;
-> > +		}
-> > +
-> > +		v4l2_m2m_buf_queue(ctx->fh.m2m_ctx, vbuf);
-> > +		return;
-> > +	}
-> > +
-> > +	rkjpegd_parse_src_buf(ctx, vb);
->=20
-> This function can fail, its not clear once you ignore the return value ho=
-w the
-> error will propagade to device_run() and produce a matching error dst buf=
-fer.
+All LGTM so:
 
-The error travels through src_buf->parsed and rkjpegd_vdpu720_run()
-bails out with an error when the frame couldn't be parsed. I can make
-that clearer by returning an error from rkjpegd_parse_src_buf() and
-setting the variable here instead.
+Reviewed-by: Lorenzo Stoakes (ARM) <ljs@kernel.org>
 
-> > +static void rkjpegd_stop_streaming(struct vb2_queue *vq)
-> > +{
-> > +	struct rkjpegd_ctx *ctx =3D vb2_get_drv_priv(vq);
-> > +	struct vb2_v4l2_buffer *vbuf;
-> > +
-> > +	for (;;) {
-> > +		if (V4L2_TYPE_IS_OUTPUT(vq->type))
-> > +			vbuf =3D v4l2_m2m_src_buf_remove(ctx->fh.m2m_ctx);
-> > +		else
-> > +			vbuf =3D v4l2_m2m_dst_buf_remove(ctx->fh.m2m_ctx);
-> > +		if (!vbuf)
-> > +			break;
-> > +		if (V4L2_TYPE_IS_CAPTURE(vq->type))
-> > +			vb2_set_plane_payload(&vbuf->vb2_buf, 0, 0);
-> > +		v4l2_m2m_buf_done(vbuf, VB2_BUF_STATE_ERROR);
-> > +	}
-> > +
-> > +	v4l2_m2m_update_stop_streaming_state(ctx->fh.m2m_ctx, vq);
-> > +
-> > +	/* A seek also ends a drain a resolution change had cut short. */
-> > +	if (V4L2_TYPE_IS_OUTPUT(vq->type))
-> > +		ctx->fh.m2m_ctx->last_src_buf =3D NULL;
-> > +	else
-> > +		rkjpegd_resume_drain(ctx);
-> > +
-> > +	if (V4L2_TYPE_IS_OUTPUT(vq->type) &&
-> > +	    v4l2_m2m_has_stopped(ctx->fh.m2m_ctx))
-> > +		v4l2_event_queue_fh(&ctx->fh, &rkjpegd_eos_event);
->=20
-> That is strange, STREAMOFF will flush the queues, so adding an event to t=
-he
-> event queue seems odd, I never seen that before.
+> ---
+>  arch/arm64/include/asm/kvm_host.h |  8 ++++++++
+>  arch/arm64/kvm/sys_regs.c         | 17 ++++++++++-------
+>  arch/arm64/kvm/vgic/vgic-init.c   |  6 ++----
+>  3 files changed, 20 insertions(+), 11 deletions(-)
+>
+> diff --git a/arch/arm64/include/asm/kvm_host.h b/arch/arm64/include/asm/kvm_host.h
+> index 27fe0cd5b2d7..777c46b34bb5 100644
+> --- a/arch/arm64/include/asm/kvm_host.h
+> +++ b/arch/arm64/include/asm/kvm_host.h
+> @@ -367,6 +367,8 @@ struct kvm_arch {
+>  #define KVM_ARCH_FLAG_WRITABLE_IMP_ID_REGS		10
+>  	/* Unhandled SEAs are taken to userspace */
+>  #define KVM_ARCH_FLAG_EXIT_SEA				11
+> +	/* No further ID register changes possible */
+> +#define KVM_ARCH_FLAG_ID_REGS_FINAL			12
+>  	unsigned long flags;
+>
+>  	/* VM-wide vCPU feature set */
+> @@ -1149,6 +1151,12 @@ struct kvm_vcpu_arch {
+>  #define vcpu_has_ptrauth(vcpu)		false
+>  #endif
+>
+> +#define kvm_id_regs_final(kvm)						\
+> +	test_bit(KVM_ARCH_FLAG_ID_REGS_FINAL, &(kvm)->arch.flags)
+> +
+> +#define vcpu_id_regs_final(vcpu)					\
+> +	kvm_id_regs_final((vcpu)->kvm)
+> +
+>  #define vcpu_on_unsupported_cpu(vcpu)					\
+>  	vcpu_get_flag(vcpu, ON_UNSUPPORTED_CPU)
+>
+> diff --git a/arch/arm64/kvm/sys_regs.c b/arch/arm64/kvm/sys_regs.c
+> index 880f84248427..df0c3831094d 100644
+> --- a/arch/arm64/kvm/sys_regs.c
+> +++ b/arch/arm64/kvm/sys_regs.c
+> @@ -2511,9 +2511,10 @@ static int set_id_reg(struct kvm_vcpu *vcpu, const struct sys_reg_desc *rd,
+>
+>  	/*
+>  	 * Once the VM has started the ID registers are immutable. Reject any
+> -	 * write that does not match the final register value.
+> +	 * write that does not match the final register value once we have
+> +	 * got far enough into first running the VM to use the values.
+>  	 */
+> -	if (kvm_vm_has_ran_once(vcpu->kvm)) {
+> +	if (vcpu_id_regs_final(vcpu)) {
+>  		if (val != read_id_reg(vcpu, rd))
+>  			ret = -EBUSY;
+>  		else
+> @@ -2547,7 +2548,7 @@ void kvm_set_vm_id_reg(struct kvm *kvm, u32 reg, u64 val)
+>
+>  	lockdep_assert_held(&kvm->arch.config_lock);
+>
+> -	if (KVM_BUG_ON(kvm_vm_has_ran_once(kvm) || !p, kvm))
+> +	if (KVM_BUG_ON(kvm_id_regs_final(kvm) || !p, kvm))
+>  		return;
+>
+>  	*p = val;
+> @@ -3243,10 +3244,10 @@ static int set_imp_id_reg(struct kvm_vcpu *vcpu, const struct sys_reg_desc *r,
+>  		return -EINVAL;
+>
+>  	/*
+> -	 * Once the VM has started the ID registers are immutable. Reject the
+> -	 * write if userspace tries to change it.
+> +	 * Once we have been far enough into starting the VM the ID registers
+> +	 * are immutable. Reject the write if userspace tries to change it.
+>  	 */
+> -	if (kvm_vm_has_ran_once(kvm))
+> +	if (kvm_id_regs_final(kvm))
+>  		return -EBUSY;
+>
+>  	/*
+> @@ -5869,7 +5870,7 @@ void kvm_calculate_traps(struct kvm_vcpu *vcpu)
+>   */
+>  static int kvm_vm_finalize_sys_regs(struct kvm *kvm)
+>  {
+> -	if (kvm_vm_has_ran_once(kvm))
+> +	if (kvm_id_regs_final(kvm))
+>  		return 0;
+>
+>  	/*
+> @@ -5917,6 +5918,8 @@ static int kvm_vm_finalize_sys_regs(struct kvm *kvm)
+>  		kvm_vgic_finalize_idregs(kvm);
+>  	}
+>
+> +	set_bit(KVM_ARCH_FLAG_ID_REGS_FINAL, &kvm->arch.flags);
+> +
+>  	return 0;
+>  }
+>
+> diff --git a/arch/arm64/kvm/vgic/vgic-init.c b/arch/arm64/kvm/vgic/vgic-init.c
+> index 4012df6002ea..247c211bd68b 100644
+> --- a/arch/arm64/kvm/vgic/vgic-init.c
+> +++ b/arch/arm64/kvm/vgic/vgic-init.c
+> @@ -123,10 +123,8 @@ int kvm_vgic_create(struct kvm *kvm, u32 type)
+>  		goto out_unlock;
+>  	}
+>
+> -	kvm_for_each_vcpu(i, vcpu, kvm) {
+> -		if (vcpu_has_run_once(vcpu))
+> -			goto out_unlock;
+> -	}
+> +	if (kvm_id_regs_final(kvm))
+> +		goto out_unlock;
 
-The same pattern is in the vicodec since [1], was added to mxc-jpeg in
-[2] and went into this driver from there.
+This is a nice improvement! :)
 
-Sending EOS here is deprecated anyway:
+>  	ret = 0;
+>
+>  	if (type == KVM_DEV_TYPE_ARM_VGIC_V2)
+>
+> --
+> 2.47.3
+>
+>
 
-      For backwards compatibility, the decoder will signal a ``V4L2_EVENT_E=
-OS``
-      event when the last frame has been decoded and all frames are ready t=
-o be
-      dequeued. It is a deprecated behavior and the client must not rely on=
- it.
-      The ``V4L2_BUF_FLAG_LAST`` buffer flag should be used instead.
-
-Maybe we can just drop it for a new driver.
-
-
-[1] d4d137de5f31 ("media: vicodec: use v4l2-mem2mem draining, stopped and n=
-ext-buf-is-last states handling"
-[2] 4911c5acf935 ("media: imx-jpeg: Implement drain using v4l2-mem2mem help=
-ers")
-
-> > +static int rkjpegd_open(struct file *filp)
-> > +{
-> > +	struct rkjpegd_dev *jpegd =3D video_drvdata(filp);
-> > +	struct rkjpegd_ctx *ctx;
-> > +	int ret;
-> > +
-> > +	ctx =3D kzalloc_obj(*ctx);
->=20
-> There is scope function to automatically free this on return.
-
-Yes, will change to that.
-
-> > +
-> > +static struct platform_driver rkjpegd_driver =3D {
-> > +	.probe =3D rkjpegd_probe,
-> > +	.remove =3D rkjpegd_remove,
-> > +	.driver =3D {
-> > +		.name =3D RKJPEGD_NAME,
-> > +		.of_match_table =3D of_rkjpegd_match,
-> > +		.pm =3D pm_ptr(&rkjpegd_pm_ops),
-> > +	},
-> > +};
-> > +module_platform_driver(rkjpegd_driver);
-> > +
-> > +MODULE_DESCRIPTION("Rockchip JPEG decoder driver");
-> > +MODULE_AUTHOR("Lucas Sinn <lucas.sinn@wolfvision.net>");
-> > +MODULE_LICENSE("GPL");
-> > +MODULE_IMPORT_NS("DMA_BUF");
->=20
->=20
-> Looking forward your feedback, I'm quite surprised of "your" choices, and=
- how
-> you possibly have needed this complexity.
-
-Thanks for the thorough and honest review.
-
-When I first worked with v4l2_m2m many years ago I was excited how easy
-it has become to write such an m2m driver. I am also shocked to see how
-many possible races sashiko found and through which hoops I had to go to
-make sashiko happy (I still haven't accomplished that it seems).
-
-Much of the complexity comes from two things: The watchdog and the
-dynamic resolution handling.
-
-Sashiko claims the watchdog has to protect itself against a race with
-the irq handler. That of course misses that the watchdog only triggers
-because the IRQ doesn't come which makes it quite unlikely that the IRQ
-comes in the precise moment the watchdog triggers.
-
-I explained the complexity added with the resolution changes inline above.
-
-Sascha
-
-
---=20
-Pengutronix e.K.                           |                             |
-Steuerwalder Str. 21                       | http://www.pengutronix.de/  |
-31137 Hildesheim, Germany                  | Phone: +49-5121-206917-0    |
-Amtsgericht Hildesheim, HRA 2686           | Fax:   +49-5121-206917-5555 |
-
+--
+Cheers, Lorenzo
 
