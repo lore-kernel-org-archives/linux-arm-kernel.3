@@ -4,105 +4,128 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B98C2CA5FA3
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 28 Sep 2026 18:44:52 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 66D0CCA5FA2
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 28 Sep 2026 18:45:29 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=fGyq3NjAgVBa/imXLuFDsnsoYGS7geOe1+K5qFW3IBY=; b=bi9UhuYL6vUasJ+Fy7Ha9QdJDI
-	xzL23nq5CqCLs2ULINn/tFr1ASNEot2UAHeJe3r7kNn/ulWn8xL5bVrS/HWPitKxrFVaUviQYbK0g
-	9XJ8xHM+mNEPIB4lLTRr99EPq0/FudRyl3rOIBhe5pxToHNE1Lkb4CGrSQ1cVji9ykIdSz/kyVz2I
-	tYVyVQPfKLBlnTGTKfco0pARkOtNPAeQXWrXSnP17xDmIRwIlL65pWmpcCAcT6dKveZSQiCTpfZYK
-	Kc9CugGczKGamw03SvAQtgGuOKp0Wa9G/MTVWQHT42tnRzSgXQ521ZWjRggNOof8uSNBS4ChYYkEg
-	/FlwfgQw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Content-Type:
+	Content-Transfer-Encoding:Message-ID:Date:Subject:Cc:To:From:Reply-To:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=zV18REjhO871MaIq7eceufX5s4sfZ34OsaE4YBYrmoU=; b=r9sjV8UOuJQCA42rlbaPrkyihH
+	KAh4VIcWM73KdoB9tRrmQPx8lcdvbtU7uAWW4fx8LwiJJknxgArx4tDnnUNQ7Fj4Hw409w/aYoEek
+	MZH/UPunvATNdDIXBLe7FJ7BNWMD1dBNbt1g6QSp2EAjDeUX9xdDKUM5RHMmsffArYhLDbCDfiR39
+	EFfasJJcrwSvqVa0SAMKmDBJ9we7qygGDuRSlrJ4BnM9s5peP6tVPXmyhws9Idld9etmkeiEeVSyo
+	kW+x5229UB3RxU7lgvpRJhb5sgNl0D2/0JPqWpUbuvpi762eHkviQHXNg1yg78MxU+CA3o8XASRle
+	24omHYeQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xBGLG-00000001MMe-2iyx;
-	Mon, 28 Sep 2026 18:44:46 +0000
-Received: from mail-pl1-x62d.google.com ([2607:f8b0:4864:20::62d])
+	id 1xBGLq-00000001MUP-3ZWo;
+	Mon, 28 Sep 2026 18:45:22 +0000
+Received: from mail-northeuropeazlp170120005.outbound.protection.outlook.com ([2a01:111:f403:c200::5] helo=DUZPR83CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xBGLD-00000001MMD-3baB
+	id 1xBGLo-00000001MTl-0O25
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 28 Sep 2026 18:44:44 +0000
-Received: by mail-pl1-x62d.google.com with SMTP id d9443c01a7336-2db33db4de9so9325ad.0
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 28 Sep 2026 11:44:43 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20251104; t=1790621083; x=1791225883; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:content-type:mime-version
-         :references:message-id:subject:cc:to:from:date:from:to:cc:subject
-         :date:message-id:reply-to:content-type;
-        bh=fGyq3NjAgVBa/imXLuFDsnsoYGS7geOe1+K5qFW3IBY=;
-        b=DeGEC2EQlV+/U5NSRRVeDUWt8hTI332T7UDak1Fq9Jn4PIiCNJvMLNiJ1o00aVxYYL
-         yEVk8KKpftixitalw1bataKpIFbnmTGyeCq8kZUSQJ8FFvHGIr10NaUHBN3FzG4fbWlE
-         KjsbLxvSmpZNmrd1YdvN2MoBu4LfNzyj78V6dqyRn4TfcMT/AvUhk6/oMkDYBNLO5zEw
-         dF8Qrq9JjxMfXpXCYEsr6/5T4A+qxu/ec/dCZ3U0U/f3Ly0RzNDOtPZH3uKiv9DbLVyx
-         u2wXv3afggxgGCHfZzHGoul4hxH+RDeZyUu0MHaBwaR0vHzvGdRsYuieMp2JYOY1jT1N
-         vhzA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1790621083; x=1791225883;
-        h=in-reply-to:content-disposition:content-type:mime-version
-         :references:message-id:subject:cc:to:from:date:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=fGyq3NjAgVBa/imXLuFDsnsoYGS7geOe1+K5qFW3IBY=;
-        b=2VZR2VwOmb5Kdh32xUGpFtVuIEpdDT3mQP8eZGkeGwiH4EmAWC2XT2Q7UiZyv8XDp+
-         4hfTLaPS5vjlS5jK5lHnykxao1+1YNH+AGyAAwuRyQVjkdXpnMNNUyIvEgXUOJliAHYM
-         syo2mTEatY2ZvKaKBfihIq31gOF72wL/LoinSHKjZyd+JQJHCQClOxbU3X9YbynTbtJK
-         87Gf21C7kwItzEDrwMCQ4z+CfSNfjDkCrdQZG0dAvBPIx0TGXAd0MQr4CISr3eKB/rtj
-         7SagC3fyWIAM/XxFGW071TfTlw4R6RqXv1ufTqUMwrz9lJzbYQJNHhzC4hqdY2FjXmTL
-         tW7g==
-X-Forwarded-Encrypted: i=1; AKwUvBwrQK78lEyKQ5qq6E0pY1dbeHM+HT7wQ/tdVYxs4McbBtXB0CEVdvF9/N1wUlv2n9To/zfRZuZxNDnTNo99nzxP@lists.infradead.org
-X-Gm-Message-State: AFq9FYKkBvn1w2O7PSRagCWuvhAxmndnnbdLlORWpai198bUEbW3ePww
-	DRRrzwm134CT0ZeTubTFHhx7j2JeNHNOV3yVaIwORaAM0nzpIZFOwXtwQGYG61G0zQ==
-X-Gm-Gg: AYBFou0UxnmGCehrzWKWZopcDpRfOV8jW12zgzKxSROcqmJhGMK6D6GRhatp26gkZrW
-	DTJQ7qU3vW2FQ+xLkC/ubzIXVE6e9FwwktbuNUTV23FWkmhf5YK2SVs16xFxoN7CZb+2n11g0xQ
-	WxpBqFAZVxVXksMqHZzoblhaQ1WhlyFs1655jpn9FRXSRw1x8/Aap2j4I7yyPC+JaAt7AxH/IFe
-	XBLtHYuBDADyWmvQQixrx2WI5ybMf135/DSk5pQvZRAYPpyXBxQQAwUBEZxVoWqp2etXyCoEwNY
-	MB0cOGTgbKKINnNQjRKKahnBPueqXJuJUWD7WLPQb4AHill6c8Oano1PFQ6Df4t6imBGgjQLImd
-	rR958k1QUs3t6PrMwrYphNqIYhL0YG2x4nrLdh9Gf+N4NuAdm3LU1dmMx68U7k1MroPq6Wk8sPR
-	vL9KiwlDeMJ3xAff7l6tJv6wgJ4RZSSU4Uoxj5vNU0t/LohQSv1YnnwXMD+3jOXbBC5VJFenSaV
-	BdjzoWWMAGR9hmAp8zk5dmsyfmi2KrhrFGa
-X-Received: by 2002:a17:903:3a8b:b0:2cf:9ec1:ea6e with SMTP id d9443c01a7336-2e2c600c613mr90615ad.8.1790621082290;
-        Mon, 28 Sep 2026 11:44:42 -0700 (PDT)
-Received: from google.com (105.211.142.34.bc.googleusercontent.com. [34.142.211.105])
-        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-3a4986a1910sm767152a91.14.2026.09.28.11.44.37
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 28 Sep 2026 11:44:41 -0700 (PDT)
-Date: Mon, 28 Sep 2026 18:44:34 +0000
-From: Pranjal Shrivastava <praan@google.com>
-To: Jason Gunthorpe <jgg@nvidia.com>
-Cc: Catalin Marinas <catalin.marinas@arm.com>,
-	Jonathan Corbet <corbet@lwn.net>, iommu@lists.linux.dev,
-	"Joerg Roedel (AMD)" <joro@8bytes.org>,
-	Jean-Philippe Brucker <jpb@kernel.org>,
-	linux-arm-kernel@lists.infradead.org, linux-doc@vger.kernel.org,
-	Mark Rutland <mark.rutland@arm.com>,
-	Randy Dunlap <rdunlap@infradead.org>,
-	Robin Murphy <robin.murphy@arm.com>,
-	Shuah Khan <skhan@linuxfoundation.org>,
-	Will Deacon <will@kernel.org>, David Matlack <dmatlack@google.com>,
-	Jean-Philippe Brucker <jean-philippe@linaro.org>,
-	Jonathan Cameron <Jonathan.Cameron@huawei.com>,
-	Nicolin Chen <nicolinc@nvidia.com>,
-	Pasha Tatashin <pasha.tatashin@soleen.com>, patches@lists.linux.dev,
-	Samiullah Khawaja <skhawaja@google.com>,
-	Mostafa Saleh <smostafa@google.com>, stable@vger.kernel.org,
-	Vijayanand Jitta <vijayanand.jitta@oss.qualcomm.com>
-Subject: Re: [PATCH v7 9/9] iommu/arm-smmu-v3: Support the DS expansion of
- range invalidation SCALE
-Message-ID: <arq1kpVwCUO8xrh2@google.com>
-References: <0-v7-e84261bbe7cd+2ea80b-smmu_tlbi_jgg@nvidia.com>
- <9-v7-e84261bbe7cd+2ea80b-smmu_tlbi_jgg@nvidia.com>
+	Mon, 28 Sep 2026 18:45:21 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=m6iEBWti6UHRCLLcsVr9KKEPWKZ97p2xd4akaNE9+QxAVUBQZ4BgkE3FJ9/AjkFrjZhujLIhLV8XrSYNAsCsnFW1zeM1UoytuRdRM0Jxgc1p2XbxBGZkhQeOLK0niukmN+XyN0UvwH9Dpn17xYj8ejei0fVf67lT0EypieVWwaNmnTJQVHdMMqTb5Hoh3SK4uWhDLZMSPrj7SZufK/0pGYWXmhDkXhAJOajM4sRhAvpptZkGZ6iSrccYh4yNaRf34ZKf64Z3Nz9pM0j5MXDaaLR0PcDie3YZ2Mgjh68sTOKeuc7MC7t9ZVXyDRAms3+aXxq++9/eYw3Bypr//tu0Tg==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=zV18REjhO871MaIq7eceufX5s4sfZ34OsaE4YBYrmoU=;
+ b=HwhB8qxt1agwnnf3xiydwWXxNM7bpUlXYTrwRu0UboOWQOXp93W2Vsfx+zIs0kZf+gU5l6r8ibxoKheB1PEjVyYrHPbglGvizTq4hzNnhu034WGFlVE6qwxoi7cDqDe3iyYfRAYf8hKzVB2sAov93q6GiEOS3tJeb0+hwe7q4068bY7MSdNknF0ZgT7hacGbEm8QeFSt2ZDljGhTxgnGrzXCr0YTnee8wfdFgIMENoKfseKZDGmxuePDFXscC6MPa26Ur3jxR/IWiwi3yfAYV/ZYKlU2c5t9OE2nboogFMDJg0Z2pJXRKdpopcWSwMXdHC6jTKK4vVDfFtftTCLzWA==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
+ dkim=pass header.d=oss.nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
+ s=selector1-NXP1-onmicrosoft-com;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=zV18REjhO871MaIq7eceufX5s4sfZ34OsaE4YBYrmoU=;
+ b=bLvhv4fSQJKj+zHHyprFacg7MK4YpQIWFfEIFpxUjFhnkAouqh4diIKH4zp/2G1dc1U8GbyODZMp1aYRnEsWli3rn0g2ps08vvPirj6MJWbJrsCtwgHkFOw9X415xx5nQTbJkEfxsDCh5yVWYOg2NzZlwXX/yXGmZZpYZzFJ0stxSFm5N1P3K5IAizEtPgxqhP8L4MyPSBhAwjMDew6H4tzgig7MHYGCdWVR/1nYker4Fe6kcUdUTGwKOFnZpyvuAr8nvELc0/K4fKtLmxlr5X0PeGW4ZeavfvS7FhkQpt/YWYRoEd9nTu4kloNQJrkfQ5UHn2CHESBCTzzYpeHOAw==
+Authentication-Results: mx.microsoft.com 1; dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=oss.nxp.com;
+Received: from GV2PR04MB11799.eurprd04.prod.outlook.com (2603:10a6:150:2cf::9)
+ by AS8PR04MB7495.eurprd04.prod.outlook.com (2603:10a6:20b:295::14) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.451.24; Mon, 28 Sep
+ 2026 18:45:14 +0000
+Received: from GV2PR04MB11799.eurprd04.prod.outlook.com
+ ([fe80::2146:83a2:5329:b7c]) by GV2PR04MB11799.eurprd04.prod.outlook.com
+ ([fe80::2146:83a2:5329:b7c%7]) with mapi id 15.21.0451.022; Mon, 28 Sep 2026
+ 18:45:14 +0000
+From: Frank.Li@oss.nxp.com
+To: soc@kernel.org
+Cc: Frank.Li@nxp.com,
+	kernel@pengutronix.de,
+	imx@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org,
+	hkallweit1@gmail.com,
+	linux@yoavmoshe.com,
+	thuth@redhat.com
+Subject: [GIT PULL] i.MX SoC Changes for v7.4
+Date: Mon, 28 Sep 2026 14:45:05 -0400
+Message-ID: <20260928184508.1978455-1-Frank.Li@oss.nxp.com>
+X-Mailer: git-send-email 2.43.0
+Content-Transfer-Encoding: 8bit
+Content-Type: text/plain
+X-ClientProxiedBy: CYXPR02CA0049.namprd02.prod.outlook.com
+ (2603:10b6:930:cd::29) To GV2PR04MB11799.eurprd04.prod.outlook.com
+ (2603:10a6:150:2cf::9)
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <9-v7-e84261bbe7cd+2ea80b-smmu_tlbi_jgg@nvidia.com>
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: GV2PR04MB11799:EE_|AS8PR04MB7495:EE_
+X-MS-Office365-Filtering-Correlation-Id: c1611c22-7c0b-4181-c7fc-08df1d90a221
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|366016|1800799024|19092799006|376014|23010399003|18002099003|10067099003|56012099006|11063799006;
+X-Microsoft-Antispam-Message-Info: LEPbeD7StpF6tqTv0/MuPeLRgy3Hp1jpG6SOvYCNUV1nAAsvyV6O3akj9cwxvMNIUzdLaIhmYHcP3D1OWH8Q2cU/3oWTx5ETV69brV6i/+/1BdAaqFFVvqtGrIJv4wlTLljjx3duF6Oo2GlZmswBpHl88kECnfuaYtVy7QzgZjb1fxuQG1P/FUzn+Zk8AWnT/yGo6KEm5hUYCiBFLw1odWsD+VAB0cSSBI+ehuJYstEGRunvyvlQdQ68KeJzi7qvsvY4L+L7cLVgYm3d4kO3zaLu7yveDEYCkOBGVPr7oYAQDqUxQ6tUgNZ5VIzaWhhAWfo/KHzVi3fQNU1no46SncgfFsdlEupeEFqwaWjKc3efH2my/L/0IzO8TLD8KAOvFdR9DgpQ8x+wGlITNIc0/Zai75crYr1U7yMqRswP6TFPl/7OAKz/FT1GzxiP3jEIFtApdGY2lKYX8H4FCevGjiXmcKcWXNUsLJwT3f45Ta1Xzzx/iKW4vpH2RQZ4Ol9YDmCiNxQBYIX3N6/U/6kBAwNhFUXhBwghQjFlXig4XDfFm8ZnVeg4i6tfiyg2JpaQG/1nnx+hayTxOLYpNBCmMxgD3DEIXYktTqrCYNBDliU1jXMS/iQsaRicjsBRiB2VpkL8t/8UYal/tsQq968mZkxc/QTIxk4PK4B8IjjUCks=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:GV2PR04MB11799.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(1800799024)(19092799006)(376014)(23010399003)(18002099003)(10067099003)(56012099006)(11063799006);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?K5SzqP1YI20GPep7oqUzmQrkJxt1XwdhdgzCzwJdSHZ4KkdR68gqFAno02Kt?=
+ =?us-ascii?Q?OzSnejibr/xSFm4gY4NYNBXG3FxRbuwjfZ7V0VoNbEXP1autM0eG389DJlDR?=
+ =?us-ascii?Q?Jw46lhjIT4ReAobsNyI0O3IBrACuMP/0RvU1umWCgoA6k5uXm/6LAhOwhXDU?=
+ =?us-ascii?Q?JhrynGXHCHbKFtW3WctxXS06xR/j1Soau+sLrHGgIKChWqjBNI7gJ7+jBtjs?=
+ =?us-ascii?Q?CS0QyYI5Sl73JAE0BPmq0kwxmOUqZbbVkGE/yY7r1PwwChLkuCmQAgkkYz5t?=
+ =?us-ascii?Q?xAD0+3n5fyuYOLg/ZL8KI7aNzcQvfZ9pc5Y9h4NEruVUrEfoAiAtbTRyRtf4?=
+ =?us-ascii?Q?TObnsxCVUXoAGa7TwtHs24urtg7Ij2JCcXZYj9ZpnoRAwEBpIMNAkWcbHB3w?=
+ =?us-ascii?Q?AOL3+BPRQrno+KVQftY/n7lCJEq5Ww+J8xaBjFSUx3RHwCOG/Ht0Rr8I3Zr3?=
+ =?us-ascii?Q?1zTH7+zw2WOqwhbsywfhmDGgaj26osEnzR5JI9B4fAlkzr65cX3JaCs1l9z6?=
+ =?us-ascii?Q?MthWWHtkLOFPCCuMa3sRTW4AY9ft5BaD8kxwh27NSsSnUJodYUqEUIlPpKMK?=
+ =?us-ascii?Q?G5vjHm1p+NOPu1P9RItJCCcW5Q4gkWbB8nCbxN6o3L/vV8atzQdXThB4L2rV?=
+ =?us-ascii?Q?5NHiub00LZBihU/l1SD6dRDaIqAFCfjpQflV/i4ClmGILdjCfxHWtYU4nSlF?=
+ =?us-ascii?Q?UGDTWf6lND3AnHCRB6H+m/aS4RkVXmpazYV/1Gj8E3x87gyXpUEmNEzHGzor?=
+ =?us-ascii?Q?OFb88wBOK3DqG/VYpxCiVOyYAN1rVQvXrDVzpZgPQC45w7rJ8GesxhnHF9Pa?=
+ =?us-ascii?Q?P2R5awAXJ1r+2C99SpRMGEsBxIWpmxOpsbA/NkQxyEx2U2mTbsl086nmS6jq?=
+ =?us-ascii?Q?v0VcV5sTmztGM4J1lf7jl2y4QqNi89VzhMOmzZt25nxmuxfFfvYNnTirNaih?=
+ =?us-ascii?Q?/53eUqereS3j2Y9YG8NoDL1olDxt9hd/ZiN2JK7rmPVL+kaD6ePhn2Eo54br?=
+ =?us-ascii?Q?TuEIMdxMYLh+sScoImuhH9rzRsgjMIYcRrF2x+JJ+MiX8VQn9NNZqUJ8RhYz?=
+ =?us-ascii?Q?GbRDxEVCh0Ubg5RuR0nuJuYaHbSkuyMpuvb9swo2tg4Uh3dmC70VaAhIYzs1?=
+ =?us-ascii?Q?5ajlZgcyjdiXCiVQXiVvpXU7W++nCyciMNvjRcU5KZa2nVkdTLVd/vRL63Uw?=
+ =?us-ascii?Q?BYcIOFIzsdwqcig92lIBEjcwsYYkRlAiRmGaDJ7GbVp9RtGR9vJTan9xMecc?=
+ =?us-ascii?Q?lB3QVrUJT1LRa7iijvvK3GWuR+aAYMDar5PwO6lK5yKVL6vI2XJ74pRZC+Re?=
+ =?us-ascii?Q?GBTpo0XUglBuVIwnaBFryuaqmgYCTlxDnpConjmCILvIkAvQ427uVVO/bmwY?=
+ =?us-ascii?Q?9rUAVJfOAN7qE/RC5uCJkScVGXEzMU60Z1QI4EUOe23xvsPZ15nRgG3VstU/?=
+ =?us-ascii?Q?j9Q7oEldwAQ2foAescWP3FsBx2dlE6gF0WnjeSt7Kix3OUwgdfElGRq6h45s?=
+ =?us-ascii?Q?O+pha9hYA053Ymv7EGdYN/3ypdwiNk2lVKu3hwWyYovWTGCbpCPVTEHxwCJj?=
+ =?us-ascii?Q?e6m9joCovjjh9CZew+LqWH7B92aBk5q5b6PkkunXeRWpckYcLhlQJdALqdGu?=
+ =?us-ascii?Q?Kgsu4/pvKY5DwyJMsB9bAIqq6Ht2d3iSvqgZhxZ9Hr4usvSHCLK01WBeNjwp?=
+ =?us-ascii?Q?RVziXilSGndAMVttc82xZNZckDzAoGJ9ISJ4o5h19CazBfFgmRVtolJcNNzx?=
+ =?us-ascii?Q?t4keglc8OtUjWEBdyLbPSzqerAkI4QPH5Vok2LhMQ1pGt9CoDP3x?=
+X-OriginatorOrg: oss.nxp.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: c1611c22-7c0b-4181-c7fc-08df1d90a221
+X-MS-Exchange-CrossTenant-AuthSource: GV2PR04MB11799.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 28 Sep 2026 18:45:14.4218
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: YZ2Tl5BOzfHkObJpzUSygn/JsuVBTsc5jVt2L9fdqAO90LeoPnQ7AoEo9QDJ3oz3PBprPC7NLj4DNVUaVbuJeFpoDKcK6K/6umFt5+4kuUzo23okFpHMACvcchSFKDIX
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: AS8PR04MB7495
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260928_114443_903662_B7609411 
-X-CRM114-Status: GOOD (  16.73  )
+X-CRM114-CacheID: sfid-20260928_114520_135601_2937E131 
+X-CRM114-Status: UNSURE (   7.70  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -117,40 +140,46 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Sep 21, 2026 at 08:55:17PM -0300, Jason Gunthorpe wrote:
-> If DS is supported then SCALE can go up to 39. Compute a scale max that is
-> compatible for the entire invs list.
-> 
-> Replace the has_range_inv in the invs list with a 0 range_inv_scale_max
-> to mean range invalidation is unavailable.
-> 
-> Reviewed-by: Nicolin Chen <nicolinc@nvidia.com>
-> Tested-by: Nicolin Chen <nicolinc@nvidia.com>
-> Signed-off-by: Jason Gunthorpe <jgg@nvidia.com>
-> ---
+From: Frank.Li@nxp.com
 
-[...]
-> +++ b/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c
-> @@ -1060,9 +1060,15 @@ static void arm_smmu_invs_update_caps(struct arm_smmu_invs *invs,
->  		invs->has_ats = true;
->  
->  	if (inv->smmu->features & ARM_SMMU_FEAT_RANGE_INV) {
-> -		invs->has_range_inv = true;
-> +		unsigned int scale_max;
-> +
->  		if (inv->smmu->options & ARM_SMMU_OPT_FULL_CONT_RANGE_INV)
->  			invs->has_full_cont_range_inv = true;
-> +
-> +		scale_max = (inv->smmu->features & ARM_SMMU_FEAT_DS) ? 39 : 31;
-> +		if (!invs->range_inv_scale_max ||
-> +		    scale_max < invs->range_inv_scale_max)
-> +			invs->range_inv_scale_max = scale_max;
+The following changes since commit cee9395acd8043be0644b25c34bfa86623f2b935:
 
-Nit: maybe a short comment here, e.g. "SCALE is 6 bits when
-SMMU_IDR5.DS == 1, values above 39 are treated as 39 (H.a 4.4.1.1)"?
+  Linux 7.3-rc1 (2026-08-30 13:34:40 -0700)
 
-Reviewed-by: Pranjal Shrivastava <praan@google.com>
+are available in the Git repository at:
 
-Thanks,
-Praan
+  https://git.kernel.org/pub/scm/linux/kernel/git/frank.li/linux.git tags/imx-soc-7.4
+
+for you to fetch changes up to 8392af7be78d0cdc5f1ec6c9a53d424b32642403:
+
+  ARM: imx6q: remove KSZ9021 PHY fixup (2026-09-02 15:48:38 -0400)
+
+----------------------------------------------------------------
+i.MX SoC Changes for v7.4
+
+- Fix a suspend/resume crash with Clang CFI on imx.
+- Remove the obsolete KSZ9021 PHY fixup for imx6q.
+- Replace the deprecated __ASSEMBLY__ macro with the standard __ASSEMBLER__
+  in imx headers.
+
+----------------------------------------------------------------
+Heiner Kallweit (1):
+      ARM: imx6q: remove KSZ9021 PHY fixup
+
+Thomas Huth (2):
+      ARM: imx: Replace __ASSEMBLY__ with __ASSEMBLER__
+      soc: imx: Replace __ASSEMBLY__ with __ASSEMBLER__ in header file
+
+Yo'av Moshe (1):
+      ARM: imx: Fix suspend/resume crash with Clang CFI
+
+ arch/arm/include/asm/linkage.h   | 29 +++++++++++++++++++++++++++++
+ arch/arm/mach-imx/hardware.h     |  2 +-
+ arch/arm/mach-imx/mach-imx6q.c   | 30 ------------------------------
+ arch/arm/mach-imx/mxc.h          |  2 +-
+ arch/arm/mach-imx/pm-imx6.c      | 26 +++++++++++++++++++++++---
+ arch/arm/mach-imx/suspend-imx6.S |  6 ++++--
+ include/linux/micrel_phy.h       |  5 -----
+ include/soc/imx/cpu.h            |  2 +-
+ 8 files changed, 59 insertions(+), 43 deletions(-)
 
