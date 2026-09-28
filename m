@@ -4,125 +4,111 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7459BCA5FA1
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 28 Sep 2026 22:29:51 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8281CCA5FA1
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 28 Sep 2026 22:38:35 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:CC:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=412pjYRAbHCQ7VuHA6+zqc2SlC6XKCjC5ntrrH3uZLU=; b=Rw/PoUjYKq5aN5ep8R5aqQaue5
-	jL1brBbVdE4uBhH8ptkmt1F7324ie7YNaaPJDJj0o089th+kXELsdjU/y3sGNcaLL1yL6fMvu5vY2
-	Z5ifKLYmMMNDIttYdVGhHv0kwbaCUIXueHp1UWHK8YReGmiXm6I/iujSzjy8tE/SodWSJs+1DBWJU
-	4q/kD7diuz7pb53pK4HhBL+MmFIPA5PeR0F9U7NkzN8AIXUVeztIoIRla0xRRF7POdGLWY0YCvRQR
-	7cxzRxA46vR8X9k4q/Z5qENtMNrXhiJNqP+FDNWmbPvJMlkJ5lEIabGyPRURnmo3w8YHSwEuTk4TD
-	QOhk3JWQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	Date:Message-ID:Subject:CC:To:From:Reply-To:Content-Transfer-Encoding:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=f4lQU1srsBq2Zb2LiC2JhDTMZVYw2Y2uu8CnXp6z8h0=; b=lAVSPG/mnjV0+5MZoHQGyteeLA
+	aUN7gA8ndo/0UUrtdjjYqdKg9e97Rnn9D/JP6WwIZjeuG/me/KsOiEwd2mGgaSR6qfojGOZ/cgAPQ
+	oquYsE9zXdFKzOMgXnZvXtRbRKciy9u9X+4ynNcSSF1aMdd9T8ezlqrcLysDGaLDShQ8T4vOs1bEi
+	GYBzuu3L9eBUPTnbbpFYX+9Qk8jFgZMESH/RweM80dhJOMz93o31KRDmli2AVxeXMwf+0YT5pbci9
+	Vjc5QF7rSMNSgtGIK/rx4blXwUEs4cmaJZIt/VQlAX2k89cuIHLNd5aeym1304eTprdY+sW9Hs4KM
+	IqPXfz4A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xBJqy-00000001klF-3yJh;
-	Mon, 28 Sep 2026 22:29:44 +0000
-Received: from mail-eastusazlp17011000f.outbound.protection.outlook.com ([2a01:111:f403:c100::f] helo=BL2PR02CU003.outbound.protection.outlook.com)
+	id 1xBJzN-00000001lZW-3YHm;
+	Mon, 28 Sep 2026 22:38:25 +0000
+Received: from mail-westeuropeazlp170110003.outbound.protection.outlook.com ([2a01:111:f403:c201::3] helo=AS8PR04CU009.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xBJqw-00000001kjj-1byo
+	id 1xBJzK-00000001lXo-24rb
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 28 Sep 2026 22:29:43 +0000
+	Mon, 28 Sep 2026 22:38:24 +0000
 ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=K7mePuxpKvJ40T4iHTrGP+gydBYd0yQuj60yqby5Wv+Sr0g4zU/zlVA0SKBf5qoZX2epxUNIYPnfYn9bmJRAAnmeUznSC2h0xUq37xhVlOyvsxhQzTRT2i+NX+H4ORjrh29qXzd7llzuUF3DbmQioBWV8tpy+rksWlCS2tPmlYSEI4Zmnma7+6dsblIlf5IvvdnKALL3UDNpDPlkDXAcnPEGsnJS4XbVI5S/OI2VZ1k2ccm9O5jqRjRseDAuTxapwm+y2DxsmV7VpnMZyfDfK6HmtprqUBrDmuHfjaOL51SA8AtxhGevfN4D3AkWYbPgz96XVc6/eswThMHha19GQg==
+ b=zDaeho9F2p1R4/vo762HTFFnBDOmN8bCc9w9XKNpXQpvH5M4GgZa5/gFRn6FcQySBr60QqTjFQ91v/2rdxEkDJe2Rhf9RG70Qnnktqq3Q24+X1GpqIG0xTwPArKTHUH7/EaNmlp59pC9jbtRyYTaJptBb1BMEFNtxgSYSP/z0ByT3V+33BLP3Lt1YrlRpZfa3dVHHM9rfh/j9Kn7nfsbZ3NG2fIpgg+DvP6GCzR2U0gNecpVcpp1qlmqbC3I/kEHiakN9uEpASxjeGPkLOuwg5SUBWlCZFjPCLBDV/awEC4c4KJ8P1/1cnEDR0bCRra3N3e39ePGzjWJFRNoar0OjA==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
  s=arcselector10001;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=412pjYRAbHCQ7VuHA6+zqc2SlC6XKCjC5ntrrH3uZLU=;
- b=ll+Jk/gaCEsrQwgfQJckzWeRde1Pdi46UxFlbNZfzoYLu+hV9CC02IXqiGbvGbmhLFY+VXhKylP45XOAfUT3lIHCQpSSMhOnwHN9Cxbw8K6rAwh49wdXqj9RSKzP3yXXNsxqlm0YWkJ5CZXV7PVYTVL86cPOTwJq8JFqIFcWsdYZrqlQXpovuKVELlGk6Ef1fwZ1QLfMp/9vagog6zLx7w5yg7aSYdbqaXsOpJpyLG0nV0lzfhje3230jK1DhFVlQP4OWOzc1DpfcunvlllAH/DKDxmqlXWa14eTBH3MOUWJ76mcToT71zT0u/HrdY3RufqiiaUBMMxRbkblKfw8TQ==
+ bh=f4lQU1srsBq2Zb2LiC2JhDTMZVYw2Y2uu8CnXp6z8h0=;
+ b=dbyQ799WjjlciHDbDP8nshuppZDqXQY7zsbHbVyH3t0br48Ddq7eHpFTU2cd5hykwRWqOIxvfPqPQh5l9Fhvq04yhO02uPp0JvOoc811K55Zr8xy3vz6eB6vdMZXbe916bzgmoph6Yt6ysKvVFabwa+H3YRJa6JkJJWEXuLCVjwbIRwFa1GVBjgcSU3DbDHArYZU+wWGLknoC5uFDRZeGjbJ4PCqrUwNLErfUhMafxUowHDOthq1V7slJHWucMnF6II81Q4l6uSZhE7D4nlgnKiWtTZ2XzK1mJ5rG9G1cWppb2JegGl2ZAKuRtfyQ7XjQi+5fNzI3RnaEZLyt3V2Lg==
 ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
- 216.228.117.161) smtp.rcpttodomain=vger.kernel.org smtp.mailfrom=nvidia.com;
- dmarc=pass (p=reject sp=reject pct=100) action=none header.from=nvidia.com;
+ 195.60.68.100) smtp.rcpttodomain=vger.kernel.org smtp.mailfrom=axis.com;
+ dmarc=pass (p=none sp=none pct=100) action=none header.from=axis.com;
  dkim=none (message not signed); arc=none (0)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
- s=selector2;
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=axis.com; s=selector1;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=412pjYRAbHCQ7VuHA6+zqc2SlC6XKCjC5ntrrH3uZLU=;
- b=rja9iEY8t+7ZVHg7vwKRKlv8M6DUNg6G0qb1AUmSI44qRiB0ZBkoT66icXRAX6V7hSF/5pUqXC7/3jj9qKZdz9TRKoizLD6GF6YOBlJPIuDegZW/wgxSIoL6mHIAI2OYuzEgwYqG6+ki8WDUQkkYATEw+5f/DSJhPPjWZMV85M9H0vs1Z/nfW53w361kQeDnzhnSYg834iNch/0Wq3epFsvMck6JugmCcCE8EfuhehY9clKlRGVOR/vkVHkhjyMIP1xorNzxbm/i3tEFRKNV+LLrHeci6AtBGNLi6oIrL4HqSQUX9ZN5xJcIw0S1gezXLVZ9e9LpDYOxzW6Dp08euA==
-Received: from DS7P220CA0093.NAMP220.PROD.OUTLOOK.COM (2603:10b6:8:25a::17) by
- CY8PR12MB7682.namprd12.prod.outlook.com (2603:10b6:930:85::15) with Microsoft
- SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.21.451.24; Mon, 28 Sep 2026 22:29:26 +0000
-Received: from DM2PEPF00003FC3.namprd04.prod.outlook.com
- (2603:10b6:8:25a:cafe::55) by DS7P220CA0093.outlook.office365.com
- (2603:10b6:8:25a::17) with Microsoft SMTP Server (version=TLS1_3,
- cipher=TLS_AES_256_GCM_SHA384) id 15.21.451.24 via Frontend Transport; Mon,
- 28 Sep 2026 22:29:26 +0000
-X-MS-Exchange-Authentication-Results: mx.microsoft.com 1; spf=pass (sender IP
- is 216.228.117.161) smtp.mailfrom=nvidia.com; dkim=none (message not signed)
- header.d=none;dmarc=pass action=none header.from=nvidia.com;
-Received-SPF: Pass (protection.outlook.com: domain of nvidia.com designates
- 216.228.117.161 as permitted sender) receiver=protection.outlook.com;
- client-ip=216.228.117.161; helo=mail.nvidia.com; pr=C
-Received: from mail.nvidia.com (216.228.117.161) by
- DM2PEPF00003FC3.mail.protection.outlook.com (10.167.23.21) with Microsoft
- SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.21.472.14 via Frontend Transport; Mon, 28 Sep 2026 22:29:26 +0000
-Received: from rnnvmail202.nvidia.com (10.129.68.7) by mail.nvidia.com
- (10.129.200.67) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.49; Mon, 28 Sep
- 2026 15:29:06 -0700
-Received: from rnnvmail202.nvidia.com (10.129.68.7) by rnnvmail202.nvidia.com
- (10.129.68.7) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.49; Mon, 28 Sep
- 2026 15:29:06 -0700
-Received: from nvidia.com (10.127.8.14) by mail.nvidia.com (10.129.68.7) with
+ bh=f4lQU1srsBq2Zb2LiC2JhDTMZVYw2Y2uu8CnXp6z8h0=;
+ b=qtTBzaq/AJn7UXTsSNPPsd2q7YbwoDVYkHvz8it7tydY9JR5IpMl/bFWitjupy/diRe3Ev1Q5W74BEHmGX4O6jAkreZNXi0O9oKLbB+pRmDx2y+RNsjMEzGfwdjGwjpnKcv+Rjb+DyD9LMiAPJ9/vcAn+EAF18ZTlUWvYtMBZb8=
+Received: from DB9PR06CA0011.eurprd06.prod.outlook.com (2603:10a6:10:1db::16)
+ by MRWPR02MB11801.eurprd02.prod.outlook.com (2603:10a6:501:92::19) with
  Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.49 via Frontend
- Transport; Mon, 28 Sep 2026 15:29:04 -0700
-Date: Mon, 28 Sep 2026 15:29:02 -0700
-From: Nicolin Chen <nicolinc@nvidia.com>
-To: Jason Gunthorpe <jgg@nvidia.com>
-CC: <will@kernel.org>, <robin.murphy@arm.com>, Jonathan Cameron
-	<jonathan.cameron@oss.qualcomm.com>, <joro@8bytes.org>,
-	<bhelgaas@google.com>, <praan@google.com>, <kevin.tian@intel.com>,
-	<kees@kernel.org>, <smostafa@google.com>, <baolu.lu@linux.intel.com>,
-	Jean-Philippe Brucker <jpb@kernel.org>, Eric Auger <eric.auger@redhat.com>,
-	<linux-arm-kernel@lists.infradead.org>, <iommu@lists.linux.dev>,
-	<linux-kernel@vger.kernel.org>, <linux-pci@vger.kernel.org>,
-	<skaestle@nvidia.com>, <mmarrid@nvidia.com>, <skolothumtho@nvidia.com>,
-	<bbiber@nvidia.com>, <harsha.v@oss.qualcomm.com>
-Subject: Re: [PATCH v5 04/15] iommu/arm-smmu-v3: Drain in-flight fault events
- on domain detach
-Message-ID: <arrqLmlco3TeC/lV@nvidia.com>
-References: <cover.1789446520.git.nicolinc@nvidia.com>
- <cc7eabdd07e7705c84e30b04c85271d4ddf66055.1789446520.git.nicolinc@nvidia.com>
- <179018862538.3334538.17643821143626392419.b4-review@b4>
- <arRTojIlWBOF57zO@nvidia.com>
- <20260923233920.GJ2545495@nvidia.com>
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.451.24; Mon, 28 Sep
+ 2026 22:38:14 +0000
+Received: from MAD0EPF000008AE.eurprd04.prod.outlook.com
+ (2603:10a6:10:1db:cafe::1e) by DB9PR06CA0011.outlook.office365.com
+ (2603:10a6:10:1db::16) with Microsoft SMTP Server (version=TLS1_3,
+ cipher=TLS_AES_256_GCM_SHA384) id 15.21.451.23 via Frontend Transport; Mon,
+ 28 Sep 2026 22:38:14 +0000
+X-MS-Exchange-Authentication-Results: mx.microsoft.com 1; spf=pass (sender IP
+ is 195.60.68.100) smtp.mailfrom=axis.com; dkim=none (message not signed)
+ header.d=none;dmarc=pass action=none header.from=axis.com;
+Received-SPF: Pass (protection.outlook.com: domain of axis.com designates
+ 195.60.68.100 as permitted sender) receiver=protection.outlook.com;
+ client-ip=195.60.68.100; helo=mail.axis.com; pr=C
+Received: from mail.axis.com (195.60.68.100) by
+ MAD0EPF000008AE.mail.protection.outlook.com (10.167.241.187) with Microsoft
+ SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.21.472.14 via Frontend Transport; Mon, 28 Sep 2026 22:38:13 +0000
+Received: from pc67007-2609 (10.4.0.13) by se-mail10w.axis.com (10.20.40.10)
+ with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1748.39; Tue, 29 Sep
+ 2026 00:38:11 +0200
+From: Waqar Hameed <waqar.hameed@axis.com>
+To: Peter Griffin <peter.griffin@linaro.org>, =?utf-8?Q?Andr=C3=A9_Draszik?=
+	<andre.draszik@linaro.org>, Tudor Ambarus <tudor.ambarus@linaro.org>, "Rob
+ Herring" <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, "Conor
+ Dooley" <conor+dt@kernel.org>, Alim Akhtar <alim.akhtar@samsung.com>, "Sam
+ Protsenko" <semen.protsenko@linaro.org>, Ivaylo Ivanov
+	<ivo.ivanov.ivanov1@gmail.com>, Konrad Dybcio <konradybcio@kernel.org>
+CC: <kernel@axis.com>, <linux-arm-kernel@lists.infradead.org>,
+	<linux-samsung-soc@vger.kernel.org>, <devicetree@vger.kernel.org>,
+	<linux-kernel@vger.kernel.org>
+Subject: [PATCH 00/16] arm64: dts: exynos: Format with dtfmt
+User-Agent: a.out
+Message-ID: <cover.1790629313.git.waqar.hameed@axis.com>
+Date: Tue, 29 Sep 2026 00:38:11 +0200
 MIME-Version: 1.0
-Content-Type: text/plain; charset="us-ascii"
-Content-Disposition: inline
-In-Reply-To: <20260923233920.GJ2545495@nvidia.com>
-X-NV-OnPremToCloud: ExternallySecured
+Content-Type: text/plain
+X-Originating-IP: [10.4.0.13]
+X-ClientProxiedBy: se-mail11w.axis.com (10.20.40.11) To se-mail10w.axis.com
+ (10.20.40.10)
 X-EOPAttributedMessage: 0
 X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: DM2PEPF00003FC3:EE_|CY8PR12MB7682:EE_
-X-MS-Office365-Filtering-Correlation-Id: 237dd99e-df44-4c60-af30-08df1daff44a
+X-MS-TrafficTypeDiagnostic: MAD0EPF000008AE:EE_|MRWPR02MB11801:EE_
+X-MS-Office365-Filtering-Correlation-Id: 6e95c44a-1a68-459f-caa4-08df1db12eaf
 X-MS-Exchange-SenderADCheck: 1
 X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|82310400026|376014|7416014|36860700016|1800799024|23010399003|10067099003|56012099006|5023799004|11063799006|4143699003|6133799003|18002099003|22082099003;
-X-Microsoft-Antispam-Message-Info: lPrWsilX3vhkjBeDJi9beTIpsPxWrIMV2feBBdMtDMosmPCJdYcMXH+P3ZRTfyT+JulbCeOZ9zV4li4JmFZEaht1z1EuqUQ9MKSAvqaQTm9HjR9Fxh/1jUtFxMAkwtMxPd2c5/ueQnLY7kCQQtqAqFbUI3M2jwW+IJshAA88+KX/fG2GPDsBIQgjMIC4UfHjOJxVc3HvwJczgPsdqCgRGM1G+3YnpKuRDgCYhS2Yjwj6utEb16UDYqdWsFlW4ygVBnodgN39fgs0c1pRKpSIM3xm0Dr0ef6VwDh0NWUAAO+eRBu1UhueUzvnNZFTqQ0D/I9cMmNtbydfyz1Tnf4kdQASl4vUCkTOEjDHvm2jSEw9RVT1PyEzy7THLGaun0S4WAAtFcbLsL+0dEXFRyBH+simJGvuPgITlGLGOh34gu5r/oCZ3a0V5jd2fYV0f0DquiDGl16IM/92K/XjsltXdepRsghIOL+gA1FVpdxKl8WSlDSYBcLJhWLaC0NdGMwMpDlvQeTFcDsIJ3UC9rW4JVnQfKA5A2RmQKnl6024KEjuw6wuo6KgObl8VEn71ltq001X43Vsb96f8Ag0I9+TJbLkm8BVb9raCtv3cL7qBBWmcQfnoWupFbhUVV6ETtFof4IE6w3Y9sgXyTCYfKNzv/JiHN4D2+TOMRlh+KRWpKMT2ecf6IDdAg1SXdd7uG0N49Wut3/MeSb8tmHVAUI8TQ==
-X-Forefront-Antispam-Report: CIP:216.228.117.161;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:mail.nvidia.com;PTR:dc6edge2.nvidia.com;CAT:NONE;SFS:(13230040)(82310400026)(376014)(7416014)(36860700016)(1800799024)(23010399003)(10067099003)(56012099006)(5023799004)(11063799006)(4143699003)(6133799003)(18002099003)(22082099003);DIR:OUT;SFP:1101;
+X-Microsoft-Antispam: BCL:0;ARA:13230040|23010399003|1800799024|7416014|376014|36860700016|82310400026|921020|10067099003|56012099006|11063799006|5023799004|18002099003;
+X-Microsoft-Antispam-Message-Info: L4Wx3qqTj9WjTTCq2Luv4Yzx5kFrrJldjWQAc5qij3h/megevLIDSoEXf9ayRmHarafJvUmD/pnCBGLOJjVb1RoxB4WOD6onIUv5IAou9WTNss+RDt8xXUHjGiKTEuSBSmjkuBalCTHDsnY1Yo0VW3jSwxMP2Zg1PQ8Wgc67EKkPdPQ9GPWxQ74ywRuhZCEijtz/zG8XLA6ktSbG/FtAdNP4ldzVoHyRY6WxZjROJoYrLsjNYaXiP0THb0pd0jCOvG8ya66Fi3axRi3MpiQE2Px0AG4xMjEY6P894xxdjn849JtSlm0RipsOsNfj2xbPmB498wbnNQdL/vRUBAGZfbVvSMmUK02xcDm1anmfJgtFS+W9JBc2pEy036i3xB8vt0kgMc9H/S29V1YWHRJv5VsbDWE6VoHY0Pt90Z1AWq/wO3N0VqjgWJj5pKcSJyUWp9Kv9CU0GrflnA+t5OxpBnOTPnRgDOwiB7MFJPaWyy0kdWT8Dwg0LX7SP6Y1iegx5OSuu9qnMtwk1MV2rTFAGoH1ad2o7vAyZAPMLZpaVmbc/jY1/YKw3yjm2b9QK55NbRLcbWJn4pvW07qCPMdEJk98wLPVLh86sD6XZOr7RoFaTlZfWd0AMhDTk32oT/RTdznCAvT4SiWiJ7nBHt6DGEuGkUXDn8MGq/9hg28Ar8xsP1UGeDXvy370URuDV0g1fDJ0cpsZwMW7wxsVFaIRvQ==
+X-Forefront-Antispam-Report: CIP:195.60.68.100;CTRY:SE;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:mail.axis.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(23010399003)(1800799024)(7416014)(376014)(36860700016)(82310400026)(921020)(10067099003)(56012099006)(11063799006)(5023799004)(18002099003);DIR:OUT;SFP:1101;
 X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: sFoqOzxI5/MK9YdN5u6vw0vpMMbLqfrUMl7oBO6MNfcQeUY2MBtUAycAH4m+05sMbGdOn9oHaoyk2MCrE3fBC274rbzq3YJz86Ax8JsTr6UGHEatfzNfLWeGPEg9xYgORRWDSv/It0SIGoRF9AyZnOeUEKWWccPzHXVl3ePu2wX3hmOir3z9djvtY3iprS1gaU41OKlO9srbcUcyVyhuB/gW+hHrTg0nxePuWCMUR/+HI2w0b7u+TSAvNekzpoSyYQQo9WDnTTR7PwaKYGvPgvv+0+MxlwI+xN6N7fWfbhgHa+1ui3CW1KhhBfo5bjZwBxfk4WzVZ2vS3wqlwxElEr99JFMqjhoBVXmPhupb3JM5pcYYt0u8S4Vkl8ldcMd7R+wzxrYzmeofFzs2mXZhKjIgarvX8ut3VukHj8/JN/+w1leMijG7mKA+AYGA4M6A
-X-OriginatorOrg: Nvidia.com
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 28 Sep 2026 22:29:26.3490
+X-MS-Exchange-AntiSpam-MessageData-0: NYf76LVmNDuOPrd02hCdqz3pgnqzwHSQSdK68a8sm1DzwN6Y2SeoZ0GBu1I9/izLw12/K6NcMILzwyqPpEtX08IXOCWwpWf/KDX1MSC4OwXApO3wGfWKc8sg63GfGlFpE8AP7Ha8Zyf0lUJ1CWlp65wZBFdomN5vc5DClr4eQVsKvwVkgQebVwgVpZ5NQ6RHzFwiihcIdwFEZQWdjsvUCGDR6i8iP8i6i2whsu+1IRMekeCTxPs04Ev7+6saw8ciuMBIOo+tAiY7bEeKiw2eiA1BfGTHEtW+BvCc2HnidBxljou2X/bj/Wkg6pqhP22nCx21lGqI4qR8NjSmbZCIPwsPtF4hUvaxF7wzDKH+isd5wtbxvzCEffqktkfT8k/M4jOWg5xMNG16c+guuITne5eu3kQgrkqX8GsQjXsagFCONwEXx7TFx8OqYFsJk698
+X-OriginatorOrg: axis.com
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 28 Sep 2026 22:38:13.7790
  (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: 237dd99e-df44-4c60-af30-08df1daff44a
-X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
-X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=43083d15-7273-40c1-b7db-39efd9ccc17a;Ip=[216.228.117.161];Helo=[mail.nvidia.com]
-X-MS-Exchange-CrossTenant-AuthSource: DM2PEPF00003FC3.namprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 6e95c44a-1a68-459f-caa4-08df1db12eaf
+X-MS-Exchange-CrossTenant-Id: 78703d3c-b907-432f-b066-88f7af9ca3af
+X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=78703d3c-b907-432f-b066-88f7af9ca3af;Ip=[195.60.68.100];Helo=[mail.axis.com]
+X-MS-Exchange-CrossTenant-AuthSource: MAD0EPF000008AE.eurprd04.prod.outlook.com
 X-MS-Exchange-CrossTenant-AuthAs: Anonymous
 X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: CY8PR12MB7682
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: MRWPR02MB11801
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260928_152942_439251_46174963 
-X-CRM114-Status: GOOD (  22.69  )
+X-CRM114-CacheID: sfid-20260928_153822_568415_48E1E926 
+X-CRM114-Status: GOOD (  16.01  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -137,47 +123,80 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Sep 23, 2026 at 08:39:20PM -0300, Jason Gunthorpe wrote:
-> On Wed, Sep 23, 2026 at 03:33:06PM -0700, Nicolin Chen wrote:
-> > > But I wonder if the point of this has been lost? Prior to calling the
-> > > driver attach functions the core code already changes the xarray:
-> > > 
-> > > 	curr = xa_cmpxchg(&group->pasid_array, pasid, NULL,
-> > > 			  XA_ZERO_ENTRY, GFP_KERNEL);
-> > > 
-> > > That immediately makes the threaded IRQ safe since it calls
-> > > iommu_attach_handle_get() which now fails.
-> 
-> Hmm, actually that's a sneaky cmpxchg that is only doing reserve..
-> 
-> > I am not sure about that. Looking at iommufd_hwpt_replace_device(),
-> > there can be a old_handle != NULL, in which case the cmpxchg() would
-> > not change the xarray?
-> 
-> I think this is wrong, there is no way it can work like this where the
-> attach continues to see the to-be-detached domain across the
-> flushes. No amount of flushing can fix it.
-> 
-> Somehow we broke it :\
+I was looking through the notes for the last Devicetree microconference
+at Linux Plumbers (LPC) 2025 [1], and realized that the tool I have been
+working on might be of interest here: dtfmt - a Devicetree Source
+formatter [2].
 
-I'm trying to fix this by replacing xa_cmpxchg() with xa_store().
+dtfmt uses a parser with lexical grammar (tree-sitter) directly ported
+from the actual Device Tree Compiler's (dtc) lexer/parser, also
+(hand)written by me [3]. It is primarily designed for the Linux kernel
+and currently parses all 6872 devicetree files in the tree successfully
+(found with `find . -iregex ".+\.dts[io]?$"`).
 
-However, an asynchronous iommu_attach_handle_get() could return the
-old_handle in the iopf path, before xa_store() in the detach path:
+This tool was developed out of frustration when reviewing devicetree
+patches internally at my company Axis. I would have published it earlier
+if I was aware of the on-going discussions at LPC 2025. It only caught
+my attention since I'm planning to attend LPC this year (especially the
+Devicetree microconference and would therefore love to discuss this more
+in-person!).
 
- - If a different domain is replaced, a driver callback is invoked
-   calling synchronize_irq() and iopf_queue_flush_dev(). And this
-   closes the window on any the old_handle reference before being
-   released.
+This patch series is only a small demonstration of dtfmt. Obviously one
+can run dtfmt for all files and generate a much bigger diff, but I just
+chose `arch/arm64/boot/dts/exynos/` here. Primarily to get Krzysztof in
+the "To:"-field :)
 
- - If a different handle is replaced on the same domain, the driver
-   callback is skipped. Then, the iopf path could hit UAF while the
-   old_handle being released by the detach path?
+Please note that since we don't currently have a _definitive_ style
+guide for Devictree Source files, dtfmt tries to be pragmatic and try to
+"guess" the intended style (e.g. alignment of arrays and comma separated
+property data). Some things have been left out (for now), because it's
+too hard to implement without any concrete style decisions in place
+(e.g. alignment of comments, long line wrapping etc.). dtfmt will
+continue to develop and will always align with the Linux kernel.
+Feedback (and collaboration) is therefore greatly appreciated!
 
-To close that window, I think we might need an ABI contract for the
-second case by asking drivers to sync irq and flush the iopf queue?
-This would require to roll out driver-level changes as well.
+[1] https://lpc.events/event/19/sessions/237/attachments/1713/4459/Notes%20-%20Devicetree%20MC%20-%20LPC%202025.pdf
+[1] https://codeberg.org/whame/dtfmt
+    Mirror: https://github.com/whame/dtfmt
+[2] https://codeberg.org/whame/tree-sitter-devicetree
+    Mirror: https://github.com/whame/tree-sitter-devicetree
 
-Thanks
-Nicolin
+Waqar Hameed (16):
+  arm64: dts: exynos2200: Remove empty line at end of node
+  arm64: dts: exynos5433: Use tabs for indentation
+  arm64: dts: exynos7: Remove empty line at end of node
+  arm64: dts: exynos7: Align comments with minimal whitespace
+  arm64: dts: exynos7885: Fix format of line comment
+  arm64: dts: exynos7885: Align end of node definition brace
+  arm64: dts: exynos850: Align end of node definition brace
+  arm64: dts: exynos850: Use tabs for indentation
+  arm64: dts: exynos8850: Add missing space in compatible
+  arm64: dts: exynos8855: Remove empty line at end of node
+  arm64: dts: exynos8855: Use tabs for indentation
+  arm64: dts: exynosautov920: Add space before line comments
+  arm64: dts: exynosautov920: Add missing space in compatible
+  arm64: dts: exynosautov920: Remove empty line at end of node
+  arm64: dts: exynos: gs101: Use tabs for indentation
+  arm64: dts: exynos: gs101: Add space before line comments
+
+ arch/arm64/boot/dts/exynos/exynos2200-pinctrl.dtsi   |  2 --
+ arch/arm64/boot/dts/exynos/exynos2200.dtsi           |  1 -
+ .../arm64/boot/dts/exynos/exynos5433-tm2-common.dtsi |  4 ++--
+ arch/arm64/boot/dts/exynos/exynos7-espresso.dts      |  1 -
+ arch/arm64/boot/dts/exynos/exynos7.dtsi              |  8 ++++----
+ arch/arm64/boot/dts/exynos/exynos7885-pinctrl.dtsi   |  4 ++--
+ arch/arm64/boot/dts/exynos/exynos850-pinctrl.dtsi    |  2 +-
+ arch/arm64/boot/dts/exynos/exynos850.dtsi            |  8 ++++----
+ arch/arm64/boot/dts/exynos/exynos8855-smdk.dts       |  3 +--
+ arch/arm64/boot/dts/exynos/exynos8855.dtsi           |  8 ++++----
+ arch/arm64/boot/dts/exynos/exynos8895-pinctrl.dtsi   | 10 +++++-----
+ arch/arm64/boot/dts/exynos/exynosautov920.dtsi       |  9 ++++-----
+ arch/arm64/boot/dts/exynos/google/gs101.dtsi         | 12 ++++++------
+ 13 files changed, 33 insertions(+), 39 deletions(-)
+
+
+base-commit: 72d3fcf802c45d00b300f25b848a93c3a2bd7c7e
+-- 
+2.43.0
+
 
