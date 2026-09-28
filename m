@@ -4,112 +4,54 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7770DCA5FA2
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 28 Sep 2026 12:01:33 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B87F7C9833F
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 28 Sep 2026 12:01:45 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:CC:To:From:
-	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
-	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=ozgXvJc9hvZCFDxvzQlXPbPbXJuvrSufWFcJTdTaFZQ=; b=VRGusnd09RvSzD+o/7p3YO5DYn
-	6mLTvw62PIb2q5dxiSEl+O/WLYXAsrt9NPazUuwPwayOkfJPdx8hPP+S1yss/L8C5PSxNUe9cjBcy
-	XCDIPD9XTTAm7yD1SueAXOYqyYOg76Vd0medjhPi2GTSoXTeBnUDd+DgkPEbjCh1Jon1vMcSCDdI8
-	LJfdGZz0ZrC74iFNZw4zBJRSYe9oLtw/jVZ5iha7MmbweXukxkwB0sQNOhw9n75bTQFgSFukhKDWS
-	Y9smioDkfl352Qw96NUq03apAIFnDThak+vsiX/e9tZQdcbiOS7YTXLY7DbjzKcoSamQ5fZCNtHSR
-	Tpmp2daw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:
+	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=8QIQAC1Squ20uW3BFDWzJ9EWESY3KXzBPAIvtArdRqI=; b=Z6BoayS1AxYZ1s4YVQ0p/JUN9a
+	NIJyaKy7ByUiaQxIRZZj1PO9MyLVoqRylRQ4VPP+ipoY+bxVtyONs5Ij2+e/ULwFAZQh2L3pzPgu7
+	QtOa8iPiuFQ9UqIcUe461GPayDhfPsTKIDDNKjIv9R3k33HGVFuM+y02GrpkK0Ib65Lo/djHqyU97
+	00AChgkVKjtlZ7WMdJq7mSMpmQr0+M/ZxcEOQujLR/nYl0BZe8wihyDZmmAU8EM+RGbxRqqI2+eAD
+	mZ7lf4ZtjfxBUDtBYWJJ4cDljcCvJlx5tjgvptcICbK9BonY7Gd3wGVayq6ecBRGo1hU6iQXcTHM9
+	+pnIQI+w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xBA2x-00000000Vv2-0e3a;
-	Mon, 28 Sep 2026 12:01:27 +0000
-Received: from mail-westus3azlp170110003.outbound.protection.outlook.com ([2a01:111:f403:c107::3] helo=PH0PR06CU001.outbound.protection.outlook.com)
+	id 1xBA38-00000000W0J-1VOX;
+	Mon, 28 Sep 2026 12:01:38 +0000
+Received: from m16.mail.163.com ([220.197.31.3])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xBA2e-00000000Vpy-3lnO
-	for linux-arm-kernel@lists.infradead.org;
-	Mon, 28 Sep 2026 12:01:11 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=vXsneCjkOn3TxvAS2BE4M3w097sTo4lAldQyxi93A0TvIcUUcrWHiOZOdcK7PJhXX17VWnQUb5nqvngW48mX559OUZ+At5kwyrYBAiLmBquQAYacC0iw2ZWwVWBUrhW8YJ4PtXn7P+5O3EGloA3p5N0OghJV7WUP3fTMBF/oAuO2e43UiVBulqE04LjIf3qZp5dxaBWjWl69hPRNcYs3i54ADQG2rUwaw3JXY0fCHR6i0NMuHMM5LJKKUJnOimhNza/W6gJKuvFXFBlcbYka9a1poti7UtJpJOKRfFQ51jeTTdZbOTubRxk8s1hvrHBy5JvlPJsisEQp+ypO5GDffw==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=ozgXvJc9hvZCFDxvzQlXPbPbXJuvrSufWFcJTdTaFZQ=;
- b=XIic5Ln5wALWpcPs17ZaPt02g32k1532lFp4m5MV6P0loKAQBlcfC4UArm4LTL37ZHO3WzG9+7x9vCj4TgrkAlIiHprr8g4tWGfo4ByyzF4xsatrOnB1mLpb5e+MdhRRNVp7hYXQ5P1cqOWF1VxuklqG/CQRzNzlA0Zq8cXJwk5VtN7RIf6EyPnd0iPKOxTuirPsJVPYH4wO+6WAywRiiFXrZSJomTlNx3amf9r4ff+cyK//Uqcnp2gURLF4yfe2v7VgY6L6+g8njNmYYTcEqzcWiz26V/bOGnMa1npXADZJDoApGEzQgeaDr3ywoT6i5LePKiLhd4qfSUpDt3sjXg==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
- 165.204.84.17) smtp.rcpttodomain=synopsys.com smtp.mailfrom=amd.com;
- dmarc=pass (p=quarantine sp=quarantine pct=100) action=none
- header.from=amd.com; dkim=none (message not signed); arc=none (0)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=amd.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=ozgXvJc9hvZCFDxvzQlXPbPbXJuvrSufWFcJTdTaFZQ=;
- b=08i3HHbdR2hw25+kz8U3Ogh7dZElFbqu1LqHw/2S+gzf9wanfBvWjjOwvwxN/sZ64tnf8KGAKMmdwLcEqOVsegOQXOEAzVNfI/YtUbwAT3Z5XLmAlgFXvbmZiBMekGcwYkDJiZOqVWpCTPR+J3uSaWo8rIn5MelM0q9XsF3sGmw=
-Received: from BN9PR03CA0125.namprd03.prod.outlook.com (2603:10b6:408:fe::10)
- by PH7PR12MB5879.namprd12.prod.outlook.com (2603:10b6:510:1d7::5) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.451.23; Mon, 28 Sep
- 2026 12:00:56 +0000
-Received: from LV8PEPF00000065.namprd03.prod.outlook.com
- (2603:10b6:408:fe:cafe::10) by BN9PR03CA0125.outlook.office365.com
- (2603:10b6:408:fe::10) with Microsoft SMTP Server (version=TLS1_3,
- cipher=TLS_AES_256_GCM_SHA384) id 15.21.451.24 via Frontend Transport; Mon,
- 28 Sep 2026 12:00:56 +0000
-X-MS-Exchange-Authentication-Results: mx.microsoft.com 1; spf=pass (sender IP
- is 165.204.84.17) smtp.mailfrom=amd.com; dkim=none (message not signed)
- header.d=none;dmarc=pass action=none header.from=amd.com;
-Received-SPF: Pass (protection.outlook.com: domain of amd.com designates
- 165.204.84.17 as permitted sender) receiver=protection.outlook.com;
- client-ip=165.204.84.17; helo=satlexmb08.amd.com; pr=C
-Received: from satlexmb08.amd.com (165.204.84.17) by
- LV8PEPF00000065.mail.protection.outlook.com (10.167.248.37) with Microsoft
- SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.21.472.14 via Frontend Transport; Mon, 28 Sep 2026 12:00:56 +0000
-Received: from Satlexmb09.amd.com (10.181.42.218) by satlexmb08.amd.com
- (10.181.42.217) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.49; Mon, 28 Sep
- 2026 07:00:55 -0500
-Received: from satlexmb07.amd.com (10.181.42.216) by satlexmb09.amd.com
- (10.181.42.218) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.49; Mon, 28 Sep
- 2026 07:00:55 -0500
-Received: from xhdradheys41.xilinx.com (10.180.168.240) by satlexmb07.amd.com
- (10.181.42.216) with Microsoft SMTP Server id 15.2.2562.49 via Frontend
- Transport; Mon, 28 Sep 2026 07:00:52 -0500
-From: Radhey Shyam Pandey <radhey.shyam.pandey@amd.com>
-To: <Thinh.Nguyen@synopsys.com>, <gregkh@linuxfoundation.org>,
-	<michal.simek@amd.com>, <p.zabel@pengutronix.de>
-CC: <linux-usb@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
-	<linux-kernel@vger.kernel.org>, Radhey Shyam Pandey
-	<radhey.shyam.pandey@amd.com>
-Subject: [PATCH v3 0/3] usb: dwc3: xilinx: error path and teardown fixes
-Date: Mon, 28 Sep 2026 17:30:12 +0530
-Message-ID: <20260928120015.3152461-1-radhey.shyam.pandey@amd.com>
-X-Mailer: git-send-email 2.44.4
+	id 1xBA34-00000000Vxy-40GS;
+	Mon, 28 Sep 2026 12:01:36 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=163.com;
+	s=s110527; h=From:To:Subject:Date:Message-ID:MIME-Version:
+	Content-Type; bh=8QIQAC1Squ20uW3BFDWzJ9EWESY3KXzBPAIvtArdRqI=;
+	b=eA7DeMMZQP+DiJNLwCRQg1gj9L4jE43tfQSNsBRe6OzEzkeW4kJKPGX0mUfCns
+	xnlmU1aNEpX/1GfkQBYJJFEI202R8A+VYLF1cvOlTA2tjrrT4srBTyUkbHzGjcvQ
+	Yb7W+VIF1A88X5ZLLRWpyyrzB8X2fJNHfIwtsULNl55fo=
+From: BG9OXA <bg9oxa@163.com>
+To: linux-rockchip@lists.infradead.org
+Cc: Andrew Lunn <andrew@lunn.ch>, linux-arm-kernel@lists.infradead.org, devicetree@vger.kernel.org, Heiko Stuebner <heiko@sntech.de>
+Subject: Re: [PATCH v2 0/2] arm64: dts: rockchip: add ALIENTEK QuarkPi-CA2
+Date: Mon, 28 Sep 2026 20:01:31 +0800
+Message-ID: <179059689121.26126.16396827799983991795@163.com>
+In-Reply-To: <de8c3f72-26d1-4c9a-86c6-12afb3fe97d6@lunn.ch>
+References: <179051708448.31632.16350193430088134671@163.com> <de8c3f72-26d1-4c9a-86c6-12afb3fe97d6@lunn.ch>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-Content-Type: text/plain
-X-EOPAttributedMessage: 0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: LV8PEPF00000065:EE_|PH7PR12MB5879:EE_
-X-MS-Office365-Filtering-Correlation-Id: 6b5a6098-9b6c-4042-4909-08df1d582721
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|23010399003|82310400026|36860700016|376014|10067099003|56012099006|11063799006|5023799004|6133799003|18002099003|13003099007;
-X-Microsoft-Antispam-Message-Info: Nk+AOtc2d3Cr9DdIWX4lYDwer9FzgxtuFz+f/Cv2on7dmvGyJO0yJ7jdvODaD9Hk47xQPKlpFDZ1MPb4155qRDy4rCpOOjUHMUpqBneU55QevH5rSjDWrys/AF46F60ANUjaljWA3xYtkdlFEGIT2yrsqxU19pGaDI1zW6hqVoVFZSfF6Fmzz1qW6ePp0a5LQKfo6YWAbw6bk10vOjNdBsa2cZAT4g8L/5ZMndXqDmmjfSGrOjeOGwy0ZshZ2GDtTLt+eZ/18XfLzBg1LqnExnq2fLXUi20nMmIUdZb4WidWkMwYeMAjOpvaL1q1fJL6r0+Zr4XsHKQ17lNBBRrhfY42at2D4z06/E5PXdCm8434XuyfLEXs+4yeZ8sgWBnwIFtzliDQrDNat9sB+hXcPnJWKYz194bXSDbnOXKnvYwHmMl1mcEobH9t4qu9Mn1RlIYYe4oPcNv4nyWI+5nZgpuuUsclHoDakfVYK/aEEasJPaq8ESjM3jaX0MtGSrYV7sd8UDLW5vU4i+pTMxDXnZAcukhQa5PoYm31GIq5PYIOosEBYJ7E1VwBhm3SA/6YgDL9gpYED9eua0YOjxUX/1XdjzQqN12TLIiXzZtQzQePhsBa2nL/SazFIlQMtj6fIBwt5Ji2XH+eQuxOPc/Uq82VGsLoeA+C+W3gGHNaBroBlS4L76Kshr92FIbvtXKMCvsUoi6wkLeYgvUgV8Afaw==
-X-Forefront-Antispam-Report: CIP:165.204.84.17;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:satlexmb08.amd.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(1800799024)(23010399003)(82310400026)(36860700016)(376014)(10067099003)(56012099006)(11063799006)(5023799004)(6133799003)(18002099003)(13003099007);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: 3OTnOS8KxAA+iZwhawMbd9a1et1D8QvHXehcD349KhsTD48VtskUGEZgeKkSPffvQgbX5TAfZ1w8nxpZ6biXliXnZMzlBnuiL4gFhC7ZTAtMDEKJ5tbtuj5EH6BtM+xSyc6ai8FMFB0CkUueUYbpnopa36+jgHaf361EQoLsgKOeGV/PmMZzGxiimocUYP4z4UIKS7J7DJ2kQq7eM9XomGX7Gkjbuz10JPWaEsTC0kM4UgNhaF9MXlXQr3h8ybgXIbZHd6mQKBgVZItCbD1flU5fOcB0Lzq1n8VzfswO8uRHpGMNCLOxwU+Z2L7/ofnLRRIH3B/PH+mXqKsg8K3XM5GO7h6P4OCIbMSi5i6qSW0X3TafUNnMtAyRTbu0R7Ct2+EvTbya/6uP5XafSERogKtQ1sloaXF941QDdVQ+ibEnY4Q/8C6OC6e2UKfM/IB+
-X-OriginatorOrg: amd.com
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 28 Sep 2026 12:00:56.0290
- (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: 6b5a6098-9b6c-4042-4909-08df1d582721
-X-MS-Exchange-CrossTenant-Id: 3dd8961f-e488-4e60-8e11-a82d994e183d
-X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=3dd8961f-e488-4e60-8e11-a82d994e183d;Ip=[165.204.84.17];Helo=[satlexmb08.amd.com]
-X-MS-Exchange-CrossTenant-AuthSource: LV8PEPF00000065.namprd03.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Anonymous
-X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: PH7PR12MB5879
+Content-Type: text/plain; charset=us-ascii
+Content-Transfer-Encoding: 7bit
+X-CM-TRANSID: PigvCgBnTaobV7pqauFxBw--.30903S2
+X-Coremail-Antispam: 1Uf129KBjvJXoW7WFWUZw47WF18tw4UKr1DGFg_yoW8XFyrpa
+	y3trWUCws7tw1Ig3s3Ar48ZF48ZrWfKas8CryvgryUAay5K34akr1jgrs0q3WYkws7XFyF
+	9r4UWas5Ja1kZaDanT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
+	9KBjDUYxBIdaVFxhVjvjDU0xZFpf9x0zRSD7-UUUUU=
+X-CM-SenderInfo: lejz05rd6rljoofrz/xtbC+Rslkmq6VxvoYwAA3C
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260928_050108_963373_98D203F5 
-X-CRM114-Status: GOOD (  13.14  )
+X-CRM114-CacheID: sfid-20260928_050135_389872_1A02DD22 
+X-CRM114-Status: GOOD (  13.21  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -124,45 +66,35 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-dwc3-xilinx does not release what it acquires: system suspend exits the
-USB3 PHY without powering it off, the ZynqMP init error paths leave the
-core resets deasserted, and neither probe failure nor remove undoes the
-reset and PHY state at all.  These three patches fix each in turn.
+Hello Andrew,
 
-Changes in v3:
-The usb_resets_released flag and the pltfm_exit pointer are gone.  The
-teardown is now a devm_add_action_or_reset() action, guarded on usb3-phy
-so it only undoes the reset cycle init performed, and invoked explicitly
-before the clocks are gated on both the probe error path and remove, so
-.shutdown gets it too.
+Thank you for the review, and for the timing guidance - you are right, and my
+apologies: v2 went out far too soon after v1. I will hold off on any further
+revision until the discussion here has settled, and no sooner than 2-3 working
+days. I have also disabled the automated reminder job that had been set up for
+this series, so nothing can be resent on its own.
 
-Changes in v2:
-Split out of a five patch series so the fixes can be sent and backported
-on their own, and reordered ahead of the platform-data cleanups.  Patch
-3 was reworked so it no longer depends on that cleanup, and all three
-are tagged for stable.
+On the phy-mode point in 2/2: you are correct that the value should describe the
+PCB, not work around a MAC-internal delay. The RGMII traces on this board are
+ordinary length; I used "rgmii-rxid" only because that is what the vendor BSP
+(and many Rockchip DTs) do. I will test plain "rgmii" on the hardware with the
+current tx_delay/rx_delay values and follow up with the measured results (link
+state, throughput, and error counters), and drop the rxid form if it is not
+needed.
 
-All three are tagged for stable.
-Tested on ZCU102: unbind and rebind cycle cleanly with the device
-re-enumerating at SuperSpeed, and reboot is clean.
+If you have a preferred way for Rockchip boards to express this - plain "rgmii"
+with the delays in the MAC node, or the delay masked in the driver - please say
+so and I will prepare it that way.
 
-Link to v1:
-https://lore.kernel.org/all/20260810174713.2325292-1-radhey.shyam.pandey@amd.com/
-Link to v2:
-https://lore.kernel.org/all/20260922182125.11067-1-radhey.shyam.pandey@amd.com/
+Two other things I should mention. The enable-active-high issue that sashiko
+flagged in 2/2 is already fixed locally and will be included in the next
+revision. And for transparency: I prepared this series with the help of AI
+tooling, which did the language conversion and consistency checking of the DTS.
+I review every line before it is sent, and I will be more careful from here on -
+both about the review cadence and about validating the result against the
+hardware.
 
-Radhey Shyam Pandey (3):
-  usb: dwc3: xilinx: fix system suspend and resume PHY handling
-  usb: dwc3: xilinx: re-assert resets on ZynqMP init error paths
-  usb: dwc3: xilinx: unwind ZynqMP platform init on probe failure and
-    remove
-
- drivers/usb/dwc3/dwc3-xilinx.c | 123 +++++++++++++++++++++++++++------
- 1 file changed, 100 insertions(+), 23 deletions(-)
-
-
-base-commit: abc36cbda29d8f19cf3a580cd86ca9e865186a41
--- 
-2.44.4
+Thanks again,
+BG9OXA
 
 
