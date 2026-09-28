@@ -4,68 +4,105 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7A616CA5FA2
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 28 Sep 2026 20:48:28 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 542E4CA5FA3
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 28 Sep 2026 20:48:29 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Mci8WdhBZuf83kmZPQtnrcPqNpE7Pys3jKhN5o6TZOE=; b=cjp/GkmjOhn1VYu43SxfsjGWTP
-	BM0YmagrlxDftn2UGkyHwGt9wG6GoEhICNGB3j5YRloUrHVtJaQivgZde4c/2Th4BJ4ik2R2Xq5dE
-	WwOX3T7yLq7/LyYpBapceREHCNsw/5cIBm33Cq/vKDc1wWm5ZoosE13Y6fpyF/jBRwPuCe2T5Mvk0
-	5N8pzPQoPowaY2i1evtOXrCkNLowNH7YJUIjjyDypH39ZwMyI7rZjsrDmUI9e85hVahF2bq7WdJ/i
-	d7nJvz51j01H8w5qsHm1YkfRTZxhR4DcO3fyl4IbiWlIKYDQNwe+D2ap28VBiWJh6BqT73mSr1gEQ
-	HWDbmIIw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=J1T7FYtEHLzKBOAf0DCFYQLvpaY4ZVWXjng9Q2koYuQ=; b=tVDV7sbmfbyEu+7kPprpK2/yfH
+	Vo3fKzyZ3VPdHrht3KaBSS2KjYSKGReEmbHFZl2PTxMNk9xywemru8XPUvwe90lGP8EJ22ZcSe+/h
+	8OnvGkr3yefKaIijYqkbzvdAx0+zvLI4ia2UuDcgRi8tgVN5QdMoW5ITAskR+WKYo7ThSg+61KeQQ
+	q+CarU32HuTnwJuiu4BWIa1ao1MCJ2PukVJL26vs4nc8FdeH3oFlpMKmKDQTRb+iMqJj/FEBG60a/
+	kWQVwePMSuctRCZF/XR8y7cfxRyMhZbpjFmCuHjI3NEo1XIiN7Zkmj4F3M550+0LngYpA2MJmepIx
+	9S0jZF9Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xBIGi-00000001bgQ-29gO;
-	Mon, 28 Sep 2026 20:48:12 +0000
-Received: from mx.nabladev.com ([178.251.229.89])
+	id 1xBHIc-00000001UTT-1Zx1;
+	Mon, 28 Sep 2026 19:46:06 +0000
+Received: from mail-pl1-x630.google.com ([2607:f8b0:4864:20::630])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xBIGZ-00000001bdo-084t
+	id 1xBHIS-00000001UMW-1B2T
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 28 Sep 2026 20:48:04 +0000
-Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id D0A85101EBD;
-	Mon, 28 Sep 2026 22:47:55 +0200 (CEST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nabladev.com;
-	s=dkim; t=1790628476; h=from:subject:date:message-id:to:cc:mime-version:
-	 content-transfer-encoding:in-reply-to:references;
-	bh=Mci8WdhBZuf83kmZPQtnrcPqNpE7Pys3jKhN5o6TZOE=;
-	b=NayI1+Rag+pE1TarCJEq2gYetoaJz7vf5h6SONOuBUQ5qAnibkISnWGxbToEKSbBQ5ORXY
-	5v8ly1RLcIHKVJJiyvAvN/WO/pcPde5kKJx6X6/feexpMCgLDojJRWlJiN6pz/w9GWjsFF
-	nXRyABALyLJ2aVsu/pW71ujvUIur7ViegFh/1E8wqpyHcCa+sRwUrRDwmfG3kLGD1Ea9+t
-	cmZhwiClTSVegR2aZEuUjXDVsHs4iSMCLJxj9G5mn4bNnst0+xgyfr8w/eBLAZ12udpINC
-	Js73ZSbuCj6owHoFTapuLE5XV3NJ1I1N6LwX/REzqWJaUwHOAovV5MtcHLDLpQ==
-From: Marek Vasut <marex@nabladev.com>
-To: linux-arm-kernel@lists.infradead.org
-Cc: Marek Vasut <marex@nabladev.com>,
-	Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>,
-	Aswath Govindraju <a-govindraju@ti.com>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Fabio Estevam <festevam@gmail.com>,
-	Frank Li <Frank.Li@nxp.com>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Marc Kleine-Budde <mkl@pengutronix.de>,
-	Rob Herring <robh@kernel.org>,
-	devicetree@vger.kernel.org,
-	imx@lists.linux.dev,
-	linux-can@vger.kernel.org,
-	linux-kernel@vger.kernel.org
-Subject: [PATCH v5 2/3] dt-bindings: arm: fsl: Document Data Modul i.MX95 eDM SBC
-Date: Mon, 28 Sep 2026 22:47:13 +0200
-Message-ID: <20260928204741.175754-2-marex@nabladev.com>
-X-Mailer: git-send-email 2.53.0
-In-Reply-To: <20260928204741.175754-1-marex@nabladev.com>
-References: <20260928204741.175754-1-marex@nabladev.com>
+	Mon, 28 Sep 2026 19:45:57 +0000
+Received: by mail-pl1-x630.google.com with SMTP id d9443c01a7336-2d3b445a84fso2995ad.1
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 28 Sep 2026 12:45:56 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=google.com; s=20251104; t=1790624755; x=1791229555; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:content-type:mime-version
+         :references:message-id:subject:cc:to:from:date:from:to:cc:subject
+         :date:message-id:reply-to:content-type;
+        bh=J1T7FYtEHLzKBOAf0DCFYQLvpaY4ZVWXjng9Q2koYuQ=;
+        b=UJhShlUrvYXiJwMWxOdXK6U4BHt4ic4+4JIrO/us7FlBMfWRMBc46u02HRnjcFetlR
+         ae2ff9ZIBD9Y8+F/qN/ChTGhp+NUBO6w5isLMGSa2BfyB6ZPIpjRcVbOgP98HJA/4v/Z
+         Gc8DPBRSsLmOtFYI8jyWH2i0CWuXyy42OqBNSaPufX/DBNlRZjBYwXNNYwEih1z7bJb5
+         QbzrnlG+qE8bG7k0KJje5hRKwk6h3RGrb0SLHcvvxU6mq5TONGMoe+x6ARYhtdW9HK92
+         ATAY/M7GJB0CvQpZh35aWgHNQOfKsqc6yQxiTi/Ww4Ypw3N+KEnhZzNUcvcEdJUsCeXg
+         9NNA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1790624755; x=1791229555;
+        h=in-reply-to:content-disposition:content-type:mime-version
+         :references:message-id:subject:cc:to:from:date:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=J1T7FYtEHLzKBOAf0DCFYQLvpaY4ZVWXjng9Q2koYuQ=;
+        b=q8LEtHQjdJTMDJuIUI7Ev8NCrBUyFoHLmwGZy6xJ5Fo9gRaVRUb37CTTxvR3SpTASy
+         A/9Hb77wos5o2H1bm7KBTK/+46yNpXMFUTwvF20KHGVFtN6TwXZWe5Q3ZNFRVLnUKIxN
+         AZS6rc4fspxwSwWYg9ttZflOk7aNIExIUoGJYLDRPK/ODQ7n9x78TEKmLDQF2xpzEtFM
+         /0W4DVwDp7H8EZpffdNznle9AgJYNQwMfMHYfxJZRFt1SB0YKvz+XIqPmjkZY0dAQRtv
+         EsVL1sVjVo66MFNoGlc53OiCFmIvNTrRpY5fSWDIoa9B4PHwe89FTkyLsjRppky6OqK+
+         oNVg==
+X-Forwarded-Encrypted: i=1; AKwUvBwQdyS9ZqurG2cc2hc5Hgj86FYYqSmt2JACLXDAX5vNqjiZEQ7i2fLMG8tdy9HLMKHPUg6iJSRAlUk9BYSDahVF@lists.infradead.org
+X-Gm-Message-State: AFq9FYJ9ttALAkfTL9NXtlt/G40+5Y78vd7aIqEltAguchJwZj6FGl3+
+	1TDfvNcphHD2KnvWiz6kL1cOTd/vyqi8p6DMUlkIAueTmSJX04ylcl+rSfajTsdRmU6C5Gui07z
+	SG1kZxBE6ibY=
+X-Gm-Gg: AYBFou1JRZRRCGN2R7OweSpqpsglJlHtNfG031AaiPomZIXxZAh5OryHEcOUORvdhPr
+	+FV1wv82ETM7XF/E6H3HQXhlchtWkDmTeFxfh4vgZLH1IFOXGdZNHfvm1szial/lPUdFQjEpbkn
+	VxgRdV3tcMfiexfvYUvnxGnxf3zuEJtL5fz3hTos6A5RrgejWP+0gp3utl3cRUsrBcCXhLZovEq
+	lZ6eq7sjHitbaBQolBoxe4JcJ9Y404ssv/OpIA3TQLcc2WIJpwcmn8lotJqSotllUtivXrFDG1e
+	unxpKWggFjpNq3j+WSvONVOoBbnoDBOW9L02mw7B2+0Hgf/l1dIoAxzaC4R3hj8hdhlzOGD999x
+	0g9IomVquyMcOuXQA3zpgn+Dtokbvw29b5znRMRL4IT6pf5OefkF4aqiyvVkGE4L8I9bFjt+XUg
+	5PLoELavE+pcwx1XpJRnJp70ImbkqT+Y6dJwVQx1LLHQB+O9i97/pTrSTZxRsW7umP84Og4+wyo
+	0hHy0VWzw+Bgej3tvqQpoWxukxsri8a6LPn
+X-Received: by 2002:a17:903:4b0c:b0:2d5:db3d:1a42 with SMTP id d9443c01a7336-2dfa9773f0fmr8136125ad.15.1790624754609;
+        Mon, 28 Sep 2026 12:45:54 -0700 (PDT)
+Received: from google.com (105.211.142.34.bc.googleusercontent.com. [34.142.211.105])
+        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-3a4926b3f9fsm1077587a91.0.2026.09.28.12.45.49
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Mon, 28 Sep 2026 12:45:54 -0700 (PDT)
+Date: Mon, 28 Sep 2026 19:45:45 +0000
+From: Pranjal Shrivastava <praan@google.com>
+To: Jason Gunthorpe <jgg@nvidia.com>
+Cc: Catalin Marinas <catalin.marinas@arm.com>,
+	Jonathan Corbet <corbet@lwn.net>, iommu@lists.linux.dev,
+	"Joerg Roedel (AMD)" <joro@8bytes.org>,
+	Jean-Philippe Brucker <jpb@kernel.org>,
+	linux-arm-kernel@lists.infradead.org, linux-doc@vger.kernel.org,
+	Mark Rutland <mark.rutland@arm.com>,
+	Randy Dunlap <rdunlap@infradead.org>,
+	Robin Murphy <robin.murphy@arm.com>,
+	Shuah Khan <skhan@linuxfoundation.org>,
+	Will Deacon <will@kernel.org>, David Matlack <dmatlack@google.com>,
+	Jean-Philippe Brucker <jean-philippe@linaro.org>,
+	Jonathan Cameron <Jonathan.Cameron@huawei.com>,
+	Nicolin Chen <nicolinc@nvidia.com>,
+	Pasha Tatashin <pasha.tatashin@soleen.com>, patches@lists.linux.dev,
+	Samiullah Khawaja <skhawaja@google.com>,
+	Mostafa Saleh <smostafa@google.com>, stable@vger.kernel.org,
+	Vijayanand Jitta <vijayanand.jitta@oss.qualcomm.com>
+Subject: Re: [PATCH v7 0/9] Organize the SMMUv3 invalidation flow so iommupt
+ can use it
+Message-ID: <arrD6aTjENIsa4sO@google.com>
+References: <0-v7-e84261bbe7cd+2ea80b-smmu_tlbi_jgg@nvidia.com>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-X-Last-TLS-Session-Version: TLSv1.3
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <0-v7-e84261bbe7cd+2ea80b-smmu_tlbi_jgg@nvidia.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260928_134803_225344_1D747D36 
-X-CRM114-Status: UNSURE (   8.40  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260928_124556_326730_1FB3FBBE 
+X-CRM114-Status: GOOD (  21.90  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -80,47 +117,44 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Document Data Modul i.MX95 eDM SBC board. This is an evaluation
-board for various custom display units. Currently supported are
-serial console, ethernet, eMMC, SD, SPI NOR, USB host and PCIe.
+On Mon, Sep 21, 2026 at 08:55:08PM -0300, Jason Gunthorpe wrote:
+> [ This is part of the patch pile to move SMMUv3 over to the generic page
+> table, the precursor patches have been merged now. What's left:
+>  1) Organize the SMMUv3 invalidation flow so iommupt can use it
+>  2) Use the generic iommu page table for SMMUv3
+> 
+> The first patch should ideally go to -rc
+> 
+> The whole branch is here:
+>    https://github.com/jgunthorpe/linux/commits/iommu_pt_arm64/
+> ]
+> 
+> iommupt has a design that focuses on building a single iommu_iotlb_gather
+> for arbitary batches of map/unmap operations. The gather uses the free
+> list and it captures invalidations of tables, leaves and supports mixed
+> levels.
+> 
+> The introduction of PT_FEAT_DETAILED_GATHER provides some additional
+> information that is useful for ARM: the damage bitmaps for the table and
+> leaf changes.
+> 
+> Prior to switching SMMUv3 over to use iommupt prepare for this by
+> reworking the internal invalidation to work on the same data format that
+> iommupt will produce. Bridge the invalidations generated by io-pgtable
+> into the new format. The conversion is simple enough, io-pgtable generates
+> invalidation operations that have only a single set bit in
+> table_levels_bitmap/leaf_levels_bitmap, so we can convert the io-pgtable
+> provided size into the proper level leaf or table bit.
+>
 
-Acked-by: Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
-Signed-off-by: Marek Vasut <marex@nabladev.com>
----
-Cc: Aswath Govindraju <a-govindraju@ti.com>
-Cc: Conor Dooley <conor+dt@kernel.org>
-Cc: Fabio Estevam <festevam@gmail.com>
-Cc: Frank Li <Frank.Li@nxp.com>
-Cc: Krzysztof Kozlowski <krzk+dt@kernel.org>
-Cc: Marc Kleine-Budde <mkl@pengutronix.de>
-Cc: Rob Herring <robh@kernel.org>
-Cc: devicetree@vger.kernel.org
-Cc: imx@lists.linux.dev
-Cc: linux-arm-kernel@lists.infradead.org
-Cc: linux-can@vger.kernel.org
-Cc: linux-kernel@vger.kernel.org
----
-V2: No change
-V3: No change
-V4: No change
-V5: Add AB from Krzysztof
----
- Documentation/devicetree/bindings/arm/fsl.yaml | 1 +
- 1 file changed, 1 insertion(+)
+[...]
 
-diff --git a/Documentation/devicetree/bindings/arm/fsl.yaml b/Documentation/devicetree/bindings/arm/fsl.yaml
-index adf209b3b7cfa..e69f151509dfc 100644
---- a/Documentation/devicetree/bindings/arm/fsl.yaml
-+++ b/Documentation/devicetree/bindings/arm/fsl.yaml
-@@ -1548,6 +1548,7 @@ properties:
-       - description: i.MX95 based Boards
-         items:
-           - enum:
-+              - dmo,imx95-data-modul-edm-sbc # i.MX95 eDM SBC
-               - fsl,imx95-15x15-ab2       # i.MX95 15x15 Audio Board V2
-               - fsl,imx95-15x15-evk       # i.MX95 15x15 EVK Board
-               - fsl,imx95-15x15-frdm      # i.MX95 15x15 FRDM Board
--- 
-2.53.0
+FWIW, I was able to run dma_map_benchmark for 4K & 2M 
+(-g 1 / -g 512, 1..256 threads) and I observe no change in map/unmap
+latency vs. base, no measurable overhead on the leaf unmap hot path.
 
+Tested-by: Pranjal Shrivastava <praan@google.com>
+
+Thanks,
+Praan
 
