@@ -4,99 +4,93 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E5D7CCA5FA5
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 28 Sep 2026 15:01:07 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 02E9BCA5FA5
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 28 Sep 2026 15:01:28 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:Message-Id:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:From:
-	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
-	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=PNRLh31Iy3KvKfoOWiJ4SBBap26RwlK370O1RZcEP7U=; b=F/NlQm5kiPKDRpLQuCn4J5zRBA
-	HkcXEZOPycdTfUDiYQ2s/90uBSA6Tp0iqUaZHImN8tGiJciYXmRerbs5pfERy3Gblnwc9v/sbp9fW
-	BO+mh1HS4ouhaeX2CvSk75rgiSffb95gHv/SS1JWv1kKR/LEf9vL+aheBKesm7Kcy9IUyMi2sOol1
-	wMJFH+6AoSwghOuX2OSZ6zoq1S0XS9sZFtHbqvhfVhTRcNzRtVvH/QKYHwwVoiFko/oaeIgO+OU5N
-	nqbWwAZ4hT2VKXN0a9DW8xCVjmsR1tSVpKtRD/TRujHXf4E8RNTk90qJPpHgv9aKGrTrlKym8gR7g
-	6tJ8JRHQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:In-Reply-To:References:Message-ID:Date
+	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=VmqgzTZXEL2abXYE2ZwSbXtEHIgDV5rMnt4AXizdjxQ=; b=LHVZqR6sHRosJ1GNUSgskdFcVq
+	RJkwdpY7TxMAWvyWtAe6HjEGMwp3N+s4wN5sRrKDxxjxY1IV2xWHz19qbp2TBbTd8vOtcDkX0qJg1
+	qfgCYbdei3EcANc3TbBN0Tz4BDJPMY3kMxdsia8GsLhUxDshLsYp/EyfZ1KG/6RZqA1WNat+/8i8D
+	aIdw20ltrvYZtkoir6RImd39OO8OSav0NBG+Lk3EtLtWuxDuOdJajxRuIpw/ScWO7LDV88cq43owC
+	YpWpgtH7GWGM5WugKtPhsnIvThpV0k+s6jJColL5l5OCZxjHcrOcb5WKyrygjLMaLsQPCnTdswnGp
+	DxFQU6Bw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xBCqj-00000000qRt-1uuq;
-	Mon, 28 Sep 2026 15:01:01 +0000
-Received: from mail-wm2-x10.google.com ([2a00:1450:4864:31::10])
+	id 1xBCr3-00000000qUG-2Uxm;
+	Mon, 28 Sep 2026 15:01:21 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xBCqh-00000000qR0-1AQB
-	for linux-arm-kernel@lists.infradead.org;
-	Mon, 28 Sep 2026 15:01:00 +0000
-Received: by mail-wm2-x10.google.com with SMTP id 5b1f17b1804b1-49ffa15f67fso11321065e9.2
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 28 Sep 2026 08:00:58 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1790607657; x=1791212457; darn=lists.infradead.org;
-        h=cc:to:message-id:content-transfer-encoding:content-type
-         :mime-version:subject:date:from:from:to:cc:subject:date:message-id
-         :reply-to:content-type;
-        bh=PNRLh31Iy3KvKfoOWiJ4SBBap26RwlK370O1RZcEP7U=;
-        b=Eu9P2Ph2NkHSTPjyyHt7fpKbTDVn/+s9x7MYhLnRYlhfSFCNkg76FLEioupoAdoqeA
-         Q78EUgc8NCA24U0Cip+WzOvfmDonX2qVYPLF3C8MXFtqmiWJsgnobxZRhqhsNY+SE3qU
-         VtnVwI0m5csJaps0p+8pE7GIEYKpDfxMSlKrjlzajEArRevqPJhgyX6U3ugkEuVdiiJq
-         tm/kLJkjG4lKyk19gaCU2hDt4KvsLEm/BjCjwMNB7p1TkywnjACbBqB+kz+624mfdvKy
-         YVnRZDU3OcyPziGBSgLZEAsjJY54X0yjELDyOkJfJS+W6/lid3uQOdNqvrdBlGUIHADx
-         +PFw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1790607657; x=1791212457;
-        h=cc:to:message-id:content-transfer-encoding:content-type
-         :mime-version:subject:date:from:x-gm-gg:x-gm-message-state:from:to
-         :cc:subject:date:message-id:reply-to:content-type;
-        bh=PNRLh31Iy3KvKfoOWiJ4SBBap26RwlK370O1RZcEP7U=;
-        b=24hqiUNzw4wi5fmgEpWsrYpqHWb5/MwWOKb46/Pbfx7hp3GWvUFTkbEZuDLC2Kz00r
-         jvaK2RpK+A9uG/1Kvqo76ZIK5hk++dCIeRKsmPccnJPnFYaVvmcVNt3vh2KosL9GPy++
-         03oEsYG4unkpz6Ys1sEyPrSk9FHR+mNI+WwF7Sz7x8IV/qxSBAdVBCFyh4OObYavZEdB
-         Rrt1ndOJzLJ5lkuQHAQc7irMXSKqdRwg7hWJj2mh/8yFkmV4zUix4pucl7P1CS7S1sl5
-         04GRHpztRKvExKevHmtgWW/9FPJGtV+B5VY3Myd0M3JJBdYkiZbb38bFiEUD2GTfF3Ky
-         GVYQ==
-X-Forwarded-Encrypted: i=1; AKwUvBwvZoNzX+y2gnK6LuIuAXSC7rWT/01MbvnL+fPtbTYRS1bLKSoXhb4kY5eUT/1lc+9PbPwo2oBggK1IEqLjupRw@lists.infradead.org
-X-Gm-Message-State: AFuF++kB6VNyJC2YHPMLF1VXYb0hwVpuf+jlYKvutgQ7yJoeckL/Ow4H
-	b/oqvmUVR+EqIduomE0mz2JjUApwhPoSw7conPGvmC3lrNyer208I7wS
-X-Gm-Gg: AYBFou1bUWpO1GJKT0rGfT4UJNRTS0hCk5TWwR5QHPhL6VHoMjMZzNajKHzfwriONSU
-	LJzWvC63e8xA+h3LPTNDTvhwH3Zh4YYZlq/hAAz0H/AjM8mQCsRqurC0DoiGTp9K266k3jbDNzL
-	OYDk5aSq4+cek2gCjb2vPwBnsjVEh/FwB1Wzo7PRAFINxPSSRlBrh6C1zfNJfuna8oE2MLDiwI0
-	vuwFVU7/2oQLyefcxg08XYPCBCKj6bJYIvfuGsqzs4w8VUvmiMLuvt96wmSOQKW/8U7PtM4d8KI
-	DItgSp6ZscsrPDb5vWCn1Qn90gQueTFRqBtnzs4xewhin/bvZGkTZsCsCXabRvMmwf9WX0DZXGw
-	5bIubQAAKfugql8NfaY/ZR8QVodbpFRKH8YkG4Fe8C0Zf5I0tisA4KDOUa4oVERciD/dRJ2fPxB
-	9SztsLBp8r5WhEnPdKFio7LljK50xJ7jm56JSZHbhzSDFtOpt/VbFonA7Nxu4NJYMy4jusa+kqa
-	4CdnaJJUmVJN8odT24xx+Z0dSEwbRTSCvYOdq9sQyJHMw1Z+7ewjumHJfF3g1gF1X7DPPgs9GmZ
-	9lHfSOF+AcpqqjWDMYyoDSBW9tD8VuX1SOHQzMd3TEMPhZjq
-X-Received: by 2002:a05:600c:3b05:b0:4a0:321:6ddd with SMTP id 5b1f17b1804b1-4a003217170mr61722025e9.34.1790607655941;
-        Mon, 28 Sep 2026 08:00:55 -0700 (PDT)
-Received: from [127.0.1.1] (248.201.173.83.static.wline.lns.sme.cust.swisscom.ch. [83.173.201.248])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4a001922102sm151777245e9.15.2026.09.28.08.00.55
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 28 Sep 2026 08:00:55 -0700 (PDT)
-From: Franz Schnyder <fra.schnyder@gmail.com>
-Date: Mon, 28 Sep 2026 17:00:46 +0200
-Subject: [PATCH] arm64: dts: freescale: imx95-aquila: Enable I2C_3_DSI1 on
- Clover board
+	id 1xBCr2-00000000qU5-2tEk;
+	Mon, 28 Sep 2026 15:01:20 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=MIME-Version:Content-Transfer-Encoding
+	:Content-Type:In-Reply-To:References:Message-ID:Date:Subject:CC:To:From:
+	Sender:Reply-To:Content-ID:Content-Description;
+	bh=VmqgzTZXEL2abXYE2ZwSbXtEHIgDV5rMnt4AXizdjxQ=; b=nLyjVc2RZ+LqmMoUSRQWwtSXKd
+	1On90EArucngnpfepdtRuXFVwpAXsmmyQUFOWgLv6DiDK6TuQu0mGRTh5isACD2xGwOq8ojz5qWP2
+	LW0A2dR40QE3cUxLaNPT6rfVS3GE3qY6SQYs6o1+GORjWvBJjK0OPKQVp3QARCJpG9YkkJBxKVvVZ
+	+90PMF5Ux3MNOMfd7KDm612wO0J86fO+bo+8c4+YGV6rs9418cGXwsBHQikm6j0OnOA7pejnPsaU2
+	/Nq6/fDBJNnmCQrRhUol0Oq7oVvq/g56joLiDR4qpgWfYW7VkHFa38NJAwrXoisMkCh+2JGHGYdKi
+	jGEZHr1A==;
+Received: from rtits2.realtek.com ([211.75.126.72] helo=rtits2.realtek.com.tw)
+	by desiato.infradead.org with esmtps (Exim 4.99.2 #2 (Red Hat Linux))
+	id 1xBCqy-00000001bFn-3qDJ;
+	Mon, 28 Sep 2026 15:01:19 +0000
+X-SpamFilter-By: ArmorX SpamTrap 5.80 with qID 68SF0TgwC500472, This message is accepted by code: ctloc85258
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=realtek.com; s=dkim;
+	t=1790607629; bh=VmqgzTZXEL2abXYE2ZwSbXtEHIgDV5rMnt4AXizdjxQ=;
+	h=From:To:CC:Subject:Date:Message-ID:References:In-Reply-To:
+	 Content-Type:Content-Transfer-Encoding:MIME-Version;
+	b=a6o5sbIH2x2yw8YBJmbd7YZJvkpsImIgnemZspapUG3IzJbVciACNPU6eKQ/nwZ0X
+	 5eeMet+zkKkl4UkmjjA1auOWgq74LROKKRvaw2guX9+JmflmqMFOZC50VkH9NZ+Pnf
+	 ob7GHs1zBKH/Q9nWCz8NnkUXaQxspEO5ICoyhc+skWfgftgu5jro2ZMv/a8syBQ/o8
+	 8pztzpQjZH4vhOwREPuurcRDT7Mo1uHlI6rYaErtPg9dSq3O9ZWw33hfJESfDyJolN
+	 IiKjg7JM4XLfy2s+3yI1Z3j7+tyabA/jDblLG1CJBNTMJ+kMhicyWm+XVJ6mXXwGpW
+	 JZ7+unULky3zA==
+Received: from mail.realtek.com (rtkexhmbs02.realtek.com.tw[172.21.6.41])
+	by rtits2.realtek.com.tw (8.15.2/3.29/5.94) with ESMTPS id 68SF0TgwC500472
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=FAIL);
+	Mon, 28 Sep 2026 23:00:29 +0800
+Received: from RTKEXHMBS06.realtek.com.tw (10.21.1.56) by
+ RTKEXHMBS02.realtek.com.tw (172.21.6.41) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.2562.49; Mon, 28 Sep 2026 23:00:29 +0800
+Received: from RTKEXHMBS06.realtek.com.tw ([::1]) by
+ RTKEXHMBS06.realtek.com.tw ([fe80::b3cc:c263:b82d:e87c%10]) with mapi id
+ 15.02.2562.049; Mon, 28 Sep 2026 23:00:29 +0800
+From: =?big5?B?WXUtQ2h1biBMaW4gW6pMr6enZ10=?= <eleanor.lin@realtek.com>
+To: Pengpeng Hou <hppiscas@163.com>, =?big5?B?SmFtZXMgVGFpIFvAuafTrnBd?=
+	<james.tai@realtek.com>
+CC: "afaerber@suse.com" <afaerber@suse.com>, "linusw@kernel.org"
+	<linusw@kernel.org>, "linux-arm-kernel@lists.infradead.org"
+	<linux-arm-kernel@lists.infradead.org>,
+	"linux-realtek-soc@lists.infradead.org"
+	<linux-realtek-soc@lists.infradead.org>, "linux-gpio@vger.kernel.org"
+	<linux-gpio@vger.kernel.org>, "linux-kernel@vger.kernel.org"
+	<linux-kernel@vger.kernel.org>, =?big5?B?VFlfQ2hhbmdbsWmkbLZoXQ==?=
+	<tychang@realtek.com>
+Subject: RE: [PATCH v2] pinctrl: realtek: rtd1619b: publish the OF module
+ alias
+Thread-Topic: [PATCH v2] pinctrl: realtek: rtd1619b: publish the OF module
+ alias
+Thread-Index: AQHdSLEcJX+4NvxkzUaHWGar/UKH9rbkIpVw
+Date: Mon, 28 Sep 2026 15:00:29 +0000
+Message-ID: <f25e75dabbf64d3a9078ea584aee7986@realtek.com>
+References: <20260920033520.12924-1-hppiscas@163.com>
+In-Reply-To: <20260920033520.12924-1-hppiscas@163.com>
+Accept-Language: zh-TW, en-US
+Content-Language: zh-TW
+x-originating-ip: [172.16.3.62]
+Content-Type: text/plain; charset="big5"
+Content-Transfer-Encoding: base64
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20260928-imx95-aquila-clover-enable-lpi2c8-v1-1-9a9755acb8cf@toradex.com>
-X-B4-Tracking: v=1; b=H4sIAB2BumoC/yXNQQ6CMBBG4auQWTsJHYNQr2JclPqrY2rBVggJ4
- e5WXX6b91bKSIpMx2qlhFmzDrHA7CrydxdvYL0Uk9RyqK10rM/FNuxekwbHPgwzEiO6PoDDqOI
- 7RmvMvoE10gqVzphw1eX3OJ3/zlP/gH9/w7RtH2AAF+uFAAAA
-X-Change-ID: 20260928-imx95-aquila-clover-enable-lpi2c8-e71135e91272
-To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>, Frank Li <Frank.Li@nxp.com>, 
- Sascha Hauer <s.hauer@pengutronix.de>, 
- Pengutronix Kernel Team <kernel@pengutronix.de>, 
- Fabio Estevam <festevam@gmail.com>, 
- Antoine Gouby <antoine.gouby@toradex.com>
-Cc: devicetree@vger.kernel.org, imx@lists.linux.dev, 
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
- Francesco Dolcini <francesco@dolcini.it>, 
- Franz Schnyder <franz.schnyder@toradex.com>, stable@vger.kernel.org
-X-Mailer: b4 0.15.2
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260928_080059_345428_030A9A94 
-X-CRM114-Status: GOOD (  10.94  )
+X-CRM114-CacheID: sfid-20260928_160117_495535_0CBEA4B2 
+X-CRM114-Status: GOOD (  19.36  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -111,41 +105,32 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Franz Schnyder <franz.schnyder@toradex.com>
-
-Enable lpi2c8, which is used for the I2C_3_DSI1 signals on the Clover
-carrier board. It was left disabled by mistake in the initial commit.
-
-Fixes: 3f519121e120 ("arm64: dts: freescale: imx95-aquila: Add Clover carrier board")
-Cc: stable@vger.kernel.org
-Signed-off-by: Franz Schnyder <franz.schnyder@toradex.com>
----
- arch/arm64/boot/dts/freescale/imx95-aquila-clover.dts | 5 +++++
- 1 file changed, 5 insertions(+)
-
-diff --git a/arch/arm64/boot/dts/freescale/imx95-aquila-clover.dts b/arch/arm64/boot/dts/freescale/imx95-aquila-clover.dts
-index 365bce73eddd3..07bf53240958b 100644
---- a/arch/arm64/boot/dts/freescale/imx95-aquila-clover.dts
-+++ b/arch/arm64/boot/dts/freescale/imx95-aquila-clover.dts
-@@ -197,6 +197,11 @@ &lpi2c5 {
- 	status = "okay";
- };
- 
-+/* Aquila I2C_3_DSI1 */
-+&lpi2c8 {
-+	status = "okay";
-+};
-+
- /* Aquila SPI_1 */
- &lpspi6 {
- 	pinctrl-names = "default";
-
----
-base-commit: bf184a29ad1b33bd8922029eb0ca3f2866007258
-change-id: 20260928-imx95-aquila-clover-enable-lpi2c8-e71135e91272
-
-Best regards,
---  
-Franz Schnyder <franz.schnyder@toradex.com>
-
+PiBQSU5DVFJMX1JURDE2MTlCIGlzIHRyaXN0YXRlLCBhbmQgdGhlIGRyaXZlciB1c2VzIHRoZSBy
+ZWFsdGVrLHJ0ZDE2MTliLXBpbmN0cmwNCj4gY29tcGF0aWJsZSB0byBtYXRjaCBpdHMgZGV2aWNl
+cy4gSG93ZXZlciwgdGhlIE9GIHRhYmxlIGlzIG5vdCBleHBvcnRlZCwgc28gYQ0KPiBtb2R1bGFy
+IGJ1aWxkIGRvZXMgbm90IGFkdmVydGlzZSB0aGlzIGFsaWFzIGZvciBhdXRvbWF0aWMgbW9kdWxl
+IGxvYWRpbmcuDQo+IA0KPiBBZGQgdGhlIE9GIGV4cG9ydCB3aXRob3V0IGNoYW5naW5nIHByb2Jl
+IG9yIHJlZ2lzdHJhdGlvbiBvcmRlcmluZy4NCj4gDQo+IFRoZSBpc3N1ZSB3YXMgZm91bmQgYnkg
+b3VyIHN0YXRpYy1hbmFseXNpcyB0b29sLg0KPiANCj4gRml4ZXM6IGM3OTEwZjZhY2E1NiAoInBp
+bmN0cmw6IHJlYWx0ZWs6IEFkZCBwaW5jdHJsIGRyaXZlciBmb3IgUlREMTYxOUIiKQ0KPiBBc3Np
+c3RlZC1ieTogZ3B0IDUNCj4gU2lnbmVkLW9mZi1ieTogUGVuZ3BlbmcgSG91IDxocHBpc2Nhc0Ax
+NjMuY29tPg0KDQpBY2tlZC1ieTogWXUtQ2h1biBMaW4gPGVsZWFub3IubGluQHJlYWx0ZWsuY29t
+Pg0KDQo+IC0tLQ0KPiBDaGFuZ2VzIHNpbmNlIHYxOg0KPiBodHRwczovL2xvcmUua2VybmVsLm9y
+Zy9hbGwvMjAyNjA5MDUxMzQ0MTguNjc2MTktMS1ocHBpc2Nhc0AxNjMuY29tLw0KPiBVc2UgdGhl
+IGZ1bGwgYXV0aG9yIG5hbWUgYW5kIHJlZ2VuZXJhdGUgdGhlIHBsYWluLXRleHQgaW5saW5lIGRp
+ZmYgd2l0aG91dA0KPiBlbWJlZGRlZCBjYXJyaWFnZSByZXR1cm5zLg0KPiANCj4gIGRyaXZlcnMv
+cGluY3RybC9yZWFsdGVrL3BpbmN0cmwtcnRkMTYxOWIuYyB8ICAgIDEgKw0KPiAgMSBmaWxlIGNo
+YW5nZWQsIDEgaW5zZXJ0aW9uKCspDQo+IA0KPiBkaWZmIC0tZ2l0IGEvZHJpdmVycy9waW5jdHJs
+L3JlYWx0ZWsvcGluY3RybC1ydGQxNjE5Yi5jDQo+IGIvZHJpdmVycy9waW5jdHJsL3JlYWx0ZWsv
+cGluY3RybC1ydGQxNjE5Yi5jDQo+IGluZGV4IGIwN2U1MGQ2MzU2ZC4uZTAzZTFmYjA5ODk5IDEw
+MDY0NA0KPiAtLS0gYS9kcml2ZXJzL3BpbmN0cmwvcmVhbHRlay9waW5jdHJsLXJ0ZDE2MTliLmMN
+Cj4gKysrIGIvZHJpdmVycy9waW5jdHJsL3JlYWx0ZWsvcGluY3RybC1ydGQxNjE5Yi5jDQo+IEBA
+IC0xNTc1LDYgKzE1NzUsNyBAQCBzdGF0aWMgY29uc3Qgc3RydWN0IG9mX2RldmljZV9pZA0KPiBy
+dGQxNjE5Yl9waW5jdHJsX29mX21hdGNoW10gPSB7DQo+ICAgICAgICAgeyAuY29tcGF0aWJsZSA9
+ICJyZWFsdGVrLHJ0ZDE2MTliLXBpbmN0cmwiLCB9LA0KPiAgICAgICAgIHt9LA0KPiAgfTsNCj4g
+K01PRFVMRV9ERVZJQ0VfVEFCTEUob2YsIHJ0ZDE2MTliX3BpbmN0cmxfb2ZfbWF0Y2gpOw0KPiAN
+Cj4gIHN0YXRpYyBzdHJ1Y3QgcGxhdGZvcm1fZHJpdmVyIHJ0ZDE2MTliX3BpbmN0cmxfZHJpdmVy
+ID0gew0KPiAgICAgICAgIC5kcml2ZXIgPSB7DQo+IA0KPiBiYXNlLWNvbW1pdDogNTE4ZTViNzk0
+YzA2YzBmMGViNDBkZjNlMjAyMjc0YTY2MjAyYzEzNw0KPiAtLQ0KPiAyLjUwLjEgKEFwcGxlIEdp
+dC0xNTUpDQoNCg==
 
