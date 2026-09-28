@@ -4,109 +4,74 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9280AC9833E
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 28 Sep 2026 09:13:29 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D6055C9832F
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 28 Sep 2026 09:18:21 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:Cc:References:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=zrUZW93Kpo3duA4VkIX/sYF08Cc0xHufuLcywAkXwOQ=; b=xRrGiK4vttVsZ6SGzkhKOwaphP
-	gwUelnP7+XBmOdRKU38r3WicCbni7FCoeIOo7SfRrsw/hWh2ZLH2LRDXMzi53bpivhToY1wM8WhF4
-	mCIui44Uu60VJpVyjpsgNFDfG04WX9dskB97e+g0s6HSKVy8+fpOvv3PnZDg2y8jLKPk+EJvtaWfy
-	UYWAtu5dnxXb1jGxg6zDbEOwcxdZtTOcRpsZrry41Kl1IXJEwP3pZfCkb5NAinRySNDBSdm4DPiQv
-	SW9TL/TbbcVD4Q/MWo6MLSEr03PYXuOYleG1EoVvcoZ7sM7pM0P1VBkv8QaXouXzcQmxRu8JwYFZJ
-	DIlYBHLg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:CC:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=6UZs8HwsvNoqMdICuFwRiz2hP75+KY/MI8qd1TV0XZc=; b=zC5YGmkvIYu87ZreueZYRLkMEL
+	0KI+zhGP9kzF77ciJiaLcn3Ag+rjSS7C5NuqTfrwRJRQbIhOlkPsUe2Tn6r5SNCSN8rrcNXtgd6hG
+	4yt/9DSZDa6sSnQf5xdct4QXh7tUQJecA5QhRaHtZXihXlYtco4+A4qFgD7809CMSRtUiJXcTUpz9
+	cKg67pX/T7u1Blr1K3ov4ZVMy5GLsiiqSE3L70a8183gv/C0peyJhx6w+U9J1X/WxIf9eKX9jec+S
+	GBLDopbTfP6B7zKVdUyH8+9JBYqFqJI8UYTk9zIK7p3OGhtYAd4vLaBWG37Ps+GoYAXf/2WScFWzV
+	Dj2KLKgg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xB7QH-00000000C1i-2v0Z;
-	Mon, 28 Sep 2026 09:13:21 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1xB7Uy-00000000CWN-1pj1;
+	Mon, 28 Sep 2026 09:18:12 +0000
+Received: from esa.microchip.iphmx.com ([68.232.154.123])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xB7QG-00000000C1V-24DH
-	for linux-arm-kernel@bombadil.infradead.org;
-	Mon, 28 Sep 2026 09:13:20 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:Content-Type
-	:In-Reply-To:From:Cc:References:To:Subject:MIME-Version:Date:Message-ID:
-	Sender:Reply-To:Content-ID:Content-Description;
-	bh=zrUZW93Kpo3duA4VkIX/sYF08Cc0xHufuLcywAkXwOQ=; b=i4AfHERCYFrh/GI/rReI2wTj6I
-	BhkLbBoZLAZu/XsjaWOPCyLxeopIzHy2qEKZ5tdG7JOibY4R6K7Wb3z4EZVWy0/B5AXOGHj7ThZ1K
-	duiYwZInySVXIQ4kuxbIx44VSXblBxEMB+6XdzZLf1lnmmnejcR3gHNv9GICIXktGCPp1gq+iTkTO
-	W0g12JH7DZlDdbxSYSYgYqpQJ3pBaFaid8y0rtSBsPnyzVYpCNSnH+eznRg5+5SjK/EdGGzRHrHvG
-	lboG1srp+VRksJe5LXvIRXW+ZkVJsR+QTt5wIEZl6kMCNdBS9JPIi4i4xHLdepJXIRhQRhqSnuib1
-	N6BjzWpg==;
-Received: from mail-ed2-x0d.google.com ([2a00:1450:4864:33::d])
-	by desiato.infradead.org with esmtps (Exim 4.99.2 #2 (Red Hat Linux))
-	id 1xB7QD-00000001Hpy-07tu
+	id 1xB7Uv-00000000CVr-1gKz
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 28 Sep 2026 09:13:18 +0000
-Received: by mail-ed2-x0d.google.com with SMTP id 4fb4d7f45d1cf-6abe19c4262so1659700a12.3
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 28 Sep 2026 02:13:15 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1790586795; x=1791191595; darn=lists.infradead.org;
-        h=content-transfer-encoding:content-type:in-reply-to:from:cc
-         :content-language:references:to:subject:user-agent:mime-version:date
-         :message-id:from:to:cc:subject:date:message-id:reply-to:content-type;
-        bh=zrUZW93Kpo3duA4VkIX/sYF08Cc0xHufuLcywAkXwOQ=;
-        b=yC5UfMB1f8BBvGW8crpwovjJjsFc+WSaiq6o2NvoPd1Vl7djghIVFfl+P1gzSySu1o
-         HjO1h312yOAJ3jJfhktqD6vxZx+f/9ct1Gkos9Q/3gqzs8Hpc811tiCuUGtPmdIFWe/I
-         JogvCaAvwU2QwgHMc4SKYiqXRJLcPC/tzXgyLB/VScB8Z1tb6NZFnFuDIUpitkh7Y97i
-         y9qxrIs1fXUlgNpQmq9e4Ni41lOdeJ2Xy8pyN5lSzsu/tw6Bx/7M40Q8BqpMFZiBT4OV
-         sf9RFZ1H0crv/gJtVYoDUMDOhkN8JPvv8mQqrSaJcPVZ3QC/pdLOGTLWn7IWWIKcXRWD
-         KddQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1790586795; x=1791191595;
-        h=content-transfer-encoding:content-type:in-reply-to:from:cc
-         :content-language:references:to:subject:user-agent:mime-version:date
-         :message-id:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=zrUZW93Kpo3duA4VkIX/sYF08Cc0xHufuLcywAkXwOQ=;
-        b=yH0r7NAKGCmdsMtQAQ3BGNmYOrdc8+Xjxj0NUy8kbNXYcOcc/GcLP8emasPsp9YiKi
-         YUGOBWmZH0ESofsYKmzXAnw/mf8J8BIS56BRoLy3LtclQqz8D3TMDZSJltNHTOYQ2JXw
-         OwB1v6agwvp66YN9N3RI2GCWUcIvL/U0VbEI91YjYI7ThZOxWogdGq2b/TAYn7gHoTeo
-         wPWXk3edRRvOv8qPdl6o4qllPg4Zyk3CnNtofVUHX3lPLoY/1BJaRcTPT46ZpfnOg9xg
-         nq5wnirvsYabPeTBFgXCeov1Oh+McRxtGt+tl2GEAOH33Lx2tjgmZvrHLdUpcVB7RJaT
-         uQQg==
-X-Forwarded-Encrypted: i=1; AKwUvBzr9kcdI+Fz+NZI8PmEYB5HChvyB9rZwoYPcONg6PJGRMh2+8gEPaS/KbFzzbW+Shp6BBn27bU5bQNn7qZgqmHN@lists.infradead.org
-X-Gm-Message-State: AFq9FYKmUDyDtVl7VUdkk8sX6qVN7xiTB6TjDdokd98hR30jvThP15L8
-	zDnP1ffYdody1kRgWSv8CxpmGX1BfiDp0eQlfwIm+OpkELU9sey6ln5byz9dgpKWmHk=
-X-Gm-Gg: AYBFou3d17xOd4Dv4yrcMBSacwITYSy7YIIJeT6esw8GEAIBdB9cjQoo4N1L4firJVs
-	whwBUdeiyOm6RJPiVUuozfiFg33qC2yQFwIrFtIOVed3ng6c6mkczBwTx+iFMH8urMFeg6y7duQ
-	ivBarAxGJbNzq1Tdaw06rUbj1IP2woaRvt01gEaRHpqmXQ+B4LEoYhnjHeyRm6hf8n6kJReUBpJ
-	xaf44f5i4tB+RgmDJNFXmzqh2eVA+3PJS8wC22jQe3rpZW/Oqn1p4xJMWe89W6+fB2e0JRqM+HH
-	c+1aPr4XBZ6ZRm9fns/eyo3x4ACwZDoIckYeoBjul+UHtmz6NJ50ebKF7VFdhKpqq4TuExq1EUy
-	B4/3a5gk/Un8eGwR5/XJz3+W0nuZDPu0jY8srr/UdkPThb4jlCMChaZmFCNE3+PHMMYEM3k46AW
-	rGxqMcKzmL/jVHg7/1hh7VMfCWYK8/DcvgGZ5DwywoRb9zHY+ww+1CfVxGkP0TC837D6njnwzaA
-	Utw
-X-Received: by 2002:a05:6402:2552:b0:6aa:f809:ef41 with SMTP id 4fb4d7f45d1cf-6aaf809f225mr5554167a12.3.1790586794617;
-        Mon, 28 Sep 2026 02:13:14 -0700 (PDT)
-Received: from [192.168.1.3] ([37.18.141.193])
-        by smtp.gmail.com with ESMTPSA id 4fb4d7f45d1cf-6aae5dc0cddsm3868145a12.14.2026.09.28.02.13.12
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Mon, 28 Sep 2026 02:13:13 -0700 (PDT)
-Message-ID: <efd21aac-4faf-46bc-b1ef-7791e7458cf0@linaro.org>
-Date: Mon, 28 Sep 2026 10:13:11 +0100
+	Mon, 28 Sep 2026 09:18:11 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=microchip.com; i=@microchip.com; q=dns/txt; s=mchp;
+  t=1790587089; x=1822123089;
+  h=date:from:to:cc:subject:message-id:references:
+   mime-version:in-reply-to;
+  bh=b44XUbiRQYUmDL/k+pA2FEOKYweiIA5RdOF7K3sTzhI=;
+  b=rQ3IVriLBkh4/8ijO15ZuRAkr2HGYnozk6hqi12R5n7os8r1f7MxOUiO
+   26U5EMgVq3KAbpX1MU40kKsYsejDdhTnqAZS8JJLvkA02z7SjCEyUJ/oY
+   ZhioVnkIOqC3IZJHZK7dxAsL1vMH05FALsI23Dz2Y+wiwUIYjmyyvuAXO
+   6dcoC7uxxfv4M2HBDB5e+d9UsSMkMtOaYMH6AlDl0qUO5GD17T4oMR0y1
+   FTlH3hzNOtQNENt+LPHvycz0L4KO5lW1okMLrY9Lk37TIWgX0xNqqwwGz
+   uohYXgmgEhEdXUIcXd6rB+Sjpx5bEIOXoVrNIwAu2I0DQ1pP3veb9oA3/
+   g==;
+X-CSE-ConnectionGUID: q5Ut9g5gQUS/I7W0oGo0YQ==
+X-CSE-MsgGUID: oaii23oQRuKf6L+crpEU7A==
+X-IronPort-AV: E=Sophos;i="6.27,128,1787036400"; 
+   d="scan'208";a="231360037"
+X-Amp-Result: SKIPPED(no attachment in message)
+Received: from unknown (HELO email.microchip.com) ([170.129.1.10])
+  by esa6.microchip.iphmx.com with ESMTP/TLS/ECDHE-RSA-AES128-GCM-SHA256; 28 Sep 2026 02:18:08 -0700
+Received: from chn-vm-ex03.mchp-main.com (10.10.85.151) by
+ chn-vm-ex04.mchp-main.com (10.10.85.152) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
+ 15.1.2507.58; Mon, 28 Sep 2026 02:18:07 -0700
+Received: from DEN-DL-M70577 (10.10.85.11) by chn-vm-ex03.mchp-main.com
+ (10.10.85.151) with Microsoft SMTP Server id 15.1.2507.58 via Frontend
+ Transport; Mon, 28 Sep 2026 02:18:05 -0700
+Date: Mon, 28 Sep 2026 11:18:04 +0200
+From: Daniel Machon <daniel.machon@microchip.com>
+To: Robert Marko <robert.marko@sartura.hr>
+CC: <UNGLinuxDriver@microchip.com>, <andrew+netdev@lunn.ch>,
+	<davem@davemloft.net>, <edumazet@google.com>, <kuba@kernel.org>,
+	<pabeni@redhat.com>, <Steen.Hegelund@microchip.com>,
+	<netdev@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
+	<linux-kernel@vger.kernel.org>, <luka.perkov@sartura.hr>
+Subject: Re: [PATCH net-next] net: lan969x: correct RGMII port mapping index
+Message-ID: <20260928091804.hjnabzi52kz4ktmf@DEN-DL-M70577>
+References: <20260922125112.2111256-1-robert.marko@sartura.hr>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH] perf test: Record kcore for the CoreSight callchain test
-To: Leo Yan <leo.yan@arm.com>
-References: <20260928090644.24346-1-leo.yan@arm.com>
-Content-Language: en-US
-Cc: Arnaldo Carvalho de Melo <acme@kernel.org>,
- Namhyung Kim <namhyung@kernel.org>, Jiri Olsa <jolsa@kernel.org>,
- Ian Rogers <irogers@google.com>, Adrian Hunter <adrian.hunter@intel.com>,
- Suzuki K Poulose <suzuki.poulose@arm.com>, Mike Leach <mike.leach@arm.com>,
- coresight@lists.linaro.org, linux-arm-kernel@lists.infradead.org,
- linux-perf-users@vger.kernel.org, linux-kernel@vger.kernel.org
-From: James Clark <james.clark@linaro.org>
-In-Reply-To: <20260928090644.24346-1-leo.yan@arm.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="us-ascii"
+Content-Disposition: inline
+In-Reply-To: <20260922125112.2111256-1-robert.marko@sartura.hr>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260928_101317_266270_239478F7 
-X-CRM114-Status: GOOD (  20.35  )
+X-CRM114-CacheID: sfid-20260928_021809_694821_D4791C20 
+X-CRM114-Status: GOOD (  21.33  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -121,37 +86,60 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+Hi Robert,
 
-
-On 28/09/2026 10:06, Leo Yan wrote:
-> The CoreSight callchain test traces both userspace and kernel execution
-> and checks the callchain across a syscall.
+> Currently, the lan969x_port_dev_mapping does not check for RGMII ports
+> and just returns the physical port index.
 > 
-> Add --kcore to perf record to save the running kernel image alongside
-> the trace data so perf script can use it to decode the kernel trace.
+> However, this does not work for RGMII ports as they have dedicated DEVRGMII
+> register space with an dedicated instance per RGMII port.
 > 
-> Add a Fixes tag so the change can be backported to stable kernels and
-> improve the test reliability.
+> So, check if requested port index is an RGMII port and return the correct
+> DEVRGMII index.
 > 
-> Fixes: ca0e19074bd6 ("perf test: Add Arm CoreSight callchain test")
-> Signed-off-by: Leo Yan <leo.yan@arm.com>
+> Signed-off-by: Robert Marko <robert.marko@sartura.hr>
 > ---
->   tools/perf/tests/shell/coresight/callchain.sh | 2 +-
->   1 file changed, 1 insertion(+), 1 deletion(-)
+>  drivers/net/ethernet/microchip/sparx5/lan969x/lan969x.c | 9 +++++++++
+>  1 file changed, 9 insertions(+)
 > 
-> diff --git a/tools/perf/tests/shell/coresight/callchain.sh b/tools/perf/tests/shell/coresight/callchain.sh
-> index 13cca7dc1118..b69187f1a37f 100755
-> --- a/tools/perf/tests/shell/coresight/callchain.sh
-> +++ b/tools/perf/tests/shell/coresight/callchain.sh
-> @@ -43,7 +43,7 @@ record_trace()
->   
->   	mkfifo "$cf" "$af"
->   
-> -	perf record -o "$data" -e cs_etm// --per-thread -D -1 --control fifo:"$cf","$af" -- \
-> +	perf record --kcore -o "$data" -e cs_etm// --per-thread -D -1 --control fifo:"$cf","$af" -- \
->   		perf test --record-ctl fifo:"$cf","$af" -w callchain >/dev/null 2>&1 &&
->   
->   	# It is safe to use 'i3i' with a three-instruction interval, since the
+> diff --git a/drivers/net/ethernet/microchip/sparx5/lan969x/lan969x.c b/drivers/net/ethernet/microchip/sparx5/lan969x/lan969x.c
+> index f3a9c71bea36a..bf5320c7a6ca8 100644
+> --- a/drivers/net/ethernet/microchip/sparx5/lan969x/lan969x.c
+> +++ b/drivers/net/ethernet/microchip/sparx5/lan969x/lan969x.c
+> @@ -142,6 +142,15 @@ static u32 lan969x_get_dev_mode_bit(struct sparx5 *sparx5, int port)
+> 
+>  static u32 lan969x_port_dev_mapping(struct sparx5 *sparx5, int port)
+>  {
+> +       if (lan969x_port_is_rgmii(port)) {
+> +               switch (port) {
+> +               case 28:
+> +                       return 0;
+> +               case 29:
+> +                       return 1;
+> +               }
+> +       }
+> +
+>         if (lan969x_port_is_5g(port)) {
+>                 switch (port) {
+>                 case 9:
+> --
+> 2.55.0
+> 
 
-Reviewed-by: James Clark <james.clark@linaro.org>
+The mapping itself is right, but as far as I can see nothing upstream
+uses the returned index to access DEVRGMII. Every caller of
+sparx5_port_dev_index() pairs it with sparx5_to_high_dev() or
+sparx5_to_pcs_dev(), which never return TARGET_DEVRGMII. Those paths
+are also never taken for RGMII ports. The code that does access
+DEVRGMII, in lan969x_rgmii.c, computes its own index with
+RGMII_PORT_IDX(). Sashiko, correctly points this out.
+
+So I don't think anything is broken today. Did you see a problem on
+hardware that this fixes?
+
+FYI, we carry the same change downstream. But there it was added together with
+RGMII MTU support, which reads and writes DEVRGMII_MAC_MAXLEN_CFG() using this
+index.
+
+/Daniel
 
