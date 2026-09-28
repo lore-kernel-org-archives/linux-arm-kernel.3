@@ -4,109 +4,57 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 649DCCA5FA1
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 28 Sep 2026 21:23:47 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 554AACA5FA3
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 28 Sep 2026 21:24:44 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Content-Type:
-	References:In-Reply-To:Date:Cc:To:From:Subject:Message-ID:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=IaYLtQdPOAs5MVg3mEQ2w8dEl9KRvDeu2m3mohc4wFA=; b=gQILAoKYt0HnA12KM/hnzY7bdu
-	kkrH+L6bTtxBKxmI2xX189cAoaJ24XcVkaXvEV0GZiokyB/4/vwg3PULTFO2g4HsmZ3tmWPhCtTII
-	ALpBoftr4OgpONB27f4c2DkCx69C1xip2Ba2qfzANbiVoZ3zfGK7Dq2FG977y36V0Z8fHDaULVz9K
-	nbpGXTlOBB5ZxWJC0DerNGDRsytNcxes43fzmTYtGfU7LYTs24qpnzET0eJhZIimScjmXL6deSco0
-	t5qb6SDssFMILZrg39nXaWGpnSDim3gfUea7Eb7epCIJit1YOcuhecGRKFerv6trJ++iu582jHqky
-	BR5mOThg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:From:
+	To:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=dfXTJyp6yjbRu0qwVAwpSfhNYTOxDGjNF8A7PpynkKU=; b=BPJI+qilP6GUmbnnTx1eRoWcg2
+	xBnW/bIp6nnl+ECfNgN4bLJfUp71hY/DrqHo0zojLewjUks+OQgjk7qgT9Smvzjz9nZlT3W7taUM1
+	itEWWLG8O0H1i2lgUJOUws2bSdMOTnIO9v5J6YXZA+2Dj/GLnF9t1ydIAzxezDAuRHP5BITPBiPpg
+	Wb/tRpbqwhgEQSbALT0nrxKUZ0DWaWnu3TX+qhB3ScaOQXJPAdMmOfSG9LGjwjR1SaFy0X1mUfJUU
+	kB1gKd41nBUzZ9gw2O70aw4IiqRGtLuCOIcU+lSN/yj3AL56pFB8vr3ViHVVCTgipE3i3ogAGXxEn
+	/XJNTF/Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xBIp1-00000001fHG-1t5b;
-	Mon, 28 Sep 2026 21:23:39 +0000
-Received: from mail-qv2-x0f.google.com ([2607:f8b0:4864:33::f])
+	id 1xBIpx-00000001fOp-3JmM;
+	Mon, 28 Sep 2026 21:24:37 +0000
+Received: from mail-106100.protonmail.ch ([79.135.106.100])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xBIox-00000001fGO-3BM4
+	id 1xBIpu-00000001fON-3lpK
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 28 Sep 2026 21:23:37 +0000
-Received: by mail-qv2-x0f.google.com with SMTP id 6a1803df08f44-9142b186be6so5327646d6.2
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 28 Sep 2026 14:23:35 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=ndufresne-ca.20251104.gappssmtp.com; s=20251104; t=1790630614; x=1791235414; darn=lists.infradead.org;
-        h=mime-version:user-agent:content-type:autocrypt:references
-         :in-reply-to:date:cc:to:from:subject:message-id:from:to:cc:subject
-         :date:message-id:reply-to:content-type;
-        bh=IaYLtQdPOAs5MVg3mEQ2w8dEl9KRvDeu2m3mohc4wFA=;
-        b=fVPcxoHrtGuFLWJYt8lKRixTYYsO8ysQcSwiJxVjvB/+mYWMT/lBS4a9GU2Rhwq81L
-         SFIZcr+PSvcohCOeozKqipS4EeHJd1G3AIrW+1UjjDga9aJ2oRep7XKztWuLSgFDCswP
-         /6NnWLD8xL0s8U3KnVTtnzoJv8kTaumjmjPK2VExPoVXBeGwBKYD97/+DtTYwF+6QBou
-         90rPoXQdVuqha6efqnB2uiC5oMwedFZnGScdsdV2A2UWrkr/gj7Io0qWSkN7mBH94Qyk
-         Q7qCEas+QL+HED99s0pPUeK0rcgwEiUNIhIrGfWJ+6q/h2GUa8i5m7vP308OmZsNiSqa
-         4nKg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1790630614; x=1791235414;
-        h=mime-version:user-agent:content-type:autocrypt:references
-         :in-reply-to:date:cc:to:from:subject:message-id:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=IaYLtQdPOAs5MVg3mEQ2w8dEl9KRvDeu2m3mohc4wFA=;
-        b=dNumTbSB4OYYnMLEjEGTf16TX+RtVvr1eWleTOlRw17KjRoSCXPriNUjZfVX+RPZjI
-         teVTUitNq4LD+1VctSe/+94B76JcqS3DsiYzS3JFrX0bhFnMQMGXFhE+cHz/D9hh7fvA
-         4jKkzn/C4RjH395VG6ODwRlSSfgsiotxKG0qA0tVcIYxvWOzQj8XOpJLVb6kC0DcSnA2
-         rRxVTkLiM1lOcbIB65GNtM+no/21vy/RorriemqZ+ewA0VeOW0/zZdvhjQpai2XaRSP3
-         SReTX6shhp9bzXoAEnJ7Al4+Xd0/ytAvmIy8tRM5HsO9vOwI9+Fe59Vt3MiycTy5+B+0
-         me/A==
-X-Forwarded-Encrypted: i=1; AKwUvBxMFQSeSl/w698k1xaG5TevLmjVDbI7MzHln/lOTu2LQF9kCbf9XrqmV7fhwsjto2qnCJYbY6WTqWM6tOgD7OvG@lists.infradead.org
-X-Gm-Message-State: AFuF++mVXKVOfglO9G06UsU9+KLzN21k0BJ4uVwYk+HV56V/Ocwd0vHL
-	iVCS/J6r7s00blrk0fbxS2baalunLsU+QYIF57Ky+rrCoN6RzP6vCH6vsFIljMBs2Vw=
-X-Gm-Gg: AYBFou0Lx5rZu57tfSAV7IqPFfnak8Jc0aqmGaCwJyXfpAJb9V3JgEJuiGLp+Pht65i
-	lQr/9kpj6c/P0WVoT07ZvijVNqolC3TP/eAyNIFj4Pm9qMOFupWieYfRONwE8GQJwyQ0jRmQaie
-	Q9pAszPLRMh2tS/U2vMgfSCJM9IHpDaEU6PhOb60nKV9Q0z77GemLYao3ZfjbE/vhA2MaUmo81O
-	uCjjhz8P2f9dJd5oTaf/Y8b4G00FB9CPq7sbIquCos/GywYkkYJgpn7G9n29oU7MPBfrAJq3v6D
-	mATAFlgmdjv6T11nuYCxUZ3xtj2qYRQ20yhcPbunzZmmSmJG4iTt3JJRCHUD26RsXxxomsBOXVj
-	88fg89r8p+fypIzVhNsezKbzceVNc7veVTl1P1XA7jmrxScrz6BjAn+6n3+CIW8pihHSYbmtV7T
-	OykR0qsADLJncXF9agSIjfyH20FKt+7VNOimZnZ4lOkfTb+o0uwQY/O46SnqMR9m6shOESpansj
-	6BQrZjJpyv/ZA==
-X-Received: by 2002:a05:6214:1308:b0:90e:9aa2:5169 with SMTP id 6a1803df08f44-9142f6440e0mr233721456d6.7.1790630614149;
-        Mon, 28 Sep 2026 14:23:34 -0700 (PDT)
-Received: from ?IPv6:2606:6d00:11:34bd::5ac? ([2606:6d00:11:34bd::5ac])
-        by smtp.gmail.com with ESMTPSA id 6a1803df08f44-9144e8c132bsm58091816d6.41.2026.09.28.14.23.32
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 28 Sep 2026 14:23:33 -0700 (PDT)
-Message-ID: <1cf92b98383885f2e58431ab520efb242bcb311a.camel@ndufresne.ca>
-Subject: Re: [PATCH v10 3/3] media: mediatek: jpeg: add compatible for
- MT8189 SoC
-From: Nicolas Dufresne <nicolas@ndufresne.ca>
-To: Jianhua Lin <jianhua.lin@mediatek.com>, mchehab@kernel.org,
- robh@kernel.org, 	krzk+dt@kernel.org, conor+dt@kernel.org,
- matthias.bgg@gmail.com, 	angelogioacchino.delregno@collabora.com
-Cc: devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
-	linux-media@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
-	linux-mediatek@lists.infradead.org, 
-	Project_Global_Chrome_Upstream_Group@mediatek.com,
- sirius.wang@mediatek.com, 	vince-wl.liu@mediatek.com, jh.hsu@mediatek.com
-Date: Mon, 28 Sep 2026 17:23:31 -0400
-In-Reply-To: <20260720062829.7343-4-jianhua.lin@mediatek.com>
-References: <20260720062829.7343-1-jianhua.lin@mediatek.com>
-	 <20260720062829.7343-4-jianhua.lin@mediatek.com>
-Autocrypt: addr=nicolas@ndufresne.ca; prefer-encrypt=mutual;
- keydata=mDMEaCN2ixYJKwYBBAHaRw8BAQdAM0EHepTful3JOIzcPv6ekHOenE1u0vDG1gdHFrChD
- /e0J05pY29sYXMgRHVmcmVzbmUgPG5pY29sYXNAbmR1ZnJlc25lLmNhPoicBBMWCgBEAhsDBQsJCA
- cCAiICBhUKCQgLAgQWAgMBAh4HAheABQkJZfd1FiEE7w1SgRXEw8IaBG8S2UGUUSlgcvQFAmibrjo
- CGQEACgkQ2UGUUSlgcvQlQwD/RjpU1SZYcKG6pnfnQ8ivgtTkGDRUJ8gP3fK7+XUjRNIA/iXfhXMN
- abIWxO2oCXKf3TdD7aQ4070KO6zSxIcxgNQFtDFOaWNvbGFzIER1ZnJlc25lIDxuaWNvbGFzLmR1Z
- nJlc25lQGNvbGxhYm9yYS5jb20+iJkEExYKAEECGwMFCwkIBwICIgIGFQoJCAsCBBYCAwECHgcCF4
- AWIQTvDVKBFcTDwhoEbxLZQZRRKWBy9AUCaCyyxgUJCWX3dQAKCRDZQZRRKWBy9ARJAP96pFmLffZ
- smBUpkyVBfFAf+zq6BJt769R0al3kHvUKdgD9G7KAHuioxD2v6SX7idpIazjzx8b8rfzwTWyOQWHC
- AAS0LU5pY29sYXMgRHVmcmVzbmUgPG5pY29sYXMuZHVmcmVzbmVAZ21haWwuY29tPoiZBBMWCgBBF
- iEE7w1SgRXEw8IaBG8S2UGUUSlgcvQFAmibrGYCGwMFCQll93UFCwkIBwICIgIGFQoJCAsCBBYCAw
- ECHgcCF4AACgkQ2UGUUSlgcvRObgD/YnQjfi4+L8f4fI7p1pPMTwRTcaRdy6aqkKEmKsCArzQBAK8
- bRLv9QjuqsE6oQZra/RB4widZPvphs78H0P6NmpIJ
-Content-Type: multipart/signed; micalg="pgp-sha512";
-	protocol="application/pgp-signature"; boundary="=-XXMA3sGS6EjACn9YD7p9"
-User-Agent: Evolution 3.60.2 (3.60.2-1.fc44) 
+	Mon, 28 Sep 2026 21:24:36 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=samcday.com;
+	s=protonmail; t=1790630668; x=1790889868;
+	bh=dfXTJyp6yjbRu0qwVAwpSfhNYTOxDGjNF8A7PpynkKU=;
+	h=Date:To:From:Cc:Subject:Message-ID:In-Reply-To:References:
+	 Feedback-ID:From:To:Cc:Date:Subject:Reply-To:Feedback-ID:
+	 Message-ID:BIMI-Selector;
+	b=I4DsH1qXQ2PQGDCXKZ8k2mbehlZKwgYCa3OehZLJ7ZEw3UdGr4v7+H08qJOgAcshf
+	 b3G1+7xQN9oK9BSWeF1GCjDc8nrBr/wdJaEEhoybDa9qozFH1X0KHBQ08lu+4UoxVo
+	 RRNrDKvAZtuw8npsoRgoktTTQD94JqSnp1MHU3NGcc0PS3AN+QWZWOR0hF8X87RQrK
+	 AcI8F9uEyimLyXQh74EnGlLJ9LMTVF+2/lswNkVBmE2MckBI3to9+oWGsETUGFlSFD
+	 3qVC/jRY+GH6Eo57z8bg470qaz6mKBMayLDfaCc/zK+YuALt39HkUKWTKehfIuceLM
+	 qkMnNw91c2+gg==
+Date: Mon, 28 Sep 2026 21:24:22 +0000
+To: Robin Murphy <robin.murphy@arm.com>
+From: Sam Day <me@samcday.com>
+Cc: Rob Clark <robin.clark@oss.qualcomm.com>, Will Deacon <will@kernel.org>, "Joerg Roedel (AMD)" <joro@8bytes.org>, Joerg Roedel <jroedel@suse.de>, iommu@lists.linux.dev, linux-arm-msm@vger.kernel.org, linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH] iommu/qcom: Invalidate TLB during context init
+Message-ID: <enoPRqYYUjyyM0YwlSoxShxeNJxghej7Zhq8UxzN6WtU_JZk8Vzvl0qFkczoIFpEl8y_vbytWT7A_BntCl4HtWPcHUkAi57JoKHJA64Ap1o=@samcday.com>
+In-Reply-To: <887e91bc-03a0-4977-aed6-baa2e069d9ee@arm.com>
+References: <20260928-qcom-iommu-clean-contexts-v1-1-c88fe2b4ff48@samcday.com> <887e91bc-03a0-4977-aed6-baa2e069d9ee@arm.com>
+Feedback-ID: 25366008:user:proton
+X-Pm-Message-ID: 13122422adc9c6b1bdaba4e0e81f48ea485fb758
 MIME-Version: 1.0
+Content-Type: text/plain; charset=utf-8
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260928_142336_070473_30614B49 
-X-CRM114-Status: GOOD (  17.33  )
+X-CRM114-CacheID: sfid-20260928_142435_606659_7D2C5E1B 
+X-CRM114-Status: GOOD (  35.93  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -121,113 +69,146 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+Hello Robin,
 
---=-XXMA3sGS6EjACn9YD7p9
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+On Monday, 28 September 2026 at 10:22 PM, Robin Murphy <robin.murphy@arm.co=
+m> wrote:
 
-Le lundi 20 juillet 2026 =C3=A0 14:28 +0800, Jianhua Lin a =C3=A9crit=C2=A0=
-:
-> Compared to the previous generation ICs, the MT8189 uses a 34-bit IOVA
-> address space (16GB) and requires a single clock configuration.
->=20
-> Therefore, add new compatible strings ("mediatek,mt8189-jpgenc" and
-> "mediatek,mt8189-jpgdec") along with their specific driver data to
-> support the JPEG encoder and decoder of the MT8189 SoC.
->=20
-> Signed-off-by: Jianhua Lin <jianhua.lin@mediatek.com>
+> On 28/09/2026 7:27 am, Sam Day via B4 Relay wrote:
+> > From: Sam Day <me@samcday.com>
+> >
+> > qcom_iommu derives each context bank's ASID from DT data, so a kernel
+> > booted via kexec reuses the same ASIDs as its predecessor.
+> >
+> > Programming a new TTBR0 doesn't discard entries the SMMU has already
+> > cached under that ASID, so these residual and stale
+> > translations/table-walks will go into effect as soon as the context is
+> > enabled again.
+> >
+> > On MSM8916 devices (I confirmed it on both a Samsung Galaxy A5 and a
+> > DragonBoard 410c) the result is MDP5 taking context faults on
+> > framebuffer IOVAs and stuck in a continuous underrun storm during scan
+> > out, if the previous kernel had itself initialized the display and
+> > programmed the SMMU.
+> >
+> > arm-smmu invalidates the whole TLB in arm_smmu_device_reset() before
+> > enabling the SMMU. qcom_iommu can't do that on these TZ-managed devices
+> > (SMMU_SCR1.GASRAE=3D1), however.
+>
+> Can you not hit SMMU_CBn_TLBIALL in qcom_iommu_ctx_probe()? That would
+> seem like the logical equivalent.
 
-Reviewed-by: Nicolas Dufresne <nicolas.dufresne@collabora.com>
+That sounds much more civilized, assuming it works the way we hope :) I wil=
+l
+respin the patch and test to see if SMMU_CBn_TLBIALL behaves correctly on
+my apq8016-sbc + samsung-a5u-eur.
 
-> ---
->  .../platform/mediatek/jpeg/mtk_jpeg_core.c    | 44 +++++++++++++++++++
->  1 file changed, 44 insertions(+)
->=20
-> diff --git a/drivers/media/platform/mediatek/jpeg/mtk_jpeg_core.c b/drive=
-rs/media/platform/mediatek/jpeg/mtk_jpeg_core.c
-> index d147ec483081..14f2991a4053 100644
-> --- a/drivers/media/platform/mediatek/jpeg/mtk_jpeg_core.c
-> +++ b/drivers/media/platform/mediatek/jpeg/mtk_jpeg_core.c
-> @@ -1868,6 +1868,10 @@ static struct clk_bulk_data mt8173_jpeg_dec_clocks=
-[] =3D {
->  	{ .id =3D "jpgdec" },
->  };
-> =20
-> +static struct clk_bulk_data mtk_jpeg_dec_clocks[] =3D {
-> +	{ .id =3D "jpgdec" },
-> +};
-> +
->  static const struct mtk_jpeg_variant mt8173_jpeg_drvdata =3D {
->  	.clks =3D mt8173_jpeg_dec_clocks,
->  	.num_clks =3D ARRAY_SIZE(mt8173_jpeg_dec_clocks),
-> @@ -1899,6 +1903,38 @@ static const struct mtk_jpeg_variant mtk_jpeg_drvd=
-ata =3D {
->  	.multi_core =3D false,
->  };
-> =20
-> +static const struct mtk_jpeg_variant mtk8189_jpegenc_drvdata =3D {
-> +	.clks =3D mtk_jpeg_clocks,
-> +	.num_clks =3D ARRAY_SIZE(mtk_jpeg_clocks),
-> +	.formats =3D mtk_jpeg_enc_formats,
-> +	.num_formats =3D MTK_JPEG_ENC_NUM_FORMATS,
-> +	.qops =3D &mtk_jpeg_enc_qops,
-> +	.irq_handler =3D mtk_jpeg_enc_irq,
-> +	.hw_reset =3D mtk_jpeg_enc_reset,
-> +	.m2m_ops =3D &mtk_jpeg_enc_m2m_ops,
-> +	.dev_name =3D "mtk-jpeg-enc",
-> +	.ioctl_ops =3D &mtk_jpeg_enc_ioctl_ops,
-> +	.out_q_default_fourcc =3D V4L2_PIX_FMT_YUYV,
-> +	.cap_q_default_fourcc =3D V4L2_PIX_FMT_JPEG,
-> +	.support_34bit =3D true,
-> +};
-> +
-> +static const struct mtk_jpeg_variant mtk8189_jpegdec_drvdata =3D {
-> +	.clks =3D mtk_jpeg_dec_clocks,
-> +	.num_clks =3D ARRAY_SIZE(mtk_jpeg_dec_clocks),
-> +	.formats =3D mtk_jpeg_dec_formats,
-> +	.num_formats =3D MTK_JPEG_DEC_NUM_FORMATS,
-> +	.qops =3D &mtk_jpeg_dec_qops,
-> +	.irq_handler =3D mtk_jpeg_dec_irq,
-> +	.hw_reset =3D mtk_jpeg_dec_reset,
-> +	.m2m_ops =3D &mtk_jpeg_dec_m2m_ops,
-> +	.dev_name =3D "mtk-jpeg-dec",
-> +	.ioctl_ops =3D &mtk_jpeg_dec_ioctl_ops,
-> +	.out_q_default_fourcc =3D V4L2_PIX_FMT_JPEG,
-> +	.cap_q_default_fourcc =3D V4L2_PIX_FMT_YUV420M,
-> +	.support_34bit =3D true,
-> +};
-> +
->  static struct mtk_jpeg_variant mtk8195_jpegenc_drvdata =3D {
->  	.formats =3D mtk_jpeg_enc_formats,
->  	.num_formats =3D MTK_JPEG_ENC_NUM_FORMATS,
-> @@ -1938,6 +1974,14 @@ static const struct of_device_id mtk_jpeg_match[] =
-=3D {
->  		.compatible =3D "mediatek,mtk-jpgenc",
->  		.data =3D &mtk_jpeg_drvdata,
->  	},
-> +	{
-> +		.compatible =3D "mediatek,mt8189-jpgenc",
-> +		.data =3D &mtk8189_jpegenc_drvdata,
-> +	},
-> +	{
-> +		.compatible =3D "mediatek,mt8189-jpgdec",
-> +		.data =3D &mtk8189_jpegdec_drvdata,
-> +	},
->  	{
->  		.compatible =3D "mediatek,mt8195-jpgenc",
->  		.data =3D &mtk8195_jpegenc_drvdata,
+Kind regards,
+-Sam
 
---=-XXMA3sGS6EjACn9YD7p9
-Content-Type: application/pgp-signature; name="signature.asc"
-Content-Description: This is a digitally signed message part
-
------BEGIN PGP SIGNATURE-----
-
-iHUEABYKAB0WIQTvDVKBFcTDwhoEbxLZQZRRKWBy9AUCarra1AAKCRDZQZRRKWBy
-9PgyAP90ID6nr8DXz9EU9G9cUMSWNsFKmJUohZ0RKC19B7xjVwD/WygXzFMIdb/P
-AAfRq3LMsOABefslze2ZwSqMr6V7Vgs=
-=UgZf
------END PGP SIGNATURE-----
-
---=-XXMA3sGS6EjACn9YD7p9--
+>
+> Thanks,
+> Robin.
+>
+> > Instead, qcom_iommu now invalidates each context bank by ASID whilst it
+> > is still disabled, before programming it for the new domain. Secured
+> > contexts are protected by TZ so they're skipped.
+> >
+> > There's been previous discussion on the list (see link) about how to
+> > best deal with this kind of situation. This patch opts for a fix in the
+> > incoming kernel, rather than the outgoing one. This ensures newer
+> > kernels will always behave correctly, and also covers the kdump use
+> > case.
+> >
+> > Fixes: 0ae349a0f33f ("iommu/qcom: Add qcom_iommu")
+> > Link: https://lore.kernel.org/all/20240319154756.GB2901@willie-the-truc=
+k/
+> > Assisted-by: LLM
+> > Signed-off-by: Sam Day <me@samcday.com>
+> > ---
+> > Tested on my DragonBoard 410c. Starting from one unpatched kernel
+> > scanning out at 640x480 and kexecing into the same kernel at 1280x720
+> > results in context faults starting at the first IOVA past the previous
+> > kernel's mapped extent, with continuous MDP5 underruns thereafter.
+> > During this time I observed an all-blue HDMI signal. With the patch
+> > applied, the same kexec hop is free of faults, and the HDMI signal is
+> > clean throughout.
+> >
+> > Further, it was proven that kexecing into an unpatched kernel and
+> > causing the fault storm can then be resolved by subsequently kexecing
+> > into a patched kernel.
+> > ---
+> >   drivers/iommu/arm/arm-smmu/qcom_iommu.c | 32 +++++++++++++++++++++---=
+--------
+> >   1 file changed, 21 insertions(+), 11 deletions(-)
+> >
+> > diff --git a/drivers/iommu/arm/arm-smmu/qcom_iommu.c b/drivers/iommu/ar=
+m/arm-smmu/qcom_iommu.c
+> > index 21d18ce67b982..a37955cd90d5e 100644
+> > --- a/drivers/iommu/arm/arm-smmu/qcom_iommu.c
+> > +++ b/drivers/iommu/arm/arm-smmu/qcom_iommu.c
+> > @@ -111,23 +111,26 @@ iommu_readq(struct qcom_iommu_ctx *ctx, unsigned =
+reg)
+> >   =09return readq_relaxed(ctx->base + reg);
+> >   }
+> >
+> > +static void qcom_iommu_ctx_tlb_sync(struct qcom_iommu_ctx *ctx)
+> > +{
+> > +=09unsigned int val, ret;
+> > +
+> > +=09iommu_writel(ctx, ARM_SMMU_CB_TLBSYNC, 0);
+> > +
+> > +=09ret =3D readl_poll_timeout(ctx->base + ARM_SMMU_CB_TLBSTATUS, val,
+> > +=09=09=09=09 (val & 0x1) =3D=3D 0, 0, 5000000);
+> > +=09if (ret)
+> > +=09=09dev_err(ctx->dev, "timeout waiting for TLB SYNC\n");
+> > +}
+> > +
+> >   static void qcom_iommu_tlb_sync(void *cookie)
+> >   {
+> >   =09struct qcom_iommu_domain *qcom_domain =3D cookie;
+> >   =09struct iommu_fwspec *fwspec =3D qcom_domain->fwspec;
+> >   =09unsigned i;
+> >
+> > -=09for (i =3D 0; i < fwspec->num_ids; i++) {
+> > -=09=09struct qcom_iommu_ctx *ctx =3D to_ctx(qcom_domain, fwspec->ids[i=
+]);
+> > -=09=09unsigned int val, ret;
+> > -
+> > -=09=09iommu_writel(ctx, ARM_SMMU_CB_TLBSYNC, 0);
+> > -
+> > -=09=09ret =3D readl_poll_timeout(ctx->base + ARM_SMMU_CB_TLBSTATUS, va=
+l,
+> > -=09=09=09=09=09 (val & 0x1) =3D=3D 0, 0, 5000000);
+> > -=09=09if (ret)
+> > -=09=09=09dev_err(ctx->dev, "timeout waiting for TLB SYNC\n");
+> > -=09}
+> > +=09for (i =3D 0; i < fwspec->num_ids; i++)
+> > +=09=09qcom_iommu_ctx_tlb_sync(to_ctx(qcom_domain, fwspec->ids[i]));
+> >   }
+> >
+> >   static void qcom_iommu_tlb_inv_context(void *cookie)
+> > @@ -270,6 +273,13 @@ static int qcom_iommu_init_domain(struct iommu_dom=
+ain *domain,
+> >   =09=09/* Disable context bank before programming */
+> >   =09=09iommu_writel(ctx, ARM_SMMU_CB_SCTLR, 0);
+> >
+> > +=09=09/* The TLB may still hold cached and stale entries for this
+> > +=09=09 * ASID, if a previous kernel programmed the SMMU before
+> > +=09=09 * a kexec into this kernel.
+> > +=09=09 */
+> > +=09=09iommu_writel(ctx, ARM_SMMU_CB_S1_TLBIASID, ctx->asid);
+> > +=09=09qcom_iommu_ctx_tlb_sync(ctx);
+> > +
+> >   =09=09/* Clear context bank fault address fault status registers */
+> >   =09=09iommu_writel(ctx, ARM_SMMU_CB_FAR, 0);
+> >   =09=09iommu_writel(ctx, ARM_SMMU_CB_FSR, ARM_SMMU_CB_FSR_FAULT);
+> >
+> > ---
+> > base-commit: 3339792beb5fb1c9c423c544ba2fbc235e7d7f75
+> > change-id: 20260926-qcom-iommu-clean-contexts-3ccda804c08d
+> >
+> > Best regards,
+>
+>
 
