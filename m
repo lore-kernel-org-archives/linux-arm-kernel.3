@@ -4,173 +4,74 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9E8E5CA5FA1
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 28 Sep 2026 23:24:50 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E2039CA5FAB
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 28 Sep 2026 23:44:10 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:CC:To:
-	Subject:Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ASpyYirUntB1kq6jyKPSkBcHLAd401g7QPva+MZOJlA=; b=jkJISSDZbQEZ57YvTRK93bSWvo
-	6Fm7t2Z7qAuH8E6fl/FE55BAC086IdjnZi/HBYTpE7ekuiJbIy8AhQ2vrJ5YevCnSatQV4TWWJHh2
-	8ClXuQx8WYM8mMKNkenwEUpJsd4mn9eMj4qI+NLfSUNZg6n8tTv9EtvRVrZfJblaJobD4/WvGx1gz
-	WRYpU9fNBhSoi0zdem/ilgG8L6et++lAP0OlCmwXqaNtFg83NzgTgIlvcv5+G3CSguwLlL+TIhS7X
-	ayRvb0cN+UYBqEwhv6JCVszXrLBCzNi1WGzbymDKn5OomG3B1xsBORfGtwfCdfg+NJp7SiisDuViz
-	PifNEUvw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=1WdtbWW9ZiTyoHXGF6wqFuwUhglmsjzBGLU11/qcEXY=; b=KInIEPaDS5c/sHAqw9IFQMkAgM
+	nauAlSVcOLdm88NqTKxTp8sqiAG0IJ+8m3Ig/Vbh8T4jCdxRNwcaVlRLYiKbgZkSCv6QmhK9iphJT
+	CtqH7QpXvToresopAwQuNrG0yB2qmmzEqXRqz+2OTO94N7SC/s+SPFwBK4J9Fk4o6YN82EXxNNdiN
+	4w7b3QU139W9yaj78VYkGnTgIv61rtvq6a7uC9NUKl/4VL/g5umOsrGs9nJSuZIcbSr+UdTN/eK6l
+	zu+vn3ydsxqXZSrCtjc16MG00NxwvEs47AbBdC7z5W1MoWa2C1+V0mBuNK3aVAEArVEOqiw/BEPeu
+	QH5OSDlA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xBKiA-00000001rxH-3ik6;
-	Mon, 28 Sep 2026 23:24:42 +0000
-Received: from mgamail.intel.com ([192.198.163.7])
+	id 1xBL0t-00000001tb0-3C6Z;
+	Mon, 28 Sep 2026 23:44:03 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xBKi8-00000001rwl-2egN
+	id 1xBL0s-00000001taa-3tz7
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 28 Sep 2026 23:24:42 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1790637881; x=1822173881;
-  h=message-id:date:subject:to:cc:references:from:
-   in-reply-to:content-transfer-encoding:mime-version;
-  bh=9jZrFaw301dIXIxB/n4ee8g3yqbvkGlqcsWoYuNovd8=;
-  b=VmIlyWSKyUalJdUVvCHpSAievey8/UN6DibniPYEfIXKQXRp1S9wg5VR
-   EuvXTWo6dxDE0E7uW6gnvBXJfta1tXQ7VaXI0f8uPX7E9xOAOrRM8PJ+1
-   HRHTBd3gkqv65IjzNz096Y1foaM1qrcITlM/AWswrTwFAVezhL9gPVshA
-   bSc4KkCRuTaRWI82slvZGmXV2vArVjv5DapaopDChtknGW8QNGz5DsTi0
-   ody233SuO1j34pbTaoM1hLrsNyTHGcxcN0ADo22++ZvVws/sgxf8R5BH+
-   Y1TpHXkFV/9w/u6kqOPdHoKm5GjOMjl392AaZQ+X6/o59VROb9RLfPXGT
-   Q==;
-X-CSE-ConnectionGUID: 9bDm5EXiQdqAuhv0Qn9SXg==
-X-CSE-MsgGUID: HQIlZ/MTQFCdnD0ewg8F1g==
-X-IronPort-AV: E=McAfee;i="6800,10657,11919"; a="116876460"
-X-IronPort-AV: E=Sophos;i="6.27,129,1787036400"; 
-   d="scan'208";a="116876460"
-Received: from orviesa005.jf.intel.com ([10.64.159.145])
-  by fmvoesa101.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 28 Sep 2026 16:24:40 -0700
-X-CSE-ConnectionGUID: CHLmBd52Qeed4g0Vg+gW6w==
-X-CSE-MsgGUID: rzMt5wEuTwyzImgOo+MO2g==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.27,129,1787036400"; 
-   d="scan'208";a="279000870"
-Received: from orsmsx902.amr.corp.intel.com ([10.22.229.24])
-  by orviesa005.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 28 Sep 2026 16:24:40 -0700
-Received: from ORSMSX903.amr.corp.intel.com (10.22.229.25) by
- ORSMSX902.amr.corp.intel.com (10.22.229.24) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.2562.46; Mon, 28 Sep 2026 16:24:39 -0700
-Received: from ORSEDG902.ED.cps.intel.com (10.7.248.12) by
- ORSMSX903.amr.corp.intel.com (10.22.229.25) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.2562.46 via Frontend Transport; Mon, 28 Sep 2026 16:24:39 -0700
-Received: from SN4PR0501CU005.outbound.protection.outlook.com (40.93.194.57)
- by edgegateway.intel.com (134.134.137.112) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.2562.46; Mon, 28 Sep 2026 16:24:39 -0700
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=QqFhtI/pOp+6HILkYmvW9uNKmNnc8FoZTKb4w+H/RFde+CIxZkD2jH3TE53Ro5kf5Otv+8s3DKYQ/jYHiYEZ/DHmFAk3pHqJ0FmPF+mEAwa015uJHBYiawahVOKUx7OThITNX13s0IAkwg9IdmL5oeTfdS6/uJgc3jG3Tp/hGGugFe1EFw2CE+/uhfR0pVgXJ7FQ2CMdyG1b359zoxO1zdPRhuB+Wxe1WexMT6PhsWYCqaTcm6dCJ1T9OsZLQ2owrBKSi0Ry9qKZP/S1xsD8dLCgvLyFNmoXaFAVDZeUQbBhD8eInV/6jQ6CdX3M35t0qpLHsRUjF1AUSCi3+ZOFeg==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=ASpyYirUntB1kq6jyKPSkBcHLAd401g7QPva+MZOJlA=;
- b=b2EDpsA5ds6bPAlBhQykBRgQ8hZUFax08Aa55GXR1ky2hmC0wfpZkkqszsSwFrGCJYZIAXABa9kAw/gfpflUw7gR9zKhDGolKOICBFEnHe1Jo2XkS5yK2zsN1X8pgh+RkRmPu0HIchytFpGc2zEoitdJ/jGegsGNUNrh6+jYhus/m3iNZCg46tZOqM2Je0QsFyWyDck/TUseSfN3LHOas7zEQXt5lypWr10o6e/1QJRZkDhhpD7PN5EIu1l/wWmP5ZIckmcS52cpt+zTu/bZXXBTqnUP9NFxzI/6r/9ia3HQrkgj9eB/z0O7v3An/QDI5rFhYQE9Ey56+bb1GnS8+g==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=intel.com; dmarc=pass action=none header.from=intel.com;
- dkim=pass header.d=intel.com; arc=none
-Authentication-Results: mx.microsoft.com 1; dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=intel.com;
-Received: from DS0PR11MB7381.namprd11.prod.outlook.com (2603:10b6:8:134::14)
- by PH8PR11MB8258.namprd11.prod.outlook.com (2603:10b6:510:1c1::5) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.451.24; Mon, 28 Sep
- 2026 23:24:34 +0000
-Received: from DS0PR11MB7381.namprd11.prod.outlook.com
- ([fe80::4c39:dfe6:d6dc:6f58]) by DS0PR11MB7381.namprd11.prod.outlook.com
- ([fe80::4c39:dfe6:d6dc:6f58%6]) with mapi id 15.21.0451.022; Mon, 28 Sep 2026
- 23:24:34 +0000
-Message-ID: <9fba1949-d67f-46b6-a13b-09e8087b9be7@intel.com>
-Date: Mon, 28 Sep 2026 16:24:32 -0700
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH net] net: axienet: free outstanding TX buffers in
- axienet_dma_bd_release()
-To: Sagi Maimon <maimon.sagi@gmail.com>, <netdev@vger.kernel.org>
-CC: <radhey.shyam.pandey@amd.com>, <michal.simek@amd.com>,
-	<andrew+netdev@lunn.ch>, <davem@davemloft.net>, <edumazet@google.com>,
-	<kuba@kernel.org>, <pabeni@redhat.com>,
-	<linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>,
-	<daniel@iogearbox.net>
-References: <20260927081034.350422-1-maimon.sagi@gmail.com>
-From: Jacob Keller <jacob.e.keller@intel.com>
-Content-Language: en-US
-In-Reply-To: <20260927081034.350422-1-maimon.sagi@gmail.com>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: 7bit
-X-ClientProxiedBy: MW4PR04CA0163.namprd04.prod.outlook.com
- (2603:10b6:303:85::18) To DS0PR11MB7381.namprd11.prod.outlook.com
- (2603:10b6:8:134::14)
+	Mon, 28 Sep 2026 23:44:03 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by tor.source.kernel.org (Postfix) with ESMTP id 17839601F9
+	for <linux-arm-kernel@lists.infradead.org>; Mon, 28 Sep 2026 23:44:02 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id C3A6D1F0089C
+	for <linux-arm-kernel@lists.infradead.org>; Mon, 28 Sep 2026 23:44:01 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1790639041;
+	bh=1WdtbWW9ZiTyoHXGF6wqFuwUhglmsjzBGLU11/qcEXY=;
+	h=References:In-Reply-To:From:Date:Subject:To:Cc;
+	b=M68z9GNgU1PQrr9z96rreonup5D0owhIvGzXs7QpZSeLQ9/G7DCePG8c/J106NVF2
+	 ELp/hW5TMc2AR/+rWeSLdh5b7f9XHZnjkhNOA+kktP60q87GW6/PYc+BVKdH2rr+3O
+	 pYHGlrlKzuOoIG7xI1cKlu9mEqO8kzArWJo14OQW6/zUIRVgpoBpECMMLlMBaBrYA+
+	 uQsYt441dFP1HMl0wkwVJRzPAsSrqyZfi6zdUm+qcnvWeuMBGGmQfi0q1Rwogu22o5
+	 AKsCj3oHGRtU4XlGiJ+w6psK3GDWyT2GK4qJq6OfkdCxJS0SztqCYFWc1Oy5K/PFoF
+	 sFMKXcWf815NQ==
+Received: by mail-dl2-f12.google.com with SMTP id a92af1059eb24-142dd046b87so2589596c88.2
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 28 Sep 2026 16:44:01 -0700 (PDT)
+X-Forwarded-Encrypted: i=1; AKwUvBwfaw+CEBCsVbP9mjVe2011YGiOpNju537YDVoxTr20lGKtcNGWCEpNJ64iHcPkFKul47Wi197WMziorcRL2eBl@lists.infradead.org
+X-Gm-Message-State: AFuF++mdgdd0zDIjKVqYEP++Dx7w9BFbRrZbpCSnuen1EECpyg2O76cZ
+	f44JlxL9ulI6oBSiCZnaYABUEmWNPCGWtuVQZ18VPUMaoA8bjRnAZx32GU/VjBetbSUU4yS+UMg
+	yhOZcEGf1WN6kyLrzNAl0V1m65U6X8w==
+X-Received: by 2002:a05:7022:220e:b0:143:296a:4e58 with SMTP id
+ a92af1059eb24-146cfec8688mr17695133c88.27.1790639041117; Mon, 28 Sep 2026
+ 16:44:01 -0700 (PDT)
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: DS0PR11MB7381:EE_|PH8PR11MB8258:EE_
-X-MS-Office365-Filtering-Correlation-Id: 8171d1ec-1303-4484-f7ea-08df1db7a794
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|23010399003|376014|7416014|366016|1800799024|10067099003|11063799006|5023799004|56012099006|18002099003|22082099003;
-X-Microsoft-Antispam-Message-Info: SGH5UpUd1CeQXsK5PppXly7rBflpHwnAbjC2N6h/up1eEm2DCPMfZkNAex5ZwoqDiSbkFvbaEIGNr6J2QDDQpXkXm7bmicJQ7E76HJeWUY/wltqh4dMJ5VUKvjAmKM1Zr2G9iCAvduQdI8UEoU3cRFQJCR47l3AuI2cx9J/j/8aOG55lf4Y5iboEyMtGfAuJMYYlJXQSwD4C3VLogn8Ih5/4uDFgUAce0OIkInfxMICZ0AQhmonuT4dEIKOyc6E0D0py8AAZDgbYHxGzwS8+McWnTYHDbQlEKkjIWk4QSN63QhVNnYO12xv7zkPXTmw27ij8u28iFE/A14Sz1uxe1mE4DW1QwG2er8sI2UiyF+VC0oLn2TCfdneWqZSsFAQhfpmynPUP/H6oq4qrf9hGx2LLFkp3sz7HHRMH7fkxUf80kr/ETF960zB5azoTYRs/+6Izl6+sq3tOxEGO/PokYiGtvvyMeQ101uzslyA3+pu5lFJF31XT/hjSo/bxhcQwGD3SOmVPDNlt8N3NQxZFtnsfN0pqkkvGhKGDpNvguwmXWAJRp8N+QcmN1RS/0s/CSDeBy5Q3GnsZvUbyb4DW9XeuRNVs+elmisi9YNYAjx8oaDwOsS89+DPftJDxnb6kmj4Put1u7o4JlpIZZdcV9xmS2sWVsAnqTOzbersEsg0=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:DS0PR11MB7381.namprd11.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(23010399003)(376014)(7416014)(366016)(1800799024)(10067099003)(11063799006)(5023799004)(56012099006)(18002099003)(22082099003);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?bEFoSjdRNGZ1L01LTjRvZVZTYnh5MEFXaHZhQTdxWjAyR3VHVXRaT3JYSmZ1?=
- =?utf-8?B?K2Y3MEJaL2RIdU9GL3pGazhDLzhpWCtBc2pldW95Y0Y2LzA2a0tOKy94RkJq?=
- =?utf-8?B?ZUMzR3l5OXFmVjhFVEdMNFhpYUx2Wko0S0Q5WlBTcTZ4T3BqOFkrZ1pQK0E5?=
- =?utf-8?B?RnNoMnhXdk4ybWd6YXdSQXJjblRoMGhWbFZrcmY0cnZWMlU3TzVvYkhPcGFI?=
- =?utf-8?B?SWtHc1NWckhSVHAwcjE5RmF5RHFnRjErVGZuNmJOQ21XUzFSOWQ2SDNXSDBr?=
- =?utf-8?B?U1lIT3FtRjQ4RU52RE9FMktoeSsva3pXWTQxWTRrdU0zMFhtcU92MmpGOHkv?=
- =?utf-8?B?Z0psVHlHWVpxY1J2LzZNbk4yZTVLdEQ3Umw5L2doY0FkUlArdDZBMEpudVIv?=
- =?utf-8?B?SEwzSk4yL1JBaXAyTHVkMk93WndKN1ljRDRsUnZFOHJkajM4UWIrRTRsY05W?=
- =?utf-8?B?L2R2VVk0a2RFRkV2WW11L0lEb2FjUWdMRTUyaTl2R1pZd2h3UkxFcmZvZEsv?=
- =?utf-8?B?VUUyd1FVTXQ4QkxwTU15R1p6bkpGOFg5YTlFN1pvSisxZWtJdWRxVWFsbXpp?=
- =?utf-8?B?alBERWZzcm9xbGpPZkxSVDJPem9wZ0dQSGdTVGpMYjRELzk2dE1URTg5aEJN?=
- =?utf-8?B?RldTRjBJU0Z5Ny8yNnN6bjBRZGw0Q0xLTmlkeVFjNnFuRmh3VnI2eEdmS0VR?=
- =?utf-8?B?dDJ5K2k1QzN0OFB3dUNGQmhTNlY0UlQ1WDV0cWtscS9uaXB4RzFwNFFuS0t1?=
- =?utf-8?B?T3NhUTZrcjQ4QlVieVJoQ29sOU11TzJmanF2WG1Ba3ZkS013OVordlZZWGFO?=
- =?utf-8?B?UG5UdVRUUm1WTkRUNUVJN1dPdDRVWUtVZFpCU0toMmZNbmVFeStneTdhbTRq?=
- =?utf-8?B?TFE2Nms2aUdiaUNpYTRnWXhxMGN3ZXdOaVNsR042Q2ZjeFB0UFJSNmlXSnhi?=
- =?utf-8?B?VkIzc3lIMWk1YzJySVNCcFhvNFRtdW9adEJXOTc0VnBCMnhWWmN1M2NCUFVY?=
- =?utf-8?B?TGVIVUxtZXZaZ1Vna3dIWDB2ZHRTOW5sOHFGSnVaMVROUm1zTVFEaVFHbjZh?=
- =?utf-8?B?WE02NHQwRzYrV3A2SWdtZVYrQ3ZjOGdtQ2duTFFvQllKcnRGRG1LZnlOZjBi?=
- =?utf-8?B?UFR1dU9pbEJTZzVXOEVpakNDS1dla1hHRVVibVR6STNWSzh6MGx6cWF2bUJo?=
- =?utf-8?B?OU9UMGdTS2krUFFRSEdIaFNYQVlPenpMRUJXK09TOE5zbDhTUE9jaFk0ZklK?=
- =?utf-8?B?MHB3bXNVaFhTb29UaXR1UCt1SUV2SG9hQW5BV2kyZTB1S2pVME5YcTlLNi9U?=
- =?utf-8?B?d0dUcUZ1dU0xKzlZRHYzMU42cHVHL3hTRW1jRjRrNFM0VWVqb1pUQ2pSR24w?=
- =?utf-8?B?Vkp2V1ptanlZZkdqRDFSYUUxeDVNMGpCNXZzME0rSlNlVHB6d1Z3a3Ztbk5t?=
- =?utf-8?B?Wlg4YmszWkZkU2tJSmhMRTZINWhQTys1ZVI0Zk5nalJDZ0RoL0dPWTR4eUQx?=
- =?utf-8?B?dno4OUlUTlhyKzJmS3ZBV3pZZi9MN0ZxRUYxaHVqTndHbWd4ZW1NWnFxVlh4?=
- =?utf-8?B?SGg3V3p5Tzc2bWZTZFRzeldwSUxLRWpRSm9tdTU0cGhzeXpTekFpa1djZkVo?=
- =?utf-8?B?RGJEQ0ZPVGFyeXM4ek01bTJ6UE1KajRkTERMZnlqcUprYmRwa1dTckhGM2VW?=
- =?utf-8?B?RmFsMXByeXN4WGFzQ1pVbGh0ZGJ1STczem9Ndkc3R3kxcUR3SEhpaXdWSGdK?=
- =?utf-8?B?YlJrWEFPaWYwWDJqYWdHTnoya2cwUkRLNVJnc2VITXJlVHcvcHZJOHFrcUdt?=
- =?utf-8?B?R3ZCSFRrNDJtWWE2TEtudWlxUDM0ZndPb3gxTnZZMktBQ0tJeGp1NVh3KzZ5?=
- =?utf-8?B?aGFVOEVUZ0U0clZqWWRiQm9FcE80TVdONjRreXkzSlFBTWxtellYZHMrOFZ5?=
- =?utf-8?B?SXNGV0JRdDl1S0dabHlyUi9ReU1aUHlQem82TjVJRWw0Uk9jSk1yYlRNMUlW?=
- =?utf-8?B?ZXh4VENJd2JuN1gvaFZYdGFqY0dzd2tsaUlEZVhuaVlPQWJlVVdZZkZZd2dh?=
- =?utf-8?B?VnFuOFdrVFlONUMwejlBM1d2MGpMZ0NYOWg0SFFwU1pOQWVaemxpclBrTm5q?=
- =?utf-8?B?ZVRaZmMrc0xJMnhNalkvK1RVZlowNDRpL0dBZWE1bFFrdkUzb1pIL2tEalZG?=
- =?utf-8?B?eXJHaDJSek03ait2QThKalZVTjhhTjMrK0FsTmtJVlVMc2ZGQXh2eFJpNk03?=
- =?utf-8?B?cjg3cXdyK1N1UTZIdnM3eitwSlhMblBzbW00TlR1eDR5d3BPbm9PdGhDWjNF?=
- =?utf-8?B?ZkE3dXlDUHFFazdya1dDTllJZXc0Y1FqNFNYYWdtZGJLYlpybnBoUT09?=
-X-Exchange-RoutingPolicyChecked: 0JoMz7Ub0MCljzbgCq4ucT4rNA6+z/hecUu2YNV0XjUjv5PFfe+RWc8MiHUyhEaHl1PSyTj8ySoqmiIXfDjWvpDQdPyS66G+KdQoiYDEwRx/7BlePF4SI3te9wx6TDI+nIcggJlQMmPnC7fIT+7AQsYNgUm7kVqDf9vFH3YrUZZwQjgBbjPFh8UX86VOG7ftILJVrfs9CDBA067g2DkdiE/C74kHZ+rkHEkIg9o4yCeVMqffPWSiSFUfUP+TvBdWS700yJPhnpajOgp11Gfw9U9McPRLm+Z3rK+cDIsxv2bEmB2IVr6NjRZJ1axnJiYVq2jhJGXhB7X+9Uik8lQHSQ==
-X-MS-Exchange-CrossTenant-Network-Message-Id: 8171d1ec-1303-4484-f7ea-08df1db7a794
-X-MS-Exchange-CrossTenant-AuthSource: DS0PR11MB7381.namprd11.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 28 Sep 2026 23:24:34.0647
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 46c98d88-e344-4ed4-8496-4ed7712e255d
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: aIDUuSzazVkWJZVwM6HRM54jGv15sCwcLSG3ezNa8MnT1Xnn78wID3+ctN6ub0TJ0vz6dARtazeMPUfqs91qKzKp90XcDIjnfanq3gwUFCE=
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: PH8PR11MB8258
-X-OriginatorOrg: intel.com
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260928_162440_725976_343CCA7A 
-X-CRM114-Status: GOOD (  25.76  )
+References: <20260828-mtk-hdmi-v2-fix-register-offset-v1-1-118ad5d7ebe3@baylibre.com>
+In-Reply-To: <20260828-mtk-hdmi-v2-fix-register-offset-v1-1-118ad5d7ebe3@baylibre.com>
+From: Chun-Kuang Hu <chunkuang.hu@kernel.org>
+Date: Tue, 29 Sep 2026 07:45:55 +0800
+X-Gmail-Original-Message-ID: <CAAOTY_9wM00UUgXCCapLkuNhaV8h7Hh5gDP=ayhUTy2kxLn8gg@mail.gmail.com>
+X-Gm-Features: AclHuK9rDQP3ezTpoWlsP6Hp3Tj24gUagLdqOtVesows-kOTI3dxpack7i3LaLs
+Message-ID: <CAAOTY_9wM00UUgXCCapLkuNhaV8h7Hh5gDP=ayhUTy2kxLn8gg@mail.gmail.com>
+Subject: Re: [PATCH] drm/mediatek: mtk_hdmi_v2: fix VID_DOWNSAMPLE_CONFIG
+ register offset
+To: Julien Stephan <jstephan@baylibre.com>
+Cc: Chun-Kuang Hu <chunkuang.hu@kernel.org>, Philipp Zabel <p.zabel@pengutronix.de>, 
+	David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>, 
+	Matthias Brugger <matthias.bgg@gmail.com>, 
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, 
+	Louis-Alexis Eyraud <louisalexis.eyraud@collabora.com>, CK Hu <ck.hu@mediatek.com>, 
+	dri-devel@lists.freedesktop.org, linux-mediatek@lists.infradead.org, 
+	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+	Tommy Chen <tommyyl.chen@mediatek.com>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -185,79 +86,50 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 9/27/2026 1:10 AM, Sagi Maimon wrote:
-> axienet_dma_bd_release() walks the RX ring to unmap and free every
-> receive buffer before releasing it, but frees the TX descriptor ring
-> with dma_free_coherent() alone.  Any descriptor that
-> axienet_free_tx_chain() had not yet reclaimed still holds its skb and
-> its streaming DMA mapping, and both are lost.
-> 
-> axienet_stop() disables TX NAPI and stops the DMA engine before calling
-> it, so nothing reclaims those descriptors afterwards.  Bringing the
-> interface down while frames are in flight therefore leaks up to
-> lp->tx_bd_num skbs and mappings each time.
-> 
-> Walk the TX ring the way axienet_dma_err_handler() already does: unmap
-> every descriptor whose cntrl is still set - axienet_free_tx_chain()
-> clears it on reclaim - and free any skb still attached.  The DMA engine
-> has been stopped by then, so the hardware no longer references the
-> buffers.  On the axienet_dma_bd_init() error path the TX ring has just
-> been allocated zeroed, so the walk does nothing.
-> 
-> This was reported by the Sashiko AI review bot.
-> 
-> Tested on an AXI Ethernet MAC behind a PCIe endpoint: traffic passes,
-> and after each of ten down/up cycles and five module reloads, all made
-> with traffic running and each running axienet_dma_bd_release(), traffic
-> resumes and nothing is logged.  The leak itself was not measured.
-> 
-> Fixes: 8a3b7a252dca ("drivers/net/ethernet/xilinx: added Xilinx AXI Ethernet driver")
-> Assisted-by: LLM sparse
-> Signed-off-by: Sagi Maimon <maimon.sagi@gmail.com>
+Julien Stephan <jstephan@baylibre.com> =E6=96=BC 2026=E5=B9=B48=E6=9C=8828=
+=E6=97=A5=E9=80=B1=E4=BA=94 =E4=B8=8B=E5=8D=888:10=E5=AF=AB=E9=81=93=EF=BC=
+=9A
+>
+> According to the datasheet, VID_DOWNSAMPLE_CONFIG is at offset 0x8f0;
+> 0x8d0 is the VID_CSC_COEFF_0 register.
+
+Applied to mediatek-drm-fixes [1], thanks.
+
+[1] https://git.kernel.org/pub/scm/linux/kernel/git/chunkuang.hu/linux.git/=
+log/?h=3Dmediatek-drm-fixes
+
+Regards,
+Chun-Kuang.
+
+>
+> Fixes: 8d0f79886273 ("drm/mediatek: Introduce HDMI/DDC v2 for MT8195/MT81=
+88")
+> Signed-off-by: Julien Stephan <jstephan@baylibre.com>
 > ---
-> 
-> Notes:
->     Found by the Sashiko review of v2 of "net: axienet: bound TX completion
->     cleanup by the NAPI budget":
->     https://lore.kernel.org/netdev/20260917115657.20697-1-maimon.sagi@gmail.com/
->     It is independent of that patch and applies on its own.
-> 
-
-Reviewed-by: Jacob Keller <jacob.e.keller@intel.com>
-
->  .../net/ethernet/xilinx/xilinx_axienet_main.c  | 18 ++++++++++++++++++
->  1 file changed, 18 insertions(+)
-> 
-> diff --git a/drivers/net/ethernet/xilinx/xilinx_axienet_main.c b/drivers/net/ethernet/xilinx/xilinx_axienet_main.c
-> index 1722b7038f34..02bcb89d1bbe 100644
-> --- a/drivers/net/ethernet/xilinx/xilinx_axienet_main.c
-> +++ b/drivers/net/ethernet/xilinx/xilinx_axienet_main.c
-> @@ -187,6 +187,24 @@ static void axienet_dma_bd_release(struct net_device *ndev)
->  	struct axienet_local *lp = netdev_priv(ndev);
->  
->  	/* If we end up here, tx_bd_v must have been DMA allocated. */
-> +	for (i = 0; i < lp->tx_bd_num; i++) {
-> +		struct axidma_bd *cur_p = &lp->tx_bd_v[i];
-> +
-> +		/* axienet_free_tx_chain() clears cntrl when it reclaims a
-> +		 * descriptor, so a non-zero value means the mapping is live.
-> +		 */
-> +		if (cur_p->cntrl) {
-> +			dma_addr_t addr = desc_get_phys_addr(lp, cur_p);
-> +
-> +			dma_unmap_single(lp->dev, addr,
-> +					 (cur_p->cntrl &
-> +					  XAXIDMA_BD_CTRL_LENGTH_MASK),
-> +					 DMA_TO_DEVICE);
-> +		}
-> +		if (cur_p->skb)
-> +			dev_kfree_skb(cur_p->skb);
-> +	}
-> +
->  	dma_free_coherent(lp->dev,
->  			  sizeof(*lp->tx_bd_v) * lp->tx_bd_num,
->  			  lp->tx_bd_v,
-> 
-> base-commit: a7bfaba4823e3c165bb2004c74eff7c096672bc7
-
+>  drivers/gpu/drm/mediatek/mtk_hdmi_regs_v2.h | 2 +-
+>  1 file changed, 1 insertion(+), 1 deletion(-)
+>
+> diff --git a/drivers/gpu/drm/mediatek/mtk_hdmi_regs_v2.h b/drivers/gpu/dr=
+m/mediatek/mtk_hdmi_regs_v2.h
+> index 521b35c7e14d..bf3ebf5492d1 100644
+> --- a/drivers/gpu/drm/mediatek/mtk_hdmi_regs_v2.h
+> +++ b/drivers/gpu/drm/mediatek/mtk_hdmi_regs_v2.h
+> @@ -173,7 +173,7 @@
+>  #define  TPI_AUDIO_LOOKUP_EN           BIT(2)
+>
+>  /* Video downsampling configuration */
+> -#define VID_DOWNSAMPLE_CONFIG          0x8d0
+> +#define VID_DOWNSAMPLE_CONFIG          0x8f0
+>  #define  C444_C422_CONFIG_ENABLE       BIT(0)
+>  #define  C422_C420_CONFIG_ENABLE       BIT(4)
+>  #define  C422_C420_CONFIG_BYPASS       BIT(5)
+>
+> ---
+> base-commit: 1b78070aaef63512688aebfbc82365ef9d6660f1
+> change-id: 20260828-mtk-hdmi-v2-fix-register-offset-879afc38cad1
+>
+> Best regards,
+> --
+> Julien Stephan <jstephan@baylibre.com>
+>
 
