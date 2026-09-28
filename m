@@ -4,82 +4,68 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D05FAC9832F
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 28 Sep 2026 09:05:50 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1560DC9833E
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 28 Sep 2026 09:08:31 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=n1dvDzHyNDre9gZKCLwU5ActNz3Ob3tcsoLSxymRC0s=; b=wdO8xtXgcKDpV8HO8lHYkeoP4X
-	/oJjTwLZlgKqGgyfogbE18o6Q0y5cMoNRDRUcZLKmsrNt4Hn9gblsS9GrmQV8/sXQUeWsMf/Ttt6Q
-	KEPVbwt43wR+cY48hKGKEQQ/nj469BWh0v4O8Kh7p4pkEeXGGSDUTYltNJBGL0aIz4FedpTZ4CSzo
-	aVNYlEIIVSXeEsjvibX9G/ivElsz5k1CeqW9U/NwAp3sd7p2QmGvnGwoSNJ+s7MTJRn8NupaFfoaf
-	JNpMMELAiohNWaNVqutpH54bpHZ0Iq6UpnQpJA3w6zLo4/UFm+6EmGEvPyRwJOGbz0LbPFJoUzk1+
-	p/45ueWg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:References:Cc:To:From:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=wVuZ1t1aiZKyHgffp8krudZ1AaiZ7LHLUBG6ZGiSF2o=; b=1DJCiNZ/V+S9xALOMwH9/0yA1f
+	S+Lm6Dbjp5lrzlevSOXwQNHOSL4I4gjF8pAWL0mMs2itdiBvG3nu2zh3QtumYaB2YS/Iq20cmtiSp
+	LRZV64tnUuIiKyFx4rQwC+ViOtrSsx2sqRBVG5PqnlINKhtowHLjHwzasXIG2jmgFkmeSmOIIo4nT
+	6kcww/l4b+Q96mcE6Rz8e2FzfjXT5h1Qb+JqoKez3sBvff1cEzAsBInFlnoJQGqZwarGlYcGASs9H
+	NLAzkrxTYLutLeBsWol4ESYZEM2wgQqlGb+nlzl1MoQc7ckfXWqRgATIpH3tccN83IntUSXF6E1vM
+	bLsgF9Dg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xB7Iu-00000000Aqc-1YnF;
-	Mon, 28 Sep 2026 09:05:44 +0000
-Received: from mgamail.intel.com ([198.175.65.12])
-	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xB7Is-00000000Aq7-08s6
+	id 1xB7LV-00000000BOU-08GO;
+	Mon, 28 Sep 2026 09:08:25 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1xB7LT-00000000BO6-1eja
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 28 Sep 2026 09:05:43 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1790586342; x=1822122342;
-  h=date:from:to:cc:subject:message-id:references:
-   mime-version:in-reply-to;
-  bh=kR3Wv1Tir4JM5KPxkQhigKEUEM12HkBEU3ytRlA1k3U=;
-  b=Eo+qjradTh2nYLJ6o6f2G7ZokUDRwW9IMXqYXek8NBnJwSXq1nOWhAgG
-   +9JAdr14Tayp3zdpSFzzD9Q9+kEB5eIyytkigssF0aRZ6fnRo7QgHIJL8
-   hl/zfBgVN/aTrURNQoHvk37GMrVpQNyNiWByNp/o2UfATqxpevIDie+8B
-   cE1bvXd46oY3Ls+GOA0vAZsHbYB92b7kMCS6prK6JWWKGgAF04nzof9Kh
-   61UItJyV4O00+rPZ0IOM7pc5OnlR+iBbjUM2FrXvIJh+biEegQz3/OCX+
-   jKKnJ7qxWNq1mknqhulf5lyrY2ndVNyxmCSopi/oH1Q2uiGSoiQnXkaaH
-   w==;
-X-CSE-ConnectionGUID: DxmJwpMDREatR41ZybIh7Q==
-X-CSE-MsgGUID: eK2mlYX7RYq9QQmbvC0jWg==
-X-IronPort-AV: E=McAfee;i="6800,10657,11918"; a="101804472"
-X-IronPort-AV: E=Sophos;i="6.27,128,1787036400"; 
-   d="scan'208";a="101804472"
-Received: from fmviesa006.fm.intel.com ([10.60.135.146])
-  by orvoesa104.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 28 Sep 2026 02:05:42 -0700
-X-CSE-ConnectionGUID: ELvY+UF9RzeWIl6j4fsNYg==
-X-CSE-MsgGUID: Gjrb7YEFRVasfH3K/wKTwA==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.27,128,1787036400"; 
-   d="scan'208";a="273604206"
-Received: from conormcd-mobl2.ger.corp.intel.com (HELO localhost) ([10.245.244.42])
-  by fmviesa006-auth.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 28 Sep 2026 02:05:39 -0700
-Date: Mon, 28 Sep 2026 12:05:37 +0300
-From: Andy Shevchenko <andriy.shevchenko@linux.intel.com>
-To: Kunihiko Hayashi <hayashi.kunihiko@socionext.com>
-Cc: Malathi A <malathi.a2000@gmail.com>,
-	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
-	Jiri Slaby <jirislaby@kernel.org>,
-	Masami Hiramatsu <mhiramat@kernel.org>,
-	linux-kernel@vger.kernel.org, linux-serial@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org
-Subject: Re: [PATCH v2] serial: 8250_uniphier: Use devm_clk_get_enabled()
-Message-ID: <arot4SH3vbDpKC8A@ashevche-desk.local>
-References: <20260917040511.103232-1-malathi.a2000@gmail.com>
- <97e4ab26-b147-4cf4-97f9-307903f14e61@socionext.com>
- <arUvJyvChXXcasSu@ashevche-desk.local>
- <3ea1f574-ddb5-46a6-9bc1-7a8ea84c54bd@socionext.com>
- <arZ5KxIp55qA6UA7@ashevche-desk.local>
- <faa1027c-7279-462a-9c6f-f03354b9cfd3@socionext.com>
+	Mon, 28 Sep 2026 09:08:24 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id D25C71570;
+	Mon, 28 Sep 2026 02:08:17 -0700 (PDT)
+Received: from [10.57.12.79] (unknown [10.57.12.79])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 10D593F763;
+	Mon, 28 Sep 2026 02:08:17 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
+	t=1790586501; bh=8QxEVS0jJi+6e55UXb8k9bqPSxR74dQMx6bz8LUh3ys=;
+	h=Date:Subject:From:To:Cc:References:In-Reply-To:From;
+	b=j9M6RMu3S8zakwg6JRtfvWLDrHJer7eiDjZZICaHfH7tODt9uE2w10JBizs5wuZzJ
+	 +hKgRXyHRXZh6mhrqMviEKCa1NwBCIrInUtLBX0qgTjeJZjGDXo/fZ+aTFLMaCPcxm
+	 uvcWJu2CK82TmeKxYQJ2qV4ezrldT1X+rzjyJYpA=
+Message-ID: <70d47475-e26e-40e1-b409-b0c16aecb8c0@arm.com>
+Date: Mon, 28 Sep 2026 10:08:16 +0100
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <faa1027c-7279-462a-9c6f-f03354b9cfd3@socionext.com>
-Organization: Intel Finland Oy - BIC 0357606-4 - c/o Alberga Business Park, 6
- krs, Bertel Jungin Aukio 5, 02600 Espoo
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v19 5/7] firmware: arm_rmm: Activate the RMM
+Content-Language: en-GB
+From: Suzuki K Poulose <suzuki.poulose@arm.com>
+To: Catalin Marinas <catalin.marinas@arm.com>
+Cc: kvm@vger.kernel.org, kvmarm@lists.linux.dev, maz@kernel.org,
+ will@kernel.org, linux-kernel@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, steven.price@arm.com,
+ aneesh.kumar@kernel.org, oupton@kernel.org, gshan@redhat.com,
+ joey.gouly@arm.com, tabba@google.com, yuzenghui@huawei.com,
+ linux-coco@lists.linux.dev, gankulkarni@os.amperecomputing.com,
+ sdonthineni@nvidia.com, alpergun@google.com, fj0570is@fujitsu.com,
+ WeiLin.Chang@arm.com, lpieralisi@kernel.org, enju.kohei@fujitsu.com,
+ sudeep.holla@arm.com, jonathan.cameron@oss.qualcomm.com
+References: <20260924135201.850038-1-suzuki.poulose@arm.com>
+ <20260924135201.850038-6-suzuki.poulose@arm.com> <arZmXFw5Jw2IbAmA@arm.com>
+ <a11aba04-eaaa-43fd-988b-a2581b1b2fdb@arm.com> <araketG70TIKeNuf@arm.com>
+ <12e83d88-de4c-4230-aac2-1796123320ad@arm.com>
+In-Reply-To: <12e83d88-de4c-4230-aac2-1796123320ad@arm.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260928_020542_137575_C6BED540 
-X-CRM114-Status: GOOD (  35.47  )
+X-CRM114-CacheID: sfid-20260928_020823_512148_02E83D8D 
+X-CRM114-Status: GOOD (  31.10  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -94,70 +80,128 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Sep 28, 2026 at 03:51:09PM +0900, Kunihiko Hayashi wrote:
-> On 2026/09/25 22:37, Andy Shevchenko wrote:
-> > On Fri, Sep 25, 2026 at 08:32:20PM +0900, Kunihiko Hayashi wrote:
-> > > On 2026/09/24 23:09, Andy Shevchenko wrote:
-> > > > On Thu, Sep 24, 2026 at 06:07:37PM +0900, Kunihiko Hayashi wrote:
-> > > > > On 2026/09/17 13:05, Malathi A wrote:
-
-...
-
-> > > > > I'm a bit concerned about the error path in uniphier_uart_resume().
-> > > > > The clock may have been disabled in uniphier_uart_suspend(), and
-> > > > > clk_prepare_enable() can fail when trying to enable it again.
-> > > > > 
-> > > > > In that case, wouldn't devres try to disable an already disabled
-> > > > > clock on detach?
-> > > > 
-> > > > Isn't there is a guarantee that the .remove() is called with PM
-> > runtime on
-> > 
-> > After reading a code of driver core I see that this is the opposite
-> > actually.
-> > The PM runtime might be off.
-> > 
-> > > > and get, meaning it's called with the enabled clock? But if not the
-> > case,
-> > > > we might use PM runtime force operations (resume and suspend in the
-> > > > respective cases.
-> > > 
-> > > My concern was just the case where clk_prepare_enable() in the system
-> > > resume callback fails, leaving the clock disabled before devres cleanup.
-> > > 
-> > > This driver currently only uses SET_SYSTEM_SLEEP_PM_OPS(), so I wasn't
-> > > considering runtime PM here.
-> > 
-> > So, in such a case how do you see the scenario when system is resumed
-> > (Right?
-> > Otherwise we can't do anything, like detaching driver from the device.)
-> > and
-> > clock is disabled?
+On 25/09/2026 18:50, Suzuki K Poulose wrote:
+> Hi Catalin
 > 
-> Ah, I understand your point. I was assuming that the driver could later
-> be detached after uniphier_uart_resume() failed, leaving the clock disabled.
+> On 25/09/2026 17:42, Catalin Marinas wrote:
+>> On Fri, Sep 25, 2026 at 04:02:24PM +0100, Suzuki K Poulose wrote:
+>>> On 25/09/2026 13:17, Catalin Marinas wrote:
+>>>> On Thu, Sep 24, 2026 at 02:51:59PM +0100, Suzuki K Poulose wrote:
+>>>>> From: Steven Price <steven.price@arm.com>
+>>>>>
+>>>>> Activate the RMM after the basic configuration. This is a memory
+>>>>> transferring stateful operation.
+>>>>>
+> 
+> ...
+> 
+>>>>> +
+>>>>> +    ret = rmi_sro_memxfer_cmd(sro, GFP_KERNEL, SMC_RMI_RMM_ACTIVATE);
+>>>>> +    if (ret) {
+>>>>> +        pr_err("RMM activate failed (%d)\n", ret);
+>>>>> +        ret = ret < 0 ? ret : -ENXIO;
+>>>>> +    }
+>>>>> +
+>>>>> +    return ret;
+>>>>
+>>>> It was raised earlier this year [1] but I'm not sure it concluded. How
+>>>> do we handle kexec and kdump? I think RMI_RMM_DEACTIVATE only succeeds
+>>>> if nothing is delegated, so it would need all realms torn down 
+>>>> first. If
+>>>> that's not feasible, we could at least block (non-crash) kexec like 
+>>>> pKVM
+>>>> does.
+>>>
+>>> You are right, we can't DEACTIVATE until all granules have been
+>>> "undelegated" back. Not just the Realms, but also the GPTs/Tracking
+>>> Metadata etc would need to be reclaimed (when we get to support
+>>> dynamic GPT/Tracking metadata). For now, we should block the kexec.
+>>
+>> Looking more into this (and the memory hotplug story), I find it strange
+>> that simply having RME and a valid RMM imposes all these restrictions
+>> even if we never run or intend to run a realm. How common will
+>> RME-capable systems with RMM firmware be that are not used for CoCo? Or
+>> do we expect only CoCo systems to have capable/configured firmware (RME
+>> may be present in silicon anyway)?
+> 
+> There is another angle to this :
+> 
+> RMM may act as a TSM (as in the Trusted Security Manager in PCI TDISP)
+> context and provide setting up IDE connection between the RootPort/
+> EndPoint. So, the trigger point for the RMM activation would become the 
+> "First Delegate" request.
+> 
+> Running an RMM just for the "TSM" functionality is not ideal.
+> In the absence of RMM, Linux can act as the baremetal TSM. But when the
+> RMM is present, we must use the RMM as the TSM, especially if the
+> Device will be assigned to a Realm.
+> 
+> FEAT_RME capable systems don't need to enable RMM unless they want to
+> run CoCo guests.
+> 
+>>
+>> Ideally we'd defer the RMM configuration and activation (and the
+>> tracking/GPT checks) until we first attempt to start a realm, keeping
+>> only the RMI_VERSION/FEATURES probing at boot. Not sure how feasible
+>> this is (memory is more fragmented by then for any contiguous donation).
+>> If we manage it, kexec and memory hotplug just work on hosts that never
+>> start a realm.
+>>
+>> The next best thing for kexec is to tear down the realms, undelegate
+>> the granules and deactivate the RMM before invoking kexec (with kdump
+>> that's harder as we likely no longer have a controlled shutdown).
+> 
+> This is quite complicated, when we get the dynamic metadata support,
+> especially with the self-describing L1GPT and Tracking metadata.
+> But not impossible.
 
-I'm not sure, I don't know if I was right. Can you confirm that this scenario
-is not possible? So, it might look like CPU is resumed, some of the devices
-were resumed, but this particular UART failed to resume, and now we want to
-detach it. If this case is possible, I believe tons of the device drivers as
-of today may be affected by the same issue (it doesn't mean that the issue
-is impossible to happen, one needs to investigate deeper).
+Looking at this again we could :
 
-> If that sequence cannot happen after a failed system resume, then my concern
-> doesn't apply.
+a. If the user triggers a graceful kexec reboot, i.e, without forced,
+    we should be able to deactivate the RMM. Since all processes are
+    killed, Realm VMs must be off and all granules reclaimed.
+    When we get to dynamic GPT/Tracking, we should additionally
+    reclaim them back.
+b. For forced reboot kexec, I don't think there is a safe way.
 
-As pointed out I'm not sure. Last time I experimented with failed resume was
-long time ago.
+We have two options here :
 
-> Thanks for pointing this out.
+1. Disable kexec reboot (allowing kexec kdump) when the RMM is active
+    at kexec_load. I prefer this for now, and we could goto 2 eventually.
 
-> In that case, I have no further concerns about the use of
-> devm_clk_get_enabled() here.
+2. Back out from machine_kexec() if the RMM was still active.
+    This allows (a) above.
 
--- 
-With Best Regards,
-Andy Shevchenko
+> 
+>>
+>> Similarly with memory hotplug, allow it if we haven't started any realms
+>> and refuse realm creation afterwards if untracked memory was onlined.
+>> Also, if the memory is onlined to ZONE_MOVABLE, neither guest_memfd nor
+>> the kernel allocations we delegate come from there, so we could allow
+>> it even with realms running.
+> 
+> I will double check this.
 
+Yep, we could do this, and I have added the following hunk :
 
+diff --git a/drivers/firmware/arm_rmm/rmi.c b/drivers/firmware/arm_rmm/rmi.c
+index b7332b066044d..51343e9d5c2a9 100644
+--- a/drivers/firmware/arm_rmm/rmi.c
++++ b/drivers/firmware/arm_rmm/rmi.c
+@@ -997,6 +997,11 @@ static int rmi_memory_notifier(struct 
+notifier_block *nb,
+
+         start = PFN_PHYS(arg->start_pfn);
+         end = PFN_PHYS(arg->start_pfn + arg->nr_pages);
++
++       /* Neither guest-memfd nor the kernel allocations can come from 
+MOVABLE */
++       if (page_zonenum(phys_to_page(start)) == ZONE_MOVABLE)
++               return NOTIFY_DONE;
++
+         ret = rmi_prepare_memory(start, end);
+
+         return notifier_from_errno(ret);
+
+Suzuki
 
