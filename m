@@ -4,66 +4,108 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DAEC4C9832F
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 27 Sep 2026 23:51:57 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1B556C9832F
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 28 Sep 2026 00:14:40 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:To:From:Date:Reply-To:Cc:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=T6Br8B52HiOcAEYBS4SFBjMtnKDt/aOPjWpjMD5HCIA=; b=Jl2aoxiunA8/tFUDFCbj3v49Z5
-	IDOpK7tUncGT5RsRqC6XlH4Fso1wXK7gP86RrUPmYV4RWDaWQkzI2Q9MF0B2oUEs32498OSf8lmS4
-	HTylUYp+KaKRJnwaDyGJcPpwkWH7zc5gnKA3mg59CuEg4yNlHVOtL7t0i9T2IJu2Ws1Fahfm+HGFJ
-	MjbQzGfebiVgGQVdNeczNjXjFFvjU7yT3OPfPM8DUaGpzdcntZ+D3SfM8kW0koxVjMiANKFNh2zHW
-	qC/NBTNZB+MDbQOKBeTQd+D7YmT2+3ciSRO4LuZMkHf1fnuZTpuzgTIfQAr3ktQ5kEEHqqgMhhmes
-	3V0/wLjw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=3pHPTXlsx3JeIcn/vypuvLo0a6E/wjvoL+H11fk+xgI=; b=dc9h6RwJwjEhurmf4WF5827941
+	TOg4cvQubM2lL67fzLMq5qED4T9aa+75HJBLfen/+74/rzMWjZkpwl/fuOC1i+zQVxzhFImRKSFF2
+	UoxLBD8L/6nEPO7PVQHmgOtm598GY5oZ5Kty1S2BJAPEU57pRLstmey+dhhKiVIqwI7xs4c8bR9oU
+	uj8i5NTlowcgNaQYeTTaCpvp9UFahuZyTlap71X0nDlx3e6DO83aEnua4rJVwakQdaKWeiESeFiPb
+	ZTvFuL1MPIn+BcrV2y0rXmC1/Rr7h1L9CVuEh9kY3rpqD6zgrrOKIyEs6VlQsMeldI6+CDOOK4BPP
+	93WwOwWA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xAyet-0000000H2A2-13y1;
-	Sun, 27 Sep 2026 23:51:51 +0000
-Received: from pidgin.makrotopia.org ([2a07:2ec0:3002::65])
+	id 1xAz0r-0000000H35R-0d9P;
+	Mon, 28 Sep 2026 00:14:33 +0000
+Received: from us-smtp-delivery-124.mimecast.com ([170.10.133.124])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xAyek-0000000H23E-0Tgv;
-	Sun, 27 Sep 2026 23:51:43 +0000
-Received: from local
-	by pidgin.makrotopia.org with esmtpsa (TLS1.3:TLS_AES_256_GCM_SHA384:256:X25519MLKEM768)
-	 (Exim 4.100)
-	(envelope-from <daniel@makrotopia.org>)
-	id 1xAyee-000000000vQ-10Sh;
-	Sun, 27 Sep 2026 23:51:36 +0000
-Date: Mon, 28 Sep 2026 00:51:33 +0100
-From: Daniel Golle <daniel@makrotopia.org>
-To: Andrzej Hajda <andrzej.hajda@intel.com>,
-	Neil Armstrong <neil.armstrong@linaro.org>,
-	Robert Foss <rfoss@kernel.org>,
-	Laurent Pinchart <Laurent.pinchart@ideasonboard.com>,
-	Jonas Karlman <jonas@kwiboo.se>,
-	Jernej Skrabec <jernej.skrabec@gmail.com>,
-	Luca Ceresoli <luca.ceresoli@bootlin.com>,
-	Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
-	Maxime Ripard <mripard@kernel.org>,
-	Thomas Zimmermann <tzimmermann@suse.de>,
-	David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>,
-	Matthias Brugger <matthias.bgg@gmail.com>,
-	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
-	Hermes Wu <hermes.wu@ite.com.tw>,
-	Allen Chen <allen.chen@ite.com.tw>,
-	Pin-yen Lin <treapking@chromium.org>,
-	Chen-Yu Tsai <wenst@chromium.org>, dri-devel@lists.freedesktop.org,
-	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-	linux-mediatek@lists.infradead.org
-Subject: [PATCH v8 14/14] drm/bridge: it6505: Don't reject audio hw_params
- without an encoder
-Message-ID: <0dae38fd46fe6950d5bac5433580791203891c6a.1790552614.git.daniel@makrotopia.org>
-References: <cover.1790552614.git.daniel@makrotopia.org>
+	id 1xAz0n-0000000H34y-1ftL
+	for linux-arm-kernel@lists.infradead.org;
+	Mon, 28 Sep 2026 00:14:31 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
+	s=mimecast20190719; t=1790554466;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=3pHPTXlsx3JeIcn/vypuvLo0a6E/wjvoL+H11fk+xgI=;
+	b=PbBgAn564dLOz1h5F8N6agKyxL6Ei4tZK/tUoRQrSxj6Ek1RGEXthhVuIYzCXTtk28i3iL
+	DmNPNK4N5EFj+2WLoWlRvVw19FzpvRN9T3jU4aiXOMB++VUD7lnvoJM13pdL9I9uyCr8jG
+	ade2j2UZlYThTmddQW2yE512Tysbcjo=
+Received: from mail-pj1-f69.google.com (mail-pj1-f69.google.com
+ [209.85.216.69]) by relay.mimecast.com with ESMTP with STARTTLS
+ (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
+ us-mta-378-aiONuMCoOeCgmCydO40kKA-1; Sun, 27 Sep 2026 20:14:24 -0400
+X-MC-Unique: aiONuMCoOeCgmCydO40kKA-1
+X-Mimecast-MFC-AGG-ID: aiONuMCoOeCgmCydO40kKA_1790554463
+Received: by mail-pj1-f69.google.com with SMTP id 98e67ed59e1d1-39de4e72b33so4794370a91.2
+        for <linux-arm-kernel@lists.infradead.org>; Sun, 27 Sep 2026 17:14:24 -0700 (PDT)
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1790554463; x=1791159263;
+        h=content-transfer-encoding:content-type:in-reply-to:from
+         :content-language:references:cc:to:subject:user-agent:mime-version
+         :date:message-id:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=3pHPTXlsx3JeIcn/vypuvLo0a6E/wjvoL+H11fk+xgI=;
+        b=tZwqF8TiuHGYCUJ5VnvmHzYmoNhoFT0sBRRgj7gzDFQrtqH0Go2gH2pty3UEQVf0RA
+         h5MUfZiXZYvUswj+RY6cACJ61u0ZoFoCgAJVLdgk5367f6lXMSg/JrUUBcjs46itMJzr
+         B+Ai3Dw1QqjD8pKEAkxtSKot0hr6Baiunqq8yrLorD2GZC3OY3zZxXpHBPOT4tQEdhb7
+         BjB2KgzTNUYMeOFG9+eVfH8s0sbDR5Je9B3Wc8++zOdmxifxyhVOh11Cfdx1uQFj9U5A
+         /8vBGRr5OvEDuwGrkx+ab48kQmLROASczT/QyyQJOmt/7GeAsaU4UidnxRQQHVA7S/Qo
+         yiSw==
+X-Forwarded-Encrypted: i=1; AKwUvBw6lh1VMImPrFlUkcmOUIG07LxCRrYQiCC4nHWbTMvYVU8GFbaXl3iqI1WggkOxKqFAKumLW0nRg/X4/0WYdVrN@lists.infradead.org
+X-Gm-Message-State: AFq9FYLL0veL7hLJJdivkSskiF+o4eOeyI5pTmB9qOHG8Dh1KiEV0AXB
+	GT7J022y3akIOkkTWTgBFnNYT31LvD3XBzbr6GV0UWKcQBwiJaf7Dh5zqVYJCutvZ6Xqz1mpRwn
+	CNU1dJXNt0V1+dmPQlOe1V8x/XI+6eKzEeVzjpqM1mkyvOLtXyvrASQM6eLcVGwxfCxE/lrIEf4
+	3u
+X-Gm-Gg: AYBFou0eXsSHjTpm/gkm0Vcs3Up++vVHKpUK974EC+4TRcCRUqEb36SJFGjyxhmZZUZ
+	gtveMWqfblQP0F0eODXEtZpyWtSmt4ATlqsp9aAQw9cznbjL3WqmpskABfY+FK3sMvBN4wzj7ke
+	Vwqa6cB69ke2vgtwZWRw1hU3oD6/3/cT72zuE4t0UDRE9Z+zL2eMEEYnn+mNrczDFTYBbxHo+dO
+	IcdMW/rmVzwfLuVR0snExzY+Kolh/ipSqvtBXBDrwjnVYWCrpu0zg0w5XKC8xn5FL02CvC+zmSG
+	2ws4IYrDioObu8YpzF7pB55FLe+5JwXJdsXl4kXvNnsTStoY9MzBv1gGpaf22SF2UuyOZdul5C1
+	4ds8LXA8konIzqUf1qXuDY83Oz/R6YCmefcckMa0zDw==
+X-Received: by 2002:a17:90b:274b:b0:39e:6ec6:f4d0 with SMTP id 98e67ed59e1d1-3a0bb553222mr5783302a91.8.1790554463422;
+        Sun, 27 Sep 2026 17:14:23 -0700 (PDT)
+X-Received: by 2002:a17:90b:274b:b0:39e:6ec6:f4d0 with SMTP id 98e67ed59e1d1-3a0bb553222mr5783291a91.8.1790554462940;
+        Sun, 27 Sep 2026 17:14:22 -0700 (PDT)
+Received: from [192.168.68.52] (n175-34-8-244.mrk21.qld.optusnet.com.au. [175.34.8.244])
+        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-3a0bec30aaasm16424179a91.15.2026.09.27.17.14.16
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Sun, 27 Sep 2026 17:14:22 -0700 (PDT)
+Message-ID: <5987866e-92b6-41d7-87a7-ca1dee2647af@redhat.com>
+Date: Mon, 28 Sep 2026 10:14:15 +1000
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <cover.1790552614.git.daniel@makrotopia.org>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v19 02/20] KVM: arm64: Disable Steal time accounting for
+ protected guests
+To: Suzuki K Poulose <suzuki.poulose@arm.com>, kvm@vger.kernel.org,
+ kvmarm@lists.linux.dev
+Cc: maz@kernel.org, will@kernel.org, catalin.marinas@arm.com,
+ linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ steven.price@arm.com, aneesh.kumar@kernel.org, oupton@kernel.org,
+ joey.gouly@arm.com, tabba@google.com, yuzenghui@huawei.com,
+ linux-coco@lists.linux.dev, gankulkarni@os.amperecomputing.com,
+ sdonthineni@nvidia.com, alpergun@google.com, fj0570is@fujitsu.com,
+ WeiLin.Chang@arm.com, lpieralisi@kernel.org, enju.kohei@fujitsu.com,
+ Fuad Tabba <fuad.tabba@linux.dev>
+References: <20260920212845.707-1-suzuki.poulose@arm.com>
+ <20260920212845.707-3-suzuki.poulose@arm.com>
+From: Gavin Shan <gshan@redhat.com>
+In-Reply-To: <20260920212845.707-3-suzuki.poulose@arm.com>
+X-Mimecast-Spam-Score: 0
+X-Mimecast-MFC-PROC-ID: 6zK02rahr_T7OfR5uHchvHblw41lIGZZ9n5mPC536Mc_1790554463
+X-Mimecast-Originator: redhat.com
+Content-Language: en-US
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260927_165142_180360_A0AD5C00 
-X-CRM114-Status: GOOD (  10.12  )
+X-CRM114-CacheID: sfid-20260927_171429_551768_E4A1633B 
+X-CRM114-Status: GOOD (  10.21  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,87 +120,21 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-it6505_audio_setup_hw_params() returns -ENODEV when no encoder is
-attached. With it6505 registering an hdmi-audio-codec this runs for
-every stream on the I2S DAI, and on mt8186-corsola, where the rt1019
-speaker amplifier shares I2S3, the error tears down the whole DPCM
-backend and breaks speaker playback whenever no display is attached.
+On 9/21/26 7:28 AM, Suzuki K Poulose wrote:
+> PVTIME support is advertised by KVM_CAP_STEAL_TIME, which doesn't take into
+> account the kvm instance. Even with that, a VMM could skip the CAP check
+> and proceed to configure the PVTIME as we don't do further check on the
+> DEVICE_CTRL. Tighten this up by passing the KVM instance around wherever
+> possible and catch things early.
+> 
+> Reviewed-by: Fuad Tabba <fuad.tabba@linux.dev>
+> Signed-off-by: Suzuki K Poulose <suzuki.poulose@arm.com>
+> ---
+>   arch/arm64/include/asm/kvm_host.h |  2 +-
+>   arch/arm64/kvm/arm.c              |  2 +-
+>   arch/arm64/kvm/pvtime.c           | 14 +++++++-------
+>   3 files changed, 9 insertions(+), 9 deletions(-)
+>
+Reviewed-by: Gavin Shan <gshan@redhat.com>
 
-The function only caches stream parameters, which needs no encoder.
-Drop the check, and apply the audio defaults once at probe instead of
-in it6505_variable_config(), which would clobber the cached
-parameters again on every hotplug. Actual audio output remains gated
-by it6505->powered.
-
-Fixes: b5c84a9edcd4 ("drm/bridge: add it6505 driver")
-Signed-off-by: Daniel Golle <daniel@makrotopia.org>
----
-v8: no changes
-
-v7: no changes
-
-v6: no changes
-
-v5: no changes
-
-v4: apply audio defaults at probe time instead of in
-    it6505_variable_config()
-
-v3: no changes
-
-v2: drop the encoder check entirely instead of returning 0 early
----
- drivers/gpu/drm/bridge/ite-it6505.c | 23 ++++++++++-------------
- 1 file changed, 10 insertions(+), 13 deletions(-)
-
-diff --git a/drivers/gpu/drm/bridge/ite-it6505.c b/drivers/gpu/drm/bridge/ite-it6505.c
-index acc25a579ff4d..8962e6f717dfe 100644
---- a/drivers/gpu/drm/bridge/ite-it6505.c
-+++ b/drivers/gpu/drm/bridge/ite-it6505.c
-@@ -1371,16 +1371,6 @@ static void it6505_variable_config(struct it6505 *it6505)
- 	it6505->link_state = LINK_IDLE;
- 	it6505->hdcp_desired = HDCP_DESIRED;
- 	it6505->auto_train_retry = AUTO_TRAIN_RETRY;
--	it6505->audio.select = AUDIO_SELECT;
--	it6505->audio.sample_rate = AUDIO_SAMPLE_RATE;
--	it6505->audio.channel_count = AUDIO_CHANNEL_COUNT;
--	it6505->audio.type = AUDIO_TYPE;
--	it6505->audio.i2s_input_format = I2S_INPUT_FORMAT;
--	it6505->audio.i2s_justified = I2S_JUSTIFIED;
--	it6505->audio.i2s_data_delay = I2S_DATA_DELAY;
--	it6505->audio.i2s_ws_channel = I2S_WS_CHANNEL;
--	it6505->audio.i2s_data_sequence = I2S_DATA_SEQUENCE;
--	it6505->audio.word_length = AUDIO_WORD_LENGTH;
- 	memset(it6505->sha1_input, 0, sizeof(it6505->sha1_input));
- 	memset(it6505->bksvs, 0, sizeof(it6505->bksvs));
- }
-@@ -3027,9 +3017,6 @@ static int it6505_audio_setup_hw_params(struct it6505 *it6505,
- 			     params->sample_rate, params->sample_width,
- 			     params->cea.channels);
- 
--	if (!it6505->bridge.encoder)
--		return -ENODEV;
--
- 	if (params->cea.channels <= 1 || params->cea.channels > 8) {
- 		DRM_DEV_DEBUG_DRIVER(dev, "channel number: %d not support",
- 				     params->cea.channels);
-@@ -3161,6 +3148,16 @@ static int it6505_register_audio_driver(struct device *dev)
- 	};
- 	struct platform_device *pdev;
- 
-+	it6505->audio.select = AUDIO_SELECT;
-+	it6505->audio.sample_rate = AUDIO_SAMPLE_RATE;
-+	it6505->audio.channel_count = AUDIO_CHANNEL_COUNT;
-+	it6505->audio.type = AUDIO_TYPE;
-+	it6505->audio.i2s_input_format = I2S_INPUT_FORMAT;
-+	it6505->audio.i2s_justified = I2S_JUSTIFIED;
-+	it6505->audio.i2s_data_delay = I2S_DATA_DELAY;
-+	it6505->audio.i2s_ws_channel = I2S_WS_CHANNEL;
-+	it6505->audio.i2s_data_sequence = I2S_DATA_SEQUENCE;
-+	it6505->audio.word_length = AUDIO_WORD_LENGTH;
- 	it6505->audio.mute = true;
- 	INIT_DELAYED_WORK(&it6505->delayed_audio, it6505_delayed_audio);
- 
--- 
-2.55.0
 
