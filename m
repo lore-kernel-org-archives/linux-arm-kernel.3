@@ -4,147 +4,109 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 74DE0CA5FA2
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 28 Sep 2026 19:44:00 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BA028CA5FA3
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 28 Sep 2026 19:46:18 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:References:In-Reply-To:Message-ID:Date
-	:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=XNgpOYbCEvDcgOVM+N32Y+n+ko9oeFUdHPvx3/IXc9g=; b=jq+rV16R5q/nt6gWdhtl8i8joh
-	bAyFiky3X+bdowyL7Gv6Rj+kXyz7GvdlDVAZ0eq4WGdOSCRYtKPMVardM0XLisIQZfJXEXc2old2C
-	Tkj/AFliresgkZtvMnpYKqm+sY2nLLN478+0orgcnAuWOfXU4o6LTIgSL9j8lLp8VjfzESI3qAGOB
-	gfXmZ5mkRG7coZxx/4fG+kwqRTAnXtiWxYuninjIUqMgLdxWZKWLzsTJthe21yHY6oL73odqe63S7
-	2UySRjVVQj/CJJcl7MUz7mtrKOt4JMEVJEiAi4afkR1vrdSHk5zx4HowIX/DgFpfMglOhPNm8yVya
-	xzMoSInw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:To:From:Reply-To:
+	Cc:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=sGFrWQujhzJh9uPF6notnBiKMTrdwWirz/MP50Av2KE=; b=TyJHDQrfRMSDecWeWo01pNS6Eo
+	AfOLEFtw8XSBdNOwqpMFxKfQnbW3zV+3O68dyKHxST2wmIaCum3guC7HPto2+EOfoDz0ESagmyfKr
+	6ZzCSGBeG4VCOH6bmvf1q6yjOXV2hXJOFeOVdjmKg92StzcKwG8OK4siYpbBfkhLAlMT7yejGFY0B
+	2W+35yeWSp4VhOyKQHIdGyHmfy/C72rkLWJflYzkgyNOkR9gAqqK/uljpZx92CQK9Vir6CONU51NL
+	G5dONgW6Wd1BphdNY49Ml+GM8y9ueWwZrfG0QXytAoILkX7w16ivqDbOQ5CdH4zSq1PuYAi0Eua04
+	s+L4tu6A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xBHGU-00000001U8N-1ESw;
-	Mon, 28 Sep 2026 19:43:54 +0000
-Received: from mail-northeuropeazlp170110003.outbound.protection.outlook.com ([2a01:111:f403:c200::3] helo=DU2PR03CU002.outbound.protection.outlook.com)
+	id 1xBHIc-00000001UU5-2VrH;
+	Mon, 28 Sep 2026 19:46:06 +0000
+Received: from mail-wr2-x0f.google.com ([2a00:1450:4864:30::f])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xBHGR-00000001U7G-3HxR
+	id 1xBHIT-00000001UMV-0Etb
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 28 Sep 2026 19:43:52 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=hLLxgj16oUD/wBmjW1MhLfZ/rmoxhFQOnHhAhXCOk8dVRGcG9hLKQBAev7WyHERb6/xNN9kNOGSlBlYf2EIVkI9GREtnmUz5/VJ3Ebd7VZ95Js5UUpm27MdxXESZSkgOkq1JC6ht1vGxVDlEhS+oJPKFHUYS8lXw5Nl09cv6xo20hC7A5uChEcSa2mGx0rnmrXs6KTeWY7T+lbbLxFNkG4RIuXtEma11yYkgZ3r2by7VFi/hdhfrIFKHEQzv8eGLrAdeohVXsqrJMMWvt+D7aEqYe1K/1QQV9WcDY0iMmnejZf4zASyECXcUylbgyftdaEeSMNXXpgUdQ+O6Qs+cNA==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=XNgpOYbCEvDcgOVM+N32Y+n+ko9oeFUdHPvx3/IXc9g=;
- b=KR5NEVCNd1hfNI9jlhrZWUHtJSDYT2o6wyGuriAPmeuVnHySlCwp2K1yHl3E4Ak+hcz+Q70I8l91EsmX8GwyBOrxiAz1U5gfconrKXOLku6ibM+Ja/XTca7SXqsvBvgFeLZKw+PqsGYtVEK09Q/5VIGRy/U2Iw8H0/Wtw8pKzf2djE5ObQLdxL878GqDbRpN04yb3irh/1l5wj4e4z4DgSSd29Ry4hBK/zfLMacSdrN4mBFc8NhrLyrU9kFgqDL5WpTeyjzNHnZmVcXEFa7h8Q1Pikz3MQNXpsElsH6MIiFDyGywF/bTVfAVWN4aQCBTY1GFbSxe3pieh8NnQNWt9Q==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
- dkim=pass header.d=oss.nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
- s=selector1-NXP1-onmicrosoft-com;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=XNgpOYbCEvDcgOVM+N32Y+n+ko9oeFUdHPvx3/IXc9g=;
- b=wkH3B84AVsZg7YCj8zdnwHRstaGFcicRSXoOnyZpqyETry2n6rf+AbJmLM7kL+3mvh1NJCiH8srlGkkNSpL7nHvE624nfFkFAUuCtTYEHDw60LWfI6pAdyPBIEjovnbGNUm4mB8BBrHJe9GBHT9ZiVZ/Kh8IbvGSgOudd8aSA1RX83mQDdNWMBQ2Lh7KU+C3994eMA0mEE8ZnAM5MlGY9utB3DTKw8RNRAfSJSsrf6JKe8Rlo5V2EKc8dJ3b99VsQe8phZKxEDgK1B4ZXMWWc8BYIN1Tg5cAZvxKiMgnMYuJH37Lu8WsWrIrWubxrOLVft4RYDx9c7hv46AnYH58AA==
-Authentication-Results: mx.microsoft.com 1; dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=oss.nxp.com;
-Received: from DU4PR04MB11791.eurprd04.prod.outlook.com (2603:10a6:10:623::11)
- by MRWPR04MB12332.eurprd04.prod.outlook.com (2603:10a6:501:85::14) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.451.24; Mon, 28 Sep
- 2026 19:43:45 +0000
-Received: from DU4PR04MB11791.eurprd04.prod.outlook.com
- ([fe80::11ca:6b74:3234:d7de]) by DU4PR04MB11791.eurprd04.prod.outlook.com
- ([fe80::11ca:6b74:3234:d7de%5]) with mapi id 15.21.0451.022; Mon, 28 Sep 2026
- 19:43:45 +0000
-From: Frank.Li@oss.nxp.com
-To: linux-kernel@vger.kernel.org,
-	devicetree@vger.kernel.org,
-	imx@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org,
-	Stefano Radaelli <stefano.radaelli21@gmail.com>
-Cc: Frank Li <Frank.Li@nxp.com>,
-	pierluigi.p@variscite.com,
-	Stefano Radaelli <stefano.r@variscite.com>,
+	Mon, 28 Sep 2026 19:45:59 +0000
+Received: by mail-wr2-x0f.google.com with SMTP id ffacd0b85a97d-486e1a044c5so2905880f8f.3
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 28 Sep 2026 12:45:56 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20251104; t=1790624755; x=1791229555; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:to:from:from:to:cc:subject:date:message-id
+         :reply-to:content-type;
+        bh=sGFrWQujhzJh9uPF6notnBiKMTrdwWirz/MP50Av2KE=;
+        b=fSCWK2qGXdbokPmH+iV+ZKMo0b9KGAMLir4/d63sYgHfuCncSf7Q73FWonXvSK5viI
+         /f1Rz2Tyzjy8ZO89FncCEUZUV17i27xJn8xxdQKnOzo05mJn8oXE8b1wGlGZAR+paA7P
+         3ULrIa3i/xFwSPb/5NJG2WEdlxTUHAVCVKG4qASHDIZHeC/4etIBeYP/S3Ly2Y9113Cf
+         plLQxqkse/tLsMrEXePua98watmlhXam6ynnh1lJEun5OxrqIw1eBLpDSxmKAsSpXRmW
+         7Q+d5sSIuv793I7wvIPWzIpZ+xxELXrvmETOCiMdiYp6rPYmTFoWQCyxUasWmxPYcQza
+         LxtA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1790624755; x=1791229555;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:to:from:x-gm-gg:x-gm-message-state:from:to
+         :cc:subject:date:message-id:reply-to:content-type;
+        bh=sGFrWQujhzJh9uPF6notnBiKMTrdwWirz/MP50Av2KE=;
+        b=jcnp1YfUOelrnS+Chsayhw4JHgFmvJJDq+NhY05zMODltTCIuhrOWxpFiV67QEgyRF
+         DasdVZX7MCp8laluQNZxLVuTA4pa4475OaXMyV74/C6sBfKi1G9rpGqzTRWHPReul+I0
+         GNxMUm6TSJiYIqw70o89PXSvEL8x1OTJImU61b6yh7vKKpHplDauSmSNxuljJInk+Dpk
+         B8uoLcOD3XL8J+x+Jz6Gb9521Is1xHorKn9KSQ8nCYYTgVyUztLJguPeRRplU2RpoAPY
+         aoexJaHmx2yJFMYGjawGEzLt+4FSP76jqXFmpD3+HuzO+h8iaK/Z1P0OhVGVZdLy+OpF
+         JtlA==
+X-Forwarded-Encrypted: i=1; AKwUvBwbi6M902n8CE68lIZ1qZ/I2XhuQiHuxJCFIHy8TT92X9LM7w2s66cTDkr5lkJVHeUQ0ibdYPOzdaQngXEUYs44@lists.infradead.org
+X-Gm-Message-State: AFq9FYJrfIguVX7HKt68Zlh5Vp2jYmamF8QGyVARsCL++yG5mtvTldB6
+	1Ve4UQmSLFDRQk8cdpjqpWVl5kke2FMOjfokqY1FDYU8ViCGIAL0Qa/P
+X-Gm-Gg: AYBFou1OGRNDMch337sedWHG5QT+N/8mtrMCefTI9HqC9392yDfCXfYR2nRyoGymqWR
+	xYgoK/+q7s8sgf+LYEMFrJvSaQ6SR9u/ogRFOwjzz0zy3wwZIScUgppcS3pSkNa9sINzbUzfPhr
+	znwF/9SXD/ePuEvzd+DTpvfviue//L8b75P/Mow1GTt2hTeEo+zMp7hea0uPVp1uJ1ciaBQ2ep2
+	fY4rptgSEhZ/etDZFXCFnPYp4zeVS6J6AOZtoAn72ZrA4lvHxA48vPhZk7d1AYPYe9SQJJe2TQg
+	KZny1uqvX58C4Y/KRUougtfkSAEZqMu1lO4q4GmOFdC8NqUOryti/JLbe9mQ5MoISLkhQJ7EN/u
+	JO9U9gZiecpX0FZVJWlHhXwAixWKOrd2o6f/YPToA2D++SaZy9qqdMS3gFgNY8dX4kIiHYeDoua
+	q7FtYrAeiay9eRu+RDBVwSufKAPEiJP+gPg/ZEtmlrvUsAPEC6L7jx6jcVPweiDqW4VUuNp7VUw
+	VnFt52T+L3cYlUA+1vpL5SLOzxqpP+oSvv/UXdLCPp+wCw9Yje5cEkhSkLLqC2I
+X-Received: by 2002:a5d:5f49:0:b0:48a:f1fb:e165 with SMTP id ffacd0b85a97d-48af1fbe9demr313504f8f.21.1790624754940;
+        Mon, 28 Sep 2026 12:45:54 -0700 (PDT)
+Received: from Ansuel-XPS24.localdomain (host-82-57-191-234.retail.telecomitalia.it. [82.57.191.234])
+        by smtp.googlemail.com with ESMTPSA id ffacd0b85a97d-48af071532dsm1527706f8f.20.2026.09.28.12.45.52
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Mon, 28 Sep 2026 12:45:54 -0700 (PDT)
+From: Christian Marangi <ansuelsmth@gmail.com>
+To: Christian Marangi <ansuelsmth@gmail.com>,
+	Lee Jones <lee@kernel.org>,
 	Rob Herring <robh@kernel.org>,
 	Krzysztof Kozlowski <krzk+dt@kernel.org>,
 	Conor Dooley <conor+dt@kernel.org>,
-	Sascha Hauer <s.hauer@pengutronix.de>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Fabio Estevam <festevam@gmail.com>
-Subject: Re: [PATCH v3 0/3] arm64: dts: imx8mm-var-dart: update SoM support
-Date: Mon, 28 Sep 2026 15:43:37 -0400
-Message-ID: <179062460571.2055968.6279023947911572402.b4-ty@b4>
-X-Mailer: git-send-email 2.43.0
-In-Reply-To: <cover.1789683864.git.stefano.r@variscite.com>
-References: <cover.1789683864.git.stefano.r@variscite.com>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 8bit
-X-ClientProxiedBy: PH8P221CA0005.NAMP221.PROD.OUTLOOK.COM
- (2603:10b6:510:2d8::10) To GV2PR04MB11799.eurprd04.prod.outlook.com
- (2603:10a6:150:2cf::9)
+	Andrew Lunn <andrew+netdev@lunn.ch>,
+	"David S. Miller" <davem@davemloft.net>,
+	Eric Dumazet <edumazet@google.com>,
+	Jakub Kicinski <kuba@kernel.org>,
+	Paolo Abeni <pabeni@redhat.com>,
+	Vladimir Oltean <olteanv@gmail.com>,
+	Matthias Brugger <matthias.bgg@gmail.com>,
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
+	"Chester A. Unal" <chester.a.unal@arinc9.com>,
+	Daniel Golle <daniel@makrotopia.org>,
+	Heiner Kallweit <hkallweit1@gmail.com>,
+	Russell King <linux@armlinux.org.uk>,
+	Simon Horman <horms@kernel.org>,
+	Joris Vaisvila <joey@tinyisr.com>,
+	linux-arm-kernel@lists.infradead.org,
+	linux-mediatek@lists.infradead.org,
+	netdev@vger.kernel.org,
+	mfd@lists.linux.dev,
+	devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org
+Subject: [PATCH net-next v24 01/10] dt-bindings: net: dsa: Document support for Airoha AN8855 DSA Switch
+Date: Mon, 28 Sep 2026 21:45:00 +0200
+Message-ID: <20260928194511.41878-2-ansuelsmth@gmail.com>
+X-Mailer: git-send-email 2.55.0
+In-Reply-To: <20260928194511.41878-1-ansuelsmth@gmail.com>
+References: <20260928194511.41878-1-ansuelsmth@gmail.com>
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: DU4PR04MB11791:EE_|MRWPR04MB12332:EE_
-X-MS-Office365-Filtering-Correlation-Id: 55c96602-10bf-44c7-56e6-08df1d98ce41
-X-LD-Processed: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635,ExtAddr
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|366016|19092799006|1800799024|23010399003|376014|7416014|10067099003|56012099006|11063799006|6133799003|22082099003|18002099003;
-X-Microsoft-Antispam-Message-Info: P85Cq5NT9Czj5pEf3b7itMm87xX+t8HBwqvX5eU9YQ+gk/AGTS5k0jkw2nr7tBiyNRqL9EhPkSoepNxbkCQGlFi5BqQM+2eZpZDweyfBz+qzM3kE4ZsVP1kEu+lTD3U4ntxxE+ssUcJRFm1vDiLL6GUzEtlkHC8dBqLevItxgfl18oRv8KAk1kvADzIpsK3D+yXIZkhOnP+Zq/gwTQ/2kBiX+uiZObwB/uHphA3FOx3226BP5phesHwRbgaRuJe9HWFtGyDDqnFQMbSIgVZBaC0QxPA2K3JUux7tW413SejzYefAbZ7M1Iy5l2Vll5xvGyKAW0SvqIDPhRQsdAWHZSi2nIn/0hzAYkfjMQzKxN46DybwPjuGUPlywOvK/JizKPSTl+PYPTFDFbkUiOPwG68S6XIJoBAreboV/mYTGMg7gqMV2e6OH8MOHP5Rq4r3gATATpPWoNSre7Pohdx+GfquaaRGrt3KyTinTpRavoBPKnzIMSMmAQABzf4uFmwqf7cltEWGmkfOChJk7o1HBfZMdmDfzoFihYMSRh6xLCWc8RGuw0kPDhwV6aHS6WMsMdmoRiQii8UafOpTkslPZYpVUtK/o10QsYzP5HxwklFgMKgxvCEtSCNWytFII7vkydUA/6HvCzUSHyPRG6IyVM3pBuz5AR6K9hY7hYm/+TI=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:DU4PR04MB11791.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(19092799006)(1800799024)(23010399003)(376014)(7416014)(10067099003)(56012099006)(11063799006)(6133799003)(22082099003)(18002099003);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?cEFtYlhtQm5sc1JlSjIzWVhIK2trRDFxREZNTXVWTXR5WWJYcFhhVE9oaFNm?=
- =?utf-8?B?ckEzRTFQTWZBek42TGgzM3pmL2JnZHA4STVKRVpka3VvaFhvSGxieFNVTnMw?=
- =?utf-8?B?SVJMTG4rQm0raFF0VXZnRnBMWENRTTc1VkZJMzQza05kTGhNT3pkMVE2SDlB?=
- =?utf-8?B?YjBNMkNNOVVFdWd5R2srSTlQeE94S2xPT3JYM2RhYXRENTRna3k1UGo3Ym1D?=
- =?utf-8?B?SXh5NUFLckdrdkJzbzRHQ2ZLbHVjQjl3bzk2MFRYZjZYSzJnZXkvWVBoV3ho?=
- =?utf-8?B?ekNrNllCYmdCMjE5YlNaSDRpdGV1WFArS29kVTRXYzZISlpKQzdyQlNwM0xk?=
- =?utf-8?B?UTgwNUFEa2N3RFR3WVRXOTFJQ2RSRGI1S0JFQ0x2K3MzdjBWRW5hL1FLQ211?=
- =?utf-8?B?cjNOa1N1NDc3VUhaUnliRVgyRUZpYVlkRXU4Z21DZnIrdlRERC9NY1N2UTE1?=
- =?utf-8?B?UHlUa0toUHhxUlFjbG9DL0U5Qi9wNlFxYm0zMTRZV1NLU0I5aG93QnAwS1Ez?=
- =?utf-8?B?RVBUT1FnS05VYkNNb2dnRjgzbFpvNVEySzBuUjlPa0o5UStVMi8yY2hScFRG?=
- =?utf-8?B?RmkvVkJWTVd3K0FIVDZnMmtheU9TM1Y5ZWhzbHdIOHdUK3I2ZUFKWkUrdEU1?=
- =?utf-8?B?SEhXTlRBbEtmNkhZWitxMUhpQ1ZzZkVmSk8zYXp2THR1SW9Qdk9jWWRKS0dM?=
- =?utf-8?B?RWY5d0hnY3ZpZG1Pd1dwbnNROUVDdXF1ZlFiVFcxQUFwYnlWUndzQk91aE9J?=
- =?utf-8?B?akhJQTRMY1VlUHBzcnVRZDFvSlZXdDRUdml0QllUOW1oTXd6M0dpR0k1WThp?=
- =?utf-8?B?S3ZUSnlxMDFOb1Myd1RQb2ppRW1EZ3VEUW1Cc1cyOWxtb2NNTzFGQTkxQVda?=
- =?utf-8?B?U2NObGt5eXc4TVRRYzRLZjkvall0ek12L0VSMlkxTUpkK3NvQ2swRjZmVllx?=
- =?utf-8?B?a0E4L2NiNkt6TUcyS091L1ZkWjRGMkJ3SUtKUjdjbElpcmhKc2tINDRnMnhE?=
- =?utf-8?B?bjM2cS9ZYnk5TGgvTkEwUWlTampDdnRLdkd6ZUtEYmVCbVNyZk11N3RoTlhT?=
- =?utf-8?B?dXFJS3hYclc1dGpmWDRnc29SUWU4VW4vZHVMR3VTUTBOa29nNDArYi9HNlAr?=
- =?utf-8?B?d0R0d1lHYWhERkVzZEtlR1NPd2FSWkRVakc5ckJQWUVKRTZJZVM4ak5xWUwv?=
- =?utf-8?B?b1hjc01vU3F6bnlSRWkxc29wbWhWN1pJeHJUMUNEa2F3emhQZ2R6MzdLTWRs?=
- =?utf-8?B?TEVXSVVSeWV6M2dNNlFteGZBL1Njem4yaWdHYytadW9sbi8zQjVTd1VuZk5N?=
- =?utf-8?B?YTNhenJzV0dPY0VxTjQ2bVJROCs2bUhOdjN1Sm9qb3dNTzYxNUVPYU1iWWNm?=
- =?utf-8?B?Z3dEN3AvQ1hCUmpNaHBxczdsZFVub25EMFluZEFjb01WOXRQRmJNTGZVYzND?=
- =?utf-8?B?RFJpWjlaRnltMExrSkNtbi9WS1RZMGhpTXZQaW1pQUMzZmxzLzhOTncyeHFE?=
- =?utf-8?B?cGFMTGNMSDFiTmZiRTFyUW9mVjd3eDhaSnRtODlxY3o1SDRHMnc3MGZOSDFj?=
- =?utf-8?B?bWVLUUlJa0pScnNHVGhKUGlTR1JHVmpxQTlmdTBlUUNTbzF4aUVtaEZ4em9q?=
- =?utf-8?B?NzljTHROcXNMc1A1NE1yanArRmNYRU9zS3JVY1FzR1RPQmUwbHhRcUJiUUkw?=
- =?utf-8?B?RmJQVlYyUnZsYWZ0L2VMT3MyaUdLSDlhNUlJbHU4ekN0QWZFc1dMQkpJS1RE?=
- =?utf-8?B?TExFTFMzcUhRQkNhUWVTZm1jVnlqczZGa2lZcVpqcnhQSUtDbGpRRmZnMjFS?=
- =?utf-8?B?UHhVN3hqRkViY3F2TURkQ3grVFhxdU5KZkxWRTVFeHFRWDVKQmVQQTRhZTlQ?=
- =?utf-8?B?VzM2ZXZ2aUxMTVJtZEJlSklIRUlNVVdXN2JwODg1bk9BUHpSMGVKclRDZDRo?=
- =?utf-8?B?TmtuR25Fb2pMbXhYc001TWhGUXN5dWZtbFY1WHE3bEgzZk5MT0w5b25CWlFQ?=
- =?utf-8?B?Y2dUaXlLc1NtZ2h5U21NdkRCd096bG5LQ3RLNVhnbU1Rb1dqc0krYjdkanM2?=
- =?utf-8?B?MDg3T2NOdlU4bDZsayt1eHJDYWdpTm1lUm1zZndHbkEzUm1zZ090OVg1bEx3?=
- =?utf-8?B?QldmdnY4dmNrMHh1UWVtUUZFUVEvNjlhKzdJMDh2bU9SVVZQbnVaNk9PL0JX?=
- =?utf-8?B?NS80NzdITTZzcHNKa1ZyTzNMSHdOUnQ5Ymt3ME9Gckx3QXg3M2xReTkrWDFy?=
- =?utf-8?B?allKK0hJeEVTU3NnL2ZaU2U2bk5SdzdKR3VoRXJzTkc3anp2NHY5N010VmhX?=
- =?utf-8?B?WDJSemcyZUgwdXdTNTZDR1B6VGRVYkl3cHA0R2wvKzF2UHBsb3F1VmZxSno2?=
- =?utf-8?Q?k6VJb9pRAIXAQEE2B+MTTBkDjR7Po1V1auGAd?=
-X-OriginatorOrg: oss.nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 55c96602-10bf-44c7-56e6-08df1d98ce41
-X-MS-Exchange-CrossTenant-AuthSource: GV2PR04MB11799.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 28 Sep 2026 19:43:45.1761
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: ceoeVHEznS96ruaADpcto3sYyqFYDnz+4GyBJ/t9/SvpoHye/VFDvL0rI0cKB3bn8rrl3LcvC+ytBc/edcnT9zFBU3i1wIDPEMcYmpYCCzRSu751bsqzMkJRk7HikyhM
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: MRWPR04MB12332
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260928_124351_828752_A1B47D9B 
-X-CRM114-Status: UNSURE (   9.49  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260928_124557_134733_8AD4EBA5 
+X-CRM114-Status: GOOD (  14.76  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -159,29 +121,111 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Frank Li <Frank.Li@nxp.com>
+Document support for Airoha AN8855 5-port Gigabit Switch.
 
+It does expose the 5 Internal PHYs on the MDIO bus and each port
+can access the Switch register space by configuring the PHY page.
 
-On Fri, 18 Sep 2026 00:25:42 +0200, Stefano Radaelli wrote:
-> This series updates the Variscite DART-MX8M-MINI SoM device tree to
-> better reflect the currently supported hardware configuration.
-> 
-> The changes configure SAI3 in synchronous RX mode, add TPM support,
-> and increase the Ethernet PHY reset deassert delay to improve PHY
-> detection reliability.
-> 
-> [...]
+Signed-off-by: Christian Marangi <ansuelsmth@gmail.com>
+Reviewed-by: Rob Herring (Arm) <robh@kernel.org>
+---
+ .../net/dsa/airoha,an8855-switch.yaml         | 86 +++++++++++++++++++
+ 1 file changed, 86 insertions(+)
+ create mode 100644 Documentation/devicetree/bindings/net/dsa/airoha,an8855-switch.yaml
 
-Applied, thanks!
-
-[1/3] arm64: dts: imx8mm-var-dart: configure SAI3 synchronous RX mode
-      commit: 6bccdc6afffa4345331d46adc880bef56537421e
-[2/3] arm64: dts: imx8mm-var-dart: add TPM support
-      commit: 395280622de0c67814d8b5f06366217b3a9f70c0
-[3/3] arm64: dts: imx8mm-var-dart: increase PHY reset deassert delay
-      commit: 8c40f32361d566c0882e9d92abab36256b268291
-
-Best regards,
+diff --git a/Documentation/devicetree/bindings/net/dsa/airoha,an8855-switch.yaml b/Documentation/devicetree/bindings/net/dsa/airoha,an8855-switch.yaml
+new file mode 100644
+index 000000000000..5ad9b9e13983
+--- /dev/null
++++ b/Documentation/devicetree/bindings/net/dsa/airoha,an8855-switch.yaml
+@@ -0,0 +1,86 @@
++# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
++%YAML 1.2
++---
++$id: http://devicetree.org/schemas/net/dsa/airoha,an8855-switch.yaml#
++$schema: http://devicetree.org/meta-schemas/core.yaml#
++
++title: Airoha AN8855 Gigabit Switch
++
++maintainers:
++  - Christian Marangi <ansuelsmth@gmail.com>
++
++description: >
++  Airoha AN8855 is a 5-port Gigabit Switch.
++
++  It does expose the 5 Internal PHYs on the MDIO bus and each port
++  can access the Switch register space by configuring the PHY page.
++
++$ref: dsa.yaml#/$defs/ethernet-ports
++
++properties:
++  compatible:
++    const: airoha,an8855-switch
++
++required:
++  - compatible
++
++unevaluatedProperties: false
++
++examples:
++  - |
++    ethernet-switch {
++        compatible = "airoha,an8855-switch";
++
++        ports {
++            #address-cells = <1>;
++            #size-cells = <0>;
++
++            port@0 {
++                reg = <0>;
++                label = "lan1";
++                phy-mode = "internal";
++                phy-handle = <&internal_phy1>;
++            };
++
++            port@1 {
++                reg = <1>;
++                label = "lan2";
++                phy-mode = "internal";
++                phy-handle = <&internal_phy2>;
++            };
++
++            port@2 {
++                reg = <2>;
++                label = "lan3";
++                phy-mode = "internal";
++                phy-handle = <&internal_phy3>;
++            };
++
++            port@3 {
++                reg = <3>;
++                label = "lan4";
++                phy-mode = "internal";
++                phy-handle = <&internal_phy4>;
++            };
++
++            port@4 {
++                reg = <4>;
++                label = "wan";
++                phy-mode = "internal";
++                phy-handle = <&internal_phy5>;
++            };
++
++            port@5 {
++                reg = <5>;
++                label = "cpu";
++                ethernet = <&gmac0>;
++                phy-mode = "2500base-x";
++
++                fixed-link {
++                    speed = <2500>;
++                    full-duplex;
++                    pause;
++                };
++            };
++        };
++    };
 -- 
-Frank Li <Frank.Li@nxp.com>
+2.55.0
+
 
