@@ -4,80 +4,81 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 88AD7C9832F
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 28 Sep 2026 08:20:43 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1D9C0C9832F
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 28 Sep 2026 08:23:15 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=u0/TV1n3TKQPLRepROlvuB5fzuWkUjMxDSRSqug2X4M=; b=woLRR6hdjDILsPV4+YR7csOhue
-	oDEyFZSOla2eHIPZFSM7mVWGl4EpeSgJDHv3ePPi0aAK2mceQIbo204+nMlOV1N6ZhEFFangPW9yw
-	iw2xB9DmiAN5+s0Q4RRDnSYrtBJTfw8gU6aO3km/+kg0QUFt1r7vizs+E7AJHxLAwmgkPuHsqe5YO
-	FvMdR22VYcnmmkFAU0q10YbpyJMcFRjHnzbiYlSzrwgNQ6vYYfMdDxW6lt3Vhzys51MHbQRSiFLXQ
-	Qnzj1mwk+Di3BRwnMtQFWiwdFbO0Qtnolcub6BA3+gT218YsI+ernBC0YWQv6LsymHwxD+sVBvEub
-	E+hLIjiA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=V6GrpfcVe1ZE2msYePbwt9AXEqp6vDJFjGcIXkRFEYs=; b=ueAamZxD/ZsstCLkSx5tSRYHtg
+	RyUf4GDbMr+kTLn5nT1at4XBpUCAhoFat4Jz2joK3yUSf4SqF2Yf2C5a5NYwc0RQ6RlqKuKlAUOiN
+	uiuhgoHCwadDqM8Cjc+sPTKIrjmRf1BAWlOJxhn9fRRUdZmCMOSnfcZRYMUHncqPcArhuX9sntCSp
+	VY87VweExDtWlIDSggv7Wy4mGvy717llgWEoNVigJHrmOGC1phesinNtyH7zP8vUv5YCoTBC8/P2+
+	4QlQOrrYB/v2aRUYBz1Rn/Mmr02j0M4CkcGqqC1JhWx7fvyszDrL2ldxALu3kmIpzhvMh0TlQofJd
+	gyIx4GXw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xB6bF-000000004Bg-1UnG;
-	Mon, 28 Sep 2026 08:20:37 +0000
-Received: from mail-m15594.qiye.163.com ([101.71.155.94])
+	id 1xB6dg-000000004zM-1UgZ;
+	Mon, 28 Sep 2026 08:23:08 +0000
+Received: from mgamail.intel.com ([192.198.163.8])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xB6b0-000000003sO-1FaR;
-	Mon, 28 Sep 2026 08:20:23 +0000
-Received: from zyb-HP-ProDesk-680-G2-MT.. (unknown [61.154.14.86])
-	by smtp.qiye.163.com (Hmail) with ESMTP id 4f5398ebc;
-	Mon, 28 Sep 2026 16:15:17 +0800 (GMT+08:00)
-From: Damon Ding <damon.ding@rock-chips.com>
-To: Andrzej Hajda <andrzej.hajda@intel.com>,
-	Neil Armstrong <neil.armstrong@linaro.org>,
-	Robert Foss <rfoss@kernel.org>,
-	Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
-	Maxime Ripard <mripard@kernel.org>,
-	Thomas Zimmermann <tzimmermann@suse.de>,
-	David Airlie <airlied@gmail.com>,
-	Simona Vetter <simona@ffwll.ch>,
-	Jingoo Han <jingoohan1@gmail.com>,
-	Inki Dae <inki.dae@samsung.com>,
-	Seung-Woo Kim <sw0312.kim@samsung.com>,
-	Kyungmin Park <kyungmin.park@samsung.com>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Peter Griffin <peter.griffin@linaro.org>,
-	Alim Akhtar <alim.akhtar@samsung.com>,
-	Heiko Stuebner <heiko@sntech.de>
-Cc: Laurent Pinchart <Laurent.pinchart@ideasonboard.com>,
-	Jonas Karlman <jonas@kwiboo.se>,
-	Jernej Skrabec <jernej.skrabec@gmail.com>,
-	Luca Ceresoli <luca.ceresoli@bootlin.com>,
-	Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>,
-	linux-kernel@vger.kernel.org,
-	dri-devel@lists.freedesktop.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-samsung-soc@vger.kernel.org,
-	linux-rockchip@lists.infradead.org,
-	Damon Ding <damon.ding@rock-chips.com>
-Subject: [PATCH v3 13/14] drm/bridge: analogix_dp: Handle HPD notification from downstream bridge
-Date: Mon, 28 Sep 2026 16:14:17 +0800
-Message-Id: <20260928081418.3605775-14-damon.ding@rock-chips.com>
-X-Mailer: git-send-email 2.34.1
-In-Reply-To: <20260928081418.3605775-1-damon.ding@rock-chips.com>
-References: <20260928081418.3605775-1-damon.ding@rock-chips.com>
+	id 1xB6dd-000000004ys-43TT
+	for linux-arm-kernel@lists.infradead.org;
+	Mon, 28 Sep 2026 08:23:07 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1790583786; x=1822119786;
+  h=date:from:to:cc:subject:message-id:references:
+   mime-version:in-reply-to;
+  bh=1wocS/8MUk0c5FYoePcc+sCMjbYoo1qq/BetZNUrGpM=;
+  b=juf4vuDPmyPMIdgOEjzEWiOrM06u4M1HiM0H7X14x7lBdAqoAeW6ns7s
+   HAAFGZ93oRlaQ9oChZDSzfixWI/BKtE+Pc4XYEE7JiCPoipyZXEFfPybf
+   c4tGS0RfPd4rz573Z41ANlrquewt9vkzHyeiUcMmQYr7yfoZ9oKVhHqdL
+   6HcT3PAzpMAlGekDELKsPW9I44pZmRkDXYFH2AGDDTU73T1ILKQPOBoZe
+   /UBYQDBGNk+8I9g1yVdrK6FCTD6qfHDIUcXV/CMNLvH7DrJz3vhwftpdO
+   SybgDSJWyi91MLYtXsDYP0yR26oZpS54HqKfFBDVvkbo/p1GaEAY4/WY/
+   Q==;
+X-CSE-ConnectionGUID: V2Y8/USnTTKa+myKhF2jXQ==
+X-CSE-MsgGUID: Yy3f1+uQRlGLQ6KwfxR5vg==
+X-IronPort-AV: E=McAfee;i="6800,10657,11918"; a="108765979"
+X-IronPort-AV: E=Sophos;i="6.27,128,1787036400"; 
+   d="scan'208";a="108765979"
+Received: from fmviesa010.fm.intel.com ([10.60.135.150])
+  by fmvoesa102.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 28 Sep 2026 01:23:05 -0700
+X-CSE-ConnectionGUID: U0XgYB7cQzujYAq8DGQ0OQ==
+X-CSE-MsgGUID: WlXpRSZvTRSRmYdNxQYmvA==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.27,128,1787036400"; 
+   d="scan'208";a="274220575"
+Received: from conormcd-mobl2.ger.corp.intel.com (HELO localhost) ([10.245.244.42])
+  by fmviesa010-auth.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 28 Sep 2026 01:23:02 -0700
+Date: Mon, 28 Sep 2026 11:22:59 +0300
+From: Andy Shevchenko <andriy.shevchenko@intel.com>
+To: Weigang He <geoffreyhe2@gmail.com>
+Cc: Jonathan Cameron <jic23@kernel.org>,
+	Sai Krishna Potthuri <sai.krishna.potthuri@amd.com>,
+	Conall O'Griofa <conall.ogriofa@amd.com>,
+	David Lechner <dlechner@baylibre.com>,
+	Nuno =?iso-8859-1?Q?S=E1?= <nuno.sa@analog.com>,
+	Andy Shevchenko <andy@kernel.org>,
+	Michal Simek <michal.simek@amd.com>, linux-iio@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+	stable@vger.kernel.org
+Subject: Re: [PATCH] iio: adc: xilinx-ams: fix out-of-bounds accesses when
+ parsing channels
+Message-ID: <aroj4-Wag_kxuBxH@ashevche-desk.local>
+References: <20260926055456.3289189-1-geoffreyhe2@gmail.com>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-X-HM-Tid: 0aa0e715250003a8kunm323e2b5437cf8e
-X-HM-MType: 1
-X-HM-Spam-Status: e1kfGhgUHx5ZQUpXWQgPGg8OCBgUHx5ZQUlOS1dZFg8aDwILHllBWSg2Ly
-	tZV1koWUFITzdXWRgWCB1ZQUpXWS1ZQUlXWQ8JGhUIEh9ZQVlDT0IdVk8aSU4dGkMdQxlOQlYVFA
-	kWGhdVEwETFhoSFyQUDg9ZV1kYEgtZQVlNSlVKTk9VSk9VQ01ZV1kWGg8SFR0UWUFZT0tIVUpLSE
-	pOTE5VSktLVUpCS0tZBg++
-DKIM-Signature: a=rsa-sha256;
-	b=hTGmmnqZb5yGxuXn2p2qejO7zOxaeJHa9vA6bAEzA14npWgUFZYP/Gj5HsuYcVOqo756ncmFDMQj4yCG+irGmhqDU8rzM8qc559Ei6xeeVEgOu1gzG0ug0ufF6oeVNDcZEchjFD7mSr75wbV0A8/auoVTyyAqO8IzUFAfCFVqp0=; s=default; c=relaxed/relaxed; d=rock-chips.com; v=1;
-	bh=u0/TV1n3TKQPLRepROlvuB5fzuWkUjMxDSRSqug2X4M=;
-	h=date:mime-version:subject:message-id:from;
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20260926055456.3289189-1-geoffreyhe2@gmail.com>
+Organization: Intel Finland Oy - BIC 0357606-4 - c/o Alberga Business Park, 6
+ krs, Bertel Jungin Aukio 5, 02600 Espoo
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260928_012022_551019_C4B83ED9 
-X-CRM114-Status: GOOD (  15.64  )
+X-CRM114-CacheID: sfid-20260928_012306_020179_014E86FF 
+X-CRM114-Status: GOOD (  18.35  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -92,148 +93,78 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-When the display pipeline includes a display-connector bridge with
-hpd-gpios configured, the connector's hotplug status is managed by the
-display-connector bridge through its GPIO, not by the Analogix DP
-controller's native HPD. In this configuration, the DP controller's
-internal HPD polling in analogix_dp_detect_hpd() does not reflect the
-actual connection state.
+On Sat, Sep 26, 2026 at 03:54:56PM +1000, Weigang He wrote:
+> ams_parse_firmware() allocates room for ARRAY_SIZE(ams_ps_channels) +
+> ARRAY_SIZE(ams_pl_channels) + ARRAY_SIZE(ams_ctrl_channels) = 51
+> channel specs and lets ams_init_module() fill them for the AMS node and
+> each of its children, without telling it how much room is left.
+> 
+> For the PL-SYSMON node, ams_get_ext_chan() appends one channel per
+> "channel@N" child after the 10 fixed PL channels. The binding allows
+> reg values 20..50, so a PL node can have up to 31 such children, i.e.
+> up to 41 PL channels, while only 31 are budgeted for it. Together with
+> the 13 PS and 7 AMS control channels, this writes past the end of the
+> buffer. Since the modules are filled in device tree order, the fixed
+> channel blocks copied after the PL node can overflow as well.
+> 
+> ams_get_ext_chan() also only checks the upper bound of reg. ext_chan is
+> unsigned, so a reg below 20 makes it wrap and ams_pl_channels[] is read
+> far out of bounds.
+> 
+> Pass the remaining capacity down to ams_init_module() and
+> ams_get_ext_chan() and fail with -EINVAL when a module does not fit,
+> instead of writing past the buffer. Also reject reg values below 20, as
+> the binding requires.
+> 
+> Found by static analysis tool CodeQL.
 
-At attach time, detect whether a downstream bridge provides HPD events
-(DRM_BRIDGE_OP_HPD) while none of them provides detection
-(DRM_BRIDGE_OP_DETECT). When found, switch to hpd notify mode: cache
-the connection status reported through the .hpd_notify callback, mute
-the controller's native HPD interrupts and skip their initialization,
-and trust the cached status instead of polling the typically
-unconnected native HPD pin.
+...
 
-Suggested-by: Heiko Stuebner <heiko@sntech.de>
-Link: https://lore.kernel.org/all/5609825.iZASKD2KPV@diego/
-Signed-off-by: Damon Ding <damon.ding@rock-chips.com>
+>  	fwnode_for_each_child_node(chan_node, child) {
 
----
+It seems better to switch to _scoped() variant at some point.
 
-Changes in v3:
-- Introduce hpd_notify_mode flag to skip native HPD operations when
-  HPD comes from a downstream bridge.
----
- .../drm/bridge/analogix/analogix_dp_core.c    | 27 ++++++++++++++++++-
- .../drm/bridge/analogix/analogix_dp_core.h    |  2 ++
- .../gpu/drm/bridge/analogix/analogix_dp_reg.c |  7 +++--
- 3 files changed, 33 insertions(+), 3 deletions(-)
+>  		ret = fwnode_property_read_u32(child, "reg", &reg);
+> -		if (ret || reg > AMS_PL_MAX_EXT_CHANNEL + 30)
+> +		if (ret || reg < 30 - AMS_PL_MAX_FIXED_CHANNEL ||
+> +		    reg > AMS_PL_MAX_EXT_CHANNEL + 30)
+>  			continue;
+>  
+> +		if (num_channels >= max_channels) {
+> +			fwnode_handle_put(child);
+> +			return -EINVAL;
 
-diff --git a/drivers/gpu/drm/bridge/analogix/analogix_dp_core.c b/drivers/gpu/drm/bridge/analogix/analogix_dp_core.c
-index df898f314254..90245d55d1d2 100644
---- a/drivers/gpu/drm/bridge/analogix/analogix_dp_core.c
-+++ b/drivers/gpu/drm/bridge/analogix/analogix_dp_core.c
-@@ -45,7 +45,7 @@ static const bool verify_fast_training;
- static bool analogix_dp_require_pm_for_hpd_irq(struct analogix_dp_device *dp)
- {
- 	return analogix_dp_is_rockchip(dp->plat_data->dev_type) && !dp->hpd_gpiod &&
--	       !dp->force_hpd;
-+	       !dp->force_hpd && !dp->hpd_notify_mode;
- }
- 
- static void analogix_dp_init_dp(struct analogix_dp_device *dp)
-@@ -936,6 +936,21 @@ static bool analogix_dp_bridge_force_connected(struct analogix_dp_device *dp)
- 	return force_connected;
- }
- 
-+static bool analogix_dp_has_downstream_hpd(struct analogix_dp_device *dp)
-+{
-+	bool hpd_bridge = false;
-+
-+	drm_for_each_bridge_in_chain_from(dp->bridge.next_bridge, bridge) {
-+		if (bridge->ops & DRM_BRIDGE_OP_DETECT)
-+			return false;
-+
-+		if (bridge->ops & DRM_BRIDGE_OP_HPD)
-+			hpd_bridge = true;
-+	}
-+
-+	return hpd_bridge;
-+}
-+
- static int analogix_dp_bridge_attach(struct drm_bridge *bridge,
- 				     struct drm_encoder *encoder,
- 				     enum drm_bridge_attach_flags flags)
-@@ -964,6 +979,7 @@ static int analogix_dp_bridge_attach(struct drm_bridge *bridge,
- 		 * accurate hotplug state.
- 		 */
- 		dp->force_connected_mode = analogix_dp_bridge_force_connected(dp);
-+		dp->hpd_notify_mode = analogix_dp_has_downstream_hpd(dp);
- 	}
- 
- 	return 0;
-@@ -1260,6 +1276,14 @@ static void analogix_dp_bridge_atomic_post_disable(struct drm_bridge *bridge,
- 		DRM_ERROR("Failed to enable psr (%d)\n", ret);
- }
- 
-+static void analogix_dp_bridge_notify(struct drm_bridge *bridge, struct drm_connector *connector,
-+				      enum drm_connector_status status)
-+{
-+	struct analogix_dp_device *dp = to_dp(bridge);
-+
-+	dp->connection_notified = (status == connector_status_connected);
-+}
-+
- static const struct drm_bridge_funcs analogix_dp_bridge_funcs = {
- 	.atomic_duplicate_state = drm_atomic_helper_bridge_duplicate_state,
- 	.atomic_destroy_state = drm_atomic_helper_bridge_destroy_state,
-@@ -1272,6 +1296,7 @@ static const struct drm_bridge_funcs analogix_dp_bridge_funcs = {
- 	.attach = analogix_dp_bridge_attach,
- 	.edid_read = analogix_dp_bridge_edid_read,
- 	.detect = analogix_dp_bridge_detect,
-+	.hpd_notify = analogix_dp_bridge_notify,
- };
- 
- static int analogix_dp_dt_parse_lanes_map(struct analogix_dp_device *dp)
-diff --git a/drivers/gpu/drm/bridge/analogix/analogix_dp_core.h b/drivers/gpu/drm/bridge/analogix/analogix_dp_core.h
-index 5f5698c73d88..9f25fb6545ad 100644
---- a/drivers/gpu/drm/bridge/analogix/analogix_dp_core.h
-+++ b/drivers/gpu/drm/bridge/analogix/analogix_dp_core.h
-@@ -171,6 +171,8 @@ struct analogix_dp_device {
- 	bool			fast_train_enable;
- 	bool			psr_supported;
- 	bool			force_connected_mode;
-+	bool			hpd_notify_mode;
-+	bool			connection_notified;
- 
- 	u8 dpcd[DP_RECEIVER_CAP_SIZE];
- 
-diff --git a/drivers/gpu/drm/bridge/analogix/analogix_dp_reg.c b/drivers/gpu/drm/bridge/analogix/analogix_dp_reg.c
-index abbcdba1a438..4c5e18d40dad 100644
---- a/drivers/gpu/drm/bridge/analogix/analogix_dp_reg.c
-+++ b/drivers/gpu/drm/bridge/analogix/analogix_dp_reg.c
-@@ -193,7 +193,7 @@ void analogix_dp_config_interrupt(struct analogix_dp_device *dp)
- 	writel(0, dp->reg_base + ANALOGIX_DP_COMMON_INT_MASK_2);
- 	writel(0, dp->reg_base + ANALOGIX_DP_COMMON_INT_MASK_3);
- 
--	if (dp->hpd_gpiod) {
-+	if (dp->hpd_gpiod || dp->hpd_notify_mode) {
- 		analogix_dp_mute_hpd_interrupt(dp, HPD_IRQ_ALL);
- 		return;
- 	}
-@@ -435,7 +435,7 @@ void analogix_dp_init_hpd(struct analogix_dp_device *dp)
- {
- 	u32 reg;
- 
--	if (dp->hpd_gpiod)
-+	if (dp->hpd_gpiod || dp->hpd_notify_mode)
- 		return;
- 
- 	analogix_dp_clear_hotplug_interrupts(dp, HPD_IRQ_ALL);
-@@ -539,6 +539,9 @@ int analogix_dp_get_plug_in_status(struct analogix_dp_device *dp)
- 	if (dp->hpd_gpiod) {
- 		if (gpiod_get_value(dp->hpd_gpiod))
- 			return 0;
-+	} else if (dp->hpd_notify_mode) {
-+		if (dp->connection_notified)
-+			return 0;
- 	} else {
- 		reg = readl(dp->reg_base + ANALOGIX_DP_SYS_CTL_3);
- 		if (reg & HPD_STATUS)
+-ECHRNG
+
+> +		}
+
+...
+
+>  	if (fwnode_device_is_compatible(fwnode, "xlnx,zynqmp-ams-ps")) {
+> +		if (max_channels < ARRAY_SIZE(ams_ps_channels))
+> +			return -EINVAL;
+
+ENOSPC?
+
+...
+
+>  	} else if (fwnode_device_is_compatible(fwnode, "xlnx,zynqmp-ams-pl")) {
+> +		if (max_channels < AMS_PL_MAX_FIXED_CHANNEL)
+> +			return -EINVAL;
+
+Ditto.
+
+...
+
+>  	} else if (fwnode_device_is_compatible(fwnode, "xlnx,zynqmp-ams")) {
+> +		if (max_channels < ARRAY_SIZE(ams_ctrl_channels))
+> +			return -EINVAL;
+
+Ditto.
+
 -- 
-2.34.1
+With Best Regards,
+Andy Shevchenko
+
 
 
