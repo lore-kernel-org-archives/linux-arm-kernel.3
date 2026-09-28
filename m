@@ -4,118 +4,79 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 16DF8C9833F
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 28 Sep 2026 13:00:39 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 77100C9833F
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 28 Sep 2026 13:00:57 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=lBLgGttSgxfalRM4bR47Cm41a6bKQMOdXvQw811URU0=; b=ykEmZst7dtKh0GqxuLSyuPkE8T
-	pmt+vRUTn3tcRD83GuKNB3UDXRfsWdGJXL+nZwqxXs2+rnnpOB8WBX/vrEQOZj6w73LcdVcPYJIyI
-	oDPz73XX4/NKD3QO7ueV+9fQv0DgpJ8eACBL7iRDuo6GCjY9mAAL8SXClJkW8r+Rpcudb4e0tnjAF
-	Htf0IiGpqBbVZWY+lDSKKxzkB5YxoVDp5LDdMgRGoehApyF0ATKJcd+kSwFRwy0lawoqTBgOinETx
-	bT+ioR297ZMLkuduybsg7AXzBHxycFawkpunGLE+5bz4sPD46WeUtyu81+a/xAILbU3GChG6RyOLD
-	lw+qfX9w==;
+	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=Vkm7SHhLjq1OSn5E4JsUgyYWZpx99XHrbc4OM7+gChQ=; b=WFRvNtRanvyVDAqmv+oymgj9+a
+	B1KQ7K0SjqlLs2+zTcBhf7L/gy2MuP4yWLFBsxDDcF7o/q9Q303a33Ilmr7fKVY3s39efLTOm4aBB
+	sirNPxilvWlX2m244PbVgLgA04aAmiKZzPMaRtI7q4cLAr1WlkaCC8iojzCrv9sC1UzSS3cMQpI34
+	+6re3ZIugZTSBgHBqF4KOMZFU9/zJUM5SECW8o9LwNuIHPiluH6o4lfaZfcGpN/5EoQwOE10XkK2M
+	tmSBqvdJoBrAY+BfaQFiilDg2pEg6474p4JRAQ8tEloV8USgNJP1mwdcF2QIyKq+Oa9q77gZgzG9W
+	Iu5Jeorg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xBAy8-00000000bxd-2Lis;
-	Mon, 28 Sep 2026 13:00:32 +0000
-Received: from mail-francecentralazlp170130007.outbound.protection.outlook.com ([2a01:111:f403:c20a::7] helo=PA4PR04CU001.outbound.protection.outlook.com)
+	id 1xBAyQ-00000000c1W-2uxG;
+	Mon, 28 Sep 2026 13:00:50 +0000
+Received: from cp2.siel.si ([46.19.12.180])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xBAy5-00000000bwn-3A7O
+	id 1xBAyN-00000000bvW-0whK
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 28 Sep 2026 13:00:31 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=guKsYDubjePw6/6d3aehjADY/19Pv5+rTM8HsHmmkW0O0sFpTte/ixfeEruwQOoNaWI39rfvfFIt2u+toQQ9fmP4thBWuJMcVMPy6c0IO/Z6dD7kUFMqh7CCZBEtXn9bvtknQV6bF39afDoSrborvqAGboxvRao6DeKVjHVzLuv8bbg5YMVz3VAUA3DzCtLuwMKlyOWr8BaHvfd89Ly+Qq5v/PPwJvY6Qiuc12PoWaDRAYqWiH/4F+wQMYkhFOhUb0HHPJylftcs6/rWiLpe2K7zhcfTVkdFjp4Q4jX58JMfd4U4CepQoXCpH7UBFrhgy2aIYBoixDAEPZ20PjE4Ow==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=lBLgGttSgxfalRM4bR47Cm41a6bKQMOdXvQw811URU0=;
- b=w2WsYy4mbmoFdleux9DwOVAmklP7MMZfs2zhmovmeoHzoRtOTReDdEuXrP98XCK4O1AeWsrni6Vf7XfpnoK5gywOipuVehQxqPcfm4tqSDvL8rNhHpefyq4eNSTWCvtbz4FijgZcYKgsm/gDA/F/XkqkCVCqUmkdSKW3JVy6iB3HMO5YMVvhZcU5BHThlamorRdqvGIjntnkzgpl62k6g6/QimDEzKWPdbVgeCdk85pPhvz7V3rPWacXZTwqQAcmnE0D3XsuVLeQriY1dfLt91LfYW62+udOmGahjJuz+SwXc/uJSwvlv+R2W5+QKD5+n/AKocZyd+ADRSON5bMuIQ==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=fail (sender ip is
- 164.130.1.60) smtp.rcpttodomain=posteo.net smtp.mailfrom=foss.st.com;
- dmarc=fail (p=none sp=none pct=100) action=none header.from=foss.st.com;
- dkim=none (message not signed); arc=none (0)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=foss.st.com;
- s=selector2;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=lBLgGttSgxfalRM4bR47Cm41a6bKQMOdXvQw811URU0=;
- b=fpMjWpvuDDkCiqGV2/Dpoay2rUnanI43RbvyLOUhJ+AeeU0hscwn3eSzL5aV50aMQO8X1Lunk3EzXBOGn56Easez2QsrXJkZilDZ0s0JndS7ViWNnzpjj5o1IPPTeGuH6OpBaNpTDSBUJzOn6VHgNnrfvWRM6LiYrX/IVyft5LAItnB2VaM8AuStBrx2hPlcJLcYQMH20/nO1lmbrEdVaiNkV6mVRdKD0JR4w8BYVSOgfgNft/jMOz7kDEzXhljEfor9GO900rhi1bh2VblsG34z4UzYwNdOKfgSZW+wKPZuwuLlMjOStG5uOOLLsdplHQBE0P3E46GgZDhQQXtQiQ==
-Received: from DB8P191CA0022.EURP191.PROD.OUTLOOK.COM (2603:10a6:10:130::32)
- by DB8PR10MB3864.EURPRD10.PROD.OUTLOOK.COM (2603:10a6:10:165::14) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.451.23; Mon, 28 Sep
- 2026 13:00:24 +0000
-Received: from MAD0EPF000008BF.eurprd04.prod.outlook.com
- (2603:10a6:10:130:cafe::85) by DB8P191CA0022.outlook.office365.com
- (2603:10a6:10:130::32) with Microsoft SMTP Server (version=TLS1_3,
- cipher=TLS_AES_256_GCM_SHA384) id 15.21.451.24 via Frontend Transport; Mon,
- 28 Sep 2026 13:00:24 +0000
-X-MS-Exchange-Authentication-Results: mx.microsoft.com 1; spf=fail (sender IP
- is 164.130.1.60) smtp.mailfrom=foss.st.com; dkim=none (message not signed)
- header.d=none;dmarc=fail action=none header.from=foss.st.com;
-Received-SPF: Fail (protection.outlook.com: domain of foss.st.com does not
- designate 164.130.1.60 as permitted sender) receiver=protection.outlook.com;
- client-ip=164.130.1.60; helo=smtpO365.st.com;
-Received: from smtpO365.st.com (164.130.1.60) by
- MAD0EPF000008BF.mail.protection.outlook.com (10.167.241.168) with Microsoft
- SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.21.472.14 via Frontend Transport; Mon, 28 Sep 2026 13:00:23 +0000
-Received: from STKDAG1NODE2.st.com (10.75.128.133) by smtpO365.st.com
- (10.250.44.72) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.43; Mon, 28 Sep
- 2026 15:06:15 +0200
-Received: from [10.48.86.79] (10.48.86.79) by STKDAG1NODE2.st.com
- (10.75.128.133) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.43; Mon, 28 Sep
- 2026 15:00:22 +0200
-Message-ID: <4f15d071-bc7a-4b7d-8ecd-68a7db2708fe@foss.st.com>
-Date: Mon, 28 Sep 2026 15:00:21 +0200
+	Mon, 28 Sep 2026 13:00:49 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=norik.com;
+	s=default; h=Content-Transfer-Encoding:MIME-Version:Message-Id:Date:Subject:
+	Cc:To:From:Sender:Reply-To:Content-Type:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	In-Reply-To:References:List-Id:List-Help:List-Unsubscribe:
+	List-Unsubscribe-Post:List-Subscribe:List-Post:List-Owner:List-Archive;
+	bh=Vkm7SHhLjq1OSn5E4JsUgyYWZpx99XHrbc4OM7+gChQ=; b=XA0e57lU+7IZ0t80d/jog2GGck
+	UCdT2zZoj2UlgGvAjOpDy2nPyxJTG1jp/39ZPxthYiTVbkpwzJ0dxfuqdo1xtCVu2LykdTV0QgOCm
+	1K1c3lSqzlE8r7Yv7l5LzNNA59ud123b91EKJl2I4sW1/SCsIjxQJwceLKeGrt/0ERKbnsWmwsuQ2
+	m79/QJNpsiuhA+o1p7faQmfwO9ftAkWRcV8uSWcglRQZ4TmdS9iR0am3sqTFRJFxPjXC3RlLFVYET
+	hCwMFwiXS4BtEQZ3BD/Y53kNHxA79tO3Uw6vphCmIPn5cHevs1EGikM9NYu51dRa/rP/L9uBeRIkm
+	jwuh5zZg==;
+Received: from 89-212-21-243.static.t-2.net ([89.212.21.243]:35218 helo=localhost.localdomain)
+	by cp2.siel.si with esmtpsa  (TLS1.3) tls TLS_AES_256_GCM_SHA384
+	(Exim 4.100.1)
+	(envelope-from <primoz.fiser@norik.com>)
+	id 1xBAad-0000000Fp0t-1YMW;
+	Mon, 28 Sep 2026 14:36:14 +0200
+From: Primoz Fiser <primoz.fiser@norik.com>
+To: Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Frank Li <Frank.Li@nxp.com>,
+	Sascha Hauer <s.hauer@pengutronix.de>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Fabio Estevam <festevam@gmail.com>
+Cc: devicetree@vger.kernel.org,
+	imx@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	upstream@lists.phytec.de
+Subject: [PATCH] ARM: dts: imx6dl-phytec-mira: Add phyBOARD-Mira-i.MX6DL with eMMC
+Date: Mon, 28 Sep 2026 14:36:12 +0200
+Message-Id: <20260928123612.2250601-1-primoz.fiser@norik.com>
+X-Mailer: git-send-email 2.34.1
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 0/2] arm64: dts: st: add digital temperature sensor on
- stm32mp25
-To: Mateusz Nowicki <mateusz.nowicki@posteo.net>, Maxime Coquelin
-	<mcoquelin.stm32@gmail.com>
-CC: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>, <devicetree@vger.kernel.org>,
-	<linux-stm32@st-md-mailman.stormreply.com>,
-	<linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>
-References: <20260924192259.20517-1-mateusz.nowicki@posteo.net>
-Content-Language: en-US
-From: Alexandre TORGUE <alexandre.torgue@foss.st.com>
-In-Reply-To: <20260924192259.20517-1-mateusz.nowicki@posteo.net>
-Content-Type: text/plain; charset="UTF-8"; format=flowed
-Content-Transfer-Encoding: 7bit
-X-Originating-IP: [10.48.86.79]
-X-ClientProxiedBy: ENXCAS1NODE2.st.com (10.75.128.138) To STKDAG1NODE2.st.com
- (10.75.128.133)
-X-EOPAttributedMessage: 0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: MAD0EPF000008BF:EE_|DB8PR10MB3864:EE_
-X-MS-Office365-Filtering-Correlation-Id: 4881372a-c0aa-4132-d119-08df1d6075d6
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|82310400026|36860700016|376014|1800799024|23010399003|10067099003|11063799006|22082099003|18002099003|56012099006;
-X-Microsoft-Antispam-Message-Info: ZSWSpiRn7WE7PlzLwBTHRC6kxfRwCpvjIpkAex7tZDhiA/1ecjBoJv4D0E+alUuydEIWygJIHUOCjjkJEpknx/Swk13ERwaFFe23nvrgB2x2i7m45rnU/6N6Gg3F/WX7dEGpw/T7TK1M70y8hkLDf7UuNbZq070IRq4pXLK2ekgVz3CTy8BW2hc0flmsO4t1lAhMeii8+JQkNjrpuLD0FN4ZaFd5LwSnqVaRzXiwKI9m+nXTsLeKzqpiMQ8KIPuvihZziCNzuULHuAhEtqVQ95QT+ER9ZhMpWYU0Iqm/dl5VCbfb4h4okOM0wt3Yi4BTG8XlTzVJ6eHioOT9tdqzPsmNezgTWYRC8dNBN3WYq4lv6lypExdh+XwtZK+mrzefMykkMviJnlEOo2IkQzncyjN1eeTez8pzuw1hNHfIWoAKthM9bdan3BQyKHV42jivIHgJkk3BF6H3cwwMCOvpJ6tbhii6sApewfIp3Eg0tBVh+0l/qzOU5zrv9c6DBBwd3djOGqgRTqTEYsVBUUKe7gYyMujIRuseko6tEYOI/4qlL2RSXkr/zGAic/AGnDPjHcOxgpfN3AQ8rP/UyvmBXN6DlV0rmPt9xIYUVDyJ72GuzB+OMuCg/qBZeBsctp13sJqDyJy3XRgPfyIhiiuRUWTCvAtoenDMyONzkCEQsOveVu1wMjOFFmtLNkpoLJ8+3+t+MsynhRis2eqKX7ATag==
-X-Forefront-Antispam-Report: CIP:164.130.1.60;CTRY:IT;LANG:en;SCL:1;SRV:;IPV:CAL;SFV:NSPM;H:smtpO365.st.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(82310400026)(36860700016)(376014)(1800799024)(23010399003)(10067099003)(11063799006)(22082099003)(18002099003)(56012099006);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: rlKxrMxrVnAY9Al7/Wf83aCSm9ikMimdLMq0UfT975Z7KR6WFUfknnmKwbxA1b1IKfKED1B2VqA++i34iSpsFxM4duFgGEswGaey6VG3JOoxmRrl82dZJLZTQ6WfurwYtnvyftjzhbWUjmw6quz4sJuERpPc+MEXbiTEIyX+Egvi+CgDYTDkn/rfKIZzSewbC5e4icMB4TV6dWEnlAnRQ6QA9nnZu3Ae1OFvY8yAygQ0IP8dsbHodmUZY0DTSaX9C+BzuxpaotkxeACwhwyxkX/mb/J9R+Yr8RR8EFk0ljsf3StsVCV+eb/gt2LQmlxRT9Pa+e85Mh5UvNQrHMdINLEjFYDj+IexRgD29rqLp5Equ/IoMLY2T8nyi9KMsMbjsxR9G8weYmUVPhJoSvCPfS30OqYbYEH8pUCggPugaGhpxjlsxj43zymM0Fy93OvC
-X-OriginatorOrg: foss.st.com
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 28 Sep 2026 13:00:23.9698
- (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: 4881372a-c0aa-4132-d119-08df1d6075d6
-X-MS-Exchange-CrossTenant-Id: 75e027c9-20d5-47d5-b82f-77d7cd041e8f
-X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=75e027c9-20d5-47d5-b82f-77d7cd041e8f;Ip=[164.130.1.60];Helo=[smtpO365.st.com]
-X-MS-Exchange-CrossTenant-AuthSource: MAD0EPF000008BF.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Anonymous
-X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: DB8PR10MB3864
+Content-Transfer-Encoding: 8bit
+X-AntiAbuse: This header was added to track abuse, please include it with any abuse report
+X-AntiAbuse: Primary Hostname - cp2.siel.si
+X-AntiAbuse: Original Domain - lists.infradead.org
+X-AntiAbuse: Originator/Caller UID/GID - [47 12] / [47 12]
+X-AntiAbuse: Sender Address Domain - norik.com
+X-Get-Message-Sender-Via: cp2.siel.si: authenticated_id: primoz.fiser@norik.com
+X-Authenticated-Sender: cp2.siel.si: primoz.fiser@norik.com
+X-Source: 
+X-Source-Args: 
+X-Source-Dir: 
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260928_060030_343984_E9E42829 
-X-CRM114-Status: GOOD (  13.61  )
+X-CRM114-CacheID: sfid-20260928_060047_775207_0494CE31 
+X-CRM114-Status: GOOD (  10.26  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -130,39 +91,112 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Mateusz
+Add device-tree for PHYTEC phyBOARD-Mira-i.MX6 DL board with eMMC. The
+variant with NAND storage is already present in-tree. Now let's add the
+eMMC variant for which the compatible string "imx6dl-pbac06-emmc"
+already exists too but was not used until now.
 
-On 9/24/26 21:23, Mateusz Nowicki wrote:
-> This series describes the digital temperature sensor (DTS) of the
-> STM32MP25, a Moortec MR75203 PVT controller, and enables its hwmon
-> driver in the arm64 defconfig. Thermal zones will follow in a separate
-> series once this one is applied.
-> 
-> Tested on the STM32MP257F-DK. Temperature sensor 1 follows the CPU
-> load. Two voltage monitor channels, in0 and in2, read about 815 mV. The
-> other 14 read 1 mV.
-> 
-> Questions for ST:
-> - The process detector and voltage monitor blocks are not in the
->    reference manual. Are they at offsets 0x180 and 0x400, as found on
->    the board? The downstream kernel places the process detector at
->    0x200, where no register responds on the DK.
-> - Which supplies are connected to the voltage monitor channels? With
->    this information, moortec,vm-active-channels could be added.
-> 
-> Mateusz Nowicki (2):
->    arm64: dts: st: add digital temperature sensor on stm32mp251
->    arm64: defconfig: enable Moortec MR75203 PVT controller
-> 
->   arch/arm64/boot/dts/st/stm32mp251.dtsi | 15 +++++++++++++++
->   arch/arm64/configs/defconfig           |  1 +
->   2 files changed, 16 insertions(+)
-> 
-> 
-> base-commit: 2f92d900f262a16c8ae02daf53ae2910d07185f5
+Signed-off-by: Primoz Fiser <primoz.fiser@norik.com>
+---
+ arch/arm/boot/dts/nxp/imx/Makefile            |  1 +
+ .../nxp/imx/imx6dl-phytec-mira-rdk-emmc.dts   | 75 +++++++++++++++++++
+ 2 files changed, 76 insertions(+)
+ create mode 100644 arch/arm/boot/dts/nxp/imx/imx6dl-phytec-mira-rdk-emmc.dts
 
-Applied on stm32-next.
+diff --git a/arch/arm/boot/dts/nxp/imx/Makefile b/arch/arm/boot/dts/nxp/imx/Makefile
+index c5caca92ea10..4361708f70e3 100644
+--- a/arch/arm/boot/dts/nxp/imx/Makefile
++++ b/arch/arm/boot/dts/nxp/imx/Makefile
+@@ -136,6 +136,7 @@ dtb-$(CONFIG_SOC_IMX6Q) += \
+ 	imx6dl-mba6b.dtb \
+ 	imx6dl-nit6xlite.dtb \
+ 	imx6dl-nitrogen6x.dtb \
++	imx6dl-phytec-mira-rdk-emmc.dtb \
+ 	imx6dl-phytec-mira-rdk-nand.dtb \
+ 	imx6dl-phytec-pbab01.dtb \
+ 	imx6dl-pico-dwarf.dtb \
+diff --git a/arch/arm/boot/dts/nxp/imx/imx6dl-phytec-mira-rdk-emmc.dts b/arch/arm/boot/dts/nxp/imx/imx6dl-phytec-mira-rdk-emmc.dts
+new file mode 100644
+index 000000000000..aa3239660bca
+--- /dev/null
++++ b/arch/arm/boot/dts/nxp/imx/imx6dl-phytec-mira-rdk-emmc.dts
+@@ -0,0 +1,75 @@
++// SPDX-License-Identifier: (GPL-2.0+ OR MIT)
++/*
++ * Copyright (C) 2018 PHYTEC Messtechnik GmbH
++ * Author: Christian Hemp <c.hemp@phytec.de>
++ */
++
++/dts-v1/;
++#include "imx6dl.dtsi"
++#include "imx6dl-phytec-phycore-som.dtsi"
++#include "imx6qdl-phytec-mira.dtsi"
++#include "imx6qdl-phytec-mira-peb-eval-01.dtsi"
++#include "imx6qdl-phytec-mira-peb-av-02.dtsi"
++#include "imx6qdl-phytec-mira-peb-wlbt-05.dtsi"
++
++/ {
++	model = "PHYTEC phyBOARD-Mira DualLite/Solo Carrier-Board with eMMC";
++	compatible = "phytec,imx6dl-pbac06-emmc", "phytec,imx6dl-pbac06",
++		     "phytec,imx6qdl-pcm058", "fsl,imx6dl";
++
++	chosen {
++		stdout-path = &uart2;
++	};
++};
++
++&can1 {
++	status = "okay";
++};
++
++&fec {
++	status = "okay";
++};
++
++&hdmi {
++	status = "okay";
++};
++
++&i2c1 {
++	status = "okay";
++};
++
++&i2c2 {
++	status = "okay";
++};
++
++&i2c_rtc {
++	status = "okay";
++};
++
++&m25p80 {
++	status = "okay";
++};
++
++&pcie {
++	status = "okay";
++};
++
++&uart3 {
++	status = "okay";
++};
++
++&usbh1 {
++	status = "okay";
++};
++
++&usbotg {
++	status = "okay";
++};
++
++&usdhc1 {
++	status = "okay";
++};
++
++&usdhc4 {
++	status = "okay";
++};
+-- 
+2.34.1
 
-regards
-Alex
 
