@@ -4,86 +4,122 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id F14F6CA5FA5
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 28 Sep 2026 15:15:39 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 842EDCA5FA2
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 28 Sep 2026 15:19:46 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=xnYPacrxh2Vf2kARWZmsahsEJWN2KdcsCERjzEKumDY=; b=yQqmMzvus0aIPqzN7niYtLYmcW
-	YbRmX2W/suf+/dRRia/0yLsmQ8y46By4ksWB8VrK1QLxmBDdTVZU9dzE6PCN7+ekUiQliu/Dd0ebD
-	Wdd0RaS0nFJDfUxWPbfRZHw9mt0F0D8OkGSPzPjvUbSc59LEc7jNouaxQU/jKqB9D91GJbK466/ar
-	jDxUoOjKswLtjniTwiLoZpkVL470SDgqi0r6mSlkLBgxs3tMlRLAHTrVe/fRCRjxqtMGpR96vy0EN
-	8xKO+gvBsiWRhFILYJyeg+LkRCu+KAz0G1vwdpsFAZ1pGAX+EhmSSZ4cJW7wEl7ixrwt+ni61Nqkq
-	bTtEkxnw==;
+	bh=b0NvfzIhMgoDaAcmLO9lnbeC2A03mNxAZEcGsZ2ya18=; b=HhnFXF/PYwf44EP9AF8RkU8U6/
+	GzKnvGRhZC25eo15NY6x5wr8eSbAPeu8rbggEeNp1iUUSem2lxAdYoNHb+cjuVdxFPlBOpzNc3g7N
+	2WnHVE6b0TBDMIB7wDHbIFM7Q0mL92NPxwdjXuykP1FZEweqqbRf3CNyYEmPrtvDSb0ZKOInRpq2T
+	GmiSpNN2IIMKTdso3fSHJvej+MmtSOHMx216dNEnYfw6ahblAAIcSU4ymubJvjTg7pmZ8xMJtpopa
+	6Du9Iq6/auQyr5GsFsh0feFKvtiGgxlHCoYSLNvLqjblW/fNPG05+Tfbda1P7GuDrDHIS/Qysy4SE
+	hW1nnkxw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xBD4n-00000000s71-3cOs;
-	Mon, 28 Sep 2026 15:15:33 +0000
-Received: from smtpout-02.galae.net ([185.246.84.56])
+	id 1xBD8k-00000000sYW-2KiQ;
+	Mon, 28 Sep 2026 15:19:38 +0000
+Received: from mail-pz2-x0c.google.com ([2607:f8b0:4864:3b::c])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xBD4k-00000000s5u-2z5u
+	id 1xBD8i-00000000sY5-0h3b
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 28 Sep 2026 15:15:32 +0000
-Received: from smtpout-01.galae.net (smtpout-01.galae.net [212.83.139.233])
-	by smtpout-02.galae.net (Postfix) with ESMTPS id 6742B1A103C;
-	Mon, 28 Sep 2026 15:15:26 +0000 (UTC)
-Received: from mail.galae.net (mail.galae.net [212.83.136.155])
-	by smtpout-01.galae.net (Postfix) with ESMTPS id 36700601BD;
-	Mon, 28 Sep 2026 15:15:26 +0000 (UTC)
-Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id CF143103294F8;
-	Mon, 28 Sep 2026 17:15:08 +0200 (CEST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=dkim;
-	t=1790608520; h=from:subject:date:message-id:to:cc:mime-version:content-type:
-	 content-transfer-encoding:content-language:in-reply-to:references;
-	bh=xnYPacrxh2Vf2kARWZmsahsEJWN2KdcsCERjzEKumDY=;
-	b=DYRMiRUI2yCubHBc/jLEDWCSg7bWV8uv5DRdc10KUOPsttxWpksmOSIJqHfdzEdQzR13TI
-	zfIz+gu681ikcAFurqJCci5EUE8jUDOXJbDqEIqOZAapTB/2bdcATQoN6/rXrK0/mnRBJn
-	+S+tzA2mL4I1cWChRfoNErkYzb6/qm1i31wJfoHMMDbR0t9h1BNBwft09ZSmvAAKdKEoz0
-	KFu2/SNKZ/nvvWEk9ACdej7qJRzK886tT+kISLvLdMRyZmNzsk+X4nUodqsv9WI+670EC2
-	PDq9OUTVWGsJzEnktcewWcQwLR7keBfJwS26Rkif7363ftwtf93lIiczYe5cmg==
-Message-ID: <dafc17ac-316e-4cfa-83e0-314d187fb3e4@bootlin.com>
-Date: Mon, 28 Sep 2026 17:15:07 +0200
+	Mon, 28 Sep 2026 15:19:37 +0000
+Received: by mail-pz2-x0c.google.com with SMTP id 41be03b00d2f7-cc750a1482fso1725433a12.2
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 28 Sep 2026 08:19:35 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20251104; t=1790608775; x=1791213575; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=b0NvfzIhMgoDaAcmLO9lnbeC2A03mNxAZEcGsZ2ya18=;
+        b=rDpTJ/p6dl2pB1RnNHo1IHB1xsYF3KMB5uq7YwCjd+xr8XUOP0xND5OWuZOwbQWNEl
+         DsoYGS9LZojoY+S1sK/59iIWE8+KyGV7S7cQ8qIB+EepgBJRtodeYnoGD4YplpzSRbCU
+         rqpSbgz2aw+YQg++aXwOuf0TYlamoRR3DndZ+eyCGaNZbI1m3mwlCL+JkIw3rPBbT4qv
+         unuNhU2eH846bepJfT1/atM8ElHJHEmqsht6ncM8PvILyj9q+Saxr4H2rkJBCivYFSEQ
+         5q4rnV6RmgtsRJ5XMXCMYxk0bln40fyGRBPLSQ1ECKCw1pqRwa4CrCcz1GFoXMHy/Z0b
+         vEqg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1790608775; x=1791213575;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
+         :to:cc:subject:date:message-id:reply-to:content-type;
+        bh=b0NvfzIhMgoDaAcmLO9lnbeC2A03mNxAZEcGsZ2ya18=;
+        b=NhBlStzsIJN9oPShab9y0q6WNtjmXQGzYvPd2nzuMrzTMYKJQoE+lmb3gK5ur/rG/F
+         G++6dp/EILR/uWKvcr/ya1STbvOvCE4ZoIDrXrGL8IyWf7KzSTrDx8UdBKqdPT+EPOZL
+         X4jpENkNWYOwKNJC+hikFpF2forUzO5iuSGub7ORtEPgTv/kis00IsIo9Nl3lZHsce8C
+         qHJ0cH4VC9bwGZn+oDf1fzh3aPwESS6U92kTIlh+qecszNdWj5Lh8Zcq+5oR0LLFuURQ
+         mxwcH6Zf6ju7U7VBTw5shZlQwfKdABNcf1Bc5f/FnQsm56eHPmfxxDJ7xWqmZhpdIqi1
+         Xc7Q==
+X-Forwarded-Encrypted: i=1; AKwUvBysdPTm2aI3yWEUaV7I/8V6YtHGuxco+jCL/kgxIbMf+D8AjCxO5YDMCBZCmWs+2qeyhaPFDLQxxJIZC4FIsatX@lists.infradead.org
+X-Gm-Message-State: AFq9FYKzPpwgxQgpLhyiDKyg8Ynu4DscGqIqQ38sNA03UncKubln1dbW
+	+r1CAOhQ/tMi2c7pPb6RVcb/Bwdaqv2kMzh0Z/0kwwTnC79M5Fx+WvNN
+X-Gm-Gg: AYBFou2S9DFp+0cYcotfA3p4PSucLzghSef7DAfx3pjGgEdTZaRl3P4JaACfvJp42Wm
+	vec6rl7zjGcqcCW7mXKpUe6IXgWpcSByxhZb3WLeWdpQklbbRPq0hfg2tCORhS0spPu6TPVXQaZ
+	GB20DNCViShLPDJj0Lx9M24zwKh3cBEAmTXUvuHI9NLr8vKSjAp91ewBSl+OkxSWGRWa05tlhs7
+	QffNXN8q0RwUcbijLpDo/tfgnThCLypcw0I5riwvRqCZzj5BQC8sT6BUl85Aunv3cdZ4UzXoHPD
+	QzbacfsraUeTPbMYufpBMnT9ZCM9y0+wYBwrMYAF9Jmghj3M815vjdACbIqfb4Kf0r8+DGTtO3t
+	yc0+W7Dglc37QB8rDTflfjTKcHEJfm1Kh+1FMktfXULqm9sORqvW/w5bBLaF7T9gGeNkFiWPYg6
+	VnKMY0ichRT22ntXAOckiAytNEjME0o+Vblq6x2Wyuo/I5FUAy5DfZwRRLAz+ks7LLSyujW0LuM
+	/R4RNmTxeMhcRUlzmei4Er1ktBTwEz5vyAsROxQZMVUyOv76h737CvCoLruoyLGY9ndVV9Fxcme
+	YZ1D/aaIWVbU3mTmrth9o6kh/DBWYRoYXZoRBClREZr/qIdhVLvpRl+v8pI=
+X-Received: by 2002:a17:90b:384c:b0:39e:5acb:2849 with SMTP id 98e67ed59e1d1-3a0bb576e5cmr8742632a91.17.1790608774215;
+        Mon, 28 Sep 2026 08:19:34 -0700 (PDT)
+Received: from spider.bream-herring.ts.net ([103.6.151.236])
+        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-3a0b99e5220sm20891502a91.16.2026.09.28.08.19.26
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Mon, 28 Sep 2026 08:19:33 -0700 (PDT)
+From: Matthias Goergens <matthias.goergens@gmail.com>
+To: Chris Li <chrisl@kernel.org>
+Cc: Andrew Morton <akpm@linux-foundation.org>,
+	Kairui Song <kasong@tencent.com>,
+	Johannes Weiner <hannes@cmpxchg.org>,
+	David Hildenbrand <david@kernel.org>,
+	Michal Hocko <mhocko@kernel.org>,
+	Shakeel Butt <shakeel.butt@linux.dev>,
+	Kemeng Shi <shikemeng@huaweicloud.com>,
+	Nhat Pham <nphamcs@gmail.com>,
+	Yosry Ahmed <yosry@kernel.org>,
+	Youngjun Park <youngjun.park@lge.com>,
+	Baoquan He <baoquan.he@linux.dev>,
+	Barry Song <baohua@kernel.org>,
+	linux-mm@kvack.org,
+	linux-kernel@vger.kernel.org,
+	cgroups@vger.kernel.org,
+	linux-api@vger.kernel.org,
+	Alejandro Colomar <alx@kernel.org>,
+	linux-man@vger.kernel.org,
+	Karel Zak <kzak@redhat.com>,
+	util-linux@vger.kernel.org,
+	Jani Nikula <jani.nikula@linux.intel.com>,
+	Joonas Lahtinen <joonas.lahtinen@linux.intel.com>,
+	Rodrigo Vivi <rodrigo.vivi@intel.com>,
+	Tvrtko Ursulin <tursulin@ursulin.net>,
+	David Airlie <airlied@gmail.com>,
+	Simona Vetter <simona@ffwll.ch>,
+	intel-gfx@lists.freedesktop.org,
+	dri-devel@lists.freedesktop.org,
+	"Rafael J . Wysocki" <rafael@kernel.org>,
+	Pavel Machek <pavel@kernel.org>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Will Deacon <will@kernel.org>,
+	linux-pm@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	Shuah Khan <shuah@kernel.org>,
+	linux-kselftest@vger.kernel.org
+Subject: Re: [RFC PATCH v2 0/4] mm/swap: reserve swap areas for deliberate offload
+Date: Mon, 28 Sep 2026 23:19:24 +0800
+Message-ID: <20260928151924.2686290-1-matthias.goergens@gmail.com>
+X-Mailer: git-send-email 2.55.0
+In-Reply-To: <CACePvbWM8kMjtJbH4vc6Qt=TBZQ-0d-Yj9NOtkepZmtNN3wd9w@mail.gmail.com>
+References: <20260926045517.3458413-1-matthias.goergens@gmail.com> <CACePvbWM8kMjtJbH4vc6Qt=TBZQ-0d-Yj9NOtkepZmtNN3wd9w@mail.gmail.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH RFC net-next 8/9] net: stmmac: qcom-ethqos: support
- external PCS
-To: Mohd Ayaan Anwar <mohd.anwar@oss.qualcomm.com>,
- Andrew Lunn <andrew+netdev@lunn.ch>, "David S. Miller"
- <davem@davemloft.net>, Eric Dumazet <edumazet@google.com>,
- Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
- Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
- Conor Dooley <conor+dt@kernel.org>, Serge Semin <fancer.lancer@gmail.com>,
- Andrew Lunn <andrew@lunn.ch>, Heiner Kallweit <hkallweit1@gmail.com>,
- Russell King <linux@armlinux.org.uk>,
- Richard Cochran <richardcochran@gmail.com>,
- Bjorn Andersson <andersson@kernel.org>,
- Konrad Dybcio <konradybcio@kernel.org>,
- Alexandre Torgue <alexandre.torgue@foss.st.com>,
- Giuseppe Cavallaro <peppe.cavallaro@st.com>,
- Jose Abreu <joabreu@synopsys.com>,
- Maxime Coquelin <mcoquelin.stm32@gmail.com>
-Cc: netdev@vger.kernel.org, devicetree@vger.kernel.org,
- linux-kernel@vger.kernel.org, linux-arm-msm@vger.kernel.org,
- linux-stm32@st-md-mailman.stormreply.com,
- linux-arm-kernel@lists.infradead.org,
- Lorenzo Bianconi <lorenzo.bianconi@oss.qualcomm.com>,
- Shawn Guo <shengchao.guo@oss.qualcomm.com>,
- Zhangfei Gao <zhangfei.gao@oss.qualcomm.com>,
- Jitendra Vegiraju <jitendra.vegiraju@broadcom.com>
-References: <20260923-qcom_xpcs_nord_emac-v1-0-4b1c682af70f@oss.qualcomm.com>
- <20260923-qcom_xpcs_nord_emac-v1-8-4b1c682af70f@oss.qualcomm.com>
-Content-Language: en-US
-From: Maxime Chevallier <maxime.chevallier@bootlin.com>
-In-Reply-To: <20260923-qcom_xpcs_nord_emac-v1-8-4b1c682af70f@oss.qualcomm.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
-X-Last-TLS-Session-Version: TLSv1.3
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260928_081530_899874_9EA9103F 
-X-CRM114-Status: GOOD (  15.83  )
+X-CRM114-CacheID: sfid-20260928_081936_214996_7B26656C 
+X-CRM114-Status: GOOD (  15.51  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -98,54 +134,38 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Ayaan,
+Hi Chris,
 
-On 9/23/26 03:07, Mohd Ayaan Anwar wrote:
-> Select the XPCS instance initialized by stmmac when firmware provides
-> a pcs-handle. Reject interfaces that are not supported by the selected
-> PCS.
-> 
-> Signed-off-by: Mohd Ayaan Anwar <mohd.anwar@oss.qualcomm.com>
-> ---
->  .../net/ethernet/stmicro/stmmac/dwmac-qcom-ethqos.c  | 20 ++++++++++++++++++++
->  1 file changed, 20 insertions(+)
-> 
-> diff --git a/drivers/net/ethernet/stmicro/stmmac/dwmac-qcom-ethqos.c b/drivers/net/ethernet/stmicro/stmmac/dwmac-qcom-ethqos.c
-> index ac7d6d3e205a1ab5b391def879d6f1033a0961b6..a99a78880c0fb7858e90b6212b37ebfc7fccaf84 100644
-> --- a/drivers/net/ethernet/stmicro/stmmac/dwmac-qcom-ethqos.c
-> +++ b/drivers/net/ethernet/stmicro/stmmac/dwmac-qcom-ethqos.c
-> @@ -7,6 +7,8 @@
->  #include <linux/platform_device.h>
->  #include <linux/phy.h>
->  #include <linux/phy/phy.h>
-> +#include <linux/pcs/pcs-xpcs.h>
-> +#include <linux/property.h>
->  
->  #include "stmmac.h"
->  #include "stmmac_platform.h"
-> @@ -681,6 +683,21 @@ static void ethqos_ptp_clk_freq_config(struct stmmac_priv *priv)
->  	netdev_dbg(priv->dev, "PTP rate %lu\n", plat_dat->clk_ptp_rate);
->  }
->  
-> +static struct phylink_pcs *
-> +qcom_ethqos_select_pcs(struct stmmac_priv *priv, phy_interface_t interface)
-> +{
-> +	struct phylink_pcs *pcs;
-> +
-> +	if (!priv->hw->xpcs)
-> +		return ERR_PTR(-ENODEV);
+Thanks for resolving the conflicts yourself and reviewing it.
 
-If there's no device (i.e. no PCS), then you should return NULL.
+> What is the high-level user-visible impact of this series?
 
-> +
-> +	pcs = xpcs_to_phylink_pcs(priv->hw->xpcs);
-> +	if (!test_bit(interface, pcs->supported_interfaces))
-> +		return ERR_PTR(-EOPNOTSUPP);
+Being able to use more interesting swap backends and logic when the
+machine is not under memory pressure.  It is much easier to write a
+swap backend that may occasionally allocate memory than one that is
+guaranteed never to, so today such backends are either unsafe as swap
+or ruled out (btrfs, for example, refuses swapfiles that are
+copy-on-write, checksummed or compressed).
 
-phylink already checks if the interface is in pcs->supported_interfaces,
-no need to do it here :)
+> I am curious: if we never run out of swap file space on the
+> non-offload swap area, does that mean we don't need this patch series?
+
+No: running out of conventional swap isn't the point.  Without the
+series, any active swap area may be written under pressure, so a
+backend that may allocate can't be used as swap at all, however much
+conventional swap there is next to it.
+
+> However, direct reclaim can use both types of swap areas.
+
+In v2 it can't: only memory.reclaim, per-node reclaim and MGLRU's
+debugfs eviction may write new data to an offload-only area; direct
+reclaim, kswapd, MADV_PAGEOUT and DAMON reclaim may not.  But I think
+your suggestion to flip it round is closer to what I want: mark the
+areas whose writes may allocate, and keep pressure reclaim away from
+those, rather than tying it to what started the reclaim.  I'll work
+that into v3, together with Kairui's suggestion to build on the swap
+tiers work.
 
 Thanks,
-
-Maxime
+Matthias
 
