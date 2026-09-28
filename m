@@ -4,67 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 01A3AC9833F
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 28 Sep 2026 10:13:54 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CE499C9833E
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 28 Sep 2026 10:16:15 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=L0S3li9Bqt2bmvWzA3H4R51AJ0liwA7cd4Jrmw8r290=; b=WocQGqCBDZegtSTnLen8BTM0Uv
-	bpZLajxnGA8AL7nkaZpXjzYbM1jE8DyFMnJqoRsxMHtX3Q0ftTbUaNoGMjiIcLRzXDIcQuIe+jzva
-	wpoiuH/Ns8DF4qyAELKzYX+LTm3qMY9tMykYnVC/mf4U9kBB4hPzPjyJceSHBu+T4SA76Rr4g7V4Q
-	qN3LfnWFEdoO35HxmbjNV6VcgezQUILzjkL/1IO3MW7Z+w5YjW+lycJmaJdOrq+m8PC5BhSWwIriN
-	J4yKou28wGL38nJaJ9QjRl2SIVQzXPIHUtFBk/4nT16aETNCKJTY9bs86lujl+DK43xKjYShmiFTz
-	8icKfm9A==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:Message-Id:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:From:
+	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
+	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=e8ljvwO9tCJVUIr1sIIhyeWigwvCFhuXcYs6LrXQA6Y=; b=eEp35RxdYQWpnDd0n/9f0cjxlf
+	UiUDdmRE0RS1OafRn2deFJpK13XJ+Tkzm4U6sik0o2nm1EblZClfa5DjpqC8VKoum03n2xkRRJ/ee
+	4/AWv8UWGaJpRakaWvFy++xlRcp59LxtDQnDfh+DoGduiHSzvTxBNN5Whs1vdL/nymYuzXg8YzeZg
+	XVp0QAYtALj08eGHOBXuvMvikrQ7twAfkRXqAtpGnBAbSekNFcbovxzctsjzefjzLCocIkcEuOVMY
+	ktd9dhGl+7POr8sahPW/QyR3GZsJxSMMTqmFf+0F4tr4fEQNX5+kH1jW4/doRol92VdyGfYOa8h9e
+	TVclxq0A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xB8Mm-00000000K2g-2GSN;
-	Mon, 28 Sep 2026 10:13:48 +0000
+	id 1xB8P3-00000000KJr-0VkP;
+	Mon, 28 Sep 2026 10:16:09 +0000
 Received: from foss.arm.com ([217.140.110.172])
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xB8Mj-00000000K28-2LVD
+	id 1xB8Oz-00000000KIo-1NCu
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 28 Sep 2026 10:13:47 +0000
+	Mon, 28 Sep 2026 10:16:08 +0000
 Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 83A0D1595;
-	Mon, 28 Sep 2026 03:13:40 -0700 (PDT)
-Received: from [10.57.12.79] (unknown [10.57.12.79])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 8F3253F86F;
-	Mon, 28 Sep 2026 03:13:40 -0700 (PDT)
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 2E42F1595;
+	Mon, 28 Sep 2026 03:16:01 -0700 (PDT)
+Received: from e132581.arm.com (unknown [10.2.196.114])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id C36183F86F;
+	Mon, 28 Sep 2026 03:16:02 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1790590424; bh=L4rj5sebU0MgVvbIqYSRSR7LTOTUxoD15WXyP2ljPok=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=FtXcuGe5Bf9/0/FkzKwLKEy+JoJg8ovzaYSX2D2/AliXaV5Mu/9pP37XIhE5v6fV3
-	 zwG/SPm1X9FHl8h9u4+rG242LQ2Y7sNXNJEj09s0mPMYE1rl1NvyZRqzOeDT+hBKCE
-	 BAvBPp1hyT7DyFZ0607j5nyKtRA6XXRnoD1oNYF4=
-Message-ID: <4fabad44-280f-40e6-95bb-49011cd2f185@arm.com>
-Date: Mon, 28 Sep 2026 11:13:39 +0100
+	t=1790590564; bh=TLcuAfNS5WGF0Ruj4addevBg9cjbks/F3rMnppHCpFQ=;
+	h=From:Date:Subject:To:Cc:From;
+	b=Qj293lBg/6b843xYXIk9YO/DL5ZlcuD8zBJGerZdZts+ENqsUVJep4w+Pc6KlwNJj
+	 nyWECdxejVewrMEYaQiMLr6lXZE+ra/3nb/mQeRs+c2ubsQmD8OFwQlfyDFmFqeQrz
+	 xKnzNC2CzPiDqaIAxo9yZSeKOCIuFOPJOIzGhrzQ=
+From: Leo Yan <leo.yan@arm.com>
+Date: Mon, 28 Sep 2026 11:15:51 +0100
+Subject: [PATCH v2] perf test: Record kcore for the CoreSight callchain
+ test
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v19 4/7] firmware: arm_rmm: Add support for SRO
-Content-Language: en-GB
-To: Catalin Marinas <catalin.marinas@arm.com>
-Cc: kvm@vger.kernel.org, kvmarm@lists.linux.dev, maz@kernel.org,
- will@kernel.org, linux-kernel@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, steven.price@arm.com,
- aneesh.kumar@kernel.org, oupton@kernel.org, gshan@redhat.com,
- joey.gouly@arm.com, tabba@google.com, yuzenghui@huawei.com,
- linux-coco@lists.linux.dev, gankulkarni@os.amperecomputing.com,
- sdonthineni@nvidia.com, alpergun@google.com, fj0570is@fujitsu.com,
- WeiLin.Chang@arm.com, lpieralisi@kernel.org, enju.kohei@fujitsu.com,
- sudeep.holla@arm.com, jonathan.cameron@oss.qualcomm.com,
- Gareth Stockwell <Gareth.Stockwell@arm.com>
-References: <20260924135201.850038-1-suzuki.poulose@arm.com>
- <20260924135201.850038-5-suzuki.poulose@arm.com> <arozNIQ-fQ0XQViI@arm.com>
-From: Suzuki K Poulose <suzuki.poulose@arm.com>
-In-Reply-To: <arozNIQ-fQ0XQViI@arm.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
+Message-Id: <20260928-perf_cs_etm_callchain_test_add_kcore-v2-1-24fff6fab009@arm.com>
+X-B4-Tracking: v=1; b=H4sIAFY+umoC/x2N0QqDMAwAf0XyvIIWJna/MkYoaaphrkpSZCD++
+ 8oeD467E4xV2ODRnaB8iMlWGvhbB7TEMrOT1Bh878c++MntrBnJkOsHKa5rs6RgZasYU8I3bco
+ uh5GnMOQw0B1aalfO8v1vnq/r+gGBWobudgAAAA==
+X-Change-ID: 20260928-perf_cs_etm_callchain_test_add_kcore-f96e891f91c5
+To: Arnaldo Carvalho de Melo <acme@kernel.org>, 
+ Namhyung Kim <namhyung@kernel.org>, Jiri Olsa <jolsa@kernel.org>, 
+ Ian Rogers <irogers@google.com>, Adrian Hunter <adrian.hunter@intel.com>, 
+ Suzuki K Poulose <suzuki.poulose@arm.com>, Mike Leach <mike.leach@arm.com>, 
+ James Clark <james.clark@linaro.org>, Leo Yan <leo.yan@arm.com>
+Cc: coresight@lists.linaro.org, linux-arm-kernel@lists.infradead.org, 
+ linux-perf-users@vger.kernel.org, linux-kernel@vger.kernel.org
+X-Mailer: b4 0.14.2
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1790590562; l=1896;
+ i=leo.yan@arm.com; s=20250604; h=from:subject:message-id;
+ bh=TLcuAfNS5WGF0Ruj4addevBg9cjbks/F3rMnppHCpFQ=;
+ b=PBLAJZQTz4UAxqKrLyv3CqWD4tY8pyLYcqZhXfLSXqr1Oaz+AT7oVouvPfS9f4nU0Vezdmpw/
+ 96D3DunWinYB0n/QnueUdjkNQgEPoW4JEGspaRGqwiD5ogGg8Fr8j/Z
+X-Developer-Key: i=leo.yan@arm.com; a=ed25519;
+ pk=k4BaDbvkCXzBFA7Nw184KHGP5thju8lKqJYIrOWxDhI=
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260928_031345_807317_7898A01D 
-X-CRM114-Status: GOOD (  22.80  )
+X-CRM114-CacheID: sfid-20260928_031605_459984_92BC3FAF 
+X-CRM114-Status: GOOD (  14.33  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -79,83 +83,60 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 28/09/2026 10:28, Catalin Marinas wrote:
-> On Thu, Sep 24, 2026 at 02:51:58PM +0100, Suzuki K Poulose wrote:
->> +long rmi_sro_memxfer_execute(struct rmi_sro_state *sro, gfp_t gfp)
->> +{
->> +	struct arm_smccc_1_2_regs *regs = &sro->regs;
->> +	bool cancelled = false;
->> +	unsigned long sro_handle;
->> +
->> +	rmi_smccc_invoke(regs);
->> +
->> +	sro_handle = regs->a1;
->> +	while (RMI_RESULT_STATUS(regs->a0) == RMI_INCOMPLETE) {
->> +		bool can_cancel = RMI_RESULT_CAN_CANCEL(regs->a0) == RMI_OP_CAN_CANCEL;
->> +		int ret = 0;
->> +
->> +		switch (RMI_RESULT_MEMREQ(regs->a0)) {
->> +		case RMI_OP_MEM_REQ_NONE:
->> +			rmi_op_continue(sro_handle, RMI_CONTINUE_KEEP_GOING,
->> +					regs);
->> +			break;
->> +		case RMI_OP_MEM_REQ_DONATE:
->> +			ret = rmi_sro_donate(sro, sro_handle, regs->a2, regs,
->> +					     gfp);
->> +			break;
->> +		case RMI_OP_MEM_REQ_RECLAIM:
->> +			ret = rmi_sro_reclaim(sro, sro_handle, regs);
->> +			break;
->> +		default:
->> +			WARN_ON_ONCE(1);
->> +			ret = -ENXIO;
->> +			break;
->> +		}
-> 
-> Another thing I came across while looking whether we can defer the
-> activation. It seems that the spec (I_JVYCH) lists some SROs as
-> PE-bound. Nothing here or in rmi_sro_execute() disables migration and
-> the memory allocation paths can even sleep with GFP_KERNEL.
+The CoreSight callchain test traces both userspace and kernel execution
+and checks the callchain across a syscall.
 
-No, this is not required. I agree this is confusing. I will get it
-clarified.
+Add --kcore to perf record to save the running kernel image alongside
+the trace data so perf script can use it to decode the kernel trace.
+If kcore is not available, the test will be skipped.
 
-So, there are two different sources for the SRO contexts. One is a 
-global pool and the other an Object.
+Add a Fixes tag so the change can be backported to stable kernels and
+improve the test reliability.
 
-e.g., For an RMI operation on an Object, SRO context can be the object
-itself (e.g., REC_CREATE, REALM_ACTIVATE etc.)
+Fixes: ca0e19074bd6 ("perf test: Add Arm CoreSight callchain test")
+Reviewed-by: James Clark <james.clark@linaro.org>
+Signed-off-by: Leo Yan <leo.yan@arm.com>
+---
+Changes in v2:
+- Add check /proc/kcore and skip test if absent.
 
-However, when there is no reliable object for the command (e.g., 
-RMI_GRANULE_RANGE_DELEGATE), the RMM must allocate a context from
-the global pool. Now, the "PE" in there comes from a recommendation
-to the RMM implementations, that the global pool size must depend on
-the number of PEs on the system. This doesn't mean that the SRO
-handles are only bound to those PEs. I will get this clarified
-in the RMM spec.
+Signed-off-by: Leo Yan <leo.yan@arm.com>
+---
+ tools/perf/tests/shell/coresight/callchain.sh | 7 ++++++-
+ 1 file changed, 6 insertions(+), 1 deletion(-)
 
-Cheers
-Suzuki
+diff --git a/tools/perf/tests/shell/coresight/callchain.sh b/tools/perf/tests/shell/coresight/callchain.sh
+index 13cca7dc11184002e3ddc058c0d0ffa1c458c483..43ad90bc30345efdd40ba4649ceeb435a1781a4b 100755
+--- a/tools/perf/tests/shell/coresight/callchain.sh
++++ b/tools/perf/tests/shell/coresight/callchain.sh
+@@ -30,6 +30,11 @@ skip_if_system_is_not_ready()
+ 		return 2
+ 	}
+ 
++	[ -e /proc/kcore ] || {
++		echo "[Skip] /proc/kcore is not available" >&2
++		return 2
++	}
++
+ 	return 0
+ }
+ 
+@@ -43,7 +48,7 @@ record_trace()
+ 
+ 	mkfifo "$cf" "$af"
+ 
+-	perf record -o "$data" -e cs_etm// --per-thread -D -1 --control fifo:"$cf","$af" -- \
++	perf record --kcore -o "$data" -e cs_etm// --per-thread -D -1 --control fifo:"$cf","$af" -- \
+ 		perf test --record-ctl fifo:"$cf","$af" -w callchain >/dev/null 2>&1 &&
+ 
+ 	# It is safe to use 'i3i' with a three-instruction interval, since the
 
+---
+base-commit: 0ae6fc78c5ce0dfd18d8712a50f0fd4602eff103
+change-id: 20260928-perf_cs_etm_callchain_test_add_kcore-f96e891f91c5
 
-
-> 
-> Do we need to disable preemption (only for rmi_sro_execute()) or at
-> least migration (the memxfer path)? We did something similar for the RSI
-> attestation token loop, commit 24f55f511b9e ("virt: arm-cca-guest: use
-> migrate_disable() for attestation token requests").
-> 
-> With only migration disabled, another thread on the same CPU
-> issuing a PE-bound SRO would get RMI_BLOCKED (R_NDXSG). In theory, we
-> can get a priority inversion case (maybe this doesn't happen with the
-> current implementation, just looking at the API design). The RMI_BLOCKED
-> fix not to loop forever probably saves us but the caller would have to
-> actively sleep or give up before retrying (i.e. don't move the busy loop
-> higher app the call stack).
-> 
-> Another option is to have a per-CPU mutex here and serialise the SROs
-> which are PE-bound (there are some precedents for per-CPU mutexes in the
-> kernel).
-> 
+Best regards,
+-- 
+Leo Yan <leo.yan@arm.com>
 
 
