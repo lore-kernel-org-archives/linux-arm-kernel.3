@@ -4,69 +4,73 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 43CE5CA5FA2
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 28 Sep 2026 16:32:11 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 03A60CA5FA2
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 28 Sep 2026 16:32:51 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
+	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=LSSkPt0tyd7BePBQ11bLsPWDs6ALcf5DvYsfQdZG8n4=; b=ILJdlZEFA7NdWpIif0Qn421aPq
-	7NHgm7uRHkO8HoKOwAJAh8nGTmnRrMRJh3tJteKj5wg16DUV3Fkrh88SFj4Sn3ZcUflOSKvbZ/Ivs
-	Uzx41c7G6rXJcc/sDI616fIpbHNr4jkUO05lEGfFoEZY/iVJorYS2FUdEcVAzQUCzUkmoEAJd18dw
-	gEL0Ec5A8amjCBlA6J/JSyk51/yIEg4SPzEz/2wSdbXFYwJWC7z0nGWeEGrIKncVzpXsSzY4GbZhD
-	2TQZoZA+05Y5aPErOVOujfygPE5jZFpUZCM7GLinzfHCNuP3N8XR+o901XcQRr4DCnP35Du7lqyJM
-	qF8Ts6ug==;
+	bh=VCYMxlYVrU0ZRUnBfl0gDlG7/5tTg9Tcf8QxOVlz+MI=; b=KYe79OqEANY/S0++nU7zg8Wvjj
+	79Vodfc2hwwYu6Z24rFCmFZaKFp5V09wigJndtDe2zSyWmowF0VkDQWy2BpVjqOMhyoC8B/ZlUb+6
+	CZHXE2wtghXtMBQBSZgd2ogTHNSB+bbKy3wR4BrcTFmF6D2hHnZBbQc42iqFXzK781bd6f6tYolDm
+	OWMWqbgGZ6E8CJ3yR1sTslYwFpDiSVjoe4bxm/Y7Z0OPXSay9J7u2gBmA8o/ZAHWKBew7njLR16lY
+	wVXHu1poxcDl/sm3gGA2GFkV99x6IstA/J72ssSQe2W4J0pM2vALSX7D0p+cbpqxFWTM1MPC0GQEJ
+	yHgFc5qA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xBEGq-000000012Q1-42r7;
-	Mon, 28 Sep 2026 16:32:04 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1xBDye-00000000ytL-4B1t;
+	Mon, 28 Sep 2026 16:13:16 +0000
+Received: from out-98.mta1.migadu.com ([2001:41d0:203:375::62] helo=mta1.migadu.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xBEGo-000000012Pl-3V0H
+	id 1xBDyc-00000000ysl-2IWs
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 28 Sep 2026 16:32:02 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 845DC433DD;
-	Mon, 28 Sep 2026 16:32:02 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 606F91F000FF;
-	Mon, 28 Sep 2026 16:31:59 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1790613122;
-	bh=LSSkPt0tyd7BePBQ11bLsPWDs6ALcf5DvYsfQdZG8n4=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=LpNXrGFnb9HaIuC8KX+e1iSYACFonoGQ0XWZS0Jcu7fAbYY/0JFYUISitpzMeAumN
-	 kzlUFfKyoXMMm0pixrV6hJcU7BE4QZk88lJ+QiX+FPnePwDm5fyD67vn5zX22lAGqS
-	 Pj30lD989kxJg3QZwidBzL+PiG5Az2MOsktAxVPi1HH+yaMKJLUx67ebxL2/EbhTqd
-	 JttFmrpIeh7P9efWcxk0tcq4ct1PhGu7NgzjeVhiTd3ARNba+ataEd+qF1oX6paRtF
-	 nbbrjoVuFG01AlYzLZdhQoC1UmsZ3nBcZMlhpwF9hGP/bmi+ViviPcEInsV/nT2j8Q
-	 3CL+lz7I9f2MQ==
-Date: Mon, 28 Sep 2026 17:31:56 +0100
-From: Mark Brown <broonie@kernel.org>
-To: "Lorenzo Stoakes (ARM)" <ljs@kernel.org>
-Cc: Marc Zyngier <maz@kernel.org>, Oliver Upton <oupton@kernel.org>,
-	Joey Gouly <joey.gouly@arm.com>,
-	Steffen Eiden <seiden@linux.ibm.com>,
-	Suzuki K Poulose <suzuki.poulose@arm.com>,
-	Zenghui Yu <yuzenghui@huawei.com>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Will Deacon <will@kernel.org>, Fuad Tabba <fuad.tabba@linux.dev>,
-	Peter Maydell <peter.maydell@linaro.org>,
-	linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev,
-	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v3 3/3] KVM: arm64: selftests: Check ID regs are
- immutable after a failed run
-Message-ID: <83a389d3-6328-4762-a96f-46f9f7145b0e@sirena.org.uk>
-References: <20260901-kvm-arm64-idreg-final-v3-0-a0ffa06fa872@kernel.org>
- <20260901-kvm-arm64-idreg-final-v3-3-a0ffa06fa872@kernel.org>
- <arp7mig_PrD9Jbc7@gremlin>
+	Mon, 28 Sep 2026 16:13:16 +0000
+X-Envelope-To: linux-arm-kernel@lists.infradead.org
+DKIM-Signature: a=rsa-sha256; bh=VCYMxlYVrU0ZRUnBfl0gDlG7/5tTg9Tcf8QxOVlz+MI=;
+ c=simple/simple; d=linux.dev;
+ h=from:to:subject:date:message-id:mime-version:content-type; s=key1;
+ t=1790611992; v=1; x=1791216792;
+ b=lOWNlF49DgLMiQP6FVUexHLquA93qgRmOln+VgM3ThgoENZebP/kimKLbr/+bmD4zuMjU3m/
+ N0mbM5+KAaRJVZ223ehMM7iBn6914TgdDTjK5gF5WFJIbfOEIMGKPfKfhbSOtg1d5BwTGEKaOuD
+ iEsGsicbsUmFfK3R0RmvHXYg=
+X-Envelope-To: linux-arm-kernel@lists.infradead.org
+Received: by smtp.migadu.com with ESMTPS id 3ac29f528f0360cb;
+	Mon, 28 Sep 2026 16:13:12 +0000
+X-Mizu-Trace-ID: 3ac29f528f0360cb
+X-Migadu-Flow: FLOW_OUT
+Received: by mail-lf1-f54.google.com with SMTP id 2adb3069b0e04-5b8e81e2a0bso12707e87.0
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 28 Sep 2026 09:13:10 -0700 (PDT)
+X-Forwarded-Encrypted: i=1; AKwUvBwoU+5KcpXbC+W3YUpV8+r7i2d339OlKlc68vEAKOS6jlrbprGJlsXc63RB5n69FFCWy5o+bpYoDbdytq/9v34C@lists.infradead.org
+X-Gm-Message-State: AFq9FYKI0sF2n9HplRh5iNkbE/QvvFaxkuvdacKSIEQvUmnH9nJd8YiM
+	Z0XKnAhGqG1+8XxNMQnBMmYrHL5dSHTZ9b0B2BrvYJ47ZTB4z+9xFa2huek+4n3Mmcv5YdR/qZ3
+	01AOlDPaDMbaqYe9p8xjVtmTTpOLmGMuGG16C8nDD
+X-Received: by 2002:ac2:4650:0:b0:5b8:f142:cf3 with SMTP id
+ 2adb3069b0e04-5b8f1420dc7mr105362e87.11.1790611989788; Mon, 28 Sep 2026
+ 09:13:09 -0700 (PDT)
 MIME-Version: 1.0
-Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="AAMnBzaO3gKbG6DA"
-Content-Disposition: inline
-In-Reply-To: <arp7mig_PrD9Jbc7@gremlin>
-X-Cookie: All is fear in love and war.
+References: <20260928152507.2116110-1-fuad.tabba@linux.dev> <86cxtx4bbp.wl-maz@kernel.org>
+In-Reply-To: <86cxtx4bbp.wl-maz@kernel.org>
+From: Fuad Tabba <fuad.tabba@linux.dev>
+Date: Mon, 28 Sep 2026 17:12:33 +0100
+X-Gmail-Original-Message-ID: <CA+EHjTymQqcARDNHHDvkjFvEuf1C78NsvPJwcnaH4bOu-m9tQw@mail.gmail.com>
+X-Gm-Features: AclHuK-OWctusFN_TR3hIpHHx8_H0y3i7Oz0Ee1onONuAo5w9l_i54qFA-ucEZA
+Message-ID: <CA+EHjTymQqcARDNHHDvkjFvEuf1C78NsvPJwcnaH4bOu-m9tQw@mail.gmail.com>
+Subject: Re: [PATCH v1 00/10] KVM: arm64: Nested stage-2 walk error handling
+ and other small fixes
+To: Marc Zyngier <maz@kernel.org>
+Cc: Oliver Upton <oupton@kernel.org>, kvmarm@lists.linux.dev, 
+	linux-arm-kernel@lists.infradead.org, Joey Gouly <joey.gouly@arm.com>, 
+	Suzuki K Poulose <suzuki.poulose@arm.com>, Zenghui Yu <yuzenghui@huawei.com>, 
+	Steffen Eiden <seiden@linux.ibm.com>, Catalin Marinas <catalin.marinas@arm.com>, 
+	Will Deacon <will@kernel.org>, Mark Rutland <mark.rutland@arm.com>, 
+	Jing Zhang <jingzhangos@google.com>, Karl Mehltretter <kmehltretter@gmail.com>, kvm@vger.kernel.org, 
+	linux-doc@vger.kernel.org, linux-kernel@vger.kernel.org
+Content-Type: text/plain; charset="UTF-8"
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260928_091315_249586_E12E9A74 
+X-CRM114-Status: GOOD (  14.72  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -81,38 +85,39 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+Hi Marc,
 
---AAMnBzaO3gKbG6DA
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
+On Mon, 28 Sep 2026 16:58:34 +0100, Marc Zyngier <maz@kernel.org> wrote:
+[...]
+> > retiring with the fault in PAR_EL1. Reporting the unreadable descriptor
+> > as a Data Abort instead, for the stage-1 walks too, is a separate
+> > change I'll send later.
+>
+> Why later?
 
-On Mon, Sep 28, 2026 at 03:46:51PM +0100, Lorenzo Stoakes (ARM) wrote:
-> On Tue, Sep 01, 2026 at 07:18:50PM +0100, Mark Brown wrote:
-> > From: Fuad Tabba <fuad.tabba@linux.dev>
+The loop fix is small and stops the hang. The Data Abort change
+replaces the SEA-in-PAR_EL1 reporting at the four walk sites in at.c
+and nested.c and has to stop the PC advancing past the AT. I haven't
+done it yet, and I didn't want to hold the hang fix for it.
 
-> > Assisted-by: Antigravity:gemini-3.1-pro
+[...]
+> My definition of a series is "an ordered set of changes that have a
+> common theme or form a progression towards a precise goal". This is
+> not a series, but a patch dump.
+> </rant>
 
-> NIT: we changed the rules for the Assisted-by tag, it only needs to be
-> 'Assisted-by: LLM' now. Not a huge big deal but FYI :>)
+Sorry about that. When you asked me a couple of weeks ago to group
+related patches rather than post them one at a time, I took it past
+"related" and put everything small I had into one series.
 
-> https://docs.kernel.org/process/coding-assistants.html
+I'll split it. The nested AT walk fixes with their selftest as one
+series, with the Data Abort change in it if you'd rather have them
+together, the SMCCC filter WARN on its own with Oliver's change, the
+three documentation fixes as one series, and the two selftest leaks as
+one.
 
-That's Fuad's tag not mine, I've just picked up his change verbatim.
+Sorry again :)
 
---AAMnBzaO3gKbG6DA
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iQEzBAABCgAdFiEEreZoqmdXGLWf4p/qJNaLcl1Uh9AFAmq6lnwACgkQJNaLcl1U
-h9BSHgf/dsZOGOdrRnI26oAZQKyMEaKtzUE+S6oc46T6NARbYeekbnDVX+NeLJr3
-hKjGjgbwagGXC7mYmPcOvunoatLjeFrgga/aOwpJqB5gucMNB8O5nQtyx6OWrKH4
-Zoom+ewSdp5kuH+pVTu7IGFQQmFNbeHI3hD7SFxwInLViJaRP0NGOF/N+Rg1XhAL
-jdvpj10jddzOQ3gBHqTktod5VGImbBz2VNxcSW0EAGQ3bhQS+vm/DNmkxDksnswS
-m/Brc/kZfm1Q/UlxXODXX9fu00f98IoxU4YXCwTcmukOUc15gI+xK6JD4+XZ5UCZ
-6NpGPSsLPeWNUOcBDeV6n3fWCYmiQQ==
-=Y4zb
------END PGP SIGNATURE-----
-
---AAMnBzaO3gKbG6DA--
+Cheers,
+/fuad
 
