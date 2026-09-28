@@ -4,62 +4,57 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 749B9C9833E
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 28 Sep 2026 06:51:26 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 76F71C9832F
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 28 Sep 2026 06:51:41 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=mIcYNXBnk2bfFjfQ6WtNslIsM8KVa3AEhevAZJnlBd0=; b=zizbiNRyuctvn0pi7SYTUhUo33
-	/ZJEn5ZVaaTmD3G5aWImD8HxU6ZXT+JXJq6mkYqsauSwGmJPgyy3hP3RxV6mwoy19USRxiCt37QsB
-	kSk69sSb6GoiSJvyEaHcc0ntCwwoejb/RPE+bsm5dh8MBtkSrTPJFKwdkS6htvnUJ+v0V7VmVnTy9
-	Lt4mV1b/oFOWBXZi1ZkMlrByvxWDEqkTMtsg6qIGQ9OA5376AKCbXgLmRSo7F89Y2UwFO5lXGpFmg
-	EodCDeHutK69Ofi26qAwCzmaSfUQGCgAEiM85OElP7X205bDOs7Q1uLrXhcG+J6SDmzzP0KH0o0Es
-	h5mTdFpA==;
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=zHG1TEVzidZB3jJv+mxUjAITxuE7BNdYUm0NY7yc8I8=; b=1D4+Z9ZU/qu8K19sI2oTxU3iIC
+	IUOJmd4dv7SgWqGHtRVdn/42kOW/fTH9uhFLsfJ37A8nK9n0UF+KgsfRkToq0hHmyf5HdIrU7aaEe
+	/D+pCiv0xo2x8WxzQfc201GIDfe9r/5LELgcRibDL+ZYM0Zj/irZ6pSLH8HcZrdI41I43DoWQmFO/
+	ozCvBD9x1sTesfEuceAXIs2Ih/BnFaqlq9BsCtjWiTarAFM8qYcLAREkhLW0bunN5GP+5ab5v9qdR
+	hag4pFgn55ioNMVOG/wu3VwUuYHj6LCD5+uC5tmn0fFmq3kqe/gb+Bn0Pe29mAllGRyL/3p7ar0tO
+	7q3nF+BA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xB5Cl-0000000HUOc-2gqZ;
-	Mon, 28 Sep 2026 06:51:15 +0000
-Received: from mx.socionext.com ([202.248.49.38])
-	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xB5Ci-0000000HUMJ-2VV8
+	id 1xB5D3-0000000HUV8-3AwC;
+	Mon, 28 Sep 2026 06:51:33 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
+	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1xB5Cn-0000000HUPD-08D0
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 28 Sep 2026 06:51:14 +0000
-Received: from unknown (HELO iyokan3-ex.css.socionext.com) ([172.31.9.54])
-  by mx.socionext.com with ESMTP; 28 Sep 2026 15:51:09 +0900
-Received: from mail.mfilter.local (mail-arc01.css.socionext.com [10.213.46.36])
-	by iyokan3-ex.css.socionext.com (Postfix) with ESMTP id 3ED5620914A4;
-	Mon, 28 Sep 2026 15:51:09 +0900 (JST)
-Received: from iyokan3.css.socionext.com ([172.31.9.53]) by m-FILTER with ESMTP; Mon, 28 Sep 2026 15:51:09 +0900
-Received: from [10.213.138.107] (unknown [10.213.138.107])
-	by iyokan3.css.socionext.com (Postfix) with ESMTP id E9B2310A019;
-	Mon, 28 Sep 2026 15:51:08 +0900 (JST)
-Message-ID: <faa1027c-7279-462a-9c6f-f03354b9cfd3@socionext.com>
-Date: Mon, 28 Sep 2026 15:51:09 +0900
+	Mon, 28 Sep 2026 06:51:17 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by sea.source.kernel.org (Postfix) with ESMTP id 5F579415B6;
+	Mon, 28 Sep 2026 06:51:16 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 2BBAD1F00893;
+	Mon, 28 Sep 2026 06:51:15 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1790578276;
+	bh=zHG1TEVzidZB3jJv+mxUjAITxuE7BNdYUm0NY7yc8I8=;
+	h=From:To:Cc:Subject:Date;
+	b=DLZ4eoPXwN4hh2nj2PBY1DcnztaUGovFz2ht75A3YIDBI12I4OM98PZ5FyC1uCoYZ
+	 w0yt8gloYIHQPMmjxJofGJJTwOJUT+X3+3k6VPutuGZS4KoIYmgIV2sM2pf3QBsahu
+	 neoASyhbB8aF0P+JKR7BVSfIeFYU7zuXotb+WYJMi947CQFiYq6becB9095JB7MHx2
+	 0ftks7G55lo/XqewNAsVqCwJDcwLnZ41oTWsfsltkjoNIl85b2hynTMlnB6Kt2xaOU
+	 fpWYe7MFSfOEjgpuwNSFEpJPQx58khMs8YdgxkIcDxmFMRKWwISGVSUITY8pWOxg3+
+	 r1gfAfOlSmA8A==
+From: Sudeep Holla <sudeep.holla@kernel.org>
+To: SoC Team <soc@lists.linux.dev>,
+	arm-scmi@vger.kernel.org,
+	ALKML <linux-arm-kernel@lists.infradead.org>
+Cc: Sudeep Holla <sudeep.holla@kernel.org>,
+	Arnd Bergmann <arnd@kernel.org>,
+	Cristian Marussi <cristian.marussi@arm.com>
+Subject: [GIT PULL] firmware: arm_scmi: Updates for v7.4
+Date: Mon, 28 Sep 2026 07:51:11 +0100
+Message-ID: <20260928065112.2492223-1-sudeep.holla@kernel.org>
+X-Mailer: git-send-email 2.43.0
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2] serial: 8250_uniphier: Use devm_clk_get_enabled()
-To: Andy Shevchenko <andriy.shevchenko@linux.intel.com>
-Cc: Malathi A <malathi.a2000@gmail.com>,
- Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
- Jiri Slaby <jirislaby@kernel.org>, Masami Hiramatsu <mhiramat@kernel.org>,
- linux-kernel@vger.kernel.org, linux-serial@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org
-References: <20260917040511.103232-1-malathi.a2000@gmail.com>
- <97e4ab26-b147-4cf4-97f9-307903f14e61@socionext.com>
- <arUvJyvChXXcasSu@ashevche-desk.local>
- <3ea1f574-ddb5-46a6-9bc1-7a8ea84c54bd@socionext.com>
- <arZ5KxIp55qA6UA7@ashevche-desk.local>
-Content-Language: en-US
-From: Kunihiko Hayashi <hayashi.kunihiko@socionext.com>
-In-Reply-To: <arZ5KxIp55qA6UA7@ashevche-desk.local>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260927_235112_764083_7D1A721C 
-X-CRM114-Status: GOOD (  22.51  )
+Content-Transfer-Encoding: 8bit
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -74,57 +69,92 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 2026/09/25 22:37, Andy Shevchenko wrote:
-> On Fri, Sep 25, 2026 at 08:32:20PM +0900, Kunihiko Hayashi wrote:
->> On 2026/09/24 23:09, Andy Shevchenko wrote:
->>> On Thu, Sep 24, 2026 at 06:07:37PM +0900, Kunihiko Hayashi wrote:
->>>> On 2026/09/17 13:05, Malathi A wrote:
-> 
-> ...
-> 
->>>> I'm a bit concerned about the error path in uniphier_uart_resume().
->>>> The clock may have been disabled in uniphier_uart_suspend(), and
->>>> clk_prepare_enable() can fail when trying to enable it again.
->>>>
->>>> In that case, wouldn't devres try to disable an already disabled
->>>> clock on detach?
->>>
->>> Isn't there is a guarantee that the .remove() is called with PM
-> runtime on
-> 
-> After reading a code of driver core I see that this is the opposite
-> actually.
-> The PM runtime might be off.
-> 
->>> and get, meaning it's called with the enabled clock? But if not the
-> case,
->>> we might use PM runtime force operations (resume and suspend in the
->>> respective cases.
->>
->> My concern was just the case where clk_prepare_enable() in the system
->> resume callback fails, leaving the clock disabled before devres cleanup.
->>
->> This driver currently only uses SET_SYSTEM_SLEEP_PM_OPS(), so I wasn't
->> considering runtime PM here.
-> 
-> So, in such a case how do you see the scenario when system is resumed
-> (Right?
-> Otherwise we can't do anything, like detaching driver from the device.)
-> and
-> clock is disabled?
+Hi ARM SoC Team,
 
-Ah, I understand your point. I was assuming that the driver could later
-be detached after uniphier_uart_resume() failed, leaving the clock disabled.
+Please pull !
 
-If that sequence cannot happen after a failed system resume, then my concern
-doesn't apply. Thanks for pointing this out.
+Regards,
+Sudeep
 
-In that case, I have no further concerns about the use of
-devm_clk_get_enabled() here.
+-->8
+The following changes since commit 8544e0da1a04c77b98e2e313a423a5c72e48ea32:
 
-Thank you,
+  Merge branches 'for-next/ffa/fixes' and 'for-next/scmi/fixes' of git://git.kernel.org/pub/scm/linux/kernel/git/sudeep.holla/linux (2026-09-08 21:04:42 +0100)
 
----
-Best Regards
-Kunihiko Hayashi
+are available in the Git repository at:
+
+  git://git.kernel.org/pub/scm/linux/kernel/git/sudeep.holla/linux.git tags/scmi-updates-7.4
+
+for you to fetch changes up to aac4e67d6eb93118cfa70c6562b5f9c81a7042ef:
+
+  firmware: arm_scmi: Always create devices for standard protocols (2026-09-24 09:10:43 +0100)
+
+----------------------------------------------------------------
+Arm SCMI updates for v7.4
+
+Add an ACPI PCC transport for SCMI. The core now propagates firmware
+nodes and supports protocol-specific channel lookup, while the new
+transport parses and validates ACPI _DSD mappings for shared and
+dedicated command and notification channels. ACPI protocol devices can
+be initialized without device tree child nodes.
+
+Enable SCMI protocol driver module autoloading by generating stable
+SCMI module aliases and creating standard protocol devices before
+their drivers register.
+
+Fix delayed-response completion and raw transfer reuse races, and
+release a raw transfer on an error path. Also consolidate reset domain
+information queries and use string helpers in SCMI trace events.
+
+----------------------------------------------------------------
+Bjorn Andersson (1):
+      firmware: arm_scmi: Add SCMI device table alias support
+
+Cristian Marussi (1):
+      include: trace: Use string helpers in msg_dump trace events
+
+Geert Uytterhoeven (1):
+      firmware: arm_scmi: Merge scmi_reset_proto_ops.name_get() and .latency_get()
+
+Hans de Goede (1):
+      firmware: arm_scmi: Always create devices for standard protocols
+
+Roland Dreier (3):
+      firmware: arm_scmi: Protect xfer->async_done with xfer->lock
+      firmware: arm_scmi: Don't reuse raw xfers with async_done still armed
+      firmware: arm_scmi: Fix error path leak in scmi_raw_message_send()
+
+Sudeep Holla (9):
+      firmware: arm_scmi: Set generated device fwnode with platform helpers
+      firmware: arm_scmi: Extend transport driver macro to support ACPI
+      firmware: arm_scmi: Convert OF-only paths to generic fwnode in SCMI core
+      firmware: arm_scmi: Fall back to ACPI HID when "compatible" is absent
+      firmware: arm_scmi: Pass protocol ID to transport chan_available()
+      firmware: arm_scmi: Refactor protocol device creation logic
+      firmware: arm_scmi: Add ACPI PCC transport
+      firmware: arm_scmi: Initialise known ACPI protocol devices and channels
+      firmware: arm_scmi: Validate PCC shared memory signature
+
+ MAINTAINERS                                    |   1 +
+ drivers/firmware/arm_scmi/bus.c                | 109 ++-
+ drivers/firmware/arm_scmi/common.h             |  61 +-
+ drivers/firmware/arm_scmi/driver.c             | 260 +++++---
+ drivers/firmware/arm_scmi/protocols.h          |   9 +-
+ drivers/firmware/arm_scmi/raw_mode.c           |  30 +-
+ drivers/firmware/arm_scmi/reset.c              |  36 +-
+ drivers/firmware/arm_scmi/transports/Kconfig   |  12 +
+ drivers/firmware/arm_scmi/transports/Makefile  |   2 +
+ drivers/firmware/arm_scmi/transports/mailbox.c |   7 +-
+ drivers/firmware/arm_scmi/transports/optee.c   |   7 +-
+ drivers/firmware/arm_scmi/transports/pcc.c     | 875 +++++++++++++++++++++++++
+ drivers/firmware/arm_scmi/transports/smc.c     |  10 +-
+ drivers/firmware/arm_scmi/transports/virtio.c  |   3 +-
+ include/linux/device-id/scmi.h                 |  17 +
+ include/linux/scmi_protocol.h                  |  20 +-
+ include/trace/events/scmi.h                    |   8 +-
+ scripts/mod/devicetable-offsets.c              |   5 +
+ scripts/mod/file2alias.c                       |  12 +
+ 19 files changed, 1300 insertions(+), 184 deletions(-)
+ create mode 100644 drivers/firmware/arm_scmi/transports/pcc.c
+ create mode 100644 include/linux/device-id/scmi.h
 
