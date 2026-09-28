@@ -4,60 +4,84 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9CC57C9832F
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 28 Sep 2026 08:10:01 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7F58FC9832F
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 28 Sep 2026 08:11:00 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=4vkwMqEbKDECyOrbFUQuixGz194KxSACX1c7ic6lEmE=; b=TcdQiOWICyexM+aQsBttWiYHzk
-	OQkff3Vr+JahGtpHdVsxkMGPqsJT6HW3BSw1Q817vr2X/Oh17fc99etJhfOH317WYk8giyFg3dww6
-	V7sLFCadhKVD2+sD5mEs2G9bGqrnl+D9twq/o1Fd5OB/BoSRn/jcucj5b5VEJxLBeC9rt96pY+zfy
-	dTiEo0tQ5vZwusl3JQbqalAhFxaPKFBYI2XxBd8kz9+G3ZFODPrPeypsCdZW3ZjZKczpHqem+OjB4
-	E6dg+D6zxyym6IsgM5VVVXlHHpIikbOrMC7RRCUNd3Gf8VZt2sLXOD+QyulXgg/FHPPOuC3SKlP7r
-	jaiKBmFA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=aIY8SPKWTyDpONssmi/1MXmgnQQyjM5Q9JRAxu1BCzY=; b=u5uNLcpOX+Bxa9gydKqCLe1lNd
+	MzCwD5L8ntkgSQVtUUIqtbO1Q78qMMqbxmJ2Y615mY46R+TOnNmxc3o/Vf2RibJCZfBHS6DnmzGrk
+	oLpn+dh6GhuuguxuJtusMvMusL8wf5/XeW7JKn4YkxBegEv6zdRHehM0hdG5UJr/JROR4LDm4U1ss
+	fm77It9lW+Rmr0KUv0EBzzkHLIiidOztu4saKmuNIfsHVYI4aO6DfhJTb6Ryj2F18BDNoEA5Q++Xh
+	DCaBRh6S9K5bpu7SsxzJeKALFRCV02XCLEbGXevl1DqHHexULBWbT9ylvDYRt8Eg2xSWnqiSM59SR
+	wMhCpaSQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xB6Qt-000000001xV-0ggU;
-	Mon, 28 Sep 2026 08:09:55 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1xB6Rp-0000000027k-1JdX;
+	Mon, 28 Sep 2026 08:10:53 +0000
+Received: from mout-p-102.mailbox.org ([2001:67c:2050:0:465::102])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xB6Qq-000000001xF-3u3i
-	for linux-arm-kernel@lists.infradead.org;
-	Mon, 28 Sep 2026 08:09:52 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id DC2B2601FF;
-	Mon, 28 Sep 2026 08:09:51 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id DF1971F000FF;
-	Mon, 28 Sep 2026 08:09:47 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1790582991;
-	bh=4vkwMqEbKDECyOrbFUQuixGz194KxSACX1c7ic6lEmE=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=oPlMjnHyQR+LugBeOdYlkD6y8qn5VJ0Vuivkz0BE5ACb9s6eKxrkeT32UJYPcI92A
-	 K9wTSFwKF5aqV0VH8/hRwD9ktLquVSnhABVzP6or4DQH5dSKSUTSOJENYUFqxmcedd
-	 UE2Rix+nUgaNzEZr9bzj07DQGpZtaSEbOGMu2nssY7MNAmdxz2pafj/gnZw5HQkwOP
-	 QJK5/3/diLtPy6Yfm8J5OUwJWLcvxE9OEpS2EOKjclFXj1QRt4Bi6fvrMhNbLY09cN
-	 klQRxzAWZBLnva11xWZkzki1Dk9ExUQy4ggQpInt+GMY/pnnKhYFBsYkQ+qVfGlYrk
-	 0vf5/jyxhQ5Yw==
-Date: Mon, 28 Sep 2026 11:09:45 +0300
-From: Claudiu Beznea <claudiu.beznea@kernel.org>
-To: Robert Marko <robert.marko@sartura.hr>
-Cc: ulfh@kernel.org, robh@kernel.org, krzk+dt@kernel.org, 
-	conor+dt@kernel.org, nicolas.ferre@microchip.com, alexandre.belloni@bootlin.com, 
-	claudiu.beznea@tuxon.dev, adrian.hunter@intel.com, aubin.constans@microchip.com, 
-	ehristev@kernel.org, linux-mmc@vger.kernel.org, devicetree@vger.kernel.org, 
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, luka.perkov@sartura.hr
-Subject: Re: [PATCH v2 5/6] arm64: dts: microchip: ev23x71a: enable QSPI
-Message-ID: <tl5ep4ze2e5ctv7c47jsjedvcpnibdspo5az7a73i5p7iwbivk@vbtd4rhtvroa>
-References: <20260907132617.1198548-1-robert.marko@sartura.hr>
- <20260907132617.1198548-6-robert.marko@sartura.hr>
+	id 1xB6Rn-0000000026i-1xUh;
+	Mon, 28 Sep 2026 08:10:52 +0000
+Received: from smtp2.mailbox.org (smtp2.mailbox.org [10.196.197.2])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange x25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	by mout-p-102.mailbox.org (Postfix) with ESMTPS id 4htYsH35qGzKqK2;
+	Mon, 28 Sep 2026 10:10:43 +0200 (CEST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=mailbox.org; s=mail20150812;
+	t=1790583043;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=aIY8SPKWTyDpONssmi/1MXmgnQQyjM5Q9JRAxu1BCzY=;
+	b=LyP7Xio0SjFMctEiuiF6nXS35fp9M345lu2ob3Fmzp5i2UTTEdVHeBDNzvvELjoiwG3nnr
+	VB3Jeh7BG/61T6Vf/RG5OkXid41+i9+lsPkMq8kMNxXtAkbh+9wU4vyD1/45pHm3TBgeth
+	Fe0BxsGq7Nw0xtLi7kon6UKK+wgBTgA/1S2wo4QLNW6mnlkw3kqxB5EW91JTB797cIMF8j
+	Hbl4HdaY2ybLC2Q69gikRqAA7+HlIM+5kKj5zdsmO9Sbk9mP4QizOYDa895AeuydNGQT3V
+	ydnfCKiGnN4P0FaJ51ea6tUXGO9W+w62Qc6QFZGZR/mNHWb4IC/Svk5TSWrkag==
+Message-ID: <3cf7143d-7013-4a3b-a831-96c3f125c2f6@mailbox.org>
+Date: Mon, 28 Sep 2026 10:10:33 +0200
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20260907132617.1198548-6-robert.marko@sartura.hr>
+Subject: Re: [PATCH RFC 13/25] drm: Add VRR target frame rate properties
+To: Leo Li <sunpeng.li@amd.com>,
+ Nicolas Frattaroli <nicolas.frattaroli@collabora.com>,
+ "Borah, Chaitanya Kumar" <chaitanya.kumar.borah@intel.com>,
+ Daniel Stone <daniels@collabora.com>,
+ Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
+ Maxime Ripard <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>,
+ David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>,
+ Helge Deller <deller@gmx.de>, Andrzej Hajda <andrzej.hajda@intel.com>,
+ Neil Armstrong <neil.armstrong@linaro.org>, Robert Foss <rfoss@kernel.org>,
+ Laurent Pinchart <Laurent.pinchart@ideasonboard.com>,
+ Jonas Karlman <jonas@kwiboo.se>, Jernej Skrabec <jernej.skrabec@gmail.com>,
+ Luca Ceresoli <luca.ceresoli@bootlin.com>, Sandy Huang <hjc@rock-chips.com>,
+ =?UTF-8?Q?Heiko_St=C3=BCbner?= <heiko@sntech.de>,
+ Andy Yan <andy.yan@rock-chips.com>
+Cc: dri-devel@lists.freedesktop.org, linux-kernel@vger.kernel.org,
+ linux-fbdev@vger.kernel.org, linux-rockchip@lists.infradead.org,
+ linux-arm-kernel@lists.infradead.org, kernel@collabora.com,
+ Derek Foreman <derek.foreman@collabora.com>,
+ wayland-devel@lists.freedesktop.org
+References: <20260921-vrr-limiter-uapi-v1-0-2fcd7d011646@collabora.com>
+ <20260921-vrr-limiter-uapi-v1-13-2fcd7d011646@collabora.com>
+ <0226527e-ee38-40ab-a2a8-1ae62013b950@amd.com>
+ <VERVf-aJRRKsBOI_3dpScg@collabora.com>
+ <8a3b2902-3255-4dd9-82f0-75a7747b710e@amd.com>
+Content-Language: en-CA
+From: =?UTF-8?Q?Michel_D=C3=A4nzer?= <michel.daenzer@mailbox.org>
+In-Reply-To: <8a3b2902-3255-4dd9-82f0-75a7747b710e@amd.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 8bit
+X-MBO-RS-META: tcbp3n76m8henjpos5gobg5u9xk9b6pk
+X-MBO-RS-ID: 863b51de2cc2ecb5cfe
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260928_011051_649871_D35CDB54 
+X-CRM114-Status: GOOD (  21.33  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -72,38 +96,91 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Sep 07, 2026 at 03:25:33PM +0200, Robert Marko wrote:
-> Enable the QSPI controller and describe the onboard SPI NOR flash.
+On 9/25/26 20:42, Leo Li wrote:
+> On 2026-09-22 11:26, Nicolas Frattaroli wrote:
+>>>> + * VRR Limiter/Target Properties
+>>>> + * ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+>>>> + *
+>>>> + * The ``VRR_{MIN,MAX}_{NUMERATOR,DENOMINATOR}`` properties expose a mechanism
+>>>> + * through which userspace can control the desired range of refresh rates in
+>>>> + * which VRR is allowed to operate. Each rate is expressed as a
+>>>> + * numerator/denominator fraction of refresh rates in Hz, allowing for rational
+>>>> + * target rates like 24/1.001 Hz with no loss of precision or ambiguity.
+>>>> + *
+>>>> + * If the minimum and maximum rate are set to the same value (and not 0), they
+>>>> + * are understood as a fixed target rate. This is especially useful for media
+>>>> + * playback, where the content's frame rate is both constant and known in
+>>>> + * advance. In such cases, a refresh rate that is not an integer multiple of the
+>>>> + * content's frame rate will introduce judder, since not every frame is
+>>>> + * displayed for the same amount of time. A modeset of the display with a
+>>>> + * compatible rate may in those cases be either undesirable or impossible, but
+>>>> + * the rate can still effectively be reached through VRR.
+>>>> + *
+>>>> + * .. _VRR-MIN-NUMERATOR:
+>>>> + *
+>>>> + * "VRR_MIN_NUMERATOR":
+>>>> + *	Default &drm_crtc integer property forming the numerator of a
+>>>> + *	numerator/denominator pair of a frame rate to set as the minimum VRR
+>>>> + *	target rate. Set to 0 to disable.
+>>>> + *
+>>>> + * "VRR_MIN_DENOMINATOR":
+>>>> + *	Default &drm_crtc integer property forming the denominator of a
+>>>> + *	numerator/denominator pair of a frame rate to set as the minimum VRR
+>>>> + *	target rate. If :ref:`VRR_MIN_NUMERATOR <VRR-MIN-NUMERATOR>` is not
+>>>> + *	zero, it must be non-zero.
+>>>> + *	Otherwise, must also be zero.
+>>>> + *
+>>>> + * .. _VRR-MAX-NUMERATOR:
+>>>> + *
+>>>> + * "VRR_MAX_NUMERATOR":
+>>>> + *	Default &drm_crtc integer property forming the numerator of a
+>>>> + *	numerator/denominator pair of a frame rate to set as the maximum VRR
+>>>> + *	target rate. Set to 0 to disable.
+>>>> + *
+>>>> + * "VRR_MAX_DENOMINATOR":
+>>>> + *	Default &drm_crtc integer property forming the denominator of a
+>>>> + *	numerator/denominator pair of a frame rate to set as the maximum VRR
+>>>> + *	target rate. If :ref:`VRR_MAX_NUMERATOR <VRR-MAX-NUMERATOR>` is not
+>>>> + *	zero, it must be non-zero. Otherwise, must also be zero.
+>>>>   */
+>>> If VRR_MIN_NUMERATOR == 0 && VRR_MAX_NUMERATOR > 0, do we interpret that as
+>>> vrr limiting is disabled?
+>> You can picture VRR limiting as always being active, but with a limit rational
+>> of 0 it uses the display's limit as per the EDID, which is what unlimited game
+>> mode is. So with how it's implemented right now in hdmi_validate_vrr(), your
+>> example would set a maximum target, but leave the minimum at whatever the
+>> display defaults to.
+>>
+>> Now that I'm thinking through this, a possible problem is that
+>> drm_crtc_helper_vrr_is_fixed_rate() operates on the user supplied limits, but
+>> if the display supplied lower limit is equal to the user supplied upper limit,
+>> then we have a fixed rate scenario without recognising it as such. I think I
+>> need to have a ponder on what the least surprising behaviour for userspace
+>> is in that instance. The display limit stuff gets a bit complex due to
+>> CinemaVRR and QMS TFRmin/TFRmax.
+>>
+>> I'll improve the documentation on the next revision to make the meanings more
+>> explicit.
 > 
-> Signed-off-by: Robert Marko <robert.marko@sartura.hr>
-
-Missing '---'
-
+> Perhaps a simple way is to require simultaneous setting MIN and MAX pairs?
+> IOW, require userspace to set MIN and MAX simultaneously to >0, or =0. For example:
 > 
->  .../arm64/boot/dts/microchip/lan9696-ev23x71a.dts | 15 +++++++++++++++
->  1 file changed, 15 insertions(+)
-> 
-> diff --git a/arch/arm64/boot/dts/microchip/lan9696-ev23x71a.dts b/arch/arm64/boot/dts/microchip/lan9696-ev23x71a.dts
-> index 4012ea7d07bb..985ca31e74e7 100644
-> --- a/arch/arm64/boot/dts/microchip/lan9696-ev23x71a.dts
-> +++ b/arch/arm64/boot/dts/microchip/lan9696-ev23x71a.dts
-> @@ -463,6 +463,21 @@ phy27: phy@27 {
->  	};
->  };
->  
-> +&qspi0 {
-> +	status = "okay";
-> +
-> +	flash@0 {
-> +		compatible = "jedec,spi-nor";
-> +		reg = <0>;
-> +		spi-max-frequency = <100000000>;
-> +		#address-cells = <1>;
-> +		#size-cells = <1>;
+> if ((vrr_min_n == 0 || vrr_min_d == 0 ||
+>      vrr_max_n == 0 || vrr_max_d == 0) &&
+>     (vrr_min_n > 0 || vrr_max_n > 0))
+> 	return -EINVAL;
+> That way, it's never ambiguous what userspace has requested for the range.
+> They can copy the EDID supported range if they don't care about limiting one side, rather than leaving it at 0.
 
-As sashiko pointed out, #address-cells, #size-cells, should not be
-necessary here. I dropped them and applied to microchip-dt64.
+Determining the actual limits can be non-trivial (though I guess that might be fine as long as libdisplay-info can work them out), if user space gets them wrong, it might accidentally apply a narrower limit than intended.
 
-Thank you,
-Claudiu
+
+> It's then also clear if they requested a static Hz.
+
+I do see the benefit of your suggestion for this though.
+
+
+-- 
+Earthling Michel Dänzer       \        GNOME / Xwayland / Mesa developer
+https://redhat.com             \               Libre software enthusiast
 
