@@ -4,81 +4,77 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 02727CA5FA2
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 28 Sep 2026 11:03:31 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9CB45CA5FA2
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 28 Sep 2026 11:04:51 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
+	Subject:CC:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=GRWHJvrV87zg7wTj96AOWlFOZBTwq5ScjGQwkE9kXh8=; b=cncjVXW6OMGLUPt6tY8BTbHDbH
-	C/s6ljEDaQVhArs3G2EBQzoE4ML9Mdm2btjHsYiqBQj6dyD3h8pQ94KjY9QV4NNm96NctyXDUyEqv
-	GV2C9IajNr43zvYt6dRXUmhEYcNTr9xIxjZD9Qe8tWWQc4tBe3dyDHq5kkXFpuur8THfTudb272ZJ
-	RkmI5NAC79LQ6X/20YfzFq2buQezI2QoI4FU5m3u/uPAMLmfk0sai3L2kGHyIym0pc7+6oHVTZBfx
-	9ta4F/Vyp8pQZipkCZdIR8+Zv/hOi2LtNVxc7FHH9ikd8ccCttdvcSXB+tK+BR1CIpQMKbcC29jVs
-	NGgw+12Q==;
+	bh=kmFgzURQRJc5L2lft5L4sVl4gqbG3tZAM2TpKGs07Uk=; b=1ADdhnQBTVkrWwy6rLQceRlKyX
+	3y4H5O7Lbyjl1clZlwz5Mwzp80p/Qt+HBkNZ3Bq5W9XEVuZO28oDs9UeaX22/8nOvGzzwSwDJpSEj
+	AIKs9n+D5lMjpsbe/lCbf5EOtj5DYrvGPXsv4aWNGvG/vfIoDwyGcH7OkETcRMCG9iVxIwA/6EVVU
+	OHxdfGvIqsJ1J0U623KTdmHplWkhpBQHZJrWFUtoUYPxTsxTk2/N/v9n8XFJGiMrCJ0Iclp/zdGSH
+	xIJ7WJjYO+cYwiIt8RHhh8HsgD0WJWfYSh3ohE8migONzxqONuw/17plI23ec5bA8pbryLZjoPnI4
+	L67ySQbQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xB98m-00000000PpS-2LmL;
-	Mon, 28 Sep 2026 11:03:24 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1xB9A5-00000000Q7t-0I11;
+	Mon, 28 Sep 2026 11:04:45 +0000
+Received: from esa.microchip.iphmx.com ([68.232.154.123])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xB98l-00000000PpJ-1fbV;
-	Mon, 28 Sep 2026 11:03:23 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id BE72B60052;
-	Mon, 28 Sep 2026 11:03:22 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 16D721F000FF;
-	Mon, 28 Sep 2026 11:03:15 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1790593402;
-	bh=GRWHJvrV87zg7wTj96AOWlFOZBTwq5ScjGQwkE9kXh8=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=SG55Bru0an6HMsHCstSC1nYa8joHK0Q+fQpmoyTiAAChgQfIPQcwNa7hJ9c76ElZj
-	 FgCSwH1n3QX9ODLvsg6/ddVH610KpnIKCCKouoFnzvI6opPVFzP37WYQ0EQX0Utohx
-	 ATxj9lj/b0ABODdvh1GZw8OPnDV0kqw/pHaTF6MuyH0C0Uxnb4/kBtpngl3OyZ2Py8
-	 YANozyrl7MmYGlJMWF13NnJoW/HYppQQ33kS/k7cMFQ0YRxxsdkLpBj7tUNZxUkPJd
-	 FSqvcvJv4SftFwwGy1ip6sGS1RrZL6gkiSb+IS89vy77bsijRlMXSpgJSl9TMY8qvF
-	 561BxhnzNAF9A==
-Date: Mon, 28 Sep 2026 12:03:13 +0100
-From: Mark Brown <broonie@kernel.org>
-To: James Calligeros <jcalligeros99@gmail.com>
-Cc: Martin =?utf-8?Q?Povi=C5=A1er?= <povik+lin@cutebit.org>,
-	Liam Girdwood <lgirdwood@gmail.com>, Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>, Sven Peter <sven@kernel.org>,
-	Janne Grunau <j@jannau.net>, Neal Gompa <neal@gompa.dev>,
-	David Rhodes <david.rhodes@cirrus.com>,
-	Richard Fitzgerald <rf@opensource.cirrus.com>,
-	Jaroslav Kysela <perex@perex.cz>, Takashi Iwai <tiwai@suse.com>,
-	Ulf Hansson <ulfh@kernel.org>,
-	Amit Kucheria <amit.kucheria@linaro.org>,
-	"Rafael J. Wysocki" <rafael.j.wysocki@intel.com>,
-	Lars-Peter Clausen <lars@metafoo.de>, Vinod Koul <vkoul@kernel.org>,
-	Matthias Brugger <matthias.bgg@gmail.com>,
-	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
-	Shenghao Ding <shenghao-ding@ti.com>, Kevin Lu <kevin-lu@ti.com>,
-	Baojun Xu <baojun.xu@ti.com>, Sen Wang <sen@ti.com>,
-	James Schulman <james.schulman@cirrus.com>, asahi@lists.linux.dev,
-	linux-sound@vger.kernel.org, devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-	patches@opensource.cirrus.com, Takashi Iwai <tiwai@suse.de>,
-	linux-mediatek@lists.infradead.org,
-	Hector Martin <marcan@marcan.st>,
-	Sasha Finkelstein <k@chaosmail.tech>
-Subject: Re: [PATCH 16/28] ASoC: apple: Add macaudio machine driver
-Message-ID: <0ae94fbe-cd41-4d49-b073-e65ab8eff724@sirena.org.uk>
-References: <20260920-macaudio-v1-0-741cc20a74e5@gmail.com>
- <20260920-macaudio-v1-16-741cc20a74e5@gmail.com>
- <arJMrsl45g2_bLPB@sirena.co.uk>
- <6dv6M3LAS9mol5fvC8Ie-w@gmail.com>
+	id 1xB9A2-00000000Q7H-3ArF
+	for linux-arm-kernel@lists.infradead.org;
+	Mon, 28 Sep 2026 11:04:43 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=microchip.com; i=@microchip.com; q=dns/txt; s=mchp;
+  t=1790593487; x=1822129487;
+  h=date:from:to:cc:subject:message-id:references:
+   mime-version:content-transfer-encoding:in-reply-to;
+  bh=ZkjFAi/k8AmKcZuYiJLAefOEjecRNWDOt5UnznZtXIQ=;
+  b=AUIN0/Tv4ST4dOX2Zn5e9zo08WByXAPCAIDj8LowYVPyijKMuJ677m9V
+   fk5Xkf/IykpjzgfK1BBoCUwWE77OoinwGARmVqRDSsGwNyNPn8y1kXGBs
+   BgFg7XDr237ml+yTU8kLDUiQliRDHcxKbf7nZvzCPb4WS5sWEYd61lS/S
+   xVCalMjicKWVvfCmh5EotSe1FyiY7PoxI3caNEHwL/ANuxSTy5x+jwIUU
+   gfxYKA4XvKUn4SpVJKaJs+MwmRoOHtoi+fo0ZKAH6niaHMqgurqofcWj/
+   e3VU1Bc8zRKCZ6tILBbZ4xBZcdt2lyIO6+B5yYzM7tEFBK7Uyze1riWay
+   g==;
+X-CSE-ConnectionGUID: b2K+lPFjT8+AVcLXeOju6w==
+X-CSE-MsgGUID: qWsRg5LPQEadkleZV6n17A==
+X-IronPort-AV: E=Sophos;i="6.27,128,1787036400"; 
+   d="scan'208";a="63312697"
+X-Amp-Result: SKIPPED(no attachment in message)
+Received: from unknown (HELO email.microchip.com) ([170.129.1.10])
+  by esa4.microchip.iphmx.com with ESMTP/TLS/ECDHE-RSA-AES128-GCM-SHA256; 28 Sep 2026 04:04:47 -0700
+Received: from chn-vm-ex03.mchp-main.com (10.10.85.151) by
+ chn-vm-ex02.mchp-main.com (10.10.85.144) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
+ 15.1.2507.58; Mon, 28 Sep 2026 04:04:41 -0700
+Received: from DEN-DL-M70577 (10.10.85.11) by chn-vm-ex03.mchp-main.com
+ (10.10.85.151) with Microsoft SMTP Server id 15.1.2507.58 via Frontend
+ Transport; Mon, 28 Sep 2026 04:04:39 -0700
+Date: Mon, 28 Sep 2026 13:04:38 +0200
+From: Daniel Machon <daniel.machon@microchip.com>
+To: Robert Marko <robert.marko@sartura.hr>
+CC: <UNGLinuxDriver@microchip.com>, <andrew+netdev@lunn.ch>,
+	<davem@davemloft.net>, <edumazet@google.com>, <kuba@kernel.org>,
+	<pabeni@redhat.com>, <Steen.Hegelund@microchip.com>,
+	<netdev@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
+	<linux-kernel@vger.kernel.org>, <luka.perkov@sartura.hr>
+Subject: Re: [PATCH net-next] net: lan969x: correct RGMII port mapping index
+Message-ID: <20260928110438.unoxnyymg7zwuuqk@DEN-DL-M70577>
+References: <20260922125112.2111256-1-robert.marko@sartura.hr>
+ <20260928091804.hjnabzi52kz4ktmf@DEN-DL-M70577>
+ <CA+HBbNG2nGXpXC63AVUJX3KaqzJG+Q=-Md92eTpq7Y-O4CHMzg@mail.gmail.com>
 MIME-Version: 1.0
-Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="o62xNzOzXCWulXud"
+Content-Type: text/plain; charset="utf-8"
 Content-Disposition: inline
-In-Reply-To: <6dv6M3LAS9mol5fvC8Ie-w@gmail.com>
-X-Cookie: All is fear in love and war.
+Content-Transfer-Encoding: 8bit
+In-Reply-To: <CA+HBbNG2nGXpXC63AVUJX3KaqzJG+Q=-Md92eTpq7Y-O4CHMzg@mail.gmail.com>
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260928_040442_860831_AEC9037A 
+X-CRM114-Status: GOOD (  35.48  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -93,75 +89,98 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+Hi Robert,
 
---o62xNzOzXCWulXud
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
-
-On Sat, Sep 26, 2026 at 11:06:02AM +1000, James Calligeros wrote:
-> On Tuesday, 22 September 2026 7:38:54=E2=80=AFpm Australian Eastern Stand=
-ard Time Mark Brown wrote:
-
-> > > +	list_for_each_entry(kctl, &ma->card.snd_card->controls, list) {
-> > > +		if (!snd_soc_control_matches(kctl, volume_control_names[ma->cfg->a=
-mp]))
-> > > +			continue;
-
-> > This is used from the volume limit timeout work which doesn't hold the
-> > controls_rwsem, userspace can add or remove user controls which would
-> > change the list so the work needs to lock the controls list.
-
-> Would it be sufficient to scoped_guard the controls_rwsem wherever we
-> use this pattern?
-
-I think so, but I didn't properly check.
-
-> > > +static int macaudio_dpcm_hw_params(struct snd_pcm_substream *substre=
-am,
-> > > +				   struct snd_pcm_hw_params *params)
-> > > +{
-> > > +	struct snd_soc_pcm_runtime *rtd =3D snd_soc_substream_to_rtd(substr=
-eam);
-> > > +	struct macaudio_snd_data *ma =3D snd_soc_card_get_drvdata(rtd->card=
-);
-> > > +	struct macaudio_link_props *props =3D &ma->link_props[rtd->dai_link=
-->id];
-> > > +	struct snd_soc_dai *cpu_dai =3D snd_soc_rtd_to_cpu(rtd, 0);
-> > > +	struct snd_interval *rate =3D hw_param_interval(params,
-> > > +						      SNDRV_PCM_HW_PARAM_RATE);
-> > > +	int bclk_ratio =3D macaudio_get_runtime_bclk_ratio(substream);
-> > > +	int i;
+> On Mon, Sep 28, 2026 at 11:18 AM Daniel Machon
+> <daniel.machon@microchip.com> wrote:
+> >
+> > Hi Robert,
+> >
+> > > Currently, the lan969x_port_dev_mapping does not check for RGMII ports
+> > > and just returns the physical port index.
+> > >
+> > > However, this does not work for RGMII ports as they have dedicated DEVRGMII
+> > > register space with an dedicated instance per RGMII port.
+> > >
+> > > So, check if requested port index is an RGMII port and return the correct
+> > > DEVRGMII index.
+> > >
+> > > Signed-off-by: Robert Marko <robert.marko@sartura.hr>
+> > > ---
+> > >  drivers/net/ethernet/microchip/sparx5/lan969x/lan969x.c | 9 +++++++++
+> > >  1 file changed, 9 insertions(+)
+> > >
+> > > diff --git a/drivers/net/ethernet/microchip/sparx5/lan969x/lan969x.c b/drivers/net/ethernet/microchip/sparx5/lan969x/lan969x.c
+> > > index f3a9c71bea36a..bf5320c7a6ca8 100644
+> > > --- a/drivers/net/ethernet/microchip/sparx5/lan969x/lan969x.c
+> > > +++ b/drivers/net/ethernet/microchip/sparx5/lan969x/lan969x.c
+> > > @@ -142,6 +142,15 @@ static u32 lan969x_get_dev_mode_bit(struct sparx5 *sparx5, int port)
+> > >
+> > >  static u32 lan969x_port_dev_mapping(struct sparx5 *sparx5, int port)
+> > >  {
+> > > +       if (lan969x_port_is_rgmii(port)) {
+> > > +               switch (port) {
+> > > +               case 28:
+> > > +                       return 0;
+> > > +               case 29:
+> > > +                       return 1;
+> > > +               }
+> > > +       }
 > > > +
-> > > +	if (props->is_sense) {
-> > > +		rate->min =3D rate->max =3D cpu_dai->symmetric_rate;
-> > > +		return 0;
-> > > +	}
+> > >         if (lan969x_port_is_5g(port)) {
+> > >                 switch (port) {
+> > >                 case 9:
+> > > --
+> > > 2.55.0
+> > >
+> >
+> > The mapping itself is right, but as far as I can see nothing upstream
+> > uses the returned index to access DEVRGMII. Every caller of
+> > sparx5_port_dev_index() pairs it with sparx5_to_high_dev() or
+> > sparx5_to_pcs_dev(), which never return TARGET_DEVRGMII. Those paths
+> > are also never taken for RGMII ports. The code that does access
+> > DEVRGMII, in lan969x_rgmii.c, computes its own index with
+> > RGMII_PORT_IDX(). Sashiko, correctly points this out.
+> >
+> > So I don't think anything is broken today. Did you see a problem on
+> > hardware that this fixes?
+> >
+> > FYI, we carry the same change downstream. But there it was added together with
+> > RGMII MTU support, which reads and writes DEVRGMII_MAC_MAXLEN_CFG() using this
+> > index.
+> 
+> Hi Andrew,
+> As pointed out nothing yet is broken, hence no fixes tag.
+> 
+> I am using it downstream as well, for the MTU change support where as
+> you pointed out RGMII code
+> uses it to get the correct index.
+> 
+> So, I thought that it would be good idea to send it upstream before
+> eventually getting around to sending
+> the MTU change support as well.
 
-> > It feels like this DAI ought to have separate ops...  Also, for the
-> > sense link will we definitely already have a rate set up?
+It wasn't clear to me that this was preparation work for a future feature. As a
+standlone patch it does nothing. IDK, to me it would make more sense to just
+send it together with the patchset that would actually use it.
 
-> AIUI, the cpu rate should always be set up by the time we hit
-> this path as it is only taken when setting up the VISENSE FE (after the
-> playback stuff is already set up).
+/Daniel
 
-Is that something we actually enforce or is that just a thing a sensible
-userspace should do?  I can see something racing.
-
---o62xNzOzXCWulXud
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iQEzBAABCgAdFiEEreZoqmdXGLWf4p/qJNaLcl1Uh9AFAmq6SXAACgkQJNaLcl1U
-h9DIuAf+MhyW6NwNfZ3Bqa+m4pMvFpTPdEbJLiFpeSW5EqKWKUoQ0S0CJTszd3Bq
-zw8RLCiIUkMfvzpeQ6lgIYkpLAiHkB3jWyyD4wN+ienHL9xysW8MIjWGcGChA6r1
-SroQD2iFq4g3Ek51Y7AqqFxZ7Y/SU0YhHI0Op2PXvtXed8j+IQCJo6ICEtkKz3Xz
-o7dBOqx9xzCYzHpJLN35Q8D3V8TytTyTaVH6N4VWzj+LUo9OrrEOiDk3J/inWj39
-PX0uD3e1ZY5boTMxOWYdAuKWUJ3GrbMN+RpPivdMSNLqB6ITPUafOfUIxq+DYJSc
-5iIYKe247exzaqTaiKGmFS5J5o2eTA==
-=oNVi
------END PGP SIGNATURE-----
-
---o62xNzOzXCWulXud--
+> 
+> Regards,
+> Robert
+> 
+> >
+> > /Daniel
+> 
+> 
+> 
+> --
+> Robert Marko
+> Staff Embedded Linux Engineer
+> Sartura d.d.
+> Lendavska ulica 16a
+> 10000 Zagreb, Croatia
+> Email: robert.marko@sartura.hr
+> Web: www.sartura.hr
 
