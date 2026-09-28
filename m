@@ -4,31 +4,31 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 76F9BC9833E
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 28 Sep 2026 08:20:31 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 90CC0C9832F
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 28 Sep 2026 08:20:34 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=TeGRKIo9zN3ch77zMT+V+rC/6To7Yk8YMsagDBLa1v4=; b=JZcqxW7UvQqof+P8Fm9Z5uoOPK
-	z/dNFt4VELAHI01/8l0dG2DJyHYKpIzd19MIbZTKBqp5ePmrtESN1AER2+36N8iJgqu8w7U0iSaSg
-	7SZ5SKrkwiB9/uUv37a2MF99/6C8S7GoxZxP5nKQMM99FLl02hTKe995sasNXztZWoAFUtfXeq1H8
-	7x1s0wCY/AY+f1EelHAYNhY/RBH07noWcE4l8Q8pjKRHikS4Y1s/YgjQ3u7/F/15NVsT4OdtqDRP6
-	zc931YKl650FR8awLWF9nvF8LqHPUljWe0ZHO4ItYrg/CupOwrJnQf7Rcu6CEm8msm3HzCtbKoqcf
-	o31vYEPA==;
+	bh=uKF52fufhJOZnsTT21ImBLc4H+Rm8ECocgf/WYHaG+I=; b=h/2RxnudmR8VHRXmPEDtXrrhg/
+	82gmd6GWkEXD/BLYM6DiFOaHwqlct1rGwf48JrFUBTcLYMDQkkriow5i2hm3WioBGSEwwMnZK5LFs
+	twYRQmuOqD6P9r1zsFx4crS4tvmDdp4W5TtQyro2S0RL9XgyRBcXlR2rv8l/eD9gqqVSV21Yy+AOI
+	/D7OMJ/FO8weU6IPXYA51tqxWaamxOjXRz++WmKpjWFlQWPORiASx5T6kzzGgjXSqaA+fVol1JTDO
+	qqkdMXh4XN97ykWZeo3haCz7txGaVk7LvngGP1GWDFYa8fsaAZiyYD1j7bOEvOM435f+DX7VEHYNa
+	JxzKtBvg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xB6b1-000000003un-1c5W;
+	id 1xB6b1-000000003vE-2L7E;
 	Mon, 28 Sep 2026 08:20:23 +0000
-Received: from mail-m121165.qiye.163.com ([115.236.121.165])
+Received: from mail-m19731106.qiye.163.com ([220.197.31.106])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xB6aq-000000003lM-3g7Z;
-	Mon, 28 Sep 2026 08:20:14 +0000
+	id 1xB6as-000000003lv-05eQ;
+	Mon, 28 Sep 2026 08:20:15 +0000
 Received: from zyb-HP-ProDesk-680-G2-MT.. (unknown [61.154.14.86])
-	by smtp.qiye.163.com (Hmail) with ESMTP id 4f5398e5f;
-	Mon, 28 Sep 2026 16:15:05 +0800 (GMT+08:00)
+	by smtp.qiye.163.com (Hmail) with ESMTP id 4f5398e7e;
+	Mon, 28 Sep 2026 16:15:09 +0800 (GMT+08:00)
 From: Damon Ding <damon.ding@rock-chips.com>
 To: Andrzej Hajda <andrzej.hajda@intel.com>,
 	Neil Armstrong <neil.armstrong@linaro.org>,
@@ -57,27 +57,28 @@ Cc: Laurent Pinchart <Laurent.pinchart@ideasonboard.com>,
 	linux-samsung-soc@vger.kernel.org,
 	linux-rockchip@lists.infradead.org,
 	Damon Ding <damon.ding@rock-chips.com>
-Subject: [PATCH v3 03/14] drm/bridge: analogix_dp: Add IRQF_ONESHOT and simplify IRQ handling
-Date: Mon, 28 Sep 2026 16:14:07 +0800
-Message-Id: <20260928081418.3605775-4-damon.ding@rock-chips.com>
+Subject: [PATCH v3 06/14] drm/bridge: analogix_dp: Simplify analogix_dp_config_interrupt()
+Date: Mon, 28 Sep 2026 16:14:10 +0800
+Message-Id: <20260928081418.3605775-7-damon.ding@rock-chips.com>
 X-Mailer: git-send-email 2.34.1
 In-Reply-To: <20260928081418.3605775-1-damon.ding@rock-chips.com>
 References: <20260928081418.3605775-1-damon.ding@rock-chips.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
-X-HM-Tid: 0aa0e714f49203a8kunm323e2b5437cf1f
+X-HM-Tid: 0aa0e715032803a8kunm323e2b5437cf3f
 X-HM-MType: 1
 X-HM-Spam-Status: e1kfGhgUHx5ZQUpXWQgPGg8OCBgUHx5ZQUlOS1dZFg8aDwILHllBWSg2Ly
-	tZV1koWUFITzdXWRgWCB1ZQUpXWS1ZQUlXWQ8JGhUIEh9ZQVlCSUlOVkIaSUpNGB4ZGEsaQ1YVFA
+	tZV1koWUFITzdXWRgWCB1ZQUpXWS1ZQUlXWQ8JGhUIEh9ZQVlCS0wdVkoZHkodS0sZHh1KTVYVFA
 	kWGhdVEwETFhoSFyQUDg9ZV1kYEgtZQVlNSlVKTk9VSk9VQ01ZV1kWGg8SFR0UWUFZT0tIVUpLSU
-	9PT0hVSktLVUpCS0tZBg++
+	JDQ0xVSktLVUtZBg++
 DKIM-Signature: a=rsa-sha256;
-	b=Wfr60wMvG2J8qXhOo+zFzALi2vXZTHnXnItUIGi80sunqP3uXezqTn20pSNXseZJpW14EPUORahf2X8lmgkjMQy2T0E3haipumge3QtefnLqRgtXcBC66qN5HZikwDMj0wARqUkZXwgFCjtPTlDh5i1Tyse4Ml1PBRn1DthkrPU=; s=default; c=relaxed/relaxed; d=rock-chips.com; v=1;
-	bh=TeGRKIo9zN3ch77zMT+V+rC/6To7Yk8YMsagDBLa1v4=;
+	b=FAHqU1AMFg6sHS+bmLPMNVPm4GWr2jNNA78d4/VKocxSkxEoUQOCbs7IHvYWMIQNEKWjnYM5uROq0b/DEZElOzLYT2ZmJ/GRUxkE69kmOofEekArRl5zc6UgrBuEmxm3OTL404gFDlrUGxuAzuYXd+O0Vw7pLnSi8RtSRPoTxug=; s=default; c=relaxed/relaxed; d=rock-chips.com; v=1;
+	bh=uKF52fufhJOZnsTT21ImBLc4H+Rm8ECocgf/WYHaG+I=;
 	h=date:mime-version:subject:message-id:from;
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260928_012013_137185_73C41CF3 
-X-CRM114-Status: GOOD (  13.89  )
+X-CRM114-CacheID: sfid-20260928_012014_251190_9E32E3A4 
+X-CRM114-Status: UNSURE (   8.37  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -92,81 +93,71 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The threaded IRQ is requested without IRQF_ONESHOT, allowing hardirq to
-preempt the threaded handler. This creates a read-modify-write race on
-HPD interrupt mask registers between the hardirq mute and thread unmute
-operations.
+Remove local COMMON_INT_MASK and INT_STA_MASK macros. These constants
+are only used once inside this function and bring no reuse benefit.
 
-Add IRQF_ONESHOT to keep the IRQ line masked during thread execution,
-which eliminates the race and makes the per-event mute/unmute calls in
-hardirq and thread handlers redundant. Move interrupt status clearing
-to the beginning of the threaded handler, before
-drm_helper_hpd_irq_event(), to avoid losing events that arrive during
-the event handling.
+Replace open-coded register writes for COMMON_INT_MASK_1~3 with
+direct writel(0) calls.
+
+Leverage analogix_dp_unmute_hpd_interrupt() using the full HPD_IRQ_ALL
+mask to initialize HPD interrupt state, removing duplicated register
+handling.
 
 Signed-off-by: Damon Ding <damon.ding@rock-chips.com>
 
 ---
 
 Changes in v3:
-- Split out a separate commit to improve the return value checking for
-  &analogix_dp_device.irq.(Sashiko)
+- Replace macro HPD_IRQ with HPD_IRQ_ALL.
 ---
- .../gpu/drm/bridge/analogix/analogix_dp_core.c  | 17 +++++++----------
- 1 file changed, 7 insertions(+), 10 deletions(-)
+ .../gpu/drm/bridge/analogix/analogix_dp_reg.c | 25 +++----------------
+ 1 file changed, 4 insertions(+), 21 deletions(-)
 
-diff --git a/drivers/gpu/drm/bridge/analogix/analogix_dp_core.c b/drivers/gpu/drm/bridge/analogix/analogix_dp_core.c
-index 27c9a764e25f..974be5b702dc 100644
---- a/drivers/gpu/drm/bridge/analogix/analogix_dp_core.c
-+++ b/drivers/gpu/drm/bridge/analogix/analogix_dp_core.c
-@@ -704,10 +704,8 @@ static irqreturn_t analogix_dp_hardirq(int irq, void *arg)
- 	u32 irq_type;
+diff --git a/drivers/gpu/drm/bridge/analogix/analogix_dp_reg.c b/drivers/gpu/drm/bridge/analogix/analogix_dp_reg.c
+index 6ac03a1aa512..0f1406e4a5d3 100644
+--- a/drivers/gpu/drm/bridge/analogix/analogix_dp_reg.c
++++ b/drivers/gpu/drm/bridge/analogix/analogix_dp_reg.c
+@@ -18,12 +18,6 @@
+ #include "analogix_dp_core.h"
+ #include "analogix_dp_reg.h"
  
- 	irq_type = analogix_dp_get_irq_type(dp);
--	if (irq_type) {
--		analogix_dp_mute_hpd_interrupt(dp);
-+	if (irq_type)
- 		ret = IRQ_WAKE_THREAD;
--	}
- 
- 	return ret;
- }
-@@ -718,6 +716,9 @@ static irqreturn_t analogix_dp_irq_thread(int irq, void *arg)
- 	u32 irq_type;
- 
- 	irq_type = analogix_dp_get_irq_type(dp);
-+	if (irq_type)
-+		analogix_dp_clear_hotplug_interrupts(dp);
-+
- 	if (irq_type & DP_IRQ_TYPE_HP_CABLE_IN ||
- 	    irq_type & DP_IRQ_TYPE_HP_CABLE_OUT) {
- 		dev_dbg(dp->dev, "Detected cable status changed!\n");
-@@ -725,11 +726,6 @@ static irqreturn_t analogix_dp_irq_thread(int irq, void *arg)
- 			drm_helper_hpd_irq_event(dp->drm_dev);
- 	}
- 
--	if (irq_type) {
--		analogix_dp_clear_hotplug_interrupts(dp);
--		analogix_dp_unmute_hpd_interrupt(dp);
--	}
+-#define COMMON_INT_MASK_1	0
+-#define COMMON_INT_MASK_2	0
+-#define COMMON_INT_MASK_3	0
+-#define COMMON_INT_MASK_4	(HOTPLUG_CHG | HPD_LOST | PLUG)
+-#define INT_STA_MASK		INT_HPD
 -
- 	return IRQ_HANDLED;
+ #define HPD_IRQ_ALL		(DP_IRQ_TYPE_HP_CABLE_IN | DP_IRQ_TYPE_HP_CABLE_OUT | \
+ 				 DP_IRQ_TYPE_HP_CHANGE | DP_IRQ_TYPE_IRQ_HPD)
+ 
+@@ -189,23 +183,12 @@ void analogix_dp_swreset(struct analogix_dp_device *dp)
+ 
+ void analogix_dp_config_interrupt(struct analogix_dp_device *dp)
+ {
+-	u32 reg;
+-
+ 	/* 0: mask, 1: unmask */
+-	reg = COMMON_INT_MASK_1;
+-	writel(reg, dp->reg_base + ANALOGIX_DP_COMMON_INT_MASK_1);
+-
+-	reg = COMMON_INT_MASK_2;
+-	writel(reg, dp->reg_base + ANALOGIX_DP_COMMON_INT_MASK_2);
+-
+-	reg = COMMON_INT_MASK_3;
+-	writel(reg, dp->reg_base + ANALOGIX_DP_COMMON_INT_MASK_3);
+-
+-	reg = COMMON_INT_MASK_4;
+-	writel(reg, dp->reg_base + ANALOGIX_DP_COMMON_INT_MASK_4);
++	writel(0, dp->reg_base + ANALOGIX_DP_COMMON_INT_MASK_1);
++	writel(0, dp->reg_base + ANALOGIX_DP_COMMON_INT_MASK_2);
++	writel(0, dp->reg_base + ANALOGIX_DP_COMMON_INT_MASK_3);
+ 
+-	reg = INT_STA_MASK;
+-	writel(reg, dp->reg_base + ANALOGIX_DP_INT_STA_MASK);
++	analogix_dp_unmute_hpd_interrupt(dp, HPD_IRQ_ALL);
  }
  
-@@ -1474,10 +1470,11 @@ analogix_dp_probe(struct device *dev, struct analogix_dp_plat_data *plat_data)
- 		 * that we can get the current state of the GPIO.
- 		 */
- 		dp->irq = gpiod_to_irq(dp->hpd_gpiod);
--		irq_flags = IRQF_TRIGGER_RISING | IRQF_TRIGGER_FALLING | IRQF_NO_AUTOEN;
-+		irq_flags = IRQF_TRIGGER_RISING | IRQF_TRIGGER_FALLING | IRQF_NO_AUTOEN |
-+			    IRQF_ONESHOT;
- 	} else {
- 		dp->irq = platform_get_irq(pdev, 0);
--		irq_flags = IRQF_NO_AUTOEN;
-+		irq_flags = IRQF_NO_AUTOEN | IRQF_ONESHOT;
- 	}
- 
- 	if (dp->irq < 0) {
+ /*
 -- 
 2.34.1
 
