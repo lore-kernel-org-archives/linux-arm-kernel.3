@@ -4,42 +4,42 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 962B2C9833F
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 28 Sep 2026 14:01:55 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 34158CA5FA2
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 28 Sep 2026 14:02:16 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=lvVFd7rUY06FI/a+Zb7ye7rOvHGNbhdTJ+RBtd7ZTs4=; b=4McXye8a5ATmKMUOsFJxV4sPoJ
-	RS3XIcaiFeSEdYM/lVOOyse3erPcd8PMsnp7GZ2HqCZKVrjrTiuSfl80fKf5++zLp7hCLTE8cCex7
-	gKgXZBEBHOTi8NJU6DSZ3hhQpilkegsAhKtN0dQTGBR59aeF0aytE8H9gAS5hvHQoPycKfJr+zTFa
-	qFFEHDVdIKJCS5yz6w4zKsokKWUswpNe7kStwaplgt3mCXhNDPrDkl13VOPQpMcGIkyRj066Gg/W3
-	R3XeT/fYv6OvYZZBB/21sXWP/cvRv4pYpn4w+OhifKvsTfCQs6XZpxoA1DAFE4e+Tnr9NH7ySm2PD
-	RbUMPgfQ==;
+	bh=lpTdOrj2/1YMe+JfICda83vHBh44GGQnNDLrcg0mYY4=; b=0thOwAZ5DppEMUH9K6Yk2V4md9
+	l2oQ3u6QQ1t4c1DdZy8yi4lpHTkTA8m033egZ4423Fd0+B6D+Q+AeARfH5jHEIYpb0fyAdUWEUciX
+	kR5Cele1dQSekO1LNWMniDkQprGyeWNfTD4pX9OK2nTH2Ka8Sv3VaeI2VhdkQF29eTWhu2wtcQVcW
+	twrT0uVyxTEpTk/FNKmNEjIRpUcyEwE9mJL5HxhHqfIuIRw7pg1rqxTZHSSeIdCuXxg/f376kz69K
+	6FEVj8ZEgp72srCs973/pZWJ65AbUAzHgYXIDdcUulfNs6z327yyplspYn5JaDersVcDQRky6wQ/o
+	NRHURmxg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xBBvO-00000000jE3-2Caw;
-	Mon, 28 Sep 2026 14:01:46 +0000
+	id 1xBBvl-00000000jJM-38QC;
+	Mon, 28 Sep 2026 14:02:09 +0000
 Received: from foss.arm.com ([217.140.110.172])
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xBBvL-00000000jDX-1zrN
+	id 1xBBvj-00000000jIW-234k
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 28 Sep 2026 14:01:44 +0000
+	Mon, 28 Sep 2026 14:02:08 +0000
 Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 993441655;
-	Mon, 28 Sep 2026 07:01:37 -0700 (PDT)
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id BE0191A00;
+	Mon, 28 Sep 2026 07:02:02 -0700 (PDT)
 Received: from arm.com (usa-sjc-mx-foss1.foss.arm.com [172.31.20.19])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 638F33F763;
-	Mon, 28 Sep 2026 07:01:37 -0700 (PDT)
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id D07553F763;
+	Mon, 28 Sep 2026 07:02:01 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1790604101; bh=fBXa/ueasdImeVBDgfgjheoJKCMPY8NCaFV/SF8dFPI=;
+	t=1790604126; bh=dwo/7H/kyhi0uqLDFZ+V6WuX3qFrA95uTlT7TB0bQAw=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=Vg4/TIsX2zSBY/VJqTduNFc8Zkia1nMyF7g2IbT/uVMxbgf5qc4QgCPb4GrrFBkHk
-	 JX+sp1wpJUJiRu+nL4m88fjnJNEGuVXrPNUy/Gl1Jyh8GtyJhLEWtfZZbwlffcIy5H
-	 Jpptuh7ALbAdmfYXzqllwFwA60Vv/MokQ/6iTL/Y=
-Date: Mon, 28 Sep 2026 15:01:26 +0100
+	b=esd5N1BfIIQNpSfmKiQ8/X/si2jjCe9j7kFqvk5pDRCJbYqVAaa/BzG+il33yoQiu
+	 gD3wfFgldRJdnX9IZCA7ERxg2luZhTD7fV2h0NxReAHYEJJgkU76N3RyhoRebVuFF6
+	 PghZ4XYDlQcRIPX0I6Uwa4hEcTspI4Ja0zUedWF0=
+Date: Mon, 28 Sep 2026 15:01:59 +0100
 From: Catalin Marinas <catalin.marinas@arm.com>
 To: Steffen Eiden <seiden@linux.ibm.com>
 Cc: kvm@vger.kernel.org, kvmarm@lists.linux.dev,
@@ -68,17 +68,18 @@ Cc: kvm@vger.kernel.org, kvmarm@lists.linux.dev,
 	Ulrich Weigand <Ulrich.Weigand@de.ibm.com>,
 	Vasily Gorbik <gor@linux.ibm.com>, Will Deacon <will@kernel.org>,
 	Zenghui Yu <yuzenghui@huawei.com>
-Subject: Re: [PATCH v8 10/29] arm64: Use proper include variant
-Message-ID: <arpzNmXfjqlKbQHh@arm.com>
+Subject: Re: [PATCH v8 11/29] arm64: ptrace: Use constants for compat
+ register numbers
+Message-ID: <arpzV-ylRwdqdNSE@arm.com>
 References: <20260918133107.1042730-1-seiden@linux.ibm.com>
- <20260918133107.1042730-11-seiden@linux.ibm.com>
+ <20260918133107.1042730-12-seiden@linux.ibm.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20260918133107.1042730-11-seiden@linux.ibm.com>
+In-Reply-To: <20260918133107.1042730-12-seiden@linux.ibm.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260928_070143_557283_51B1EC7D 
-X-CRM114-Status: UNSURE (   8.94  )
+X-CRM114-CacheID: sfid-20260928_070207_568157_0A8CB313 
+X-CRM114-Status: UNSURE (   8.67  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -94,12 +95,12 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, Sep 18, 2026 at 03:30:47PM +0200, Steffen Eiden wrote:
-> Use <> for including the sysreg header as it is not discoverable from
-> the current directory.
+On Fri, Sep 18, 2026 at 03:30:48PM +0200, Steffen Eiden wrote:
+> Define an enum to determine the register number for the mapping from
+> AArch32 and AArch64 registers. This allows for a more flexible use of
+> the register mappings.
 > 
-> Fixes: c07d8017bceb ("arm64/sysreg: Enable automatic generation of system register definitions")
-> Acked-by: Marc Zyngier <maz@kernel.org>
+> Reviewed-by: Marc Zyngier <maz@kernel.org>
 > Signed-off-by: Steffen Eiden <seiden@linux.ibm.com>
 
 Acked-by: Catalin Marinas <catalin.marinas@arm.com>
