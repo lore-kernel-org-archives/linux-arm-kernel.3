@@ -4,86 +4,86 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A98EDCA5FA5
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 28 Sep 2026 14:39:24 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6D35FCA5FA2
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 28 Sep 2026 14:39:25 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=piB6olxsDjTKBBKWtT/80MoIuyo/txOuxpczb55KJIY=; b=Sunl+STGohKn/2eITd9iCu6S+M
-	3AxdXqfMztxAzSOzp5uEfwzwbwxNm8rXT6tkswvVFb0Zk6xZb9x5qMHt49r3dVIgF+jg25QV9Nlvs
-	xIrGsFSYpvXU5Yefv7ttWIeirINub/LkURYeuwyXpWEaULT+oggeApj7vNVsR154USfJqxrF7SsmQ
-	prwjNPjp6/9PeaspiLSX/gkeGERb6PWS1OR5dthgtHYCggZgfaKU/vmniTpmkuerblzJZH1FXlLBd
-	69+bLR+wwEzzCF4JQYRaj+Tm/Mgk9bi/uKGsRED2OUIgl7hg5Mx1Ee2ZGkpJj1ns0qUL3ljp8xE8m
-	i0OZI4iQ==;
+	MIME-Version:Message-ID:Date:Subject:To:From:Reply-To:Cc:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=MBwtpeeZ1KqqImP/HFCVixak/oFov7fCW/o5bl69ADg=; b=BjXeNQYbITIILRQFExcj2B8EEk
+	pRXP1oT9JgvDESG5lR0og5Uscqhw4GIM07oNH4goYZORwlIeKZtiOoeNYGUXhTeQYBTk8mTB3jZqS
+	jEyi/ZD3+frZXKTbfuTSHIihsIQ7C4hXF2aADuBrH+icI/hBWr2TY/KDv7y9rbJ99SSQ/V/1D00/w
+	gWdou8yPtVJFSbbGJHoia1u39LiMt/SfdozPtNKshZ5xUep/7zM9tW9f4QabXSQdy6Aw/2Zba/qCr
+	2A59H1Ro1x0w/VrH049GjEslUngKgQFyAsU0p6sRB+pq+UlNDkm3vTpkG9WYxRVI9CMh7KFaXb6nK
+	gcun1j/w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xBCVZ-00000000nFG-0Eox;
+	id 1xBCVZ-00000000nFK-0gdZ;
 	Mon, 28 Sep 2026 14:39:09 +0000
 Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xBCVX-00000000nDg-3NzN
+	id 1xBCVX-00000000nDh-3QZY
 	for linux-arm-kernel@bombadil.infradead.org;
 	Mon, 28 Sep 2026 14:39:07 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:MIME-Version
-	:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Sender:Reply-To:
-	Content-Type:Content-ID:Content-Description;
-	bh=piB6olxsDjTKBBKWtT/80MoIuyo/txOuxpczb55KJIY=; b=Gty1o1eR17B875h9WvFomITL/O
-	0ERWRsSloWkF7BNP2KVa6zYOqhY9hC/CC7bioFmRrOugIrgL2eGCI2xPjffJvDdk8NPtayrOce+bE
-	2LwjlLLeNr3IB7seCGH8Nf2Bx6UlekgYT/uWy1nfx648cIMgmSRZXBxq6LndDIjvjpJA/1ut+zOnV
-	n0KAtqUYASjAWeW2I16dW73I0OkjUM/brIbnxGuysBUuGrklQ/kPrzUez31CER/DbL3RWfLkeAZTS
-	SW88Xtq0ahGxr47bQyuEVV4G0bMfxj7NgGSIx7/rfiWui7sqYMDWrQr9pEAN3Gd0i4VyXwGh6Fumu
-	1sqHxZ0w==;
-Received: from mail-wr2-x0f.google.com ([2a00:1450:4864:30::f])
+	:Message-ID:Date:Subject:To:From:Sender:Reply-To:Cc:Content-Type:Content-ID:
+	Content-Description:In-Reply-To:References;
+	bh=MBwtpeeZ1KqqImP/HFCVixak/oFov7fCW/o5bl69ADg=; b=O0Ak8IW59KwuRS0ifR1GrSaW+g
+	m8XfkT+Bs5RAMD9QomLd8K71uf/1vWmrFJW5+r1V6Jus4bi+sTSLSrtoljVGhfgzMxzZxsNvFfH4l
+	o7w1siAXvfkW+Vq2AD8PCXF4y71sg1toQGV4fUARsIxCdvNHgxa31p5DKPXbcChZwEF+2hCngIw+M
+	i8adqPv9t9mkuSVtjT3Mq6yK/CeDn8gr8b1mMu3ajszfYcYb2RGTsVqyizn+dIXMhSTZRq4R/+Hog
+	42VX+KjkBMVOQnWjzMHsVoP95IiTMP5K1idifMy4/monC/drp/w3Q0unB69SoJpc+pB7CVAAfExhs
+	soENfXZg==;
+Received: from mail-wm2-x10.google.com ([2a00:1450:4864:31::10])
 	by desiato.infradead.org with esmtps (Exim 4.99.2 #2 (Red Hat Linux))
-	id 1xBCVU-00000001Zzp-15Qt
+	id 1xBCVT-00000001Zzm-2jBI
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 28 Sep 2026 14:39:06 +0000
-Received: by mail-wr2-x0f.google.com with SMTP id ffacd0b85a97d-4885d4825adso1898984f8f.0
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 28 Sep 2026 07:39:03 -0700 (PDT)
+	Mon, 28 Sep 2026 14:39:05 +0000
+Received: by mail-wm2-x10.google.com with SMTP id 5b1f17b1804b1-4a00713639cso7064615e9.1
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 28 Sep 2026 07:39:02 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=suse.com; s=google; t=1790606342; x=1791211142; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=piB6olxsDjTKBBKWtT/80MoIuyo/txOuxpczb55KJIY=;
-        b=ebHvommajRW0k/583JDqsOOvzqOgw+afVtIG15p+A4Qrslsh5nLeNwZMecTwGKC0yC
-         D9bpZZ4glIOr3je4pbO/97VJRJx3XlDK1m1eRcymHyLV7aBlBUdRQxiCLqdOilulDnIC
-         4aY/dJTGg4gPsxPQoC8shx9+nZ/2qbuLiaWsOpph6pWdChnQORWR7TCWXQRjjzeic83w
-         bOcC/29it3dsSV8Q+qicCTdfG5hHLCrl8selOs8BI1JedkmwsMWI8h2lbzqvyt4NxD/N
-         492C03TD+6G53/gwPkE4fmVFbCMWeyEt5F1d7naIcGtJZOpaQEkQa3IZkGcKlgoMsPNV
-         lNCw==
+        d=suse.com; s=google; t=1790606341; x=1791211141; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:to
+         :from:from:to:cc:subject:date:message-id:reply-to:content-type;
+        bh=MBwtpeeZ1KqqImP/HFCVixak/oFov7fCW/o5bl69ADg=;
+        b=HitqSR7vRUQJ123eFN1MVamHY+mt0fF8iILYbVZTzcjA0mMHNYvJ1HQ8IeTmk1UnoK
+         xCuEDW3bnMgLYac4kixdwJcidzoZqlwLyIEiVn9Rc2HJqPbuoi/zMbVOCBEmNfStsZuT
+         HNEGTN/6i4VQVieRN/3tB9WwR5ct/iU9GumhPgDNzjItNstMSvwwN49+AEi3WRwg1Kvs
+         NhfFiD3GiJ2lQcX0EC0ymOymBXKBDuY3/jj7ZGdRszdKOWwCb02PRFsFsoj1wXUDAL2Q
+         exRnFLxh0QL8BkzvZaCY5GwqiO3Fmu74vhdK5it/2Sz6ETpYMP0mpeOHQdS+vbp8JtGS
+         g9ZA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1790606342; x=1791211142;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=piB6olxsDjTKBBKWtT/80MoIuyo/txOuxpczb55KJIY=;
-        b=qYzLIhceLN4xi4jmk7oTm9DkQcUe3NJN4JlQYC5i83xkSbwzSmeb+9YTp1p0Elxbnb
-         MgOXHet3C39lJXdvICJM5t0NVE+sERBFgMqi+czLIA5nRb87UZ6XVe+qkjqEn9YOtkdm
-         Gmn/qeCji0aR9Zrn6VB2NdeMZySU5F6/Bhb8cqZjxYLVJIwaYwkaux53bfumOilmhxmL
-         n29KHVtefCQ+Y3da+xgOegwvkj/X0zz/DdNOF+i3aBwsuo+En0F5dtCgyHHcXMxRXmk0
-         KSnWz2l732pWUah1eC6M41ASGmmzAey28/eZ6plm7PxjCM6QGKL5iKCZs7TSPnbtqTna
-         SXyQ==
-X-Forwarded-Encrypted: i=1; AKwUvByOnfe2G3POqCmzmEW7jTqYQ2bBk+B5YQ6S1UufuV8CMWsJRlT6YLakOa/RTdlSNW/3+tkTWGwDeLfz1beW2pc6@lists.infradead.org
-X-Gm-Message-State: AFq9FYL/MRzTo4l+opT5c3FHores6sZgE8lF7fw5a9U1TM7LkbG3fyz1
-	ze84So33Oz95QtBgLUgu3nYSyU1/whGwoCO4rfiz0PHJvjoDVsS4dWVENjjM9oQyG/Q=
-X-Gm-Gg: AYBFou0rMEXHKKp8sVIyQ3JwFRgQrKcmjFE0nAbT7ypXdQhcum4ViHL6V829WAwNtmv
-	lkH0MEi+aV+y9fMJUbyojKQHo0HZD7kAwEjSGc3CuwouL5hYq+y4SeHXMoieONSGngcB3ohFR5w
-	FkQyo+AhE3EFierm3+REqYNWjKhpFLPxrqGP4x9uvU+buyYvAJkLNw1pBeOJcr6InQSBxaUKVUr
-	ZXdKDKuwBjVPC4+wdC/ZbD1RWq9RJnqHjluqiVvnToKtrjHZCtP593Aj35NwcpuD3M4L3BIgzj7
-	8jImV+R4Tr7RLf/q5o7unx/SKebPQuiWAsNwjyKtB3p/frPWyJE5/qo6QrgyeAUOJhkN19iLu7G
-	4r1gLRI7B6dtX7HnFL2LhhixVyCLMAu7I/gqZDbTgSdfd7DOw96j0Z+ifbqNTn6sfraejo2rjcg
-	wknj3eNzNBo4EmpFaSHhJGCDfEblxnCnswFszkQ0uxbP1nZ9x41f8mJ59OiUAoooHziRSUBA==
-X-Received: by 2002:a05:6000:2284:b0:488:89ad:56c0 with SMTP id ffacd0b85a97d-48889ad576amr11374823f8f.11.1790606342507;
-        Mon, 28 Sep 2026 07:39:02 -0700 (PDT)
+        d=1e100.net; s=20260707; t=1790606341; x=1791211141;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:to
+         :from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to:content-type;
+        bh=MBwtpeeZ1KqqImP/HFCVixak/oFov7fCW/o5bl69ADg=;
+        b=zZR14mWOQcjLVROT3kAK683ySUddmg2iq80ee7q28w77gYy3Y5oWuXBVEdgUuqziLA
+         xRv7M+YG+gQxWE5FDEPjfY2Ua1WwQNP5kOI1le7/H0i0MpEDqUk8N4wRpGKOMSwdRtWe
+         Kjiihfrxuye/MiUKkkKZ0PefJgOaySCAiyycdyYXT+g2Dx24fdYDt3itjp71STPu0UtS
+         S/H5m6tDFA0ZsRV1nhaL9vWymMkoftcuHaJDjALHuTwR3KnQpeCODj1NcxSKQiiSyL3W
+         DlZy9i/NAUBEMvzT4A8RYSnzkGXxohHhs20xgVXZJ6IZtwoKNF06NR+VtnxLu5NkLENf
+         AWBQ==
+X-Forwarded-Encrypted: i=1; AKwUvBx94LR72N9ZfQ1FlB3pQ8bJVW/RLp9zxyMHfAQZmV0+pVXtOQ7FmW1IaaUGN1lm2k2mTciRyBEJCE/1u+ubE7hU@lists.infradead.org
+X-Gm-Message-State: AFuF++lTzPgPnLqHoPsml1u7WS2J7qS/b+QYOM+RZKv6Kc3C/Gpvi8Hl
+	WB6AiV/oD+vN16rSXCsddaVWfdSc7rCzvTyNUFI0Wyoo5qBbZfSfOy6xqwuOCtj4LTM=
+X-Gm-Gg: AYBFou0MskkzsvnK2k1KUj9Q+s/g0C4p7ZoKaQHsNuNqE6PxplY5JSuDFumL819b+k4
+	0k2aMEPjA4Rrjkb2Fg6a2MSOPExmmLMqbbknXBA0cso8sCfKWS3aCy3RVZDfk0Vwya3yC45xkp2
+	pwsLW0YaOOFeHflC6obDT17k9Qwjkw4s7A8lLTpnxvQxay5f3XichpOATxp39l+7fZBRvkXJwGm
+	UPv5BuNW0dp5JthI2LxBOPFmYY+1Q1qjwFwFUy2cxUR4Q00iIPY9U03YeVtt02wyFyJ3M02GcUn
+	TiCUubOYdk5F48BRhROG0Ry53KUjoYxUFr2JjcffMyMRaQH2NbEuKufe7ZzjnPjbQTokd5wSEX/
+	fW9JH/UOW15wn5nH9+K98SqJ4DViAlXZQkevBTYvGHVwmSrDoBEwXB/xQAFeTTAfeEosSlnmdkJ
+	KCZU5VBsBzSGl2JH8+3LwDGQl6gOYzBghxCy+ZABRFV/ykiMNVB10lmu7gQbsi3fUkwGiF/0a7g
+	xW6gUXh
+X-Received: by 2002:a05:600c:8484:b0:49c:fe46:7219 with SMTP id 5b1f17b1804b1-49fe66d8135mr222403935e9.20.1790606341440;
+        Mon, 28 Sep 2026 07:39:01 -0700 (PDT)
 Received: from localhost ([195.94.147.179])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-4887a6470b7sm28425051f8f.27.2026.09.28.07.39.02
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4a001915fc2sm141007155e9.14.2026.09.28.07.39.00
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 28 Sep 2026 07:39:02 -0700 (PDT)
+        Mon, 28 Sep 2026 07:39:01 -0700 (PDT)
 From: Andrea della Porta <andrea.porta@suse.com>
 To: =?UTF-8?q?Uwe=20Kleine-K=C3=B6nig?= <ukleinek@kernel.org>,
 	linux-pwm@vger.kernel.org,
@@ -104,18 +104,15 @@ To: =?UTF-8?q?Uwe=20Kleine-K=C3=B6nig?= <ukleinek@kernel.org>,
 	Julian Braha <julianbraha@gmail.com>,
 	"Gary Guo" <gary@garyguo.net>,
 	Christophe JAILLET <christophe.jaillet@wanadoo.fr>
-Cc: Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
-Subject: [PATCH v10 1/3] dt-bindings: pwm: Add Raspberry Pi RP1 PWM controller
-Date: Mon, 28 Sep 2026 16:42:40 +0200
-Message-ID: <ee0aa89faa14e0073f1271693bae28678652998b.1790606188.git.andrea.porta@suse.com>
+Subject: [PATCH v11 0/3] Add RP1 PWM controller support
+Date: Mon, 28 Sep 2026 16:42:39 +0200
+Message-ID: <cover.1790606188.git.andrea.porta@suse.com>
 X-Mailer: git-send-email 2.51.0
-In-Reply-To: <cover.1790606188.git.andrea.porta@suse.com>
-References: <cover.1790606188.git.andrea.porta@suse.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260928_153904_394403_6DD23700 
-X-CRM114-Status: GOOD (  17.84  )
+X-CRM114-CacheID: sfid-20260928_153903_799184_97FEE809 
+X-CRM114-Status: GOOD (  19.12  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -130,93 +127,52 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Naushir Patuck <naush@raspberrypi.com>
+This patchset adds support for the PWM controller found on the
+Raspberry Pi RP1 southbridge. This is necessary to operate the
+cooling fan connected to one of the PWM channels.
 
-Add the devicetree binding documentation for the PWM
-controller found in the Raspberry Pi RP1 chipset.
+The tachometer pin for the fan speed is managed by the firmware 
+running on the RP1's M-core. It uses the PHASE2 register
+to report the RPM, which will be exported by this driver via
+a function. A subsequent patch will add the function to read the
+speed to this driver and a new device and driver to read the RPM
+and export this value via hwmon.
+ 
+Subsequent patches will also add the CPU thermal zone, which
+acts as a consumer of the PWM device.
 
-Signed-off-by: Naushir Patuck <naush@raspberrypi.com>
-Co-developed-by: Stanimir Varbanov <svarbanov@suse.de>
-Signed-off-by: Stanimir Varbanov <svarbanov@suse.de>
-Signed-off-by: Andrea della Porta <andrea.porta@suse.com>
-Reviewed-by: Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
----
- .../bindings/pwm/raspberrypi,rp1-pwm.yaml     | 66 +++++++++++++++++++
- 1 file changed, 66 insertions(+)
+Best regards,
+Andrea
+
+
+CHANGES in V11:
+
+- capped duty_cycle in rp1_pwm_round_waveform_fromhw()
+- fixed a conditional in probe function dealing with an unitialized
+  local variable (base instead of rp1->base). As a result, drop
+  the unused local.
+
+Link to V10:
+https://lore.kernel.org/all/cover.1790603500.git.andrea.porta@suse.com/
+
+
+Naushir Patuck (2):
+  dt-bindings: pwm: Add Raspberry Pi RP1 PWM controller
+  pwm: rp1: Add RP1 PWM controller driver
+
+Stanimir Varbanov (1):
+  arm64: dts: broadcom: rpi-5: Add RP1 PWM node
+
+ .../bindings/pwm/raspberrypi,rp1-pwm.yaml     |  66 +++
+ .../boot/dts/broadcom/bcm2712-rpi-5-b.dts     |  12 +
+ arch/arm64/boot/dts/broadcom/rp1-common.dtsi  |   9 +
+ drivers/pwm/Kconfig                           |   7 +
+ drivers/pwm/Makefile                          |   1 +
+ drivers/pwm/pwm-rp1.c                         | 417 ++++++++++++++++++
+ 6 files changed, 512 insertions(+)
  create mode 100644 Documentation/devicetree/bindings/pwm/raspberrypi,rp1-pwm.yaml
+ create mode 100644 drivers/pwm/pwm-rp1.c
 
-diff --git a/Documentation/devicetree/bindings/pwm/raspberrypi,rp1-pwm.yaml b/Documentation/devicetree/bindings/pwm/raspberrypi,rp1-pwm.yaml
-new file mode 100644
-index 0000000000000..be020583fd0ba
---- /dev/null
-+++ b/Documentation/devicetree/bindings/pwm/raspberrypi,rp1-pwm.yaml
-@@ -0,0 +1,66 @@
-+# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
-+%YAML 1.2
-+---
-+$id: http://devicetree.org/schemas/pwm/raspberrypi,rp1-pwm.yaml#
-+$schema: http://devicetree.org/meta-schemas/core.yaml#
-+
-+title: Raspberry Pi RP1 PWM controller
-+
-+maintainers:
-+  - Naushir Patuck <naush@raspberrypi.com>
-+  - Andrea della Porta <andrea.porta@suse.com>
-+  - Stanimir Varbanov <svarbanov@suse.de>
-+
-+allOf:
-+  - $ref: pwm.yaml#
-+
-+description: |
-+  The PWM peripheral is a flexible waveform generator with a
-+  variety of operational modes. It has the following features:
-+   - four independent output channels
-+   - 32-bit counter widths
-+   - Seven output generation modes
-+   - Optional per-channel output inversion
-+   - Optional duty-cycle data FIFO with DMA support
-+   - Optional sigma-delta noise shaping engine
-+  Serves as a fan speed provider to other nodes for a PWM-connected
-+  fan.
-+
-+properties:
-+  compatible:
-+    const: raspberrypi,rp1-pwm
-+
-+  reg:
-+    maxItems: 1
-+
-+  clocks:
-+    maxItems: 1
-+
-+  "#pwm-cells":
-+    const: 3
-+
-+  dmas:
-+    maxItems: 1
-+    description: |
-+      Phandle to the DMA controller and the channel specifier for
-+      the duty-cycle FIFO.
-+
-+  dma-names:
-+    items:
-+      - const: tx
-+
-+required:
-+  - compatible
-+  - reg
-+  - clocks
-+
-+unevaluatedProperties: false
-+
-+examples:
-+  - |
-+    pwm@98000 {
-+      compatible = "raspberrypi,rp1-pwm";
-+      reg = <0x98000 0x100>;
-+      clocks = <&rp1_clocks 17>;
-+      #pwm-cells = <3>;
-+    };
 -- 
 2.35.3
 
