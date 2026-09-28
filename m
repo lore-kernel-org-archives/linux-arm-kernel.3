@@ -4,67 +4,68 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D1AEECA5FA5
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 28 Sep 2026 12:03:28 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 44251CA5FA2
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 28 Sep 2026 12:22:25 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
-	:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=JS5dd5f9mWNpybqKgfuEd/QJ8IUXo+CpfbvRDEoiIGk=; b=G+a9z3dqM8qFlbBV2l1egdE+NI
-	vi0WSX7UWaagCKMiAzg+K8snozyNpIWCOPh5PJmxtO9h+8SmrXjZtMHh12tmG2fxIZPY4OAgp9Hxt
-	4cwHwdmZxAN95lz+FwIPpdTSEWIQfiriEqdiZoUH0e5vFcRRGrMPk8E8K3auglS53oGb/pWQbeni5
-	wn+IqbXbuFKQECPLNhnMgS83HH4b5YJif+b6Tl515yYsp/p9VdWM4cQKEpmnsxkXQtnrvMFzpEEEU
-	bxko+Wk76xUanO+B7Ns3B1tOYdQGx5buHgxMkm9brL9mnkTzfP2MHzJc1Yh+hk57vaYKrrIUHU1U4
-	8/wpg5zQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=BVJUBNJ7tEq88bmoIqpiryVEDT47R4FakLv8qiWtK/Y=; b=c5oWwsq7E4RNBVx4FnHH3/h9h6
+	i/yJE1LDKCxkXjsdWOmrShigVV8jugmcCUjJVdZPpYKpS9Yesm8VAQpgG9iawa3mLufJETanZlW+H
+	Gb0PfQHaNIh24WsV+I1WYSweXOGPUck0HoPHZyWoO3em2hykUU10iDvl4bod3mFLSeTDj1G3szER/
+	vVArVOhdVtb8Byq9azQRTD/4XTxeQlL6O4Xej8urRhUNMvwHkBAeEYC5B5FR/YvcYYLxUQCiiiuWp
+	9oFlzVQ2/BD1azM2yOnz1yixjz0KoqyiCSprgk2MYLhiHSOrofr6hP0+uh0kol9pOULBkhpjuyrzG
+	v+Ys3giQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xBA4o-00000000WKa-3aPQ;
-	Mon, 28 Sep 2026 12:03:22 +0000
-Received: from gloria.sntech.de ([185.11.138.130])
+	id 1xBAN6-00000000XbY-2Xij;
+	Mon, 28 Sep 2026 12:22:16 +0000
+Received: from bali.collaboradmins.com ([2a01:4f8:201:9162::2])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xBA4m-00000000WK6-0bFH;
-	Mon, 28 Sep 2026 12:03:21 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=sntech.de;
-	s=gloria202408; h=Content-Type:Content-Transfer-Encoding:MIME-Version:
-	References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Reply-To;
-	bh=JS5dd5f9mWNpybqKgfuEd/QJ8IUXo+CpfbvRDEoiIGk=; b=ECHJ3cZwUWSupvEzyzR1mPXOLK
-	VK19JixYTDfT7fybYoFw9vuFW0SbnORD4Y9j8GdDG9U0x9ll+cMggmyyksZSibgyPky0jIZd9+52W
-	0htIfPxgQIkqF1zy95076+JaRF1wxQO8It9j4Ch+hEUzB/qGtobQbbooz+Of3zfmBVp9BCNTCcS5f
-	oZ/fo1tAlJA8vAJQG+hv1+g2hi8sxj6JDQmpbtgP6RN9UCZa2dRfAR4rfB4nuQ/Itfbs3LLphZKk8
-	UjHJNwa39/cTltFE+yjkzF6teFeYb8PsICQ/fTQpmq2Zx1djAdWIYGQsCxAErGU/HHsafXnccJO4L
-	ocKRP2tA==;
-From: Heiko =?UTF-8?B?U3TDvGJuZXI=?= <heiko@sntech.de>
-To: Andrzej Hajda <andrzej.hajda@intel.com>,
- Neil Armstrong <neil.armstrong@linaro.org>, Robert Foss <rfoss@kernel.org>,
- Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
- Maxime Ripard <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>,
- David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>,
- Jingoo Han <jingoohan1@gmail.com>, Inki Dae <inki.dae@samsung.com>,
- Seung-Woo Kim <sw0312.kim@samsung.com>,
- Kyungmin Park <kyungmin.park@samsung.com>,
- Krzysztof Kozlowski <krzk+dt@kernel.org>,
- Peter Griffin <peter.griffin@linaro.org>,
- Alim Akhtar <alim.akhtar@samsung.com>, Damon Ding <damon.ding@rock-chips.com>
-Cc: Laurent Pinchart <Laurent.pinchart@ideasonboard.com>,
- Jonas Karlman <jonas@kwiboo.se>, Jernej Skrabec <jernej.skrabec@gmail.com>,
- Luca Ceresoli <luca.ceresoli@bootlin.com>,
- Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>,
- linux-kernel@vger.kernel.org, dri-devel@lists.freedesktop.org,
- linux-arm-kernel@lists.infradead.org, linux-samsung-soc@vger.kernel.org,
- linux-rockchip@lists.infradead.org, Damon Ding <damon.ding@rock-chips.com>
-Subject: Re: [PATCH v3 00/14] Add HPD support for Rockchip Analogix DP
-Date: Mon, 28 Sep 2026 14:02:34 +0200
-Message-ID: <3772572.AiC22s8V5E@diego>
-In-Reply-To: <20260928081418.3605775-1-damon.ding@rock-chips.com>
-References: <20260928081418.3605775-1-damon.ding@rock-chips.com>
+	id 1xBAN4-00000000Xan-0KmQ;
+	Mon, 28 Sep 2026 12:22:15 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
+	s=mail; t=1790598130;
+	bh=SLg1FxE9ics1/cs2ysnZ8Au0HCU8e3CEW8rQfydklFs=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=N56iEFcyK3O5kuum5nmqg4Cd/C5G7EW4puEpnAR+quXdLDBZXhnBN5/5oA/fPKLk9
+	 B9YhrUZ1gOL51X1saKAQIU8z8GboH0PEZ6yOrASK+FcE1TEI7PQu6811ltUwwPiTRs
+	 rr45UUjsIKFmnj1pbkpfXKjzTmyA8UPkx+luhKjHcbnLWkDyWo/JtEPLuHsCIWqJIH
+	 eTma1HXVFtNHWdD7nXGCZyFcFrX4MQbFsAI7VQpuTGCu05M3ZDgOY4p8vIRnag8tdf
+	 1Vtwbs25pKKXvCxPeKbkfNZKMNIJt2IT4f+AsCZkZpIgHWiLPgG1XFIZ95Fxrel1yN
+	 4SxCTfO6rgObw==
+Received: from [100.64.1.21] (unknown [100.64.1.21])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange x25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	(Authenticated sender: kholk11)
+	by bali.collaboradmins.com (Postfix) with ESMTPSA id 94BC017E007D;
+	Mon, 28 Sep 2026 14:22:09 +0200 (CEST)
+Message-ID: <12e0953c-5181-45f2-b409-05163ab2a031@collabora.com>
+Date: Mon, 28 Sep 2026 14:22:09 +0200
 MIME-Version: 1.0
-Content-Transfer-Encoding: quoted-printable
-Content-Type: text/plain; charset="utf-8"
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH 2/2] clk: mediatek: mt6795: fix the FHCTL DDS mask width
+To: Jerome Brunet <jbrunet@baylibre.com>, Ryan Brue <ryanbrue.dev@gmail.com>,
+ Stephen Boyd <sboyd@kernel.org>, Brian Masney <bmasney+clk@redhat.com>,
+ Jerome Brunet <jbrunet+clk@baylibre.com>,
+ Matthias Brugger <matthias.bgg@gmail.com>, Chen-Yu Tsai <wenst@chromium.org>
+Cc: linux-clk@vger.kernel.org, linux-kernel@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org
+References: <20260912-mt8173-fix-dds-mask-width-v1-0-3d0c0292c85c@gmail.com>
+ <20260912-mt8173-fix-dds-mask-width-v1-2-3d0c0292c85c@gmail.com>
+ <88272aca-2a9e-4a75-b7f2-4f7aac8b6d18@collabora.com>
+ <1j33ux8of7.fsf@starbuckisacylon.baylibre.com>
+From: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
+Content-Language: en-US
+In-Reply-To: <1j33ux8of7.fsf@starbuckisacylon.baylibre.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260928_050320_351369_A3CF2BB6 
-X-CRM114-Status: GOOD (  10.41  )
+X-CRM114-CacheID: sfid-20260928_052214_292233_0AE566C8 
+X-CRM114-Status: GOOD (  11.33  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -79,42 +80,39 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Damon,
+On 9/25/26 15:13, Jerome Brunet wrote:
+> On lun. 14 sept. 2026 at 10:16, AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com> wrote:
+> 
+>> On 9/12/26 08:40, Ryan Brue wrote:
+>>> All eight PLLs in mt6795's pllfhs[] have pcwbits = 21, so the FHCTL DDS
+>>> field is bits 20:0, but _FH() declares .dds_mask = GENMASK(21, 0). As on
+>>> MT8173, new_dds from mtk_pll_calc_values() is always 21-bit, so admitting
+>>> bit 21 of FHCTL_MON into the poll in hopping_hw_flow() can only make it
+>>> time out. The same mask feeds the CON1 write-back and fhctl_set_ssc_regs().
+>>>
+>>> Unlike MT8173 this path has a user: mt6795-sony-xperia-m5.dts switches
+>>> FHCTL on for mainpll, mpll and msdcpll, with SSC.
+>>>
+>>> Found by inspection while fixing MT8173. I have no MT6795 hardware, so
+>>> this one is untested.
+>>>
+>>> Fixes: f222a1baec5f ("clk: mediatek: mt6795: Add support for frequency hopping through FHCTL")
+>>> Assisted-by: LLM
+>>> Signed-off-by: Ryan Brue <ryanbrue.dev@gmail.com>
+>>
+>> Reviewed-by: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
+> 
+> Hey Angelo,
+> 
+> Will you collect the MTK changes yourself and send us a PR or should
+> we collect the changes you've reviewed for this cycle ?
+> 
 
-Am Montag, 28. September 2026, 10:14:04 Mitteleurop=C3=A4ische Sommerzeit s=
-chrieb Damon Ding:
-> Rebase after the following two patch series:
-> [0] https://lore.kernel.org/all/20260915-drm-bridge-drm_panel-cleanup-v4-=
-0-30401d9406f3@bootlin.com/
-> [1] https://lore.kernel.org/all/20260916-drm-bridge-every-panel-v3-0-83af=
-b4f1a707@bootlin.com/
->=20
-> This series improves the HPD (Hotplug Detect) interrupt handling in
-> the Analogix DP driver to enable reliable native HPD pin detection on
-> Rockchip platforms, and introduces platform-specific HPD detection
-> schemes with fine-grained interrupt control.
+Please collect the changes that I've reviewed for this cycle... I'll start
+sending PRs from the next one.
 
+Thanks!
 
-on my eDP panel with gpio-hotplug via the dp-connector as before, I get
-a successful display output even on boot.
-
-=2D plugged in on boot - display works / reported as connected
-    - plugged out - correctly reported as disconnected
-    - plugged in again - display works / reported as connected
-
-=2D unplugged on boot - correctly reported as disconnected
-    - plugged in - display works / reported as connected
-
-Multiple plugin/plugout operations afterwards also worked nicely.
-
-So
-Tested-by: Heiko Stuebner <heiko@sntech.de>
-
-Will do reviewing of patches now ;-)
-
-
-Thanks for working on that
-Heiko
-
-
+Cheers,
+Angelo
 
