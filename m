@@ -4,54 +4,54 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3621FCA5FA2
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 28 Sep 2026 12:01:20 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 52CB7C9833F
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 28 Sep 2026 12:01:22 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
 	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
 	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=pChefNnHWemAHbDPfzopCXHZYlJm3baBykqr949Vgp4=; b=pz1OOTq9VqrpujbRcD9MkWYm03
-	oJr4egwCacUqH3zdou8KGc1670W67QhShaWwSjGfCtUX+romhMdgbbcer2oxoIaoKzMy62Y3zKkJy
-	L8yB/aScrKDZsZYR7yMHENx3G16AchVYup9s7MiZTPTvc7yl9ume0tvCpXF/sIsbs2tPeBfUVmGw7
-	vraA+wGOfH77uM1ZY+pKiZO7UKMayNR3UYHCqgw1yOMnaQn7aVsR12ugoH8cke7bYvW/YnTtHULEC
-	U9lbsbipEJjseroHOrSokRJNY4pIBnkd+fFprAJ13r68HpMc8oNU1D9Sk5V9Owc16MjfNEbhmqWZG
-	GE+KIYqg==;
+	bh=2mRtwJBu5tb8Ms07j2cc24RSCFcqnLzaKZlIEpcLSr0=; b=vfPuvtF1WFmBuaKIQ6k5OyhobG
+	mQ09eYSiOekOol2fEWj5E8YmgH5qtxWz7UR9z6nOWK5cozQyn4+bknoQp56M2+CbfJuSMGkU/GN+x
+	maYbWZHd4Z59gz82vtKSdsnPgKED3abVMKsailKJ6NvKB+cSRhL7D6w5/YTw6yKoF+7VGOUSpdXTl
+	qLcaBwGi9dwgG/ltmHDRR/CJd8DSsXR3w+QmyFqPeMDFJAJThHfsAafWI86VHte7ZpQJGCR3H3lb6
+	ELqB/JbbJs0B4O8WWaxKcQ3dn4sEr48Uoja+xL6JAah8Q5WJye8/0IZTGB+aX+vYdRw8LwXIUSEUl
+	fWqA23Jg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xBA2h-00000000Vr8-3P4h;
+	id 1xBA2h-00000000Vr4-2uGw;
 	Mon, 28 Sep 2026 12:01:11 +0000
-Received: from mail-northcentralusazlp170130007.outbound.protection.outlook.com ([2a01:111:f403:c105::7] helo=CH4PR04CU002.outbound.protection.outlook.com)
+Received: from mail-westus2azon11010065.outbound.protection.outlook.com ([52.101.46.65] helo=CO1PR03CU002.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xBA2d-00000000Vpw-40rk
+	id 1xBA2d-00000000Vpx-1MzT
 	for linux-arm-kernel@lists.infradead.org;
 	Mon, 28 Sep 2026 12:01:10 +0000
 ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=AwP+zS4A6BRKdKMgYIiPzgOuQTH5DM1IjKMNUBhCXYNn4m0QmtKsUxOeuDgGx8AlJpSWpy5wNrW1KrMXyg8Jp3gm7521J/R7eX07RWzcJm7qHRswiEZYgCl0aCfB034t974zddgVL7L+9NpnYmgTDqli3yxp02fHJATe38C9U30RTtLugpnKdk3uDPoZdP0G9mmYFQxPm/trUg542xfYttnTaXru/UfRKCF7fR5+pFBI01SNv1cYRLhKOy6UA1YYN7PZAAHdLRGz/0tXjwN/VGAp+et4H23jfTECGMSwYqFY6m5DewNj2luV58Afif1h5UEbJ3w2JzUBT6kyJWRFrA==
+ b=hmJ4s9sKZP5tdrsKD5ZYeQKm7MPC/sZyt+a0gQodkWR7Fbrdabu4NPpgzkAobArQZkyJ4Y87AzI+37tETRCbGJECdA4FFHXdgQXUqxjz0bURk6rc3QltuCN9TDRklmpaDysAw69QMl30ltHhs9Uxf+y4/O2M9xoYASN17zzIZ8j2sPJM8BD9O8z4sRW/drHioQ1fm9KQfUf2L7dYN6n1PkLAFFDNQ3J6/jwwLHeAFRa7PnpHERIiCCRm8PzoZls5sXv//asUKBFV6kXPnJvcOOhoGkRkkr8rWJSvktMmSDJanTnXeQAAsjwI7aYkfE4UuURQwyJtc6oqs0p57sgq+g==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
  s=arcselector10001;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=pChefNnHWemAHbDPfzopCXHZYlJm3baBykqr949Vgp4=;
- b=JFfWz5i+zSJY3XSP9oGJ9K5D+rRnHXPMARc8t4HHPemQsuj6Lrld7zNAMkwdh3JqTuzDTPu+wJqamApwK3lbKms0vjtQMiTZooCL0nHkPVFSpX6ZDJ6Xjra/QgSJ3R6p7rqZV9qtK3WpIO90i/UUtJbJlI4PBEh8OOg3vqBc6F6b/fZaY8fR/ChaKB+HK/nPziySr5FE0RxGvVnqA1VAMLlIBGxxvRprxFt/ns03YmNTivBcNJ9OSUwqMZRcM07OJnbPqS6icyvfQxoa6efGMXfGUY5gh7MBv7QjbTtxlTpfVxGnd5eOzyWyezSR8DbsOcq1BiHdA1V0wN/xmfCMig==
+ bh=2mRtwJBu5tb8Ms07j2cc24RSCFcqnLzaKZlIEpcLSr0=;
+ b=uWQF7wOgIfue8+iSqtBg6hsVYW+XcfwJQ7Jy64okkpmId4ecy9Gw7N2E8ddvXrreR2F6yYD0Y3qTlr9VC7Dw0EA19FV4fZ3PWlHHdAw1cqPv48XVbf7tEpyOORYh7WinRvDdKy5yTa9qCKuK050ljAZYJ/mTBTJzu+ByqKaDZWyj0BaK9YYdnJVjdXyx+YwhR2ioemIBnMgfnyqeBzuYCKTRVd8M21B4yiKOaPtSXFWmHXAuWuDzMV3TsfVINcyKmy8yh5YN8sl0hM7WX/d9yN+nlUSbgKLHFr9Ih/YjlbabLIkAlE7YMAfvgv6wZVYT5WBn9ur0DCImyzWuKyv/kw==
 ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
  165.204.84.17) smtp.rcpttodomain=synopsys.com smtp.mailfrom=amd.com;
  dmarc=pass (p=quarantine sp=quarantine pct=100) action=none
  header.from=amd.com; dkim=none (message not signed); arc=none (0)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=amd.com; s=selector1;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=pChefNnHWemAHbDPfzopCXHZYlJm3baBykqr949Vgp4=;
- b=BGovHxurHeTle4SHTKPczvwYd3EFFARrfW0YQgvhLOtRuqUTPzd3zRoU9eBZvr09qO7JswGieP//JxEKzLngCm21uAxTqUlO2Cqe5czHDChkqHkQG9ps9LyN5DgYM1LNOUkO62ccvR72t6Ojv3wvlVcO59Gy7vk5xRgobmXHwVs=
-Received: from SJ0PR03CA0231.namprd03.prod.outlook.com (2603:10b6:a03:39f::26)
- by CY8PR12MB7217.namprd12.prod.outlook.com (2603:10b6:930:5b::20) with
+ bh=2mRtwJBu5tb8Ms07j2cc24RSCFcqnLzaKZlIEpcLSr0=;
+ b=dWRX7uZUNeqHEfHMlaiUax9Xe35psKly9a2Mezv4F+wbn6xRcFCIzcO02hIDbDo9erTCr5aVIw5UKyCFpi9XxxiuwkoP5nYpui3mugpFzMzPP3Wef962OSdm0LYsDBgnzC84fVi8XQEk20cNQRve+W+c8Fgm7/iPu9iFJJfEvfY=
+Received: from SJ0PR13CA0070.namprd13.prod.outlook.com (2603:10b6:a03:2c4::15)
+ by CH3PR12MB8073.namprd12.prod.outlook.com (2603:10b6:610:126::8) with
  Microsoft SMTP Server (version=TLS1_2,
  cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.451.24; Mon, 28 Sep
- 2026 12:01:02 +0000
-Received: from SJ1PEPF00001CEB.namprd03.prod.outlook.com
- (2603:10b6:a03:39f:cafe::71) by SJ0PR03CA0231.outlook.office365.com
- (2603:10b6:a03:39f::26) with Microsoft SMTP Server (version=TLS1_3,
- cipher=TLS_AES_256_GCM_SHA384) id 15.21.451.23 via Frontend Transport; Mon,
- 28 Sep 2026 12:01:02 +0000
+ 2026 12:00:59 +0000
+Received: from SJ1PEPF00001CE8.namprd03.prod.outlook.com
+ (2603:10b6:a03:2c4:cafe::71) by SJ0PR13CA0070.outlook.office365.com
+ (2603:10b6:a03:2c4::15) with Microsoft SMTP Server (version=TLS1_3,
+ cipher=TLS_AES_256_GCM_SHA384) id 15.21.472.14 via Frontend Transport; Mon,
+ 28 Sep 2026 12:00:59 +0000
 X-MS-Exchange-Authentication-Results: mx.microsoft.com 1; spf=pass (sender IP
  is 165.204.84.17) smtp.mailfrom=amd.com; dkim=none (message not signed)
  header.d=none;dmarc=pass action=none header.from=amd.com;
@@ -59,25 +59,25 @@ Received-SPF: Pass (protection.outlook.com: domain of amd.com designates
  165.204.84.17 as permitted sender) receiver=protection.outlook.com;
  client-ip=165.204.84.17; helo=satlexmb07.amd.com; pr=C
 Received: from satlexmb07.amd.com (165.204.84.17) by
- SJ1PEPF00001CEB.mail.protection.outlook.com (10.167.242.27) with Microsoft
+ SJ1PEPF00001CE8.mail.protection.outlook.com (10.167.242.24) with Microsoft
  SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.21.472.14 via Frontend Transport; Mon, 28 Sep 2026 12:01:02 +0000
+ 15.21.472.14 via Frontend Transport; Mon, 28 Sep 2026 12:00:58 +0000
 Received: from satlexmb07.amd.com (10.181.42.216) by satlexmb07.amd.com
  (10.181.42.216) with Microsoft SMTP Server (version=TLS1_2,
  cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.49; Mon, 28 Sep
- 2026 07:01:00 -0500
+ 2026 07:00:57 -0500
 Received: from xhdradheys41.xilinx.com (10.180.168.240) by satlexmb07.amd.com
  (10.181.42.216) with Microsoft SMTP Server id 15.2.2562.49 via Frontend
- Transport; Mon, 28 Sep 2026 07:00:58 -0500
+ Transport; Mon, 28 Sep 2026 07:00:55 -0500
 From: Radhey Shyam Pandey <radhey.shyam.pandey@amd.com>
 To: <Thinh.Nguyen@synopsys.com>, <gregkh@linuxfoundation.org>,
 	<michal.simek@amd.com>, <p.zabel@pengutronix.de>
 CC: <linux-usb@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
 	<linux-kernel@vger.kernel.org>, Radhey Shyam Pandey
 	<radhey.shyam.pandey@amd.com>, <stable@vger.kernel.org>
-Subject: [PATCH v3 2/3] usb: dwc3: xilinx: re-assert resets on ZynqMP init error paths
-Date: Mon, 28 Sep 2026 17:30:14 +0530
-Message-ID: <20260928120015.3152461-3-radhey.shyam.pandey@amd.com>
+Subject: [PATCH v3 1/3] usb: dwc3: xilinx: fix system suspend and resume PHY handling
+Date: Mon, 28 Sep 2026 17:30:13 +0530
+Message-ID: <20260928120015.3152461-2-radhey.shyam.pandey@amd.com>
 X-Mailer: git-send-email 2.44.4
 In-Reply-To: <20260928120015.3152461-1-radhey.shyam.pandey@amd.com>
 References: <20260928120015.3152461-1-radhey.shyam.pandey@amd.com>
@@ -86,28 +86,28 @@ Content-Transfer-Encoding: 8bit
 Content-Type: text/plain
 X-EOPAttributedMessage: 0
 X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: SJ1PEPF00001CEB:EE_|CY8PR12MB7217:EE_
-X-MS-Office365-Filtering-Correlation-Id: 3d71fff0-278c-4604-2ae8-08df1d582aca
+X-MS-TrafficTypeDiagnostic: SJ1PEPF00001CE8:EE_|CH3PR12MB8073:EE_
+X-MS-Office365-Filtering-Correlation-Id: 84d4fa99-0cb9-40de-f0ca-08df1d5828eb
 X-MS-Exchange-SenderADCheck: 1
 X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|82310400026|376014|1800799024|36860700016|23010399003|10067099003|11063799006|5023799004|56012099006|6133799003|22082099003|18002099003;
-X-Microsoft-Antispam-Message-Info: uhLQS9kmMEqly+Q9jQKx4HjCE82deAkNtmngTLHtfdSbFRMyTlW1vGcdoq568SNqKE19YsrKJRpmwKVX9bxJk5DApn5xwwQnLXVf/bBVz7Eyw1u3IILXgFF9X2PG6YQEwNLp0TuLHM7Dm+I6FJdzZTXT7UQ9Fmh32lyI6sk+tGh+23z0jrIsvVE6fqORg46nRl8QlQ/E50qstsMLXIQmO7ehw3QNESZHsFE1bL3mMO8QDRFCi9wCS06t1KrVtioHtaBrEjn8csNKchKeBiSVtDsbwPZUhd1QdtoFEMgh8pHV+vjZug0f8HFxlPaNTRDJYXrTaFRqeNF1ccv9lCt1RJlcQ3KokHfQulb381bALQ+nLfbolh5xyhYOnyKEW+xcLXEAxHEuacipMgSMM8B9viyb3W/hVzHO8MemSR9YNd30FFDHQurwzsTMcNiouLgiCFR9fmrBi1t8mEC2rfhSkdLSNK/p56QBeWXWv/mHzQ09laUrEOnxftB14bEtpgMG0GhDQ7eWN8W7szTQYdlPPgBty/3fNVQTu/QBPRPHQf19WD2ffoFv5OrrC/eWlcyLhWYksDeVIn4IZLQKdZtf2L3FjEs5eU0rHs1pqGZ0qphbpt/9Vl8EaZqdY1uCszqzC3SkrA3T4USLDCJqnFYYwYwzpGg99EG7TLXnFFQp3yr6NhGTEH+tlbQxjKtwZ5ZDlVdWzySyjrnavh+x4b9R8A==
-X-Forefront-Antispam-Report: CIP:165.204.84.17;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:satlexmb07.amd.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(82310400026)(376014)(1800799024)(36860700016)(23010399003)(10067099003)(11063799006)(5023799004)(56012099006)(6133799003)(22082099003)(18002099003);DIR:OUT;SFP:1101;
+X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|23010399003|36860700016|82310400026|376014|22082099003|18002099003|10067099003|56012099006|11063799006|6133799003;
+X-Microsoft-Antispam-Message-Info: 4KPCKYZhFCoZWRZ+K6ZRGZkMl3cM6xcDcTj07losK+/7hTfdOb8VWOYkh2oLwRb59d6GIPk8iUiaPYZ0cMWsS0Od6DZrfnuEXNnO41DvHZJz9bWxGSKwQUb6XdbjjDIClq2ylVA6Nfo4x1lytHY6Qn87oUhNLE5SgF3o/g8Ynpy/qefj26KW8bY+D7CAnD3vOwxyKCz97hVpG6MpOMXxmXiZFx1A7QUuCTfX73xcJcg9ZWPWn3W+P/6BkrVNQlQOC6UgUHIuJrSJLJl+3y6lWNfHHVFPcHjuAR+D7tWMh+wxBLxYlSO5hlsoqIYTcgxBr8Aqo5vIylIQ6YUbxbT/Fp/+CM7z9Y40xdt7Wig5y5mm5CmrIsYCHWYVrWEZWDg40C/w7BhCuGh2xH4NeWVYJnwnDNmQ93Q+d954gzd+M2dcnP7FzZ6IC3Qpw9QLmtXNvoCpLLVREm2b5sbfB+inwWDDkqAR6g26xgJxjNapVywsJNaJiB2OR0lNE+aCsZkP1MBQVOy8KHU5THr0VRjmQ87UvN7yoL6L93cMP2jUNFdHRiMSDkTRHshnqfNfSdGsJ2mR1oFZReKdmNV2f2rV7AdtsPTfvapUtTRDKTPy9TWXHtcczmJdRT9Th4Oyib1rSLQGGTt3O/+QgJoBpi9y0wrt11KB6YJ1moFInp2iCGpUou5O/y989fjcXTwZjD6pi0TY7z/tBs+LhA79/3et+g==
+X-Forefront-Antispam-Report: CIP:165.204.84.17;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:satlexmb07.amd.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(1800799024)(23010399003)(36860700016)(82310400026)(376014)(22082099003)(18002099003)(10067099003)(56012099006)(11063799006)(6133799003);DIR:OUT;SFP:1101;
 X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: 4gH++EANkSB+Xb66jtr4hkGlU8mZpTfNwlHoAm7XZjVzrgAUhXXFD50Cyosbn+KwsWcjvvrhxekprDG+0bDi7xuKhHRJHp9iLHnwIHfRcAwcYEfUXvhVEBgGuSC+loZrvDbJRF6IyrfridOJLpmToCdFaA5HZ81BnIuliFhPMZ0T/OhRy4xeQjWPj1S+04EwFGl3+JgbFIgT0ZnklVZ/NnZeiyAIy+5trVIXh/PjbpwO+w4vsnBHH4RecN0f2mpeuv9+TTmWXvbB7MvODsYAndsevkzlNBdVUf26v/bi4H0CqhG4dp+Z2Q67uWMT1qfceSXlvXsCtVeNAUQ7M63/rYP4egwFswUeLLCKNskNuAVxfUsLymaaTE65FncSRyhTk4EtEGrHAQUi3k2zS6P8mlRfqDSWGwEktqWE4Su/lR/iF6gK2Tu3ts43fmbLfkFx
+X-MS-Exchange-AntiSpam-MessageData-0: UMWINsQ9jAvfdCLAUqV2fBCx2RDFl8vRnb50wxDhdVxtsxiZLejR9L1CzAc9jCkjlH/zNk1KE3JxV9XIWAVGbcp+k4yapPryPlc/57bGLVpOAolxUOsGHvKOXZEq6oIqf3aBqPMdIj3v28Gmq/kH+dz8PQGRlQZZWmhMhBAJKp7FekQtXa0cCPe5W7sfmkSlYbe76iSIL1hbLugPEm0BGMs7471g1esw1ytjKhxF5i3UsqmznRmlp/kkfGkMfMtxqJ/bcNVAeA5jxgQ+e0yeHG+X1UmX1K3eu7hpsd5m3mOCVJFbYRawP22VVhA//TiEbk3++XDci9B1vLgizmTB1/ly01THGzLjxM1bhr05tZyXfRIG2Hr1rEiuBM2qkpPddrKBn4UhghghZu5GwbvNOIpj/mLJ7lM39PwGe7CqhKhhmzI3d0Ei979pG8MMDdnd
 X-OriginatorOrg: amd.com
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 28 Sep 2026 12:01:02.0786
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 28 Sep 2026 12:00:58.9500
  (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: 3d71fff0-278c-4604-2ae8-08df1d582aca
+X-MS-Exchange-CrossTenant-Network-Message-Id: 84d4fa99-0cb9-40de-f0ca-08df1d5828eb
 X-MS-Exchange-CrossTenant-Id: 3dd8961f-e488-4e60-8e11-a82d994e183d
 X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=3dd8961f-e488-4e60-8e11-a82d994e183d;Ip=[165.204.84.17];Helo=[satlexmb07.amd.com]
-X-MS-Exchange-CrossTenant-AuthSource: SJ1PEPF00001CEB.namprd03.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthSource: SJ1PEPF00001CE8.namprd03.prod.outlook.com
 X-MS-Exchange-CrossTenant-AuthAs: Anonymous
 X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: CY8PR12MB7217
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: CH3PR12MB8073
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260928_050108_321939_0ECA9856 
-X-CRM114-Status: GOOD (  21.79  )
+X-CRM114-CacheID: sfid-20260928_050108_322063_7B5CA6A2 
+X-CRM114-Status: GOOD (  14.98  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -122,181 +122,90 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-If reset deassert or PHY setup fails partway through
-dwc3_xlnx_init_zynqmp(), re-assert the resets that were already
-released before unwinding the PHY.
+System suspend and resume error paths do not handle PHY and clock
+resources correctly. Suspend calls phy_exit() without first powering
+off the PHY and ignores failures, while resume can leave clocks
+enabled if PHY reinitialization fails.
 
-Only undo the reset cycle the function actually performed. The cycle is
-skipped when no usb3-phy is present, because asserting the core resets
-can break a USB3 configuration that is live but missing from the device
-tree, so the error path skips it for the same reason. Asserting an
-already asserted reset is harmless, so one block covers however far the
-deasserts progressed.
+Propagate errors to the PM core and unwind resources to ensure a
+consistent state on suspend and resume failures.
 
-Save the ZynqMP reset handles in driver private data so later probe
-teardown can re-assert released resets.
-
-Fixes: 84770f028fab ("usb: dwc3: Add driver for Xilinx platforms")
+Fixes: d6edcdc1ef06 ("usb: dwc3: xilinx: fix usb3 non-wakeup source resume failure")
 Cc: stable@vger.kernel.org
 Assisted-by: Claude:claude-opus-5
 Signed-off-by: Radhey Shyam Pandey <radhey.shyam.pandey@amd.com>
 ---
 Changes in v3:
-- Dropped the usb_resets_released field.  Nothing in this patch read it;
-  it only existed for the conditional teardown in patch 3, which no
-  longer needs it.
-- Collapsed the three cascading assert labels into one err_reset_assert
-  block guarded on priv_data->usb3_phy.  v2 asserted unconditionally,
-  which would have put a no-PHY board into reset that init never
-  asserted; the guard now matches the init-time cycle.
+- None
 
 Changes in v2:
-- Split out of the combined five patch series; see patch 1.
+- Split out of the combined five patch series so the fixes can be sent
+  and backported on their own, per review feedback.
 - Reordered ahead of the platform-data cleanups.
+- Log a failure of the phy_power_on() rollback.  phy_exit() leaves
+  init_count untouched when it fails, so if the rollback also fails the
+  PHY is left with power_count and init_count out of step; that is now
+  at least visible in the log.
 - Added Cc: stable.
-- No functional change to the patch itself.
 ---
- drivers/usb/dwc3/dwc3-xilinx.c | 55 ++++++++++++++++++++++------------
- 1 file changed, 36 insertions(+), 19 deletions(-)
+ drivers/usb/dwc3/dwc3-xilinx.c | 24 +++++++++++++++++++++---
+ 1 file changed, 21 insertions(+), 3 deletions(-)
 
 diff --git a/drivers/usb/dwc3/dwc3-xilinx.c b/drivers/usb/dwc3/dwc3-xilinx.c
-index 8c63e02575f1..d2315573b3d3 100644
+index b832505e1b04..8c63e02575f1 100644
 --- a/drivers/usb/dwc3/dwc3-xilinx.c
 +++ b/drivers/usb/dwc3/dwc3-xilinx.c
-@@ -48,6 +48,9 @@ struct dwc3_xlnx {
- 	void __iomem			*regs;
- 	int				(*pltfm_init)(struct dwc3_xlnx *data);
- 	struct phy			*usb3_phy;
-+	struct reset_control		*usb_crst;
-+	struct reset_control		*usb_hibrst;
-+	struct reset_control		*usb_apbrst;
- };
- 
- static void dwc3_xlnx_mask_phy_rst(struct dwc3_xlnx *priv_data, bool mask)
-@@ -112,7 +115,6 @@ static int dwc3_xlnx_init_versal(struct dwc3_xlnx *priv_data)
- static int dwc3_xlnx_init_zynqmp(struct dwc3_xlnx *priv_data)
+@@ -383,13 +383,26 @@ static int __maybe_unused dwc3_xlnx_runtime_idle(struct device *dev)
+ static int __maybe_unused dwc3_xlnx_suspend(struct device *dev)
  {
- 	struct device		*dev = priv_data->dev;
--	struct reset_control	*crst, *hibrst, *apbrst;
- 	struct gpio_desc	*reset_gpio;
- 	int			ret = 0;
+ 	struct dwc3_xlnx *priv_data = dev_get_drvdata(dev);
++	int ret;
  
-@@ -124,25 +126,25 @@ static int dwc3_xlnx_init_zynqmp(struct dwc3_xlnx *priv_data)
- 		goto err;
- 	}
+-	phy_exit(priv_data->usb3_phy);
++	ret = phy_power_off(priv_data->usb3_phy);
++	if (ret < 0)
++		return ret;
++
++	ret = phy_exit(priv_data->usb3_phy);
++	if (ret < 0)
++		goto err_phy_power_on;
  
--	crst = devm_reset_control_get_exclusive(dev, "usb_crst");
--	if (IS_ERR(crst)) {
--		ret = PTR_ERR(crst);
-+	priv_data->usb_crst = devm_reset_control_get_exclusive(dev, "usb_crst");
-+	if (IS_ERR(priv_data->usb_crst)) {
-+		ret = PTR_ERR(priv_data->usb_crst);
- 		dev_err_probe(dev, ret,
- 			      "failed to get core reset signal\n");
- 		goto err;
- 	}
+ 	/* Disable the clocks */
+ 	clk_bulk_disable(priv_data->num_clocks, priv_data->clks);
  
--	hibrst = devm_reset_control_get_exclusive(dev, "usb_hibrst");
--	if (IS_ERR(hibrst)) {
--		ret = PTR_ERR(hibrst);
-+	priv_data->usb_hibrst = devm_reset_control_get_exclusive(dev, "usb_hibrst");
-+	if (IS_ERR(priv_data->usb_hibrst)) {
-+		ret = PTR_ERR(priv_data->usb_hibrst);
- 		dev_err_probe(dev, ret,
- 			      "failed to get hibernation reset signal\n");
- 		goto err;
- 	}
+ 	return 0;
++
++err_phy_power_on:
++	if (phy_power_on(priv_data->usb3_phy))
++		dev_err(dev, "failed to restore PHY power after suspend error\n");
++
++	return ret;
+ }
  
--	apbrst = devm_reset_control_get_exclusive(dev, "usb_apbrst");
--	if (IS_ERR(apbrst)) {
--		ret = PTR_ERR(apbrst);
-+	priv_data->usb_apbrst = devm_reset_control_get_exclusive(dev, "usb_apbrst");
-+	if (IS_ERR(priv_data->usb_apbrst)) {
-+		ret = PTR_ERR(priv_data->usb_apbrst);
- 		dev_err_probe(dev, ret,
- 			      "failed to get APB reset signal\n");
- 		goto err;
-@@ -156,19 +158,19 @@ static int dwc3_xlnx_init_zynqmp(struct dwc3_xlnx *priv_data)
- 	 * absent.
- 	 */
- 	if (priv_data->usb3_phy) {
--		ret = reset_control_assert(crst);
-+		ret = reset_control_assert(priv_data->usb_crst);
- 		if (ret < 0) {
- 			dev_err(dev, "Failed to assert core reset\n");
- 			goto err;
- 		}
+ static int __maybe_unused dwc3_xlnx_resume(struct device *dev)
+@@ -403,15 +416,20 @@ static int __maybe_unused dwc3_xlnx_resume(struct device *dev)
  
--		ret = reset_control_assert(hibrst);
-+		ret = reset_control_assert(priv_data->usb_hibrst);
- 		if (ret < 0) {
- 			dev_err(dev, "Failed to assert hibernation reset\n");
- 			goto err;
- 		}
- 
--		ret = reset_control_assert(apbrst);
-+		ret = reset_control_assert(priv_data->usb_apbrst);
- 		if (ret < 0) {
- 			dev_err(dev, "Failed to assert APB reset\n");
- 			goto err;
-@@ -179,7 +181,7 @@ static int dwc3_xlnx_init_zynqmp(struct dwc3_xlnx *priv_data)
+ 	ret = phy_init(priv_data->usb3_phy);
  	if (ret < 0)
- 		goto err;
- 
--	ret = reset_control_deassert(apbrst);
-+	ret = reset_control_deassert(priv_data->usb_apbrst);
- 	if (ret < 0) {
- 		dev_err(dev, "Failed to release APB reset\n");
- 		goto err_phy_exit;
-@@ -195,21 +197,21 @@ static int dwc3_xlnx_init_zynqmp(struct dwc3_xlnx *priv_data)
- 		writel(PIPE_CLK_DESELECT, priv_data->regs + XLNX_USB_FPD_PIPE_CLK);
- 	}
- 
--	ret = reset_control_deassert(crst);
-+	ret = reset_control_deassert(priv_data->usb_crst);
- 	if (ret < 0) {
- 		dev_err(dev, "Failed to release core reset\n");
--		goto err_phy_exit;
-+		goto err_reset_assert;
- 	}
- 
--	ret = reset_control_deassert(hibrst);
-+	ret = reset_control_deassert(priv_data->usb_hibrst);
- 	if (ret < 0) {
- 		dev_err(dev, "Failed to release hibernation reset\n");
--		goto err_phy_exit;
-+		goto err_reset_assert;
- 	}
+-		return ret;
++		goto err_clk_disable;
  
  	ret = phy_power_on(priv_data->usb3_phy);
- 	if (ret < 0)
--		goto err_phy_exit;
-+		goto err_reset_assert;
+ 	if (ret < 0) {
+ 		phy_exit(priv_data->usb3_phy);
+-		return ret;
++		goto err_clk_disable;
+ 	}
  
- 	/* ulpi reset via gpio-modepin or gpio-framework driver */
- 	reset_gpio = devm_gpiod_get_optional(dev, "reset", GPIOD_OUT_HIGH);
-@@ -230,6 +232,21 @@ static int dwc3_xlnx_init_zynqmp(struct dwc3_xlnx *priv_data)
+ 	return 0;
++
++err_clk_disable:
++	clk_bulk_disable(priv_data->num_clocks, priv_data->clks);
++
++	return ret;
+ }
  
- err_phy_power_off:
- 	phy_power_off(priv_data->usb3_phy);
-+err_reset_assert:
-+	/*
-+	 * Undo only the reset cycle performed above.  That cycle is skipped
-+	 * when there is no usb3-phy.  The deasserts stay unconditional so a
-+	 * core the bootloader left in reset still comes up, but they are
-+	 * deliberately not paired with an assert here: resetting a USB3
-+	 * configuration that is live but missing from the device tree could
-+	 * break it.  Asserting an already asserted reset is harmless, so one
-+	 * block covers however far the cycle's deasserts got.
-+	 */
-+	if (priv_data->usb3_phy) {
-+		reset_control_assert(priv_data->usb_hibrst);
-+		reset_control_assert(priv_data->usb_crst);
-+		reset_control_assert(priv_data->usb_apbrst);
-+	}
- err_phy_exit:
- 	phy_exit(priv_data->usb3_phy);
- err:
+ static const struct dev_pm_ops dwc3_xlnx_dev_pm_ops = {
 -- 
 2.44.4
 
