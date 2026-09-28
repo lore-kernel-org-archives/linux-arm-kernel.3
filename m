@@ -4,7 +4,7 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6073ECA5FA1
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6EA70CA5FA6
 	for <linux-arm-kernel@archiver.kernel.org>; Mon, 28 Sep 2026 08:20:42 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
@@ -12,23 +12,23 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=D/lHAE8K+D//L4haZOWeiYaNkQTqRHgCli2IR0i6wc4=; b=DIjHISLNZHo0uEmXPkIt75CAuY
-	F2gaPHnBLtuRPriScCZkyB9XI/N3fBCnWHcv+KGl3Dr6+G5LfrUgsIHIBfpyoM7eDOjE2gQxp8dCW
-	RDkgV0hnFQYaPFnZm0TRdeEu555GneDqnatSU88LFypGumZeNoC93l+2fbJ3GMmF7ul00H7TiGczs
-	TmoxUtvGm16eFBVC0C5gWXrQvv2G1sgrEnnwLPUYN1rd4VDPSd68W9axkthKEKbZsA0NH7P+kHYmv
-	Vis5q2gUVRZ/Hj2+qkqmL+tLo1Q8r8uu9rh+SlcWKEZaszo2vgt6KtGBLI8BCa4Dd57zxSwSJIg78
-	FdJxYcjw==;
+	bh=j11Dmmvwc4sMN9cMfiaTCR0rnZ/rVwqt5MGQa88GIlk=; b=YDRAhMxZeccjbIJwFtkEz25NyE
+	ZU+XJJG00Qrh3MMT62m660kVhMuJjuJ+l0BW1wkW9WQAPDx7U415Q7wZEbD1ng+/ksjicxGB3hRSV
+	yb4nnwBcrAciNmjFtuzmU0SDbmwxA4FLOJr2WEXIAX2BeLg0NoNNgxlhHcZN/B3IQrRZ2phAmJreX
+	tJD/NuoRMjCSgtEeiUmpd0PBlzpNnLjQtH8uZlC8nW+5A5DkD1aXXMoRQv2xo52Cme5h8sSEDDVD8
+	D7OqQHH1MsdNtsVAK2HCOVIcUjZTSDuTxR1JxRGVXkMWGjQpf1uSrafgIM9aQ4FfMDMbJPG7lBN0u
+	SgXEL/4Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xB6bC-0000000045Q-1wTM;
+	id 1xB6bC-0000000046b-3Tkt;
 	Mon, 28 Sep 2026 08:20:34 +0000
-Received: from mail-m12795.qiye.163.com ([115.236.127.95])
+Received: from mail-m12772.qiye.163.com ([115.236.127.72])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xB6aw-000000003o7-1DRc;
-	Mon, 28 Sep 2026 08:20:19 +0000
+	id 1xB6ay-000000003qR-1gl7;
+	Mon, 28 Sep 2026 08:20:22 +0000
 Received: from zyb-HP-ProDesk-680-G2-MT.. (unknown [61.154.14.86])
-	by smtp.qiye.163.com (Hmail) with ESMTP id 4f5398e98;
-	Mon, 28 Sep 2026 16:15:12 +0800 (GMT+08:00)
+	by smtp.qiye.163.com (Hmail) with ESMTP id 4f5398eae;
+	Mon, 28 Sep 2026 16:15:15 +0800 (GMT+08:00)
 From: Damon Ding <damon.ding@rock-chips.com>
 To: Andrzej Hajda <andrzej.hajda@intel.com>,
 	Neil Armstrong <neil.armstrong@linaro.org>,
@@ -57,27 +57,27 @@ Cc: Laurent Pinchart <Laurent.pinchart@ideasonboard.com>,
 	linux-samsung-soc@vger.kernel.org,
 	linux-rockchip@lists.infradead.org,
 	Damon Ding <damon.ding@rock-chips.com>
-Subject: [PATCH v3 09/14] drm/bridge: analogix_dp: Move IRQ enable/disable to bind/unbind
-Date: Mon, 28 Sep 2026 16:14:13 +0800
-Message-Id: <20260928081418.3605775-10-damon.ding@rock-chips.com>
+Subject: [PATCH v3 11/14] drm/bridge: analogix_dp: Use bridge->next_bridge instead of plat_data field
+Date: Mon, 28 Sep 2026 16:14:15 +0800
+Message-Id: <20260928081418.3605775-12-damon.ding@rock-chips.com>
 X-Mailer: git-send-email 2.34.1
 In-Reply-To: <20260928081418.3605775-1-damon.ding@rock-chips.com>
 References: <20260928081418.3605775-1-damon.ding@rock-chips.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
-X-HM-Tid: 0aa0e71511ae03a8kunm323e2b5437cf5f
+X-HM-Tid: 0aa0e7151b5c03a8kunm323e2b5437cf7b
 X-HM-MType: 1
 X-HM-Spam-Status: e1kfGhgUHx5ZQUpXWQgPGg8OCBgUHx5ZQUlOS1dZFg8aDwILHllBWSg2Ly
-	tZV1koWUFITzdXWRgWCB1ZQUpXWS1ZQUlXWQ8JGhUIEh9ZQVkZHk9JVklJT09KGR0YSx5DGVYVFA
-	kWGhdVEwETFhoSFyQUDg9ZV1kYEgtZQVlNSlVKTk9VSk9VQ01ZV1kWGg8SFR0UWUFZT0tIVUpLSU
-	9PT0hVSktLVUpCS0tZBg++
+	tZV1koWUFITzdXWRgWCB1ZQUpXWS1ZQUlXWQ8JGhUIEh9ZQVkZSE8aVhgaSR1PGUlCSEJCSFYVFA
+	kWGhdVEwETFhoSFyQUDg9ZV1kYEgtZQVlNSlVKTk9VSk9VQ01ZV1kWGg8SFR0UWUFZT0tIVUpLSE
+	pOTE5VSktLVUpCS0tZBg++
 DKIM-Signature: a=rsa-sha256;
-	b=cq1J3ON0w2jXTb6eUGkXRxB5eKA2oZB6WI7TiCqF7FOgHPi354Va2LVOINBJW6NqZjw3DZ456uKwQhxCS0yFuN5xl/ZApPKGU9UXycRPETLXWrWpiLLAPKDct3kfifQdTKorK5B/TC0gfMOA8CSsEDOghhJSBnBs98VFGk8swxI=; s=default; c=relaxed/relaxed; d=rock-chips.com; v=1;
-	bh=D/lHAE8K+D//L4haZOWeiYaNkQTqRHgCli2IR0i6wc4=;
+	b=i9W2wGYKXGV2T4isZVlWgnjW8rWtA678+S3YvACjHBDDYhjS6UrRHGQSlYLQJnX6ahGJWCsKslg21Q9bxQLm779HpsVH5oeaFGi9/ItpNoROmSlXGDBPcNSuL1cwZzs3apoDp1Yzzix5u8tRvMnXcBj+tk5qPdcnwhyfJdBLmQE=; s=default; c=relaxed/relaxed; d=rock-chips.com; v=1;
+	bh=j11Dmmvwc4sMN9cMfiaTCR0rnZ/rVwqt5MGQa88GIlk=;
 	h=date:mime-version:subject:message-id:from;
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260928_012018_551744_F64C089D 
-X-CRM114-Status: GOOD (  12.09  )
+X-CRM114-CacheID: sfid-20260928_012020_695192_98D92411 
+X-CRM114-Status: GOOD (  17.09  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -92,72 +92,182 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Move enable_irq()/disable_irq() from bridge enable/disable handlers
-into analogix_dp_bind()/analogix_dp_unbind(). This keeps the IRQ
-active throughout the device lifecycle rather than only during display
-activity, which is a prerequisite for supporting HPD detection while
-the display pipeline is inactive.
+The DRM bridge core provides a standard next_bridge field in struct
+drm_bridge for chaining downstream bridges. Use dp->bridge.next_bridge
+consistently inside the analogix_dp driver and drop the separate
+dp->plat_data->next_bridge field.
 
-This is safe because the HPD interrupt sources are now managed
-explicitly:
-- Native HPD interrupt generation depends on the controller's power
-  domain and clock. When runtime PM has suspended the device, the
-  controller cannot produce interrupts, so the hardirq is never
-  entered on an unpowered device.
-- For GPIO HPD mode, the native HPD interrupts are muted in
-  analogix_dp_config_interrupt(), and the hardirq reads only the GPIO
-  line via gpiod_get_value(), which is safe while the controller is
-  suspended.
+The next bridge is now resolved in analogix_dp_aux_done_probing(): for
+Exynos platforms with legacy display-timings a display mode bridge is
+created and used directly, skipping the endpoint lookup; otherwise the
+remote endpoint bridge (panel or bridge) is looked up via
+of_drm_get_bridge_by_endpoint().
 
+The reference returned by of_drm_get_bridge_by_endpoint() is transferred
+to bridge->next_bridge, and an explicit reference is taken for the
+devm-managed display mode bridge; the bridge core automatically puts
+bridge->next_bridge at bridge destroy time, pairing with both.
+
+Suggested-by: Heiko Stuebner <heiko@sntech.de>
+Link: https://lore.kernel.org/all/5609825.iZASKD2KPV@diego/
 Signed-off-by: Damon Ding <damon.ding@rock-chips.com>
-
 ---
-
-Changes in v3:
-- Move this patch after mute/unmute related modification and detail the
-  commit msg.
----
- drivers/gpu/drm/bridge/analogix/analogix_dp_core.c | 6 +++---
- 1 file changed, 3 insertions(+), 3 deletions(-)
+ .../drm/bridge/analogix/analogix_dp_core.c    | 44 +++++++++----------
+ drivers/gpu/drm/exynos/exynos_dp.c            | 15 +------
+ include/drm/bridge/analogix_dp.h              |  1 -
+ 3 files changed, 23 insertions(+), 37 deletions(-)
 
 diff --git a/drivers/gpu/drm/bridge/analogix/analogix_dp_core.c b/drivers/gpu/drm/bridge/analogix/analogix_dp_core.c
-index b92d28546192..addd319719de 100644
+index 38857508d939..853b6a6a7fe4 100644
 --- a/drivers/gpu/drm/bridge/analogix/analogix_dp_core.c
 +++ b/drivers/gpu/drm/bridge/analogix/analogix_dp_core.c
-@@ -1018,7 +1018,6 @@ static int analogix_dp_set_bridge(struct analogix_dp_device *dp)
- 		goto out_dp_init;
- 	}
+@@ -21,6 +21,7 @@
+ #include <linux/platform_device.h>
  
--	enable_irq(dp->irq);
- 	return 0;
+ #include <drm/bridge/analogix_dp.h>
++#include <drm/bridge/of-display-mode-bridge.h>
+ #include <drm/display/drm_dp_aux_bus.h>
+ #include <drm/drm_atomic.h>
+ #include <drm/drm_atomic_helper.h>
+@@ -32,6 +33,8 @@
+ #include <drm/drm_print.h>
+ #include <drm/drm_probe_helper.h>
  
- out_dp_init:
-@@ -1160,8 +1159,6 @@ static void analogix_dp_bridge_disable(struct drm_bridge *bridge)
- 	if (dp->dpms_mode != DRM_MODE_DPMS_ON)
- 		return;
- 
--	disable_irq(dp->irq);
--
- 	analogix_dp_set_analog_power_down(dp, POWER_ALL, 1);
- 
- 	pm_runtime_put_sync(dp->dev);
-@@ -1574,6 +1571,8 @@ int analogix_dp_bind(struct analogix_dp_device *dp, struct drm_device *drm_dev)
- 		goto err_unregister_aux;
- 	}
- 
-+	enable_irq(dp->irq);
++#include <video/of_display_timing.h>
 +
- 	return 0;
+ #include "analogix_dp_core.h"
+ #include "analogix_dp_reg.h"
  
- err_unregister_aux:
-@@ -1585,6 +1584,7 @@ EXPORT_SYMBOL_GPL(analogix_dp_bind);
+@@ -909,7 +912,7 @@ analogix_dp_bridge_detect(struct drm_bridge *bridge, struct drm_connector *conne
+ 	struct analogix_dp_device *dp = to_dp(bridge);
+ 	enum drm_connector_status status = connector_status_disconnected;
  
- void analogix_dp_unbind(struct analogix_dp_device *dp)
- {
-+	disable_irq(dp->irq);
- 	drm_dp_aux_unregister(&dp->aux);
+-	if (dp->plat_data->next_bridge)
++	if (dp->bridge.next_bridge)
+ 		return connector_status_connected;
+ 
+ 	if (!analogix_dp_detect_hpd(dp))
+@@ -930,8 +933,8 @@ static int analogix_dp_bridge_attach(struct drm_bridge *bridge,
+ 		return -EINVAL;
+ 	}
+ 
+-	if (dp->plat_data->next_bridge) {
+-		ret = drm_bridge_attach(dp->encoder, dp->plat_data->next_bridge, bridge,
++	if (dp->bridge.next_bridge) {
++		ret = drm_bridge_attach(dp->encoder, dp->bridge.next_bridge, bridge,
+ 					DRM_BRIDGE_ATTACH_NO_CONNECTOR);
+ 		if (ret) {
+ 			dev_err(dp->dev, "failed to attach following panel or bridge (%d)\n", ret);
+@@ -1655,37 +1658,34 @@ struct drm_dp_aux *analogix_dp_get_aux(struct analogix_dp_device *dp)
  }
- EXPORT_SYMBOL_GPL(analogix_dp_unbind);
+ EXPORT_SYMBOL_GPL(analogix_dp_get_aux);
+ 
+-static void analogix_dp_put_bridge(void *data)
+-{
+-	drm_bridge_put(data);
+-}
+-
+ static int analogix_dp_aux_done_probing(struct drm_dp_aux *aux)
+ {
+ 	struct analogix_dp_device *dp = to_dp(aux);
+ 	struct analogix_dp_plat_data *plat_data = dp->plat_data;
++	struct drm_bridge *bridge = &dp->bridge, *next_bridge;
+ 	int port = plat_data->dev_type == EXYNOS_DP ? 0 : 1;
+-	int ret;
++
++	if (plat_data->dev_type == EXYNOS_DP && of_get_display_timings(dp->dev->of_node)) {
++		next_bridge = devm_drm_of_display_mode_bridge(dp->dev, dp->dev->of_node,
++							      DRM_MODE_CONNECTOR_eDP);
++		if (IS_ERR(next_bridge))
++			return PTR_ERR(next_bridge);
++		bridge->next_bridge = drm_bridge_get(next_bridge);
++
++		return component_add(dp->dev, plat_data->ops);
++	}
+ 
+ 	/*
+ 	 * If of_drm_get_bridge_by_endpoint() returns -ENODEV, there may be no
+ 	 * valid panel or bridge nodes. The driver should go on for the
+ 	 * driver-free bridge or the DP mode applications.
+ 	 */
+-	plat_data->next_bridge = of_drm_get_bridge_by_endpoint(dp->dev->of_node,
+-							       port, 0);
+-	if (IS_ERR(plat_data->next_bridge)) {
+-		if (PTR_ERR(plat_data->next_bridge) == -ENODEV)
+-			plat_data->next_bridge = NULL;
++	bridge->next_bridge = of_drm_get_bridge_by_endpoint(dp->dev->of_node, port, 0);
++	if (IS_ERR(bridge->next_bridge)) {
++		if (PTR_ERR(bridge->next_bridge) == -ENODEV)
++			bridge->next_bridge = NULL;
+ 		else
+-			return PTR_ERR(plat_data->next_bridge);
+-	}
+-
+-	if (plat_data->next_bridge) {
+-		ret = devm_add_action_or_reset(dp->dev, analogix_dp_put_bridge,
+-					       plat_data->next_bridge);
+-		if (ret)
+-			return ret;
++			return PTR_ERR(bridge->next_bridge);
+ 	}
+ 
+ 	return component_add(dp->dev, plat_data->ops);
+diff --git a/drivers/gpu/drm/exynos/exynos_dp.c b/drivers/gpu/drm/exynos/exynos_dp.c
+index 82c238829921..b1e130278ecc 100644
+--- a/drivers/gpu/drm/exynos/exynos_dp.c
++++ b/drivers/gpu/drm/exynos/exynos_dp.c
+@@ -14,12 +14,10 @@
+ #include <linux/of_graph.h>
+ #include <linux/platform_device.h>
+ #include <linux/pm_runtime.h>
+-#include <video/of_display_timing.h>
+ #include <video/of_videomode.h>
+ #include <video/videomode.h>
+ 
+ #include <drm/bridge/analogix_dp.h>
+-#include <drm/bridge/of-display-mode-bridge.h>
+ #include <drm/drm_atomic_helper.h>
+ #include <drm/drm_bridge.h>
+ #include <drm/drm_bridge_connector.h>
+@@ -161,14 +159,6 @@ static int exynos_dp_probe(struct platform_device *pdev)
+ 	 */
+ 	platform_set_drvdata(pdev, dp);
+ 
+-	if (of_get_display_timings(dev->of_node)) {
+-		dp->plat_data.next_bridge = devm_drm_of_display_mode_bridge(dp->dev,
+-									dp->dev->of_node,
+-									DRM_MODE_CONNECTOR_eDP);
+-		if (IS_ERR(dp->plat_data.next_bridge))
+-			return PTR_ERR(dp->plat_data.next_bridge);
+-	}
+-
+ 	/* The remote port can be either a panel or a bridge */
+ 	dp->plat_data.dev_type = EXYNOS_DP;
+ 	dp->plat_data.power_on = exynos_dp_poweron;
+@@ -179,10 +169,7 @@ static int exynos_dp_probe(struct platform_device *pdev)
+ 	if (IS_ERR(dp->adp))
+ 		return PTR_ERR(dp->adp);
+ 
+-	if (dp->plat_data.next_bridge)
+-		return component_add(&pdev->dev, &exynos_dp_ops);
+-	else
+-		return analogix_dp_finish_probe(dp->adp);
++	return analogix_dp_finish_probe(dp->adp);
+ }
+ 
+ static void exynos_dp_remove(struct platform_device *pdev)
+diff --git a/include/drm/bridge/analogix_dp.h b/include/drm/bridge/analogix_dp.h
+index 6033137b651e..f152ca8c3218 100644
+--- a/include/drm/bridge/analogix_dp.h
++++ b/include/drm/bridge/analogix_dp.h
+@@ -35,7 +35,6 @@ static inline bool analogix_dp_is_rockchip(enum analogix_dp_devtype type)
+ 
+ struct analogix_dp_plat_data {
+ 	enum analogix_dp_devtype dev_type;
+-	struct drm_bridge *next_bridge;
+ 	struct drm_encoder *encoder;
+ 	struct drm_connector *connector;
+ 	const struct component_ops *ops;
 -- 
 2.34.1
 
