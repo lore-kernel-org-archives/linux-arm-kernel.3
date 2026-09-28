@@ -4,144 +4,187 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E1D7BC9833E
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 28 Sep 2026 06:07:57 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B916DC9833E
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 28 Sep 2026 06:09:50 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Content-Type:
-	Content-Transfer-Encoding:References:In-Reply-To:Message-Id:Date:Subject:Cc:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=tc2anIJVm1IV5UMGSGsbJ/lb7y6ZRHrakDVR0BsJ4eg=; b=anDboZVKrgMeESDLbdCPcNc5gk
-	gCT/neK1mu5uuyhOmRYA+xm8AV86xrtTKk3n0AxInoDCuyOpXWbOww90pAWLDCS0V0g2x/gQF3iLx
-	kVSIT6jVdrSZyfMfwEI73C18q2Or2p2obisbjb0WSXTxx8i8n/Mr55X63s33nZHM0kw6y7gtWtkRm
-	G8ueGQ4mBeEFtlpg0L+drkgC9oLXbZHxFbqeyEySwtTQmcAiwuQIYhW/BDk8OBgXAaCIxWxmGKC+/
-	4p92RWBoUFJvk5eEcXUc596GIMpz3cUIERfdoDc2s6I5E9GwpRirImmE9qcUIRzcIAiyFysuBkJch
-	m9nQ0BNQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=Zm3zVKWFuiaX1avGwDyut2aFC4yxc++TMV27PntwEeY=; b=4FsPRqVgHF/99h
+	HfBryUhWFezaRwCYoE0+4xcgOtInBF/P3x+nCF4Zw7OPYBHlaY+iURWebavJVvXEB8h1+RsmJ6JUU
+	GLZzHO0zAqRAM4lyfTf7UvDRenZrikQTB9eMnFF6wlnvrK48xLKzjQ/Ub5tOMacGIY8YExT3JveBh
+	ki/zuuBNtcnth9pEO89kWxWzgVNQII4jQ4jrQHU50YRJRpT7mafW9XOYAM8BCHttsbHTmObU/ajX0
+	NqcajaGfhqe7O7abE6kaIimMbzMAmQcpeTUxwQa7DU4iThYeNUjyniTKM1XHXhBB1B69wPEiOwq0i
+	LOs9nSCFo9HyxxbuObpg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xB4Wk-0000000HPcE-2LPC;
-	Mon, 28 Sep 2026 06:07:50 +0000
-Received: from mail-norwayeastazon11013011.outbound.protection.outlook.com ([40.107.159.11] helo=OSPPR02CU001.outbound.protection.outlook.com)
+	id 1xB4YT-0000000HPqr-3FeP;
+	Mon, 28 Sep 2026 06:09:37 +0000
+Received: from mx0a-0031df01.pphosted.com ([205.220.168.131])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xB4Wh-0000000HPaO-2asM
+	id 1xB4YQ-0000000HPqX-44DS
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 28 Sep 2026 06:07:49 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=qSX9wwU7RymgADXq8Ef7Lrsp+dvWG0330GX1uMEX9Vnb//fDAUFcwrXBM38oyjyIvPG+tgR+QjRUYL5yPk2QV7HBaTkcWOcTkHKBYPIo3HTwAQqn+hpzdaKOeYPJf+Nl+9hY3H/z6jmaTpHZo9EDRJx3YZjhfXmrAe579a/y67CYF8WrAmghP/SQDkaXd9MNYfLG+Edy8PPEswsF13kMG7bvzW+xjD8stBqrJhbQEwYbFyN6/C9y6EN/+lwV+lzSDnfB9FoJay3FPxz+xq/EN1Dqss36HdOLNQsXJGRYv9IhMVgXDlb7Ep3GLzHZpmzoV11PPCm6qMLQRMSAzMZRLg==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=tc2anIJVm1IV5UMGSGsbJ/lb7y6ZRHrakDVR0BsJ4eg=;
- b=EwDqGQkZ/ONCc4Bt5I6n37dFv7WZum3qZQpMGZxLPmtXt/pvD12aFsjCUPoR3OB2wpJraHTrG9hjddJM9dtm/JLGbCVWWRQswTLC9wgNn1c6oIh5MIhwM2Igxi3A6M6GjjJN5hYvKzeHfmksdRwBCrdoiSS7ZWHI51KYj42MIGACvJxp9kzG/9iyEFIZYiwWqqh/Ef2pn7SnWCM0HmHsc9vKTbftMoq5H/q+a0kRLum/y+v5sPoqhS3/wvhAJiKJk5AZb5OzSTlnd5Ty1TO86wJRAsKmuVUpcYLhddO6Bv2o/1UeXx5eKswyGN2gs/TDPmMwYns972bTZ7tQeNw0oA==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
- dkim=pass header.d=oss.nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
- s=selector1-NXP1-onmicrosoft-com;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=tc2anIJVm1IV5UMGSGsbJ/lb7y6ZRHrakDVR0BsJ4eg=;
- b=YCY7w5dmPqm8uOO9/14YyU4Cw7ffi3sexAyJ/kBZ3RDGvPdG23z+CMg7c8BC5LdEuvB5HpIDVH5TWnG64te52rSmcpgC1Im25F4dCFA26EWNzZzgXHifEY9pCjk0EYKnXirFF0f1GHoBYB3DrvxrsV/PXNb8KPBvdVuNrjbAwx0gPgOEZkf7IIdCi9cYokGEotk1BqzZZAuvt5lWFLoPSo+pLt/nYOjSiyRzLD7KJfOi+cXC6LB6auMpx6N/eSC6Qtpyl2VH1xZCKgx5TATRAe5Jw4P/pVSwEz3Y22d7nib8wj9J7grsF56PCDISx+kAhSPqBGmTkdVp7SFDPSOOYA==
-Authentication-Results: mx.microsoft.com 1; dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=oss.nxp.com;
-Received: from PAXPR04MB9351.eurprd04.prod.outlook.com (2603:10a6:102:2b6::17)
- by PA1PR04MB10721.eurprd04.prod.outlook.com (2603:10a6:102:489::12) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.451.23; Mon, 28 Sep
- 2026 06:07:41 +0000
-Received: from PAXPR04MB9351.eurprd04.prod.outlook.com
- ([fe80::1058:a430:52c1:5aa]) by PAXPR04MB9351.eurprd04.prod.outlook.com
- ([fe80::1058:a430:52c1:5aa%6]) with mapi id 15.21.0451.022; Mon, 28 Sep 2026
- 06:07:41 +0000
-From: shengjiu.wang@oss.nxp.com
-To: lgirdwood@gmail.com,
-	broonie@kernel.org,
-	robh@kernel.org,
-	krzk+dt@kernel.org,
-	conor+dt@kernel.org,
-	Frank.Li@nxp.com,
-	s.hauer@pengutronix.de,
-	kernel@pengutronix.de,
-	festevam@gmail.com,
-	shawnguo@kernel.org,
-	linux-sound@vger.kernel.org,
-	devicetree@vger.kernel.org,
-	imx@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	shengjiu.wang@gmail.com,
-	Xiubo.Lee@gmail.com,
-	nicoleotsuka@gmail.com,
-	perex@perex.cz,
-	tiwai@suse.com,
-	linuxppc-dev@lists.ozlabs.org
-Cc: Shengjiu Wang <shengjiu.wang@nxp.com>,
-	Daniel Baluta <daniel.baluta@nxp.com>
-Subject: [PATCH v6 3/5] ASoC: fsl_asrc/fsl_easrc: move DMA params into pair/context struct
-Date: Mon, 28 Sep 2026 14:11:47 +0800
-Message-Id: <20260928061149.1844121-4-shengjiu.wang@oss.nxp.com>
-X-Mailer: git-send-email 2.34.1
-In-Reply-To: <20260928061149.1844121-1-shengjiu.wang@oss.nxp.com>
-References: <20260928061149.1844121-1-shengjiu.wang@oss.nxp.com>
-Content-Transfer-Encoding: 8bit
-Content-Type: text/plain
-X-ClientProxiedBy: MA5PR01CA0119.INDPRD01.PROD.OUTLOOK.COM
- (2603:1096:a01:1a7::7) To PAXPR04MB9351.eurprd04.prod.outlook.com
- (2603:10a6:102:2b6::17)
+	Mon, 28 Sep 2026 06:09:36 +0000
+Received: from pps.filterd (m0279865.ppops.net [127.0.0.1])
+	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 68S59Bjw1501059
+	for <linux-arm-kernel@lists.infradead.org>; Mon, 28 Sep 2026 06:09:34 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
+	cc:content-transfer-encoding:content-type:date:from:message-id
+	:mime-version:subject:to; s=qcppdkim1; bh=Zm3zVKWFuiaX1avGwDyut2
+	aFC4yxc++TMV27PntwEeY=; b=WjQN5lVUQf/8hofM0vtOZoPpldPXaObX7LMlf+
+	Gdx7Nj4OUuH+IlPHl5wwUNFtjh21+u0lIT+NU7CkY0KL9uaiR0DaTbQCmKNwb4tP
+	od5ssBb2KnqEEl3O8nS8kN0Hu9TUdfdwRma2I9PyqRmBCryInxO0zi43iuPOo3GU
+	HSXMqdUjWENlTjHabH05raEqPEzSR1sQ8XUjaxD6uwYfe1xQ+jreXahDLb1xofVQ
+	aN9SHEwvh+u6ZX1Pde2HSoXKo1MIdJSsHt0FySTj/TuAAS9Fy6UccaZqp/c09KER
+	kiWp5mO84S4cofIYJGbgqH10MTCBMcJ+ZRBFdEgkUKdvcoIA==
+Received: from mail-pj1-f72.google.com (mail-pj1-f72.google.com [209.85.216.72])
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4gyhubg5pd-1
+	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
+	for <linux-arm-kernel@lists.infradead.org>; Mon, 28 Sep 2026 06:09:33 +0000 (GMT)
+Received: by mail-pj1-f72.google.com with SMTP id 98e67ed59e1d1-3a0ad137e87so4302029a91.1
+        for <linux-arm-kernel@lists.infradead.org>; Sun, 27 Sep 2026 23:09:33 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=oss.qualcomm.com; s=google; t=1790575773; x=1791180573; darn=lists.infradead.org;
+        h=cc:to:content-transfer-encoding:content-type:mime-version
+         :message-id:date:subject:from:from:to:cc:subject:date:message-id
+         :reply-to:content-type;
+        bh=Zm3zVKWFuiaX1avGwDyut2aFC4yxc++TMV27PntwEeY=;
+        b=CdontMUtpqtPuisNCiELIFsdEpCPG2rJPFzqNDByro9bhWL1cCTionsT57/EUh63uc
+         2G2OakDbKBM9+ET3i30hvd/nJ95UjnPxa2QnGVCoSZWXTaqmJ6fuKtpaS5vtBw1fMUJI
+         90XSDHBXyTaaW9o5NoXNFaoDtZWt/udogEslIjCFRWDmugaUQeJATmQtcLR1ThyJVHAA
+         wuKniN6Mul8VJuk+axjFaJc61/ol7Bs7InoAZ6X1MNA2oKR4bsBe+Xbc+lQxGgfkcvKk
+         ld9+7GayVLwFVLGX2qmqpM5qH5DIjOxdMT4jGCXVsDZTPoqKgmOEe5qQKXChvITCxC/A
+         +ukw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1790575773; x=1791180573;
+        h=cc:to:content-transfer-encoding:content-type:mime-version
+         :message-id:date:subject:from:x-gm-gg:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to:content-type;
+        bh=Zm3zVKWFuiaX1avGwDyut2aFC4yxc++TMV27PntwEeY=;
+        b=jE8nmvZkPtDI3YTOrl/IdqhDucRH2PuwrTyZXUiH9iHAz5i5iiu6hNkbmdNA3Vk35J
+         pGETCM+6Bh39vX8gXjItALnlK/DoRrceJNQtKshZW6SeUu7dU3u+yCPocPtwcJ3wLAhV
+         NVdVOIQ+5usYoy5i7A1W2QsGGXNfcVdTcCq5Usls2SchriERaZfxkom3Yz+YM2Nz5u4U
+         pkZHYStNuy0945yJ6OgLDvBTbeaMcRJ6Am8YpLZTtDPXIrWHCq+Aymp/9rlWHlUDTDLM
+         GLGcDkhvTeVsnHNj0sKrkj0DVkF/BSm/G50VZQwoqJwPicrbbqhXMJAYCclfwztih+ut
+         gnRw==
+X-Forwarded-Encrypted: i=1; AKwUvBwuYyx5nxuffHrgUO1hmysb6Fah1oR6EUysXjGmOLtflqy+NbNG4hqerM1c09HMDPFvt5HyQHJuSES0oDCI1qE+@lists.infradead.org
+X-Gm-Message-State: AFq9FYKvAQ8KBJxkUnbaRnFxZRSlUIbhdxEzYEKSISmMrBB6PXhXp/SC
+	IxgtyQC1QylsMF8Dlf4ZAkmRYyNw/Gw2N3/sDZKcBk3u6EuW1IEAGnsNbymbogEf/Ui2IjblbiH
+	Hl1BNqEYbicYVWQYGFFYtGRh6uCvAAqbxmwTrmnJdgbz4WSSVAs0X9DvoiqlqrkhRCDl5O3w2D7
+	qOmQ==
+X-Gm-Gg: AYBFou1SdrEvlsokAK0hKqz2MUME72Shv2Y0q8/QeOIa/Oh/aQpnjzxLtny7zhNNoCZ
+	uCCLWg2zzvxs25zVoVfoj96peX1H3Ms+iZ+ZaJOqaM+tA/nWBXgZOrJ8yaHyN5QwtUHXIpjtzn8
+	GC+FmnY47X/ZUzt91/tbDxB8PIPgSn+NgYJKDUyYN9brrwbIpaSn/HlGm4100dZl2TpgSFMnPJm
+	OgvK18DqLucs6bRfMcFmECStPStCypomeBeAfGlV8+sHc+mhtJE3dEgQFQea0CtOLg5DCQKSb64
+	V4hCLlPIYmJKNHt8aHQ7P+I3Oqr/xrP3SsGrhbkQdp39ufUq1tOHMUysFdhL77yNpdnDlQjxW/q
+	o/NdgCreBRUjje9n4PiNlwej3U/OmaB07N58O
+X-Received: by 2002:a17:90b:4a82:b0:3a0:cb48:df6b with SMTP id 98e67ed59e1d1-3a0cb48e2fcmr6435189a91.34.1790575772823;
+        Sun, 27 Sep 2026 23:09:32 -0700 (PDT)
+X-Received: by 2002:a17:90b:4a82:b0:3a0:cb48:df6b with SMTP id 98e67ed59e1d1-3a0cb48e2fcmr6435146a91.34.1790575772061;
+        Sun, 27 Sep 2026 23:09:32 -0700 (PDT)
+Received: from hu-spratap-hyd.qualcomm.com ([202.46.22.19])
+        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-3a0b8efb156sm20040846a91.1.2026.09.27.23.09.21
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Sun, 27 Sep 2026 23:09:31 -0700 (PDT)
+From: Shivendra Pratap <shivendra.pratap@oss.qualcomm.com>
+Subject: [PATCH v26 00/10] Implement PSCI reboot mode driver for PSCI
+ resets
+Date: Mon, 28 Sep 2026 11:39:12 +0530
+Message-Id: <20260928-arm-psci-system_reset2-vendor-reboots-v26-0-b24e2348e8e1@oss.qualcomm.com>
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: PAXPR04MB9351:EE_|PA1PR04MB10721:EE_
-X-MS-Office365-Filtering-Correlation-Id: 62e8604d-584c-4536-5dae-08df1d26ce2f
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|7416014|376014|1800799024|19092799006|366016|23010399003|921020|3023799007|6133799003|10067099003|11063799006|56012099006|18002099003|22082099003;
-X-Microsoft-Antispam-Message-Info: kmtBKQSe5Hiod3tqeU5D/GJA2zoQjQJDa8VOyqJIbC6TU+Tk4jjGKThdA2yOmmVCwBj8Im1s6hpScwO4CilH2CpGHitmeAdlBQ0kOLmqvswIozdqIdYTwuPAcNzIrYGQQ1Dgdv3ipEfvYJHsLuCxKJFIfJREdOWu14OqLeZFJO/D1h9gQndQ4qMpIV9J8uS4PhSRKQ9I4pnXku2gWNYigTJpb5DnLvGC0E7Q7ggeN2hMGh9FNLk8/zkmvNne1rjx3Lun+9D+OKd3cu+ltshjfh12f05eOszryf0B8H67M4x5d2uAKjBSC/Q4D7vmU5FYpI95Hv82GUvKA+JHplSH6p81TkmmXdm4UYWbLcyLv+82P0kwNXIVGWpaAJh+zSbpoNmuFPj2ckG3Q9UAZoBy3MBqComTPuExKrcYyXNcCxadzZ5Z706KZ5YVarspz4sNiQenRMl6SGD4xrMxKBF5DeDwB8x7eysPI3YD11ZNeu63feJR6hnKIT49IZOvDEljunCTbXDQtEXtsQ56EL/YFJlV9QW7wuA1abmccsoWl838i0nUlru9r6/pqSC8Cvs3I4DFYvzGIzfhoWEZDZRgK3H9QXjx/bsRTa1lqc8DxdqJfKBPXvTzLiymYCmhHX8+B39uxjCvA2j427hehUx/RzBjUMd2r1CBNI5WEQNKrBqrYXivObD97/VX5epE60xYJ6q5aFRJzMbSC2nPlXxX2Q==
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PAXPR04MB9351.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(7416014)(376014)(1800799024)(19092799006)(366016)(23010399003)(921020)(3023799007)(6133799003)(10067099003)(11063799006)(56012099006)(18002099003)(22082099003);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?vMDT0uwZ2czkLdYmw5cl25vxDhYv63HGXgKQiUHGwPMDn1wjDXUE+vLVrbSF?=
- =?us-ascii?Q?2kYua/VD26Yd6eE6XlmQS+IvzDNn/rZ72UOgAOSV3U5szcRk4NXfJb+Pr0GK?=
- =?us-ascii?Q?Wltpj7MnXdwTCm26ly+7FBoIYthZde5h8R2bR7QGz87Se/3xfYfv3q6cDFjn?=
- =?us-ascii?Q?ogp1F63yYsQoSCfV+Ot3uZRumSGSoNP6ka28/KoTAfa5+ct8aKQV8Ywdf/0E?=
- =?us-ascii?Q?8js/h575Nh64ILQpyqPvssQ9omg6ci6ogBfALe2oL08FzahsQogpur1zrJPq?=
- =?us-ascii?Q?bvV/PGa86rgOZsoL/0AlPRqs5+DhITssosaVFCWc+x1tZjvU0ZMsVc4eCNN3?=
- =?us-ascii?Q?ME+4Q8ug6tLHqyBSvTjPzG/31H6Qh8YuBQv/4SqbADQR6sfNlKMswVPekcq7?=
- =?us-ascii?Q?wx20ARRymHjCcYtLRDYop4yZ3qfG8AbZ2sdkRAYTUhpLuvXbh3amMYe6OeGE?=
- =?us-ascii?Q?965BlQehyPcCFJoiopAkEDNbJD/lhXtJc418m1cKsjFgLwXmKP4vkk+TVc0+?=
- =?us-ascii?Q?rmBQLyXQIuoFdlXpp06Dz/Riy1Amh/pw2jUhaTgXz985G+l/xfQ7Q3t2XpQq?=
- =?us-ascii?Q?JoD7Z5d29gzRXGp1t2XHtiUjvj8fJNfnDLfdl+KDZc+Q8o7Brv9M5a63RRGc?=
- =?us-ascii?Q?ll+qhqfVARWSFf2l9GTgoyWBaDv1ANzQ49zAwJ/x2pSQ7GYp8PApVgD5t2Vt?=
- =?us-ascii?Q?ADyjEX/xGZX6LKWFIvYmlGlq9fItXbYwRZzcu6nMmiMDT7x7VLcPhSiVvJQe?=
- =?us-ascii?Q?SGS7fw2CPqVORiay1QcLd/0PHsmDP+aXjbwHE+fRRQJ7tEjhTm+WEMZih/wN?=
- =?us-ascii?Q?D+oASNJts8FNJY2uYYIASP5W8f4EsELn2wUfF2XEOsUu3Y/KzgUOPK8oWIh/?=
- =?us-ascii?Q?SwNz1mb7FXw38NizPpIQTxMCKmaDaRPwY/PlrDVQflUg/O18YjMN7ZK6uvgZ?=
- =?us-ascii?Q?zt0916sSVWoYVSayU42NehoAIdG6jGMEHfhWxyBw7+S0eQKOfXsoGL6spnw7?=
- =?us-ascii?Q?tn2k7sIwqpnq+Awza+FH67poBV3j0U4LcheHkn8jTSvUevwM9Tfc1RDAkBT6?=
- =?us-ascii?Q?c7jHo5MHqqdwzMwewF1KMDxfLph4Rri8bSEPKSncRFw1diGgS+7+mq/qbnVN?=
- =?us-ascii?Q?hyAEWu3LfPHahPce9je5oKCTlruxSzkh9IY+dWMmUyD18urNakduXinFWgoA?=
- =?us-ascii?Q?p0Gzb+Au4Jcl0DBjQPwUDh2WkvMsRGFm7Nd0VCKXpU4Km8swPPPrvTcTJZ9j?=
- =?us-ascii?Q?hp5HQhWdsM3cutc04pix7F4by05xC04KSgSaEqml9+nJJFE5sxku+tQ5xlPV?=
- =?us-ascii?Q?/J+8b4UZU+W9waaNWlQSy0e/ad99BcxX5vB3iba6A8W064Akw/+lnpmuBLpD?=
- =?us-ascii?Q?NrlD5Fr5E9a31k94Gt+LLGNI3gk4IvxTuHYaPmf6s/MfXjI7i1o2QF0J4gmN?=
- =?us-ascii?Q?2Yzky14tW6jY4pq9pCCcCEktW9eqlrQM8fEybI9Hri21DFqiCxDH6IE+m21N?=
- =?us-ascii?Q?CrYmfKEkSheXwXysJVz3JrKN39SRXNYFG1Ue8ORxlihsGYMU82bic8iIjmB+?=
- =?us-ascii?Q?zX2FODSvXXxdfmyMu1AqxrDnwNv6uHpBD7XwHN8WNkVRBrMQvp2TOAXIjHSl?=
- =?us-ascii?Q?mehZZozcsz0Pzbh413Szbcl2p+QMXCvF8dvXeUWAMe5ymgThpOvYySjuQJwp?=
- =?us-ascii?Q?ccAgYL6IZ7bz6xKqK7UolWT/Ajgq+Ffrk4h4PgMy43ibwu5Ii69NiKhe9NTK?=
- =?us-ascii?Q?B/o0t/hpG1hFP/ZW1m9MjjRz5jnI2ldN+wP6s2PWmNu7SXOZcX1a?=
-X-OriginatorOrg: oss.nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 62e8604d-584c-4536-5dae-08df1d26ce2f
-X-MS-Exchange-CrossTenant-AuthSource: PAXPR04MB9351.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 28 Sep 2026 06:07:41.8164
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: TnJ3MYX6hF3N4pD5vG4C1uOsDuosj4wNTZZYUyEHNyhkaM3o/mcNksZZZpJDd6H+kWmxIUOBYnQPMlfmV0TQnKX8TPQ7nZdL2Qpd5rkHzR60g87sKYOoFT5Es2dej2/i
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: PA1PR04MB10721
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 8bit
+X-B4-Tracking: v=1; b=H4sIAIkEumoC/53U22rcMBAG4FcJvq6DNCN5Rr3qe5RQdBg1hu46t
+ TZLQ9h3r7yUeKEVaHtjkEHfjOV/9D4UWWcpw+eH92GV81zm5VgXMH16GOKzP36XcU71xQAKrCL
+ lRr8expcS57G8lZMcvq1S5ATjWY5pWcdVwrKcymimyEoZ43PMQ7VeVsnzr2uhr091/TyX07K+X
+ euetdpe/ymhVWeJum1UoxAZJEZMJn5ZSnn8+ep/xOVweKyPrfJ/qQESBmYIwvZvdfuAs9a3TVM
+ 3ryufMgoE0IwRWzzc8KC7eag8U/ARJRoAafF4y/d3j5WfAidA1JYdt3iz86xtN28qj5TAZet8d
+ L7F2513AN28rTxFQa+YibNu8dMHr9Ud3U9bchx7Sd4DSvPsaed190TVbZU3kyi2IXoTY4vnnQf
+ Abp63s4fsndAkuR1Md8tzN++2YQ3B2UlZVM3kwMddMClUppeHbWpjpoSmxhMJWrzeedOfe7hOb
+ cwOicgKtQ4HYOet7u9+m1pgb0MSRYabPO483cHj9aI0FqM1HKGVezA7z6o7ObBNLbMD1kjIpFq
+ 83Xl3R/fb1Brvs43KBRv/9Wsvl8tvABWTU8sGAAA=
+X-Change-ID: 20250709-arm-psci-system_reset2-vendor-reboots-46c80044afcf
+To: Lorenzo Pieralisi <lpieralisi@kernel.org>, Arnd Bergmann <arnd@arndb.de>,
+        Bjorn Andersson <andersson@kernel.org>,
+        Sebastian Reichel <sre@kernel.org>, Rob Herring <robh@kernel.org>,
+        Souvik Chakravarty <Souvik.Chakravarty@arm.com>,
+        Krzysztof Kozlowski <krzk+dt@kernel.org>,
+        Matthias Brugger <matthias.bgg@gmail.com>,
+        Mark Rutland <mark.rutland@arm.com>,
+        Conor Dooley <conor+dt@kernel.org>,
+        Konrad Dybcio <konradybcio@kernel.org>,
+        John Stultz <john.stultz@linaro.org>,
+        Moritz Fischer <moritz.fischer@ettus.com>,
+        "Rafael J. Wysocki" <rafael@kernel.org>,
+        Daniel Lezcano <daniel.lezcano@kernel.org>,
+        Christian Loehle <christian.loehle@arm.com>,
+        Lee Jones <lee@kernel.org>, Ulf Hansson <ulfh@kernel.org>,
+        Pavan Kondeti <pavan.kondeti@oss.qualcomm.com>,
+        Abel Vesa <abelvesa@kernel.org>, Bartosz Golaszewski <brgl@kernel.org>,
+        Sudeep Holla <sudeep.holla@kernel.org>, Andy Yan <andyshrk@163.com>,
+        Ulf Hansson <ulfh@kernel.org>
+Cc: Florian Fainelli <florian.fainelli@broadcom.com>,
+        Krzysztof Kozlowski <krzk@kernel.org>,
+        Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>,
+        Mukesh Ojha <mukesh.ojha@oss.qualcomm.com>,
+        Andre Draszik <andre.draszik@linaro.org>,
+        Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+        Kathiravan Thirumoorthy <kathiravan.thirumoorthy@oss.qualcomm.com>,
+        linux-pm@vger.kernel.org, linux-kernel@vger.kernel.org,
+        linux-arm-kernel@lists.infradead.org, linux-arm-msm@vger.kernel.org,
+        devicetree@vger.kernel.org,
+        Shivendra Pratap <shivendra.pratap@oss.qualcomm.com>,
+        Srinivas Kandagatla <srini@kernel.org>,
+        Ulf Hansson <ulf.hansson@oss.qualcomm.com>,
+        Bartosz Golaszewski <bartosz.golaszewski@oss.qualcomm.com>,
+        Song Xue <quic_songxue@quicinc.com>
+X-Mailer: b4 0.15.2
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1790575761; l=19873;
+ i=shivendra.pratap@oss.qualcomm.com; s=20250710; h=from:subject:message-id;
+ bh=363t/Wz2I/eef2BKMYUSKubOVgY+hBDoboiD/1O3q/Q=;
+ b=ZpTgbui/E5UuqCQyXMXgRtIPrjBI8LGogwzqgWUeCI82jXKX8258/OEIKeTAezepN9Lx0MSYe
+ oNL1bLeg+wWBLQ64POQF3ddobvG8595VPpsppampsPeBVEHiWZZre2V
+X-Developer-Key: i=shivendra.pratap@oss.qualcomm.com; a=ed25519;
+ pk=ssWsJFX3OM9pkdoe4+guOfGPaulHOFt0GVnVlB6on+s=
+X-Proofpoint-GUID: KgiE0vDadpcTLTgDt5DhQcA_8iSe33j-
+X-Authority-Analysis: v=2.4 cv=C7F8WgP+ c=1 sm=1 tr=0 ts=6aba049e cx=c_pps
+ a=RP+M6JBNLl+fLTcSJhASfg==:117 a=fChuTYTh2wq5r3m49p7fHw==:17
+ a=IkcTkHD0fZMA:10 a=VdqzKS8jKosA:10 a=s4-Qcg_JpJYA:10
+ a=VkNPw1HP01LnGYTKEx00:22 a=u7WPNUs3qKkmUXheDGA7:22 a=Um2Pa8k9VHT-vaBCBUpS:22
+ a=VwQbUJbxAAAA:8 a=pGLkceISAAAA:8 a=bC-a23v3AAAA:8 a=EUspDBNiAAAA:8
+ a=COk6AnOGAAAA:8 a=KKAkSRfTAAAA:8 a=7CQSdrXTAAAA:8 a=s8YR1HE3AAAA:8
+ a=etiEgX_XAAAA:8 a=Q-fNiiVtAAAA:8 a=ag1SF4gXAAAA:8 a=JfrnYn6hAAAA:8
+ a=NaAwsCBgoBuX6sx4gZIA:9 a=_IhGvyQ2GGOEB6sd:21 a=3ZKOabzyN94A:10
+ a=QEXdDO2ut3YA:10 a=iS9zxrgQBfv6-_F4QbHw:22 a=FO4_E8m0qiDe52t0p3_H:22
+ a=TjNXssC_j7lpFel5tvFf:22 a=cvBusfyB2V15izCimMoJ:22 a=a-qgeE7W1pNrGK8U0ZQC:22
+ a=jGH_LyMDp9YhSvY-UuyI:22 a=MLbIUA-Bjd6y1alW9qBG:22 a=Yupwre4RP9_Eg_Bd0iYG:22
+ a=1CNFftbPRP8L7MoqJWF3:22
+X-Proofpoint-ORIG-GUID: KgiE0vDadpcTLTgDt5DhQcA_8iSe33j-
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwOTI4MDAyNCBTYWx0ZWRfX9XAOKT9c1HJm
+ a7D/ypRy78FJIXySC40UftIfPKSqMCL1+Pft0v4dvUAA5FBEf0zv2OI8BhboPbg3v92MxBPtvVC
+ z5DZm1M84yCgelADDqxyn9xs9hL6tQpX8rkzLEmtJOK9Tazq3lgTZp/MbfoWPeSQ0CTPCX+VTLC
+ kNBmsGc60DLMaFCFO3BYRzNkdZ9E6vR0E7eAEX/MMf8MPTiVYPdNJiTfMvG2XSy1bfhRMQjdRov
+ dyIuioiX+W3f1y75J/qNIBnvyiAj0YhKSIBHHFc3CtH9NgWopdKamqquFkoNiwpw7RMUDJyum7b
+ RQtNfopkvDtb/ONqHKWv3PfUQ//LzDJczM1qzCmo80RpCURuaOmeI/lr39CiBQvUoK0pjwBANU/
+ A5jULYuwRyb1KxyIh0sGrHXnQq0DUoo/3h/lyFz8MeiIws493LlyF4JqfVPAC+ssJFob6f+r6OF
+ 7/qbiin+uvt9vgmAVIg==
+X-Proofpoint-Spam-Info: AW1haW4tMjYwOTI4MDAyNCBTYWx0ZWRfX36H0/KYHMQ9P
+ zPF8n+JzctnPChQhY9DEoV9YXWpkS/4KIlBvpTa9SN5307zDJftm+K24whCYyYDGwAdqEJxIFqU
+ jhiSRK7ayzhnOvJh9ixBj7i6RVFkgx4=
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1176,Hydra:6.1.134,FMLib:17.12.100.49
+ definitions=2026-09-26_05,2026-09-21_02,2025-10-01_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
+ bulkscore=0 impostorscore=0 adultscore=0 suspectscore=0 spamscore=0
+ malwarescore=0 lowpriorityscore=0 clxscore=1015 phishscore=0
+ priorityscore=1501 classifier=typeunknown authscore=0 authtc= authcc=
+ route=outbound adjust=0 reason=mlx scancount=1 engine=8.22.0-2609040000
+ definitions=main-2609280024
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260927_230747_666913_8A133214 
-X-CRM114-Status: GOOD (  16.15  )
+X-CRM114-CacheID: sfid-20260927_230935_037642_1836E145 
+X-CRM114-Status: GOOD (  22.71  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -156,140 +199,384 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Shengjiu Wang <shengjiu.wang@nxp.com>
+Userspace should be able to initiate device reboots using the various
+PSCI SYSTEM_RESET and SYSTEM_RESET2 types defined by PSCI spec. This
+patch series introduces psci-reboot-mode driver that will induce
+command-based resets to psci driver for executing the device reset.
 
-The shared dma_params_tx/rx fields in struct fsl_asrc were a single
-instance written by every concurrent fsl_asrc_dma_hw_params() call.
-With multiple DAIs registered (one per pair/context), parallel stream
-open+hw_params races would corrupt addr and maxburst for all active
-streams.
+The PSCI system reset calls takes two arguments: reset_type and cookie.
+It defines predefined reset types, such as warm and cold reset, and
+vendor-specific reset types which are SoC vendor specific. To support
+these requirements, the reboot-mode framework is enhanced in two key
+ways:
+1. Support upto three 32 bit magic values as arguments. This enables to
+support for a 32 bit reset_type and a 64 bit cookie).
+2. Predefined modes: Add support for predefined reboot modes in the
+framework.
 
-Fix by moving dma_params into struct fsl_asrc_pair so each pair owns
-its own copy. Initialise them in fsl_asrc_dma_startup() where
-the pair is allocated, which makes the per-DAI probe callbacks in
-fsl_asrc.c and fsl_easrc.c redundant; remove those as well.
+With these enhancements, the patch series enables:
+ - Arch Warm reset and system reset cold as predefined reboot modes.
+ - Vendor-specific resets, configurable via the SoC-specific device tree.
 
-Signed-off-by: Shengjiu Wang <shengjiu.wang@nxp.com>
-Reviewed-by: Frank Li <Frank.Li@nxp.com>
-Reviewed-by: Daniel Baluta <daniel.baluta@nxp.com>
+Together, these changes allow userspace to trigger all above PSCI resets
+from userspace.
+
+Note on introducing psci aux devices:
+Based on feedback from Bart, Lee and Ufee, PSCI child functionality now
+uses aux devices instead of an MFD driver, with psci-cpuidle-domain and
+psci-reboot-mode probed through a common PSCI aux device enumerator.
+Reference discussions on this:
+https://lore.kernel.org/all/CAPx+jO9Hi2R_UnCEhsXLwf74c3RTb+RodaJ6SOVXbQX_eHt++A@mail.gmail.com/
+
 ---
- sound/soc/fsl/fsl_asrc.c        | 11 -----------
- sound/soc/fsl/fsl_asrc_common.h |  7 +++----
- sound/soc/fsl/fsl_asrc_dma.c    | 14 ++++++++++++++
- sound/soc/fsl/fsl_easrc.c       | 11 -----------
- 4 files changed, 17 insertions(+), 26 deletions(-)
+The patch is tested on rb3Gen2, lemans-ride, lemans-evk, monaco-ride,
+qcs615-ride.
 
-diff --git a/sound/soc/fsl/fsl_asrc.c b/sound/soc/fsl/fsl_asrc.c
-index cc304abbc8bd..9be903dc75e4 100644
---- a/sound/soc/fsl/fsl_asrc.c
-+++ b/sound/soc/fsl/fsl_asrc.c
-@@ -781,18 +781,7 @@ static int fsl_asrc_dai_trigger(struct snd_pcm_substream *substream, int cmd,
- 	return 0;
- }
- 
--static int fsl_asrc_dai_probe(struct snd_soc_dai *dai)
--{
--	struct fsl_asrc *asrc = snd_soc_dai_get_drvdata(dai);
--
--	snd_soc_dai_init_dma_data(dai, &asrc->dma_params_tx,
--				  &asrc->dma_params_rx);
--
--	return 0;
--}
--
- static const struct snd_soc_dai_ops fsl_asrc_dai_ops = {
--	.probe		= fsl_asrc_dai_probe,
- 	.startup	= fsl_asrc_dai_startup,
- 	.hw_params	= fsl_asrc_dai_hw_params,
- 	.hw_free	= fsl_asrc_dai_hw_free,
-diff --git a/sound/soc/fsl/fsl_asrc_common.h b/sound/soc/fsl/fsl_asrc_common.h
-index c8a1a2b5915d..4e6b00cb5d63 100644
---- a/sound/soc/fsl/fsl_asrc_common.h
-+++ b/sound/soc/fsl/fsl_asrc_common.h
-@@ -53,6 +53,7 @@ struct fsl_asrc_m2m_cap {
-  * @dma_data: private dma data
-  * @pos: hardware pointer position
-  * @req_dma_chan: flag to release dev_to_dev chan
-+ * @dma_params: DMA parameters for transmit/receive channel
-  * @private: pair private area
-  * @complete: dma task complete
-  * @sample_format: format of m2m
-@@ -76,6 +77,8 @@ struct fsl_asrc_pair {
- 	unsigned int pos;
- 	bool req_dma_chan;
- 
-+	struct snd_dmaengine_dai_dma_data dma_params;
-+
- 	void *private;
- 
- 	/* used for m2m */
-@@ -92,8 +95,6 @@ struct fsl_asrc_pair {
- /**
-  * fsl_asrc: ASRC common data
-  *
-- * @dma_params_rx: DMA parameters for receive channel
-- * @dma_params_tx: DMA parameters for transmit channel
-  * @pdev: platform device pointer
-  * @regmap: regmap handler
-  * @paddr: physical address to the base address of registers
-@@ -128,8 +129,6 @@ struct fsl_asrc_pair {
-  * @private: private data structure
-  */
- struct fsl_asrc {
--	struct snd_dmaengine_dai_dma_data dma_params_rx;
--	struct snd_dmaengine_dai_dma_data dma_params_tx;
- 	struct platform_device *pdev;
- 	struct regmap *regmap;
- 	unsigned long paddr;
-diff --git a/sound/soc/fsl/fsl_asrc_dma.c b/sound/soc/fsl/fsl_asrc_dma.c
-index 0aa5db8973d6..b417de6abebe 100644
---- a/sound/soc/fsl/fsl_asrc_dma.c
-+++ b/sound/soc/fsl/fsl_asrc_dma.c
-@@ -400,6 +400,20 @@ static int fsl_asrc_dma_startup(struct snd_soc_component *component,
- 
- 	runtime->private_data = pair;
- 
-+	/*
-+	 * Point the cpu DAI dma_data at the per-pair params so that
-+	 * concurrent hw_params calls on different pairs each write to
-+	 * their own struct and do not race on addr/maxburst.  Use the
-+	 * per-direction setters so that a concurrent open of the other
-+	 * direction on the same DAI does not NULL out its pointer.
-+	 */
-+	if (tx)
-+		snd_soc_dai_dma_data_set_playback(snd_soc_rtd_to_cpu(rtd, 0),
-+						  &pair->dma_params);
-+	else
-+		snd_soc_dai_dma_data_set_capture(snd_soc_rtd_to_cpu(rtd, 0),
-+						 &pair->dma_params);
-+
- 	/* Request a dummy pair, which will be released later.
- 	 * Request pair function needs channel num as input, for this
- 	 * dummy pair, we just request "1" channel temporarily.
-diff --git a/sound/soc/fsl/fsl_easrc.c b/sound/soc/fsl/fsl_easrc.c
-index d30cc3e90215..4401c4e100b3 100644
---- a/sound/soc/fsl/fsl_easrc.c
-+++ b/sound/soc/fsl/fsl_easrc.c
-@@ -1582,18 +1582,7 @@ static int fsl_easrc_hw_free(struct snd_pcm_substream *substream,
- 	return 0;
- }
- 
--static int fsl_easrc_dai_probe(struct snd_soc_dai *cpu_dai)
--{
--	struct fsl_asrc *easrc = dev_get_drvdata(cpu_dai->dev);
--
--	snd_soc_dai_init_dma_data(cpu_dai,
--				  &easrc->dma_params_tx,
--				  &easrc->dma_params_rx);
--	return 0;
--}
--
- static const struct snd_soc_dai_ops fsl_easrc_dai_ops = {
--	.probe		= fsl_easrc_dai_probe,
- 	.startup	= fsl_easrc_startup,
- 	.trigger	= fsl_easrc_trigger,
- 	.hw_params	= fsl_easrc_hw_params,
--- 
-2.34.1
+Signed-off-by: Shivendra Pratap <shivendra.pratap@oss.qualcomm.com>
+
+Changes in v26:
+By Bart/Ufee
+ firmware: psci: Add support for PSCI auxiliary devices
+ - Add a static struct with device info - By Bart
+ - Move full multi-device registration code into this patch - By Bart
+ - Remove extra header files - By Bart
+ - Change psci-devices and cpuidle-psci-domain to arch_initcall - By Ufee
+By Bart
+ power: reset: Add psci-reboot-mode driver
+ - remove compile time check for PSCI_REBOOT_MODE config
+ - select AUX_DEV in kconfig for psci-reboot-mode
+ - Move full multi-device to the preceding patch
+ - remove extra header files
+By Rob
+ dt-bindings: arm: Document reboot mode magic
+ - remove refs from item entries
+- Link to v25: https://patch.msgid.link/20260914-arm-psci-system_reset2-vendor-reboots-v25-0-4aaf5c09b5c2@oss.qualcomm.com
+
+Changes in v25:
+By Bart/Lee/Ufee:
+ Dropped:
+  - mfd: core: Add firmware-node support to MFD cells
+  - mfd: psci-mfd: Add PSCI MFD driver for cpuidle-psci-domain cell
+  - mfd: psci-mfd: Add psci-reboot-mode child cell
+ firmware: psci: Add support for PSCI auxiliary devices
+  - Added a PSCI platform driver to enumerate auxiliary devices.
+  - Converted psci-cpuidle-domain enumeration to the auxiliary device
+    model.
+  - Added optional psci-reboot-mode auxiliary device creation.
+  - Added MAINTAINERS entry and updated Kconfig help text.
+ power: reset: Add psci-reboot-mode driver
+  - Moved PSCI reboot-mode support to an auxiliary-bus based driver.
+By Rob:
+ dt-bindings: arm: Document reboot mode magic
+  - Addressed format chnages.
+  - Fixed dtbinding check error on maxitem.
+By sashiko/ Alignment:
+ power: reset: Add psci-reboot-mode driver
+  - Added a 32-bit system check for 3-cell cookies.
+  - Added stricter magic value count checks as per the PSCI reboot-mode
+    ABI.
+  - Added in-code documentation for predefined PSCI reset modes and
+    cookie layout.
+  - Avoid registering the DT reboot-mode node when SYSTEM_RESET2 is
+    unsupported.
+ firmware: psci: Introduce command-based resets
+  - Added 32-bit validation for PSCI reset command cookies.
+  - Updated psci_set_reset_cmd() documentation for PSCI SYSTEM_RESET2
+    reset_type.
+- Link to v24: https://patch.msgid.link/20260803-arm-psci-system_reset2-vendor-reboots-v24-0-889281373870@oss.qualcomm.com
+
+Changes in v24:
+mfd: psci-mfd: Add psci-reboot-mode child cell
+ - Remove the explicit check for availability of the reboot-mode node. (by Bart)
+ - Fail psci-mfd probe only on fatal errors(-ENOMEM) while adding the
+   psci-reboot-mode cell.
+mfd: core: Add firmware-node support for MFD cells
+ - Allow MFD child registration even when a named child cell not present,
+  to align with of_compatible-based registration. (by sashiko)
+ - Move named_fwnode logic to a separate function.
+power: reset: Add psci-reboot-mode driver
+ - Remove dependency on OF. (by Pavan)
+ - Update for new changes in predefined modes.
+dt-bindings: arm: Document reboot-mode magic
+ - Fix the example DT entry. (by Rob)
+ - Use unevaluatedProperties as false for the reboot-mode child schema.
+firmware: psci: Introduce command-based resets
+ - Update in-code documentation. (by Pavan)
+ - Update namespace-based exports. (by Pavan)
+ - Use synchronized write/read (smp_store_release / smp_load_acquire)for
+   the reset command to support lockless atomic reads. (by sashiko)
+power: reset: reboot-mode: Add support for predefined reboot modes
+ - Remove the predefined list in reboot-mode and add a pointer to
+   reboot_mode_entry. (by Pavan)
+ - The registering driver fills and manages reboot_mode_entry. (by Pavan)
+   - reboot-mode list to append reboot_mode_entry.
+power: reset: reboot-mode: Support up to 3 magic values per mode
+ - Add separate write function pointers for single-magic writes (existing
+   drivers) and multi-value writes. (by Pavan/Bart)
+ - Update count to u32. (by Pavan)
+power: reset: reboot-mode: Remove devres-based allocations
+ - Drop from this series, Sent as separate split-fixes patch.
+- Link to v23: https://patch.msgid.link/20260714-arm-psci-system_reset2-vendor-reboots-v23-0-e7453c548c21@oss.qualcomm.com
+
+Changes in v23:
+mfd: core: Add firmware-node support to MFD cells
+ - Add named_fwnode-based firmware node support in MFD cells.(by Bart)
+ - Update the release path. (by Bart)
+ - Add checks for duplicate fwnodes.
+ - Update documentation for usage and limitations.
+mfd: psci-mfd: Add psci-reboot-mode child cell
+ - Update for a named_fwnode-based reboot-mode child cell. (By Bart)
+ - Split psci-reboot-mode and psci-cpuidle-domain into separate child
+   cells.
+power: reset: Add psci-reboot-mode driver
+ - Add COMPILE_TEST in Kconfig. (by Bart)
+ - Update to support up to three u32 arguments to accommodate a
+   32-bit reset_type and a 64-bit cookie. (By Sashiko, Lorenzo)
+dt-bindings: arm: Document reboot mode magic
+ - Update to support up to three u32 arguments to accommodate a
+   32-bit reset_type and a 64-bit cookie.
+ - Dropped reviewed by from Bart and Rob due to considerable changes.
+firmware: psci: Introduce command-based resets
+ - Update to support a 64-bit cookie. (By Sashiko, Lorenzo)
+ - Update the flow so unsupported reset commands and any failures during
+   reset command execution fall back to the
+   Linux reboot_mode path. (By Sashiko)
+power: reset: reboot-mode: Add support for predefined reboot modes
+ - Handle errors and free lists in devm_reboot_mode_register(). (by Sashiko)
+ - Update to support up to three u32 arguments.
+power: reset: reboot-mode: Support up to 3 magic values per mode
+ - Patch for 64 bit magic renamed.
+ - Update to support up to three u32 arguments to accommodate a 32-bit
+   reset_type and a 64-bit cookie.
+ - Dropped reviewed by from Bart and Sebastian due to considerable changes.
+- Link to v22: https://lore.kernel.org/r/20260514-arm-psci-system_reset2-vendor-reboots-v22-0-28a5bde07483@oss.qualcomm.com
+
+Changes in v22:
+By Bart:
+  power: reset: reboot-mode: Add support for predefined reboot modes
+  - Add reboot-mode helper to add predefined modes.
+  - Add centralized init for reboot-mode.
+  - Dropping Reviewed-by from Bartosz as changes may need a review.
+  power: reset: Add psci-reboot-mode driver
+  - Use reboot-mode helpers to initialize reboot-mode driver and add
+    predefined modes.
+  mfd: core: Add firmware-node support to MFD cells
+  - Use callback function to get fwnode from a MFD child cell.
+  mfd: psci-mfd: Add psci-reboot-mode child cell
+  - Use callback function to return fwnode for reboot-mode.
+By Pankaj:
+  mfd: psci-mfd: Add PSCI MFD driver for cpuidle-psci-domain cell
+  - Make MFD_PSCI defaults to y as ARM_PSCI_CPUIDLE_DOMAIN defaults to
+    y and depends on it.
+- Link to v21: https://lore.kernel.org/r/20260427-arm-psci-system_reset2-vendor-reboots-v21-0-dcf937775e73@oss.qualcomm.com
+
+Changes in v21:
+By Krzysztof
+ power: reset: reboot-mode: Remove devres based allocations
+  - remove fixes tag.
+By Lorenzo
+  firmware: psci: Introduce command-based resets
+  - psci_set_reset_cmd() only takes reset_type/cookie as input params.
+    - updated this as a encoded u64 reset_command - from Pavan Kondeti.
+  - Update commit text for reason for explicit panic_handling.
+  - Clean split of reset flow in psci_sys_reset via handle_reboot_mode and handle_cmd_reset.
+  - Add psci_has_system_reset2_support() helper and PSCI reset-type defines.
+By Lorenzo/Bart
+ power: reset: Add psci-reboot-mode driver
+  By Bart
+   - Drop faux-device based probe.
+   - Convert driver to platform-driver model (probed via PSCI MFD).
+  By Lorenzo:
+   - Use PSCI-specific predefined reset mode naming/magic.
+   - Register arch-warm predefined mode only when SYSTEM_RESET2 is supported.
+   - psci_reboot_mode_write to directly pass reset_type and cokie.
+   - Add MAINTAINERS entry for drivers/power/reset/psci-reboot-mode.c.
+By Bart
+ mfd: psci-mfd: Introduce psci mfd driver for cpuidle-psci-domain cell
+  - Introduce psci-mfd driver.
+ mfd: Add psci-reboot-mode cell via fwnode
+ - Register psci-reboot-mode from psci-mfd with reboot-mode child node
+   fwnode.
+ - Update reset Kconfig dependency to tie PSCI reboot-mode to MFD PSCI path.
+For alignment:
+ - mfd: core: Add firmware-node support to MFD cells
+   - Add firmware-node support to MFD cells.
+By Pavan
+ power: reset: reboot-mode: Add support for predefined reboot modes
+  - Move redundant logic of adding modes to list to a common function.
+By Arnd
+ - Remove refrences for Linux reboot-modes from code and commit text.
+By Konrad
+ - Updated all dt changes to add reboot-mode for supported board files.
+- Link to v20: https://lore.kernel.org/r/20260304-arm-psci-system_reset2-vendor-reboots-v20-0-cf7d346b8372@oss.qualcomm.com
+
+Changes in v20:
+By Bart:
+ power: reset: Add psci-reboot-mode driver
+ - Check for psci compatible in init arm,psci-1.0
+ - Node pointer should not be assigned in device probe.
+   To Align on above:
+   - Remove probe call for faux device.
+   - Set node using device_set_node after faux_device_create.
+   - Register the reboot mode using explicit call to psci_reboot_mode_register_device.
+ - Updated in-code documentation.
+For Alignment to use of device_property_xx:
+ power: reset: reboot-mode: Add support for 64 bit magic
+  - Use device_property_count_u32 instead of device_property_read_u32.
+  - Check count of properties before reading.
+  - u64 magic changed to u32 magic[2].
+  - nvmem-reboot rebased on recent changes.
+  - Update documentation and commit text.
+power: reset: reboot-mode: Remove devres based allocations
+ By Dmitry/Bart:
+  - pr_err to pr_debug in case of invalid reboot-mode prop.
+ By Bart:
+  - Use device_property_read_u32 instead of of_property_read_u32.
+  - Avoid repeated code for free list. Now calling unregister from
+    error path of regiister_reboot_mode.
+ - Fix magic assignment.
+- Link to v19: https://lore.kernel.org/r/20251228-arm-psci-system_reset2-vendor-reboots-v19-0-ebb956053098@oss.qualcomm.com
+
+Changes in v19:
+- Add missing To/Cc entries (include devicetree list) – Thanks to
+  Krzysztof for pointing this out.
+- Fix compilation error in reboot-mode.c for ARCH=powerpc by explicitly
+  including <linux/slab.h>.
+- Link to v18: https://lore.kernel.org/r/20251223-arm-psci-system_reset2-vendor-reboots-v18-0-32fa9e76efc3@oss.qualcomm.com
+
+Changes in v18:
+ power: reset: reboot-mode: Remove devres based allocations
+ - Update commit text for alignment. – Bart
+ - Read magic before assigning kzalloc(info) in reboot_mode_register. - Mukesh
+ - Update error handling path. - Mukesh
+By Bjorn
+ - Expose sysfs for reboot-mode bisected to different series-
+   Link: https://lore.kernel.org/all/20251222-next-15nov_expose_sysfs-v21-0-244614135fd8@oss.qualcomm.com/
+By Bjorn/Lorenzo/Mukesh
+  power: reset: reboot-mode: Add support for 64 bit magic
+  - Use FIELD_GET/FIELD_PREP for u64 magic wherever required.
+  - Update commit text and add documentation for structure of 64 bit magic.
+By Lorenzo
+ - Remove direct reboot-mode registration by psci driver.
+ - Add support for predefined reboot modes in reboot-mode framework.
+ - Add psci-reboot-mode driver and implement a psci-resets to accommodate
+   all psci-resets including warm, cold and customizable vendor-resets.
+By Bjorn
+ - Update DT patches for qcm6490, lemans, monaco and tolos.
+  - Update commit text to include more details – By Bjorn
+For Alignment
+ - dt-bindings: arm: Document reboot mode magic
+   - Update reboot mode documentation to clarify that argument1 should provide
+     full value of reset_type along with the 31st bit wherever required.
+ - DT patches for qcm6490, lemans, monaco and tolos.
+   - Provide full value of reset_type including 31st bit.(eg:0x80000001).
+- Link to v17: https://lore.kernel.org/r/20251109-arm-psci-system_reset2-vendor-reboots-v17-0-46e085bca4cc@oss.qualcomm.com
+
+Previous versions:
+- Link to v16: https://lore.kernel.org/r/20251015-arm-psci-system_reset2-vendor-reboots-v16-0-b98aedaa23ee@oss.qualcomm.com
+- Link to v15: https://lore.kernel.org/r/20250922-arm-psci-system_reset2-vendor-reboots-v15-0-7ce3a08878f1@oss.qualcomm.com
+- Link to v14: https://lore.kernel.org/r/20250815-arm-psci-system_reset2-vendor-reboots-v14-0-37d29f59ac9a@oss.qualcomm.com
+- Link to v13: https://lore.kernel.org/r/20250727-arm-psci-system_reset2-vendor-reboots-v13-0-6b8d23315898@oss.qualcomm.com
+- Link to v12: https://lore.kernel.org/r/20250721-arm-psci-system_reset2-vendor-reboots-v12-0-87bac3ec422e@oss.qualcomm.com
+- Link to v11: https://lore.kernel.org/r/20250717-arm-psci-system_reset2-vendor-reboots-v11-0-df3e2b2183c3@oss.qualcomm.com
+- Link to v10: https://lore.kernel.org/all/569f154d-c714-1714-b898-83a42a38771c@oss.qualcomm.com/
+- Link to v9: https://lore.kernel.org/all/20250303-arm-psci-system_reset2-vendor-reboots-v9-0-b2cf4a20feda@oss.qualcomm.com/
+- Link to v8: https://lore.kernel.org/r/20241107-arm-psci-system_reset2-vendor-reboots-v8-0-e8715fa65cb5@quicinc.com
+- Link to v7: https://lore.kernel.org/r/20241028-arm-psci-system_reset2-vendor-reboots-v7-0-a4c40b0ebc54@quicinc.com
+- Link to v6: https://lore.kernel.org/r/20241018-arm-psci-system_reset2-vendor-reboots-v6-0-50cbe88b0a24@quicinc.com
+- Link to v5: https://lore.kernel.org/r/20240617-arm-psci-system_reset2-vendor-reboots-v5-0-086950f650c8@quicinc.com
+- Link to v4: https://lore.kernel.org/r/20240611-arm-psci-system_reset2-vendor-reboots-v4-0-98f55aa74ae8@quicinc.com
+- Link to v3: https://lore.kernel.org/r/20240515-arm-psci-system_reset2-vendor-reboots-v3-0-16dd4f9c0ab4@quicinc.com
+- Link to v2: https://lore.kernel.org/r/20240414-arm-psci-system_reset2-vendor-reboots-v2-0-da9a055a648f@quicinc.com
+- Link to v1: https://lore.kernel.org/r/20231117-arm-psci-system_reset2-vendor-reboots-v1-0-03c4612153e2@quicinc.com
+- Link to RFC: https://lore.kernel.org/r/20231030-arm-psci-system_reset2-vendor-reboots-v1-0-dcdd63352ad1@quicinc.com
+
+To: Lorenzo Pieralisi <lpieralisi@kernel.org>
+To: Arnd Bergmann <arnd@arndb.de>
+To: Bartosz Golaszewski <bartosz.golaszewski@linaro.org>
+To: Bjorn Andersson <andersson@kernel.org>
+To: Sebastian Reichel <sre@kernel.org>
+To: Rob Herring <robh@kernel.org>
+To: Sudeep Holla <sudeep.holla@arm.com>
+To: Souvik Chakravarty <Souvik.Chakravarty@arm.com>
+To: Krzysztof Kozlowski <krzk+dt@kernel.org>
+To: Andy Yan <andy.yan@rock-chips.com>
+To: Matthias Brugger <matthias.bgg@gmail.com>
+To: Mark Rutland <mark.rutland@arm.com>
+To: Conor Dooley <conor+dt@kernel.org>
+To: Konrad Dybcio <konradybcio@kernel.org>
+To: John Stultz <john.stultz@linaro.org>
+To: Moritz Fischer <moritz.fischer@ettus.com>
+To: Rafael J. Wysocki <rafael@kernel.org>
+To: Daniel Lezcano <daniel.lezcano@kernel.org>
+To: Christian Loehle <christian.loehle@arm.com>
+To: Ulf Hansson <ulf.hansson@linaro.org>
+To: Lee Jones <lee@kernel.org>
+To: Ulf Hansson <ulfh@kernel.org>
+To: Pavan Kondeti <pavan.kondeti@oss.qualcomm.com>
+To: Abel Vesa <abelvesa@kernel.org>
+Cc: Florian Fainelli <florian.fainelli@broadcom.com>
+Cc: Krzysztof Kozlowski <krzk@kernel.org>
+Cc: Srinivas Kandagatla <srinivas.kandagatla@linaro.org>
+Cc: Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>
+Cc: Mukesh Ojha <mukesh.ojha@oss.qualcomm.com>
+Cc: Andre Draszik <andre.draszik@linaro.org>
+Cc: Greg Kroah-Hartman <gregkh@linuxfoundation.org>
+Cc: Kathiravan Thirumoorthy <kathiravan.thirumoorthy@oss.qualcomm.com>
+Cc: linux-pm@vger.kernel.org
+Cc: linux-kernel@vger.kernel.org
+Cc: linux-arm-kernel@lists.infradead.org
+Cc: linux-arm-msm@vger.kernel.org
+Cc: devicetree@vger.kernel.org
+
+---
+Shivendra Pratap (10):
+      power: reset: reboot-mode: Support up to 3 magic values per mode
+      power: reset: reboot-mode: Add support for predefined reboot modes
+      firmware: psci: Introduce command-based resets
+      firmware: psci: Add support for PSCI auxiliary devices
+      dt-bindings: arm: Document reboot mode magic
+      power: reset: Add psci-reboot-mode driver
+      arm64: dts: qcom: Add psci reboot-modes for kodiak boards
+      arm64: dts: qcom: Add psci reboot-modes for lemans boards
+      arm64: dts: qcom: Add psci reboot-modes for monaco boards
+      arm64: dts: qcom: Add psci reboot-modes for talos boards
+
+ Documentation/devicetree/bindings/arm/psci.yaml  |  56 ++++++
+ MAINTAINERS                                      |   1 +
+ arch/arm64/boot/dts/qcom/kodiak.dtsi             |   2 +-
+ arch/arm64/boot/dts/qcom/lemans-evk.dts          |   7 +
+ arch/arm64/boot/dts/qcom/lemans-ride-common.dtsi |   7 +
+ arch/arm64/boot/dts/qcom/lemans.dtsi             |   2 +-
+ arch/arm64/boot/dts/qcom/monaco-evk.dts          |   7 +
+ arch/arm64/boot/dts/qcom/monaco.dtsi             |   2 +-
+ arch/arm64/boot/dts/qcom/qcm6490-idp.dts         |   7 +
+ arch/arm64/boot/dts/qcom/qcs615-ride.dts         |   7 +
+ arch/arm64/boot/dts/qcom/qcs6490-rb3gen2.dts     |   7 +
+ arch/arm64/boot/dts/qcom/qcs8300-ride.dts        |   7 +
+ arch/arm64/boot/dts/qcom/talos.dtsi              |   2 +-
+ drivers/cpuidle/Kconfig.arm                      |   1 +
+ drivers/cpuidle/cpuidle-psci-domain.c            |  33 ++--
+ drivers/firmware/psci/Kconfig                    |  14 ++
+ drivers/firmware/psci/Makefile                   |   1 +
+ drivers/firmware/psci/psci-devices.c             | 120 +++++++++++++
+ drivers/firmware/psci/psci.c                     | 117 ++++++++++++-
+ drivers/power/reset/Kconfig                      |  11 ++
+ drivers/power/reset/Makefile                     |   1 +
+ drivers/power/reset/nvmem-reboot-mode.c          |   7 +-
+ drivers/power/reset/psci-reboot-mode.c           | 104 ++++++++++++
+ drivers/power/reset/qcom-pon.c                   |   7 +-
+ drivers/power/reset/reboot-mode.c                | 208 +++++++++++++++++------
+ drivers/power/reset/syscon-reboot-mode.c         |   7 +-
+ include/linux/psci.h                             |  15 ++
+ include/linux/reboot-mode.h                      |  27 +++
+ 28 files changed, 705 insertions(+), 82 deletions(-)
+---
+base-commit: f5f84daefcd92d7a630066635ecea1433ed5eac7
+change-id: 20250709-arm-psci-system_reset2-vendor-reboots-46c80044afcf
+
+Best regards,
+--  
+Shivendra Pratap <shivendra.pratap@oss.qualcomm.com>
 
 
