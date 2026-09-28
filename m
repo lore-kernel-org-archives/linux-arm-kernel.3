@@ -4,151 +4,111 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id ED3C7CA5FA5
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 28 Sep 2026 22:41:57 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4F665CA5FA1
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 28 Sep 2026 22:43:00 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=lc0k+BB+B+pR9YWQ1iPcOnfiXQnv9hmfa3Jo581awKM=; b=bCBLcNTw/p652pSV5aFWR5oMfB
-	fc63hIUvP0FQy8gkrG1RTZRTuE6hAD9CFYoAU6Oi3PbhGR+MlthJiXsUz1q5iatNiaHxhwvlbVgQv
-	4/X846Et+zM8bGaKAruxY4S0JMJ/IwUlkH6n9GbQYHucRbAqSSCPkh7xslUyg3Dy/lnERFN3Jma5T
-	xYhL5W/ExIw933yGNEBhQ3153IzkPnsQBXA3sPAbJRTmvj/rMN65rTDXQBzfIHwU0Ehw2evG+WGOB
-	C6dIEP0RXofCiYfmX+gar51A61yoQ4MMdRUfl7/7SUk9EdEDQ1EDhkkG6DKLF4jikEI3mvA8oBsdR
-	kRpRSprw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	Date:Message-ID:References:In-Reply-To:Subject:CC:To:From:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=KvZSEWy/8jNLUWtvHLPNDjjziAiWFbV47hOD+6BBj2U=; b=kHMN1i3Wu121X/GFW4EdzdQMHD
+	F9YH2kXiHdeVIe3djmqApUXIiJ/Nh6jyF7BmkkRnVkgiUsfhNxXtBj3WBbETZEsIK5uV9Gxw9XhCN
+	alM4TLZ0dkOm2sIgLwciui6k4Y6QLQPMySGs6P84NOmbhlNZWCU4QycQOcuo2UxPwjCZ2rt3mIF6O
+	MwNenQ/VOdZ2Lq3GX4XSgof7khA7sHwJ5zjCfYYQMmc2WKQnCWLu+2I9Zw6uPhVl0MqDMu1Ta7q9Z
+	QnuHevotHWsbUwMkVv8vjBajuclrpDWl3k9rTB/QBa3w7jeb4sUjXHnPPPCsPmeX7Yg3cqQFnMXH8
+	e7afqtig==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xBK2g-00000001nCm-2uBS;
-	Mon, 28 Sep 2026 22:41:51 +0000
-Received: from mx0a-0031df01.pphosted.com ([205.220.168.131])
+	id 1xBJzd-00000001lhq-1QrB;
+	Mon, 28 Sep 2026 22:38:41 +0000
+Received: from mail-norwayeastazlp170130007.outbound.protection.outlook.com ([2a01:111:f403:c20f::7] helo=OSPPR02CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xBK2e-00000001nBv-1YiN
+	id 1xBJzP-00000001lZf-398Q
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 28 Sep 2026 22:41:49 +0000
-Received: from pps.filterd (m0279864.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 68SLTY6L1282892
-	for <linux-arm-kernel@lists.infradead.org>; Mon, 28 Sep 2026 22:41:47 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
-	cc:content-transfer-encoding:content-type:date:from:in-reply-to
-	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
-	lc0k+BB+B+pR9YWQ1iPcOnfiXQnv9hmfa3Jo581awKM=; b=ey0VdUVhTiQujIvu
-	rGOGRtg+9yJrmlcbf6Hr5HkLn11O5bp17i7/sX4iSRzZ0+jo9q6CHcogLe/AbW7Y
-	YBDGBKgqvxLsuaJaTiGaSi/2BF7AI3Q5y7EmQJQ03N4JkCHVRDkNLbFOTF/vnE1a
-	l1A1jz7V85ITb8dqyS18HxGllsQOwBscxmCaYZsWjbJckw5MSyqJy/XRbbSm+zjb
-	gReSYLUqJEIaGye2KK2IrV+RukChEpEPE1yJoi9P8kcn/R3rY9dyLX9g1Gx+rGrz
-	RqQ2x3uFs/VocJJ0DFcYNImWhNg8XAK4wer8zM8A2umryL5K/gsJMkC9psn8vfYD
-	5HtOTQ==
-Received: from mail-dy1-f197.google.com (mail-dy1-f197.google.com [74.125.82.197])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4gyqx3ajjf-1
-	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
-	for <linux-arm-kernel@lists.infradead.org>; Mon, 28 Sep 2026 22:41:47 +0000 (GMT)
-Received: by mail-dy1-f197.google.com with SMTP id 5a478bee46e88-33c35f5ca6cso5977073eec.1
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 28 Sep 2026 15:41:47 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=oss.qualcomm.com; s=google; t=1790635307; x=1791240107; darn=lists.infradead.org;
-        h=content-transfer-encoding:content-type:in-reply-to:from
-         :content-language:references:cc:to:subject:user-agent:mime-version
-         :date:message-id:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=lc0k+BB+B+pR9YWQ1iPcOnfiXQnv9hmfa3Jo581awKM=;
-        b=FC7g0SkrTStGxkZ/wMwXPaCb+ddIAVm1WxwVqPYEYF0gOg+Dk8I1feq+mRVxwBkYlg
-         55A6EFin/SySB1A+q7bbuOVNZqSp06TbunDAxbHRhjUwmX5bjjzOBFAU7yyd7N8p8Ij/
-         //T4QXi9tSRgswe72155qmNwRN6L/dztzUE/dekwboLtpyCZzUfxV8QDIrZxvZ09RBe0
-         /gtGP7MXjZoew0VkOcXxtO02r1/S174PhN3MymqkwnxRtrwClY6KZO1l/UU2ORwkcs4L
-         BM/S1kOzlNPsjdnf4tOSG5HnLAinfupfZ09lLp2Mb7mRqcE+jFn37N5PZB1AVE0gl5WQ
-         ZFfA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1790635307; x=1791240107;
-        h=content-transfer-encoding:content-type:in-reply-to:from
-         :content-language:references:cc:to:subject:user-agent:mime-version
-         :date:message-id:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=lc0k+BB+B+pR9YWQ1iPcOnfiXQnv9hmfa3Jo581awKM=;
-        b=ID60Ka6TDqrfa3VCylYmQ47IrVcxC70Lp+XUknTVq9cfgJJCLRlNOL/ck9YlTz3nKf
-         bQhKYTJgCAToG96mUhy0wVF2LO3B16Koink09inq1ks0ESd8h1eei0EUZvuvPT4bWji0
-         YzTUG8O3Q5d+Y5lsoGB/Bi2YOKwbVY9IZDs3YF5AYL3yrWxCh/ShmEgoqFgFPEVcLS0F
-         jvbWpTvEtRBFi8MeK1jPh3u+9xSqdjfizkAniyi/t7loFHxqmGeNWQzNbkCooJwcXffR
-         5dszs7jK94ZmykiN1v7BQVnALaqBE7LYpfue36gskc35OfZH+WAyKCqjfSmsTYn8ceB1
-         q7NA==
-X-Forwarded-Encrypted: i=1; AKwUvBwP8R78veG1iyfMEaOCAWC7rKO0HOU3JTyKOQ3hnwzAKekUh3roiaay+CA3G30idyV9AqN0a5b+qWQ0aAuFsD5C@lists.infradead.org
-X-Gm-Message-State: AFq9FYIGodumqSbphNQc2XmqzE8e64lmPYk03UBvsgQWGVmuBQ2c96iE
-	b/6UbB1L0kMa+a42Lpm+vUUaBziXA5p4mYi1WtTpPJijVCemYu1gdH61hemL2xNXitFT1Em0lOw
-	FuWyms08jjUVyYMnSEp0kBeNUrjuyu2BUCCB7NADhveecBJ7SmT9ahXJ4E7yhg5Jd08+e+JyXUC
-	LoAg==
-X-Gm-Gg: AYBFou0j1ReQnrJeV6eEY+ElgT3sl2qVgHD29U4dUbV602QcZcrkCkVpfVZOKE8LCzL
-	qUirLeEzmFVdjGcsF9JoiJYuH7fUAEz2uRbHMjS/jD04ipRSxPnh1Ex8X1vKvwvgmDnsrUOQ1kf
-	bpLnGVOucv53c12pcexR6ru2LRb9MZoGuvq/pGxTunTMhmXs5xo7g8AcG2i2ACIqfl8Ji9WOBUA
-	s2tMtYdtqGAWs6My74uO9tMNNhEMIYsp8b2hz8SoLqWwUP2PM1VACczxlLoC/eXI5tjgATDchCu
-	vjRVt0rexLmfJ2CziEtn34FPkOyh2ricPVCL4gSu9OcOaw3zl8JnibUglI5AUbazmGTQe/ow0fT
-	mfDulSEuRWJ4BKALu7RRBy7XOX+jnNg80AnIjag6v+kY+tu0UV0+iS8ciD9gMGSU=
-X-Received: by 2002:a05:7301:6781:b0:341:a4ed:d910 with SMTP id 5a478bee46e88-3426fcc826cmr14033361eec.7.1790635306810;
-        Mon, 28 Sep 2026 15:41:46 -0700 (PDT)
-X-Received: by 2002:a05:7301:6781:b0:341:a4ed:d910 with SMTP id 5a478bee46e88-3426fcc826cmr14033328eec.7.1790635306198;
-        Mon, 28 Sep 2026 15:41:46 -0700 (PDT)
-Received: from [10.71.40.138] (i-global254.qualcomm.com. [199.106.103.254])
-        by smtp.gmail.com with ESMTPSA id 5a478bee46e88-341459234a1sm29893248eec.24.2026.09.28.15.41.44
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Mon, 28 Sep 2026 15:41:45 -0700 (PDT)
-Message-ID: <db2e1a67-4b15-4bec-ab08-1a22457b52ba@oss.qualcomm.com>
-Date: Mon, 28 Sep 2026 15:41:44 -0700
+	Mon, 28 Sep 2026 22:38:28 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=oeJ3ERYfp19OSDxRjonFHhbLJjYGX4ZHRS8piYzoTWs+4zqT1A7estSbm76xdRzUDNH5WEpd4XgIzwbf27WI4tEgdzsxltwZAN2Pm2/dWw/zcoPB3BJtiNdpijtWeApOUzINCLn9pTyvPgaMK0b0FoTHkVQ5tO5hgQaXE+EhhcTY+pjbqoF+8kzplLFhTrM0hgAXV5IWIMPvFpGJg71t01HtlgnKHNxhXsflBBH/lZSQe8amz0FuiIQBvla7+EF05/qwZVhG+vFQZTKD009R77y+rmyEgao/QT1tEXl2NFHnSxNPwxsNurfl0nt0C5vP2++KN3gdOcwkO3/lusgHrQ==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=KvZSEWy/8jNLUWtvHLPNDjjziAiWFbV47hOD+6BBj2U=;
+ b=Julu9hvxzsxgRP/CVnHEMn8VaeUDzHYWKYzXVYvofcMLY27s+rurQ1BHL0E41ZKOEKnMlrLHgKXiNUhL/UdW6L4zd+xiSxqrccX+h+KIyxTHWaYzqc4ATiIN/0CRNGikPTSwk2c8b9eXD7v49SX8Wz/K20Ct/urTbFpcQhk3LWgy8H5hMXruNWoWvFTbMvnGBoIiJe4UIIDLci2hC/fgwOQFtVXSb3/uZ8P6cdzlNj3FPRZL1nLP0FmBhMEgnkizgdYHdoJ+j7OgP19XvZA0zARP8IXB7MRfqjHpSWWSwoDEtuBFnTb6MA37cymhTXdNWNEXj2tHpsaJZcte7oq+2A==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
+ 195.60.68.100) smtp.rcpttodomain=vger.kernel.org smtp.mailfrom=axis.com;
+ dmarc=pass (p=none sp=none pct=100) action=none header.from=axis.com;
+ dkim=none (message not signed); arc=none (0)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=axis.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=KvZSEWy/8jNLUWtvHLPNDjjziAiWFbV47hOD+6BBj2U=;
+ b=p+gIlW/0vJ9oEiHMeZ0c/5ggA1G1XZw/86RW1Rv5B3lMwI0ppQD+y5Vha6Kutzq4X3vaC+pB3vWrqWlQeu6Fr0t7zfZ1BPWwSKMj+xs6CURvhTxJQTg4L3SMbCx1QOwjms6lM2CtCKUzToF/FJG2bJSJcvYjHw2l9gCDAcNI3wE=
+Received: from DB9PR06CA0019.eurprd06.prod.outlook.com (2603:10a6:10:1db::24)
+ by AS2PR02MB9905.eurprd02.prod.outlook.com (2603:10a6:20b:60a::14) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.451.24; Mon, 28 Sep
+ 2026 22:38:23 +0000
+Received: from MAD0EPF000008AE.eurprd04.prod.outlook.com
+ (2603:10a6:10:1db:cafe::94) by DB9PR06CA0019.outlook.office365.com
+ (2603:10a6:10:1db::24) with Microsoft SMTP Server (version=TLS1_3,
+ cipher=TLS_AES_256_GCM_SHA384) id 15.21.451.24 via Frontend Transport; Mon,
+ 28 Sep 2026 22:38:22 +0000
+X-MS-Exchange-Authentication-Results: mx.microsoft.com 1; spf=pass (sender IP
+ is 195.60.68.100) smtp.mailfrom=axis.com; dkim=none (message not signed)
+ header.d=none;dmarc=pass action=none header.from=axis.com;
+Received-SPF: Pass (protection.outlook.com: domain of axis.com designates
+ 195.60.68.100 as permitted sender) receiver=protection.outlook.com;
+ client-ip=195.60.68.100; helo=mail.axis.com; pr=C
+Received: from mail.axis.com (195.60.68.100) by
+ MAD0EPF000008AE.mail.protection.outlook.com (10.167.241.187) with Microsoft
+ SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.21.472.14 via Frontend Transport; Mon, 28 Sep 2026 22:38:22 +0000
+Received: from pc67007-2609 (10.4.0.13) by se-mail10w.axis.com (10.20.40.10)
+ with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1748.39; Tue, 29 Sep
+ 2026 00:38:17 +0200
+From: Waqar Hameed <waqar.hameed@axis.com>
+To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>, Peter Griffin <peter.griffin@linaro.org>,
+	Alim Akhtar <alim.akhtar@samsung.com>
+CC: <kernel@axis.com>, <devicetree@vger.kernel.org>,
+	<linux-arm-kernel@lists.infradead.org>, <linux-samsung-soc@vger.kernel.org>,
+	<linux-kernel@vger.kernel.org>
+Subject: [PATCH 05/16] arm64: dts: exynos7885: Fix format of line comment
+In-Reply-To: <cover.1790629313.git.waqar.hameed@axis.com>
+References: <cover.1790629313.git.waqar.hameed@axis.com>
+User-Agent: a.out
+Message-ID: <49a174e1bb4d9418dc320cea6f534983ea4251a3.1790629313.git.waqar.hameed@axis.com>
+Date: Tue, 29 Sep 2026 00:38:16 +0200
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH] net: stmmac: dwxgmac2: enable L2 split header support
-To: Lorenzo Bianconi <lorenzo.bianconi@oss.qualcomm.com>
-Cc: Maxime Chevallier <maxime.chevallier@bootlin.com>,
-        Andrew Lunn <andrew+netdev@lunn.ch>,
-        "David S . Miller"
- <davem@davemloft.net>,
-        Eric Dumazet <edumazet@google.com>, Jakub Kicinski <kuba@kernel.org>,
-        Paolo Abeni <pabeni@redhat.com>,
-        Maxime Coquelin <mcoquelin.stm32@gmail.com>,
-        Alexandre Torgue <alexandre.torgue@foss.st.com>,
-        netdev@vger.kernel.org, linux-arm-msm@vger.kernel.org,
-        linux-stm32@st-md-mailman.stormreply.com,
-        linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
-        Hongmei Xu <hongmei.xu@oss.qualcomm.com>,
-        Abhishek Chauhan <abhishek.chauhan@oss.qualcomm.com>,
-        Sarosh Hasan <sarosh.hasan@oss.qualcomm.com>
-References: <20260922232116.889630-1-sagar.cheluvegowda@oss.qualcomm.com>
- <aro7Yijt_d-KRD0Y@lore-desk>
-Content-Language: en-US
-From: Sagar Cheluvegowda <sagar.cheluvegowda@oss.qualcomm.com>
-In-Reply-To: <aro7Yijt_d-KRD0Y@lore-desk>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 8bit
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwOTI4MDA5MCBTYWx0ZWRfX/UsKslPhKoy2
- 7J+WF/1px1a/JIXD5pUz9QyuH3B9rV52GOYsDPeg3COqOIYIq53GNwOsKXurITgQF9GyfINfEQe
- AB3aFzCcaz0zkEoZk7XGJ3u3IPKQ+vu7dGPhF6A99Bj/zelhXEu0Io74l8QQKe24bzKxZ+Q0LM9
- 1bXRH4KPe+W5l/45f2iAOhZ13m1koXKg8Gnx99K6qEwT6oKAp5ROiOA8TC+Twf/iKQuDURxjwX6
- 9HmiHs1W7AbqAL7iaOwhfPVYTmXWgSenjNjtUw/AtkD1PjYsf4hrbk0bh5lbm6ANfbp+P1Z9+V1
- QeYJwzJ9RsEsosxcKFf/UMADUYWzma8eUNk+ULyJwNie0zdejnr3qf1aQXSOey0KY2EnDd9LGC/
- 00radxfFjt9FrEgSVdCdiumnyEeoPVSvWHwyL5g1GlibjOh+mcfh1Drkjo7B4N2D9dKEibBgMDK
- YYJzgBSSP2YsxAKPVDg==
-X-Authority-Analysis: v=2.4 cv=f7jdl+yM c=1 sm=1 tr=0 ts=6abaed2b cx=c_pps
- a=Uww141gWH0fZj/3QKPojxA==:117 a=JYp8KDb2vCoCEuGobkYCKw==:17
- a=IkcTkHD0fZMA:10 a=VdqzKS8jKosA:10 a=s4-Qcg_JpJYA:10
- a=VkNPw1HP01LnGYTKEx00:22 a=u7WPNUs3qKkmUXheDGA7:22 a=DJpcGTmdVt4CTyJn9g5Z:22
- a=IMd6QsT5PRD0yrB2h3IA:9 a=3ZKOabzyN94A:10 a=QEXdDO2ut3YA:10
- a=PxkB5W3o20Ba91AHUih5:22
-X-Proofpoint-ORIG-GUID: Hxxa7V48wYVJjU_d4ueYvODJl0eufXZj
-X-Proofpoint-GUID: Hxxa7V48wYVJjU_d4ueYvODJl0eufXZj
-X-Proofpoint-Spam-Info: AW1haW4tMjYwOTI4MDA5MCBTYWx0ZWRfX8gZwOutZ/n2c
- sZ+bUcV24vp/bqCHcRxCIxPXbHPSJg/jeurfB4Swa4XEWGC3XG52ussFqYDhm72pX47MxFgaJA4
- J5HcZ1+GgzDAuGXKdTl3mnVwCORh/tI=
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1176,Hydra:6.1.134,FMLib:17.12.100.49
- definitions=2026-09-28_06,2026-09-21_02,2025-10-01_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- malwarescore=0 suspectscore=0 adultscore=0 phishscore=0 spamscore=0
- clxscore=1015 impostorscore=0 bulkscore=0 lowpriorityscore=0
- priorityscore=1501 classifier=typeunknown authscore=0 authtc= authcc=
- route=outbound adjust=0 reason=mlx scancount=1 engine=8.22.0-2609040000
- definitions=main-2609280090
+Content-Type: text/plain
+X-Originating-IP: [10.4.0.13]
+X-ClientProxiedBy: se-mail11w.axis.com (10.20.40.11) To se-mail10w.axis.com
+ (10.20.40.10)
+X-EOPAttributedMessage: 0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: MAD0EPF000008AE:EE_|AS2PR02MB9905:EE_
+X-MS-Office365-Filtering-Correlation-Id: ea9f0725-4da4-4697-f23d-08df1db133ed
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|36860700016|30052699003|23010399003|376014|82310400026|56012099006|11063799006|10067099003|22082099003|18002099003;
+X-Microsoft-Antispam-Message-Info: c4oV85fI121w6T2HV54v/2q18547Fg7nmiVvc/h9S4Ys1cuDor+o36DqGckzo3UaWCJnMzR2smtsf2yM9BPpJT/uxv7k9Sx+DTZDheRCM6JEvgcPw/NBYtf8uP18Oyfs+lKu6Ui/yj3DbS9gsFUezQD9It7gjf7OjJJhjQbsNjKLd8JnZgfYJseZPCvy3W01dTnQPr3fZAQO+Adj2zGfGnh2GdfkWi3sri19A1MDyuenbkEOSubV2fNWVBRJmjBgxbCzVhy7JO6nyGBilJxFlN2edxgc9tzBoLe7UOGzuHbbd1v4ROL32PpNe3iTcgwZUZK3W9FV665dRRz42l7xv4cXnq9F5g/KY6UiN9RVX0YZfDP6ofQo6h5C2yhi1lki0YHcZ8OIxB1zjqNyhYqTOOrYmyecBMJR+axeTgbhXJh2A/DQIErDFA2I7yWbadcndb6+rEej9Wo3wVCk/yYwj0s0P/sEzeFO2eAuDHrDRn2vlzNT5UDZWiZFqQ7/1oSXacKy9zgUENnY1MWadPKh23Sxzb061A5KdV2UYUykV82XXGz2BuL97Ezcz8uNDVB06QrX7PWo+fRY6X2/nx3WdLfQ7vQqXbmwtNwcf8OY1yfphu8wrNybSjqPhD1jJMSAXDL67B9Ichwq89xFlFCKzDlgm0z6HKf30oI8WgWNA3XkSLg1ZYtEqp7C5wBw4+zk6GdnL7XGF2VaTjDO4dt6gw==
+X-Forefront-Antispam-Report: CIP:195.60.68.100;CTRY:SE;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:mail.axis.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(1800799024)(36860700016)(30052699003)(23010399003)(376014)(82310400026)(56012099006)(11063799006)(10067099003)(22082099003)(18002099003);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: 2rFyFpLEbKAesgDkgQcI1zJpo3L61UGb3WuY02Z+c1Bm+uZs29U4jlqEFL4a8AJW1yZd8bQ0vurDwjdlQknyqHiF0JkzAWxCoNp9XuMsTmOsdH8Yj3DE6pFHq0B7sICAriOk8Wcki1oytpVnqlL5NN8mzaJtik5bylIoOkfo31rydUGeCYN7+HrF0tSd2ri2M0VJGsBJh6NVHfN9nyJQqR3v6mC2hFNH9zphtm+PzXeSA7u2VO0XUUuGWMFQkaUt8aE13GB7XaWPfvekHmKAF04cxck0qhktSIkU3dOtTSqgIrrc0OkkS+JZVBcLnlI+PLWCMkbXzkp3WnGtHFg/OfFGJV34azn6SNEJWhMibkxDZ4xHntw6+MGevzOcGAxFrOyqLUHGHJASlThM+OM2nDfgkI+FG6Htntz21JiwotZo1M52DzVGdL/wpD280fuW
+X-OriginatorOrg: axis.com
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 28 Sep 2026 22:38:22.6595
+ (UTC)
+X-MS-Exchange-CrossTenant-Network-Message-Id: ea9f0725-4da4-4697-f23d-08df1db133ed
+X-MS-Exchange-CrossTenant-Id: 78703d3c-b907-432f-b066-88f7af9ca3af
+X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=78703d3c-b907-432f-b066-88f7af9ca3af;Ip=[195.60.68.100];Helo=[mail.axis.com]
+X-MS-Exchange-CrossTenant-AuthSource: MAD0EPF000008AE.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Anonymous
+X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: AS2PR02MB9905
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260928_154148_423808_BF22B36C 
-X-CRM114-Status: GOOD (  20.59  )
+X-CRM114-CacheID: sfid-20260928_153827_794365_3A979168 
+X-CRM114-Status: UNSURE (   9.97  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -163,64 +123,28 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Lorenzo,
+There should be a space before ending comment delimiter. Found/fixed
+with dtfmt (Devicetree Source formatter).
 
-Thanks for the review.
+Signed-off-by: Waqar Hameed <waqar.hameed@axis.com>
+---
+ arch/arm64/boot/dts/exynos/exynos7885-pinctrl.dtsi | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
 
-> Hi Sagar,
->
-> are we missing to set dma_cap->sphen for dwxgmac2?
-
-No, that's already set — dwxgmac2_dma.c reads it from the HW_FEATURE1
-register (dma_cap->sphen = (hw_cap & XGMAC_HWFEAT_SPHEN) >> 17;),
-predates this patch and is unrelated to the sequence added here.
-
-> +#define XGMAC_EXT_CFG0_VPRE		BIT(8)
-> +#define XGMAC_EXT_CFG1			0x00000144
-> +#define XGMAC_CONFIG1_SAVE_EN		BIT(24)
-> +#define XGMAC_CONFIG1_SPLM(v)		FIELD_PREP(GENMASK(9, 8), v)
-> I guess it would be better to define a mask for XGMAC_CONFIG1_SPLM.
-
-Agreed, will send a v2 with:
-    #define XGMAC_CONFIG1_SPLM_MASK        GENMASK(9, 8)
-    #define XGMAC_CONFIG1_SPLM(v)        FIELD_PREP(XGMAC_CONFIG1_SPLM_MASK, v)
-
-> +
-> +	/* when FD=1 and LD=0, HL is RDES2[9:0] */
-> +	if (!(rdes3 & XGMAC_RDES3_LD)) {
-> +		*len = le32_to_cpu(p->des2) & XGMAC_RDES2_HL;
-> If XGMAC_RDES3_L34T is not defined on non-last descriptor, is it fine to use it
-> here? IIUC XGMAC_RDES2_HL depends on XGMAC_RDES3_L34T, right?
-
-The data book has the following table for this (Header Length
-Availability in RDES2):
-    Value of FD   Value of LD   Header Length (HL) Availability in RDES2
-    0             1             HL not available
-    1             0             HL is [9:0]
-    1             1             - IP packets, HL is [9:0]
-                                 - Non-IP packets, HL is [9:2]
-
-So when FD=1,LD=0 the full RDES2[9:0] is valid regardless of packet
-type; the L34T/L2T-gated split only applies when FD=1,LD=1
-(single-descriptor packet). So the non-last-descriptor branch
-deliberately doesn't consult L34T at all. This function is also only
-ever called on the first descriptor (dwxgmac2_get_rx_header_len() is
-invoked from stmmac_rx_buf1_len() only when len == 0), so that
-precondition holds at the call site too.
-
-Will send v2 with the SPLM mask fix.
-
->> +		return;
->> +	}
->> +
->> +	if (rdes3 & XGMAC_RDES3_L34T)
->>  		*len = le32_to_cpu(p->des2) & XGMAC_RDES2_HL;
->> +	else if (rdes3 & XGMAC_RDES3_L2T)
->> +		*len = (le32_to_cpu(p->des2) & XGMAC_RDES2_NONIPHL) >> 2;
->>  }
->>  
-
-Regards,
-Sagar
+diff --git a/arch/arm64/boot/dts/exynos/exynos7885-pinctrl.dtsi b/arch/arm64/boot/dts/exynos/exynos7885-pinctrl.dtsi
+index 34bb121919556..f4c89cbbafe70 100644
+--- a/arch/arm64/boot/dts/exynos/exynos7885-pinctrl.dtsi
++++ b/arch/arm64/boot/dts/exynos/exynos7885-pinctrl.dtsi
+@@ -638,7 +638,7 @@ uart4_bus_single: uart4-bus-single-pins {
+ 		samsung,pin-pud = <EXYNOS_PIN_PULL_NONE>;
+ 	};
+ 
+-	/* USI1 UART_HSI2C1*/
++	/* USI1 UART_HSI2C1 */
+ 	uart4_bus_dual: uart4-bus-dual-pins {
+ 		samsung,pins = "gpc2-5", "gpc2-4";
+ 		samsung,pin-function = <EXYNOS_PIN_FUNC_2>;
+-- 
+2.43.0
 
 
