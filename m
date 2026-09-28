@@ -4,88 +4,103 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3A890CA5FA1
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 28 Sep 2026 18:03:11 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7E9BBCA5FA2
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 28 Sep 2026 18:09:45 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:From:
-	Subject:Message-ID:References:Mime-Version:In-Reply-To:Date:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	Message-ID:Date:References:In-Reply-To:Subject:Cc:To:From:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=wbjBREz9vOqId6KGSe2hfelOhYq7OUN6jgn8hmrgsOA=; b=VmNhPx0rVCq26LJgOgsxmhyRxF
-	7cErunI3iO2WgpoNICdFEhwKtpC/BP8+lecOSbNvBeV82NSR3Lx5JLXAGIeBXnBXgUE1WojI4udkR
-	8q1ZVmvyjuLG8j6rn4xWois4z+JvJGKfGKwx39Nkr8d3yeAIJ2sulPvCMhICgKTBKlsUsSf4NsZL6
-	2uBOHCrWxwHihPiKe6NYnB3YYcsr51k3G1YXc/nQtCBPaTSYNqRzNSbxN2D63pZ8VeXjd1kL2ZnLW
-	5cIHI2s686C+O6P9gIuhAByzXN11rjpyyeBvAgXcOUAy1SR/yx9gBIPFdhnpBK9UH6/AqwwUqxqYQ
-	VGuGGqTA==;
+	bh=WblzAY3JRV9CtwzNMKeAP2oGeUzXJbmdjxKWRmzPjT0=; b=M5j1JoRhQaJh/EGUTb1QlvNy41
+	RztDHJlk4Czhx9kEhM041AIClDT8tBBBXJCoHVkFjOljp2FCV6Lp8pshIDiVHdzcBKgz+NYDJyaGM
+	G+DA5ePRNnIt+cSfYPmjqEft9FL1lBbb0oRLejlbl9+ovfinqW3AuAj5hq+g2MAEJYATwwGuP2fdw
+	j3dVT3NpCHPNmYuGHMe8fnMCfZKo9ARc+sd1pXNc7c94gozPvOimUGJOglXarP4+4cJqJ6310UMkQ
+	t6CznsyVj7Q3TftZwCgDsZtTqA9NfNd+xBp040HqOXOvIJtIA4hEnSk6aM3H1ccXJQYkG53tKz6s9
+	+UA/Y5ZQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xBFMb-00000001Cj2-1Ulb;
-	Mon, 28 Sep 2026 17:42:05 +0000
-Received: from mail-wr1-x445.google.com ([2a00:1450:4864:20::445])
+	id 1xBFnG-00000001HMh-3vZf;
+	Mon, 28 Sep 2026 18:09:38 +0000
+Received: from us-smtp-delivery-124.mimecast.com ([170.10.129.124])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xBFMW-00000001CbA-1fEI
+	id 1xBFnD-00000001HLN-3Ouy
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 28 Sep 2026 17:42:01 +0000
-Received: by mail-wr1-x445.google.com with SMTP id ffacd0b85a97d-48879e03053so47493f8f.0
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 28 Sep 2026 10:41:59 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20251104; t=1790617318; x=1791222118; darn=lists.infradead.org;
-        h=content-type:cc:to:from:subject:message-id:references:mime-version
-         :in-reply-to:date:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=wbjBREz9vOqId6KGSe2hfelOhYq7OUN6jgn8hmrgsOA=;
-        b=JinuZSx4nutXxcJ1prRV0uH0GkCRFFXjRKhtpYWdSpq5BNXy4UCV/KZTqvmS8G97hp
-         8klH7xzhHL0CZxc5SnPNymoQxkHUSfJgEqQe1SeqqP8ReNXIWcR2nc2r4Ylqe1oIPWf0
-         C68QTn3C7SPkOsx0/gCt3Cuu7D3ttgBTG6mUuLDfysC+wA9J7ZVAVKpDPH/eiaRUIhHY
-         oZgAlFNLoALPLXJ+6SBf/nOE3SEtGqa2CN6V5jUvqg3vqmRRAT+4bSbnXrzf+bxPiqDV
-         m5AyL+c8yCqVVAIrHp0+Q7q3rrqld4OvB3k3LF4ZW3fswQ+p8F0SyCVUwDT0uT+oUhN5
-         hFqg==
+	Mon, 28 Sep 2026 18:09:37 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
+	s=mimecast20190719; t=1790618973;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 in-reply-to:in-reply-to:references:references;
+	bh=WblzAY3JRV9CtwzNMKeAP2oGeUzXJbmdjxKWRmzPjT0=;
+	b=A6biqNKXoIYIsoP4BCSWnzSdE+Qo0qGkMIRW3A9+nQGJh5MzKzkRmpny5t80bfArJOzMbx
+	GqsLZHQf4LKot3eng/aUwK4IZGim2JK6l62nU+PoCjFZGsYBE/z4jyWV6CYHbwTfP1djXU
+	uKNckHVxNbjD1AvbM3DfrU2XnMIAxwI=
+Received: from mail-wm1-f71.google.com (mail-wm1-f71.google.com
+ [209.85.128.71]) by relay.mimecast.com with ESMTP with STARTTLS
+ (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
+ us-mta-389-7nMEg7EzPj6nSQ5wk6ywlA-1; Mon, 28 Sep 2026 14:09:29 -0400
+X-MC-Unique: 7nMEg7EzPj6nSQ5wk6ywlA-1
+X-Mimecast-MFC-AGG-ID: 7nMEg7EzPj6nSQ5wk6ywlA_1790618967
+Received: by mail-wm1-f71.google.com with SMTP id 5b1f17b1804b1-49e6ba4abdfso35375655e9.1
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 28 Sep 2026 11:09:28 -0700 (PDT)
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1790617318; x=1791222118;
-        h=content-type:cc:to:from:subject:message-id:references:mime-version
-         :in-reply-to:date:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=wbjBREz9vOqId6KGSe2hfelOhYq7OUN6jgn8hmrgsOA=;
-        b=lQK8ssa5Pw7rbm1XdDtuo3wilg7/XOkFJkNRJSsP8toShRrqyY8W6MfG33nzWpU90t
-         JnwVBP3I7E+ZxUU0uOcI8Wg2Dw0911wU3/811fzbWCBxbDrC0Aq/eoQsnta87B0QT0nF
-         MpPRG1cym3qvdnU1GDhVRc78LPusjVSF3QpQDyxAIK31eV+ojUB8xNYn4EBeTEhuihyG
-         RWkEcpXNE20Rb+MBfGyH876GptlTjsqcfQurKSluueul58alKdQbK8+BxiBKoKR0jO3v
-         U1pvAT4ajHib9edZSJG73cAds0FjY8rNfqgdYUSAmQCrskl1AJlyQuxE9A8fcdyQyMYc
-         Q8cA==
-X-Forwarded-Encrypted: i=1; AKwUvBwGuvT5h7EB9AfeuF6p4HT00BDlajGOTEOf0JKgyjLa6RYt2Rho+HvkdzZ/2iZrbrr09ZMBf/IJo6XTAXXJbdQ+@lists.infradead.org
-X-Gm-Message-State: AFuF++lfVUadrvPpkljcfEfaqDn6Ih32juWAqOMbyl8iz9J+9haFLMwQ
-	Tf5f8KBxgxR3gc5GxnxXU+izxd2oHqrb5Yfsg3Sqhb7Kbi6KbOc3e4wj6xsV/fFrOLL2xnG2fFP
-	rn6icfgh1VMdf/g==
-X-Received: from wmdv11.prod.google.com ([2002:a05:600c:12cb:b0:4a0:8ba:ba83])
- (user=smostafa job=prod-delivery.src-stubby-dispatcher) by
- 2002:a05:600c:470d:b0:4a0:34a:588c with SMTP id 5b1f17b1804b1-4a00d778efemr1664475e9.14.1790617317905;
- Mon, 28 Sep 2026 10:41:57 -0700 (PDT)
-Date: Mon, 28 Sep 2026 17:41:16 +0000
-In-Reply-To: <20260928174122.3380703-1-smostafa@google.com>
-Mime-Version: 1.0
-References: <20260928174122.3380703-1-smostafa@google.com>
-X-Mailer: git-send-email 2.56.0.rc1.315.gc6ed9934b7-goog
-Message-ID: <20260928174122.3380703-10-smostafa@google.com>
-Subject: [RFC PATCH 09/15] arm64: Don't assume the kernel stack size
-From: Mostafa Saleh <smostafa@google.com>
-To: linux-doc@vger.kernel.org, linux-kernel@vger.kernel.org, 
-	linux-arm-kernel@lists.infradead.org, linux-mm@kvack.org, 
-	linux-hardening@vger.kernel.org, linux-rt-devel@lists.linux.dev
-Cc: corbet@lwn.net, skhan@linuxfoundation.org, rdunlap@infradead.org, 
-	catalin.marinas@arm.com, will@kernel.org, mark.rutland@arm.com, 
-	akpm@linux-foundation.org, urezki@gmail.com, mingo@redhat.com, 
-	peterz@infradead.org, juri.lelli@redhat.com, vincent.guittot@linaro.org, 
-	dietmar.eggemann@arm.com, rostedt@goodmis.org, bsegall@google.com, 
-	mgorman@suse.de, vschneid@redhat.com, kprateek.nayak@amd.com, kees@kernel.org, 
-	david@kernel.org, ljs@kernel.org, liam@infradead.org, vbabka@kernel.org, 
-	rppt@kernel.org, surenb@google.com, mhocko@suse.com, gustavoars@kernel.org, 
-	bigeasy@linutronix.de, clrkwllms@kernel.org, 
-	Mostafa Saleh <smostafa@google.com>
-Content-Type: text/plain; charset="UTF-8"
+        d=1e100.net; s=20260707; t=1790618967; x=1791223767;
+        h=content-type:mime-version:message-id:date:references:in-reply-to
+         :subject:cc:to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject
+         :date:message-id:reply-to:content-type;
+        bh=WblzAY3JRV9CtwzNMKeAP2oGeUzXJbmdjxKWRmzPjT0=;
+        b=CMXYvgU4AWgmWHfwsMZ2Q+ZMTcGDF/Ms9eS9f50Ejh1c5rytTPc8zrwqEPRqTgzlKo
+         EPlLw44oiDxg8zO9yGNFhOUOj+/kGDI4FBOz2wigE9oeyUYmSM8xcNUvK7t+Pt+MXbXA
+         jXr2030cI6SR6K9BlB+twotRn4kTPLldwZ0PEtqhlGpPAwHdPTKDnSXeSGrPc2FoZ4wc
+         rnpJdtTEV7ctPFNs7GPXN1QPXBUlTdneVFBYPqTaqgSHrFe3QQJtGLsHZ1MZU968KNzv
+         ONstdKmtCiUFvYAPHG6y0xrufM9cJUmUIUI1gkxDUdkrbwio4+nHhtNiXpk1pkhxWIfW
+         MrFg==
+X-Forwarded-Encrypted: i=1; AKwUvByo4KTeByQ4B67TExv8KfgSByD0Z3MbLyhFOK9AbhmguY7/hUyClrH1DmLnsqx1QQ6kqU4eIAHojCZ3uheP+6Ls@lists.infradead.org
+X-Gm-Message-State: AFuF++mISYaCoCjwWt0S/Fr0lL6fCjkNUveWw/TOGVT1w6JuHJl/+iyl
+	EHzopUMPhpFKhpeZEjBRRyyFIMIONiryrhRfB9lKg8jKSe1mVW6BGMPGJXPS6g2Nak0HiifEiqh
+	ARYe6Z/o6n4o3UJ3Dci5TAUql5zb18vLuwbyuHtoFWxpvD0aaRxRWI44gyNL4wXNnlqYP2upR54
+	v2
+X-Gm-Gg: AYBFou2vuI7vVwxBR6q+77N/sH/GhJAT/d5mSVFxDF7wqoa6GJpflJ9XOBQ6A54RLfn
+	AklmIj9r1igV0TbLNIKLEft1ZwotNfnhv1ui4eyFxOUZfQlRtlUvwG8W4llOkLMvTMWrQrH1sxJ
+	oLdMuRZ+p2d2vnb2/y9iXt/lFmOIE7U1dK3bDBSNj4bGaHV36obMv/6LmisAJQ5ZtvqsVThZOE2
+	GrQeuS8R5rjmbE+w3fJutAFHND2vmbm+THxy+UaS4uzSFvJLtPMh4PwFc8hJR7EtnB5HWg13D03
+	m63VsW3duXBo6VO3qWevN5nzdy/2P27hLNFB5ANSk7YN737KnDixNDPzOf9j/I4XzV09Jv+6Tqi
+	DnhaScoYLhe1D8X0dOJ//XrDLGC8SHebdZNhYYI825pNTFyuvbrgVK5ZujplrBCf9Sw==
+X-Received: by 2002:a05:600c:1389:b0:49f:dcc8:c735 with SMTP id 5b1f17b1804b1-49fe66f4c7dmr231739875e9.18.1790618966874;
+        Mon, 28 Sep 2026 11:09:26 -0700 (PDT)
+X-Received: by 2002:a05:600c:1389:b0:49f:dcc8:c735 with SMTP id 5b1f17b1804b1-49fe66f4c7dmr231739375e9.18.1790618966445;
+        Mon, 28 Sep 2026 11:09:26 -0700 (PDT)
+Received: from localhost (62-151-111-63.jazzfree.ya.com. [62.151.111.63])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4a00d10cb7dsm3533065e9.0.2026.09.28.11.09.24
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Mon, 28 Sep 2026 11:09:25 -0700 (PDT)
+From: Javier Martinez Canillas <javierm@redhat.com>
+To: Thomas Zimmermann <tzimmermann@suse.de>, jfalempe@redhat.com,
+ maarten.lankhorst@linux.intel.com, mripard@kernel.org, airlied@gmail.com,
+ simona@ffwll.ch, jani.nikula@linux.intel.com, Alexander.Deucher@amd.com
+Cc: dri-devel@lists.freedesktop.org, amd-gfx@lists.freedesktop.org,
+ linux-arm-kernel@lists.infradead.org, linux-samsung-soc@vger.kernel.org,
+ intel-gfx@lists.freedesktop.org, intel-xe@lists.freedesktop.org,
+ linux-arm-msm@vger.kernel.org, freedreno@lists.freedesktop.org,
+ nouveau@lists.freedesktop.org, linux-rockchip@lists.infradead.org,
+ linux-tegra@vger.kernel.org, sashiko-reviews@lists.linux.dev, Thomas
+ Zimmermann <tzimmermann@suse.de>, Alex Deucher <alexander.deucher@amd.com>
+Subject: Re: [PATCH v4 1/2] drm/fbdev: Move fbdev module parameters next to
+ module init
+In-Reply-To: <20260928080323.23909-2-tzimmermann@suse.de>
+References: <20260928080323.23909-1-tzimmermann@suse.de>
+ <20260928080323.23909-2-tzimmermann@suse.de>
+Date: Mon, 28 Sep 2026 20:09:23 +0200
+Message-ID: <xlv133utfdt8.fsf@fmartine-thinkpadx1carbongen12.rmtes.csb>
+MIME-Version: 1.0
+X-Mimecast-Spam-Score: 0
+X-Mimecast-MFC-PROC-ID: lRNVFOIFJM5NbNTeuTah3TcdlCnu-KNc_KLSTPCM0nU_1790618967
+X-Mimecast-Originator: redhat.com
+Content-Type: text/plain
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260928_104200_456458_80E3D10E 
-X-CRM114-Status: GOOD (  12.20  )
+X-CRM114-CacheID: sfid-20260928_110936_041935_39F73FDF 
+X-CRM114-Status: GOOD (  13.66  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -100,57 +115,34 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-stacktrace and panic functions assume that the kernel stack size is
-THREAD_SIZE.
+Thomas Zimmermann <tzimmermann@suse.de> writes:
 
-The allocated kernel stack size may not be THREAD_SIZE anymore, rely
-on the newly introduced helpers task_stack_{low, high}()
+Hello Thomas,
 
-Signed-off-by: Mostafa Saleh <smostafa@google.com>
----
- arch/arm64/include/asm/stacktrace.h | 4 ++--
- arch/arm64/kernel/traps.c           | 5 +++--
- 2 files changed, 5 insertions(+), 4 deletions(-)
+> Define the parameters for fbdev emulation in the source file with the
+> module-initialization and exit code of drm_kms_helper.ko. The parameters
+> control some aspects of DRM's fbdev emulation. Common usage looks like
+>
+>   drm_kms_helper.drm_fbdev_overalloc=200
+>
+> on the kernel's command line. This has been possible for many years
+> and changing it would likely upset users.
+>
+> The emulation code is supposed to be moved into the module for DRM
+> clients. Keeping the parameters in drm_kms_helper.ko avoids breaking
+> systems the use them in the way described above.
+>
+> Signed-off-by: Thomas Zimmermann <tzimmermann@suse.de>
+> Reviewed-by: Alex Deucher <alexander.deucher@amd.com>
+> ---
 
-diff --git a/arch/arm64/include/asm/stacktrace.h b/arch/arm64/include/asm/stacktrace.h
-index eb18d7cee62f..cbc93cf213a7 100644
---- a/arch/arm64/include/asm/stacktrace.h
-+++ b/arch/arm64/include/asm/stacktrace.h
-@@ -41,8 +41,8 @@ static inline bool on_irq_stack(unsigned long sp, unsigned long size)
- 
- static inline struct stack_info stackinfo_get_task(const struct task_struct *tsk)
- {
--	unsigned long low = (unsigned long)task_stack_page(tsk);
--	unsigned long high = low + THREAD_SIZE;
-+	unsigned long low = (unsigned long)task_stack_low(tsk);
-+	unsigned long high = (unsigned long)task_stack_high(tsk);
- 
- 	return (struct stack_info) {
- 		.low = low,
-diff --git a/arch/arm64/kernel/traps.c b/arch/arm64/kernel/traps.c
-index ce0e213d772d..b91b154843ef 100644
---- a/arch/arm64/kernel/traps.c
-+++ b/arch/arm64/kernel/traps.c
-@@ -902,7 +902,8 @@ DEFINE_PER_CPU(unsigned long [KERNEL_EXC_STACK_SIZE/sizeof(long)],
- 
- void __noreturn panic_bad_stack(struct pt_regs *regs, unsigned long esr, unsigned long far)
- {
--	unsigned long tsk_stk = (unsigned long)current->stack;
-+	unsigned long tsk_stk = (unsigned long)task_stack_low(current);
-+	unsigned long tsk_stk_end = (unsigned long)task_stack_high(current);
- 	unsigned long irq_stk = (unsigned long)this_cpu_read(irq_stack_ptr);
- 	unsigned long exc_stk = (unsigned long)this_cpu_ptr(kernel_exception_stack);
- 
-@@ -913,7 +914,7 @@ void __noreturn panic_bad_stack(struct pt_regs *regs, unsigned long esr, unsigne
- 	pr_emerg("FAR: 0x%016lx\n", far);
- 
- 	pr_emerg("Task stack:      [0x%016lx..0x%016lx]\n",
--		 tsk_stk, tsk_stk + THREAD_SIZE);
-+		 tsk_stk, tsk_stk_end);
- 	pr_emerg("IRQ stack:       [0x%016lx..0x%016lx]\n",
- 		 irq_stk, irq_stk + IRQ_STACK_SIZE);
- 	pr_emerg("Exception stack: [0x%016lx..0x%016lx]\n",
+Reviewed-by: Javier Martinez Canillas <javierm@redhat.com>
+
 -- 
-2.56.0.rc1.315.gc6ed9934b7-goog
+Best regards,
+
+Javier Martinez Canillas
+Core Platforms
+Red Hat
 
 
