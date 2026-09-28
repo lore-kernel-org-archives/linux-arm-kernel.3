@@ -4,74 +4,131 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5B4BBCA5FA1
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 28 Sep 2026 16:15:54 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E82D6CA5FA1
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 28 Sep 2026 16:16:19 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=l63NqOrmYS7OWhnyJ46rzvQOga2GpeIrimZGoJ6BZws=; b=yfj9jXFdJF7GEzVC2tILSErOXX
-	k8JFnXixD5yLuqTuFWwVYwpRee0REwRc/BfFnBDVH16TwOo3PnexCsqUd/+OUzYPRIEericKZfS5+
-	qWN7p43D3jOaM5RwOscMXP8F9DzjU8wXdWlCJX2tuS4GqlQOmwyIXL99e8ZqDUvHoC8oWhNS5pbyh
-	7CQMzp6WXKgyAxDZNMHe/zcWAbEHcTnoxaQWoOmSkrs7C5A/BPBqvodFEJxAu4jZCLEssfACpW3Db
-	MhPyROdNZmMHkObQ7e3T3Lho/7z30EogeE3JJjol42uIoT+jAN/ICTbgneSXxTwVBATZJvmwCdfCS
-	W4U8CsHg==;
+	bh=tqCY0tWphzhWyHFpdwjWwuig9ZhPkf5YqjbeUt1I6uA=; b=YWiA0uUdHS51cAl2ZfZ3rg4Z+8
+	xz7JNsfnKS3XtmX6JHJNLBVULM4CBE7WfEnSYPlCsM+s/OB1ayCHVNVSg4Kynd29ThpKTeURUKxFv
+	gx0jI8fCw6Upc1wleM2cVL3DnfP68U4nZqg655rVSriJt+JGy+Q2zZI7mTuvYUmKHu3636asJEzm9
+	nfZ1tKlh39m6mjb0krPypRR03pAk2o86+w3oEurGUwuJcvs+yMqxKoPAbE31vEG3jBAkHFY3b7z9Z
+	bw8LIp7uDHkKR+A52svoF8thiTf0u0iJxg2CVaTNyYW1dG6n8BGFnC+iDIfN1EaiGFUG7l1J0tZMe
+	7ztxVvgA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xBE15-00000000zL6-37ua;
-	Mon, 28 Sep 2026 16:15:47 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1xBE1V-00000000zRR-3eHV;
+	Mon, 28 Sep 2026 16:16:13 +0000
+Received: from mx0b-001b2d01.pphosted.com ([148.163.158.5])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xBE14-00000000zKq-0kRt
+	id 1xBE1S-00000000zQ9-47Zm
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 28 Sep 2026 16:15:46 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id 5B66B600E2;
-	Mon, 28 Sep 2026 16:15:45 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 4B11C1F000FF;
-	Mon, 28 Sep 2026 16:15:40 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1790612145;
-	bh=l63NqOrmYS7OWhnyJ46rzvQOga2GpeIrimZGoJ6BZws=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=E7TBTailbJXOF3b09WyFbluQXA60619reCTcV7CQ8hJeZCyDd6THls1fDs19vu297
-	 rR8SB4jBUdSOQTOpSseq0eWB41RvN0qZxgmRWpVKttlRSOeEIH2zcQaW2s1qEQs69+
-	 7GHhCbXYaYZwxllF7ZgNBetbO0b5OTBSLiFcOwWXoZ70fNgQIn9EVOG7QvsjSN86h9
-	 bR9/gaur1nLKsyx/xu1xCgSsZcueblotdLbcBhLHDeKYXMNEY3/kvd0/mYVIRkENTn
-	 OTrF6qIVtKG2xPxWS4ltlL1jAN4ULI0HH5IKQvP7EWRacMLtO9t5xcrqInQ+Ur/f3K
-	 t5632UFq8n2PQ==
-Date: Mon, 28 Sep 2026 18:15:37 +0200
-From: Lorenzo Pieralisi <lpieralisi@kernel.org>
-To: Andy Shevchenko <andriy.shevchenko@linux.intel.com>
-Cc: "Rafael J. Wysocki" <rafael@kernel.org>,
-	Mark Rutland <mark.rutland@arm.com>, Marc Zyngier <maz@kernel.org>,
-	Daniel Lezcano <daniel.lezcano@kernel.org>,
-	Thomas Gleixner <tglx@kernel.org>,
-	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
-	Danilo Krummrich <dakr@kernel.org>,
-	Hanjun Guo <guohanjun@huawei.com>,
-	Sudeep Holla <sudeep.holla@kernel.org>,
-	Wim Van Sebroeck <wim@linux-watchdog.org>,
-	Guenter Roeck <linux@roeck-us.net>,
-	Robin Murphy <robin.murphy@arm.com>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Will Deacon <will@kernel.org>,
-	Bartosz Golaszewski <brgl@kernel.org>, linux-acpi@vger.kernel.org,
-	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-	driver-core@lists.linux.dev, linux-watchdog@vger.kernel.org
-Subject: Re: [PATCH RFC 02/11] ACPI: Introduce irq_get() for static fwnodes
-Message-ID: <arqSqcoWAkhy-8do@red-moon>
-References: <20260925-acpi-static-table-irq-probe-defer-v1-0-2c62125d0085@kernel.org>
- <20260925-acpi-static-table-irq-probe-defer-v1-2-2c62125d0085@kernel.org>
- <arZDwutoadki7tiZ@ashevche-desk.local>
- <arZNL9BnTGK0Klwc@red-moon>
- <arZS4vwxps01dGb7@ashevche-desk.local>
+	Mon, 28 Sep 2026 16:16:12 +0000
+Received: from pps.filterd (m0353725.ppops.net [127.0.0.1])
+	by mx0a-001b2d01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 68SF5UR5216848;
+	Mon, 28 Sep 2026 16:15:57 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ibm.com; h=cc
+	:content-type:date:from:in-reply-to:message-id:mime-version
+	:references:subject:to; s=pp1; bh=tqCY0tWphzhWyHFpdwjWwuig9ZhPkf
+	5YqjbeUt1I6uA=; b=k99btnrmIQbXQhiNFlOlpqOSkqX6x4ivkIceiZAgkVkPmp
+	90Wr5xTzDine7WgmavgI1Ytag/Br2PCOhmSwR20Nl+6F5P4xz6spfuXVXTByiO3z
+	HVtzEHFV048q9X290W8Scx/NHbEyEAMwHNjUlLkXItUv+0fiQ1LfP//RJIJU7Msd
+	zPo3tZKilcjaWb3MCLHmPaY8fpQJ9DiYsZRwTGSw6tJvLVkV0yZDlIcjNja/H8MT
+	nP+PPpJJs81hmjGcOTPGPOBqQBtq3QU29ZsDMmNa4TyA+8dZpcBrRhwqh50IJZaq
+	g5Oefq9WkK2P7TYpVGjBHp9T4BHb7sCbd3AqiByQ==
+Received: from ppma21.wdc07v.mail.ibm.com (5b.69.3da9.ip4.static.sl-reverse.com [169.61.105.91])
+	by mx0a-001b2d01.pphosted.com (PPS) with ESMTPS id 4gx4fe27nq-1
+	(version=TLSv1.3 cipher=TLS_AES_256_GCM_SHA384 bits=256 verify=NOT);
+	Mon, 28 Sep 2026 16:15:56 +0000 (GMT)
+Received: from pps.filterd (ppma21.wdc07v.mail.ibm.com [127.0.0.1])
+	by ppma21.wdc07v.mail.ibm.com (8.18.1.11/8.18.1.11) with ESMTP id 68SElVgA251961;
+	Mon, 28 Sep 2026 16:15:56 GMT
+Received: from smtprelay02.fra02v.mail.ibm.com ([9.218.2.226])
+	by ppma21.wdc07v.mail.ibm.com (PPS) with ESMTPS id 4gxsck61mn-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Mon, 28 Sep 2026 16:15:56 +0000 (GMT)
+Received: from smtpav07.fra02v.mail.ibm.com (smtpav07.fra02v.mail.ibm.com [10.20.54.106])
+	by smtprelay02.fra02v.mail.ibm.com (8.14.9/8.14.9/NCO v10.0) with ESMTP id 68SGFnOn54460908
+	(version=TLSv1/SSLv3 cipher=DHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
+	Mon, 28 Sep 2026 16:15:49 GMT
+Received: from smtpav07.fra02v.mail.ibm.com (unknown [127.0.0.1])
+	by IMSVA (Postfix) with ESMTP id 1FBC920043;
+	Mon, 28 Sep 2026 16:15:49 +0000 (GMT)
+Received: from smtpav07.fra02v.mail.ibm.com (unknown [127.0.0.1])
+	by IMSVA (Postfix) with ESMTP id 3F8C620040;
+	Mon, 28 Sep 2026 16:15:48 +0000 (GMT)
+Received: from osiris (unknown [9.87.129.112])
+	by smtpav07.fra02v.mail.ibm.com (Postfix) with ESMTPS;
+	Mon, 28 Sep 2026 16:15:48 +0000 (GMT)
+Date: Mon, 28 Sep 2026 18:15:46 +0200
+From: Steffen Eiden <seiden@linux.ibm.com>
+To: Ilya Leoshkevich <iii@linux.ibm.com>
+Cc: kvm@vger.kernel.org, kvmarm@lists.linux.dev,
+        linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+        linux-s390@vger.kernel.org, Alexander Gordeev <agordeev@linux.ibm.com>,
+        Andreas Grapentin <gra@linux.ibm.com>, Arnd Bergmann <arnd@arndb.de>,
+        Catalin Marinas <catalin.marinas@arm.com>,
+        Christian Borntraeger <borntraeger@linux.ibm.com>,
+        Claudio Imbrenda <imbrenda@linux.ibm.com>,
+        David Hildenbrand <david@kernel.org>,
+        Friedrich Welter <fritz@linux.ibm.com>, Fuad Tabba <tabba@google.com>,
+        Gautam Gala <ggala@linux.ibm.com>,
+        Hariharan Mari <hari55@linux.ibm.com>,
+        Heiko Carstens <hca@linux.ibm.com>,
+        Hendrik Brueckner <brueckner@linux.ibm.com>,
+        Janosch Frank <frankja@linux.ibm.com>, Joey Gouly <joey.gouly@arm.com>,
+        Marc Zyngier <maz@kernel.org>, Nico Boehr <nrb@linux.ibm.com>,
+        Nina Schoetterl-Glausch <oss@nina.schoetterlglausch.eu>,
+        Oliver Upton <oupton@kernel.org>, Paolo Bonzini <pbonzini@redhat.com>,
+        Suzuki K Poulose <suzuki.poulose@arm.com>,
+        Sven Schnelle <svens@linux.ibm.com>,
+        Ulrich Weigand <Ulrich.Weigand@de.ibm.com>,
+        Vasily Gorbik <gor@linux.ibm.com>, Will Deacon <will@kernel.org>,
+        Zenghui Yu <yuzenghui@huawei.com>
+Subject: Re: [PATCH v8 20/29] s390: Introduce Start Arm Execution instruction
+Message-ID: <20260928161546.428362-B-seiden@linux.ibm.com>
+References: <20260918133107.1042730-1-seiden@linux.ibm.com>
+ <20260918133107.1042730-21-seiden@linux.ibm.com>
+ <1e3b65b3-0c21-466f-ae09-8426eeacb97d@linux.ibm.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <arZS4vwxps01dGb7@ashevche-desk.local>
+In-Reply-To: <1e3b65b3-0c21-466f-ae09-8426eeacb97d@linux.ibm.com>
+X-TM-AS-GCONF: 00
+X-Proofpoint-Reinject: loops=2 maxloops=12
+X-Authority-Analysis: v=2.4 cv=FYWiV5+6 c=1 sm=1 tr=0 ts=6aba92bd cx=c_pps
+ a=GFwsV6G8L6GxiO2Y/PsHdQ==:117 a=GFwsV6G8L6GxiO2Y/PsHdQ==:17
+ a=kj9zAlcOel0A:10 a=VdqzKS8jKosA:10 a=VkNPw1HP01LnGYTKEx00:22
+ a=RnoormkPH1_aCDwRdu11:22 a=V8glGbnc2Ofi9Qvn3v5h:22 a=VnNF1IyMAAAA:8
+ a=e3H7mCSiy_dY2-7_aUoA:9 a=CjuIK1q_8ugA:10
+X-Proofpoint-Spam-Info: AW1haW4tMjYwOTI4MDA2NCBTYWx0ZWRfX3FSm3poY32ru
+ XNpcZw6G5JilofWjVWIAL3oP4Ur3C8GgIIfLeX1MeJGeUvA+tByS9z0RHBt9xL4zxRF9vJaef8f
+ NIGNJmu/RKV8WlV/FMOZH0MbVUwyyTg=
+X-Proofpoint-ORIG-GUID: u7gi_9HJKgoAJZK9_WrkyB0fwXIjcwUQ
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwOTI4MDA2NCBTYWx0ZWRfX6DJMgiDneped
+ QSRu5a4Y/OkaqXFWEb5fmEwOY/3QV3AbBPgXGGv5B9jhsW5sdO51LB/lWwvdQOuMIX8xx8pHfq4
+ bEPo7AIYAOxJzo4vgZ+CRTxb8Y5bOVl6Xj1S1suhouAJjFIst8GSNDYQj1otUv9o4eeeqF04Ind
+ 2CIREBrvbcTKBikSaD1MivFC/xg6YfsOEvxK1AS8lTTBuDThSDdJxNZr9lUOmkV9g68YxvZl7tb
+ anrOkjnQMnN6fjMAT035LPxzGd8IAFZ4PDVYNzMWao59alb/XDdFJa141lC7Ux2Vko4KCJEP0t7
+ InhU1EMnFF9RZBBZGG5NdOUDNVEJHWmaS4b7k/YsA0YpRgk571Ms7AbnAW4IQl2bYyIV5zEP2Tn
+ y9z8eVpGMf0DmsQ8oNmbgk4BhnXNBR+X1WsDJfbgl+HmZCyLDrv8O1Wqv+mRlszk98FPt26E0/0
+ mYYFsmG+FgH/gT5vd9A==
+X-Proofpoint-GUID: P2tX3rfu3_XjSxABuwj_-1RkrjrsE3wJ
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1176,Hydra:6.1.134,FMLib:17.12.100.49
+ definitions=2026-09-28_04,2026-09-21_02,2025-10-01_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
+ adultscore=0 clxscore=1015 impostorscore=0 spamscore=0 phishscore=0
+ priorityscore=1501 malwarescore=0 bulkscore=0 lowpriorityscore=0
+ suspectscore=0 classifier=typeunknown authscore=0 authtc= authcc=
+ route=outbound adjust=0 reason=mlx scancount=1 engine=8.22.0-2609040000
+ definitions=main-2609280064
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260928_091611_144108_9FDAEB8A 
+X-CRM114-Status: GOOD (  30.72  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -86,122 +143,96 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, Sep 25, 2026 at 01:54:26PM +0300, Andy Shevchenko wrote:
-> On Fri, Sep 25, 2026 at 12:30:07PM +0200, Lorenzo Pieralisi wrote:
-> > On Fri, Sep 25, 2026 at 12:49:54PM +0300, Andy Shevchenko wrote:
-> > > On Fri, Sep 25, 2026 at 09:48:01AM +0200, Lorenzo Pieralisi wrote:
+On Mon, Sep 28, 2026 at 05:53:33PM +0200, Ilya Leoshkevich wrote:
 > 
-> ...
 > 
-> > > > +static int acpi_static_fwnode_read_u32_prop_index(const struct fwnode_handle *fwnode,
-> > > > +						  const char *propname,
-> > > > +						  unsigned int index, u32 *value)
-> > > > +{
-> > > > +	u32 *values;
-> > > > +	int ret, count;
-> > > > +
-> > > > +	count = fwnode_property_count_u32(fwnode, propname);
-> > > > +	if (count < 0)
-> > > > +		return count;
-> > > > +
-> > > > +	if (index >= count)
-> > > > +		return -ENOENT;
-> > > > +
-> > > > +	values = kcalloc(count, sizeof(*values), GFP_KERNEL);
-> > > > +	if (!values)
-> > > > +		return -ENOMEM;
-> > > > +
-> > > > +	ret = fwnode_property_read_u32_array(fwnode, propname, values, count);
-> > > > +	if (!ret)
-> > > > +		*value = values[index];
-> > > 
-> > > Use standard pattern, id est
-> > > 
-> > > 	if (ret)
-> > > 		...
-> > > 
-> > > > +	kfree(values);
-> > > 
-> > > You want to use __free()
-> > > 
-> > > > +	return ret;
-> > > > +}
-> > > 
-> > > I believe the whole approach is suboptimal, if you wish get indexed value (but why?)
+> On 9/18/26 15:30, Steffen Eiden wrote:
+> > The Start Arm Execution (SAE) instruction is the centerpiece for
+> > executing arm64 (KVM) guests on s390. Its purpose is, similar to SIE, to
+> > enable accelerated execution of arm64 virtual machines. SAE expects the
+> > physical address of a control block as the only argument.
 > > 
-> > Why what (that's what the irq_get() interface requires ?) I agree it is
-> > suboptimal - the whole point of the series is an RFC on using properties
-> > to store GSI number/flags, then how to read them we will optimize it
-> > when/if we agree that's the approach to be taken.
-> 
-> Why to have indexed APIs. The callers usually do not want a single item from an
-> array, they want all of them or a big pile (exception is the array of strings,
-> but we have matching functions for that).
-> 
-> As per approach, this patch is against device property and I don't think we are
-> going to agree on the approach taken in *this* patch.
-
-Coming back to this, what is needed here is a way to stash the GSI number,
-flags and name in stardard storage (like OF nodes IRQ properties, ACPI objects
-_CRS, etc).
-
-To give you some background, I thought about adding an array of:
-
-GSI [number, flags, name]
-
-to the ACPI static fwnode itself. Then basically the irq_get() API has got
-all the information it needs from the primary fwnode; while doing that I
-thought that this might have been a bit like reinventing software nodes
-(granted, software node properties are ways more general that what I suggest
-above and I don't expect any other property to be ever added to static fwnodes)
-that's why I put together the series as it is, precisely to understand what's
-best.
-
-When you say "against device property", what do you mean precisely ?
-
-I suppose you mean that this approach goes against software node properties
-usage guidelines ?
-
-Anyway, again, it is just to provide some context, we are talking about
-a bunch of platform devices, it is nice to have a generic solution but
-it has to be simple enough too given its scope, I understand very well
-your concern with this approach as-is - it is there to find a way
-forward together and show what the problem is.
-
-Thanks,
-Lorenzo
-
-> > > it needs to be retrieved as that in the guts of ACPI. Allocating memory for the whole
-> > > array to retrieve a single element is simply wrong.
-> 
-> ...
-> 
-> > > > +#define ACPI_IRQ_PROP_GSI		"linux,acpi-gsi"
-> > > > +#define ACPI_IRQ_PROP_GSI_TRIGGER	"linux,acpi-gsi-trigger"
-> > > > +#define ACPI_IRQ_PROP_GSI_POLARITY	"linux,acpi-gsi-polarity"
-> > > 
-> > > Oh... This sounds like a big ugly hack.
+> > The host is responsible to save & restore
+> >   - GPRs 0-13
+> >   - access register 0-15
+>              ^^^^^^^^
+>              registers>   - breaking event register (BEAR)
+> >   - vector/floating point registers
+> > between SAE executions to guarantee host consistency.
 > > 
-> > That does not help much I am afraid.
+> > GPRs and BEAR are save and restores in the asm functions. The other
+>                     ^^^^^^^^^^^^^^^^^
+>                     saved and restored
+> 
+> > register are handled in within C code. Access registers are handled in a
+>   ^^^^^^^^             ^^
+>   registers            not needed probably?
+> 
+> > later patch and SVEs will be handled when they are introduced in a
+> > future series. Most arm64 registers are handled by a satellite block
+> > called save_area. Some registers, frequently used by hypervisors, are
+> > placed into the SAE control block itself.
 > > 
-> > What's a ugly hack ? Property names ? Using properties for this purpose ?
+> > Enlighten asm/kvm_host_types.h for the new header variant. The new
+> > header is chosen instead of asm/kvm_host_s390_types.h if KVM_S390_ARM64
+> > is defined.
+> > 
+> > Co-developed-by: Andreas Grapentin <gra@linux.ibm.com>
+> > Signed-off-by: Andreas Grapentin <gra@linux.ibm.com>
+> > Co-developed-by: Nina Schoetterl-Glausch <nsg@linux.ibm.com>
+> > Signed-off-by: Nina Schoetterl-Glausch <nsg@linux.ibm.com>
+> > Signed-off-by: Steffen Eiden <seiden@linux.ibm.com>
+> > ---
+> >   arch/s390/include/asm/asm-prototypes.h       |   1 +
+> >   arch/s390/include/asm/kvm_host_arm64_types.h | 124 +++++++++++++++++++
+> >   arch/s390/include/asm/kvm_host_types.h       |   4 +
+> >   arch/s390/include/asm/sae.h                  |  58 +++++++++
+> >   arch/s390/include/asm/stacktrace.h           |   5 +
+> >   arch/s390/kernel/asm-offsets.c               |   1 +
+> >   arch/s390/kernel/entry.S                     |  22 ++++
+> >   arch/s390/tools/opcodes.txt                  |   3 +
+> >   8 files changed, 218 insertions(+)
+> >   create mode 100644 arch/s390/include/asm/kvm_host_arm64_types.h
+> >   create mode 100644 arch/s390/include/asm/sae.h
 > 
-> Yes, properties started with "linux," for some core functionality.
-> Yes, using properties for this also doesn't sound right. I think the problem
-> here is in the table specifications or somewhere that deep. That's why we
-> ended up in this series.
+> [...]
+>    > +#if IS_ENABLED(CONFIG_KVM)
+> > +/*
+> > + * __sae64a calling convention:
+> > + * %r2 pointer to sae control block physical address
+>           ^^^^^^^^^^ I guess it's just a physical address and not a
+>                      pointer to it?
 > 
-> > Again, it is an RFC for this specific reason and I mentioned that in the
-> > cover letter, thank you for your inputs.
+yes. Fixing.
+
+
+>                      ^^^ sometimes it's called "sae", sometimes "SAE" -
+>                          it would be nice to have some consistency> + */
+Thanks, I will convert everything to SAE
+
+
+> > +SYM_FUNC_START(__sae64a)
+> > +	stmg	%r6,%r14,__SF_GPRS(%r15)	# store kernel registers
 > 
-> And here we have a discussion started :-)
+> Strictly speaking we don't need to save %r14, but I guess you do this
+> for unwinding?
+yes. Also, some later (unsent) patch needs this and before I forget this, let's
+do it now. 
+
 > 
-> P.S. Looks like I was too quick to jump into this thread. I will wait for
-> others to share their view on all this.
-> 
-> -- 
-> With Best Regards,
-> Andy Shevchenko
-> 
-> 
+> > +	STBEAR	__SF_SAE_BEAR(%r15)		# save breaking event address register
+> > +	.insn	rre,0xb9a50000,%r2,0		# Start Arm Execution
+> > +	LBEAR	__SF_SAE_BEAR(%r15)		# restore breaking event address register
+> > +	lmg	%r6,%r14,__SF_GPRS(%r15)	# restore kernel registers
+> > +	xgr	%r0,%r0				# clear guest registers to
+> > +	xgr	%r1,%r1				# prevent speculative use
+> > +	xgr	%r2,%r2
+> > +	xgr	%r3,%r3
+> > +	xgr	%r4,%r4
+> > +	xgr	%r5,%r5
+> > +	BR_EX	%r14
+> > +SYM_FUNC_END(__sae64a)
+> > +EXPORT_SYMBOL(__sae64a)
+> > +#endif
+> [...]
 
