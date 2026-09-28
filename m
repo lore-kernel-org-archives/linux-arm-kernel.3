@@ -4,108 +4,63 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 16510C9832F
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 28 Sep 2026 01:30:32 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 72C1AC9830E
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 28 Sep 2026 01:32:49 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=mI4MQAkrqHNpUjr7C93Sk+aRsKdy2XPiHpFNJDV/YcA=; b=e34IYFAhKnqjRvc+5ExP0nTVTV
-	r0ouLGdMgl0+UCpOqBqudSU7i3rGrWwjsuQbCtZaPtcKwOdrjKDJ/9zbtrn+ZlqavBqsQRgQXj/IC
-	fcA1oDZkY4xeivD2XL1yu7TPrsMavm/wO9n8CV5v5jCmAIIRom2b2O+QTdS+uG9ekABu/vuZDQPJl
-	oLGqq32VVNgD0My7FbQJg6cb8vu9Yy41ApzURM1yF6KPlAtxStTUnfZMRfCosGnypfOI1JfNXfoH1
-	OeCMStvAwTRsE+SJ1VpqLCvATBqKNcKG8cD2yijinPakQKXVRyuzmCM9cWaL+9lccMsJ5ti8MaL+v
-	Es8MBEKQ==;
+	bh=UmIOtnIswKFiC/+Ht1pSwWlgydpiNsnDaNGJIQWDkq8=; b=zgHG07IxQXpugImo5eHr2cCwty
+	KLZVAoTnmd4NYRoN2YnlPArgjsJshHvuye8mUBs7F6X4v9+i+EUKF9rt7HWfj0AvPWaTyDaGT7GYC
+	+qtEzJ3DtQJVe3tVrsWOSe/6kH8MOS4s8t1J04kaK1nA+UYYCBnpuqan24ztuBGAJeF9o6FlB9nlM
+	eurRvyuYl4Ee5YTpivgJVvV3YbPYisIlASdw4ARnvnvTj3/JOSwPVWxOLU+MUnUUrzXc76iQrTgp8
+	z+WUr3tfZFrETAP5AMeNIHt/E2AA5lUNUBwmFhT8RFHuqXNd2V7SURGvtIOrb5hRXtLxTkh5U++h1
+	lCPU7e5A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xB0CG-0000000H7ea-0Oit;
-	Mon, 28 Sep 2026 01:30:24 +0000
-Received: from us-smtp-delivery-124.mimecast.com ([170.10.133.124])
-	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xB0CD-0000000H7dk-0M8y
+	id 1xB0EU-0000000H7zm-3fPb;
+	Mon, 28 Sep 2026 01:32:42 +0000
+Received: from zg8tmtyylji0my4xnjqumte4.icoremail.net ([162.243.164.118])
+	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1xB0EQ-0000000H7yA-0Pi0
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 28 Sep 2026 01:30:22 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1790559020;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=mI4MQAkrqHNpUjr7C93Sk+aRsKdy2XPiHpFNJDV/YcA=;
-	b=RE9TvltfcFvYaiYw1TvhEU7mvEh5N1EJoUMOAPUnaIJpLIZSWuisITBw/b6uJVWVGsUUWu
-	JvhLIPMKGPsC8goxx/KZYK4s8S9ABLqfSW4qU10cvHMNFP7HRoBC/VUHZCl6xixZA9yL0c
-	RvWBd2Py9uO2OzwuXeoAeIawSU/XPPM=
-Received: from mail-pl1-f198.google.com (mail-pl1-f198.google.com
- [209.85.214.198]) by relay.mimecast.com with ESMTP with STARTTLS
- (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
- us-mta-448-YYxuzdWJNl25cS08VuFFPw-1; Sun, 27 Sep 2026 21:30:18 -0400
-X-MC-Unique: YYxuzdWJNl25cS08VuFFPw-1
-X-Mimecast-MFC-AGG-ID: YYxuzdWJNl25cS08VuFFPw_1790559018
-Received: by mail-pl1-f198.google.com with SMTP id d9443c01a7336-2e124796da0so8731425ad.0
-        for <linux-arm-kernel@lists.infradead.org>; Sun, 27 Sep 2026 18:30:18 -0700 (PDT)
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1790559018; x=1791163818;
-        h=content-transfer-encoding:content-type:in-reply-to:from
-         :content-language:references:cc:to:subject:user-agent:mime-version
-         :date:message-id:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=mI4MQAkrqHNpUjr7C93Sk+aRsKdy2XPiHpFNJDV/YcA=;
-        b=2q1QLkJQWbxtR8T74BBTXCcKl0RamUZyxb/tYIG1EErzx2UirRLAlFwPe6s4btnRc7
-         ozYD5xek3xMwhGYTV+9EYE4UovyV8Y6zo4WdcGpGYEGoBZ4I0nxgGi6ks760GPNHBS8u
-         ELMKaJnrdh5nlW/1OGMwfR2fe067/sB8Fp7JbeQCxpINv0iwv2H3CaHKLqsKmWtTtBwT
-         sw8ZpiMeXXsm8lLZ6N2/KUunQ4gxc3dTN0EXwJxrv7iQmzEhGQSCkwz9UnoVYlC+mEBg
-         L8V2OXErgDGdUZTnnNzI6h+3lxEnA8HZGMbxlNyZHR1Og+Ya4ewj1RTuELMDXJzxqTJl
-         iDaw==
-X-Forwarded-Encrypted: i=1; AKwUvBx0iyPjwHkm4pSbYKxv0u+48Piyn7+i86rW8HLTgLm++SzU7jSA5hvQMo6CZGgywLzxa7pu9xXqoR+iWUhdtaYo@lists.infradead.org
-X-Gm-Message-State: AFq9FYKewhq+pmaUZjoAoykQmHWc/WvrCOysnQB2Uz3304eFImBuIILI
-	AeP1g3fP/gdXcX4V+PFRRS6M2eXhdTMzA6etP42mNVqjG/tMlDz4EdO7gAWxNkcR1oHXfrr1SZ+
-	fKY1i0tY9MFSBg2xwyTq+vAgtfrDeLLWCdtfq3tkg3AF+OhYI+/SxYaMd/b78v+nPE3DPXppGQn
-	QG
-X-Gm-Gg: AYBFou0l8U3OVdSmkbiLVMV/vb8kmnbvCtl0w9wSWDV2l1Z3C1DTdBWtl0XNPA219Jl
-	3v1N/NXB1PD+l4ruvSKDnvkokayVPCJCGCutd5k3uV1vICmdv2OXGBYBXoInmq2B3ctP8Wcfvoy
-	TjK84oqqWNUIwfDoVGE6JYMdF1lVh3o2RF0mL8QNL9r8/cFSv4XYsXaWi8USgBMSziAbAwAmMpF
-	ndDQSRdtVxGqtG09HOdfx2AnUSRZShgGh1/uW/+cMMu80XjjQApyyQX/ZPKVxD9EpBLRe1THQp/
-	LAFV9MrQrxNDu9s5wdfCo+cYcpeiOchSKgU7o1Qr2JaPtf6pqZE3DKeYNmQ+OZJV0Rl9VWwI1r2
-	CcUMz0tZlt9VDLOv7wGbMTiop8U1BNbxrddxPyUnvGQ==
-X-Received: by 2002:a17:90b:2dc3:b0:39e:6a7e:ee18 with SMTP id 98e67ed59e1d1-3a098da14d3mr9007853a91.36.1790559017550;
-        Sun, 27 Sep 2026 18:30:17 -0700 (PDT)
-X-Received: by 2002:a17:90b:2dc3:b0:39e:6a7e:ee18 with SMTP id 98e67ed59e1d1-3a098da14d3mr9007821a91.36.1790559017031;
-        Sun, 27 Sep 2026 18:30:17 -0700 (PDT)
-Received: from [192.168.68.52] (n175-34-8-244.mrk21.qld.optusnet.com.au. [175.34.8.244])
-        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-3a0b99917besm17161191a91.14.2026.09.27.18.30.10
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Sun, 27 Sep 2026 18:30:16 -0700 (PDT)
-Message-ID: <98356890-80b0-47f8-bddf-75d75ce63272@redhat.com>
-Date: Mon, 28 Sep 2026 11:30:09 +1000
+	Mon, 28 Sep 2026 01:32:40 +0000
+Received: from prodtpl.icoremail.net (unknown [10.12.1.20])
+	by hzbj-icmmx-7 (Coremail) with UTF8SMTP id AQAAfwB3f5+sw7lq7H8wAQ--.17362S2;
+	Mon, 28 Sep 2026 09:32:28 +0800 (CST)
+Received: from WIN-B62RPRBL2BM.localdomain (unknown [218.76.62.144])
+	by mail (Coremail) with SMTP id AQAAf8DwWnSow7lqzLTiAA--.60522S3;
+	Mon, 28 Sep 2026 09:32:24 +0800 (CST)
+From: Zhu Ling <zhuling2709@phytium.com.cn>
+To: maz@kernel.org,
+	tglx@kernel.org
+Cc: radu@rendec.net,
+	zenghui.yu@linux.dev,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	Zhu Ling <zhuling2709@phytium.com.cn>
+Subject: [PATCH v4] irqchip/gic: Fix UBSAN shift-out-of-bounds in GIC helpers
+Date: Mon, 28 Sep 2026 09:32:09 +0800
+Message-ID: <20260928013209.7242-1-zhuling2709@phytium.com.cn>
+X-Mailer: git-send-email 2.43.0
+In-Reply-To: <20260923082804.13197-1-zhuling2709@phytium.com.cn>
+References: <20260923082804.13197-1-zhuling2709@phytium.com.cn>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v19 20/20] KVM: arm64: CCA: Control user register access
- for Realms
-To: Suzuki K Poulose <suzuki.poulose@arm.com>, kvm@vger.kernel.org,
- kvmarm@lists.linux.dev
-Cc: maz@kernel.org, will@kernel.org, catalin.marinas@arm.com,
- linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- steven.price@arm.com, aneesh.kumar@kernel.org, oupton@kernel.org,
- joey.gouly@arm.com, tabba@google.com, yuzenghui@huawei.com,
- linux-coco@lists.linux.dev, gankulkarni@os.amperecomputing.com,
- sdonthineni@nvidia.com, alpergun@google.com, fj0570is@fujitsu.com,
- WeiLin.Chang@arm.com, lpieralisi@kernel.org, enju.kohei@fujitsu.com,
- Jean-Philippe Brucker <jean-philippe@linaro.org>
-References: <20260920212845.707-1-suzuki.poulose@arm.com>
- <20260920212845.707-21-suzuki.poulose@arm.com>
-From: Gavin Shan <gshan@redhat.com>
-In-Reply-To: <20260920212845.707-21-suzuki.poulose@arm.com>
-X-Mimecast-Spam-Score: 0
-X-Mimecast-MFC-PROC-ID: pnXtOEXYPmQSKosKFJPv70CwPLO6q2uMrW4KIkKIIZ4_1790559018
-X-Mimecast-Originator: redhat.com
-Content-Language: en-US
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
+Content-Transfer-Encoding: 8bit
+X-CM-TRANSID: AQAAf8DwWnSow7lqzLTiAA--.60522S3
+X-CM-SenderInfo: x2kxzxlqjsliuz6sx5pwlxzhxfrphubq/1tbiAQALAWq4HUgBngABsS
+Authentication-Results: hzbj-icmmx-7; spf=neutral smtp.mail=zhuling270
+	9@phytium.com.cn;
+X-Coremail-Antispam: 1Uk129KBjvJXoWxXrWxKw45Gr1kXrW8tF48Crg_yoWrGr15pF
+	W5J3s2vr4IyF12gF4DC3WDZFy5t3Z3KrZFkrWxXasIvry5GF95Aayav3saq3WqqrZrCa4U
+	CwsIqF1Uu3WUAFDanT9S1TB71UUUUUDqnTZGkaVYY2UrUUUUj1kv1TuYvTs0mT0YCTnIWj
+	DUYxn0WfASr-VFAU7a7-sFnT9fnUUIcSsGvfJ3UbIYCTnIWIevJa73UjIFyTuYvj4RJUUU
+	UUUUU
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260927_183021_202913_0F388D03 
-X-CRM114-Status: GOOD (  23.55  )
+X-CRM114-CacheID: sfid-20260927_183238_277179_5912DD5C 
+X-CRM114-Status: GOOD (  14.94  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -120,61 +75,102 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 9/21/26 7:28 AM, Suzuki K Poulose wrote:
-> From: Jean-Philippe Brucker <jean-philippe@linaro.org>
-> 
-> The RMM restricts the access to the register states that the host can
-> read/modify for a given Realm.
-> 
-> e.g., At VCPU creation, can modify GPRS (x0-x30) and PC.
->        While servicing SMCCC calls via RSI_HOST_CALL or servicing PSCI
->        requests.
->        MMIO emulation in the unprotected space.
-> 
-> Additionally we use the sysreg configuration to advertise/configure the
-> following Realm parameters, which are required before the Realm Descriptor
-> :w
-> is created:
->   - SVE Vector Length
->   - Number of HW Breakpoints/Watchpoints
->   - PMU Counters.
-> 
-> Thus KVM also additionally allows access to ID_AA64DFR0_EL1 and SVE_VLS for
-> the configuration of Realm creation parameters. We don't support PMUs for
-> the Realm VMs yet, so PMCR is not exposed.
-> 
-> The RMM makes similar restrictions for reading of the guest's registers
-> (this is *confidential* compute after all), however we don't impose the
-> restriction here. This allows the VMM to read (stale) values from the
-> registers which might be useful to read back the initial values even if
-> the RMM doesn't provide the latest version. For migration of a realm VM,
-> a new interface will be needed so that the VMM can receive an
-> (encrypted) blob of the VM's state.
-> 
-> Reflect the above in KVM_GET_REG_LIST, KVM_SET_ONE_REG calls.
-> 
-> Signed-off-by: Jean-Philippe Brucker <jean-philippe@linaro.org>
-> Co-developed-by: Steven Price <steven.price@arm.com>
-> Signed-off-by: Steven Price <steven.price@arm.com>
-> Co-developed-by: Suzuki K Poulose <suzuki.poulose@arm.com>
-> Signed-off-by: Suzuki K Poulose <suzuki.poulose@arm.com>
-> ---
-> Changes since v18:
->   - Don't expose PMCR_EL0 to the userspace now, we could do that when we
->     support PMU
->   - Fix check patch warnings
-> Changes since v17:
->    - Merge related changes into one single patch for the user set/get registers
->      I have retained the Review tags, as the code hasn't changed, just the patches
->      were merged into a single one with the same tags.
->    - Limit KVM_GET_REG_LIST to the allowed CORE registers.
-> ---
->   arch/arm64/kvm/guest.c      | 63 +++++++++++++++++++++++++++++++++++++
->   arch/arm64/kvm/hypercalls.c |  4 +--
->   arch/arm64/kvm/sys_regs.c   | 28 +++++++++++++----
->   3 files changed, 87 insertions(+), 8 deletions(-)
-> 
+When running with UBSAN enabled, enabling a GPIO controller that uses a
+GIC interrupt as its parent triggers several shift-out-of-bounds warnings:
 
-Reviewed-by: Gavin Shan <gshan@redhat.com>
+  shift-out-of-bounds in drivers/irqchip/irq-gic-common.c:50:21
+  left shift of 2 by 30 places cannot be represented in type 'int'
+
+Similar reports are emitted from gic_poke_irq() and gic_peek_irq() in
+drivers/irqchip/irq-gic-v3.c. The corresponding GICv2 helpers use the
+same signed-shift pattern. These masks are generated by shifting signed
+integer constants, which invokes undefined behavior when bit 31 is
+selected.
+
+Use BIT() to generate the masks with an unsigned type and make their
+intent explicit.
+
+Fixes: 5c0c1f08abf0 ("ARM: 6150/1: gic: implement set_type")
+Fixes: 567178077c36 ("irqchip: GIC: Add support for irq_[get, set]_irqchip_state()")
+Fixes: b594c6e20c7f ("irqchip: GICv3: Add support for irq_[get, set]_irqchip_state()")
+Signed-off-by: Zhu Ling <zhuling2709@phytium.com.cn>
+---
+Changes in v4:
+- Add Fixes tags for the commits that introduced the affected masks.
+
+Changes in v3:
+- Fix the same issue in the GICv2 gic_poke_irq() and gic_peek_irq()
+  helpers, as pointed out by Zenghui.
+
+Changes in v2:
+- Use BIT() instead of explicit unsigned shifts, as suggested by Marc.
+- Drop the redundant introductory text from the email.
+- Update the author email address.
+
+Link: https://lore.kernel.org/r/2fJDwUUYdEf2_eaRa041L9xkT8RkSWFeo7euOnqMbbPhUatLlEaAvGfB6sOspDmXaxO87Eh7bQLV9UolyjbMtZBT1wB2UGypjPOo0Z-RC0Q=@proton.me
+---
+ drivers/irqchip/irq-gic-common.c | 2 +-
+ drivers/irqchip/irq-gic-v3.c     | 4 ++--
+ drivers/irqchip/irq-gic.c        | 4 ++--
+ 3 files changed, 5 insertions(+), 5 deletions(-)
+
+diff --git a/drivers/irqchip/irq-gic-common.c b/drivers/irqchip/irq-gic-common.c
+index c776f9142610..8bd1eaa54295 100644
+--- a/drivers/irqchip/irq-gic-common.c
++++ b/drivers/irqchip/irq-gic-common.c
+@@ -48,7 +48,7 @@ void gic_enable_quirks(u32 iidr, const struct gic_quirk *quirks,
+ int gic_configure_irq(unsigned int irq, unsigned int type,
+ 		       void __iomem *base)
+ {
+-	u32 confmask = 0x2 << ((irq % 16) * 2);
++	u32 confmask = BIT(((irq % 16) * 2) + 1);
+ 	u32 confoff = (irq / 16) * 4;
+ 	u32 val, oldval;
+ 	int ret = 0;
+diff --git a/drivers/irqchip/irq-gic-v3.c b/drivers/irqchip/irq-gic-v3.c
+index 6e1fa5b247fc..15110d47ddb0 100644
+--- a/drivers/irqchip/irq-gic-v3.c
++++ b/drivers/irqchip/irq-gic-v3.c
+@@ -457,7 +457,7 @@ static int gic_peek_irq(struct irq_data *d, u32 offset)
+ 	u32 index, mask;
+ 
+ 	offset = convert_offset_index(d, offset, &index);
+-	mask = 1 << (index % 32);
++	mask = BIT(index % 32);
+ 
+ 	if (gic_irq_in_rdist(d))
+ 		base = gic_data_rdist_sgi_base();
+@@ -473,7 +473,7 @@ static void gic_poke_irq(struct irq_data *d, u32 offset)
+ 	u32 index, mask;
+ 
+ 	offset = convert_offset_index(d, offset, &index);
+-	mask = 1 << (index % 32);
++	mask = BIT(index % 32);
+ 
+ 	if (gic_irq_in_rdist(d))
+ 		base = gic_data_rdist_sgi_base();
+diff --git a/drivers/irqchip/irq-gic.c b/drivers/irqchip/irq-gic.c
+index f6bc29f515fb..fb7a55f5b394 100644
+--- a/drivers/irqchip/irq-gic.c
++++ b/drivers/irqchip/irq-gic.c
+@@ -178,14 +178,14 @@ static inline bool cascading_gic_irq(struct irq_data *d)
+  */
+ static void gic_poke_irq(struct irq_data *d, u32 offset)
+ {
+-	u32 mask = 1 << (irqd_to_hwirq(d) % 32);
++	u32 mask = BIT(irqd_to_hwirq(d) % 32);
+ 
+ 	writel_relaxed(mask, gic_dist_base(d) + offset + (irqd_to_hwirq(d) / 32) * 4);
+ }
+ 
+ static int gic_peek_irq(struct irq_data *d, u32 offset)
+ {
+-	u32 mask = 1 << (irqd_to_hwirq(d) % 32);
++	u32 mask = BIT(irqd_to_hwirq(d) % 32);
+ 
+ 	return !!(readl_relaxed(gic_dist_base(d) + offset + (irqd_to_hwirq(d) / 32) * 4) & mask);
+ }
+-- 
+2.43.0
 
 
