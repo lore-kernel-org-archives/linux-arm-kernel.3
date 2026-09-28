@@ -4,103 +4,140 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 95A49CA5FA2
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 28 Sep 2026 18:10:41 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B6418CA5FA2
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 28 Sep 2026 18:11:38 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
-	Message-ID:Date:References:In-Reply-To:Subject:Cc:To:From:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
+	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=OFTht72VGYwnHy4rRuIiS5N5orHNND6LgvZVdS8G2Q0=; b=XsB+Nc82X47/oIxfkxTfkO9fAi
-	hoqMLsWkCWv9cKTk0GeiLMm7BNhX0Q4ahncUKgBGo2gG1Rr9dMsXFJ5WkW7XrxMQN7U+1bexzOh+5
-	ta/14zoompFoTRFycNScZ6jE6rRk9sAb6s2QfZDItXJi4tfz04H3JDpXJxxWq7L5r5mi1YS80vAgN
-	+Vst3ITFSi0NiexFH7DV6TKXEE9+T+pbsqKZhV/hGEY5cFVPQ7QeBbLWaRJS/UvUuMWfvAc2RWlvA
-	Lulg3G+acCBg17zlqbyFZqr2dmdIsBOLRwvvE4qg8VjyToLI/9YBVRzQhBUWZeM9s+N7PfSmaNHVX
-	V0drAwdA==;
+	bh=+34UDese1VPEF+U+t28TUTT0C7e9+onU8ESsyc+3UiM=; b=knN50GkSjLlTIinx5MmISWulqk
+	8w5dJXxhsAvYx7bNNtP0VFnvEdYBQFAMKbvEPWuW7eRALzhA4ejc5F+yF2pLyiK1kfCG3e7Stv54w
+	g4NBUVjie0qsmnlL72IRCGG395yWlVBhaSz6iagGYd+Ek0R1lTfxdxX6JrJkLWVQT4MCxyjPBTDk3
+	weunNSczNrNcif7miX2CFsrMEDhZ2v2fBif6xCZCIQ8Am98kFDdrSlLnwlYaJkwhiNvwtUTCgKmaI
+	/YKWflq6tycOBRiJ4hm1FyPUNlJf0oz5rV7+Ur9QM/dohY4Xv/5Rh9DVPwC1aGeS3aYrys29su0D5
+	DjGA9gCg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xBFoB-00000001HYf-12ZC;
-	Mon, 28 Sep 2026 18:10:35 +0000
-Received: from us-smtp-delivery-124.mimecast.com ([170.10.133.124])
+	id 1xBFp5-00000001HhY-1eYc;
+	Mon, 28 Sep 2026 18:11:31 +0000
+Received: from mail-westcentralusazon11010054.outbound.protection.outlook.com ([40.93.198.54] helo=CY7PR03CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xBFo9-00000001HY6-3hh8
+	id 1xBFp3-00000001Hh3-2wa2
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 28 Sep 2026 18:10:35 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1790619033;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 in-reply-to:in-reply-to:references:references;
-	bh=OFTht72VGYwnHy4rRuIiS5N5orHNND6LgvZVdS8G2Q0=;
-	b=UpuhIlNJJe2UFT1Iuh4GBHZWobfOJMqqD0kflurAEVbsYGvZEcPmR1E7D6z+QiKfqQtGWS
-	N6Z46KWBxDk9EhwpgyTmrVVkUMrq0F5ZLbjfMM8dGGzgZM/Cd+1QCKa8IBABdYXb6De7e7
-	jZ2v1GYG4azV0SHCYI8AHD+x/e+/6tc=
-Received: from mail-wm1-f69.google.com (mail-wm1-f69.google.com
- [209.85.128.69]) by relay.mimecast.com with ESMTP with STARTTLS
- (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
- us-mta-688-A0jtGnoSNAqWd9vm8NDlSg-1; Mon, 28 Sep 2026 14:10:31 -0400
-X-MC-Unique: A0jtGnoSNAqWd9vm8NDlSg-1
-X-Mimecast-MFC-AGG-ID: A0jtGnoSNAqWd9vm8NDlSg_1790619030
-Received: by mail-wm1-f69.google.com with SMTP id 5b1f17b1804b1-49fffa5de0fso25408085e9.1
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 28 Sep 2026 11:10:31 -0700 (PDT)
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1790619030; x=1791223830;
-        h=content-type:mime-version:message-id:date:references:in-reply-to
-         :subject:cc:to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject
-         :date:message-id:reply-to:content-type;
-        bh=OFTht72VGYwnHy4rRuIiS5N5orHNND6LgvZVdS8G2Q0=;
-        b=dbAeWvYx/tE62HPK2NMJVxw3+hHhAV2f/WKQwvgFNvFSo1WX3iaI6HSXvLqiyIQOBp
-         IiGx+qfXtt7b/BIOiy4UnRpoy6eUJ9pumvI6MV4ySYBz+sUVQoJXH1THIls4rlNqTf5j
-         KyZGX6XxUfh9IS9eCFarEvhztBFtrcP48UmgTEIlzJclskVHW2CcE9lpHYDkoqjkbOdg
-         rb3Km5a66tzEWvDoBsVNtfJsbCmKgYhY4DAWQ+QvWFQ2RoDTFSQNoEUxqXRqctvPl/QD
-         PznEVySUJz+8c/xMptpAdZljTCrnDUoZ4i6fk54YvQyQ4LSyTPAo/gEAd0H2fP5Id6D3
-         w7wQ==
-X-Forwarded-Encrypted: i=1; AKwUvBw69fBgjnOBhG4HC89khLMeK0aN3P1YGi6dMUODyoBudU3cUv886rnrNZn9G9+7o5j9XpfPIX+ZrjvOgxbGpRbL@lists.infradead.org
-X-Gm-Message-State: AFuF++ldCwrh/Ryiq6BO190knh264DGWexUaxDUlkVskTMxfEhPNCmm/
-	vEDvp6Pa9eOrXyr0fPCgNXh38ka+O0K5aYqMUenjBQe9g8La4AyJS91fPatz/IMmdoJV5sX/Fk0
-	ZMagxZS7w4DQy1+Ac91GbPDig+Euny+G2bGjo5/H+cOVe4IPFvQZ+z3p1RqAulqLdiRdJv497SG
-	xI
-X-Gm-Gg: AYBFou2QUvApodMXcT+a3p/Du84SfV/bKrc4iRSStnZM0cqXcYUpuZG/iRfYBtmbpkH
-	Nuq3u/ZviRw2NATfRi+MNYdXrd5xBuefKeYGIGYwR9i33aXtUT8QyWr/0ymsdeFfoPlGUDONpxg
-	RhOet2t6+LM/CpwhUmflNNdJfbu2nhNgjQ5QGnMSOx6MimwIYgjoUmGboTsahpXbY2uth4wSm0Q
-	S0g1YUFJn6jJ6pQEpyeFomC51MbOafwb7Pp5jIm8Lik8jNhPAyeFJ0NMc9FqEc22RA5iy/gL8LG
-	n0BZkixGE+xZo1olGZKB3+myQ4gURwsU1gTgdMt4bfb8R3ALIy6IUtGRr7Tl3Qw9Q1QYAmciQOX
-	km5B7oHFSGoJYujEy472rI5c+8hKmw4Gsuoi6EzgAOmxSZ45YyOklgJ0NP9RGU8FMeQ==
-X-Received: by 2002:a05:600c:4f44:b0:4a0:23f:8b0d with SMTP id 5b1f17b1804b1-4a0023f8d93mr91712405e9.2.1790619030021;
-        Mon, 28 Sep 2026 11:10:30 -0700 (PDT)
-X-Received: by 2002:a05:600c:4f44:b0:4a0:23f:8b0d with SMTP id 5b1f17b1804b1-4a0023f8d93mr91712165e9.2.1790619029624;
-        Mon, 28 Sep 2026 11:10:29 -0700 (PDT)
-Received: from localhost (62-151-111-63.jazzfree.ya.com. [62.151.111.63])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4a00cfe16a2sm9652415e9.4.2026.09.28.11.10.27
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 28 Sep 2026 11:10:28 -0700 (PDT)
-From: Javier Martinez Canillas <javierm@redhat.com>
-To: Thomas Zimmermann <tzimmermann@suse.de>, jfalempe@redhat.com,
- maarten.lankhorst@linux.intel.com, mripard@kernel.org, airlied@gmail.com,
- simona@ffwll.ch, jani.nikula@linux.intel.com, Alexander.Deucher@amd.com
-Cc: dri-devel@lists.freedesktop.org, amd-gfx@lists.freedesktop.org,
- linux-arm-kernel@lists.infradead.org, linux-samsung-soc@vger.kernel.org,
- intel-gfx@lists.freedesktop.org, intel-xe@lists.freedesktop.org,
- linux-arm-msm@vger.kernel.org, freedreno@lists.freedesktop.org,
- nouveau@lists.freedesktop.org, linux-rockchip@lists.infradead.org,
- linux-tegra@vger.kernel.org, sashiko-reviews@lists.linux.dev, Thomas
- Zimmermann <tzimmermann@suse.de>, Alex Deucher
- <alexander.deucher@amd.com>, Jani Nikula <jani.nikula@intel.com>
-Subject: Re: [PATCH v4 2/2] drm/fbdev: Move fbdev helpers into client library
-In-Reply-To: <20260928080323.23909-3-tzimmermann@suse.de>
-References: <20260928080323.23909-1-tzimmermann@suse.de>
- <20260928080323.23909-3-tzimmermann@suse.de>
-Date: Mon, 28 Sep 2026 20:10:27 +0200
-Message-ID: <xlv1zex1dz70.fsf@fmartine-thinkpadx1carbongen12.rmtes.csb>
+	Mon, 28 Sep 2026 18:11:30 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=OHVQ1BeGKuMJXyQKYCUk68UOqQEr9nieI4iT//QHwbF3eOP1GrxaTSeYeLSiOSdLTPmT+XrnjFUue5+EL70s5gCs4spt8qPFqg/OSqWm6JgCrPfO2XemxK16ard/Gt+Lmcqg4o5DovuKZ5rkZ7CiWziZvJ+VA2dTZK1Hk0hGk1G+gUAimVGbMNEBZCnb43B6+WLOddYq9h01zlN3cCd+whnEdR78jyhoMSIsYiMQzghcKC/SFNx6EQkjZ4h7pczvicI0Y9pE7UxGxZUrhvWyFmKTVIzRUfqCegjFyU+WPBOXiPFiAuXdXZO+u42QkeHZB+YzgUYM4v6ZrnfLpqUHLA==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=+34UDese1VPEF+U+t28TUTT0C7e9+onU8ESsyc+3UiM=;
+ b=sESdUcBvXKalhV9YSvdGIshthn0LbpWBkUkDjbEbQx6My2k6muDsSfMvD8Y59P4+h3bkCbviD3QFeKzbveZydT7ZRnM+3VZ83NagM5viXSFs7mYWZoJQx4PcvrdeYVeTmkwxDPAFC/zpY4w3O457RGpWVfe0Octvw5ktKxXsDvHwwj4OH4XTjTuWDQusMi6mWIymS1eH0WzlUI1EwGVPsSCtTf7nU6aXv1c9xUkjHKKV/iCT4m5rjCrqrTOhwVXE93ceji27DO8I+F4bPf1X1Qa7fIB7Hw06vl3RX/2KOrr1Pa7jHuHCUKtzUwol0HRk0wNlmRnmRnPgCRmaeNTz2w==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=nvidia.com; dmarc=pass action=none header.from=nvidia.com;
+ dkim=pass header.d=nvidia.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
+ s=selector2;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=+34UDese1VPEF+U+t28TUTT0C7e9+onU8ESsyc+3UiM=;
+ b=cu61d4/at9GOQIKLr4fIAbxRDEENe4eqFZ6Zn3e7UoOJp5AZI0dJ7IOmOzjjaRC+EZuy0IlwojN3J1ckFmVsCx+eLpV/PNNVY1oI55d8ITflDKUEDnijgY0iDWbk8/z1vuXSeM+djWeBli7Is8lzCnpFsj+3Do4BlhktSYESV5xMXHWDgBtSDsZ6a7EksjlExsPOEVlgdqnaG9Y4q4alDsbd39x7ebzvHWH98Mj06JKlSjpZH18TVI7WCEliBLG5ik6EoJTdzwIcTqoRMtNgjQ7bowMEmosIJxmrdfxF0x6L7aS7nZQpB4KaF7smPQnNp1kvKoToc+aJnM5P56B44w==
+Authentication-Results: mx.microsoft.com 1; dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=nvidia.com;
+Received: from CHBPR12MB731189.namprd12.prod.outlook.com
+ (2603:10b6:610:33d::12) by MW6PR12MB9020.namprd12.prod.outlook.com
+ (2603:10b6:303:240::6) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.451.24; Mon, 28 Sep
+ 2026 18:11:23 +0000
+Received: from CHBPR12MB731189.namprd12.prod.outlook.com
+ ([fe80::b0e5:123d:fe06:e10d]) by CHBPR12MB731189.namprd12.prod.outlook.com
+ ([fe80::b0e5:123d:fe06:e10d%6]) with mapi id 15.21.0451.022; Mon, 28 Sep 2026
+ 18:11:23 +0000
+Date: Mon, 28 Sep 2026 15:11:21 -0300
+From: Jason Gunthorpe <jgg@nvidia.com>
+To: Pranjal Shrivastava <praan@google.com>
+Cc: Catalin Marinas <catalin.marinas@arm.com>,
+	Jonathan Corbet <corbet@lwn.net>, iommu@lists.linux.dev,
+	"Joerg Roedel (AMD)" <joro@8bytes.org>,
+	Jean-Philippe Brucker <jpb@kernel.org>,
+	linux-arm-kernel@lists.infradead.org, linux-doc@vger.kernel.org,
+	Mark Rutland <mark.rutland@arm.com>,
+	Randy Dunlap <rdunlap@infradead.org>,
+	Robin Murphy <robin.murphy@arm.com>,
+	Shuah Khan <skhan@linuxfoundation.org>,
+	Will Deacon <will@kernel.org>, David Matlack <dmatlack@google.com>,
+	Jean-Philippe Brucker <jean-philippe@linaro.org>,
+	Jonathan Cameron <Jonathan.Cameron@huawei.com>,
+	Nicolin Chen <nicolinc@nvidia.com>,
+	Pasha Tatashin <pasha.tatashin@soleen.com>, patches@lists.linux.dev,
+	Samiullah Khawaja <skhawaja@google.com>,
+	Mostafa Saleh <smostafa@google.com>, stable@vger.kernel.org,
+	Vijayanand Jitta <vijayanand.jitta@oss.qualcomm.com>
+Subject: Re: [PATCH v7 7/9] iommu/arm-smmu-v3: Populate the tlbi at the top
+ of the call chain
+Message-ID: <20260928181121.GC1616761@nvidia.com>
+References: <0-v7-e84261bbe7cd+2ea80b-smmu_tlbi_jgg@nvidia.com>
+ <7-v7-e84261bbe7cd+2ea80b-smmu_tlbi_jgg@nvidia.com>
+ <arqeWXL1jhz9R9-j@google.com>
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <arqeWXL1jhz9R9-j@google.com>
+X-ClientProxiedBy: CH2PR10CA0003.namprd10.prod.outlook.com
+ (2603:10b6:610:4c::13) To CHBPR12MB731189.namprd12.prod.outlook.com
+ (2603:10b6:610:33d::12)
 MIME-Version: 1.0
-X-Mimecast-Spam-Score: 0
-X-Mimecast-MFC-PROC-ID: Zw20Pe0-7IXQn2J3VykMVpAZYtDX4ZwB0xJvmk5lp_s_1790619030
-X-Mimecast-Originator: redhat.com
-Content-Type: text/plain
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: CHBPR12MB731189:EE_|MW6PR12MB9020:EE_
+X-MS-Office365-Filtering-Correlation-Id: b67ab8d9-fa1b-46cb-9f86-08df1d8be77e
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|7416014|23010399003|366016|376014|1800799024|18002099003|22082099003|4143699003|56012099006|10067099003|11063799006|3023799007;
+X-Microsoft-Antispam-Message-Info: h5ijiz0OdOL40XI0Aqnopg8SBAx4MpedbuM0wOX6dcQ2MF1c+Z5OSjXgtBylu/Z6lPJFntIJE2hTVpPI9XUOlY0/Q9Zo0j/3oyoJ17XiS0+2GzpE7aLgdaH31nZRCNKIHLE+k8BW8gw/5Z7yqXQhIFH/4ru0IW1CGMBs5T58kry4tEM44hWOdoYJgMmjW7JCB56kR+PuBr1mYBfTFWIB4q3o/fgEN+oHo4vFFqMBPwIhUtsxWWcnoaQ/8V7S5S+iDfcb8LXveD+X1+c8p0H67PWJdDIVF+h+Os1ybfmIR9g7JwLgaS2W9KxjxcPvEjVSh6Jm8/0QJx1R+H0U4N4eEyETTkyZz3/KpqPb2EgUpQ6T5AVuyiHXgNNKLYKarc8dMonnxr4UVkh1rjQCUnOQleD3IdFiuoWnR9ekGC5hW5yfdEBY5cLZmTLcILdAhCQLHoPZyYsoHN3+IUkFFttcqQy6oFphmllgOoGEwdCCTqHaywi9VL/DTCTlKGockGJY433OU55UiOHN4I8FsA9q/wOdEpszGL2C9YS0RThrRODTPw1Bf2vU7RHjpkIJspk3tTyLBblEm2isYXcUwyR/ey4FVtVe/aAzyz/XiquYu4Wg8344Fs7TYOIBQ5Zgug6EPO8CMVsSmFHhCFjp99RRl2zXZuKjvAo2dIu6U7hwHgA=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:CHBPR12MB731189.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(7416014)(23010399003)(366016)(376014)(1800799024)(18002099003)(22082099003)(4143699003)(56012099006)(10067099003)(11063799006)(3023799007);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?yLq+9PTtTtVoe+zGvQT+y4PI7qImaLvUqtPITCYSNnpIzIo1yrnXOhl93ATh?=
+ =?us-ascii?Q?hKzOLX7x+gz7hN8ffWRzeMzCbuEhBE/XfL0z1wIa02abz5IzkfUh3zwBhfYJ?=
+ =?us-ascii?Q?SjKEIXXLJtujV+XWwm6zRpK9QETuRQJYtJmmg587joPGXfyGURbDVuR6EhSS?=
+ =?us-ascii?Q?aA/gL8ZTboSAiOwS0wtbIwFeM72aAv8A303Ou7s/zv9gFV7OS7gFyZyjfTnq?=
+ =?us-ascii?Q?sCtrOfItuu2Bpk3Ebh6czc/tz1PDwHprx+fNXM+5TpJ8iIHRVlnL5wiYuG+z?=
+ =?us-ascii?Q?f88IvqFNnas4APrEp0P7YbZ0xYk2ZkoieSzrvdk1sfbQ8U1nhvFDthDw5bd9?=
+ =?us-ascii?Q?hyTmCwJ19p/+tluByl2cxzTYpzzVhIgss+5PBJzZO/CMoxasYXO6W8o9DqwU?=
+ =?us-ascii?Q?QGuaODjtuKi9I8roxf1RjYWjl6Ux22OM7TFbDbIOayHoyCs/jz4vZVU5qD/o?=
+ =?us-ascii?Q?wgDOipppms9V87maliBsu/+Dvd75LHX851aw5g6nQqHO2afITQGbyfjfpKJ1?=
+ =?us-ascii?Q?+HKzZe56KSzDn3EnXhctk4AVfmIXX/qFzb9cRs5lLqoIhBxDNR4gZ93pZtbQ?=
+ =?us-ascii?Q?Eyg5pPjquHO8eAyqmAY4be1m5BS57uF8eLX1//jiaLLhlzYbuYUybTInEOIZ?=
+ =?us-ascii?Q?G0I7JgnTKvwoMeVCuz0+RvILg6n0+iJV2bG1YXu7aL3Cj+nJI7+RZVx93upr?=
+ =?us-ascii?Q?MERCOzqCFPocytQYVu69AoZh1RQPDt7cCIBK2YzQgjlufpZuf9nBGeyN+1RJ?=
+ =?us-ascii?Q?DzRRBEagH3dO1ABmfKCZ4YUIGDFirBTXan3Tpn6Nu8lARHiCWQNysEBgH1Kw?=
+ =?us-ascii?Q?O+7L7Rag0zKLJ3U7vMBaVcajT23OCCtmk0dxW2MTvOxl4S3VMugcVofeawT7?=
+ =?us-ascii?Q?QbXa8pgLhHDhZZe2+N/DVKeJWsgLq9Q5LLY2mwvrtaHuacJJwDXSt99ETvTY?=
+ =?us-ascii?Q?8WkrldEddTx3z3iEr0DqjHgxvOypc2VgdfyOMDkfdCAMAZDP2dM3Z3lTZYiv?=
+ =?us-ascii?Q?qldePh1KmkDZtdaL4Hbq+NNHlp2s0/iCgg65Qtf+MtzwnU6O29Z1mgp0Zyej?=
+ =?us-ascii?Q?pHV2aOB59Pswt4vpRoVUd8f1hpHL7ooANtZkxTmJeu51nfx7Q0SJy2uXsTAV?=
+ =?us-ascii?Q?tphg2ZqYtRxYdQLJUKdxg8RgA1xpjVCR98wHdUBMQ66h8Bc0iictgaKEr14M?=
+ =?us-ascii?Q?RNMn7GnL24HIKnBniXQXD6gJ1SV64AcGH8iJSaw62k8RvVHzfsCfq2DMWO4q?=
+ =?us-ascii?Q?GY2bnt/6uYM0fBKQqf7fuwkUA8UAZhWCLkNqPiYNzmhaclhoM/DGA+oHLkvt?=
+ =?us-ascii?Q?7rXHSnIaPqELpoLTSFoN/+J26nErvbTc7nu+Jt3zYbV20I2FaCokIG/Z1x9U?=
+ =?us-ascii?Q?9D5p2nUDgX1Jw7DBK/HO3luFN9VeVPdEOU5eV97gZdMt6Bk/EPa0YwCrIjjk?=
+ =?us-ascii?Q?p3RgHfDdQEPGsDY9ciXUIfUHqmdMG93uoNHUwBz6JpN/OYfkjGklfzXAnT9k?=
+ =?us-ascii?Q?9rBaDgEMWfYL6FkeXkjGFo/ttmn6ao/6+EFUYk1DHz6DIfyAcGc+x0YtDEuG?=
+ =?us-ascii?Q?UA6jnPyu/XHwtwNtVkBjphzGbdXM1NS14T7oyijgoNxzw2l9DPvanHPPujl1?=
+ =?us-ascii?Q?Bzga1aYB8MfJRn32Bhu09kPMlNoK82ELcZ2ORDsqUW+o0/bnR91JTGgoyVD4?=
+ =?us-ascii?Q?KHSjQQGKBX28SKrS6nDtoszTuejlHcHuhWpRs+maHfZ+BFt7?=
+X-OriginatorOrg: Nvidia.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: b67ab8d9-fa1b-46cb-9f86-08df1d8be77e
+X-MS-Exchange-CrossTenant-AuthSource: CHBPR12MB731189.namprd12.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 28 Sep 2026 18:11:23.2296
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: Z7pWDb3v1oRg7pwP2WT/jNS67EyjeFWEaJBHLacD/0EYxjy6DWag2iDfkmRqo+7y
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: MW6PR12MB9020
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260928_111033_993179_7583FC08 
-X-CRM114-Status: GOOD (  11.37  )
+X-CRM114-CacheID: sfid-20260928_111129_743652_1206DB60 
+X-CRM114-Status: GOOD (  12.17  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -115,36 +152,34 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Thomas Zimmermann <tzimmermann@suse.de> writes:
+On Mon, Sep 28, 2026 at 05:05:29PM +0000, Pranjal Shrivastava wrote:
+> > -void arm_smmu_domain_inv_range(struct arm_smmu_domain *smmu_domain,
+> > -			       unsigned long iova, size_t size,
+> > -			       unsigned int granule, bool leaf)
+> > +void arm_smmu_domain_tlbi(struct arm_smmu_tlbi *tlbi,
+> > +			  struct arm_smmu_domain *smmu_domain)
+> 
+> A caller re-using the tlbi would overflow the 2-entry range.cmds[], since
+> num_cmds is never reset or checked. Should we sanity check num_cmds here?
 
-> DRM's fbdev helpers are for the fbdev-emulation clients. Move them
-> into the client-library module. Fix include statements throughout
-> DRM drivers.
->
-> While at it, rename the files from drm_fb_helper to drm_fbdev_helper.
-> The old name was too reminiscent of DRM's framebuffer code.
->
-> The GEM support code for fbdev remains part of DRM's memory managers.
->
-> v4:
-> - fix the depedendencies from v3
-> v3:
-> - remove obsolete dependencies from Kconfig
-> v2:
-> - update armada und docs
->
-> Signed-off-by: Thomas Zimmermann <tzimmermann@suse.de>
-> Reviewed-by: Alex Deucher <alexander.deucher@amd.com>
-> Acked-by: Jani Nikula <jani.nikula@intel.com>
-> ---
+That isn't the API protocol, once the tlbi goes into
+arm_smmu_domain_tlbi() it is consumed and must not be used
+again. Everything follows this. It is sort of a micro optimization as
+we end up with one pointer in the callchain under here that gets all
+the information.
 
-Reviewed-by: Javier Martinez Canillas <javierm@redhat.com>
+I can add a little comment:
 
--- 
-Best regards,
+/*
+ * Perform the invalidation with the parameters described by tlbi on everything
+ * caching for smmu_domain. tlbi is an on-stack structure that contains both the
+ * input description and working memory for this function it must be discarded
+ * after this returns.
+ */
+void arm_smmu_domain_tlbi(struct arm_smmu_tlbi *tlbi,
+			  struct arm_smmu_domain *smmu_domain)
+{
 
-Javier Martinez Canillas
-Core Platforms
-Red Hat
-
+Thanks,
+Jason
 
