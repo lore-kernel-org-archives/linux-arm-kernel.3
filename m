@@ -4,86 +4,63 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 219A1CA5FA1
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 28 Sep 2026 21:50:05 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2382DCA5FAD
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 28 Sep 2026 21:50:18 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	MIME-Version:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=mwQvTeNf1PFOWqJX6AW6JQAQxKZVMMKWGFfi7n1j4uE=; b=QIcI4pcuW9/o/QqVo3O3PzTUY+
-	w1oW3OcG+/92g/shvyR0VpUaZMQ9EKanNMhKOFYfEWUwTdtazyMjVmhetzse444YyjAX585FcxPGq
-	TahPJ8d3VnJa9mHS+DyOL0cYu47AEMtGCNGWMCdsuTPIgrhKIBUFy4NliVN/xMuTCSj6DOBE6DfP8
-	zS3CI7p5+JkBd6wlv4VOTW7qHUsYI7Me/7DKFf6MUqklMKlD1I0gJzaLf6JPTDDuZ4ud7P7+csDE4
-	E5lYygFrzqvJTCyglCKz1Q07GjpiYz4QodNnI4hlIOir5zuRuS5+B/KXA8w7EkfRcwVEGhYYFRb8A
-	/os09m8Q==;
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:References:
+	List-Owner; bh=7MxyfVUmcact8Av7EhfeX6cj39M4hc4P2lmgVVGpq/Q=; b=Va4crTcPP0JSjf
+	8uHG5YlsHUn2oHvggmhTjna7nzETA4WoR0ydmnoRnFRfdHM3TCeSkxNWEYBwtcuUkPbQHe0H+DHxO
+	6M6kS3UNmqcXEGxE3b26+NlxCIBDeqkI5sGJCxKVcJ/1roEYGbe8ukKOpGhClZCVfOoYpySsO9s7E
+	6TlTA250aJ0eib/qRD6++7YBfqNHi1g3g1jP1oU+HOT36+5BsQXHsfDUfUIrSslwggjS1mjL3mRqJ
+	br2VDc9bwTpUZoH0fZTnIO+bouhsVKHZiu7glEo8MvglgztOQxsbFm2giTfhIENO63aVj/AR26Am+
+	wUiwyKdULdCyIQhEa7Ig==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xBJEU-00000001huQ-2I0b;
-	Mon, 28 Sep 2026 21:49:58 +0000
-Received: from mgamail.intel.com ([198.175.65.19])
+	id 1xBJEg-00000001hzt-3GbB;
+	Mon, 28 Sep 2026 21:50:10 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xBJES-00000001htf-3JcT;
-	Mon, 28 Sep 2026 21:49:58 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1790632197; x=1822168197;
-  h=date:from:to:cc:subject:message-id:references:
-   mime-version:in-reply-to;
-  bh=3A2k4B1MyyYGlKtnyMek8DNyKiLznOjV5xluhGSwX50=;
-  b=KzoB7SWmvkclxeO9BF6RYEVP1a2ZSx0txCUWobXDZbhurGj42WqLrlqA
-   Wz9L4hLINisbEV7tNEscyhwOTX5k5wIDI+mCZz57ZnAFGdV5spGNNwWDJ
-   mOhp5x5vpEHB9eaanHce+ZwKLWqFV4321em9tzi25wQVkv+YikOKEZGz5
-   NdPHsVCtiNfgn6F5yuYm8arXZwHaW8/tQxoVOwi6bd39Yv5I3r/QG5TxQ
-   dm9cx+16ZYWrSKL9pvA1Z56aSEoiSbK8qiRQ5a19jrcbI0P2KePgE1zBn
-   DIFogY1fMd1x0Q+qfj7qq4FkpJ22yjkbcmzgJDR0sgOOB0l0BQWsjsVNw
-   A==;
-X-CSE-ConnectionGUID: 4b++DzpPTQuhiVHUcjEzyA==
-X-CSE-MsgGUID: kofwAIpcSge3nMUUzdjHzw==
-X-IronPort-AV: E=McAfee;i="6800,10657,11919"; a="90295163"
-X-IronPort-AV: E=Sophos;i="6.27,129,1787036400"; 
-   d="scan'208";a="90295163"
-Received: from orviesa003.jf.intel.com ([10.64.159.143])
-  by orvoesa111.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 28 Sep 2026 14:49:56 -0700
-X-CSE-ConnectionGUID: agS7fjZAS8yA+UD6RGr5mQ==
-X-CSE-MsgGUID: LfT05oMtSsy/cY302rRjFQ==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.27,129,1787036400"; 
-   d="scan'208";a="278380629"
-Received: from conormcd-mobl2.ger.corp.intel.com (HELO localhost) ([10.245.244.42])
-  by ORVIESA003-auth.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 28 Sep 2026 14:49:52 -0700
-Date: Tue, 29 Sep 2026 00:49:49 +0300
-From: Andy Shevchenko <andriy.shevchenko@intel.com>
-To: Ryan Brue <ryanbrue.dev@gmail.com>
-Cc: Jonathan Cameron <jic23@kernel.org>,
-	David Lechner <dlechner@baylibre.com>,
-	Nuno =?iso-8859-1?Q?S=E1?= <nuno.sa@analog.com>,
-	Andy Shevchenko <andy@kernel.org>, Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Matthias Brugger <matthias.bgg@gmail.com>,
-	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
-	Lee Jones <lee@kernel.org>, linux-iio@vger.kernel.org,
-	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+	id 1xBJEf-00000001hzG-2uCX;
+	Mon, 28 Sep 2026 21:50:09 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by sea.source.kernel.org (Postfix) with ESMTP id 1F9FB40988;
+	Mon, 28 Sep 2026 21:50:09 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id C87CE1F000FF;
+	Mon, 28 Sep 2026 21:50:08 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1790632209;
+	bh=7MxyfVUmcact8Av7EhfeX6cj39M4hc4P2lmgVVGpq/Q=;
+	h=Date:From:To:Cc:Subject:In-Reply-To;
+	b=YD/tJ8glnvDxae6cHN7UN4ZZm7fAUj8v1wCP3ZSjJ5TpZQrDekpIQOt1FMVwHHYmI
+	 v4rcz3NQjeQha4y6Q9gH0lxajjFHHoZA4wyljDt/2urG1stOXUCjLyFvbU9B0Rspri
+	 kFDIldH8LIChWzLQ1FBK47bZMdIW4ITAbUQRkgy07rqAEESNlc7p6tDyx8WcHJejHU
+	 RSj3EYAfbBsUSAXTTv2fBuZjnha3MrsLM3WD5X1A3qbFr0sGQoopmwmUi4RQVCQFjJ
+	 ZI03syYiOh8vd/ZgdW87gryjOTm7kFYP5yCGeVBR58ePFV3/lw6+saUrcSoepDA9Hu
+	 DOQWgFnblUkcQ==
+Date: Mon, 28 Sep 2026 16:50:07 -0500
+From: Bjorn Helgaas <helgaas@kernel.org>
+To: Hans Zhang <18255117159@163.com>
+Cc: lpieralisi@kernel.org, kwilczynski@kernel.org, bhelgaas@google.com,
+	heiko@sntech.de, mani@kernel.org, yue.wang@amlogic.com,
+	pali@kernel.org, neil.armstrong@linaro.org, robh@kernel.org,
+	jingoohan1@gmail.com, khilman@baylibre.com, jbrunet@baylibre.com,
+	martin.blumenstingl@googlemail.com, cassel@kernel.org,
+	linux-pci@vger.kernel.org, linux-kernel@vger.kernel.org,
 	linux-arm-kernel@lists.infradead.org,
-	linux-mediatek@lists.infradead.org, mfd@lists.linux.dev,
-	Roman Vivchar <rva333@protonmail.com>,
-	Luca Leonardo Scorcia <l.scorcia@gmail.com>
-Subject: Re: [PATCH v4 2/3] iio: adc: mt6397-auxadc: add mt6397 PMIC AUXADC
- driver
-Message-ID: <arrg_SBRTPbquCFA@ashevche-desk.local>
-References: <20260928-rbrue-suez-upstreaming-mt6397-auxadc-v4-0-23533a0d30e3@gmail.com>
- <20260928-rbrue-suez-upstreaming-mt6397-auxadc-v4-2-23533a0d30e3@gmail.com>
+	linux-amlogic@lists.infradead.org,
+	linux-rockchip@lists.infradead.org,
+	Feizhou Yu <yufeizhou201@163.com>
+Subject: Re: [PATCH 1/2] PCI: dwc: Align register macros with Synopsys
+ documentation
+Message-ID: <20260928215007.GA2264960@bhelgaas>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20260928-rbrue-suez-upstreaming-mt6397-auxadc-v4-2-23533a0d30e3@gmail.com>
-Organization: Intel Finland Oy - BIC 0357606-4 - c/o Alberga Business Park, 6
- krs, Bertel Jungin Aukio 5, 02600 Espoo
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260928_144956_876504_BA691E0C 
-X-CRM114-Status: GOOD (  17.23  )
+In-Reply-To: <20260911162537.469018-2-18255117159@163.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -98,33 +75,42 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Sep 28, 2026 at 03:57:20PM -0500, Ryan Brue wrote:
-> The mt6397 AUXADC is a 10-bit ADC behind the SoC's PMIC wrapper. On boards
-> built around this PMIC it is the only way to read the battery: the SoC's
-> AUXADC is wired to board thermistors and the charger ICs these boards use
-> have no ADC of their own.
-> 
-> Add a driver exposing the battery voltage and battery temperature
-> channels. Only those two are described, so a channel ID in the device tree
-> indexes the driver's channel array rather than the PMIC's channel number,
-> as mt6323-auxadc does. The ready bit lives in a channel's raw result
-> register, but the value comes from the chip's factory-calibrated copy.
-> 
-> The battery voltage is measured through ISENSE, because a board with a
-> switching charger in the power path leaves BATSNS on the charger's system
-> rail instead of on the pack. The thermistor only reads correctly with the
-> PMIC's battery-detect bias and input buffer enabled, which take 20 ms to
-> settle. Both are switched back off afterwards.
-> 
-> Reads average sixteen conversions in software; the chip's sample
-> accumulator makes no measurable difference at any setting, so it is left
-> at one sample per conversion.
+On Sat, Sep 12, 2026 at 12:25:36AM +0800, Hans Zhang wrote:
+> The DWC PCIe register and field macros are inconsistently named and
+> often do not match the Synopsys DesignWare PCIe Controller Reference
+> Manual.  This makes it harder to cross-reference the code with the
+> documentation when debugging or maintaining the driver.
 
-Reviewed-by: Andy Shevchenko <andriy.shevchenko@intel.com>
+> +#define  PORT_AFAC_L0S_ELS		24		/* L0s Entrance Latency shift */
+> +#define  PORT_AFAC_L0S_ELM		GENMASK(26, 24)	/* L0s Entrance Latency mask */
+> +#define  PORT_AFAC_L1_ELS		27		/* L1 Entrance Latency shift */
+> +#define  PORT_AFAC_L1_ELM		GENMASK(29, 27)	/* L1 Entrance Latency mask */
 
--- 
-With Best Regards,
-Andy Shevchenko
+Surely we don't need both the shift and the mask?  Maybe a separate
+patch convert to FIELD_PREP()?
 
+> +#define  GEN3_CTRL_RATE_SHADOW_SEL_SHIFT 24		/* Rate Shadow Select shift */
+> +#define  GEN3_CTRL_RATE_SHADOW_SEL_MASK	GENMASK(25, 24)	/* Rate Shadow Select mask */
 
+Ditto.
+
+> +#define MSIX_DOORBELL			0x948
+> +#define  MSIX_DOORBELL_PF_SHIFT		24
+
+Probably would be better to define a mask so we have the position
+*and* the width.
+
+> @@ -621,15 +621,15 @@ static inline u32 event_counter_prog(struct tegra_pcie_dw *pcie, u32 event)
+>  	u32 val;
+>  
+>  	val = dw_pcie_readl_dbi(&pcie->pci, pcie->ras_des_cap +
+> -				PCIE_RAS_DES_EVENT_COUNTER_CONTROL);
+> +				RAS_DES_EVENT_COUNTER_CONTROL);
+>  	val &= ~(EVENT_COUNTER_EVENT_SEL_MASK << EVENT_COUNTER_EVENT_SEL_SHIFT);
+>  	val |= EVENT_COUNTER_GROUP_5 << EVENT_COUNTER_GROUP_SEL_SHIFT;
+>  	val |= event << EVENT_COUNTER_EVENT_SEL_SHIFT;
+>  	val |= EVENT_COUNTER_ENABLE_ALL << EVENT_COUNTER_ENABLE_SHIFT;
+
+Probably a good chance to convert these to FIELD_PREP() etc. as well,
+maybe in a separate patch.
 
