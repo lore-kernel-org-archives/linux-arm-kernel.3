@@ -4,54 +4,54 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8281CCA5FA1
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 28 Sep 2026 22:38:35 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 077F8CA5FA5
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 28 Sep 2026 22:38:41 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
-	Date:Message-ID:Subject:CC:To:From:Reply-To:Content-Transfer-Encoding:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=f4lQU1srsBq2Zb2LiC2JhDTMZVYw2Y2uu8CnXp6z8h0=; b=lAVSPG/mnjV0+5MZoHQGyteeLA
-	aUN7gA8ndo/0UUrtdjjYqdKg9e97Rnn9D/JP6WwIZjeuG/me/KsOiEwd2mGgaSR6qfojGOZ/cgAPQ
-	oquYsE9zXdFKzOMgXnZvXtRbRKciy9u9X+4ynNcSSF1aMdd9T8ezlqrcLysDGaLDShQ8T4vOs1bEi
-	GYBzuu3L9eBUPTnbbpFYX+9Qk8jFgZMESH/RweM80dhJOMz93o31KRDmli2AVxeXMwf+0YT5pbci9
-	Vjc5QF7rSMNSgtGIK/rx4blXwUEs4cmaJZIt/VQlAX2k89cuIHLNd5aeym1304eTprdY+sW9Hs4KM
-	IqPXfz4A==;
+	Date:Message-ID:References:In-Reply-To:Subject:CC:To:From:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=pacV1dOEGAGQ+xJmsjAi73AxmOV0G4uV3H4IbfsDMxg=; b=JSfDS8D5cbyp93t6YeWSOD5g2L
+	rFElfbyXJqnZ6F1aHECV7Tf97BYujgiZML3A7hvxVf3mCNLf5ZcQbuLoiNcIKctFsctPU0Q/3KeZU
+	iGqYy5Ruv/kFaquyTIe6I2StHsG1A1bYO1J4/AykMeKYPqk4T7eraVW234N09/CeiT0xnN86ZCsIg
+	5cYHgH5GNjKJbRq8TS09KKJKm1FSFokpRssOjna1hsxSB7BO6kLsGVKHisygHqJCllQ/2xN8CA6i+
+	E5EInj7l+JBm7J6hxUnVOKYEp6OPMCTyzj7dT1T/0A0t6yd/RDXgUdudrp37L87umrZSYPs7lqiXD
+	jL+77uHg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xBJzN-00000001lZW-3YHm;
+	id 1xBJzN-00000001lZa-3zk9;
 	Mon, 28 Sep 2026 22:38:25 +0000
-Received: from mail-westeuropeazlp170110003.outbound.protection.outlook.com ([2a01:111:f403:c201::3] helo=AS8PR04CU009.outbound.protection.outlook.com)
+Received: from mail-northeuropeazon11011062.outbound.protection.outlook.com ([52.101.65.62] helo=DU2PR03CU002.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xBJzK-00000001lXo-24rb
+	id 1xBJzK-00000001lXx-44AW
 	for linux-arm-kernel@lists.infradead.org;
 	Mon, 28 Sep 2026 22:38:24 +0000
 ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=zDaeho9F2p1R4/vo762HTFFnBDOmN8bCc9w9XKNpXQpvH5M4GgZa5/gFRn6FcQySBr60QqTjFQ91v/2rdxEkDJe2Rhf9RG70Qnnktqq3Q24+X1GpqIG0xTwPArKTHUH7/EaNmlp59pC9jbtRyYTaJptBb1BMEFNtxgSYSP/z0ByT3V+33BLP3Lt1YrlRpZfa3dVHHM9rfh/j9Kn7nfsbZ3NG2fIpgg+DvP6GCzR2U0gNecpVcpp1qlmqbC3I/kEHiakN9uEpASxjeGPkLOuwg5SUBWlCZFjPCLBDV/awEC4c4KJ8P1/1cnEDR0bCRra3N3e39ePGzjWJFRNoar0OjA==
+ b=dThWcTqFqzllyP0HBh7YP4ueaxUcyvnSwVXBiBwrl0njmfNJ9k3tzefGIuepvLkDKL4aLENBdlaj7jviMCkwj9sKzgzEufO/KEn5IWGoU3em1BOXPEV9xqaxbltfRAs5YQMYW6YeU6iMpClfUWvFRbeRhi7a7xQcU+p7moB1VQxQqrzlRUu5AF32Y/jLtulespwjuaTyPWX1aH1O1zJ38Ip+hSF1/l0XOkNzVshKTuO22qDVdW4MmdCaWgdNjdtq2pVWKjt9aDK3ylEISwNFJgSPmnyvLU292Yuw8PPbxFS+u/NTqVypnKNawWZYGLlMH4O0FLFdRfK6YQG3DJp5Uw==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
  s=arcselector10001;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=f4lQU1srsBq2Zb2LiC2JhDTMZVYw2Y2uu8CnXp6z8h0=;
- b=dbyQ799WjjlciHDbDP8nshuppZDqXQY7zsbHbVyH3t0br48Ddq7eHpFTU2cd5hykwRWqOIxvfPqPQh5l9Fhvq04yhO02uPp0JvOoc811K55Zr8xy3vz6eB6vdMZXbe916bzgmoph6Yt6ysKvVFabwa+H3YRJa6JkJJWEXuLCVjwbIRwFa1GVBjgcSU3DbDHArYZU+wWGLknoC5uFDRZeGjbJ4PCqrUwNLErfUhMafxUowHDOthq1V7slJHWucMnF6II81Q4l6uSZhE7D4nlgnKiWtTZ2XzK1mJ5rG9G1cWppb2JegGl2ZAKuRtfyQ7XjQi+5fNzI3RnaEZLyt3V2Lg==
+ bh=pacV1dOEGAGQ+xJmsjAi73AxmOV0G4uV3H4IbfsDMxg=;
+ b=JSZgKVsD0ezHUgbOfzWHt0sPblyTVhx0yejfO/g1RTZuCq8Mc83AFC9b+NP9Q99tjorxNIGgPXFaB9nX2OwCwTO7DvUc79UbcbktVPWzm/HwQ8kqB8wbQhFxklvJ2SubhYymiyZCaViHCXWSfobuJ1rh4a9xUZPQ3p09WiHcLI3RgKQFP8xeUiZYv1LGUOeGXLg8zGlxY/pg8FXkAqGvYd0qCytdBu9e1sa7+yclantyDU6nVI511njc1LBwUfm5d0R3msHZyYV+HdYwFyMTr/FkAV8xZiglkuujAqOBL6kjd2VSWUuSDRODLgXPdynKaEbno6XvRgvS9QnFwIAfGQ==
 ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
  195.60.68.100) smtp.rcpttodomain=vger.kernel.org smtp.mailfrom=axis.com;
  dmarc=pass (p=none sp=none pct=100) action=none header.from=axis.com;
  dkim=none (message not signed); arc=none (0)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=axis.com; s=selector1;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=f4lQU1srsBq2Zb2LiC2JhDTMZVYw2Y2uu8CnXp6z8h0=;
- b=qtTBzaq/AJn7UXTsSNPPsd2q7YbwoDVYkHvz8it7tydY9JR5IpMl/bFWitjupy/diRe3Ev1Q5W74BEHmGX4O6jAkreZNXi0O9oKLbB+pRmDx2y+RNsjMEzGfwdjGwjpnKcv+Rjb+DyD9LMiAPJ9/vcAn+EAF18ZTlUWvYtMBZb8=
-Received: from DB9PR06CA0011.eurprd06.prod.outlook.com (2603:10a6:10:1db::16)
- by MRWPR02MB11801.eurprd02.prod.outlook.com (2603:10a6:501:92::19) with
+ bh=pacV1dOEGAGQ+xJmsjAi73AxmOV0G4uV3H4IbfsDMxg=;
+ b=ZqcNJPoiKyA9fYatA+CdIe8UDawns/+lPS6mxT6iQu3smCw9ub+uphcuZxXL1odK9Pb3gbya8qQ+T2J8mcqpGFx+bs3ad+Ppk0kIax4m9A/PhTuW9DfeVcUqMN/F+CK6Zh9zl36nz0zLiDRq9C6wcMZ9p2MdTlE0uLkReb+lTR4=
+Received: from DB9PR06CA0004.eurprd06.prod.outlook.com (2603:10a6:10:1db::9)
+ by DB9PR02MB7178.eurprd02.prod.outlook.com (2603:10a6:10:248::23) with
  Microsoft SMTP Server (version=TLS1_2,
  cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.451.24; Mon, 28 Sep
- 2026 22:38:14 +0000
+ 2026 22:38:17 +0000
 Received: from MAD0EPF000008AE.eurprd04.prod.outlook.com
- (2603:10a6:10:1db:cafe::1e) by DB9PR06CA0011.outlook.office365.com
- (2603:10a6:10:1db::16) with Microsoft SMTP Server (version=TLS1_3,
- cipher=TLS_AES_256_GCM_SHA384) id 15.21.451.23 via Frontend Transport; Mon,
- 28 Sep 2026 22:38:14 +0000
+ (2603:10a6:10:1db:cafe::1) by DB9PR06CA0004.outlook.office365.com
+ (2603:10a6:10:1db::9) with Microsoft SMTP Server (version=TLS1_3,
+ cipher=TLS_AES_256_GCM_SHA384) id 15.21.451.24 via Frontend Transport; Mon,
+ 28 Sep 2026 22:38:17 +0000
 X-MS-Exchange-Authentication-Results: mx.microsoft.com 1; spf=pass (sender IP
  is 195.60.68.100) smtp.mailfrom=axis.com; dkim=none (message not signed)
  header.d=none;dmarc=pass action=none header.from=axis.com;
@@ -61,25 +61,24 @@ Received-SPF: Pass (protection.outlook.com: domain of axis.com designates
 Received: from mail.axis.com (195.60.68.100) by
  MAD0EPF000008AE.mail.protection.outlook.com (10.167.241.187) with Microsoft
  SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.21.472.14 via Frontend Transport; Mon, 28 Sep 2026 22:38:13 +0000
+ 15.21.472.14 via Frontend Transport; Mon, 28 Sep 2026 22:38:17 +0000
 Received: from pc67007-2609 (10.4.0.13) by se-mail10w.axis.com (10.20.40.10)
  with Microsoft SMTP Server (version=TLS1_2,
  cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1748.39; Tue, 29 Sep
- 2026 00:38:11 +0200
+ 2026 00:38:13 +0200
 From: Waqar Hameed <waqar.hameed@axis.com>
-To: Peter Griffin <peter.griffin@linaro.org>, =?utf-8?Q?Andr=C3=A9_Draszik?=
-	<andre.draszik@linaro.org>, Tudor Ambarus <tudor.ambarus@linaro.org>, "Rob
- Herring" <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, "Conor
- Dooley" <conor+dt@kernel.org>, Alim Akhtar <alim.akhtar@samsung.com>, "Sam
- Protsenko" <semen.protsenko@linaro.org>, Ivaylo Ivanov
-	<ivo.ivanov.ivanov1@gmail.com>, Konrad Dybcio <konradybcio@kernel.org>
-CC: <kernel@axis.com>, <linux-arm-kernel@lists.infradead.org>,
-	<linux-samsung-soc@vger.kernel.org>, <devicetree@vger.kernel.org>,
+To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>, Peter Griffin <peter.griffin@linaro.org>,
+	Alim Akhtar <alim.akhtar@samsung.com>
+CC: <kernel@axis.com>, <devicetree@vger.kernel.org>,
+	<linux-arm-kernel@lists.infradead.org>, <linux-samsung-soc@vger.kernel.org>,
 	<linux-kernel@vger.kernel.org>
-Subject: [PATCH 00/16] arm64: dts: exynos: Format with dtfmt
+Subject: [PATCH 02/16] arm64: dts: exynos5433: Use tabs for indentation
+In-Reply-To: <cover.1790629313.git.waqar.hameed@axis.com>
+References: <cover.1790629313.git.waqar.hameed@axis.com>
 User-Agent: a.out
-Message-ID: <cover.1790629313.git.waqar.hameed@axis.com>
-Date: Tue, 29 Sep 2026 00:38:11 +0200
+Message-ID: <570cec29c898348be764392da9e06d420401297f.1790629313.git.waqar.hameed@axis.com>
+Date: Tue, 29 Sep 2026 00:38:13 +0200
 MIME-Version: 1.0
 Content-Type: text/plain
 X-Originating-IP: [10.4.0.13]
@@ -87,28 +86,28 @@ X-ClientProxiedBy: se-mail11w.axis.com (10.20.40.11) To se-mail10w.axis.com
  (10.20.40.10)
 X-EOPAttributedMessage: 0
 X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: MAD0EPF000008AE:EE_|MRWPR02MB11801:EE_
-X-MS-Office365-Filtering-Correlation-Id: 6e95c44a-1a68-459f-caa4-08df1db12eaf
+X-MS-TrafficTypeDiagnostic: MAD0EPF000008AE:EE_|DB9PR02MB7178:EE_
+X-MS-Office365-Filtering-Correlation-Id: e5a98fb0-ac53-4632-f439-08df1db130b5
 X-MS-Exchange-SenderADCheck: 1
 X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|23010399003|1800799024|7416014|376014|36860700016|82310400026|921020|10067099003|56012099006|11063799006|5023799004|18002099003;
-X-Microsoft-Antispam-Message-Info: L4Wx3qqTj9WjTTCq2Luv4Yzx5kFrrJldjWQAc5qij3h/megevLIDSoEXf9ayRmHarafJvUmD/pnCBGLOJjVb1RoxB4WOD6onIUv5IAou9WTNss+RDt8xXUHjGiKTEuSBSmjkuBalCTHDsnY1Yo0VW3jSwxMP2Zg1PQ8Wgc67EKkPdPQ9GPWxQ74ywRuhZCEijtz/zG8XLA6ktSbG/FtAdNP4ldzVoHyRY6WxZjROJoYrLsjNYaXiP0THb0pd0jCOvG8ya66Fi3axRi3MpiQE2Px0AG4xMjEY6P894xxdjn849JtSlm0RipsOsNfj2xbPmB498wbnNQdL/vRUBAGZfbVvSMmUK02xcDm1anmfJgtFS+W9JBc2pEy036i3xB8vt0kgMc9H/S29V1YWHRJv5VsbDWE6VoHY0Pt90Z1AWq/wO3N0VqjgWJj5pKcSJyUWp9Kv9CU0GrflnA+t5OxpBnOTPnRgDOwiB7MFJPaWyy0kdWT8Dwg0LX7SP6Y1iegx5OSuu9qnMtwk1MV2rTFAGoH1ad2o7vAyZAPMLZpaVmbc/jY1/YKw3yjm2b9QK55NbRLcbWJn4pvW07qCPMdEJk98wLPVLh86sD6XZOr7RoFaTlZfWd0AMhDTk32oT/RTdznCAvT4SiWiJ7nBHt6DGEuGkUXDn8MGq/9hg28Ar8xsP1UGeDXvy370URuDV0g1fDJ0cpsZwMW7wxsVFaIRvQ==
-X-Forefront-Antispam-Report: CIP:195.60.68.100;CTRY:SE;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:mail.axis.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(23010399003)(1800799024)(7416014)(376014)(36860700016)(82310400026)(921020)(10067099003)(56012099006)(11063799006)(5023799004)(18002099003);DIR:OUT;SFP:1101;
+X-Microsoft-Antispam: BCL:0;ARA:13230040|376014|23010399003|1800799024|36860700016|82310400026|10067099003|260925021311599003|260925021911599003|260925022911599003|56012099006|11063799006|18002099003|22082099003;
+X-Microsoft-Antispam-Message-Info: +NnRqjvkx8kT1/K411ydl7ckej6enWuBUMAzQ1IYLDFuT9VJcJ0QJCnlsbhobq3yOANtXU5ec8oBj+Iid8Xnu+RzvY1li533xT1GZWGepcd4nu5rYcl4pO5K/Gnxb5VogiRfirokpsfPETK0JMC6qnM6r6LJr8cDYzIGy3x0eRadgmOX2zelIKhRMRgjKpGxsYEld1byB0Gb4bCV9RtXaVda27UYPUFCLFOzA3bECDr1aTJ9wk7ZJLkTqOQDckGF54bUVKDO22+juOsyazfBRO3gazTu6efvkd3BsvNgcMfre+x/BHHKBK4Yhd5n6c25yq8/gWj8Fvpn2BcEvqnyIgIRhEeOGexKNhFSQI+mp7Kodxt0t5BjW5spplZzfEecXtapyZpyGgyvIw+cl7clFLU80M7CnbKIHMFyaisuyjqlcrzHLSQSvmoUZKDrVWoc/5KI0zk2ZPUt+P5ZcOjSzcQTxye5lBBJgGtR6mAMGGCwOI3/q12Uq0DtrFhJ2mZEISeO5TnIc06DCgUfLLEFKuTERB8jKT4xVsXu+qIKQGy5KOEWiNAe7yG66mlNnrSi6qotrJQpvsecbo/sWjdAD+1kwmCc/KH1evLZ8Rts2ylJ9txCaD+Cxx3QG8iOQMN66/9rrpzccVNleqnNCHV1CllG/kWH2uJWeAbuEWZruDRdXtXSxQ3jPnjUMz1cn3VQxFX6HO0yf0EXzhlVUMOtig==
+X-Forefront-Antispam-Report: CIP:195.60.68.100;CTRY:SE;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:mail.axis.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(376014)(23010399003)(1800799024)(36860700016)(82310400026)(10067099003)(260925021311599003)(260925021911599003)(260925022911599003)(56012099006)(11063799006)(18002099003)(22082099003);DIR:OUT;SFP:1101;
 X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: NYf76LVmNDuOPrd02hCdqz3pgnqzwHSQSdK68a8sm1DzwN6Y2SeoZ0GBu1I9/izLw12/K6NcMILzwyqPpEtX08IXOCWwpWf/KDX1MSC4OwXApO3wGfWKc8sg63GfGlFpE8AP7Ha8Zyf0lUJ1CWlp65wZBFdomN5vc5DClr4eQVsKvwVkgQebVwgVpZ5NQ6RHzFwiihcIdwFEZQWdjsvUCGDR6i8iP8i6i2whsu+1IRMekeCTxPs04Ev7+6saw8ciuMBIOo+tAiY7bEeKiw2eiA1BfGTHEtW+BvCc2HnidBxljou2X/bj/Wkg6pqhP22nCx21lGqI4qR8NjSmbZCIPwsPtF4hUvaxF7wzDKH+isd5wtbxvzCEffqktkfT8k/M4jOWg5xMNG16c+guuITne5eu3kQgrkqX8GsQjXsagFCONwEXx7TFx8OqYFsJk698
+X-MS-Exchange-AntiSpam-MessageData-0: GNh/i0wawNXY4UzTKqpDEw1XxlpiSv18g0iONC9LO0enbJaLXNyu8sQMEhqXOJahZyZ9H5Gck7fvkjmRVF3pCkAcBz8um9WlQ0uRD/OvaT+RqCCBW4ONCcyfMNWSHDH4ksn81HLoqhdp3b0ELRsnNOz7XZI/SeA725893wScS331EOCITOqlDbvyfIFDwTqzl2sqynmXSHrYbSNkqz6DyFqHhxbDZihsxjUTUeXLeGu/ws7SEpuuyLnU58NVUXEOO6A7xLtkP1ZoLYHa+Kbs6y/NawyGUm+Bk0nQT1Bg63F/qAv1Ak3WBT8VDoDIUGe6Vmdt16Mx8leKd+iEn+LrW/kLKMZH8K4runzgO+8IPuuoVHWEdmSbSahxxRFsyyCYwaoVek0liw7NebhdUNKUTt9c+Ni7uyd2I6WiRKZkE2SGRL3KMlm7in1MYwQsvunn
 X-OriginatorOrg: axis.com
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 28 Sep 2026 22:38:13.7790
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 28 Sep 2026 22:38:17.2488
  (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: 6e95c44a-1a68-459f-caa4-08df1db12eaf
+X-MS-Exchange-CrossTenant-Network-Message-Id: e5a98fb0-ac53-4632-f439-08df1db130b5
 X-MS-Exchange-CrossTenant-Id: 78703d3c-b907-432f-b066-88f7af9ca3af
 X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=78703d3c-b907-432f-b066-88f7af9ca3af;Ip=[195.60.68.100];Helo=[mail.axis.com]
 X-MS-Exchange-CrossTenant-AuthSource: MAD0EPF000008AE.eurprd04.prod.outlook.com
 X-MS-Exchange-CrossTenant-AuthAs: Anonymous
 X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: MRWPR02MB11801
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: DB9PR02MB7178
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260928_153822_568415_48E1E926 
-X-CRM114-Status: GOOD (  16.01  )
+X-CRM114-CacheID: sfid-20260928_153823_012370_06EF40FD 
+X-CRM114-Status: GOOD (  10.47  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -123,79 +122,29 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-I was looking through the notes for the last Devicetree microconference
-at Linux Plumbers (LPC) 2025 [1], and realized that the tool I have been
-working on might be of interest here: dtfmt - a Devicetree Source
-formatter [2].
+Tabs should be used instead of whitespace for indentation. Found/fixed
+with dtfmt (Devicetree Source formatter).
 
-dtfmt uses a parser with lexical grammar (tree-sitter) directly ported
-from the actual Device Tree Compiler's (dtc) lexer/parser, also
-(hand)written by me [3]. It is primarily designed for the Linux kernel
-and currently parses all 6872 devicetree files in the tree successfully
-(found with `find . -iregex ".+\.dts[io]?$"`).
+Signed-off-by: Waqar Hameed <waqar.hameed@axis.com>
+---
+ arch/arm64/boot/dts/exynos/exynos5433-tm2-common.dtsi | 4 ++--
+ 1 file changed, 2 insertions(+), 2 deletions(-)
 
-This tool was developed out of frustration when reviewing devicetree
-patches internally at my company Axis. I would have published it earlier
-if I was aware of the on-going discussions at LPC 2025. It only caught
-my attention since I'm planning to attend LPC this year (especially the
-Devicetree microconference and would therefore love to discuss this more
-in-person!).
-
-This patch series is only a small demonstration of dtfmt. Obviously one
-can run dtfmt for all files and generate a much bigger diff, but I just
-chose `arch/arm64/boot/dts/exynos/` here. Primarily to get Krzysztof in
-the "To:"-field :)
-
-Please note that since we don't currently have a _definitive_ style
-guide for Devictree Source files, dtfmt tries to be pragmatic and try to
-"guess" the intended style (e.g. alignment of arrays and comma separated
-property data). Some things have been left out (for now), because it's
-too hard to implement without any concrete style decisions in place
-(e.g. alignment of comments, long line wrapping etc.). dtfmt will
-continue to develop and will always align with the Linux kernel.
-Feedback (and collaboration) is therefore greatly appreciated!
-
-[1] https://lpc.events/event/19/sessions/237/attachments/1713/4459/Notes%20-%20Devicetree%20MC%20-%20LPC%202025.pdf
-[1] https://codeberg.org/whame/dtfmt
-    Mirror: https://github.com/whame/dtfmt
-[2] https://codeberg.org/whame/tree-sitter-devicetree
-    Mirror: https://github.com/whame/tree-sitter-devicetree
-
-Waqar Hameed (16):
-  arm64: dts: exynos2200: Remove empty line at end of node
-  arm64: dts: exynos5433: Use tabs for indentation
-  arm64: dts: exynos7: Remove empty line at end of node
-  arm64: dts: exynos7: Align comments with minimal whitespace
-  arm64: dts: exynos7885: Fix format of line comment
-  arm64: dts: exynos7885: Align end of node definition brace
-  arm64: dts: exynos850: Align end of node definition brace
-  arm64: dts: exynos850: Use tabs for indentation
-  arm64: dts: exynos8850: Add missing space in compatible
-  arm64: dts: exynos8855: Remove empty line at end of node
-  arm64: dts: exynos8855: Use tabs for indentation
-  arm64: dts: exynosautov920: Add space before line comments
-  arm64: dts: exynosautov920: Add missing space in compatible
-  arm64: dts: exynosautov920: Remove empty line at end of node
-  arm64: dts: exynos: gs101: Use tabs for indentation
-  arm64: dts: exynos: gs101: Add space before line comments
-
- arch/arm64/boot/dts/exynos/exynos2200-pinctrl.dtsi   |  2 --
- arch/arm64/boot/dts/exynos/exynos2200.dtsi           |  1 -
- .../arm64/boot/dts/exynos/exynos5433-tm2-common.dtsi |  4 ++--
- arch/arm64/boot/dts/exynos/exynos7-espresso.dts      |  1 -
- arch/arm64/boot/dts/exynos/exynos7.dtsi              |  8 ++++----
- arch/arm64/boot/dts/exynos/exynos7885-pinctrl.dtsi   |  4 ++--
- arch/arm64/boot/dts/exynos/exynos850-pinctrl.dtsi    |  2 +-
- arch/arm64/boot/dts/exynos/exynos850.dtsi            |  8 ++++----
- arch/arm64/boot/dts/exynos/exynos8855-smdk.dts       |  3 +--
- arch/arm64/boot/dts/exynos/exynos8855.dtsi           |  8 ++++----
- arch/arm64/boot/dts/exynos/exynos8895-pinctrl.dtsi   | 10 +++++-----
- arch/arm64/boot/dts/exynos/exynosautov920.dtsi       |  9 ++++-----
- arch/arm64/boot/dts/exynos/google/gs101.dtsi         | 12 ++++++------
- 13 files changed, 33 insertions(+), 39 deletions(-)
-
-
-base-commit: 72d3fcf802c45d00b300f25b848a93c3a2bd7c7e
+diff --git a/arch/arm64/boot/dts/exynos/exynos5433-tm2-common.dtsi b/arch/arm64/boot/dts/exynos/exynos5433-tm2-common.dtsi
+index 0ad02a098765d..4f3124069849d 100644
+--- a/arch/arm64/boot/dts/exynos/exynos5433-tm2-common.dtsi
++++ b/arch/arm64/boot/dts/exynos/exynos5433-tm2-common.dtsi
+@@ -1064,8 +1064,8 @@ &ppmu_d1_general {
+ 
+ 	events {
+ 		ppmu_event0_d1_general: ppmu-event0-d1-general {
+-		       event-name = "ppmu-event0-d1-general";
+-	       };
++			event-name = "ppmu-event0-d1-general";
++		};
+ 	};
+ };
+ 
 -- 
 2.43.0
 
