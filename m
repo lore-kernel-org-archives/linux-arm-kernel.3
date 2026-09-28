@@ -4,155 +4,90 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 94082CA5FA1
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 28 Sep 2026 16:17:53 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8D00ACA5FA2
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 28 Sep 2026 16:18:50 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ZPG9/h412pdnG6FSVrrR7JhkCyfchpuJdtkMOSDic+A=; b=jTSiFK3b9Mu5gUmS5wmXGZM6bE
-	3m5KTiNaqy43k2yiBtbtqmrXynmsOfgYw3/9jtq+xmoQ8QhwX7FFV5lFa5seIoMSzhjL8B30RmRMq
-	l3/1ZSaELBcj7d4rBinA/kH/FlLp2Bk7+2mYLRmu1HJqfPl7lGZFyEosI7IzyNCKCP8bCgzXrQQ8a
-	GM/Gu3DU2lvD972OXP67CA6uS1D96xVDKUIQHlhtLUlILkbzSVMCKtQVY/FZt89KJZNpfMANny8uV
-	gu1lV3GDFUZZWqHWqH55QDCUtHWTexGff1UCYBLCwaSf01+aZ+FmT3+md4Xl8MdDPoUPUTjqO/Pdp
-	LgxOw9rA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=Sp0M9B/bP1jd6S7I+UWdWmITpna+tOZ70JPTfOnFT3A=; b=SvFi5nn7gtoW6KqCmcyWN17vcf
+	RhLPGVntkBzo/cL8eyEoJD/nJ1l3iMJUi4Stq+w3Yqq/7n7YeLUJV4NscfWJScjpVGi6w67O7x1b2
+	D1VBYcBMExSIOZgZb99v4M6JB9rQlgLQMlzvIVNF5kTLFjnmBN+P9B88jApHX34lWGHRo53KpKM50
+	jlzDoTAVXaMAum1Bx9wCiXoYd/6ntuoi89TqpD2IKFvGDTPxMYswSHawP7GcmP92w1uKJHTdxFOFH
+	tGyazi8U9OOvVoHtsrNf1y3Rd1nJUj5FmW5vVkxXQrZxw+MK2UK0OGCH+KVXAoWrUzHig9Zo8Dblo
+	+5hCJDRQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xBE31-00000000zl7-2DAj;
-	Mon, 28 Sep 2026 16:17:47 +0000
-Received: from mx0b-0031df01.pphosted.com ([205.220.180.131])
+	id 1xBE3v-00000000zxF-3VHH;
+	Mon, 28 Sep 2026 16:18:43 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xBE2y-00000000zk3-1x3L
-	for linux-arm-kernel@lists.infradead.org;
-	Mon, 28 Sep 2026 16:17:46 +0000
-Received: from pps.filterd (m0279873.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 68SEe6HF1647369
-	for <linux-arm-kernel@lists.infradead.org>; Mon, 28 Sep 2026 16:17:43 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
-	cc:content-transfer-encoding:content-type:date:from:in-reply-to
-	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
-	ZPG9/h412pdnG6FSVrrR7JhkCyfchpuJdtkMOSDic+A=; b=Bi20cZ6fwwUWrbpt
-	a+Jf3Joqsq1wPQmmfSoOfR1hMJyArBHC42oglSaXxYtYKBB1i5IiKWNCevloVb9o
-	BKqMy5BThScgvlptiEqjd8x5WJLlLtpwfBw5GfLpiCnmeXl5WGVHzcAdxxcX9dyw
-	QuV9rhVUh1vCCZHDHSNgXeL0NEKvglbUmwuhrm8FVfsNNAZXIpmgzUl3llyIXe9y
-	XXmwN9Vpkj3H4XAMwdNZMZSlAQFrk5e2nIAhNI5UhcYaPFL8EMntToXkAnrQ3ZPI
-	NGsc5iVv29WINfCjpU76pOETnKY/cfkMCipVDt0NcjRLJ/RO4oeDh9UcQmaHOA8q
-	N/ottA==
-Received: from mail-pj1-f71.google.com (mail-pj1-f71.google.com [209.85.216.71])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4gynbc1p06-1
-	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
-	for <linux-arm-kernel@lists.infradead.org>; Mon, 28 Sep 2026 16:17:43 +0000 (GMT)
-Received: by mail-pj1-f71.google.com with SMTP id 98e67ed59e1d1-39b77130a7fso3560933a91.2
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 28 Sep 2026 09:17:43 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1790612262; cv=none;
-        d=google.com; s=arc-20260327;
-        b=mS+uQlBzPN7dJdDjMGTP1wnlr52BNZdnhK3h0aGJTXq2bXIaV2xSJQ0NurfeNGbOeN
-         uLDL80k1NDUQ18NZ+wGGdX/XYLELHWdQTA5GTToFmti/+Iz926u5EamRXHP1ADHymuIk
-         a6+wecvxmS7MwOFXYF9ANFMj3rfysp7I3butUxQzBl/uA+RHRIR53gdg3L7L5dtKvDG8
-         dUGd/dE6OdhjP7nxyUA7uMZOmv6QWQ0Xfd3lQX2FGoKX7VaOM2BMmcMm6DFuRGeLt3xX
-         4YG+zbr+S8coW9daMZOX2uT3MjbnX17jCCTHlLnE0MdmiLgBfxWNAXoZmO0AonLJMloj
-         Cwjw==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:dkim-signature;
-        bh=ZPG9/h412pdnG6FSVrrR7JhkCyfchpuJdtkMOSDic+A=;
-        fh=FuhiKc0RmmeHYGcOvZOJ2lcga2xFD5Whlbg3XCW8ue0=;
-        b=H0U+v1kbYkWF4NflS2B/niXHyM1CHw/IBPpkQ8i0uLrXOlVGrAQSVneRpMK+nEyNAG
-         djDeIDx/QHk/xuGZWMKWd832zuPoUhEuu98vHCa+dm9fzmwpgSuzBJQYm/3JeN7TQwm0
-         rPhPhaq/7jKx+eYiHStmBm86tfhsQdX0Pa/JfFOsyaqdk60zfo94nhc7FlT2AEUOQ7dv
-         0wjpuYcZwfBaB9E00Jsk52Ly1aGH9bRtd1dB7ClSs/9y6JA8ixubN8NFtjbLEQQbEZVb
-         Kz06F/xZc4Yr+3SZ+gFqVAspJrXWmsAF/TI62jxmE5TvlWpjaiukNleWF4QAVIXgqDiM
-         fFSQ==;
-        darn=lists.infradead.org
-ARC-Authentication-Results: i=1; mx.google.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=oss.qualcomm.com; s=google; t=1790612262; x=1791217062; darn=lists.infradead.org;
-        h=content-transfer-encoding:content-type:cc:to:subject:message-id
-         :date:from:in-reply-to:references:mime-version:from:to:cc:subject
-         :date:message-id:reply-to:content-type;
-        bh=ZPG9/h412pdnG6FSVrrR7JhkCyfchpuJdtkMOSDic+A=;
-        b=IJo64NbcQ/OByFduQQqlJXcg/qXT9hvMSdJvQcfjcEwmHwN1jQQx3bOzMrtapK7ukc
-         Y4GxC7a01DpdPbXNT5xSa0ucx6BUNf4rosWpwVkF0JsHSO+84vd5CVlvJtxUgPqxB7rK
-         xK8YnkneDw42XEx9WhERhHQkQI0jpxaHOX1Fd0e8owAtiMybnwANRHeTjFYEK1Z97Nd6
-         3vbCN47TsStgdCDeOzXLBMPQxN2TSaKo8KlgbSRG7hd4pw3bElOm2qz7neDE5WJ3t26S
-         4RLwC2wTYjwjW/OaTVkloazVDLrcdmT8UJXDeiMggq2PP+kjb/0ROQNo7HUTXoLs7Yzl
-         XQQw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1790612262; x=1791217062;
-        h=content-transfer-encoding:content-type:cc:to:subject:message-id
-         :date:from:in-reply-to:references:mime-version:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=ZPG9/h412pdnG6FSVrrR7JhkCyfchpuJdtkMOSDic+A=;
-        b=GNZYsctJZt/sBV/jf2EBouRyk4M43YYBDy7+mrz6PTphpwM7Nm3FnzeJnAd+nc4Lpa
-         wPH0C+a2gn4JKbLsHTJm+HT73Bed+FGh8+jOaUlGY1yUCkyz5/yJI1sJzdiPg/nLdF1x
-         heo8LTujKtfMp8/fFGrbphiAtgUxpQnVoaqUZLKCxoH5RHj4DxRzJ+ZEyYUfnE3y7xX2
-         sqxJ/nBoTjccb4vIfsiU4rlzT8BZ3aZX7vex+84nMi5r+TCMgFCLEGq5TWubgjlB01f1
-         jNyJMXtT6r2iPrhUs1E84EOK5vUfYvrSmfGgwRfcWAsspeu5F1EZ8CHGXojarjqZ6nmH
-         ybgQ==
-X-Forwarded-Encrypted: i=1; AKwUvBx5MZIxInwuslIzTM5ti/kdZqNMvByQyqfHZ75g+d+369rPvbvVEVLyCdyMw2uSYc+oKA8wd0GIZLvuezr6+KwS@lists.infradead.org
-X-Gm-Message-State: AFq9FYLEo0Jn38vWSY9jGSJh39fZwFdQdgPRK3CCg/+c4YW7Kp5LQkYO
-	SwDpnEcF/wEeth6OlR3ishkZc38+v7OX/j64twSlVxlfYSqigSzZlEKoGkiPGWFut311ucoYc72
-	OATx04iGGjzwwukYXOXFn3jOypgTJfiTZ9+/HIBnfkJWtxVLyjaM+I0ruv3Ba7fZ6cLLEztXgj8
-	V0tPa1VrrBEdHQMJUeH0whR4pM5FUzyIgn7O+wPvzTRZBQN3nVqzHl
-X-Gm-Gg: AYBFou2Bxb9xMIOdhRipMo8ROfeboo2eFS84ICZB51HylKBqjluaw479w9XNrthUABC
-	Whb0Kmzu7CjW/7Ac6B+Co7qoCUQi6EsrdrSW4acMBv7tmHOjR0zRW3FupAFydG3RT0ncuC4IqoU
-	Mei+cNmPkwG6luE1Ttw9yHPsnmUHhxQHr+kCImYd8K+B0uc4CshfCA64fNfQ==
-X-Received: by 2002:a17:90b:3c45:b0:3a4:77fe:d478 with SMTP id 98e67ed59e1d1-3a477fed600mr2010796a91.25.1790612262295;
-        Mon, 28 Sep 2026 09:17:42 -0700 (PDT)
-X-Received: by 2002:a17:90b:3c45:b0:3a4:77fe:d478 with SMTP id
- 98e67ed59e1d1-3a477fed600mr2010764a91.25.1790612261755; Mon, 28 Sep 2026
- 09:17:41 -0700 (PDT)
+	id 1xBE3t-00000000zwg-42ou;
+	Mon, 28 Sep 2026 16:18:42 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=In-Reply-To:Content-Type:MIME-Version:
+	References:Message-ID:Subject:Cc:To:From:Date:Sender:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description;
+	bh=Sp0M9B/bP1jd6S7I+UWdWmITpna+tOZ70JPTfOnFT3A=; b=UrtkAtKCw8fBRDoppoXVbDcds/
+	nXOQfF+1Lg3+H+SPmiXBi8202Bq1K+ZX6GomlFWISMkMVE90dHsDOdlIyfGk/DSyf5lmCb0HNC+Lt
+	/67KEG/KBeZrtH8KqGHMSSOkea0DfsBD7KCQ/nhbGbHjEkLS+VvN+Ybe/LLtIoMS6IKujuUM9E0CP
+	kLbKOJZetZfKhumX588LqFsqvv7VuTmS3n+qCfcGCol/xJR/pRVtGgGuZLzezGCcCf5NLIq0APRIY
+	4Nx/K2Q1JDHH08gZbbcvP0f75zw/DFCgzwhf0zVvGKvZqAzJ7vZtX669w/yuqawKmEHAWMpiTvKsR
+	kUAfWVBg==;
+Received: from sender5-op-o11.zoho.com ([165.173.182.11])
+	by desiato.infradead.org with esmtps (Exim 4.99.2 #2 (Red Hat Linux))
+	id 1xBE3r-00000001fVd-0V47;
+	Mon, 28 Sep 2026 16:18:40 +0000
+ARC-Seal: i=1; a=rsa-sha256; t=1790612299; cv=none; 
+	d=zohomail.com; s=zohoarc; 
+	b=ADkYs/ZWlxn//vwV9N9LBs+0kmUH4807uixXEgVjLufqWLK0goIs4MhqM/QwvaR/1zJ+y+NVw20Gi7fusIl9DN5DNSBjy5uyk51J295fT2vqU7ouv7sdaTi5GuxqP0fKQi4c2mQa3XOtizXELCB8RyHSCCc8c2ZeI0uG6DsLOCM=
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=zohomail.com; s=zohoarc; 
+	t=1790612299; h=Content-Type:Cc:Cc:Date:Date:From:From:In-Reply-To:MIME-Version:Message-ID:Subject:Subject:To:To:Message-Id:Reply-To; 
+	bh=Sp0M9B/bP1jd6S7I+UWdWmITpna+tOZ70JPTfOnFT3A=; 
+	b=i7ExCdSQ/xKn6Y2q5rfnW0XOLh9Q8kZIeS1vGEe9B7fccHcSYzO7g0yZqrVglHuHLvG9Kt716zzJCRQrFpZaTAuEt0Ee5OXtT+74CVz8vEGyLCUzjlxxJgG/CWyJ5VBSLmr0/FdiwZq3g9QEGAfJhaTF+NVMT/bsOYuLxjAS+3w=
+ARC-Authentication-Results: i=1; mx.zohomail.com;
+	dkim=pass  header.i=collabora.com;
+	spf=pass  smtp.mailfrom=sebastian.reichel@collabora.com;
+	dmarc=pass header.from=<sebastian.reichel@collabora.com>
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; t=1790612299;
+	s=zohomail; d=collabora.com; i=sebastian.reichel@collabora.com;
+	h=Date:Date:From:From:To:To:Cc:Cc:Subject:Subject:Message-ID:MIME-Version:Content-Type:In-Reply-To:Message-Id:Reply-To;
+	bh=Sp0M9B/bP1jd6S7I+UWdWmITpna+tOZ70JPTfOnFT3A=;
+	b=brrS4kNH6nPwqm1uLLtBETvHEQNU3mCmn+eSwLkH/vg1wV/uxYNX/oL2EMMg+rCS
+	6GfMOiBOdAeBw63xRra25WKs5PxcuM9RyDufxHFPfeOmGOHruYjzOYnUjlzNwIHFpE3
+	7iRYIu5FkuOrZCYz4D2QPrYkij7geW8bicb3c+E4=
+Received: by smtp.zohomail.com with SMTPS id 1790612297707333.3498687074484;
+	Mon, 28 Sep 2026 09:18:17 -0700 (PDT)
+Received: by venus (Postfix, from userid 1000)
+	id 2C4A41828DF; Mon, 28 Sep 2026 18:18:13 +0200 (CEST)
+Date: Mon, 28 Sep 2026 18:18:13 +0200
+From: Sebastian Reichel <sebastian.reichel@collabora.com>
+To: Manivannan Sadhasivam <mani@kernel.org>
+Cc: Vinod Koul <vkoul@kernel.org>, 
+	Neil Armstrong <neil.armstrong@linaro.org>, Heiko Stuebner <heiko@sntech.de>, 
+	Zhang Yubing <yubing.zhang@rock-chips.com>, Frank Wang <frank.wang@rock-chips.com>, 
+	linux-phy@lists.infradead.org, linux-arm-kernel@lists.infradead.org, 
+	linux-rockchip@lists.infradead.org, linux-kernel@vger.kernel.org, kernel@collabora.com, 
+	Igor Paunovic <royalnet026@gmail.com>
+Subject: Re: [PATCH v15 1/6] phy: rockchip: usbdp: Add phy reset notification
+ support
+Message-ID: <arqLbsCgz9vkr3JG@venus>
+References: <20260915-b4-rockchip-usbdp-cleanup-part3-v15-0-9ad90a456953@collabora.com>
+ <20260915-b4-rockchip-usbdp-cleanup-part3-v15-1-9ad90a456953@collabora.com>
+ <zbqy5gqtmprapsqpodoohyxs6gml6swkie6fy7fxszfvtfgz6c@eae55gdmknaw>
 MIME-Version: 1.0
-References: <20260921191326.2146363-1-sanderson@brivo.com>
-In-Reply-To: <20260921191326.2146363-1-sanderson@brivo.com>
-From: Ulf Hansson <ulf.hansson@oss.qualcomm.com>
-Date: Mon, 28 Sep 2026 18:17:27 +0200
-X-Gm-Features: AclHuK_h-ClRM0tgPWKnM-eRAvfXYVsbs7ZT5xtGlCXk84AjgUs2ZbGoR93rbsU
-Message-ID: <CAPx+jO8g-y+uc4YXUeZ3yOH6s44WFpytNu3-f6iLSjtHAVPd+A@mail.gmail.com>
-Subject: Re: [PATCH] mmc: meson-gx: Convert host->lock to raw spinlock
-To: Sean Anderson <sanderson@brivo.com>
-Cc: Ulf Hansson <ulfh@kernel.org>, linux-mmc@vger.kernel.org,
-        Martin Blumenstingl <martin.blumenstingl@googlemail.com>,
-        Neil Armstrong <neil.armstrong@linaro.org>,
-        Kevin Hilman <khilman@baylibre.com>,
-        Heiner Kallweit <hkallweit1@gmail.com>,
-        linux-arm-kernel@lists.infradead.org,
-        Jerome Brunet <jbrunet@baylibre.com>, linux-kernel@vger.kernel.org,
-        linux-amlogic@lists.infradead.org
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
-X-Authority-Analysis: v=2.4 cv=Sq4Fe/O0 c=1 sm=1 tr=0 ts=6aba9327 cx=c_pps
- a=UNFcQwm+pnOIJct1K4W+Mw==:117 a=IkcTkHD0fZMA:10 a=VdqzKS8jKosA:10
- a=s4-Qcg_JpJYA:10 a=VkNPw1HP01LnGYTKEx00:22 a=u7WPNUs3qKkmUXheDGA7:22
- a=rJkE3RaqiGZ5pbrm-msn:22 a=GX7wjADfAAAA:8 a=PBpPEWVgUkDHuXiRGYoA:9
- a=QEXdDO2ut3YA:10 a=uKXjsCUrEbL0IQVhDsJ9:22
-X-Proofpoint-GUID: T2guNO6iDtTkc957KPneNUyG3tjSyuwx
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwOTI4MDA2NCBTYWx0ZWRfX6MKxkKvEGBqj
- Jy9eDHT+wok4ahID7gqH6EHGPdh9DIkQQK15jvJoaIr3EA44a1+VQOUuqBNGgToR1DQckERb/WB
- BNoTVe9Jt800IFU3UGWzylI2ErzhCCHM9hlFxVJfZrddyUiobu620XSjjRNVgCCS8e2At+ahEIV
- SljEKU5CTn+GfmYvPWHELJ8YUvFhSeho/P4kPH2SorLkj1LPOEKNT/h5kwCQk6NXvckXD/oL1je
- tNtlqRwOIxMMfEYshswRTg1Ht8mDqzMwh3Wzd6S03+PEjsnszuAwAW7MsIPvde4HJ1ig9Ak7AEC
- JXQlDXuRWv+0SQu1y/XPb0C9Zldr6T4ZmLC77QtYPbBpNMi/wOGRqRSo3zKAbpu88SbsSGA/yrB
- kYPpRZF8yXNOyAn6OcUa8LcLosr+JfvsYUKZvcOa5QLkY8sQQ+ldkSyYeXWYRS6IlYKaM/3jp8+
- /y2riQ8/EC7vHMbgVDQ==
-X-Proofpoint-Spam-Info: AW1haW4tMjYwOTI4MDA2NCBTYWx0ZWRfXz4eB4k4MNnCo
- mBf+qxXTJduKVwndk7yN39RQAJ84ss9kF2gJodHnsVQH0SvTngS3i+KpeslEw9Ziuzp3fwZSj3c
- 7d4rLxeKr5v76Uf8Xhqp+vMy1y4RhCs=
-X-Proofpoint-ORIG-GUID: T2guNO6iDtTkc957KPneNUyG3tjSyuwx
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1176,Hydra:6.1.134,FMLib:17.12.100.49
- definitions=2026-09-28_04,2026-09-21_02,2025-10-01_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- impostorscore=0 clxscore=1015 priorityscore=1501 bulkscore=0 malwarescore=0
- adultscore=0 phishscore=0 spamscore=0 lowpriorityscore=0 suspectscore=0
- classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
- reason=mlx scancount=1 engine=8.22.0-2609040000 definitions=main-2609280064
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="y7ik32cx75s6xqrz"
+Content-Disposition: inline
+In-Reply-To: <zbqy5gqtmprapsqpodoohyxs6gml6swkie6fy7fxszfvtfgz6c@eae55gdmknaw>
+X-Zoho-Virus-Status: 1
+X-Zoho-AV-Stamp: zmail-av-0.2.13.1.5.4/290.602.86
+X-ZohoMailClient: External
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260928_091744_620895_8C7590A5 
-X-CRM114-Status: GOOD (  23.28  )
+X-CRM114-CacheID: sfid-20260928_171839_405308_F0923435 
+X-CRM114-Status: GOOD (  25.97  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -167,84 +102,82 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Sep 21, 2026 at 9:14=E2=80=AFPM Sean Anderson <sanderson@brivo.com>=
- wrote:
->
-> The primary handler for IRQF_ONESHOT interrupts is always run without
-> threading, even on PREEMPT_RT. Therefore, we must use a raw spinlock,
-> which will never sleep (even on PREEMPT_RT).
 
-Sorry, but I don't quite understand the above. Are you saying that
-IRQF_ONESHOT only works with raw spinlocks?
+--y7ik32cx75s6xqrz
+Content-Type: text/plain; protected-headers=v1; charset=us-ascii
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
+Subject: Re: [PATCH v15 1/6] phy: rockchip: usbdp: Add phy reset notification
+ support
+MIME-Version: 1.0
 
-Kind regards
-Uffe
+Hello Mani,
 
->
-> Fixes: 066ecde6d826 ("mmc: meson-gx: add SDIO interrupt support")
-> Signed-off-by: Sean Anderson <sanderson@brivo.com>
-> ---
->
->  drivers/mmc/host/meson-gx-mmc.c | 12 ++++++------
->  1 file changed, 6 insertions(+), 6 deletions(-)
->
-> diff --git a/drivers/mmc/host/meson-gx-mmc.c b/drivers/mmc/host/meson-gx-=
-mmc.c
-> index 694bb443d5f3f..d5365c0404cb9 100644
-> --- a/drivers/mmc/host/meson-gx-mmc.c
-> +++ b/drivers/mmc/host/meson-gx-mmc.c
-> @@ -176,7 +176,7 @@ struct meson_host {
->
->         bool needs_pre_post_req;
->
-> -       spinlock_t lock;
-> +       raw_spinlock_t lock;
->  };
->
->  #define CMD_CFG_LENGTH_MASK GENMASK(8, 0)
-> @@ -953,10 +953,10 @@ static irqreturn_t meson_mmc_irq(int irq, void *dev=
-_id)
->         cmd =3D host->cmd;
->
->         if (status & IRQ_SDIO) {
-> -               spin_lock(&host->lock);
-> +               raw_spin_lock(&host->lock);
->                 __meson_mmc_enable_sdio_irq(host->mmc, 0);
->                 sdio_signal_irq(host->mmc);
-> -               spin_unlock(&host->lock);
-> +               raw_spin_unlock(&host->lock);
->                 status &=3D ~IRQ_SDIO;
->                 if (!status)
->                         return IRQ_HANDLED;
-> @@ -1112,9 +1112,9 @@ static void meson_mmc_enable_sdio_irq(struct mmc_ho=
-st *mmc, int enable)
->         struct meson_host *host =3D mmc_priv(mmc);
->         unsigned long flags;
->
-> -       spin_lock_irqsave(&host->lock, flags);
-> +       raw_spin_lock_irqsave(&host->lock, flags);
->         __meson_mmc_enable_sdio_irq(mmc, enable);
-> -       spin_unlock_irqrestore(&host->lock, flags);
-> +       raw_spin_unlock_irqrestore(&host->lock, flags);
->  }
->
->  static void meson_mmc_ack_sdio_irq(struct mmc_host *mmc)
-> @@ -1225,7 +1225,7 @@ static int meson_mmc_probe(struct platform_device *=
-pdev)
->         if (ret)
->                 goto err_init_clk;
->
-> -       spin_lock_init(&host->lock);
-> +       raw_spin_lock_init(&host->lock);
->
->         if (host->dram_access_quirk) {
->                 /* Limit segments to 1 due to low available sram memory *=
-/
-> ---
-> base-commit: 587858367581b9c55c3690f4e63382ad622719d4
-> branch: meson_mmc_raw
->
-> --
-> 2.53.0
->
+On Sat, Sep 26, 2026 at 09:54:56AM +0200, Manivannan Sadhasivam wrote:
+> On Tue, Sep 15, 2026 at 05:32:48PM +0200, Sebastian Reichel wrote:
+> > To resolve issues with running into permanent "cmn ana lcpll lock
+> > timeout" errors after a few device replugs, add support for reset
+> > notifications, which will be handled by the DWC3 driver to gracefully
+> > handle the PHY being disabled. This avoids corrupting the controller's
+> > internal state and the PIPE interface between the USB3 controller and
+> > the PHY, thus fixing the issue.
+> >=20
+> > Tested-by: Igor Paunovic <royalnet026@gmail.com> # Orange Pi 5 Plus
+> > Signed-off-by: Sebastian Reichel <sebastian.reichel@collabora.com>
+> > ---
+> >  drivers/phy/rockchip/phy-rockchip-usbdp.c | 19 +++++++++++++++++--
+> >  1 file changed, 17 insertions(+), 2 deletions(-)
+> >=20
+> > diff --git a/drivers/phy/rockchip/phy-rockchip-usbdp.c b/drivers/phy/ro=
+ckchip/phy-rockchip-usbdp.c
+> > index e748acdd2d31..0f39982c70b1 100644
+> > --- a/drivers/phy/rockchip/phy-rockchip-usbdp.c
+> > +++ b/drivers/phy/rockchip/phy-rockchip-usbdp.c
+> > @@ -1004,24 +1004,39 @@ static int rk_udphy_power_on(struct rk_udphy *u=
+dphy, u8 mode)
+> >  	}
+> > =20
+> >  	if (udphy->status =3D=3D UDPHY_MODE_NONE) {
+> > +		phy_notify_reset(udphy->phy_u3, PHY_NOTIFY_PRE_RESET);
+> > +
+> > +		rk_udphy_u3_port_disable(udphy, true);
+>=20
+> This change is not described in the commit message.
+
+Good catch. I'm not sure when that sneaked in. I will split it into
+its own follow-up patch.
+
+FWIW these two things are a little bit interleaved:
+
+resetting the PHY results in disabled clocks, results in SError when
+dwc3 driver tries to access its registers during the PHY reset. This
+is worked around by the u3 port disabling, which reroutes the clock.
+But doing that increases the chance a lot, that the PHY does not
+start up properly again, which requires the reset notifier bits.
+
+Greetings,
+
+-- Sebastian
+
+--y7ik32cx75s6xqrz
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iQIzBAABCgAdFiEE72YNB0Y/i3JqeVQT2O7X88g7+poFAmq6kz0ACgkQ2O7X88g7
++prxFA//RkRn91TuHhTtQSrpWA0YPTIPzbvMilpCIChKhbH++hVwoksGFGltul3o
+KFh58VDd/huD1gXsKAsMPtDhQLxSgJBy0/MD7HZPhTn6duX3syly5IBaBdt0uAXN
+4ys/GBgdfPhO3I6J/6B4oX7dlqgBbMPOMr/rIf6iKhoCGlB+/H/xz69JlZDfxHOj
+IveJlSGGE7l1K3Q23rjF/tAVJRl6AocqyBSNibyTpDNb2d6nDYl+b3duqrsBcKId
+i+iibr9lLC8F3yMHGItO/qw7N7eDk9MHNAxUayRItJwf2jLLV6xfcb8JIq804Mup
+7gQbazgOa4glMZ6yFHWw/fAgfDPWSLW28FAiei15uQXuFFnuLAVgXaXrVl+1yzcb
+ui7IFIttv4mo/eFTteA337RgaH5cgvercRqarEOENfZVAMXGReVlfLi2HhT/pFMW
+7zdRRq1ylysrhLb00dp8zCaXUS+0WxV6y9WesEt3ICVDCRg22SU6AEL34kerdPt2
+95vSn314kdaFNUNV4kPvg3qQsaGlUE162AKVYHSdfHxXFwa3yyfCIk7iBRilIfrJ
+f6fUBq5glitp2VhpHZW7qoD2vzgXKRlJimggMKsr59U2XawJMe6mb2FH8kOrhkD8
+aXCRTzcXghDRMEIfkyZweT5740nurh8oYAD3OlXx234q9nEgUQg=
+=uXNM
+-----END PGP SIGNATURE-----
+
+--y7ik32cx75s6xqrz--
 
