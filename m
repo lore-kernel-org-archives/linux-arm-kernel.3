@@ -4,96 +4,96 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E0F69CA5FA2
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 28 Sep 2026 03:00:26 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0F4E9CA5FA3
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 28 Sep 2026 03:00:28 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
 	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
 	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=jV6566MJCH+9XTWopmZWS4gz9dkHmEXUB8EyqFBzqeA=; b=bqbUYARnH6L8MsVfucljv6YosY
-	JKMMQZE2QDyzpia1VDSCCHntwXSHfFEevBp44HfWfTDP4l+ljmXYfUbi9Vyf+ekMmD6v5LgQGlhXr
-	jOzoYrezqUPGnP0V63PIKotuAPb/UJG1OmgEf0foATxDHclxbiDDe4fM9wLM2JLi/PECyjTf+7xpU
-	h/eq2j+jRfXN4jpUAU2qBHVP2FgA+m2SeF+hHHaULtbB0j877BqJkO+4MQW4bRoyJO0VCqQrd4UIc
-	bo3kNzFzlZu6xYWrQClCtwaP0db+Gt4l8lK4U9L4u9KOkDnk7mm8zMiyow6boKDRYxgJR+Hfl36AQ
-	p2Dastgw==;
+	bh=oWMlIJVgWFG1s20YaWxHB9JpHlwzpEvZrR2JSB+RBzE=; b=kfCPNL3prjlH2gqAN8NsFd1etK
+	+KCFCv45aw6iFPHb3avn7zyiGoceZzSZyEFjMMCzSpGda1yttqoSvk2pT/QdIr5qv5edzf7Rmecat
+	8NHHB+bwDu4nXb6U+r2VDQH4/p7nvWmBGSmJWYvJ152HzO80scbCkP5wWXdUhRTmcjGikCKUWTEFy
+	fNkQTqn8TclfcpsEiHNBCpcfxnUaO/cXWAvm9QV05fzxObdCyTUqrIU1FIWOLhn9PAOIZ18HLIxzN
+	9jp41hfpxO1FmUZFj1KrFZr5E8d53nTugYeSVDE6JfwUbNQswdtAmp6OeAYnVKU6Ympa1TI4f+F0D
+	DPl+4MYw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xB1bD-0000000HDO3-1ono;
-	Mon, 28 Sep 2026 03:00:15 +0000
-Received: from mx0a-0002e601.pphosted.com ([148.163.150.75])
+	id 1xB1bC-0000000HDMf-1w6u;
+	Mon, 28 Sep 2026 03:00:14 +0000
+Received: from mx0b-0002e601.pphosted.com ([148.163.154.28])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xB1b5-0000000HDKN-0zPm
+	id 1xB1ac-0000000HD5W-2Mcs
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 28 Sep 2026 03:00:10 +0000
-Received: from pps.filterd (m0384305.ppops.net [127.0.0.1])
-	by m0384305.ppops.net (8.18.1.11/8.18.1.11) with ESMTP id 68S0RoKt3706315;
-	Sun, 27 Sep 2026 22:00:04 -0500
+	Mon, 28 Sep 2026 02:59:40 +0000
+Received: from pps.filterd (m0374955.ppops.net [127.0.0.1])
+	by mx0b-0002e601.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 68RLD7Jp2806166;
+	Sun, 27 Sep 2026 21:59:35 -0500
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com; h=cc
 	:content-transfer-encoding:content-type:date:from:in-reply-to
 	:message-id:mime-version:references:subject:to; s=
-	proofpoint-05-2026; bh=jV6566MJCH+9XTWopmZWS4gz9dkHmEXUB8EyqFBzq
-	eA=; b=gr8sbtmBc4+WtL72r4gbNUaXRdDG945aQev3mjcTU6A2Juog8Kpi4+dBk
-	EFxyyJKRcJTh7etSf7EjE1PS0j6bynQAItvj8V0EsGV2dgK4GNyuBHjey5lZiq1h
-	GYOGuCRD0Zpi5gchYdrkzbgiar9wqjZSd0zjGXP8GVCtCNapILWjh23Q/HsFN1Hr
-	Ld63NyeSnesRS75vcDis3eCewyoXebMxGWfyiO7Vfbu2jodrhTxq8s316mkxCKfV
-	xRNJNNevhb74DnjlrZIpZJvfH3lcIx1CKdRpjc+2zp9ZXhi5uRgljPd12hGI9fjz
-	hcUtkoVa3WrjywLrPrtKfKx+KvKIQ==
-Received: from byapr05cu005.outbound.protection.outlook.com (mail-westusazon11010047.outbound.protection.outlook.com [52.101.85.47])
-	by m0384305.ppops.net (PPS) with ESMTPS id 4gy00nb1ug-1
+	proofpoint-05-2026; bh=oWMlIJVgWFG1s20YaWxHB9JpHlwzpEvZrR2JSB+RB
+	zE=; b=KGtxZYJtRYZ2Uf/+tDys44HcSq5gk2A2dGsGtvvX6e2Jj3naBqcAM82LP
+	8kdSo0DNalROxjxvGD55Ka/MXanYGS65kPE8pr+cccNbhGIuCUvi0Ug4gjNRCfO2
+	MDcuoBCrK4AltXrINikB4xvl1j+IHX8qIyuk84iHb8AW5t1c/9FFQyAVwcC/6Zgh
+	mas+iCSzY2BINKDy2V5SNEK8/PB85f88BW1uDrxnPoqx53ETVdXJYEUZ/NefMRmW
+	CLrREs/dFp8QUcM0Z65Hm7nCHu0Fo2jJzrKHRBURu+WbTbjz2J8od5lL/sR8RvrT
+	4ZECKQNScoSfozWsgiuUnLAWYQzzw==
+Received: from ch1pr05cu001.outbound.protection.outlook.com (mail-northcentralusazon11010023.outbound.protection.outlook.com [52.101.193.23])
+	by mx0b-0002e601.pphosted.com (PPS) with ESMTPS id 4gxwe5kfsu-1
 	(version=TLSv1.3 cipher=TLS_AES_256_GCM_SHA384 bits=256 verify=NOT);
-	Sun, 27 Sep 2026 22:00:03 -0500 (CDT)
+	Sun, 27 Sep 2026 21:59:34 -0500 (CDT)
 ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=lioiTfQ773D8Ky9k9xX71NVYs0ksHz1zj/G0bAW1djv9df/Rk3y/GbKCE0+clA73U+ARzrdHX9btNCFjOqzSx8+1Sp8SQm7GtN1EylbRDK0t1MVzPjzk6iQyxzuQsMPv2I8YXznr/qLYBs7vzwCA5FghHJ1UWsegjWiVt1Af2AgLQU66CUdt3QEpVAJ5gOqf7iTVoAkNef/6+9k5JiPAQMcO14xfv836+vVcbndgbIiYif6BbU8ccO5eOj+fBS1YeBg+Dz9yN9o7pgBelgFk8TpdEwltxeveb8A7DwxOsKuOmAZ4e8EGQvUrw68v+c34M9M5G6xbwwtQWLm7NE12rg==
+ b=r1+CpSwg1+4m89Zc6N8of4mJxV3FNfRaAE94n7yjpj8NQ2lieeDcK/IFafJJpt0sjaPcLNZ8v9163tXjcXPvPr+/tQqWo4d/AwrKav2h9lJDocsOkeGGDnbtAaAOApg5809bG7+Kdd8jpsGMTrgKRzhNVoqbJ/m764uRnp28carIFjwPqQPi5XxCxFAmHxyoBvB6tk9HRj1wmtP8SSfnATOTCssiV63uODNj84ZGMv6+hTSTzrv/lYc8QvtIcLFT/J90qdEeithgvoyKLB575zw8VtP7zu5BwgXgrC23CUMGEAkh4MKvfnFAc6VrCQfmw5g0lG9pniIRtzOGaeidCw==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
  s=arcselector10001;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=jV6566MJCH+9XTWopmZWS4gz9dkHmEXUB8EyqFBzqeA=;
- b=nDUT77uT8B5uUAQDDJuiujzzeh79urjraSCyRZ/bV5imOTbHQSHnn8A7w9Yc1mXh8UC6z4bHMghm6PEO0NoC8U/FUG178IuYXgrP1+USs1RCSk1QEPJX3U8H0l1OYg1JK576UOLgk11JIsrFM6wf8uQIn1mWr4C31VyWmko15dZricHYv/+Ixzk9IbMVhjtp1Py6svVI1KlY0csw4Wk2VuN3SaVdZEnhgVsV5pH4oYJkH5S57seOsEsuUMdFn+oradIp5fNIz16Y4WZJDMsCOW5zAFBrbszjS6BN1HZZ9z/QNtNv1kfWxU+KPfHXNiI28HSoV1IUTc+jyagxurcbtw==
+ bh=oWMlIJVgWFG1s20YaWxHB9JpHlwzpEvZrR2JSB+RBzE=;
+ b=hG2FLPh1XGEu5L/KlnetlPUuFkqKxRVul8hX5OnnydhfdiTkBjFjLR32uXEaPFQlFkdS3cylyB467wNdRxu+YAO6VBDx14CT6tBAfVPSES4jphjGcmZQQ6LK8h5CWKWzg1vSnOGa1qLNGHbArn2f8EP/qpydAOmA8lAkihxbtRTIgugxvhFDSV0OuDwp8r827DJ2Dgn/2O4GAPnJqd0FX8xN7XxURFR+T9RNqOCxNyLaTA9M27NliiI6Pk18ZfrgalDYbd1Lgni8rKY9dzwMM6d67KfOVBZ/Nq8+r8AI662k1Smf5JlyJlX+bF7CZCBkYWFcjhRug2dBWNnm1lD8Sw==
 ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
- 198.47.21.195) smtp.rcpttodomain=nxp.com smtp.mailfrom=ti.com; dmarc=pass
+ 198.47.23.195) smtp.rcpttodomain=nxp.com smtp.mailfrom=ti.com; dmarc=pass
  (p=quarantine sp=none pct=100) action=none header.from=ti.com; dkim=none
  (message not signed); arc=none (0)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com; s=selector1;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=jV6566MJCH+9XTWopmZWS4gz9dkHmEXUB8EyqFBzqeA=;
- b=dm3Wtz8hjsZC1FVDzev5tpX1wpHVB5MR6zcnAY0vpm+fGfNbCHUzvAt4NiiviNzR5aqmIgsPZVFvgBknAlzyUye+D7k0PxyWRTGOFeH+CrxfEiCg2ZyI9xWTjKpAtT/WDZRwCLhEEp9DMEDbep3je8/tF7nYrjLwQ8bNzwJ+rJY=
-Received: from PH7PR03CA0030.namprd03.prod.outlook.com (2603:10b6:510:339::35)
- by DM4PR10MB6839.namprd10.prod.outlook.com (2603:10b6:8:105::10) with
+ bh=oWMlIJVgWFG1s20YaWxHB9JpHlwzpEvZrR2JSB+RBzE=;
+ b=B4i+WxJ9FcqHd0iaX7cC5TQr77PmZegwvpgnzb+acRK+M9ud4elHUqvF34YXU7cOjAtbuOa+LMQOkhcCz6tZ2BoX1gu95LYnBYBnC3Y4JK/g3Sw5FLKrnb8lnoSGbdV5vWDGxOQSIuG46ZqcE8epD1K2MN/izqzZH5QfH3+kIeI=
+Received: from SJ0PR05CA0177.namprd05.prod.outlook.com (2603:10b6:a03:339::32)
+ by CH3PR10MB6904.namprd10.prod.outlook.com (2603:10b6:610:145::21) with
  Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.472.7; Mon, 28 Sep
- 2026 02:59:56 +0000
-Received: from SJ1PEPF000023CC.namprd02.prod.outlook.com
- (2603:10b6:510:339:cafe::83) by PH7PR03CA0030.outlook.office365.com
- (2603:10b6:510:339::35) with Microsoft SMTP Server (version=TLS1_3,
- cipher=TLS_AES_256_GCM_SHA384) id 15.21.451.23 via Frontend Transport; Mon,
- 28 Sep 2026 02:59:56 +0000
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.451.19; Mon, 28 Sep
+ 2026 02:59:31 +0000
+Received: from SJ5PEPF000001ED.namprd05.prod.outlook.com
+ (2603:10b6:a03:339:cafe::60) by SJ0PR05CA0177.outlook.office365.com
+ (2603:10b6:a03:339::32) with Microsoft SMTP Server (version=TLS1_3,
+ cipher=TLS_AES_256_GCM_SHA384) id 15.21.428.6 via Frontend Transport; Mon, 28
+ Sep 2026 02:59:30 +0000
 X-MS-Exchange-Authentication-Results: mx.microsoft.com 1; spf=pass (sender IP
- is 198.47.21.195) smtp.mailfrom=ti.com; dkim=none (message not signed)
+ is 198.47.23.195) smtp.mailfrom=ti.com; dkim=none (message not signed)
  header.d=none;dmarc=pass action=none header.from=ti.com;
 Received-SPF: Pass (protection.outlook.com: domain of ti.com designates
- 198.47.21.195 as permitted sender) receiver=protection.outlook.com;
- client-ip=198.47.21.195; helo=flwvzet201.ext.ti.com; pr=C
-Received: from flwvzet201.ext.ti.com (198.47.21.195) by
- SJ1PEPF000023CC.mail.protection.outlook.com (10.167.244.6) with Microsoft
+ 198.47.23.195 as permitted sender) receiver=protection.outlook.com;
+ client-ip=198.47.23.195; helo=lewvzet201.ext.ti.com; pr=C
+Received: from lewvzet201.ext.ti.com (198.47.23.195) by
+ SJ5PEPF000001ED.mail.protection.outlook.com (10.167.242.201) with Microsoft
  SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.21.472.14 via Frontend Transport; Mon, 28 Sep 2026 02:59:54 +0000
-Received: from DFLE209.ent.ti.com (10.64.6.67) by flwvzet201.ext.ti.com
- (10.248.192.32) with Microsoft SMTP Server (version=TLS1_2,
+ 15.21.472.14 via Frontend Transport; Mon, 28 Sep 2026 02:59:30 +0000
+Received: from DLEE200.ent.ti.com (157.170.170.75) by lewvzet201.ext.ti.com
+ (10.4.14.104) with Microsoft SMTP Server (version=TLS1_2,
  cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.45; Sun, 27 Sep
- 2026 21:59:09 -0500
-Received: from DFLE209.ent.ti.com (10.64.6.67) by DFLE209.ent.ti.com
- (10.64.6.67) with Microsoft SMTP Server (version=TLS1_2,
+ 2026 21:59:04 -0500
+Received: from DLEE207.ent.ti.com (157.170.170.95) by DLEE200.ent.ti.com
+ (157.170.170.75) with Microsoft SMTP Server (version=TLS1_2,
  cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.45; Sun, 27 Sep
- 2026 21:59:09 -0500
-Received: from lelvem-mr06.itg.ti.com (10.180.75.8) by DFLE209.ent.ti.com
- (10.64.6.67) with Microsoft SMTP Server (version=TLS1_2,
+ 2026 21:59:04 -0500
+Received: from lelvem-mr06.itg.ti.com (10.180.75.8) by DLEE207.ent.ti.com
+ (157.170.170.95) with Microsoft SMTP Server (version=TLS1_2,
  cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.45 via Frontend
- Transport; Sun, 27 Sep 2026 21:59:09 -0500
+ Transport; Sun, 27 Sep 2026 21:59:04 -0500
 Received: from uda0498651.dhcp.ti.com (uda0498651.dhcp.ti.com [10.24.51.254])
-	by lelvem-mr06.itg.ti.com (8.18.1/8.18.1) with ESMTP id 68S2vqqM2256662;
-	Sun, 27 Sep 2026 21:59:04 -0500
+	by lelvem-mr06.itg.ti.com (8.18.1/8.18.1) with ESMTP id 68S2vqqL2256662;
+	Sun, 27 Sep 2026 21:58:59 -0500
 From: Sai Sree Kartheek Adivi <s-adivi@ti.com>
 To: <peter.ujfalusi@gmail.com>, <vkoul@kernel.org>, <robh@kernel.org>,
         <krzk+dt@kernel.org>, <conor+dt@kernel.org>, <nm@ti.com>,
@@ -102,9 +102,9 @@ To: <peter.ujfalusi@gmail.com>, <vkoul@kernel.org>, <robh@kernel.org>,
         <linux-arm-kernel@lists.infradead.org>, <vigneshr@ti.com>,
         <Frank.li@nxp.com>, <s-adivi@ti.com>
 CC: <r-sharma3@ti.com>, <gehariprasath@ti.com>
-Subject: [PATCH v10 15/19] dmaengine: ti: k3-psil-am62l: Add AM62Lx PSIL and PDMA data
-Date: Mon, 28 Sep 2026 08:26:21 +0530
-Message-ID: <20260928025749.1055383-16-s-adivi@ti.com>
+Subject: [PATCH v10 14/19] dt-bindings: dma: ti: Add K3 PKTDMA V2
+Date: Mon, 28 Sep 2026 08:26:20 +0530
+Message-ID: <20260928025749.1055383-15-s-adivi@ti.com>
 X-Mailer: git-send-email 2.54.0
 In-Reply-To: <20260928025749.1055383-1-s-adivi@ti.com>
 References: <20260928025749.1055383-1-s-adivi@ti.com>
@@ -113,55 +113,56 @@ Content-Transfer-Encoding: 8bit
 Content-Type: text/plain
 X-EOPAttributedMessage: 0
 X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: SJ1PEPF000023CC:EE_|DM4PR10MB6839:EE_
-X-MS-Office365-Filtering-Correlation-Id: 5bfb430c-9e2c-4d74-3c3b-08df1d0c9283
+X-MS-TrafficTypeDiagnostic: SJ5PEPF000001ED:EE_|CH3PR10MB6904:EE_
+X-MS-Office365-Filtering-Correlation-Id: eec7329d-45d8-4192-0b25-08df1d0c8478
 X-MS-Exchange-SenderADCheck: 1
 X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|36860700016|23010399003|7416014|376014|1800799024|82310400026|921020|56012099006|10067099003|18002099003|22082099003|13003099007|3023799007;
-X-Microsoft-Antispam-Message-Info: lUfj+6a76ofO5OyDOC+wmOzVMnMFWkFR5OCdb3XNVCT0CPlhNSPgFk4sqVnfixbXZYDGERML8gk2FOzG9epj74sSfh7yPkIAY1GvjJrshxQF0OlvQsI3jWDPbiAAQtHFrTv5kA1GUaR8Q0GevWxJLQKWWP2xfAHIFuC+KlbGl4L5PElFZE3NDIbOdk131isV2qOGbLu0VHkO8hyUewfsAL+IraE1S12hV4s9/fUw9HTqBWSSBZ0zHvkvANBWtm0jPxaIE5J+GW+hhPHgXwof4RpPQx2Uabl53ELJYchPosjCcmxhMXF0nri7OdauzKaKsTqXsYnh638MTQVvnNzBFN9KOZ+D7Gl8bwXAf9uZo4v86R/T57QjzZ2TKe+28sL20oMuytyi8xtgFdV7C+/ttsXJvkno4EMuitNHbEqg6KHz/wdJMIblCZg/KVLVkr60+CWW5w1cZM4nN8cUj1Z0WE4TbndASv5Kyf00LrIC+sawJUFEspkUAuBpp3hzJUa4RjEeCHrtRECq1kYpWvLCqmAQawgN958wRtROjTJ3s4xbvhmSOrNXdFEZM7vr5JlcRguZ1wqHYlwEX/4cyA4+Cwbbi53oWv2iayX3R2gCvtW3s1ATgNOCIW9b/0jc5jnevAuSqX4SIsYJfhNKmUMeOHxcUa++O6lR1CdRpiEQ60iCNO+6qxax6sk/6YrdSvug
-X-Forefront-Antispam-Report: CIP:198.47.21.195;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:flwvzet201.ext.ti.com;PTR:ErrorRetry;CAT:NONE;SFS:(13230040)(36860700016)(23010399003)(7416014)(376014)(1800799024)(82310400026)(921020)(56012099006)(10067099003)(18002099003)(22082099003)(13003099007)(3023799007);DIR:OUT;SFP:1101;
+X-Microsoft-Antispam: BCL:0;ARA:13230040|7416014|376014|23010399003|36860700016|1800799024|82310400026|921020|56012099006|10067099003|22082099003|18002099003|6133799003|3023799007|13003099007;
+X-Microsoft-Antispam-Message-Info: tu9PSKftq3kXxvnMSSGnk1h2d0eqlgOnD8lsODGbPgo7asVzy3rWZTiEriuwbDEWqYZGywkz3usAG++t0SUNE8yNe70EkcvLIWctjR3rIaCjmz2Su4hmTRKEfurRJWR+c2hTwbPce9ROCVn+X9Vnyvo/cgHaT6QQGia+a6Q/SHn4aNSNQ9n4opyR8gx10wFBy+89Y8yx3fdOvTWBmPhD5rZFgTe1wHMen8/JyQmgwWjMvjcMnr1s0Tn8d+0PGcRvqdcnUfYVNkX3q3g/3NZkn9Vie7sx6AZMH7gUM4jo5PEMD93to2/pafs73QBzgIvyrjquP/WBKNQivyNV6VV9rqHzUQ/nxRVDOVHyzzE0c+fckAvzE4JtpVwdhYJ4p9rXKtGpUs/T3mQtXQAfZs3IpIPaq7bHOSIlrDk3k+XZwugU3uQfJr0XRGpiElniyOrZax2EC9LK9OnGnl+DDbq2TpWOGVKoM8nKTPT1b1NteTKQvinyHINeQqbHavlKHpiHcM/lH8R4P3DmExz9GQxTjyqi3zU8nVEa4rkGCYNZRvdj4Zw8YaexA36JKo/ucfNor59i6hADjhxvJsuDANbGTYWBLx1b0qRplydaG5L5V3rALhlY2gLZhUabfDVR61vM1eAoOheFToCWG2+H90n3LI50z+TIdtb5AdkpkfYLER8VoKp8Dx46fsDjjnri9ewA
+X-Forefront-Antispam-Report: CIP:198.47.23.195;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:lewvzet201.ext.ti.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(7416014)(376014)(23010399003)(36860700016)(1800799024)(82310400026)(921020)(56012099006)(10067099003)(22082099003)(18002099003)(6133799003)(3023799007)(13003099007);DIR:OUT;SFP:1101;
 X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: OJV2dzNq+lFWcKA4BTyWuE+/SN/y3UpnlFQfKgqyAQCe8xegcs02SSprnxG8W6OB+RqmLCXmeRIDjVIIkbEBDvERrVQIgKj3joIf4bDdv0YlIgX4YWNFnPSr/Y0As7lGGuwh1QA+4kCrFjpjzcZTdda/wD4tiQTf6RUYXp3LCn+nOxsiHNyTmgAeOwbDcROoJisE45hVDj0pejMXOsIcJcNsHiKhstYn84Nv90zBJjkyne3xf22sta6uR6c3+IJ6FAyWbIjrulkiJet3Dpb6KgsYf6DDMzHYxvxzSo1uBC3kGqcBnbYvL4+RQDaDxuz2Z3c5x4xdDrQsduJ8dqHw9LomsF6QNBEh2GL3Fadto0LyQG6tp732K/P5+ZN9SMCR73EE7GIPflW8tX8mdL3YLNsSI2hfN7kKpyHvuQZaBR3VdRvZbOAnqnS2gaTzn81M
-X-Exchange-RoutingPolicyChecked: WWQKVujQy8qM4R39Fa+loYy3yIvOnBitqSzzJ63dPJKOBwcazsG4fjBeOzZbtp4Th9X9L32VFnUn0NQN66KJWfTRp1X1Mkqg+VGSe2y2fODDCnSykGiq8dqlyEG++/Ea1QXwZ+xOCzRZA+S0AbqSUMO/cPLGF2jHLZNiPmhuJ+e5bv16GgMdhuiYeEsqrUm7oy3/j3BlmWyTfHYVJ4BZQt/DOIegGfaM9QF2XwfOQwAGM+diufj660/+XYBwswslzZDJp5vHbHmBBCNYWhjE7grbOoF4QA/BZm8znHkYrJZO6pBUNiiV1z4giW5KV1SpyNUtXFPvKNeaszMmwPlLvA==
+X-MS-Exchange-AntiSpam-MessageData-0: 2LuWXxWyaTgy9DPGyAlU+dOpD3l1b+gG8WI21p4eiX2AbkV0mj+R1klqlqgBYtKetbwTBqYHKEquAgePKt7TCXZ7JoRsLkgLcl7mECqhBGYtqJUVEEnlYSFfJXzll+cEsLCvr4i2c2KeRK6OUgWS2FCVSqQnlnU7ZPtSQCSaayp7iqeAp/IYxM7a5gGc4Xbe7PFF+WcLLDVuADs74YIvnN8NeOoNrDpCU+1LH8er4K1MVoYbo7MW1P/kbYqvlDyWlY8JHle9nm4oY1S0tzvUca6q89QYX1olH4Acc0lmn12D5SswYVfSLEQ6ttY77I53RUd0QfrAVFQ4Gzl0TWJjcvxq3OTo6OVnTgfsbcXEpUBD0Re0zfznMjShVv59YinDzmcsjiqXtrNWVdkiWEeF77P5m2BQH5hn9QZ3iUMIcD7iDDxH9iiU8T0df0n1xGWG
+X-Exchange-RoutingPolicyChecked: gdpjHaIhhCEboYfGV6+HyQXIH8dm48vIWA4bhkV4SQiMlnYRERVuvh1NXKJr978UcsfLjzLCseU6rIogjeB5wqJhUFkgL/n1Tljh2kZ2shtXEECq4fPCvDQ7mBNc7AyIHHNrwlWZ902Gtw9HOF6ZyOkcmJoV8dg0TbAGXmf0Y8DWI7sF/1GyHRPpQMHZUOxAJ8s1mVXiQPk7DgVsRtX3owBCnXBOQcXGOzC7O3V0pTB5r4o17lCHJqyOIaM3244wrvogyvFm6FoSceziQPbALXQHgMNU0IENEf1XXbtNSC/R+n51d4EgREgZHKljftHdhPGMJhMnzglEbu37vV7vnA==
 X-OriginatorOrg: ti.com
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 28 Sep 2026 02:59:54.3497
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 28 Sep 2026 02:59:30.7932
  (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: 5bfb430c-9e2c-4d74-3c3b-08df1d0c9283
+X-MS-Exchange-CrossTenant-Network-Message-Id: eec7329d-45d8-4192-0b25-08df1d0c8478
 X-MS-Exchange-CrossTenant-Id: e5b49634-450b-4709-8abb-1e2b19b982b7
-X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=e5b49634-450b-4709-8abb-1e2b19b982b7;Ip=[198.47.21.195];Helo=[flwvzet201.ext.ti.com]
-X-MS-Exchange-CrossTenant-AuthSource: SJ1PEPF000023CC.namprd02.prod.outlook.com
+X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=e5b49634-450b-4709-8abb-1e2b19b982b7;Ip=[198.47.23.195];Helo=[lewvzet201.ext.ti.com]
+X-MS-Exchange-CrossTenant-AuthSource: SJ5PEPF000001ED.namprd05.prod.outlook.com
 X-MS-Exchange-CrossTenant-AuthAs: Anonymous
 X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: DM4PR10MB6839
-X-Proofpoint-GUID: Fk1Han9cXQZoI4lrRr3hKkGEHlSgRoUd
-X-Authority-Analysis: v=2.4 cv=fKysTpae c=1 sm=1 tr=0 ts=6ab9d833 cx=c_pps
- a=UMwgOSM+WKnhBjpqxZ5HKA==:117 a=tJyPKKxUohctrY4NYmUjkA==:17
- a=6eWqkTHjU83fiwn7nKZWdM+Sl24=:19 a=VdqzKS8jKosA:10 a=V5UXEbMT0ywA:10
- a=VkNPw1HP01LnGYTKEx00:22 a=Z8NIEmU8O1QQgoT56wFK:22 a=taLDd7a_hP9WKsMzeGRc:22
- a=sozttTNsAAAA:8 a=SxTibnW5tSAW0Is98DsA:9
-X-Proofpoint-ORIG-GUID: Fk1Han9cXQZoI4lrRr3hKkGEHlSgRoUd
-X-Proofpoint-Spam-Info: AW1haW4tMjYwOTI4MDAxMSBTYWx0ZWRfX0c7AeCeLnDzI
- aRZdl/mJ0GW8n07YiI3fFfmHL531Wg0b4bE5hpIejET0VoskcI0I2rrNO5ojRBwB85a4QgZ5Og1
- nMk5FeFnR8tMrlOCc5BdvBSN9lgj7BA=
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwOTI4MDAxMSBTYWx0ZWRfX7mztzNLOvjCi
- a5k+KLNiRYejsl1+rsLJKALjxzWeYOmoOBIFOSzisMA7kWxfWxSg5eIYYU78pV+l/bojkzLwTiY
- nmPdx1LQLMyGxN0+S2Rt+2gt0FLh+ZIz9mTRmUR//RPOuyXL11pTjNvuordz5zevHoY8K6c6e4D
- j3PCnpc3qch6xKGyWideK1Ge9gMGhUbb4GJXMaXeHl4iSr4AcipK9dBmkXf/JrevJlTaBJDsv35
- kMu9d62sJ5WoKknR4eKSsxBSsjli8+O31TS0Mz4p95IILru3Ig3uZ936yEYljucmKwuTktR/XQJ
- FjsA1woe5sLogxIHoSuTkFDGQlHL5nzh2R6v1xVEkzFKWi880XB0pIZwHAlMF3b276xuR07MOKb
- cIL8o1hfhLoB3SPQ2htO2i9EUG3fOtllysppAVdxgULFHWeXCnJaDSVzrrStmbQKFV4uXAw69vu
- vB/utAtMUQj7vSaQsHg==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: CH3PR10MB6904
+X-Authority-Analysis: v=2.4 cv=aeP0Dhot c=1 sm=1 tr=0 ts=6ab9d816 cx=c_pps
+ a=ubRrNrA1i3DLWGMHTGxaeQ==:117 a=f+v6EHfkeJbVwR46tk4DMg==:17
+ a=6eWqkTHjU83fiwn7nKZWdM+Sl24=:19 a=VdqzKS8jKosA:10 a=s63m1ICgrNkA:10
+ a=V5UXEbMT0ywA:10 a=VkNPw1HP01LnGYTKEx00:22 a=Z8NIEmU8O1QQgoT56wFK:22
+ a=fPAWb5peG099m5CrUpKH:22 a=gEfo2CItAAAA:8 a=sozttTNsAAAA:8
+ a=3biYmkHrlXwTjyWc3LcA:9 a=sptkURWiP4Gy88Gu7hUp:22
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwOTI4MDAxMSBTYWx0ZWRfXy5GxwZqVSQ3l
+ KMEWCRPQNRMJN/GDsvhcdLTvD26Ei1VxeLtU/3EUjwl0IdyZ1PPuDsv369H5y4HA/sjsrTkTLY3
+ lN6z9yIq8TVx95lje4/hZUJxS7geuiw+Rovf73d3xel+V3WQOJwHhMgMOduruZpW2gcElsdOkfe
+ yro2Lp+vqNXJLTdT/Q4mqk9k4GThUSgDq50adxuAiS5Tm371hq7gI8sWX3Mi8lL0XMCT9/dOqa6
+ +XGukTt8j8H7Id8hfyv0xloLxS9GTMor4O1BdnAeocUaSHZStP0qm7MSbKUU+SwELyPyWPPJWgf
+ sbp7CDvtZra0nv4/T3Uo7XMaQGD9iaWKuDX4CqszV5xA/BJpCAsITEgJumaIkJFG8DcookO39x8
+ cDSatiK8G7TEvMRERIWtXdstDr31Drwzinj0QkgXzZYjBpmv8EHJ+lBw06udasUKIfw3mw9H1TW
+ 3ghxgmvLWnjB/cg5X/g==
+X-Proofpoint-ORIG-GUID: 2KA_KFw-dH2PQRDREmI2Lk2tBK7Zt49r
+X-Proofpoint-GUID: 2KA_KFw-dH2PQRDREmI2Lk2tBK7Zt49r
+X-Proofpoint-Spam-Info: AW1haW4tMjYwOTI4MDAxMSBTYWx0ZWRfX6IMvoH+dO9PR
+ XaFU1QsLw2EIgGdUoZZv3Q+Xnrrm3CVXYdKVVDtM4grgshfNyPW5GapoPxbM65imoZkl3wxDCKY
+ 5FeEhqzGBMx4PXJ2GIUp1NGkTTPrYpY=
 X-Proofpoint-Virus-Version: vendor=baseguard
  engine=ICAP:2.0.293,Aquarius:18.0.1176,Hydra:6.1.134,FMLib:17.12.100.49
  definitions=2026-09-26_05,2026-09-21_02,2025-10-01_01
 X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- lowpriorityscore=0 suspectscore=0 bulkscore=0 spamscore=0 priorityscore=1501
- malwarescore=0 impostorscore=0 adultscore=0 phishscore=0 clxscore=1015
+ lowpriorityscore=0 suspectscore=0 phishscore=0 spamscore=0 clxscore=1015
+ adultscore=0 bulkscore=0 malwarescore=0 priorityscore=1501 impostorscore=0
  classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
  reason=mlx scancount=1 engine=8.22.0-2609040000 definitions=main-2609280011
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260927_200007_323838_30394D37 
-X-CRM114-Status: GOOD (  17.02  )
+X-CRM114-CacheID: sfid-20260927_195938_763105_F3BD36DE 
+X-CRM114-Status: GOOD (  16.13  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -176,373 +177,211 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add PSIL and PDMA data for AM62Lx SoC.
+New binding document for Texas Instruments K3 Packet DMA (PKTDMA) V2.
 
-Introduce new PSIL_EP_PDMA_XYMF type for channels that have multiple
-selectable fifos. Also add a new fifo_id field to psil_endpoint_config
-to specify the selectable fifo_id.
+PKTDMA V2 is introduced as part of AM62L.
 
 Signed-off-by: Sai Sree Kartheek Adivi <s-adivi@ti.com>
 ---
- drivers/dma/ti/Makefile        |   3 +-
- drivers/dma/ti/k3-psil-am62l.c | 169 +++++++++++++++++++++++++++++++++
- drivers/dma/ti/k3-psil-priv.h  |   5 +
- drivers/dma/ti/k3-psil.c       |  90 +++++++++++++++++-
- include/linux/dma/k3-psil.h    |   3 +
- 5 files changed, 265 insertions(+), 5 deletions(-)
- create mode 100644 drivers/dma/ti/k3-psil-am62l.c
+ .../bindings/dma/ti/ti,am62l-dmss-pktdma.yaml | 189 ++++++++++++++++++
+ 1 file changed, 189 insertions(+)
+ create mode 100644 Documentation/devicetree/bindings/dma/ti/ti,am62l-dmss-pktdma.yaml
 
-diff --git a/drivers/dma/ti/Makefile b/drivers/dma/ti/Makefile
-index 3b91c02e55eaf..41bfba944dc6c 100644
---- a/drivers/dma/ti/Makefile
-+++ b/drivers/dma/ti/Makefile
-@@ -14,6 +14,7 @@ k3-psil-lib-objs := k3-psil.o \
- 		    k3-psil-am62.o \
- 		    k3-psil-am62a.o \
- 		    k3-psil-j784s4.o \
--		    k3-psil-am62p.o
-+		    k3-psil-am62p.o \
-+		    k3-psil-am62l.o
- obj-$(CONFIG_TI_K3_PSIL) += k3-psil-lib.o
- obj-$(CONFIG_TI_DMA_CROSSBAR) += dma-crossbar.o
-diff --git a/drivers/dma/ti/k3-psil-am62l.c b/drivers/dma/ti/k3-psil-am62l.c
+diff --git a/Documentation/devicetree/bindings/dma/ti/ti,am62l-dmss-pktdma.yaml b/Documentation/devicetree/bindings/dma/ti/ti,am62l-dmss-pktdma.yaml
 new file mode 100644
-index 0000000000000..ee77fae3787a4
+index 0000000000000..caeacd4cf5ab3
 --- /dev/null
-+++ b/drivers/dma/ti/k3-psil-am62l.c
-@@ -0,0 +1,169 @@
-+// SPDX-License-Identifier: GPL-2.0
-+/*
-+ *  Copyright (C) 2024-2025 Texas Instruments Incorporated - https://www.ti.com
-+ */
++++ b/Documentation/devicetree/bindings/dma/ti/ti,am62l-dmss-pktdma.yaml
+@@ -0,0 +1,189 @@
++# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
++# Copyright (C) 2026 Texas Instruments Incorporated
++%YAML 1.2
++---
++$id: http://devicetree.org/schemas/dma/ti/ti,am62l-dmss-pktdma.yaml#
++$schema: http://devicetree.org/meta-schemas/core.yaml#
 +
-+#include <linux/kernel.h>
++title: Texas Instruments K3 DMSS PKTDMA V2
 +
-+#include "k3-psil-priv.h"
++maintainers:
++  - Sai Sree Kartheek Adivi <s-adivi@ti.com>
 +
-+#define PSIL_PDMA_XY_TR(x, ch)					\
-+	{							\
-+		.thread_id = x,					\
-+		.ep_config = {					\
-+			.ep_type = PSIL_EP_PDMA_XY,		\
-+			.mapped_channel_id = ch,		\
-+			.default_flow_id = -1,			\
-+		},						\
-+	}
++description:
++  The PKTDMA V2 is intended to perform similar functions as the packet mode
++  channels of K3 UDMA-P. PKTDMA V2 only includes Split channels to service
++  PSI-L based peripherals.
 +
-+#define PSIL_PDMA_XYMF_TR(x, ch, fifo)				\
-+	{							\
-+		.thread_id = x,					\
-+		.ep_config = {					\
-+			.ep_type = PSIL_EP_PDMA_XYMF,		\
-+			.mapped_channel_id = ch,		\
-+			.default_flow_id = -1,			\
-+			.fifo_id = fifo,			\
-+		},						\
-+	}
++  The peripherals can be PSI-L native or legacy, non PSI-L native peripherals
++  with PDMAs. PDMA is tasked to act as a bridge between the PSI-L fabric and the
++  legacy peripheral.
 +
-+#define PSIL_PDMA_XY_PKT(x, ch)					\
-+	{							\
-+		.thread_id = x,					\
-+		.ep_config = {					\
-+			.ep_type = PSIL_EP_PDMA_XY,		\
-+			.mapped_channel_id = ch,		\
-+			.pkt_mode = 1,				\
-+			.default_flow_id = -1			\
-+		},						\
-+	}
++allOf:
++  - $ref: /schemas/dma/dma-controller.yaml#
 +
-+#define PSIL_ETHERNET(x, ch, flow_base, flow_cnt)		\
-+	{							\
-+		.thread_id = x,					\
-+		.ep_config = {					\
-+			.ep_type = PSIL_EP_NATIVE,		\
-+			.pkt_mode = 1,				\
-+			.needs_epib = 1,			\
-+			.psd_size = 16,				\
-+			.mapped_channel_id = ch,		\
-+			.flow_start = flow_base,		\
-+			.flow_num = flow_cnt,			\
-+			.default_flow_id = flow_base,		\
-+		},						\
-+	}
++properties:
++  compatible:
++    const: ti,am62l-dmss-pktdma
 +
-+#define PSIL_PDMA_MCASP(x, ch)				\
-+	{						\
-+		.thread_id = x,				\
-+		.ep_config = {				\
-+			.ep_type = PSIL_EP_PDMA_XY,	\
-+			.pdma_acc32 = 1,		\
-+			.pdma_burst = 1,		\
-+			.mapped_channel_id = ch,	\
-+			.default_flow_id = -1		\
-+		},					\
-+	}
++  reg:
++    items:
++      - description: Packet DMA Control & Status
++      - description: Channel Realtime
++      - description: Ring Realtime
 +
-+/* PSI-L source thread IDs, used for RX (DMA_DEV_TO_MEM) */
-+static struct psil_ep am62l_src_ep_map[] = {
-+	/* PDMA_MAIN1 - UART0-6 */
-+	PSIL_PDMA_XY_PKT(0x4400, 0),
-+	PSIL_PDMA_XY_PKT(0x4401, 2),
-+	PSIL_PDMA_XY_PKT(0x4402, 4),
-+	PSIL_PDMA_XY_PKT(0x4403, 6),
-+	PSIL_PDMA_XY_PKT(0x4404, 8),
-+	PSIL_PDMA_XY_PKT(0x4405, 10),
-+	PSIL_PDMA_XY_PKT(0x4406, 12),
-+	/* PDMA_MAIN0 - SPI0 - CH0-3 */
-+	PSIL_PDMA_XYMF_TR(0x4300, 16, 0),
-+	PSIL_PDMA_XYMF_TR(0x4300, 18, 1),
-+	PSIL_PDMA_XYMF_TR(0x4300, 20, 2),
-+	PSIL_PDMA_XYMF_TR(0x4300, 22, 3),
-+	/* PDMA_MAIN0 - SPI1 - CH0-3 */
-+	PSIL_PDMA_XYMF_TR(0x4301, 24, 0),
-+	PSIL_PDMA_XYMF_TR(0x4301, 26, 1),
-+	PSIL_PDMA_XYMF_TR(0x4301, 28, 2),
-+	PSIL_PDMA_XYMF_TR(0x4301, 30, 3),
-+	/* PDMA_MAIN0 - SPI2 - CH0-3 */
-+	PSIL_PDMA_XYMF_TR(0x4302, 32, 0),
-+	PSIL_PDMA_XYMF_TR(0x4302, 34, 1),
-+	PSIL_PDMA_XYMF_TR(0x4302, 36, 2),
-+	PSIL_PDMA_XYMF_TR(0x4302, 38, 3),
-+	/* PDMA_MAIN0 - SPI3 - CH0-3 */
-+	PSIL_PDMA_XYMF_TR(0x4303, 40, 0),
-+	PSIL_PDMA_XYMF_TR(0x4303, 42, 1),
-+	PSIL_PDMA_XYMF_TR(0x4303, 44, 2),
-+	PSIL_PDMA_XYMF_TR(0x4303, 46, 3),
-+	/* PDMA_MAIN2 - MCASP0-2 */
-+	PSIL_PDMA_MCASP(0x4500, 48),
-+	PSIL_PDMA_MCASP(0x4501, 50),
-+	PSIL_PDMA_MCASP(0x4502, 52),
-+	/* PDMA_MAIN0 - AES */
-+	PSIL_PDMA_XY_TR(0x4700, 65),
-+	/* PDMA_MAIN0 - ADC */
-+	PSIL_PDMA_XY_TR(0x4503, 80),
-+	PSIL_PDMA_XY_TR(0x4504, 81),
-+	PSIL_ETHERNET(0x4600, 96, 96, 16),
-+};
++  reg-names:
++    items:
++      - const: gcfg
++      - const: chanrt
++      - const: ringrt
 +
-+/* PSI-L destination thread IDs, used for TX (DMA_MEM_TO_DEV) */
-+static struct psil_ep am62l_dst_ep_map[] = {
-+	/* PDMA_MAIN1 - UART0-6 */
-+	PSIL_PDMA_XY_PKT(0xC400, 1),
-+	PSIL_PDMA_XY_PKT(0xC401, 3),
-+	PSIL_PDMA_XY_PKT(0xC402, 5),
-+	PSIL_PDMA_XY_PKT(0xC403, 7),
-+	PSIL_PDMA_XY_PKT(0xC404, 9),
-+	PSIL_PDMA_XY_PKT(0xC405, 11),
-+	PSIL_PDMA_XY_PKT(0xC406, 13),
-+	/* PDMA_MAIN0 - SPI0 - CH0-3 */
-+	PSIL_PDMA_XYMF_TR(0xC300, 17, 0),
-+	PSIL_PDMA_XYMF_TR(0xC300, 19, 1),
-+	PSIL_PDMA_XYMF_TR(0xC300, 21, 2),
-+	PSIL_PDMA_XYMF_TR(0xC300, 23, 3),
-+	/* PDMA_MAIN0 - SPI1 - CH0-3 */
-+	PSIL_PDMA_XYMF_TR(0xC301, 25, 0),
-+	PSIL_PDMA_XYMF_TR(0xC301, 27, 1),
-+	PSIL_PDMA_XYMF_TR(0xC301, 29, 2),
-+	PSIL_PDMA_XYMF_TR(0xC301, 31, 3),
-+	/* PDMA_MAIN0 - SPI2 - CH0-3 */
-+	PSIL_PDMA_XYMF_TR(0xC302, 33, 0),
-+	PSIL_PDMA_XYMF_TR(0xC302, 35, 1),
-+	PSIL_PDMA_XYMF_TR(0xC302, 37, 2),
-+	PSIL_PDMA_XYMF_TR(0xC302, 39, 3),
-+	/* PDMA_MAIN0 - SPI3 - CH0-3 */
-+	PSIL_PDMA_XYMF_TR(0xC303, 41, 0),
-+	PSIL_PDMA_XYMF_TR(0xC303, 43, 1),
-+	PSIL_PDMA_XYMF_TR(0xC303, 45, 2),
-+	PSIL_PDMA_XYMF_TR(0xC303, 47, 3),
-+	/* PDMA_MAIN2 - MCASP0-2 */
-+	PSIL_PDMA_MCASP(0xC500, 49),
-+	PSIL_PDMA_MCASP(0xC501, 51),
-+	PSIL_PDMA_MCASP(0xC502, 53),
-+	/* PDMA_MAIN0 - SHA */
-+	PSIL_PDMA_XY_TR(0xC700, 64),
-+	/* PDMA_MAIN0 - AES */
-+	PSIL_PDMA_XY_TR(0xC701, 66),
-+	/* PDMA_MAIN0 - CRC32 - CH0-1 */
-+	PSIL_PDMA_XYMF_TR(0xC702, 67, 0),
-+	PSIL_PDMA_XYMF_TR(0xC702, 68, 1),
-+	/* CPSW3G */
-+	PSIL_ETHERNET(0xc600, 64, 64, 2),
-+	PSIL_ETHERNET(0xc601, 66, 66, 2),
-+	PSIL_ETHERNET(0xc602, 68, 68, 2),
-+	PSIL_ETHERNET(0xc603, 70, 70, 2),
-+	PSIL_ETHERNET(0xc604, 72, 72, 2),
-+	PSIL_ETHERNET(0xc605, 74, 74, 2),
-+	PSIL_ETHERNET(0xc606, 76, 76, 2),
-+	PSIL_ETHERNET(0xc607, 78, 78, 2),
-+};
++  "#dma-cells":
++    const: 2
++    description: |
++      cell 1: Flow ID for the peripheral
++        This is the hardware flow index assigned to the peripheral. TX and RX
++        flow indices are mixed across the valid range. For XYMF peripherals
++        (SPI, CRC32) each chip-select/FIFO has a distinct flow ID; use the
++        flow ID for the specific direction and chip-select being requested.
 +
-+struct psil_ep_map am62l_ep_map = {
-+	.name = "am62l",
-+	.src = am62l_src_ep_map,
-+	.src_count = ARRAY_SIZE(am62l_src_ep_map),
-+	.dst = am62l_dst_ep_map,
-+	.dst_count = ARRAY_SIZE(am62l_dst_ep_map),
-+};
-diff --git a/drivers/dma/ti/k3-psil-priv.h b/drivers/dma/ti/k3-psil-priv.h
-index a577be97e3447..970afd46a79e6 100644
---- a/drivers/dma/ti/k3-psil-priv.h
-+++ b/drivers/dma/ti/k3-psil-priv.h
-@@ -35,6 +35,10 @@ struct psil_ep_map {
- };
- 
- struct psil_endpoint_config *psil_get_ep_config(u32 thread_id);
-+struct psil_endpoint_config *psil_get_ep_config_by_id(u32 channel_id,
-+						      bool is_pktdma,
-+						      u32 *thread_id,
-+						      bool *dev_to_mem);
- 
- /* SoC PSI-L endpoint maps */
- extern struct psil_ep_map am654_ep_map;
-@@ -46,5 +50,6 @@ extern struct psil_ep_map am62_ep_map;
- extern struct psil_ep_map am62a_ep_map;
- extern struct psil_ep_map j784s4_ep_map;
- extern struct psil_ep_map am62p_ep_map;
-+extern struct psil_ep_map am62l_ep_map;
- 
- #endif /* K3_PSIL_PRIV_H_ */
-diff --git a/drivers/dma/ti/k3-psil.c b/drivers/dma/ti/k3-psil.c
-index c4b6f0df46861..153ed5fc79e53 100644
---- a/drivers/dma/ti/k3-psil.c
-+++ b/drivers/dma/ti/k3-psil.c
-@@ -28,6 +28,7 @@ static const struct soc_device_attribute k3_soc_devices[] = {
- 	{ .family = "J784S4", .data = &j784s4_ep_map },
- 	{ .family = "AM62PX", .data = &am62p_ep_map },
- 	{ .family = "J722S", .data = &am62p_ep_map },
-+	{ .family = "AM62LX", .data = &am62l_ep_map },
- 	{ /* sentinel */ }
- };
- 
-@@ -71,12 +72,68 @@ struct psil_endpoint_config *psil_get_ep_config(u32 thread_id)
- }
- EXPORT_SYMBOL_GPL(psil_get_ep_config);
- 
-+struct psil_endpoint_config *psil_get_ep_config_by_id(u32 channel_id,
-+						       bool is_pktdma,
-+						       u32 *thread_id,
-+						       bool *dev_to_mem)
-+{
-+	int i;
++        Please refer to the device documentation for the flow map.
 +
-+	mutex_lock(&ep_map_mutex);
-+	if (!soc_ep_map) {
-+		const struct soc_device_attribute *soc;
++      cell 2: ASEL value for the channel
 +
-+		soc = soc_device_match(k3_soc_devices);
-+		if (soc) {
-+			soc_ep_map = soc->data;
-+		} else {
-+			pr_err("PSIL: No compatible machine found for map\n");
-+			mutex_unlock(&ep_map_mutex);
-+			return ERR_PTR(-ENOTSUPP);
-+		}
-+	}
++  interrupts:
++    maxItems: 78
++    description:
++      Interrupts for DMA channels.
 +
-+	if (soc_ep_map->src) {
-+		for (i = 0; i < soc_ep_map->src_count; i++) {
-+			struct psil_ep *ep = &soc_ep_map->src[i];
++  interrupt-names:
++    minItems: 78
++    maxItems: 78
++    items:
++      pattern: "^(t|r)x-([0-9]|1[0-3]|1[6-9]|2[0-9]|3[0-9]|4[0-7]|6[4-9]|7[0-9]|9[6-9]|10[0-9]|11[01])$"
++    description:
++      The name of the interrupt corresponding to the DMA flow.
++      TX flows use the "tx-" prefix, RX flows use the "rx-" prefix.
 +
-+			if (ep->ep_config.mapped_channel_id != (s16)channel_id)
-+				continue;
-+			if ((bool)ep->ep_config.pkt_mode != is_pktdma)
-+				continue;
-+			*thread_id = ep->thread_id;
-+			*dev_to_mem = true;
-+			mutex_unlock(&ep_map_mutex);
-+			return &ep->ep_config;
-+		}
-+	}
++required:
++  - compatible
++  - reg
++  - reg-names
++  - "#dma-cells"
++  - interrupts
++  - interrupt-names
 +
-+	if (soc_ep_map->dst) {
-+		for (i = 0; i < soc_ep_map->dst_count; i++) {
-+			struct psil_ep *ep = &soc_ep_map->dst[i];
++unevaluatedProperties: false
 +
-+			if (ep->ep_config.mapped_channel_id != (s16)channel_id)
-+				continue;
-+			if ((bool)ep->ep_config.pkt_mode != is_pktdma)
-+				continue;
-+			*thread_id = ep->thread_id;
-+			*dev_to_mem = false;
-+			mutex_unlock(&ep_map_mutex);
-+			return &ep->ep_config;
-+		}
-+	}
++examples:
++  - |
++    #include <dt-bindings/interrupt-controller/arm-gic.h>
++    #include <dt-bindings/interrupt-controller/irq.h>
 +
-+	mutex_unlock(&ep_map_mutex);
-+	return ERR_PTR(-ENOENT);
-+}
-+EXPORT_SYMBOL_GPL(psil_get_ep_config_by_id);
++    dma-controller@485c0000 {
++        compatible = "ti,am62l-dmss-pktdma";
++        reg = <0x485c0000 0x4000>,
++              <0x48900000 0x80000>,
++              <0x47200000 0x100000>;
++        reg-names = "gcfg", "chanrt", "ringrt";
 +
- int psil_set_new_ep_config(struct device *dev, const char *name,
- 			   struct psil_endpoint_config *ep_config)
- {
- 	struct psil_endpoint_config *dst_ep_config;
--	struct of_phandle_args dma_spec;
--	u32 thread_id;
-+	struct of_phandle_args dma_spec = { 0 };
-+	u32 thread_id = 0;
- 	int index;
- 
- 	if (!dev || !dev->of_node)
-@@ -90,9 +147,34 @@ int psil_set_new_ep_config(struct device *dev, const char *name,
- 				       index, &dma_spec))
- 		return -ENOENT;
- 
--	thread_id = dma_spec.args[0];
-+	if (of_device_is_compatible(dma_spec.np, "ti,am62l-dmss-pktdma")) {
-+		bool dev_to_mem;
++        #dma-cells = <2>;
 +
-+		if (dma_spec.args_count < 1) {
-+			of_node_put(dma_spec.np);
-+			return -EINVAL;
-+		}
- 
--	dst_ep_config = psil_get_ep_config(thread_id);
-+		thread_id = dma_spec.args[0];
-+		dst_ep_config = psil_get_ep_config_by_id(dma_spec.args[0],
-+							  true,
-+							  &thread_id, &dev_to_mem);
-+	} else if (of_device_is_compatible(dma_spec.np, "ti,am62l-dmss-bcdma")) {
-+		bool dev_to_mem;
-+
-+		if (dma_spec.args_count < 3) {
-+			of_node_put(dma_spec.np);
-+			return -EINVAL;
-+		}
-+
-+		thread_id = dma_spec.args[2];
-+		dst_ep_config = psil_get_ep_config_by_id(dma_spec.args[2],
-+							  false,
-+							  &thread_id, &dev_to_mem);
-+	} else {
-+		thread_id = dma_spec.args[0];
-+		dst_ep_config = psil_get_ep_config(thread_id);
-+	}
- 	if (IS_ERR(dst_ep_config)) {
- 		pr_err("PSIL: thread ID 0x%04x not defined in map\n",
- 		       thread_id);
-diff --git a/include/linux/dma/k3-psil.h b/include/linux/dma/k3-psil.h
-index 5f106d852f1cf..36e347311f8b2 100644
---- a/include/linux/dma/k3-psil.h
-+++ b/include/linux/dma/k3-psil.h
-@@ -35,6 +35,7 @@ enum udma_tp_level {
- enum psil_endpoint_type {
- 	PSIL_EP_NATIVE = 0,
- 	PSIL_EP_PDMA_XY,
-+	PSIL_EP_PDMA_XYMF,
- 	PSIL_EP_PDMA_MCAN,
- 	PSIL_EP_PDMA_AASRC,
- };
-@@ -78,6 +79,8 @@ struct psil_endpoint_config {
- 	u16 flow_start;
- 	u16 flow_num;
- 	s16 default_flow_id;
-+	/* XYMF FIFO index (0-3 for CS0-CS3), Only for PSIL_EP_PDMA_XYMF */
-+	u8 fifo_id;
- };
- 
- int psil_set_new_ep_config(struct device *dev, const char *name,
++        interrupts = <GIC_SPI 354 IRQ_TYPE_LEVEL_HIGH>,
++                     <GIC_SPI 355 IRQ_TYPE_LEVEL_HIGH>,
++                     <GIC_SPI 358 IRQ_TYPE_LEVEL_HIGH>,
++                     <GIC_SPI 359 IRQ_TYPE_LEVEL_HIGH>,
++                     <GIC_SPI 362 IRQ_TYPE_LEVEL_HIGH>,
++                     <GIC_SPI 363 IRQ_TYPE_LEVEL_HIGH>,
++                     <GIC_SPI 366 IRQ_TYPE_LEVEL_HIGH>,
++                     <GIC_SPI 367 IRQ_TYPE_LEVEL_HIGH>,
++                     <GIC_SPI 370 IRQ_TYPE_LEVEL_HIGH>,
++                     <GIC_SPI 371 IRQ_TYPE_LEVEL_HIGH>,
++                     <GIC_SPI 374 IRQ_TYPE_LEVEL_HIGH>,
++                     <GIC_SPI 375 IRQ_TYPE_LEVEL_HIGH>,
++                     <GIC_SPI 378 IRQ_TYPE_LEVEL_HIGH>,
++                     <GIC_SPI 379 IRQ_TYPE_LEVEL_HIGH>,
++                     <GIC_SPI 322 IRQ_TYPE_LEVEL_HIGH>,
++                     <GIC_SPI 323 IRQ_TYPE_LEVEL_HIGH>,
++                     <GIC_SPI 322 IRQ_TYPE_LEVEL_HIGH>,
++                     <GIC_SPI 323 IRQ_TYPE_LEVEL_HIGH>,
++                     <GIC_SPI 322 IRQ_TYPE_LEVEL_HIGH>,
++                     <GIC_SPI 323 IRQ_TYPE_LEVEL_HIGH>,
++                     <GIC_SPI 322 IRQ_TYPE_LEVEL_HIGH>,
++                     <GIC_SPI 323 IRQ_TYPE_LEVEL_HIGH>,
++                     <GIC_SPI 326 IRQ_TYPE_LEVEL_HIGH>,
++                     <GIC_SPI 327 IRQ_TYPE_LEVEL_HIGH>,
++                     <GIC_SPI 326 IRQ_TYPE_LEVEL_HIGH>,
++                     <GIC_SPI 327 IRQ_TYPE_LEVEL_HIGH>,
++                     <GIC_SPI 326 IRQ_TYPE_LEVEL_HIGH>,
++                     <GIC_SPI 327 IRQ_TYPE_LEVEL_HIGH>,
++                     <GIC_SPI 326 IRQ_TYPE_LEVEL_HIGH>,
++                     <GIC_SPI 327 IRQ_TYPE_LEVEL_HIGH>,
++                     <GIC_SPI 330 IRQ_TYPE_LEVEL_HIGH>,
++                     <GIC_SPI 331 IRQ_TYPE_LEVEL_HIGH>,
++                     <GIC_SPI 330 IRQ_TYPE_LEVEL_HIGH>,
++                     <GIC_SPI 331 IRQ_TYPE_LEVEL_HIGH>,
++                     <GIC_SPI 330 IRQ_TYPE_LEVEL_HIGH>,
++                     <GIC_SPI 331 IRQ_TYPE_LEVEL_HIGH>,
++                     <GIC_SPI 330 IRQ_TYPE_LEVEL_HIGH>,
++                     <GIC_SPI 331 IRQ_TYPE_LEVEL_HIGH>,
++                     <GIC_SPI 334 IRQ_TYPE_LEVEL_HIGH>,
++                     <GIC_SPI 335 IRQ_TYPE_LEVEL_HIGH>,
++                     <GIC_SPI 334 IRQ_TYPE_LEVEL_HIGH>,
++                     <GIC_SPI 335 IRQ_TYPE_LEVEL_HIGH>,
++                     <GIC_SPI 334 IRQ_TYPE_LEVEL_HIGH>,
++                     <GIC_SPI 335 IRQ_TYPE_LEVEL_HIGH>,
++                     <GIC_SPI 334 IRQ_TYPE_LEVEL_HIGH>,
++                     <GIC_SPI 335 IRQ_TYPE_LEVEL_HIGH>,
++                     <GIC_SPI 500 IRQ_TYPE_LEVEL_HIGH>,
++                     <GIC_SPI 501 IRQ_TYPE_LEVEL_HIGH>,
++                     <GIC_SPI 502 IRQ_TYPE_LEVEL_HIGH>,
++                     <GIC_SPI 503 IRQ_TYPE_LEVEL_HIGH>,
++                     <GIC_SPI 504 IRQ_TYPE_LEVEL_HIGH>,
++                     <GIC_SPI 505 IRQ_TYPE_LEVEL_HIGH>,
++                     <GIC_SPI 506 IRQ_TYPE_LEVEL_HIGH>,
++                     <GIC_SPI 507 IRQ_TYPE_LEVEL_HIGH>,
++                     <GIC_SPI 508 IRQ_TYPE_LEVEL_HIGH>,
++                     <GIC_SPI 509 IRQ_TYPE_LEVEL_HIGH>,
++                     <GIC_SPI 510 IRQ_TYPE_LEVEL_HIGH>,
++                     <GIC_SPI 511 IRQ_TYPE_LEVEL_HIGH>,
++                     <GIC_SPI 512 IRQ_TYPE_LEVEL_HIGH>,
++                     <GIC_SPI 513 IRQ_TYPE_LEVEL_HIGH>,
++                     <GIC_SPI 514 IRQ_TYPE_LEVEL_HIGH>,
++                     <GIC_SPI 515 IRQ_TYPE_LEVEL_HIGH>,
++                     <GIC_SPI 484 IRQ_TYPE_LEVEL_HIGH>,
++                     <GIC_SPI 485 IRQ_TYPE_LEVEL_HIGH>,
++                     <GIC_SPI 486 IRQ_TYPE_LEVEL_HIGH>,
++                     <GIC_SPI 487 IRQ_TYPE_LEVEL_HIGH>,
++                     <GIC_SPI 488 IRQ_TYPE_LEVEL_HIGH>,
++                     <GIC_SPI 489 IRQ_TYPE_LEVEL_HIGH>,
++                     <GIC_SPI 490 IRQ_TYPE_LEVEL_HIGH>,
++                     <GIC_SPI 491 IRQ_TYPE_LEVEL_HIGH>,
++                     <GIC_SPI 492 IRQ_TYPE_LEVEL_HIGH>,
++                     <GIC_SPI 493 IRQ_TYPE_LEVEL_HIGH>,
++                     <GIC_SPI 494 IRQ_TYPE_LEVEL_HIGH>,
++                     <GIC_SPI 495 IRQ_TYPE_LEVEL_HIGH>,
++                     <GIC_SPI 496 IRQ_TYPE_LEVEL_HIGH>,
++                     <GIC_SPI 497 IRQ_TYPE_LEVEL_HIGH>,
++                     <GIC_SPI 498 IRQ_TYPE_LEVEL_HIGH>,
++                     <GIC_SPI 499 IRQ_TYPE_LEVEL_HIGH>;
++        interrupt-names = "rx-0", "tx-1", "rx-2", "tx-3", "rx-4",
++                          "tx-5", "rx-6", "tx-7", "rx-8", "tx-9",
++                          "rx-10", "tx-11", "rx-12", "tx-13",
++                          "rx-16", "tx-17", "rx-18", "tx-19",
++                          "rx-20", "tx-21", "rx-22", "tx-23",
++                          "rx-24", "tx-25", "rx-26", "tx-27",
++                          "rx-28", "tx-29", "rx-30", "tx-31",
++                          "rx-32", "tx-33", "rx-34", "tx-35",
++                          "rx-36", "tx-37", "rx-38", "tx-39",
++                          "rx-40", "tx-41", "rx-42", "tx-43",
++                          "rx-44", "tx-45", "rx-46", "tx-47",
++                          "tx-64", "tx-65", "tx-66", "tx-67",
++                          "tx-68", "tx-69", "tx-70", "tx-71",
++                          "tx-72", "tx-73", "tx-74", "tx-75",
++                          "tx-76", "tx-77", "tx-78", "tx-79",
++                          "rx-96", "rx-97", "rx-98", "rx-99",
++                          "rx-100", "rx-101", "rx-102", "rx-103",
++                          "rx-104", "rx-105", "rx-106", "rx-107",
++                          "rx-108", "rx-109", "rx-110", "rx-111";
++    };
 -- 
 2.54.0
 
