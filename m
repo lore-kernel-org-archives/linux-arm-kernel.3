@@ -4,97 +4,87 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id AE451C9832F
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 28 Sep 2026 09:41:30 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0B978C9833E
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 28 Sep 2026 09:43:15 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ge0jtZOtdWzZExU51tpnSwFUmBlplbOktdbQBWDiyyQ=; b=iqKsPZfHkZVnkmNN6hnEToVATU
-	AXYfO3pLiV0RTFQUVuIUGzh4r1uwelP2qSJBz1Kf5J73DrgkGcs+CT7Hou8Hn46V2CRqpLg4VSioq
-	oLyYMr2Vi98HeUdGpOCJUpWX0qAYIwDB5evFTPtjQBG80s+YLmNGs29F2cq08eQ33Hgp18XinOQoq
-	Y6C162re1tD6RL/YSzkCcDPJKHidSlsWBSbFK00EuNO4yX0KIU/3cW3G+KVyq4eFAavufvom5V3En
-	6zWgOn6HskWDV3Rs55PXNW8ZVxOF2zpcxEnVWzFZN2F+MdLVPyWChpntndByI0vn1S/GnEaWwx5RT
-	F+mwR4Zw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
+	:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=ID7B6wbjsNNmOlQbuPS6iyOH0i0CHBvTbHBEcGBY4xo=; b=zfz38RrPf4T+O6l/AtaqTMv5zW
+	Cp5pstoWlHsMC16DoCZMNK21OpK1kzForKLQVrZznMjGW2PoDjTOXMjI6e+nobzt0Sd7sAq7B6ZgB
+	oP8wwyZAxnEM8nVzioZE6LZ8Vf0QLw+rhbAUhEufhnE84zDt39ojBpR3Ft3rHU8BeI4o2f6v71AqF
+	4JfSlGFbvX+l5GBcZQ4xKsfnML7RL3LOLSMqCQY7wFmAcWRM4UKY0sVnEeZd2ZV+YgGH1O3Yd3Xzv
+	m4xQ/2jvNcLjF34/ud/XNwttgsg4x2a2EmIsDfINC/FO2by7iRCmoNeqWf3syBk5u01OgYwOXVTSI
+	dMAFnfDg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xB7rP-00000000FZ3-22rh;
-	Mon, 28 Sep 2026 09:41:23 +0000
-Received: from mail-ej2-x20.google.com ([2a00:1450:4864:34::20])
+	id 1xB7t5-00000000Fp7-2tCt;
+	Mon, 28 Sep 2026 09:43:07 +0000
+Received: from www537.your-server.de ([188.40.3.216])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xB7rM-00000000FYH-2ZVO
+	id 1xB7t3-00000000FoE-1HFs
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 28 Sep 2026 09:41:21 +0000
-Received: by mail-ej2-x20.google.com with SMTP id a640c23a62f3a-c2af3701927so388099766b.3
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 28 Sep 2026 02:41:19 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1790588478; x=1791193278; darn=lists.infradead.org;
-        h=content-transfer-encoding:content-type:in-reply-to:from
-         :content-language:references:cc:to:subject:user-agent:mime-version
-         :date:message-id:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=ge0jtZOtdWzZExU51tpnSwFUmBlplbOktdbQBWDiyyQ=;
-        b=KP6MUHIirkC4dT/AXHyDA32F7iOXCTRT/DmOfcdSAD0WMvANbQ4Us0zVUPYBMCWXMR
-         9Dqwr2GkzzDsCLEfl6FJ61EPe0Spo2pBiGKq70x7qt9VeaYzNiuYarek2yyaG3JUDdUM
-         LxB0FYy2fNfyuP6Ax10xQrNS9+ihbWInuytbulrfGNk6kbyjUcJvPqfPbrk1qsLevhVS
-         1AxOhnZMju0l0fktpX7Ddfu19CuRaJGIIkEQbVF7FAb35W0Sun4ZvoV8mezI2bqLOPqB
-         k6tS/JgneYj0FDMXNtx6vb+AFAwqj4PS4JbZ30xxkOhUWnUDvAlvZFhp5OxKNakfImLy
-         X9vQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1790588478; x=1791193278;
-        h=content-transfer-encoding:content-type:in-reply-to:from
-         :content-language:references:cc:to:subject:user-agent:mime-version
-         :date:message-id:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=ge0jtZOtdWzZExU51tpnSwFUmBlplbOktdbQBWDiyyQ=;
-        b=SmcFdwsPggWnHjRXGtRRNZA5H1W6JlBEOJpgSNwfDOq4XhpWohs8ba31dcnA/97KkC
-         +kcDVhHay94NTTcU+XBEGsAk31NkRc4E0u1Db4z5ZSb+HLFudiew8VOeaLPiIXfbaETn
-         BcjjbrBWEd17ymBD6YoCog9wQj27Vk9WLHn/cgXiS1wVeFw01Twx2DGYZ2z9wQihxPds
-         X6K4d3w8ByLksrVDkp2v9eQLjm9Ak1k8s8DVzFEAfxnnOwOTE4zjT89g1WUdPT2vufY6
-         RSJwHZXNDTpnTbw33BhBg6ytrywjzSDQ+Pjx0cOTcVg74zZXg9s11YsOPKWaMJjqZD0v
-         SvrQ==
-X-Forwarded-Encrypted: i=1; AKwUvBzmkH3+7M56wCxFk0WbXOEp0D4nMsUVhP1Kai6MmGsUvjwnue0ropmoIcR4rfGv4zt3eWAu4PCpy7NgiRsTuxuB@lists.infradead.org
-X-Gm-Message-State: AFuF++li2LKKjqLGKMadh7QvdCGR0CBJIYUZMcKQCijv12mqdG1CrJKK
-	98brdsvnEoT+8qdXmt6AFf2PZOfQjd8OfBkOiIELyS5AM8ARGLBJICVEdeUSwLXNwxE=
-X-Gm-Gg: AYBFou3koSyZZ5jM/ENm/XaLQTZnHLjCvTmSgdwu5BXM/01Yb7xtoHOFohmEjWlpH4h
-	x9pgU9WxG/aflpUe1PzH4zrYBqgNDw7RLxr3gl643y+D4PWJlAHcAxqZ4Y6nfMWML5cdloBlgOr
-	LFc76spgTQ6gQ00VY0BR48KhtJTXtqdVKDUR6KQmG1qBYqy2qhqgFD47xWpl6K2dlYAOPcy14QW
-	djW1FuBpAnoiITVuK5bAVuQd7eJjAXZnV/D4JAFb9fjCZ1dMuBqLqeoSeT1EkrHolDCp6Jnrk6o
-	x/Eo+s0P84e0fFeljfiLndKyoiHYsq6NkdTvJ8aAkBMW4mutEMUrDHdZ0nGuKHjpgnntXdTF2k+
-	pvIhhethRUm5w8KoR0xnuoISimXDuhu/HNdQN0ARIUAzFqqmOx6e1q/Z06rkbB9qdUYMrCAEOSp
-	/sBZt1ULHhfxwheBC/V4iH69o5mUQRsHHTNm9vwR2Qkdgf34jCmMCdB1mRkBVHTniMXa5sKtKDs
-	Sg=
-X-Received: by 2002:a17:906:6a04:b0:c2d:d89d:346a with SMTP id a640c23a62f3a-c2dd89d497amr199434166b.3.1790588478209;
-        Mon, 28 Sep 2026 02:41:18 -0700 (PDT)
-Received: from [192.168.1.3] ([37.18.141.193])
-        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-c2af3128c48sm370662566b.3.2026.09.28.02.41.17
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Mon, 28 Sep 2026 02:41:17 -0700 (PDT)
-Message-ID: <0e6c26a9-854f-42d8-9224-6e23937ad3f1@linaro.org>
-Date: Mon, 28 Sep 2026 10:41:16 +0100
+	Mon, 28 Sep 2026 09:43:06 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=ew.tq-group.com; s=default2602; h=Content-Type:Content-Transfer-Encoding:
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Sender
+	:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID;
+	bh=ID7B6wbjsNNmOlQbuPS6iyOH0i0CHBvTbHBEcGBY4xo=; b=fOsRGqydo0GOhg1fGXJKGFG7+T
+	zl/gxqlyIwfiwPOJ77hcmcIgtd0MQNDA3DwOLHLehbjZHpfO1xk1O7qUoysmlJxSYWdODWXXb+LX8
+	/jY7cVUBNMNiR9HLPyDy6BuMciBs5cDX9xCzojc7tLKOK4sVJzViebHly15VasTEtP1Xw/dk9xtNz
+	34ZhJbkHjDM3zTAvPRGYD5YyvPR2kbUWza3GTTp5vmDIvu6FVE7HYVdo47033LHHHc4uRpyQP8zy2
+	D9fOzoq4Bk40fcUOHzRIVN3DH+UJS3qsDylhteJCu2bQomzXN1KerlLSSJPfPVr/fPeHD4Q7ocbrm
+	JUbJdCeA==;
+Received: from sslproxy03.your-server.de ([88.198.220.132])
+	by www537.your-server.de with esmtpsa  (TLS1.3) tls TLS_AES_256_GCM_SHA384
+	(Exim 4.96.2)
+	(envelope-from <alexander.stein@ew.tq-group.com>)
+	id 1xB7ss-000JjN-0f;
+	Mon, 28 Sep 2026 11:42:54 +0200
+Received: from localhost ([127.0.0.1])
+	by sslproxy03.your-server.de with esmtpsa  (TLS1.3) tls TLS_AES_256_GCM_SHA384
+	(Exim 4.96)
+	(envelope-from <alexander.stein@ew.tq-group.com>)
+	id 1xB7sr-000A1V-2o;
+	Mon, 28 Sep 2026 11:42:53 +0200
+From: Alexander Stein <alexander.stein@ew.tq-group.com>
+To: Andrzej Hajda <andrzej.hajda@intel.com>,
+ Neil Armstrong <neil.armstrong@linaro.org>, Robert Foss <rfoss@kernel.org>,
+ Laurent Pinchart <Laurent.pinchart@ideasonboard.com>,
+ Jonas Karlman <jonas@kwiboo.se>, Jernej Skrabec <jernej.skrabec@gmail.com>,
+ Luca Ceresoli <luca.ceresoli@bootlin.com>,
+ Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
+ Maxime Ripard <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>,
+ David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>,
+ Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+ Conor Dooley <conor+dt@kernel.org>,
+ Guido =?ISO-8859-1?Q?G=FAnther?= <agx@sigxcpu.org>,
+ Robert Chiras <robert.chiras@nxp.com>, Tim Harvey <tharvey@gateworks.com>,
+ Sascha Hauer <s.hauer@pengutronix.de>,
+ Pengutronix Kernel Team <kernel@pengutronix.de>,
+ Fabio Estevam <festevam@gmail.com>, Frank.Li@oss.nxp.com
+Cc: dri-devel@lists.freedesktop.org, devicetree@vger.kernel.org,
+ linux-kernel@vger.kernel.org, imx@lists.linux.dev,
+ linux-arm-kernel@lists.infradead.org, linux@ew.tq-group.com,
+ Frank Li <Frank.Li@nxp.com>
+Subject: Re: [PATCH 1/8] dt-bindings: display: remove #address-cells and #size-cells
+ off requires
+Date: Mon, 28 Sep 2026 11:42:51 +0200
+Message-ID: <5135446.31r3eYUQgx@steina-w>
+Organization: TQ-Systems GmbH
+In-Reply-To: <20260925-cleanup_dtb_warning-v1-1-f999fafbca60@nxp.com>
+References: <20260925-cleanup_dtb_warning-v1-0-f999fafbca60@nxp.com>
+ <20260925-cleanup_dtb_warning-v1-1-f999fafbca60@nxp.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 0/3] perf: Suppress redundant ITRACE start records for Arm
- SPE and CoreSight
-To: Leo Yan <leo.yan@arm.com>
-Cc: linux-perf-users@vger.kernel.org, linux-kernel@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, coresight@lists.linaro.org,
- Peter Zijlstra <peterz@infradead.org>, Ingo Molnar <mingo@redhat.com>,
- Will Deacon <will@kernel.org>, Suzuki K Poulose <suzuki.poulose@arm.com>,
- Mark Rutland <mark.rutland@arm.com>, Adrian Hunter
- <adrian.hunter@intel.com>, Mike Leach <mike.leach@arm.com>,
- Tamas Petz <tamas.petz@arm.com>, Tamas Zsoldos <tamas.zsoldos@arm.com>
-References: <20260901-perf_suppress_itrace_start_records-v1-0-c4fbc6860859@arm.com>
-Content-Language: en-US
-From: James Clark <james.clark@linaro.org>
-In-Reply-To: <20260901-perf_suppress_itrace_start_records-v1-0-c4fbc6860859@arm.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
+Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset="iso-8859-1"
+X-Virus-Scanned: Clear (ClamAV 1.4.3/28137/Mon Sep 28 08:24:12 2026)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260928_024120_679676_B8ABD74E 
-X-CRM114-Status: GOOD (  16.54  )
+X-CRM114-CacheID: sfid-20260928_024305_454125_44CB2C7F 
+X-CRM114-Status: GOOD (  10.83  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -109,55 +99,42 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+Am Freitag, 25. September 2026, 18:37:50 CEST schrieb Frank.Li@oss.nxp.com:
+> From: Frank Li <Frank.Li@nxp.com>
+>=20
+> The display panel node is not necessary located in dsi node. So remove
+> these from requires list.
+>=20
+> Signed-off-by: Frank Li <Frank.Li@nxp.com>
 
-
-On 01/09/2026 17:36, Leo Yan wrote:
-> Thanks to Tamas Petz for noticing that Arm CoreSight perf data can contain
-> many PERF_RECORD_ITRACE_START records.
-> 
-> PERF_RECORD_ITRACE_START provides the decoder with the initial thread
-> context when that information is absent from the trace stream. Once
-> tracing has started, Arm SPE and CoreSight decoders track subsequent
-> context changes using context packets or recorded sched_switch events.
-> 
-> Have both drivers call perf_event_itrace_started() after successfully
-> starting event. This prevents perf core from emitting redundant
-> PERF_RECORD_ITRACE_START records when an event is scheduled in again.
-> 
-> Since the Arm SPE and CoreSight drivers can be built as modules, export
-> perf_event_itrace_started() before using it in those drivers.
-> 
-> This series was verified with Arm CoreSight using the commands below.
-> The perf data contains 100 sched_switch events but only one
-> PERF_RECORD_ITRACE_START record:
-> 
->    taskset -c 2 perf record -e cs_etm//u -e sched:sched_switch -- \
-> 	  taskset -c 2 bash -c 'while true; do sleep 0.01; done'
->    ^C
-> 
->    perf script -D 2>&1 | grep -c sched_switch
->    100
-> 
->    perf script -D 2>&1 | grep -c PERF_RECORD_ITRACE_START
->    1
-> 
-> Signed-off-by: Leo Yan <leo.yan@arm.com>
+Acked-by: Alexander Stein <alexander.stein@ew.tq-group.com>
 > ---
-> Leo Yan (3):
->        perf/core: Export perf_event_itrace_started()
->        perf: arm_spe: Suppress redundant ITRACE start records
->        coresight: perf: Suppress ITRACE start records
-> 
->   drivers/hwtracing/coresight/coresight-etm-perf.c | 2 ++
->   drivers/perf/arm_spe_pmu.c                       | 2 ++
->   kernel/events/core.c                             | 1 +
->   3 files changed, 5 insertions(+)
-> ---
-> base-commit: 786262be6048deab760f68c8acc2c85607165894
-> change-id: 20260901-perf_suppress_itrace_start_records-42faf45e9ce9
-> 
-> Best regards,
+>  Documentation/devicetree/bindings/display/bridge/nwl-dsi.yaml | 2 --
+>  1 file changed, 2 deletions(-)
+>=20
+> diff --git a/Documentation/devicetree/bindings/display/bridge/nwl-dsi.yam=
+l b/Documentation/devicetree/bindings/display/bridge/nwl-dsi.yaml
+> index 5952e6448ed47..a0c3ba9275684 100644
+> --- a/Documentation/devicetree/bindings/display/bridge/nwl-dsi.yaml
+> +++ b/Documentation/devicetree/bindings/display/bridge/nwl-dsi.yaml
+> @@ -137,8 +137,6 @@ properties:
+>        - port@1
+> =20
+>  required:
+> -  - '#address-cells'
+> -  - '#size-cells'
+>    - clock-names
+>    - clocks
+>    - compatible
+>=20
+>=20
 
-Reviewed-by: James Clark <james.clark@linaro.org>
+
+=2D-=20
+TQ-Systems GmbH | M=FChlstra=DFe 2, Gut Delling | 82229 Seefeld, Germany
+Amtsgericht M=FCnchen, HRB 105018
+Gesch=E4ftsf=FChrer: Detlef Schneider, R=FCdiger Stahl, Stefan Schneider
+http://www.tq-group.com/
+
 
 
