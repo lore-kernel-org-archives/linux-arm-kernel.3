@@ -4,63 +4,127 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 52AA2C9832F
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 28 Sep 2026 08:04:09 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C37DAC9833E
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 28 Sep 2026 08:04:28 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:References:In-Reply-To:Message-ID:Date
-	:Cc:To:From:Subject:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=wpKB8NWNIG9HI9GTo75J4nfgoxYdt8QoZF0s8fE5gFw=; b=OB3hWCqNCCt33qdRIscU9BXfhX
-	4sbQ4zaUbpSBpDaOkxOREUzh4R0jpLsYJjvzoxnctDa1EZzwsutoVwP84j39reDYKHwRyh5aeBwgp
-	JiP+cjOxg+TjcmKCSFdIpDmteFWnSOg5O9UrmEXXmjGqXJm40JZq9zIgOfWNsM46P4L0PXvHZwSiH
-	N/U9o14nWafDhuY09wiOLJUNbcgpxW4+GHp40K8Tbo+4pxF/bB3nXDB00qI7ryFiYzU+D1AEfjtQ/
-	+WzozktqeHJZtoaXEuFeNr11olnWo1zamqJrhNa5NzHcNW+otHumRfABUoQPEOr9imeBL+xGXOGsj
-	W3TsVVoA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=kmYVfCKDkAd4SbCiRkHNFQwJCnqKJd6ox50FWhc42Yg=; b=X+Am4VZLUJ/6ZWwTDJML56h7Jw
+	F3DoDNlkaIyD1XcAL/TACzcAjN1quwePC/SbqzRgwK08+ErHpQjIZnIdPn4ErZtTKph84K0gQNd8h
+	fRUgmipYFynlYWmhz8YqKxwzBQ58Do3J9Yc4viYVYUisMPodiHhvJH/1phpt+84+iB2GibWbkO+D3
+	O5L6LbsRj01/iIac+NYnj8RfFBoPINYZoIMoF76B0bDejVqCtfpNrr0l1bnSwxZuAboiUKWcJFtDr
+	XjkswBHWAu9MsZzXOmNsZ9l1XJadZVIbKBM2BXOp1C8KX3EbSao0A8x7qaFLF81UKbzRFZMwOxqxw
+	dwDPKw5A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xB6LC-000000000MG-3xi1;
-	Mon, 28 Sep 2026 08:04:02 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1xB6LW-000000000cg-1FIS;
+	Mon, 28 Sep 2026 08:04:22 +0000
+Received: from smtp-out1.suse.de ([195.135.223.130])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xB6Kv-000000000CW-1q7j;
-	Mon, 28 Sep 2026 08:03:45 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id 57E3060D85;
-	Mon, 28 Sep 2026 08:03:44 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id C94FD1F000FF;
-	Mon, 28 Sep 2026 08:03:42 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1790582624;
-	bh=wpKB8NWNIG9HI9GTo75J4nfgoxYdt8QoZF0s8fE5gFw=;
-	h=Subject:From:To:Cc:Date:In-Reply-To:References;
-	b=fQwmu5tZ++pPdx978y8XvVOELXuIhncUvhyxzvE3O28BzUdCEfshtgvu6Ynzj9ine
-	 bnC73Rzfo9sFCCL8gc8PvojoDaVGNcVeAjQXndfnduOZcKzV6AXEW/mppLXuwcgbli
-	 jDY2o76gvQzgaJ4E3zxjgnrWuYvCgick5VE2SEqzgpazPxoFnRBCLcicVatAGSQ8+a
-	 WbmRCmUD+U+2PA+bVTY2WzNpmeJh2Tfo8ZKfSVMMf2LtlFj0S6cAI8kNTtktL010mt
-	 t0+XXepyA6wezn0wGw/geaZ6Ijhfi0Sv/L0vKPTg1w7yPWhw8yQ1QtDF9a5bMhC5hU
-	 2feqsY/CYFnsg==
-Subject: Re: [PATCH net-next v2 7/7] net: stmmac: mediatek: add support for MT8189 SoC
-From: netdev-bot+sashiko@kernel.org
-To: louisalexis.eyraud@collabora.com
-Cc: andrew+netdev@lunn.ch, davem@davemloft.net, edumazet@google.com,
- kuba@kernel.org, pabeni@redhat.com, robh@kernel.org, krzk+dt@kernel.org,
- conor+dt@kernel.org, richardcochran@gmail.com, matthias.bgg@gmail.com,
- angelogioacchino.delregno@collabora.com, biao.huang@mediatek.com,
- maxime.chevallier@bootlin.com, mcoquelin.stm32@gmail.com,
- alexandre.torgue@foss.st.com, kernel@collabora.com, netdev@vger.kernel.org,
- devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org,
- linux-stm32@st-md-mailman.stormreply.com
-Date: Mon, 28 Sep 2026 08:03:42 +0000
-Message-ID: <179058262236.3145.17042342965998808468@kernel.org>
-In-Reply-To: <20260924-dwmac-mediatek-mt8189-v2-7-430bd74d5ef9@collabora.com>
-References: <20260924-dwmac-mediatek-mt8189-v2-7-430bd74d5ef9@collabora.com>
-X-sashiko-severity: Medium
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 8bit
+	id 1xB6L5-000000000G4-2yH3;
+	Mon, 28 Sep 2026 08:03:56 +0000
+Received: from imap1.dmz-prg2.suse.org (unknown [10.150.64.97])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	by smtp-out1.suse.de (Postfix) with ESMTPS id 3F02C22261;
+	Mon, 28 Sep 2026 08:03:30 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=suse.de; s=susede2_rsa;
+	t=1790582614; h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
+	 mime-version:mime-version:  content-transfer-encoding:content-transfer-encoding;
+	bh=kmYVfCKDkAd4SbCiRkHNFQwJCnqKJd6ox50FWhc42Yg=;
+	b=1ua2sRpcqIDd0Oijf+IF02cBKLPxqxj5tmuxhcCEQO+s6VIGoN/tV2gKgagRDlN0zrHoU3
+	LWQcHEdIufpabOYDqrUPqBZREUeBfSR6U/nzCHncp1Hv7bxfe09x68FzuJF/Haww5D9sal
+	NzksfVa1fNVBtrCcTDKl+VgfASf9zuQ=
+DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=suse.de;
+	s=susede2_ed25519; t=1790582614;
+	h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
+	 mime-version:mime-version:  content-transfer-encoding:content-transfer-encoding;
+	bh=kmYVfCKDkAd4SbCiRkHNFQwJCnqKJd6ox50FWhc42Yg=;
+	b=52CrCdTuknPBq2KMST9yyDXVP+bv0PB+Xx0tMYmfF7xfcxPDshquuGrD+r1R47U8GnV+ju
+	uvj89sH0wnXlL7Cg==
+Authentication-Results: smtp-out1.suse.de;
+	none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=suse.de; s=susede2_rsa;
+	t=1790582610; h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
+	 mime-version:mime-version:  content-transfer-encoding:content-transfer-encoding;
+	bh=kmYVfCKDkAd4SbCiRkHNFQwJCnqKJd6ox50FWhc42Yg=;
+	b=qAf7ExlUyrNUcSjyDnTOUXS9apNmnZBOjeefhQD1qLdL/CcFIcXfgGxhj9qbOc4kmQifbf
+	at6GqXjinwuaY3UFe5rLNcLHzEFgORFoIsOsFIM+r5OoTp82prGkxyMZfYeiY9Rv9US3rU
+	jK+4Nm2G0OoqJefHqWA7RZDnuzX6nrM=
+DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=suse.de;
+	s=susede2_ed25519; t=1790582610;
+	h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
+	 mime-version:mime-version:  content-transfer-encoding:content-transfer-encoding;
+	bh=kmYVfCKDkAd4SbCiRkHNFQwJCnqKJd6ox50FWhc42Yg=;
+	b=qPraS+eD7dKSEWR2Xe0in4GJ1jZ762mYQ2OGg/nZd0KMRWaiPjOWc8fcE+hcLZzot+WvdR
+	xeJ2+PejIm/4YBAQ==
+Received: from imap1.dmz-prg2.suse.org (localhost [127.0.0.1])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	by imap1.dmz-prg2.suse.org (Postfix) with ESMTPS id 748EF133F1;
+	Mon, 28 Sep 2026 08:03:29 +0000 (UTC)
+Received: from dovecot-director2.suse.de ([2a07:de40:b281:106:10:150:64:167])
+	by imap1.dmz-prg2.suse.org with ESMTPSA
+	id LwPoBFEfumpBYQAAD6G6ig
+	(envelope-from <tzimmermann@suse.de>); Mon, 28 Sep 2026 08:03:29 +0000
+From: Thomas Zimmermann <tzimmermann@suse.de>
+To: jfalempe@redhat.com,
+	javierm@redhat.com,
+	maarten.lankhorst@linux.intel.com,
+	mripard@kernel.org,
+	airlied@gmail.com,
+	simona@ffwll.ch,
+	jani.nikula@linux.intel.com,
+	Alexander.Deucher@amd.com
+Cc: dri-devel@lists.freedesktop.org,
+	amd-gfx@lists.freedesktop.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-samsung-soc@vger.kernel.org,
+	intel-gfx@lists.freedesktop.org,
+	intel-xe@lists.freedesktop.org,
+	linux-arm-msm@vger.kernel.org,
+	freedreno@lists.freedesktop.org,
+	nouveau@lists.freedesktop.org,
+	linux-rockchip@lists.infradead.org,
+	linux-tegra@vger.kernel.org,
+	sashiko-reviews@lists.linux.dev,
+	Thomas Zimmermann <tzimmermann@suse.de>
+Subject: [PATCH v4 0/2] drm/fbdev: Move helpers to clients/ subdirectory
+Date: Mon, 28 Sep 2026 10:01:23 +0200
+Message-ID: <20260928080323.23909-1-tzimmermann@suse.de>
+X-Mailer: git-send-email 2.55.0
 MIME-Version: 1.0
+Content-Transfer-Encoding: 8bit
+X-Spamd-Result: default: False [-2.80 / 50.00];
+	BAYES_HAM(-3.00)[100.00%];
+	MID_CONTAINS_FROM(1.00)[];
+	NEURAL_HAM_LONG(-1.00)[-1.000];
+	R_MISSING_CHARSET(0.50)[];
+	NEURAL_HAM_SHORT(-0.20)[-0.999];
+	MIME_GOOD(-0.10)[text/plain];
+	TO_MATCH_ENVRCPT_ALL(0.00)[];
+	FROM_HAS_DN(0.00)[];
+	ARC_NA(0.00)[];
+	MIME_TRACE(0.00)[0:+];
+	TO_DN_SOME(0.00)[];
+	RCPT_COUNT_TWELVE(0.00)[21];
+	DBL_BLOCKED_OPENRESOLVER(0.00)[imap1.dmz-prg2.suse.org:helo,suse.de:mid];
+	RCVD_VIA_SMTP_AUTH(0.00)[];
+	FROM_EQ_ENVFROM(0.00)[];
+	RCVD_COUNT_TWO(0.00)[2];
+	FREEMAIL_TO(0.00)[redhat.com,linux.intel.com,kernel.org,gmail.com,ffwll.ch,amd.com];
+	RCVD_TLS_ALL(0.00)[];
+	R_RATELIMIT(0.00)[to_ip_from(RLq3cifbxyhc6qbbynzfc6amns)];
+	DKIM_SIGNED(0.00)[suse.de:s=susede2_rsa,suse.de:s=susede2_ed25519];
+	FREEMAIL_ENVRCPT(0.00)[gmail.com]
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260928_010355_903941_7978C4A2 
+X-CRM114-Status: GOOD (  10.30  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -75,167 +139,66 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Thank you for your contribution! Sashiko AI review found 1 potential
-issue(s) to consider.
+Helpers for fbdev emulation are still linked into drm_kms_helper.ko,
+which is for mode setting. Move the source and header files to the
+clients/ subdirectory and link them into drm_client_lib.ko. This has
+some fallout throughout drivers, but it's all trivial.
 
-Critical: 0 · High: 0 · Medium: 1 (2) · Low: 0
+There are 3 module parameters to drm_kms_helper.ko that control fbdev
+emulation. For compatibility with existing installations, leave them
+in this module.
 
-If you believe none of the issues are legitimate, please reply to each
-issue of Medium severity or higher and explain why the AI is wrong.
-If any of them are legitimate and you plan to respin, please let patchwork
-know by including "pw-bot: cr" as a separate line at the end of your reply
-(one such reply per series is enough).
+v4:
+- fix the depedendencies from v3
+v3:
+- remove obsolete dependencies from Kconfig
+v2:
+- update armada and docs
 
-- [Medium] On MT8189, the driver and the DT binding disagree about MAC-
-  sourced RMII.
+Thomas Zimmermann (2):
+  drm/fbdev: Move fbdev module parameters next to module init
+  drm/fbdev: Move fbdev helpers into client library
 
-Pre-existing issues:
-- [Medium] This problem wasn't introduced by this patch, but
-  mediatek_dwmac_probe() ignores the return value of…
-- [Medium] This problem wasn't introduced by this patch, but
-  mediatek_dwmac_clks_config(enabled=true) leaks clock enables.
+ Documentation/gpu/drm-kms-helpers.rst         |  6 +--
+ drivers/gpu/drm/Kconfig                       |  7 ++--
+ drivers/gpu/drm/Makefile                      |  1 -
+ drivers/gpu/drm/amd/amdgpu/amdgpu_display.c   |  2 +-
+ drivers/gpu/drm/amd/amdgpu/amdgpu_kms.c       |  2 +-
+ drivers/gpu/drm/armada/armada_fbdev.c         |  2 +-
+ drivers/gpu/drm/clients/Makefile              |  3 +-
+ drivers/gpu/drm/clients/drm_fbdev_client.c    |  2 +-
+ .../drm_fbdev_helper.c}                       | 34 +---------------
+ drivers/gpu/drm/drm_crtc_helper_internal.h    |  9 +++++
+ drivers/gpu/drm/drm_fbdev_dma.c               |  2 +-
+ drivers/gpu/drm/drm_fbdev_shmem.c             |  2 +-
+ drivers/gpu/drm/drm_fbdev_ttm.c               |  2 +-
+ drivers/gpu/drm/drm_kms_helper_common.c       | 39 +++++++++++++++++++
+ drivers/gpu/drm/exynos/exynos_drm_fbdev.c     |  2 +-
+ drivers/gpu/drm/gma500/fbdev.c                |  2 +-
+ drivers/gpu/drm/i915/display/intel_fbdev.c    |  2 +-
+ drivers/gpu/drm/msm/msm_debugfs.c             |  2 +-
+ drivers/gpu/drm/msm/msm_fbdev.c               |  2 +-
+ drivers/gpu/drm/nouveau/dispnv50/disp.c       |  1 -
+ drivers/gpu/drm/omapdrm/omap_debugfs.c        |  2 +-
+ drivers/gpu/drm/omapdrm/omap_fbdev.c          |  2 +-
+ drivers/gpu/drm/radeon/radeon_device.c        |  2 +-
+ drivers/gpu/drm/radeon/radeon_fbdev.c         |  2 +-
+ drivers/gpu/drm/rockchip/rockchip_drm_gem.c   |  2 +-
+ drivers/gpu/drm/sitronix/st7571.c             |  1 -
+ drivers/gpu/drm/tegra/fbdev.c                 |  2 +-
+ drivers/gpu/drm/vboxvideo/vbox_mode.c         |  2 +-
+ .../drm_fbdev_helper.h}                       |  4 +-
+ 29 files changed, 79 insertions(+), 64 deletions(-)
+ rename drivers/gpu/drm/{drm_fb_helper.c => clients/drm_fbdev_helper.c} (97%)
+ rename include/drm/{drm_fb_helper.h => clients/drm_fbdev_helper.h} (99%)
 
---
 
-net: stmmac: mediatek: add support for MT8189 SoC
-
-This adds MT8189 support to the MediaTek dwmac glue driver. MT8189 reuses
-the MT8195 pericfg programming callbacks, with a different register
-offset, 180ps delay stage dividers, a shorter clock list and the TX clock
-output enable feature.
-
-> diff --git a/drivers/net/ethernet/stmicro/stmmac/dwmac-mediatek.c b/drivers/net/ethernet/stmicro/stmmac/dwmac-mediatek.c
-> index 36599dc33b14..f07c331b029f 100644
-> --- a/drivers/net/ethernet/stmicro/stmmac/dwmac-mediatek.c
-> +++ b/drivers/net/ethernet/stmicro/stmmac/dwmac-mediatek.c
-
-[ ... ]
-
-> @@ -124,6 +131,10 @@ static const char * const mt8195_dwmac_clk_l[] = {
->  	"axi", "apb", "mac_cg", "mac_main", "ptp_ref"
->  };
->  
-> +static const char * const mt8189_dwmac_clk_l[] = {
-> +	"mac_main", "ptp_ref"
-> +};
-
-[Severity: Medium]
-How is RMII with the MAC providing the reference clock meant to work on
-MT8189?
-
-The MT8189 binding added earlier in this series ("dt-bindings: net:
-mediatek-dwmac: add support for MT8189 SoC") limits clock-names to exactly
-these two entries:
-
-    clock-names:
-      items:
-        - const: mac_main
-        - const: ptp_ref
-
-However, it still allows mediatek,rmii-clk-from-mac for this compatible.
-The tx/rx-delay-ps descriptions also mention the MT8189 RMII interface.
-
-If a board sets mediatek,rmii-clk-from-mac, mediatek_dwmac_clk_init()
-always requests a clock that the binding does not permit:
-
-drivers/net/ethernet/stmicro/stmmac/dwmac-mediatek.c:mediatek_dwmac_clk_init() {
-    ...
-	if (plat->rmii_clk_from_mac) {
-		plat->rmii_internal_clk = devm_clk_get(plat->dev, "rmii_internal");
-		if (IS_ERR(plat->rmii_internal_clk))
-			ret = PTR_ERR(plat->rmii_internal_clk);
-    ...
-}
-
-So a DT that passes schema validation fails to probe. A DT that supplies
-rmii_internal, and so would probe, fails schema validation.
-
-The new variant also reuses mt8195_set_interface() and mt8195_set_delay().
-These program MT8195_RMII_CLK_SRC_INTERNAL and the RMII_TXC/RMII_RXC delay
-path, so the driver seems to treat this mode as supported.
-
-Should the MT8189 binding gain an optional rmii_internal clock? Or should
-the binding and the driver reject mediatek,rmii-clk-from-mac for MT8189
-with a clear error?
-
-[ ... ]
-
-> @@ -495,6 +506,21 @@ static void mt8195_fix_mac_speed(void *priv, phy_interface_t interface,
->  			   reg_val);
->  }
->  
-> +static const struct mediatek_dwmac_variant mt8189_gmac_variant = {
-> +	.dwmac_set_phy_interface = mt8195_set_interface,
-> +	.dwmac_set_delay = mt8195_set_delay,
-
-[Severity: Medium]
-This is a pre-existing issue, not one introduced by this patch. Now that
-MT8189 uses mt8195_set_delay(), can it cause trouble that
-mediatek_dwmac_probe() ignores the return value of mediatek_dwmac_init()?
-
-drivers/net/ethernet/stmicro/stmmac/dwmac-mediatek.c:mediatek_dwmac_probe() {
-    ...
-	mediatek_dwmac_common_data(pdev, plat_dat, priv_plat);
-	mediatek_dwmac_init(&pdev->dev, priv_plat);
-
-	ret = mediatek_dwmac_clks_config(priv_plat, true);
-    ...
-}
-
-With phy-mode = "gmii", stmmac_get_phy_intf_sel() returns
-PHY_INTF_SEL_GMII_MII. That passes the check in mediatek_dwmac_init(), and
-mt8195_set_interface() writes CTRL0. mt8195_set_delay() then reaches:
-
-	default:
-		dev_err(plat->dev, "phy interface not supported\n");
-		return -EINVAL;
-
-CTRL1 and CTRL2 are never written, but probe still goes on into
-stmmac_dvr_probe() and succeeds.
-
-The error is also ignored for phy modes that mediatek_dwmac_init() rejects
-up front. In that case the device probes with the pericfg interface
-registers never programmed.
-
-Should probe fail when mediatek_dwmac_init() returns an error?
-
-> +	.dwmac_fix_mac_speed = mt8195_fix_mac_speed,
-> +	.clk_list = mt8189_dwmac_clk_l,
-> +	.num_clks = ARRAY_SIZE(mt8189_dwmac_clk_l),
-
-[Severity: Medium]
-This isn't a bug introduced by this patch, but does
-mediatek_dwmac_clks_config() leak the bulk clock enables when the
-rmii_internal clock fails to enable?
-
-drivers/net/ethernet/stmicro/stmmac/dwmac-mediatek.c:mediatek_dwmac_clks_config() {
-    ...
-		ret = clk_bulk_prepare_enable(variant->num_clks, plat->clks);
-		...
-		ret = clk_prepare_enable(plat->rmii_internal_clk);
-		if (ret) {
-			dev_err(plat->dev, "failed to enable rmii internal clk, err = %d\n", ret);
-			return ret;
-		}
-    ...
-}
-
-That path has no clk_bulk_disable_unprepare(). mediatek_dwmac_probe() also
-returns the error directly, without reaching err_drv_probe:
-
-	ret = mediatek_dwmac_clks_config(priv_plat, true);
-	if (ret)
-		return ret;
-
-On MT8189 this leaves mac_main and ptp_ref prepared and enabled. The devm
-bulk get cleanup only drops the clock references. The same leak can
-happen through the clks_config callback on resume.
-
-On MT8189 this needs a DT that sets mediatek,rmii-clk-from-mac and also
-supplies an rmii_internal clock, which the MT8189 binding does not allow.
-
-[ ... ]
-
+base-commit: ff831af91674990f9f1814340860e96943d5df1a
+prerequisite-patch-id: c67e5d886a47b7d0266d81100837557fda34cb24
+prerequisite-patch-id: a5a973e527c88a5b47053d7a72aefe0b550197cb
+prerequisite-patch-id: b9adc9622920a3e70168e672c2c92795b3e3a106
+prerequisite-patch-id: 5030de433a01c2e99056cadb676a8e2ba35f055a
 -- 
-Sashiko AI review · https://netdev-ai.bots.linux.dev/sashiko/#/patchset/20260924-dwmac-mediatek-mt8189-v2-0-430bd74d5ef9%40collabora.com
+2.55.0
+
 
