@@ -4,60 +4,105 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D9D2DCA5FA2
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 28 Sep 2026 14:52:31 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 54E85CA5FA5
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 28 Sep 2026 14:57:16 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=iyr4NlLoxv6GaNC3SrdEUGuR321vIy25LjTkZeQG1eg=; b=NGOaXDOpetUq3VxzK9q6iDoA8b
-	Y2nEWso5uvbMoqpyYLBHzwxZxJYFeYJdPm/LHtZ30OzTg4VJ76R34438aniOkVlhC/LC/TrjTEHAA
-	nFrIA64euASaVvFWSLqC7oJJvDpIduIebW3ft5VFcWvTzPDB+EGQSBZCYy6f9y1BbavVgL3jx7b2K
-	oRA0hJwQMMdKdk77hn01mw+/ak2JZqUN0AxBuAtsR66cX0aFSgpl0ZTCSg2Pl0T6vHGe3SuHESJc3
-	kpyPVM3DMCqd5AOwaBUzz0hNKFO9HbGJPw5fSed2hW5YOXMk1V6LSb17wksI+DsOfcol6uKXnJOw9
-	dXOhXV+Q==;
+	bh=Go9hn601ofYGhTbmTXvodFkeQSZutx3QY5olFYU9dfU=; b=L7Gp1KKbaMh44QJesgPJGUcYKi
+	F9Uz18DlT1ByospLGpbR5t6pZw8iwwulaVGB7iKlUly+2FwGbv2qbf8dgAH2yv5zhd+2ckQctbgAI
+	t+59vrxpL1OWAHnQ+zJMibkE3yaVaFsirySabVo8n/MRPJMJ5GjGplranjbyFxevcIHwSXlOQeKyo
+	PFznmKzXOsQZsR3GGIsg47hzyma9nMwMm5gjFQRXmfYK6yexl2Sew6rYgFzRDq87My4FlYAS9l8Sb
+	isnQEddcrNK8WSD/isYlIiKwcPPLxjB9uUvFQgWzeWMLkihGJCYNVNr56bGdp1dnr5X0qrf9zp9fi
+	3u1QzY4g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xBCiP-00000000pEM-3dW4;
-	Mon, 28 Sep 2026 14:52:25 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1xBCmy-00000000pru-2DG8;
+	Mon, 28 Sep 2026 14:57:08 +0000
+Received: from mail-pl1-x62d.google.com ([2607:f8b0:4864:20::62d])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xBCiJ-00000000pAa-1EzZ
+	id 1xBCmv-00000000pr9-31LG
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 28 Sep 2026 14:52:19 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id 6AB13600E2;
-	Mon, 28 Sep 2026 14:52:18 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id BD52F1F00893;
-	Mon, 28 Sep 2026 14:52:14 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1790607138;
-	bh=iyr4NlLoxv6GaNC3SrdEUGuR321vIy25LjTkZeQG1eg=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=H5/6VexfmD1YPlou6xloCimV9QRguPtrF8QRjrw4xjAOGvd+KkOUeCenFHqpRBt/Q
-	 07Ia7DlGUiF7CQj+W7TMbGQYlRWEzPfNXbVGSgFP4VCwveBDoJWD8ZmXe6sdAhjGH9
-	 5Fc54nBFZsPn+WRjq5JRUplNI5ex8Ptt8Z9D6oLfCVJQBIOHa5cOQ6k85USeYjLYqO
-	 vsNU+K93+LmFmgZSBYBVkdw9/MvE0dyb8CqfdLR4AhhvY5n5L8Ac65O0rZ2MVAiO3q
-	 bCrTpCt/k0biI8TnpMBoe1hpHOZDU1F1fWdtBeaervXCJWzrBodrgBtEm76g5Zh35b
-	 6SCx+iwrmCGKw==
-Date: Mon, 28 Sep 2026 15:52:12 +0100
-From: "Lorenzo Stoakes (ARM)" <ljs@kernel.org>
-To: Mark Brown <broonie@kernel.org>
-Cc: Marc Zyngier <maz@kernel.org>, Oliver Upton <oupton@kernel.org>, 
-	Joey Gouly <joey.gouly@arm.com>, Steffen Eiden <seiden@linux.ibm.com>, 
-	Suzuki K Poulose <suzuki.poulose@arm.com>, Zenghui Yu <yuzenghui@huawei.com>, 
-	Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>, Fuad Tabba <fuad.tabba@linux.dev>, 
-	Peter Maydell <peter.maydell@linaro.org>, linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev, 
-	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v3 0/3] KVM: arm64: ID register finalisation fixes
-Message-ID: <arp-IPET_HWSE85u@gremlin>
-References: <20260901-kvm-arm64-idreg-final-v3-0-a0ffa06fa872@kernel.org>
+	Mon, 28 Sep 2026 14:57:06 +0000
+Received: by mail-pl1-x62d.google.com with SMTP id d9443c01a7336-2db33db4de9so92625ad.0
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 28 Sep 2026 07:57:05 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=google.com; s=20251104; t=1790607425; x=1791212225; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:content-type:mime-version
+         :references:message-id:subject:cc:to:from:date:from:to:cc:subject
+         :date:message-id:reply-to:content-type;
+        bh=Go9hn601ofYGhTbmTXvodFkeQSZutx3QY5olFYU9dfU=;
+        b=HZacsRluONOEpnYeLyaq7mD/v+qALnXfgjMKHDQxgdtWWl+HSncTVgUPoNgU9so9eY
+         mvg3VvXZbncrWaWkNuX5lLQw7H4ZLNlN3tBinnu1hqlVinJEyAxp9P/FQy5hAi6tICRF
+         GRlv40gyjNce+XoLPbC3/RzLVz3sPUSK6ey98RYY6N2TZ7aki8FnId2tJBp2uz+Nv9Ws
+         SZLCs55YjsInetP4fB2BCSBrOLHYycQE2BcgrI7sHVOvvxORIrxuZ6FAJNNR5sIFSeUC
+         SVk0MjXhz8lznoSd+A950CReq/h82Uf0VmDOBwG0MRk9wEUnIXlqjITB8trK6uUfYzI8
+         YzSQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1790607425; x=1791212225;
+        h=in-reply-to:content-disposition:content-type:mime-version
+         :references:message-id:subject:cc:to:from:date:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=Go9hn601ofYGhTbmTXvodFkeQSZutx3QY5olFYU9dfU=;
+        b=geMC9Xpz7d/Ro98MRYnztfkWS7X1/vR+QaSoMSMz/6tR8JxebpAwinJB56GnqbbJ9q
+         7yGpECK3NcIcDtoJjHHnVn00zB9SFvp7THtR/ZUdbYn8dZwXKmKRKdeQieJrm9TB8kNv
+         5XEvbuL5GaCCEHdtJng2Fs32cqcEP3lnd9Ej+3TEPtmWW1NjMa1e5W/PbWZPxEljTGFk
+         HshVroCSixH8+4345BJ2FAcxCJCbAIvJ4eHD6guxGmP00YlzlhHx6GCSEPGxbZq8n1JH
+         QfhH8qWVDAQ6yfCsmpNuyBltOmFjqnPwuk/ye9QZqzeAgwCBLSQMiN1hGissJiCH2j1Y
+         uPUQ==
+X-Forwarded-Encrypted: i=1; AKwUvByQ6YbkupWNKQ0xU/XxzscYUD38VETXlDmfQqE0T2M3VZNQkgVqKQNhJpJX9MZE8OxSbfG27el3csGbDHq26KYW@lists.infradead.org
+X-Gm-Message-State: AFq9FYJ/FHsVBcJd0B/DtVoDkwFwW4lvfdMHKYLapQeAqS1SNvKAQMAg
+	8nl/gKkDTg5/DTpf+7NVtvyuMaS55QMj8F9uCNo8CSLOYofpdWb0O1sK/02azjU6ew==
+X-Gm-Gg: AYBFou2z8vpsSAOZTXdpdysYWwJL70rr6kgZql3Q5ObSuqFFOTPXWehLhQ3pONQeyqT
+	4BdjslbHCi6RFlCdFbQtqKcXE2L5a4nMQbbz7yj92vS4wDxKTsGBDIhyNCHeh6CRPDpeiufIs4O
+	YEdb8ibKy4pSPGDL3Por9iZrZZ3gURPsA5ENqVRPo36NUUoQB0AOKasY/3xka9al1rJ6HP5LZaQ
+	e0aslJWCGmtPbmi0xAUmJNdctRLFsIQ7DZJFwOgPqbOhM531fOfz5orJD85HiKM7Q3dA9ZkcUX7
+	P3N8+7kp+WfiDaI8HgudJNKeNYTCRku6XoHy+DlShegH6NS+VqW2w7BcZBdAuicbA4S7+u0G+Ll
+	CTm9eIqLZ2FUb+tQrrq8xWKVMdg3xxcJuQv2MCNm2EXNcrU0tyRfHIieaJosxU34izq5vvbI/eQ
+	G47gsIqwyvHNqUn66qVr2S129kq9RU/mcVl8rJMO2EV6KPgeGjymso5XkYxGoXkc114iwUSwP7U
+	sGm+KOQyghw+BO60lpFCM8qm5gqdVitmHPO
+X-Received: by 2002:a17:902:d4d2:b0:2df:42af:2f9f with SMTP id d9443c01a7336-2dfa968ef1cmr5442355ad.1.1790607424172;
+        Mon, 28 Sep 2026 07:57:04 -0700 (PDT)
+Received: from google.com (105.211.142.34.bc.googleusercontent.com. [34.142.211.105])
+        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-3a0b9feddd0sm7198628a91.2.2026.09.28.07.56.59
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Mon, 28 Sep 2026 07:57:03 -0700 (PDT)
+Date: Mon, 28 Sep 2026 14:56:54 +0000
+From: Pranjal Shrivastava <praan@google.com>
+To: Jason Gunthorpe <jgg@nvidia.com>
+Cc: Catalin Marinas <catalin.marinas@arm.com>,
+	Jonathan Corbet <corbet@lwn.net>, iommu@lists.linux.dev,
+	"Joerg Roedel (AMD)" <joro@8bytes.org>,
+	Jean-Philippe Brucker <jpb@kernel.org>,
+	linux-arm-kernel@lists.infradead.org, linux-doc@vger.kernel.org,
+	Mark Rutland <mark.rutland@arm.com>,
+	Randy Dunlap <rdunlap@infradead.org>,
+	Robin Murphy <robin.murphy@arm.com>,
+	Shuah Khan <skhan@linuxfoundation.org>,
+	Will Deacon <will@kernel.org>, David Matlack <dmatlack@google.com>,
+	Jean-Philippe Brucker <jean-philippe@linaro.org>,
+	Jonathan Cameron <Jonathan.Cameron@huawei.com>,
+	Nicolin Chen <nicolinc@nvidia.com>,
+	Pasha Tatashin <pasha.tatashin@soleen.com>, patches@lists.linux.dev,
+	Samiullah Khawaja <skhawaja@google.com>,
+	Mostafa Saleh <smostafa@google.com>, stable@vger.kernel.org,
+	Vijayanand Jitta <vijayanand.jitta@oss.qualcomm.com>
+Subject: Re: [PATCH v7 5/9] iommu/arm-smmu-v3: Keep track in arm_smmu_invs if
+ range invalidation is used
+Message-ID: <arqANvAwIz6GSXJp@google.com>
+References: <0-v7-e84261bbe7cd+2ea80b-smmu_tlbi_jgg@nvidia.com>
+ <5-v7-e84261bbe7cd+2ea80b-smmu_tlbi_jgg@nvidia.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20260901-kvm-arm64-idreg-final-v3-0-a0ffa06fa872@kernel.org>
+In-Reply-To: <5-v7-e84261bbe7cd+2ea80b-smmu_tlbi_jgg@nvidia.com>
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260928_075705_806783_62FCD530 
+X-CRM114-Status: GOOD (  11.37  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -72,75 +117,19 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Sep 01, 2026 at 07:18:47PM +0100, Mark Brown wrote:
-> While looking at some feature enablement I noticed that there are some
-> scenarios where we can end up with an inconsistently configured vCPU due
-> to finalizing configuration based on ID registers before we have blocked
-> writes to the ID registers. This series aims to clean up these issues.
->
-> Signed-off-by: Mark Brown <broonie@kernel.org>
+On Mon, Sep 21, 2026 at 08:55:13PM -0300, Jason Gunthorpe wrote:
+> Summarize if any of the inv entries will use range invalidation and if any
+> need ARM_SMMU_OPT_FULL_CONT_RANGE_INV. The next patch will use this to
+> avoid range invalidation pre-calculations unless the range commands will
+> be used.
+> 
+> Reviewed-by: Nicolin Chen <nicolinc@nvidia.com>
+> Reviewed-by: Mostafa Saleh <smostafa@google.com>
+> Tested-by: Nicolin Chen <nicolinc@nvidia.com>
+> Signed-off-by: Jason Gunthorpe <jgg@nvidia.com>
 
-Ran the 3/3 test locally and confirmed the test fails without 2/3, passes
-with it.
+Reviewed-by: Pranjal Shrivastava <praan@google.com>
 
-Also got our AI overloads to test 1/3 locally by flipping
-ID_AA64PFR0_EL1.GIC after vGIC creation:
-
-Before:
-	GIC field after vGIC create: 1
-	GIC field after userspace write: 0
-	GIC field after first run:     1
-	HFGRTR_EL2 written 0000008000000000 read back 0000000000000000
-	RESULT: FAIL - ICC_IGRPENn_EL1 forced RES0 (NV masks computed with GIC=0)
-
-After:
-	GIC field after vGIC create: 1
-	GIC field after userspace write: 0
-	GIC field after first run:     1
-	HFGRTR_EL2 written 0000008000000000 read back 0000008000000000
-	RESULT: PASS - ICC_IGRPENn_EL1 writable (NV masks match GIC=IMP)
-
-So for the whole series:
-
-Tested-by: Lorenzo Stoakes (ARM) <ljs@kernel.org>
-
-> ---
-> Changes in v3:
-> - Rebase onto v7.3-rc1.
-> - Explain why KVM_ARCH_FLAG_ID_REGS_INITIALIZED is not reused.
-> - Pull in Fuad's test cases.
-> - Link to v2: https://patch.msgid.link/20260803-kvm-arm64-idreg-final-v2-0-d7d7e4efc640@kernel.org
->
-> Changes in v2:
-> - Also replace the kvm_vm_has_ran_once() usage in kvm_set_vm_id_rg() and
->   kvm_vm_finalize_sys_regs() with kvm_id_regs_final().
-> - Link to v1: https://patch.msgid.link/20260731-kvm-arm64-idreg-final-v1-0-3de2a5616dc6@kernel.org
->
-> ---
-> Fuad Tabba (1):
->       KVM: arm64: selftests: Check ID regs are immutable after a failed run
->
-> Mark Brown (2):
->       KVM: arm64: Finalize guest-wide sysregs prior to per-vCPU sysregs
->       KVM: arm64: Block ID register changes after we rely on the values
->
->  arch/arm64/include/asm/kvm_host.h               |   8 ++
->  arch/arm64/kvm/arm.c                            |   2 +-
->  arch/arm64/kvm/sys_regs.c                       |  57 ++++++++-----
->  arch/arm64/kvm/sys_regs.h                       |   2 +-
->  arch/arm64/kvm/vgic/vgic-init.c                 |   6 +-
->  tools/testing/selftests/kvm/arm64/set_id_regs.c | 106 +++++++++++++++++++++++-
->  6 files changed, 153 insertions(+), 28 deletions(-)
-> ---
-> base-commit: cee9395acd8043be0644b25c34bfa86623f2b935
-> change-id: 20260729-kvm-arm64-idreg-final-77cbc46b558a
->
-> Best regards,
-> --
-> Mark Brown <broonie@kernel.org>
->
->
-
---
-Cheers, Lorenzo
+Thanks,
+Praan
 
