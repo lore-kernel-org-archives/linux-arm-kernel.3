@@ -4,64 +4,74 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7CA98C9832F
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 28 Sep 2026 09:28:52 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3B849C9832F
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 28 Sep 2026 09:29:49 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
+	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=f0jsvW5qGDpbtuuWWKY/lQM+7zZGRkTT6Ww9voKeKO4=; b=WQ1J/ok0GzzHkukUj0TecpZNQA
-	Xd+y3ialxwP9Kpt+7ZwiHRhQXpvsiY8b2ayn2O4d7LFUu4zpK+3lWxPEnLLplgr1lKkcVe4dUfNJ2
-	bu5AaM8TPsC65m8HxD9hV5x6oFQFh7Ez/scTB24yTfkZtioXZZ76nm+QpYrClj5tSIp6YdsYoNpWh
-	9qkPylk41k42neIzStHpiv4ZFckonsswxCA/ROLY3Qgfwd4j/mbqA3HL2Z/dpUeZ9H4jzL59jcFta
-	AkVmD9wAufet+oNsC+C0Y67WN64cnsSuMakvdUGZJoj6+1ya+z8NC3jB5gmq5Zraxbkn76E3iAcio
-	oXE2mGOg==;
+	bh=1TuAr+Y/UX0BmiJqB7qrv7NfhasOAVFUkKtCRbqatjA=; b=fryZS5CL/mtAT6NpKV7TOABWeg
+	IPFQa+/sSwtWPG9F7Xu10fRHl88Tdy9xDFfX/oHVnahNs1wLSwzzuP8aciveMqSZDoqPLmjuPGbsj
+	5MPVYPj8yOgT4JbDsJcuEOcq9L+gxBqlMEkadOxO+7nGd0FP/d1U/KleMuDg2PiNzirkIQ5E5vF+V
+	tzuEpxwsLqWBLzui1NcW7mIdy5HwDakZHTri2IbzQpau9V/lLp/Z7KaANbEWW2Er2vDnRXHUXcdvN
+	j8sdN1HYUYf19DEEpg+8ZKJLdVIulemRqL0ROOmQscFbhkn9L7B0rJ0y0ahRAF9Get2Hmt4SXRLJa
+	8txH5BDg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xB7f5-00000000Dex-2Jne;
-	Mon, 28 Sep 2026 09:28:39 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xB7f3-00000000De5-0JYC
+	id 1xB7g5-00000000DrX-13qU;
+	Mon, 28 Sep 2026 09:29:41 +0000
+Received: from out-28.mta1.migadu.com ([2001:41d0:203:375::1c] helo=mta1.migadu.com)
+	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1xB7g2-00000000Dqk-0RkY
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 28 Sep 2026 09:28:38 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id B53681595;
-	Mon, 28 Sep 2026 02:28:30 -0700 (PDT)
-Received: from arm.com (usa-sjc-mx-foss1.foss.arm.com [172.31.20.19])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 5C5C13F763;
-	Mon, 28 Sep 2026 02:28:31 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1790587714; bh=uP3vTQXZtzAeaAZv+6YX+YSO0w12PlBKUn8pseTb+Yo=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=bM9akU5SlyI3b64Zov0KeHC1Sj09KC1x8hbI82z6m+V4PSOd5TpznWKQUsy22jDf1
-	 ucZSePmQCDQp85e3rY8vm2KWD73kE8B+0GSQofWdwddw/npvyQW9/kCJ43rUwhnsPD
-	 JANrhcdXIcnY8JGgT8Y++SNmZimsYiHsAQqObTvg=
-Date: Mon, 28 Sep 2026 10:28:20 +0100
-From: Catalin Marinas <catalin.marinas@arm.com>
-To: Suzuki K Poulose <suzuki.poulose@arm.com>
-Cc: kvm@vger.kernel.org, kvmarm@lists.linux.dev, maz@kernel.org,
-	will@kernel.org, linux-kernel@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org, steven.price@arm.com,
-	aneesh.kumar@kernel.org, oupton@kernel.org, gshan@redhat.com,
-	joey.gouly@arm.com, tabba@google.com, yuzenghui@huawei.com,
-	linux-coco@lists.linux.dev, gankulkarni@os.amperecomputing.com,
-	sdonthineni@nvidia.com, alpergun@google.com, fj0570is@fujitsu.com,
-	WeiLin.Chang@arm.com, lpieralisi@kernel.org, enju.kohei@fujitsu.com,
-	sudeep.holla@arm.com, jonathan.cameron@oss.qualcomm.com
-Subject: Re: [PATCH v19 4/7] firmware: arm_rmm: Add support for SRO
-Message-ID: <arozNIQ-fQ0XQViI@arm.com>
-References: <20260924135201.850038-1-suzuki.poulose@arm.com>
- <20260924135201.850038-5-suzuki.poulose@arm.com>
+	Mon, 28 Sep 2026 09:29:39 +0000
+X-Envelope-To: linux-arm-kernel@lists.infradead.org
+DKIM-Signature: a=rsa-sha256; bh=mNyW1L2Kl7XsWs4BhSwMHQIYW+aVztuR3efDX2CQxJ8=;
+ c=simple/simple; d=linux.dev;
+ h=from:to:subject:date:message-id:mime-version:content-type; s=key1;
+ t=1790587775; v=1; x=1791192575;
+ b=TnVqrUpSi10TgM6NHSsahlF/WLf4OgrlPFTkFcwkvMs9H8AglY3SF6xCdX+DVAAihe8ZU/Pm
+ /JZgB7Ms8n6intEieiXuk9b2OVobJ3f89yGEGIFs6yzNtjYxD1VywnnxYazNy/DpaUNoSqw79/2
+ xX2LvybbUMGMh9QdjgIpYap8=
+X-Envelope-To: linux-arm-kernel@lists.infradead.org
+Received: by smtp.migadu.com with ESMTPS id c23ba52ff7bf5aac;
+	Mon, 28 Sep 2026 09:29:35 +0000
+X-Mizu-Trace-ID: c23ba52ff7bf5aac
+X-Migadu-Flow: FLOW_OUT
+Received: by mail-lf1-f46.google.com with SMTP id 2adb3069b0e04-5b8c42da963so10109e87.0
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 28 Sep 2026 02:29:31 -0700 (PDT)
+X-Forwarded-Encrypted: i=1; AKwUvBz2NFwoHbor9qYCTfuhc7obj1oPZebaTZxVMoWWmOk9y7qqmPv3PHO/tKqgms5SnJC8QX1s4MZLagKd9iBZ94rz@lists.infradead.org
+X-Gm-Message-State: AFq9FYI3uef2+PsSwxvse6JSbD/NnefQnRWT+bM3naMB/aC1EqFBXSKi
+	eSuhvb4/Tbwk21FCaIC7WZYgyMZFvVnwJheW9BirDMu110iaLRCPhTRU2ns8QMJqpK8dJSzrNup
+	Yl7cshOowANYJx3HLDQPKR3bu8x7XAdLosXlEzWRu
+X-Received: by 2002:a05:6512:3d8e:b0:5b8:c8f2:16c4 with SMTP id
+ 2adb3069b0e04-5b8ef255fa0mr175606e87.10.1790587770867; Mon, 28 Sep 2026
+ 02:29:30 -0700 (PDT)
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20260924135201.850038-5-suzuki.poulose@arm.com>
+References: <20260928064643.3265087-1-fuad.tabba@linux.dev>
+ <20260928064643.3265087-5-fuad.tabba@linux.dev> <4095827e-dbbb-4ab9-8610-1bc317aa096f@oss.qualcomm.com>
+In-Reply-To: <4095827e-dbbb-4ab9-8610-1bc317aa096f@oss.qualcomm.com>
+From: Fuad Tabba <fuad.tabba@linux.dev>
+Date: Mon, 28 Sep 2026 10:28:54 +0100
+X-Gmail-Original-Message-ID: <CA+EHjTxwffM9vQ0c8MQgsojsXOAUOzo8qD1=aoRK_zGvBF0XgA@mail.gmail.com>
+X-Gm-Features: AclHuK9Tx9jSnIhG13zjawNFq0tNHoDD4fS1QJa_ek8GgO61EjctlFamlrJQUSM
+Message-ID: <CA+EHjTxwffM9vQ0c8MQgsojsXOAUOzo8qD1=aoRK_zGvBF0XgA@mail.gmail.com>
+Subject: Re: [PATCH v2 4/4] KVM: arm64: selftests: Check a feature hidden in
+ an ID register is UNDEF
+To: Venkata Rao Kakani <venkata.kakani@oss.qualcomm.com>
+Cc: Marc Zyngier <maz@kernel.org>, Oliver Upton <oupton@kernel.org>, kvmarm@lists.linux.dev, 
+	linux-arm-kernel@lists.infradead.org, Joey Gouly <joey.gouly@arm.com>, 
+	Suzuki K Poulose <suzuki.poulose@arm.com>, Zenghui Yu <yuzenghui@huawei.com>, 
+	Steffen Eiden <seiden@linux.ibm.com>, Catalin Marinas <catalin.marinas@arm.com>, 
+	Will Deacon <will@kernel.org>, Mark Rutland <mark.rutland@arm.com>, 
+	Quentin Perret <qperret@google.com>, Vincent Donnefort <vdonnefort@google.com>, 
+	Wei-Lin Chang <weilin.chang@arm.com>, linux-kernel@vger.kernel.org
+Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260928_022837_161358_866C2C4C 
-X-CRM114-Status: GOOD (  13.50  )
+X-CRM114-CacheID: sfid-20260928_022938_285520_E2510896 
+X-CRM114-Status: GOOD (  10.38  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -76,60 +86,33 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Sep 24, 2026 at 02:51:58PM +0100, Suzuki K Poulose wrote:
-> +long rmi_sro_memxfer_execute(struct rmi_sro_state *sro, gfp_t gfp)
-> +{
-> +	struct arm_smccc_1_2_regs *regs = &sro->regs;
-> +	bool cancelled = false;
-> +	unsigned long sro_handle;
-> +
-> +	rmi_smccc_invoke(regs);
-> +
-> +	sro_handle = regs->a1;
-> +	while (RMI_RESULT_STATUS(regs->a0) == RMI_INCOMPLETE) {
-> +		bool can_cancel = RMI_RESULT_CAN_CANCEL(regs->a0) == RMI_OP_CAN_CANCEL;
-> +		int ret = 0;
-> +
-> +		switch (RMI_RESULT_MEMREQ(regs->a0)) {
-> +		case RMI_OP_MEM_REQ_NONE:
-> +			rmi_op_continue(sro_handle, RMI_CONTINUE_KEEP_GOING,
-> +					regs);
-> +			break;
-> +		case RMI_OP_MEM_REQ_DONATE:
-> +			ret = rmi_sro_donate(sro, sro_handle, regs->a2, regs,
-> +					     gfp);
-> +			break;
-> +		case RMI_OP_MEM_REQ_RECLAIM:
-> +			ret = rmi_sro_reclaim(sro, sro_handle, regs);
-> +			break;
-> +		default:
-> +			WARN_ON_ONCE(1);
-> +			ret = -ENXIO;
-> +			break;
-> +		}
+Hi Venkata,
 
-Another thing I came across while looking whether we can defer the
-activation. It seems that the spec (I_JVYCH) lists some SROs as
-PE-bound. Nothing here or in rmi_sro_execute() disables migration and
-the memory allocation paths can even sleep with GFP_KERNEL.
+On Mon, 28 Sep 2026 at 10:20, Venkata Rao Kakani
+<venkata.kakani@oss.qualcomm.com> wrote:
+> > +     for (;;) {
+> > +             vcpu_run(vcpu);
+> > +             switch (get_ucall(vcpu, &uc)) {
+> > +             case UCALL_SYNC:
+> > +                     got = uc.args[1];
+> > +                     break;
+> > +             case UCALL_ABORT:
+> > +                     REPORT_GUEST_ASSERT(uc);
+> > +                     break;
+> > +             case UCALL_DONE:
+> > +                     kvm_vm_free(vm);
+> > +                     return got;
+> > +             default:
+> > +                     TEST_FAIL("Unknown ucall %lu", uc.cmd);
+> > +             }
+> > +     }
+>      Return missing?
 
-Do we need to disable preemption (only for rmi_sro_execute()) or at
-least migration (the memxfer path)? We did something similar for the RSI
-attestation token loop, commit 24f55f511b9e ("virt: arm-cca-guest: use
-migrate_disable() for attestation token requests").
+No, the loop never falls through: the breaks only leave the switch,
+UCALL_DONE is the one way out and returns there, and the ABORT and
+default cases end the test. So control can't reach the end of the
+function.
 
-With only migration disabled, another thread on the same CPU
-issuing a PE-bound SRO would get RMI_BLOCKED (R_NDXSG). In theory, we
-can get a priority inversion case (maybe this doesn't happen with the
-current implementation, just looking at the API design). The RMI_BLOCKED
-fix not to loop forever probably saves us but the caller would have to
-actively sleep or give up before retrying (i.e. don't move the busy loop
-higher app the call stack).
-
-Another option is to have a per-CPU mutex here and serialise the SROs
-which are PE-bound (there are some precedents for per-CPU mutexes in the
-kernel).
-
--- 
-Catalin
+Thanks for having a look,
+/fuad
 
