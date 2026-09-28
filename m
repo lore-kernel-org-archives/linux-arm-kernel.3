@@ -4,85 +4,85 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 582B2C9832F
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 28 Sep 2026 01:29:45 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 16510C9832F
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 28 Sep 2026 01:30:32 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=gPTRGSRmIEuAgsqdZVsCgUbEv8K5pyxuaYYIDQSv9zo=; b=pURZWOz12aBNQR/9o+B45fCYkq
-	BUBzAxMZC9cZiQn+VOTCuATvaAq/NhTky5OW90IrYQ0GmqkEXD3VN24u5LnXgRyT/LfFsUIeemAZd
-	2grslu+2R2EMmXF6X3DOCTbtPlqpi+5p6oLxMMxd3Bkqr/oQcvHAkscYeyfVtwoYN4i/VDCNe5/6D
-	6kyaSJ3SoaoBFd1FLhcuH0Zul04iirgew7ozijKSZhKtYy/fe0jpsqf8kj9RH452ooJw6mKc23Aw/
-	zvK9SWQeDSYlch6WyXqXHnpuvNaMUhNFIjD0zSsCxDkX1fSzVByO8WkuplYYhl8ltAd3PC8q5aTMZ
-	lMToT3EQ==;
+	bh=mI4MQAkrqHNpUjr7C93Sk+aRsKdy2XPiHpFNJDV/YcA=; b=e34IYFAhKnqjRvc+5ExP0nTVTV
+	r0ouLGdMgl0+UCpOqBqudSU7i3rGrWwjsuQbCtZaPtcKwOdrjKDJ/9zbtrn+ZlqavBqsQRgQXj/IC
+	fcA1oDZkY4xeivD2XL1yu7TPrsMavm/wO9n8CV5v5jCmAIIRom2b2O+QTdS+uG9ekABu/vuZDQPJl
+	oLGqq32VVNgD0My7FbQJg6cb8vu9Yy41ApzURM1yF6KPlAtxStTUnfZMRfCosGnypfOI1JfNXfoH1
+	OeCMStvAwTRsE+SJ1VpqLCvATBqKNcKG8cD2yijinPakQKXVRyuzmCM9cWaL+9lccMsJ5ti8MaL+v
+	Es8MBEKQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xB0BW-0000000H7Vw-40x1;
-	Mon, 28 Sep 2026 01:29:38 +0000
-Received: from us-smtp-delivery-124.mimecast.com ([170.10.129.124])
+	id 1xB0CG-0000000H7ea-0Oit;
+	Mon, 28 Sep 2026 01:30:24 +0000
+Received: from us-smtp-delivery-124.mimecast.com ([170.10.133.124])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xB0BU-0000000H7V6-1cML
+	id 1xB0CD-0000000H7dk-0M8y
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 28 Sep 2026 01:29:37 +0000
+	Mon, 28 Sep 2026 01:30:22 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1790558975;
+	s=mimecast20190719; t=1790559020;
 	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
 	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
 	 content-transfer-encoding:content-transfer-encoding:
 	 in-reply-to:in-reply-to:references:references;
-	bh=gPTRGSRmIEuAgsqdZVsCgUbEv8K5pyxuaYYIDQSv9zo=;
-	b=hRt576a4KJt62ApXwcWicM3QJaIIWuoSAsz6Y0oRkbA2+wEM+QIhNs//a+kHJYwka8UkIS
-	0FEYlFKL8WCTNCgMVnMU0YFkeU3EFfwYLvE0SQtOPxIYkNIFvRLwlpopeOtAdmnHzy0vB8
-	rS7o2uO+mi+mCUScn+dNiPBCJEeH4yQ=
-Received: from mail-pj1-f72.google.com (mail-pj1-f72.google.com
- [209.85.216.72]) by relay.mimecast.com with ESMTP with STARTTLS
+	bh=mI4MQAkrqHNpUjr7C93Sk+aRsKdy2XPiHpFNJDV/YcA=;
+	b=RE9TvltfcFvYaiYw1TvhEU7mvEh5N1EJoUMOAPUnaIJpLIZSWuisITBw/b6uJVWVGsUUWu
+	JvhLIPMKGPsC8goxx/KZYK4s8S9ABLqfSW4qU10cvHMNFP7HRoBC/VUHZCl6xixZA9yL0c
+	RvWBd2Py9uO2OzwuXeoAeIawSU/XPPM=
+Received: from mail-pl1-f198.google.com (mail-pl1-f198.google.com
+ [209.85.214.198]) by relay.mimecast.com with ESMTP with STARTTLS
  (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
- us-mta-245-qz8vOoSoPJS14VJLWPCP-g-1; Sun, 27 Sep 2026 21:29:33 -0400
-X-MC-Unique: qz8vOoSoPJS14VJLWPCP-g-1
-X-Mimecast-MFC-AGG-ID: qz8vOoSoPJS14VJLWPCP-g_1790558973
-Received: by mail-pj1-f72.google.com with SMTP id 98e67ed59e1d1-39d865b11b4so3047853a91.3
-        for <linux-arm-kernel@lists.infradead.org>; Sun, 27 Sep 2026 18:29:33 -0700 (PDT)
+ us-mta-448-YYxuzdWJNl25cS08VuFFPw-1; Sun, 27 Sep 2026 21:30:18 -0400
+X-MC-Unique: YYxuzdWJNl25cS08VuFFPw-1
+X-Mimecast-MFC-AGG-ID: YYxuzdWJNl25cS08VuFFPw_1790559018
+Received: by mail-pl1-f198.google.com with SMTP id d9443c01a7336-2e124796da0so8731425ad.0
+        for <linux-arm-kernel@lists.infradead.org>; Sun, 27 Sep 2026 18:30:18 -0700 (PDT)
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1790558973; x=1791163773;
+        d=1e100.net; s=20260707; t=1790559018; x=1791163818;
         h=content-transfer-encoding:content-type:in-reply-to:from
          :content-language:references:cc:to:subject:user-agent:mime-version
          :date:message-id:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
          :message-id:reply-to:content-type;
-        bh=gPTRGSRmIEuAgsqdZVsCgUbEv8K5pyxuaYYIDQSv9zo=;
-        b=h84EWCJVtxG8LOD/bVXTTq6D4Rqac7qJjh6P1LzSUEXkFh/XgwDdLZix9QB3jdgrNh
-         FClAGHV2j1At7L2wVtHtEDKg88tyriD9w72GWHZKJ1wfqqguco0l89Ji1DGJlxWF75r0
-         IG+wvuARgJCkRxMiyrbFESIz5HUrrKiOCMNHvE6aqCAmanNBvqEK56oYKo2JVUL6G0Ci
-         DGtDwy8IBPd1AtVRTK6FrjznlQmRpnYpz7xNoRz7H9doNQgGe/Okq8+dIa3J6fH3XQgd
-         Q1CJBUPF+ln+65cPRLmgZE0Li2MreGZKQdD9BCgyTWzCnsNiL813zzSwUSRm3KJTpS7s
-         8kDA==
-X-Forwarded-Encrypted: i=1; AKwUvBwwuE3xyq2wTnfSwrm9d32/LUyMt4LZTJBWYE5yKGW0hu2AiqAU4b6cONsQSt70X7BQi0egHqoBwosSmeb9sAEF@lists.infradead.org
-X-Gm-Message-State: AFq9FYINdR2F7JP7qtEBLoWEYl9QApYX21RnMR+XavSSjnJBpwcaawJL
-	z2vXQNmr1X66JRTIRiGMPQfofKM93wuIMghwmSYRoRpJB75i1S8jB0Gk7Kdi/1NCOi+nXkVHhjT
-	pJi0TtganNFcj0bZS8Iid/SHzFHZXISkEZv5ZrBPjnmYczNhl9ICnRJMlxGafQNnYszYNVv8e5r
-	Sx
-X-Gm-Gg: AYBFou0/zCPwumf9vH7340HpPzLvTx80Ok2cYqLxH9isUU6nfshbxm9KTkVUfsPozYb
-	FqyZH9xoX0iy7RFhyz21Hr9fmz2aSRlPu3LCfGkfEhTCKKsjdeYO3hMYrX1wt197Oy5XJrgLhKf
-	rYcs1LOnoCfk2tBlPfWwdhH9fNHhbr85urfz6dqthZEtYnnYUKM9tyG1eM+aF+zJxDoMeHw9B+L
-	jCrAISN6NV1MPnPYcoQsmr7daG/CALmBRY56kkFw6c0l/WJAjAuwdZpb7mgmNu181GlThc7C0vh
-	8iY/s+ykhtM6orsa3+ABvZhTVi33vMcyXwskegFhwQJq0jHHKaKtlAqsrC7HhmXA1EImzfV80DD
-	Er5CAMXCQl7GNWcujdkoI6h9D8s2KjVw5ANOHjEFqgg==
-X-Received: by 2002:a17:90b:2ec4:b0:3a2:b59f:639b with SMTP id 98e67ed59e1d1-3a2b59f6deamr1580742a91.54.1790558972765;
-        Sun, 27 Sep 2026 18:29:32 -0700 (PDT)
-X-Received: by 2002:a17:90b:2ec4:b0:3a2:b59f:639b with SMTP id 98e67ed59e1d1-3a2b59f6deamr1580702a91.54.1790558971111;
-        Sun, 27 Sep 2026 18:29:31 -0700 (PDT)
+        bh=mI4MQAkrqHNpUjr7C93Sk+aRsKdy2XPiHpFNJDV/YcA=;
+        b=2q1QLkJQWbxtR8T74BBTXCcKl0RamUZyxb/tYIG1EErzx2UirRLAlFwPe6s4btnRc7
+         ozYD5xek3xMwhGYTV+9EYE4UovyV8Y6zo4WdcGpGYEGoBZ4I0nxgGi6ks760GPNHBS8u
+         ELMKaJnrdh5nlW/1OGMwfR2fe067/sB8Fp7JbeQCxpINv0iwv2H3CaHKLqsKmWtTtBwT
+         sw8ZpiMeXXsm8lLZ6N2/KUunQ4gxc3dTN0EXwJxrv7iQmzEhGQSCkwz9UnoVYlC+mEBg
+         L8V2OXErgDGdUZTnnNzI6h+3lxEnA8HZGMbxlNyZHR1Og+Ya4ewj1RTuELMDXJzxqTJl
+         iDaw==
+X-Forwarded-Encrypted: i=1; AKwUvBx0iyPjwHkm4pSbYKxv0u+48Piyn7+i86rW8HLTgLm++SzU7jSA5hvQMo6CZGgywLzxa7pu9xXqoR+iWUhdtaYo@lists.infradead.org
+X-Gm-Message-State: AFq9FYKewhq+pmaUZjoAoykQmHWc/WvrCOysnQB2Uz3304eFImBuIILI
+	AeP1g3fP/gdXcX4V+PFRRS6M2eXhdTMzA6etP42mNVqjG/tMlDz4EdO7gAWxNkcR1oHXfrr1SZ+
+	fKY1i0tY9MFSBg2xwyTq+vAgtfrDeLLWCdtfq3tkg3AF+OhYI+/SxYaMd/b78v+nPE3DPXppGQn
+	QG
+X-Gm-Gg: AYBFou0l8U3OVdSmkbiLVMV/vb8kmnbvCtl0w9wSWDV2l1Z3C1DTdBWtl0XNPA219Jl
+	3v1N/NXB1PD+l4ruvSKDnvkokayVPCJCGCutd5k3uV1vICmdv2OXGBYBXoInmq2B3ctP8Wcfvoy
+	TjK84oqqWNUIwfDoVGE6JYMdF1lVh3o2RF0mL8QNL9r8/cFSv4XYsXaWi8USgBMSziAbAwAmMpF
+	ndDQSRdtVxGqtG09HOdfx2AnUSRZShgGh1/uW/+cMMu80XjjQApyyQX/ZPKVxD9EpBLRe1THQp/
+	LAFV9MrQrxNDu9s5wdfCo+cYcpeiOchSKgU7o1Qr2JaPtf6pqZE3DKeYNmQ+OZJV0Rl9VWwI1r2
+	CcUMz0tZlt9VDLOv7wGbMTiop8U1BNbxrddxPyUnvGQ==
+X-Received: by 2002:a17:90b:2dc3:b0:39e:6a7e:ee18 with SMTP id 98e67ed59e1d1-3a098da14d3mr9007853a91.36.1790559017550;
+        Sun, 27 Sep 2026 18:30:17 -0700 (PDT)
+X-Received: by 2002:a17:90b:2dc3:b0:39e:6a7e:ee18 with SMTP id 98e67ed59e1d1-3a098da14d3mr9007821a91.36.1790559017031;
+        Sun, 27 Sep 2026 18:30:17 -0700 (PDT)
 Received: from [192.168.68.52] (n175-34-8-244.mrk21.qld.optusnet.com.au. [175.34.8.244])
-        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2df913ddc55sm32916295ad.23.2026.09.27.18.29.24
+        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-3a0b99917besm17161191a91.14.2026.09.27.18.30.10
         (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Sun, 27 Sep 2026 18:29:30 -0700 (PDT)
-Message-ID: <d1ad37f1-f87b-4812-a202-8b5e949fa1a8@redhat.com>
-Date: Mon, 28 Sep 2026 11:29:23 +1000
+        Sun, 27 Sep 2026 18:30:16 -0700 (PDT)
+Message-ID: <98356890-80b0-47f8-bddf-75d75ce63272@redhat.com>
+Date: Mon, 28 Sep 2026 11:30:09 +1000
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v19 19/20] KVM: arm64: CCA: Expose SVE VL register before
- VCPU finalization
+Subject: Re: [PATCH v19 20/20] KVM: arm64: CCA: Control user register access
+ for Realms
 To: Suzuki K Poulose <suzuki.poulose@arm.com>, kvm@vger.kernel.org,
  kvmarm@lists.linux.dev
 Cc: maz@kernel.org, will@kernel.org, catalin.marinas@arm.com,
@@ -94,18 +94,18 @@ Cc: maz@kernel.org, will@kernel.org, catalin.marinas@arm.com,
  WeiLin.Chang@arm.com, lpieralisi@kernel.org, enju.kohei@fujitsu.com,
  Jean-Philippe Brucker <jean-philippe@linaro.org>
 References: <20260920212845.707-1-suzuki.poulose@arm.com>
- <20260920212845.707-20-suzuki.poulose@arm.com>
+ <20260920212845.707-21-suzuki.poulose@arm.com>
 From: Gavin Shan <gshan@redhat.com>
-In-Reply-To: <20260920212845.707-20-suzuki.poulose@arm.com>
+In-Reply-To: <20260920212845.707-21-suzuki.poulose@arm.com>
 X-Mimecast-Spam-Score: 0
-X-Mimecast-MFC-PROC-ID: BbrXAJWAUEuJ7mh9Q87VrMLjMtGHR5kP03MArBI8Xh4_1790558973
+X-Mimecast-MFC-PROC-ID: pnXtOEXYPmQSKosKFJPv70CwPLO6q2uMrW4KIkKIIZ4_1790559018
 X-Mimecast-Originator: redhat.com
 Content-Language: en-US
 Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260927_182936_512670_E8BFCF63 
-X-CRM114-Status: GOOD (  15.34  )
+X-CRM114-CacheID: sfid-20260927_183021_202913_0F388D03 
+X-CRM114-Status: GOOD (  23.55  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -123,32 +123,56 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 On 9/21/26 7:28 AM, Suzuki K Poulose wrote:
 > From: Jean-Philippe Brucker <jean-philippe@linaro.org>
 > 
-> Userspace must configure the SVE vector length before the Realm is created
-> (as it is part of the parameter for Realm creation), but the Realm VCPUs
-> cannot be finalized until after the Realm Descriptor has been created.
+> The RMM restricts the access to the register states that the host can
+> read/modify for a given Realm.
 > 
-> KVM_GET_REG_LIST currently rejects the unfinalized VCPUs, which prevents
-> the userspace from discovering and configuring the VLs for  the Realm.
+> e.g., At VCPU creation, can modify GPRS (x0-x30) and PC.
+>        While servicing SMCCC calls via RSI_HOST_CALL or servicing PSCI
+>        requests.
+>        MMIO emulation in the unprotected space.
 > 
-> Allow KVM_GET_REG_LIST for unfinalized RECs and make the SVE register
-> enumeration handle the unfinalized case explicitly. i.e., only expose
-> KVM_REG_ARM64_SVE_VLS before SVE is finalized.
+> Additionally we use the sysreg configuration to advertise/configure the
+> following Realm parameters, which are required before the Realm Descriptor
+> :w
+> is created:
+>   - SVE Vector Length
+>   - Number of HW Breakpoints/Watchpoints
+>   - PMU Counters.
 > 
-> One adverse side effect of this change is that a KVM_GET_REG_LIST call that
-> only probes for the array size will now succeed even if SVE is not
-> finalized, but that seems harmless since the following KVM_GET_REG_LIST
-> with the full array will fail.
+> Thus KVM also additionally allows access to ID_AA64DFR0_EL1 and SVE_VLS for
+> the configuration of Realm creation parameters. We don't support PMUs for
+> the Realm VMs yet, so PMCR is not exposed.
+> 
+> The RMM makes similar restrictions for reading of the guest's registers
+> (this is *confidential* compute after all), however we don't impose the
+> restriction here. This allows the VMM to read (stale) values from the
+> registers which might be useful to read back the initial values even if
+> the RMM doesn't provide the latest version. For migration of a realm VM,
+> a new interface will be needed so that the VMM can receive an
+> (encrypted) blob of the VM's state.
+> 
+> Reflect the above in KVM_GET_REG_LIST, KVM_SET_ONE_REG calls.
 > 
 > Signed-off-by: Jean-Philippe Brucker <jean-philippe@linaro.org>
+> Co-developed-by: Steven Price <steven.price@arm.com>
 > Signed-off-by: Steven Price <steven.price@arm.com>
+> Co-developed-by: Suzuki K Poulose <suzuki.poulose@arm.com>
 > Signed-off-by: Suzuki K Poulose <suzuki.poulose@arm.com>
 > ---
+> Changes since v18:
+>   - Don't expose PMCR_EL0 to the userspace now, we could do that when we
+>     support PMU
+>   - Fix check patch warnings
 > Changes since v17:
->   - Rewrite the commit description to clearly describe the purpose
+>    - Merge related changes into one single patch for the user set/get registers
+>      I have retained the Review tags, as the code hasn't changed, just the patches
+>      were merged into a single one with the same tags.
+>    - Limit KVM_GET_REG_LIST to the allowed CORE registers.
 > ---
->   arch/arm64/kvm/arm.c   | 15 ++++++++++++++-
->   arch/arm64/kvm/guest.c | 10 +++++-----
->   2 files changed, 19 insertions(+), 6 deletions(-)
+>   arch/arm64/kvm/guest.c      | 63 +++++++++++++++++++++++++++++++++++++
+>   arch/arm64/kvm/hypercalls.c |  4 +--
+>   arch/arm64/kvm/sys_regs.c   | 28 +++++++++++++----
+>   3 files changed, 87 insertions(+), 8 deletions(-)
 > 
 
 Reviewed-by: Gavin Shan <gshan@redhat.com>
