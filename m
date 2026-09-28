@@ -4,118 +4,92 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id F0D76C9833E
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 28 Sep 2026 08:45:39 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4B31EC9833E
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 28 Sep 2026 08:48:53 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:References:Cc:
+	Subject:From:To:Message-Id:Date:Content-Type:Content-Transfer-Encoding:
+	Mime-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=BT8b0pCQ0yjJecVmaGdxCgs1keFPKzpPLKM/V3xRvkY=; b=Is5tPabJBVDIE/drqN2a4zpPpm
-	n4Bv6FwQSGyr7x4gNNZeXCJShhx9OSdZDW02i0j/YpjowandOJwQxrycPHt86lTcqxWaxrzvY0/rn
-	EdUTQ08PODVUWY6JIh7Ozs53vKWSOHX5A82P4uqgEVBJRjAXlNaxI9s5MJ5kYPVb2bRwKkBDfpzux
-	C1TN65h3LpkAMdNbjHU+UcAc4XaXaasgSvnGczYvqwdk3ki1zGxLaTN/hdeUsBM3SRXWVHjWbxOun
-	5F0+WpziUUCvO2U04nGU80i20uWhlKVtvkGmrD9TJzJqEZyChjcpvPY1O71VaHDlW82hf/N62eZMC
-	MjvJ9TaA==;
+	bh=4TrL1LK87jREhsshgj9afbV5g3GJEMSvHjNMsw4bwYc=; b=kecrPxR+BsKqpFOn14f9cTCBKn
+	Na8Ok9y6Hsdw/7MI7chuorcY0Y/YnzLPE7H7wFGZOvAdODoFjnNYyWN8Fv1WR4zwS/3sa6yuTXXFQ
+	hd/blJieQglDKsPX25R0RgLEnoCiPcj4G5EQCC0qBdDQiQFVLY2VoYeZxywxMO0/3ZHpLLNb8SLYQ
+	IKlHhjZMFdEseo0q0KQ0nzlY0iiHFy9TW+ReV6LHWHjis3+uRLYl35pc3WHpEVw5r15kGXroX2x9j
+	63/NXqqRlyzt1xst/VkrD3AINfgNfj4cdibaAN20Y+OVQR4teg4TjnkL9TDeONREBLxg/bVVReLDB
+	zebj37Rw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xB6zN-000000008RC-1vXH;
-	Mon, 28 Sep 2026 08:45:33 +0000
-Received: from mail-northeuropeazlp170100001.outbound.protection.outlook.com ([2a01:111:f403:c200::1] helo=DB3PR0202CU003.outbound.protection.outlook.com)
+	id 1xB72U-000000008pV-43iu;
+	Mon, 28 Sep 2026 08:48:47 +0000
+Received: from smtpout-02.galae.net ([185.246.84.56])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xB6zK-000000008Q2-0mPP
+	id 1xB72S-000000008oC-0Dxh
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 28 Sep 2026 08:45:32 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=laUCGZmkmW23BUWg8/AFZoo2l3L8XVWgQDGHjLq4AcvEu8WQoO8JPehgRwLmAg+7yk44Ri3eECmPwwcFaRO7KCc2p/sHcILOG4nAYAesxSP3vbfLGHydXjklW3MXR5KVe1Xe22eb2XUNEVUP/mK3QD/oIuohspZ4liKaROr/BysyZcH8y24AgT8TSjsSzPDAGxs6cObxHNKqxwBcVms5/ORV0OGQBcKBfhxEdyJOYoYPtB0xASkgSAY/mEsw9lh48JeBd3VhQ2kQW60gXM8vzn8/w/ATwDwr80nWMFdvr+GSOpag6iqL/rObFw7NnEFPbCvWAySFvIyl1qc1ZEMrYA==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=BT8b0pCQ0yjJecVmaGdxCgs1keFPKzpPLKM/V3xRvkY=;
- b=fg93L/ikiLG0AvclFjiKKjPcB5FC3WeQbFUotGg6MpJ/JjewEC/O7M+pW09Gwaocrc3lgrBYnIA5GD5MWXJR26+JRauvAyiqoPnAFf5Yo9jKUotMvHCHilPP8t1VyghZuxZRMK4+8xO52unHZoK7KolmmeOsDlaj3OzbVtL6Oj6hgswHHI7r52kEMQxQN/tPixAQaUZXg7UYin9KLTNUGjhb8DDDLsa061dPejRR7LIxlKe4NOPhq7yVI0GdBvrtDm+Gz0LpTGke/P1gwVCOXIKdHCIbHKPczyiJeJQkYDvg3xfxUbwficvlq4SVZkNUZuwkL4DDLvlO47ujMs4HWQ==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=fail (sender ip is
- 164.130.1.60) smtp.rcpttodomain=posteo.net smtp.mailfrom=foss.st.com;
- dmarc=fail (p=none sp=none pct=100) action=none header.from=foss.st.com;
- dkim=none (message not signed); arc=none (0)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=foss.st.com;
- s=selector2;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=BT8b0pCQ0yjJecVmaGdxCgs1keFPKzpPLKM/V3xRvkY=;
- b=cJYsRdmbxMEkjp2Lc1AdSjXdUT5R2AI9Lq+ua5rq6CU+yQyb06LglFy0ppUUAxOsn3USNnBYXy4aD8tpIJNmcMPxqHAMiEUcqvee95IQJtoXxXjXjl+xT2h+prSNkMUsrDisMZF5zNamfF/hfvujb/6wABawLLOz+OY6+9a7nYQPBkLVawj3D0ebgFW5OOysipfufCNOcyO4W10veQMdevjFEiipOS16rkRANGeAKUj/2chPwtbMaNzGMrQ4ynz0mGbjjpz0AxDCIPpazfiJ4u35duF4bgYHMeLIpnhet592KJ1GmJHyfj5o0/ot9kcO2Wu8ouaPtgFvG2pMzY/xAw==
-Received: from AM0PR02CA0125.eurprd02.prod.outlook.com (2603:10a6:20b:28c::22)
- by DB8PR10MB3738.EURPRD10.PROD.OUTLOOK.COM (2603:10a6:10:118::24) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.451.23; Mon, 28 Sep
- 2026 08:45:21 +0000
-Received: from DB1PEPF000509F2.eurprd02.prod.outlook.com
- (2603:10a6:20b:28c:cafe::83) by AM0PR02CA0125.outlook.office365.com
- (2603:10a6:20b:28c::22) with Microsoft SMTP Server (version=TLS1_3,
- cipher=TLS_AES_256_GCM_SHA384) id 15.21.451.23 via Frontend Transport; Mon,
- 28 Sep 2026 08:45:20 +0000
-X-MS-Exchange-Authentication-Results: mx.microsoft.com 1; spf=fail (sender IP
- is 164.130.1.60) smtp.mailfrom=foss.st.com; dkim=none (message not signed)
- header.d=none;dmarc=fail action=none header.from=foss.st.com;
-Received-SPF: Fail (protection.outlook.com: domain of foss.st.com does not
- designate 164.130.1.60 as permitted sender) receiver=protection.outlook.com;
- client-ip=164.130.1.60; helo=smtpO365.st.com;
-Received: from smtpO365.st.com (164.130.1.60) by
- DB1PEPF000509F2.mail.protection.outlook.com (10.167.242.148) with Microsoft
- SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.21.472.14 via Frontend Transport; Mon, 28 Sep 2026 08:45:20 +0000
-Received: from STKDAG1NODE2.st.com (10.75.128.133) by smtpO365.st.com
- (10.250.44.72) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.43; Mon, 28 Sep
- 2026 10:51:12 +0200
-Received: from [10.48.86.79] (10.48.86.79) by STKDAG1NODE2.st.com
- (10.75.128.133) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.43; Mon, 28 Sep
- 2026 10:45:18 +0200
-Message-ID: <7ee09655-2fef-4334-b0aa-b56f7ae03f74@foss.st.com>
-Date: Mon, 28 Sep 2026 10:45:18 +0200
-MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH] arm64: dts: st: fix arm,smc-id of the SMC watchdog on
- stm32mp2
-To: Mateusz Nowicki <mateusz.nowicki@posteo.net>, <mcoquelin.stm32@gmail.com>
-CC: <robh@kernel.org>, <krzk+dt@kernel.org>, <conor+dt@kernel.org>,
-	<lionel.debieve@foss.st.com>, <amelie.delaunay@foss.st.com>,
-	<patrice.chotard@foss.st.com>, <devicetree@vger.kernel.org>,
-	<linux-stm32@st-md-mailman.stormreply.com>,
-	<linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>
-References: <20260907091400.55954-1-mateusz.nowicki@posteo.net>
-Content-Language: en-US
-From: Alexandre TORGUE <alexandre.torgue@foss.st.com>
-In-Reply-To: <20260907091400.55954-1-mateusz.nowicki@posteo.net>
-Content-Type: text/plain; charset="UTF-8"; format=flowed
-Content-Transfer-Encoding: 7bit
-X-Originating-IP: [10.48.86.79]
-X-ClientProxiedBy: ENXCAS1NODE2.st.com (10.75.128.138) To STKDAG1NODE2.st.com
- (10.75.128.133)
-X-EOPAttributedMessage: 0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: DB1PEPF000509F2:EE_|DB8PR10MB3738:EE_
-X-MS-Office365-Filtering-Correlation-Id: 78fb5687-855b-4260-3d99-08df1d3cd428
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|23010399003|36860700016|1800799024|376014|82310400026|56012099006|11063799006|10067099003|18002099003|22082099003;
-X-Microsoft-Antispam-Message-Info: rDykTYbmAHJ/6ETe3vMRMiv4M22rgNAAyHqpjl0+KTuAEUMHdEvYmTOWqPUVgNkMssKO87/ulmE0hY4BCuh+HIBHAwy+ENHDGK1iodZRSqM4ceHriEnJb2IvxAgtcihVQINDuZBQcPftMQFqJwPYDtNBcvInpuOvNNHU+z9bNK+6G6V8sq4p2SddlJs63zuNYoVhTN1qpCaH+DQTW1/+XHzBncGNpkwiOx2D1I7VEi9b9BT59IMdjxdVV/FPqoYH9zklkdYesX7u8nbbdMlNie2fIMZijHEJYg9DwsHjE6cGZ5T9KI6AH+4YyAm/dOwCUF1G8ycinhq3J8EHyI7cBZ64CFIO01EwIkcNzo3W2Mj07lc5U1N7HqYnO1NTrXqvjLd4p1GWIPm43onsAGqNAwrIX+P9YjwG8bIexQz+b6g8PpiPQVI1UYVh82c8opZLgmERKTqZe1fWXNX7qdDvRVdIQ4/RQ1oncDnRVLFnqADqjIDNAKCPVejtTIoL3/xAu0p4A6pe0rUfBAXVz8Ps+Q81W9qNLuivc5fByQDtlaDyWgpeOHnui2gTdtlUhLWuleiSFWIyC7v3L1qgJJydO9X05ZcptjMplaUePaWTek9ijIWEO4Nkoql8AqYjv7bwBieyfrl4mF8byv83HN+4w0DaD26jvass5poRHmME39DRtKhncplSBaernHxV4eGlN8VmZ24xFQYWq6QEwBBxcQ==
-X-Forefront-Antispam-Report: CIP:164.130.1.60;CTRY:IT;LANG:en;SCL:1;SRV:;IPV:CAL;SFV:NSPM;H:smtpO365.st.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(23010399003)(36860700016)(1800799024)(376014)(82310400026)(56012099006)(11063799006)(10067099003)(18002099003)(22082099003);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: WQAuka2RCjQ+KLjukQzMhhzBlwrGV1jcnHHAH+LdzkIyA8VoSJmua/61g1GGSi4mByhD9nzSxLWrIu0Mv/cRa5mL7s5jDkAvhXwnT+gq8nAwxPV6nIAq+DTOV1tEG+0O3vp80xUBelCFFlg1CuoghE8v9SukM0V/mxePlPaWl0pcGxupki4bWH68o/ZJNLuaWs4Pbqh03f/+TcMlty1OSj+rhVLETcuzG8Du2PKOhAAddwB8YPuYAGgZly65kO/Su29FbW5wA5Fxf4Es4MddDrkB5NjFQUEE4iEqB98SdM+tg4GfawIqLeLaC84mPvVTDm+slPIRrESPlrOXn4DDahc0uZ3WCMyFytfzZ7cKwbpWMdwIaZ07nrbnarEbqCGXw2pBuVEOz9HlHH5rBoMFjG0nUQAPiiW7EhQ6shLe7EjcJIxyTIsgqsBVIvOpD/56
-X-OriginatorOrg: foss.st.com
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 28 Sep 2026 08:45:20.3383
- (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: 78fb5687-855b-4260-3d99-08df1d3cd428
-X-MS-Exchange-CrossTenant-Id: 75e027c9-20d5-47d5-b82f-77d7cd041e8f
-X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=75e027c9-20d5-47d5-b82f-77d7cd041e8f;Ip=[164.130.1.60];Helo=[smtpO365.st.com]
-X-MS-Exchange-CrossTenant-AuthSource: DB1PEPF000509F2.eurprd02.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Anonymous
-X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: DB8PR10MB3738
+	Mon, 28 Sep 2026 08:48:45 +0000
+Received: from smtpout-01.galae.net (smtpout-01.galae.net [212.83.139.233])
+	by smtpout-02.galae.net (Postfix) with ESMTPS id 003371A0D72;
+	Mon, 28 Sep 2026 08:48:40 +0000 (UTC)
+Received: from mail.galae.net (mail.galae.net [212.83.136.155])
+	by smtpout-01.galae.net (Postfix) with ESMTPS id BA3E4601BD;
+	Mon, 28 Sep 2026 08:48:40 +0000 (UTC)
+Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id B9ED0102F1EA6;
+	Mon, 28 Sep 2026 10:48:21 +0200 (CEST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=dkim;
+	t=1790585317; h=from:subject:date:message-id:to:cc:mime-version:content-type:
+	 content-transfer-encoding:in-reply-to:references;
+	bh=4TrL1LK87jREhsshgj9afbV5g3GJEMSvHjNMsw4bwYc=;
+	b=ZDa58Au2RHTizRo43gJ1JRUszIzTyZQkH6fdz231iZk+mFK47kmlmDY+0VETY5yPpnsekI
+	H2W47fDdg16ql/VlkfIClEu+3ESEBPzsHVxHQwSdkpqq7xS/LmLFAZ+c1Cwv0IKbwSw7wN
+	UNguMPFymrWlqGCyroCsOi8X9w+cBGPYBNKhNvYG1RBg11GdeNJxoWlU5ueicQVxlBuyqM
+	rssKNaxcGDmyEx8/mRYdRbY6UDDqUJjccvTKQdvCwKLp+ozx2FfNr7mFPECEsnr5mrfBuE
+	Qly9BUoYG+GYmxYZ6jpGEQOn3mIhX3sFqMhz33riAziOXByw/e3sDqg5nym3vw==
+Mime-Version: 1.0
+Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset=UTF-8
+Date: Mon, 28 Sep 2026 10:48:20 +0200
+Message-Id: <DLQTIJA71AQ1.1RASTM0D6GMGX@bootlin.com>
+To: "Luca Ceresoli" <luca.ceresoli@bootlin.com>, "Andrzej Hajda"
+ <andrzej.hajda@intel.com>, "Neil Armstrong" <neil.armstrong@linaro.org>,
+ "Robert Foss" <rfoss@kernel.org>, "Laurent Pinchart"
+ <Laurent.pinchart@ideasonboard.com>, "Jonas Karlman" <jonas@kwiboo.se>,
+ "Jernej Skrabec" <jernej.skrabec@gmail.com>, "Maarten Lankhorst"
+ <maarten.lankhorst@linux.intel.com>, "Maxime Ripard" <mripard@kernel.org>,
+ "Thomas Zimmermann" <tzimmermann@suse.de>, "David Airlie"
+ <airlied@gmail.com>, "Simona Vetter" <simona@ffwll.ch>, "Jessica Zhang"
+ <jesszhan0024@gmail.com>, "Laurentiu Palcu" <laurentiu.palcu@oss.nxp.com>,
+ "Lucas Stach" <l.stach@pengutronix.de>, "Frank Li" <Frank.Li@nxp.com>,
+ "Sascha Hauer" <s.hauer@pengutronix.de>, "Pengutronix Kernel Team"
+ <kernel@pengutronix.de>, "Fabio Estevam" <festevam@gmail.com>, "Paul
+ Cercueil" <paul@crapouillou.net>, "Paul Kocialkowski" <paulk@sys-base.io>,
+ "Linus Walleij" <linusw@kernel.org>, "Inki Dae" <inki.dae@samsung.com>,
+ "Jagan Teki" <jagan@amarulasolutions.com>, "Marek Szyprowski"
+ <m.szyprowski@samsung.com>, "Sean Paul" <sean@poorly.run>, "Jonathan
+ Corbet" <corbet@lwn.net>, "Shuah Khan" <skhan@linuxfoundation.org>, "Randy
+ Dunlap" <rdunlap@infradead.org>
+From: "Luca Ceresoli" <luca.ceresoli@bootlin.com>
+Subject: Re: [PATCH v3 00/19] drm/panel: embed a drm_bridge into every
+ drm_panel
+Cc: "Albert Esteve" <aesteve@redhat.com>, "Anusha Srivatsa"
+ <asrivats@redhat.com>, "Dmitry Baryshkov"
+ <dmitry.baryshkov@oss.qualcomm.com>, "Hui Pu" <Hui.Pu@gehealthcare.com>,
+ "Ian Ray" <ian.ray@gehealthcare.com>, "Thomas Petazzoni"
+ <thomas.petazzoni@bootlin.com>, <dri-devel@lists.freedesktop.org>,
+ <linux-kernel@vger.kernel.org>, <imx@lists.linux.dev>,
+ <linux-arm-kernel@lists.infradead.org>, <linux-mips@vger.kernel.org>,
+ <linux-rockchip@lists.infradead.org>,
+ <linux-stm32@st-md-mailman.stormreply.com>, <asahi@lists.linux.dev>,
+ <linux-arm-msm@vger.kernel.org>, <freedreno@lists.freedesktop.org>,
+ <linux-tegra@vger.kernel.org>, <linux-doc@vger.kernel.org>,
+ <linux-samsung-soc@vger.kernel.org>
+X-Mailer: aerc 0.22.0
+References: <20260916-drm-bridge-every-panel-v3-0-83afb4f1a707@bootlin.com>
+In-Reply-To: <20260916-drm-bridge-every-panel-v3-0-83afb4f1a707@bootlin.com>
+X-Last-TLS-Session-Version: TLSv1.3
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260928_014530_571547_5CC301FE 
-X-CRM114-Status: GOOD (  14.31  )
+X-CRM114-CacheID: sfid-20260928_014844_221191_18F9C426 
+X-CRM114-Status: UNSURE (   4.91  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -130,51 +104,16 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Mateusz
+On Wed Sep 16, 2026 at 3:45 PM CEST, Luca Ceresoli wrote:
+> This series embeds a drm_bridge into every drm_panel, as previously
+> discussed [1][2] and in previous iterations.
 
-On 9/7/26 11:14, Mateusz Nowicki wrote:
-> OP-TEE implements the STM32MP2 watchdog SMC service with function ID
-> 0xbc000000 (CFG_WDT_SM_HANDLER_ID), not 0xb200005a. With the current
-> value the arm_smc_wdt probe fails with -EIO and the IWDG started by the
-> bootloader is never refreshed.
-> 
-> Fixes: 89fca38168c9 ("arm64: dts: st: add arm-wdt node for watchdog support on stm32mp251")
-> Fixes: e9b03ef21386 ("arm64: dts: st: introduce stm32mp23 SoCs family")
-> Signed-off-by: Mateusz Nowicki <mateusz.nowicki@posteo.net>
-> ---
->   arch/arm64/boot/dts/st/stm32mp231.dtsi | 2 +-
->   arch/arm64/boot/dts/st/stm32mp251.dtsi | 2 +-
->   2 files changed, 2 insertions(+), 2 deletions(-)
-> 
-> diff --git a/arch/arm64/boot/dts/st/stm32mp231.dtsi b/arch/arm64/boot/dts/st/stm32mp231.dtsi
-> index 9e1d240888ff..35e247af957c 100644
-> --- a/arch/arm64/boot/dts/st/stm32mp231.dtsi
-> +++ b/arch/arm64/boot/dts/st/stm32mp231.dtsi
-> @@ -35,7 +35,7 @@ arm-pmu {
->   
->   	arm_wdt: watchdog {
->   		compatible = "arm,smc-wdt";
-> -		arm,smc-id = <0xb200005a>;
-> +		arm,smc-id = <0xbc000000>;
->   		status = "disabled";
->   	};
->   
-> diff --git a/arch/arm64/boot/dts/st/stm32mp251.dtsi b/arch/arm64/boot/dts/st/stm32mp251.dtsi
-> index 9c63fdb5a885..2dcbba65e298 100644
-> --- a/arch/arm64/boot/dts/st/stm32mp251.dtsi
-> +++ b/arch/arm64/boot/dts/st/stm32mp251.dtsi
-> @@ -36,7 +36,7 @@ arm-pmu {
->   
->   	arm_wdt: watchdog {
->   		compatible = "arm,smc-wdt";
-> -		arm,smc-id = <0xb200005a>;
-> +		arm,smc-id = <0xbc000000>;
->   		status = "disabled";
->   	};
->   
+Series applied to drm-misc-next.
 
-Applied on stm32-next.
+Luca
 
-Thanks
-Alex
+--
+Luca Ceresoli, Bootlin
+Embedded Linux and Kernel engineering
+https://bootlin.com
 
