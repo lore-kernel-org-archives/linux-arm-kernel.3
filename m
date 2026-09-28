@@ -4,60 +4,57 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 65AA5C9833E
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 28 Sep 2026 07:21:09 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DDED7C9833E
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 28 Sep 2026 07:22:06 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=XcrdfKU3A6deusJ8ZYeLfo9c3Lg+3v5qDALcMQfUIoY=; b=DxebZaM8T/mBN9PVDIIHBYDfXY
-	KL/obezBJsvMeLzC/K+j1ZsQw3TllR+pYGc9f6GcLbuCeD9399BNSyKfUDVn3S0gs1V4YT/ZpPe4c
-	yPZgltXTM2YKASsgiNCxi3cX6rMVF3b5Ro+DWFVw0Tk8YfhBg64EkkVvK5zyRfWvHVYwUzdJoADjJ
-	nI0DSnKG5lCAOOLXTHCSRm2l7ImpahxQoohVtDbs4V4+7f03ESp5eYscxgiC/Ujo0sFQSx8lELmmU
-	G+q3GH1Zg8myyiGd/cauVKQOVJbutqDAl2Y6qEiyCrkoYm+0RLs/v8q4jx0JgO2Iv4hPF5NojMz9v
-	WRAwGDNg==;
+	bh=pjWZf1auWciM0t/tzIaHilDCX2PzkzFuO2fqxNX40f4=; b=NaHOJK9s7fP+sbxb3WRPq2SPlI
+	fK/gX67XTrbHFeDPKNuq0I4Pjp+8cKPP79rBBqqD/IrEw65bSTE8FxebSPWKORT2EtUdg5RhAwf1o
+	rSN1qWCZEQ0anpWVSfRPwRc538+zC2tZT+SoIt2pss+PBonmN9Wx0Pd5RmVNEhCZx3B8ity6Dt5EM
+	pugjBMK2JUIMegZ6axmWCoCJkiVPw5W6tRbOM8tYNZRKhlcZkpKTS+DMTSDnkfGkIN3206vxW30XS
+	30NLEJF3EOwhYhx5XMafc1Gmuj4MCLxTL1g4aAHe0Mks2QWzuTRsBiNQm2UhIIk0P7VvWg4gVxrL+
+	SdOoIFzw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xB5fb-0000000HXPx-1wtt;
-	Mon, 28 Sep 2026 07:21:03 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1xB5gW-0000000HXYm-33YB;
+	Mon, 28 Sep 2026 07:22:00 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xB5fa-0000000HXPp-0f7b
+	id 1xB5gU-0000000HXYa-4A4t
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 28 Sep 2026 07:21:02 +0000
+	Mon, 28 Sep 2026 07:21:59 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id E375540052;
-	Mon, 28 Sep 2026 07:21:01 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 4BBA01F000FF;
-	Mon, 28 Sep 2026 07:20:59 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 31393600E2;
+	Mon, 28 Sep 2026 07:21:58 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 5654E1F000FF;
+	Mon, 28 Sep 2026 07:21:56 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1790580061;
-	bh=XcrdfKU3A6deusJ8ZYeLfo9c3Lg+3v5qDALcMQfUIoY=;
+	s=k20260515; t=1790580117;
+	bh=pjWZf1auWciM0t/tzIaHilDCX2PzkzFuO2fqxNX40f4=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=XLCUDEyeTn4Hv8mdCR0sHt1R4Gmshkv4pZJ2UMTvvcYFJf0K+s/oj0Yl7jTPBfNrC
-	 s0zhr3vkhy00dcZ351Syb7SuerqvlFP8DrzlLHT32Lica2cS2v/aO+W+pmX91Ktwl/
-	 oYn7QJ8RBZZFLm4VMM73vz9XY3c1FFqORe8IAdqucIonD85iZwT0//4xQvy/T4o5G6
-	 9X6Ie5/e2JlN44Ensp2m+lJ6i2g8rsrr1A+XuusSLImkPgrna3d/6gtLrZD3f8uNz3
-	 41B9x98r70haNzgYdil182+20AJLUNGXQREi+F7hGV7HrOaqe9Q2yPILTVV3Uwkmkk
-	 YV/h9hK9/4DQQ==
-Date: Mon, 28 Sep 2026 10:20:56 +0300
+	b=D0d0H2O+wFox1vxz6GaXraMUjdFc8oPkr36VVt6syNwHz/vZlkVRokPyWTEmotW/g
+	 TgXiL4DlgHlZNWD3/xrpuxrNQzgVcRCV/aMwU3yDoPdmrZxeIMNpBPpoZdSlicRPFT
+	 IKCdyvLZBNC1my1UYL4ucCyEptyXeNB/R5nPSiq9+ETo6NWHamBPNAkY19r7ld/YQx
+	 6wlNjpTwndog4VEYnINiQ8G4RV8Gv2Xs2lQfQFi1BIIK5PNNX/lBvWY7znynafAFre
+	 0fhVjI06rIwYbLte3+pZSjb1OmxJcAaJBanGwtj5pxgiJlEgpo5TQwEB2SRtzvwPC0
+	 HRv0DfAsiZbkA==
+Date: Mon, 28 Sep 2026 10:21:53 +0300
 From: Claudiu Beznea <claudiu.beznea@kernel.org>
-To: Geert Uytterhoeven <geert+renesas@glider.be>
+To: Thomas Huth <thuth@redhat.com>
 Cc: Nicolas Ferre <nicolas.ferre@microchip.com>, 
 	Alexandre Belloni <alexandre.belloni@bootlin.com>, Claudiu Beznea <claudiu.beznea@tuxon.dev>, 
-	Stephen Boyd <sboyd@kernel.org>, Brian Masney <bmasney+clk@redhat.com>, 
-	Jerome Brunet <jbrunet+clk@baylibre.com>, Kees Cook <kees@kernel.org>, linux-clk@vger.kernel.org, 
-	linux-arm-kernel@lists.infradead.org
-Subject: Re: [PATCH] clk: at91: main: Drop unneeded cast in
- at91_clk_register_main_osc()
-Message-ID: <p4mkawney7xtb2sghsyss3zgq53gm6a2aqtylc6obnuohdkkti@rin3eqvadu5h>
-References: <51abd9177801984889c2a0c321ea8587677178c8.1787316176.git.geert+renesas@glider.be>
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH] ARM: at91: Replace __ASSEMBLY__ with __ASSEMBLER__
+Message-ID: <jypj45gex4daonopod5slfuob2dzbqjysbfanbybt33xu7krlg@muhrmrczdpwm>
+References: <20260821083645.200344-1-thuth@redhat.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <51abd9177801984889c2a0c321ea8587677178c8.1787316176.git.geert+renesas@glider.be>
+In-Reply-To: <20260821083645.200344-1-thuth@redhat.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -72,11 +69,16 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, Aug 21, 2026 at 02:44:28PM +0200, Geert Uytterhoeven wrote:
-> When assigning a non-const pointer to a const pointer, no cast is
-> needed.
+On Fri, Aug 21, 2026 at 10:36:45AM +0200, Thomas Huth wrote:
+> While the GCC and Clang compilers already define __ASSEMBLER__ auto-
+> matically when compiling assembly code, __ASSEMBLY__ is a macro that
+> only gets defined by the Makefiles in the kernel. This can be very
+> confusing when switching between userspace and kernelspace coding, or
+> when dealing with uapi headers that rather should use __ASSEMBLER__
+> instead. Let's standardize now on the __ASSEMBLER__ macro to avoid
+> this confusion.
 > 
-> Signed-off-by: Geert Uytterhoeven <geert+renesas@glider.be>
+> Signed-off-by: Thomas Huth <thuth@redhat.com>
 
-Applied to clk-microchip, thanks!
+Applied to at91-soc, thanks!
 
