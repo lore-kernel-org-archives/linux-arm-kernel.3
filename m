@@ -4,7 +4,7 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3B37ECA5FA3
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B7141CA5FA2
 	for <linux-arm-kernel@archiver.kernel.org>; Mon, 28 Sep 2026 17:42:20 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
@@ -12,62 +12,62 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	Subject:Message-ID:References:Mime-Version:In-Reply-To:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=PLizaoNOz6hydwy+EEJKSgP0D8TbobflQ2CjOBToA3A=; b=PsZqS4BEUCRy9cpNaG9pw6q1M+
-	emB0TB3c5fVkOTBhyDZSuoNeRo0m6LMhIBP0pMbAtf8XPR2xYjYOFuvY42zsWV6o8oaxpuC81Zco8
-	Y9KPTlcGGt2/eKw55o5+lsuxT12orhZXzFtXXgSn1E6gXLO1prpq45JLyFv/2tdVK2Qky9NfqSc0+
-	zVLnjMTMXLDgfszjgZO9P2djVYg5RkHIUJh4cGzbMa0hb7IxQ1/NJr7Z28/ujaWvZe9S1ih5/knv1
-	e97nfq6nVZREA5vclooYxEwNawWaIdr/X3BliDse6R9nx26obiY3hxyLXZYFYsRMyq1t+hSqgfXcd
-	g5xpxuwQ==;
+	bh=tQQXCFUTzEuKqqGshgMGPB+3UWOKCHMCwqurMu3nBP4=; b=LbXUVnlCkLEEU/kZW7LqCy+E8s
+	a0AGf0bkIAAytiVoFnTsgRHEcFAiXPr3A41s5eBoFLVcyd+8jtGTatCla9xtEbld4qFmkK0pDAwrJ
+	2ByeQJfsGUwN2ap1TXh5N1Nl1CjZqUhQVeyw8lkvk4ue14rRQmAj9iSCkBkdloXpvkwCxTOfYEwKV
+	2ZOve6ef8iaBeGCoTaVjM9RKTi1EZCfQRlVDHuiwY6m25XxtdRhq89QRYiyeeXK05RzjiswNopIYg
+	WeIyrJUlVrbScokF9u4AzTtZRDBqDP0SYDCNg4E44PEjKmrLdoeB+uDpUG/Px6DjDpXeVOMVt6pDv
+	1BiGKcVA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xBFMa-00000001Cgi-2F0S;
+	id 1xBFMa-00000001Cfk-0cjB;
 	Mon, 28 Sep 2026 17:42:04 +0000
-Received: from mail-wm1-x347.google.com ([2a00:1450:4864:20::347])
+Received: from mail-ed1-x548.google.com ([2a00:1450:4864:20::548])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xBFMR-00000001CXx-3WfZ
+	id 1xBFMO-00000001CVR-1BfU
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 28 Sep 2026 17:41:56 +0000
-Received: by mail-wm1-x347.google.com with SMTP id 5b1f17b1804b1-49ffe287240so16673295e9.2
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 28 Sep 2026 10:41:54 -0700 (PDT)
+	Mon, 28 Sep 2026 17:41:53 +0000
+Received: by mail-ed1-x548.google.com with SMTP id 4fb4d7f45d1cf-6ac7659d3f4so1531576a12.2
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 28 Sep 2026 10:41:51 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20251104; t=1790617313; x=1791222113; darn=lists.infradead.org;
+        d=google.com; s=20251104; t=1790617310; x=1791222110; darn=lists.infradead.org;
         h=content-type:cc:to:from:subject:message-id:references:mime-version
          :in-reply-to:date:from:to:cc:subject:date:message-id:reply-to
          :content-type;
-        bh=PLizaoNOz6hydwy+EEJKSgP0D8TbobflQ2CjOBToA3A=;
-        b=vNnXurNab3yW22W17T/BqPBLUeX1bf7qDXkJCx+Ny8qVdC6c1r9mC8EeQ58kbHK4tA
-         mLhj7lBQmqNX2P4cJ1BRXMJC5loxlVNeem57UkL0F8XHisNbpJYFAQAmKleqzL/aI0p5
-         Mg/5aXXyFMhGRCw6CaDKLYqBEuoCyaU1xp5IMcxd/Tb4VmT16CIVJ9MOaI/YKBXCbqGi
-         vZX51PFCrcb/+EtRuFXohv5reLNa6xLFVv1+JsT+MJi9pmtZazWkLxn8tcS6/zO6H5eI
-         hz7jkl+9IjnnFoF9xn7oqYP2TI5+N+F0Aplle5HkVOn9CKClroNCcMgMaoP+/gL413yD
-         9cMA==
+        bh=tQQXCFUTzEuKqqGshgMGPB+3UWOKCHMCwqurMu3nBP4=;
+        b=Xrourc9S8w9mLVllYkIHj5NP0XHW32oYxMF2vtV6MqsfpKyfOScqU5LLrBjntviiRB
+         ZNED1WtURyzzDgbUUJod1wuQohyQPCh63dM+RaaT4bz9iXydh2MPUeU0keKtvyM5nlnD
+         IovKDzfb9xwvT+/9BlfQ0n+CDQ9SH4YdD9kRFeUxsILCox4g0hJVrgXHN1f5sQKX3go5
+         y2NnVTdPNA8sjRxjkC6IzU1xwDUiqw/FcLjGwo24ppPa2Y0kg9LmKJR82SiZ302fiqKV
+         8xRYyspKH90yKPLKuTNdiK/nArDzKeQ3uqGJvrWsb6S1ErOO3HE3509GGmTzfHf/4ULC
+         rRVA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1790617313; x=1791222113;
+        d=1e100.net; s=20260707; t=1790617310; x=1791222110;
         h=content-type:cc:to:from:subject:message-id:references:mime-version
          :in-reply-to:date:x-gm-message-state:from:to:cc:subject:date
          :message-id:reply-to:content-type;
-        bh=PLizaoNOz6hydwy+EEJKSgP0D8TbobflQ2CjOBToA3A=;
-        b=GY5cyCpbMwZ+wJG5qt1FsJiz80JKX8L+lcdJXo58Ulr8fARNwFyR4xbn6o36NhNwcV
-         63SlgexS76zVcxgouR+JipV3mfFWKHQqJDPSxkkblRRrAu+s5FWaIUuUCXqbrXYRVru1
-         sRv1J7b7KixK/fbIdHpNZDe5oLVPYHRlb679WcTeqvfGlng/iNnpgP2jubXWMMbVYrdH
-         yDoa4hysxk/2RfrcfjZwbFRn95ndv1r2U3oSFsltICcSHci8SZ4XB8Alkz48eTRdPMyS
-         70lzjyoKo/GBHtfCZOFP25xgcRGfyltMNMMX4bn9r3Wxbn0gAPFywOV+lJPH+PbmqcSw
-         M8ZQ==
-X-Forwarded-Encrypted: i=1; AKwUvBxxNmGzOfGKhJ4P+Ea3rUraq/13JBC3vZkMIt6teH5a1H9AR1zV6Za3ekQIw8aNsfhJI7nBwhfdclUCAja2w+Zz@lists.infradead.org
-X-Gm-Message-State: AFuF++njIJfJxRlO+EYKgLMRxrSVrGNY1rDul+aidpRzAWb2/z5yZPXr
-	m3ElVAlh7nDxR2MGvpnj3ZAi00fU/7/RFDv9vSo3TmBc/BUZnlw9NQu70wGaHmRbdhsqqX0Ta9W
-	v+B71U3DV91mjqg==
-X-Received: from wmnb21.prod.google.com ([2002:a05:600c:6d5:b0:49f:e43f:afd1])
+        bh=tQQXCFUTzEuKqqGshgMGPB+3UWOKCHMCwqurMu3nBP4=;
+        b=J7M+JGiRc6kxJ8lwZpLk8VRzST4dQ0WcDle1aBKhpE8G8UDJ1CZy7uLc98qg06oigG
+         02UX+ELf5o2/zdWk3Z1HDf8BVPr1L+5Z4RyjXjJgVKkkgmE8aXbQm7R/FopF29ck0+LT
+         11pAvQzCIWNyo7bNseoVG1M9KlzUIxCn+zMyD45WF74ShWtCUxBpGt0eTTwcF2bcX+l9
+         Vxg9HdeSxtjoENVHPqBu1nBnTX4e1aKsDQN4itMD4k8KQtdhk5gAc4ubl8V+TMHhnNYe
+         mfjboj3Qyk8N8gLUPCchyZqiRBx6xBxRq2zpQYMAftuKSIIU6lc65+DdmmegAr0UYBLm
+         YEJA==
+X-Forwarded-Encrypted: i=1; AKwUvBysgbQBqvpu9e+p3b6PGLXk/dBfSZrow7b3VXhz2O0Eo1RooxEVaWs7lngo+OaUEf4bbDoN2Zn2VxdKavRr6EBI@lists.infradead.org
+X-Gm-Message-State: AFq9FYL0CObIvuwyZAFYjZp3XApCtDWlez3x76ewOhQEhMwUyFC8miRc
+	J0KkikyCdukfKGGxbqweFKw7QjdSZNyxKxnvaIibtnWqYGHc75s1Bz3T6PLAldgtasJQQb5ZxaO
+	e2JRc0axkmJsFPA==
+X-Received: from edfz6.prod.google.com ([2002:a05:6402:a406:b0:6aa:1383:f342])
  (user=smostafa job=prod-delivery.src-stubby-dispatcher) by
- 2002:a05:600c:83c5:b0:499:bf0e:95c8 with SMTP id 5b1f17b1804b1-49fe66c8623mr231494305e9.1.1790617313066;
- Mon, 28 Sep 2026 10:41:53 -0700 (PDT)
-Date: Mon, 28 Sep 2026 17:41:12 +0000
+ 2002:a05:6402:538b:b0:6aa:fc60:60d0 with SMTP id 4fb4d7f45d1cf-6aafc606c77mr6303087a12.33.1790617309305;
+ Mon, 28 Sep 2026 10:41:49 -0700 (PDT)
+Date: Mon, 28 Sep 2026 17:41:09 +0000
 In-Reply-To: <20260928174122.3380703-1-smostafa@google.com>
 Mime-Version: 1.0
 References: <20260928174122.3380703-1-smostafa@google.com>
 X-Mailer: git-send-email 2.56.0.rc1.315.gc6ed9934b7-goog
-Message-ID: <20260928174122.3380703-6-smostafa@google.com>
-Subject: [RFC PATCH 05/15] sched/task_stack: Add helpers for stack high/low
+Message-ID: <20260928174122.3380703-3-smostafa@google.com>
+Subject: [RFC PATCH 02/15] fork: Don't assume fully populated stack during reuse
 From: Mostafa Saleh <smostafa@google.com>
 To: linux-doc@vger.kernel.org, linux-kernel@vger.kernel.org, 
 	linux-arm-kernel@lists.infradead.org, linux-mm@kvack.org, 
@@ -81,11 +81,11 @@ Cc: corbet@lwn.net, skhan@linuxfoundation.org, rdunlap@infradead.org,
 	david@kernel.org, ljs@kernel.org, liam@infradead.org, vbabka@kernel.org, 
 	rppt@kernel.org, surenb@google.com, mhocko@suse.com, gustavoars@kernel.org, 
 	bigeasy@linutronix.de, clrkwllms@kernel.org, 
-	Mostafa Saleh <smostafa@google.com>
+	David Stevens <stevensd@google.com>, Mostafa Saleh <smostafa@google.com>
 Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260928_104155_909792_31C0E35B 
-X-CRM114-Status: GOOD (  17.80  )
+X-CRM114-CacheID: sfid-20260928_104152_362521_F1F716C3 
+X-CRM114-Status: GOOD (  14.83  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -100,110 +100,51 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Soon, memory mapped for a kernel stack can be less than THREAD_SIZE.
-However, many parts of the kernel assume it is.
-Add new helpers for the kernel stack that can be called regardless of
-CONFIG_STACK_GROWSUP or the kernel stack size:
-- task_stack_low(): Lowest usable address on the stack.
-- task_stack_high(): Highest usable address on the stack.
-- task_stack_size(): The size of a task kernel stack, it is still
-  THREAD_SIZE at the moment but that will change soon.
+From: David Stevens <stevensd@google.com>
 
+In preparation for partially populated kernel stacks, don't assume
+that vm_area->nr_pages matches THREAD_SIZE when clearing a stack
+for reuse.
+Note that the VA range is still THREAD_SIZE in that case but it
+might not be fully allocated.
+
+Signed-off-by: David Stevens <stevensd@google.com>
+[Resolve conflict and updated commit msg]
 Signed-off-by: Mostafa Saleh <smostafa@google.com>
 ---
- include/linux/sched/task_stack.h | 56 ++++++++++++++++++++++++++++++--
- 1 file changed, 53 insertions(+), 3 deletions(-)
+ kernel/fork.c | 7 ++++++-
+ 1 file changed, 6 insertions(+), 1 deletion(-)
 
-diff --git a/include/linux/sched/task_stack.h b/include/linux/sched/task_stack.h
-index 1fab7e9043a3..4a808f9c4631 100644
---- a/include/linux/sched/task_stack.h
-+++ b/include/linux/sched/task_stack.h
-@@ -13,6 +13,8 @@
+diff --git a/kernel/fork.c b/kernel/fork.c
+index 2065693e762c..ec4431bf309a 100644
+--- a/kernel/fork.c
++++ b/kernel/fork.c
+@@ -335,11 +335,16 @@ static int alloc_thread_stack_node(struct task_struct *tsk, int node)
  
- #ifdef CONFIG_THREAD_INFO_IN_TASK
- 
-+static __always_inline void *task_stack_low(const struct task_struct *task);
+ 	vm_area = alloc_thread_stack_node_from_cache(tsk, node);
+ 	if (vm_area) {
++		unsigned long offset = 0;
 +
- /*
-  * When accessing the stack of a non-current task that might exit, use
-  * try_get_task_stack() instead.  task_stack_page will return a pointer
-@@ -30,7 +32,7 @@ static __always_inline unsigned long *end_of_stack(const struct task_struct *tas
- #ifdef CONFIG_STACK_GROWSUP
- 	return (unsigned long *)((unsigned long)task->stack + THREAD_SIZE) - 1;
- #else
--	return task->stack;
-+	return task_stack_low(task);
- #endif
- }
+ 		if (memcg_charge_kernel_stack(vm_area)) {
+ 			vfree(vm_area->addr);
+ 			return -ENOMEM;
+ 		}
  
-@@ -64,6 +66,53 @@ static inline unsigned long *end_of_stack(const struct task_struct *p)
- 
- #endif
- 
-+/*
-+ * Kernel stack layout, higher addresses at the top. task_stack_page() is
-+ * the start of the THREAD_SIZE area, task_stack_low() => task_stack_high()
-+ * is the usable stack.
-+ *
-+ * Case 1) Stack grows down: Only the top task_stack_size() bytes are mapped:
-+ *
-+ *   +-------------+ <- task_stack_high() = task_stack_page() + THREAD_SIZE
-+ *   |    stack    |
-+ *   |      |      |    task_stack_size() bytes
-+ *   |      v      |
-+ *   +-------------+ <- task_stack_low() = end_of_stack() (*)
-+ *   |   may be    |
-+ *   |  unmapped   |    THREAD_SIZE - task_stack_size() bytes
-+ *   +-------------+ <- task_stack_page()
-+ *
-+ *   (*) Depending on CONFIG_THREAD_INFO_IN_TASK, end_of_stack() might be just
-+ *       above it.
-+ *
-+ * Case 2) Stack grows up (CONFIG_STACK_GROWSUP): The whole area is used.
-+ * No support for partially mapped stacks.
-+ *
-+ *   +-------------+ <- task_stack_high() = task_stack_page() + THREAD_SIZE
-+ *   |      ^      |    end_of_stack() is the last unsigned long below it
-+ *   |      |      |
-+ *   |    stack    |    THREAD_SIZE bytes
-+ *   +-------------+ <- task_stack_low() = task_stack_page()
-+ */
-+static __always_inline unsigned long task_stack_size(const struct task_struct *task)
-+{
-+	return THREAD_SIZE;
-+}
++		if (!IS_ENABLED(CONFIG_STACK_GROWSUP))
++			offset = THREAD_SIZE - vm_area->nr_pages * PAGE_SIZE;
 +
-+static __always_inline void *task_stack_low(const struct task_struct *task)
-+{
-+#if defined(CONFIG_STACK_GROWSUP)
-+	return task_stack_page(task);
-+#else
-+	return task_stack_page(task) + THREAD_SIZE - task_stack_size(task);
-+#endif
-+}
-+
-+static __always_inline void *task_stack_high(const struct task_struct *task)
-+{
-+	return task_stack_low(task) + task_stack_size(task);
-+}
-+
- #ifdef CONFIG_THREAD_INFO_IN_TASK
- static inline void *try_get_task_stack(struct task_struct *tsk)
- {
-@@ -88,10 +137,11 @@ void exit_task_stack_account(struct task_struct *tsk);
+ 		/* Reset stack metadata. */
+ 		if (!kasan_hw_tags_enabled())
+ 			kasan_unpoison_range(vm_area->addr, THREAD_SIZE);
+@@ -347,7 +352,7 @@ static int alloc_thread_stack_node(struct task_struct *tsk, int node)
+ 		stack = kasan_reset_tag(vm_area->addr);
  
- static inline int object_is_on_stack(const void *obj)
- {
--	void *stack = task_stack_page(current);
-+	void *stack_base = task_stack_low(current);
-+	void *stack_end = task_stack_high(current);
+ 		/* Clear stale pointers from reused stack. */
+-		clear_pages(vm_area->addr, vm_area->nr_pages);
++		clear_pages(vm_area->addr + offset, vm_area->nr_pages);
  
- 	obj = kasan_reset_tag(obj);
--	return (obj >= stack) && (obj < (stack + THREAD_SIZE));
-+	return (obj >= stack_base) && (obj < stack_end);
- }
- 
- extern void thread_stack_cache_init(void);
+ 		tsk->stack_vm_area = vm_area;
+ 		tsk->stack = stack;
 -- 
 2.56.0.rc1.315.gc6ed9934b7-goog
 
