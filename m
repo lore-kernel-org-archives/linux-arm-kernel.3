@@ -4,68 +4,135 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3135DCA5FA5
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 28 Sep 2026 14:12:36 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 21219CA5FA2
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 28 Sep 2026 14:16:33 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Iue+XSYCya8VUiQZMGubQW6H+Q0XS2fIhg9CPANr+eQ=; b=KiEgD4xA0vIOejbS2v5rXV+tbb
-	21wgvnZMOnR5aeKn5Lv99h6fiO0w/DBo7NbJHJXQx8bJjlNaH5UTFXbSKvw6HWctjrGa/Kc/jpzc1
-	u1DPCR+f5ta5i1N8n76IzOXRlCzn6TUBKMff6mHRELbYhG4/ml1vk1Q2NNULVaEf+7qIExFctghlM
-	DhrZL8YPhSsxbHf1jjQFGGSrOeNgM1RcOSbkBstpdxHcJn8QYb6wRoEYBojx8AgyeEXMrsTKW+/zZ
-	6o8PgP8ncXz99Jhqbt/4800pvA6aKks+sDlOiVXDFWhAGwlC3su+BFUfCLMRgh8AHbeSgMu9i9gZ4
-	4Cw3ubFA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=AhCRB9NLLW8bdkoAECwyNoY+xY+rBOaD+BK919XDM0M=; b=vNguieZZ1V7io7Fs/lbeI+8XUc
+	MmBPT6z5ZNRJL/sxjrkEsxq0s6mUbjw4u4d2kcEyPefnP9IR8GDhUQPlaOPtFd48Xf+XG7KRPD0Wr
+	ZL9V6pyBCFTwMvAOoKcLj5z9yOd894jP5hTqoj5gB4gEvgn8TP6nBFtRoVDxvTd+IaOpQWYiDoIs0
+	Rl88CZpN+e3B6I1GD73nM+mXYdXLW9Jhij59zdLzBjdx97uNkmr9qQLevKQRgle9bVsJTqPym3cFV
+	FQGJad24+OZkHqP5nMoQeg+5Qo5ke+o3QA4+OURx3++NLcsOQX2MgA6xF2GqtZuS1uHAy+Uf9ZPjq
+	/9Jx7ocQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xBC5k-00000000k4k-434A;
-	Mon, 28 Sep 2026 14:12:28 +0000
-Received: from mx.nabladev.com ([178.251.229.89])
+	id 1xBC9a-00000000kIf-1LEp;
+	Mon, 28 Sep 2026 14:16:26 +0000
+Received: from mx0b-001b2d01.pphosted.com ([148.163.158.5])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xBC5h-00000000k4R-3Hds
+	id 1xBC9X-00000000kI1-1Qoq
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 28 Sep 2026 14:12:27 +0000
-Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 63680102F78;
-	Mon, 28 Sep 2026 16:12:11 +0200 (CEST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nabladev.com;
-	s=dkim; t=1790604733;
-	h=from:subject:date:message-id:to:cc:mime-version:content-type:
-	 content-transfer-encoding:content-language:in-reply-to:references;
-	bh=Iue+XSYCya8VUiQZMGubQW6H+Q0XS2fIhg9CPANr+eQ=;
-	b=FqGKF+g92fX11yKaZtVMc6+lKzjTYtzrtTzLOJm0Pt9KUYdT4qvhtwAIGkDy/EG8BzjVMq
-	gF/m7/9mYFZZX1YjbA8gQS0vsRputkWh/BvCtkegfFo5T/zUqiECwQx9QrnVB158/wfaix
-	uZR2yPMIdNJNJlbWWOwbpJ4Jf8kc7hT5d1ilsNASmTkyS9jMuzQQhppedM6MELgD4e9ocP
-	36Cd7aCMArvXGanpZ3GRq0mtCzHinFLMvHsbujAVPubhVUe6WsuRNuF7MX0SAH7HJO8Y3l
-	qxxsnOD7gHlcVL8ElsKDAV+m983W6RI1KJMR/Z39ILE1+gNfst0cBWK5ofsyGw==
-Message-ID: <b2ad62b4-1858-462c-b249-8c6e87126847@nabladev.com>
-Date: Mon, 28 Sep 2026 16:12:10 +0200
+	Mon, 28 Sep 2026 14:16:24 +0000
+Received: from pps.filterd (m0353725.ppops.net [127.0.0.1])
+	by mx0a-001b2d01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 68SBZwWd3971640;
+	Mon, 28 Sep 2026 14:16:07 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ibm.com; h=cc
+	:content-type:date:from:in-reply-to:message-id:mime-version
+	:references:sender:subject:to; s=pp1; bh=AhCRB9NLLW8bdkoAECwyNoY
+	+xY+rBOaD+BK919XDM0M=; b=WbDo8fIeaTKnBfjK/pVvpw/oChstda5C+Yb1tvz
+	XgMWR9NLexh9wlD4QGlbRttOz5xFIUcCHBALQZ0yKwInkbf+KeaNeplwHZ//whbw
+	OqxQ7Za+DrUsyQuDFefQpniEAnX7BzX9b5Ql7V6hT9JqgjEzQReqcCidznpPiLr4
+	V0X+5ErzjrOtOiX7JYZbz+xV6QWteo5+X8BMrwvw6omOQhCKUkdactsmDPSSjvZ6
+	MFlk6/nGS8yMsBuOv0OZoEcBHg/s9e/2H42TeCo2pDVPyPVH9GCLfT2/IgzETLIt
+	ha96CONDR3QJRJYetRJX5sd01ThkMUqZB3X1k6nfa1cXEkQ==
+Received: from ppma23.wdc07v.mail.ibm.com (5d.69.3da9.ip4.static.sl-reverse.com [169.61.105.93])
+	by mx0a-001b2d01.pphosted.com (PPS) with ESMTPS id 4gx4fe1hqg-1
+	(version=TLSv1.3 cipher=TLS_AES_256_GCM_SHA384 bits=256 verify=NOT);
+	Mon, 28 Sep 2026 14:16:06 +0000 (GMT)
+Received: from pps.filterd (ppma23.wdc07v.mail.ibm.com [127.0.0.1])
+	by ppma23.wdc07v.mail.ibm.com (8.18.1.11/8.18.1.11) with ESMTP id 68SBHtjM076695;
+	Mon, 28 Sep 2026 14:16:06 GMT
+Received: from smtprelay07.fra02v.mail.ibm.com ([9.218.2.229])
+	by ppma23.wdc07v.mail.ibm.com (PPS) with ESMTPS id 4gxsvhdg4v-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Mon, 28 Sep 2026 14:16:06 +0000 (GMT)
+Received: from smtpav03.fra02v.mail.ibm.com (smtpav03.fra02v.mail.ibm.com [10.20.54.102])
+	by smtprelay07.fra02v.mail.ibm.com (8.14.9/8.14.9/NCO v10.0) with ESMTP id 68SEFxuh32637348
+	(version=TLSv1/SSLv3 cipher=DHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
+	Mon, 28 Sep 2026 14:15:59 GMT
+Received: from smtpav03.fra02v.mail.ibm.com (unknown [127.0.0.1])
+	by IMSVA (Postfix) with ESMTP id 72A242004D;
+	Mon, 28 Sep 2026 14:15:59 +0000 (GMT)
+Received: from smtpav03.fra02v.mail.ibm.com (unknown [127.0.0.1])
+	by IMSVA (Postfix) with ESMTP id 55A3D2005A;
+	Mon, 28 Sep 2026 14:15:59 +0000 (GMT)
+Received: from vela (unknown [9.111.89.89])
+	by smtpav03.fra02v.mail.ibm.com (Postfix) with ESMTPS;
+	Mon, 28 Sep 2026 14:15:59 +0000 (GMT)
+Received: from brueckner by vela with local (Exim 4.99.5)
+	(envelope-from <brueckner@linux.ibm.com>)
+	id 1xBC98-0000000C3I8-3ejc;
+	Mon, 28 Sep 2026 16:15:58 +0200
+Date: Mon, 28 Sep 2026 16:15:58 +0200
+From: Hendrik Brueckner <brueckner@linux.ibm.com>
+To: Steffen Eiden <seiden@linux.ibm.com>
+Cc: kvm@vger.kernel.org, kvmarm@lists.linux.dev,
+        linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+        linux-s390@vger.kernel.org, Alexander Gordeev <agordeev@linux.ibm.com>,
+        Andreas Grapentin <gra@linux.ibm.com>, Arnd Bergmann <arnd@arndb.de>,
+        Catalin Marinas <catalin.marinas@arm.com>,
+        Christian Borntraeger <borntraeger@linux.ibm.com>,
+        Claudio Imbrenda <imbrenda@linux.ibm.com>,
+        David Hildenbrand <david@kernel.org>,
+        Friedrich Welter <fritz@linux.ibm.com>, Fuad Tabba <tabba@google.com>,
+        Gautam Gala <ggala@linux.ibm.com>,
+        Hariharan Mari <hari55@linux.ibm.com>,
+        Heiko Carstens <hca@linux.ibm.com>,
+        Hendrik Brueckner <brueckner@linux.ibm.com>,
+        Ilya Leoshkevich <iii@linux.ibm.com>,
+        Janosch Frank <frankja@linux.ibm.com>, Joey Gouly <joey.gouly@arm.com>,
+        Marc Zyngier <maz@kernel.org>, Nico Boehr <nrb@linux.ibm.com>,
+        Nina Schoetterl-Glausch <oss@nina.schoetterlglausch.eu>,
+        Oliver Upton <oupton@kernel.org>, Paolo Bonzini <pbonzini@redhat.com>,
+        Suzuki K Poulose <suzuki.poulose@arm.com>,
+        Sven Schnelle <svens@linux.ibm.com>,
+        Ulrich Weigand <Ulrich.Weigand@de.ibm.com>,
+        Vasily Gorbik <gor@linux.ibm.com>, Will Deacon <will@kernel.org>,
+        Zenghui Yu <yuzenghui@huawei.com>
+Subject: Re: [PATCH v8 23/29] KVM: s390: Add basic arm64 kvm module
+Message-ID: <arp2njz3Dro0sQ6Z@linux.ibm.com>
+References: <20260918133107.1042730-1-seiden@linux.ibm.com>
+ <20260918133107.1042730-24-seiden@linux.ibm.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 08/10] arm64: dts: st: Add pinmux nodes for DH electronics
- STM32MP23xx/STM32MP25xx DHCOS SoM and Breakout Board
-To: Alexandre TORGUE <alexandre.torgue@foss.st.com>,
- linux-arm-kernel@lists.infradead.org
-Cc: Bartosz Golaszewski <brgl@kernel.org>, Conor Dooley
- <conor+dt@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
- Linus Walleij <linusw@kernel.org>, Rob Herring <robh@kernel.org>,
- devicetree@vger.kernel.org, kernel@dh-electronics.com,
- linux-gpio@vger.kernel.org, linux-kernel@vger.kernel.org,
- linux-stm32@st-md-mailman.stormreply.com
-References: <20260711210131.236025-1-marex@nabladev.com>
- <20260711210131.236025-9-marex@nabladev.com>
- <502b58ee-2421-41d2-bdfa-a870ba8e325c@foss.st.com>
-Content-Language: en-US
-From: Marek Vasut <marex@nabladev.com>
-In-Reply-To: <502b58ee-2421-41d2-bdfa-a870ba8e325c@foss.st.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 8bit
-X-Last-TLS-Session-Version: TLSv1.3
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20260918133107.1042730-24-seiden@linux.ibm.com>
+X-TM-AS-GCONF: 00
+X-Proofpoint-Reinject: loops=2 maxloops=12
+X-Authority-Analysis: v=2.4 cv=FYWiV5+6 c=1 sm=1 tr=0 ts=6aba76a7 cx=c_pps
+ a=3Bg1Hr4SwmMryq2xdFQyZA==:117 a=3Bg1Hr4SwmMryq2xdFQyZA==:17
+ a=kj9zAlcOel0A:10 a=VdqzKS8jKosA:10 a=VkNPw1HP01LnGYTKEx00:22
+ a=RnoormkPH1_aCDwRdu11:22 a=V8glGbnc2Ofi9Qvn3v5h:22 a=VnNF1IyMAAAA:8
+ a=nnIaaF498kqO1bEHNMIA:9 a=CjuIK1q_8ugA:10
+X-Proofpoint-Spam-Info: AW1haW4tMjYwOTI4MDA1NiBTYWx0ZWRfX72hKPbHn0oBk
+ RVFuvBqH8UHPWEoKzXdQr64GJWDGGWKnIO1MVn7goXs69X8xC7jB4YwC1auPz/wXgY+NIiJmji4
+ d2xLMIzsZPnbCNiU1IPsNlQcBk50BGk=
+X-Proofpoint-ORIG-GUID: c8k90I_35h1vfDy12bjJ-4_B4O-n2PNu
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwOTI4MDA1NiBTYWx0ZWRfX6cPRFJGxV5Ug
+ TAb9cNc5k7WfJCqfLczGDe5HlTRxPb4/jrOu3EyqNFsXiIXGE/HTuUQWdIlsPCB0lyUVd9ijXGK
+ qrkARkw5fH5VyeBdLrYhaxLZ7HEZJNw2FMXASvcymwIkuVHt7IiIGR3KZB3l6+lzE+7CAbGjzG2
+ 3HjsWMAQp0EgYWgXjqplQGXaouXCHjnM4HLI5S/fIDehHStPOKdeDOsMYXUyVOdX2XadHW4ssU2
+ XY82J2DcaQDjianPr97X326Q21kz6kvzfoDn+QIeW3SFViYyExlRCwwlJD+QT9AtrNul/nKFGm/
+ zP02XnFqeHjAqDTQJUjG7ijPg45l5Qs19aZaLW6wbbBMjTLBa66EJZYiFauL+kFRkFcZtQ4jm8S
+ paXA0duaRBpGf0gY/k7Lqy/jtAI2xhiNBzXOi8F3cpvQ01wt8Fln72L34jmpDg2doVfTq6T1HVh
+ 2zGyVeJyg0a5Tx+qyoA==
+X-Proofpoint-GUID: gQs0JtJQ3bmijgSPG4xGjgWcJAErDcqK
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1176,Hydra:6.1.134,FMLib:17.12.100.49
+ definitions=2026-09-28_03,2026-09-21_02,2025-10-01_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
+ adultscore=0 clxscore=1011 impostorscore=0 spamscore=0 phishscore=0
+ priorityscore=1501 malwarescore=0 bulkscore=0 lowpriorityscore=0
+ suspectscore=0 classifier=typeunknown authscore=0 authtc= authcc=
+ route=outbound adjust=0 reason=mlx scancount=1 engine=8.22.0-2609040000
+ definitions=main-2609280056
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260928_071226_065567_82B35538 
-X-CRM114-Status: UNSURE (   8.41  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260928_071623_525096_FC54F76C 
+X-CRM114-Status: GOOD (  19.13  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -80,39 +147,36 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 9/28/26 11:02 AM, Alexandre TORGUE wrote:
-
-Hello Alexandre,
-
->> diff --git a/arch/arm64/boot/dts/st/stm32mp25-pinctrl.dtsi b/arch/ 
->> arm64/boot/dts/st/stm32mp25-pinctrl.dtsi
->> index 456ece7f8ebc3..1aadbc6b47da9 100644
->> --- a/arch/arm64/boot/dts/st/stm32mp25-pinctrl.dtsi
->> +++ b/arch/arm64/boot/dts/st/stm32mp25-pinctrl.dtsi
->> @@ -182,6 +182,30 @@ pins5 {
->>           };
->>       };
->> +    /omit-if-no-ref/
->> +    eth2_mdio_pins_a: eth2-mdio-0 {
->> +        pins1 {
->> +            pinmux = <STM32_PINMUX('G', 4, AF11)>; /* ETH_MDC */
->> +            bias-disable;
->> +            drive-push-pull;
->> +            slew-rate = <3>;
->> +        };
->> +        pins2 {
->> +            pinmux = <STM32_PINMUX('C', 5, AF10)>; /* ETH_MDIO */
->> +            bias-disable;
->> +            drive-push-pull;
->> +            slew-rate = <0>;
->> +        };
->> +    };
->> +
->> +    /omit-if-no-ref/
->> +    eth2_mdio_sleep_pins_a: eth2-mdio-sleep-0 {
->> +        pins {
->> +            pinmux = <STM32_PINMUX('C', 6, ANALOG)>, /* ETH_MDC */
+On Fri, Sep 18, 2026 at 03:31:00PM +0200, Steffen Eiden wrote:
+> Add basic code for the new arm64 on s390 KVM implementation.
+> Add kernel module boilerplate code and trivial functions.
+> Add tracing scaffolding.
 > 
-> I assume it is G4 for MDC ? If yes I fix it when I apply.
-It is PG4 , thank you.
+> Signed-off-by: Steffen Eiden <seiden@linux.ibm.com>
+> ---
+>  arch/s390/kvm/arm64/arm.c   | 147 ++++++++++++++++++++++++++++++++++++
+>  arch/s390/kvm/arm64/arm.h   |  44 +++++++++++
+>  arch/s390/kvm/arm64/guest.c |  92 ++++++++++++++++++++++
+>  arch/s390/kvm/arm64/trace.h |  18 +++++
+>  4 files changed, 301 insertions(+)
+>  create mode 100644 arch/s390/kvm/arm64/arm.c
+>  create mode 100644 arch/s390/kvm/arm64/arm.h
+>  create mode 100644 arch/s390/kvm/arm64/guest.c
+>  create mode 100644 arch/s390/kvm/arm64/trace.h
+> 
+> diff --git a/arch/s390/kvm/arm64/arm.c b/arch/s390/kvm/arm64/arm.c
+> new file mode 100644
+> index 000000000000..8b056fc836d7
+> --- /dev/null
+> +++ b/arch/s390/kvm/arm64/arm.c
+
+[..]
+
+> +static int __init kvm_s390_arm64_init(void)
+> +{
+> +	if (!sclp.has_aef)
+> +		return -ENXIO;
+
+I suggest to use -ENODEV here to be consistent with s390 kvm module.
+The arm64 module also return -ENODEV when not available.
 
