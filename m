@@ -4,73 +4,97 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D6612C9833E
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 28 Sep 2026 09:39:33 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id AE451C9832F
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 28 Sep 2026 09:41:30 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
-	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=szjlKSRr4QKhQ/BXliXytwAbzwuxRJ9hxfloPYxH0y4=; b=qptZseLJO2XHGiSwmnCUN9J2lB
-	+KzdHrXOXkEqvInmLY8WEdfldo1eXMKtwRieq6AAQAVbWGb+2tqKYJ5wmMQeyrOWNKVus7E4gJnqx
-	pVIOdKKxvL8p/SgU5PbDm0dYCmiNwvIYRkvCen++C4YHbHTeOc/VDQpr0CAOTGFHu6RKRJkWRoOH5
-	+CuA12xi3+aBsTblxDqniloCzBMrrYn4uPds32qluCAyY1EaApv3CBuD6ebu6jZoX0z74l3Yjmu37
-	MA3NazV9zHKjW9OXMjY+cObOqVRVgZTM15q0EA6C7+lNt4XXhz8/XDQ/qli9L/ppg7MZ32rFA/hT1
-	2EmVh1ag==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=ge0jtZOtdWzZExU51tpnSwFUmBlplbOktdbQBWDiyyQ=; b=iqKsPZfHkZVnkmNN6hnEToVATU
+	AXYfO3pLiV0RTFQUVuIUGzh4r1uwelP2qSJBz1Kf5J73DrgkGcs+CT7Hou8Hn46V2CRqpLg4VSioq
+	oLyYMr2Vi98HeUdGpOCJUpWX0qAYIwDB5evFTPtjQBG80s+YLmNGs29F2cq08eQ33Hgp18XinOQoq
+	Y6C162re1tD6RL/YSzkCcDPJKHidSlsWBSbFK00EuNO4yX0KIU/3cW3G+KVyq4eFAavufvom5V3En
+	6zWgOn6HskWDV3Rs55PXNW8ZVxOF2zpcxEnVWzFZN2F+MdLVPyWChpntndByI0vn1S/GnEaWwx5RT
+	F+mwR4Zw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xB638-0000000HZmI-3Q8x;
-	Mon, 28 Sep 2026 07:45:22 +0000
-Received: from out-142.mta1.migadu.com ([2001:41d0:203:375::8e] helo=mta1.migadu.com)
+	id 1xB7rP-00000000FZ3-22rh;
+	Mon, 28 Sep 2026 09:41:23 +0000
+Received: from mail-ej2-x20.google.com ([2a00:1450:4864:34::20])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xB635-0000000HZlH-12R6
+	id 1xB7rM-00000000FYH-2ZVO
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 28 Sep 2026 07:45:20 +0000
-X-Envelope-To: linux-arm-kernel@lists.infradead.org
-DKIM-Signature: a=rsa-sha256; bh=szjlKSRr4QKhQ/BXliXytwAbzwuxRJ9hxfloPYxH0y4=;
- c=simple/simple; d=linux.dev;
- h=from:to:subject:date:message-id:mime-version:content-type; s=key1;
- t=1790581516; v=1; x=1791186316;
- b=Ys1MQIkeV/eujertlX2VWFwU5ezKap/9dVAzfbmEUf6DnUlEv6WYezG9dz1+jOx+y/kygCmf
- E2Xhp5k25mlYqXyOL/YxtHl/EB3OaMU3Fehd+dE86cLoeZNIy9JYdk79KTmR5rCWZM7RY+6/9lv
- RyZDhXCfnIXPT3us1N30YlYk=
-X-Envelope-To: linux-arm-kernel@lists.infradead.org
-Received: by smtp.migadu.com with ESMTPS id 40e7dfb45afa0da6;
-	Mon, 28 Sep 2026 07:45:15 +0000
-X-Mizu-Trace-ID: 40e7dfb45afa0da6
-X-Migadu-Flow: FLOW_OUT
-Received: by mail-lf1-f47.google.com with SMTP id 2adb3069b0e04-5b8f42bb8a9so4287e87.1
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 28 Sep 2026 00:45:11 -0700 (PDT)
-X-Forwarded-Encrypted: i=1; AKwUvBwKUlZWbtgtgGQajM5xeyE7nby0uUcNSjYP9h++k+a0QQEP961BhNulgNirOiJOOvNLezLREVxXVKbT8s8GNgDD@lists.infradead.org
-X-Gm-Message-State: AFq9FYLIiTd/hkzWDda/aCZa99iyrDqgxNFifdNL9Ax6zrPr7jXhP4Dy
-	gm3r+GblHrt8k+fUanlQ+HDhhhLYB2ySryLFTs7/zZmTdrQ4+01K9VAOkuhu6mwg3kGQLY6Q7TY
-	BCa1alzwoRPvtI6hNkt5PbaWakgiqmY/2i9b3sRaN
-X-Received: by 2002:a05:6512:1386:b0:5ae:cf5f:4a88 with SMTP id
- 2adb3069b0e04-5b8ef2571demr154509e87.8.1790581510337; Mon, 28 Sep 2026
- 00:45:10 -0700 (PDT)
+	Mon, 28 Sep 2026 09:41:21 +0000
+Received: by mail-ej2-x20.google.com with SMTP id a640c23a62f3a-c2af3701927so388099766b.3
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 28 Sep 2026 02:41:19 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=linaro.org; s=google; t=1790588478; x=1791193278; darn=lists.infradead.org;
+        h=content-transfer-encoding:content-type:in-reply-to:from
+         :content-language:references:cc:to:subject:user-agent:mime-version
+         :date:message-id:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=ge0jtZOtdWzZExU51tpnSwFUmBlplbOktdbQBWDiyyQ=;
+        b=KP6MUHIirkC4dT/AXHyDA32F7iOXCTRT/DmOfcdSAD0WMvANbQ4Us0zVUPYBMCWXMR
+         9Dqwr2GkzzDsCLEfl6FJ61EPe0Spo2pBiGKq70x7qt9VeaYzNiuYarek2yyaG3JUDdUM
+         LxB0FYy2fNfyuP6Ax10xQrNS9+ihbWInuytbulrfGNk6kbyjUcJvPqfPbrk1qsLevhVS
+         1AxOhnZMju0l0fktpX7Ddfu19CuRaJGIIkEQbVF7FAb35W0Sun4ZvoV8mezI2bqLOPqB
+         k6tS/JgneYj0FDMXNtx6vb+AFAwqj4PS4JbZ30xxkOhUWnUDvAlvZFhp5OxKNakfImLy
+         X9vQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1790588478; x=1791193278;
+        h=content-transfer-encoding:content-type:in-reply-to:from
+         :content-language:references:cc:to:subject:user-agent:mime-version
+         :date:message-id:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=ge0jtZOtdWzZExU51tpnSwFUmBlplbOktdbQBWDiyyQ=;
+        b=SmcFdwsPggWnHjRXGtRRNZA5H1W6JlBEOJpgSNwfDOq4XhpWohs8ba31dcnA/97KkC
+         +kcDVhHay94NTTcU+XBEGsAk31NkRc4E0u1Db4z5ZSb+HLFudiew8VOeaLPiIXfbaETn
+         BcjjbrBWEd17ymBD6YoCog9wQj27Vk9WLHn/cgXiS1wVeFw01Twx2DGYZ2z9wQihxPds
+         X6K4d3w8ByLksrVDkp2v9eQLjm9Ak1k8s8DVzFEAfxnnOwOTE4zjT89g1WUdPT2vufY6
+         RSJwHZXNDTpnTbw33BhBg6ytrywjzSDQ+Pjx0cOTcVg74zZXg9s11YsOPKWaMJjqZD0v
+         SvrQ==
+X-Forwarded-Encrypted: i=1; AKwUvBzmkH3+7M56wCxFk0WbXOEp0D4nMsUVhP1Kai6MmGsUvjwnue0ropmoIcR4rfGv4zt3eWAu4PCpy7NgiRsTuxuB@lists.infradead.org
+X-Gm-Message-State: AFuF++li2LKKjqLGKMadh7QvdCGR0CBJIYUZMcKQCijv12mqdG1CrJKK
+	98brdsvnEoT+8qdXmt6AFf2PZOfQjd8OfBkOiIELyS5AM8ARGLBJICVEdeUSwLXNwxE=
+X-Gm-Gg: AYBFou3koSyZZ5jM/ENm/XaLQTZnHLjCvTmSgdwu5BXM/01Yb7xtoHOFohmEjWlpH4h
+	x9pgU9WxG/aflpUe1PzH4zrYBqgNDw7RLxr3gl643y+D4PWJlAHcAxqZ4Y6nfMWML5cdloBlgOr
+	LFc76spgTQ6gQ00VY0BR48KhtJTXtqdVKDUR6KQmG1qBYqy2qhqgFD47xWpl6K2dlYAOPcy14QW
+	djW1FuBpAnoiITVuK5bAVuQd7eJjAXZnV/D4JAFb9fjCZ1dMuBqLqeoSeT1EkrHolDCp6Jnrk6o
+	x/Eo+s0P84e0fFeljfiLndKyoiHYsq6NkdTvJ8aAkBMW4mutEMUrDHdZ0nGuKHjpgnntXdTF2k+
+	pvIhhethRUm5w8KoR0xnuoISimXDuhu/HNdQN0ARIUAzFqqmOx6e1q/Z06rkbB9qdUYMrCAEOSp
+	/sBZt1ULHhfxwheBC/V4iH69o5mUQRsHHTNm9vwR2Qkdgf34jCmMCdB1mRkBVHTniMXa5sKtKDs
+	Sg=
+X-Received: by 2002:a17:906:6a04:b0:c2d:d89d:346a with SMTP id a640c23a62f3a-c2dd89d497amr199434166b.3.1790588478209;
+        Mon, 28 Sep 2026 02:41:18 -0700 (PDT)
+Received: from [192.168.1.3] ([37.18.141.193])
+        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-c2af3128c48sm370662566b.3.2026.09.28.02.41.17
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Mon, 28 Sep 2026 02:41:17 -0700 (PDT)
+Message-ID: <0e6c26a9-854f-42d8-9224-6e23937ad3f1@linaro.org>
+Date: Mon, 28 Sep 2026 10:41:16 +0100
 MIME-Version: 1.0
-References: <20260922130821.1666713-1-vdonnefort@google.com>
- <20260922130821.1666713-6-vdonnefort@google.com> <am2rfnuwjkglavbtzkt2lk2gclahvca5irrv5me4vppzkotexf@yauajpybhsnm>
- <87qzie3beb.wl-maz@kernel.org>
-In-Reply-To: <87qzie3beb.wl-maz@kernel.org>
-From: Fuad Tabba <fuad.tabba@linux.dev>
-Date: Mon, 28 Sep 2026 08:44:33 +0100
-X-Gmail-Original-Message-ID: <CA+EHjTwwxL3Cs-7B2NgEyedu-ZQFt96ck_V-erCUaTB=hrh5eg@mail.gmail.com>
-X-Gm-Features: AclHuK-ALEhQXkggSsAxXnC2DJjXeZyCoNf81U4HcBABH4AnShcbMTLpdrkikjI
-Message-ID: <CA+EHjTwwxL3Cs-7B2NgEyedu-ZQFt96ck_V-erCUaTB=hrh5eg@mail.gmail.com>
-Subject: Re: [PATCH v1 5/6] KVM: arm64: Use kvm_s2_fault_vma_info in gmem_abort()
-To: Marc Zyngier <maz@kernel.org>
-Cc: Wei-Lin Chang <weilin.chang@arm.com>, Vincent Donnefort <vdonnefort@google.com>, oupton@kernel.org, 
-	kvmarm@lists.linux.dev, linux-arm-kernel@lists.infradead.org, 
-	joey.gouly@arm.com, seiden@linux.ibm.com, suzuki.poulose@arm.com, 
-	yuzenghui@huawei.com, catalin.marinas@arm.com, will@kernel.org, 
-	kernel-team@android.com, qperret@google.com, Sashiko <sashiko-bot@kernel.org>, 
-	stable@vger.kernel.org
-Content-Type: text/plain; charset="UTF-8"
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH 0/3] perf: Suppress redundant ITRACE start records for Arm
+ SPE and CoreSight
+To: Leo Yan <leo.yan@arm.com>
+Cc: linux-perf-users@vger.kernel.org, linux-kernel@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, coresight@lists.linaro.org,
+ Peter Zijlstra <peterz@infradead.org>, Ingo Molnar <mingo@redhat.com>,
+ Will Deacon <will@kernel.org>, Suzuki K Poulose <suzuki.poulose@arm.com>,
+ Mark Rutland <mark.rutland@arm.com>, Adrian Hunter
+ <adrian.hunter@intel.com>, Mike Leach <mike.leach@arm.com>,
+ Tamas Petz <tamas.petz@arm.com>, Tamas Zsoldos <tamas.zsoldos@arm.com>
+References: <20260901-perf_suppress_itrace_start_records-v1-0-c4fbc6860859@arm.com>
+Content-Language: en-US
+From: James Clark <james.clark@linaro.org>
+In-Reply-To: <20260901-perf_suppress_itrace_start_records-v1-0-c4fbc6860859@arm.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260928_004519_493841_55D80217 
-X-CRM114-Status: GOOD (  13.60  )
+X-CRM114-CacheID: sfid-20260928_024120_679676_B8ABD74E 
+X-CRM114-Status: GOOD (  16.54  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -85,28 +109,55 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Marc, Wei-Lin,
 
-On Sun, 27 Sep 2026 17:30:04 +0100, Marc Zyngier <maz@kernel.org> wrote:
-[...]
-> > Perhaps it is worth reserving plain "gfn" for the value we use as the
-> > IA of the (shadow) page table, and name this variable something like
-> > canonical_gfn. Similar to what kvm_s2_fault_map() does.
->
-> Maybe. We have gfn in the vncr fault handling code as well, but that
-> one is the result of a S1 walk, so maybe more obvious.
 
-Agreed, now that s2vi.gfn sits next to it. I'll rename it to
-canonical_gfn for v2.
+On 01/09/2026 17:36, Leo Yan wrote:
+> Thanks to Tamas Petz for noticing that Arm CoreSight perf data can contain
+> many PERF_RECORD_ITRACE_START records.
+> 
+> PERF_RECORD_ITRACE_START provides the decoder with the initial thread
+> context when that information is absent from the trace stream. Once
+> tracing has started, Arm SPE and CoreSight decoders track subsequent
+> context changes using context packets or recorded sched_switch events.
+> 
+> Have both drivers call perf_event_itrace_started() after successfully
+> starting event. This prevents perf core from emitting redundant
+> PERF_RECORD_ITRACE_START records when an event is scheduled in again.
+> 
+> Since the Arm SPE and CoreSight drivers can be built as modules, export
+> perf_event_itrace_started() before using it in those drivers.
+> 
+> This series was verified with Arm CoreSight using the commands below.
+> The perf data contains 100 sched_switch events but only one
+> PERF_RECORD_ITRACE_START record:
+> 
+>    taskset -c 2 perf record -e cs_etm//u -e sched:sched_switch -- \
+> 	  taskset -c 2 bash -c 'while true; do sleep 0.01; done'
+>    ^C
+> 
+>    perf script -D 2>&1 | grep -c sched_switch
+>    100
+> 
+>    perf script -D 2>&1 | grep -c PERF_RECORD_ITRACE_START
+>    1
+> 
+> Signed-off-by: Leo Yan <leo.yan@arm.com>
+> ---
+> Leo Yan (3):
+>        perf/core: Export perf_event_itrace_started()
+>        perf: arm_spe: Suppress redundant ITRACE start records
+>        coresight: perf: Suppress ITRACE start records
+> 
+>   drivers/hwtracing/coresight/coresight-etm-perf.c | 2 ++
+>   drivers/perf/arm_spe_pmu.c                       | 2 ++
+>   kernel/events/core.c                             | 1 +
+>   3 files changed, 5 insertions(+)
+> ---
+> base-commit: 786262be6048deab760f68c8acc2c85607165894
+> change-id: 20260901-perf_suppress_itrace_start_records-42faf45e9ce9
+> 
+> Best regards,
 
-> > Huh, I guess you also fixed a bug here? s2fd->fault_ipa could be the
-> > nested ipa instead of the canonical ipa.
->
-> Yeah, it appears so. Worth capturing in Fixes: as well.
+Reviewed-by: James Clark <james.clark@linaro.org>
 
-That one came in with a7b57e0995927 too, so the existing Fixes: covers
-it. I'll mention it in the commit message.
-
-Cheers,
-/fuad
 
