@@ -4,7 +4,7 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8143FCA5FAA
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2D04FCA5FAB
 	for <linux-arm-kernel@archiver.kernel.org>; Mon, 28 Sep 2026 17:42:21 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
@@ -12,62 +12,62 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	Subject:Message-ID:References:Mime-Version:In-Reply-To:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=+/9CJBbG35x+y3Ddsn+TP4ZxkCLdkVf/5InNQKQpJMA=; b=CZjobK1BdgwjaaTuIjq4IMNQWP
-	rzcVMWyEywI87UM3gO0D43r2NxZFr10oxm9INIVjoxzUCTnHvwc/qRZMLAbPxNwvLPxaEUg4bNR+f
-	Av4IeBN31R97Bw2mKmxmuN1BJKZ8NXzhgmxy4nbY7ep0bTnGaZoaK6GYyr15JIypwwDZVVBid1df3
-	G0eOOPm+uAhFJr5ZA9O3MbEZwd/cwJEZ/AFdKRNWWgynMIc65sJzRlqtnXNPKWfV9YUcwP43kYt9d
-	rbZajO717893VT6gKn5KbQKRZvcniEUiNcbK/NvwYo55OELVMJ5OWKzQFHc+gk6vEFvQvNLk6hnfI
-	kt2PTsQA==;
+	bh=jUO525MYjN5YsfP/KDhp3xMzNW05smVZVp3S7wkbxmU=; b=zCFB0D+bTcb/X8sM1svXSlmlXM
+	/h/BgixXeWtl6wHSGyZngGVZl+ZbbSMySxmvaxFgjeLMSeeSDx1f31gq8esAfZuVwgaL3jukonEGM
+	PHQWeuJUoz7lMQAAggJPLX3Ln1Xkh6oreGZgO6R2B8y1kSUjz2fWChQivkl9gu1FZpOkV2JBxtPQw
+	yIEsHC14kWjE1Y6hnsgs+M0pNPQdYJHs7Xf9iCR3j3qQmHqEME7EY3zRRN0HGQXlf+MJrYMuecF2/
+	UYLLoirqDiI7fpfn2Jb/C+iers60k9xmZ0Y24LvJEjVkbsfFlRRXQWJNmdkW6hPLzcCjrDEtQxwdz
+	3n5h+YPg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xBFMb-00000001CiQ-0OU0;
-	Mon, 28 Sep 2026 17:42:05 +0000
-Received: from mail-wr1-x447.google.com ([2a00:1450:4864:20::447])
+	id 1xBFMa-00000001ChI-2p61;
+	Mon, 28 Sep 2026 17:42:04 +0000
+Received: from mail-wr1-x446.google.com ([2a00:1450:4864:20::446])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xBFMV-00000001CaH-1NwR
+	id 1xBFMS-00000001CYo-30x8
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 28 Sep 2026 17:42:00 +0000
-Received: by mail-wr1-x447.google.com with SMTP id ffacd0b85a97d-48aef5cfe43so121894f8f.1
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 28 Sep 2026 10:41:58 -0700 (PDT)
+	Mon, 28 Sep 2026 17:41:57 +0000
+Received: by mail-wr1-x446.google.com with SMTP id ffacd0b85a97d-48704504d61so859569f8f.3
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 28 Sep 2026 10:41:55 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20251104; t=1790617317; x=1791222117; darn=lists.infradead.org;
+        d=google.com; s=20251104; t=1790617314; x=1791222114; darn=lists.infradead.org;
         h=content-type:cc:to:from:subject:message-id:references:mime-version
          :in-reply-to:date:from:to:cc:subject:date:message-id:reply-to
          :content-type;
-        bh=+/9CJBbG35x+y3Ddsn+TP4ZxkCLdkVf/5InNQKQpJMA=;
-        b=AuVk5JnBFyGgJ08IrMwIoViVwUpB3Z7SW7vi/T1WmLnXsazqoj9awAuTHz1+gzWgjg
-         A2PB4FyT+q3hYeHWt91T98Gs1lgxVcDB0mYB/xNsRaiYesgfXlITY/WOwIV52gI6yVNI
-         3T9qPGx+k3MHAxy32jJhVJlVre8AdtR3Zi0l7UGfBTdVDRVDmseLETuLH+fWPfsfGuA7
-         oupj6kutOf/u149VFqrlF0ZAmEQ9Q40QZy1rvynoZoJ0pNzTB/UdAw7QgmEc+fLT0fIm
-         svhjifpJtgFwyiD8oW9qYH/3zSwXHZ/y1Hi9H2HpxDoGezottl4c0L/7hctxBa3yHpds
-         JaMA==
+        bh=jUO525MYjN5YsfP/KDhp3xMzNW05smVZVp3S7wkbxmU=;
+        b=QY1YDTrETfI6W523CQWFZa2BZGb99nzKZNichcks/6UGLOKdJkIP+ib8FAonv3UD66
+         AIIQQeQ15x1Lmo2VT1FBCgmrzYFB4fobmLFjH1DXynRvVLZWXL22eqkC6Wol4eSlQTfP
+         Axg236uTM+ngHoBrZvIDP2+9JhACgjsQ6gm2RWg4F3EIyf0SkrpDrn6Af9uLxlCN0fVF
+         2tA5GO14WMBZfxi7NHjP1RT2VaXT+wk76GzSuC5I7AyqyyHj0rXtuawAVKVI3Zc+8w5u
+         s6dUqCOaPS6WI7iL4lSCadpn7po9MJRd7Fwz1bcWOxuAYgOh3hK1K08LGWkBtc59kNqd
+         dsfA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1790617317; x=1791222117;
+        d=1e100.net; s=20260707; t=1790617314; x=1791222114;
         h=content-type:cc:to:from:subject:message-id:references:mime-version
          :in-reply-to:date:x-gm-message-state:from:to:cc:subject:date
          :message-id:reply-to:content-type;
-        bh=+/9CJBbG35x+y3Ddsn+TP4ZxkCLdkVf/5InNQKQpJMA=;
-        b=sphKQJIG8ozmmtoBetC4WchKQBvnwqsUXux3/ufY+4QbtZ1hbnvcw7MDetE6X66op4
-         uFKZODZ3QsX4s0UVEf+7Ho8HIpWK5kBp7uE0eP+SK4zuBHh3ZxpJ3RU55Vpnvtq29ngd
-         USuZGCwvCtPodQcs+hroOWlFzeZz2XI9ztMEsQLpDxfo0mNm/um7hUpAdElN85wUxrFY
-         qbAuNTcOZEzUEAhO9FQrjzxLK139K4SxCVL+/DcENdVJVphW4Hki1qe3nDflD/srYurj
-         8maNiT5MqdfUFNWyFwc7Ijk//r0E0NQgtIbUTnZN5cDF16mqlHckwpnUI+qMfCVfvZNu
-         R4Fw==
-X-Forwarded-Encrypted: i=1; AKwUvBz/+qjemxfIRGTwshCMVlg7saOBScyR+hVGBSCqOifpK8uqFy5aOBQM4BMDwS2U5KpBsa/qLgq2Tv+8OOEX4tRp@lists.infradead.org
-X-Gm-Message-State: AFq9FYIxEJsTrIul3F4NJAIEuMPz06vvXoBI8J5v/qhmntgklI//YJ6g
-	eh8TJTcMo9XmqwFrtfzIlcldateJ/eT9RGl1KcgAwS6l5MAyUkmCDqHrRDuh6FKWMzK/CO76m/5
-	XXjvlX+fQVoQiBg==
-X-Received: from wrck15.prod.google.com ([2002:a5d:524f:0:b0:489:bd7b:5942])
+        bh=jUO525MYjN5YsfP/KDhp3xMzNW05smVZVp3S7wkbxmU=;
+        b=LJ3OiDoEmEbKXis1cbG8p7vRHE3m2QIeHVi87HOQXPRGTLza0cdc83hmZ0A8MyRP9L
+         5hqukOkVylMnpK8HN/jiySxM2nik0DxW8ZSg+nxkG/hS3gPadrEeoNcu3Iy1GW4YJa5N
+         O4x2RgijIx/YLMz/ECq097IuYdrJm494Oaw4XrsqUkv0m/d1C6AWUx2ynf/vIiQC4cQF
+         FE464DBC79D9HVK6VaXGYm937LsTfPe+HJE9aij7liRzUz5a5LPnmenez6tLJAnkQzbe
+         0hjHi69dntptXY41Ii0d+EZZRX43fqYfTY4RrDNaXyuIa/mBNK4R1MZ4kk6G+rbYK4am
+         Qv0A==
+X-Forwarded-Encrypted: i=1; AKwUvByyFkcWz5gKPnae7VWsmxMoK9qKBPgvWbkpIGK06svowyV0wPY723UofQq4lrjW5+YajZJZMPaNwNOpM4iuJZMx@lists.infradead.org
+X-Gm-Message-State: AFuF++n38IpVywRyGXX3/gzPgytnAtDIdII5jf6xA/EA1I2USzbuf7ve
+	peMwdIn+aVvug8qqia5XRAQLzwb8UDR1hMSba6CWlno7+VZo9s7UQEnfsv97CvY7W+JeNK436vB
+	jDF26ROEXgS5YkQ==
+X-Received: from wmgb3.prod.google.com ([2002:a05:600c:1503:b0:49f:fec8:8e56])
  (user=smostafa job=prod-delivery.src-stubby-dispatcher) by
- 2002:a05:6000:2010:b0:488:7803:c1ef with SMTP id ffacd0b85a97d-4887db496acmr19692502f8f.48.1790617316679;
- Mon, 28 Sep 2026 10:41:56 -0700 (PDT)
-Date: Mon, 28 Sep 2026 17:41:15 +0000
+ 2002:a05:600c:5487:b0:49e:7c8c:361d with SMTP id 5b1f17b1804b1-49fe66ee809mr241216335e9.22.1790617314094;
+ Mon, 28 Sep 2026 10:41:54 -0700 (PDT)
+Date: Mon, 28 Sep 2026 17:41:13 +0000
 In-Reply-To: <20260928174122.3380703-1-smostafa@google.com>
 Mime-Version: 1.0
 References: <20260928174122.3380703-1-smostafa@google.com>
 X-Mailer: git-send-email 2.56.0.rc1.315.gc6ed9934b7-goog
-Message-ID: <20260928174122.3380703-9-smostafa@google.com>
-Subject: [RFC PATCH 08/15] mm: kmemleak: Don't assume the kernel stack size
+Message-ID: <20260928174122.3380703-7-smostafa@google.com>
+Subject: [RFC PATCH 06/15] exit: Don't assume the kernel stack size
 From: Mostafa Saleh <smostafa@google.com>
 To: linux-doc@vger.kernel.org, linux-kernel@vger.kernel.org, 
 	linux-arm-kernel@lists.infradead.org, linux-mm@kvack.org, 
@@ -84,8 +84,8 @@ Cc: corbet@lwn.net, skhan@linuxfoundation.org, rdunlap@infradead.org,
 	Mostafa Saleh <smostafa@google.com>
 Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260928_104159_373932_5BD604DB 
-X-CRM114-Status: GOOD (  12.36  )
+X-CRM114-CacheID: sfid-20260928_104156_788406_89DD37E0 
+X-CRM114-Status: GOOD (  12.20  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -100,29 +100,28 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-kmemleak_scan_task_stacks() assumes that the kernel stack size is
-THREAD_SIZE.
+check_stack_usage() assumes that the kernel stack size is THREAD_SIZE.
 The allocated kernel stack size may not be THREAD_SIZE anymore, rely
-on the newly introduced helpers task_stack_{low, high}()
+on the newly introduced helpers task_stack_size()
 
 Signed-off-by: Mostafa Saleh <smostafa@google.com>
 ---
- mm/kmemleak.c | 2 +-
+ kernel/exit.c | 2 +-
  1 file changed, 1 insertion(+), 1 deletion(-)
 
-diff --git a/mm/kmemleak.c b/mm/kmemleak.c
-index 8fa409a4f9fb..72e2c628a20b 100644
---- a/mm/kmemleak.c
-+++ b/mm/kmemleak.c
-@@ -1749,7 +1749,7 @@ static void kmemleak_scan_task_stacks(void)
- 			void *stack = try_get_task_stack(p);
+diff --git a/kernel/exit.c b/kernel/exit.c
+index 424c44a42a4d..899d3bf048d4 100644
+--- a/kernel/exit.c
++++ b/kernel/exit.c
+@@ -883,7 +883,7 @@ static void check_stack_usage(void)
+ 	unsigned long free;
  
- 			if (stack) {
--				stop = scan_block(stack, stack + THREAD_SIZE, NULL);
-+				stop = scan_block(task_stack_low(p), task_stack_high(p), NULL);
- 				put_task_stack(p);
- 			}
- 			put_task_struct(p);
+ 	free = stack_not_used(current);
+-	kstack_histogram(THREAD_SIZE - free);
++	kstack_histogram(task_stack_size(current) - free);
+ 
+ 	if (free >= lowest_to_date)
+ 		return;
 -- 
 2.56.0.rc1.315.gc6ed9934b7-goog
 
