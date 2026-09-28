@@ -4,82 +4,61 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4D3C8CA5FA3
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 28 Sep 2026 09:48:13 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E67CACA5FA2
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 28 Sep 2026 09:54:33 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=EMqR6vKqG0eu05A9NobGOudkspzGkyf5Myx8wtsS/mc=; b=sftfmb6uEaNzVzQKtUY7XJVOkd
-	ENJ2n7j6YmyZ0HRSlTo/4XKWBEke7iLAQgApRnen3uPFknB5EkIAyDjHBR/tWDPKwB9vAk8UAGo+G
-	qTj3gw9eolh4BZRF+KliA4epQ2f6ffD7+4E0Aw8RcZ52W1q7ZIbdqwjiv+38vYczWsQqyK3eboyS6
-	/RrIv14l0uGlqT1+78oeU/Hl+A0g9VLJTXO1nKOJwiRYzLuXXj5mR+FZBkw8GnRnbqW5sBImxTcZj
-	W4ZISRbEyo27zkdtnZEerjgmcFiZuxYn6Kz/YsCD4wCsr1Ubc4goAEzI0p4R830tspb9RC7s/+OU/
-	mivJzvxQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=w2RS/xxMW4j685aSXnFhy/xzBc7bDP8enBoN/0ACKJA=; b=I0PQy8+p5HnCYShELJJONku/+1
+	FfNaKIdD2CpiM8NWkLMu60xScb/KoVjBoBuj41jKXScrZ5mY8ZbpdrYz8JtrTtCkM6RsWqmJUrP+W
+	gOH1UwMiE/qLhhwtbJWNG01gaL1NISnKwhit8hYbwz4U9yWm3ts8RgKXqW5QzuGopjQQFbWcYx2ro
+	4R7TdU7pPPLNizkABdb1xmiXL+QBa4ml3nLAm/XqWD6+lTZmp5FcrnmZ2H1P6OMzCwjBuaMSAWgqB
+	3bjcPRH0Isv9bI7SOaOwBnkJ71FHIaHtNdyQ6wa8ZhJORXvL3OCrTytCRwOlQOk5ttfUcd2Po9E+P
+	/ElYaMHw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xB7xu-00000000Gou-1Z3g;
-	Mon, 28 Sep 2026 09:48:06 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1xB842-00000000HgA-1pnl;
+	Mon, 28 Sep 2026 09:54:26 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xB7xq-00000000Gmk-3IjO;
-	Mon, 28 Sep 2026 09:48:02 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:MIME-Version
-	:Message-ID:Date:Subject:Cc:To:From:Sender:Reply-To:Content-Type:Content-ID:
-	Content-Description:In-Reply-To:References;
-	bh=EMqR6vKqG0eu05A9NobGOudkspzGkyf5Myx8wtsS/mc=; b=c83lEO3t1By6HM120bk23LVdvJ
-	EZG96rPpfWMKFsWFTzpCsqJ1IRiweNS1+Ul0OHuo006QDQtmqlKkoPQwx9XbgHfYOUpA6IRqBecAc
-	X5UP8jWwWKW66Fsci3150y5g2IQ0Dw7hjM6oJxn2mBIgTV2APpOmcPXc5HmkqP55PX4GCa3dPS3bD
-	hzW/Ll1eBDfLCZWJud1d3Svr1iP0PBE/5eBqB7Fiq6ZdhdQtLL3g7lq2qd63Cvf/93YP/ipQDwp2o
-	8rA3wYlAtWUFKrKMQRgfeNuEQUiD5WjVRJwaqJVRG0MvXt/GpgHj/FFRFdjy1U5mGC2BD2hv5TxCE
-	GEqzc1+g==;
-Received: from out30-133.freemail.mail.aliyun.com ([115.124.30.133])
-	by desiato.infradead.org with esmtps (Exim 4.99.2 #2 (Red Hat Linux))
-	id 1xB7xm-00000001KK2-3zXD;
-	Mon, 28 Sep 2026 09:48:01 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-	d=linux.alibaba.com; s=default;
-	t=1790588865; h=From:To:Subject:Date:Message-ID:MIME-Version;
-	bh=EMqR6vKqG0eu05A9NobGOudkspzGkyf5Myx8wtsS/mc=;
-	b=h/GLixwKtVEJnsNZvjgtVnvFxdgxmJotz3Kf1VYdIIemaS2HpupGq88aaWDiWvTts4oH5/lak7qu6gLWWmxUZnF8whgREoN0So7R7p7FEpnA3SwnWbLF95UkIgKtL58xo+xl0ywAl8x89kVgQs/YKpsEOfLwC4nhZ4+Cq2oEEzQ=
-X-Alimail-AntiSpam: AC=PASS;BC=-1|-1;BR=01201311R101e4;CH=green;DM=||false|;DS=||;FP=0|-1|-1|-1|0|-1|-1|-1;HT=maildocker-contentspam033037009110;MF=cp0613@linux.alibaba.com;NM=1;PH=DS;RN=21;SR=0;TI=SMTPD_---0XBlsELq_1790588859;
-Received: from DESKTOP-S9E58SO.localdomain(mailfrom:cp0613@linux.alibaba.com fp:SMTPD_---0XBlsELq_1790588859 cluster:ay36)
-          by smtp.aliyun-inc.com;
-          Mon, 28 Sep 2026 17:47:44 +0800
-From: Chen Pei <cp0613@linux.alibaba.com>
-To: acme@kernel.org,
-	peterz@infradead.org,
-	mingo@redhat.com,
-	namhyung@kernel.org
-Cc: mark.rutland@arm.com,
-	alexander.shishkin@linux.intel.com,
-	jolsa@kernel.org,
-	irogers@google.com,
-	adrian.hunter@intel.com,
-	james.clark@linaro.org,
-	leo.yan@linux.dev,
-	john.g.garry@oracle.com,
-	will@kernel.org,
-	mike.leach@arm.com,
-	pjw@kernel.org,
-	palmer@dabbelt.com,
-	guoren@kernel.org,
-	linux-perf-users@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-riscv@lists.infradead.org,
-	linux-kernel@vger.kernel.org
-Subject: [PATCH 0/2] perf riscv: Implement rdtsc()
-Date: Mon, 28 Sep 2026 17:47:37 +0800
-Message-ID: <20260928094739.2605-1-cp0613@linux.alibaba.com>
-X-Mailer: git-send-email 2.43.0
+	id 1xB840-00000000Hfn-3PpZ;
+	Mon, 28 Sep 2026 09:54:24 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by tor.source.kernel.org (Postfix) with ESMTP id C38CA600CB;
+	Mon, 28 Sep 2026 09:54:23 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 79B5C1F000FF;
+	Mon, 28 Sep 2026 09:54:22 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1790589263;
+	bh=w2RS/xxMW4j685aSXnFhy/xzBc7bDP8enBoN/0ACKJA=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=V6UgGT3CwHGxbXbyaMm95Dd2M0CFYObVt+NXiWGsFTlgNyvSbWHgXO7aWe26u4Ysn
+	 HzwHZRNKIv6FJ3NBppiWG8pOmbimiifGTh+LiYoDYBOtE2MGNw61EspchSys3XtvT6
+	 2rrvzdUGVI9VyvUamONwZzizucrdTCDxSYrYXWMJt76W34hdZojhu+x4Ui/ZFRo2Kr
+	 1yA93pP+W62cMq66RTnV0RrLlqm8NhKGN3OZG2iR6elSwOTjaJx3D6bucCJJV2vyaC
+	 RIhpixdNKImcpWr1/0xSyplSB37d/LuhfpMrID1UxgkIRixgJpSml3YfpTXiIBBKYR
+	 Jka52ZRFXJ2ew==
+Date: Mon, 28 Sep 2026 11:54:19 +0200
+From: Krzysztof Kozlowski <krzk@kernel.org>
+To: Valerio Setti <vsetti@baylibre.com>
+Cc: Jerome Brunet <jbrunet@baylibre.com>, 
+	Liam Girdwood <lgirdwood@gmail.com>, Mark Brown <broonie@kernel.org>, Rob Herring <robh@kernel.org>, 
+	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
+	Neil Armstrong <neil.armstrong@linaro.org>, Kevin Hilman <khilman@baylibre.com>, 
+	Martin Blumenstingl <martin.blumenstingl@googlemail.com>, Jaroslav Kysela <perex@perex.cz>, Takashi Iwai <tiwai@suse.com>, 
+	linux-sound@vger.kernel.org, devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+	linux-amlogic@lists.infradead.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v3 1/7] ASoC: dt-bindings: amlogic,gx-audin: add schema
+Message-ID: <20260928-native-hornet-of-luxury-81edcc@quoll>
+References: <20260922-audin-v3-0-a760312c076c@baylibre.com>
+ <20260922-audin-v3-1-a760312c076c@baylibre.com>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260928_104759_342851_48E74E72 
-X-CRM114-Status: GOOD (  15.77  )
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+In-Reply-To: <20260922-audin-v3-1-a760312c076c@baylibre.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -94,61 +73,26 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-tools/perf falls back to the __weak rdtsc() stub in tools/perf/util/tsc.c
-on every architecture that does not override it, riscv included.  The
-stub returns a constant 0, so anything that reaches for the counter gets
-a value that means nothing and cannot tell it apart from a counter that
-happens to be at 0.
+On Tue, Sep 22, 2026 at 06:00:46PM +0200, Valerio Setti wrote:
+> AUDIN provides I2S audio input support to the Meson GX platforms
+> (GXBB/GXL).
+> 
+> Note: GXBB and GXL are not known to differ so the driver binds on the
+> 'amlogic,gx-audin' fallback.
 
-The time CSR is a natural TSC equivalent on riscv: readable from user
-mode, constant frequency, and the same counter that riscv's
-arch_perf_update_userpage() feeds the user page conversion fields from,
-ever since commit 83c5e13b8cbb ("riscv: Prepare for user-space perf
-event mmap support").  This series registers that on the tools side.
+What the driver does is usually less relevant. Here, completely
+irrelevant. Explain the compatibility between hardware.
 
-The two patches are split so that the first stands on its own:
+OTOH, you cannot have family compatibles (clearly documented and
+explained on every beginners talk), so what is the GX?
 
-1. Implement rdtsc() over the time CSR for riscv.
+And I already asked for this:
+https://lore.kernel.org/all/20260913-inventive-millipede-of-certainty-dd58ce@quoll/
 
-2. Replace the compile-time TSC support check with a weak
-   arch__rdtsc_supported() hook, so that support is declared next to
-   the rdtsc() it describes rather than in the central list of compiler
-   macros.
+We have it extensively documented - in tree, in talks, in existing
+examples - how this is handled.
 
-What this is worth beyond the subtest result:
-
-1. The subtest is the only reader of those conversion fields riscv
-   can run, so it guards arithmetic that has shipped unexercised;
-   registering the counter at the same time leaves a future riscv
-   auxtrace driver the reading and the conversion already in place.
-
-2. The hook gives a caller something to ask the architecture before
-   it uses the counter value, instead of each caller keeping its own
-   copy of the macro list.
-
-Tests:
-======
-- The "Convert perf time to TSC" test in a riscv64 QEMU virt guest
-  with sscofpmf: the subtest skips before the series, passes after it.
-- With the riscv implementation left out of the build, so that the
-  weak defaults are in effect, the subtest still skips: the behaviour
-  of an architecture without a counter is unchanged.
-
-Chen Pei (2):
-  perf riscv: Implement rdtsc()
-  perf tsc: Replace the compile-time TSC support check with a weak hook
-
- tools/perf/arch/arm64/util/tsc.c    |  5 +++++
- tools/perf/arch/riscv/util/Build    |  1 +
- tools/perf/arch/riscv/util/tsc.c    | 24 ++++++++++++++++++++++++
- tools/perf/arch/x86/util/tsc.c      |  5 +++++
- tools/perf/tests/perf-time-to-tsc.c | 12 +-----------
- tools/perf/util/tsc.c               |  9 +++++++++
- tools/perf/util/tsc.h               |  1 +
- 7 files changed, 46 insertions(+), 11 deletions(-)
- create mode 100644 tools/perf/arch/riscv/util/tsc.c
-
--- 
-2.50.1
+Best regards,
+Krzysztof
 
 
