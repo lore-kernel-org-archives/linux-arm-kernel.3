@@ -4,83 +4,92 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1531CCA5FA1
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 29 Sep 2026 00:27:57 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 90A91CA5FAB
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 29 Sep 2026 00:38:54 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=APJhL/UXcBCjjwICTLFT+qLin1KDXiRR0y2N5bPp8T8=; b=J6jJadywHz4AmoBt8cLLspi8LK
-	6VhVoBNWezkuyWax/EQuW2xlbZBchokExdneC9yIBtL3ZQfcYskzNDjvU9tRnH4dd3BWpD0oLXkPE
-	Lr27vFFEJpc/BdhVe/Y5VyAqhe5Uy5AUXGUfY4v6PMb+S1fhCg96q+Q60eGQSy0KAe/YrOKT1FFam
-	V8ob2e3d5I3uwY3OzSETW/o/JpBkmVeBcYxR+mnVXIyPX/4wgT6Bc/JHrGpV+Q0KFjz3MqYF2t6U5
-	muHl0DDQ5avfFh5PQ4jAKAOhYHQxAf0RjYIpH/YQmA8zTgHyj0T+Oj0e4Q3Kuu9T2b1m7CNQOTqKz
-	sukY4XWQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=kp5ei0/iKnj9mU7W/OT7FmtL2iwT8AA400ktoI4ALho=; b=LaquhKDHU1inVmzlIjFDFWmUe2
+	DacbFMR44+raGnTgFi1OxFBOcd7NYXOe/LcrGIIZ/OS6KQMSGGu3bjq7sqk/GZRqcnWVN35KqALtv
+	55rbSLyPJ20PezcFaFQBsWA1efodXGwKRsooT5a6Y++pN8OD6Ps15M0SAJL5PL6n/EeByWxGOkVjb
+	uk0v8W95Nz6jsEhNW31G2UGtEl76sG5hzXogb+4YpTu2smgpHEk+UgvBL0EM1S2OoroiR/7Tj2kM3
+	dL1ifZmlc+iWSlFdcUq9v5fqmxVb2Miy2QeXBlNVYx5I+3azO4ArnWwhB49FRiA4WsWuYWmi8UtGY
+	Q4Xggq0g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xBLhD-00000001xz0-42Wr;
-	Tue, 29 Sep 2026 00:27:47 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1xBLGO-00000001v8w-10l5;
+	Tue, 29 Sep 2026 00:00:04 +0000
+Received: from mail-pl1-x630.google.com ([2607:f8b0:4864:20::630])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xBLhD-00000001xyq-12Fg
+	id 1xBLGL-00000001v8O-3x4U
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 29 Sep 2026 00:27:47 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id BB47544797
-	for <linux-arm-kernel@lists.infradead.org>; Tue, 29 Sep 2026 00:27:46 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id A2A721F008A1
-	for <linux-arm-kernel@lists.infradead.org>; Tue, 29 Sep 2026 00:27:46 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1790641666;
-	bh=APJhL/UXcBCjjwICTLFT+qLin1KDXiRR0y2N5bPp8T8=;
-	h=References:In-Reply-To:From:Date:Subject:To:Cc;
-	b=ESq97FFaS8q6O+WGq8mTMUSToYKUb+XzvsNnBGTw4Yfq//3liXu2B3bAv7bcygdli
-	 EcHwpI4uM9pG+PUVngoWR6FzLO0tgC/0cKz935SPY0E8pLtZbxVA2GkK9LZprUpqw2
-	 kp586WFL9UgLZZQwTNyhbLUWzYUgkY8T2hW91Gxa2Jj7QLSxcnI/egjRJOFsyE6zTH
-	 MQitmOsQu/01PuHkjjIBs3OQA+lJn8aPHg151owirTWk+5lo2DtlA/4bwfsWrrPey4
-	 MOb1YDPRUwN4TweCY78GvrHPfK0ZNR7urK4fizgTgf4M+q8ttD/pIntwgzWSW9hTmc
-	 eAfxlQdMmxqdg==
-Received: by mail-ej2-f42.google.com with SMTP id a640c23a62f3a-c2da4eea067so305553966b.3
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 28 Sep 2026 17:27:46 -0700 (PDT)
-X-Forwarded-Encrypted: i=1; AKwUvBwfyZKpKeCkD0NZzfBJNheudjZD+miGQRH5hC5RwdG61dVDnI3GlK5FKFZanOx+o6OxuGzE+GaUf1VXC7AbTozv@lists.infradead.org
-X-Gm-Message-State: AFuF++kEMZcCO1VJKcR9llBWyNtitZlcP8YM3iX5gd4ohJj/+EAUdHek
-	pqM8w8lG6I7MroLSzEzygpEHeA2aV7pRgDZcDouOdl9M89WWJ+/u+J9TqoeLJ/vpciRsDiULMjR
-	tKLckR6dYKBaSBD4m1MLGHzxeS9GlavBngfSnsGm6ew==
-X-Received: by 2002:a17:907:a909:b0:c26:1649:47b4 with SMTP id
- a640c23a62f3a-c2ac53fbdb4mr1170576266b.42.1790641665270; Mon, 28 Sep 2026
- 17:27:45 -0700 (PDT)
+	Tue, 29 Sep 2026 00:00:03 +0000
+Received: by mail-pl1-x630.google.com with SMTP id d9443c01a7336-2d8fd7a3f38so9615ad.1
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 28 Sep 2026 17:00:01 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=google.com; s=20251104; t=1790640001; x=1791244801; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:content-type:mime-version
+         :references:message-id:subject:cc:to:from:date:from:to:cc:subject
+         :date:message-id:reply-to:content-type;
+        bh=kp5ei0/iKnj9mU7W/OT7FmtL2iwT8AA400ktoI4ALho=;
+        b=iA97vbyp9IP085FFxu7C5tOI66+pKqQx+WR+L0CQFjweUiURfGNOGbahRSHRBrtzvG
+         pJGHsY2ZdDAoO4i5YuafJW/feNCtoj4PzBJVc03wImc6v28ZED84hEpDUwx/2CMhm2It
+         dF7HfBqhuXWTkH3K189O4z43MDOUvhdslb+bIQr/qCSJuzCkT8FB2P4Wg9Zt6i5D0ik4
+         mPCm43ZEf1085G5CRLlRHKDidQvL5oDa6J21NonxfXl6TmakKFEjw0k/8oa9nkNImzDq
+         +ICyZ9Sy58TU7TwfIO41n4PZ4nEsbGUa0i3AdQqbgAq9gk+Q5+T6w4SRQeowZQp0opII
+         FXQA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1790640001; x=1791244801;
+        h=in-reply-to:content-disposition:content-type:mime-version
+         :references:message-id:subject:cc:to:from:date:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=kp5ei0/iKnj9mU7W/OT7FmtL2iwT8AA400ktoI4ALho=;
+        b=DCvUkYyfud5L1IeaPLdF95mfbusH2csA/hgaaCKVAdwdNZhLxBGjccuw2BE2nH6Pjd
+         bHh0wMz6NpysXC23s3bFZWBORQ/GZX0EqlR15bzgQbB4lC/nOL7ETdHZihrxi2l45E7q
+         r477Gt072OC9XtyRDy+2W4+XtX2xxgsR2ZuPK1YvuqwwY4Vl5nusIc+QNhNOvjLOYfjz
+         eRAB3EJfgMpYHmfgIBqxHpwDtJ3aEqIpypVzJWki4enLtpArjsT/XtZ5ObsiOXnMQWlD
+         fUWJglZlQzGj+2EwtSij1Bc7HCq1lWBfwmPbPqi1coKYSqfc6/yClhU+goy5BI4sZeXy
+         wjyQ==
+X-Forwarded-Encrypted: i=1; AKwUvBwVWamBz1YH6L6dnHmfzEcgU7LdIv+bEyqoJUmwDUNyr/EYOpnlOcQcKCPiH8Kkow+FvchLBNkNAmjEohcsUqBU@lists.infradead.org
+X-Gm-Message-State: AFq9FYLMRrBIS851Ys4Bw7RvmXVtdK5VX5dRR/CA8i9i3H2jKquBvx/2
+	LidGtP9XERGAqjrQ5sngwFmckYFHGRbE+eGb8qaQikcq2YESVsa4MtI0NH5FLmIlOA==
+X-Gm-Gg: AYBFou3luulXCurigzWJLOHc4YPG68cOmzuckZmKxiRjUU9hpbaro+mQwTrEgIkL27q
+	5qaFWIyLBXlizpXbml74rJXYWhhTcr3nd0diWBysGoqj6+amN+YucuJfFbIlSgN4UohmmxCitL5
+	P4ZHw7IGL75SfPrnKbNTXEBml1N8jVPp0y6zgpvtVSQKmRg6JE7S6rWTjHz+fo1g447MceCv1ID
+	ouG2nyhe9CPyIlxNMpNRV1Kwr25+jejuDBKAqCOjyXLSohtLrVYByknj6QuW3+5JeW9a+pJFhGc
+	U9ec9/OAhebZiZjYbco5tmDb4MFyQEE2iA/hcwQ9YKpnuyPjfYQq5aTPlprFcAK/7f8jcVUoRMg
+	qdXy2tdcOeUDOwsPoIbnjDYYM3V0pi2CQ5decD7FdXF6MtkcwFeD/EbNyIs1udTqP24JAtfSO8J
+	IEU/KNMtWk9xVp9I8Iy/nNaMIdMg52NWDvCVQBJtJ4/hio+6v7HlEkoIyDdoUQrAcW3DVu0afdJ
+	u/Ocx+ygn1yg3CbdPgqNvOY+z1SedzdLhJ4
+X-Received: by 2002:a17:903:2b0d:b0:2c9:d89f:fd98 with SMTP id d9443c01a7336-2e2c608146fmr1652085ad.1.1790640000240;
+        Mon, 28 Sep 2026 17:00:00 -0700 (PDT)
+Received: from google.com (105.211.142.34.bc.googleusercontent.com. [34.142.211.105])
+        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2df91444797sm47124675ad.58.2026.09.28.16.59.57
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Mon, 28 Sep 2026 16:59:59 -0700 (PDT)
+Date: Mon, 28 Sep 2026 23:59:54 +0000
+From: Pranjal Shrivastava <praan@google.com>
+To: Mostafa Saleh <smostafa@google.com>
+Cc: linux-kernel@vger.kernel.org, iommu@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org, will@kernel.org,
+	robin.murphy@arm.com, joro@8bytes.org, jgg@ziepe.ca,
+	nicolinc@nvidia.com, Jason Gunthorpe <jgg@nvidia.com>
+Subject: Re: [PATCH v2 1/5] iommu/arm-smmu-v3: Ensure L2 tables are visible
+ before L1 ptrs
+Message-ID: <arr_eqQJtOAIT4Pd@google.com>
+References: <20260924085616.300650-1-smostafa@google.com>
+ <20260924085616.300650-2-smostafa@google.com>
 MIME-Version: 1.0
-References: <20260926045517.3458413-1-matthias.goergens@gmail.com>
- <CACePvbWM8kMjtJbH4vc6Qt=TBZQ-0d-Yj9NOtkepZmtNN3wd9w@mail.gmail.com> <20260928151924.2686290-1-matthias.goergens@gmail.com>
-In-Reply-To: <20260928151924.2686290-1-matthias.goergens@gmail.com>
-From: Chris Li <chrisl@kernel.org>
-Date: Mon, 28 Sep 2026 14:27:33 -1000
-X-Gmail-Original-Message-ID: <CACePvbW=fZ3G1JwnbiRo+_qsteN2smbbf3jX0UPFmhVyWA5_6A@mail.gmail.com>
-X-Gm-Features: AclHuK_oifA42INPrgsCc_iqlMTCQtFcDVPMyqJSWfGYorE6tGAaJtv8iXHRTRc
-Message-ID: <CACePvbW=fZ3G1JwnbiRo+_qsteN2smbbf3jX0UPFmhVyWA5_6A@mail.gmail.com>
-Subject: Re: [RFC PATCH v2 0/4] mm/swap: reserve swap areas for deliberate offload
-To: Matthias Goergens <matthias.goergens@gmail.com>
-Cc: Andrew Morton <akpm@linux-foundation.org>, Kairui Song <kasong@tencent.com>, 
-	Johannes Weiner <hannes@cmpxchg.org>, David Hildenbrand <david@kernel.org>, Michal Hocko <mhocko@kernel.org>, 
-	Shakeel Butt <shakeel.butt@linux.dev>, Kemeng Shi <shikemeng@huaweicloud.com>, 
-	Nhat Pham <nphamcs@gmail.com>, Yosry Ahmed <yosry@kernel.org>, 
-	Youngjun Park <youngjun.park@lge.com>, Baoquan He <baoquan.he@linux.dev>, 
-	Barry Song <baohua@kernel.org>, linux-mm@kvack.org, linux-kernel@vger.kernel.org, 
-	cgroups@vger.kernel.org, linux-api@vger.kernel.org, 
-	Alejandro Colomar <alx@kernel.org>, linux-man@vger.kernel.org, Karel Zak <kzak@redhat.com>, 
-	util-linux@vger.kernel.org, Jani Nikula <jani.nikula@linux.intel.com>, 
-	Joonas Lahtinen <joonas.lahtinen@linux.intel.com>, Rodrigo Vivi <rodrigo.vivi@intel.com>, 
-	Tvrtko Ursulin <tursulin@ursulin.net>, David Airlie <airlied@gmail.com>, 
-	Simona Vetter <simona@ffwll.ch>, intel-gfx@lists.freedesktop.org, 
-	dri-devel@lists.freedesktop.org, "Rafael J . Wysocki" <rafael@kernel.org>, 
-	Pavel Machek <pavel@kernel.org>, Catalin Marinas <catalin.marinas@arm.com>, 
-	Will Deacon <will@kernel.org>, linux-pm@vger.kernel.org, 
-	linux-arm-kernel@lists.infradead.org, Shuah Khan <shuah@kernel.org>, 
-	linux-kselftest@vger.kernel.org
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20260924085616.300650-2-smostafa@google.com>
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260928_170002_003088_0D0F81EA 
+X-CRM114-Status: GOOD (  12.70  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -95,80 +104,31 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Sep 28, 2026 at 5:19=E2=80=AFAM Matthias Goergens
-<matthias.goergens@gmail.com> wrote:
->
-> Hi Chris,
->
-> Thanks for resolving the conflicts yourself and reviewing it.
->
-> > What is the high-level user-visible impact of this series?
->
-> Being able to use more interesting swap backends and logic when the
-> machine is not under memory pressure.  It is much easier to write a
-> swap backend that may occasionally allocate memory than one that is
-> guaranteed never to, so today such backends are either unsafe as swap
+On Thu, Sep 24, 2026 at 08:56:12AM +0000, Mostafa Saleh wrote:
+> Commit 6fabce53f6b9 ("iommu/arm-smmu-v3: Add a missing dma_wmb() for hitless STE update")
+> adds a dma_wmb() to arm_smmu_write_entry() to make sure stream tables
+> and context descriptors are observed first.
+> 
+> However, STE L1 table descriptors are configured directly
+> via WRITE_ONCE(), where before that they were zeroed with memset()
+> inside dma_direct_alloc() then written to abort in via memset() also
+> in arm_smmu_init_initial_stes() without a barrier in both cases which
+> means that the SMMUv3 can observe the allocated table before the
+> written descriptors causing it to fetch random data.
+> 
+> Similarly in arm_smmu_write_cd_l1_desc() where the L1 CD is written
+> after dma_alloc_coherent() with no barriers.
+> 
+> Add dma_wmb() in both cases.
+> 
+> Fixes: 48ec83bcbcf5 ("iommu/arm-smmu: Add initial driver support for ARM SMMUv3 devices")
+> Reported-by: Sashiko <>
+> Reviewed-by: Nicolin Chen <nicolinc@nvidia.com>
+> Reviewed-by: Jason Gunthorpe <jgg@nvidia.com>
+> Signed-off-by: Mostafa Saleh <smostafa@google.com>
 
-I actually don't know of a swap backend that absolutely will not
-allocate memory on swap out yet. Some backends allocate more than
-others. Because the proactive reclaim can write to the non-offloaded
-swap backend. That brings me back to my original question, in what way
-this series helps.
+Reviewed-by: Pranjal Shrivastava <praan@google.com>
 
-So the answer seems to be that previously, some backends were unusable
-by swap, due to possible memory allocation. With this series, those
-back ends are usable for the proactive reclaim now. It is a 0 to 0.5
-improvement because direct reclaim can't use it yet.
-
-
-> or ruled out (btrfs, for example, refuses swapfiles that are
-> copy-on-write, checksummed or compressed).
->
-> > I am curious: if we never run out of swap file space on the
-> > non-offload swap area, does that mean we don't need this patch series?
->
-> No: running out of conventional swap isn't the point.  Without the
-> series, any active swap area may be written under pressure, so a
-> backend that may allocate can't be used as swap at all, however much
-> conventional swap there is next to it.
-
-But proactive reclaim can also use the non-offload swap area. So if we
-have plenty of non-offload swap area, both proactive reclaim and
-direct reclaim can use that non-offload area. The value of this series
-isn't apparent. If you don't have a traditional swap-capable backend,
-then your non-offload area is zero.  That is considered a special case
-of running out of non-offload swap area: never having a traditional
-swap area in the first place.
-
->
-> > However, direct reclaim can use both types of swap areas.
->
-> In v2 it can't: only memory.reclaim, per-node reclaim and MGLRU's
-
-Sorry I meant proactive reclaim can use both types, nothing constrains
-proactive reclaim.
-
-> debugfs eviction may write new data to an offload-only area; direct
-> reclaim, kswapd, MADV_PAGEOUT and DAMON reclaim may not.  But I think
-> your suggestion to flip it round is closer to what I want: mark the
-
-Flipping it around might provide additional benefit. I know some users
-maintain off tree patches to turn off zswap on the direct reclaim path
-exactly because zswap might allocate more memory before it can free
-some. If the kernel can be smart about it. It provides additional
-value to the status quo.
-
-> areas whose writes may allocate, and keep pressure reclaim away from
-> those, rather than tying it to what started the reclaim.  I'll work
-> that into v3, together with Kairui's suggestion to build on the swap
-> tiers work.
-
-Yes, I feel that cluster-level marking might not be needed, you can
-remember which si has the offload flag. However the per cpu cache
-needs to know which context might require using a different cached
-cluster. That is the trickiest part. The rest of the patch is just
-enough plumbing to preserve whether the swap-out context is proactive
-or not.
-
-Chris
+Thanks,
+Praan
 
