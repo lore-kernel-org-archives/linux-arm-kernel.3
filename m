@@ -4,92 +4,136 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3C7A7CA5FA2
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 28 Sep 2026 19:28:53 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 90598CA5FA3
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 28 Sep 2026 19:32:18 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
+	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=cJHzxKXVtIY3P2yIJggYlartU1XE0ipq+eGOK0t1wt0=; b=tscd69WfyyqbJmBbyAYTGfrKjD
-	hWfG/67KCFFQ9McuM3aMse4WC3PE0UmhM9/DlaspjEpOAO3wml1Oq4c3THTYT5lt90j219h6GM4FG
-	YCCfnRvzvpvRr+8VJ3ZB8hntv92lcH2waD3BJYsNGJxnMsEVyq7OCueu4koy/g7d1pGPHZSBTQOWu
-	lzR7kfxZeTXVUFCSCXd+cNrdj80pIPJuKjrp9btB4blnnFWJcQx9em+IcfMjkI/v0rUO25wzDkuu2
-	HbRLvrQ/mu/MUFIDi3H4c7zlWOdEEgEOZfh0i8gu3lU2WreUzJitKOWq6Zc8yKejj6LLfdk3hxBVa
-	nS0EBgnQ==;
+	bh=E1sbEkYIPQ6sA/ui2C8D954iMTF8q3qzpO3P65MOIpI=; b=xgt9uAY2A7sLO2SzjfSzwaZWl4
+	79y8AJbX5a4PLN5xl9sxq0N9VspN5VUd0J1zO5NBNgYgl7fr08SxRTkEOuqbzxzKsPmg6OevH4fCE
+	MyboqXz+hvfjLb7jevH122BlAijQmX1aJfJL9yLdV7aK3jq6GzfpZrD0f0d797JRLdVL06RasszXX
+	IkmpESnjQ+c35xL4tuVQI/x8cIYWmtEYhEdj8W7pZNwl/I/qR91xoQFT2USfYy+I8VwQWXhrRRL28
+	Bymwd2jYijGV67gF3Y5YIGFk6/E7kXNzH8b/Hy1xde9aJFWhz900zvksolTzWc7SCxxDx8kK8rPUK
+	JF8vVwSg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xBH1q-00000001QsF-46aM;
-	Mon, 28 Sep 2026 19:28:47 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1xBH59-00000001RNM-2nXH;
+	Mon, 28 Sep 2026 19:32:11 +0000
+Received: from mail-norwayeastazon11013023.outbound.protection.outlook.com ([40.107.159.23] helo=OSPPR02CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xBH1q-00000001Qs2-0azF;
-	Mon, 28 Sep 2026 19:28:46 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id 3B7ED60120;
-	Mon, 28 Sep 2026 19:28:45 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 9F39C1F000FF;
-	Mon, 28 Sep 2026 19:28:44 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1790623724;
-	bh=cJHzxKXVtIY3P2yIJggYlartU1XE0ipq+eGOK0t1wt0=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=FV1vBIsy+SJMPxhCKAU3fAvonyUNNwCFv27Vmyk/SuURYrycGycfXXiana4254/1E
-	 18ekcOUMpDcFVSI6uHiDLIGH6ewct+bqrjzOLXHajDpk0FM4hRyc5YP36qT9z5c5G6
-	 AQTP8XhFgWc/fu9vMHuyl/wYjEc1CFHp60HYtmEk914pJD8xS4Y7CayARzmQ42gTfK
-	 EQaii28pFUn5lRFDdlCGzb0GrrAxASWFHYl+VHZl70eJPM2zSCgBFD4SW+9+JuohSG
-	 YV+bpPHCDU2zlgP6SYgiKtdtXiBJM5xJ19u9OLh9EaM0DZRjFMa+wU0mLXpnR/Ry0E
-	 6TClnNMxJzzVA==
-Date: Mon, 28 Sep 2026 14:28:43 -0500
-From: "Rob Herring (Arm)" <robh@kernel.org>
-To: Kieran Bingham <kieran.bingham@ideasonboard.com>
-Cc: Sakari Ailus <sakari.ailus@linux.intel.com>,
-	linux-rockchip@lists.infradead.org,
-	Martin Kepplinger <martin.kepplinger@puri.sm>,
-	Svyatoslav Ryhel <clamor95@gmail.com>,
+	id 1xBH57-00000001RMo-0pza;
+	Mon, 28 Sep 2026 19:32:10 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=OHRW/IbbRBun++LwS8qpitYX38ZgtR+X1PXc4NZGIPnMjhhtvu8tiEucylxK1BBASc7Zt6xYtytZW5V+atBkdIX0s8QBSquBgXiShyHVKs6qlCeEWiNAl/wmlKNcJ4YDmiXnPn01B+4S7cVr84dQTal4R3YBqt6wQfKxaANSOhf9ACcWj2hgVgqoqSrlulL31wBZLyT3Vh9CH/3MvLmDAs1kG7464eDRJS1UGWvPC6LRmp1SJfLbGR7OPzVCBD3tOEINVXz25NjyNMslqsxSu+RWzhHxGu0fj/3HPBx3fVHcjw+7lzg4LTkOC0A2rYsOfVHaQ6tTZxD4oVnSVIyfOA==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=E1sbEkYIPQ6sA/ui2C8D954iMTF8q3qzpO3P65MOIpI=;
+ b=GlyVMODNNT2HtK3WoitKmOkkc7rTamY79piSiM5pnnbmeeIYmctPmJ//MolrjBIEUzpJoWA9Iu4UFGlTO5DBfYi6S/1EmwEtidSgJFEwXxDNhZirORraxs7tbFBbHbWb75xeQ/UFkZU9chJF8vPUMlGPrHmDNaSc7J5u5K1CxQqNjUUHMRVa0cz3MUMQRPedU13wmIzLH6enSQde3OobqLs2SfbO9DjfHJ6YkFXz/x8YG3t/GXipBnzntS++l1aFLFAJ77ic0q7vKMwY9dSZQboJfbSoEPd7wiI6cCxQD6od25vbmLWyLs8E2vUUYD5X+LKMjp6hjHa2x5JOJcrCRQ==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
+ dkim=pass header.d=oss.nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
+ s=selector1-NXP1-onmicrosoft-com;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=E1sbEkYIPQ6sA/ui2C8D954iMTF8q3qzpO3P65MOIpI=;
+ b=oqITb3Bl9Q//HucjVLS17F2laFnXRR1SPm+cInkBuPLiYhpicxE+EOaSzJF4TCXMI/BtKP41SmfKSHLvegUrHiubFNdBxVq/nZPEu1hLVTIJqyDwSqvPeulGzMvHJ4A+HlP/2PCAD9o6azPm6klfwlxRd9dVLuzjzQ0ni6HV5tSO9EBhl0YdXDCRz2mM2kGd5vOKamwvJl7aBQnsdyOoAXpAXrWsoJBLmfy4KSS4p58tGKxx3Ptjz5ZMiZvbq4eulh/1kgq75o6uwQthPJ84qcCeL/ee79rkLQbXnetSL9k7h0oVLy6Ss2efptgZWe/B2nykXrixsXlrpL+6viH19g==
+Authentication-Results: mx.microsoft.com 1; dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=oss.nxp.com;
+Received: from DU4PR04MB11791.eurprd04.prod.outlook.com (2603:10a6:10:623::11)
+ by AM9PR04MB8633.eurprd04.prod.outlook.com (2603:10a6:20b:43c::24) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.451.24; Mon, 28 Sep
+ 2026 19:32:03 +0000
+Received: from DU4PR04MB11791.eurprd04.prod.outlook.com
+ ([fe80::11ca:6b74:3234:d7de]) by DU4PR04MB11791.eurprd04.prod.outlook.com
+ ([fe80::11ca:6b74:3234:d7de%5]) with mapi id 15.21.0451.022; Mon, 28 Sep 2026
+ 19:32:03 +0000
+Date: Mon, 28 Sep 2026 15:31:49 -0400
+From: Frank Li <Frank.li@oss.nxp.com>
+To: Stefan Wahren <wahrenst@gmx.net>
+Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Marc Kleine-Budde <mkl@pengutronix.de>,
+	Vincent Mailhol <mailhol@kernel.org>, Vinod Koul <vkoul@kernel.org>,
+	Neil Armstrong <neil.armstrong@linaro.org>,
+	Frank Li <Frank.Li@nxp.com>,
 	Pengutronix Kernel Team <kernel@pengutronix.de>,
 	Fabio Estevam <festevam@gmail.com>,
-	Thierry Reding <thierry.reding@kernel.org>,
-	Bjorn Andersson <andersson@kernel.org>,
-	Magnus Damm <magnus.damm@gmail.com>,
-	Matthias Fend <matthias.fend@emfend.at>,
-	Laurent Pinchart <laurent.pinchart@ideasonboard.com>,
-	linux@ew.tq-group.com, Geert Uytterhoeven <geert+renesas@glider.be>,
-	Tommaso Merciai <tomm.merciai@gmail.com>,
-	Quentin Schulz <quentin.schulz@theobroma-systems.com>,
-	imx@lists.linux.dev, Michael Riesch <michael.riesch@collabora.com>,
-	devicetree@vger.kernel.org,
-	Sylvain Petinot <sylvain.petinot@foss.st.com>,
-	Jonathan Hunter <jonathanh@nvidia.com>, linux-media@vger.kernel.org,
-	linux-renesas-soc@vger.kernel.org,
-	Richard Acayan <mailingradian@gmail.com>,
-	linux-tegra@vger.kernel.org,
-	Kieran Bingham <kieran.bingham+renesas@ideasonboard.com>,
-	Jacopo Mondi <jacopo.mondi@ideasonboard.com>,
-	Benjamin Mugnier <benjamin.mugnier@foss.st.com>,
-	linux-arm-msm@vger.kernel.org, Conor Dooley <conor+dt@kernel.org>,
-	Jacopo Mondi <jacopo@jmondi.org>,
-	linux-arm-kernel@lists.infradead.org,
-	Konrad Dybcio <konradybcio@kernel.org>,
-	linux-kernel@vger.kernel.org,
-	Paul Elder <paul.elder@ideasonboard.com>,
-	Frank Li <Frank.Li@nxp.com>, Heiko Stuebner <heiko@sntech.de>,
-	Daniel Scally <dan.scally@ideasonboard.com>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Jimmy Su <jimmy.su@intel.com>,
-	Sascha Hauer <s.hauer@pengutronix.de>,
-	Mauro Carvalho Chehab <mchehab@kernel.org>,
-	Mikhail Rudenko <mike.rudenko@gmail.com>
-Subject: Re: [PATCH v6 6/6] dt-bindings: media: i2c: himax,hm1246: Use
- video-interface-devices
-Message-ID: <179062371908.398635.9659405053425999054.robh@kernel.org>
-References: <20260918-kbingham-orientation-v6-0-5e8b1f01be29@ideasonboard.com>
- <20260918-kbingham-orientation-v6-6-5e8b1f01be29@ideasonboard.com>
-MIME-Version: 1.0
+	Aswath Govindraju <a-govindraju@ti.com>,
+	Christoph Stoidner <c.stoidner@phytec.de>,
+	linux-kernel@vger.kernel.org, devicetree@vger.kernel.org,
+	linux-can@vger.kernel.org, linux-phy@lists.infradead.org,
+	imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
+	Conor Dooley <conor.dooley@microchip.com>
+Subject: Re: [PATCH V5 3/4] dt-bindings: phy: ti,tcan104x-can: Document
+ Microchip MCP2542
+Message-ID: <arrApSK-HQwx5UVg@lizhi-Precision-Tower-5810>
+References: <20260907150420.18787-1-wahrenst@gmx.net>
+ <20260907150420.18787-4-wahrenst@gmx.net>
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20260918-kbingham-orientation-v6-6-5e8b1f01be29@ideasonboard.com>
+In-Reply-To: <20260907150420.18787-4-wahrenst@gmx.net>
+X-ClientProxiedBy: PH8P222CA0021.NAMP222.PROD.OUTLOOK.COM
+ (2603:10b6:510:2d7::6) To GV2PR04MB11799.eurprd04.prod.outlook.com
+ (2603:10a6:150:2cf::9)
+MIME-Version: 1.0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: DU4PR04MB11791:EE_|AM9PR04MB8633:EE_
+X-MS-Office365-Filtering-Correlation-Id: 24ce0170-27db-4b9b-2321-08df1d972a2e
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|7416014|376014|1800799024|366016|19092799006|23010399003|4143699003|10067099003|11063799006|56012099006|18002099003|22082099003;
+X-Microsoft-Antispam-Message-Info: vlFMTBm3FYLKvC7wAyRiikSbt5d5CIUUaPGGZsZIksBtdHhaY49zKnm9c9ovkEy0JsglD7SRkArNY7k6gHnbwDbyH+dYwrJ2souN/aPsZLQqfq2B1MPlhw2zNoxM6L3BpjbhKQEg8jbm8z1khtEaGgfcHQ07qKIv2+YAirn6nkUKrr34htNz5JzAgH1Gh3xwscrn8ZSJ8HwA+dgF2X+LeJjTker45fpPSsXTuVQBelGA/mYyk4ttsrL7AzT6qkQ7gj0APBv7wtuluIBZvve3RxxwMWuu7/73aQ/or3uWPsX3zAAC39Cn9/MnAVrh+j56CDFI9EdBXMVdvZEjKADZZOUzXa0xXz2ulct1533OWmjLb7VymXuecM0rcXI4XSUEv6rcsbZLkA2n194OQrOeqoIdZO3Cb30M12Me7egrxJDNf060AQxWyTVIFIgwepugj58W9RF8aenbHBcIVwV1nSMzsow4aBb2hKBsTP6lZXRH+pAtm167qHfMYpl8TsdylBk2zzHcYyimh+WIThrXZl/JeBBB24HDx5BronczmBaB0xyUyUfW4jpPnwCto1j8AeiOJQ1l9em4FLZQCwCjF5X5ZRrEgAZ7T6WBX77DbCkWu/A6uXNzwMQoNbbiAkQk8bF4OOSXU/ELI+4LtAo4YMA/Iy4DE1a0EDnIjMOGkn4=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:DU4PR04MB11791.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(7416014)(376014)(1800799024)(366016)(19092799006)(23010399003)(4143699003)(10067099003)(11063799006)(56012099006)(18002099003)(22082099003);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?4xV/7+PGxvNlardsDfEBjSEgb61Eg+N5z/TOXlqL35yCuxBfuJ+hlG709VEG?=
+ =?us-ascii?Q?NoMB3LVYrupXLaZK0c/HUSKmVnPbYA0O2um+FO4KOnhoFGNyqyGUoVmgR7KO?=
+ =?us-ascii?Q?jGFg+uhZEzBagzBoSzQu1BSgb5vgJ4/CzoGU8sHYJA5HzWywDwXt2GKnlhQO?=
+ =?us-ascii?Q?8N+VbWVKvMZAJd6U65tzFsvDjqj4IKcU05iv+frRImH8mWQIN4kZjNBhMps3?=
+ =?us-ascii?Q?a9wAeCi/OgmxskCsuxpVDP11DjZAy5wGEdSaoc1XEvr11QwQ+nYDGp9ntUuF?=
+ =?us-ascii?Q?4cM0QaVgyBlUd7ZvT49km3PdDZw2Xb7ZnrjLv1yt8pqbJbg9QhMtiW56jEk1?=
+ =?us-ascii?Q?oYnGU36ty3rm6ZpAX+QwOJyMQHYK9+GWlu969FsowtqBHZl+WAaDUoKdpYRX?=
+ =?us-ascii?Q?9F0r1Jmq2xIHejftV8EC6OvMiKNSDVcIi3whUxMkcUM+Uo+SuhImDE5zPcU/?=
+ =?us-ascii?Q?uKy2cFQYwkqfXAkOWtnk1E9a0yyXbqetOUfq8YmWDgF982u+21JFFp8a+U8E?=
+ =?us-ascii?Q?LSWES0/GO1iBZoeY6uWwjrXS2apVELoN13KhXCsIRZwN8BtPp1fx7aBVcE2f?=
+ =?us-ascii?Q?r0LC7ZmVmLhOhbu7HG2jwu7kElmeoF5Nj3jwm3UhTCWdbdWmlaeLa66MnHnX?=
+ =?us-ascii?Q?akg4caP2ZnCUlb1YqIAsWeWE98RMWTqSGuKLwwyHgT7xkyGsR1b2Atzs/9+i?=
+ =?us-ascii?Q?bbwi4KR37XSWEaQHLpwIcGQuZoHvSWi8ary5cPzWlRcKNhhOphhBIUAEcsBR?=
+ =?us-ascii?Q?NEqTEpT3UVDbybiuFCDVj8XIgoxMwNwECvnJbV5gyGReYJdX93E6w5m36erE?=
+ =?us-ascii?Q?2pxQ14XwubshPdM5gGZeKMK2Ew047u6YyB9XBp8GQYdYJYqnBNExi5xA4wl7?=
+ =?us-ascii?Q?3TRCXfPxZWv5pGYxE4gJBd5rtM6ELokd+Br4enR4aPG/oEq0WJ1LqyXTjz60?=
+ =?us-ascii?Q?pBBM6E4O6FFv1Lm6ZxnT5IugOxdRXq2SCLvOBOS4Fhl7NVYpOLgG/IcU/lrm?=
+ =?us-ascii?Q?8IY6rNQwrNejQBIfxflbPUEtfWXoZ96cp+BCAa0PMONZLZCtl+W/6MvTCzzb?=
+ =?us-ascii?Q?j83i8bOTh1SMUhqT1RxdGIMXjtbxOXfZt2NUrQWZdopWO6dcqKF/y+ShYMle?=
+ =?us-ascii?Q?c1hFt2rDrEJ7Vr35KboW5+0QyRyizFjqXDmZHObIAyom9zFcb6jgXpkXRfMb?=
+ =?us-ascii?Q?opUNlbe0XRUnErfQlyPfImUthYiONyOtCnfXydrR+RY/QVXWZ17GRXb0q2uC?=
+ =?us-ascii?Q?PPm/+Ea1/yatsey5grP4WoqCHYSQhHWoosogVmC0O/rlgYYbmpmau7wqL4BL?=
+ =?us-ascii?Q?bIyvsLiEq9jLeq9iu2FQxitkQ/CNkBSuoxfQRMv2F2+u0Nxuc0PMYZ7ixIhx?=
+ =?us-ascii?Q?o4P01sV4+ymv5a67CPa+qQ/fB5lYpMovHdHB1HGo4s3n0I7xS78lAWURAEgx?=
+ =?us-ascii?Q?GYCeD6UL6ZClLtesSEHPN/DESoRIDE9SSb9jbKUwO087RFS2ZpiIJh6gcPgF?=
+ =?us-ascii?Q?uis+eWsVmqNXtVCpPCWFSEzx6ddPxsAaWfiWeRCQVIJJsYA8BJ5XG96Pmi6L?=
+ =?us-ascii?Q?W5TlNlVqSPn+PwiD/gwXnRTlJNsZpuYBxkGMekEpXjAFg849rI5SBpsg8bse?=
+ =?us-ascii?Q?dSpx60rjH4YdfFD6RPfYT28iVddPdZ7Ot2ajhvtjCGwTyhTJbFgetVlJw4Ey?=
+ =?us-ascii?Q?ZjlkygPmNpIp4/G+SM69N4oL3zDG00ww+qBQvqHAw6mgZHFKSqT0vakRz8iV?=
+ =?us-ascii?Q?+FbIQCsOC7RVkRJt0Yw0G5VztaI3NUSar0dj7OzW9co2qSKWgzWy?=
+X-OriginatorOrg: oss.nxp.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 24ce0170-27db-4b9b-2321-08df1d972a2e
+X-MS-Exchange-CrossTenant-AuthSource: GV2PR04MB11799.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 28 Sep 2026 19:32:02.9617
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: YRSiDh019OeaGjTAT7oofhbokt5PeBtrMvGKDIbVCkvtXTk0ujPT+BvmwNV4ReA2h2u0mVuUKogXCXmTqV93xWCP/yZZPXu/bbsFL5lJ46OqbJtdlrM9kXz/hMZMfTRu
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: AM9PR04MB8633
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260928_123209_272891_36242384 
+X-CRM114-Status: GOOD (  13.20  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -104,25 +148,37 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-
-On Fri, 18 Sep 2026 11:44:18 +0100, Kieran Bingham wrote:
-> From: Kieran Bingham <kieran.bingham+renesas@ideasonboard.com>
-> 
-> The orientation property for video interface devices now has definitions
-> to prevent hardcoded integer values for the enum options.
-> 
-> Update the example binding documentation.
-> 
-> Signed-off-by: Kieran Bingham <kieran.bingham+renesas@ideasonboard.com>
-> 
+On Mon, Sep 07, 2026 at 05:04:19PM +0200, Stefan Wahren wrote:
+> The Microchip MCP2542 High-speed CAN transceiver with Sleep mode is a
+> pin-compatible alternative for the TI TCAN1042.
+>
+> Signed-off-by: Stefan Wahren <wahrenst@gmx.net>
+> Acked-by: Conor Dooley <conor.dooley@microchip.com>
 > ---
-> v6:
->  - Actually use the correct orientation!
-> ---
->  Documentation/devicetree/bindings/media/i2c/himax,hm1246.yaml | 3 ++-
->  1 file changed, 2 insertions(+), 1 deletion(-)
-> 
 
-Acked-by: Rob Herring (Arm) <robh@kernel.org>
+Vinod:
 
+	I have not seen this patch in linux-next, looks like you missed
+this one, only pick Patch1.
+
+Frank
+
+>  Documentation/devicetree/bindings/phy/ti,tcan104x-can.yaml | 1 +
+>  1 file changed, 1 insertion(+)
+>
+> diff --git a/Documentation/devicetree/bindings/phy/ti,tcan104x-can.yaml b/Documentation/devicetree/bindings/phy/ti,tcan104x-can.yaml
+> index 0cf5fa21106b..1a0dc9bbe6c9 100644
+> --- a/Documentation/devicetree/bindings/phy/ti,tcan104x-can.yaml
+> +++ b/Documentation/devicetree/bindings/phy/ti,tcan104x-can.yaml
+> @@ -18,6 +18,7 @@ properties:
+>        - items:
+>            - enum:
+>                - microchip,ata6561
+> +              - microchip,mcp2542
+>                - ti,tcan1051
+>            - const: ti,tcan1042
+>        - items:
+> --
+> 2.43.0
+>
 
