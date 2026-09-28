@@ -4,110 +4,75 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2DE47C9832F
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 28 Sep 2026 07:04:37 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0481AC9833E
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 28 Sep 2026 07:19:10 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=8fmUSDAgYoEUGpnG4dyr2raLElAF9zIG7tCsXwnwAGw=; b=WgZyU+z/f873DFwcTpiHfG6Kul
-	Bq+/vCWj9GKebWZ/qiwhip0jwfdbx5cUNedtC3V8tcfeQf/XDaUtSHKINf0h9KOX4ULCWMnj1GQzj
-	CLmLNLMDAPzZqH9IbZ2OKyiNMM59GO97Lgd0+oDGS3YDmsYe/3Eb5l8JYNhz1MZvhhICg+G5f9TK+
-	gX1gq3SkX6A5JjgGJs4jYLsN/76Y+nv8b1OOwlzcH8DXOo0FlUruduqEGvH8pvz/VIalj9aBpBjmE
-	eWxTfILj8I8xE/E32kQ3mPeqo81w1s9vEGisec4xHwq/pVp+gwKbJhHE7xBtnG42QqPcaHmJMSAUT
-	tVnd7baQ==;
+	bh=9ev1RphJmOUwTwyP1Zq1ADAaAbeAIOq+4OhI9af6F6U=; b=Tsnd/B4Q18JXoxA30TOKWDHYMx
+	1SnYgCQKA+eZwYLvjaC0eSgydQ8SM5oo78evomXUSwxleTC6luQlIyKJkVuekKiXhKe4YejDlV7F7
+	IhvEDoI0/+L/GZQeZtuzIW0fytoK80LDAOmaGerEY4X1+egpoHkMmtK1yuJ8PJCmxRJqOkdMq84QF
+	wNXWB3tUOm4fKXgJjMDi5gU78yPU1bPx1CWoBh+93CRDnRdYl0ngFKcMBX25meat3hQ1FIX/AXu/v
+	fsRO7LNOUhV7IhWQpGgjUXoXNJTbD0TnLZ35TDMduuKRXoL1ELO4/8jhqVCJzjSxZHn6h6QdgyXMm
+	5od6f+ew==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xB5PY-0000000HViz-1j8m;
-	Mon, 28 Sep 2026 07:04:28 +0000
-Received: from mail-lr2-x0e.google.com ([2a00:1450:4864:38::e])
+	id 1xB5dd-0000000HWhH-36RI;
+	Mon, 28 Sep 2026 07:19:01 +0000
+Received: from smtpout-04.galae.net ([185.171.202.116])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xB5PV-0000000HViV-3DSU
+	id 1xB5da-0000000HWfl-238m
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 28 Sep 2026 07:04:26 +0000
-Received: by mail-lr2-x0e.google.com with SMTP id 38308e7fff4ca-3a65a351692so15031231fa.2
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 28 Sep 2026 00:04:25 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1790579063; cv=none;
-        d=google.com; s=arc-20260327;
-        b=Msn56NBa2DP64FICFYA/Bhg6Zorm9enl0mhrIBt95WYPad3CSMikxEeMXM8f2E7H53
-         CZxgN4YaUuePcrK2QaUP+Yf9RkEQXL5xUrAD3gAO1fLh0rBdN0j6a0ItQjFVdxypHqzD
-         1OIfle6Ca51tTVWGEmsB7z/I57LhlUmWa8Z0SlAbtPg6Cas6j5Xh5QcqI8ZuVvdMh0m5
-         YmOibK/BGarAinGbW/Ocw616SCPuTgGAYjNkfxthf98g9aANmpqyzG64RFpZuT8QoAIf
-         CKnvn54CP4mEDkh2U5/3nYq57zbJg/ph/UE07L94xb7tCofKEDPow2v14IVeHNEUfRFm
-         W4LA==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:dkim-signature;
-        bh=8fmUSDAgYoEUGpnG4dyr2raLElAF9zIG7tCsXwnwAGw=;
-        fh=OCpo4EgvnO/m/shz2db5iMgqwnAVOBIqGZ6RJlAatdA=;
-        b=cuGpqAtAvZ2t/mu7ojNv3g3D5hJTLyvZzHwEqAJCSx4mc749bqMlHT5VSQIFsfmOZm
-         R6phX7AI7HfxdkyfcGtdMurf1Axx6E8Bp8vV0ZYaaproMxTS2+X0T4HLilljF8BnYpxd
-         iUYETm4FLmJZDOWImESAyC5XYcj2F2MNHF7Lzt6uJJZrJ77DPKd3/bTqmSzYKR5yJGZc
-         YLkDmC1Zoz+W5x2iK5wqeT1fwWRkOXakVZ01W6+aOVlb4JIPn3NZDYE/yULuLrKgp2sd
-         LWVrZqHCAAN3sjSOYSj0Be7fSBXSvr1w3JdtcPrFWPW3Ta++9QG5aihElzsVv8r1vfDx
-         4Atg==;
-        darn=lists.infradead.org
-ARC-Authentication-Results: i=1; mx.google.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1790579063; x=1791183863; darn=lists.infradead.org;
-        h=content-transfer-encoding:content-type:cc:to:subject:message-id
-         :date:from:in-reply-to:references:mime-version:from:to:cc:subject
-         :date:message-id:reply-to:content-type;
-        bh=8fmUSDAgYoEUGpnG4dyr2raLElAF9zIG7tCsXwnwAGw=;
-        b=X9MJK0EOVF67w0AX+VyJZq8UXcEHrj544jlDwZProkPc18hKtRh8u//Oq50uvGioE/
-         Z5kNwg71mk7tJv0H832zh1wGMwMzzycvpcjgpm6Pl9p1RVPC9esijaCtoPSQDg+URRmr
-         /6meYEZpmYxffXNnh1aqpzzm04+5FwQCaFs185p2Zt31VEfB2ZFhzAUvWJBiugBaTlr3
-         N9mBWYdB+ihd7ewFGisbuQG0TJPvemYiKVRDkZeoKyPj44Ca3Dyh40XCZxgPLUrFMaXv
-         jQo3NiaiCoS2VNLSUHRxqGm6Ng9Fe0kj+15IP8WHFiXyhRKUZn7bzUPsWUueCy5TsHu3
-         dUcw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1790579063; x=1791183863;
-        h=content-transfer-encoding:content-type:cc:to:subject:message-id
-         :date:from:in-reply-to:references:mime-version:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=8fmUSDAgYoEUGpnG4dyr2raLElAF9zIG7tCsXwnwAGw=;
-        b=KQcM4Gz00YV2SPBY9Wy3fnWsssKlp2WDBxl9qHJEAWzVsXpyt0061YvNf01ELYIjYE
-         r0HqIJ6/MDIr/GYTC4DfBwFtz8iOI3dKHoltlhHJ2L7yILlm34BmDy1DqKa3Jw4zl2Yw
-         qmSL18g+ASGIe2Tm5s5G5ce+OFSJcFZOZ5NvuWiH9puEVrm9KbeIPSdXquf4sFQfrbc2
-         8DUljYB5NgMDUAjfbAOWyyv/E4jsPYqL3eYCCGlbuBw3zUBjsgHriIQYBrEVbZo1OjWt
-         l00ztnMkvl2NkZLuyGmP3/DeXicjZi4+DgHZ/gwPuh6Bo4WZiJMRzelI8Q4wV7zoMHr4
-         fd2g==
-X-Forwarded-Encrypted: i=1; AKwUvByNAFO1lXQx9iHalZYh9bQuqwcVj5uUHQgGjevKC/xeLgsWd3zZB8dA0CRbsKVjPBw6vPaaoajzdZbhcMbQOonI@lists.infradead.org
-X-Gm-Message-State: AFq9FYLFjWPGxhLS9Z0HpgQQImGWYU2ALWqFn3PUNz1J1J2j6mS/KLT+
-	Gd4QwEnyLyknH32GMY3BdwtwL3QG8VFeu7cvhEiofz1QodIxYSVIhkZcH1VY+0P3BBCs8JARJGK
-	95iHWGoNb/+LpCRi5UUNsWrlWyLLNqF8=
-X-Gm-Gg: AYBFou3MyyTB3gNHfBAh/je5BYx747l3+4CCrQwaYaOl1vQu4s7Y3CU8nMijmeP1gWm
-	AcNWrzWFHcMBQAhUcacrH+jsu2Z/9UNK0CWmbYTbu2HMs0AjBkgde+YZOlq7WLt2agvdIcXVK97
-	m21dqtlusi7ixfUFOQovji7H93t0liy6SAsjJSHeOFAi2sxDrOx/V4XX4Dzr6mzZpStre8CAFd7
-	PKhhR/caTfSXEjUT0yrkdlqFPGtFrnLmzgrljgki6I6XKtsu+7iXbGegBOJTHnN/KvCfUVtPeBb
-	QxCU4j28IfOUo109q+ArbY4VyCp5uWxZObPFTdiZJILiEg34gUnC0w==
-X-Received: by 2002:a05:651c:1990:b0:3a6:16aa:23c4 with SMTP id
- 38308e7fff4ca-3a63c435595mr33846191fa.26.1790579063267; Mon, 28 Sep 2026
- 00:04:23 -0700 (PDT)
+	Mon, 28 Sep 2026 07:19:00 +0000
+Received: from smtpout-01.galae.net (smtpout-01.galae.net [212.83.139.233])
+	by smtpout-04.galae.net (Postfix) with ESMTPS id 424CEC5CD4B;
+	Mon, 28 Sep 2026 07:19:44 +0000 (UTC)
+Received: from mail.galae.net (mail.galae.net [212.83.136.155])
+	by smtpout-01.galae.net (Postfix) with ESMTPS id 21E58601BD;
+	Mon, 28 Sep 2026 07:18:55 +0000 (UTC)
+Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id A879E102F1E76;
+	Mon, 28 Sep 2026 09:18:47 +0200 (CEST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=dkim;
+	t=1790579933; h=from:subject:date:message-id:to:cc:mime-version:content-type:
+	 content-transfer-encoding:content-language:in-reply-to:references;
+	bh=9ev1RphJmOUwTwyP1Zq1ADAaAbeAIOq+4OhI9af6F6U=;
+	b=ITUSOQjF8Or/MddMYmkAfGrRpGJFB+t50R0v/RALVTMUn6bdVFoa6B02oRNTTSgva9y3H0
+	HuXtZpygzofKnNumRcfAg6UvmvoklYRh76irvYhx3nJIcTuq/SG8qC8mxHs6afUYK1jAjO
+	4Y6kNsjEc2uJxbN6uERvaVuZUPJ4wuNdOY+Gx8TMvlPYmc9G5Of4x9/o9EEwQ6OVTjt6Ax
+	BPTgEmiZzDgg0eU/lRCOMVfZW38i99XzpDQCzErX9u4CXSlmrxzOTZWWtDnty9+oVrlYvq
+	1DixhozDTnTuU1dqgfO7IAtopMgaI2lyl7o73Xb6AaLpyxZaGKVLT39xkodqhg==
+Message-ID: <2cd3b581-2f8f-4e46-a487-a03a3c45a8cf@bootlin.com>
+Date: Mon, 28 Sep 2026 09:18:46 +0200
 MIME-Version: 1.0
-References: <20260927073843.346910-1-maimon.sagi@gmail.com>
- <20260927073843.346910-2-maimon.sagi@gmail.com> <6ab4896c-c4d0-499b-befe-045cafa8e470@lunn.ch>
-In-Reply-To: <6ab4896c-c4d0-499b-befe-045cafa8e470@lunn.ch>
-From: Sagi Maimon <maimon.sagi@gmail.com>
-Date: Mon, 28 Sep 2026 10:03:57 +0300
-X-Gm-Features: AclHuK_wqe69CS137GKI_RXY7GDJiYuGuITU57U4UyfMY3zuTBaG8dDbNTOU8AA
-Message-ID: <CAMuE1bEvTE5-MyXyP8Y_qekXEk8Uf0QUUFJ6DfFpc89TdYd4rA@mail.gmail.com>
-Subject: Re: [PATCH net-next 1/2] net: axienet: use device_property and fwnode
- APIs for probe-time config
-To: Andrew Lunn <andrew@lunn.ch>
-Cc: netdev@vger.kernel.org, radhey.shyam.pandey@amd.com, michal.simek@amd.com, 
-	andrew+netdev@lunn.ch, davem@davemloft.net, edumazet@google.com, 
-	kuba@kernel.org, pabeni@redhat.com, linux-arm-kernel@lists.infradead.org, 
-	linux-kernel@vger.kernel.org, linux@armlinux.org.uk, 
-	vadim.fedorenko@linux.dev
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH net] net: stmmac: Don't set or get RSS parameters when not
+ supported
+To: Jakub Kicinski <kuba@kernel.org>
+Cc: Andrew Lunn <andrew+netdev@lunn.ch>, davem@davemloft.net,
+ Eric Dumazet <edumazet@google.com>, Paolo Abeni <pabeni@redhat.com>,
+ Simon Horman <horms@kernel.org>, Maxime Coquelin
+ <mcoquelin.stm32@gmail.com>, Alexandre Torgue
+ <alexandre.torgue@foss.st.com>, Russell King <linux@armlinux.org.uk>,
+ Jitendra Vegiraju <jitendra.vegiraju@broadcom.com>,
+ thomas.petazzoni@bootlin.com, =?UTF-8?Q?Alexis_Lothor=C3=A9?=
+ <alexis.lothore@bootlin.com>, netdev@vger.kernel.org,
+ linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-stm32@st-md-mailman.stormreply.com
+References: <20260926093343.292181-1-maxime.chevallier@bootlin.com>
+ <20260927154603.47253d19@kernel.org>
+Content-Language: en-US
+From: Maxime Chevallier <maxime.chevallier@bootlin.com>
+In-Reply-To: <20260927154603.47253d19@kernel.org>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
+X-Last-TLS-Session-Version: TLSv1.3
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260928_000425_829662_8A466C9D 
-X-CRM114-Status: GOOD (  20.51  )
+X-CRM114-CacheID: sfid-20260928_001858_700293_FD2F9F03 
+X-CRM114-Status: UNSURE (   7.29  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -122,63 +87,20 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Sun, Sep 27, 2026 at 8:55=E2=80=AFPM Andrew Lunn <andrew@lunn.ch> wrote:
->
-> > -     lp->switch_x_sgmii =3D of_property_read_bool(pdev->dev.of_node,
-> > -                                                "xlnx,switch-x-sgmii")=
-;
-> > +     lp->switch_x_sgmii =3D device_property_read_bool(&pdev->dev,
-> > +                                                    "xlnx,switch-x-sgm=
-ii");
->
-> What version of the core is being used:
->
-> 6c8f06bb2e5147b2c25bdd726365df8416c13987
-> Author: Robert Hancock <robert.hancock@calian.com>
-> Date:   Fri Feb 12 18:23:56 2021 -0600
->
->     net: axienet: Support dynamic switching between 1000BaseX and SGMII
->
->     Newer versions of the Xilinx AXI Ethernet core (specifically version =
-7.2 or
->     later) allow the core to be configured with a PHY interface mode of "=
-Both",
->     allowing either 1000BaseX or SGMII modes to be selected at runtime. A=
-dd
->     support for this in the driver to allow better support for applicatio=
-ns
->     which can use both fiber and copper SFP modules.
->
-> If this property is not needed, please leave it as OF only.
->
+On 9/28/26 00:46, Jakub Kicinski wrote:
+> On Sat, 26 Sep 2026 11:33:41 +0200 Maxime Chevallier wrote:
+>> The RSS kselftests fail on stmmac, and this is partly due to the driver
+>> reporting bogus data for the RSS ops :
+>>
+>>  - ethtool -x reports an indirection table and a key while the hardware
+>>    doesn't have any of that
+>>  - ethtool -X fails with -EINVAL.
+> 
+> this is net-next material
 
-It is not needed here.  The X2's MAC is wired to the FPGA fabric over a
-fixed link in "internal" mode, so there is no SGMII/1000BASE-X switching
-to do.
-
-> >
-> >       /* Start with the proprietary, and broken phy_type */
-> > -     ret =3D of_property_read_u32(pdev->dev.of_node, "xlnx,phy-type", =
-&value);
-> > +     ret =3D device_property_read_u32(&pdev->dev, "xlnx,phy-type", &va=
-lue);
->
->   xlnx,phy-type:
->     description:
->       Do not use, but still accepted in preference to phy-mode.
->     deprecated: true
->
-> This property is deprecated. So it should remain an OF property and
-> not get expanded in scope.
->
-Agreed.  v2 converts only what the software node provides: xlnx,rxmem,
-phy-mode, the MAC address and the PHY connection, for the fixed-link.
-xlnx,switch-x-sgmii and xlnx,phy-type stay OF only, and so do
-xlnx,txcsum, xlnx,rxcsum and the "dmas" test, which the X2 does not use
-either.
+Fair, I'll iterate with Nicolai's fix.
 
 Thanks,
-Sagi
 
->         Andrew
+Maxime
 
