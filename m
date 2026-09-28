@@ -4,138 +4,82 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 27FA4CA5FA5
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 28 Sep 2026 15:20:09 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C843BCA5FA2
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 28 Sep 2026 15:23:41 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=EQrjkRZQeuYzERNWt13KrmtO7dHmdt8dryvfZkIliO0=; b=1p555D7DxwLpbO5+THa4/JqQtd
-	xx2bpwM7fLhj2W0yI2jalY09OEFloZXI90mYFOPQJRqllXqOxOp4RXoC0xRjlDYA3BK+4H1NRtAdl
-	Ln/hMzxlGKJquW1ZiG82SsplDwhmRAkqDXfNRspAd3cA3ZSYgIf1rPLtiMcnv7sgOKZj80Jxx7K/J
-	4CEfFPsfWnnCtEINcZjIQzDTkDbMYj4t8ZoL7ayYApgrUvGp/PgufhFC3lXEOGHAxMayjgg52Au7y
-	eWrYTXy/58rZIlacE6DnRztmkdal3I7Z6KgEpZPnZ61N+3xghj/h7wMFbAZJlcahxPl0NigOUlQHe
-	HmYAzszQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
+	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=ssc2XGYXxWt7KSvkGE64VLhm/JYqo0izQ0v9suh6vGk=; b=dyD5NqWEDy41PY6mH4EU4qbdCf
+	QHQQKYIDVCLZQyl9WRGvO8XSByWwo10N81yaIuu+LnYPaUG6vsKMLRB90hwxZfQ/B/RAC8jTA4puc
+	6S3cgNBJX00y8JKrOfP6cl/F/Lf0W+DF9JZLGq99sn5aWQ5mA6Dqbu0TCN1CscCP3ZoSaHhst0icC
+	ckgDfKjIES/SBdcs1hSfUYkalCW8F48i6TYf+F/KPiCeZW7GFVaITtJKSb7BQakac1TYklUPE7BdL
+	aauT3vU/GVwF0aVt3Bf98ccvdSxFUPEhrIOXmnNsa0cp8zz4fuomc1D/yrVeQTK2QxSo0x5wHkO1v
+	EOQ70V1A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xBD97-00000000sdR-3Ci3;
-	Mon, 28 Sep 2026 15:20:01 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1xBDCZ-00000000t2k-10ZK;
+	Mon, 28 Sep 2026 15:23:35 +0000
+Received: from pdx-out-012.esa.us-west-2.outbound.mail-perimeter.amazon.com ([35.162.73.231])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xBD96-00000000scl-1fwo
-	for linux-arm-kernel@bombadil.infradead.org;
-	Mon, 28 Sep 2026 15:20:00 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:MIME-Version
-	:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Sender:Reply-To:
-	Content-Type:Content-ID:Content-Description;
-	bh=EQrjkRZQeuYzERNWt13KrmtO7dHmdt8dryvfZkIliO0=; b=UoH5tGxhkxZLY0gCMJ2Kuif4qV
-	T+i34tdV6n/s1sca/efPX1zBHYjb07NXTqvuBl0IFxIjMxWP0rdIu3H/KOMPnPAjS/jFvJAB8+NzM
-	ZUflGLg0WcEUFoOHgQqRo3aVj5HzaQbt1JeN81FjmbuculkNJVhdtpVgzYpmh+fX62PFUIZjcqLEj
-	EWdJSgAUG8lP+UqdPWi/yJQpQJ6mcW8hxJIrejHTEZ0DwDgx4Dgz6O4mFKIgxfiR41AAf4UozzVLJ
-	IeqnPieiZ8aRDS1YFBKMJSzQKsFl/M77ujGtI15CJmCp7e81hxr3ZaVkVgISkJst7bfBF7Sb8oWP+
-	FZY875CQ==;
-Received: from mail-pj2-x11.google.com ([2607:f8b0:4864:39::11])
-	by desiato.infradead.org with esmtps (Exim 4.99.2 #2 (Red Hat Linux))
-	id 1xBD93-00000001cLb-1pVp
+	id 1xBDCW-00000000t25-3jEO
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 28 Sep 2026 15:19:59 +0000
-Received: by mail-pj2-x11.google.com with SMTP id d9443c01a7336-2d747ec6185so13642165ad.0
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 28 Sep 2026 08:19:56 -0700 (PDT)
+	Mon, 28 Sep 2026 15:23:34 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1790608795; x=1791213595; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=EQrjkRZQeuYzERNWt13KrmtO7dHmdt8dryvfZkIliO0=;
-        b=gXEr6KaRUYkOm158npHdF/sVt3/C/gCrNWVUWJSGm8dHykrFIhowM0uwATSEUc3hIr
-         qf4oJBSyd+bmfnfd/zxlMsb05vUgBIj2sgb7hSoIbLTlpvUSICh9PCoUyATWs0ct8JFD
-         jWnO+Elr1vKXhNyV+Wctb0297C7e/tdEfcgaIUILKzOzueUxQmqCb5lhx9tK5IaLkhHP
-         djK89baSH1dbQs8EXD+Ro9Aq9BGwVva8apIJo75ACP+yTPVU7k3j07qUPysmjXGFTaGY
-         1wqAfnOBe6dV7zZEceKj5rJA4LESKgE3glY8D9+TtVRROTgpOlR7NCSlMY8RDRCG/dDo
-         ysvw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1790608795; x=1791213595;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=EQrjkRZQeuYzERNWt13KrmtO7dHmdt8dryvfZkIliO0=;
-        b=Hm7bSQaH6hx0qqg9rF7KlwDh5kDIU43ONpRl8piRA1rGq6H2sVfJzfxDZKY2KplsXI
-         VtMdz0cVEe8cYoSEP+c1rl0lo8VIlK4eb3FOeNXi0ObjbqFCE6EiDZV55YETSt9FeZlG
-         Ge/okCaD3EBja082DfTSRipMNxEmzjWmxME8Ti1GsgriJXLmTueIOgSx9TgmjQc7k0mO
-         pk+v2aaJHDQR+GeOG92ELOHCiX/p7Q1iJ+G+Q5c9uyhzEdV33P1ypm5D+7/XuppU3j1B
-         KgIsxUUAmfY7xj/9IwyfRrYV86JinqJtY+7wXCebZxw/3v4u53OlI9KF/Ot82xxpdRyV
-         E31A==
-X-Forwarded-Encrypted: i=1; AKwUvBxcVZH6EYjVUeak7bPB6srx54tKva6qQxJldt20xqCq2caA2/qOf+YmqX/vMcHuq61sN2NI4D66MKnDq5r/KvEL@lists.infradead.org
-X-Gm-Message-State: AFq9FYKHf0dpzPj3Eo2agF6maHQx83+cf7vxdx2bqJSiuOsqdqDacalk
-	4PlBGhNeD3m02yLyUPJMELWlVKOC39XsVvkpScYrxbkv5vXdDLPNuvmA
-X-Gm-Gg: AYBFou1DdTC2MHVxz6jI5Q5TnOixB2kWlRlj3Inf862jg8EjZ/UnNR7Y/CtpEzVS1h7
-	8Sfzfwtl4h82zuBHtXvSFelH2m00oH4QiQQOh4yfJYn9jzqdHNGUGa4PunKsfH4PNMY2CgRycL/
-	RCo/8gJIKDtxcFOrs2/CNxnTO+qbmWqQ0iZZZxetAL5UzL85bjs6M0GFnoxPwNWUATWF9bSzasH
-	0rDr2gbIdpSHbyYTQMZUOi1Ajy8ikeuqIdKZmUwaU3MGnhCJFS2fB11GLLjfKGwPqH8Kax9kf7n
-	pg2A2m2dzCvUCMyE896ZDKeuJSQsv16v80+AzNUYOsgSbsSj4dD5O/zJHnpZ6ebcONDkS96N6GH
-	byv/q/XuI2FjYns3mmzoHryh9WBgsrP0xSQ1pntfujET8rVwDyWRNXly46oZiTO78VtajV8dE2T
-	DTKjP22gJamiLpnejmKt6ASINbm6QkmHNrqlr1nYNHFvVSJdpY/9oLe8o3HjT5qxSWppcyE76mM
-	uIYcW4IcajFTeovqUkzTKe4J+Dz++QSfpN65+NN7arprpIN5NiSpgtv9CnIqsKhNfy4YzQF2Muq
-	FjEIRt0LsXBW4NYdDOF6SYXAsyzAlP+o7fiPC4EjG7GFDVzrd4TSH5RVv4Q=
-X-Received: by 2002:a17:903:1987:b0:2dd:3ddf:b87a with SMTP id d9443c01a7336-2df7da68a41mr101388085ad.0.1790608794891;
-        Mon, 28 Sep 2026 08:19:54 -0700 (PDT)
-Received: from spider.bream-herring.ts.net ([103.6.151.236])
-        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2df91423df7sm43558615ad.43.2026.09.28.08.19.46
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 28 Sep 2026 08:19:54 -0700 (PDT)
-From: Matthias Goergens <matthias.goergens@gmail.com>
-To: Kairui Song <ryncsn@gmail.com>
-Cc: Andrew Morton <akpm@linux-foundation.org>,
-	Chris Li <chrisl@kernel.org>,
-	Youngjun Park <youngjun.park@lge.com>,
-	Baoquan He <baoquan.he@linux.dev>,
-	Johannes Weiner <hannes@cmpxchg.org>,
-	David Hildenbrand <david@kernel.org>,
-	Michal Hocko <mhocko@kernel.org>,
-	Shakeel Butt <shakeel.butt@linux.dev>,
-	Kemeng Shi <shikemeng@huaweicloud.com>,
-	Nhat Pham <nphamcs@gmail.com>,
-	Yosry Ahmed <yosry@kernel.org>,
-	Barry Song <baohua@kernel.org>,
-	linux-mm@kvack.org,
-	linux-kernel@vger.kernel.org,
-	cgroups@vger.kernel.org,
-	linux-api@vger.kernel.org,
-	Alejandro Colomar <alx@kernel.org>,
-	linux-man@vger.kernel.org,
-	Karel Zak <kzak@redhat.com>,
-	util-linux@vger.kernel.org,
-	Jani Nikula <jani.nikula@linux.intel.com>,
-	Joonas Lahtinen <joonas.lahtinen@linux.intel.com>,
-	Rodrigo Vivi <rodrigo.vivi@intel.com>,
-	Tvrtko Ursulin <tursulin@ursulin.net>,
-	David Airlie <airlied@gmail.com>,
-	Simona Vetter <simona@ffwll.ch>,
-	intel-gfx@lists.freedesktop.org,
-	dri-devel@lists.freedesktop.org,
-	"Rafael J . Wysocki" <rafael@kernel.org>,
-	Pavel Machek <pavel@kernel.org>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Will Deacon <will@kernel.org>,
-	linux-pm@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	Shuah Khan <shuah@kernel.org>,
-	linux-kselftest@vger.kernel.org,
-	Kairui Song <kasong@tencent.com>
-Subject: Re: [RFC PATCH v2 0/4] mm/swap: reserve swap areas for deliberate offload
-Date: Mon, 28 Sep 2026 23:19:44 +0800
-Message-ID: <20260928151944.2686626-1-matthias.goergens@gmail.com>
-X-Mailer: git-send-email 2.55.0
-In-Reply-To: <CAMgjq7B7jem_dwtUEX7ZJPQm_pKBegR6WS9+B7nFp-gZugpUng@mail.gmail.com>
-References: <20260926045517.3458413-1-matthias.goergens@gmail.com> <CAMgjq7B7jem_dwtUEX7ZJPQm_pKBegR6WS9+B7nFp-gZugpUng@mail.gmail.com>
+  d=amazon.com; i=@amazon.com; q=dns/txt; s=amazoncorp2;
+  t=1790609012; x=1822145012;
+  h=from:to:cc:subject:date:message-id:in-reply-to:
+   references:mime-version:content-transfer-encoding;
+  bh=ssc2XGYXxWt7KSvkGE64VLhm/JYqo0izQ0v9suh6vGk=;
+  b=F2tkkRUuqkd1iY1RRCixXQWiBhVL7OgihXnZIF1RCKOWD1zIX3w2HlwP
+   AEfZkvTXX0F3ubBpGv1Gur4A6oK2C7NQv/Qs+iyH5ooEcfJg1x8Gy1M24
+   EsTspvEJ/sSAhUwh82SjQme8lg+9nvXzv+vL8CBx3FxI3rcwywWZSR3qJ
+   PH9WgGyOoJJybjKeVCQiZ7KKE3AhaPDUVIRRA+DKSGa/jYR1e7F43DN+F
+   pHDfRB4z2DQCj3uh4RVM/n6G0ZNcxL0zK21N/OgkPmUMWt0FCBeQV6hDl
+   Sn3IAA/gazxU7er7YSECJ8VDzk8jQBncmhnk43+tasic9syDFtNWfSB1G
+   A==;
+X-CSE-ConnectionGUID: jnJ9/YN1TZSLsI2f6lzYSw==
+X-CSE-MsgGUID: 9bwnKBOuR0yNrVpk5p4H0w==
+X-IronPort-AV: E=Sophos;i="6.27,128,1787011200"; 
+   d="scan'208";a="29644157"
+Received: from ip-10-5-12-219.us-west-2.compute.internal (HELO smtpout.naws.us-west-2.prod.farcaster.email.amazon.dev) ([10.5.12.219])
+  by internal-pdx-out-012.esa.us-west-2.outbound.mail-perimeter.amazon.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 28 Sep 2026 15:23:24 +0000
+Received: from EX19MTAUWB002.ant.amazon.com [205.251.233.48:12407]
+ by smtpin.naws.us-west-2.prod.farcaster.email.amazon.dev [10.0.13.104:2525] with esmtp (Farcaster)
+ id ea5ba36c-33b9-4f1a-b9d1-70d08488d952; Mon, 28 Sep 2026 15:23:24 +0000 (UTC)
+X-Farcaster-Flow-ID: ea5ba36c-33b9-4f1a-b9d1-70d08488d952
+Received: from EX19D001UWA001.ant.amazon.com (10.13.138.214) by
+ EX19MTAUWB002.ant.amazon.com (10.250.64.231) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA) id 15.2.2562.49;
+ Mon, 28 Sep 2026 15:23:23 +0000
+Received: from 7cf34dda9133.amazon.com (10.106.178.42) by
+ EX19D001UWA001.ant.amazon.com (10.13.138.214) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA) id 15.2.2562.49;
+ Mon, 28 Sep 2026 15:23:21 +0000
+From: Cristian Prundeanu <cpru@amazon.com>
+To: <nicolinc@nvidia.com>
+CC: <iommu@lists.linux.dev>, <jamien@nvidia.com>, <jgg@nvidia.com>,
+	<joro@8bytes.org>, <kas@kernel.org>, <kevin.tian@intel.com>,
+	<linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>,
+	<praan@google.com>, <robin.murphy@arm.com>, <smostafa@google.com>,
+	<will@kernel.org>, <leitao@debian.org>, Cristian Prundeanu <cpru@amazon.com>
+Subject: Re: [PATCH v10 00/13] iommu/arm-smmu-v3: Adopt the crashed kernel's stream table for kdump
+Date: Mon, 28 Sep 2026 10:23:02 -0500
+Message-ID: <20260928152302.58271-1-cpru@amazon.com>
+X-Mailer: git-send-email 2.54.0
+In-Reply-To: <cover.1788130528.git.nicolinc@nvidia.com>
+References: <aqfPKIeO4lWCHlQ3@gmail.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
+Content-Type: text/plain
+X-Originating-IP: [10.106.178.42]
+X-ClientProxiedBy: EX19D031UWA001.ant.amazon.com (10.13.139.88) To
+ EX19D001UWA001.ant.amazon.com (10.13.138.214)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260928_161957_609618_874E3276 
-X-CRM114-Status: GOOD (  14.48  )
+X-CRM114-CacheID: sfid-20260928_082332_983431_23E2E71F 
+X-CRM114-Status: GOOD (  10.15  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -150,26 +94,31 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Kairui,
+On Sun, Aug 30, 2026 at 04:18:01PM -0700, Nicolin Chen wrote:
+> To safely absorb in-flight DMA, the kdump kernel must leave SMMUEN=1 intact
+> and avoid modifying STRTAB_BASE. This allows HW to continue translating in-
+> flight DMA using the crashed kernel's page tables until the endpoint device
+> drivers probe and quiesce their respective hardware.
 
-> Just like we already have a "swappiness=" parameter in the reclaim
-> interface, perhaps adding a "swap.tier=" would be better and much
-> cleaner to achieve the same goal? Based on Youngjun's work here:
-> https://lore.kernel.org/all/20260916183437.2946306-1-youngjun.park@lge.com/
+Tested v10 on AWS Graviton4 bare metal (m8g.metal-24xl: Neoverse V2, single
+SMMUv3 with a 2-level stream table). On this platform, if the SMMU aborts a
+NIC DMA read, firmware resets the host. An unpatched kernel fails kdump when
+the NIC is still fetching from memory as the SMMU probe installs a fresh
+stream table.
 
-Thanks, I think that's the right base.  I tried it: on top of
-Youngjun's v11, a "swap.tier=" argument to memory.reclaim is about 40
-lines.  In a VM with zram at a higher priority than a disk swap
-device, and a cgroup whose tier mask allowed only the disk, ordinary
-reclaim in that cgroup stayed on the disk, while memory.reclaim with
-"swap.tier=" pointing at zram went to zram only.
+Reproducer: sysrq-c while the NIC receives ~100 kpps of UDP over 64 flows,
+spread across most RX queues. The kdump initramfs omits the NIC driver, so
+nothing quiesces the device.
 
-What it doesn't cover yet is reclaim outside any configured cgroup:
-under global pressure, a cgroup nobody configured still reached the
-zram tier.  So for v3 I'd like to add a system-wide limit on which
-tiers pressure reclaim may use, on top of the per-cgroup settings.
-I'll wait for Youngjun's v12 and build on that.
+Results using Amazon Linux 2023 with kdump kernel 6.18.39:
 
-Thanks,
-Matthias
+- Unpatched: 2/2 failures. The SMMU logs read and write translation aborts 
+  ~2.5 s after the panic, and the host resets before the vmcore is written.
+
+- v7.3-rc1 + this series: 3/3 complete vmcores, no translation aborts.
+  The kdump kernel logs "kdump: adopting crashed kernel's stream table"
+  and "kdump: retaining SMMUEN for in-flight DMA". In one run the NIC
+  driver was present, so the device was also re-probed and reset.
+
+Tested-by: Cristian Prundeanu <cpru@amazon.com>
 
