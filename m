@@ -4,68 +4,65 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id AFB2DCA5FA2
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 28 Sep 2026 20:45:24 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D4FD1CA5FA3
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 28 Sep 2026 20:48:10 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=6v8c2m02Ki6SAxGg9RAH2UuxlQVpr3C7fCO+zwiv+Z0=; b=oLMLAGoPGlt6EdiQqRGE/Aq0/S
-	EkKV1w+GbDgR2VLc/0iaMqKoYcnX1WW9bo77qGbStBorX0zbjrQQQdzeHWZQkXvt42dcGhfv+Qo1E
-	z4lXiPdBlEfWTehUM3AnNlMEsKvS/pRwPxYXB4eL/mIFSAUYMVjoebv7QPgT+mh6bIiz/0jwhOuO5
-	f/PA9VuPEA5rJf8AzgUvF3doCLThoqW5Hj28GYdLP0yXDjdGAd+qDVIEQDq7RSemiyIjEzr2J0/7y
-	alb1VMZDf9B2hdbOh9Avv5ioCSHEFHDygV9AwD3Eu6XOEWTmvbj1OPV70FCT+w0pi25BmXuK+745R
-	NsGrFkMw==;
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=2V/Nb1lTiKVYVfjos1Q8LNTtkvRDqqwW7qgRu5VAz2w=; b=BoIXDPu0Pa2GOgE8xEGAx49bEw
+	EU5qz9x/WPWEnelvRYri51cqFw8JhlgM7iK7xYe1hthNUYE/1pN/XtDAm7To7ckL59S5madBt/2MG
+	q3GcCPvadeW3l6N/xawiO7GG6LkuCQ+jYXngDVTadivnniZ0yghi5AC5EVMB5vS5XJiGLBjLx+SpB
+	VEK/GED3sDsJbhKw28DM2XKjW0QKoPZwJWmODa/KyGfk2NL/XMeXpNIeQjV44BVqcrvw+9evsP4zN
+	8BqCFI7o/+mqoBmrG+C/QHgFq6KPuTHWj8YX106Wqi9onknAzM7KTREGUUvBvWWJSnGBLSmYpTfU2
+	CgdYT7jg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xBIDt-00000001bRA-3fb7;
-	Mon, 28 Sep 2026 20:45:17 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xBIDq-00000001bQe-2BKQ
+	id 1xBIGa-00000001beE-1fC6;
+	Mon, 28 Sep 2026 20:48:04 +0000
+Received: from mx.nabladev.com ([2a00:f820:417:0:178:251:229:89])
+	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1xBIGW-00000001bdF-2sxc
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 28 Sep 2026 20:45:16 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id E50561655;
-	Mon, 28 Sep 2026 13:45:08 -0700 (PDT)
-Received: from [10.57.12.116] (unknown [10.57.12.116])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 163EE3F85F;
-	Mon, 28 Sep 2026 13:45:08 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1790628312; bh=q3ymddfKsVAKQWNUPXauWVOAcmdD5YRNNwwxgzCd4vs=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=rPsWJTdHtfeoSv63FKbVWp6r/f6MdBhvi6ZFbp/p2Hc3/eOOqY8YEphTKGLHDVetq
-	 5dhvX0KNDtvzOcGdeSE3M+QKTvkTFsO4sxlyggHDGR78MGWVtd1waFCXwbHJN4zUsq
-	 XhDoPna624LOFusYX3QvVQE3gR8KYNY4u+FIBD2g=
-Message-ID: <f4210a04-d1d1-4ce0-9ca0-7c662e10665b@arm.com>
-Date: Mon, 28 Sep 2026 21:45:07 +0100
+	Mon, 28 Sep 2026 20:48:02 +0000
+Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 7C769100222;
+	Mon, 28 Sep 2026 22:47:47 +0200 (CEST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nabladev.com;
+	s=dkim; t=1790628471; h=from:subject:date:message-id:to:cc:mime-version:
+	 content-transfer-encoding; bh=2V/Nb1lTiKVYVfjos1Q8LNTtkvRDqqwW7qgRu5VAz2w=;
+	b=OJGltDvcYmqE41XUtT4oU+05adcdXd4duTnvvmIqi27kwSAhC6e56jFnGFp6vNmKupqA62
+	3cjC/k/tZSX4SC70Ej5JZe5KaBDDkHOjv5nIrfqzpOigVZE9tYB+ot5v8xo4hV7BAHhI1M
+	XmiFnNDyXbvxzqLFIdm1LHXA/+v2T7u1uWexwexSj8EllMXlkOkVz53wsCHzzyGsUjSock
+	YM/DwQjJVZJ7hyqNxPg6M1iFsP1ymf/Efuf/ZtG3Wkdn/OLRKv+WssfOdZuhj0hV4HN5hR
+	+r4WVEGyXKgqktl7jKPBH/zk+8i46ERUiJcrGvkmQsUAtB47YDFiVPl048SQJg==
+From: Marek Vasut <marex@nabladev.com>
+To: linux-arm-kernel@lists.infradead.org
+Cc: Marek Vasut <marex@nabladev.com>,
+	Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>,
+	Aswath Govindraju <a-govindraju@ti.com>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Fabio Estevam <festevam@gmail.com>,
+	Frank Li <Frank.Li@nxp.com>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Marc Kleine-Budde <mkl@pengutronix.de>,
+	Rob Herring <robh@kernel.org>,
+	devicetree@vger.kernel.org,
+	imx@lists.linux.dev,
+	linux-can@vger.kernel.org,
+	linux-kernel@vger.kernel.org
+Subject: [PATCH v5 1/3] dt-bindings: phy: ti,tcan104x-can: Document Microchip ATA6563
+Date: Mon, 28 Sep 2026 22:47:12 +0200
+Message-ID: <20260928204741.175754-1-marex@nabladev.com>
+X-Mailer: git-send-email 2.53.0
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v19 4/7] firmware: arm_rmm: Add support for SRO
-Content-Language: en-GB
-To: Catalin Marinas <catalin.marinas@arm.com>
-Cc: kvm@vger.kernel.org, kvmarm@lists.linux.dev, maz@kernel.org,
- will@kernel.org, linux-kernel@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, steven.price@arm.com,
- aneesh.kumar@kernel.org, oupton@kernel.org, gshan@redhat.com,
- joey.gouly@arm.com, tabba@google.com, yuzenghui@huawei.com,
- linux-coco@lists.linux.dev, gankulkarni@os.amperecomputing.com,
- sdonthineni@nvidia.com, alpergun@google.com, fj0570is@fujitsu.com,
- WeiLin.Chang@arm.com, lpieralisi@kernel.org, enju.kohei@fujitsu.com,
- sudeep.holla@arm.com, jonathan.cameron@oss.qualcomm.com,
- Gareth Stockwell <Gareth.Stockwell@arm.com>
-References: <20260924135201.850038-1-suzuki.poulose@arm.com>
- <20260924135201.850038-5-suzuki.poulose@arm.com> <arozNIQ-fQ0XQViI@arm.com>
- <4fabad44-280f-40e6-95bb-49011cd2f185@arm.com> <arqjteW-Y5u2XX2r@arm.com>
-From: Suzuki K Poulose <suzuki.poulose@arm.com>
-In-Reply-To: <arqjteW-Y5u2XX2r@arm.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
+Content-Transfer-Encoding: 8bit
+X-Last-TLS-Session-Version: TLSv1.3
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260928_134514_750944_BAB81D15 
-X-CRM114-Status: GOOD (  34.55  )
+X-CRM114-CacheID: sfid-20260928_134800_932932_58FBCD5F 
+X-CRM114-Status: UNSURE (   7.99  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -80,123 +77,47 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 28/09/2026 18:28, Catalin Marinas wrote:
-> On Mon, Sep 28, 2026 at 11:13:39AM +0100, Suzuki K Poulose wrote:
->> On 28/09/2026 10:28, Catalin Marinas wrote:
->>> On Thu, Sep 24, 2026 at 02:51:58PM +0100, Suzuki K Poulose wrote:
->>>> +long rmi_sro_memxfer_execute(struct rmi_sro_state *sro, gfp_t gfp)
->>>> +{
->>>> +	struct arm_smccc_1_2_regs *regs = &sro->regs;
->>>> +	bool cancelled = false;
->>>> +	unsigned long sro_handle;
->>>> +
->>>> +	rmi_smccc_invoke(regs);
->>>> +
->>>> +	sro_handle = regs->a1;
->>>> +	while (RMI_RESULT_STATUS(regs->a0) == RMI_INCOMPLETE) {
->>>> +		bool can_cancel = RMI_RESULT_CAN_CANCEL(regs->a0) == RMI_OP_CAN_CANCEL;
->>>> +		int ret = 0;
->>>> +
->>>> +		switch (RMI_RESULT_MEMREQ(regs->a0)) {
->>>> +		case RMI_OP_MEM_REQ_NONE:
->>>> +			rmi_op_continue(sro_handle, RMI_CONTINUE_KEEP_GOING,
->>>> +					regs);
->>>> +			break;
->>>> +		case RMI_OP_MEM_REQ_DONATE:
->>>> +			ret = rmi_sro_donate(sro, sro_handle, regs->a2, regs,
->>>> +					     gfp);
->>>> +			break;
->>>> +		case RMI_OP_MEM_REQ_RECLAIM:
->>>> +			ret = rmi_sro_reclaim(sro, sro_handle, regs);
->>>> +			break;
->>>> +		default:
->>>> +			WARN_ON_ONCE(1);
->>>> +			ret = -ENXIO;
->>>> +			break;
->>>> +		}
->>>
->>> Another thing I came across while looking whether we can defer the
->>> activation. It seems that the spec (I_JVYCH) lists some SROs as
->>> PE-bound. Nothing here or in rmi_sro_execute() disables migration and
->>> the memory allocation paths can even sleep with GFP_KERNEL.
->>
->> No, this is not required. I agree this is confusing. I will get it
->> clarified.
->>
->> So, there are two different sources for the SRO contexts. One is a global
->> pool and the other an Object.
->>
->> e.g., For an RMI operation on an Object, SRO context can be the object
->> itself (e.g., REC_CREATE, REALM_ACTIVATE etc.)
->>
->> However, when there is no reliable object for the command (e.g.,
->> RMI_GRANULE_RANGE_DELEGATE), the RMM must allocate a context from
->> the global pool. Now, the "PE" in there comes from a recommendation
->> to the RMM implementations, that the global pool size must depend on
->> the number of PEs on the system. This doesn't mean that the SRO
->> handles are only bound to those PEs. I will get this clarified
->> in the RMM spec.
-> 
-> This part of the spec needs rewriting, not clarifying. No matter how
-> hard you try, there's no way you can read it as a "global pool". For
-> example:
-> 
-> D_GZLMRA	SRO context is bound to one of the following:
-> 		  - A PE
-> 		  - An RMM object
-> 
-> And take a random command:
-> 
-> B4.5.2 RMI_DPT_L0_CREATE command
-> 	Create a Level 0 DPT.
-> 	The RMI_DPT_L0_CREATE command may initiate a Stateful RMI
-> 	Operation whose context is bound to the current PE.
-> 
-> "bound to the current PE" pretty clearly shows the intention was to
-> disable preemption. It also doesn't say what happens when this pool is
-> exhausted (presumably it returns RMI_BLOCKED).
+Microchip ATA6563 is High-Speed CAN Transceiver with Standby Mode.
+It is pin-compatible with TI TCAN1042 and has a compatible programming
+model, therefore use ti,tcan1042 as fallback compatible.
 
-Agree. If there are not contexts available for the RMM to use, it
-results in RMI_BLOCKED.
-> 
-> TBH, that's a pretty significant change for a bet3/4 release, though
-> arguably it can be seen as a relaxation. Code that relies on disabling
-> preemption should still work (somewhat, assuming the global pool is at
-> least the number of PEs and the host plays nicely to complete or cancel
-> all SROs).
+Reviewed-by: Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
+Signed-off-by: Marek Vasut <marex@nabladev.com>
+---
+Cc: Aswath Govindraju <a-govindraju@ti.com>
+Cc: Conor Dooley <conor+dt@kernel.org>
+Cc: Fabio Estevam <festevam@gmail.com>
+Cc: Frank Li <Frank.Li@nxp.com>
+Cc: Krzysztof Kozlowski <krzk+dt@kernel.org>
+Cc: Marc Kleine-Budde <mkl@pengutronix.de>
+Cc: Rob Herring <robh@kernel.org>
+Cc: devicetree@vger.kernel.org
+Cc: imx@lists.linux.dev
+Cc: linux-arm-kernel@lists.infradead.org
+Cc: linux-can@vger.kernel.org
+Cc: linux-kernel@vger.kernel.org
+---
+V2: No change
+V3: No change
+V4: No change
+V5: Add RB from Krzysztof
+---
+ Documentation/devicetree/bindings/phy/ti,tcan104x-can.yaml | 1 +
+ 1 file changed, 1 insertion(+)
 
-The only case where the RMM mandates the execution continues on a "CPU"
-(virtual PE rather) is Realm Attestation ABI exposed to the Realm 
-(RSI_ATTEST_TOKEN_*).
-
-Btw, SRO contexts are nothing but a "scratch" memory that the RMM uses
-to hold the progress made in the SRO. e.g., the donated granules and
-what is the next operation expected etc.
-
-
-> 
-> That said, such pool is a limited resource and we need some way to probe
-> its size if we want to do something smarter in the kernel, like a
-> semaphore to ensure we don't randomly fail because of an RMM limitation.
-> I don't really see how the number of PEs is relevant to this global
-> pool sizing, it's not that we limit the realms we can start to the
-> online CPUs.
-
-The number of PEs is only a factor which can tell the RMM, how many
-parallel requests it could get. That said, due to pre-emption there
-could be multiple outstanding SRO operations on a single PE. But
-also remember that not all SROs require a context from global pool.
-
-Agreed that it would good to probe the number of contexts available.
-Or may be even dynamically extend the pool for SRO contexts at
-runtime. Will feed this back to the RMM spec, and hopefully we can
-address this in the future versions without breaking the existing
-ABI.
-
-Thanks
-Suzuki
-
-
-
+diff --git a/Documentation/devicetree/bindings/phy/ti,tcan104x-can.yaml b/Documentation/devicetree/bindings/phy/ti,tcan104x-can.yaml
+index 0cf5fa21106b6..e97b1bc0a2e45 100644
+--- a/Documentation/devicetree/bindings/phy/ti,tcan104x-can.yaml
++++ b/Documentation/devicetree/bindings/phy/ti,tcan104x-can.yaml
+@@ -18,6 +18,7 @@ properties:
+       - items:
+           - enum:
+               - microchip,ata6561
++              - microchip,ata6563
+               - ti,tcan1051
+           - const: ti,tcan1042
+       - items:
+-- 
+2.53.0
 
 
