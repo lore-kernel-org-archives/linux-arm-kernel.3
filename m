@@ -4,80 +4,81 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 24624CA5FA5
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 28 Sep 2026 11:02:36 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 02727CA5FA2
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 28 Sep 2026 11:03:31 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
-	Subject:CC:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=+cUwDYLfK4TV6eHWBWztnNBehkvThvlDzV6RBUFlz9I=; b=W9TGjnSxaIF7aj2ym41J6+c846
-	RcwkeZrwjk8yqtvKFuIL2I5MbTzENgSShHFXjPfYLqM7fvSL4gTC4E2PdQ6yR7Ie1gUwfqWjYmntA
-	CSdpaHRYwsgm/juYqsmT9jcC0DdWsBznNyciLcw3q67gKQhjo6qWSvYuizuGhz6N/jbaOxz0mK20K
-	IfQDph+ocy5T0WaqcJ9ca6YSSIVsiuWBvSRhowQ/sVdKMF6nOL0HiADXanFcWmqOOKlVsSfOrMclS
-	sW6ki4BZ7w+HvZAp+fA+886NLeqWxjr6TaH0dV91r/mZwr145OonCJqpYcVdTA2iQx6SCNXDEFfOg
-	UUzdoCzA==;
+	bh=GRWHJvrV87zg7wTj96AOWlFOZBTwq5ScjGQwkE9kXh8=; b=cncjVXW6OMGLUPt6tY8BTbHDbH
+	C/s6ljEDaQVhArs3G2EBQzoE4ML9Mdm2btjHsYiqBQj6dyD3h8pQ94KjY9QV4NNm96NctyXDUyEqv
+	GV2C9IajNr43zvYt6dRXUmhEYcNTr9xIxjZD9Qe8tWWQc4tBe3dyDHq5kkXFpuur8THfTudb272ZJ
+	RkmI5NAC79LQ6X/20YfzFq2buQezI2QoI4FU5m3u/uPAMLmfk0sai3L2kGHyIym0pc7+6oHVTZBfx
+	9ta4F/Vyp8pQZipkCZdIR8+Zv/hOi2LtNVxc7FHH9ikd8ccCttdvcSXB+tK+BR1CIpQMKbcC29jVs
+	NGgw+12Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xB97t-00000000Pgc-1i1Y;
-	Mon, 28 Sep 2026 11:02:29 +0000
-Received: from esa.microchip.iphmx.com ([68.232.154.123])
+	id 1xB98m-00000000PpS-2LmL;
+	Mon, 28 Sep 2026 11:03:24 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xB97q-00000000Pfg-0OLs
-	for linux-arm-kernel@lists.infradead.org;
-	Mon, 28 Sep 2026 11:02:28 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=microchip.com; i=@microchip.com; q=dns/txt; s=mchp;
-  t=1790593350; x=1822129350;
-  h=date:from:to:cc:subject:message-id:references:
-   mime-version:content-transfer-encoding:in-reply-to;
-  bh=vDM3Jsc4s2Pcenh8iO1OuupcO/tSGDTEI7SgHoe5a50=;
-  b=RO5T5IGFE4/2AJCdyHAmU/qqBxvHRx3EAmAnHcUXw/qSSz00ogPOPZad
-   dNniuk3ZBZYy4OC8Nx6vGQURsT9AhbXNWfTHwYHLGS7BpdJEtq2a+en4R
-   rsPk0nWrOpnoqeEABv56r/I5kE3kF81d6e7Pc0uofVqkzrv8ClBtU4bRf
-   dZqoXUa0zejejJQ3PlgjnufJ9kfvvKeI0Q3EWkilIxV4pCz5mfOZuwle4
-   NhL8Kk1TMlWYlpBuXqtMD4Dy7vPYI9pSb/I1LqkqUTBhISNaFh2qHVs4u
-   L+t7sUn7PR/bHmSZP+4BzM4lk70mO+HGV11L5ozh36BrZ7IGI1Dn0Xo0J
-   g==;
-X-CSE-ConnectionGUID: bFAJbgXdQXa3H8oQWgtrFg==
-X-CSE-MsgGUID: 7FAlnek9R5ygFrSu1nO9/w==
-X-IronPort-AV: E=Sophos;i="6.27,128,1787036400"; 
-   d="scan'208";a="231363130"
-X-Amp-Result: SKIPPED(no attachment in message)
-Received: from unknown (HELO email.microchip.com) ([170.129.1.10])
-  by esa6.microchip.iphmx.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 28 Sep 2026 04:02:29 -0700
-Received: from chn-vm-ex03.mchp-main.com (10.10.87.152) by
- chn-vm-ex3.mchp-main.com (10.10.87.32) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
- 15.2.2562.49; Mon, 28 Sep 2026 04:02:23 -0700
-Received: from DEN-DL-M70577 (10.10.85.11) by chn-vm-ex03.mchp-main.com
- (10.10.85.151) with Microsoft SMTP Server id 15.1.2507.58 via Frontend
- Transport; Mon, 28 Sep 2026 04:02:18 -0700
-Date: Mon, 28 Sep 2026 13:02:18 +0200
-From: Daniel Machon <daniel.machon@microchip.com>
-To: <netdev-bot+sashiko@kernel.org>
-CC: <andrew+netdev@lunn.ch>, <davem@davemloft.net>, <edumazet@google.com>,
-	<kuba@kernel.org>, <pabeni@redhat.com>, <horatiu.vultur@microchip.com>,
-	<steen.hegelund@microchip.com>, <UNGLinuxDriver@microchip.com>,
-	<ast@kernel.org>, <daniel@iogearbox.net>, <hawk@kernel.org>,
-	<john.fastabend@gmail.com>, <sdf@fomichev.me>, <herve.codina@bootlin.com>,
-	<arnd@arndb.de>, <gregkh@linuxfoundation.org>, <mohsin.bashr@gmail.com>,
-	<horms@kernel.org>, <richardcochran@gmail.com>, <netdev@vger.kernel.org>,
-	<linux-kernel@vger.kernel.org>, <bpf@vger.kernel.org>,
-	<linux-arm-kernel@lists.infradead.org>
-Subject: Re: [PATCH net-next v8 13/15] net: lan966x: add PCIe FDMA XDP support
-Message-ID: <20260928110218.ktlj26jtyakuywio@DEN-DL-M70577>
-References: <20260924-lan966x-pci-fdma-v8-13-201c7b707d8b@microchip.com>
- <179036955220.2160803.7046320782670912992@kernel.org>
+	id 1xB98l-00000000PpJ-1fbV;
+	Mon, 28 Sep 2026 11:03:23 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by tor.source.kernel.org (Postfix) with ESMTP id BE72B60052;
+	Mon, 28 Sep 2026 11:03:22 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 16D721F000FF;
+	Mon, 28 Sep 2026 11:03:15 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1790593402;
+	bh=GRWHJvrV87zg7wTj96AOWlFOZBTwq5ScjGQwkE9kXh8=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=SG55Bru0an6HMsHCstSC1nYa8joHK0Q+fQpmoyTiAAChgQfIPQcwNa7hJ9c76ElZj
+	 FgCSwH1n3QX9ODLvsg6/ddVH610KpnIKCCKouoFnzvI6opPVFzP37WYQ0EQX0Utohx
+	 ATxj9lj/b0ABODdvh1GZw8OPnDV0kqw/pHaTF6MuyH0C0Uxnb4/kBtpngl3OyZ2Py8
+	 YANozyrl7MmYGlJMWF13NnJoW/HYppQQ33kS/k7cMFQ0YRxxsdkLpBj7tUNZxUkPJd
+	 FSqvcvJv4SftFwwGy1ip6sGS1RrZL6gkiSb+IS89vy77bsijRlMXSpgJSl9TMY8qvF
+	 561BxhnzNAF9A==
+Date: Mon, 28 Sep 2026 12:03:13 +0100
+From: Mark Brown <broonie@kernel.org>
+To: James Calligeros <jcalligeros99@gmail.com>
+Cc: Martin =?utf-8?Q?Povi=C5=A1er?= <povik+lin@cutebit.org>,
+	Liam Girdwood <lgirdwood@gmail.com>, Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>, Sven Peter <sven@kernel.org>,
+	Janne Grunau <j@jannau.net>, Neal Gompa <neal@gompa.dev>,
+	David Rhodes <david.rhodes@cirrus.com>,
+	Richard Fitzgerald <rf@opensource.cirrus.com>,
+	Jaroslav Kysela <perex@perex.cz>, Takashi Iwai <tiwai@suse.com>,
+	Ulf Hansson <ulfh@kernel.org>,
+	Amit Kucheria <amit.kucheria@linaro.org>,
+	"Rafael J. Wysocki" <rafael.j.wysocki@intel.com>,
+	Lars-Peter Clausen <lars@metafoo.de>, Vinod Koul <vkoul@kernel.org>,
+	Matthias Brugger <matthias.bgg@gmail.com>,
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
+	Shenghao Ding <shenghao-ding@ti.com>, Kevin Lu <kevin-lu@ti.com>,
+	Baojun Xu <baojun.xu@ti.com>, Sen Wang <sen@ti.com>,
+	James Schulman <james.schulman@cirrus.com>, asahi@lists.linux.dev,
+	linux-sound@vger.kernel.org, devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+	patches@opensource.cirrus.com, Takashi Iwai <tiwai@suse.de>,
+	linux-mediatek@lists.infradead.org,
+	Hector Martin <marcan@marcan.st>,
+	Sasha Finkelstein <k@chaosmail.tech>
+Subject: Re: [PATCH 16/28] ASoC: apple: Add macaudio machine driver
+Message-ID: <0ae94fbe-cd41-4d49-b073-e65ab8eff724@sirena.org.uk>
+References: <20260920-macaudio-v1-0-741cc20a74e5@gmail.com>
+ <20260920-macaudio-v1-16-741cc20a74e5@gmail.com>
+ <arJMrsl45g2_bLPB@sirena.co.uk>
+ <6dv6M3LAS9mol5fvC8Ie-w@gmail.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="iso-8859-1"
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="o62xNzOzXCWulXud"
 Content-Disposition: inline
-Content-Transfer-Encoding: 8bit
-In-Reply-To: <179036955220.2160803.7046320782670912992@kernel.org>
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260928_040226_419497_33D988BA 
-X-CRM114-Status: GOOD (  51.59  )
+In-Reply-To: <6dv6M3LAS9mol5fvC8Ie-w@gmail.com>
+X-Cookie: All is fear in love and war.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -92,238 +93,75 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-> Thank you for your contribution! Sashiko AI review found 3 potential
-> issue(s) to consider.
-> 
-> Critical: 1 � High: 0 � Medium: 2 � Low: 0
-> 
-> If you believe none of the issues are legitimate, please reply to each
-> issue of Medium severity or higher and explain why the AI is wrong.
-> If any of them are legitimate and you plan to respin, please let patchwork
-> know by including "pw-bot: cr" as a separate line at the end of your reply
-> (one such reply per series is enough).
-> 
-> - [Critical] Use-after-free and double free on the PCIe RX path when an
->   XDP program shrinks a frame.
-> - [Medium] On the PCIe path the driver accepts XDP but cannot handle
->   XDP_REDIRECT, and the bond driver cannot tell.
-> - [Medium] In lan966x_fdma_pci_napi_poll(), a poll that consumes all
->   FDMA_PCI_DCB_MAX (256) RX descriptors never re-arms any of them.
-> 
-> --
-> 
-> net: lan966x: add PCIe FDMA XDP support
-> 
-> This commit adds basic XDP support (XDP_PASS, XDP_DROP, XDP_TX) to the
-> lan966x PCIe FDMA path. The IFH and FCS are stripped before the program
-> runs, and the pointer and length from after XDP are passed on to skb
-> construction or to a new memcpy-based XDP_TX routine.
-> lan966x_xdp_setup() now accepts programs on PCIe and skips the page_pool
-> reload there.
-> 
-> > diff --git a/drivers/net/ethernet/microchip/lan966x/lan966x_fdma_pci.c b/drivers/net/ethernet/microchip/lan966x/lan966x_fdma_pci.c
-> > index 7185e65dda435..216e9cbcd1580 100644
-> > --- a/drivers/net/ethernet/microchip/lan966x/lan966x_fdma_pci.c
-> > +++ b/drivers/net/ethernet/microchip/lan966x/lan966x_fdma_pci.c
-> 
-> [ ... ]
-> 
-> > +static int lan966x_xdp_pci_run(struct lan966x_port *port, void *data,
-> > +                            u32 data_len, void **xdp_data, u32 *xdp_len)
-> > +{
-> 
-> [ ... ]
-> 
-> > +     act = bpf_prog_run_xdp(xdp_prog, &xdp);
-> > +
-> > +     *xdp_data = xdp.data;
-> > +     *xdp_len = xdp.data_end - xdp.data;
-> > +
-> > +     switch (act) {
-> > +     case XDP_PASS:
-> > +             return FDMA_PASS;
-> > +     case XDP_TX:
-> > +             return lan966x_fdma_pci_xmit_xdpf(port, *xdp_data, *xdp_len) ?
-> > +                    FDMA_DROP : FDMA_TX;
-> > +     default:
-> > +             bpf_warn_invalid_xdp_action(port->dev, xdp_prog, act);
-> > +             fallthrough;
-> 
-> [Severity: Medium]
-> What happens here when the PCIe port is a bond slave?
-> 
-> The PCIe ports use the same lan966x_port_netdev_ops as the platform
-> ports, so both .ndo_bpf and .ndo_xdp_xmit are set. bond_xdp_set() looks
-> only at those pointers and never reads xdp_features:
-> 
-> drivers/net/bonding/bond_main.c:bond_xdp_set() {
->     ...
->                 if (!slave_dev->netdev_ops->ndo_bpf ||
->                     !slave_dev->netdev_ops->ndo_xdp_xmit) {
->     ...
-> }
-> 
-> This patch removes the -EOPNOTSUPP return for PCIe in
-> lan966x_xdp_setup(), so a bond with a lan966x PCIe slave can now install
-> its program on that slave. For bond slaves, bpf_prog_run_xdp() can then
-> turn XDP_TX into XDP_REDIRECT:
-> 
-> net/core/filter.c:xdp_master_redirect() {
->     ...
->         if (slave && slave != xdp->rxq->dev) {
->                 ri->tgt_index = slave->ifindex;
->                 ri->map_id = INT_MAX;
->                 ri->map_type = BPF_MAP_TYPE_UNSPEC;
->                 return XDP_REDIRECT;
->     ...
-> }
-> 
-> It can also return XDP_ABORTED when the master is down.
-> 
-> This switch has no XDP_REDIRECT case. Would those frames go to the
-> default branch, log a "Driver unsupported" warning and be dropped?
-> Nothing calls xdp_do_redirect(), so the redirect info set by
-> xdp_master_redirect() would never be used.
 
-Re-raise of dismissed issue in v7.
+--o62xNzOzXCWulXud
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
 
-> 
-> [ ... ]
-> 
-> >  static struct sk_buff *lan966x_fdma_pci_rx_get_frame(struct lan966x_rx *rx,
-> > -                                                  u64 src_port)
-> > +                                                  u64 src_port, void *data,
-> > +                                                  u32 data_len)
-> >  {
-> 
-> [ ... ]
-> 
-> > -     memcpy(skb->data,
-> > -            fdma_dataptr_virt_addr_contiguous(fdma,
-> > -                                              fdma->dcb_index,
-> > -                                              fdma->db_index),
-> > -                                              data_len);
-> > +     memcpy(skb->data, data, data_len);
-> >
-> >       skb_put(skb, data_len);
-> >
-> >       skb->dev = lan966x->ports[src_port]->dev;
-> > -     skb_pull(skb, IFH_LEN_BYTES);
-> > -
-> > -     skb_trim(skb, skb->len - ETH_FCS_LEN);
-> >
-> >       skb->protocol = eth_type_trans(skb, skb->dev);
-> 
-> [Severity: Critical]
-> Can this lead to a use-after-free when an XDP program shrinks the frame?
-> 
-> data_len is now the length from after XDP, returned by
-> lan966x_xdp_pci_run(). bpf_xdp_adjust_tail() and bpf_xdp_adjust_head()
-> let it shrink to ETH_HLEN. Take a 14-byte frame with h_proto 0x8100
-> that returns XDP_PASS. eth_type_trans() then leaves skb->len == 0 and
-> skb->protocol == ETH_P_8021Q.
-> 
-> Now suppose src_port is in bridge_mask and IGMP/MLD redirect is enabled
-> in ANA_CPU_FWD_CFG. lan966x_port_mc_set() enables it when multicast
-> snooping is on, and snooping is on by default. In that case the code
-> after this point reaches:
-> 
-> drivers/net/ethernet/microchip/lan966x/lan966x_main.c:lan966x_hw_offload() {
->     ...
->         if (eth_type_vlan(skb->protocol)) {
->                 skb = skb_vlan_untag(skb);
->                 if (unlikely(!skb))
->                         return false;
->         }
->     ...
-> }
-> 
-> pskb_may_pull(skb, VLAN_HLEN + 2) fails in skb_vlan_untag(), so it
-> frees the skb with kfree_skb() and returns NULL. lan966x_hw_offload()
-> only returns a bool, so the caller still holds the freed pointer:
-> 
->                 if (!lan966x_hw_offload(lan966x, src_port, skb))
->                         skb->offload_fwd_mark = 0;
->         }
-> 
->         skb->dev->stats.rx_bytes += skb->len;
-> 
-> The freed skb is then returned to lan966x_fdma_pci_napi_poll(), which
-> passes it to napi_gro_receive(). Would that be a use-after-free followed
-> by a double free?
-> 
-> The problem in lan966x_hw_offload() is older. Before this patch it could
-> not be reached, because skbs were built from the hardware length and the
-> MAC drops runts. The frame contents can also come from the network, for
-> example when a decap program uses adjust_head on a minimum-size outer
-> frame.
+On Sat, Sep 26, 2026 at 11:06:02AM +1000, James Calligeros wrote:
+> On Tuesday, 22 September 2026 7:38:54=E2=80=AFpm Australian Eastern Stand=
+ard Time Mark Brown wrote:
 
-A VLAN-tag frame arrives on a bridged port, with IGMP/MLD snooping enabled. That
-same port has an XDP program that shrinks the frame to ETH_HLEN and returns
-XDP_PASS. AFAICT, yes, that will result in UAF.
+> > > +	list_for_each_entry(kctl, &ma->card.snd_card->controls, list) {
+> > > +		if (!snd_soc_control_matches(kctl, volume_control_names[ma->cfg->a=
+mp]))
+> > > +			continue;
 
-Agree that the problem is lan966x_hw_offload, which can potentially free the
-skb, without letting the caller know. This function is pre-existing and used in
-the platform path, but the UAF can never happen there, because the frame length
-is guarded, and the post-program length is not used at all.
+> > This is used from the volume limit timeout work which doesn't hold the
+> > controls_rwsem, userspace can add or remove user controls which would
+> > change the list so the work needs to lock the controls list.
 
-Since there is no live bug in the platform path today, this should, IMO, be a
-preparatory commit in this series, that refactors the lan966x_hw_offload()
-function to let the caller know the skb was freed.
+> Would it be sufficient to scoped_guard the controls_rwsem wherever we
+> use this pattern?
 
-> 
-> [ ... ]
-> 
-> > @@ -312,8 +430,17 @@ static int lan966x_fdma_pci_napi_poll(struct napi_struct *napi, int weight)
-> >                        */
-> >                       fdma_dcb_advance(fdma);
-> >                       continue;
-> > +             case FDMA_TX:
-> > +                     fdma_dcb_advance(fdma);
-> > +                     continue;
-> > +             case FDMA_DROP:
-> > +                     fdma_dcb_advance(fdma);
-> > +                     continue;
-> >               }
-> 
-> [Severity: Medium]
-> What happens if one poll consumes all 256 (FDMA_PCI_DCB_MAX) RX
-> descriptors?
-> 
-> Every result path calls fdma_dcb_advance(), which wraps at n_dcbs. After
-> 256 frames, dcb_index is back at the value saved in dcb_reload. The
-> re-arm loop at the end of lan966x_fdma_pci_napi_poll() then runs zero
-> times:
-> 
->         while (dcb_reload != fdma->dcb_index) {
->                 old_dcb = dcb_reload;
->                 dcb_reload++;
->                 dcb_reload &= fdma->n_dcbs - 1;
-> 
-> So none of the consumed DCBs are re-armed, and they all keep
-> FDMA_DCB_STATUS_DONE. With a budget above 256, fdma_has_frames() stays
-> true and the same frames are processed again in the same call. With a
-> budget of exactly 256, the next poll processes them again.
-> 
-> Would this deliver stale frames twice, run XDP on them again, and resend
-> the XDP_TX frames?
-> 
-> Only the budget bounds the loop. __napi_busy_loop() passes the socket's
-> SO_BUSY_POLL_BUDGET straight to napi_poll(), and that value can be up to
-> U16_MAX with CAP_NET_ADMIN. The ring can fill completely, because the
-> hardware fills the last DCB before it stops on the invalid nextptr.
-> 
-> This loop was added by the earlier "net: lan966x: add PCIe FDMA support"
-> commit in this series. This patch extends it with the XDP_TX and
-> XDP_DROP results, and it does not seem to be fixed later in the series.
-> The platform lan966x_fdma_napi_poll() has the same pattern with 512
-> DCBs.
+I think so, but I didn't properly check.
 
-Re-raise of dismissed issue in v7.
+> > > +static int macaudio_dpcm_hw_params(struct snd_pcm_substream *substre=
+am,
+> > > +				   struct snd_pcm_hw_params *params)
+> > > +{
+> > > +	struct snd_soc_pcm_runtime *rtd =3D snd_soc_substream_to_rtd(substr=
+eam);
+> > > +	struct macaudio_snd_data *ma =3D snd_soc_card_get_drvdata(rtd->card=
+);
+> > > +	struct macaudio_link_props *props =3D &ma->link_props[rtd->dai_link=
+->id];
+> > > +	struct snd_soc_dai *cpu_dai =3D snd_soc_rtd_to_cpu(rtd, 0);
+> > > +	struct snd_interval *rate =3D hw_param_interval(params,
+> > > +						      SNDRV_PCM_HW_PARAM_RATE);
+> > > +	int bclk_ratio =3D macaudio_get_runtime_bclk_ratio(substream);
+> > > +	int i;
+> > > +
+> > > +	if (props->is_sense) {
+> > > +		rate->min =3D rate->max =3D cpu_dai->symmetric_rate;
+> > > +		return 0;
+> > > +	}
 
-> 
-> --
-> Sashiko AI review � https://netdev-ai.bots.linux.dev/sashiko/#/patchset/20260924-lan966x-pci-fdma-v8-0-201c7b707d8b%40microchip.com
+> > It feels like this DAI ought to have separate ops...  Also, for the
+> > sense link will we definitely already have a rate set up?
 
-pw-bot: cr
+> AIUI, the cpu rate should always be set up by the time we hit
+> this path as it is only taken when setting up the VISENSE FE (after the
+> playback stuff is already set up).
+
+Is that something we actually enforce or is that just a thing a sensible
+userspace should do?  I can see something racing.
+
+--o62xNzOzXCWulXud
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iQEzBAABCgAdFiEEreZoqmdXGLWf4p/qJNaLcl1Uh9AFAmq6SXAACgkQJNaLcl1U
+h9DIuAf+MhyW6NwNfZ3Bqa+m4pMvFpTPdEbJLiFpeSW5EqKWKUoQ0S0CJTszd3Bq
+zw8RLCiIUkMfvzpeQ6lgIYkpLAiHkB3jWyyD4wN+ienHL9xysW8MIjWGcGChA6r1
+SroQD2iFq4g3Ek51Y7AqqFxZ7Y/SU0YhHI0Op2PXvtXed8j+IQCJo6ICEtkKz3Xz
+o7dBOqx9xzCYzHpJLN35Q8D3V8TytTyTaVH6N4VWzj+LUo9OrrEOiDk3J/inWj39
+PX0uD3e1ZY5boTMxOWYdAuKWUJ3GrbMN+RpPivdMSNLqB6ITPUafOfUIxq+DYJSc
+5iIYKe247exzaqTaiKGmFS5J5o2eTA==
+=oNVi
+-----END PGP SIGNATURE-----
+
+--o62xNzOzXCWulXud--
 
