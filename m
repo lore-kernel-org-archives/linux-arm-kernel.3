@@ -4,72 +4,110 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A3B45CA5FA3
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 28 Sep 2026 19:49:17 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DDB11CA5FA3
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 28 Sep 2026 19:50:00 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Content-Type:
+	References:In-Reply-To:Date:Cc:To:From:Subject:Message-ID:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=jdHpFCmsfbMWILh+4zQbXzTgvExVPPbHVQNyp37fwu8=; b=w8NiQYEy9VXfInF/4MSghCW4X2
-	u1vFO9QPMwIU3VBs+Xu3NqVE2+9qcgp0WhBaRkDT6ZyyrtkQbKgK0J+o34K8P5Yt2WVtGzYe7mBfo
-	IEFOY8MdgKn+zEIFaO06ARzyHPkzKdXc+uzqxT4K2GHuXx0+wXH5mGAFhG90OYJEc5sWiQv8Mjv3e
-	el0Np4ui7TAAx8KRW4Yq0N+fonAqK8odK1I0uF8ULB+Cdn37fy3pFNRFxiP266wdeNE58Yb7aigzE
-	khVkSRF2BuZXyMuZFUPYTJ0VWcrBgmO93lozwFXIxwh8lp1ccN0n0T8ZLrYx8WvZMorNwClGQU2Bw
-	Fq6vA9Mw==;
+	bh=Lk8F8JKc1EoPYwR92nVb2I5Z7QuoWCCQFi9uhIFiIbw=; b=xalEBFQviAwF6yErTzXfVoB7K8
+	T86tuqNqrQyQJqT354YI9+fe1BEBvU2BSErjI5v5h2anS3oHk87RScAKOxtmvVLACgqK15kArX8de
+	dmuflJgBpyAbUvvPIo9PWhgrESg90HV473qH9MLggb23BopapYSdbwl0lu0+FgoCHqyh8ifiNgK09
+	yghs7aCvuGO3bkJnfPYSuUI8Z2qoMrVYs0pn+Gs+sxzKSY2Uo9T73FsWtbbRQr2aKdVYb4HwAYmP4
+	6kOxJwW2tlZOOQs8TcW9xjRPJJJRb64qfIyMPrDsiDWVMN+NRywj+Z9bPfbJIYgxcmD+l11ilgjcY
+	UQLh6Gog==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xBHLa-00000001VlA-0W2q;
-	Mon, 28 Sep 2026 19:49:10 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1xBHMI-00000001VtC-1ZR7;
+	Mon, 28 Sep 2026 19:49:54 +0000
+Received: from mail-qk2-x03.google.com ([2607:f8b0:4864:34::3])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xBHLY-00000001Vkl-25Nr;
-	Mon, 28 Sep 2026 19:49:08 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id 974A8600D1;
-	Mon, 28 Sep 2026 19:49:07 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 7A9F91F000FF;
-	Mon, 28 Sep 2026 19:49:01 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1790624947;
-	bh=jdHpFCmsfbMWILh+4zQbXzTgvExVPPbHVQNyp37fwu8=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=K1UpVHdbtKLuk0b6PGJwnkcMiQQc3FOtgp5i3jPSjc03nPPVWKJdRDDdCcoeo/JYz
-	 ab6rp54bO+xE+cQVGENaJOpeQHykZTq08O5djVbP1x6QarrPDCUT6usoart9BrVN8P
-	 exFxTaGfz1qKavaskz0rXWSPeg8og50p0Yd/s1iUTGKI0czkfywCXDWKIZQH9p/Kyb
-	 U+SNhQ4ngEIfBnXPjoH1p7KE++RQn4cu3SYKv52+Aud9Gjy8+4689hKOj+Xw1S4OAy
-	 KbiSdHV0nazW5sHdc5wG7ljabqYltoksk0H4xkxQGCHQwgr1RlxClJ9oaGn3DC6olh
-	 jRna+5Lr3DITQ==
-Date: Mon, 28 Sep 2026 21:48:58 +0200
-From: Benjamin Tissoires <bentiss@kernel.org>
-To: Neil Armstrong <neil.armstrong@linaro.org>
-Cc: Maxime Ripard <mripard@kernel.org>, 
-	Jessica Zhang <jesszhan0024@gmail.com>, David Airlie <airlied@gmail.com>, 
-	Simona Vetter <simona@ffwll.ch>, Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, 
-	Thomas Zimmermann <tzimmermann@suse.de>, Rob Herring <robh@kernel.org>, 
-	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
-	Nathan Chancellor <nathan@kernel.org>, Nick Desaulniers <ndesaulniers@google.com>, 
-	Bill Wendling <morbo@google.com>, Justin Stitt <justinstitt@google.com>, 
-	Florian Fainelli <florian.fainelli@broadcom.com>, 
-	Broadcom internal kernel review list <bcm-kernel-feedback-list@broadcom.com>, Andrzej Hajda <andrzej.hajda@intel.com>, 
-	Robert Foss <rfoss@kernel.org>, Laurent Pinchart <Laurent.pinchart@ideasonboard.com>, 
-	Jonas Karlman <jonas@kwiboo.se>, Jernej Skrabec <jernej.skrabec@gmail.com>, 
-	Luca Ceresoli <luca.ceresoli@bootlin.com>, Albert Esteve <aesteve@redhat.com>, 
-	Dave Stevenson <dave.stevenson@raspberrypi.com>, Javier Martinez Canillas <javierm@redhat.com>, 
-	dri-devel@lists.freedesktop.org, devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
-	bpf@vger.kernel.org, llvm@lists.linux.dev, linux-rpi-kernel@lists.infradead.org, 
-	linux-arm-kernel@lists.infradead.org
-Subject: Re: [PATCH 0/6] drm/bridge: Add a BPF-based MIPI-DSI panel driver
-Message-ID: <arrAqg5n87INTHE6@beelink>
-References: <20260928-drm-mipi-dsi-panel-ebpf-v1-0-5244926aace4@kernel.org>
- <6b80cb97-6706-412a-b013-9423f6f75153@linaro.org>
- <arqhwHiVf00j94J7@beelink>
- <0259fe4b-3118-4ab0-9b62-55101bfd7f33@linaro.org>
+	id 1xBHME-00000001Vs8-38ts
+	for linux-arm-kernel@lists.infradead.org;
+	Mon, 28 Sep 2026 19:49:52 +0000
+Received: by mail-qk2-x03.google.com with SMTP id af79cd13be357-93c3dfd105eso206877385a.1
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 28 Sep 2026 12:49:50 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=ndufresne-ca.20251104.gappssmtp.com; s=20251104; t=1790624989; x=1791229789; darn=lists.infradead.org;
+        h=mime-version:user-agent:content-type:autocrypt:references
+         :in-reply-to:date:cc:to:from:subject:message-id:from:to:cc:subject
+         :date:message-id:reply-to:content-type;
+        bh=Lk8F8JKc1EoPYwR92nVb2I5Z7QuoWCCQFi9uhIFiIbw=;
+        b=HEgzefgczHQX2d/juwbLwT+kU5uGJT7XEoPQmsvGa70ZQ29eG00lYugOyi6jvnqQv2
+         qkzM+UxSeUaepbPWm/Uc3+vqpzJoUa5LPKM2KMAEbNxml0GSZuOUTxacmKsCankULTdB
+         tKf+eaaz4Fk50oX03af9DSyqV93RYViEqIDKLDbQ+6YtjSh28wfXGQj8/IjeMPZUGgh0
+         XGR9553UMA7SdiScYcCJm6Fqm3QSfUmdzF/2t77n+qMSv+d2fWpXp7IhVSVtUA/y0EXE
+         q7LxhsuXNnV/g1Rfsxv6zwLHXJ1zk7f+eLNBLUxrHQlp1K9Q6yds+Q1lFxYWbaF9XRQD
+         upSA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1790624989; x=1791229789;
+        h=mime-version:user-agent:content-type:autocrypt:references
+         :in-reply-to:date:cc:to:from:subject:message-id:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=Lk8F8JKc1EoPYwR92nVb2I5Z7QuoWCCQFi9uhIFiIbw=;
+        b=B9pa9TSH4UV+L0O85VxbjFhAS/+59mBYWQvtxloRXYxdwwEIqdn5HXyG5gKLrfrN/N
+         jtCay7xLh5iqjnendSjBAl9yG0CQeu0VsVL40H/uLbIqhczWteN6lNsp8ZKsNueIJMjT
+         GR4WKsMIiTRS7TeB5AU3xftACN69ri73dzK2QI4YSW3jd+3091u2d90fUf9QGtJcs6Lc
+         jcXUtD8GTqILRwpl5LW2qw9xLxQOFr8WIryUh58V0q9Pl77rnQwuXc4LqZFj+Va/0Rg2
+         Lkpatrs/juyu76cG8kA2cFyExs90Ed+6U4HIjSFTnxpf2pJnSvNVlMEsj0SVvfedSKPZ
+         4Yrw==
+X-Forwarded-Encrypted: i=1; AKwUvBznPAE3IY7VA7Ztx/XGxuEKcTu2T6Nq6T70LCDhPMLl3TNlzcX5JfyNDAlEj7de5WVHw+9BhHaGc73B6DWUqx7S@lists.infradead.org
+X-Gm-Message-State: AFuF++mwuNtrGH1ajtQuL9uqdlUCA1jM1mX4tdBq3DG4LraH9bGjBdYD
+	lhH1j++hspMkxdIxJg+U6WlMPnaBsfZBebdIGqrD6qsnQw6tcJzHMibi5VWxtdoTBoo=
+X-Gm-Gg: AYBFou2H31B/c82TWPeK+8Qezj5sGZBcilqNLt5ao9vwPC6Q4JXdGiP2xTGCs3QC6EF
+	x1C0BsvzUYl/pm5C8t9Mgb4DNNoC/LV7BTDKafJO1fHm9V65bV/tlyBOyqWPH2tEIDlUZjfII9V
+	oZmH0f/VhDXDaoHY//MUiWEHiuVLPC41G9y5OiWD94MG40h4DGOOKj3mhI8+9dHZM0YQ4C7Pc5B
+	cRxSTyWBtfIDGobh7gzhAo6/vBxMuxV1LXR0RcPsMN3xMAZN3a+oz8Da+188sivvgmBuJKqhE42
+	H5PMBUoIgTTHm6YZdm28PsxHZ7uuxmfkSBYqrN6IdZDJd4m3HbwHZRy4UHmNPOxkAKwo72NnNOi
+	g4tAVBuTED7fyrjgtD8SyqmjdzOU8axXgaEG3R4K74RRWX0ZAzZdscEQT4l0UbbCpn/5g2TBkYH
+	gjN0wlIoT1+zPFdLXyZuopx5PBKHjTe2swSIbWxRlcvmxO/ELXWlVUiaLYctxDC4g2wlVvyIsgz
+	FqYb2ge3nQzJ3d+pQHPygmv
+X-Received: by 2002:a05:620a:2628:b0:93b:beb3:5898 with SMTP id af79cd13be357-93c43ce7bfcmr2220308485a.49.1790624989158;
+        Mon, 28 Sep 2026 12:49:49 -0700 (PDT)
+Received: from ?IPv6:2606:6d00:11:34bd::5ac? ([2606:6d00:11:34bd::5ac])
+        by smtp.gmail.com with ESMTPSA id af79cd13be357-93c813dca59sm227347285a.22.2026.09.28.12.49.47
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Mon, 28 Sep 2026 12:49:48 -0700 (PDT)
+Message-ID: <b4666dae3ded36f157d77f839f692a19a3ad9d06.camel@ndufresne.ca>
+Subject: Re: [PATCH v2] media: meson: vdec: fix use-after-free of in-use
+ frames in codec_vp9_rm_noshow_frame()
+From: Nicolas Dufresne <nicolas@ndufresne.ca>
+To: Doruk Tan Ozturk <doruk@0sec.ai>, Neil Armstrong
+ <neil.armstrong@linaro.org>,  Greg Kroah-Hartman
+ <gregkh@linuxfoundation.org>
+Cc: Dan Carpenter <error27@gmail.com>, Mauro Carvalho Chehab	
+ <mchehab@kernel.org>, Hans Verkuil <hverkuil@kernel.org>, Kevin Hilman	
+ <khilman@baylibre.com>, Jerome Brunet <jbrunet@baylibre.com>, Martin
+ Blumenstingl <martin.blumenstingl@googlemail.com>,
+ linux-media@vger.kernel.org, 	linux-amlogic@lists.infradead.org,
+ linux-staging@lists.linux.dev, 	linux-arm-kernel@lists.infradead.org,
+ linux-kernel@vger.kernel.org
+Date: Mon, 28 Sep 2026 15:49:46 -0400
+In-Reply-To: <20260627063905.79363-1-doruk@0sec.ai>
+References: <20260627063905.79363-1-doruk@0sec.ai>
+Autocrypt: addr=nicolas@ndufresne.ca; prefer-encrypt=mutual;
+ keydata=mDMEaCN2ixYJKwYBBAHaRw8BAQdAM0EHepTful3JOIzcPv6ekHOenE1u0vDG1gdHFrChD
+ /e0J05pY29sYXMgRHVmcmVzbmUgPG5pY29sYXNAbmR1ZnJlc25lLmNhPoicBBMWCgBEAhsDBQsJCA
+ cCAiICBhUKCQgLAgQWAgMBAh4HAheABQkJZfd1FiEE7w1SgRXEw8IaBG8S2UGUUSlgcvQFAmibrjo
+ CGQEACgkQ2UGUUSlgcvQlQwD/RjpU1SZYcKG6pnfnQ8ivgtTkGDRUJ8gP3fK7+XUjRNIA/iXfhXMN
+ abIWxO2oCXKf3TdD7aQ4070KO6zSxIcxgNQFtDFOaWNvbGFzIER1ZnJlc25lIDxuaWNvbGFzLmR1Z
+ nJlc25lQGNvbGxhYm9yYS5jb20+iJkEExYKAEECGwMFCwkIBwICIgIGFQoJCAsCBBYCAwECHgcCF4
+ AWIQTvDVKBFcTDwhoEbxLZQZRRKWBy9AUCaCyyxgUJCWX3dQAKCRDZQZRRKWBy9ARJAP96pFmLffZ
+ smBUpkyVBfFAf+zq6BJt769R0al3kHvUKdgD9G7KAHuioxD2v6SX7idpIazjzx8b8rfzwTWyOQWHC
+ AAS0LU5pY29sYXMgRHVmcmVzbmUgPG5pY29sYXMuZHVmcmVzbmVAZ21haWwuY29tPoiZBBMWCgBBF
+ iEE7w1SgRXEw8IaBG8S2UGUUSlgcvQFAmibrGYCGwMFCQll93UFCwkIBwICIgIGFQoJCAsCBBYCAw
+ ECHgcCF4AACgkQ2UGUUSlgcvRObgD/YnQjfi4+L8f4fI7p1pPMTwRTcaRdy6aqkKEmKsCArzQBAK8
+ bRLv9QjuqsE6oQZra/RB4widZPvphs78H0P6NmpIJ
+Content-Type: multipart/signed; micalg="pgp-sha512";
+	protocol="application/pgp-signature"; boundary="=-ZDhsxysEA1cWoT9Xmzeg"
+User-Agent: Evolution 3.60.2 (3.60.2-1.fc44) 
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <0259fe4b-3118-4ab0-9b62-55101bfd7f33@linaro.org>
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260928_124950_802183_2158C7C6 
+X-CRM114-Status: GOOD (  25.74  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -84,156 +122,117 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Sep 28 2026, Neil Armstrong wrote:
-> On 9/28/26 19:24, Benjamin Tissoires wrote:
-> > On Sep 28 2026, Neil Armstrong wrote:
-> > > Hi,
-> > > 
-> > > On 9/28/26 18:22, Maxime Ripard wrote:
-> > > > Hi,
-> > > > 
-> > > > Panels in general, and MIPI-DSI panels in particular, are pretty
-> > > > difficult to support and require pretty much a panel driver for each
-> > > > panel produced. Most of them are pretty simple, and require an opaque
-> > > > initialization sequence that is usually poorly documented.
-> > > > 
-> > > > This creates a tension between OEMs and distros because OEMs will
-> > > > typically get a new panel to react to a sourcing issue during
-> > > > production, and thus need some swift turnaround between getting their
-> > > > new panel and it being operational in the OS. Distributions on the other
-> > > > hand can take years to ship a kernel with that new panel driver.
-> > > > 
-> > > > To solve this, I followed the example of HID-BPF and wrote a panel
-> > > > driver that will rely on BPF programs to perform the panel
-> > > > initialization. That way, we can ship the programs separately from the
-> > > > kernel, and with a different lifecycle. If this driver is accepted, the
-> > > > plan is to have a userspace component started by udev to identify and
-> > > > load the right BPF program for the panels found on the device.
-> > > 
-> > > This is kind of late for serious applications except if we manage to
-> > > solve the bootloader to Linux display engine transition.
-> > > 
-> > > > 
-> > > > This driver is fully functional and works with both 5" and 7" Touch
-> > > > Display 2 panels for the RaspberryPi. However, it breaks away from the
-> > > > typical panel driver in multiple ways:
-> > > > 
-> > > > - BPF programs can only be loaded by userspace. This leaves us with two
-> > > >     choices:
-> > > > 
-> > > >     * We prevent the driver from loading until the script itself is
-> > > >       loaded. This has the side effect of preventing any other output to
-> > > >       be used until the initramfs is ran at the earliest, and possibly
-> > > >       ever if the loader isn't installed for example.
-> > > 
-> > > This adds a dependency on user-space behavior and if somehow the
-> > > initramfs doesn't load for a reason we won't have a way to display
-> > > an error.
-> > > 
-> > > > 
-> > > >     * Or we probe the driver all the time, but only report it as connected
-> > > >       once a program has been registered. This is somewhat unconventional,
-> > > >       but allows the other outputs to be functional, *and* allows the user
-> > > >       to force the output if their panel doesn't require any
-> > > >       initialization or during debugging. I chose this solution.
-> > > 
-> > > Both options are not really great...
-> > > 
-> > > > 
-> > > > - It's not a panel driver, but a bridge one, which is also pretty
-> > > >     unconventional. This is required because panel drivers don't have
-> > > >     access to a detect callback that is required for the above, but I also
-> > > >     think that the recent work from Luca blurs the line from panels and
-> > > >     bridges and we'll end up going that road anyway.
-> > > 
-> > > On this point, DDIC _are_ bridges, but in the current panel API we blur the line between
-> > > the panel and the DDIC. So being a bridge is fine, but in a general way we lack
-> > > a proper way to describe the display/panel/monitor independently of the DDIC.
-> > > 
-> > > At first glance it's a nice driver, but moving the timings into a blob moves something
-> > > into possible proprietary binaries with possible closed licence and distribution
-> > > restriction so it's a downgrade for the same of bringing up a panel faster.
-> > 
-> > Quick answer on this, because I had the very same questions regarding
-> > HID-BPF:
-> > - in BPF, you can require (and by default it does) that only GPL
-> > 	compatible BPF programs are loaded, closing the argument of "closed
-> > 	licence and distribution restriction"
-> > - also, a BPF program can be disassembled much easier than a binary
-> > 	blob, and I remember Alexei showing me an example where you get almost
-> > 	the source code from the BPF object in just one pass.
-> 
-> Right, it "solve" one of my question, but doesn't really solve the issue
-> of vendors providing "GPL" bpf programs with source available "somewhere".
-> 
-> Another big issue is the API, I don't want to keep the current API as-is,
-> we plan to support more advanced panel features and use try to use the
-> atomic states to support rate switching for example, and I'm not confident
-> it's a good idea since there's no "simple" and "forever valid" API
-> to initialize panels...
-> 
 
-That's exactly where BPF shines. The simple rule of thumb is: there is
-no API stability guaranteed. Basically, thanks to the verifier and CORE
-(Compile Once Run Everywhere), you don't need to keep the API stable and
-available forever. There are multiple ways of dealing with it, but the
-gist is that if a BPF is trying to load an "old" API, it will be
-rejected by the verifier.
+--=-ZDhsxysEA1cWoT9Xmzeg
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 
-Then it's a matter of being nice enough in the kernel and provide ways
-to deal with those.
+Hi,
 
-To give you a few examples:
+Le samedi 27 juin 2026 =C3=A0 08:39 +0200, Doruk Tan Ozturk a =C3=A9crit=C2=
+=A0:
+> codec_vp9_rm_noshow_frame() frees the first non-shown reference frame on
+> ref_frames_list without excluding frames that are still in use. When the
+> previously decoded frame was a non-show (alt-ref) frame and the current
+> frame is a non-show inter frame, the freed object is the one
+> vp9->prev_frame still points to; codec_vp9_set_mpred_mv() then
+> dereferences the stale pointer (use_prev_frame_mvs and
+> codec_vp9_get_frame_mv_paddr()), a use-after-free. Freeing a frame that
+> is still an active reference (codec_vp9_is_ref()) or the current frame
+> has the same in-use-then-free shape and additionally desyncs the
+> reference bookkeeping in codec_vp9_sync_ref().
+>=20
+> The sibling cleanup codec_vp9_show_frame() already guards exactly these
+> cases before freeing:
+>=20
+> 	if (codec_vp9_is_ref(vp9, tmp) || tmp =3D=3D vp9->prev_frame)
+> 		continue;
+>=20
+> rm_noshow_frame() simply omits the same check. Add it, also skipping
+> cur_frame, so both cleanup paths agree on which frames are safe to free.
+>=20
+> The fields that drive this path (show_frame, frame_type, intra_only) are
+> parsed from the VP9 bitstream, so a crafted stream fed to the stateless
+> decoder can trigger the free-then-use.
+>=20
+> Found by 0sec's autonomous vulnerability analysis (https://0sec.ai).
+> Found by static analysis; not yet runtime-reproduced (Amlogic Meson
+> hardware required).
+>=20
+> Fixes: 00c43088aa68 ("media: meson: vdec: add VP9 decoder support")
+> Signed-off-by: Doruk Tan Ozturk <doruk@0sec.ai>
 
-- in HID-BPF, in userspace, we keep old versions of APIs in separate
-	compiled objects. Each is incremented (by 10 so we have a little bit
-	of room in the middle). Then the loader tries first
-	0020-device-with-new-api.bpf.o, and if it fails, it tries
-	0010-device-with-old-api.bpf.o
+I can't really do anything about this patch without an actual Tested-by. Pe=
+rhaps
+try and ping someone with the hardware to let this patch progress, meanwhil=
+e
+I'll pass.
 
-	I'm not saying we should do the same here, but that's one idea
+This is also a staging driver that is likely to be removed in few cycles
+considering it not being maintain and there is several competing drivers be=
+ing
+developed.
 
-- recently, a BPF commit broke the ABI of a function while removing
-	implicits: bpf_wq_set_callback_impl() was replaced by
-	bpf_wq_set_callback() with a different number of arguments. I simply
-	had to add a new function in my header which basically does:
+Nicolas
 
-	static inline int
-	hid_bpf_wq_set_callback(struct bpf_wq *wq,
-	                        int (*callback_fn)(void *, int *, void *),
-	                        unsigned int flags)
-	{
-      if (bpf_ksym_exists(bpf_wq_set_callback))
-              return bpf_wq_set_callback(wq, callback_fn, flags);
-      if (bpf_ksym_exists(bpf_wq_set_callback_impl))
-              return bpf_wq_set_callback_impl(wq, callback_fn, flags, NULL);
-  }
+> ---
+> v2: Per Dan Carpenter's review, also skip active reference frames
+>     (codec_vp9_is_ref()) and cur_frame, matching codec_vp9_show_frame()
+>     exactly =E2=80=94 freeing an in-use altref/reference frame here also =
+caused a
+>     codec_vp9_sync_ref() desync, not just the prev_frame UAF.
+>=20
+>  drivers/staging/media/meson/vdec/codec_vp9.c | 14 ++++++++++++++
+>  1 file changed, 14 insertions(+)
+>=20
+> diff --git a/drivers/staging/media/meson/vdec/codec_vp9.c b/drivers/stagi=
+ng/media/meson/vdec/codec_vp9.c
+> index 8e80ecf84193..dad75950933c 100644
+> --- a/drivers/staging/media/meson/vdec/codec_vp9.c
+> +++ b/drivers/staging/media/meson/vdec/codec_vp9.c
+> @@ -1238,6 +1238,8 @@ static void codec_vp9_show_existing_frame(struct co=
+dec_vp9 *vp9)
+>  	pr_debug("showing frame %u\n", param->p.frame_to_show_idx);
+>  }
+> =20
+> +static bool codec_vp9_is_ref(struct codec_vp9 *vp9, struct vp9_frame *fr=
+ame);
+> +
+>  static void codec_vp9_rm_noshow_frame(struct amvdec_session *sess)
+>  {
+>  	struct codec_vp9 *vp9 =3D sess->priv;
+> @@ -1247,6 +1249,18 @@ static void codec_vp9_rm_noshow_frame(struct amvde=
+c_session *sess)
+>  		if (tmp->show)
+>  			continue;
+> =20
+> +		/*
+> +		 * Mirror codec_vp9_show_frame(): never free an active
+> +		 * reference frame, the previously decoded frame, or the
+> +		 * current frame here. prev_frame is still dereferenced by the
+> +		 * MV predictor in codec_vp9_set_mpred_mv(), and freeing an
+> +		 * in-use altref/reference also desyncs codec_vp9_sync_ref();
+> +		 * either is a use-after-free of an in-use frame.
+> +		 */
+> +		if (codec_vp9_is_ref(vp9, tmp) || tmp =3D=3D vp9->prev_frame ||
+> +		    tmp =3D=3D vp9->cur_frame)
+> +			continue;
+> +
+>  		pr_debug("rm noshow: %u\n", tmp->index);
+>  		v4l2_m2m_buf_queue(sess->m2m_ctx, tmp->vbuf);
+>  		list_del(&tmp->list);
 
-  And then I changed the bpf.c to use hid_bpf_wq_set_callback() and the
-  bpf is compatible with both APIs
+--=-ZDhsxysEA1cWoT9Xmzeg
+Content-Type: application/pgp-signature; name="signature.asc"
+Content-Description: This is a digitally signed message part
 
-- with CORE, struct fields are relocated on the fly when you load the BPF
- 
-  So for instance, if my BPF only accesses fields .name, .phys and .id
-  in the BPF, I can define:
-  struct hid_device {
-    char                       name[128];
-    char                       phys[64];
-    unsigned int               id;
-  }
+-----BEGIN PGP SIGNATURE-----
 
-  Then when loading the bpf, the verifier replaces all offset to the
-  ones actually used by the running kernel, and the program loads
-  transparently, even if you add fields before/after or change the
-  fields order in the kernel.
+iHUEABYKAB0WIQTvDVKBFcTDwhoEbxLZQZRRKWBy9AUCarrE2gAKCRDZQZRRKWBy
+9BjOAQCcJJZ7xjpltnqzUdi6P6d2itMrbhl41cjmeE/c74heSQD/fIwpHsmavr36
+/iKd8Y6urOm/Xeb/2/lPx2ob8TKg3gQ=
+=dr9M
+-----END PGP SIGNATURE-----
 
-Changing the mindset is the hardest part of it. But once you are making
-the shift, it's actually much better to work with. It doesn't mean you
-can go yolo. You still need to be careful in your choices knowing the
-impact on your users. But the API at version 0 is not frozen and you
-don't need to maintain it forever, especially if you control the loader
-and the headers used to compile the BPFs.
-
-Cheers,
-Benjamin
+--=-ZDhsxysEA1cWoT9Xmzeg--
 
