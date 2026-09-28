@@ -4,107 +4,114 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 230F2CA5FA1
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 28 Sep 2026 21:25:33 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 367D2CA5FA3
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 28 Sep 2026 21:35:15 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Content-Type:
-	References:In-Reply-To:Date:Cc:To:From:Subject:Message-ID:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=+905VpPWFNsqdN9ZNh4c2Xt4scACgjmcpfbxIJWGn8g=; b=eGlgNs2oip1uJYRKTRYkTSyjGa
-	83MLwE4LfzENfBiyNhNn4UopSB366Oo9OTQlyABdAx/QsSDBl6tt0efogOI9cCuYV7qJzJrjIq86p
-	FOLJ/W4Jmr8QJFKGQ7U79zN62e5qWpgJ4oanCcE8Jrq7pYsdIZPiTeMJo/4cq9lqEgt4o3WnFVpLG
-	/4TzJt/lA4dEVues5dj/6IdFc+GA6pBJdZ/2vzT3SzqkjWBPEc2ldGuvXkLRG2umcxbaIs8cp1XdY
-	PTbaxmFHjYrS+GmpCAeTYfXL2ukIN7fu6LUKMUMRLQb+xHBF/eBQ9ALsQtIM5tKum/bBeNv5lz2Ze
-	dyOD7SFg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=qMXZhXOkxtrjP55SDYES5mqvZlQYPy+Z9IGMIJjgKbE=; b=ZTqHMBkofuXHpF1ZGm/QN/+kNQ
+	YmOLCWb9eKSSbq6xF2Sc7drQIKP48VIe3FG4YnwZV2MTi0A3v2y7z+sqAf/zG1BwSiybD31qn+e9X
+	4Fzpfqcy2pvkzWGtzZA0WNeceo4V/cKyFI9iRKsOWEC19TPkVQif19s7O1GXepGvnjE1PK4z1wiUx
+	axrx38BWkXRMPSWembwLZsoJ8QgxGnV06C/oc/d2FUcGJ1m6CN53pUgj1V4UucOb0vqhqO3DY566f
+	Umumo2sKU8o5AX2c6dJty88e6E+uBExMYGS+YTa14DIgKQiS9q4FM+EY3JgW9YpZYlCZBBD6HqHbk
+	F/aC6yBg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xBIql-00000001fVt-05tw;
-	Mon, 28 Sep 2026 21:25:27 +0000
-Received: from mail-qv2-x10.google.com ([2607:f8b0:4864:33::10])
+	id 1xBJ08-00000001gN6-0Mxd;
+	Mon, 28 Sep 2026 21:35:08 +0000
+Received: from mail-ed1-x530.google.com ([2a00:1450:4864:20::530])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xBIqh-00000001fUX-1UOA
+	id 1xBJ04-00000001gLs-3VXA
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 28 Sep 2026 21:25:25 +0000
-Received: by mail-qv2-x10.google.com with SMTP id 6a1803df08f44-9105d241693so30616126d6.0
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 28 Sep 2026 14:25:22 -0700 (PDT)
+	Mon, 28 Sep 2026 21:35:06 +0000
+Received: by mail-ed1-x530.google.com with SMTP id 4fb4d7f45d1cf-6aae37d33cbso399971a12.1
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 28 Sep 2026 14:35:02 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=ndufresne-ca.20251104.gappssmtp.com; s=20251104; t=1790630722; x=1791235522; darn=lists.infradead.org;
-        h=mime-version:user-agent:content-type:autocrypt:references
-         :in-reply-to:date:cc:to:from:subject:message-id:from:to:cc:subject
+        d=chromium.org; s=google; t=1790631301; x=1791236101; darn=lists.infradead.org;
+        h=content-transfer-encoding:content-type:cc:to:subject:message-id
+         :date:from:in-reply-to:references:mime-version:from:to:cc:subject
          :date:message-id:reply-to:content-type;
-        bh=+905VpPWFNsqdN9ZNh4c2Xt4scACgjmcpfbxIJWGn8g=;
-        b=ycxVg3ybS0fVfOrpvUVASUwlyOgzIL+0nGKiZNFlc7ls1oAleQBr6QLCfNWh4eiVtZ
-         tPKv+iKJDBCWEE3dw7us28hf+DJr8vjXeKwbCu2O247gshUkS7qVCVRc3qSW5+I5QXLf
-         Ei06gkAP4OUXwK+3qvUec4Xzb6O3UpPiVFW1oNWPaxeGaBKVUAFt228C/IFf1hFSJsyv
-         UNhWDKdlwNx7aS6YJZ2QeZkeUrpMzOPjLPLZrrg68jBZbvEIDhD5HLn0xaZFaHzepfo9
-         POGH+92a36Zk5/yUFWVgZ7nprv3FLLds3B+KPJK2AayvhnYPk3ounKWQE1IsFrgwVPvY
-         Hfpg==
+        bh=qMXZhXOkxtrjP55SDYES5mqvZlQYPy+Z9IGMIJjgKbE=;
+        b=fDW+D5mEQTw/aWC6+pMaIXFmNr/0+Ra10LWkDqNkt+GSronBRGuo9ipi6POR45CV9k
+         ZFeiNWWC0nk+vMUaVcACGSccO0rbNVJApgWLbPukv31l6DKlTzB2beEhUYwSlnCMUlKl
+         pdJ4Z5tLfu+RLeyOdnJiwIBjHfIp5toAlTwHE=
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1790630722; x=1791235522;
-        h=mime-version:user-agent:content-type:autocrypt:references
-         :in-reply-to:date:cc:to:from:subject:message-id:x-gm-gg
+        d=1e100.net; s=20260707; t=1790631301; x=1791236101;
+        h=content-transfer-encoding:content-type:cc:to:subject:message-id
+         :date:from:in-reply-to:references:mime-version:x-gm-gg
          :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
          :content-type;
-        bh=+905VpPWFNsqdN9ZNh4c2Xt4scACgjmcpfbxIJWGn8g=;
-        b=vFeD9w9TDljbQGF+eIKnfBJi1HVTqKmdaCAsdVO9vYhLGKTKn4ZXz3mIBejK6ekyRy
-         ShvXsox17kWoHi8kgHAiG0aONmQjHdORaYfy5QQ9BNJD2o6iiVZZOOon5f1l28dJpjoV
-         wxFZMpUDvEixCZIBfg0JNIf3rRoyTIV1rkR7DOwf34QBZvhgjp6g+CfS3T0w3TXg0uHw
-         bOovzXbEAW316NjeoG4r9Bl2G7Ffm2pbYBAkk2Ohx9myoj0z3w/+HxUO6V5Na8Er3kaq
-         u//A1OWW2ilWY2IJJ6EoiLvMlWzA3VY9WxWIP5TRLcTzdTUJD0RNEWUqgHtSCz9RQdkS
-         p8Gg==
-X-Forwarded-Encrypted: i=1; AKwUvBzASzrv2ria1o362W219roz1ybroOPgzK+Xt0EaQ/S/1DpC7rTB3fDxNU22+wjv8YSrXhnwVnS+AiAjYoFvqpEm@lists.infradead.org
-X-Gm-Message-State: AFq9FYK+FHq/vZUvlgI0nw8ScGYVRD+tYIAHYTtQKI1c/bBd8l1RWmRq
-	500kkizxuorEJ9rl1+BdZubx7DXAMRBcArpyYOG9UCX9UEBuxp2Az21XeVwQuKEz54U=
-X-Gm-Gg: AYBFou2XNjkVOUOSSWvMd8xo+YghuOeki3TlWQzyT0Bk+FT1kSxpgqGbloInOdH9ZKB
-	9n1V7Q5Zn/8OE7XlPqFOlSf5ZHxi+9cHbvpsDIt1+D+QHnSqk1zeZLkYhkbqGtBmd33o2IzgESr
-	+fYFficfRiIZ2HYhGVhHxOoOeWkMTwJkInxWItQgJKrnTL96jkEiSgbJR/+QBUfXontgaTK94p1
-	swzKUXq7fFjRmluTg5je+bBz/XWaiLFn1+6lgcldQlAQiTncEOuvzQOgA4SUv8/B0dVNPNwL3I9
-	dMnoIaS2m9n7I9eTLXN2fZ4pXgRqrlxMuVooX0kDPQNenmF9+zcKLWRNCT9ueYfK9VVxxhB5OIN
-	75O93y+mYJIG7wv3X1fAqbEwBUUmSdMiKQK8MKcvhALkSz74BfHurNAFrZDKvQkk6CbyIEy+8es
-	sBUuazEtYmxgJ37VaCw1Y/Su010lH6Asasmi+3A4PG84ScEDjSgcv9SgJEqkFvRUdVh0G/bHxZb
-	MJdWvblaUizMQ==
-X-Received: by 2002:a05:6214:8409:b0:915:ebf7:34ad with SMTP id 6a1803df08f44-915ebf735a9mr45816036d6.12.1790630721868;
-        Mon, 28 Sep 2026 14:25:21 -0700 (PDT)
-Received: from ?IPv6:2606:6d00:11:34bd::5ac? ([2606:6d00:11:34bd::5ac])
-        by smtp.gmail.com with ESMTPSA id 6a1803df08f44-915e759a989sm35062676d6.31.2026.09.28.14.25.20
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 28 Sep 2026 14:25:21 -0700 (PDT)
-Message-ID: <1b837fecc1992e94bbe77229a2529c9eb1ac0c60.camel@ndufresne.ca>
-Subject: Re: [PATCH v10 0/3] Mediatek MT8189 JPEG support
-From: Nicolas Dufresne <nicolas@ndufresne.ca>
-To: Jianhua Lin <jianhua.lin@mediatek.com>, mchehab@kernel.org,
- robh@kernel.org, 	krzk+dt@kernel.org, conor+dt@kernel.org,
- matthias.bgg@gmail.com, 	angelogioacchino.delregno@collabora.com
-Cc: devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
-	linux-media@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
-	linux-mediatek@lists.infradead.org, 
-	Project_Global_Chrome_Upstream_Group@mediatek.com,
- sirius.wang@mediatek.com, 	vince-wl.liu@mediatek.com, jh.hsu@mediatek.com
-Date: Mon, 28 Sep 2026 17:25:19 -0400
-In-Reply-To: <20260720062829.7343-1-jianhua.lin@mediatek.com>
-References: <20260720062829.7343-1-jianhua.lin@mediatek.com>
-Autocrypt: addr=nicolas@ndufresne.ca; prefer-encrypt=mutual;
- keydata=mDMEaCN2ixYJKwYBBAHaRw8BAQdAM0EHepTful3JOIzcPv6ekHOenE1u0vDG1gdHFrChD
- /e0J05pY29sYXMgRHVmcmVzbmUgPG5pY29sYXNAbmR1ZnJlc25lLmNhPoicBBMWCgBEAhsDBQsJCA
- cCAiICBhUKCQgLAgQWAgMBAh4HAheABQkJZfd1FiEE7w1SgRXEw8IaBG8S2UGUUSlgcvQFAmibrjo
- CGQEACgkQ2UGUUSlgcvQlQwD/RjpU1SZYcKG6pnfnQ8ivgtTkGDRUJ8gP3fK7+XUjRNIA/iXfhXMN
- abIWxO2oCXKf3TdD7aQ4070KO6zSxIcxgNQFtDFOaWNvbGFzIER1ZnJlc25lIDxuaWNvbGFzLmR1Z
- nJlc25lQGNvbGxhYm9yYS5jb20+iJkEExYKAEECGwMFCwkIBwICIgIGFQoJCAsCBBYCAwECHgcCF4
- AWIQTvDVKBFcTDwhoEbxLZQZRRKWBy9AUCaCyyxgUJCWX3dQAKCRDZQZRRKWBy9ARJAP96pFmLffZ
- smBUpkyVBfFAf+zq6BJt769R0al3kHvUKdgD9G7KAHuioxD2v6SX7idpIazjzx8b8rfzwTWyOQWHC
- AAS0LU5pY29sYXMgRHVmcmVzbmUgPG5pY29sYXMuZHVmcmVzbmVAZ21haWwuY29tPoiZBBMWCgBBF
- iEE7w1SgRXEw8IaBG8S2UGUUSlgcvQFAmibrGYCGwMFCQll93UFCwkIBwICIgIGFQoJCAsCBBYCAw
- ECHgcCF4AACgkQ2UGUUSlgcvRObgD/YnQjfi4+L8f4fI7p1pPMTwRTcaRdy6aqkKEmKsCArzQBAK8
- bRLv9QjuqsE6oQZra/RB4widZPvphs78H0P6NmpIJ
-Content-Type: multipart/signed; micalg="pgp-sha512";
-	protocol="application/pgp-signature"; boundary="=-SM45MfqXGrobY1wEGs0I"
-User-Agent: Evolution 3.60.2 (3.60.2-1.fc44) 
+        bh=qMXZhXOkxtrjP55SDYES5mqvZlQYPy+Z9IGMIJjgKbE=;
+        b=phiel/Z/yKOIN9eaZTXgcRIZcHyt8o7vL1/SRoW4Bxr7zebBng7KX7eq7JYQAUmVcX
+         srs6lYBYwimWzdqrTxvQRBEKqE4FEo02ZBC19LU1mgF8zVMuBwK/oa6W+g2dFaqM4W07
+         MvxJ6/OlviEdKkIaQ/n57UriWB8OaRfm9rXfMtErXWrC08YBRFzzNOxsUZXN+Az4qXp8
+         DYCEIrsdR6ljDgTyYvBIkmZnpxz9gDeQgkWOUfIh1mkrHqR8NB44k/byQK2k7SYnAryc
+         X1bZLkZtpDtG+S5AL9EAfX/uOtXgykTmFfcKpLecgIVtA/4RAOEkjKs/a3KtbKPCeFNY
+         xWRQ==
+X-Forwarded-Encrypted: i=1; AKwUvBwEoBTjktob2ESWuq/AWtcxz0etlzJS2Sgn8tAqvwFDwxVKYCKbeXnRyXuM3ee/+G9QIxHhHQdwsO4jFPRR6UHt@lists.infradead.org
+X-Gm-Message-State: AFuF++l5NDFMJ0GorDfQUg3astYqMOxKusuBWIY/2SF4YqURbYb5x+s5
+	i2SlE1zX+TkX1zmbK39gxmu9R93hFTHdE0pLeqqB0jvTL6eHNLOa0EdRCQphafWTg63gSfOAwBM
+	LkxM=
+X-Gm-Gg: AYBFou0PiNBrctr/Yi7WWRTrI5oMIjNnfA+2/j783qAfe5JXPck5v+ehxZ6hsdrF1gg
+	nN6CoRDciveAnwxarSdFrB0NgPskKQYyMIm2IjKeROQb3m4/0upMCNR2KvrXXp2vNKAjTp5ZDS2
+	Nfi4K8jCa6JsfAr0S9RCZ7/wQtXMUbEFliGH9El7OLVPHp8+fDIh9NiBBIexNvhyHo63jxsFpxs
+	rEDn9ajXTYxGv8Cjtd+a7EwXq3MLAmLioPGZNJckogQt/lTpi/48gm4pIEb71QOpjSeBFadRmVp
+	bkggUeWqe9FWX3LBQDj0wDmLG7o/M+WtsNJUiZe7MLKMGNwyXZ8+WpZX4li7aU/KnhXulhSM6bG
+	/3SQdPQ0MYbGiC7xGK9iWG97U7VKQU5SOVVOv57uSN6wuB0+2PHSXTNTlTsziJLN2Eo7G1bqCu6
+	3K30jTMfMWYPVdyvcvirP6jb+r6LBVVSkRERwyWQP217nawZyS0mA09Ud3F0rVeZyhYheaEwK2q
+	7uIxM7CqjVs9T1qFfFQMfEbe07187Ay0XuMlQ==
+X-Received: by 2002:a17:907:9717:b0:c2d:be57:f742 with SMTP id a640c23a62f3a-c2df4dd4144mr37494366b.32.1790631301278;
+        Mon, 28 Sep 2026 14:35:01 -0700 (PDT)
+Received: from mail-wr2-f34.google.com (mail-wr2-f34.google.com. [74.125.225.98])
+        by smtp.gmail.com with ESMTPSA id 4fb4d7f45d1cf-6aae5dc1034sm4830789a12.15.2026.09.28.14.34.55
+        for <linux-arm-kernel@lists.infradead.org>
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Mon, 28 Sep 2026 14:34:58 -0700 (PDT)
+Received: by mail-wr2-f34.google.com with SMTP id ffacd0b85a97d-48af0707d41so143595f8f.1
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 28 Sep 2026 14:34:55 -0700 (PDT)
+X-Forwarded-Encrypted: i=1; AKwUvByDIB3C9oBNeg/aGA7kwCg76AwLVg1PARqPzNbvc6TP3Xj2+rpNlkAAjMPIkJT17LCFTKDpPeaPAyU2TKO1O9DJ@lists.infradead.org
+X-Received: by 2002:a05:6000:1788:b0:486:e60f:a4e3 with SMTP id
+ ffacd0b85a97d-48af1a8f107mr814148f8f.1.1790631294826; Mon, 28 Sep 2026
+ 14:34:54 -0700 (PDT)
 MIME-Version: 1.0
+References: <20260714222338.2965707-1-dianders@chromium.org>
+ <20260714152138.7.I5cef580a62c86ba6c3465ad336fa509afbdf1476@changeid>
+ <CABb+yY3_xBvQVFHEs=v39u7+TLjJRaVv3sg5pGgd0YxCruZ8Tw@mail.gmail.com>
+ <CAD=FV=X-fAJp=EG_yTAg+QQgNYRCt25947oHGHZuq-FEyirK0g@mail.gmail.com>
+ <CABb+yY2CH5A1ixfX9czgtEwsP95FN-2JVzN_wmRDRNsSuZY5PQ@mail.gmail.com>
+ <CAD=FV=XiguzS7nH1sE=BkXt+7G6-hhqyz5u3sjc4zAA9H7KqJg@mail.gmail.com>
+ <CABb+yY2_AvcnaTDmpL8gP4H2_Pp3HddrtNr5gvL4GCW2DPPvOw@mail.gmail.com>
+ <CAD=FV=VzJCb1nz+q5EZ33G5U6KZM_tXi8snL=KbUM3C5yymG4g@mail.gmail.com>
+ <CABb+yY2omp+g13UgZfiKWLux9J1P+=ed0U3F8AhS0iQK=kpN8w@mail.gmail.com>
+ <CAD=FV=WA2wFbk0=qFE0aZs9E5jg-EXzcrkPCk6VOMhbDroOQCw@mail.gmail.com>
+ <CABb+yY0W+244qaXqHdfEq9XFuQXBez7PVcDNrKooV9cFS8TS_Q@mail.gmail.com>
+ <CAD=FV=VW2h1zWDYWQ6LknX3O+3=EY665jde35Ly+UQzuscXy=Q@mail.gmail.com>
+ <CABb+yY2Cc9YGKb0ej7CZ_LQLw-iMQOtcAwLPier+X2ej1fWcJQ@mail.gmail.com>
+ <CAD=FV=U1DAuDN4eR_hZ2bbGoGkgkszDLPUDiosxh1aKg7Y1T=A@mail.gmail.com> <CABb+yY3n3QmxTPOyAuHz9JkOKbhRqKok+24THc_JfdxwzROWDw@mail.gmail.com>
+In-Reply-To: <CABb+yY3n3QmxTPOyAuHz9JkOKbhRqKok+24THc_JfdxwzROWDw@mail.gmail.com>
+From: Doug Anderson <dianders@chromium.org>
+Date: Mon, 28 Sep 2026 14:34:43 -0700
+X-Gmail-Original-Message-ID: <CAD=FV=XGka_QqGt5iK53vU704ZsvCrXUWvJ9ewo1=TCiepfz-g@mail.gmail.com>
+X-Gm-Features: AclHuK-jZYMHfBS5WdwcZpWCPaLhVSXzZ0R6bURtHTy1RcWpghu0fszYS6_LsfU
+Message-ID: <CAD=FV=XGka_QqGt5iK53vU704ZsvCrXUWvJ9ewo1=TCiepfz-g@mail.gmail.com>
+Subject: Re: [PATCH 7/7] mailbox: goog-mba: Introduce the goog-mba mailbox driver
+To: Jassi Brar <jassisinghbrar@gmail.com>, Rob Herring <robh@kernel.org>, 
+	Saravana Kannan <saravanak@kernel.org>
+Cc: Joonwon Kang <joonwonkang@google.com>, Subhash Jadavani <sjadavani@google.com>, 
+	Tudor Ambarus <tudor.ambarus@linaro.org>, Lucas Wei <lucaswei@google.com>, 
+	Brian Norris <briannorris@chromium.org>, Peter Griffin <peter.griffin@linaro.org>, 
+	=?UTF-8?Q?Andr=C3=A9_Draszik?= <andre.draszik@linaro.org>, 
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
+	linux-samsung-soc@vger.kernel.org, 
+	"open list:OPEN FIRMWARE AND FLATTENED DEVICE TREE BINDINGS" <devicetree@vger.kernel.org>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260928_142524_353295_7A8ECF52 
-X-CRM114-Status: GOOD (  23.55  )
+X-CRM114-CacheID: sfid-20260928_143504_945853_FDC0A179 
+X-CRM114-Status: GOOD (  31.80  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -119,128 +126,116 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-
---=-SM45MfqXGrobY1wEGs0I
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
-
 Hi,
 
-picked, ty
+On Tue, Sep 22, 2026 at 5:23=E2=80=AFPM Jassi Brar <jassisinghbrar@gmail.co=
+m> wrote:
+>
+> So I think clk_mailbox can acquire all 8 channels during probe and
+> maintain a list of idle channels from which it picks one and uses it
+> for an incoming clk_prepare(). If all channels are busy, the
+> clk_prepare() will sleep/block on a wait-queue which is nudged by
+> tx_done of a transfer after the channel is added back to the idle
+> list.
 
-Le lundi 20 juillet 2026 =C3=A0 14:28 +0800, Jianhua Lin a =C3=A9crit=C2=A0=
-:
-> This series is based on linux-next tag next-20260707.
->=20
-> This series depends on commit 7560349ee0d9 ("media: mediatek: jpeg:
-> support 34bits"), which introduced the `support_34bit` field in struct
-> mtk_jpeg_variant. That commit has already been merged via the media
-> tree and is present in linux-next as of next-20260707.
->=20
-> Changes compared with v9:
-> - Patches 1/3 & 2/3 (dt-bindings: decoder & encoder):
->   - Explicitly set `mediatek,larb: false` in the `else` branch of
->     the `allOf` block for older SoCs to prevent incorrect configuration
->     and ensure backward compatibility.
->=20
-> Changes compared with v8:
-> - Patches 1/3 & 2/3 (dt-bindings: decoder & encoder):
->   - Expand the description of the `mediatek,larb` property to explicitly
->     explain its necessity for accurately describing the hardware topology
->     (SMI LARB connection for memory bandwidth arbitration), independent
->     of the IOMMU driver's implicit handling.
->=20
-> Changes compared with v7:
-> - Patches 1/3 (dt-bindings: decoder):
->   - In the allOf constraints, only keep maxItems: 1 in the then=20
->     branch and minItems: 2 in the else branch; remove duplicated
->     constraints already defined at the top level
->=20
-> Changes compared with v6:
-> - Patches 1/3 (dt-bindings: decoder):
->   update the existing `allOf` condition for mediatek,mt8189-jpgdec to
->   make the 'mediatek,larb' property strictly required for MT8189 SoC.
-> - Patches 2/3 (dt-bindings: encoder):
->   Add an `allOf` condition to enforce that the `mediatek,larb` property
->   is strictly required when the compatible string contains
->   mediatek,mt8189-jpgenc.
->=20
-> Changes compared with v5:
-> - Patches 1/3 (dt-bindings: decoder):
->   - Drop top-level minItems/maxItems for clock-names per Krzysztof's
->     review.
->   - Refine allOf block to strictly enforce clock constraints.
->=20
-> Changes compared with v4:
-> - Refines the device tree bindings for JPEG decoder and encoder.
->   - Patches 1/3 (dt-bindings: decoder):
->     Moved the standalone compatible string mediatek,mt8189-jpgdec
->     into the first oneOf entry along with mt2701 and mt8173, as
->     suggested by Rob Herring. This correctly groups all independent
->     ICs and removes the redundant items wrapper.
->   - Patches 2/3 (dt-bindings: encoder):
->     Applied the same logic suggested by Rob Herring to the encoder
->     binding. Restructured the compatible property to clearly
->     distinguish between the standalone IC (mediatek,mt8189-jpgenc)
->     and the ICs that must fallback to mediatek,mtk-jpgenc.
->=20
-> Changes compared with v3:
-> - The v4 is resending the cover-letter, because the v3 cover-letter was
->   not sent successfully.
->=20
-> Changes compared with v2:
-> - Dropped the dts patch (arm64: dts: mt8188: update JPEG encoder/decoder
->   compatible) as it belongs to a different tree/series.
-> - Patches 1/3 (dt-bindings: decoder):
->   - Changed the MT8189 compatible to be a standalone `const` instead of
->     an `enum`.
->   - Added an `allOf` block with conditional checks to enforce the single
->     clock ("jpgdec") requirement for MT8189, while preserving the
->     two-clock requirement for older SoCs.
->   - Updated commit message to reflect the schema structure changes and
->     hardware differences.
-> - Patches 2/3 (dt-bindings: encoder):
->   - Changed the MT8189 compatible to be a standalone `const` instead of
->     an `enum` inside the `items` list, as it does not fallback to
->     "mediatek,mtk-jpgenc" due to 34-bit IOVA requirements.
->   - Updated commit message to explain the standalone compatible design.
-> - Patches 3/3 (media: mediatek: jpeg):
->   - Refined commit message for better clarity regarding 34-bit IOVA and
->     single clock configuration.
->=20
-> Changes compared with v1:
-> - Patches 1/4:
->   - Updating commit message
-> - Patches 2/4, 3/4:=20
->   - Updating commit message
->   - Adjusted property descriptions acorrding to hardware requirements
->   - Improved formatting for better readability and consistency
-> - Patches 4/4:
->   - Updating commit message
->=20
-> Jianhua Lin (3):
->   dt-bindings: media: mediatek-jpeg-decoder: add MT8189 compatible
->     string
->   dt-bindings: media: mediatek-jpeg-encoder: add MT8189 compatible
->     string
->   media: mediatek: jpeg: add compatible for MT8189 SoC
->=20
->  .../bindings/media/mediatek-jpeg-decoder.yaml | 50 ++++++++++++++++---
->  .../bindings/media/mediatek-jpeg-encoder.yaml | 38 +++++++++++---
->  .../platform/mediatek/jpeg/mtk_jpeg_core.c    | 44 ++++++++++++++++
->  3 files changed, 118 insertions(+), 14 deletions(-)
+Sorry for the delay in responding. I wanted to prototype the change
+and needed time to look at it.
 
---=-SM45MfqXGrobY1wEGs0I
-Content-Type: application/pgp-signature; name="signature.asc"
-Content-Description: This is a digitally signed message part
+So I think the crux of your current suggestion is that we have a
+non-idempotent "fw_xlate" function, right? We call it multiple times
+with the same arguments and it returns a different channel each time?
+In my prototype, it looked like this:
 
------BEGIN PGP SIGNATURE-----
+```C
+static struct mbox_chan *goog_mba_fw_xlate(struct mbox_controller *mbox,
+                                      const struct fwnode_reference_args *s=
+p)
+{
+  int i;
 
-iHUEABYKAB0WIQTvDVKBFcTDwhoEbxLZQZRRKWBy9AUCarrbPwAKCRDZQZRRKWBy
-9PnDAQCv7TgjjF2tq0hzFvsEpdGPWatoaiOzm0hk0reRJRopnQD9HmGDrTgAlCm0
-1lNiRF/hRw9t61kIcl0mv3QOQl05PQo=
-=A3bH
------END PGP SIGNATURE-----
+  if (sp->nargs)
+    return ERR_PTR(-EINVAL);
 
---=-SM45MfqXGrobY1wEGs0I--
+  for (i =3D 0; i < mbox->num_chans; i++) {
+    if (!mbox->chans[i].cl)
+      return &mbox->chans[i];
+  }
+
+  return ERR_PTR(-EBUSY);
+}
+```
+
+Then the client loops around and requests the same channel over and
+over again until it gets -EBUSY? Like:
+
+```C
+for (i =3D 0; i < FIFO_MAX; i++) {
+  client
+  chan[i] =3D mbox_request_channel(client[i], TX_CHAN);
+  if (IS_ERR(chan[i]) && PTR_ERR(chan[i]) =3D=3D -EBUSY)
+    break;
+}
+fifo_depth =3D i;
+```
+
+I _guess_ that works, but it still feels like a bit of a hack to me.
+You said you were worried about people abusing the "has_queue" API.
+The above feels like it's abusing the "fw_xlate" API, turning it from
+something that is normally a "lookup" into an allocator function.
+
++Rob, Saravana, and devicetree@vger.kernel.org. DT folks: is the above
+something that looks right to you?
+
+
+I researched whether other upstream drivers use of_xlate() /
+fw_xlate() as an "allocator" like this. I did find "exynos-mailbox,"
+which appears to be doing something similar. However, upon deeper
+digging it seems like "exynos-mailbox" isn't using this dynamic
+allocation for any compelling reason. It looks like, really,
+"exynos-mailbox" should just be returning one channel. The client
+(exynos-acpm) could just use the same channel for everything since:
+* It actually gets the _real_ channel ID out of the data.
+* It doesn't care about txdone.
+* All it does is ring a doorbell and there's no queueing.
+
+
+In any case, if using fw_xlate() as an allocator is truly the only way
+to proceed, I'll finish my prototype and send a v2, but I'm still
+skeptical that this is better than just adding queuing into the core.
+Speaking of which, I actually want to go back to something you said
+earlier. I asked a bit about this but I don't think I saw a response
+(sorry if I missed it!):
+
+> It is not the diff stat but about inserting a flag in the api to
+> introduce special case behavior. It is like adding one person to the
+> party introduces N-1 handshakes - the has_queue flag doesn't play well
+> with other configurations and may allow future platforms to abuse
+> has_queue to implement hacks.
+
+Can you elaborate more on this?
+
+1. How does "has_queue" not play well with other configurations?
+Everything should behave the same if "has_queue" isn't set, right? Are
+you saying that it will make the code too hard to understand, or
+something?
+
+2. How does this allow future programs to abuse "has_queue"? Won't
+they need to submit mailbox controllers to the mailbox subsystem,
+meaning they'll have to go through you? If someone is using
+"has_queue" to do a hack, can't you just NAK them?
+
+
+One other thing that my prototype turned up: If I do the "fw_xlate()
+as an allocator" solution, I believe I need to change the DT bindings
+by adding a "tx-payload-size" attribute, or I need to jump through a
+pile of awkward hoops. The reason is that I suddenly need to know the
+number of FIFO entries much earlier. The v1 of my patch simply figured
+out the "tx-payload-size" based on the first message sent, but now we
+need it earlier.
+
+While that's maybe not the end of the world, it's always unfortunate
+when we have to change the DT bindings to accommodate the software
+design.
+
+-Doug
 
