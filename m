@@ -4,74 +4,74 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C9B92CA5FA2
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 28 Sep 2026 16:38:02 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5C56BCA5FA1
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 28 Sep 2026 16:39:20 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=M/MstH2yf2DRt7ZMfWOotv8NrOEYhdb7bl9lXouyXqQ=; b=BORl2W8Jx/K8TxrCmJThr/Y0Gy
-	UPGtRv8mOBpLfEyJzhWkx1b8F8Br7/043BgQIVuHMlgt6VI9OUmDGfuwAljMgYtRGSU1jDQQuzKMU
-	U8hpe8ION+7M1JElMAlTasrsuYkST5uyF6HlA6YC05q/OgdEAwOviPzQxDKeYgriC3yLDKhU8LskY
-	+WkWi3DYGr1LAu9oLxF+lWdoF/y+i1AOM00zX31lmVGUvdF8VtnWG5UpWHsgrI9DANnPYN9q2theM
-	h+FCWLJH2GKg72QACYinww6VfL+rbsKepPXW4tGVkWaaG2vybalz0Vp55707U27rQLbpUzQ1WWbUK
-	BHCWg/YA==;
+	bh=39N4SJ5sD0wjIsHC5a7NtN6vI6BvpcPPu/06LAjzoVM=; b=oHnVAu4U6MC3vVxkC0G7QcIHvb
+	khtfr6DIbMCIGtYSTNTUwwcgBLMXQrIR7/h1AMMCqVqrXIVPulSoNHypuS28wQsWzlQf0uD/gTkEs
+	Go2yWJBzPsfKVNnVirj37tztmST1oknxbXY36apy4sHqrhhbyynnk0PX5/d8D3OzvSfKw1ZQZdmlZ
+	E1K7bYGStu7PHhGd6+TFiZUflxCwXTlALlsOjKtb6zJAHhT+fbBOoOeGigb1TpAOELlVDsG/ctDCy
+	LZiTOlmrMJ4NlJk/FNxFsK3pQBkVKsnSQr4pHTq+EPx+lpuGiLVOoRIVBap7y/f0S80sqZPgeAZmX
+	P3UIfqlg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xBEMW-000000013HE-018Y;
-	Mon, 28 Sep 2026 16:37:56 +0000
-Received: from mail-pl1-x62b.google.com ([2607:f8b0:4864:20::62b])
+	id 1xBENm-000000013Rg-0tUM;
+	Mon, 28 Sep 2026 16:39:14 +0000
+Received: from mail-pl1-x62e.google.com ([2607:f8b0:4864:20::62e])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xBEMU-000000013Gf-2ZME
+	id 1xBENj-000000013RD-4C4h
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 28 Sep 2026 16:37:55 +0000
-Received: by mail-pl1-x62b.google.com with SMTP id d9443c01a7336-2d3b445a84fso90605ad.1
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 28 Sep 2026 09:37:54 -0700 (PDT)
+	Mon, 28 Sep 2026 16:39:13 +0000
+Received: by mail-pl1-x62e.google.com with SMTP id d9443c01a7336-2d3b445a84fso35ad.1
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 28 Sep 2026 09:39:11 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20251104; t=1790613474; x=1791218274; darn=lists.infradead.org;
+        d=google.com; s=20251104; t=1790613551; x=1791218351; darn=lists.infradead.org;
         h=in-reply-to:content-disposition:content-type:mime-version
          :references:message-id:subject:cc:to:from:date:from:to:cc:subject
          :date:message-id:reply-to:content-type;
-        bh=M/MstH2yf2DRt7ZMfWOotv8NrOEYhdb7bl9lXouyXqQ=;
-        b=Ja36Op2wfPo5e1yEppAwmsc2igh31UjNHK7UWFLD8XxmJxc46UI9tYY843n5kzkKm3
-         LPYAkoCwHH4cu7XeyVM6vp6urZuEONfdVP9yDkfApQ31dvNAL5oOQN0VTXVWCUN4Jfcj
-         KZhBy6XYsIOJEl4BXYDYKkl3hBTztqCEpRy1jvRWn9vWDTTzdX8yRq2HE4v2kdZaYAiH
-         RLixQ1giirpXMLg6kwInSKFUdneP6ZrsIzsZ8fOGH1LmI0y/KNEFxBHwFvUMpTLNqBLt
-         LZC8RiCQTTwU7+dVlCtBqXFH1XADCJANPe02pEbFAud4Fa38+Typi3g9M2oWrfpQdlUt
-         ViiA==
+        bh=39N4SJ5sD0wjIsHC5a7NtN6vI6BvpcPPu/06LAjzoVM=;
+        b=hrRQLTkVvUCgUWn9P/0JrTy1OvUrLsxp9DDOhMj6NX6Qy4bj7gXfgV5nEcTaNK7M7+
+         cgR/ntahiaZSpDIzv9BMWmz1Tg9Jk7n8egMsYxF7l+b9ppKByaw5tUa/5uCE6RB5LsQf
+         YdEUsxAS8bOATNQ+UlQgdF9oIEd9IzBC8v6aNH97lNb0sc2m4RpkXKy13RyC1SRGZ61e
+         s1qH/3DtOY4qdaVFdDXFifXe1TjX0KywBt/JdemEpPbi5wVVSYHLBbh3ivudVcern8Ep
+         SJ9i3bFP/Xznps3V9CvSEwWMUB3INqtc7CC/s5C7sNiVGHxH9WVrsnOxvTals5OmJ43q
+         BzRQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1790613474; x=1791218274;
+        d=1e100.net; s=20260707; t=1790613551; x=1791218351;
         h=in-reply-to:content-disposition:content-type:mime-version
          :references:message-id:subject:cc:to:from:date:x-gm-gg
          :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
          :content-type;
-        bh=M/MstH2yf2DRt7ZMfWOotv8NrOEYhdb7bl9lXouyXqQ=;
-        b=Q2nOWg3af230tHQqpfqRL51O1cDFZBv8k24oWHPUDHHKqLambrbiwqYuv+5Uzx8RtJ
-         g/Hm7cPa+9HL0cEnjQqYaqYggOajMCSxP1FubAkscXRLuFqSFmPOtys6CChObUu40H6O
-         h0D6DLjKc+ADUL1AiNqofglZJ8Des0Z7LmMKeyCvpNnNbOBGO6iYN9gGNIW9iNnzP+9e
-         HRFMkcCDSMNsGrcDRcjAjGBbmp7JdTFrWlHM3B8wuMf+tCWh1VGaoo6lgy26MdnB7uJ3
-         14UNkyt88vpgGKqII8sjALwVgVPurCMFgIXRFYZVs/YjWPdoTKYbgFzYyH6w7/24BOZi
-         BS6A==
-X-Forwarded-Encrypted: i=1; AKwUvBzm8Dgora8lQ6ZC1ue+4GkAD4711BRpU5nrwRixyo6JIoHirRUE6bMBeJeQ/1ybrTJA9Wm44PY/GwkviJIFDgRg@lists.infradead.org
-X-Gm-Message-State: AFq9FYJdQL7Cid6jVEviZAnfJH29ClEjtRk6bezgMeG1HNtzvkVX2rnL
-	mlwRhLlIOHP66iwfu1yVPBbWHp3v5JET37X5LYEhZPPWZH5MhtAZIkzhcfbRB3LNsQ==
-X-Gm-Gg: AYBFou0h5rkHqZE9xfGvuZo2YbCXG38D5YS4OvVnRjm31VmpZet0JgRB++lhOrvSTde
-	XjrWMxf3Y6mY7cWjHHqJfRIlF22cqZEsl2VGxuN6WJNBkFM/iWmPiaZWV7ov93/KACTlEGDPwyV
-	fJcYjKDDNcCvYt7vzX8jaIq6byrmNAXUIbccAfZxAC9Kixx+3rpw4uZLVof+MlyMzGtLKaeUpas
-	7BdOZh9bc73s616KnJvsJ218Mg0IQGqubENgIIR0NUOvoRnU+k1bo5LphNtGANBeZhdVsCXzRfF
-	rAJHMdZrfErsXXlkRJ8CXfzhukEw0OThVVZnljNw9Pu6dGrymqtGGIIwcpf7E7fGoF9dRguMA2e
-	Q9y82/lhyVjPtrLJ+eEq1ly7+QqND5kKO5AbASUHGD1KRFyfxQzMOvT48NMTUMFJIBCXgMZ3itw
-	a/bWh9JIyMt9+Guafx7TApw6tJjuM8fOV2gS138hjh5FWIVutCQByAG79E29qAz2JZZgfeEj5+W
-	YgSQVveC3eqsI4kAqUoTo4ycMJL304/0A+c
-X-Received: by 2002:a17:902:e884:b0:2d6:3c22:994e with SMTP id d9443c01a7336-2dfa976fec0mr5954175ad.11.1790613472819;
-        Mon, 28 Sep 2026 09:37:52 -0700 (PDT)
+        bh=39N4SJ5sD0wjIsHC5a7NtN6vI6BvpcPPu/06LAjzoVM=;
+        b=CQuCPKY6wFIWkuP15Wx9dkYGXIRxcaBKxc2rWLfp84sSgRrxAPVEzt425KuoIESL+9
+         CFTVB70fId2epZOYKP2X94R/ppQ6gvBnBtwNtVkTMfB+DkNcaocjUSLQpe/+is3p6axw
+         puR+6CplLtUcDGO5c0X7AKf0yXEpxLeJr019uOp0inXeW6q4xPwpUyKDxpqHxdN7UZ4q
+         4eDSp1BmTMAu52Lrltyui//5lGrnbEhIGg2Jl6+RciP8ykpDF3qxDs/cSp6JBduP/tq0
+         RWmI7kiD2WXhKZPTCc4bOMlaA5+KqqF2V6fZjCKGeb86zh4BcyaZLsThxcqOTWkEPoi8
+         G8nQ==
+X-Forwarded-Encrypted: i=1; AKwUvBxxk1hxQ29baDBHAeReNTdWkbcbNeyITKqUHbROTzcQIsKlRtHEVkTV+RD3+X1tZ3SfMU9f6fcjGr9efm0745wG@lists.infradead.org
+X-Gm-Message-State: AFq9FYLOCBrz9nhtAsvc8ypQ2htxOntzjR+tQbsFR4OODjBZkIJNxmPr
+	QaB1JtI0E7bGUzfM+WeOMrRQpt2GCPOMC9pE/Xj/g4Hs+wRuITJyDUbXFEQLmdvINg==
+X-Gm-Gg: AYBFou3gR8WCa52WhDnxD37f2jVSDnCSqm86/twCN3GipSvx4X0Qzu0NW19KgQVTrVI
+	Q01w3v2O7igbs62qKvBUBBbBYFtgiK9nbi8Sc0iy6SARHlQGqubJ3DYlf63V/VXyyIuY6B/8acX
+	McITJ/VbuGsdBVhcSHg9hbA5hwl9BIIZ7Cvy3nUyBhO+dSGaa97dwnhoFsHUriEpbzKowPTURSR
+	9aC5ct38PFefwxdmUvnt4iAqV0hRuvkUqMHCB18wf+JX2Yw8qGp7H1CG/x4ucFOtBLWMZoTVuKR
+	k335p9wr2OznIQhzPqvtniMogS8tqk88B5MPS4KbY0W7gMI8FNKLaO8XtjXPcK+NcHYaAC7l8Cg
+	gZGDkdq5wbWDasATr+0oPPElGQWKBz+KzYo7qGwNkGI9tWz/W+Jo+gg3CpQ+d99L30ygDTgZXVF
+	Fkwhn1NXqqGWw6eSXcw+FJwlLbyQnVYMVh9OFNzQYXGGlk8UHM82L5SiaBT6oBlnZJIj3B5NT4G
+	ibMVgNK+OZX9GhtRzm1ciI7L+zXFMPnOyhXosEiBDB0hUA=
+X-Received: by 2002:a17:903:4b0c:b0:2d5:db3d:1a42 with SMTP id d9443c01a7336-2dfa9773f0fmr7086335ad.15.1790613550389;
+        Mon, 28 Sep 2026 09:39:10 -0700 (PDT)
 Received: from google.com (105.211.142.34.bc.googleusercontent.com. [34.142.211.105])
-        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-87fea78fedbsm4448464b3a.23.2026.09.28.09.37.47
+        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-3a498057a62sm330376a91.13.2026.09.28.09.39.05
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 28 Sep 2026 09:37:52 -0700 (PDT)
-Date: Mon, 28 Sep 2026 16:37:44 +0000
+        Mon, 28 Sep 2026 09:39:09 -0700 (PDT)
+Date: Mon, 28 Sep 2026 16:39:02 +0000
 From: Pranjal Shrivastava <praan@google.com>
 To: Jason Gunthorpe <jgg@nvidia.com>
 Cc: Catalin Marinas <catalin.marinas@arm.com>,
@@ -91,20 +91,18 @@ Cc: Catalin Marinas <catalin.marinas@arm.com>,
 	Samiullah Khawaja <skhawaja@google.com>,
 	Mostafa Saleh <smostafa@google.com>, stable@vger.kernel.org,
 	Vijayanand Jitta <vijayanand.jitta@oss.qualcomm.com>
-Subject: Re: [PATCH v7 4/9] iommu/arm-smmu-v3: Optimize range invalidation
- for latency
-Message-ID: <arqX2OC71JneElBJ@google.com>
+Subject: Re: [PATCH v7 6/9] iommu/arm-smmu-v3: Precompute the invalidation
+ commands
+Message-ID: <arqYJgFdbcyAn__v@google.com>
 References: <0-v7-e84261bbe7cd+2ea80b-smmu_tlbi_jgg@nvidia.com>
- <4-v7-e84261bbe7cd+2ea80b-smmu_tlbi_jgg@nvidia.com>
- <arpohmaJTPEEI7mi@google.com>
- <20260928135007.GA1616761@nvidia.com>
+ <6-v7-e84261bbe7cd+2ea80b-smmu_tlbi_jgg@nvidia.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20260928135007.GA1616761@nvidia.com>
+In-Reply-To: <6-v7-e84261bbe7cd+2ea80b-smmu_tlbi_jgg@nvidia.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260928_093754_657242_9D6C9072 
-X-CRM114-Status: GOOD (  31.89  )
+X-CRM114-CacheID: sfid-20260928_093912_040839_A6A40335 
+X-CRM114-Status: GOOD (  12.21  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -119,75 +117,17 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Sep 28, 2026 at 10:50:07AM -0300, Jason Gunthorpe wrote:
-> On Mon, Sep 28, 2026 at 01:15:50PM +0000, Pranjal Shrivastava wrote:
-> > > -/* Used by non INV_TYPE_ATS* invalidations */
-> > > -static void arm_smmu_inv_to_cmdq_batch(struct arm_smmu_inv *inv,
-> > > +/*
-> > > + * One TLBI command per IOTLB entry, assuming the entries are all at least
-> > > + * iopte_granule sized. Returns false if too many commands would be needed which
-> > > + * indicates too high a latency. The threshold is similar to MAX_DVM_OPS in
-> > > + * arch/arm64/include/asm/tlbflush.h for the 4k PAGE_SIZE.
-> > > + */
-> > > +static bool arm_smmu_cmdq_batch_add_single(struct arm_smmu_device *smmu,
-> > > +					   struct arm_smmu_cmdq_batch *cmds,
-> > > +					   struct arm_smmu_cmd *cmd,
-> > > +					   struct arm_smmu_tlbi *tlbi)
-> > > +{
-> > > +	unsigned long num_ops = tlbi->size / tlbi->iopte_size;
-> > > +	unsigned long iova = tlbi->iova;
-> > > +	unsigned long i;
-> > > +
-> > > +	if (!num_ops || num_ops > 512)
-> > > +		return false;
-> > > +
-> > 
-> > Should this be ">= 512"? The old arm_smmu_inv_size_too_big() and
-> > arm64's __flush_tlb_range_limit_excess() both fall back to a full
-> > invalidation at exactly 512:
-> > 
-> >         return pages >= (MAX_DVM_OPS * stride) >> PAGE_SHIFT;
-> > 
-> > 512 is what a walk flush could generate. For example, when 
-> > __arm_lpae_unmap() frees a last-level table on a 4K granule,
-> > it calls io_pgtable_tlb_flush_walk(iova, SZ_2M, SZ_4K), hence,
-> > num_ops == 512.
-> > 
-> > Before this patch that was a single TLBI_NH_ASID/TLBI_S12_VMALL, now
-> > it becomes 512 VA TLBIs + CMD_SYNC for every 2M table freed on a
-> > non-RIL SMMU. The same check carries into arm_smmu_tlbi_calc_single()
-> > later in the series.
+On Mon, Sep 21, 2026 at 08:55:14PM -0300, Jason Gunthorpe wrote:
+> Store the required cmd data in the tlbi and just copy it out when
+> processing each item in the invs list. The cmd form only depends on if the
+> instance supports range invalidation or not, otherwise it is always the
+> same.
 > 
-> I had set it deliberately like that so that a table flush would issue
-> singles. That is largely based around the feedback from before that we
-> shouldn't over invalidate.
+> This avoids redundant calculations for each invs entry.
 > 
-> We've been insensitive to that issue in the past, and I'm going to
-> argue the >= of today's code is a bug as it effectively made alot of
-> iopgtable actions turn into new full invalidations, while originally
-> they were range bound singles.
-> 
-> So I view this choice as a return to the historical behavior before we
-> started to fix the soft lockup issues. I guess it crept it during one
-> of the refactorings where we merged the SVA limitation into the main
-> flow.
-> 
-
-Makes sense, thanks. I checked and before the invs rework the only cap
-was CMDQ_MAX_TLBI_OPS in the SVA notifier; the io-pgtable path issued
-singles without any limit.
-
-
-> Granted I didn't notice this detail that the current code was 511 not
-> 512, I will add a remark to the commit message:
-[...]
->     The current code switches at 511, but this turns every table removal
->     into a full invalidation. Change to 512 to try to minimize the amount
->     of full invalidation.
-
-Nit: that holds for a 4K granule. With 16K/64K a table removal is still
-a full invalidation (2048/8192 ops), and the limit there actually drops
-from 2047/8191 to 512, so it may be worth incorporating in the remark too.
+> Reviewed-by: Nicolin Chen <nicolinc@nvidia.com>
+> Tested-by: Nicolin Chen <nicolinc@nvidia.com>
+> Signed-off-by: Jason Gunthorpe <jgg@nvidia.com>
 
 Reviewed-by: Pranjal Shrivastava <praan@google.com>
 
