@@ -4,62 +4,67 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 08F93CA5FA2
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 28 Sep 2026 10:58:41 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 92487CA5FA2
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 28 Sep 2026 11:01:34 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=X6BqH/yZqqamfLVukmDf/rY/Qu5OyQBwyrHbGMFypLk=; b=Pdj/iWspoJ9OVJtcCDjql0NYOD
-	xRGHI7BBEgZzp8+CZyyr0bv4yG7ATGqtzn4JwO4eljJQqQhRLj/vByQcdftZKMWNUeereHNlVimOz
-	B7AK9oJJ5vLfe0Syn0JOe/cjVa7iVXdpv3yWC4z56W702Cym4DY+DrIeW8p1RmoEcmZ1DK/G13fcx
-	7baWoKZ9NLan+hW8e/ALe2k1TYNydpDn2Lg19yhSJOWcpt206sSldD4aqWiniK+UPywfI58I5A6VK
-	emYkfRJjhOsGsEl+Vr9szPML7X4HykUtWpri3jsHDvT0hc6oKPrYpcyPhq1bA0y6AppE5WqDAvUuU
-	0zFuE9Qw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=kcKqgqciL8gG81VXyT94UOFCLUqvuoxMoCZmb2U1Nw4=; b=hWd56N9B8iI9fVm/2NrnFn/dVs
+	79WxmDQipxLqo/bk+OMCqojAFlULUm87KBGEc8Sjc4+oulT4quS4PpShMy4bZE2Kghx9QR4p/4Ibk
+	qkXBtWJD7799KcHMrNORuClvcYQ3NzkiPu4KXODmF8zq0ibYgsM4kN8gGMav2l14X4ybcVh/154fb
+	y9nPtKZWpd+3P2Nq0Itk/E3aUwbVod4YI3J9DPlvEHyd1xbbt3pTvHciHwA90qna4j7ibzi47kJIc
+	bjXmvtP3nMLfIjr1oh4hYGVv5BtblMrEW+PYAIIlUfdLZksf6HS7Nxa+96JFyO+6xB6xwwwQd+eM/
+	UUT8dT9g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xB947-00000000PK7-2aZp;
-	Mon, 28 Sep 2026 10:58:35 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
-	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xB946-00000000PJi-2JFV;
-	Mon, 28 Sep 2026 10:58:34 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id D547143CBF;
-	Mon, 28 Sep 2026 10:58:33 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id E95101F0089C;
-	Mon, 28 Sep 2026 10:58:32 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1790593113;
-	bh=X6BqH/yZqqamfLVukmDf/rY/Qu5OyQBwyrHbGMFypLk=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=Ns+HJAuX8MZW2S8YIT3Le/zJN+nCV8ge55j9YedS41I99A+PRZUK6XvaZlLSyjC+8
-	 JU8YRnfm082rBhoRP7YHW6ngTNMi8IARYyvLtBDsj6O5HnKesAnfg+huj010/ndQDZ
-	 ylgLp/WSGZCTmgwonyDVpaKaKL4PvgoEl8+0oIYkL5FiL6HOIfxXIHpi6Oqb+k6OAR
-	 lH+jQdrjtPwNbHEJbGirAXXNZGPuYe1mIK+qKmZVCALDw0cO5kiOVxVifuUwQwEzMm
-	 Nt5J1/ZnwytNKmrt7kUiCIgoB04VZ0q1VpzbhGOlfcW90j6ByErEShHlCxSJc2Lqlw
-	 5Q8c2JE6hJGYA==
-Date: Mon, 28 Sep 2026 12:58:29 +0200
-From: Krzysztof Kozlowski <krzk@kernel.org>
-To: Zhentao Guo <zhentao.guo@amlogic.com>
-Cc: Neil Armstrong <neil.armstrong@linaro.org>, 
-	Kevin Hilman <khilman@baylibre.com>, Jerome Brunet <jbrunet@baylibre.com>, 
-	Martin Blumenstingl <martin.blumenstingl@googlemail.com>, Mauro Carvalho Chehab <mchehab@kernel.org>, 
-	Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
-	Conor Dooley <conor+dt@kernel.org>, linux-arm-kernel@lists.infradead.org, 
-	linux-amlogic@lists.infradead.org, linux-kernel@vger.kernel.org, linux-media@vger.kernel.org, 
-	devicetree@vger.kernel.org
-Subject: Re: [PATCH v10 3/6] media: dt-bindings: Add Amlogic V4L2 video
- decoder
-Message-ID: <20260928-efficient-secret-manatee-2fcca6@quoll>
-References: <20260924-b4-s4-vdec-upstream-v10-0-1289303a58a4@amlogic.com>
- <20260924-b4-s4-vdec-upstream-v10-3-1289303a58a4@amlogic.com>
+	id 1xB96u-00000000PaT-0Le7;
+	Mon, 28 Sep 2026 11:01:28 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1xB96r-00000000Pa4-1ttF
+	for linux-arm-kernel@lists.infradead.org;
+	Mon, 28 Sep 2026 11:01:26 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id A3ED81595;
+	Mon, 28 Sep 2026 04:01:19 -0700 (PDT)
+Received: from [10.57.12.79] (unknown [10.57.12.79])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id B95943F86F;
+	Mon, 28 Sep 2026 04:01:19 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
+	t=1790593283; bh=OPgOww627zD19BL+U//itmZv8dXx28KLUtom1uWHtxo=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=tKg2YA0RHPuzdmRwV0lPGoDlgCUybqftje3GGS1BYH9CKtDCPS2NkvtEfCoAcTdbL
+	 ggVP7QGb7VEoJkplTGJTVfZVKoE56b1IVaD/Hu4bXFFzuEw+HScrzYRvw5CHvILr8y
+	 oMAmklYeDEboPJMEJeAx1kRbKYe4TFF0mFie7dms=
+Message-ID: <4e315360-5b7a-4a0e-99c0-679a0271e625@arm.com>
+Date: Mon, 28 Sep 2026 12:01:18 +0100
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-In-Reply-To: <20260924-b4-s4-vdec-upstream-v10-3-1289303a58a4@amlogic.com>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v18] arm64: mm: Handle Granule Protection Faults (GPFs)
+Content-Language: en-GB
+To: Catalin Marinas <catalin.marinas@arm.com>
+Cc: kvm@vger.kernel.org, kvmarm@lists.linux.dev, maz@kernel.org,
+ will@kernel.org, linux-kernel@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, steven.price@arm.com,
+ aneesh.kumar@kernel.org, oupton@kernel.org, gshan@redhat.com,
+ joey.gouly@arm.com, tabba@google.com, yuzenghui@huawei.com,
+ linux-coco@lists.linux.dev, gankulkarni@os.amperecomputing.com,
+ sdonthineni@nvidia.com, alpergun@google.com, fj0570is@fujitsu.com,
+ WeiLin.Chang@arm.com, lpieralisi@kernel.org, enju.kohei@fujitsu.com
+References: <20260913070459.2547407-1-suzuki.poulose@arm.com>
+ <aqrGPK0lFBFXL2qY@arm.com> <985520fa-99b0-4620-bfee-8e6321b36104@arm.com>
+ <aqvCwM_73qMpqzvV@arm.com> <749ab0c9-810d-4989-8fa5-1706124f05bc@arm.com>
+ <arKVcjCOJf8p9rWL@arm.com>
+From: Suzuki K Poulose <suzuki.poulose@arm.com>
+In-Reply-To: <arKVcjCOJf8p9rWL@arm.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260928_040125_580500_D13AC3CA 
+X-CRM114-Status: GOOD (  20.86  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -74,46 +79,101 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Sep 24, 2026 at 03:55:10PM +0800, Zhentao Guo wrote:
-> Add bindings for Amlogic hardware decoder accelerator.
-> 
-> Signed-off-by: Zhentao Guo <zhentao.guo@amlogic.com>
-> ---
->  .../devicetree/bindings/media/amlogic,s4-vdec.yaml | 114 +++++++++++++++++++++
->  1 file changed, 114 insertions(+)
-> 
-> diff --git a/Documentation/devicetree/bindings/media/amlogic,s4-vdec.yaml b/Documentation/devicetree/bindings/media/amlogic,s4-vdec.yaml
-> new file mode 100644
-> index 000000000000..751043c3d9cc
-> --- /dev/null
-> +++ b/Documentation/devicetree/bindings/media/amlogic,s4-vdec.yaml
-> @@ -0,0 +1,114 @@
-> +# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
-> +# Copyright (C) 2025 Amlogic, Inc. All rights reserved
-> +%YAML 1.2
-> +---
-> +$id: http://devicetree.org/schemas/media/amlogic,s4-vdec.yaml#
-> +$schema: http://devicetree.org/meta-schemas/core.yaml#
-> +
-> +title: Amlogic Video Decode Accelerator
-> +
-> +maintainers:
-> +  - Zhentao Guo <zhentao.guo@amlogic.com>
-> +
-> +description:
-> +  The Video Decoder Accelerator present on Amlogic SOCs.
-> +  It supports stateless h264 decoding.
-> +
-> +properties:
-> +  compatible:
-> +    const: amlogic,s4-vdec
-> +
-> +  reg:
-> +    minItems: 2
+Hi Catalin
 
-What is happening here? Previous version was different.
+On 22/09/2026 15:49, Catalin Marinas wrote:
+> On Tue, Sep 22, 2026 at 02:21:13PM +0100, Suzuki K Poulose wrote:
+>> I had another look and we could handle this via kvm_fault_is_gmem_abort()
+>> see in arch/arm64/kvm/mmu.c:
+>>
+>>
+>> diff --git a/arch/arm64/kvm/mmu.c b/arch/arm64/kvm/mmu.c
+>> index 87e49251e0447..af5a4bf961aae 100644
+>> --- a/arch/arm64/kvm/mmu.c
+>> +++ b/arch/arm64/kvm/mmu.c
+>> @@ -1731,6 +1731,9 @@ static int gmem_abort(const struct kvm_s2_fault_desc
+>> *s2fd)
+>>          gfn_t gfn;
+>>          int ret;
+>>
+>> +       if (!kvm_slot_has_gmem(s2fd->memslot))
+>> +               return -EINVAL;
+> 
+> I wonder whether we should add a KVM_BUG_ON() here. With the rest of the
+> changes, we should never get in this situation. Well, to be revisited
+> for private devices.
+> 
+> Also maybe move it to the caller, kvm_vm_mem_abort(), and not change
+> kvm_fault_is_gmem_abort(). Something like:
+> 
+> 	if (private_ipa_fault(kvm, s2fd->fault_ipa) &&
+> 	    KVM_BUG_ON(!kvm_slot_has_gmem(s2fd->memslot), kvm))
+> 		return -EIO;
+> 
+> To me it makes more sense for gmem_abort() to be called only *if* it's a
+> gmem slot. So any inconsistency, avoiding user_mem_abort() for private
+> memory, should be done in the caller. I assume the caller will also have
+> to route the private device path as well rather than rely on
+> gmem_abort().
+> 
+>> +
+>>          if (!perm_fault) {
+>>                  memcache = get_mmu_memcache(vcpu);
+>>                  ret = topup_mmu_memcache(vcpu, memcache);
+>> @@ -2277,10 +2280,12 @@ static bool private_ipa_fault(struct kvm *kvm,
+>> phys_addr_t fault_ipa);
+>>   static bool kvm_fault_is_gmem_abort(struct kvm *kvm,
+>>                                      const struct kvm_s2_fault_desc *s2fd)
+>>   {
+>> -       if (!kvm_slot_has_gmem(s2fd->memslot))
+>> -               return false;
+>>          if (kvm_memslot_is_gmem_only(s2fd->memslot))
+>>                  return true;
+>> +       /*
+>> +        * For Realms, all private faults must be backed by GMEM.
+>> +        * TODO: Handle Trusted device private memory mappings.
+>> +        */
+>>          if (private_ipa_fault(kvm, s2fd->fault_ipa))
+>>                  return true;
+>>          return false;
+>>
+>>
+>> Also, I have the following hunk for preventing memslot modifications.
+>> I will add this to v20 integration branch, which is almost ready ;-)
+>>
+>> diff --git a/arch/arm64/kvm/mmu.c b/arch/arm64/kvm/mmu.c
+>> index 582b48e34486b..87e49251e0447 100644
+>> --- a/arch/arm64/kvm/mmu.c
+>> +++ b/arch/arm64/kvm/mmu.c
+>> @@ -2783,6 +2783,18 @@ void kvm_arch_commit_memory_region(struct kvm *kvm,
+>>          }
+>>   }
+>>
+>> +static bool kvm_prevents_memslot_change(struct kvm *kvm, enum kvm_mr_change change)
+>> +{
+>> +       /* Cannot modify memslots once a pVM has run or Realm created */
+>> +       if (change != KVM_MR_DELETE && change != KVM_MR_MOVE)
+>> +               return false;
+>> +
+>> +       if ((kvm_vm_is_protected_pkvm(kvm) && pkvm_hyp_vm_is_created(kvm)) ||
+>> +            kvm_realm_is_created(kvm))
+>> +               return true;
+>> +       return false;
+>> +}
+>> +
 
-Best regards,
-Krzysztof
+This needs to be tweaked for Realm to support non-secure device 
+assignment. Aneesh reports that the Device assignment fails now,
+because the Device BAR reset deletes the memory slot and re-registers
+it, which the above change prevents.
+
+I will modify that to
+1. Prevent "Guest-memfd" backed memory slot deletion. Makes sure that
+    nothing can replace a private memory slot.
+2. Allow non-Guest-memfd backed memory slots to be created
+   after the Realm is created. We anyways prevent "private" memory
+   to be mapped from a non-Guest-memfd memslot.
+
+Suzuki
 
 
