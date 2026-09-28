@@ -4,78 +4,78 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B9401CA5FA2
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 28 Sep 2026 21:03:37 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6B086CA5FA1
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 28 Sep 2026 21:08:41 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Content-Type:
-	References:In-Reply-To:Date:Cc:To:From:Subject:Message-ID:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=l4T9ZWQB7QBcWvTS+1rzIF8s9gFe3ptJqIVmbkOas6w=; b=pm9b+IxijHMT3n/xnyJhdjrx9g
-	LfT+Cvrbt1iBz7WnekMx/lMspER3Es4w9ctC9bWxykoyrEtYvJrgGhAYbplWSFD/nEg1CGeZSunf3
-	IF0t94kI8ayX1SqLU83pAClm1gp722vktugZGgxOFx8spiHe0C2jzirrKxBNCH1Kbu4JsizPRMcn0
-	saSeOmwtoZIn53/KSnigkzxdj7gPSE4hgJLfH0CF7Xz9i2uwwyT7Yz5A2zxBY31xNCy1kERCAh4Up
-	akHQBhAhDeAi77uzOYRaybaOV8Wjr1iboJd9CpzU3dr5K2g6Hq3ldS8Utdo6FQTaEUeV/vZS5SrCY
-	rTV9CtHA==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
+	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:Message-Id:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:From:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=+iGvRCyA37i6FeCjp03nx9FENBP3HHrZKK42V4lEkEU=; b=QgaEq7niw+/JVm/cAjbb8Vc/cy
+	8pF0NkcYspBjN3Btvn77/lfSbWMQW18LttT+3bcc25SW3rbk1kb6skBVhWzf1yyWcMSMZO7ssckio
+	H0QYRKuB6D5FfneAYbj4Q+1qmHsyXBySEEqBsgGird9yeZNEOUUT3uCehYtgqNd00xcTpND9GxtVA
+	AFwZCeVWbQW24dwlngMHY2D0B+W2PvP0E5KqpH6KxSlkuOxKrPBeD/ajXfEWRPsSiB8JBjlW52Mq8
+	7Y1WEpyO982gubGJauPN90hliCdAakuzQL7PRq8Lv+zrRoCIL7IDwij6ow/3qxtiwjUqate4j3KNG
+	5d+02nWg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xBIVW-00000001eBO-01xx;
-	Mon, 28 Sep 2026 21:03:30 +0000
-Received: from bali.collaboradmins.com ([2a01:4f8:201:9162::2])
+	id 1xBIaQ-00000001eYq-3I7W;
+	Mon, 28 Sep 2026 21:08:34 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xBIVS-00000001eAW-3b5u;
-	Mon, 28 Sep 2026 21:03:28 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
-	s=mail; t=1790629402;
-	bh=81KJ3JqM+1k+n1v6q9w+1zoo6645pNbWs+88QNJdWp4=;
-	h=Subject:From:To:Cc:Date:In-Reply-To:References:From;
-	b=PgKrb0N4kZC+wFpXYdIBlC7s59nGnWQX46UiOYxq1kEjFdsxoSSo/zRm7SMYEs5Uu
-	 WEVA8RbFmS6Y9IwoVmHeSTiXAFH9ddXz8y7eLwHZCCPxWLlaF0OQikLGCtgJy/QYfB
-	 U6qLJOMQ0fVzv4QXkNmrC1RC62GSJCVp9utM8f3iDj2ZjoczSZd6oGTbDX/2oLVolq
-	 LVEJiiXoDhUv1voHiCv0FudzVrWw28kBrvs5vsvyyDHGxggoVO/Q1Um/rXXpR+BvnD
-	 T0Wr8EI92luTTek1BrrLKeI/Iiph2bvdztKJSfZouQkn3bjF5ANMGiGVbSI4OJzFW3
-	 LAA2UbK9mTp2A==
-Received: from [100.64.0.214] (unknown [100.64.0.214])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange secp256r1 server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(No client certificate requested)
-	(Authenticated sender: nicolas)
-	by bali.collaboradmins.com (Postfix) with ESMTPSA id 7C7FC17E0074;
-	Mon, 28 Sep 2026 23:03:21 +0200 (CEST)
-Message-ID: <bf9cb0dc0e6c6b313ca1491a068516bcf7aaffcc.camel@collabora.com>
-Subject: Re: [PATCH v4] media: rkvdec: fix clk reference leak on unbind
-From: Nicolas Dufresne <nicolas.dufresne@collabora.com>
-To: Francesco Saverio Pavone <pavone.lawyer@gmail.com>, jonas@kwiboo.se, 
-	detlev.casanova@collabora.com, hverkuil@kernel.org, mchehab@kernel.org
-Cc: ezequiel@vanguardiasur.com.ar, heiko@sntech.de,
- linux-media@vger.kernel.org, 	linux-rockchip@lists.infradead.org,
- linux-arm-kernel@lists.infradead.org, 	linux-kernel@vger.kernel.org
-Date: Mon, 28 Sep 2026 17:03:20 -0400
-In-Reply-To: <CAMhzubpF5UQZ6b3F9EUM7U_HJUJ6gB9Px-9v=dCW6v-4CVBLKw@mail.gmail.com>
-References: <20260717154505.83935-1-pavone.lawyer@gmail.com>
-	 <CAMhzubpF5UQZ6b3F9EUM7U_HJUJ6gB9Px-9v=dCW6v-4CVBLKw@mail.gmail.com>
-Autocrypt: addr=nicolas.dufresne@collabora.com; prefer-encrypt=mutual;
- keydata=mDMEaCN2ixYJKwYBBAHaRw8BAQdAM0EHepTful3JOIzcPv6ekHOenE1u0vDG1gdHFrChD
- /e0J05pY29sYXMgRHVmcmVzbmUgPG5pY29sYXNAbmR1ZnJlc25lLmNhPoicBBMWCgBEAhsDBQsJCA
- cCAiICBhUKCQgLAgQWAgMBAh4HAheABQkJZfd1FiEE7w1SgRXEw8IaBG8S2UGUUSlgcvQFAmibrjo
- CGQEACgkQ2UGUUSlgcvQlQwD/RjpU1SZYcKG6pnfnQ8ivgtTkGDRUJ8gP3fK7+XUjRNIA/iXfhXMN
- abIWxO2oCXKf3TdD7aQ4070KO6zSxIcxgNQFtDFOaWNvbGFzIER1ZnJlc25lIDxuaWNvbGFzLmR1Z
- nJlc25lQGNvbGxhYm9yYS5jb20+iJkEExYKAEECGwMFCwkIBwICIgIGFQoJCAsCBBYCAwECHgcCF4
- AWIQTvDVKBFcTDwhoEbxLZQZRRKWBy9AUCaCyyxgUJCWX3dQAKCRDZQZRRKWBy9ARJAP96pFmLffZ
- smBUpkyVBfFAf+zq6BJt769R0al3kHvUKdgD9G7KAHuioxD2v6SX7idpIazjzx8b8rfzwTWyOQWHC
- AAS0LU5pY29sYXMgRHVmcmVzbmUgPG5pY29sYXMuZHVmcmVzbmVAZ21haWwuY29tPoiZBBMWCgBBF
- iEE7w1SgRXEw8IaBG8S2UGUUSlgcvQFAmibrGYCGwMFCQll93UFCwkIBwICIgIGFQoJCAsCBBYCAw
- ECHgcCF4AACgkQ2UGUUSlgcvRObgD/YnQjfi4+L8f4fI7p1pPMTwRTcaRdy6aqkKEmKsCArzQBAK8
- bRLv9QjuqsE6oQZra/RB4widZPvphs78H0P6NmpIJ
-Organization: Collabora Canada
-Content-Type: multipart/signed; micalg="pgp-sha512";
-	protocol="application/pgp-signature"; boundary="=-sRZ1GkpALmFhvIbaGjyg"
-User-Agent: Evolution 3.60.2 (3.60.2-1.fc44) 
+	id 1xBIaP-00000001eYk-1xff
+	for linux-arm-kernel@lists.infradead.org;
+	Mon, 28 Sep 2026 21:08:33 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id EC8D543586;
+	Mon, 28 Sep 2026 21:08:32 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPS id C41FCC2BCB3;
+	Mon, 28 Sep 2026 21:08:32 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1790629712;
+	bh=ubCLZOqyKtAsDaeaTiwxQToK3l52AquCJw2Wy54Kq+w=;
+	h=From:Date:Subject:To:Cc:Reply-To:From;
+	b=scFcWAFPzVwlgk6Mfuy4dGt/T10sb3XTyF8CZvofpLpfICykWRUzpp5Nv0QPzvo5d
+	 2spSQHugSGLmjwWgUQsmrDnYCrkJiDPEYY2/oZTRMrGaQeLYWEV+22AvFUnL5X3hHj
+	 H2/xU+ojjPIcLxRjonDJN7A8Sh0xmSlEnEVdfgQ8rlk/rnt1KQLUbcdyRy29ZItgmh
+	 g6ikvlvyMCTA9y2IWYXcn+UTg5wkYrqm0WmraLOuqQgD9UUQk6F8tIX3jcNeZm8d0K
+	 SZkNDbvYk0zhz8w5TzvODjbo+7BtKL+zFUtEDyqQ7YIPl3KeOVOMG0FjWZweuT6iZZ
+	 /CWyG53GgaK7Q==
+Received: from aws-us-west-2-korg-lkml-1.web.codeaurora.org (localhost.localdomain [127.0.0.1])
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 9E792CA5FA1;
+	Mon, 28 Sep 2026 21:08:32 +0000 (UTC)
+From: Vincent Jardin via B4 Relay <devnull+vjardin.free.fr@kernel.org>
+Date: Mon, 28 Sep 2026 23:08:28 +0200
+Subject: [PATCH v2] arm64: dts: lx2160a: set #pinctrl-cells on the pinmux
+ node
 MIME-Version: 1.0
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260928_140327_053768_AA2C070E 
-X-CRM114-Status: GOOD (  50.04  )
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+Message-Id: <20260928-for-upstream-lx2160a-pinctrl-cells-v2-1-1227b2e897d3@free.fr>
+X-B4-Tracking: v=1; b=H4sIAEvXumoC/5WNSw6CMBBAr0K6dgwdPhZX3sOwqGUqk1QgUyQYw
+ t2t3MDle4v3NhVJmKK6ZpsSWjjyOCTAU6Zcb4cnAXeJFeZY5w0a8KPAe4qzkH1BWFHXuYWJBzd
+ LAEchRLhgUxWFNvgwlUqhScjzekzubeKe4zzK53gu+mf/yi8aNJTeWmOLUruuu3khOntR7b7vX
+ ySey0bSAAAA
+To: Frank Li <Frank.Li@nxp.com>, Sascha Hauer <s.hauer@pengutronix.de>, 
+ Pengutronix Kernel Team <kernel@pengutronix.de>, 
+ Fabio Estevam <festevam@gmail.com>, Rob Herring <robh@kernel.org>, 
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>
+Cc: imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org, 
+ devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
+ Vincent Jardin <vjardin@free.fr>
+X-Mailer: b4 0.13.0
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1790629711; l=1258;
+ i=vjardin@free.fr; s=20260525; h=from:subject:message-id;
+ bh=MLG+A3X72Uzk7Ufcvox/+HKIq9Wjjn1mtqOgeCdt28M=;
+ b=Kg5Dd4el+o3eMbJo2GVlTwYzVEDdR0ZdS9fQGXKBUZ0xTpYc1C8lDtrgVM07nHcjhgFnBKUlJ
+ +PQXpdJPPEPCf6JomddSRVqbGzuQO4hkdwxruh1kqSVsU6J4+eG2jIl
+X-Developer-Key: i=vjardin@free.fr; a=ed25519;
+ pk=hppgLeFpGpKOi7LNwGEZ4jOYofJCoGd4Jf1ltAabiLw=
+X-Endpoint-Received: by B4 Relay for vjardin@free.fr/20260525 with
+ auth_id=871
+X-Original-From: Vincent Jardin <vjardin@free.fr>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -87,243 +87,47 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
+Reply-To: vjardin@free.fr
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+From: Vincent Jardin <vjardin@free.fr>
 
---=-sRZ1GkpALmFhvIbaGjyg
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+The below message shows at boot time:
+  pinctrl-single 70010012c.pinmux: please update dts to use #pinctrl-cells = <2>
 
-Le lundi 27 juillet 2026 =C3=A0 17:11 +0200, Francesco Saverio Pavone a =C3=
-=A9crit=C2=A0:
-> Self-review after running this on a Rock 5B+. The reorder closes the
-> clk leak, but it opens a window I missed when I sent it.
-> Moving the PM teardown ahead of rkvdec_v4l2_cleanup() is necessary,
-> for the drvdata reason in the commit message. The side effect is that
-> video_unregister_device() is now the last thing remove() does, so
-> /dev/videoN stays open-able while the empty IOMMU domain is already
-> freed.
-> A job queued in that window reaches rkvdec_iommu_restore() and touches
-> the freed domain. Before the reorder, cleanup ran first and the window
-> did not exist.
-> Splitting the helper keeps both properties: unregister the media and
-> video devices first, which stops new jobs, then tear down PM, then
-> release the m2m and V4L2 device. Only that last step clears drvdata,
-> so rkvdec_runtime_suspend() still finds its state.
->=20
->    cancel_delayed_work_sync(&rkvdec->watchdog_work);
->=20
->    rkvdec_v4l2_unregister(rkvdec); /* media + video unregister */
->=20
->    pm_runtime_dont_use_autosuspend(&pdev->dev);
->=20
->    if (rkvdec->empty_domain)
->      iommu_domain_free(rkvdec->empty_domain);
->=20
->    pm_runtime_disable(&pdev->dev);
->    rkvdec_v4l2_release(rkvdec); /* media cleanup, m2m, v4l2 */
->=20
-> Running here on 7.2-rc5: unbind then rebind returns the rkvdec clock
-> enable counts to their pre-unbind values and /dev/video0 comes back.
-> I can send this as a v5 carrying both changes, or as a follow-up patch
-> on top of v4, whichever you prefer.
+Add missing #pinctrl-cells = <2> to fix it.
 
-Looking forward you v5.
+Signed-off-by: Vincent Jardin <vjardin@free.fr>
+---
+Changes in v2:
+- Reword the commit message (thanks Frank Li)
+- Rebased on imx/for-next
+- Link to v1: https://lore.kernel.org/r/20260928-for-upstream-lx2160a-pinctrl-cells-v1-1-4faa8a341cdd@free.fr
+---
+ arch/arm64/boot/dts/freescale/fsl-lx216x.dtsi | 1 +
+ 1 file changed, 1 insertion(+)
 
-Nicolas
+diff --git a/arch/arm64/boot/dts/freescale/fsl-lx216x.dtsi b/arch/arm64/boot/dts/freescale/fsl-lx216x.dtsi
+index bccf2d673023..2085362ab0ea 100644
+--- a/arch/arm64/boot/dts/freescale/fsl-lx216x.dtsi
++++ b/arch/arm64/boot/dts/freescale/fsl-lx216x.dtsi
+@@ -1536,6 +1536,7 @@ pinmux_i2crv: pinmux@70010012c {
+ 			reg = <0x00000007 0x0010012c 0x0 0xc>;
+ 			#address-cells = <1>;
+ 			#size-cells = <0>;
++			#pinctrl-cells = <2>;
+ 			pinctrl-single,bit-per-mux;
+ 			pinctrl-single,register-width = <32>;
+ 			pinctrl-single,function-mask = <0x7>;
 
-> Thanks,
-> Francesco
->=20
-> Il giorno ven 17 lug 2026 alle ore 17:45 Francesco Saverio Pavone
-> <pavone.lawyer@gmail.com> ha scritto:
-> >=20
-> > From: Jonas Karlman <jonas@kwiboo.se>
-> >=20
-> > remove() calls pm_runtime_disable() before
-> > pm_runtime_dont_use_autosuspend(), so the second call can never suspend
-> > the device: it reaches rpm_idle(), which returns -EACCES once PM runtim=
-e
-> > is disabled. The probe error path has had the two the other way round
-> > since the driver was merged.
-> >=20
-> > This shows up when the device is unbound while the 100ms autosuspend
-> > window is still open, which is what an rmmod right after a decode does.
-> > device_release_driver() calls pm_runtime_put_sync() before .remove(),
-> > and rpm_idle() adds RPM_AUTO on its own, so that put only arms the
-> > autosuspend timer. pm_runtime_disable() then cancels the timer, and
-> > pm_runtime_reinit() relabels the device suspended without calling the
-> > driver back. The clk_bulk reference taken by rkvdec_runtime_resume() is
-> > never dropped, and a later probe does not reclaim it, so every such
-> > unbind leaks one enable count.
-> >=20
-> > Drop autosuspend first, so the callback still runs and releases the
-> > clocks.
-> >=20
-> > The PM calls also have to move ahead of rkvdec_v4l2_cleanup() rather
-> > than just swap with each other. rkvdec_runtime_suspend() looks its stat=
-e
-> > up with dev_get_drvdata(), and v4l2_device_unregister() clears it:
-> > struct rkvdec_dev has v4l2_device as its first member, so
-> > &rkvdec->v4l2_dev and rkvdec are the same address and the check in
-> > v4l2_device_disconnect() matches. That is harmless today because
-> > pm_runtime_disable() suppresses the callback, but once the callback can
-> > run, a suspend after the V4L2 teardown dereferences NULL. Swapping only
-> > the two PM calls oopses on every unbind.
-> >=20
-> > Fixes: cd33c830448b ("media: rkvdec: Add the rkvdec driver")
-> > Signed-off-by: Jonas Karlman <jonas@kwiboo.se>
-> > [fsp: wrote the commit message; the diff is unchanged]
-> > Tested-by: Francesco Saverio Pavone <pavone.lawyer@gmail.com>
-> > Assisted-by: Claude:claude-opus-4-8
-> > Signed-off-by: Francesco Saverio Pavone <pavone.lawyer@gmail.com>
-> > ---
-> > Changes in v4:
-> >  - No functional change. Resent as its own thread (no In-Reply-To on v2=
-),
-> >    per Nicolas's note that a new version should be its own thread for
-> >    patchwork tracking. Same diff and same commit message as v3.
-> >=20
-> > Changes in v3:
-> >  - Rewrote the commit message, and dropped the VP9 claim from v1 and v2=
-.
-> >    Those said this fixed a VP9 inter-prediction bug on RK3588, green ch=
-roma
-> >    from the second ALTREF frame onward. The bug is real, but this is no=
-t
-> >    what fixes it, and I should have established that before sending v1.
-> >=20
-> >    What happened: I took this patch out of chewitt's tree along with tw=
-o
-> >    others and tested the three as a batch. The green is fixed by "media=
-:
-> >    rkvdec: implement reset controls" from Alex Bee, which adds the
-> >    reset_control handling that recovers the VDPU381 after a transient e=
-rror
-> >    (COLMV_REF_ERR_STA and friends) instead of leaving it dirty for the =
-next
-> >    inter frame. Randy Li's PMU idle export goes with it. This patch was=
- the
-> >    third one in that batch and got the credit.
-> >=20
-> >    Retested this week on the same Rock 5B+ with an unpatched driver: a =
-VP9
-> >    Profile 0 1080p clip with alt-ref frames decodes byte-identical to t=
-he
-> >    libvpx reference, across five rmmod/insmod cycles and after an unbin=
-d
-> >    inside the autosuspend window. The green does not come back, because=
- the
-> >    reset_control work is in the tree I test on. Sorry for the review an=
-d the
-> >    testing you spent on that basis.
-> >=20
-> >  - Worth flagging separately: mainline rkvdec has no reset_control supp=
-ort
-> >    at all, so the VDPU381 is never recovered after a transient error. T=
-hat
-> >    is a real gap, it is just not this patch. I can write it up properly=
- if
-> >    that is useful.
-> >=20
-> >  - The diff is unchanged from v1 and v2. It is Jonas's 2020 commit verb=
-atim,
-> >    and his original one-line subject already described exactly what it =
-does.
-> >    The wrong story was mine, not his.
-> >=20
-> >  - The subject changed with the message: "media: rkvdec: fix PM runtime
-> >    teardown ordering in remove" in v1 and v2, "media: rkvdec: fix clk
-> >    reference leak on unbind" here, since that is what it actually fixes=
-.
-> >=20
-> >  - What is left is measured. With a dev_info() at the top of
-> >    rkvdec_runtime_suspend(), autosuspend_delay raised to 60s to take th=
-e
-> >    timer out of the race, and unbind driven through sysfs:
-> >        unpatched: 0 suspend callbacks, aclk_rkvdec0 enable_count 1 -> 2
-> >        patched:   1 suspend callback,  enable_count 1 -> 1
-> >    The leak survives rmmod and accumulates one per unbind. With
-> >    autosuspend_delay=3D0 both orders suspend once, which is the control=
-: the
-> >    difference only exists inside the window.
-> >=20
-> >  - Fixes: was wrong in v1 and v2. ff8c5622f9f7 has the two pm_runtime c=
-alls
-> >    as context and only added iommu_domain_free(). cd33c830448b added re=
-move()
-> >    with the reversed order, and the probe error path with the right one=
-, so
-> >    the tag points there now.
-> >=20
-> >  - Dropped Cc: stable. A clk reference leaked on unbind is not backport
-> >    material, and the tag was only there for the VP9 claim.
-> >=20
-> >  - Dropped your Reviewed-by and Tested-by from v2: they were given for =
-a fix
-> >    to something else.
-> >=20
-> >  - Not included, happy to send as follow-ups: clearing empty_domain aft=
-er
-> >    iommu_domain_free(), and hoisting the unregisters to the top of remo=
-ve()
-> >    as you suggested on v2.
-> >=20
-> > Tested on a Radxa Rock 5B+ (RK3588) on a 7.1 tree where the six calls i=
-n
-> > rkvdec_v4l2_cleanup() are open-coded; the executed sequence is the one =
-this
-> > patch produces. VP9 decode stays byte-identical to libvpx, and five
-> > rmmod/insmod cycles leave dmesg clean.
-> >=20
-> > Link to v1: https://lore.kernel.org/all/20260518105413.42147-1-pavone.l=
-awyer@gmail.com/
-> > Link to v2: https://lore.kernel.org/all/20260518145414.64514-1-pavone.l=
-awyer@gmail.com/
-> > Link to v3: https://lore.kernel.org/all/20260717150440.77079-1-pavone.l=
-awyer@gmail.com/
-> >  drivers/media/platform/rockchip/rkvdec/rkvdec.c | 5 +++--
-> >  1 file changed, 3 insertions(+), 2 deletions(-)
-> >=20
-> > diff --git a/drivers/media/platform/rockchip/rkvdec/rkvdec.c b/drivers/=
-media/platform/rockchip/rkvdec/rkvdec.c
-> > index 1d1e9bfef8e9..0ec3fca9cccc 100644
-> > --- a/drivers/media/platform/rockchip/rkvdec/rkvdec.c
-> > +++ b/drivers/media/platform/rockchip/rkvdec/rkvdec.c
-> > @@ -1869,12 +1869,13 @@ static void rkvdec_remove(struct platform_devic=
-e *pdev)
-> >=20
-> >         cancel_delayed_work_sync(&rkvdec->watchdog_work);
-> >=20
-> > -       rkvdec_v4l2_cleanup(rkvdec);
-> > -       pm_runtime_disable(&pdev->dev);
-> >         pm_runtime_dont_use_autosuspend(&pdev->dev);
-> >=20
-> >         if (rkvdec->empty_domain)
-> >                 iommu_domain_free(rkvdec->empty_domain);
-> > +
-> > +       pm_runtime_disable(&pdev->dev);
-> > +       rkvdec_v4l2_cleanup(rkvdec);
-> >  }
-> >=20
-> >  #ifdef CONFIG_PM
-> > --
-> > 2.54.0
-> >=20
+---
+base-commit: 5d034f17b24642b2a764c0e3a68b4c6937c9ba75
+change-id: 20260928-for-upstream-lx2160a-pinctrl-cells-729533182b85
 
---=-sRZ1GkpALmFhvIbaGjyg
-Content-Type: application/pgp-signature; name="signature.asc"
-Content-Description: This is a digitally signed message part
-Content-Transfer-Encoding: 7bit
+Best regards,
+-- 
+Vincent Jardin <vjardin@free.fr>
 
------BEGIN PGP SIGNATURE-----
 
-iHUEABYKAB0WIQTvDVKBFcTDwhoEbxLZQZRRKWBy9AUCarrWGAAKCRDZQZRRKWBy
-9E10AQCxxlh9dzHcaj7jhYbzOKhmJWGxNyUP/1PjPIzHbDr+1wD+OFF5FiQTa6gT
-Kd6tVo3QC/FEnPE21mIL93HAl9tk0A4=
-=tcOz
------END PGP SIGNATURE-----
-
---=-sRZ1GkpALmFhvIbaGjyg--
 
