@@ -4,70 +4,88 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 29443CA5FA1
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 28 Sep 2026 18:01:38 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3A890CA5FA1
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 28 Sep 2026 18:03:11 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:From:
+	Subject:Message-ID:References:Mime-Version:In-Reply-To:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=5C9fQrdNKgmxCueeuN/0S74b8iguCqbFC+aeT193m6M=; b=CRlxAgD4ndall8pLuTg7NflVnd
-	oQfZjoFGUw44BcyoH2K4TNPmwBVK8TVLVmBFMe9EwKiAH6ydH1dmnt09xSoYlZRvswjVKePjLa9tt
-	nM5fj3rmaLTvZmNxYF3qYbDcaXP0rlZiPFQEWmO/Tci4sw0k2LsSjWGV7gOV0kQo9GZBnT45gNUry
-	kMee0LOum6ROW+XVABpPQXgTKZ+jFL+1AWRSuOpqy1KJ1MtSwhObslu+Ft78/XvQLu0+y4Q2q7yCT
-	mmvIwkAMzh7kP4ChHqG2WQv2izlFOUTALq6w2+Do8HrU0DuRN+3lEgGOKYMWL9bWa0dVvaiwCx4UI
-	arVgC/0w==;
+	bh=wbjBREz9vOqId6KGSe2hfelOhYq7OUN6jgn8hmrgsOA=; b=VmNhPx0rVCq26LJgOgsxmhyRxF
+	7cErunI3iO2WgpoNICdFEhwKtpC/BP8+lecOSbNvBeV82NSR3Lx5JLXAGIeBXnBXgUE1WojI4udkR
+	8q1ZVmvyjuLG8j6rn4xWois4z+JvJGKfGKwx39Nkr8d3yeAIJ2sulPvCMhICgKTBKlsUsSf4NsZL6
+	2uBOHCrWxwHihPiKe6NYnB3YYcsr51k3G1YXc/nQtCBPaTSYNqRzNSbxN2D63pZ8VeXjd1kL2ZnLW
+	5cIHI2s686C+O6P9gIuhAByzXN11rjpyyeBvAgXcOUAy1SR/yx9gBIPFdhnpBK9UH6/AqwwUqxqYQ
+	VGuGGqTA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xBFfP-00000001GA3-0DUD;
-	Mon, 28 Sep 2026 18:01:31 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xBFfM-00000001G9O-0fBN
+	id 1xBFMb-00000001Cj2-1Ulb;
+	Mon, 28 Sep 2026 17:42:05 +0000
+Received: from mail-wr1-x445.google.com ([2a00:1450:4864:20::445])
+	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1xBFMW-00000001CbA-1fEI
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 28 Sep 2026 18:01:29 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 6E32F1655;
-	Mon, 28 Sep 2026 11:01:21 -0700 (PDT)
-Received: from arm.com (usa-sjc-mx-foss1.foss.arm.com [172.31.20.19])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 17F093F763;
-	Mon, 28 Sep 2026 11:01:21 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1790618484; bh=2HPAqPhH9blRfCpQLNE+q8Xf2IKbzIj8ANRetpSYQZU=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=bydlcNQtg7VFJiHIMPz0i9Ug2oSSFgsIjPWay630oscZP2tIekk7hRid4Z2KgnDd3
-	 Y/EYVkfQxooz6H++qoGvFAv+PbVFmCqCOBgENpU640RH4JItp9ePCG1NWk6TPmsiLJ
-	 FP+9yLwn9lku23GyxOnTzBEHBYOls89RIbmOAYZI=
-Date: Mon, 28 Sep 2026 19:01:11 +0100
-From: Catalin Marinas <catalin.marinas@arm.com>
-To: Suzuki K Poulose <suzuki.poulose@arm.com>
-Cc: kvm@vger.kernel.org, kvmarm@lists.linux.dev, maz@kernel.org,
-	will@kernel.org, linux-kernel@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org, steven.price@arm.com,
-	aneesh.kumar@kernel.org, oupton@kernel.org, gshan@redhat.com,
-	joey.gouly@arm.com, tabba@google.com, yuzenghui@huawei.com,
-	linux-coco@lists.linux.dev, gankulkarni@os.amperecomputing.com,
-	sdonthineni@nvidia.com, alpergun@google.com, fj0570is@fujitsu.com,
-	WeiLin.Chang@arm.com, lpieralisi@kernel.org, enju.kohei@fujitsu.com,
-	sudeep.holla@arm.com, jonathan.cameron@oss.qualcomm.com
-Subject: Re: [PATCH v19 5/7] firmware: arm_rmm: Activate the RMM
-Message-ID: <arqrZ_Auk9BYOopa@arm.com>
-References: <20260924135201.850038-1-suzuki.poulose@arm.com>
- <20260924135201.850038-6-suzuki.poulose@arm.com>
- <arZmXFw5Jw2IbAmA@arm.com>
- <a11aba04-eaaa-43fd-988b-a2581b1b2fdb@arm.com>
- <araketG70TIKeNuf@arm.com>
- <12e83d88-de4c-4230-aac2-1796123320ad@arm.com>
- <70d47475-e26e-40e1-b409-b0c16aecb8c0@arm.com>
- <195cdfe4-a55a-453f-9c34-620738eca244@arm.com>
-MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <195cdfe4-a55a-453f-9c34-620738eca244@arm.com>
+	Mon, 28 Sep 2026 17:42:01 +0000
+Received: by mail-wr1-x445.google.com with SMTP id ffacd0b85a97d-48879e03053so47493f8f.0
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 28 Sep 2026 10:41:59 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=google.com; s=20251104; t=1790617318; x=1791222118; darn=lists.infradead.org;
+        h=content-type:cc:to:from:subject:message-id:references:mime-version
+         :in-reply-to:date:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=wbjBREz9vOqId6KGSe2hfelOhYq7OUN6jgn8hmrgsOA=;
+        b=JinuZSx4nutXxcJ1prRV0uH0GkCRFFXjRKhtpYWdSpq5BNXy4UCV/KZTqvmS8G97hp
+         8klH7xzhHL0CZxc5SnPNymoQxkHUSfJgEqQe1SeqqP8ReNXIWcR2nc2r4Ylqe1oIPWf0
+         C68QTn3C7SPkOsx0/gCt3Cuu7D3ttgBTG6mUuLDfysC+wA9J7ZVAVKpDPH/eiaRUIhHY
+         oZgAlFNLoALPLXJ+6SBf/nOE3SEtGqa2CN6V5jUvqg3vqmRRAT+4bSbnXrzf+bxPiqDV
+         m5AyL+c8yCqVVAIrHp0+Q7q3rrqld4OvB3k3LF4ZW3fswQ+p8F0SyCVUwDT0uT+oUhN5
+         hFqg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1790617318; x=1791222118;
+        h=content-type:cc:to:from:subject:message-id:references:mime-version
+         :in-reply-to:date:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=wbjBREz9vOqId6KGSe2hfelOhYq7OUN6jgn8hmrgsOA=;
+        b=lQK8ssa5Pw7rbm1XdDtuo3wilg7/XOkFJkNRJSsP8toShRrqyY8W6MfG33nzWpU90t
+         JnwVBP3I7E+ZxUU0uOcI8Wg2Dw0911wU3/811fzbWCBxbDrC0Aq/eoQsnta87B0QT0nF
+         MpPRG1cym3qvdnU1GDhVRc78LPusjVSF3QpQDyxAIK31eV+ojUB8xNYn4EBeTEhuihyG
+         RWkEcpXNE20Rb+MBfGyH876GptlTjsqcfQurKSluueul58alKdQbK8+BxiBKoKR0jO3v
+         U1pvAT4ajHib9edZSJG73cAds0FjY8rNfqgdYUSAmQCrskl1AJlyQuxE9A8fcdyQyMYc
+         Q8cA==
+X-Forwarded-Encrypted: i=1; AKwUvBwGuvT5h7EB9AfeuF6p4HT00BDlajGOTEOf0JKgyjLa6RYt2Rho+HvkdzZ/2iZrbrr09ZMBf/IJo6XTAXXJbdQ+@lists.infradead.org
+X-Gm-Message-State: AFuF++lfVUadrvPpkljcfEfaqDn6Ih32juWAqOMbyl8iz9J+9haFLMwQ
+	Tf5f8KBxgxR3gc5GxnxXU+izxd2oHqrb5Yfsg3Sqhb7Kbi6KbOc3e4wj6xsV/fFrOLL2xnG2fFP
+	rn6icfgh1VMdf/g==
+X-Received: from wmdv11.prod.google.com ([2002:a05:600c:12cb:b0:4a0:8ba:ba83])
+ (user=smostafa job=prod-delivery.src-stubby-dispatcher) by
+ 2002:a05:600c:470d:b0:4a0:34a:588c with SMTP id 5b1f17b1804b1-4a00d778efemr1664475e9.14.1790617317905;
+ Mon, 28 Sep 2026 10:41:57 -0700 (PDT)
+Date: Mon, 28 Sep 2026 17:41:16 +0000
+In-Reply-To: <20260928174122.3380703-1-smostafa@google.com>
+Mime-Version: 1.0
+References: <20260928174122.3380703-1-smostafa@google.com>
+X-Mailer: git-send-email 2.56.0.rc1.315.gc6ed9934b7-goog
+Message-ID: <20260928174122.3380703-10-smostafa@google.com>
+Subject: [RFC PATCH 09/15] arm64: Don't assume the kernel stack size
+From: Mostafa Saleh <smostafa@google.com>
+To: linux-doc@vger.kernel.org, linux-kernel@vger.kernel.org, 
+	linux-arm-kernel@lists.infradead.org, linux-mm@kvack.org, 
+	linux-hardening@vger.kernel.org, linux-rt-devel@lists.linux.dev
+Cc: corbet@lwn.net, skhan@linuxfoundation.org, rdunlap@infradead.org, 
+	catalin.marinas@arm.com, will@kernel.org, mark.rutland@arm.com, 
+	akpm@linux-foundation.org, urezki@gmail.com, mingo@redhat.com, 
+	peterz@infradead.org, juri.lelli@redhat.com, vincent.guittot@linaro.org, 
+	dietmar.eggemann@arm.com, rostedt@goodmis.org, bsegall@google.com, 
+	mgorman@suse.de, vschneid@redhat.com, kprateek.nayak@amd.com, kees@kernel.org, 
+	david@kernel.org, ljs@kernel.org, liam@infradead.org, vbabka@kernel.org, 
+	rppt@kernel.org, surenb@google.com, mhocko@suse.com, gustavoars@kernel.org, 
+	bigeasy@linutronix.de, clrkwllms@kernel.org, 
+	Mostafa Saleh <smostafa@google.com>
+Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260928_110128_285960_DEC08C72 
-X-CRM114-Status: GOOD (  32.66  )
+X-CRM114-CacheID: sfid-20260928_104200_456458_80E3D10E 
+X-CRM114-Status: GOOD (  12.20  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -82,151 +100,57 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Sep 28, 2026 at 02:55:11PM +0100, Suzuki K Poulose wrote:
-> firmware: rmm: Deactivate RMM at reboot
-> 
-> Deactivate the RMM at system shutdown. This would allow a normal kexec to
-> cleanup the state and boot into a new kernel gracefully.
-> 
-> Kdump kernels need not worry about an active RMM, as long as it can
-> handle the GPF on access to the Delegated granules.
-> 
-> Signed-off-by: Suzuki K Poulose <suzuki.poulose@arm.com>
-> ---
->  arch/arm64/kernel/machine_kexec.c |  2 +
->  drivers/firmware/arm_rmm/rmi.c    | 63 ++++++++++++++++++++++++++++++-
->  include/linux/arm-rmi-cmds.h      | 10 +++++
->  3 files changed, 73 insertions(+), 2 deletions(-)
-> 
-> diff --git a/arch/arm64/kernel/machine_kexec.c
-> b/arch/arm64/kernel/machine_kexec.c
-> index 8f9bc2327dc85..8f16f92a5d389 100644
-> --- a/arch/arm64/kernel/machine_kexec.c
-> +++ b/arch/arm64/kernel/machine_kexec.c
-> @@ -6,6 +6,7 @@
->   * Copyright (C) Huawei Futurewei Technologies.
->   */
-> 
-> +#include <linux/arm-rmi-cmds.h>
->  #include <linux/interrupt.h>
->  #include <linux/irq.h>
->  #include <linux/kernel.h>
-> @@ -171,6 +172,7 @@ void machine_kexec(struct kimage *kimage)
->  	BUG_ON(!in_kexec_crash && (stuck_cpus || (num_online_cpus() > 1)));
->  	WARN(in_kexec_crash && (stuck_cpus || smp_crash_stop_failed()),
->  		"Some CPUs may be stale, kdump will be unreliable.\n");
-> +	WARN(!in_kexec_crash && is_rmm_active(), "RMM is active, kexec will be
-> unreliable.\n");
-> 
->  	pr_info("Bye!\n");
-> 
-> diff --git a/drivers/firmware/arm_rmm/rmi.c b/drivers/firmware/arm_rmm/rmi.c
-> index 51343e9d5c2a9..5b695f3155b1c 100644
-> --- a/drivers/firmware/arm_rmm/rmi.c
-> +++ b/drivers/firmware/arm_rmm/rmi.c
-> @@ -7,6 +7,7 @@
->  #include <linux/memblock.h>
->  #include <linux/memory.h>
->  #include <linux/arm-rmi-cmds.h>
-> +#include <linux/reboot.h>
->  #include <linux/slab.h>
-> 
->  #include <asm/memory.h>
-> @@ -15,6 +16,13 @@
->  /* RMM v2.0 defines RmiFeatureRegister0 to RmiFeatureRegister4. */
->  static unsigned long rmi_feat_reg_cache[5] __ro_after_init;
->  static bool arm64_rmi_is_available;
-> +static bool arm64_rmm_active;
-> +
-> +bool is_rmm_active(void)
-> +{
-> +	return arm64_rmm_active;
-> +}
-> +EXPORT_SYMBOL_GPL(is_rmm_active);
-> 
->  /**
->   * rmi_granule_range_undelegate() - Undelegate a range of granules
-> @@ -1017,6 +1025,53 @@ bool is_rmi_available(void)
->  }
->  EXPORT_SYMBOL_GPL(is_rmi_available);
-> 
-> +static int rmi_rmm_deactivate(struct rmi_sro_state *sro)
-> +{
-> +	int ret;
-> +
-> +	if (!READ_ONCE(arm64_rmm_active))
-> +		return 0;
-> +
-> +	ret = WARN_ON(rmi_sro_memxfer_cmd(sro, GFP_KERNEL, SMC_RMI_RMM_DEACTIVATE));
-> +	if (ret)
-> +		return ret;
-> +
-> +	WRITE_ONCE(arm64_rmm_active, false);
-> +	WRITE_ONCE(arm64_rmi_is_available, false);
-> +
-> +	return ret;
-> +}
-> +
-> +static int rmi_reboot_notifier(struct notifier_block *nb,
-> +			       unsigned long action, void *data)
-> +{
-> +	int ret;
-> +
-> +	switch (action) {
-> +	case SYS_RESTART:
-> +	case SYS_HALT:
-> +	case SYS_POWER_OFF:
-> +		break;
-> +	default:
-> +		return NOTIFY_DONE;
-> +	}
-> +
-> +	struct rmi_sro_state *sro __free(kfree) = kmalloc_obj(*sro);
-> +
-> +	if (!sro)
-> +		return -ENOMEM;
+stacktrace and panic functions assume that the kernel stack size is
+THREAD_SIZE.
 
-Nit: it needs a NOTIFY_* value.
+The allocated kernel stack size may not be THREAD_SIZE anymore, rely
+on the newly introduced helpers task_stack_{low, high}()
 
-> +
-> +	ret = rmi_rmm_deactivate(sro);
-> +	if (ret)
-> +		pr_emerg("RMM Deactivation failed: %d\n", ret);
-> +
-> +	return NOTIFY_DONE;
-> +}
-> +
-> +static struct notifier_block rmi_reboot_nb = {
-> +	.notifier_call = rmi_reboot_notifier,
-> +};
+Signed-off-by: Mostafa Saleh <smostafa@google.com>
+---
+ arch/arm64/include/asm/stacktrace.h | 4 ++--
+ arch/arm64/kernel/traps.c           | 5 +++--
+ 2 files changed, 5 insertions(+), 4 deletions(-)
 
-Thinking some more about this, it's a good aim but I think it only works
-if we do a systemctl kexec that tears down the processes (including the
-VMMs). For a direct kexec -e, we happily reboot with pages still
-delegated. Now, such tear-down in the kernel is painful, I think a lot
-more work to figure out the delegated pages.
-
-Also we don't cancel the kexec here even if we return an error, just
-warn and continue into the new kernel.
-
-So maybe blocking the kexec (e.g. machine_kexec_prepare()) in the first
-place would be a better option for the time being. But I'd like, if
-possible, to defer the RMM activation until the first user (still do the
-RMI probing as an initcall). If we run on RME-capable hardware and
-firmware but don't care about realms or TSM, we still get the normal OS
-functionality.
-
-If this deferring works, I'd also make memory hotplug dependent on this
-(RMM activated => no hotplug; hotplug before activation => don't
-activate the RMM). Maybe later, if we have a request for hotplug in
-ZONE_MOVABLE and we can guarantee guest_memfd doesn't allocate from
-there, we can relax this requirement.
-
-That said, we may have a problem with hibernation as well if it tries to
-read the delegated pages. I don't know how it interacts with guest_memfd
-and the non-gmem pages we delegate. Maybe cpus_are_stuck_in_kernel() is
-the right place, it prevents hibernation as well.
-
+diff --git a/arch/arm64/include/asm/stacktrace.h b/arch/arm64/include/asm/stacktrace.h
+index eb18d7cee62f..cbc93cf213a7 100644
+--- a/arch/arm64/include/asm/stacktrace.h
++++ b/arch/arm64/include/asm/stacktrace.h
+@@ -41,8 +41,8 @@ static inline bool on_irq_stack(unsigned long sp, unsigned long size)
+ 
+ static inline struct stack_info stackinfo_get_task(const struct task_struct *tsk)
+ {
+-	unsigned long low = (unsigned long)task_stack_page(tsk);
+-	unsigned long high = low + THREAD_SIZE;
++	unsigned long low = (unsigned long)task_stack_low(tsk);
++	unsigned long high = (unsigned long)task_stack_high(tsk);
+ 
+ 	return (struct stack_info) {
+ 		.low = low,
+diff --git a/arch/arm64/kernel/traps.c b/arch/arm64/kernel/traps.c
+index ce0e213d772d..b91b154843ef 100644
+--- a/arch/arm64/kernel/traps.c
++++ b/arch/arm64/kernel/traps.c
+@@ -902,7 +902,8 @@ DEFINE_PER_CPU(unsigned long [KERNEL_EXC_STACK_SIZE/sizeof(long)],
+ 
+ void __noreturn panic_bad_stack(struct pt_regs *regs, unsigned long esr, unsigned long far)
+ {
+-	unsigned long tsk_stk = (unsigned long)current->stack;
++	unsigned long tsk_stk = (unsigned long)task_stack_low(current);
++	unsigned long tsk_stk_end = (unsigned long)task_stack_high(current);
+ 	unsigned long irq_stk = (unsigned long)this_cpu_read(irq_stack_ptr);
+ 	unsigned long exc_stk = (unsigned long)this_cpu_ptr(kernel_exception_stack);
+ 
+@@ -913,7 +914,7 @@ void __noreturn panic_bad_stack(struct pt_regs *regs, unsigned long esr, unsigne
+ 	pr_emerg("FAR: 0x%016lx\n", far);
+ 
+ 	pr_emerg("Task stack:      [0x%016lx..0x%016lx]\n",
+-		 tsk_stk, tsk_stk + THREAD_SIZE);
++		 tsk_stk, tsk_stk_end);
+ 	pr_emerg("IRQ stack:       [0x%016lx..0x%016lx]\n",
+ 		 irq_stk, irq_stk + IRQ_STACK_SIZE);
+ 	pr_emerg("Exception stack: [0x%016lx..0x%016lx]\n",
 -- 
-Catalin
+2.56.0.rc1.315.gc6ed9934b7-goog
+
 
