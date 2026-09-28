@@ -4,72 +4,58 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 14F3CCA5FA1
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 28 Sep 2026 22:21:12 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 71841CA5FA1
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 28 Sep 2026 22:26:11 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:Date:Message-Id:Subject:References:In-Reply-To:Cc:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=N2ukRt7u37PXdnASZSDb3u99a4jgfFBtdSx//53lGZ4=; b=bwbvG7W8mcwdbwrzQ0FD+pGds7
-	OIuhG6WkNcakhMERZyEBnQT502C9LPx6dV9q88EE899JeuahtkgOQjJb1BEPOeCgdzeUozhwHvxYB
-	CIpDEMIkNA0JExQsSfrkDX+HD2ZI19l1CjT6k/wMVkxcS+qMFg0tw55p0//EMEmlxfxISY01QdePu
-	E9AiOf/FoxnOicMDfO4Ts7PbxEbfNxM7PKftMyvWrbtr99lvNi0APPJswZyFainnUCTdvSJx2BMGX
-	yWQclpnBYMNDROpFoiCAmeEuPrCoIsWxQSmoYI16QrCV1L3S6Aj1zhmUm1ZVuP3ouuhLZVjiiNHST
-	LoHO9bOQ==;
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=zbhVgMQfTliX8eWfdhCQYGm0le0Urjt05MrmEhh//gw=; b=Ev1n6FQJgNEkVx99FJqiaGkAgu
+	qNpmftimYsw7Jxm5si0t4Utbsf5G19ugQoWrh5i2EbRiQgxXR6U8KSjNiqVwlqWyNkwR2mIFFArzh
+	HTIinuplqkDbjIMHK4bjhQzxYVelnTKJGoZb1plkBHFUG0PKN5ukIg1tLLB1172bhWKhI8P2DPBRM
+	Q3d8YAIMJY9FjGRYMgTfOrLeSItx/rXgrq3ybkUg8r3HMOH49sC5ae7/mWd6pYDOclSPNS5UXoaE7
+	IBbAJ1+45sjQA7FHIMiGCcf/pjloV/ZcNKPP6MFAfgLEpi22Q8mCucLkNY28YyqUN6pVH3PsbSOyn
+	cuiFRl9w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xBJiY-00000001k32-3rdU;
-	Mon, 28 Sep 2026 22:21:02 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1xBJnP-00000001kL0-30uS;
+	Mon, 28 Sep 2026 22:26:03 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xBJiX-00000001k2b-39jw;
-	Mon, 28 Sep 2026 22:21:01 +0000
+	id 1xBJnO-00000001kKq-29mD;
+	Mon, 28 Sep 2026 22:26:02 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id E58AF600D1;
-	Mon, 28 Sep 2026 22:21:00 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 948FB1F000FF;
-	Mon, 28 Sep 2026 22:20:58 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 066DC402DA;
+	Mon, 28 Sep 2026 22:26:02 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 8DDAC1F000FF;
+	Mon, 28 Sep 2026 22:26:01 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1790634060;
-	bh=N2ukRt7u37PXdnASZSDb3u99a4jgfFBtdSx//53lGZ4=;
-	h=From:To:Cc:In-Reply-To:References:Subject:Date;
-	b=QlQJFuZZWfCYkJ+rkSPhStacQAtPayY0AuRTEXdKHZKQQG45XJcYt8SiCnw7tK5xr
-	 6AYyCV5dmefdeXfmvg7qABChpiaNCZgNS0YnfehR7FMAgS4oqRW3mBy6tGopfo3GWf
-	 qSF1ousuAloL5pRpIz53wa9HTYU+h9DvO7peDqnwsH3YbNcL38APH6aVSs84SvN4mu
-	 9oH+QTL3naN5Oj8DzxIpjC7IYTBbCVGFX6iG5Zf/mibQilbiSpq/QocXCBuhyL7JEu
-	 kvozwTVZ0DuRCkD/oKV5KbRl001OjxDSzbFmgUUIWfUKcW9OfpThBnv0lUt1KB2s1+
-	 J6r6wm+/QWEjg==
-From: Mark Brown <broonie@kernel.org>
-To: Florian Fainelli <florian.fainelli@broadcom.com>, 
- Ray Jui <rjui@broadcom.com>, Scott Branden <sbranden@broadcom.com>, 
- Lucas Costa <2000.costalucas@gmail.com>
-Cc: Broadcom internal kernel review list <bcm-kernel-feedback-list@broadcom.com>, 
- Bartosz Golaszewski <brgl@kernel.org>, linux-spi@vger.kernel.org, 
- linux-rpi-kernel@lists.infradead.org, linux-arm-kernel@lists.infradead.org, 
- linux-kernel@vger.kernel.org, stable@vger.kernel.org
-In-Reply-To: <20260925193008.127314-1-2000.costalucas@gmail.com>
-References: <20260925193008.127314-1-2000.costalucas@gmail.com>
-Subject: Re: [PATCH v2] spi: bcm2835: fix device_node reference leak in
- bcm2835_spi_setup()
-Message-Id: <179061518603.139547.16962778636816952777.b4-ty@b4>
-Date: Mon, 28 Sep 2026 18:06:26 +0100
+	s=k20260515; t=1790634361;
+	bh=zbhVgMQfTliX8eWfdhCQYGm0le0Urjt05MrmEhh//gw=;
+	h=From:To:Cc:Subject:Date;
+	b=PudfRpASqbkUOXl5dciNATNWI3dvxqVKYoRpNOK27MhdYO4u6RuTv4K42p8NGaFYp
+	 4Zpn3Ag1WlH7Lz16Kyutz9tNJ1sj35K5hLm9sijEfKxZIaJwdZrvTgserZn00x4VS0
+	 qWG2s0RJoCQaJujIAkEsIYBXm2pJ86b+1AqqWs4NXo71IEqaLza70zmUSYh5cb4xQK
+	 gOSOco6vXiBOqa1Vj1H5fXd0l04E8q45/BeuK0HIu0f3SB+qYLJefG5V0rXYLngpdH
+	 uDn5lROi4tO9O9RCZIIpIf47w76XDzbcCvQ4JIbveQO+sn3+zwa3kWdPqpIHDyF7LP
+	 iVayQYJBF799g==
+From: "Rob Herring (Arm)" <robh@kernel.org>
+To: Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Matthias Brugger <matthias.bgg@gmail.com>,
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
+Cc: devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-mediatek@lists.infradead.org
+Subject: [PATCH v2] dt-bindings: power: Convert mediatek,mt2701-scpsys to DT schema
+Date: Mon, 28 Sep 2026 17:25:51 -0500
+Message-ID: <20260928222552.1118609-1-robh@kernel.org>
+X-Mailer: git-send-email 2.53.0
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-X-Mailer: b4 0.17-dev
-X-Developer-Signature: v=1; a=openpgp-sha256; l=1147; i=broonie@kernel.org;
- h=from:subject:message-id; bh=a7FrXxhQPMQAuv6iDAAZDyVzytS2J0lG9A91Y2NaZH0=;
- b=owEBbQGS/pANAwAKASTWi3JdVIfQAcsmYgBquuhIYWG6ndBfp+OlehjuoDhwjsUU9LLllcNTT
- NExYikIodyJATMEAAEKAB0WIQSt5miqZ1cYtZ/in+ok1otyXVSH0AUCarroSAAKCRAk1otyXVSH
- 0BgVB/9XXw1Q3FbKpo0WVt/Pgygdodbp9KfiZO2rH39IViEj90XIV/v8aJ0m0xwHNahKv6MRrjn
- 1Al56hG8Tpwo7gZyYhTEoY2KDjy64K1DppOD9pjJMVGTdI7HvR+i3ZkPyT/PS991b1Yk5AhsbuL
- qD1hcGbVuxDTw3QGXsq86OR85J2zQOwvY7cmEOidh7yxEGesppsV3H0+IO2aDUMYsPFlZ7oaCyo
- Im0ygHKxyS4bVORrg5Rr3Yr9ZWeuYNRXztaPj0BJhskDm5rYuNVQcMwL+0NAMpxl9CaWTbal2LX
- i7R+A3kaQUoHDCMgmF0xZmJO/K1Ary06cq57k5dT47vxp+/3
-X-Developer-Key: i=broonie@kernel.org; a=openpgp;
- fpr=3F2568AAC26998F9E813A1C5C3F436CA30F5D8EB
+Content-Transfer-Encoding: 8bit
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -84,35 +70,300 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, 25 Sep 2026 16:30:08 -0300, Lucas Costa wrote:
-> spi: bcm2835: fix device_node reference leak in bcm2835_spi_setup()
+Convert the mediatek,mt2701-scpsys binding to DT schema. The mt6735 and
+mt6765 don't exist anywhere. The mt8183 is covered by
+mediatek,mt8195-scpsys.yaml schema. With those dropped, the clock-names
+are trimmed to drop mm-*, isp-*, cam-*, and venc_lt. The venc_lt and
+mfg_2d supplies are dropped as well.
 
-Applied to
+Assisted-by: LLM
+Signed-off-by: Rob Herring (Arm) <robh@kernel.org>
+---
+v2:
+ - Add per compatible clocks/clock-names constraints
+---
+ .../power/mediatek,mt2701-scpsys.yaml         | 184 ++++++++++++++++++
+ .../bindings/soc/mediatek/scpsys.txt          |  79 --------
+ 2 files changed, 184 insertions(+), 79 deletions(-)
+ create mode 100644 Documentation/devicetree/bindings/power/mediatek,mt2701-scpsys.yaml
+ delete mode 100644 Documentation/devicetree/bindings/soc/mediatek/scpsys.txt
 
-   https://git.kernel.org/pub/scm/linux/kernel/git/broonie/spi.git for-7.4
-
-Thanks!
-
-[1/1] spi: bcm2835: fix device_node reference leak in bcm2835_spi_setup()
-      https://git.kernel.org/broonie/spi/c/8db44cca03df
-
-All being well this means that it will be integrated into the linux-next
-tree (usually sometime in the next 24 hours) and sent to Linus during
-the next merge window (or sooner if it is a bug fix), however if
-problems are discovered then the patch may be dropped or reverted.
-
-You may get further e-mails resulting from automated or manual testing
-and review of the tree, please engage with people reporting problems and
-send followup patches addressing any issues that are reported if needed.
-
-If any updates are required or you are submitting further changes they
-should be sent as incremental updates against current git, existing
-patches will not be replaced.
-
-Please add any relevant lists and maintainers to the CCs when replying
-to this mail.
-
-Thanks,
-Mark
+diff --git a/Documentation/devicetree/bindings/power/mediatek,mt2701-scpsys.yaml b/Documentation/devicetree/bindings/power/mediatek,mt2701-scpsys.yaml
+new file mode 100644
+index 000000000000..75c84abc865f
+--- /dev/null
++++ b/Documentation/devicetree/bindings/power/mediatek,mt2701-scpsys.yaml
+@@ -0,0 +1,184 @@
++# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
++%YAML 1.2
++---
++$id: http://devicetree.org/schemas/power/mediatek,mt2701-scpsys.yaml#
++$schema: http://devicetree.org/meta-schemas/core.yaml#
++
++title: MediaTek SCPSYS
++
++maintainers:
++  - Matthias Brugger <matthias.bgg@gmail.com>
++  - AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
++
++description: >
++  The System Control Processor System (SCPSYS) has several power management
++  related tasks in the system. The tasks include thermal measurement, dynamic
++  voltage frequency scaling (DVFS), interrupt filter and lowlevel sleep control.
++  The System Power Manager (SPM) inside the SCPSYS is for the MTCMOS power
++  domain control.
++
++  It provides the power domains defined in:
++    - include/dt-bindings/power/mt2701-power.h
++    - include/dt-bindings/power/mt2712-power.h
++    - include/dt-bindings/power/mt6797-power.h
++    - include/dt-bindings/power/mt7622-power.h
++    - include/dt-bindings/power/mt7623a-power.h
++
++properties:
++  compatible:
++    oneOf:
++      - enum:
++          - mediatek,mt7623a-scpsys
++          - mediatek,mt6797-scpsys
++      - items:
++          - enum:
++              - mediatek,mt2701-scpsys
++              - mediatek,mt2712-scpsys
++              - mediatek,mt7622-scpsys
++          - const: syscon
++      - items:
++          - const: mediatek,mt7623-scpsys
++          - const: mediatek,mt2701-scpsys
++          - const: syscon
++      - items:
++          - const: mediatek,mt7629-scpsys
++          - const: mediatek,mt7622-scpsys
++
++  '#power-domain-cells':
++    description: Always 1
++    const: 1
++
++  reg:
++    maxItems: 1
++
++  interrupts:
++    maxItems: 4
++
++  clocks:
++    minItems: 1
++    maxItems: 20
++
++  clock-names:
++    minItems: 1
++    maxItems: 6
++    items:
++      enum:
++        - mm
++        - mfg
++        - ethif
++        - venc
++        - jpgdec
++        - audio
++        - vdec
++        - hif_sel
++
++  vdec-supply: true
++  venc-supply: true
++  isp-supply: true
++  mm-supply: true
++  audio-supply: true
++  usb-supply: true
++  mfg_async-supply: true
++  mfg-supply: true
++
++  infracfg:
++    description: Infrastructure configuration controller phandle
++    $ref: /schemas/types.yaml#/definitions/phandle
++
++required:
++  - compatible
++  - '#power-domain-cells'
++  - reg
++  - infracfg
++  - clocks
++  - clock-names
++
++additionalProperties: false
++
++allOf:
++  - if:
++      properties:
++        compatible:
++          contains:
++            const: mediatek,mt2701-scpsys
++    then:
++      properties:
++        clocks:
++          minItems: 3
++          maxItems: 3
++        clock-names:
++          items:
++            - const: mm
++            - const: mfg
++            - const: ethif
++  - if:
++      properties:
++        compatible:
++          contains:
++            const: mediatek,mt7623a-scpsys
++    then:
++      properties:
++        clocks:
++          maxItems: 1
++        clock-names:
++          items:
++            - const: ethif
++  - if:
++      properties:
++        compatible:
++          contains:
++            const: mediatek,mt2712-scpsys
++    then:
++      properties:
++        clocks:
++          minItems: 6
++        clock-names:
++          items:
++            - const: mm
++            - const: mfg
++            - const: venc
++            - const: jpgdec
++            - const: audio
++            - const: vdec
++  - if:
++      properties:
++        compatible:
++          contains:
++            const: mediatek,mt7622-scpsys
++    then:
++      properties:
++        clocks:
++          maxItems: 1
++        clock-names:
++          items:
++            - const: hif_sel
++  - if:
++      properties:
++        compatible:
++          contains:
++            const: mediatek,mt6797-scpsys
++    then:
++      properties:
++        clocks:
++          minItems: 3
++          maxItems: 3
++        clock-names:
++          items:
++            - const: mfg
++            - const: mm
++            - const: vdec
++
++examples:
++  - |
++    #include <dt-bindings/clock/mt2701-clk.h>
++
++    power-controller@10006000 {
++        #power-domain-cells = <1>;
++        compatible = "mediatek,mt2701-scpsys", "syscon";
++        reg = <0x10006000 0x1000>;
++        infracfg = <&infracfg>;
++        clocks = <&topckgen CLK_TOP_MM_SEL>,
++                  <&topckgen CLK_TOP_MFG_SEL>,
++                  <&topckgen CLK_TOP_ETHIF_SEL>;
++        clock-names = "mm", "mfg", "ethif";
++    };
+diff --git a/Documentation/devicetree/bindings/soc/mediatek/scpsys.txt b/Documentation/devicetree/bindings/soc/mediatek/scpsys.txt
+deleted file mode 100644
+index 3530a6668b48..000000000000
+--- a/Documentation/devicetree/bindings/soc/mediatek/scpsys.txt
++++ /dev/null
+@@ -1,79 +0,0 @@
+-MediaTek SCPSYS
+-===============
+-
+-The System Control Processor System (SCPSYS) has several power management
+-related tasks in the system. The tasks include thermal measurement, dynamic
+-voltage frequency scaling (DVFS), interrupt filter and lowlevel sleep control.
+-The System Power Manager (SPM) inside the SCPSYS is for the MTCMOS power
+-domain control.
+-
+-The driver implements the Generic PM domain bindings described in
+-power/power-domain.yaml. It provides the power domains defined in
+-- include/dt-bindings/power/mt8173-power.h
+-- include/dt-bindings/power/mt6797-power.h
+-- include/dt-bindings/power/mt6765-power.h
+-- include/dt-bindings/power/mt2701-power.h
+-- include/dt-bindings/power/mt2712-power.h
+-- include/dt-bindings/power/mt7622-power.h
+-
+-Required properties:
+-- compatible: Should be one of:
+-	- "mediatek,mt2701-scpsys"
+-	- "mediatek,mt2712-scpsys"
+-	- "mediatek,mt6735-scpsys"
+-	- "mediatek,mt6765-scpsys"
+-	- "mediatek,mt6797-scpsys"
+-	- "mediatek,mt7622-scpsys"
+-	- "mediatek,mt7623-scpsys", "mediatek,mt2701-scpsys": For MT7623 SoC
+-	- "mediatek,mt7623a-scpsys": For MT7623A SoC
+-	- "mediatek,mt7629-scpsys", "mediatek,mt7622-scpsys": For MT7629 SoC
+-	- "mediatek,mt8173-scpsys"
+-- #power-domain-cells: Must be 1
+-- reg: Address range of the SCPSYS unit
+-- infracfg: must contain a phandle to the infracfg controller
+-- clock, clock-names: clocks according to the common clock binding.
+-                      These are clocks which hardware needs to be
+-                      enabled before enabling certain power domains.
+-	Required clocks for MT2701 or MT7623: "mm", "mfg", "ethif"
+-	Required clocks for MT2712: "mm", "mfg", "venc", "jpgdec", "audio", "vdec"
+-	Required clocks for MT6765: MUX: "mm", "mfg"
+-				    CG: "mm-0", "mm-1", "mm-2", "mm-3", "isp-0",
+-					"isp-1", "cam-0", "cam-1", "cam-2",
+-					"cam-3","cam-4"
+-	Required clocks for MT6797: "mm", "mfg", "vdec"
+-	Required clocks for MT7622 or MT7629: "hif_sel"
+-	Required clocks for MT7623A: "ethif"
+-	Required clocks for MT8173: "mm", "mfg", "venc", "venc_lt"
+-
+-Optional properties:
+-- vdec-supply: Power supply for the vdec power domain
+-- venc-supply: Power supply for the venc power domain
+-- isp-supply: Power supply for the isp power domain
+-- mm-supply: Power supply for the mm power domain
+-- venc_lt-supply: Power supply for the venc_lt power domain
+-- audio-supply: Power supply for the audio power domain
+-- usb-supply: Power supply for the usb power domain
+-- mfg_async-supply: Power supply for the mfg_async power domain
+-- mfg_2d-supply: Power supply for the mfg_2d power domain
+-- mfg-supply: Power supply for the mfg power domain
+-
+-Example:
+-
+-	scpsys: scpsys@10006000 {
+-		#power-domain-cells = <1>;
+-		compatible = "mediatek,mt8173-scpsys";
+-		reg = <0 0x10006000 0 0x1000>;
+-		infracfg = <&infracfg>;
+-		clocks = <&clk26m>,
+-			 <&topckgen CLK_TOP_MM_SEL>;
+-			 <&topckgen CLK_TOP_VENC_SEL>,
+-			 <&topckgen CLK_TOP_VENC_LT_SEL>;
+-		clock-names = "mfg", "mm", "venc", "venc_lt";
+-	};
+-
+-Example consumer:
+-
+-	afe: mt8173-afe-pcm@11220000 {
+-		compatible = "mediatek,mt8173-afe-pcm";
+-		power-domains = <&scpsys MT8173_POWER_DOMAIN_AUDIO>;
+-	};
+-- 
+2.53.0
 
 
