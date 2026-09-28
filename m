@@ -4,75 +4,86 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2CD9CC9833E
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 28 Sep 2026 06:27:32 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7EF60C9832F
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 28 Sep 2026 06:30:18 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
-	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:Message-Id:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:From:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=NXV7/tYBc8Oc7wqFagoZzmcLWztp8gxjz/PSgOgeoqA=; b=3jJqnxLDGWW7U4MnCygR5Jlc8m
-	6XZ94GEerZeHANrbhxxHlMy1q2+WVNpJFsJ3w1DUTQUNPceG8zGkuxBuw5qNxKxdc1hvOZu/saXpx
-	nbKvDUF0dXZYxo58Hfn3jegX53ragbJMa53FZStAsi5Jg69XmzJsAbe0g52QIYvcKmip3rCA6QqUq
-	BWJrcYQzLUqDGEnaah2jHSJZUlYLQwpM6N3eUfRQ27VZasPg30lOZV0TNrRDDQ9N4nrYAEYPeuUsn
-	A1fFVkdCF+MlLMfvHVv1WLVX46vyW8Ol9zz4f/U4ZF+bo/Kkstl1k52BMvondwO1YKL9k6kXNp19I
-	Bl/du2sg==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=bLHFqrB2AUJXMa7TnwIkEJ0k4wehW0BbG+sRDBDW7nY=; b=yCZPGY2R9gfU9aPkBdRe1+ov9r
+	4QsVMEv1r2YG+Kv5YatxmwaNpmhBw9nPpPhjAj7GYWLC2ADH0+58mx8etwWVNP0j6Ym8Td5XoChYD
+	+sBpz6hL605TXVwhF/PxJ0shZLfFy8AFVQojfga/fFj9zgyMOQqe0UG2CkreR7I3Q/iprAwubVYdX
+	X5/iHTqi7IMWySexj4zH07ALsnStstwqwt18Z/itDrfS3JcvauehAMXt7aGAFouga31M4ZZvVl97V
+	5FBTVStLbdC326WVXoJhOLr3lj/Ovllnmidw15neWkegGf5aRrWnhS0UeEo5xiMnkULPHFYa0aYO3
+	UxE2UAcw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xB4pb-0000000HRwn-24n8;
-	Mon, 28 Sep 2026 06:27:19 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1xB4sM-0000000HSEj-3zPW;
+	Mon, 28 Sep 2026 06:30:10 +0000
+Received: from smtpout-02.galae.net ([185.246.84.56])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xB4pZ-0000000HRwh-30U8
+	id 1xB4sJ-0000000HSE5-26KM
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 28 Sep 2026 06:27:17 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id C2AB460204;
-	Mon, 28 Sep 2026 06:27:16 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPS id 6EFDDC2BCC7;
-	Mon, 28 Sep 2026 06:27:16 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1790576836;
-	bh=WcTHDnTmvOWE1C59mZdXUFRa8r2t2+nheTWFYpchz7Q=;
-	h=From:Date:Subject:To:Cc:Reply-To:From;
-	b=loomeO2nSRVAbBLtzicM08Hf/4WfIMCMKgsuyzEVofabOPj9tpiuevFNFD/n8+zml
-	 pzeWIcopCVAU6J9WQCATT9frMlnBGvmG0cCh8AKVqGmwis4RbghOJqJZHw1gONw1Bm
-	 YKCo0y9Zn4NffMn6zl9nxfSZBkz5130PyQji2covfkUlfNo7zbTOC6qjFN7DFOyiZz
-	 J2iwFeNBM1IQzqteouQsVwP9gMGzaOFiH/dtOvoYFtT07mG1PPhuUrvY0PpDldfdh4
-	 UhmX8EpFCNSEdVBc8JUTNnxhf0UkhssjLXagca2J/urmlhGRaWruaEjO3SaWoeamTR
-	 8nEW4I6MkyY3A==
-Received: from aws-us-west-2-korg-lkml-1.web.codeaurora.org (localhost.localdomain [127.0.0.1])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 4AD89C9832F;
-	Mon, 28 Sep 2026 06:27:16 +0000 (UTC)
-From: Sam Day via B4 Relay <devnull+me.samcday.com@kernel.org>
-Date: Mon, 28 Sep 2026 16:27:15 +1000
-Subject: [PATCH] iommu/qcom: Invalidate TLB during context init
+	Mon, 28 Sep 2026 06:30:09 +0000
+Received: from smtpout-01.galae.net (smtpout-01.galae.net [212.83.139.233])
+	by smtpout-02.galae.net (Postfix) with ESMTPS id CF6201A0FD3;
+	Mon, 28 Sep 2026 06:30:03 +0000 (UTC)
+Received: from mail.galae.net (mail.galae.net [212.83.136.155])
+	by smtpout-01.galae.net (Postfix) with ESMTPS id 9DDB9601BD;
+	Mon, 28 Sep 2026 06:30:03 +0000 (UTC)
+Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 70353102F1E74;
+	Mon, 28 Sep 2026 08:29:47 +0200 (CEST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=dkim;
+	t=1790577002; h=from:subject:date:message-id:to:cc:mime-version:content-type:
+	 content-transfer-encoding:content-language:in-reply-to:references;
+	bh=bLHFqrB2AUJXMa7TnwIkEJ0k4wehW0BbG+sRDBDW7nY=;
+	b=EVdWJG8o7hk3j/Yid2903h3z+AipNuWaQQNXL98A4MLA674wHUX/rMlrgx0i4NnsqCbnC4
+	Zsj8Y2fZ9xO0NmdGj+uJ0b9F/vNsTdHmwf+dxDFQhbgetY1Et9emWisnZ53aZ150hGwFJ5
+	eNwkY1xiCvMkAnzqwZ7Ejale/jtfLf4CPP33Y5MzNS0qajv4/GIiy/0Wmaax/1A55PQ4TO
+	GH8ZdwVbP1nmF+TAMt0N3DKAqMudq2QdeariHERn+X+vQGI3KBrfmAuJwiHKFWhtE8kuil
+	AvS04UfRIh123GkMrNKlQRIvQAaXzoIeiHW4SwiuSmq5PaS5cuCTLOJeogvaUQ==
+Message-ID: <db817925-eb0c-4fe4-8ab2-2cd5cde505d1@bootlin.com>
+Date: Mon, 28 Sep 2026 08:29:46 +0200
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH net v4 0/7] net: stmmac: More selftest-related fixes
+To: Jakub Kicinski <kuba@kernel.org>
+Cc: Andrew Lunn <andrew+netdev@lunn.ch>, davem@davemloft.net,
+ Eric Dumazet <edumazet@google.com>, Paolo Abeni <pabeni@redhat.com>,
+ Russell King <linux@armlinux.org.uk>, Heiner Kallweit
+ <hkallweit1@gmail.com>, =?UTF-8?Q?Alexis_Lothor=C3=A9?=
+ <alexis.lothore@bootlin.com>, Maxime Coquelin <mcoquelin.stm32@gmail.com>,
+ Alexandre Torgue <alexandre.torgue@foss.st.com>,
+ Emil Renner Berthing <kernel@esmil.dk>,
+ Minda Chen <minda.chen@starfivetech.com>,
+ Neil Armstrong <neil.armstrong@linaro.org>,
+ Kevin Hilman <khilman@baylibre.com>, Jerome Brunet <jbrunet@baylibre.com>,
+ Martin Blumenstingl <martin.blumenstingl@googlemail.com>,
+ Jan Petrous <jan.petrous@oss.nxp.com>,
+ Ovidiu Panait <ovidiu.panait.rb@renesas.com>, Jose.Abreu@synopsys.com,
+ Nicolai Buchwitz <nb@tipi-net.de>, netdev@vger.kernel.org,
+ linux-kernel@vger.kernel.org, thomas.petazzoni@bootlin.com,
+ linux-arm-kernel@lists.infradead.org,
+ linux-stm32@st-md-mailman.stormreply.com, PKneuper@dspace.de,
+ David Laight <david.laight.linux@gmail.com>
+References: <20260917215339.2022523-1-maxime.chevallier@bootlin.com>
+ <20260921152202.64d4c67a@kernel.org>
+ <f8fc89b7-15ff-4915-8f1c-49c3b2357699@bootlin.com>
+ <20260925122202.611d655a@kernel.org>
+ <d704ea9d-6cca-4f2f-b18b-0267a9082e18@bootlin.com>
+ <20260925132204.03ce9495@kernel.org> <20260927152001.2e890f9b@kernel.org>
+Content-Language: en-US
+From: Maxime Chevallier <maxime.chevallier@bootlin.com>
+In-Reply-To: <20260927152001.2e890f9b@kernel.org>
+Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
-Message-Id: <20260928-qcom-iommu-clean-contexts-v1-1-c88fe2b4ff48@samcday.com>
-X-B4-Tracking: v=1; b=H4sIAAAAAAAA/x3MQQrCMBAF0KsMf92BGEupuYq4CJNRB0yiSZVC6
- d2FvgO8DV2baUegDU1/1q0WBDoNBHnG8lC2hEDwzk/u4if+SM1sNecvy0tjYall0XXpfBZJcXa
- juDlhILyb3m097utt3/9mwOBJawAAAA==
-X-Change-ID: 20260926-qcom-iommu-clean-contexts-3ccda804c08d
-To: Rob Clark <robin.clark@oss.qualcomm.com>, Will Deacon <will@kernel.org>, 
- Robin Murphy <robin.murphy@arm.com>, "Joerg Roedel (AMD)" <joro@8bytes.org>, 
- Joerg Roedel <jroedel@suse.de>
-Cc: iommu@lists.linux.dev, linux-arm-msm@vger.kernel.org, 
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
- Sam Day <me@samcday.com>
-X-Mailer: b4 0.14.3
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1790576835; l=4431;
- i=me@samcday.com; s=20240502; h=from:subject:message-id;
- bh=dBYP37Vw4lAFJ1/z626JMlsCqPvHWtUxsdH66DNtfjA=;
- b=DC/qs/AsRRQp10M7IFKDFE5qD0b0QaKZ7OQIDMMQU93+okhiU9MCBOUXNBxJeGaCW5GyuQmyo
- 0R5tch/VaArCcPtPvZbTlApYW3PAyqLI9XCU6ysGOlySHjcxNjSenoa
-X-Developer-Key: i=me@samcday.com; a=ed25519;
- pk=bzyS0akxWMqr9+AXzgBRIp28KKpEOs+GjYMc2yf+aeU=
-X-Endpoint-Received: by B4 Relay for me@samcday.com/20240502 with
- auth_id=595
-X-Original-From: Sam Day <me@samcday.com>
+X-Last-TLS-Session-Version: TLSv1.3
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260927_233007_687955_471AB1BC 
+X-CRM114-Status: UNSURE (   5.42  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -84,124 +95,17 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
-Reply-To: me@samcday.com
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Sam Day <me@samcday.com>
 
-qcom_iommu derives each context bank's ASID from DT data, so a kernel
-booted via kexec reuses the same ASIDs as its predecessor.
+On 9/28/26 00:20, Jakub Kicinski wrote:
 
-Programming a new TTBR0 doesn't discard entries the SMMU has already
-cached under that ASID, so these residual and stale
-translations/table-walks will go into effect as soon as the context is
-enabled again.
+> Added the per-MAINTAINERs entry filters under the funnel icon
+> (Note that you also have to enable the filter as a while with 
+> the checkbox at the top, or middle-click on the funnel to toggle)
 
-On MSM8916 devices (I confirmed it on both a Samsung Galaxy A5 and a
-DragonBoard 410c) the result is MDP5 taking context faults on
-framebuffer IOVAs and stuck in a continuous underrun storm during scan
-out, if the previous kernel had itself initialized the display and
-programmed the SMMU.
+Thanks Jakub, this is helpful :)
 
-arm-smmu invalidates the whole TLB in arm_smmu_device_reset() before
-enabling the SMMU. qcom_iommu can't do that on these TZ-managed devices
-(SMMU_SCR1.GASRAE=1), however.
-
-Instead, qcom_iommu now invalidates each context bank by ASID whilst it
-is still disabled, before programming it for the new domain. Secured
-contexts are protected by TZ so they're skipped.
-
-There's been previous discussion on the list (see link) about how to
-best deal with this kind of situation. This patch opts for a fix in the
-incoming kernel, rather than the outgoing one. This ensures newer
-kernels will always behave correctly, and also covers the kdump use
-case.
-
-Fixes: 0ae349a0f33f ("iommu/qcom: Add qcom_iommu")
-Link: https://lore.kernel.org/all/20240319154756.GB2901@willie-the-truck/
-Assisted-by: LLM
-Signed-off-by: Sam Day <me@samcday.com>
----
-Tested on my DragonBoard 410c. Starting from one unpatched kernel
-scanning out at 640x480 and kexecing into the same kernel at 1280x720
-results in context faults starting at the first IOVA past the previous
-kernel's mapped extent, with continuous MDP5 underruns thereafter.
-During this time I observed an all-blue HDMI signal. With the patch
-applied, the same kexec hop is free of faults, and the HDMI signal is
-clean throughout.
-
-Further, it was proven that kexecing into an unpatched kernel and
-causing the fault storm can then be resolved by subsequently kexecing
-into a patched kernel.
----
- drivers/iommu/arm/arm-smmu/qcom_iommu.c | 32 +++++++++++++++++++++-----------
- 1 file changed, 21 insertions(+), 11 deletions(-)
-
-diff --git a/drivers/iommu/arm/arm-smmu/qcom_iommu.c b/drivers/iommu/arm/arm-smmu/qcom_iommu.c
-index 21d18ce67b982..a37955cd90d5e 100644
---- a/drivers/iommu/arm/arm-smmu/qcom_iommu.c
-+++ b/drivers/iommu/arm/arm-smmu/qcom_iommu.c
-@@ -111,23 +111,26 @@ iommu_readq(struct qcom_iommu_ctx *ctx, unsigned reg)
- 	return readq_relaxed(ctx->base + reg);
- }
- 
-+static void qcom_iommu_ctx_tlb_sync(struct qcom_iommu_ctx *ctx)
-+{
-+	unsigned int val, ret;
-+
-+	iommu_writel(ctx, ARM_SMMU_CB_TLBSYNC, 0);
-+
-+	ret = readl_poll_timeout(ctx->base + ARM_SMMU_CB_TLBSTATUS, val,
-+				 (val & 0x1) == 0, 0, 5000000);
-+	if (ret)
-+		dev_err(ctx->dev, "timeout waiting for TLB SYNC\n");
-+}
-+
- static void qcom_iommu_tlb_sync(void *cookie)
- {
- 	struct qcom_iommu_domain *qcom_domain = cookie;
- 	struct iommu_fwspec *fwspec = qcom_domain->fwspec;
- 	unsigned i;
- 
--	for (i = 0; i < fwspec->num_ids; i++) {
--		struct qcom_iommu_ctx *ctx = to_ctx(qcom_domain, fwspec->ids[i]);
--		unsigned int val, ret;
--
--		iommu_writel(ctx, ARM_SMMU_CB_TLBSYNC, 0);
--
--		ret = readl_poll_timeout(ctx->base + ARM_SMMU_CB_TLBSTATUS, val,
--					 (val & 0x1) == 0, 0, 5000000);
--		if (ret)
--			dev_err(ctx->dev, "timeout waiting for TLB SYNC\n");
--	}
-+	for (i = 0; i < fwspec->num_ids; i++)
-+		qcom_iommu_ctx_tlb_sync(to_ctx(qcom_domain, fwspec->ids[i]));
- }
- 
- static void qcom_iommu_tlb_inv_context(void *cookie)
-@@ -270,6 +273,13 @@ static int qcom_iommu_init_domain(struct iommu_domain *domain,
- 		/* Disable context bank before programming */
- 		iommu_writel(ctx, ARM_SMMU_CB_SCTLR, 0);
- 
-+		/* The TLB may still hold cached and stale entries for this
-+		 * ASID, if a previous kernel programmed the SMMU before
-+		 * a kexec into this kernel.
-+		 */
-+		iommu_writel(ctx, ARM_SMMU_CB_S1_TLBIASID, ctx->asid);
-+		qcom_iommu_ctx_tlb_sync(ctx);
-+
- 		/* Clear context bank fault address fault status registers */
- 		iommu_writel(ctx, ARM_SMMU_CB_FAR, 0);
- 		iommu_writel(ctx, ARM_SMMU_CB_FSR, ARM_SMMU_CB_FSR_FAULT);
-
----
-base-commit: 3339792beb5fb1c9c423c544ba2fbc235e7d7f75
-change-id: 20260926-qcom-iommu-clean-contexts-3ccda804c08d
-
-Best regards,
--- 
-Sam Day <me@samcday.com>
-
-
+Maxime
 
