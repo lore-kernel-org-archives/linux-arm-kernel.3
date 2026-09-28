@@ -4,67 +4,63 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B0E10C9832F
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 28 Sep 2026 08:05:41 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5BF7CC9832F
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 28 Sep 2026 08:06:59 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=th1IQ7Uvi9M8PQvb4aBCWvyzqIApqDWa0UnRnSg5hFU=; b=KmvV307dp7pEjyacTve15BJXMT
-	rhcksyXEoDf9BLfnycdyMyOG03erGNCX3OnK8zj3EdEMOOz8qJciRa6vv175M7tyGmZhOpRRq6Tne
-	eUaLmWIwgXj8paxsjrHbQr2mWFKx3mFejtM3Ydy2MrZb4AJMnpUR828f3bX369Uq3jXRQcBf8Ur4n
-	qzQu+7FaDzJvbU01tNyGt/YYNlTMyz1KLpxEQ1LMKDXY14P6w2qJZH5EQRlYgEpeumDF9KGgexc02
-	clj6OYqibp31ATfC/HWlxGYNknUk/ubM8thkyQxlRR1vFvA90yH9fYcDVtdNMH1/KTZKmtB0eowaV
-	d0SJv4uw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=ZDcqyyxfoB2phhYAUptIB1AuIJCG0bYrwp8n7NiGAXU=; b=jYDx81a3TmSsjti2L+AbvccOre
+	v/3RmIR5fCxcbdCgyalYI5B+UjLQQfeaZx9YhC22bdE6GD8PycppFi57xzGcGg/SE/hq4iGwrnYUP
+	dHvn/bEge9BJhYbB9AflANVrr4LAsye8WXkdqbhj291HpspWkSnBG5kWgXme7/rK4CM6CAcH4XaoX
+	reiHYhC3v3wQJnM6Zfpsy6NhNRsaTkUIimHrFOEWsojSyq9ppoloWgmdiB/+oIu8y3SSJF3zoTLuj
+	KEuJspLz9MvD2qGtz0zZL/Cvn8hXEAJjgcd0AyqxL7aRDb38xdl0fgQaksZSIVkTX82IjK0dAzj6U
+	r2c1Thsw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xB6Mh-0000000019U-0bsQ;
-	Mon, 28 Sep 2026 08:05:35 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xB6Md-0000000018Z-3tJD
+	id 1xB6Nx-000000001I8-1jKS;
+	Mon, 28 Sep 2026 08:06:53 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
+	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1xB6Nv-000000001I1-13Ga
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 28 Sep 2026 08:05:33 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 72046169E;
-	Mon, 28 Sep 2026 01:05:24 -0700 (PDT)
-Received: from [10.57.12.79] (unknown [10.57.12.79])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 949CB3F86F;
-	Mon, 28 Sep 2026 01:05:24 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1790582727; bh=ZoYd2sdPRi7PYnEG0IlvFGd13KoF/WZCPDZleG3Y+cw=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=GZFpwPFl7ovI3rDNT/2mn4+w0i4sXv4nTmdNKJvdtEoZbukSO66jtaCM+F9CsbXdb
-	 ZQvnQ+cf9fHw3YVxkeX+xcls+suLYnK7BcC2DCPEW+ZevQmsUlgnB7EwYSwF+Huj6z
-	 s6cD2Zr1h9Xg0ltB6Jac4THbkfTIu9l/lUMJZmoE=
-Message-ID: <88bd2049-d25b-4767-81f8-83c99749fd11@arm.com>
-Date: Mon, 28 Sep 2026 09:05:21 +0100
+	Mon, 28 Sep 2026 08:06:51 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by sea.source.kernel.org (Postfix) with ESMTP id B174142E59;
+	Mon, 28 Sep 2026 08:06:50 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 91D4E1F000FF;
+	Mon, 28 Sep 2026 08:06:49 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1790582810;
+	bh=ZDcqyyxfoB2phhYAUptIB1AuIJCG0bYrwp8n7NiGAXU=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=GbeF3uiC7F68XfE+smZpoGDufvzhVa7da72pazv7dSObq+MyMa/CFM9SEZTkq61Y/
+	 DP6tUYx5aG/foBSuSWxS8Z7pPrgPpAcM3OgIre54/R6EkRTL8Tkr5mQ7M6brcFVGOx
+	 0kPl4mXUbDw2bRJ2kQ3M94BXTAEYQJIXwg2Nen7qkPH7TGiUT5uDaP9cOsS9zIyVdG
+	 liN7Xpb6J5Z7nw8r6pOQ7LXlI/j3yHUmq0lajyeJfuPin0Ndt4MS5h6MsEPM/CBaH4
+	 kPlwqMj1z1g1tOPxzTK9VuvSxyBqmtX3hA9oKDbNNeQTVHgue2UfYxRLVcuwTSRuLE
+	 5+kKZ2GAhBjfA==
+Date: Mon, 28 Sep 2026 10:06:47 +0200
+From: Krzysztof Kozlowski <krzk@kernel.org>
+To: Alexandru Chimac <alex@chimac.ro>
+Cc: Sylwester Nawrocki <s.nawrocki@samsung.com>, 
+	Peter Griffin <peter.griffin@linaro.org>, Alim Akhtar <alim.akhtar@samsung.com>, 
+	Linus Walleij <linusw@kernel.org>, Rob Herring <robh@kernel.org>, 
+	Conor Dooley <conor+dt@kernel.org>, Tomasz Figa <tomasz.figa@gmail.com>, 
+	linux-arm-kernel@lists.infradead.org, linux-samsung-soc@vger.kernel.org, linux-gpio@vger.kernel.org, 
+	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH] dt-bindings: pinctrl: samsung: Require clocks for
+ Exynos9610 pinctrl nodes
+Message-ID: <20260928-dynamic-durable-rook-1be9bc@quoll>
+References: <20260922-exynos9610-pinctrl-patch-v1-1-f6d816696591@chimac.ro>
+ <d679c0e9-febe-4069-9c2f-a2173a5218aa@kernel.org>
+ <1343593353.60484.1790180095661@app.mailbox.org>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v19 2/7] firmware: arm_rmm: Check for RMI support at init
-Content-Language: en-GB
-To: Marc Zyngier <maz@kernel.org>
-Cc: Catalin Marinas <catalin.marinas@arm.com>, kvm@vger.kernel.org,
- kvmarm@lists.linux.dev, will@kernel.org, linux-kernel@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, steven.price@arm.com,
- aneesh.kumar@kernel.org, oupton@kernel.org, gshan@redhat.com,
- joey.gouly@arm.com, tabba@google.com, yuzenghui@huawei.com,
- linux-coco@lists.linux.dev, gankulkarni@os.amperecomputing.com,
- sdonthineni@nvidia.com, alpergun@google.com, fj0570is@fujitsu.com,
- WeiLin.Chang@arm.com, lpieralisi@kernel.org, enju.kohei@fujitsu.com,
- sudeep.holla@arm.com, jonathan.cameron@oss.qualcomm.com
-References: <20260924135201.850038-1-suzuki.poulose@arm.com>
- <20260924135201.850038-3-suzuki.poulose@arm.com> <arZQCiF3iqp9eCsy@arm.com>
- <f7662116-ef8e-4f97-90a4-07173236617b@arm.com> <87v77r2ga5.wl-maz@kernel.org>
-From: Suzuki K Poulose <suzuki.poulose@arm.com>
-In-Reply-To: <87v77r2ga5.wl-maz@kernel.org>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260928_010532_271305_3797E648 
-X-CRM114-Status: GOOD (  13.31  )
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+In-Reply-To: <1343593353.60484.1790180095661@app.mailbox.org>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -79,43 +75,31 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 27/09/2026 10:29, Marc Zyngier wrote:
-> On Fri, 25 Sep 2026 16:23:49 +0100,
-> Suzuki K Poulose <suzuki.poulose@arm.com> wrote:
->>
->> On 25/09/2026 11:42, Catalin Marinas wrote:
->>> On Thu, Sep 24, 2026 at 02:51:56PM +0100, Suzuki K Poulose wrote:
->>>> diff --git a/arch/arm64/kernel/cpufeature.c b/arch/arm64/kernel/cpufeature.c
->>>> index 32102c3912fa7..e8b29983b0021 100644
->>>> --- a/arch/arm64/kernel/cpufeature.c
->>>> +++ b/arch/arm64/kernel/cpufeature.c
->>>> @@ -293,6 +293,7 @@ static const struct arm64_ftr_bits ftr_id_aa64isar3[] = {
->>>>    static const struct arm64_ftr_bits ftr_id_aa64pfr0[] = {
->>>>    	ARM64_FTR_BITS(FTR_HIDDEN, FTR_NONSTRICT, FTR_LOWER_SAFE, ID_AA64PFR0_EL1_CSV3_SHIFT, 4, 0),
->>>>    	ARM64_FTR_BITS(FTR_HIDDEN, FTR_NONSTRICT, FTR_LOWER_SAFE, ID_AA64PFR0_EL1_CSV2_SHIFT, 4, 0),
->>>> +	ARM64_FTR_BITS(FTR_HIDDEN, FTR_NONSTRICT, FTR_LOWER_SAFE, ID_AA64PFR0_EL1_RME_SHIFT, 4, 0),
->>>
->>> I think we end up exposing this to (any) guest unless we mask it out in
->>> sanitise_id_aa64dfr0_el1(). Do the guests care about the RME version? I
->>
->> Valid point. I personally don't think this matters. The FEAT_RME alone
->> is not useful or harmful. I could mask it in KVM as a safe bet.
+On Wed, Sep 23, 2026 at 07:14:55PM +0300, Alexandru Chimac wrote:
+> Hello!
+> > On 09/23/2026 5:58 PM EEST Krzysztof Kozlowski <krzk@kernel.org> wrote:
+> > 
+> >  
+> > On 22/09/2026 14:15, Alexandru Chimac wrote:
+> > > All Exynos9610 pin controllers (except PINCTRL_TOP) have clocks assigned
+> > > to them, so force the nodes to have clocks assigned to them.
+> > > 
+> > > Signed-off-by: Alexandru Chimac <alex@chimac.ro>
+> > > ---
+> > > Most Samsung Exynos9610 pin controllers (except TOP) have clocks
+> > > designated for them, so allow the device tree node to include clock
+> > 
+> > I don't understand above. It's contradictory to commit msg which says
+> > ALL. Here you say most.
+> > 
 > 
-> Is there *any* case where the guest (realm or not) should know it is
-> running on RME enabled HW? I can perfectly imagine that someone would
+> On Exynos9610, only TOP pinctrl doesn't have a clock (as far as I'm
+> aware; haven't found a clock for it), while the rest of the pin controller
+> blocks do.
 
-We don't do that for Linux Guests at least. The Realms rely on the 
-presence of RSI ABI.
+So how is it supposed to work if you require clock also for TOP pinctrl?
 
-Cheers
-Suzuki
-
-
-> implement something looking like CCA on non-RME systems.
-
-
-> 
-> 	M.
-> 
+Best regards,
+Krzysztof
 
 
