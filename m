@@ -4,153 +4,77 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 853ABCA5FA5
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 28 Sep 2026 11:15:38 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0CE51CA5FA5
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 28 Sep 2026 11:20:23 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:Cc:To:
-	Subject:Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:CC:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Uz+Owp+xl4vLrZxLFJdjLJ83/fAOXEhsHgoHFguUapk=; b=BZYuNz0o7mPG3vgGrEX/ZlDHHb
-	9KKbHO25VhoqyKshSp4isp6D77yCx4K9YsjpPtVYFFnWx0JiMJlpJPwd2TEbJbtwqegvGnMtdsqaa
-	23g4HGwtifNguvjzDRL5Px0bhfjey9ljMG2hv44d7oMAZfouTCcu6hWVQ4Wnyp+Ia3X4GsMmWD6lz
-	lbo8/xD2yqhLyWVKXinbWqMeEqd5K6vjJGrX12nmUDUwvk9xdRq2TZjFXVA9vfs50wLD7hDfnFCKi
-	FC6vjSptJnZwSDaLW4fcvriSxVeEIdjXM1HwqPPAYRMboULJjyFmKu0VI1ScpoArWSNci2OSsOuN2
-	u/Bpw1kg==;
+	bh=zaTS6uB4WcyniVZOVP3q4q82V5du32H4HaFf+Tc2HJA=; b=YDQ4xYnPgvR34VX5DlUh+eg/Ph
+	y6rZJxq39zm4lLx75PWjcwfDLoOt/3mEFiIa/JcqzXIL5YHIxC739xb1CTwYjHcATUDu3Bn2tLZ7b
+	zU2l1xVWt4EV5AiI1OeQcygmaAefbiFc0T9JGh6w9nntlSt8trKCTvkzGWIzT+RaEjyqnrE9ZwCHj
+	N3uEqCMaYwITZM7NqDE1nZpYUA624nhnzyNjIamoWC/2i3b8SwHgZPubjl/KVBC2OtVUWFA45Fh9U
+	nXcwNOeIFkFhbVvj+IekdZULxxg/u0OvQQ/ni8j5iVwkzUmbcyjBlqYHJ7YSNkALBLQrC9zTv7Ywg
+	ACReJkRA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xB9KV-00000000Qhb-1Lam;
-	Mon, 28 Sep 2026 11:15:31 +0000
-Received: from mail-norwayeastazon11013033.outbound.protection.outlook.com ([40.107.159.33] helo=OSPPR02CU001.outbound.protection.outlook.com)
+	id 1xB9P7-00000000R2J-3dKH;
+	Mon, 28 Sep 2026 11:20:17 +0000
+Received: from esa.microchip.iphmx.com ([68.232.154.123])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xB9KT-00000000Qgs-0mDg
+	id 1xB9P5-00000000R1o-1ScW
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 28 Sep 2026 11:15:30 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=QXm8ItfI4jmQ3YyV1spt+CCCv8GyYrs6tzIqdLHtmNRkArPEmANzegR62QbY2CPCy1V+vCPdMwRxYW0tfW3N1CJFYjig5SZ/mjRv92K/opWdoYNPJOMFilR2oTqch71ZhdavwzQ+WzwIQBm//mRk6iL0TKpuqPuvxQwRlJJl3+9uXez/FVhCso3TrvQYTpUFCx/g6lPT9LRopa+ofjX5oWmRfRnOyeFuMZDU/mTDIjD6kZIoxqkjw3oNfbYXm+wl/moTjyGK3aFUDBWN0Yj5MPW87i3M0stpQDBov8TXFjIomCt/VTeEc8FRF8RkUsl62M+uMj7qMyZVHYdo/e26hg==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=Uz+Owp+xl4vLrZxLFJdjLJ83/fAOXEhsHgoHFguUapk=;
- b=efg6rEIJPRUkTZOzjj0zgj5LY2HiD9qi8TfA5dYQCXqd4UPnhJhC1SL4YOX8fRboT6NnLZSQkSDfiyTTChGK60tMNEgS1cqsnEfGDQt9l1FZUxyWIuZuk5NEvskiDQ8NaUJixybGkQj9YcvumdKK+dsGLkn0UAj5VHnb9uHdWKPgJb9gbAYqqbOw5S+qQLXfNMWS0CDYeV92YQwVQxzi25askVU0IcdSRqrdGe97Doq2fq9D68g9TLWEMap3qvFxLoWRPCY5S4868YLc9SWnedgfsx2bXhYZExV0nYiGZF0CPF5P2g01Dpyn25BbjqmdJjKAdfyG7zR5E3v/rHwOHQ==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
- dkim=pass header.d=oss.nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
- s=selector1-NXP1-onmicrosoft-com;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=Uz+Owp+xl4vLrZxLFJdjLJ83/fAOXEhsHgoHFguUapk=;
- b=hHucVxnRNZliekWw52GPpVuNGX9PIZgYUMfzW6ShGDGWnieeYmiRY+uAlY/dvHBJYd/r2ahqckSkF/8XpbszwkM7+Y4EHbDnBZ9/gpfam0CCLRu/Dr+nbX3Bokbj8TDaAHQv3D8v4vYENd2d3A6EsR34uBvyUGBxBEM8nSvHsONStaUXaGPGpsxyJ+jADXYSRRW1JuJPqBlV4x5V2MxRgxMPnDCzOy4jQRvtA8U8TVr6grxl3S4DHyYcdJjklKMBZcD+feucNSiNWOCzkKnkutHEOPhjfEfs1t03QhFaabg/dbBsBktk3vjw6NXc/X8EqgoQIEV2NrGNXX2kzpEeUg==
-Authentication-Results: mx.microsoft.com 1; dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=oss.nxp.com;
-Received: from GVXPR04MB12316.eurprd04.prod.outlook.com (2603:10a6:150:2c6::8)
- by PAXPR04MB9593.eurprd04.prod.outlook.com (2603:10a6:102:24f::8) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.451.18; Mon, 28 Sep
- 2026 11:15:11 +0000
-Received: from GVXPR04MB12316.eurprd04.prod.outlook.com
- ([fe80::fc6e:ca22:f065:def4]) by GVXPR04MB12316.eurprd04.prod.outlook.com
- ([fe80::fc6e:ca22:f065:def4%5]) with mapi id 15.21.0451.022; Mon, 28 Sep 2026
- 11:15:11 +0000
-Message-ID: <516826a0-67fe-4d42-af2d-7a283d945e2b@oss.nxp.com>
-Date: Mon, 28 Sep 2026 14:18:40 +0300
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 8/8] arm64: dts: imx952: rename soc to soc@0
-To: Frank.Li@oss.nxp.com, Andrzej Hajda <andrzej.hajda@intel.com>,
- Neil Armstrong <neil.armstrong@linaro.org>, Robert Foss <rfoss@kernel.org>,
- Laurent Pinchart <Laurent.pinchart@ideasonboard.com>,
- Jonas Karlman <jonas@kwiboo.se>, Jernej Skrabec <jernej.skrabec@gmail.com>,
- Luca Ceresoli <luca.ceresoli@bootlin.com>,
- Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
- Maxime Ripard <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>,
- David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>,
- Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
- Conor Dooley <conor+dt@kernel.org>, =?UTF-8?Q?Guido_G=C3=BAnther?=
- <agx@sigxcpu.org>, Robert Chiras <robert.chiras@nxp.com>,
- Tim Harvey <tharvey@gateworks.com>, Sascha Hauer <s.hauer@pengutronix.de>,
- Pengutronix Kernel Team <kernel@pengutronix.de>,
- Fabio Estevam <festevam@gmail.com>
-Cc: dri-devel@lists.freedesktop.org, devicetree@vger.kernel.org,
- linux-kernel@vger.kernel.org, imx@lists.linux.dev,
- linux-arm-kernel@lists.infradead.org, linux@ew.tq-group.com,
- Frank Li <Frank.Li@nxp.com>
-References: <20260925-cleanup_dtb_warning-v1-0-f999fafbca60@nxp.com>
- <20260925-cleanup_dtb_warning-v1-8-f999fafbca60@nxp.com>
-Content-Language: en-US
-From: Daniel Baluta <daniel.baluta@oss.nxp.com>
-In-Reply-To: <20260925-cleanup_dtb_warning-v1-8-f999fafbca60@nxp.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
-X-ClientProxiedBy: AS4PR10CA0030.EURPRD10.PROD.OUTLOOK.COM
- (2603:10a6:20b:5d8::11) To GVXPR04MB12316.eurprd04.prod.outlook.com
- (2603:10a6:150:2c6::8)
+	Mon, 28 Sep 2026 11:20:16 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=microchip.com; i=@microchip.com; q=dns/txt; s=mchp;
+  t=1790594420; x=1822130420;
+  h=date:from:to:cc:subject:message-id:references:
+   mime-version:in-reply-to;
+  bh=eVKVz8zyU/xkTeKcO8zjXPp4Q0x6ugEWp8ba6melv2o=;
+  b=tub8NfbyTgyJZQwGE30zLMS/3P5O8ZDE5+uGJpJsnUfKFc2GC9Rs+73W
+   8Rd9w+PANSCcXD6mLEeTlDu0fp2hRwbk+2mPOOJrMKPSXxD/J8S0UmSau
+   RZYfpY6Rfqam6Mrm3FIL7378I4NiJ04cEc9f1gIOcV831QQZ7RddblB/y
+   gHgGtJmveLBXabLI9+vajcvIfCBYhhzJpNctWRAEhBQ07ToCBZQxAF1yO
+   /DFj7k0FPySNSVUQKlISfbCSmHKTQ6v6S7tEgmog2q1A2EyGdcMZTNtGN
+   DB7IEoy9fTX4UDdEwniCD/t3MlV5mZZONrmvBvSaJza2hH99/r3TT4l9m
+   g==;
+X-CSE-ConnectionGUID: Rcqqv1qZS4SmX2CMsJEirg==
+X-CSE-MsgGUID: dGnnbf+FQx6LrQWEDpPxLA==
+X-IronPort-AV: E=Sophos;i="6.27,128,1787036400"; 
+   d="scan'208";a="63313098"
+X-Amp-Result: SKIPPED(no attachment in message)
+Received: from unknown (HELO email.microchip.com) ([170.129.1.10])
+  by esa4.microchip.iphmx.com with ESMTP/TLS/ECDHE-RSA-AES128-GCM-SHA256; 28 Sep 2026 04:20:19 -0700
+Received: from chn-vm-ex04.mchp-main.com (10.10.85.152) by
+ chn-vm-ex04.mchp-main.com (10.10.85.152) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
+ 15.1.2507.58; Mon, 28 Sep 2026 04:20:13 -0700
+Received: from DEN-DL-M70577 (10.10.85.11) by chn-vm-ex04.mchp-main.com
+ (10.10.85.152) with Microsoft SMTP Server id 15.1.2507.58 via Frontend
+ Transport; Mon, 28 Sep 2026 04:20:04 -0700
+Date: Mon, 28 Sep 2026 13:20:00 +0200
+From: Daniel Machon <daniel.machon@microchip.com>
+To: Quentin Freimanis <quentin@q-lab.dev>
+CC: <netdev@vger.kernel.org>, Andrew Lunn <andrew+netdev@lunn.ch>, "David S.
+ Miller" <davem@davemloft.net>, Eric Dumazet <edumazet@kernel.org>, "Jakub
+ Kicinski" <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>, Steen Hegelund
+	<Steen.Hegelund@microchip.com>, <UNGLinuxDriver@microchip.com>, Lars Povlsen
+	<lars.povlsen@microchip.com>, Bjarni Jonasson
+	<bjarni.jonasson@microchip.com>, <linux-arm-kernel@lists.infradead.org>,
+	<linux-kernel@vger.kernel.org>
+Subject: Re: [PATCH net] net: sparx5: make ports inherit the switch base mac
+ address type
+Message-ID: <20260928112000.uzvaqkbaapiyjd2v@DEN-DL-M70577>
+References: <20260928045012.30178-1-quentin@q-lab.dev>
 MIME-Version: 1.0
-X-MS-Exchange-MessageSentRepresentingType: 1
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: GVXPR04MB12316:EE_|PAXPR04MB9593:EE_
-X-MS-Office365-Filtering-Correlation-Id: 25bed790-53fa-4867-6afb-08df1d51c2f7
-X-MS-Exchange-SharedMailbox-RoutingAgent-Processed: True
-X-LD-Processed: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635,ExtAddr
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|366016|19092799006|23010399003|376014|7416014|1800799024|260925022911599003|921020|260925021311599003|10067099003|56012099006|4143699003|11063799006|18002099003|22082099003|260925021911599003;
-X-Microsoft-Antispam-Message-Info: i1iWOu5uk7BYRnolV6D7JqxbQb+LJNbPfnLPae67ZEMrZDXUERtaxnM8tnhknSuiusqxUpE9p6dgoiqKEbEIVJv37kFm7rI5CufG8YdaJekUJH/EfIh8438jU4Vmd1JxyjCuOQ2+ie5NwnvO0Y7+0c7dsfl5G27VNhq7NZLH2ped/gXzucf+xc0/sd0M7qt3HGVzZgZstUer3fuEt9OE/H50l5m/tOliA8Wv/w0U9pRuEFIyIoodvlEPaUPWaJgZNM53MFzzbNyVobv2fRqQDMCc+QGe/S9ZzHJ/h2FyD61dNR7sIATzmFSqv6Eq1VtnNKMDgj5GzJv1tY/xNCZk/mojLmCgtZaxhCyNWqq5/4TGo/iDcTMsOIpN77lXrHRTFyfnyHotCQGHlx0tpGczii1EYtE9hOmmu3B8IFqfKTAN9d+itnkx2jzNkbT621yBmCKvZErExpf1nKnJ0WIq7n1/An/4dkU3px9PbdTzmaFSXUXQIdsKM7w9rZM542MAHnz5svh/9t6u2J4oU+VVj6vxWb8jRbExlL7GXx7cg65pA2+R3epO2PraMpAX85qJvATk+AHL8xrLav569xZSFjospRoOb9GikjwUILzwf7L5SFSgmS/zMb5+df4QiOcIYCxrUzCPU96HC21b0g0ylE08haO/p0crJCSCSsW9ANe7chtCJgDhXpm4trL/rtsKmhYN0MjgBcsJR0iwefqSsA==
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:GVXPR04MB12316.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(19092799006)(23010399003)(376014)(7416014)(1800799024)(260925022911599003)(921020)(260925021311599003)(10067099003)(56012099006)(4143699003)(11063799006)(18002099003)(22082099003)(260925021911599003);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?YUFoemlQVit3alBlcUtPUTFHdFFLbEpGOFh6V0RWMUgzbnZkUkIrVm1QRmJv?=
- =?utf-8?B?MVY2ZmtnNnJNZHVLaFRqeThXdlBmTll3OHorY2ZGVXN6bE92aU1XOEcya1V2?=
- =?utf-8?B?L0FYVjNGZlBuU2hRZEdhQVg2Mmh4NjRFSGVqbURYYnIyUjRsbzdiNVU2bFdp?=
- =?utf-8?B?R0k2akJUSHFSOVR4cTgwRjJuYkc2QXMzaitISEdJVEUyb0hudCtUWnVWS0VE?=
- =?utf-8?B?QVc2cktFMTlZVjlsMVF1YnQzOEY3ckU1SGlvdjZrZHc4QUdMSHRCb0REcGlB?=
- =?utf-8?B?Z1R1WVh3SEE1OW80Ri81ZFQ5SVR5V2NjSDJvZGxwTXF4bkg5Q3NIVlVtVWZa?=
- =?utf-8?B?SFRvSmJuMUFzckxOYzUxR3F0VVNYRVlQNklvYWJxQ0ZaYnhuQWlZMUg2Zlo3?=
- =?utf-8?B?a3RXaFQweXhJd2RpMTR5ZS9vTTVHZVRFbS9tQzFpcFZkNVVZeTRsNHZadDdL?=
- =?utf-8?B?azNDZ21BV3BzYlE0eUVSSTRBSmFVVFVDbDh1M2NscGRTeWdxSjhnTFZKOGJL?=
- =?utf-8?B?MWkrUEZ3R3o3SzdUSXFOREdlWEVjV25BWWJjWVFEWXQvcjFwUlJ0QnNEQ25B?=
- =?utf-8?B?a0VpNzJPWHhhTzZJVHRuKytvZ0w0cmx0M0RwaEFTN1VORmxCaHhyQnVJU2pk?=
- =?utf-8?B?L3YvMFJ3OExlckJUSjU1V0F0cmJLS3EwMExjOVU1NHBuZUFROUMvckJ5b255?=
- =?utf-8?B?TGErTWxjYnR0SzRKUkhsMDNuVkM5eHl3ZDd0WG91ODgwMzR1MkFyYitnZGJn?=
- =?utf-8?B?MzUzbkREWVJZSURuR3RTQzRWUVVDRzVNUHdpMEpUZGxTd1ZiMzJLSGFwWEEz?=
- =?utf-8?B?WEVJMEtmWkRWRElQTWhkQVk1MVdrVXNmTnhoZXZTaFprRUQ1YWx3WVk4NG8y?=
- =?utf-8?B?dW04Y3VUbmJkaVN2b2Jwc0M3anhCSUlmeFV0VTEvNDhpcUNtMnQ3SmE1T0c3?=
- =?utf-8?B?WUZnSnIrcGhKMTRaSGthVWU5WmZwNkNIcUdSbTFUc2RJeGV5L24ybHB5S00w?=
- =?utf-8?B?YnBpQXlsWHU0YVVXUCt1WmtLMCtlOVNUdG56dkQ0T1VNY2pMSWcyZ0Vaeis4?=
- =?utf-8?B?WEJ0S2NYSTJhTUZGVTl6RUh3V3MvREg2cW9YRy9sT2JLd2s4Y0VKUUN6TnNH?=
- =?utf-8?B?V2hDY3hFczMwZUhFNGhsWTZWNXRibjlMSVZKSFdzL0N0WkVjK2tuTHNPc2JG?=
- =?utf-8?B?RS94RHFwczI5NlROdW45dDIwRFhYVHVMRFBSeW81NWYzV3NTbVhza1dLbXlR?=
- =?utf-8?B?ekVnSWJOUk9SMU0rVzhYQWhEZlk0QlRXNVFVUGIyWnNHdFJ6UmFGWG92R1JH?=
- =?utf-8?B?c21HQnFscHM5alo4aUJ4UkFpdjJWY0FTSjZ5UEUrSW1neWE4MHpOWlBtL3B2?=
- =?utf-8?B?R2FnM2QrdFZlWTRiVmJFNEVRU0s5NGJnYkRIRXFjS3RmaS93TzNoNmhERTlY?=
- =?utf-8?B?UlFnZnpJbThobVZvMytBby9LdFlVZzR6eWRrT01sRnBEZGlJSjY1MmZvNWlD?=
- =?utf-8?B?V3Y2RTNqdXFQdmtXOTArbncxbUFxT1EzSE5oQkZEQys1bWp4NC90RmE4WVlY?=
- =?utf-8?B?L2gvZ3Nwcm1NQVpscExaaVhlYXJnbDE1YUNtNmZ5eEtJOEtXeWdpSTM3OFA1?=
- =?utf-8?B?blhMZW9kQ3BUWEQrVVRlZXFSSGZ5bmZhL1ZRSEsyNlROeUlVNW0vVVBLZjRL?=
- =?utf-8?B?STF3eWNuTDF5eTVCdU5VREpYWWpBK2hIUDZJL1pFZkVTaHFXSmVCLzduWHlC?=
- =?utf-8?B?ejcrS0dJc0I4eHpISThTb3UvNm8reDdmZlNyZnRGUXFBbU9VYUkxV2ZQUkxQ?=
- =?utf-8?B?Sk9mSmwrdEk5NEdaMlJhZXRoV3dBRkF1Nng5QW9IR0V6dGpEbG0rTmFaWndy?=
- =?utf-8?B?NFVLaEdha3BxdmdUdWVRV0VMZUdYU0FUeCt1RWlFVU5YSnJ5QUJPYmJFUTJN?=
- =?utf-8?B?QmpPVDdVUjBXdGIxRnR1VDNLaW9sK3J1WHgyV2VnZFRRVStkWWYzT1B1UU1s?=
- =?utf-8?B?dmZUanY5dVI4alZOdWxvd0hsaTgxdWw3NVVtVTFiT0FCN25wWnprMXp1NVd1?=
- =?utf-8?B?Z2h0dFhmaGdFcXlneUtocU43NVR0N1JZaXZkWHlvdTBWUkVheUlydkNVMzhs?=
- =?utf-8?B?NWNCU00xS21RU0V1OHRhUjRkaEZqT04yN3E2RUt4SEJ3L05Qb09xUkNibGZ6?=
- =?utf-8?B?T0xLNisvREFkelJTUkUxWDZEWmNIRXVVaWsvNmZpYmdZSWRDZnFvdXNON3Ri?=
- =?utf-8?B?WGtmZ09hcHBLcDhjNjdJTmkrQVZYUkhyUS9iODJqV0lOMkhyTUkvS04rNEJK?=
- =?utf-8?B?NDJYUzIwbzJZSGZqbjdDcGw3ZU1odERkVEJMbUM0VFVUVTlsWFNKdz09?=
-X-OriginatorOrg: oss.nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 25bed790-53fa-4867-6afb-08df1d51c2f7
-X-MS-Exchange-CrossTenant-AuthSource: GVXPR04MB12316.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 28 Sep 2026 11:15:11.2643
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: 7/L9W1s4aFUXeay5DE/NQnImTEEmCAjr7ENFfrA9NIfRGEoucq2Z1H7MWgvNJdoyRdcCqLjUynRKRMUKI8OIUQ==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: PAXPR04MB9593
+Content-Type: text/plain; charset="us-ascii"
+Content-Disposition: inline
+In-Reply-To: <20260928045012.30178-1-quentin@q-lab.dev>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260928_041529_239117_CF2E40B5 
-X-CRM114-Status: GOOD (  13.29  )
+X-CRM114-CacheID: sfid-20260928_042015_459088_3B50950C 
+X-CRM114-Status: GOOD (  10.52  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -165,35 +89,20 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 9/25/26 19:37, Frank.Li@oss.nxp.com wrote:
-> From: Frank Li <Frank.Li@nxp.com>
+> When the switch uses a random base MAC address it does not mark each
+> port's address as random:
 > 
-> Rename soc to soc@0 to fix warning (W=1)
->   arch/arm64/boot/dts/freescale/imx952.dtsi:348.6-1539.4: Warning (unit_address_vs_reg): /soc: node has a reg or ranges property, but no unit name
+>   $ dmesg | grep "MAC addr"
+>   sparx5-switch e00c0000.switch: MAC addr was not set, use random MAC
+>   $ cat /sys/class/net/eth0/addr_assign_type
+>   0
 > 
-> Signed-off-by: Frank Li <Frank.Li@nxp.com>
-
-
-Reviewed-by: Daniel Baluta <daniel.baluta@nxp.com>
-
-
-> ---
->  arch/arm64/boot/dts/freescale/imx952.dtsi | 2 +-
->  1 file changed, 1 insertion(+), 1 deletion(-)
+> 0 is NET_ADDR_PERM, so userspace thinks this is a stable address. Fix by
+> tracking the base MAC address assign type in the sparx5 struct and
+> applying it to each port's netdev.
 > 
-> diff --git a/arch/arm64/boot/dts/freescale/imx952.dtsi b/arch/arm64/boot/dts/freescale/imx952.dtsi
-> index 1154b66dadb2d..3c51e61d1fc36 100644
-> --- a/arch/arm64/boot/dts/freescale/imx952.dtsi
-> +++ b/arch/arm64/boot/dts/freescale/imx952.dtsi
-> @@ -345,7 +345,7 @@ opp-1000000000 {
->  		};
->  	};
->  
-> -	soc {
-> +	soc@0 {
->  		compatible = "simple-bus";
->  		#address-cells = <2>;
->  		#size-cells = <2>;
-> 
+> Fixes: f3cad2611a77 ("net: sparx5: add hostmode with phylink support")
+> Signed-off-by: Quentin Freimanis <quentin@q-lab.dev>
 
+Reviewed-by: Daniel Machon <daniel.machon@microchip.com>
 
