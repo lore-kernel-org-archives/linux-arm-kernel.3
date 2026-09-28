@@ -4,60 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8AAC9C9833F
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 28 Sep 2026 13:50:40 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BEC19C9833F
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 28 Sep 2026 13:55:26 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=kzF82E4zZ6nxM5Y4/tKbnnewCR2Jh9fR2pKwojzSo4M=; b=GqqarjuuLgUontuKZeFBlmweTr
-	jWazWeFuNdvTYm72BFyht/IAcofG/zroB/hFBZUFjF6hPSypEMse8wBfIeUYIJeevyu6LVkAUhkvQ
-	hGoxBB7CcdS7TKwI0813joe6UuTEOZdykUg/p9FLSiTyUHzX5WzswL5LUvwLwYtZ0YB6SP3heELF1
-	a+Paq6NR6i2/BwU+jJC3k3oFa4tLGLe7d3qS7+O6v2mERUN1S1VPtbjTFum6HJGTYz0wet7FRrYI8
-	xmpM6XQjxYUHpRoiZytStAVgkk2rSKzzWZtKFvvZX8joAbkFNTnqT6GdemU0v70Lrj60uGD20FKyo
-	u0p3cu0g==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:References:Cc:To:From:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=9+ZJ+AcFWJ92m8xIWlFd9yI8Hj1GCbxZfpLG9YavynM=; b=s7/5P2yiTya0lwwOM+eQlfwlbA
+	i6XFeF6jWqawSCDUisyK2aE0e/RdFrWeaumPXpR6FQh2/FmLlj6xucCJZzb/pvUaLUt1G3dECTQVW
+	CP2yapkzPDO+EfizHF/BtlP6eu9Pn+o7XJazqydns0jiLxKv+3qkNuV9/gWYQsAwO03hfEHCZlFOY
+	cp0JQ4dfmAYAtamailrskpLpU1vWZr/2IuqFXR1TgPv6kTxev74sDUxUpe26NCkk/oJUwapMtWYDg
+	iTSTlZt/fgq1C8hZLGzIxMk8PTvaiqBTQoGHWKC15vtw3HQ3GX8xg6azQU3te8Bi8rRxbzObHo+2v
+	D8yCWeag==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xBBkY-00000000hno-23ez;
-	Mon, 28 Sep 2026 13:50:34 +0000
+	id 1xBBpA-00000000iM5-0e8J;
+	Mon, 28 Sep 2026 13:55:20 +0000
 Received: from foss.arm.com ([217.140.110.172])
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xBBkW-00000000hmc-0JM4
+	id 1xBBp7-00000000iLV-1MMk
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 28 Sep 2026 13:50:33 +0000
+	Mon, 28 Sep 2026 13:55:19 +0000
 Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id AA4C01655;
-	Mon, 28 Sep 2026 06:50:25 -0700 (PDT)
-Received: from localhost (a085714.arm.com [10.164.19.28])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 6346F3F763;
-	Mon, 28 Sep 2026 06:50:28 -0700 (PDT)
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 3268B1C00;
+	Mon, 28 Sep 2026 06:55:13 -0700 (PDT)
+Received: from [10.57.12.116] (unknown [10.57.12.116])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 615A83F763;
+	Mon, 28 Sep 2026 06:55:13 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1790603429; bh=3xb5/4gLWOZNOoh0bz4RtCRodVK49XjhDPLq6nhdnww=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=C6yTxntLWRLp6mdeRlk3M5pdaIoF+yUUjdB+wuC6pq0DDQGx9ZCG2B+ZBrhqPB6yj
-	 +eZP/4yF/U/G1T0Vnsj6Z6hjxVZ5Tx3sfxYKbni7kCTMEEtBk2AHj0AZhYvtCX/TUm
-	 bsV/KVunWuD5bdfLffJTFEfWcGmkRVhTTSlbnEfk=
-Date: Mon, 28 Sep 2026 19:20:25 +0530
-From: Anshuman Khandual <anshuman.khandual@arm.com>
-To: linux-arm-kernel@lists.infradead.org, 
-	Andrew Morton <akpm@linux-foundation.org>
-Cc: David Hildenbrand <david@kernel.org>, Mike Rapoport <rppt@kernel.org>, 
-	Andrew Morton <akpm@linux-foundation.org>, Lorenzo Stoakes <ljs@kernel.org>, 
-	Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>, linux-kernel@vger.kernel.org, 
-	linux-mm@kvack.org
-Subject: Re: [PATCH V3 1/2] arm64/mm: Move __check_safe_pte_update()
-Message-ID: <4zgj7ok5c7dzercy4u6psfr3vx3n22dvwvztalfhfiwxx5y5ij@xv2lpuyba627>
-References: <20260916044933.2689426-1-anshuman.khandual@arm.com>
- <20260916044933.2689426-2-anshuman.khandual@arm.com>
+	t=1790603716; bh=lgeeKqhHEm895kCw60vcS0c0qbxLWa1KXH5dC+xZ8o8=;
+	h=Date:Subject:From:To:Cc:References:In-Reply-To:From;
+	b=RG9oNy0LPgTYLRgj8BSKPfl3R2ijszuaO5nA36mQiS+YKA5nXtyqzqZI2lPorQ4+9
+	 1vp9yUr/Qn39ZN9AzUo9KCPbSvxgyi5OAIXa7MmF/pM0iIoUG4EfnZS6hnKZLBEIzP
+	 nwsRygXMdeTncPucYonHNNnFZBQqZL2gWkIDK/aY=
+Message-ID: <195cdfe4-a55a-453f-9c34-620738eca244@arm.com>
+Date: Mon, 28 Sep 2026 14:55:11 +0100
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20260916044933.2689426-2-anshuman.khandual@arm.com>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v19 5/7] firmware: arm_rmm: Activate the RMM
+Content-Language: en-GB
+From: Suzuki K Poulose <suzuki.poulose@arm.com>
+To: Catalin Marinas <catalin.marinas@arm.com>
+Cc: kvm@vger.kernel.org, kvmarm@lists.linux.dev, maz@kernel.org,
+ will@kernel.org, linux-kernel@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, steven.price@arm.com,
+ aneesh.kumar@kernel.org, oupton@kernel.org, gshan@redhat.com,
+ joey.gouly@arm.com, tabba@google.com, yuzenghui@huawei.com,
+ linux-coco@lists.linux.dev, gankulkarni@os.amperecomputing.com,
+ sdonthineni@nvidia.com, alpergun@google.com, fj0570is@fujitsu.com,
+ WeiLin.Chang@arm.com, lpieralisi@kernel.org, enju.kohei@fujitsu.com,
+ sudeep.holla@arm.com, jonathan.cameron@oss.qualcomm.com
+References: <20260924135201.850038-1-suzuki.poulose@arm.com>
+ <20260924135201.850038-6-suzuki.poulose@arm.com> <arZmXFw5Jw2IbAmA@arm.com>
+ <a11aba04-eaaa-43fd-988b-a2581b1b2fdb@arm.com> <araketG70TIKeNuf@arm.com>
+ <12e83d88-de4c-4230-aac2-1796123320ad@arm.com>
+ <70d47475-e26e-40e1-b409-b0c16aecb8c0@arm.com>
+In-Reply-To: <70d47475-e26e-40e1-b409-b0c16aecb8c0@arm.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260928_065032_252974_FC7DF37D 
-X-CRM114-Status: GOOD (  35.87  )
+X-CRM114-CacheID: sfid-20260928_065517_894404_A729A01D 
+X-CRM114-Status: GOOD (  38.87  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -72,185 +81,275 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Sep 16, 2026 at 10:19:32AM +0530, Anshuman Khandual wrote:
-> The page table entry print helpers and related macros which are defined in
-> <linux/pgtable.h> will not be accessible in platform <asm/pgtable.h> which
-> is basically caused by cycling dependency.
+On 28/09/2026 10:08, Suzuki K Poulose wrote:
+> On 25/09/2026 18:50, Suzuki K Poulose wrote:
+>> Hi Catalin
+>>
+>> On 25/09/2026 17:42, Catalin Marinas wrote:
+>>> On Fri, Sep 25, 2026 at 04:02:24PM +0100, Suzuki K Poulose wrote:
+>>>> On 25/09/2026 13:17, Catalin Marinas wrote:
+>>>>> On Thu, Sep 24, 2026 at 02:51:59PM +0100, Suzuki K Poulose wrote:
+>>>>>> From: Steven Price <steven.price@arm.com>
+>>>>>>
+>>>>>> Activate the RMM after the basic configuration. This is a memory
+>>>>>> transferring stateful operation.
+>>>>>>
+>>
+>> ...
+>>
+>>>>>> +
+>>>>>> +    ret = rmi_sro_memxfer_cmd(sro, GFP_KERNEL, 
+>>>>>> SMC_RMI_RMM_ACTIVATE);
+>>>>>> +    if (ret) {
+>>>>>> +        pr_err("RMM activate failed (%d)\n", ret);
+>>>>>> +        ret = ret < 0 ? ret : -ENXIO;
+>>>>>> +    }
+>>>>>> +
+>>>>>> +    return ret;
+>>>>>
+>>>>> It was raised earlier this year [1] but I'm not sure it concluded. How
+>>>>> do we handle kexec and kdump? I think RMI_RMM_DEACTIVATE only succeeds
+>>>>> if nothing is delegated, so it would need all realms torn down 
+>>>>> first. If
+>>>>> that's not feasible, we could at least block (non-crash) kexec like 
+>>>>> pKVM
+>>>>> does.
+>>>>
+>>>> You are right, we can't DEACTIVATE until all granules have been
+>>>> "undelegated" back. Not just the Realms, but also the GPTs/Tracking
+>>>> Metadata etc would need to be reclaimed (when we get to support
+>>>> dynamic GPT/Tracking metadata). For now, we should block the kexec.
+>>>
+>>> Looking more into this (and the memory hotplug story), I find it strange
+>>> that simply having RME and a valid RMM imposes all these restrictions
+>>> even if we never run or intend to run a realm. How common will
+>>> RME-capable systems with RMM firmware be that are not used for CoCo? Or
+>>> do we expect only CoCo systems to have capable/configured firmware (RME
+>>> may be present in silicon anyway)?
+>>
+>> There is another angle to this :
+>>
+>> RMM may act as a TSM (as in the Trusted Security Manager in PCI TDISP)
+>> context and provide setting up IDE connection between the RootPort/
+>> EndPoint. So, the trigger point for the RMM activation would become 
+>> the "First Delegate" request.
+>>
+>> Running an RMM just for the "TSM" functionality is not ideal.
+>> In the absence of RMM, Linux can act as the baremetal TSM. But when the
+>> RMM is present, we must use the RMM as the TSM, especially if the
+>> Device will be assigned to a Realm.
+>>
+>> FEAT_RME capable systems don't need to enable RMM unless they want to
+>> run CoCo guests.
+>>
+>>>
+>>> Ideally we'd defer the RMM configuration and activation (and the
+>>> tracking/GPT checks) until we first attempt to start a realm, keeping
+>>> only the RMI_VERSION/FEATURES probing at boot. Not sure how feasible
+>>> this is (memory is more fragmented by then for any contiguous donation).
+>>> If we manage it, kexec and memory hotplug just work on hosts that never
+>>> start a realm.
+>>>
+>>> The next best thing for kexec is to tear down the realms, undelegate
+>>> the granules and deactivate the RMM before invoking kexec (with kdump
+>>> that's harder as we likely no longer have a controlled shutdown).
+>>
+>> This is quite complicated, when we get the dynamic metadata support,
+>> especially with the self-describing L1GPT and Tracking metadata.
+>> But not impossible.
 > 
-> Move __check_safe_pte_update() inside arch/arm64/mm/mmu.c as a preparation
-> for subsequent usage of the afore mentioned generic MM helpers. While here
-> drop IS_ENABLED(CONFIG_DEBUG_VM), although wrap __check_safe_pte_update()
-> inside #ifdef CONFIG_DEBUG_VM that preserves the current code optimization
-> which is achieved via the static inline functions.
+> Looking at this again we could :
 > 
-> This does not cause any functional change.
+> a. If the user triggers a graceful kexec reboot, i.e, without forced,
+>     we should be able to deactivate the RMM. Since all processes are
+>     killed, Realm VMs must be off and all granules reclaimed.
+>     When we get to dynamic GPT/Tracking, we should additionally
+>     reclaim them back.
+> b. For forced reboot kexec, I don't think there is a safe way.
 > 
-> Cc: Catalin Marinas <catalin.marinas@arm.com>
-> Cc: Will Deacon <will@kernel.org>
-> Cc: linux-arm-kernel@lists.infradead.org
-> Cc: linux-kernel@vger.kernel.org
-> Reviewed-by: David Hildenbrand (Arm) <david@kernel.org>
-> Signed-off-by: Anshuman Khandual <anshuman.khandual@arm.com>
-> ---
->  arch/arm64/include/asm/pgtable.h | 49 ++++----------------------------
->  arch/arm64/mm/mmu.c              | 44 ++++++++++++++++++++++++++++
->  2 files changed, 49 insertions(+), 44 deletions(-)
+> We have two options here :
 > 
-> diff --git a/arch/arm64/include/asm/pgtable.h b/arch/arm64/include/asm/pgtable.h
-> index e89ec5f4787b..763c5a411d64 100644
-> --- a/arch/arm64/include/asm/pgtable.h
-> +++ b/arch/arm64/include/asm/pgtable.h
-> @@ -387,52 +387,13 @@ static inline pte_t __ptep_get(pte_t *ptep)
->  extern void __sync_icache_dcache(pte_t pteval);
->  bool pgattr_change_is_safe(pteval_t old, pteval_t new);
->  
-> -/*
-> - * PTE bits configuration in the presence of hardware Dirty Bit Management
-> - * (PTE_WRITE == PTE_DBM):
-> - *
-> - * Dirty  Writable | PTE_RDONLY  PTE_WRITE  PTE_DIRTY (sw)
-> - *   0      0      |   1           0          0
-> - *   0      1      |   1           1          0
-> - *   1      0      |   1           0          1
-> - *   1      1      |   0           1          x
-> - *
-> - * When hardware DBM is not present, the software PTE_DIRTY bit is updated via
-> - * the page fault mechanism. Checking the dirty status of a pte becomes:
-> - *
-> - *   PTE_DIRTY || (PTE_WRITE && !PTE_RDONLY)
-> - */
-> -
-> -static inline void __check_safe_pte_update(struct mm_struct *mm, pte_t *ptep,
-> -					   pte_t pte)
-> +#ifdef CONFIG_DEBUG_VM
-> +void __check_safe_pte_update(struct mm_struct *mm, pte_t *ptep, pte_t pte);
-> +#else
-> +static inline void __check_safe_pte_update(struct mm_struct *mm, pte_t *ptep, pte_t pte)
->  {
-> -	pte_t old_pte;
-> -
-> -	if (!IS_ENABLED(CONFIG_DEBUG_VM))
-> -		return;
-> -
-> -	old_pte = __ptep_get(ptep);
-> -
-> -	if (!pte_valid(old_pte) || !pte_valid(pte))
-> -		return;
-> -	if (mm != current->active_mm && atomic_read(&mm->mm_users) <= 1)
-> -		return;
-> -
-> -	/*
-> -	 * Check for potential race with hardware updates of the pte
-> -	 * (__ptep_set_access_flags safely changes valid ptes without going
-> -	 * through an invalid entry).
-> -	 */
-> -	VM_WARN_ONCE(!pte_young(pte),
-> -		     "%s: racy access flag clearing: 0x%016llx -> 0x%016llx",
-> -		     __func__, pte_val(old_pte), pte_val(pte));
-> -	VM_WARN_ONCE(pte_write(old_pte) && !pte_dirty(pte),
-> -		     "%s: racy dirty state clearing: 0x%016llx -> 0x%016llx",
-> -		     __func__, pte_val(old_pte), pte_val(pte));
-> -	VM_WARN_ONCE(!pgattr_change_is_safe(pte_val(old_pte), pte_val(pte)),
-> -		     "%s: unsafe attribute change: 0x%016llx -> 0x%016llx",
-> -		     __func__, pte_val(old_pte), pte_val(pte));
->  }
-> +#endif /* CONFIG_DEBUG_VM */
->  
->  static inline void __sync_cache_and_tags(pte_t pte, unsigned int nr_pages)
->  {
-> diff --git a/arch/arm64/mm/mmu.c b/arch/arm64/mm/mmu.c
-> index 79d90226fd5d..cb49469707a8 100644
-> --- a/arch/arm64/mm/mmu.c
-> +++ b/arch/arm64/mm/mmu.c
-> @@ -2392,4 +2392,48 @@ int arch_set_user_pkey_access(int pkey, unsigned long init_val)
->  
->  	return 0;
->  }
-> +
-> +/*
-> + * PTE bits configuration in the presence of hardware Dirty Bit Management
-> + * (PTE_WRITE == PTE_DBM):
-> + *
-> + * Dirty  Writable | PTE_RDONLY  PTE_WRITE  PTE_DIRTY (sw)
-> + *   0      0      |   1           0          0
-> + *   0      1      |   1           1          0
-> + *   1      0      |   1           0          1
-> + *   1      1      |   0           1          x
-> + *
-> + * When hardware DBM is not present, the software PTE_DIRTY bit is updated via
-> + * the page fault mechanism. Checking the dirty status of a pte becomes:
-> + *
-> + *   PTE_DIRTY || (PTE_WRITE && !PTE_RDONLY)
-> + */
-> +#ifdef CONFIG_DEBUG_VM
-> +void __check_safe_pte_update(struct mm_struct *mm, pte_t *ptep, pte_t pte)
-> +{
-> +	pte_t old_pte;
-> +
-> +	old_pte = __ptep_get(ptep);
-> +
-> +	if (!pte_valid(old_pte) || !pte_valid(pte))
-> +		return;
-> +	if (mm != current->active_mm && atomic_read(&mm->mm_users) <= 1)
-> +		return;
-> +
-> +	/*
-> +	 * Check for potential race with hardware updates of the pte
-> +	 * (__ptep_set_access_flags safely changes valid ptes without going
-> +	 * through an invalid entry).
-> +	 */
-> +	VM_WARN_ONCE(!pte_young(pte),
-> +		     "%s: racy access flag clearing: 0x%016llx -> 0x%016llx",
-> +		     __func__, pte_val(old_pte), pte_val(pte));
-> +	VM_WARN_ONCE(pte_write(old_pte) && !pte_dirty(pte),
-> +		     "%s: racy dirty state clearing: 0x%016llx -> 0x%016llx",
-> +		     __func__, pte_val(old_pte), pte_val(pte));
-> +	VM_WARN_ONCE(!pgattr_change_is_safe(pte_val(old_pte), pte_val(pte)),
-> +		     "%s: unsafe attribute change: 0x%016llx -> 0x%016llx",
-> +		     __func__, pte_val(old_pte), pte_val(pte));
-> +}
-> +#endif /* CONFIG_DEBUG_VM */
->  #endif
-> -- 
-> 2.43.0
->
+> 1. Disable kexec reboot (allowing kexec kdump) when the RMM is active
+>     at kexec_load. I prefer this for now, and we could goto 2 eventually.
+> 
+> 2. Back out from machine_kexec() if the RMM was still active.
+>     This allows (a) above.
 
-Hello Andrew,
 
-Could you please squash in the following changes from David which fixes
-the build issue reported earlier. Problem is the #ifdef CONFIG_DEBUG_VM
-block was inserted inside the existing #ifdef CONFIG_ARCH_HAS_PKEYS not
-after it as would have been expected. OR do we need a respin here along
-with the change ?
+I have the following patch (tested , but tf-RMM doesn't support 
+DEACTIVATE yet), which correctly deactivates the RMM (well
+at least tries).
 
-- Anshuman
+---8>---
 
-From 448f146f16394713b28295236588ccab3a173827 Mon Sep 17 00:00:00 2001
-From: "David Hildenbrand (Arm)" <david@kernel.org>
-Date: Mon, 28 Sep 2026 09:42:06 +0200
-Subject: [PATCH] fixup: arm64/mm: move __check_safe_pte_update()
 
-Signed-off-by: David Hildenbrand (Arm) <david@kernel.org>
+firmware: rmm: Deactivate RMM at reboot
+
+Deactivate the RMM at system shutdown. This would allow a normal kexec 
+to cleanup the state and boot into a new kernel gracefully.
+
+Kdump kernels need not worry about an active RMM, as long as it can
+handle the GPF on access to the Delegated granules.
+
+Signed-off-by: Suzuki K Poulose <suzuki.poulose@arm.com>
 ---
- arch/arm64/mm/mmu.c | 2 +-
- 1 file changed, 1 insertion(+), 1 deletion(-)
+  arch/arm64/kernel/machine_kexec.c |  2 +
+  drivers/firmware/arm_rmm/rmi.c    | 63 ++++++++++++++++++++++++++++++-
+  include/linux/arm-rmi-cmds.h      | 10 +++++
+  3 files changed, 73 insertions(+), 2 deletions(-)
 
-diff --git a/arch/arm64/mm/mmu.c b/arch/arm64/mm/mmu.c
-index e589fb00d1e3..7343ac9294f8 100644
---- a/arch/arm64/mm/mmu.c
-+++ b/arch/arm64/mm/mmu.c
-@@ -2392,6 +2392,7 @@ int arch_set_user_pkey_access(int pkey, unsigned long init_val)
+diff --git a/arch/arm64/kernel/machine_kexec.c 
+b/arch/arm64/kernel/machine_kexec.c
+index 8f9bc2327dc85..8f16f92a5d389 100644
+--- a/arch/arm64/kernel/machine_kexec.c
++++ b/arch/arm64/kernel/machine_kexec.c
+@@ -6,6 +6,7 @@
+   * Copyright (C) Huawei Futurewei Technologies.
+   */
 
- 	return 0;
- }
-+#endif
++#include <linux/arm-rmi-cmds.h>
+  #include <linux/interrupt.h>
+  #include <linux/irq.h>
+  #include <linux/kernel.h>
+@@ -171,6 +172,7 @@ void machine_kexec(struct kimage *kimage)
+  	BUG_ON(!in_kexec_crash && (stuck_cpus || (num_online_cpus() > 1)));
+  	WARN(in_kexec_crash && (stuck_cpus || smp_crash_stop_failed()),
+  		"Some CPUs may be stale, kdump will be unreliable.\n");
++	WARN(!in_kexec_crash && is_rmm_active(), "RMM is active, kexec will be 
+unreliable.\n");
 
- /*
-  * PTE bits configuration in the presence of hardware Dirty Bit Management
-@@ -2440,4 +2441,3 @@ void __check_safe_pte_update(struct mm_struct *mm, pte_t *ptep, pte_t pte)
- 		     __func__, pte_str_old, pte_str);
- }
- #endif /* CONFIG_DEBUG_VM */
--#endif
+  	pr_info("Bye!\n");
+
+diff --git a/drivers/firmware/arm_rmm/rmi.c b/drivers/firmware/arm_rmm/rmi.c
+index 51343e9d5c2a9..5b695f3155b1c 100644
+--- a/drivers/firmware/arm_rmm/rmi.c
++++ b/drivers/firmware/arm_rmm/rmi.c
+@@ -7,6 +7,7 @@
+  #include <linux/memblock.h>
+  #include <linux/memory.h>
+  #include <linux/arm-rmi-cmds.h>
++#include <linux/reboot.h>
+  #include <linux/slab.h>
+
+  #include <asm/memory.h>
+@@ -15,6 +16,13 @@
+  /* RMM v2.0 defines RmiFeatureRegister0 to RmiFeatureRegister4. */
+  static unsigned long rmi_feat_reg_cache[5] __ro_after_init;
+  static bool arm64_rmi_is_available;
++static bool arm64_rmm_active;
++
++bool is_rmm_active(void)
++{
++	return arm64_rmm_active;
++}
++EXPORT_SYMBOL_GPL(is_rmm_active);
+
+  /**
+   * rmi_granule_range_undelegate() - Undelegate a range of granules
+@@ -1017,6 +1025,53 @@ bool is_rmi_available(void)
+  }
+  EXPORT_SYMBOL_GPL(is_rmi_available);
+
++static int rmi_rmm_deactivate(struct rmi_sro_state *sro)
++{
++	int ret;
++
++	if (!READ_ONCE(arm64_rmm_active))
++		return 0;
++
++	ret = WARN_ON(rmi_sro_memxfer_cmd(sro, GFP_KERNEL, 
+SMC_RMI_RMM_DEACTIVATE));
++	if (ret)
++		return ret;
++
++	WRITE_ONCE(arm64_rmm_active, false);
++	WRITE_ONCE(arm64_rmi_is_available, false);
++
++	return ret;
++}
++
++static int rmi_reboot_notifier(struct notifier_block *nb,
++			       unsigned long action, void *data)
++{
++	int ret;
++
++	switch (action) {
++	case SYS_RESTART:
++	case SYS_HALT:
++	case SYS_POWER_OFF:
++		break;
++	default:
++		return NOTIFY_DONE;
++	}
++
++	struct rmi_sro_state *sro __free(kfree) = kmalloc_obj(*sro);
++
++	if (!sro)
++		return -ENOMEM;
++
++	ret = rmi_rmm_deactivate(sro);
++	if (ret)
++		pr_emerg("RMM Deactivation failed: %d\n", ret);
++
++	return NOTIFY_DONE;
++}
++
++static struct notifier_block rmi_reboot_nb = {
++	.notifier_call = rmi_reboot_notifier,
++};
++
+  static int rmi_init_memory(void)
+  {
+  	int ret;
+@@ -1025,7 +1080,10 @@ static int rmi_init_memory(void)
+  	if (ret)
+  		return ret;
+
+-	return register_memory_notifier(&rmi_memory_nb);
++	ret = register_memory_notifier(&rmi_memory_nb);
++	if (ret)
++		return ret;
++	return register_reboot_notifier(&rmi_reboot_nb);
+  }
+
+  static int __init arm64_init_rmi(void)
+@@ -1057,10 +1115,11 @@ static int __init arm64_init_rmi(void)
+  		return ret;
+  	}
+
++	WRITE_ONCE(arm64_rmm_active, true);
+  	ret = rmi_init_memory();
+  	if (ret) {
+  		/* Deactivate the RMM */
+-		WARN_ON(rmi_sro_memxfer_cmd(sro, GFP_KERNEL, SMC_RMI_RMM_DEACTIVATE));
++		(void)rmi_rmm_deactivate(sro);
+  		return ret;
+  	}
+
+diff --git a/include/linux/arm-rmi-cmds.h b/include/linux/arm-rmi-cmds.h
+index 8fd90914c161a..5d31a4104ce72 100644
+--- a/include/linux/arm-rmi-cmds.h
++++ b/include/linux/arm-rmi-cmds.h
+@@ -88,6 +88,16 @@ long rmi_sro_execute(struct arm_smccc_1_2_regs *regs);
+  	__ret;								\
+  })
+
++
++#ifdef CONFIG_ARM_RMM_RMI
++bool is_rmm_active(void);
++#else
++static inline bool is_rmm_active(void)
++{
++	return false;
++}
++#endif	/* CONFIG_ARM_RMM_RMI */
++
+  /**
+   * rmi_rtt_data_map_init() - Create a mapping at protected IPA, 
+copying contents
+   *			     from a given non-secure source granule.
+-- 
+2.43.0
+
 
 
