@@ -4,45 +4,46 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5FFB5CA5FA5
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 28 Sep 2026 14:51:12 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1481FCA5FA5
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 28 Sep 2026 14:51:23 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=TvuuZ6aLqblf+H0W8nqZvZBIx+Xtg4eiL7p4ol//ojc=; b=lZqQJuvlydCAUNwVwt3GJbM9u4
-	hUGEx8kzCynL45G98AvuTJMs8lcZtXsBOHbGrcQNkhzh0Ve5JAu5rCtk0dc/0CkmUEhOyDb+HrGUJ
-	JyWvHuwpX9sel5LO83TpsAy40W1giIaMJSJSM12/Ch3j3J2QB7sU9oQIBcPcvyULx4b7W8gVxnoBs
-	i12vSkNeGv2D40g4l5o4ly4G9x9Qmuah2IF3dtXwxVQm33YjgWY0MDgYWAdAf1V+U7rq3TE0Aeftb
-	6BYTsHR8b5tMj8RwpGngJK9XNeTbqakqEQSK4CmommUFWtniQl/JNpe9pJypr1cPHOhGh44+SqJif
-	e04HvA1g==;
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=O3fJrMQL1fKhE5DPCwlRr2e8oi3phq7U6oB8w73Ea0I=; b=rYYSkyfhagjsDpWHrQKW+7e9jH
+	+L45RPYWlXIFmfQJ55k4SANeztnsI/NhhpQvguNV9XS5HKWAuSVZYr9dJlKNFIF3Q0Dbm5RyWHR1V
+	AQURjlFoW2mxwPmt/JK6+SnGrkI0yZuJoUCY7LlDp5O6pQGj5oIMcY5uNIENyu0Wwc8vEV2629Igq
+	dkCR18LH9z6qaXWIYEp7E4IMDVGq2FHxlRRU/UxB42V7uJDyATILrdAMWRQw75LiXJjo/JGjaeeWf
+	VJRHlw+CFU4BoY0z/a8wKmuTChIHjEM7W6FI8aBJBWj11gcLGPRddvJz04D9WQoe3ERN3BIfM8YTN
+	1ZNT3Q5A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xBCh4-00000000orv-38f9;
-	Mon, 28 Sep 2026 14:51:02 +0000
-Received: from smtpout-03.galae.net ([185.246.85.4])
+	id 1xBChJ-00000000ovw-08bk;
+	Mon, 28 Sep 2026 14:51:17 +0000
+Received: from smtpout-02.galae.net ([185.246.84.56])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xBCh1-00000000orG-0aho
+	id 1xBCh5-00000000orn-1TgS
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 28 Sep 2026 14:51:01 +0000
+	Mon, 28 Sep 2026 14:51:06 +0000
 Received: from smtpout-01.galae.net (smtpout-01.galae.net [212.83.139.233])
-	by smtpout-03.galae.net (Postfix) with ESMTPS id 912994E41098;
-	Mon, 28 Sep 2026 14:50:55 +0000 (UTC)
+	by smtpout-02.galae.net (Postfix) with ESMTPS id 4E0541A103C;
+	Mon, 28 Sep 2026 14:51:01 +0000 (UTC)
 Received: from mail.galae.net (mail.galae.net [212.83.136.155])
-	by smtpout-01.galae.net (Postfix) with ESMTPS id 36976601BD;
-	Mon, 28 Sep 2026 14:50:55 +0000 (UTC)
-Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 4672D10329684;
-	Mon, 28 Sep 2026 16:50:44 +0200 (CEST)
+	by smtpout-01.galae.net (Postfix) with ESMTPS id 2171D601BD;
+	Mon, 28 Sep 2026 14:51:01 +0000 (UTC)
+Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id A18BF1032968D;
+	Mon, 28 Sep 2026 16:50:57 +0200 (CEST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=dkim;
-	t=1790607053; h=from:subject:date:message-id:to:cc:mime-version:
-	 content-transfer-encoding; bh=TvuuZ6aLqblf+H0W8nqZvZBIx+Xtg4eiL7p4ol//ojc=;
-	b=UKL7/9h7KmpkIo3dALdGSlM5n7z1V5/Yd4YECQ5G4LmP12RroYSNYjfwu7P/4SYsf8U+JF
-	54OHmcgorp8B56TQTY85WLxck1r4yQ/ovJbvx1oHdpVRbYQgSaHdYh5bSMUbo+KLjCgukV
-	lORj+NtvVj8K7DLUMKPd02Gvm3JE7v83rohMt9sKrrkqoPOaIJJ2gWNAlqKDxDja05yiLa
-	q5GR4aCvMdof/nokisMmUqyCAq8HR7eW1meMrwb+5be+XTr9fA9bMOMJQ5jSGMSjh/CKHa
-	uIZPQP5flK4JuHJePICzTxXxh6+OXkJKoDYi9oeaiOWtwRV5B308kgP05j8qOg==
+	t=1790607059; h=from:subject:date:message-id:to:cc:mime-version:
+	 content-transfer-encoding:in-reply-to:references;
+	bh=O3fJrMQL1fKhE5DPCwlRr2e8oi3phq7U6oB8w73Ea0I=;
+	b=SptTGbpvyTZxZi3oNTAkUvACSYop2iGc2oUfB9BB9vIXQkYHE7anqVr+Na61W/DR7beoFX
+	eTsdG7ylS8dDLuk9yTkikpuweq7tmvYmMeJvO2Bdu6aTwWZDvtKDCpZx7WwcCxxV7SmtoQ
+	+FYh/jVNHTv3EgrRZF+HJxfs2Zevg1hVQOTItaAFonV3q4xrsjC7l1njodRDDqOZKDCejd
+	ahYsMnAeZGuqjCeAr3jgCbqiHssmMZQGrKFXLlsWraIGHBSdAb9LVR4s6Ixns7Ru5gxunN
+	JMXBWSSgMFqxOc0awxWUghMSjR9mxQ6qPkVE/uzBUx4xqPekWSUVLtyl87mqPw==
 From: Maxime Chevallier <maxime.chevallier@bootlin.com>
 To: Andrew Lunn <andrew+netdev@lunn.ch>,
 	Jakub Kicinski <kuba@kernel.org>,
@@ -63,16 +64,18 @@ Cc: Maxime Chevallier <maxime.chevallier@bootlin.com>,
 	linux-arm-kernel@lists.infradead.org,
 	linux-stm32@st-md-mailman.stormreply.com,
 	Peter Robinson <pbrobinson@gmail.com>
-Subject: [PATCH net-next v2 0/2] net: stmmac: Report RSS as not supported
-Date: Mon, 28 Sep 2026 16:50:40 +0200
-Message-ID: <20260928145043.1228968-1-maxime.chevallier@bootlin.com>
+Subject: [PATCH net-next v2 2/2] net: stmmac: Don't set or get RSS parameters when not supported
+Date: Mon, 28 Sep 2026 16:50:42 +0200
+Message-ID: <20260928145043.1228968-3-maxime.chevallier@bootlin.com>
 X-Mailer: git-send-email 2.55.0
+In-Reply-To: <20260928145043.1228968-1-maxime.chevallier@bootlin.com>
+References: <20260928145043.1228968-1-maxime.chevallier@bootlin.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-Last-TLS-Session-Version: TLSv1.3
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260928_075059_320577_ED760BAF 
-X-CRM114-Status: GOOD (  12.23  )
+X-CRM114-CacheID: sfid-20260928_075103_546727_CCF65B6D 
+X-CRM114-Status: GOOD (  12.29  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -87,46 +90,65 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi everyone,
+The RSS kselftests fail on stmmac, and this is partly due to the driver
+reporting bogus data for the RSS ops :
 
-This is V2 of an RSS cleanup for stmmac, discovered while running the
-rss kselftests on stmmac. It returns bogus indirection tables and key
-sizes, when RSS isn't actually available at all.
+ - ethtool -x reports an indirection table and a key while the hardware
+   doesn't have any of that
+ - ethtool -X fails with -EINVAL.
 
-RSS is currently not supported on any stmmac devices upstream, so
-code that was already useless is now effectively dead. It has been the
-case since 2019 when the code was added, as platforms need to set rss_en
-in their plat data, and no glue ever did that.
+Let's return early in the rss ops if we know the hardware and platform
+don't support RSS.
 
-Russell King ran a poll in february 2026 [1] asking if the code should
-be dropped, without any reply going in either direction.
-
-Jitendra Vegiraju from Broadcom sent 9 iterations of a Broadcom PCIe glue
-driver [2] that actually sets rss_en = 1, so there's some hope that this
-may be used in the future.
-
-[1]: https://lore.kernel.org/netdev/aYd4BkAeNW6d0iIC@shell.armlinux.org.uk/
-[2]: https://lore.kernel.org/netdev/20260402213629.1996133-1-jitendra.vegiraju@broadcom.com/
-
-Nvidia platforms seem to be RSS capable, but it's not going to work out
-of the box. Let's leave the feature there for now, with proper -EOPNOTSUPP
-returned for RSS ops.
-
-V2:
- - target net-next
- - Add a dedicated helper, following Nicolai's review.
-
-V1: https://lore.kernel.org/netdev/20260926093343.292181-1-maxime.chevallier@bootlin.com/#t
-
-Maxime Chevallier (2):
-  net: stmmac: Introduce a helper to check RSS support
-  net: stmmac: Don't set or get RSS parameters when not supported
-
- drivers/net/ethernet/stmicro/stmmac/stmmac.h         |  5 +++++
+Signed-off-by: Maxime Chevallier <maxime.chevallier@bootlin.com>
+---
  drivers/net/ethernet/stmicro/stmmac/stmmac_ethtool.c | 12 ++++++++++++
- drivers/net/ethernet/stmicro/stmmac/stmmac_main.c    |  4 ++--
- 3 files changed, 19 insertions(+), 2 deletions(-)
+ 1 file changed, 12 insertions(+)
 
+diff --git a/drivers/net/ethernet/stmicro/stmmac/stmmac_ethtool.c b/drivers/net/ethernet/stmicro/stmmac/stmmac_ethtool.c
+index 154cc0c7623d..b78dc301d70d 100644
+--- a/drivers/net/ethernet/stmicro/stmmac/stmmac_ethtool.c
++++ b/drivers/net/ethernet/stmicro/stmmac/stmmac_ethtool.c
+@@ -927,6 +927,9 @@ static u32 stmmac_get_rxfh_key_size(struct net_device *dev)
+ {
+ 	struct stmmac_priv *priv = netdev_priv(dev);
+ 
++	if (!stmmac_rss_is_supported(priv))
++		return 0;
++
+ 	return sizeof(priv->rss.key);
+ }
+ 
+@@ -934,6 +937,9 @@ static u32 stmmac_get_rxfh_indir_size(struct net_device *dev)
+ {
+ 	struct stmmac_priv *priv = netdev_priv(dev);
+ 
++	if (!stmmac_rss_is_supported(priv))
++		return 0;
++
+ 	return ARRAY_SIZE(priv->rss.table);
+ }
+ 
+@@ -943,6 +949,9 @@ static int stmmac_get_rxfh(struct net_device *dev,
+ 	struct stmmac_priv *priv = netdev_priv(dev);
+ 	int i;
+ 
++	if (!stmmac_rss_is_supported(priv))
++		return -EOPNOTSUPP;
++
+ 	if (rxfh->indir) {
+ 		for (i = 0; i < ARRAY_SIZE(priv->rss.table); i++)
+ 			rxfh->indir[i] = priv->rss.table[i];
+@@ -962,6 +971,9 @@ static int stmmac_set_rxfh(struct net_device *dev,
+ 	struct stmmac_priv *priv = netdev_priv(dev);
+ 	int i;
+ 
++	if (!stmmac_rss_is_supported(priv))
++		return -EOPNOTSUPP;
++
+ 	if (rxfh->hfunc != ETH_RSS_HASH_NO_CHANGE &&
+ 	    rxfh->hfunc != ETH_RSS_HASH_TOP)
+ 		return -EOPNOTSUPP;
 -- 
 2.55.0
 
