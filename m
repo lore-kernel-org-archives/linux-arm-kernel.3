@@ -4,135 +4,76 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 23357CA5FA1
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 28 Sep 2026 15:59:01 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2AF99CA5FA2
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 28 Sep 2026 16:02:41 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:MIME-Version:Message-ID:Date:References:In-Reply-To:Subject:Cc:
+	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=rzyibDQTpQayQMJ6uE+DAwnjNSVqg9HDPjxKT/D4jMY=; b=e0Tcb9EW73tpyTFUw3S1Sf9qJV
-	CpuYeLEKcs6PTt53EZgwK7QFSCT6Qc4u3eUfaHtt9P+hR7ePJsDapU2+kBUaBnx3VYyl5Kp6wyYZt
-	gZV0ahdbdZVVylNpfuCOBdIXqpPF0Zgil1tnyayOjoo+Yzu8nLZ6vBRHXq0L5j9QaOLHvUDw4Cith
-	RqH62WSQQ1iL3ueJgFBHfET9y9TXxTLabnVOvRJjPKHZjOT4Gynxiq+hE8lQZRhkVaw2anuPhdlpK
-	EHUMzbxRpMv8Vuhk9nkk66fhCTxqgz2Xv9nv7MQb68fZ1ytjigEMoK/n3GnyA8QRXrJyY22UwDJYQ
-	j331yz7w==;
+	bh=z+FTNcI1ZVOGKwAwbJoRaB+RsZ8LwvDolH15T9JS/r0=; b=dvq9JLpesRb/UxhoSywANHvNlx
+	84xClubsuRiJhUxoyuKL0R4JRcMeD7JBtRNY9XIR/sRKQoAsscDN3oqhPCM2hjCDvMn0DngD6P0as
+	BcN6c400CgdNxCoh/oJ3YJifVwam6uahFfTRVHrqKblQLBNl8VOaahiUVKdVEyaFPw7mGSrup8vqj
+	B+yOMTZLLoBU/O6uajlCApZD39BCqFOoODamb4iTqOeAQGHM9YRYykjiNKcO/IgvBoOMeKQp3lSNB
+	Vuumw/AriV/kFfKG/Jml/8kb033J4F7g2DgqfLatQpKtSHnmJ8PP0ib6szG01pQYxHEAipRTAfIoz
+	s81X68hQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xBDkj-00000000xZX-3SQX;
-	Mon, 28 Sep 2026 15:58:53 +0000
-Received: from mx0b-001b2d01.pphosted.com ([148.163.158.5])
+	id 1xBDoH-00000000xx6-1zJT;
+	Mon, 28 Sep 2026 16:02:33 +0000
+Received: from smtpout-02.galae.net ([185.246.84.56])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xBDkg-00000000xYn-3cPv
+	id 1xBDoD-00000000xwk-3Cga
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 28 Sep 2026 15:58:52 +0000
-Received: from pps.filterd (m0353725.ppops.net [127.0.0.1])
-	by mx0a-001b2d01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 68SF5YEY216947;
-	Mon, 28 Sep 2026 15:58:37 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ibm.com; h=cc
-	:content-transfer-encoding:content-type:date:from:in-reply-to
-	:message-id:mime-version:references:subject:to; s=pp1; bh=rzyibD
-	QTpQayQMJ6uE+DAwnjNSVqg9HDPjxKT/D4jMY=; b=grNeGLQFIcNppKXXDKI0rl
-	ThLMbnF6URl5Sg70BHzDbIBGMok1PcGBVunzH4LH80tr5xSz0JZgBdUTDZwRYHxS
-	sPLeXAsV+2g7y/1QeXKOwJi+CBPnrVSh6M58EEb19sVkUCLXuNH73/d43igI4Lli
-	JIm5jWsL+kNDUw2AMi6JTy76JKeM7uMDdqAtGyFMj8mgI//ioIOlpUw0HgPAMb2w
-	FmziXcuPqxjwmI66ZF/hq9/GbOY0SjLKxmEjJVdLkzSeHV8i7SQL2HRx+OEz9P52
-	rkRsPmPP+LcPyiKu0/0CZNVYsVQrktc9BQraPckbPlQujcnoT6tX0u4kT7FBgobw
-	==
-Received: from ppma11.dal12v.mail.ibm.com (db.9e.1632.ip4.static.sl-reverse.com [50.22.158.219])
-	by mx0a-001b2d01.pphosted.com (PPS) with ESMTPS id 4gx4fe24r7-1
-	(version=TLSv1.3 cipher=TLS_AES_256_GCM_SHA384 bits=256 verify=NOT);
-	Mon, 28 Sep 2026 15:58:36 +0000 (GMT)
-Received: from pps.filterd (ppma11.dal12v.mail.ibm.com [127.0.0.1])
-	by ppma11.dal12v.mail.ibm.com (8.18.1.11/8.18.1.11) with ESMTP id 68SElYxt290963;
-	Mon, 28 Sep 2026 15:58:35 GMT
-Received: from smtprelay05.fra02v.mail.ibm.com ([9.218.2.225])
-	by ppma11.dal12v.mail.ibm.com (PPS) with ESMTPS id 4gxu2y5qq2-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Mon, 28 Sep 2026 15:58:35 +0000 (GMT)
-Received: from smtpav04.fra02v.mail.ibm.com (smtpav04.fra02v.mail.ibm.com [10.20.54.103])
-	by smtprelay05.fra02v.mail.ibm.com (8.14.9/8.14.9/NCO v10.0) with ESMTP id 68SFwWBo44040678
-	(version=TLSv1/SSLv3 cipher=DHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
-	Mon, 28 Sep 2026 15:58:32 GMT
-Received: from smtpav04.fra02v.mail.ibm.com (unknown [127.0.0.1])
-	by IMSVA (Postfix) with ESMTP id 02D2620043;
-	Mon, 28 Sep 2026 15:58:32 +0000 (GMT)
-Received: from smtpav04.fra02v.mail.ibm.com (unknown [127.0.0.1])
-	by IMSVA (Postfix) with ESMTP id 0680920040;
-	Mon, 28 Sep 2026 15:58:31 +0000 (GMT)
-Received: from [0.0.0.0] (unknown [9.111.81.16])
-	by smtpav04.fra02v.mail.ibm.com (Postfix) with ESMTP;
-	Mon, 28 Sep 2026 15:58:30 +0000 (GMT)
-Message-ID: <c97ae089-fadf-4a29-b7df-4947ea8d6592@linux.ibm.com>
-Date: Mon, 28 Sep 2026 17:58:30 +0200
+	Mon, 28 Sep 2026 16:02:32 +0000
+Received: from smtpout-01.galae.net (smtpout-01.galae.net [212.83.139.233])
+	by smtpout-02.galae.net (Postfix) with ESMTPS id 33ECE1A0FDE;
+	Mon, 28 Sep 2026 16:02:26 +0000 (UTC)
+Received: from mail.galae.net (mail.galae.net [212.83.136.155])
+	by smtpout-01.galae.net (Postfix) with ESMTPS id 05597601BD;
+	Mon, 28 Sep 2026 16:02:26 +0000 (UTC)
+Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 2C436103295A7;
+	Mon, 28 Sep 2026 18:02:12 +0200 (CEST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=dkim;
+	t=1790611340; h=from:subject:date:message-id:to:cc:mime-version:content-type:
+	 content-transfer-encoding:in-reply-to:references;
+	bh=z+FTNcI1ZVOGKwAwbJoRaB+RsZ8LwvDolH15T9JS/r0=;
+	b=k1kmipKcbgZK4+GJAxsjcIf58jtCIK8Ge5m2VLrsc5Ogh51sBKvy57GnvRupbQn/aowVH2
+	fOZWSMGi/T29Rq3hzIXs3g4wpdEXw/wRKJnRbqcBGGHbCNHV96L/dj3wcE0IL47TJ4v0Xb
+	xdMqzefAm1ro38v6E4yIyy7npBFsltDigNYgMXI+MHxvIKkvcG1f2sued4say67tUtepFn
+	f0hyPinq8oEPPnPg7iossaiTuyf5ByO1x+gWYi11ELovX+eZlhvBig0Zy9iTgB3iWkQhqW
+	NYGugVv040UixzMO5+G0wm3W39CO4fPWo520T9ocP2ddYAJeM6E11rffaUMMcQ==
+From: Miquel Raynal <miquel.raynal@bootlin.com>
+To: Jerome Brunet <jbrunet@baylibre.com>
+Cc: Jacky Huang <ychuang3@nuvoton.com>,  Shan-Chun Hung
+ <schung@nuvoton.com>,  Michael Turquette <mturquette@baylibre.com>,
+  Stephen Boyd <sboyd@kernel.org>,  Richard Cochran
+ <richardcochran@gmail.com>,  Arnd Bergmann <arnd@arndb.de>,  Brian Masney
+ <bmasney+clk@redhat.com>,  Jerome Brunet <jbrunet+clk@baylibre.com>,  Rob
+ Herring <robh@kernel.org>,  Krzysztof Kozlowski <krzk+dt@kernel.org>,
+  Conor Dooley <conor+dt@kernel.org>,  Thomas Petazzoni
+ <thomas.petazzoni@bootlin.com>,  Steam Lin <STLin2@winbond.com>,
+  linux-arm-kernel@lists.infradead.org,  linux-clk@vger.kernel.org,
+  linux-kernel@vger.kernel.org,  Krzysztof Kozlowski <krzk@kernel.org>,
+  devicetree@vger.kernel.org,  stable@vger.kernel.org
+Subject: Re: [PATCH v4 5/6] clk: nuvoton: ma35d1: Use clk_hw pointers as mux
+ parents
+In-Reply-To: <1jeceeaaug.fsf@starbuckisacylon.baylibre.com> (Jerome Brunet's
+	message of "Sun, 27 Sep 2026 19:00:07 +0200")
+References: <20260925-perso-ma35d1-upstream-clk-v4-0-f3697553391f@bootlin.com>
+	<20260925-perso-ma35d1-upstream-clk-v4-5-f3697553391f@bootlin.com>
+	<1jeceeaaug.fsf@starbuckisacylon.baylibre.com>
+User-Agent: mu4e 1.12.12; emacs 30.2
+Date: Mon, 28 Sep 2026 18:02:12 +0200
+Message-ID: <87h5j974aj.fsf@bootlin.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v8 22/29] s390/hwcaps: Report SAE support as hwcap
-To: Steffen Eiden <seiden@linux.ibm.com>, kvm@vger.kernel.org,
-        kvmarm@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
-        linux-kernel@vger.kernel.org, linux-s390@vger.kernel.org
-Cc: Alexander Gordeev <agordeev@linux.ibm.com>,
-        Andreas Grapentin <gra@linux.ibm.com>, Arnd Bergmann <arnd@arndb.de>,
-        Catalin Marinas <catalin.marinas@arm.com>,
-        Christian Borntraeger <borntraeger@linux.ibm.com>,
-        Claudio Imbrenda <imbrenda@linux.ibm.com>,
-        David Hildenbrand <david@kernel.org>,
-        Friedrich Welter
- <fritz@linux.ibm.com>, Fuad Tabba <tabba@google.com>,
-        Gautam Gala <ggala@linux.ibm.com>,
-        Hariharan Mari <hari55@linux.ibm.com>,
-        Heiko Carstens <hca@linux.ibm.com>,
-        Hendrik Brueckner <brueckner@linux.ibm.com>,
-        Janosch Frank <frankja@linux.ibm.com>, Joey Gouly <joey.gouly@arm.com>,
-        Marc Zyngier <maz@kernel.org>, Nico Boehr <nrb@linux.ibm.com>,
-        Nina Schoetterl-Glausch <oss@nina.schoetterlglausch.eu>,
-        Oliver Upton <oupton@kernel.org>, Paolo Bonzini <pbonzini@redhat.com>,
-        Suzuki K Poulose <suzuki.poulose@arm.com>,
-        Sven Schnelle <svens@linux.ibm.com>,
-        Ulrich Weigand <Ulrich.Weigand@de.ibm.com>,
-        Vasily Gorbik
- <gor@linux.ibm.com>, Will Deacon <will@kernel.org>,
-        Zenghui Yu <yuzenghui@huawei.com>
-References: <20260918133107.1042730-1-seiden@linux.ibm.com>
- <20260918133107.1042730-23-seiden@linux.ibm.com>
-Content-Language: en-US
-From: Ilya Leoshkevich <iii@linux.ibm.com>
-In-Reply-To: <20260918133107.1042730-23-seiden@linux.ibm.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
-X-TM-AS-GCONF: 00
-X-Proofpoint-Reinject: loops=2 maxloops=12
-X-Authority-Analysis: v=2.4 cv=FYWiV5+6 c=1 sm=1 tr=0 ts=6aba8ead cx=c_pps
- a=aDMHemPKRhS1OARIsFnwRA==:117 a=aDMHemPKRhS1OARIsFnwRA==:17
- a=IkcTkHD0fZMA:10 a=VdqzKS8jKosA:10 a=VkNPw1HP01LnGYTKEx00:22
- a=RnoormkPH1_aCDwRdu11:22 a=V8glGbnc2Ofi9Qvn3v5h:22 a=VnNF1IyMAAAA:8
- a=-Vzjgo3omqpRI_WBrZcA:9 a=QEXdDO2ut3YA:10
-X-Proofpoint-Spam-Info: AW1haW4tMjYwOTI4MDA2MiBTYWx0ZWRfX4XV4UOxcfS7P
- 0BbtHhPo3KhYsVIOb3OM9DJGdbUgdubsZz0PgqbsxfIQwCL713wGVSEIxXAo1kV+BTSks25F7J1
- NVpWyNmQFAq7cQFI010E63gNGvAYwws=
-X-Proofpoint-ORIG-GUID: Mtrun8DKU0SK8lBZtLKEIDFHUbwLPE0S
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwOTI4MDA2MiBTYWx0ZWRfX4DHV58DlNGDR
- 9T8Sp1CTOSVq/jLjjCsS4ZVoacGNvlbSs81VEvfmGDzJH7xQPd5kW/ZXg3Nx3PGSX8aJXvts/25
- uPF5HZMFIqBiDWtUBsv9pXd0ySQAPRYoAk1Ts1gpFYITkvhSZ7jyT93LxmzdafpHLywZxlC6b7t
- ZVQijeYBuyC8/bFU8HmvxfvehGbwo69D7uMTsWPDikZYOlUw0SASC23aAA5DybNNk6IZ/Yz3Sk+
- EplkGTF5eA3FTz57P8lCxrJ3bBRJythk0gvQ4/kiN7KP2MwOhVw/lJCcZpm70bEHzo/juFjkfMK
- qQWz26gJabzwTI3Em2OVpMB3etfotcopkdiz/bmB3g0aFyT5t2nBiQM1aF4Ah60SleCIwvkRZjY
- QlwDz2wZfHGJ4Z06HyOdXmby4zPzD/MX4ZFloFI7OPbKGOMl1XcW3Yx3UWLRT2o4qIJt6Ftlvm+
- XaaNGoeWKs0fPoD/law==
-X-Proofpoint-GUID: VIifUq-Wtvu10B-gtNGluxlt-RnrP-Q4
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1176,Hydra:6.1.134,FMLib:17.12.100.49
- definitions=2026-09-28_04,2026-09-21_02,2025-10-01_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- adultscore=0 clxscore=1015 impostorscore=0 spamscore=0 phishscore=0
- priorityscore=1501 malwarescore=0 bulkscore=0 lowpriorityscore=0
- suspectscore=0 classifier=typeunknown authscore=0 authtc= authcc=
- route=outbound adjust=0 reason=mlx scancount=1 engine=8.22.0-2609040000
- definitions=main-2609280062
+Content-Type: text/plain; charset=utf-8
+Content-Transfer-Encoding: quoted-printable
+X-Last-TLS-Session-Version: TLSv1.3
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260928_085851_031270_2973BFE3 
-X-CRM114-Status: GOOD (  12.52  )
+X-CRM114-CacheID: sfid-20260928_090230_093631_3BACD25C 
+X-CRM114-Status: GOOD (  29.33  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -147,23 +88,211 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+On 27/09/2026 at 19:00:07 +02, Jerome Brunet <jbrunet@baylibre.com> wrote:
 
+> On ven. 25 sept. 2026 at 17:10, Miquel Raynal <miquel.raynal@bootlin.com>=
+ wrote:
+>
+>> The MA35D1 clock provider registers its muxes with parent data
+>> structures filling .fw_name. This is not the ideal approach since that
+>> would require a massive amount of internal clock names declaration in
+>> the DT. Since the DT does not play the game of exposing all these names,
+>> none of the parent lookups performed when instantiating the muxes
+>> succeed. As a result, these muxes get registered as root clocks, leading
+>> to a sadly flat clock tree and no frequency assigned to most of the
+>> peripheral clocks:
+>>
+>>                                  enable  prepare  protect
+>>    clock                          count    count    count        rate
+>>
+>>  usbphy1                             0       0        0        480000000
+>>  usbphy0                             0       0        0        480000000
+>>     husbh1_gate                      0       0        0        480000000
+>>     husbh0_gate                      0       0        0        480000000
+>>     usbh_gate                        0       0        0        480000000
+>>     usbd_gate                        0       0        0        480000000
+>>  syspll                              0       0        0        180000000
+>>  lirc                                0       0        0        32000
+>>     lirc_gate                        0       0        0        32000
+>>  hirc                                0       0        0        12000000
+>>     gtmr_gate                        0       0        0        12000000
+>>     hirc_gate                        0       0        0        12000000
+>>  lxt                                 0       0        0        32768
+>>     rtc_gate                         0       0        0        32768
+>>     lxt_gate                         0       0        0        32768
+>>  hxt                                 0       0        0        24000000
+>>     vpll                             0       0        0        1224000000
+>>        dcup_div                      0       0        0        612000000
+>>     epll                             0       0        0        6000000000
+>>        epll_div8                     0       0        0        750000000
+>>
+>>        epll_div4                     0       0        0        1500000000
+>>        epll_div2                     0       0        0        3000000000
+>>           emac1_gate                 0       0        0        3000000000
+>>
+>>           emac0_gate                 0       0        0        3000000000
+>>
+>>     apll                             0       0        0        6048000000
+>>     ddrpll                           0       0        0        266460000
+>>        ddr_gate                      0       0        0        266460000
+>>        ddr6_gate                     0       0        0        266460000
+>>        ddr0_gate                     0       0        0        266460000
+>>     capll                            0       0        0        2400000000
+>>     hxt_gate                         0       0        0        24000000
+>>  clk_hxt                             0       0        0        24000000
+>>  spi3_mux                            0       0        0        0
+>>     spi3_gate                        0       0        0        0
+>>  spi2_mux                            0       0        0        0
+>>     spi2_gate                        0       0        0        0
+>>  spi1_mux                            0       0        0        0
+>>     spi1_gate                        0       0        0        0
+>>  spi0_mux                            0       0        0        0
+>>     spi0_gate                        0       0        0        0
+>>  i2s1_mux                            0       0        0        0
+>>     i2s1_gate                        0       0        0        0
+>>  i2s0_mux                            0       0        0        0
+>>     i2s0_gate                        0       0        0        0
+>> ...
+>>
+>> Apart from the wrong clock tree representation, it means that none of
+>> the device drivers (spi & i2c in the excerpt above) can actually query
+>> their clock rate, or they would get 0Hz.
+>>
+>> Instead of declaring the parents in the clk_parent_data structure, use
+>> the actual HW clocks to lookup the parents directly: parents are
+>> described by an array of indices into the controller's main clock table
+>> (like in other clock controller drivers), which the "new" mux helper now
+>> resolves.
+>>
+>> The WDT and WWDT muxes list the /4096 children of PCLK3 and PCLK4 among
+>> their possible parents. Those two clocks are now registered by the
+>> previous commit, so their entries in the parent tables are restored
+>> instead of being turned into invalid slots.
+>>
+>>                                  enable  prepare  protect
+>>    clock                          count    count    count        rate
+>>
+>>  usbphy1                             0       0        0        480000000
+>>  usbphy0                             0       0        0        480000000
+>>     husbh1_gate                      0       0        0        480000000
+>>     husbh0_gate                      0       0        0        480000000
+>>     usbh_gate                        0       0        0        480000000
+>>     usbd_gate                        0       0        0        480000000
+>>  syspll                              1       1        0        180000000
+>>     dbg_mux                          0       0        0        180000000
+>>     sdh1_mux                         0       0        0        180000000
+>>        sdh1_gate                     0       0        0        180000000
+>>     sdh0_mux                         0       0        0        180000000
+>>        sdh0_gate                     0       0        0        180000000
+>>     sysclk1_mux                      2       2        0        180000000
+>>        pclk4                         0       0        0        90000000
+>>        pclk3                         0       0        0        90000000
+>>           sspcc_gate                 0       0        0        90000000
+>>           ssmcc_gate                 0       0        0        90000000
+>>        hclk3                         0       0        0        90000000
+>>        pclk2                         0       0        0        180000000
+>>           eadc_div                   0       0        0        90000000
+>>              eadc_gate               0       0        0        90000000
+>>           qei1_gate                  0       0        0        180000000
+>>           ecap1_gate                 0       0        0        180000000
+>>           spi3_mux                   0       0        0        180000000
+>>              spi3_gate               0       0        0        180000000
+>>           spi1_mux                   0       0        0        180000000
+>>              spi1_gate               0       0        0        180000000
+>>           epwm1_gate                 0       0        0        180000000
+>>           i2c5_gate                  0       0        0        180000000
+>>           i2c2_gate                  0       0        0        180000000
+>>        pclk1                         0       0        0        180000000
+>>           qei2_gate                  0       0        0        180000000
+>>           qei0_gate                  0       0        0        180000000
+>>           ecap2_gate                 0       0        0        180000000
+>>           ecap0_gate                 0       0        0        180000000
+>>           spi2_mux                   0       0        0        180000000
+>>              spi2_gate               0       0        0        180000000
+>>           spi0_mux                   0       0        0        180000000
+>>              spi0_gate               0       0        0        180000000
+>>           epwm2_gate                 0       0        0        180000000
+>>           epwm0_gate                 0       0        0        180000000
+>>           i2c4_gate                  0       0        0        180000000
+>>           i2c1_gate                  0       0        0        180000000
+>>        pclk0                         1       1        0        180000000
+>>           adc_div                    0       0        0        90000000
+>>              adc_gate                0       0        0        90000000
+>>           qspi1_mux                  0       0        0        180000000
+>>              qspi1_gate              0       0        0        180000000
+>>           qspi0_mux                  1       1        0        180000000
+>>              qspi0_gate              1       1        0        180000000
+>>
+>>           i2c3_gate                  0       0        0        180000000
+>>           i2c0_gate                  0       0        0        180000000
+>>
+>> Fixes: f50a000b4219 ("clk: nuvoton: Use clk_parent_data instead of strin=
+g for parent clock")
+>> Cc: stable@vger.kernel.org
+>> Signed-off-by: Miquel Raynal <miquel.raynal@bootlin.com>
+>> ---
+>>  drivers/clk/nuvoton/clk-ma35d1.c | 626 +++++++++++---------------------=
+-------
+>>  1 file changed, 177 insertions(+), 449 deletions(-)
+>>
+>> diff --git a/drivers/clk/nuvoton/clk-ma35d1.c b/drivers/clk/nuvoton/clk-=
+ma35d1.c
+>> index c914079cee2d..1a857f28310f 100644
+>> --- a/drivers/clk/nuvoton/clk-ma35d1.c
+>> +++ b/drivers/clk/nuvoton/clk-ma35d1.c
+>> @@ -63,300 +63,49 @@ static DEFINE_SPINLOCK(ma35d1_lock);
+>>  #define PLL_MODE_FRAC           1
+>>  #define PLL_MODE_SS             2
+>>=20=20
+>> -static const struct clk_parent_data ca35clk_sel_clks[] =3D {
+>> -	{ .fw_name =3D "hxt", },
+>> -	{ .fw_name =3D "capll", },
+>> -	{ .fw_name =3D "ddrpll", },
+>> -};
+>> +#define MA35D1_MUX_MAX_PARENTS	10
+>
+> I'm bit puzzled how this was supposed to work before. Most of those
+> inputs are not present in binding doc. The controller was supposed get
+> clocks from itself through DT ???
 
-On 9/18/26 15:30, Steffen Eiden wrote:
-> From: Hendrik Brueckner <brueckner@linux.ibm.com>
-> 
-> Report SAE support as hwcap (and /proc/cpuinfo)
-> 
-> Signed-off-by: Hendrik Brueckner <brueckner@linux.ibm.com>
-> Reviewed-by: Steffen Eiden <seiden@linux.ibm.com>
-> Signed-off-by: Steffen Eiden <seiden@linux.ibm.com>
-> Reviewed-by: Janosch Frank <frankja@linux.ibm.com>
-> ---
->   arch/s390/include/asm/elf.h    | 2 ++
->   arch/s390/include/asm/sclp.h   | 5 ++++-
->   arch/s390/kernel/processor.c   | 3 +++
->   drivers/s390/char/sclp_early.c | 1 +
->   4 files changed, 10 insertions(+), 1 deletion(-)
-Reviewed-by: Ilya Leoshkevich <iii@linux.ibm.com>
+No idea why it has been written like that. Just to keep things clear, my
+re-write is a fix, not a cleanup. Without it, the SPI controller does
+not probe and I care about the SPI controller being fixed in this cycle.
 
+> There is one input documented though. It seems to be hxt, so you should
+> probably continue to use fw_name for this one at least.
+
+"documented" is maybe a bit strong. There is one reference to a phandle
+named clk_hxt, that's it? I don't think it qualifies as a validated
+binding :)
+
+> That being said, the bindings doc seems wrong. Looking at the driver you
+> should have 4 inputs (hxt, lxt, hirc, lirc), unless those are actually
+> generated on SoC ? Since there is already a DT using these, I suppose it
+> is too late for the last 3 and you'll be stuck pretending they are
+> generated in this controller :/
+
+The TRM identifies:
+- HXT and LXT as external crystal oscillators
+- HIRC and LIRC as internal RC oscillators
+So we want an accurate description, HXT/LXT are worth declaring, but not
+HIRC/LIRC.
+
+There is no way to fix this without a breaking change.
+
+My approach for these clocks:
+- Describe lxt like hxt in the DT. In the driver, I will take it from
+  DT, or fallback to a known base rate otherwise (so no breaking
+  change). This is possible since the TRM itself forces the rate of the
+  two oscillators. I will also ask for clock names in the binding.
+- Fix the name of the output clocks to match the driver (use "hxt"
+  instead of "clk_hxt" in the DT). I could fix the driver instead, but
+  all other clocks would be named differently, which would be
+  strange. So since we anyway *need* a DT update, let's go for a clean
+  naming.
+
+The other patches can still go like they are.
+
+Thanks,
+Miqu=C3=A8l
 
