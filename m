@@ -4,114 +4,72 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 367D2CA5FA3
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 28 Sep 2026 21:35:15 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5A791CA5FA1
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 28 Sep 2026 21:43:04 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=qMXZhXOkxtrjP55SDYES5mqvZlQYPy+Z9IGMIJjgKbE=; b=ZTqHMBkofuXHpF1ZGm/QN/+kNQ
-	YmOLCWb9eKSSbq6xF2Sc7drQIKP48VIe3FG4YnwZV2MTi0A3v2y7z+sqAf/zG1BwSiybD31qn+e9X
-	4Fzpfqcy2pvkzWGtzZA0WNeceo4V/cKyFI9iRKsOWEC19TPkVQif19s7O1GXepGvnjE1PK4z1wiUx
-	axrx38BWkXRMPSWembwLZsoJ8QgxGnV06C/oc/d2FUcGJ1m6CN53pUgj1V4UucOb0vqhqO3DY566f
-	Umumo2sKU8o5AX2c6dJty88e6E+uBExMYGS+YTa14DIgKQiS9q4FM+EY3JgW9YpZYlCZBBD6HqHbk
-	F/aC6yBg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Message-ID:Subject:Cc:To:
+	From:Date:Reply-To:MIME-Version:Content-Type:Content-Transfer-Encoding:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=6wTgVbOyecweFOqKlDy+HLmzqH3ovwQI2XdDVSyjO9c=; b=SiFB+1xmt7kbw5oiB6gBMUTJOE
+	VwmclIBwgJf1Aph3WXvQPE7BH2GcP8/+9p+H3JSq5SlhNhdsMuzC1nNr2p1k3BR9ZAWx/0P0fty1R
+	MyG55q1TeHJkRFhqUFYvFiTzlVfk3ENL28ivi71BJXk8AtubQMsFkwuP9bjjqeEGCm0KjrgvOCG2j
+	xLWBcN8sDOVY1SiAji4MPGf8IEnTIY/e8hSy1n1DOOnejXloaXGv1lKop7yGCh8H1XBcVCyfeL7GT
+	ehzT99wHbejxK8j3KsmrQ4sxdI4dMlZGtpt/y1pkUUTtjxC1Z9WqJcxJfy760/DrHW9RS13eC4CcM
+	IBW2jHdQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xBJ08-00000001gN6-0Mxd;
-	Mon, 28 Sep 2026 21:35:08 +0000
-Received: from mail-ed1-x530.google.com ([2a00:1450:4864:20::530])
+	id 1xBJ7h-00000001h42-0pdx;
+	Mon, 28 Sep 2026 21:42:57 +0000
+Received: from mgamail.intel.com ([198.175.65.9])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xBJ04-00000001gLs-3VXA
+	id 1xBJ7e-00000001h3d-3AeD
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 28 Sep 2026 21:35:06 +0000
-Received: by mail-ed1-x530.google.com with SMTP id 4fb4d7f45d1cf-6aae37d33cbso399971a12.1
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 28 Sep 2026 14:35:02 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=chromium.org; s=google; t=1790631301; x=1791236101; darn=lists.infradead.org;
-        h=content-transfer-encoding:content-type:cc:to:subject:message-id
-         :date:from:in-reply-to:references:mime-version:from:to:cc:subject
-         :date:message-id:reply-to:content-type;
-        bh=qMXZhXOkxtrjP55SDYES5mqvZlQYPy+Z9IGMIJjgKbE=;
-        b=fDW+D5mEQTw/aWC6+pMaIXFmNr/0+Ra10LWkDqNkt+GSronBRGuo9ipi6POR45CV9k
-         ZFeiNWWC0nk+vMUaVcACGSccO0rbNVJApgWLbPukv31l6DKlTzB2beEhUYwSlnCMUlKl
-         pdJ4Z5tLfu+RLeyOdnJiwIBjHfIp5toAlTwHE=
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1790631301; x=1791236101;
-        h=content-transfer-encoding:content-type:cc:to:subject:message-id
-         :date:from:in-reply-to:references:mime-version:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=qMXZhXOkxtrjP55SDYES5mqvZlQYPy+Z9IGMIJjgKbE=;
-        b=phiel/Z/yKOIN9eaZTXgcRIZcHyt8o7vL1/SRoW4Bxr7zebBng7KX7eq7JYQAUmVcX
-         srs6lYBYwimWzdqrTxvQRBEKqE4FEo02ZBC19LU1mgF8zVMuBwK/oa6W+g2dFaqM4W07
-         MvxJ6/OlviEdKkIaQ/n57UriWB8OaRfm9rXfMtErXWrC08YBRFzzNOxsUZXN+Az4qXp8
-         DYCEIrsdR6ljDgTyYvBIkmZnpxz9gDeQgkWOUfIh1mkrHqR8NB44k/byQK2k7SYnAryc
-         X1bZLkZtpDtG+S5AL9EAfX/uOtXgykTmFfcKpLecgIVtA/4RAOEkjKs/a3KtbKPCeFNY
-         xWRQ==
-X-Forwarded-Encrypted: i=1; AKwUvBwEoBTjktob2ESWuq/AWtcxz0etlzJS2Sgn8tAqvwFDwxVKYCKbeXnRyXuM3ee/+G9QIxHhHQdwsO4jFPRR6UHt@lists.infradead.org
-X-Gm-Message-State: AFuF++l5NDFMJ0GorDfQUg3astYqMOxKusuBWIY/2SF4YqURbYb5x+s5
-	i2SlE1zX+TkX1zmbK39gxmu9R93hFTHdE0pLeqqB0jvTL6eHNLOa0EdRCQphafWTg63gSfOAwBM
-	LkxM=
-X-Gm-Gg: AYBFou0PiNBrctr/Yi7WWRTrI5oMIjNnfA+2/j783qAfe5JXPck5v+ehxZ6hsdrF1gg
-	nN6CoRDciveAnwxarSdFrB0NgPskKQYyMIm2IjKeROQb3m4/0upMCNR2KvrXXp2vNKAjTp5ZDS2
-	Nfi4K8jCa6JsfAr0S9RCZ7/wQtXMUbEFliGH9El7OLVPHp8+fDIh9NiBBIexNvhyHo63jxsFpxs
-	rEDn9ajXTYxGv8Cjtd+a7EwXq3MLAmLioPGZNJckogQt/lTpi/48gm4pIEb71QOpjSeBFadRmVp
-	bkggUeWqe9FWX3LBQDj0wDmLG7o/M+WtsNJUiZe7MLKMGNwyXZ8+WpZX4li7aU/KnhXulhSM6bG
-	/3SQdPQ0MYbGiC7xGK9iWG97U7VKQU5SOVVOv57uSN6wuB0+2PHSXTNTlTsziJLN2Eo7G1bqCu6
-	3K30jTMfMWYPVdyvcvirP6jb+r6LBVVSkRERwyWQP217nawZyS0mA09Ud3F0rVeZyhYheaEwK2q
-	7uIxM7CqjVs9T1qFfFQMfEbe07187Ay0XuMlQ==
-X-Received: by 2002:a17:907:9717:b0:c2d:be57:f742 with SMTP id a640c23a62f3a-c2df4dd4144mr37494366b.32.1790631301278;
-        Mon, 28 Sep 2026 14:35:01 -0700 (PDT)
-Received: from mail-wr2-f34.google.com (mail-wr2-f34.google.com. [74.125.225.98])
-        by smtp.gmail.com with ESMTPSA id 4fb4d7f45d1cf-6aae5dc1034sm4830789a12.15.2026.09.28.14.34.55
-        for <linux-arm-kernel@lists.infradead.org>
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Mon, 28 Sep 2026 14:34:58 -0700 (PDT)
-Received: by mail-wr2-f34.google.com with SMTP id ffacd0b85a97d-48af0707d41so143595f8f.1
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 28 Sep 2026 14:34:55 -0700 (PDT)
-X-Forwarded-Encrypted: i=1; AKwUvByDIB3C9oBNeg/aGA7kwCg76AwLVg1PARqPzNbvc6TP3Xj2+rpNlkAAjMPIkJT17LCFTKDpPeaPAyU2TKO1O9DJ@lists.infradead.org
-X-Received: by 2002:a05:6000:1788:b0:486:e60f:a4e3 with SMTP id
- ffacd0b85a97d-48af1a8f107mr814148f8f.1.1790631294826; Mon, 28 Sep 2026
- 14:34:54 -0700 (PDT)
-MIME-Version: 1.0
-References: <20260714222338.2965707-1-dianders@chromium.org>
- <20260714152138.7.I5cef580a62c86ba6c3465ad336fa509afbdf1476@changeid>
- <CABb+yY3_xBvQVFHEs=v39u7+TLjJRaVv3sg5pGgd0YxCruZ8Tw@mail.gmail.com>
- <CAD=FV=X-fAJp=EG_yTAg+QQgNYRCt25947oHGHZuq-FEyirK0g@mail.gmail.com>
- <CABb+yY2CH5A1ixfX9czgtEwsP95FN-2JVzN_wmRDRNsSuZY5PQ@mail.gmail.com>
- <CAD=FV=XiguzS7nH1sE=BkXt+7G6-hhqyz5u3sjc4zAA9H7KqJg@mail.gmail.com>
- <CABb+yY2_AvcnaTDmpL8gP4H2_Pp3HddrtNr5gvL4GCW2DPPvOw@mail.gmail.com>
- <CAD=FV=VzJCb1nz+q5EZ33G5U6KZM_tXi8snL=KbUM3C5yymG4g@mail.gmail.com>
- <CABb+yY2omp+g13UgZfiKWLux9J1P+=ed0U3F8AhS0iQK=kpN8w@mail.gmail.com>
- <CAD=FV=WA2wFbk0=qFE0aZs9E5jg-EXzcrkPCk6VOMhbDroOQCw@mail.gmail.com>
- <CABb+yY0W+244qaXqHdfEq9XFuQXBez7PVcDNrKooV9cFS8TS_Q@mail.gmail.com>
- <CAD=FV=VW2h1zWDYWQ6LknX3O+3=EY665jde35Ly+UQzuscXy=Q@mail.gmail.com>
- <CABb+yY2Cc9YGKb0ej7CZ_LQLw-iMQOtcAwLPier+X2ej1fWcJQ@mail.gmail.com>
- <CAD=FV=U1DAuDN4eR_hZ2bbGoGkgkszDLPUDiosxh1aKg7Y1T=A@mail.gmail.com> <CABb+yY3n3QmxTPOyAuHz9JkOKbhRqKok+24THc_JfdxwzROWDw@mail.gmail.com>
-In-Reply-To: <CABb+yY3n3QmxTPOyAuHz9JkOKbhRqKok+24THc_JfdxwzROWDw@mail.gmail.com>
-From: Doug Anderson <dianders@chromium.org>
-Date: Mon, 28 Sep 2026 14:34:43 -0700
-X-Gmail-Original-Message-ID: <CAD=FV=XGka_QqGt5iK53vU704ZsvCrXUWvJ9ewo1=TCiepfz-g@mail.gmail.com>
-X-Gm-Features: AclHuK-jZYMHfBS5WdwcZpWCPaLhVSXzZ0R6bURtHTy1RcWpghu0fszYS6_LsfU
-Message-ID: <CAD=FV=XGka_QqGt5iK53vU704ZsvCrXUWvJ9ewo1=TCiepfz-g@mail.gmail.com>
-Subject: Re: [PATCH 7/7] mailbox: goog-mba: Introduce the goog-mba mailbox driver
-To: Jassi Brar <jassisinghbrar@gmail.com>, Rob Herring <robh@kernel.org>, 
-	Saravana Kannan <saravanak@kernel.org>
-Cc: Joonwon Kang <joonwonkang@google.com>, Subhash Jadavani <sjadavani@google.com>, 
-	Tudor Ambarus <tudor.ambarus@linaro.org>, Lucas Wei <lucaswei@google.com>, 
-	Brian Norris <briannorris@chromium.org>, Peter Griffin <peter.griffin@linaro.org>, 
-	=?UTF-8?Q?Andr=C3=A9_Draszik?= <andre.draszik@linaro.org>, 
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
-	linux-samsung-soc@vger.kernel.org, 
-	"open list:OPEN FIRMWARE AND FLATTENED DEVICE TREE BINDINGS" <devicetree@vger.kernel.org>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+	Mon, 28 Sep 2026 21:42:56 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1790631774; x=1822167774;
+  h=date:from:to:cc:subject:message-id;
+  bh=zPNTBfoBH6EF2RUTL9w6GvcwbctFRHnHGn1Yq3WSn64=;
+  b=Vt45tSGuERXFpQqJ2y0AZjVAiIkbMAKYQY+ihTGLAOnul67GqTy9YptL
+   D0WDX2Nm7YPqaL67SyRpaMLXSU3eGsZJqXkw6izJ2kCHiEDl09GiIt6SJ
+   3WBtrNQdM43joRJGyQ3vmBJGDrzpDasTLoyeBBNqapDGcbLnpwHbdV8JS
+   sb7ln7tH5bBiBF/64dVl+/ysIoyv9gnLT7NpE87NbyYXQACUsWRAeVbNp
+   spHwxohvCTFMAg1lexMZwz5zQa3Yc3/TGCFfH5SL6iHVIMhC6P2Ch9G//
+   nWmrzNFrqG89Hyi7S3/2OaKCJRJBCTWKonwqO4tlGZ/mcDsacYUfwkyWz
+   A==;
+X-CSE-ConnectionGUID: HFPKXZ5vSpCrYk7+mg/VpQ==
+X-CSE-MsgGUID: jJuflmOUTBSHvUX0u6GM7Q==
+X-IronPort-AV: E=McAfee;i="6800,10657,11919"; a="113129738"
+X-IronPort-AV: E=Sophos;i="6.27,129,1787036400"; 
+   d="scan'208";a="113129738"
+Received: from orviesa006.jf.intel.com ([10.64.159.146])
+  by orvoesa101.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 28 Sep 2026 14:42:54 -0700
+X-CSE-ConnectionGUID: nZ+HqdtLTMKr4xy7tdXDSg==
+X-CSE-MsgGUID: RyOP+EVLSyehmB72KE91cA==
+X-Ironport-Invalid-End-Of-Message: True
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.27,129,1787036400"; 
+   d="scan'208";a="272968697"
+Received: from lkp-server01.sh.intel.com (HELO 462990a40a85) ([10.239.97.150])
+  by orviesa006.jf.intel.com with ESMTP; 28 Sep 2026 14:42:52 -0700
+Received: from kbuild by 462990a40a85 with local (Exim 4.98.2)
+	(envelope-from <lkp@intel.com>)
+	id 1xBJ7a-00000000OXn-1uDp;
+	Mon, 28 Sep 2026 21:42:50 +0000
+Date: Tue, 29 Sep 2026 05:42:23 +0800
+From: kernel test robot <lkp@intel.com>
+To: Linus Walleij <linusw@kernel.org>
+Cc: linux-arm-kernel@lists.infradead.org
+Subject: [linusw-nomadik:b4:dma40-fixes] BUILD SUCCESS
+ 4399934e1d2f7b5966bef081c97ca9fee495ad73
+Message-ID: <202609290520.kbjk6atr-lkp@intel.com>
+User-Agent: s-nail v14.9.25
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260928_143504_945853_FDC0A179 
-X-CRM114-Status: GOOD (  31.80  )
+X-CRM114-CacheID: sfid-20260928_144254_894304_3273DD15 
+X-CRM114-Status: UNSURE (   5.72  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -126,116 +84,275 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi,
+tree/branch: https://git.kernel.org/pub/scm/linux/kernel/git/linusw/linux-nomadik.git b4/dma40-fixes
+branch HEAD: 4399934e1d2f7b5966bef081c97ca9fee495ad73  dmaengine: ste_dma40: Validate memcpy configuration
 
-On Tue, Sep 22, 2026 at 5:23=E2=80=AFPM Jassi Brar <jassisinghbrar@gmail.co=
-m> wrote:
->
-> So I think clk_mailbox can acquire all 8 channels during probe and
-> maintain a list of idle channels from which it picks one and uses it
-> for an incoming clk_prepare(). If all channels are busy, the
-> clk_prepare() will sleep/block on a wait-queue which is nudged by
-> tx_done of a transfer after the channel is added back to the idle
-> list.
+elapsed time: 1317m
 
-Sorry for the delay in responding. I wanted to prototype the change
-and needed time to look at it.
+configs tested: 255
+configs skipped: 5
 
-So I think the crux of your current suggestion is that we have a
-non-idempotent "fw_xlate" function, right? We call it multiple times
-with the same arguments and it returns a different channel each time?
-In my prototype, it looked like this:
+The following configs have been built successfully.
+More configs may be tested in the coming days.
 
-```C
-static struct mbox_chan *goog_mba_fw_xlate(struct mbox_controller *mbox,
-                                      const struct fwnode_reference_args *s=
-p)
-{
-  int i;
+tested configs:
+alpha                              allnoconfig    gcc-16.1.0
+alpha                             allyesconfig    gcc-16.1.0
+alpha                                defconfig    gcc-16.1.0
+alpha                randconfig-r2200-20260927    gcc-8.5.0  smatch
+alpha                randconfig-r2303-20260927    gcc-16.1.0 sparse
+arc                               allmodconfig    clang-24
+arc                                allnoconfig    gcc-16.1.0
+arc                               allyesconfig    clang-24
+arc                                  defconfig    gcc-16.1.0
+arc                          haps_hs_defconfig    gcc-16.1.0
+arc                   randconfig-1000-20260928    clang-24
+arc                   randconfig-1001-20260928    clang-24
+arc                  randconfig-r2103-20260927    gcc-9.5.0  cocci
+arc                  randconfig-r2302-20260927    gcc-8.5.0  sparse
+arm                                allnoconfig    gcc-16.1.0
+arm                               allyesconfig    clang-24
+arm                          assabet_defconfig    gcc-16.1.0
+arm                                  defconfig    gcc-16.1.0
+arm                            h3600_defconfig    gcc-16.1.0
+arm                             mmp2_defconfig    gcc-16.1.0
+arm                         multi_v5_defconfig    gcc-16.1.0
+arm                         mvebu_v5_defconfig    clang-24
+arm                         neponset_defconfig    gcc-16.1.0
+arm                   randconfig-1000-20260928    clang-24
+arm                   randconfig-1001-20260928    clang-24
+arm                   randconfig-1002-20260928    clang-24
+arm                   randconfig-1003-20260928    clang-24
+arm                  randconfig-r2104-20260927    clang-22   cocci
+arm64                             allmodconfig    clang-24
+arm64                              allnoconfig    gcc-16.1.0
+arm64                                defconfig    gcc-16.1.0
+arm64                 randconfig-1000-20260928    gcc-15.2.0
+arm64                 randconfig-1001-20260928    gcc-15.2.0
+arm64                 randconfig-1002-20260928    gcc-15.2.0
+arm64                 randconfig-1003-20260928    gcc-15.2.0
+arm64                randconfig-r2300-20260927    gcc-9.5.0  sparse
+csky                              allmodconfig    gcc-16.1.0
+csky                               allnoconfig    gcc-16.1.0
+csky                                 defconfig    gcc-16.1.0
+csky                  randconfig-1000-20260928    gcc-15.2.0
+csky                  randconfig-1001-20260928    gcc-15.2.0
+csky                 randconfig-r2106-20260927    gcc-13.4.0 cocci
+hexagon                           allmodconfig    gcc-16.1.0
+hexagon                            allnoconfig    gcc-16.1.0
+hexagon                              defconfig    gcc-16.1.0
+hexagon               randconfig-1000-20260928    gcc-8.5.0
+hexagon               randconfig-1001-20260928    gcc-8.5.0
+hexagon              randconfig-r2306-20260927    clang-17   sparse
+i386                              allmodconfig    clang-22
+i386                               allnoconfig    gcc-16.1.0
+i386                              allyesconfig    clang-22
+i386        buildonly-randconfig-1000-20260928    clang-22
+i386        buildonly-randconfig-1001-20260928    clang-22
+i386        buildonly-randconfig-1002-20260928    clang-22
+i386        buildonly-randconfig-1003-20260928    clang-22
+i386        buildonly-randconfig-1004-20260928    clang-22
+i386        buildonly-randconfig-1005-20260928    clang-22
+i386                                 defconfig    gcc-16.1.0
+i386                  randconfig-1000-20260928    gcc-14
+i386                  randconfig-1001-20260928    gcc-14
+i386                  randconfig-1002-20260928    gcc-14
+i386                  randconfig-1003-20260928    gcc-14
+i386                  randconfig-1004-20260928    gcc-14
+i386                  randconfig-1005-20260928    gcc-14
+i386                  randconfig-1006-20260928    gcc-14
+i386                  randconfig-1007-20260928    clang-22
+i386                  randconfig-1008-20260928    clang-22
+i386                  randconfig-1009-20260928    clang-22
+i386                  randconfig-1010-20260928    clang-22
+i386                  randconfig-1011-20260928    clang-22
+i386                  randconfig-1012-20260928    clang-22
+i386                  randconfig-1013-20260928    clang-22
+i386                  randconfig-2100-20260927    clang-22   cocci
+i386                  randconfig-2101-20260927    clang-22   cocci
+i386                  randconfig-2102-20260927    clang-22   cocci
+i386                  randconfig-2103-20260927    clang-22   cocci
+i386                  randconfig-2200-20260927    clang-22   smatch
+i386                  randconfig-2300-20260927    clang-22   sparse
+i386                  randconfig-2301-20260927    clang-22   sparse
+i386                  randconfig-2302-20260927    clang-22   sparse
+loongarch                         allmodconfig    clang-24
+loongarch                          allnoconfig    gcc-16.1.0
+loongarch                            defconfig    clang-24
+loongarch             randconfig-1000-20260928    gcc-8.5.0
+loongarch             randconfig-1001-20260928    gcc-8.5.0
+loongarch            randconfig-r2202-20260927    gcc-12.5.0 smatch
+m68k                              allmodconfig    gcc-16.1.0
+m68k                               allnoconfig    gcc-16.1.0
+m68k                              allyesconfig    clang-24
+m68k                                 defconfig    clang-24
+m68k                        m5249evb_defconfig    gcc-16.1.0
+microblaze                         allnoconfig    gcc-16.1.0
+microblaze                        allyesconfig    gcc-16.1.0
+microblaze                           defconfig    clang-24
+microblaze           randconfig-r2301-20260927    gcc-16.1.0 sparse
+microblaze           randconfig-r2305-20260927    gcc-16.1.0 sparse
+mips                              allmodconfig    gcc-16.1.0
+mips                               allnoconfig    gcc-16.1.0
+mips                              allyesconfig    gcc-16.1.0
+mips                       bmips_stb_defconfig    gcc-16.1.0
+mips                       fuloong2e_defconfig    gcc-16.1.0
+mips                     maltaup_xpa_defconfig    gcc-16.1.0
+mips                         omega2p_defconfig    gcc-16.1.0
+mips                 randconfig-r2107-20260927    clang-17   cocci
+nios2                          3c120_defconfig    gcc-16.1.0
+nios2                             allmodconfig    clang-20
+nios2                              allnoconfig    clang-24
+nios2                                defconfig    clang-24
+nios2                 randconfig-1000-20260928    gcc-8.5.0
+nios2                 randconfig-1001-20260928    gcc-8.5.0
+nios2                randconfig-r2307-20260927    gcc-9.5.0  sparse
+nios2                randconfig-r2309-20260927    gcc-11.5.0 sparse
+openrisc                          allmodconfig    clang-20
+openrisc                           allnoconfig    clang-24
+openrisc                             defconfig    gcc-16.1.0
+openrisc             randconfig-r2304-20260927    gcc-13.4.0 sparse
+parisc                            alldefconfig    gcc-16.1.0
+parisc                            allmodconfig    gcc-16.1.0
+parisc                             allnoconfig    clang-24
+parisc                            allyesconfig    clang-17
+parisc                               defconfig    gcc-16.1.0
+parisc                randconfig-1000-20260928    clang-24
+parisc                randconfig-1000-20260929    gcc-8.5.0
+parisc                randconfig-1001-20260928    clang-24
+parisc                randconfig-1001-20260929    gcc-8.5.0
+parisc64                             defconfig    clang-24
+powerpc                           allmodconfig    gcc-16.1.0
+powerpc                            allnoconfig    clang-24
+powerpc                       bamboo_defconfig    clang-24
+powerpc                         cell_defconfig    gcc-16.1.0
+powerpc                    currituck_defconfig    gcc-16.1.0
+powerpc                  linkstation_defconfig    clang-24
+powerpc                  mpc834x_itx_defconfig    clang-24
+powerpc                      rainier_defconfig    clang-24
+powerpc               randconfig-1000-20260928    clang-24
+powerpc               randconfig-1000-20260929    gcc-8.5.0
+powerpc               randconfig-1001-20260928    clang-24
+powerpc               randconfig-1001-20260929    gcc-8.5.0
+powerpc                      redwood_defconfig    gcc-16.1.0
+powerpc                          wii_defconfig    gcc-16.1.0
+powerpc64             randconfig-1000-20260928    clang-24
+powerpc64             randconfig-1000-20260929    gcc-8.5.0
+powerpc64             randconfig-1001-20260928    clang-24
+powerpc64             randconfig-1001-20260929    gcc-8.5.0
+riscv                             allmodconfig    clang-24
+riscv                              allnoconfig    clang-24
+riscv                             allyesconfig    clang-24
+riscv                                defconfig    gcc-16.1.0
+riscv                 randconfig-1000-20260928    clang-24
+riscv                 randconfig-1001-20260928    clang-24
+riscv                 randconfig-2000-20260927    clang-24
+riscv                 randconfig-2001-20260927    gcc-11.5.0
+riscv                randconfig-r2308-20260927    gcc-8.5.0  sparse
+s390                              alldefconfig    gcc-16.1.0
+s390                              allmodconfig    clang-17
+s390                               allnoconfig    clang-24
+s390                              allyesconfig    gcc-16.1.0
+s390                                 defconfig    gcc-16.1.0
+s390                  randconfig-1000-20260928    clang-24
+s390                  randconfig-1001-20260928    clang-24
+s390                  randconfig-2000-20260927    clang-24
+s390                  randconfig-2001-20260927    gcc-15.2.0
+s390                        zfcpdump_defconfig    clang-24
+sh                                allmodconfig    gcc-16.1.0
+sh                                 allnoconfig    clang-24
+sh                                allyesconfig    clang-17
+sh                                   defconfig    gcc-14
+sh                         dreamcast_defconfig    clang-24
+sh                             hp6xx_defconfig    gcc-16.1.0
+sh                           lboxre2_defconfig    gcc-16.1.0
+sh                    randconfig-1000-20260928    clang-24
+sh                    randconfig-1001-20260928    clang-24
+sh                    randconfig-2000-20260927    gcc-12.5.0
+sh                    randconfig-2001-20260927    gcc-14.3.0
+sh                    rts7751r2dplus_defconfig    gcc-16.1.0
+sh                            se7206_defconfig    gcc-16.1.0
+sh                    sh7770_generic_defconfig    clang-24
+sparc                              allnoconfig    clang-24
+sparc                                defconfig    gcc-16.1.0
+sparc                 randconfig-1000-20260928    clang-17
+sparc                 randconfig-1001-20260928    clang-17
+sparc                 randconfig-2000-20260927    gcc-16.1.0
+sparc                 randconfig-2001-20260927    gcc-16.1.0
+sparc                randconfig-r2102-20260927    gcc-16.1.0 cocci
+sparc64                           allmodconfig    clang-20
+sparc64                              defconfig    gcc-14
+sparc64               randconfig-1000-20260928    clang-17
+sparc64               randconfig-1001-20260928    clang-17
+sparc64               randconfig-2000-20260927    clang-24
+sparc64               randconfig-2001-20260927    clang-20
+um                                allmodconfig    clang-17
+um                                 allnoconfig    clang-24
+um                                allyesconfig    gcc-16.1.0
+um                                   defconfig    gcc-14
+um                              i386_defconfig    gcc-14
+um                    randconfig-1000-20260928    clang-17
+um                    randconfig-1001-20260928    clang-17
+um                    randconfig-2000-20260927    gcc-14
+um                    randconfig-2001-20260927    clang-22
+um                            x86_64_defconfig    gcc-14
+x86_64                            alldefconfig    gcc-16.1.0
+x86_64                            allmodconfig    clang-22
+x86_64                             allnoconfig    clang-24
+x86_64                            allyesconfig    clang-22
+x86_64      buildonly-randconfig-1000-20260928    gcc-14
+x86_64      buildonly-randconfig-1001-20260928    gcc-14
+x86_64      buildonly-randconfig-1002-20260928    gcc-14
+x86_64      buildonly-randconfig-1003-20260928    gcc-14
+x86_64      buildonly-randconfig-1004-20260928    gcc-14
+x86_64      buildonly-randconfig-1005-20260928    gcc-14
+x86_64                               defconfig    gcc-14
+x86_64                                   kexec    clang-22
+x86_64                randconfig-1000-20260928    gcc-14
+x86_64                randconfig-1001-20260928    gcc-14
+x86_64                randconfig-1002-20260928    gcc-14
+x86_64                randconfig-1003-20260928    gcc-14
+x86_64                randconfig-1004-20260928    gcc-14
+x86_64                randconfig-1005-20260928    gcc-14
+x86_64                randconfig-1006-20260928    gcc-14
+x86_64                randconfig-1007-20260928    gcc-14
+x86_64                randconfig-1008-20260928    gcc-14
+x86_64                randconfig-1009-20260928    gcc-14
+x86_64                randconfig-1010-20260928    gcc-14
+x86_64                randconfig-1011-20260928    gcc-14
+x86_64                randconfig-1012-20260928    clang-22
+x86_64                randconfig-1013-20260928    clang-22
+x86_64                randconfig-1014-20260928    clang-22
+x86_64                randconfig-1015-20260928    clang-22
+x86_64                randconfig-1016-20260928    clang-22
+x86_64                randconfig-1017-20260928    clang-22
+x86_64                randconfig-2100-20260927    clang-22   cocci
+x86_64                randconfig-2101-20260927    clang-22   cocci
+x86_64                randconfig-2102-20260927    gcc-14     cocci
+x86_64                randconfig-2103-20260927    clang-22   cocci
+x86_64                randconfig-2200-20260927    gcc-14     smatch
+x86_64                randconfig-2300-20260927    gcc-14     sparse
+x86_64                randconfig-2301-20260927    gcc-14     sparse
+x86_64                randconfig-2302-20260927    gcc-13     sparse
+x86_64               randconfig-r2100-20260927    clang-22   cocci
+x86_64               randconfig-r2105-20260927    clang-22   cocci
+x86_64                                rhel-9.4    clang-22
+x86_64                            rhel-9.4-bpf    gcc-14
+x86_64                           rhel-9.4-func    clang-22
+x86_64                     rhel-9.4-kselftests    clang-22
+x86_64                          rhel-9.4-kunit    gcc-14
+x86_64                            rhel-9.4-ltp    gcc-14
+x86_64                           rhel-9.4-rust    clang-22
+xtensa                             allnoconfig    clang-24
+xtensa                            allyesconfig    clang-20
+xtensa                randconfig-1000-20260928    clang-17
+xtensa                randconfig-1001-20260928    clang-17
+xtensa                randconfig-2000-20260927    gcc-8.5.0
+xtensa                randconfig-2001-20260927    gcc-16.1.0
+xtensa               randconfig-r2101-20260927    gcc-8.5.0  cocci
+xtensa               randconfig-r2201-20260927    gcc-16.1.0 smatch
 
-  if (sp->nargs)
-    return ERR_PTR(-EINVAL);
-
-  for (i =3D 0; i < mbox->num_chans; i++) {
-    if (!mbox->chans[i].cl)
-      return &mbox->chans[i];
-  }
-
-  return ERR_PTR(-EBUSY);
-}
-```
-
-Then the client loops around and requests the same channel over and
-over again until it gets -EBUSY? Like:
-
-```C
-for (i =3D 0; i < FIFO_MAX; i++) {
-  client
-  chan[i] =3D mbox_request_channel(client[i], TX_CHAN);
-  if (IS_ERR(chan[i]) && PTR_ERR(chan[i]) =3D=3D -EBUSY)
-    break;
-}
-fifo_depth =3D i;
-```
-
-I _guess_ that works, but it still feels like a bit of a hack to me.
-You said you were worried about people abusing the "has_queue" API.
-The above feels like it's abusing the "fw_xlate" API, turning it from
-something that is normally a "lookup" into an allocator function.
-
-+Rob, Saravana, and devicetree@vger.kernel.org. DT folks: is the above
-something that looks right to you?
-
-
-I researched whether other upstream drivers use of_xlate() /
-fw_xlate() as an "allocator" like this. I did find "exynos-mailbox,"
-which appears to be doing something similar. However, upon deeper
-digging it seems like "exynos-mailbox" isn't using this dynamic
-allocation for any compelling reason. It looks like, really,
-"exynos-mailbox" should just be returning one channel. The client
-(exynos-acpm) could just use the same channel for everything since:
-* It actually gets the _real_ channel ID out of the data.
-* It doesn't care about txdone.
-* All it does is ring a doorbell and there's no queueing.
-
-
-In any case, if using fw_xlate() as an allocator is truly the only way
-to proceed, I'll finish my prototype and send a v2, but I'm still
-skeptical that this is better than just adding queuing into the core.
-Speaking of which, I actually want to go back to something you said
-earlier. I asked a bit about this but I don't think I saw a response
-(sorry if I missed it!):
-
-> It is not the diff stat but about inserting a flag in the api to
-> introduce special case behavior. It is like adding one person to the
-> party introduces N-1 handshakes - the has_queue flag doesn't play well
-> with other configurations and may allow future platforms to abuse
-> has_queue to implement hacks.
-
-Can you elaborate more on this?
-
-1. How does "has_queue" not play well with other configurations?
-Everything should behave the same if "has_queue" isn't set, right? Are
-you saying that it will make the code too hard to understand, or
-something?
-
-2. How does this allow future programs to abuse "has_queue"? Won't
-they need to submit mailbox controllers to the mailbox subsystem,
-meaning they'll have to go through you? If someone is using
-"has_queue" to do a hack, can't you just NAK them?
-
-
-One other thing that my prototype turned up: If I do the "fw_xlate()
-as an allocator" solution, I believe I need to change the DT bindings
-by adding a "tx-payload-size" attribute, or I need to jump through a
-pile of awkward hoops. The reason is that I suddenly need to know the
-number of FIFO entries much earlier. The v1 of my patch simply figured
-out the "tx-payload-size" based on the first message sent, but now we
-need it earlier.
-
-While that's maybe not the end of the world, it's always unfortunate
-when we have to change the DT bindings to accommodate the software
-design.
-
--Doug
+--
+0-DAY CI Kernel Test Service
+https://github.com/intel/lkp-tests/wiki
 
