@@ -4,76 +4,77 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 842EDCA5FA2
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 28 Sep 2026 15:19:46 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CBCA6CA5FA5
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 28 Sep 2026 15:19:53 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=b0NvfzIhMgoDaAcmLO9lnbeC2A03mNxAZEcGsZ2ya18=; b=HhnFXF/PYwf44EP9AF8RkU8U6/
-	GzKnvGRhZC25eo15NY6x5wr8eSbAPeu8rbggEeNp1iUUSem2lxAdYoNHb+cjuVdxFPlBOpzNc3g7N
-	2WnHVE6b0TBDMIB7wDHbIFM7Q0mL92NPxwdjXuykP1FZEweqqbRf3CNyYEmPrtvDSb0ZKOInRpq2T
-	GmiSpNN2IIMKTdso3fSHJvej+MmtSOHMx216dNEnYfw6ahblAAIcSU4ymubJvjTg7pmZ8xMJtpopa
-	6Du9Iq6/auQyr5GsFsh0feFKvtiGgxlHCoYSLNvLqjblW/fNPG05+Tfbda1P7GuDrDHIS/Qysy4SE
-	hW1nnkxw==;
+	bh=h2+B+TCtU6LhjPX3KEHp5ZhDWyuT2oD8RctAdhdkStc=; b=no3NIOlQ1Magpp7hjS5P3+59Sf
+	CxT5GEVXbjG4US/chWyLT3uXFwk1GLNY0CQ4bjrdlHYirpKGjPtZ4nykqwMvBPxiOoXdzADU+QONh
+	qPeta0EBdzU7jt7Pa6/LiStmYY42MEVJri2Wr+pmpzRQmrwQuGfzXTb66OVwEwupCiJR8yzacqsIj
+	4+22PUe4gKf/bVSfNZrxnvBrabYB9PTfWjR5zXX5j2I5j2SQOZJchKugH2aemQKC2igMZFxN+0aEO
+	hk9puq4GKG8XKwry/yWK8FHON7D71ZVpXmuT8TH1ayEOU8hwgHGpcGH75AmrNRhaxxfnkWpWA/efN
+	HDB6UblA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xBD8k-00000000sYW-2KiQ;
-	Mon, 28 Sep 2026 15:19:38 +0000
-Received: from mail-pz2-x0c.google.com ([2607:f8b0:4864:3b::c])
+	id 1xBD8t-00000000saV-2jQQ;
+	Mon, 28 Sep 2026 15:19:47 +0000
+Received: from mail-pj2-x2b.google.com ([2607:f8b0:4864:39::2b])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xBD8i-00000000sY5-0h3b
+	id 1xBD8r-00000000sZf-1SzI
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 28 Sep 2026 15:19:37 +0000
-Received: by mail-pz2-x0c.google.com with SMTP id 41be03b00d2f7-cc750a1482fso1725433a12.2
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 28 Sep 2026 08:19:35 -0700 (PDT)
+	Mon, 28 Sep 2026 15:19:46 +0000
+Received: by mail-pj2-x2b.google.com with SMTP id 98e67ed59e1d1-3a47d2cf261so440210a91.0
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 28 Sep 2026 08:19:44 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1790608775; x=1791213575; darn=lists.infradead.org;
+        d=gmail.com; s=20251104; t=1790608784; x=1791213584; darn=lists.infradead.org;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to:content-type;
-        bh=b0NvfzIhMgoDaAcmLO9lnbeC2A03mNxAZEcGsZ2ya18=;
-        b=rDpTJ/p6dl2pB1RnNHo1IHB1xsYF3KMB5uq7YwCjd+xr8XUOP0xND5OWuZOwbQWNEl
-         DsoYGS9LZojoY+S1sK/59iIWE8+KyGV7S7cQ8qIB+EepgBJRtodeYnoGD4YplpzSRbCU
-         rqpSbgz2aw+YQg++aXwOuf0TYlamoRR3DndZ+eyCGaNZbI1m3mwlCL+JkIw3rPBbT4qv
-         unuNhU2eH846bepJfT1/atM8ElHJHEmqsht6ncM8PvILyj9q+Saxr4H2rkJBCivYFSEQ
-         5q4rnV6RmgtsRJ5XMXCMYxk0bln40fyGRBPLSQ1ECKCw1pqRwa4CrCcz1GFoXMHy/Z0b
-         vEqg==
+        bh=h2+B+TCtU6LhjPX3KEHp5ZhDWyuT2oD8RctAdhdkStc=;
+        b=Q1Oq31Md44SKMdjCMrRklaaIPQ4OT80dP5wB8rN/N4h6JJpMszS6FcvRizJrPrbbjb
+         RrUBrQw4Iywt/fGC4ymkKTXkZZ3T5QyaBwtX+xwwU18YK2I0TvqNI0ktaqOje9L8/diO
+         NQ5PIbQMl9p6uA/skkenwU0KY627MI0zaKWGzrxQPJaGvl+2QhJw3IQ00uBaF5bWyQRH
+         yvrKSrO6G6D/0iNHNMGETwvZOTbuJdYIp/5UgUij85igjM94xQ5sYzZDS3/NKXlmNqZ4
+         H2X8LNPBmWHWLaBvzWeHP+9Xd/viLVULOE/NSrTAauXCJ7d/pMUR3fwUmENMtylKw5cZ
+         ko8A==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1790608775; x=1791213575;
+        d=1e100.net; s=20260707; t=1790608784; x=1791213584;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
          :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=b0NvfzIhMgoDaAcmLO9lnbeC2A03mNxAZEcGsZ2ya18=;
-        b=NhBlStzsIJN9oPShab9y0q6WNtjmXQGzYvPd2nzuMrzTMYKJQoE+lmb3gK5ur/rG/F
-         G++6dp/EILR/uWKvcr/ya1STbvOvCE4ZoIDrXrGL8IyWf7KzSTrDx8UdBKqdPT+EPOZL
-         X4jpENkNWYOwKNJC+hikFpF2forUzO5iuSGub7ORtEPgTv/kis00IsIo9Nl3lZHsce8C
-         qHJ0cH4VC9bwGZn+oDf1fzh3aPwESS6U92kTIlh+qecszNdWj5Lh8Zcq+5oR0LLFuURQ
-         mxwcH6Zf6ju7U7VBTw5shZlQwfKdABNcf1Bc5f/FnQsm56eHPmfxxDJ7xWqmZhpdIqi1
-         Xc7Q==
-X-Forwarded-Encrypted: i=1; AKwUvBysdPTm2aI3yWEUaV7I/8V6YtHGuxco+jCL/kgxIbMf+D8AjCxO5YDMCBZCmWs+2qeyhaPFDLQxxJIZC4FIsatX@lists.infradead.org
-X-Gm-Message-State: AFq9FYKzPpwgxQgpLhyiDKyg8Ynu4DscGqIqQ38sNA03UncKubln1dbW
-	+r1CAOhQ/tMi2c7pPb6RVcb/Bwdaqv2kMzh0Z/0kwwTnC79M5Fx+WvNN
-X-Gm-Gg: AYBFou2S9DFp+0cYcotfA3p4PSucLzghSef7DAfx3pjGgEdTZaRl3P4JaACfvJp42Wm
-	vec6rl7zjGcqcCW7mXKpUe6IXgWpcSByxhZb3WLeWdpQklbbRPq0hfg2tCORhS0spPu6TPVXQaZ
-	GB20DNCViShLPDJj0Lx9M24zwKh3cBEAmTXUvuHI9NLr8vKSjAp91ewBSl+OkxSWGRWa05tlhs7
-	QffNXN8q0RwUcbijLpDo/tfgnThCLypcw0I5riwvRqCZzj5BQC8sT6BUl85Aunv3cdZ4UzXoHPD
-	QzbacfsraUeTPbMYufpBMnT9ZCM9y0+wYBwrMYAF9Jmghj3M815vjdACbIqfb4Kf0r8+DGTtO3t
-	yc0+W7Dglc37QB8rDTflfjTKcHEJfm1Kh+1FMktfXULqm9sORqvW/w5bBLaF7T9gGeNkFiWPYg6
-	VnKMY0ichRT22ntXAOckiAytNEjME0o+Vblq6x2Wyuo/I5FUAy5DfZwRRLAz+ks7LLSyujW0LuM
-	/R4RNmTxeMhcRUlzmei4Er1ktBTwEz5vyAsROxQZMVUyOv76h737CvCoLruoyLGY9ndVV9Fxcme
-	YZ1D/aaIWVbU3mTmrth9o6kh/DBWYRoYXZoRBClREZr/qIdhVLvpRl+v8pI=
-X-Received: by 2002:a17:90b:384c:b0:39e:5acb:2849 with SMTP id 98e67ed59e1d1-3a0bb576e5cmr8742632a91.17.1790608774215;
-        Mon, 28 Sep 2026 08:19:34 -0700 (PDT)
+        bh=h2+B+TCtU6LhjPX3KEHp5ZhDWyuT2oD8RctAdhdkStc=;
+        b=RDcDEz8lgaQ+A13uAifM6+iJteUlr/P8Y9jbXUxTO4JiulbkMvtSd5ss25QJTcLR83
+         P5E3xvnZru5HWMLe5Q+0lmJK+fxWucElLL+jwXCca6hsae7DNSwJivmUfOdePo2hwa1+
+         5yFUIfCiO/I4liCT5iGlgaN2sU2ymVBBX7HAnXyLb8mdZL8Lvwi7BJFijnJNAE5D2P2q
+         NIteS4CMXaX2PzH2n307iOf35nCwXepcq3xtPAYOuaciq6dmTOGuIXVEj0JgIHTe8KF1
+         /7ivDOoRMDxsbFFw+2lyZK0Y7FyV454kjrEc0T6P8JbfOSuZBrGHtW2VfVaykpKzHuZs
+         AUYQ==
+X-Forwarded-Encrypted: i=1; AKwUvBwUkTZGiXXtmL4+us9SJSQfrqtCZCAZByLl1K1KqITdBvAM34PlpguIpGH39et4xBx8TB0FVd7Fysv2cxSIn4Vj@lists.infradead.org
+X-Gm-Message-State: AFq9FYLvnG7DWG02KGNiHJg37RJHyhddU2mUzmSOvTvqIvPqfyDMnSNV
+	wuxtuto0wPiXRO1WZxcLla735RttGCpZ8kZQMpmItR2KLSO1cD2p/Dwk
+X-Gm-Gg: AYBFou3n9kZFdBQcNWjQ3CcGAtm7Z+nFeAvmdQ6nUCX0soB+I/OmdF83dliwfUsPPIE
+	27AdUkCUmf0l0HUEosmXH8Zs0EiZgwYH8HjGdrMUTIVwGKBbU2pQM4w99q/2FZ3AneCvg3aT0DE
+	yBs0vnCJtRRfp+LvbLLiqrlGR8ffn837F7UEpm8EX1qeUanoWHh/1EPWqHrzT9d1lsAsL0Ogj5m
+	QuE0MF6znGnw2Jm25kvZ38pzDcpIsTGpOfIa2ublTDlf/esXeT3EuJFS7BrtaTNowY+SGQOU5Cl
+	DG1UT24i7N62e2xXQA+kVDsFh7PH7VZ5QsSMUgffaKrwGL7+3sG9o3hQ0x67htVNocylrWyhsf9
+	hNXCtmx8Lh173Tnl+Bl8CH9JV3aEeq9fnOdEq/QmCgne0r3u/R2D1XP1Hls/oXDRMFVDvbm6IhH
+	OV1B0nke3c98er8qUKwIMbJuxiIdsIewLzmEU6i5hyHjFD3do8I3XbD0cWMcvJ1rZFp8i9oq4Sq
+	I8I7FenA8YHKoKK2xmZy4oXdAX95GDtQNM19hT6aJJH6DL+lb2s1rTmA9fexRYlzSkBgu+BGfta
+	UpO2krgP4ZmTmOA3IT9VRngEI6QHh4CnkxTNAf9fcTzfgyRO+VyvePOuHfk=
+X-Received: by 2002:a17:90b:3908:b0:3a0:c20b:2fdf with SMTP id 98e67ed59e1d1-3a0c20b3132mr6450444a91.17.1790608784281;
+        Mon, 28 Sep 2026 08:19:44 -0700 (PDT)
 Received: from spider.bream-herring.ts.net ([103.6.151.236])
-        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-3a0b99e5220sm20891502a91.16.2026.09.28.08.19.26
+        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-3a0b9feddd0sm7247965a91.2.2026.09.28.08.19.36
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 28 Sep 2026 08:19:33 -0700 (PDT)
+        Mon, 28 Sep 2026 08:19:43 -0700 (PDT)
 From: Matthias Goergens <matthias.goergens@gmail.com>
-To: Chris Li <chrisl@kernel.org>
+To: Christoph Hellwig <hch@infradead.org>
 Cc: Andrew Morton <akpm@linux-foundation.org>,
+	Chris Li <chrisl@kernel.org>,
 	Kairui Song <kasong@tencent.com>,
 	Johannes Weiner <hannes@cmpxchg.org>,
 	David Hildenbrand <david@kernel.org>,
@@ -110,16 +111,16 @@ Cc: Andrew Morton <akpm@linux-foundation.org>,
 	Shuah Khan <shuah@kernel.org>,
 	linux-kselftest@vger.kernel.org
 Subject: Re: [RFC PATCH v2 0/4] mm/swap: reserve swap areas for deliberate offload
-Date: Mon, 28 Sep 2026 23:19:24 +0800
-Message-ID: <20260928151924.2686290-1-matthias.goergens@gmail.com>
+Date: Mon, 28 Sep 2026 23:19:34 +0800
+Message-ID: <20260928151934.2686418-1-matthias.goergens@gmail.com>
 X-Mailer: git-send-email 2.55.0
-In-Reply-To: <CACePvbWM8kMjtJbH4vc6Qt=TBZQ-0d-Yj9NOtkepZmtNN3wd9w@mail.gmail.com>
-References: <20260926045517.3458413-1-matthias.goergens@gmail.com> <CACePvbWM8kMjtJbH4vc6Qt=TBZQ-0d-Yj9NOtkepZmtNN3wd9w@mail.gmail.com>
+In-Reply-To: <arn4xOIxFRD8qY_x@infradead.org>
+References: <20260926045517.3458413-1-matthias.goergens@gmail.com> <arn4xOIxFRD8qY_x@infradead.org>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260928_081936_214996_7B26656C 
-X-CRM114-Status: GOOD (  15.51  )
+X-CRM114-CacheID: sfid-20260928_081945_397409_3F38E76B 
+X-CRM114-Status: GOOD (  13.36  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -134,37 +135,26 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Chris,
+Hi Christoph,
 
-Thanks for resolving the conflicts yourself and reviewing it.
+> Either way block devices must be safe to be called from paging paths,
+> not just for swap but also for file system based paging.  So this is
+> a bug in the implementation, and not something worked around in the
+> swap code.
 
-> What is the high-level user-visible impact of this series?
+Agreed that a backend used for paging has to make progress under
+pressure, and the zvol example was a poor lead.  The series isn't
+meant to excuse a backend that can deadlock; that would still be a bug
+to fix in the backend.
 
-Being able to use more interesting swap backends and logic when the
-machine is not under memory pressure.  It is much easier to write a
-swap backend that may occasionally allocate memory than one that is
-guaranteed never to, so today such backends are either unsafe as swap
-or ruled out (btrfs, for example, refuses swapfiles that are
-copy-on-write, checksummed or compressed).
-
-> I am curious: if we never run out of swap file space on the
-> non-offload swap area, does that mean we don't need this patch series?
-
-No: running out of conventional swap isn't the point.  Without the
-series, any active swap area may be written under pressure, so a
-backend that may allocate can't be used as swap at all, however much
-conventional swap there is next to it.
-
-> However, direct reclaim can use both types of swap areas.
-
-In v2 it can't: only memory.reclaim, per-node reclaim and MGLRU's
-debugfs eviction may write new data to an offload-only area; direct
-reclaim, kswapd, MADV_PAGEOUT and DAMON reclaim may not.  But I think
-your suggestion to flip it round is closer to what I want: mark the
-areas whose writes may allocate, and keep pressure reclaim away from
-those, rather than tying it to what started the reclaim.  I'll work
-that into v3, together with Kairui's suggestion to build on the swap
-tiers work.
+What I'm after is different: backends that are correct but need
+memory to accept a write, where the better policy is to use them for
+cold-page offload when memory isn't tight and keep pressure reclaim on
+areas that don't need to allocate.  Two in-tree examples: zram
+allocates on writes and fails with -ENOMEM, with no fallback, while its
+logical size still shows free slots; and filesystem swapfiles must
+give up copy-on-write, checksums and compression today, because swap
+writes bypass the filesystem.  I'll make that the case for v3 instead.
 
 Thanks,
 Matthias
