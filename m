@@ -4,74 +4,137 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 27F25CA5FA3
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 28 Sep 2026 19:17:54 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C869FCA5FA2
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 28 Sep 2026 19:20:25 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
-	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
+	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
+	Content-Transfer-Encoding:Content-Type:In-Reply-To:References:Cc:To:Subject:
+	From:MIME-Version:Date:Message-ID:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=4aE+Hss1/Jbe7wEGLMDMGvYVtcJjmEg9Q79wOsQKUHY=; b=EZBLWgkh2YN8e2tEM2Qv1QO3Ji
-	cGCBIObsm3aDxoBJgT5GvZZkLeXhILa3a/5nYWnPMoVjPBNfrthU5BhwbNFTGFLLU+nIvzWXsBjb/
-	fWIxZCqDXDWODOtuFq9D8TrABB+8s42dY+KQD2/3zlJMhXXfPq6pUB/aVZvg2rwLkLRL4apbEO5yN
-	3sGbhGG/whBP0ahcy/noflzZC8uP67AXUR0jp4d6z/uD71mT5/wSEblgxaiNGJOV/avrT+9aj6hB2
-	nl6pLlSmdICJfNnGW2twIvrYVIWRI/p9onr/5dGC+WLmDbyAn63/akOQzIaGmXM4mH+Xw0e8Kx7p0
-	vJr/0YOw==;
+	bh=3EOtyWnpj6H2JKh2l6IAWizW9Kgj+njv8aMgbCxIvr4=; b=t6n57HHrAuflFukFUeGpyhY4kT
+	NI7Y6zS/XpwSGOHCSbY+kVHLsdRMVNYLkO7BOK/kHveCTQFLm6zZAW8RjoEAZz9N6umVBYvOvLdqJ
+	F72M904DUKhUWywbdXD5IL377HQHqYM8DTQqQFtHrdik0C6of85FT5MmNMZsvcduedusaEZJIdjMp
+	jfKwVRTtkO6qESFVKd6Nj+sTADPrKA0veUsEKiXeUOc6wFecWz0u5P5ZV3T7pTv9iTZNEq7e93/Vw
+	PuCrYUoal0CzGNbqh9L6IKKmsSkhrVe/7Kv1QYXwin8mosPwu4j53vnebWVrcDqzMZUKgwFZt7EJt
+	ObRb9SNg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xBGrE-00000001Pfm-1IJS;
-	Mon, 28 Sep 2026 19:17:48 +0000
-Received: from out-248.mta0.migadu.com ([2001:41d0:1004:224b::f8] helo=mta0.migadu.com)
+	id 1xBGtf-00000001Pw6-0RPt;
+	Mon, 28 Sep 2026 19:20:19 +0000
+Received: from mail-ua2-x0f.google.com ([2a00:1450:4864:39::f])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xBGrB-00000001PfO-018u
+	id 1xBGtc-00000001PvO-3W9w
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 28 Sep 2026 19:17:46 +0000
-X-Envelope-To: linux-arm-kernel@lists.infradead.org
-DKIM-Signature: a=rsa-sha256; bh=4aE+Hss1/Jbe7wEGLMDMGvYVtcJjmEg9Q79wOsQKUHY=;
- c=simple/simple; d=linux.dev;
- h=from:to:subject:date:message-id:mime-version:content-type; s=key1;
- t=1790623062; v=1; x=1791227862;
- b=g13UdM3bOFbKg74HryOu/toca11ir8lv3s2ixQkXbgALbbr6OEOJHlbzINr2Wzv14ytFdQc8
- MeZaAW7k622VSoRXfN1HWyS2m7dive0ReKgC71BOmjsPNdWi2520dbs1r6S5r1szmjrvNKZ5uWk
- QISIhrIENTPkbG9HQ4iFeAWA=
-X-Envelope-To: linux-arm-kernel@lists.infradead.org
-Received: by smtp.migadu.com with ESMTPS id 77fedae46d8fa142;
-	Mon, 28 Sep 2026 19:17:42 +0000
-X-Mizu-Trace-ID: 77fedae46d8fa142
-X-Migadu-Flow: FLOW_OUT
-Received: by mail-lf1-f47.google.com with SMTP id 2adb3069b0e04-5b8c42da963so1656e87.0
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 28 Sep 2026 12:17:38 -0700 (PDT)
-X-Forwarded-Encrypted: i=1; AKwUvByTrxrLF5TxFB532V67Oj+FMIXpIoxkR5JSiV2/D4YXYC2xMaCXnKWOjCOhRO6Govv3WN+MKaaXyBSYPvwU+NPg@lists.infradead.org
-X-Gm-Message-State: AFq9FYJFxJq8RtssVWK3oifQuzVYj7O5E4rFq5FhrI7zFDtrPCFazDGR
-	R/Ml28Xq7zDYBE65yqbcl+1u7UhPjSTsChqhI7QlFZWc+iA2oD1TPZLjfitR5aH7+33MlNa+YcA
-	EDwR2YsaAXvs9dJ8qIAg4t3oExfHAVlQb6W1vpQ2c
-X-Received: by 2002:a05:6512:65db:b0:5b1:5141:9156 with SMTP id
- 2adb3069b0e04-5ba2e78e166mr10617e87.9.1790623057450; Mon, 28 Sep 2026
- 12:17:37 -0700 (PDT)
+	Mon, 28 Sep 2026 19:20:18 +0000
+Received: by mail-ua2-x0f.google.com with SMTP id a1e0cc1a2514c-9832c759198so1800547241.3
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 28 Sep 2026 12:20:16 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=linaro.org; s=google; t=1790623215; x=1791228015; darn=lists.infradead.org;
+        h=content-transfer-encoding:content-type:in-reply-to:organization
+         :autocrypt:content-language:references:cc:to:subject:reply-to:from
+         :user-agent:mime-version:date:message-id:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=3EOtyWnpj6H2JKh2l6IAWizW9Kgj+njv8aMgbCxIvr4=;
+        b=sgS2XBmOSiBfSjH9MJ+D0ytDZeRn5533wu5F4gpWYvVT7kBkecA5MiYL/z+3kRPSh6
+         +Skol83Okh87d/AUM42/hLVlDRBYrS1/Ts3UD1BDj1l4FDbDN1GiywQ1X4q9W7dsJL5F
+         t13cIeW4fk5Myc+XjiXNdZUmSDIBqvuEg1e0tgPdprrBuC/Ct88x+N+KYoBwMVrVPqwT
+         K9VxcYP7VNvtxKbMi5iX3gUmyLjjgYeMeRKZBaOVm3qXOttnCYfzFR6Z+3rVecWTLQpC
+         1uMoOYr9LtB5YjJeWAvKPCBIjbQ/sZoDp8nQypuDLdnDPhtOkoTwX5tOBhAmjFCQQaIo
+         sliA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1790623215; x=1791228015;
+        h=content-transfer-encoding:content-type:in-reply-to:organization
+         :autocrypt:content-language:references:cc:to:subject:reply-to:from
+         :user-agent:mime-version:date:message-id:x-gm-gg:x-gm-message-state
+         :from:to:cc:subject:date:message-id:reply-to:content-type;
+        bh=3EOtyWnpj6H2JKh2l6IAWizW9Kgj+njv8aMgbCxIvr4=;
+        b=XRcNy3Vv1FkbNjic28/DTmOw80M7tFcsyguZ+E8iFWEXCXQQGa9Nll2xBR0uDhUTRP
+         qUkx/H/YVWOxJ3WmupIh6Im/W+LWHo1Pmf6kC00fKDYJq0nUhb2wnU/wTe5yCDJPQawM
+         Idb1+xGU2pOZ07Yf50YrDeO1QEUuQ+Om+FkWj/RfTkmoF5mdHwaJSN4Odc6NG+CW4TDw
+         TVmv166r0Xbx5H5gyWGUKDm5KrU/5SyrTF/C9j+vbzhsg3o/HTuL7c638Wo8PpHxKy9g
+         1kTprainIkXm8KLxEzK2UJSwfbXWq7C3wsWvT39FWLE163YiTZ6IeuWhRFJsHWkX2RS8
+         ElVA==
+X-Forwarded-Encrypted: i=1; AKwUvBzBdEFdKiLSTxnP7CUSTLGTk4B82b2DaER1IAltNW2GrAp6B3ZSCmqDh94Tj+HWZ5KzY0FAeI1E1VsgD3Ekg8ii@lists.infradead.org
+X-Gm-Message-State: AFq9FYJMd/wky1WU4ln7ETu7ouVEF5PXbKRG7OOZf1ddBgMiRswg0qs9
+	EAi0OAu5Y04THxpsM2GCVkSJOI2Odxa41doR5iWNt3eRFEa3GO2jYTEkXXrfAMHCKkA=
+X-Gm-Gg: AYBFou0wcOg0NY1J/UZi52HzeQvpyxgEcgIJZLNFTCK4LWLE+UwkqkHozHE8GAQzjQw
+	SUf7ypw7UqK31y1gogTq7VfzFdkRJnrbKc6J/GrsCOyJWp6dpij3OkvlSheAfvGWWd3FqnDLN0V
+	QtWBgmH9ergRtEXrqB9hdhAUyt9qZgZSHjT/ECig0Js24unTdbdWi5x5bwxOL4XPy/ql2dYJAmC
+	m5z4pmQaMOqwbICBD5GLNpV9VsrVF3SZCTzja0cHkYUDMWanpEAlin0XdEufgUAEyP/PBVnsREh
+	sYc2MSuK0X4wssUMu/mU95QBcbFeJBC36ebHihJFoTcFPQeifwL9KBH8pCPd2xo5dbDediYX6F8
+	dJxupqIbWtS3tQ0CmRfS2HeMl1MEX+3AuPAaw3xyoIG6X9l6Mp4AGnAx0soI7otchgUnOhOf9bm
+	sp7y6OBtXs0xhWjqTg/0+NVVaCd8iAfB5CAWdRy3YjEPiFIKOsCe8dh69Pwm10qVfg3dfE2ZLSL
+	Arw+fNosQ+VUbNSYFtGQ2Et/1ce4bUWzW3ameFdIyS5LGdGNFsiK1BAJEfRRC+H8DgffvWiZTxs
+	7d86Ii4hqXtHqk4phA==
+X-Received: by 2002:a05:6102:3f8b:b0:7a6:bc69:5a32 with SMTP id ada2fe7eead31-7af1e6f3640mr5363208137.23.1790623214949;
+        Mon, 28 Sep 2026 12:20:14 -0700 (PDT)
+Received: from [10.21.51.184] (ipagstaticip-88fc351e-cb28-db3e-3f52-ad13c70f08da.sdsl.bell.ca. [142.127.77.63])
+        by smtp.gmail.com with ESMTPSA id a1e0cc1a2514c-9889afc5c7csm8124301241.2.2026.09.28.12.20.13
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Mon, 28 Sep 2026 12:20:14 -0700 (PDT)
+Message-ID: <0259fe4b-3118-4ab0-9b62-55101bfd7f33@linaro.org>
+Date: Mon, 28 Sep 2026 21:20:12 +0200
 MIME-Version: 1.0
-References: <20260928064643.3265087-1-fuad.tabba@linux.dev>
- <20260928064643.3265087-2-fuad.tabba@linux.dev> <arqeRSIoEwurSrya@kernel.org>
-In-Reply-To: <arqeRSIoEwurSrya@kernel.org>
-From: Fuad Tabba <fuad.tabba@linux.dev>
-Date: Mon, 28 Sep 2026 20:17:01 +0100
-X-Gmail-Original-Message-ID: <CA+EHjTy1rqqBGW_jiBwjdg1b6hphE1KwqvS1i5SDM040d5Cbjg@mail.gmail.com>
-X-Gm-Features: AclHuK_rws_wTRAdrWEqO4myn_hhtXgz82YRIViNS-gJjlNQ2cw7YcPYJoEgtSM
-Message-ID: <CA+EHjTy1rqqBGW_jiBwjdg1b6hphE1KwqvS1i5SDM040d5Cbjg@mail.gmail.com>
-Subject: Re: [PATCH v2 1/4] KVM: arm64: Don't WARN on an unsupported TLBI OS
- from vEL1
-To: Oliver Upton <oupton@kernel.org>
-Cc: Marc Zyngier <maz@kernel.org>, kvmarm@lists.linux.dev, 
-	linux-arm-kernel@lists.infradead.org, Joey Gouly <joey.gouly@arm.com>, 
-	Suzuki K Poulose <suzuki.poulose@arm.com>, Zenghui Yu <yuzenghui@huawei.com>, 
-	Steffen Eiden <seiden@linux.ibm.com>, Catalin Marinas <catalin.marinas@arm.com>, 
-	Will Deacon <will@kernel.org>, Mark Rutland <mark.rutland@arm.com>, 
-	Quentin Perret <qperret@google.com>, Vincent Donnefort <vdonnefort@google.com>, 
-	Wei-Lin Chang <weilin.chang@arm.com>, linux-kernel@vger.kernel.org
-Content-Type: text/plain; charset="UTF-8"
+User-Agent: Mozilla Thunderbird
+From: Neil Armstrong <neil.armstrong@linaro.org>
+Subject: Re: [PATCH 0/6] drm/bridge: Add a BPF-based MIPI-DSI panel driver
+To: Benjamin Tissoires <bentiss@kernel.org>
+Cc: Maxime Ripard <mripard@kernel.org>, Jessica Zhang
+ <jesszhan0024@gmail.com>, David Airlie <airlied@gmail.com>,
+ Simona Vetter <simona@ffwll.ch>,
+ Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
+ Thomas Zimmermann <tzimmermann@suse.de>, Rob Herring <robh@kernel.org>,
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
+ <conor+dt@kernel.org>, Nathan Chancellor <nathan@kernel.org>,
+ Nick Desaulniers <ndesaulniers@google.com>, Bill Wendling
+ <morbo@google.com>, Justin Stitt <justinstitt@google.com>,
+ Florian Fainelli <florian.fainelli@broadcom.com>,
+ Broadcom internal kernel review list
+ <bcm-kernel-feedback-list@broadcom.com>,
+ Andrzej Hajda <andrzej.hajda@intel.com>, Robert Foss <rfoss@kernel.org>,
+ Laurent Pinchart <Laurent.pinchart@ideasonboard.com>,
+ Jonas Karlman <jonas@kwiboo.se>, Jernej Skrabec <jernej.skrabec@gmail.com>,
+ Luca Ceresoli <luca.ceresoli@bootlin.com>, Albert Esteve
+ <aesteve@redhat.com>, Dave Stevenson <dave.stevenson@raspberrypi.com>,
+ Javier Martinez Canillas <javierm@redhat.com>,
+ dri-devel@lists.freedesktop.org, devicetree@vger.kernel.org,
+ linux-kernel@vger.kernel.org, bpf@vger.kernel.org, llvm@lists.linux.dev,
+ linux-rpi-kernel@lists.infradead.org, linux-arm-kernel@lists.infradead.org
+References: <20260928-drm-mipi-dsi-panel-ebpf-v1-0-5244926aace4@kernel.org>
+ <6b80cb97-6706-412a-b013-9423f6f75153@linaro.org> <arqhwHiVf00j94J7@beelink>
+Content-Language: en-US, fr
+Autocrypt: addr=neil.armstrong@linaro.org; keydata=
+ xsBNBE1ZBs8BCAD78xVLsXPwV/2qQx2FaO/7mhWL0Qodw8UcQJnkrWmgTFRobtTWxuRx8WWP
+ GTjuhvbleoQ5Cxjr+v+1ARGCH46MxFP5DwauzPekwJUD5QKZlaw/bURTLmS2id5wWi3lqVH4
+ BVF2WzvGyyeV1o4RTCYDnZ9VLLylJ9bneEaIs/7cjCEbipGGFlfIML3sfqnIvMAxIMZrvcl9
+ qPV2k+KQ7q+aXavU5W+yLNn7QtXUB530Zlk/d2ETgzQ5FLYYnUDAaRl+8JUTjc0CNOTpCeik
+ 80TZcE6f8M76Xa6yU8VcNko94Ck7iB4vj70q76P/J7kt98hklrr85/3NU3oti3nrIHmHABEB
+ AAHNKk5laWwgQXJtc3Ryb25nIDxuZWlsLmFybXN0cm9uZ0BsaW5hcm8ub3JnPsLAkQQTAQoA
+ OwIbIwULCQgHAwUVCgkICwUWAgMBAAIeAQIXgBYhBInsPQWERiF0UPIoSBaat7Gkz/iuBQJk
+ Q5wSAhkBAAoJEBaat7Gkz/iuyhMIANiD94qDtUTJRfEW6GwXmtKWwl/mvqQtaTtZID2dos04
+ YqBbshiJbejgVJjy+HODcNUIKBB3PSLaln4ltdsV73SBcwUNdzebfKspAQunCM22Mn6FBIxQ
+ GizsMLcP/0FX4en9NaKGfK6ZdKK6kN1GR9YffMJd2P08EO8mHowmSRe/ExAODhAs9W7XXExw
+ UNCY4pVJyRPpEhv373vvff60bHxc1k/FF9WaPscMt7hlkbFLUs85kHtQAmr8pV5Hy9ezsSRa
+ GzJmiVclkPc2BY592IGBXRDQ38urXeM4nfhhvqA50b/nAEXc6FzqgXqDkEIwR66/Gbp0t3+r
+ yQzpKRyQif3OwE0ETVkGzwEIALyKDN/OGURaHBVzwjgYq+ZtifvekdrSNl8TIDH8g1xicBYp
+ QTbPn6bbSZbdvfeQPNCcD4/EhXZuhQXMcoJsQQQnO4vwVULmPGgtGf8PVc7dxKOeta+qUh6+
+ SRh3vIcAUFHDT3f/Zdspz+e2E0hPV2hiSvICLk11qO6cyJE13zeNFoeY3ggrKY+IzbFomIZY
+ 4yG6xI99NIPEVE9lNBXBKIlewIyVlkOaYvJWSV+p5gdJXOvScNN1epm5YHmf9aE2ZjnqZGoM
+ Mtsyw18YoX9BqMFInxqYQQ3j/HpVgTSvmo5ea5qQDDUaCsaTf8UeDcwYOtgI8iL4oHcsGtUX
+ oUk33HEAEQEAAcLAXwQYAQIACQUCTVkGzwIbDAAKCRAWmrexpM/4rrXiB/sGbkQ6itMrAIfn
+ M7IbRuiSZS1unlySUVYu3SD6YBYnNi3G5EpbwfBNuT3H8//rVvtOFK4OD8cRYkxXRQmTvqa3
+ 3eDIHu/zr1HMKErm+2SD6PO9umRef8V82o2oaCLvf4WeIssFjwB0b6a12opuRP7yo3E3gTCS
+ KmbUuLv1CtxKQF+fUV1cVaTPMyT25Od+RC1K+iOR0F54oUJvJeq7fUzbn/KdlhA8XPGzwGRy
+ 4zcsPWvwnXgfe5tk680fEKZVwOZKIEuJC3v+/yZpQzDvGYJvbyix0lHnrCzq43WefRHI5XTT
+ QbM0WUIBIcGmq38+OgUsMYu4NzLu7uZFAcmp6h8g
+Organization: Linaro
+In-Reply-To: <arqhwHiVf00j94J7@beelink>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260928_121745_278099_17B3B553 
-X-CRM114-Status: GOOD (  10.87  )
+X-CRM114-CacheID: sfid-20260928_122016_915382_EC31C40E 
+X-CRM114-Status: GOOD (  31.97  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -83,29 +146,101 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
+Reply-To: Neil Armstrong <neil.armstrong@linaro.org>
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Oliver,
+On 9/28/26 19:24, Benjamin Tissoires wrote:
+> On Sep 28 2026, Neil Armstrong wrote:
+>> Hi,
+>>
+>> On 9/28/26 18:22, Maxime Ripard wrote:
+>>> Hi,
+>>>
+>>> Panels in general, and MIPI-DSI panels in particular, are pretty
+>>> difficult to support and require pretty much a panel driver for each
+>>> panel produced. Most of them are pretty simple, and require an opaque
+>>> initialization sequence that is usually poorly documented.
+>>>
+>>> This creates a tension between OEMs and distros because OEMs will
+>>> typically get a new panel to react to a sourcing issue during
+>>> production, and thus need some swift turnaround between getting their
+>>> new panel and it being operational in the OS. Distributions on the other
+>>> hand can take years to ship a kernel with that new panel driver.
+>>>
+>>> To solve this, I followed the example of HID-BPF and wrote a panel
+>>> driver that will rely on BPF programs to perform the panel
+>>> initialization. That way, we can ship the programs separately from the
+>>> kernel, and with a different lifecycle. If this driver is accepted, the
+>>> plan is to have a userspace component started by udev to identify and
+>>> load the right BPF program for the panels found on the device.
+>>
+>> This is kind of late for serious applications except if we manage to
+>> solve the bootloader to Linux display engine transition.
+>>
+>>>
+>>> This driver is fully functional and works with both 5" and 7" Touch
+>>> Display 2 panels for the RaspberryPi. However, it breaks away from the
+>>> typical panel driver in multiple ways:
+>>>
+>>> - BPF programs can only be loaded by userspace. This leaves us with two
+>>>     choices:
+>>>
+>>>     * We prevent the driver from loading until the script itself is
+>>>       loaded. This has the side effect of preventing any other output to
+>>>       be used until the initramfs is ran at the earliest, and possibly
+>>>       ever if the loader isn't installed for example.
+>>
+>> This adds a dependency on user-space behavior and if somehow the
+>> initramfs doesn't load for a reason we won't have a way to display
+>> an error.
+>>
+>>>
+>>>     * Or we probe the driver all the time, but only report it as connected
+>>>       once a program has been registered. This is somewhat unconventional,
+>>>       but allows the other outputs to be functional, *and* allows the user
+>>>       to force the output if their panel doesn't require any
+>>>       initialization or during debugging. I chose this solution.
+>>
+>> Both options are not really great...
+>>
+>>>
+>>> - It's not a panel driver, but a bridge one, which is also pretty
+>>>     unconventional. This is required because panel drivers don't have
+>>>     access to a detect callback that is required for the above, but I also
+>>>     think that the recent work from Luca blurs the line from panels and
+>>>     bridges and we'll end up going that road anyway.
+>>
+>> On this point, DDIC _are_ bridges, but in the current panel API we blur the line between
+>> the panel and the DDIC. So being a bridge is fine, but in a general way we lack
+>> a proper way to describe the display/panel/monitor independently of the DDIC.
+>>
+>> At first glance it's a nice driver, but moving the timings into a blob moves something
+>> into possible proprietary binaries with possible closed licence and distribution
+>> restriction so it's a downgrade for the same of bringing up a panel faster.
+> 
+> Quick answer on this, because I had the very same questions regarding
+> HID-BPF:
+> - in BPF, you can require (and by default it does) that only GPL
+> 	compatible BPF programs are loaded, closing the argument of "closed
+> 	licence and distribution restriction"
+> - also, a BPF program can be disassembled much easier than a binary
+> 	blob, and I remember Alexei showing me an example where you get almost
+> 	the source code from the BPF object in just one pass.
 
-On Mon, 28 Sep 2026 18:05:09 +0100, Oliver Upton <oupton@kernel.org> wrote:
-[...]
-> So the FGUs don't actually require any hardware support, they're just a
-> representation of our UNDEF emulation that can be applied even on
-> non-FGT. That's actually the way we had them wired before the whole
-> config.c rewrite.
->
-> Can you look into reinstating the FGUs?
+Right, it "solve" one of my question, but doesn't really solve the issue
+of vendors providing "GPL" bpf programs with source available "somewhere".
 
-Will do. The FGT entries never make it into the xarray without
-ARM64_HAS_FGT, so the FGU check in triage_sysreg_trap() has nothing to
-match on those CPUs. v3 drops that gate and leaves handle_tlbi_el1()
-alone.
+Another big issue is the API, I don't want to keep the current API as-is,
+we plan to support more advanced panel features and use try to use the
+atomic states to support rate switching for example, and I'm not confident
+it's a good idea since there's no "simple" and "forever valid" API
+to initialize panels...
 
-AFAICT that skip has been there since the FGT forwarding
-infrastructure went in, before the FGUs existed, so I'll write it up
-as making the FGUs work on non-FGT hosts.
+Neil
 
-Cheers,
-/fuad
+> 
+> Cheers,
+> Benjamin
+
 
