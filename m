@@ -4,84 +4,78 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 56CA6CA5FA6
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 28 Sep 2026 21:01:18 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B9401CA5FA2
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 28 Sep 2026 21:03:37 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:CC:To:In-Reply-To:References
-	:Message-ID:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=T+pvidewNqLADRTE0xgBKOGCgi+IEjyzenZx7cPnAdk=; b=xQ+BBV6E7/Mg6GAOB/FQVn7fVF
-	sSHwJEQGuvVhJaMY0+J05XqJtF86667DuhgoyP1AGQB9Zouc4+0OCuv07jm8glWKq0Ca2FRh6n4x2
-	2BVL2r+iVabSNMvw+WIxqqiMwsHmGxdIphM5pQUMFEf9rxyOl3AeIEOS3V+o5EzvcZY4rHuYhIJD/
-	htPn/jl7SOlQgq7EVMHpAGaWWJtvfhbR7jFqS9vBNnVsxRkToc6kFRCoT4/Raql3DprpiTTz7aC9S
-	iHTnq5HM1Uuu8XE1xdAhkHj4B/+cMxfenklOQ3jELzJYCjkzGQRR6K557nhPDk+nZ0Kr2da6mWHTP
-	K7JOpzLA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Content-Type:
+	References:In-Reply-To:Date:Cc:To:From:Subject:Message-ID:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=l4T9ZWQB7QBcWvTS+1rzIF8s9gFe3ptJqIVmbkOas6w=; b=pm9b+IxijHMT3n/xnyJhdjrx9g
+	LfT+Cvrbt1iBz7WnekMx/lMspER3Es4w9ctC9bWxykoyrEtYvJrgGhAYbplWSFD/nEg1CGeZSunf3
+	IF0t94kI8ayX1SqLU83pAClm1gp722vktugZGgxOFx8spiHe0C2jzirrKxBNCH1Kbu4JsizPRMcn0
+	saSeOmwtoZIn53/KSnigkzxdj7gPSE4hgJLfH0CF7Xz9i2uwwyT7Yz5A2zxBY31xNCy1kERCAh4Up
+	akHQBhAhDeAi77uzOYRaybaOV8Wjr1iboJd9CpzU3dr5K2g6Hq3ldS8Utdo6FQTaEUeV/vZS5SrCY
+	rTV9CtHA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xBH68-00000001RYv-40nM;
-	Mon, 28 Sep 2026 19:33:12 +0000
-Received: from esa.microchip.iphmx.com ([68.232.154.123])
+	id 1xBIVW-00000001eBO-01xx;
+	Mon, 28 Sep 2026 21:03:30 +0000
+Received: from bali.collaboradmins.com ([2a01:4f8:201:9162::2])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xBH5z-00000001RUn-1eOd
-	for linux-arm-kernel@lists.infradead.org;
-	Mon, 28 Sep 2026 19:33:04 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=microchip.com; i=@microchip.com; q=dns/txt; s=mchp;
-  t=1790623983; x=1822159983;
-  h=from:date:subject:mime-version:content-transfer-encoding:
-   message-id:references:in-reply-to:to:cc;
-  bh=u994Z1jwmZ/TKNi7Rq4rSCq8AqEEFkfuzzqzMPgbbII=;
-  b=kvNt16G7lu6wS5FF//bzMgyV0nxwgdZXDAwB9lk6rpmAW1vtB/u6mqsR
-   IxzWkrspUSbU/8UWV6MvPovLlt1ZRPI4cSe6hFi6uAJ5BtReQ1/swYUpY
-   gkZtVncie1WVYfHQ4Y5iQOJZbDSAq6A8JKERh9Qy5IUf9v02Nr4ESjBv7
-   /bQZydu9uKQlBrZpYN7GwYgA7XzxwiHc5i0+6LhwZ6KkR4KVA/fnj/aM7
-   Dj+Oa8sXSI/Bd3JKEMSIj1juOANQnZ6+qFcI0Lnye3SR3Zmm0cvAFrVgM
-   LZ/o6D+isCbm2+7kPfUthJhWnbyN+RGJs0NNn3MiBOZ1wNe9SKJqXAD+H
-   Q==;
-X-CSE-ConnectionGUID: zZQhqAAsToeQadjYsZnkRQ==
-X-CSE-MsgGUID: b7zjOgIaRuK4F5aIUrMb2Q==
-X-IronPort-AV: E=Sophos;i="6.27,129,1787036400"; 
-   d="scan'208";a="231389907"
-X-Amp-Result: SKIPPED(no attachment in message)
-Received: from unknown (HELO email.microchip.com) ([170.129.1.10])
-  by esa6.microchip.iphmx.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 28 Sep 2026 12:33:02 -0700
-Received: from chn-vm-ex02.mchp-main.com (10.10.87.72) by
- chn-vm-ex4.mchp-main.com (10.10.87.33) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
- 15.2.2562.49; Mon, 28 Sep 2026 12:33:02 -0700
-Received: from DEN-DL-M70577.microsemi.net (10.10.85.11) by
- chn-vm-ex02.mchp-main.com (10.10.85.144) with Microsoft SMTP Server id
- 15.1.2507.58 via Frontend Transport; Mon, 28 Sep 2026 12:32:58 -0700
-From: Daniel Machon <daniel.machon@microchip.com>
-Date: Mon, 28 Sep 2026 21:32:49 +0200
-Subject: [PATCH net-next v9 01/15] MAINTAINERS: add FDMA library to Sparx5
- SoC entry
+	id 1xBIVS-00000001eAW-3b5u;
+	Mon, 28 Sep 2026 21:03:28 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
+	s=mail; t=1790629402;
+	bh=81KJ3JqM+1k+n1v6q9w+1zoo6645pNbWs+88QNJdWp4=;
+	h=Subject:From:To:Cc:Date:In-Reply-To:References:From;
+	b=PgKrb0N4kZC+wFpXYdIBlC7s59nGnWQX46UiOYxq1kEjFdsxoSSo/zRm7SMYEs5Uu
+	 WEVA8RbFmS6Y9IwoVmHeSTiXAFH9ddXz8y7eLwHZCCPxWLlaF0OQikLGCtgJy/QYfB
+	 U6qLJOMQ0fVzv4QXkNmrC1RC62GSJCVp9utM8f3iDj2ZjoczSZd6oGTbDX/2oLVolq
+	 LVEJiiXoDhUv1voHiCv0FudzVrWw28kBrvs5vsvyyDHGxggoVO/Q1Um/rXXpR+BvnD
+	 T0Wr8EI92luTTek1BrrLKeI/Iiph2bvdztKJSfZouQkn3bjF5ANMGiGVbSI4OJzFW3
+	 LAA2UbK9mTp2A==
+Received: from [100.64.0.214] (unknown [100.64.0.214])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange secp256r1 server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	(Authenticated sender: nicolas)
+	by bali.collaboradmins.com (Postfix) with ESMTPSA id 7C7FC17E0074;
+	Mon, 28 Sep 2026 23:03:21 +0200 (CEST)
+Message-ID: <bf9cb0dc0e6c6b313ca1491a068516bcf7aaffcc.camel@collabora.com>
+Subject: Re: [PATCH v4] media: rkvdec: fix clk reference leak on unbind
+From: Nicolas Dufresne <nicolas.dufresne@collabora.com>
+To: Francesco Saverio Pavone <pavone.lawyer@gmail.com>, jonas@kwiboo.se, 
+	detlev.casanova@collabora.com, hverkuil@kernel.org, mchehab@kernel.org
+Cc: ezequiel@vanguardiasur.com.ar, heiko@sntech.de,
+ linux-media@vger.kernel.org, 	linux-rockchip@lists.infradead.org,
+ linux-arm-kernel@lists.infradead.org, 	linux-kernel@vger.kernel.org
+Date: Mon, 28 Sep 2026 17:03:20 -0400
+In-Reply-To: <CAMhzubpF5UQZ6b3F9EUM7U_HJUJ6gB9Px-9v=dCW6v-4CVBLKw@mail.gmail.com>
+References: <20260717154505.83935-1-pavone.lawyer@gmail.com>
+	 <CAMhzubpF5UQZ6b3F9EUM7U_HJUJ6gB9Px-9v=dCW6v-4CVBLKw@mail.gmail.com>
+Autocrypt: addr=nicolas.dufresne@collabora.com; prefer-encrypt=mutual;
+ keydata=mDMEaCN2ixYJKwYBBAHaRw8BAQdAM0EHepTful3JOIzcPv6ekHOenE1u0vDG1gdHFrChD
+ /e0J05pY29sYXMgRHVmcmVzbmUgPG5pY29sYXNAbmR1ZnJlc25lLmNhPoicBBMWCgBEAhsDBQsJCA
+ cCAiICBhUKCQgLAgQWAgMBAh4HAheABQkJZfd1FiEE7w1SgRXEw8IaBG8S2UGUUSlgcvQFAmibrjo
+ CGQEACgkQ2UGUUSlgcvQlQwD/RjpU1SZYcKG6pnfnQ8ivgtTkGDRUJ8gP3fK7+XUjRNIA/iXfhXMN
+ abIWxO2oCXKf3TdD7aQ4070KO6zSxIcxgNQFtDFOaWNvbGFzIER1ZnJlc25lIDxuaWNvbGFzLmR1Z
+ nJlc25lQGNvbGxhYm9yYS5jb20+iJkEExYKAEECGwMFCwkIBwICIgIGFQoJCAsCBBYCAwECHgcCF4
+ AWIQTvDVKBFcTDwhoEbxLZQZRRKWBy9AUCaCyyxgUJCWX3dQAKCRDZQZRRKWBy9ARJAP96pFmLffZ
+ smBUpkyVBfFAf+zq6BJt769R0al3kHvUKdgD9G7KAHuioxD2v6SX7idpIazjzx8b8rfzwTWyOQWHC
+ AAS0LU5pY29sYXMgRHVmcmVzbmUgPG5pY29sYXMuZHVmcmVzbmVAZ21haWwuY29tPoiZBBMWCgBBF
+ iEE7w1SgRXEw8IaBG8S2UGUUSlgcvQFAmibrGYCGwMFCQll93UFCwkIBwICIgIGFQoJCAsCBBYCAw
+ ECHgcCF4AACgkQ2UGUUSlgcvRObgD/YnQjfi4+L8f4fI7p1pPMTwRTcaRdy6aqkKEmKsCArzQBAK8
+ bRLv9QjuqsE6oQZra/RB4widZPvphs78H0P6NmpIJ
+Organization: Collabora Canada
+Content-Type: multipart/signed; micalg="pgp-sha512";
+	protocol="application/pgp-signature"; boundary="=-sRZ1GkpALmFhvIbaGjyg"
+User-Agent: Evolution 3.60.2 (3.60.2-1.fc44) 
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-ID: <20260928-lan966x-pci-fdma-v9-1-a17caf60f89a@microchip.com>
-References: <20260928-lan966x-pci-fdma-v9-0-a17caf60f89a@microchip.com>
-In-Reply-To: <20260928-lan966x-pci-fdma-v9-0-a17caf60f89a@microchip.com>
-To: Andrew Lunn <andrew+netdev@lunn.ch>, "David S. Miller"
-	<davem@davemloft.net>, Eric Dumazet <edumazet@google.com>, Jakub Kicinski
-	<kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>, Horatiu Vultur
-	<horatiu.vultur@microchip.com>, Steen Hegelund
-	<steen.hegelund@microchip.com>, <UNGLinuxDriver@microchip.com>, "Alexei
- Starovoitov" <ast@kernel.org>, Daniel Borkmann <daniel@iogearbox.net>,
-	"Jesper Dangaard Brouer" <hawk@kernel.org>, John Fastabend
-	<john.fastabend@gmail.com>, Stanislav Fomichev <sdf@fomichev.me>, Herve
- Codina <herve.codina@bootlin.com>, Arnd Bergmann <arnd@arndb.de>, Greg
- Kroah-Hartman <gregkh@linuxfoundation.org>, Mohsin Bashir
-	<mohsin.bashr@gmail.com>, "Simon Horman" <horms@kernel.org>
-CC: Richard Cochran <richardcochran@gmail.com>, <netdev@vger.kernel.org>,
-	<linux-kernel@vger.kernel.org>, <bpf@vger.kernel.org>,
-	<linux-arm-kernel@lists.infradead.org>
-X-Mailer: b4 0.14.3
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260928_123303_472506_9997622B 
-X-CRM114-Status: GOOD (  11.45  )
+X-CRM114-CacheID: sfid-20260928_140327_053768_AA2C070E 
+X-CRM114-Status: GOOD (  50.04  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -96,35 +90,240 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The FDMA library under drivers/net/ethernet/microchip/fdma/ is shared by
-the lan966x, sparx5 and lan969x drivers, but is not covered by an entry
-in the MAINTAINERS file. A subsequent patch will add new files to the
-FDMA library, so let's make sure it's covered.
 
-Add drivers/net/ethernet/microchip/fdma/ to the Sparx5 SoC entry, since
-I am already listed there.
+--=-sRZ1GkpALmFhvIbaGjyg
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 
-Tested-by: Herve Codina <herve.codina@bootlin.com>
-Signed-off-by: Daniel Machon <daniel.machon@microchip.com>
-Reviewed-by: Simon Horman <horms@kernel.org>
----
- MAINTAINERS | 1 +
- 1 file changed, 1 insertion(+)
+Le lundi 27 juillet 2026 =C3=A0 17:11 +0200, Francesco Saverio Pavone a =C3=
+=A9crit=C2=A0:
+> Self-review after running this on a Rock 5B+. The reorder closes the
+> clk leak, but it opens a window I missed when I sent it.
+> Moving the PM teardown ahead of rkvdec_v4l2_cleanup() is necessary,
+> for the drvdata reason in the commit message. The side effect is that
+> video_unregister_device() is now the last thing remove() does, so
+> /dev/videoN stays open-able while the empty IOMMU domain is already
+> freed.
+> A job queued in that window reaches rkvdec_iommu_restore() and touches
+> the freed domain. Before the reorder, cleanup ran first and the window
+> did not exist.
+> Splitting the helper keeps both properties: unregister the media and
+> video devices first, which stops new jobs, then tear down PM, then
+> release the m2m and V4L2 device. Only that last step clears drvdata,
+> so rkvdec_runtime_suspend() still finds its state.
+>=20
+>    cancel_delayed_work_sync(&rkvdec->watchdog_work);
+>=20
+>    rkvdec_v4l2_unregister(rkvdec); /* media + video unregister */
+>=20
+>    pm_runtime_dont_use_autosuspend(&pdev->dev);
+>=20
+>    if (rkvdec->empty_domain)
+>      iommu_domain_free(rkvdec->empty_domain);
+>=20
+>    pm_runtime_disable(&pdev->dev);
+>    rkvdec_v4l2_release(rkvdec); /* media cleanup, m2m, v4l2 */
+>=20
+> Running here on 7.2-rc5: unbind then rebind returns the rkvdec clock
+> enable counts to their pre-unbind values and /dev/video0 comes back.
+> I can send this as a v5 carrying both changes, or as a follow-up patch
+> on top of v4, whichever you prefer.
 
-diff --git a/MAINTAINERS b/MAINTAINERS
-index 6de1ff058db6..740f362e03f8 100644
---- a/MAINTAINERS
-+++ b/MAINTAINERS
-@@ -3214,6 +3214,7 @@ M:	UNGLinuxDriver@microchip.com
- L:	linux-arm-kernel@lists.infradead.org (moderated for non-subscribers)
- S:	Supported
- F:	arch/arm64/boot/dts/microchip/sparx*
-+F:	drivers/net/ethernet/microchip/fdma/
- F:	drivers/net/ethernet/microchip/vcap/
- F:	drivers/pinctrl/pinctrl-microchip-sgpio.c
- N:	sparx5
+Looking forward you v5.
 
--- 
-2.34.1
+Nicolas
 
+> Thanks,
+> Francesco
+>=20
+> Il giorno ven 17 lug 2026 alle ore 17:45 Francesco Saverio Pavone
+> <pavone.lawyer@gmail.com> ha scritto:
+> >=20
+> > From: Jonas Karlman <jonas@kwiboo.se>
+> >=20
+> > remove() calls pm_runtime_disable() before
+> > pm_runtime_dont_use_autosuspend(), so the second call can never suspend
+> > the device: it reaches rpm_idle(), which returns -EACCES once PM runtim=
+e
+> > is disabled. The probe error path has had the two the other way round
+> > since the driver was merged.
+> >=20
+> > This shows up when the device is unbound while the 100ms autosuspend
+> > window is still open, which is what an rmmod right after a decode does.
+> > device_release_driver() calls pm_runtime_put_sync() before .remove(),
+> > and rpm_idle() adds RPM_AUTO on its own, so that put only arms the
+> > autosuspend timer. pm_runtime_disable() then cancels the timer, and
+> > pm_runtime_reinit() relabels the device suspended without calling the
+> > driver back. The clk_bulk reference taken by rkvdec_runtime_resume() is
+> > never dropped, and a later probe does not reclaim it, so every such
+> > unbind leaks one enable count.
+> >=20
+> > Drop autosuspend first, so the callback still runs and releases the
+> > clocks.
+> >=20
+> > The PM calls also have to move ahead of rkvdec_v4l2_cleanup() rather
+> > than just swap with each other. rkvdec_runtime_suspend() looks its stat=
+e
+> > up with dev_get_drvdata(), and v4l2_device_unregister() clears it:
+> > struct rkvdec_dev has v4l2_device as its first member, so
+> > &rkvdec->v4l2_dev and rkvdec are the same address and the check in
+> > v4l2_device_disconnect() matches. That is harmless today because
+> > pm_runtime_disable() suppresses the callback, but once the callback can
+> > run, a suspend after the V4L2 teardown dereferences NULL. Swapping only
+> > the two PM calls oopses on every unbind.
+> >=20
+> > Fixes: cd33c830448b ("media: rkvdec: Add the rkvdec driver")
+> > Signed-off-by: Jonas Karlman <jonas@kwiboo.se>
+> > [fsp: wrote the commit message; the diff is unchanged]
+> > Tested-by: Francesco Saverio Pavone <pavone.lawyer@gmail.com>
+> > Assisted-by: Claude:claude-opus-4-8
+> > Signed-off-by: Francesco Saverio Pavone <pavone.lawyer@gmail.com>
+> > ---
+> > Changes in v4:
+> >  - No functional change. Resent as its own thread (no In-Reply-To on v2=
+),
+> >    per Nicolas's note that a new version should be its own thread for
+> >    patchwork tracking. Same diff and same commit message as v3.
+> >=20
+> > Changes in v3:
+> >  - Rewrote the commit message, and dropped the VP9 claim from v1 and v2=
+.
+> >    Those said this fixed a VP9 inter-prediction bug on RK3588, green ch=
+roma
+> >    from the second ALTREF frame onward. The bug is real, but this is no=
+t
+> >    what fixes it, and I should have established that before sending v1.
+> >=20
+> >    What happened: I took this patch out of chewitt's tree along with tw=
+o
+> >    others and tested the three as a batch. The green is fixed by "media=
+:
+> >    rkvdec: implement reset controls" from Alex Bee, which adds the
+> >    reset_control handling that recovers the VDPU381 after a transient e=
+rror
+> >    (COLMV_REF_ERR_STA and friends) instead of leaving it dirty for the =
+next
+> >    inter frame. Randy Li's PMU idle export goes with it. This patch was=
+ the
+> >    third one in that batch and got the credit.
+> >=20
+> >    Retested this week on the same Rock 5B+ with an unpatched driver: a =
+VP9
+> >    Profile 0 1080p clip with alt-ref frames decodes byte-identical to t=
+he
+> >    libvpx reference, across five rmmod/insmod cycles and after an unbin=
+d
+> >    inside the autosuspend window. The green does not come back, because=
+ the
+> >    reset_control work is in the tree I test on. Sorry for the review an=
+d the
+> >    testing you spent on that basis.
+> >=20
+> >  - Worth flagging separately: mainline rkvdec has no reset_control supp=
+ort
+> >    at all, so the VDPU381 is never recovered after a transient error. T=
+hat
+> >    is a real gap, it is just not this patch. I can write it up properly=
+ if
+> >    that is useful.
+> >=20
+> >  - The diff is unchanged from v1 and v2. It is Jonas's 2020 commit verb=
+atim,
+> >    and his original one-line subject already described exactly what it =
+does.
+> >    The wrong story was mine, not his.
+> >=20
+> >  - The subject changed with the message: "media: rkvdec: fix PM runtime
+> >    teardown ordering in remove" in v1 and v2, "media: rkvdec: fix clk
+> >    reference leak on unbind" here, since that is what it actually fixes=
+.
+> >=20
+> >  - What is left is measured. With a dev_info() at the top of
+> >    rkvdec_runtime_suspend(), autosuspend_delay raised to 60s to take th=
+e
+> >    timer out of the race, and unbind driven through sysfs:
+> >        unpatched: 0 suspend callbacks, aclk_rkvdec0 enable_count 1 -> 2
+> >        patched:   1 suspend callback,  enable_count 1 -> 1
+> >    The leak survives rmmod and accumulates one per unbind. With
+> >    autosuspend_delay=3D0 both orders suspend once, which is the control=
+: the
+> >    difference only exists inside the window.
+> >=20
+> >  - Fixes: was wrong in v1 and v2. ff8c5622f9f7 has the two pm_runtime c=
+alls
+> >    as context and only added iommu_domain_free(). cd33c830448b added re=
+move()
+> >    with the reversed order, and the probe error path with the right one=
+, so
+> >    the tag points there now.
+> >=20
+> >  - Dropped Cc: stable. A clk reference leaked on unbind is not backport
+> >    material, and the tag was only there for the VP9 claim.
+> >=20
+> >  - Dropped your Reviewed-by and Tested-by from v2: they were given for =
+a fix
+> >    to something else.
+> >=20
+> >  - Not included, happy to send as follow-ups: clearing empty_domain aft=
+er
+> >    iommu_domain_free(), and hoisting the unregisters to the top of remo=
+ve()
+> >    as you suggested on v2.
+> >=20
+> > Tested on a Radxa Rock 5B+ (RK3588) on a 7.1 tree where the six calls i=
+n
+> > rkvdec_v4l2_cleanup() are open-coded; the executed sequence is the one =
+this
+> > patch produces. VP9 decode stays byte-identical to libvpx, and five
+> > rmmod/insmod cycles leave dmesg clean.
+> >=20
+> > Link to v1: https://lore.kernel.org/all/20260518105413.42147-1-pavone.l=
+awyer@gmail.com/
+> > Link to v2: https://lore.kernel.org/all/20260518145414.64514-1-pavone.l=
+awyer@gmail.com/
+> > Link to v3: https://lore.kernel.org/all/20260717150440.77079-1-pavone.l=
+awyer@gmail.com/
+> >  drivers/media/platform/rockchip/rkvdec/rkvdec.c | 5 +++--
+> >  1 file changed, 3 insertions(+), 2 deletions(-)
+> >=20
+> > diff --git a/drivers/media/platform/rockchip/rkvdec/rkvdec.c b/drivers/=
+media/platform/rockchip/rkvdec/rkvdec.c
+> > index 1d1e9bfef8e9..0ec3fca9cccc 100644
+> > --- a/drivers/media/platform/rockchip/rkvdec/rkvdec.c
+> > +++ b/drivers/media/platform/rockchip/rkvdec/rkvdec.c
+> > @@ -1869,12 +1869,13 @@ static void rkvdec_remove(struct platform_devic=
+e *pdev)
+> >=20
+> >         cancel_delayed_work_sync(&rkvdec->watchdog_work);
+> >=20
+> > -       rkvdec_v4l2_cleanup(rkvdec);
+> > -       pm_runtime_disable(&pdev->dev);
+> >         pm_runtime_dont_use_autosuspend(&pdev->dev);
+> >=20
+> >         if (rkvdec->empty_domain)
+> >                 iommu_domain_free(rkvdec->empty_domain);
+> > +
+> > +       pm_runtime_disable(&pdev->dev);
+> > +       rkvdec_v4l2_cleanup(rkvdec);
+> >  }
+> >=20
+> >  #ifdef CONFIG_PM
+> > --
+> > 2.54.0
+> >=20
+
+--=-sRZ1GkpALmFhvIbaGjyg
+Content-Type: application/pgp-signature; name="signature.asc"
+Content-Description: This is a digitally signed message part
+Content-Transfer-Encoding: 7bit
+
+-----BEGIN PGP SIGNATURE-----
+
+iHUEABYKAB0WIQTvDVKBFcTDwhoEbxLZQZRRKWBy9AUCarrWGAAKCRDZQZRRKWBy
+9E10AQCxxlh9dzHcaj7jhYbzOKhmJWGxNyUP/1PjPIzHbDr+1wD+OFF5FiQTa6gT
+Kd6tVo3QC/FEnPE21mIL93HAl9tk0A4=
+=tcOz
+-----END PGP SIGNATURE-----
+
+--=-sRZ1GkpALmFhvIbaGjyg--
 
