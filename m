@@ -4,82 +4,118 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9F251CA5FA2
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 28 Sep 2026 12:39:25 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A9119CA5FA2
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 28 Sep 2026 12:40:17 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=JeIjInEsMAVmbX+dQlo3RCAu/5tDMN8pHnPfuMDfNMc=; b=Kn8Pnb/jtVntIERD3HXe34zb4K
-	KDwkX1CztD44rOqqivPe4U2aHNx+XEDDb1uYcYN6NxeqvQSkSo6LZnoDY+GEIIHljZ++SWqvXrcLU
-	SEsxdSveZFS++akSnTZeA23dj+8Ry9fcSkKhhrZ3UKO1IFEEGFomszFa3ZgHPUqifMxaBHZww3MAa
-	ywgeq5wgHCQ3OrzlIC5PoIhkPqrZGhR3bY9rqe7mLPQZzICsRY19FlFLV5d9JkDV18xSFDjMNS81M
-	yWicTC7OWJdHlsMYPx/f6hLLqXj8DmyNZAY3XUVp6XuglywAFqaKsKb1TiqKsRmUc4I9UpqjZV+Gn
-	OgQfcn8w==;
+	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=HssTRDz+FH3gBTxCzMXbvmj7QI3EqIUW93n3mDUsW0Y=; b=IvQiToHgT0vwZycqkVQopHQ0YP
+	BreifNadpnGyQGDTmmDb8lqiM5T3ucAZL5UVucrHBoo5qziT6dGYELhX7ZlQ5ngL62y+ZtG+rZ3Py
+	HsFZ7k4khrxtMZTC8cdgm8gmS2bUNibCPh+tmej+Wj2DWSL5vvx8q3NewvRnni6Jt5GLtmyH200uI
+	/M1dPowGsVU3BeF3E7fpSROZs5iA04qpnHsMCD3N9JbijbEioDZAoVTmVYd9Z7LjU6TlDunPddtMC
+	ifmcOMTn6rto/sXBfReoRaO4pqTdpB5HgiIx1gtD3v4us/8S9ZHYFXCTxFu8Wy2d0TSlxfPfxd+ie
+	w8XjwVaA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xBAdV-00000000Zn1-3PxW;
-	Mon, 28 Sep 2026 12:39:13 +0000
-Received: from smtpbguseast1.qq.com ([54.204.34.129])
+	id 1xBAeR-00000000a32-0dUC;
+	Mon, 28 Sep 2026 12:40:11 +0000
+Received: from mail-northeuropeazlp170120005.outbound.protection.outlook.com ([2a01:111:f403:c200::5] helo=DUZPR83CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xBAdS-00000000ZlA-49X3
+	id 1xBAeP-00000000a2G-0Ypn
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 28 Sep 2026 12:39:13 +0000
-X-QQ-mid: zesmtpsz9t1790599102t2b351b77
-X-QQ-Originating-IP: UslvrLnkpLv219EBOCZQWgdLB2Yd4yGQ4ouR4nt8KoU=
-Received: from localhost.localdomain ( [175.0.204.93])
-	by bizesmtp.qq.com (ESMTP) with 
-	id ; Mon, 28 Sep 2026 20:38:18 +0800 (CST)
-X-QQ-SSF: 0000000000000000000000000000000
-X-QQ-GoodBg: 0
-X-BIZMAIL-ID: 5072193590924452758
-EX-QQ-RecipientCnt: 12
-From: Yingchao Deng <dengyingchao@kylinsec.com.cn>
-To: Suzuki K Poulose <suzuki.poulose@arm.com>,
-	Alexander Shishkin <alexander.shishkin@linux.intel.com>,
-	Mike Leach <mike.leach@arm.com>,
-	James Clark <james.clark@linaro.org>,
-	Leo Yan <leo.yan@arm.com>
-Cc: coresight@lists.linaro.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	qinyungao@kylinsec.com.cn,
-	luoqiu@kylinsec.com.cn,
-	liudalin@kylinsec.com.cn,
-	Yingchao Deng <dengyingchao@kylinsec.com.cn>
-Subject: [PATCH] coresight: syscfg: Fix null pointer dereference when configfs init fails
-Date: Mon, 28 Sep 2026 20:35:15 +0800
-Message-ID: <C73E0F9BDC0A8FE7+20260928123515.2032-1-dengyingchao@kylinsec.com.cn>
-X-Mailer: git-send-email 2.45.2.windows.1
+	Mon, 28 Sep 2026 12:40:10 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=VLuFy5m9ApxQCz4iW5LI0MF5asY7gNYjYjdPwioQ1JVQF4RVOxlRoSn/n4anfxpHxdRIJ24Lux7nZuhQnadPugukiW8RTIaFA4EMEAfh9rMSD/Lu2hHfDZSqSgcQTiACwvGwPQBaXsJkFMVys9X5HqoWcY6pQKXrtjl2WfeoIeMR/9A9zYzDITOmHKIyK1Mln2aEuvUAi/Wt8IlHZwfjElBpFHYNo+1izP1Li46WQM+gJ97XOvBOrjKqH+m8YstFIbtunLE+qUZR9uuxiL+2zJMSBBHylvZzGGxnwM3ggYz8Iyf+19awUX86sooenpC2TTzs9T6tNR1RdVVbd5rE0g==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=HssTRDz+FH3gBTxCzMXbvmj7QI3EqIUW93n3mDUsW0Y=;
+ b=f96iVqWGUFNdMwDy+jv9PC+zvZPBrZ5Grrm+oxATdV6hXUsfGLEWEdvLDq4oC7WEDV7rRWCb5wKwAemJnXE9sW5zOAovLmvG7IBvGydPFRKCXlVYdZGahZ1dVl5gZkW0niVCiRVzxTK4EpYQ4sJsA7rFR0dSNi+8wdn3PLorgn2OVKMqq7G5hCpVuhbSFT/YPeD/avRr36csDsv880x3bLDVL+iPPF6fcsWdO1+VorGhYKkGA4N9TV0HXaG1UYpWGgpkGiK5l5kPMUv+GR3htwNWE5LfGxciKJoOOAsDkDdbhBboDZYHXatQbWX4iTsOFe85uGj5vYz6QO1aDSoG7w==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=fail (sender ip is
+ 164.130.1.60) smtp.rcpttodomain=kernel.org smtp.mailfrom=foss.st.com;
+ dmarc=fail (p=none sp=none pct=100) action=none header.from=foss.st.com;
+ dkim=none (message not signed); arc=none (0)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=foss.st.com;
+ s=selector2;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=HssTRDz+FH3gBTxCzMXbvmj7QI3EqIUW93n3mDUsW0Y=;
+ b=Y0A0eBC/kdApqTxuUxjZcbKxRIO+PdjhE8LUe4Foq2buLoOYeZQoTKRdXmmXuTj3Fa7MiJC2/f00vu80o9c9u7R3yWL7cgX8KoI5MnCjJkJ6z43ZOSf0ctlYFSO55B5+oiN4gL3rV15tPo7id4Lko9C47cOMWslg0RVic1i8Jlw2T1lmiujyiNdFV6kkIbH6LMxjxtY4cTGfIwKU8hZcd6/8pTrRtwjZJOqG5/qTrojyIT6L4kAIxba9oI1rwWnQeZYFsunF8SlOcvnJs4acAtwkchxRZYfOicz/mngW+TqPxd7ba+3RGD8YXKc9LfaJb7kqDCTbRdS119phBrpkQg==
+Received: from DUZP191CA0033.EURP191.PROD.OUTLOOK.COM (2603:10a6:10:4f8::29)
+ by DB3PR10MB6858.EURPRD10.PROD.OUTLOOK.COM (2603:10a6:10:43a::21) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.451.23; Mon, 28 Sep
+ 2026 12:40:01 +0000
+Received: from MAD0EPF000008AA.eurprd04.prod.outlook.com
+ (2603:10a6:10:4f8:cafe::23) by DUZP191CA0033.outlook.office365.com
+ (2603:10a6:10:4f8::29) with Microsoft SMTP Server (version=TLS1_3,
+ cipher=TLS_AES_256_GCM_SHA384) id 15.21.451.24 via Frontend Transport; Mon,
+ 28 Sep 2026 12:40:01 +0000
+X-MS-Exchange-Authentication-Results: mx.microsoft.com 1; spf=fail (sender IP
+ is 164.130.1.60) smtp.mailfrom=foss.st.com; dkim=none (message not signed)
+ header.d=none;dmarc=fail action=none header.from=foss.st.com;
+Received-SPF: Fail (protection.outlook.com: domain of foss.st.com does not
+ designate 164.130.1.60 as permitted sender) receiver=protection.outlook.com;
+ client-ip=164.130.1.60; helo=smtpO365.st.com;
+Received: from smtpO365.st.com (164.130.1.60) by
+ MAD0EPF000008AA.mail.protection.outlook.com (10.167.241.182) with Microsoft
+ SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.21.472.14 via Frontend Transport; Mon, 28 Sep 2026 12:40:00 +0000
+Received: from STKDAG1NODE2.st.com (10.75.128.133) by smtpO365.st.com
+ (10.250.44.72) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.43; Mon, 28 Sep
+ 2026 14:45:53 +0200
+Received: from [10.48.86.79] (10.48.86.79) by STKDAG1NODE2.st.com
+ (10.75.128.133) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.43; Mon, 28 Sep
+ 2026 14:39:59 +0200
+Message-ID: <13a5a9ee-916d-4bfe-b067-8d5b7db6aca1@foss.st.com>
+Date: Mon, 28 Sep 2026 14:39:58 +0200
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-X-QQ-SENDSIZE: 520
-Feedback-ID: zesmtpsz:kylinsec.com.cn:qybglogicsvrgz:qybglogicsvrgz5b-1
-X-QQ-XMAILINFO: OHzPAwYnxdyj/dJup1oe7uBWd83nemyghiy4LlAG+RGU5TYx6vOgiRgK
-	ML1IRclAsgSik7qor3f+10R3NLs078cDD9Wb+42cMsNj34lRBkxtltfPwE65tWpAbqTOxmW
-	aWwj3ko1/fIkU/VfVBoPs6FAUY/IflTtRRQLJTUBLGUpf8HU5dR/UGRHT+ffCKPDzbVjABW
-	UNuZL1n5NDC7EYBzH3ljbu1HKslYl4nFdSiEr3xAP9WoCqRx2OCb6hySWM5miowpNJ6ymiX
-	WuKdG/tUotA6WzpNXQDIvhYLgtvZt0CkoAQ+0FpAUWzVo+e9mQReMQTjgXknEXZ3ucR97A6
-	FNpF86/7dSrsGH+iupw7XXLWfRUJdMKny2ANz89+5RafEIkaHd4t7+pXywsJXVizVtPSsp2
-	t04t7/HpG8SD+viYvLAIydALGANPect9+iwWKCVZYAbRt0QdBcvH47CgInDu29404qkN5ZM
-	bxz9LfXq/KMvQfRfhKoz20s9J6y8ZQStzTeSxkxI69etUcnKCzmBAl58YVjShdSepdrU0ny
-	TZDAWj6g2RfR8QdvFTzwxCkM2FsF4Q1X/N8snCdBk8TqTKC8d0s/vH4/OdNKXDf/v5jqXHU
-	D3g/xuz4M8P1C2cWAIHtRJA+bWkcd66EjZffLNPjRBWsUhL6wgGknqthOHaC9/SDzsQVJu8
-	FRM7Q2eBbgGstsPbWfZGqBHqlOweA9fsN5Cmb5+42i9ajmcllARLXBQ+pp1nVtwkcx7mcWO
-	xLdbqoG7bepm2M76KYBRkVECWWA6euVKUqoSxg+QgQ2Si3fcYvrC2YgIDT0tBI3i2NpoKLx
-	QnFyWWiAauWLnSqqbBYMl3Es+gp8RX+EMQQCf7tNGE0KfVP44bJLlZJsb9uHsbWAJ2AEYjU
-	T/P3a/qaRhQaJXNWl1Xbd/POK89M1gGLGIYvd1tFMG7Nd2ynTjvd0RdgWIDV9e6UH1QWmbR
-	4S/jX5XjPeupi3a5/mnuAOwUEcBNnn0p2mjn7N1FCBmFScnCq+LE6V92RpIGd9fi42kJFAt
-	Lu41WPllkzd/H+bJGczi8qDqmtpTNPlmeRyKThUXht/xwonpSQklvp0XVvyy5HWzXG17FEx
-	X+6HtuhSURRYlz2g1vP2KV2h3ohSDCormBINRC5Mi6Ol+NJ+uhTX3iSfLedq/1BFZikXbiq
-	bTLVCXR3V7Xc/7OclKfKWq6Wgw1Q14O7kZvp
-X-QQ-XMRINFO: OD9hHCdaPRBwH5bRRRw8tsiH4UAatJqXfg==
-X-QQ-RECHKSPAM: 0
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH 0/2] arm64: dts: st: add dcmi nodes in stm32mp231 /
+ stm32mp251
+To: Alain Volmat <alain.volmat@foss.st.com>, Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>,
+	Maxime Coquelin <mcoquelin.stm32@gmail.com>
+CC: <devicetree@vger.kernel.org>, <linux-stm32@st-md-mailman.stormreply.com>,
+	<linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>
+References: <20260914-stm32mp2x-dcmi-v1-0-c594e081d21b@foss.st.com>
+Content-Language: en-US
+From: Alexandre TORGUE <alexandre.torgue@foss.st.com>
+In-Reply-To: <20260914-stm32mp2x-dcmi-v1-0-c594e081d21b@foss.st.com>
+Content-Type: text/plain; charset="UTF-8"; format=flowed
+Content-Transfer-Encoding: 7bit
+X-Originating-IP: [10.48.86.79]
+X-ClientProxiedBy: ENXCAS1NODE2.st.com (10.75.128.138) To STKDAG1NODE2.st.com
+ (10.75.128.133)
+X-EOPAttributedMessage: 0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: MAD0EPF000008AA:EE_|DB3PR10MB6858:EE_
+X-MS-Office365-Filtering-Correlation-Id: fa28317b-cef6-4ebc-35f8-08df1d5d9ce2
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|36860700016|23010399003|82310400026|376014|11063799006|56012099006|10067099003|18002099003|22082099003;
+X-Microsoft-Antispam-Message-Info: uadxcTtghWQHcoHNM4f8DI8FRm4IUxM4UU8SehLBlp3BRXWi9IELaQB7QyYPhCsQT+ivfNN+wHk6YP4tCe2occCOA+ULEs71O9acyzr2rW1HS16bDFvb+9Xm6wkX3u9iIiWshMy2ESiVwLsMNWu0ISm1eoU4yCOJ6KAqL4fqLkdw6bxkN3VXAazNhoY11u7ntm6HrcAF4svygwck50T6TEJpaSvDHBs0FSpfFOYritbuJug7pvaiURBrPHsp1jXHpFoqs4+8i/4709ggRblDkghLRhHDiINtD7dRSqTiYqcx9GY1lcbN9Qm9aObVF/ptIPYpUSYtxgm3jx5v2P8VJ3zgAlyefN+C9t2FY8z0KX2T2sEOkxGF11XDb2bbuC8fWhtytRZI1WzdanctpVFUWFIF6vREtjV5nYMReXWtEn6OiEckAWmbfpNCar0yZmwQxOKym3DQD80xdaI4gF7ByCSJUmzD0qCQGMVMrdIhociZbSHPQgVMAOqI2eZu8R3keHZ7YXSHJ8M+TmUsSCS4o2Ml7v8/h3yA0b+KDbb/Tn+G3iYeVeqo58fCliDNJ4tji2bJGYEx0bMLlVX+V3tIG8rJ8KmwCKUKqC0x5dj6BQkNTyxJ3CLswrQ85WLhCm6W2leFtzDtLYDBokRwaCL1Jkgi2bQuz6/pXKHhHdjt89KWcRj7dPklCtrr8RgxRL3bLoUJg2EsxsYNvR2NekH56g==
+X-Forefront-Antispam-Report: CIP:164.130.1.60;CTRY:IT;LANG:en;SCL:1;SRV:;IPV:CAL;SFV:NSPM;H:smtpO365.st.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(1800799024)(36860700016)(23010399003)(82310400026)(376014)(11063799006)(56012099006)(10067099003)(18002099003)(22082099003);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: eTnYELRyi0H6irzqYcxv4GEBAZ221vnNA1tXzby1o/3ieg6hiFICpFwkZqNDGrwRFw0RtZcLmOYVdalrAwK2g6mZPLMRt7LR9MV0uLmskPUJ1j/7oiIpWDegWHVB3yHMk+OgsvdL8quc14wuWkur07eO4S+a7s6/HX9/0O79Oqqdx+moiMEpvYqSTyzOpsX0NGt27+hHLVrAk8mm720j5Q5yBIgYJaWSOiGY4qXqgyW376YP4FfxJEk94DCm5mbRnVSATHkWH4VAcdwaNRvC1jwxjHMcMH0mUFBNJNQkdEbmFDayg4NqFL47kc1XufwhqZJ/sOHz7oSFqSgppq4v1e8v8V7xWa/xuGNeiR27uYEBbfUDo71R4Zd2YG8+8vTVSkB8xa2ldBRuYHSsZ164vZ044HvU8+wvuGMkW2lG8S95OMl4LxlgZVuG8oLu82uH
+X-OriginatorOrg: foss.st.com
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 28 Sep 2026 12:40:00.9967
+ (UTC)
+X-MS-Exchange-CrossTenant-Network-Message-Id: fa28317b-cef6-4ebc-35f8-08df1d5d9ce2
+X-MS-Exchange-CrossTenant-Id: 75e027c9-20d5-47d5-b82f-77d7cd041e8f
+X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=75e027c9-20d5-47d5-b82f-77d7cd041e8f;Ip=[164.130.1.60];Helo=[smtpO365.st.com]
+X-MS-Exchange-CrossTenant-AuthSource: MAD0EPF000008AA.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Anonymous
+X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: DB3PR10MB6858
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260928_053911_597541_81974431 
-X-CRM114-Status: GOOD (  11.56  )
+X-CRM114-CacheID: sfid-20260928_054009_181362_5C410D9F 
+X-CRM114-Status: UNSURE (   9.03  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -94,52 +130,34 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-If cscfg_configfs_init() fails, cscfg_init() takes the exit_err path:
+Ciao Alain
 
-	cscfg_init() -> cscfg_clear_device() -> cscfg_configfs_release()
-		     -> configfs_unregister_subsystem()
+On 9/14/26 09:09, Alain Volmat wrote:
+> STM32MP23 and STM32MP25 embed a Digital Camera Interface (DCMI)
+> block allowing to capture frames via a parallel interface.
+> Add the dcmi nodes in both stm32mp231.dtsi and stm32mp251.dtsi
+> describing this HW block.
+> 
+> Signed-off-by: Alain Volmat <alain.volmat@foss.st.com>
+> ---
+> Alain Volmat (2):
+>        arm64: dts: st: add dcmi node on stm32mp25x
+>        arm64: dts: st: add dcmi node on stm32mp23x
+> 
+>   arch/arm64/boot/dts/st/stm32mp231.dtsi | 14 ++++++++++++++
+>   arch/arm64/boot/dts/st/stm32mp251.dtsi | 14 ++++++++++++++
+>   2 files changed, 28 insertions(+)
+> ---
+> base-commit: 2f92d900f262a16c8ae02daf53ae2910d07185f5
+> change-id: 20260914-stm32mp2x-dcmi-9fd57ababe6c
+> 
+> Best regards,
+> --
+> Alain Volmat <alain.volmat@foss.st.com>
+> 
 
-which tears down a configfs subsystem that was never registered.
-configfs_unregister_subsystem() begins with:
+Applied on stm32-next.
 
-	struct dentry *dentry = dget(group->cg_item.ci_dentry);
-	struct dentry *root = dentry->d_sb->s_root;
-
-ci_dentry is assigned in configfs_create_dir() only once the subsystem
-directory has been created, which never happened here.  cscfg_mgr
-comes from kzalloc_obj(), so ci_dentry is still NULL, and dget()
-hands a NULL dentry back unchanged - the next line dereferences it.
-
-Handle the failure in cscfg_init() directly: unregister the device and
-return the error, releasing the devres-allocated config item type and
-cscfg_mgr without touching the subsystem.
-
-Fixes: a13d5a246aca ("coresight: syscfg: Add initial configfs support")
-Suggested-by: Leo Yan <leo.yan@arm.com>
-Link: https://lore.kernel.org/all/20260924162404.GN200420@e132581.arm.com/
-Signed-off-by: Yingchao Deng <dengyingchao@kylinsec.com.cn>
----
- drivers/hwtracing/coresight/coresight-syscfg.c | 6 ++++--
- 1 file changed, 4 insertions(+), 2 deletions(-)
-
-diff --git a/drivers/hwtracing/coresight/coresight-syscfg.c b/drivers/hwtracing/coresight/coresight-syscfg.c
-index 2bfdd7b45e49..00b29d1656c0 100644
---- a/drivers/hwtracing/coresight/coresight-syscfg.c
-+++ b/drivers/hwtracing/coresight/coresight-syscfg.c
-@@ -1299,8 +1299,10 @@ int __init cscfg_init(void)
- 
- 	/* initialise configfs subsystem */
- 	err = cscfg_configfs_init(cscfg_mgr);
--	if (err)
--		goto exit_err;
-+	if (err) {
-+		device_unregister(cscfg_device());
-+		return err;
-+	}
- 
- 	/* preload built-in configurations */
- 	err = cscfg_preload(THIS_MODULE);
--- 
-2.33.0
-
+Thanks!
+Alex
 
