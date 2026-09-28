@@ -4,31 +4,31 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D8B15CA5FA1
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 28 Sep 2026 08:15:33 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8FD33C9833E
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 28 Sep 2026 08:15:40 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=EpVz/2867iTyXyA6HpAsWnkijlEWB7GK5XYbayHtyU0=; b=O84Jjncv9lD5M596HwSukVDUVM
-	0igUX9ePWdJirjFpahK4Oio+vbSljLqt/AswtydfI92z54PG92j0p3AkJr+C0AgygEaC6dqnX5L6j
-	oI5PpHqxb9oxheBVZhk8EY1DqvHd7RThDuZgSP/fNZ5f9vjy4SxDjVT1so8v2dEcFPSclXDC61POD
-	7Yk5sx2RhG8+t4AHPWivmbWy/WGjXQlcSoLPYakzENxR82hWajvlcuQpUHNutkETA01XGntZzcGeI
-	s/p+p3vMKscwIh786MK2vDsyABB9MEBPDoKNRzaluTJQg1AIYsMwv2kfgoMiZDIbi90WlF8vcGelx
-	EYL/cX2g==;
+	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=hBKIALctEi57ym1FR2XRmM2+ApHmT5i2YXu5RV+cc8c=; b=D5Tnp9dnNvJv28b18yadCyDN2c
+	9BdoVr6iHsR18+KHPOujFodZPsTTXj60876xFWCOxcMSTnMKTOEJXGK6mgdS8GEg0aO5D+IzrBhAn
+	BeXCCqg/lyaWVC/Wrr/0AtK+bOdaENk5IbJrnSHEctzvUSr8owaKLMyZ2+vLqN9nZzZLeWZwsYxn5
+	TNwCtGODxo6EzPGr87+NfGuY4LmWboM/T/KNp2LN/kl0W9OGJC6E4ugy5cbdAIb2EOcWgrb6Xnh74
+	+RzWjPen40ppyOYjD1V49NRsIynttK5it87lOyILi3Yasp0sEBjLKl3bJ3np8SA2QMGUW5GvoPPPx
+	gDFh/rCw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xB6WC-000000002h8-3AZg;
-	Mon, 28 Sep 2026 08:15:24 +0000
-Received: from mail-m60220.netease.com ([210.79.60.220])
+	id 1xB6WL-000000002qo-2ryA;
+	Mon, 28 Sep 2026 08:15:33 +0000
+Received: from mail-m158196.netease.com ([47.251.158.196])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xB6W2-000000002aP-1iWP;
-	Mon, 28 Sep 2026 08:15:16 +0000
+	id 1xB6WA-000000002do-0YXj;
+	Mon, 28 Sep 2026 08:15:24 +0000
 Received: from zyb-HP-ProDesk-680-G2-MT.. (unknown [61.154.14.86])
-	by smtp.qiye.163.com (Hmail) with ESMTP id 4f5398e33;
-	Mon, 28 Sep 2026 16:15:01 +0800 (GMT+08:00)
+	by smtp.qiye.163.com (Hmail) with ESMTP id 4f5398eb6;
+	Mon, 28 Sep 2026 16:15:16 +0800 (GMT+08:00)
 From: Damon Ding <damon.ding@rock-chips.com>
 To: Andrzej Hajda <andrzej.hajda@intel.com>,
 	Neil Armstrong <neil.armstrong@linaro.org>,
@@ -57,25 +57,27 @@ Cc: Laurent Pinchart <Laurent.pinchart@ideasonboard.com>,
 	linux-samsung-soc@vger.kernel.org,
 	linux-rockchip@lists.infradead.org,
 	Damon Ding <damon.ding@rock-chips.com>
-Subject: [PATCH v3 00/14] Add HPD support for Rockchip Analogix DP
-Date: Mon, 28 Sep 2026 16:14:04 +0800
-Message-Id: <20260928081418.3605775-1-damon.ding@rock-chips.com>
+Subject: [PATCH v3 12/14] drm/bridge: analogix_dp: Restrict forced connected status to panel endpoints
+Date: Mon, 28 Sep 2026 16:14:16 +0800
+Message-Id: <20260928081418.3605775-13-damon.ding@rock-chips.com>
 X-Mailer: git-send-email 2.34.1
+In-Reply-To: <20260928081418.3605775-1-damon.ding@rock-chips.com>
+References: <20260928081418.3605775-1-damon.ding@rock-chips.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
-X-HM-Tid: 0aa0e714e5e803a8kunm323e2b5437ceec
+X-HM-Tid: 0aa0e715200603a8kunm323e2b5437cf85
 X-HM-MType: 1
 X-HM-Spam-Status: e1kfGhgUHx5ZQUpXWQgPGg8OCBgUHx5ZQUlOS1dZFg8aDwILHllBWSg2Ly
-	tZV1koWUFITzdXWRgWCB1ZQUpXWS1ZQUlXWQ8JGhUIEh9ZQVlCSU5KVkxNSEkeHk8eThoZTlYVFA
+	tZV1koWUFITzdXWRgWCB1ZQUpXWS1ZQUlXWQ8JGhUIEh9ZQVkaQx5CVkkeGk0eTkgeSEJNT1YVFA
 	kWGhdVEwETFhoSFyQUDg9ZV1kYEgtZQVlNSlVKTk9VSk9VQ01ZV1kWGg8SFR0UWUFZT0tIVUpLSU
 	JDQkpVSktLVUtZBg++
 DKIM-Signature: a=rsa-sha256;
-	b=NPeuArak9zMBvuarSz5iKVEXiIL5odXzHe5EvTEshRuaYGKWeZyxojJZEiFfdtC4heHfEzbZbkZVtNu19b/JTmusgkP9X0NPHjv9QkvBFKFwJMZDtsTg3rmz4rB4eD7OJqLa6UA9OHkrEgxpIQfL+re9Hn40DqgI5Rc6oJ/nSkc=; s=default; c=relaxed/relaxed; d=rock-chips.com; v=1;
-	bh=EpVz/2867iTyXyA6HpAsWnkijlEWB7GK5XYbayHtyU0=;
+	b=ORwPU5ccrMdFsHUHHD+zYQwZgoDQ+R71++xMsvckkCJK/kMs6dzaCM6Mg02e1hHmCqWOxTjLLpgGjVz9pDWWcs9JOOzoWEgFZVhQ1PvO+/mca29QHJs1I4Gx+vkye8Hejkn693upG6xH0up2CxAINBaSsLDojR6XD9HXLr/d5L8=; s=default; c=relaxed/relaxed; d=rock-chips.com; v=1;
+	bh=hBKIALctEi57ym1FR2XRmM2+ApHmT5i2YXu5RV+cc8c=;
 	h=date:mime-version:subject:message-id:from;
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260928_011514_699819_B59FA89D 
-X-CRM114-Status: GOOD (  15.35  )
+X-CRM114-CacheID: sfid-20260928_011523_006490_77313CDC 
+X-CRM114-Status: GOOD (  15.13  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -90,207 +92,122 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Rebase after the following two patch series:
-[0] https://lore.kernel.org/all/20260915-drm-bridge-drm_panel-cleanup-v4-0-30401d9406f3@bootlin.com/
-[1] https://lore.kernel.org/all/20260916-drm-bridge-every-panel-v3-0-83afb4f1a707@bootlin.com/
+Limit the shortcut which unconditionally returns connected status when
+a next bridge exists. Only apply this logic if the last bridge in the
+chain is a panel and the bridges attached after Analogix DP bridge lack
+DRM_BRIDGE_OP_DETECT, which called 'force_connected_mode'. For all
+other cases, rely on analogix_dp_detect_hpd() to report accurate
+hotplug state.
 
-This series improves the HPD (Hotplug Detect) interrupt handling in
-the Analogix DP driver to enable reliable native HPD pin detection on
-Rockchip platforms, and introduces platform-specific HPD detection
-schemes with fine-grained interrupt control.
+Background for the special handling:
+- If the chain ends with a DP connector bridge, the connector relies
+  on Analogix DP to perform detection. We must avoid hardcoding
+  connected status here.
+- For intermediate bridges such as PS8625 / PTN3460 without detect
+  support [1], historically the bridge connector defaults to connected
+  via drm_helper_probe_detect() when no per-bridge detect callback
+  exists.
 
-On Rockchip platforms, the Analogix DP native HPD pin IRQ requires the
-DP controller to remain powered, clocked and initialized to generate
-plug/unplug interrupts. The previous driver enabled/disabled IRQ during
-bridge enable/disable, which left no HPD detection when the display
-pipeline was inactive. Additionally, the interrupt mute/unmute/clear
-routines operated on all HPD interrupt bits unconditionally, lacking
-the granularity needed for per-event control.
+[1] https://lore.kernel.org/all/4939d55e-b560-4235-8295-adf8e48d9b74@samsung.com/
 
-The series reorganizes IRQ and pm_runtime management into bind/unbind,
-adds IRQF_ONESHOT to eliminate read-modify-write races on interrupt
-mask registers between hardirq and threaded handlers, converts the
-interrupt type detection to a bitmask-based scheme for fine-grained
-mute/unmute/clear operations, and configures Rockchip platforms to use
-the HOTPLUG_CHG interrupt with a 2ms HPD deglitch setting for better
-stability.
-
-Furthermore, the next bridge is now resolved into bridge->next_bridge
-instead of the platform data field, the forced connected-status logic
-is restricted to panel endpoints based on the bridge chain, and HPD
-events from downstream bridges (e.g. display-connector with hpd-gpios)
-are handled through the .hpd_notify callback.
-
-Tested on RK3576 with both native HPD pin and GPIO HPD configurations.
-
-Native HPD pin mode:
-
-  &edp {
-      status = "okay";
-      pinctrl-names = "default";
-      pinctrl-0 = <&edp_txm0_pins>;
-  };
-
-GPIO HPD mode:
-
-  &edp {
-      status = "okay";
-      pinctrl-names = "default";
-      pinctrl-0 = <&edp0_hpd>;
-      hpd-gpios = <&gpio4 RK_PC1 GPIO_ACTIVE_HIGH>;
-  };
-
-  &pinctrl {
-      edp {
-          edp0_hpd: edp0-hpd {
-              rockchip,pins = <4 RK_PC1 0 &pcfg_pull_none>;
-          };
-      };
-  };
-
-Display-connector mode (DP connector without HPD GPIO):
-
-  &edp_out_conn {
-      remote-endpoint = <&dp_con_in>;
-  };
-
-  dp-con {
-      compatible = "dp-connector";
-      label = "DP OUT";
-      type = "full-size";
-
-      port {
-          dp_con_in: endpoint {
-              remote-endpoint = <&edp_out_conn>;
-          };
-      };
-  };
-
-Display-connector mode (DP connector with HPD GPIO):
-
-  dp-con {
-      compatible = "dp-connector";
-      label = "DP OUT";
-      type = "full-size";
-      pinctrl-0 = <&edp0_hpd>;
-      pinctrl-names = "default";
-      hpd-gpios = <&gpio4 RK_PC1 GPIO_ACTIVE_HIGH>;
-
-      port {
-          dp_con_in: endpoint {
-              remote-endpoint = <&edp_out_conn>;
-          };
-      };
-  };
-
-All four configurations detect cable plug/unplug events correctly.
-
-======
-In the previous version [2], Heiko reported that the Analogix DP
-connector state could not be retrieved correctly after probe. With the
-current v3 series, analysis shows that the connector hotplug events are
-now reported accurately:
-
-1) When the display-connector bridge has hpd-gpios configured, its
-   .hpd_enable() callback schedules the HPD work, which triggers the
-   .hpd_notify() callbacks of all bridges in the chain. The following
-   call stack reports the event during binding and invokes the Analogix
-   DP .hpd_notify() callback:
-
-   rockchip_drm_bind()
-     -> drm_kms_helper_poll_init()
-       -> drm_bridge_connector_enable_hpd()
-         -> schedule_work(&conn->hpd_work)
-           -> drm_bridge_connector_handle_hpd()
-             -> drm_kms_helper_connector_hotplug_event()
-
-2) The local test environment had CONFIG_DRM_FBDEV_EMULATION enabled,
-   where the DRM FBDEV framework called the Analogix DP .detect()
-   callback to fetch the initial connector state, which masked the
-   problem:
-
-   rockchip_drm_bind()
-     -> drm_fbdev_client_setup()
-       -> drm_fb_helper_initial_config()
-         -> drm_helper_probe_single_connector_modes()
-           -> analogix_dp_bridge_detect()
-
-3) With CONFIG_DRM_FBDEV_EMULATION disabled, the path in 1) still
-   triggers and reports the HPD events as expected.
-
-[2] https://lore.kernel.org/all/20260804081717.741404-1-damon.ding@rock-chips.com/
-======
-
-Damon Ding (14):
-  drm/bridge: analogix_dp: Return bitmask from
-    analogix_dp_get_irq_type()
-  drm/bridge: analogix_dp: Check all negative return values for
-    &analogix_dp_device.irq
-  drm/bridge: analogix_dp: Add IRQF_ONESHOT and simplify IRQ handling
-  drm/bridge: analogix_dp: Extend clear_hotplug_interrupts to accept IRQ
-    bitmask
-  drm/bridge: analogix_dp: Extend mute/unmute HPD interrupts to accept
-    irq bitmask
-  drm/bridge: analogix_dp: Simplify analogix_dp_config_interrupt()
-  drm/bridge: analogix_dp: Use platform-specific HPD detection scheme
-  drm/bridge: analogix_dp: Skip native HPD interrupt ops for GPIO HPD
-  drm/bridge: analogix_dp: Move IRQ enable/disable to bind/unbind
-  drm/bridge: analogix_dp: Manage pm runtime and IRQ for native HPD pin
-    detection
-  drm/bridge: analogix_dp: Use bridge->next_bridge instead of plat_data
-    field
-  drm/bridge: analogix_dp: Restrict forced connected status to panel
-    endpoints
-  drm/bridge: analogix_dp: Handle HPD notification from downstream
-    bridge
-  MAINTAINERS: Add entry for Analogix DP controller bridge
-
- MAINTAINERS                                   |  11 ++
- .../drm/bridge/analogix/analogix_dp_core.c    | 153 ++++++++++++-----
- .../drm/bridge/analogix/analogix_dp_core.h    |  13 +-
- .../gpu/drm/bridge/analogix/analogix_dp_reg.c | 156 ++++++++++++------
- drivers/gpu/drm/exynos/exynos_dp.c            |  15 +-
- include/drm/bridge/analogix_dp.h              |   1 -
- 6 files changed, 233 insertions(+), 116 deletions(-)
+Reported-by: Heiko Stuebner <heiko@sntech.de>
+Link: https://lore.kernel.org/all/5209243.oAaWjsssbx@diego/
+Signed-off-by: Damon Ding <damon.ding@rock-chips.com>
 
 ---
 
-Changes in v2:
-- Split IRQ enable/disable logic, handle native HPD pin and
-  GPIO/force-HPD modes separately to avoid unbalanced enable_irq()
-  calls.(Sashiko)
-- Add separate patch for IRQF_ONESHOT to resolve interrupt mask issues
-  triggered by interrupt preemption.(Sashiko)
-- Update commit messages to align with newly added IRQF_ONESHOT related
-  commit.
-- Move ANALOGIX_DP_HPD_DEGLITCH_L/ANALOGIX_DP_HPD_DEGLITCH_H configs to
-  analogix_dp_reset().
-- Add new patch to restrict the forced connected-status shortcut to
-  panel endpoints only, allowing DP connector bridges to rely on HPD
-  detection. (Reported by Heiko Stuebner)
-- Add new patch to handle HPD notification from downstream bridges
-  (e.g., display-connector with hpd-gpios).
-
 Changes in v3:
-- Reorder the series: convert the IRQ handling to a bitmask and add
-  IRQF_ONESHOT before moving IRQ enable/disable to bind/unbind.
-- Add new patch to check all negative return values for
-  &analogix_dp_device.irq and propagate the actual error code.(Sashiko)
-- Rename macro HPD_IRQ to HPD_IRQ_ALL to avoid confusion with the
-  DP specification IRQ_HPD, extract the irq_type-to-register bit
-  mapping into a shared helper, and drop the unused
-  COMMON_INT_4_HPD_IRQ macro.
-- Simplify commit messages across the series.
-- Add new patch to use bridge->next_bridge instead of the plat_data
-  field, resolving the next bridge in
-  analogix_dp_aux_done_probing().(Suggested by Heiko Stuebner)
+- Add missing drm_bridge_put() after drm_bridge_chain_get_last_bridge()
+  to fix a reference count leak.(Sashiko)
 - Report panel endpoints as always connected from
-  analogix_dp_get_plug_in_status() via force_connected_mode, computed
-  from the bridge chain at attach time.
-- Determine the hpd notify mode from DRM_BRIDGE_OP_HPD on downstream
-  bridges that lack DRM_BRIDGE_OP_DETECT.
-- Add a MAINTAINERS entry for the Analogix DP controller bridge.
+  analogix_dp_get_plug_in_status() via newly added
+  &analogix_dp_device.force_connected_mode.
+---
+ .../drm/bridge/analogix/analogix_dp_core.c    | 30 +++++++++++++++++--
+ .../drm/bridge/analogix/analogix_dp_core.h    |  1 +
+ .../gpu/drm/bridge/analogix/analogix_dp_reg.c |  3 ++
+ 3 files changed, 31 insertions(+), 3 deletions(-)
 
+diff --git a/drivers/gpu/drm/bridge/analogix/analogix_dp_core.c b/drivers/gpu/drm/bridge/analogix/analogix_dp_core.c
+index 853b6a6a7fe4..df898f314254 100644
+--- a/drivers/gpu/drm/bridge/analogix/analogix_dp_core.c
++++ b/drivers/gpu/drm/bridge/analogix/analogix_dp_core.c
+@@ -912,15 +912,30 @@ analogix_dp_bridge_detect(struct drm_bridge *bridge, struct drm_connector *conne
+ 	struct analogix_dp_device *dp = to_dp(bridge);
+ 	enum drm_connector_status status = connector_status_disconnected;
+ 
+-	if (dp->bridge.next_bridge)
+-		return connector_status_connected;
+-
+ 	if (!analogix_dp_detect_hpd(dp))
+ 		status = connector_status_connected;
+ 
+ 	return status;
+ }
+ 
++static bool analogix_dp_bridge_force_connected(struct analogix_dp_device *dp)
++{
++	struct drm_bridge *last_bridge;
++	bool force_connected = false;
++
++	drm_for_each_bridge_in_chain_from(dp->bridge.next_bridge, bridge) {
++		if (bridge->ops & DRM_BRIDGE_OP_DETECT)
++			return false;
++	}
++
++	last_bridge = drm_bridge_chain_get_last_bridge(dp->encoder);
++	if (last_bridge)
++		force_connected = drm_bridge_is_panel(last_bridge);
++	drm_bridge_put(last_bridge);
++
++	return force_connected;
++}
++
+ static int analogix_dp_bridge_attach(struct drm_bridge *bridge,
+ 				     struct drm_encoder *encoder,
+ 				     enum drm_bridge_attach_flags flags)
+@@ -940,6 +955,15 @@ static int analogix_dp_bridge_attach(struct drm_bridge *bridge,
+ 			dev_err(dp->dev, "failed to attach following panel or bridge (%d)\n", ret);
+ 			return ret;
+ 		}
++
++		/*
++		 * Only assume connected when the bridge chain ends with a panel.
++		 * Panel bridges lack a detect callback and historically rely on
++		 * this shortcut. For other next bridge types (e.g., DP connector
++		 * bridges), fall back to analogix_dp_detect_hpd() to report
++		 * accurate hotplug state.
++		 */
++		dp->force_connected_mode = analogix_dp_bridge_force_connected(dp);
+ 	}
+ 
+ 	return 0;
+diff --git a/drivers/gpu/drm/bridge/analogix/analogix_dp_core.h b/drivers/gpu/drm/bridge/analogix/analogix_dp_core.h
+index 6a3566b2e8de..5f5698c73d88 100644
+--- a/drivers/gpu/drm/bridge/analogix/analogix_dp_core.h
++++ b/drivers/gpu/drm/bridge/analogix/analogix_dp_core.h
+@@ -170,6 +170,7 @@ struct analogix_dp_device {
+ 	bool			force_hpd;
+ 	bool			fast_train_enable;
+ 	bool			psr_supported;
++	bool			force_connected_mode;
+ 
+ 	u8 dpcd[DP_RECEIVER_CAP_SIZE];
+ 
+diff --git a/drivers/gpu/drm/bridge/analogix/analogix_dp_reg.c b/drivers/gpu/drm/bridge/analogix/analogix_dp_reg.c
+index af5e5a8ec88d..abbcdba1a438 100644
+--- a/drivers/gpu/drm/bridge/analogix/analogix_dp_reg.c
++++ b/drivers/gpu/drm/bridge/analogix/analogix_dp_reg.c
+@@ -533,6 +533,9 @@ int analogix_dp_get_plug_in_status(struct analogix_dp_device *dp)
+ {
+ 	u32 reg;
+ 
++	if (dp->force_connected_mode)
++		return 0;
++
+ 	if (dp->hpd_gpiod) {
+ 		if (gpiod_get_value(dp->hpd_gpiod))
+ 			return 0;
 -- 
 2.34.1
 
