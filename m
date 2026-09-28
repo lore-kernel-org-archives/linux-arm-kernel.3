@@ -4,111 +4,72 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 78FD3CA5FA3
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 28 Sep 2026 22:07:59 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 14F3CCA5FA1
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 28 Sep 2026 22:21:12 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:MIME-Version:Date:Message-Id:Subject:References:In-Reply-To:Cc:
+	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=+BryhTGoiN9HbpqdQW7fneRPfw3ZcJwzXwJqqFDDUAg=; b=0ylvewAKApQnLRmJ7dFwu8LFES
-	dLYziqkrpqgMnL6Mtd1TjhXiMGPxAQ+SGtNU2nretiWipO7LI2HSb15oh/U9fX4RtcP+/4lid0Os/
-	ogbDhImDjUmKfJnAKIkAhz/WfO+2cxsxrmZKi4Qvg5gfkcv3AT84jMN0CIcbScDrtfLc4R6jm5rSh
-	LcoPdYzvyGaeHZGZrSiorf9opq08dg4GbfVpUZ75xTVgPjq/RZ1Vwm7T4aVxOsQLJidz1xVSDtj8O
-	iJ6MCDqJe3LhbEw3HDNCLVp6/GidC9gX3qsuMY24QUu64T8fAE573TAxJaiCsJTAmNScZ5ikdqMNN
-	6Wtb9x6Q==;
+	bh=N2ukRt7u37PXdnASZSDb3u99a4jgfFBtdSx//53lGZ4=; b=bwbvG7W8mcwdbwrzQ0FD+pGds7
+	OIuhG6WkNcakhMERZyEBnQT502C9LPx6dV9q88EE899JeuahtkgOQjJb1BEPOeCgdzeUozhwHvxYB
+	CIpDEMIkNA0JExQsSfrkDX+HD2ZI19l1CjT6k/wMVkxcS+qMFg0tw55p0//EMEmlxfxISY01QdePu
+	E9AiOf/FoxnOicMDfO4Ts7PbxEbfNxM7PKftMyvWrbtr99lvNi0APPJswZyFainnUCTdvSJx2BMGX
+	yWQclpnBYMNDROpFoiCAmeEuPrCoIsWxQSmoYI16QrCV1L3S6Aj1zhmUm1ZVuP3ouuhLZVjiiNHST
+	LoHO9bOQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xBJVn-00000001jP5-3Iwm;
-	Mon, 28 Sep 2026 22:07:51 +0000
-Received: from mail-ua2-x10.google.com ([2a00:1450:4864:39::10])
+	id 1xBJiY-00000001k32-3rdU;
+	Mon, 28 Sep 2026 22:21:02 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xBJVl-00000001jOg-011Z
-	for linux-arm-kernel@lists.infradead.org;
-	Mon, 28 Sep 2026 22:07:50 +0000
-Received: by mail-ua2-x10.google.com with SMTP id a1e0cc1a2514c-97e7c796e3aso729758241.1
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 28 Sep 2026 15:07:47 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1790633266; cv=none;
-        d=google.com; s=arc-20260327;
-        b=SQF4JKdcjuxehW2ZHDeJi/d0xSVJ+FTyPjdEJlX54CXo2Ol65lwbekKcWEodahnCJj
-         IaPkWfzbr+2ooW89dK5uFBMbxXvsQgEgaqV1OAWNHK8kxGkY+CZA/u504aUFwuJpT3Ws
-         rM3psmkqEhgxUdNWopueeIhC4/7kOi4O1xd/d76j6PiMVCvpCa/ntN3Txw4O3+/QJZhm
-         AZK60lk1e6QiSvtYoedt97ETKn5XdaHMjYKQFuibiha9l2drEOLBItJOaf7ktyOs2EO1
-         sIHSGqp1AnC6aIClUIuQY3UeGl9sMuJr+u/W3kTMc8UioP+/Q7JrNWKE5gn2QnmrkYbb
-         4ZQA==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:dkim-signature;
-        bh=+BryhTGoiN9HbpqdQW7fneRPfw3ZcJwzXwJqqFDDUAg=;
-        fh=0NswkaVgjuq5tLd0LKoP7Lkshx31/mLNLclUtESvo0E=;
-        b=dmGEdNynRK3JeBD0xxoXuRAzyF8Is4/sl4HYak57OmM06VQ9Q8sdmcVQPW9c5vbGET
-         pLD1PYmmM2sLgjSru31Mqp7A867zgVZhAH+j5/htwD27g+zY9iVkR0iNlQXXGGhTfYbn
-         pitM/5zt+u5qG+37RfdPtJyKsqUj8JwJCCkh4kMDEvi00niilz25P56Dvv/2Q1e2V7LE
-         98hqz5rXoSf5JXlQrUu8Vk3We3wHBJAGw4E41Ve1//kigLr3ktOBLnc7JgnugYl50oJ1
-         PUqOYAqrU6aIUvMaPyu8CCAPrELblDUNFyIf17ChVunps7vaX97lSdU7+FSHF2crPuxq
-         jSxg==;
-        darn=lists.infradead.org
-ARC-Authentication-Results: i=1; mx.google.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20251104; t=1790633266; x=1791238066; darn=lists.infradead.org;
-        h=content-transfer-encoding:content-type:cc:to:subject:message-id
-         :date:from:in-reply-to:references:mime-version:from:to:cc:subject
-         :date:message-id:reply-to:content-type;
-        bh=+BryhTGoiN9HbpqdQW7fneRPfw3ZcJwzXwJqqFDDUAg=;
-        b=kc+8hzGi0FQDuG74X36zGB1oURcjDv5ETjyutqhYl3aWG1mgX09jihCfwtbiklbBmA
-         xQA224YmKIUTOx9ZbZ3L5mOqFUe+VSXHJYAU8/mvH+BblilffXt1ZUBbroA7Qe30DKa7
-         x0Q+iSK3gvJhFfQ+SR6CpzYWqB3ZF732IrHoKlkFHD9xdoQTdzfYNI1eucDzbruywMVn
-         aNvjlh3rbTyIhHRMDN4/5y058w/AlcHulaAZ3RSjAyKlu9/Le+ZFg/UrcaAzIHuTfwQD
-         wMR3V+dsHKFl9d6EwC4WJfybJTMWJP7OlzGT5gvUzP70gNXEyilh2QlhD0HvK8fHavy/
-         Z2TQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1790633266; x=1791238066;
-        h=content-transfer-encoding:content-type:cc:to:subject:message-id
-         :date:from:in-reply-to:references:mime-version:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=+BryhTGoiN9HbpqdQW7fneRPfw3ZcJwzXwJqqFDDUAg=;
-        b=j+grjmo1TNSBOI18zqiTtNPPFe4enenbqDxhMZ6acaW0r+aMnrZ/GpV8GVKm5EacyN
-         Qo1rn5ILAMiuYrcwudfnMUgmVre73CizBbO2FRZKT7359iP/GIeLvBnyqbkVhKhr125G
-         Ks4sZAAJgdMFv9hDhRvYb2577fVUhEtPhQ7eeQ6boDhIiyX7KZw3D+WMkMbR+1+xYIZt
-         FNNPg9p0NTs0BZNscMaka41zPzrjKAePh6vwLZdjEIDbv7p34bY8fLIdmBF2R69q9jHE
-         5sxCtlXZP29DpdXCXt0s6AebCRqP2NsGvL27JRETsAAsppMXgTy/Vtt3C1YDFI4GZWRj
-         YlsQ==
-X-Forwarded-Encrypted: i=1; AKwUvBzghjd8W7JWKToVAGNQZ6DDri/Faor5Qd2HLq4Dq+b3L/EWHJe7Zxg0q0HlNSm/KPT22L8C5QQMOxh+EWdI7JDf@lists.infradead.org
-X-Gm-Message-State: AFq9FYI/2GJppE0zipRE0CP8D8Rac7So1HfvyCx6SQ3YXNa9kDuW/k4T
-	F2VVPAE+UlT18CT7TDI5GNFBbJ8c2cLDb9as5N57kD5luUHkorBXnC24F5bFBqYzNGkz2FOxZQN
-	pAGDgEgybdDK96J2B/y+Pwhg9/JhjchgYrX1CEZTT
-X-Gm-Gg: AYBFou1Xy0PeCK7SU+qGmm75ZawsnzjF/94udwmVs/aesf0Ku42jJXC6ABDZqeoxlsD
-	SI6rThaq5VL58Ok3PjIdRCD0JXVaEpKFQzvZ55F3VJ5skTTm2o7JqDsbgzyTU1hB3I7QCLhv7sf
-	1RWgf8NIhjAmspYkswkayK1ckJWyLj1/Euzwq+BHHud3T5ScfGZO/1yrBNAk7bqgbcXBHdH6wk0
-	o3VeAp7NmdpSL9v02Khs6mYH04B0BhAITnE2/4jTWRS+UAhUNssUQ+Yz7Lt/2Dct8ooL1wZxj/2
-	5pMZJ4xoYBtJP0vOY7jMCyIF1BXx8iP7Qq3YBi/5LUYlZIYbdDh/WWZmo6u+CXAKMzJA1GFZM96
-	adBKtexA6rg==
-X-Received: by 2002:a05:6102:3f0d:b0:7b3:4199:2de0 with SMTP id
- ada2fe7eead31-7b341994431mr2105212137.4.1790633265847; Mon, 28 Sep 2026
- 15:07:45 -0700 (PDT)
+	id 1xBJiX-00000001k2b-39jw;
+	Mon, 28 Sep 2026 22:21:01 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by tor.source.kernel.org (Postfix) with ESMTP id E58AF600D1;
+	Mon, 28 Sep 2026 22:21:00 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 948FB1F000FF;
+	Mon, 28 Sep 2026 22:20:58 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1790634060;
+	bh=N2ukRt7u37PXdnASZSDb3u99a4jgfFBtdSx//53lGZ4=;
+	h=From:To:Cc:In-Reply-To:References:Subject:Date;
+	b=QlQJFuZZWfCYkJ+rkSPhStacQAtPayY0AuRTEXdKHZKQQG45XJcYt8SiCnw7tK5xr
+	 6AYyCV5dmefdeXfmvg7qABChpiaNCZgNS0YnfehR7FMAgS4oqRW3mBy6tGopfo3GWf
+	 qSF1ousuAloL5pRpIz53wa9HTYU+h9DvO7peDqnwsH3YbNcL38APH6aVSs84SvN4mu
+	 9oH+QTL3naN5Oj8DzxIpjC7IYTBbCVGFX6iG5Zf/mibQilbiSpq/QocXCBuhyL7JEu
+	 kvozwTVZ0DuRCkD/oKV5KbRl001OjxDSzbFmgUUIWfUKcW9OfpThBnv0lUt1KB2s1+
+	 J6r6wm+/QWEjg==
+From: Mark Brown <broonie@kernel.org>
+To: Florian Fainelli <florian.fainelli@broadcom.com>, 
+ Ray Jui <rjui@broadcom.com>, Scott Branden <sbranden@broadcom.com>, 
+ Lucas Costa <2000.costalucas@gmail.com>
+Cc: Broadcom internal kernel review list <bcm-kernel-feedback-list@broadcom.com>, 
+ Bartosz Golaszewski <brgl@kernel.org>, linux-spi@vger.kernel.org, 
+ linux-rpi-kernel@lists.infradead.org, linux-arm-kernel@lists.infradead.org, 
+ linux-kernel@vger.kernel.org, stable@vger.kernel.org
+In-Reply-To: <20260925193008.127314-1-2000.costalucas@gmail.com>
+References: <20260925193008.127314-1-2000.costalucas@gmail.com>
+Subject: Re: [PATCH v2] spi: bcm2835: fix device_node reference leak in
+ bcm2835_spi_setup()
+Message-Id: <179061518603.139547.16962778636816952777.b4-ty@b4>
+Date: Mon, 28 Sep 2026 18:06:26 +0100
 MIME-Version: 1.0
-References: <20260927190758.609156-1-nikitash.mariiaw@gmail.com>
- <arrfZ5CYyLt0vwu5@google.com> <CAGG=3QVY_OGjSYZgJ8i8Nb-EbwHKPOvZsbqqXfcbv+Vvq_wsww@mail.gmail.com>
-In-Reply-To: <CAGG=3QVY_OGjSYZgJ8i8Nb-EbwHKPOvZsbqqXfcbv+Vvq_wsww@mail.gmail.com>
-From: Justin Stitt <justinstitt@google.com>
-Date: Mon, 28 Sep 2026 15:07:34 -0700
-X-Gm-Features: AclHuK8nlJeFMJ-63_0sQ49qEkZQmIZd_Mx0rQvc5qKTUPlWeM5glCx-vJub4Og
-Message-ID: <CAFhGd8r_JfpaBvjod+AA6G3BE5S-L8Gs-nc9xMXrxp6_tLOgVw@mail.gmail.com>
-Subject: Re: [PATCH] pinctrl: samsung: Use snprintf() to construct pin bank names
-To: Bill Wendling <morbo@google.com>
-Cc: Mariia Nikitash <nikitash.mariiaw@gmail.com>, krzk@kernel.org, s.nawrocki@samsung.com, 
-	peter.griffin@linaro.org, linusw@kernel.org, alim.akhtar@samsung.com, 
-	linux-arm-kernel@lists.infradead.org, linux-samsung-soc@vger.kernel.org, 
-	linux-gpio@vger.kernel.org, linux-kernel@vger.kernel.org, 
-	linux-hardening@vger.kernel.org, kees@kernel.org, 
-	aleksandr.loktionov@intel.com, codemender-patching+linux@google.com
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260928_150749_056765_1F5EA4F4 
-X-CRM114-Status: GOOD (  12.41  )
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+X-Mailer: b4 0.17-dev
+X-Developer-Signature: v=1; a=openpgp-sha256; l=1147; i=broonie@kernel.org;
+ h=from:subject:message-id; bh=a7FrXxhQPMQAuv6iDAAZDyVzytS2J0lG9A91Y2NaZH0=;
+ b=owEBbQGS/pANAwAKASTWi3JdVIfQAcsmYgBquuhIYWG6ndBfp+OlehjuoDhwjsUU9LLllcNTT
+ NExYikIodyJATMEAAEKAB0WIQSt5miqZ1cYtZ/in+ok1otyXVSH0AUCarroSAAKCRAk1otyXVSH
+ 0BgVB/9XXw1Q3FbKpo0WVt/Pgygdodbp9KfiZO2rH39IViEj90XIV/v8aJ0m0xwHNahKv6MRrjn
+ 1Al56hG8Tpwo7gZyYhTEoY2KDjy64K1DppOD9pjJMVGTdI7HvR+i3ZkPyT/PS991b1Yk5AhsbuL
+ qD1hcGbVuxDTw3QGXsq86OR85J2zQOwvY7cmEOidh7yxEGesppsV3H0+IO2aDUMYsPFlZ7oaCyo
+ Im0ygHKxyS4bVORrg5Rr3Yr9ZWeuYNRXztaPj0BJhskDm5rYuNVQcMwL+0NAMpxl9CaWTbal2LX
+ i7R+A3kaQUoHDCMgmF0xZmJO/K1Ary06cq57k5dT47vxp+/3
+X-Developer-Key: i=broonie@kernel.org; a=openpgp;
+ fpr=3F2568AAC26998F9E813A1C5C3F436CA30F5D8EB
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -123,24 +84,35 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi,
+On Fri, 25 Sep 2026 16:30:08 -0300, Lucas Costa wrote:
+> spi: bcm2835: fix device_node reference leak in bcm2835_spi_setup()
 
-On Mon, Sep 28, 2026 at 3:01=E2=80=AFPM Bill Wendling <morbo@google.com> wr=
-ote:
-> She's been marsheling some of the strlcat patches I sent to the
-> mailing list. It's possible I sent a "v2" of all patches, whether
-> there were changes in them or not.
->
-> The patch series needs to be separated a bit because of Kees's
-> 'seq_buf' changes, which will make some of the patches I sent
-> obsolete.
+Applied to
 
-ACK
+   https://git.kernel.org/pub/scm/linux/kernel/git/broonie/spi.git for-7.4
 
->
-> -bw
->
+Thanks!
 
-Thanks
-Justin
+[1/1] spi: bcm2835: fix device_node reference leak in bcm2835_spi_setup()
+      https://git.kernel.org/broonie/spi/c/8db44cca03df
+
+All being well this means that it will be integrated into the linux-next
+tree (usually sometime in the next 24 hours) and sent to Linus during
+the next merge window (or sooner if it is a bug fix), however if
+problems are discovered then the patch may be dropped or reverted.
+
+You may get further e-mails resulting from automated or manual testing
+and review of the tree, please engage with people reporting problems and
+send followup patches addressing any issues that are reported if needed.
+
+If any updates are required or you are submitting further changes they
+should be sent as incremental updates against current git, existing
+patches will not be replaced.
+
+Please add any relevant lists and maintainers to the CCs when replying
+to this mail.
+
+Thanks,
+Mark
+
 
