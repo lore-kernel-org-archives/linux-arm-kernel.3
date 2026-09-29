@@ -4,65 +4,74 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D7BF0CA5FA5
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 29 Sep 2026 19:44:00 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E33C7CA5FA5
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 29 Sep 2026 19:44:28 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=XSr/FpY6Ep2Y64lvgMS/GCnnKAwRUccneELijM9K4dk=; b=2YsdB1tZm1wKC672q2QVpJ8pdH
-	Z/vPK7Vkk7PQUnFJeMLCXuJmS6Y1ZKafiHLhZAhAxBVx7Esq2bDDF0fFLZ7wABYip/HnpLPGgOSyy
-	SAGA3swBnAfW8cTM55s6Mv8+i/h6Pgf4gh7H1HXcddRXnHdaTxaci3csUTAvUEQoo6RUzCbTUYuUN
-	fo49UDg8bHub598NTP9XLKgIWiEZzym2ExUi0rNUJWp7Z1hU6O2OmscK6K4bRkosKZfmIS//qBBei
-	gRhs4WRK4XyuPSjx9mrJPkJCRGniWPAhurK2rtbtGAhgs+ris2UVdfwsQGrFHzWFCp0AhwHmqvHex
-	TaD1LtCw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=q3QKjMvgAUkuQ17t6YdqoLww5IfrGk8hudIFHctZSl0=; b=rISvJeCv9fIzzf353RLUfolu/E
+	0ZmyUdJpoYiN65wSuwmRWjY9YLT4LtKWt23014cXkdLqwkQJoo95XdvVb20Mz8XSeEm/8jO6WKhSB
+	NikaerQV5dckQG8FfEvq/P+ue/T2AWTNtc314GC5sLf/9fEQuy+Oxk8N2xHcZmj/oW6jqVPqwZvNv
+	9QYSI2PS3ZRfYLMSaUXBv3+wFpR5T9Fpy3wxDdYqTyskLc5QeQSMjIs819YIpWLtlOYm2xy3aMKsq
+	+H4La8+85OgyWzFdTssGuNIOOaxjqPEBkZh5S5be2VAADcNz06HY6219O88wTIWedvGesWoZ8sbzW
+	DjXgj1JA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xBdk2-00000004PgD-1VgI;
-	Tue, 29 Sep 2026 19:43:54 +0000
-Received: from linux.microsoft.com ([13.77.154.182])
-	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xBdk0-00000004Pfd-25oQ
-	for linux-arm-kernel@lists.infradead.org;
-	Tue, 29 Sep 2026 19:43:53 +0000
-Received: from jeffbarnes-ThinkPad-P14s-Gen-2i.corp.microsoft.com (unknown [52.167.115.14])
-	by linux.microsoft.com (Postfix) with ESMTPSA id 8964020B7166;
-	Tue, 29 Sep 2026 12:42:56 -0700 (PDT)
-DKIM-Filter: OpenDKIM Filter v2.11.0 linux.microsoft.com 8964020B7166
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.microsoft.com;
-	s=default; t=1790710978;
-	bh=XSr/FpY6Ep2Y64lvgMS/GCnnKAwRUccneELijM9K4dk=;
-	h=From:To:Cc:Subject:Date:From;
-	b=X5YInvO10SJeiGSwh9q8U8njS2R52RaMF/ewdT7PfgPwRAcbZVaKZqEI8dRBpt8tk
-	 W0/v6GLlABhxJpjDf4l6fVWcmbSzrRS0w2C77FuwsoR69MFLHiO2PlDheP7jD1Ofny
-	 HPj5fSKCYtfmb4tA+0ZELdpJGtD2jh728EJkdGlc=
-From: jeffbarnes@linux.microsoft.com
-To: linux-pci@vger.kernel.org
-Cc: minghuan.Lian@nxp.com,
-	mingkai.hu@nxp.com,
-	roy.zang@nxp.com,
-	lpieralisi@kernel.org,
-	kwilczynski@kernel.org,
-	mani@kernel.org,
-	robh@kernel.org,
-	bhelgaas@google.com,
-	Zhiqiang.Hou@nxp.com,
-	linuxppc-dev@lists.ozlabs.org,
-	linux-arm-kernel@lists.infradead.org,
-	imx@lists.linux.dev,
-	linux-kernel@vger.kernel.org,
-	stable@vger.kernel.org
-Subject: [PATCH] PCI: layerscape: use default error response behavior
-Date: Tue, 29 Sep 2026 15:43:39 -0400
-Message-ID: <20260929194339.233271-1-jeffbarnes@linux.microsoft.com>
-X-Mailer: git-send-email 2.43.0
+	id 1xBdkU-00000004PlM-228B;
+	Tue, 29 Sep 2026 19:44:22 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
+	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1xBdkT-00000004Pkz-2OUe;
+	Tue, 29 Sep 2026 19:44:21 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by tor.source.kernel.org (Postfix) with ESMTP id E39986022B;
+	Tue, 29 Sep 2026 19:44:20 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id ACB941F000FF;
+	Tue, 29 Sep 2026 19:44:15 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1790711060;
+	bh=q3QKjMvgAUkuQ17t6YdqoLww5IfrGk8hudIFHctZSl0=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=Z3CdhxMvpO05S2GgF2NZcveZP8lKIPhs7HlQHh6JwjS1CdumoqzZY3CzYY0Dy12x+
+	 FqbBLDsmkXJBRJsPr5MEuclQkEbdHXeibLfySXgXA4FSqzSrTjG8+unEq2/mnNe9MY
+	 Z6101ZT+tNWCw/LONh33tvF4SUb1OXgrcNT+tDRfievI3hEMYcPyI68GX0ziI9050k
+	 IcwWnZyUg2tDZPaYu1JNMEDYZSEiNwtM4Y8WYz+FZvu+gto+yzQeKLTEjjIc8n+w6Q
+	 fyuIqGlEQgpeV/GQwMvAyQRVR7kSMBQH6qR/9hF46TZ6Uen9cy5H+12FYsUSXQoj3K
+	 oN/Er3jEluMng==
+Date: Tue, 29 Sep 2026 20:44:13 +0100
+From: Conor Dooley <conor@kernel.org>
+To: Jisheng Zhang <jszhang@kernel.org>
+Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>, Stephen Boyd <sboyd@kernel.org>,
+	Brian Masney <bmasney+clk@redhat.com>,
+	Jerome Brunet <jbrunet+clk@baylibre.com>,
+	Andi Shyti <andi.shyti@kernel.org>,
+	Alexandre Belloni <alexandre.belloni@bootlin.com>,
+	Frank Li <Frank.Li@nxp.com>, Lee Jones <lee@kernel.org>,
+	Linus Walleij <linusw@kernel.org>,
+	Liam Girdwood <lgirdwood@gmail.com>,
+	Mark Brown <broonie@kernel.org>,
+	Philipp Zabel <p.zabel@pengutronix.de>,
+	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+	Jiri Slaby <jirislaby@kernel.org>,
+	Sebastian Hesselbarth <sebastian.hesselbarth@gmail.com>,
+	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+	linux-clk@vger.kernel.org, linux-i2c@vger.kernel.org,
+	linux-i3c@lists.infradead.org, mfd@lists.linux.dev,
+	linux-gpio@vger.kernel.org, linux-serial@vger.kernel.org,
+	linux-spi@vger.kernel.org, linux-arm-kernel@lists.infradead.org
+Subject: Re: [PATCH 08/20] dt-bindings: reset: add Synaptics SL261X SoCs
+Message-ID: <20260929-sprang-stir-af07a907ccb2@spud>
+References: <20260929061417.20733-1-jszhang@kernel.org>
+ <20260929061417.20733-9-jszhang@kernel.org>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260929_124352_569658_B750E12D 
-X-CRM114-Status: GOOD (  12.77  )
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="/eZs2VEqyPUB++Zv"
+Content-Disposition: inline
+In-Reply-To: <20260929061417.20733-9-jszhang@kernel.org>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -77,98 +86,177 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Jeff Barnes <jeffbarnes@linux.microsoft.com>
+--/eZs2VEqyPUB++Zv
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
 
-The Layerscape PCIe driver programs PCIE_ABSERR to forward errors from
-outbound non-posted requests to the internal AXI interface.
+On Tue, Sep 29, 2026 at 02:14:05PM +0800, Jisheng Zhang wrote:
+> Add device tree bindings for the resets on Synaptics SL261X SoCs.
+>=20
+> Signed-off-by: Jisheng Zhang <jszhang@kernel.org>
+> ---
+>  .../bindings/reset/syna,sl261x-reset.yaml     | 40 ++++++++++
+>  include/dt-bindings/reset/syna,sl261x-reset.h | 80 +++++++++++++++++++
+>  2 files changed, 120 insertions(+)
+>  create mode 100644 Documentation/devicetree/bindings/reset/syna,sl261x-r=
+eset.yaml
+>  create mode 100644 include/dt-bindings/reset/syna,sl261x-reset.h
+>=20
+> diff --git a/Documentation/devicetree/bindings/reset/syna,sl261x-reset.ya=
+ml b/Documentation/devicetree/bindings/reset/syna,sl261x-reset.yaml
+> new file mode 100644
+> index 000000000000..8cfec17df800
+> --- /dev/null
+> +++ b/Documentation/devicetree/bindings/reset/syna,sl261x-reset.yaml
+> @@ -0,0 +1,40 @@
+> +# SPDX-License-Identifier: (GPL-2.0 OR BSD-2-Clause)
+> +# Copyright (C) 2026 Synaptics Incorporated
+> +%YAML 1.2
+> +---
+> +$id: http://devicetree.org/schemas/reset/syna,sl261x-reset.yaml#
+> +$schema: http://devicetree.org/meta-schemas/core.yaml#
+> +
+> +title: Synaptics SL261X reset controller
+> +
+> +maintainers:
+> +  - Jisheng Zhang <jszhang@kernel.org>
+> +
+> +description: The reset controller node must be a sub-node of the chip
+> +  controller node on SL261X SoCs.
+> +
+> +properties:
+> +  compatible:
+> +    enum:
+> +      - syna,sl261x-soc-reset
+> +      - syna,sl261x-system-reset
+> +
+> +  "#reset-cells":
+> +    const: 1
+> +
+> +required:
+> +  - compatible
+> +  - "#reset-cells"
+> +
+> +additionalProperties: false
+> +
+> +examples:
+> +  - |
+> +    chip: chip-control@f7e10000 {
+> +        reg =3D <0xf7e10000 0x1000>;
+> +
+> +        chip_rst: reset {
+> +            compatible =3D "syna,sl261x-soc-reset";
+> +            #reset-cells =3D <1>;
+> +        };
 
-A PCI configuration access can race with the link going down after
-dw_pcie_other_conf_map_bus() checks the link but before the MMIO access
-is performed. When the resulting Completion Timeout is forwarded to
-AXI, it causes an asynchronous SError and kernel panic.
+Why can't this just be part of the parent node?
+=46rom a quick check of the dts, the node with this subnode didn't also
+have a system-reset node too, so there's no conflict or anything of that
+nature.
 
-For example:
+> +    };
+> diff --git a/include/dt-bindings/reset/syna,sl261x-reset.h b/include/dt-b=
+indings/reset/syna,sl261x-reset.h
+> new file mode 100644
+> index 000000000000..7034f58aae5b
+> --- /dev/null
+> +++ b/include/dt-bindings/reset/syna,sl261x-reset.h
+> @@ -0,0 +1,80 @@
+> +/* SPDX-License-Identifier: (GPL-2.0 OR MIT) */
+> +/*
+> + * Copyright (C) 2026 Synaptics Incorporated
+> + *
+> + * Author: Jisheng Zhang <jszhang@kernel.org>
+> + */
+> +
+> +#ifndef _DT_BINDINGS_SL261X_RESET_H
+> +#define _DT_BINDINGS_SL261X_RESET_H
+> +
+> +/* ACPU subsystem */
+> +#define RST_SOC_SDIO0		0
+> +#define RST_SOC_USB0		1
+> +#define RST_SOC_EMMC		2
+> +#define RST_SOC_GETH0		3
+> +#define RST_SOC_SDIO1		4
+> +#define RST_SOC_USB1		5
+> +#define RST_SOC_GETH1		6
+> +#define RST_SOC_USB0PHY		7
+> +#define RST_SOC_USB0CORE	8
+> +#define RST_SOC_USB0MAHB	9
+> +#define RST_SOC_USB1PHY		10
+> +#define RST_SOC_USB1CORE	11
+> +#define RST_SOC_USB1MAHB	12
+> +#define RST_SOC_UART0		13
+> +#define RST_SOC_UART1		14
+> +#define RST_SOC_UART2		15
+> +#define RST_SOC_UART3		16
+> +#define RST_SOC_I2C0		17
+> +#define RST_SOC_I2C1		18
+> +#define RST_SOC_SPI0		19
+> +#define RST_SOC_SPI1		20
+> +#define RST_SOC_SPI2		21
+> +#define RST_SOC_SPI3		22
+> +#define RST_SOC_APBTIMERS	23
+> +#define RST_SOC_APBSYSCNT	24
+> +#define RST_SOC_APBWDT		25
+> +#define RST_SOC_APBGPIO		26
+> +#define RST_SOC_APBDMA		27
+> +#define RST_SOC_GPUCORE		28
+> +#define RST_SOC_NPUCORE		29
+> +#define RST_SOC_AVIOAIOG	30
+> +#define RST_SOC_AVIOVPPG	31
+> +#define RST_SOC_AVIOVIPG	32
+> +
+> +/* system subsystem */
+> +#define RST_SM_ADCCORE		0
+> +#define RST_SM_ADCPRST		1
+> +#define RST_SM_CAN0PRST		2
+> +#define RST_SM_CAN0SRST		3
+> +#define RST_SM_CAN1PRST		4
+> +#define RST_SM_CAN1SRST		5
+> +#define RST_SM_GPIOPRST		6
+> +#define RST_SM_GPIOSRST		7
+> +#define RST_SM_I2CM0PRST	8
+> +#define RST_SM_I2CM0SRST	9
+> +#define RST_SM_I2CM1PRST	10
+> +#define RST_SM_I2CM1SRST	11
+> +#define RST_SM_I3CPRST		12
+> +#define RST_SM_I3CSRST		13
+> +#define RST_SM_PDMPRST		14
+> +#define RST_SM_PDMSRST		15
+> +#define RST_SM_PVTHSRST		16
+> +#define RST_SM_PVTPRST		17
+> +#define RST_SM_PWMPERIRST	18
+> +#define RST_SM_PWMPRST		19
+> +#define RST_SM_SPIMPRST		20
+> +#define RST_SM_SPIMSRST		21
+> +#define RST_SM_SPISPRST		22
+> +#define RST_SM_SPISSRST		23
+> +#define RST_SM_UART0PRST	24
+> +#define RST_SM_UART0SRST	25
+> +#define RST_SM_UART1PRST	26
+> +#define RST_SM_UART1SRST	27
+> +#define RST_SM_UART2PRST	28
+> +#define RST_SM_UART2SRST	29
+> +#define RST_SM_UART3PRST	30
+> +#define RST_SM_UART3SRST	31
+> +
+> +#endif /* _DT_BINDINGS_SL261X_RESET_H */
+> --=20
+> 2.53.0
+>=20
 
-  Kernel panic - not syncing: Asynchronous SError Interrupt
-  ...
-  Call trace:
-   arm64_serror_panic+0x78/0x90
-   do_serror+0x84/0x90
-   el1h_64_error_handler+0x30/0x40
-   el1h_64_error+0x68/0x70
-   pci_generic_config_read+0x64/0xb0
-   dw_pcie_rd_other_conf+0x1c/0x68
-   pci_bus_read_config_word+0x68/0x118
-   pcie_capability_read_word+0xa8/0xd8
-   find_device_iter+0x8c/0x160
-   pci_walk_bus+0x60/0xb8
-   find_source_device+0x78/0xb0
-   aer_isr+0x1dc/0x230
+--/eZs2VEqyPUB++Zv
+Content-Type: application/pgp-signature; name=signature.asc
 
-Restore the controller's default error response behavior instead of
-forwarding these errors to AXI.
+-----BEGIN PGP SIGNATURE-----
 
-Reproduce the race by instrumenting dw_pcie_rd_other_conf() to call
-map_bus() while the link is up, then schedule a worker on another CPU
-to set PCI_EXP_LNKCTL_LD. Synchronize the CPUs immediately before the
-Link Disable DBI write, then perform readl() using the address returned
-by map_bus() concurrently with the link transition.
+iHUEABYKAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCarwVDQAKCRB4tDGHoIJi
+0hGwAP4ptyfAiZ/Hyv5m5DXC1l4L5OIOyvVbaRVAxy6CVrteRgD7BDhIbPYIHQMg
+hqZCgq4VRutWdr432OpL5OAfu0MmLQM=
+=RY0u
+-----END PGP SIGNATURE-----
 
-Without this change, the overlapping configuration read results in an
-asynchronous SError and kernel panic. With this change, the same test
-returns 0xffffffff from the configuration read. In this test, AER
-reports a non-fatal Completion Timeout, and no SError or kernel panic
-occurs.
-
-This effectively reverts the error response behavior introduced by
-commit 84d897d69938
-("PCI: layerscape: Change default error response behavior").
-
-Fixes: 84d897d69938 ("PCI: layerscape: Change default error response behavior")
-Cc: stable@vger.kernel.org
-Signed-off-by: Jeff Barnes <jeffbarnes@linux.microsoft.com>
----
- drivers/pci/controller/dwc/pci-layerscape.c | 12 ------------
- 1 file changed, 12 deletions(-)
-
-diff --git a/drivers/pci/controller/dwc/pci-layerscape.c b/drivers/pci/controller/dwc/pci-layerscape.c
-index 14d6ac4fc53f..d333f1ae8a41 100644
---- a/drivers/pci/controller/dwc/pci-layerscape.c
-+++ b/drivers/pci/controller/dwc/pci-layerscape.c
-@@ -28,8 +28,6 @@
- 
- /* PEX Internal Configuration Registers */
- #define PCIE_STRFMR1		0x71c /* Symbol Timer & Filter Mask Register1 */
--#define PCIE_ABSERR		0x8d0 /* Bridge Slave Error Response Register */
--#define PCIE_ABSERR_SETTING	0x9401 /* Forward error of non-posted request */
- 
- /* PF Message Command Register */
- #define LS_PCIE_PF_MCR		0x2c
-@@ -103,14 +101,6 @@ static void ls_pcie_drop_msg_tlp(struct ls_pcie *pcie)
- 	iowrite32(val, pci->dbi_base + PCIE_STRFMR1);
- }
- 
--/* Forward error response of outbound non-posted requests */
--static void ls_pcie_fix_error_response(struct ls_pcie *pcie)
--{
--	struct dw_pcie *pci = pcie->pci;
--
--	iowrite32(PCIE_ABSERR_SETTING, pci->dbi_base + PCIE_ABSERR);
--}
--
- static u32 ls_pcie_pf_lut_readl(struct ls_pcie *pcie, u32 off)
- {
- 	if (pcie->big_endian)
-@@ -180,8 +170,6 @@ static int ls_pcie_host_init(struct dw_pcie_rp *pp)
- 	struct dw_pcie *pci = to_dw_pcie_from_pp(pp);
- 	struct ls_pcie *pcie = to_ls_pcie(pci);
- 
--	ls_pcie_fix_error_response(pcie);
--
- 	dw_pcie_dbi_ro_wr_en(pci);
- 	ls_pcie_clear_multifunction(pcie);
- 	dw_pcie_dbi_ro_wr_dis(pci);
--- 
-2.43.0
-
+--/eZs2VEqyPUB++Zv--
 
