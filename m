@@ -4,100 +4,116 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id AAF94C9832A
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 29 Sep 2026 15:48:14 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id AC86DC9832A
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 29 Sep 2026 15:50:53 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=/dZbuYFRWaYPbHqq2vBKMBfGE1dD5iM+GHzPgRrdI6c=; b=36xmWjmqVN55Y9X4dmg3X43IM4
-	dpi3B/S85tcR/+kk5j/1IOpiwIn1jcuHUt3hq9+OYae9P5Aegu45b73voA6alT4T4HZrg0dNvJaO1
-	kXtF5FWUauyVHjhURGQCAuZwkk1tzhyb8ZH05ggEud8UqDsXGK79njF3ubFAog60BWoDfGYgDjCce
-	VQyyoKEY2gvjxCkMTrM27C/5Qnsnew4dNyp/xO/oJ+y2i74TXnvFlYi8rWJGH7ytE0lQLammO9+7D
-	plDheAZYp/M6EiQJjxlidGiUWCWLUE27uXbnPGwswWKBhIQerNHC7QekjT5UjORSuNoNJxqx6eX8m
-	kR9Ec3vQ==;
+	bh=6TBF9avaY/bTBgvPOC6p2G/lL798dgydRUW2YJl/tA8=; b=jWHx0LMXfxzpRyw7bmR8xoqS7v
+	2DXWWn33Mo6AakEceJgVTTN5XsX2vwqRzOYksTEGq3LHdQRPgZ/mh4fq0M9O4Cx8f7aYv2+pk0r14
+	wdFc4aAiGhPStBetzFhhI1LHn9cpkF4x2bUz7cNohBx2CMCtFnUKJVkk7raF9wNbGTcSLenIv8Vql
+	Kgb0y6EuWDQlNemzKQwn8cehNLYHPxV/3FM9zyZ4A8r+okrkIJQtShyI38Q7iuiUm7KWJ+DrTn5hJ
+	LFaCJLUrJZc6Q695zmqVhIGB9ZpadXOz2A6UGxvhyLUHBlVtFPsDvV6G7FsoaDP+2hwZndQu53MYa
+	/gn8kLvQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xBa3r-00000003yVj-3snf;
-	Tue, 29 Sep 2026 15:48:07 +0000
-Received: from mail-ej2-x0f.google.com ([2a00:1450:4864:34::f])
+	id 1xBZah-00000003uzH-0phs;
+	Tue, 29 Sep 2026 15:17:59 +0000
+Received: from mail-wm2-x11.google.com ([2a00:1450:4864:31::11])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xBa3p-00000003yVB-2jkg
+	id 1xBZab-00000003uw9-2p1a
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 29 Sep 2026 15:48:06 +0000
-Received: by mail-ej2-x0f.google.com with SMTP id a640c23a62f3a-c2a8b9acbc6so661976766b.0
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 29 Sep 2026 08:48:05 -0700 (PDT)
+	Tue, 29 Sep 2026 15:17:54 +0000
+Received: by mail-wm2-x11.google.com with SMTP id 5b1f17b1804b1-49e69b9e16aso45928465e9.1
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 29 Sep 2026 08:17:53 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=chromium.org; s=google; t=1790696884; x=1791301684; darn=lists.infradead.org;
-        h=content-transfer-encoding:content-type:cc:to:subject:message-id
-         :date:from:in-reply-to:references:mime-version:from:to:cc:subject
-         :date:message-id:reply-to:content-type;
-        bh=/dZbuYFRWaYPbHqq2vBKMBfGE1dD5iM+GHzPgRrdI6c=;
-        b=YN8ZzG2L2INaoIgziUmdj7+FpjKiknzylsCQvtsJr3A6Sl6WnzH3STJMvETIFnkEsi
-         gjpap4IJBLisumutRNezbNDB5K7LuEpEFqJGWGAuIRsCtZHn1xNz3m+twFfQVT8XAp1v
-         prnTfD5GTGtKfK0JJMjF1IVuB9cv7lgGRB0jU=
+        d=gmail.com; s=20251104; t=1790695072; x=1791299872; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=6TBF9avaY/bTBgvPOC6p2G/lL798dgydRUW2YJl/tA8=;
+        b=HOJK+aVIxbl4sOCL8vklI2q6V5oPO3m9ByXczCwoZJxrCDcBHsBSLUokgiQ00FF70D
+         5MrhLcFbZKBCljhUa/gaLQDyK0dbe7CqPZ7aRX65qcPpqsydEJvF2uHIjnLr0idSiOpj
+         /xO88LH3Zt39InWr2YM2FDWtlSyoTbevkkUauO9eQGLHjJghgn7vwKcqUxKrqM00Tx9D
+         RGOa4GvXWTf3UneSK6PbyPX14jPwADNur5TzFoGna68DhTXjcItA42OtMJnpPRU/6PGD
+         G9Tq0iEqikOZQOY1LB6hzDAzMrnybzqNyTul4SBBe42CkmlTHdRm6bXy75vpa5OOSBMw
+         XzKA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1790696884; x=1791301684;
-        h=content-transfer-encoding:content-type:cc:to:subject:message-id
-         :date:from:in-reply-to:references:mime-version:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=/dZbuYFRWaYPbHqq2vBKMBfGE1dD5iM+GHzPgRrdI6c=;
-        b=mCOwzYgeyV6gh8ivnUgxkZxuSWtnj4mhmPf8AJYPEMkcDQZp8JmC4NuvjmoE7lgvGj
-         Afzf8Rm+fWuK6np0lESp5UbjAg0bPdKkzC5z5GhLM1IXrPDPtGUxZsyCAcBLgPXY0Jr2
-         7zA1MRmt9cxOrJ+whcPPXEKvTuOEVxoi6s0gMBfT3aierycT7ShlKH5Ol/xpXKuGiaAz
-         o6rsV8uXT3AoKkfx8ayIdkQixbWqkHtdrln1RPVfXoU5lHagIHrEmTlxxwyOTIkIWThp
-         n1T32kY9nKsD0xVaB0rdz1xwyQHrL4GSaTTYJGyIORV+y2uS1ftSSALuNWzaaHHjRbd4
-         o24A==
-X-Forwarded-Encrypted: i=1; AKwUvBzspHYWO7NHLSXHZCs96yq9TRcnEhbBurCCDpvgD9OCPZIxdMcBGt1jUDs4LVtv/3XkLg//hrNsNTMmHDw6YksA@lists.infradead.org
-X-Gm-Message-State: AFuF++noK3yOd2wyMM9SksaX/vBJDIvIKurquoWGw2w/d+/lg+9kCwhw
-	UwVYtO4hVIZtOVN/pyMSWZqr3sW4j5ci9H9j2n+P9bMYIoWSnDA2Xyf2CuHwHl1RB11VcfQkJ/F
-	W9LrvqJJo
-X-Gm-Gg: AYBFou0SCAseZ6sslgBd/kY0c7qy2s1LRn9JTmW7wEHZfZfKTDeXof0eVadRLQ1MLcB
-	BPeMon+0h8GE2tWgZnkIvt3uwn28GaNGpCrRFh4cXg1zXQhwOnB/UclGtg3e163cJGyQW9p+AJo
-	Ii8WkPkjcK7UhuruRWqogwZa3SMTDcu2iuxkZMUUU8X0BTMYYcbIvmTbKK4+RVVpkH2pAj0KqnS
-	WYjUM0LIHIE6mV+wRissXfHTZnGwszRPZzlrmsFJxNXI3GxzZQ/RrjT1u5CWgvaFoIXX4QTSagn
-	BtiZ/kc0AYUIIISbLGPtsc8mci5t5B84RiqrijDYys0PG4jU+/mOn6LC0xbmMwJe8+1N52AtSf8
-	v5RyoMOUFJuCUVH3Q7frJxiVx3MWC+E/jrgXpgDWlGhmgVwQWVKE5LgPvyE539o5RDJBfiuCKka
-	09Wan80OhUC7fX7sEI9Ik1UH6cPlmd9jSsn0S5QpqBim79iKUik3SML0T7nQVt0VIKqAGkiT8Gr
-	B7vJk+oB597CxgRONfO9GZtwAcRLLmR4QgPcOo=
-X-Received: by 2002:a17:907:ea8b:b0:c2a:fbe1:7340 with SMTP id a640c23a62f3a-c2afbe173b5mr866887366b.41.1790696883748;
-        Tue, 29 Sep 2026 08:48:03 -0700 (PDT)
-Received: from mail-wm2-f12.google.com (mail-wm2-f12.google.com. [74.125.225.140])
-        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-c2e12fd1af7sm1662066b.28.2026.09.29.08.48.00
-        for <linux-arm-kernel@lists.infradead.org>
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Tue, 29 Sep 2026 08:48:01 -0700 (PDT)
-Received: by mail-wm2-f12.google.com with SMTP id 5b1f17b1804b1-49ffbd83a92so25469935e9.0
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 29 Sep 2026 08:48:00 -0700 (PDT)
-X-Forwarded-Encrypted: i=1; AKwUvBxF2CkyKNYtQYESlNFRGYQPXKQOD6lc7CtHD1WB84cj2w4GdnhSCRBglcDH3nlfTieqb0wBfQNf9u+OrXhXfON1@lists.infradead.org
-X-Received: by 2002:a05:600c:310b:b0:49f:bd3c:bc18 with SMTP id
- 5b1f17b1804b1-49fe66f4c72mr292995155e9.19.1790696879396; Tue, 29 Sep 2026
- 08:47:59 -0700 (PDT)
+        d=1e100.net; s=20260707; t=1790695072; x=1791299872;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
+         :to:cc:subject:date:message-id:reply-to:content-type;
+        bh=6TBF9avaY/bTBgvPOC6p2G/lL798dgydRUW2YJl/tA8=;
+        b=AtHB+angD6DBR0a8dVsCyNQJSaTFuwcUaWN4CSx/ZHTOaPUT8qfZL4RzUNyE/sq8XU
+         dpt6JAowfzLGOhbzNCVMAtGQP/qbYcNKbygL8mnp4BJaVnEaQh4mrlAkV4Kx2ENpp2LH
+         2wPH/GeJ4w8cx/4ZpuqPVIZYb+oWxQNrSYs9Pf8kCwQ456FjplIx8yHM50/EfCnKfoUO
+         IkMMEvJ3N5RbRcf2L9aH1ZOCytyUMNNd8XmSZIN1r/jiA6IA4aWlkTpYjaVPkMAzJX/9
+         HL5F4joyCqoHFrOoSnT4DDTg4MV7wzDOPuFwP55YGxV7FCCW5K8a8eT59Ghr0M8QAf2N
+         cORw==
+X-Forwarded-Encrypted: i=1; AKwUvByrmEdMZmJ8kENwXJnbT3rLIx3+PZaMztiheKjFSZo521JqdSwml2gppWG+DlnIcAP0ZxTFxKPIUIkM7cDIQMPr@lists.infradead.org
+X-Gm-Message-State: AFuF++nnVJKGKmgd10QzNCFx3IMb9pz2YkeBrntkQwOwscgPW9OzCYTB
+	9RpP8NyrVSSk+IAv76BccjAuQLNDcchR8pEhY1d7i1DRaZWIml58m7aF
+X-Gm-Gg: AYBFou0vr06d82KYrlEr/hXvUGPVd+X8bUXHU7zsrmmvbOjG/X/p4S9t6KvxLCvmotQ
+	zTKyoWOSGzKgksL3yeTK/sbg2v0t+nr1X4R/9oLjlFjbeBEbRjZ1mub1XhFcfBrJWTypFKo1jvo
+	ct6ZiiLXtyZWTAYJsRtO5oGDtduYvAbQBe2wwI4N7qKH/xivBuamxdgObRepGsNoioVpFAic1HF
+	FzWVFi1iOAd4xn86QZZN8KMBMEaXRAhd407dJTLcLxuormQ3j5l8ABpzmCSy67oX7BLMJIkyiI0
+	ARV22Ft8KvFpJiyjF5m6YP236wwCNbp/3ToHvRAb4e34PVRUY8U2uq+R9dTZGq4sWDpc/LNHnDg
+	I0PfKCSsbeCb4BqQKZGh9oAJoFjQmOo7uNUEb1AWLoCY8uSyZA9Dv+4Nn/IDNjPyB7y3q3hTywh
+	efTSNiRvAheyspAuTIcRZkhDWUEC0z+0RN4Yo2gq7EJK4YmHeAPVirnifcQ6ECx0V4rnHhaGg0l
+	Vh4IAx6H18RPVwOX7crdsxnTrIUliUJ5i+T8EkGT3Oqid77++pNlC0ZBNOjEsY8aEZ50BpgjVea
+	g0EsepLrttq8KwBZ1GmzGoY=
+X-Received: by 2002:a05:600c:19c9:b0:49c:d019:70c5 with SMTP id 5b1f17b1804b1-49fe7ae84a9mr291312065e9.0.1790695071599;
+        Tue, 29 Sep 2026 08:17:51 -0700 (PDT)
+Received: from Lord-Beerus.station ([31.27.155.43])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4a013cf8402sm10313705e9.2.2026.09.29.08.17.50
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Tue, 29 Sep 2026 08:17:51 -0700 (PDT)
+From: Stefano Radaelli <stefano.radaelli21@gmail.com>
+X-Google-Original-From: Stefano Radaelli <stefano.r@variscite.com>
+To: Frank Li <Frank.Li@nxp.com>,
+	linux-kernel@vger.kernel.org,
+	devicetree@vger.kernel.org,
+	imx@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org
+Cc: pierluigi.p@variscite.com,
+	Stefano Radaelli <stefano.r@variscite.com>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Andrew Lunn <andrew+netdev@lunn.ch>,
+	"David S. Miller" <davem@davemloft.net>,
+	Eric Dumazet <edumazet@google.com>,
+	Jakub Kicinski <kuba@kernel.org>,
+	Paolo Abeni <pabeni@redhat.com>,
+	Sascha Hauer <s.hauer@pengutronix.de>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Fabio Estevam <festevam@gmail.com>,
+	Heiner Kallweit <hkallweit1@gmail.com>,
+	Russell King <linux@armlinux.org.uk>,
+	Shawn Guo <shawnguo@kernel.org>,
+	Joseph Guo <qijian.guo@nxp.com>,
+	Josua Mayer <josua@solid-run.com>,
+	Ernest Van Hoecke <ernest.vanhoecke@toradex.com>,
+	Mehmet Fide <mehmet.fide@screeningeagle.com>,
+	Francesco Dolcini <francesco.dolcini@toradex.com>,
+	Markus Niebel <Markus.Niebel@ew.tq-group.com>,
+	Hugo Villeneuve <hvilleneuve@dimonoff.com>,
+	Stefan Eichenberger <eichest@gmail.com>,
+	netdev@vger.kernel.org
+Subject: [PATCH v4 04/13] net: phy: micrel: Check RMII clock select property presence
+Date: Tue, 29 Sep 2026 17:17:31 +0200
+Message-ID: <249f29ecae7cf9dbbeb9691df2c67e4f0cfe326f.1790693249.git.stefano.r@variscite.com>
+X-Mailer: git-send-email 2.47.3
+In-Reply-To: <cover.1790693249.git.stefano.r@variscite.com>
+References: <cover.1790693249.git.stefano.r@variscite.com>
 MIME-Version: 1.0
-References: <20260929-pixel10-initial-dts-fixup-v1-1-b304868cc3e8@linaro.org>
-In-Reply-To: <20260929-pixel10-initial-dts-fixup-v1-1-b304868cc3e8@linaro.org>
-From: Doug Anderson <dianders@chromium.org>
-Date: Tue, 29 Sep 2026 08:47:47 -0700
-X-Gmail-Original-Message-ID: <CAD=FV=VAiHf0-9sPvgGKji4j47rL38Ja3S2yiEfztubgZqBpjw@mail.gmail.com>
-X-Gm-Features: AclHuK_dL-VTDHnUEUTR3x2HZaC9uQoYf0vNl-UJk1UZAv-h2C9KslcOuDr2aQQ
-Message-ID: <CAD=FV=VAiHf0-9sPvgGKji4j47rL38Ja3S2yiEfztubgZqBpjw@mail.gmail.com>
-Subject: Re: [PATCH] arm64: dts: google: lga: fixup #size-cells DT warning
-To: Peter Griffin <peter.griffin@linaro.org>
-Cc: =?UTF-8?Q?Andr=C3=A9_Draszik?= <andre.draszik@linaro.org>, 
-	Tudor Ambarus <tudor.ambarus@linaro.org>, Rob Herring <robh@kernel.org>, 
-	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
-	Brian Norris <briannorris@chromium.org>, Juan Yescas <jyescas@google.com>, 
-	linux-arm-kernel@lists.infradead.org, linux-samsung-soc@vger.kernel.org, 
-	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
-	kernel-team@android.com
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260929_084805_741160_228C317D 
-X-CRM114-Status: GOOD (  16.41  )
+X-CRM114-CacheID: sfid-20260929_081753_729697_5554B07F 
+X-CRM114-Status: GOOD (  14.03  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -112,52 +128,39 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi,
+From: Stefano Radaelli <stefano.r@variscite.com>
 
-On Tue, Sep 29, 2026 at 4:11=E2=80=AFAM Peter Griffin <peter.griffin@linaro=
-.org> wrote:
->
-> Fix newly introduced DT warnings:
-> Warning (avoid_unnecessary_addr_size): /soc@0/interrupt-controller@588000=
-0:
-> unnecessary #address-cells/#size-cells without "ranges", "dma-ranges" or
-> child "reg" or "ranges" property
->
-> Fixes: 80f23487d554c7 ("arm64: dts: google: Add initial dts for frankel/b=
-lazer/mustang")
+The micrel,rmii-reference-clock-select-25-mhz property is tested
+for presence, but of_property_read_bool() warns when the property
+has a value. Encoding it as <1> to satisfy the DT schema unit check
+would therefore produce a warning at PHY probe.
 
-Is the above git hash correct? In linuxnext, I see:
+Use of_property_present() for the presence test. It accepts both
+existing empty properties and the new numeric form without changing
+the RMII clock selection.
 
-54edd8698bb1 arm64: dts: google: Add initial dts for frankel/blazer/mustang
+Signed-off-by: Stefano Radaelli <stefano.r@variscite.com>
+---
+v2->v3:
+ - New patch: use of_property_present() for the RMII clock select
+   property so its numeric form does not warn during PHY probe.
 
-Other than that, this looks fine to me.
+ drivers/net/phy/micrel.c | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
 
-Reviewed-by: Douglas Anderson <dianders@chromium.org>
-
-> Signed-off-by: Peter Griffin <peter.griffin@linaro.org>
-> ---
->  arch/arm64/boot/dts/google/lga.dtsi | 3 +--
->  1 file changed, 1 insertion(+), 2 deletions(-)
->
-> diff --git a/arch/arm64/boot/dts/google/lga.dtsi b/arch/arm64/boot/dts/go=
-ogle/lga.dtsi
-> index 26a14b3a1b190a..919ee6619d9ee8 100644
-> --- a/arch/arm64/boot/dts/google/lga.dtsi
-> +++ b/arch/arm64/boot/dts/google/lga.dtsi
-> @@ -370,8 +370,7 @@ gic: interrupt-controller@5880000 {
->                         reg =3D <0x0 0x05880000 0x0 0x10000>,
->                               <0x0 0x05900000 0x0 0x200000>;
->
-> -                       #address-cells =3D <2>;
-> -                       #size-cells =3D <2>;
-> +                       #address-cells =3D <0>;
->
->                         #interrupt-cells =3D <4>;
->                         interrupt-controller;
-
-nit: Leaving "#address-cells =3D <0>;" alone in a section, with blank
-lines before and after, looks a little weird, but it's not a major
-issue...
-
--Doug
+diff --git a/drivers/net/phy/micrel.c b/drivers/net/phy/micrel.c
+index ae830781824b..acb481a29c25 100644
+--- a/drivers/net/phy/micrel.c
++++ b/drivers/net/phy/micrel.c
+@@ -2791,7 +2791,7 @@ static int kszphy_probe(struct phy_device *phydev)
+ 
+ 		if (type)
+ 			priv->rmii_ref_clk_sel = type->has_rmii_ref_clk_sel;
+-		rmii_ref_clk_sel_25_mhz = of_property_read_bool(np,
++		rmii_ref_clk_sel_25_mhz = of_property_present(np,
+ 				"micrel,rmii-reference-clock-select-25-mhz");
+ 
+ 		if (rate > 24500000 && rate < 25500000) {
+-- 
+2.47.3
 
