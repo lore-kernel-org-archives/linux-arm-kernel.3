@@ -4,142 +4,127 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D31AFCA5FA5
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 29 Sep 2026 18:56:19 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 24250CA5FA7
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 29 Sep 2026 19:05:07 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
-	References:To:From:Subject:Message-Id:Date:Content-Type:
-	Content-Transfer-Encoding:Reply-To:Cc:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=V2wrPr45KlNPHYK9msroHCsUZ+wRTgBRC2+dKN6c43s=; b=J+rY1Vojj0be/q
-	NH8Gu55h5hZ/lOeTF0B6GjiWml/aNLNM5OPqKGrcfR+r1kgagBXQmeELuu3sH9P/kGhVxQ0DrR+H4
-	02KvcJ2eymj0rH9gFX7TMncc9ifA3UxPHX6O9kq1oVqPp2a2mUv1n69toYKSzRR+YZTLSVObnAN+N
-	wEDhcZi2EWfRLgPiJEkISxv+yRgmhf7PeO6AQ+DRZameZsFZ80QcGVAf4JPYJ1qe/7DUWUDu3AzuM
-	McP0eyI4SF/PUV86jEY6LTk4G0nJpGE7GaJFO6cGU1ahUtjqpHZSr5YbvIVdCOBRdt39rRI+T2ix4
-	3lsb9V+awF1OrbnMVU2w==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=/SA4mXTUSdd/EzJdx8NSbO7NRihun4BRn1gT/3r8Zi8=; b=YfP8+nNfuj1zJJF9BztMk6wLJS
+	wZqtIEfFhJEIZelWsomn1oy+7HMs1NUdIEr6ZKkSambcGaMzIB6JxTYt9BAO477tJ0gRDHNve8EUF
+	GO8zTXs5I1/km8IhGQSfDIvgU5hHaqSAvIctoBjzjEk/i3t/IAuxsgOoK+AH/1saQdEZF+ESZwkDo
+	sQVdN5kaecfzN/vNlvfOv/Xr1jYlbx/0pt/c7eRZ10HQuGdT3xZDFhfhpT2qtMKGs3/11UaSsKmZD
+	wMEjDrlieZkKy80lUvS+ALtcnC7/0o9gJdK6s1g9/lKJUIwrOSHrScVXCauTEnef+tM3t7aYnzw2L
+	C5ILwFqw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xBczt-00000004KJ9-3J5W;
-	Tue, 29 Sep 2026 18:56:13 +0000
-Received: from mail-ukwestazon11020108.outbound.protection.outlook.com ([52.101.195.108] helo=CWXP265CU008.outbound.protection.outlook.com)
+	id 1xBd8N-00000004L4w-3fqb;
+	Tue, 29 Sep 2026 19:04:59 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xBczr-00000004KIE-0pZP;
-	Tue, 29 Sep 2026 18:56:12 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=a/7azqA7bLFxTagacAZVZ2E/neoFYJfSHjkZEQy5yIR7xANyLr6gbheDMer3d915cfH6yHgIxitINUe5XyaPOxIX24YZe/paMDLG3OPuSSTmCMZIHLMfjooatUtZ/BMkbsFqZ/ubH6js8jwgw08IQZ0ZW664zoPiMSVW7R9C+UFN5GdlZlSa6bx7TOouAH7TyboZbQD3tXzTE0cL0ZRWVISVAUSWbAS3H0Djk9QIeOKZPa3J0Y0AgGyNgQho+QYXKLeRxDul+woNV+QGPkAIP48hjKS5POnkU2j0T4Ts/8fI9dzu01DClMOrWghQSxNbrNoRx3jdNoFABiFNCXuaDQ==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=V2wrPr45KlNPHYK9msroHCsUZ+wRTgBRC2+dKN6c43s=;
- b=bkuNU95wBsoFiCbx4P0WyK5SokcK3YsRt8MI0DNgV7uHlwbQNVj77uGfxEYDZNGXKkooTx0owT0GEokgDSym+2v0QdXqbuFGpScl76hnvb8fusUc6AsML0yishOAOEsH9FfK/79AnpsEoeVH9OvqdKxPYVL1boXdWRbS8xPaXZXthBDGk1U+jSi3qZN45bQaJVg95BLDX/55An8SjEvme8RrYAERqrcG61dZbEDwznC2Hzyu5zoFimi78bM6GslcLodTmEPJLWzpYHrJhA85SiqqPuWv70uNfPo0XvbQCA+nZLY9owEmUqvjLaESMVCSK1OEMqMs15BY8AF7BueuyA==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=garyguo.net; dmarc=pass action=none header.from=garyguo.net;
- dkim=pass header.d=garyguo.net; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=garyguo.net;
- s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=V2wrPr45KlNPHYK9msroHCsUZ+wRTgBRC2+dKN6c43s=;
- b=fjhBhJGZbBDRLnvRpDrEu5nkpvcefwv32lh86PkWVT9sn69fSFv3VylNmDSTQWgvS+X9/qBaAiJwgmTmynQGIVcmkeRc8KLLx4VEMN06gf8hCO0MnhK5aKa7RKQgWEx8lW2Rqu/fkLLAAzdUKM+GulbkCOSktQkVa8ogHQvD3ow=
-Authentication-Results: mx.microsoft.com 1; dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=garyguo.net;
-Received: from LOAP265MB8560.GBRP265.PROD.OUTLOOK.COM (2603:10a6:600:4ab::19)
- by CWLP265MB5939.GBRP265.PROD.OUTLOOK.COM (2603:10a6:400:1cc::10) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.451.25; Tue, 29 Sep
- 2026 18:56:04 +0000
-Received: from LOAP265MB8560.GBRP265.PROD.OUTLOOK.COM
- ([fe80::f60b:1537:68d7:4fc1]) by LOAP265MB8560.GBRP265.PROD.OUTLOOK.COM
- ([fe80::f60b:1537:68d7:4fc1%6]) with mapi id 15.21.0451.024; Tue, 29 Sep 2026
- 18:56:04 +0000
-Content-Transfer-Encoding: quoted-printable
-Content-Type: text/plain; charset=UTF-8
-Date: Tue, 29 Sep 2026 19:56:03 +0100
-Message-Id: <DLS12DO6AOOU.B7Q2AB8TNVB8@garyguo.net>
-Subject: Re: [PATCH v12 2/2] pwm: rp1: Add RP1 PWM controller driver
-From: "Gary Guo" <gary@garyguo.net>
-To: "Andrea della Porta" <andrea.porta@suse.com>,
- =?utf-8?q?Uwe_Kleine-K=C3=B6nig?= <ukleinek@kernel.org>,
- <linux-pwm@vger.kernel.org>, "Rob Herring" <robh@kernel.org>, "Krzysztof
- Kozlowski" <krzk+dt@kernel.org>, "Conor Dooley" <conor+dt@kernel.org>,
- "Florian Fainelli" <florian.fainelli@broadcom.com>, "Broadcom internal
- kernel review list" <bcm-kernel-feedback-list@broadcom.com>,
- <devicetree@vger.kernel.org>, <linux-rpi-kernel@lists.infradead.org>,
- <linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>,
- "Naushir Patuck" <naush@raspberrypi.com>, "Stanimir Varbanov"
- <svarbanov@suse.de>, <mbrugger@suse.com>, "Sean Young" <sean@mess.org>,
- "Julian Braha" <julianbraha@gmail.com>, "Gary Guo" <gary@garyguo.net>,
- "Christophe JAILLET" <christophe.jaillet@wanadoo.fr>
-X-Mailer: aerc 0.22.0
-References: <cover.1790686331.git.andrea.porta@suse.com>
- <d617188c890121e75cf90f59dec907d6ff254c85.1790686331.git.andrea.porta@suse.com>
-In-Reply-To: <d617188c890121e75cf90f59dec907d6ff254c85.1790686331.git.andrea.porta@suse.com>
-X-ClientProxiedBy: LO4P302CA0020.GBRP302.PROD.OUTLOOK.COM
- (2603:10a6:600:2c1::9) To LOAP265MB8560.GBRP265.PROD.OUTLOOK.COM
- (2603:10a6:600:4ab::19)
+	id 1xBd8M-00000004L4c-0p9h
+	for linux-arm-kernel@bombadil.infradead.org;
+	Tue, 29 Sep 2026 19:04:58 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=In-Reply-To:Content-Type:MIME-Version:
+	References:Message-ID:Subject:Cc:To:From:Date:Sender:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description;
+	bh=/SA4mXTUSdd/EzJdx8NSbO7NRihun4BRn1gT/3r8Zi8=; b=SNmo5xu9ukP77KavJOXtHnkPLp
+	V4j0gI7qx1z/uJmv1qGIVjmSzfVc/Tz+Incl3StwfQxwb1DRwX/clREqrsswJN3E/t5PJkbn862E7
+	Fyow4TJj69LCUpWdQd8k3a8ZGBJxQvNAyN3M9VD95vyG9GLtkuv06uQHjS/VwLDb6/rVYnZlZlptE
+	m5Ep0H5pA078CZxvi/u4s3GHsIiokS0NJImlB8X72fvA3rUO7+naKLEbnLHdK40qZm/MIUumlP+zd
+	s8j5cSKkt4m0RFbjDbCvl0X/HfzG7x6F6uIVcb+pLfI6U9GH57dNLxTj/aXg+Lx7yyy7CkQexbufg
+	A2ifadFA==;
+Received: from mail-qk2-x11.google.com ([2607:f8b0:4864:34::11])
+	by desiato.infradead.org with esmtps (Exim 4.99.2 #2 (Red Hat Linux))
+	id 1xBd8J-00000002z8B-0388
+	for linux-arm-kernel@lists.infradead.org;
+	Tue, 29 Sep 2026 19:04:56 +0000
+Received: by mail-qk2-x11.google.com with SMTP id af79cd13be357-939ca12ab70so564768485a.1
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 29 Sep 2026 12:04:53 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=ziepe.ca; s=google; t=1790708692; x=1791313492; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:content-type:mime-version
+         :references:message-id:subject:cc:to:from:date:from:to:cc:subject
+         :date:message-id:reply-to:content-type;
+        bh=/SA4mXTUSdd/EzJdx8NSbO7NRihun4BRn1gT/3r8Zi8=;
+        b=dx2qGDNRd0+RPIrVIA/7AUgP9Uz1u4DPPetu9VVbvFuoCtl/Dvca59KI+V2VWsCGzm
+         bXw4InWNI0iAmzR554wHXxUYdKlwyl+DhnLxFhH1T6o2ZOZywniGxf/JKu1/eWf4ZTlc
+         OQ7DBjCyQyrCOPHHfACGdrAmKD/JuL8mgBC8LBh6KqF8X2wjkBZyMevpYSWwagEOvprZ
+         qHfieh4heC2ALfV/d8NAOXLpL2pnxdR+cR1Tf7vZeRNdKGypFPUg4bSOm/nzDuelDm31
+         Eq21jFWw2wZQEVXKW0yn3oAd/F8yixqlqnCBEKx14tMzEHDjBXvk+otcFHWWLhjwgYzM
+         Zn3A==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1790708692; x=1791313492;
+        h=in-reply-to:content-disposition:content-type:mime-version
+         :references:message-id:subject:cc:to:from:date:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=/SA4mXTUSdd/EzJdx8NSbO7NRihun4BRn1gT/3r8Zi8=;
+        b=hXWlyeddGDN+3i4m8lor+GJvY4mp/kk3DhOyqokwvT0K5DBOs/hUOP4fUiXlNEzndD
+         69NjLlGUzmERi+4yjmDMm5sfzDVUVCg13wHXylFBN87dAvXL0ECXnKqzNzP5iQjHjBJa
+         wNjXngUQMIofnK4jqAYlNbVqbgZKxT7ufoiOdAf/fBKc1nuzsPvN/abd+CbUytb99Zj9
+         bgaD0l1Qo5UCB47R4OwZ1be5ocwCo5gNqMnvRH5a31OeG16Hf5wMwrdkNi7McRYeSgxJ
+         Ir9GrnFCcSQRFjwwGrcDsgk9K1Ws6YBALZCCUcPeikutvaqjR9XOQjaW/0rKVCMpdztV
+         UR1g==
+X-Forwarded-Encrypted: i=1; AKwUvBysvY5vyaYKoL6/2XK4S0zxEivVJ1+uVpcJiO22qVw6gIWPIIig9TMnOWBUAhypgFA6w27AxHqNB+Q7/lHyivPf@lists.infradead.org
+X-Gm-Message-State: AFuF++lvr1Bmn7zwi6n/+9Kk3B5J3/noeu7yA06EtQs8hN1HdD34rdIC
+	O6UOAgntSOF5ic8BYlD1SX1BkFoU2dg5IhlsNcns+wcH21NJrs+eKuDqw9ebHAlV+/g=
+X-Gm-Gg: AYBFou17huSPIK3ewuvvUCw8y55Abip47gcfy1fwVdm6dl+4QQPtliLpwLbCREWQl2i
+	ur+O0tbEOG4ODROrAMWzVYqmSRNZJ6EINs7ZojkA+HGvGn9wxkc6H2AkL8QsNHuZn1zKTDkonR2
+	tzZ720dx4nNwvRCzJAM1RxR/BmPKPH7INpGiVKVrQOU4c5BPek9JNxTr8uwPOfwZwnTGNTTNGFx
+	5jcmKJ6G8vbIIt/4yERB9POIOrmaRnwwEh75gYyx0QGOJpLxc9+FIKc7yJsBy3H7TSRT7a+zPT5
+	ZeNKZyRxEetBf+tX8+piVld17a+Oh8kRkCIXGsH0OfYkPT+XyxBId4PqRXhiIv43tkesIcmcMKb
+	UhX++wYS2uaO7UCQHGwSg4mwsVsNfTcpR7D7dSokJwvNXaS8sovYC0nNT9U1yYai//3xNfge7cX
+	j2Jd4FRRsNfelVl7ri7ziD6ieTEtSR+y5lWglvNJ1zD1Km
+X-Received: by 2002:a05:620a:1720:b0:93b:d7a1:ba0a with SMTP id af79cd13be357-93c9fa5845cmr105191285a.53.1790708692139;
+        Tue, 29 Sep 2026 12:04:52 -0700 (PDT)
+Received: from ziepe.ca ([130.41.10.202])
+        by smtp.gmail.com with ESMTPSA id af79cd13be357-93c9f503be9sm38271785a.31.2026.09.29.12.04.51
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Tue, 29 Sep 2026 12:04:51 -0700 (PDT)
+Received: from jgg by wakko with local (Exim 4.97)
+	(envelope-from <jgg@ziepe.ca>)
+	id 1xBd8E-00000009pP9-1hGq;
+	Tue, 29 Sep 2026 16:04:50 -0300
+Date: Tue, 29 Sep 2026 16:04:50 -0300
+From: Jason Gunthorpe <jgg@ziepe.ca>
+To: Yeoreum Yun <yeoreum.yun@arm.com>, Jiri Pirko <jiri@nvidia.com>
+Cc: Sami Mujawar <Sami.Mujawar@arm.com>,
+	Suzuki Poulose <Suzuki.Poulose@arm.com>,
+	Dan Williams <djbw@kernel.org>,
+	"linux-arm-kernel@lists.infradead.org" <linux-arm-kernel@lists.infradead.org>,
+	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
+	Catalin Marinas <Catalin.Marinas@arm.com>,
+	"will@kernel.org" <will@kernel.org>,
+	"thuth@redhat.com" <thuth@redhat.com>,
+	Steven Price <Steven.Price@arm.com>,
+	"gshan@redhat.com" <gshan@redhat.com>,
+	"cedric.xing@intel.com" <cedric.xing@intel.com>,
+	Dionna Glaze <dionnaglaze@google.com>,
+	"Aneesh Kumar K . V" <aneesh.kumar@kernel.org>,
+	Alexey Kardashevskiy <aik@amd.com>,
+	"linux-coco@lists.linux.dev" <linux-coco@lists.linux.dev>
+Subject: Re: [PATCH 0/3] arm64/virt: Add Arm CCA measurement register support
+Message-ID: <20260929190450.GM163130@ziepe.ca>
+References: <20260413084957.327661-1-sami.mujawar@arm.com>
+ <20260413125925.GK3694781@ziepe.ca>
+ <514ddb27-137b-4223-84fe-2152737db3a6@arm.com>
+ <20260414122950.GW3694781@ziepe.ca>
+ <a1831d3d-af31-4fa7-b107-f4001841f051@arm.com>
+ <20260414133525.GA2577880@ziepe.ca>
+ <AS8PR08MB680669CBFA9654BC12179D5E842F2@AS8PR08MB6806.eurprd08.prod.outlook.com>
+ <20260422124041.GJ3611611@ziepe.ca>
+ <arvh6uGzue9yat9n@e129823.arm.com>
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: LOAP265MB8560:EE_|CWLP265MB5939:EE_
-X-MS-Office365-Filtering-Correlation-Id: 792b94d7-2b98-4e99-6b9e-08df1e5b5021
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|366016|23010399003|376014|7416014|1800799024|18002099003|22082099003|921020|3023799007|10067099003|56012099006|4143699003;
-X-Microsoft-Antispam-Message-Info: M0nRiAD7oU14H7/sBzLzQjTOxlC3hhICeP52jef8oar/aS/kdoLmOuta0c/x8B6is4Wu79jEIa9ZgDyXBWzsy3W7nxzpHV3m6cohhvpFO+y2sv7OMji4Qeq6KMftulDY/65mJq6M+vpbNETAAVwPuwB4spjo9Dnk3QcXuk4g1gx8PZNMQwrQkoDO56f8eZeDqJsRDPvRmBF6n9Oh6xNVNFDdBvsheBDuw+FoqIOk8W9MscTfuvqPeMERcsenN1fZRXmLXlf63U2dP97k1xxYSzhN5AJgiquL8PHrMV1UZDLznmx3L/QGN4r8hgHm+ce0vQURSsf26NVQOPdY1C94zhr0O0RWihtxS/j1M9MvK7Bm9U1cHab/IgyNIu7E6qth6wKYFHVxqh6Uoewyw6xv4bMyd9m/uSXGPepM/MxGoOCIZD2EFm+IHV/hITUZxwtwOqpkWZhKs77uQc9aQFcMgRV7JpmhLTUhVNFybJNmVVgms/FzM0TOq1xAd0xtjQcxnu2oKFRJOxAtJzr7jCPNKSC7tFIj+IUwwr/rZJGgd3fz2YlUz+YCGTmqATU/91dkIuk03YnQnnYWkBeHcgzHZoN3dEXfQNnR/mmEBL/kpux2sEtVOTwSeBiTRp31vv39nK61tOSfw0TxGGBXpyn/RKGZv7tvyR/HGyAWTPRYbZWbiOfwFLch214aTUz4udPl1PhiR/b5585troiThZKiDg==
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:LOAP265MB8560.GBRP265.PROD.OUTLOOK.COM;PTR:;CAT:NONE;SFS:(13230040)(366016)(23010399003)(376014)(7416014)(1800799024)(18002099003)(22082099003)(921020)(3023799007)(10067099003)(56012099006)(4143699003);DIR:OUT;SFP:1102;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?YnhINm1STW54Zm9ZWHBwTXJvVXNwNWlIWU5mdVNqQ2hyS3NhZkJvR2VZTkR3?=
- =?utf-8?B?dlBjSGhSdG9XU1pQaWFDajF5S2FtWUlBLzhXS0J1UHNsSkdMbTZBa3EvcGty?=
- =?utf-8?B?Q0xYamRNZHlndVhpVFlIQjlyblZTMnNQSnJxTzg3TmEySzdwK1ZpVVFydGtt?=
- =?utf-8?B?NUdwVG5Dc2JjVS9XUGZVTUdLbHB5RUtpSEtyVFFTN3VuTlBSbGhmTnZxWW03?=
- =?utf-8?B?dUpDSUZsbjBUTVBadWFKZUxjV0xlRFIzSW5GcGlpdnhaU1ZIM1BRcHpaMkhx?=
- =?utf-8?B?bjVTQ0F5a1MzdDdFZE8yeXFUQm8vVUFUdTAzVHdOZkNxQkFsK0gxV01Fc2F1?=
- =?utf-8?B?bk5WN1RuQUdXQllaZUlSYlVtUU5ERXAzVVkwVUdqS05QTzg5WjJ5cjF5Vmhr?=
- =?utf-8?B?RWpBNmpLQ3E0b09iWktnMW4zdWxyL0ZGeHJSSnR2bWZ3S1krMnFzZTlTS3gy?=
- =?utf-8?B?RTg2aWdFd2Y3MkdFOC9TdVdVQVpTemNkT2tMb3cwbWtjalBCbkVvUEE4UWEw?=
- =?utf-8?B?NlhTUnZURVp4SHZLT2dsNFo2UmxUTFQweEJPcVdHV0NhamFJUVlLeUZmMFpG?=
- =?utf-8?B?aHhJczhzU0NFT05HUFFSdDl2eVB5K1huNHB1dkdaYzkxSk55V2RBQzJkU3ZU?=
- =?utf-8?B?d0RkaHBkTW15TkRTN1FUZ0xCdW5KQ082RDQ5UjYxaG1Hd3l4dmNiUUJWbzkz?=
- =?utf-8?B?KzFqNDN1RDNCNXhDK1BOS1JTUXNPUUtxOEVaTlFDaHdKT2tNWlh1VnU1T2t0?=
- =?utf-8?B?OHg0OHJZQS9QRmg1amd4a1hEZXNvV0w5RmNpR2pWQ1lQcnpRUWt4RGI5bWdH?=
- =?utf-8?B?NUw3NkNKRUUreS9aNWR3NlNQUTFXUHFZWTB2M1p6NWVnbzFLYnFQYlltYzhl?=
- =?utf-8?B?MGluSWZoTENpWDkrUUxrcVRUTzVuWlNGWjhZdnJRNkIybTBoemkrV2g3WWw4?=
- =?utf-8?B?S2dadjVXMHI4clhmcStqWGV4WHhwRWhvRGxsRmJIWFhwUU1Kd1l1SFo0NU5B?=
- =?utf-8?B?Yk9DNUNzck9FOVJMSWZYSGxSbnZQVThyME9JUnlQMy9IY1VJQUR6ZDd5d0lZ?=
- =?utf-8?B?S0hEdFR0blN0bXlXditCRG9sRXh5enBXV3VpY2UxSHliN0dYRnd0czYwSnlZ?=
- =?utf-8?B?UzJneHVUYlBtNnBzOTZadlYyUnBBZHBlNVQ0MS9taVRhSG11RmdnUVZnN0pu?=
- =?utf-8?B?dkR6RU9HK1d6UWJiVld4dERPbzN3YVBlNlFLMWV4SyszdGFkM1BOVnBhUmUr?=
- =?utf-8?B?SjArWXN4dWdpajZjMjhYVHZ2cG95b0d1Y3BFWjNqaWxqa1dNbTdzL2swZWNs?=
- =?utf-8?B?YVJxWU15b2N2WXdGRzZFWk1uem92Sjl1aG1SSU1odWFzZ2xWcnRuSlFNU1A1?=
- =?utf-8?B?U0wycktyS21UaXJENk1XM0JlSkVQWHZHZ3R5cmw0Y1FLaTUvK3MrRUFsSS9F?=
- =?utf-8?B?dytaYVRSVm5HdHI5V3NXMDhMc3U4Ulh4T2FuajZwdDZXQ2tYQzZxTXhNZlFU?=
- =?utf-8?B?Qy8yS0xQZVZOZ052OExtMHBXcnRCbnd2RGRWN3VJVGh0WnVDcndJSVdKTDFI?=
- =?utf-8?B?dSswMWFlbThFd1B5WlF3MnRUbU5LQ25HeHFYSEVsdzRQWFZoaTZ2V1B2MGFY?=
- =?utf-8?B?NTFFNTJ3TCtCaVMvRW0zV09yUFk0YVJjekhqMGQ1MkZXY2FxcmdmdmFWQ1dq?=
- =?utf-8?B?am5STXJwU0tFZ2t3UWdJSEhOYTVMSC9RSHplTUYwU05STHBVdFIxTXpIdmxv?=
- =?utf-8?B?dEEwRUs3UHY4MGZ3RHQ3YzZZZ1JWb01pSTVKTllaOGZHQjBpMHZpSU55eG1Y?=
- =?utf-8?B?cVF3Sk8xZ1RVNyt2TzJIdzdpeUxCNGM3ZjN2aTNicmp2RVpvbVRoRHdxYkp6?=
- =?utf-8?B?TWc3dVdwTDdYK1BLMEpBTHc2ZG5JR2orZ3ZuOE9IaHNSUmVEOEtndWJnSWd6?=
- =?utf-8?B?by8zVGcwakJGNkV0ek9vOXhzcE5EbWpsNllDcGxXVVFlMWRnYlFyNEpucUg5?=
- =?utf-8?B?V1dUMGk1cnBKdTJuc0xoVDBweERnU0NHV3U4TW85eDYvYmpPQ2FROGdsSVk4?=
- =?utf-8?B?dUVhRmxqYXNTd2pDOUU1ZngwcEwvYk8yZ09mbWdOdnNBdUJqSTlQVkIwOHdJ?=
- =?utf-8?B?QTJwMXcrWWhyTU9xTlo1SzZWZC9hQzFTLys2azJFd1p0b3BGcFppbXZ5QW1m?=
- =?utf-8?B?NXpqSllMZ1l5c1BFN1RETE1ac3NpZVBManhsNEhYVVhqMVBVYytjbUlxclM4?=
- =?utf-8?B?S3Rnbk1MK3haWnpOK09lL2E2UW1pM3J5Y3kxTXdrcUdvaWNYK2s1Ly8wVmVC?=
- =?utf-8?Q?Dx6cD8SIw4yZxdR4DK?=
-X-OriginatorOrg: garyguo.net
-X-MS-Exchange-CrossTenant-Network-Message-Id: 792b94d7-2b98-4e99-6b9e-08df1e5b5021
-X-MS-Exchange-CrossTenant-AuthSource: LOAP265MB8560.GBRP265.PROD.OUTLOOK.COM
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 29 Sep 2026 18:56:04.5952
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: bbc898ad-b10f-4e10-8552-d9377b823d45
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: /0Tfxj9sqAqO7Y3ZzEMK3L902vuyiWGnXfDUWSCNWdIZI/h3QXsLU6rHqcsiqF2OpoZIS/mdaNuKUL3lv0UT/A==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: CWLP265MB5939
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <arvh6uGzue9yat9n@e129823.arm.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260929_115611_240192_C28052A6 
-X-CRM114-Status: GOOD (  11.06  )
+X-CRM114-CacheID: sfid-20260929_200455_182137_B62397E9 
+X-CRM114-Status: GOOD (  26.06  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -154,31 +139,44 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue Sep 29, 2026 at 2:02 PM BST, Andrea della Porta wrote:
-> From: Naushir Patuck <naush@raspberrypi.com>
->
-> The Raspberry Pi RP1 southbridge features an embedded PWM
-> controller with 4 output channels, alongside an RPM interface
-> to read the fan speed on the Raspberry Pi 5.
->
-> Add the supporting driver.
->
-> Signed-off-by: Naushir Patuck <naush@raspberrypi.com>
-> Co-developed-by: Stanimir Varbanov <svarbanov@suse.de>
-> Signed-off-by: Stanimir Varbanov <svarbanov@suse.de>
-> Co-developed-by: Andrea della Porta <andrea.porta@suse.com>
-> Signed-off-by: Andrea della Porta <andrea.porta@suse.com>
+On Tue, Sep 29, 2026 at 05:06:02PM +0100, Yeoreum Yun wrote:
+> Hi Jason,
+> 
+> > On Wed, Apr 22, 2026 at 08:57:00AM +0000, Sami Mujawar wrote:
+> > 
+> > > > So this is tying it to the same FW event log that TPM uses.
+> > > > 
+> > > > I think that strengthens my point this should all be uninform. TPM
+> > > > drivers are directly exposing the event log today, but I guess that
+> > > > needs generalization if non-TPM drivers are going to present it as
+> > > > well.
+> > > > 
+> > > > How do you imagine getting and manipulating the EFI event log to use
+> > > > with this?
+> > >
+> > > The event logs from UEFI will be handed off to the OS using CCEL
+> > > ACPI table. The CCEL table spec update can be seen at
+> > > https://github.com/tianocore/edk2/issues/11384
+> > 
+> > I ment from linux userspace. event log is well establihsed in the aCPI
+> > side for TPM and in Linux today it is only exposed to userspace
+> > through TPM.
+> > 
+> > This is not TPM, so how do you intend to give the event log to
+> > userspace?
+> 
+> The event log would be exported via /sys/firmware/acpi/tables/data/CCEL
+> with binary format just as TPM event log is also exported with binary
+> format via binary_bios_measurements.
+> 
+> Instead of Sami, I'll post v2 which rebased on for-next/smccc-bus in
+> arm64 tree.
 
-At a quick glance the code looks alright to me.
+Okay, Jiri is close to posting the "attestation subsystem" which this
+needs to plug into instead of creating a bunch more sysfs files.
 
-Tested-by: Gary Guo <gary@garyguo.net>
+The CCEL log needs to come out through that interface.
 
-> ---
->  drivers/pwm/Kconfig   |   7 +
->  drivers/pwm/Makefile  |   1 +
->  drivers/pwm/pwm-rp1.c | 428 ++++++++++++++++++++++++++++++++++++++++++
->  3 files changed, 436 insertions(+)
->  create mode 100644 drivers/pwm/pwm-rp1.c
->
-
+Thanks,
+Jason
 
