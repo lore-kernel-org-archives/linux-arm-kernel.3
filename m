@@ -4,86 +4,92 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D5B8ECA5FA1
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 29 Sep 2026 07:21:06 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 16323CA5FA1
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 29 Sep 2026 07:21:31 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:From:
-	Subject:Message-ID:References:Mime-Version:In-Reply-To:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=HbIc6++sPj09TlRBwYu0sM7sUIcTfhDOiHM+40cDviI=; b=SKVZ9uFpR0VOk8Af9CTr+fIH1f
-	Dw2gJ3knrXxEVVEoipGz+J8Ua9PMM2ofv1RKQRYLd9z0dDaF8VmH3G22v7mgdqkCN6DIGVTyjg37d
-	TP/GQAxhlpv1m0IwbAv0Xf/qh944Yqv0MUTaSsBdahmXn79uqWSt81z8mb1FN23vbQRcNOuRWWdNy
-	48qrrsIDkdN+y3//GqrlPIjdSObkAksocUaK48Xg4gU7bV9YhLI5hSf3rV+ILZTJzL0wErKcMw86a
-	WvDq5g6UenqSXyIeotTE0q0O5lJ9ZjfxliE5ZSpPlyC4Go3zhUu/iW6A9jAryY0zDKBJ0EINaJzVH
-	SS0Zm4HA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=sJVHdovO8wYi2ya3zic+FBCx84rgCtsdjBQID1blqec=; b=fbeMfilR1vEG79iCItYVf4AFEM
+	eiBdLKadZdF2+A87lm8ACvPFBuEKLI0BXCGOWDMVOPCwSlYj0KlAZKPO2JsP9fKYRGHQEIJEuDAdk
+	0MN18K2XQlR7LKHH8vDdkm4d46RRWZdo3Wjw7UF5e98bwwxY0TY1xigriFiCAEghYgpO/R0zh9OHO
+	85E6h2KxbGUKu6FqHVzGk3+6GOMzZoRfpQmkl+v1sreOm4sLH6FUKM7pNiLfymP0pBHgkM/5tQKGt
+	Beb5Yfnd6XEsodB1qNg3nFkRVKxJP00VsWNFRiQVNImzHVQlecuH4N+JoX03a3WYVdX0M8o2uYakQ
+	LsXGte0A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xBS92-00000002ayl-0eeU;
-	Tue, 29 Sep 2026 07:20:56 +0000
-Received: from mail-pl1-x647.google.com ([2607:f8b0:4864:20::647])
+	id 1xBS9U-00000002bHw-35rF;
+	Tue, 29 Sep 2026 07:21:24 +0000
+Received: from mail-pj2-x0f.google.com ([2607:f8b0:4864:39::f])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xBS8M-00000002aT9-1zjQ
+	id 1xBS9J-00000002bCl-0hwF
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 29 Sep 2026 07:20:15 +0000
-Received: by mail-pl1-x647.google.com with SMTP id d9443c01a7336-2e12723dc7aso21202305ad.1
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 29 Sep 2026 00:20:13 -0700 (PDT)
+	Tue, 29 Sep 2026 07:21:14 +0000
+Received: by mail-pj2-x0f.google.com with SMTP id 98e67ed59e1d1-3a48e359e0fso651119a91.3
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 29 Sep 2026 00:21:12 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20251104; t=1790666413; x=1791271213; darn=lists.infradead.org;
-        h=content-type:cc:to:from:subject:message-id:references:mime-version
-         :in-reply-to:date:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=HbIc6++sPj09TlRBwYu0sM7sUIcTfhDOiHM+40cDviI=;
-        b=bnRF14ZrZNnXBFFLuVDXuG38P3D++DT+BULmYMDwtXVkBGuyzgoVLPXcWikWnDWE6Z
-         FWZfXXS4Q4e08gxRltBAerDzpud58UWdCmKfc7csmwmiorDF7OcZlErMDHSxJq9h+jEU
-         yXeonwhsHJX0QObBQeE15yhmohrLxYAC2R6V5NlZxlCG7L9aFHF9U3fGSuVI7JA1LGXQ
-         gjgrlTqK5zJzXMnKkDxJHLqPO+nUh2VZnD8Os2x/dfMYo+w7UggyByO8O6SMdA+wjbPs
-         zXIAn2G/1yiFF2pJknOpx9K3SR6tAc+b8QXhjwOZ7lKHpzsGqmcVwKr4cBTvsSkU0tz+
-         cDcw==
+        d=gmail.com; s=20251104; t=1790666472; x=1791271272; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
+        bh=sJVHdovO8wYi2ya3zic+FBCx84rgCtsdjBQID1blqec=;
+        b=jEfpxO4No0742JDM35MsZdftWsVVYU+m6/qNz5K6ylytTx5mDj81Fma7nJAljUc5+5
+         CRfecSxAP9PR90JoY1NSRUxlVRseX1A20grfneyRw83UWMZTyx8gmJUghWs0zSZzueIN
+         FQuiiF51iADHhE1lusGV4WdJwHKKtGvFeRsrLqLwqt8gKeELbYUdkYLUYHcKSgKdcPaX
+         zMg7t1qT5vgDuXFszBOS23r3eJT0jGH0R1y+f3M3AZ55gMn9hL8KMcQuZ3HO1EZ5NAT4
+         YeSOwg3oN0w/kd+zxIm8qkgYcy9at4/IuaBHsYiNfA/yGnVEtS7WQVF1R24YdiEMORm0
+         rqRw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1790666413; x=1791271213;
-        h=content-type:cc:to:from:subject:message-id:references:mime-version
-         :in-reply-to:date:x-gm-message-state:from:to:cc:subject:date
+        d=1e100.net; s=20260707; t=1790666472; x=1791271272;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
          :message-id:reply-to:content-type;
-        bh=HbIc6++sPj09TlRBwYu0sM7sUIcTfhDOiHM+40cDviI=;
-        b=uVE5Gf8bla0WiTP0j7tkT9+iZg+jZMIo78X2SJgs1PEsS4HM00LF1es6Jk4Yu4lUan
-         bC9qfvX9jT/xmaYggdDKEtwambKwRHQ7VavL43AZ64/JwKjkkKFMow6CNyjs+HMEOxfo
-         wbo1s+HuiptwNLU+2qhKMdWsxLTvbDDvG3oUP5HxK5aPWFC6cqRFCxGJ8eZao0QShQRk
-         8m1+bH3Be+Ok+yJbELfUczncO365ALxLTodYcyrtFPvMAaOeqWAR1SESCWr9gniYr1B6
-         SoUT4pegYC7UyslWrwuG9sLjjQkVo9VUEVLsZ3GjJPTD/TBMiB1+ckyIgGsDqpAzPssZ
-         Pj9g==
-X-Forwarded-Encrypted: i=1; AKwUvByVGgNJGIOO9VEF72DU9Pvdw6QT/G+yu/UjOy6sEQIuitF+SG7PfHt9zqYBVRmtcFOu4cp4O9o2QtcPVoedU75+@lists.infradead.org
-X-Gm-Message-State: AFq9FYIyvJJOIEhxZvnmyOf8qchJ7in1QAHOUwtlbsklrKLswfyjYwn6
-	c6IuLI49BDqEw91oZEbqDRSQIMJSxkjyzLtn+t3ByleW0OqclcTdlq9Fyjhf95IjBhiofh82JDu
-	GyA==
-X-Received: from pgte15.prod.google.com ([2002:a65:688f:0:b0:cc7:cb66:8ded])
- (user=praan job=prod-delivery.src-stubby-dispatcher) by 2002:a17:902:f705:b0:2df:8aea:7d99
- with SMTP id d9443c01a7336-2df8aea88aemr111556005ad.59.1790666412570; Tue, 29
- Sep 2026 00:20:12 -0700 (PDT)
-Date: Tue, 29 Sep 2026 07:19:49 +0000
-In-Reply-To: <20260929071950.2710070-1-praan@google.com>
-Mime-Version: 1.0
-References: <20260929071950.2710070-1-praan@google.com>
-X-Mailer: git-send-email 2.56.0.rc1.315.gc6ed9934b7-goog
-Message-ID: <20260929071950.2710070-9-praan@google.com>
-Subject: [RFC PATCH v1 8/9] iommu/arm-smmu-v3: Inherit the ASID/VMID of
- restored domains
-From: Pranjal Shrivastava <praan@google.com>
-To: iommu@lists.linux.dev, Will Deacon <will@kernel.org>, 
-	Jason Gunthorpe <jgg@nvidia.com>
-Cc: Robin Murphy <robin.murphy@arm.com>, Joerg Roedel <joro@8bytes.org>, 
-	Nicolin Chen <nicolinc@nvidia.com>, Kevin Tian <kevin.tian@intel.com>, 
-	Samiullah Khawaja <skhawaja@google.com>, David Matlack <dmatlack@google.com>, 
-	Vipin Sharma <vipinsh@google.com>, Mostafa Saleh <smostafa@google.com>, 
-	Daniel Mentz <danielmentz@google.com>, Pasha Tatashin <pasha.tatashin@soleen.com>, 
-	Pratyush Yadav <pratyush@kernel.org>, linux-arm-kernel@lists.infradead.org, 
-	kexec@lists.infradead.org, linux-kernel@vger.kernel.org, 
-	Pranjal Shrivastava <praan@google.com>
-Content-Type: text/plain; charset="UTF-8"
+        bh=sJVHdovO8wYi2ya3zic+FBCx84rgCtsdjBQID1blqec=;
+        b=0RhGConhWudL0TknvyhNnA1navM8PY9PtB8Bd9o/XTfLxr7vUpfm0/uZjwnJueef2n
+         4NN+rKfeouO7hb7x4cIcUbjyya/Sd2EsiczJDZ8JAkDzg+TLT1p9mR+tO8CYGHHvaSOA
+         gYla5D9WZ3TverDpjmVgYCf+nrmXXkYPCI4opwKRbCzDPdYr27CH/4cMBvL5d68aMaCw
+         WzzeK/w9Y7X2hYdwJNbbc0CXDylAlfFbo+x7Wqd5MfYMNa7FEnXC2i4JEbd+1Zi2VkNB
+         3CwLrO0LLwVp8ws3+yJndGBezao9j8MMMDfvpYysn+h+mLIae2bhD/1eG0EndUEILJYj
+         C75Q==
+X-Forwarded-Encrypted: i=1; AKwUvBwHT7XAMTaVsgBsH3/fb2oMXdeJRvWmK9JmrxX+C4Wg3E3KJrbLJBPx/UV+nFEVPlniqsoBVypDazdc2XYzwgYC@lists.infradead.org
+X-Gm-Message-State: AFq9FYJDcqyWrbeIlKqlYwNmP1TcYkQZzeNL+7ZAsPx7ZHty5it9RA3D
+	CNHpPbcafyq04g24Gcmr0UrhV2QqKpAUZMMVTj7CXQ6X9iI1871OoYD0
+X-Gm-Gg: AYBFou2QkNBjoZY2t01Bgk4IsD5dSwDbRzR8hNRNt/teQCr/mlV1jBeH2ZT5k3Ftg1o
+	Te5rAv6osl37vm0HM9iZ9/mw0KdgqOXWOxWVqYne+ET6mOXdV/Hhb5FA7jiEQ7ak4aCiE2xBv2T
+	r6nmge7k4wPD2miDtirrMVj2+aUBotN/u1eaUzWV9bOSUtnhF1r4pOrrNSQtbMQ6LDs+uB4ZVLt
+	33Dz8h2IQP7fYVrSKNRByYFiALR/Mtj4moS7y4cNk04GdPWl7hja3M04LFnE8yGQTN58vpxSljw
+	Tl4WeYo2QQLUHp73uwtVPiIxG7wDbcrCK4oJLyoguLslcXeIS2T/hV4+MCY24J/5WlXQCKfrfu0
+	k6w/Cbul+50+26PAEWrPLpB0ACnMRBAgpgb+2N5Ldo6/SHnRu5vvDgGe7VXCnjuJkzVSRRF3woF
+	PV0+G1Ai9dsptjA4kSL21AONva2QgSDboycu87KeVlYi7eRGNJAW+FazxIQxJkYP2Eo9E/SAF0p
+	ST9ULOh90cuB+QVJ3N2OF34QgzYveSfVFjprggZ8DLCcU80yNqsj3Zx+CnfaY0=
+X-Received: by 2002:a17:90b:17c3:b0:3a0:bfaf:2ae with SMTP id 98e67ed59e1d1-3a0bfaf039bmr9440530a91.43.1790666472157;
+        Tue, 29 Sep 2026 00:21:12 -0700 (PDT)
+Received: from localhost.localdomain (60-250-196-139.hinet-ip.hinet.net. [60.250.196.139])
+        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-3a497edd76dsm3833931a91.7.2026.09.29.00.21.09
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Tue, 29 Sep 2026 00:21:11 -0700 (PDT)
+From: Joey Lu <a0987203069@gmail.com>
+To: sboyd@kernel.org
+Cc: ychuang3@nuvoton.com,
+	schung@nuvoton.com,
+	yclu4@nuvoton.com,
+	bmasney+clk@redhat.com,
+	jbrunet+clk@baylibre.com,
+	linux-arm-kernel@lists.infradead.org,
+	linux-clk@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	Joey Lu <a0987203069@gmail.com>
+Subject: [PATCH 0/1] clk: nuvoton: ma35d1-divider: use direct formula instead of divider table
+Date: Tue, 29 Sep 2026 15:21:05 +0800
+Message-ID: <20260929072106.175202-1-a0987203069@gmail.com>
+X-Mailer: git-send-email 2.43.0
+MIME-Version: 1.0
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260929_002014_525483_E73C03BC 
-X-CRM114-Status: GOOD (  19.50  )
+X-CRM114-CacheID: sfid-20260929_002113_232826_D09261DC 
+X-CRM114-Status: UNSURE (   8.90  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -98,198 +104,26 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The IOMMU core restores a preserved domain by allocating a new paging
-domain around the preserved page table and attaching it to the restored
-device. The new domain gets a new ASID/VMID though, while the device is
-still doing DMA through the preserved CD/STE.
+The MA35D1 ADC clock divider register implements a simple closed-form
+relation, rate = parent_rate / (2 * (N + 1)), but the driver models it
+by building a clk_div_table with one entry per possible divider value
+(up to 2^width entries) and feeding it through the generic
+divider_recalc_rate()/divider_determine_rate()/divider_get_val() helpers.
+Replace the table with direct arithmetic in recalc_rate()/determine_rate()/
+set_rate(), and drop the unused mask_bit mechanism, whose only call site
+passed a bitmask instead of a bit index, causing an out-of-range BIT()
+shift.
 
-Similar to the Intel driver reclaiming the preserved Domain ID, record
-the ASID/VMID in the attachment_id and let a restored domain inherit the
-live ASID/VMID on its first attach. Check the stage, the page table root
-and the ID against the live CD/STE, failing the attach on a mismatch.
+Joey Lu (1):
+  clk: nuvoton: ma35d1-divider: use direct formula instead of divider
+    table
 
-Signed-off-by: Pranjal Shrivastava <praan@google.com>
----
- .../arm/arm-smmu-v3/arm-smmu-v3-liveupdate.c  | 115 ++++++++++++++++++
- drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c   |   6 +
- drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.h   |   8 ++
- 3 files changed, 129 insertions(+)
+ drivers/clk/nuvoton/clk-ma35d1-divider.c | 73 +++++++++++-------------
+ drivers/clk/nuvoton/clk-ma35d1.c         |  2 +-
+ drivers/clk/nuvoton/clk-ma35d1.h         |  2 +-
+ 3 files changed, 36 insertions(+), 41 deletions(-)
 
-diff --git a/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3-liveupdate.c b/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3-liveupdate.c
-index 68652123d0e1..c0772bcb8d3a 100644
---- a/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3-liveupdate.c
-+++ b/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3-liveupdate.c
-@@ -273,6 +273,11 @@ int arm_smmu_preserve_device(struct device *dev,
- 	/* Link this master to the preserved IOMMU domain in the ABI */
- 	device_ser->domain_iommu_ser.domain_phys = virt_to_phys(domain_ser);
- 
-+	/* Record the ASID/VMID for the incoming kernel to cross-check */
-+	device_ser->domain_iommu_ser.attachment_id =
-+		smmu_domain->stage == ARM_SMMU_DOMAIN_S1 ?
-+			smmu_domain->cd.asid : smmu_domain->s2_cfg.vmid;
-+
- 	/* If it's not Stage-1, or the CD table isn't allocated, we're done */
- 	if (smmu_domain->stage != ARM_SMMU_DOMAIN_S1 ||
- 	    !arm_smmu_cdtab_allocated(&master->cd_table))
-@@ -781,4 +786,114 @@ int arm_smmu_liveupdate_restore_cd_tables(struct arm_smmu_master *master)
- 	return ret;
- }
- 
-+/* Hand over the reserved ASID/VMID, releasing the never programmed one */
-+static int arm_smmu_liveupdate_inherit_id(struct arm_smmu_domain *smmu_domain,
-+					  u32 id)
-+{
-+	struct arm_smmu_device *smmu = smmu_domain->smmu;
-+	int ret;
-+
-+	if (smmu_domain->stage == ARM_SMMU_DOMAIN_S1) {
-+		if (smmu_domain->cd.asid == id)
-+			return 0;
-+
-+		/* Only a reserved entry, which loads as NULL, can be taken */
-+		if (xa_load(&smmu->asid_map, id))
-+			return -EBUSY;
-+		ret = xa_err(xa_store(&smmu->asid_map, id, smmu_domain,
-+				      GFP_KERNEL));
-+		if (ret)
-+			return ret;
-+		xa_erase(&smmu->asid_map, smmu_domain->cd.asid);
-+		smmu_domain->cd.asid = id;
-+		return 0;
-+	}
-+
-+	if (smmu_domain->s2_cfg.vmid == id)
-+		return 0;
-+
-+	/* The vmid_map already holds @id, simply transfer its ownership */
-+	ida_free(&smmu->vmid_map, smmu_domain->s2_cfg.vmid);
-+	smmu_domain->s2_cfg.vmid = id;
-+	return 0;
-+}
-+
-+/*
-+ * Inherit the live ASID/VMID of a restored master, after checking that
-+ * @smmu_domain matches its live translation. Called before
-+ * arm_smmu_attach_prepare() builds the invalidation array.
-+ */
-+int arm_smmu_liveupdate_attach_restored(struct arm_smmu_master *master,
-+					struct arm_smmu_domain *smmu_domain)
-+{
-+	struct iommu_device_ser *dev_ser = dev_iommu_restored_state(master->dev);
-+	struct arm_smmu_device *smmu = master->smmu;
-+	struct pt_iommu_armv8_hw_info info;
-+	struct arm_smmu_ste *ste;
-+	u64 ste0, ttb, live_ttb;
-+	u32 id;
-+
-+	lockdep_assert_held(&arm_smmu_asid_lock);
-+
-+	if (!dev_ser || !iommu_domain_restored_state(&smmu_domain->domain))
-+		return 0;
-+
-+	ste = arm_smmu_get_step_for_sid(smmu, master->streams[0].id);
-+	ste0 = le64_to_cpu(ste->data[0]);
-+	if (!(ste0 & STRTAB_STE_0_V))
-+		return 0;
-+
-+	pt_iommu_armv8_hw_info(&smmu_domain->armv8pt, &info);
-+
-+	switch (FIELD_GET(STRTAB_STE_0_CFG, ste0)) {
-+	case STRTAB_STE_0_CFG_S1_TRANS: {
-+		struct arm_smmu_cd *cdptr;
-+		u64 cd0;
-+
-+		if (smmu_domain->stage != ARM_SMMU_DOMAIN_S1)
-+			goto err_mismatch;
-+
-+		cdptr = arm_smmu_get_cd_ptr(master, IOMMU_NO_PASID);
-+		if (!cdptr)
-+			goto err_mismatch;
-+
-+		cd0 = le64_to_cpu(cdptr->data[0]);
-+		if (!(cd0 & CTXDESC_CD_0_V))
-+			goto err_mismatch;
-+
-+		id = FIELD_GET(CTXDESC_CD_0_ASID, cd0);
-+		live_ttb = le64_to_cpu(cdptr->data[1]) & CTXDESC_CD_1_TTB0_MASK;
-+		ttb = info.ttb & CTXDESC_CD_1_TTB0_MASK;
-+		break;
-+	}
-+	case STRTAB_STE_0_CFG_S2_TRANS:
-+		if (smmu_domain->stage != ARM_SMMU_DOMAIN_S2)
-+			goto err_mismatch;
-+
-+		id = FIELD_GET(STRTAB_STE_2_S2VMID, le64_to_cpu(ste->data[2]));
-+		live_ttb = le64_to_cpu(ste->data[3]) & STRTAB_STE_3_S2TTB_MASK;
-+		ttb = info.ttb & STRTAB_STE_3_S2TTB_MASK;
-+		break;
-+	default:
-+		/* Nothing to inherit, nested STEs aren't restored (yet) */
-+		return 0;
-+	}
-+
-+	if (live_ttb != ttb || id != dev_ser->domain_iommu_ser.attachment_id)
-+		goto err_mismatch;
-+
-+	/* A shared restored domain inherits its ID on the first attach */
-+	if (!list_empty(&smmu_domain->devices) &&
-+	    id != (smmu_domain->stage == ARM_SMMU_DOMAIN_S1 ?
-+		   smmu_domain->cd.asid : smmu_domain->s2_cfg.vmid))
-+		goto err_mismatch;
-+
-+	return arm_smmu_liveupdate_inherit_id(smmu_domain, id);
-+
-+err_mismatch:
-+	dev_err(master->dev,
-+		"restored domain doesn't match the live translation\n");
-+	return -EINVAL;
-+}
-+
- #endif
-diff --git a/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c b/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c
-index 54c97ebc15b2..b371ea6b6009 100644
---- a/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c
-+++ b/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c
-@@ -3838,6 +3838,12 @@ static int arm_smmu_attach_dev(struct iommu_domain *domain, struct device *dev,
- 	 */
- 	mutex_lock(&arm_smmu_asid_lock);
- 
-+	ret = arm_smmu_liveupdate_attach_restored(master, smmu_domain);
-+	if (ret) {
-+		mutex_unlock(&arm_smmu_asid_lock);
-+		return ret;
-+	}
-+
- 	ret = arm_smmu_attach_prepare(&state, domain);
- 	if (ret) {
- 		mutex_unlock(&arm_smmu_asid_lock);
-diff --git a/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.h b/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.h
-index 0a88c0ec66ca..1b33f713f3b7 100644
---- a/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.h
-+++ b/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.h
-@@ -1214,6 +1214,8 @@ void arm_smmu_unpreserve(struct iommu_device *iommu,
- int arm_smmu_liveupdate_shutdown(struct arm_smmu_device *smmu);
- int arm_smmu_liveupdate_restore_strtab(struct arm_smmu_device *smmu);
- int arm_smmu_liveupdate_restore_cd_tables(struct arm_smmu_master *master);
-+int arm_smmu_liveupdate_attach_restored(struct arm_smmu_master *master,
-+					struct arm_smmu_domain *smmu_domain);
- #else
- static inline int arm_smmu_liveupdate_shutdown(struct arm_smmu_device *smmu)
- {
-@@ -1227,6 +1229,12 @@ static inline int arm_smmu_liveupdate_restore_cd_tables(struct arm_smmu_master *
- {
- 	return 0;
- }
-+static inline int
-+arm_smmu_liveupdate_attach_restored(struct arm_smmu_master *master,
-+				    struct arm_smmu_domain *smmu_domain)
-+{
-+	return 0;
-+}
- #endif
- 
- static inline void arm_smmu_domain_free(struct arm_smmu_domain *smmu_domain)
 -- 
-2.56.0.rc1.315.gc6ed9934b7-goog
+2.43.0
 
 
