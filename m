@@ -4,70 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C3176CA5FA7
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 29 Sep 2026 07:20:18 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5F0C3CA5FAE
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 29 Sep 2026 07:20:19 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:From:
 	Subject:Message-ID:References:Mime-Version:In-Reply-To:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=zsEL1hqxDCqTINf2p1QIsw3bFDSMrLfqSmLGHg9MBAA=; b=KoQRht9I4ksEGAoA7r3y/oWwXl
-	bXEaIMzti/jis38+RCPkFjG7TyTJ4qSE628l4XsDN9Pxb0WeCY2/Jo9XDi4MISHgLXrJIZIfOLSvT
-	LUWU+nciwAbf98jZn8BE3VvCWTBhaN1X+R02WOEgLnFKLCoZuRUsJ5hFPs9IC+IuZeD8DGXxIIC17
-	jI9AMB3X1UstcOuvCneHo0mz8GgztT1qufgAIlbJBjQc4e7amSDUDBuhofZ6UKZw5SekQw0pHdbeP
-	Ze2OQnvlglRD3yFRj/JHFGIGCpeyo62hL0gUWSPkF/cEVkgzhCPkiJUeePI70PXRgkFQEpJw0VbcT
-	18s7LTYQ==;
+	bh=wIkR6mQzFcjI9veWh5hOSNmg3hYrXJQMUzfvP9wEqgw=; b=leNVrkuDT268DFydNrTaY2Vvd8
+	kk2a9boD11kcz9+hXg4Qj5GloUBoSF9yagcKP/PqXYj/kLpGqxipYXWdB1VArhc5+GN2OMXO0i0X8
+	hNR40lHBHhDh4ihrfJFPX0JDvjUhguVzZQ+52Fz7SGY5r4jB5wkic5S4v4LEqXCwhdz9al0Ie2ZqY
+	zRKnClDtilT0CZX4nGPYS/SUFcxin666FxpyoEsrKj1OtWnVhGKu8cEtXuzXBqmF8eUgWRFPXfJaL
+	yizVJ21aHVKOjC+MwH9jDLwNTKqjw7LzstXDJX/aTCVqmL7sQPffTYwRX7pcXnyl+9HMBnqKwgoC1
+	RnEgKcBg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xBS8H-00000002aLt-1mQx;
+	id 1xBS8H-00000002aML-2Ksq;
 	Tue, 29 Sep 2026 07:20:09 +0000
-Received: from mail-pl1-x647.google.com ([2607:f8b0:4864:20::647])
+Received: from mail-pg1-x546.google.com ([2607:f8b0:4864:20::546])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xBS87-00000002aEc-3LMW
+	id 1xBS8A-00000002aGq-0TMd
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 29 Sep 2026 07:20:01 +0000
-Received: by mail-pl1-x647.google.com with SMTP id d9443c01a7336-2d6f80c76e6so32267225ad.3
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 29 Sep 2026 00:19:59 -0700 (PDT)
+	Tue, 29 Sep 2026 07:20:03 +0000
+Received: by mail-pg1-x546.google.com with SMTP id 41be03b00d2f7-cc1eb205d31so4456403a12.2
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 29 Sep 2026 00:20:01 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20251104; t=1790666399; x=1791271199; darn=lists.infradead.org;
+        d=google.com; s=20251104; t=1790666401; x=1791271201; darn=lists.infradead.org;
         h=content-type:cc:to:from:subject:message-id:references:mime-version
          :in-reply-to:date:from:to:cc:subject:date:message-id:reply-to
          :content-type;
-        bh=zsEL1hqxDCqTINf2p1QIsw3bFDSMrLfqSmLGHg9MBAA=;
-        b=sK1RVh8o2jyQnx+TC+XEnoBTBUzROoH3pE3IRt3zhUCPO9cVXtpc2+CbCy2X21w+05
-         ikcCTEbXQrFvw1UNyjMGHthjj0RWJuwiTJhGDmiecxhsHotjrgR4iPR5jrvxjBWVp5J9
-         O/sqZASKPxu1wXP+1UeZUwxIetleE7xbUkDv9mO0X4HrdWvQ9lnvcOVcNr2Wx5kKbAZk
-         XEEfJyPTbDWgcPm+Jm9a0e82HwwXzCaecZjSla4SWYXrUcddhKO3f6YYwVwRpxsNgVca
-         UjLJrfN9zbZst/Kq8gQrbT1tmddr4knTM1Y2F81GfhezHdmq9Trayeb1pv12ZciHtuE8
-         ahgQ==
+        bh=wIkR6mQzFcjI9veWh5hOSNmg3hYrXJQMUzfvP9wEqgw=;
+        b=PaKnIQ5101qOOoA0US91Hz7y19Yhv8SM6IMryuTF6mYBHtDBaKMaYR17eNCAxqAekK
+         RJybiylhRyZ6RF1kYFhT0gz1Xmxd4CvpBi3e4Cxb1LBE29t+ie4/jMFrPRissYN4M4TM
+         DHfhfvaaG+aVgXaQVBn8yoPLUJqo9JyGDTgDND8u2Ju0EbPhUNlHV6q1Y9CT3ONVRU/d
+         Ny0cU78BgnOhc1vHulGfYNT4UusxciX4A82m3uup1f+Hy0Gaoq2tJaTFSX+ilGkM3/z1
+         gm3o5NxdfTmWQZwv88mXa0k4WRilg39oP5brROdRDtJSsT/7KgHiiFTdI+GiPpwt2+kz
+         ZPRg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1790666399; x=1791271199;
+        d=1e100.net; s=20260707; t=1790666401; x=1791271201;
         h=content-type:cc:to:from:subject:message-id:references:mime-version
          :in-reply-to:date:x-gm-message-state:from:to:cc:subject:date
          :message-id:reply-to:content-type;
-        bh=zsEL1hqxDCqTINf2p1QIsw3bFDSMrLfqSmLGHg9MBAA=;
-        b=GS6nNzTEJJQvzffd12yl0f33MFKQaKystFMRy+V05zCN2C+u03+a4JfqotXUO0/5Lc
-         SXLUJQsv0JFlmwP1KkB/BamQr/kMGTUP5rgT+Chphg7pGfBO0WDbwBszxQXwcOeypkmF
-         4R52xOK7bcWAOyTB+fLVjuH3OVz7iB7T7U8k+Tq9QfDbo+ioeclWZgISz0SE+fTueRD8
-         cYWJWqpADV5b2IaYDnjietJM9cQGFrJKkIdneEfGyE2J2Nm65CWk9SVqhLSYYEY7m3fU
-         JU6SD30QRguSnwSs+bxn7+jyZ3YSAA1K90th1kKP9qRZrQ6ul4gAyJg/xTq0ZtmvjAl3
-         3CTg==
-X-Forwarded-Encrypted: i=1; AKwUvBygcv0Awzi3DEOwAFysrDoZpgQflppG+N7/ii3nJbKleXhV046RsL+gGbAsXekFAWs1JHTejAUlDuyZdaaCSiPK@lists.infradead.org
-X-Gm-Message-State: AFq9FYJh4moNLuYrRWnIvqZcwosw6qr3Zri9lstf7w152YAbLKCbJjO6
-	Pw3DkWs6d/Ispl8D+Jz+aOIjYCciifAymXSh5qpj3UAL7uC8ygzaYBmsWFxZbM+4kdTOJN2Orq+
-	DCg==
-X-Received: from plem4.prod.google.com ([2002:a17:902:e404:b0:2df:ae84:5a1b])
- (user=praan job=prod-delivery.src-stubby-dispatcher) by 2002:a17:903:3846:b0:2dd:c100:7cc0
- with SMTP id d9443c01a7336-2df7dd6c369mr122068695ad.60.1790666398420; Tue, 29
- Sep 2026 00:19:58 -0700 (PDT)
-Date: Tue, 29 Sep 2026 07:19:43 +0000
+        bh=wIkR6mQzFcjI9veWh5hOSNmg3hYrXJQMUzfvP9wEqgw=;
+        b=UnM9anQjHHeQuv/XSmGO1kCwcA9U1nreg0CzrRQqMuQcMKKsz/vIFFyXQbBVZxaiCt
+         A5dxkrBFYnFRSWeS/onX8TLRhDu9vfLdElnWPbSk86a0M02JuuFkBOdaV+/dCkFe5LBk
+         7AAZN1JYo0dL0pVn3hXD6I3xrzjUlf0Nw4w2r8ZMOSfXlluutoJ7uAVDKoXghurGrLVA
+         Fy9E4YFEhOGwIHeeI7LCM5rHv65HNoTYOGaoVrfKT8GEkxWeLe/PzInCpC+BiFLiosPA
+         F4BkdozXUNU9pWgdPMYbV3xlSPl7R6GVMhpB0DumEd9j5M1f9xZr0mJz991ga7uAFHWy
+         iq8w==
+X-Forwarded-Encrypted: i=1; AKwUvBybPSmLLTKtjQfYEh25HoXi6GX6gO79GUc63Jo+HCFzwVMW9MXz7AhBXux0PcoOgXEk80BFfiORtITw77X75QxX@lists.infradead.org
+X-Gm-Message-State: AFuF++k0PyM4r2OvBSNOq4dQPwYM4019VPHAC87zdB7ogu7UYhqmbNX8
+	DyplWHIcdCWRmzrK5suc+UorTCxkYV2if+7KwY67EOyRtib20YnaNxvL2IwuxDDWTuTKd6zSHpC
+	hlQ==
+X-Received: from pfjw16.prod.google.com ([2002:aa7:9a10:0:b0:87c:dd7e:8e68])
+ (user=praan job=prod-delivery.src-stubby-dispatcher) by 2002:a05:6a21:910c:b0:3dd:85a9:55ab
+ with SMTP id adf61e73a8af0-3de26db3402mr10807160637.36.1790666400760; Tue, 29
+ Sep 2026 00:20:00 -0700 (PDT)
+Date: Tue, 29 Sep 2026 07:19:44 +0000
 In-Reply-To: <20260929071950.2710070-1-praan@google.com>
 Mime-Version: 1.0
 References: <20260929071950.2710070-1-praan@google.com>
 X-Mailer: git-send-email 2.56.0.rc1.315.gc6ed9934b7-goog
-Message-ID: <20260929071950.2710070-3-praan@google.com>
-Subject: [RFC PATCH v1 2/9] iommu/arm-smmu-v3: Implement KHO preservation for STEs
+Message-ID: <20260929071950.2710070-4-praan@google.com>
+Subject: [RFC PATCH v1 3/9] iommu/arm-smmu-v3: Implement CD Table preservation
 From: Pranjal Shrivastava <praan@google.com>
 To: iommu@lists.linux.dev, Will Deacon <will@kernel.org>, 
 	Jason Gunthorpe <jgg@nvidia.com>
@@ -81,8 +81,8 @@ Cc: Robin Murphy <robin.murphy@arm.com>, Joerg Roedel <joro@8bytes.org>,
 	Pranjal Shrivastava <praan@google.com>
 Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260929_001959_870560_D09D4ED5 
-X-CRM114-Status: GOOD (  26.56  )
+X-CRM114-CacheID: sfid-20260929_002002_169952_A9D0C079 
+X-CRM114-Status: GOOD (  24.74  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -97,382 +97,242 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Introduce the foundation for SMMUv3 Live Update (LU) using the Kexec
-Handover (KHO) framework. Implement the preserve and preserve_device
-hooks to serialize SMMU & preserved masters' state for KHO, along with
-the respective unpreserve hooks.
+The core IOMMU Live Update framework preserves page tables pointed by the
+respective TTBs but the CD tables are expected to be preserved by the
+SMMUv3 driver.
 
-Since .preserve only runs for the first preserved device, preserve the
-L2 Stream Tables in .preserve_device, recording their tokens by L1 index.
+Extend the arm-smmu-v3 driver to preserve CD tables across a KHO with
+Live Update enabled. Currently, only support for preserving S1 CD tables
+exists since nested CD tables are auto-preserved as they reside in the
+guest memory. The current implementation doesn't support preservation at
+a PASID granularity due to the similar limitation in IOMMU LU core.
+
+Unpreserve the CD tables in .unpreserve_device.
 
 Signed-off-by: Pranjal Shrivastava <praan@google.com>
 ---
- drivers/iommu/arm/arm-smmu-v3/Makefile        |   1 +
- .../arm/arm-smmu-v3/arm-smmu-v3-liveupdate.c  | 277 ++++++++++++++++++
- drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c   |   7 +
- drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.h   |  14 +
- 4 files changed, 299 insertions(+)
- create mode 100644 drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3-liveupdate.c
+ .../arm/arm-smmu-v3/arm-smmu-v3-liveupdate.c  | 173 +++++++++++++++++-
+ 1 file changed, 164 insertions(+), 9 deletions(-)
 
-diff --git a/drivers/iommu/arm/arm-smmu-v3/Makefile b/drivers/iommu/arm/arm-smmu-v3/Makefile
-index 2bc52473d960..57db7621972c 100644
---- a/drivers/iommu/arm/arm-smmu-v3/Makefile
-+++ b/drivers/iommu/arm/arm-smmu-v3/Makefile
-@@ -3,6 +3,7 @@ obj-$(CONFIG_ARM_SMMU_V3) += arm_smmu_v3.o
- arm_smmu_v3-y := arm-smmu-v3.o
- arm_smmu_v3-$(CONFIG_ARM_SMMU_V3_IOMMUFD) += arm-smmu-v3-iommufd.o
- arm_smmu_v3-$(CONFIG_ARM_SMMU_V3_SVA) += arm-smmu-v3-sva.o
-+arm_smmu_v3-$(CONFIG_IOMMU_LIVEUPDATE) += arm-smmu-v3-liveupdate.o
- arm_smmu_v3-$(CONFIG_ARM_SMMU_V3_KEXEC) += arm-smmu-v3-kexec.o
- arm_smmu_v3-$(CONFIG_CRASH_DUMP) += arm-smmu-v3-kdump.o
- arm_smmu_v3-$(CONFIG_TEGRA241_CMDQV) += tegra241-cmdqv.o
 diff --git a/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3-liveupdate.c b/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3-liveupdate.c
-new file mode 100644
-index 000000000000..515a266ac22e
---- /dev/null
+index 515a266ac22e..38b9d4e4ab4d 100644
+--- a/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3-liveupdate.c
 +++ b/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3-liveupdate.c
-@@ -0,0 +1,277 @@
-+// SPDX-License-Identifier: GPL-2.0
-+/*
-+ * Copyright (C) 2026 Google LLC
-+ * Author: Pranjal Shrivastava <praan@google.com>
-+ */
-+
-+#include <linux/dma-mapping.h>
-+#include <linux/iommu.h>
-+#include <linux/iommu-liveupdate.h>
-+#include <linux/kexec_handover.h>
-+#include "arm-smmu-v3.h"
-+
-+#ifdef CONFIG_IOMMU_LIVEUPDATE
-+static u64 *arm_smmu_l2_strtab_states(struct arm_smmu_device *smmu)
+@@ -11,6 +11,114 @@
+ #include "arm-smmu-v3.h"
+ 
+ #ifdef CONFIG_IOMMU_LIVEUPDATE
++static int arm_smmu_preserve_cd_table_linear(struct arm_smmu_master *master,
++					     struct iommu_device_ser *device_ser)
 +{
-+	struct iommu_hw_ser *iommu_ser = iommu_preserved_state(&smmu->iommu);
-+
-+	return phys_to_virt(iommu_ser->smmuv3.l2_strtab_lu_states_phys);
-+}
-+
-+static bool arm_smmu_l2_strtab_in_use(struct arm_smmu_device *smmu, u32 idx)
-+{
-+	struct rb_node *node;
-+
-+	lockdep_assert_held(&smmu->streams_mutex);
-+
-+	for (node = rb_first(&smmu->streams); node; node = rb_next(node)) {
-+		struct arm_smmu_stream *stream =
-+			rb_entry(node, struct arm_smmu_stream, node);
-+
-+		if (stream->master->preserved &&
-+		    arm_smmu_strtab_l1_idx(stream->id) == idx)
-+			return true;
-+	}
-+	return false;
-+}
-+
-+/* Unpreserve the L2 tables of the first @num_streams, unless still in use */
-+static void arm_smmu_unpreserve_l2_strtabs(struct arm_smmu_master *master,
-+					   unsigned int num_streams)
-+{
-+	struct arm_smmu_device *smmu = master->smmu;
-+	struct arm_smmu_strtab_cfg *cfg = &smmu->strtab_cfg;
-+	u64 *l2_states;
-+	unsigned int i;
-+
-+	if (!(smmu->features & ARM_SMMU_FEAT_2_LVL_STRTAB))
-+		return;
-+
-+	l2_states = arm_smmu_l2_strtab_states(smmu);
-+
-+	mutex_lock(&smmu->streams_mutex);
-+	for (i = 0; i < num_streams; i++) {
-+		u32 idx = arm_smmu_strtab_l1_idx(master->streams[i].id);
-+		dma_addr_t l2_dma;
-+
-+		if (!l2_states[idx] || arm_smmu_l2_strtab_in_use(smmu, idx))
-+			continue;
-+
-+		l2_dma = le64_to_cpu(cfg->l2.l1tab[idx].l2ptr) & STRTAB_L1_DESC_L2PTR_MASK;
-+		dmam_unpreserve_coherent_allocation(smmu->dev, cfg->l2.l2ptrs[idx],
-+						    sizeof(struct arm_smmu_strtab_l2),
-+						    l2_dma, l2_states[idx]);
-+		l2_states[idx] = 0;
-+	}
-+	mutex_unlock(&smmu->streams_mutex);
-+}
-+
-+/* Preserve the L2 tables holding the STEs of @master */
-+static int arm_smmu_preserve_l2_strtabs(struct arm_smmu_master *master)
-+{
-+	struct arm_smmu_device *smmu = master->smmu;
-+	struct arm_smmu_strtab_cfg *cfg = &smmu->strtab_cfg;
-+	u64 *l2_states;
-+	unsigned int i;
++	struct device *dev = master->smmu->dev;
++	struct arm_smmu_ctx_desc_cfg *cd_table = &master->cd_table;
++	u32 size = cd_table->linear.num_ents * sizeof(struct arm_smmu_cd);
++	u64 state;
 +	int ret;
 +
-+	if (!(smmu->features & ARM_SMMU_FEAT_2_LVL_STRTAB))
++	ret = dma_preserve_coherent_allocation(dev, cd_table->linear.table,
++					       size, cd_table->cdtab_dma, &state);
++	if (ret)
++		return ret;
++
++	device_ser->smmuv3.l1_cdtab_lu_state = state;
++	device_ser->smmuv3.num_l2_cdtables = 0;
++
++	return 0;
++}
++
++static int arm_smmu_preserve_cd_table_2lvl(struct arm_smmu_master *master,
++					   struct iommu_device_ser *device_ser)
++{
++	struct device *dev = master->smmu->dev;
++	struct arm_smmu_ctx_desc_cfg *cd_table = &master->cd_table;
++	u32 l1size = cd_table->l2.num_l1_ents * sizeof(struct arm_smmu_cdtab_l1);
++	u32 num_l2 = 0;
++	u64 *l2_states;
++	u64 state;
++	int ret, i;
++
++	ret = dma_preserve_coherent_allocation(dev, cd_table->l2.l1tab,
++					       l1size, cd_table->cdtab_dma, &state);
++	if (ret)
++		return ret;
++
++	device_ser->smmuv3.l1_cdtab_lu_state = state;
++
++	for (i = 0; i < cd_table->l2.num_l1_ents; i++) {
++		if (cd_table->l2.l2ptrs[i])
++			num_l2++;
++	}
++
++	device_ser->smmuv3.num_l2_cdtables = num_l2;
++	if (!num_l2)
 +		return 0;
 +
-+	l2_states = arm_smmu_l2_strtab_states(smmu);
++	l2_states = kho_alloc_preserve(sizeof(*l2_states) * num_l2);
++	if (IS_ERR(l2_states)) {
++		ret = PTR_ERR(l2_states);
++		goto err_unpreserve_cd_l1;
++	}
 +
-+	for (i = 0; i < master->num_streams; i++) {
-+		u32 idx = arm_smmu_strtab_l1_idx(master->streams[i].id);
++	device_ser->smmuv3.l2_cdtab_lu_states_phys = virt_to_phys(l2_states);
++	num_l2 = 0;
++
++	for (i = 0; i < cd_table->l2.num_l1_ents; i++) {
 +		dma_addr_t l2_dma;
 +
-+		if (l2_states[idx])
++		if (!cd_table->l2.l2ptrs[i])
 +			continue;
 +
-+		l2_dma = le64_to_cpu(cfg->l2.l1tab[idx].l2ptr) & STRTAB_L1_DESC_L2PTR_MASK;
-+		ret = dmam_preserve_coherent_allocation(smmu->dev,
-+						cfg->l2.l2ptrs[idx],
-+						sizeof(struct arm_smmu_strtab_l2),
-+						l2_dma, &l2_states[idx]);
-+		if (ret) {
-+			arm_smmu_unpreserve_l2_strtabs(master, i);
-+			return ret;
++		l2_dma = le64_to_cpu(cd_table->l2.l1tab[i].l2ptr) & CTXDESC_L1_DESC_L2PTR_MASK;
++		ret = dma_preserve_coherent_allocation(dev, cd_table->l2.l2ptrs[i],
++						       sizeof(struct arm_smmu_cdtab_l2),
++						       l2_dma, &state);
++		if (ret)
++			goto err_free_cd_l2_states;
++
++		l2_states[num_l2++] = state;
++	}
++
++	return 0;
++
++err_free_cd_l2_states:
++	for (i = i - 1; i >= 0; i--) {
++		if (cd_table->l2.l2ptrs[i]) {
++			num_l2--;
++			dma_unpreserve_coherent_allocation(dev, l2_states[num_l2]);
 +		}
 +	}
-+	return 0;
++	kho_unpreserve_free(l2_states);
++err_unpreserve_cd_l1:
++	dma_unpreserve_coherent_allocation(dev, device_ser->smmuv3.l1_cdtab_lu_state);
++	return ret;
 +}
 +
-+int arm_smmu_preserve_device(struct device *dev,
-+				    struct iommu_device_ser *device_ser)
++static void arm_smmu_unpreserve_cd_table(struct arm_smmu_master *master,
++					 struct iommu_device_ser *device_ser)
 +{
-+	struct arm_smmu_master *master = dev_iommu_priv_get(dev);
-+	struct iommu_domain *domain = iommu_get_domain_for_dev(dev);
-+	struct iommu_domain_ser *domain_ser;
-+	int ret;
-+
-+	/*
-+	 * We'd anyway configure abort STEs for non-preserved masters.
-+	 * TODO: Re-visit for identity once IOMMUFD noIOMMU is merged
-+	 */
-+	if (domain->type == IOMMU_DOMAIN_IDENTITY ||
-+	    domain->type == IOMMU_DOMAIN_BLOCKED)
-+		return 0;
-+
-+	if (domain->preserved_state) {
-+		domain_ser = domain->preserved_state;
-+	} else {
-+		/* Fallback for kernel-managed domains */
-+		ret = iommu_preserve_domain(domain, &domain_ser);
-+		if (ret)
-+			return ret;
-+	}
-+
-+	/* Link this master to the preserved IOMMU domain in the ABI */
-+	device_ser->domain_iommu_ser.domain_phys = virt_to_phys(domain_ser);
-+
-+	ret = arm_smmu_preserve_l2_strtabs(master);
-+	if (ret)
-+		return ret;
-+
-+	/* Mark the master as preserved to track state across disable */
-+	master->preserved = true;
-+
-+	/*
-+	 * TODO: Preserve CD tables for Stage-1 domains here using
-+	 * dmam_preserve_allocation_attrs() on master->cd_table.
-+	 */
-+
-+	return 0;
-+}
-+
-+void arm_smmu_unpreserve_device(struct device *dev,
-+				struct iommu_device_ser *device_ser)
-+{
-+	struct arm_smmu_master *master = dev_iommu_priv_get(dev);
-+
-+	if (!master->preserved)
-+		return;
-+
-+	master->preserved = false;
-+	arm_smmu_unpreserve_l2_strtabs(master, master->num_streams);
-+}
-+
-+static int arm_smmu_preserve_strtab_2lvl(struct arm_smmu_device *smmu,
-+					 struct iommu_hw_ser *iommu_ser)
-+{
-+	struct arm_smmu_strtab_cfg *cfg = &smmu->strtab_cfg;
-+	u32 l1size = cfg->l2.num_l1_ents * sizeof(struct arm_smmu_strtab_l1);
++	struct device *dev = master->smmu->dev;
++	u32 num_l2 = device_ser->smmuv3.num_l2_cdtables;
 +	u64 *l2_states;
-+	u64 state;
-+	int ret;
-+
-+	/* Preserve the L1 Stream table */
-+	ret = dmam_preserve_coherent_allocation(smmu->dev, cfg->l2.l1tab,
-+						l1size, cfg->l2.l1_dma, &state);
-+	if (ret) {
-+		dev_err(smmu->dev, "L1 table preservation failed\n");
-+		return ret;
-+	}
-+	iommu_ser->smmuv3.l1_strtab_lu_state = state;
-+
-+	/* The L2 tables are preserved along with the masters using them */
-+	l2_states = kho_alloc_preserve(sizeof(*l2_states) * cfg->l2.num_l1_ents);
-+	if (IS_ERR(l2_states)) {
-+		dmam_unpreserve_coherent_allocation(smmu->dev, cfg->l2.l1tab,
-+						    l1size, cfg->l2.l1_dma, state);
-+		return PTR_ERR(l2_states);
-+	}
-+
-+	iommu_ser->smmuv3.l2_strtab_lu_states_phys = virt_to_phys(l2_states);
-+	return 0;
-+}
-+
-+static void arm_smmu_unpreserve_strtab_2lvl(struct arm_smmu_device *smmu,
-+					    struct iommu_hw_ser *iommu_ser)
-+{
-+	struct arm_smmu_strtab_cfg *cfg = &smmu->strtab_cfg;
-+	u32 l1size = cfg->l2.num_l1_ents * sizeof(struct arm_smmu_strtab_l1);
-+	u64 *l2_states = phys_to_virt(iommu_ser->smmuv3.l2_strtab_lu_states_phys);
 +	u32 i;
 +
-+	for (i = 0; i < cfg->l2.num_l1_ents; i++) {
-+		dma_addr_t l2_dma;
++	if (!device_ser->smmuv3.l1_cdtab_lu_state)
++		return;
 +
-+		if (!l2_states[i])
-+			continue;
-+
-+		l2_dma = le64_to_cpu(cfg->l2.l1tab[i].l2ptr) & STRTAB_L1_DESC_L2PTR_MASK;
-+		dmam_unpreserve_coherent_allocation(smmu->dev, cfg->l2.l2ptrs[i],
-+						    sizeof(struct arm_smmu_strtab_l2),
-+						    l2_dma, l2_states[i]);
++	if (num_l2) {
++		l2_states = phys_to_virt(device_ser->smmuv3.l2_cdtab_lu_states_phys);
++		for (i = 0; i < num_l2; i++)
++			dma_unpreserve_coherent_allocation(dev, l2_states[i]);
++		kho_unpreserve_free(l2_states);
 +	}
-+	kho_unpreserve_free(l2_states);
-+
-+	dmam_unpreserve_coherent_allocation(smmu->dev, cfg->l2.l1tab, l1size,
-+					    cfg->l2.l1_dma,
-+					    iommu_ser->smmuv3.l1_strtab_lu_state);
++	dma_unpreserve_coherent_allocation(dev, device_ser->smmuv3.l1_cdtab_lu_state);
++	memset(&device_ser->smmuv3, 0, sizeof(device_ser->smmuv3));
 +}
 +
-+static int arm_smmu_preserve_strtab_linear(struct arm_smmu_device *smmu,
-+					   struct iommu_hw_ser *iommu_ser)
-+{
-+	struct arm_smmu_strtab_cfg *cfg = &smmu->strtab_cfg;
-+	u32 size = (1 << smmu->sid_bits) * sizeof(struct arm_smmu_ste);
-+	u64 state;
-+	int ret;
+ static u64 *arm_smmu_l2_strtab_states(struct arm_smmu_device *smmu)
+ {
+ 	struct iommu_hw_ser *iommu_ser = iommu_preserved_state(&smmu->iommu);
+@@ -105,17 +213,53 @@ int arm_smmu_preserve_device(struct device *dev,
+ {
+ 	struct arm_smmu_master *master = dev_iommu_priv_get(dev);
+ 	struct iommu_domain *domain = iommu_get_domain_for_dev(dev);
++	struct arm_smmu_domain *smmu_domain;
++	struct arm_smmu_ctx_desc_cfg *cd_table = &master->cd_table;
+ 	struct iommu_domain_ser *domain_ser;
+-	int ret;
++	int ret = 0;
 +
-+	/* STRTAB BASE can't be changed hitlessly, preserve the whole table */
-+	ret = dmam_preserve_coherent_allocation(smmu->dev, cfg->linear.table,
-+						size, cfg->linear.ste_dma,
-+						&state);
-+	if (ret)
-+		return ret;
-+
-+	iommu_ser->smmuv3.l1_strtab_lu_state = state;
-+	iommu_ser->smmuv3.l2_strtab_lu_states_phys = 0;
-+	return 0;
-+}
-+
-+static void arm_smmu_unpreserve_strtab_linear(struct arm_smmu_device *smmu,
-+					      struct iommu_hw_ser *iommu_ser)
-+{
-+	struct arm_smmu_strtab_cfg *cfg = &smmu->strtab_cfg;
-+	u32 size = (1 << smmu->sid_bits) * sizeof(struct arm_smmu_ste);
-+
-+	dmam_unpreserve_coherent_allocation(smmu->dev, cfg->linear.table, size,
-+					    cfg->linear.ste_dma,
-+					    iommu_ser->smmuv3.l1_strtab_lu_state);
-+}
-+
-+int arm_smmu_preserve(struct iommu_device *iommu,
-+		      struct iommu_hw_ser *iommu_ser)
-+{
-+	struct arm_smmu_device *smmu =
-+		container_of(iommu, struct arm_smmu_device, iommu);
-+
-+	/* Basic info */
-+	iommu_ser->smmuv3.phys_addr = smmu->base_phys;
-+	iommu_ser->token = smmu->base_phys;
-+	iommu_ser->type = IOMMU_ARM_SMMUV3;
-+	iommu_ser->smmuv3.strtab_base_cfg =
-+		readl_relaxed(smmu->base + ARM_SMMU_STRTAB_BASE_CFG);
-+
-+	/* We always implements 2-level when supported by HW */
-+	if (smmu->features & ARM_SMMU_FEAT_2_LVL_STRTAB)
-+		return arm_smmu_preserve_strtab_2lvl(smmu, iommu_ser);
-+	else
-+		return arm_smmu_preserve_strtab_linear(smmu, iommu_ser);
-+}
-+
-+void arm_smmu_unpreserve(struct iommu_device *iommu,
-+			 struct iommu_hw_ser *iommu_ser)
-+{
-+	struct arm_smmu_device *smmu =
-+		container_of(iommu, struct arm_smmu_device, iommu);
-+
-+	if (smmu->features & ARM_SMMU_FEAT_2_LVL_STRTAB)
-+		arm_smmu_unpreserve_strtab_2lvl(smmu, iommu_ser);
-+	else
-+		arm_smmu_unpreserve_strtab_linear(smmu, iommu_ser);
-+}
-+
-+#endif
-diff --git a/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c b/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c
-index 670487613459..ae4a1c98228c 100644
---- a/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c
-+++ b/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c
-@@ -4548,6 +4548,12 @@ static const struct iommu_ops arm_smmu_ops = {
- 	.def_domain_type	= arm_smmu_def_domain_type,
- 	.get_viommu_size	= arm_smmu_get_viommu_size,
- 	.viommu_init		= arm_vsmmu_init,
-+#ifdef CONFIG_IOMMU_LIVEUPDATE
-+	.preserve		= arm_smmu_preserve,
-+	.unpreserve		= arm_smmu_unpreserve,
-+	.preserve_device	= arm_smmu_preserve_device,
-+	.unpreserve_device	= arm_smmu_unpreserve_device,
-+#endif
- 	.user_pasid_table	= 1,
- 	.owner			= THIS_MODULE,
- 	.default_domain_ops = &(const struct iommu_domain_ops) {
-@@ -5807,6 +5813,7 @@ static int arm_smmu_device_probe(struct platform_device *pdev)
- 		return -EINVAL;
- 	}
- 	ioaddr = res->start;
-+	smmu->base_phys = ioaddr;
++	memset(&device_ser->smmuv3, 0, sizeof(device_ser->smmuv3));
  
  	/*
- 	 * Don't map the IMPLEMENTATION DEFINED regions, since they may contain
-diff --git a/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.h b/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.h
-index 69455eced889..7bce5bbe75e5 100644
---- a/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.h
-+++ b/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.h
-@@ -952,6 +952,7 @@ struct arm_smmu_device {
+ 	 * We'd anyway configure abort STEs for non-preserved masters.
+ 	 * TODO: Re-visit for identity once IOMMUFD noIOMMU is merged
++	 * TODO: Re-visit for CXL + ATS + Identity CD Table thing
++	 *       Can use cd_table_allocated() helper here?
+ 	 */
+ 	if (domain->type == IOMMU_DOMAIN_IDENTITY ||
+ 	    domain->type == IOMMU_DOMAIN_BLOCKED)
+ 		return 0;
  
- 	void __iomem			*base;
- 	void __iomem			*page1;
-+	phys_addr_t			base_phys;
- 
- #define ARM_SMMU_FEAT_2_LVL_STRTAB	(1 << 0)
- #define ARM_SMMU_FEAT_2_LVL_CDTAB	(1 << 1)
-@@ -1078,6 +1079,8 @@ struct arm_smmu_master {
- 	bool				ste_ats_enabled : 1;
- 	bool				stall_enabled;
- 	bool				ats_always_on;
-+	/* Preserved for a KHO Live Update */
-+	bool				preserved;
- 	unsigned int			ssid_bits;
- 	unsigned int			iopf_refcount;
- };
-@@ -1196,6 +1199,17 @@ extern struct mutex arm_smmu_asid_lock;
- 
- struct arm_smmu_domain *arm_smmu_domain_alloc(void);
- 
-+#ifdef CONFIG_IOMMU_LIVEUPDATE
-+int arm_smmu_preserve_device(struct device *dev,
-+			     struct iommu_device_ser *device_ser);
-+int arm_smmu_preserve(struct iommu_device *iommu,
-+		      struct iommu_hw_ser *iommu_ser);
-+void arm_smmu_unpreserve_device(struct device *dev,
-+				struct iommu_device_ser *device_ser);
-+void arm_smmu_unpreserve(struct iommu_device *iommu,
-+			 struct iommu_hw_ser *iommu_ser);
-+#endif
++	/*
++	 * For nested domains we only need to preserve STE.
++	 * The S2 parent domain's page tables are preserved via its own
++	 * iommu_preserve_domain() call during IOMMUFD's HWPT preservation.
++	 * Since the CD Table in this case lives in the guest memory, it is
++	 * naturally preserved by default across KHO when Live Update is enabled.
++	 * Thus, since CD isn't allocated via DMA allocator by the host driver
++	 * we must not attempt preserving CD here.
++	 */
++	if (domain->type == IOMMU_DOMAIN_NESTED)
++		goto skip_cd_preservation;
 +
- static inline void arm_smmu_domain_free(struct arm_smmu_domain *smmu_domain)
- {
- 	/* No concurrency with invalidation is possible at this point */
++	smmu_domain = to_smmu_domain(domain);
++
++	/* SVA domains cannot be preserved across KHO */
++	if (smmu_domain->stage == ARM_SMMU_DOMAIN_SVA) {
++		dev_err(dev, "SVA domains are NOT preserved across KHO\n");
++		return -EOPNOTSUPP;
++	}
++
++	/*
++	 * The IOMMU LU Core doesn't support preservation at a PASID
++	 * granularity yet, reject preservation to prevent leaving active
++	 * PASIDs pointing to unpreserved tables.
++	 */
++	if (arm_smmu_ssids_in_use(&master->cd_table)) {
++		dev_err(dev, "Preserving devices with active PASIDS is NOT supported w/ Live Update\n");
++		return -EOPNOTSUPP;
++	}
++
+ 	if (domain->preserved_state) {
+ 		domain_ser = domain->preserved_state;
+ 	} else {
+@@ -128,18 +272,28 @@ int arm_smmu_preserve_device(struct device *dev,
+ 	/* Link this master to the preserved IOMMU domain in the ABI */
+ 	device_ser->domain_iommu_ser.domain_phys = virt_to_phys(domain_ser);
+ 
+-	ret = arm_smmu_preserve_l2_strtabs(master);
++	/* If it's not Stage-1, or the CD table isn't allocated, we're done */
++	if (smmu_domain->stage != ARM_SMMU_DOMAIN_S1 ||
++	    !arm_smmu_cdtab_allocated(&master->cd_table))
++		goto skip_cd_preservation;
++
++	if (cd_table->s1fmt == STRTAB_STE_0_S1FMT_LINEAR)
++		ret = arm_smmu_preserve_cd_table_linear(master, device_ser);
++	else if (cd_table->s1fmt == STRTAB_STE_0_S1FMT_64K_L2)
++		ret = arm_smmu_preserve_cd_table_2lvl(master, device_ser);
++
++skip_cd_preservation:
+ 	if (ret)
+ 		return ret;
+ 
+-	/* Mark the master as preserved to track state across disable */
+-	master->preserved = true;
+-
+-	/*
+-	 * TODO: Preserve CD tables for Stage-1 domains here using
+-	 * dmam_preserve_allocation_attrs() on master->cd_table.
+-	 */
++	ret = arm_smmu_preserve_l2_strtabs(master);
++	if (ret) {
++		arm_smmu_unpreserve_cd_table(master, device_ser);
++		return ret;
++	}
+ 
++	/* Mark the master as preserved to track state during disable */
++	master->preserved = true;
+ 	return 0;
+ }
+ 
+@@ -153,6 +307,7 @@ void arm_smmu_unpreserve_device(struct device *dev,
+ 
+ 	master->preserved = false;
+ 	arm_smmu_unpreserve_l2_strtabs(master, master->num_streams);
++	arm_smmu_unpreserve_cd_table(master, device_ser);
+ }
+ 
+ static int arm_smmu_preserve_strtab_2lvl(struct arm_smmu_device *smmu,
 -- 
 2.56.0.rc1.315.gc6ed9934b7-goog
 
