@@ -4,83 +4,121 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6247ECA5FAC
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 29 Sep 2026 21:27:21 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E51C8CA5FA7
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 29 Sep 2026 21:29:37 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:References:To:Cc
-	:Subject:From:Message-Id:Date:Content-Type:Content-Transfer-Encoding:
-	Mime-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=tyCWPKcs7/u/awFV7vdEON0Q6Y8m/fWoaG5L+nCraDc=; b=gdR1JkSBKf7fXtx69XuuBVqkXK
-	ysgJhxsS99IiEqqKFhR/coNJWnRzjPXKYEQKNoiW6dms/vWv/IbB3V2zp39bNH1HpR8u1lXnLKGKQ
-	vscIKwnZSsEw2SbDONykHC4tgtAARvOpDcBQw3+ogmsG2mvGzjzPRy+5LesxG1pWCKoLchzkrXsrz
-	OqBZniAFKTli3r5PqX09R7ZrMJ8BDY8CB7TjqyTbEv352/LksagFkK2BHHaXSfLmFACG9ZdsV7TYz
-	y5hvCfeDuIRBIhS/donz6/G6BXVTcDcPtHnGMA9w2to92oTe8H1uSmDC/VtN/9eYHOBO1DYUoHkfs
-	vMO2EZOg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=EyT+xHf5qLUoWCtLPqQerMtkJAwK/AAEHgHwEUT5UR4=; b=wPUVQsfvshXyosEFtK+TL1OGXm
+	7lOs4JVU/Im6W57OTW9JrYD2QLOKPrL9cm5oyYShwwrsQTrQoa7Pt1Qp89pGc/WcWRoSGrXO2f7Bl
+	0SJeOE/IXQMqOjrK83Cy/ii7010mvWCBV5lMXkiXEWkFiUF865WCq7orqB3du53UrGXRHF37OvvRO
+	BzvwyA4QKgTMET90to8CWbeW8k8pudSbt7/udiD1o2Z/EqBi7cuA/rbFZ6cY8Rb8kCMqWp7FC6bpQ
+	aGNPl4LCfB8f2qsdb3Q2vedmrnvuzTY7pSAsiiazTXRhZ4SFrelUR/xkL8m+H5HLK84VQ0JixKeG5
+	Ss14QAjw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xBfM0-00000004ahQ-18j0;
-	Tue, 29 Sep 2026 21:27:12 +0000
-Received: from smtpout-03.galae.net ([185.246.85.4])
+	id 1xBfOE-00000004ayL-2Ifl;
+	Tue, 29 Sep 2026 21:29:30 +0000
+Received: from mail-pz2-x0f.google.com ([2607:f8b0:4864:3b::f])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xBfLx-00000004agz-01uy
+	id 1xBfOB-00000004axm-38AM
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 29 Sep 2026 21:27:11 +0000
-Received: from smtpout-01.galae.net (smtpout-01.galae.net [212.83.139.233])
-	by smtpout-03.galae.net (Postfix) with ESMTPS id 9F2604E410BD;
-	Tue, 29 Sep 2026 21:27:05 +0000 (UTC)
-Received: from mail.galae.net (mail.galae.net [212.83.136.155])
-	by smtpout-01.galae.net (Postfix) with ESMTPS id 527F9601BD;
-	Tue, 29 Sep 2026 21:27:05 +0000 (UTC)
-Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 42A3E103295D5;
-	Tue, 29 Sep 2026 23:26:44 +0200 (CEST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=dkim;
-	t=1790717218; h=from:subject:date:message-id:to:cc:mime-version:content-type:
-	 content-transfer-encoding:in-reply-to:references;
-	bh=tyCWPKcs7/u/awFV7vdEON0Q6Y8m/fWoaG5L+nCraDc=;
-	b=hEDAHwYakn5fRG4BUqIJO2Nc30p4PMlNz2fj/hv9u5oIYxFTNITCpy13PVRNtyY3TfIP4D
-	k7jJU1roWG08YKb+1I8DM4KpYXcjGdkvBVVnmNFMn5+EBn9jC6Uh0jXXV5PKV+GhHpJQsT
-	S9iWGlmrD0ZOKOKCkpyyRoR7Ao382WBj9MX7dbQoYWZHjooOEl+IQvBYTAOTixSWzsHJc9
-	e5d+9lXIl5FrPOnUx1GVztDB5fjD4JBjpieZrAZa/M4aJuOhVPcFY0tDHEAl5pfc5S6c9p
-	WxdZmPtYu1kfOZIBzqMvqblrCge95WF2E0SmMoPMsQqDkPM0SRajhSjVeMKaHg==
-Mime-Version: 1.0
-Content-Transfer-Encoding: quoted-printable
-Content-Type: text/plain; charset=UTF-8
-Date: Tue, 29 Sep 2026 23:26:43 +0200
-Message-Id: <DLS49QCTEANL.D6E2UDEOG4O9@bootlin.com>
-From: "Luca Ceresoli" <luca.ceresoli@bootlin.com>
-Subject: Re: [PATCH v2 2/7] drm: verisilicon: stop using deprecated
- devm_drm_of_get_bridge()
-Cc: "Arnd Bergmann" <arnd@kernel.org>, "Doug Anderson"
- <dianders@chromium.org>, "Hui Pu" <Hui.Pu@gehealthcare.com>, "Ian Ray"
- <ian.ray@gehealthcare.com>, "Thomas Petazzoni"
- <thomas.petazzoni@bootlin.com>, <dri-devel@lists.freedesktop.org>,
- <imx@lists.linux.dev>, <linux-arm-kernel@lists.infradead.org>,
- <linux-kernel@vger.kernel.org>, <linux-renesas-soc@vger.kernel.org>,
- "kernel test robot" <lkp@intel.com>
-To: "Icenowy Zheng" <zhengxingda@iscas.ac.cn>, "Luca Ceresoli"
- <luca.ceresoli@bootlin.com>, "Maarten Lankhorst"
- <maarten.lankhorst@linux.intel.com>, "Maxime Ripard" <mripard@kernel.org>,
- "Thomas Zimmermann" <tzimmermann@suse.de>, "David Airlie"
- <airlied@gmail.com>, "Simona Vetter" <simona@ffwll.ch>, "Frank Li"
- <Frank.Li@nxp.com>, "Sascha Hauer" <s.hauer@pengutronix.de>, "Pengutronix
- Kernel Team" <kernel@pengutronix.de>, "Fabio Estevam" <festevam@gmail.com>,
- "Andrzej Hajda" <andrzej.hajda@intel.com>, "Neil Armstrong"
- <neil.armstrong@linaro.org>, "Robert Foss" <rfoss@kernel.org>, "Laurent
- Pinchart" <Laurent.pinchart@ideasonboard.com>, "Jonas Karlman"
- <jonas@kwiboo.se>, "Jernej Skrabec" <jernej.skrabec@gmail.com>, "Dave
- Stevenson" <dave.stevenson@raspberrypi.com>, =?utf-8?q?Ma=C3=ADra_Canal?=
- <mcanal@igalia.com>, "Raspberry Pi Kernel Maintenance"
- <kernel-list@raspberrypi.com>, "Geert Uytterhoeven"
- <geert+renesas@glider.be>
-X-Mailer: aerc 0.22.0
-References: <20260929-drm-fix-of_get_bridge-build-regression-v2-0-6da431d8f180@bootlin.com> <20260929-drm-fix-of_get_bridge-build-regression-v2-2-6da431d8f180@bootlin.com> <e044caae8c2160d96a29073bb1e60efff5883513.camel@iscas.ac.cn>
-In-Reply-To: <e044caae8c2160d96a29073bb1e60efff5883513.camel@iscas.ac.cn>
-X-Last-TLS-Session-Version: TLSv1.3
+	Tue, 29 Sep 2026 21:29:29 +0000
+Received: by mail-pz2-x0f.google.com with SMTP id d2e1a72fcca58-85469d249c6so2913314b3a.1
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 29 Sep 2026 14:29:27 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=dama-to.20251104.gappssmtp.com; s=20251104; t=1790717367; x=1791322167; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:content-type:mime-version
+         :references:mail-followup-to:message-id:subject:cc:to:from:date:from
+         :to:cc:subject:date:message-id:reply-to:content-type;
+        bh=EyT+xHf5qLUoWCtLPqQerMtkJAwK/AAEHgHwEUT5UR4=;
+        b=u5wVk6+UtOT5OKAczLM+R5UkBmA8UpSqUvmYecJ69DTXVlLQOYBdwLnZUek0vJdnCo
+         eeQve+sxdFUhPbBps0jQYlD+1UVWzAc5YRvdRr7VZ22FD3uAOpS/7iwr7Tp8OY9g2HU3
+         KrDguf6Mq90oBRt+71PYQNPbXZq7vWiHd3brjyGd889NHHAmK1zjKuzxxlQXCrf6EJgz
+         bEjLS6W3rEp9KppYMF/y3zybyxDB19Ls+xQyTGDUSUOuHfF6gjaUdAdu6NL6cXYuN5X1
+         dYv0fgMkCxs8MgTXuUtGAuSViqHoXPvbQxrKQmK+ez5sQ9lgS8pcbhblLvuTlg4+hMrT
+         Ynbg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1790717367; x=1791322167;
+        h=in-reply-to:content-disposition:content-type:mime-version
+         :references:mail-followup-to:message-id:subject:cc:to:from:date
+         :x-gm-gg:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to:content-type;
+        bh=EyT+xHf5qLUoWCtLPqQerMtkJAwK/AAEHgHwEUT5UR4=;
+        b=U8pM+PnAu4/mdbTDB1Qt2t7Aav7atJfAJOPDHH7NxSReIcYizqgbi11zYvBLrU3voY
+         lxTE6qgXYM52DmDgsM+HQIysDTrY5G732wmLFzJKyn8YiSSoAqifG+eoNXeWtIDNaBmQ
+         h7FH5YMHra5qTU0pLsJgV8B8qldiQc8jmpq55N6syIWzYM5ArLrmnU8SDZA+NLLJhZ2s
+         QNKS/waZ+qadVzZ09G8n1uOkYnShI2Ca/GspJSe01yjjsU2EOnhGqw94Q3WWP+DvB0gI
+         9dcQ3PlItPGrlWsKBF3lDSyujASlA/bmnUZ8YKK888QZio7X9yNKA6rfEG89EjGJlOMk
+         JLMA==
+X-Forwarded-Encrypted: i=1; AKwUvBzEc0XeX36fpF5GzAI3TgIgIyPb9EYF4CBRbVlkJCrVoKJJr5xjgtQDS8UBIEXjQO2yvUPhJquSuCE3FA4cdm04@lists.infradead.org
+X-Gm-Message-State: AFuF++l+8swsbXbeXsbykg61d0CmjSn601gZhbrnj2/1u4mgfFAPoU/8
+	j6rX8U1kDCVTIoWvvDtii4zPQaGEnFChvvB7BNi26nucdPOq4sOavhf1D1FyVY6f+y8=
+X-Gm-Gg: AYBFou3XfEvb1/sU6aSatKCfEcspiP6z3RQuhQ3KXs19eA08eXcGp863TNorXTYsvbO
+	EI2/tLaZr8OLdDkW5fRmUYvjhlxsUmywZ/u3RlGhr1egD8qwNKsmaf03jon5w0hVfVtob40Y5i2
+	0qEzJ1ejjVR5UoJvu6VO5P8NMrHe7NSvdfMGMRelEsOtqRat6e90quaUvfU76uMLXHMoCEs2z26
+	5zvXZWu/QTfqeMitPZNYIBMb4QqXREXi+shr59YZq/S4ISRU+wYXoAhBNbRW9Y1m4GYZzcWK3EA
+	Xg47W0grE+Xik5iZEHgsYaikTjkMWPyblCXPZSUwx3TBkYY1RnwrbyXQHDx1TIYqE4Ec5/+vZ5x
+	g0FrqbOKAphUIk01PjAcmVhKc2ooWrQ5tedWN64SmSX5CGDVBWEbQLrGJ92DMUDuP1IkZ6bev08
+	U7zHc36w09dyKtEROcEzFFNK2X3Z64Jzaqxr6Pa/Bz9QvpRO0khdjC0J63avLdEh22zmLBceEp4
+	2COi4fxyALS
+X-Received: by 2002:a05:6a00:4186:b0:881:f5e1:6e7f with SMTP id d2e1a72fcca58-886c48b54bcmr338925b3a.31.1790717366754;
+        Tue, 29 Sep 2026 14:29:26 -0700 (PDT)
+Received: from localhost ([2a03:2880:2ff:57::])
+        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-8868866150bsm495163b3a.3.2026.09.29.14.29.25
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Tue, 29 Sep 2026 14:29:26 -0700 (PDT)
+Date: Tue, 29 Sep 2026 14:29:25 -0700
+From: Joe Damato <joe@dama.to>
+To: Frank.Li@oss.nxp.com
+Cc: Andrew Lunn <andrew+netdev@lunn.ch>,
+	"David S. Miller" <davem@davemloft.net>,
+	Eric Dumazet <edumazet@kernel.org>,
+	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
+	Chen-Yu Tsai <wens@kernel.org>,
+	Jernej Skrabec <jernej.skrabec@gmail.com>,
+	Samuel Holland <samuel@sholland.org>,
+	Bartosz Golaszewski <bartosz.golaszewski@oss.qualcomm.com>,
+	Andre Przywara <andre.przywara@arm.com>,
+	bui duc phuc <phucduc.bui@gmail.com>, Arnd Bergmann <arnd@arndb.de>,
+	Kees Cook <kees@kernel.org>, Li Youhong <liyouhong@kylinos.cn>,
+	Frank Li <Frank.Li@nxp.com>,
+	"open list:NETWORKING DRIVERS" <netdev@vger.kernel.org>,
+	"moderated list:ARM/Allwinner sunXi SoC support" <linux-arm-kernel@lists.infradead.org>,
+	"open list:ARM/Allwinner sunXi SoC support" <linux-sunxi@lists.linux.dev>,
+	open list <linux-kernel@vger.kernel.org>, vkoul@kernel.org,
+	imx@lists.linux.dev
+Subject: Re: [PATCH 1/1] net: allwinner: remove dmaengine_desc_free()
+Message-ID: <arwttakXqJndFXGe@devvm20253.cco0.facebook.com>
+Mail-Followup-To: Joe Damato <joe@dama.to>, Frank.Li@oss.nxp.com,
+	Andrew Lunn <andrew+netdev@lunn.ch>,
+	"David S. Miller" <davem@davemloft.net>,
+	Eric Dumazet <edumazet@kernel.org>,
+	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
+	Chen-Yu Tsai <wens@kernel.org>,
+	Jernej Skrabec <jernej.skrabec@gmail.com>,
+	Samuel Holland <samuel@sholland.org>,
+	Bartosz Golaszewski <bartosz.golaszewski@oss.qualcomm.com>,
+	Andre Przywara <andre.przywara@arm.com>,
+	bui duc phuc <phucduc.bui@gmail.com>, Arnd Bergmann <arnd@arndb.de>,
+	Kees Cook <kees@kernel.org>, Li Youhong <liyouhong@kylinos.cn>,
+	Frank Li <Frank.Li@nxp.com>,
+	"open list:NETWORKING DRIVERS" <netdev@vger.kernel.org>,
+	"moderated list:ARM/Allwinner sunXi SoC support" <linux-arm-kernel@lists.infradead.org>,
+	"open list:ARM/Allwinner sunXi SoC support" <linux-sunxi@lists.linux.dev>,
+	open list <linux-kernel@vger.kernel.org>, vkoul@kernel.org,
+	imx@lists.linux.dev
+References: <20260929190640.3516766-1-Frank.Li@oss.nxp.com>
+MIME-Version: 1.0
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20260929190640.3516766-1-Frank.Li@oss.nxp.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260929_142709_193845_BB35EBA6 
-X-CRM114-Status: GOOD (  17.01  )
+X-CRM114-CacheID: sfid-20260929_142927_931626_B84DA0FF 
+X-CRM114-Status: GOOD (  14.32  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -95,66 +133,22 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hello,
+On Tue, Sep 29, 2026 at 03:06:36PM -0400, Frank.Li@oss.nxp.com wrote:
+> From: Frank Li <Frank.Li@nxp.com>
+> 
+> dmaengine_desc_free() is designed for DMA_CTRL_REUSE. If DMA_CTRL_REUSE
+> is not set, dmaengine_desc_free() will return -EPERM.
+> 
+> 	if (!dmaengine_desc_test_reuse(desc))
+> 		return -EPERM;
+> 
+> So calling dmaengine_desc_free() does nothing.
+> dmaengine_terminate_(a)sync() will free all already allocated descriptors.
+> 
+> Signed-off-by: Frank Li <Frank.Li@nxp.com>
+> ---
+>  drivers/net/ethernet/allwinner/sun4i-emac.c | 5 +----
+>  1 file changed, 1 insertion(+), 4 deletions(-)
 
-On Tue Sep 29, 2026 at 4:42 PM CEST, Icenowy Zheng wrote:
-> =E5=9C=A8 2026-09-29=E4=BA=8C=E7=9A=84 15:39 +0200=EF=BC=8CLuca Ceresoli=
-=E5=86=99=E9=81=93=EF=BC=9A
->> devm_drm_of_get_bridge() is deprecated, switch to
->> of_drm_get_bridge_by_endpoint(). As of_drm_get_bridge_by_endpoint()
->> returns
->> a refcounted bridge, ensure it is put by using bridge.next_bridge.
->>
->> Fixes build failure when CONFIG_OF is disabled.
->>
->> Fixes: aa8a8c7e4641 ("drm/bridge: panel: move all code to
->> drm_panel.c")
->> Reported-by: Arnd Bergmann <arnd@kernel.org>
->> Closes:
->> https://lore.kernel.org/r/20260928161605.2271412-1-arnd@kernel.org
->> Reported-by: kernel test robot <lkp@intel.com>
->> Closes:
->> https://lore.kernel.org/oe-kbuild-all/202609291109.OIsGTysr-lkp@intel.co=
-m/
->> Closes:
->> https://lore.kernel.org/oe-kbuild-all/202609290408.BOs7sk55-lkp@intel.co=
-m/
->> Signed-off-by: Luca Ceresoli <luca.ceresoli@bootlin.com>
->
-> Checked the code in drm_bridge.c, and it looks like the lifetime of
-> next_bridge should be indirectly managed by devm when
-> devm_drm_bridge_alloc() successes and the next_bridge field assigned,
-> so the only explicit put needed here should be in the alloc failure
-> path.
-
-Exactly.
-
-I think vs_bridge_init() could be simplified a bit by moving the 'next =3D
-...;' statement (with error management trailer) to after
-devm_drm_bridge_alloc. This would avoid the explicit drm_bridge_put() call
-added by this patch.
-
-However for this regression fix I preferred to keep the diff minimal. The
-cleanup mentioned above can be done later.
-
-> Reviewed-by: Icenowy Zheng <zhengxingda@iscas.ac.cn>
-
-Thanks for reviewing!
-
->> Changes in v2:
->> - fix bridge reference leak on attach error path
->
-> It should be `bridge alloc error` instead of `attach error`, but I
-> don't know how to correct the error in the changelog, and anyway it
-> won't be part of the final commit.
-
-Ah, right, that's a copy-paste leftover. It's correct that it won't appear
-in the commit, so I won't sent a new iteration for this.
-
-Luca
-
---
-Luca Ceresoli, Bootlin
-Embedded Linux and Kernel engineering
-https://bootlin.com
+Reviewed-by: Joe Damato <joe@dama.to>
 
