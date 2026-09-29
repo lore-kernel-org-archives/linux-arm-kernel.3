@@ -4,79 +4,132 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 389C7CA5FA7
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 29 Sep 2026 19:05:32 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 299E1CA5FA7
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 29 Sep 2026 19:06:33 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Nv88YjBgWPkyMlbIFw3D64vb0Wb/Zhj8XiVMGXJB9BY=; b=t5YjXfgHGPAnEhnujslmr9UQY0
-	oODfGjap3gQKCjHEszZYjRgj1TfWzomu8wO1lCiWUpwJLpDd1hn0caTDqq/QcfxWIsJ8j7u3cSF7k
-	i7PkyERRUMwozudYWpuyAjyBD9PMOxlbsxKvjvSnuokH3pZo2vRgHf1nYf2h5jwHgQ6fMdQXA1QFF
-	ISg5P8wxfLrzinHwJfQMhqq7ujL0SM/MITmeSeLJAmr5GwQxmw89IZL9EUeDMCyvIQUcdArne/dmq
-	euIdd+asbk7ulS+2CqUKGHUbHwbKXqc4zknzeg5p2C3uIOwgRcbZzeQdeKTEkwXBvoZU24KAepSsm
-	PwMObrfw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Content-Type:
+	Content-Transfer-Encoding:Message-ID:Date:Subject:Cc:To:From:Reply-To:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=/BZnRrCw3xx5zyvxDwANSqHBJ3Jp43Yh2tibukRCdVk=; b=q011lQjED7RfVsVUWTTiOP+fLY
+	ZsgAVmT6+ZfxeDqdF2E/mz7o8//B3adfBMPwHGg5RtmL6iTPWPeF4Z3gPbIWtorQLm4P39IP6pMPl
+	ATm7DuyXYBIpqmVFV1Im9XEpzOTs0IymADEHwn5vRYc8JZMVtAj2oLBsh+YDIv6/FG2g+OsJYn2Fz
+	8raZoHWaKNkSQ9KOJJeNBxqRzTatr0MbbuhY18L8tua9Z65ZCWHG3/wgt+f3SyChF2MAURt/W5v18
+	ttRZd2TAy/uhuhxy4cGFB0SA1Sn+46+0JoWuqzm4/rcIbJfvbNEGANcIFK1yJ2AVFwzPE3lKjfyBG
+	LeX9n62w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xBd8n-00000004LBm-13Jy;
-	Tue, 29 Sep 2026 19:05:25 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1xBd9m-00000004LOj-267l;
+	Tue, 29 Sep 2026 19:06:26 +0000
+Received: from mail-norwayeastazon11013001.outbound.protection.outlook.com ([40.107.159.1] helo=OSPPR02CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xBd8b-00000004L9F-2XFZ
-	for linux-arm-kernel@bombadil.infradead.org;
-	Tue, 29 Sep 2026 19:05:13 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:MIME-Version
-	:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:Sender:Reply-To:
-	Content-Type:Content-ID:Content-Description;
-	bh=Nv88YjBgWPkyMlbIFw3D64vb0Wb/Zhj8XiVMGXJB9BY=; b=mCsiFFLSzj5xjeTNH8OxUyHXw1
-	lXl84Um556s0cVXJ62cPhdkAy494qdF25JsLacstazSLbY6n26Icoh1A2++wNFfnLt5/AYuWvVSSr
-	M08vdzFDxoK2snppDj840RMIdaXfff4NuQGg692R6JE4hd++zvYgqMNYxcblQnEnSnlPcmSfcXozO
-	pdTLPs8WsiAkBuHxaaCMnt9JajiUvImY2LQBklKvme3ZUfpTL0vjNix6SE6eohBTl3tjhKhUSwXon
-	b01mOSbMk1Cx0mUGNae/SeAW1Z+NSYXallS7V8Rslj1FWVip21XdFd/SWyLley6A/2KAv2GdUCDcQ
-	zTLyzJfQ==;
-Received: from out-236.mta0.migadu.com ([2001:41d0:1004:224b::ec] helo=mta0.migadu.com)
-	by desiato.infradead.org with esmtps (Exim 4.99.2 #2 (Red Hat Linux))
-	id 1xBd8Y-00000002zAE-2dgt
+	id 1xBd9k-00000004LNa-0KWy
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 29 Sep 2026 19:05:12 +0000
-X-Envelope-To: linux-arm-kernel@lists.infradead.org
-DKIM-Signature: a=rsa-sha256; bh=247TbFGHZJJ6jE6PJiCoKslPH4RF0ptzt/+kBBrIMSQ=;
- c=simple/simple; d=linux.dev;
- h=from:to:subject:date:message-id:mime-version:content-type; s=key1;
- t=1790708708; v=1; x=1791313508;
- b=IswLt6Ce+LHvQVDnTbAfk/Ubd/zvoY+lQbB0n/CSxs4zUj/KcVSF+x6Nm/sAfo959y+N+PhY
- 7NrGef+vH/BJfftKb0bVkqcanY4aBGJ3GOC2oNCVeuW2u4teEE/wGlPiks2PztQ1l2kWxjRIJ/Y
- aPanQpKbk3vOvpZKriUmPpXU=
-X-Envelope-To: linux-arm-kernel@lists.infradead.org
-Received: by smtp.migadu.com with ESMTPS id 2d3e416b882e3143;
-	Tue, 29 Sep 2026 19:05:07 +0000
-X-Mizu-Trace-ID: 2d3e416b882e3143
-X-Migadu-Flow: FLOW_OUT
-From: Fuad Tabba <fuad.tabba@linux.dev>
-To: Marc Zyngier <maz@kernel.org>
-Cc: kvmarm@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org,
-	Steffen Eiden <seiden@linux.ibm.com>,
-	Joey Gouly <joey.gouly@arm.com>,
-	Suzuki K Poulose <suzuki.poulose@arm.com>,
-	Oliver Upton <oupton@kernel.org>,
-	Zenghui Yu <yuzenghui@huawei.com>,
-	Yuchao Zhang <ndaugoing@gmail.com>,
-	Fuad Tabba <tabba@google.com>
-Subject: [PATCH v1 2/2] KVM: arm64: selftests: Add an ITS MOVALL test
-Date: Tue, 29 Sep 2026 20:04:52 +0100
-Message-Id: <e6bf4bc51a311df19866a0ee3e27970846257b70.1790708299.git.fuad.tabba@linux.dev>
-X-Mailer: git-send-email 2.39.5
-In-Reply-To: <cover.1790708299.git.fuad.tabba@linux.dev>
-References: <20260929093548.3598547-1-maz@kernel.org> <cover.1790708299.git.fuad.tabba@linux.dev>
-MIME-Version: 1.0
+	Tue, 29 Sep 2026 19:06:25 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=XK7mvc6GzPwjq+POLurKmIKIvaOUsgv0jbwLSC563VamKtOGT/tks2vAI2PMV4dZC8Ch2WYotZZS46GxsugdKMAuPl3XJf+NIE5o5Y2QXFEaDCOF/xny+i6IZjZpQbfLP4+qQH3fpnaCluFaTWfGoLj7wLDa+s/m91ln/OrCcRUvO4iDn9VnU6zXc92o3uFq1h5GH0Mt1tkdElF30b4BrgWUwsqTVOCFrBZHSpqeplZSlWI3pNAiMH1BSl4Chhxlm7R6Mj8Sj9zhiRXEYfQoEDUSZdOnIu5p9gTAaZgR06tafZeVYMKW/uM2svNbaoG7Vs9DHel+4zgjatkkI3RQsQ==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=/BZnRrCw3xx5zyvxDwANSqHBJ3Jp43Yh2tibukRCdVk=;
+ b=V8ymRLdIyEGOh7ZSH454+p02wNOalSOPO4EeoQtrH/bZrNUplwiocLkPSRAQMClO6RGx7BBuVi7YziEMDvbsnZKEHN1iKqlqRI4t0gUIdXgabIZacUCpR7MLSylDMJdUSOoPhPQE6hUyl+IIYsr5VrRz6INf14XSa9h39aXgON9nYVnZJcDJXc/fZnjGwKkNdIgEWhmrbH9MFcECGdr3UbCnTYkzMhrJIWMx5wBLszV/4+w2DOe9Fh5d34zG8PkiSvt8UUIzHX69y5p75CnXhLwSWqL7VFqTjWVDNmg1bx3thlf8Z7/iPj8UPCaEsur7GoxqzAMUzF4W1q6hti1RWw==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
+ dkim=pass header.d=oss.nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
+ s=selector1-NXP1-onmicrosoft-com;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=/BZnRrCw3xx5zyvxDwANSqHBJ3Jp43Yh2tibukRCdVk=;
+ b=Pq66I8r6ohkWvUXN4deO8cQUlHaziu78S1gOHECz4O4JLzyl2P/MqOeMMqL8Ua+Rzfuy18/DyJyYgeFCCXZ3hJMTcCcsxQ9VP3stYtl8tnHe0+h3OoJVLmD1O1pb3NdU7RSuc3+Vm4AdcthEdN4sfHNbDdqQ7Zz97oc0hj2Yc6S7U7fc+jR/ccA/AYMTYgrs8x50NE2MprbK0eLMEdgBaJ8zV42MDJvFS8qdXGK9BhHoiJEM42QMKC878PgOXrOuYk4a5oqUaj37o//sKsTYyT2iwT/COsmf4mP5oNYjMVoDfzPYr9NyGUVcLlM0GFEOPgTF8o4tfkj4COVG5wiajg==
+Authentication-Results: mx.microsoft.com 1; dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=oss.nxp.com;
+Received: from GV2PR04MB11799.eurprd04.prod.outlook.com (2603:10a6:150:2cf::9)
+ by AS4PR04MB9363.eurprd04.prod.outlook.com (2603:10a6:20b:4e8::8) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.451.24; Tue, 29 Sep
+ 2026 19:06:15 +0000
+Received: from GV2PR04MB11799.eurprd04.prod.outlook.com
+ ([fe80::2146:83a2:5329:b7c]) by GV2PR04MB11799.eurprd04.prod.outlook.com
+ ([fe80::2146:83a2:5329:b7c%7]) with mapi id 15.21.0451.022; Tue, 29 Sep 2026
+ 19:06:15 +0000
+From: Frank.Li@oss.nxp.com
+To: Dong Aisheng <aisheng.dong@nxp.com>,
+	Andi Shyti <andi.shyti@kernel.org>,
+	Frank Li <Frank.Li@nxp.com>,
+	Sascha Hauer <s.hauer@pengutronix.de>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Fabio Estevam <festevam@gmail.com>,
+	linux-i2c@vger.kernel.org (open list:FREESCALE IMX LPI2C DRIVER),
+	imx@lists.linux.dev (open list:FREESCALE IMX LPI2C DRIVER),
+	linux-arm-kernel@lists.infradead.org (moderated list:ARM/FREESCALE IMX / MXC / LAYERSCAPE ARM ARCHIT...),
+	linux-kernel@vger.kernel.org (open list)
+Cc: vkoul@kernel.org,
+	imx@lists.linux.dev
+Subject: [PATCH 1/1] i2c: imx-lpi2c: remove dmaengine_desc_free()
+Date: Tue, 29 Sep 2026 15:06:05 -0400
+Message-ID: <20260929190605.3516147-1-Frank.Li@oss.nxp.com>
+X-Mailer: git-send-email 2.43.0
 Content-Transfer-Encoding: 8bit
+Content-Type: text/plain
+X-ClientProxiedBy: PH1PEPF00013313.namprd07.prod.outlook.com
+ (2603:10b6:518:1::4) To GV2PR04MB11799.eurprd04.prod.outlook.com
+ (2603:10a6:150:2cf::9)
+MIME-Version: 1.0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: GV2PR04MB11799:EE_|AS4PR04MB9363:EE_
+X-MS-Office365-Filtering-Correlation-Id: 7b5a9114-72ef-4f9a-4e2a-08df1e5cbbd8
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|376014|366016|1800799024|19092799006|23010399003|10067099003|11063799006|56012099006|5023799004|18002099003|921020;
+X-Microsoft-Antispam-Message-Info: LHy9BQd8C/vUNXfN8Z+jxh1rA58JpTsc3rtQ+vK3LEQcZvan5VgBrwIveeRrW3ly+EnTcV7oRxWwZtiuUKjKa4DJh6L5IUchDb0SkYZMXCAFLJsRvPyHMpFvMEX6GXZIWLPp0wCJ1SUXrsiLuSalzbfaZM+0mZ5SufC0GPCKhNuJ91kn/+oE0rrUp9aGOhcpHCYDHCwGj3kPz+dy5Q75HK9qCEQzzipxiO7WKSaEzmErBdMGgjWsbUFjJ1/lszweBvOzesYNLaNf6CkaF/n+vPL4Wlo+HzDK+2Z39K23YJsWFYuatAnhaYIOOCuONjyKL/TbiT5hiUqMcWor2XRIslRWyd1DO7b0Ly59yiE8vR8NV0ME4sRiRi042S1ZVNGPa1ciDhD3LNMaedV0U/1oMsdHOcItSzg/mHLNhq6wJFIS5CD4MTyZ9u8qkK4vFXTxqyaclmjAqneFj7lkhkqpYtIQXlZYQvJOheLZzyyDxiCgFFQqn5ufFfN5OADNoXw3dL0wiQAhrQiTw2FR73mB8N5CVoNnZnCOHs5R9T0V2jZMr7dNLhvn/fFkdl5k0Q7Y95dbGacKTtIuRBmrwoC+PQOYsHundeIgXLP+b2ogkdw/e1WvjddmuZ+J3P378qTdz5L3zeVfPt8m9Uq2+5aokxihC2KttoSSE8popg2l0w8oJHmqLd/EbSyBh5CH2kn3pgva5FAGl3EtEb4Z3lkvVw==
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:GV2PR04MB11799.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(376014)(366016)(1800799024)(19092799006)(23010399003)(10067099003)(11063799006)(56012099006)(5023799004)(18002099003)(921020);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?cbuQxf0atpBKCwjJ3QhwmS35MR0CH40tLLOoqNwXH1i114vBdU0Qjg45TNdg?=
+ =?us-ascii?Q?fpXOYfSdRnqZXIkIEMYjS1gO2/DWCi4CAZbOGjmlrY2kcM5G+dmh+q8lu/Ac?=
+ =?us-ascii?Q?WfRnseoMvNC/DwtGQvU38HBDSHf+zlzQpnfd6LGCh9uVWW2QS0wBUDFNAXOj?=
+ =?us-ascii?Q?z2Bh2Dl11C8YE415nVj2ZMXTNURl5p3SM77z6zSfXCcFyOQL1FHEOkomjJp2?=
+ =?us-ascii?Q?uXfzSuJv+tKKct3gpV6shixhO8bFgttubvv39eAdsnKURVmbBst4ULm8FIZk?=
+ =?us-ascii?Q?6dafKWS3oCY3YucdNuLMTZYdCAQmOcc1GHFplp2cj3fRKMx2I/nMtFuhULtB?=
+ =?us-ascii?Q?gmBOz12eSmdaFfIl7FNB9+zIV5jdCcD2Hf8DDjliXVap6PqRRdM1oS9m+GV3?=
+ =?us-ascii?Q?annPsaSMfoC4jzVI0850T1Pb/UB4ntSQIS2DZR6UnUnDSwmKbia0Y19GqKsu?=
+ =?us-ascii?Q?5Al5ky14Vl6BAoY3Grw1BPTkUbsNB9t0C1b3hF6oS9HGyx+mn/SsH1oioTIw?=
+ =?us-ascii?Q?I98LNfzCD7jnqIchdxdzIrGAv9+JXJnkJttQ/q0/O+m7z3mfZAibBbrm1d8b?=
+ =?us-ascii?Q?bkmYLiTvG7cVkN26XEjg6DfJ+KDF6CRepZ4K+7AyW5ngkVgUDBQr8Rjw5Z4g?=
+ =?us-ascii?Q?lzK1DRn5Jw0mI3to06LBxrCuH3XLn6tPxU2V/pQkc6Lo1K/DP0gC08on79Fl?=
+ =?us-ascii?Q?3nv5o0VTGBY/jrf979c4wRBEnpDV5BmzDVkmm445+miXoH76ahZgcPGd2r2s?=
+ =?us-ascii?Q?cN6Pg/QBrRIQy2sP/TzYar0DJIpkuvbu4rArzENv4twnloCkUWkMsWBVbbx5?=
+ =?us-ascii?Q?TTXsahMkBOdO9z6qVDJ/sXMIT3uEciZE8FHpPLNnD57UlYZzDYiJsjUc7g2z?=
+ =?us-ascii?Q?wGZ28mt3M18BjbWU+XH6ZwuiyHikUDYfyrSp3vTHoOysqKtO4mRqLsQ+2KB+?=
+ =?us-ascii?Q?L64/uY59DFc8guR6uHF570aedvBUynQRpWklolfK94s0rRxJXBjHsRqAr8vX?=
+ =?us-ascii?Q?QN/9kqPNLwcLW0vSDqKiRRX9wu2eOQAG9ZyE+KB0BkhPh85ALQOhD3ghl3Za?=
+ =?us-ascii?Q?nj083c321PE7QPnc5SYv5lwX4HgSN63ucTtQ/eISzVjewQOqTzbQnV8GJ7sW?=
+ =?us-ascii?Q?V/LQLaafOWDapEAcKqvLIhPwFRPaDV/dEZ9reS8PTDycRk4izJUNH6byS1L8?=
+ =?us-ascii?Q?XramIHjr69kd0nG7kTnzKnxtTQ2LffJkfFrTgZZ/ZE+A27PUbtbjDTrGSMNO?=
+ =?us-ascii?Q?JDJmQK9I1BB4dU0fkb22Ube63Eo8bUTrR0NFpjgzkCFdOEcXAzwwAG2D681W?=
+ =?us-ascii?Q?oluV/Ze9v9Him3ielRkQyuePv3Drp7+R4P8D+cBaqAj5xb2XV1MXeKThSZvp?=
+ =?us-ascii?Q?sOL9cxg8kgfOSd32ACzWtuwcD3WCmyDTdwYWMnWINusQXBy4MEckaVZKaT4Z?=
+ =?us-ascii?Q?+uDIxcbqM5IbB6vjCJ6ExHEFR121Oh6UYvKnKpYgO7RKPNTXbtUWyPGf138z?=
+ =?us-ascii?Q?zmBVP37fngzoNayxymRfodx6sH5CPhitK/TlAN0VAXWoZLZT+MO4+RPE1bjR?=
+ =?us-ascii?Q?0gLAfGMbamdjXPAguoG0uMyqOkgRZMWfTCfInt3dRbL0DoMaG64N8LHeWFmw?=
+ =?us-ascii?Q?KBw1A8nAtfa1Vv8rl9ls4rYHx6lAfVnqI0ArxDdOO8RD2mevXAZhyumnEZgI?=
+ =?us-ascii?Q?vzPb0thyzDs91WPnvCIJRzTfdPaoUZ+sgQsnjorH2RfRovVtWn6+BRgF/k5E?=
+ =?us-ascii?Q?eWun2JKWotGSCn4K9Snza23eDAZhBspQBJF6+76Kl9+MnAWZQYaK?=
+X-OriginatorOrg: oss.nxp.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 7b5a9114-72ef-4f9a-4e2a-08df1e5cbbd8
+X-MS-Exchange-CrossTenant-AuthSource: GV2PR04MB11799.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 29 Sep 2026 19:06:15.0235
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: ZtQBmMuo+Q7cHjVptlcxzTVB9TpOmlIyHGOWDiEO3eTHhR0ykUMdbB1kN+dg+jUsc5rGGF21RftaxMQrZvEKeZJSLTJhQY7iZMSE/KdLUj32lUBG4PIxYVA/2znMAQSS
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: AS4PR04MB9363
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260929_200510_894783_D11A97FD 
-X-CRM114-Status: GOOD (  25.47  )
+X-CRM114-CacheID: sfid-20260929_120624_258896_A5B3A34A 
+X-CRM114-Status: UNSURE (   8.79  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -91,381 +144,43 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Map LPI A to vCPU0's collection and LPI B to vCPU1's, remap vCPU0's
-collection to vCPU2 and MOVALL vCPU0's LPIs there, then inject both. A
-must be taken on vCPU2 and B on vCPU1. KVM's MAPC handling already moves
-A to vCPU2, so only MOVALL handling can move B: without "KVM: arm64:
-vgic-its: Fix MOVALL handling of source redistributor", it moves B to
-vCPU2 as well.
+From: Frank Li <Frank.Li@nxp.com>
 
-Assisted-by: LLM
-Signed-off-by: Fuad Tabba <fuad.tabba@linux.dev>
+dmaengine_desc_free() is designed for DMA_CTRL_REUSE. If DMA_CTRL_REUSE
+is not set, dmaengine_desc_free() will return -EPERM.
+
+	if (!dmaengine_desc_test_reuse(desc))
+		return -EPERM;
+
+So calling dmaengine_desc_free() does nothing. dmaengine_terminate_(a)sync()
+will free all already allocated descriptors.
+
+Signed-off-by: Frank Li <Frank.Li@nxp.com>
 ---
- tools/testing/selftests/kvm/Makefile.kvm      |   1 +
- .../selftests/kvm/arm64/vgic_its_movall.c     | 341 ++++++++++++++++++
- 2 files changed, 342 insertions(+)
- create mode 100644 tools/testing/selftests/kvm/arm64/vgic_its_movall.c
+ drivers/i2c/busses/i2c-imx-lpi2c.c | 2 --
+ 1 file changed, 2 deletions(-)
 
-diff --git a/tools/testing/selftests/kvm/Makefile.kvm b/tools/testing/selftests/kvm/Makefile.kvm
-index 908bdc7cf4f58..fb0bc99242975 100644
---- a/tools/testing/selftests/kvm/Makefile.kvm
-+++ b/tools/testing/selftests/kvm/Makefile.kvm
-@@ -190,6 +190,7 @@ TEST_GEN_PROGS_arm64 += arm64/stage2_block_transitions
- TEST_GEN_PROGS_arm64 += arm64/vcpu_width_config
- TEST_GEN_PROGS_arm64 += arm64/vgic_init
- TEST_GEN_PROGS_arm64 += arm64/vgic_irq
-+TEST_GEN_PROGS_arm64 += arm64/vgic_its_movall
- TEST_GEN_PROGS_arm64 += arm64/vgic_its_save
- TEST_GEN_PROGS_arm64 += arm64/vgic_lpi_stress
- TEST_GEN_PROGS_arm64 += arm64/vgic_v5
-diff --git a/tools/testing/selftests/kvm/arm64/vgic_its_movall.c b/tools/testing/selftests/kvm/arm64/vgic_its_movall.c
-new file mode 100644
-index 0000000000000..41918576bdf63
---- /dev/null
-+++ b/tools/testing/selftests/kvm/arm64/vgic_its_movall.c
-@@ -0,0 +1,341 @@
-+// SPDX-License-Identifier: GPL-2.0-only
-+/*
-+ * vgic_its_movall - MOVALL does not move the LPIs of other redistributors.
-+ *
-+ * Two LPIs, A and B, target two different redistributors. A's collection is
-+ * remapped to a third redistributor with MAPC, followed by MOVALL from the
-+ * first redistributor to the third. Both LPIs are then injected. A must be
-+ * taken on the third redistributor, and B must stay on its own, which is not
-+ * MOVALL's source.
-+ *
-+ * Copyright (c) 2026 Google LLC
-+ * Author: Fuad Tabba <fuad.tabba@linux.dev>
-+ */
-+
-+#include <linux/sizes.h>
-+#include <pthread.h>
-+#include <stdatomic.h>
-+
-+#include "kvm_util.h"
-+#include "gic.h"
-+#include "gic_v3.h"
-+#include "gic_v3_its.h"
-+#include "processor.h"
-+#include "ucall.h"
-+#include "vgic.h"
-+
-+#define TEST_MEMSLOT_INDEX	1
-+
-+#define GIC_LPI_OFFSET		8192
-+#define NR_VCPUS		3
-+#define NR_LPIS			2
-+#define DEVICE_ID		0
-+
-+/* LPI A (event 0) starts on vCPU0 and moves to vCPU2; B (event 1) stays on vCPU1 */
-+#define LPI_A_COLL		0
-+#define LPI_B_COLL		1
-+#define MOVALL_FROM		0
-+#define MOVALL_TO		2
-+#define LPI_B_VCPU		1
-+
-+#define LPI_PROP_DEFAULT_PRIO	0xa0
-+
-+static gpa_t gpa_base;
-+
-+static struct kvm_vm *vm;
-+static struct kvm_vcpu *vcpus[NR_VCPUS];
-+static int its_fd;
-+
-+static struct test_data {
-+	bool		request_vcpus_stop;
-+
-+	gpa_t		device_table;
-+	gpa_t		collection_table;
-+	gpa_t		cmdq_base;
-+	void		*cmdq_base_va;
-+	gpa_t		itt_table;
-+
-+	gpa_t		lpi_prop_table;
-+	gpa_t		lpi_pend_tables;
-+} test_data;
-+
-+static atomic_uint lpi_taken[NR_VCPUS][NR_LPIS];
-+
-+static void guest_irq_handler(struct ex_regs *regs)
-+{
-+	u32 intid = gic_get_and_ack_irq();
-+
-+	if (intid == IAR_SPURIOUS)
-+		return;
-+
-+	GUEST_ASSERT(intid >= GIC_LPI_OFFSET && intid < GIC_LPI_OFFSET + NR_LPIS);
-+	atomic_fetch_add(&lpi_taken[guest_get_vcpuid()][intid - GIC_LPI_OFFSET], 1);
-+	gic_set_eoi(intid);
-+}
-+
-+static void guest_setup_its(void)
-+{
-+	void *cmdq = test_data.cmdq_base_va;
-+	u32 i;
-+
-+	its_init(test_data.collection_table, SZ_64K,
-+		 test_data.device_table, SZ_64K,
-+		 test_data.cmdq_base, SZ_64K);
-+
-+	for (i = 0; i < NR_VCPUS; i++)
-+		its_send_mapc_cmd(cmdq, i, i, true);
-+
-+	its_send_mapd_cmd(cmdq, DEVICE_ID, test_data.itt_table, SZ_64K, true);
-+	its_send_mapti_cmd(cmdq, DEVICE_ID, 0, LPI_A_COLL, GIC_LPI_OFFSET);
-+	its_send_mapti_cmd(cmdq, DEVICE_ID, 1, LPI_B_COLL, GIC_LPI_OFFSET + 1);
-+
-+	for (i = 0; i < NR_VCPUS; i++)
-+		its_send_invall_cmd(cmdq, i);
-+
-+	for (i = 0; i < NR_VCPUS; i++)
-+		its_send_sync_cmd(cmdq, i);
-+}
-+
-+static void guest_move_lpi_a(void)
-+{
-+	void *cmdq = test_data.cmdq_base_va;
-+
-+	its_send_mapc_cmd(cmdq, MOVALL_TO, LPI_A_COLL, true);
-+	/* The GICv3 spec requires a SYNC to the old redistributor before MOVALL. */
-+	its_send_sync_cmd(cmdq, MOVALL_FROM);
-+	its_send_movall_cmd(cmdq, MOVALL_FROM, MOVALL_TO);
-+	its_send_sync_cmd(cmdq, MOVALL_TO);
-+}
-+
-+static void guest_code(void)
-+{
-+	static atomic_int nr_cpus_ready;
-+	u32 cpuid = guest_get_vcpuid();
-+
-+	gic_init(GIC_V3, NR_VCPUS);
-+	gic_rdist_enable_lpis(test_data.lpi_prop_table, SZ_64K,
-+			      test_data.lpi_pend_tables + (cpuid * SZ_64K));
-+
-+	atomic_fetch_add(&nr_cpus_ready, 1);
-+
-+	if (cpuid == 0) {
-+		while (atomic_load(&nr_cpus_ready) < NR_VCPUS)
-+			cpu_relax();
-+
-+		guest_setup_its();
-+		guest_move_lpi_a();
-+	}
-+
-+	local_irq_enable();
-+
-+	GUEST_SYNC(0);
-+
-+	/*
-+	 * Don't use WFI here to avoid blocking the vCPU thread indefinitely and
-+	 * never getting the stop signal.
-+	 */
-+	while (!READ_ONCE(test_data.request_vcpus_stop))
-+		cpu_relax();
-+
-+	GUEST_DONE();
-+}
-+
-+static void setup_memslot(void)
-+{
-+	size_t pages;
-+	size_t sz;
-+
-+	/*
-+	 * For the ITS: device table, collection table, command queue and one
-+	 * ITT. For the redistributors: the LPI configuration table and an LPI
-+	 * pending table per vCPU.
-+	 */
-+	sz = (5 + NR_VCPUS) * SZ_64K;
-+
-+	pages = sz / vm->page_size;
-+	gpa_base = ((vm_compute_max_gfn(vm) + 1) * vm->page_size) - sz;
-+	vm_userspace_mem_region_add(vm, VM_MEM_SRC_ANONYMOUS, gpa_base,
-+				    TEST_MEMSLOT_INDEX, pages, 0);
-+}
-+
-+static void configure_lpis(void)
-+{
-+	u8 *tbl = addr_gpa2hva(vm, test_data.lpi_prop_table);
-+	int i;
-+
-+	for (i = 0; i < NR_LPIS; i++)
-+		tbl[i] = LPI_PROP_DEFAULT_PRIO | LPI_PROP_GROUP1 | LPI_PROP_ENABLED;
-+}
-+
-+static gpa_t alloc_64k(size_t nr)
-+{
-+	size_t pages_per_64k = vm_calc_num_guest_pages(vm->mode, SZ_64K);
-+
-+	return vm_phy_pages_alloc(vm, pages_per_64k * nr, gpa_base, TEST_MEMSLOT_INDEX);
-+}
-+
-+static void setup_test_data(void)
-+{
-+	size_t pages_per_64k = vm_calc_num_guest_pages(vm->mode, SZ_64K);
-+
-+	test_data.device_table = alloc_64k(1);
-+	test_data.collection_table = alloc_64k(1);
-+
-+	test_data.cmdq_base = alloc_64k(1);
-+	virt_map(vm, test_data.cmdq_base, test_data.cmdq_base, pages_per_64k);
-+	test_data.cmdq_base_va = (void *)test_data.cmdq_base;
-+
-+	test_data.itt_table = alloc_64k(1);
-+
-+	test_data.lpi_prop_table = alloc_64k(1);
-+	configure_lpis();
-+
-+	test_data.lpi_pend_tables = alloc_64k(NR_VCPUS);
-+
-+	sync_global_to_guest(vm, test_data);
-+}
-+
-+static void signal_lpi(u32 event_id)
-+{
-+	gpa_t db_addr = GITS_BASE_GPA + GITS_TRANSLATER;
-+
-+	struct kvm_msi msi = {
-+		.address_lo	= db_addr,
-+		.address_hi	= db_addr >> 32,
-+		.data		= event_id,
-+		.devid		= DEVICE_ID,
-+		.flags		= KVM_MSI_VALID_DEVID,
-+	};
-+
-+	TEST_ASSERT(__vm_ioctl(vm, KVM_SIGNAL_MSI, &msi) == 1,
-+		    "KVM_SIGNAL_MSI ioctl failed");
-+}
-+
-+static pthread_barrier_t test_setup_barrier;
-+
-+static void *vcpu_worker_thread(void *data)
-+{
-+	struct kvm_vcpu *vcpu = data;
-+	struct ucall uc;
-+
-+	while (true) {
-+		vcpu_run(vcpu);
-+
-+		switch (get_ucall(vcpu, &uc)) {
-+		case UCALL_SYNC:
-+			pthread_barrier_wait(&test_setup_barrier);
-+			continue;
-+		case UCALL_DONE:
-+			return NULL;
-+		case UCALL_ABORT:
-+			REPORT_GUEST_ASSERT(uc);
-+			break;
-+		default:
-+			TEST_FAIL("Unknown ucall: %lu", uc.cmd);
-+		}
-+	}
-+
-+	return NULL;
-+}
-+
-+static unsigned int lpi_taken_on(atomic_uint (*taken)[NR_LPIS], int vcpu, int lpi)
-+{
-+	return atomic_load(&taken[vcpu][lpi]);
-+}
-+
-+static void wait_for_lpis(atomic_uint (*taken)[NR_LPIS])
-+{
-+	int lpi, vcpu, i;
-+
-+	for (i = 0; i < 10000; i++) {
-+		unsigned int nr = 0;
-+
-+		for (lpi = 0; lpi < NR_LPIS; lpi++)
-+			for (vcpu = 0; vcpu < NR_VCPUS; vcpu++)
-+				nr += !!lpi_taken_on(taken, vcpu, lpi);
-+
-+		if (nr == NR_LPIS)
-+			return;
-+
-+		usleep(1000);
-+	}
-+
-+	TEST_FAIL("LPIs not taken after 10s");
-+}
-+
-+static void check_movall(atomic_uint (*taken)[NR_LPIS])
-+{
-+	int vcpu;
-+
-+	for (vcpu = 0; vcpu < NR_VCPUS; vcpu++) {
-+		TEST_ASSERT(!lpi_taken_on(taken, vcpu, 0) == (vcpu != MOVALL_TO),
-+			    "LPI A taken %u times on vCPU%d, expected only on vCPU%d",
-+			    lpi_taken_on(taken, vcpu, 0), vcpu, MOVALL_TO);
-+		TEST_ASSERT(!lpi_taken_on(taken, vcpu, 1) == (vcpu != LPI_B_VCPU),
-+			    "LPI B taken %u times on vCPU%d, expected only on vCPU%d",
-+			    lpi_taken_on(taken, vcpu, 1), vcpu, LPI_B_VCPU);
-+	}
-+}
-+
-+static void run_test(void)
-+{
-+	atomic_uint (*taken)[NR_LPIS] = addr_gva2hva(vm, (gva_t)lpi_taken);
-+	pthread_t vcpu_threads[NR_VCPUS];
-+	size_t i;
-+
-+	pthread_barrier_init(&test_setup_barrier, NULL, NR_VCPUS + 1);
-+
-+	for (i = 0; i < NR_VCPUS; i++)
-+		kvm_pthread_create(&vcpu_threads[i], NULL, vcpu_worker_thread, vcpus[i]);
-+
-+	pthread_barrier_wait(&test_setup_barrier);
-+
-+	signal_lpi(0);
-+	signal_lpi(1);
-+	wait_for_lpis(taken);
-+
-+	write_guest_global(vm, test_data.request_vcpus_stop, true);
-+
-+	for (i = 0; i < NR_VCPUS; i++)
-+		kvm_pthread_join(vcpu_threads[i], NULL);
-+
-+	check_movall(taken);
-+}
-+
-+static void setup_vm(void)
-+{
-+	int i;
-+
-+	vm = vm_create_with_vcpus(NR_VCPUS, guest_code, vcpus);
-+
-+	vm_init_descriptor_tables(vm);
-+	for (i = 0; i < NR_VCPUS; i++)
-+		vcpu_init_descriptor_tables(vcpus[i]);
-+
-+	vm_install_exception_handler(vm, VECTOR_IRQ_CURRENT, guest_irq_handler);
-+
-+	setup_memslot();
-+
-+	its_fd = vgic_its_setup(vm);
-+
-+	setup_test_data();
-+}
-+
-+static void destroy_vm(void)
-+{
-+	close(its_fd);
-+	kvm_vm_free(vm);
-+}
-+
-+int main(void)
-+{
-+	TEST_REQUIRE(kvm_supports_vgic_v3());
-+
-+	setup_vm();
-+
-+	run_test();
-+
-+	destroy_vm();
-+
-+	return 0;
-+}
+diff --git a/drivers/i2c/busses/i2c-imx-lpi2c.c b/drivers/i2c/busses/i2c-imx-lpi2c.c
+index 49aabef7f115c..d6f266e2d6bea 100644
+--- a/drivers/i2c/busses/i2c-imx-lpi2c.c
++++ b/drivers/i2c/busses/i2c-imx-lpi2c.c
+@@ -851,7 +851,6 @@ static int lpi2c_dma_rx_cmd_submit(struct lpi2c_imx_struct *lpi2c_imx)
+ submit_err_exit:
+ 	dma_unmap_single(txchan->device->dev, dma->dma_tx_addr,
+ 			 dma->rx_cmd_buf_len, DMA_TO_DEVICE);
+-	dmaengine_desc_free(rx_cmd_desc);
+ 	return -EINVAL;
+ }
+ 
+@@ -910,7 +909,6 @@ static int lpi2c_dma_submit(struct lpi2c_imx_struct *lpi2c_imx)
+ 
+ submit_err_exit:
+ 	lpi2c_dma_unmap(dma);
+-	dmaengine_desc_free(desc);
+ 	return -EINVAL;
+ }
+ 
 -- 
-2.39.5
+2.43.0
 
 
