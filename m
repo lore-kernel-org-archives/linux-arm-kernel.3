@@ -4,70 +4,85 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3BCDFCA5FAD
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 29 Sep 2026 03:46:07 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 30D39C9832A
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 29 Sep 2026 03:46:09 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:From:
 	Subject:Message-ID:References:Mime-Version:In-Reply-To:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=mNojz/m5/pZo5fqQWuhdwjNU5hLUXAkkyG3PUmd5nDE=; b=IOTTj8Aeg/gPt7GAg+9Ht4Ezt9
-	QdamXm3yoaCho+RiCvWaqYSjG9AzIwxnCXv6z+K3Th4HG47EcCWbk1SETJAcxgl6YXG8p5A178txT
-	SQ4aukyBONf2Mag/nxKH61XsoX90HCocU9UuMGYPbgxb/sF0/K70cxH0c/QyekaIS69Gduqz78PVA
-	2muVZXKorLVtXdQejvHn7umeJb55zG8czRxQ4TCDzkvn0uzFdx2PYB60hEBQl2I6f/quyMfgZO4V+
-	ReR6JAWXygSSwPZXPVhyPPcJ5S1K7s8dgG6++I50gmIm8JPIGHmhSZupo6lRwjN4OMGQ/mCMJCFzx
-	g3WPecYA==;
+	bh=HWQbzPnJHI/UQ6xRoFaSMFgVnf7una/rhjMJI3MVJUs=; b=UosnkRDRrPJMR/fNZ2nBnhCr0f
+	iZ9i3IVhAtfExhur2kmnnuj1iIInc/3amfmtwrKEGMN8FIqyNjPfL+yV2o0ve8zRxnbi6IqWZgopt
+	Due5cRV34gzJ98Z2GCXOPCMMTpMP3llBCizmv/eZ7xJcv0X533rKzcLACUy3YB+D6qYCcC4hj7CyC
+	XSAVjX2aF21wQJ2BYxnDoH2+fMnHvneou782dEUXrvw0YohhhVxmJNKY7eAmwtBdl9LI7MQL2KQg4
+	S+bWSMcqrEUyiho3qzCnwCFc1sibAjvTpNyZHcxJAtzz5G51iAgE+YRm+NI6Up0v35exiL1pI9UtX
+	m0ivkT/g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xBOms-00000002GJT-3DAV;
-	Tue, 29 Sep 2026 03:45:50 +0000
-Received: from mail-pf1-x447.google.com ([2607:f8b0:4864:20::447])
+	id 1xBOmt-00000002GJh-0EnS;
+	Tue, 29 Sep 2026 03:45:51 +0000
+Received: from casper.infradead.org ([2001:8b0:10b:1236::1])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xBOmd-00000002GBC-0lNT
+	id 1xBOmp-00000002GHL-0f0Z
+	for linux-arm-kernel@bombadil.infradead.org;
+	Tue, 29 Sep 2026 03:45:47 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=casper.20170209; h=Content-Type:Cc:To:From:Subject:
+	Message-ID:References:Mime-Version:In-Reply-To:Date:Sender:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description;
+	bh=HWQbzPnJHI/UQ6xRoFaSMFgVnf7una/rhjMJI3MVJUs=; b=TRy6/G84Z05OzaPbfW0VyAXM1I
+	nT6U9GfnUFrk3zGvZN5yV6UEj+0ZQOFJ1n9rm/kP3KFxr0GvOKUOfMfTW+q2IlQIAGnpa4W/EwhCE
+	VQxcvDFxQs3UDf09G7uuQuY0qUZe7uwoir+Oxh3tf24oOsssfAd1L2n5YnMKpZX1Xh+D5TTk5W9u+
+	R3tnh97aODhFB6BwMem6Px3dTSeE8CxmnY8MWm4nm+pnTAF4CUnGoPbS9Od342ptmfhlVftxwXE6w
+	z2CDi5YWa3PG55ohCSsZPpG/6XpGcp49yxoanZdIcFjz8hG4J8buG1LF4ww/FdC6z7M80+5k9i5Ir
+	YbB44ZOQ==;
+Received: from mail-pg1-x545.google.com ([2607:f8b0:4864:20::545])
+	by casper.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1xBOmm-0000000AYVA-1bEz
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 29 Sep 2026 03:45:36 +0000
-Received: by mail-pf1-x447.google.com with SMTP id d2e1a72fcca58-86a43fc3527so487857b3a.1
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 28 Sep 2026 20:45:34 -0700 (PDT)
+	Tue, 29 Sep 2026 03:45:46 +0000
+Received: by mail-pg1-x545.google.com with SMTP id 41be03b00d2f7-cbe77d6864dso3411449a12.2
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 28 Sep 2026 20:45:43 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20251104; t=1790653534; x=1791258334; darn=lists.infradead.org;
+        d=google.com; s=20251104; t=1790653541; x=1791258341; darn=lists.infradead.org;
         h=content-type:cc:to:from:subject:message-id:references:mime-version
          :in-reply-to:date:from:to:cc:subject:date:message-id:reply-to
          :content-type;
-        bh=mNojz/m5/pZo5fqQWuhdwjNU5hLUXAkkyG3PUmd5nDE=;
-        b=L8MS/3PZ20hjmWq0CLdwCexuprDiLRlUb4hnTIY/P/T8qZ6XYPs+egdGi8avdgtDqr
-         EhWKXlfA7NCOwAIpUyVG5HEzz3ehIsM/WT5LfhGvlV4vL5fbrVcEGUg/lSc7qK5sfabl
-         1eb8MV+6KhgIbaCuRultv5UewCIrzZusNjmgza8uN4Wl5xAdfSS/nk6bbVoFywQ5RYLr
-         BjHx3SJcgo7z6c47eDp/fz/0aEBQby9E+AsX29BSLKmOOhtzZ71CT2dOGLnORg/jIHm/
-         2ikEy5/ogA0nBK9UAsuK6vPcXgMqKTI0UtWTztxXBs05C8wERDpj252jAKF7YlcNK0J2
-         IdNg==
+        bh=HWQbzPnJHI/UQ6xRoFaSMFgVnf7una/rhjMJI3MVJUs=;
+        b=h9A8/PqU7vziGAsns0WRjyZOVlRiCu9a21CfBCAEJzLgInvxc0rzgdumb/qTcMmL0f
+         fQGmVcJh3ODCXP7BKc7VCTblyqU5QscvfIJ9jHY7UnNsK5g3PYOmgZlzPMlK9UGouVpt
+         sBNQLJwvluc42EqlzJ2c2XoVGuBaR5rx42fWCJebMrl3Ysd+UxSV1NNWPIumIvOStyRG
+         v08SvBGMN3CY4WNxaTBlodDBd3Ia15Y5A0w32t/GSaQvYJ1KrQN3NgqH3ofCjLVKKv/V
+         9ImlsKn0WkTXqcd3A5p5pRGQBcqE8uvXmmYs/1yFdJs4T9KLCKCRWuguHAtbnUlzyi2z
+         LfFg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1790653534; x=1791258334;
+        d=1e100.net; s=20260707; t=1790653541; x=1791258341;
         h=content-type:cc:to:from:subject:message-id:references:mime-version
          :in-reply-to:date:x-gm-message-state:from:to:cc:subject:date
          :message-id:reply-to:content-type;
-        bh=mNojz/m5/pZo5fqQWuhdwjNU5hLUXAkkyG3PUmd5nDE=;
-        b=fImoPqmQCWZxODfSRrqBWhPhYKu3s2WF+2GDyn05t25/KiD3dnd1EcXvcxQsqreA/x
-         ks3yQhHRy3EtEGYdNJhKRhmXYohpEQ1kSkXOsbTG6G7Pq6ONIHP+pjA/ZfHjuX/Xfypl
-         jYDLvSSw+htYJoGLqB+s7qQ8y8PD3cqnDKWU3hD5C3p9GuL8XndUaSY0Ioxnva2aO2sQ
-         mFUlOaNnVlMnyZVMasP0yTxSAPhGzNjHlRWHjNmO7gZprfZ6LbGSXDoHKAmSfUWJBeAJ
-         Kl9T7mq91vv0vr4UrlVHbx1xnoI4Mi9QqD/iH2DbEip5XE+69XxghTfY5f7Oq7sm4AIK
-         2y7g==
-X-Forwarded-Encrypted: i=1; AKwUvBzBWukdbXABBmVUYRfoTwkXoLvfWx+APi9BQHlxT+E+3CoZkQ5YDwfeuNTbI2thJyw7rv7GthbcrybSttr7zXFR@lists.infradead.org
-X-Gm-Message-State: AFuF++lqZk0tWgP92ZpZFOW0MdrzEfZCJIVmPlSpVKJPjPmNHGJ98bFl
-	j6RPbxz4IWO0kEsozxahxnaGylfIEijHiayUzfydcJ2aFy+H1nz3Uem7v4AVD70sX5x6He1iibH
-	X/w==
-X-Received: from pflr18.prod.google.com ([2002:aa7:9892:0:b0:878:112:ded2])
- (user=praan job=prod-delivery.src-stubby-dispatcher) by 2002:a05:6a00:1703:b0:878:3705:5724
- with SMTP id d2e1a72fcca58-8856314d6ffmr806898b3a.48.1790653532960; Mon, 28
- Sep 2026 20:45:32 -0700 (PDT)
-Date: Tue, 29 Sep 2026 03:45:00 +0000
+        bh=HWQbzPnJHI/UQ6xRoFaSMFgVnf7una/rhjMJI3MVJUs=;
+        b=NSArWlaDN0WYOqZECqfBoekWMYs6/ETw5u3FtUsPA9QT3yjh3oXG5NvtSVuJhY+PAA
+         ODjLT7p7pWh/Rvuug8BwwybbdY5Fa7iTj8p4JI5Pa7NLZ0fSnGrUl3U/TtWvx+k/8PSL
+         0aklfRwclyUUkPzHGhi5+qbsR7D2+6cznKESb6Yuso03dk72bd3aKogugMdh/ZohFPJV
+         OPXaxKmC2FycvUtPa8C5XnhAMzgbcuHrVW7mFGMrZuTivJWJdvay2GRpyel1H7uRMDkZ
+         YkMFspBb9+VpKVstMdr4hK47UArg19Bp3o1ZcesC7MERb5RYID5RkGNwZaT4+7aXc4yp
+         laJA==
+X-Forwarded-Encrypted: i=1; AKwUvBxut4H4DHeAmvz/ZCBxIVn9fDEjsvZJwCx7AYnTqaFEnC7GGZFCCz8PXE5DqTp4ex1eQkOLj7k7rZ0usGd+A7UP@lists.infradead.org
+X-Gm-Message-State: AFuF++m3669w6G9dPojmO+zDq4fc4XMOV0CQghZJMaOn7/AmNzMT+zi3
+	GYCK/Fx5leY9QNQHCu7S9Oi1QQSWikn88czXzKBoBmqVEDTUGPui/J7d3nQrx+HDvTowoDluOOJ
+	qBg==
+X-Received: from pgc13.prod.google.com ([2002:a05:6a02:2f8d:b0:cc7:4d12:8a9a])
+ (user=praan job=prod-delivery.src-stubby-dispatcher) by 2002:a05:6a20:4324:b0:3d1:e510:9052
+ with SMTP id adf61e73a8af0-3de0e6f3973mr13463950637.7.1790653541112; Mon, 28
+ Sep 2026 20:45:41 -0700 (PDT)
+Date: Tue, 29 Sep 2026 03:45:03 +0000
 In-Reply-To: <20260929034510.2023173-1-praan@google.com>
 Mime-Version: 1.0
 References: <20260929034510.2023173-1-praan@google.com>
 X-Mailer: git-send-email 2.56.0.rc1.315.gc6ed9934b7-goog
-Message-ID: <20260929034510.2023173-7-praan@google.com>
-Subject: [PATCH v11 06/16] iommu/tegra241-cmdqv: Restore PROD and CONS after resume
+Message-ID: <20260929034510.2023173-10-praan@google.com>
+Subject: [PATCH v11 09/16] iommu/arm-smmu-v3: Restore MSI config on resume
 From: Pranjal Shrivastava <praan@google.com>
 To: iommu@lists.linux.dev
 Cc: Will Deacon <will@kernel.org>, Joerg Roedel <joro@8bytes.org>, 
@@ -81,8 +96,8 @@ Cc: Will Deacon <will@kernel.org>, Joerg Roedel <joro@8bytes.org>,
 	Pranjal Shrivastava <praan@google.com>
 Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260928_204535_238082_50A50389 
-X-CRM114-Status: GOOD (  11.82  )
+X-CRM114-CacheID: sfid-20260929_044544_427514_781B64ED 
+X-CRM114-Status: GOOD (  10.06  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -97,41 +112,48 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Ashish Mhetre <amhetre@nvidia.com>
+The SMMU's MSI configuration registers (*_IRQ_CFGn) containing target
+address, data and memory attributes lose their state when the SMMU is
+powered down.
 
-PROD and CONS indices for vcmdqs are getting set to 0 after resume.
-Because of this the vcmdq is not consuming commands after resume.
-Fix this by restoring PROD and CONS indices after resume from
-saved pointers.
+Introduce arm_smmu_resume_msis() to zero the *_IRQ_CFG0 registers (which
+reset to unknown values) and restore the cached MSI messages across the
+device's MSI domain via msi_device_domain_restore_msi_msgs().
+
+In addition, clear ARM_SMMU_FEAT_MSI if MSI setup fails and the driver
+falls back to wired IRQs, preventing spurious MSI resume attempts.
 
 Reviewed-by: Nicolin Chen <nicolinc@nvidia.com>
-Signed-off-by: Ashish Mhetre <amhetre@nvidia.com>
+Reviewed-by: Mostafa Saleh <smostafa@google.com>
 Signed-off-by: Pranjal Shrivastava <praan@google.com>
 ---
- drivers/iommu/arm/arm-smmu-v3/tegra241-cmdqv.c | 10 ++++++++++
- 1 file changed, 10 insertions(+)
+ drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c | 13 +++++++++++++
+ 1 file changed, 13 insertions(+)
 
-diff --git a/drivers/iommu/arm/arm-smmu-v3/tegra241-cmdqv.c b/drivers/iommu/arm/arm-smmu-v3/tegra241-cmdqv.c
-index a394bf0f487f..c7989fcd2c62 100644
---- a/drivers/iommu/arm/arm-smmu-v3/tegra241-cmdqv.c
-+++ b/drivers/iommu/arm/arm-smmu-v3/tegra241-cmdqv.c
-@@ -567,6 +567,16 @@ static int tegra241_vcmdq_hw_init(struct tegra241_vcmdq *vcmdq)
- 	/* Configure and enable VCMDQ */
- 	writeq_relaxed(vcmdq->cmdq.q.q_base, REG_VCMDQ_PAGE1(vcmdq, BASE));
+diff --git a/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c b/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c
+index dc2fc02b5163..7347d3ecdae8 100644
+--- a/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c
++++ b/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c
+@@ -4779,6 +4779,19 @@ static void arm_smmu_write_msi_msg(struct msi_desc *desc, struct msi_msg *msg)
+ 	writel_relaxed(ARM_SMMU_MEMATTR_DEVICE_nGnRE, smmu->base + cfg[2]);
+ }
  
-+	/*
-+	 * HW Registers reset to 0 when power-cycled. Restore them from their
-+	 * SW copies to prevent executing stale/ghost commands after resume.
-+	 * Note on RPM: Power-cycles can never happen when VCMDQs are assigned
-+	 * to the Guests since the relevant frameworks (IOMMUFD / VFIO) hold
-+	 * active PM references preventing suspend while VMs are active.
-+	 */
-+	writel_relaxed(vcmdq->cmdq.q.llq.prod, REG_VCMDQ_PAGE0(vcmdq, PROD));
-+	writel_relaxed(vcmdq->cmdq.q.llq.cons, REG_VCMDQ_PAGE0(vcmdq, CONS));
++static void __maybe_unused arm_smmu_resume_msis(struct arm_smmu_device *smmu)
++{
++	/* Clear the MSI address regs as they reset to unknown value */
++	writeq_relaxed(0, smmu->base + ARM_SMMU_GERROR_IRQ_CFG0);
++	writeq_relaxed(0, smmu->base + ARM_SMMU_EVTQ_IRQ_CFG0);
 +
- 	ret = vcmdq_write_config(vcmdq, VCMDQ_EN);
- 	if (ret) {
- 		dev_err(vcmdq->cmdqv->dev,
++	if (smmu->features & ARM_SMMU_FEAT_PRI)
++		writeq_relaxed(0, smmu->base + ARM_SMMU_PRIQ_IRQ_CFG0);
++
++	/* No-op if no MSI device domain was instantiated (e.g. wired IRQs) */
++	msi_device_domain_restore_msi_msgs(smmu->dev, MSI_DEFAULT_DOMAIN);
++}
++
+ static void arm_smmu_setup_msis(struct arm_smmu_device *smmu)
+ {
+ 	int ret, nvec = ARM_SMMU_MAX_MSIS;
 -- 
 2.56.0.rc1.315.gc6ed9934b7-goog
 
