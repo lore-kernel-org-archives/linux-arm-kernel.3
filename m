@@ -4,65 +4,170 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 237CCCA5FA5
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 29 Sep 2026 13:29:59 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 82904CA5FA5
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 29 Sep 2026 13:34:39 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=tfN6V/0jpVSKj8us4BMTgHrYZ7PEZU7VE8KWI178lvU=; b=dYDB3r6NdJZk0aBtHu6fVk19fm
-	kxu9g6m8yIEft+aQqYchhOA+hpt6scvXtpC0TOm/V6XysIBiaJbjwl02R3c0D4ZrVEagUeKvmKJ5z
-	zWzsZyQ3RnLTwKQdmw4KQHnzEXZSIFS/F/ZPoJHiKP4e/ncqFoyyQkXQBjHtNGvN0CTZKBcw0hucQ
-	sBF5LyczRSHXyJdTxWqN1nR7Lp8aBY9HTwLgw8VAcwSHJWQQruh2JpVN+CxJnZ546VRR5t2B09HV5
-	fFwm4duE5Wb7kqu0fDU/erYIcEimavcnJMY3CSuat1Os2jVgTPeqIjxQIvvsFRw3QGylndO4UzjlC
-	oinAn0kQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=Cyq/qi3S500SGfwY/Y16YA84HAzf4qjNnDv4FUrmnpc=; b=o+QZtSiMv9Qy5rMlW6KtGQ9HqG
+	eKRbeSF/HGXs57p2RptnLzJWeSygCiQDQBgUpUHHdwHDmxbjOaru1Ex0p2Mof9GIv0GtF7tKrFjx8
+	sxg0CWkR9DroxY0kWXzIeDLUaQPW1IoT/Q3yLEQ6TD7BIC6CqL1FiPr/AQQbFjXWYbV/XA+cDftQ6
+	Z4BSplgzcZbKY/JJsZLSb6qVAuzuZcQVTyLP3tg/FOtW3Vs7L59uIAN5LGZGWYCBDBBqK9wRfxNu/
+	r927yM7uzLll1rRyBLGlILFzf3Iuf+awHWihpkPAq9BDhD2cIyiQynhOzdEWcFckk9Cmyuna5A9NF
+	bcnwluxg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xBXu2-00000003fr8-0SeG;
-	Tue, 29 Sep 2026 13:29:50 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1xBXya-00000003gJ3-3AvK;
+	Tue, 29 Sep 2026 13:34:32 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xBXu0-00000003fr0-39IF
+	id 1xBXyZ-00000003gIv-3q6V
+	for linux-arm-kernel@bombadil.infradead.org;
+	Tue, 29 Sep 2026 13:34:32 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:Content-Type
+	:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:MIME-Version:
+	Sender:Reply-To:Content-ID:Content-Description;
+	bh=Cyq/qi3S500SGfwY/Y16YA84HAzf4qjNnDv4FUrmnpc=; b=LzcmiqiW/eHnoAHwhFzyCL0kWD
+	zL3DAo5etkAbbjFyA5WRjiMrofTOCRxVVwbnQTmB0afKRovh8HBwHCqC8YSI3pqZoA+yUcpw1phwb
+	Jyl1jTm4FpMRuzkJI0m35+ZLP6WhjiVleZZAttlBT0hIuXs/aPju83tpdIXmkcMQUzHWDgMa0S4qf
+	FijrljTD5qB4o75c6ACKaU/axZ8qS12iziRkDvfHI/lO22T99B8wpZHqYKZteojwMmYbet/eKs26y
+	BW6MJT0Nwsmo3xYtQSBt4vAjM3HoSikWcXuQFz5lagc1BLRawJveMsnVgifH+KzLdkS55lRp+e3ww
+	n7X8PIRg==;
+Received: from mx0a-0031df01.pphosted.com ([205.220.168.131])
+	by desiato.infradead.org with esmtps (Exim 4.99.2 #2 (Red Hat Linux))
+	id 1xBXyW-00000002gUE-2Ugx
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 29 Sep 2026 13:29:48 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id CB66D600E2;
-	Tue, 29 Sep 2026 13:29:47 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id B73511F000FF;
-	Tue, 29 Sep 2026 13:29:44 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1790688587;
-	bh=tfN6V/0jpVSKj8us4BMTgHrYZ7PEZU7VE8KWI178lvU=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=fK7JE+5kuq0ZqZon40ZtxqT4EpnKQlLh7t1CJdAzoeIfvZejJE8bwT7vPe/MR554B
-	 bIsWpP8icPL5GBYilqRRS1vgu2VljQFBOnK8PTQ7GW8VcPFNgWqZgxjFByhk/8RyPZ
-	 PRMjk8+IOw0KSNRXGUMSWyheKevBZccQXCj6XO4jwLs6w2XgzWvXr2DOtmTINuCd7w
-	 uqPL7wrNhQgmfV6AyvdfS+wvPsDTW3rRcNcbvYagfR4RlRwXf96XixArGa70mqM8a6
-	 4ZtZui5Yhdl8U5AQfZrqI6GkGAiWJYwFLWRDPLbt6rIu462kbvxOPg9FZ5irJ7vTUK
-	 Jf832SwU2dFmg==
-Date: Tue, 29 Sep 2026 14:29:41 +0100
-From: Will Deacon <will@kernel.org>
-To: Koba Ko <kobak@nvidia.com>
-Cc: Catalin Marinas <catalin.marinas@arm.com>,
-	Rob Herring <robh@kernel.org>, Breno Leitao <leitao@debian.org>,
-	Jonathan Corbet <corbet@lwn.net>,
-	Shuah Khan <skhan@linuxfoundation.org>,
-	linux-arm-kernel@lists.infradead.org, linux-doc@vger.kernel.org,
-	linux-kernel@vger.kernel.org, linux-kselftest@vger.kernel.org,
-	Fenghua Yu <fenghuay@nvidia.com>, Tushar Dave <tdave@nvidia.com>,
-	Kai-Heng Feng <kaihengf@nvidia.com>, rupakr@nvidia.com,
-	mohammedk@nvidia.com
-Subject: Re: [RFC PATCH v2 1/3] arm64: add CPU prefetch and cache modulation
- sysfs interface
-Message-ID: <aru9Rf7BzW3-vcm0@willie-the-truck>
-References: <20260825181701.3-1-kobak@nvidia.com>
- <20260825181701.3-2-kobak@nvidia.com>
+	Tue, 29 Sep 2026 13:34:30 +0000
+Received: from pps.filterd (m0279867.ppops.net [127.0.0.1])
+	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 68TCqcc41576980
+	for <linux-arm-kernel@lists.infradead.org>; Tue, 29 Sep 2026 13:34:22 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
+	cc:content-transfer-encoding:content-type:date:from:in-reply-to
+	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
+	Cyq/qi3S500SGfwY/Y16YA84HAzf4qjNnDv4FUrmnpc=; b=L6B7PzQ95luu6NSG
+	tsplhetaATkbBDwcRKq8CZ5b99fh0r7298NXSO8pG1pbyZRNpOtnYDPyY2SUlmIA
+	DXpQFOPFgcEosHgzA1mWB8f5WcaOCvzpSOn6IDRGGxMiV/7B8zL1AlNys3JmH2Nv
+	uegLL5iUVnQHi3cQ3QhYyLzPRbBILozBJ2IeXFv9P371N4f2sewC3FFbR08SkC3r
+	vYyA+4ej2h0ZqsQ5lwgUChjLaaAoGy8mu+1i6WJ+AEBq81Sa3ekEgGOxZvEqke/n
+	Rub++tHob4UusV6U6x8zH99gxPR3/Se0HtilbUTL5Mm+WzSssewmOqO9tJimULTn
+	X3u6cw==
+Received: from mail-pg1-f199.google.com (mail-pg1-f199.google.com [209.85.215.199])
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4h09x4s891-1
+	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
+	for <linux-arm-kernel@lists.infradead.org>; Tue, 29 Sep 2026 13:34:22 +0000 (GMT)
+Received: by mail-pg1-f199.google.com with SMTP id 41be03b00d2f7-cc7361c62b9so3026307a12.3
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 29 Sep 2026 06:34:22 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1790688862; cv=none;
+        d=google.com; s=arc-20260327;
+        b=XfIab6BSFZfsLl1qj9bs933G8aNL5KF2OqjdhMAQjt1avJ6IwQWrAbviGixrfKXi42
+         4k2UsBOWvtqgT3IrziGY0Pibs6+p187C7sRB+zkQh8Sy5Dwi56h57bqkTLN6tRSkyuW1
+         hE3fbpkO+peeiPrfCS8sN5paN7q/z2xTmTQv0I711PLFi7VpyzQgs0j7XqS62/qZ6Ga8
+         HFNUpVgp4o1xEa9LFVEU/e3wrchduQRFNIcQ4ddMm1ffSsxcoXL5Pg7OHrh/xkRe4gDV
+         xFFB0OsYBOfsFUJ2ChCfC1Qvxkqo/g+AHtNekGJtUHql5JNjQ3dzuO3hu0cTkeuASUfW
+         O3ng==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:dkim-signature;
+        bh=Cyq/qi3S500SGfwY/Y16YA84HAzf4qjNnDv4FUrmnpc=;
+        fh=hdMgNgQPtGGSmFhgXe1kE2IvotPsiOxQPaYXHXzm9lk=;
+        b=ZCmcqYXXydPqbMuAWhsSLsSPfWLlriHRaQRCOzo+MeEkzU/luJMKeGUmYnpIc/FrFF
+         sfFEXAiomOxt+GWF0e2aCCvEPa+PvEQcc822H2dGA5DBcZ/9kdr38ASDSxIWzU3/d13Y
+         FU9NrcbL9/VR1VC42122wEyrhIYFOlolHgLFvjAHauHW+UtjyODlmtpv18Hllkw3I77I
+         7sbijdw6lFbMAgHWOGS/RIEJC6Su5/CX1UF9YUn5NLMd9rL6I2ZL29/N+FWaET4p5XZX
+         UQ3cKxM9hCgSOo1wZVAO3eiatfZnZd3GeeZfGBwRwfnae25A7+0wT6QgibqVAgKXbKte
+         c+aQ==;
+        darn=lists.infradead.org
+ARC-Authentication-Results: i=1; mx.google.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=oss.qualcomm.com; s=google; t=1790688862; x=1791293662; darn=lists.infradead.org;
+        h=content-transfer-encoding:content-type:cc:to:subject:message-id
+         :date:from:in-reply-to:references:mime-version:from:to:cc:subject
+         :date:message-id:reply-to:content-type;
+        bh=Cyq/qi3S500SGfwY/Y16YA84HAzf4qjNnDv4FUrmnpc=;
+        b=Zk2zRxsb5q5iKiFoKKt0jnmEiUPocj2gFJ5v3OlKgJnQtPOV3WgKu8lHHZUpCMZ2in
+         xqaEC2fpboPZ8B7qIZsY6La5njq0KzCUcJGEu4JRRYM7UKUgZFW1i6Rzs37/g254IwWo
+         tDfUb5kGqly+mgcjt+t1fmO3tUxvRPnVxxjWuXivli5oBATzXGiuIa9LqIOkbP0anI+Z
+         ueepaSlwQLISMKoFsS5+65vnwUWth6iGHqvzc+QpA3U2Iap51l4Q0q7s4SJ6KGVrf4Ol
+         jOu8e7R7m+Fpwnq1ySPdAiTvVdMt3USS/yuXlTg9yyMP5l51Y4HUYodYEi1frugUncxO
+         N3eg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1790688862; x=1791293662;
+        h=content-transfer-encoding:content-type:cc:to:subject:message-id
+         :date:from:in-reply-to:references:mime-version:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=Cyq/qi3S500SGfwY/Y16YA84HAzf4qjNnDv4FUrmnpc=;
+        b=iN/2Afo2y413ptiFVeiztxdz1+ah2XX+kBwSVq6/GH9l9v5mgw+uQL8fjf+9tjBoeY
+         nekUu0aHJPqNAYM6SF3ZvMWXh7/a0azKo8YBfYW3pmwQXL4fXieUSCEuDqjlpAzKTHNI
+         IRnAtpMYS9rq7E5+/1B2Yk6uVDxyQXFKsDl7L9CNw4GgpAZHA+NmbtFQCOG/JseBmqoL
+         G8j//YnoAqqOvJFmUZ7fOGlxAka5v8XPW8XQA46j3BEL+i1qFe+COD4isSi+kox/VkRr
+         jSUBZOSGOJHqEAuIneR3U/NFNfKDqOUjRivazx1HZiuTFQawW0Y4Tua43qZ+atx3aM15
+         03dg==
+X-Forwarded-Encrypted: i=1; AKwUvByfZMeUTloKRJ6nVyV6qVPvO9jKCIYkTB6M/eZTzb9AiJo04hUSNZCnxOksvlA/9gtqQE8RYUWem/TNf5XYWoP6@lists.infradead.org
+X-Gm-Message-State: AFuF++nCZmmVJQem8Tkn5BsM3/pcR892geC/LeZckdsUzYK4Bm0LqR19
+	t3gqaX+q6i38OHoqUfM64ZluzpXA5/AK3Y3+pcNfNjx9dIB5yU3g/u4I8RsNKecHloBKCHRQ689
+	/ozPlcdBcA9LvB/8QIws3iIZhacdd8gzBToBAEGuxNysbCCv8sNcWUEOPExt0tNcxIDUSnFSXHF
+	UCH/rI2Lqgn8n4uyBKWqNvhMjDJIR33GP/VdBvJ/lBdENpwuQ9zDqy
+X-Gm-Gg: AYBFou3PjuGSfDp4cUZLtkQ6Jng4WO1NvlrsnV+vLxczTAsZwYCDoj02TRsHpFodn7z
+	D5x3+zHeqVZhfn5+6D2rWgls2sOacHsCaIHUrXrTAigRCE6JgALGL76cORo0+CjXf13SRpPslrF
+	Wz0hcJHg1rGoCdLFVMvzndjbjzLiQrM42/sm0ZsFu9jfCvoFtd+hynoprlzw==
+X-Received: by 2002:a05:6a20:ce4a:b0:3dd:a196:906c with SMTP id adf61e73a8af0-3de0e906a84mr14829054637.54.1790688861840;
+        Tue, 29 Sep 2026 06:34:21 -0700 (PDT)
+X-Received: by 2002:a05:6a20:ce4a:b0:3dd:a196:906c with SMTP id
+ adf61e73a8af0-3de0e906a84mr14829018637.54.1790688861357; Tue, 29 Sep 2026
+ 06:34:21 -0700 (PDT)
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20260825181701.3-2-kobak@nvidia.com>
+References: <20260918141810.3023069-1-peng.fan@oss.nxp.com>
+In-Reply-To: <20260918141810.3023069-1-peng.fan@oss.nxp.com>
+From: Ulf Hansson <ulf.hansson@oss.qualcomm.com>
+Date: Tue, 29 Sep 2026 15:34:10 +0200
+X-Gm-Features: AclHuK-HxDdPv6ZXo6bbLEOpc-R3pQ2RLvsBtUn3eOlCmwt_WjOTqzddYREOXeM
+Message-ID: <CAPx+jO_L0HKe87FbLcM_VBEqrqz1gLCUwAV+ZE7CWU9v-d0vTQ@mail.gmail.com>
+Subject: Re: [PATCH] mmc: use assign_bit() where applicable
+To: "Peng Fan (OSS)" <peng.fan@oss.nxp.com>
+Cc: Aubin Constans <aubin.constans@microchip.com>,
+        Ulf Hansson <ulfh@kernel.org>,
+        Nicolas Ferre <nicolas.ferre@microchip.com>,
+        Alexandre Belloni <alexandre.belloni@bootlin.com>,
+        Claudiu Beznea <claudiu.beznea@tuxon.dev>, Kees Cook <kees@kernel.org>,
+        Peng Fan <peng.fan@nxp.com>, linux-kernel@vger.kernel.org,
+        linux-mmc@vger.kernel.org, linux-arm-kernel@lists.infradead.org
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
+X-Proofpoint-Spam-Info: AW1haW4tMjYwOTI5MDA1NCBTYWx0ZWRfX3xR842GdVZD/
+ QELiNmHS8r6MR4+mc2bl6PZcwNCbIzgGCRgFstD9yd4aqg9/ThG0JhJJ0cImfsHp4uRWA2HDn2Y
+ 8UFVy6Y7Zu76atIbBy23jiT8+VRBK8M=
+X-Proofpoint-GUID: upJ5acXg89ptFDDcBLT56YaRXyZ2mrhy
+X-Authority-Analysis: v=2.4 cv=I5Hw19gg c=1 sm=1 tr=0 ts=6abbbe5e cx=c_pps
+ a=Oh5Dbbf/trHjhBongsHeRQ==:117 a=IkcTkHD0fZMA:10 a=VdqzKS8jKosA:10
+ a=s4-Qcg_JpJYA:10 a=VkNPw1HP01LnGYTKEx00:22 a=u7WPNUs3qKkmUXheDGA7:22
+ a=eoimf2acIAo5FJnRuUoq:22 a=8AirrxEcAAAA:8 a=4RwzDxXCS1lGNT27iAEA:9
+ a=QEXdDO2ut3YA:10 a=_Vgx9l1VpLgwpw_dHYaR:22 a=ST-jHhOKWsTCqRlWije3:22
+X-Proofpoint-ORIG-GUID: upJ5acXg89ptFDDcBLT56YaRXyZ2mrhy
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwOTI5MDA1NCBTYWx0ZWRfX4VZRXQ+788Iy
+ KbJSwmSSc9etU9cfV2XVQzqAWh9iM7WczKfGLTSEKsUV3aos446c1yDZSn1gwHoWQ97l04HB/JR
+ GCpQo0EuaZgtmq5mQ7JHe+knxL2aU6e1riZpgsRYYzsA+ue9OwPEF75jNX42e3BCNK39FtdObbx
+ ucY0e41fB1S6Q7KbPnJX8VIyfuvO2vIP9e7lMbrqseuk78rE3e04Nw3+9G+YlxsNHVZmT80T9i1
+ DqjEijzu+TOFnv3agmf93InG8dOCmQCYf7F8XTlkZJTw861587jt+rQRme3vHk1L91S6zzG6Sz8
+ PmH0p+qo6XCASfVyHoaZGrYmWP+VvPOdr9cdtOcSfanSdsY5YGjm3yFyiec2Ct86vSyAk77enJ7
+ fcT2k58o+7MhTr2CKy1zYmW9CBS8+00yAKJ7GjHr743tUq2dIt7iqrFoxI6vWTdc/u7cHr4ORUI
+ qx2Q6Tt9HXO2eQYkBOA==
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1176,Hydra:6.1.134,FMLib:17.12.100.49
+ definitions=2026-09-29_04,2026-09-21_02,2025-10-01_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
+ priorityscore=1501 lowpriorityscore=0 bulkscore=0 clxscore=1015
+ impostorscore=0 suspectscore=0 adultscore=0 spamscore=0 malwarescore=0
+ phishscore=0 classifier=typeunknown authscore=0 authtc= authcc=
+ route=outbound adjust=0 reason=mlx scancount=1 engine=8.22.0-2609040000
+ definitions=main-2609290054
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260929_143429_130175_631818BB 
+X-CRM114-Status: GOOD (  23.59  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -77,108 +182,65 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Aug 26, 2026 at 02:16:59AM +0800, Koba Ko wrote:
-> Performance characterization on arm64 systems sometimes needs a way to
-> inspect and bracket selected implementation-defined prefetch and cache
-> controls without exposing raw register contents. Add an RFC-only arm64
-> cpumod interface that presents a small set of named, range-checked
-> per-CPU sysfs attributes under each CPU device.
-> 
-> Establish the Kconfig and Makefile plumbing, CPU profile detection for
-> Grace and Vera from the target CPU's MIDR, register-field descriptors,
-> per-CPU kobject and attribute helpers, locking, and target-CPU read/write
-> callbacks. Common attributes are exposed for all supported profiles,
-> while Grace- and Vera-specific fields are exposed only for the matching
-> profile. Place the option at the end of the top-level Kernel Features
-> menu because these implementation controls are not tied to an Arm
-> architecture revision.
-> 
-> Per-CPU cpumod sysfs state follows the CPU lifecycle. Module
-> initialization populates subtrees for every online CPU while holding
-> cpus_read_lock(), so initial enumeration and CPU hotplug state
-> registration are serialized against concurrent topology changes. Offline
-> CPUs are intentionally skipped during initial setup because target-CPU
-> MIDR detection requires an IPI-capable online CPU; a later online callback
-> creates their subtree.
-> 
-> Profile detection reads MIDR through a synchronous callback on the CPU
-> owning the sysfs subtree and returns nonzero only when that dispatch
-> fails, so no IPI error can be hidden. After a successful read, retain
-> CPUMOD_PROFILE_UNKNOWN as the unsupported-profile sentinel. Subtree
-> creation skips that profile during both initial online enumeration and
-> later CPUHP online callbacks without blocking module load or CPU hotplug.
-> Object and sysfs setup failures remain fatal and are propagated.
-> 
-> Keep the dynamically allocated kobject state in a private per-CPU pointer
-> instead of the CPU device's generic driver-data slot. The online callback
-> is idempotent when that pointer already records a subtree. The offline
-> callback clears the private pointer before dropping the kobject reference,
-> allowing the release callback to retain ownership of the final free.
-> 
-> Register-backed controls are root-only read/write files. Reads
-> synchronously execute on the target CPU and return the live register field
-> value from that callback. Writes remain range-checked and continue to log
-> the target-CPU readback after the register update.
-> 
-> Register the dynamic CPUHP state with
-> cpuhp_setup_state_nocalls_cpuslocked(). The nocalls form avoids replaying
-> startup callbacks for CPUs already initialized by the explicit online
-> enumeration. On init failure, release the CPU read lock, destroy all
-> subtrees created so far, and return the error. Module exit removes the
-> CPUHP state with the matching nocalls helper and tears down all remaining
-> per-CPU state across possible CPUs.
-> 
-> Reviewed-by: Fenghua Yu <fenghuay@nvidia.com>
-> Reviewed-by: Tushar Dave <tdave@nvidia.com>
-> Reviewed-by: Kai-Heng Feng <kaihengf@nvidia.com>
-> Signed-off-by: Koba Ko <kobak@nvidia.com>
+On Fri, Sep 18, 2026 at 4:20=E2=80=AFPM Peng Fan (OSS) <peng.fan@oss.nxp.co=
+m> wrote:
+>
+> From: Peng Fan <peng.fan@nxp.com>
+>
+> Convert open-coded if/else with set_bit/clear_bit and their
+> non-atomic __set_bit/__clear_bit variants to the assign_bit/__assign_bit
+> API.
+>
+> Done with Coccinelle semantic patch and manual fixups.
+>
+> Signed-off-by: Peng Fan <peng.fan@nxp.com>
+
+Applied for next, thanks!
+
+Kind regards
+Uffe
+
+
 > ---
->  arch/arm64/Kconfig                      |  17 +
->  arch/arm64/kernel/Makefile              |   1 +
->  arch/arm64/kernel/arm_cpumod.c          | 458 ++++++++++++++++++++++++
->  arch/arm64/kernel/arm_cpumod_internal.h |  93 +++++
->  4 files changed, 569 insertions(+)
->  create mode 100644 arch/arm64/kernel/arm_cpumod.c
->  create mode 100644 arch/arm64/kernel/arm_cpumod_internal.h
-> 
-> diff --git a/arch/arm64/Kconfig b/arch/arm64/Kconfig
-> index b3afe0688919b..5e4ada4884b89 100644
-> --- a/arch/arm64/Kconfig
-> +++ b/arch/arm64/Kconfig
-> @@ -2417,6 +2417,23 @@ config ARM64_CONTPTE
->  	  bit, for any mappings that meet the size and alignment requirements.
->  	  This reduces TLB pressure and improves performance.
->  
-> +config ARM64_CPUMOD
-> +	tristate "Arm CPU prefetch modulation sysfs controls"
-> +	help
-> +	  Expose selected CPU implementation control register fields through
-> +	  per-CPU sysfs attributes for performance characterization.
-> +
-> +	  The exposed controls allow hardware prefetch and cache-management
-> +	  policy fields to be inspected and adjusted on CPUs where firmware
-> +	  permits EL1 access to the relevant implementation control registers.
-> +	  Systems where firmware traps or blocks these writes cannot use this
-> +	  interface.
-> +
-> +	  This interface is intended for controlled performance evaluation and
-> +	  should not be enabled by default on production systems.
-> +
-> +	  If unsure, say N.
-
-We don't tend to support these sort of implementation-defined features
-as:
-
-   - They're generally not something we can virtualise
-   - The registers should not be accessible to the kernel in production
-   - It's not clear what other bits are exposed in the registers
-   - These sort of controls can't always be toggled while the memory system
-     is active
-   - We can't test them or maintain the zoo of interfaces we'd end up with
-     if we started merging them
-
-So exposing the registers directly to userspace doesn't feel like a
-particularly good idea to me.
-
-Will
+>  drivers/mmc/host/atmel-mci.c | 5 +----
+>  drivers/mmc/host/ushc.c      | 5 +----
+>  2 files changed, 2 insertions(+), 8 deletions(-)
+>
+> diff --git a/drivers/mmc/host/atmel-mci.c b/drivers/mmc/host/atmel-mci.c
+> index 8f4df250a77a..98933be5f174 100644
+> --- a/drivers/mmc/host/atmel-mci.c
+> +++ b/drivers/mmc/host/atmel-mci.c
+> @@ -1677,10 +1677,7 @@ static void atmci_detect_change(struct timer_list =
+*t)
+>
+>                 spin_lock(&host->lock);
+>
+> -               if (!present)
+> -                       clear_bit(ATMCI_CARD_PRESENT, &slot->flags);
+> -               else
+> -                       set_bit(ATMCI_CARD_PRESENT, &slot->flags);
+> +               assign_bit(ATMCI_CARD_PRESENT, &slot->flags, present);
+>
+>                 /* Clean up queue if present */
+>                 mrq =3D slot->mrq;
+> diff --git a/drivers/mmc/host/ushc.c b/drivers/mmc/host/ushc.c
+> index 7e8af5a06ac9..410e5bb62752 100644
+> --- a/drivers/mmc/host/ushc.c
+> +++ b/drivers/mmc/host/ushc.c
+> @@ -388,10 +388,7 @@ static void ushc_enable_sdio_irq(struct mmc_host *mm=
+c, int enable)
+>  {
+>         struct ushc_data *ushc =3D mmc_priv(mmc);
+>
+> -       if (enable)
+> -               set_bit(INT_EN, &ushc->flags);
+> -       else
+> -               clear_bit(INT_EN, &ushc->flags);
+> +       assign_bit(INT_EN, &ushc->flags, enable);
+>  }
+>
+>  static void ushc_clean_up(struct ushc_data *ushc)
+> --
+> 2.51.0
+>
 
