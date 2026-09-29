@@ -4,70 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 82BD1C9832A
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 29 Sep 2026 07:21:03 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8CEDEC9832A
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 29 Sep 2026 07:21:06 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:From:
 	Subject:Message-ID:References:Mime-Version:In-Reply-To:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=UAHt9yPr8xErw2vTC+nZUeTF0cYtYEiZZIIkDpWP9/4=; b=VsvKWAbM71mTmFd2HXnVdFkM0y
-	zW6FXQPEtUfGUf/fbszoDprHj7kF5exa3M+FgKG15mV1ZFaoF4toabXbSbe9N8YdCzYEgDbwPm/CH
-	mLqeiNZLNFd/euuBi8rYMkwOf88VBjKLKeDRIxUfFQm3+PB3J14Yz5qOyECiuOaOSicOpzYrpBlxm
-	6du955XGJrk4ttWGlIJxNLB77ohwNj1LtxiYG3pxm4ClpfEfJYyzKWqqmwnnW90ndqquKTo0drbLR
-	eUHDC30KbMmBlFtt0fcWHKJJ77XlQaczY0MdkWF+YwGxcKk7mvL+UlWMzb6EUcGX047SM4FWORDCk
-	DRxfMgLg==;
+	bh=OlVYV/o4fm3RCndKRXTcczL0qjVzCkXzkjMu/hurkAc=; b=wcESf0jPi4u5eRxxoWvqURZqNR
+	zSs44IKYKtNELQx5UcF2GwAfLmnKXGFB9OP3gvVsLr6nKoHWZU0P4yDoIuyYaNOpChmaB6FZx13Qx
+	CiD826Ei5gjRkPSfmIz/6hf1rprVtAxurSOWCB6icQJjUhlwtks5jUqmxSegrLTteb5DuObbi/8FH
+	XQlS982zBrcyZXGghpxQ5t7H+QNOu9KSYZqZYlMFn1y2mIS5oLLBQS3s5q+FMTO7PEy2nYUNnXVCA
+	Biba9xfdhhChcmjAEwXb4vcZzdqNdzTjB+7dqYO7YlJNLijKAQdu++VU4yxG/0XS44tcvcmHGkIJC
+	qt3vrY9w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xBS91-00000002ayI-3mnj;
-	Tue, 29 Sep 2026 07:20:55 +0000
-Received: from mail-pg1-x546.google.com ([2607:f8b0:4864:20::546])
+	id 1xBS92-00000002azX-32CB;
+	Tue, 29 Sep 2026 07:20:57 +0000
+Received: from mail-pl1-f199.google.com ([209.85.214.199])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xBS8E-00000002aJq-3qQU
+	id 1xBS8O-00000002aWF-3uHS
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 29 Sep 2026 07:20:08 +0000
-Received: by mail-pg1-x546.google.com with SMTP id 41be03b00d2f7-cc435388657so4570019a12.3
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 29 Sep 2026 00:20:06 -0700 (PDT)
+	Tue, 29 Sep 2026 07:20:19 +0000
+Received: by mail-pl1-f199.google.com with SMTP id d9443c01a7336-2d9336581a2so58075805ad.3
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 29 Sep 2026 00:20:16 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20251104; t=1790666406; x=1791271206; darn=lists.infradead.org;
+        d=google.com; s=20251104; t=1790666415; x=1791271215; darn=lists.infradead.org;
         h=content-type:cc:to:from:subject:message-id:references:mime-version
          :in-reply-to:date:from:to:cc:subject:date:message-id:reply-to
          :content-type;
-        bh=UAHt9yPr8xErw2vTC+nZUeTF0cYtYEiZZIIkDpWP9/4=;
-        b=BSLKP6XrTEd1TAzshsluEHc5MOsqEg/CqH+sHZ1JZX/q1yYWZ2q4sZ4gJ1K8BWOSAB
-         m4Oiz5wiIHHSKIGIMZ8K+bRQRXI7gDV/Tvn4HJaAUMt21ZJg1g01TuMyUcl3xV0JD1jy
-         K84NBNa/h3l+13PhR5IFmgPPN4e0+xY2Wj/O/tweNRgV3TT2m/74/noa6XtInnSnOyNE
-         KmyVf/uk9JM6LkX6bmRPArvQTC3im8h5d/E2N70c8B44r4v4drdu5AJPvMcB11uXvblR
-         f9OX+r2WepcB8scvdUx6haGUW5sJW+1WQJutaADtYRTm4osQsENRAKR6Kx/Huo2CzMOh
-         2lSA==
+        bh=OlVYV/o4fm3RCndKRXTcczL0qjVzCkXzkjMu/hurkAc=;
+        b=MLiIZ16TEYIBuf5yWT5sZ8a7A/XqCA8r4mcr9IPvwJEdYDhHxhlcT0zNFNk0StrXV9
+         3wBbUCD82+5iqDF0VhXBWCMixjamMyOINp3kazcQ9yMjOmahewUd/NR+07xVNAkJeP9y
+         cdBMwfbT/ZILQbn2Gls2eRa8WnI4o0YvkpzUjUL+NmhF0dD1Ju+hatd3GxQw7n0mxKJc
+         JQBSzpMVGDzVy9m3d8lir8dSLWBeFUBpDnVe3D6+lcwRTVwVan/8X+DIOkxjfyNOdlIT
+         He5aASKASvlRHJuhRZaM6f9dRqDv41k6huNebJNGoMdwAwdzo3eoMPKj/ypCA+085mPV
+         Al/w==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1790666406; x=1791271206;
+        d=1e100.net; s=20260707; t=1790666415; x=1791271215;
         h=content-type:cc:to:from:subject:message-id:references:mime-version
          :in-reply-to:date:x-gm-message-state:from:to:cc:subject:date
          :message-id:reply-to:content-type;
-        bh=UAHt9yPr8xErw2vTC+nZUeTF0cYtYEiZZIIkDpWP9/4=;
-        b=kErjsqiTAMpF3KyzYfFGHIgUsOxJ1jpfAJ+jLVzltt1xF3WRd47Nd8eoHZ4AcDnaJI
-         je/JtR6Y6OcodrQ8uBQdwiyz7boLnjGzGcnVaPxerv+595WRfqw1xXjr3iJ9j1eIfca6
-         xHZBFHhk8MRI+jHRQ8xpyEWCAlaVmwkEM1HJAgKfJ05rapW0x+W10S2H/U39NZo8mKuu
-         w1K4IiH5oVuedoevS5SaABzKWwEodUfim7qmhw/BP0/dlF6G7xGzDqGmlRmJm7ocgmlx
-         DobCxMIcJHlIgKiGMqtXDNvDMIkc5zzblA0tLwx3rElw+HDQi/L5wnLX8KnWEug4dSS2
-         fB/A==
-X-Forwarded-Encrypted: i=1; AKwUvByjQAce4+Q3VEG5Xc+7IHFrQnfjCyqlWE7va7JFaRd706FG98T4bsY7ilBzOecc8u0sYfd1wU9J54S/HVwEeLdP@lists.infradead.org
-X-Gm-Message-State: AFuF++lHhsKH4anomHY+jEQv/3Q25tJqAD+x4CkNpu0l7QFfp85Lrhew
-	A0+A9sD0GXkg5UpUF7BDxi7lj8OjjIxNHWRhr3Y7zD2+w+yKAG2g5uw2ltzuFiMf7If4TzsEObm
-	smg==
-X-Received: from pfbmt5.prod.google.com ([2002:a05:6a00:6e65:b0:886:13f0:1b78])
- (user=praan job=prod-delivery.src-stubby-dispatcher) by 2002:a05:6a20:914f:b0:3de:7701:d221
- with SMTP id adf61e73a8af0-3de7701d806mr3057497637.42.1790666405416; Tue, 29
- Sep 2026 00:20:05 -0700 (PDT)
-Date: Tue, 29 Sep 2026 07:19:46 +0000
+        bh=OlVYV/o4fm3RCndKRXTcczL0qjVzCkXzkjMu/hurkAc=;
+        b=dqxJfIeC6MsjP1ZoGGX4zUKQ2uSb1lFkwM7njisW6E2/rUe1GqOmcZjkLRX8jBUv/A
+         ljO4TDcNqu/Y7n4jD0EuqzA68wDiICMHyx0PfBq8hLd481LZ48n1o2B1aI2KSUn48gvS
+         QAzl38/eYjSpp0dK2FMNY3G5HtD6Z1ena82tIOmpUGrKRRHEBbrGW/FaW/aWZlw+Fv0E
+         NuV/ViCiRRZlsFEMNfSXXhoIyy1N9bgQjakw6xfA/ekAExr3Fn06fSKsb2iLN1KwvhGH
+         sNW+qtW7nTyUuxqLGUGLWSqbpzH7wzlDPeDNcuQ9xoT9OnbjC8lvbpqCsXQfFqf3RzAg
+         qQdg==
+X-Forwarded-Encrypted: i=1; AKwUvBx0G/1BWZ9HMRT/77CsZ4fyHVly71ZnYkiTANb3oKNEo2p5NFd5wmJURKHb+OPgjcPKdKJNXDT2viU7K87DCnKu@lists.infradead.org
+X-Gm-Message-State: AFq9FYIG48+zfsiVohpRWuTzLutytE0t8y03AIAnC3p8NEJ2ZSnkeAbe
+	I2kOTHrk/cYv4rfNLdFVBiCM6G2sjkkOkv28THQSt4YzlDgBW+5Tpd+VwWznLhTWxOROCe9EFv7
+	BnA==
+X-Received: from plmk4.prod.google.com ([2002:a17:903:1804:b0:2df:af7a:7386])
+ (user=praan job=prod-delivery.src-stubby-dispatcher) by 2002:a17:902:d4c1:b0:2dd:c100:9438
+ with SMTP id d9443c01a7336-2df94c22bdfmr92863685ad.54.1790666415041; Tue, 29
+ Sep 2026 00:20:15 -0700 (PDT)
+Date: Tue, 29 Sep 2026 07:19:50 +0000
 In-Reply-To: <20260929071950.2710070-1-praan@google.com>
 Mime-Version: 1.0
 References: <20260929071950.2710070-1-praan@google.com>
 X-Mailer: git-send-email 2.56.0.rc1.315.gc6ed9934b7-goog
-Message-ID: <20260929071950.2710070-6-praan@google.com>
-Subject: [RFC PATCH v1 5/9] iommu/arm-smmu-v3: Implement Live Update CD Table restoration
+Message-ID: <20260929071950.2710070-10-praan@google.com>
+Subject: [RFC PATCH v1 9/9] iommu/arm-smmu-v3: Adopt the Event queue across a
+ Live Update
 From: Pranjal Shrivastava <praan@google.com>
 To: iommu@lists.linux.dev, Will Deacon <will@kernel.org>, 
 	Jason Gunthorpe <jgg@nvidia.com>
@@ -81,8 +82,8 @@ Cc: Robin Murphy <robin.murphy@arm.com>, Joerg Roedel <joro@8bytes.org>,
 	Pranjal Shrivastava <praan@google.com>
 Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260929_002006_987970_41BEDA76 
-X-CRM114-Status: GOOD (  24.33  )
+X-CRM114-CacheID: sfid-20260929_002016_996914_CF03C4D1 
+X-CRM114-Status: GOOD (  22.79  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -97,240 +98,300 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-During the boot phase of a Kexec Handover (KHO), the incoming kernel
-must restore Context Descriptor (CD) tables for preserved devices to
-maintain Stage-1 translation contexts. Add a check within
-arm_smmu_alloc_cd_tables() to implement the CD table restoration.
+The SMMU may record events of the preserved devices across the kexec,
+which the incoming kernel loses by resetting the EVTQ.
+
+Preserve the EVTQ memory and leave the EVTQ enabled on shutdown. Only
+store its preservation token in the ABI, as the incoming kernel reads the
+base, size, PROD and CONS back from the EVTQ registers. Retain EVTQEN
+across the reset and wake up the EVTQ thread to handle pending events.
 
 Signed-off-by: Pranjal Shrivastava <praan@google.com>
 ---
- .../iommu/arm/arm-smmu-v3/arm-smmu-v3-kexec.c | 44 ++++++---
- .../arm/arm-smmu-v3/arm-smmu-v3-liveupdate.c  | 90 +++++++++++++++++++
- drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c   |  9 ++
- drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.h   |  6 ++
- 4 files changed, 138 insertions(+), 11 deletions(-)
+ .../arm/arm-smmu-v3/arm-smmu-v3-liveupdate.c  | 108 +++++++++++++++++-
+ drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c   |  39 +++++--
+ drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.h   |  10 ++
+ include/linux/kho/abi/iommu.h                 |   2 +
+ 4 files changed, 143 insertions(+), 16 deletions(-)
 
-diff --git a/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3-kexec.c b/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3-kexec.c
-index 8c53cd757007..7dc499a7bef4 100644
---- a/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3-kexec.c
-+++ b/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3-kexec.c
-@@ -222,6 +222,33 @@ int arm_smmu_kexec_check_ste_cdtab(struct arm_smmu_device *smmu, u64 ste0,
- 	return 0;
- }
- 
-+/**
-+ * arm_smmu_kexec_check_cdtab_l1_desc() - Check one CD table L1 descriptor
-+ * @l1_desc: L1 descriptor value from the previous kernel's CD table
-+ * @l2_base: pointer to return the L2 CD table's physical address
-+ *
-+ * Return: 1 if the descriptor is unused, 0 if it is valid with @l2_base set, or
-+ * -EINVAL if it is malformed
-+ */
-+int arm_smmu_kexec_check_cdtab_l1_desc(u64 l1_desc, phys_addr_t *l2_base)
-+{
-+	phys_addr_t base = l1_desc & CTXDESC_L1_DESC_L2PTR_MASK;
-+
-+	if (!(l1_desc & CTXDESC_L1_DESC_V))
-+		return 1;
-+
-+	/*
-+	 * A valid descriptor never carries a null pointer. Also, an L2 table is
-+	 * always 64KB-aligned, so an unaligned pointer would make this kernel
-+	 * read a different table.
-+	 */
-+	if (!base || !IS_ALIGNED(base, sizeof(struct arm_smmu_cdtab_l2)))
-+		return -EINVAL;
-+
-+	*l2_base = base;
-+	return 0;
-+}
-+
- static int arm_smmu_kexec_resv_asid(struct arm_smmu_device *smmu, u32 asid)
- {
- 	/* A valid CD never has ASID 0; both kernels share the same HW limit */
-@@ -310,21 +337,16 @@ static int arm_smmu_kexec_resv_s1_asids(struct arm_smmu_device *smmu, u64 ste0)
- 	/* Aliased L2 tables cannot extend the walk; they only repeat a scan */
- 	for (i = 0; i < num_l1_ents; i++) {
- 		u64 l1_desc = le64_to_cpu(l1tab[i].l2ptr);
--		phys_addr_t l2_base = l1_desc & CTXDESC_L1_DESC_L2PTR_MASK;
- 		struct arm_smmu_cdtab_l2 *l2;
-+		phys_addr_t l2_base;
- 
--		if (!(l1_desc & CTXDESC_L1_DESC_V))
-+		ret = arm_smmu_kexec_check_cdtab_l1_desc(l1_desc, &l2_base);
-+		if (ret == 1) {
-+			ret = 0;
- 			continue;
--
--		/*
--		 * A valid descriptor never carries a null pointer. Also, an L2
--		 * table is always 64KB-aligned, so an unaligned pointer would
--		 * make this kernel read a different table.
--		 */
--		if (!l2_base || !IS_ALIGNED(l2_base, sizeof(*l2))) {
--			ret = -EINVAL;
--			break;
- 		}
-+		if (ret)
-+			break;
- 
- 		l2 = memremap(l2_base, num_cds * sizeof(*l2->cds), MEMREMAP_WB);
- 		if (!l2) {
 diff --git a/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3-liveupdate.c b/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3-liveupdate.c
-index 4998234e1e7a..981b091a47a1 100644
+index c0772bcb8d3a..b7cacf48cf8b 100644
 --- a/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3-liveupdate.c
 +++ b/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3-liveupdate.c
-@@ -571,4 +571,94 @@ int arm_smmu_liveupdate_restore_strtab(struct arm_smmu_device *smmu)
+@@ -403,11 +403,48 @@ static void arm_smmu_unpreserve_strtab_linear(struct arm_smmu_device *smmu,
+ 					    iommu_ser->smmuv3.l1_strtab_lu_state);
+ }
+ 
++static size_t arm_smmu_evtq_size(struct arm_smmu_device *smmu)
++{
++	return ((1 << smmu->evtq.q.llq.max_n_shift) * EVTQ_ENT_DWORDS) << 3;
++}
++
++/* The EVTQ stays enabled across the kexec */
++static int arm_smmu_preserve_evtq(struct arm_smmu_device *smmu,
++				  struct iommu_hw_ser *iommu_ser)
++{
++	struct arm_smmu_queue *q = &smmu->evtq.q;
++
++	iommu_ser->smmuv3.evtq_lu_state = 0;
++	if (!(smmu->features & ARM_SMMU_FEAT_EVTQ))
++		return 0;
++
++	return dmam_preserve_coherent_allocation(smmu->dev, q->base,
++						 arm_smmu_evtq_size(smmu),
++						 q->base_dma,
++						 &iommu_ser->smmuv3.evtq_lu_state);
++}
++
++static void arm_smmu_unpreserve_evtq(struct arm_smmu_device *smmu,
++				     struct iommu_hw_ser *iommu_ser)
++{
++	struct arm_smmu_queue *q = &smmu->evtq.q;
++
++	if (!iommu_ser->smmuv3.evtq_lu_state)
++		return;
++
++	dmam_unpreserve_coherent_allocation(smmu->dev, q->base,
++					    arm_smmu_evtq_size(smmu),
++					    q->base_dma,
++					    iommu_ser->smmuv3.evtq_lu_state);
++	iommu_ser->smmuv3.evtq_lu_state = 0;
++}
++
+ int arm_smmu_preserve(struct iommu_device *iommu,
+ 		      struct iommu_hw_ser *iommu_ser)
+ {
+ 	struct arm_smmu_device *smmu =
+ 		container_of(iommu, struct arm_smmu_device, iommu);
++	int ret;
+ 
+ 	/* Basic info */
+ 	iommu_ser->smmuv3.phys_addr = smmu->base_phys;
+@@ -416,11 +453,20 @@ int arm_smmu_preserve(struct iommu_device *iommu,
+ 	iommu_ser->smmuv3.strtab_base_cfg =
+ 		readl_relaxed(smmu->base + ARM_SMMU_STRTAB_BASE_CFG);
+ 
++	ret = arm_smmu_preserve_evtq(smmu, iommu_ser);
++	if (ret) {
++		dev_err(smmu->dev, "EVTQ preservation failed\n");
++		return ret;
++	}
++
+ 	/* We always implements 2-level when supported by HW */
+ 	if (smmu->features & ARM_SMMU_FEAT_2_LVL_STRTAB)
+-		return arm_smmu_preserve_strtab_2lvl(smmu, iommu_ser);
++		ret = arm_smmu_preserve_strtab_2lvl(smmu, iommu_ser);
+ 	else
+-		return arm_smmu_preserve_strtab_linear(smmu, iommu_ser);
++		ret = arm_smmu_preserve_strtab_linear(smmu, iommu_ser);
++	if (ret)
++		arm_smmu_unpreserve_evtq(smmu, iommu_ser);
++	return ret;
+ }
+ 
+ void arm_smmu_unpreserve(struct iommu_device *iommu,
+@@ -433,6 +479,7 @@ void arm_smmu_unpreserve(struct iommu_device *iommu,
+ 		arm_smmu_unpreserve_strtab_2lvl(smmu, iommu_ser);
+ 	else
+ 		arm_smmu_unpreserve_strtab_linear(smmu, iommu_ser);
++	arm_smmu_unpreserve_evtq(smmu, iommu_ser);
+ }
+ 
+ static void arm_smmu_liveupdate_clear_l1_std(struct arm_smmu_device *smmu,
+@@ -545,12 +592,12 @@ int arm_smmu_liveupdate_shutdown(struct arm_smmu_device *smmu)
+ 	 * TODO: Quiesce the CMDQV VCMDQs assigned to guests.
+ 	 */
+ 
+-	/* Disable the queues, leaving SMMUEN set for the preserved masters */
++	/* The incoming kernel resets the CMDQ and PRIQ and adopts the EVTQ */
+ 	cr0 = readl_relaxed(smmu->base + ARM_SMMU_CR0);
+-	cr0 &= ~(CR0_CMDQEN | CR0_EVTQEN | CR0_PRIQEN);
++	cr0 &= ~(CR0_CMDQEN | CR0_PRIQEN);
+ 	ret = arm_smmu_write_reg_sync(smmu, cr0, ARM_SMMU_CR0, ARM_SMMU_CR0ACK);
+ 	if (ret)
+-		dev_err(smmu->dev, "failed to disable queues\n");
++		dev_err(smmu->dev, "failed to disable CMDQ/PRIQ\n");
+ 	return ret;
+ }
+ 
+@@ -696,6 +743,57 @@ int arm_smmu_liveupdate_restore_strtab(struct arm_smmu_device *smmu)
  	return 0;
  }
  
-+int arm_smmu_liveupdate_restore_cd_tables(struct arm_smmu_master *master)
++/* Adopt the live EVTQ. Returns -ENOENT if it wasn't preserved */
++int arm_smmu_liveupdate_restore_evtq(struct arm_smmu_device *smmu)
 +{
-+	struct arm_smmu_device *smmu = master->smmu;
-+	struct arm_smmu_ctx_desc_cfg *cd_table = &master->cd_table;
-+	struct iommu_device_ser *dev_ser = dev_iommu_restored_state(master->dev);
-+	u32 max_contexts, s1fmt, num_l2, restored = 0, i;
-+	struct arm_smmu_ste *ste;
-+	u64 *l2_states = NULL;
-+	phys_addr_t cdtab;
-+	u64 ste0;
-+	int ret;
++	u64 base = readq_relaxed(smmu->base + ARM_SMMU_EVTQ_BASE);
++	u32 log2size = FIELD_GET(Q_BASE_LOG2SIZE, base);
++	struct arm_smmu_queue *q = &smmu->evtq.q;
++	struct iommu_hw_ser *iommu_ser;
 +
-+	if (!dev_ser)
-+		return 0;
++	iommu_ser = iommu_get_preserved_data(smmu->base_phys, IOMMU_ARM_SMMUV3);
++	if (!iommu_ser || !iommu_ser->smmuv3.evtq_lu_state)
++		return -ENOENT;
 +
-+	/* Only an S1 STE has a CD table behind it */
-+	ste = arm_smmu_get_step_for_sid(smmu, master->streams[0].id);
-+	ste0 = le64_to_cpu(ste->data[0]);
-+	if (!(ste0 & STRTAB_STE_0_V) ||
-+	    FIELD_GET(STRTAB_STE_0_CFG, ste0) != STRTAB_STE_0_CFG_S1_TRANS)
-+		return 0;
-+
-+	ret = arm_smmu_kexec_check_ste_cdtab(smmu, ste0, &cdtab, &s1fmt,
-+					     &max_contexts);
-+	if (ret)
-+		return ret;
-+
-+	cd_table->s1cdmax = ilog2(max_contexts);
-+	cd_table->s1fmt = s1fmt;
-+
-+	if (s1fmt == STRTAB_STE_0_S1FMT_LINEAR) {
-+		cd_table->linear.num_ents = max_contexts;
-+		cd_table->linear.table = dma_restore_coherent_allocation(smmu->dev,
-+				max_contexts * sizeof(*cd_table->linear.table),
-+				&cd_table->cdtab_dma, GFP_KERNEL,
-+				dev_ser->smmuv3.l1_cdtab_lu_state);
-+		return cd_table->linear.table ? 0 : -ENOMEM;
++	if (log2size > q->llq.max_n_shift) {
++		dev_err(smmu->dev, "preserved EVTQ is larger than supported\n");
++		return -EINVAL;
 +	}
++	q->llq.max_n_shift = log2size;
 +
-+	cd_table->l2.num_l1_ents = DIV_ROUND_UP(max_contexts,
-+						CTXDESC_L2_ENTRIES);
-+	cd_table->l2.l1tab = dma_restore_coherent_allocation(smmu->dev,
-+			cd_table->l2.num_l1_ents * sizeof(*cd_table->l2.l1tab),
-+			&cd_table->cdtab_dma, GFP_KERNEL,
-+			dev_ser->smmuv3.l1_cdtab_lu_state);
-+	if (!cd_table->l2.l1tab)
++	q->base = dmam_restore_coherent_allocation(smmu->dev,
++			arm_smmu_evtq_size(smmu), &q->base_dma, GFP_KERNEL,
++			iommu_ser->smmuv3.evtq_lu_state);
++	if (!q->base)
 +		return -ENOMEM;
 +
-+	cd_table->l2.l2ptrs = kcalloc(cd_table->l2.num_l1_ents,
-+				      sizeof(*cd_table->l2.l2ptrs), GFP_KERNEL);
-+	if (!cd_table->l2.l2ptrs)
-+		return -ENOMEM;
-+
-+	num_l2 = dev_ser->smmuv3.num_l2_cdtables;
-+	if (num_l2)
-+		l2_states = phys_to_virt(dev_ser->smmuv3.l2_cdtab_lu_states_phys);
-+
-+	for (i = 0; i < cd_table->l2.num_l1_ents; i++) {
-+		u64 l1_desc = le64_to_cpu(cd_table->l2.l1tab[i].l2ptr);
-+		phys_addr_t l2_base;
-+		dma_addr_t l2_dma;
-+
-+		ret = arm_smmu_kexec_check_cdtab_l1_desc(l1_desc, &l2_base);
-+		if (ret == 1)
-+			continue;
-+		if (ret)
-+			goto out_free_states;
-+
-+		if (restored >= num_l2) {
-+			ret = -EINVAL;
-+			goto out_free_states;
-+		}
-+
-+		l2_dma = l2_base;
-+		cd_table->l2.l2ptrs[i] = dma_restore_coherent_allocation(smmu->dev,
-+				sizeof(*cd_table->l2.l2ptrs[i]), &l2_dma,
-+				GFP_KERNEL, l2_states[restored++]);
-+		if (!cd_table->l2.l2ptrs[i]) {
-+			ret = -ENOMEM;
-+			goto out_free_states;
-+		}
-+	}
-+	ret = 0;
-+
-+out_free_states:
-+	if (l2_states)
-+		kho_restore_free(l2_states);
-+	return ret;
-+}
-+
- #endif
-diff --git a/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c b/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c
-index c8bcf901f1c8..b13ed06a368f 100644
---- a/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c
-+++ b/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c
-@@ -17,6 +17,7 @@
- #include <linux/err.h>
- #include <linux/interrupt.h>
- #include <linux/generic_pt/iommu.h>
-+#include <linux/iommu-liveupdate.h>
- #include <linux/iopoll.h>
- #include <linux/jump_label.h>
- 
-@@ -1723,6 +1724,14 @@ static int arm_smmu_alloc_cd_tables(struct arm_smmu_master *master)
- 	struct arm_smmu_device *smmu = master->smmu;
- 	struct arm_smmu_ctx_desc_cfg *cd_table = &master->cd_table;
- 
-+	if (dev_iommu_restored_state(master->dev)) {
-+		ret = arm_smmu_liveupdate_restore_cd_tables(master);
-+		if (ret)
-+			return ret;
-+		if (arm_smmu_cdtab_allocated(cd_table))
-+			return 0;
++	if (q->base_dma != (base & Q_BASE_ADDR_MASK)) {
++		dev_err(smmu->dev, "EVTQ_BASE doesn't match the preserved EVTQ\n");
++		return -EINVAL;
 +	}
 +
- 	cd_table->s1cdmax = master->ssid_bits;
- 
- 	/*
-diff --git a/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.h b/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.h
-index 6b75f48671f8..453ad34ab0fa 100644
---- a/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.h
-+++ b/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.h
-@@ -1209,11 +1209,16 @@ void arm_smmu_unpreserve_device(struct device *dev,
- void arm_smmu_unpreserve(struct iommu_device *iommu,
- 			 struct iommu_hw_ser *iommu_ser);
- int arm_smmu_liveupdate_restore_strtab(struct arm_smmu_device *smmu);
-+int arm_smmu_liveupdate_restore_cd_tables(struct arm_smmu_master *master);
- #else
- static inline int arm_smmu_liveupdate_restore_strtab(struct arm_smmu_device *smmu)
- {
- 	return -ENOENT;
- }
-+static inline int arm_smmu_liveupdate_restore_cd_tables(struct arm_smmu_master *master)
-+{
++	q->prod_reg = smmu->page1 + ARM_SMMU_EVTQ_PROD;
++	q->cons_reg = smmu->page1 + ARM_SMMU_EVTQ_CONS;
++	q->ent_dwords = EVTQ_ENT_DWORDS;
++	q->q_base = base;
++
++	q->llq.prod = readl_relaxed(q->prod_reg);
++	q->llq.cons = readl_relaxed(q->cons_reg);
++
++	dev_info(smmu->dev, "restored preserved evtq (%u entries)\n",
++		 1 << q->llq.max_n_shift);
 +	return 0;
 +}
- #endif
++
++/* A failed EVTQ restore fails the probe, so a preserved EVTQ implies live */
++bool arm_smmu_liveupdate_evtq_is_live(struct arm_smmu_device *smmu)
++{
++	struct iommu_hw_ser *iommu_ser;
++
++	iommu_ser = iommu_get_preserved_data(smmu->base_phys, IOMMU_ARM_SMMUV3);
++	return iommu_ser && iommu_ser->smmuv3.evtq_lu_state;
++}
++
+ int arm_smmu_liveupdate_restore_cd_tables(struct arm_smmu_master *master)
+ {
+ 	struct arm_smmu_device *smmu = master->smmu;
+diff --git a/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c b/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c
+index b371ea6b6009..5f9f8bfac668 100644
+--- a/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c
++++ b/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c
+@@ -4683,10 +4683,13 @@ static int arm_smmu_init_queues(struct arm_smmu_device *smmu)
  
- static inline void arm_smmu_domain_free(struct arm_smmu_domain *smmu_domain)
-@@ -1369,6 +1374,7 @@ int arm_smmu_kexec_check_strtab_l1_desc(struct arm_smmu_device *smmu,
- int arm_smmu_kexec_check_ste_cdtab(struct arm_smmu_device *smmu, u64 ste0,
- 				   phys_addr_t *cdtab, u32 *s1fmt,
- 				   u32 *max_contexts);
-+int arm_smmu_kexec_check_cdtab_l1_desc(u64 l1_desc, phys_addr_t *l2_base);
- int arm_smmu_kexec_scan_and_resv_ids(struct arm_smmu_device *smmu);
- void arm_smmu_kexec_unresv_ids(struct arm_smmu_device *smmu);
- #endif /* CONFIG_ARM_SMMU_V3_KEXEC */
+ 	/* evtq */
+ 	if (smmu->features & ARM_SMMU_FEAT_EVTQ) {
+-		ret = arm_smmu_init_one_queue(smmu, &smmu->evtq.q, smmu->page1,
+-					      ARM_SMMU_EVTQ_PROD,
+-					      ARM_SMMU_EVTQ_CONS,
+-					      EVTQ_ENT_DWORDS, "evtq");
++		ret = arm_smmu_liveupdate_restore_evtq(smmu);
++		if (ret == -ENOENT)
++			ret = arm_smmu_init_one_queue(smmu, &smmu->evtq.q,
++						      smmu->page1,
++						      ARM_SMMU_EVTQ_PROD,
++						      ARM_SMMU_EVTQ_CONS,
++						      EVTQ_ENT_DWORDS, "evtq");
+ 		if (ret)
+ 			return ret;
+ 	}
+@@ -5080,9 +5083,15 @@ static int arm_smmu_device_reset(struct arm_smmu_device *smmu)
+ 	 * Same for a Live Update restore.
+ 	 */
+ 	if (arm_smmu_strtab_is_live(smmu)) {
++		u32 qens = CR0_CMDQEN | CR0_EVTQEN | CR0_PRIQEN;
++
+ 		dev_info(smmu->dev, "%s: retaining SMMUEN for in-flight DMA\n",
+ 			 is_kdump_kernel() ? "kdump" : "live update");
+-		enables = reg & ~(CR0_CMDQEN | CR0_EVTQEN | CR0_PRIQEN);
++
++		/* An adopted EVTQ keeps running */
++		if (arm_smmu_liveupdate_evtq_is_live(smmu))
++			qens &= ~CR0_EVTQEN;
++		enables = reg & ~qens;
+ 		goto reset_queues;
+ 	}
+ 
+@@ -5173,12 +5182,15 @@ static int arm_smmu_device_reset(struct arm_smmu_device *smmu)
+ 
+ 	/* Event queue */
+ 	if (smmu->features & ARM_SMMU_FEAT_EVTQ) {
+-		writeq_relaxed(smmu->evtq.q.q_base,
+-			       smmu->base + ARM_SMMU_EVTQ_BASE);
+-		writel_relaxed(smmu->evtq.q.llq.prod,
+-			       smmu->page1 + ARM_SMMU_EVTQ_PROD);
+-		writel_relaxed(smmu->evtq.q.llq.cons,
+-			       smmu->page1 + ARM_SMMU_EVTQ_CONS);
++		/* An adopted EVTQ resumes from its live BASE/PROD/CONS */
++		if (!arm_smmu_liveupdate_evtq_is_live(smmu)) {
++			writeq_relaxed(smmu->evtq.q.q_base,
++				       smmu->base + ARM_SMMU_EVTQ_BASE);
++			writel_relaxed(smmu->evtq.q.llq.prod,
++				       smmu->page1 + ARM_SMMU_EVTQ_PROD);
++			writel_relaxed(smmu->evtq.q.llq.cons,
++				       smmu->page1 + ARM_SMMU_EVTQ_CONS);
++		}
+ 
+ 		enables |= CR0_EVTQEN;
+ 		ret = arm_smmu_write_reg_sync(smmu, enables, ARM_SMMU_CR0,
+@@ -5228,6 +5240,11 @@ static int arm_smmu_device_reset(struct arm_smmu_device *smmu)
+ 		return ret;
+ 	}
+ 
++	/* Handle the events recorded across the Live Update */
++	if (arm_smmu_liveupdate_evtq_is_live(smmu) &&
++	    (smmu->combined_irq || smmu->evtq.q.irq))
++		irq_wake_thread(smmu->combined_irq ?: smmu->evtq.q.irq, smmu);
++
+ 	/* Enable the SMMU interface */
+ 	enables |= CR0_SMMUEN;
+ 	ret = arm_smmu_write_reg_sync(smmu, enables, ARM_SMMU_CR0,
+diff --git a/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.h b/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.h
+index 1b33f713f3b7..3a67ba685ef5 100644
+--- a/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.h
++++ b/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.h
+@@ -1214,6 +1214,8 @@ void arm_smmu_unpreserve(struct iommu_device *iommu,
+ int arm_smmu_liveupdate_shutdown(struct arm_smmu_device *smmu);
+ int arm_smmu_liveupdate_restore_strtab(struct arm_smmu_device *smmu);
+ int arm_smmu_liveupdate_restore_cd_tables(struct arm_smmu_master *master);
++int arm_smmu_liveupdate_restore_evtq(struct arm_smmu_device *smmu);
++bool arm_smmu_liveupdate_evtq_is_live(struct arm_smmu_device *smmu);
+ int arm_smmu_liveupdate_attach_restored(struct arm_smmu_master *master,
+ 					struct arm_smmu_domain *smmu_domain);
+ #else
+@@ -1229,6 +1231,14 @@ static inline int arm_smmu_liveupdate_restore_cd_tables(struct arm_smmu_master *
+ {
+ 	return 0;
+ }
++static inline int arm_smmu_liveupdate_restore_evtq(struct arm_smmu_device *smmu)
++{
++	return -ENOENT;
++}
++static inline bool arm_smmu_liveupdate_evtq_is_live(struct arm_smmu_device *smmu)
++{
++	return false;
++}
+ static inline int
+ arm_smmu_liveupdate_attach_restored(struct arm_smmu_master *master,
+ 				    struct arm_smmu_domain *smmu_domain)
+diff --git a/include/linux/kho/abi/iommu.h b/include/linux/kho/abi/iommu.h
+index 397fdb0449a6..4e8cc32c3136 100644
+--- a/include/linux/kho/abi/iommu.h
++++ b/include/linux/kho/abi/iommu.h
+@@ -208,12 +208,14 @@ struct iommu_intel_ser {
+  * @l2_strtab_lu_states_phys: Physical pointer to an array of u64 LU state tokens
+  *                            indexed by L1 index, 0 for L2 tables that aren't
+  *                            preserved (0 if linear)
++ * @evtq_lu_state: Live update state token for the Event queue (0 if not preserved)
+  */
+ struct iommu_smmuv3_hw_ser {
+ 	u64 phys_addr;
+ 	u64 strtab_base_cfg;
+ 	u64 l1_strtab_lu_state;
+ 	u64 l2_strtab_lu_states_phys;
++	u64 evtq_lu_state;
+ } __packed;
+ 
+ /**
 -- 
 2.56.0.rc1.315.gc6ed9934b7-goog
 
