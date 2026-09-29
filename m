@@ -4,142 +4,76 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E4191CA5FA5
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 29 Sep 2026 16:35:49 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 80BFCCA5FA5
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 29 Sep 2026 16:36:01 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=KgswDTUC6heFE7Kb6HjIW/Q+kQDgzcu9CfQIYuxeCuk=; b=GiW98YX8Nb3UxBOjyrNPz8REfv
-	zc0M5hUXZAHQ4Kmj2PyHmZ32JW4UiHtUh6oSgzUe0Dm49ccLPxbwq1wouJT6sh1uv8cRjpY85YxkL
-	684ny24WBillGZ+q/CkMlTHOuUh/L5Buvz1ce8aH3dQ15QfNkLiPo+XypiS7uRvI9dmFG1v58W3Y6
-	wHwi43PXUgY0CUjmxXu9JDgZoo5heJwk+ybCtzeFH41TgMUjt0pxb4JYk8n3hrk1DVcs0PcB5KTNq
-	4bEELNzgYXqBmT9Xr7gFdMbG6kgraCSpF9yJhyuskdDSIv0VtFfsd61hf1AmM3v1wPkU3sphfbVFP
-	T2QPQIXg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:Mime-Version:References:In-Reply-To:Message-Id:Subject:Cc:To:
+	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=ZT6zQ5ugZyO0TJ2m7KiQVH4rh1bbJByfMIoIyNLJodU=; b=HNstKPC90+mt+yz6IMqgPv1i0P
+	WDARmZGacsqqdAv71W3EK8L/APMkWzqbJnoRXfp8c9Me9cCFyxN9VIWepbxUqRy1WvyJNBUMqbqr8
+	nhQ3jhM0GDEFa6lAiB3cCC5fKt02SKgZ/Ju0wYm08PpVtrq9Q9e3+QW/sn53m1+M4cFL370AFf0/9
+	Vq7gVYTsz+kV3l++UBpquFP1gQjYvFzIEFCGZnwxzFYMkVhGvY+7ivqXyCqsr7XcaVQGH5gsYgE43
+	+XNm0JD/A6pYraXg8MoP9SseHDw/YtR+39kU1/Gp2PD0m2u8/KAmKqfy1a+e1G2lz8A1ECdRc/g4s
+	7Je7NTDQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xBanv-000000044Sl-1hIU;
-	Tue, 29 Sep 2026 16:35:43 +0000
-Received: from mx0a-0031df01.pphosted.com ([205.220.168.131])
+	id 1xBao6-000000044Wx-2BGF;
+	Tue, 29 Sep 2026 16:35:54 +0000
+Received: from mail.hugovil.com ([162.243.120.170])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xBans-000000044SD-2VNG
+	id 1xBany-000000044Tu-1HWb
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 29 Sep 2026 16:35:42 +0000
-Received: from pps.filterd (m0279864.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 68TCw5x53301456
-	for <linux-arm-kernel@lists.infradead.org>; Tue, 29 Sep 2026 16:35:40 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
-	cc:content-type:date:from:in-reply-to:message-id:mime-version
-	:references:subject:to; s=qcppdkim1; bh=KgswDTUC6heFE7Kb6HjIW/Q+
-	kQDgzcu9CfQIYuxeCuk=; b=XtR+IK2y+R3kVV5rIcaJToX++TeBAbdcSFnIDHOU
-	mjgG/Epwzd7BwvDbmqPZQjGYlP+LU7jCuI4bhQZhplw2NdwjxERxwE6OkY5ewNFA
-	vIWVUEeUq6DVS6+BfxlTjnGSTLN68OHfLZmhvoCegxZ4NjJqpwfACiqqaCd6Bqha
-	HzVyMvwaOWA+N/Ge2QzuVPxw4i5mX+Jmgmu0x5ZygJiKpCqklUwEtVlqsOPILNxp
-	lXpHbuT3XirjLpEjpnziPTn1Vqsc1zKELsJ0WTS/WV2QXf8iYy15zPLR/cFCs+jT
-	U786o475DpXutHii0UpwOkHQXv8sQwTJQMpmxDHin+SjSw==
-Received: from mail-ua1-f72.google.com (mail-ua1-f72.google.com [209.85.222.72])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4h0dsx120q-1
-	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
-	for <linux-arm-kernel@lists.infradead.org>; Tue, 29 Sep 2026 16:35:39 +0000 (GMT)
-Received: by mail-ua1-f72.google.com with SMTP id a1e0cc1a2514c-98087b0c5deso3512016241.2
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 29 Sep 2026 09:35:39 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=oss.qualcomm.com; s=google; t=1790699739; x=1791304539; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:content-type:mime-version
-         :references:message-id:subject:cc:to:from:date:from:to:cc:subject
-         :date:message-id:reply-to:content-type;
-        bh=KgswDTUC6heFE7Kb6HjIW/Q+kQDgzcu9CfQIYuxeCuk=;
-        b=fbbrKKfwPvduPm7dsZz0rGjleWwmo+CBAQy8ZQeEvqJFw1688L1cvtD/BJvu8Df3cU
-         Xw5essr8a2eUWIno9Ozfxk1rqMynaJRWhEGUhfhf0VZRNzBer1aOaC+rQGGFAQYbb2Q0
-         3+szDe5IB4wPk+XCt3KWk0mdG4bUt9mhZT8ds6CWz8vt+WsPaFM7XCEDykMM1ZmJe8Zg
-         AP4vr0X272uDyGtAhS3j+GxGIjuXymYR4vexyBxd8WWuQQanFzIRPI2mXlPQrZEZ8Zbh
-         Fx34G34nDO+bNlAZ7YzUlt0VGpoC8zk04ynoBSK//KJ2utAY/WezLS7rNZfPtLOcbY02
-         MCug==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1790699739; x=1791304539;
-        h=in-reply-to:content-disposition:content-type:mime-version
-         :references:message-id:subject:cc:to:from:date:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=KgswDTUC6heFE7Kb6HjIW/Q+kQDgzcu9CfQIYuxeCuk=;
-        b=M1q4NhWLUUyUq/5Z3V0CfRSCELYjjl2brzh3lsMOXe7XLcuWnyqIVPhDOL/YM0AHyT
-         YSupbP0T27puSP7NlP0QNXFR04qg9OGWj5bHAt6QlzI8M3RmKjFZ5v1/5GE1W6AWd6gh
-         ocpDEWrbE0qs9clr2tj+lWaN4zo7/HcI/iAWk4f8kTli2hK+55JXOfVTtG9tebrGvyVI
-         fIWWpKuTkjWms+UNn4cU9Ujg7511i5l53yKdQrlehv0NiwaBbYo5yCR5DbnGlj0YWpFq
-         JV9D1g8z/19nX+3EAq+g951zobMomvo0UFgWcezPIgi8nXbgGAPWtkPnM9YEXhaM74KH
-         L6bA==
-X-Forwarded-Encrypted: i=1; AKwUvBysmothruJUqi2YYJPwPIZkZdQEZtnA8lVWXi4oMWaa81pseV/wKhA87WgD7ZqXk3sFAALQuoZ89GqsHJEdlpqS@lists.infradead.org
-X-Gm-Message-State: AFq9FYKhqzz6dc0nmeoDYrfs3HZoUjqWfbxw+wkAE+K/w8pubJMn0lQ5
-	cvIMDMUaldjcjTpjV2DA2GOxgKhaTkcGnEULFbBO30H+3d5kgqC+yFjtwfC+QuujjyYYnbwPUgm
-	31RRlYGo18YtPxJnW2dWcO8IdRvadlcl3rV9cM6Snjde+EHz9VI5Xwj/Tews6mckQHb87sAr8BP
-	42jQ==
-X-Gm-Gg: AYBFou3JFlr4jVhaigjRX4/qXdGzgfGR8I0QYh4Xi05oq03IvWn53ATgvs8qNht6AoI
-	tF9+jwm4UqD/AqPf7nMW2tbp7hKbdcCr4rEyi9TBNYMJNDoHJeII4Mtlr9QMXLrQO062CNcF7xs
-	yWbNxEfeRcjPsIE8Oxksyr/z3YsN9dew6jFJ//BT7W1sx0Qmy8NkQPx6R1LqWvDEH4KGysR4k3e
-	hHxfZt4mzLhsrvjlPGC04ndik/xJbAio8paS26Iw+zaSyPtnF3xv8g/hUtjVj+HNiRC0czA5HPB
-	YGCdkJ+e4CR/HO6NDdVb+tzW9dZqGjVH4852L4um76kpmrivSEGyIDT2iCiwtozc0mJrnEohITG
-	x5vf/sLNPYk8J0Q==
-X-Received: by 2002:a05:6102:1486:b0:7a7:ad9f:53e2 with SMTP id ada2fe7eead31-7bc2ecee87cmr47619137.1.1790699738668;
-        Tue, 29 Sep 2026 09:35:38 -0700 (PDT)
-X-Received: by 2002:a05:6102:1486:b0:7a7:ad9f:53e2 with SMTP id ada2fe7eead31-7bc2ecee87cmr47606137.1.1790699738086;
-        Tue, 29 Sep 2026 09:35:38 -0700 (PDT)
-Received: from localhost ([188.216.77.92])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-48af508bebesm5857887f8f.29.2026.09.29.09.35.36
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 29 Sep 2026 09:35:37 -0700 (PDT)
-Date: Tue, 29 Sep 2026 18:35:36 +0200
-From: Lorenzo Bianconi <lorenzo.bianconi@oss.qualcomm.com>
-To: netdev-bot+sashiko@kernel.org
-Cc: maxime.chevallier@bootlin.com, andrew+netdev@lunn.ch, davem@davemloft.net,
-        edumazet@google.com, kuba@kernel.org, pabeni@redhat.com,
-        mcoquelin.stm32@gmail.com, alexandre.torgue@foss.st.com,
-        ast@kernel.org, daniel@iogearbox.net, hawk@kernel.org,
-        john.fastabend@gmail.com, sdf@fomichev.me, netdev@vger.kernel.org,
-        linux-stm32@st-md-mailman.stormreply.com,
-        linux-arm-kernel@lists.infradead.org, bpf@vger.kernel.org
-Subject: Re: [PATCH net-next v3] net: stmmac: add XDP multi-buff support for
- TX side
-Message-ID: <arvo2GYtvVZ9FDyf@lore-desk>
-References: <20260925-b4-stmmac-xmit-mb-v3-1-ca08f029e81c@oss.qualcomm.com>
- <179069820857.434549.2531492906306099121@kernel.org>
-MIME-Version: 1.0
-Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="lCMFkcEL7KUIgE/T"
-Content-Disposition: inline
-In-Reply-To: <179069820857.434549.2531492906306099121@kernel.org>
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwOTI5MDA2NiBTYWx0ZWRfX+hcfYWlntA3u
- HzY95zD+ORjK/RZK7o1Ou9F7FNGkRXnbfm7iupmxnc9JXAUFIQ1JprVhidWyu11RcaOiuD1oWsC
- ZOs85hEI6Jg0WnFD6XlVAFzPrqJn0lJOK5xzq4vLS+FanbnqwGkXKVFBl11+iVrz+mHUZx2Sco1
- LqQptaFZBoT6nTLGtBd4/ZvMNe90wlseEGHCWwYRYOwFnVa4Mo9brMiY7znoaXz/b7ALPpzRpP1
- oOh1Psa4+/DwHXAOO2IA+3TCLSPUibZe5WaNjP4sFGBJqvcDljyzdWbj3z57mfX2SPgT/ycsgcF
- xD/PKO7C0Sjifyadi1GABKFbjlKIsRoAOl7Bd8uwkdA/OmCufIlwXO5a9eM+m+bsJjeab5H3sij
- VqxsXSFtwlvRmxyKOiTcHaqHOZrg2BNJqjw+RyBY0Lkx+lPI2FJhKmXyGh8BD1djEaEs2dkWkg6
- 8YDIuiNasL+E1runP+Q==
-X-Proofpoint-ORIG-GUID: _6HpcCWmacYq54YINXAiBV_1HhAo4iQl
-X-Proofpoint-Spam-Info: AW1haW4tMjYwOTI5MDA2NiBTYWx0ZWRfX+dgNDgpB0QE/
- J2RR9B9IfenWtY1Npm1APxy6jCQANpknou7+6G7oXoZWdsOf8RFzSORP6tHriLacxN+1+YcSax2
- kE4XjyQ+zZSkqFDBbJMlmQRZUYJ1Q8M=
-X-Proofpoint-GUID: _6HpcCWmacYq54YINXAiBV_1HhAo4iQl
-X-Authority-Analysis: v=2.4 cv=DqvDa2/+ c=1 sm=1 tr=0 ts=6abbe8dc cx=c_pps
- a=ULNsgckmlI/WJG3HAyAuOQ==:117 a=WpTaRW6qxYHRGzLzQsVYzg==:17
- a=VdqzKS8jKosA:10 a=s4-Qcg_JpJYA:10 a=VkNPw1HP01LnGYTKEx00:22
- a=u7WPNUs3qKkmUXheDGA7:22 a=DJpcGTmdVt4CTyJn9g5Z:22 a=9R54UkLUAAAA:8
- a=EUspDBNiAAAA:8 a=jf9qpCBZcCKH78LjphgA:9 a=QEXdDO2ut3YA:10
- a=vBZCTss2YYTdBBQYqEIA:9 a=1WsBpfsz9X-RYQiigVTh:22 a=YTcpBFlVQWkNscrzJ_Dz:22
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1176,Hydra:6.1.134,FMLib:17.12.100.49
- definitions=2026-09-29_04,2026-09-21_02,2025-10-01_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- bulkscore=0 spamscore=0 phishscore=0 adultscore=0 malwarescore=0
- suspectscore=0 lowpriorityscore=0 impostorscore=0 clxscore=1015
- priorityscore=1501 classifier=typeunknown authscore=0 authtc= authcc=
- route=outbound adjust=0 reason=mlx scancount=1 engine=8.22.0-2609040000
- definitions=main-2609290066
+	Tue, 29 Sep 2026 16:35:48 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=hugovil.com
+	; s=default; h=Content-Transfer-Encoding:Mime-Version:Message-Id:Subject:Cc:
+	To:From:Date:subject:date:message-id:reply-to;
+	bh=ZT6zQ5ugZyO0TJ2m7KiQVH4rh1bbJByfMIoIyNLJodU=; b=phM/i5TfLpm47rzCAb/plpyIgN
+	asnzUDjJNHCtgVxwBJ4zGrAcdq0QX7RwkYLums4U3RdPCPZLb/+3EwI6eQvHnbL85O/wFwbYH64jW
+	u9hx0ub+VYh47QYWVmKSIMe9/PnhQvee8USffNmXW/w+8Jvsj+34dBkiM8+p1k/IgIOU=;
+Received: from modemcable168.174-80-70.mc.videotron.ca ([70.80.174.168] helo=pettiford.lan)
+	by mail.hugovil.com with esmtpa (Exim 4.98.2)
+	(envelope-from <hugo@hugovil.com>)
+	id 1xBaTo-000000002Jm-3KMv;
+	Tue, 29 Sep 2026 12:14:58 -0400
+Date: Tue, 29 Sep 2026 12:14:55 -0400
+From: Hugo Villeneuve <hugo@hugovil.com>
+To: Stefano Radaelli <stefano.radaelli21@gmail.com>
+Cc: Frank Li <Frank.Li@nxp.com>, linux-kernel@vger.kernel.org,
+ devicetree@vger.kernel.org, imx@lists.linux.dev,
+ linux-arm-kernel@lists.infradead.org, pierluigi.p@variscite.com, Stefano
+ Radaelli <stefano.r@variscite.com>, Rob Herring <robh@kernel.org>,
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
+ <conor+dt@kernel.org>, Andrew Lunn <andrew+netdev@lunn.ch>,
+ "David S. Miller" <davem@davemloft.net>, Eric Dumazet
+ <edumazet@google.com>, Jakub Kicinski <kuba@kernel.org>, Paolo Abeni
+ <pabeni@redhat.com>, Sascha Hauer <s.hauer@pengutronix.de>, Pengutronix
+ Kernel Team <kernel@pengutronix.de>, Fabio Estevam <festevam@gmail.com>,
+ Heiner Kallweit <hkallweit1@gmail.com>, Russell King
+ <linux@armlinux.org.uk>, Shawn Guo <shawnguo@kernel.org>, Joseph Guo
+ <qijian.guo@nxp.com>, Josua Mayer <josua@solid-run.com>, Ernest Van Hoecke
+ <ernest.vanhoecke@toradex.com>, Mehmet Fide
+ <mehmet.fide@screeningeagle.com>, Francesco Dolcini
+ <francesco.dolcini@toradex.com>, Markus Niebel
+ <Markus.Niebel@ew.tq-group.com>, Hugo Villeneuve
+ <hvilleneuve@dimonoff.com>, Stefan Eichenberger <eichest@gmail.com>,
+ netdev@vger.kernel.org
+Subject: Re: [PATCH v4 00/13] ARM: dts: imx6ul: Add Variscite VAR-SOM-6UL
+ and DART-6UL
+Message-Id: <20260929121455.437291ea4b53130e3e19778c@hugovil.com>
+In-Reply-To: <cover.1790693249.git.stefano.r@variscite.com>
+References: <cover.1790693249.git.stefano.r@variscite.com>
+X-Mailer: Sylpheed 3.8.0beta1 (GTK+ 2.24.33; x86_64-pc-linux-gnu)
+Mime-Version: 1.0
+Content-Type: text/plain; charset=US-ASCII
+Content-Transfer-Encoding: 7bit
+X-Spam_score: -2.0
+X-Spam_bar: --
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260929_093540_641713_83F75E9A 
-X-CRM114-Status: GOOD (  37.86  )
+X-CRM114-CacheID: sfid-20260929_093546_565924_D8E4E911 
+X-CRM114-Status: GOOD (  37.43  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -154,140 +88,481 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
---lCMFkcEL7KUIgE/T
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
+Hi Stefano,
 
-> Thank you for your contribution! Sashiko AI review found 2 potential
-> issue(s) to consider.
->=20
-> Critical: 0 =C2=B7 High: 0 =C2=B7 Medium: 1 =C2=B7 Low: 1
->=20
-> If you believe none of the issues are legitimate, please reply to each
-> issue of Medium severity or higher and explain why the AI is wrong.
-> If any of them are legitimate and you plan to respin, please let patchwork
-> know by including "pw-bot: cr" as a separate line at the end of your reply
-> (one such reply per series is enough).
->=20
-> - [Medium] The patch fixes a divide-by-zero crash in the XDP TX path
->   without saying so and without a Fixes: tag.
-> - [Low] In stmmac_xdp_xmit_xdpf(), the new coalescing check reads
->   priv->tx_coal_frames[queue] twice with plain loads: once for the zero=
-=E2=80=A6
->=20
-> --
->=20
-> net: stmmac: add XDP multi-buff support for TX side
->=20
-> This commit extends stmmac_xdp_xmit_xdpf() so it can transmit XDP frames
-> that carry fragments. The frame head and each frag get their own TX
-> descriptor. The driver now also advertises NDO_XMIT_SG for the redirect
-> target.
->=20
-> > diff --git a/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c b/driver=
-s/net/ethernet/stmicro/stmmac/stmmac_main.c
-> > index 3ad9252bf6aea..f1e9ac2f98598 100644
-> > --- a/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
-> > +++ b/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
-> > @@ -5241,77 +5241,118 @@ static unsigned int stmmac_rx_buf2_len(struct =
-stmmac_priv *priv,
-> >  static int stmmac_xdp_xmit_xdpf(struct stmmac_priv *priv, int queue,
-> >  				struct xdp_frame *xdpf, bool dma_map)
-> >  {
->=20
-> [ ... ]
->=20
-> > +	tx_q->tx_count_frames +=3D num_frames;
-> > =20
-> > -	if (tx_q->tx_count_frames % priv->tx_coal_frames[queue] =3D=3D 0)
-> > -		set_ic =3D true;
-> > -	else
-> > -		set_ic =3D false;
-> > +	if (priv->tx_coal_frames[queue] &&
-> > +	    (tx_q->tx_count_frames % priv->tx_coal_frames[queue]) < num_frame=
-s) {
->=20
-> [Severity: Medium]
-> The old code here divided by priv->tx_coal_frames[queue] without checking
-> it for zero. That code came in with be8b38a722e6 ("net: stmmac: Add suppo=
-rt
-> for XDP_TX action").
->=20
-> Can tx_coal_frames[queue] be 0 here? __stmmac_set_coalesce() only rejects
-> the request when both values are zero:
->=20
-> 	if ((ec->tx_coalesce_usecs =3D=3D 0) &&
-> 	    (ec->tx_max_coalesced_frames =3D=3D 0))
-> 		return -EINVAL;
->=20
-> So a command like "ethtool -C ethX tx-usecs 100 tx-frames 0" is accepted
-> and stores 0 in priv->tx_coal_frames[]. Before this patch, the next XDP_TX
-> or ndo_xdp_xmit frame would then do a modulo by zero in softirq context.
->=20
-> The new priv->tx_coal_frames[queue] guard fixes that, but the commit
-> message only describes multi-buff TX support. stmmac_xmit(),
-> stmmac_tso_xmit() and stmmac_xdp_xmit_zc() already have this check.
->=20
-> Could the fix be split into its own patch with a
-> "Fixes: be8b38a722e6" tag, so it can reach stable?
+Your title seems to imply that VAR-SOM-6UL support did not
+exist before your patch, but it did. Please rephrase that, and
+your description accordingly.
 
-I guess we can avoid to add the 'Fixes tag' here (and so to backport this
-patch) since the issue seems quite a corner case.
 
->=20
-> [Severity: Low]
-> This check does two plain loads of priv->tx_coal_frames[queue]: one for t=
-he
-> zero test and one for the divisor.
->=20
-> __stmmac_set_coalesce() writes this field under RTNL. It does not hold the
-> TX queue lock that stmmac_xdp_xmit() and stmmac_xdp_xmit_back() take, and
-> it can store 0.
->=20
-> If the compiler reloads the field between the two reads and a 0 is stored
-> in that window, can the modulo still divide by zero? Would taking a single
-> snapshot help, for example:
->=20
-> 	u32 coal =3D READ_ONCE(priv->tx_coal_frames[queue]);
->=20
-> and then using coal for both the test and the division?
->=20
-> stmmac_xmit(), stmmac_tso_xmit() and stmmac_xdp_xmit_zc() read the field
-> twice in the same way.
+On Tue, 29 Sep 2026 17:17:27 +0200
+Stefano Radaelli <stefano.radaelli21@gmail.com> wrote:
 
-I agree there is a small race here, but the same issue is present in
-stmmac_xmit() and in stmmac_tso_xmit(). I think we can fix them with a sing=
-le
-dedicated patch.
+> Add device trees for Variscite VAR-SOM-6UL and DART-6UL modules based on
+> i.MX6UL, i.MX6ULL and i.MX6ULZ. VAR-SOM-6UL is supported on the
+> Concerto-Board and Symphony-Board carriers, and DART-6UL on the
+> VAR-6ULCustomBoard. The 90 new DTBs cover the supported combinations of
+> storage, wireless and audio options.
 
-Regards,
-Lorenzo
+Do they? You would need far more than 90 DTBs to support all options...
 
->=20
-> > +		struct stmmac_txq_stats *txq_stats;
-> > =20
-> > -	if (set_ic) {
-> > +		desc =3D stmmac_get_tx_desc(priv, tx_q, entry);
-> > +		stmmac_set_tx_ic(priv, desc);
-> >  		tx_q->tx_count_frames =3D 0;
->=20
-> [ ... ]
->=20
-> --=20
-> Sashiko AI review =C2=B7 https://netdev-ai.bots.linux.dev/sashiko/#/patch=
-set/20260925-b4-stmmac-xmit-mb-v3-1-ca08f029e81c%40oss.qualcomm.com
+When I submitted the latest changes for the VAR-SOM-6UL, I did not
+create DTBs for every available options knowing that it would lead to
+an insane number of files. So I simply created a full DTB that
+incorporated most of the DTSI options. And my custom boards simply
+include only the required DTSI for their specific options.
 
---lCMFkcEL7KUIgE/T
-Content-Type: application/pgp-signature; name=signature.asc
+Looking simply at the ENET phy level, you seem to have now removed
+the two individual DTSI to selectively add support for ENET1 and ENET2,
+but not all board use these, so that is why they
+were created as individual DTSI files in the first place to make it
+easier to create a DTB with only the required options. As an example,
+one of my custom boards do not have ethernet at all, so i don't want
+that support enabled by default.
 
------BEGIN PGP SIGNATURE-----
+Please keep the existing DTSI as distinct and individual files.
 
-iHUEABYKAB0WIQTquNwa3Txd3rGGn7Y6cBh0uS2trAUCarvo2AAKCRA6cBh0uS2t
-rPbYAQC4FHOuUC7np8NscKyMG+sNI0axYle6eOCMGcv4Wg//lgEAs5kYtXHqr0Vo
-h852u1vJB4hxTP+jHlpF7k5OBbOhzAo=
-=f2Al
------END PGP SIGNATURE-----
+Maybe using DT overlays would be better suited if you really want to
+support every available combinations?
 
---lCMFkcEL7KUIgE/T--
+
+> The descriptions use shared module, option and carrier DTSI files with
+> SoC-specific wrappers. In particular, the WM8904 and WM8731 codecs are
+> selected explicitly instead of keeping a codec in the module base.
+> The four existing Concerto DTBs are converted to this layout without
+> changing their DTB names or compatible strings. This also replaces the
+> non-working legacy LVDS panel description with the LCDIF configuration
+
+Can you describe what exactly is not working? When I submitted these
+LVDS changes I tested the LVDS panel with the Variscite concerto EVK
+(VAR-SOM-6UL LD option) and it was working ok (also tested with two
+custom boards).
+
+If a fix is needed for this bug, this should go in a separate patch.
+
+
+> for the Variscite display. Wi-Fi and Bluetooth enable/reset sequencing
+> on these modules is handled by userspace, so the legacy kernel-managed
+> power-sequence and Bluetooth nodes are not carried forward.
+
+That is not ok. I specifically implemented enable/reset sequencing in
+the kernel to finally get rid of the need for external
+proprietary userspace scripts, and it was tested ok. If somethings needs
+to be fixed or improved in this sequencing, fine if you submit a patch
+to do it, but certainly do not get rid of it.
+
+
+> The Micrel binding change in patch 5 is needed by the Ethernet PHY
+> descriptions in this series. The existing boolean definition of
+> micrel,rmii-reference-clock-select-25-mhz conflicts with the dt-schema
+> unit check for properties ending in -mhz. The binding now accepts <1>
+> for 25 MHz selection and limits the property to the applicable PHYs.
+> Patch 4 changes the Micrel driver to test for property presence without
+> warning about the numeric value. This preserves its runtime behavior.
+> 
+> Patches 1-3 document the board compatibles for each SoC, patches 4-5
+> update the Micrel driver and binding, patches 6-9 add reusable DTSI
+> files, and patch 10 converts the existing Concerto boards. Patches
+> 11-13 add the new i.MX6UL, i.MX6ULL and i.MX6ULZ board DTS files
+> together with their Makefile targets.
+> 
+> v3->v4:
+>  - Split the board binding by SoC, keep the existing Concerto compatibles
+>    while adding new variants, and use the binding's items/enum style.
+>  - Drop the redundant -board suffix from new Concerto and Symphony
+>    compatibles; keep the SoM options before the carrier name.
+>  - Add each SoC's sorted DTB Makefile targets alongside its board DTS
+>    files, replacing the separate Makefile patch.
+> 
+> v2->v3:
+>  - Add a Micrel driver fix before the binding change so the numeric
+>    RMII clock select property does not cause a warning at PHY probe.
+>  - Specify the 3.3 V ADC reference supply voltage on both modules.
+>  - Share identical storage and wireless option DTSI files between the
+>    VAR-SOM-6UL and DART-6UL, and drop unused address and size cells from
+>    the IW61x SDIO host.
+>  - Move the Symphony Type-C interrupt pinctrl to the SoC-appropriate
+>    IOMUX controller, specify falling-edge interrupts for the Type-C
+>    controller and touchscreens, and disable the actual backlight node
+>    on the i.MX6ULZ Concerto-Board.
+>  - Update board includes for the shared option files and sort the
+>    Variscite DTB targets in the Makefile.
+> 
+> v1->v2:
+>  - Share the WM8904 codec description between VAR-SOM-6UL and DART-6UL,
+>    keeping the DART-specific microphone routing in a small wrapper.
+>  - Consolidate the identical WM8731 descriptions into one shared DTSI
+>    and update the board includes.
+> 
+> Stefano Radaelli (13):
+>   dt-bindings: arm: fsl: Add Variscite i.MX6UL board variants
+>   dt-bindings: arm: fsl: Add Variscite i.MX6ULL board variants
+>   dt-bindings: arm: fsl: Add Variscite i.MX6ULZ board variants
+>   net: phy: micrel: Check RMII clock select property presence
+>   dt-bindings: net: micrel: Fix RMII clock select property type
+>   ARM: dts: imx6ul: Add Variscite SoM and DART base files
+>   ARM: dts: imx6ul: Add Variscite audio codec files
+>   ARM: dts: imx6ul: Add Variscite storage and wireless files
+>   ARM: dts: imx6ul: Add Variscite carrier board files
+>   ARM: dts: imx6ul: Reuse Variscite DTSI files for Concerto
+>   ARM: dts: imx6ul: Add Variscite i.MX6UL board variants
+>   ARM: dts: imx6ull: Add Variscite i.MX6ULL board variants
+>   ARM: dts: imx6ulz: Add Variscite i.MX6ULZ board variants
+> 
+>  .../devicetree/bindings/arm/fsl.yaml          | 122 +++++-
+>  .../devicetree/bindings/net/micrel.yaml       |  27 +-
+>  arch/arm/boot/dts/nxp/imx/Makefile            |  92 ++++-
+>  ...x6ull-var-dart-6ulcustomboard-sd-card.dtsi |  31 ++
+>  ...mx6ul-imx6ull-var-dart-6ulcustomboard.dtsi | 321 ++++++++++++++++
+>  .../imx/imx6ul-imx6ull-var-dart-wm8904.dtsi   |  17 +
+>  .../dts/nxp/imx/imx6ul-imx6ull-var-dart.dtsi  | 207 +++++++++++
+>  .../dts/nxp/imx/imx6ul-imx6ull-var-emmc.dtsi  |  32 ++
+>  .../dts/nxp/imx/imx6ul-imx6ull-var-nand.dtsi  |  63 ++++
+>  ...mx6ull-var-som-concerto-board-sd-card.dtsi |  42 +++
+>  ...imx6ul-imx6ull-var-som-concerto-board.dtsi | 350 ++++++++++++++++++
+>  ...imx6ul-imx6ull-var-som-symphony-board.dtsi | 311 ++++++++++++++++
+>  ...ommon.dtsi => imx6ul-imx6ull-var-som.dtsi} | 222 +++++------
+>  .../nxp/imx/imx6ul-imx6ull-var-wifi-brcm.dtsi |  42 +++
+>  .../imx/imx6ul-imx6ull-var-wifi-iw61x.dtsi    |  43 +++
+>  .../nxp/imx/imx6ul-imx6ull-var-wm8731.dtsi    |  71 ++++
+>  .../nxp/imx/imx6ul-imx6ull-var-wm8904.dtsi    |  85 +++++
+>  .../imx/imx6ul-var-dart-6ulcustomboard.dtsi   |  18 +
+>  ...l-var-dart-emmc-sd-card-6ulcustomboard.dts |  20 +
+>  ...art-emmc-sd-card-wm8731-6ulcustomboard.dts |  20 +
+>  ...var-dart-emmc-wifi-brcm-6ulcustomboard.dts |  20 +
+>  ...t-emmc-wifi-brcm-wm8731-6ulcustomboard.dts |  20 +
+>  ...ar-dart-emmc-wifi-iw61x-6ulcustomboard.dts |  20 +
+>  ...l-var-dart-nand-sd-card-6ulcustomboard.dts |  20 +
+>  ...art-nand-sd-card-wm8731-6ulcustomboard.dts |  20 +
+>  ...var-dart-nand-wifi-brcm-6ulcustomboard.dts |  20 +
+>  ...t-nand-wifi-brcm-wm8731-6ulcustomboard.dts |  20 +
+>  ...ar-dart-nand-wifi-iw61x-6ulcustomboard.dts |  20 +
+>  .../arm/boot/dts/nxp/imx/imx6ul-var-dart.dtsi |  31 ++
+>  .../dts/nxp/imx/imx6ul-var-som-audio.dtsi     |  30 --
+>  .../imx/imx6ul-var-som-concerto-board.dtsi    |  38 ++
+>  .../imx/imx6ul-var-som-concerto-common.dtsi   | 215 -----------
+>  .../nxp/imx/imx6ul-var-som-concerto-full.dts  |  15 +-
+>  .../dts/nxp/imx/imx6ul-var-som-concerto.dts   |  14 +-
+>  ...ul-var-som-emmc-sd-card-concerto-board.dts |  20 +
+>  ...ul-var-som-emmc-sd-card-symphony-board.dts |  20 +
+>  ...som-emmc-sd-card-wm8731-concerto-board.dts |  20 +
+>  ...som-emmc-sd-card-wm8731-symphony-board.dts |  20 +
+>  ...-var-som-emmc-wifi-brcm-concerto-board.dts |  20 +
+>  ...-var-som-emmc-wifi-brcm-symphony-board.dts |  20 +
+>  ...m-emmc-wifi-brcm-wm8731-concerto-board.dts |  20 +
+>  ...m-emmc-wifi-brcm-wm8731-symphony-board.dts |  20 +
+>  ...var-som-emmc-wifi-iw61x-concerto-board.dts |  20 +
+>  ...var-som-emmc-wifi-iw61x-symphony-board.dts |  20 +
+>  .../dts/nxp/imx/imx6ul-var-som-enet1.dtsi     |  44 ---
+>  .../dts/nxp/imx/imx6ul-var-som-enet2.dtsi     |  79 ----
+>  .../nxp/imx/imx6ul-var-som-lvds-panel.dtsi    | 112 ------
+>  ...ul-var-som-nand-sd-card-concerto-board.dts |  20 +
+>  ...ul-var-som-nand-sd-card-symphony-board.dts |  20 +
+>  ...som-nand-sd-card-wm8731-concerto-board.dts |  20 +
+>  ...som-nand-sd-card-wm8731-symphony-board.dts |  20 +
+>  ...-var-som-nand-wifi-brcm-concerto-board.dts |  20 +
+>  ...-var-som-nand-wifi-brcm-symphony-board.dts |  20 +
+>  ...m-nand-wifi-brcm-wm8731-concerto-board.dts |  20 +
+>  ...m-nand-wifi-brcm-wm8731-symphony-board.dts |  20 +
+>  ...var-som-nand-wifi-iw61x-concerto-board.dts |  20 +
+>  ...var-som-nand-wifi-iw61x-symphony-board.dts |  20 +
+>  .../boot/dts/nxp/imx/imx6ul-var-som-sd.dtsi   |  27 --
+>  .../imx/imx6ul-var-som-symphony-board.dtsi    |  96 +++++
+>  .../boot/dts/nxp/imx/imx6ul-var-som-wifi.dtsi |  75 ----
+>  arch/arm/boot/dts/nxp/imx/imx6ul-var-som.dtsi |  31 +-
+>  .../imx/imx6ull-var-dart-6ulcustomboard.dtsi  |  18 +
+>  ...l-var-dart-emmc-sd-card-6ulcustomboard.dts |  20 +
+>  ...art-emmc-sd-card-wm8731-6ulcustomboard.dts |  20 +
+>  ...var-dart-emmc-wifi-brcm-6ulcustomboard.dts |  20 +
+>  ...t-emmc-wifi-brcm-wm8731-6ulcustomboard.dts |  20 +
+>  ...ar-dart-emmc-wifi-iw61x-6ulcustomboard.dts |  20 +
+>  ...l-var-dart-nand-sd-card-6ulcustomboard.dts |  20 +
+>  ...art-nand-sd-card-wm8731-6ulcustomboard.dts |  20 +
+>  ...var-dart-nand-wifi-brcm-6ulcustomboard.dts |  20 +
+>  ...t-nand-wifi-brcm-wm8731-6ulcustomboard.dts |  20 +
+>  ...ar-dart-nand-wifi-iw61x-6ulcustomboard.dts |  20 +
+>  .../boot/dts/nxp/imx/imx6ull-var-dart.dtsi    |  31 ++
+>  .../imx/imx6ull-var-som-concerto-board.dtsi   |  38 ++
+>  .../nxp/imx/imx6ull-var-som-concerto-full.dts |  15 +-
+>  .../dts/nxp/imx/imx6ull-var-som-concerto.dts  |  14 +-
+>  ...ll-var-som-emmc-sd-card-concerto-board.dts |  20 +
+>  ...ll-var-som-emmc-sd-card-symphony-board.dts |  20 +
+>  ...som-emmc-sd-card-wm8731-concerto-board.dts |  20 +
+>  ...som-emmc-sd-card-wm8731-symphony-board.dts |  20 +
+>  ...-var-som-emmc-wifi-brcm-concerto-board.dts |  20 +
+>  ...-var-som-emmc-wifi-brcm-symphony-board.dts |  20 +
+>  ...m-emmc-wifi-brcm-wm8731-concerto-board.dts |  20 +
+>  ...m-emmc-wifi-brcm-wm8731-symphony-board.dts |  20 +
+>  ...var-som-emmc-wifi-iw61x-concerto-board.dts |  20 +
+>  ...var-som-emmc-wifi-iw61x-symphony-board.dts |  20 +
+>  ...ll-var-som-nand-sd-card-concerto-board.dts |  20 +
+>  ...ll-var-som-nand-sd-card-symphony-board.dts |  20 +
+>  ...som-nand-sd-card-wm8731-concerto-board.dts |  20 +
+>  ...som-nand-sd-card-wm8731-symphony-board.dts |  20 +
+>  ...-var-som-nand-wifi-brcm-concerto-board.dts |  20 +
+>  ...-var-som-nand-wifi-brcm-symphony-board.dts |  20 +
+>  ...m-nand-wifi-brcm-wm8731-concerto-board.dts |  20 +
+>  ...m-nand-wifi-brcm-wm8731-symphony-board.dts |  20 +
+>  ...var-som-nand-wifi-iw61x-concerto-board.dts |  20 +
+>  ...var-som-nand-wifi-iw61x-symphony-board.dts |  20 +
+>  .../imx/imx6ull-var-som-symphony-board.dtsi   |  96 +++++
+>  .../arm/boot/dts/nxp/imx/imx6ull-var-som.dtsi |  31 +-
+>  .../imx/imx6ulz-var-dart-6ulcustomboard.dtsi  |  24 ++
+>  ...z-var-dart-emmc-sd-card-6ulcustomboard.dts |  21 ++
+>  ...art-emmc-sd-card-wm8731-6ulcustomboard.dts |  21 ++
+>  ...var-dart-emmc-wifi-brcm-6ulcustomboard.dts |  21 ++
+>  ...t-emmc-wifi-brcm-wm8731-6ulcustomboard.dts |  21 ++
+>  ...ar-dart-emmc-wifi-iw61x-6ulcustomboard.dts |  21 ++
+>  ...z-var-dart-nand-sd-card-6ulcustomboard.dts |  21 ++
+>  ...art-nand-sd-card-wm8731-6ulcustomboard.dts |  21 ++
+>  ...var-dart-nand-wifi-brcm-6ulcustomboard.dts |  21 ++
+>  ...t-nand-wifi-brcm-wm8731-6ulcustomboard.dts |  21 ++
+>  ...ar-dart-nand-wifi-iw61x-6ulcustomboard.dts |  21 ++
+>  .../boot/dts/nxp/imx/imx6ulz-var-dart.dtsi    |  38 ++
+>  .../imx/imx6ulz-var-som-concerto-board.dtsi   |  42 +++
+>  ...lz-var-som-emmc-sd-card-concerto-board.dts |  21 ++
+>  ...lz-var-som-emmc-sd-card-symphony-board.dts |  21 ++
+>  ...som-emmc-sd-card-wm8731-concerto-board.dts |  21 ++
+>  ...som-emmc-sd-card-wm8731-symphony-board.dts |  21 ++
+>  ...-var-som-emmc-wifi-brcm-concerto-board.dts |  21 ++
+>  ...-var-som-emmc-wifi-brcm-symphony-board.dts |  21 ++
+>  ...m-emmc-wifi-brcm-wm8731-concerto-board.dts |  21 ++
+>  ...m-emmc-wifi-brcm-wm8731-symphony-board.dts |  21 ++
+>  ...var-som-emmc-wifi-iw61x-concerto-board.dts |  21 ++
+>  ...var-som-emmc-wifi-iw61x-symphony-board.dts |  21 ++
+>  ...lz-var-som-nand-sd-card-concerto-board.dts |  21 ++
+>  ...lz-var-som-nand-sd-card-symphony-board.dts |  21 ++
+>  ...som-nand-sd-card-wm8731-concerto-board.dts |  21 ++
+>  ...som-nand-sd-card-wm8731-symphony-board.dts |  21 ++
+>  ...-var-som-nand-wifi-brcm-concerto-board.dts |  21 ++
+>  ...-var-som-nand-wifi-brcm-symphony-board.dts |  21 ++
+>  ...m-nand-wifi-brcm-wm8731-concerto-board.dts |  21 ++
+>  ...m-nand-wifi-brcm-wm8731-symphony-board.dts |  21 ++
+>  ...var-som-nand-wifi-iw61x-concerto-board.dts |  21 ++
+>  ...var-som-nand-wifi-iw61x-symphony-board.dts |  21 ++
+>  .../imx/imx6ulz-var-som-symphony-board.dtsi   |  32 ++
+>  .../arm/boot/dts/nxp/imx/imx6ulz-var-som.dtsi |  38 ++
+>  drivers/net/phy/micrel.c                      |   2 +-
+>  134 files changed, 4393 insertions(+), 759 deletions(-)
+>  create mode 100644 arch/arm/boot/dts/nxp/imx/imx6ul-imx6ull-var-dart-6ulcustomboard-sd-card.dtsi
+>  create mode 100644 arch/arm/boot/dts/nxp/imx/imx6ul-imx6ull-var-dart-6ulcustomboard.dtsi
+>  create mode 100644 arch/arm/boot/dts/nxp/imx/imx6ul-imx6ull-var-dart-wm8904.dtsi
+>  create mode 100644 arch/arm/boot/dts/nxp/imx/imx6ul-imx6ull-var-dart.dtsi
+>  create mode 100644 arch/arm/boot/dts/nxp/imx/imx6ul-imx6ull-var-emmc.dtsi
+>  create mode 100644 arch/arm/boot/dts/nxp/imx/imx6ul-imx6ull-var-nand.dtsi
+>  create mode 100644 arch/arm/boot/dts/nxp/imx/imx6ul-imx6ull-var-som-concerto-board-sd-card.dtsi
+>  create mode 100644 arch/arm/boot/dts/nxp/imx/imx6ul-imx6ull-var-som-concerto-board.dtsi
+>  create mode 100644 arch/arm/boot/dts/nxp/imx/imx6ul-imx6ull-var-som-symphony-board.dtsi
+>  rename arch/arm/boot/dts/nxp/imx/{imx6ul-var-som-common.dtsi => imx6ul-imx6ull-var-som.dtsi} (50%)
+>  create mode 100644 arch/arm/boot/dts/nxp/imx/imx6ul-imx6ull-var-wifi-brcm.dtsi
+>  create mode 100644 arch/arm/boot/dts/nxp/imx/imx6ul-imx6ull-var-wifi-iw61x.dtsi
+>  create mode 100644 arch/arm/boot/dts/nxp/imx/imx6ul-imx6ull-var-wm8731.dtsi
+>  create mode 100644 arch/arm/boot/dts/nxp/imx/imx6ul-imx6ull-var-wm8904.dtsi
+>  create mode 100644 arch/arm/boot/dts/nxp/imx/imx6ul-var-dart-6ulcustomboard.dtsi
+>  create mode 100644 arch/arm/boot/dts/nxp/imx/imx6ul-var-dart-emmc-sd-card-6ulcustomboard.dts
+>  create mode 100644 arch/arm/boot/dts/nxp/imx/imx6ul-var-dart-emmc-sd-card-wm8731-6ulcustomboard.dts
+>  create mode 100644 arch/arm/boot/dts/nxp/imx/imx6ul-var-dart-emmc-wifi-brcm-6ulcustomboard.dts
+>  create mode 100644 arch/arm/boot/dts/nxp/imx/imx6ul-var-dart-emmc-wifi-brcm-wm8731-6ulcustomboard.dts
+>  create mode 100644 arch/arm/boot/dts/nxp/imx/imx6ul-var-dart-emmc-wifi-iw61x-6ulcustomboard.dts
+>  create mode 100644 arch/arm/boot/dts/nxp/imx/imx6ul-var-dart-nand-sd-card-6ulcustomboard.dts
+>  create mode 100644 arch/arm/boot/dts/nxp/imx/imx6ul-var-dart-nand-sd-card-wm8731-6ulcustomboard.dts
+>  create mode 100644 arch/arm/boot/dts/nxp/imx/imx6ul-var-dart-nand-wifi-brcm-6ulcustomboard.dts
+>  create mode 100644 arch/arm/boot/dts/nxp/imx/imx6ul-var-dart-nand-wifi-brcm-wm8731-6ulcustomboard.dts
+>  create mode 100644 arch/arm/boot/dts/nxp/imx/imx6ul-var-dart-nand-wifi-iw61x-6ulcustomboard.dts
+>  create mode 100644 arch/arm/boot/dts/nxp/imx/imx6ul-var-dart.dtsi
+>  delete mode 100644 arch/arm/boot/dts/nxp/imx/imx6ul-var-som-audio.dtsi
+>  create mode 100644 arch/arm/boot/dts/nxp/imx/imx6ul-var-som-concerto-board.dtsi
+>  delete mode 100644 arch/arm/boot/dts/nxp/imx/imx6ul-var-som-concerto-common.dtsi
+>  create mode 100644 arch/arm/boot/dts/nxp/imx/imx6ul-var-som-emmc-sd-card-concerto-board.dts
+>  create mode 100644 arch/arm/boot/dts/nxp/imx/imx6ul-var-som-emmc-sd-card-symphony-board.dts
+>  create mode 100644 arch/arm/boot/dts/nxp/imx/imx6ul-var-som-emmc-sd-card-wm8731-concerto-board.dts
+>  create mode 100644 arch/arm/boot/dts/nxp/imx/imx6ul-var-som-emmc-sd-card-wm8731-symphony-board.dts
+>  create mode 100644 arch/arm/boot/dts/nxp/imx/imx6ul-var-som-emmc-wifi-brcm-concerto-board.dts
+>  create mode 100644 arch/arm/boot/dts/nxp/imx/imx6ul-var-som-emmc-wifi-brcm-symphony-board.dts
+>  create mode 100644 arch/arm/boot/dts/nxp/imx/imx6ul-var-som-emmc-wifi-brcm-wm8731-concerto-board.dts
+>  create mode 100644 arch/arm/boot/dts/nxp/imx/imx6ul-var-som-emmc-wifi-brcm-wm8731-symphony-board.dts
+>  create mode 100644 arch/arm/boot/dts/nxp/imx/imx6ul-var-som-emmc-wifi-iw61x-concerto-board.dts
+>  create mode 100644 arch/arm/boot/dts/nxp/imx/imx6ul-var-som-emmc-wifi-iw61x-symphony-board.dts
+>  delete mode 100644 arch/arm/boot/dts/nxp/imx/imx6ul-var-som-enet1.dtsi
+>  delete mode 100644 arch/arm/boot/dts/nxp/imx/imx6ul-var-som-enet2.dtsi
+>  delete mode 100644 arch/arm/boot/dts/nxp/imx/imx6ul-var-som-lvds-panel.dtsi
+>  create mode 100644 arch/arm/boot/dts/nxp/imx/imx6ul-var-som-nand-sd-card-concerto-board.dts
+>  create mode 100644 arch/arm/boot/dts/nxp/imx/imx6ul-var-som-nand-sd-card-symphony-board.dts
+>  create mode 100644 arch/arm/boot/dts/nxp/imx/imx6ul-var-som-nand-sd-card-wm8731-concerto-board.dts
+>  create mode 100644 arch/arm/boot/dts/nxp/imx/imx6ul-var-som-nand-sd-card-wm8731-symphony-board.dts
+>  create mode 100644 arch/arm/boot/dts/nxp/imx/imx6ul-var-som-nand-wifi-brcm-concerto-board.dts
+>  create mode 100644 arch/arm/boot/dts/nxp/imx/imx6ul-var-som-nand-wifi-brcm-symphony-board.dts
+>  create mode 100644 arch/arm/boot/dts/nxp/imx/imx6ul-var-som-nand-wifi-brcm-wm8731-concerto-board.dts
+>  create mode 100644 arch/arm/boot/dts/nxp/imx/imx6ul-var-som-nand-wifi-brcm-wm8731-symphony-board.dts
+>  create mode 100644 arch/arm/boot/dts/nxp/imx/imx6ul-var-som-nand-wifi-iw61x-concerto-board.dts
+>  create mode 100644 arch/arm/boot/dts/nxp/imx/imx6ul-var-som-nand-wifi-iw61x-symphony-board.dts
+>  delete mode 100644 arch/arm/boot/dts/nxp/imx/imx6ul-var-som-sd.dtsi
+>  create mode 100644 arch/arm/boot/dts/nxp/imx/imx6ul-var-som-symphony-board.dtsi
+>  delete mode 100644 arch/arm/boot/dts/nxp/imx/imx6ul-var-som-wifi.dtsi
+>  create mode 100644 arch/arm/boot/dts/nxp/imx/imx6ull-var-dart-6ulcustomboard.dtsi
+>  create mode 100644 arch/arm/boot/dts/nxp/imx/imx6ull-var-dart-emmc-sd-card-6ulcustomboard.dts
+>  create mode 100644 arch/arm/boot/dts/nxp/imx/imx6ull-var-dart-emmc-sd-card-wm8731-6ulcustomboard.dts
+>  create mode 100644 arch/arm/boot/dts/nxp/imx/imx6ull-var-dart-emmc-wifi-brcm-6ulcustomboard.dts
+>  create mode 100644 arch/arm/boot/dts/nxp/imx/imx6ull-var-dart-emmc-wifi-brcm-wm8731-6ulcustomboard.dts
+>  create mode 100644 arch/arm/boot/dts/nxp/imx/imx6ull-var-dart-emmc-wifi-iw61x-6ulcustomboard.dts
+>  create mode 100644 arch/arm/boot/dts/nxp/imx/imx6ull-var-dart-nand-sd-card-6ulcustomboard.dts
+>  create mode 100644 arch/arm/boot/dts/nxp/imx/imx6ull-var-dart-nand-sd-card-wm8731-6ulcustomboard.dts
+>  create mode 100644 arch/arm/boot/dts/nxp/imx/imx6ull-var-dart-nand-wifi-brcm-6ulcustomboard.dts
+>  create mode 100644 arch/arm/boot/dts/nxp/imx/imx6ull-var-dart-nand-wifi-brcm-wm8731-6ulcustomboard.dts
+>  create mode 100644 arch/arm/boot/dts/nxp/imx/imx6ull-var-dart-nand-wifi-iw61x-6ulcustomboard.dts
+>  create mode 100644 arch/arm/boot/dts/nxp/imx/imx6ull-var-dart.dtsi
+>  create mode 100644 arch/arm/boot/dts/nxp/imx/imx6ull-var-som-concerto-board.dtsi
+>  create mode 100644 arch/arm/boot/dts/nxp/imx/imx6ull-var-som-emmc-sd-card-concerto-board.dts
+>  create mode 100644 arch/arm/boot/dts/nxp/imx/imx6ull-var-som-emmc-sd-card-symphony-board.dts
+>  create mode 100644 arch/arm/boot/dts/nxp/imx/imx6ull-var-som-emmc-sd-card-wm8731-concerto-board.dts
+>  create mode 100644 arch/arm/boot/dts/nxp/imx/imx6ull-var-som-emmc-sd-card-wm8731-symphony-board.dts
+>  create mode 100644 arch/arm/boot/dts/nxp/imx/imx6ull-var-som-emmc-wifi-brcm-concerto-board.dts
+>  create mode 100644 arch/arm/boot/dts/nxp/imx/imx6ull-var-som-emmc-wifi-brcm-symphony-board.dts
+>  create mode 100644 arch/arm/boot/dts/nxp/imx/imx6ull-var-som-emmc-wifi-brcm-wm8731-concerto-board.dts
+>  create mode 100644 arch/arm/boot/dts/nxp/imx/imx6ull-var-som-emmc-wifi-brcm-wm8731-symphony-board.dts
+>  create mode 100644 arch/arm/boot/dts/nxp/imx/imx6ull-var-som-emmc-wifi-iw61x-concerto-board.dts
+>  create mode 100644 arch/arm/boot/dts/nxp/imx/imx6ull-var-som-emmc-wifi-iw61x-symphony-board.dts
+>  create mode 100644 arch/arm/boot/dts/nxp/imx/imx6ull-var-som-nand-sd-card-concerto-board.dts
+>  create mode 100644 arch/arm/boot/dts/nxp/imx/imx6ull-var-som-nand-sd-card-symphony-board.dts
+>  create mode 100644 arch/arm/boot/dts/nxp/imx/imx6ull-var-som-nand-sd-card-wm8731-concerto-board.dts
+>  create mode 100644 arch/arm/boot/dts/nxp/imx/imx6ull-var-som-nand-sd-card-wm8731-symphony-board.dts
+>  create mode 100644 arch/arm/boot/dts/nxp/imx/imx6ull-var-som-nand-wifi-brcm-concerto-board.dts
+>  create mode 100644 arch/arm/boot/dts/nxp/imx/imx6ull-var-som-nand-wifi-brcm-symphony-board.dts
+>  create mode 100644 arch/arm/boot/dts/nxp/imx/imx6ull-var-som-nand-wifi-brcm-wm8731-concerto-board.dts
+>  create mode 100644 arch/arm/boot/dts/nxp/imx/imx6ull-var-som-nand-wifi-brcm-wm8731-symphony-board.dts
+>  create mode 100644 arch/arm/boot/dts/nxp/imx/imx6ull-var-som-nand-wifi-iw61x-concerto-board.dts
+>  create mode 100644 arch/arm/boot/dts/nxp/imx/imx6ull-var-som-nand-wifi-iw61x-symphony-board.dts
+>  create mode 100644 arch/arm/boot/dts/nxp/imx/imx6ull-var-som-symphony-board.dtsi
+>  create mode 100644 arch/arm/boot/dts/nxp/imx/imx6ulz-var-dart-6ulcustomboard.dtsi
+>  create mode 100644 arch/arm/boot/dts/nxp/imx/imx6ulz-var-dart-emmc-sd-card-6ulcustomboard.dts
+>  create mode 100644 arch/arm/boot/dts/nxp/imx/imx6ulz-var-dart-emmc-sd-card-wm8731-6ulcustomboard.dts
+>  create mode 100644 arch/arm/boot/dts/nxp/imx/imx6ulz-var-dart-emmc-wifi-brcm-6ulcustomboard.dts
+>  create mode 100644 arch/arm/boot/dts/nxp/imx/imx6ulz-var-dart-emmc-wifi-brcm-wm8731-6ulcustomboard.dts
+>  create mode 100644 arch/arm/boot/dts/nxp/imx/imx6ulz-var-dart-emmc-wifi-iw61x-6ulcustomboard.dts
+>  create mode 100644 arch/arm/boot/dts/nxp/imx/imx6ulz-var-dart-nand-sd-card-6ulcustomboard.dts
+>  create mode 100644 arch/arm/boot/dts/nxp/imx/imx6ulz-var-dart-nand-sd-card-wm8731-6ulcustomboard.dts
+>  create mode 100644 arch/arm/boot/dts/nxp/imx/imx6ulz-var-dart-nand-wifi-brcm-6ulcustomboard.dts
+>  create mode 100644 arch/arm/boot/dts/nxp/imx/imx6ulz-var-dart-nand-wifi-brcm-wm8731-6ulcustomboard.dts
+>  create mode 100644 arch/arm/boot/dts/nxp/imx/imx6ulz-var-dart-nand-wifi-iw61x-6ulcustomboard.dts
+>  create mode 100644 arch/arm/boot/dts/nxp/imx/imx6ulz-var-dart.dtsi
+>  create mode 100644 arch/arm/boot/dts/nxp/imx/imx6ulz-var-som-concerto-board.dtsi
+>  create mode 100644 arch/arm/boot/dts/nxp/imx/imx6ulz-var-som-emmc-sd-card-concerto-board.dts
+>  create mode 100644 arch/arm/boot/dts/nxp/imx/imx6ulz-var-som-emmc-sd-card-symphony-board.dts
+>  create mode 100644 arch/arm/boot/dts/nxp/imx/imx6ulz-var-som-emmc-sd-card-wm8731-concerto-board.dts
+>  create mode 100644 arch/arm/boot/dts/nxp/imx/imx6ulz-var-som-emmc-sd-card-wm8731-symphony-board.dts
+>  create mode 100644 arch/arm/boot/dts/nxp/imx/imx6ulz-var-som-emmc-wifi-brcm-concerto-board.dts
+>  create mode 100644 arch/arm/boot/dts/nxp/imx/imx6ulz-var-som-emmc-wifi-brcm-symphony-board.dts
+>  create mode 100644 arch/arm/boot/dts/nxp/imx/imx6ulz-var-som-emmc-wifi-brcm-wm8731-concerto-board.dts
+>  create mode 100644 arch/arm/boot/dts/nxp/imx/imx6ulz-var-som-emmc-wifi-brcm-wm8731-symphony-board.dts
+>  create mode 100644 arch/arm/boot/dts/nxp/imx/imx6ulz-var-som-emmc-wifi-iw61x-concerto-board.dts
+>  create mode 100644 arch/arm/boot/dts/nxp/imx/imx6ulz-var-som-emmc-wifi-iw61x-symphony-board.dts
+>  create mode 100644 arch/arm/boot/dts/nxp/imx/imx6ulz-var-som-nand-sd-card-concerto-board.dts
+>  create mode 100644 arch/arm/boot/dts/nxp/imx/imx6ulz-var-som-nand-sd-card-symphony-board.dts
+>  create mode 100644 arch/arm/boot/dts/nxp/imx/imx6ulz-var-som-nand-sd-card-wm8731-concerto-board.dts
+>  create mode 100644 arch/arm/boot/dts/nxp/imx/imx6ulz-var-som-nand-sd-card-wm8731-symphony-board.dts
+>  create mode 100644 arch/arm/boot/dts/nxp/imx/imx6ulz-var-som-nand-wifi-brcm-concerto-board.dts
+>  create mode 100644 arch/arm/boot/dts/nxp/imx/imx6ulz-var-som-nand-wifi-brcm-symphony-board.dts
+>  create mode 100644 arch/arm/boot/dts/nxp/imx/imx6ulz-var-som-nand-wifi-brcm-wm8731-concerto-board.dts
+>  create mode 100644 arch/arm/boot/dts/nxp/imx/imx6ulz-var-som-nand-wifi-brcm-wm8731-symphony-board.dts
+>  create mode 100644 arch/arm/boot/dts/nxp/imx/imx6ulz-var-som-nand-wifi-iw61x-concerto-board.dts
+>  create mode 100644 arch/arm/boot/dts/nxp/imx/imx6ulz-var-som-nand-wifi-iw61x-symphony-board.dts
+>  create mode 100644 arch/arm/boot/dts/nxp/imx/imx6ulz-var-som-symphony-board.dtsi
+>  create mode 100644 arch/arm/boot/dts/nxp/imx/imx6ulz-var-som.dtsi
+> 
+> 
+> base-commit: 40f1b207d21530e10f05b9eaf892b4358a1f1151
+> prerequisite-patch-id: 62880c8f7160273c15e5f475f04804d086a9ad1c
+> prerequisite-patch-id: 3781017f0aa27eb7d57197b467a9d9f81413cbc5
+> prerequisite-patch-id: 962922a4574df33d18b523748560b1ca3ee585a9
+> prerequisite-patch-id: 5bf320ed451409bce6cfc3048175851591a5f3dd
+> prerequisite-patch-id: 3bea4f196ea1526f0cd1ad4337bf9611c87f0555
+> prerequisite-patch-id: 1ad35198902e1c7ec2611292e9972eb7123a0f90
+> prerequisite-patch-id: 5b23703c0c731b5f296aaee487e7b577eb61e636
+> prerequisite-patch-id: 26687fecbd89ceb0dc62f9d9680649689a8c5066
+> prerequisite-patch-id: 96a89f7a1f14d8fac73a524eba728ba594ed57c8
+> prerequisite-patch-id: 68ac4290d5853a834aa80539b945f805f4b876e6
+> prerequisite-patch-id: fde30f2299fa6524df7b8b36b662bc84bac587e9
+> prerequisite-patch-id: 69642026b477d3cd8ccb4c52e4045450ccc34f46
+> prerequisite-patch-id: 86729524d0971905b2d22294e2e1a6839de6d5bb
+> prerequisite-patch-id: 30e7506837377b52e75815b2fc55145b4eec3ede
+> prerequisite-patch-id: a81285c549c9fdf666075725a5ee38dba340e555
+> prerequisite-patch-id: 07d9e9852c096ec14d0aee6c607b0434e0abf3ae
+> prerequisite-patch-id: ef8429c8fec77bcba99b32ac47529597cb2ad9e4
+> prerequisite-patch-id: ca2bc56305831fd058562952bd488d86cee7f400
+> prerequisite-patch-id: 43731e74e6aaf848816bf574fdd9be0b01b4b94d
+> prerequisite-patch-id: dc5229856996362403d6a767ecbbe65c42189219
+> prerequisite-patch-id: dd6674b31278dd07dd4b455ac08bd0bd5474bc82
+> prerequisite-patch-id: 4084e9a7ceeda61006b251558204b28dd1a3aa48
+> prerequisite-patch-id: ccfe25543d430411ec3d900514a5b0a96a5b5cce
+> prerequisite-patch-id: ef37b3260b07b0dc4f3f4f8dbf18475b91cfb2f1
+> prerequisite-patch-id: ae2a9b239b640125e7b367137a4eb71aaf468c69
+> prerequisite-patch-id: bb7c530f09e10d8519ecc72b2245450b432d76bf
+> prerequisite-patch-id: 8a5077ba68c33a06e3afdec671457d8e635c2e21
+> prerequisite-patch-id: 49ecd2b6a4a9f08ddb36f02f8fc067a4e93d3494
+> prerequisite-patch-id: 1fa3df17af62f6daedf2b2eea4c9eee74560f412
+> prerequisite-patch-id: 95d94068c9fa17f737f9d318e264bcd87cf19485
+> prerequisite-patch-id: 0afadd49a2b8d8c66452d7669f88937a02cef6f9
+> prerequisite-patch-id: 8be2b5d331f3172e5ec0f66415faa807ac246d8c
+> prerequisite-patch-id: accdb7d4195ddb65e169b61e1eebf6b20e876365
+> prerequisite-patch-id: 99ddad7ca8ba6845bdece45a476065569177111e
+> prerequisite-patch-id: 885543ce35f74b8a275b8684280353a505ee54a9
+> prerequisite-patch-id: fd0a58131f90dedc64de3c9a5359f1092adf9792
+> prerequisite-patch-id: 5b13f0e98ba023c00e766ff7a7bf0dec973cd6fc
+> prerequisite-patch-id: 5bca98720f574bccedb60842ac22baab17d3853b
+> prerequisite-patch-id: aea30b0f8becd1d55f2708256e1ea0b4a39c5f32
+> prerequisite-patch-id: 003af244d659e19eabbc18c831fdb4417ab0aa93
+> prerequisite-patch-id: cd18912da6f686645dce19acc85f3166fa4d1754
+> prerequisite-patch-id: 7f3d663b4c8e0bd9453db82a7f04f5b10512d2c4
+> prerequisite-patch-id: 8173e35500aa727a566ccbb5c1315da48dec0ff2
+> prerequisite-patch-id: 618bccee5b75da9c7f71b01349661aaa5a62d6b7
+> prerequisite-patch-id: 2112ea77d9b97a2f535df903164846a3b5c1dccf
+> prerequisite-patch-id: 4b31796fcd969191f8164763118f852ce9c601b6
+> prerequisite-patch-id: c366d6181262c19f6cada97b73a93e233415a969
+> prerequisite-patch-id: 033cf627399f3aa5a29eba3cc28d5fe256e42172
+> prerequisite-patch-id: d6ca563a70c82c7e78d1d00a283da934a377d06b
+> prerequisite-patch-id: 5bac5fbf12fc4586308c01207938182cbb96bb4e
+> prerequisite-patch-id: 69c2859da980e897e77a4756fd47ba34aff82237
+> prerequisite-patch-id: 07b739d9c50aa49ff684d7b890b0d7e653b712ac
+> prerequisite-patch-id: 869b64db36883ae2a83fa0ca173719f947c7dee7
+> prerequisite-patch-id: f45b5a6676093073a3f1a555f0f0b71d1e9df36d
+> prerequisite-patch-id: cb5c76a5e3d6d17cd181870afa600b544e7de63e
+> prerequisite-patch-id: 8dde1759cb4fee2fdd640ad1046bd4261385b974
+> prerequisite-patch-id: dc08cdff0c43809bb0ae4abaea5193fc2fb4492e
+> prerequisite-patch-id: 8b9097152068bd100c855dd40aa25537424fdb9b
+> prerequisite-patch-id: 7a3fc276014dc2097ee88188172868dec827aca7
+> prerequisite-patch-id: 470e45e6f2d773c0a4916ecb346ec053efb4fd47
+> prerequisite-patch-id: 8004b6d39592fb0cda5e15ec1d15128e0938fefc
+> prerequisite-patch-id: 04c000171598bf4f2b86a4aaa2c61101bef6a5a3
+> prerequisite-patch-id: ee9ab371ff54b3ef7111bde1bee8a1bd0ff11c19
+> prerequisite-patch-id: 802fae1b5f2f683392c781053cd3adc05529d6c6
+> prerequisite-patch-id: 3682aeceba2fc75bdfc942904646f7bb08712359
+> prerequisite-patch-id: e03b718882a611f7c280d48868a75c8e1ca1d708
+> prerequisite-patch-id: 112c1343712e01ad835640897c3c93032a1dc359
+> prerequisite-patch-id: 73b3ddfdb23233865ec9930c5512167f3124b97c
+> prerequisite-patch-id: 510185d967cd33fd6c047ae28b840fc5dea3b71a
+> prerequisite-patch-id: dbed47ecb907f6b7f7e284c5c1a3c325566eafd7
+> prerequisite-patch-id: f99da6f44457672c2c9b2cc07ef2bf431223c4b9
+> prerequisite-patch-id: a546073a5b47cc429a61a9aa4e03bef671bc26bf
+> prerequisite-patch-id: fc920547c252d9cbe133409902d84f17f3eed5b5
+> prerequisite-patch-id: c145bc21efe0c58c600d250e64d48f43239c5306
+> prerequisite-patch-id: 46e5613f6463440d7e0a99d90daa170e93ea162b
+> prerequisite-patch-id: abb2de3b31e12699e6d3b64b7780f86ce5f7fcb2
+> prerequisite-patch-id: 9551acc715b965ac3e50aea1e8d4bde7bf084c9e
+> prerequisite-patch-id: 864b87775c334dc222fd449827e02545cb1b710a
+> prerequisite-patch-id: 4ab2bea80f7aab894db8c0ca177253863e619ac7
+> prerequisite-patch-id: d1450cb5c986d888af38ce3f8eb375ae2b7b1edd
+> prerequisite-patch-id: a3a32bd1f429764997bf80c85ba7fdc13650d70c
+> prerequisite-patch-id: bfcb70843f1109dcc889b4628d9753fd4d6f4169
+> prerequisite-patch-id: 8a6f763500955fb3fbb340c68c59304956f9fc95
+
+It seems some (or most) of these prerequisite patches are not
+really needed for this patch series...
+
+
+> -- 
+> 2.47.3
+
+
+-- 
+Hugo Villeneuve
 
