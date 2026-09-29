@@ -4,88 +4,83 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4B0E4CA5FB1
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 29 Sep 2026 16:59:58 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 07482CA5FA7
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 29 Sep 2026 17:00:37 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=MGBWHHaEJganj8D1yagMHRlcdsNEyTtM3iC7GV8hUXU=; b=ANSPZoEhKvRFTfhVGrcGKo35Ms
-	RFjbQJLUQEMHMMJoPEDCjCvaVYG59gW4mslp+zGVwgOtBfhvNrmKX7K/jFzJApPJMW0Vx5qDvS9m9
-	MOWzLKBKujNuVRloCc4eHKTduqsil4rH9JNzV2rC3EF8Xl/nUY/2zWly/QWjixEZWdMT9/gBNajbR
-	SoRoJkthzqdzWBAnQxcMBMS+J6yGzxGo8AaZksJ69jsdVGxVOSwRGRLCyUYgbatevHXm3s0eYpwG3
-	uo6a9LbzJ/9Zc2h3DqtgHqMjVUm59zEtdhEGzG+RikOOe7U2qZsliT6dtKbhFK+WemiyVeZF+FiQg
-	jCx8dv0g==;
+	bh=yoXJoVOtDfXx/sqpL2IRQPeObZGir2PgtmCCcHbuopM=; b=qm93svOYDZpezysYC5M3+065LO
+	7t1UPdnHMIaP6eDOFggpi3njjeJODeGytLnWEpXJi6chVRKlL8PPpEmtOgwZbpkS3m0T93dxadsdr
+	m+Yg2Ho3HdggLJx90KGUrvU9CnAk7E5RYO7VLdNAD0zFOKmgWGNRzbOXuRE0/oFnn8cEG4DlN0I2s
+	N7FTjDTSPrOvgpvGXTahtCyZNBmI2oR2TqMBLnXMXhx4EQOb7h4pUh2fPA0ZDHOqz7oLJsi1LWrde
+	rvJmCA0ylEohYEBRDQtdAxfUVyn0Ou8/VadrLeuqU1w8wkLHQ0/MBxfjqd6xDMcjzsI4wkiJvG9XM
+	cz0hUBBw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xBbBH-000000047QD-2izB;
-	Tue, 29 Sep 2026 16:59:51 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
-	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xBbBH-000000047Q0-0HLi;
-	Tue, 29 Sep 2026 16:59:51 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 6AB8243BFA;
-	Tue, 29 Sep 2026 16:59:50 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 153C71F000FF;
-	Tue, 29 Sep 2026 16:59:41 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1790701190;
-	bh=MGBWHHaEJganj8D1yagMHRlcdsNEyTtM3iC7GV8hUXU=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=SjePm7x02Lah5vOELf9ce4YUO5z/8quB47KG1ZoIMK72aUNVrPrCdr0c0MhVEUCct
-	 e/pjkzplRRlc+iDw8myI00JnCkhOCgIGqKVjqAEmF68e1bsSBFWkNDo/dnGaHUUbmN
-	 gGTfswdR99FIW24ZhkxFSWQUM+NnT0oWNEgj5t/DAU3kIqebd4giVteYXHP1sJE9R7
-	 LMnUflkro8TfjhlCllhq8FQKM35R/YNnamS2pvqYaCoDITHJ1zkhAY1dQR0e4Sb4q1
-	 loj77pP8vyLLK7xfd/8pczOKmPjnIREFvATiAc8+2ruPOGvW7PPEKs8kujnvVWWvGM
-	 j5+6rTn2iVdcw==
-Date: Tue, 29 Sep 2026 18:59:39 +0200
-From: Nathan Chancellor <nathan@kernel.org>
-To: David Laight <david.laight.linux@gmail.com>
-Cc: "Jason A. Donenfeld" <Jason@zx2c4.com>,
-	Andreas Schwab <schwab@linux-m68k.org>,
-	Andy Lutomirski <luto@kernel.org>,
-	Thomas Gleixner <tglx@kernel.org>, Theodore Ts'o <tytso@mit.edu>,
-	Vincenzo Frascino <vincenzo.frascino@arm.com>,
-	Nick Desaulniers <ndesaulniers@google.com>,
-	Bill Wendling <morbo@google.com>,
-	Justin Stitt <justinstitt@google.com>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Will Deacon <will@kernel.org>, Mark Rutland <mark.rutland@arm.com>,
-	Huacai Chen <chenhuacai@kernel.org>,
-	WANG Xuerui <kernel@xen0n.name>,
-	Madhavan Srinivasan <maddy@linux.ibm.com>,
-	Michael Ellerman <mpe@ellerman.id.au>,
-	Nicholas Piggin <npiggin@gmail.com>,
-	"Christophe Leroy (CS GROUP)" <chleroy@kernel.org>,
-	Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>,
-	Heiko Carstens <hca@linux.ibm.com>,
-	Vasily Gorbik <gor@linux.ibm.com>,
+	id 1xBbBu-000000047b8-45jr;
+	Tue, 29 Sep 2026 17:00:30 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1xBbBs-000000047ag-3mRP
+	for linux-arm-kernel@lists.infradead.org;
+	Tue, 29 Sep 2026 17:00:30 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 8F3EF1655;
+	Tue, 29 Sep 2026 10:00:23 -0700 (PDT)
+Received: from arm.com (usa-sjc-mx-foss1.foss.arm.com [172.31.20.19])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 55F753F85F;
+	Tue, 29 Sep 2026 10:00:23 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
+	t=1790701227; bh=JOH3/jvzoj8I30I9E7kqxaEsc2Cplh2etaLYcI+/ZEo=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=nzbmtfKi8hy7Cc/yT4F+PGL6tW6kIHItKwVzh05TXYNazNIP2VPxFmRX+iByTzJci
+	 vkpKv707Z8drHTA6cAUBWSs41lcGj8D84X8Ul4eZUyi05Lu5EFRpj5sH9ciUXEZV9J
+	 JuiircUcRlGb+buJ2IlH/gTkk8HxtKdcSyyrp3Zo=
+Date: Tue, 29 Sep 2026 18:00:12 +0100
+From: Catalin Marinas <catalin.marinas@arm.com>
+To: Andreas Grapentin <gra@linux.ibm.com>
+Cc: Steffen Eiden <seiden@linux.ibm.com>, kvm@vger.kernel.org,
+	kvmarm@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org, linux-s390@vger.kernel.org,
 	Alexander Gordeev <agordeev@linux.ibm.com>,
+	Arnd Bergmann <arnd@arndb.de>,
 	Christian Borntraeger <borntraeger@linux.ibm.com>,
-	Sven Schnelle <svens@linux.ibm.com>, Ingo Molnar <mingo@redhat.com>,
-	Borislav Petkov <bp@alien8.de>,
-	Dave Hansen <dave.hansen@linux.intel.com>,
-	"H. Peter Anvin" <hpa@zytor.com>, x86@kernel.org,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
-	loongarch@lists.linux.dev, linuxppc-dev@lists.ozlabs.org,
-	linux-riscv@lists.infradead.org, linux-s390@vger.kernel.org,
-	llvm@lists.linux.dev
-Subject: Re: [PATCH v2] random: vDSO: Avoid call to memset() when zeroing
- reserved in __cvdso_getrandom_data()
-Message-ID: <20260929165939.GA1890629@ax162>
-References: <20260925-vdso-getrandom-avoid-memset-llvm-24-v2-1-ce640f872393@kernel.org>
- <87zex4ic68.fsf@linux-m68k.org>
- <20260926121927.GA1486962@ax162>
- <are7cfMIHZZn6jLz@zx2c4.com>
- <20260927080225.37534e7c@pumpkin>
+	Claudio Imbrenda <imbrenda@linux.ibm.com>,
+	David Hildenbrand <david@kernel.org>,
+	Friedrich Welter <fritz@linux.ibm.com>,
+	Fuad Tabba <tabba@google.com>, Gautam Gala <ggala@linux.ibm.com>,
+	Hariharan Mari <hari55@linux.ibm.com>,
+	Heiko Carstens <hca@linux.ibm.com>,
+	Hendrik Brueckner <brueckner@linux.ibm.com>,
+	Ilya Leoshkevich <iii@linux.ibm.com>,
+	Janosch Frank <frankja@linux.ibm.com>,
+	Joey Gouly <joey.gouly@arm.com>, Marc Zyngier <maz@kernel.org>,
+	Nico Boehr <nrb@linux.ibm.com>,
+	Nina Schoetterl-Glausch <oss@nina.schoetterlglausch.eu>,
+	Oliver Upton <oupton@kernel.org>,
+	Paolo Bonzini <pbonzini@redhat.com>,
+	Suzuki K Poulose <suzuki.poulose@arm.com>,
+	Sven Schnelle <svens@linux.ibm.com>,
+	Ulrich Weigand <Ulrich.Weigand@de.ibm.com>,
+	Vasily Gorbik <gor@linux.ibm.com>, Will Deacon <will@kernel.org>,
+	Zenghui Yu <yuzenghui@huawei.com>
+Subject: Re: [PATCH v8 16/29] arm64: Share arm64 headers with s390
+Message-ID: <arvunF8epgpWh1YT@arm.com>
+References: <20260918133107.1042730-1-seiden@linux.ibm.com>
+ <20260918133107.1042730-17-seiden@linux.ibm.com>
+ <arqQ2Eat4VUBbl49@arm.com>
+ <20260928162345.428362-C-seiden@linux.ibm.com>
+ <ars6Jh5DiendDT7G@li-d8547bcc-2d90-11b2-a85c-a70f2a37009a.ibm.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20260927080225.37534e7c@pumpkin>
+In-Reply-To: <ars6Jh5DiendDT7G@li-d8547bcc-2d90-11b2-a85c-a70f2a37009a.ibm.com>
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260929_100029_033343_C870C6E7 
+X-CRM114-Status: GOOD (  23.78  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -100,26 +95,51 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Sun, Sep 27, 2026 at 08:02:25AM +0100, David Laight wrote:
-> On Sat, 26 Sep 2026 14:32:49 +0200
-> "Jason A. Donenfeld" <Jason@zx2c4.com> wrote:
-> > Do we even need to return a value at all? Might as well just make the
-> > function two lines:
+On Tue, Sep 29, 2026 at 06:19:20AM +0200, Andreas Grapentin wrote:
+> On Sep 28 26, Steffen Eiden wrote:
+> > On Mon, Sep 28, 2026 at 05:07:52PM +0100, Catalin Marinas wrote:
+> > > On Fri, Sep 18, 2026 at 03:30:53PM +0200, Steffen Eiden wrote:
+> > > > +# Enable all code shared to s390
+> > > > +KBUILD_CFLAGS	+= -DARM64_S390_COMMON
+> > > > +KBUILD_AFLAGS	+= -DARM64_S390_COMMON
+> > > > +KBUILD_CPPFLAGS	+= -DARM64_S390_COMMON
+> > > 
+> > > Do we actually need these defines? They seem only to be used as markers
+> > > for the awk scripts to extract the definitions. Why do we need the C
+> > > preprocessor involved at all? Could we not just have comment markers:
+> > > 
+> > > /* ARM64_S390_COMMON_BEGIN */
+> > > ...
+> > > /* ARM64_S390_COMMON_END */
+> > >
+> > No technically we do not need those. They could be useful if we find out
+> > that AWK is the wrong tool and move to a C Preprocessor + diff based
+> > approach. 
 > > 
-> > +       for (char *d = dst; size--;)
-> > +               *d++ = value;
+> > if the ifdev is not closed the compiler will complain, but an 'arm did
+> > not destroy us' verifiaction tool ( I will send one soonish) could do
+> > the same.
 > 
-> Wouldn't it be better to add a barrier() or similar in there to
-> stop the compiler playing unwanted games>
+> iirc the last time we discussed this we didn't think that load-bearing
+> comments were the right tool here. We also briefly floated the idea of
+> using a #pragma region based approach, but in the end we went with the
+> #ifdef preprocessor directives instead, as the least invasive
+> non-comment marker that was available.
 
-Wouldn't that just result in the same code generation issue that Jason
-pointed out on my v1?
+The downside is that the macro affects the preprocessed code. We need to
+ensure they don't leak in uapi headers for example. Not a fan of this
+approach but I don't have a better suggestion either. At least we could
+write them as:
 
-  https://lore.kernel.org/aquyVkdYceiWdckX@zx2c4.com/
+#if ARM64_S390_COMMON == 1
 
-Maybe that doesn't matter because modern compilers have better options?
+so we get an error if someone misspells the macro name (or they leak in
+uapi headers, vDSO).
+
+It would also be useful for the awk scripts look for the paired #endif
+rather than relying on the comment at the end of the line. Otherwise
+it's not really different from just sticking to comments.
 
 -- 
-Cheers,
-Nathan
+Catalin
 
