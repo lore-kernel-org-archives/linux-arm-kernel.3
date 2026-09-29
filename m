@@ -4,117 +4,72 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id AD331CA5FA1
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 29 Sep 2026 08:57:11 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E1682CA5FA1
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 29 Sep 2026 08:57:35 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
-	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=bTzNqAl7bOHEFXynD4y2LmlWSn2p5vLqLneAHc7FfuA=; b=pkZCaqmTDPtbQGllviGmashOgI
-	JwD9W6JtdzLoW+erKrg+e9uCott0DSzjWWp8P6YB55xWYRvwosSpXn3oZkt7iDmzv+ishT98hApgV
-	ZC5kNstogFDrKBpe6jEQRSIvjhgJw9H8MIQWG9EW3OYsqsOFFG3/9Y4C9KgNkmdv53xcHcKte2/hH
-	UYgFYA6rgz3WI8n1ukQYQj4kOmDW/mCVHC7G/rTZVn2YFhQ1sN1xkftfNAm/PXWTREqQXbZALhxYY
-	zs5Lsy4J7Cvtb8/eN3EzPXnbvRCukTaj5dIFmiOfLRxHHW6004lfA4BvSzpm8KK+NsVr3rjWQNgG6
-	frHd/9yw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=H5UwJNPGKcha+BEqcOeEOR60KH3Iqw+tbYJAQ8Lz5aY=; b=K4OalkLXfbhGKlzjXMbphPfDch
+	rOBSxwn38FyJw/cB7GYcjmWltfr3jCqmzHCz7GZy8JJV3IqXEOpgtGmOmnZJ+8xa5tiCSEBPFDdoW
+	TOHq8V6IolhUUZwY9WYmRZ33gTGIz1zlB6pLumV132rMORanuEK0EOach1kGxHnajJfZcrUAisRkf
+	RXMuPqXpXOFhHeW7BJc7VnZ+DvJ4L8tewvP2fe2QFYiiUCCY4Hi2ZuRsGzU8W6hmiprwnTgtnza/x
+	fty5hxaqTpn7Hjxf7jF1prBjpG4Dn0o5XvwMRkQD1wmEUkOROTYShjj4gtt+S1R+UH8WJX1b6pAKh
+	gbmPdGvg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xBTe2-00000002tgO-3pWP;
-	Tue, 29 Sep 2026 08:57:02 +0000
-Received: from mail-ed2-x0f.google.com ([2a00:1450:4864:33::f])
+	id 1xBTeT-00000002tnp-251e;
+	Tue, 29 Sep 2026 08:57:29 +0000
+Received: from smtpout-03.galae.net ([185.246.85.4])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xBTe0-00000002tf9-1zlZ
+	id 1xBTeP-00000002tma-3k9k
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 29 Sep 2026 08:57:01 +0000
-Received: by mail-ed2-x0f.google.com with SMTP id 4fb4d7f45d1cf-6a60591ae54so6281888a12.3
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 29 Sep 2026 01:56:59 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1790672218; cv=none;
-        d=google.com; s=arc-20260327;
-        b=gre25e914sk24QiswXz4n0CzVtEUXnbtPcxQ+DkQGRRN+Rjm3lkung1gGV15mu8gWb
-         m/i+SGKmI+RUUuZHXGYv+zB2r2zEqZ5qUQvzY4SbWv9lSn/zIy9Vigm47rf22tCobjcw
-         VI9jJlz/a4jv/RU6/qFarIG5f0VjnkON/ATYbQH8XIlBSZZmVlnCTSeTUIEwHuJYEqPI
-         XZMNGFDR6nI0D+94yCik3bXGKWQDrIjkNmROC+TuAKRmZ4kryWajuV6OHWMYzRJdCIBm
-         Ff5fqvoB/X5MObgpa8C+I2vvpwQ8mftQbVsgflsZsJ5QXtT5YuQQsJmDuOmkyapJK2kQ
-         I/bw==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:dkim-signature;
-        bh=bTzNqAl7bOHEFXynD4y2LmlWSn2p5vLqLneAHc7FfuA=;
-        fh=prmFIRwgFVGkoJDBSuySLjiJFOHpVmeZkHpFIrNVxDo=;
-        b=jodHRk25SPdJRrgw4KzjNvQbwEBarEAKRO2qXItdvcFlxQNDSnBanwe3WI1UvV8Dk+
-         JvVJwsnz2v4ODP12vXFxu8iRznLrtghoe9YgnBvG/gYC/RxNqS8o5u5xeta+25TttcZw
-         H9utJF8i7ndqbqDQuw2+fFE4SHmyF3WLZWfamBJI7h5mTevc7SV9/FHSR2Dfsy/54LWC
-         IusiNfCq9KbygeOOYTFY+NOI1TOUsF7jN/jZkdfVNbdtBqfnqst1jH7PcVAgRv8J3hVg
-         O81j+Vw/jeW0+OBVEFCqf4ot9bBbNZxHrNlzMBUQR3whxwjLpxqleO1z1+3+J7E7Fq1b
-         XFww==;
-        darn=lists.infradead.org
-ARC-Authentication-Results: i=1; mx.google.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1790672218; x=1791277018; darn=lists.infradead.org;
-        h=content-type:cc:to:subject:message-id:date:from:in-reply-to
-         :references:mime-version:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=bTzNqAl7bOHEFXynD4y2LmlWSn2p5vLqLneAHc7FfuA=;
-        b=HrQcOXtR5IJtCpfd803rCMl5E0vfbzZYPT6A1D194MWtvup9ALmiHtpPb1mpoODVhV
-         sCiw/b1QXUqi+QA2Au+W903pL5oIZVmbQhmI8ZPX1b0c7hvnpmCq4Wgu2rs92Dn0u6tX
-         XRfCOX4U90yR5cbvoOWLUoj9XO7+DEm4Ytkp/S46Oq4ncwPFs3J5x1uOTCccSxZTzUHn
-         DAPi8W9smcc9c+3oBwUDFL4mu5zDhdyyG8uh6zCl31NKBqribi0fNvOYaVr+HcoCZq8f
-         mG37R2rfAxtHgGVtC65vQKwPOKXItHr5GVG2issPxRBOB4KKVjlwTp3ACV8iTXufNytz
-         FBPw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1790672218; x=1791277018;
-        h=content-type:cc:to:subject:message-id:date:from:in-reply-to
-         :references:mime-version:x-gm-gg:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to:content-type;
-        bh=bTzNqAl7bOHEFXynD4y2LmlWSn2p5vLqLneAHc7FfuA=;
-        b=Fz6+P11tn+4xn8KVlj1hfEbHLtA6zf09iFVr2zzgdavUpTR5Hb+qpOrfz45wG7Seds
-         trwgFdUa9CISma8ZRA9TedZRCzCjvSd5U9RWhnRckBw0pse/qzEML3NKdkN9GKAsKdBg
-         VQ1icNIA8hhs8mKH35PFxwKaq2QA8shjD2e4A3FcN4qnsk3HGNv0xdtRr/i53qb4Gdq2
-         og4Vreg30DQD5a0oDsHMtrpeAGzyIf8TJeR6L02FuD3Rfhc208VoFkHsDBxbCGkYo8ou
-         8SSColwAqCYoKAJLpfR8+vUMQyn7w1tY5ZT7kjnJpwUpS1+XDTUbvnP7hUWMO2apu+Ba
-         qjxA==
-X-Forwarded-Encrypted: i=1; AKwUvBzFEbZz2EOSrQN0rAZoMc4zh9euLsDcib7hCSlaIWVih3aHmXN6K7ct/C3RJlApDHtCQKWAeoQEznBQAWRPaPKn@lists.infradead.org
-X-Gm-Message-State: AFq9FYL9D3DTEyL9Hab6gZXCX5pQIgIeAqWMF6agGC7l+55PxNZAeg8o
-	NTCQkjWEWXfhAorev2+Qn+J21/K4d1WFzIDpPPTSbIDhVUnS9cQrXcNQqvkzmpO61wr9LrN5RJI
-	Ds/HKATOnslo6rFJNZRUUSRFndcqbtc6Jo6DJYHjpbQ==
-X-Gm-Gg: AYBFou1NWffdqBuUTzBINaymlAk7YQHdVV0Fi4kO1Q54sA8+/D5EZUpfbyejnW1ARIW
-	GI86EB3Sjfsgwvzept4wbnQWN0LkVJw7xMvB0cf6nBk2OXCCQUILLXPVHn0xBry3QWvxOHnVwCk
-	NNrOYXPYG+Q7A0S3X2d3yzgehlq03pqIWaICXU+1hCTtrZ7x13Z/drwxG4qb+QKo27YI+2oFAKg
-	oLRMC358Nbgf8WEbNsWx1DE7AT8EWMne0TP8p6G4tsqw2dCBUyPKEKv7M51tODF3KEno965iSEQ
-	yG9eNllAlcpL8HK9HuWWSBg4jBXT47Ryj/E+vy9M3AU8mhUUa4KeFhTpT/Dwzhz+x3Cd0aWGVzl
-	rFa/3dI/Fga1W
-X-Received: by 2002:a05:6402:1951:b0:6aa:f14f:556f with SMTP id
- 4fb4d7f45d1cf-6aaf14f5874mr8695635a12.43.1790672217943; Tue, 29 Sep 2026
- 01:56:57 -0700 (PDT)
+	Tue, 29 Sep 2026 08:57:27 +0000
+Received: from smtpout-01.galae.net (smtpout-01.galae.net [212.83.139.233])
+	by smtpout-03.galae.net (Postfix) with ESMTPS id 326BA4E410BA;
+	Tue, 29 Sep 2026 08:57:21 +0000 (UTC)
+Received: from mail.galae.net (mail.galae.net [212.83.136.155])
+	by smtpout-01.galae.net (Postfix) with ESMTPS id EFE24601BD;
+	Tue, 29 Sep 2026 08:57:20 +0000 (UTC)
+Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id AB3F9103297AE;
+	Tue, 29 Sep 2026 10:57:11 +0200 (CEST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=dkim;
+	t=1790672239; h=from:subject:date:message-id:to:cc:mime-version:content-type:
+	 content-transfer-encoding:content-language:in-reply-to:references;
+	bh=H5UwJNPGKcha+BEqcOeEOR60KH3Iqw+tbYJAQ8Lz5aY=;
+	b=KgLqauzAR6/y8fJ7UrTmLhZEq9sGDWuoQKVmMLsfIXs8KOxeN/scZ0m7RstahgEovHqcsS
+	RSCf/3vZO1swFxm4mQGCGMHb0ETcOsE4WtUpeAMZ6rfYp6JQbkmnvfG81zT9vDx8y0c/HK
+	b0pwoZ1X3+ZR5hGZtpt2DxAItkfUQ8FYKku9b6bo1UF+brG9hHcRfq0g/mnwU68n7S1s0l
+	MgEKP4EZv92gacR7fL//8mpexu493XGC5kHwsaLYR0v4iXK1+rqEyGk38uam2Cl3WCxAX1
+	Wa/ikYwb6ksKP9OamsQwD1IE6+DQpdve/eKPUC7UhfkrQbr9axcSOu3oeFjOXg==
+Message-ID: <71adb267-2dd9-4225-91e5-19848a87eb49@bootlin.com>
+Date: Tue, 29 Sep 2026 10:57:10 +0200
 MIME-Version: 1.0
-References: <20260918-contrib-pg-pixel10-initial-dts-v4-0-745eaca28b1a@linaro.org>
- <20260918-contrib-pg-pixel10-initial-dts-v4-3-745eaca28b1a@linaro.org> <7553dff6-004a-46a7-88c2-728651366113@kernel.org>
-In-Reply-To: <7553dff6-004a-46a7-88c2-728651366113@kernel.org>
-From: Peter Griffin <peter.griffin@linaro.org>
-Date: Tue, 29 Sep 2026 09:56:46 +0100
-X-Gm-Features: AclHuK-S5lTQAo2phJ3ee1A6qOipGEmCVgzdBHBpPtrnraavkUJzNtrZ-i9YXbY
-Message-ID: <CADrjBPrUr4+oa2jFJw8PkFbO__Ov91Do7A-h8xp3zdePGQcMKg@mail.gmail.com>
-Subject: Re: [PATCH v4 3/4] arm64: dts: google: Add initial dts for frankel/blazer/mustang
-To: Krzysztof Kozlowski <krzk@kernel.org>
-Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
-	Conor Dooley <conor+dt@kernel.org>, =?UTF-8?Q?Andr=C3=A9_Draszik?= <andre.draszik@linaro.org>, 
-	Tudor Ambarus <tudor.ambarus@linaro.org>, Catalin Marinas <catalin.marinas@arm.com>, 
-	Will Deacon <will@kernel.org>, Mark Rutland <mark.rutland@arm.com>, Arnd Bergmann <arnd@arndb.de>, 
-	Alexandre Belloni <alexandre.belloni@bootlin.com>, Linus Walleij <linusw@kernel.org>, 
-	Drew Fustini <fustini@kernel.org>, Kees Cook <kees@kernel.org>, Tony Luck <tony.luck@intel.com>, 
-	"Guilherme G. Piccoli" <gpiccoli@igalia.com>, Greg Kroah-Hartman <gregkh@linuxfoundation.org>, 
-	Jiri Slaby <jirislaby@kernel.org>, devicetree@vger.kernel.org, 
-	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
-	linux-samsung-soc@vger.kernel.org, soc@lists.linux.dev, 
-	Douglas Anderson <dianders@chromium.org>, Juan Yescas <jyescas@google.com>, 
-	RD Babiera <rdbabiera@google.com>, Brian Norris <briannorris@google.com>, 
-	William McVicker <willmcvicker@google.com>, kernel-team@android.com, 
-	linux-serial@vger.kernel.org, Brian Norris <briannorris@chromium.org>
-Content-Type: text/plain; charset="UTF-8"
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH net-next v2 2/2] net: stmmac: Don't set or get RSS
+ parameters when not supported
+To: netdev-bot+sashiko@kernel.org
+Cc: andrew+netdev@lunn.ch, kuba@kernel.org, davem@davemloft.net,
+ edumazet@google.com, pabeni@redhat.com, horms@kernel.org,
+ mcoquelin.stm32@gmail.com, alexandre.torgue@foss.st.com,
+ linux@armlinux.org.uk, nb@tipi-net.de, jitendra.vegiraju@broadcom.com,
+ thomas.petazzoni@bootlin.com, alexis.lothore@bootlin.com,
+ netdev@vger.kernel.org, linux-kernel@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org,
+ linux-stm32@st-md-mailman.stormreply.com, pbrobinson@gmail.com
+References: <20260928145043.1228968-3-maxime.chevallier@bootlin.com>
+ <179067171307.434549.1093187286398187440@kernel.org>
+Content-Language: en-US
+From: Maxime Chevallier <maxime.chevallier@bootlin.com>
+In-Reply-To: <179067171307.434549.1093187286398187440@kernel.org>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 8bit
+X-Last-TLS-Session-Version: TLSv1.3
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260929_015700_542610_453D58E1 
-X-CRM114-Status: GOOD (  17.60  )
+X-CRM114-CacheID: sfid-20260929_015726_072609_B2B6664F 
+X-CRM114-Status: GOOD (  22.55  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -129,33 +84,85 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Krzystof,
 
-On Sun, 20 Sept 2026 at 16:16, Krzysztof Kozlowski <krzk@kernel.org> wrote:
->
-> On 18/09/2026 21:05, Peter Griffin wrote:
-> > From: Douglas Anderson <dianders@chromium.org>
-> >
-> > Add initial device trees for frankel (Pixel 10), blazer (Pixel 10
-> > Pro) and mustang (Pixel 10 Pro XL). These device trees are enough to
-> > boot to a serial prompt using an initramfs.
-> >
-> > Currently only Laguna B0 silicon found in mass production phones is
-> > officially supported. Further revisions such as A0 silicon and EVT
-> > devices maybe added in the future if they are useful. As of today,
-> > these device trees boot fine on EVT devices with A0 silicon.
-> >
-> > A few things can be noted about these device trees:
->
->
-> I actually forgot if you intend me to pick it up. I assume it's not for
-> me to pick up, but nevertheless let me know if something is needed from me.
 
-Thanks Krzysztof. If you could take this via your tree for this cycle
-that would be much appreciated. I will then look to set up my own SoC
-tree moving forward.
+On 9/29/26 10:48, netdev-bot+sashiko@kernel.org wrote:
+> Thank you for your contribution! Sashiko AI review found 2 potential
+> issue(s) to consider.
+> 
+> Critical: 0 · High: 0 · Medium: 1 · Low: 1
+> 
+> If you believe none of the issues are legitimate, please reply to each
+> issue of Medium severity or higher and explain why the AI is wrong.
+> If any of them are legitimate and you plan to respin, please let patchwork
+> know by including "pw-bot: cr" as a separate line at the end of your reply
+> (one such reply per series is enough).
+> 
+> - [Medium] This patch makes stmmac_get_rxfh() in
+>   drivers/net/ethernet/stmicro/stmmac/stmmac_ethtool.c return…
+> - [Low] The commit message describes a user-visible bug: on stmmac
+>   devices without RSS, 'ethtool -x reports an indirection table and a…
+> 
+> --
+> 
+> net: stmmac: Don't set or get RSS parameters when not supported
+> 
+> This commit changes the stmmac ethtool RSS ops to return early when
+> stmmac_rss_is_supported() is false. The key and indirection sizes now
+> report 0, and get_rxfh/set_rxfh return -EOPNOTSUPP. The aim is to stop
+> reporting bogus RSS data and to make the RSS kselftests work on stmmac.
+> 
+>> The RSS kselftests fail on stmmac, and this is partly due to the driver
+>> reporting bogus data for the RSS ops :
+>>
+>>  - ethtool -x reports an indirection table and a key while the hardware
+>>    doesn't have any of that
+>>  - ethtool -X fails with -EINVAL.
+>>
+>> Let's return early in the rss ops if we know the hardware and platform
+>> don't support RSS.
+>>
+>> Signed-off-by: Maxime Chevallier <maxime.chevallier@bootlin.com>
+> 
+> [Severity: Low]
+> The commit message describes a bug that users can see, but there is no
+> Fixes: tag.
+> 
+> Blame shows that the unconditional stmmac_get_rxfh_key_size(),
+> stmmac_get_rxfh_indir_size(), stmmac_get_rxfh() and stmmac_set_rxfh()
+> logic came from commit 76067459c686. The later refactor fb6e30a72539 only
+> moved these functions to the ethtool_rxfh_param API.
+> 
+> Should this carry the following tag?
+> 
+> Fixes: 76067459c686 ("net: stmmac: Implement RSS and enable it in XGMAC core")
 
-Thanks,
+targetting net-next, problem always existed, doesn't crash the kernel,
+it's just returning bogus harmless stuff
 
-Peter
+> 
+>> diff --git a/drivers/net/ethernet/stmicro/stmmac/stmmac_ethtool.c b/drivers/net/ethernet/stmicro/stmmac/stmmac_ethtool.c
+>> index 1cf0f8820b33..56019683f399 100644
+>> --- a/drivers/net/ethernet/stmicro/stmmac/stmmac_ethtool.c
+>> +++ b/drivers/net/ethernet/stmicro/stmmac/stmmac_ethtool.c
+> 
+> [ ... ]
+> 
+>> @@ -943,6 +949,9 @@ static int stmmac_get_rxfh(struct net_device *dev,
+>>  	struct stmmac_priv *priv = netdev_priv(dev);
+>>  	int i;
+>>  
+>> +	if (!stmmac_rss_is_supported(priv))
+>> +		return -EOPNOTSUPP;
+>> +
+> 
+> [Severity: Medium]
+> Does this -EOPNOTSUPP break namespace-wide ETHTOOL_MSG_RSS_GET dumps?
+
+This was reported by Nicolai already, and other drivers report -EOPNOTSUPP
+here.
+
+If we address that, I'd say we do that in the RSS ethnl code.
+
+Maxime
 
