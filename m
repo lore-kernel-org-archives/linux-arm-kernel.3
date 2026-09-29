@@ -4,52 +4,52 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BFC23CA5FA5
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 29 Sep 2026 12:33:33 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 21099CA5FA5
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 29 Sep 2026 12:33:52 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:Cc
 	:References:In-Reply-To:Subject:To:From:Date:Message-ID:Reply-To:MIME-Version
 	:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=KUwUjMVBP3vS5uVD7JFyXQM3OFGJ06H6GRm6/a2EbWI=; b=q5F6YeoF5offHV5b48HX/75+OB
-	EnCJtfUD0ptla4ei3Q43mC2mY5rK+RNgAa3awWHsyVwBQeOWmIyxjTjnpVpXjE6ZbW+iLFXKYbKat
-	jIRAliqhw51+xkn/LF1Dm1U49HobFvdUzr7GKmSad9ECoQx/rocBZgdMTQ/1YnTnWsdrDXt8tU2Mv
-	htrbdGFTiwc1N74bJp4UlWdJlCob5ItWaINcjGSuzVzUDb2JjWkPvPfgQKm5E7cRoq0ilLXT3Rx37
-	N/H2iQHNrEUv/t2Xem7hNNYhx/C86X8kPcxZS5AGKhNKvb+OFriMGqVhzhMSN8EeuXUHqHMVU2/Yb
-	WwmX5WJg==;
+	bh=FD30Hf4tvtRlOhi3ZD/pZkldTc7PRNkVxsM8QYaofPY=; b=38K211zSE5IVWblKwADJEm8qs3
+	18uvBQliwMcIJ5VNMOtZZFoeu9wBnydvsUNCRHQDw8yTRBBN7HqUKL+JudfsW9HBCHqkBWY0pOD88
+	HTheU2cTtyi1FvzT5IuIxmP6S/B3ZdklVNF1ARqQTX1g6bAYbpiMXs+hkW4Hhp8aQFM/oZGn1baCw
+	xIPgzYTDLYyCsZe+eQTdcCuorwbnUtM5mD2lbwYp6JcQxLCX6W7PSCMUB57w5SE0Mwsl8EZn7kf7k
+	NtkUJq2mQ+B6i0nAIsd+vkWcknadZp+yOgl87HmLr9lCyqURh0Rv1I//jjTsnFpjqQTR88BS5ZCxB
+	WjB1WfRA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xBX1T-00000003XfO-08Im;
-	Tue, 29 Sep 2026 12:33:27 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1xBX1m-00000003Xk3-0ZJX;
+	Tue, 29 Sep 2026 12:33:46 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xBX1R-00000003XfG-3HSJ
+	id 1xBX1k-00000003XjN-1fb3
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 29 Sep 2026 12:33:25 +0000
+	Tue, 29 Sep 2026 12:33:44 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id 36E69601DB;
-	Tue, 29 Sep 2026 12:33:25 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 6BA111F000FF;
-	Tue, 29 Sep 2026 12:33:24 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id C9A5B41FD1;
+	Tue, 29 Sep 2026 12:33:43 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 38EDF1F000FF;
+	Tue, 29 Sep 2026 12:33:43 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1790685204;
-	bh=KUwUjMVBP3vS5uVD7JFyXQM3OFGJ06H6GRm6/a2EbWI=;
+	s=k20260515; t=1790685223;
+	bh=FD30Hf4tvtRlOhi3ZD/pZkldTc7PRNkVxsM8QYaofPY=;
 	h=Date:From:To:Subject:In-Reply-To:References:Cc;
-	b=C+A3HWkdKO81/B1Q1XFktA3cbzqSOwj9eFQnuyH1QhF6ABihMg5Jd+lFJELVLWDUb
-	 bIksCr13OHa4mrpetUxgiwbW6P8UWdbuASa1OZLd/KMEPEjHqpG6fh4i7dDtruj7yG
-	 iAGFJO06run5kQDMb0fl880QTkb6RAW6GlNh2qXr3HtK5MQu/tSyDuFgCyYY8UDY9R
-	 IVaelf9cJFE878R2IqyJ9IR1QxqFONbpdryO2e/Ml+nfSenAoXxM3fewEqC/aPysBx
-	 dRIP4pDI79mmHHA9t/yHsb6aU0H9/LIZ9OVtovmpoW4e2hq9qK1ShP7D6tBfAPvZOa
-	 UdcEyA4cUBcXg==
-Message-ID: <fd2f689afaecae34de3b027ce19aefca@kernel.org>
-Date: Tue, 29 Sep 2026 12:33:21 +0000
+	b=LAl7W8CAanvxK2JbnSS59vy/6oHtMRILAYPk2wnD3UBrkiXBNhNX5WN+0y/HWopcz
+	 Ek5c5deSqU2SoYhwvpwNXnHvCfi/I9D4zv+BsV0yq5k8JK4bfNhn/+e6yGvdFqsKev
+	 0YPaDyARWYLhkZRCQBYavr7LBOHVvvOJVLHngwlfMsZ/i5WiGhXP9YL5y+yvk4apNj
+	 i4i6CGdt1sv/YA1bsUAvl9/Awvp0ziQUqrxmj3H+ccHY7NyMuEXUndEYgtEDBKErXk
+	 A04iI8d1x7SXFnT42MH5gYjhAURTtecoheQsdKb6aqCAh8gad7rvEaeBebElpB2S7E
+	 OuUc65yJLsagQ==
+Message-ID: <d6b673647ec1175d4c9ab112a47497b8@kernel.org>
+Date: Tue, 29 Sep 2026 12:33:40 +0000
 From: "Maxime Ripard" <mripard@kernel.org>
 To: "Luca Ceresoli" <luca.ceresoli@bootlin.com>
-Subject: Re: [PATCH 1/7] drm/imx/lcdc: stop using deprecated
+Subject: Re: [PATCH 2/7] drm: verisilicon: stop using deprecated
  devm_drm_of_get_bridge()
-In-Reply-To: <20260929-drm-fix-of_get_bridge-build-regression-v1-1-ccb7e602daad@bootlin.com>
-References: <20260929-drm-fix-of_get_bridge-build-regression-v1-1-ccb7e602daad@bootlin.com>
+In-Reply-To: <20260929-drm-fix-of_get_bridge-build-regression-v1-2-ccb7e602daad@bootlin.com>
+References: <20260929-drm-fix-of_get_bridge-build-regression-v1-2-ccb7e602daad@bootlin.com>
 Cc: dri-devel@lists.freedesktop.org, imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, linux-renesas-soc@vger.kernel.org, "Andrzej
  Hajda" <andrzej.hajda@intel.com>, "Arnd Bergmann" <arnd@kernel.org>, "Dave
  Stevenson" <dave.stevenson@raspberrypi.com>, "David Airlie" <airlied@gmail.com>, "Doug
@@ -79,11 +79,11 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, 29 Sep 2026 12:36:33 +0200, Luca Ceresoli wrote:
+On Tue, 29 Sep 2026 12:36:34 +0200, Luca Ceresoli wrote:
 > devm_drm_of_get_bridge() is deprecated, switch to
 > of_drm_get_bridge_by_endpoint(). As of_drm_get_bridge_by_endpoint() retur=
 ns
-> a refcounted bridge, ensure it is put.
+> a refcounted bridge, ensure it is put by using bridge.next_bridge.
 >=20
 > Fixes build failure when CONFIG_OF is disabled.
 >=20
