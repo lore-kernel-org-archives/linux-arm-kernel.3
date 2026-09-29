@@ -4,65 +4,101 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8D085CA5FAC
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 29 Sep 2026 11:33:24 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A09B3CA5FA1
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 29 Sep 2026 11:37:07 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=e+gknYVW9XCp81xeC0RXx9vcOUHAJigZEtqY/xe8b6c=; b=f1mXTmqMDXEx/75RtgL74rmzK/
-	52qCVNNWEg5rUn98+WaBFzkw3qP/W1ClSLhH/u8HFFaEsvGNfMcAVX4PPr/D8A+5WhxhkT5bkyc8X
-	abf0BGbpQcRhMylX3GhkPO4QCbm+FGQsP+O5EWYKh4J/cTuCiVAi3p57NskT0KPLN6JbMuTOUm31y
-	f6FQlnimiSfluntPQ/KLxssSRKA12ffD44bfmZWm3tLgUFflT+6i2gPgkfmZcF83Bu6kU6Qlk7kMx
-	a6GyZFQOuM5yBhim/k6NxYINDurKhxIa5WfuXM1lUggJzVrhqyzOU4rS+yax0cQmCeKUKhMdxJCxy
-	Bmyu9kxA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:Message-Id:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:From:
+	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
+	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=OUoMSDobP791Iy/GDdsUAqD0YEESiZhVC1pnhE1ZEWs=; b=23wLCsPeKpDC8QR83MntLP5cQC
+	mVsIBisSSVSL6a5v68PCFKavYStq8UdQTJgoUnpE8GfdTt0QU8LloMilMHuaPzjCp1hbG7gyzofNe
+	tqXIjFonjOYydonGTZCjgR67lnq9mRFoHqFOnIpaBcDEuv6FKVGnarUWMc9/TOk+A4J0JoxG3wkcA
+	y1McO5zZLCNulchFBOeHP3PeyQTPIIrkUh3YaSqPR/gPQVpUlDMCsElwUNCoMp4kyjsGLkonMxQJj
+	0Ih/XZt0IKiRhEnNYvoxNcdun5ckVXudYCMIEsvG/5IKgdF8P56/WR1G0mCwONdrCFoIu9mku17JT
+	ICvBWRpQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xBW5G-00000003QDW-1S8f;
-	Tue, 29 Sep 2026 11:33:18 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1xBW8p-00000003Qi4-32z9;
+	Tue, 29 Sep 2026 11:36:59 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xBW5E-00000003QD5-0DM7
+	id 1xBW8o-00000003Qhf-0VDm
+	for linux-arm-kernel@bombadil.infradead.org;
+	Tue, 29 Sep 2026 11:36:58 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=Cc:To:Message-Id:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:From:Sender:
+	Reply-To:Content-ID:Content-Description:In-Reply-To:References;
+	bh=OUoMSDobP791Iy/GDdsUAqD0YEESiZhVC1pnhE1ZEWs=; b=eOyklAWasFzngH13bMaglEhhil
+	44hhlT6W90LFiRW3CTwmmwAlrgAfnYKpo5tmRr61TWvRtoWNI0QTN7bqNDmeC8KdhPMCdbT182huN
+	I7bl7qqRmapSGK+/YxFZKPoFqvG2/Kvm0XlFb5KSU2nk8OheL1QxD/Alj02RSZhDZ/dWBd19JjxYZ
+	dzngoikX8oVE/lkDI6ANZeEemPMytEivZkTQDFj6j1vCklXf3KbeyQ/ht9dQ+G6ATkNkkgH0MD8jg
+	VXVxYWIOIoQaFugvmHrbsFYzmY7VKMRrOmTDR84EA/oUtf/h6bE0ZKMzPry9z1RPfwXP+Y/2WwcgN
+	00hqMU4g==;
+Received: from esa6.hc1455-7.c3s2.iphmx.com ([68.232.139.139])
+	by desiato.infradead.org with esmtps (Exim 4.99.2 #2 (Red Hat Linux))
+	id 1xBW8c-00000002ZAU-3wQ7
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 29 Sep 2026 11:33:16 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id 5955860008;
-	Tue, 29 Sep 2026 11:33:15 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 998C31F000FF;
-	Tue, 29 Sep 2026 11:33:11 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1790681595;
-	bh=e+gknYVW9XCp81xeC0RXx9vcOUHAJigZEtqY/xe8b6c=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=eDfq3ESVa10xLkpSv+CeI5FF1JUQktUhny83NdvHPN+F/Gsl0SORQ8nYLanhlRObL
-	 3rtdxQBVjPAYI6hiVUnHd2NqzqZjFK+DdiO30XeURd23enxO2BENrhbozvNTo5RMYo
-	 MYRqeYSyedXYG4xB4W19ElcDnoU1dp5FvngYHL6+vLcL7hF3RwBnN7qcbNHBTDS8zJ
-	 G4jFmbmUNbbCax96iFWSepuDD2HCv4SUjvmjwVLpy5ix5REIGjVm+psvkgOeJbOSOT
-	 dtC2VTT9NqBZqFMgmDJbtzbdP8r2tD9CXrS2Vf0OI6pkF21ISs5ROETw/aW89lfLlc
-	 xH4NbBNe8Tgjg==
-Date: Tue, 29 Sep 2026 12:33:07 +0100
-From: Will Deacon <will@kernel.org>
-To: sumit.garg@kernel.org
-Cc: brendan.jackman@linux.dev, Vincent Donnefort <vdonnefort@google.com>,
-	catalin.marinas@arm.com, rppt@kernel.org, akpm@linux-foundation.org,
-	sudeep.holla@kernel.org, jenswi@kernel.org, robh@kernel.org,
-	mark.rutland@arm.com, ardb@kernel.org, thierry.reding@kernel.org,
-	david@kernel.org, danielmentz@google.com,
-	linux-arm-kernel@lists.infradead.org, linux-mm@kvack.org,
-	op-tee@lists.trustedfirmware.org, devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v2 0/8] arm64: Unmap FF-A lent memory from direct map
-Message-ID: <aruh86rd5FMv2i9G@willie-the-truck>
-References: <20260921110050.3977591-1-vdonnefort@google.com>
- <arIYtjmSKCs14SqO@sumit-xelite>
- <arKW_91EeKA-w96m@willie-the-truck>
- <are21BjeS1O3RYE3@sumit-xelite>
+	Tue, 29 Sep 2026 11:36:56 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple;
+  d=fujitsu.com; i=@fujitsu.com; q=dns/txt; s=fj2;
+  t=1790681806; x=1822217806;
+  h=from:date:subject:mime-version:content-transfer-encoding:
+   message-id:to:cc;
+  bh=ATzPLgJoa/6F43m2ErAHXBxPfR4mktO/NFP6DJgxMxk=;
+  b=G/QK74DA04yzwXI9kzAce9hLQveeCqwFrRvLu5tEzCpIYlI/r5pF4FeV
+   NEiwpEw5BXlmVlniytMUvt983m0aK7BvQUkQPMWFhKlfSdveGCDxp7Rdr
+   Ja3/fSJlzh1Bi6mVtVwix3I9SUTCGR/U3xBcoo6b1ClhHF35zKkZfZLaL
+   vp8yBzAUnBgOfIJRXItsFzjNum0Rbqw/lUwEAltFfxDUNMrG3/MYMaNp6
+   SR5S7uVEsFN6upC1NjYQBo3i/xRjvncT9TiLt+ZV8vHyBANJomnqZ9nmE
+   qCgCrjMiS+30Gm2MhgHDo1gQnbaOi8mrq4SXrA9527l7+HP313wJg8Hdp
+   Q==;
+X-CSE-ConnectionGUID: L4U9HXcxRXevWSdlWqCn8A==
+X-CSE-MsgGUID: ayeStOS7Q8WF5QjV4F3Neg==
+X-IronPort-AV: E=McAfee;i="6800,10657,11919"; a="260366722"
+X-IronPort-AV: E=Sophos;i="6.27,130,1786978800"; 
+   d="scan'208";a="260366722"
+Received: from gmgwuk01.global.fujitsu.com ([172.187.114.235])
+  by esa6.hc1455-7.c3s2.iphmx.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 29 Sep 2026 20:36:41 +0900
+Received: from az2uksmgm3.o.css.fujitsu.com (unknown [10.151.22.200])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
+	(No client certificate requested)
+	by gmgwuk01.global.fujitsu.com (Postfix) with ESMTPS id F2390C00379
+	for <linux-arm-kernel@lists.infradead.org>; Tue, 29 Sep 2026 11:36:40 +0000 (UTC)
+Received: from az2nlsmom2.o.css.fujitsu.com (unknown [10.150.26.200])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
+	(No client certificate requested)
+	by az2uksmgm3.o.css.fujitsu.com (Postfix) with ESMTPS id 9DA10C008B0
+	for <linux-arm-kernel@lists.infradead.org>; Tue, 29 Sep 2026 11:36:40 +0000 (UTC)
+Received: from [127.0.1.1] (unknown [10.124.178.20])
+	by az2nlsmom2.o.css.fujitsu.com (Postfix) with ESMTP id A21861800D7F;
+	Tue, 29 Sep 2026 11:36:36 +0000 (UTC)
+From: Kohei Enju <enju.kohei@fujitsu.com>
+Date: Tue, 29 Sep 2026 20:36:00 +0900
+Subject: [PATCH] arm64: rsi: Correct type of realm_config::hash_algo
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <are21BjeS1O3RYE3@sumit-xelite>
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+Message-Id: <20260929-cca-b4-rsi-fix-hash_algo-type-rebase-v1-1-6932cf0aa605@fujitsu.com>
+X-B4-Tracking: v=1; b=H4sIAJ+iu2oC/yXN0QrCMAyF4VcZuTbQ1TmYryIiaRvXiGwjmbIx9
+ u5Wvfzg8J8NjFXY4FxtoPwWk3EoqA8VxExDzyipGLzzret8hzEShgbVBO+yYCbLN3r2I87rxKg
+ cyBj52NQxnVxqnYOSmpTL+Hdzuf5tr/DgOH/bsO8f76d9c4gAAAA=
+X-Change-ID: 20260929-cca-b4-rsi-fix-hash_algo-type-rebase-e341cd50d600
+To: Catalin Marinas <catalin.marinas@arm.com>, 
+ Will Deacon <will@kernel.org>, Mark Rutland <mark.rutland@arm.com>
+Cc: linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
+ Suzuki K Poulose <Suzuki.Poulose@arm.com>, 
+ Sami Mujawar <sami.mujawar@arm.com>, Steven Price <steven.price@arm.com>, 
+ "Aneesh Kumar K.V (Arm)" <aneesh.kumar@kernel.org>, 
+ Kohei Enju <enju.kohei@fujitsu.com>
+X-Mailer: b4 0.16.0
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260929_123653_476021_3888E191 
+X-CRM114-Status: GOOD (  16.60  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -77,57 +113,46 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Sat, Sep 26, 2026 at 05:43:08PM +0530, Sumit Garg wrote:
-> Looks like you dropped me from your reply.
+The RMM specification defines RsiHashAlgorithm as an 8-bit type, but
+realm_config::hash_algo is currently declared as unsigned long.
 
-Huh, that's weird. If I hit reply-all ('g') in mutt, it moves the entire
-CC list to To: and drops you. I suspect the same thing happened to Thierry
-when he replied here:
+There are currently no upstream users of this field, so the mismatch
+does not cause an observable issue today. However, a proposed series
+adding support for Realm measurement registers uses this field and
+exposes a bug caused by the incorrect type.
 
-https://lore.kernel.org/all/arJcN60nagFKXj2Q@orome/
+Change hash_algo to u8 to match the RMM specification while preserving
+the size and layout of struct realm_config.
 
-I can't figure out why that's happening :/
-I manually tried to fix the To: and Cc: lines in this message.
+Link: https://lore.kernel.org/all/20260413084957.327661-4-sami.mujawar@arm.com/
+Signed-off-by: Kohei Enju <enju.kohei@fujitsu.com>
+---
+ include/linux/arm-smccc-rsi.h | 5 ++++-
+ 1 file changed, 4 insertions(+), 1 deletion(-)
 
-> On Tue, 22 Sep 2026 at 15:55:59 +0100, Will Deacon wrote:
-> > I spoke to Brendan at LPC (?) last year but this doesn't really work
-> > for arm64 because it relies on being able to unmap arbitrary parts of
-> > the linear map, which isn't generally possible unless you force pte-level
-> > mappings for everything, which is prohibitive for perf/power.
-> 
-> As per the cover letter it's about allocating pages that are not present
-> in the direct map. This essentially fits the protected DMABufs use-case
-> where we don't want any kernel mapping to exist at any time. Bufers
-> allocated from protected DMABufs are only meant to be accessed by the
-> TEE implementation or HW accelerators like in the secure media pipeline.
+diff --git a/include/linux/arm-smccc-rsi.h b/include/linux/arm-smccc-rsi.h
+index fddb77986f70..2fb6ec5e0298 100644
+--- a/include/linux/arm-smccc-rsi.h
++++ b/include/linux/arm-smccc-rsi.h
+@@ -128,7 +128,10 @@ struct realm_config {
+ 	union {
+ 		struct {
+ 			unsigned long ipa_bits; /* Width of IPA in bits */
+-			unsigned long hash_algo; /* Hash algorithm */
++			union {
++				u8 hash_algo; /* Hash algorithm */
++				u8 pad_hash_algo[8];
++			};
+ 		};
+ 		u8 pad[0x200];
+ 	};
 
-That sounds like it should probably build on top of this series, then.
-You could allocate the DMABufs from a CMA region that has no linear alias.
+---
+base-commit: 6c360697fd4d17a53ed977a1341add3520a19269
+change-id: 20260929-cca-b4-rsi-fix-hash_algo-type-rebase-e341cd50d600
 
-> > Vincent's series tackles that by using a pool so that only that part of
-> > memory requires the pte-level mappings in the linear map. That's the
-> > whole point of it, so I don't think it makes sense to drop it in favour
-> > of Brendan's approach (which doesn't work).
-> > 
-> 
-> For protected DMABufs, we even don't require any pte-level mappings in
-> linear map. The whole idea of mapping and unmapping is just a bottleneck
-> for performance sensitive secure media pipeline use-cases. That's why if
-> we can support __GFP_UNMAPPED with the memory allocator on arm64 would
-> be the best fit for this use-case.
+Best regards,
+--  
+Kohei Enju <enju.kohei@fujitsu.com>
 
-The point is that you will require pte-level mappings for the linear map
-if you want to unmap from it at runtime on arm64. If you don't, then you
-can end up needing to split a block mapping (e.g. pmd-level) when you
-decide to unmap only part of it and there isn't a safe way to do that on
-arm64 without transiently unmapping the entire block, which can lead to
-fatal translation faults during that window.
-
-> Now the question is why arm64 can't support __GFP_UNMAPPED similar to
-> how Brendan is doing it for x86?
-
-Because arm64 != x86? Presumably x86 doesn't have the strict
-break-before-make requirements we have on arm64.
-
-Will
 
