@@ -4,44 +4,44 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C18FFCA5FA5
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 29 Sep 2026 12:34:57 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E99F7CA5FA5
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 29 Sep 2026 12:35:06 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
 	Content-Transfer-Encoding:Content-Type:References:In-Reply-To:Message-ID:Date
 	:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=URC7r36kokGjXCV5G6Ei8oKV54JoMbconYpCKkPt2AY=; b=Kn93lVzMcojkD7y6X1wQDNhNp0
-	+eHegRZuV0OJRPRGT5MM9cKYOwqv0GRytsXr33XXjKqHKR3dIyGjtG2kOPYA5MNVufYPI7idFvCqL
-	zAZ7jiB55/WJV57SQLxcIz4kP+gveBmBN0vdTCeEPlwcN/ONU2rhLYznmulgmZyunnStoL2K3LobF
-	BYQSanE7RXIGUGAZUhY829IoTZKAUlyRfceGkYjPIVtrAsf6E0BBBjR9az0HTHep+BGrgk/FuNp/b
-	tunry3dL29j4atXrwKQX7SRCFYSK+JrzmQhyXYHrb2PXNgGCaCRVgotxANU6mbcwx/VMLm6buH/qI
-	L4O6HmzQ==;
+	bh=URC7r36kokGjXCV5G6Ei8oKV54JoMbconYpCKkPt2AY=; b=QoV+hYNzDCzoruQx9R0VrgVKdD
+	Rp8kyF8xljhY1lol33SKzxNUBhlfq0SmJ8U0hcq4OGmFgs4jxYuET8Tk7vElby+MjcLqHeGzy0GlC
+	GdekO475sm5iODF1yTwJzEMmEQCUJtHsTznHGBps5t9QIPiPMSWkEoF6ufYoCVKicESpH3Vtv7/2m
+	npSQ3nYdZZtV/BVYxMvRKEm6ATCWZaOcuVz01D0eAeqDmchkVeZeHYkkSchQovMpD3KrXHGoy9Dr3
+	e/quSxmtvqhz5TThDvO1XxTqehNwVztH1gaSe7Q+134M+2znUbfu08fEuascWU9tWWrnS0xa1VTLB
+	enwLt4Sw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xBX2p-00000003Y62-2Mp1;
-	Tue, 29 Sep 2026 12:34:51 +0000
+	id 1xBX2y-00000003Y8T-2kTS;
+	Tue, 29 Sep 2026 12:35:00 +0000
 Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xBX2l-00000003Y4k-3S74
+	id 1xBX2w-00000003Y7i-15lF
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 29 Sep 2026 12:34:50 +0000
+	Tue, 29 Sep 2026 12:34:58 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id 46A94601FB;
-	Tue, 29 Sep 2026 12:34:47 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 484EF1F000FF;
-	Tue, 29 Sep 2026 12:34:46 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id AE85A601FB;
+	Tue, 29 Sep 2026 12:34:57 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id BB0CA1F000FF;
+	Tue, 29 Sep 2026 12:34:56 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1790685287;
+	s=k20260515; t=1790685297;
 	bh=URC7r36kokGjXCV5G6Ei8oKV54JoMbconYpCKkPt2AY=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References;
-	b=AS9Y8cUU0K5Vh3g/tb3oX7MTDqTBy8lWildZ5ulIRgrK2uzt4t6slaWogKoZ1nEBR
-	 A56brpG1ZCYZVk03EJ1BAI9hdQT02YVbgEcZ2ZR0UFf1dCb/odq65Ws+RYPt9RrhsY
-	 2LuzKrqBVgUgXYauj3sKhHeidLeF0+7lxpMOBpqK+XOLwDJXqFe0JghYMYDOtxv9EZ
-	 +g6U+pUtG9jnGAzhnQ8vzqf9QMsI3Lnd9yAe3zRMNute42N50/2ldxOEIMzL0Rcmj1
-	 +bnFPw/RsWzkCQLrAmtT3vcvMNSDrSfmvArrgjiRVf9sRvy449hIhcB9yq/RH4Ppz0
-	 aKK8fa//OY/OQ==
+	b=mCY7iyvEndClxYVNSOfvofhJ13wixKKmNTn9iQbVmfC6mX9Pc0Yf0io2RRDUtd+hz
+	 NebDQinSDEXLRK2dmF4BO/dqZQDv3Mj6MXTfUfYBcT8C8g2u5v2sjIAQ2++LaV70U8
+	 gMRuEEkkVDApygS7jHuKbdkb17LRgahgHkj6HXRqx4/gBKzwdur001SCLTeA+6gKvl
+	 Oi2Au22EWzBf51csipP5AZ/fC/CG4/nOBgtImYZ8DF5YgnpgT+tiOyDWvLfuJRCB5L
+	 hl12RwbNv2pWGTnY8xpRV4Tix+/ciBAbTUNC+yI+XRZoqacsDEx/+//jqY0dDefxM+
+	 Oa+DuROgyOKIg==
 From: netdev-bot+sinfo@kernel.org
 To: Jisheng Zhang <jszhang@kernel.org>
 Cc: Maxime Chevallier <maxime.chevallier@bootlin.com>,
@@ -50,11 +50,11 @@ Cc: Maxime Chevallier <maxime.chevallier@bootlin.com>,
  Paolo Abeni <pabeni@redhat.com>, Maxime Coquelin <mcoquelin.stm32@gmail.com>,
  Alexandre Torgue <alexandre.torgue@foss.st.com>, netdev@vger.kernel.org,
  linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH] net: stmmac: Disable checksum insertion for XDP frame TX
-Date: Tue, 29 Sep 2026 12:34:45 +0000
-Message-ID: <179068528574.31693.11994088057366518251@kernel.org>
-In-Reply-To: <20260929121025.20821-1-jszhang@kernel.org>
-References: <20260929121025.20821-1-jszhang@kernel.org>
+Subject: Re: [PATCH] net: stmmac: Disable unsolicited checksum insertion for AF_XDP TX
+Date: Tue, 29 Sep 2026 12:34:56 +0000
+Message-ID: <179068529630.31693.11109741808641823424@kernel.org>
+In-Reply-To: <20260929121032.20835-1-jszhang@kernel.org>
+References: <20260929121032.20835-1-jszhang@kernel.org>
 Auto-Submitted: auto-generated
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
