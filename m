@@ -4,68 +4,150 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id AAD76CA5FA1
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 29 Sep 2026 10:41:21 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E159BCA5FA1
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 29 Sep 2026 10:41:52 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:Cc:To:
+	Subject:Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=FOIvFa8ZMzf8OO0WTtZVL5hdqjc17Ki1h+dPCUrNLQg=; b=HfIk/4c+GZnVjKzlDbEcmgi+v6
-	jaoXTlFJUQpk//0OAimdf58L89lcBPqPeTBZSPg1dfMZT+YGd5HjoX4Axdz/nEaZscNsb461gGLpr
-	ki4XFewbY1QRlEinW918XYC42b1MQ2r1D4XRIIZ1qdGBcVTrMo1p9upqxokc57dkTQ1awlBd6sAg5
-	IdFGx9waaKSNZujLQkgabEJ312b/3+8MALUWGzyzZFA2n1pPkEUDXjkNB4MuRJiwEj6U86XznzqJ4
-	lXPOI2tm/vrrDLpfIZolAvdTICPSKnSm/+AP49YOb7EoIyoNUU7yk9Y1dM52GlKnPhDYEnDrwbf/Y
-	GMKKy67w==;
+	bh=hYU59M8C1gPUQhArhzPU6s2T2x+NlXNd39Hkn86eRTU=; b=ka94Ap2VvGJ6gnKqAk7ZL+znzA
+	1ivxchpHjU8+ML/hWx/ThCJ5X/cX5iENLh5tcIzN0Qpuuac77o+sU6SrpIpp8pmAbGP4LUMNT67T7
+	hGtOpE9BwCHjDP2t9f98M8ymMDWxSweIG/ES8Vcfmy2/4uUSE+2iHkfkU1cWZjlCyCCUHfdi4/ZtI
+	66gPoBBYScmv37cHaSwpJMnM3OYGGUmoIx0hpiil2FlTBG9UDpjlrYJJDmeCEiTccW1OIW5xV4tBx
+	0t7cck8Pu5pf4Co4dCN7LbeI2Lcqe0+ACaCazrywrMd6sSeVU1LZxy2aD7N453WuQ1OzoIj0nmsK+
+	RCHe7ENw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xBVGp-00000003IR4-19sS;
-	Tue, 29 Sep 2026 10:41:11 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xBVGh-00000003IOG-21YZ
+	id 1xBVHN-00000003IZ8-1n4u;
+	Tue, 29 Sep 2026 10:41:45 +0000
+Received: from mail-northeuropeazon11011068.outbound.protection.outlook.com ([52.101.65.68] helo=DU2PR03CU002.outbound.protection.outlook.com)
+	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1xBVHC-00000003IWi-28KW
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 29 Sep 2026 10:41:06 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 66642497;
-	Tue, 29 Sep 2026 03:40:56 -0700 (PDT)
-Received: from arm.com (usa-sjc-mx-foss1.foss.arm.com [172.31.20.19])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 44B443F86F;
-	Tue, 29 Sep 2026 03:40:57 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1790678459; bh=UZr89XgYGJTx/73Z6djBBnqWD8Mg/Y/eUHrTZhuEFYQ=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=jIm3ldFb5pk3+tqKp3bdQ7jRyTBU1tt/T+9urehbXxS751TBWNYOlsCXfYtzsid40
-	 pjThz3FBE7KeWWRNb56VbfgtpD+nqCUsLGsts7sSKdMDUhbcN0SzuK7+DnrWg1A1hz
-	 gpXx3jj1Rs1nnhyI/5x63AX1JHz53K4I6IZrCOS8=
-Date: Tue, 29 Sep 2026 11:40:46 +0100
-From: Catalin Marinas <catalin.marinas@arm.com>
-To: Suzuki K Poulose <suzuki.poulose@arm.com>
-Cc: kvm@vger.kernel.org, kvmarm@lists.linux.dev, maz@kernel.org,
-	will@kernel.org, linux-kernel@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org, steven.price@arm.com,
-	aneesh.kumar@kernel.org, oupton@kernel.org, gshan@redhat.com,
-	joey.gouly@arm.com, tabba@google.com, yuzenghui@huawei.com,
-	linux-coco@lists.linux.dev, gankulkarni@os.amperecomputing.com,
-	sdonthineni@nvidia.com, alpergun@google.com, fj0570is@fujitsu.com,
-	WeiLin.Chang@arm.com, lpieralisi@kernel.org, enju.kohei@fujitsu.com
-Subject: Re: [PATCH v18] arm64: mm: Handle Granule Protection Faults (GPFs)
-Message-ID: <aruVrvQcYCGe0HJ6@arm.com>
-References: <20260913070459.2547407-1-suzuki.poulose@arm.com>
- <aqrGPK0lFBFXL2qY@arm.com>
- <985520fa-99b0-4620-bfee-8e6321b36104@arm.com>
- <aqvCwM_73qMpqzvV@arm.com>
- <749ab0c9-810d-4989-8fa5-1706124f05bc@arm.com>
- <arKVcjCOJf8p9rWL@arm.com>
- <4e315360-5b7a-4a0e-99c0-679a0271e625@arm.com>
+	Tue, 29 Sep 2026 10:41:36 +0000
+ARC-Seal: i=2; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=pass;
+ b=FdtwG+SJtYA7FxmnvCOThtMZR7/V81sMomuw5IoxbouDG0G3d+xiSAiBw7TeP2eMxsJcO5MQEGl1Mnk+sZAeauRKd2JlEqgnkuljU2QIz9mfIwGZV0pCxpGzVeytyXtPElLU7rjVUnQQnQF2omrK8OXmwzYjJQpJapQoObyBoOwo9JCjMpNx/Ik6SYnJQyuY4zc2L+1E58bn8VrViaaMnijraPSMraqozL6HsbuA4KLRheJv3PXRyLlbDaxxCwTB8OVSI728MLrVJSEwdGZEYj66EFQNxvlCGkhdfYvvoDzLrfNY6yrYj/RlaIKJigU4FITCafli1gJBLVWRbg/SvA==
+ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=hYU59M8C1gPUQhArhzPU6s2T2x+NlXNd39Hkn86eRTU=;
+ b=jT6Tw4WcXg6Q230PzC8stAHFRZjmNe/OslxfGewEtMaGu8eklI9hD3uzRMEgy+/FsgJIfgz4/CyJ0ov8VJxlz34ury9JVA2d/T6upUo49FRwlKwgDODArCiN/V30MmB7ye2zjNQN89SNJiKsI9nZKuDiSwBmCDba5LxyIhernuRtCqpQgxDWDeboIc79xbdp9c746SU2fVXl1hxs1qVstKZK66mBBLrnWqFxOe7n3RFjGlJRG5j5PIs8l71VAGrUaEg7NCXw6wm4pjNkZM/eLinpuK3F4v99u+yEXg8fG0mdCvIIojjV6ZonxuYOUwW1wdloiFjseJN6ElFCUtyvQg==
+ARC-Authentication-Results: i=2; mx.microsoft.com 1; spf=pass (sender ip is
+ 4.158.2.129) smtp.rcpttodomain=linaro.org smtp.mailfrom=arm.com; dmarc=pass
+ (p=none sp=none pct=100) action=none header.from=arm.com; dkim=pass
+ (signature was verified) header.d=arm.com; arc=pass (0 oda=1 ltdi=1
+ spf=[1,1,smtp.mailfrom=arm.com] dkim=[1,1,header.d=arm.com]
+ dmarc=[1,1,header.from=arm.com])
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=arm.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=hYU59M8C1gPUQhArhzPU6s2T2x+NlXNd39Hkn86eRTU=;
+ b=CtmMP2Z8ofUGC5t+x+YgJ+3AybPNgKtY8+umRNpLj4Hmq2vtfcOnNYG1LDdzt3jZEs4A9/bhcUakFB97KGpFVbLtUubbOZghmfN6nj1S42dcQa3b0Lgp/Nzbj+zXseaWrlDnj0+0jH5jJU+beoPxcNyeQoV8kZT0gx/vyEwyZ4A=
+Received: from PAZP264CA0138.FRAP264.PROD.OUTLOOK.COM (2603:10a6:102:1f8::11)
+ by GV2PR08MB388410.eurprd08.prod.outlook.com (2603:10a6:150:3b6::11) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.472.14; Tue, 29 Sep
+ 2026 10:41:28 +0000
+Received: from MI3PEPF00008486.eurprd02.prod.outlook.com
+ (2603:10a6:102:1f8:cafe::64) by PAZP264CA0138.outlook.office365.com
+ (2603:10a6:102:1f8::11) with Microsoft SMTP Server (version=TLS1_3,
+ cipher=TLS_AES_256_GCM_SHA384) id 15.21.451.24 via Frontend Transport; Tue,
+ 29 Sep 2026 10:41:27 +0000
+X-MS-Exchange-Authentication-Results: mx.microsoft.com 1; spf=pass (sender IP
+ is 4.158.2.129) smtp.mailfrom=arm.com; dkim=pass (signature was verified)
+ header.d=arm.com;dmarc=pass action=none header.from=arm.com;
+Received-SPF: Pass (protection.outlook.com: domain of arm.com designates
+ 4.158.2.129 as permitted sender) receiver=protection.outlook.com;
+ client-ip=4.158.2.129; helo=outbound-uk1.az.dlp.m.darktrace.com; pr=C
+Received: from outbound-uk1.az.dlp.m.darktrace.com (4.158.2.129) by
+ MI3PEPF00008486.mail.protection.outlook.com (10.167.240.133) with Microsoft
+ SMTP Server (version=TLS1_3, cipher=TLS_AES_256_GCM_SHA384) id 15.21.472.14
+ via Frontend Transport; Tue, 29 Sep 2026 10:41:27 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=X2gRDRSDVwkv4vH9P1MvWTDrrzHlsC8WEXjlZZgqlG0YEG5q7GgzMJebws8jPPpeLUMMinBdSLvY3qZ+kJ5JG+1Kowd+vgEO265IkT9XXVMLAUGNxYVNL4b2fJtZUnzs8vq/1RuFXGEUsxGz5A/YFdqwKGJydQwsAz0J/jVWk8pCU7rJ+3aglfWknV4+gaJnjaRVDcFpJxXK0EEe4wmzSRu9zt8ud9XF/069TagGAig9wIKnsV9dLZO5oLoFT46HqrURRVfHq3dx0mZdYpJ1uIEae+eB014vmZvVUeJZxCMgp+kKwfFire6ftJ9BWfrxfmzOrdH9QGANQgOgYPPJZQ==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=hYU59M8C1gPUQhArhzPU6s2T2x+NlXNd39Hkn86eRTU=;
+ b=amr1QzlWGcjcKqtmsUNF+SKfdkarfHN7vaUAjGE2/6NAXUpfDS9gpMatf5I7n/27a+ubti6dh6FQgOm9VIErmgLAnLbdEdSksOBXJdCLCa0RP24aAuoyswkLfDjkmw7w1nGAoP0Ruta4oiEKTPIFGwGxuigPqUFU9jclHkMY+ZLjVBk22RqPG/tOl7VQGlKV+myArgcLbebGNN0KKKClZXSbjrrzX+Nas/+4+ePN2xDlsnXTOGdcCvEyhf+n8JzAL6Ph0K7qNwThRHCS2imyip3Sp+dC84l+CRAljIyZ+fdMs8JeqV5YXIUZiULceHoStZcTlFSBTMVIkjbvLmjrZQ==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=arm.com; dmarc=pass action=none header.from=arm.com; dkim=pass
+ header.d=arm.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=arm.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=hYU59M8C1gPUQhArhzPU6s2T2x+NlXNd39Hkn86eRTU=;
+ b=CtmMP2Z8ofUGC5t+x+YgJ+3AybPNgKtY8+umRNpLj4Hmq2vtfcOnNYG1LDdzt3jZEs4A9/bhcUakFB97KGpFVbLtUubbOZghmfN6nj1S42dcQa3b0Lgp/Nzbj+zXseaWrlDnj0+0jH5jJU+beoPxcNyeQoV8kZT0gx/vyEwyZ4A=
+Authentication-Results-Original: mx.microsoft.com 1; dkim=none (message not
+ signed) header.d=none;dmarc=none action=none header.from=arm.com;
+Received: from PAVPR08MB9674.eurprd08.prod.outlook.com (2603:10a6:102:31d::14)
+ by DU0PR08MB9028.eurprd08.prod.outlook.com (2603:10a6:10:474::18) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.451.18; Tue, 29 Sep
+ 2026 10:40:52 +0000
+Received: from PAVPR08MB9674.eurprd08.prod.outlook.com
+ ([fe80::6f25:3681:7c97:ea2e]) by PAVPR08MB9674.eurprd08.prod.outlook.com
+ ([fe80::6f25:3681:7c97:ea2e%5]) with mapi id 15.21.0472.005; Tue, 29 Sep 2026
+ 10:40:52 +0000
+Message-ID: <6716de22-b7b0-43f7-b343-f20d4630646c@arm.com>
+Date: Tue, 29 Sep 2026 11:40:50 +0100
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v12 02/14] coresight: etm4x: prohibit modifying cntr_val
+ while session is enabled
+To: Yeoreum Yun <yeoreum.yun@arm.com>, James Clark <james.clark@linaro.org>,
+ Leo Yan <leo.yan@arm.com>, Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+ Mathieu Poirier <mathieu.poirier@linaro.org>, coresight@lists.linaro.org,
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+ linux-rt-devel@lists.linux.dev
+Cc: Suzuki K Poulose <suzuki.poulose@arm.com>,
+ Alexander Shishkin <alexander.shishkin@linux.intel.com>,
+ Sebastian Andrzej Siewior <bigeasy@linutronix.de>,
+ Clark Williams <clrkwllms@kernel.org>, Steven Rostedt <rostedt@goodmis.org>
+References: <20260924-separate_etm_cfg_v2-v12-0-a2b41d2f7c2b@arm.com>
+ <20260924-separate_etm_cfg_v2-v12-2-a2b41d2f7c2b@arm.com>
+Content-Language: en-US
+From: Mike Leach <mike.leach@arm.com>
+In-Reply-To: <20260924-separate_etm_cfg_v2-v12-2-a2b41d2f7c2b@arm.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
+X-ClientProxiedBy: LO2P123CA0090.GBRP123.PROD.OUTLOOK.COM
+ (2603:10a6:600:138::23) To PAVPR08MB9674.eurprd08.prod.outlook.com
+ (2603:10a6:102:31d::14)
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <4e315360-5b7a-4a0e-99c0-679a0271e625@arm.com>
+X-MS-TrafficTypeDiagnostic: PAVPR08MB9674:EE_|DU0PR08MB9028:EE_|MI3PEPF00008486:EE_|GV2PR08MB388410:EE_
+X-MS-Office365-Filtering-Correlation-Id: 15942039-1d04-4b13-bd72-08df1e163752
+X-LD-Processed: f34e5979-57d9-4aaa-ad4d-b122a662184d,ExtAddr,ExtAddr
+x-checkrecipientrouted: true
+NoDisclaimer: true
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam-Untrusted: BCL:0;ARA:13230040|366016|7416014|376014|23010399003|1800799024|11063799006|10067099003|56012099006|4143699003|18002099003|22082099003;
+X-Microsoft-Antispam-Message-Info-Original: DJdsVRcAF6oBEs/Nkrx0n7aBwDC5VhUpi7kt8uKRxWLWtr8D+Fnn5jW9XEfXB5/4gFiMCkzcvzOc0SWpR4H2ILBAn0QPkjWYcrxrAHn36Rg3Jw6odUThliAmMynGbPkwANvaP61PQ9XgMTfyBHF7KgR4aKgnbx6M1oaNfVWj5fHsA/i791M1KE9X/KMbKZxoQ/w/8KbrNqefOBP99ln6nYzIIkEkMg9BBkdc+IZiIbLZIArAVVLweF7jd9PspuMekoB4ONKOq+0hULGCITaB0tTDwjJ3EkOLnjxqhZTH4uI+ax0K5ilEEnpZAraAEbua1G+r5HfBqt2NbLxNz/5d79z0a6dqutr/1j0EiosG8KD4ZMPQbmV0PQ7JwvshbNxTROaaPlYC73tSBu+AI0rnXX8C7SpoEjgvdxWiLqvRUiBQWi8Jp1BZkDL5WLY8FYUNAGQyQfnS8zo4TGOxinZ2kPONtkk5R8AtnLgPX6LXbXLcMo1e5sXaX6KA+NrPbLKs6ymngR2eU9/MMUajvbJ/MapBp0Lf2RIpAfjOyT4k1CIuSi0iiJ9X3PtQqdg77hvWlDqwOSnxIaMwP0/LN7NFxq24wW5+dW81a3Xfg8i6bNJv7Muou4qMCn3QDFm2u8tO43MSWR7Y9TI3jQhE5Et6qcp293O9SmJ3lPu/rJEW6d4=
+X-Forefront-Antispam-Report-Untrusted: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PAVPR08MB9674.eurprd08.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(7416014)(376014)(23010399003)(1800799024)(11063799006)(10067099003)(56012099006)(4143699003)(18002099003)(22082099003);DIR:OUT;SFP:1101;
+X-Exchange-RoutingPolicyChecked: uEsl+Dgftreu7++MUVv93zRcU9oOx266EBWbGNbzgmZZ/86bGyZDURAfIjhOF4b377XTvkUy4ss0R3Phmp7yKbSRIq986Fj8A1zirGkt2SqjNe0XrfM5I/hqnD5toI+mbH33/EbgxhmCslcZRIQuFNAQSXVt2zVW0iZGe8QVfbn2VgIN0rA9BvHzpt7gy6CrtBzID4pjtA8YENqWR9WrtnzxR7Yenrh6WytGr9OtKDfgGuo5jFT2LchF28KiaYF3YuoXxNgYG+lJ3sokPnjMYyHpZ3ROpGnyuhrphMeHXSQ8OceIYB5piKabi/O8P/Ukl00q42thquPwiy+kvBmmZw==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: DU0PR08MB9028
+X-EOPAttributedMessage: 0
+X-MS-Exchange-Transport-CrossTenantHeadersStripped: MI3PEPF00008486.eurprd02.prod.outlook.com
+X-MS-PublicTrafficType: Email
+X-MS-Office365-Filtering-Correlation-Id-Prvs: 73199880-1476-4b28-2a80-08df1e162203
+X-Microsoft-Antispam: BCL:0;ARA:13230040|14060799003|1800799024|35042699022|82310400026|36860700016|376014|7416014|23010399003|10067099003|56012099006|4143699003|11063799006|22082099003|18002099003;
+X-Microsoft-Antispam-Message-Info: 93YQK+QCUjRVNUOR4PJ8f95B/8dT3EmXSNO0wiBF6BbxuWkMC2dTAkzJjtoIvr0v/b01r797N4W3/nW9jlLOykZBld5HG/rzsX8dV679oPH5NbcX2kmlav/XWNaYiTUEyaGLckCTI89JGo5FWOvpjbj3kU/esLooF6/eGubr1a4lHHYiEfG7JtEZxiF0ANna7lXXfeFhEwOJrarpLRf42/XOQzYIkCq4bPl/yKtOT1+ALOU9T/j/cybw6u2NVhweNOp4uWzltMOh2J8yksA1pRmZELSb4a3KpvDOhtBFHhS9y7du+rpVotO4Emxjn6VtjCZIRmmbvLUV6fBpK6agDnQMSoXFKvt2BP2kV+xTxZOL8HSYT98U/XmLDloyfBsyzw6ROQkTFYSpeKCmwT7YaOIo84hke2vNXZooygCGwGhZxqGV1XxwAg748OTIg+hTp0aFP8RNWm2jyGWYuNB0qLH31ee/xXWQFdz+QbKvMtO44eCa0ss1ySU0aaVto2cklXDKf5ngHIav5gSwoR6IyKod0zG+sg7wv5H2/3Sl1bYLbMI2S4X+a4a2KUrhNAzi5EWqgpgYaBXaTBpbczzxB96f7xkCFQ8VdwGMtzEjBkfno2v5Xpj6ARmj2SnNmHl573nPaXL6mITnjy1QVw6GZuzHh5lfQm+bHvv0SEpj/Sdl9mM8PZ6aK/g+CwgAC4LRInHVgoT9fwwHdB+Q2IRNqg==
+X-Forefront-Antispam-Report: CIP:4.158.2.129;CTRY:GB;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:outbound-uk1.az.dlp.m.darktrace.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(14060799003)(1800799024)(35042699022)(82310400026)(36860700016)(376014)(7416014)(23010399003)(10067099003)(56012099006)(4143699003)(11063799006)(22082099003)(18002099003);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: 4+GlxtpftvbC7iapAAH7/q2EtUYANjV1Bc9ntG5XkqK0zal4v/n5L7H8gBeQFlDd/hpJE19p3ArGNP8wz7NpM7dgakb1bT01vuUgn+FGE8f+g1S0+gASfmFdd+wgUjoRiJEfEIGqNeWVzFucKAg5PUcYOyG+pNvsNoqi7T8SkOpXTHmZ6eMxLX5/FGY/cPBTMFWlHAQqFhQp+3whAedt8pEQYm9d1F/hI8eO0NZv7WDI/Es+ByerqmGCopMKRx/YfFVnUR83ieLDtlbaWksgo1xIRT43tqn8RFGnh5wjn02RtNaVOZlAaFm4h3/UYJako9NGzYdLcsAYu5vgt9bkM7oHDy2jPuDnkwEKd1+H1+d6LXTV0AkbRp7bglDbDyD4WvIeYOYxVvpWvAzwM0JRURDjAkygG1dIEIm6t3TceXQxmckNniqJolvMjsFEMV0v
+X-OriginatorOrg: arm.com
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 29 Sep 2026 10:41:27.4495
+ (UTC)
+X-MS-Exchange-CrossTenant-Network-Message-Id: 15942039-1d04-4b13-bd72-08df1e163752
+X-MS-Exchange-CrossTenant-Id: f34e5979-57d9-4aaa-ad4d-b122a662184d
+X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=f34e5979-57d9-4aaa-ad4d-b122a662184d;Ip=[4.158.2.129];Helo=[outbound-uk1.az.dlp.m.darktrace.com]
+X-MS-Exchange-CrossTenant-AuthSource: MI3PEPF00008486.eurprd02.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Anonymous
+X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: GV2PR08MB388410
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260929_034103_606917_6D703BEB 
-X-CRM114-Status: GOOD (  32.80  )
+X-CRM114-CacheID: sfid-20260929_034135_488565_24F4460F 
+X-CRM114-Status: GOOD (  16.47  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -80,111 +162,37 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Sep 28, 2026 at 12:01:18PM +0100, Suzuki K Poulose wrote:
-> On 22/09/2026 15:49, Catalin Marinas wrote:
-> > On Tue, Sep 22, 2026 at 02:21:13PM +0100, Suzuki K Poulose wrote:
-> > > I had another look and we could handle this via kvm_fault_is_gmem_abort()
-> > > see in arch/arm64/kvm/mmu.c:
-> > > 
-> > > 
-> > > diff --git a/arch/arm64/kvm/mmu.c b/arch/arm64/kvm/mmu.c
-> > > index 87e49251e0447..af5a4bf961aae 100644
-> > > --- a/arch/arm64/kvm/mmu.c
-> > > +++ b/arch/arm64/kvm/mmu.c
-> > > @@ -1731,6 +1731,9 @@ static int gmem_abort(const struct kvm_s2_fault_desc
-> > > *s2fd)
-> > >          gfn_t gfn;
-> > >          int ret;
-> > > 
-> > > +       if (!kvm_slot_has_gmem(s2fd->memslot))
-> > > +               return -EINVAL;
-> > 
-> > I wonder whether we should add a KVM_BUG_ON() here. With the rest of the
-> > changes, we should never get in this situation. Well, to be revisited
-> > for private devices.
-> > 
-> > Also maybe move it to the caller, kvm_vm_mem_abort(), and not change
-> > kvm_fault_is_gmem_abort(). Something like:
-> > 
-> > 	if (private_ipa_fault(kvm, s2fd->fault_ipa) &&
-> > 	    KVM_BUG_ON(!kvm_slot_has_gmem(s2fd->memslot), kvm))
-> > 		return -EIO;
-> > 
-> > To me it makes more sense for gmem_abort() to be called only *if* it's a
-> > gmem slot. So any inconsistency, avoiding user_mem_abort() for private
-> > memory, should be done in the caller. I assume the caller will also have
-> > to route the private device path as well rather than rely on
-> > gmem_abort().
-> > 
-> > > +
-> > >          if (!perm_fault) {
-> > >                  memcache = get_mmu_memcache(vcpu);
-> > >                  ret = topup_mmu_memcache(vcpu, memcache);
-> > > @@ -2277,10 +2280,12 @@ static bool private_ipa_fault(struct kvm *kvm,
-> > > phys_addr_t fault_ipa);
-> > >   static bool kvm_fault_is_gmem_abort(struct kvm *kvm,
-> > >                                      const struct kvm_s2_fault_desc *s2fd)
-> > >   {
-> > > -       if (!kvm_slot_has_gmem(s2fd->memslot))
-> > > -               return false;
-> > >          if (kvm_memslot_is_gmem_only(s2fd->memslot))
-> > >                  return true;
-> > > +       /*
-> > > +        * For Realms, all private faults must be backed by GMEM.
-> > > +        * TODO: Handle Trusted device private memory mappings.
-> > > +        */
-> > >          if (private_ipa_fault(kvm, s2fd->fault_ipa))
-> > >                  return true;
-> > >          return false;
-> > > 
-> > > 
-> > > Also, I have the following hunk for preventing memslot modifications.
-> > > I will add this to v20 integration branch, which is almost ready ;-)
-> > > 
-> > > diff --git a/arch/arm64/kvm/mmu.c b/arch/arm64/kvm/mmu.c
-> > > index 582b48e34486b..87e49251e0447 100644
-> > > --- a/arch/arm64/kvm/mmu.c
-> > > +++ b/arch/arm64/kvm/mmu.c
-> > > @@ -2783,6 +2783,18 @@ void kvm_arch_commit_memory_region(struct kvm *kvm,
-> > >          }
-> > >   }
-> > > 
-> > > +static bool kvm_prevents_memslot_change(struct kvm *kvm, enum kvm_mr_change change)
-> > > +{
-> > > +       /* Cannot modify memslots once a pVM has run or Realm created */
-> > > +       if (change != KVM_MR_DELETE && change != KVM_MR_MOVE)
-> > > +               return false;
-> > > +
-> > > +       if ((kvm_vm_is_protected_pkvm(kvm) && pkvm_hyp_vm_is_created(kvm)) ||
-> > > +            kvm_realm_is_created(kvm))
-> > > +               return true;
-> > > +       return false;
-> > > +}
-> > > +
+Reviewed-by: Mike Leach <mike.leach@arm.com>
+
+On 9/24/26 18:33, Yeoreum Yun wrote:
+> cntr_val is overwritten with the values read from the corresponding
+> registers by etm4_disable_hw() when the session is disabled.
 > 
-> This needs to be tweaked for Realm to support non-secure device assignment.
-> Aneesh reports that the Device assignment fails now,
-> because the Device BAR reset deletes the memory slot and re-registers
-> it, which the above change prevents.
+> This means that any changes to these values made while the session is
+> enabled would be lost when the session is disabled.
 > 
-> I will modify that to
-> 1. Prevent "Guest-memfd" backed memory slot deletion. Makes sure that
->    nothing can replace a private memory slot.
-> 2. Allow non-Guest-memfd backed memory slots to be created
->   after the Realm is created. We anyways prevent "private" memory
->   to be mapped from a non-Guest-memfd memslot.
+> Therefore, prohibit modifying cntr_val while the session is enabled.
+> 
+> Tested-by: Leo Yan <leo.yan@arm.com>
+> Signed-off-by: Yeoreum Yun <yeoreum.yun@arm.com>
+> ---
+>   drivers/hwtracing/coresight/coresight-etm4x-sysfs.c | 3 +++
+>   1 file changed, 3 insertions(+)
+> 
+> diff --git a/drivers/hwtracing/coresight/coresight-etm4x-sysfs.c b/drivers/hwtracing/coresight/coresight-etm4x-sysfs.c
+> index db3cf4ad6806..a547de5a3f9c 100644
+> --- a/drivers/hwtracing/coresight/coresight-etm4x-sysfs.c
+> +++ b/drivers/hwtracing/coresight/coresight-etm4x-sysfs.c
+> @@ -1615,6 +1615,9 @@ static ssize_t cntr_val_store(struct device *dev,
+>   		return -EINVAL;
+>   	if (val > ETM_CNTR_MAX_VAL)
+>   		return -EINVAL;
+> +	if (IS_ERR_OR_NULL(drvdata->csdev) ||
+> +	    coresight_get_mode(drvdata->csdev))
+> +		return -EBUSY;
+>   
+>   	raw_spin_lock(&drvdata->spinlock);
+>   	idx = config->cntr_idx;
+> 
 
-Yes, I think this should be fine. But at least with the last version I
-looked at, we did not prevent private memory from being mapped from
-non-guest_memfd slots (there was a way to delete the gmem slot, add a
-normal one while the guest does a private IPA access). If we prevent
-gmem slot deletion, we no longer have this issue, although we should
-warn somewhere on the user_mem_abort() both.
-
-Anyway, to be discussed on the KVM patches, not here. I raised it
-initially here as I was looking whether a non-gmem slot ever ends up
-private and trigger the GPF.
-
--- 
-Catalin
 
