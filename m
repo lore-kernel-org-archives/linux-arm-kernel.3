@@ -4,62 +4,75 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 99BB0CA5FA5
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 29 Sep 2026 08:42:42 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5669BCA5FA5
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 29 Sep 2026 08:43:53 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=5rtCPENpmtMMjeAjed2RbvlHNfF2BKBVrFP7DRlYUzs=; b=rS8mEDGTQqiqQjhNIxb54sLvdf
-	50nfpmYpmLhNeB/xjLvAI5oveO4mCQrDJHtlXMLtnUExvGQbcivZLwwTxU3YMb+o7xWWhQVx9pSlx
-	xylJLbRmLEB7W6q4luOY0sBVuyGkhNCOX6eGNBWFN8ZYkzuTc2gccP3wda/wIru/iX/aZ4AVkeZVH
-	V8BLtz8A7y+ebiBQkA/4sgQPr+XJNwdkg+QTLY8WPBu/y24c+0KAwqO1ByaAhezFkivic9FC59DFr
-	5AoU5TTH6TC0VVPwwjs+SBhKWIyTzwipVn2xmA0bdhLjssS6+IGnP6jRCeFLLzKE1EtAelubYmH2Q
-	U28+bgfw==;
+	bh=/kaL8yN3QljuQSjvdkWYP0iZEH5AUWpebqZtTfgcbUk=; b=04UTsrslTGwUIsrvAdQy6DYvUp
+	uqGOAoTAJKvxezK8EU0n5njrqZuGAuR1Y6Zvk5mcKDXBkP16mdYum6c7mqNIm5rWpxMf7QgQm6NlZ
+	qm6zj9NGCH4Z1WNK89J2EnkQ+kg/RHJEsG3ZEWvr4ZWBJROTtB93AkTVoUtpJtzLQS/uxWmEsc2Wc
+	Fei+J61lqcJuSVZRGQlhmpQ0DzvgKTpRa1gkScRwUk/KwsvfEptILqTGxELS5veNUTBlJRZjcLkgC
+	4lUORHGrbnOYTrK4qqyFmUAA7NcieJ2/OtCvj8Or5im4GkFIBRGuHQ1NHwZfxHYtHrcnOjDrr2cJo
+	nmMQyAOg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xBTQ4-00000002pRr-1eqC;
-	Tue, 29 Sep 2026 08:42:36 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1xBTRB-00000002pbd-2aHc;
+	Tue, 29 Sep 2026 08:43:45 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xBTQ3-00000002pRd-1ocO
+	id 1xBTRA-00000002pbX-1KvE
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 29 Sep 2026 08:42:35 +0000
+	Tue, 29 Sep 2026 08:43:44 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id 7ACFF60A62;
-	Tue, 29 Sep 2026 08:42:34 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 32E2C1F00899;
-	Tue, 29 Sep 2026 08:42:33 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id BDD6B60A5A;
+	Tue, 29 Sep 2026 08:43:43 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 585C51F00893;
+	Tue, 29 Sep 2026 08:43:38 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1790671354;
-	bh=5rtCPENpmtMMjeAjed2RbvlHNfF2BKBVrFP7DRlYUzs=;
+	s=k20260515; t=1790671423;
+	bh=/kaL8yN3QljuQSjvdkWYP0iZEH5AUWpebqZtTfgcbUk=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=PZU69NbqSmv6V4oncymr1RvBFBZeu1qW6BHj8QQCiyA3HcVoQrT13YglXRwtGHAZI
-	 6+1IRA492yJ650qrx1dj4OF7Ixz+dv6EYf5QJLH6e7dJxmZJH2g5bi746Cj8z+X2GO
-	 1betMD3DDQcYIIgpP3fpXTZzYOcjHpjo8ob+yuoNjl2BWRkd8wDJSkJxTPqyqM2+qn
-	 tJKERAehFlFPXWukoY3A8WbW5HcyXOpbLCL9PZUvYcp7a9vIMUtlH+r5zFK+9rvVnB
-	 h2tZNORlQLJlGs+oaLNdBo9kZKABlzT4RvZ9RYz4FvpAFdsBynq/kLeOA0F+q+tdK8
-	 O7c6BAAdXffTA==
-Date: Tue, 29 Sep 2026 10:42:29 +0200
-From: Krzysztof Kozlowski <krzk@kernel.org>
-To: Andre Przywara <andre.przywara@arm.com>
-Cc: Stephen Boyd <sboyd@kernel.org>, Brian Masney <bmasney+clk@redhat.com>, 
-	Jerome Brunet <jbrunet+clk@baylibre.com>, Rob Herring <robh@kernel.org>, 
-	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
-	Chen-Yu Tsai <wens@kernel.org>, Jernej Skrabec <jernej.skrabec@gmail.com>, 
-	Samuel Holland <samuel@sholland.org>, linux-clk@vger.kernel.org, devicetree@vger.kernel.org, 
-	linux-arm-kernel@lists.infradead.org, linux-sunxi@lists.linux.dev
-Subject: Re: [PATCH v3 2/4] dt-bindings: clock: sun55i-a523-ccu: Add A523 CPU
- CCU clock controller
-Message-ID: <20260929-aggressive-uptight-rattlesnake-35fdca@quoll>
-References: <20260925225112.14081-1-andre.przywara@arm.com>
- <20260925225112.14081-3-andre.przywara@arm.com>
+	b=bzlXAIlq46fGXbmD+F4bJWYZ3lFZKM4eDA4r2hRZSE4rs0lKPVBsJkbq/tcnkG5A/
+	 iW74M5k3IsLMB1L/Wq+5oy2mKaFXjgeHnl/fcJ/EaQx00BmmQlP2KQi4PenT/npHrp
+	 aS2AycOTRRjvtq2ovyxu5B00KWem0qNvE54FGOodZBWrEppQLaLUs330Q1qpkfHgfv
+	 r6U7bAdE7z8r8iMlIbXqxCbz1ZfIEh3pgvRRjYSQkshkl/ZgaJagDRb1FekZPVYotH
+	 x994/INRNVw6Imhqj9sfkEFiiuwbaNV5WNExL+WAL4QN2CKD2P4cqelf+vFqM0p4Q/
+	 SaQbUHKrIaepw==
+Date: Tue, 29 Sep 2026 10:43:36 +0200
+From: Lorenzo Pieralisi <lpieralisi@kernel.org>
+To: Ashok Raj <ashok.raj@oss.qualcomm.com>
+Cc: "Rafael J. Wysocki" <rafael@kernel.org>,
+	Mark Rutland <mark.rutland@arm.com>, Marc Zyngier <maz@kernel.org>,
+	Daniel Lezcano <daniel.lezcano@kernel.org>,
+	Thomas Gleixner <tglx@kernel.org>,
+	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+	Danilo Krummrich <dakr@kernel.org>,
+	Hanjun Guo <guohanjun@huawei.com>,
+	Sudeep Holla <sudeep.holla@kernel.org>,
+	Wim Van Sebroeck <wim@linux-watchdog.org>,
+	Guenter Roeck <linux@roeck-us.net>,
+	Robin Murphy <robin.murphy@arm.com>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Will Deacon <will@kernel.org>,
+	Bartosz Golaszewski <brgl@kernel.org>,
+	Andy Shevchenko <andriy.shevchenko@linux.intel.com>,
+	linux-acpi@vger.kernel.org, linux-kernel@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org, driver-core@lists.linux.dev,
+	linux-watchdog@vger.kernel.org
+Subject: Re: [PATCH RFC 10/11] iommu/arm-smmu-v3: Add IRQ mapping
+ -EPROBE_DEFER handling
+Message-ID: <art6OOFPXggDIet9@red-moon>
+References: <20260925-acpi-static-table-irq-probe-defer-v1-0-2c62125d0085@kernel.org>
+ <20260925-acpi-static-table-irq-probe-defer-v1-10-2c62125d0085@kernel.org>
+ <arrtFFtK7KgQfr0z@hu-ashoraj-lv.qualcomm.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
+Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20260925225112.14081-3-andre.przywara@arm.com>
+In-Reply-To: <arrtFFtK7KgQfr0z@hu-ashoraj-lv.qualcomm.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -74,113 +87,64 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Sat, Sep 26, 2026 at 12:51:10AM +0200, Andre Przywara wrote:
-> There are four clock controllers in the A523 SoC, but only three are
-> described in the DT binding so far.
+On Mon, Sep 28, 2026 at 03:41:24PM -0700, Ashok Raj wrote:
+> On Fri, Sep 25, 2026 at 09:48:09AM +0200, Lorenzo Pieralisi wrote:
+> > With the advent of GICv5, IRQs mapping can fail if the interrupt
+> > controller the wired SMMU interrupts are routed to has not probed
+> > yet when the SMMU driver probes.
+> > 
+> > Handle -EPROBE_DEFER gracefully for IRQ mappings failures.
+> > 
+> > Signed-off-by: Lorenzo Pieralisi <lpieralisi@kernel.org>
+> > Cc: Will Deacon <will@kernel.org>
+> > Cc: Robin Murphy <robin.murphy@arm.com>
+> > ---
+> >  drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c | 8 ++++++++
+> >  1 file changed, 8 insertions(+)
+> > 
+> > diff --git a/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c b/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c
+> > index 5732f3ba0122..1832389916a4 100644
+> > --- a/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c
+> > +++ b/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c
+> > @@ -5562,18 +5562,26 @@ static int arm_smmu_device_probe(struct platform_device *pdev)
+> >  	/* Interrupt lines */
+> >  
+> >  	irq = platform_get_irq_byname_optional(pdev, "combined");
+> > +	if (irq == -EPROBE_DEFER)
+> > +		return dev_err_probe(dev, irq, "failed to get combined IRQ\n");
+> >  	if (irq > 0)
+> >  		smmu->combined_irq = irq;
+> >  	else {
+> >  		irq = platform_get_irq_byname_optional(pdev, "eventq");
+> > +		if (irq == -EPROBE_DEFER)
+> > +			return dev_err_probe(dev, irq, "failed to get eventq IRQ\n");
+> >  		if (irq > 0)
+> >  			smmu->evtq.q.irq = irq;
+> >  
+> >  		irq = platform_get_irq_byname_optional(pdev, "priq");
+> > +		if (irq == -EPROBE_DEFER)
+> > +			return dev_err_probe(dev, irq, "failed to get priq IRQ\n");
+> >  		if (irq > 0)
+> >  			smmu->priq.q.irq = irq;
+> >  
+> >  		irq = platform_get_irq_byname_optional(pdev, "gerror");
+> > +		if (irq == -EPROBE_DEFER)
+> > +			return dev_err_probe(dev, irq, "failed to get gerror IRQ\n");
+> >  		if (irq > 0)
+> >  			smmu->gerr_irq = irq;
+> >  	}
 > 
-> Add a description for the CPU CCU, which provides separate clocks for
-> the two CPU clusters and the DSU interconnect.
+> minor: 
 > 
-> Signed-off-by: Andre Przywara <andre.przywara@arm.com>
-> ---
->  .../clock/allwinner,sun55i-a523-ccu.yaml      | 38 ++++++++++++++++++-
->  .../dt-bindings/clock/sun55i-a523-cpu-ccu.h   | 13 +++++++
->  2 files changed, 50 insertions(+), 1 deletion(-)
->  create mode 100644 include/dt-bindings/clock/sun55i-a523-cpu-ccu.h
-> 
-> diff --git a/Documentation/devicetree/bindings/clock/allwinner,sun55i-a523-ccu.yaml b/Documentation/devicetree/bindings/clock/allwinner,sun55i-a523-ccu.yaml
-> index 58be701a720ea..8d5481fb63ae8 100644
-> --- a/Documentation/devicetree/bindings/clock/allwinner,sun55i-a523-ccu.yaml
-> +++ b/Documentation/devicetree/bindings/clock/allwinner,sun55i-a523-ccu.yaml
-> @@ -19,6 +19,7 @@ properties:
->    compatible:
->      enum:
->        - allwinner,sun55i-a523-ccu
-> +      - allwinner,sun55i-a523-cpu-ccu
->        - allwinner,sun55i-a523-mcu-ccu
->        - allwinner,sun55i-a523-r-ccu
->  
-> @@ -35,12 +36,23 @@ properties:
->  
->  required:
->    - "#clock-cells"
-> -  - "#reset-cells"
->    - compatible
->    - reg
->    - clocks
->    - clock-names
->  
-> +if:
+> Maybe consolidate the multiple if (irq == -EPROBE_DEFER) parts and
+> consolidate the return to one place?
 
-This goes to the allOf block.
+Yes that can be done, not even sure the different log strings are worth having
+in the first place.
 
-> +  properties:
-> +    compatible:
-> +      contains:
-> +        const: allwinner,sun55i-a523-cpu-ccu
-> +then:
-> +  properties:
-> +    "#reset-cells": false
-> +else:
-> +  required:
-> +    - "#reset-cells"
-> +
->  allOf:
->    - if:
->        properties:
-> @@ -64,6 +76,30 @@ allOf:
->              - const: iosc
->              - const: losc-fanout
->  
-> +  - if:
-> +      properties:
-> +        compatible:
-> +          enum:
-> +            - allwinner,sun55i-a523-cpu-ccu
-> +
-> +    then:
-> +      properties:
-> +        clocks:
-> +          items:
-> +            - description: High Frequency Oscillator (usually at 24MHz)
-> +            - description: Low Frequency Oscillator (usually at 32kHz)
-> +            - description: Internal Oscillator
-> +            - description: Peripherals PLL 0 (1200 MHz output)
-> +            - description: Peripherals PLL 0 (600 MHz output)
-> +
-> +        clock-names:
-> +          items:
-> +            - const: hosc
-> +            - const: losc
-> +            - const: iosc
-> +            - const: pll-periph0-2x
-> +            - const: pll-periph0-600m
-> +
->    - if:
->        properties:
->          compatible:
-> diff --git a/include/dt-bindings/clock/sun55i-a523-cpu-ccu.h b/include/dt-bindings/clock/sun55i-a523-cpu-ccu.h
-> new file mode 100644
-> index 0000000000000..042f2310f64de
-> --- /dev/null
-> +++ b/include/dt-bindings/clock/sun55i-a523-cpu-ccu.h
+Again, the whole series aim is an RFC to understand what's best to implement
+the deferral mechanism, I patched the consumer drivers just for completeness.
 
-Filename should match compatible.
-
-> @@ -0,0 +1,13 @@
-> +/* SPDX-License-Identifier: (GPL-2.0-only OR MIT) */
-> +/*
-> + * Copyright 2025 Arm Ltd.
-> + */
-> +
-> +#ifndef _DT_BINDINGS_CLK_SUN55I_A523_CPU_CCU_H_
-> +#define _DT_BINDINGS_CLK_SUN55I_A523_CPU_CCU_H_
-> +
-> +#define CLK_CPU_L		7
-
-Indices start from 0 or 1
-
-Best regards,
-Krzysztof
-
+Thanks,
+Lorenzo
 
