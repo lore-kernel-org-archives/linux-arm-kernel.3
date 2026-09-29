@@ -4,119 +4,99 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 981E0CA5FA1
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 29 Sep 2026 00:07:45 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 37607CA5FA1
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 29 Sep 2026 00:12:20 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Hm0RErT6dOlbpaDX7ox14DSX4hQbirleVL8DwhzSyVg=; b=v0yWLorZDwlClHV5nc4AqEONwz
-	wz7FfVafXKFkA/AaP99f30pEv7xE2RrSRcSgPljEJJ1BuQ3TQe1lTXxMb2jmSECqoIp0izvBh+tIj
-	fO8fmdvk/VtilYpje6+k2lElEzBPrNeQ5Efml6kcRe5s/cFIjqZV0DEgl9KxNP2Os+I/IoeC/OnY4
-	qNFiG3/JaLioouheHZqMCvY+qmhXHZVsBVqSCPULEpAasNBBb+OS8ubspz7UbP9TfKFuH/r/Oxbtk
-	fYn432NgsTRl9RNakGwAAJ74UwRa04pq01VDSkF8kOOt6prfdhAjUmfaMjJodTtXLXpwDH4hLihaE
-	rcjcEzzQ==;
+	bh=AbuNkQK/L+pg/yDlIMlRRHsYuQVsJSZCaklGdmmjYtU=; b=MTGp7qfACZtlTk6QVJimOxyDNr
+	OtbKNejWJJOxX7rXgVceEuD80WO2Lr8GHZvLg1OU2oHFbUwr9DkdPRZAvvk5IYhkuufMGZBsS+ge2
+	DzgbrqItWWSxoA6NCPTmb1LbHJLYdh1I5fqdcoAgssos7o5iWOXQ34yJ/02zBU1Eaji+XXH8d0Cl5
+	V313d0GV8j4t78E8GSDA5KAVIZyGkIYTjecToRRNAhip6BaPEJDWQcv5LL6L9o3SYIyxAo7woJvu2
+	Fo2ntsJYYijXFdt8LCmvTck+qXN2DqnxJnjPy+3FoafPUTkWxtuzin691P/+kDcJ5wwyryDyHng2t
+	YVPz+8FQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xBLNi-00000001wbk-3U7N;
-	Tue, 29 Sep 2026 00:07:38 +0000
-Received: from mail-pz2-x0c.google.com ([2607:f8b0:4864:3b::c])
+	id 1xBLS9-00000001wud-1mlA;
+	Tue, 29 Sep 2026 00:12:13 +0000
+Received: from mail-pz2-x2a.google.com ([2607:f8b0:4864:3b::2a])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xBLNf-00000001was-2gnf
+	id 1xBLS6-00000001wuC-2W8E
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 29 Sep 2026 00:07:36 +0000
-Received: by mail-pz2-x0c.google.com with SMTP id 41be03b00d2f7-cc78d45f78fso2122204a12.3
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 28 Sep 2026 17:07:35 -0700 (PDT)
+	Tue, 29 Sep 2026 00:12:12 +0000
+Received: by mail-pz2-x2a.google.com with SMTP id d2e1a72fcca58-883a16b758dso314935b3a.1
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 28 Sep 2026 17:12:10 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=dama-to.20251104.gappssmtp.com; s=20251104; t=1790640455; x=1791245255; darn=lists.infradead.org;
+        d=dama-to.20251104.gappssmtp.com; s=20251104; t=1790640729; x=1791245529; darn=lists.infradead.org;
         h=in-reply-to:content-disposition:content-type:mime-version
          :references:mail-followup-to:message-id:subject:cc:to:from:date:from
          :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=Hm0RErT6dOlbpaDX7ox14DSX4hQbirleVL8DwhzSyVg=;
-        b=nwYGa7jHzJ0vEJFHDFG03wR9fxeoHz3Wx1zDUyUZv6tew/XXUId8k8mcwxW6DmfWQ1
-         2ccdDmR/G7/DArgyM5oup8YzII2uh+dr8SQMMAjUP3mP9VFMB8a2rrfVlRgE7qVhp0d0
-         /ROnE4GiZvZHQ+XMvDQZSv9aeOi5GQ2zq28ikuAOsWd8pbT8J9A/dsKA0MbgnQKofOe3
-         OZ3ZWZV8u3N0Qa4+tAnfTf8NSiIFcYjIVxztaVK3leWxAQBgSjLZ4NsmxQy+IG0wAqwj
-         MpnZyDQS2tQVgOvkZmauxGDBw6Hx7H5beVjVtGACnjzGpLnkO49RITQO+Zh4gDcl07Eb
-         1bPw==
+        bh=AbuNkQK/L+pg/yDlIMlRRHsYuQVsJSZCaklGdmmjYtU=;
+        b=NlQn72BuBXsHLGXdx6G/K4xbEJtyXmVAibuxmI3feqM7pCjIlU3d+rIo9otkndhtIa
+         AMfNVpfqCtIxEvW+ndFWJJsrIhT0Pcg69CnNIW2WWb2Dk4HR1T7lzHr68l1Q2GLlv4Im
+         R2tIKetLBE6WTjULSQj3IfT1w+5Fw1WO3D1GQ+/Da8kZqhLutDSwTG/MXT7sUa1LAqsP
+         CsvYyKnIew08jiuoW9VabrCbwV3IlQ3bDJTSENkZEaTWN0WHg7b298sFSPgbJVj0V5GD
+         Qaq/CpKdK/F2F+qvqQPISwIFAC7M+X9UxFe79jK5ILWUMXJgXA/qblIXDsxY2KqDEe+7
+         0Qtg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1790640455; x=1791245255;
+        d=1e100.net; s=20260707; t=1790640729; x=1791245529;
         h=in-reply-to:content-disposition:content-type:mime-version
          :references:mail-followup-to:message-id:subject:cc:to:from:date
          :x-gm-gg:x-gm-message-state:from:to:cc:subject:date:message-id
          :reply-to:content-type;
-        bh=Hm0RErT6dOlbpaDX7ox14DSX4hQbirleVL8DwhzSyVg=;
-        b=HEZL8hkj23zaEBkR4eyBh7a8FR9DsSojmTU8+u890jxNH/8w7T5s41QakDUpcwufHo
-         WuNwoPIUqKILJWMjsBqitHVbnJcmDd/TR+NL9lA8bvPSftUhc0jfXV5aUbs+4hTptRLl
-         m0GcSAUYGgz1dszJ5A8mSvS7kalsdU2cta6OU/uFqrqxfQ+vtvzFvElxIUyXYRiaPwKL
-         LbNaXXkHOOvfLsGVf96BCNHOEuqLmwet1v76CGfWxTYq4ScgeEd5x1cJYFualZQNEh4q
-         Q1qxF85A0Cqh5sbKZT3ExnLmjVWiA3CmpI02q8wqMIBHWGdbFfxxGlZa/gnOu2MU5nIU
-         tucw==
-X-Forwarded-Encrypted: i=1; AKwUvBytFPEjCGbgiGpasyI6NNX7r1PnZ4jRiBHlBRjAdbNEFYB4J0Z9KVyVFXVLeOhdKYSw8eat50tDnKPbh2Y+MIKy@lists.infradead.org
-X-Gm-Message-State: AFq9FYJrhGSdAlXyO89MK8KY29seWN/xD2RzgYE6Oip7h5X2iBj9P1xt
-	eYvxE3cn0m330mL0r6cvV2bIJqVOeNg16uL+7RZrOpTNYdKs9cnOxI/U/a4ZRwest/I=
-X-Gm-Gg: AYBFou26VeJGik6lFjWT30TldoPQpqBtRyNFOncuw+4t79FK0x1tqO/wm/7veA96agh
-	+xtb1rdq7yQH/PzPhuOup43YfMbCrzHeulA2TmHzU8YMnWY24+xGLzeBqPu11NsDmp1FLJWAPhr
-	r7z47WfwpdEnrvQprOxNTn2i2UvbDiqPIGuXOTdtuzrydTkwEeMTwPRlHDuPbC6LAJO/V2uQprk
-	aIZ/LKBj2qhP6q8bRNu2rISBeJ52yurFYJUibapvLF5+Gr6Rb13vTGuM5B6745AyqSZXmac/Qam
-	vmgaieOaJEHYJjP0cmGujlIxZYZZRmC6IRHBWp3+CVxerccVjdby1rWODEnDdVu6Ke4MRhuNbbq
-	x//aAAaoHQ7VDgmQDRCGdWaqfNkNHtr49vybtMeCCVytSLeARljrVMuXNNEP2fpVmN7d2m7T3Ho
-	M5Urb8xBq5a8g2aATkdjgU/ClS1mITyHcv2MTgrMI2mgwjKbvY8Np/faziCpdyjXhqf7UQhYPmK
-	VoZVDnrrYa+
-X-Received: by 2002:a17:90b:3b49:b0:3a4:8d74:2ebe with SMTP id 98e67ed59e1d1-3a48d74451emr1727662a91.32.1790640454667;
-        Mon, 28 Sep 2026 17:07:34 -0700 (PDT)
-Received: from localhost ([2a03:2880:2ff:4c::])
-        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-3a497e942eesm2356131a91.4.2026.09.28.17.07.33
+        bh=AbuNkQK/L+pg/yDlIMlRRHsYuQVsJSZCaklGdmmjYtU=;
+        b=GDTTzbXaWaHgSgU97xhHYLxhDV3M/rue7KdG14j8NTE5LNQhe8WOgrFdNzCJla23Dd
+         /eEukaSBJcqKkRtkmGE0XzroXwRkx2rbRXgUpNJmhcZI17vO4B1j3LyOIPgdQnp0RLr6
+         MIMOD8Za6tal2C4BT3iY6s76jl3amrqa+D1GlMK6Vefjm2M5n/UTU5Plenl3lF5thbWc
+         EpB50DQbDXvBADofRD5DZVSnELkouvd9GwY84qt1rNy6mIIWOGRLvwEfAlZtGVC762eg
+         T/ujFmkA6ZEuxRro6gERh8VcR70OWKGRo7Na/6+PC59BTBBfrMruBniHeiFh6DvlvaNp
+         eH0g==
+X-Forwarded-Encrypted: i=1; AKwUvBwJuXE2MhK8BC5i4Q9zeJ+gKFAOFKVZGd1SRbCUihAuu8Zson7W4JsDGTd2V0waKY6SbnDtYenG6q65hUws/Xcu@lists.infradead.org
+X-Gm-Message-State: AFuF++k2szqh4GzE7IB5BVrIUlds9FDVnQHzHcCbWvyIDggzENfX2cMG
+	f+9d4IH8WUq9ZMKK38HGu87dScCldwnNfAkUdzpGiCCehRf0NDpRF3Pmzmh5+RCp9wg=
+X-Gm-Gg: AYBFou3dnKXwkaaw8bzIVm6MNtRDH8oGqF8wuxC1g8BGxYOm9yz7dBt8U84x/njaOF8
+	PigRbhEWI1viVhzsII+XI3EAahCZXWWCEim7suUMyYV+Tr6JhGgcbM/zeqKAUskCe8Xywn0Sc6T
+	HWzjJDg+Y6EI3Ykfmt2wsNxQAeIoatPt5TbECypSXHp5kcxoNUNNj4Os8/xG0cfTUjVaG3tHgIW
+	XmDJkIGIcSFg82z1mcHIzX38l1hPNjIPuJLxwHYtGFHJgRh86hbgsurrRJNVvqBPgm1ddfUb1ii
+	e5wytuhhCfbO7Q17OkN50dzEvMs3u3yHAfqUiCOHFiyUvgveQDanOorbblOlcDj9tgUfDxvt1ky
+	VCsTnd3bHRCu37JfdJNzGIAHHkHqnuB0EH2utlV4My4JthBvUgcGYLXQaxr6hSPLop/UYakXPhS
+	iFHxA7IrYREA3tyOspFrQQ7tBNulvf/zbQWHeZy6K1M/k0RgSJktqZv/GLa+DpagtUtETIv9icf
+	UkI+A+Bvsof
+X-Received: by 2002:a05:6a21:6e8f:b0:3de:4a1c:a93 with SMTP id adf61e73a8af0-3de7cc0d205mr659922637.28.1790640729533;
+        Mon, 28 Sep 2026 17:12:09 -0700 (PDT)
+Received: from localhost ([2a03:2880:2ff:51::])
+        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-8800974cdc3sm4708243b3a.6.2026.09.28.17.12.08
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 28 Sep 2026 17:07:34 -0700 (PDT)
-Date: Mon, 28 Sep 2026 17:07:33 -0700
+        Mon, 28 Sep 2026 17:12:09 -0700 (PDT)
+Date: Mon, 28 Sep 2026 17:12:08 -0700
 From: Joe Damato <joe@dama.to>
-To: Maxime Chevallier <maxime.chevallier@bootlin.com>
-Cc: Andrew Lunn <andrew+netdev@lunn.ch>, Jakub Kicinski <kuba@kernel.org>,
-	davem@davemloft.net, Eric Dumazet <edumazet@google.com>,
-	Paolo Abeni <pabeni@redhat.com>, Simon Horman <horms@kernel.org>,
-	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
-	Alexandre Torgue <alexandre.torgue@foss.st.com>,
-	Russell King <linux@armlinux.org.uk>,
-	Nicolai Buchwitz <nb@tipi-net.de>,
-	Jitendra Vegiraju <jitendra.vegiraju@broadcom.com>,
-	thomas.petazzoni@bootlin.com,
-	Alexis =?iso-8859-1?Q?Lothor=E9?= <alexis.lothore@bootlin.com>,
-	netdev@vger.kernel.org, linux-kernel@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-stm32@st-md-mailman.stormreply.com,
-	Peter Robinson <pbrobinson@gmail.com>
-Subject: Re: [PATCH net-next v2 2/2] net: stmmac: Don't set or get RSS
- parameters when not supported
-Message-ID: <arsBRcXKMFfNrIKK@devvm20253.cco0.facebook.com>
+To: Sagi Maimon <maimon.sagi@gmail.com>
+Cc: netdev@vger.kernel.org, radhey.shyam.pandey@amd.com,
+	michal.simek@amd.com, andrew+netdev@lunn.ch, davem@davemloft.net,
+	edumazet@google.com, kuba@kernel.org, pabeni@redhat.com,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+	daniel@iogearbox.net
+Subject: Re: [PATCH net] net: axienet: free outstanding TX buffers in
+ axienet_dma_bd_release()
+Message-ID: <arsCWFmUhSYkhcCv@devvm20253.cco0.facebook.com>
 Mail-Followup-To: Joe Damato <joe@dama.to>,
-	Maxime Chevallier <maxime.chevallier@bootlin.com>,
-	Andrew Lunn <andrew+netdev@lunn.ch>,
-	Jakub Kicinski <kuba@kernel.org>, davem@davemloft.net,
-	Eric Dumazet <edumazet@google.com>, Paolo Abeni <pabeni@redhat.com>,
-	Simon Horman <horms@kernel.org>,
-	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
-	Alexandre Torgue <alexandre.torgue@foss.st.com>,
-	Russell King <linux@armlinux.org.uk>,
-	Nicolai Buchwitz <nb@tipi-net.de>,
-	Jitendra Vegiraju <jitendra.vegiraju@broadcom.com>,
-	thomas.petazzoni@bootlin.com,
-	Alexis =?iso-8859-1?Q?Lothor=E9?= <alexis.lothore@bootlin.com>,
-	netdev@vger.kernel.org, linux-kernel@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-stm32@st-md-mailman.stormreply.com,
-	Peter Robinson <pbrobinson@gmail.com>
-References: <20260928145043.1228968-1-maxime.chevallier@bootlin.com>
- <20260928145043.1228968-3-maxime.chevallier@bootlin.com>
+	Sagi Maimon <maimon.sagi@gmail.com>, netdev@vger.kernel.org,
+	radhey.shyam.pandey@amd.com, michal.simek@amd.com,
+	andrew+netdev@lunn.ch, davem@davemloft.net, edumazet@google.com,
+	kuba@kernel.org, pabeni@redhat.com,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+	daniel@iogearbox.net
+References: <20260927081034.350422-1-maimon.sagi@gmail.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20260928145043.1228968-3-maxime.chevallier@bootlin.com>
+In-Reply-To: <20260927081034.350422-1-maimon.sagi@gmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260928_170735_685604_3B31645D 
-X-CRM114-Status: GOOD (  16.50  )
+X-CRM114-CacheID: sfid-20260928_171210_642133_1969903F 
+X-CRM114-Status: GOOD (  10.97  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -131,22 +111,16 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Sep 28, 2026 at 04:50:42PM +0200, Maxime Chevallier wrote:
-> The RSS kselftests fail on stmmac, and this is partly due to the driver
-> reporting bogus data for the RSS ops :
-> 
->  - ethtool -x reports an indirection table and a key while the hardware
->    doesn't have any of that
->  - ethtool -X fails with -EINVAL.
-> 
-> Let's return early in the rss ops if we know the hardware and platform
-> don't support RSS.
-> 
-> Signed-off-by: Maxime Chevallier <maxime.chevallier@bootlin.com>
-> ---
->  drivers/net/ethernet/stmicro/stmmac/stmmac_ethtool.c | 12 ++++++++++++
->  1 file changed, 12 insertions(+)
->
+On Sun, Sep 27, 2026 at 11:10:34AM +0300, Sagi Maimon wrote:
 
-Reviewed-by: Joe Damato <joe@dama.to>
+[...]
+ 
+> Walk the TX ring the way axienet_dma_err_handler() already does: unmap
+> every descriptor whose cntrl is still set - axienet_free_tx_chain()
+> clears it on reclaim - and free any skb still attached.
+
+The code added in this patch and in axienet_dma_err_handler are almost
+identical (as your commit message suggests). I am wondering if it's possible
+to factor this code out into a helper and instead call it from both places
+instead of repeating the same code?
 
