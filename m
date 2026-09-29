@@ -4,74 +4,62 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7E6D1CA5FA1
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 29 Sep 2026 08:41:17 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 99BB0CA5FA5
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 29 Sep 2026 08:42:42 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Wwlrc4OA5be2l/cOfc4ELm7R1PPcfoHaHpyuiOxuo3Y=; b=03GBBG4YGu9LQFxeGbVaHshne0
-	kmxQsR95HvpE4kmzbSQeBaFyKCVyHiJLabPi+H/Lwa0DOK9NnTs1Po/ftZaeOTzz0KC+S3ccwlAtx
-	j4BtGed/Ueedgf++0IUqDqYFGDDBdmjhpCfGr5P84o1SrYX9RZdRUVBM1E7EMccwjU9Sy2P2wD9kh
-	V6PXqye8aPW9y9mi7LXrqsJ7BSe5EoIQPOQqA3GdLLDsCSB4FDP2Y9WtFkWGWzY+8HmdiDyORjQmF
-	be7+YEH2rzZLVOiap+PX5Qt24wfnS2UWleLcDLGvKNxJ0isUyoSYyXne2R8uIRP1p1V/0F0YVOdT0
-	WeoE039Q==;
+	bh=5rtCPENpmtMMjeAjed2RbvlHNfF2BKBVrFP7DRlYUzs=; b=rS8mEDGTQqiqQjhNIxb54sLvdf
+	50nfpmYpmLhNeB/xjLvAI5oveO4mCQrDJHtlXMLtnUExvGQbcivZLwwTxU3YMb+o7xWWhQVx9pSlx
+	xylJLbRmLEB7W6q4luOY0sBVuyGkhNCOX6eGNBWFN8ZYkzuTc2gccP3wda/wIru/iX/aZ4AVkeZVH
+	V8BLtz8A7y+ebiBQkA/4sgQPr+XJNwdkg+QTLY8WPBu/y24c+0KAwqO1ByaAhezFkivic9FC59DFr
+	5AoU5TTH6TC0VVPwwjs+SBhKWIyTzwipVn2xmA0bdhLjssS6+IGnP6jRCeFLLzKE1EtAelubYmH2Q
+	U28+bgfw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xBTOg-00000002pCH-0u7Y;
-	Tue, 29 Sep 2026 08:41:10 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1xBTQ4-00000002pRr-1eqC;
+	Tue, 29 Sep 2026 08:42:36 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xBTOe-00000002pBo-3Hhk
+	id 1xBTQ3-00000002pRd-1ocO
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 29 Sep 2026 08:41:08 +0000
+	Tue, 29 Sep 2026 08:42:35 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id DC58560210;
-	Tue, 29 Sep 2026 08:41:07 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 6341F1F000FF;
-	Tue, 29 Sep 2026 08:41:02 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 7ACFF60A62;
+	Tue, 29 Sep 2026 08:42:34 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 32E2C1F00899;
+	Tue, 29 Sep 2026 08:42:33 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1790671267;
-	bh=Wwlrc4OA5be2l/cOfc4ELm7R1PPcfoHaHpyuiOxuo3Y=;
+	s=k20260515; t=1790671354;
+	bh=5rtCPENpmtMMjeAjed2RbvlHNfF2BKBVrFP7DRlYUzs=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=VCGBkWTvGAAys65g5LYILlIf9iKCwcLFlV12HZy7R3l3OCLy1pRSBhaJqK+tCxWRz
-	 BUnQFxvHg6mQzXfdE+oz29U01ZlFC8iLJjcGONGJkaisQMhx91Xij1XTfiiuadGmyq
-	 GbbpAtRx3iDnN8Ww78FVy+tCsZrLdgLPuSBOi5yX3sNAU3D3Tmz/fsQ2pa2nSFfJZm
-	 pOy1YV1sMgN2pMi+a4tIMsr0qTuzYGSnUZT5KVKpvZuumLNLb8BtXQNjDfHO2T2o7A
-	 zggDnaI5j2j4H+pHzoWRWhQQxUY8Z2+LdINYb3duFXB/fMYG0Aqjhf21xu/+2S6i1b
-	 g8QJ2utxwgAig==
-Date: Tue, 29 Sep 2026 10:40:59 +0200
-From: Lorenzo Pieralisi <lpieralisi@kernel.org>
-To: Ashok Raj <ashok.raj@oss.qualcomm.com>
-Cc: "Rafael J. Wysocki" <rafael@kernel.org>,
-	Mark Rutland <mark.rutland@arm.com>, Marc Zyngier <maz@kernel.org>,
-	Daniel Lezcano <daniel.lezcano@kernel.org>,
-	Thomas Gleixner <tglx@kernel.org>,
-	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
-	Danilo Krummrich <dakr@kernel.org>,
-	Hanjun Guo <guohanjun@huawei.com>,
-	Sudeep Holla <sudeep.holla@kernel.org>,
-	Wim Van Sebroeck <wim@linux-watchdog.org>,
-	Guenter Roeck <linux@roeck-us.net>,
-	Robin Murphy <robin.murphy@arm.com>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Will Deacon <will@kernel.org>,
-	Bartosz Golaszewski <brgl@kernel.org>,
-	Andy Shevchenko <andriy.shevchenko@linux.intel.com>,
-	linux-acpi@vger.kernel.org, linux-kernel@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org, driver-core@lists.linux.dev,
-	linux-watchdog@vger.kernel.org
-Subject: Re: [PATCH RFC 02/11] ACPI: Introduce irq_get() for static fwnodes
-Message-ID: <art5m5QPXAOAvkvW@red-moon>
-References: <20260925-acpi-static-table-irq-probe-defer-v1-0-2c62125d0085@kernel.org>
- <20260925-acpi-static-table-irq-probe-defer-v1-2-2c62125d0085@kernel.org>
- <arr3IhF0bwN4uzUP@hu-ashoraj-lv.qualcomm.com>
+	b=PZU69NbqSmv6V4oncymr1RvBFBZeu1qW6BHj8QQCiyA3HcVoQrT13YglXRwtGHAZI
+	 6+1IRA492yJ650qrx1dj4OF7Ixz+dv6EYf5QJLH6e7dJxmZJH2g5bi746Cj8z+X2GO
+	 1betMD3DDQcYIIgpP3fpXTZzYOcjHpjo8ob+yuoNjl2BWRkd8wDJSkJxTPqyqM2+qn
+	 tJKERAehFlFPXWukoY3A8WbW5HcyXOpbLCL9PZUvYcp7a9vIMUtlH+r5zFK+9rvVnB
+	 h2tZNORlQLJlGs+oaLNdBo9kZKABlzT4RvZ9RYz4FvpAFdsBynq/kLeOA0F+q+tdK8
+	 O7c6BAAdXffTA==
+Date: Tue, 29 Sep 2026 10:42:29 +0200
+From: Krzysztof Kozlowski <krzk@kernel.org>
+To: Andre Przywara <andre.przywara@arm.com>
+Cc: Stephen Boyd <sboyd@kernel.org>, Brian Masney <bmasney+clk@redhat.com>, 
+	Jerome Brunet <jbrunet+clk@baylibre.com>, Rob Herring <robh@kernel.org>, 
+	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
+	Chen-Yu Tsai <wens@kernel.org>, Jernej Skrabec <jernej.skrabec@gmail.com>, 
+	Samuel Holland <samuel@sholland.org>, linux-clk@vger.kernel.org, devicetree@vger.kernel.org, 
+	linux-arm-kernel@lists.infradead.org, linux-sunxi@lists.linux.dev
+Subject: Re: [PATCH v3 2/4] dt-bindings: clock: sun55i-a523-ccu: Add A523 CPU
+ CCU clock controller
+Message-ID: <20260929-aggressive-uptight-rattlesnake-35fdca@quoll>
+References: <20260925225112.14081-1-andre.przywara@arm.com>
+ <20260925225112.14081-3-andre.przywara@arm.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
+Content-Type: text/plain; charset=utf-8
 Content-Disposition: inline
-In-Reply-To: <arr3IhF0bwN4uzUP@hu-ashoraj-lv.qualcomm.com>
+In-Reply-To: <20260925225112.14081-3-andre.przywara@arm.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -86,117 +74,113 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Sep 28, 2026 at 04:24:18PM -0700, Ashok Raj wrote:
+On Sat, Sep 26, 2026 at 12:51:10AM +0200, Andre Przywara wrote:
+> There are four clock controllers in the A523 SoC, but only three are
+> described in the DT binding so far.
 > 
-> On Fri, Sep 25, 2026 at 09:48:01AM +0200, Lorenzo Pieralisi wrote:
-> > To describe and map GSIs for firmware nodes created out of ACPI static
-> > table entries in a uniform way it is required to define some standard
-> > properties and attach them to ACPI static fwnode as secondary nodes.
-> > 
-> > Define properties names to describe GSIs and their trigger-mode/polarity,
-> > and implement an irq_get() callback for static fwnodes so that core code
-> > can retrieve and map IRQs for ACPI static fwnodes in standard manner.
-> > 
-> > An empty stub for property_read_string_array() is also added, so that
-> > the fwnode_irq_get_byname() interface falls back (through
-> > fwnode_property_read_string_array()) to the secondary
-> > fwnode to grab the "interrupt-names" property.
-> > 
-> > Signed-off-by: Lorenzo Pieralisi <lpieralisi@kernel.org>
-> > Cc: Bartosz Golaszewski <brgl@kernel.org>
-> > Cc: Andy Shevchenko <andriy.shevchenko@linux.intel.com>
-> > Cc: "Rafael J. Wysocki" <rafael@kernel.org>
-> > ---
-> >  drivers/acpi/property.c | 69 ++++++++++++++++++++++++++++++++++++++++++++++++-
-> >  include/linux/acpi.h    |  4 +++
-> >  2 files changed, 72 insertions(+), 1 deletion(-)
-> > 
-> > diff --git a/drivers/acpi/property.c b/drivers/acpi/property.c
-> > index 8ee5a1f0eb48..c609100c08db 100644
-> > --- a/drivers/acpi/property.c
-> > +++ b/drivers/acpi/property.c
-> > @@ -1766,7 +1766,74 @@ static int acpi_fwnode_irq_get(const struct fwnode_handle *fwnode,
-> >  
-> >  DECLARE_ACPI_FWNODE_OPS(acpi_device_fwnode_ops);
-> >  DECLARE_ACPI_FWNODE_OPS(acpi_data_fwnode_ops);
-> > -const struct fwnode_operations acpi_static_fwnode_ops;
-> > +
-> > +static int acpi_static_fwnode_read_u32_prop_index(const struct fwnode_handle *fwnode,
-> > +						  const char *propname,
-> > +						  unsigned int index, u32 *value)
-> > +{
-> > +	u32 *values;
-> > +	int ret, count;
-> > +
-> > +	count = fwnode_property_count_u32(fwnode, propname);
-> > +	if (count < 0)
-> > +		return count;
-> > +
-> > +	if (index >= count)
-> > +		return -ENOENT;
-> > +
-> > +	values = kcalloc(count, sizeof(*values), GFP_KERNEL);
-> > +	if (!values)
-> > +		return -ENOMEM;
-> > +
-> > +	ret = fwnode_property_read_u32_array(fwnode, propname, values, count);
-> > +	if (!ret)
-> > +		*value = values[index];
-> > +
+> Add a description for the CPU CCU, which provides separate clocks for
+> the two CPU clusters and the DSU interconnect.
 > 
-> You lookup with a propname, and then qualify with and index? is it
-> possible to have the different index but same propname? 
+> Signed-off-by: Andre Przywara <andre.przywara@arm.com>
+> ---
+>  .../clock/allwinner,sun55i-a523-ccu.yaml      | 38 ++++++++++++++++++-
+>  .../dt-bindings/clock/sun55i-a523-cpu-ccu.h   | 13 +++++++
+>  2 files changed, 50 insertions(+), 1 deletion(-)
+>  create mode 100644 include/dt-bindings/clock/sun55i-a523-cpu-ccu.h
+> 
+> diff --git a/Documentation/devicetree/bindings/clock/allwinner,sun55i-a523-ccu.yaml b/Documentation/devicetree/bindings/clock/allwinner,sun55i-a523-ccu.yaml
+> index 58be701a720ea..8d5481fb63ae8 100644
+> --- a/Documentation/devicetree/bindings/clock/allwinner,sun55i-a523-ccu.yaml
+> +++ b/Documentation/devicetree/bindings/clock/allwinner,sun55i-a523-ccu.yaml
+> @@ -19,6 +19,7 @@ properties:
+>    compatible:
+>      enum:
+>        - allwinner,sun55i-a523-ccu
+> +      - allwinner,sun55i-a523-cpu-ccu
+>        - allwinner,sun55i-a523-mcu-ccu
+>        - allwinner,sun55i-a523-r-ccu
+>  
+> @@ -35,12 +36,23 @@ properties:
+>  
+>  required:
+>    - "#clock-cells"
+> -  - "#reset-cells"
+>    - compatible
+>    - reg
+>    - clocks
+>    - clock-names
+>  
+> +if:
 
-What is the question :) ? It is to retrieve a property value at a specific
-index.
+This goes to the allOf block.
 
-> Alternately you can send the list to caller and they can use the ones
-> they need?
-> 
-> 
-> > +	kfree(values);
-> > +	return ret;
-> > +}
-> > +
-> > +static int acpi_static_fwnode_read_string_array(const struct fwnode_handle *fwnode,
-> > +						const char *propname,
-> > +						const char **val, size_t nval)
-> > +{
-> > +	/* Route string handling to secondary software nodes */
-> > +	return -EINVAL;
-> > +}
-> > +
-> > +static int acpi_static_fwnode_irq_get(const struct fwnode_handle *fwnode,
-> > +				      unsigned int index)
-> > +{
-> > +	u32 gsi, trigger, polarity;
-> > +	int ret;
-> > +
-> > +	if (!fwnode->secondary)
-> > +		return -ENODEV;
-> > +
-> > +	fwnode = fwnode->secondary;
-> > +
-> > +	ret = acpi_static_fwnode_read_u32_prop_index(fwnode, ACPI_IRQ_PROP_GSI,
-> > +						index, &gsi);
-> > +	if (ret)
-> > +		return ret == -ENOENT ? -ENXIO : ret;
-> > +
-> > +	ret = acpi_static_fwnode_read_u32_prop_index(fwnode, ACPI_IRQ_PROP_GSI_TRIGGER,
-> > +						index, &trigger);
-> > +	if (ret)
-> > +		return ret == -ENOENT ? -ENXIO : ret;
-> > +
-> > +	ret = acpi_static_fwnode_read_u32_prop_index(fwnode, ACPI_IRQ_PROP_GSI_POLARITY,
-> > +						index, &polarity);
-> > +	if (ret)
-> > +		return ret == -ENOENT ? -ENXIO : ret;
-> 
-> Consolidate return to one place? 
+> +  properties:
+> +    compatible:
+> +      contains:
+> +        const: allwinner,sun55i-a523-cpu-ccu
+> +then:
+> +  properties:
+> +    "#reset-cells": false
+> +else:
+> +  required:
+> +    - "#reset-cells"
+> +
+>  allOf:
+>    - if:
+>        properties:
+> @@ -64,6 +76,30 @@ allOf:
+>              - const: iosc
+>              - const: losc-fanout
+>  
+> +  - if:
+> +      properties:
+> +        compatible:
+> +          enum:
+> +            - allwinner,sun55i-a523-cpu-ccu
+> +
+> +    then:
+> +      properties:
+> +        clocks:
+> +          items:
+> +            - description: High Frequency Oscillator (usually at 24MHz)
+> +            - description: Low Frequency Oscillator (usually at 32kHz)
+> +            - description: Internal Oscillator
+> +            - description: Peripherals PLL 0 (1200 MHz output)
+> +            - description: Peripherals PLL 0 (600 MHz output)
+> +
+> +        clock-names:
+> +          items:
+> +            - const: hosc
+> +            - const: losc
+> +            - const: iosc
+> +            - const: pll-periph0-2x
+> +            - const: pll-periph0-600m
+> +
+>    - if:
+>        properties:
+>          compatible:
+> diff --git a/include/dt-bindings/clock/sun55i-a523-cpu-ccu.h b/include/dt-bindings/clock/sun55i-a523-cpu-ccu.h
+> new file mode 100644
+> index 0000000000000..042f2310f64de
+> --- /dev/null
+> +++ b/include/dt-bindings/clock/sun55i-a523-cpu-ccu.h
 
-Yes it can (and trigger and polarity can be just one property "flags", FWIW),
-if we agree that's what will do, which I doubt.
+Filename should match compatible.
 
-Thanks,
-Lorenzo
+> @@ -0,0 +1,13 @@
+> +/* SPDX-License-Identifier: (GPL-2.0-only OR MIT) */
+> +/*
+> + * Copyright 2025 Arm Ltd.
+> + */
+> +
+> +#ifndef _DT_BINDINGS_CLK_SUN55I_A523_CPU_CCU_H_
+> +#define _DT_BINDINGS_CLK_SUN55I_A523_CPU_CCU_H_
+> +
+> +#define CLK_CPU_L		7
+
+Indices start from 0 or 1
+
+Best regards,
+Krzysztof
+
 
