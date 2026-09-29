@@ -4,91 +4,117 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CA87ECA5FA5
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 29 Sep 2026 09:04:12 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A17A2CA5FA1
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 29 Sep 2026 09:06:20 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
-	Message-ID:Date:References:In-Reply-To:Subject:Cc:To:From:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
+	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=WooDL/KYFFTLcmuL4/zwwe5nLEMkzFYyCGa/v7j46HM=; b=VqV9DxmMZNhywqzxd1U5/C+ayx
-	Os+LgGVKu9xbO6bUWBt8dQRTVaj0CDtbSJ6D3xejBXM7sxBSDXrGg8uxmma9wuS5jjK9EWjmwu5S8
-	xd6tO1d9p/4FLVptxDY2pvjhJUHc3H4ohlAmgtOjQl1ZiFosQUo4I96sWqC9i1dU9i0cEbXS9HZoI
-	Q0QhE1AFIjToSb06J1ParAx6gNs0q7XC+dMTnoxpRIcSzG0AGLDOHvLqehYTsiiJZynrWyRqe1G9n
-	Og+a7FpLEfWOQruWvHwMMATa+V4pVqWGxZ7o50fQbf/96ZhcJmhgH+oe50sp3FX+jLL5+fhiFpDAS
-	AeFYfb+A==;
+	bh=yVeHQ0WAriz76dL1hysd44dqzM4X8EtO0BJ7xNzSj4A=; b=pfnGBLDSMwcMH++JY/HgskI/IT
+	GX4oqj53qh34hgoMga3sLEfjb0OV73Wqcqch2A7UHd+01SmDGUfUEXNpKNeIc5fwDFVq+xIW+8w7B
+	1oich3psRg46N+gU6QzRws1/EGLf3Ls5mMc4+IXYXPpGdqHFutM/gBglFitFFhTcZ7TtygkyrNUja
+	CyT06vRAoRwFIABI16Nd69cKfFiYko8vntErd4EO4+N108VcYqHyl3U274wO/5z6IopMY7eQuqgnK
+	nbqtqlh1rtxGAtICwovH8D+TgNURgpsP1wfMrRNQT6D40euFTT9LVumZB0TNearraCgSjUjG5fcya
+	9vyem0YQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xBTkr-00000002vDG-3uXe;
-	Tue, 29 Sep 2026 09:04:05 +0000
-Received: from mgamail.intel.com ([192.198.163.14])
+	id 1xBTmw-00000002vUX-1crW;
+	Tue, 29 Sep 2026 09:06:14 +0000
+Received: from mail-wm2-x10.google.com ([2a00:1450:4864:31::10])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xBTkq-00000002vCb-0unI;
-	Tue, 29 Sep 2026 09:04:05 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1790672644; x=1822208644;
-  h=from:to:cc:subject:in-reply-to:references:date:
-   message-id:mime-version;
-  bh=fjTgkfgps1Gk7j6xMRcB1fFz/DjnVOKoczfByJwdpzQ=;
-  b=Vu5aeqK7pQWJWUBgvtimQhagMDH7K5s9rS57iSmS/3bTi29QzzvyfRTy
-   fxou6XhW89xPX99kxRsa8I02i1Wd2w2VaR7iIs2jmIooKmWpxr6xB9kUe
-   6SY8t2eU7zYN6bJiEnj1JxdYU1BzXWOdr/hVcBllZy6TUmQ9ROXFf93pi
-   jCIbXkecNVV3VyZaBZGGPzx0MDE8L4IXyqvkvptXNQgHFmaul3WQfN8J0
-   pXCfCy4c6EGAHadPz3WkTWBRcxjiTJSw1rNjVsWcZCuE+GQbmcuRgHYtw
-   aqJw3D89KCMuFQHXwOz+bdkTf6//8kZlDK6NcfmMzYMRingh+2vrZVpF3
-   A==;
-X-CSE-ConnectionGUID: H5+2kP2ZSCqqttgYBXeU3w==
-X-CSE-MsgGUID: Qtd4ZX70TZGwT4gvvjkN6g==
-X-IronPort-AV: E=McAfee;i="6800,10657,11919"; a="91405280"
-X-IronPort-AV: E=Sophos;i="6.27,130,1787036400"; 
-   d="scan'208";a="91405280"
-Received: from fmviesa009.fm.intel.com ([10.60.135.149])
-  by fmvoesa108.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 29 Sep 2026 02:04:03 -0700
-X-CSE-ConnectionGUID: L4F6TTbPScOGpDGQ/vD63w==
-X-CSE-MsgGUID: px97l+LIQsul4lmsr50Xug==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.27,130,1787036400"; 
-   d="scan'208";a="271804384"
-Received: from kniemiec-mobl1.ger.corp.intel.com (HELO localhost) ([10.245.244.233])
-  by fmviesa009-auth.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 29 Sep 2026 02:03:55 -0700
-From: Jani Nikula <jani.nikula@linux.intel.com>
-To: Maxime Ripard <mripard@kernel.org>, Neil Armstrong
- <neil.armstrong@linaro.org>, Jessica Zhang <jesszhan0024@gmail.com>, David
- Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>, Maarten
- Lankhorst <maarten.lankhorst@linux.intel.com>, Thomas Zimmermann
- <tzimmermann@suse.de>, Rob Herring <robh@kernel.org>, Krzysztof Kozlowski
- <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, Nathan
- Chancellor <nathan@kernel.org>, Nick Desaulniers
- <ndesaulniers@google.com>, Bill Wendling <morbo@google.com>, Justin Stitt
- <justinstitt@google.com>, Florian Fainelli
- <florian.fainelli@broadcom.com>, Broadcom internal kernel review list
- <bcm-kernel-feedback-list@broadcom.com>
-Cc: Andrzej Hajda <andrzej.hajda@intel.com>, Neil Armstrong
- <neil.armstrong@linaro.org>, Robert Foss <rfoss@kernel.org>, Laurent
- Pinchart <Laurent.pinchart@ideasonboard.com>, Jonas Karlman
- <jonas@kwiboo.se>, Jernej Skrabec <jernej.skrabec@gmail.com>, Luca
- Ceresoli <luca.ceresoli@bootlin.com>, Albert Esteve <aesteve@redhat.com>,
- Dave Stevenson <dave.stevenson@raspberrypi.com>, Javier Martinez Canillas
- <javierm@redhat.com>, dri-devel@lists.freedesktop.org,
- devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
- bpf@vger.kernel.org, llvm@lists.linux.dev,
- linux-rpi-kernel@lists.infradead.org,
- linux-arm-kernel@lists.infradead.org, Maxime Ripard <mripard@kernel.org>,
- Benjamin Tissoires <bentiss@kernel.org>
-Subject: Re: [PATCH 0/6] drm/bridge: Add a BPF-based MIPI-DSI panel driver
-In-Reply-To: <20260928-drm-mipi-dsi-panel-ebpf-v1-0-5244926aace4@kernel.org>
-Organization: Intel Finland Oy - BIC 0357606-4 - c/o Alberga Business Park,
- 6 krs Bertel Jungin Aukio 5, 02600 Espoo, Finland
-References: <20260928-drm-mipi-dsi-panel-ebpf-v1-0-5244926aace4@kernel.org>
-Date: Tue, 29 Sep 2026 12:03:52 +0300
-Message-ID: <054ef52478fc93fc213a9dae23ea77f73094aaf2@intel.com>
+	id 1xBTmt-00000002vU5-0lzg
+	for linux-arm-kernel@lists.infradead.org;
+	Tue, 29 Sep 2026 09:06:12 +0000
+Received: by mail-wm2-x10.google.com with SMTP id 5b1f17b1804b1-49ffb83bf7aso23567755e9.2
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 29 Sep 2026 02:06:10 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20251104; t=1790672769; x=1791277569; darn=lists.infradead.org;
+        h=in-reply-to:content-transfer-encoding:content-disposition
+         :content-type:mime-version:references:message-id:subject:cc:to:from
+         :date:from:to:cc:subject:date:message-id:reply-to:content-type;
+        bh=yVeHQ0WAriz76dL1hysd44dqzM4X8EtO0BJ7xNzSj4A=;
+        b=fL40VWopZgNMWfcmE3M/zJP2CAczaLUIT//KSVxZjKyFi+Y/h0mgrCUJTrlj6RLrwE
+         uBUfAivurZak8K5cLqXa67QiRnMVm3Ql5x3ssGb0QKF0KiOa6LHvjrEgjR63hYi0BK2t
+         s7b5AWEkVtC8JyBAeF1gDoHcDt22iHVkCxa9erQXrIqIgM8dnKtxcsyXXwt6qvnjPT5U
+         dhB71tsKB9n9ILBaJ5U1aLvkEsKf3adnSUJLs37POj5nPe84NA5eyhDk4bpGNHQDo6BG
+         VI/ycDK9G+tCWDAKznBb7so/LrPnoi+wty8DRLPuPKIx7jAAy9oLuZw4PiW42vgZuJD0
+         bblA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1790672769; x=1791277569;
+        h=in-reply-to:content-transfer-encoding:content-disposition
+         :content-type:mime-version:references:message-id:subject:cc:to:from
+         :date:x-gm-gg:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to:content-type;
+        bh=yVeHQ0WAriz76dL1hysd44dqzM4X8EtO0BJ7xNzSj4A=;
+        b=FnC09cEVU4C5djb7zkIT1kIRfbJsjOxt3icT+ArVRza2alzQYvi3SRAluXVmfz8Fa9
+         Dd38bj/8IJ4Tg6AFCqsF3HpbXI3lyobBLoW2LU0k7k1pwPdzJCI4CgPYXT7EURobo8WK
+         F05z9Ma/KO0FvD9yiRfe4XTVTfty90yYCbtub9I1L3l2yt8cP78L64zWadoDJ2e4Bpsf
+         BKO1KwoXv+Tcj/IFEMABn3MmX6MdUqBn+AQVhp10B9O/6+/3mBAKQdhytPdLNyTA0ZYY
+         Wo17WjLA97S13ybaBUvfBupIuRncXiUEwONt6U2bqsMtPwTczS1Zt1FtXiY4ZS4fty6v
+         R2XA==
+X-Forwarded-Encrypted: i=1; AKwUvBxuMDGzOaptybW68D38FOT27Ewz5UumzGVlaZlZ0MF+pNqU2WVFDrD2o07gaI3lFMmjWZDRoFn2+IOSsB+CyuBt@lists.infradead.org
+X-Gm-Message-State: AFuF++nerdNwRR2XhwBpfpJeBwnC4TIEiwe4slINd42IpsMXK/qzYCrG
+	HLW0PeZLfY4TYcTVyDpXHPHhCyBaJhn1ZhC+lKha2W4h0qvAa+6uiot6
+X-Gm-Gg: AYBFou0aAWHNoIIqKK4BmwReP88KayYWsWicLlr2F3SbvgiLuz1UqVg2mx0DEMDmVpD
+	TImg9msSVwleZip6ZhfafUHwffPn0w28X6pwpTYOA3BZsKSSEimxs/S8B3I6+TGNaNOmbTgJHyK
+	jum654Hg6Fkm9u96LKPjZdVJv1OyP8mc093FfVZlhjo/pI3v0ndBWYFBNn2XdNs7QFmOZssFVWb
+	2BTPDRZJMjdxTiYCK36YNecMVzAl0I3MQA9F21/W7rz5zYr7J3T16G+69ZQdYPKD/4IZL3M9NKq
+	cunV4KvGgu2GOz+rN6qrsT/G6Ims3ri6BQgakZPS7EkW9uWIJNr1FM5POcFbkrcxGOGds84F36j
+	lx7cYCRCThvOWdVi1ia9RUB2tpCrBk/JWAYcUaNa7QLqdvsBOQDsOYfKexWoLO7aaxzfUB5Ean6
+	LN5OOQFqdYM1atlyTIiNQi9Q0rpHR7/dtDW+UJWTenSBhszPMxjK1+zC2NF+VpabTGH2EGE1XVB
+	dofiPlJtMsTrAQIYYncieFwgAP0Yqpb8fQq4eMySRzu6K8LoGMVWzGn0v4r9T3lnOOLYeGFmg/d
+	CHDEy66fUX0FCq2CeZBrFgMPmr5P
+X-Received: by 2002:a05:600c:314f:b0:49f:e4ca:e09 with SMTP id 5b1f17b1804b1-49fe66ca9e5mr261828235e9.3.1790672768454;
+        Tue, 29 Sep 2026 02:06:08 -0700 (PDT)
+Received: from Lord-Beerus.station ([31.27.155.43])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4a00d0ea7c0sm65937205e9.11.2026.09.29.02.06.06
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Tue, 29 Sep 2026 02:06:07 -0700 (PDT)
+Date: Tue, 29 Sep 2026 11:06:05 +0200
+From: Stefano Radaelli <stefano.radaelli21@gmail.com>
+To: Krzysztof Kozlowski <krzk@kernel.org>
+Cc: Frank Li <Frank.Li@nxp.com>, linux-kernel@vger.kernel.org,
+	devicetree@vger.kernel.org, imx@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org, pierluigi.p@variscite.com,
+	Stefano Radaelli <stefano.r@variscite.com>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Andrew Lunn <andrew+netdev@lunn.ch>,
+	"David S. Miller" <davem@davemloft.net>,
+	Eric Dumazet <edumazet@google.com>,
+	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
+	Sascha Hauer <s.hauer@pengutronix.de>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Fabio Estevam <festevam@gmail.com>,
+	Heiner Kallweit <hkallweit1@gmail.com>,
+	Russell King <linux@armlinux.org.uk>,
+	Shawn Guo <shawnguo@kernel.org>,
+	Daniel Baluta <daniel.baluta@nxp.com>,
+	Joseph Guo <qijian.guo@nxp.com>, Josua Mayer <josua@solid-run.com>,
+	Ernest Van Hoecke <ernest.vanhoecke@toradex.com>,
+	Mehmet Fide <mehmet.fide@screeningeagle.com>,
+	Markus Niebel <Markus.Niebel@ew.tq-group.com>,
+	Francesco Dolcini <francesco.dolcini@toradex.com>,
+	Maud Spierings <maudspierings@gocontroll.com>,
+	Hugo Villeneuve <hvilleneuve@dimonoff.com>,
+	Stefan Eichenberger <eichest@gmail.com>, netdev@vger.kernel.org
+Subject: Re: [PATCH v3 01/12] dt-bindings: arm: fsl: Document Variscite
+ i.MX6UL boards
+Message-ID: <art_faJ7Zx5CaWfW@Lord-Beerus.station>
+References: <cover.1790512621.git.stefano.r@variscite.com>
+ <a4e262cfb08153c23c80cd3098a684816993f1e9.1790512621.git.stefano.r@variscite.com>
+ <20260929-logical-fanatic-quail-2ff20b@quoll>
 MIME-Version: 1.0
-Content-Type: text/plain
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+Content-Transfer-Encoding: 8bit
+In-Reply-To: <20260929-logical-fanatic-quail-2ff20b@quoll>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260929_020404_273806_C9FF1DC5 
-X-CRM114-Status: GOOD (  19.29  )
+X-CRM114-CacheID: sfid-20260929_020611_239755_A8DAB5A6 
+X-CRM114-Status: GOOD (  15.80  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -103,53 +129,43 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, 28 Sep 2026, Maxime Ripard <mripard@kernel.org> wrote:
-> Panels in general, and MIPI-DSI panels in particular, are pretty
-> difficult to support and require pretty much a panel driver for each
-> panel produced. Most of them are pretty simple, and require an opaque
-> initialization sequence that is usually poorly documented.
->
-> This creates a tension between OEMs and distros because OEMs will
-> typically get a new panel to react to a sourcing issue during
-> production, and thus need some swift turnaround between getting their
-> new panel and it being operational in the OS. Distributions on the other
-> hand can take years to ship a kernel with that new panel driver.
->
-> To solve this, I followed the example of HID-BPF and wrote a panel
-> driver that will rely on BPF programs to perform the panel
-> initialization. That way, we can ship the programs separately from the
-> kernel, and with a different lifecycle. If this driver is accepted, the
-> plan is to have a userspace component started by udev to identify and
-> load the right BPF program for the panels found on the device.
+On Tue, Sep 29, 2026 at 10:49:08AM +0200, Krzysztof Kozlowski wrote:
+> On Sun, Sep 27, 2026 at 02:46:16PM +0200, Stefano Radaelli wrote:
+> >  
+> > -      - description: i.MX6UL Variscite VAR-SOM-6UL Boards
+> > -        items:
+> > -          - const: variscite,mx6ulconcerto
+> > -          - const: variscite,var-som-imx6ul
+> > -          - const: fsl,imx6ul
+> > +      - description: i.MX6UL Variscite VAR-SOM-6UL and DART-6UL Boards
+> > +        oneOf:
+> 
+> Please do not introduce own style.
+> 
+> > +          - items:
+> > +              - enum:
+> > +                  - variscite,mx6ulconcerto
+> > +                  - variscite,var-som-imx6ul-emmc-sd-card-wm8731-concerto-board
+> 
+> "board" is redundant
+> 
 
-I'd think for most panels it would suffice to have a declarative
-language describing what to do at what points in time. For example, at
-poweron, enable this GPIO, wait a little, write this set of DSI
-commands, etc. You rarely need actual programming, or even ability to
-read-modify-write something.
+Thank you for the review.
+I will keep the existing Concerto binding entries separate, use the
+surrounding items/enum style, and drop the redundant -board suffix.
 
-It could be, say, YAML converted to some binary representation. Maybe
-that could be in the DT, or maybe you could override it with the
-firmware loader. And obviously any vendor "blob" could be trivially
-converted back to YAML and upstreamed.
+> Also, look at other examples here, like Toradex. The actual variant
+> should be the last.
+> 
 
-Where that falls short, you could always have a dedicated driver, or
-extend the declarative stuff.
+Could you clarify what you mean by “the actual variant should be the last”?
+For a board with eMMC, SD card and WM8731 mounted on SOM, would you prefer
+variscite,var-som-imx6ul-emmc-sd-card-wm8731-concerto or
+variscite,var-som-imx6ul-concerto-emmc-sd-card-wm8731?
+I had used the former ordering following examples such as
+toradex,colibri-imx6ull-emmc-aster. (som - som variants - carrier)
 
-Now, the question is, how much more BPF solves over that, without
-requiring a dedicated driver, and is the added complexity worth it?
-
-FWIW, on the Intel platforms that support DSI, all of the
-initialization, poweron/poweroff, backlight on/off etc. sequences like
-that are stored in the BIOS, defined by the OEM. A plethora of DSI
-panels, one driver. Don't look at it for examples how to implement it,
-but I think the basic idea is workable.
-
-
-BR,
-Jani.
-
-
--- 
-Jani Nikula, Intel
+Thank you!
+Best Regards,
+Stefano
 
