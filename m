@@ -4,81 +4,96 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 463DBCA5FA5
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 29 Sep 2026 17:13:17 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 35D9CCA5FA5
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 29 Sep 2026 17:13:56 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=9lDajmUPmaz8BTxhPEk6XaACKGtk0v9RwI05AN+Obys=; b=BW1FcvJBcZbmHkTGpVBcrx79S4
-	FwrnnH4Lt6ko6EjindPj+lQ1BjwnGuqo4g9VYKsPkcjSrB9yvCtwldvRWU7ugw5kVJEINlTwDpo+0
-	RmxQUxSWYHBYDiaVqeYzMqteU9TYTTP5ztU3kUXYZJPTSOAVjpeei9juk4sPgNQ8pfoUu3lUK/OZ3
-	R2CQ2knemM4nzCesxOzv7+9DuySpg+u3m6l206htPoLebuF8YqqueAqPpIUkQ+oXdGxJu3koXWK0t
-	pFBDUVZmbn6MBqYqotiBDFG6xviBR4/8nGTqZMNONxrSYW2ZwLg1Vx70Woyo5hKLcPg5079ZOyDE/
-	a7LVuKGA==;
+	bh=uYjUQGHfzhj5gynV2AmfUxbdkizsyoj3O1ANYrGlCk0=; b=yQ/rsnIW7DoNlhjbT0oW49Zaoq
+	1v9TnICydeO7n51DQkLUEDlVCzV3iQuT69AShdLdIwue8zRMxK3ehzILpwYn4nppJTrwTl7zZLF3P
+	Mz9K3zZJt/2eUGkZFQmMwhiFWMithFgFTcvXt6OB8o5ePybPTmqeCNhDe2ZoRRIFOale4OnWy2Iio
+	Kq3scb+1IJwdOExqWY4qaqZUFT+kZ1ik1r0JiBu8zvc084yzBH63OZCRYAsiJPuhSsy4Q+bPduFS1
+	jWKF9FjO6NiZAoFR+OIO6rZD0G5YMs5SQrE8Lf7UE1d2qWTQIorZI2ceZley6E6/x//WrQNf/x+5G
+	Tx8fjWDA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xBbOA-000000049K3-3Od3;
-	Tue, 29 Sep 2026 17:13:10 +0000
-Received: from mail-qk2-x0c.google.com ([2607:f8b0:4864:34::c])
+	id 1xBbOn-000000049RJ-40EM;
+	Tue, 29 Sep 2026 17:13:49 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xBbO8-000000049JE-3niZ
+	id 1xBbOm-000000049R3-3xfO
+	for linux-arm-kernel@bombadil.infradead.org;
+	Tue, 29 Sep 2026 17:13:49 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=Cc:To:In-Reply-To:References:
+	Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
+	From:Sender:Reply-To:Content-ID:Content-Description;
+	bh=uYjUQGHfzhj5gynV2AmfUxbdkizsyoj3O1ANYrGlCk0=; b=T1FgznQcETa1QK8C4Og1e9wka6
+	cnDH3YdCiqX3Td7fnVxQcRD1cjtgoj613nrNIE9pjztfBqtwWPMAUbmuAgIYbPCow/2HyjRqGS2x2
+	xdhc2mkujznBWm+JHwZrMRiu1oB9A9FYoYttOA3qQoSTu/VKJmFU6FHVIAcoMO6Untr9u8aVzjVqe
+	zXvoL9AbahGksuTmiV5z+cyCS23TuP5DSDd9QwQQVKOxYFabQZcFa41z6jRbIhKWsGUldPpemZon3
+	9tz3vXje1OZb4tgelYy9/ceQVyxtI6SrMco8kfUQOtL+gw/0P0bMHybsOj0j1S4EEFQnK1/deI4I5
+	jmY5xeCA==;
+Received: from mail-qk2-x10.google.com ([2607:f8b0:4864:34::10])
+	by desiato.infradead.org with esmtps (Exim 4.99.2 #2 (Red Hat Linux))
+	id 1xBbOk-00000002tJy-0AT2
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 29 Sep 2026 17:13:10 +0000
-Received: by mail-qk2-x0c.google.com with SMTP id af79cd13be357-93c5b166acdso347001585a.0
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 29 Sep 2026 10:13:08 -0700 (PDT)
+	Tue, 29 Sep 2026 17:13:47 +0000
+Received: by mail-qk2-x10.google.com with SMTP id d75a77b69052e-52fb76ec395so41630331cf.2
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 29 Sep 2026 10:13:45 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=toxicpanda.com; s=google; t=1790701988; x=1791306788; darn=lists.infradead.org;
+        d=toxicpanda.com; s=google; t=1790702024; x=1791306824; darn=lists.infradead.org;
         h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
          :content-type:mime-version:subject:date:from:from:to:cc:subject:date
          :message-id:reply-to:content-type;
-        bh=9lDajmUPmaz8BTxhPEk6XaACKGtk0v9RwI05AN+Obys=;
-        b=OahhhFklNDIzfrso2aUYqezTRWJcUE//2cRxEbJTdAjAmyxn6lQTW0ZzJxwitUgBxD
-         KCYjlg3//v5PlWubFHt1sjp5QI8rCmdgq+gHRNQIMEMQYT4xotF0hNk6i8WcVPYQcFP7
-         N46aaBWanNEo54dV2EJbP2P/gnn2So0jKD0qr0BHzfw8ZcZ2Jok29FH/O52q1zG79C7z
-         L5gZbYxDhaKEr3kmsEHBRVoSh8c4La35AHpfusECeZOx95QeNYJlRscASe+a7XV5JTKZ
-         EC9UqZziPlqtXmWJLEry3x8RE9BjzFJXQ1qf5ynlEY9b9vdHHKSaNuEprLmX0Bktxx3b
-         xz3A==
+        bh=uYjUQGHfzhj5gynV2AmfUxbdkizsyoj3O1ANYrGlCk0=;
+        b=ZztHW9CY1lx6djof28aRlIs+lfpGVKNIjXrlQM4/829fABB3TXHBMHj0iJO5SYqxmr
+         VGE2EZlvu7pGGtm6Oc0hX4+lmCJSjb7LNio48IzW/v8aDt31USN4uQ+ZTucWZVYcwBHY
+         WHcWCpTkBe30TXh3Ilum0PVIYbAepOxdCa4vzUGIBmk+FCpXAMCElZVexZDjw9VVrSAy
+         Ty+dnAh07DbFTL65pKrqfm6guV2shSqy2k7VWqRRTwdND6r6N9lCZ0pcfJx4ycQUipdC
+         5gf1MAgAMmKIY+O68+5MxlOmRIG7nke3QHT5/rsrNkgQLVXiHnGGDqsYOPe5kyk96njw
+         g5Bw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1790701988; x=1791306788;
+        d=1e100.net; s=20260707; t=1790702024; x=1791306824;
         h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
          :content-type:mime-version:subject:date:from:x-gm-gg
          :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
          :content-type;
-        bh=9lDajmUPmaz8BTxhPEk6XaACKGtk0v9RwI05AN+Obys=;
-        b=wFMfu7QheB+ehGFUNDADMdmKh2Afw3XDZOt6JtjEDGhTtRWup69waV8IPLJ+9POQ2t
-         z4ksdLY7Yzmsakm1pzp77Cu6CwT8YkG6fT3t7+eBTAXgz7FNR4kLV5sSQ5b6LRzi8dFu
-         tjZwsXSZwud8m6uRDeXRijcx2s9mnU22Ydi9Wxpdicl48zB7LfVZd9FDhDbUgVYQtfFK
-         0nMJttEYQ98NYtpHeo8rLvMODc82uBgxOiZWNrT6Ie0gI/q9LrM/hMSZyozUVGiD/zWv
-         dJcj6ky1TiV6A4LXSXbblJMGLkjtU8mgDwdM/zhcfj9f5kpA4ERGliCnZH5YsQpu1+D1
-         MI2A==
-X-Forwarded-Encrypted: i=1; AKwUvByFwrnDXlNAOnB2pO4XtsQ1mj0jHpx16TOFsi91zfJe2j5hpzALJ988eHjeADRI+6B/o7NVWMAnei6WpZDDEUah@lists.infradead.org
-X-Gm-Message-State: AFuF++m8cA38mYTZhulPeI9YC/836xhTNGejc/Bp7MN5R3uke/USc+Nq
-	IDTHKy1xDeSPq/DGMplMGAZLJEc5bS09awS/Z9wAon6oQ3N48WBKDPABx2GkPrbhodA=
-X-Gm-Gg: AYBFou1nK1t1iPScXfwtf4ylZoCNdGz3foeKFFY6cvPqVEIz/TzrjoUYc3Yp1nL+bNl
-	AHEam0U8nIpGk/Mw2UvxaoV5vcZFoBxWTuL7wTuxQ2tuZT4IrBvWozpSjD+1kiqyP7qS/TLJ2WV
-	lxlgzdyNP80apUj7RepZeLVo6dSeNaFu0vFSJ+bgfXeaZhPUaQaKwhQEVtRDmsK9iJmM2wLdxb9
-	lUzO5jyPVTje99Y52LKDpTPJ77B83t2WeGl9lRYiioVyYeYHiYH4rU/d0V2QMtUn3nsDMcdGbum
-	8954DjT+PlfeeS+m+r0ppd5gI/gflbIk5FK+7dtgFFRPW74HYsk3cJwtr3uC+RYGEt2lZcH29pS
-	A/+Y5RJL2hKu9BiE8itAqDIS8GoGNaHbdIqHyaMcsqb7LUuqWKsrZrlfJIvvJrVUOUN/yQm0J/2
-	h3k6dM3Vj8+0peFlw1sWgsM+8ac/aX4Hdsh+xlxf9dx/2bRZ666nErmGmTYrWOJchbARjHgBOvO
-	4WlDFvHN+MqQBFV
-X-Received: by 2002:a05:620a:4050:b0:93c:2dae:ec5c with SMTP id af79cd13be357-93c9f8db738mr36680185a.42.1790701987489;
-        Tue, 29 Sep 2026 10:13:07 -0700 (PDT)
-Received: from toxicpanda.com ([153.61.196.251])
-        by smtp.gmail.com with ESMTPSA id af79cd13be357-93c9f4c4e73sm16349585a.24.2026.09.29.10.13.06
+        bh=uYjUQGHfzhj5gynV2AmfUxbdkizsyoj3O1ANYrGlCk0=;
+        b=eOyeVDZEylMOlKZ65bNUJPDzUJwkqr/M+ZAUq6xHUtOJOA1b0qH9QtZgvACARr978e
+         TLM1OjAWjiB3z3k/Q1l90nYotOMP/R8tqwNPF+y8sZ8lZJzNfyYn9KwnnjpyxNZqdXEG
+         kQ2Jr7D45me+beEerEI2oMz2DBU/ViusPev2iB66Xg53IRbsNAxF6/iI1gpPEXI9fkYx
+         dcWNVq5wKq6bQhtB1EOvyUDZSpq/gUlX9qwy/P1ugVbubH9aFVugldWCZMMJpxGcsAds
+         fGpQvKqP5/Sd9nRdWL06fl7i0hvw7NW+rJ+oBlVIxXysMMXSUZQGYbzOqiK5x1Iqr7zV
+         FU8g==
+X-Forwarded-Encrypted: i=1; AKwUvBxvUJFIesnOAqUI0Hgvjkd8xFz+MKR7i52FKGD+3+7vKqn6dm7+pEDBavNNBrVDtQIUvPyarqGZehKMR+rHPmtT@lists.infradead.org
+X-Gm-Message-State: AFuF++nxGSeBONy/mcg8N67lJBNeqVdBGGnVPUi6mK4fSHFbjtFZdlw/
+	gvTZQEJRmEbP2IjGULKzUmJu7Z2Pmkccbb02RvZLeKzSxTVKwKXMdyKHaFkR7DewPmM=
+X-Gm-Gg: AYBFou3cPMUq0Gf9uxkfyOgmsX9PRZrnEqSnpArfDp9cCFsNWD3Wh1im1VbbOLqRfD8
+	T99aHpcC17B3PaHac9RXH2i/ptfs1U6jgBbKn/BJ1SzHfwRHMqT7TNcSUMoi+TbSEGRuT7M3Eol
+	QC572hYQJ2TGQSP4MJLGJrJFMSdqHx/XBbhgwBpivcIrrK5lqh0NF4bzdRHfZXJqf3l8Y/kLAnY
+	BP+Frj7iG9XnW07O72miWgtE9rY42wrZlv679IGHomUpLASbwsCcM0l7Is8eaGfya5Ns+1C/IiL
+	ucj8V6MbNQKerOhIFl21beJMD4uHh0rLzq5i9hps5GFZVmtWL7E73KS1uGLonDyTbM03e8FAgzs
+	lk8LsYs/CDcRS8PF4o8RZwVag60ELCUL+JGjyvAAX5Jego4SR+ZsKC7pIHevaDJcRabN+EAgr9k
+	UU4pi1IqN+cJjPnefeEMRS6yvOZ84RS7R+U4GKhTqcOZ5IPo/pp9k3hA4DiN/X6QYrJ+Atk3Pk+
+	5FMBIBMXKNRWy8=
+X-Received: by 2002:a05:622a:4d47:b0:530:de54:ff67 with SMTP id d75a77b69052e-5330b695d1emr295247061cf.50.1790702024347;
+        Tue, 29 Sep 2026 10:13:44 -0700 (PDT)
+Received: from toxicpanda.com ([153.61.196.242])
+        by smtp.gmail.com with ESMTPSA id d75a77b69052e-53369b8b1a0sm50661cf.18.2026.09.29.10.13.42
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 29 Sep 2026 10:13:06 -0700 (PDT)
+        Tue, 29 Sep 2026 10:13:43 -0700 (PDT)
 From: Josef Bacik <josef@toxicpanda.com>
-Date: Tue, 29 Sep 2026 17:07:24 +0000
-Subject: [PATCH v6 07/14] x86/kprobes: Take a Tasks Trace reader in the
- optprobe template
+Date: Tue, 29 Sep 2026 17:07:25 +0000
+Subject: [PATCH v6 08/14] bpf, x86: Take a Tasks Trace reader in the
+ trampoline around its call-outs
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20260929-b4-rcu-tasks-preempt-qs-v6-7-c111ee02caca@toxicpanda.com>
+Message-Id: <20260929-b4-rcu-tasks-preempt-qs-v6-8-c111ee02caca@toxicpanda.com>
 References: <20260929-b4-rcu-tasks-preempt-qs-v6-0-c111ee02caca@toxicpanda.com>
 In-Reply-To: <20260929-b4-rcu-tasks-preempt-qs-v6-0-c111ee02caca@toxicpanda.com>
 To: "Paul E. McKenney" <paulmck@kernel.org>, 
@@ -92,18 +107,18 @@ Cc: Boqun Feng <boqun@kernel.org>, Masami Hiramatsu <mhiramat@kernel.org>,
  linux-trace-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
  linux-kernel@vger.kernel.org, Josef Bacik <josef@toxicpanda.com>
 X-Mailer: b4 0.15.2
-X-Developer-Signature: v=1; a=openssh-sha256; t=1790701681; l=3977;
+X-Developer-Signature: v=1; a=openssh-sha256; t=1790701681; l=8650;
  i=josef@toxicpanda.com; h=from:subject:message-id;
- bh=cyOEpv7E+99KbsYBQF12i4qmiz/SB2W5CJ1v6BiG3CI=;
+ bh=qaq7vXKrTcRs0lT22A7BxgOv3HC+TKoraaCGEC+rqIk=;
  b=U1NIU0lHAAAAAQAAADMAAAALc3NoLWVkMjU1MTkAAAAgUBr36M/n0nWN0DNbnxwzIiCZez6MG
  JiruuNaSCI/zXsAAAAGcGF0YXR0AAAAAAAAAAZzaGE1MTIAAABTAAAAC3NzaC1lZDI1NTE5AAAA
- QDWamZGwRXHqlZDYRICgP71g719tFuAgZKe5M/0MnijoM4CsVGa3hA93Sod04FIiuoO+tFQoc5F
- zV/o3zGZ2BQo=
+ QEQt37JUXrwy2GgKdB/PPXs+iZJTGjwigLz9Gr9rllLCaK7CB1KYxIOvuMI61BlHvWRzYlEymmV
+ gogPoz4WzfgY=
 X-Developer-Key: i=josef@toxicpanda.com; a=openssh;
  fpr=SHA256:C8kOX2QUJCMqnCX+KEeoqRAjLo9L+ELOSH2NSAJHqGA
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260929_101308_964553_2F56A6BA 
-X-CRM114-Status: GOOD (  12.94  )
+X-CRM114-CacheID: sfid-20260929_181346_294673_EDE8D036 
+X-CRM114-Status: GOOD (  25.05  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -118,104 +133,200 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The jump-optimized kprobe template calls optimized_callback() from a
-dynamically allocated slot with preemption enabled, and only Tasks RCU
-keeps that slot alive under a task preempted in the callback.  For
-HAVE_RCU_TRAMPOLINE_READERS that means the template must be a Tasks
-Trace reader across the call, so open-code rcu_read_lock_trace() and
-rcu_read_unlock_trace() around it as ftrace_64.S does.  The template
-lives in .rodata and is memcpy()d into each slot without relocation
-processing, so the references to current_task and
-rcu_tasks_trace_srcu_struct are absolute (R_X86_64_32S, relocated for
-KASLR like any other) rather than %rip-relative.  %rax and %rcx have
-already been saved by SAVE_REGS_STRING and are dead after the call.
+On HAVE_RCU_TRAMPOLINE_READERS kernels Tasks RCU keeps a BPF trampoline
+image allocated only while a task using it is a Tasks Trace RCU reader
+or is executing text that rcu_tasks_trampoline_text() recognises.  The
+image itself is such text, but the C glue and the programs it calls are
+not, and only sleepable programs take rcu_read_lock_trace() today.
 
-The slot itself is dynamically allocated text, so the instructions
-before the lock and after the unlock are covered by the irq-exit check.
-64-bit only; 32-bit x86 does not take part.
+Have the x86-64 JIT open-code rcu_read_lock_trace() and
+rcu_read_unlock_trace() in the trampoline, as ftrace_64.S does for
+ftrace_caller: one reader from just after the frame is set up to just
+before the original function is called, covering __bpf_tramp_enter()
+and the fentry and fmod_ret programs, and a second one from just after
+the original function returns to just before the final register
+restore, covering the fexit programs and __bpf_tramp_exit().  The
+original function itself runs outside both, since it may run for a long
+time and the image is pinned by im->pcref across it.  Trampolines that
+do not call the original function get a single reader around all their
+programs.  The second reader is entered before ip_after_call, so the
+ip_after_call -> ip_epilogue jump that bpf_tramp_image_put() patches in
+is inside it, and the fmod_ret early-exit branch lands after that point
+still holding the first reader, so exactly one is held on every path.
 
+The sequence uses r10 and r11, which are scratch at each emission point,
+and references current_task and rcu_tasks_trace_srcu_struct by absolute
+sign-extended address, the form the JIT already relies on for
+this_cpu_off.  Sleepable programs' own rcu_read_lock_trace() simply
+nests.  Nothing is emitted on other configurations.
+
+Cost, measured as getppid() ns/call in a KVM guest on a Xeon 8375C with
+no-op programs on __do_sys_getppid and CONFIG_TASKS_TRACE_RCU_NO_MB:
+fentry 77.0 -> 77.9, fexit 78.4 -> 80.7, fentry+fexit 83.2 -> 85.6, so
+about 1 ns per reader pair.  Taking the reader in __bpf_tramp_enter()/
+__bpf_tramp_exit() plus before/after-orig-call C helpers instead was
+measured too and is no cheaper (78.3 / 80.5 / 85.5).
+
+Suggested-by: Alexei Starovoitov <ast@kernel.org>
 Assisted-by: LLM
 Signed-off-by: Josef Bacik <josef@toxicpanda.com>
 ---
- arch/x86/kernel/kprobes/opt.c | 44 +++++++++++++++++++++++++++++++++++++++++++
- 1 file changed, 44 insertions(+)
+ arch/x86/net/bpf_jit_comp.c | 107 ++++++++++++++++++++++++++++++++++++++++++++
+ 1 file changed, 107 insertions(+)
 
-diff --git a/arch/x86/kernel/kprobes/opt.c b/arch/x86/kernel/kprobes/opt.c
-index 3f8fea52619f..68a5de6cdabe 100644
---- a/arch/x86/kernel/kprobes/opt.c
-+++ b/arch/x86/kernel/kprobes/opt.c
-@@ -31,6 +31,7 @@
+diff --git a/arch/x86/net/bpf_jit_comp.c b/arch/x86/net/bpf_jit_comp.c
+index 2853e87797a7..b77e29c9599d 100644
+--- a/arch/x86/net/bpf_jit_comp.c
++++ b/arch/x86/net/bpf_jit_comp.c
+@@ -14,6 +14,7 @@
+ #include <linux/memory.h>
+ #include <linux/sort.h>
+ #include <linux/execmem.h>
++#include <linux/rcupdate_trace.h>
+ #include <asm/extable.h>
+ #include <asm/ftrace.h>
  #include <asm/set_memory.h>
- #include <asm/sections.h>
- #include <asm/nospec-branch.h>
-+#include <asm/asm-offsets.h>
- 
- #include "common.h"
- 
-@@ -101,6 +102,47 @@ static void synthesize_set_arg1(kprobe_opcode_t *addr, unsigned long val)
- 	*(unsigned long *)addr = val;
+@@ -722,6 +723,91 @@ static void emit_indirect_jump(u8 **pprog, int bpf_reg, u8 *ip)
+ 	*pprog = prog;
  }
  
 +/*
-+ * Open-coded rcu_read_lock_trace() / rcu_read_unlock_trace() around the call
-+ * to optimized_callback(), see CONFIG_HAVE_RCU_TRAMPOLINE_READERS and the
-+ * equivalent macros in ftrace_64.S.  The template is memcpy()d into the slot
-+ * without relocation processing, so memory references must be absolute
-+ * rather than %rip-relative.  %rax and %rcx are free at both points.
++ * Open-coded rcu_read_lock_trace() / rcu_read_unlock_trace() for the
++ * trampoline, see CONFIG_HAVE_RCU_TRAMPOLINE_READERS and the equivalent
++ * macros in arch/x86/kernel/ftrace_64.S.  The image is not relocated, so
++ * current_task and rcu_tasks_trace_srcu_struct are referenced by absolute
++ * (sign-extended 32-bit) address, the form the JIT already relies on for
++ * this_cpu_off.  Uses r10 and r11, which are scratch at every emission
++ * point, and clobbers flags.
++ *
++ * lock:                                  unlock:
++ *   mov  r11, gs:[current_task]            mov  r11, gs:[current_task]
++ *   mov  r10d, [r11+nesting_off]           mov  r10d, [r11+nesting_off]
++ *   inc  dword ptr [r11+nesting_off]       sub  r10d, 1
++ *   test r10d, r10d                        jnz  2f
++ *   jnz  1f                                mov  r10, [r11+scp_off]
++ *   mov  r10, [&srcu.srcu_ctrp]            mov  dword ptr [r11+nesting_off], 0
++ *   inc  qword ptr gs:[r10+locks_off]      (smp_mb)
++ *   mov  [r11+scp_off], r10                inc  qword ptr gs:[r10+unlocks_off]
++ *   (smp_mb)                               jmp  3f
++ * 1:                                     2: mov [r11+nesting_off], r10d
++ *                                        3:
 + */
++static void emit_trace_rcu_reader(u8 **pprog, bool lock)
++{
 +#ifdef CONFIG_TASKS_RCU_TRAMPOLINE_READERS
-+#ifndef CONFIG_TASKS_TRACE_RCU_NO_MB
-+#define OPTPROBE_TRACE_RCU_MB	"	lock addl $0, -4(%rsp)\n"
-+#else
-+#define OPTPROBE_TRACE_RCU_MB
-+#endif
-+#define OPTPROBE_TRACE_RCU_READ_LOCK						\
-+		"	movq %gs:current_task, %rcx\n"				\
-+		"	movl " __stringify(TASK_trc_reader_nesting) "(%rcx), %eax\n"	\
-+		"	incl " __stringify(TASK_trc_reader_nesting) "(%rcx)\n"	\
-+		"	testl %eax, %eax\n"						\
-+		"	jnz 1f\n"							\
-+		"	movq rcu_tasks_trace_srcu_struct+" __stringify(SRCU_srcu_ctrp) ", %rax\n" \
-+		"	incq %gs:" __stringify(SRCU_CTR_srcu_locks) "(%rax)\n"		\
-+		"	movq %rax, " __stringify(TASK_trc_reader_scp) "(%rcx)\n"	\
-+		OPTPROBE_TRACE_RCU_MB						\
-+		"1:\n"
-+#define OPTPROBE_TRACE_RCU_READ_UNLOCK						\
-+		"	movq %gs:current_task, %rcx\n"				\
-+		"	movl " __stringify(TASK_trc_reader_nesting) "(%rcx), %eax\n"	\
-+		"	subl $1, %eax\n"						\
-+		"	jnz 2f\n"							\
-+		"	movq " __stringify(TASK_trc_reader_scp) "(%rcx), %rax\n"	\
-+		"	movl $0, " __stringify(TASK_trc_reader_nesting) "(%rcx)\n"	\
-+		OPTPROBE_TRACE_RCU_MB						\
-+		"	incq %gs:" __stringify(SRCU_CTR_srcu_unlocks) "(%rax)\n"	\
-+		"	jmp 3f\n"							\
-+		"2:	movl %eax, " __stringify(TASK_trc_reader_nesting) "(%rcx)\n"	\
-+		"3:\n"
-+#else
-+#define OPTPROBE_TRACE_RCU_READ_LOCK
-+#define OPTPROBE_TRACE_RCU_READ_UNLOCK
-+#endif
++	const u32 nesting_off = offsetof(struct task_struct, trc_reader_nesting);
++	const u32 scp_off = offsetof(struct task_struct, trc_reader_scp);
++	const u32 locks_off = offsetof(struct srcu_ctr, srcu_locks);
++	const u32 unlocks_off = offsetof(struct srcu_ctr, srcu_unlocks);
++	const bool mb = !IS_ENABLED(CONFIG_TASKS_TRACE_RCU_NO_MB);
++	u8 *prog = *pprog;
 +
- asm (
- 			".pushsection .rodata\n"
- 			".global optprobe_template_entry\n"
-@@ -114,6 +156,7 @@ asm (
- 			"optprobe_template_clac:\n"
- 			ASM_NOP3
- 			SAVE_REGS_STRING
-+			OPTPROBE_TRACE_RCU_READ_LOCK
- 			"	movq %rsp, %rsi\n"
- 			".global optprobe_template_val\n"
- 			"optprobe_template_val:\n"
-@@ -122,6 +165,7 @@ asm (
- 			".global optprobe_template_call\n"
- 			"optprobe_template_call:\n"
- 			ASM_NOP5
-+			OPTPROBE_TRACE_RCU_READ_UNLOCK
- 			/* Copy 'regs->flags' into 'regs->ss'. */
- 			"	movq 18*8(%rsp), %rdx\n"
- 			"	movq %rdx, 20*8(%rsp)\n"
++	/* The plain this_cpu_inc() form of __srcu_read_lock_fast(). */
++	BUILD_BUG_ON(IS_ENABLED(CONFIG_NEED_SRCU_NMI_SAFE));
++
++	/* mov r11, gs:[abs32 current_task] */
++	EMIT2(0x65, 0x4C);
++	EMIT3(0x8B, 0x1C, 0x25);
++	EMIT((u32)(unsigned long)&current_task, 4);
++	/* mov r10d, dword ptr [r11 + nesting_off] */
++	EMIT3_off32(0x45, 0x8B, 0x93, nesting_off);
++
++	if (lock) {
++		/* inc dword ptr [r11 + nesting_off] */
++		EMIT3_off32(0x41, 0xFF, 0x83, nesting_off);
++		/* test r10d, r10d */
++		EMIT3(0x45, 0x85, 0xD2);
++		/* jnz 1f */
++		EMIT2(X86_JNE, 8 + 8 + 7 + (mb ? 6 : 0));
++		/* mov r10, qword ptr [abs32 &rcu_tasks_trace_srcu_struct.srcu_ctrp] */
++		EMIT4(0x4C, 0x8B, 0x14, 0x25);
++		EMIT((u32)(unsigned long)&rcu_tasks_trace_srcu_struct.srcu_ctrp, 4);
++		/* inc qword ptr gs:[r10 + locks_off] */
++		EMIT4_off32(0x65, 0x49, 0xFF, 0x82, locks_off);
++		/* mov qword ptr [r11 + scp_off], r10 */
++		EMIT3_off32(0x4D, 0x89, 0x93, scp_off);
++		/* smp_mb(): lock add dword ptr [rsp - 4], 0 */
++		if (mb)
++			EMIT2_off32(0xF0, 0x83, 0x00FC2444);
++		/* 1: */
++	} else {
++		/* sub r10d, 1 */
++		EMIT4(0x41, 0x83, 0xEA, 0x01);
++		/* jnz 2f */
++		EMIT2(X86_JNE, 7 + 11 + (mb ? 6 : 0) + 8 + 2);
++		/* mov r10, qword ptr [r11 + scp_off] */
++		EMIT3_off32(0x4D, 0x8B, 0x93, scp_off);
++		/* mov dword ptr [r11 + nesting_off], 0 */
++		EMIT3_off32(0x41, 0xC7, 0x83, nesting_off);
++		EMIT(0, 4);
++		if (mb)
++			EMIT2_off32(0xF0, 0x83, 0x00FC2444);
++		/* inc qword ptr gs:[r10 + unlocks_off] */
++		EMIT4_off32(0x65, 0x49, 0xFF, 0x82, unlocks_off);
++		/* jmp 3f */
++		EMIT2(0xEB, 7);
++		/* 2: mov dword ptr [r11 + nesting_off], r10d */
++		EMIT3_off32(0x45, 0x89, 0x93, nesting_off);
++		/* 3: */
++	}
++
++	*pprog = prog;
++#endif
++}
++
+ static void emit_return(u8 **pprog, u8 *ip)
+ {
+ 	u8 *prog = *pprog;
+@@ -3610,6 +3696,16 @@ static int __arch_prepare_bpf_trampoline(struct bpf_tramp_image *im, void *rw_im
+ 	/* mov QWORD PTR [rbp - rbx_off], rbx */
+ 	emit_stx(&prog, BPF_DW, BPF_REG_FP, BPF_REG_6, -rbx_off);
+ 
++	/*
++	 * Tasks RCU keeps this image alive only while we are a Tasks Trace
++	 * reader; the instructions before this point (and after the final
++	 * unlock) are covered by the irq-exit IP check.  One reader spans
++	 * __bpf_tramp_enter() and the fentry/fmod_ret progs, a second one
++	 * the fexit progs and __bpf_tramp_exit(); the original function runs
++	 * outside both, with the image pinned by im->pcref instead.
++	 */
++	emit_trace_rcu_reader(&prog, true);
++
+ 	func_meta = nr_regs;
+ 	/* Store number of argument registers of the traced function */
+ 	emit_store_stack_imm64(&prog, BPF_REG_0, -func_meta_off, func_meta);
+@@ -3660,6 +3756,7 @@ static int __arch_prepare_bpf_trampoline(struct bpf_tramp_image *im, void *rw_im
+ 	}
+ 
+ 	if (flags & BPF_TRAMP_F_CALL_ORIG) {
++		emit_trace_rcu_reader(&prog, false);
+ 		restore_regs(m, &prog, regs_off);
+ 		save_args(m, &prog, arg_stack_off, true, flags, 0);
+ 
+@@ -3682,6 +3779,13 @@ static int __arch_prepare_bpf_trampoline(struct bpf_tramp_image *im, void *rw_im
+ 		}
+ 		/* remember return value in a stack for bpf prog to access */
+ 		emit_stx(&prog, BPF_DW, BPF_REG_FP, BPF_REG_0, -8);
++		/*
++		 * Second reader.  Taken before ip_after_call so that the
++		 * ip_after_call -> ip_epilogue jump patched in at teardown is
++		 * inside it too; the fmod_ret early exit jumps past this still
++		 * holding the first reader, so either way exactly one is held.
++		 */
++		emit_trace_rcu_reader(&prog, true);
+ 		im->ip_after_call = image + (prog - (u8 *)rw_image);
+ 		emit_nops(&prog, X86_PATCH_SIZE);
+ 	}
+@@ -3737,6 +3841,9 @@ static int __arch_prepare_bpf_trampoline(struct bpf_tramp_image *im, void *rw_im
+ 		LOAD_TRAMP_TAIL_CALL_CNT_PTR(stack_size);
+ 	}
+ 
++	/* Remaining instructions are covered by the irq-exit IP check. */
++	emit_trace_rcu_reader(&prog, false);
++
+ 	/* restore return value of orig_call or fentry prog back into RAX */
+ 	if (save_ret)
+ 		emit_ldx(&prog, BPF_DW, BPF_REG_0, BPF_REG_FP, -8);
 
 -- 
 2.55.0
