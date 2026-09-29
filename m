@@ -4,88 +4,88 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B91D8CA5FA1
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 29 Sep 2026 06:12:26 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3F203CA5FA1
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 29 Sep 2026 06:12:37 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=PkrZSWPLPilS0VQS6JpOnVfLzUocbaP/bkS/pwSTo4o=; b=2yin1eOGFJqmZRQGqCbPyUPVcy
-	x1VrZbNj8FYAR3hpPOpbV89XUJIS1xp8EIznVy8nj5m0HuPIChm6oQJrIZ0ADofW0/eTfilkm1lAf
-	F8shEZbNV1/lFOhUdc6tp9UHqSFf86Zqq9yONNY2tgilS1LXv3Nf9IsUdh2Pi9WbSRh5YFC3FUl2j
-	vQPQ8JbmADUeT3ivob9lYdggSs0Aim8SBFSGd+cA1tccFM4R2R/D1mHqQI2mhzrO90+g3JfGpErpN
-	9Vjp+vrLxqkD53vXJHTkAUKFE49ZPjeH1Wmi0a/wFB+2qJ6fZqb81utqLqRObR+/apwq8WgTjTisc
-	tQ06ujCQ==;
+	bh=yiOQQUNxogiUQyW9juq/yIUpauLJuI5yeb0AGzYfhSw=; b=K8jSsWr/TGY8DWEdO9vAx4DF29
+	9HuRe5w7ml9R3VN0TMotW77mhwZkRisewllOFHP7/X/27yzvVY3hAZ3q2TYAopzPVbcUWH5oGYjn7
+	KXYYx/V6HpzdKAsiBdvaUMABlNR4VOk2sRMX0ifRMtKS1D0IIr9utbgy4sHr+Fbe26Ky8VTyFjWit
+	qVPnkCz3RcT+O4xBEnsZMH8AVWO7pTKHguJqMvSAMjBflLXsxCk6XEVmBLZ06n/OcTyNlkKwoV0mK
+	wqA85twjYQf+Ob8KuRfQSOdBryDujOxcq/+92U7xFdYNn83wEKNHNfPFer8szflMfEiMV+C+aB7by
+	fKMrupeQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xBR4e-00000002Poo-2f3K;
-	Tue, 29 Sep 2026 06:12:20 +0000
+	id 1xBR4p-00000002Pxc-0jJD;
+	Tue, 29 Sep 2026 06:12:31 +0000
 Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xBR4d-00000002Pnx-0vM2
+	id 1xBR4j-00000002Ptc-4A05
 	for linux-arm-kernel@bombadil.infradead.org;
-	Tue, 29 Sep 2026 06:12:19 +0000
+	Tue, 29 Sep 2026 06:12:26 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:MIME-Version
 	:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Sender:Reply-To:
 	Content-Type:Content-ID:Content-Description;
-	bh=PkrZSWPLPilS0VQS6JpOnVfLzUocbaP/bkS/pwSTo4o=; b=WBkOVkaPDJ1iPxBm6UgIFpvuVq
-	ydIDw8k6vPeOWkSgqIaQsVMTWSt8Rhg9m5/dlHYmDj/CWnl2wIsv8jIoxblnR0IcaX686lsDPxYZI
-	0QAlu73saZ5pyrVMKzgid/7R7cCLSegM0l7WJdNCt3MaLtQrSicF1rfzjGvUwtfkjnEyCfVZbeGKZ
-	4DPzCuuNxaDd4YpYxZdZmQwDDi5bMz3B53EhX7ip4ieixFXH4PKgMnhXYVDp1HWXD+kEQbyvNa7Bc
-	DOafuwfC9FiyScoCJnpn+qfIGIMClSgzHN1oqKF9QX+6QoWk6bymXYaPXHQtQ7DAU6goDj3b+aDa5
-	Ar9G1XHA==;
-Received: from mail-pz2-x2a.google.com ([2607:f8b0:4864:3b::2a])
+	bh=yiOQQUNxogiUQyW9juq/yIUpauLJuI5yeb0AGzYfhSw=; b=flPeehEVGUsRvpqATOuBEJFrH7
+	2/XvVnPlBwdyAetjg/yXkP4bLfdn4amFPD/59OZnxXUw9aaINeUbNcO6/6yDAJtbowHzGFjk8A9jE
+	fbZJ4+hu21dhe+ynu97Pd0+dvA5Cf2ZPK5nVQQAL/k765DHh+zsGyg8RdKzWpXLa4CITTZqXUBbGu
+	DoTX+NKA4pdTUbPi/5nNQsgGzHYjgj3rTQz3bJubpDt6HpqUyNyKerxqVQ/Q9Au2YdZdrsuPzcNCF
+	iDSgxSpbq7LGkAFIkRD+VAuBRwqrydBz1FJFDbdZxGeOeVOoqXpM09/SjcLyKEWmNq/MtfD1huHIV
+	KIB1RqaQ==;
+Received: from mail-pj2-x0f.google.com ([2607:f8b0:4864:39::f])
 	by desiato.infradead.org with esmtps (Exim 4.99.2 #2 (Red Hat Linux))
-	id 1xBR4X-00000002EWV-0fuM
+	id 1xBR4g-00000002EY4-1x9I
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 29 Sep 2026 06:12:16 +0000
-Received: by mail-pz2-x2a.google.com with SMTP id 41be03b00d2f7-cc79a5bdf9fso489134a12.1
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 28 Sep 2026 23:12:12 -0700 (PDT)
+	Tue, 29 Sep 2026 06:12:24 +0000
+Received: by mail-pj2-x0f.google.com with SMTP id 98e67ed59e1d1-3a48e359e0fso620075a91.3
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 28 Sep 2026 23:12:21 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1790662331; x=1791267131; darn=lists.infradead.org;
+        d=gmail.com; s=20251104; t=1790662340; x=1791267140; darn=lists.infradead.org;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to:content-type;
-        bh=PkrZSWPLPilS0VQS6JpOnVfLzUocbaP/bkS/pwSTo4o=;
-        b=rM503SCsWjqL3EC9t0z0lzVdqEXvXco5HtpAmoFaWzwBn7y6VyDptiWemmCrYgQd1b
-         DP7ck/ay8rsHOehH9JLgIWBxu8f3WUyfP5n3Ed08Fp931//25VB5wfQz4pGYGFlpgUxH
-         i8ARdcJkijm6KamoIiHuiGXq4UKF87mpVN05NInbFeAOmJyUwXVJWONVMerdXe6ydrQW
-         C+4hV+LanKQBc01hYmB1lvOg17VYbW6ecFco0tmy6kVOtl8Hog4rZJFCg7EYFmql7Pou
-         6cH6CKBdE1nN+rNEgr8cZdjOnjbqsFm5ENOTmrDbvSvpUbFd4dsFd3RbcGwdvIAvZFgW
-         D5/g==
+        bh=yiOQQUNxogiUQyW9juq/yIUpauLJuI5yeb0AGzYfhSw=;
+        b=IVmxgLvRcHErDL58JPJPo0SQ0ghykrl7ZOBkWrb42PDK3FFj3/l6tex2HvZYpwLgmt
+         kp8lIssrrt/EIyflmVLDHY7VEsILhKBnu7tYXHk8aiGIMVKmgDi6PWxhx/ATXnyBHiRz
+         6gclm95gnaqcRUgIvqNJSIfvzd+bD0XBv2AXjXv35lcXOJ6rL6jkRkCrL8HVSM6jn8TB
+         NM3aFjzgU84MxWumAY1dIPLoJ2ev9MOJ3Q4Ksm1BGYJOu5IQKulIZlm5x64O0sHbtkYE
+         BJwoKfbVDlt80ewe2KElgRmvV8nfM2IupESgnCwYyiPxGfJK6MV1dwIlUxRbDrMSmM6U
+         A3xA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1790662331; x=1791267131;
+        d=1e100.net; s=20260707; t=1790662340; x=1791267140;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
          :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=PkrZSWPLPilS0VQS6JpOnVfLzUocbaP/bkS/pwSTo4o=;
-        b=gS/JHbvNB9ylIMqmbQt+B9rpb5HvaWeH7ZrIZyztyXeb/HZBovvWFpmkj++677KkZj
-         c2SDDqiq1fVkKZ3YT/pGZ0kiOztqhFrg9qzmxb8HrPvvUY9fGx+OCL8Wc1cxRQD+DHzP
-         Nf4J3haCuozlbvp0pQx50YLBh1Uf++lHDEZgftMQywClOQX5eZ2qpHMydAZEjcwPRRKf
-         fbOxLT3uJkRVQ2XQMQd1lmhwKh9A5fGcSGnU9e05KnVjRpMcOuflKRYDD7j2zp9i/FeK
-         l23dbbcP3ADVSPGuzishvVj7lgk/1KmnZQ3WmNPXl0Y0uMTT9ckNYlK3ByzJH5rT/4Nk
-         dE/g==
-X-Forwarded-Encrypted: i=1; AKwUvByfQrg/shziAJYWP7evXLt5ow6+mmIfbRpWjIJ2vBBDbhXbB5dvXWq9ltNMBpCr/i93L5i7P18SAc2KFuCrraCb@lists.infradead.org
-X-Gm-Message-State: AFq9FYLcqIUAnfDAG6vUGTYgOsQqIhSLeVO5EZxtIKAzafP0djqiakWc
-	T58DpxytH0uVuOEX7cTr1TAccRtB+1FGOt/yk7HluCNV82kdTJ5PYS6A
-X-Gm-Gg: AYBFou3MZkFYOrw/RLUOwYNaKkUud3z7t6tP3Wk09IrCyyuQA4/e4woujD2zNmjmS8r
-	f4jwaqSYmFcxToUMy4PXiVtGCp5oWFNyce8g+U8mnCNbtRRsWLtiIXdd9+eUy0K78mFW00GyAoY
-	qsIV3S1IwrZJm9BGQdWXwxIDuF20JoM3AY7F5IpIEjkdM6Yrk3c0h2WrSkiW0l5Z41IAUPIjLSU
-	YE/Ru/+RiwJS3WLX95sLQOwXXUol1A4PLDdoP84wbxj4gBJLlTFNPT7POsgOWrC1cbZTAv3hL1O
-	pRpcmCXg1ArKNJ5lAkMiswcW6RlzkE1QE6EemsCBwkZNUFRnJDIcqa++X+r3Q5XbeZiJq93b4CE
-	+hgVBxQoxQcErKyIUm2mYQS9WTL0zKslbC+Fdpjtg85egPW/OnCrzrRLFLQT0ucHtkAcAFQihhJ
-	LNE1JcuUL8zjcdhR9ozJUG7LCnoX40XiJI2OykCpFZkwSUEP5HFg5P0VCMFdEIKrSmr0Fs2Q3EK
-	/TOwr1AqtqBL/ZPeVJGzqUP/3llqS5fak81VEbVzYmkSYG+vox/OVSxkcDx/K0YL2km7o4wTvLt
-	b+ARGN7FeAtv6g==
-X-Received: by 2002:a17:90a:e7cb:b0:3a0:f4ee:d2b2 with SMTP id 98e67ed59e1d1-3a49c1a1183mr871310a91.32.1790662330868;
-        Mon, 28 Sep 2026 23:12:10 -0700 (PDT)
+        bh=yiOQQUNxogiUQyW9juq/yIUpauLJuI5yeb0AGzYfhSw=;
+        b=RJo6GhbPcAec6kBSgHUu203of5nzgY80qpwRRoa9eP3nnzoDYgKWThVDby/WYOuYqI
+         6QRAjk2mJcyzIRxBDbgKW/PpmWxFiBIQBr/GshtGYiBtlN4OJbLxFfo0QS6cABT1d6YO
+         80AkNDjdGVNkiev6s63BPwVnzRQO0jA+Yx0tQ0sYWtKfqDC+hyMHDYI6P9c+UAzHVucy
+         xWsdC/cCnUlJ1D94uCmouMPQZeYRyH0ZqIcLpx8v6zrWQpbi+McjuZnXMH+k6PdDTkSh
+         FbxoVT6jxwJ0wuAa8/XdHA8m5tmRUKl5brPcJM0hV91b/M/LTKohjy9JXGJAdsMuA+Cq
+         5eIw==
+X-Forwarded-Encrypted: i=1; AKwUvBxhmYAwSXaTkeLY7UvLCsJHRfK5X4MdxSK8g7KN5WtEQWtstUttZqZSIvH1cnLhVM4d9F/AciAalqaGcnJQI4vM@lists.infradead.org
+X-Gm-Message-State: AFq9FYJIu65XS9tY0610AFdPKZ9ltFHRnhBYq7J3ZclUFQ+n8kAIu+ja
+	MdkgJ06g95NYkMiLJRRv2JwHfCatVLl5iaxtjo3mrqHnBQIjzxb/9H3q
+X-Gm-Gg: AYBFou1oulksZhfm4fCO62GcS466hGyqaFpuRhCmx5Qkyc+tudLMJTOQ0hTr15fXyen
+	C2iXwDZHljZ8ueG1+6tYPSWgezUn+EyWpXkWSe7gK1PZHh8RR312ZV34OggvOQjp/9ugyzbDQX2
+	7IMzNZ2M5+tZWbZHgXyzajIwXHaqnZFXdsdXrfYCauWbExyzTuM1JqzXdqNKjrmK8jGBl6dK1sh
+	0PLfaFwaxmB/XL8luXhM98rPsnuIrx/i5DWR4LDS5DLDDkh9YyKp/RRBeGT4WqpQaH/0gdZ5LJZ
+	QK9T1WfpdPG+akHcn2m3cQUcL0pIsqJ+9pBxxqrLw+OUZ+G1A4oW4RdHkd6Y84rHXQvVM5TH85K
+	CXzYkAcHBYdMCHfGAq3zHeFNGXwVnuzX9fiRCufZH+41SkZjkE6dJX4+aj1IbFmMTQHyo1/XAik
+	Vh/5u06V34ti9w071NszANk6YT5md6aosM1DdLYc6tVpF9JoA+khE9me8fAqLd70szhSD3tnZ4s
+	okRfxkvHqZ3aqzrXmEbTP/ssEWjnlGpsVz2AF38d9MImGb6hswdUVKkaxbTDDyvd1MRBOZioPwj
+	exLu4u2iNtDSFg==
+X-Received: by 2002:a17:90b:4a82:b0:3a0:cb48:df6b with SMTP id 98e67ed59e1d1-3a0cb48e2fcmr9490197a91.34.1790662340222;
+        Mon, 28 Sep 2026 23:12:20 -0700 (PDT)
 Received: from phuc-desktop.. ([183.91.15.56])
-        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-3a498726d63sm3280965a91.17.2026.09.28.23.12.06
+        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-3a498726d63sm3280965a91.17.2026.09.28.23.12.16
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 28 Sep 2026 23:12:10 -0700 (PDT)
+        Mon, 28 Sep 2026 23:12:19 -0700 (PDT)
 From: phucduc.bui@gmail.com
 To: Mark Brown <broonie@kernel.org>,
 	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
@@ -103,17 +103,17 @@ Cc: Liam Girdwood <lgirdwood@gmail.com>,
 	linux-mediatek@lists.infradead.org,
 	linux-kernel@vger.kernel.org,
 	bui duc phuc <phucduc.bui@gmail.com>
-Subject: [PATCH 03/10] ASoC: mediatek: mt8196: fix MCK error handling
-Date: Tue, 29 Sep 2026 13:11:14 +0700
-Message-ID: <20260929061121.124001-4-phucduc.bui@gmail.com>
+Subject: [PATCH 05/10] ASoC: mediatek: mt8196: propagate main clock errors
+Date: Tue, 29 Sep 2026 13:11:16 +0700
+Message-ID: <20260929061121.124001-6-phucduc.bui@gmail.com>
 X-Mailer: git-send-email 2.43.0
 In-Reply-To: <20260929061121.124001-1-phucduc.bui@gmail.com>
 References: <20260929061121.124001-1-phucduc.bui@gmail.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260929_071214_473403_46D85443 
-X-CRM114-Status: GOOD (  14.27  )
+X-CRM114-CacheID: sfid-20260929_071223_141617_8C5CEC53 
+X-CRM114-Status: GOOD (  12.17  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -130,31 +130,36 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 
 From: bui duc phuc <phucduc.bui@gmail.com>
 
-Disable the clock if setting its rate fails after the clock has been
-enabled, preventing it from being left enabled on the error path.
+Propagate errors from the main clock enable and disable operations
+instead of always returning success.
 
 Fixes: 7384ecab34eb ("ASoC: mediatek: mt8196: support audio clock control")
 Signed-off-by: bui duc phuc <phucduc.bui@gmail.com>
 ---
- sound/soc/mediatek/mt8196/mt8196-afe-clk.c | 4 +++-
- 1 file changed, 3 insertions(+), 1 deletion(-)
+ sound/soc/mediatek/mt8196/mt8196-afe-clk.c | 6 ++----
+ 1 file changed, 2 insertions(+), 4 deletions(-)
 
 diff --git a/sound/soc/mediatek/mt8196/mt8196-afe-clk.c b/sound/soc/mediatek/mt8196/mt8196-afe-clk.c
-index 1dc4210e58c7..1d107b85d03c 100644
+index 6198711e01b5..dbfd02d20338 100644
 --- a/sound/soc/mediatek/mt8196/mt8196-afe-clk.c
 +++ b/sound/soc/mediatek/mt8196/mt8196-afe-clk.c
-@@ -502,8 +502,10 @@ int mt8196_mck_enable(struct mtk_base_afe *afe, int mck_id, int rate)
- 		return ret;
+@@ -598,14 +598,12 @@ int mt8196_afe_disable_reg_rw_clk(struct mtk_base_afe *afe)
  
- 	ret = mt8196_afe_set_clk_rate(afe, afe_priv->clk[div_clk_id], rate);
--	if (ret)
-+	if (ret) {
-+		mt8196_afe_disable_clk(afe, afe_priv->clk[div_clk_id]);
- 		return ret;
-+	}
- 
- 	return 0;
+ int mt8196_afe_enable_main_clock(struct mtk_base_afe *afe)
+ {
+-	mt8196_afe_enable_top_cg(afe, MT8196_AUDIO_26M_EN_ON);
+-	return 0;
++	return mt8196_afe_enable_top_cg(afe, MT8196_AUDIO_26M_EN_ON);
  }
+ 
+ int mt8196_afe_disable_main_clock(struct mtk_base_afe *afe)
+ {
+-	mt8196_afe_disable_top_cg(afe, MT8196_AUDIO_26M_EN_ON);
+-	return 0;
++	return mt8196_afe_disable_top_cg(afe, MT8196_AUDIO_26M_EN_ON);
+ }
+ 
+ int mt8196_init_clock(struct mtk_base_afe *afe)
 -- 
 2.43.0
 
