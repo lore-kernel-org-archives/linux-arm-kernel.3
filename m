@@ -4,81 +4,81 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E6B53CA5FA5
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 29 Sep 2026 17:09:19 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2ED12CA5FA5
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 29 Sep 2026 17:09:59 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=10AkfjFtGJtRfJ5s0PO0ROrjcvpMjCKxs/Q3/9Rbmqw=; b=M/KfVwdteEV9AT5nJKByVY9Udi
-	W+oBHUU1fjwtsAm9rLQWRggQCrLQCyxngEQ/3tN8/Nw7Hg8FiOFKntJoVtQeBSUiQXpZhc6zS0YAj
-	ASzW0YLsYL1W2VtuYYjFogn04ZVHCgS4u+5Y99hK75domJZ12ighxeEU/xGoZEVPVCAe3tt5xxtrF
-	zgu9K6v9pUiy/Lw5oeiJBt2m4Zjvj0yCV0qA6cdv6BSIwg9NMbwl/RqNMZq2UHomxkJP1nXbtHXoP
-	4Sc/8abZBuGdoIx8jc/loyjoLJsg0+sdoRZtnNRkGJBEGxOpSYCQ28BF35Xc/n+OKfxxov2ULt2H2
-	A9X6jO2w==;
+	bh=fr6kFLYx3hqPZHfOilkUN+oxGtJHBsVQ4xuLKdXd4To=; b=eKN1Q+W3bILdxCTiYlR700b30s
+	5jMhiEUPnrzxchAL79+NTD/dKZjxXY71GIqtWwkKdM9mvPIYPoOwePPKJgG04bLVuvuOU62PAAvL0
+	aZJ9oUd6fKXIpun4Wqe/Rfeo4FCFR4pc11+SUZzgtZU8S29mH5qf6oQ6HCb/OXYQ5qkmgwlPDPZXl
+	pWhNP9LOtaoTeuNtW/vGzEkAkJCnogROTuottZnvCh0Ik6JErSiwIufL5wkZquJ+3D/y7fCjhy3an
+	dFM7XUwXBOfb3yrPIcA1fZp9+d6vQHLonBj5M9j69YOTstGrPr0ZqwNL6MWJdBs6v/NHfu9zNXGBF
+	JC5AW49g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xBbKL-000000048dH-1cfe;
-	Tue, 29 Sep 2026 17:09:13 +0000
-Received: from mail-qk2-x0c.google.com ([2607:f8b0:4864:34::c])
+	id 1xBbKy-000000048lO-2U19;
+	Tue, 29 Sep 2026 17:09:52 +0000
+Received: from mail-yx2-x10.google.com ([2607:f8b0:4864:41::10])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xBbKJ-000000048cl-3Dfp
+	id 1xBbKw-000000048kr-3vSE
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 29 Sep 2026 17:09:13 +0000
-Received: by mail-qk2-x0c.google.com with SMTP id af79cd13be357-93c5f63c54eso268169985a.3
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 29 Sep 2026 10:09:11 -0700 (PDT)
+	Tue, 29 Sep 2026 17:09:52 +0000
+Received: by mail-yx2-x10.google.com with SMTP id 956f58d0204a3-66e4aa8d882so5180052d50.0
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 29 Sep 2026 10:09:50 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=toxicpanda.com; s=google; t=1790701750; x=1791306550; darn=lists.infradead.org;
+        d=toxicpanda.com; s=google; t=1790701790; x=1791306590; darn=lists.infradead.org;
         h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
          :content-type:mime-version:subject:date:from:from:to:cc:subject:date
          :message-id:reply-to:content-type;
-        bh=10AkfjFtGJtRfJ5s0PO0ROrjcvpMjCKxs/Q3/9Rbmqw=;
-        b=HUWNlqIZeUi7uIWfccKoDvgm0fJfKfOP4H6WpGwHohZgQvGFsq/8kCjM/I1znqdsO4
-         pdkcSYQLoHvcV+oSi1gf/BlGc/iPbBkAlDquWP2TBywPMmZOA6SvRO7+a2XIZr/rmTLs
-         SD7QtJ7HGPhxypljyOc/1RTYwAycorY9OGg6FQoJiklmF4TmuoN8Wlxt/7+ZYaaVCHRm
-         KY92x/mm81bYEmMy0JAvycg94qx2l+vjp2PYJu+xP1GCFD3vkCJzyEWoqgjttrqZOT3Q
-         +27TNHEk7HlZ+P3uvbUULZbUJ8i/+5FpeBLJDif22csyg2F5DiXXtDJL0V8jIvKgfmtG
-         Ri+w==
+        bh=fr6kFLYx3hqPZHfOilkUN+oxGtJHBsVQ4xuLKdXd4To=;
+        b=M/FUsgFojYlZOK5PuwHYp2Z11K96EMeHeIuHKd6puM3sR7Gkz8OgQHFzeG4kNUz9E1
+         PC2TY5AEbYjc/vWmCbngQXi7GE1EAm5IzO04BzSgvryUWuBQc0r8Tdf+8kDYHviWcL2B
+         362SUnJcaLHa90t5DgRIkfHcH/bVxOl9INIIt+Fz2HvIx09YqcEj43Ic80lYEQOlJX9H
+         S0eNWbgZpLB50BurWcZQDx9kCdzBE/1Wck+3i2v+eks40wTgyDUs1hKIFotxRtzmDH5Z
+         pxmxmVmpeYNNcKQLroDZNfP/cCCj8Quyb5jKXfnUswtTIRdsZN6as12F6fxjGVMxiSi4
+         CIXw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1790701750; x=1791306550;
+        d=1e100.net; s=20260707; t=1790701790; x=1791306590;
         h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
          :content-type:mime-version:subject:date:from:x-gm-gg
          :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
          :content-type;
-        bh=10AkfjFtGJtRfJ5s0PO0ROrjcvpMjCKxs/Q3/9Rbmqw=;
-        b=0gIxZrWVFgO3UFUlGGs2WmyPqYTQ0OpYdjoXBBHiAKtYA0Il+T443mMhPWzRbm1e2V
-         zi/P+nWx5iZKaV6BPEXcwcq0ZKGjuWEiAkATvjAU2yxCAaEv93i55NFLUtUbUwvMtAw5
-         lKMzTINltceee2SRnSnBplz5hQjXjx/pc5qm/vhL8G22GRx2ZxGFa1y1stoKOuQkoCL3
-         tHCYODj8zS9xnwadmECP0oEN7fp+BDybBasrVoKk9qkYDf8cDrUbvz0eiJ+r8jzq24Za
-         ycPhfmdq7YOCg1jSNP0u5x2ZdSOYsM/X29R8BVIWFCQhLOdA75FNc7Hwj3NQPeZfsWj5
-         Qeqg==
-X-Forwarded-Encrypted: i=1; AKwUvBxrNaHCS8QI+ttnDWCkSp2XAZwL2XbvpDr4zd8oXlDifqR4FQhD3Xb1qulacDLpynhKSXgIrcdZ8/mtkFaHV57f@lists.infradead.org
-X-Gm-Message-State: AFuF++k1cjIQWYzB1fvFthH6JO6+M8q2IcVAViQtHsTm36sGfJO62Yv3
-	1+HNflp/V5bAsguZws4CDKmr/W5JearTiapBfYD5IobQrDtzB+sJ+IV0VbVcQfC+Ulo=
-X-Gm-Gg: AYBFou1BkVt0c1E/LtMxGws3wfsBzETEahF8O9zTFZmjeomctd0F4zuIr2jC9UudQke
-	v/AYyZyIbavC+TKtFCyQ8ov6rAU51IBmX8xqnhkLVwgGeXzz37wGMFAsYciTWn3EbpH6ZYSWI6z
-	TFIVOwqr8kFOz40sA30IfQT7sjnCtKT/veb9+KrFdOMswWHMGFOKQTZ7bT9J8vS2TnqB32wcMHL
-	m4qRyU+GASgEdCe+4Zv6a/QNwtU/gf2UwsvIkwYKoTT+dSjcbAbMXKskUXLPTI/hAMhW6LWLvkT
-	Q/JasU8/rh/vo2fF5Yviw4LPmxqtqfDRvKhcis+cHaTZOr+cYIl/p7pDj7cDL6yzvMh4hwJP4h9
-	miF4PdwRspZczp7ULF8IunePSXN0BPs0OJIFRtUydtbVyyQLweATnyMZ/Lx+x38LACPm3EGf9U7
-	WkwUO2QR+HtoDv4Vc+2B9fyg2N8bG4Hx2Y3qqcOYbq98cLrXinOp/7SYvAd6PCFkdrH/JBhSp9U
-	nYx6msUBR3UUZ2gML9yDJreTQ==
-X-Received: by 2002:a05:620a:688d:b0:93c:771e:b672 with SMTP id af79cd13be357-93c9f9976demr30255585a.54.1790701750321;
-        Tue, 29 Sep 2026 10:09:10 -0700 (PDT)
-Received: from toxicpanda.com ([153.61.196.252])
-        by smtp.gmail.com with ESMTPSA id af79cd13be357-93c9f546693sm15090785a.40.2026.09.29.10.09.09
+        bh=fr6kFLYx3hqPZHfOilkUN+oxGtJHBsVQ4xuLKdXd4To=;
+        b=OtiTwILIdmxjHBHhF0x0AS77+4nbO1D/01GswU+5vVOoEfJ17SBvOMvVSd7RyywgpS
+         iTr/aAnFcTq71v/zo3UiE2xZ5xpNusLbQ2TZ8dpEF/Y29oKLkM6fq/tU7puGYfywOPZe
+         +EZMOM1yjCdcssLv6M2/VgBgSCDTLnmLmF6/sGGY7X2gorW53+Y3+DI7HNJnn7OybLdW
+         aQl63pNPKspCLhkz3O410YwBEhOXMLp9Ddb0rzZOvLcDDiIVEpB9q87oLab/iGpWtkMb
+         +FH0nm1VYoqfbgGYQc7EFOg4VsoZtbN5YhS3HqE99GKjMd9hp8D8g4p0gS9uWI1AFC8C
+         vWEg==
+X-Forwarded-Encrypted: i=1; AKwUvBxJyWfowp9fCrP4UerYlGf5DUjsD5AXy3qqIFfXGp6HzyvbYpKAbxT+0Es8ZtelZBfuziJsXcJbhE3i9uMaEiPu@lists.infradead.org
+X-Gm-Message-State: AFq9FYKfGiha02VBf4caapa9g44/THVCOr425QWu51ipwMNzTf9OJTng
+	ruqCnQKPuLSsdhZBC7aP6DdrIbrWGcvF3XG5KRnC9z9ywEAfEsphr3MWb6/2937c7vA=
+X-Gm-Gg: AYBFou0YE0zFJh9XBIGFUYQk50n36VbqRUoxIQLI5908XYsFRKsiCCU9UM1qzuy9/JB
+	VVSrFxHsPU9Ypz1mee4lmPJfsDUd5rtluULjqAaFIBWFH7S+kIHvnzGtbxWLhc0BBLqgJ+jQYz1
+	6iMj+wqoZ0AuhGTQqL+iqlt99BkEHfJUPUoa7NgHBr0ay1JhKMPv7bvfteeeYKxB/6zODBpr48q
+	CBmBpcwrDRVRvWHUoIRUc9Dd5uGZGMw0QrajnumRbGTPUAfF2OsrEy7oUS4n+rGn6OB/BU08GiC
+	3crQ5znXiaKyYCt0uJ3IIeHYjHVs2Iv3/sQ/K18pQScCj+qMrihhpt8YxagIquv53v8RiWw87J3
+	xOkzy45OoVfzn/I4rqNvLOtym80PjByTAGrvUqaFFCpYKPCbNrbQTfM4yBIUB2hZRlqFN+WWlPN
+	VHWW+foppjOdT5qRme3BZ6HaiBaqp8958JAJKYZe0BNZ9fLU/vDtfckcZupCSck557KfwE1/XOB
+	4UO656Etp2KMnk=
+X-Received: by 2002:a05:690e:1381:b0:675:6228:2fdd with SMTP id 956f58d0204a3-67562283283mr1486048d50.4.1790701789596;
+        Tue, 29 Sep 2026 10:09:49 -0700 (PDT)
+Received: from toxicpanda.com ([153.61.196.242])
+        by smtp.gmail.com with ESMTPSA id 6a1803df08f44-9178d36dc53sm15111636d6.37.2026.09.29.10.09.48
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 29 Sep 2026 10:09:09 -0700 (PDT)
+        Tue, 29 Sep 2026 10:09:48 -0700 (PDT)
 From: Josef Bacik <josef@toxicpanda.com>
-Date: Tue, 29 Sep 2026 17:07:18 +0000
-Subject: [PATCH v6 01/14] rcu-tasks-trace: Let TASKS_TRACE_RCU_NO_MB
- default on without RCU_EXPERT
+Date: Tue, 29 Sep 2026 17:07:19 +0000
+Subject: [PATCH v6 02/14] entry: Pass pt_regs to
+ irqentry_exit_cond_resched()
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20260929-b4-rcu-tasks-preempt-qs-v6-1-c111ee02caca@toxicpanda.com>
+Message-Id: <20260929-b4-rcu-tasks-preempt-qs-v6-2-c111ee02caca@toxicpanda.com>
 References: <20260929-b4-rcu-tasks-preempt-qs-v6-0-c111ee02caca@toxicpanda.com>
 In-Reply-To: <20260929-b4-rcu-tasks-preempt-qs-v6-0-c111ee02caca@toxicpanda.com>
 To: "Paul E. McKenney" <paulmck@kernel.org>, 
@@ -92,18 +92,18 @@ Cc: Boqun Feng <boqun@kernel.org>, Masami Hiramatsu <mhiramat@kernel.org>,
  linux-trace-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
  linux-kernel@vger.kernel.org, Josef Bacik <josef@toxicpanda.com>
 X-Mailer: b4 0.15.2
-X-Developer-Signature: v=1; a=openssh-sha256; t=1790701681; l=1628;
+X-Developer-Signature: v=1; a=openssh-sha256; t=1790701681; l=4297;
  i=josef@toxicpanda.com; h=from:subject:message-id;
- bh=y1u2xRxOth8hjZX7WrDCv5jvFeXG8f2oIpSNUGi916M=;
+ bh=vAWpKfoMcBcYFQiIgPpQZt2gAuw45VdrXu4vr32WnR0=;
  b=U1NIU0lHAAAAAQAAADMAAAALc3NoLWVkMjU1MTkAAAAgUBr36M/n0nWN0DNbnxwzIiCZez6MG
  JiruuNaSCI/zXsAAAAGcGF0YXR0AAAAAAAAAAZzaGE1MTIAAABTAAAAC3NzaC1lZDI1NTE5AAAA
- QLjB1n/ZEukW4eoCSq390Xy4zsK+XCVJ6PlHFVN7oC6nXmdURQGOs8r7RRxAT7C/fG4vCy5xkt1
- w73J5aAOT2gk=
+ QJ82CGQXfqnbJiVp3TBiWQlv0t3DHZRPE4o+VRe/LAxOZF8rZHNhVg51z28EpN+QditmDbtfNGQ
+ sOegaspVm+Aw=
 X-Developer-Key: i=josef@toxicpanda.com; a=openssh;
  fpr=SHA256:C8kOX2QUJCMqnCX+KEeoqRAjLo9L+ELOSH2NSAJHqGA
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260929_100912_015088_F73CB215 
-X-CRM114-Status: GOOD (  15.91  )
+X-CRM114-CacheID: sfid-20260929_100950_991023_64A0E45A 
+X-CRM114-Status: GOOD (  15.51  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -118,42 +118,108 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-TASKS_TRACE_RCU_NO_MB defaults to ARCH_WANTS_NO_INSTR, on the grounds
-(see 1a72f4bb6f3e) that architectures with noinstr entry code only ever
-run tracing where RCU is watching and so can dispense with the read-side
-smp_mb() in rcu_read_lock_trace() and friends.  But the option also
-depends on RCU_EXPERT, and a Kconfig default is not applied to a symbol
-whose dependencies are unmet, so on an ordinary RCU_EXPERT=n build of
-such an architecture the option is simply absent and every Tasks Trace
-reader pays for two full barriers that the architecture does not need.
+The irq-exit preemption path is about to need the interrupted context's
+registers to decide whether the preemption may be reported to Tasks RCU
+as a quiescent state.  irqentry_exit_to_kernel_mode_preempt() already
+has them; hand them down through irqentry_exit_cond_resched(), its
+PREEMPT_DYNAMIC static-call and static-key variants, and
+raw_irqentry_exit_cond_resched().  The only caller outside the generic
+entry code is Xen PV's upcall handler, which has regs as well.
 
-Keep the prompt behind RCU_EXPERT, so that overriding the default in
-either direction remains an expert decision, but let the default itself
-apply unconditionally.  On x86-64 and arm64 defconfig this turns the
-barriers off, as intended; architectures without ARCH_WANTS_NO_INSTR
-are unchanged.
+No functional change.
 
 Assisted-by: LLM
 Signed-off-by: Josef Bacik <josef@toxicpanda.com>
 ---
- kernel/rcu/Kconfig | 4 ++--
- 1 file changed, 2 insertions(+), 2 deletions(-)
+ arch/x86/xen/enlighten_pv.c      |  2 +-
+ include/linux/irq-entry-common.h | 13 +++++++------
+ kernel/entry/common.c            |  6 +++---
+ 3 files changed, 11 insertions(+), 10 deletions(-)
 
-diff --git a/kernel/rcu/Kconfig b/kernel/rcu/Kconfig
-index 332df7a7a634..e3cfe1fe5592 100644
---- a/kernel/rcu/Kconfig
-+++ b/kernel/rcu/Kconfig
-@@ -142,8 +142,8 @@ config TASKS_TRACE_RCU
- 	default n
+diff --git a/arch/x86/xen/enlighten_pv.c b/arch/x86/xen/enlighten_pv.c
+index 2c64b388f616..3d85035f5624 100644
+--- a/arch/x86/xen/enlighten_pv.c
++++ b/arch/x86/xen/enlighten_pv.c
+@@ -739,7 +739,7 @@ __visible noinstr void xen_pv_evtchn_do_upcall(struct pt_regs *regs)
  
- config TASKS_TRACE_RCU_NO_MB
--	bool "Override RCU Tasks Trace inclusion of read-side memory barriers"
--	depends on RCU_EXPERT && TASKS_TRACE_RCU
-+	bool "Override RCU Tasks Trace inclusion of read-side memory barriers" if RCU_EXPERT
-+	depends on TASKS_TRACE_RCU
- 	default ARCH_WANTS_NO_INSTR
- 	help
- 	  This option prevents the use of read-side memory barriers in
+ 	inhcall = get_and_clear_inhcall();
+ 	if (inhcall && !WARN_ON_ONCE(state.exit_rcu)) {
+-		irqentry_exit_cond_resched();
++		irqentry_exit_cond_resched(regs);
+ 		instrumentation_end();
+ 		restore_inhcall(inhcall);
+ 	} else {
+diff --git a/include/linux/irq-entry-common.h b/include/linux/irq-entry-common.h
+index 0bb6c03481fa..e19b41ee6b18 100644
+--- a/include/linux/irq-entry-common.h
++++ b/include/linux/irq-entry-common.h
+@@ -343,24 +343,25 @@ typedef struct irqentry_state {
+ 
+ /**
+  * irqentry_exit_cond_resched - Conditionally reschedule on return from interrupt
++ * @regs:	Pointer to pt_regs of interrupted context
+  *
+  * Conditional reschedule with additional sanity checks.
+  */
+-void raw_irqentry_exit_cond_resched(void);
++void raw_irqentry_exit_cond_resched(struct pt_regs *regs);
+ 
+ #ifdef CONFIG_PREEMPT_DYNAMIC
+ #if defined(CONFIG_HAVE_PREEMPT_DYNAMIC_CALL)
+ #define irqentry_exit_cond_resched_dynamic_enabled	raw_irqentry_exit_cond_resched
+ #define irqentry_exit_cond_resched_dynamic_disabled	NULL
+ DECLARE_STATIC_CALL(irqentry_exit_cond_resched, raw_irqentry_exit_cond_resched);
+-#define irqentry_exit_cond_resched()	static_call(irqentry_exit_cond_resched)()
++#define irqentry_exit_cond_resched(regs)	static_call(irqentry_exit_cond_resched)(regs)
+ #elif defined(CONFIG_HAVE_PREEMPT_DYNAMIC_KEY)
+ DECLARE_STATIC_KEY_TRUE(sk_dynamic_irqentry_exit_cond_resched);
+-void dynamic_irqentry_exit_cond_resched(void);
+-#define irqentry_exit_cond_resched()	dynamic_irqentry_exit_cond_resched()
++void dynamic_irqentry_exit_cond_resched(struct pt_regs *regs);
++#define irqentry_exit_cond_resched(regs)	dynamic_irqentry_exit_cond_resched(regs)
+ #endif
+ #else /* CONFIG_PREEMPT_DYNAMIC */
+-#define irqentry_exit_cond_resched()	raw_irqentry_exit_cond_resched()
++#define irqentry_exit_cond_resched(regs)	raw_irqentry_exit_cond_resched(regs)
+ #endif /* CONFIG_PREEMPT_DYNAMIC */
+ 
+ /**
+@@ -465,7 +466,7 @@ static inline void irqentry_exit_to_kernel_mode_preempt(struct pt_regs *regs,
+ 		return;
+ 
+ 	if (IS_ENABLED(CONFIG_PREEMPTION))
+-		irqentry_exit_cond_resched();
++		irqentry_exit_cond_resched(regs);
+ }
+ 
+ /**
+diff --git a/kernel/entry/common.c b/kernel/entry/common.c
+index e3d381fd3d25..e4acd50bd81a 100644
+--- a/kernel/entry/common.c
++++ b/kernel/entry/common.c
+@@ -134,7 +134,7 @@ static inline bool arch_irqentry_exit_need_resched(void);
+ static inline bool arch_irqentry_exit_need_resched(void) { return true; }
+ #endif
+ 
+-void raw_irqentry_exit_cond_resched(void)
++void raw_irqentry_exit_cond_resched(struct pt_regs *regs)
+ {
+ 	if (!preempt_count()) {
+ 		/* Sanity check RCU and thread stack */
+@@ -150,11 +150,11 @@ void raw_irqentry_exit_cond_resched(void)
+ DEFINE_STATIC_CALL(irqentry_exit_cond_resched, raw_irqentry_exit_cond_resched);
+ #elif defined(CONFIG_HAVE_PREEMPT_DYNAMIC_KEY)
+ DEFINE_STATIC_KEY_TRUE(sk_dynamic_irqentry_exit_cond_resched);
+-void dynamic_irqentry_exit_cond_resched(void)
++void dynamic_irqentry_exit_cond_resched(struct pt_regs *regs)
+ {
+ 	if (!static_branch_unlikely(&sk_dynamic_irqentry_exit_cond_resched))
+ 		return;
+-	raw_irqentry_exit_cond_resched();
++	raw_irqentry_exit_cond_resched(regs);
+ }
+ #endif
+ #endif
 
 -- 
 2.55.0
