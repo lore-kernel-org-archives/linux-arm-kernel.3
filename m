@@ -4,116 +4,112 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id EB63CCA5FAC
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 29 Sep 2026 15:55:43 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8F0C0CA5FAC
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 29 Sep 2026 15:58:39 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=YshmIf8br7QZ8gBxtu/Vo13g09V/Sk1mprmtIBCHo2o=; b=AV43IKLD/M19i0hwsGZjnf0em/
-	j+D7KgrsIxTa0LkanM3ZE8qnvFhXuvJfRY6Q9wp0rAzr0uHnQlaY+YamR9Uqeou9fvRArnloT/qpk
-	iRC9tKydHgS1kwSjSbDKV0JHS48arFgP8gGBRgqd81p3Tfea3448RNSrba2BMp/k/Z7f+fDvfMP/P
-	Z9FvcMcg2tIvfxwFa/wZIjbLdwlbWOYBE7WCpg7iu+cVuAY5hrLzp7pLd5hiLhLcB6jDgTmBLdHQ+
-	F/w91PtGaaTuqEovwNKAMdT2evi/Cb7smjy1TERJgn366uZ/AhgA5uVmf71J1j/XjPuu94FtHluhI
-	99apfKaw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=Gf4CL38l7K7zHB2Jr75kV3VIF1+DE+Av3C/FhqhlLqk=; b=bC1bL5oODX7zMPoAhif4I+TBZV
+	vemcu+a27npsLDYqMpi+Q6VoTSO9/O+s6HDNXen89d89xMzfPYltOaG/Jg5R0pKSqM9IsZ13fJ/nm
+	zQv4wJZrdeZf8t+Ya9igGkfhiXDz93npFHja5rUqHn1MFvMbzJiTw4ymtTe/urnd9OBdhC1Yw9rXD
+	hvM9UdhAEk75AFPiNLvMnwr5yY0FnVtEw5oYNb0ORb3HFcVasbMsRxrCHJUSKlOrQrPtIdGiDQWXW
+	bcd3ULvHIdq7tduI/6fYJGL3NRFpZ/7bRiPT+3nTEYfLQGTbppeb/hS9L+XE5hXaWW1MRJPcqnFCp
+	DbqzzMag==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xBZah-00000003uzU-1Jhn;
-	Tue, 29 Sep 2026 15:17:59 +0000
-Received: from mail-wm2-x11.google.com ([2a00:1450:4864:31::11])
+	id 1xBaDq-00000003zXy-1UTC;
+	Tue, 29 Sep 2026 15:58:26 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xBZad-00000003uws-13Wg
+	id 1xBaDo-00000003zXH-10Dg
+	for linux-arm-kernel@bombadil.infradead.org;
+	Tue, 29 Sep 2026 15:58:24 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=In-Reply-To:Content-Type:MIME-Version:
+	References:Message-ID:Subject:Cc:To:From:Date:Sender:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description;
+	bh=Gf4CL38l7K7zHB2Jr75kV3VIF1+DE+Av3C/FhqhlLqk=; b=XgCKIIE8p5VUyE4aOMC71ALpfG
+	0ccG2Yn9sj7sugTUUAbK7BxPuuVFIhKEf9uLipOFEPk1tDK5wZSzymVXF8abs0kQCGxekIHiUClHy
+	qHxJLdyTRZJQH783+/4YLRQiQkAOeSaOihW1NiftLF6bi9i0m3G/djYLs1CglpBm4/szdQ8ApTg/1
+	jY6Hyh/kgThkqvKgZk+SCMGb9XgRwUOxvy1EOHmo6VNr5vKPYrx3Mm1O2ydn2VfvBgzeFaCQo/xHR
+	hXk4tT8OxzYVzKREwZgSKNUsTsPCayWG0VPb5qp7DW4OjFyl8xFloxJvS08JuHUWfmN+eVj4xMkKO
+	TZRAmehQ==;
+Received: from mail-wm2-x10.google.com ([2a00:1450:4864:31::10])
+	by desiato.infradead.org with esmtps (Exim 4.99.2 #2 (Red Hat Linux))
+	id 1xBaDl-00000002p7Z-2HCm
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 29 Sep 2026 15:17:56 +0000
-Received: by mail-wm2-x11.google.com with SMTP id 5b1f17b1804b1-49e7bcb94d3so32627435e9.2
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 29 Sep 2026 08:17:54 -0700 (PDT)
+	Tue, 29 Sep 2026 15:58:23 +0000
+Received: by mail-wm2-x10.google.com with SMTP id 5b1f17b1804b1-49b912d3931so33268335e9.3
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 29 Sep 2026 08:58:20 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1790695073; x=1791299873; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=YshmIf8br7QZ8gBxtu/Vo13g09V/Sk1mprmtIBCHo2o=;
-        b=UpjqVudIG0wfjzxFzYk+oRv6SQlFty0QP2hGYAF3wrATrdLz9ghmUSS0l/yz6lyN3N
-         HAlG52knh5A4CaT+Cr0M+M3/f0khxo3rBefgSxtcGcr0G9z+bup+UHKZI0R2VryOhLEB
-         +BhXiDor/DOl0xlTwOzH2WLFYNUd4E/qwmGJG6oir30FM+einkLBj4u3RWCP3uwE0iaT
-         GfWisMeTsG4SmxLSiyDDAmLSujCoAl+BVY8Hd1xCGyXED0LMTHfbqyMYMnCIlPSqn6uk
-         1ePI6iKeWjuVayFqNePDxWDyL6uSXZloUyf0fXx3nA+8lq2JRWk7gcwbJOhRZ54T3GIL
-         e7KQ==
+        d=gourry.net; s=google; t=1790697499; x=1791302299; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:content-type:mime-version
+         :references:message-id:subject:cc:to:from:date:from:to:cc:subject
+         :date:message-id:reply-to:content-type;
+        bh=Gf4CL38l7K7zHB2Jr75kV3VIF1+DE+Av3C/FhqhlLqk=;
+        b=WyeQ18zT+sX1yxCCH++cYyWkzgLUvgfmuzud5LGJphcQwfuhinMHRKtDEct/Z05aL9
+         ntOur+cZBO1llGyKNY3Vkp/bUlGci1eOMfvxRDKkab8XcktrgMs+wtXiaxjrP3Fb6Q2q
+         KxDGoU0NkFzBzLgXw61SQoFAHm9vvIkjgJl7pTvXxdQ13p7U6Af2K3jIcD0Asaciu797
+         ajacg25qt9dAppg3r4X4dAomkLuHljwlml044yzzsgsWn2pVwcvvfgQkcSXfuVofUk+a
+         2HJJkvd9T7IU5ZSB64rBvfa/1rJ3GVx+sBYjwaCZsGEappcsNiRq2aFSRt6DnRwoBR8M
+         CoWA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1790695074; x=1791299874;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=YshmIf8br7QZ8gBxtu/Vo13g09V/Sk1mprmtIBCHo2o=;
-        b=kz+5qw6fEnwsFiwHBykp7MGc0GEq4zl0fZYDAZqrN3mAa8aypJntq/yaPeX//1FHWA
-         UuTiLngBNNonK9lToeqwgVEOyRCPwfqYzpxGFnWbEs6PhKvk13yhJWZgPvyU7k3HmSPI
-         SIUqCBfF1uQLWxVmOcE1nhlq8jWVsJERmCxWoNiShzJSyKEP1nvxpJoeGKbP5yzX3maW
-         /10Nc/SbtLjA3Qm01TvxTmeAgBOEeNK9VOLXOpv5AiMrzuAlNM1xiO0M2P+5Eb/lZubV
-         U17E2ek0ZlmRft6xryEZKU+XxA6DO0KdDAgRHzVztlq19WmlrN0yAeqrKwAU5lfyMOlA
-         uxqQ==
-X-Forwarded-Encrypted: i=1; AKwUvBx6WqbKRVBLRusW28SfELnrTZ6kAEgyoOCxcivBy1vAU3snn8d4IFAINdtxqWbEkVKh8P93Z9S1ikUQ709MSqzZ@lists.infradead.org
-X-Gm-Message-State: AFuF++l+EEc13BtEC1sMU4XSWZiwfgj4ScKbezQyx2KhM7CFJZYXEqMm
-	k2BlT8cPIcGX8MXf1IZDZQ9cu2MYjRyVURa/6n8c99W+6UrNoNTYSDWf
-X-Gm-Gg: AYBFou1C3bjczHf6NsMDbiLyynOnRrioduGL+edos6bCy6w2tX+ariD+fOfAsWCd/Q8
-	Wm3R8KmwwPNeAzlu+6i2OuzZQYgMCMvc7pb64ujGgxuKBBZtQKKMTWAfzgxaYgKuOgoYOd0/TYd
-	PYbow1CxirDAjKmdKexP0pZeGhkBRkwX0TILHPGMItQfvfA4JwaIc6vh6zeTsW9QFbn/BN5bOlr
-	dj+aYIOwjprX8//7UeA4S7n8zcFyof6pt+5B656is8j9Fcz2FveNGOr9CYu11KrgIz+qIwFp7B9
-	rlmKeubNpgTE2zywCYQ2XFS0v0+cG7KWlFW+RUTpU6DXxo/N4EizLH5cz1qINewZ/JYYBYLfz0N
-	cXNxH8gpU/+CoBL5RqM5/stBhzE06VsFVDhFC2oDSfHpdgzOlV4W4zhs6kSoHJzjMaVDUBmgUFI
-	/BLj8GJctWhTDAuxYalhXMHIRoZhej1Qw5IrR2SYjhsNOz+DjAHXMvoeC86t6bg4JhzekN7jAzw
-	5235wfe3LdwfxkZP+6U+BJakbrET8mXf7X+sfxWTINJaiNlHRQjq5Wnb8x91oNeJnzOlT7W1Zev
-	o2yAsAvngWYw6vrC4/WRcnllGAgbsv++
-X-Received: by 2002:a05:600c:c3c1:10b0:49c:fc6e:8caf with SMTP id 5b1f17b1804b1-49feaa1d628mr198851025e9.19.1790695073277;
-        Tue, 29 Sep 2026 08:17:53 -0700 (PDT)
-Received: from Lord-Beerus.station ([31.27.155.43])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4a013cf8402sm10313705e9.2.2026.09.29.08.17.51
+        d=1e100.net; s=20260707; t=1790697499; x=1791302299;
+        h=in-reply-to:content-disposition:content-type:mime-version
+         :references:message-id:subject:cc:to:from:date:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=Gf4CL38l7K7zHB2Jr75kV3VIF1+DE+Av3C/FhqhlLqk=;
+        b=eyUi/UKqPNsPoHqK4NkFrq4HzwVxncC0XsI5pOCUWGzfRsrXy8loWTl9jJnS+oKoZl
+         E2jVB0C0bUQ+W5MV6ceSozme3jLntTyZQ/1X0Oonbeh8HYJ2K6Heeb4mS4oLBwjTlkxC
+         6A/HHiDeGHCO3CeczgEFtXPlGWKSfHLS0F/Htvx+JBsBAmd1DSHrAeZz35dfCsTCMdwV
+         G37MnWd6CHroxoramsvRUdbTCgOIMsOJEnNMOtjh9IfS90IQKVLy/CEY4mwr/7XmHIn4
+         HssSxcKH/SAyfo4ZNHcBh1ooLSm60Hrbo9+WCqLz+o4B//J+PSW4m0PS+4h4nyPj+ULe
+         Yryw==
+X-Forwarded-Encrypted: i=1; AKwUvByL6SkvZ2C1oCoE7Ht+6aGPRBn9w6KzKS56Jq5s+0Jr3qQH2RbOudaZaWw+7sYBYEx411t56e2hJYdmvG1RvRPJ@lists.infradead.org
+X-Gm-Message-State: AFuF++m2Qyg1pfBWsey3sqdfBJWKk1MJgUbbs36jedhtFILkbtxaSkk3
+	r4WF55sfncHfW2l8xBXtqjPzyZKHkyO1TCJ4ImuDHqKmLirnL6MyFMD3eaOEm+1nKlo=
+X-Gm-Gg: AYBFou2j3+Q9JuL4Y9BB+bC5NFiAh0u9BeF+sd9hmH3R+dSXnf5UBDeo0qhJsUXN3dI
+	EXLU9M/MktUM7zcFb9saVj4EbvdeYHY+Pq7EgonX4nyMWvUr1oXU9tc+svhppvSW2fE4S50G6qR
+	SZx+37ldliuP4pwhXstWjUsh/RLIeWhl7Jm5feMLqooDGSFILnbWw8hAgj6ZrkVzPKv4NVGQUsi
+	rpRqDAi1E2d3ernn6+GzmCyRxKWPzPFn2ii0mctzMUlYa3NmIiQtSkB+xyGkl6fxa/qjcjAlF83
+	jN+ORf2FZqo8sQNQYNrGwGANtCH2/mN0ETXDozigslxjOenC9o3+3ptDSNqdFoIHtiXquWf2l7Y
+	iXBLGv5ZXzrEwGw6YEDap8hGfAqk8djm1RDnmvA5FYEYB+l0c7YEi5c0pXG9upg8THAR/By7gN9
+	DpePIhXYhrj6ybazmfVTrBXNOvYk+Wb+DEC5Pc+/l4RNZDKctkSv0XUbahRPcLAum4ssboa59dW
+	d3J
+X-Received: by 2002:a05:600c:1d1c:b0:49c:eb16:9fd with SMTP id 5b1f17b1804b1-49fe66c9ae3mr284330975e9.3.1790697499193;
+        Tue, 29 Sep 2026 08:58:19 -0700 (PDT)
+Received: from gourry-fedora-PF4VCD3F ([2620:10d:c092:500::5:5c0])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4a00cf9dfdbsm127631095e9.1.2026.09.29.08.58.18
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 29 Sep 2026 08:17:52 -0700 (PDT)
-From: Stefano Radaelli <stefano.radaelli21@gmail.com>
-X-Google-Original-From: Stefano Radaelli <stefano.r@variscite.com>
-To: Frank Li <Frank.Li@nxp.com>,
-	linux-kernel@vger.kernel.org,
-	devicetree@vger.kernel.org,
-	imx@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org
-Cc: pierluigi.p@variscite.com,
-	Stefano Radaelli <stefano.r@variscite.com>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Andrew Lunn <andrew+netdev@lunn.ch>,
-	"David S. Miller" <davem@davemloft.net>,
-	Eric Dumazet <edumazet@google.com>,
-	Jakub Kicinski <kuba@kernel.org>,
-	Paolo Abeni <pabeni@redhat.com>,
-	Sascha Hauer <s.hauer@pengutronix.de>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Fabio Estevam <festevam@gmail.com>,
-	Heiner Kallweit <hkallweit1@gmail.com>,
-	Russell King <linux@armlinux.org.uk>,
-	Shawn Guo <shawnguo@kernel.org>,
-	Joseph Guo <qijian.guo@nxp.com>,
-	Josua Mayer <josua@solid-run.com>,
-	Ernest Van Hoecke <ernest.vanhoecke@toradex.com>,
-	Mehmet Fide <mehmet.fide@screeningeagle.com>,
-	Francesco Dolcini <francesco.dolcini@toradex.com>,
-	Markus Niebel <Markus.Niebel@ew.tq-group.com>,
-	Hugo Villeneuve <hvilleneuve@dimonoff.com>,
-	Stefan Eichenberger <eichest@gmail.com>,
-	netdev@vger.kernel.org
-Subject: [PATCH v4 05/13] dt-bindings: net: micrel: Fix RMII clock select property type
-Date: Tue, 29 Sep 2026 17:17:32 +0200
-Message-ID: <9a0f70dc168278a484bb336835bf2e419a9d089d.1790693249.git.stefano.r@variscite.com>
-X-Mailer: git-send-email 2.47.3
-In-Reply-To: <cover.1790693249.git.stefano.r@variscite.com>
-References: <cover.1790693249.git.stefano.r@variscite.com>
+        Tue, 29 Sep 2026 08:58:18 -0700 (PDT)
+Date: Tue, 29 Sep 2026 11:58:16 -0400
+From: Gregory Price <gourry@gourry.net>
+To: "Lorenzo Stoakes (ARM)" <ljs@kernel.org>
+Cc: Andrew Morton <akpm@linux-foundation.org>, 
+	linux-kernel@vger.kernel.org, linux-doc@vger.kernel.org, linux-usb@vger.kernel.org, 
+	linux-rdma@vger.kernel.org, selinux@vger.kernel.org, linux-sound@vger.kernel.org, 
+	bpf@vger.kernel.org, linux-scsi@vger.kernel.org, linux-fbdev@vger.kernel.org, 
+	dri-devel@lists.freedesktop.org, linux-trace-kernel@vger.kernel.org, 
+	linux-perf-users@vger.kernel.org, linux-arch@vger.kernel.org, linux-fsdevel@vger.kernel.org, 
+	linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev, linuxppc-dev@lists.ozlabs.org, 
+	kvm@vger.kernel.org, kvm-riscv@lists.infradead.org, linux-riscv@lists.infradead.org, 
+	linux-s390@vger.kernel.org, sparclinux@vger.kernel.org, fuse-devel@lists.linux.dev
+Subject: Re: [PATCH v3 06/40] mm: make map_kernel_pages_[prepare,complete]
+ internal and unexported
+Message-ID: <arvf-dEnIzsXhzkL@gourry-fedora-PF4VCD3F>
+References: <20260917-b4-mmap-prepare-vma-flag-sanify-v3-0-4583d8a23bca@kernel.org>
+ <20260917-b4-mmap-prepare-vma-flag-sanify-v3-6-4583d8a23bca@kernel.org>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20260917-b4-mmap-prepare-vma-flag-sanify-v3-6-4583d8a23bca@kernel.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260929_081755_310631_4DEEA202 
-X-CRM114-Status: GOOD (  12.16  )
+X-CRM114-CacheID: sfid-20260929_165821_621165_F6F0D4B3 
+X-CRM114-Status: GOOD (  13.53  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -128,75 +124,18 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Stefano Radaelli <stefano.r@variscite.com>
+On Thu, Sep 17, 2026 at 05:22:15PM +0100, Lorenzo Stoakes (ARM) wrote:
+> There's no reason to export the symbols for these functions which are only
+> called from internal mm logic, additionally there's no reason for them to
+> be declared in mm.h.
+> 
+> This patch therefore removes the exports and moves the declarations to
+> mm/internal.h.
+> 
+> No functional change intended.
+> 
+> Signed-off-by: Lorenzo Stoakes (ARM) <ljs@kernel.org>
 
-The binding describes micrel,rmii-reference-clock-select-25-mhz as a
-boolean. dt-schema requires properties ending in -mhz to contain an
-unsigned integer value. A bare property therefore produces a
-property-units.yaml type warning.
+Reviewed-by: Gregory Price (Meta) <gourry@gourry.net>
 
-Describe 25 MHz selection as <1> and keep the property restricted to
-KSZ8021, KSZ8031, KSZ8081 and KSZ8091 PHYs, which have the RMII
-reference clock select bit. The driver checks only for the property
-presence, so this does not change runtime behavior.
-
-Signed-off-by: Stefano Radaelli <stefano.r@variscite.com>
----
- .../devicetree/bindings/net/micrel.yaml       | 27 ++++++++++++++-----
- 1 file changed, 20 insertions(+), 7 deletions(-)
-
-diff --git a/Documentation/devicetree/bindings/net/micrel.yaml b/Documentation/devicetree/bindings/net/micrel.yaml
-index 6fa568057b92..a1f876dc00de 100644
---- a/Documentation/devicetree/bindings/net/micrel.yaml
-+++ b/Documentation/devicetree/bindings/net/micrel.yaml
-@@ -63,6 +63,14 @@ properties:
-     minimum: 0
-     maximum: 3
- 
-+  micrel,rmii-reference-clock-select-25-mhz:
-+    enum: [ 1 ]
-+    description: |
-+      RMII Reference Clock Select bit selects 25 MHz mode.
-+
-+      Setting the RMII Reference Clock Select bit enables 25 MHz rather
-+      than 50 MHz clock mode.
-+
- allOf:
-   - $ref: ethernet-phy.yaml#
-   - if:
-@@ -90,6 +98,18 @@ allOf:
-     then:
-       properties:
-         micrel,led-mode: false
-+  - if:
-+      not:
-+        properties:
-+          compatible:
-+            contains:
-+              enum:
-+                - ethernet-phy-id0022.1555
-+                - ethernet-phy-id0022.1556
-+                - ethernet-phy-id0022.1560
-+    then:
-+      properties:
-+        micrel,rmii-reference-clock-select-25-mhz: false
-   - if:
-       properties:
-         compatible:
-@@ -105,13 +125,6 @@ allOf:
-           description:
-             The RMII reference input clock. Used to determine the XI input
-             clock.
--        micrel,rmii-reference-clock-select-25-mhz:
--          type: boolean
--          description: |
--            RMII Reference Clock Select bit selects 25 MHz mode
--
--            Setting the RMII Reference Clock Select bit enables 25 MHz rather
--            than 50 MHz clock mode.
- 
- dependentRequired:
-   micrel,rmii-reference-clock-select-25-mhz: [ clock-names ]
--- 
-2.47.3
 
