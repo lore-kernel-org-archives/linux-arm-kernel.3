@@ -4,112 +4,113 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 16C99C9832A
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 29 Sep 2026 14:07:42 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 10CBDCA5FA5
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 29 Sep 2026 14:09:00 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=SqA+LDAW+n6bzSeEWtxAoQmofqsPeInfCOUXCovBFDk=; b=hGpMb3WqKLNIEOPXPpjLQouHe+
-	9ITnaX0onKdmXvqqaIoC0BAWfocOXq7XQRd5Mdjczxv5ise7BYrTnuo/BaqwJ/3zyrNxOhFqCSee6
-	jAMjcUIAp5XHxbu5180BIEdufy3ZMdeiCw8KJ2AJW4nYNHGj08+B34ZLnFwprXhpDB8YpdWjhI6wT
-	5Cgj2uNDHd+cZSkEV3oqfoOrSlHSXQEGobiS6LjU0iKVdkxdIsBV59RNd2ShWmqwFLzdidfxPN8sC
-	kqoWc3YLr+N8qpaiYNqSLV0n1y5YAPKsgKgqWvSIOwkFdxk1mYUlxj6qJkGEk38I0j2xCunIas6WR
-	Mns7sPBg==;
+	bh=xe4sMjFI7Bnhs5VJABLcVxZS9wdqwlCcJPQVGcmwjL0=; b=XrZZ+PdG3hgmXb7GDWN9ovryeK
+	hn0aicPRc2EFQGGKtJBD46sGyMPqlATc9VCiqKoGQGJK985gCp68Hodedu844J5cOfwSpGS+EbkDY
+	fzayhU4Hxx6fDyVCUjsSqj1zgdqwvFn2eh1GF0stFFHeD+w7mwF7Vr8ZmpFn8K25xR9VeljUZ2SMG
+	sf7+FZGhvKTJzwUMveGve9urKmyQGiklhDncfCBeklihlsJ8JqlVa46Y8NSN7p0VU+f2w9sOC4fjS
+	cS+5NutN3u+Yrn+fwP9Cpod5ABffxC8NU8CkPT6ofvNbVegNltyGAqx2yfinv9TSg1zYrpyInw8Dj
+	+0ySIVVw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xBYUZ-00000003kY5-3ti8;
-	Tue, 29 Sep 2026 14:07:35 +0000
+	id 1xBYVp-00000003kti-3wvq;
+	Tue, 29 Sep 2026 14:08:53 +0000
 Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xBYUO-00000003kRk-2pxJ
+	id 1xBYVo-00000003ktT-32go
 	for linux-arm-kernel@bombadil.infradead.org;
-	Tue, 29 Sep 2026 14:07:24 +0000
+	Tue, 29 Sep 2026 14:08:52 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:MIME-Version
-	:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Sender:Reply-To:
-	Content-Type:Content-ID:Content-Description;
-	bh=SqA+LDAW+n6bzSeEWtxAoQmofqsPeInfCOUXCovBFDk=; b=gyvgzwdWKpceRtp7EK4syM+WQN
-	Rg1AdvUbIfsvYps8fsJgpoNhIicqN6BiRjqRoDEAAlpFOCcPpg9mR26e9Hfg70dalqFNTEqm1U8yO
-	pVD9V7wUE1Tz4j0yEKn26BHyFtfMYlbDrcNj39V5LF6e83lBf88fq8w1ImXKVL69E/f/EuD0iRpS1
-	QanXeJJAWgoPp8HAduZnmrkSKDpbugxapsFXemw5f1DbIwl99xoBAHPsrj2OGjW+qOHa8FDKZXgf8
-	hylXB0exxmYd1M8J29cHppRXKFbWBPyibLoDZeChDVcPjb7hdV9KTxACZaFiSet/zi9QFvkCor32W
-	kl1aVDSw==;
-Received: from mail-pg1-x531.google.com ([2607:f8b0:4864:20::531])
+	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:Content-Type
+	:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:Message-ID:
+	Sender:Reply-To:Content-ID:Content-Description;
+	bh=xe4sMjFI7Bnhs5VJABLcVxZS9wdqwlCcJPQVGcmwjL0=; b=ngj/FJEWFSMtZW7ECVphdZXvr1
+	gjguCoTgqA7pKwFQmr6UlY21Y/7w9L38OPqp4LH+L8m5mhTPjZZmLpCyPR4tyOkniUNtax1RXL9t7
+	Y6/UeVs563xnfaurkGWQOX4J9XJ7JLMclj67gY1QoTrvKYL7hBYLc3TfdP0EgnhJZhUJs4nWWzFwp
+	3qAqx5HBibHkx0Nn+BQVYzq15m2CluUeysR4E1CnoillM0HBxsYIVoTk3l67ptZc1lnbiwbgnQRH4
+	kGwhmOF61YGIxE6XJN+YK3Ca1l4dV+eYfkNSbQSGmdvybKKczStRWQK4gLLUqIzhQJVGlJ/OY9N8t
+	/5MMDYQw==;
+Received: from mail-ed2-x0e.google.com ([2a00:1450:4864:33::e])
 	by desiato.infradead.org with esmtps (Exim 4.99.2 #2 (Red Hat Linux))
-	id 1xBYUL-00000002iak-0EC4
+	id 1xBYVi-00000002ihs-44Lg
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 29 Sep 2026 14:07:23 +0000
-Received: by mail-pg1-x531.google.com with SMTP id 41be03b00d2f7-cbe6295f05bso438671a12.1
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 29 Sep 2026 07:07:20 -0700 (PDT)
+	Tue, 29 Sep 2026 14:08:50 +0000
+Received: by mail-ed2-x0e.google.com with SMTP id 4fb4d7f45d1cf-6aaf688ebb0so5027036a12.0
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 29 Sep 2026 07:08:45 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1790690839; x=1791295639; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=SqA+LDAW+n6bzSeEWtxAoQmofqsPeInfCOUXCovBFDk=;
-        b=F4J1J/YSYoQ5kVT4H3Wa65jp144ZgJjHnadsL/gtXod6WWjJDbsuJj5BZ10oTt/Dcx
-         6HPDnulKTBf4duEKZuC/c/0/Ha4SNSfCCoZyFsGfa5duIFFxQdRISTk0zdDRlsWwExhA
-         4B75nJvwwMqMtomJq+a2IUvSN4Gf1mTqyEnbwD3JkxTvx2neUTWnvJeEVyeCUft+ObhW
-         UCKvBRuEcb8BIdA0dyB2n+jNUO2gWPE5PtD55JitwgM7oihH/kSF0GwsBNOhO76/U6k1
-         FL/IM6oDNCGdU67T1I2BtP/D1Xo0pbqmAGTzTDJ6wjXMIMJ1LuR+Vv9pffsfYopbHAlt
-         rJ+g==
+        d=linaro.org; s=google; t=1790690924; x=1791295724; darn=lists.infradead.org;
+        h=content-transfer-encoding:content-type:in-reply-to:from
+         :content-language:references:cc:to:subject:user-agent:mime-version
+         :date:message-id:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=xe4sMjFI7Bnhs5VJABLcVxZS9wdqwlCcJPQVGcmwjL0=;
+        b=ZJRsaS73xg8D4O840fV/6kULFS9PDVJgif8khdJQl8baSLNa1SUL9kAzyX/YDG8UMf
+         0+87ypTRvfXm1GuikqYEF7OY7yIDWVxm9Nfp5wua1zGEWIMD4EljiKTRnSBE5rF8BAGP
+         MTRH2tXRmCtyXl5GXJdzGehl99evnwSaerjhVqzKWRE9aT4+X6dCpI3CPcZQiYNGUAxR
+         WCGP5eJnBOG4ZmTQ5crvUq/cN8xDT8I7ubglZX4/7oCAJ2RBtNgrbI4QzHSB0ZVvNuV3
+         /3mGstNDtOnnVlelY+nN2xKFMFpw40T2SKAv2zxysNGcssaAExKcZ6fUuHJl5OJloWDb
+         g6Qw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1790690839; x=1791295639;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=SqA+LDAW+n6bzSeEWtxAoQmofqsPeInfCOUXCovBFDk=;
-        b=yreUlyJ6/PzKMKbMdA2bIKHx7K5zAUSRmRBb1vEubcTmDWilsNNABAZ880N3X9fnER
-         huMx4NBPfNJuroUPk9ajEFCuLhi0NDwLBMvBj1GlpHvCBugoLIIAo6A2lMumqbumKp22
-         XHABc5GDywj94AlclmODfqM6SxI2Ep+UTN59gBCmxiuwtnKskA4kr7QQQr9h6sPBVbeo
-         bO95t41nurGNduiO6qQubGmZT7cZODZr6ld9qekRB8xO0Z1ubABl8GD5V3uiFjarR2AK
-         qSQ0rRz3mhFt1wX7FxbrAVnJMEt8wNl8g42ERa2t3VK7TZVWjpsBNZObgGc4GNUTUcOk
-         o+jg==
-X-Forwarded-Encrypted: i=1; AKwUvBxUeVzgi7nvDnN8pigpFA5wrQN5hZu1ETEK2hO/DIWCjZsWKl0Z1R4zLNBL4/76nMOwWWH3RR5Ib5R9RNa71MG+@lists.infradead.org
-X-Gm-Message-State: AFuF++mB3+pc7PopeE/iv3/HZ71C1RlJZp/93ezvMJBetpZvRRsHVAEM
-	L+UlNbQCRMozf02so9sn1oEIRoL8D6Y6L6WW4ium8w0xdy0z9LNqPlir
-X-Gm-Gg: AYBFou1HhAp5etsIdOVM8Jyu32tJ9TpscOEhoBcsq7lJ0AyEbgXq+Gs2OlynQtfpozE
-	kynPLDiyVXfbuxXWVnaOdA1h5O4yswMaZzXTpXR4FZRBVE5ayyj1zMDx7AcKOoWUYFAB+u56SWa
-	HVecZH1BjY91zNyHvMhHf7MYMInf52STRsB9w9bKF5mhTCPZKlnhxGpWwCvo2bC5VmJTZqJZZ+t
-	ILwMEEU8Z5pCl+H6F6B9XU8dA5BjR/Zv11w41fUD5tfw7g9q/hNLalEFJYbawk8J8G0N5PbLMWB
-	xJyJmlyvItrneGI9v97e0QfLFSGsOm2WNT66BzfKgtYiGmgSermeKUIJOcTHvDa5GqkdNmfmSj9
-	/xWRq7e6DrAsY0NEdWkDuDRD/E7qg7ToULqMcCtzP5jKDQX1HiXlmwykxSuvP514AIX0QNKR4lU
-	tH/tUwmRJ0ZT0pcoIxFDJltzdFo1xMLXEupDNGFk4rzU1d+tsLS9hFm+V+Mb27g44tvu0XgoqSu
-	Y7gQNTDe3w=
-X-Received: by 2002:a05:6a21:150d:b0:3de:6172:e340 with SMTP id adf61e73a8af0-3de7cf3ea13mr1897125637.38.1790690838628;
-        Tue, 29 Sep 2026 07:07:18 -0700 (PDT)
-Received: from Aaron-M6 ([188.253.120.162])
-        by smtp.gmail.com with ESMTPSA id 41be03b00d2f7-cc7b0f4ab05sm3526989a12.29.2026.09.29.07.07.14
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 29 Sep 2026 07:07:18 -0700 (PDT)
-From: Yaozhong Li <yaozhonguwl@gmail.com>
-To: Lee Jones <lee@kernel.org>
-Cc: Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Heiko Stuebner <heiko@sntech.de>,
-	Chris Zhong <zyw@rock-chips.com>,
-	Zhang Qing <zhangqing@rock-chips.com>,
-	mfd@lists.linux.dev,
-	devicetree@vger.kernel.org,
-	linux-rockchip@lists.infradead.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	Yaozhong Li <yaozhonguwl@gmail.com>
-Subject: [RFC PATCH v3 3/3] arm64: dts: rockchip: fix power-off on Firefly-RK3399
-Date: Tue, 29 Sep 2026 22:06:48 +0800
-Message-ID: <20260929140649.55-4-yaozhonguwl@gmail.com>
-X-Mailer: git-send-email 2.55.0.windows.3
-In-Reply-To: <20260929140649.55-1-yaozhonguwl@gmail.com>
-References: <20260929140649.55-1-yaozhonguwl@gmail.com>
+        d=1e100.net; s=20260707; t=1790690924; x=1791295724;
+        h=content-transfer-encoding:content-type:in-reply-to:from
+         :content-language:references:cc:to:subject:user-agent:mime-version
+         :date:message-id:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=xe4sMjFI7Bnhs5VJABLcVxZS9wdqwlCcJPQVGcmwjL0=;
+        b=QQcVnjQfHbo+Eu1cY7K29ovRyhMAi34r0QVm83igt0UcIUX4fenghnviy48v/V0xgb
+         qMy1tavojNj5YYKL7QH7Zfyf4dHlEsa0L9hcx+k3zaNDjD/yKXlqz2/vxNtSZtr/k4hi
+         fnKbZvYkDY9UbzfiSqlf3Q2b8g9btg0oejOEQlVSLBzbB3cO+4J0ZLod3v7yMwFKj2un
+         TZptvfoGu/7P2fItZHK+/Bg3lvbQhe4DbletnXKvVvUUjCUkPEo7vL/jcQje0s7L4Hhj
+         4Zfco8glrQYdPOXns7ylHOo9LMQsKe6uw/Y0Hd/l8okFlyOKBoO9uVhFAYIUfwuuZtke
+         +O9Q==
+X-Forwarded-Encrypted: i=1; AKwUvBwCPpbG+PoWi6CnRzBl6BRZb1TVSo/6fh8zS5JZv09CMVgjQBtZPDJ1yv0y/nSKVpVocg9UZYLxzJhMFbNOpCRx@lists.infradead.org
+X-Gm-Message-State: AFuF++mrUtPrAdhg8Xv/Qht1LLKVscmgc7iGXF7VneBQm+tOS7Y0x4KD
+	syYOkX4R+52HT6KJ8niIhPZBdp98jTAsLywROwIuumrVMaoIKyUky9qT15A/IvyZH/8=
+X-Gm-Gg: AYBFou2M+uFnX9B7DDFNGi7K2MYribvR1SfzcXvgRhiYcn/EzKU9PAbXKL7GxmlEv38
+	xDgYfp5jZWmhFE/XXQT8uJkOCynlN824p89BW1t84zor2JqvIqZjYm42cnqjw1oYBLc7FZEzauC
+	gIsSrzBBcBKYFWcITkFRViiuPUZgQR/+Y3wA+mmaa59GcJKzqxFB5NdWAgGJUrmwTbxnRNUSv/7
+	C3GoKhvt2kIyxJr9SRW3fW/GmMlmUri0GHSuk6h/s9wswDnleiG1qM8WBL/AazHy6YHEUcuEAFA
+	qD983RQjm5Gsn6ZRdPSl7UUN/RPNdYkGHasQbpPMzQRgO5rE7mwZ5q8QMkeEo5TCR8E6tjUG239
+	x7qj9uSK451IJoR5mso0JcL23UvOZJyf6HY3ZHHAjdQE0Vi4oFVpL6Dfep5RTIKjClC3x0SSwVM
+	x8DggJdIQ/Peg+qymo0nFrfnzBzvcU/RLM6JNMiiYoSuo3tYRhJG8X+yEHsPDoDQM6kV7exoKbb
+	RY=
+X-Received: by 2002:a17:907:c71b:b0:c29:53eb:9913 with SMTP id a640c23a62f3a-c2ac2531dafmr1335251266b.38.1790690924276;
+        Tue, 29 Sep 2026 07:08:44 -0700 (PDT)
+Received: from [192.168.1.3] ([37.18.141.193])
+        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-c2dd68a6f18sm337834066b.52.2026.09.29.07.08.42
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Tue, 29 Sep 2026 07:08:43 -0700 (PDT)
+Message-ID: <7bed4275-0b97-46d7-b250-5039aa95eccf@linaro.org>
+Date: Tue, 29 Sep 2026 15:08:42 +0100
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v2 09/14] perf cs-etm: Classify exception calls using the
+ exception packet
+To: Leo Yan <leo.yan@arm.com>
+Cc: Arnaldo Carvalho de Melo <acme@redhat.com>, coresight@lists.linaro.org,
+ linux-arm-kernel@lists.infradead.org, linux-perf-users@vger.kernel.org,
+ linux-kernel@vger.kernel.org, Arnaldo Carvalho de Melo <acme@kernel.org>,
+ Namhyung Kim <namhyung@kernel.org>, Jiri Olsa <jolsa@kernel.org>,
+ Ian Rogers <irogers@google.com>, Adrian Hunter <adrian.hunter@intel.com>,
+ Mike Leach <mike.leach@arm.com>, Suzuki K Poulose <suzuki.poulose@arm.com>,
+ Suyash Mahar <smahar@meta.com>, Amir Ayupov <aaupov@fb.com>
+References: <20260923-perf_cs_etm_fix_non_taken-v2-0-6ab8c07a5455@arm.com>
+ <20260923-perf_cs_etm_fix_non_taken-v2-9-6ab8c07a5455@arm.com>
+Content-Language: en-US
+From: James Clark <james.clark@linaro.org>
+In-Reply-To: <20260923-perf_cs_etm_fix_non_taken-v2-9-6ab8c07a5455@arm.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260929_150721_635186_B1FC199D 
-X-CRM114-Status: GOOD (  16.10  )
+X-CRM114-CacheID: sfid-20260929_150847_121145_6403D551 
+X-CRM114-Status: GOOD (  26.87  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -124,45 +125,122 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-poweroff on this board drops the rails and immediately brings them back
-up, so it reboots instead of staying off and U-Boot reports a power-on
-reset.
 
-Firefly's BSP drives GPIO1_D0 high while the system runs and low during
-shutdown, before writing the RK808's shutdown bit. Mainline does not
-describe GPIO1_D0 at all, so nothing drives it and the shutdown does not
-stick. Describe it in the PMIC node, with the settle time the vendor
-uses.
 
-The BSP releases GPIO1_B5 in the same sequence, and in testing the board
-came back up when that pin was still high as the shutdown bit was
-written. Mainline describes GPIO1_B5 as the backlight enable GPIO.
-pwm-backlight drives its enable GPIO low whenever it turns the backlight
-off, including from its shutdown callback in device_shutdown(), which
-runs before the PMIC's power-off prepare handler. That pin is therefore
-left to the backlight.
+On 23/09/2026 16:21, Leo Yan wrote:
+> ETMv4 and ETE use the same exception number for SVC, HVC and SMC.
+> Identify SVC by inspecting the instruction before the preferred return
+> address in the exception packet.
+> 
+> Preserve the exception level and preferred return address from OpenCSD,
+> and use them with the packet's ISA in cs_etm__is_syscall() and
+> cs_etm__is_sync_exception(). This makes exception call classification
+> independent of the preceding instruction range.
+> 
+> Assisted-by: Codex:gpt-6
+> Signed-off-by: Leo Yan <leo.yan@arm.com>
+> ---
+>   tools/perf/util/cs-etm-decoder/cs-etm-decoder.c |  7 ++++++-
+>   tools/perf/util/cs-etm.c                        | 10 +++-------
+>   tools/perf/util/cs-etm.h                        |  1 +
+>   3 files changed, 10 insertions(+), 8 deletions(-)
+> 
+> diff --git a/tools/perf/util/cs-etm-decoder/cs-etm-decoder.c b/tools/perf/util/cs-etm-decoder/cs-etm-decoder.c
+> index 469aba5e596a791289c5bcece132aba7b0baf6c3..48e8c355a3e495cc30dcb4056c04a034d10ce860 100644
+> --- a/tools/perf/util/cs-etm-decoder/cs-etm-decoder.c
+> +++ b/tools/perf/util/cs-etm-decoder/cs-etm-decoder.c
+> @@ -511,7 +511,8 @@ cs_etm_decoder__buffer_exception(struct cs_etm_queue *etmq,
+>   				 struct cs_etm_packet_queue *queue,
+>   				 const ocsd_generic_trace_elem *elem,
+>   				 const uint8_t trace_chan_id)
+> -{	int ret = 0;
+> +{
+> +	int ret = 0;
+>   	struct cs_etm_packet *packet;
+>   
+>   	ret = cs_etm_decoder__buffer_packet(etmq, queue, elem, trace_chan_id,
+> @@ -521,6 +522,10 @@ cs_etm_decoder__buffer_exception(struct cs_etm_queue *etmq,
+>   
+>   	packet = &queue->packet_buffer[queue->tail];
+>   	packet->exception_number = elem->exception_number;
+> +	if (elem->context.el_valid)
+> +		packet->el = elem->context.exception_level;
+> +	if (elem->excep_ret_addr)
+> +		packet->end_addr = elem->en_addr;
+>   
+>   	return ret;
+>   }
+> diff --git a/tools/perf/util/cs-etm.c b/tools/perf/util/cs-etm.c
+> index c8a92b5dba6001329d68766d540b9b7ead90e9e6..a40b3b2fe2e6318154111d9b7ebd05bee53934f1 100644
+> --- a/tools/perf/util/cs-etm.c
+> +++ b/tools/perf/util/cs-etm.c
+> @@ -2019,7 +2019,7 @@ static int cs_etm__exception(struct cs_etm_traceid_queue *tidq)
+>   	 * to generate branch sample for the instruction range before the
+>   	 * exception is trapped to kernel or before the exception returning.
+>   	 *
+> -	 * The exception packet includes the dummy address values, so don't
+> +	 * The exception packet does not describe an instruction range, so don't
+>   	 * swap PACKET with PREV_PACKET.  This keeps PREV_PACKET to be useful
+>   	 * for generating instruction and branch samples.
+>   	 */
+> @@ -2225,7 +2225,6 @@ static bool cs_etm__is_syscall(struct cs_etm_queue *etmq,
+>   			       struct cs_etm_traceid_queue *tidq, u64 magic)
+>   {
+>   	struct cs_etm_packet *packet = tidq->packet;
+> -	struct cs_etm_packet *prev_packet = tidq->prev_packet;
+>   
+>   	if (magic == __perf_cs_etmv3_magic)
+>   		if (packet->exception_number == CS_ETMV3_EXC_SVC)
+> @@ -2238,8 +2237,7 @@ static bool cs_etm__is_syscall(struct cs_etm_queue *etmq,
+>   	 */
+>   	if (magic == __perf_cs_etmv4_magic || magic == __perf_cs_ete_magic) {
+>   		if (packet->exception_number == CS_ETMV4_EXC_CALL &&
+> -		    cs_etm__is_svc_instr(etmq, tidq, prev_packet,
+> -					 prev_packet->end_addr))
+> +		    cs_etm__is_svc_instr(etmq, tidq, packet, packet->end_addr))
+>   			return true;
+>   	}
+>   
+> @@ -2277,7 +2275,6 @@ static bool cs_etm__is_sync_exception(struct cs_etm_queue *etmq,
+>   				      u64 magic)
+>   {
+>   	struct cs_etm_packet *packet = tidq->packet;
+> -	struct cs_etm_packet *prev_packet = tidq->prev_packet;
+>   
+>   	if (magic == __perf_cs_etmv3_magic)
+>   		if (packet->exception_number == CS_ETMV3_EXC_SMC ||
+> @@ -2301,8 +2298,7 @@ static bool cs_etm__is_sync_exception(struct cs_etm_queue *etmq,
+>   		 * (SMC, HVC) are taken as sync exceptions.
+>   		 */
+>   		if (packet->exception_number == CS_ETMV4_EXC_CALL &&
+> -		    !cs_etm__is_svc_instr(etmq, tidq, prev_packet,
+> -					  prev_packet->end_addr))
+> +		    !cs_etm__is_svc_instr(etmq, tidq, packet, packet->end_addr))
+>   			return true;
+>   
+>   		/*
+> diff --git a/tools/perf/util/cs-etm.h b/tools/perf/util/cs-etm.h
+> index b81099c2b301c25f894cc9a50edfde87aceff49d..4d03f2a680b58aacd91c9f6c957fb2d38e7ac2ad 100644
+> --- a/tools/perf/util/cs-etm.h
+> +++ b/tools/perf/util/cs-etm.h
+> @@ -174,6 +174,7 @@ struct cs_etm_packet {
+>   	enum cs_etm_sample_type sample_type;
+>   	enum cs_etm_isa isa;
+>   	u64 start_addr;
+> +	/* For exceptions: preferred return address, or CS_ETM_INVAL_ADDR. */
+>   	u64 end_addr;
 
-Fixes: 171582e00db1 ("arm64: dts: rockchip: add support for firefly-rk3399 board")
-Assisted-by: LLM
-Signed-off-by: Yaozhong Li <yaozhonguwl@gmail.com>
----
- arch/arm64/boot/dts/rockchip/rk3399-firefly.dts | 2 ++
- 1 file changed, 2 insertions(+)
+Minor nit, but you could use a union. I don't know how clear re-using 
+"end_addr" id for exception packets is when reading the code.
 
-diff --git a/arch/arm64/boot/dts/rockchip/rk3399-firefly.dts b/arch/arm64/boot/dts/rockchip/rk3399-firefly.dts
-index 0568dfa..210e4cb 100644
---- a/arch/arm64/boot/dts/rockchip/rk3399-firefly.dts
-+++ b/arch/arm64/boot/dts/rockchip/rk3399-firefly.dts
-@@ -327,6 +327,8 @@ rk808: pmic@1b {
- 		pinctrl-names = "default";
- 		pinctrl-0 = <&pmic_int_l>;
- 		system-power-controller;
-+		power-hold-gpios = <&gpio1 RK_PD0 GPIO_ACTIVE_HIGH>;
-+		power-hold-delay-ms = <200>;
- 		wakeup-source;
- 
- 		vcc1-supply = <&vcc_sys>;
--- 
-2.55.0.windows.3
+        union {
+            u64 end_addr; // Range packets
+            u64 pref_ret_addr; // Exception packets
+        };
+
+
+>   	u32 instr_count;
+>   	u32 last_instr_type;
+> 
 
 
