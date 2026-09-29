@@ -4,64 +4,53 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A88E7CA5FAD
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 29 Sep 2026 23:02:32 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1CF6CCA5FAD
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 29 Sep 2026 23:44:58 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Date:Cc:To:From:Subject:
+	References:In-Reply-To:Message-Id:MIME-Version:Content-Type:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=c34lg2SSqJP/prfJ37melYcw0xJkVhsVpZy4ROI6WNQ=; b=CqpkUoX2pebeBDEvdiMIazpglu
-	YgteaNPL2G1udAt448YTryjeaDjjIOPdCvDW1YuiLVneRrpeVnB02fcKMaHjuyLgLMa7J7y6CTPU8
-	baTc12+AM1Latz+Yn6AwKa7KhX9NYosWGgGv+w+QzPtHCe+S8qYEgEfcxC7GSjXDBvPGzVnuOg70T
-	zKUEJdwGyRftgN3QiEeZ4RdKGHbVaR33vY+t1f0wAKzfDBmvZCuI8SthD+auaMb/VjP2R59qzp9Ie
-	Jjved/dTfce737uoIbXrH86BB8reBlGO/zHzMu0tuj/gGFvJnXRamIw3J/4aUX74uJP3Rk1h2jPTm
-	cRILYEXg==;
+	bh=q2vPaj70yTFF+nCTHOa1lt+SyViZlBiPKXQR9Adb58c=; b=uB5JiQpflvkLc/xg7Aw8+EZjOl
+	tvy3n0qwzJffcWCLgnpnfgG52c9HVYo9lbJka7pxBPEyPOqKqv09KuAkEnWl8fTaBF7Rq2T2FoHjt
+	8guz99LafFOyqmk5spYX4C7T5PTu3OJrlN5ggoqLsLNzC+CqxU57z5G3G+5EkTfJHcEpEtuPlK9hX
+	ToBv4RU5QrKKfVeb+AsULQ4tqF2z4hNY0ALQwApLxx3EBNpot7AECBs4lPIKtP9sWcSMQg8KTH27W
+	iTeC0WHRaZtgqbX2S+EwnGisKrw0Ci/6UxHdF3TF3JNeHCCJC5hD2NHvTuRwmGmozOobkN8mkpKsn
+	usVcLbDQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xBgqA-00000004k9Z-0aI7;
-	Tue, 29 Sep 2026 23:02:26 +0000
+	id 1xBhVB-00000004luK-1Fbj;
+	Tue, 29 Sep 2026 23:44:49 +0000
 Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xBgq9-00000004k9G-0INo
-	for linux-arm-kernel@lists.infradead.org;
-	Tue, 29 Sep 2026 23:02:25 +0000
+	id 1xBhVA-00000004lto-0NKx;
+	Tue, 29 Sep 2026 23:44:48 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 7719F43CCD;
-	Tue, 29 Sep 2026 23:02:24 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 2DD831F000FF;
-	Tue, 29 Sep 2026 23:02:24 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 475D040709;
+	Tue, 29 Sep 2026 23:44:47 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 8DB7A1F000FF;
+	Tue, 29 Sep 2026 23:44:45 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1790722944;
-	bh=c34lg2SSqJP/prfJ37melYcw0xJkVhsVpZy4ROI6WNQ=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=BkBWs7S7hjdEq6uQaiSmWQOfcDATgPWULZ+J7guuGa/CU28Q6gfTkC+xbHVOa7zs7
-	 nH8RqrxpXqmeeiv4pA4MwgjKL8ROwIfLjpax4MKm8UKqaheqx447y8hifovoEIGaaT
-	 PhurxWdQI7W3gaqoym/sj5LVd3M5OZLKKQXCtfGNBUYC6g2q9k2LH4lt4taA1+Xp8T
-	 PNfVW6O+KTAbYQQsF1s0A6bROVcYg/8PQr/Q64mS1FJCGaLdVpXbbCFVygH/CLR0Tf
-	 wkq3K5hcLAS9B+jUmby2sJPK6crtqvW7RCrMCMO27wbmLp7wsCKNAvPS6wUog1sIUV
-	 mn4T4WaGnv1Cg==
-Date: Tue, 29 Sep 2026 16:02:23 -0700
-From: Oliver Upton <oupton@kernel.org>
-To: Mark Brown <broonie@kernel.org>
-Cc: Marc Zyngier <maz@kernel.org>, Joey Gouly <joey.gouly@arm.com>,
-	Steffen Eiden <seiden@linux.ibm.com>,
-	Suzuki K Poulose <suzuki.poulose@arm.com>,
-	Zenghui Yu <yuzenghui@huawei.com>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Will Deacon <will@kernel.org>, Fuad Tabba <fuad.tabba@linux.dev>,
-	Peter Maydell <peter.maydell@linaro.org>,
-	linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev,
-	linux-kernel@vger.kernel.org,
-	"Lorenzo Stoakes (ARM)" <ljs@kernel.org>
-Subject: Re: [PATCH v4 0/3] KVM: arm64: ID register finalisation fixes
-Message-ID: <arxDf3AHHjKCv6rD@kernel.org>
-References: <20260929-kvm-arm64-idreg-final-v4-0-75296dde994d@kernel.org>
+	s=k20260515; t=1790725487;
+	bh=q2vPaj70yTFF+nCTHOa1lt+SyViZlBiPKXQR9Adb58c=;
+	h=In-Reply-To:References:Subject:From:To:Cc:Date;
+	b=RPOXNofFRqkcQuogCKfEIrqLH/O4qWMCVjTZxPeEtTkXTpTSudAIKMfHWE2IcO6kI
+	 Jiwu3bHTRgMX2r3LxA/0g8nG+qX77tRrELkRYC4GqB6i7ntUd2A9Z6kRpACYYyWK59
+	 xOh91Xbkv6RPMHOFB1GtRBAFpQH750wER7jt4H9gOTUZxtYvmkQ9029uOahWlFBGdS
+	 srP7Jflk/E5/4H3hp/3BiCjf7oL9O1DfM3Cx3DowLg8pAzraqnn+JY8e2i+U4IpMRs
+	 XFnwzbxifKnGopNwBPZ+AYsywJNBqiDEQ+cYTFvyuJ4azZEjvenBX+eiCSDEw7lI4d
+	 KawC3aw36Rc7A==
+Content-Type: multipart/mixed; boundary="===============4708192409122229443=="
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20260929-kvm-arm64-idreg-final-v4-0-75296dde994d@kernel.org>
+Message-Id: <7e3ff8952daf06c86b01ff0e115fb6684231f3d666570bd79d93e6a914beaba6@mail.kernel.org>
+In-Reply-To: <20260928-drm-mipi-dsi-panel-ebpf-v1-1-5244926aace4@kernel.org>
+References: <20260928-drm-mipi-dsi-panel-ebpf-v1-1-5244926aace4@kernel.org>
+Subject: Re: [PATCH 1/6] dt-bindings: display: Add panel-mipi-dsi-bpf generic panel binding
+From: bot+bpf-ci@kernel.org
+To: mripard@kernel.org,neil.armstrong@linaro.org,jesszhan0024@gmail.com,airlied@gmail.com,simona@ffwll.ch,maarten.lankhorst@linux.intel.com,tzimmermann@suse.de,robh@kernel.org,krzk+dt@kernel.org,conor+dt@kernel.org,nathan@kernel.org,ndesaulniers@google.com,morbo@google.com,justinstitt@google.com,florian.fainelli@broadcom.com,bcm-kernel-feedback-list@broadcom.com
+Cc: andrzej.hajda@intel.com,neil.armstrong@linaro.org,rfoss@kernel.org,Laurent.pinchart@ideasonboard.com,jonas@kwiboo.se,jernej.skrabec@gmail.com,luca.ceresoli@bootlin.com,aesteve@redhat.com,dave.stevenson@raspberrypi.com,javierm@redhat.com,dri-devel@lists.freedesktop.org,devicetree@vger.kernel.org,linux-kernel@vger.kernel.org,bpf@vger.kernel.org,llvm@lists.linux.dev,linux-rpi-kernel@lists.infradead.org,linux-arm-kernel@lists.infradead.org,mripard@kernel.org,bentiss@kernel.org,ast@kernel.org,andrii@kernel.org,daniel@iogearbox.net,martin.lau@kernel.org,eddyz87@gmail.com,yonghong.song@linux.dev,mason@kernel.org,ihor.solodrai@linux.dev
+Date: Tue, 29 Sep 2026 23:44:45 +0000 (UTC)
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -76,47 +65,118 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi,
+--===============4708192409122229443==
+Content-Type: text/plain; charset="us-ascii"
+MIME-Version: 1.0
+Content-Transfer-Encoding: 7bit
 
-On Tue, Sep 29, 2026 at 12:57:57PM +0100, Mark Brown wrote:
-> While looking at some feature enablement I noticed that there are some
-> scenarios where we can end up with an inconsistently configured vCPU due
-> to finalizing configuration based on ID registers before we have blocked
-> writes to the ID registers. This series aims to clean up these issues.
-> 
-> Signed-off-by: Mark Brown <broonie@kernel.org>
-> ---
-> Changes in v4:
-> - Rebase onto v7.3-rc3.
-> - Add a lockdep assert.
-> - Update Fuad's LLM tag.
-> - Link to v3: https://patch.msgid.link/20260901-kvm-arm64-idreg-final-v3-0-a0ffa06fa872@kernel.org
-> 
-> Changes in v3:
-> - Rebase onto v7.3-rc1.
-> - Explain why KVM_ARCH_FLAG_ID_REGS_INITIALIZED is not reused.
-> - Pull in Fuad's test cases.
-> - Link to v2: https://patch.msgid.link/20260803-kvm-arm64-idreg-final-v2-0-d7d7e4efc640@kernel.org
-> 
-> Changes in v2:
-> - Also replace the kvm_vm_has_ran_once() usage in kvm_set_vm_id_rg() and
->   kvm_vm_finalize_sys_regs() with kvm_id_regs_final().
-> - Link to v1: https://patch.msgid.link/20260731-kvm-arm64-idreg-final-v1-0-3de2a5616dc6@kernel.org
-> 
-> ---
-> Fuad Tabba (1):
->       KVM: arm64: selftests: Check ID regs are immutable after a failed run
-> 
-> Mark Brown (2):
->       KVM: arm64: Finalize guest-wide sysregs prior to per-vCPU sysregs
->       KVM: arm64: Block ID register changes after we rely on the values
+> diff --git a/Documentation/devicetree/bindings/display/panel/panel-mipi-dsi-bpf.yaml b/Documentation/devicetree/bindings/display/panel/panel-mipi-dsi-bpf.yaml
+> new file mode 100644
+> index 000000000000..9a20a21cf70e
+> --- /dev/null
+> +++ b/Documentation/devicetree/bindings/display/panel/panel-mipi-dsi-bpf.yaml
+> @@ -0,0 +1,184 @@
+> +# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
+> +%YAML 1.2
+> +---
+> +$id: http://devicetree.org/schemas/display/panel/panel-mipi-dsi-bpf.yaml#
+> +$schema: http://devicetree.org/meta-schemas/core.yaml#
+> +
+> +title: Generic MIPI-DSI panel with BPF init sequences
+> +
+> +maintainers:
+> +  - Maxime Ripard <mripard@kernel.org>
+> +
+> +description: |
+> +  A generic MIPI-DSI panel driver where the panel-specific power sequencing
+> +  and DSI init commands are provided by BPF programs.
+> +
+> +  Panel DT nodes use a fallback compatible so the generic driver matches on
+> +  "panel-mipi-dsi-bpf" while the first compatible identifies the specific
+> +  panel for BPF program matching.
+> +
+> +allOf:
+> +  - $ref: panel-common.yaml#
+> +
+> +properties:
+> +  compatible:
+> +    items:
+> +      - description: Panel-specific compatible string
+> +      - const: panel-mipi-dsi-bpf
 
-I'm not too terribly jazzed about testing the relative ordering of
-errors in the selftest, but I see why we need to do it. Otherwise,
-everything looks good.
+Rob Herring raised concerns about this dual compatible string design in
+the v1 discussion: "If you need the 1st compatible anyways, what is the
+point of the second one?"
 
-Reviewed-by: Oliver Upton <oupton@kernel.org>
+He also pointed out a compatibility issue with existing panels: "I assume
+there is at least some panel supported in the kernel you might want to
+convert to this. That panel would not have the fallback (and the DT is
+fixed)."
 
-Thanks,
-Oliver
+In the follow-up discussion, Rob stated: "What? You can't add a generic
+compatible in these cases."
+
+How does this binding handle the case where existing in-kernel panels are
+converted to use this driver, given that their device trees are already
+deployed without the panel-mipi-dsi-bpf fallback compatible?
+
+Neil Armstrong also raised a fundamental concern about including BPF in the
+hardware description: "I don't see how this can be a valid hardware
+description, bfp is a software implementation and has nothing to do in the
+bindings."
+
+Should the binding be redesigned to avoid referencing the software
+implementation mechanism (BPF) in what is meant to be a hardware
+description?
+
+> +
+> +  reg:
+> +    maxItems: 1
+> +    description: DSI virtual channel
+> +
+> +  backlight: true
+> +  enable-gpios: true
+> +  height-mm: true
+> +  port: true
+> +  reset-gpios: true
+> +  rotation: true
+> +  width-mm: true
+> +
+> +  vcc-supply:
+> +    description: IC core supply, typically 2.8-3.3V (charge pump input)
+> +
+> +  iovcc-supply:
+> +    description: I/O interface supply, typically 1.8V (MIPI logic level)
+> +
+> +  avdd-supply:
+> +    description: Positive analog supply for source/gate driver, typically +5V
+> +
+> +  avee-supply:
+> +    description: Negative analog supply for source/gate driver, typically -5V
+> +
+> +  elvdd-supply:
+> +    description: OLED EL positive supply
+> +
+> +  elvss-supply:
+> +    description: OLED EL negative supply
+
+Rob Herring questioned the approach of defining multiple optional supplies
+to cover different panel types: "That one [panel-mipi-dbi-spi] defines a
+single supply. Any other MIPI SPI panel with different supplies or GPIO
+controls probably has its own binding. Trying to parameterize that in DT
+doesn't work. We've rejected trying to do that in DT over and over. What's
+your story here for that?"
+
+How does this binding address the longstanding kernel policy against
+parameterizing hardware variations through optional DT properties?
+
+[ ... ]
+
+
+---
+AI reviewed your patch. Please fix the bug or email reply why it's not a bug.
+See: https://github.com/kernel-patches/vmtest/blob/master/ci/claude/README.md
+
+CI run summary: https://github.com/kernel-patches/bpf/actions/runs/36644629998
+--===============4708192409122229443==--
 
