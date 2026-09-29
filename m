@@ -4,132 +4,100 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A3570CA5FA1
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 29 Sep 2026 04:19:54 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id EBC2ECA5FA1
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 29 Sep 2026 04:54:33 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:From:
+	Subject:Message-ID:References:Mime-Version:In-Reply-To:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=UCoaHie55kyGg4JrFoWMLMH4ZYbUadetcp1lLdpAeDk=; b=qMw/oFFvVxiwDAsZnN+A3my6Nt
-	wE9eqRrXkDfCXO7fUzOBinLxvd1Y6srlVQYiRX4vKVWEUICG8W31gexKyWU0LUq6mitUJWrhZLI2R
-	4CfZK8fcOY87Edmv0IRXl4ZRANtDMZUwCnE79poD7uABhVHSSlnKCvbvxpqJkiiT8B5ObNlqcsFo5
-	sBtVwsERF+0UKxYEMckkJJp6kdfxLpWTOW9SMm/m9YWyggFuUJd68/7IxIokdxwnzc3Dyz3PwINSg
-	nTwBBLrNOC72uWpgGF72xOtxgZIO1Zhzyu33kvoIDSHDB83pY23x6678dLWaPb/8IZ7m6mvejYFlz
-	K4AEqQJg==;
+	bh=9PTYxgSgI1gU4YVXt5Wl8EAQGb2RKGpOz4eoAl0qe8o=; b=nVsSL4S7DOA/is4oCCJyZSxSzv
+	iOoEKD5+m56pMVWrrD5d34/Cmur8+1m6aijFaRf0VZjDVpO0bsNZO8WBQFGn9lxKlT1LGTpx7CPFW
+	/ldAD02wAmKPV2T2m6IpAnXCA+YHhbFDwlTdZzmQ/5hdbPqEjroUBDurR+3dMrDT41Nhh6cZxQryc
+	KF1tX8gDLIz1GNOjunFdJayjYMQ1513JpNzqOfDaSpHU4Ofw+u6V/HSXEetWn0Oe4fV+hKi4Bb4tR
+	QshYTMVEuSfGswUR5o1IQmsfrUPM5F+nmb35wlk3230D/Pwwjc507jhNPTVgM3w7brJn/Sr5yDto7
+	EKCGILKw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xBPJh-00000002JbF-00Ab;
-	Tue, 29 Sep 2026 04:19:45 +0000
-Received: from mx0a-001b2d01.pphosted.com ([148.163.156.1])
+	id 1xBOmt-00000002GJr-0iEY;
+	Tue, 29 Sep 2026 03:45:51 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xBPJf-00000002Jam-18Hv
+	id 1xBOmp-00000002GHb-3ejW
+	for linux-arm-kernel@bombadil.infradead.org;
+	Tue, 29 Sep 2026 03:45:48 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=Content-Type:Cc:To:From:Subject:
+	Message-ID:References:Mime-Version:In-Reply-To:Date:Sender:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description;
+	bh=9PTYxgSgI1gU4YVXt5Wl8EAQGb2RKGpOz4eoAl0qe8o=; b=OYP/8MAvr9tZzhuyX/SRsCjw97
+	qL8IBGmZaLpc04zRylEXeXp5Nca2j5Z9h4+PdECgN+b8kWGNK6fEzaMzDeaK5cBCgV3nk73DmI7WQ
+	UMjgbWBNgP0wt4vFdj9DP2I7u/uEs+SyqNgjFO3HsUWXMBvlHe7psV+hY+SFCgg+gT24VPOIwQ0Ko
+	83vjju41ciK+bc9CD2gUJUFE+eFDtuVdydm/dlnLJTZC7KxhoKCVPQj4IwpfyNsP6exgvoxD22wJK
+	2aSLGmd5Ip1uMTaScwggzGlkcH9LqgEvBSvJSsqbRw7iHMkf0gU3mN/F+Wa/pGaKSq2Yo6joMUzkK
+	S36P/xjw==;
+Received: from mail-pg1-x546.google.com ([2607:f8b0:4864:20::546])
+	by desiato.infradead.org with esmtps (Exim 4.99.2 #2 (Red Hat Linux))
+	id 1xBOmg-000000029OD-0Xxj
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 29 Sep 2026 04:19:44 +0000
-Received: from pps.filterd (m0360083.ppops.net [127.0.0.1])
-	by mx0a-001b2d01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 68T46Lbe3076728;
-	Tue, 29 Sep 2026 04:19:29 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ibm.com; h=cc
-	:content-type:date:from:in-reply-to:message-id:mime-version
-	:references:subject:to; s=pp1; bh=UCoaHie55kyGg4JrFoWMLMH4ZYbUad
-	etcp1lLdpAeDk=; b=UpwSPBry6N6XgHidsHmWmnArIZQxz9lggpREBynZMHIehz
-	jlMokhOyEHri2vBp4URgOcJzUcrcLGHtEj2lrOYY9hefzK5L4WBF3n13PABDmpeD
-	bsHhCxtXwLxpoUOcT4sVu1aZKMbujB8AHPl3MPhvWFVo3zdl4+PYAsi8SkBrxXSt
-	JhqiKATu46tLlxfOvwFr9671R/VsZiWlslnBV7eE2IS9ojRJAHt2CwhMyN73vXT4
-	3q7F9RzrXHP89W6+QYyEQrvfsG/w8z1+D33SvT5Fr6NpMTVAmbnxEvQ7znEVfYlI
-	z5PbZGHLELBRMzPtK7petQDY3Tp0FgcWR4aYQxOw==
-Received: from ppma11.dal12v.mail.ibm.com (db.9e.1632.ip4.static.sl-reverse.com [50.22.158.219])
-	by mx0a-001b2d01.pphosted.com (PPS) with ESMTPS id 4gx5j556dy-1
-	(version=TLSv1.3 cipher=TLS_AES_256_GCM_SHA384 bits=256 verify=NOT);
-	Tue, 29 Sep 2026 04:19:28 +0000 (GMT)
-Received: from pps.filterd (ppma11.dal12v.mail.ibm.com [127.0.0.1])
-	by ppma11.dal12v.mail.ibm.com (8.18.1.11/8.18.1.11) with ESMTP id 68T4HcIr1175984;
-	Tue, 29 Sep 2026 04:19:27 GMT
-Received: from smtprelay06.fra02v.mail.ibm.com ([9.218.2.230])
-	by ppma11.dal12v.mail.ibm.com (PPS) with ESMTPS id 4gxu2y7wy1-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Tue, 29 Sep 2026 04:19:27 +0000 (GMT)
-Received: from smtpav05.fra02v.mail.ibm.com (smtpav05.fra02v.mail.ibm.com [10.20.54.104])
-	by smtprelay06.fra02v.mail.ibm.com (8.14.9/8.14.9/NCO v10.0) with ESMTP id 68T4JKob50921874
-	(version=TLSv1/SSLv3 cipher=DHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
-	Tue, 29 Sep 2026 04:19:20 GMT
-Received: from smtpav05.fra02v.mail.ibm.com (unknown [127.0.0.1])
-	by IMSVA (Postfix) with ESMTP id BFBB92004B;
-	Tue, 29 Sep 2026 04:19:20 +0000 (GMT)
-Received: from smtpav05.fra02v.mail.ibm.com (unknown [127.0.0.1])
-	by IMSVA (Postfix) with ESMTP id 99A4920043;
-	Tue, 29 Sep 2026 04:19:20 +0000 (GMT)
-Received: from localhost (unknown [9.111.43.27])
-	by smtpav05.fra02v.mail.ibm.com (Postfix) with ESMTP;
-	Tue, 29 Sep 2026 04:19:20 +0000 (GMT)
-Date: Tue, 29 Sep 2026 06:19:20 +0200
-From: Andreas Grapentin <gra@linux.ibm.com>
-To: Steffen Eiden <seiden@linux.ibm.com>
-Cc: Catalin Marinas <catalin.marinas@arm.com>, kvm@vger.kernel.org,
-        kvmarm@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
-        linux-kernel@vger.kernel.org, linux-s390@vger.kernel.org,
-        Alexander Gordeev <agordeev@linux.ibm.com>,
-        Arnd Bergmann <arnd@arndb.de>,
-        Christian Borntraeger <borntraeger@linux.ibm.com>,
-        Claudio Imbrenda <imbrenda@linux.ibm.com>,
-        David Hildenbrand <david@kernel.org>,
-        Friedrich Welter <fritz@linux.ibm.com>, Fuad Tabba <tabba@google.com>,
-        Gautam Gala <ggala@linux.ibm.com>,
-        Hariharan Mari <hari55@linux.ibm.com>,
-        Heiko Carstens <hca@linux.ibm.com>,
-        Hendrik Brueckner <brueckner@linux.ibm.com>,
-        Ilya Leoshkevich <iii@linux.ibm.com>,
-        Janosch Frank <frankja@linux.ibm.com>, Joey Gouly <joey.gouly@arm.com>,
-        Marc Zyngier <maz@kernel.org>, Nico Boehr <nrb@linux.ibm.com>,
-        Nina Schoetterl-Glausch <oss@nina.schoetterlglausch.eu>,
-        Oliver Upton <oupton@kernel.org>, Paolo Bonzini <pbonzini@redhat.com>,
-        Suzuki K Poulose <suzuki.poulose@arm.com>,
-        Sven Schnelle <svens@linux.ibm.com>,
-        Ulrich Weigand <Ulrich.Weigand@de.ibm.com>,
-        Vasily Gorbik <gor@linux.ibm.com>, Will Deacon <will@kernel.org>,
-        Zenghui Yu <yuzenghui@huawei.com>
-Subject: Re: [PATCH v8 16/29] arm64: Share arm64 headers with s390
-Message-ID: <ars6Jh5DiendDT7G@li-d8547bcc-2d90-11b2-a85c-a70f2a37009a.ibm.com>
-References: <20260918133107.1042730-1-seiden@linux.ibm.com>
- <20260918133107.1042730-17-seiden@linux.ibm.com>
- <arqQ2Eat4VUBbl49@arm.com>
- <20260928162345.428362-C-seiden@linux.ibm.com>
-MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20260928162345.428362-C-seiden@linux.ibm.com>
-X-TM-AS-GCONF: 00
-X-Proofpoint-Reinject: loops=2 maxloops=12
-X-Proofpoint-Spam-Info: AW1haW4tMjYwOTI5MDAxNiBTYWx0ZWRfX6Nn1f/umagMM
- 1+irdbg0phEtd+BZvjSTdH7HQbGsCmhy3UprVF8arUBdsMZJ+2vmEsRH9BTFg7n6sjFwz4hBm+p
- wznk7RoGSpUUQWYHi5qisxSndJSLkEk=
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwOTI5MDAxNiBTYWx0ZWRfX7mGjGWpPZTDW
- BwTe+UpwAhEwgur5zlUZ6JpYhHkujlYQYmos7k2vGrn7GmfK9jN071tje6//kHoGXN4+6WTjs7Q
- E19V39a1AXE0+VbnjKAUk/aCKdGJWXFtmDSyorcFq6Pa1mBR+DuLgGrtxWWKnG8TFp7WCeHjF/E
- 4rgP5e31jDqfVLAjnnQF20yCImf6OJt4HBJ2k1Fbuv4Uv8RgORXNf7ognCXrNNZOK61mLZFrqfk
- /sxB5f6h22kO/Ge661UxZceyYENF0EOudvMUjZME0uoYEse48lopa/N+llegytw1xj4sVH5Ldlv
- XJjOzMG11Vy9FY98GMK5NSPpv4GsYzSLZfUoWHGQ/HxBPE0AXBsYfnmmQyV6NNsZ1PYbitqOy0M
- 0c7npeCv3MQuT4aihFyATVs2nY0Tu9R1Kt+4dA59dwq8opp7GmQej+vWGHmpwyvtl1hqHlHeRP1
- ZyjBHf5iNjhnQxD57Pw==
-X-Proofpoint-GUID: NCy8N2_ZnqFwaT3dU9M5d5pFwo3tFVN4
-X-Authority-Analysis: v=2.4 cv=RKcmjIi+ c=1 sm=1 tr=0 ts=6abb3c51 cx=c_pps
- a=aDMHemPKRhS1OARIsFnwRA==:117 a=aDMHemPKRhS1OARIsFnwRA==:17
- a=kj9zAlcOel0A:10 a=VdqzKS8jKosA:10 a=VkNPw1HP01LnGYTKEx00:22
- a=RnoormkPH1_aCDwRdu11:22 a=iQ6ETzBq9ecOQQE5vZCe:22 a=i6sFrxAX1s6maLuQdwkA:9
- a=CjuIK1q_8ugA:10
-X-Proofpoint-ORIG-GUID: MHF4wWmMN9gEzyso21XKl4nvdZcx3ejq
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1176,Hydra:6.1.134,FMLib:17.12.100.49
- definitions=2026-09-29_02,2026-09-21_02,2025-10-01_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- clxscore=1011 priorityscore=1501 spamscore=0 bulkscore=0 impostorscore=0
- adultscore=0 lowpriorityscore=0 suspectscore=0 malwarescore=0 phishscore=0
- classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
- reason=mlx scancount=1 engine=8.22.0-2609040000 definitions=main-2609290016
+	Tue, 29 Sep 2026 03:45:44 +0000
+Received: by mail-pg1-x546.google.com with SMTP id 41be03b00d2f7-cc79125e4b8so1887982a12.2
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 28 Sep 2026 20:45:26 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=google.com; s=20251104; t=1790653524; x=1791258324; darn=lists.infradead.org;
+        h=content-type:cc:to:from:subject:message-id:references:mime-version
+         :in-reply-to:date:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=9PTYxgSgI1gU4YVXt5Wl8EAQGb2RKGpOz4eoAl0qe8o=;
+        b=wPBN9ZOGEPq1LqLYNSrgnw56rbmojp05lq70vpb+0g4ZMhwvWV9epDozC2QIQyZUUg
+         FcbnnkIzGR45graGvHVASX+Ib9pnKd+8o8yJwC7IgKMPgL1LshLIoTwueGDB6wUdv75o
+         mnqdru0ViRXYNnFec2X3dsoI9HaBol7PB+nNAWJ/Er52zQ18j/EsMO1H6ZF2iep6Lkru
+         7HA7dTDVH3I2So/5lVSPfK+IhgdpmlGRgB5nNqywoD92A7O3UCpoqqNyTUkrJhbneZBS
+         0rQ0rrF2YuAse+C5NRD5t0U7zWMRD1QlsWCkgwv3vv2Zoyxn/0RgdwMGMYpLoZhTvQFs
+         DevA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1790653524; x=1791258324;
+        h=content-type:cc:to:from:subject:message-id:references:mime-version
+         :in-reply-to:date:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=9PTYxgSgI1gU4YVXt5Wl8EAQGb2RKGpOz4eoAl0qe8o=;
+        b=nPLDE73TkEntf15oPQ5/SYMFzupBnBS3RjKAfKdv/hHP4HIWdt9HEt7ojAdMTDZ7Dx
+         0jUVBmEc3XOsIEQlgmPheblENFTUbHxgxJS89F20ILTWngI4OwH4rHLJSIwiYFLD0faX
+         XCKplwjjuQJ/y6JkHaQ9dnw2yFy7MV6Wqe+NTJ4jil3pEIYLKMz5YQtFc5r5pXITs1wZ
+         w9A6bBVwCoTupJ8yzOiTBSwDTHXBwREVAKLHzzTH8IWbNwpSH8fl0RL+Z25z18mDrBS+
+         fIQxPH/VHeKmZc696kZOVoQO0INfbTngJ8evKm2xJ8Vr3mfMXQ540UIMwzKsUsOrcmCT
+         284A==
+X-Forwarded-Encrypted: i=1; AKwUvBxeA5GcuMi59sv6Chew6ZZpR/updMkvp82ZOGsXrknF83jzvYJgWYZxgffMpGiDivjdPT9o/PqRS7XuhXACsCWc@lists.infradead.org
+X-Gm-Message-State: AFuF++khpg9OZOM+Ep5Q3FfGcBM3l86Um0+y3Idolpwjbjs5CSq1sE32
+	Qcfvdpacg0K/6oY1je1zW6pkNw9GqVlYXKNZwpeoiVl3b+YgNEZ0fhWEKnSSpKfBNQnZhFSXF+D
+	ftA==
+X-Received: from pgce14.prod.google.com ([2002:a05:6a02:1ce:b0:cc7:9e98:e366])
+ (user=praan job=prod-delivery.src-stubby-dispatcher) by 2002:a05:6a21:4ea6:b0:3dd:85aa:452a
+ with SMTP id adf61e73a8af0-3de0e8d32b0mr14950680637.37.1790653524254; Mon, 28
+ Sep 2026 20:45:24 -0700 (PDT)
+Date: Tue, 29 Sep 2026 03:44:58 +0000
+In-Reply-To: <20260929034510.2023173-1-praan@google.com>
+Mime-Version: 1.0
+References: <20260929034510.2023173-1-praan@google.com>
+X-Mailer: git-send-email 2.56.0.rc1.315.gc6ed9934b7-goog
+Message-ID: <20260929034510.2023173-5-praan@google.com>
+Subject: [PATCH v11 04/16] iommu/tegra241-cmdqv: Add a helper to drain VCMDQs
+From: Pranjal Shrivastava <praan@google.com>
+To: iommu@lists.linux.dev
+Cc: Will Deacon <will@kernel.org>, Joerg Roedel <joro@8bytes.org>, 
+	Robin Murphy <robin.murphy@arm.com>, Jason Gunthorpe <jgg@ziepe.ca>, Mostafa Saleh <smostafa@google.com>, 
+	Nicolin Chen <nicolinc@nvidia.com>, Daniel Mentz <danielmentz@google.com>, 
+	Ashish Mhetre <amhetre@nvidia.com>, linux-arm-kernel@lists.infradead.org, 
+	Thomas Gleixner <tglx@kernel.org>, Radu Rendec <radu@rendec.net>, Bjorn Helgaas <bhelgaas@google.com>, 
+	linux-pci@vger.kernel.org, linux-kernel@vger.kernel.org, 
+	Greg Kroah-Hartman <gregkh@linuxfoundation.org>, rafael@kernel.org, 
+	Danilo Krummrich <dakr@kernel.org>, driver-core@lists.linux.dev, 
+	Pranjal Shrivastava <praan@google.com>
+Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260928_211943_323808_6A2AA930 
-X-CRM114-Status: GOOD (  22.35  )
+X-CRM114-CacheID: sfid-20260929_044541_981192_0ED299C5 
+X-CRM114-Status: GOOD (  23.19  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -144,36 +112,128 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Sep 28 26, Steffen Eiden wrote:
-> On Mon, Sep 28, 2026 at 05:07:52PM +0100, Catalin Marinas wrote:
-> > On Fri, Sep 18, 2026 at 03:30:53PM +0200, Steffen Eiden wrote:
-> > > +# Enable all code shared to s390
-> > > +KBUILD_CFLAGS	+= -DARM64_S390_COMMON
-> > > +KBUILD_AFLAGS	+= -DARM64_S390_COMMON
-> > > +KBUILD_CPPFLAGS	+= -DARM64_S390_COMMON
-> > 
-> > Do we actually need these defines? They seem only to be used as markers
-> > for the awk scripts to extract the definitions. Why do we need the C
-> > preprocessor involved at all? Could we not just have comment markers:
-> > 
-> > /* ARM64_S390_COMMON_BEGIN */
-> > ...
-> > /* ARM64_S390_COMMON_END */
-> >
-> No technically we do not need those. They could be useful if we find out
-> that AWK is the wrong tool and move to a C Preprocessor + diff based
-> approach. 
-> 
-> if the ifdev is not closed the compiler will complain, but an 'arm did
-> not destroy us' verifiaction tool ( I will send one soonish) could do
-> the same.
+The tegra241-cmdqv driver supports vCMDQs which need to be drained
+before suspending the SMMU. The current driver implementation only uses
+VINTF0 for vCMDQs owned by the kernel which need to be drained. Add a
+helper that drains all the enabled vCMDQs under VINTF0.
 
-iirc the last time we discussed this we didn't think that load-bearing
-comments were the right tool here. We also briefly floated the idea of
-using a #pragma region based approach, but in the end we went with the
-#ifdef preprocessor directives instead, as the least invasive
-non-comment marker that was available.
+Add a drain_queues function ptr to arm_smmu_impl_ops to drain
+implementation specified queues, and export arm_smmu_drain_queue().
 
-Best,
-Andreas
+Reviewed-by: Nicolin Chen <nicolinc@nvidia.com>
+Signed-off-by: Pranjal Shrivastava <praan@google.com>
+---
+ drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c   |  5 +-
+ drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.h   |  4 ++
+ .../iommu/arm/arm-smmu-v3/tegra241-cmdqv.c    | 49 +++++++++++++++++++
+ 3 files changed, 55 insertions(+), 3 deletions(-)
+
+diff --git a/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c b/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c
+index 84b56849f6dc..d809b625f7fb 100644
+--- a/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c
++++ b/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c
+@@ -976,9 +976,8 @@ static int arm_smmu_cmdq_batch_submit(struct arm_smmu_device *smmu,
+  * Context: Process context; may sleep.
+  * Return: 0 on success or a negative errno on timeout.
+  */
+-static int __maybe_unused arm_smmu_drain_queue(struct arm_smmu_device *smmu,
+-					       struct arm_smmu_queue *q,
+-					       bool until_empty)
++int arm_smmu_drain_queue(struct arm_smmu_device *smmu,
++			 struct arm_smmu_queue *q, bool until_empty)
+ {
+ 	ktime_t timeout = ktime_add_us(ktime_get(), ARM_SMMU_POLL_TIMEOUT_US);
+ 	u32 cons, prod, prev, undrained;
+diff --git a/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.h b/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.h
+index 84e618a7fa9e..deefb17e31eb 100644
+--- a/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.h
++++ b/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.h
+@@ -891,6 +891,7 @@ struct arm_smmu_impl_ops {
+ 	size_t (*get_viommu_size)(enum iommu_viommu_type viommu_type);
+ 	int (*vsmmu_init)(struct arm_vsmmu *vsmmu,
+ 			  const struct iommu_user_data *user_data);
++	int (*drain_queues)(struct arm_smmu_device *smmu);
+ };
+ 
+ /* An SMMUv3 instance */
+@@ -1174,6 +1175,9 @@ int arm_smmu_init_one_queue(struct arm_smmu_device *smmu,
+ int arm_smmu_cmdq_init(struct arm_smmu_device *smmu,
+ 		       struct arm_smmu_cmdq *cmdq);
+ 
++int arm_smmu_drain_queue(struct arm_smmu_device *smmu,
++			 struct arm_smmu_queue *q, bool until_empty);
++
+ static inline bool arm_smmu_master_canwbs(struct arm_smmu_master *master)
+ {
+ 	return dev_iommu_fwspec_get(master->dev)->flags &
+diff --git a/drivers/iommu/arm/arm-smmu-v3/tegra241-cmdqv.c b/drivers/iommu/arm/arm-smmu-v3/tegra241-cmdqv.c
+index 6644075c1431..a394bf0f487f 100644
+--- a/drivers/iommu/arm/arm-smmu-v3/tegra241-cmdqv.c
++++ b/drivers/iommu/arm/arm-smmu-v3/tegra241-cmdqv.c
+@@ -447,6 +447,54 @@ tegra241_cmdqv_get_cmdq(struct arm_smmu_device *smmu,
+ 	return &vcmdq->cmdq;
+ }
+ 
++static int tegra241_cmdqv_drain_vintf0_lvcmdqs(struct arm_smmu_device *smmu)
++{
++	struct tegra241_cmdqv *cmdqv =
++		container_of(smmu, struct tegra241_cmdqv, smmu);
++	struct tegra241_vintf *vintf = cmdqv->vintfs[0];
++	int ret = 0;
++	u16 lidx;
++
++	/*
++	 * Kernel only uses VINTF0. Return if it's disabled.
++	 * Note: Lockless reads of the enabled flags are safe here.
++	 * VINTF0 is initialized during probe() (before Runtime PM is
++	 * enabled) and de-initialized during remove() (after the driver
++	 * core has called pm_runtime_disable()). Thus, this drain helper,
++	 * running only in runtime_suspend(), cannot race against VINTF0
++	 * creation or destruction.
++	 */
++	if (!READ_ONCE(vintf->enabled))
++		return 0;
++
++	for (lidx = 0; lidx < cmdqv->num_lvcmdqs_per_vintf; lidx++) {
++		struct tegra241_vcmdq *vcmdq = vintf->lvcmdqs[lidx];
++		int rc;
++
++		if (!vcmdq || !READ_ONCE(vcmdq->enabled))
++			continue;
++
++		rc = arm_smmu_drain_queue(smmu, &vcmdq->cmdq.q, true);
++		if (rc) {
++			/*
++			 * The PM core forces suspend even if a drain times out.
++			 * We must record the error but continue draining the
++			 * remaining queues to ensure no in-flight commands are
++			 * abandoned when the hardware power is cut.
++			 */
++			dev_warn_ratelimited(smmu->dev,
++					     "vintf0 lvcmdq%u drain timed out\n",
++					     lidx);
++			ret = rc;
++		}
++
++		/* Avoid consuming stale commands on resume */
++		vcmdq->cmdq.q.llq.cons = vcmdq->cmdq.q.llq.prod;
++	}
++
++	return ret;
++}
++
+ /* HW Reset Functions */
+ 
+ /*
+@@ -905,6 +953,7 @@ static struct arm_smmu_impl_ops tegra241_cmdqv_impl_ops = {
+ 	.device_reset = tegra241_cmdqv_hw_reset,
+ 	.device_disable = tegra241_cmdqv_hw_disable,
+ 	.device_remove = tegra241_cmdqv_remove,
++	.drain_queues = tegra241_cmdqv_drain_vintf0_lvcmdqs,
+ 	/* For user-space use */
+ 	.hw_info = tegra241_cmdqv_hw_info,
+ 	.get_viommu_size = tegra241_cmdqv_get_vintf_size,
+-- 
+2.56.0.rc1.315.gc6ed9934b7-goog
+
 
