@@ -4,44 +4,44 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0B073CA5FAC
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 29 Sep 2026 21:31:57 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 132EBCA5FA7
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 29 Sep 2026 21:33:11 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=R5j+6LYMMJZY9MNPTlC5mVgKgI6GPvSLq1ObM+lpJGQ=; b=wkTJuZHyHmNdg/eUsPwRa5ixM3
-	xWPoVBi8L1MnD+9OH2xBmTsrtmY74cJZQ3bB4N4k7pTODt/97BbCJu0m+HAUm2D4mIBT9IVI6MQ6G
-	iUZKkymtqD3iRj6eGRFx9TlNrhP3QEeGkEL/hSa9RvzigaaZpKLRnwwR8egEPAecf8yavwAVksJh9
-	p8qWA+aijWkByf6f903rfy1I+NI3Lt+CACtIXPeMJ4XABKE/Dy4ObREjG0EAO4GquDEU4RQDIS1zK
-	wrFTbkhtqCYe2UTQ3ETvDr3g5GfBHkQnxbwAAXQXj+3o6cdPRJP1VEqBQEiaYB5ZaERsilEwZlV38
-	2kLmYk/A==;
+	bh=lelsT5w70qSo6Jz1QIPHWdCUzI8GluF0Gnl5Y70qLj4=; b=DIHnDtbDX9vM3DmKLUreF14Uer
+	r/uIwTPvXmGsA4PWR6uGK7oxsMUjZoPr6MgZS1iGSCVV8esXh6pzzbMpzn7tWTQCgcKAVfbfEd3zd
+	0krtrmnyTK6+HWSovZFMlFVNElz9JbvkabPQ/N6DTUAz2nUFSzvLDYgt0CP5H7fr5OaLATXxnx6km
+	Lbuty7Wrd3GBdMj2YzJX4PvFqyRTC7NIcLBoVzCK7uw5AnVaW10Ye7u3NIKyJh3S8jJ5JHrpisWER
+	nXesljajqbzf2PHghdWt0TeIDkkR5FKyw8zGnmJKi6hPUZzFet6eHxCgn5bkMWCKhD0KN6T7j7Aj/
+	3a0smJYQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xBfQU-00000004bHa-48i4;
-	Tue, 29 Sep 2026 21:31:50 +0000
+	id 1xBfRg-00000004bWY-2W0W;
+	Tue, 29 Sep 2026 21:33:04 +0000
 Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xBfQT-00000004bH1-1bBV;
-	Tue, 29 Sep 2026 21:31:49 +0000
+	id 1xBfRf-00000004bVn-13NH;
+	Tue, 29 Sep 2026 21:33:03 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 69A1A40698;
-	Tue, 29 Sep 2026 21:31:48 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id F2BF31F000FF;
-	Tue, 29 Sep 2026 21:31:47 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 051C541311;
+	Tue, 29 Sep 2026 21:33:03 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 9AC841F000FF;
+	Tue, 29 Sep 2026 21:33:02 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1790717508;
-	bh=R5j+6LYMMJZY9MNPTlC5mVgKgI6GPvSLq1ObM+lpJGQ=;
+	s=k20260515; t=1790717582;
+	bh=lelsT5w70qSo6Jz1QIPHWdCUzI8GluF0Gnl5Y70qLj4=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=ImbjBSkcOU61+57dg13SS0sVfvDjpN/rEWW7THOLCk6E6Nxs4VPjJHzZO2j5+fDkX
-	 TfTf75iO2Y6BdNjdUWXJWsbTiEqfWrlzQEGKOTe217sW/+R+PYhNrXc3Kcyn4uSv8L
-	 fs4E52O2mRmO7rHKLqwREziJnRIT1RPwlGs7AfcUSZgH69XyPAlnNTaBt1qBZu1sCG
-	 /E5HWQ6e7Sg5ocwxIL4R3qR7/vK5Y0ONLTtptiNdyacQ8N/KdUHTpQGL1naUUruJDc
-	 8eIS+HB1CMJOiH2ZJxaQWnvcn9gSjrWtmkQkis5JDRoappoAHcmdmWK6Pho0jj1uu1
-	 FYNlzkmofuYlw==
-Date: Tue, 29 Sep 2026 16:31:47 -0500
+	b=Gfnygp67yJoU6wYQYLDHLLsHUQOt3WctNaX7omRMnGuvm1Trzfh2TcVbInjG0SRzC
+	 l4y/e5J59XBb1uIJP6uCTkR0bnAHoy5KZmTycC4CSKePUIMHTg2oFKWSR90/GCzXDh
+	 o/fmm64t4CTs+61hfFGioN1k3ZiSaTjYvXdPDSKMiXb3wp0ZPFGOfYOxeQ9QHv4Akn
+	 Og0tnEZ8BBAP+QxJLIqo/7plV4g/0Hyny+aTmJ+DzDhuuDMv9P330XmTikiI9Yw/R1
+	 98tcZsMmJpAdRX0uFEOjwsYZu/vNfp5EYAwW8P6DJogbkEBOgl3chBUEfU7QR0lnOL
+	 KIpRVJAVlPBvw==
+Date: Tue, 29 Sep 2026 16:33:01 -0500
 From: Rob Herring <robh@kernel.org>
 To: Michal Wilczynski <m.wilczynski@samsung.com>
 Cc: Vinod Koul <vkoul@kernel.org>, Manivannan Sadhasivam <mani@kernel.org>,
@@ -79,16 +79,16 @@ Cc: Vinod Koul <vkoul@kernel.org>, Manivannan Sadhasivam <mani@kernel.org>,
 	Chaoyi Chen <chaoyi.chen@rock-chips.com>,
 	Joshua Peisach <jpeisach@ubuntu.com>,
 	Uwe =?iso-8859-1?Q?Kleine-K=F6nig?= <u.kleine-koenig@baylibre.com>
-Subject: Re: [PATCH v5 04/21] dt-bindings: soc: starfive: Add
- starfive,jh7110-hdmi-subsystem
-Message-ID: <20260929213147.GA2831360-robh@kernel.org>
+Subject: Re: [PATCH v5 06/21] dt-bindings: display: verisilicon: Add
+ starfive,jh7110-dc8200
+Message-ID: <20260929213301.GA2839911-robh@kernel.org>
 References: <20260929-jh7110-clean-send-v5-0-82b4d8e3c6c7@samsung.com>
- <CGME20260929103210eucas1p2d7e77f1147a03dac0536f6069505ea51@eucas1p2.samsung.com>
- <20260929-jh7110-clean-send-v5-4-82b4d8e3c6c7@samsung.com>
+ <CGME20260929103214eucas1p20a39791b0286596d4c33c2e459030943@eucas1p2.samsung.com>
+ <20260929-jh7110-clean-send-v5-6-82b4d8e3c6c7@samsung.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20260929-jh7110-clean-send-v5-4-82b4d8e3c6c7@samsung.com>
+In-Reply-To: <20260929-jh7110-clean-send-v5-6-82b4d8e3c6c7@samsung.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -103,20 +103,14 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Sep 29, 2026 at 12:31:01PM +0200, Michal Wilczynski wrote:
-> Add the dt-binding for the StarFive JH7110 HDMI subsystem.
-> 
-> The JH7110 HDMI IP is a monolithic block containing both the digital
-> controller and analog PHY in a single register space. This binding
-> defines the parent device, which holds the shared register map and
-> populates its two children: the PHY and the controller. This is
-> necessary to resolve a circular clock dependency between the HDMI block
-> and the VOUT clock generator.
+On Tue, Sep 29, 2026 at 12:31:03PM +0200, Michal Wilczynski wrote:
+> The JH7110 embeds a DC8200. The binding requires an SoC specific
+> compatible ahead of the generic one, so add the JH7110 to the enum.
 > 
 > Signed-off-by: Michal Wilczynski <m.wilczynski@samsung.com>
 > ---
->  .../starfive/starfive,jh7110-hdmi-subsystem.yaml   | 95 ++++++++++++++++++++++
->  1 file changed, 95 insertions(+)
+>  Documentation/devicetree/bindings/display/verisilicon,dc.yaml | 1 +
+>  1 file changed, 1 insertion(+)
 
-Reviewed-by: Rob Herring (Arm) <robh@kernel.org>
+Acked-by: Rob Herring (Arm) <robh@kernel.org>
 
