@@ -4,91 +4,123 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7C67ACA5FA1
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 29 Sep 2026 10:17:08 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6E881CA5FA5
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 29 Sep 2026 10:17:46 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
-	Message-ID:Date:References:In-Reply-To:Subject:Cc:To:From:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=8ZrIrBxCNNXXECOP7DQAWlSRM76fCEDYQdJAhh/qYf8=; b=xt0hM0lUKpwsF3Z4arnDjtHe4m
-	LVgpzm7RYJ7euhyuECmpD/FaYHBar6UfBXKg0zY2SujA7n8wVv5IK8rLaBe8hj+GkwK699OH7vsXk
-	JYrrqhEgcB6JfgZbmfnz6gCDdBQSUVusFgIziRz0Lxp5uKVtlc0ryyc+8QAM5IwahnleXm1eQ9tzH
-	01uggTIzQ8Ow60xq+xw61WiAQhGsY5iRWoT9DRCJa8Gb6udPkDvt9u2QGs8U4O8moXFzfIWQm7A0a
-	4sHbihPOKi7i5+u06vN/1N7Yvyk4TghqotBSVIlX+nC1x56u2UK8zFeFWr5yV3sxhfYvDXyW2fInR
-	HlIXiiAw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=x8A339RnUrsyIIVAeH9ijcEytAFbSbdZHOutd3Xx5VU=; b=SRLYXIX5AJ4XfhDUp9w9P61hvr
+	Rc1w3np3d08Djz6Ebq/QkqZqzASwHwYoVAMoFUBPERNQHynOZrc3v9hEcRtKNXNFW9z7tEatlDA2F
+	YsH9kEhTWfHnRpXngOYfjkDvCybqHaXhCGiEXIWI7903KFqbfSvbmNOpZ6k11QgL3ha06RlbCSmyj
+	O2CmvybxBjrSv+XiO7hwRZK97cG5qFmSOsP0z/i1b2Wybh9oeQ7CWXiexZI0/casNFCT5ZRsVCosX
+	419kTD+Nrp4tCtQWzuBm/VWYtIWBHCSbM0PPomDZSvc2WvLIQ4HNF0qlQ6a/Muf+EnTHRDb3bsdGB
+	Avk1Y3Gw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xBUtS-000000035uF-07np;
-	Tue, 29 Sep 2026 10:17:02 +0000
-Received: from mgamail.intel.com ([198.175.65.13])
+	id 1xBUu3-000000036S0-3hfq;
+	Tue, 29 Sep 2026 10:17:39 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xBUtJ-000000035rR-438f;
-	Tue, 29 Sep 2026 10:16:55 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1790677014; x=1822213014;
-  h=from:to:cc:subject:in-reply-to:references:date:
-   message-id:mime-version;
-  bh=e//TCcit/ISzMYO0YeFaG6Hi1WgM+P6dvupJ+mrGO14=;
-  b=JdFwo8URVpX8maWAea0yJYA6nrIXVkYQ/IBFPRahbb4eBhaos+w4YKxu
-   7G2ht/pEhgcIAdrqCH+K568yilbDkU8vrHZ/iPlmy3ua16AAubiyRaqfH
-   ratWoBoM5l8nfvjg6Kl01DQV5WpuuHB8XkjIH4zAaHwTYg6z8oqTxbGDM
-   YlVssa/ofM10EnPzfrGwGa2XXuTEzqDM/w6QYf6zn6nmii41RbJcX8WuP
-   yLpJshS+Ewh10O4yu0Y2MIzTEZ4ijYQOdwmawGzWeDJ8XAheEtm0pbQNJ
-   gLEsldz60QRsNYeiwEn963bCZM962KIEYHb89KoVKvHwzBoznG3HYJ+q2
-   A==;
-X-CSE-ConnectionGUID: 7/8mlqj4R4azuO/M7XPP3Q==
-X-CSE-MsgGUID: trwPFWaRRPeB7Rj+TZYfTA==
-X-IronPort-AV: E=McAfee;i="6800,10657,11919"; a="101558572"
-X-IronPort-AV: E=Sophos;i="6.27,130,1787036400"; 
-   d="scan'208";a="101558572"
-Received: from fmviesa009.fm.intel.com ([10.60.135.149])
-  by orvoesa105.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 29 Sep 2026 03:16:53 -0700
-X-CSE-ConnectionGUID: mcFPh+TaRTGZ537dHTcCpQ==
-X-CSE-MsgGUID: xQ/qpcy8QsmvUL+LJw7xhQ==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.27,130,1787036400"; 
-   d="scan'208";a="271815009"
-Received: from kniemiec-mobl1.ger.corp.intel.com (HELO localhost) ([10.245.244.233])
-  by fmviesa009-auth.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 29 Sep 2026 03:16:44 -0700
-From: Jani Nikula <jani.nikula@linux.intel.com>
-To: Benjamin Tissoires <bentiss@kernel.org>
-Cc: Maxime Ripard <mripard@kernel.org>, Neil Armstrong
- <neil.armstrong@linaro.org>, Jessica Zhang <jesszhan0024@gmail.com>, David
- Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>, Maarten
- Lankhorst <maarten.lankhorst@linux.intel.com>, Thomas Zimmermann
- <tzimmermann@suse.de>, Rob Herring <robh@kernel.org>, Krzysztof Kozlowski
- <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, Nathan
- Chancellor <nathan@kernel.org>, Nick Desaulniers
- <ndesaulniers@google.com>, Bill Wendling <morbo@google.com>, Justin Stitt
- <justinstitt@google.com>, Florian Fainelli
- <florian.fainelli@broadcom.com>, Broadcom internal kernel review list
- <bcm-kernel-feedback-list@broadcom.com>, Andrzej Hajda
- <andrzej.hajda@intel.com>, Robert Foss <rfoss@kernel.org>, Laurent
- Pinchart <Laurent.pinchart@ideasonboard.com>, Jonas Karlman
- <jonas@kwiboo.se>, Jernej Skrabec <jernej.skrabec@gmail.com>, Luca
- Ceresoli <luca.ceresoli@bootlin.com>, Albert Esteve <aesteve@redhat.com>,
- Dave Stevenson <dave.stevenson@raspberrypi.com>, Javier Martinez Canillas
- <javierm@redhat.com>, dri-devel@lists.freedesktop.org,
- devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
- bpf@vger.kernel.org, llvm@lists.linux.dev,
- linux-rpi-kernel@lists.infradead.org, linux-arm-kernel@lists.infradead.org
-Subject: Re: [PATCH 0/6] drm/bridge: Add a BPF-based MIPI-DSI panel driver
-In-Reply-To: <aruD5kwOEsvFhW2e@beelink>
-Organization: Intel Finland Oy - BIC 0357606-4 - c/o Alberga Business Park,
- 6 krs Bertel Jungin Aukio 5, 02600 Espoo, Finland
-References: <20260928-drm-mipi-dsi-panel-ebpf-v1-0-5244926aace4@kernel.org>
- <054ef52478fc93fc213a9dae23ea77f73094aaf2@intel.com>
- <aruD5kwOEsvFhW2e@beelink>
-Date: Tue, 29 Sep 2026 13:16:41 +0300
-Message-ID: <42cfa3fb2246c66d69e45d7d9b8d6aaadc0da4c4@intel.com>
+	id 1xBUu1-000000036OP-2XRH
+	for linux-arm-kernel@lists.infradead.org;
+	Tue, 29 Sep 2026 10:17:37 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by sea.source.kernel.org (Postfix) with ESMTP id CB67D43A7A;
+	Tue, 29 Sep 2026 10:17:36 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 50DDE1F000FF;
+	Tue, 29 Sep 2026 10:17:27 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1790677056;
+	bh=x8A339RnUrsyIIVAeH9ijcEytAFbSbdZHOutd3Xx5VU=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To;
+	b=TNI3kRQy2kt7JF9bKeIGFEH0L3tN37yUNyp4gj86nez5/945G3tvtT0odrk8Pp11h
+	 iX3LKWuCQk4UXYF2ligzk80r8UH/1ZFgO8hhoqiHUHc3GhdRNBrinIRe8QqoiBh1Pw
+	 Uces+EUV6OMY8ASk6Jba+enXki/AXIvYETsbPen9E4WJathkQe4EukHf99qM/DsPJa
+	 zwjM2FdB0jfIqqONa1r4XqqvVrBwrDM980iLbnQR/b6pncUe2+cx1lXYYGmWj5PvNB
+	 AT90CtSGQwqOZjLPKCcehbLrEZzPGxn5wb7wIgBJP1LA0D3xr7VFe0LISDM9/uZA2Y
+	 6HRM7XUhMqPuw==
+Message-ID: <8ac6d609-0cf9-4368-be08-577f2ec2e762@kernel.org>
+Date: Tue, 29 Sep 2026 12:17:24 +0200
 MIME-Version: 1.0
-Content-Type: text/plain
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260929_031654_053199_207C3285 
-X-CRM114-Status: GOOD (  18.11  )
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v4 0/4] Add Laguna/Tensor G5 SoC and Frankel, Blazer &
+ Mustang boards
+To: Peter Griffin <peter.griffin@linaro.org>
+Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+ Conor Dooley <conor+dt@kernel.org>, =?UTF-8?Q?Andr=C3=A9_Draszik?=
+ <andre.draszik@linaro.org>, Tudor Ambarus <tudor.ambarus@linaro.org>,
+ Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
+ Mark Rutland <mark.rutland@arm.com>, Arnd Bergmann <arnd@arndb.de>,
+ Alexandre Belloni <alexandre.belloni@bootlin.com>,
+ Linus Walleij <linusw@kernel.org>, Drew Fustini <fustini@kernel.org>,
+ Kees Cook <kees@kernel.org>, Tony Luck <tony.luck@intel.com>,
+ "Guilherme G. Piccoli" <gpiccoli@igalia.com>,
+ Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+ Jiri Slaby <jirislaby@kernel.org>, devicetree@vger.kernel.org,
+ linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-samsung-soc@vger.kernel.org, soc@lists.linux.dev,
+ Douglas Anderson <dianders@chromium.org>, Juan Yescas <jyescas@google.com>,
+ RD Babiera <rdbabiera@google.com>, Brian Norris <briannorris@google.com>,
+ William McVicker <willmcvicker@google.com>, kernel-team@android.com,
+ linux-serial@vger.kernel.org,
+ Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>,
+ Brian Norris <briannorris@chromium.org>
+References: <20260918-contrib-pg-pixel10-initial-dts-v4-0-745eaca28b1a@linaro.org>
+ <179067486422.102650.10176830320558486814.b4-ty@b4>
+ <550a74bc-f0b9-4141-9fc8-db175bb0b1ae@kernel.org>
+ <CADrjBPo_V1YScLQkgbSrWCaq30k7JoF0GQQ0u5ouBiEipbEg4Q@mail.gmail.com>
+ <CADrjBPrErWJR_01+Qhuw6mu0Kpe8-tvBMjci=rBO13RaSqnfZQ@mail.gmail.com>
+From: Krzysztof Kozlowski <krzk@kernel.org>
+Content-Language: en-US
+Autocrypt: addr=krzk@kernel.org; keydata=
+ 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
+In-Reply-To: <CADrjBPrErWJR_01+Qhuw6mu0Kpe8-tvBMjci=rBO13RaSqnfZQ@mail.gmail.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -103,49 +135,63 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, 29 Sep 2026, Benjamin Tissoires <bentiss@kernel.org> wrote:
-> Ouch. This immediately raises the "let's implement a parser in the
-> kernel" flag, or "let's create a new langage".
+On 29/09/2026 12:16, Peter Griffin wrote:
+> Hi Krysztof,
+> 
+> On Tue, 29 Sept 2026 at 11:09, Peter Griffin <peter.griffin@linaro.org> wrote:
+>>
+>> Hi Krysztof,
+>>
+>> On Tue, 29 Sept 2026 at 10:56, Krzysztof Kozlowski <krzk@kernel.org> wrote:
+>>>
+>>> On 29/09/2026 11:41, Krzysztof Kozlowski wrote:
+>>>>
+>>>> On Fri, 18 Sep 2026 19:05:01 +0000, Peter Griffin wrote:
+>>>>> This series adds initial basic support for Laguna (Tensor G5 SoC)
+>>>>> found in Frankel (Pixel 10), Blazer (Pixel 10 Pro) and Mustang (Pixel
+>>>>> 10 Pro XL) phones.
+>>>>>
+>>>>> Whilst Tensor G1 to G4 SoCs (found in Pixel 6 to Pixel 9 and Pixel
+>>>>> 10a) were offshoots from the Samsung Exynos family. Laguna is an
+>>>>> entirely in-house Google designed SoC.
+>>>>>
+>>>>> [...]
+>>>>
+>>>> Applied, thanks!
+>>>>
+>>>> [1/4] dt-bindings: arm: google: Add dt bindings for frankel/blazer/mustang
+>>>>       https://git.kernel.org/krzk/linux/c/ecf6405fa6c503c34eb4e7e905957d70d4018e93
+>>>> [2/4] arm64: dts: google: Add dts directory for Google-designed silicon
+>>>>       https://git.kernel.org/krzk/linux/c/cf3df78629f24b40cd0cb2da74e3ea4a944bed82
+>>>> [3/4] arm64: dts: google: Add initial dts for frankel/blazer/mustang
+>>>>       https://git.kernel.org/krzk/linux/c/54edd8698bb1fb40c339d0cb2f15baad6993dd48
+>>>> [4/4] arm64: defconfig: enable Tensor G5 SoC family
+>>>>       https://git.kernel.org/krzk/linux/c/63f674fe8a0a8d6e4bee3e72f7ae658f0e9a0686
+>>>>
+>>>
+>>> This introduces new warnings:
+>>>
+>>> /home/buildbot/kernel/build/arch/arm64/boot/dts/google/lga.dtsi:368.37-391.5:
+>>> Warning (avoid_unnecessary_addr_size):
+>>> /soc@0/interrupt-controller@5880000: unnecessary
+>>> #address-cells/#size-cells without "ranges", "dma-ranges" or child "reg"
+>>> or "ranges" property
+>>>
+>>> https://krzk.eu/#/builders/28/builds/845
+>>>
+>>> Probably you wanted address-cells=0?
+> 
+> Yes, it should be:
+> 
+> #address-cells = <0>;
+> 
+> and no size-cells line
+> 
+> How would you like to handle it? Shall I send a v5, or would you
+> prefer to fix it up locally since you already applied it?
 
-Fair.
+Just send a fixup patch.
 
-> You'd still need a dedicated driver for your new blob parser, with far
-> fewer people who had had a look at it than BPF who has been working on
-> for several years.
-
-Fair.
-
-> The integration of BPF and the kernel is honestly transparent nowaday:
-> calling a struct_ops BPF function is just a function call away, and from
-> the bpf calling anything in the kernel is also just a call away.
-
-I don't know if I'm just being overly conservative here, but it seems to
-me BPF provides too much flexibility for the use case. But maybe the
-point is completely moot, and you should just ignore me. ;)
-
-> See Maxime's answers: yes, falling back to dedicated driver is still
-> encouraged.
-
-[Moved the above to go with below.]
-
-> Isn't that what Maxime wants to have? One driver for a plethora of DSI
-> panels, with the same ability the BIOS has to also do function calls to
-> set things up?
-
-I suppose this is something that could use some clarification. Is the
-idea that most (simple) dedicated panel drivers eventually get converted
-to BPF? Or is the idea that BPF is easy for prototyping and development
-using stable kernels and short time to market, and most of them would
-eventually get converted to dedicated panel drivers?
-
-The story wrt display before userspace is up and running also needs
-clarification.
-
-
-BR,
-Jani.
-
-
--- 
-Jani Nikula, Intel
+Best regards,
+Krzysztof
 
