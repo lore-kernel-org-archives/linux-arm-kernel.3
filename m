@@ -4,68 +4,65 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9E412CA5FA5
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 29 Sep 2026 21:59:23 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BA7E0CA5FA7
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 29 Sep 2026 22:03:41 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=gC9+4iTynloA2cHF6NCfusb6R3+csWJwJp2/KYeHI68=; b=dhbgDG7BYqU8xoSOUtpA/QlK0c
-	Yia5jmti2n0EeTUFsANDuBFymXDnNcXxusgD079NtH6S6OZ48nBTWtQD+zhdr9gMwBGwrPYQyqfo8
-	DiBDDLwKpeXT0j6xGJnjATijSSlUrldEGLKwN8tFI0nTLzWLt3JZCGM31QRjSMgQl9CSGOkf7+tzd
-	B0uusGzXNnQ7SbO03pSM/A63CFj3jBYzgw49KdaCOml+/5zNA1DquA3jNUH7s9+DgsPlkY0WlGDcO
-	oH4IMrMmygDCwnE1wkRYF/tUBKuY0YQWfvFtvLHMdkm1L9WMm6018ouVdwgqZVOR2b+jPFgdYegx6
-	1PN7cfQA==;
+	bh=v/nJ4k1u78ke7ZIHZ4IMT2+oEY9uF0eOOz//6bbIgqY=; b=BW5q8IV53U2AzIJSBI7lBKyYxn
+	i7Qi98g1UYlm0lEeXgt9Gl+PgV/6wwQwaLxsIxFC+olKd8kGfGRi6Vpmf+BzhoSzgYOJT6F64wRAi
+	PZa3pfTPbdSYRuET3xOCsEAHhpXG605Uq3cJ986FBE2lPxR8F1jljAxAVf+ueE24MWRRUudKddF+i
+	A6njqYlQZ7IZTT3eGQUBMRJjgX4VB99qISKBMfj1AkuURqXejMIWaPEW8bhvqq9FDsIL2f8k8rvYf
+	g5CONeart6w3sAyNFiRVL9P6bGemAI/ElUA30P0D6BWv5cpMHN9g7VMfCWmdLJkhMzfEEs+cUE937
+	EEPtv81w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xBfr1-00000004erO-0u1D;
-	Tue, 29 Sep 2026 21:59:15 +0000
-Received: from smtp5-g21.free.fr ([212.27.42.5])
+	id 1xBfvC-00000004fRO-3JVm;
+	Tue, 29 Sep 2026 22:03:34 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xBfqy-00000004eq3-0Jjk
+	id 1xBfvB-00000004fR9-1KNQ
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 29 Sep 2026 21:59:14 +0000
-Received: from L30177.local (unknown [IPv6:2a01:e0a:ac2:22b0:fd38:7b91:be5e:6aee])
-	(Authenticated sender: vjardin@free.fr)
-	by smtp5-g21.free.fr (Postfix) with ESMTPSA id 7B1C95FFAA;
-	Tue, 29 Sep 2026 23:58:51 +0200 (CEST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=free.fr;
-	s=smtp-20201208; t=1790719143;
-	bh=cr5V+n/greApI8Zyhw+2u0aNrf/2IvsBktudjqmiqro=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=BNoPtG9afk89bIDpSSwZpYx+lHCVs9Wsyv/laS8KKM0eqRGAjxlZleqPa51jjBBU5
-	 CY7Q33HOgnqUtHj8opAsuXscshB9tSe+jXDsh+/IBv/vcGHmMqdN1bYjb4DteSNDPn
-	 B9GDCmqWXGEAaFsiqKB6SN90MGeJKcqebtZORXaAGOryOrUupiWaLlc0JY3LkixbwL
-	 ok5AJ2D+qJ/7MYK3yUMeKDeiAFz73Xpqj78QcL1TN6WCvq87mwuHEBaKYE3apNoPkK
-	 E2prVdLk25A63Wb5VrAMU4px5KRDXSwyLkmnnsoNC+U20BeWfKKrlKF+G5RXl9sj2P
-	 VzGB14XiP14Tg==
-Date: Tue, 29 Sep 2026 23:58:49 +0200
-From: Vincent Jardin <vjardin@free.fr>
-To: Andi Shyti <andi.shyti@kernel.org>
-Cc: Oleksij Rempel <o.rempel@pengutronix.de>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Frank Li <Frank.Li@nxp.com>, Sascha Hauer <s.hauer@pengutronix.de>,
-	Fabio Estevam <festevam@gmail.com>,
-	Carlos Song <carlos.song@nxp.com>,
-	Haobin Jiang <lemonoutput@foxmail.com>, linux-i2c@vger.kernel.org,
-	imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v2] i2c: imx: add I2C_M_REV_DIR_ADDR and I2C_M_NOSTART
-Message-ID: <arw0mVbacAXv_1H7@L30177.local>
-References: <20260812-for-upstream-i2c-imx-lx2160-reverse-v2-1-f1343714c5a9@free.fr>
- <apcYp0Zc7CrJMiOh@lizhi-Precision-Tower-5810>
- <aqO9SMvI89rqoEGb@L23803.iliad.fr>
- <arMUxCW5ZTzLT3VN@L30177.local>
+	Tue, 29 Sep 2026 22:03:33 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by sea.source.kernel.org (Postfix) with ESMTP id C6B2A43851;
+	Tue, 29 Sep 2026 22:03:31 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 98B401F000FF;
+	Tue, 29 Sep 2026 22:03:29 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1790719411;
+	bh=v/nJ4k1u78ke7ZIHZ4IMT2+oEY9uF0eOOz//6bbIgqY=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=mMO3s90BPyVNAf3nUTt7RP3vpKU1sWdUZrUeRmMYdW/AKChDH4asRiPP6HJwxqnyB
+	 B1zy1qrfD/5nHEfgGSU1E9IIIEQ1MIHwxuMke8DCbWfqMnf0myGRguUW/8ScsTYajh
+	 qz94KFKNJtSIGMHhgdpoksf+uJuLDgGTpj0u/Zo0kU2rM++IUD2qk+jE6cVNpE77wz
+	 aYMorE41+yHTgN4bBWx2Yhb572oTvAs+9aWhlC023k50o2sTVgow2/6ZKEtZPoemgo
+	 bvktGTajcnXcxEAxxKURHAZ8p4vrR7ZKgm6Lob1JpEtk507QyPnQYbEzinEldEG7kh
+	 PgOKbB8HgOlMw==
+Date: Tue, 29 Sep 2026 23:03:27 +0100
+From: Mark Brown <broonie@kernel.org>
+To: Mark Rutland <mark.rutland@arm.com>
+Cc: Catalin Marinas <catalin.marinas@arm.com>,
+	Will Deacon <will@kernel.org>, Shuah Khan <shuah@kernel.org>,
+	Marc Zyngier <maz@kernel.org>, Oliver Upton <oupton@kernel.org>,
+	Fuad Tabba <fuad.tabba@linux.dev>, linux-kernel@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kselftest@vger.kernel.org
+Subject: Re: [PATCH 03/11] kselftest/arm64: Move exit calls out of fp-stress
+ loads
+Message-ID: <489314ca-0bdd-4d19-8f53-cf0b38130da4@sirena.org.uk>
+References: <20260901-arm64-fp-stress-kvm-v1-0-31bce995b49b@kernel.org>
+ <20260901-arm64-fp-stress-kvm-v1-3-31bce995b49b@kernel.org>
+ <arvm8O6kL1I9Plrw@J2N7QTR9R3.cambridge.arm.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="yhcXNUoMVHeEzr/M"
 Content-Disposition: inline
-In-Reply-To: <arMUxCW5ZTzLT3VN@L30177.local>
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260929_145912_272794_CE524628 
-X-CRM114-Status: UNSURE (   6.36  )
-X-CRM114-Notice: Please train this message.
+In-Reply-To: <arvm8O6kL1I9Plrw@J2N7QTR9R3.cambridge.arm.com>
+X-Cookie: 1 bulls, 3 cows.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -80,24 +77,44 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Andi,
 
-Sorry to ask again: could you consider this patch for i2c/i2c-next,
-so it can land into v7.4 which is coming soon ?
+--yhcXNUoMVHeEzr/M
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
 
-It carries Carlos Song's Acked-by and Frank Li's Reviewed-by.
-It still applies cleanly on your current i2c/i2c-next.
-  https://patchwork.ozlabs.org/project/linux-i2c/patch/20260812-for-upstream-i2c-imx-lx2160-reverse-v2-1-f1343714c5a9@free.fr/
-which I checked few minutes ago.
+On Tue, Sep 29, 2026 at 05:27:28PM +0100, Mark Rutland wrote:
+> On Tue, Sep 01, 2026 at 06:06:43PM +0100, Mark Brown wrote:
 
-Haobin Jiang's
-  "i2c: imx: honour I2C_M_IGNORE_NAK"
-v3 is based on it, and waiting for it:
-  https://lore.kernel.org/linux-i2c/tencent_342A87BFCECA70C9982E68A79AAD878B6909@qq.com/
+> > When they detect corruption the fp-stress test loads print load specific
+> > diagnostics and exits with a failure status.  In preparation for
+> > building versions intended to run as KVM guests factor the exits into
+> > asm-utils-linux.S.
 
-If you prefer a v3 rebased on i2c/i2c-next with both tags, I can send
-it too.
+> This is a good cleanup, but I do think it'd be worth noting that some of
+> the existing asm was wrong and worked by coincidence.
 
-Best regards,
-  Vincent
+> I did mention that in the patches I linked you to a while back:
+
+>   https://git.kernel.org/pub/scm/linux/kernel/git/mark/linux.git/commit/?id=922d15ef46cb486a79f168949e103f6df26f4fba
+
+Ah, so you did.  To be honest I'd initially forgotten what was in there
+when I wrote these, though I did go check them after writing and should
+have updated the changelogs when I did.
+
+--yhcXNUoMVHeEzr/M
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iQEzBAABCgAdFiEEreZoqmdXGLWf4p/qJNaLcl1Uh9AFAmq8Na4ACgkQJNaLcl1U
+h9B6XQf/afmbwqYeX8wC1xYdsrffIp0UYaX5YWRV++8pmaaLaLV1J+8tGXCUQ+yB
+iio51yiXRE4/24GNDnX0AdMaxsruqbgUi2Oy9EWMcY9/juQqWkNAfz9iXo1cUEPm
+mJ4Nl6LNNC7GRdO0a1vdLaM7bPQVmb/bS6hl7tmDwgf6Ysz8YEfsd3ww5ARQmlHp
+ybmzWIytlXREenELwE2+iTu3x2iIS3pjWIbqSnKF94oNZt+MeoFKo9yoc7T/4qbu
+VFUPBK50gtAq1Xx8M1yPk3urF2sWsbgV/Ya5hwQik1haeEBr/E3i/BTLnXDg7K/1
+vLmUZuilkfnFkfJkR6XfF6WLOAc+4w==
+=8oJI
+-----END PGP SIGNATURE-----
+
+--yhcXNUoMVHeEzr/M--
 
