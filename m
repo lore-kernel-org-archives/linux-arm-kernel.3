@@ -4,135 +4,60 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7F5E5C9832A
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 29 Sep 2026 14:32:01 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 397EFCA5FAE
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 29 Sep 2026 14:33:32 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
-	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=aJWy1g0yPzG7SPIZMzcccBCIYf0abEhkkoV/iKi2iZ4=; b=mCciiEfjyZz+uXWP3MDlVo+AoP
-	bA6E3UqqqKpFpuv8RHIGVierr61t57trPDBNRJVYystP6PAIfeQsZ62H98fBbhCslRG3MAThrsVXs
-	VUhDcClrMdV12MAbHHrXlPKZBZy+q/kGzsDfiFBffLnk+SLZXWH+QAIvx6+MCg87xdikdD3h5/ycD
-	HIERd5kt9KR5hdy/q8UCarEcWLZBfboPkSV2uYVdmiOMjzhuUfui7oCMk/8LRvNDHqk7D7mKd05o/
-	BtUFZD1sHGXbamwKNzi4weCDnRFELmO+T0DaPnALLlT2I7hku6KGv8YgD7xSmk0tGYgb4Z2hypytU
-	izMt+fjA==;
+	bh=hJHLsnpcNA0uTePr2GlOIQUb3XJZmhtwsyzzBMfiqjs=; b=v/jXlRs41af04Z0bbfYPbE2eX3
+	FCkoLAeTpYKXvspLZCO1fKntBUDSv80t4RW4CK2GNzvyEkizLZXQhwwI3DwJQs8JBwlfJNXDxaVWn
+	f5oXu1R9ItX7+5cWMGT1oi//v2HZBqIUKF4f3rPjriTZbSJjyNflIkSNiBxv9wHyXpWQjNnYfqbkw
+	5PGyDj1aSncErjRxk3nuYOUNi/CEQMxKVX+7ucS+aX9InR30f6h33Ol5OGHwkusvvtUmytkqoeYzz
+	HwYyA6uW8CUFR5r6UB0KiIBZxaor5m9Qyd1bRNF0Bk0Hg5lx42RcR+LOu0N/y56MFhGZUF1P1cL11
+	Lph4Blcg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xBYs7-00000003nLw-0nSK;
-	Tue, 29 Sep 2026 14:31:55 +0000
-Received: from mail-swedencentralazon11013017.outbound.protection.outlook.com ([52.101.83.17] helo=GVXPR05CU001.outbound.protection.outlook.com)
+	id 1xBYtZ-00000003nY4-2uKc;
+	Tue, 29 Sep 2026 14:33:25 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xBYs2-00000003nL2-3Eay
+	id 1xBYtY-00000003nXs-0i9X
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 29 Sep 2026 14:31:53 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=qu1V1KEOLsslRdrMNMo81Hx2aMDE4RF/q1n+FuugFgWyxEk9b+qHqhU4MqslyapQP0WyRJo1WTicoG94lqOD8mW6qVwmMt65en/Xr4Skm4RHCU+pDY+lrVYY+lT6sWcAMUrWPWjN7no/IBSk6FhdO3mxDeFc6LZW6LsL21sMLqXqvVmFbC+f+3FbXRwjwyxuEMJaNYb5l/KQpDV9q3T2eFFXfYyYoCyA4fbni/uaDpR7UcczHlYNwXB+6z9AD7vT9dgeYvu+dPW7ll8WIq23TA0fjrGhN0cGvfKcmdIGhAeUeC3PoHnky1mtBXkq2uT6hB5+LXlL0iPYIQ5IDo7a+g==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=aJWy1g0yPzG7SPIZMzcccBCIYf0abEhkkoV/iKi2iZ4=;
- b=gM8reykjddKYPvfSDJGQiP7Mvs4zNj0qL716IYY4zbA7MnTI9BIv1RVkhjBSEnCMBeyqvxvAbL4dOLfXIGG3txJ1vYXySMZuaB43ph5dy0ogo0E/1EYvH4Sya864xCuuqC6faNTXBGqQekBzP/YcwKC8wdq2H+mWLRhUiT9xpQK6VSNibav/FLRptxCM4iRhKhzAdVBlPBUjh7kTbi+u8QV+PkQwVJhJOMVzTc+OVlq/KIzXALsQh3pkb5qUV/Jrh7A5VUuMmVONyEIHNAMYa9ZSQJYarteIapybF0MjpJ3WXs9FqgHuXFKiyEeRKB9E+MPvMgboUvHIP2kckT7y7A==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
- dkim=pass header.d=oss.nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
- s=selector1-NXP1-onmicrosoft-com;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=aJWy1g0yPzG7SPIZMzcccBCIYf0abEhkkoV/iKi2iZ4=;
- b=vQ58vdF0dDZr7u0LwbUVEEcDJxyRPyupbFdiqif13dlMhSh/dq8qkBXiC0E782l4LxTjLmDVuCqvJ9Z5vZZ6LR6O9VUH4X1p0AWgaFB4ZSwWKNYLeuE/yM7pvJVcgv3AJgwjmAPyDY7F3Yf5UjY1uYy74VhV13GPc9vol7SFGzKeIqwPLIL4aB0OLApU5BVzfUBWW059IotMaZQUOLVgeoyNXTt8bucfdwk/nUmPYKT782OgbuxsOR3VmYI2bKqHxqqINfk9hNN8JpZKm0WoWuQtdifWDFaFib7IdeN2FgRKHSdVcWcZBulxx5ce3Now3XDE9FbR5BrXRbx7u5SDsg==
-Authentication-Results: mx.microsoft.com 1; dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=oss.nxp.com;
-Received: from GV2PR04MB11799.eurprd04.prod.outlook.com (2603:10a6:150:2cf::9)
- by VI2PR04MB10222.eurprd04.prod.outlook.com (2603:10a6:800:221::11) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.451.24; Tue, 29 Sep
- 2026 14:31:42 +0000
-Received: from GV2PR04MB11799.eurprd04.prod.outlook.com
- ([fe80::2146:83a2:5329:b7c]) by GV2PR04MB11799.eurprd04.prod.outlook.com
- ([fe80::2146:83a2:5329:b7c%7]) with mapi id 15.21.0451.022; Tue, 29 Sep 2026
- 14:31:42 +0000
-Date: Tue, 29 Sep 2026 09:31:32 -0500
-From: Frank Li <Frank.li@oss.nxp.com>
-To: Guoniu Zhou <guoniu.zhou@oss.nxp.com>
-Cc: Laurent Pinchart <laurent.pinchart@ideasonboard.com>,
-	Frank Li <Frank.Li@nxp.com>,
-	Mauro Carvalho Chehab <mchehab@kernel.org>,
-	Sascha Hauer <s.hauer@pengutronix.de>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Fabio Estevam <festevam@gmail.com>, Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Loic Poulain <loic.poulain@oss.qualcomm.com>,
-	linux-media@vger.kernel.org, imx@lists.linux.dev,
+	Tue, 29 Sep 2026 14:33:24 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by tor.source.kernel.org (Postfix) with ESMTP id 9C11860008;
+	Tue, 29 Sep 2026 14:33:23 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id D84491F000FF;
+	Tue, 29 Sep 2026 14:33:21 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1790692403;
+	bh=hJHLsnpcNA0uTePr2GlOIQUb3XJZmhtwsyzzBMfiqjs=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=QMk7n7fK582l2SG6gvpFPcNiwSIAWgS/JHPXyyx/xyD9rd4yc0MFOaQ5CHanM5wDX
+	 wPHjijvU1QRKT0q7i424r4ppLn8RMpZydfTaEulN5vZAL4Di83V939/W0Z0Ymfpluo
+	 p1J9aF+eisnKXsh9pqX1+TLfVhLAoGmsGJnaqpt2ffNiJMwc1fUIUITXFMIcKuY7b5
+	 /d0fac8HxoIqoCsGP+3H0M5kN9myuetgA5FEX2IjIif6Eti66NfTkBpSVdclRIHKcR
+	 Uqnw5emfULHcHJm9txWntjFpm22TbC6pQ1FjZV0vabEbJfE7LOJAKc9YJKaLQhooge
+	 CKfjvxI6LVPWQ==
+Date: Tue, 29 Sep 2026 15:33:18 +0100
+From: Will Deacon <will@kernel.org>
+To: Nguyen Ngoc Thang <ngocthang2710.1999@gmail.com>
+Cc: Catalin Marinas <catalin.marinas@arm.com>,
+	Mark Rutland <mark.rutland@arm.com>,
 	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
-	devicetree@vger.kernel.org
-Subject: Re: [PATCH v4 07/11] media: imx8-isi: Select MSB-aligned RAW input
- from pixel link on i.MX95
-Message-ID: <arvLxIDg9Z85BQL9@SMW015318>
-References: <20260929-isi_imx952-v4-0-e69f89c7c651@oss.nxp.com>
- <20260929-isi_imx952-v4-7-e69f89c7c651@oss.nxp.com>
+	syzbot+635d160c0d4133481520@syzkaller.appspotmail.com,
+	syzkaller-bugs@googlegroups.com
+Subject: Re: [RFC PATCH] arm64: mm: recover from kernel-mode SEA via
+ exception table
+Message-ID: <arvMLr8Mdh6ZKCtq@willie-the-truck>
+References: <20260912135546.55977-1-ngocthang2710.1999@gmail.com>
+MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20260929-isi_imx952-v4-7-e69f89c7c651@oss.nxp.com>
-X-ClientProxiedBy: PH8P223CA0021.NAMP223.PROD.OUTLOOK.COM
- (2603:10b6:510:2db::18) To GV2PR04MB11799.eurprd04.prod.outlook.com
- (2603:10a6:150:2cf::9)
-MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: GV2PR04MB11799:EE_|VI2PR04MB10222:EE_
-X-MS-Office365-Filtering-Correlation-Id: 72c39d30-b234-49e8-99d9-08df1e366122
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|7416014|376014|23010399003|366016|19092799006|1800799024|4143699003|11063799006|56012099006|10067099003|22082099003|18002099003;
-X-Microsoft-Antispam-Message-Info: 3AqIEAFFUsv0V1sOYH5+BB8KKjNxS2K4H2OlpSe0F0gSRX7laCEhOFk1+nV/8vqHfj+hYu6K4QdSBx9rndOuCARvvGbZwzINJDIEUJCgz87UhCe4QS02HVNZGAEnsDAuPDOteOJaDa4UtGY/BJvxAH/cB24tr5lI2s9d2uUT4AJuYvOr08W1o2nIW1s3m4DcZNRiGmO73oFmnlfUe0xTg7RkM8+xQGRWc7QBHfgY5c9VC5P5YId5IRwzU8B1Ydvz/Nic+YFjR52rRBEs87c8DMu315miaQGwYIbTdxj/hKXSjYDLWCjLsqpDupva2TrlDsAdwEX59HAib39CIKP6TYhpzxjN3qYSYHD70XXc1Tr0D7mh8ITxKuq93k49undFXEMW4TdoLlDJNB176wLgZpQ6PRIhxv34VO4P8ZNiW25akFMDqluAwWNrdsD8J4U9kZw3+6aBhXUE2m8qxWqqCU0xqvZRsHMR3GlqRzY76W2TUB/zP53/OQNW6fINQh2GUjNtapAi3ehwp2gt7SXYHBDXhZjWkABifZeKOmPZqNwNquHMlSi2jdrg6TLtgSJGNZ/4WCUsxBYiShzd2xQj5ikCxZshVSSl6V2CmrT+J46Q42dd0tT8V+Vwa3vrREHx82z8aY9012M5eeW79DGGu+Q4ACRSHH6RyU6/AXmxSt8=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:GV2PR04MB11799.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(7416014)(376014)(23010399003)(366016)(19092799006)(1800799024)(4143699003)(11063799006)(56012099006)(10067099003)(22082099003)(18002099003);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?QDagBuUDeAay/AXK/viECU1ytCF+q1kXVtAfnN36oWGeuExhWxlb9kJhxka3?=
- =?us-ascii?Q?qjaHjJkFWHg2a9EgYfZ05ODvnnBO2QcXopSSZ37BLBiM6Mr3SnQcbjFHOtrD?=
- =?us-ascii?Q?DVF77cHVTju5r3tKqx077fqa8ebnJGrgfblWl0SpstsE+amhojLSUueEmQv9?=
- =?us-ascii?Q?oOdA50Zy5qqDxWXVqHJGbc5mc+BXRWdWJJMqFwYD8C7c+dFGsQOEPjjPS8Sn?=
- =?us-ascii?Q?Kg2sZW/A/pEVBlzRP2+0A/FthdvfamA7DQBQn+q+LMVUlkNUDjfkbTZnZtoJ?=
- =?us-ascii?Q?3O94TvkTX0uciRrmCGaoQdWbmfEonZwRWUW5qwzc389oNNyJLcP5FhvlxNW9?=
- =?us-ascii?Q?LgCP4AF5iiLhEQZWw+O9bINeNYIAE/fJFbvsnpGJjvCx9jrjkrDhjd+Ck0Gd?=
- =?us-ascii?Q?16pzueDMbLn7Y0spm8SAsBvnIWZzdNg5q3js/6rkgQRuxuzu+jzP5CgYvABu?=
- =?us-ascii?Q?wlvMmT+Lz6sYM3xyWBLS+XiuXbwJ+dbXtC8eyPaW0SjzSIHfL0Fti5D0e3/U?=
- =?us-ascii?Q?1mEwE724DD2rkDuXFj6MF0/Yk3aFx3UBDw/DFLHjMqnob2NjWW5HgtguYS0U?=
- =?us-ascii?Q?2YWqkZSvjnFt3lZlQNxtWegMrH3l9NyydIC/U9aKCj/IrQz3coJD3jxCbRwd?=
- =?us-ascii?Q?LZi+tc4FKsAtdgInRn65iPe08aIV+OzCw8qB8WkdRjlIAlVo4HEbn80zHy40?=
- =?us-ascii?Q?YAO9NYVJN1arIGgXCq+73+vJJZBtdUtYj4eTmAl3IDTTmoySo46fuIOmz5kv?=
- =?us-ascii?Q?nyu/oPNJcC2R462+KbTFUtmAN+PjZNmfERLx4VYdEylXOa/RkzwOGPsS2mSZ?=
- =?us-ascii?Q?WLL+13LYYuUkal6ca6Vq79JMOIDBVl4LlCbQThNwO97oHiy9Wszw589QSf3y?=
- =?us-ascii?Q?ER9I+Sqf7bOL7meCh4dApAh2cYm8tLJMRoCSQcNTXWaqmngHlodWoZ5Aj+yz?=
- =?us-ascii?Q?1JPNyqCPjiRyuJb30fp2h6wKr7z+i6Qd6MzLp8HghBqFNcQ3QujMGaDFcPbl?=
- =?us-ascii?Q?3huqmyuqYsIYXwCGFRjvPl2KU4Div9igH2v9HJqpuUUdoKQ6qjgV0U/d1bLx?=
- =?us-ascii?Q?ClCKU0RkUcApxzKhxibeYKItDTvXi3guh/u0E1m56Ahvhmwudau+pfXeSE3H?=
- =?us-ascii?Q?svhJtUoIH570o2wsA3uKHFMxGvj5xyIUL46PUE9EjgPYSplW5c/fmOleHJii?=
- =?us-ascii?Q?y6x0Yj9GeYo9pI+DuQE3g33PSdOVQDH40MTg7l023lV21/2Xv+0VWyiOuSnL?=
- =?us-ascii?Q?4y2DmUzn1KQFdzNL5xHtp7wVz53W7QKAZNpU9P6mCn38oudnx03Ntzcs6MNV?=
- =?us-ascii?Q?ewSo1UcVUo9tXDRWsiupRDViBSNeSunqBVJTQ6MYmsycqJqn1KNR23Uv+TDg?=
- =?us-ascii?Q?GzUPU9QhjsCeeHUWMF7JSJ+7bHS4khg9eNWwg99djD1y2clSaCRjEKB97HzI?=
- =?us-ascii?Q?RUtyZhZ5gM2wtGt4vHn7gQLPGhv6+a4dCTe4H87QByzB/mwObH1JOKC8hfjY?=
- =?us-ascii?Q?Jq2TxYpy433mmDtmkkuWPL3IITHFWAHITXph2y02+6q1xuClD1Ud2uuaGTQv?=
- =?us-ascii?Q?oiND8KSJ/JaW3KNFcItWOtGyODVxMAJ40pq/yelyIprvnZbse91ptjUTK5jv?=
- =?us-ascii?Q?tI9p3yQ7TBavfJg0x+cDKMgjFmwYS8WaRhhJ72Goce4kgrbkowxY6XFzIHaI?=
- =?us-ascii?Q?fv4MJ0tv3JtqehJEzjjqcyZAOmcLWarj8AkpHBXgJRyRSI8YkPdbBkmgfTDv?=
- =?us-ascii?Q?Bfo5pzp5T1l+0J5fX3PeJ4LWvc/61PqmO5MsOvcSAUbQgJm41l2U?=
-X-OriginatorOrg: oss.nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 72c39d30-b234-49e8-99d9-08df1e366122
-X-MS-Exchange-CrossTenant-AuthSource: GV2PR04MB11799.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 29 Sep 2026 14:31:41.9585
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: DQSB1eh3dOgwikxB8M8FFN6DaFSPHxpYo1CtJYFj9RUaub4tyZqbJMwKfR3RQgZdW1AfHp3K+E9YuMeHzWlZkzZZf8ANYfFpIelANKPY81ub4RZ0qBHmkYZis1V7Ggwi
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: VI2PR04MB10222
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260929_073150_813524_8782CFF1 
-X-CRM114-Status: GOOD (  23.28  )
+In-Reply-To: <20260912135546.55977-1-ngocthang2710.1999@gmail.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -147,86 +72,45 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Sep 29, 2026 at 04:52:28PM +0800, Guoniu Zhou wrote:
-> The ISI receives RAW data from the Pixel Link, whose alignment is
-> determined by the SoC integration. Before i.MX93, the Pixel Link
-> provides LSB-aligned RAW data to the ISI. Starting with i.MX93, both
-> LSB and MSB alignment are supported and can be selected via
-> CHNL_CTRL_RAW_IN_MSB_ALIGN, with the default keeping LSB alignment
-> for backward compatibility. From i.MX95 onwards, the CSI formatter
-> replaces the gasket and only provides MSB-aligned RAW data.
->
-> Set CHNL_CTRL_RAW_IN_MSB_ALIGN on i.MX95 so the ISI selects RAW
-> samples from the high bits of the Pixel Link bus.
->
-> Signed-off-by: Guoniu Zhou <guoniu.zhou@oss.nxp.com>
+On Sat, Sep 12, 2026 at 08:55:46PM +0700, Nguyen Ngoc Thang wrote:
+> do_sea() unconditionally calls die() for a synchronous external
+> abort taken at EL1, without ever consulting the exception table.
+> This is inconsistent with __do_kernel_fault(), which does check
+> fixup_exception() before giving up.
+> 
+> A SEA at EL1 is reachable and recoverable: futex's LL/SC atomic ops
+> (__llsc_futex_cmpxchg/__llsc_futex_atomic_*) carry
+> _ASM_EXTABLE_UACCESS_ERR entries, but if the user address is mapped
+> to Device memory (e.g. a PCI BAR obtained via sysfs "resourceN" and
+> mmap'd MAP_FIXED), the LDXR/STLXR pair faults with a SEA instead of
+> a translation fault, and the extable fixup is never reached, so the
+> kernel oopses instead of returning -EFAULT to userspace.
+> 
+> Check fixup_exception() for kernel-mode SEAs before dying, mirroring
+> __do_kernel_fault(). No taint is added on the recovered path since
+> this is a userspace-triggerable condition, not a hardware failure;
+> a ratelimited warning keeps a trace of it.
+> 
+> Reported-by: syzbot+635d160c0d4133481520@syzkaller.appspotmail.com
+> Link: https://syzkaller.appspot.com/bug?extid=635d160c0d4133481520
+> Signed-off-by: Nguyen Ngoc Thang <ngocthang2710.1999@gmail.com>
 > ---
-> Changes in v4:
-> - New patch
-> ---
->  drivers/media/platform/nxp/imx8-isi/imx8-isi-hw.c   | 20 ++++++++++++++++++++
->  drivers/media/platform/nxp/imx8-isi/imx8-isi-regs.h |  1 +
->  2 files changed, 21 insertions(+)
->
-> diff --git a/drivers/media/platform/nxp/imx8-isi/imx8-isi-hw.c b/drivers/media/platform/nxp/imx8-isi/imx8-isi-hw.c
-> index cc52a90c2477..b3f32b9796d5 100644
-> --- a/drivers/media/platform/nxp/imx8-isi/imx8-isi-hw.c
-> +++ b/drivers/media/platform/nxp/imx8-isi/imx8-isi-hw.c
-> @@ -303,6 +303,22 @@ static void mxc_isi_channel_set_panic_threshold(struct mxc_isi_pipe *pipe)
->  	mxc_isi_write(pipe, CHNL_OUT_BUF_CTRL, val);
->  }
->
-> +/*
-> + * The ISI receives RAW data from the Pixel Link, whose alignment is
-> + * determined by the SoC integration. It originally selected RAW samples
-> + * from the low bits of the Pixel Link bus. Starting with i.MX93,
-> + * CHNL_CTRL_RAW_IN_MSB_ALIGN was introduced to allow the ISI to select
-> + * RAW samples from either the high or low bits, as both LSB and MSB
-> + * alignment can be selected in the gasket.
-> + *
-> + * On i.MX95, the CSI formatter provides MSB-aligned RAW data, so the ISI
-> + * must select RAW samples from the high bits of the Pixel Link bus.
-> + */
-> +static bool isi_raw_in_msb(const struct mxc_isi_plat_data *pdata)
-> +{
-> +	return pdata->model == MXC_ISI_IMX95;
+> Sent as RFC: verified by code inspection (ESR/DFSC decode matches
+> the extable-carrying LL/SC futex path) but not yet reproduced under
+> QEMU on my end; would appreciate a look before I chase the aarch64
+> repro further.
+> 
+>  arch/arm64/mm/fault.c | 12 ++++++++++++
+>  1 file changed, 12 insertions(+)
 
-Can you add bool in plat_data to avoid check model? In case future other
-chip also use msb and complex check logic here.
+I guess this is trying to solve same issue that was reported here:
 
-Frank
+https://lore.kernel.org/all/apsIH2hDpeiGiazJ@willie-the-truck/
 
-> +}
-> +
->  static void mxc_isi_channel_set_control(struct mxc_isi_pipe *pipe,
->  					enum mxc_isi_input_id input,
->  					unsigned int vc,
-> @@ -357,6 +373,10 @@ static void mxc_isi_channel_set_control(struct mxc_isi_pipe *pipe,
->  			val |= CHNL_CTRL_VC_ID_1(vc >> 2);
->  	}
->
-> +	/* Select MSB-aligned RAW data from the Pixel Link when needed. */
-> +	if (isi_raw_in_msb(pipe->isi->pdata))
-> +		val |= CHNL_CTRL_RAW_IN_MSB_ALIGN;
-> +
->  	mxc_isi_write(pipe, CHNL_CTRL, val);
->
->  	mutex_unlock(&pipe->lock);
-> diff --git a/drivers/media/platform/nxp/imx8-isi/imx8-isi-regs.h b/drivers/media/platform/nxp/imx8-isi/imx8-isi-regs.h
-> index 5f66b7c9cd1c..35438abf3172 100644
-> --- a/drivers/media/platform/nxp/imx8-isi/imx8-isi-regs.h
-> +++ b/drivers/media/platform/nxp/imx8-isi/imx8-isi-regs.h
-> @@ -20,6 +20,7 @@
->  #define CHNL_CTRL_CHAIN_BUF_NO_CHAIN				0
->  #define CHNL_CTRL_CHAIN_BUF_2_CHAIN				1
->  #define CHNL_CTRL_SW_RST					BIT(24)
-> +#define CHNL_CTRL_RAW_IN_MSB_ALIGN				BIT(22)	/* i.MX{91,93,95} */
->  /*
->   * CHNL_CTRL_BLANK_PXL: i.MX8{QM,QXP} only
->   * CHNL_CTRL_VC_ID_1, CHNL_CTRL_VC_ID_1_MASK: i.MX95 only
->
-> --
-> 2.34.1
->
->
+however, I suspect you don't have to try too hard to make the abort
+asynchronous and then this won't help. At least, if we want to go down
+this route (or having a fixup), we need a way to guarantee that these
+things are always synchronous.
+
+Will
 
