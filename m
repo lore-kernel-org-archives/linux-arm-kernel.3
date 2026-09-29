@@ -4,97 +4,90 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7539ECA5FA1
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 29 Sep 2026 12:23:11 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 191E3CA5FA1
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 29 Sep 2026 12:24:28 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=oAoykZR6asRmW0K7OS4CG9fLxAWwLUV9JiX7VJ+7PxE=; b=JGKIUMY6+29w3rhdJWAjMvu7iE
-	qhu8Oxxkstt2+FGUjHhdjEP2b8CemxdrkAXIfhtZh87y2nKhHuxaD1YUExIoJpa0slvakSYT31lhX
-	R5Bs/TplteF8d6b46Q8+XZgiOmgf1+ZGq7w9uRfXIv4QfP7mjvhiTsuYrBhFTth84NphFwR4yF88c
-	CMoEA1QuTaxUlRUgZeLudd2ogtsr19U10Do+axTuP5KE+ukaKfTgk52UxKjUxKVS+zZ62ASOT7MZ3
-	6qqZ3qC13W+thrR9VeTGSH1BnsQnTDOWcY1jCbPv20Ki7Sa5pJxZMBnruxxI8I03oa/QW67ImWbVA
-	jjAcd9Og==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
+	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=Andp5VDV+A4AW07a5bDFOCh8KWVJkL4Vd6SoEbvZutE=; b=Qb17g1k8pSo2BTNZS+E4RQwahH
+	/fuAxJn1s6a4ECzfz5XsynWmvLhVF47wTPo0mhzsDACHSxsXjrg7Cwu8mtq7mLxx5+hLKM812h/EH
+	caIgtr/Bl+kPqq4wrS6i88DLfe1a/HvKWDVzJu1b5kw/TG3Khb3INDM+jo8GC+BleRo41jx5X6C1G
+	vWmcHCiudhJJatybID+XRWSf5S48fOqaf/a8sxu0I/b260EBdMxgrZoS2A9Ea8WvIKTaroLxAYikW
+	uXHuYpKdVMJ84JvXA6sxj8b2kxfCSkvTjrRNU33tgAyqe40qxE327oVIsnbBviL5W91szEowhRGOy
+	Kk8Zd5oA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xBWrP-00000003VzA-0WyG;
-	Tue, 29 Sep 2026 12:23:03 +0000
-Received: from mail-wm2-x11.google.com ([2a00:1450:4864:31::11])
+	id 1xBVDj-00000003GwU-0Um6;
+	Tue, 29 Sep 2026 10:37:59 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xBWrL-00000003Vy5-3R7X
+	id 1xBVD3-00000003GdX-0at7
+	for linux-arm-kernel@bombadil.infradead.org;
+	Tue, 29 Sep 2026 10:37:17 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=Content-Type:Content-Transfer-Encoding
+	:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:CC:To:From:
+	Sender:Reply-To:Content-ID:Content-Description;
+	bh=Andp5VDV+A4AW07a5bDFOCh8KWVJkL4Vd6SoEbvZutE=; b=mGOKuYAuykAZNuAP/8sVAUal57
+	zDyIKhIIavnLxw3cgsiqXlEUEpdFfsqGhsq9SvWA8TZs2Pv+yDxTDgdWfOihJtuj5b/WIgdDCl7OD
+	CqVKnKS2GeU3Wl6IC7hAXFBv1GUhyLNYzyq6QTKJglTXQ7EPMQy2dI0SQLzqlKFt1xtplnxWZXFrG
+	WZLk2gKv43u7ddT86RhELK7eSah6mAS/fU+/KqJD8vfGsARYByrTlgYEgwzZ20lBrpVZZtoPR1elb
+	yGn7QARI7h3Z6CqbBEbji6uOFUS/j832PgEXnJKKYUY6WH9pFYSphZxjeFz9qGvC7urdWK5weUodt
+	YUvnaCOw==;
+Received: from canpmsgout03.his.huawei.com ([113.46.200.218])
+	by desiato.infradead.org with esmtps (Exim 4.99.2 #2 (Red Hat Linux))
+	id 1xBVCz-00000002VF3-1oFn
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 29 Sep 2026 12:23:01 +0000
-Received: by mail-wm2-x11.google.com with SMTP id 5b1f17b1804b1-49ffde3cec6so14952865e9.3
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 29 Sep 2026 05:22:59 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1790684578; x=1791289378; darn=lists.infradead.org;
-        h=content-transfer-encoding:content-type:in-reply-to:from
-         :content-language:references:cc:to:subject:user-agent:mime-version
-         :date:message-id:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=oAoykZR6asRmW0K7OS4CG9fLxAWwLUV9JiX7VJ+7PxE=;
-        b=OodaUjvMfXgFAoDdz134Qwk1zgRcYWfUPym9DuZnx5NF9cPRhNv3DrfoY6xcORmtqh
-         OFbxAIZ1IW39jEwxoVv1Fy9QPRx6+p69lWCADpT8thvKF/kC0+S0h+6mrkWJA6PnkVDX
-         DZi/i1Uq9N/aaXvr0SZ0HclIKfU0lTKaO3qnd52vMa/5voc+kVuwrRhlBD0M+Ok8JJIs
-         m/00WIlWomq79inxYdaOA6E63ketX5hKqZqc78crwZusXpolamIjLPxG9Ni0dgLxOHyx
-         MdA1wRztjHcZXyecS4C+3om5uxI3e5lNsZ4gdt2u4V8jHMhontXD30ZY6alMjoEUx0tU
-         6q5Q==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1790684578; x=1791289378;
-        h=content-transfer-encoding:content-type:in-reply-to:from
-         :content-language:references:cc:to:subject:user-agent:mime-version
-         :date:message-id:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=oAoykZR6asRmW0K7OS4CG9fLxAWwLUV9JiX7VJ+7PxE=;
-        b=OgvyBieXiaV+r3fPQ+knGIBOc7nuFHIc17uka4g2yZE5pfEHjGWvYRdV/IK6q8yE59
-         +nDO7gMaiQoeq/diQueY+aGypiv/PE66j46lxGsHwP9w3p12/ucdICzkNqBXR1Wzjgl3
-         avWE46JkUl7g9VDTJrXKGBqKT1W0tEKkkQ8hvy2FmYQBhZvNSOIfk2pDQAbtBXSnzoQ0
-         e4Yi/i0a886+sOy2A5Y4U9F+cR6w0xVe3PY3FNF3xhCEAf9lFx/g4n+m0fvDdC0dii27
-         peIAMfPEmIS0CpTXlNUNQ2dyoHck5JsIZdJqPC3A/WLcP4PW8v0ljsibL7kR4Ztmyhlh
-         tlzA==
-X-Forwarded-Encrypted: i=1; AKwUvBzn5PbkdnVmK98s0HBLTwsSVHujWRve+qLypKp250dQvNtO+U7zwHeO+N0oaehRrVydJVeTbg7Je56RuV0ENySR@lists.infradead.org
-X-Gm-Message-State: AFuF++lulfWtuclwbikbE+lfjFVduLs16d37Y+CkzUPEAvg7JaVJMsqQ
-	akroSTLQrv5q6uUEgcMPIwDCLauPcgp+4bP7uwuG6AfdETVbp82sUDn4aAy098AEwOA=
-X-Gm-Gg: AYBFou25l2BzylBs7Agl/QaqdTHzt1PWoz7nUjTSiP34h2WNLiTEz29kQ/4zvKjJiyY
-	hb/YxvxilPqXta18VieMaC9MH0ya9RyLNffw8BqbnlMUfweRkCxZb67b06y42Hrcmz6jMHEmnd4
-	UsKB4HXOaI1Qiazb/BJHGzzGkNHquC8ztAD8xxPeuVvCIvFlS4iFgSV5NjsKgf0u7ghtFgTDxPr
-	jl8veubdLO9JyBxw/CPb+k0cejVcr8r2eGSlvMKgTC+pt3Z1mE2BkhXviECcKXILS2qpnD43lhK
-	sw6rgWKIwX+MGrEzrTj6W8TlDo++vfDKWT/gXlAARR+Q4MiW961uhJ62nhlq7pQiWh+INFnYgsR
-	kEREcpFnFi2EMYLoMXjswLFPSI9BxO/hRwNPURIZhtF1VIbkWY6YxYAJGU1x6RuXlzWsWCdR5wK
-	0fub2FophVvPTfKuF1eqqIwucwjJ5n8lr59XyUNH5e+OjhowrJBD3Sxlk1RHtyKQbdadq5YW1xf
-	mA=
-X-Received: by 2002:a05:600c:4ecf:b0:4a0:108:3b54 with SMTP id 5b1f17b1804b1-4a001e8c316mr100957425e9.32.1790684577698;
-        Tue, 29 Sep 2026 05:22:57 -0700 (PDT)
-Received: from [192.168.1.3] ([37.18.141.193])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4a013b8f6f5sm5072545e9.10.2026.09.29.05.22.56
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Tue, 29 Sep 2026 05:22:57 -0700 (PDT)
-Message-ID: <d371220f-9ad2-41ca-a2a5-930c46801c31@linaro.org>
-Date: Tue, 29 Sep 2026 13:22:55 +0100
+	Tue, 29 Sep 2026 10:37:15 +0000
+dkim-signature: v=1; a=rsa-sha256; d=huawei.com; s=dkim;
+	c=relaxed/relaxed; q=dns/txt;
+	h=From;
+	bh=Andp5VDV+A4AW07a5bDFOCh8KWVJkL4Vd6SoEbvZutE=;
+	b=PW5NPQWVzKrCPAeqQzi5/g4ahW18MU7ss3ZMC2zzYgBfLa+P+/sgySwMBkPZKwRkSG1FpiOAu
+	miJqRgqLhWlsWdyHY0O8uAxdMZBTowN1PXuRKYnYsSsM9wAeqk4J60/eAW9HBG8It3tVsFMrlcn
+	lkfBnWfpWvuEiR6NvEmg7Xo=
+Received: from mail.maildlp.com (unknown [172.19.162.223])
+	by canpmsgout03.his.huawei.com (SkyGuard) with ESMTPS id 4hvDnb64TSzpSy8;
+	Tue, 29 Sep 2026 18:24:51 +0800 (CST)
+Received: from kwepemr100010.china.huawei.com (unknown [7.202.195.125])
+	by mail.maildlp.com (Postfix) with ESMTPS id 8514940575;
+	Tue, 29 Sep 2026 18:37:00 +0800 (CST)
+Received: from huawei.com (10.50.163.32) by kwepemr100010.china.huawei.com
+ (7.202.195.125) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.45; Tue, 29 Sep
+ 2026 18:36:59 +0800
+From: Tian Zheng <zhengtian10@huawei.com>
+To: <maz@kernel.org>, <oupton@kernel.org>, <catalin.marinas@arm.com>,
+	<will@kernel.org>, <corbet@lwn.net>, <pbonzini@redhat.com>,
+	<zhengtian10@huawei.com>, <leo.bras@arm.com>
+CC: <yuzenghui@huawei.com>, <wangzhou1@hisilicon.com>,
+	<yangjinqian1@huawei.com>, <caijian11@h-partners.com>,
+	<liuyonglong@huawei.com>, <tangchengchang@huawei.com>,
+	<yezhenyu2@huawei.com>, <yubihong@huawei.com>, <linuxarm@huawei.com>,
+	<joey.gouly@arm.com>, <kvmarm@lists.linux.dev>, <kvm@vger.kernel.org>,
+	<linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>,
+	<seiden@linux.ibm.com>, <suzuki.poulose@arm.com>, <fuad.tabba@linux.dev>,
+	<mark.rutland@arm.com>, <seanjc@google.com>, <rdunlap@infradead.org>,
+	<linux-doc@vger.kernel.org>, <linux-kselftest@vger.kernel.org>,
+	<skhan@linuxfoundation.org>
+Subject: [PATCH v5 05/15] KVM: arm64: Harvest stage-2 dirty state into the host folio account
+Date: Tue, 29 Sep 2026 18:36:45 +0800
+Message-ID: <20260929103655.85107-6-zhengtian10@huawei.com>
+X-Mailer: git-send-email 2.33.0
+In-Reply-To: <20260929103655.85107-1-zhengtian10@huawei.com>
+References: <20260929103655.85107-1-zhengtian10@huawei.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2 11/14] perf tests: Check CoreSight IRQ entry and exit
-To: Leo Yan <leo.yan@arm.com>
-Cc: Arnaldo Carvalho de Melo <acme@redhat.com>, coresight@lists.linaro.org,
- linux-arm-kernel@lists.infradead.org, linux-perf-users@vger.kernel.org,
- linux-kernel@vger.kernel.org, Arnaldo Carvalho de Melo <acme@kernel.org>,
- Namhyung Kim <namhyung@kernel.org>, Jiri Olsa <jolsa@kernel.org>,
- Ian Rogers <irogers@google.com>, Adrian Hunter <adrian.hunter@intel.com>,
- Mike Leach <mike.leach@arm.com>, Suzuki K Poulose <suzuki.poulose@arm.com>,
- Suyash Mahar <smahar@meta.com>, Amir Ayupov <aaupov@fb.com>
-References: <20260923-perf_cs_etm_fix_non_taken-v2-0-6ab8c07a5455@arm.com>
- <20260923-perf_cs_etm_fix_non_taken-v2-11-6ab8c07a5455@arm.com>
-Content-Language: en-US
-From: James Clark <james.clark@linaro.org>
-In-Reply-To: <20260923-perf_cs_etm_fix_non_taken-v2-11-6ab8c07a5455@arm.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
+Content-Transfer-Encoding: 8bit
+Content-Type: text/plain
+X-Originating-IP: [10.50.163.32]
+X-ClientProxiedBy: kwepems500002.china.huawei.com (7.221.188.17) To
+ kwepemr100010.china.huawei.com (7.202.195.125)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260929_052259_910475_4D107005 
-X-CRM114-Status: GOOD (  30.44  )
+X-CRM114-CacheID: sfid-20260929_113714_073196_22B20567 
+X-CRM114-Status: GOOD (  20.82  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -109,176 +102,118 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+With VTCR_EL2.HD set, hardware promotes writable-clean descriptors to
+writable-dirty without any VM exit, and the only record of the write
+is the S2AP[1] bit in the stage-2 PTE. The write never passed through
+the host stage-1, and no unmap path reads the bit, so the record dies
+with the PTE and reclaim may discard written guest data (silent
+corruption).
 
+The fault paths already mark the folio speculatively at fault-in, but
+the mapping lifecycle still needs exact harvesting, mirroring
+zap_present_folio_ptes() in the generic mm:
 
-On 23/09/2026 16:21, Leo Yan wrote:
-> Add an AArch64 branch_not_taken_loop workload and a CoreSight shell test
-> checking IRQ entry and exit PCs. Use cpu-clock generates timer
-> interrupts.
-> 
-> Retry at different timer frequencies and skip if no complete pair is
-> captured.
+  - stage2_unmap_walker(): harvest the output address of a valid leaf
+    with S2AP[1] set before tearing it down.
 
-Maybe we need to look into storing existing recordings somewhere or 
-committing small ones into the repo again. This test took 3 minutes to 
-run on my N1SDP, which is 3x longer than the entire Coresight suite, and 
-then it skipped anyway:
+  - stage2_wrprotect_walker(): a WD -> WC transition drops the dirty
+    state, so harvest before the clear.
 
-173: CoreSight IRQ entry and exit:
----- start ----
-test child forked, pid 6804
-Recording timer IRQs at 1000 Hz
-No complete exception entry/exit pair
-No complete IRQ pair in this recording
-Recording timer IRQs at 4000 Hz
-No complete exception entry/exit pair
-No complete IRQ pair in this recording
-Recording timer IRQs at 10000 Hz
-No complete exception entry/exit pair
-No complete IRQ pair in this recording
-[Skip] No complete IRQ pair after three recordings
----- end(-2) ----
-173: CoreSight IRQ entry and exit
+Both hooks go through a new kvm_pgtable_mm_ops::mark_page_dirty
+callback, as the walkers are also compiled into the nVHE hypervisor,
+where SetPageDirty() is unavailable. pKVM leaves the callback NULL.
 
+The folio is dirtied at its head, so one harvest covers a whole block
+mapping. MMIO/PFNMAP ranges and reserved pages are skipped, mirroring
+kvm_is_ad_tracked_page().
 
-Really this test is only looking for how a single exception on a single 
-branch is decoded, it shouldn't be affected by how it was recorded. Even 
-a few bytes of trace would be enough to test it. Or maybe we could add 
-some kind of unit test framework that mocks out OpenCSD and allows us to 
-script how different packets affect the decoder?
+Signed-off-by: Tian Zheng <zhengtian10@huawei.com>
+---
+ arch/arm64/include/asm/kvm_pgtable.h |  2 ++
+ arch/arm64/kvm/hyp/pgtable.c         | 14 ++++++++++++--
+ arch/arm64/kvm/mmu.c                 | 16 ++++++++++++++++
+ 3 files changed, 30 insertions(+), 2 deletions(-)
 
-But we have to be careful to not add slow tests because it means they're 
-much less likely to be run, or results ignored as it's so hard to 
-iterate quickly. Or also in this case, silently skipped if something 
-regresses.
+diff --git a/arch/arm64/include/asm/kvm_pgtable.h b/arch/arm64/include/asm/kvm_pgtable.h
+index 379031c74cbc..ea71c13615f7 100644
+--- a/arch/arm64/include/asm/kvm_pgtable.h
++++ b/arch/arm64/include/asm/kvm_pgtable.h
+@@ -246,6 +246,8 @@ struct kvm_pgtable_mm_ops {
+ 	phys_addr_t	(*virt_to_phys)(void *addr);
+ 	void		(*dcache_clean_inval_poc)(void *addr, size_t size);
+ 	void		(*icache_inval_pou)(void *addr, size_t size);
++	/* NULL where folios are not tracked. */
++	void		(*mark_page_dirty)(u64 pa);
+ };
 
-> 
-> For example, an expected hw int/iret pair is:
-> 
->    hw int           5cc928 => ffff800080010c80 insn: 63 04 00 f1
->    ...
->    iret   ffff800080012284 =>           5cc928 insn: e0 03 9f d6
-> 
-> The entry PC is the architectural resume address, here SUBS X3, X3, #1
-> at 0x5cc928. After the IRQ is handled, ERET returns to the same PC to
-> continue execution.
-> 
-> Assisted-by: Codex:gpt-6
-> Signed-off-by: Leo Yan <leo.yan@arm.com>
-> ---
->   tools/perf/tests/builtin-test.c                    |   1 +
->   tools/perf/tests/shell/coresight/irq_entry_exit.sh |  37 +++++
->   tools/perf/tests/shell/lib/coresight_exception.sh  | 165 +++++++++++++++++++++
->   tools/perf/tests/tests.h                           |   1 +
->   tools/perf/tests/workloads/Build                   |   2 +
->   tools/perf/tests/workloads/branch_not_taken_loop.c |  33 +++++
->   6 files changed, 239 insertions(+)
-> 
-> diff --git a/tools/perf/tests/builtin-test.c b/tools/perf/tests/builtin-test.c
-> index 6259ed805c5f75799d52ac742b77cf278f98bd9d..8eab221f115e75a3ef90be975d4ed0558ceb2b16 100644
-> --- a/tools/perf/tests/builtin-test.c
-> +++ b/tools/perf/tests/builtin-test.c
-> @@ -171,6 +171,7 @@ static struct test_workload *workloads[] = {
->   	&workload__datasym,
->   	&workload__landlock,
->   	&workload__traploop,
-> +	&workload__branch_not_taken_loop,
->   	&workload__inlineloop,
->   	&workload__jitdump,
->   	&workload__context_switch_loop,
-> diff --git a/tools/perf/tests/shell/coresight/irq_entry_exit.sh b/tools/perf/tests/shell/coresight/irq_entry_exit.sh
-> new file mode 100755
-> index 0000000000000000000000000000000000000000..f164daa222b0550ceb106aa6a1215740a1432017
-> --- /dev/null
-> +++ b/tools/perf/tests/shell/coresight/irq_entry_exit.sh
-> @@ -0,0 +1,37 @@
-> +#!/bin/bash
-> +# SPDX-License-Identifier: GPL-2.0
-> +# CoreSight IRQ entry and exit (exclusive)
-> +
-> +# shellcheck source=../lib/coresight_exception.sh
+ /**
+diff --git a/arch/arm64/kvm/hyp/pgtable.c b/arch/arm64/kvm/hyp/pgtable.c
+index aa0448d3a6a4..9dde7e779699 100644
+--- a/arch/arm64/kvm/hyp/pgtable.c
++++ b/arch/arm64/kvm/hyp/pgtable.c
+@@ -1182,8 +1182,13 @@ static int stage2_unmap_walker(const struct kvm_pgtable_visit_ctx *ctx,
 
-No need for these anymore, see 
-https://lore.kernel.org/linux-perf-users/20260921-james-perf-shellcheck-source-v1-1-adcfc107c997@linaro.org/
+ 		if (mm_ops->page_count(childp) != 1)
+ 			return 0;
+-	} else if (stage2_pte_cacheable(pgt, ctx->old)) {
+-		need_flush = !cpus_have_final_cap(ARM64_HAS_STAGE2_FWB);
++	} else {
++		if (stage2_pte_cacheable(pgt, ctx->old))
++			need_flush = !cpus_have_final_cap(ARM64_HAS_STAGE2_FWB);
++
++		if ((ctx->old & KVM_PTE_LEAF_ATTR_LO_S2_S2AP_W) &&
++		    mm_ops->mark_page_dirty)
++			mm_ops->mark_page_dirty(kvm_pte_to_phys(ctx->old));
+ 	}
 
-> +. "$(dirname "$0")/../lib/coresight_exception.sh"
-> +
-> +test_irq_entry_exit()
-> +{
-> +	# IRQs must return to the interrupted PC. Retry at different timer
-> +	# frequencies if trace gaps leave no complete entry/exit pair.
-> +	for freq in 1000 4000 10000; do
-> +		echo "Recording timer IRQs at $freq Hz"
-> +		if ! record_trace_with_cpu_clock "$freq" branch_not_taken_loop; then
-> +			cat "$tmpdir/record.log"
-> +			echo "Failed to record the IRQ workload"
-> +			return 1
-> +		fi
-> +
-> +		decode_trace || return 1
-> +
-> +		check_exception_pairs "hw int" "iret" 0
-> +		result=$?
-> +		case $result in
-> +		0) return 0 ;;
-> +		1) cat "$tmpdir/script.log"; return 1 ;;
-> +		2) echo "No complete IRQ pair in this recording" ;;
-> +		*) return "$result" ;;
-> +		esac
-> +	done
-> +
-> +	echo "[Skip] No complete IRQ pair after three recordings"
-> +	return 2
-> +}
-> +
-> +setup_exception_test || exit $?
-> +test_irq_entry_exit
-> diff --git a/tools/perf/tests/shell/lib/coresight_exception.sh b/tools/perf/tests/shell/lib/coresight_exception.sh
-> new file mode 100644
-> index 0000000000000000000000000000000000000000..f0133c258625147405ba4641ff7e442437fc66b8
-> --- /dev/null
-> +++ b/tools/perf/tests/shell/lib/coresight_exception.sh
-> @@ -0,0 +1,165 @@
-> +# SPDX-License-Identifier: GPL-2.0
-> +# Common helpers for CoreSight exception entry and return tests.
-> +
-> +cleanup()
-> +{
-> +	case $? in
-> +	0|2) rm -rf "$tmpdir" ;;
-> +	*) echo "Test files retained in $tmpdir" ;;
-> +	esac
-> +}
-> +
-> +record_trace_with_cpu_clock()
-> +{
-> +	local clock_opts=()
-> +
-> +	record_freq=$1
-> +	shift
-> +
-> +	# A zero frequency omits the cpu-clock event.
-> +	if [ "$record_freq" -gt 0 ]; then
-> +		# Generate timer IRQs without delivering a signal to the workload.
-> +		clock_opts=(-e cpu-clock:u -F "$record_freq")
-> +	fi
-> +
-> +	# FIFO control bounds the trace to the workload.
-> +	# --kcore supplies the running kernel's instructions for decoding.
-> +	taskset -c "$cpu" perf record -B --no-bpf-event --per-thread --kcore \
-> +		-e cs_etm/timestamp=0/uk "${clock_opts[@]}" \
-> +		-m,4M -D -1 --control fifo:"$tmpdir/ctl","$tmpdir/ack" \
-> +		-o "$tmpdir/data" -- \
-> +		perf test --record-ctl fifo:"$tmpdir/ctl","$tmpdir/ack" -w "$@" \
-> +		> "$tmpdir/record.log" 2>&1
+ 	/*
+@@ -1302,6 +1307,11 @@ static int stage2_wrprotect_walker(const struct kvm_pgtable_visit_ctx *ctx,
+ 	if (ctx->level < KVM_PGTABLE_LAST_LEVEL)
+ 		new &= ~KVM_PTE_LEAF_ATTR_HI_S2_DBM;
 
-There's a shellcheck warning here:
++	if (kvm_pte_valid(ctx->old) && ctx->old != new &&
++	    (ctx->old & KVM_PTE_LEAF_ATTR_LO_S2_S2AP_W) &&
++	    ctx->mm_ops->mark_page_dirty)
++		ctx->mm_ops->mark_page_dirty(kvm_pte_to_phys(ctx->old));
++
+ 	/*
+ 	 * We may race with the CPU trying to set the access flag here,
+ 	 * but worst-case the access flag update gets lost and will be
+diff --git a/arch/arm64/kvm/mmu.c b/arch/arm64/kvm/mmu.c
+index 698a87e85a6d..85a98d2c23a9 100644
+--- a/arch/arm64/kvm/mmu.c
++++ b/arch/arm64/kvm/mmu.c
+@@ -897,6 +897,21 @@ static int get_user_mapping_size(struct kvm *kvm, u64 addr)
+ 	return BIT(ARM64_HW_PGTABLE_LEVEL_SHIFT(level));
+ }
 
-   (warning): Word is of the form "A"B"C" (B indicated). Did you mean 
-"ABC" or "A\"B\"C"?
++static void kvm_s2_mark_page_dirty(u64 pa)
++{
++	unsigned long pfn = pa >> PAGE_SHIFT;
++	struct page *page;
++
++	if (!pfn_valid(pfn))
++		return;
++
++	page = pfn_to_page(pfn);
++	if (PageReserved(page))
++		return;
++
++	SetPageDirty(page);
++}
++
+ static struct kvm_pgtable_mm_ops kvm_s2_mm_ops = {
+ 	.zalloc_page		= stage2_memcache_zalloc_page,
+ 	.zalloc_pages_exact	= kvm_s2_zalloc_pages_exact,
+@@ -909,6 +924,7 @@ static struct kvm_pgtable_mm_ops kvm_s2_mm_ops = {
+ 	.virt_to_phys		= kvm_host_pa,
+ 	.dcache_clean_inval_poc	= clean_dcache_guest_page,
+ 	.icache_inval_pou	= invalidate_icache_guest_page,
++	.mark_page_dirty	= kvm_s2_mark_page_dirty,
+ };
 
-You can avoid it by passing the whole path as "$cf" and "$af" like the 
-other coresight tests.
-
+ static int kvm_init_ipa_range(struct kvm_s2_mmu *mmu, unsigned long type)
+--
+2.43.0
 
 
