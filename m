@@ -4,45 +4,45 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 95FACCA5FAC
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 29 Sep 2026 20:35:22 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A6AF1CA5FAD
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 29 Sep 2026 20:35:45 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
 	Content-Transfer-Encoding:Content-Type:References:In-Reply-To:Message-ID:Date
 	:Cc:To:From:Subject:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=vCqxuTumssfBQgUpcKI0fXxSIr+yQ5dPzt7xGcvzVvs=; b=y8+YeSC2pTYeXML6UrUgZZpYAP
-	VifWsz3Wwxi7qUxT/xLCOACrjngDJPAnitM+r+Oh0kcQDCtE9IisNNpPM97KMODZUy3A6SNFUBbPO
-	rRJmMabGuLMK7F51gjnaBdCqu0Q1ATP1IdVU1L3yvwo1s+Ask2538YoIpjWWH/gvZw+caJ0L7oOIS
-	IBUKu7uxOOfyhvIUjy7haXHQ6kITGIB8S9rW6QOhsTt+7Yl2W/lhxjO4kQBSIIP07jwvitlLoWuFS
-	J5W1VK91vSBLE7lpfKWBL/8txXZuYeSL+nSkVQabanCkSG9OfhlnJG7QcpYrF/7UNv6huCEfj9T4w
-	cDCQkXUw==;
+	bh=SYAeqnRybt0kiN4We0ygptairZiQyHzDtLGhGCd9jOU=; b=rhHSROZArUUM9dKjTR5N1jdOUv
+	pY5lMZcplkJABFfgI+tHNLlN+oqXDc8Gla+kjrVmQoQVn7mLwJ54a8moMysOBNC5/s4vgoEbgiow9
+	pqB0BIv7kgnhtZoSq4DjbvhO8nebtfQ082IM83OeTSJe6jRt6SN/oLB9MAY0aTgaNFdiwtBewk/St
+	Ph0LFLwQgxulTUu+0hnD+LjFmf6O0LA/At1qkJKvM7iZ76DNfmcJ+KPPklT4oQO/4iXJ5Yr4Oq9EQ
+	GaXYJ+hVs01Qn2gaStGn46RlzCWk/bW2Uo70uqZeeZsQLJDlS6y7gy+t5hWYUNl5/OrZAc46r4DZ9
+	QT1hB9gQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xBeXk-00000004V9D-0FkQ;
-	Tue, 29 Sep 2026 20:35:16 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1xBeY7-00000004VKH-22rk;
+	Tue, 29 Sep 2026 20:35:39 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xBeXa-00000004V3c-22yS;
-	Tue, 29 Sep 2026 20:35:06 +0000
+	id 1xBeXe-00000004V6F-02x0;
+	Tue, 29 Sep 2026 20:35:10 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id 896876024D;
-	Tue, 29 Sep 2026 20:35:05 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 14E441F000FF;
-	Tue, 29 Sep 2026 20:35:04 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 12E2B60234;
+	Tue, 29 Sep 2026 20:35:09 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 933A41F00898;
+	Tue, 29 Sep 2026 20:35:07 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1790714105;
-	bh=vCqxuTumssfBQgUpcKI0fXxSIr+yQ5dPzt7xGcvzVvs=;
+	s=k20260515; t=1790714108;
+	bh=SYAeqnRybt0kiN4We0ygptairZiQyHzDtLGhGCd9jOU=;
 	h=Subject:From:To:Cc:Date:In-Reply-To:References;
-	b=BRFsVLAlmnrixGhNpvhghu8oj1Bo8WxT8UtWf2meIFdvmWKDIl06PxV0jKw5/3WXz
-	 D7MqZs7k0zk2YpEpK/+hFNYkyQcl4h6lo5f3Yy7Zo8x00xXb7+NcNccHHhEVJDwqLW
-	 Iz6jIBYs7bP0DUDT27MGlhHsFkysutLZn9b9CWzp8oXD5+bT76cCxsyysZQ/zRex1G
-	 6FDa/QsoE5zFXdE0pTxaI6Wen2h8/n3Gu9qnNvK6W8uZ4CZWC4fl/pgo3TPG4NYOJb
-	 ltEgRxlwpP+apb9npCWokeVelan1BcXGoVmiUPD+1xo+RNrDT0lh84O/s/i90hEIof
-	 B7heTcniz9cBw==
-Subject: Re: [PATCH net-next v23 4/9] mfd: an8855: Add support for Airoha
- AN8855 Switch
+	b=Hin+PlPTQ5Sgfe/l4hrMhR9vY4p/Wj6VC1sFiXd3nsGg6xTcFUHHFbOQL5OG5lVmo
+	 C9VWNHaQGuPF+braDuk/CGzOZEpkvC2m2k0rq5kXgYdORlF/c/XvSXewS92gUeeh/G
+	 WQLZN/E4xnYdsAt+fUhS/jvWNaAeVF23gVRNhRE+NsN8XK5p6jG0fMmYRbWQ6t1xiG
+	 mfqXbbGFM6RuRZjaM+swtXrvujRynzQ1ntWJtLtSAPuHcywIpR1R3GIQQcP9Y6ZPng
+	 ElBPaobhxw89gWjn35qTn9ohIjVcFOoSA8oQRC8glIktgfmmGdtqKflttlGEnch6dT
+	 0sEKRSJseEWrQ==
+Subject: Re: [PATCH net-next v23 6/9] net: dsa: tag_mtk: add Airoha variant
+ usage of this TAG
 From: netdev-bot+sashiko@kernel.org
 To: ansuelsmth@gmail.com
 Cc: lee@kernel.org, robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org,
@@ -53,10 +53,10 @@ Cc: lee@kernel.org, robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org,
  horms@kernel.org, linux-arm-kernel@lists.infradead.org,
  linux-mediatek@lists.infradead.org, netdev@vger.kernel.org,
  mfd@lists.linux.dev, devicetree@vger.kernel.org, linux-kernel@vger.kernel.org
-Date: Tue, 29 Sep 2026 20:35:03 +0000
-Message-ID: <179071410366.434549.18339242720142610191@kernel.org>
-In-Reply-To: <20260925182435.21207-5-ansuelsmth@gmail.com>
-References: <20260925182435.21207-5-ansuelsmth@gmail.com>
+Date: Tue, 29 Sep 2026 20:35:07 +0000
+Message-ID: <179071410719.434549.3145176036907505667@kernel.org>
+In-Reply-To: <20260925182435.21207-7-ansuelsmth@gmail.com>
+References: <20260925182435.21207-7-ansuelsmth@gmail.com>
 X-sashiko-severity: Medium
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit
@@ -75,10 +75,10 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Thank you for your contribution! Sashiko AI review found 8 potential
+Thank you for your contribution! Sashiko AI review found 1 potential
 issue(s) to consider.
 
-Critical: 0 · High: 0 · Medium: 5 · Low: 3
+Critical: 0 · High: 0 · Medium: 1 · Low: 0
 
 If you believe none of the issues are legitimate, please reply to each
 issue of Medium severity or higher and explain why the AI is wrong.
@@ -86,306 +86,107 @@ If any of them are legitimate and you plan to respin, please let patchwork
 know by including "pw-bot: cr" as a separate line at the end of your reply
 (one such reply per series is enough).
 
-- [Medium] The patch adds MFD_AIROHA_AN8855, and both the commit message
-  and the Kconfig help say this MFD provides an NVMEM provider.
-- [Medium] an8855_phy_bus_register() names each virtual MDIO bus with
-  snprintf(mrc.name, MII_BUS_ID_SIZE, "an8855:%u-phy%u",…
-- [Medium] an8855_phy_bus_register() reads the PHY address from DT "reg"
-  and only checks `phy_offset = addr - priv->switch_addr; if (phy_offset…
-- [Medium] In an8855_mdio_register(), of_node_put(mdio_np) comes before
-  the 'exit:' label.
-- [Medium] The MFD binding puts `reset-gpios` on the core `airoha,an8855`
-  node, and its example wires `reset-gpios = <&pio 39 GPIO_ACTIVE_HIGH>`.
-- [Low] The MFD binding (airoha,an8855.yaml) leaves the 'efuse' child
-  optional: required is compatible, reg, mdio, ethernet-switch.
-- [Low] Both examples in the AN8855 PHY binding (airoha,an8855-phy.yaml)
-  use "ethernet-phy-idc0ff.0410", "ethernet-phy-ieee802.3-c45".
-- [Low] an8855_core_probe() clears AN8855_RG_GPHY_AFE_PWD ("Release
-  global PHY power down") before registering the PHYs and the MFD…
+- [Medium] The patch adds DSA_TAG_PROTO_AIROHA (37) and gives it the same
+  handlers as DSA_TAG_PROTO_MTK (mtk_tag_xmit/mtk_tag_rcv, MTK_HDR_LEN…
 
 --
 
-mfd: an8855: Add support for Airoha AN8855 Switch
+net: dsa: tag_mtk: add Airoha variant usage of this TAG
 
-This adds an MFD core driver for the Airoha AN8855 switch, which is
-accessed over MDIO. It adds a paged regmap for the switch registers and
-one mdio-regmap bus for each internal PHY. It also registers eFuse and
-DSA switch child cells.
+This adds a DSA_TAG_PROTO_AIROHA protocol ID and an "airoha" tag driver
+that reuses the MTK xmit/rcv handlers. It also adds comments on how the
+AN8855 tag bitmap differs from the Mediatek one. Kconfig and the Makefile
+now build tag_mtk.o through a shared NET_DSA_TAG_MTK_COMMON symbol.
 
-> diff --git a/drivers/mfd/Kconfig b/drivers/mfd/Kconfig
-> index e4fd4572472f9..afbdcec0fce8f 100644
-> --- a/drivers/mfd/Kconfig
-> +++ b/drivers/mfd/Kconfig
-> @@ -54,6 +54,20 @@ config MFD_ALTERA_SYSMGR
->  	  using regmap_mmio accesses for ARM32 parts and SMC calls to
->  	  EL3 for ARM64 parts.
->  
-> +config MFD_AIROHA_AN8855
-> +	tristate "Airoha AN8855 Switch Core"
-> +	select MFD_CORE
-> +	select REGMAP
-> +	select PHYLIB
-> +	select MDIO_REGMAP
-> +	depends on NETDEVICES && OF
-> +	help
-> +	  Support for the Airoha AN8855 Switch Core. This is an SoC
-> +	  that provides various peripherals, to count, i2c, an Ethrnet
-> +	  Switch, a CPU timer, GPIO, eFUSE.
-> +
-> +	  Currently it provides a DSA switch and a NVMEM provider.
-
-[Severity: Medium]
-The help text and the commit message both say this provides an NVMEM
-provider. However, NVMEM_AN8855_EFUSE in drivers/nvmem/Kconfig still
-only has:
-
-	depends on COMPILE_TEST
-
-It was reduced to that by commit 4796eaafd6a1 ("nvmem: an8855: drop an
-unused Kconfig symbol"), because MFD_AIROHA_AN8855 was referenced but
-never defined.
-
-Now that this patch defines the symbol, should the nvmem entry go back
-to "depends on MFD_AIROHA_AN8855 || COMPILE_TEST"? NET_DSA_AN8855, added
-later in the series, already uses that form.
-
-As it stands, the eFuse driver can't be enabled when COMPILE_TEST is not
-set. That leaves the an8855-efuse cell with no driver to bind. The PHY
-nodes' nvmem-cells (tx_a..tx_d) then point at a provider that never
-registers, so an8855_probe()->an8855_get_r50ohm_val() in the AN8855 PHY
-driver can't get its calibration cells.
+> diff --git a/net/dsa/tag_mtk.c b/net/dsa/tag_mtk.c
+> index c7dc7731675ec..f8087d768da6d 100644
+> --- a/net/dsa/tag_mtk.c
+> +++ b/net/dsa/tag_mtk.c
 
 [ ... ]
 
-> diff --git a/drivers/mfd/airoha-an8855.c b/drivers/mfd/airoha-an8855.c
-> new file mode 100644
-> index 0000000000000..a2a36704a9fca
-> --- /dev/null
-> +++ b/drivers/mfd/airoha-an8855.c
-> @@ -0,0 +1,580 @@
-
-[ ... ]
-
-> +static const struct mfd_cell an8855_cells[] = {
-> +	MFD_CELL_OF("an8855-efuse", NULL, NULL, 0, 0,
-> +		    "airoha,an8855-efuse"),
-
-[Severity: Low]
-The MFD binding (airoha,an8855.yaml) makes the efuse child optional. Its
-required list is compatible, reg, mdio and ethernet-switch. This cell is
-still registered every time.
-
-When the DT has no efuse node, won't mfd_add_device() print a "Failed to
-locate of_node" warning and register the platform device anyway? The
-efuse driver would then bind by platform name and register an NVMEM
-device that the DT never described.
-
-> +	MFD_CELL_OF("an8855-switch", NULL, NULL, 0, 0,
-> +		    "airoha,an8855-switch"),
+> @@ -107,8 +112,33 @@ static const struct dsa_device_ops mtk_netdev_ops = {
+>  	.needed_headroom = MTK_HDR_LEN,
+>  };
+>
+> -MODULE_DESCRIPTION("DSA tag driver for Mediatek switches");
+> -MODULE_LICENSE("GPL");
+> +DSA_TAG_DRIVER(mtk_netdev_ops);
+>  MODULE_ALIAS_DSA_TAG_DRIVER(DSA_TAG_PROTO_MTK, MTK_NAME);
+> +#endif
+>
+> -module_dsa_tag_driver(mtk_netdev_ops);
+> +#if IS_ENABLED(CONFIG_NET_DSA_TAG_AIROHA)
+> +static const struct dsa_device_ops airoha_netdev_ops = {
+> +	.name		= AIROHA_NAME,
+> +	.proto		= DSA_TAG_PROTO_AIROHA,
+> +	.xmit		= mtk_tag_xmit,
+> +	.rcv		= mtk_tag_rcv,
+> +	.needed_headroom = MTK_HDR_LEN,
 > +};
 
-[ ... ]
-
-> +static int an8855_phy_bus_register(struct device *dev, struct an8855_core_priv *priv,
-> +				   struct device_node *phy_np,
-> +				   struct an8855_phy_bus *phy_bus_info)
-> +{
-
-[ ... ]
-
-> +	ret = of_property_read_u32(phy_np, "reg", &addr);
-> +	if (ret)
-> +		return ret;
-> +
-> +	phy_offset = addr - priv->switch_addr;
-> +	if (phy_offset >= AN8855_MAX_PHY_PORT)
-> +		return -EINVAL;
-
 [Severity: Medium]
-Is addr ever checked against PHY_MAX_ADDR? The only check here is
-relative to switch_addr. If the switch sits at MDIO address 28..31, a
-child reg of 32..35 passes.
+Frames on the wire are identical for DSA_TAG_PROTO_AIROHA and
+DSA_TAG_PROTO_MTK. What about the conduit Ethernet drivers that check for
+the MTK tag format by comparing against DSA_TAG_PROTO_MTK? None of them
+are updated here.
 
-That addr goes straight to fwnode_mdiobus_register_phy() in
-an8855_core_probe(), which skips the of_mdio_parse_addr() check done on
-the normal OF MDIO path. For a C22 compatible such as
-ethernet-phy-idc0ff.0410, the call chain is:
+Later in this series, an8855_get_tag_protocol() returns
+DSA_TAG_PROTO_AIROHA. For an AN8855 behind a MediaTek or Airoha SoC
+conduit, dsa_ptr->tag_ops->proto would then be 37, and these checks
+would stop matching.
 
-an8855_core_probe()
-  fwnode_mdiobus_register_phy(bus, node, addr)
-    phy_device_create(bus, addr, ...)
-      dev->irq = bus->irq[addr];
-    fwnode_mdiobus_phy_device_register()
-      mdio->irq[addr] = rc;
-      mdio->phy_ignore_ta_mask |= 1 << addr;
-      phy_device_register()
-        mdiobus_register_device()
-          mdiodev->bus->mdio_map[mdiodev->addr] = mdiodev;
+drivers/net/ethernet/mediatek/mtk_eth_soc.c:mtk_uses_dsa() {
+	return netdev_uses_dsa(dev) &&
+	       dev->dsa_ptr->tag_ops->proto == DSA_TAG_PROTO_MTK;
+}
 
-Could this read and write past the end of bus->irq[] and
-bus->mdio_map[]? Those writes could overwrite later fields of struct
-mii_bus, such as reset_delay_us, reset_post_delay_us or reset_gpiod.
+On NETSYS v1, mtk_open() would then take the else branch. It clears
+MTK_CDMP_STAG_EN and skips the dsa_meta allocation, so hardware special
+tag untagging is turned off.
 
-Such a DT would violate mdio.yaml (reg maximum 31), but nothing enforces
-that at runtime.
+drivers/net/ethernet/mediatek/mtk_ppe.c:__mtk_ppe_check_skb() {
+	case htons(ETH_P_XDSA):
+		if (!netdev_uses_dsa(skb->dev) ||
+		    skb->dev->dsa_ptr->tag_ops->proto != DSA_TAG_PROTO_MTK)
+			goto out;
+}
+
+drivers/net/ethernet/mediatek/mtk_ppe_offload.c:mtk_flow_get_dsa_port() {
+	if (dp->cpu_dp->tag_ops->proto != DSA_TAG_PROTO_MTK)
+		return -ENODEV;
+}
+
+These two checks mean PPE entries are never bound for DSA frames, and
+flowtable hardware offload through the switch ports would be refused.
+
+drivers/net/ethernet/airoha/airoha_eth.c:airoha_get_dsa_tag() {
+	if (dev->dsa_ptr->tag_ops->proto != DSA_TAG_PROTO_MTK)
+		return 0;
+}
+
+On the Airoha conduit, this returns before the VLAN TPID is restored and
+before the special tag is moved into the QDMA descriptor. The comment in
+that function says the PPE needs that move. airoha_dev_xmit() would then
+send the frame with the inline tag and SP_TAG=0.
+
+airoha_get_dsa_port() in airoha_ppe.c has no proto check, though, so the
+Airoha PPE would still accept flow offload for these ports. Can the TX
+path and the PPE path then disagree about how the tag is handled?
+
+The commit message describes this as giving external tools like libpcap
+a dedicated "Airoha" name. It doesn't mention these behaviour changes on
+the conduit side.
+
+Should these call sites accept both protocols in this series, for
+example through a helper that checks for an MTK-format tag?
+
+> +
+> +DSA_TAG_DRIVER(airoha_netdev_ops);
+> +MODULE_ALIAS_DSA_TAG_DRIVER(DSA_TAG_PROTO_AIROHA, AIROHA_NAME);
+> +#endif
 
 [ ... ]
-
-> +	mrc.regmap = regmap;
-> +	mrc.parent = dev;
-> +	mrc.valid_addr = addr;
-> +	snprintf(mrc.name, MII_BUS_ID_SIZE, "an8855:%u-phy%u", priv->switch_addr,
-> +		 phy_offset);
-> +
-> +	bus = devm_mdio_regmap_register(dev, &mrc);
-> +	if (IS_ERR(bus))
-> +		return PTR_ERR(bus);
-
-[Severity: Medium]
-Can two AN8855 chips on different host MDIO buses end up with the same
-mii_bus name? The name is built only from switch_addr and phy_offset.
-Two switches at the same address on two MACs would therefore both
-produce the same "an8855:<addr>-phy<n>" names.
-
-devm_mdio_regmap_register() copies this into mii->id, and
-__mdiobus_register() then does:
-
-	dev_set_name(&bus->dev, "%s", bus->id);
-
-The bus is in mdio_bus_class, so the second device_add() looks like it
-would fail with -EEXIST. The whole second an8855_core_probe() would fail
-with it. PHY device names built with PHY_ID_FMT would collide in the
-same way.
-
-Could the name include something unique to the parent, such as
-dev_name(dev)?
-
-[ ... ]
-
-> +static int an8855_mdio_register(struct device *dev, struct an8855_core_priv *priv,
-> +				struct an8855_phy_bus *phy_bus_infos)
-> +{
-> +	struct device_node *mdio_np;
-> +	int ret = 0;
-> +	int i = 0;
-> +
-> +	mdio_np = of_get_child_by_name(dev->of_node, "mdio");
-> +	if (!mdio_np)
-> +		return -ENODEV;
-> +
-> +	for_each_available_child_of_node_scoped(mdio_np, phy_np) {
-> +		if (i >= AN8855_MAX_PHY_PORT) {
-> +			ret = -EINVAL;
-> +			goto exit;
-> +		}
-> +
-> +		ret = an8855_phy_bus_register(dev, priv, phy_np,
-> +					      &phy_bus_infos[i]);
-> +		if (ret)
-> +			goto exit;
-> +
-> +		i++;
-> +	}
-> +
-> +	of_node_put(mdio_np);
-> +exit:
-
-[Severity: Medium]
-Does this leak the reference on mdio_np taken by
-of_get_child_by_name()? of_node_put(mdio_np) sits above the exit label.
-Both gotos inside the loop skip it: the one for too many children and
-the one for an8855_phy_bus_register() failing.
-
-This function also mixes goto-based cleanup with the __free(device_node)
-scoped iterator from for_each_available_child_of_node_scoped().
-include/linux/cleanup.h asks that goto and cleanup helpers not be mixed
-in the same function.
-
-Would declaring mdio_np with __free(device_node) and dropping the gotos
-fix both?
-
-[ ... ]
-
-> +static int an8855_core_probe(struct mdio_device *mdiodev)
-> +{
-
-[ ... ]
-
-> +	/* Reset PHY page for switch address */
-> +	mutex_lock_nested(&priv->bus->mdio_lock, MDIO_MUTEX_NESTED);
-> +	ret = an8855_mii_set_page(priv, priv->switch_addr,
-> +				  AN8855_PHY_PAGE_STANDARD);
-
-[Severity: Medium]
-The MFD binding documents reset-gpios on the airoha,an8855 node, and its
-example uses reset-gpios = <&pio 39 GPIO_ACTIVE_HIGH>. Does anything
-request or deassert that GPIO before this first MDIO access?
-
-an8855_core_probe() doesn't touch it. mdiobus_register_device() only
-sets up reset for MDIO_DEVICE_FLAG_PHY devices, so mdio_device_reset()
-in mdio_probe() does nothing for this mdio_device. The DSA driver at the
-end of the series doesn't handle the reset line either.
-
-There is also no wait for the chip to finish its internal init before
-the page select, the CREV read and the AFE_PWD write.
-linux/gpio/consumer.h is included but unused, and so is this define:
-
-#define AN8855_HWTRAP			0x1000009c
-
-Was a reset and HWTRAP poll sequence lost when this code moved into the
-MFD? On boards where reset is still asserted at boot, it looks like
-an8855_read_switch_id() would fail and the switch would be unusable.
-
-> +	mutex_unlock(&priv->bus->mdio_lock);
-> +	if (ret)
-> +		goto err_put_fwnodes;
-> +
-> +	ret = an8855_read_switch_id(dev, regmap);
-> +	if (ret)
-> +		goto err_put_fwnodes;
-> +
-> +	/* Release global PHY power down */
-> +	ret = regmap_write(regmap, AN8855_RG_GPHY_AFE_PWD, 0x0);
-> +	if (ret)
-> +		goto err_put_fwnodes;
-
-[Severity: Low]
-Nothing appears to set the AN8855_RG_GPHY_AFE_PWD bits again later.
-fwnode_mdiobus_register_phy() or devm_mfd_add_devices() can still fail
-after this write. The err_put_fwnodes path only drops fwnode references,
-and there is no .remove callback or devm action for unbind.
-
-Should power down be restored on those paths, so the PHY analog front
-ends aren't left powered with no driver managing the ports?
-
-> +
-> +	/* Register PHYs */
-> +	for (i = 0; i < num_phys; i++) {
-> +		ret = fwnode_mdiobus_register_phy(phy_bus_infos[i].bus,
-> +						  phy_bus_infos[i].node,
-> +						  phy_bus_infos[i].addr);
-
-[Severity: Low]
-Both examples in Documentation/devicetree/bindings/net/airoha,an8855-phy.yaml
-use:
-
-compatible = "ethernet-phy-idc0ff.0410",
-             "ethernet-phy-ieee802.3-c45";
-
-The buses created by devm_mdio_regmap_register() only provide C22
-read/write callbacks. With that compatible, fwnode_mdiobus_register_phy()
-does:
-
-	is_c45 = fwnode_device_is_compatible(child, "ethernet-phy-ieee802.3-c45");
-	if (is_c45 || fwnode_get_phy_id(child, &phy_id))
-		phy = get_phy_device(bus, addr, is_c45);
-
-The explicit PHY ID is then ignored. get_phy_c45_ids() fails because
-__mdiobus_c45_read() returns -EOPNOTSUPP when bus->read_c45 is not set.
-
-Would a DT copied from that example make the whole an8855_core_probe()
-fail? The MFD binding example uses the c22 compatible, so the two
-bindings seem to disagree.
 
 -- 
 Sashiko AI review · https://netdev-ai.bots.linux.dev/sashiko/#/patchset/20260925182435.21207-1-ansuelsmth%40gmail.com
