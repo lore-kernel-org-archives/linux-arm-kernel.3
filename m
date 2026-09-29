@@ -4,78 +4,117 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1CA27CA5FA5
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 29 Sep 2026 10:18:42 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3ACD5CA5FA1
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 29 Sep 2026 10:27:46 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:Message-ID:Date:Subject:CC:To:From:Reply-To:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=dyYbTObh62hi+fWsCU7QOW9sp8JH41mugoLKDlkqq68=; b=KfpymNqT7UhyxeLgHVK65ICQno
-	5mRiVwnwfn64nvuxq10nv18RtbaPqPi04gf8ihGk1yGwzT9MpKZJFFTp0lo3+VHRURh3Gf+PHOUNj
-	qQqafe51oICRIVVby8ntgUSPLUTzu6/VHKbL7IPC6YTMAKxJ3+LppBpOjYktIVPRoC/fNkaA+f9g2
-	PpFQ8NvQuYpiGzjDsSrtaMjYvs5AfAbn1AvcVNzFeW7cPRrNM+PYsPpmqV7wV1VmAiO+fOmN7RNT8
-	HPzedLfD0NoQP1SaJ+/7IaJpnpVOFf0EObkGFN7HsHa6lAKyj3CdXgkm+M6jewL01h+t9j0mA6D8S
-	2AqmieNQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=f5Y1Bj47kFdGtgtMUGRUSsPhxIRB2mIpZUPvY4e79ZM=; b=Y7NXFQjaPCWlDafOgx/JIEv0K3
+	MoUJlmgBn+BS/byAwOMhCIhq0vjz1gqQsgMO24vtRhDl1iNrTZydOiJd8OlemQAuaOGn/kYi9FjI8
+	vbBcbg7nsT192+F6i6jpF+DiSo99xamxosyCrFzXZtqGE8Cqj0vssHLdNmnJZD0I+plEkBy5vFKw4
+	8NM9PvNKfcr5zQjqaPAUOGc8/akCHdf/w/5IMlsPGG6BrqrnDeCAyOMxcsyX5UlUUatI5wpnuDlmr
+	WwEQR8e6r2aru9zsSus8BFWZj9baDCQFFEFfK1rW10nLF3djrFEQsgCdObqEb3MoBgxu5+KQkzkmy
+	lGegRhRA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xBUuw-000000037As-25Rh;
-	Tue, 29 Sep 2026 10:18:34 +0000
-Received: from mailgw02.mediatek.com ([216.200.240.185])
+	id 1xBV3j-000000039lC-0v4S;
+	Tue, 29 Sep 2026 10:27:39 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xBUut-0000000377R-11JU;
-	Tue, 29 Sep 2026 10:18:32 +0000
-X-UUID: f8767926bbec11f1acbe4559397dec65-20260929
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=mediatek.com; s=dk;
-	h=Content-Transfer-Encoding:Content-Type:MIME-Version:Message-ID:Date:Subject:CC:To:From; bh=dyYbTObh62hi+fWsCU7QOW9sp8JH41mugoLKDlkqq68=;
-	b=g7y+dHa2TSK84tqdvo6a8NdeubMdWavuWlXtN4l9lDYc3w6JIcTx90cDO/JlsF0DA6/ZV0betAf6mWfW3FjqyVQdRQZaEK+PFexVhics5U4xPRe+VHPsosO9S1xI6vChCDkgelnCj4SyHEboVRdEBf6sGpdsg0xB3ugIp2j81Bs=;
-X-CID-P-RULE: Release_Ham
-X-CID-O-INFO: VERSION:1.3.20,REQID:8778c410-4abe-4fd7-91f2-62355e817106,IP:0,U
-	RL:0,TC:0,Content:0,EDM:0,RT:0,SF:0,FILE:0,BULK:0,RULE:Release_Ham,ACTION:
-	release,TS:0
-X-CID-META: VersionHash:291e20b,CLOUDID:a5431909-d10d-41b3-a8f1-bc707284d0ce,B
-	ulkID:nil,BulkQuantity:0,SF:102|836|865|888|898,TC:-5,Content:0|15|50|99,E
-	DM:-3,IP:nil,URL:0,File:130,RT:0,Bulk:nil,QS:nil,BEC:-1,COL:0,OSI:0,OSA:0,
-	AV:0,LES:1,SPR:NO,DKR:0,DKP:0,BRR:0,BRE:0,ARC:0
-X-CID-BVR: 2,SSN|SDN
-X-CID-BAS: 2,SSN|SDN,0,_
-X-CID-FACTOR: TF_CID_SPAM_SNR
-X-CID-RHF: D41D8CD98F00B204E9800998ECF8427E
-X-UUID: f8767926bbec11f1acbe4559397dec65-20260929
-Received: from mtkmbs10n1.mediatek.inc [(172.21.101.34)] by mailgw02.mediatek.com
-	(envelope-from <shiming.cheng@mediatek.com>)
-	(musrelay.mediatek.com ESMTP with TLSv1.2 ECDHE-RSA-AES256-GCM-SHA384 256/256)
-	with ESMTP id 256616827; Tue, 29 Sep 2026 03:03:08 -0700
-Received: from mtkmbs11n1.mediatek.inc (172.21.101.185) by
- MTKMBS09N1.mediatek.inc (172.21.101.35) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.2562.29; Tue, 29 Sep 2026 18:03:05 +0800
-Received: from mbjsdccf07.gcn.mediatek.inc (10.15.20.246) by
- mtkmbs11n1.mediatek.inc (172.21.101.73) with Microsoft SMTP Server id
- 15.2.2562.29 via Frontend Transport; Tue, 29 Sep 2026 18:03:03 +0800
-From: Shiming Cheng <shiming.cheng@mediatek.com>
-To: <davem@davemloft.net>, <edumazet@google.com>, <kuba@kernel.org>,
-	<pabeni@redhat.com>, <horms@kernel.org>, <matthias.bgg@gmail.com>,
-	<angelogioacchino.delregno@collabora.com>, <willemb@google.com>,
-	<daniel.zahka@gmail.com>, <alice@isovalent.com>, <sd@queasysnail.net>,
-	<eilaimemedsnaimel@gmail.com>, <imv4bel@gmail.com>, <nbd@nbd.name>,
-	<dsahern@kernel.org>, <netdev@vger.kernel.org>,
-	<linux-kernel@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
-	<linux-mediatek@lists.infradead.org>
-CC: <stable@vger.kernel.org>, <steffen.klassert@secunet.com>,
-	<lena.wang@mediatek.com>, <shiming.cheng@mediatek.com>
-Subject: [PATCH] net: gro: mark frag_list GRO packets as SKB_GSO_DODGY when a list element exceeds gso_size
-Date: Tue, 29 Sep 2026 18:02:48 +0800
-Message-ID: <20260929100256.23192-1-shiming.cheng@mediatek.com>
-X-Mailer: git-send-email 2.45.2
+	id 1xBV3g-000000039ke-3jWi
+	for linux-arm-kernel@bombadil.infradead.org;
+	Tue, 29 Sep 2026 10:27:37 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=In-Reply-To:Content-Type:MIME-Version:
+	References:Message-ID:Subject:Cc:To:From:Date:Sender:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description;
+	bh=f5Y1Bj47kFdGtgtMUGRUSsPhxIRB2mIpZUPvY4e79ZM=; b=hL9XvY0FJMbuoX0lw9bTPigN2S
+	/n3QQr3MK6KZEGPlI5I6Jw8ynogu3YceVkrsNwnOuIrWqXCHtLOgsCxujyVbHodriDyuWT2HydU3x
+	C2916uMjpcrIk5gkEQor5zUVCq0f7akHuMFkiSfdNOGMZaqDbXkoCBAHLXxrG4SHPNoD6XdseG3Hg
+	K2iQPG+aYk3aERX32x3FDI4XDlXqAY7lQ6fHFFKOoNJkGF1R2Tj7XbLGT4fWW9Z+hNgAeU1PDIa8w
+	gjTxMVhWFfsobP/MKzDnNYFPZ1igVszpeRtBJsEqH+kTTOmprGSkM6e7NR4uy1C4U0r5h9XYOk+fM
+	qrgu1h4g==;
+Received: from mail-wm1-x32b.google.com ([2a00:1450:4864:20::32b])
+	by desiato.infradead.org with esmtps (Exim 4.99.2 #2 (Red Hat Linux))
+	id 1xBV3d-00000002Ti0-3qBh
+	for linux-arm-kernel@lists.infradead.org;
+	Tue, 29 Sep 2026 10:27:35 +0000
+Received: by mail-wm1-x32b.google.com with SMTP id 5b1f17b1804b1-4a0061bf0d3so33645e9.1
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 29 Sep 2026 03:27:32 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=google.com; s=20251104; t=1790677651; x=1791282451; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:content-type:mime-version
+         :references:message-id:subject:cc:to:from:date:from:to:cc:subject
+         :date:message-id:reply-to:content-type;
+        bh=f5Y1Bj47kFdGtgtMUGRUSsPhxIRB2mIpZUPvY4e79ZM=;
+        b=s/y93EjsL6OWoD73X/TxJuNUS+aNF+IDat7asASYZaZWnBN/UKvDijnUUKT+CZRImu
+         MpePhOhXQtVZPMQ9zYW071O+7Nxpa5ksFrqn4DCJqNVGB0EjR+HTTdkCU+yy6RlVxBWl
+         DkG6QJ0ddC2R4G8E/JPHbySrKPaNWILOHXIUUnUcjmRrXFrzE+91LBxi8VHiGZC6FFeC
+         XICrmM4aVKVqzfXWGsod6JQoNgDk0kL2gXIohB1+3t+ma8HMSAZ1t4kWkGrPBGflRBmP
+         hnqGRey6jNn5NKhuslFVx0OQTI0H4UYW9ggH6Ac8I2FV4BXXuDN8LEmxoVFm2eQrsU5u
+         4bMQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1790677651; x=1791282451;
+        h=in-reply-to:content-disposition:content-type:mime-version
+         :references:message-id:subject:cc:to:from:date:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=f5Y1Bj47kFdGtgtMUGRUSsPhxIRB2mIpZUPvY4e79ZM=;
+        b=B8LkB1+Gif96X/tzl9JXTxK4LSZQ2YJhtLFW8hVOb1XHs9LV6Y5YNAsLXbV53t2zsa
+         XJmSm1f6P1/OTVzDJOmiYLDSYXwbpN/+odaeTc8Crb+Gfmmiav4VJPgAUqp20/2w1Ujy
+         GHKibFoXUc3SQOQHAzhjubTOihXlZ8xF3/umj+na11TW9SLixdez19RZXUdyr0QEy2mC
+         G2FzA7hQRlGB1A7trQ5pXaQMwro5uc3xsvO3AsP5URGr5awkEI6PsXbHTehBQ+r5XUH1
+         1SIk9C7ln5ep3D8GzHKzQhAduyR4PWjKcnaZtIBywSdTbe6ZAGI6oWEaA82vqJixdUi8
+         BNig==
+X-Forwarded-Encrypted: i=1; AKwUvBxn/UI4m39CyIhh/eyo1FSwM/2WfTePg2MZBerdH80GN+g2LtXDU4zHPG9P4Bd497SPtQ8xIdiMJGG3dore+Fon@lists.infradead.org
+X-Gm-Message-State: AFuF++mjP54PiOC3ypMw2klPtQlXPvp2oBtPKHZXnRLKIFhckrPQBCPJ
+	kIJN8Kk1s9mIqEnCwJ/5bEj+iWfRgfgC0LQ8+OCKBWHt412lWTYjx6VN9oGDQT13Hw==
+X-Gm-Gg: AYBFou0CpC5u9shkTyDNqUvsnETI/uwTzRCHAJr0xlXI2WdWRTN59JQFreFAJk4dXIR
+	Q0PC0+Ka3yf/Qw+mUsT2blRL7dFHQfp0ovA8lEz1LV1CJSNIUOT/lyK4KYGEJ2AABHQEst1aXrA
+	40Wz2gONj4uBJ0C3UCFWO7dfv2eXkOISBdJh2MRIBsML9xTupTWgmXNU8rYCx7COu0fHycdTGcD
+	ngQCEZM4hw//u3Ef50UVRp0k2hOBin/d42+qE/MRVbTw4kD3zcjadbfpNb8xiQ7Zxp6IpYZNgxd
+	lKdbL1HLvsKbRaUBRT50EnuMpFW8oaHK8gjQO0eph9T7RZpqyvr6qwOmo0mEfNtj2E3opAMgMeb
+	n79Yr3yC8PkKFiZsYTEAySkRD7lNoV3vRC6NVOR3alDGKZjDz5fQc/B4vYkDluiW2bsI0S40h9d
+	rFNYvI1H6wykobkwt+iyRFNe84RVur3hiirwVLPq/Vrfxar/Sv8YheQJeEAt60Pd8fdAC/qxmAo
+	MwC7gKw3R51LVDE+GYlG7ldVnDaDRT60YNXmoXA
+X-Received: by 2002:a7b:c7d0:0:b0:49f:e312:54ea with SMTP id 5b1f17b1804b1-4a00f46d761mr379975e9.12.1790677650115;
+        Tue, 29 Sep 2026 03:27:30 -0700 (PDT)
+Received: from google.com (250.192.189.35.bc.googleusercontent.com. [35.189.192.250])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4a00c10c656sm103565205e9.2.2026.09.29.03.27.29
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Tue, 29 Sep 2026 03:27:29 -0700 (PDT)
+Date: Tue, 29 Sep 2026 10:27:19 +0000
+From: Mostafa Saleh <smostafa@google.com>
+To: Randy Dunlap <rdunlap@infradead.org>
+Cc: linux-doc@vger.kernel.org, linux-kernel@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org, linux-mm@kvack.org,
+	linux-hardening@vger.kernel.org, linux-rt-devel@lists.linux.dev,
+	corbet@lwn.net, skhan@linuxfoundation.org, catalin.marinas@arm.com,
+	will@kernel.org, mark.rutland@arm.com, akpm@linux-foundation.org,
+	urezki@gmail.com, mingo@redhat.com, peterz@infradead.org,
+	juri.lelli@redhat.com, vincent.guittot@linaro.org,
+	dietmar.eggemann@arm.com, rostedt@goodmis.org, bsegall@google.com,
+	mgorman@suse.de, vschneid@redhat.com, kprateek.nayak@amd.com,
+	kees@kernel.org, david@kernel.org, ljs@kernel.org,
+	liam@infradead.org, vbabka@kernel.org, rppt@kernel.org,
+	surenb@google.com, mhocko@suse.com, gustavoars@kernel.org,
+	bigeasy@linutronix.de, clrkwllms@kernel.org
+Subject: Re: [RFC PATCH 12/15] sched/task_stack: Introduce
+ ARCH_HAS_VARIABLE_STACK_SIZE
+Message-ID: <aruShxHCUWEHr4i1@google.com>
+References: <20260928174122.3380703-1-smostafa@google.com>
+ <20260928174122.3380703-13-smostafa@google.com>
+ <5c6edcfe-8332-4db6-b0fa-ca5d137a2075@infradead.org>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: 8bit
-X-MTK: N
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <5c6edcfe-8332-4db6-b0fa-ca5d137a2075@infradead.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260929_031831_299260_4593026E 
-X-CRM114-Status: GOOD (  11.19  )
+X-CRM114-CacheID: sfid-20260929_112734_181330_6EF73810 
+X-CRM114-Status: GOOD (  31.65  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -90,50 +129,83 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-When RX LRO (or similar offload) is enabled, the TCP/IPv4 GRO path may
-aggregate traffic using frag_list. The resulting skb is later segmented
-via the frag_list segmentation path (skb_segment_list()).
+On Mon, Sep 28, 2026 at 01:37:37PM -0700, Randy Dunlap wrote:
+> 
+> 
+> On 9/28/26 10:41 AM, Mostafa Saleh wrote:
+> > When CONFIG_ARCH_HAS_VARIABLE_STACK_SIZE is enabled, the kernel stack
+> > may not be fully populated with the THREAD_SIZE virtual area.
+> > 
+> > Teach task_stack_size() to return the size of the vm area and not a
+> > fixed size.
+> > 
+> > This propagates to end_of_stack() which makes functions like
+> > stack_not_used() and set_task_stack_end_magic() to use the lowest
+> > valid stack address instead of THREAD_SIZE which would cause data
+> > aborts.
+> > 
+> > Signed-off-by: Mostafa Saleh <smostafa@google.com>
+> > ---
+> >  arch/Kconfig                     | 10 ++++++++++
+> >  include/linux/sched/task_stack.h |  5 +++++
+> >  2 files changed, 15 insertions(+)
+> > 
+> > diff --git a/arch/Kconfig b/arch/Kconfig
+> > index 45c657772362..d6fa2ccb0599 100644
+> > --- a/arch/Kconfig
+> > +++ b/arch/Kconfig
+> > @@ -431,6 +431,16 @@ config HAVE_ASM_MODVERSIONS
+> >  	  <asm/asm-prototypes.h> to support the module versioning for symbols
+> >  	  exported from assembly code.
+> >  
+> > +config ARCH_HAS_VARIABLE_STACK_SIZE
+> > +	bool
+> > +	depends on VMAP_STACK
+> > +	depends on !STACK_GROWSUP
+> > +	depends on THREAD_INFO_IN_TASK
+> > +	help
+> > +	  An arch should select this if it supports dynamically configuring the
+> > +	  kernel stack size.
+> > +	  For example the kernel stack size can be from the command line.
+> 
+> 	                                    can be set from the command line.
+> ?
+> 
 
-However, some drivers can hand GRO/LRO-aggregated frames to the stack
-where individual frag_list elements are already larger than skb_shinfo(p)
-->gso_size (i.e., an element itself contains multiple MSS worth of
-payload) and may be non-linear (nr_frags > 0). This shape is not
-naturally produced by the software GRO aggregation logic for devices
-without LRO, and can lead to unexpected behavior in the frag_list
-segmentation path.
+I will fix it in v2.
 
-Detect this condition during frag_list aggregation and mark the
-aggregated packet as SKB_GSO_DODGY when a list element’s length exceeds
-gso_size. This forces a more conservative segmentation/linearization
-behavior downstream and avoids relying on assumptions that do not hold
-for LRO-produced aggregates.
+Thanks,
+Mostafa
 
-No change for normal software GRO aggregation: the new check only
-triggers when skb_shinfo(p)->gso_size is set and a frag_list element
-length exceeds that size.
-
-Fixes: 3a1296a38d0c ("net: Support GRO/GSO fraglist chaining.")
-Cc: <stable@vger.kernel.org>
-Signed-off-by: Shiming Cheng <shiming.cheng@mediatek.com>
----
- net/core/gro.c | 3 +++
- 1 file changed, 3 insertions(+)
-
-diff --git a/net/core/gro.c b/net/core/gro.c
-index 29b4d02bf519..e70ecf19b0a7 100644
---- a/net/core/gro.c
-+++ b/net/core/gro.c
-@@ -259,6 +259,9 @@ int skb_gro_receive_list(struct sk_buff *p, struct sk_buff *skb)
- 	skb_shinfo(p)->flags |= skb_shinfo(skb)->flags & SKBFL_SHARED_FRAG;
- 
- 	NAPI_GRO_CB(skb)->same_flow = 1;
-+	/* frag_list element larger than gso_size (already coalesced before list-append) */
-+	if (skb_shinfo(p)->gso_size && skb->len > skb_shinfo(p)->gso_size)
-+		skb_shinfo(p)->gso_type |= SKB_GSO_DODGY;
- 
- 	return 0;
- }
--- 
-2.45.2
-
+> > +
+> >  config HAVE_REGS_AND_STACK_ACCESS_API
+> >  	bool
+> >  	help
+> > diff --git a/include/linux/sched/task_stack.h b/include/linux/sched/task_stack.h
+> > index 4a808f9c4631..07d73adaecd1 100644
+> > --- a/include/linux/sched/task_stack.h
+> > +++ b/include/linux/sched/task_stack.h
+> > @@ -10,6 +10,7 @@
+> >  #include <linux/magic.h>
+> >  #include <linux/refcount.h>
+> >  #include <linux/kasan.h>
+> > +#include <linux/vmalloc.h>
+> >  
+> >  #ifdef CONFIG_THREAD_INFO_IN_TASK
+> >  
+> > @@ -96,6 +97,10 @@ static inline unsigned long *end_of_stack(const struct task_struct *p)
+> >   */
+> >  static __always_inline unsigned long task_stack_size(const struct task_struct *task)
+> >  {
+> > +#ifdef CONFIG_ARCH_HAS_VARIABLE_STACK_SIZE
+> > +	if (task->stack_vm_area)
+> > +		return task->stack_vm_area->nr_pages * PAGE_SIZE;
+> > +#endif
+> >  	return THREAD_SIZE;
+> >  }
+> >  
+> 
+> -- 
+> ~Randy
+> 
 
