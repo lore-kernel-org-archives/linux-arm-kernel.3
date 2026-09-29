@@ -4,67 +4,90 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4E7D3CA5FA5
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 29 Sep 2026 12:36:43 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6972ACA5FA1
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 29 Sep 2026 12:37:53 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:Cc
-	:References:In-Reply-To:Subject:To:From:Date:Message-ID:Reply-To:MIME-Version
-	:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=4/DeA+1F0dIAEimi0AL0c99MVeNYvMd6hGnWDw1e/2k=; b=OaXK2g1Xz8pFTiud1R66Br9i61
-	fV8CLSsyppl0cC2tT1GJH57GCQS6Y39i1lCok0NZiXrHIRP12KzRUn8Wb7G4us+OfcNTyEfDzum/0
-	sZG/LTFLrCO4iSjF8yOTLQg/YqjjztWTCsmlg7KAxoiZQTe3osoXd+iF2b85f6IGeY1VRXS3GY/Wd
-	BpqJKBCT5tokCkr+I+g8OlByW8yChHkS+QHj5Orng/we7Hmwe6I05v2uraeCKcbskFL2L35jWK6Ge
-	rQuy3QyAkYrA8rF3K787jFLR/Qr0NvklIFkCHfIN4BeAO2Y1uxLFR2s+4M6dZ9fsaNSygYICDL+Ke
-	HZVGDoQw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
+	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=rmDQUIphJFlzenQYZdfd1cedfjoPbRRqTeAYuNnfI9g=; b=dvvrsZOk/D+a15k6/brl9RGxWu
+	CMgHj58VvVytF7TShwUUytyy533pdpw2HUlfExszqZ2tyPwGHz4XqIb35t54ItLhDu2nMq9rV6IqI
+	4Aqa0EzeixUPSG7UzPy3Yzip0j4TdtUeFtDxAQDYq4xrg2VYfIv6OfXLd1Jevv6A5IwOIC/5J6I6A
+	3J3jSCvjNtsg0uRmXgjZ1yRVmjp561EPmcsLbyZpnsIheP9apkdAMObY2OsBe5PAHu8a6QnfecOsr
+	cjUxt3nbcleQA/J3GQ71mxfcKCgKFP5F0JfV6D7JNZV3AOXwtx2q1ds5PHn1w/b80Le8MJuGPRA8Z
+	ENpdLSJw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xBX4X-00000003Yck-0Fpo;
-	Tue, 29 Sep 2026 12:36:37 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1xBVDm-00000003H2A-3hNx;
+	Tue, 29 Sep 2026 10:38:02 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xBX4V-00000003Ybv-1ps3
+	id 1xBVDF-00000003GmS-2pjV
+	for linux-arm-kernel@bombadil.infradead.org;
+	Tue, 29 Sep 2026 10:37:29 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=Content-Type:Content-Transfer-Encoding
+	:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:CC:To:From:
+	Sender:Reply-To:Content-ID:Content-Description;
+	bh=rmDQUIphJFlzenQYZdfd1cedfjoPbRRqTeAYuNnfI9g=; b=nuiZuGKTok222hhQO3eU1v3MxM
+	N1ZB+q8Hq4CPYKEhhYaWDhGIqZvQFEHEekWYy4GQl5B+9QFS1tGykVjBauI7btXllMPT5qyjEIsLc
+	QFY6usYy+SFXGwqNppk6z3uWxtUW9zc4jv2J6GAnTvHrk7rKAx0mL6mHAyOHdfKK3CAWfHS7mFWg1
+	NqarY+WWmb1KtjD1Ot33dXSm4rLDGDEOguNNCGTDD9zALV6LEgCMW114p7jC27n7m/oz9jms4tmoP
+	yAw9hYyVuYcjKw91BkHjI/sNVaWsJakj7B7Il8X+MiJW70tZo8Ee6FyGvQFnZhWZY8SU3/X36g1Re
+	THWRvQew==;
+Received: from canpmsgout05.his.huawei.com ([113.46.200.220])
+	by desiato.infradead.org with esmtps (Exim 4.99.2 #2 (Red Hat Linux))
+	id 1xBVCz-00000002VFP-0GSo
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 29 Sep 2026 12:36:35 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id B9A02600D1;
-	Tue, 29 Sep 2026 12:36:34 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id E6B2B1F000FF;
-	Tue, 29 Sep 2026 12:36:33 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1790685394;
-	bh=4/DeA+1F0dIAEimi0AL0c99MVeNYvMd6hGnWDw1e/2k=;
-	h=Date:From:To:Subject:In-Reply-To:References:Cc;
-	b=QYlm4a/7EhVMOiLvx7E76uLW9wUY0uqQq4dOcSPIUd8/3U6K1Rx4WymnX4LVZYc0M
-	 5o5YdmUdwGBFQfie6KaQNfAYsmF/MerjaVxx+8joZVoC+FUj+FUlwWTHBVK+RZ5p4E
-	 w8LQ5UUxLFCueFvyivPlxA0oPJh4mOHA8p+05dATnee7eNdVdTHyejFoAoa2OUfjp8
-	 kN82QXLx0Y0NVH0UZZsIxtcTfPyyd9DxwAa1MidFuzRpWlajmjn81s92ve7vL9aeZX
-	 0djPqpA/p/j9oTHCTXvagAY/94DKS/lNXjUEjEXvpYPn4dm++niiNeXT/Ji6snuLUo
-	 ytAz7Z3evlKew==
-Message-ID: <dfdc2f9f96e86d686ada0e826cc57d35@kernel.org>
-Date: Tue, 29 Sep 2026 12:36:31 +0000
-From: "Maxime Ripard" <mripard@kernel.org>
-To: "Luca Ceresoli" <luca.ceresoli@bootlin.com>
-Subject: Re: [PATCH 7/7] drm: renesas: shmobile: stop using deprecated
- devm_drm_of_get_bridge()
-In-Reply-To: <20260929-drm-fix-of_get_bridge-build-regression-v1-7-ccb7e602daad@bootlin.com>
-References: <20260929-drm-fix-of_get_bridge-build-regression-v1-7-ccb7e602daad@bootlin.com>
-Cc: dri-devel@lists.freedesktop.org, imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, linux-renesas-soc@vger.kernel.org, "Andrzej
- Hajda" <andrzej.hajda@intel.com>, "Arnd Bergmann" <arnd@kernel.org>, "Dave
- Stevenson" <dave.stevenson@raspberrypi.com>, "David Airlie" <airlied@gmail.com>, "Doug
- Anderson" <dianders@chromium.org>, "Fabio Estevam" <festevam@gmail.com>, "Frank
- Li" <Frank.Li@nxp.com>, "Geert Uytterhoeven" <geert+renesas@glider.be>, "Hui
- Pu" <Hui.Pu@gehealthcare.com>, "Ian Ray" <ian.ray@gehealthcare.com>, "Icenowy
- Zheng" <zhengxingda@iscas.ac.cn>, "Jernej Skrabec" <jernej.skrabec@gmail.com>, "Jonas
- Karlman" <jonas@kwiboo.se>, "Laurent Pinchart" <Laurent.pinchart@ideasonboard.com>, "Maarten
- Lankhorst" <maarten.lankhorst@linux.intel.com>, "Maxime Ripard" <mripard@kernel.org>,
- =?utf-8?b?TWHDrXJhIENhbmFs?= <mcanal@igalia.com>, "Neil Armstrong" <neil.armstrong@linaro.org>, "Pengutronix
- Kernel Team" <kernel@pengutronix.de>, "Raspberry Pi Kernel Maintenance" <kernel-list@raspberrypi.com>, "Robert
- Foss" <rfoss@kernel.org>, "Sascha Hauer" <s.hauer@pengutronix.de>, "Simona
- Vetter" <simona@ffwll.ch>, "Thomas Petazzoni" <thomas.petazzoni@bootlin.com>, "Thomas
- Zimmermann" <tzimmermann@suse.de>
-Content-Transfer-Encoding: quoted-printable
+	Tue, 29 Sep 2026 10:37:18 +0000
+dkim-signature: v=1; a=rsa-sha256; d=huawei.com; s=dkim;
+	c=relaxed/relaxed; q=dns/txt;
+	h=From;
+	bh=rmDQUIphJFlzenQYZdfd1cedfjoPbRRqTeAYuNnfI9g=;
+	b=jHcKaFYd3fJjqJagj1xIeyMwSYMdsjiQcguDOLEzj0tl19WR/yJ0SXrGlUHW/mk7QCrW1VQ5Y
+	xhaW5hEMRLECEpNfTaYWKeUqXmhg7Gk055gVJ/LKSM/i0om/C+NYedzSlVAnEsdjPjk2XzmOqra
+	J22ubbEwFtuUahAF122EQHI=
+Received: from mail.maildlp.com (unknown [172.19.163.0])
+	by canpmsgout05.his.huawei.com (SkyGuard) with ESMTPS id 4hvDnl2v1Zz12LHh;
+	Tue, 29 Sep 2026 18:24:59 +0800 (CST)
+Received: from kwepemr100010.china.huawei.com (unknown [7.202.195.125])
+	by mail.maildlp.com (Postfix) with ESMTPS id 183D240537;
+	Tue, 29 Sep 2026 18:37:02 +0800 (CST)
+Received: from huawei.com (10.50.163.32) by kwepemr100010.china.huawei.com
+ (7.202.195.125) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.45; Tue, 29 Sep
+ 2026 18:37:01 +0800
+From: Tian Zheng <zhengtian10@huawei.com>
+To: <maz@kernel.org>, <oupton@kernel.org>, <catalin.marinas@arm.com>,
+	<will@kernel.org>, <corbet@lwn.net>, <pbonzini@redhat.com>,
+	<zhengtian10@huawei.com>, <leo.bras@arm.com>
+CC: <yuzenghui@huawei.com>, <wangzhou1@hisilicon.com>,
+	<yangjinqian1@huawei.com>, <caijian11@h-partners.com>,
+	<liuyonglong@huawei.com>, <tangchengchang@huawei.com>,
+	<yezhenyu2@huawei.com>, <yubihong@huawei.com>, <linuxarm@huawei.com>,
+	<joey.gouly@arm.com>, <kvmarm@lists.linux.dev>, <kvm@vger.kernel.org>,
+	<linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>,
+	<seiden@linux.ibm.com>, <suzuki.poulose@arm.com>, <fuad.tabba@linux.dev>,
+	<mark.rutland@arm.com>, <seanjc@google.com>, <rdunlap@infradead.org>,
+	<linux-doc@vger.kernel.org>, <linux-kselftest@vger.kernel.org>,
+	<skhan@linuxfoundation.org>
+Subject: [PATCH v5 07/15] KVM: arm64: Add HDBSS per-vCPU buffer management
+Date: Tue, 29 Sep 2026 18:36:47 +0800
+Message-ID: <20260929103655.85107-8-zhengtian10@huawei.com>
+X-Mailer: git-send-email 2.33.0
+In-Reply-To: <20260929103655.85107-1-zhengtian10@huawei.com>
+References: <20260929103655.85107-1-zhengtian10@huawei.com>
+MIME-Version: 1.0
+Content-Transfer-Encoding: 8bit
+Content-Type: text/plain
+X-Originating-IP: [10.50.163.32]
+X-ClientProxiedBy: kwepems500002.china.huawei.com (7.221.188.17) To
+ kwepemr100010.china.huawei.com (7.202.195.125)
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260929_113714_148785_FAC067D7 
+X-CRM114-Status: GOOD (  28.93  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -79,18 +102,307 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, 29 Sep 2026 12:36:39 +0200, Luca Ceresoli wrote:
-> devm_drm_of_get_bridge() is deprecated, switch to
-> of_drm_get_bridge_by_endpoint(). As of_drm_get_bridge_by_endpoint() retur=
-ns
-> a refcounted bridge, ensure it is put.
->=20
-> drm_panel.h becomes unused, drop the include.
->=20
-> [ ... ]
+From: Eillon <yezhenyu2@huawei.com>
 
-Acked-by: Maxime Ripard <mripard@kernel.org>
+Each vCPU owns an HDBSS buffer, described by HDBSSBR_EL2 (base
+address and encoded size) and advanced by HDBSSPROD_EL2 as hardware
+appends entries. Tie the buffer lifetime to the vCPU: allocate at
+vCPU creation, free at destruction. The buffer is allocated zeroed,
+so a stale producer index can only ever observe invalid entries.
 
-Thanks!
-Maxime
+Registers are programmed whenever the vCPU owns a buffer, regardless
+of whether HDBSS is enabled. The feature can be turned on
+mid-KVM_RUN, and hardware dirty-state updates write to
+HDBSSBR_EL2.BADDR without any fault, so the registers must already
+be in place by then. HDBSSPROD_EL2 is preserved across context
+switches and vCPU migration.
+
+Two details: the buddy order is kept separate from the HDBSSBR_EL2.SZ
+encoding, since the two only coincide on 4KB pages; and kvm_share_hyp()
+is unwound in kvm_arch_vcpu_create() when the HDBSS allocation fails.
+
+Signed-off-by: Eillon <yezhenyu2@huawei.com>
+Signed-off-by: Tian Zheng <zhengtian10@huawei.com>
+---
+ arch/arm64/include/asm/kvm_dirty_bit.h | 28 +++++++++++++
+ arch/arm64/include/asm/kvm_host.h      | 13 ++++++
+ arch/arm64/include/asm/sysreg.h        |  9 +++++
+ arch/arm64/kvm/Makefile                |  1 +
+ arch/arm64/kvm/arm.c                   | 14 ++++++-
+ arch/arm64/kvm/dirty_bit.c             | 55 ++++++++++++++++++++++++++
+ arch/arm64/kvm/hyp/vhe/switch.c        | 17 ++++++++
+ arch/arm64/kvm/reset.c                 |  3 ++
+ 8 files changed, 138 insertions(+), 2 deletions(-)
+ create mode 100644 arch/arm64/include/asm/kvm_dirty_bit.h
+ create mode 100644 arch/arm64/kvm/dirty_bit.c
+
+diff --git a/arch/arm64/include/asm/kvm_dirty_bit.h b/arch/arm64/include/asm/kvm_dirty_bit.h
+new file mode 100644
+index 000000000000..fe703f02626b
+--- /dev/null
++++ b/arch/arm64/include/asm/kvm_dirty_bit.h
+@@ -0,0 +1,28 @@
++/* SPDX-License-Identifier: GPL-2.0-only */
++/*
++ * Per-vCPU buffer management for HDBSS-based dirty page tracking.
++ *
++ * Copyright (C) 2026 Huawei Technologies Co., Ltd
++ * Author: Tian Zheng <zhengtian10@huawei.com>
++ */
++
++#ifndef __ARM64_KVM_DIRTY_BIT_H__
++#define __ARM64_KVM_DIRTY_BIT_H__
++
++#include <asm/kvm_pgtable.h>
++#include <asm/sysreg.h>
++#include <linux/sizes.h>
++
++#define KVM_ARM_HDBSS_DEFAULT_SIZE  PAGE_SIZE
++#define KVM_ARM_HDBSS_MAX_SIZE      SZ_2M
++
++/* 0 means unconfigured, fall back to one page per vCPU. */
++static inline u32 kvm_hdbss_buffer_size(struct kvm *kvm)
++{
++	return kvm->arch.hdbss_buffer_size ?: KVM_ARM_HDBSS_DEFAULT_SIZE;
++}
++
++int kvm_arm_vcpu_alloc_hdbss(struct kvm_vcpu *vcpu);
++void kvm_arm_vcpu_free_hdbss(struct kvm_vcpu *vcpu);
++
++#endif /* __ARM64_KVM_DIRTY_BIT_H__ */
+diff --git a/arch/arm64/include/asm/kvm_host.h b/arch/arm64/include/asm/kvm_host.h
+index 86a4d6e50934..c8fc29f3db75 100644
+--- a/arch/arm64/include/asm/kvm_host.h
++++ b/arch/arm64/include/asm/kvm_host.h
+@@ -425,6 +425,9 @@ struct kvm_arch {
+ 	 */
+ 	struct kvm_protected_vm pkvm;
+
++	/* HDBSS: per-VM buffer size in bytes (0 = not configured, use default) */
++	u32 hdbss_buffer_size;
++
+ #ifdef CONFIG_PTDUMP_STAGE2_DEBUGFS
+ 	/* Nested virtualization info */
+ 	struct dentry *debugfs_nv_dentry;
+@@ -844,6 +847,13 @@ struct vcpu_reset_state {
+ 	bool		reset;
+ };
+
++struct vcpu_hdbss_state {
++	struct page *hdbss_pg;		/* HDBSS buffer */
++	u64 hdbssbr_el2;		/* programmed into the CPU on load */
++	u64 hdbssprod_el2;		/* producer index, saved on put */
++	unsigned int buddy_order;	/* allocation order for __free_pages() */
++};
++
+ struct vncr_tlb;
+
+ struct kvm_vcpu_arch {
+@@ -951,6 +961,9 @@ struct kvm_vcpu_arch {
+
+ 	/* Hyp-readable copy of kvm_vcpu::pid */
+ 	pid_t pid;
++
++	/* HDBSS buffer state */
++	struct vcpu_hdbss_state hdbss;
+ };
+
+ /*
+diff --git a/arch/arm64/include/asm/sysreg.h b/arch/arm64/include/asm/sysreg.h
+index 7aa08d59d494..7c71560b57e4 100644
+--- a/arch/arm64/include/asm/sysreg.h
++++ b/arch/arm64/include/asm/sysreg.h
+@@ -1039,6 +1039,15 @@
+
+ #define GCS_CAP(x)	((((unsigned long)x) & GCS_CAP_ADDR_MASK) | \
+ 					       GCS_CAP_VALID_TOKEN)
++
++/*
++ * Definitions for the HDBSS feature
++ */
++#define HDBSSBR_EL2(baddr, sz)	(((baddr) & HDBSSBR_EL2_BADDR_MASK) | \
++				 FIELD_PREP(HDBSSBR_EL2_SZ_MASK, sz))
++
++#define HDBSSPROD_IDX(prod)	FIELD_GET(HDBSSPROD_EL2_INDEX_MASK, prod)
++
+ /*
+  * Definitions for GICv5 instructions
+  */
+diff --git a/arch/arm64/kvm/Makefile b/arch/arm64/kvm/Makefile
+index 59612d2f277c..ec2749af64fa 100644
+--- a/arch/arm64/kvm/Makefile
++++ b/arch/arm64/kvm/Makefile
+@@ -18,6 +18,7 @@ kvm-y += arm.o mmu.o mmio.o psci.o hypercalls.o pvtime.o \
+ 	 guest.o debug.o reset.o sys_regs.o stacktrace.o \
+ 	 vgic-sys-reg-v3.o fpsimd.o pkvm.o \
+ 	 arch_timer.o trng.o vmid.o emulate-nested.o nested.o at.o \
++	 dirty_bit.o \
+ 	 vgic/vgic.o vgic/vgic-init.o \
+ 	 vgic/vgic-irqfd.o vgic/vgic-v2.o \
+ 	 vgic/vgic-v3.o vgic/vgic-v4.o \
+diff --git a/arch/arm64/kvm/arm.c b/arch/arm64/kvm/arm.c
+index d9ad765943d9..5ea4ac26995e 100644
+--- a/arch/arm64/kvm/arm.c
++++ b/arch/arm64/kvm/arm.c
+@@ -36,6 +36,7 @@
+ #include <asm/virt.h>
+ #include <asm/kvm_arm.h>
+ #include <asm/kvm_asm.h>
++#include <asm/kvm_dirty_bit.h>
+ #include <asm/kvm_emulate.h>
+ #include <asm/kvm_hyp.h>
+ #include <asm/kvm_mmu.h>
+@@ -580,10 +581,19 @@ int kvm_arch_vcpu_create(struct kvm_vcpu *vcpu)
+ 	}
+
+ 	err = kvm_share_hyp(vcpu, vcpu + 1);
+-	if (err)
++	if (err) {
+ 		kvm_vgic_vcpu_destroy(vcpu);
++		return err;
++	}
+
+-	return err;
++	err = kvm_arm_vcpu_alloc_hdbss(vcpu);
++	if (err) {
++		kvm_unshare_hyp(vcpu, vcpu + 1);
++		kvm_vgic_vcpu_destroy(vcpu);
++		return err;
++	}
++
++	return 0;
+ }
+
+ void kvm_arch_vcpu_postcreate(struct kvm_vcpu *vcpu)
+diff --git a/arch/arm64/kvm/dirty_bit.c b/arch/arm64/kvm/dirty_bit.c
+new file mode 100644
+index 000000000000..f9aeb9f34ad0
+--- /dev/null
++++ b/arch/arm64/kvm/dirty_bit.c
+@@ -0,0 +1,55 @@
++// SPDX-License-Identifier: GPL-2.0-only
++/*
++ * Per-vCPU HDBSS buffer management.
++ *
++ * Copyright (C) 2026 Huawei Technologies Co., Ltd
++ * Author: Tian Zheng <zhengtian10@huawei.com>
++ */
++
++#include <asm/kvm_dirty_bit.h>
++#include <asm/kvm_mmu.h>
++#include <asm/sysreg.h>
++#include <linux/gfp.h>
++#include <linux/kconfig.h>
++#include <linux/log2.h>
++#include <linux/mm.h>
++
++int kvm_arm_vcpu_alloc_hdbss(struct kvm_vcpu *vcpu)
++{
++	struct page *hdbss_pg;
++	u32 size;
++	unsigned int buddy_order;
++	u32 sz_encoded;
++
++	if (vcpu->arch.hdbss.hdbss_pg || !system_supports_hdbss())
++		return 0;
++
++	size = kvm_hdbss_buffer_size(vcpu->kvm);
++
++	buddy_order = get_order(size);
++	sz_encoded = ilog2(size) - 12;
++
++	hdbss_pg = alloc_pages(GFP_KERNEL_ACCOUNT | __GFP_ZERO, buddy_order);
++	if (!hdbss_pg)
++		return -ENOMEM;
++
++	vcpu->arch.hdbss = (struct vcpu_hdbss_state) {
++		.hdbss_pg = hdbss_pg,
++		.hdbssbr_el2 = HDBSSBR_EL2(page_to_phys(hdbss_pg), sz_encoded),
++		.hdbssprod_el2 = 0,
++		.buddy_order = buddy_order,
++	};
++
++	return 0;
++}
++
++void kvm_arm_vcpu_free_hdbss(struct kvm_vcpu *vcpu)
++{
++	if (!vcpu->arch.hdbss.hdbss_pg)
++		return;
++
++	__free_pages(vcpu->arch.hdbss.hdbss_pg, vcpu->arch.hdbss.buddy_order);
++
++	vcpu->arch.hdbss.hdbss_pg = NULL;
++	vcpu->arch.hdbss.hdbssbr_el2 = 0;
++}
+diff --git a/arch/arm64/kvm/hyp/vhe/switch.c b/arch/arm64/kvm/hyp/vhe/switch.c
+index 7875911c0506..922fc9260e11 100644
+--- a/arch/arm64/kvm/hyp/vhe/switch.c
++++ b/arch/arm64/kvm/hyp/vhe/switch.c
+@@ -19,6 +19,7 @@
+ #include <asm/cpufeature.h>
+ #include <asm/kprobes.h>
+ #include <asm/kvm_asm.h>
++#include <asm/kvm_dirty_bit.h>
+ #include <asm/kvm_emulate.h>
+ #include <asm/kvm_hyp.h>
+ #include <asm/kvm_mmu.h>
+@@ -219,6 +220,17 @@ static void __vcpu_put_deactivate_traps(struct kvm_vcpu *vcpu)
+ 	local_irq_restore(flags);
+ }
+
++static void __load_hdbss(struct kvm_vcpu *vcpu)
++{
++	if (!vcpu->arch.hdbss.hdbss_pg)
++		return;
++
++	write_sysreg_s(vcpu->arch.hdbss.hdbssbr_el2, SYS_HDBSSBR_EL2);
++	write_sysreg_s(vcpu->arch.hdbss.hdbssprod_el2, SYS_HDBSSPROD_EL2);
++
++	isb();
++}
++
+ void kvm_vcpu_load_vhe(struct kvm_vcpu *vcpu)
+ {
+ 	host_data_ptr(host_ctxt)->__hyp_running_vcpu = vcpu;
+@@ -226,10 +238,15 @@ void kvm_vcpu_load_vhe(struct kvm_vcpu *vcpu)
+ 	__vcpu_load_switch_sysregs(vcpu);
+ 	__vcpu_load_activate_traps(vcpu);
+ 	__load_stage2(vcpu->arch.hw_mmu);
++	__load_hdbss(vcpu);
+ }
+
+ void kvm_vcpu_put_vhe(struct kvm_vcpu *vcpu)
+ {
++	/* Saved under the same ownership condition as __load_hdbss(). */
++	if (vcpu->arch.hdbss.hdbss_pg)
++		vcpu->arch.hdbss.hdbssprod_el2 = read_sysreg_s(SYS_HDBSSPROD_EL2);
++
+ 	__vcpu_put_deactivate_traps(vcpu);
+ 	__vcpu_put_switch_sysregs(vcpu);
+
+diff --git a/arch/arm64/kvm/reset.c b/arch/arm64/kvm/reset.c
+index 10eb7249aa9e..05ebe304830e 100644
+--- a/arch/arm64/kvm/reset.c
++++ b/arch/arm64/kvm/reset.c
+@@ -25,6 +25,7 @@
+ #include <asm/ptrace.h>
+ #include <asm/kvm_arm.h>
+ #include <asm/kvm_asm.h>
++#include <asm/kvm_dirty_bit.h>
+ #include <asm/kvm_emulate.h>
+ #include <asm/kvm_mmu.h>
+ #include <asm/kvm_nested.h>
+@@ -149,6 +150,8 @@ void kvm_arm_vcpu_destroy(struct kvm_vcpu *vcpu)
+ 	free_page((unsigned long)vcpu->arch.ctxt.vncr_array);
+ 	kfree(vcpu->arch.vncr_tlb);
+ 	kfree(vcpu->arch.ccsidr);
++
++	kvm_arm_vcpu_free_hdbss(vcpu);
+ }
+
+ static void kvm_vcpu_reset_sve(struct kvm_vcpu *vcpu)
+--
+2.43.0
+
 
