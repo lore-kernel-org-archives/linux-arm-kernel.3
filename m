@@ -4,103 +4,97 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3771FCA5FAB
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 29 Sep 2026 01:45:22 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id F3446CA5FAB
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 29 Sep 2026 02:09:14 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=BbPZBkG6EW7o76TGvb+IbEd7phIKmf02Hwna+vyhxaI=; b=Usdzcu2+5XD6SUE9nizYu+2jMy
-	6yvJ1oDe8HlK5SX7l4E0BUIJSY+mlzJ4gC6fCi2AabqROnwYBD3c8hJybQpEkRa4vjtmVZ+KP+CIM
-	3+bzrscLsnuwrzwmR6jKWzZMqBByjWGGwzdpgKXiuLFN0I5hPFSPTFuwfco923Ilzgrruov+VAXk5
-	QEMkrXeqIH4dLgs0b44JBbBtRyLtTDTdec4VySSoE3DVzZdBF8BN1sTuurlrTQnEDYK1dXQgLTdIf
-	a5n8W7UNj0KpCXuB5J9Zqq66ZLOBycaMQRFYbazB+E339FIaDtCT/QJFCa7+03EGZLwX8pB3PXDAH
-	FjrmMGzQ==;
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=IFE9LdtdYAs5eAg39qz6yH1XbrxOARGWKf2glnJZAQo=; b=nyBYLR7LEqTPBLE5YFDJi3qLkt
+	IS4YDnNY0NYER3XMR1wtdenXlRFK+xCHJZtJ7Zn1UexF2nvQNVQtmCoCzhFAMoQwttl0UdbgW4Ydo
+	BlPP74sxjdZMg5+hprOcvS34hBAFwEk4onBH+3hxf1jmIrhioFidwX0ixPCnBY6TpDj12DVnFsFub
+	/qACXqVGf+ktoDvpF91bI2he/U39+Vn//n8LVH/tTkeMjHnNYia4aa77atI11DDeu6GFcTpfI7BWv
+	asTu7RlHNnQ4nefyBRwvnef99U+C9HoxNqKnu6UoAAS3a8GXpTvZwusLTK8n80XqWk8snw+6yf7j4
+	43l2JrxQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xBMuB-000000024eE-1Li3;
-	Tue, 29 Sep 2026 01:45:15 +0000
-Received: from mail-pj2-x0d.google.com ([2607:f8b0:4864:39::d])
+	id 1xBNHE-000000026BO-32gK;
+	Tue, 29 Sep 2026 02:09:04 +0000
+Received: from mail-pz2-x10.google.com ([2607:f8b0:4864:3b::10])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xBMu8-000000024dp-3pMR
+	id 1xBNHC-000000026Ac-0xP1
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 29 Sep 2026 01:45:13 +0000
-Received: by mail-pj2-x0d.google.com with SMTP id d9443c01a7336-2df964b6893so17116905ad.2
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 28 Sep 2026 18:45:12 -0700 (PDT)
+	Tue, 29 Sep 2026 02:09:03 +0000
+Received: by mail-pz2-x10.google.com with SMTP id 41be03b00d2f7-cc4cacd3409so2082356a12.2
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 28 Sep 2026 19:09:01 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1790646311; x=1791251111; darn=lists.infradead.org;
-        h=content-transfer-encoding:content-type:in-reply-to:from
-         :content-language:references:cc:to:subject:user-agent:mime-version
-         :date:message-id:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=BbPZBkG6EW7o76TGvb+IbEd7phIKmf02Hwna+vyhxaI=;
-        b=dgeIbKMz0WUsvMwlE3FcDvvz3w8zOQ8MYP6rZ3GG8HApUXbp0bNZhlxSdmkalaORSx
-         6mqOtYoSqHv02Cu9SLBAbiWofHcEmVvJ/r3htgcO9BdOaL1hN6G2q4FQw3pezBLPfEj0
-         Yi46x5lemUvaX8Q0AtJx3KRjNnsxEmg+almXkIezKGOcsrs7q15oGqLfWc7GCo4Ik5i8
-         WiJVAPocMYq6Rk7xopO/oP6p1qzf3m+pI5uef1Z+azmZ0y7TtuyasMO0/tQk8C0cbNND
-         1YCG6RABJjoswsPgIKnQKvXNM2c3eJMN6lG2YRCkM4tqhrGnaMI/vceeJJHktuxGMiNZ
-         vnzw==
+        d=gmail.com; s=20251104; t=1790647741; x=1791252541; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
+        bh=IFE9LdtdYAs5eAg39qz6yH1XbrxOARGWKf2glnJZAQo=;
+        b=MCme9l8ScgYhru7SysAQMtlXOvX2ivblRBQVyPgbiJAjYF6Flk6+lh/r3iwXfv/uX8
+         zZLdSHlaDmM77T594ynWe0RNC/XEpva8QlfX57/Y84tLTXELqDqsnYxP3cBSkpP4QtnF
+         Sk6oezed70726dbFBCpvZzoJIYq/fP6fhYeLSZ55PbdstJ+kgXax1C5kjmyM3yv4hXTd
+         d/s3GBxvV8uPTntPtuICPz8MXsWDW0vRYk0RffMzTyI2sst4OzU/OfHPm2xwtxc75E9K
+         i8+NA/8MVqfeJ0SXUnHImJA7ZZnWs+iZ/lgsFXQquW3CJ6ehMghqoB+nTCiOaJ0hYDYI
+         LH3A==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1790646311; x=1791251111;
-        h=content-transfer-encoding:content-type:in-reply-to:from
-         :content-language:references:cc:to:subject:user-agent:mime-version
-         :date:message-id:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+        d=1e100.net; s=20260707; t=1790647741; x=1791252541;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
          :message-id:reply-to:content-type;
-        bh=BbPZBkG6EW7o76TGvb+IbEd7phIKmf02Hwna+vyhxaI=;
-        b=BnFKEECaYB3v9x1jQfO82mG8D3oBxAx51iHg8YHh9+0+q5kZ16DW92ozk40zXPFWk1
-         n1Vo3Tt++9Ey22fpV6iFiVvDu5KK5MfjE46k7RCpdKE1YscGl4uWKx9bbmMJprxZNnjt
-         TtEBEXz5GSc1P2YqlZiw+eE0ODfn3sEWOuYYqC0rRgu1FCP2NjFEZ+zTZbcZcf6XJnck
-         hGD4dvyen4Df1170hzao3gUBdI0Ou8Z8ZrzsNSxPj/1VFpdoGYtZRfX7D0Tjgo9LS9PD
-         V0/Dx0ofpQ2mRw6akSWpyOMbIJj4c2fNT5CmKEgO7sM6bywPwj0v4m1XidiJvmk5BuZi
-         a3XQ==
-X-Forwarded-Encrypted: i=1; AKwUvByGPqbZ7wCvUUz32/aB7O9qu1BGTxsy2gtGDgD4+emh0ygYrdB8GwIZyu3LY9DXf8+c3AL1ZBNrSocuvVaEnv0E@lists.infradead.org
-X-Gm-Message-State: AFq9FYIf7mT3vxhJFGkOQu89RyIwQg2qJvqxSunJLKgHA0jdwRcOmKHs
-	966btj2wHQ+XpOt5E7A9skeeqF+xVxYLdJ/zs93vvfFCRbCriR2uDAQE
-X-Gm-Gg: AYBFou1kjhZtsSLPD5aqQ+POKeo6VMNvZAWHrsOj2ftrjLg79FW/RX7QWavHMfQQv6E
-	mll2ON3Ie6eskGVguwKdIrtQjrAPZY9L5hbFNewyio6Txi0EikkVTdXnhLasfJyRWuO8pGZ2VZG
-	j5JMqlt1IyMlvJW+qDOXISjI9c5aBO5O4ep4E3STB4kEk0p+iTbvs0Y8VtHUo4hhSRprNYDLfAh
-	H/47gfsOPM/KK7tH/fLszhJ6Kh5ZdRXqG3kj5NSfxdXFBBbdS8idibu/ZYDoKI9N4ZKXrIbZaW2
-	/kvfz+FOluWaRR9RsbuCB+3L9gAatuoIXOCYW55nNyc97q8ksE5hz1A99BsBP27nZPjwxQvQOhp
-	PWq1rIzH8J/cf2U/9BmHd89X4VoiFXKZhT9Db0xp0Z6zWbDqWWgdJstgN2GsZmPxSJ0LwXWEqMm
-	urlNr6OJTEBGdeZTdtrZYHjfZ4oF3M7PAjFL8GfLJG2ix/annqMILDebAht5rFbTLU8uvLLmfCg
-	kba2gp96JkpZe6KnoJ8ydA4idHHhkikBkpqk8hTkhwLZ/cZUZeiDdg=
-X-Received: by 2002:a17:902:ebc7:b0:2df:9625:3ecd with SMTP id d9443c01a7336-2df9625400fmr82748415ad.8.1790646311363;
-        Mon, 28 Sep 2026 18:45:11 -0700 (PDT)
-Received: from [192.168.0.100] (60-250-196-139.hinet-ip.hinet.net. [60.250.196.139])
-        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2df913dd8d2sm48984825ad.20.2026.09.28.18.45.07
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Mon, 28 Sep 2026 18:45:10 -0700 (PDT)
-Message-ID: <ed35ac8d-ebcb-4f7f-aafd-c1b1eb3616b7@gmail.com>
-Date: Tue, 29 Sep 2026 09:45:06 +0800
-MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v7 7/7] drm/verisilicon: fix DC8200 primary plane disable
- clearing FB_EN
-To: Icenowy Zheng <zhengxingda@iscas.ac.cn>,
- maarten.lankhorst@linux.intel.com, mripard@kernel.org, tzimmermann@suse.de,
- airlied@gmail.com, simona@ffwll.ch, robh@kernel.org, krzk+dt@kernel.org,
- conor+dt@kernel.org
-Cc: ychuang3@nuvoton.com, schung@nuvoton.com, yclu4@nuvoton.com,
- dri-devel@lists.freedesktop.org, devicetree@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-References: <20260918030125.315978-1-a0987203069@gmail.com>
- <20260918030125.315978-8-a0987203069@gmail.com>
- <4a7b271d2a90eff94c27dec3bf24114ce44df1fd.camel@iscas.ac.cn>
- <1d988dfb-c930-4c17-ae77-47b93ff9f159@gmail.com>
- <cb30f57c0ac124aac85efad32626e6182b9f1369.camel@iscas.ac.cn>
- <b589c197-2297-42c4-b017-3594cdd1cd56@gmail.com>
- <fde43d758a66a8feefc50274f3573e33a67d43f2.camel@iscas.ac.cn>
- <fc425e648644d94276bce7d3d4dac8b0acd4c5d8.camel@iscas.ac.cn>
-Content-Language: en-US
+        bh=IFE9LdtdYAs5eAg39qz6yH1XbrxOARGWKf2glnJZAQo=;
+        b=DVgLkkHxXhgOXDrrERb0mz3aT4y+b6UT4IPSIG7MUl0epEq/mc04QyYIc/LfMXzZqR
+         FhV79WaHyHKOabdDYIRun4NhxjWARAHA94O0gnp5PabPGnm8FTnb6RgSUTdkjp0D2Qik
+         q1/OsxxtlCGiuIEWgCSkZY5eOMJ3r5PSkocfqHXLhbt9TaS/mB4gMG/Ur4tawugjzrgk
+         wuGY1PPnGODKvLYCiSv4WCs1/5h7JZA7S7P56D8lnBLZiq1SBuX980cp15zIOULF5QJY
+         xjpKSt+HaSAEo7yth8/8QuoZGW8Wa3kbAak8a2kmV1w8ZxucC6+vWS4RWM884DxGsf1O
+         scQw==
+X-Forwarded-Encrypted: i=1; AKwUvBxRW8s1svFnVEdQRMBZ84ZjojAP2hKE6gVjnqwqEAwxBzzA8h5DgcxJcSZjSozb+w0BdPVzIHE+kx1VwViwxkka@lists.infradead.org
+X-Gm-Message-State: AFuF++nrD5IR+eK6camZbZv4YJnwEqfhH0SLg2aXqM1dCQr7KaZSB9sv
+	RNjNmgTJH5NkO3d4f66I7X4bqnvrttQtek94T/HtMowlOES2HXLORzHm
+X-Gm-Gg: AYBFou2FhdBovjg2ZfzLrnonJghLNhhw2+H+F/Q54Lvk1SxDIQnBcYMB9YgEBoar3S0
+	abZg4Zi3RO6PIO+zebMfoL08O5MudNGqFOlsJOG5+dtYtAK1fJQIUzwNtlI+tVu/752ZTH1pGEI
+	6inX6YqMIcvuTnlnn9N5ixMM6rCSL5fnZvuXR8tTBg86s1s7RXBSoafsKM3cn9mDOTEsF3shUyi
+	7V3icTVjAJ6fS+/B8cew8+2e/BrpY5ks56va/HTBpx2fSVbr9wAdxOLf0/zSDz6E7OZ+yOdFsB0
+	IO4hS/iEIRGxjN+hWkNv4qAfYbkDNvRlHqi5WbjkvdI4uCqZq7C2XPUiMVXX1nM3xcnDWiQQcOz
+	w8On+IObt8FPC76gZ9s/7aaKwtW31rcwTBh07VpgVg3Yf4MJlIQ9EEvh+Z7Nh4P3C4uJBmDWSVr
+	n2ofNnIy3Rx+iKVCKl9ohB1ct7Slmk28TV13DqspL20FNvrZBK/mcvPeXwtRhMLqfRwbhAkCbcG
+	9OT7HOhq81nHEdPobzOKVsMKj14dkRqAy6LiPGkEl+jaXwE+vLwIAH7T3FMbZ33
+X-Received: by 2002:a05:6a20:6f03:b0:3cd:3e77:1dcd with SMTP id adf61e73a8af0-3de0e6f42a6mr15736585637.1.1790647741047;
+        Mon, 28 Sep 2026 19:09:01 -0700 (PDT)
+Received: from localhost.localdomain (60-250-196-139.hinet-ip.hinet.net. [60.250.196.139])
+        by smtp.gmail.com with ESMTPSA id 41be03b00d2f7-cc78796cf39sm5448596a12.32.2026.09.28.19.08.58
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Mon, 28 Sep 2026 19:09:00 -0700 (PDT)
 From: Joey Lu <a0987203069@gmail.com>
-In-Reply-To: <fc425e648644d94276bce7d3d4dac8b0acd4c5d8.camel@iscas.ac.cn>
-Content-Type: text/plain; charset=UTF-8; format=flowed
+To: Vinod Koul <vkoul@kernel.org>,
+	Neil Armstrong <neil.armstrong@linaro.org>
+Cc: Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Arnd Bergmann <arnd@arndb.de>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Jacky Huang <ychuang3@nuvoton.com>,
+	Shan-Chun Hung <schung@nuvoton.com>,
+	Hui-Ping Chen <hpchen0nvt@gmail.com>,
+	Joey Lu <yclu4@nuvoton.com>,
+	linux-phy@lists.infradead.org,
+	devicetree@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	Joey Lu <a0987203069@gmail.com>
+Subject: [PATCH v6 0/3] phy: nuvoton: extend MA35D1 USB2 PHY driver for dual-port OTG support
+Date: Tue, 29 Sep 2026 10:08:51 +0800
+Message-ID: <20260929020854.1282339-1-a0987203069@gmail.com>
+X-Mailer: git-send-email 2.43.0
+MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260928_184512_961208_3A4FBF89 
-X-CRM114-Status: GOOD (  24.30  )
+X-CRM114-CacheID: sfid-20260928_190902_296194_DF51BA2D 
+X-CRM114-Status: GOOD (  17.13  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -115,88 +109,68 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+The MA35D1 SoC has two USB PHY ports managed by a shared hardware block:
 
-Icenowy Zheng 於 2026/9/26 下午 12:48 寫道:
-> 在 2026-09-25五的 22:55 +0800，Icenowy Zheng写道：
->> 在 2026-09-21一的 15:49 +0800，Joey Lu写道：
->>> Icenowy Zheng 於 2026/9/21 下午 03:30 寫道:
->>>> Maybe it's better to just make it the 2nd patch in this patchset,
->>>> just
->>>> after the binding change.
->>>>
->>>> Waiting for something into drm-misc-fixes again will need another
->>>> fixes
->>>> pull and another RC back merge, which can consume weeks and miss
->>>> the
->>>> current merging window.
->>>>
->>>> In addition, it's possible that `drm/verisilicon: introduce per-
->>>> variant
->>>> hardware ops table` also gets backported for a more clean primary
->>>> plane
->>>> atomic_update disabling fix.
->>> Understood. I'll fold the FB_EN fix in as patch 2, right after the
->> Should I just apply this revision of patch with this reorder?
-> Oh I think more fixes are coming.
->
-> There's one more DC8200-specific problem (which might be problematic on
-> DC8000 but I am not sure): The vs_dc8200_panel_disable_ex sequence must
-> be executed before vs_dc8200_panel_enable_ex, because some timing
-> parameters seem to be latched when the value going from 0 to 1, and
-> when a stale state is programmed before the driver is loaded (e.g. a
-> firmware driving the display) and the timing isn't the same with the
-> timing of the first modeset, the modeset will fail.
->
-> I'm thinking about sending a fix patchset first, which will pick the
-> FB_EN fix here, implement a fix for the stale state problem and maybe
-> implement fixes for the old state dereference problems for hidden
-> planes in their atomic_update callback (although this fix will
-> introduce a helper, which will then be moved and renamed in the DC8200
-> ops patch).
->
-> Thanks,
-> Icenowy
-Understood, happy to hold the DCUltraLite series until your fix
-patchset lands, and rebase the ops-table patch on top of it then.
+  - PHY0 (USB0): OTG port shared between the DWC2 gadget controller and
+    the EHCI0/OHCI0 host controllers.  A hardware mux automatically routes
+    USB0 signals to the correct controller based on the USB ID pin state.
 
-On DC8000: its panel enable/disable path just toggles a plain
-FB_CONFIG_RESET bit, not the staged PANEL_CONFIG/PANEL_START latch
-registers DC8200 uses, so it doesn't look like it shares this specific
-ordering hazard from the register layout alone. I'll run the tests again 
-after
-applying our variant on top of it.
->> Thanks,
->> Icenowy
->>
->>> dt-bindings patch, targeting the current vs_primary_plane.c
->>> directly,
->>> so the ops-table patch just carries the already-corrected code
->>> forward
->>> into vs_dc8200.c. Agreed that's faster than round-tripping.
->>>
->>> On primary_plane_disable_ex - I'll keep the "_ex" suffix. DC8200
->>> still
->>> has a real per-variant operation there (clearing FB_EN + commit),
->>> while
->>> DC8000 leaves it NULL and does nothing, so the suffix still
->>> reflects
->>> an actual per-variant difference, not just structure introduced by
->>> the
->>> refactor.
->>>
->>> While testing the cursor plane, I found the same class of bug
->>> there:
->>> the disable register write was being triggered from the plane's
->>> atomic_update() invisible-branch using the old plane state to look
->>> up
->>> the CRTC/output, which can be stale or NULL on a plane's very first
->>> commit if it's already invisible then. I've fixed it locally by
->>> having
->>> atomic_update() derive the CRTC/output from the state it already
->>> holds
->>> before checking visibility, instead of falling through to the
->>> old-state-based disable path. Just flagging it here for now -
->>> vs_cursor_plane.c isn't touched by any of my patches.
->>>
->>> Thanks.
+  - PHY1 (USB1): dedicated host-only port for EHCI1/OHCI1.
+
+This series extends the existing phy-ma35d1-usb2.c driver and its binding
+to cover both ports and add OTG role-switch support, while keeping full
+backward compatibility with existing device trees.
+
+Changes since v5:
+
+  - dts: rename the hsusb pinctrl group node to hsusb-grp.
+
+  - phy: keep the clock-stability polling when SUSPEND is already set,
+    per review comment:
+
+      > +       if (val & USBPMISCR_PHY_SUSPEND(n))
+      > +               return 0;
+
+      Please keep the clock-stability polling when SUSPEND is already set.
+
+      If the initial polling times out, SUSPEND remains set. A subsequent
+      phy_init() call will then return success here without checking
+      whether the PHY clocks have become stable.
+
+      Skipping the reset sequence for an already-enabled PHY makes sense,
+      but both paths should still check the ready bits.
+
+  - phy: clear MISCFCR0_UHOVRCURH when nuvoton,oc-active-high is absent,
+    per review comment:
+
+      > +       if (of_property_read_bool(pdev->dev.of_node,
+      > +                                 "nuvoton,oc-active-high"))
+
+      The binding defines active-low as the default when this property is
+      absent. Please also clear MISCFCR0_UHOVRCURH in that case, so the
+      configured polarity does not depend on the state left by the
+      bootloader.
+
+  These are pre-merge fixups to patches 2 and 3, which are net-new code
+  in this series, so the commit messages are otherwise unchanged.
+
+Joey Lu (3):
+  dt-bindings: phy: nuvoton,ma35d1-usb2-phy: extend for dual-port and
+    OTG
+  arm64: dts: nuvoton: ma35d1: add USB controllers and dual-port PHY
+    node
+  phy: nuvoton: phy-ma35d1-usb2: extend to dual-port with OTG support
+
+ .../bindings/phy/nuvoton,ma35d1-usb2-phy.yaml |  44 ++-
+ .../boot/dts/nuvoton/ma35d1-iot-512m.dts      |  36 +++
+ .../boot/dts/nuvoton/ma35d1-som-256m.dts      |  36 +++
+ arch/arm64/boot/dts/nuvoton/ma35d1.dtsi       |  65 ++++
+ drivers/phy/nuvoton/phy-ma35d1-usb2.c         | 286 +++++++++++++-----
+ 5 files changed, 390 insertions(+), 77 deletions(-)
+
+
+base-commit: cee9395acd8043be0644b25c34bfa86623f2b935
+-- 
+2.43.0
+
 
