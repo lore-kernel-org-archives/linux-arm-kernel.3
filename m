@@ -4,167 +4,61 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C4751CA5FA5
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 29 Sep 2026 15:39:20 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1150ACA5FA5
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 29 Sep 2026 15:44:00 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:CC:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=yz30mbbA37hVdpU3nuYvEDDKT9sf2Jy+RenUY4k9Zi8=; b=u7YfApjScvptuxk8uwbn86uYuU
-	z9LX2cv5ZFrafM3zs8awwdS+cH/qRQnx85SR1tsxzSWNwMtK7NvaoKlxAvMIKkO2mp7oGnHjCRE5x
-	A8pnOc1KUgZnC/lrzk8UGLSOLvdw66zZLzrOAeKg2p0lCLQ4cEEihegDZTfTforkCXKiAur6o1rJe
-	f5Vomx5hDxGXvFRybzeESzUNMu5k0jt6qpc726HuEIOs7lYWEUKredEJrwIRw5ZdtQjq7AiRnCuP6
-	RaqgmnrSNttmFZ9Vumc/s7ImMj+Pry0hF94dqt26KWyTY6Va/iu++ygXj0iYLirG/0WeseihjuwgY
-	UnqPQj2g==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=sI7dtcdEk0O8YcJDq2/iAdKOjcjxedvITJZ0bHrbDOg=; b=jX2+8J/XaFsCxXxMF4Nu1I64Ks
+	K+mS9MeDsVwoscoxDfEzk/09p21JtqirDZ/pBmwjQ3SanglsGIw2SwQWaQKi/ZWoDgru/ugQYpcg7
+	8pelsnblBisfexdopo86yJeviM4EzPfKadmEPGogzHbgk6ZHvHmV/YTUoNhLnq59Qcg5KrMv0wA/v
+	DzdqpLZqphbU6Yj5slOepW/XWynVfYi97Ugs9fQk4fx6/d+7joI1JgPhdENhB5brWY4rh3yNzoUTs
+	DcR8fXHjVb+dRcYyHsm9W5DUQ6Aus47QKzLKWwmvYEhD2/N/bb4BMUx5J8ibQQtmjsERqzdkFzKYO
+	sIelF0GA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xBZvF-00000003xCA-3fJI;
-	Tue, 29 Sep 2026 15:39:13 +0000
-Received: from mx0a-0002e601.pphosted.com ([148.163.150.75])
-	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xBZvC-00000003xBo-34xi
+	id 1xBZzk-00000003xme-3bga;
+	Tue, 29 Sep 2026 15:43:52 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1xBZzh-00000003xl8-1faE
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 29 Sep 2026 15:39:12 +0000
-Received: from pps.filterd (m0380145.ppops.net [127.0.0.1])
-	by m0380145.ppops.net (8.18.1.11/8.18.1.11) with ESMTP id 68TAjVAv152296;
-	Tue, 29 Sep 2026 10:39:05 -0500
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com; h=cc
-	:content-type:date:from:in-reply-to:message-id:mime-version
-	:references:subject:to; s=proofpoint-05-2026; bh=yz30mbbA37hVdpU
-	3nuYvEDDKT9sf2Jy+RenUY4k9Zi8=; b=QphwfDkGlI++Qad8kS/1G060XvHf8Mf
-	qkwmgvYTDfcx12405IX0zhLf8xFuRsqQMPAI32T2+6dp5IEzg2DUSfnX6HfnIk34
-	tYjsPw0Qa4MCm+BGvSDBqlkGrxOHGTn8/d2cR4cUGLDu01Icvmd+veYqrccM4Vu3
-	YXw2fyioFJn4+IRXJ/pgFAdkp900MpzNkdKdD83/qQVLq/nmcPnX/2wlFX4fuyo4
-	oypOQW4OeIpmIXg3ahwjvt4dJPZgXVnwW8t4d47LfddgYIt9+IS3J676GDchcJiU
-	eI3zbRnwEln1TPq9oY6PWJxISnuDsBzmpu+XUcN+Y47DNaF2NQjZCXA==
-Received: from sj2pr03cu001.outbound.protection.outlook.com (mail-westusazon11012001.outbound.protection.outlook.com [52.101.43.1])
-	by m0380145.ppops.net (PPS) with ESMTPS id 4h099y2js9-1
-	(version=TLSv1.3 cipher=TLS_AES_256_GCM_SHA384 bits=256 verify=NOT);
-	Tue, 29 Sep 2026 10:39:05 -0500 (CDT)
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=KI5417QC8QXI6vGCwXZMGs+XeqZP5e4KN0HEwGHo7A35vvjD9P0OrSb3DWwpjL8x7mL1BzYD2lUubW/51dQiHXGKpbuZeknn0vUS6LI+Hoe8XLN6p219sITBFQSUEVNauqBj98ovvgCAQn1ld7atucUGNSnj7fJft9wdeZVqu35k9+BTDdskcw5GWdTujx9tfdGhLNfAMjIV6m7qT6M6W1yWpbQbdcNp52KQ9NJcEt8bfeIfcMf6PgX5ye5kmrRw8gl9ljW1qDHPUDOx5ch0QLNXaXnBSVX8MarYaAcwpqIbr9kzf9gsQuE4sNT4ioLSttMEiVqUykknLg0phwfzUw==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=yz30mbbA37hVdpU3nuYvEDDKT9sf2Jy+RenUY4k9Zi8=;
- b=GG9YlNU1SVWXEbeehTC6DvhYnSisC8QovCdLWXFTvMaLJGaaE9lrQw5n8RaA+YWoTedLczLhDso4mpfRUDgVWNriN3i1+6WklLVVQgoaKv3AmloVU0/CtebreHw3qfdfu6+ffUDwe/l2HphQxE5A4YOjgwgSwfeJQzuw2jkx5fe0ru9kW2PCwUm2CMtBcCnth+vVs0212GjNfaNY+NAkhva2ewLA6b7ytgxMEZMyuk0fFt/TW8Uz3xafyc4l9N/hkEDDNU9h/40JT93ktiHRXaTPRZh0dKIuJVTPraRBURWRBxiJwdHnkutZ13y3HGtAmBKIlvapzWLtAmHhnHQDJA==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
- 198.47.23.194) smtp.rcpttodomain=vger.kernel.org smtp.mailfrom=ti.com;
- dmarc=pass (p=quarantine sp=none pct=100) action=none header.from=ti.com;
- dkim=none (message not signed); arc=none (0)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=ticloud.onmicrosoft.com; s=selector1-ticloud-onmicrosoft-com;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=yz30mbbA37hVdpU3nuYvEDDKT9sf2Jy+RenUY4k9Zi8=;
- b=Sb9HCXQNFvMDbmy058yAWisC4y1oh17J3Qq9FVyC/camCiJ+LOzXfO6oFX6xPkwJOk8UOLlwdV5RpyaQ1yRHNzSCWgWX6j/SK4/LTnKxxFQFo+hpFGam/KbrK4at7GxwnOr+yIpy1KAIvviLtkDTN2cK5NEKoIP6NyFKctZUkKQ=
-Received: from CH2PR16CA0008.namprd16.prod.outlook.com (2603:10b6:610:50::18)
- by PH7PR10MB7036.namprd10.prod.outlook.com (2603:10b6:510:274::13) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.472.14; Tue, 29 Sep
- 2026 15:39:01 +0000
-Received: from BL02EPF00021F6C.namprd02.prod.outlook.com
- (2603:10b6:610:50:cafe::b) by CH2PR16CA0008.outlook.office365.com
- (2603:10b6:610:50::18) with Microsoft SMTP Server (version=TLS1_3,
- cipher=TLS_AES_256_GCM_SHA384) id 15.21.472.14 via Frontend Transport; Tue,
- 29 Sep 2026 15:39:01 +0000
-X-MS-Exchange-Authentication-Results: mx.microsoft.com 1; spf=pass (sender IP
- is 198.47.23.194) smtp.mailfrom=ti.com; dkim=none (message not signed)
- header.d=none;dmarc=pass action=none header.from=ti.com;
-Received-SPF: Pass (protection.outlook.com: domain of ti.com designates
- 198.47.23.194 as permitted sender) receiver=protection.outlook.com;
- client-ip=198.47.23.194; helo=lewvzet200.ext.ti.com; pr=C
-Received: from lewvzet200.ext.ti.com (198.47.23.194) by
- BL02EPF00021F6C.mail.protection.outlook.com (10.167.249.8) with Microsoft
- SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.21.472.14 via Frontend Transport; Tue, 29 Sep 2026 15:39:00 +0000
-Received: from DLEE200.ent.ti.com (157.170.170.75) by lewvzet200.ext.ti.com
- (10.4.14.103) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.45; Tue, 29 Sep
- 2026 10:38:42 -0500
-Received: from DLEE212.ent.ti.com (157.170.170.114) by DLEE200.ent.ti.com
- (157.170.170.75) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.45; Tue, 29 Sep
- 2026 10:38:42 -0500
-Received: from lelvem-mr06.itg.ti.com (10.180.75.8) by DLEE212.ent.ti.com
- (157.170.170.114) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.45 via Frontend
- Transport; Tue, 29 Sep 2026 10:38:42 -0500
-Received: from localhost (uda0133052.dhcp.ti.com [128.247.81.232] (may be forged))
-	by lelvem-mr06.itg.ti.com (8.18.1/8.18.1) with ESMTP id 68TFcgTF1272535;
-	Tue, 29 Sep 2026 10:38:42 -0500
-Date: Tue, 29 Sep 2026 10:38:42 -0500
-From: Nishanth Menon <nm@ti.com>
-To: "Kumar, Udit" <u-kumar1@ti.com>
-CC: Swamil Jain <s-jain1@ti.com>, <vigneshr@ti.com>, <kristo@kernel.org>,
-        <robh@kernel.org>, <krzk+dt@kernel.org>, <conor+dt@kernel.org>,
-        <tomi.valkeinen@ideasonboard.com>, <devarsht@ti.com>,
-        <sebin.francis@ti.com>, <praneeth@ti.com>,
-        <linux-arm-kernel@lists.infradead.org>, <devicetree@vger.kernel.org>,
-        <linux-kernel@vger.kernel.org>
-Subject: Re: [PATCH v5 2/2] arm64: dts: ti: k3-am62l3-evm: Add HDMI support
-Message-ID: <20260929153842.cypdrm6re7zmcgtj@pectin>
-References: <20260923192643.1362891-1-s-jain1@ti.com>
- <20260923192643.1362891-3-s-jain1@ti.com>
- <d50d1f8f-29a0-4bd2-8c56-d111eed46c91@ti.com>
+	Tue, 29 Sep 2026 15:43:50 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 591221516;
+	Tue, 29 Sep 2026 08:43:42 -0700 (PDT)
+Received: from e143943.arm.com (unknown [10.57.78.3])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPA id 7B45F3F85F;
+	Tue, 29 Sep 2026 08:43:43 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
+	t=1790696625; bh=UZI2uJ0GRKNIwaHhWA+c+1oR+tYQ0JrhA39dRJLy9+Y=;
+	h=From:To:Cc:Subject:Date:From;
+	b=WgC+CS/i2RyQuA6gDnGFWFZ6FvO1nBPhW5iC3Av2J3IB0cR02EBq5F7Tx2LJg8CU5
+	 i2XuG2r3aDMr3tFemxKiz8TJZd/SHPzMNW7fhERB2q35hubBrBngDme045IMqKJ5Tj
+	 4dO+Jfaf7nu7H/EaQ/wks73mZ/J0/4cp15zytUJw=
+From: Beata Michalska <beata.michalska@arm.com>
+To: linux-arm-kernel@lists.infradead.org
+Cc: Vladimir.Murzin@arm.com,
+	catalin.marinas@arm.com,
+	will@kernel.org,
+	suzuki.poulose@arm.com,
+	James.Morse@arm.com,
+	xuewen.yan94@gmail.com,
+	seanwang1@lenovo.com,
+	linux-kernel@vger.kernel.org
+Subject: [PATCH v3 0/2] arm64: errata: Share broken AMU constant-counter handling
+Date: Tue, 29 Sep 2026 17:42:12 +0200
+Message-ID: <20260929154325.3416271-1-beata.michalska@arm.com>
+X-Mailer: git-send-email 2.43.0
 MIME-Version: 1.0
-Content-Type: text/plain; charset="us-ascii"
-Content-Disposition: inline
-In-Reply-To: <d50d1f8f-29a0-4bd2-8c56-d111eed46c91@ti.com>
-X-EOPAttributedMessage: 0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: BL02EPF00021F6C:EE_|PH7PR10MB7036:EE_
-X-MS-Office365-Filtering-Correlation-Id: 2d60e578-28ef-4010-aa72-08df1e3fc8bd
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|376014|1800799024|82310400026|23010399003|36860700016|13003099007|22082099003|18002099003|3023799007|6133799003|10067099003|56012099006|4143699003;
-X-Microsoft-Antispam-Message-Info: trqctnsJomK4EzI7Lbsu+u1qXRhU5ChRWYVExs70cRhaA9m363gUJ2lJgwMsRKroF/io+lqSl8R3H1ptOcOt7BWyTgZEmlH0CnYcyHwluXRndz3l1Cn5eKMcjYMDLWo1mGnDbTep/JviLTldNK1h9hA8y6N2UxPs+sIKxljR/wdejhHbMYks93xbjPj8CgMP3WAO13GlcqHVqpQHkIFcJsSK8TgASrzI7W9qxoY3dpkpqsnwsZCd9UdYE2NP6hd8Guk5TAHTWEuRYcDJilZFyLyCSRJQTZxDlazqKObFfy0NKRXwxnCSQS5myOw6u5+kmB6DLndFRX32SLw4OYx5m3jRxvRHh/+ZCpHzqcfDE0Zz7uNgjQqs4ePkAFkBaFxXaIp+vXuDvpc418f+STUCSWxNnqhAzFZqI8by8m255FrEnXTY6g723oQPnkj8VMH8mue6aMKj1wnUL4Ino+tm0HvJJkJEAH5cllbkC2JZmDy68Kfg+4EAw2N4hNunp3ULLX8LcaBTssx1j5F/5Q8UW5DWjCMd06q4EQDzl53zxdGBoKCQaqtFdD9uYNJQnrO9dKye6p5qfcgNk3zJZY2dCbMWV5cbesEUCjdrKucGUwyuS2pOsq3TNATZN2aVRpI/xIQWiu0CEd2PTEl6i33+HA==
-X-Forefront-Antispam-Report: CIP:198.47.23.194;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:lewvzet200.ext.ti.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(376014)(1800799024)(82310400026)(23010399003)(36860700016)(13003099007)(22082099003)(18002099003)(3023799007)(6133799003)(10067099003)(56012099006)(4143699003);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: Z6tVDo+74i/E4nnTYCwsznd7HTPgen3U042LIJiFAGm6vt9Ep5U5I4Ka/84aUx/TuzR/tSMcpu5ToR9RZ51Y13zbh/FrCF+Jt72P5nf1YXMdtFx81ih7M4Dd3+dYLJsNiXJ6tClBFp10owTnao6n5XsZKVtNXpsbwaFm7r01V7zV/ikduFj6DFT+xz1KhFrj1zYNVuYWkkVw2pc4chnH+IzujGFyFc0UcXomefnmUsPu3uW5gMF+X/mKnZgOGz2p9iUENuRyQyIBLZAGCSZILDODzPpCNDO+LNFkxBvx8RG7kR7yd11B/6Rb4IjE8yuigq8cJJ2Gyd0QkA7wnL0BF1NZhb9xltoOzMFbb2gbnib+f+o8O4wVHQZzhO2OFWVQofCVjX8dLasVXfLF3WajZMzvGcvaDwqnqRTXEiawIP259yYGai67Lb6Dnn6RajF/
-X-Exchange-RoutingPolicyChecked: 0MlnHtrm2Ja5M/YgBIfthHosrEVw76XRw7NiiFEjN+fVqT6AgUZWY/W3A4t0SpaeOLHUvIx9yuVSO9aovFpNriwZKz7THWbN5B/i8w0T6wSEHoAMgvEJcT1uNO0+6OqqgIPM3mczXGj0ARWYbSL3f9C15OXooIzGj0BPhji4Z15b1rCX0nKKvd1FKKnhV5pmQPn6s1/D9hbfhRK122YVVTdAZe/3OWEI1V5oSKITpaaD4sqpUAw8CMVNmZfYUIH/apAj/cTWSNbfb1DbhprQIxV+q2Em9WDL2E6QHedXDRTWq/Kzf2hPpSridS4BEeHUBEnIQ2Y6VxjfVFnT54wotQ==
-X-OriginatorOrg: ti.com
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 29 Sep 2026 15:39:00.8407
- (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: 2d60e578-28ef-4010-aa72-08df1e3fc8bd
-X-MS-Exchange-CrossTenant-Id: e5b49634-450b-4709-8abb-1e2b19b982b7
-X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=e5b49634-450b-4709-8abb-1e2b19b982b7;Ip=[198.47.23.194];Helo=[lewvzet200.ext.ti.com]
-X-MS-Exchange-CrossTenant-AuthSource: BL02EPF00021F6C.namprd02.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Anonymous
-X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: PH7PR10MB7036
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwOTI5MDA2MiBTYWx0ZWRfX6a16XjPDlTQe
- jgIu5g66yXfwxVEcAbKIG6WNBCYMF87OiVhnWuSGnb8qHMSAGwMp9zIRmgpFaZocIm91tf/a+GM
- euFKAOHIIxheu4d2top0XDl6Z1zX6dMyWSOIL8Y4XqJPPkm8j0dT3Itbxz4hfLlhX+duNN7nSqP
- oq4m12lLxWDLQOsIonZVcv9kAIpT4TH9yHD+7Rqe5RMVDmDL/bKv4yA6uMOHZ1ki5swTWD0uEvQ
- 6RlhQacF8uUkh5w9nnjTb1QqyffjLcQrMdVmbhT/0ACtSE23HGvLQuzyk4qtX2h0MSzMoD1bB4F
- xhWqNT0gFkJjqmpc852GF31MrQVDbsjuqKVORnTFILIe8fQ1hb0XDKI/2ihYBQD5A+4Euyg+H4V
- 4AytE6UiOxfhLmuxHuYzVscUVJ0BDIX7cV3tpdoylHuS6FSNyXzILb/AgQnewYqNfpORK7FhGcD
- c/inKA2iWS1m/9vNURA==
-X-Proofpoint-Spam-Info: AW1haW4tMjYwOTI5MDA2MiBTYWx0ZWRfXx8t/CsD68TYC
- 3n1HjvQqUMVMQOtjGgfvTHeyYjVihiFvBhedBEb5OJKc5Et1pX15FGhgcfeqHZtcIN4SIZYANAm
- 7nKSqCzVD/5PtqFBrX/OO1RkQ5i0Hhw=
-X-Authority-Analysis: v=2.4 cv=GdGCDgXL c=1 sm=1 tr=0 ts=6abbdb99 cx=c_pps
- a=JgVaYur/QNM9XUS2zzqRTA==:117 a=WotqVVQAdb04rnGuttW3Kw==:17
- a=6eWqkTHjU83fiwn7nKZWdM+Sl24=:19 a=kj9zAlcOel0A:10 a=VdqzKS8jKosA:10
- a=s63m1ICgrNkA:10 a=AlMIdn_sM9wA:10 a=VkNPw1HP01LnGYTKEx00:22
- a=Z8NIEmU8O1QQgoT56wFK:22 a=gO1vWkAQAl3rybz1DQOp:22 a=sozttTNsAAAA:8
- a=P1BnusSwAAAA:8 a=vblFRDuhxZ3NONKHSBUA:9 a=CjuIK1q_8ugA:10
- a=D0XLA9XvdZm18NrgonBM:22
-X-Proofpoint-GUID: jnOcLwUXDU51tjB9rMcLWzCmSdNbja0F
-X-Proofpoint-ORIG-GUID: jnOcLwUXDU51tjB9rMcLWzCmSdNbja0F
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1176,Hydra:6.1.134,FMLib:17.12.100.49
- definitions=2026-09-29_04,2026-09-21_02,2025-10-01_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- lowpriorityscore=0 bulkscore=0 adultscore=0 malwarescore=0 clxscore=1011
- suspectscore=0 impostorscore=0 priorityscore=1501 phishscore=0 spamscore=0
- classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
- reason=mlx scancount=1 engine=8.22.0-2609040000 definitions=main-2609290062
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260929_083910_868886_EF5C8A06 
-X-CRM114-Status: GOOD (  14.56  )
+X-CRM114-CacheID: sfid-20260929_084349_470102_E7B3BAB5 
+X-CRM114-Status: UNSURE (   6.90  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -179,38 +73,28 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 15:13-20260924, Kumar, Udit wrote:
-> 
-> 
-> On 9/24/2026 12:56 AM, Swamil Jain wrote:
-> > From: Devarsh Thakkar <devarsht@ti.com>
-> > 
-> > Add the SII9022 HDMI bridge and HDMI connector nodes, along with the
-> > DPI pinmux configuration connecting VOUT0 to the bridge. Enable the DSS
-> > and hook up its DPI output port to the SII9022 bridge input, and the
-> > bridge output to the HDMI connector.
-> > 
-> > Reviewed-by: Tomi Valkeinen <tomi.valkeinen@ideasonboard.com>
-> > Signed-off-by: Devarsh Thakkar <devarsht@ti.com>
-> > Signed-off-by: Swamil Jain <s-jain1@ti.com>
-> > ---
-> >  arch/arm64/boot/dts/ti/k3-am62l3-evm.dts | 106 +++++++++++++++++++++++
-> >  1 file changed, 106 insertions(+)
-> > 
-> > [..]>  
-> > +&dss {
-> > +	status = "okay";
-> > +	pinctrl-names = "default";
-> > +	pinctrl-0 = <&dpi_pins_default>;
-> > +	bootph-all;
-> 
-> nit pick : child node's bootph property is carried forward to parent.
+This series factors out the existing Cortex-A510 erratum 2457168 AMU constant
+counter workaround into a generic broken AMU constant-counter capability,
+then wires Cortex-A725 erratum 3821522 into the same handling.
 
-drop the property please.
+---
+v3:
+- splitted the commit and droped changes for cpucap_is_possible
+---
+
+Beata Michalska (2):
+  arm64: errata: Factor out broken AMU const counter cap
+  arm64: errata: Add Cortex-A725 erratum 3821522 workaround
+
+ Documentation/arch/arm64/silicon-errata.rst |  2 ++
+ arch/arm64/Kconfig                          | 30 +++++++++++++++++++++
+ arch/arm64/kernel/cpu_errata.c              | 29 +++++++++++++++-----
+ arch/arm64/kernel/cpufeature.c              |  2 +-
+ arch/arm64/kernel/topology.c                | 16 ++++++-----
+ arch/arm64/tools/cpucaps                    |  2 +-
+ 6 files changed, 66 insertions(+), 15 deletions(-)
 
 -- 
-Regards,
-Nishanth Menon
-Key (0xDDB5849D1736249D) / Fingerprint: F8A2 8693 54EB 8232 17A3  1A34 DDB5 849D 1736 249D
-https://ti.com/opensource
+2.43.0
+
 
