@@ -4,116 +4,131 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C2005CA5FA5
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 29 Sep 2026 15:51:02 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E3855C9832A
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 29 Sep 2026 15:55:15 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=X/wcOHMEVWVR3p6oq6xv8OGP6miSv6dtFwXxohtxDzw=; b=NJ6+YpUvZyfa/w8qTgL6sBW7Ya
-	FdTCwf45VewIX3QOWwEch8CqP1c/G+bnHsK5en8Z2LcnV8BQRR5sHWtYzCNB6Ct0ihDBwuNe0CtHZ
-	os0UXcSCCSdkpRKIDuubr+6+9TgqnqGQMv2o9tLHc8+6FmQ0rGpA7AfYPRAxRViynMR8yUeaB8vtd
-	2NObAiO7pms5Aw3QNlzsuVJC+Q171sPR/z3Mp2mTaDiO4g4HB3b0ZzY2k8xsTk+BVqbK4y85zbDhN
-	X7wkz7ouNoo3AkVeAAqRLEBhCYmYKF73yfpPibV1S8BvqS+egTVXMyxju5u6NA4FOILDgSrvxKNbA
-	B7UzFe8A==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Content-Type:
+	Content-Transfer-Encoding:Message-ID:Date:Subject:Cc:To:From:Reply-To:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=sTT3ILIWzn282XYvYUEyJyf5K4O/KsJux2kCCJg5Z3U=; b=4l1MP0CQFHwko6qLKzxHwP+/9D
+	aY/CT9XMSFx0Z6PJOyntCe+7dNCulg2PeoY/cINPuWYMtJykNo56FVnWhiHDVRf4tCtYuZIgC6klF
+	1lLFZBBd5srGF0SuZ9xQvoWeADuK6pL7kezpV7nnT1TATrWvFVhU5zsnmFUqa9uVqe83252ZveKNF
+	9XaVBvpLUF23enxeaMYCaPfYBMbbCs5pNoUJIp+ZekvYdP5NxbT2EeFkTplvfcJ9xcF377h4gBxCA
+	P14MHGS4ULFixyFgrXX+t+mO9QwgF4bQsSzbwTQWQccJUWNaN1HCOU+MNgltPmQUTW52aKkKVtI9y
+	94WDR9FA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xBZah-00000003uyz-0Ikf;
-	Tue, 29 Sep 2026 15:17:59 +0000
-Received: from mail-wm2-x10.google.com ([2a00:1450:4864:31::10])
+	id 1xBaAd-00000003z3h-2zMJ;
+	Tue, 29 Sep 2026 15:55:07 +0000
+Received: from mail-westeuropeazlp170100001.outbound.protection.outlook.com ([2a01:111:f403:c201::1] helo=AM0PR83CU005.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xBZaZ-00000003uvi-3tv3
+	id 1xBaAb-00000003z30-19Av
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 29 Sep 2026 15:17:53 +0000
-Received: by mail-wm2-x10.google.com with SMTP id 5b1f17b1804b1-49ffe281cb1so19958755e9.1
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 29 Sep 2026 08:17:51 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1790695070; x=1791299870; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=X/wcOHMEVWVR3p6oq6xv8OGP6miSv6dtFwXxohtxDzw=;
-        b=WfyIUtZvf1AaLtoy2uWJ+meN9oxbWJXKYPtcur6/naZPPKWOxYgQvHRhmloBIJKMuA
-         QPfWipEuby9AcZdzAbG9XSqvfjUMcU/iGcQsaz7Rwq01zTpiTUCmVd1Dfuz2LRSYIave
-         BuR2dV9+EAmzqumVzKL8slKI+LSSxI9IlkLTn0t36pNlV6lPuGBkyDp/4me1Wo0tyUJU
-         IP5FrvLQz2sGb7uvqUWopM4e5C7o90eqKGbgtNPLQOkkHKV6hiSGlGYgWdHCsjxBmu/C
-         +L8uj2cZR2SEeoadV0vRbNFuc9heVfJ08nwemJpPecGLlmjwKAXVwpm498c+OqazUKyY
-         7VhA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1790695070; x=1791299870;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=X/wcOHMEVWVR3p6oq6xv8OGP6miSv6dtFwXxohtxDzw=;
-        b=hokjzU6fdvs86bDQwMVaWxIonZOSkgr9EgY5CEU4h2wOyWxnN0oOKzn5bvQq745lLG
-         ir5mE51v11vGfLSs2ctKZr/NC0YtzXqAkjoyWRk+qclbWjVfvX4Ww5W9U7SDkJ2yxkHu
-         +FjVKznB8rkzoFhEcjKEzXNV6TR0J6+h2HbrFu7vBcmC0PMQgPfS96FWw7JFuZrNHwMI
-         pDNh65iw+m2Nh7IK7aQRj7RMOQGvHjBP0kgyh2D79sdtMOYA+ztCTGrcgSbxOrGWXERJ
-         lY/4ZjYqZHGJk+tNpiizOo3NHsje5rU7SqneZT2uJsAdv2oGNO6+OHc8iNJm0Yc7mBRw
-         fQVQ==
-X-Forwarded-Encrypted: i=1; AKwUvBzgjls5TAMGOQLQVeYGLOQyzA9nmpKdv6WX65LqF1LRBO1+7kB5sLRzIG6aTsKcM2wpT3QPNGNpTePzXtn0sksW@lists.infradead.org
-X-Gm-Message-State: AFuF++l96P7j9ex9h9MIYIKFwxbd37HCRrusN4XQt7M9nDVadP48K+FD
-	Lq4ZZRNoKSI27c+0OZNgbI/L9iUnI0MGbteUUnM0g8AbqZTzazxF79UC
-X-Gm-Gg: AYBFou0GwbsEuFVw3s4R/n5dDDXjtuq5ImnCsLnHsxmnUBeAkb5LGE2NIfC61x0H6fT
-	tvSlvc42Z5TcbutFAfzhghVlSc3MHSrfhFpbIeQG16Sk3oWaiU6Zd5Tx06n7L7mxnDoqX6Mf9yp
-	+yuH1ATDKaDjFpGmD55qyOqg4SNK8MBimNapFWyK3C42UrQxva8Ftz26DbF/tchVPUEy09XVbAU
-	jUQS0MrbWv3PMj/Nou1RRk945y7rFTZPvnT6ruURkxPrWNW3lwpFztZYdhQAe1AjYmTzYY0HQGc
-	RgvZy5gQ0w8TrOrrNGWjrczwyFNKDiyjrFTg5Ykx/sMAYxzGVs8HQh5WhzWiYG2MahMVRdMj6Wk
-	OfKildYlOQzKD6zuR2CBBeLTT8MVqN07CMfnuQbz8WCULNUgwH6jzFujKTRamuTHyBYlRwhyUzD
-	qyWj1SIykdeHwF1GxJ0qXoXDSuVOr7QJN+zGQyxAbfge9/7Ywz3Shb/Wl1vttEvuaNLu1+qGIRd
-	oSdEl+daMv3KvRf1YbZPmUgnP08B80uRvIcHdG7hHfisEkPMnQpk42TF2dRYZ8FolH8vRzluExx
-	3Fovpk8Mt+INhRJlPqeDBGIm7hfmTgi1
-X-Received: by 2002:a05:600c:8518:b0:49f:d325:9912 with SMTP id 5b1f17b1804b1-49ff06bcd79mr215836965e9.10.1790695069866;
-        Tue, 29 Sep 2026 08:17:49 -0700 (PDT)
-Received: from Lord-Beerus.station ([31.27.155.43])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4a013cf8402sm10313705e9.2.2026.09.29.08.17.48
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 29 Sep 2026 08:17:49 -0700 (PDT)
-From: Stefano Radaelli <stefano.radaelli21@gmail.com>
-X-Google-Original-From: Stefano Radaelli <stefano.r@variscite.com>
-To: Frank Li <Frank.Li@nxp.com>,
-	linux-kernel@vger.kernel.org,
-	devicetree@vger.kernel.org,
+	Tue, 29 Sep 2026 15:55:06 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=rv5m5bMNexWQjQyuklgOc/9uVIZ3OUYBdcf+K7VRugZqsxbXpi/VuOoADHVLl+lb6PXV1EmOTyZs87Ag+Kv7Rh8c9XBesTqTMEdp9vCVbem9PajRPVMQwI7fZn3gyczwPYYZDGVVzYKakBrfB+Jnjjd8YA++QP7sfUUbuj6Y0toTmaiHzcNW7I595DWDN5lb8S3o4V/3tU4faC29bvwi/89m9iF5Inzj54+HFl090ME88P9wGIqRA8gCwu/sbpWH1iGDMW98P07x2ZpBjoOfKKg8t28OV8Q6J9izCpeMSlGZcUnx7XDmSe1THyh0zcHypA8WmUjNuERMFzpw1/34xg==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=sTT3ILIWzn282XYvYUEyJyf5K4O/KsJux2kCCJg5Z3U=;
+ b=GowksWYzFrDYNKQr3ntqjqnst6MfmgxL7UVLiV6t3SzmcJWSdd4I8fhxjaXxUTtvP7F44cLd67wuC/QIuSWyQ3aheMyosaEzgFyUo311sBhVzzNSqSSaJND4QbYCGcb8U41AkcT7hFydfgzSp4J/PajymwmpAFqTuT8sb5HHwBVrzYIUYRtM0Uxviu0ZxNjSqn+mJix9hVxwsh7d0ryBXfsh0zqpZCE/V65fEadJy83SZs0wdIRFKv+6aNYtEWcZ9EJco1Ed8bRfzLMEXJez73rZZB4CzB+JoB+L9GzYbDHeflHYA6dWYBgyKM16Fyj4WdSpWNbAAykngPsOnr1XBA==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
+ dkim=pass header.d=oss.nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
+ s=selector1-NXP1-onmicrosoft-com;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=sTT3ILIWzn282XYvYUEyJyf5K4O/KsJux2kCCJg5Z3U=;
+ b=XW6Y16i8miOjQCnrkZfFC+xWmBiW/iJSXRsaqiHFAnL9CkB5WoCb3eILkf4RPwVrSZlHbwI1kQLfz7X+MLYuW492V+Fke3dmWQZpyFF1rhqfxt02QUR9Bu96d6lCd+T+9oarC44pHGU86K299w75ZaeraLsjmnkKJ/TGDBZipZ3CQhyZZyBsUvSyrXkIB4e4eFQccIsw8xF4j0ZrcZDysihmfysMZYYVIUuBC4iE7vCgqs+cB8W+uCR+Blv05Elva3qcFv+VQ5+PhqUv9EjClEgO2N+yuuerWxao9kviiFJ1IYrF83SYwyaT76azzqJ1MpDg+4LtCQ/376/1neo8yg==
+Authentication-Results: mx.microsoft.com 1; dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=oss.nxp.com;
+Received: from GV2PR04MB11799.eurprd04.prod.outlook.com (2603:10a6:150:2cf::9)
+ by AS8PR04MB8995.eurprd04.prod.outlook.com (2603:10a6:20b:42e::9) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.451.24; Tue, 29 Sep
+ 2026 15:55:00 +0000
+Received: from GV2PR04MB11799.eurprd04.prod.outlook.com
+ ([fe80::2146:83a2:5329:b7c]) by GV2PR04MB11799.eurprd04.prod.outlook.com
+ ([fe80::2146:83a2:5329:b7c%7]) with mapi id 15.21.0451.022; Tue, 29 Sep 2026
+ 15:55:00 +0000
+From: Frank.Li@oss.nxp.com
+To: Radu Pirea <radu_nicolae.pirea@upb.ro>,
+	Mark Brown <broonie@kernel.org>,
+	Nicolas Ferre <nicolas.ferre@microchip.com>,
+	Alexandre Belloni <alexandre.belloni@bootlin.com>,
+	Claudiu Beznea <claudiu.beznea@tuxon.dev>,
+	Ryan Wanner <ryan.wanner@microchip.com>,
+	linux-spi@vger.kernel.org (open list:MICROCHIP AT91 USART SPI DRIVER),
+	linux-arm-kernel@lists.infradead.org (moderated list:ARM/Microchip (AT91) SoC support),
+	linux-kernel@vger.kernel.org (open list)
+Cc: vkoul@kernel.org,
 	imx@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org
-Cc: pierluigi.p@variscite.com,
-	Stefano Radaelli <stefano.r@variscite.com>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Andrew Lunn <andrew+netdev@lunn.ch>,
-	"David S. Miller" <davem@davemloft.net>,
-	Eric Dumazet <edumazet@google.com>,
-	Jakub Kicinski <kuba@kernel.org>,
-	Paolo Abeni <pabeni@redhat.com>,
-	Sascha Hauer <s.hauer@pengutronix.de>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Fabio Estevam <festevam@gmail.com>,
-	Heiner Kallweit <hkallweit1@gmail.com>,
-	Russell King <linux@armlinux.org.uk>,
-	Shawn Guo <shawnguo@kernel.org>,
-	Joseph Guo <qijian.guo@nxp.com>,
-	Josua Mayer <josua@solid-run.com>,
-	Ernest Van Hoecke <ernest.vanhoecke@toradex.com>,
-	Mehmet Fide <mehmet.fide@screeningeagle.com>,
-	Francesco Dolcini <francesco.dolcini@toradex.com>,
-	Markus Niebel <Markus.Niebel@ew.tq-group.com>,
-	Hugo Villeneuve <hvilleneuve@dimonoff.com>,
-	Stefan Eichenberger <eichest@gmail.com>,
-	netdev@vger.kernel.org
-Subject: [PATCH v4 03/13] dt-bindings: arm: fsl: Add Variscite i.MX6ULZ board variants
-Date: Tue, 29 Sep 2026 17:17:30 +0200
-Message-ID: <1e6f9e01bd9e0e0801b18ddc9eb44bde200ea984.1790693249.git.stefano.r@variscite.com>
-X-Mailer: git-send-email 2.47.3
-In-Reply-To: <cover.1790693249.git.stefano.r@variscite.com>
-References: <cover.1790693249.git.stefano.r@variscite.com>
-MIME-Version: 1.0
+	Frank Li <Frank.Li@nxp.com>
+Subject: [PATCH 1/2] spi: use dmaengine public API instead of raw ops
+Date: Tue, 29 Sep 2026 11:54:42 -0400
+Message-ID: <20260929155445.3311133-1-Frank.Li@oss.nxp.com>
+X-Mailer: git-send-email 2.43.0
 Content-Transfer-Encoding: 8bit
+Content-Type: text/plain
+X-ClientProxiedBy: PH7PR13CA0014.namprd13.prod.outlook.com
+ (2603:10b6:510:174::28) To GV2PR04MB11799.eurprd04.prod.outlook.com
+ (2603:10a6:150:2cf::9)
+MIME-Version: 1.0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: GV2PR04MB11799:EE_|AS8PR04MB8995:EE_
+X-MS-Office365-Filtering-Correlation-Id: 5bf718cb-f4f2-4364-bb58-08df1e42048d
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|366016|19092799006|1800799024|23010399003|7416014|376014|11063799006|10067099003|56012099006|18002099003;
+X-Microsoft-Antispam-Message-Info: f69uZ+BAPKGRZ+HL48qM8X8nappJpjuvjAA2JrSoILdYUNM5/8gic7nsLUyvm1U3of5btIpcPK6OVtbFgLMSI2pTIVl8/wqvv86YHD87Vq1I1K0twAyqdfGdX4+qaVtNMjmaMtCdj8Ws6PD2efaQGHu/6ppUiIgGR3KNmrXyxrWfhVZgTHRktDed/q2ZEzj8xQQSgrITvau/5XsbQRHhc8Y8I0AWud5WPNV0Jpj0o3G9eeSJzjL5+/0Vbru5idHaIpC0T6y7kqYki4dFIXXY2x8LR6N7opIPfM5TF9EkxiJG1AXNXMsfyhBIg9z4j15I7CjdGvjn1EaFgH3zzr/NMsTSOzxKsYb9pReu9Kq4qywmeC0K5sBaifObgUDJXDIGRw30yaF9YwZBb/BnljZXPVSFS1QtwvxYfhMOXaG7i+7LOZ46raJsggGeFewkIGqxaxbUeaLS7pNI5mS4QLeIu/faLlVbTI6uydSrCx3qaMS1iRW7cdajWuttuDUcTkDYOK/HPhjREJklp7NBAasYme2KIqS7vgCIb2eEM0PFbF0KCDNm3kbWyky9u5kANnOFLtdOd/w01HOheoSep/kXoeKdfUi3FLXNNnvVQ4eGbc2x+QLQdqv3D25iriX7oQRtqhJ/R0hLTzEDEQ0fffxMo0bcajHP/TbXk+FLAA2zZsU=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:GV2PR04MB11799.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(19092799006)(1800799024)(23010399003)(7416014)(376014)(11063799006)(10067099003)(56012099006)(18002099003);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?rvgc6h9zBdlEBMWYb+4iJCxwqmC04V8YxpiSTP9vQUK9RuunLRSj/9jGzf0q?=
+ =?us-ascii?Q?UvRjASz7WLBQwaCV5f+7O3h5juX1sS6PxwcsKa3FLFSLDqwYsTtGYgOPLq7D?=
+ =?us-ascii?Q?2BPOTW5c7cGThssc1bsjPePk4c+szucOcfCgXpcQhCXRMFbNvjWVkNcruzEd?=
+ =?us-ascii?Q?jkvWbG9979OcWMXfwm93EEiZaj+SedCEJIKpST9hwTFFQBpTmRElQM/oPOwA?=
+ =?us-ascii?Q?Ln6SAvSZMxRUyargZfrP8AugTnRmsxvBjdsP0FJv8CNKNT5Vw5rtK5MNZN+C?=
+ =?us-ascii?Q?/847IIahtyykenm0hCS+goR8ICfLutl4hJc09DDZuNsaBYdEyN3SVDs/L5eG?=
+ =?us-ascii?Q?dqIA6TFWCK4YsXDwFS6Qq+i+WNstlieFp+1Cm5Q5dI+lQQLt8zkxdPsc0de5?=
+ =?us-ascii?Q?nX54CO/3C067vnETiyoA/2wI+4THe6oAIcPBrB+Btc/0NryNTha7jUxsBR2f?=
+ =?us-ascii?Q?ccqwdfxhAZ4bAs0WWYB6cXHrmYRSCsfEytptLki6hFPqDvITpR4fEUN7nmlj?=
+ =?us-ascii?Q?d1lsmqxNwpqwCAmrUPsQtnIWHjca1/zXP3Osn6eOBA4JwT4z+J5k3uYgljt9?=
+ =?us-ascii?Q?ohWutNUvmJ4WcPbddtI5719/wvH35MHKYKU5rbkxXawzbamBxwl5iSo1Jp1B?=
+ =?us-ascii?Q?0PcXNnvvZDsKNUWRa+QOmmblEeSaPEpvSmi6/zSsYjkn9/wjvBW0Hu0fu/c2?=
+ =?us-ascii?Q?sAHEnyY2iaBGyWIfOR6u1hozPZ0lKE++6mmQYa9W64mytx02Z6W7kUuafvAc?=
+ =?us-ascii?Q?ecPJkIOuwiOtKjmohdX4LjwlQ3yFFt9PknGEYfMIko6AcJRgXpFaOsDzFyTH?=
+ =?us-ascii?Q?4JbtrgOrhivrpD0aHOkWaw4VeQC9kNwMzAARUbnobzalT+6A0og7BorS6zUs?=
+ =?us-ascii?Q?JaWhR78MLi7TmEI4YuXZcdjk2Nlwb9sEIh4LM4AGq5jguot9K2+OlRspAO6k?=
+ =?us-ascii?Q?e+57rD5sxpakoIcuR3PzHWDQY/lq0pCuZXPZePMOsQU6EH5TPl+cKx29l4xl?=
+ =?us-ascii?Q?+hrgUwL4Q4GrLHvvCQwOlJnwjpK3Ze7eNPBejxAf5pVd+//H+oVDI/FVq00N?=
+ =?us-ascii?Q?x43BGZa6m7PtNbAbA+c4a/2L/Jw+zSrWvptrVbMTFtnY/4r2ltzq/Lpge9cD?=
+ =?us-ascii?Q?9DUotZTu8rsVKqoyMWQYVs2GETkyeAl8r4D2aB0lQdWf8wrdwuaIg55TEQ8z?=
+ =?us-ascii?Q?x7DaRDeZ6JDHop8pWZkm9Hjzuzcd+25RHRwOwUdgzVuJ61DdfCP3iJs4zkCu?=
+ =?us-ascii?Q?JEwHOALppa8eTd8oL5DQYvznxbIQPFTeo/oDu0GTro1NefqTD0gmpJEzTZO3?=
+ =?us-ascii?Q?7a/K2vzMbBr5OxblwRwQPTa10TK8+0iCpgPgVVItm5tHLKGuOyI/cAgcDGed?=
+ =?us-ascii?Q?FMfD+qN6NrfEnmpy12MhqlExRA83e4Zo+bC2bsl8N9qhFcdgzf7XWffwtVIc?=
+ =?us-ascii?Q?ebxBd6pf9D5tMatWy9p46gW0cle0qRNtXo/YWJhnB47D93fEQhdmd85ipEPm?=
+ =?us-ascii?Q?/CHpKYaJ3CmGokZNZ8vrG4HxV8XSZ3Sgq1jPxGI4dYD7EaPaSix3fW5oISNW?=
+ =?us-ascii?Q?ACGlHQCBItXXgDqoDGW41J+wbdFkkMIB1KoZ6pw9PliUvY9Bjhk7F1NaBJAQ?=
+ =?us-ascii?Q?6BzS/paD+yQ06jeCTpIJBe+/t9rn6lpmnRY2h24US3GlR2jfgpZaFW+E/vNW?=
+ =?us-ascii?Q?8ykMfNpzIvbhZJEiuS3Nwls6nTxGumxw9OclWpjVMDvv6Zscw7eFHNFlZYRK?=
+ =?us-ascii?Q?UrZpB21rASnR6h8EtdFRWWGFoNqAvqsnMV7X2+oZeh6pkoBae3og?=
+X-OriginatorOrg: oss.nxp.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 5bf718cb-f4f2-4364-bb58-08df1e42048d
+X-MS-Exchange-CrossTenant-AuthSource: GV2PR04MB11799.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 29 Sep 2026 15:55:00.4729
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: UE5MxgLKIntpldBtitcmSdIZPMSUfhDHkmC5cMfqksik0XAmpH6hBxfPDzTTh2EKslqqZOxGF3oXZ1VAMPhn4AjGyhk0NChwh02agOcozMMcL/iKJmCZC44VSBBzXs1R
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: AS8PR04MB8995
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260929_081752_000234_218B577C 
-X-CRM114-Status: GOOD (  11.56  )
+X-CRM114-CacheID: sfid-20260929_085505_326505_5C142FF3 
+X-CRM114-Status: GOOD (  11.49  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -128,81 +143,53 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Stefano Radaelli <stefano.r@variscite.com>
+From: Frank Li <Frank.Li@nxp.com>
 
-Document VAR-SOM-6UL configurations on the Concerto and Symphony
-carriers and DART-6UL configurations on VAR-6ULCustomBoard with
-i.MX6ULZ.
+Replace direct calls to the internal DMA device ops
+device->device_issue_pending() with the proper public DMA engine wrappers:
+dma_async_issue_pending().
 
-The compatibles identify the SoM storage, wireless and audio options
-followed by the carrier, module and SoC compatibles.
+Drivers must not call device ops directly; the wrappers provide locking,
+debug checks, and a stable interface that hides internal implementation
+details of the DMA controller driver.
 
-Signed-off-by: Stefano Radaelli <stefano.r@variscite.com>
+Signed-off-by: Frank Li <Frank.Li@nxp.com>
 ---
-v3->v4:
- - Split the board binding by SoC and add separate VAR-SOM-6UL and
-   DART-6UL entries for i.MX6ULZ.
- - Drop the redundant -board suffix from new Concerto and Symphony
-   compatibles and use sorted items/enum lists.
+ drivers/spi/spi-at91-usart.c | 4 ++--
+ drivers/spi/spi-atmel.c      | 4 ++--
+ 2 files changed, 4 insertions(+), 4 deletions(-)
 
- .../devicetree/bindings/arm/fsl.yaml          | 44 +++++++++++++++++++
- 1 file changed, 44 insertions(+)
-
-diff --git a/Documentation/devicetree/bindings/arm/fsl.yaml b/Documentation/devicetree/bindings/arm/fsl.yaml
-index 9b1224091e01..42d12624c1db 100644
---- a/Documentation/devicetree/bindings/arm/fsl.yaml
-+++ b/Documentation/devicetree/bindings/arm/fsl.yaml
-@@ -944,6 +944,50 @@ properties:
-           - const: fsl,imx6ull # This seems odd. Should be last?
-           - const: fsl,imx6ulz
+diff --git a/drivers/spi/spi-at91-usart.c b/drivers/spi/spi-at91-usart.c
+index 804f6194c830f..cdc771350db93 100644
+--- a/drivers/spi/spi-at91-usart.c
++++ b/drivers/spi/spi-at91-usart.c
+@@ -239,8 +239,8 @@ static int at91_usart_spi_dma_transfer(struct spi_controller *ctlr,
+ 	if (dma_submit_error(cookie))
+ 		goto at91_usart_spi_err_dma;
  
-+      - description: i.MX6ULZ Variscite DART-6UL board variants
-+        items:
-+          - enum:
-+              - variscite,dart-6ul-imx6ulz-emmc-sd-card-6ulcustomboard
-+              - variscite,dart-6ul-imx6ulz-emmc-sd-card-wm8731-6ulcustomboard
-+              - variscite,dart-6ul-imx6ulz-emmc-wifi-brcm-6ulcustomboard
-+              - variscite,dart-6ul-imx6ulz-emmc-wifi-brcm-wm8731-6ulcustomboard
-+              - variscite,dart-6ul-imx6ulz-emmc-wifi-iw61x-6ulcustomboard
-+              - variscite,dart-6ul-imx6ulz-nand-sd-card-6ulcustomboard
-+              - variscite,dart-6ul-imx6ulz-nand-sd-card-wm8731-6ulcustomboard
-+              - variscite,dart-6ul-imx6ulz-nand-wifi-brcm-6ulcustomboard
-+              - variscite,dart-6ul-imx6ulz-nand-wifi-brcm-wm8731-6ulcustomboard
-+              - variscite,dart-6ul-imx6ulz-nand-wifi-iw61x-6ulcustomboard
-+          - const: variscite,dart-6ul-imx6ulz
-+          - const: fsl,imx6ull
-+          - const: fsl,imx6ulz
-+
-+      - description: i.MX6ULZ Variscite VAR-SOM-6UL board variants
-+        items:
-+          - enum:
-+              - variscite,var-som-imx6ulz-emmc-sd-card-concerto
-+              - variscite,var-som-imx6ulz-emmc-sd-card-symphony
-+              - variscite,var-som-imx6ulz-emmc-sd-card-wm8731-concerto
-+              - variscite,var-som-imx6ulz-emmc-sd-card-wm8731-symphony
-+              - variscite,var-som-imx6ulz-emmc-wifi-brcm-concerto
-+              - variscite,var-som-imx6ulz-emmc-wifi-brcm-symphony
-+              - variscite,var-som-imx6ulz-emmc-wifi-brcm-wm8731-concerto
-+              - variscite,var-som-imx6ulz-emmc-wifi-brcm-wm8731-symphony
-+              - variscite,var-som-imx6ulz-emmc-wifi-iw61x-concerto
-+              - variscite,var-som-imx6ulz-emmc-wifi-iw61x-symphony
-+              - variscite,var-som-imx6ulz-nand-sd-card-concerto
-+              - variscite,var-som-imx6ulz-nand-sd-card-symphony
-+              - variscite,var-som-imx6ulz-nand-sd-card-wm8731-concerto
-+              - variscite,var-som-imx6ulz-nand-sd-card-wm8731-symphony
-+              - variscite,var-som-imx6ulz-nand-wifi-brcm-concerto
-+              - variscite,var-som-imx6ulz-nand-wifi-brcm-symphony
-+              - variscite,var-som-imx6ulz-nand-wifi-brcm-wm8731-concerto
-+              - variscite,var-som-imx6ulz-nand-wifi-brcm-wm8731-symphony
-+              - variscite,var-som-imx6ulz-nand-wifi-iw61x-concerto
-+              - variscite,var-som-imx6ulz-nand-wifi-iw61x-symphony
-+          - const: variscite,var-som-imx6ulz
-+          - const: fsl,imx6ull
-+          - const: fsl,imx6ulz
-+
-       - description: i.MX7S based Boards
-         items:
-           - enum:
+-	rxchan->device->device_issue_pending(rxchan);
+-	txchan->device->device_issue_pending(txchan);
++	dma_async_issue_pending(rxchan);
++	dma_async_issue_pending(txchan);
+ 
+ 	return 0;
+ 
+diff --git a/drivers/spi/spi-atmel.c b/drivers/spi/spi-atmel.c
+index c8012c82c3a78..c04113ce17f70 100644
+--- a/drivers/spi/spi-atmel.c
++++ b/drivers/spi/spi-atmel.c
+@@ -877,8 +877,8 @@ static int atmel_spi_next_xfer_dma_submit(struct spi_controller *host,
+ 	cookie = txdesc->tx_submit(txdesc);
+ 	if (dma_submit_error(cookie))
+ 		goto err_dma;
+-	rxchan->device->device_issue_pending(rxchan);
+-	txchan->device->device_issue_pending(txchan);
++	dma_async_issue_pending(rxchan);
++	dma_async_issue_pending(txchan);
+ 
+ 	return 0;
+ 
 -- 
-2.47.3
+2.43.0
+
 
