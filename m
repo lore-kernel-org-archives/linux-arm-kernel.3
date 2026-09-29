@@ -4,43 +4,43 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id F40F8CA5FA7
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 29 Sep 2026 06:34:45 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6D135CA5FA1
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 29 Sep 2026 06:35:03 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=BjWubQDEwzkTNxDwhBXrPCAtpvohKMIuJsfB/7fSVhQ=; b=hFLhShwWG71Ukw5ugNqxBBIXxv
-	azZ9MS3NrdRK+4bzCCfwz5qAOvW2MA26vV7VVT7ZeXJxJ05fKJwPzi08F9DZqRGE7Te+y/MbHT8aF
-	cpySK3/rdQVNvj7sR8qnVcnp+zESEmH38fQao0yhA3mNx00bzJ2yMAjFOE6Lsk32nYgzq6OT1HQbm
-	zq1LZor/JlHyQPGYY78DJRFWvNV9tbBPPYIvMR2zTj0cxPndjmvw0qg4x6jyUxlmbGjXfLbabvinH
-	OMr8byNjGbs9INbdYLJlNbJ8ZyRVFNLTXPUEBevFD/LTP9sWmQO/gxhVezxbyq5ZIcylx7OCYbnZs
-	6p6/U6VA==;
+	bh=otsGCK9Yj0FElBYZytvrsZDWpB+j363zGrFV5pkZmKY=; b=zewKntdSV3BEAhcM9DcP3+rgTp
+	v9E+FQAVoONL1ncI4v9fVZgoQt74qInSEI7jSMGM0tJ3AuX3f6gMEwO02oihDcIAa5hu3zV4HvsW2
+	bsGzytLKL47WODyxHTcfILjSRyTWbOxS/vF/XaDJykLrwMZNIK0hxn/cgoystOrDpdNnUtHBxt9gH
+	UcB03LiLTp6uwp5NFZcSJ93LDRa4XDGEyHGfMnnnmHPte/YNyL5JUh0Y3PLxTVFJIPCJdmGpmuQrR
+	y4btHna6VkIb4MapP65yD1FT+QwPA+RoW64QXgGTaD6sdTAMPYxmYzdZlhCjjzwRQdi30Bug9KW8U
+	lGauLYjQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xBRQF-00000002Sdl-38lD;
-	Tue, 29 Sep 2026 06:34:39 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1xBRQW-00000002SnJ-3uSt;
+	Tue, 29 Sep 2026 06:34:57 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xBRQE-00000002Scp-1qdg;
-	Tue, 29 Sep 2026 06:34:38 +0000
+	id 1xBRQL-00000002SiD-2wyG;
+	Tue, 29 Sep 2026 06:34:45 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id DB29E60210;
+	by sea.source.kernel.org (Postfix) with ESMTP id 379B943B79;
+	Tue, 29 Sep 2026 06:34:45 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 096C01F000FF;
 	Tue, 29 Sep 2026 06:34:37 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 05AE21F00893;
-	Tue, 29 Sep 2026 06:34:31 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1790663677;
-	bh=BjWubQDEwzkTNxDwhBXrPCAtpvohKMIuJsfB/7fSVhQ=;
+	s=k20260515; t=1790663685;
+	bh=otsGCK9Yj0FElBYZytvrsZDWpB+j363zGrFV5pkZmKY=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References;
-	b=TIWlK7cRn+wmNif0WwVG2cvDTmLijVqigoKVlGa0NWpYApY32nXw3rlAbBSqXeByG
-	 N9tzOHiTZMqGH9FrL0Ifpc2qL6Vi5eavWG3dUqDl5RYg7eOoHx8i8y1gCnv0j7S+yM
-	 wkLNDnjqxfeq7kmtJBsSq7LvciAt+wZdu7VjAKq4wtdD3r5zJaberM5ccMhayTDC5j
-	 2S4YuyRnTTw10Ihd+48YTvnzJni+J9gCf3G7vUpMiznxnJnaiJPIw++SxpSqQxrezl
-	 /kKaPnu1uGRrKP0vZqS5l5wUtTvDR0XxC2G+v3TgHLkJo1EHX2dK0N2nSD3NAa0J6b
-	 KX9Nko3ELS6vg==
+	b=JAFY45LtVIhVi9Pbv+FCoTzs4NYUgeyT3jEqFsvNubo+FTqtdxjXIE18uEA0IYLeR
+	 cp/EG0wE3ChJ0iwyDOiq9gPASOkaf79pAO0V62AcXfapLsFQsu2M/pun0bUyYKXz5z
+	 RlM+O+KFtsLDbQGwNaDKV1Si/KpI3C9jRxGNQw6exT79FAezUm6Y2XnJdn84QFfzGA
+	 f2+pwQwnSOaYgUmqkrYHOXqqDjExJvLjvRTzzMLqRJnVeAJ5n4fBYSG7xWZlWQdVt5
+	 HLJUnIO9SvrnRm+fjnXXarRdNFCLowKdRUle+cbly4PHw1eOA1gaKz5YTAK3HbX+Tu
+	 uObzIXsgZ7OtQ==
 From: Jisheng Zhang <jszhang@kernel.org>
 To: Rob Herring <robh@kernel.org>,
 	Krzysztof Kozlowski <krzk+dt@kernel.org>,
@@ -69,9 +69,9 @@ Cc: devicetree@vger.kernel.org,
 	linux-serial@vger.kernel.org,
 	linux-spi@vger.kernel.org,
 	linux-arm-kernel@lists.infradead.org
-Subject: [PATCH 03/20] spi: dt-bindings: snps,dw-apb-ssi: Add Synaptics sl261x spi
-Date: Tue, 29 Sep 2026 14:14:00 +0800
-Message-ID: <20260929061417.20733-4-jszhang@kernel.org>
+Subject: [PATCH 04/20] dt-bindings: i3c: dw: support up to two reset lines
+Date: Tue, 29 Sep 2026 14:14:01 +0800
+Message-ID: <20260929061417.20733-5-jszhang@kernel.org>
 X-Mailer: git-send-email 2.51.0
 In-Reply-To: <20260929061417.20733-1-jszhang@kernel.org>
 References: <20260929061417.20733-1-jszhang@kernel.org>
@@ -91,26 +91,30 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add the compatible for the Synaptics SL261X SoC SPI controllers, which
-are compatible with the Synopsys DesignWare APB SSI.
+The Synopsys DesignWare I3C master controller can have multiple reset
+lines, such as core reset, apb reset, and dma reset.
+
+Update the DT binding documentation to increase maxItems for the resets
+property to 2.
 
 Signed-off-by: Jisheng Zhang <jszhang@kernel.org>
 ---
- Documentation/devicetree/bindings/spi/snps,dw-apb-ssi.yaml | 1 +
- 1 file changed, 1 insertion(+)
+ Documentation/devicetree/bindings/i3c/snps,dw-i3c-master.yaml | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
 
-diff --git a/Documentation/devicetree/bindings/spi/snps,dw-apb-ssi.yaml b/Documentation/devicetree/bindings/spi/snps,dw-apb-ssi.yaml
-index 1e70c6804d5d..7090de9fa8d3 100644
---- a/Documentation/devicetree/bindings/spi/snps,dw-apb-ssi.yaml
-+++ b/Documentation/devicetree/bindings/spi/snps,dw-apb-ssi.yaml
-@@ -62,6 +62,7 @@ properties:
-               - mscc,ocelot-spi
-               - mscc,jaguar2-spi
-               - sophgo,sg2042-spi
-+              - syna,sl261x-spi
-               - thead,th1520-spi
-           - const: snps,dw-apb-ssi
-       - description: Vendor controllers compatible with v1.01a
+diff --git a/Documentation/devicetree/bindings/i3c/snps,dw-i3c-master.yaml b/Documentation/devicetree/bindings/i3c/snps,dw-i3c-master.yaml
+index dc7ee38001d6..dcc21a7ab4c4 100644
+--- a/Documentation/devicetree/bindings/i3c/snps,dw-i3c-master.yaml
++++ b/Documentation/devicetree/bindings/i3c/snps,dw-i3c-master.yaml
+@@ -39,7 +39,7 @@ properties:
+     maxItems: 1
+ 
+   resets:
+-    maxItems: 1
++    maxItems: 2
+ 
+   power-domains:
+     maxItems: 1
 -- 
 2.53.0
 
