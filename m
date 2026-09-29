@@ -4,70 +4,85 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CCFFECA5FAE
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 29 Sep 2026 03:45:35 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4A430C9832A
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 29 Sep 2026 03:46:06 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:From:
 	Subject:Message-ID:References:Mime-Version:In-Reply-To:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=TURFZphfVPL8QZrp+2aK2dezkQwEA5VMpCPWip8CV2s=; b=ii0fFC/Z9+6OXFpSjIxQ9k+coz
-	2SDmz8nsL53eZSsipRSBOEIXoiPAoWgDBfSToj0u3nNlCccQ/Lrvv9Ju9lXC6OSphIeDQUg6B0XGs
-	GPo5FfZIppMlynLvZdSiNn/G0nW43TQo+YKsGmt2rAkntG0DKQp4f0wnNN6bdHxGUU0gQadqBDixq
-	I0KQFbC8kYKy03AcA8DN/vz94V4RiRKWabiZd1mSLsjb8P50Uq3+i2EE647jmhsjfkbFlFieoICmW
-	ugIipEwV8qXRA5oElNee7EkzNO7gFYAuoqNsNVXcY3stUbOKZenxK9r3xYA9FkOvqc6ntDAKcafXQ
-	IM2humSw==;
+	bh=pamITFUcwnp5TeeHCBPmUcU036kd5Sty9zaNaR/GKjI=; b=pRQ9MIpVII99UScaAJuFLtgEZX
+	4nJuw1RQEOrjwEAO765+YqbXDtpxc4btcVhuctSQI/Y6z2HXrvVS0pc8LOrUZzITmDsBZA19F+wVY
+	bdNnYDAC2Ve5/E1U3CBTjLtG4IgRXhyEjH0eLUw7T1ynzJsSsb091PCBzkXQuuEjEnaLW04BQbsWD
+	LoI1tCtciflABog7fVQ+L5TGjiu0Q0OjD1Grtu5wJoc0aWSfNUwhWPi7Usv1Ci0SJAGxoJkDLw/rO
+	IqKydua1TwhZ9oD6Fq2xiCpodhyxDFcey2T3XPROWoomeRP+Xj/BpjQtsCe2XkCBGbRD21DmrmWqk
+	DrKwLdfg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xBOmV-00000002G67-0TEb;
-	Tue, 29 Sep 2026 03:45:27 +0000
-Received: from mail-pf1-x445.google.com ([2607:f8b0:4864:20::445])
+	id 1xBOmt-00000002GJy-1BEu;
+	Tue, 29 Sep 2026 03:45:51 +0000
+Received: from casper.infradead.org ([2001:8b0:10b:1236::1])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xBOmO-00000002G41-3JD7
+	id 1xBOmr-00000002GII-20LA
+	for linux-arm-kernel@bombadil.infradead.org;
+	Tue, 29 Sep 2026 03:45:49 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=casper.20170209; h=Content-Type:Cc:To:From:Subject:
+	Message-ID:References:Mime-Version:In-Reply-To:Date:Sender:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description;
+	bh=pamITFUcwnp5TeeHCBPmUcU036kd5Sty9zaNaR/GKjI=; b=t6uPnIaR3HtwG425nnydGE8kL9
+	GTGmcbQ97Uhom7qKEZf+bXenFi+SdLsZY2P6OoWX3bT/KWhm8dmRnC5rQ9kcx4DUpuH3wx9W/DrWG
+	KcwE6Gk6WuU9zaChkYMf50uVa5/ZAINOS6OdK5Fuo883v0bzgfMl/4kvS1gD2uFCQwfpBZ1p6546/
+	+ZDW1bcIB5K5Fi9AN00FUqiY+FAwjy+0yX+pfejK6L2MxwsOa8bDmtEToTutATLGhE3OHN55dVLnA
+	5y0yzTaO4cNJBTJbm16kx1Lz+3CAO5pDaVt4MCfCSMvq1kwBU09/Et1dxU/geO0lFrW6Vb5k2Q40n
+	7HDdogBA==;
+Received: from mail-pg1-x547.google.com ([2607:f8b0:4864:20::547])
+	by casper.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1xBOmo-0000000AYW5-3Fku
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 29 Sep 2026 03:45:21 +0000
-Received: by mail-pf1-x445.google.com with SMTP id d2e1a72fcca58-86a43fc3527so487501b3a.1
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 28 Sep 2026 20:45:19 -0700 (PDT)
+	Tue, 29 Sep 2026 03:45:48 +0000
+Received: by mail-pg1-x547.google.com with SMTP id 41be03b00d2f7-cc795ad1f5aso1901448a12.2
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 28 Sep 2026 20:45:46 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20251104; t=1790653519; x=1791258319; darn=lists.infradead.org;
+        d=google.com; s=20251104; t=1790653544; x=1791258344; darn=lists.infradead.org;
         h=content-type:cc:to:from:subject:message-id:references:mime-version
          :in-reply-to:date:from:to:cc:subject:date:message-id:reply-to
          :content-type;
-        bh=TURFZphfVPL8QZrp+2aK2dezkQwEA5VMpCPWip8CV2s=;
-        b=X4l0d0T+iSGpCAA2Jx839KiLO+DBaKCcMhigFCvdU0llVp7hpCCibUtYXgG8oY52pD
-         RF8Qig5sFhtiZ24ULq8SFaFkXM8UkC1IQ31iUd2uj1OEpRpmbWPeCB5bCHv56LhKbHbN
-         Eo7oHvGMp/0axrmY5QRLhax4YiejavpWfQCiaK4JatMXUvRh4ILHrStEYKPmk0E2swBL
-         YxSQRTnNV3lceJx64i2JAVGTnHc9a2Al8Rz0lBEg7EfXBauzWlXRxmRHWRYVM0l20LOA
-         gnaoxnTRQmR4HPWdv3blBphIZVmCYX4v2xeINrKjV/LXdZZ52Jt12gFpOX7acJKIq8Ej
-         kyOw==
+        bh=pamITFUcwnp5TeeHCBPmUcU036kd5Sty9zaNaR/GKjI=;
+        b=fI+j/h4pf1IrCjb56ukqmUVYvvmCqO22M6TbuP4ktyLF1z9asNQdXVwIxcy9ybENwY
+         lqDMqJssjMpRNk3IhP3s8+vM8yUa8mXLvdcpWLJAQ3b+fOrcBxBZ9bOZlxC6sfXcwXgI
+         VvJR0GyttDiNqoQr47DbnKYPVVjtMclmMy4fOtxg68JZZ2QSqQWDpSqpHZldsya5yfGw
+         Oqjv5ZSV+puz7sJ2eHi5INtgT/VCf3TMP3UAzWaeUeO0TGb0t1fmfogQTW/hCE0CU7wy
+         Gyt8ME33ABJHKRqdkoOpDo44VI2Ow9Wm9PBngqu0v/CPhL0RzOvP5DZPwpsKVQPYd59p
+         M1hQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1790653519; x=1791258319;
+        d=1e100.net; s=20260707; t=1790653544; x=1791258344;
         h=content-type:cc:to:from:subject:message-id:references:mime-version
          :in-reply-to:date:x-gm-message-state:from:to:cc:subject:date
          :message-id:reply-to:content-type;
-        bh=TURFZphfVPL8QZrp+2aK2dezkQwEA5VMpCPWip8CV2s=;
-        b=eAy/lGaUH3TqMvuumUaqfTncITALB18y/Hno4FCj2XIOAfyioCMyuWm224dpnvvo36
-         qrYriQXdFtiI+sqoKKTd1FHT7XdU2UUhrtuxQenRqB5N20gzOU6K0lz+uMfJOBz2cJvs
-         wtCDjVkkKXzA0VP9w6at4/QQRTpTKs9Z02OtWL2uWiKftiw60RW2stxppi0EDv1GcObC
-         pYjjbLRyYTbD8lyJGJuTQ+Qyo5xn+GTez2F1+R9MquCQMADzebvokS/3dhElipYmwKtg
-         un+cMdP/7EHvXbPfP1oMlR0NvXicP9O7u27AyjWMXIbiUwbR0kLN3gEtxclNgVuJvLtI
-         CVMg==
-X-Forwarded-Encrypted: i=1; AKwUvBy7KzRWaexkqhJVJtKOeDKwZBoBcdwDSr9NYAmjGOWxb0rxGfSIqCJY2CBFOQEPbyZz1cm9bcq/LACyhS/XfeU6@lists.infradead.org
-X-Gm-Message-State: AFuF++k5J5/Wpv1KehmutltZ4ri7IyEf4PoxPVMCoP9W/KJPubuetRZO
-	CU3bQ02dorHd/pSEvC/AwJ+tl2hFXQqWLG9fm9VJoI7K5H1PdSg81EUUmajAWVHbc4G8d2GUpi1
-	UAw==
-X-Received: from pgut3.prod.google.com ([2002:a65:6083:0:b0:cc7:85b1:2114])
- (user=praan job=prod-delivery.src-stubby-dispatcher) by 2002:a05:6a20:3d1a:b0:3dd:a9a9:3967
- with SMTP id adf61e73a8af0-3de7cf9d001mr1160408637.43.1790653518920; Mon, 28
- Sep 2026 20:45:18 -0700 (PDT)
-Date: Tue, 29 Sep 2026 03:44:56 +0000
+        bh=pamITFUcwnp5TeeHCBPmUcU036kd5Sty9zaNaR/GKjI=;
+        b=F8jWLPNSo/v2tsIP3i+HIGtuxGLZ9urTm4QyP5jFGBoh9mDw9/DplpGzD+yBOp+NL4
+         DV2vVNN/AMBxHKM/9vYtxl6Flx0CpDHLx3s/rsJwMSOniCpJmLPnUkS5WJ7g2hgXiO1/
+         HeVhYH6iylBHrsCuOaXE2PAl3aEcLVk+YnJYIpoY5cXj3KdGBwE6DqRkqQsg5iyQNjrN
+         SpCoOdRyrU3mjPQ63j5anhdErBj4e08kfqjglthjbkoBPbIIO8aSVD7ZIwWLYmClsWuj
+         2swe7D8HUzLdm5KXs2CR7byaR9ybl6pmT+FXkyaa0VgwaDBSpN1uNBkvywgfd787seIX
+         uO3w==
+X-Forwarded-Encrypted: i=1; AKwUvBzjUTnrRchOhYTBOKdX7Y30100tYdj9tMv2UBaWFDgwFa2belBCjpbl9NupRAEAAao7mfeNXCJd/t24DTrBX6xX@lists.infradead.org
+X-Gm-Message-State: AFuF++mV6UhnS3etf4i3ORe+LeMa6nhpJs2Wr0kbAT1J6QH1AB9gHWx3
+	uVL5CQCL9rP2HJnYZKJHwdf+nMNRfYEOcwX+56ohQ3B5dZoYM/wmjWfBftCpC0LBHbYME4qOa6i
+	VQA==
+X-Received: from pfbdl3.prod.google.com ([2002:a05:6a00:4903:b0:884:2224:5f7d])
+ (user=praan job=prod-delivery.src-stubby-dispatcher) by 2002:a05:6a20:244f:b0:3de:6873:84d1
+ with SMTP id adf61e73a8af0-3de6873856fmr3745913637.74.1790653543715; Mon, 28
+ Sep 2026 20:45:43 -0700 (PDT)
+Date: Tue, 29 Sep 2026 03:45:04 +0000
 In-Reply-To: <20260929034510.2023173-1-praan@google.com>
 Mime-Version: 1.0
 References: <20260929034510.2023173-1-praan@google.com>
 X-Mailer: git-send-email 2.56.0.rc1.315.gc6ed9934b7-goog
-Message-ID: <20260929034510.2023173-3-praan@google.com>
-Subject: [PATCH v11 02/16] iommu/arm-smmu-v3: Add Q_POS() macro
+Message-ID: <20260929034510.2023173-11-praan@google.com>
+Subject: [PATCH v11 10/16] iommu/arm-smmu-v3: Factor out arm_smmu_handle_gerror()
 From: Pranjal Shrivastava <praan@google.com>
 To: iommu@lists.linux.dev
 Cc: Will Deacon <will@kernel.org>, Joerg Roedel <joro@8bytes.org>, 
@@ -78,11 +93,11 @@ Cc: Will Deacon <will@kernel.org>, Joerg Roedel <joro@8bytes.org>,
 	linux-pci@vger.kernel.org, linux-kernel@vger.kernel.org, 
 	Greg Kroah-Hartman <gregkh@linuxfoundation.org>, rafael@kernel.org, 
 	Danilo Krummrich <dakr@kernel.org>, driver-core@lists.linux.dev, 
-	Pranjal Shrivastava <praan@google.com>
+	Pranjal Shrivastava <praan@google.com>, Jason Gunthorpe <jgg@nvidia.com>
 Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260928_204520_842810_F19480A6 
-X-CRM114-Status: GOOD (  13.75  )
+X-CRM114-CacheID: sfid-20260929_044546_851513_CA9E2F16 
+X-CRM114-Status: GOOD (  11.45  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -97,77 +112,54 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Nicolin Chen <nicolinc@nvidia.com>
+The GERROR register's state might be lost when the SMMU is powered down
+during runtime suspend, requiring the suspend sequence to handle any
+pending errors before the hardware state is lost.
 
-A queue position, the wrap bit combined with the index, is Q_WRP | Q_IDX.
-It is a (max_n_shift + 1)-bit value that wraps at twice the queue capacity.
-queue_inc_cons(), queue_sync_cons_ovf(), and queue_inc_prod_n() currently
-compute such positions by open-coding the two macros at each call site.
+Refactor the gerror handling logic into a helper function. Subsequent
+patches will invoke it from the runtime suspend callback after disabling
+the SMMU, ensuring that any late-breaking gerrors are logged and ack'ed
+before the hardware state is lost.
 
-Add a Q_POS() macro and switch the open-coded sites to it.
-
-A subsequent change will apply Q_POS() to a position difference, to count
-the entries that a queue pointer moved past.
-
-No functional change intended.
-
-Assisted-by: Claude:claude-fable-5
-Signed-off-by: Nicolin Chen <nicolinc@nvidia.com>
+Suggested-by: Jason Gunthorpe <jgg@nvidia.com>
+Reviewed-by: Nicolin Chen <nicolinc@nvidia.com>
+Reviewed-by: Jason Gunthorpe <jgg@nvidia.com>
 Signed-off-by: Pranjal Shrivastava <praan@google.com>
 ---
- drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c | 11 +++++------
- drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.h |  2 ++
- 2 files changed, 7 insertions(+), 6 deletions(-)
+ drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c | 11 +++++++++--
+ 1 file changed, 9 insertions(+), 2 deletions(-)
 
 diff --git a/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c b/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c
-index 270e6617a19a..06b7de2e6e4b 100644
+index 7347d3ecdae8..a123810fac57 100644
 --- a/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c
 +++ b/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c
-@@ -181,8 +181,8 @@ static void queue_sync_cons_out(struct arm_smmu_queue *q)
+@@ -2406,10 +2406,10 @@ static irqreturn_t arm_smmu_priq_thread(int irq, void *dev)
  
- static void queue_inc_cons(struct arm_smmu_ll_queue *q)
+ static int arm_smmu_device_disable(struct arm_smmu_device *smmu);
+ 
+-static irqreturn_t arm_smmu_gerror_handler(int irq, void *dev)
++/* Lockless; must ensure that there are no concurrent callers */
++static irqreturn_t arm_smmu_handle_gerror(struct arm_smmu_device *smmu)
  {
--	u32 cons = (Q_WRP(q, q->cons) | Q_IDX(q, q->cons)) + 1;
--	q->cons = Q_OVF(q->cons) | Q_WRP(q, cons) | Q_IDX(q, cons);
-+	u32 cons = Q_POS(q, q->cons) + 1;
-+	q->cons = Q_OVF(q->cons) | Q_POS(q, cons);
+ 	u32 gerror, gerrorn, active;
+-	struct arm_smmu_device *smmu = dev;
+ 
+ 	gerror = readl_relaxed(smmu->base + ARM_SMMU_GERROR);
+ 	gerrorn = readl_relaxed(smmu->base + ARM_SMMU_GERRORN);
+@@ -2452,6 +2452,13 @@ static irqreturn_t arm_smmu_gerror_handler(int irq, void *dev)
+ 	return IRQ_HANDLED;
  }
  
- static void queue_sync_cons_ovf(struct arm_smmu_queue *q)
-@@ -192,8 +192,7 @@ static void queue_sync_cons_ovf(struct arm_smmu_queue *q)
- 	if (likely(Q_OVF(llq->prod) == Q_OVF(llq->cons)))
- 		return;
- 
--	llq->cons = Q_OVF(llq->prod) | Q_WRP(llq, llq->cons) |
--		      Q_IDX(llq, llq->cons);
-+	llq->cons = Q_OVF(llq->prod) | Q_POS(llq, llq->cons);
- 	queue_sync_cons_out(q);
- }
- 
-@@ -218,8 +217,8 @@ static int queue_sync_prod_in(struct arm_smmu_queue *q)
- 
- static u32 queue_inc_prod_n(struct arm_smmu_ll_queue *q, int n)
++static irqreturn_t arm_smmu_gerror_handler(int irq, void *dev)
++{
++	struct arm_smmu_device *smmu = dev;
++
++	return arm_smmu_handle_gerror(smmu);
++}
++
+ static irqreturn_t arm_smmu_combined_irq_thread(int irq, void *dev)
  {
--	u32 prod = (Q_WRP(q, q->prod) | Q_IDX(q, q->prod)) + n;
--	return Q_OVF(q->prod) | Q_WRP(q, prod) | Q_IDX(q, prod);
-+	u32 prod = Q_POS(q, q->prod) + n;
-+	return Q_OVF(q->prod) | Q_POS(q, prod);
- }
- 
- static void queue_poll_init(struct arm_smmu_device *smmu,
-diff --git a/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.h b/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.h
-index dd2fee2f560e..84e618a7fa9e 100644
---- a/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.h
-+++ b/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.h
-@@ -187,6 +187,8 @@ struct arm_vsmmu;
- 
- #define Q_IDX(llq, p)			((p) & ((1 << (llq)->max_n_shift) - 1))
- #define Q_WRP(llq, p)			((p) & (1 << (llq)->max_n_shift))
-+/* A position is Q_WRP | Q_IDX, wrapping at twice the queue capacity */
-+#define Q_POS(llq, p)			(Q_WRP(llq, p) | Q_IDX(llq, p))
- #define Q_OVERFLOW_FLAG			(1U << 31)
- #define Q_OVF(p)			((p) & Q_OVERFLOW_FLAG)
- #define Q_ENT(q, p)			((q)->base +			\
+ 	struct arm_smmu_device *smmu = dev;
 -- 
 2.56.0.rc1.315.gc6ed9934b7-goog
 
