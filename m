@@ -4,140 +4,65 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 84F93CA5FA5
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 29 Sep 2026 13:12:22 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C8ED8CA5FA5
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 29 Sep 2026 13:15:00 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:References:In-Reply-To:Message-ID:Date
+	:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=EjG8/uIKj4fF9C0fjKOLgLTrotKBVJW8kyX0llTR/J8=; b=t6TADoWV5NgwPksg29js3TjfBE
-	V3r7UJUdtRKx7x/pqpjTWxiltXoGYb0OV9ntJq8bCxpIJt9js2VJ4Ja1CS1kDayPVKWq1wbiP/jLH
-	Wt26EoudG0wypu6sUsFkuuL61vUABrGMHslr80fYzgzZCbAOvNKyhLmr7b+9rPSaoGTZoWUwS7I0z
-	fQIQ1pxTXh0rTORQkgJvm56ncjnrfYB5OUKY/Ne62IAnkj/aRYFzLfaAa8/uEecp9ddKeQ7bcsqzh
-	ANRxoypjjwa1rfq5Lhlo78w08oUZXQdPJXr2z1lWq4woqJD2I3IZIc3E1ypgbAvzboAoZY3WLfwGm
-	N7uc3JEA==;
+	bh=URC7r36kokGjXCV5G6Ei8oKV54JoMbconYpCKkPt2AY=; b=QfbaRPL3S9nJwvvgKoqvgyFJw9
+	8NOrWManLW1n1jCT6YPYR5aRxchL7s9kE+Z9tMfIZLF017ld6/oDjJTdaa1/sJkVYZHRDcdPG8MK1
+	nJQFI4QN3hTB7PiBnS07JHnSO0sgI9oY7H1qPekPacoPq9FT0Vq+LzQVw4+Bpu2FXWdR8d2f95YyX
+	3z+TGIclsBvABFcxFMUDwh8rZBZD+TGJejpjDEm7e6o0+1rYS6hY+9HaT5ewZBIugRpaWYOAPEBp3
+	zwas8t6JoWlDL9WEJJP6cqDh63fUmmjvFcHjqTfdmp75Ot4FvmDwcNFwtPrTM/KqkwZgGUpeePMON
+	FD9h0RGQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xBXd1-00000003dlb-2C0h;
-	Tue, 29 Sep 2026 13:12:15 +0000
-Received: from mx0b-0031df01.pphosted.com ([205.220.180.131])
+	id 1xBXfZ-00000003e71-0tmR;
+	Tue, 29 Sep 2026 13:14:53 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xBXcz-00000003dkv-1lzB
+	id 1xBXfY-00000003e6c-16NU
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 29 Sep 2026 13:12:15 +0000
-Received: from pps.filterd (m0279868.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 68TCqgmi204946
-	for <linux-arm-kernel@lists.infradead.org>; Tue, 29 Sep 2026 13:12:12 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
-	cc:content-type:date:from:in-reply-to:message-id:mime-version
-	:references:subject:to; s=qcppdkim1; bh=EjG8/uIKj4fF9C0fjKOLgLTr
-	otKBVJW8kyX0llTR/J8=; b=hJqld45DWBgRyjXu3jt5hm6P9E0kR2qFRF08wYTH
-	Waz7kNuLocJCbNN7ad/5E7ahQcso85HSQd0Yjrlaf0tLLjrZTA95XAXcQd66+4Jy
-	MyXG/TQPV4iFY6O1RXJygO2njMjjL/qNIXmVJKGLDxQivAyEYZlRzose8NLHbrH7
-	92XqDuYQGAj6BTAuCPg2uR+tkY+p7Lbs12L/U4L8Lt9vRCEkk5qu4op3mi1bmq5o
-	eMCl+GBME6NwIFBS+XmgaazME3rAMxLtZDgGQN539aJZQAyOLmcF18vcE8sK5tL4
-	smkQXiYzP3gaYuZImAr8tES2JANLCVQgVc/P5lqDsu9Brw==
-Received: from mail-vs1-f69.google.com (mail-vs1-f69.google.com [209.85.217.69])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4h0144u4cs-1
-	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
-	for <linux-arm-kernel@lists.infradead.org>; Tue, 29 Sep 2026 13:12:12 +0000 (GMT)
-Received: by mail-vs1-f69.google.com with SMTP id ada2fe7eead31-7b2d35b3550so3317905137.1
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 29 Sep 2026 06:12:12 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=oss.qualcomm.com; s=google; t=1790687532; x=1791292332; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:content-type:mime-version
-         :references:message-id:subject:cc:to:from:date:from:to:cc:subject
-         :date:message-id:reply-to:content-type;
-        bh=EjG8/uIKj4fF9C0fjKOLgLTrotKBVJW8kyX0llTR/J8=;
-        b=BnV1Tizs0uVPdGO0qN1xaNlH1GtL+Hx/0eQJwZIMx/g33XnuYkFSPmRUuo+THKXfdg
-         lwGxGkzoUdUlJUAGME6d2ZAGmnKDOjeYj0eX8iKtBGjcxIW9rWK2e+GZbyqNlvLU97eE
-         4aWfY5YmylZR5hwLRQ2kimI9wHehupeuclBs/iKUD769zmWe3ngkkeip8wO46/y5llsI
-         R21b/u0/gsREYgEMjBG7s+66LMDW7RHhSUbofb6Q1UVfno7RSoGIsek6x0VNH87dRS44
-         mLTo0ElXZt+X0DC9O/viRsmHlZ0yzIp9oYCGxMEYQiE2wxyDogQ84fvmCVwMQe1mDnP8
-         3Ayw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1790687532; x=1791292332;
-        h=in-reply-to:content-disposition:content-type:mime-version
-         :references:message-id:subject:cc:to:from:date:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=EjG8/uIKj4fF9C0fjKOLgLTrotKBVJW8kyX0llTR/J8=;
-        b=I5T5juWN3wbqimjKHs/hRbIxXTYLQkb+DNuD6VWqhkuTdw+tIReVlcb5XC2pgf3FPO
-         O6NjZlufxwu1aka+eY5YvCEwpiDGT1AKcMiZ5VQQMEghthtSyM/Qu/n6zTCJ0D3qw3tX
-         XH6zi+CvNADWg6jJHqW+TkWoikVdhhZsWdmYOhqD+jDbFpBFqtRlSRT8dcn6/45npb5h
-         D8S8WnxZ4bvYrvTwfGMWs9e+s5mWUnAE+lJmV6mhTgtxH2dw+T3eI8+bEXg2Sj2/jCcR
-         cOMzD0u2010bGlhLTmidb9+H8/WsHkU81E23KRdNQ4W9wJF9K1++M3It0IzsGhr4rRMY
-         WKBA==
-X-Forwarded-Encrypted: i=1; AKwUvBxXpiXTUcwqBNAOL7PgmTWEhNlXgZ9d9gD4ACoB7LFvBe3T+W4cXLBUyxxaCq7I553gg3/JVyB28+hx0PS0qiCO@lists.infradead.org
-X-Gm-Message-State: AFq9FYJSe6J79FLcG9wj12zvNZUCoxfK3ClX0y5wSuB+t8rckdIgflDY
-	xrlZ+hM/tf54fJz8hbs65wobRuLFa6mES93wAA4wx3fnNQBDYacLOju/BmeEw25NrvUbihoN45W
-	MUmqa0hnjSJ4nPtMZysIu0ftA4u0bAhHZM4hPEEjcKCvLGVmE9dDQrFBlDFukdhetY/d1ypK8Mo
-	Yvkg==
-X-Gm-Gg: AYBFou0ddzRkqazNGmECjGHXBIee6kw8NjvU7gtO0FmDukNHebf/N6fu3YJ+8U2sOeD
-	20yz8n43FczmTHzhmFPOCq6OW82GAYOTMA28uUcbYrWPRg00RSq24eKEeUWLiftyK97Bvb0rY1c
-	LcoJzzdTW2qu2I7egvmdAzOwX6FLbE3Prgig797ooxh/+HMsg52EIDdUTyN9nvARMvJ8tn0+MZF
-	0Xr5oWOk+acaX/24BEXDgs2qT5Hd6xTIL16tysJFPkyzjoqdLmxL7KkzTT1ERSFfqp/f4bLrkHO
-	sHIlQoI9USLhaxtlz/3fyU7H4W71WGIWofanPrGJvEBUGy5a5ihDli5Qy2eHLOhpqhTF1GdT91+
-	sO5/DEW7iaDwHJg==
-X-Received: by 2002:a05:6102:3e8e:b0:7a7:198b:6748 with SMTP id ada2fe7eead31-7af1edf1724mr6690842137.29.1790687531274;
-        Tue, 29 Sep 2026 06:12:11 -0700 (PDT)
-X-Received: by 2002:a05:6102:3e8e:b0:7a7:198b:6748 with SMTP id ada2fe7eead31-7af1edf1724mr6690822137.29.1790687530476;
-        Tue, 29 Sep 2026 06:12:10 -0700 (PDT)
-Received: from localhost ([188.216.77.92])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-48af4f8b1eesm4223084f8f.3.2026.09.29.06.12.09
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 29 Sep 2026 06:12:09 -0700 (PDT)
-Date: Tue, 29 Sep 2026 15:12:08 +0200
-From: Lorenzo Bianconi <lorenzo.bianconi@oss.qualcomm.com>
-To: netdev-bot+sashiko@kernel.org
-Cc: maxime.chevallier@bootlin.com, andrew+netdev@lunn.ch, davem@davemloft.net,
-        edumazet@google.com, kuba@kernel.org, pabeni@redhat.com,
-        mcoquelin.stm32@gmail.com, alexandre.torgue@foss.st.com,
-        richardcochran@gmail.com, Jose.Abreu@synopsys.com,
-        netdev@vger.kernel.org, linux-stm32@st-md-mailman.stormreply.com,
-        linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH net v2] net: stmmac: propagate PTP addend and system time
+	Tue, 29 Sep 2026 13:14:52 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by sea.source.kernel.org (Postfix) with ESMTP id B406A41377;
+	Tue, 29 Sep 2026 13:14:51 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id E4E791F000FF;
+	Tue, 29 Sep 2026 13:14:50 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1790687691;
+	bh=URC7r36kokGjXCV5G6Ei8oKV54JoMbconYpCKkPt2AY=;
+	h=From:To:Cc:Subject:Date:In-Reply-To:References;
+	b=SaOLiz/P4QD/1jWp3xRrQOu8XJphhx/BdMpkQNQOX3+mkiZkQg4BkPvmvL57yXfYK
+	 u2iAtsiM6mNzKOyKD4g2nd91CwQXWGXw7wVvHyH6liP/8lpgPK5O01G1uOa+pqM7Pe
+	 CLt4AVcZj+eosxPCk/HYVPGlBBHiEAN7+WtPclD499vr18ETJL26iGeNp/qdE1zTYy
+	 iFxJDkMq46ZzowfTy9gdCKVh1IgXxzL713ZAVGcdJCiyCYTDtt97K96u4hCnT+nmDk
+	 9L2Yr1rxi+NfDKl/h0Y6q82Yz+Q1psVKtr6wcobB88D/cEjKsV/iKN8B/xykxlep1s
+	 Mu+fE7ApLYg9A==
+From: netdev-bot+sinfo@kernel.org
+To: Lorenzo Bianconi <lorenzo.bianconi@oss.qualcomm.com>
+Cc: Maxime Chevallier <maxime.chevallier@bootlin.com>,
+ Andrew Lunn <andrew+netdev@lunn.ch>, "David S. Miller" <davem@davemloft.net>,
+ Eric Dumazet <edumazet@kernel.org>, Jakub Kicinski <kuba@kernel.org>,
+ Paolo Abeni <pabeni@redhat.com>, Maxime Coquelin <mcoquelin.stm32@gmail.com>,
+ Alexandre Torgue <alexandre.torgue@foss.st.com>,
+ Richard Cochran <richardcochran@gmail.com>,
+ Jose Abreu <Jose.Abreu@synopsys.com>, netdev@vger.kernel.org,
+ linux-stm32@st-md-mailman.stormreply.com,
+ linux-arm-kernel@lists.infradead.org
+Subject: Re: [PATCH net v3] net: stmmac: propagate PTP addend and system time
  programming errors
-Message-ID: <aru5KHddKAOBUT5f@lore-desk>
-References: <20260924-stmmac-ptp-added-systime-error-v2-1-beb2a6b5f866@oss.qualcomm.com>
- <179033656748.2160803.6725984933967085758@kernel.org>
+Date: Tue, 29 Sep 2026 13:14:50 +0000
+Message-ID: <179068769042.31693.17699965363723906103@kernel.org>
+In-Reply-To: <20260929-stmmac-ptp-added-systime-error-v3-1-ddd6afe936b4@oss.qualcomm.com>
+References: <20260929-stmmac-ptp-added-systime-error-v3-1-ddd6afe936b4@oss.qualcomm.com>
+Auto-Submitted: auto-generated
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
 MIME-Version: 1.0
-Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="aVQ8ZswR1ZqLphIm"
-Content-Disposition: inline
-In-Reply-To: <179033656748.2160803.6725984933967085758@kernel.org>
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwOTI5MDA1MiBTYWx0ZWRfX/5arvMTGFlLf
- oQXfX2D/xEYoxQY1rFbBvdSDcQeqps8ccHwROx8X1gHYirVXAejSM0tD+tVLe1Sxxyiw3c+ITVT
- BDmgYoGNCDEUPh0X2G+xrrZ+ppImj/hTPz/MeFEN+FHK2fxhEYNKBjg+QneBiidmTZ/04+WRy0/
- XLrGytCn1YIBqLORSvQOswEsJNqxjYyA7a5UEtLXkGMo1Z1Q8vyWsG2I5kBVvawzDNBsi2VRAUE
- Ihl0DTQ2RDFlFPx/fKrVpfxfrYjDPIJ5H5QRm9KmLdjbA3CKJX98P67FjiymjHG7R4kjb1fzHmy
- vQGvudt7CCvRiquBpEEYrA4y/tHBsMHGdZxF/b9YZvEKtqvhZnRaGkvH4W28oV8RptUM91DXfyu
- fiB8E1gCgUcW5e6tZ3VJBq0Mv60N2xZiwufCoN3jq2KVAZsZTU7gDNA7Qtn0mIrAMLW8n6BU18r
- xl3Ffzb2K44w+ZHs7tQ==
-X-Authority-Analysis: v=2.4 cv=FJSOVOos c=1 sm=1 tr=0 ts=6abbb92c cx=c_pps
- a=5HAIKLe1ejAbszaTRHs9Ug==:117 a=WpTaRW6qxYHRGzLzQsVYzg==:17
- a=VdqzKS8jKosA:10 a=s4-Qcg_JpJYA:10 a=VkNPw1HP01LnGYTKEx00:22
- a=u7WPNUs3qKkmUXheDGA7:22 a=ZpdpYltYx_vBUK5n70dp:22 a=9R54UkLUAAAA:8
- a=EUspDBNiAAAA:8 a=32yqpjcMs3itML3eInoA:9 a=QEXdDO2ut3YA:10
- a=xloJuupI3-Lpbi46SewA:9 a=gYDTvv6II1OnSo0itH1n:22 a=YTcpBFlVQWkNscrzJ_Dz:22
-X-Proofpoint-ORIG-GUID: xJOoObjF62upJTLxIwvf17XwXlPhnk4W
-X-Proofpoint-GUID: xJOoObjF62upJTLxIwvf17XwXlPhnk4W
-X-Proofpoint-Spam-Info: AW1haW4tMjYwOTI5MDA1MiBTYWx0ZWRfX6NZvofJ58oy0
- k7xpU84l4a1Bgm0qonjGPSC1UUNthC9wP4pulekAjfCEsiQhzhmdwjLiqSzd/7AhbgDliWWFQWR
- NJp2B0e2Ai9HfU3lSJk8CYG70cyaAvo=
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1176,Hydra:6.1.134,FMLib:17.12.100.49
- definitions=2026-09-29_04,2026-09-21_02,2025-10-01_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- priorityscore=1501 adultscore=0 clxscore=1015 malwarescore=0 bulkscore=0
- lowpriorityscore=0 phishscore=0 suspectscore=0 spamscore=0 impostorscore=0
- classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
- reason=mlx scancount=1 engine=8.22.0-2609040000 definitions=main-2609290052
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260929_061213_599113_A62F69CE 
-X-CRM114-Status: GOOD (  48.30  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -152,402 +77,29 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
---aVQ8ZswR1ZqLphIm
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
+Hi!
 
-> Thank you for your contribution! Sashiko AI review found 7 potential
-> issue(s) to consider.
->=20
-> Critical: 0 =C2=B7 High: 1 (1) =C2=B7 Medium: 4 (1) =C2=B7 Low: 2
->=20
-> If you believe none of the issues are legitimate, please reply to each
-> issue of Medium severity or higher and explain why the AI is wrong.
-> If any of them are legitimate and you plan to respin, please let patchwork
-> know by including "pw-bot: cr" as a separate line at the end of your reply
-> (one such reply per series is enough).
->=20
-> - [High] The fix stops at returning an error.
-> - [Medium] The patch is titled 'propagate PTP addend and system time
->   programming errors', but the PHC callbacks that call the same hooks=E2=
-=80=A6
-> - [Medium] The new failure paths leave timestamping enabled with stale
->   state.
-> - [Medium] The patch reorders stmmac_dl_ts_coarse_set() so that
->   priv->systime_flags is copied into a local variable at entry, all=E2=80=
-=A6
-> - [Medium] stmmac_restore_subsecond_increment() calls
->   stmmac_config_addend() unconditionally and ignores its result,=E2=80=A6
-> - [Low] stmmac_dl_ts_coarse_set() can now return -EINVAL (sub-second
->   increment computed as 0) or -ETIMEDOUT (TSADDREG poll timeout in=E2=80=
-=A6
-> - [Low] The new rollback in stmmac_update_subsecond_increment() (line
->   658) passes priv->default_addend to=E2=80=A6
->=20
-> Pre-existing issues:
-> - [High] This problem wasn't introduced by this patch, but the devlink
->   'phc_coarse_adj' param (priv->tsfupdt_coarse) is not honoured when=E2=
-=80=A6
-> - [Medium] This problem wasn't introduced by this patch, but
->   stmmac_update_subsecond_increment() and the new=E2=80=A6
->=20
+This is an automated message. This series looks like a fix, but its
+commit messages seem to be missing some information:
 
-I will fix the issues reported by sashiko in v3.
+ - How the issue was discovered, e.g. hit in production, hit during
+   development, syzbot report, manual code inspection, LLM or static
+   analysis tool scan.
 
-Regards,
-Lorenzo
+ - Whether the issue was actually triggered, or is only theoretical
+   (e.g. found by code inspection). If it was triggered please include
+   the symptoms, like the stack trace or error messages.
 
-> --
->=20
-> net: stmmac: propagate PTP addend and system time programming errors
->=20
-> This patch makes stmmac_update_subsecond_increment(),
-> stmmac_init_tstamp_counter() and stmmac_dl_ts_coarse_set() return the
-> errors from addend and system time programming instead of always
-> returning success. It also adds stmmac_restore_subsecond_increment() to
-> roll back the PTP configuration when programming fails.
->=20
-> > diff --git a/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c b/driver=
-s/net/ethernet/stmicro/stmmac/stmmac_main.c
-> > index 1fb5f804ea234..fae2a90283ce4 100644
-> > --- a/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
-> > +++ b/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
-> > @@ -601,31 +601,63 @@ static void stmmac_get_rx_hwtstamp(struct stmmac_=
-priv *priv, struct dma_desc *p,
-> >  	}
-> >  }
-> > =20
-> > -static void stmmac_update_subsecond_increment(struct stmmac_priv *priv)
-> > +static void stmmac_restore_subsecond_increment(struct stmmac_priv *pri=
-v,
-> > +					       u32 default_addend,
-> > +					       u32 systime_flags)
-> >  {
-> >  	bool xmac =3D dwmac_is_xmac(priv->plat->core_type);
-> >  	u32 sec_inc =3D 0;
-> > +
-> > +	stmmac_config_addend(priv, priv->ptpaddr, default_addend);
-> > +	stmmac_config_hw_tstamping(priv, priv->ptpaddr, systime_flags);
-> > +	stmmac_config_sub_second_increment(priv, priv->ptpaddr,
-> > +					   priv->plat->clk_ptp_rate,
-> > +					   xmac, &sec_inc);
-> > +	priv->default_addend =3D default_addend;
-> > +	priv->sub_second_inc =3D sec_inc;
-> > +}
->=20
-> [Severity: Medium]
-> Is it safe to call stmmac_config_addend() again here and ignore its
-> result?
->=20
-> When this rollback runs because config_addend() has just timed out in
-> stmmac_update_subsecond_increment(), PTP_TCR_TSADDREG may still be set.
-> One way to get there is a PTP ref clock domain that is not running,
-> since stmmac_setup_ptp() only warns when clk_prepare_enable() fails.
-> config_addend() then overwrites PTP_TAR and sets TSADDREG again while
-> the previous update is still pending:
->=20
-> stmmac_hwtstamp.c:config_addend() {
-> 	writel(addend, ioaddr + PTP_TAR);
-> 	/* issue command to update the addend value */
-> 	value =3D readl(ioaddr + PTP_TCR);
-> 	value |=3D PTP_TCR_TSADDREG;
-> 	writel(value, ioaddr + PTP_TCR);
-> 	...
-> }
->=20
-> The DWMAC programming model expects this bit to read 0 before it is set
-> again. The call also adds a second 100 ms readl_poll_timeout_atomic()
-> busy-wait, so the failing devlink path spins for about 200 ms.
->=20
-> If the pending update latches later, TAR could end up holding the old
-> value (or 0 on the first open after probe) rather than the one just
-> computed.
->=20
-> On the TSINIT timeout path in stmmac_init_tstamp_counter(), the TCR
-> read-modify-write in config_addend() also writes the still-pending
-> TSINIT bit back as 1, so the pending system time load is not cancelled.
->=20
-> In every case, the helper then sets priv->default_addend and
-> priv->sub_second_inc as if the old configuration had been restored in
-> hardware.
->=20
-> [Severity: Medium]
-> This isn't a bug introduced by this patch, but
-> stmmac_update_subsecond_increment() and this new helper program
-> PTP_TCR, PTP_SSIR and PTP_TAR, and update priv->default_addend and
-> priv->sub_second_inc, without holding priv->ptp_lock. Both run from the
-> devlink set path while the PHC is registered.
->=20
-> The PHC callbacks use that lock around the same registers:
->=20
-> stmmac_ptp.c:stmmac_adjust_freq() {
-> 	...
-> 	write_lock_irqsave(&priv->ptp_lock, flags);
-> 	stmmac_config_addend(priv, priv->ptpaddr, addend);
-> 	write_unlock_irqrestore(&priv->ptp_lock, flags);
-> 	...
-> }
->=20
-> stmmac_enable() also reads priv->sub_second_inc and
-> priv->systime_flags under ptp_lock for PEROUT.
->=20
-> Could a concurrent adjfine and phc_coarse_adj devlink set lose a TCR
-> mode change, or program a TAR derived from a stale default_addend? This
-> error path adds one more unlocked config_addend() plus
-> config_hw_tstamping() sequence.
->=20
-> > +
-> > +static int stmmac_update_subsecond_increment(struct stmmac_priv *priv,
-> > +					     u32 systime_flags)
-> > +{
->=20
-> [ ... ]
->=20
-> > +	ret =3D stmmac_config_addend(priv, priv->ptpaddr, val);
-> > +	if (ret)
-> > +		goto error;
-> > +
-> > +	priv->sub_second_inc =3D sec_inc;
-> > +	priv->default_addend =3D val;
-> > +
-> > +	return 0;
-> > +error:
-> > +	/* Restore previous configuration */
-> > +	stmmac_restore_subsecond_increment(priv, priv->default_addend,
-> > +					   priv->systime_flags);
->=20
-> [Severity: Low]
-> Is priv->default_addend really the previous configuration here?
-> stmmac_adjust_freq() programs an adjusted addend into PTP_TAR but does
-> not update default_addend:
->=20
-> 	addend =3D adjust_by_scaled_ppm(priv->default_addend, scaled_ppm);
->=20
-> If a phc_coarse_adj devlink set fails (for example with sec_inc =3D=3D 0),
-> the rollback writes the nominal addend into PTP_TAR. That drops the
-> frequency correction the servo had applied, so a failed operation still
-> changes the PHC frequency, which the "Restore previous configuration"
-> comment doesn't reflect.
->=20
-> > +	return ret;
-> >  }
-> > =20
-> >  /**
-> > @@ -864,25 +896,37 @@ static int stmmac_hwtstamp_get(struct net_device =
-*dev,
-> >  static int stmmac_init_tstamp_counter(struct stmmac_priv *priv,
-> >  				      u32 systime_flags)
-> >  {
->=20
-> [ ... ]
->=20
-> >  	/* lower 32 bits of tv_sec are safe until y2106 */
-> > -	stmmac_init_systime(priv, priv->ptpaddr, (u32)now.tv_sec, now.tv_nsec=
-);
-> > +	ret =3D stmmac_init_systime(priv, priv->ptpaddr, (u32)now.tv_sec,
-> > +				  now.tv_nsec);
-> > +	if (ret)
-> > +		goto error;
->=20
-> [Severity: Medium]
-> The subject says addend and system time programming errors are now
-> propagated, but the PHC callbacks that call the same hooks still drop
-> the result:
->=20
-> stmmac_ptp.c:stmmac_set_time() {
-> 	...
-> 	write_lock_irqsave(&priv->ptp_lock, flags);
-> 	stmmac_init_systime(priv, priv->ptpaddr, ts->tv_sec, ts->tv_nsec);
-> 	write_unlock_irqrestore(&priv->ptp_lock, flags);
->=20
-> 	return 0;
-> }
->=20
-> stmmac_adjust_freq() also ignores the return of stmmac_config_addend()
-> and returns 0.
->=20
-> When the TSINIT or TSADDREG poll times out, clock_settime() or
-> clock_adjtime() from ptp4l or phc2sys still reports success. Should
-> settime64 and adjfine return the error too, since the ptp_clock_info
-> callbacks are allowed to fail?
->=20
-> > +
-> > +	priv->systime_flags =3D systime_flags;
->=20
-> [Severity: High]
-> This is a pre-existing issue, but this path is being reworked here:
-> stmmac_init_timestamping() always sets PTP_TCR_TSCFUPDT and ignores
-> priv->tsfupdt_coarse:
->=20
-> 	ret =3D stmmac_init_tstamp_counter(priv, STMMAC_HWTS_ACTIVE |
-> 					       PTP_TCR_TSCFUPDT);
->=20
-> Suppose phc_coarse_adj is set to true and then the interface goes down
-> and up (or through suspend/resume). config_sub_second_increment() then
-> programs the fine mode SSINC (2e9 / clk_ptp_rate) and the ~2^31 addend.
-> priv->tsfupdt_coarse stays true, so stmmac_dl_ts_coarse_get() still
-> reports coarse mode.
->=20
-> The next SIOCSHWTSTAMP clears TSCFUPDT in stmmac_hwtstamp_set():
->=20
-> 	priv->systime_flags =3D STMMAC_HWTS_ACTIVE;
-> 	if (!priv->tsfupdt_coarse)
-> 		priv->systime_flags |=3D PTP_TCR_TSCFUPDT;
->=20
-> It then only calls stmmac_config_hw_tstamping(), and SSIR and TAR are
-> not reprogrammed.
->=20
-> Does that leave the hardware in coarse mode, adding twice the clock
-> period on every cycle, so the PHC runs about twice as fast?
->=20
-> > =20
-> >  	return 0;
-> > +error:
-> > +	/* Restore previous configuration */
-> > +	stmmac_restore_subsecond_increment(priv, default_addend,
-> > +					   priv->systime_flags);
-> > +
-> > +	return ret;
-> >  }
->=20
-> [Severity: Medium]
-> Can this failure path leave timestamping enabled with stale state?
->=20
-> stmmac_hwtstamp_set() sets priv->hwts_rx_en, priv->hwts_tx_en,
-> priv->tstamp_config and a priv->systime_flags value that includes TSENA
-> and the RX filter bits. None of these is cleared on close or suspend.
->=20
-> On a later open or resume, if stmmac_init_tstamp_counter() fails, this
-> rollback writes the old priv->systime_flags, filter bits included, back
-> into PTP_TCR. The rollback in stmmac_update_subsecond_increment() does
-> the same. stmmac_init_timestamping() then returns early:
->=20
-> 	if (ret) {
-> 		netdev_warn(priv->dev, "PTP init failed\n");
-> 		return ret;
-> 	}
->=20
-> and never reaches:
->=20
-> 	memset(&priv->tstamp_config, 0, sizeof(priv->tstamp_config));
-> 	priv->hwts_tx_en =3D 0;
-> 	priv->hwts_rx_en =3D 0;
->=20
-> TX timestamp requests and RX timestamp delivery in
-> stmmac_get_rx_hwtstamp() would then keep running on a counter whose
-> init just failed, and stmmac_hwtstamp_get() reports the stale config.
->=20
-> Before this patch, these paths always reached the reset, and TCR was
-> left at STMMAC_HWTS_ACTIVE | PTP_TCR_TSCFUPDT with no filters.
->=20
-> [Severity: High]
-> The error now reaches stmmac_init_timestamping(), but do any callers
-> act on it?
->=20
-> stmmac_resume() ignores the result:
->=20
-> 	stmmac_init_timestamping(priv);
->=20
-> 	stmmac_init_coalesce(priv);
->=20
-> After the MAC reset in stmmac_hw_setup(), a TSADDREG or TSINIT timeout
-> here leaves the PHC registered at open still in place. gettime64,
-> adjfine, settime64 and tc_taprio_configure(), which calls gettime64 for
-> the EST base time, keep using a counter that was never re-initialized.
->=20
-> On open, stmmac_setup_ptp() only skips registration:
->=20
-> 	if (stmmac_init_timestamping(priv) =3D=3D 0)
-> 		stmmac_ptp_register(priv);
->=20
-> The interface still comes up. stmmac_hwtstamp_set() only checks the
-> timestamp capability bits and netif_running(), so SIOCSHWTSTAMP can
-> still turn on packet timestamping with the uninitialized counter and
-> return 0.
->=20
-> The commit message describes the problem as the driver that "keeps
-> operating as if timestamping were up" and names TAPRIO/EST. On the
-> resume path, the only visible change seems to be the "PTP init failed"
-> warning. Isn't that still the situation this patch is meant to fix?
->=20
-> > =20
-> >  /**
-> > @@ -7693,18 +7737,23 @@ static int stmmac_dl_ts_coarse_set(struct devli=
-nk *dl, u32 id,
-> >  {
-> >  	struct stmmac_devlink_priv *dl_priv =3D devlink_priv(dl);
-> >  	struct stmmac_priv *priv =3D dl_priv->stmmac_priv;
-> > +	u32 systime_flags =3D priv->systime_flags;
-> > +	int ret;
->=20
-> [ ... ]
->=20
-> > -	stmmac_update_subsecond_increment(priv);
-> > +	ret =3D stmmac_update_subsecond_increment(priv, systime_flags);
-> > +	if (ret)
-> > +		return ret;
->=20
-> [Severity: Low]
-> This now returns -EINVAL or -ETIMEDOUT to devlink without filling in
-> the extack it receives. Would an NL_SET_ERR_MSG_MOD() help user space
-> understand why setting phc_coarse_adj failed?
->=20
-> > +
-> > +	priv->tsfupdt_coarse =3D ctx->val.vbool;
-> > +	priv->systime_flags =3D systime_flags;
->=20
-> [Severity: Medium]
-> Does moving these assignments after the hardware programming widen a
-> race with stmmac_hwtstamp_set()? The devlink set callback runs under
-> the devlink instance lock and stmmac_hwtstamp_set() runs under RTNL, so
-> the two paths share no lock.
->=20
-> CPU0 (devlink, vbool =3D true)
-> stmmac_dl_ts_coarse_set()
->   systime_flags =3D priv->systime_flags, TSCFUPDT cleared
->   stmmac_update_subsecond_increment()
->     writes TCR in coarse mode and the coarse SSIR
->     config_addend() polls TSADDREG for up to 100 ms
->=20
-> CPU1 (SIOCSHWTSTAMP)
-> stmmac_hwtstamp_set()
->   reads priv->tsfupdt_coarse =3D=3D false
->   priv->systime_flags =3D ACTIVE | TSCFUPDT | filters
->   writes TCR back to fine mode
->=20
-> CPU0
->   priv->tsfupdt_coarse =3D true
->   priv->systime_flags =3D stale copy, no TSCFUPDT and no filters
->=20
-> The hardware ends up in fine mode with the coarse SSIR and addend, so
-> the PHC runs at the wrong rate. priv->systime_flags then matches neither
-> the hardware nor the hwtstamp request, and it is used later by flex PPS
-> in stmmac_enable() and by the new restore paths.
->=20
-> The old code set tsfupdt_coarse before the MMIO programming, so the
-> window was only a few instructions. Here it covers the whole
-> programming sequence, including the poll.
->=20
-> > =20
-> >  	return 0;
-> >  }
->=20
-> --=20
-> Sashiko AI review =C2=B7 https://netdev-ai.bots.linux.dev/sashiko/#/patch=
-set/20260924-stmmac-ptp-added-systime-error-v2-1-beb2a6b5f866%40oss.qualcom=
-m.com
+ - What hardware the change was tested on. For driver fixes please
+   mention the device (and if relevant firmware version) used for
+   testing, or say that the change was not tested on real hardware.
 
---aVQ8ZswR1ZqLphIm
-Content-Type: application/pgp-signature; name=signature.asc
+Please do not repost the series just to address the above. Instead,
+reply to this email with the missing information, so that reviewers
+can take it into account. If the series needs another revision for
+other reasons, please include the information in the commit messages
+then.
 
------BEGIN PGP SIGNATURE-----
-
-iHUEABYKAB0WIQTquNwa3Txd3rGGn7Y6cBh0uS2trAUCaru5KAAKCRA6cBh0uS2t
-rP53AQDlqQsb9Nw3V9lI5TNUSFSF54usPiT/0grzpx6PlOWmbgD/SP6S7pnXE11A
-Lhyu6Hvg3EIdyDsitgRQa1/HEDiXkQE=
-=en7k
------END PGP SIGNATURE-----
-
---aVQ8ZswR1ZqLphIm--
+The evaluation is done by an LLM so it may be wrong, if you think
+that is the case please reply and explain.
 
