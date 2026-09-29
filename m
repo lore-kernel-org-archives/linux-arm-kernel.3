@@ -4,43 +4,43 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 90B47C9832A
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 29 Sep 2026 06:35:03 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A3A38CA5FA1
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 29 Sep 2026 06:35:19 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=+bgvhx+iNJqLGuHfNN4D1vVvbWmzHanZN0EWQocVqr8=; b=LaBAEXeW4KDtZLYB9R2fGh++t6
-	4dhr5k6JCmC/2mNxBirYYxz15IE7ZQlbiPLtdnURp3rFOtFaXMVmy2gV3cPZsdt1tErfdJWXSV6If
-	bHnVmHKteB89dv+DPyRnmyaii/9wwD7yrhCBeoTzBg5bvYrLXZri4rQ5zmnjWoT5/yog7Z8atADNE
-	qckAD5+CmkNtiV1OXg5PwvMBSHEspd1yE8RZuYqUiwW/Fq2wO6aKR1Ve1RfiKaUk9d8VYH+U0Wduc
-	x60Mp2rdLDN1504wqvWQnNJyAIM9Uv5kPEgC471gz1rGWDLeX3U0C97W5sx1kPMtWXAIoVJ2jGnzL
-	44DF61Rg==;
+	bh=b5P9DPC5Eh+uVVTafzh7x7snkd1B5+EyEah33pHMIwQ=; b=2FZYhgTOqFbz6GvPG/Hp6JogwO
+	Jv+JpfiLOz9vQ/K0d9YUqeWcm2zaYgpT8l87XaDb+VwtE5ONi273dfyp9jYEnFHg9JlQNHvgycryQ
+	onZqWayQ+73JH89B/jNe4cpj7vCzsy9rCEmTAQzvY8lYqPF6wEUM+0Tk8GMnX2uRguRLIfNc9LkyN
+	9rRmL1OXko0GCvy2Y1xm6bN7yOqRZIbCDlB4I7bkqWMlKc/tRK0n9P/Gp9xzYUWjJAOdTcODaJwIL
+	dgZeutC3shWYCLo+6f5DpZ2wnArNy+y2t1RNZEGdmOd5Od/LvBCOWJflxbAc4QZSC8QJ+f+hcvWuM
+	IcuKTGXQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xBRQX-00000002Sni-0oPv;
-	Tue, 29 Sep 2026 06:34:57 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1xBRQn-00000002Syi-1trL;
+	Tue, 29 Sep 2026 06:35:13 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xBRQR-00000002SlR-3U7e;
-	Tue, 29 Sep 2026 06:34:51 +0000
+	id 1xBRQX-00000002Sny-244Y;
+	Tue, 29 Sep 2026 06:34:57 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 923D44099F;
+	by sea.source.kernel.org (Postfix) with ESMTP id 3E0AE43BE3;
+	Tue, 29 Sep 2026 06:34:57 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id E0F391F000FF;
 	Tue, 29 Sep 2026 06:34:51 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 85F211F00893;
-	Tue, 29 Sep 2026 06:34:45 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1790663691;
-	bh=+bgvhx+iNJqLGuHfNN4D1vVvbWmzHanZN0EWQocVqr8=;
+	s=k20260515; t=1790663697;
+	bh=b5P9DPC5Eh+uVVTafzh7x7snkd1B5+EyEah33pHMIwQ=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References;
-	b=RLQTXz1ITGYxNI9eJeEDaA971P+RD5CZ8/xv+1R2g0gtikE9xaqECWlOakkYXyghn
-	 ero6A+z5tG86q6G7R47Y3U57/sFK09xCQ62oxAQINz6nnx8JHmJL73nyjx1K4fepTu
-	 tWVbcGQcWmKsTTdtFzxmyPHTLkhR5pu6DkodfgexrKFY59fuyNA0WnxoACwgl3T0zb
-	 koZYcdwXu+eIUDneEUj4k5qgc5OwzIdjVl3/oU4yqyJUcNcGfKU1LTYgOKTkmzxuh5
-	 ykiNJyRaZRM+Wg2Tfu3PoaqfoPkB1iA+2YpjO1LSkkMASP2I9M50h2/oyWsOqh2F+a
-	 IAdcUCktu7DLw==
+	b=WEf74tzi760yMiXm/BbqSALK+Gvk/Z6yTHrwf5Dw7KuP6J0npGpLtEKSx3rrYjVSZ
+	 LV13LVz/HA1cwIJI5VjiruARVhMwmUXEcETebHuyi4BafWynRucQiNNyIg9Be1r71x
+	 RP41zHiK92rwsJBal0/5h3VbL3h+CJyCVnpdNiDrmQWxedSn01IGcJfVlYrpCxYIZt
+	 nv2m3WdyO1gK8gH3Fbxtra56t3gtQCJQKcsefHB3bxhbF1SkX2voL6xayQPhYka7xX
+	 uymMmTKD8+QrR8SjIJFY9EalKMg4VcfCzrPhVJh6cjQKhKWQTvrHqKDWIbG4hGO7au
+	 0ze0YxOxMg/Lw==
 From: Jisheng Zhang <jszhang@kernel.org>
 To: Rob Herring <robh@kernel.org>,
 	Krzysztof Kozlowski <krzk+dt@kernel.org>,
@@ -69,9 +69,9 @@ Cc: devicetree@vger.kernel.org,
 	linux-serial@vger.kernel.org,
 	linux-spi@vger.kernel.org,
 	linux-arm-kernel@lists.infradead.org
-Subject: [PATCH 05/20] i3c: dw: switch to array-based exclusive reset control
-Date: Tue, 29 Sep 2026 14:14:02 +0800
-Message-ID: <20260929061417.20733-6-jszhang@kernel.org>
+Subject: [PATCH 06/20] dt-bindings: i3c: Add Synaptics sl261x i3c
+Date: Tue, 29 Sep 2026 14:14:03 +0800
+Message-ID: <20260929061417.20733-7-jszhang@kernel.org>
 X-Mailer: git-send-email 2.51.0
 In-Reply-To: <20260929061417.20733-1-jszhang@kernel.org>
 References: <20260929061417.20733-1-jszhang@kernel.org>
@@ -91,88 +91,29 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The Synopsys DesignWare I3C master controller can have multiple reset
-lines, such as a core reset and APB reset.
-
-Refactor the driver to use devm_reset_control_array_get_exclusive()
-instead of a single named reset handle. This automatically manages all
-resets allocated to the device node sequentially.
+Add the compatible for the Synaptics SL261X SoC I3C controller, which
+is compatible with the Synopsys DesignWare I3C.
 
 Signed-off-by: Jisheng Zhang <jszhang@kernel.org>
 ---
- drivers/i3c/master/dw-i3c-master.c | 24 ++++++++++++++++++------
- drivers/i3c/master/dw-i3c-master.h |  2 +-
- 2 files changed, 19 insertions(+), 7 deletions(-)
+ Documentation/devicetree/bindings/i3c/snps,dw-i3c-master.yaml | 4 +++-
+ 1 file changed, 3 insertions(+), 1 deletion(-)
 
-diff --git a/drivers/i3c/master/dw-i3c-master.c b/drivers/i3c/master/dw-i3c-master.c
-index 4563d8761ba0..1c6c870f5bb3 100644
---- a/drivers/i3c/master/dw-i3c-master.c
-+++ b/drivers/i3c/master/dw-i3c-master.c
-@@ -1657,6 +1657,11 @@ static const struct dw_i3c_platform_ops dw_i3c_platform_ops_default = {
- 	.set_dat_ibi = dw_i3c_platform_set_dat_ibi_nop,
- };
+diff --git a/Documentation/devicetree/bindings/i3c/snps,dw-i3c-master.yaml b/Documentation/devicetree/bindings/i3c/snps,dw-i3c-master.yaml
+index dcc21a7ab4c4..bd08d048d44b 100644
+--- a/Documentation/devicetree/bindings/i3c/snps,dw-i3c-master.yaml
++++ b/Documentation/devicetree/bindings/i3c/snps,dw-i3c-master.yaml
+@@ -17,7 +17,9 @@ properties:
+     oneOf:
+       - const: snps,dw-i3c-master-1.00a
+       - items:
+-          - const: altr,agilex5-dw-i3c-master
++          - enum:
++              - altr,agilex5-dw-i3c-master
++              - syna,sl261x-i3c
+           - const: snps,dw-i3c-master-1.00a
  
-+static void dw_i3c_resets_assert(void *data)
-+{
-+	reset_control_assert(data);
-+}
-+
- int dw_i3c_common_probe(struct dw_i3c_master *master,
- 			struct platform_device *pdev)
- {
-@@ -1696,10 +1701,17 @@ int dw_i3c_common_probe(struct dw_i3c_master *master,
- 	if (IS_ERR(master->pclk))
- 		return PTR_ERR(master->pclk);
- 
--	master->core_rst = devm_reset_control_get_optional_exclusive_deasserted(&pdev->dev,
--										NULL);
--	if (IS_ERR(master->core_rst))
--		return PTR_ERR(master->core_rst);
-+	master->resets = devm_reset_control_array_get_optional_exclusive(&pdev->dev);
-+	if (IS_ERR(master->resets))
-+		return PTR_ERR(master->resets);
-+
-+	ret = reset_control_deassert(master->resets);
-+	if (ret)
-+		return ret;
-+
-+	ret = devm_add_action_or_reset(&pdev->dev, dw_i3c_resets_assert, master->resets);
-+	if (ret)
-+		return ret;
- 
- 	spin_lock_init(&master->xferqueue.lock);
- 	INIT_LIST_HEAD(&master->xferqueue.list);
-@@ -1873,7 +1885,7 @@ static int __maybe_unused dw_i3c_master_runtime_suspend(struct device *dev)
- 
- 	dw_i3c_master_disable(master);
- 
--	reset_control_assert(master->core_rst);
-+	reset_control_assert(master->resets);
- 	dw_i3c_master_disable_clks(master);
- 	pinctrl_pm_select_sleep_state(dev);
- 	return 0;
-@@ -1885,7 +1897,7 @@ static int __maybe_unused dw_i3c_master_runtime_resume(struct device *dev)
- 
- 	pinctrl_pm_select_default_state(dev);
- 	dw_i3c_master_enable_clks(master);
--	reset_control_deassert(master->core_rst);
-+	reset_control_deassert(master->resets);
- 
- 	dw_i3c_master_set_intr_regs(master);
- 	dw_i3c_master_restore_timing_regs(master);
-diff --git a/drivers/i3c/master/dw-i3c-master.h b/drivers/i3c/master/dw-i3c-master.h
-index 17ad817d1f8e..f5b4491b247a 100644
---- a/drivers/i3c/master/dw-i3c-master.h
-+++ b/drivers/i3c/master/dw-i3c-master.h
-@@ -36,7 +36,7 @@ struct dw_i3c_master {
- 	} xferqueue;
- 	struct dw_i3c_master_caps caps;
- 	void __iomem *regs;
--	struct reset_control *core_rst;
-+	struct reset_control *resets;
- 	struct clk *core_clk;
- 	struct clk *pclk;
- 	char version[5];
+   reg:
 -- 
 2.53.0
 
