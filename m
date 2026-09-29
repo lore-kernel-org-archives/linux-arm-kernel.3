@@ -4,100 +4,75 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2CBBCCA5FA5
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 29 Sep 2026 14:42:56 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7B8C1CA5FA5
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 29 Sep 2026 14:44:40 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:References:In-Reply-To:Date:Cc:To:From
-	:Subject:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=14lJ72vIWAnigHOp+fWNgRiWsF4V8Rz5/c4bDdh8fy8=; b=ngHpgZtUwAPYOwfyqkGwIUWJDp
-	fGWCnTGHbbwoI2TAsNh//8xGTkTvGUhTQ0DyLowV5+lr1OLVINbdTuGi6vcY7l5TJhxWYfIsMd3zm
-	B3pvc85Ne9/UkJAXWp4iSn9AAbCvdY9oVHoAtJn1Cs1xLVg5yaV2yVmjpxXngLejs9tV5Ch4RQ4iu
-	6mrCkLtIlycYkt28LAZWbHhzs6ZDGIFEEeUr3kG8hLyNx246Qf4BXsNtJd4Wkna8uYNepd5wVA7cn
-	qDlnSF7mEJsJP76jAMcvlXTKa8PzCd969wIlGmN61rrtoYttseyguIeuZRjkkd5dMCHVG6lD0i0Rv
-	ecDzLszg==;
+	bh=I4ENDV94a3fiIT12CeebVXBQSZWge4T+VpgKHXCne54=; b=ujt9GaBJwlaoSeFZbQRHzQU1An
+	GzVYAuL2LKKgntqgjJ859GsZ9fpAvL7T75tgNZyJ7e0+udSHASvzFTQRlMNNMeIH+B9v2IxJL6lDJ
+	9x5W7UMKWpwJRcExZNo5I4cCabDRnIWMUXORiV1k46ls/FGx276ULAzWkAXJuXHVN8WWUs990Lwgo
+	gg6RFnJ159YtDFMbc1WnqaonSFCeWsU39f7nMNXzMxa7/Mgs0uK/leX+KG2N5+w48PSy2zGKM/Uc6
+	FALywYy4cAAZDd21O0eVISorDojCHhDMdZQKZKcbaoFjzJ/Kb1GWgLEK7hzAMx2Gi+K6qH1f/+ca0
+	CxIb60Yg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xBZ2f-00000003oay-1BvI;
-	Tue, 29 Sep 2026 14:42:49 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1xBZ4L-00000003oo4-23e7;
+	Tue, 29 Sep 2026 14:44:33 +0000
+Received: from sender5-op-o11.zoho.com ([165.173.182.11])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xBZ2d-00000003oaY-2Aof
-	for linux-arm-kernel@bombadil.infradead.org;
-	Tue, 29 Sep 2026 14:42:47 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=MIME-Version:Content-Transfer-Encoding
-	:Content-Type:References:In-Reply-To:Date:Cc:To:From:Subject:Message-ID:
-	Sender:Reply-To:Content-ID:Content-Description;
-	bh=14lJ72vIWAnigHOp+fWNgRiWsF4V8Rz5/c4bDdh8fy8=; b=Chiy8fPtzpllPtnfy0Xg4I0VP3
-	UyZDyWLPEz8uCshPqiQSd4VLZO3cPt/Q6qlysAol0043khQkVD75wbXwSVWVsDnY8St7Ac7aUwGpy
-	ByX/yj2qxeLOxFReGUbGWrfWx8PeK9BBr5KTKRBFxT0OhHYmlUoUFrEI+vncY1z1XUAS3e9/wFeW2
-	4KnBX0CPZkVxZ7BTQG1U3ajBVP4yPgUauk5fJ0eEn0ReIzVpR/KzFIlLtum7RhLuQ/q8HMrDS1W5n
-	CTdio1ZhUtC4cd83Nrd+sCDKiOmPqxdg3FHJ0ly5JIIzosGOP6uDiDTpUuZckagS2cHuKC12AeBS1
-	3r8Zihew==;
-Received: from smtp25.cstnet.cn ([159.226.251.25] helo=cstnet.cn)
-	by desiato.infradead.org with esmtps (Exim 4.99.2 #2 (Red Hat Linux))
-	id 1xBZ2X-00000002kUE-3PVv
-	for linux-arm-kernel@lists.infradead.org;
-	Tue, 29 Sep 2026 14:42:45 +0000
-Received: from edelgard.fodlan.icenowy.me (unknown [112.94.101.54])
-	by APP-05 (Coremail) with SMTP id zQCowAC3IDtEzrtqWCqvCQ--.41306S2;
-	Tue, 29 Sep 2026 22:42:15 +0800 (CST)
-Message-ID: <e044caae8c2160d96a29073bb1e60efff5883513.camel@iscas.ac.cn>
-Subject: Re: [PATCH v2 2/7] drm: verisilicon: stop using deprecated
- devm_drm_of_get_bridge()
-From: Icenowy Zheng <zhengxingda@iscas.ac.cn>
-To: Luca Ceresoli <luca.ceresoli@bootlin.com>, Maarten Lankhorst	
- <maarten.lankhorst@linux.intel.com>, Maxime Ripard <mripard@kernel.org>, 
- Thomas Zimmermann <tzimmermann@suse.de>, David Airlie <airlied@gmail.com>,
- Simona Vetter <simona@ffwll.ch>, Frank Li	 <Frank.Li@nxp.com>, Sascha Hauer
- <s.hauer@pengutronix.de>, Pengutronix Kernel Team <kernel@pengutronix.de>,
- Fabio Estevam <festevam@gmail.com>, Andrzej Hajda	
- <andrzej.hajda@intel.com>, Neil Armstrong <neil.armstrong@linaro.org>, 
- Robert Foss <rfoss@kernel.org>, Laurent Pinchart
- <Laurent.pinchart@ideasonboard.com>, Jonas Karlman	 <jonas@kwiboo.se>,
- Jernej Skrabec <jernej.skrabec@gmail.com>, Dave Stevenson	
- <dave.stevenson@raspberrypi.com>, =?ISO-8859-1?Q?Ma=EDra?= Canal	
- <mcanal@igalia.com>, Raspberry Pi Kernel Maintenance	
- <kernel-list@raspberrypi.com>, Geert Uytterhoeven <geert+renesas@glider.be>
-Cc: Arnd Bergmann <arnd@kernel.org>, Doug Anderson <dianders@chromium.org>, 
- Hui Pu <Hui.Pu@gehealthcare.com>, Ian Ray <ian.ray@gehealthcare.com>,
- Thomas Petazzoni	 <thomas.petazzoni@bootlin.com>,
- dri-devel@lists.freedesktop.org, 	imx@lists.linux.dev,
- linux-arm-kernel@lists.infradead.org, 	linux-kernel@vger.kernel.org,
- linux-renesas-soc@vger.kernel.org, kernel test robot <lkp@intel.com>
-Date: Tue, 29 Sep 2026 22:42:12 +0800
-In-Reply-To: <20260929-drm-fix-of_get_bridge-build-regression-v2-2-6da431d8f180@bootlin.com>
-References: <20260929-drm-fix-of_get_bridge-build-regression-v2-0-6da431d8f180@bootlin.com>
-	 <20260929-drm-fix-of_get_bridge-build-regression-v2-2-6da431d8f180@bootlin.com>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
-User-Agent: Evolution 3.58.3 
+	id 1xBZ4J-00000003onT-0iNA;
+	Tue, 29 Sep 2026 14:44:32 +0000
+ARC-Seal: i=1; a=rsa-sha256; t=1790693060; cv=none; 
+	d=zohomail.com; s=zohoarc; 
+	b=f4GeXpY1M2bwtODjax+4rYiqEzHIdRQurPqhyj6N4cYvd5bCzJmWuq28K3/9fQW8j5WA8i5JQbSvT3bbr8T08vj0QdCWs+gg4Fox57W1EFVdXlncp2as/sIdWsOVD48QFk61w2SaxI52ps0yJiPXrTDyrIpmgXWdPby5gyI4C30=
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=zohomail.com; s=zohoarc; 
+	t=1790693060; h=Content-Type:Cc:Cc:Date:Date:From:From:In-Reply-To:MIME-Version:Message-ID:Subject:Subject:To:To:Message-Id:Reply-To; 
+	bh=I4ENDV94a3fiIT12CeebVXBQSZWge4T+VpgKHXCne54=; 
+	b=T8au3eYwVkYRSgQvbZRF4vF3W/1Jk5SCjscJLoO0I397BWODpCQttq6x40cCCZcVU5UsQLRGsHywfTTyeoz2NG4ysCOm3fOvbF3TQykkjcwzPOdWGU5xh7RpCsx7tZ3gvOCXdb1KXC4G2aGjCe+xd6yhlcgcbYbv78OgoZgR10w=
+ARC-Authentication-Results: i=1; mx.zohomail.com;
+	dkim=pass  header.i=collabora.com;
+	spf=pass  smtp.mailfrom=sebastian.reichel@collabora.com;
+	dmarc=pass header.from=<sebastian.reichel@collabora.com>
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; t=1790693060;
+	s=zohomail; d=collabora.com; i=sebastian.reichel@collabora.com;
+	h=Date:Date:From:From:To:To:Cc:Cc:Subject:Subject:Message-ID:MIME-Version:Content-Type:In-Reply-To:Message-Id:Reply-To;
+	bh=I4ENDV94a3fiIT12CeebVXBQSZWge4T+VpgKHXCne54=;
+	b=b4weWwb+x4fDkwXTT/9RcFrN3ABI1gy5HjK5Hr1usQeqALSAoMXyz1kXwhPsVXCi
+	TX9TEywTJGhtlyx87qHhcQ6BJjVBSL1v55EQdRk3cG0rEFvlcxO5CdAwg/4OmYsap+0
+	Tgl+aGxAHXnTGaQt3B19zpXzpTP+6vsA6DvQbKM0=
+Received: by smtp.zohomail.com with SMTPS id 1790693059734721.4714077251464;
+	Tue, 29 Sep 2026 07:44:19 -0700 (PDT)
+Received: by venus (Postfix, from userid 1000)
+	id B9376182AB2; Tue, 29 Sep 2026 16:44:15 +0200 (CEST)
+Date: Tue, 29 Sep 2026 16:44:15 +0200
+From: Sebastian Reichel <sebastian.reichel@collabora.com>
+To: Manivannan Sadhasivam <mani@kernel.org>
+Cc: Vinod Koul <vkoul@kernel.org>, 
+	Neil Armstrong <neil.armstrong@linaro.org>, Heiko Stuebner <heiko@sntech.de>, 
+	Maxime Chevallier <maxime.chevallier@bootlin.com>, linux-phy@lists.infradead.org, 
+	linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org, linux-kernel@vger.kernel.org, 
+	Igor Paunovic <royalnet026@gmail.com>, kernel@collabora.com
+Subject: Re: [PATCH] phy: rockchip: inno-usb2: ensure PHY is running when
+ clock is requested
+Message-ID: <aru3ZSWtaHTdufXM@venus>
+References: <20260908-phy-rockchip-inno-usb2-clock-fix-v1-1-f7d59c31b908@collabora.com>
+ <xnvakstneih6njyxfe27kdx54vy3zpnth24o4mjlzuoykb2pfh@np7dx62waujo>
+ <arqnn8s5yFmZzQvG@venus>
 MIME-Version: 1.0
-X-CM-TRANSID: zQCowAC3IDtEzrtqWCqvCQ--.41306S2
-X-Coremail-Antispam: 1UD129KBjvJXoWxAry7Jr15Kw43Cw1DZFWkZwb_yoWrJF1rpF
-	40qa98try5XrWxXw42kr4j9FyYya4Dtw4rGFWUt34Fvr1FqF4DGF1kAry5Z3W5CF17GF1r
-	tr4DtFySv3W8Aa7anT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
-	9KBjDU0xBIdaVrnRJUUUvvb7Iv0xC_Kw4lb4IE77IF4wAFF20E14v26rWj6s0DM7CY07I2
-	0VC2zVCF04k26cxKx2IYs7xG6rWj6s0DM7CIcVAFz4kK6r1j6r18M28lY4IEw2IIxxk0rw
-	A2F7IY1VAKz4vEj48ve4kI8wA2z4x0Y4vE2Ix0cI8IcVAFwI0_Gr0_Xr1l84ACjcxK6xII
-	jxv20xvEc7CjxVAFwI0_Gr0_Cr1l84ACjcxK6I8E87Iv67AKxVW0oVCq3wA2z4x0Y4vEx4
-	A2jsIEc7CjxVAFwI0_GcCE3s1le2I262IYc4CY6c8Ij28IcVAaY2xG8wAqx4xG64xvF2IE
-	w4CE5I8CrVC2j2WlYx0E2Ix0cI8IcVAFwI0_Jr0_Jr4lYx0Ex4A2jsIE14v26r1j6r4UMc
-	vjeVCFs4IE7xkEbVWUJVW8JwACjcxG0xvEwIxGrwACI402YVCY1x02628vn2kIc2xKxwCY
-	1x0262kKe7AKxVW8ZVWrXwCF04k20xvY0x0EwIxGrwCFx2IqxVCFs4IE7xkEbVWUJVW8Jw
-	C20s026c02F40E14v26r1j6r18MI8I3I0E7480Y4vE14v26r106r1rMI8E67AF67kF1VAF
-	wI0_GFv_WrylIxkGc2Ij64vIr41lIxAIcVC0I7IYx2IY67AKxVWUJVWUCwCI42IY6xIIjx
-	v20xvEc7CjxVAFwI0_Gr0_Cr1lIxAIcVCF04k26cxKx2IYs7xG6r1j6r1xMIIF0xvEx4A2
-	jsIE14v26r1j6r4UMIIF0xvEx4A2jsIEc7CjxVAFwI0_Gr1j6F4UJbIYCTnIWIevJa73Uj
-	IFyTuYvjxUv4EEDUUUU
-X-Originating-IP: [112.94.101.54]
-X-CM-SenderInfo: x2kh0wp0lqwv3d6l2u1dvotugofq/
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="cc3vyrofs6pfoimn"
+Content-Disposition: inline
+In-Reply-To: <arqnn8s5yFmZzQvG@venus>
+X-Zoho-Virus-Status: 1
+X-Zoho-AV-Stamp: zmail-av-0.7.7.1.5.4/290.556.6
+X-ZohoMailClient: External
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260929_154242_964452_F0000B84 
-X-CRM114-Status: GOOD (  22.83  )
+X-CRM114-CacheID: sfid-20260929_074431_248538_35DFE874 
+X-CRM114-Status: GOOD (  45.68  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -112,119 +87,170 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-=E5=9C=A8 2026-09-29=E4=BA=8C=E7=9A=84 15:39 +0200=EF=BC=8CLuca Ceresoli=E5=
-=86=99=E9=81=93=EF=BC=9A
-> devm_drm_of_get_bridge() is deprecated, switch to
-> of_drm_get_bridge_by_endpoint(). As of_drm_get_bridge_by_endpoint()
-> returns
-> a refcounted bridge, ensure it is put by using bridge.next_bridge.
+
+--cc3vyrofs6pfoimn
+Content-Type: text/plain; protected-headers=v1; charset=us-ascii
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
+Subject: Re: [PATCH] phy: rockchip: inno-usb2: ensure PHY is running when
+ clock is requested
+MIME-Version: 1.0
+
+Hello Mani,
+
+On Mon, Sep 28, 2026 at 08:00:24PM +0200, Sebastian Reichel wrote:
+> On Sat, Sep 26, 2026 at 04:50:07AM +0200, Manivannan Sadhasivam wrote:
+> > On Tue, Sep 08, 2026 at 06:07:42PM +0200, Sebastian Reichel wrote:
+> > > On RK3588 the OHCI controller registers can only be accessed when the
+> > > PHY's 480MHz clock is running. After system suspend the controller is
+> > > resumed before the PHY.
+> >=20
+> > This statement is slightly confusing. There is no PM ops in this
+> > PHY driver.
 >=20
-> Fixes build failure when CONFIG_OF is disabled.
+> I will take a closer look how it is powered off during suspend.
+> Generally I expect it to loose state in any case as the related
+> power domain should be disabled.
+
+The PHY is disabled/enabled via generic hcd_bus_suspend and
+hcd_bus_resume, which is called by usb_dev_suspend/usb_dev_resume
+(i.e. the child USB bus PM handles the PHY power), which is a child
+of the OHCI platform device.
+
+The OHCI platform device itself just handles resets and clocks.
+
+It works in the normal driver probe case, since there are no
+controller registers accessed before the USB bus itself is started.
+
+> > > The controller requests the clock, which opens
+> > > the gate in the PHY's clock prepare function. But with the PHY suspen=
+ded
+> > > this just results in a dead clock being routed. The OHCI driver will
+> > > then continue to access its registers resulting in a board hang.
+> > >=20
+> > > Fix this by resuming the suspended PHY in the clock's prepare functio=
+n,
+> > > so that the clock is really prepared once the function returns.
+> > >=20
+> > > Signed-off-by: Sebastian Reichel <sebastian.reichel@collabora.com>
+> > > ---
+> > > This was noticed on RK3588 EVB1 when resuming from system suspend. Th=
+is
+> > > is technically a fix, but its unclear when the bug was introduced and
+> > > system suspend is broken on RK3588 for quite a while and not just due
+> > > to this problem. So I think this fix can be merged the normal way via
+> > > linux-next.
+> > > ---
+> > >  drivers/phy/rockchip/phy-rockchip-inno-usb2.c | 37 +++++++++++++++++=
+++++++++++
+> > >  1 file changed, 37 insertions(+)
+> > >=20
+> > > diff --git a/drivers/phy/rockchip/phy-rockchip-inno-usb2.c b/drivers/=
+phy/rockchip/phy-rockchip-inno-usb2.c
+> > > index 7d8a533f24ae..07d400967def 100644
+> > > --- a/drivers/phy/rockchip/phy-rockchip-inno-usb2.c
+> > > +++ b/drivers/phy/rockchip/phy-rockchip-inno-usb2.c
+> > > @@ -332,6 +332,39 @@ rockchip_usb2phy_clk480m_clkout_ctl(struct clk_h=
+w *hw, struct regmap **base,
+> > >  	}
+> > >  }
+> > > =20
+> > > +static int rockchip_usb2phy_clk480m_leave_suspend(struct clk_hw *hw)
+> > > +{
+> > > +	struct rockchip_usb2phy *rphy =3D container_of(hw, struct rockchip_=
+usb2phy, clk480m_hw);
+> > > +	bool relock =3D false;
+> > > +	int ret, i;
+> > > +
+> > > +	/* Limit to single port; it's unclear how multi-port should be hand=
+led */
+> > > +	if (rphy->phy_cfg->num_ports > 1)
+> > > +		return 0;
+> > > +
+> > > +	for (i =3D 0; i < rphy->phy_cfg->num_ports; i++) {
+> > > +		struct rockchip_usb2phy_port *rport =3D &rphy->ports[i];
+> > > +		const struct rockchip_usb2phy_port_cfg *port_cfg =3D rport->port_c=
+fg;
+> > > +
+> > > +		if (!rport->phy || !port_cfg || !port_cfg->phy_sus.enable)
+> > > +			continue;
+> > > +		if (property_enabled(rphy->grf, &port_cfg->phy_sus)) {
+> > > +			property_enable(rphy->grf, &port_cfg->phy_sus,
+> > > +					false);
+> > > +			relock =3D true;
+> > > +		}
+> > > +	}
+> > > +
+> > > +	if (relock) {
+> > > +		ret =3D rockchip_usb2phy_reset(rphy);
+> > > +		if (ret)
+> > > +			return ret;
+> > > +		usleep_range(1500, 2000);
+> > > +	}
+> > > +
+> >=20
+> > This looks like a duplication of rockchip_usb2phy_power_on(). So I'm as=
+suming
+> > that phy_power_on() is not called by the OHCI driver before accessing t=
+he
+> > registers. So why don't you fix that instead?
 >=20
-> Fixes: aa8a8c7e4641 ("drm/bridge: panel: move all code to
-> drm_panel.c")
-> Reported-by: Arnd Bergmann <arnd@kernel.org>
-> Closes:
-> https://lore.kernel.org/r/20260928161605.2271412-1-arnd@kernel.org
-> Reported-by: kernel test robot <lkp@intel.com>
-> Closes:
-> https://lore.kernel.org/oe-kbuild-all/202609291109.OIsGTysr-lkp@intel.com=
-/
-> Closes:
-> https://lore.kernel.org/oe-kbuild-all/202609290408.BOs7sk55-lkp@intel.com=
-/
-> Signed-off-by: Luca Ceresoli <luca.ceresoli@bootlin.com>
+> I can look into it. My way of thinking was, that the clock should be
+> running independently of that when the clock has been requested via
+> common clock framework.
 
-Checked the code in drm_bridge.c, and it looks like the lifetime of
-next_bridge should be indirectly managed by devm when
-devm_drm_bridge_alloc() successes and the next_bridge field assigned,
-so the only explicit put needed here should be in the alloc failure
-path.
+The exact call trace is:
 
-Patch is:
+ohci_platform_resume
+    -> ohci_platform_resume_common
+        -> deassert resets
+        -> ohci_platform_power_on -> enable clocks required by controller
+        -> ohci_resume
+            -> ohci_readl(ohci, &ohci->regs->control); // boom
+            -> ...
+        -> ...
+    -> root hub being resumed will resume the PHY
 
-```
-Reviewed-by: Icenowy Zheng <zhengxingda@iscas.ac.cn>
-```
+The ohci_readl results in the mentioned crash, since the clock is
+not enabled. The read is used to figure out if the controller is
+already running. There is no bus operation, so the PHY is
+technically not needed. Of course the controller's clocks have to
+be enabled, though. It's just on RK3588 that this means the PHY
+must be enabled.
 
->=20
-> ---
->=20
-> Changes in v2:
-> - fix bridge reference leak on attach error path
+I also checked Rockchip's vendor kernel for their solution: It
+solved the problem by using device_link_add() from EHCI to OHCI
+based on the RK3588 compatible, so that OHCI is always resumed after
+EHCI. This fixes the problem, since both share the same PHY.
 
-It should be `bridge alloc error` instead of `attach error`, but I
-don't know how to correct the error in the changelog, and anyway it
-won't be part of the final commit.
+I think handling this in rockchip_usb2phy_clk480m_prepare() is the
+cleanest option as the disabled clock is the real issue as far as
+I can tell. I will look into improving the patch to re-use
+rockchip_usb2phy_power_on and improve the commit message.
 
-Thanks,
-Icenowy
+Greetings,
 
-> - mention lkp report
-> ---
-> =C2=A0drivers/gpu/drm/verisilicon/vs_bridge.c | 11 ++++++-----
-> =C2=A0drivers/gpu/drm/verisilicon/vs_bridge.h |=C2=A0 1 -
-> =C2=A02 files changed, 6 insertions(+), 6 deletions(-)
->=20
-> diff --git a/drivers/gpu/drm/verisilicon/vs_bridge.c
-> b/drivers/gpu/drm/verisilicon/vs_bridge.c
-> index dc7c85b07fe3..3a5091c0ac2c 100644
-> --- a/drivers/gpu/drm/verisilicon/vs_bridge.c
-> +++ b/drivers/gpu/drm/verisilicon/vs_bridge.c
-> @@ -29,7 +29,7 @@ static int vs_bridge_attach(struct drm_bridge
-> *bridge,
-> =C2=A0{
-> =C2=A0	struct vs_bridge *vbridge =3D drm_bridge_to_vs_bridge(bridge);
-> =C2=A0
-> -	return drm_bridge_attach(encoder, vbridge->next_bridge,
-> +	return drm_bridge_attach(encoder, vbridge->base.next_bridge,
-> =C2=A0				 bridge, flags);
-> =C2=A0}
-> =C2=A0
-> @@ -303,8 +303,7 @@ struct vs_bridge *vs_bridge_init(struct
-> drm_device *drm_dev,
-> =C2=A0		return NULL;
-> =C2=A0	}
-> =C2=A0
-> -	next =3D devm_drm_of_get_bridge(drm_dev->dev, drm_dev->dev-
-> >of_node,
-> -				=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 output, intf);
-> +	next =3D of_drm_get_bridge_by_endpoint(drm_dev->dev->of_node,
-> output, intf);
-> =C2=A0	if (IS_ERR(next)) {
-> =C2=A0		ret =3D PTR_ERR(next);
-> =C2=A0		if (ret !=3D -EPROBE_DEFER)
-> @@ -321,12 +320,14 @@ struct vs_bridge *vs_bridge_init(struct
-> drm_device *drm_dev,
-> =C2=A0
-> =C2=A0	bridge =3D devm_drm_bridge_alloc(drm_dev->dev, struct
-> vs_bridge, base,
-> =C2=A0				=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 bridge_funcs);
-> -	if (IS_ERR(bridge))
-> +	if (IS_ERR(bridge)) {
-> +		drm_bridge_put(next);
-> =C2=A0		return ERR_PTR(PTR_ERR(bridge));
-> +	}
-> =C2=A0
-> =C2=A0	bridge->crtc =3D crtc;
-> =C2=A0	bridge->intf =3D intf;
-> -	bridge->next_bridge =3D next;
-> +	bridge->base.next_bridge =3D next;
-> =C2=A0
-> =C2=A0	if (intf =3D=3D VSDC_OUTPUT_INTERFACE_DPI)
-> =C2=A0		enctype =3D DRM_MODE_ENCODER_DPI;
-> diff --git a/drivers/gpu/drm/verisilicon/vs_bridge.h
-> b/drivers/gpu/drm/verisilicon/vs_bridge.h
-> index 70fee1749699..2b0ed94e4520 100644
-> --- a/drivers/gpu/drm/verisilicon/vs_bridge.h
-> +++ b/drivers/gpu/drm/verisilicon/vs_bridge.h
-> @@ -25,7 +25,6 @@ struct vs_bridge {
-> =C2=A0	struct drm_connector *conn;
-> =C2=A0
-> =C2=A0	struct vs_crtc *crtc;
-> -	struct drm_bridge *next_bridge;
-> =C2=A0	enum vs_bridge_output_interface intf;
-> =C2=A0};
-> =C2=A0
+-- Sebastian
 
+--cc3vyrofs6pfoimn
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iQIzBAABCgAdFiEE72YNB0Y/i3JqeVQT2O7X88g7+poFAmq7zrgACgkQ2O7X88g7
++prAxQ//UtVryFe3OI5zppL3hdhln6C9+oXtOoavPPdK1xl5CXhNLG5XxFgRPcpr
+yT6S/gP9ilfRQ6B+8PsWyF6FcJLDwLjLC/pqjqWNCLCXv4uD+96S7yfDqqqTFpOQ
+cCY74QP0S4eZxeMC6oGxMF309Bv66loWkovrQL1psnznigaNESWCvTRobNPTZQ0N
+ZQ7rKO5Pj6Ze7OwmBMh7W+WO4RBx8rPzkJxeYnX4tWvl2pmkKN4gnG+R1DE+lHiL
+rLRciOz3VAwGQOermfbrS/0/1VEQhfLUgUYhUdnOiNAxJ84WQZZ/1WDc8Ls4x0Jw
+kMcbVBRVxxjqj5pmekFThoJpH7njjOFcYGiGMV8D+lr4hGlmDzb+5E2qm5SqYFyK
+Y9PFVX/wGmgqaUiD/MvzU8kFlHuyzMYC2sf2Uodzz7KmCTaTcT1zKRcyQvx6ByVs
+HCGZ87wxIp0wmOJmRYKA+KBRnNDuTwXzu0pAN8ro4Zn7idMCr6i4wowQWNJ8dIlr
+r9LuVxpk/dpEPmgJvgJK+zzmCM7mavsRmXOn4Ck0LC3WWUHYiik/jaOgjWNswZln
+M+ST0PUqfAdX2WgGhauS/B9fcRXupZbNIKdEeJfXmgRJLnNzij6yZZ1jB7pJ2fph
+zMRjPLaRbgrxWViyjInmHmIm5zkBYwro/htN9IuKKHV1X9HDAns=
+=nOuG
+-----END PGP SIGNATURE-----
+
+--cc3vyrofs6pfoimn--
 
