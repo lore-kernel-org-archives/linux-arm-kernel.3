@@ -4,123 +4,78 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6E881CA5FA5
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 29 Sep 2026 10:17:46 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1CA27CA5FA5
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 29 Sep 2026 10:18:42 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=x8A339RnUrsyIIVAeH9ijcEytAFbSbdZHOutd3Xx5VU=; b=SRLYXIX5AJ4XfhDUp9w9P61hvr
-	Rc1w3np3d08Djz6Ebq/QkqZqzASwHwYoVAMoFUBPERNQHynOZrc3v9hEcRtKNXNFW9z7tEatlDA2F
-	YsH9kEhTWfHnRpXngOYfjkDvCybqHaXhCGiEXIWI7903KFqbfSvbmNOpZ6k11QgL3ha06RlbCSmyj
-	O2CmvybxBjrSv+XiO7hwRZK97cG5qFmSOsP0z/i1b2Wybh9oeQ7CWXiexZI0/casNFCT5ZRsVCosX
-	419kTD+Nrp4tCtQWzuBm/VWYtIWBHCSbM0PPomDZSvc2WvLIQ4HNF0qlQ6a/Muf+EnTHRDb3bsdGB
-	Avk1Y3Gw==;
+	Content-Type:MIME-Version:Message-ID:Date:Subject:CC:To:From:Reply-To:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=dyYbTObh62hi+fWsCU7QOW9sp8JH41mugoLKDlkqq68=; b=KfpymNqT7UhyxeLgHVK65ICQno
+	5mRiVwnwfn64nvuxq10nv18RtbaPqPi04gf8ihGk1yGwzT9MpKZJFFTp0lo3+VHRURh3Gf+PHOUNj
+	qQqafe51oICRIVVby8ntgUSPLUTzu6/VHKbL7IPC6YTMAKxJ3+LppBpOjYktIVPRoC/fNkaA+f9g2
+	PpFQ8NvQuYpiGzjDsSrtaMjYvs5AfAbn1AvcVNzFeW7cPRrNM+PYsPpmqV7wV1VmAiO+fOmN7RNT8
+	HPzedLfD0NoQP1SaJ+/7IaJpnpVOFf0EObkGFN7HsHa6lAKyj3CdXgkm+M6jewL01h+t9j0mA6D8S
+	2AqmieNQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xBUu3-000000036S0-3hfq;
-	Tue, 29 Sep 2026 10:17:39 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1xBUuw-000000037As-25Rh;
+	Tue, 29 Sep 2026 10:18:34 +0000
+Received: from mailgw02.mediatek.com ([216.200.240.185])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xBUu1-000000036OP-2XRH
-	for linux-arm-kernel@lists.infradead.org;
-	Tue, 29 Sep 2026 10:17:37 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id CB67D43A7A;
-	Tue, 29 Sep 2026 10:17:36 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 50DDE1F000FF;
-	Tue, 29 Sep 2026 10:17:27 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1790677056;
-	bh=x8A339RnUrsyIIVAeH9ijcEytAFbSbdZHOutd3Xx5VU=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To;
-	b=TNI3kRQy2kt7JF9bKeIGFEH0L3tN37yUNyp4gj86nez5/945G3tvtT0odrk8Pp11h
-	 iX3LKWuCQk4UXYF2ligzk80r8UH/1ZFgO8hhoqiHUHc3GhdRNBrinIRe8QqoiBh1Pw
-	 Uces+EUV6OMY8ASk6Jba+enXki/AXIvYETsbPen9E4WJathkQe4EukHf99qM/DsPJa
-	 zwjM2FdB0jfIqqONa1r4XqqvVrBwrDM980iLbnQR/b6pncUe2+cx1lXYYGmWj5PvNB
-	 AT90CtSGQwqOZjLPKCcehbLrEZzPGxn5wb7wIgBJP1LA0D3xr7VFe0LISDM9/uZA2Y
-	 6HRM7XUhMqPuw==
-Message-ID: <8ac6d609-0cf9-4368-be08-577f2ec2e762@kernel.org>
-Date: Tue, 29 Sep 2026 12:17:24 +0200
+	id 1xBUut-0000000377R-11JU;
+	Tue, 29 Sep 2026 10:18:32 +0000
+X-UUID: f8767926bbec11f1acbe4559397dec65-20260929
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=mediatek.com; s=dk;
+	h=Content-Transfer-Encoding:Content-Type:MIME-Version:Message-ID:Date:Subject:CC:To:From; bh=dyYbTObh62hi+fWsCU7QOW9sp8JH41mugoLKDlkqq68=;
+	b=g7y+dHa2TSK84tqdvo6a8NdeubMdWavuWlXtN4l9lDYc3w6JIcTx90cDO/JlsF0DA6/ZV0betAf6mWfW3FjqyVQdRQZaEK+PFexVhics5U4xPRe+VHPsosO9S1xI6vChCDkgelnCj4SyHEboVRdEBf6sGpdsg0xB3ugIp2j81Bs=;
+X-CID-P-RULE: Release_Ham
+X-CID-O-INFO: VERSION:1.3.20,REQID:8778c410-4abe-4fd7-91f2-62355e817106,IP:0,U
+	RL:0,TC:0,Content:0,EDM:0,RT:0,SF:0,FILE:0,BULK:0,RULE:Release_Ham,ACTION:
+	release,TS:0
+X-CID-META: VersionHash:291e20b,CLOUDID:a5431909-d10d-41b3-a8f1-bc707284d0ce,B
+	ulkID:nil,BulkQuantity:0,SF:102|836|865|888|898,TC:-5,Content:0|15|50|99,E
+	DM:-3,IP:nil,URL:0,File:130,RT:0,Bulk:nil,QS:nil,BEC:-1,COL:0,OSI:0,OSA:0,
+	AV:0,LES:1,SPR:NO,DKR:0,DKP:0,BRR:0,BRE:0,ARC:0
+X-CID-BVR: 2,SSN|SDN
+X-CID-BAS: 2,SSN|SDN,0,_
+X-CID-FACTOR: TF_CID_SPAM_SNR
+X-CID-RHF: D41D8CD98F00B204E9800998ECF8427E
+X-UUID: f8767926bbec11f1acbe4559397dec65-20260929
+Received: from mtkmbs10n1.mediatek.inc [(172.21.101.34)] by mailgw02.mediatek.com
+	(envelope-from <shiming.cheng@mediatek.com>)
+	(musrelay.mediatek.com ESMTP with TLSv1.2 ECDHE-RSA-AES256-GCM-SHA384 256/256)
+	with ESMTP id 256616827; Tue, 29 Sep 2026 03:03:08 -0700
+Received: from mtkmbs11n1.mediatek.inc (172.21.101.185) by
+ MTKMBS09N1.mediatek.inc (172.21.101.35) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.2562.29; Tue, 29 Sep 2026 18:03:05 +0800
+Received: from mbjsdccf07.gcn.mediatek.inc (10.15.20.246) by
+ mtkmbs11n1.mediatek.inc (172.21.101.73) with Microsoft SMTP Server id
+ 15.2.2562.29 via Frontend Transport; Tue, 29 Sep 2026 18:03:03 +0800
+From: Shiming Cheng <shiming.cheng@mediatek.com>
+To: <davem@davemloft.net>, <edumazet@google.com>, <kuba@kernel.org>,
+	<pabeni@redhat.com>, <horms@kernel.org>, <matthias.bgg@gmail.com>,
+	<angelogioacchino.delregno@collabora.com>, <willemb@google.com>,
+	<daniel.zahka@gmail.com>, <alice@isovalent.com>, <sd@queasysnail.net>,
+	<eilaimemedsnaimel@gmail.com>, <imv4bel@gmail.com>, <nbd@nbd.name>,
+	<dsahern@kernel.org>, <netdev@vger.kernel.org>,
+	<linux-kernel@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
+	<linux-mediatek@lists.infradead.org>
+CC: <stable@vger.kernel.org>, <steffen.klassert@secunet.com>,
+	<lena.wang@mediatek.com>, <shiming.cheng@mediatek.com>
+Subject: [PATCH] net: gro: mark frag_list GRO packets as SKB_GSO_DODGY when a list element exceeds gso_size
+Date: Tue, 29 Sep 2026 18:02:48 +0800
+Message-ID: <20260929100256.23192-1-shiming.cheng@mediatek.com>
+X-Mailer: git-send-email 2.45.2
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v4 0/4] Add Laguna/Tensor G5 SoC and Frankel, Blazer &
- Mustang boards
-To: Peter Griffin <peter.griffin@linaro.org>
-Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
- Conor Dooley <conor+dt@kernel.org>, =?UTF-8?Q?Andr=C3=A9_Draszik?=
- <andre.draszik@linaro.org>, Tudor Ambarus <tudor.ambarus@linaro.org>,
- Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
- Mark Rutland <mark.rutland@arm.com>, Arnd Bergmann <arnd@arndb.de>,
- Alexandre Belloni <alexandre.belloni@bootlin.com>,
- Linus Walleij <linusw@kernel.org>, Drew Fustini <fustini@kernel.org>,
- Kees Cook <kees@kernel.org>, Tony Luck <tony.luck@intel.com>,
- "Guilherme G. Piccoli" <gpiccoli@igalia.com>,
- Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
- Jiri Slaby <jirislaby@kernel.org>, devicetree@vger.kernel.org,
- linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-samsung-soc@vger.kernel.org, soc@lists.linux.dev,
- Douglas Anderson <dianders@chromium.org>, Juan Yescas <jyescas@google.com>,
- RD Babiera <rdbabiera@google.com>, Brian Norris <briannorris@google.com>,
- William McVicker <willmcvicker@google.com>, kernel-team@android.com,
- linux-serial@vger.kernel.org,
- Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>,
- Brian Norris <briannorris@chromium.org>
-References: <20260918-contrib-pg-pixel10-initial-dts-v4-0-745eaca28b1a@linaro.org>
- <179067486422.102650.10176830320558486814.b4-ty@b4>
- <550a74bc-f0b9-4141-9fc8-db175bb0b1ae@kernel.org>
- <CADrjBPo_V1YScLQkgbSrWCaq30k7JoF0GQQ0u5ouBiEipbEg4Q@mail.gmail.com>
- <CADrjBPrErWJR_01+Qhuw6mu0Kpe8-tvBMjci=rBO13RaSqnfZQ@mail.gmail.com>
-From: Krzysztof Kozlowski <krzk@kernel.org>
-Content-Language: en-US
-Autocrypt: addr=krzk@kernel.org; keydata=
- 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
-In-Reply-To: <CADrjBPrErWJR_01+Qhuw6mu0Kpe8-tvBMjci=rBO13RaSqnfZQ@mail.gmail.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: 8bit
+X-MTK: N
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260929_031831_299260_4593026E 
+X-CRM114-Status: GOOD (  11.19  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -135,63 +90,50 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 29/09/2026 12:16, Peter Griffin wrote:
-> Hi Krysztof,
-> 
-> On Tue, 29 Sept 2026 at 11:09, Peter Griffin <peter.griffin@linaro.org> wrote:
->>
->> Hi Krysztof,
->>
->> On Tue, 29 Sept 2026 at 10:56, Krzysztof Kozlowski <krzk@kernel.org> wrote:
->>>
->>> On 29/09/2026 11:41, Krzysztof Kozlowski wrote:
->>>>
->>>> On Fri, 18 Sep 2026 19:05:01 +0000, Peter Griffin wrote:
->>>>> This series adds initial basic support for Laguna (Tensor G5 SoC)
->>>>> found in Frankel (Pixel 10), Blazer (Pixel 10 Pro) and Mustang (Pixel
->>>>> 10 Pro XL) phones.
->>>>>
->>>>> Whilst Tensor G1 to G4 SoCs (found in Pixel 6 to Pixel 9 and Pixel
->>>>> 10a) were offshoots from the Samsung Exynos family. Laguna is an
->>>>> entirely in-house Google designed SoC.
->>>>>
->>>>> [...]
->>>>
->>>> Applied, thanks!
->>>>
->>>> [1/4] dt-bindings: arm: google: Add dt bindings for frankel/blazer/mustang
->>>>       https://git.kernel.org/krzk/linux/c/ecf6405fa6c503c34eb4e7e905957d70d4018e93
->>>> [2/4] arm64: dts: google: Add dts directory for Google-designed silicon
->>>>       https://git.kernel.org/krzk/linux/c/cf3df78629f24b40cd0cb2da74e3ea4a944bed82
->>>> [3/4] arm64: dts: google: Add initial dts for frankel/blazer/mustang
->>>>       https://git.kernel.org/krzk/linux/c/54edd8698bb1fb40c339d0cb2f15baad6993dd48
->>>> [4/4] arm64: defconfig: enable Tensor G5 SoC family
->>>>       https://git.kernel.org/krzk/linux/c/63f674fe8a0a8d6e4bee3e72f7ae658f0e9a0686
->>>>
->>>
->>> This introduces new warnings:
->>>
->>> /home/buildbot/kernel/build/arch/arm64/boot/dts/google/lga.dtsi:368.37-391.5:
->>> Warning (avoid_unnecessary_addr_size):
->>> /soc@0/interrupt-controller@5880000: unnecessary
->>> #address-cells/#size-cells without "ranges", "dma-ranges" or child "reg"
->>> or "ranges" property
->>>
->>> https://krzk.eu/#/builders/28/builds/845
->>>
->>> Probably you wanted address-cells=0?
-> 
-> Yes, it should be:
-> 
-> #address-cells = <0>;
-> 
-> and no size-cells line
-> 
-> How would you like to handle it? Shall I send a v5, or would you
-> prefer to fix it up locally since you already applied it?
+When RX LRO (or similar offload) is enabled, the TCP/IPv4 GRO path may
+aggregate traffic using frag_list. The resulting skb is later segmented
+via the frag_list segmentation path (skb_segment_list()).
 
-Just send a fixup patch.
+However, some drivers can hand GRO/LRO-aggregated frames to the stack
+where individual frag_list elements are already larger than skb_shinfo(p)
+->gso_size (i.e., an element itself contains multiple MSS worth of
+payload) and may be non-linear (nr_frags > 0). This shape is not
+naturally produced by the software GRO aggregation logic for devices
+without LRO, and can lead to unexpected behavior in the frag_list
+segmentation path.
 
-Best regards,
-Krzysztof
+Detect this condition during frag_list aggregation and mark the
+aggregated packet as SKB_GSO_DODGY when a list element’s length exceeds
+gso_size. This forces a more conservative segmentation/linearization
+behavior downstream and avoids relying on assumptions that do not hold
+for LRO-produced aggregates.
+
+No change for normal software GRO aggregation: the new check only
+triggers when skb_shinfo(p)->gso_size is set and a frag_list element
+length exceeds that size.
+
+Fixes: 3a1296a38d0c ("net: Support GRO/GSO fraglist chaining.")
+Cc: <stable@vger.kernel.org>
+Signed-off-by: Shiming Cheng <shiming.cheng@mediatek.com>
+---
+ net/core/gro.c | 3 +++
+ 1 file changed, 3 insertions(+)
+
+diff --git a/net/core/gro.c b/net/core/gro.c
+index 29b4d02bf519..e70ecf19b0a7 100644
+--- a/net/core/gro.c
++++ b/net/core/gro.c
+@@ -259,6 +259,9 @@ int skb_gro_receive_list(struct sk_buff *p, struct sk_buff *skb)
+ 	skb_shinfo(p)->flags |= skb_shinfo(skb)->flags & SKBFL_SHARED_FRAG;
+ 
+ 	NAPI_GRO_CB(skb)->same_flow = 1;
++	/* frag_list element larger than gso_size (already coalesced before list-append) */
++	if (skb_shinfo(p)->gso_size && skb->len > skb_shinfo(p)->gso_size)
++		skb_shinfo(p)->gso_type |= SKB_GSO_DODGY;
+ 
+ 	return 0;
+ }
+-- 
+2.45.2
+
 
