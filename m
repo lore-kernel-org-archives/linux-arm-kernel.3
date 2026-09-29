@@ -4,71 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 87E92CA5FA1
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 29 Sep 2026 07:21:02 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 82BD1C9832A
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 29 Sep 2026 07:21:03 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:From:
 	Subject:Message-ID:References:Mime-Version:In-Reply-To:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=aRnDa4vAhhdrCZggWPWQopoSXxq018MvNv/VSTy8Lhs=; b=efI9plofKA+TvjhJGQksFZHwXs
-	9XEfyI6qc/BejxL6rnm7mVtFlX5vyL/yEypLEUPs1EiqbtWh4jBxaj86EJ+xqHl5TKWntxxAbAHOY
-	RR9mTiDEat7MQrn4152iup08ptX6uzMuJ9bPayDpnrdTdjGXfZlaranmz/uqWvdhK1Q59C8L5Mwzm
-	gyTVnNbQgNfJ5wY13cm4zVBim/nTKIM7cgFK0KIryoZ/1G+Jnl83XKTN20uv9Ne0QTJ3NsrBAXsVd
-	G6AK9EzP8E3eoaZhLQUcK/ipPFIIHRlFgeXVerXW4iGbRIzo9MZdmA3OCaSbDyEbRDptAH9U++tm2
-	5hkjcr1A==;
+	bh=UAHt9yPr8xErw2vTC+nZUeTF0cYtYEiZZIIkDpWP9/4=; b=VsvKWAbM71mTmFd2HXnVdFkM0y
+	zW6FXQPEtUfGUf/fbszoDprHj7kF5exa3M+FgKG15mV1ZFaoF4toabXbSbe9N8YdCzYEgDbwPm/CH
+	mLqeiNZLNFd/euuBi8rYMkwOf88VBjKLKeDRIxUfFQm3+PB3J14Yz5qOyECiuOaOSicOpzYrpBlxm
+	6du955XGJrk4ttWGlIJxNLB77ohwNj1LtxiYG3pxm4ClpfEfJYyzKWqqmwnnW90ndqquKTo0drbLR
+	eUHDC30KbMmBlFtt0fcWHKJJ77XlQaczY0MdkWF+YwGxcKk7mvL+UlWMzb6EUcGX047SM4FWORDCk
+	DRxfMgLg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xBS92-00000002ayW-04iS;
-	Tue, 29 Sep 2026 07:20:56 +0000
-Received: from mail-pf1-x446.google.com ([2607:f8b0:4864:20::446])
+	id 1xBS91-00000002ayI-3mnj;
+	Tue, 29 Sep 2026 07:20:55 +0000
+Received: from mail-pg1-x546.google.com ([2607:f8b0:4864:20::546])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xBS8J-00000002aPA-3mID
+	id 1xBS8E-00000002aJq-3qQU
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 29 Sep 2026 07:20:13 +0000
-Received: by mail-pf1-x446.google.com with SMTP id d2e1a72fcca58-88085ea083fso1839577b3a.0
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 29 Sep 2026 00:20:11 -0700 (PDT)
+	Tue, 29 Sep 2026 07:20:08 +0000
+Received: by mail-pg1-x546.google.com with SMTP id 41be03b00d2f7-cc435388657so4570019a12.3
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 29 Sep 2026 00:20:06 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20251104; t=1790666410; x=1791271210; darn=lists.infradead.org;
+        d=google.com; s=20251104; t=1790666406; x=1791271206; darn=lists.infradead.org;
         h=content-type:cc:to:from:subject:message-id:references:mime-version
          :in-reply-to:date:from:to:cc:subject:date:message-id:reply-to
          :content-type;
-        bh=aRnDa4vAhhdrCZggWPWQopoSXxq018MvNv/VSTy8Lhs=;
-        b=HYzmlfZfGmPUDk/VXAYpCAfagC7geiG/EbkA2SHJelXjl0i26D6QKA5hmyqnTSrZVJ
-         FIfdUW9nhTaCFHhuPm4QL/6ZsV/Vj6Ja6YML5k8HaYS0GcHGz3odV/pslGFfW4Bu846C
-         eZXfR/0z/+EfzIsZB7DyR40kq1pNsyKsGG8gcv7u0wvNh8Sc8GNvoXtWn2eN7eSzXexZ
-         cqixhOhj2HHYwLWQF0b/XjlrE3a5kIG2cvnHkbIPKTC8bCjaOGZsPBZwEgRhapz4S4X3
-         mLliC6fs393ihSZFZla4h7VqLJMq/IfXocMGNp+gkZCnQgMCAvyt4UsDq/S7s0IB6r6Z
-         KF2Q==
+        bh=UAHt9yPr8xErw2vTC+nZUeTF0cYtYEiZZIIkDpWP9/4=;
+        b=BSLKP6XrTEd1TAzshsluEHc5MOsqEg/CqH+sHZ1JZX/q1yYWZ2q4sZ4gJ1K8BWOSAB
+         m4Oiz5wiIHHSKIGIMZ8K+bRQRXI7gDV/Tvn4HJaAUMt21ZJg1g01TuMyUcl3xV0JD1jy
+         K84NBNa/h3l+13PhR5IFmgPPN4e0+xY2Wj/O/tweNRgV3TT2m/74/noa6XtInnSnOyNE
+         KmyVf/uk9JM6LkX6bmRPArvQTC3im8h5d/E2N70c8B44r4v4drdu5AJPvMcB11uXvblR
+         f9OX+r2WepcB8scvdUx6haGUW5sJW+1WQJutaADtYRTm4osQsENRAKR6Kx/Huo2CzMOh
+         2lSA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1790666410; x=1791271210;
+        d=1e100.net; s=20260707; t=1790666406; x=1791271206;
         h=content-type:cc:to:from:subject:message-id:references:mime-version
          :in-reply-to:date:x-gm-message-state:from:to:cc:subject:date
          :message-id:reply-to:content-type;
-        bh=aRnDa4vAhhdrCZggWPWQopoSXxq018MvNv/VSTy8Lhs=;
-        b=0u1efcbfCfNT5hkALRZ3xQYcEQjP/bvwGP3nD48azwpBeZJcJ9KpxZ+v9dB3ocZ+7X
-         ZlkxgpUYALLLJMXjAtRshoTuqCmriLUv91RXgvlmhGw3MjN/R+3ejJBFKBpJauKQTyRR
-         +spArzNPBe1kzn42cJCtaKAKb7k54so9Qjc8ZiYy8pABPC31YAfqPg28KxBNN/MpUgrN
-         DfZfO4/9fxnrkRbK9uitnusxG2m6HwGqmcTXnb+acgFfPiyBVWvEhCUzDXapEzljhTNa
-         briNHWl10O4H3AAxA8EHLtvrSekkKD0LnAAstBZRD+cTJx4nSvpHuTGwDD2BNVfKM+Mb
-         OXYA==
-X-Forwarded-Encrypted: i=1; AKwUvBxetr1sWkbC7Iv9u7fbUqwfOQVDu+VGUdiZg2SA1pOMl4PlkcY9+IrpS+4auAeKoKF7DRiKKX38a4R208y155lK@lists.infradead.org
-X-Gm-Message-State: AFuF++nDpQfJr+URzzL9eZ7rJ44K1sW08e1IRhUt0NeJCsOt24bN1B8L
-	rSbmtLFrC6xn03d5BE1p1xIuf/Xl1lptTjbYSDcTOn2QFWLCWk144S2BNuqCBiyaFTZgxHPjw59
-	/MQ==
-X-Received: from pfbhu13.prod.google.com ([2002:a05:6a00:698d:b0:884:7cdd:23d1])
- (user=praan job=prod-delivery.src-stubby-dispatcher) by 2002:a05:6a00:94fb:b0:882:1d:c2ba
- with SMTP id d2e1a72fcca58-882001dcd3cmr5592982b3a.22.1790666410148; Tue, 29
- Sep 2026 00:20:10 -0700 (PDT)
-Date: Tue, 29 Sep 2026 07:19:48 +0000
+        bh=UAHt9yPr8xErw2vTC+nZUeTF0cYtYEiZZIIkDpWP9/4=;
+        b=kErjsqiTAMpF3KyzYfFGHIgUsOxJ1jpfAJ+jLVzltt1xF3WRd47Nd8eoHZ4AcDnaJI
+         je/JtR6Y6OcodrQ8uBQdwiyz7boLnjGzGcnVaPxerv+595WRfqw1xXjr3iJ9j1eIfca6
+         xHZBFHhk8MRI+jHRQ8xpyEWCAlaVmwkEM1HJAgKfJ05rapW0x+W10S2H/U39NZo8mKuu
+         w1K4IiH5oVuedoevS5SaABzKWwEodUfim7qmhw/BP0/dlF6G7xGzDqGmlRmJm7ocgmlx
+         DobCxMIcJHlIgKiGMqtXDNvDMIkc5zzblA0tLwx3rElw+HDQi/L5wnLX8KnWEug4dSS2
+         fB/A==
+X-Forwarded-Encrypted: i=1; AKwUvByjQAce4+Q3VEG5Xc+7IHFrQnfjCyqlWE7va7JFaRd706FG98T4bsY7ilBzOecc8u0sYfd1wU9J54S/HVwEeLdP@lists.infradead.org
+X-Gm-Message-State: AFuF++lHhsKH4anomHY+jEQv/3Q25tJqAD+x4CkNpu0l7QFfp85Lrhew
+	A0+A9sD0GXkg5UpUF7BDxi7lj8OjjIxNHWRhr3Y7zD2+w+yKAG2g5uw2ltzuFiMf7If4TzsEObm
+	smg==
+X-Received: from pfbmt5.prod.google.com ([2002:a05:6a00:6e65:b0:886:13f0:1b78])
+ (user=praan job=prod-delivery.src-stubby-dispatcher) by 2002:a05:6a20:914f:b0:3de:7701:d221
+ with SMTP id adf61e73a8af0-3de7701d806mr3057497637.42.1790666405416; Tue, 29
+ Sep 2026 00:20:05 -0700 (PDT)
+Date: Tue, 29 Sep 2026 07:19:46 +0000
 In-Reply-To: <20260929071950.2710070-1-praan@google.com>
 Mime-Version: 1.0
 References: <20260929071950.2710070-1-praan@google.com>
 X-Mailer: git-send-email 2.56.0.rc1.315.gc6ed9934b7-goog
-Message-ID: <20260929071950.2710070-8-praan@google.com>
-Subject: [RFC PATCH v1 7/9] iommu/arm-smmu-v3: Retain SMMUEN across a Live
- Update restore
+Message-ID: <20260929071950.2710070-6-praan@google.com>
+Subject: [RFC PATCH v1 5/9] iommu/arm-smmu-v3: Implement Live Update CD Table restoration
 From: Pranjal Shrivastava <praan@google.com>
 To: iommu@lists.linux.dev, Will Deacon <will@kernel.org>, 
 	Jason Gunthorpe <jgg@nvidia.com>
@@ -82,8 +81,8 @@ Cc: Robin Murphy <robin.murphy@arm.com>, Joerg Roedel <joro@8bytes.org>,
 	Pranjal Shrivastava <praan@google.com>
 Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260929_002011_953209_D6D8F37B 
-X-CRM114-Status: GOOD (  17.57  )
+X-CRM114-CacheID: sfid-20260929_002006_987970_41BEDA76 
+X-CRM114-Status: GOOD (  24.33  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -98,98 +97,240 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-arm_smmu_device_reset() clears SMMUEN and rewrites CR1, CR2 and
-STRTAB_BASE, aborting the DMA of the preserved devices. The kdump adoption
-path already avoids this for a live Stream Table.
-
-Introduce arm_smmu_strtab_is_live() and route a Live Update restore
-through the kdump reset path. Also ack a stale GERROR, since the outgoing
-kernel masked the interrupts, and skip installing the RMR bypass STEs.
+During the boot phase of a Kexec Handover (KHO), the incoming kernel
+must restore Context Descriptor (CD) tables for preserved devices to
+maintain Stage-1 translation contexts. Add a check within
+arm_smmu_alloc_cd_tables() to implement the CD table restoration.
 
 Signed-off-by: Pranjal Shrivastava <praan@google.com>
 ---
- drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c | 29 ++++++++++++++-------
- 1 file changed, 20 insertions(+), 9 deletions(-)
+ .../iommu/arm/arm-smmu-v3/arm-smmu-v3-kexec.c | 44 ++++++---
+ .../arm/arm-smmu-v3/arm-smmu-v3-liveupdate.c  | 90 +++++++++++++++++++
+ drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c   |  9 ++
+ drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.h   |  6 ++
+ 4 files changed, 138 insertions(+), 11 deletions(-)
 
-diff --git a/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c b/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c
-index 3cf97f451b64..54c97ebc15b2 100644
---- a/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c
-+++ b/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c
-@@ -5048,6 +5048,13 @@ static void arm_smmu_write_strtab(struct arm_smmu_device *smmu)
- 	writel_relaxed(reg, smmu->base + ARM_SMMU_STRTAB_BASE_CFG);
+diff --git a/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3-kexec.c b/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3-kexec.c
+index 8c53cd757007..7dc499a7bef4 100644
+--- a/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3-kexec.c
++++ b/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3-kexec.c
+@@ -222,6 +222,33 @@ int arm_smmu_kexec_check_ste_cdtab(struct arm_smmu_device *smmu, u64 ste0,
+ 	return 0;
  }
  
-+/* Adopted by kdump or restored by LU (a failed restore fails the probe) */
-+static bool arm_smmu_strtab_is_live(struct arm_smmu_device *smmu)
++/**
++ * arm_smmu_kexec_check_cdtab_l1_desc() - Check one CD table L1 descriptor
++ * @l1_desc: L1 descriptor value from the previous kernel's CD table
++ * @l2_base: pointer to return the L2 CD table's physical address
++ *
++ * Return: 1 if the descriptor is unused, 0 if it is valid with @l2_base set, or
++ * -EINVAL if it is malformed
++ */
++int arm_smmu_kexec_check_cdtab_l1_desc(u64 l1_desc, phys_addr_t *l2_base)
 +{
-+	return (smmu->options & ARM_SMMU_OPT_KDUMP_ADOPT) ||
-+	       iommu_get_preserved_data(smmu->base_phys, IOMMU_ARM_SMMUV3);
++	phys_addr_t base = l1_desc & CTXDESC_L1_DESC_L2PTR_MASK;
++
++	if (!(l1_desc & CTXDESC_L1_DESC_V))
++		return 1;
++
++	/*
++	 * A valid descriptor never carries a null pointer. Also, an L2 table is
++	 * always 64KB-aligned, so an unaligned pointer would make this kernel
++	 * read a different table.
++	 */
++	if (!base || !IS_ALIGNED(base, sizeof(struct arm_smmu_cdtab_l2)))
++		return -EINVAL;
++
++	*l2_base = base;
++	return 0;
 +}
 +
- static int arm_smmu_device_reset(struct arm_smmu_device *smmu)
+ static int arm_smmu_kexec_resv_asid(struct arm_smmu_device *smmu, u32 asid)
  {
- 	int ret;
-@@ -5064,10 +5071,11 @@ static int arm_smmu_device_reset(struct arm_smmu_device *smmu)
- 	 * According to spec, updating STRTAB_BASE/CR1/CR2 when CR0_SMMUEN=1 is
- 	 * CONSTRAINED UNPREDICTABLE. So, skip those register updates and rely
- 	 * on the adopted stream table from the crashed kernel.
-+	 * Same for a Live Update restore.
- 	 */
--	if (smmu->options & ARM_SMMU_OPT_KDUMP_ADOPT) {
--		dev_info(smmu->dev,
--			 "kdump: retaining SMMUEN for in-flight DMA\n");
-+	if (arm_smmu_strtab_is_live(smmu)) {
-+		dev_info(smmu->dev, "%s: retaining SMMUEN for in-flight DMA\n",
-+			 is_kdump_kernel() ? "kdump" : "live update");
- 		enables = reg & ~(CR0_CMDQEN | CR0_EVTQEN | CR0_PRIQEN);
- 		goto reset_queues;
- 	}
-@@ -5103,7 +5111,7 @@ static int arm_smmu_device_reset(struct arm_smmu_device *smmu)
- 	arm_smmu_write_strtab(smmu);
+ 	/* A valid CD never has ASID 0; both kernels share the same HW limit */
+@@ -310,21 +337,16 @@ static int arm_smmu_kexec_resv_s1_asids(struct arm_smmu_device *smmu, u64 ste0)
+ 	/* Aliased L2 tables cannot extend the walk; they only repeat a scan */
+ 	for (i = 0; i < num_l1_ents; i++) {
+ 		u64 l1_desc = le64_to_cpu(l1tab[i].l2ptr);
+-		phys_addr_t l2_base = l1_desc & CTXDESC_L1_DESC_L2PTR_MASK;
+ 		struct arm_smmu_cdtab_l2 *l2;
++		phys_addr_t l2_base;
  
- reset_queues:
--	if (smmu->options & ARM_SMMU_OPT_KDUMP_ADOPT) {
-+	if (arm_smmu_strtab_is_live(smmu)) {
- 		/*
- 		 * Disable queues since arm_smmu_device_disable() was skipped.
- 		 * CR0 fields are independent per spec, so the queue enable bits
-@@ -5122,8 +5130,9 @@ static int arm_smmu_device_reset(struct arm_smmu_device *smmu)
- 	 * errors would be visible. Ack everything prior to re-enabling the CMDQ
- 	 * as a stale CMDQ_ERR would halt the CMDQ and new command will timeout.
- 	 * Acking SFM_ERR is defined too, although it would not exit the SFM.
-+	 * Same for a Live Update, as the outgoing kernel masked the interrupts.
- 	 */
--	if (is_kdump_kernel()) {
-+	if (is_kdump_kernel() || arm_smmu_strtab_is_live(smmu)) {
- 		u32 gerror = readl_relaxed(smmu->base + ARM_SMMU_GERROR);
- 		u32 gerrorn = readl_relaxed(smmu->base + ARM_SMMU_GERRORN);
+-		if (!(l1_desc & CTXDESC_L1_DESC_V))
++		ret = arm_smmu_kexec_check_cdtab_l1_desc(l1_desc, &l2_base);
++		if (ret == 1) {
++			ret = 0;
+ 			continue;
+-
+-		/*
+-		 * A valid descriptor never carries a null pointer. Also, an L2
+-		 * table is always 64KB-aligned, so an unaligned pointer would
+-		 * make this kernel read a different table.
+-		 */
+-		if (!l2_base || !IS_ALIGNED(l2_base, sizeof(*l2))) {
+-			ret = -EINVAL;
+-			break;
+ 		}
++		if (ret)
++			break;
  
-@@ -5193,10 +5202,10 @@ static int arm_smmu_device_reset(struct arm_smmu_device *smmu)
- 	}
+ 		l2 = memremap(l2_base, num_cds * sizeof(*l2->cds), MEMREMAP_WB);
+ 		if (!l2) {
+diff --git a/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3-liveupdate.c b/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3-liveupdate.c
+index 4998234e1e7a..981b091a47a1 100644
+--- a/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3-liveupdate.c
++++ b/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3-liveupdate.c
+@@ -571,4 +571,94 @@ int arm_smmu_liveupdate_restore_strtab(struct arm_smmu_device *smmu)
+ 	return 0;
+ }
+ 
++int arm_smmu_liveupdate_restore_cd_tables(struct arm_smmu_master *master)
++{
++	struct arm_smmu_device *smmu = master->smmu;
++	struct arm_smmu_ctx_desc_cfg *cd_table = &master->cd_table;
++	struct iommu_device_ser *dev_ser = dev_iommu_restored_state(master->dev);
++	u32 max_contexts, s1fmt, num_l2, restored = 0, i;
++	struct arm_smmu_ste *ste;
++	u64 *l2_states = NULL;
++	phys_addr_t cdtab;
++	u64 ste0;
++	int ret;
++
++	if (!dev_ser)
++		return 0;
++
++	/* Only an S1 STE has a CD table behind it */
++	ste = arm_smmu_get_step_for_sid(smmu, master->streams[0].id);
++	ste0 = le64_to_cpu(ste->data[0]);
++	if (!(ste0 & STRTAB_STE_0_V) ||
++	    FIELD_GET(STRTAB_STE_0_CFG, ste0) != STRTAB_STE_0_CFG_S1_TRANS)
++		return 0;
++
++	ret = arm_smmu_kexec_check_ste_cdtab(smmu, ste0, &cdtab, &s1fmt,
++					     &max_contexts);
++	if (ret)
++		return ret;
++
++	cd_table->s1cdmax = ilog2(max_contexts);
++	cd_table->s1fmt = s1fmt;
++
++	if (s1fmt == STRTAB_STE_0_S1FMT_LINEAR) {
++		cd_table->linear.num_ents = max_contexts;
++		cd_table->linear.table = dma_restore_coherent_allocation(smmu->dev,
++				max_contexts * sizeof(*cd_table->linear.table),
++				&cd_table->cdtab_dma, GFP_KERNEL,
++				dev_ser->smmuv3.l1_cdtab_lu_state);
++		return cd_table->linear.table ? 0 : -ENOMEM;
++	}
++
++	cd_table->l2.num_l1_ents = DIV_ROUND_UP(max_contexts,
++						CTXDESC_L2_ENTRIES);
++	cd_table->l2.l1tab = dma_restore_coherent_allocation(smmu->dev,
++			cd_table->l2.num_l1_ents * sizeof(*cd_table->l2.l1tab),
++			&cd_table->cdtab_dma, GFP_KERNEL,
++			dev_ser->smmuv3.l1_cdtab_lu_state);
++	if (!cd_table->l2.l1tab)
++		return -ENOMEM;
++
++	cd_table->l2.l2ptrs = kcalloc(cd_table->l2.num_l1_ents,
++				      sizeof(*cd_table->l2.l2ptrs), GFP_KERNEL);
++	if (!cd_table->l2.l2ptrs)
++		return -ENOMEM;
++
++	num_l2 = dev_ser->smmuv3.num_l2_cdtables;
++	if (num_l2)
++		l2_states = phys_to_virt(dev_ser->smmuv3.l2_cdtab_lu_states_phys);
++
++	for (i = 0; i < cd_table->l2.num_l1_ents; i++) {
++		u64 l1_desc = le64_to_cpu(cd_table->l2.l1tab[i].l2ptr);
++		phys_addr_t l2_base;
++		dma_addr_t l2_dma;
++
++		ret = arm_smmu_kexec_check_cdtab_l1_desc(l1_desc, &l2_base);
++		if (ret == 1)
++			continue;
++		if (ret)
++			goto out_free_states;
++
++		if (restored >= num_l2) {
++			ret = -EINVAL;
++			goto out_free_states;
++		}
++
++		l2_dma = l2_base;
++		cd_table->l2.l2ptrs[i] = dma_restore_coherent_allocation(smmu->dev,
++				sizeof(*cd_table->l2.l2ptrs[i]), &l2_dma,
++				GFP_KERNEL, l2_states[restored++]);
++		if (!cd_table->l2.l2ptrs[i]) {
++			ret = -ENOMEM;
++			goto out_free_states;
++		}
++	}
++	ret = 0;
++
++out_free_states:
++	if (l2_states)
++		kho_restore_free(l2_states);
++	return ret;
++}
++
+ #endif
+diff --git a/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c b/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c
+index c8bcf901f1c8..b13ed06a368f 100644
+--- a/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c
++++ b/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c
+@@ -17,6 +17,7 @@
+ #include <linux/err.h>
+ #include <linux/interrupt.h>
+ #include <linux/generic_pt/iommu.h>
++#include <linux/iommu-liveupdate.h>
+ #include <linux/iopoll.h>
+ #include <linux/jump_label.h>
+ 
+@@ -1723,6 +1724,14 @@ static int arm_smmu_alloc_cd_tables(struct arm_smmu_master *master)
+ 	struct arm_smmu_device *smmu = master->smmu;
+ 	struct arm_smmu_ctx_desc_cfg *cd_table = &master->cd_table;
+ 
++	if (dev_iommu_restored_state(master->dev)) {
++		ret = arm_smmu_liveupdate_restore_cd_tables(master);
++		if (ret)
++			return ret;
++		if (arm_smmu_cdtab_allocated(cd_table))
++			return 0;
++	}
++
+ 	cd_table->s1cdmax = master->ssid_bits;
  
  	/*
--	 * In a kdump adopt case, retain the crashed kernel's ATS-check policy
--	 * captured above rather than forcing it on.
-+	 * In a kdump adopt or a Live Update restore case, retain the previous
-+	 * kernel's ATS-check policy captured above rather than forcing it on.
- 	 */
--	if (!(smmu->options & ARM_SMMU_OPT_KDUMP_ADOPT) &&
-+	if (!arm_smmu_strtab_is_live(smmu) &&
- 	    (smmu->features & ARM_SMMU_FEAT_ATS)) {
- 		enables |= CR0_ATSCHK;
- 		ret = arm_smmu_write_reg_sync(smmu, enables, ARM_SMMU_CR0,
-@@ -5722,8 +5731,10 @@ static void arm_smmu_rmr_install_bypass_ste(struct arm_smmu_device *smmu)
- 	 * Kdump adoption keeps the crashed kernel's table live. Rewriting the
- 	 * adopted STE here could expose an in-flight fetch to a transient V=0
- 	 * entry, or change Cfg=translate to Cfg=bypass. Must skip here.
-+	 * Same for a Live Update restore.
-+	 * TODO: Re-install the bypass STEs of the unpreserved RMR SIDs.
- 	 */
--	if (smmu->options & ARM_SMMU_OPT_KDUMP_ADOPT)
-+	if (arm_smmu_strtab_is_live(smmu))
- 		return;
+diff --git a/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.h b/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.h
+index 6b75f48671f8..453ad34ab0fa 100644
+--- a/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.h
++++ b/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.h
+@@ -1209,11 +1209,16 @@ void arm_smmu_unpreserve_device(struct device *dev,
+ void arm_smmu_unpreserve(struct iommu_device *iommu,
+ 			 struct iommu_hw_ser *iommu_ser);
+ int arm_smmu_liveupdate_restore_strtab(struct arm_smmu_device *smmu);
++int arm_smmu_liveupdate_restore_cd_tables(struct arm_smmu_master *master);
+ #else
+ static inline int arm_smmu_liveupdate_restore_strtab(struct arm_smmu_device *smmu)
+ {
+ 	return -ENOENT;
+ }
++static inline int arm_smmu_liveupdate_restore_cd_tables(struct arm_smmu_master *master)
++{
++	return 0;
++}
+ #endif
  
- 	INIT_LIST_HEAD(&rmr_list);
+ static inline void arm_smmu_domain_free(struct arm_smmu_domain *smmu_domain)
+@@ -1369,6 +1374,7 @@ int arm_smmu_kexec_check_strtab_l1_desc(struct arm_smmu_device *smmu,
+ int arm_smmu_kexec_check_ste_cdtab(struct arm_smmu_device *smmu, u64 ste0,
+ 				   phys_addr_t *cdtab, u32 *s1fmt,
+ 				   u32 *max_contexts);
++int arm_smmu_kexec_check_cdtab_l1_desc(u64 l1_desc, phys_addr_t *l2_base);
+ int arm_smmu_kexec_scan_and_resv_ids(struct arm_smmu_device *smmu);
+ void arm_smmu_kexec_unresv_ids(struct arm_smmu_device *smmu);
+ #endif /* CONFIG_ARM_SMMU_V3_KEXEC */
 -- 
 2.56.0.rc1.315.gc6ed9934b7-goog
 
