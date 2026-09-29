@@ -4,98 +4,91 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 305A5CA5FA5
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 29 Sep 2026 09:02:34 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CA87ECA5FA5
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 29 Sep 2026 09:04:12 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=BwJjdqcFj709Qv5LzibFkFCPgjMc0g1wC/gY1GLFeWU=; b=VzcQx040slSPyq0dktROrkdiI9
-	bvxGc7LjLLuSH7rDWf/ABWEk4prGKAwIrjcMOdlXJyF38WEFqlZaimgX1c8gV8uyA0mjU6DBIBFpo
-	esej4e3YPf7UUw8eIz7Ve0jagNqMHh6Os6somjDtX73efUGAnZqpBg1GCcq0TirSL4LuqcwgqMAAN
-	c9RmD3YByTTm3I97YGp0yT+QIQW/gaDyCm6bjBfAwuK034QJJcSw6NnY7ieKEVqLPRJ+10WSQ1chK
-	yh2fsJ9rEepSU/xeFgoQVsqbHGvHSq1CiUI1EVDUg0drzfImH+oXYaivLueL/oO6VsZcLmWEgohPN
-	rvOc+sqQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	Message-ID:Date:References:In-Reply-To:Subject:Cc:To:From:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=WooDL/KYFFTLcmuL4/zwwe5nLEMkzFYyCGa/v7j46HM=; b=VqV9DxmMZNhywqzxd1U5/C+ayx
+	Os+LgGVKu9xbO6bUWBt8dQRTVaj0CDtbSJ6D3xejBXM7sxBSDXrGg8uxmma9wuS5jjK9EWjmwu5S8
+	xd6tO1d9p/4FLVptxDY2pvjhJUHc3H4ohlAmgtOjQl1ZiFosQUo4I96sWqC9i1dU9i0cEbXS9HZoI
+	Q0QhE1AFIjToSb06J1ParAx6gNs0q7XC+dMTnoxpRIcSzG0AGLDOHvLqehYTsiiJZynrWyRqe1G9n
+	Og+a7FpLEfWOQruWvHwMMATa+V4pVqWGxZ7o50fQbf/96ZhcJmhgH+oe50sp3FX+jLL5+fhiFpDAS
+	AeFYfb+A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xBTjH-00000002v20-1Rk6;
-	Tue, 29 Sep 2026 09:02:27 +0000
-Received: from mail-wr2-x0e.google.com ([2a00:1450:4864:30::e])
+	id 1xBTkr-00000002vDG-3uXe;
+	Tue, 29 Sep 2026 09:04:05 +0000
+Received: from mgamail.intel.com ([192.198.163.14])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xBTjE-00000002v0l-3A78
-	for linux-arm-kernel@lists.infradead.org;
-	Tue, 29 Sep 2026 09:02:25 +0000
-Received: by mail-wr2-x0e.google.com with SMTP id ffacd0b85a97d-48af5ae31d8so205290f8f.2
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 29 Sep 2026 02:02:23 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1790672542; x=1791277342; darn=lists.infradead.org;
-        h=content-transfer-encoding:content-type:in-reply-to:from
-         :content-language:references:cc:to:subject:user-agent:mime-version
-         :date:message-id:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=BwJjdqcFj709Qv5LzibFkFCPgjMc0g1wC/gY1GLFeWU=;
-        b=Vp/OL+LdANTAi2F8LiuLQS4VoTUM9EEu/fOv4I/RpvJNPSyYINsIE3HTcBhf2OCoi2
-         w7I5t8ir6thxvp5BswPFSAXr3rsDY+6SmDPN3wpt7O8z1m51YP+yQsRCkrTbyB3YvXkb
-         xTzZJBFIXZSXUAjkRRKvd+veD0sGOVj/HNjp0lF+EBE7Pz1IrMGYXwTUE1ZQSiLLPpnr
-         OPETSZ74fBwGEZkgFtQxk7gfwqMF6e/ENMFizvPvoQ/wY7uIPmjmAH8tr8HE9MLrjBRE
-         tfTOV6hdAt650zlur8db6wIopc7qPgmRwXeYuR5Sx0zEeJsCbsq2KJ89LV568VGZkXJt
-         TYfw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1790672542; x=1791277342;
-        h=content-transfer-encoding:content-type:in-reply-to:from
-         :content-language:references:cc:to:subject:user-agent:mime-version
-         :date:message-id:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=BwJjdqcFj709Qv5LzibFkFCPgjMc0g1wC/gY1GLFeWU=;
-        b=MrLiHVLi+CJvLWYTTXh/5NiSlcfqLYKFsRJntzKw5PYC4OVf0REEEZCD9ZXJyR9sQB
-         XvALqwsGr6S1QOgAR1x+49Bpf5vAZ8tXPU+tNFZQLDbWO84f1Ohe5hhqb3PmZQr/wqw0
-         LvgTmqHb9K/7yOJu7rsMPakEX2phjZ7+UJ80z6dHIZXUFKFifLoW7MZX5teDtBU5b0Ev
-         xJW0daLIMmstzvXpTAu25guMlUruPlBzHZ4rFF2b95KUwslqCzuljXXDmU0vTNIZHnze
-         gylLHUiAsquz4WvV4ABqGvOsTV94HjZAtmWfNGYDsGS7wqkTprje2GZjC8Cfq27FXk2d
-         8aHw==
-X-Forwarded-Encrypted: i=1; AKwUvBxOa1P7cOlCK5Lmhbp0cmMi3FJ80GLmycxXPDzKEsBuojrDwXOYE82nhra1127dOB5rdP21WMD8qDNxHK7tBG/K@lists.infradead.org
-X-Gm-Message-State: AFq9FYIMWcTZO6ZH6GxDo0XeRQCpxN9zrB3OhflAxL34uIFTh6oR7/0v
-	uT81rP8keZq5DvVG4ssUXvRgnmTfHx8G7sHwlJ3LtFg3GgaO64ao4TPVin9/Z0VBc1bIo/uVO0x
-	0ijRU
-X-Gm-Gg: AYBFou034mszAKMgAGkTHRXJEeC1mTlu71UVqc60UAXnp9E8DCDitX2S6urGe1GMmiH
-	/ZjosRtEF98ZPgxkbnlFymJu5rNfqINj9d4t7fLf87GOfk9yjOgK/G9c8Yc0H0xotD2ZvX47BtN
-	2V6eYpEJEVdvwpu0dKaiQT68bIIV10pTTfzJM6gsf6YkEw1jOHHNnnQC62C3AK/le2AQN3pZ7t9
-	3FbqT3uoCayZAfPc60XtQLyM8ywe60N+Yzs05QmGSyJ5GewMeN7++uU9PGCE8hE0tdVf5foVlUv
-	uL1Do8EBtlqPZs/Zydg/BY8+GVWqbvPKFKK0U1UfGUCNpTE38D6sWURk5zZXti2IcR/8Al32D3n
-	fHoFbEy1qWayxIRIbLcbI0gR0EG++fAvZEqMuSGwVkTZ24vfe/TijPo9hS+IvKeENKU6AFzroGJ
-	otFbaqHmRdrdhsi+TI/YMKVZvwG3kwbL9hsm+DzZLTTmEEXnm5SgfmFGl8D3PUx8fMtw4JHxyhq
-	rm26VVk
-X-Received: by 2002:a05:6000:4009:b0:487:92e:c608 with SMTP id ffacd0b85a97d-48af1b1cc9amr3124751f8f.1.1790672542160;
-        Tue, 29 Sep 2026 02:02:22 -0700 (PDT)
-Received: from [10.11.12.111] ([79.115.63.240])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-48af5058c52sm2748227f8f.19.2026.09.29.02.02.21
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Tue, 29 Sep 2026 02:02:21 -0700 (PDT)
-Message-ID: <7b5dded4-c475-40dd-b5c4-5086bab4162e@linaro.org>
-Date: Tue, 29 Sep 2026 12:02:18 +0300
+	id 1xBTkq-00000002vCb-0unI;
+	Tue, 29 Sep 2026 09:04:05 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1790672644; x=1822208644;
+  h=from:to:cc:subject:in-reply-to:references:date:
+   message-id:mime-version;
+  bh=fjTgkfgps1Gk7j6xMRcB1fFz/DjnVOKoczfByJwdpzQ=;
+  b=Vu5aeqK7pQWJWUBgvtimQhagMDH7K5s9rS57iSmS/3bTi29QzzvyfRTy
+   fxou6XhW89xPX99kxRsa8I02i1Wd2w2VaR7iIs2jmIooKmWpxr6xB9kUe
+   6SY8t2eU7zYN6bJiEnj1JxdYU1BzXWOdr/hVcBllZy6TUmQ9ROXFf93pi
+   jCIbXkecNVV3VyZaBZGGPzx0MDE8L4IXyqvkvptXNQgHFmaul3WQfN8J0
+   pXCfCy4c6EGAHadPz3WkTWBRcxjiTJSw1rNjVsWcZCuE+GQbmcuRgHYtw
+   aqJw3D89KCMuFQHXwOz+bdkTf6//8kZlDK6NcfmMzYMRingh+2vrZVpF3
+   A==;
+X-CSE-ConnectionGUID: H5+2kP2ZSCqqttgYBXeU3w==
+X-CSE-MsgGUID: Qtd4ZX70TZGwT4gvvjkN6g==
+X-IronPort-AV: E=McAfee;i="6800,10657,11919"; a="91405280"
+X-IronPort-AV: E=Sophos;i="6.27,130,1787036400"; 
+   d="scan'208";a="91405280"
+Received: from fmviesa009.fm.intel.com ([10.60.135.149])
+  by fmvoesa108.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 29 Sep 2026 02:04:03 -0700
+X-CSE-ConnectionGUID: L4F6TTbPScOGpDGQ/vD63w==
+X-CSE-MsgGUID: px97l+LIQsul4lmsr50Xug==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.27,130,1787036400"; 
+   d="scan'208";a="271804384"
+Received: from kniemiec-mobl1.ger.corp.intel.com (HELO localhost) ([10.245.244.233])
+  by fmviesa009-auth.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 29 Sep 2026 02:03:55 -0700
+From: Jani Nikula <jani.nikula@linux.intel.com>
+To: Maxime Ripard <mripard@kernel.org>, Neil Armstrong
+ <neil.armstrong@linaro.org>, Jessica Zhang <jesszhan0024@gmail.com>, David
+ Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>, Maarten
+ Lankhorst <maarten.lankhorst@linux.intel.com>, Thomas Zimmermann
+ <tzimmermann@suse.de>, Rob Herring <robh@kernel.org>, Krzysztof Kozlowski
+ <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, Nathan
+ Chancellor <nathan@kernel.org>, Nick Desaulniers
+ <ndesaulniers@google.com>, Bill Wendling <morbo@google.com>, Justin Stitt
+ <justinstitt@google.com>, Florian Fainelli
+ <florian.fainelli@broadcom.com>, Broadcom internal kernel review list
+ <bcm-kernel-feedback-list@broadcom.com>
+Cc: Andrzej Hajda <andrzej.hajda@intel.com>, Neil Armstrong
+ <neil.armstrong@linaro.org>, Robert Foss <rfoss@kernel.org>, Laurent
+ Pinchart <Laurent.pinchart@ideasonboard.com>, Jonas Karlman
+ <jonas@kwiboo.se>, Jernej Skrabec <jernej.skrabec@gmail.com>, Luca
+ Ceresoli <luca.ceresoli@bootlin.com>, Albert Esteve <aesteve@redhat.com>,
+ Dave Stevenson <dave.stevenson@raspberrypi.com>, Javier Martinez Canillas
+ <javierm@redhat.com>, dri-devel@lists.freedesktop.org,
+ devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+ bpf@vger.kernel.org, llvm@lists.linux.dev,
+ linux-rpi-kernel@lists.infradead.org,
+ linux-arm-kernel@lists.infradead.org, Maxime Ripard <mripard@kernel.org>,
+ Benjamin Tissoires <bentiss@kernel.org>
+Subject: Re: [PATCH 0/6] drm/bridge: Add a BPF-based MIPI-DSI panel driver
+In-Reply-To: <20260928-drm-mipi-dsi-panel-ebpf-v1-0-5244926aace4@kernel.org>
+Organization: Intel Finland Oy - BIC 0357606-4 - c/o Alberga Business Park,
+ 6 krs Bertel Jungin Aukio 5, 02600 Espoo, Finland
+References: <20260928-drm-mipi-dsi-panel-ebpf-v1-0-5244926aace4@kernel.org>
+Date: Tue, 29 Sep 2026 12:03:52 +0300
+Message-ID: <054ef52478fc93fc213a9dae23ea77f73094aaf2@intel.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 1/2] arm64: dts: exynos850: Add ACPM firmware node
-To: Alexey Klimov <alexey.klimov@linaro.org>,
- Sam Protsenko <semen.protsenko@linaro.org>, Rob Herring <robh@kernel.org>,
- Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
- <conor+dt@kernel.org>, Peter Griffin <peter.griffin@linaro.org>,
- Alim Akhtar <alim.akhtar@samsung.com>
-Cc: Thomas Turner <tturner@lineageos.org>, linux-samsung-soc@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, devicetree@vger.kernel.org,
- linux-kernel@vger.kernel.org
-References: <20260929-exynos850-acpm-node-cpufreq-v1-0-5a86c1d404b8@linaro.org>
- <20260929-exynos850-acpm-node-cpufreq-v1-1-5a86c1d404b8@linaro.org>
-Content-Language: en-US
-From: Tudor Ambarus <tudor.ambarus@linaro.org>
-In-Reply-To: <20260929-exynos850-acpm-node-cpufreq-v1-1-5a86c1d404b8@linaro.org>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260929_020224_822918_99250CB5 
-X-CRM114-Status: GOOD (  15.28  )
+X-CRM114-CacheID: sfid-20260929_020404_273806_C9FF1DC5 
+X-CRM114-Status: GOOD (  19.29  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -110,55 +103,53 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi, Alexey,
+On Mon, 28 Sep 2026, Maxime Ripard <mripard@kernel.org> wrote:
+> Panels in general, and MIPI-DSI panels in particular, are pretty
+> difficult to support and require pretty much a panel driver for each
+> panel produced. Most of them are pretty simple, and require an opaque
+> initialization sequence that is usually poorly documented.
+>
+> This creates a tension between OEMs and distros because OEMs will
+> typically get a new panel to react to a sourcing issue during
+> production, and thus need some swift turnaround between getting their
+> new panel and it being operational in the OS. Distributions on the other
+> hand can take years to ship a kernel with that new panel driver.
+>
+> To solve this, I followed the example of HID-BPF and wrote a panel
+> driver that will rely on BPF programs to perform the panel
+> initialization. That way, we can ship the programs separately from the
+> kernel, and with a different lifecycle. If this driver is accepted, the
+> plan is to have a userspace component started by udev to identify and
+> load the right BPF program for the panels found on the device.
 
-On 9/29/26 6:10 AM, Alexey Klimov wrote:
-> Add the ACPM firmware node with cpucl0 and cpucl1 clocks. ACPM firmware
-> protocol provides interface for all client drivers to actually use
-> features exposed by the APM co-processor.
-> 
-> Signed-off-by: Alexey Klimov <alexey.klimov@linaro.org>
-> ---
->  arch/arm64/boot/dts/exynos/exynos850.dtsi | 13 +++++++++++++
->  1 file changed, 13 insertions(+)
-> 
-> diff --git a/arch/arm64/boot/dts/exynos/exynos850.dtsi b/arch/arm64/boot/dts/exynos/exynos850.dtsi
-> index 8a4771899a8e..91c6cee8f483 100644
-> --- a/arch/arm64/boot/dts/exynos/exynos850.dtsi
-> +++ b/arch/arm64/boot/dts/exynos/exynos850.dtsi
-> @@ -11,6 +11,7 @@
->   */
->  
->  #include <dt-bindings/clock/exynos850.h>
-> +#include <dt-bindings/clock/samsung,exynos850-acpm.h>
->  #include <dt-bindings/interrupt-controller/arm-gic.h>
->  #include <dt-bindings/soc/samsung,exynos-usi.h>
->  
-> @@ -170,6 +171,18 @@ timer: timer {
->  		     <GIC_PPI 10 (GIC_CPU_MASK_SIMPLE(8) | IRQ_TYPE_LEVEL_LOW)>;
->  	};
->  
-> +	firmware {
-> +		acpm_ipc: power-management {
-> +			compatible = "samsung,exynos850-acpm-ipc";
-> +			mboxes = <&ap2apm_mailbox>;
-> +			shmem = <&apm_sram>;
-> +			clocks = <&cmu_cpucl0 CLK_FOUT_CPUCL0_PLL>,
-> +				 <&cmu_cpucl1 CLK_FOUT_CPUCL1_PLL>;
+I'd think for most panels it would suffice to have a declarative
+language describing what to do at what points in time. For example, at
+poweron, enable this GPIO, wait a little, write this set of DSI
+commands, etc. You rarely need actual programming, or even ability to
+read-modify-write something.
 
-Why do you describe these clocks?
+It could be, say, YAML converted to some binary representation. Maybe
+that could be in the DT, or maybe you could override it with the
+firmware loader. And obviously any vendor "blob" could be trivially
+converted back to YAML and upstreamed.
 
-Thanks,
-ta
+Where that falls short, you could always have a dedicated driver, or
+extend the declarative stuff.
 
-> +			clock-names = "cpucl0", "cpucl1";
-> +			#clock-cells = <1>;
-> +		};
-> +	};
-> +
->  	soc: soc@0 {
->  		compatible = "simple-bus";
->  		#address-cells = <1>;
-> 
+Now, the question is, how much more BPF solves over that, without
+requiring a dedicated driver, and is the added complexity worth it?
 
+FWIW, on the Intel platforms that support DSI, all of the
+initialization, poweron/poweroff, backlight on/off etc. sequences like
+that are stored in the BIOS, defined by the OEM. A plethora of DSI
+panels, one driver. Don't look at it for examples how to implement it,
+but I think the basic idea is workable.
+
+
+BR,
+Jani.
+
+
+-- 
+Jani Nikula, Intel
 
