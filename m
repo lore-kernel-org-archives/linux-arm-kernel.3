@@ -4,111 +4,100 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D1402CA5FA5
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 29 Sep 2026 14:41:43 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2CBBCCA5FA5
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 29 Sep 2026 14:42:56 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ljt9qo4CbaNAhZ8NBb8RScI9+T0M5HBa8xMXa6k6Vt0=; b=Io4l5B73s+9PQ/ka/+aTcmt2dv
-	GKN6c6DgugLePtEOXkqFftYeUw0E4e4XtqtNS++LKezTqvEQej3xaWo6DXdOvDIK4fN7FACllkkHi
-	pCD5RbExPZHbOYJfWOxWZGGW4PiV+la6irvPVWBCxETJOZ3SQuG3MuXG3HRraC016BNcy4XnTocMj
-	op8PKxWfNV7pQstJaSJaMbGvXQ3DkTvqWGRmOTJaPr19xVzIYTwCJPr5l56QVLpjXkUmes0/Qo3eM
-	Q9T2HJiV24zhZY3iil4sVpYVQpPAk9ZChO+DvnFphGTSpiQZnkPPaunmhUaUmDWV0NH1hdnZ6w7od
-	s5r+odvA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:References:In-Reply-To:Date:Cc:To:From
+	:Subject:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=14lJ72vIWAnigHOp+fWNgRiWsF4V8Rz5/c4bDdh8fy8=; b=ngHpgZtUwAPYOwfyqkGwIUWJDp
+	fGWCnTGHbbwoI2TAsNh//8xGTkTvGUhTQ0DyLowV5+lr1OLVINbdTuGi6vcY7l5TJhxWYfIsMd3zm
+	B3pvc85Ne9/UkJAXWp4iSn9AAbCvdY9oVHoAtJn1Cs1xLVg5yaV2yVmjpxXngLejs9tV5Ch4RQ4iu
+	6mrCkLtIlycYkt28LAZWbHhzs6ZDGIFEEeUr3kG8hLyNx246Qf4BXsNtJd4Wkna8uYNepd5wVA7cn
+	qDlnSF7mEJsJP76jAMcvlXTKa8PzCd969wIlGmN61rrtoYttseyguIeuZRjkkd5dMCHVG6lD0i0Rv
+	ecDzLszg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xBZ1V-00000003oSt-0OQe;
-	Tue, 29 Sep 2026 14:41:37 +0000
+	id 1xBZ2f-00000003oay-1BvI;
+	Tue, 29 Sep 2026 14:42:49 +0000
 Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xBZ1T-00000003oSb-3hI0
+	id 1xBZ2d-00000003oaY-2Aof
 	for linux-arm-kernel@bombadil.infradead.org;
-	Tue, 29 Sep 2026 14:41:36 +0000
+	Tue, 29 Sep 2026 14:42:47 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:Content-Type
-	:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:Message-ID:
+	d=infradead.org; s=desiato.20200630; h=MIME-Version:Content-Transfer-Encoding
+	:Content-Type:References:In-Reply-To:Date:Cc:To:From:Subject:Message-ID:
 	Sender:Reply-To:Content-ID:Content-Description;
-	bh=ljt9qo4CbaNAhZ8NBb8RScI9+T0M5HBa8xMXa6k6Vt0=; b=Sh1ieKRyY4jLW/3+YG52nZ5bta
-	1H2em3c3NoUxvTElLPFWHrqzOokMjsbbgaTkLbeDoNV+pO9WHwISfEtgzdOtNn6IoSKfJFuIxZ8FX
-	wyqxr+UgoXStEgF/uaL0ZNARdKzFy+dPxaoWZ0mqHz5RL1NDzZK/t/3EeocZ/fECD/a2tDhAiV7+E
-	Fwn0laPEpbfatFm9RLtiy+U0ofZE2yhYpKWkoDIK+2WVf71o8ZC+7pbV61tbss1xd8HHR0OPGdbeA
-	XNUjv4im8S88xqD2nFQeAl1mou6+p9MZQTFjeBX/QWyE6gXbBIFDLDgz+0IZcWX57iothIOpwyR7S
-	dq9/XUmQ==;
-Received: from mail-ej2-x23.google.com ([2a00:1450:4864:34::23])
+	bh=14lJ72vIWAnigHOp+fWNgRiWsF4V8Rz5/c4bDdh8fy8=; b=Chiy8fPtzpllPtnfy0Xg4I0VP3
+	UyZDyWLPEz8uCshPqiQSd4VLZO3cPt/Q6qlysAol0043khQkVD75wbXwSVWVsDnY8St7Ac7aUwGpy
+	ByX/yj2qxeLOxFReGUbGWrfWx8PeK9BBr5KTKRBFxT0OhHYmlUoUFrEI+vncY1z1XUAS3e9/wFeW2
+	4KnBX0CPZkVxZ7BTQG1U3ajBVP4yPgUauk5fJ0eEn0ReIzVpR/KzFIlLtum7RhLuQ/q8HMrDS1W5n
+	CTdio1ZhUtC4cd83Nrd+sCDKiOmPqxdg3FHJ0ly5JIIzosGOP6uDiDTpUuZckagS2cHuKC12AeBS1
+	3r8Zihew==;
+Received: from smtp25.cstnet.cn ([159.226.251.25] helo=cstnet.cn)
 	by desiato.infradead.org with esmtps (Exim 4.99.2 #2 (Red Hat Linux))
-	id 1xBZ1P-00000002kRw-2Wpl
+	id 1xBZ2X-00000002kUE-3PVv
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 29 Sep 2026 14:41:34 +0000
-Received: by mail-ej2-x23.google.com with SMTP id a640c23a62f3a-c29703cb796so602704666b.2
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 29 Sep 2026 07:41:31 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1790692890; x=1791297690; darn=lists.infradead.org;
-        h=content-transfer-encoding:content-type:in-reply-to:from
-         :content-language:references:cc:to:subject:user-agent:mime-version
-         :date:message-id:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=ljt9qo4CbaNAhZ8NBb8RScI9+T0M5HBa8xMXa6k6Vt0=;
-        b=ozZ+LwWIpc44LfBrNif8BDl6ZTD4eoLchQzyKtAkkRo32JaP0MjNYJJ8wtgdz2YpaZ
-         njYzz+HQDXPbKJtbTyPB+mJmWKnOdkj1fCjGxTRQMmYP+mtfVJNbtWZp2uQSstpVyhzE
-         /kwWKFGK49ktE0C9OXQc5+Fh/GdfIHZN2j8E8pSPiUATDKH1a9SSrI9yfT776mP5lq0V
-         rtZHS+u0R6hAMipiSWn4l9UVzSQ36v3OsGHdtlHL/4LgKSU9yITyRdjf8HtJAq5DWJM+
-         Q6KlmiX8cPeCjCsdLUSjeBeu76Z+UQx2FhBNNd+A1T0Pg8lGFP0AVh3mfs6DV0ELDxI/
-         FsSg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1790692890; x=1791297690;
-        h=content-transfer-encoding:content-type:in-reply-to:from
-         :content-language:references:cc:to:subject:user-agent:mime-version
-         :date:message-id:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=ljt9qo4CbaNAhZ8NBb8RScI9+T0M5HBa8xMXa6k6Vt0=;
-        b=CCQuRO56apD/k3uc8anUV0wtN2z50mKhmVOB82H4YDYULMXNrxX/x8xDZd7fA11pY1
-         UzLRmKfpPkDa+BUzyo3MoLGnW032guQxpLuKUIeEypYJcRrMOP6miPG4nFX47EdZPR+S
-         trJLMsFwkBvTvtTcPIxb9u2n19lqX4Lm/nm7eeTBEZ7iektdxI+OxJO2icbb65HZQj+O
-         p50bPirOX+d9i6IFA+72DV0TjND5to0l/on5lyX4TUe38RkKLBpe+wRCUdgzyi+srPti
-         pBgvkKCHqwijIY2g9kcgl2Ad+Xo6wxnsCHBNCxsoEXrqep8C/itG/jnra1cRpabfENfQ
-         049Q==
-X-Forwarded-Encrypted: i=1; AKwUvBw7qOmmyO7U9GLZ4j8FDxW/hTPo+oUQGkel2/5lhdKVCwdJSHvQSQy3n5SDMSsaGA9IYEjtJL7GoDGX2oT42rKA@lists.infradead.org
-X-Gm-Message-State: AFq9FYIHlCFx0HT6RNUsAl0ueBApWP3CkVRAR8NFZ5qVOdWhs8bRjln8
-	2RiYRgwFHhtnJUX3Eipkz3FxIF4Mkey6zkfLNDTncriXZ8tV/TaNlTpvwD31v8svxf0=
-X-Gm-Gg: AYBFou1S8G1paR5eOOhasXRiJKmoVRUs3Z3rNUp7C5ZI0jMxCIxBpQRQqu0J5/8IjB2
-	NgkASHoNDdLrNH25jqmOqmAfzcJpO555LkNPxE8Ane0uMoLNuYlfQ8anB5Zufuw5ThO1uL81Vzd
-	+w7gtxJTcuQceqHtq4pG1DmFdSEAbF4qjya17j7EzVCxXjof5vB1qsNM74kxXwuqFuZDvE/Vft8
-	vTtiMpnpllwFKXoC0HI8dI3S9pwcMrCfr0RvArRpLC2l54ogv8h6+71qDvNHHHiKJeiRUI83cPP
-	kOt9l7xsxttfhsR/V4Yej81h1K1nrbgCGNr/xx3L3pq5nSZ6BaJsEnyjOE0tNgR3CNl2psAgwLH
-	TvEwuv9GjDJvA9yau3O70c0b6/qwqH8aYCB6//ML/yzug/sMWDgVdF0AdqnQipXPVL69b2OViTl
-	BvFLnb+f13jSst6GXMK7z6rPuyVlxNKs9MhqduquNfeS0QQKKArLUs5QEVq/SL
-X-Received: by 2002:a17:907:c310:b0:c25:32b0:e56c with SMTP id a640c23a62f3a-c2ac23862eemr1446037966b.4.1790692889352;
-        Tue, 29 Sep 2026 07:41:29 -0700 (PDT)
-Received: from [192.168.1.3] ([37.18.141.193])
-        by smtp.gmail.com with ESMTPSA id 4fb4d7f45d1cf-6acb905c6f4sm966711a12.37.2026.09.29.07.41.28
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Tue, 29 Sep 2026 07:41:28 -0700 (PDT)
-Message-ID: <8094040d-cb75-4f44-9662-97987f6eadef@linaro.org>
-Date: Tue, 29 Sep 2026 15:41:27 +0100
+	Tue, 29 Sep 2026 14:42:45 +0000
+Received: from edelgard.fodlan.icenowy.me (unknown [112.94.101.54])
+	by APP-05 (Coremail) with SMTP id zQCowAC3IDtEzrtqWCqvCQ--.41306S2;
+	Tue, 29 Sep 2026 22:42:15 +0800 (CST)
+Message-ID: <e044caae8c2160d96a29073bb1e60efff5883513.camel@iscas.ac.cn>
+Subject: Re: [PATCH v2 2/7] drm: verisilicon: stop using deprecated
+ devm_drm_of_get_bridge()
+From: Icenowy Zheng <zhengxingda@iscas.ac.cn>
+To: Luca Ceresoli <luca.ceresoli@bootlin.com>, Maarten Lankhorst	
+ <maarten.lankhorst@linux.intel.com>, Maxime Ripard <mripard@kernel.org>, 
+ Thomas Zimmermann <tzimmermann@suse.de>, David Airlie <airlied@gmail.com>,
+ Simona Vetter <simona@ffwll.ch>, Frank Li	 <Frank.Li@nxp.com>, Sascha Hauer
+ <s.hauer@pengutronix.de>, Pengutronix Kernel Team <kernel@pengutronix.de>,
+ Fabio Estevam <festevam@gmail.com>, Andrzej Hajda	
+ <andrzej.hajda@intel.com>, Neil Armstrong <neil.armstrong@linaro.org>, 
+ Robert Foss <rfoss@kernel.org>, Laurent Pinchart
+ <Laurent.pinchart@ideasonboard.com>, Jonas Karlman	 <jonas@kwiboo.se>,
+ Jernej Skrabec <jernej.skrabec@gmail.com>, Dave Stevenson	
+ <dave.stevenson@raspberrypi.com>, =?ISO-8859-1?Q?Ma=EDra?= Canal	
+ <mcanal@igalia.com>, Raspberry Pi Kernel Maintenance	
+ <kernel-list@raspberrypi.com>, Geert Uytterhoeven <geert+renesas@glider.be>
+Cc: Arnd Bergmann <arnd@kernel.org>, Doug Anderson <dianders@chromium.org>, 
+ Hui Pu <Hui.Pu@gehealthcare.com>, Ian Ray <ian.ray@gehealthcare.com>,
+ Thomas Petazzoni	 <thomas.petazzoni@bootlin.com>,
+ dri-devel@lists.freedesktop.org, 	imx@lists.linux.dev,
+ linux-arm-kernel@lists.infradead.org, 	linux-kernel@vger.kernel.org,
+ linux-renesas-soc@vger.kernel.org, kernel test robot <lkp@intel.com>
+Date: Tue, 29 Sep 2026 22:42:12 +0800
+In-Reply-To: <20260929-drm-fix-of_get_bridge-build-regression-v2-2-6da431d8f180@bootlin.com>
+References: <20260929-drm-fix-of_get_bridge-build-regression-v2-0-6da431d8f180@bootlin.com>
+	 <20260929-drm-fix-of_get_bridge-build-regression-v2-2-6da431d8f180@bootlin.com>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
+User-Agent: Evolution 3.58.3 
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2 00/14] perf cs-etm: Fix bogus branch samples on
- exceptions
-To: Leo Yan <leo.yan@arm.com>
-Cc: Arnaldo Carvalho de Melo <acme@redhat.com>, coresight@lists.linaro.org,
- linux-arm-kernel@lists.infradead.org, linux-perf-users@vger.kernel.org,
- linux-kernel@vger.kernel.org, Arnaldo Carvalho de Melo <acme@kernel.org>,
- Namhyung Kim <namhyung@kernel.org>, Jiri Olsa <jolsa@kernel.org>,
- Ian Rogers <irogers@google.com>, Adrian Hunter <adrian.hunter@intel.com>,
- Mike Leach <mike.leach@arm.com>, Suzuki K Poulose <suzuki.poulose@arm.com>,
- Suyash Mahar <smahar@meta.com>, Amir Ayupov <aaupov@fb.com>
-References: <20260923-perf_cs_etm_fix_non_taken-v2-0-6ab8c07a5455@arm.com>
-Content-Language: en-US
-From: James Clark <james.clark@linaro.org>
-In-Reply-To: <20260923-perf_cs_etm_fix_non_taken-v2-0-6ab8c07a5455@arm.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
+X-CM-TRANSID: zQCowAC3IDtEzrtqWCqvCQ--.41306S2
+X-Coremail-Antispam: 1UD129KBjvJXoWxAry7Jr15Kw43Cw1DZFWkZwb_yoWrJF1rpF
+	40qa98try5XrWxXw42kr4j9FyYya4Dtw4rGFWUt34Fvr1FqF4DGF1kAry5Z3W5CF17GF1r
+	tr4DtFySv3W8Aa7anT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
+	9KBjDU0xBIdaVrnRJUUUvvb7Iv0xC_Kw4lb4IE77IF4wAFF20E14v26rWj6s0DM7CY07I2
+	0VC2zVCF04k26cxKx2IYs7xG6rWj6s0DM7CIcVAFz4kK6r1j6r18M28lY4IEw2IIxxk0rw
+	A2F7IY1VAKz4vEj48ve4kI8wA2z4x0Y4vE2Ix0cI8IcVAFwI0_Gr0_Xr1l84ACjcxK6xII
+	jxv20xvEc7CjxVAFwI0_Gr0_Cr1l84ACjcxK6I8E87Iv67AKxVW0oVCq3wA2z4x0Y4vEx4
+	A2jsIEc7CjxVAFwI0_GcCE3s1le2I262IYc4CY6c8Ij28IcVAaY2xG8wAqx4xG64xvF2IE
+	w4CE5I8CrVC2j2WlYx0E2Ix0cI8IcVAFwI0_Jr0_Jr4lYx0Ex4A2jsIE14v26r1j6r4UMc
+	vjeVCFs4IE7xkEbVWUJVW8JwACjcxG0xvEwIxGrwACI402YVCY1x02628vn2kIc2xKxwCY
+	1x0262kKe7AKxVW8ZVWrXwCF04k20xvY0x0EwIxGrwCFx2IqxVCFs4IE7xkEbVWUJVW8Jw
+	C20s026c02F40E14v26r1j6r18MI8I3I0E7480Y4vE14v26r106r1rMI8E67AF67kF1VAF
+	wI0_GFv_WrylIxkGc2Ij64vIr41lIxAIcVC0I7IYx2IY67AKxVWUJVWUCwCI42IY6xIIjx
+	v20xvEc7CjxVAFwI0_Gr0_Cr1lIxAIcVCF04k26cxKx2IYs7xG6r1j6r1xMIIF0xvEx4A2
+	jsIE14v26r1j6r4UMIIF0xvEx4A2jsIEc7CjxVAFwI0_Gr1j6F4UJbIYCTnIWIevJa73Uj
+	IFyTuYvjxUv4EEDUUUU
+X-Originating-IP: [112.94.101.54]
+X-CM-SenderInfo: x2kh0wp0lqwv3d6l2u1dvotugofq/
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260929_154132_533918_439B6503 
-X-CRM114-Status: GOOD (  24.78  )
+X-CRM114-CacheID: sfid-20260929_154242_964452_F0000B84 
+X-CRM114-Status: GOOD (  22.83  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -123,107 +112,119 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+=E5=9C=A8 2026-09-29=E4=BA=8C=E7=9A=84 15:39 +0200=EF=BC=8CLuca Ceresoli=E5=
+=86=99=E9=81=93=EF=BC=9A
+> devm_drm_of_get_bridge() is deprecated, switch to
+> of_drm_get_bridge_by_endpoint(). As of_drm_get_bridge_by_endpoint()
+> returns
+> a refcounted bridge, ensure it is put by using bridge.next_bridge.
+>=20
+> Fixes build failure when CONFIG_OF is disabled.
+>=20
+> Fixes: aa8a8c7e4641 ("drm/bridge: panel: move all code to
+> drm_panel.c")
+> Reported-by: Arnd Bergmann <arnd@kernel.org>
+> Closes:
+> https://lore.kernel.org/r/20260928161605.2271412-1-arnd@kernel.org
+> Reported-by: kernel test robot <lkp@intel.com>
+> Closes:
+> https://lore.kernel.org/oe-kbuild-all/202609291109.OIsGTysr-lkp@intel.com=
+/
+> Closes:
+> https://lore.kernel.org/oe-kbuild-all/202609290408.BOs7sk55-lkp@intel.com=
+/
+> Signed-off-by: Luca Ceresoli <luca.ceresoli@bootlin.com>
 
+Checked the code in drm_bridge.c, and it looks like the lifetime of
+next_bridge should be indirectly managed by devm when
+devm_drm_bridge_alloc() successes and the next_bridge field assigned,
+so the only explicit put needed here should be in the alloc failure
+path.
 
-On 23/09/2026 16:21, Leo Yan wrote:
-> CoreSight currently models exception entry by changing the preceding
-> instruction range into a taken branch. This can give an IRQ the source
-> PC of an instruction that already retired and overwrite a real branch
-> immediately before the exception.
-> 
-> For an untaken B.LS followed by an IRQ, perf script currently reports:
-> 
->    hw int  4000f8 => ffff800080010c80  b.ls #0x400118
->    ...
->    iret    ffff800080012284 => 4000fc  eret
-> 
-> The hardware trace supplies 0x4000fc as the preferred return address.
-> For an IRQ, this is the architectural resume PC (Arm ARM, R_VBQMV).
-> B.LS has retired, and the saved PC identifies the boundary before the
-> following MOV. Using this PC as the IRQ source reflects the
-> architectural state at exception entry:
-> 
->    hw int  4000fc => ffff800080010c80  movz x2, #0x1796
->    ...
->    iret    ffff800080012284 => 4000fc  eret
-> 
-> The IRQ sample represents the transfer from this architectural execution
-> position to the handler. The series synthesizes exception entries from
-> exception packets, preserving the preceding branch and its outcome.
-> 
-> The supporting changes:
-> 
-> - Let decoders supply sample.ret_addr so later instruction fetching cannot
->    change thread-stack return addresses. Apply this to Intel PT
->    asynchronous samples as well.
-> - Prepare packet ISA and instruction-size handling and share sample
->    synthesis helpers. Mark untaken branches and break history when
->    instruction memory is unavailable.
-> - Add a thread-stack regression test and four AArch64 CoreSight tests.
->    IRQs and page faults must resume at the entry PC; SVC and emulated MRS
->    must resume four bytes later.
-> 
-> Based on the AI search and test on my x86 machine, this matches perf's
-> Intel PT handling of IRQs. Intel PT records the next instruction's IP in
-> the FUP packet, and Perf uses that IP as the interrupt sample's source.
-> 
-> This series is verified on Orion6 board with "perf test coresight".
-> 
-> Signed-off-by: Leo Yan <leo.yan@arm.com>
+Patch is:
+
+```
+Reviewed-by: Icenowy Zheng <zhengxingda@iscas.ac.cn>
+```
+
+>=20
 > ---
+>=20
 > Changes in v2:
-> 
-> - Rework the fix around exception packets to preserve both exception
->    entries and preceding branches.
-> - Add explicit return addresses and the Intel PT asynchronous-branch fix.
-> - Split out packet/synthesis preparation, record not-taken branches and
->    handle unreadable instruction memory.
-> - Add thread-stack regression coverage and four CoreSight tests.
-> - Link to v1: https://lore.kernel.org/r/20260713-perf_cs_etm_fix_non_taken-v1-0-4561607fc69f@arm.com
-> 
-> ---
-> Leo Yan (14):
->        perf sample: Allow decoders to supply branch return addresses
->        perf intel-pt: Preserve return addresses for asynchronous branches
->        perf cs-etm: Break branch history when instruction memory is unavailable
->        perf cs-etm: Centralize packet ISA initialization
->        perf cs-etm: Use the recorded instruction size for A32 and A64
->        perf cs-etm: Mark branches that were not taken
->        perf cs-etm: Factor out final instruction sample synthesis
->        perf cs-etm: Centralize branch sample synthesis checks
->        perf cs-etm: Classify exception calls using the exception packet
->        perf cs-etm: Synthesize exception entries separately from branches
->        perf tests: Check CoreSight IRQ entry and exit
->        perf tests: Check CoreSight syscall entry and exit
->        perf tests: Check CoreSight abort entry and exit
->        perf tests: Check CoreSight emulated instruction entry and exit
-> 
->   tools/perf/tests/Build                             |   1 +
->   tools/perf/tests/builtin-test.c                    |   3 +
->   .../perf/tests/shell/coresight/abort_entry_exit.sh |  21 ++
->   tools/perf/tests/shell/coresight/irq_entry_exit.sh |  37 ++++
->   .../tests/shell/coresight/syscall_entry_exit.sh    |  21 ++
->   .../perf/tests/shell/coresight/trap_entry_exit.sh  |  24 +++
->   tools/perf/tests/shell/lib/coresight_exception.sh  | 165 +++++++++++++++
->   tools/perf/tests/tests.h                           |   3 +
->   tools/perf/tests/thread-stack.c                    | 106 ++++++++++
->   tools/perf/tests/workloads/Build                   |   4 +
->   tools/perf/tests/workloads/branch_not_taken_loop.c |  33 +++
->   tools/perf/tests/workloads/page_fault_loop.c       |  37 ++++
->   tools/perf/util/cs-etm-decoder/cs-etm-decoder.c    | 106 +++++++---
->   tools/perf/util/cs-etm.c                           | 222 ++++++++++-----------
->   tools/perf/util/cs-etm.h                           |   2 +
->   tools/perf/util/intel-pt.c                         |   7 +
->   tools/perf/util/sample.c                           |   1 +
->   tools/perf/util/sample.h                           |   5 +
->   tools/perf/util/thread-stack.c                     |   5 +-
->   19 files changed, 656 insertions(+), 147 deletions(-)
-> ---
-> base-commit: edd8a9fe2eca009599e013a29c421c7a6b5ad1b9
-> change-id: 20260713-perf_cs_etm_fix_non_taken-5b4d7f73f41e
-> 
-> Best regards,
+> - fix bridge reference leak on attach error path
 
-Reviewed-by: James Clark <james.clark@linaro.org>
+It should be `bridge alloc error` instead of `attach error`, but I
+don't know how to correct the error in the changelog, and anyway it
+won't be part of the final commit.
+
+Thanks,
+Icenowy
+
+> - mention lkp report
+> ---
+> =C2=A0drivers/gpu/drm/verisilicon/vs_bridge.c | 11 ++++++-----
+> =C2=A0drivers/gpu/drm/verisilicon/vs_bridge.h |=C2=A0 1 -
+> =C2=A02 files changed, 6 insertions(+), 6 deletions(-)
+>=20
+> diff --git a/drivers/gpu/drm/verisilicon/vs_bridge.c
+> b/drivers/gpu/drm/verisilicon/vs_bridge.c
+> index dc7c85b07fe3..3a5091c0ac2c 100644
+> --- a/drivers/gpu/drm/verisilicon/vs_bridge.c
+> +++ b/drivers/gpu/drm/verisilicon/vs_bridge.c
+> @@ -29,7 +29,7 @@ static int vs_bridge_attach(struct drm_bridge
+> *bridge,
+> =C2=A0{
+> =C2=A0	struct vs_bridge *vbridge =3D drm_bridge_to_vs_bridge(bridge);
+> =C2=A0
+> -	return drm_bridge_attach(encoder, vbridge->next_bridge,
+> +	return drm_bridge_attach(encoder, vbridge->base.next_bridge,
+> =C2=A0				 bridge, flags);
+> =C2=A0}
+> =C2=A0
+> @@ -303,8 +303,7 @@ struct vs_bridge *vs_bridge_init(struct
+> drm_device *drm_dev,
+> =C2=A0		return NULL;
+> =C2=A0	}
+> =C2=A0
+> -	next =3D devm_drm_of_get_bridge(drm_dev->dev, drm_dev->dev-
+> >of_node,
+> -				=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 output, intf);
+> +	next =3D of_drm_get_bridge_by_endpoint(drm_dev->dev->of_node,
+> output, intf);
+> =C2=A0	if (IS_ERR(next)) {
+> =C2=A0		ret =3D PTR_ERR(next);
+> =C2=A0		if (ret !=3D -EPROBE_DEFER)
+> @@ -321,12 +320,14 @@ struct vs_bridge *vs_bridge_init(struct
+> drm_device *drm_dev,
+> =C2=A0
+> =C2=A0	bridge =3D devm_drm_bridge_alloc(drm_dev->dev, struct
+> vs_bridge, base,
+> =C2=A0				=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 bridge_funcs);
+> -	if (IS_ERR(bridge))
+> +	if (IS_ERR(bridge)) {
+> +		drm_bridge_put(next);
+> =C2=A0		return ERR_PTR(PTR_ERR(bridge));
+> +	}
+> =C2=A0
+> =C2=A0	bridge->crtc =3D crtc;
+> =C2=A0	bridge->intf =3D intf;
+> -	bridge->next_bridge =3D next;
+> +	bridge->base.next_bridge =3D next;
+> =C2=A0
+> =C2=A0	if (intf =3D=3D VSDC_OUTPUT_INTERFACE_DPI)
+> =C2=A0		enctype =3D DRM_MODE_ENCODER_DPI;
+> diff --git a/drivers/gpu/drm/verisilicon/vs_bridge.h
+> b/drivers/gpu/drm/verisilicon/vs_bridge.h
+> index 70fee1749699..2b0ed94e4520 100644
+> --- a/drivers/gpu/drm/verisilicon/vs_bridge.h
+> +++ b/drivers/gpu/drm/verisilicon/vs_bridge.h
+> @@ -25,7 +25,6 @@ struct vs_bridge {
+> =C2=A0	struct drm_connector *conn;
+> =C2=A0
+> =C2=A0	struct vs_crtc *crtc;
+> -	struct drm_bridge *next_bridge;
+> =C2=A0	enum vs_bridge_output_interface intf;
+> =C2=A0};
+> =C2=A0
 
 
