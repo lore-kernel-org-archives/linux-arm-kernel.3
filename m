@@ -4,90 +4,97 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 06FD9CA5FAD
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 29 Sep 2026 10:38:17 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 905E6CA5FB3
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 29 Sep 2026 10:38:18 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
-	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Blv/7cpUNGHBbFBX/FZEcrFfjdEkznQrqytJ8Q1b5q0=; b=ui4vFKvOO3nJqocXIRTUxtiuBh
-	+qTCvzSrZv4ZSYqIaAGwx/q5/N1fUcoPfUeafkJtvJL9NgIKG7KrisyqIPkcUuPzClyx7Hp9zBVkG
-	m381g1c6PrSL57n26BxusDZcFkmf2jf9qGErMkD9lRbUp5NN+BPcaMfzc0RH8irwxc7yX/5HOP0Jt
-	TF9AzI4aVq4rSSprunG3wD1L3Wdu1I7/Rz7jPkG7DykIGLQoKj6l0h772VUsY4K/CB+YIOwHYTEdP
-	TZKmA/PVvNc/JGOlxHNJ9OhBYrjRgICQbDxUl6X1XYB6IoQYlhczGCUbRD70ingKv3oiZ03K5RnWO
-	Jt1Zb68g==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
+	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=iOxyCS599oVo+AZS8JSoUu6X3bzbx9qa/yjHz16Q5+8=; b=j4EWJBp++EsQ74cTqZrPBGJ2Vs
+	DOvHPPmSfz6+Mn0yD816cPM1+MPAqYg8nCRtgwLLRzKAl1FoL0W8tgCp2vJzzPPiMOdE2pKyFyM3H
+	7o1K9uK3OAaf44fCKRmV15AsaMPy56l4hX09Q9M+jWvxAlP6xKOoBQ0xA5LR4jnMKAM9LkP7Cfpyd
+	t09MUR/4a4Unh9IT4WL2ZfgUierBbAxSudA9u3C0PhPubpyXpPUIUbvGefU56MOPaZdd5uVxxDlO/
+	pIPy03SY6vs1XE4Y+Lu1FalkZxuOkC/hEP6e7Bwb0jsnBqet0SbeY/Pl6rbLlcclzFcWtWXzcqQ3n
+	T7D2Pnbg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xBVDj-00000003GxJ-2Lpg;
-	Tue, 29 Sep 2026 10:37:59 +0000
+	id 1xBVDk-00000003Gym-0fcE;
+	Tue, 29 Sep 2026 10:38:00 +0000
 Received: from casper.infradead.org ([2001:8b0:10b:1236::1])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xBVD7-00000003GgX-29Wr
+	id 1xBVDB-00000003GkQ-3Y7H
 	for linux-arm-kernel@bombadil.infradead.org;
-	Tue, 29 Sep 2026 10:37:21 +0000
+	Tue, 29 Sep 2026 10:37:25 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=casper.20170209; h=Content-Type:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:CC:To:From:Sender
+	d=infradead.org; s=casper.20170209; h=Cc:To:In-Reply-To:References:Message-Id
+	:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:From:Sender
 	:Reply-To:Content-ID:Content-Description;
-	bh=Blv/7cpUNGHBbFBX/FZEcrFfjdEkznQrqytJ8Q1b5q0=; b=GH6eNDmnW9R0E1azPBNUwx3oFq
-	8UhWYqB5UbxKCdqkRgWzPY8vHRUDvuUL/tMOu5BiT+99qG5BQSfteF3dFRKEOpq/C4AlUg+HQweEs
-	xmQw+7/11MDSuy5iwZNf/a11QK2FZZ64aeq+/9zgv5B3Ii6ucAIW5hZJj2WLVDasl0zMjW3LeiJxM
-	t72AMbvqgvuc8EX5E40O4QWdKxJGQQwUoiyD6ryE/TwNp6gEGOARTqLxn917Fj6r4ARRVDOulDa1a
-	8SE1KeWU3K4AWTT6ML+hYcMAYR1tIPKoZc298Rd93pxHqGU+2Xwcg69gNKLtJy1EEB3paix7VnHb8
-	4BUVenIQ==;
-Received: from canpmsgout03.his.huawei.com ([113.46.200.218])
+	bh=iOxyCS599oVo+AZS8JSoUu6X3bzbx9qa/yjHz16Q5+8=; b=F93cgbY2word9DbnmyHKCOJMFg
+	YgwOEZrJ7bUbT70J3IsQ4aBuNW9sZulwsTTpHKDPnXQDqYIiB0AenQG261CFvc6R3P15i9E7HVbsG
+	mVvHaMlqHO7VIr4vc3rS56xFbEMIHepJgyUZ78xHz2g0B0EOyS0591NF5SGddL/O74hYM0wytRvR7
+	+hF3Ms42wZYtAVQdKmdBBpH6hsk6ePWnQTUnwV42AfYwtVZ0yF05hgHsoI6W+mn91yayJo1QRhB0z
+	jCjd6erZy255JxrRU2JYPRdymZFvhZ6L2gyxtN/VoBsl+acb6pF9D6fV/pUX/1OPCDdkqAAUuPSLy
+	N4QBO46A==;
+Received: from smtpout-03.galae.net ([185.246.85.4])
 	by casper.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xBVD2-0000000CL9i-3O27
+	id 1xBVD7-0000000CLDs-2H47
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 29 Sep 2026 10:37:20 +0000
-dkim-signature: v=1; a=rsa-sha256; d=huawei.com; s=dkim;
-	c=relaxed/relaxed; q=dns/txt;
-	h=From;
-	bh=Blv/7cpUNGHBbFBX/FZEcrFfjdEkznQrqytJ8Q1b5q0=;
-	b=Dnshry09UvgzKoVnQrjejYN5kUHd77jpQ/hEYYoBvBgXRlcTyrl8r7/+sKaFuBaIG9MU3ESeL
-	B/bzLiKrzDl4WxIX1gYx+B9emb61lTpvNj94VhK614HD/l/ece8pTu8bqHeUfzSh32v8wHyJi4E
-	nCvyDDmcl0kMEEsSzv9Q9hw=
-Received: from mail.maildlp.com (unknown [172.19.162.144])
-	by canpmsgout03.his.huawei.com (SkyGuard) with ESMTPS id 4hvDnl4cqDzpT0h;
-	Tue, 29 Sep 2026 18:24:59 +0800 (CST)
-Received: from kwepemr100010.china.huawei.com (unknown [7.202.195.125])
-	by mail.maildlp.com (Postfix) with ESMTPS id 5C9754056D;
-	Tue, 29 Sep 2026 18:37:08 +0800 (CST)
-Received: from huawei.com (10.50.163.32) by kwepemr100010.china.huawei.com
- (7.202.195.125) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.45; Tue, 29 Sep
- 2026 18:37:07 +0800
-From: Tian Zheng <zhengtian10@huawei.com>
-To: <maz@kernel.org>, <oupton@kernel.org>, <catalin.marinas@arm.com>,
-	<will@kernel.org>, <corbet@lwn.net>, <pbonzini@redhat.com>,
-	<zhengtian10@huawei.com>, <leo.bras@arm.com>
-CC: <yuzenghui@huawei.com>, <wangzhou1@hisilicon.com>,
-	<yangjinqian1@huawei.com>, <caijian11@h-partners.com>,
-	<liuyonglong@huawei.com>, <tangchengchang@huawei.com>,
-	<yezhenyu2@huawei.com>, <yubihong@huawei.com>, <linuxarm@huawei.com>,
-	<joey.gouly@arm.com>, <kvmarm@lists.linux.dev>, <kvm@vger.kernel.org>,
-	<linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>,
-	<seiden@linux.ibm.com>, <suzuki.poulose@arm.com>, <fuad.tabba@linux.dev>,
-	<mark.rutland@arm.com>, <seanjc@google.com>, <rdunlap@infradead.org>,
-	<linux-doc@vger.kernel.org>, <linux-kselftest@vger.kernel.org>,
-	<skhan@linuxfoundation.org>
-Subject: [PATCH v5 15/15] KVM: arm64: selftests: Add HDBSS buffer size ioctl interface test
-Date: Tue, 29 Sep 2026 18:36:55 +0800
-Message-ID: <20260929103655.85107-16-zhengtian10@huawei.com>
-X-Mailer: git-send-email 2.33.0
-In-Reply-To: <20260929103655.85107-1-zhengtian10@huawei.com>
-References: <20260929103655.85107-1-zhengtian10@huawei.com>
+	Tue, 29 Sep 2026 10:37:24 +0000
+Received: from smtpout-01.galae.net (smtpout-01.galae.net [212.83.139.233])
+	by smtpout-03.galae.net (Postfix) with ESMTPS id E38334E410B8;
+	Tue, 29 Sep 2026 10:37:20 +0000 (UTC)
+Received: from mail.galae.net (mail.galae.net [212.83.136.155])
+	by smtpout-01.galae.net (Postfix) with ESMTPS id AD3D7601BD;
+	Tue, 29 Sep 2026 10:37:20 +0000 (UTC)
+Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 57982103297DC;
+	Tue, 29 Sep 2026 12:37:10 +0200 (CEST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=dkim;
+	t=1790678235; h=from:subject:date:message-id:to:cc:mime-version:content-type:
+	 content-transfer-encoding:in-reply-to:references;
+	bh=iOxyCS599oVo+AZS8JSoUu6X3bzbx9qa/yjHz16Q5+8=;
+	b=awY69VGzxHFCSZVboz5MVQUhK4Yr4tWBaJBBGV2WWHGpRF2fiN9X93UAm6z/xxKWWR703v
+	PTnDrGxLz/JSdWFilMw0GAFq/bsoXyeLMIy8r1Qi18WJnmEn/NYsN7z8a0gnzCofpOxoYJ
+	mej1BnLsULUJBvjTbXYPgNQwhf7aG+0kxntKvibiHYprvaL1AwH5UhwWobx3b7Zq5kqDgX
+	Wg6hJskBRWE8K/y/ap3/HaFIuGdHBdJ1CJPHredDsXnkX2kperR4I1w1g4gNUv5C8UmvKp
+	L0z2Sb24I7wSb9Lh9HFrM/Q5AkXxf2+T+40sTf50p3knnZqXg11V7qcoYsupMg==
+From: Luca Ceresoli <luca.ceresoli@bootlin.com>
+Date: Tue, 29 Sep 2026 12:36:37 +0200
+Subject: [PATCH 5/7] drm/vc4: dpi: stop using deprecated
+ drmm_of_get_bridge()
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-Content-Type: text/plain
-X-Originating-IP: [10.50.163.32]
-X-ClientProxiedBy: kwepems500002.china.huawei.com (7.221.188.17) To
- kwepemr100010.china.huawei.com (7.202.195.125)
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+Message-Id: <20260929-drm-fix-of_get_bridge-build-regression-v1-5-ccb7e602daad@bootlin.com>
+References: <20260929-drm-fix-of_get_bridge-build-regression-v1-0-ccb7e602daad@bootlin.com>
+In-Reply-To: <20260929-drm-fix-of_get_bridge-build-regression-v1-0-ccb7e602daad@bootlin.com>
+To: Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, 
+ Maxime Ripard <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>, 
+ David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>, 
+ Frank Li <Frank.Li@nxp.com>, Sascha Hauer <s.hauer@pengutronix.de>, 
+ Pengutronix Kernel Team <kernel@pengutronix.de>, 
+ Fabio Estevam <festevam@gmail.com>, Icenowy Zheng <zhengxingda@iscas.ac.cn>, 
+ Andrzej Hajda <andrzej.hajda@intel.com>, 
+ Neil Armstrong <neil.armstrong@linaro.org>, Robert Foss <rfoss@kernel.org>, 
+ Laurent Pinchart <Laurent.pinchart@ideasonboard.com>, 
+ Jonas Karlman <jonas@kwiboo.se>, Jernej Skrabec <jernej.skrabec@gmail.com>, 
+ Dave Stevenson <dave.stevenson@raspberrypi.com>, 
+ =?utf-8?q?Ma=C3=ADra_Canal?= <mcanal@igalia.com>, 
+ Raspberry Pi Kernel Maintenance <kernel-list@raspberrypi.com>, 
+ Geert Uytterhoeven <geert+renesas@glider.be>
+Cc: Arnd Bergmann <arnd@kernel.org>, Doug Anderson <dianders@chromium.org>, 
+ Hui Pu <Hui.Pu@gehealthcare.com>, Ian Ray <ian.ray@gehealthcare.com>, 
+ Thomas Petazzoni <thomas.petazzoni@bootlin.com>, 
+ dri-devel@lists.freedesktop.org, imx@lists.linux.dev, 
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
+ linux-renesas-soc@vger.kernel.org, 
+ Luca Ceresoli <luca.ceresoli@bootlin.com>
+X-Mailer: b4 0.16.0
+X-Last-TLS-Session-Version: TLSv1.3
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260929_113717_469593_0247934A 
-X-CRM114-Status: GOOD (  18.12  )
+X-CRM114-CacheID: sfid-20260929_113721_941125_C4F50F8C 
+X-CRM114-Status: GOOD (  12.34  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -102,269 +109,52 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add a selftest (arm64/hdbss_test) for the KVM_CAP_ARM_HDBSS_BUFFER_SIZE
-interface: CHECK_EXTENSION semantics (global max, per-VM default and
-configured values), the accepted size range (power of two in
-[PAGE_SIZE, SZ_2M]), the rejection paths (invalid sizes, after vCPU
-creation, duplicate configuration, dirty ring enabled), and the
-contract that enabling the dirty ring resets a configured size to the
-default.
+devm_drm_of_get_bridge() is deprecated, switch to
+of_drm_get_bridge_by_endpoint(). As of_drm_get_bridge_by_endpoint() returns
+a refcounted bridge, ensure it is put.
 
-The default size is derived from getpagesize() so the test holds on
-16KB/64KB page systems.
+drm_panel.h becomes unused, drop the include.
 
-The test does not run guest code.
+Also remove a comment that is now obvious: now panels are just bridges.
 
-Signed-off-by: Tian Zheng <zhengtian10@huawei.com>
+Signed-off-by: Luca Ceresoli <luca.ceresoli@bootlin.com>
 ---
- tools/testing/selftests/kvm/Makefile.kvm      |   1 +
- .../testing/selftests/kvm/arm64/hdbss_test.c  | 224 ++++++++++++++++++
- 2 files changed, 225 insertions(+)
- create mode 100644 tools/testing/selftests/kvm/arm64/hdbss_test.c
+ drivers/gpu/drm/vc4/vc4_dpi.c | 9 ++-------
+ 1 file changed, 2 insertions(+), 7 deletions(-)
 
-diff --git a/tools/testing/selftests/kvm/Makefile.kvm b/tools/testing/selftests/kvm/Makefile.kvm
-index 6a1482e3a286..a665fd568391 100644
---- a/tools/testing/selftests/kvm/Makefile.kvm
-+++ b/tools/testing/selftests/kvm/Makefile.kvm
-@@ -179,6 +179,7 @@ TEST_GEN_PROGS_arm64 += arm64/hello_el2
- TEST_GEN_PROGS_arm64 += arm64/host_sve
- TEST_GEN_PROGS_arm64 += arm64/hypercalls
- TEST_GEN_PROGS_arm64 += arm64/external_aborts
-+TEST_GEN_PROGS_arm64 += arm64/hdbss_test
- TEST_GEN_PROGS_arm64 += arm64/mmio_sign_ext
- TEST_GEN_PROGS_arm64 += arm64/page_fault_test
- TEST_GEN_PROGS_arm64 += arm64/psci_test
-diff --git a/tools/testing/selftests/kvm/arm64/hdbss_test.c b/tools/testing/selftests/kvm/arm64/hdbss_test.c
-new file mode 100644
-index 000000000000..9de26d2a67d1
---- /dev/null
-+++ b/tools/testing/selftests/kvm/arm64/hdbss_test.c
-@@ -0,0 +1,224 @@
-+// SPDX-License-Identifier: GPL-2.0-only
-+/*
-+ * Test the KVM_CAP_ARM_HDBSS_BUFFER_SIZE ioctl interface: query
-+ * semantics, accepted/rejected sizes, and the interaction with the
-+ * dirty ring. Does not run guest code.
-+ *
-+ * Copyright (C) 2026 Huawei Technologies Co., Ltd
-+ * Author: Tian Zheng <zhengtian10@huawei.com>
-+ */
-+
-+#include <errno.h>
-+#include <linux/sizes.h>
-+#include <stdio.h>
-+#include <stdlib.h>
-+#include <string.h>
-+#include <unistd.h>
-+
-+#include "kvm_util.h"
-+#include "test_util.h"
-+
-+/*
-+ * The kernel default is PAGE_SIZE: derive it from the running kernel so
-+ * the test also holds on 16KB/64KB page systems.
-+ */
-+#define HDBSS_DEFAULT_SIZE	((u64)getpagesize())
-+#define HDBSS_MAX_SIZE		SZ_2M
-+
-+static bool hdbss_supported(void)
-+{
-+	return kvm_check_cap(KVM_CAP_ARM_HDBSS_BUFFER_SIZE) > 0;
-+}
-+
-+static long hdbss_global_query(void)
-+{
-+	return (long)kvm_check_cap(KVM_CAP_ARM_HDBSS_BUFFER_SIZE);
-+}
-+
-+static long hdbss_vm_query(struct kvm_vm *vm)
-+{
-+	return (long)vm_check_cap(vm, KVM_CAP_ARM_HDBSS_BUFFER_SIZE);
-+}
-+
-+static int hdbss_set(struct kvm_vm *vm, u64 size)
-+{
-+	return __vm_enable_cap(vm, KVM_CAP_ARM_HDBSS_BUFFER_SIZE, size);
-+}
-+
-+static void test_global_query(void)
-+{
-+	long ret;
-+
-+	ret = hdbss_global_query();
-+	TEST_ASSERT(ret == HDBSS_MAX_SIZE,
-+		    "Global HDBSS query returned %ld (0x%lx), expected %d (0x%x)",
-+		    ret, ret, HDBSS_MAX_SIZE, HDBSS_MAX_SIZE);
-+	pr_info("Global HDBSS max size: %ld bytes\n", ret);
-+}
-+
-+static void test_vm_query_default(void)
-+{
-+	struct kvm_vm *vm;
-+	long ret;
-+
-+	vm = vm_create_barebones();
-+	ret = hdbss_vm_query(vm);
-+	TEST_ASSERT(ret == HDBSS_DEFAULT_SIZE,
-+		    "Per-VM HDBSS query (unconfigured) returned %ld, expected %ld",
-+		    ret, (long)HDBSS_DEFAULT_SIZE);
-+	pr_info("Default HDBSS buffer size: %ld bytes\n", ret);
-+	kvm_vm_free(vm);
-+}
-+
-+static void test_vm_query_after_set(u64 set_size)
-+{
-+	struct kvm_vm *vm;
-+	long ret;
-+
-+	vm = vm_create_barebones();
-+	TEST_ASSERT_EQ(hdbss_set(vm, set_size), 0);
-+	ret = hdbss_vm_query(vm);
-+	TEST_ASSERT(ret == (long)set_size,
-+		    "Per-VM HDBSS query after set returned %ld, expected %lld",
-+		    ret, (unsigned long long)set_size);
-+	kvm_vm_free(vm);
-+}
-+
-+static void test_set_valid(u64 size)
-+{
-+	struct kvm_vm *vm;
-+	int ret;
-+
-+	vm = vm_create_barebones();
-+	ret = hdbss_set(vm, size);
-+	TEST_ASSERT(ret == 0,
-+		    "Setting HDBSS buffer size to %lld (0x%llx) failed: %d (%s)",
-+		    (unsigned long long)size, (unsigned long long)size,
-+		    ret, strerror(errno));
-+	pr_info("Set HDBSS buffer size to %lld bytes: OK\n",
-+		(unsigned long long)size);
-+	kvm_vm_free(vm);
-+}
-+
-+static void test_set_invalid(u64 size, int expected_errno)
-+{
-+	struct kvm_vm *vm;
-+	int ret;
-+
-+	vm = vm_create_barebones();
-+	ret = hdbss_set(vm, size);
-+	TEST_ASSERT(ret == -1 && errno == expected_errno,
-+		    "HDBSS buffer size set to %lld (0x%llx) should fail with %d, got ret=%d errno=%d (%s)",
-+		    (unsigned long long)size, (unsigned long long)size,
-+		    expected_errno, ret, errno, strerror(errno));
-+	kvm_vm_free(vm);
-+}
-+
-+static void test_set_after_vcpu(void)
-+{
-+	struct kvm_vm *vm;
-+	int ret;
-+
-+	vm = vm_create_barebones();
-+	__vm_vcpu_add(vm, 0);
-+	ret = hdbss_set(vm, HDBSS_DEFAULT_SIZE);
-+	TEST_ASSERT(ret == -1 && errno == EINVAL,
-+		    "Setting HDBSS buffer size after vCPU creation should fail with EINVAL, got ret=%d errno=%d",
-+		    ret, errno);
-+	pr_info("Set HDBSS after vCPU creation: correctly rejected\n");
-+	kvm_vm_free(vm);
-+}
-+
-+static void test_set_twice(void)
-+{
-+	struct kvm_vm *vm;
-+	int ret;
-+
-+	vm = vm_create_barebones();
-+	TEST_ASSERT_EQ(hdbss_set(vm, HDBSS_DEFAULT_SIZE), 0);
-+	ret = hdbss_set(vm, HDBSS_DEFAULT_SIZE * 2);
-+	TEST_ASSERT(ret == -1 && errno == EBUSY,
-+		    "Duplicate HDBSS buffer size set should fail with EBUSY, got ret=%d errno=%d",
-+		    ret, errno);
-+	pr_info("Duplicate HDBSS set: correctly rejected\n");
-+	kvm_vm_free(vm);
-+}
-+
-+static void test_mutex_dirty_ring_then_hdbss(void)
-+{
-+	struct kvm_vm *vm;
-+	int ret;
-+
-+	vm = vm_create_barebones();
-+
-+	/* Sized to cover the HDBSS reservation on any page size. */
-+	vm_enable_dirty_ring(vm, 16384 * sizeof(struct kvm_dirty_gfn));
-+
-+	ret = hdbss_set(vm, HDBSS_DEFAULT_SIZE);
-+	TEST_ASSERT(ret == -1 && errno == EINVAL,
-+		    "Setting HDBSS after dirty ring should fail with EINVAL, got ret=%d errno=%d",
-+		    ret, errno);
-+	pr_info("HDBSS after dirty ring: correctly rejected\n");
-+	kvm_vm_free(vm);
-+}
-+
-+static void test_dirty_ring_resets_size(void)
-+{
-+	struct kvm_vm *vm;
-+	long ret;
-+
-+	vm = vm_create_barebones();
-+
-+	/*
-+	 * The ring must cover the HDBSS reservation, 2 * buffer + 1KB.
-+	 * Ring mode then pins the buffer to the default.
-+	 */
-+	TEST_ASSERT_EQ(hdbss_set(vm, SZ_256K), 0);
-+	vm_enable_dirty_ring(vm, 65536 * sizeof(struct kvm_dirty_gfn));
-+	ret = hdbss_vm_query(vm);
-+	TEST_ASSERT(ret == (long)HDBSS_DEFAULT_SIZE,
-+		    "Dirty ring mode should reset the HDBSS buffer size to the default (%lld), got %ld",
-+		    (unsigned long long)HDBSS_DEFAULT_SIZE, ret);
-+	pr_info("Dirty ring mode resets HDBSS buffer size to default\n");
-+	kvm_vm_free(vm);
-+}
-+
-+int main(void)
-+{
-+	/*
-+	 * Valid sizes depend on the page size: the kernel minimum is
-+	 * PAGE_SIZE, so only exercise sizes at or above it.
-+	 */
-+	u64 page_size = getpagesize();
-+
-+	TEST_REQUIRE(hdbss_supported());
-+
-+	pr_info("Starting HDBSS ioctl interface tests\n\n");
-+
-+	test_global_query();
-+	test_vm_query_default();
-+	if (page_size < SZ_16K)
-+		test_vm_query_after_set(SZ_16K);
-+	test_vm_query_after_set(HDBSS_MAX_SIZE);
-+
-+	test_set_valid(HDBSS_DEFAULT_SIZE);
-+	if (page_size < SZ_8K)
-+		test_set_valid(SZ_8K);
-+	if (page_size < SZ_64K)
-+		test_set_valid(SZ_64K);
-+	test_set_valid(HDBSS_MAX_SIZE);
-+
-+	test_set_invalid(0, EINVAL);
-+	test_set_invalid(3, EINVAL);
-+	test_set_invalid(page_size - 1, EINVAL);
-+	test_set_invalid(page_size + 1, EINVAL);
-+	test_set_invalid(HDBSS_MAX_SIZE * 2, EINVAL);
-+
-+	test_set_after_vcpu();
-+	test_set_twice();
-+	test_mutex_dirty_ring_then_hdbss();
-+	test_dirty_ring_resets_size();
-+
-+	pr_info("\nAll HDBSS ioctl interface tests passed!\n");
-+	return 0;
-+}
---
-2.43.0
+diff --git a/drivers/gpu/drm/vc4/vc4_dpi.c b/drivers/gpu/drm/vc4/vc4_dpi.c
+index 53f36626a50d..5060eb463704 100644
+--- a/drivers/gpu/drm/vc4/vc4_dpi.c
++++ b/drivers/gpu/drm/vc4/vc4_dpi.c
+@@ -16,7 +16,6 @@
+ #include <drm/drm_drv.h>
+ #include <drm/drm_edid.h>
+ #include <drm/drm_of.h>
+-#include <drm/drm_panel.h>
+ #include <drm/drm_print.h>
+ #include <drm/drm_probe_helper.h>
+ #include <drm/drm_simple_kms_helper.h>
+@@ -279,16 +278,12 @@ static const struct of_device_id vc4_dpi_dt_match[] = {
+ 	{}
+ };
+ 
+-/* Sets up the next link in the display chain, whether it's a panel or
+- * a bridge.
+- */
+ static int vc4_dpi_init_bridge(struct vc4_dpi *dpi)
+ {
+-	struct drm_device *drm = dpi->encoder.base.dev;
+ 	struct device *dev = &dpi->pdev->dev;
+-	struct drm_bridge *bridge;
+ 
+-	bridge = drmm_of_get_bridge(drm, dev->of_node, 0, 0);
++	struct drm_bridge *bridge __free(drm_bridge_put) =
++		of_drm_get_bridge_by_endpoint(dev->of_node, 0, 0);
+ 	if (IS_ERR(bridge)) {
+ 		/* If nothing was connected in the DT, that's not an
+ 		 * error.
+
+-- 
+2.55.0
 
 
