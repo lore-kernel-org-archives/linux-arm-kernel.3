@@ -4,62 +4,116 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C634EC9832A
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 29 Sep 2026 16:28:32 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 05097C9832A
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 29 Sep 2026 16:29:33 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ZU2Tllhge3GRSK8tec+GugxhBLtD4rsLH6Rvm35CiNI=; b=H6hKif8Z3IvESbVl95EGU7XUey
-	dwQwXpP36EbarwPdCo9BTd2E6IpyJx9YKUoDOTo93dZNughbDHBgroJ8HFtKkulyKoZ/FM+9x4VMw
-	6dJSn7+f7ffLA7dY8Oz8vs8vUQVoscFIemHqPSW8Fy6uYDElHZhDYkXTF0CuGAPqhpVRzGQdIIV18
-	/E5lyG0Uj2yFpRt4QBaf14L7wNFafWapzz0XrvUy6cKdxSFe9fdmfRZLCha/EJ9M8rZz7GMPjc86n
-	WwAtIS3Om0S14+PjgHNRc5tPMhDrpuxAmzcflSC5Up0oQHLqiAUZPW4J2pUP1Q5x8fqFUsaTFkiNE
-	kpt7Ll3A==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=HhS8YlnsGyJ9HS0RFtDMzIqZYstk1VURk3XTCd55V0Q=; b=OKYWk96TVhtckG17sp9+qK03qJ
+	jp/wm1zpqAzuEBr0Vqn2h09lMkQWWfJWNnU7KBjQGp+ujABawJxCfglj1avFHWaidnKpIwlx5htwf
+	iDVA/GabwTgVZmlpKnaUBYIJTxMFCMf+udL5/pn+wlVqs3DLLtF/xaSKEUe/h5fv7AJNAnq/r0Jys
+	FLBm8QOG30xoL2sdKtaX5hZ11CUtqurXtkuSCZzRxe2zWLaYbL4Gx39zQ+BTdqut5wCyIHfR89A7l
+	JON8IhQhuSRiSGWv+lmZ/E2Jw5UsrQTrw3NSYZaPj9UUbauPW7y/V5DVmjvT25eDLUBrCHt5xQ4+R
+	qXTPv38w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xBagr-00000004348-2yL0;
-	Tue, 29 Sep 2026 16:28:25 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xBagm-0000000432d-2XzO
+	id 1xBZag-00000003uyd-44r4;
+	Tue, 29 Sep 2026 15:17:58 +0000
+Received: from mail-wr2-x10.google.com ([2a00:1450:4864:30::10])
+	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1xBZaY-00000003uui-0a8w
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 29 Sep 2026 16:28:21 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id CB8EE1516;
-	Tue, 29 Sep 2026 09:28:13 -0700 (PDT)
-Received: from J2N7QTR9R3.cambridge.arm.com (usa-sjc-imap-foss1.foss.arm.com [10.121.207.14])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 8D13F3F85F;
-	Tue, 29 Sep 2026 09:28:15 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1790699297; bh=oRtOh33Fesqsuut+x1rNUXPIlp0nseB6LrUdXjuiRLw=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=fLQfaulU0csNG4XSuuPMVX0sXYZcXQ+mm4Xg0cHYi6yvmJvMHlVlEqdR2aMMidlyN
-	 Hd3VWaDL5422G1rUM//uLmMXWjsmi1BShVtOUMM8kT37owJfBiv6NZ3fu3oLuFfZZw
-	 Zr+44rsBk4SoIczcvrlWBqY0pYjdtsi5lWOa+aZQ=
-Date: Tue, 29 Sep 2026 17:28:13 +0100
-From: Mark Rutland <mark.rutland@arm.com>
-To: Mark Brown <broonie@kernel.org>
-Cc: Catalin Marinas <catalin.marinas@arm.com>,
-	Will Deacon <will@kernel.org>, Shuah Khan <shuah@kernel.org>,
-	Marc Zyngier <maz@kernel.org>, Oliver Upton <oupton@kernel.org>,
-	Fuad Tabba <fuad.tabba@linux.dev>, linux-kernel@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kselftest@vger.kernel.org
-Subject: Re: [PATCH 04/11] kselftest/arm64: Use exit_error() rather than
- SIGABRT in fp-stress
-Message-ID: <arvnHYROxZ6rbUMv@J2N7QTR9R3.cambridge.arm.com>
-References: <20260901-arm64-fp-stress-kvm-v1-0-31bce995b49b@kernel.org>
- <20260901-arm64-fp-stress-kvm-v1-4-31bce995b49b@kernel.org>
+	Tue, 29 Sep 2026 15:17:51 +0000
+Received: by mail-wr2-x10.google.com with SMTP id ffacd0b85a97d-4843f22dcb8so3279670f8f.0
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 29 Sep 2026 08:17:49 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20251104; t=1790695068; x=1791299868; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=HhS8YlnsGyJ9HS0RFtDMzIqZYstk1VURk3XTCd55V0Q=;
+        b=qmDGAG6r6ncLroIbkHoUkcAZi+KMtY9cqqKxiczlUhbWrqUyAH6ZZcD95cVOQktaMw
+         Mjlrm6ccKDiFI7LRPO9fQMt9KnkiM0Y/TDiQtRdV6ZNsCR5aYuh24jf5rDIuMyh1a/bI
+         eMEVIqHJbnEZWScKkyfjolA0+uXzr8fFK4o1a2ykvjzsTCgqbb8W7sMRA1lP/h2l9yyK
+         br1VLFwUEHx2Bygoj+8WtDpdB2y755wrbLbkuldjwq5X89zpb1akmLBWDzdL94XX9OYj
+         oUsn1sPd4VadC5kbKuOH9o5Gdebs1X4+OdJbY6RORMsWccPtsFVLs3W6KOMZhuVKZPSX
+         IczQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1790695068; x=1791299868;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
+         :to:cc:subject:date:message-id:reply-to:content-type;
+        bh=HhS8YlnsGyJ9HS0RFtDMzIqZYstk1VURk3XTCd55V0Q=;
+        b=iwsHa4MRPzapMulOCdZ7ZqD6VvdRUFAl4V6vbhhrZJ8QZ1N9cbwR56pPwrCX73VCgL
+         3TsGLM1plXqmz4HJjrt64n7g9SwQAWm3SmWRRe6eWLVdkcT4VDFAczNNdLoVz2hamgNV
+         hLLYs3XJmX2dHnM4dIt8qmhY0jFr9pKAkp5jvnfJbM9QGMHHPZJ9BHbEd8AT3JsxohgF
+         K3jWkL2gXK7KTQ9LGk3Wo+PAHIyGuf3BnuqTwDCYUxw1Uwshp70mJKbusuETDgM77zvS
+         gjPzIbja0cxowWtF2zsNa0bZ/KNpbG3YwD8/OybdlhWrQGhw8Z0VPlg4U6oHNhOHTDFz
+         kmiw==
+X-Forwarded-Encrypted: i=1; AKwUvBy9hn9hS0uv+VCEsqNuUCjo+PCphl4gdRxeq+3SPL6+CqhkHiuDIcMJJQUUdZFIHrzHFzGhVtQRUTjxC5qGWBYs@lists.infradead.org
+X-Gm-Message-State: AFuF++l2LwiGr7L2N+w3+dEqG9RYqdhK8VW8OpZLim8bQzPdL820+6Ny
+	k/6UUptxSSoNGsDRKc1M/pEXXFXDZuRK46nX2oq7cHPVK/6eRqwpkDDO
+X-Gm-Gg: AYBFou2+mdbkLcHoKlUa9XV6fTcy2jUj47wTumEtvlVuVxnes1ooYf+tEv150Y70stN
+	70JeZFK1XVFAwC87vOFihQGKkQ9Sksl0mmoY+rTfQRpGOXq2pB9TqjAl8jfSr9yMSOeLtL1ikoW
+	HofFEpCrpgx8pZiLAtEG0di8k721uwt8/XlIYxHmhcfDkkM9uhMCmFj9NDRtkTmjCt19fiQnYEa
+	FnoeXyBU5QJWicZHdQSs2Q+T/ffjI+c254ZMfcRt6TcM5amomRCVO7cxjcvAmfksJ777svypIAI
+	Xzl8Md62IxFIySeQkwoIaFUFcr9wAZ3MtQk9+6Y8Dr+t88UZDNrxBVThS+QAV5/UFwsWIIVvnuz
+	Cu+R9H3gSBLUjComvPgpDPgBxJrSB9CvE8+TjrvC62fZc9C/sLaBtdk1flIxjhEOZlVe9EZuAZH
+	irynZpXJoGulXz+dOVlyiKjLm/48IPVvPJQniaxOgEhxz+bQew4a3UaR09tQA3DAjzLszTG+BUT
+	huWefTigu+JGJERvCU6dDZ0Q/rFSVgT255Hv3oklU/rjLklMGBaMKufxwLGSjt7SgCv8hMpT42B
+	jDte0Re6INPgp2/5ey++7Q==
+X-Received: by 2002:a05:600c:8486:b0:49e:745d:c317 with SMTP id 5b1f17b1804b1-49fe66b426bmr281786245e9.12.1790695068130;
+        Tue, 29 Sep 2026 08:17:48 -0700 (PDT)
+Received: from Lord-Beerus.station ([31.27.155.43])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4a013cf8402sm10313705e9.2.2026.09.29.08.17.46
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Tue, 29 Sep 2026 08:17:47 -0700 (PDT)
+From: Stefano Radaelli <stefano.radaelli21@gmail.com>
+X-Google-Original-From: Stefano Radaelli <stefano.r@variscite.com>
+To: Frank Li <Frank.Li@nxp.com>,
+	linux-kernel@vger.kernel.org,
+	devicetree@vger.kernel.org,
+	imx@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org
+Cc: pierluigi.p@variscite.com,
+	Stefano Radaelli <stefano.r@variscite.com>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Andrew Lunn <andrew+netdev@lunn.ch>,
+	"David S. Miller" <davem@davemloft.net>,
+	Eric Dumazet <edumazet@google.com>,
+	Jakub Kicinski <kuba@kernel.org>,
+	Paolo Abeni <pabeni@redhat.com>,
+	Sascha Hauer <s.hauer@pengutronix.de>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Fabio Estevam <festevam@gmail.com>,
+	Heiner Kallweit <hkallweit1@gmail.com>,
+	Russell King <linux@armlinux.org.uk>,
+	Shawn Guo <shawnguo@kernel.org>,
+	Joseph Guo <qijian.guo@nxp.com>,
+	Josua Mayer <josua@solid-run.com>,
+	Ernest Van Hoecke <ernest.vanhoecke@toradex.com>,
+	Mehmet Fide <mehmet.fide@screeningeagle.com>,
+	Francesco Dolcini <francesco.dolcini@toradex.com>,
+	Markus Niebel <Markus.Niebel@ew.tq-group.com>,
+	Hugo Villeneuve <hvilleneuve@dimonoff.com>,
+	Stefan Eichenberger <eichest@gmail.com>,
+	netdev@vger.kernel.org
+Subject: [PATCH v4 02/13] dt-bindings: arm: fsl: Add Variscite i.MX6ULL board variants
+Date: Tue, 29 Sep 2026 17:17:29 +0200
+Message-ID: <075691831d4da249672c3141ab16b9e856ee42da.1790693249.git.stefano.r@variscite.com>
+X-Mailer: git-send-email 2.47.3
+In-Reply-To: <cover.1790693249.git.stefano.r@variscite.com>
+References: <cover.1790693249.git.stefano.r@variscite.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20260901-arm64-fp-stress-kvm-v1-4-31bce995b49b@kernel.org>
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260929_092820_763385_47BC5883 
-X-CRM114-Status: GOOD (  17.88  )
+X-CRM114-CacheID: sfid-20260929_081750_213483_17048EBA 
+X-CRM114-Status: GOOD (  12.21  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -74,167 +128,79 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Sep 01, 2026 at 06:06:44PM +0100, Mark Brown wrote:
-> The fp-stress test loads all deliver a SIGABRT to the process group to
-> report some errors they detect. There is no particular reason to use
-> this mechanism over exiting with an error code, the fp-stress harness does
-> not care.
+From: Stefano Radaelli <stefano.r@variscite.com>
 
-That's not quite true; sending a SIGABRT to the entire process group
-will kill the harness and other tests, resulting in lost output.
+Document new VAR-SOM-6UL configurations on the already supported
+Concerto carrier while retaining its legacy compatible. Add
+VAR-SOM-6UL variants on Symphony and DART-6UL variants on
+VAR-6ULCustomBoard.
 
-I mentioned that in the patches I linked you to a while back:
+The new compatibles identify the SoM storage, wireless and audio
+options followed by the carrier, module and SoC compatibles.
 
-  https://git.kernel.org/pub/scm/linux/kernel/git/mark/linux.git/commit/?id=922d15ef46cb486a79f168949e103f6df26f4fba
+Signed-off-by: Stefano Radaelli <stefano.r@variscite.com>
+---
+v3->v4:
+ - Split the board binding by SoC, extend the existing VAR-SOM-6UL
+   entry with new Concerto and Symphony variants, and add DART-6UL.
+ - Drop the redundant -board suffix from the new carrier compatibles
+   and use sorted items/enum lists.
 
-That aside, this is a good cleanup.
+ .../devicetree/bindings/arm/fsl.yaml          | 39 ++++++++++++++++++-
+ 1 file changed, 38 insertions(+), 1 deletion(-)
 
-Mark.
-
-> In order to facilitate running as KVM guests replace this with
-> use of the exit_error() function we added.
-> 
-> Signed-off-by: Mark Brown <broonie@kernel.org>
-> ---
->  tools/testing/selftests/arm64/fp/fpsimd-test.S | 10 ++--------
->  tools/testing/selftests/arm64/fp/sve-test.S    | 10 ++--------
->  tools/testing/selftests/arm64/fp/za-test.S     | 10 ++--------
->  tools/testing/selftests/arm64/fp/zt-test.S     |  8 +-------
->  4 files changed, 7 insertions(+), 31 deletions(-)
-> 
-> diff --git a/tools/testing/selftests/arm64/fp/fpsimd-test.S b/tools/testing/selftests/arm64/fp/fpsimd-test.S
-> index 5ee8ef51ea4e..fcbb3a872490 100644
-> --- a/tools/testing/selftests/arm64/fp/fpsimd-test.S
-> +++ b/tools/testing/selftests/arm64/fp/fpsimd-test.S
-> @@ -176,7 +176,7 @@ function setsignal
->  	cbz	w0, 1f
->  
->  	puts	"sigaction failure\n"
-> -	b	.Labort
-> +	b	exit_error
->  
->  1:	ldr	x30, [sp], #((sa_sz + 15) / 16 * 16 + 16)
->  	ret
-> @@ -224,7 +224,7 @@ function _start
->  1:	puts	"Bad vector length: "
->  	mov	x0, x19
->  	bl	putdecn
-> -	b	.Labort
-> +	b	exit_error
->  
->  2:	puts	"Vector length:\t"
->  	mov	x0, x19
-> @@ -266,12 +266,6 @@ function _start
->  
->  	add	x22, x22, #1
->  	b	.Ltest_loop
-> -
-> -.Labort:
-> -	mov	x0, #0
-> -	mov	x1, #SIGABRT
-> -	mov	x8, #__NR_kill
-> -	svc	#0
->  endfunction
->  
->  function barf
-> diff --git a/tools/testing/selftests/arm64/fp/sve-test.S b/tools/testing/selftests/arm64/fp/sve-test.S
-> index 3447fe0e5554..26efdbdd88f9 100644
-> --- a/tools/testing/selftests/arm64/fp/sve-test.S
-> +++ b/tools/testing/selftests/arm64/fp/sve-test.S
-> @@ -344,7 +344,7 @@ function setsignal
->  	cbz	w0, 1f
->  
->  	puts	"sigaction failure\n"
-> -	b	.Labort
-> +	b	exit_error
->  
->  1:	ldr	x30, [sp], #((sa_sz + 15) / 16 * 16 + 16)
->  	ret
-> @@ -397,7 +397,7 @@ function _start
->  1:	puts	"Bad vector length: "
->  	mov	x0, x19
->  	bl	putdecn
-> -	b	.Labort
-> +	b	exit_error
->  
->  2:	puts	"Vector length:\t"
->  	mov	x0, x19
-> @@ -474,12 +474,6 @@ function _start
->  
->  	add	x22, x22, #1
->  	b	.Ltest_loop
-> -
-> -.Labort:
-> -	mov	x0, #0
-> -	mov	x1, #SIGABRT
-> -	mov	x8, #__NR_kill
-> -	svc	#0
->  endfunction
->  
->  function barf
-> diff --git a/tools/testing/selftests/arm64/fp/za-test.S b/tools/testing/selftests/arm64/fp/za-test.S
-> index 33dc4ce8bfa1..7208bb2db9f1 100644
-> --- a/tools/testing/selftests/arm64/fp/za-test.S
-> +++ b/tools/testing/selftests/arm64/fp/za-test.S
-> @@ -189,7 +189,7 @@ function setsignal
->  	cbz	w0, 1f
->  
->  	puts	"sigaction failure\n"
-> -	b	.Labort
-> +	b	exit_error
->  
->  1:	ldr	x30, [sp], #((sa_sz + 15) / 16 * 16 + 16)
->  	ret
-> @@ -240,7 +240,7 @@ function _start
->  1:	puts	"bad vector length: "
->  	mov	x0, x19
->  	bl	putdecn
-> -	b	.Labort
-> +	b	exit_error
->  
->  2:	puts	"vector length:\t"
->  	mov	x0, x19
-> @@ -288,12 +288,6 @@ function _start
->  
->  	add	x22, x22, #1	// Everything still working
->  	b	.Ltest_loop
-> -
-> -.Labort:
-> -	mov	x0, #0
-> -	mov	x1, #SIGABRT
-> -	mov	x8, #__NR_kill
-> -	svc	#0
->  endfunction
->  
->  function barf
-> diff --git a/tools/testing/selftests/arm64/fp/zt-test.S b/tools/testing/selftests/arm64/fp/zt-test.S
-> index c67242c2d5ab..c6cfbdeb2f0c 100644
-> --- a/tools/testing/selftests/arm64/fp/zt-test.S
-> +++ b/tools/testing/selftests/arm64/fp/zt-test.S
-> @@ -158,7 +158,7 @@ function setsignal
->  	cbz	w0, 1f
->  
->  	puts	"sigaction failure\n"
-> -	b	.Labort
-> +	b	exit_error
->  
->  1:	ldr	x30, [sp], #((sa_sz + 15) / 16 * 16 + 16)
->  	ret
-> @@ -222,12 +222,6 @@ function _start
->  
->  	add	x22, x22, #1	// Everything still working
->  	b	.Ltest_loop
-> -
-> -.Labort:
-> -	mov	x0, #0
-> -	mov	x1, #SIGABRT
-> -	mov	x8, #__NR_kill
-> -	svc	#0
->  endfunction
->  
->  function barf
-> 
-> -- 
-> 2.47.3
-> 
+diff --git a/Documentation/devicetree/bindings/arm/fsl.yaml b/Documentation/devicetree/bindings/arm/fsl.yaml
+index 233687131adb..9b1224091e01 100644
+--- a/Documentation/devicetree/bindings/arm/fsl.yaml
++++ b/Documentation/devicetree/bindings/arm/fsl.yaml
+@@ -834,9 +834,46 @@ properties:
+           - const: phytec,imx6ull-pcl063        # PHYTEC phyCORE-i.MX 6ULL
+           - const: fsl,imx6ull
+ 
++      - description: i.MX6ULL Variscite DART-6UL board variants
++        items:
++          - enum:
++              - variscite,dart-6ul-imx6ull-emmc-sd-card-6ulcustomboard
++              - variscite,dart-6ul-imx6ull-emmc-sd-card-wm8731-6ulcustomboard
++              - variscite,dart-6ul-imx6ull-emmc-wifi-brcm-6ulcustomboard
++              - variscite,dart-6ul-imx6ull-emmc-wifi-brcm-wm8731-6ulcustomboard
++              - variscite,dart-6ul-imx6ull-emmc-wifi-iw61x-6ulcustomboard
++              - variscite,dart-6ul-imx6ull-nand-sd-card-6ulcustomboard
++              - variscite,dart-6ul-imx6ull-nand-sd-card-wm8731-6ulcustomboard
++              - variscite,dart-6ul-imx6ull-nand-wifi-brcm-6ulcustomboard
++              - variscite,dart-6ul-imx6ull-nand-wifi-brcm-wm8731-6ulcustomboard
++              - variscite,dart-6ul-imx6ull-nand-wifi-iw61x-6ulcustomboard
++          - const: variscite,dart-6ul-imx6ull
++          - const: fsl,imx6ull
++
+       - description: i.MX6ULL Variscite VAR-SOM-6UL Boards
+         items:
+-          - const: variscite,mx6ullconcerto  # Variscite VAR-SOM-6UL dev kit board
++          - enum:
++              - variscite,mx6ullconcerto  # Variscite VAR-SOM-6UL dev kit board
++              - variscite,var-som-imx6ull-emmc-sd-card-concerto
++              - variscite,var-som-imx6ull-emmc-sd-card-symphony
++              - variscite,var-som-imx6ull-emmc-sd-card-wm8731-concerto
++              - variscite,var-som-imx6ull-emmc-sd-card-wm8731-symphony
++              - variscite,var-som-imx6ull-emmc-wifi-brcm-concerto
++              - variscite,var-som-imx6ull-emmc-wifi-brcm-symphony
++              - variscite,var-som-imx6ull-emmc-wifi-brcm-wm8731-concerto
++              - variscite,var-som-imx6ull-emmc-wifi-brcm-wm8731-symphony
++              - variscite,var-som-imx6ull-emmc-wifi-iw61x-concerto
++              - variscite,var-som-imx6ull-emmc-wifi-iw61x-symphony
++              - variscite,var-som-imx6ull-nand-sd-card-concerto
++              - variscite,var-som-imx6ull-nand-sd-card-symphony
++              - variscite,var-som-imx6ull-nand-sd-card-wm8731-concerto
++              - variscite,var-som-imx6ull-nand-sd-card-wm8731-symphony
++              - variscite,var-som-imx6ull-nand-wifi-brcm-concerto
++              - variscite,var-som-imx6ull-nand-wifi-brcm-symphony
++              - variscite,var-som-imx6ull-nand-wifi-brcm-wm8731-concerto
++              - variscite,var-som-imx6ull-nand-wifi-brcm-wm8731-symphony
++              - variscite,var-som-imx6ull-nand-wifi-iw61x-concerto
++              - variscite,var-som-imx6ull-nand-wifi-iw61x-symphony
+           - const: variscite,var-som-imx6ull # Variscite VAR-SOM-6UL SoM (6ULL variant)
+           - const: fsl,imx6ull
+ 
+-- 
+2.47.3
 
