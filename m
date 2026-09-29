@@ -4,61 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E99F7CA5FA5
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 29 Sep 2026 12:35:06 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CB0F8CA5FA5
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 29 Sep 2026 12:35:56 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:References:In-Reply-To:Message-ID:Date
-	:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=URC7r36kokGjXCV5G6Ei8oKV54JoMbconYpCKkPt2AY=; b=QoV+hYNzDCzoruQx9R0VrgVKdD
-	Rp8kyF8xljhY1lol33SKzxNUBhlfq0SmJ8U0hcq4OGmFgs4jxYuET8Tk7vElby+MjcLqHeGzy0GlC
-	GdekO475sm5iODF1yTwJzEMmEQCUJtHsTznHGBps5t9QIPiPMSWkEoF6ufYoCVKicESpH3Vtv7/2m
-	npSQ3nYdZZtV/BVYxMvRKEm6ATCWZaOcuVz01D0eAeqDmchkVeZeHYkkSchQovMpD3KrXHGoy9Dr3
-	e/quSxmtvqhz5TThDvO1XxTqehNwVztH1gaSe7Q+134M+2znUbfu08fEuascWU9tWWrnS0xa1VTLB
-	enwLt4Sw==;
+	bh=SVS98uBuKLlulEgGUf4CF5N23plwVuHF1+58y7MeRw0=; b=Xph8bAeypMOBhKHpBVi7Qj5Pum
+	wf1KRcFal2xizJ2UhszyoMkX0USSeaZi8KumY9ucCAhbtG7NjM2M/csYUH/Jrwva86yzJlHRXEGF6
+	kVq/mVMx7sZTI7Sm9dIi3TJo66HqzMneKOyChmGEyf/0VUS93VUE544bCWssvf0Znrj+7yQ1eOOiq
+	UPrO+8KrrtrVdSD5YvYYA+LkECd3lTBm0cF70VrukNsxqWimm0fRvHe+fuicLyi8N/+RsJf3lHjDs
+	07q9S1KebVUXpfTu4uJ8IWW8o6GmpkHfqENK65y6OlvxF+FdzjUkWhtLPXAqFNl0Rw9jsR8RnEI2X
+	QFwub+9A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xBX2y-00000003Y8T-2kTS;
-	Tue, 29 Sep 2026 12:35:00 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1xBX3m-00000003YP5-3NkQ;
+	Tue, 29 Sep 2026 12:35:50 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xBX2w-00000003Y7i-15lF
+	id 1xBX3l-00000003YOY-0YtV
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 29 Sep 2026 12:34:58 +0000
+	Tue, 29 Sep 2026 12:35:49 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id AE85A601FB;
-	Tue, 29 Sep 2026 12:34:57 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id BB0CA1F000FF;
-	Tue, 29 Sep 2026 12:34:56 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 9A7B24149F;
+	Tue, 29 Sep 2026 12:35:48 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 073811F000FF;
+	Tue, 29 Sep 2026 12:35:48 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1790685297;
-	bh=URC7r36kokGjXCV5G6Ei8oKV54JoMbconYpCKkPt2AY=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References;
-	b=mCY7iyvEndClxYVNSOfvofhJ13wixKKmNTn9iQbVmfC6mX9Pc0Yf0io2RRDUtd+hz
-	 NebDQinSDEXLRK2dmF4BO/dqZQDv3Mj6MXTfUfYBcT8C8g2u5v2sjIAQ2++LaV70U8
-	 gMRuEEkkVDApygS7jHuKbdkb17LRgahgHkj6HXRqx4/gBKzwdur001SCLTeA+6gKvl
-	 Oi2Au22EWzBf51csipP5AZ/fC/CG4/nOBgtImYZ8DF5YgnpgT+tiOyDWvLfuJRCB5L
-	 hl12RwbNv2pWGTnY8xpRV4Tix+/ciBAbTUNC+yI+XRZoqacsDEx/+//jqY0dDefxM+
-	 Oa+DuROgyOKIg==
-From: netdev-bot+sinfo@kernel.org
-To: Jisheng Zhang <jszhang@kernel.org>
-Cc: Maxime Chevallier <maxime.chevallier@bootlin.com>,
- Andrew Lunn <andrew+netdev@lunn.ch>, "David S . Miller" <davem@davemloft.net>,
- Eric Dumazet <edumazet@google.com>, Jakub Kicinski <kuba@kernel.org>,
- Paolo Abeni <pabeni@redhat.com>, Maxime Coquelin <mcoquelin.stm32@gmail.com>,
- Alexandre Torgue <alexandre.torgue@foss.st.com>, netdev@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH] net: stmmac: Disable unsolicited checksum insertion for AF_XDP TX
-Date: Tue, 29 Sep 2026 12:34:56 +0000
-Message-ID: <179068529630.31693.11109741808641823424@kernel.org>
-In-Reply-To: <20260929121032.20835-1-jszhang@kernel.org>
-References: <20260929121032.20835-1-jszhang@kernel.org>
-Auto-Submitted: auto-generated
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
+	s=k20260515; t=1790685348;
+	bh=SVS98uBuKLlulEgGUf4CF5N23plwVuHF1+58y7MeRw0=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=kSao9Y6ZyIhIEhOL8deNeZES2JKLRtgBYjdkfGFmqEGINTsooFvBefZrTFwp3Wcm7
+	 4380RM7ANERkudKmY9eMTcgvAKLzXUn/XtVJoklDsD2kbLyo1qLjSaXibrh3cfN/Cl
+	 HADtSYF+ATgTwSmGVUyhxPlFXAVXBmoW719SBZoV9dTETNxDD3VMbb9mxCqvg/DBlC
+	 L++cXq5zwu7FfVBlBTXpgCvhhpacZDSjpxJrbPxqCtDBRb891vI2ZvV6PT6Zpm1cMn
+	 NPodJv18zgr3QM93urQuh9gXXsSlEQTWIMLkFGI5yJ5tBcEJ2Zwf0qxT+M5VH8xVbH
+	 qGuvwvMxsQixQ==
+Date: Tue, 29 Sep 2026 14:35:45 +0200
+From: Maxime Ripard <mripard@kernel.org>
+To: Luca Ceresoli <luca.ceresoli@bootlin.com>
+Cc: Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, 
+	Thomas Zimmermann <tzimmermann@suse.de>, David Airlie <airlied@gmail.com>, 
+	Simona Vetter <simona@ffwll.ch>, Frank Li <Frank.Li@nxp.com>, 
+	Sascha Hauer <s.hauer@pengutronix.de>, Pengutronix Kernel Team <kernel@pengutronix.de>, 
+	Fabio Estevam <festevam@gmail.com>, Icenowy Zheng <zhengxingda@iscas.ac.cn>, 
+	Andrzej Hajda <andrzej.hajda@intel.com>, Neil Armstrong <neil.armstrong@linaro.org>, 
+	Robert Foss <rfoss@kernel.org>, Laurent Pinchart <Laurent.pinchart@ideasonboard.com>, 
+	Jonas Karlman <jonas@kwiboo.se>, Jernej Skrabec <jernej.skrabec@gmail.com>, 
+	Dave Stevenson <dave.stevenson@raspberrypi.com>, =?utf-8?B?TWHDrXJh?= Canal <mcanal@igalia.com>, 
+	Raspberry Pi Kernel Maintenance <kernel-list@raspberrypi.com>, Geert Uytterhoeven <geert+renesas@glider.be>, 
+	Arnd Bergmann <arnd@kernel.org>, Doug Anderson <dianders@chromium.org>, 
+	Hui Pu <Hui.Pu@gehealthcare.com>, Ian Ray <ian.ray@gehealthcare.com>, 
+	Thomas Petazzoni <thomas.petazzoni@bootlin.com>, dri-devel@lists.freedesktop.org, imx@lists.linux.dev, 
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, linux-renesas-soc@vger.kernel.org
+Subject: Re: [PATCH 5/7] drm/vc4: dpi: stop using deprecated
+ drmm_of_get_bridge()
+Message-ID: <aruwg3rk97RuI75G@houat>
+References: <20260929-drm-fix-of_get_bridge-build-regression-v1-0-ccb7e602daad@bootlin.com>
+ <20260929-drm-fix-of_get_bridge-build-regression-v1-5-ccb7e602daad@bootlin.com>
 MIME-Version: 1.0
+Content-Type: multipart/signed; micalg=pgp-sha384;
+	protocol="application/pgp-signature"; boundary="gu4ry47i36m6y6ya"
+Content-Disposition: inline
+In-Reply-To: <20260929-drm-fix-of_get_bridge-build-regression-v1-5-ccb7e602daad@bootlin.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -73,29 +83,34 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi!
 
-This is an automated message. This series looks like a fix, but its
-commit messages seem to be missing some information:
+--gu4ry47i36m6y6ya
+Content-Type: text/plain; protected-headers=v1; charset=us-ascii
+Content-Disposition: inline
+Subject: Re: [PATCH 5/7] drm/vc4: dpi: stop using deprecated
+ drmm_of_get_bridge()
+MIME-Version: 1.0
 
- - How the issue was discovered, e.g. hit in production, hit during
-   development, syzbot report, manual code inspection, LLM or static
-   analysis tool scan.
+On Tue, Sep 29, 2026 at 12:36:37PM +0200, Luca Ceresoli wrote:
+> devm_drm_of_get_bridge() is deprecated, switch to
+> of_drm_get_bridge_by_endpoint(). As of_drm_get_bridge_by_endpoint() returns
+> a refcounted bridge, ensure it is put.
 
- - Whether the issue was actually triggered, or is only theoretical
-   (e.g. found by code inspection). If it was triggered please include
-   the symptoms, like the stack trace or error messages.
+You didn't remove devm_drm_of_get_bridge but drmm_drm_of_get_bridge here
 
- - What hardware the change was tested on. For driver fixes please
-   mention the device (and if relevant firmware version) used for
-   testing, or say that the change was not tested on real hardware.
+Maxime
 
-Please do not repost the series just to address the above. Instead,
-reply to this email with the missing information, so that reviewers
-can take it into account. If the series needs another revision for
-other reasons, please include the information in the commit messages
-then.
+--gu4ry47i36m6y6ya
+Content-Type: application/pgp-signature; name="signature.asc"
 
-The evaluation is done by an LLM so it may be wrong, if you think
-that is the case please reply and explain.
+-----BEGIN PGP SIGNATURE-----
+
+iJUEABMJAB0WIQTkHFbLp4ejekA/qfgnX84Zoj2+dgUCaruwoQAKCRAnX84Zoj2+
+dhXFAX9+KeIOq/xb4GCdjfaVk97PHMNyuDv+YPaRJjRr9ci7wa6Mnd1jmeH173OC
+EBavZnwBgJ6Vgs3vD6hzIFe0v11EyR4LeqnaRde5Ku4D5Zkir/3MpOhKIAxjopqG
+7th5dz2hCA==
+=7NDu
+-----END PGP SIGNATURE-----
+
+--gu4ry47i36m6y6ya--
 
