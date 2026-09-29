@@ -4,70 +4,73 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C2283CA5FA1
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 29 Sep 2026 09:33:17 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B4AD4CA5FA1
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 29 Sep 2026 09:36:49 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=7my33tHkcnAh5NzGYvJklT1PtJEphsrY3nRhIAu2WEM=; b=qcMP1oq49wAeDkzmI7h3m4atT1
-	1MCU5KaTH+yXbwsqpkL00lOyykiDAFQ8IGZj4wIgBzAanSL7CZkPik1OUGu+pcerx9itUtVm8UTT5
-	fw44GUQeQb7AnM9xQMDIPbJba7WIYVA0ioRZFMhx71Q8NQ4ythB0+CLWepxTGw0D4lV/hoYDneph5
-	COw1yZXUwlCGFuJl5UI/KQlpRoDttli5iN0O44wWBAbVY/nvzZt5X96F12HAmyHs3E/67peTfV1Ak
-	hFXxPUj2p+LsLQGHl8ZkA6YkGM6FJ9n6PUNjEzCVqZGQj8J0rUx7qTtf+iWo91J217vYcINquR7qE
-	zId5jtow==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=+7vORc7fdZTgip4RumXbE7ra5AtBAZuP2iEiF6B3uis=; b=KQO4v4YaZSx5RVwVpi49uRLSc1
+	DbL5QNjnPV+fx89uO1Kb1v+a7lTANrowiyegiCPqc0yWCL240yGXClOC09LUmM0NkLdrwRh/Hn4eT
+	FQFC67ZyuGG1rc96rQD6re93ZJvCdUHNJ3xyaobn7OnFgNmHGfKxbtR/cJGcD6QWriSgqQoztlVuC
+	lIcA04dETYb1e+O7J5E0SGApCXKX1HB43fXF2QXR8PTtoHeE/TDxpnZyrKKvLuBegb9GBJMEvuvLt
+	lMV6yRVghroxTy5uiZpzixbXrT4YbWIhJ6gHPj6e0weYFnLYC3yfLJH+MQidtcmw8aRYHjqiiyDO4
+	ZNr98Bbw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xBUD0-00000002y8O-3D45;
-	Tue, 29 Sep 2026 09:33:10 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1xBUGR-00000002ykV-2x0u;
+	Tue, 29 Sep 2026 09:36:43 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xBUCx-00000002y7U-2pOL;
-	Tue, 29 Sep 2026 09:33:07 +0000
+	id 1xBUGP-00000002yjE-3SqV
+	for linux-arm-kernel@lists.infradead.org;
+	Tue, 29 Sep 2026 09:36:41 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id BE7E560008;
-	Tue, 29 Sep 2026 09:33:06 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id A3EC61F000FF;
-	Tue, 29 Sep 2026 09:33:00 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id C97C140AE3;
+	Tue, 29 Sep 2026 09:36:40 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id AB4C31F00893;
+	Tue, 29 Sep 2026 09:36:40 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1790674386;
-	bh=7my33tHkcnAh5NzGYvJklT1PtJEphsrY3nRhIAu2WEM=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=g1fEQqx6q9GJjmXIa4fL4LunigoQ8sYi2oCnV0YG6aD4gqsX6MV47f2rOQBdyupOR
-	 ZDxf/muo0fXP9Ml6XxfjgNPPwvXz2a3H/ma4tOKFvuPcDQp8QRg5hb5NjKMDWi7qHN
-	 lJ5bX1GB8/u+X5Kk26FqdWLRuotq6M/89CVYEYjsPQ/VvOgAd6e8A7qefsNexpVjbO
-	 pv29vxAcIhf798lWkQL0VXtsEuguV0bopYfBjxfp9H9xT7akHCUxNpl3QDa6NuaIPU
-	 masy6oFHXPWXl/kzWZSoL3BEHwMMMMrWOs9IwXJaDxiz865Aa/NxzzudsvYWCX5F3t
-	 SZ/A6FUd2Y6uQ==
-Date: Tue, 29 Sep 2026 11:32:57 +0200
-From: Benjamin Tissoires <bentiss@kernel.org>
-To: Jani Nikula <jani.nikula@linux.intel.com>
-Cc: Maxime Ripard <mripard@kernel.org>, 
-	Neil Armstrong <neil.armstrong@linaro.org>, Jessica Zhang <jesszhan0024@gmail.com>, 
-	David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>, 
-	Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, Thomas Zimmermann <tzimmermann@suse.de>, 
-	Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
-	Conor Dooley <conor+dt@kernel.org>, Nathan Chancellor <nathan@kernel.org>, 
-	Nick Desaulniers <ndesaulniers@google.com>, Bill Wendling <morbo@google.com>, 
-	Justin Stitt <justinstitt@google.com>, Florian Fainelli <florian.fainelli@broadcom.com>, 
-	Broadcom internal kernel review list <bcm-kernel-feedback-list@broadcom.com>, Andrzej Hajda <andrzej.hajda@intel.com>, 
-	Robert Foss <rfoss@kernel.org>, Laurent Pinchart <Laurent.pinchart@ideasonboard.com>, 
-	Jonas Karlman <jonas@kwiboo.se>, Jernej Skrabec <jernej.skrabec@gmail.com>, 
-	Luca Ceresoli <luca.ceresoli@bootlin.com>, Albert Esteve <aesteve@redhat.com>, 
-	Dave Stevenson <dave.stevenson@raspberrypi.com>, Javier Martinez Canillas <javierm@redhat.com>, 
-	dri-devel@lists.freedesktop.org, devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
-	bpf@vger.kernel.org, llvm@lists.linux.dev, linux-rpi-kernel@lists.infradead.org, 
+	s=k20260515; t=1790674600;
+	bh=+7vORc7fdZTgip4RumXbE7ra5AtBAZuP2iEiF6B3uis=;
+	h=From:To:Cc:Subject:Date:In-Reply-To:References;
+	b=mfT70pSKc3gXUTp3Fk2M+S8WN47Rg3CTTMR42zP31NuBHAXdtFPYfShOJaYr1SXaT
+	 6xYJ1CHmKrxu4FJcItJ6pI2g6sK9an89SL5FqEM/lRrM61UJhtY0Omihn4FX7mxYt+
+	 bmHDeQpDKsmtSnDT2uTv8CK9cPgShzLY/JuZ9FUcijMh3nGAfGcdczTak/ni2mCsga
+	 vnXQx9Wcyg+o8Dv79p2FBaiQ9tjScc0N/j/ToDKuxNWt8htd0dsEgrodnK1DfNx0GN
+	 uQxj8BjHbE+rFKg1v2ntHxoZMFSARncqn4oomNnVCuYb56mr1Iovitb0qdGv7U6R0J
+	 WY+tGxnB4SS2Q==
+Received: from sofa.misterjones.org ([185.219.108.64] helo=valley-girl.lan)
+	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.98.2)
+	(envelope-from <maz@kernel.org>)
+	id 1xBUGM-0000000ElEa-2Qcq;
+	Tue, 29 Sep 2026 09:36:38 +0000
+From: Marc Zyngier <maz@kernel.org>
+To: kvmarm@lists.linux.dev,
 	linux-arm-kernel@lists.infradead.org
-Subject: Re: [PATCH 0/6] drm/bridge: Add a BPF-based MIPI-DSI panel driver
-Message-ID: <aruD5kwOEsvFhW2e@beelink>
-References: <20260928-drm-mipi-dsi-panel-ebpf-v1-0-5244926aace4@kernel.org>
- <054ef52478fc93fc213a9dae23ea77f73094aaf2@intel.com>
+Cc: Steffen Eiden <seiden@linux.ibm.com>,
+	Joey Gouly <joey.gouly@arm.com>,
+	Suzuki K Poulose <suzuki.poulose@arm.com>,
+	Oliver Upton <oupton@kernel.org>,
+	Zenghui Yu <yuzenghui@huawei.com>,
+	Fuad Tabba <fuad.tabba@linux.dev>,
+	Yuchao Zhang <ndaugoing@gmail.com>,
+	stable@vger.kernel.org
+Subject: [PATCH v2 1/7] KVM: arm64: Move OUTSIDE_GUEST_MODE publication past context being saved
+Date: Tue, 29 Sep 2026 10:35:42 +0100
+Message-ID: <20260929093548.3598547-2-maz@kernel.org>
+X-Mailer: git-send-email 2.47.3
+In-Reply-To: <20260929093548.3598547-1-maz@kernel.org>
+References: <20260929093548.3598547-1-maz@kernel.org>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <054ef52478fc93fc213a9dae23ea77f73094aaf2@intel.com>
+Content-Transfer-Encoding: 8bit
+X-SA-Exim-Connect-IP: 185.219.108.64
+X-SA-Exim-Rcpt-To: kvmarm@lists.linux.dev, linux-arm-kernel@lists.infradead.org, seiden@linux.ibm.com, joey.gouly@arm.com, suzuki.poulose@arm.com, oupton@kernel.org, yuzenghui@huawei.com, fuad.tabba@linux.dev, ndaugoing@gmail.com, stable@vger.kernel.org
+X-SA-Exim-Mail-From: maz@kernel.org
+X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -82,78 +85,50 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Sep 29 2026, Jani Nikula wrote:
-> On Mon, 28 Sep 2026, Maxime Ripard <mripard@kernel.org> wrote:
-> > Panels in general, and MIPI-DSI panels in particular, are pretty
-> > difficult to support and require pretty much a panel driver for each
-> > panel produced. Most of them are pretty simple, and require an opaque
-> > initialization sequence that is usually poorly documented.
-> >
-> > This creates a tension between OEMs and distros because OEMs will
-> > typically get a new panel to react to a sourcing issue during
-> > production, and thus need some swift turnaround between getting their
-> > new panel and it being operational in the OS. Distributions on the other
-> > hand can take years to ship a kernel with that new panel driver.
-> >
-> > To solve this, I followed the example of HID-BPF and wrote a panel
-> > driver that will rely on BPF programs to perform the panel
-> > initialization. That way, we can ship the programs separately from the
-> > kernel, and with a different lifecycle. If this driver is accepted, the
-> > plan is to have a userspace component started by udev to identify and
-> > load the right BPF program for the panels found on the device.
-> 
-> I'd think for most panels it would suffice to have a declarative
-> language describing what to do at what points in time. For example, at
-> poweron, enable this GPIO, wait a little, write this set of DSI
-> commands, etc. You rarely need actual programming, or even ability to
-> read-modify-write something.
+OUTSIDE_GUEST_MODE indicates to the rest of KVM that the vcpu has
+exited. So far, this is set as soon as we return from the notional
+hypervisor (which with VHE is just a function call away).
 
-TBH, that's exactly how Maxime presented the idea to me before
-submitting this.
+However, code that uses OUTSIDE_GUEST_MODE as a synchronisation point
+relies on the vcpu state to have been written back to the in-memory
+structures. Clearly, this is not what is happening
 
-> 
-> It could be, say, YAML converted to some binary representation. Maybe
-> that could be in the DT, or maybe you could override it with the
-> firmware loader. And obviously any vendor "blob" could be trivially
-> converted back to YAML and upstreamed.
+Move the publication of OUTSIDE_GUEST_MODE to the point where the state
+is actually written, and give this write release semantics to ensure the
+correct ordering.
 
-Ouch. This immediately raises the "let's implement a parser in the
-kernel" flag, or "let's create a new langage".
+Signed-off-by: Marc Zyngier <maz@kernel.org>
+Cc: stable@vger.kernel.org
+---
+ arch/arm64/kvm/arm.c | 7 ++++++-
+ 1 file changed, 6 insertions(+), 1 deletion(-)
 
-That's exactly what BPF is: ou have a source file (in C, rust, whatever)
-that is converted to a binary blob that the kernel already knows how to
-use and that is safe to load, and we can easily go back to the sources.
+diff --git a/arch/arm64/kvm/arm.c b/arch/arm64/kvm/arm.c
+index 8b080804bc90b..5f5dd8bead4b9 100644
+--- a/arch/arm64/kvm/arm.c
++++ b/arch/arm64/kvm/arm.c
+@@ -1352,7 +1352,6 @@ int kvm_arch_vcpu_ioctl_run(struct kvm_vcpu *vcpu)
+ 
+ 		ret = kvm_arm_vcpu_enter_exit(vcpu);
+ 
+-		vcpu->mode = OUTSIDE_GUEST_MODE;
+ 		vcpu->stat.exits++;
+ 		/*
+ 		 * Back from guest
+@@ -1386,6 +1385,12 @@ int kvm_arch_vcpu_ioctl_run(struct kvm_vcpu *vcpu)
+ 
+ 		kvm_arch_vcpu_ctxsync_fp(vcpu);
+ 
++		/*
++		 * All the state has been synchronised, let advertise
++		 * we're outside of the guest.
++		 */
++		smp_store_release(&vcpu->mode, OUTSIDE_GUEST_MODE);
++
+ 		/*
+ 		 * We must ensure that any pending interrupts are taken before
+ 		 * we exit guest timing so that timer ticks are accounted as
+-- 
+2.47.3
 
-> 
-> Where that falls short, you could always have a dedicated driver, or
-> extend the declarative stuff.
-
-See Maxime's answers: yes, falling back to dedicated driver is still
-encouraged.
-
-> 
-> Now, the question is, how much more BPF solves over that, without
-> requiring a dedicated driver, and is the added complexity worth it?
-
-You'd still need a dedicated driver for your new blob parser, with far
-fewer people who had had a look at it than BPF who has been working on
-for several years.
-
-The integration of BPF and the kernel is honestly transparent nowaday:
-calling a struct_ops BPF function is just a function call away, and from
-the bpf calling anything in the kernel is also just a call away.
-
-> 
-> FWIW, on the Intel platforms that support DSI, all of the
-> initialization, poweron/poweroff, backlight on/off etc. sequences like
-> that are stored in the BIOS, defined by the OEM. A plethora of DSI
-> panels, one driver. Don't look at it for examples how to implement it,
-> but I think the basic idea is workable.
-
-Isn't that what Maxime wants to have? One driver for a plethora of DSI
-panels, with the same ability the BIOS has to also do function calls to
-set things up?
-
-Cheers,
-Benjamin
 
