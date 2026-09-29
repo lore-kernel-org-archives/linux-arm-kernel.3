@@ -4,65 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E52B7CA5FA5
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 29 Sep 2026 08:48:21 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0BF07CA5FA1
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 29 Sep 2026 08:48:31 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Cc:To:
-	Content-Transfer-Encoding:Content-Type:Message-Id:Date:Subject:From:Reply-To:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=eLjtGfOYi8347oEjCAtmMajnlmlNdBrMCPhOeIKBQ9Q=; b=CLjxZf5ZgX2R1MG1FacyKn7gUQ
-	Qt9Vh4pzo5mnavvxLBNYXZKWbTfRa59eYqmjzfIt4M4ntjybthaszgeN5sMxCcAM+THChRAAW/uO/
-	W21rbTba1MpIt+knpZETbGyJ8mT7QsQ3SID8i45bWdB/DGdbqK6aaGazpVizQK9CFJgoMT7nOtQ+v
-	UzLh/CzPnC6JVQ3OyeomvWH1BD6f+6p7X88hWCWWnr1MeSWeKYvbw5fw886c2XrS+3FOZPSXXnWU/
-	jsIRVjE7zIW8HwAK5iQrIEeCjcuIzHJLqEav/uvQlUqiKf+HJEK5DJb6YchnsZulpehQO8SKj09pW
-	Q0JkmtpA==;
+	In-Reply-To:References:Message-Id:Content-Transfer-Encoding:Content-Type:
+	Subject:Date:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=fVXUisvkzQQQ1dzBKuAYSXeQEB+G7Ks/MebQvHmsvQQ=; b=mIHZ8LoivAzFq2wkFmcRcgVwLb
+	Pk3rvT7pAGi5BFFo+MIzYj8KGXyI/5F1QaBW9sxenOx5GsvRe47yHZ/ZIY1SCEdi7iQpMiZTI+m4H
+	U+6LSbnik6Np3c03+87Bdc7aTNaP0wY1bcs8bVySHvKJ1jrOUuUtdY2RIMxy1B5PCm1gnvI1dosfi
+	TgDAffKwFCniqb1YfKiu4k2DnMZsN0mUySqJJ3A2goS2WMfkFiEMrlXXF0uCizZ1+yKKgLwUiSJOl
+	9nxHj05HaPF/Uhx3HNCPWdJY52C6IRgJECz9PZUuTzrIp8kLpvmoqLrORUfqtX0zua0pJuFIyAwei
+	MxIcLmZA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xBTVX-00000002qRd-2Y8B;
-	Tue, 29 Sep 2026 08:48:15 +0000
-Received: from mail-westeuropeazon11010017.outbound.protection.outlook.com ([52.101.69.17] helo=AM0PR83CU005.outbound.protection.outlook.com)
+	id 1xBTVg-00000002qUG-45zt;
+	Tue, 29 Sep 2026 08:48:24 +0000
+Received: from mail-westeuropeazlp170100001.outbound.protection.outlook.com ([2a01:111:f403:c201::1] helo=AM0PR83CU005.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xBTVU-00000002qQh-2aCQ
+	id 1xBTVd-00000002qT4-1TZO
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 29 Sep 2026 08:48:14 +0000
+	Tue, 29 Sep 2026 08:48:22 +0000
 ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=ZrJPDzRdUzZizppFxzfRas53yQpX8DLL2G0xFTDAuvsNDpwLl0Pn/W1mvG/Rmf1a5V2VUbLTT/kqDFW+6q0GY3O7jSTvZlN2+TcqbmEoZDw0F1zVd3Hs8UjVeACUDf+bE7SdwQagStGT+aktDALBrCLFJ05Ok2Yv1mPkB8/QLqJa27kZzKFIDHbUkka7+kTwSvCih6YgJz/8Bhb1o5aNsDlg9Kf4m3tl87t7OOZxG70cociC1XXQrrVutsaTPbM8H/mzlgTv1Ri3w7oT8hT3opdrxutcVAHBjV6hxaFvpVxi5Tj//EHM+Oj6U8fLHGJ4gCu7K802vwPZES0Qvd1sYA==
+ b=QvXFo9PN5C/EIOIQMLV0e3r+LZyTrGxlo5le9SfFQ1wa8or5OKqjhVex6rAOWNQXTfdqKDSKlrOgqDj20xa1oorMwwRwy+ee/PSwGUHeLdZnPYZTpaD3GWngc/p1xkavM5yMG3DOFPvJLC+sSsQxfeTCXBRvYSGQo1g95Lf+wNUVDDz1IYr60JtR8/pD2ol+mstPoZFxJe6rb0hIGL2H/QCiikc0QVd9KbICocSKLcqX+GBwmtH8NGqN/ZWOJajZBDX1dMW8lZKExvlyLWlOWHTU7xj+IBewErT0c8O9bIx16/jia7eLb24fSiNmNYTrgLuNLCTTWv78iRTk8fw50w==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
  s=arcselector10001;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=eLjtGfOYi8347oEjCAtmMajnlmlNdBrMCPhOeIKBQ9Q=;
- b=q5ncgQKfv1UTc2KB5RM8YibPhGNy16uur8guvPBEcfZui6A0IdHSbOJ9sqfQY+DtcDK8wBn15JmQDe18pZ7dWeD5h7PyIde/PvQjc9dUPI8xa1WmvdOFGvfCOuQdUFufoGdUhj8prZ7fyd7lWSwVU9drYE28sR8qPFAO4RIr6WdQZJzkACuRugAPPGFZ3wN4XA8oI92TEkNYKJB7a+lnQfBvll+2Qb4tt85aVUby6FW2vRVX2mxn5O14S8wDUT0J3L7PbnxtbYOdr469v1SzRkPRnJIidVIa4lsm0jO+D33M8qDTSRZVCxeOzddsqRIfP44TstnQOkM16kG3j8IcpQ==
+ bh=fVXUisvkzQQQ1dzBKuAYSXeQEB+G7Ks/MebQvHmsvQQ=;
+ b=e3IV+RKI5hqzmE0xZyuHcqWAwuB/MAfOoblxtMFyO7wld+bWYQG1uV1nXopkJxzYHUaRtVJNS3DCWhyANtN3ZZl3tAtrz2xq9ixDuvj6TFD5jSX3mLirgrYEfxKNzmWEbr1IkWsFAhDMoLJn468Qy0O+0XtCZUqwpSt0IVsMN+PcrgaGM6+H6ETLO9p0aZgc3KtAC6dip1EfzTz3HeYObFOusujyMM5wVjEy2vSmoWt+edjlMbEEgBWgWZ4xBUVVDHsj3yl6l0up34qhNjNrp4DNB9CioaWVEC5gbVsI+fVqbHf1ekxDK6vtO4aCbWg209xDN7/tstfiJjRxVVOPUA==
 ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
  smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
  dkim=pass header.d=oss.nxp.com; arc=none
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
  s=selector1-NXP1-onmicrosoft-com;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=eLjtGfOYi8347oEjCAtmMajnlmlNdBrMCPhOeIKBQ9Q=;
- b=BtVnejTqKktyBG9QN77aouq9nE2w5VOCPAg9+cmx+96T3tguyz3TYSPZoq7gQVGM5JB1lD8pBsnIQOAj3d5i4VQBFOua+rWZk4zNfsadOEDqAfS+hXX7d0XcNPRIrEd+xgZk0BQtkERdoWg3r6uoAbR/JZmlj7QoEvodohw6h3BadNYgKfbsVsQmn+CoXzIW+I2bB9V+yP+krXfGuWELXphWAS2MUJ19szKgzozElEh1nfsucI4S0movmfc3UharPHYqIDIrHxaPtyuUaKYh4AUaQpa+xhHys1Ah3oxlxSNgbcfAu27KJCrXXw9PJ0Gv9WASvLyzaOhL2yOD2GiGOg==
+ bh=fVXUisvkzQQQ1dzBKuAYSXeQEB+G7Ks/MebQvHmsvQQ=;
+ b=wpbOjxFw8SO2ciZdXW2D8GGaowCVwFBzGdZQKXEqZjGkgwEQtiBTgv9wnvz2m5CeiooVw8tAGS+W2I55376PQW1Qa3bJb5LlpW/GJONXZvYHrdKGPIpZMr2gpzIa7eBGh+G9ouZIZ2ISr39nIHNGFz7U3xUQPMFg2FjagcaAzjT+vEC3GDzZN97q8n7JVOd9FS8yO+IwLXZDFjzQv1ttVdTO2WtH+3rg0ws/60fqaMup9NXNyJOUMss5+y1w678WwqRFyPQhAws/oQChPXzDA/+qyJDpR5abx09VNX7yf9Q1ZyaEjCRTMt2I10XVjOhBzPuOKJ9jrlyTCxKvlRhofA==
 Authentication-Results: mx.microsoft.com 1; dkim=none (message not signed)
  header.d=none;dmarc=none action=none header.from=oss.nxp.com;
 Received: from DB8PR04MB6667.eurprd04.prod.outlook.com (2603:10a6:10:10e::22)
  by PAXPR04MB8336.eurprd04.prod.outlook.com (2603:10a6:102:1c5::7) with
  Microsoft SMTP Server (version=TLS1_2,
  cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.451.24; Tue, 29 Sep
- 2026 08:48:05 +0000
+ 2026 08:48:18 +0000
 Received: from DB8PR04MB6667.eurprd04.prod.outlook.com
  ([fe80::e1b:d361:7aba:6960]) by DB8PR04MB6667.eurprd04.prod.outlook.com
  ([fe80::e1b:d361:7aba:6960%4]) with mapi id 15.21.0451.022; Tue, 29 Sep 2026
- 08:48:04 +0000
+ 08:48:18 +0000
 From: Guoniu Zhou <guoniu.zhou@oss.nxp.com>
-Subject: [PATCH v4 00/11] media: imx8-isi: Add i.MX952 ISI support
-Date: Tue, 29 Sep 2026 16:52:21 +0800
-Message-Id: <20260929-isi_imx952-v4-0-e69f89c7c651@oss.nxp.com>
+Date: Tue, 29 Sep 2026 16:52:23 +0800
+Subject: [PATCH v4 02/11] media: imx8-isi: Extend output format mask to 7
+ bits
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-X-B4-Tracking: v=1; b=H4sIAEV8u2oC/2XMyQqDMBSF4VeRrBvJ5K121fcopWSsWTiQlGAR3
- 71RClWa3Qn3+2cUbfA2oksxo2CTj37o8xCnAulW9k+LvckbMcKA1PSM88XDd1NTMQygJVSuUcB
- rlMEYrPPTFrvd8259fA3hvbUTXX+/GQb7TKKYYK2clJI7kt91iLHsp7HUQ4fWUGI7zOkBs4ydd
- EYJJQQY8Y/5Dze0OmCeMTe1c5QDN0Ye8bIsH446/xcgAQAA
+Message-Id: <20260929-isi_imx952-v4-2-e69f89c7c651@oss.nxp.com>
+References: <20260929-isi_imx952-v4-0-e69f89c7c651@oss.nxp.com>
+In-Reply-To: <20260929-isi_imx952-v4-0-e69f89c7c651@oss.nxp.com>
 To: Laurent Pinchart <laurent.pinchart@ideasonboard.com>, 
  Frank Li <Frank.Li@nxp.com>, Mauro Carvalho Chehab <mchehab@kernel.org>, 
  Sascha Hauer <s.hauer@pengutronix.de>, 
@@ -73,83 +72,82 @@ To: Laurent Pinchart <laurent.pinchart@ideasonboard.com>,
  Loic Poulain <loic.poulain@oss.qualcomm.com>
 Cc: linux-media@vger.kernel.org, imx@lists.linux.dev, 
  linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
- devicetree@vger.kernel.org, Guoniu Zhou <guoniu.zhou@oss.nxp.com>, 
- Conor Dooley <conor.dooley@microchip.com>
+ devicetree@vger.kernel.org, Guoniu Zhou <guoniu.zhou@oss.nxp.com>
 X-Mailer: b4 0.14.0
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1790671948; l=5161;
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1790671948; l=1449;
  i=guoniu.zhou@oss.nxp.com; s=20250815; h=from:subject:message-id;
- bh=tsLw4YVbdh+1k0hMVb5aVnU5euYKCzEyPQP76Bku1jU=;
- b=EvmiGCrgufqqTUNMOXkhQ5TgcAimb1w1jcLhmfL06v0WtvwX5pGABGmRjEJjYEcWAxLyOxoLJ
- lv7oNGCCdaaCOmVUqzBRuOeLafr5FpYtb7hKFxHAb4aOiZwaz50gHyF
+ bh=Vwku5s8iXhBh2LdzKn5ZV7aZeZOKmCgSiu/SxInwxiQ=;
+ b=8XMlAWHThg9vu1U5nC4Ef49myqmQI44KkocxHTOcni3/QoUV4/YZlry1DJwEZqk6LyhemVWue
+ 8P+j2RGhMcZAc8VY6X5d17nWJVxn9nFkpdgO+4seb8Hoq5gQbla6Lq/
 X-Developer-Key: i=guoniu.zhou@oss.nxp.com; a=ed25519;
  pk=MM+/XICg5S78/gs+f9wtGP6yIvkyjTdZwfaxXeu5rlo=
-X-ClientProxiedBy: MA5PR01CA0124.INDPRD01.PROD.OUTLOOK.COM
- (2603:1096:a01:1a7::16) To DB8PR04MB6667.eurprd04.prod.outlook.com
+X-ClientProxiedBy: MA5P287CA0012.INDP287.PROD.OUTLOOK.COM
+ (2603:1096:a01:176::15) To DB8PR04MB6667.eurprd04.prod.outlook.com
  (2603:10a6:10:10e::22)
 MIME-Version: 1.0
 X-MS-PublicTrafficType: Email
 X-MS-TrafficTypeDiagnostic: DB8PR04MB6667:EE_|PAXPR04MB8336:EE_
-X-MS-Office365-Filtering-Correlation-Id: baa6c81c-bf55-4d43-6123-08df1e06602e
+X-MS-Office365-Filtering-Correlation-Id: e3fe19f0-0525-483d-398e-08df1e066856
 X-MS-Exchange-SenderADCheck: 1
 X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|19092799006|376014|7416014|1800799024|366016|23010399003|18002099003|3023799007|921020|10067099003|56012099006|11063799006;
-X-Microsoft-Antispam-Message-Info: BgaRg5F1l+1TxSJBu5gEOkbeSEBZs7ymZf1G6IAKr48DyBCTG6D/MNN78WnqRReWw7aiSkhjeeUpLCWCvUk1u9Q0llwewc962wqkrCferoGLJWqApSsMU6Yd+ql5R5ynvCiYbOMD+c0eoIeIx5yGNf+0ODgRqbjEDRHGtH06QPviPj62fgsgdXzatwU3Fw4+tuYcK2qO6xhXYazYvTRTin9NkUEE0bg8GwDAMlX8P6oBXnhB4DDdHynVkpcgXpH+k1DB0pt/M3ygrjEHKARtDX3mESV1zJ30O4WNnifQrJzz/MHLdH1vgK4GJes8FafVAb4pbve7Pa4DeCmJvXi3k0X4Kqh9Ki4f1ZnHfgvNYVErISzGN0NSidkn5YCkQBNidgADfWhWCr3ZOd2bzwqn3BLxbkt9Zx/tNW8sBMwJRLUY6gumSzsDYvVjzWvchBuoT/EyJ49nDpYTuNfOgZz1S+Z7dwJTnbOlrb/vh47YpHqkRbmrtlpCId8PaPHYHc4Nb1OjU0X64TZUx4Em/vIvqHx2+xTR929SDuTa3xmdxkFzH+Erte8XwR1IdeLvQ0Yn6lNZTrNv+ZoNVmh222QJI0dBH3WNhXj2jgoZmyVkV8HCk+G1EuV4Z61tXX03Ih4sUBD4m8ALWDC2jxyJyyPcbTPWvPxP7lg1jN7gHb0S7kqOLDON45JOSpfZE9Yy8neT/95WGr0tvauNezO3AfgXjw==
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:DB8PR04MB6667.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(19092799006)(376014)(7416014)(1800799024)(366016)(23010399003)(18002099003)(3023799007)(921020)(10067099003)(56012099006)(11063799006);DIR:OUT;SFP:1101;
+X-Microsoft-Antispam: BCL:0;ARA:13230040|19092799006|376014|7416014|1800799024|366016|23010399003|18002099003|22082099003|3023799007|921020|10067099003|56012099006|11063799006;
+X-Microsoft-Antispam-Message-Info: x05b/kqhZKSYCJlVpAQWlj9HzxBAzlFyRDepO1nJNgcc54Jd1jJ/mnx1cAno9au96FnxjucDMD+k3EiAVW4hFNDRmVauv8oawJC7KDhCKQLI4r7QxjqofcDJX8mDwBjQzNu3Kvbq+8nn5Mpbxz3+zj59W9hEDUb0uSGBr+47oueUINJWBiQLwqeFZJEbvzj/b1k95uIIKzMaxn+3SX8gBcpJl/ApHVoaj03ZKjikuxcmo6EbeSm6Y4rkAy1Gg0Gt/zeWG5akzUqQTCi23Ru6DM6BsYhk9soQKgRyWtRxREM+lwwW9O6fWyj/Tmc4Gkbe3nxWRbcN2Xw6ZbOcMbAr6W28VmpZJlDvwazMXMMUDgS9f5A9YpoDYlbz5jN7OENkv39mk6KsxztdctK/PvlGYeudcewNtUKD89gor3q0g1O3DgPlhO9memo3TCCRVl9gWZVpjAxdvt8sF7RcRW4+YKL07mCHkyfoFSBopkpYBdkQOKbR/Ud5DBHq07VuBIwSd9Z/6CO1JTmUTxoXMTAoUO6alZ93C1ShX3kf7IBmlnb+rGuaERmjx8qK2RqLMxEpwP/ZdNMHsOU/TFc+ZeGUvsvn/1HJg/oDiHbb5/sxwzcR0zIvoLRDTv62veqZ6A8f7HmEIvIa5ls4VBN+uMsdJjOBD81LyT4fJTRfh61V0xc6nF9bMvqcr0kGsCnGE+mib63OSKhO88RjXrgUDa3ZDg==
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:DB8PR04MB6667.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(19092799006)(376014)(7416014)(1800799024)(366016)(23010399003)(18002099003)(22082099003)(3023799007)(921020)(10067099003)(56012099006)(11063799006);DIR:OUT;SFP:1101;
 X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?S2FRMSswR01UM1pyY0plT0poMnZCWVFjQ0tUUGd2aUtGWmo2SEdXUTlkT2ZD?=
- =?utf-8?B?L09tRzR6R2lCbXI2SFBadzBkbVA0WEdhMWpMZlA4cERlL3JyVXhjd1FxbXdw?=
- =?utf-8?B?Z0pBMFpTNWZKcGw2SHp6bmxzaS9pdEU0WlpTR1RHZ0lXMEFNL0VaRVJNWndx?=
- =?utf-8?B?UGE5ZGR3alJ4TkVMTy9XUUQ0VTlMSWlMV1Z4UGpXU2gwbUZEQ0owR2F1QVhB?=
- =?utf-8?B?TU1ENk5nVU9iRjd0cjRhQ0plaGlQNzY0UkovZCtPTWxLdkp0ZlR2NUN5RXNp?=
- =?utf-8?B?ZFIzRkw3NktJWUFJSFhoRnNobTRUQzhld0R5bW1HR2kwZE8yNXgyNUhCRE5Q?=
- =?utf-8?B?VCttZjZDM0VIOHZPMlN3MldEbDU1TTFKZjMzWDIwYVJ3UUJCQURiY0FpMitX?=
- =?utf-8?B?TmphZTkwd0pDdVVETVJnSXNpOGdWbFVORkNGNEhDbkVrYVFabzNCcmtNSnZB?=
- =?utf-8?B?bHNMSEtnUzhHY01ObVdwc0tPZS9LaGh0MHJoa0FVRURNcXZ6S0wzSGdzOHZ6?=
- =?utf-8?B?eXhSYllhWlE0VkJNWTNNWE9ISm91Y3NVMnBSTTcvbXpxaDlMUzU1aHlyUHFr?=
- =?utf-8?B?UiswVzB4MW11REdIcTBJZloydTlxN1ViZFJNYUhTSVEyWDRuNDQrbUtuMDFk?=
- =?utf-8?B?dEYyUHAvUWo0K3hEeHQ3YzRRUGJWbUhKOUszK1ovM3NMTWRKdUkxV2dlNmJ3?=
- =?utf-8?B?TU41S1lxR1NNVmZPcTJaYTdNZmYwdXJqSnZXdjVnaDd4bUtBNlc1RDFwNU15?=
- =?utf-8?B?ZnJyYVd4ZHA0aTd4OXl6MFBHejNjSSttdUE1N25QN253TmFNOVg2V3VWYlBE?=
- =?utf-8?B?bVBPSThHZHlCOC9mZ215WHY5RnZuSXp4UFhmelNrMlE2Y3BwME1RQ1RKTVNi?=
- =?utf-8?B?RlBpbXMyaGpHNU5XWkVhTHlNTmZRZzJqMnJDOUw3b2pwekNrd3VKMHk1NTFH?=
- =?utf-8?B?M2ZOWXRSY0NyZ2tMTk1CcTd3Z3U0LzkrdXJpcS8wdEVzRjRDRzhodVk3aTNk?=
- =?utf-8?B?MlhXSllPNStjSFczT05XcWpOWkFiMWF6b3hBUUt5Q1dPM1M4aUREbS9HNUN3?=
- =?utf-8?B?ZEx2VEJQTG1RRzc4QVdyQnlOakpPcmFQT0crVWxKUXZZck5BVWhFZGpLb3JL?=
- =?utf-8?B?VW45Z3RldzEyRXh0UlpyUC92Zjdhc29RK08xY3hLUmtlNG14THRIWWJ4c0Nk?=
- =?utf-8?B?NVFPcDZEQVFNNVRrSk1XN09hSFRYa3UvQ3YzdWJrejhiWmpXWlJ4MkZuOHFu?=
- =?utf-8?B?M3AvaEhyR0lnb3NJT0N0dEY0S0ExUkRMM2M0bmJIMTRxVWRmSVFHbXdpTVlC?=
- =?utf-8?B?YzgwaVdXbXdWSFBTdkVKcnlJSm1UQ0xWdFhkU1ppcGhZamV3UXdXOFdhNmRj?=
- =?utf-8?B?Wm5jNjJxQmh4VWpHcG53c0xLeU4vY25yMStmd1VTU0x1TE9kZ0JwUm1VUTZu?=
- =?utf-8?B?OGRzcDlTb0V3bExaRzN4MHBsQWs5bitPM0plMHB5d2pTdmpHVmpuRUJkSFJ4?=
- =?utf-8?B?alZKemYzL0grUmJzN0ZXMTVSalBWQ01BQzFsalpyM1d2bUhEOHZwODgwL3Bq?=
- =?utf-8?B?SkFuU0V2NElJRE9wOERabDZ1MGlDc3Q5OG9lRVdzSzdoa2tmcEs0TGtkQ0Va?=
- =?utf-8?B?b0xuWnl6YnJGUWRNY056RXI2QmVkVzRVNDN0UjFMa2NIUk15RjNyZmJhQ2pH?=
- =?utf-8?B?ajFRV041M2lXSk9xV1JmczFXWVZwVHZPRDRKcUEyNS9rZzJ3czhJeEdjQnlH?=
- =?utf-8?B?RFRzclZsQ0xFTlc2M1Mza2hIaklLdGszNEU2c2t3d3FwY0VyVUg3Rzdpekxt?=
- =?utf-8?B?SFF4bDZ4bG0rd01HbGcrVGhjK21EUlVzOTBDZ2JXd1hxSEZUSTYvT0pVMU1r?=
- =?utf-8?B?VXZDT2NBcEU3bmtEQTN5WWN5dE9WR3hPd2RwK3hSaEgyRnRYZVlxV0t5aGUr?=
- =?utf-8?B?VGtFaFpxNnJTeE1BaXg4U2xKc0JsZGI5c2VYU3IwYS9DbktaQVpjODRRakQy?=
- =?utf-8?B?Vjc1NVVnMWhURmhZTm9ydmNrNjFDeG5XeW1qT3Ztb1NQUVhQWXRFMjNEYjg2?=
- =?utf-8?B?SnFRMzJwMzI0RVBMeC9sN1FMRW9kYVhkOHdtMGt0UGdvcU5OY0V1T2FpTTZw?=
- =?utf-8?B?WW9EYi9HWFUwcU1ZVTlFQ29lbG9hbmlxTGtxbFY2MVdRenFlQmRhbStuMFhj?=
- =?utf-8?B?RE1DR0dlbk84RzFDYmVkRmZ3WWVUUG4vTndxTkRrUU8wSWJ0emlkSzZDUW5B?=
- =?utf-8?B?RjIrN3NGbTlTOCs1Yk9GVGxGRDZ0enZzS0JON2U1SnJ1dTNuenJKNE5nZ0hP?=
- =?utf-8?B?Vys4ZzNIOHF1dnZJSmhSUlhzY1FDSTlCZmZIdnBwM3FsSGc1RVhNMFE2NllY?=
- =?utf-8?Q?1nJ1wc/WzVxvgCIiFtbKvgL2eMC3r+I7rGlgF?=
+X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?UGhmdndwQ25mK3AyMnFHclY1dXdDbkt0My80OG5wcVNtNmwxWWNrRnJvTzBM?=
+ =?utf-8?B?emM5YkVHRWJEeWNLNkNBNWRma296MWlNZXFwUWdLc2lmZ010L3NoK3JvUk1i?=
+ =?utf-8?B?K3JsYVhWNGwvemNlTGxHZWhoaUdjNzJ4NU9iWG1WYWJxVmdkeGRtWE1DaXZp?=
+ =?utf-8?B?bGpMZkd3OUNHMGJSUDJDTkZZTmdtM0lvdk1IcFA3TEVkMEtwTERnVHJLa0dj?=
+ =?utf-8?B?bWN2UDY2eTVzM2Q1bC9BQm5OUStuaTZOaWJXcTdFd0xETWRKU3JWMktENkpw?=
+ =?utf-8?B?Q1Z2K1lNbE53aFBLTkRQYlJjZjRJY1NoM3MzRHZmVVVPUjIrZnNIem9udFdk?=
+ =?utf-8?B?emxTbW9GaEVLcjFOdDdIeE1nSUR6TmN5VTRyMDI5WUthRHJTa0IvZndzNHU0?=
+ =?utf-8?B?WitmdkxJbktCbFo5V3hKZXJ6dHRHMExHZVBxYkFVOG50VFJ4ODJMVHJpbU80?=
+ =?utf-8?B?dVJzMlMvUlFzSGJMbTV6aTNCaHFCdGI2Y0tlenRlZnhDN0YxRC8waEFUdVAr?=
+ =?utf-8?B?UlY0UjFVZHpVM0VidEdySWVkNHhUNUVnd3J1RzVSay8vOC9DblpiUGRkYWFp?=
+ =?utf-8?B?eWlZWC80UW9BTTUrNm1mbGxOL2FhSFdjckZidXVmbWx3ZnNHV042K01WQlJk?=
+ =?utf-8?B?Z3l5cmc0dGZockxrbWFHVHRGMWFBTVRGTGY0cXFJRlJOL2o4blBFaUQxdnBl?=
+ =?utf-8?B?eTdqSWlNMTRnUDI4MUFOV29wR1JtUFN0YWRlQXlSbzdObFkrV1cxYmtnbkVu?=
+ =?utf-8?B?NmxWRmpsQzJUNTF5dURzSjZmbGN5b0tVTDRrTm1rcWt6cDJ6UTBjUkpyU1FL?=
+ =?utf-8?B?b2hKRXBBUmJKbHBVOFdRUHZMOVA4RlUycys4Q29pZVNHekcwRWVyZHNvTk9X?=
+ =?utf-8?B?VnVxcE1aT1lJL2xPT05lQzhUSzFiM2NaY2EzbzgxWkk2WWFhZVRpQWdZczUv?=
+ =?utf-8?B?eDZVMlo3Umgzem1nQWZ6RFdIRXdUck5KMkFzUG5mc0c4M3AxeHRRWkdOaytE?=
+ =?utf-8?B?TFRmVnVON1UwdlR5bWRGbUVQVUh1alNYeXN6bk9LZExoRXBmbktJMmQ0a1U5?=
+ =?utf-8?B?elo2d1V4OWhCQXkyU0xPU2V4YXdaT3oyS2RSUzhSWXJGNlhSTXZsWlBjL2VH?=
+ =?utf-8?B?UVhuLzdGU0VFNHRicE02SzZ0NU5UME02Y2xscldJc0pITjhTaDRvTlZlZTM3?=
+ =?utf-8?B?OTZqRUFZUmhuTEZ1UHJOY3JDMWJ3NXByWmlKbFlNODM2SXpFaDBFWmNOaHZj?=
+ =?utf-8?B?K1lMd1JHeDNPNCtraWtESFF5STdJRFBPNmh1WnhjbkVLeEVrQ2xmeHI1TUVu?=
+ =?utf-8?B?NXE2czdFenpPRkNRZ056dThoZnpXeXVDLys0NkVwTnZtbkxFRmt3ZXdYWEJJ?=
+ =?utf-8?B?aFR4Y2NQZldLQUE2VUR6OXdEZE84SlR6TngvcUYvWjA3andQYnFiVFU1YUtQ?=
+ =?utf-8?B?R2VGZzhVMG5YeHcxZ0dyalRZanZQNXVaRnhTNDViRVVzRUlqTktzZlZzZG95?=
+ =?utf-8?B?N29UNVU5Rm41WUs0SkZOWUlrWC96MGhxa3NGTjFTMEtOak5PRXo1cU93TjY5?=
+ =?utf-8?B?MFBoc1RrMlI5TzhSUDF6dmF2SEJZZ215TXdnN1R0UmN0ZkJlVVVESWlYVm9q?=
+ =?utf-8?B?RGNGYnFsSDFGWWNnWXVKUzhxbFVrbENXQ0dnUldIczlBNHFLVm9IaDV1dFZE?=
+ =?utf-8?B?dm9HdVMvdWpqa3JiUmJMSGV6LzZZQXZ3UjR0V2pGR0lRL243NHQxZTRDZXdK?=
+ =?utf-8?B?eE13YXhnTTdidGhYTy9NenArR2t0N1VkOThkYUhMTU91SzNNcHBDNSt4dUNM?=
+ =?utf-8?B?eWhOL0RrRGh1dGJ5L2JUK3VpZGRqbFlTNWc4NEdGSmZiZ244SVhYT1NmbFpq?=
+ =?utf-8?B?NE1iY1ZFK0ZCSW5WL21DejAyb0ZmcEhWQ3ZDMjZTb0IzVmRkeWxzWDVYMm16?=
+ =?utf-8?B?NHZ2ZDJsc1k2dVl6Vi9zQk1WVk51YldzWmdwSmlEUnNDWldhcFR4RVFVZGhJ?=
+ =?utf-8?B?RHQ2NEtFTDM2Tk5qV3JBSUxRRzlVVkpaREJTYlpMVU1XVzBiUTVOaEt1T25r?=
+ =?utf-8?B?MnVnVTU0ZFAxaWJRZ0lmMHBwTFcxdlFNdldnRkxDQ2VxMDVxZHRHTkpTdXFQ?=
+ =?utf-8?B?MlBGTUZDSVlCLzA1bGhGZHkrMnhaN241bG81Ty91amhPUjF5bDM2RE1JQkxp?=
+ =?utf-8?B?cXo1a2VTcC96ekt0TEZiOHdKMzU4ZHh1WTN3WFRnNmV0V2pPSFBGNy9qQW5Z?=
+ =?utf-8?B?U1ZRSGc4dDUwWDByZ2dwQm5qZXowWXFQOGx2NmNNWnlDRWtQNXE1V2R6d0RZ?=
+ =?utf-8?B?RCtPVVhrbVNLMFEyVlVjcnFOVXFQZ1dCUUk5Tjh5SUEyc0h3eXVIZS80Nmlj?=
+ =?utf-8?Q?5yn7dYboz/l3dTIHsmwo5mCiP5L427+Fdn+Rf?=
 X-OriginatorOrg: oss.nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: baa6c81c-bf55-4d43-6123-08df1e06602e
+X-MS-Exchange-CrossTenant-Network-Message-Id: e3fe19f0-0525-483d-398e-08df1e066856
 X-MS-Exchange-CrossTenant-AuthSource: DB8PR04MB6667.eurprd04.prod.outlook.com
 X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 29 Sep 2026 08:48:04.3373
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 29 Sep 2026 08:48:18.0048
  (UTC)
 X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
 X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
 X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: aJMusNXbrskYD6B/qTsvWG6DSnfEoVrb8bo1w/uAKCz7VP6SA0H8amf7m51iyxPNFAuEnIRrn9qTMcQfl92ssZhlwCu1hFB72RI4xGYUYxg4BiaEtHMmzU/70+znTwTH
+X-MS-Exchange-CrossTenant-UserPrincipalName: MSCrrm7Qc5n1qhbrzNRpr12wCR+wczgzPquv+NCzsF1XUtYGZb3idNnb0lvTOWHo3BOoCbk7QogVCIWpB65T7Pa3NRzMo1CsW6WsLk4JdExyZo0rAku/DePH3y6vVyzb
 X-MS-Exchange-Transport-CrossTenantHeadersStamped: PAXPR04MB8336
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260929_014812_811959_344DD49C 
-X-CRM114-Status: GOOD (  15.54  )
+X-CRM114-CacheID: sfid-20260929_014821_415632_546E5FD4 
+X-CRM114-Status: GOOD (  11.91  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -164,101 +162,41 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The series adds support for the i.MX952 Image Sensing Interface (ISI),
-which is a minor silicon revision of the i.MX95 ISI.
+The ISI output format field width differs across SoC generations:
+i.MX8 series (MN/MP/QM/QXP) use a 6-bit field (bits 29:24), while
+from i.MX8ULP onwards (including i.MX91/93/95/952) the field is
+extended to 7 bits (bits 30:24) to support RAW32 and RAW14 formats.
 
-The i.MX952 ISI reuses the i.MX95 ISI core with the same 8-channel
-pipeline and 4 pixel link inputs. The key hardware improvement is the
-addition of RAW10/12/14 output LSB alignment, which allows the ISI to
-output right-aligned RAW data directly, matching the V4L2 format
-requirement without the RAW16 workaround needed on earlier platforms.
-
-The series is organized as follows:
-
-   1. Reorder mxc_imx95_data definition to follow mxc_imx93_data,
-      matching the order in the of_match array.
-   2. Extend output format mask to 7 bits unconditionally since
-      bit 30 is unused on older platforms.
-   3. Support mbus_code filtering in mxc_isi_format_enum().
-   4. Reuse mxc_isi_format_enum() in capture format enumeration.
-   5. Apply RAW output format workaround at runtime, storing the
-      actual hardware format in the format table.
-   6. Add RAW14 output format support (available from i.MX8ULP).
-   7. Select MSB-aligned RAW input from pixel link on i.MX95.
-   8. Exclude RAW10/12/14 output formats on i.MX95.
-   9. Add the i.MX952 compatible string to the DT binding.
-  10. Add the i.MX952 platform data and of_match entry.
-  11. Enable RAW10/12/14 output LSB alignment on i.MX952.
+Extend CHNL_IMG_CTRL_FORMAT_MASK to 7 bits unconditionally since
+bit 30 is unused on older platforms.
 
 Signed-off-by: Guoniu Zhou <guoniu.zhou@oss.nxp.com>
 ---
-Changes in v4:
-- Rebase to latest media/next(2dcdfb625c3b)
-- Split the original patch 5/5 into multiple focused patches:
-  patches 3-8 are new, each addressing a specific aspect
-- [3/11] New: Support mbus_code filtering in mxc_isi_format_enum()
-- [4/11] New: Reuse mxc_isi_format_enum() in capture format enumeration
-- [5/11] New: Apply RAW output format workaround at runtime
-- [6/11] New: Add RAW14 output format support
-- [7/11] New: Select MSB-aligned RAW input from pixel link on i.MX95
-- [8/11] New: Exclude RAW10/12/14 output formats on i.MX95
-- [11/11] Split RAW_IN_MSB_ALIGN into a separate preceding patch
-- [11/11] Split RAW format table and RAW14 changes into separate preceding patches
-- [11/11] Move isi_out_raw_shifted() to regs.h in the preceding workaround patch
-- [11/11] Rewrite commit message
-- Link to v3: https://lore.kernel.org/r/20260915-isi_imx952-v3-0-3d8ff1363dda@oss.nxp.com
-
 Changes in v3:
-- [1/5] Add Reviewed-by tag from Laurent
-- [2/5] Use unconditional 7-bit mask instead of per-platform approach (Laurent)
-- [2/5] Drop Reviewed-by from Frank Li due to significant change and request to review again
-- [3/5] Add Reviewed-by/Acked-by tag from Frank, Laurent and Dooley
-- [4/5] Extend mask globally instead of per-platform (Laurent)
-- [4/5] Add Reviewed-by tag from Frank
-- [5/5] Use CHNL_IMG_CTRL_FORMAT_MASK instead of the removed per-platform format_mask (Laurent)
-- [5/5] Derive raw_out_lsb from the model field instead of dedicated platform data (Laurent)
-- [5/5] Clarify the CHNL_IMG_CTRL_FORMAT_RAW14 comment: the format is documented
-  on i.MX{8ULP,91,93,95,952} but only used on i.MX952
-- [5/5] Rewrite commit message to explain why the RAW16 workaround fails on i.MX95+ (Laurent)
-- [5/5] Add Reviewed-by tag from Frank
-- Drop "Remove unused model field" patch; model field is now used to derive
-  raw_out_lsb capability (Laurent)
-- Link to v2: https://lore.kernel.org/r/20260831-isi_imx952-v2-0-fafdb4b446d4@oss.nxp.com
+- Use unconditional 7-bit mask instead of per-platform approach (Laurent)
+- Drop Reviewed-by from Frank Li due to significant change
 
 Changes in v2:
-- Use fallback compatible fsl,imx95-isi for imx952 (Frank)
-- Remove unused model field from platform data (Frank)
-- Add Reviewed-by tag from Frank Li for patch 1/6 and 2/6
-- Link to v1: https://lore.kernel.org/r/20260826-isi_imx952-v1-0-cbfaaa3f0000@oss.nxp.com
-
+- Add Reviewed-by tag from Frank Li
 ---
-Guoniu Zhou (11):
-      media: imx8-isi: Reorder mxc_imx95_data to follow mxc_imx93_data
-      media: imx8-isi: Extend output format mask to 7 bits
-      media: imx8-isi: Support mbus_code filtering in format enumeration
-      media: imx8-isi: Reuse mxc_isi_format_enum() in capture format enumeration
-      media: imx8-isi: Apply RAW output format workaround at runtime
-      media: imx8-isi: Add RAW14 output format support
-      media: imx8-isi: Select MSB-aligned RAW input from pixel link on i.MX95
-      media: imx8-isi: Exclude RAW10/12/14 output formats on i.MX95
-      media: dt-bindings: nxp,imx8-isi: Add i.MX952 ISI compatible string
-      media: imx8-isi: Add i.MX952 ISI support
-      media: imx8-isi: Enable RAW10/12/14 output LSB alignment on i.MX952
+ drivers/media/platform/nxp/imx8-isi/imx8-isi-regs.h | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
 
- .../devicetree/bindings/media/nxp,imx8-isi.yaml    |  18 ++--
- .../media/platform/nxp/imx8-isi/imx8-isi-core.c    |  37 ++++---
- .../media/platform/nxp/imx8-isi/imx8-isi-core.h    |   7 +-
- drivers/media/platform/nxp/imx8-isi/imx8-isi-hw.c  |  56 ++++++++++-
- drivers/media/platform/nxp/imx8-isi/imx8-isi-m2m.c |   2 +-
- .../media/platform/nxp/imx8-isi/imx8-isi-regs.h    |  22 ++++-
- .../media/platform/nxp/imx8-isi/imx8-isi-video.c   | 110 ++++++++++-----------
- 7 files changed, 171 insertions(+), 81 deletions(-)
----
-base-commit: 2dcdfb625c3b8fe87454e19dfbc54b3e3f0ad70e
-change-id: 20260817-isi_imx952-66ca65f9b638
+diff --git a/drivers/media/platform/nxp/imx8-isi/imx8-isi-regs.h b/drivers/media/platform/nxp/imx8-isi/imx8-isi-regs.h
+index e795f4daf3ff..c704be882705 100644
+--- a/drivers/media/platform/nxp/imx8-isi/imx8-isi-regs.h
++++ b/drivers/media/platform/nxp/imx8-isi/imx8-isi-regs.h
+@@ -39,7 +39,7 @@
+ /* Channel Image Control Register */
+ #define CHNL_IMG_CTRL						0x0004
+ #define CHNL_IMG_CTRL_FORMAT(n)					((n) << 24)
+-#define CHNL_IMG_CTRL_FORMAT_MASK				GENMASK(29, 24)
++#define CHNL_IMG_CTRL_FORMAT_MASK				GENMASK(30, 24)
+ #define CHNL_IMG_CTRL_FORMAT_RGBA8888				0x00
+ #define CHNL_IMG_CTRL_FORMAT_ABGR8888				0x01
+ #define CHNL_IMG_CTRL_FORMAT_ARGB8888				0x02
 
-Best regards,
 -- 
-Guoniu Zhou <guoniu.zhou@oss.nxp.com>
+2.34.1
 
 
