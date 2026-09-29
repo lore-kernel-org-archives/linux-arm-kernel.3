@@ -4,76 +4,78 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 53D3ECA5FA5
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 29 Sep 2026 14:49:17 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2A39CCA5FA5
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 29 Sep 2026 14:54:37 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
-	References:In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Ao14L3b0qe3I8bK/v3FiUk1dVHY8NGcm6bNn7cmmaM4=; b=STWGg/Q+Y3G69jQfBeMRizkp2t
-	Y4Yu1XzrpYlkFymzub/HFW1i+WdC7hvdRR7I8mv75pZIGCF5H6LQTQneBHr8RlnuA5NTBd+1cRoHh
-	DvRrRaXH04/5/9Ltd8RluC5TtkCoz5Q8g7iz/FSN3wNzPSTsjP3G4Wvg3BSwnPSmfImpoD6Gr5JbP
-	7CU/KUEg+2UDcdMHDDH5rmqzfwKnLXriDhjp/eXA2opr4cYRrPd2YvKXDh/XMp99QHKsqWWeZBcBl
-	ZGQYQ5f+54O5Khqh7pWbrmtKowyE1jqTYIkxXU87Ge9IMQzF94drRhcM4tkltCGUwKnrBHZZjZex1
-	ZKXYXEkw==;
+	bh=7CtiIpsiRXfJAhu98r5ychaQNiLmkEZ5yO8R3IEUIT4=; b=bPRcgutTL7Nhgk85H+gOrxQiAZ
+	Y4BckCBds9hR9XaHSu98vXfNTmUow72M9Ga/Q4syKTQzEEW0KEmjmGTJcul9mlS9GBoSKqEUph0cz
+	g3TdqrhwClwTjf9xOxyDaf6+qud/uzNkcB+WmpihvZ04VjjxSLgYWWe2NpbCrwCnbjpIIS2In1qS7
+	M+zmTx//wqpdIyuAsOTo1khTQoI1uuuZX6ngIJM5OVu5cKNg4/Cd7tZrWOFDu4ejI9yoz+hAnnLbH
+	1EMTZV0B26Axo7TVDpScOkPpGaGwpADZuP7a2xuF3jCY6e5o9pVcBQa42RJIqHnUCeacZjw7as8Nm
+	aDoP2mvg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xBZ8o-00000003qD7-20jp;
-	Tue, 29 Sep 2026 14:49:10 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1xBZDw-00000003qbO-0Crj;
+	Tue, 29 Sep 2026 14:54:28 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xBZ8m-00000003qCo-24Qr
+	id 1xBZDv-00000003qbD-0XLn
+	for linux-arm-kernel@bombadil.infradead.org;
+	Tue, 29 Sep 2026 14:54:27 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=In-Reply-To:Content-Type:MIME-Version:
+	References:Message-ID:Subject:Cc:To:From:Date:Sender:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description;
+	bh=7CtiIpsiRXfJAhu98r5ychaQNiLmkEZ5yO8R3IEUIT4=; b=nTcp9YOSJtm4UCOe2X7V+L/Vvl
+	afUnHBK1MIQfkLb0pfsRxSglgBhSCHW3WMJjAlkzZprbx/BpDYHWJ7ajt9GPW1/iZ9SCZ3xOrYUA7
+	96JVXCosWjAT5qvwQi4YQuEaG3URmjOVN+ntOd0HIsvFpIMeL9OaIIZC/7nyw4sEFu0EJbFGF6kvi
+	BydLT8QyF9fa6usexOkWicP027gquHi+2TEQSxHeYhlXgoq4gZ4mhaRg2xyg0xrzVdbgwdeu2nnwa
+	dTjpTeiTCQpxrY0DZ+dcxOhbIWKWPDwgh6VhmT1LkAFl4qDsYKddZuyzsBSwwMfpEg4VZ0YYGn1oo
+	j1W0AlVw==;
+Received: from foss.arm.com ([217.140.110.172])
+	by desiato.infradead.org with esmtp (Exim 4.99.2 #2 (Red Hat Linux))
+	id 1xBZDr-00000002l98-0qaN
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 29 Sep 2026 14:49:08 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id D5035403B5;
-	Tue, 29 Sep 2026 14:49:07 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id B68581F000FF;
-	Tue, 29 Sep 2026 14:49:07 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1790693347;
-	bh=Ao14L3b0qe3I8bK/v3FiUk1dVHY8NGcm6bNn7cmmaM4=;
-	h=Date:From:To:Cc:Subject:In-Reply-To:References;
-	b=GHu/IC86e3GcX4IejmW1WJKeWVTQq8P2fMKy8tJs7DukFag9qvOZxCK3UYwCSBy5l
-	 5LMo4L6jmVe2w0FV5KcYQT2yOVp41nNdnBztuPguBWJ7o9C/jhLv3tFifywPjgJmhG
-	 MFeQEnSshf/tGjPQ7wg9RF8r56zGsAKw0oQQ6eRd10U3w3mobFaSCJllyyhsCaqR+J
-	 SDJLLTeRYKR/uq1cWVSFSzkosvQi0l7UCzAYK1r6sBxOmSd1jTdgUz2QJctVIS3jYc
-	 h3sh/K+mADyWkERtQ0J59AMZTtUBG07XYzh3fQIEkDrMUK8RbXwZOW6DehvK8tBvCY
-	 kzZLhJpVgIrmQ==
-Received: from sofa.misterjones.org ([185.219.108.64] helo=goblin-girl.misterjones.org)
-	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.98.2)
-	(envelope-from <maz@kernel.org>)
-	id 1xBZ8j-0000000EttL-3Uds;
-	Tue, 29 Sep 2026 14:49:05 +0000
-Date: Tue, 29 Sep 2026 15:49:05 +0100
-Message-ID: <867bk43yfy.wl-maz@kernel.org>
-From: Marc Zyngier <maz@kernel.org>
-To: Will Deacon <will@kernel.org>
-Cc: linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Mark Rutland <mark.rutland@arm.com>,
-	Thomas Gleixner <tglx@kernel.org>,
-	Ben Horgan <ben.horgan@arm.com>
-Subject: Re: [PATCH v3 7/8] clocksource/drivers/arm_arch_timer: Expose a direct accessor for the virtual counter
-In-Reply-To: <arvMpP8Htq3dKu99@willie-the-truck>
-References: <20260802165327.385217-1-maz@kernel.org>
-	<20260802165327.385217-8-maz@kernel.org>
-	<aru1QvpaQ8A-OnQq@willie-the-truck>
-	<868q4k3zds.wl-maz@kernel.org>
-	<arvMpP8Htq3dKu99@willie-the-truck>
-User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
- FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/30.1
- (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
-MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
-Content-Type: text/plain; charset=US-ASCII
-X-SA-Exim-Connect-IP: 185.219.108.64
-X-SA-Exim-Rcpt-To: will@kernel.org, linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, catalin.marinas@arm.com, mark.rutland@arm.com, tglx@kernel.org, ben.horgan@arm.com
-X-SA-Exim-Mail-From: maz@kernel.org
-X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
+	Tue, 29 Sep 2026 14:54:25 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 2AFA61516;
+	Tue, 29 Sep 2026 07:54:16 -0700 (PDT)
+Received: from thinkpad-e142931.arm.com (usa-sjc-imap-foss1.foss.arm.com [10.121.207.14])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id E16CE3F86F;
+	Tue, 29 Sep 2026 07:54:15 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
+	t=1790693659; bh=esoyENbZ44GNKmeZsIgGCCMJABdw5rCYrI7Eyyadykg=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=usQQfmYlajLnTt3wS3Cpwl1JJlsmTCBvkV00hc0gHLiKtTq9D21EFhHZpHrol63Sw
+	 ezI/oqCtiJZ8fufONKeFniRYVyI4Ec4TQisPUmWTJIa8uZ0Wo5croexuMueCHlBgA8
+	 inet1daapOv/NeaB2yMOTurFhSXlLm+d5NL/+PXE=
+Date: Tue, 29 Sep 2026 15:54:05 +0100
+From: Wei-Lin Chang <weilin.chang@arm.com>
+To: Fuad Tabba <fuad.tabba@linux.dev>, Marc Zyngier <maz@kernel.org>, 
+	Oliver Upton <oupton@kernel.org>, kvmarm@lists.linux.dev, linux-arm-kernel@lists.infradead.org
+Cc: Joey Gouly <joey.gouly@arm.com>, 
+	Suzuki K Poulose <suzuki.poulose@arm.com>, Zenghui Yu <yuzenghui@huawei.com>, 
+	Steffen Eiden <seiden@linux.ibm.com>, Catalin Marinas <catalin.marinas@arm.com>, 
+	Will Deacon <will@kernel.org>, Mark Rutland <mark.rutland@arm.com>, 
+	Quentin Perret <qperret@google.com>, Vincent Donnefort <vdonnefort@google.com>, 
+	Venkata Rao Kakani <venkata.kakani@oss.qualcomm.com>, Fuad Tabba <tabba@google.com>, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v3 1/4] KVM: arm64: Apply the fine-grained UNDEFs without
+ FEAT_FGT
+Message-ID: <lfkiqqw72uqjih442pozc3gsydxwmdj3kacgl7c2572kxzx3sf@vivqilohtwqn>
+References: <20260929090031.3829185-1-fuad.tabba@linux.dev>
+ <20260929090031.3829185-2-fuad.tabba@linux.dev>
+MIME-Version: 1.0
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20260929090031.3829185-2-fuad.tabba@linux.dev>
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260929_155423_667673_95F91073 
+X-CRM114-Status: GOOD (  24.78  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -88,68 +90,79 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, 29 Sep 2026 15:35:16 +0100,
-Will Deacon <will@kernel.org> wrote:
+On Tue, Sep 29, 2026 at 10:00:28AM +0100, Fuad Tabba wrote:
+> triage_sysreg_trap() applies the FGU bits through the encoding's FGT
+> entry in the trap xarray, and populate_nv_trap_config() only adds those
+> entries on a CPU with FEAT_FGT. Without it, a hidden feature that still
+> traps reaches its handler instead: a TLBI OS trapped through
+> HCR_EL2.TTLBOS lands in handle_tlbi_el1(), which expects an EL1 TLBI
+> only from vEL2 and WARNs before the guest gets its UNDEF. A VMM can
+> trigger the WARN by hiding TLBI OS and having the guest execute one.
 > 
-> On Tue, Sep 29, 2026 at 03:28:47PM +0100, Marc Zyngier wrote:
-> > On Tue, 29 Sep 2026 13:55:30 +0100,
-> > Will Deacon <will@kernel.org> wrote:
-> > > 
-> > > On Sun, Aug 02, 2026 at 05:53:26PM +0100, Marc Zyngier wrote:
-> > > > We allow access to the architected counter via arch_timer_read_counter().
-> > > > However, this accessor can either be the virtual or the physical
-> > > > view of the counter, depending on how the kernel has been booted.
-> > > > 
-> > > > At the same time, we have some architectural features (such as WFIT,
-> > > > WFET) that rely on the virtual counter, and nothing else.
-> > > > 
-> > > > If implementations were perfect, we'd rely on reading CNTVCT_EL0,
-> > > > and be done with it. However, we have a bunch of broken implementations
-> > > > in the wild, which rely on preemption being disabled and other
-> > > > costly workarounds.
-> > > > 
-> > > > In order to provide decent performance on non-broken HW while still
-> > > > supporting the legacy horrors, expose arch_timer_read_vcounter() as
-> > > > a new helper that hides this complexity. Obviously, this is simply
-> > > > a global alias of arch_counter_get_cntvct().
-> > > > 
-> > > > Signed-off-by: Marc Zyngier <maz@kernel.org>
-> > > > ---
-> > > >  drivers/clocksource/arm_arch_timer.c | 2 ++
-> > > >  include/clocksource/arm_arch_timer.h | 1 +
-> > > >  2 files changed, 3 insertions(+)
-> > > > 
-> > > > diff --git a/drivers/clocksource/arm_arch_timer.c b/drivers/clocksource/arm_arch_timer.c
-> > > > index b3b31d4f4815f..9c7501ce57073 100644
-> > > > --- a/drivers/clocksource/arm_arch_timer.c
-> > > > +++ b/drivers/clocksource/arm_arch_timer.c
-> > > > @@ -128,6 +128,8 @@ static notrace u64 arch_counter_get_cntvct(void)
-> > > >  	return __arch_counter_get_cntvct();
-> > > >  }
-> > > >  
-> > > > +u64 arch_timer_read_vcounter(void) __attribute__((alias("arch_counter_get_cntvct")));
-> > > 
-> > > nit: compiler-attributes.h provides __alias to make this a tiny bit cleaner.
-> > > 
-> > > That said, why did you decide on the alias rather than just having this
-> > > as a wrapper function?
-> > 
-> > No idea. Laziness, probably.
-> > 
-> > But I've paged most of this stuff out, and I'm not sure it even serves
-> > a purpose, given that we've lived for about a decade with the problem
-> > it tries to solve.
-> > 
-> > Consider it an abandoned series.
-> 
-> Ok, but patch one is probably worth taking to fix the PMU issue, no?
+> kvm_calculate_traps() computes the FGU bits with or without FEAT_FGT,
+> and the entries map an encoding to its FGT bit whatever the CPU
+> implements. Add them unconditionally, so that a hidden feature that
+> traps is UNDEFINED on any CPU.
 
-Yes, I think it is still relevant.
+This reads a bit mechanical to me, can I suggest:
+
+```
+FGUs don't actually require hardware support, so don't gate fgt trap
+config insertion on FGT. This is the only action required to allow FGUs
+always, as kvm_calculate_traps() already computes the FGU bits with or
+without FEAT_FGT.
+
+This also fixes a spurious WARN when a TLBI OS is run on a guest in vEL1
+without FEAT_TLBIOS on non FEAT_FGT hardware. In this configuration the
+course-grained HCR_EL2.TTLBOS trap reaches the handler handle_tlbi_el1(),
+which expects an EL1 TLBI only from vEL2. With FGUs enabled the UNDEF
+will be injected without needing the specific handler.
+```
+
+Other than that, this is very nice! Sorry for missing this. It's way
+better to have FGU regardless of FGT and handle unexposed TLBIOS with
+FGU always. Thanks Oliver for suggesting this instead, and thanks Fuad
+for digging in.
+
+Reviewed-by: Wei-Lin Chang <weilin.chang@arm.com>
 
 Thanks,
+Wei-Lin Chang
 
-	M.
+> 
+> Fixes: f5a5a406b4b8b ("KVM: arm64: Propagate and handle Fine-Grained UNDEF bits")
+> Cc: stable@vger.kernel.org
+> Signed-off-by: Fuad Tabba <fuad.tabba@linux.dev>
 
--- 
-Without deviation from the norm, progress is not possible.
+> ---
+> 
+> Notes:
+>     For a nested guest on a CPU without FGT, check_fgt_bit() now runs too,
+>     but it forwards nothing: a guest without FEAT_FGT has its FGT registers
+>     RES0.
+>     
+>     f5a5a406b4b8b added the FGU check to triage_sysreg_trap() behind an
+>     ARM64_HAS_FGT gate that populate_nv_trap_config() already had, so the
+>     check never fired without FGT.
+> 
+>  arch/arm64/kvm/emulate-nested.c | 3 ---
+>  1 file changed, 3 deletions(-)
+> 
+> diff --git a/arch/arm64/kvm/emulate-nested.c b/arch/arm64/kvm/emulate-nested.c
+> index 625604019fb32..b8529532b6e78 100644
+> --- a/arch/arm64/kvm/emulate-nested.c
+> +++ b/arch/arm64/kvm/emulate-nested.c
+> @@ -2386,9 +2386,6 @@ int __init populate_nv_trap_config(void)
+>  				print_nv_trap_error(fgt, "FGT bit is reserved", ret);
+>  			}
+>  
+> -			if (!cpus_have_final_cap(ARM64_HAS_FGT))
+> -				continue;
+> -
+>  			prev = xa_store(&sr_forward_xa, enc,
+>  					xa_mk_value(tc.val), GFP_KERNEL);
+>  
+> -- 
+> 2.39.5
+> 
 
