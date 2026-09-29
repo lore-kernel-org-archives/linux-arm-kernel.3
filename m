@@ -4,67 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D7AD2CA5FA5
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 29 Sep 2026 12:36:12 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E2EF2CA5FA5
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 29 Sep 2026 12:36:26 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ZOVcZ69+xtkrDIPrtf3CZkbJWjQMBa+65dy007KOEh8=; b=BVxZBxF7CrCi6IpicXc6soGvPb
-	SR6tVNOCjR7COw04Z20Ike2cHIzVwp2U3GWO5go81nO9gIYBPKeO/a2M7okMmyAr7M2YB1odS4ope
-	btsvty1TCfrUTuUFm2jI/Ygn5z+D8CTwKZ2Zdixih6+bAwkFHf5mzuekIcjN1xhgKsTfIhm/jZ85S
-	Dj1bfFApFkuZTJwtH4lnb7Iba/sckEcL3j6D7JfTgRQaHkOU9RIeCiLf+Lt8OkvvNLSHjIkiV5y57
-	kimOikdfb2u1g9/CVwK768+VdqZglKHpAoVMgmnjO9nwKKgeL31pvC/Xz68b55aGL97np2gsYLzJ7
-	hIr9CAXw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=9w0aozm5qgJf30Vwj4KT6E+5pKgTpxivdQWFVHn3Ht8=; b=XsMK2iUXuuG2wE4IehxIGwm9go
+	cLNxIDwOuknNSJCYbXuRQSx+4eiamSMA/s+wY7r02ciwU1e8oKMlf8jghqV5BEDk6JDJgFmEXaAPl
+	CkAqSTNvWdU6ryQIzSG/OFM/II5JrH+WRm2sKwgQTFu0MsPYr4Jgwk9EOYJjgyqtivdIz6zithwwr
+	QoQMZXqmTBeNX6BZ+GSR9EGZ55WUQ2n4J2Xmc3Z1X+4forsFCt4UjGDr015baAvwCBfZrwtzU52nm
+	CbfkHxC3kThxt2IYUvmmFSisYNx/7KAzTOUmE25Nh6Qb6XhFlSjdo2wnxTHKCNDNoVB1HtbP3S3GB
+	kxbhyvPw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xBWkd-00000003V9V-3vvg;
-	Tue, 29 Sep 2026 12:16:03 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xBWkZ-00000003V8a-2tvS
+	id 1xBX4G-00000003YXb-3ytJ;
+	Tue, 29 Sep 2026 12:36:20 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1xBX4F-00000003YX5-47NN
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 29 Sep 2026 12:16:03 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 5FC492F;
-	Tue, 29 Sep 2026 05:15:54 -0700 (PDT)
-Received: from [10.57.12.116] (unknown [10.57.12.116])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 35FE13F86F;
-	Tue, 29 Sep 2026 05:15:54 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1790684157; bh=SzxPLnpzbm4Ir0vMlYp80TqFCuEZ1W6xvmkpxL/9kpQ=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=NIiT3/7hjkCIhjmRdAjzF7PuTM9EdvbtwDwovpFg065izKOxLv6GMvuTbWH359u2U
-	 c6uMoLkpmL6XMfvuraVDMyhsADR+UooRXj4TBe3ppiwcUz1SLMUOxGdRM7YXgVBAab
-	 LSV632zZUYtpgtMg67N5qXviT7Qlo2eNYW8rqyGw=
-Message-ID: <3610ef9d-6e0c-4e20-a6b9-1f11bf6031e6@arm.com>
-Date: Tue, 29 Sep 2026 13:15:52 +0100
+	Tue, 29 Sep 2026 12:36:20 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by sea.source.kernel.org (Postfix) with ESMTP id B21B840B0B;
+	Tue, 29 Sep 2026 12:36:19 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 2218A1F000FF;
+	Tue, 29 Sep 2026 12:36:19 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1790685379;
+	bh=9w0aozm5qgJf30Vwj4KT6E+5pKgTpxivdQWFVHn3Ht8=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=Cd3O9qHJmxwUhi4i+7IR55ITy66r8GNziuOt0YGVH+g0ZSRY9QdNSGBvAG8dh64MV
+	 RzsRA+51SPSdlGW9t5ISeeNEcoERS2oyZEf39T/Bo7v/Kj9qHIwAHeOTEO1h5ajYUU
+	 1zDxeoIkTfvjUKVI3rzkzhHcM6TsR3EskifPlnMi/32tVuRABqpSFKlx/yC68M688k
+	 BzvHELFMDg2SNcCvlK8Ihk9THHsiZM3FGNNs4maZCEovZ3nwwFVKdbCAc9Dg21VgEe
+	 0jf6ka1Ka71GnYoZ8zgRT6wVUE4vPeH8p4w8z9+Rl8Y/hDdFYYIwHCV+Dp3cxO6VXq
+	 99/Im2stE6WgA==
+Date: Tue, 29 Sep 2026 14:36:16 +0200
+From: Maxime Ripard <mripard@kernel.org>
+To: Luca Ceresoli <luca.ceresoli@bootlin.com>
+Cc: Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, 
+	Thomas Zimmermann <tzimmermann@suse.de>, David Airlie <airlied@gmail.com>, 
+	Simona Vetter <simona@ffwll.ch>, Frank Li <Frank.Li@nxp.com>, 
+	Sascha Hauer <s.hauer@pengutronix.de>, Pengutronix Kernel Team <kernel@pengutronix.de>, 
+	Fabio Estevam <festevam@gmail.com>, Icenowy Zheng <zhengxingda@iscas.ac.cn>, 
+	Andrzej Hajda <andrzej.hajda@intel.com>, Neil Armstrong <neil.armstrong@linaro.org>, 
+	Robert Foss <rfoss@kernel.org>, Laurent Pinchart <Laurent.pinchart@ideasonboard.com>, 
+	Jonas Karlman <jonas@kwiboo.se>, Jernej Skrabec <jernej.skrabec@gmail.com>, 
+	Dave Stevenson <dave.stevenson@raspberrypi.com>, =?utf-8?B?TWHDrXJh?= Canal <mcanal@igalia.com>, 
+	Raspberry Pi Kernel Maintenance <kernel-list@raspberrypi.com>, Geert Uytterhoeven <geert+renesas@glider.be>, 
+	Arnd Bergmann <arnd@kernel.org>, Doug Anderson <dianders@chromium.org>, 
+	Hui Pu <Hui.Pu@gehealthcare.com>, Ian Ray <ian.ray@gehealthcare.com>, 
+	Thomas Petazzoni <thomas.petazzoni@bootlin.com>, dri-devel@lists.freedesktop.org, imx@lists.linux.dev, 
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, linux-renesas-soc@vger.kernel.org
+Subject: Re: [PATCH 6/7] drm/vc4: dsi: stop using deprecated
+ drmm_of_get_bridge()
+Message-ID: <aruwsj4TFCUaLDjJ@houat>
+References: <20260929-drm-fix-of_get_bridge-build-regression-v1-0-ccb7e602daad@bootlin.com>
+ <20260929-drm-fix-of_get_bridge-build-regression-v1-6-ccb7e602daad@bootlin.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v19 6/7] firmware: arm_rmm: Ensure the RMM has GPT entries
- for memory
-Content-Language: en-GB
-To: Catalin Marinas <catalin.marinas@arm.com>
-Cc: kvm@vger.kernel.org, kvmarm@lists.linux.dev, maz@kernel.org,
- will@kernel.org, linux-kernel@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, steven.price@arm.com,
- aneesh.kumar@kernel.org, oupton@kernel.org, gshan@redhat.com,
- joey.gouly@arm.com, tabba@google.com, yuzenghui@huawei.com,
- linux-coco@lists.linux.dev, gankulkarni@os.amperecomputing.com,
- sdonthineni@nvidia.com, alpergun@google.com, fj0570is@fujitsu.com,
- WeiLin.Chang@arm.com, lpieralisi@kernel.org, enju.kohei@fujitsu.com,
- sudeep.holla@arm.com, jonathan.cameron@oss.qualcomm.com
-References: <20260924135201.850038-1-suzuki.poulose@arm.com>
- <20260924135201.850038-7-suzuki.poulose@arm.com> <aruaeLI76_kcvIhp@arm.com>
-From: Suzuki K Poulose <suzuki.poulose@arm.com>
-In-Reply-To: <aruaeLI76_kcvIhp@arm.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260929_051559_832293_BA9388B0 
-X-CRM114-Status: GOOD (  18.81  )
+Content-Type: multipart/signed; micalg=pgp-sha384;
+	protocol="application/pgp-signature"; boundary="366bc25sjkfcvxjo"
+Content-Disposition: inline
+In-Reply-To: <20260929-drm-fix-of_get_bridge-build-regression-v1-6-ccb7e602daad@bootlin.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -79,107 +83,40 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 29/09/2026 12:01, Catalin Marinas wrote:
-> On Thu, Sep 24, 2026 at 02:52:00PM +0100, Suzuki K Poulose wrote:
->> +/*
->> + * Make sure the area is tracked by RMM at FINE granularity.
->> + * We do not support changing the tracking yet.
->> + */
->> +static int rmi_verify_memory_tracking(phys_addr_t start, phys_addr_t end)
->> +{
->> +	while (start < end) {
->> +		unsigned long ret, category, state, next;
->> +
->> +		ret = rmi_granule_tracking_get(start, end, &category, &state, &next);
->> +		if (ret != RMI_SUCCESS)
->> +			return -ENOMEM;
->> +
->> +		if (WARN_ON(next <= start))
->> +			return -ENXIO;
->> +
->> +		if (state != RMI_TRACKING_FINE ||
->> +		    category != RMI_MEM_CATEGORY_CONVENTIONAL) {
->> +			/* TODO: Set granule tracking in this case */
->> +			pr_err("Granule tracking for region isn't fine/conventional: %llx-%lx\n",
->> +			       start, next);
->> +			return -ENODEV;
->> +		}
->> +		start = next;
->> +	}
->> +
->> +	return 0;
->> +}
->> +
->> +/*
->> + * rmi_gpt_info - Query the GPT info for the given PAR.
->> + * @start: Base of the physical address region
->> + * @end: Top of the physical address region
->> + * @out_top: Top of the physical address region for which
->> + *		the GPT @out_gpt_par_state is valid
->> + * @out_gpt_par_state: State of the GPT covered by [start, out_top)
->> + */
->> +static long rmi_gpt_info(unsigned long start, unsigned long end,
->> +			 unsigned long *out_top,
->> +			 unsigned long *out_gpt_par_state)
->> +{
->> +	struct arm_smccc_1_2_regs regs = {
->> +		SMC_RMI_GPT_INFO, start, end,
->> +	};
->> +
->> +	rmi_smccc_invoke(&regs);
->> +	if (regs.a0 != RMI_SUCCESS)
->> +		return regs.a0;
->> +
->> +	if (out_top)
->> +		*out_top = regs.a1;
->> +	if (out_gpt_par_state)
->> +		*out_gpt_par_state = regs.a2;
->> +
->> +	return RMI_SUCCESS;
->> +}
->> +
->> +/*
->> + * We do not support creating L1 GPTs yet. So, make sure that
->> + * all the regions are managed by the firmware.
->> + */
->> +static int rmi_verify_gpt_firmware_managed(phys_addr_t start, phys_addr_t end)
->> +{
->> +	unsigned long l0gpt_sz;
->> +	unsigned long next, par_state;
->> +
->> +	l0gpt_sz = 1UL << (30 + FIELD_GET(RMI_FEATURE_REGISTER_1_L0GPTSZ,
->> +					  rmi_feat_reg(1)));
->> +	start = ALIGN_DOWN(start, l0gpt_sz);
->> +	end = ALIGN(end, l0gpt_sz);
->> +
->> +	while (start < end) {
->> +		long ret = rmi_gpt_info(start, end, &next, &par_state);
->> +
->> +		if (ret != RMI_SUCCESS)
->> +			return -ENOMEM;
-> 
-> Nit: what does -ENOMEM actually mean here? Was there any allocation?
-> Maybe -ENXIO is better suited, as the one below. Also, is it useful to
-> print something like we do further down?
-> 
-> Same comment for rmi_verify_memory_tracking().
-> 
->> +		if (WARN_ON(next <= start))
->> +			return -ENXIO;
->> +
->> +		if (par_state != RMI_GPT_PAR_PLAT) {
->> +			pr_err("GPT for the region is not managed by firmware %llx-%lx\n",
->> +				start, next);
->> +			return -ENOMEM;
-> 
-> Nit: in v18, Gavin suggested returning -ENODEV here (the hunk he
-> proposed). I think it makes more sense and it matches the -ENODEV in
-> rmi_verify_memory_tracking().
 
-Ack, I have incorporated both suggestions.
+--366bc25sjkfcvxjo
+Content-Type: text/plain; protected-headers=v1; charset=us-ascii
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
+Subject: Re: [PATCH 6/7] drm/vc4: dsi: stop using deprecated
+ drmm_of_get_bridge()
+MIME-Version: 1.0
 
-Suzuki
+On Tue, Sep 29, 2026 at 12:36:38PM +0200, Luca Ceresoli wrote:
+> devm_drm_of_get_bridge() is deprecated, switch to
+> of_drm_get_bridge_by_endpoint(). As of_drm_get_bridge_by_endpoint() retur=
+ns
+> a refcounted bridge, ensure it is put by using bridge.next_bridge.
+>=20
+> drm_panel.h becomes unused, drop the include.
+>=20
+> Signed-off-by: Luca Ceresoli <luca.ceresoli@bootlin.com>
 
-> 
+Same comment than on patch 5
 
+Maxime
+
+--366bc25sjkfcvxjo
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iJUEABMJAB0WIQTkHFbLp4ejekA/qfgnX84Zoj2+dgUCaruwwAAKCRAnX84Zoj2+
+doCqAXwNORdzZPIAJhdGeMgzrt1jcoq6TB7Jj3M8ttuR805L87IJPshdr7ufUQDv
+IwKfw/kBgNC2oDbRHWOcpJS92jCEDiGBBVlZSAuiKbn409qXb4YYDU6BxQ3XDhMo
++dWCOdA5mw==
+=9j5F
+-----END PGP SIGNATURE-----
+
+--366bc25sjkfcvxjo--
 
