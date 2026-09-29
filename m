@@ -4,84 +4,177 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CD2B6CA5FA7
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 29 Sep 2026 21:11:23 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1A90ACA5FA5
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 29 Sep 2026 21:13:13 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Content-Type:
-	References:In-Reply-To:Date:Cc:To:From:Subject:Message-ID:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
+	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=7HtcXJwIovXJhI6CN0srEgCID90Np/hQHMkqavjxkSc=; b=E7ETzEbHnGcKqhHYtXAY2icPoU
-	tDj88hDLvy3pJWBy/bloZ1uR+YrWbNmIGQtBnM50pKkiKjf5bGVqJZ/Q9XIiXJBLgM0DWjRbUECBr
-	5TSD9YnYJfjntiG2Zr3+MXJQF77kiE7Edrbq2NHN0g0SupyRQ9xfxZA0sURyX9eqzjmIBSnLMxcwM
-	OdAxYJROkpXjEWuievfz4hduv9GN4UUx5JcDsbb+5kpYEnGyuSQIZaO3jesyyBLuHaWNUQwoe/xja
-	/DFKZ0m7DCsolGrvQ0slYYwqnlExEgxckhGZVvg9nIoVd2I1itV/2tmOis+Dq6qEelSjtNcZtW462
-	xS/QUrTA==;
+	bh=PjqNmhMXeYfrxc5jgiKL28kVrJDVBOqD0DBs79oNEYs=; b=w4Wq6+6Cxi7R2l8PabRJs5p18W
+	qVmjW7DT2JOhaLWUKR9y873YapxoBMXHDRc32JpdhrBnZ6PPAW3U2uUtvklMAz0CGNewAMFeeHwHp
+	LdrjvncZvnqLQFn4yUUDd0y3LppbIopU36OhlkR9QklCKaWH3TXXr3wqpE9+uBfB07CCABXMiV0He
+	6sQbiyLfOTvgmKndVj5d10Vv2jSTKOI66GuroUGnjGIp8hRMj9eCSDrBOz6fT18IN0PV4nhjSXbd1
+	XXOqqN1w7tY0nxlaYvG+NcHKS+qr7oipnRmr4+ByUobeiU3pDo+0WrY+FFr2AYtFk7JaMPH0zlVba
+	jh+vewqQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xBf6b-00000004ZfS-39F1;
-	Tue, 29 Sep 2026 21:11:17 +0000
-Received: from bali.collaboradmins.com ([2a01:4f8:201:9162::2])
+	id 1xBeIS-00000004SqT-1meG;
+	Tue, 29 Sep 2026 20:19:28 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xBf6Y-00000004Zez-2VkC;
-	Tue, 29 Sep 2026 21:11:16 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
-	s=mail; t=1790716270;
-	bh=OJHK3wW5ArguXbjLgPCeX7+D0gjNCSr/9bwfhXsKji4=;
-	h=Subject:From:To:Cc:Date:In-Reply-To:References:From;
-	b=YjjWYb+F7ntVNqsBOrNRkIabv3brgPYVxGRCJ+c1u7teeLF+YAbmOWh4O6jjRYHH7
-	 HRBTPlrC8C4m0dNLXij4Cq0D1XXktLyiaJfdEgMR4mNqOdKAuD9in8StQ6fzJ0ha08
-	 Sd9qfHyTk/JZPt+BuOb2u8PCFcBREiUFgPsXQdadDaCCOQ6L/0HCz3+tyaf0tDXcQC
-	 5sIcSW8CND6vUM/YkE7nFt7IeP4UKUDqlEv8m2rE2WMq30TL7BqLwr2cXxc7QTdDeA
-	 a83bI7ukhAE4KIBs7b31sgl7YyvEnsVMsbGNdO4Ge0wChkJkbNOlbmCb+G/FABfQeT
-	 BCqvzTFdiH4qg==
-Received: from [100.64.0.214] (unknown [100.64.0.214])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange secp256r1 server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(No client certificate requested)
-	(Authenticated sender: nicolas)
-	by bali.collaboradmins.com (Postfix) with ESMTPSA id 1797717E0203;
-	Tue, 29 Sep 2026 23:11:07 +0200 (CEST)
-Message-ID: <1db4cc111dcfcdff0042841ff71ca0e0740e5072.camel@collabora.com>
-Subject: Re: [PATCH] media: mediatek: vcodec: destroy core workqueue on
- remove
-From: Nicolas Dufresne <nicolas.dufresne@collabora.com>
-To: Guangshuo Li <lgs201920130244@gmail.com>, Tiffany Lin	
- <tiffany.lin@mediatek.com>, Andrew-CT Chen <andrew-ct.chen@mediatek.com>, 
- Yunfei Dong <yunfei.dong@mediatek.com>, Mauro Carvalho Chehab
- <mchehab@kernel.org>, Matthias Brugger	 <matthias.bgg@gmail.com>,
- AngeloGioacchino Del Regno	 <angelogioacchino.delregno@collabora.com>, Fei
- Shao <fshao@chromium.org>,  Kees Cook <kees@kernel.org>, Chen-Yu Tsai
- <wenst@chromium.org>, Hans Verkuil <hverkuil+cisco@kernel.org>,  Steve Cho
- <stevecho@chromium.org>, linux-media@vger.kernel.org,
- linux-kernel@vger.kernel.org, 	linux-arm-kernel@lists.infradead.org,
- linux-mediatek@lists.infradead.org
-Cc: stable@vger.kernel.org
-Date: Tue, 29 Sep 2026 17:11:06 -0400
-In-Reply-To: <20260915115753.2411047-1-lgs201920130244@gmail.com>
-References: <20260915115753.2411047-1-lgs201920130244@gmail.com>
-Autocrypt: addr=nicolas.dufresne@collabora.com; prefer-encrypt=mutual;
- keydata=mDMEaCN2ixYJKwYBBAHaRw8BAQdAM0EHepTful3JOIzcPv6ekHOenE1u0vDG1gdHFrChD
- /e0J05pY29sYXMgRHVmcmVzbmUgPG5pY29sYXNAbmR1ZnJlc25lLmNhPoicBBMWCgBEAhsDBQsJCA
- cCAiICBhUKCQgLAgQWAgMBAh4HAheABQkJZfd1FiEE7w1SgRXEw8IaBG8S2UGUUSlgcvQFAmibrjo
- CGQEACgkQ2UGUUSlgcvQlQwD/RjpU1SZYcKG6pnfnQ8ivgtTkGDRUJ8gP3fK7+XUjRNIA/iXfhXMN
- abIWxO2oCXKf3TdD7aQ4070KO6zSxIcxgNQFtDFOaWNvbGFzIER1ZnJlc25lIDxuaWNvbGFzLmR1Z
- nJlc25lQGNvbGxhYm9yYS5jb20+iJkEExYKAEECGwMFCwkIBwICIgIGFQoJCAsCBBYCAwECHgcCF4
- AWIQTvDVKBFcTDwhoEbxLZQZRRKWBy9AUCaCyyxgUJCWX3dQAKCRDZQZRRKWBy9ARJAP96pFmLffZ
- smBUpkyVBfFAf+zq6BJt769R0al3kHvUKdgD9G7KAHuioxD2v6SX7idpIazjzx8b8rfzwTWyOQWHC
- AAS0LU5pY29sYXMgRHVmcmVzbmUgPG5pY29sYXMuZHVmcmVzbmVAZ21haWwuY29tPoiZBBMWCgBBF
- iEE7w1SgRXEw8IaBG8S2UGUUSlgcvQFAmibrGYCGwMFCQll93UFCwkIBwICIgIGFQoJCAsCBBYCAw
- ECHgcCF4AACgkQ2UGUUSlgcvRObgD/YnQjfi4+L8f4fI7p1pPMTwRTcaRdy6aqkKEmKsCArzQBAK8
- bRLv9QjuqsE6oQZra/RB4widZPvphs78H0P6NmpIJ
-Organization: Collabora Canada
-Content-Type: multipart/signed; micalg="pgp-sha512";
-	protocol="application/pgp-signature"; boundary="=-rz/nb+3HJ76xRI+V+kAt"
-User-Agent: Evolution 3.60.2 (3.60.2-1.fc44) 
+	id 1xBeIF-00000004Shu-0F4e
+	for linux-arm-kernel@bombadil.infradead.org;
+	Tue, 29 Sep 2026 20:19:15 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=Content-Type:Content-Transfer-Encoding
+	:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:CC:To:From:
+	Sender:Reply-To:Content-ID:Content-Description;
+	bh=PjqNmhMXeYfrxc5jgiKL28kVrJDVBOqD0DBs79oNEYs=; b=fuHS3v9TGtcE893lp0FZHvcZpy
+	tDBD5h9L7e+SIPPUOAt2G8e488d22O5t9RedjoQ7dPO1cGp1WEDmDrxVeWmE80Rkear3ZxTZXYniz
+	fk+9Fsl7yavvHzWk4+f4b2bhHI50zWXMlCC5xDPg6ZxnW/nrvoPjsCGKZZaZNLFPG0Z5/vYSt3VTQ
+	h2Ld4C/6y4l5mwi/GXJzPK7nuUfgWYGzpBYn3sxLcMM+ohFCHNMtw1q3ieNO7CMlUNhWLVX59M5sD
+	8W5uphXBSUpEMfJXBePwDb6zz/7L6jnScNoLmMr/Ezu8opNmvRTkcV0puEhRhUfonoez2FRjGuy9P
+	dXslilqA==;
+Received: from mx0a-0002e601.pphosted.com ([148.163.150.75])
+	by desiato.infradead.org with esmtps (Exim 4.99.2 #2 (Red Hat Linux))
+	id 1xBeI4-000000033H1-0uPv
+	for linux-arm-kernel@lists.infradead.org;
+	Tue, 29 Sep 2026 20:19:13 +0000
+Received: from pps.filterd (m0380145.ppops.net [127.0.0.1])
+	by m0380145.ppops.net (8.18.1.11/8.18.1.11) with ESMTP id 68TFkcwM152307;
+	Tue, 29 Sep 2026 15:19:01 -0500
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com; h=cc
+	:content-transfer-encoding:content-type:date:from:in-reply-to
+	:message-id:mime-version:references:subject:to; s=
+	proofpoint-05-2026; bh=PjqNmhMXeYfrxc5jgiKL28kVrJDVBOqD0DBs79oNE
+	Ys=; b=WNoHSHWWQb1M8wYlzyEz/6Szrox6iKrAFGaDfouFpLuKSMXxww3L4G6sN
+	nwrxq6NVUHJSftSKvqucVyijHxWYQdysqxwme4KTJixpuDRMLA74MpeM7apQT7Jh
+	kVZ4IrAMkWU+uah0sDeKoyL/T1pDs17HV/R6H0ypks7D3RA2dziL0Q5z+yy0uOwB
+	/oIVxFGIeg2ZPLDjzave0r1bOCFAwlG76H2vzbfaYoHMSOfulc9epSOzD0oGnm5P
+	Qc4AExe/Fmu2wbcCvJjUVDtLpI2cFUt5hN7BoTFfkBg5QJJhDzjmeqW5Drkx8KtO
+	IdhywixgTB6wb1+4jA/mcYa6FF/qw==
+Received: from ch1pr05cu001.outbound.protection.outlook.com (mail-northcentralusazon11010064.outbound.protection.outlook.com [52.101.193.64])
+	by m0380145.ppops.net (PPS) with ESMTPS id 4h099y45jy-1
+	(version=TLSv1.3 cipher=TLS_AES_256_GCM_SHA384 bits=256 verify=NOT);
+	Tue, 29 Sep 2026 15:19:01 -0500 (CDT)
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=n/2Iy7qEEvXM3j5ZJL6gIJpLvWhXNdH13whP6pojUJ7AxEyoFSpveiX+5axd1kXmKlaKHytnSTFgSKossjVIXEfCe/vO99yLr1a9bf1sx7sbuB8QBrrZwbSjQPAGfRqs4QwX48hl2EgsMFeVfrUEOUo0nZxcREwLkDfULbUNhf7QLC8dhJYWdHUgXsCcA4KPqFcOHKApqXpR2Y7VybDSdyIgxnDxboNRe15Sc0a0VA4qVC9NQhBj+l3vMj0bN3NVulHwg/vqu4ZMTN1stDh7aayMsBs2eoGzx/vcHIWHwlTb7EUkfSAidwaUjnSVVDCT0lXdSi4e0BIi/5C+PY3pNQ==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=PjqNmhMXeYfrxc5jgiKL28kVrJDVBOqD0DBs79oNEYs=;
+ b=MIzRNZ9HmUAtB0kAz2cyvp0By2bHwbFnkxM+iLcqPJsSF8uszFpzIGfbhexhTg1nySsmanDGWdRgGD89eAy1/+622/yaw/lmQUSO2OoLd+QTRKwJciZO1nET/JNiGgquSmYhNSla3lIZ1hEYJUR0faQeiG63ZrP4/pQ/IiC33lxU4x6Zv9nWvXm+/KKQQ5uh925e8nQ5fX3TBQJVO8uYqrHDVRijNRNiD0X3CWYT4Tu+4SBt8om1S5YngfYMw8VYZaV7LXWhqGc7XOQjUtlDBqR0Jhxntbg8yfZne7mrqi1AubLPKmu1WHyIi6Pb13oi2EAJfhbi5qAgQXEQfEzRgA==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
+ 198.47.23.194) smtp.rcpttodomain=lists.infradead.org smtp.mailfrom=ti.com;
+ dmarc=pass (p=quarantine sp=none pct=100) action=none header.from=ti.com;
+ dkim=none (message not signed); arc=none (0)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+ d=ticloud.onmicrosoft.com; s=selector1-ticloud-onmicrosoft-com;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=PjqNmhMXeYfrxc5jgiKL28kVrJDVBOqD0DBs79oNEYs=;
+ b=oBpHZaKaafua0OypX75jd42hbXD7h4GzRxkC3L0nGRClfhjuqcWKST4V1bV2ub6b0QXNwj0qT2MY/5MXEOzGXu9lYKKqRdb7IYdNStRo4q4KQjhHPxuyw+HGQrQSGCN0y+ftm2yT8GXaAXhfKr1gqakLVmZbiMcdtNsxFGeS7KA=
+Received: from BN9PR03CA0419.namprd03.prod.outlook.com (2603:10b6:408:111::34)
+ by CC6PR10MB231600.namprd10.prod.outlook.com (2603:10b6:170:203::18) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.472.14; Tue, 29 Sep
+ 2026 20:18:57 +0000
+Received: from BN2PEPF000044A7.namprd04.prod.outlook.com
+ (2603:10b6:408:111:cafe::9) by BN9PR03CA0419.outlook.office365.com
+ (2603:10b6:408:111::34) with Microsoft SMTP Server (version=TLS1_3,
+ cipher=TLS_AES_256_GCM_SHA384) id 15.21.472.14 via Frontend Transport; Tue,
+ 29 Sep 2026 20:18:57 +0000
+X-MS-Exchange-Authentication-Results: mx.microsoft.com 1; spf=pass (sender IP
+ is 198.47.23.194) smtp.mailfrom=ti.com; dkim=none (message not signed)
+ header.d=none;dmarc=pass action=none header.from=ti.com;
+Received-SPF: Pass (protection.outlook.com: domain of ti.com designates
+ 198.47.23.194 as permitted sender) receiver=protection.outlook.com;
+ client-ip=198.47.23.194; helo=lewvzet200.ext.ti.com; pr=C
+Received: from lewvzet200.ext.ti.com (198.47.23.194) by
+ BN2PEPF000044A7.mail.protection.outlook.com (10.167.243.101) with Microsoft
+ SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.21.472.14 via Frontend Transport; Tue, 29 Sep 2026 20:18:57 +0000
+Received: from DLEE212.ent.ti.com (157.170.170.114) by lewvzet200.ext.ti.com
+ (10.4.14.103) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.45; Tue, 29 Sep
+ 2026 15:18:43 -0500
+Received: from DLEE207.ent.ti.com (157.170.170.95) by DLEE212.ent.ti.com
+ (157.170.170.114) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.45; Tue, 29 Sep
+ 2026 15:18:43 -0500
+Received: from lelvem-mr06.itg.ti.com (10.180.75.8) by DLEE207.ent.ti.com
+ (157.170.170.95) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.45 via Frontend
+ Transport; Tue, 29 Sep 2026 15:18:43 -0500
+Received: from uda0510294.dhcp.ti.com (uda0510294.dhcp.ti.com [10.24.50.162])
+	by lelvem-mr06.itg.ti.com (8.18.1/8.18.1) with ESMTP id 68TKHlMp1688208;
+	Tue, 29 Sep 2026 15:18:40 -0500
+From: Beleswar Padhi <b-padhi@ti.com>
+To: <nm@ti.com>, <kristo@kernel.org>, <ssantosh@kernel.org>, <afd@ti.com>,
+        <vigneshr@ti.com>, <u-kumar1@ti.com>
+CC: <linux-kernel@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
+        <b-padhi@ti.com>
+Subject: [PATCH 17/22] firmware: ti: ti_sci: Add missing includes for self-contained headers
+Date: Wed, 30 Sep 2026 01:47:41 +0530
+Message-ID: <20260929201746.4078803-18-b-padhi@ti.com>
+X-Mailer: git-send-email 2.34.1
+In-Reply-To: <20260929201746.4078803-1-b-padhi@ti.com>
+References: <20260929201746.4078803-1-b-padhi@ti.com>
 MIME-Version: 1.0
+Content-Transfer-Encoding: 8bit
+Content-Type: text/plain
+X-EOPAttributedMessage: 0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: BN2PEPF000044A7:EE_|CC6PR10MB231600:EE_
+X-MS-Office365-Filtering-Correlation-Id: 93614726-e902-4723-b904-08df1e66e460
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|23010399003|82310400026|376014|1800799024|36860700016|18002099003|22082099003|3023799007|10067099003|56012099006;
+X-Microsoft-Antispam-Message-Info: 5BygGLFGUyI4APQcHT/M55QkGZbKTB1Pt6p6iJZlJdDcFIN5alNUwnCJ681vegEnDIKtTGgVidQIuSF8ezKvJuYzYFL4aCw55OlrqTuhMN9axIF1blvGbwGQDoMA+mRmmMsz3gEY/DweyJv9QaP2bffdlE45ti2QjoMfBktEaMU0mj1M1T/SaxG6pbdWmou5GoZAHtCla3Kz4ZrpYwtBEaH4rqSzUVoyqvdznsrusRdw5gCIDGnvjb4EOjDEqWRoiih+ikv33r7RTkyO6qw8rJ/HuAZGS5u4LDQkmRDckw/UyGYXL1Z2BLFgeN+zGw9SBhBiD+RmFNG65uoJGlLPr7B9+nKeiB2fd0GVzBjqPz0hPV0dw/niwULU123Y47codh8jo6EAmvPWF/1UbCF60Ti2uUcG2jAm2GievB5uFJ5uDmJ852FxgJNNCfBijthyKuIcXMlFPzoI9qWIJjJIkVX7qhftHfA/iHi9kaH72JsRTN0gx0B4xneJ7yKhHG594WImrk51mvSutQlaGIFfwjS3O3eR9zESYp0WKricQVaTyz3alijSSHhYJ2c/eG2rs/A6+XVoALLB2MgdVRdT2OXRbtLJ03V7n+a2fOcUFct2h02k1amNvgmUD1fUUUvHML6ht1mjVeuBnKEghTJT8NAbbslvt/Pl+02kpGnsR1KOAOyrr1u6C9+3eRLMkHtoLWGxra7IXI6zkZ18bSK2bg==
+X-Forefront-Antispam-Report: CIP:198.47.23.194;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:lewvzet200.ext.ti.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(23010399003)(82310400026)(376014)(1800799024)(36860700016)(18002099003)(22082099003)(3023799007)(10067099003)(56012099006);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: 7btm5eJsOk/vha+zd+COXWI6ogO71lNc3xBGqNpGPngcpuI3ZPQoOvWAG/auS2aLz9x/rVqOLb0XRzcn4wLgOQBO5FVdifKfpsoajDd4ysVsFzaWepuupEhV5Be5TZhnFGIqQu62ljU5TIeMX+Pmv0CjcczZhazuZlQGQvEITqBfwiS4Qhpym+ti5YhXa1LDNZkovDhngou7rwECHxJCLsQWk7BVYwOJ1yppSQw+iXMfb4asRI7/nVkTaTERZtDjQjGxmx7gLVbow7K9+OM/ZHydXB3BZXDNAS06Di8LDPgtRJa45jH/jOh5IutCB41Y6YO8KY2W+MQCyhW4URA80tbACqTKYGFO3dEX7VDUTNfdA145f/KA/WgMzbDk39XleTa9lgEQgegyiR8kWMf8m02sJvSFUmDzniJ2wMehw6Ioit9B1Lxy0/JHwekDwl1n
+X-Exchange-RoutingPolicyChecked: 2yutSrklNK6bdtZzeBtyw4/1NXKosD3y1jUfzYWfBa46xjmbu056oRraZEc1/3qfVTMKAzr/beqkHHYScaQh79QXTJBBN91CKfWOSaWQmM+dvZpd9ABzMFjPrVXI+drFmBIVTVJxVMcgi1zW+XuMGLghOCahecbnaobSsKSjGohIWtOQ2acvY+pucsVeUa0Jv7KYgWfeONVla6YmqdFGTr44o8nEcHus7YotbS5gAu55qxTjeR/3ayCQmQb+Z4JYl2p8h9xrLC4g33s8VaTZA4yp4d444kJy5pIEqTQS6Zn3vRgSnbMdGmKuisHgcPIuJbToNhivAX+Ym2U5B9QOIw==
+X-OriginatorOrg: ti.com
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 29 Sep 2026 20:18:57.5701
+ (UTC)
+X-MS-Exchange-CrossTenant-Network-Message-Id: 93614726-e902-4723-b904-08df1e66e460
+X-MS-Exchange-CrossTenant-Id: e5b49634-450b-4709-8abb-1e2b19b982b7
+X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=e5b49634-450b-4709-8abb-1e2b19b982b7;Ip=[198.47.23.194];Helo=[lewvzet200.ext.ti.com]
+X-MS-Exchange-CrossTenant-AuthSource: BN2PEPF000044A7.namprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Anonymous
+X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: CC6PR10MB231600
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwOTI5MDA4MCBTYWx0ZWRfX6TptR5JOUtSm
+ eWuDXbdLN1rxFt6+56BT2T5h+ivK2H4u23XJdSkHbUbn+S5UNWMq85YWGJArwPJYsQyTxYJcFZW
+ jdM5fGXuV/nuHASaZFXY9VuCCI1PvTMfwIiq4r/DYVLDL2hhg4dgoAOtci5a9wxjyDFxHaaiZ46
+ Xr9sWKZ4IuJYGPIUPJ64DnnARI+pIVL+9bkM98tFkQR0i+UWLOpCD5XmhDggK9jlidP2EI14rdp
+ GVdgkscOntfs8ZUZ2QeXq7zVTceCNRUCaTyzUnZAwd76qOHKDRxWHAoXUehjOYzvMcnbp/6lepd
+ eSHxHoobhBLTE57aqJsfl6j4MvBFPbv+qw1uxJ0zyDo3vv0rk0xaNVxbgZF7DXbNiK1Qjj7ihZU
+ RgWeTh5pnDcoJz1l6KxZqqLohlXV5awlDCr0hJtEfj+QOb9DEmuUIgRCp3Shx2KUBNPxyx76+cq
+ Mwd+je13S18l6wYSy9g==
+X-Proofpoint-Spam-Info: AW1haW4tMjYwOTI5MDA4MCBTYWx0ZWRfX5f8Z4XaLv8Yc
+ rODI/34YgPFJPi4yjuqaAkmSkk8QO/yCaxNI+1WGeOX3YkLsBqaONnA1dIUfaPZZoTJ1jsRCj05
+ xWl65qZo+2IAecJhckgqAiBQRq2skzQ=
+X-Authority-Analysis: v=2.4 cv=GdGCDgXL c=1 sm=1 tr=0 ts=6abc1d35 cx=c_pps
+ a=z9epfWMNo9LgPPq3nTJR4w==:117 a=WotqVVQAdb04rnGuttW3Kw==:17
+ a=6eWqkTHjU83fiwn7nKZWdM+Sl24=:19 a=VdqzKS8jKosA:10 a=s63m1ICgrNkA:10
+ a=AlMIdn_sM9wA:10 a=VkNPw1HP01LnGYTKEx00:22 a=Z8NIEmU8O1QQgoT56wFK:22
+ a=gO1vWkAQAl3rybz1DQOp:22 a=sozttTNsAAAA:8 a=qxQJPro2LbhhYBg5XAAA:9
+X-Proofpoint-GUID: vOubTHk3T3-8j1C98plFdz48Th_zfT2g
+X-Proofpoint-ORIG-GUID: vOubTHk3T3-8j1C98plFdz48Th_zfT2g
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1176,Hydra:6.1.134,FMLib:17.12.100.49
+ definitions=2026-09-29_04,2026-09-21_02,2025-10-01_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
+ lowpriorityscore=0 bulkscore=0 adultscore=0 malwarescore=0 clxscore=1015
+ suspectscore=0 impostorscore=0 priorityscore=1501 phishscore=0 spamscore=0
+ classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
+ reason=mlx scancount=1 engine=8.22.0-2609040000 definitions=main-2609290080
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260929_141115_187054_A95D2740 
-X-CRM114-Status: GOOD (  17.81  )
+X-CRM114-CacheID: sfid-20260929_211905_356386_19E8896B 
+X-CRM114-Status: GOOD (  13.95  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -96,74 +189,58 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+From: Andrew Davis <afd@ti.com>
 
---=-rz/nb+3HJ76xRI+V+kAt
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+ti_sci.h and ti_sci_protocol.h do not directly include the headers that
+define the types and helpers they use. They currently build only because
+every file that includes them happens to also pull in
+linux/mailbox_client.h or similar headers first, which transitively
+provide these definitions.
 
-Le mardi 15 septembre 2026 =C3=A0 19:57 +0800, Guangshuo Li a =C3=A9crit=C2=
-=A0:
-> The decoder probe allocates core_workqueue for latency-based decoder
-> architectures. The probe failure paths destroy the workqueue, but the
-> normal remove path only destroys decode_workqueue.
->=20
-> As a result, removing a latency-based decoder leaves core_workqueue
+Make both headers self-contained by adding the missing includes, so
+that they no longer depend on include order or on other headers
+being pulled in first. This is needed ahead of the following commits,
+which split ti_sci.c into several new source files that will include
+ti_sci.h directly.
 
-LAT is an abbreviation to for the core responsible for entropy decoding. I =
-don't
-know what it translate to, but its not "latency", I'll do the minor edit. I=
-t
-does reduce decoding latency though :-D
+Signed-off-by: Andrew Davis <afd@ti.com>
+Signed-off-by: Beleswar Padhi <b-padhi@ti.com>
+---
+ drivers/firmware/ti/ti_sci.h           | 3 +++
+ include/linux/soc/ti/ti_sci_protocol.h | 5 +++++
+ 2 files changed, 8 insertions(+)
 
-> allocated after the device lifetime has ended.
->=20
-> Destroy core_workqueue during remove for latency-based decoder
-> architectures, matching the cleanup performed by the probe failure
-> paths.
->=20
-> This issue was found by manual code inspection.
->=20
-> Fixes: 365e4ba01df4 ("media: mtk-vcodec: Add work queue for core hardware=
- decode")
-> Cc: stable@vger.kernel.org
-> Signed-off-by: Guangshuo Li <lgs201920130244@gmail.com>
+diff --git a/drivers/firmware/ti/ti_sci.h b/drivers/firmware/ti/ti_sci.h
+index 34f7848073a0e..f2f17bcac39e4 100644
+--- a/drivers/firmware/ti/ti_sci.h
++++ b/drivers/firmware/ti/ti_sci.h
+@@ -12,6 +12,9 @@
+ #ifndef __TI_SCI_H
+ #define __TI_SCI_H
+ 
++#include <linux/compiler_types.h>
++#include <linux/types.h>
++
+ /* Generic Messages */
+ #define TI_SCI_MSG_ENABLE_WDT	0x0000
+ #define TI_SCI_MSG_WAKE_RESET	0x0001
+diff --git a/include/linux/soc/ti/ti_sci_protocol.h b/include/linux/soc/ti/ti_sci_protocol.h
+index d8efddc1d4ca4..c7bcd9562a71a 100644
+--- a/include/linux/soc/ti/ti_sci_protocol.h
++++ b/include/linux/soc/ti/ti_sci_protocol.h
+@@ -9,6 +9,11 @@
+ #ifndef __TISCI_PROTOCOL_H
+ #define __TISCI_PROTOCOL_H
+ 
++#include <linux/device.h>
++#include <linux/err.h>
++#include <linux/types.h>
++#include <linux/spinlock.h>
++
+ /**
+  * struct ti_sci_version_info - version information structure
+  * @abi_major:	Major ABI version. Change here implies risk of backward
+-- 
+2.34.1
 
-
-Reviewed-by: Nicolas Dufresne <nicolas.dufresne@collabora.com>
-
-> ---
->  .../media/platform/mediatek/vcodec/decoder/mtk_vcodec_dec_drv.c | 2 ++
->  1 file changed, 2 insertions(+)
->=20
-> diff --git a/drivers/media/platform/mediatek/vcodec/decoder/mtk_vcodec_de=
-c_drv.c b/drivers/media/platform/mediatek/vcodec/decoder/mtk_vcodec_dec_drv=
-.c
-> index e936ed8dffba..426d060d937c 100644
-> --- a/drivers/media/platform/mediatek/vcodec/decoder/mtk_vcodec_dec_drv.c
-> +++ b/drivers/media/platform/mediatek/vcodec/decoder/mtk_vcodec_dec_drv.c
-> @@ -570,6 +570,8 @@ static void mtk_vcodec_dec_remove(struct platform_dev=
-ice *pdev)
->  	struct mtk_vcodec_dec_dev *dev =3D platform_get_drvdata(pdev);
-> =20
->  	destroy_workqueue(dev->decode_workqueue);
-> +	if (IS_VDEC_LAT_ARCH(dev->vdec_pdata->hw_arch))
-> +		destroy_workqueue(dev->core_workqueue);
-> =20
->  	if (media_devnode_is_registered(dev->mdev_dec.devnode)) {
->  		media_device_unregister(&dev->mdev_dec);
-
---=-rz/nb+3HJ76xRI+V+kAt
-Content-Type: application/pgp-signature; name="signature.asc"
-Content-Description: This is a digitally signed message part
-Content-Transfer-Encoding: 7bit
-
------BEGIN PGP SIGNATURE-----
-
-iHUEABYKAB0WIQTvDVKBFcTDwhoEbxLZQZRRKWBy9AUCarwpagAKCRDZQZRRKWBy
-9DH8AQDi1rdmJFjoheKwH20vfJzgzCvgVYU5PBPqraReB1W2sgEAnGKrT/vDeefh
-OzjBK1cPvD9/FeMAd3jcnge8XJbQnQc=
-=10sJ
------END PGP SIGNATURE-----
-
---=-rz/nb+3HJ76xRI+V+kAt--
 
