@@ -4,90 +4,81 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6972ACA5FA1
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 29 Sep 2026 12:37:53 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 39F34CA5FA5
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 29 Sep 2026 12:53:11 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
-	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=rmDQUIphJFlzenQYZdfd1cedfjoPbRRqTeAYuNnfI9g=; b=dvvrsZOk/D+a15k6/brl9RGxWu
-	CMgHj58VvVytF7TShwUUytyy533pdpw2HUlfExszqZ2tyPwGHz4XqIb35t54ItLhDu2nMq9rV6IqI
-	4Aqa0EzeixUPSG7UzPy3Yzip0j4TdtUeFtDxAQDYq4xrg2VYfIv6OfXLd1Jevv6A5IwOIC/5J6I6A
-	3J3jSCvjNtsg0uRmXgjZ1yRVmjp561EPmcsLbyZpnsIheP9apkdAMObY2OsBe5PAHu8a6QnfecOsr
-	cjUxt3nbcleQA/J3GQ71mxfcKCgKFP5F0JfV6D7JNZV3AOXwtx2q1ds5PHn1w/b80Le8MJuGPRA8Z
-	ENpdLSJw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=VDqH00SR6RvY6nyf4j7UG733KpS4L5M+ZrzOn7pvgkQ=; b=Q/8uN1+T/9/r3xzc7h0dA3Ogl/
+	e/uHSdX7GtjfXLbVdpPtNlb9xIKwaaA0FaxAhQMkeaM5nwF8uVrHHOT/ZJ4g/hiZ4LDkQPWKu7ckZ
+	yXh3UWIEXQB/SQWfzsgiuQwW0yWiyZ2N+wnodzSixBfjJOZ3f4k3HILUsjFrsxkE/DV/cZQwzrw5g
+	4/8qdGhAwAWJcOm0FxOVNCDjpgM6squ8p1ZpR9QQEnhq25gvcTvG2S78XzlvvKvYCVH3DZ3QOvgft
+	TW3qTxlAfe4gAoqSF4CBSGGsXuv0RMg11vxaWFNG1/mtYnJb0Q3nQBTbQeiCFf8PUVTGlkZC/u6L6
+	ILPWKs7Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xBVDm-00000003H2A-3hNx;
-	Tue, 29 Sep 2026 10:38:02 +0000
+	id 1xBXKQ-00000003axD-1NoR;
+	Tue, 29 Sep 2026 12:53:02 +0000
 Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xBVDF-00000003GmS-2pjV
+	id 1xBXKP-00000003awv-1m9I
 	for linux-arm-kernel@bombadil.infradead.org;
-	Tue, 29 Sep 2026 10:37:29 +0000
+	Tue, 29 Sep 2026 12:53:01 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Content-Type:Content-Transfer-Encoding
-	:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:CC:To:From:
+	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:Content-Type
+	:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:Message-ID:
 	Sender:Reply-To:Content-ID:Content-Description;
-	bh=rmDQUIphJFlzenQYZdfd1cedfjoPbRRqTeAYuNnfI9g=; b=nuiZuGKTok222hhQO3eU1v3MxM
-	N1ZB+q8Hq4CPYKEhhYaWDhGIqZvQFEHEekWYy4GQl5B+9QFS1tGykVjBauI7btXllMPT5qyjEIsLc
-	QFY6usYy+SFXGwqNppk6z3uWxtUW9zc4jv2J6GAnTvHrk7rKAx0mL6mHAyOHdfKK3CAWfHS7mFWg1
-	NqarY+WWmb1KtjD1Ot33dXSm4rLDGDEOguNNCGTDD9zALV6LEgCMW114p7jC27n7m/oz9jms4tmoP
-	yAw9hYyVuYcjKw91BkHjI/sNVaWsJakj7B7Il8X+MiJW70tZo8Ee6FyGvQFnZhWZY8SU3/X36g1Re
-	THWRvQew==;
-Received: from canpmsgout05.his.huawei.com ([113.46.200.220])
-	by desiato.infradead.org with esmtps (Exim 4.99.2 #2 (Red Hat Linux))
-	id 1xBVCz-00000002VFP-0GSo
+	bh=VDqH00SR6RvY6nyf4j7UG733KpS4L5M+ZrzOn7pvgkQ=; b=INtQlkI18B5mkr82wojQsTf8ss
+	wNiNU4HbEcFqZwbckXsCogfFBG+jSIUjoF7qppSS0farLfhf7u6J6HkxKa+5T8M+WO27uUN93ixhg
+	8mtdBX2xZjJeUHY/D274JA0Qu2gCGhOVJ6G+HWKnZFvWjaqL6Py3LDlG5u4OFWWtghfNzH5owxwsv
+	ilI95g8J7H6CgO98Tc8Qk2IY3caWlX6l9TMIjKTnx0VpkjMvZFR8KtiNWWRmIk7g7yZqREmLjj4Zv
+	lud+fKo87yQMaO0v2UHheUjH04LNLO1yW6Yw2R2zurDT45D+UtN4iqVayJXifOYfORgOuIMTuGvsL
+	HQVhkBeQ==;
+Received: from foss.arm.com ([217.140.110.172])
+	by desiato.infradead.org with esmtp (Exim 4.99.2 #2 (Red Hat Linux))
+	id 1xBXKH-00000002dfb-35kv
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 29 Sep 2026 10:37:18 +0000
-dkim-signature: v=1; a=rsa-sha256; d=huawei.com; s=dkim;
-	c=relaxed/relaxed; q=dns/txt;
-	h=From;
-	bh=rmDQUIphJFlzenQYZdfd1cedfjoPbRRqTeAYuNnfI9g=;
-	b=jHcKaFYd3fJjqJagj1xIeyMwSYMdsjiQcguDOLEzj0tl19WR/yJ0SXrGlUHW/mk7QCrW1VQ5Y
-	xhaW5hEMRLECEpNfTaYWKeUqXmhg7Gk055gVJ/LKSM/i0om/C+NYedzSlVAnEsdjPjk2XzmOqra
-	J22ubbEwFtuUahAF122EQHI=
-Received: from mail.maildlp.com (unknown [172.19.163.0])
-	by canpmsgout05.his.huawei.com (SkyGuard) with ESMTPS id 4hvDnl2v1Zz12LHh;
-	Tue, 29 Sep 2026 18:24:59 +0800 (CST)
-Received: from kwepemr100010.china.huawei.com (unknown [7.202.195.125])
-	by mail.maildlp.com (Postfix) with ESMTPS id 183D240537;
-	Tue, 29 Sep 2026 18:37:02 +0800 (CST)
-Received: from huawei.com (10.50.163.32) by kwepemr100010.china.huawei.com
- (7.202.195.125) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.45; Tue, 29 Sep
- 2026 18:37:01 +0800
-From: Tian Zheng <zhengtian10@huawei.com>
-To: <maz@kernel.org>, <oupton@kernel.org>, <catalin.marinas@arm.com>,
-	<will@kernel.org>, <corbet@lwn.net>, <pbonzini@redhat.com>,
-	<zhengtian10@huawei.com>, <leo.bras@arm.com>
-CC: <yuzenghui@huawei.com>, <wangzhou1@hisilicon.com>,
-	<yangjinqian1@huawei.com>, <caijian11@h-partners.com>,
-	<liuyonglong@huawei.com>, <tangchengchang@huawei.com>,
-	<yezhenyu2@huawei.com>, <yubihong@huawei.com>, <linuxarm@huawei.com>,
-	<joey.gouly@arm.com>, <kvmarm@lists.linux.dev>, <kvm@vger.kernel.org>,
-	<linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>,
-	<seiden@linux.ibm.com>, <suzuki.poulose@arm.com>, <fuad.tabba@linux.dev>,
-	<mark.rutland@arm.com>, <seanjc@google.com>, <rdunlap@infradead.org>,
-	<linux-doc@vger.kernel.org>, <linux-kselftest@vger.kernel.org>,
-	<skhan@linuxfoundation.org>
-Subject: [PATCH v5 07/15] KVM: arm64: Add HDBSS per-vCPU buffer management
-Date: Tue, 29 Sep 2026 18:36:47 +0800
-Message-ID: <20260929103655.85107-8-zhengtian10@huawei.com>
-X-Mailer: git-send-email 2.33.0
-In-Reply-To: <20260929103655.85107-1-zhengtian10@huawei.com>
-References: <20260929103655.85107-1-zhengtian10@huawei.com>
+	Tue, 29 Sep 2026 12:52:58 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 588EE1516;
+	Tue, 29 Sep 2026 05:52:48 -0700 (PDT)
+Received: from [10.57.12.116] (unknown [10.57.12.116])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 0FEAF3FA1F;
+	Tue, 29 Sep 2026 05:52:47 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
+	t=1790686371; bh=f14FwFCPbKK3S35BKEnqQvZG/QOnL1SZdbFqwlLKR78=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=O1zil63e90lerYO4lVtEZzWYbHqj5s9wtkQw7E0YSF6B7pUVJnxOeCpoNVZLbTQIB
+	 ExK6uP3rLjxrhvwWB50spviDuuYOwU3ug7Wqw2aaKi2sKPdtNSIs0cd0wk3PZ16x4Z
+	 PEInoia2seSXa6mmYw58XYz0OuZr9maZO/wF3qqs=
+Message-ID: <b1ed9abe-73f2-4100-9d27-c26bdafd6a31@arm.com>
+Date: Tue, 29 Sep 2026 13:52:46 +0100
 MIME-Version: 1.0
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v19 4/7] firmware: arm_rmm: Add support for SRO
+Content-Language: en-GB
+To: Gavin Shan <gshan@redhat.com>, kvm@vger.kernel.org, kvmarm@lists.linux.dev
+Cc: maz@kernel.org, will@kernel.org, catalin.marinas@arm.com,
+ linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ steven.price@arm.com, aneesh.kumar@kernel.org, oupton@kernel.org,
+ joey.gouly@arm.com, tabba@google.com, yuzenghui@huawei.com,
+ linux-coco@lists.linux.dev, gankulkarni@os.amperecomputing.com,
+ sdonthineni@nvidia.com, alpergun@google.com, fj0570is@fujitsu.com,
+ WeiLin.Chang@arm.com, lpieralisi@kernel.org, enju.kohei@fujitsu.com,
+ sudeep.holla@arm.com, jonathan.cameron@oss.qualcomm.com
+References: <20260924135201.850038-1-suzuki.poulose@arm.com>
+ <20260924135201.850038-5-suzuki.poulose@arm.com>
+ <90f4d412-1499-4cc9-93b7-b735289fbe98@redhat.com>
+From: Suzuki K Poulose <suzuki.poulose@arm.com>
+In-Reply-To: <90f4d412-1499-4cc9-93b7-b735289fbe98@redhat.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 8bit
-Content-Type: text/plain
-X-Originating-IP: [10.50.163.32]
-X-ClientProxiedBy: kwepems500002.china.huawei.com (7.221.188.17) To
- kwepemr100010.china.huawei.com (7.202.195.125)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260929_113714_148785_FAC067D7 
-X-CRM114-Status: GOOD (  28.93  )
+X-CRM114-CacheID: sfid-20260929_135255_403893_69389D97 
+X-CRM114-Status: GOOD (  45.64  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -102,307 +93,589 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Eillon <yezhenyu2@huawei.com>
+Hi Gavin
 
-Each vCPU owns an HDBSS buffer, described by HDBSSBR_EL2 (base
-address and encoded size) and advanced by HDBSSPROD_EL2 as hardware
-appends entries. Tie the buffer lifetime to the vCPU: allocate at
-vCPU creation, free at destruction. The buffer is allocated zeroed,
-so a stale producer index can only ever observe invalid entries.
+On 25/09/2026 06:24, Gavin Shan wrote:
+> On 9/24/26 11:51 PM, Suzuki K Poulose wrote:
+>> From: Steven Price <steven.price@arm.com>
+>>
+>> RMM v2.0 introduces the concept of "Stateful RMI Operations" (SRO). This
+>> means that an SMC can return with an operation still in progress. The
+>> host is expected to continue the operation until it reaches a conclusion
+>> (either success or failure). During this process the RMM can request
+>> additional memory ('donate') or hand memory back to the host
+>> ('reclaim'). The host can request an in progress operation is cancelled,
+>> but still continue the operation until it has completed (otherwise the
+>> incomplete operation may cause future RMM operations to fail).
+>>
+>> The SRO is tracked using a struct rmi_sro_state object which keeps track
+>> of any memory which has been allocated but not yet consumed by the RMM
+>> or reclaimed from the RMM. This allows the memory to be reused in a
+>> future request within the same operation. It will also permit an
+>> operation to be done in a context where memory allocation may be
+>> difficult (e.g. atomic context) with the option to abort the operation
+>> and retry the memory allocation outside of the atomic context. The
+>> memory stored in the struct rmi_sro_state object can then be reused on
+>> the subsequent attempt.
+>>
+>> Wrappers for SRO RMI commands are also provided here because they depend
+>> on the rmi_sro_execute() implementation added by this patch.
+>> Delegate/undelegate handles are also added here because they now use the
+>> SRO/stateful command infrastructure and are also used for the memory
+>> DONATE/RECLAIM flows.
 
-Registers are programmed whenever the vCPU owns a buffer, regardless
-of whether HDBSS is enabled. The feature can be turned on
-mid-KVM_RUN, and hardware dirty-state updates write to
-HDBSSBR_EL2.BADDR without any fault, so the registers must already
-be in place by then. HDBSSPROD_EL2 is preserved across context
-switches and vCPU migration.
+...
 
-Two details: the buddy order is kept separate from the HDBSSBR_EL2.SZ
-encoding, since the two only coincide on 4KB pages; and kvm_share_hyp()
-is unwound in kvm_arch_vcpu_create() when the HDBSS allocation fails.
+>>
+> 
+> Some nitpicks below. With them addressed:
+> 
+> Reviewed-by: Gavin Shan <gshan@redhat.com>
 
-Signed-off-by: Eillon <yezhenyu2@huawei.com>
-Signed-off-by: Tian Zheng <zhengtian10@huawei.com>
----
- arch/arm64/include/asm/kvm_dirty_bit.h | 28 +++++++++++++
- arch/arm64/include/asm/kvm_host.h      | 13 ++++++
- arch/arm64/include/asm/sysreg.h        |  9 +++++
- arch/arm64/kvm/Makefile                |  1 +
- arch/arm64/kvm/arm.c                   | 14 ++++++-
- arch/arm64/kvm/dirty_bit.c             | 55 ++++++++++++++++++++++++++
- arch/arm64/kvm/hyp/vhe/switch.c        | 17 ++++++++
- arch/arm64/kvm/reset.c                 |  3 ++
- 8 files changed, 138 insertions(+), 2 deletions(-)
- create mode 100644 arch/arm64/include/asm/kvm_dirty_bit.h
- create mode 100644 arch/arm64/kvm/dirty_bit.c
+Thank you, responses inline.
 
-diff --git a/arch/arm64/include/asm/kvm_dirty_bit.h b/arch/arm64/include/asm/kvm_dirty_bit.h
-new file mode 100644
-index 000000000000..fe703f02626b
---- /dev/null
-+++ b/arch/arm64/include/asm/kvm_dirty_bit.h
-@@ -0,0 +1,28 @@
-+/* SPDX-License-Identifier: GPL-2.0-only */
-+/*
-+ * Per-vCPU buffer management for HDBSS-based dirty page tracking.
-+ *
-+ * Copyright (C) 2026 Huawei Technologies Co., Ltd
-+ * Author: Tian Zheng <zhengtian10@huawei.com>
-+ */
-+
-+#ifndef __ARM64_KVM_DIRTY_BIT_H__
-+#define __ARM64_KVM_DIRTY_BIT_H__
-+
-+#include <asm/kvm_pgtable.h>
-+#include <asm/sysreg.h>
-+#include <linux/sizes.h>
-+
-+#define KVM_ARM_HDBSS_DEFAULT_SIZE  PAGE_SIZE
-+#define KVM_ARM_HDBSS_MAX_SIZE      SZ_2M
-+
-+/* 0 means unconfigured, fall back to one page per vCPU. */
-+static inline u32 kvm_hdbss_buffer_size(struct kvm *kvm)
-+{
-+	return kvm->arch.hdbss_buffer_size ?: KVM_ARM_HDBSS_DEFAULT_SIZE;
-+}
-+
-+int kvm_arm_vcpu_alloc_hdbss(struct kvm_vcpu *vcpu);
-+void kvm_arm_vcpu_free_hdbss(struct kvm_vcpu *vcpu);
-+
-+#endif /* __ARM64_KVM_DIRTY_BIT_H__ */
-diff --git a/arch/arm64/include/asm/kvm_host.h b/arch/arm64/include/asm/kvm_host.h
-index 86a4d6e50934..c8fc29f3db75 100644
---- a/arch/arm64/include/asm/kvm_host.h
-+++ b/arch/arm64/include/asm/kvm_host.h
-@@ -425,6 +425,9 @@ struct kvm_arch {
- 	 */
- 	struct kvm_protected_vm pkvm;
+> 
+>> diff --git a/drivers/firmware/arm_rmm/rmi.c b/drivers/firmware/ 
+>> arm_rmm/rmi.c
+>> index c9ea964fd9081..035f21d3f26b6 100644
+>> --- a/drivers/firmware/arm_rmm/rmi.c
+>> +++ b/drivers/firmware/arm_rmm/rmi.c
+>> @@ -14,6 +14,672 @@
+>>   /* RMM defines RmiFeatureRegister0 to RmiFeatureRegister5. */
+>>   static unsigned long rmi_feat_reg_cache[5] __ro_after_init;
+>> +/**
 
-+	/* HDBSS: per-VM buffer size in bytes (0 = not configured, use default) */
-+	u32 hdbss_buffer_size;
-+
- #ifdef CONFIG_PTDUMP_STAGE2_DEBUGFS
- 	/* Nested virtualization info */
- 	struct dentry *debugfs_nv_dentry;
-@@ -844,6 +847,13 @@ struct vcpu_reset_state {
- 	bool		reset;
- };
+Dropped ** => *, to be consistent with the rest of the file.
 
-+struct vcpu_hdbss_state {
-+	struct page *hdbss_pg;		/* HDBSS buffer */
-+	u64 hdbssbr_el2;		/* programmed into the CPU on load */
-+	u64 hdbssprod_el2;		/* producer index, saved on put */
-+	unsigned int buddy_order;	/* allocation order for __free_pages() */
-+};
-+
- struct vncr_tlb;
+>> + * rmi_granule_range_undelegate() - Undelegate a range of granules
+>> + * @base: Base PA of the target range
+>> + * @top: Top PA of the target range
+>> + * @out_top: Returns the top PA of range whose state is undelegated
+>> + *
 
- struct kvm_vcpu_arch {
-@@ -951,6 +961,9 @@ struct kvm_vcpu_arch {
 
- 	/* Hyp-readable copy of kvm_vcpu::pid */
- 	pid_t pid;
-+
-+	/* HDBSS buffer state */
-+	struct vcpu_hdbss_state hdbss;
- };
+>> +
+>> +int rmi_undelegate_range(phys_addr_t phys,
+>> +             unsigned long size)
+>> +{
+>> +    long ret = 0;
+>> +    unsigned long top = phys + size;
+>> +    unsigned long out_top;
+>> +
+>> +    while (phys < top) {
+>> +        ret = rmi_granule_range_undelegate(phys, top, &out_top);
+>> +
+>> +        if (ret == RMI_SUCCESS) {
+>> +            /* Buggy RMM ? Let the caller leak the pages */
+>> +            if (WARN_ON(out_top <= phys))
+>> +                return -ENXIO;
+>> +            phys = out_top;
+>> +        } else {
+>> +            break;
+>> +        }
+>> +    }
+> 
+> Jonathan already suggested to avoid the unnecessary nested if statements:
+> 
+>          while (phys < top) {
+>                  ret = rmi_granule_range_undelegate(phys, top, &out_top);
+>                  if (ret != RMI_SUCCESS)
+>                          break;
+> 
+>                  /* Buggy RMM ? Let the caller leak the pages */
+>                  if (WARN_ON(out_top <= phys)) {
+>                          ret = -ENXIO;
+>                          break;
+>                  }
+> 
+>                  phys = out_top;
+>          }
+> 
 
- /*
-diff --git a/arch/arm64/include/asm/sysreg.h b/arch/arm64/include/asm/sysreg.h
-index 7aa08d59d494..7c71560b57e4 100644
---- a/arch/arm64/include/asm/sysreg.h
-+++ b/arch/arm64/include/asm/sysreg.h
-@@ -1039,6 +1039,15 @@
+Yep, I have got this.
 
- #define GCS_CAP(x)	((((unsigned long)x) & GCS_CAP_ADDR_MASK) | \
- 					       GCS_CAP_VALID_TOKEN)
-+
-+/*
-+ * Definitions for the HDBSS feature
-+ */
-+#define HDBSSBR_EL2(baddr, sz)	(((baddr) & HDBSSBR_EL2_BADDR_MASK) | \
-+				 FIELD_PREP(HDBSSBR_EL2_SZ_MASK, sz))
-+
-+#define HDBSSPROD_IDX(prod)	FIELD_GET(HDBSSPROD_EL2_INDEX_MASK, prod)
-+
- /*
-  * Definitions for GICv5 instructions
-  */
-diff --git a/arch/arm64/kvm/Makefile b/arch/arm64/kvm/Makefile
-index 59612d2f277c..ec2749af64fa 100644
---- a/arch/arm64/kvm/Makefile
-+++ b/arch/arm64/kvm/Makefile
-@@ -18,6 +18,7 @@ kvm-y += arm.o mmu.o mmio.o psci.o hypercalls.o pvtime.o \
- 	 guest.o debug.o reset.o sys_regs.o stacktrace.o \
- 	 vgic-sys-reg-v3.o fpsimd.o pkvm.o \
- 	 arch_timer.o trng.o vmid.o emulate-nested.o nested.o at.o \
-+	 dirty_bit.o \
- 	 vgic/vgic.o vgic/vgic-init.o \
- 	 vgic/vgic-irqfd.o vgic/vgic-v2.o \
- 	 vgic/vgic-v3.o vgic/vgic-v4.o \
-diff --git a/arch/arm64/kvm/arm.c b/arch/arm64/kvm/arm.c
-index d9ad765943d9..5ea4ac26995e 100644
---- a/arch/arm64/kvm/arm.c
-+++ b/arch/arm64/kvm/arm.c
-@@ -36,6 +36,7 @@
- #include <asm/virt.h>
- #include <asm/kvm_arm.h>
- #include <asm/kvm_asm.h>
-+#include <asm/kvm_dirty_bit.h>
- #include <asm/kvm_emulate.h>
- #include <asm/kvm_hyp.h>
- #include <asm/kvm_mmu.h>
-@@ -580,10 +581,19 @@ int kvm_arch_vcpu_create(struct kvm_vcpu *vcpu)
- 	}
+>> +
+>> +    return ret;
+>> +}
+>> +EXPORT_SYMBOL_GPL(rmi_undelegate_range);
+>> +
+>> +/**
+> 
+> "/**" -> "/*", to be consistent to what we have for rmi_delegate_range().
+> 
 
- 	err = kvm_share_hyp(vcpu, vcpu + 1);
--	if (err)
-+	if (err) {
- 		kvm_vgic_vcpu_destroy(vcpu);
-+		return err;
-+	}
+Same here
 
--	return err;
-+	err = kvm_arm_vcpu_alloc_hdbss(vcpu);
-+	if (err) {
-+		kvm_unshare_hyp(vcpu, vcpu + 1);
-+		kvm_vgic_vcpu_destroy(vcpu);
-+		return err;
-+	}
-+
-+	return 0;
- }
+>> + * rmi_granule_range_delegate() - Delegate granules
+>> + * @base: PA of the first granule of the range
+>> + * @top: PA of the first granule after the range
+>> + * @out_top: PA of the first granule not delegated
+>> + *
+>> + * Delegate a range of granule for use by the realm world. If the 
+>> entire range
+>> + * was delegated then @out_top == @top, otherwise the function should 
+>> be called
+>> + * again with @base == @out_top.
+>> + *
+>> + * Return: 0 on success, positive RMI result code or negative Linux 
+>> error code
+>> + */
+>> +static long rmi_granule_range_delegate(unsigned long base,
+>> +                       unsigned long top,
+>> +                       unsigned long *out_top)
+>> +{
+>> +    struct arm_smccc_1_2_regs regs = {
+>> +        SMC_RMI_GRANULE_RANGE_DELEGATE, base, top
+>> +    };
+>> +    long ret = rmi_sro_execute(&regs);
+>> +
+>> +    if (ret == RMI_SUCCESS && out_top)
+>> +        *out_top = regs.a1;
+>> +
+>> +    return ret;
+>> +}
+> 
+> 'inline' is missed for rmi_granule_range_delegate() since its counterpart
+> rmi_granule_range_undelegate() has 'inline' property.
+> 
+> static inline rmi_granule_range_delegate(unsigned long base,
+>                       unsigned long top,
+>                       unsigned long *out_top)
 
- void kvm_arch_vcpu_postcreate(struct kvm_vcpu *vcpu)
-diff --git a/arch/arm64/kvm/dirty_bit.c b/arch/arm64/kvm/dirty_bit.c
-new file mode 100644
-index 000000000000..f9aeb9f34ad0
---- /dev/null
-+++ b/arch/arm64/kvm/dirty_bit.c
-@@ -0,0 +1,55 @@
-+// SPDX-License-Identifier: GPL-2.0-only
-+/*
-+ * Per-vCPU HDBSS buffer management.
-+ *
-+ * Copyright (C) 2026 Huawei Technologies Co., Ltd
-+ * Author: Tian Zheng <zhengtian10@huawei.com>
-+ */
-+
-+#include <asm/kvm_dirty_bit.h>
-+#include <asm/kvm_mmu.h>
-+#include <asm/sysreg.h>
-+#include <linux/gfp.h>
-+#include <linux/kconfig.h>
-+#include <linux/log2.h>
-+#include <linux/mm.h>
-+
-+int kvm_arm_vcpu_alloc_hdbss(struct kvm_vcpu *vcpu)
-+{
-+	struct page *hdbss_pg;
-+	u32 size;
-+	unsigned int buddy_order;
-+	u32 sz_encoded;
-+
-+	if (vcpu->arch.hdbss.hdbss_pg || !system_supports_hdbss())
-+		return 0;
-+
-+	size = kvm_hdbss_buffer_size(vcpu->kvm);
-+
-+	buddy_order = get_order(size);
-+	sz_encoded = ilog2(size) - 12;
-+
-+	hdbss_pg = alloc_pages(GFP_KERNEL_ACCOUNT | __GFP_ZERO, buddy_order);
-+	if (!hdbss_pg)
-+		return -ENOMEM;
-+
-+	vcpu->arch.hdbss = (struct vcpu_hdbss_state) {
-+		.hdbss_pg = hdbss_pg,
-+		.hdbssbr_el2 = HDBSSBR_EL2(page_to_phys(hdbss_pg), sz_encoded),
-+		.hdbssprod_el2 = 0,
-+		.buddy_order = buddy_order,
-+	};
-+
-+	return 0;
-+}
-+
-+void kvm_arm_vcpu_free_hdbss(struct kvm_vcpu *vcpu)
-+{
-+	if (!vcpu->arch.hdbss.hdbss_pg)
-+		return;
-+
-+	__free_pages(vcpu->arch.hdbss.hdbss_pg, vcpu->arch.hdbss.buddy_order);
-+
-+	vcpu->arch.hdbss.hdbss_pg = NULL;
-+	vcpu->arch.hdbss.hdbssbr_el2 = 0;
-+}
-diff --git a/arch/arm64/kvm/hyp/vhe/switch.c b/arch/arm64/kvm/hyp/vhe/switch.c
-index 7875911c0506..922fc9260e11 100644
---- a/arch/arm64/kvm/hyp/vhe/switch.c
-+++ b/arch/arm64/kvm/hyp/vhe/switch.c
-@@ -19,6 +19,7 @@
- #include <asm/cpufeature.h>
- #include <asm/kprobes.h>
- #include <asm/kvm_asm.h>
-+#include <asm/kvm_dirty_bit.h>
- #include <asm/kvm_emulate.h>
- #include <asm/kvm_hyp.h>
- #include <asm/kvm_mmu.h>
-@@ -219,6 +220,17 @@ static void __vcpu_put_deactivate_traps(struct kvm_vcpu *vcpu)
- 	local_irq_restore(flags);
- }
+I have dropped "inline" for all, to let the compiler do its job.
 
-+static void __load_hdbss(struct kvm_vcpu *vcpu)
-+{
-+	if (!vcpu->arch.hdbss.hdbss_pg)
-+		return;
-+
-+	write_sysreg_s(vcpu->arch.hdbss.hdbssbr_el2, SYS_HDBSSBR_EL2);
-+	write_sysreg_s(vcpu->arch.hdbss.hdbssprod_el2, SYS_HDBSSPROD_EL2);
-+
-+	isb();
-+}
-+
- void kvm_vcpu_load_vhe(struct kvm_vcpu *vcpu)
- {
- 	host_data_ptr(host_ctxt)->__hyp_running_vcpu = vcpu;
-@@ -226,10 +238,15 @@ void kvm_vcpu_load_vhe(struct kvm_vcpu *vcpu)
- 	__vcpu_load_switch_sysregs(vcpu);
- 	__vcpu_load_activate_traps(vcpu);
- 	__load_stage2(vcpu->arch.hw_mmu);
-+	__load_hdbss(vcpu);
- }
+> 
+>> +
+>> +/*
+>> + * rmi_delegate_range: Delegate a physically contiguous range.
+>> + * We iterate over the range until we hit an error. So we may
+>> + * return an error, but with a partially delegated range. The
+>> + * caller must always look at the @out_phys to figure out, how
+>> + * much progress was made.
+>> + *
+>> + * @phys:    Base of the physical address range
+>> + * @size:    Size of the physical address range
+>> + * @out_phys:    Top of the range that was completed. This is always
+>> + *        valid, irrespective of the result.
+>> + *
+>> + * Returns RMI_SUCCESS on successful completion. Otherwise, returns
+>> + * the Linux error number or the RMI status code as described
+>> + * by the RMM spec for RMI_GRANULE_DELEGATE_RANGE or RMI_BLOCKED.
+>> + */
+>> +int rmi_delegate_range(phys_addr_t phys,
+>> +               unsigned long size,
+>> +               phys_addr_t *out_phys)
+>> +{
+>> +    long ret = 0;
+>> +    unsigned long top = phys + size;
+>> +    unsigned long out_top;
+>> +
+>> +    while (phys < top) {
+>> +        ret = rmi_granule_range_delegate(phys, top, &out_top);
+>> +
+>> +        if (ret == RMI_SUCCESS) {
+>> +            /*
+>> +             * Buggy RMM ? Let the caller handle the failure.
+>> +             * We can't know how far the RMM delegated in this
+>> +             * iteration, so we return the best known good limit.
+>> +             * RMM can deal with granules already in "undelegated"
+>> +             * in a given range. So, it is fine for the caller to
+>> +             * try the range we return.
+>> +             */
+>> +            if (WARN_ON(out_top <= phys)) {
+>> +                ret = -ENXIO;
+>> +                break;
+>> +            }
+>> +            phys = out_top;
+>> +        } else {
+>> +            break;
+>> +        }
+>> +    }
+> 
+> The unecessary nested if statements can be avoided:
+> 
+>          while (phys < top) {
+>                  ret = rmi_granule_range_delegate(phys, top, &out_top);
+>                  if (ret != RMI_SUCCESS)
+>                          break;
+> 
+>                  /*
+>                   * Buggy RMM? Let the caller handle the failure. We can't
+>                   * know how far the RMM delegated in this iteration, so we
+>                   * return the best known good limit. RMM can deal with 
+> granules
+>                   * already in "undelegated" in a given range. So it is 
+> fine
+>                   * for the caller to try the range we return.
+>                   */
+>                  if (WARN_ON(out_top <= phys)) {
+>                          ret = -ENXIO;
+>                          break;
+>                  }
+> 
+>                  phys = out_top;
+>          }
+> 
 
- void kvm_vcpu_put_vhe(struct kvm_vcpu *vcpu)
- {
-+	/* Saved under the same ownership condition as __load_hdbss(). */
-+	if (vcpu->arch.hdbss.hdbss_pg)
-+		vcpu->arch.hdbss.hdbssprod_el2 = read_sysreg_s(SYS_HDBSSPROD_EL2);
-+
- 	__vcpu_put_deactivate_traps(vcpu);
- 	__vcpu_put_switch_sysregs(vcpu);
+Ack, I have got it.
 
-diff --git a/arch/arm64/kvm/reset.c b/arch/arm64/kvm/reset.c
-index 10eb7249aa9e..05ebe304830e 100644
---- a/arch/arm64/kvm/reset.c
-+++ b/arch/arm64/kvm/reset.c
-@@ -25,6 +25,7 @@
- #include <asm/ptrace.h>
- #include <asm/kvm_arm.h>
- #include <asm/kvm_asm.h>
-+#include <asm/kvm_dirty_bit.h>
- #include <asm/kvm_emulate.h>
- #include <asm/kvm_mmu.h>
- #include <asm/kvm_nested.h>
-@@ -149,6 +150,8 @@ void kvm_arm_vcpu_destroy(struct kvm_vcpu *vcpu)
- 	free_page((unsigned long)vcpu->arch.ctxt.vncr_array);
- 	kfree(vcpu->arch.vncr_tlb);
- 	kfree(vcpu->arch.ccsidr);
-+
-+	kvm_arm_vcpu_free_hdbss(vcpu);
- }
+>> +
+>> +    if (out_phys)
+>> +        *out_phys = phys;
+>> +
+>> +    return ret;
+>> +}
+>> +EXPORT_SYMBOL_GPL(rmi_delegate_range);
+>> +
+> 
+> Those 4 functions would come in order: the granules is delegated before 
+> they
+> can be undelegated. So I would suggest to move those function to have the
+> following order: rmi_granule_range_delegate(), rmi_delegate_range(),
+> rmi_granule_range_undelegate(), rmi_undelegate_range().
+> 
 
- static void kvm_vcpu_reset_sve(struct kvm_vcpu *vcpu)
---
-2.43.0
+Ack. I kept the other order, because one of the earlier versions,
+we tried to undelegate things back if delegate failed in between.
+But we dropped it in favor of leaving it to the caller.
 
+> 
+>> +/*
+>> + * Convert the RmiAddrBlockSize to actual size. This is used in 
+>> RmiDonateReq
+>> + * and RmiAddrRangeDesc*.
+>> + */
+>> +static unsigned long rmi_addr_block_size_to_bytes(unsigned long 
+>> block_size_fld)
+>> +{
+>> +    return BIT(ARM64_HW_PGTABLE_LEVEL_SHIFT(3 - block_size_fld));
+>> +}
+>> +
+> 
+> Would be nice to have 'inline'.
+> 
+> static inline unsigned long rmi_addr_block_size_to_bytes(unsigned long 
+> block_size_fld)
+> 
+
+
+>> +/*
+>> + * free_addr_range: Free memory described by the address range entry, 
+>> which may
+>> + *            be partially consumed by RMM.
+>> + *
+>> + * @entry: RMI_ADDR_RANGE descriptor
+>> + * @consumed_size: Page aligned size consumed by the RMM from the 
+>> address range.
+>> + *
+>> + * If the state of the address is DELEGATED, undelegate it back, 
+>> before freeing.
+>> + * Leaks the memory if we cannot undelegate the range.
+>> + */
+>> +static void free_addr_range(unsigned long entry, unsigned long 
+>> consumed_size)
+>> +{
+>> +    unsigned long phys = RMI_ADDR_RANGE_ADDR(entry);
+>> +    unsigned long block_size_fld = RMI_ADDR_RANGE_BLOCK_SIZE(entry);
+>> +    unsigned long count = RMI_ADDR_RANGE_COUNT(entry);
+>> +    unsigned long state = RMI_ADDR_RANGE_STATE(entry);
+>> +    unsigned long size = rmi_addr_block_size_to_bytes(block_size_fld) 
+>> * count;
+>> +
+>> +    WARN_ON(!PAGE_ALIGNED(phys) || !PAGE_ALIGNED(consumed_size));
+>> +
+>> +    /* We shouldn't see this in reclaim path, leak it for now  */
+>> +    if (WARN_ON(state == RMI_OP_MEM_CONDITIONAL))
+>> +        return;
+>> +
+>> +    /* Adjust the address and size for partially consumed entry */
+>> +    phys += consumed_size;
+>> +    size -= consumed_size;
+>> +    /*
+>> +     * Undelegate the pages back if required. If we can't
+>> +     * change them back, leak the pages.
+>> +     */
+>> +    if (state == RMI_OP_MEM_DELEGATED &&
+>> +        WARN_ON(rmi_undelegate_range(phys, size)))
+>> +        return;
+>> +    free_pages_exact(phys_to_virt(phys), size);
+>> +}
+>> +
+>> +static void rmi_op_continue(unsigned long sro_handle, unsigned long 
+>> flags,
+>> +                struct arm_smccc_1_2_regs *out_regs)
+>> +{
+>> +    *out_regs = (struct arm_smccc_1_2_regs) {
+>> +        SMC_RMI_OP_CONTINUE, sro_handle, flags
+>> +    };
+>> +
+>> +    rmi_smccc_invoke(out_regs);
+>> +}
+>> +
+>> +static void rmi_op_cancel(unsigned long sro_handle,
+>> +              struct arm_smccc_1_2_regs *out_regs)
+>> +{
+>> +    *out_regs = (struct arm_smccc_1_2_regs) {
+>> +        SMC_RMI_OP_CANCEL, sro_handle
+>> +    };
+>> +
+>> +    rmi_smccc_invoke(out_regs);
+>> +}
+>> +
+>> +static void rmi_op_mem_donate(unsigned long sro_handle, unsigned long 
+>> list_addr,
+>> +                  unsigned long list_count, unsigned long flags,
+>> +                  struct arm_smccc_1_2_regs *out_regs)
+>> +{
+>> +    *out_regs = (struct arm_smccc_1_2_regs) {
+>> +        SMC_RMI_OP_MEM_DONATE, sro_handle, list_addr, list_count, flags
+>> +    };
+>> +
+>> +    /*
+>> +     * The output donated count (a1) is always valid, irrespective
+>> +     * of the return result. i.e., 0 if there was an error
+>> +     */
+>> +    rmi_smccc_invoke(out_regs);
+>> +}
+>> +
+>> +static void rmi_op_mem_reclaim(unsigned long sro_handle,
+>> +                   unsigned long list_addr,
+>> +                   unsigned long list_count,
+>> +                   struct arm_smccc_1_2_regs *out_regs)
+>> +{
+>> +    *out_regs = (struct arm_smccc_1_2_regs) {
+>> +        SMC_RMI_OP_MEM_RECLAIM, sro_handle, list_addr, list_count
+>> +    };
+>> +
+>> +    rmi_smccc_invoke(out_regs);
+>> +}
+>> +
+> 
+> Would be nice to have 'inline' for above 4 helpers: rmi_op_{continue, 
+> cancel, mem_donate, mem_reclaim}().
+> 
+
+Like I said above, given this is inside .c file, I would leave them as
+plain static to let the compiler do what is best.
+
+
+>> +/*
+>> + * rmi_free_delegated_page: Undelegate and free a page that has been 
+>> previously
+>> + * delegated to the Realm world. If we are unable to undelegate it, 
+>> the page is
+>> + * leaked.
+>> + * NOTE: Do not use this helper if the page could be concurrently 
+>> operated by
+>> + * another thread, as it may get leaked if the undelegation fails due 
+>> to RMI_BLOCKED
+>> + */
+>> +int rmi_free_delegated_page(phys_addr_t phys)
+>> +{
+>> +    if (WARN_ON_ONCE(rmi_undelegate_page(phys))) {
+>> +        /* Undelegate failed: leak the page */
+>> +        return -EBUSY;
+>> +    }
+>> +
+>> +    free_page((unsigned long)phys_to_virt(phys));
+>> +
+>> +    return 0;
+>> +}
+>> +EXPORT_SYMBOL_GPL(rmi_free_delegated_page);
+>> +
+> 
+> I would move this function right after rmi_undelegate_range() since 
+> their syntaxes are
+> relevant: rmi_undelegate_range() undelegates a range of graunles, and 
+> rmi_free_delegated_page()
+> undelegatge one granule (page) and then free it.
+
+Ack
+> 
+>> +static int rmi_sro_ensure_capacity(struct rmi_sro_state *sro,
+>> +                   unsigned long count)
+>> +{
+>> +    if (WARN_ON_ONCE(sro->addr_count > RMI_MAX_ADDR_LIST))
+>> +        return -EOVERFLOW;
+> 
+> I guess this would be:
+> 
+>      if (WARN_ON_ONCE(sro->addr_count >= RMI_MAX_ADDR_LIST))
+
+addr_count can reach RMI_MAX_ADDR_LIST, as we use it as an array
+size, i.e., 0..addr_count-1. That check is fine as it is.
+
+
+> 
+>> +
+>> +    if (count > RMI_MAX_ADDR_LIST - sro->addr_count)
+>> +        return -ENOSPC;
+>> +
+>> +    return 0;
+>> +}
+>> +
+>> +static int rmi_sro_donate_contig(struct rmi_sro_state *sro,
+>> +                 unsigned long sro_handle,
+>> +                 unsigned long donatereq,
+>> +                 struct arm_smccc_1_2_regs *out_regs,
+>> +                 gfp_t gfp)
+>> +{
+>> +    unsigned long block_size_fld = RMI_DONATE_BLOCK_SIZE(donatereq);
+>> +    unsigned long block_size = 
+>> rmi_addr_block_size_to_bytes(block_size_fld);
+>> +    unsigned long count = RMI_DONATE_COUNT(donatereq);
+>> +    unsigned long state = RMI_DONATE_STATE(donatereq);
+>> +    unsigned long size = block_size * count;
+>> +    unsigned long addr_range;
+>> +    unsigned long donated_granules;
+>> +    unsigned long donated_size;
+>> +    int ret;
+>> +    void *virt;
+>> +    phys_addr_t phys;
+>> +
+>> +    /*
+>> +     * The RMM specification requires contiguous allocations are 
+>> always a
+>> +     * power of 2
+>> +     */
+>> +    if (WARN_ON_ONCE(!is_power_of_2(size)))
+>> +        return -EINVAL;
+>> +
+>> +    /* Reuse the cached address range if we have one */
+>> +    for (int i = 0; i < sro->addr_count; i++) {
+>> +        unsigned long entry = sro->addr_list[i];
+>> +
+>> +        if (RMI_ADDR_RANGE_BLOCK_SIZE(entry) == block_size_fld &&
+>> +            RMI_ADDR_RANGE_COUNT(entry) == count &&
+>> +            RMI_ADDR_RANGE_STATE(entry) == state &&
+>> +            IS_ALIGNED(RMI_ADDR_RANGE_ADDR(entry), size)) {
+>> +            sro->addr_count--;
+>> +            swap(sro->addr_list[sro->addr_count],
+>> +                 sro->addr_list[i]);
+>> +
+>> +            goto mem_donate;
+>> +        }
+>> +    }
+>> +
+>> +    ret = rmi_sro_ensure_capacity(sro, 1);
+>> +    if (ret)
+>> +        return ret;
+>> +
+>> +    virt = alloc_pages_exact(size, gfp);
+>> +    if (!virt)
+>> +        return -ENOMEM;
+>> +    phys = virt_to_phys(virt);
+>> +
+>> +    if (state == RMI_OP_MEM_DELEGATED) {
+>> +        phys_addr_t delegated_phys;
+>> +
+>> +        if (rmi_delegate_range(phys, size, &delegated_phys)) {
+>> +            if (!rmi_undelegate_range(phys, delegated_phys - phys))
+>> +                free_pages_exact(virt, size);
+>> +            return -ENXIO;
+>> +        }
+>> +    }
+>> +
+>> +    addr_range = phys & RMI_ADDR_RANGE_ADDR_MASK;
+>> +    FIELD_MODIFY(RMI_ADDR_RANGE_BLOCK_SIZE_MASK, &addr_range, 
+>> block_size_fld);
+>> +    FIELD_MODIFY(RMI_ADDR_RANGE_COUNT_MASK, &addr_range, count);
+>> +    FIELD_MODIFY(RMI_ADDR_RANGE_STATE_MASK, &addr_range, state);
+>> +
+>> +    sro->addr_list[sro->addr_count] = addr_range;
+>> +
+>> +mem_donate:
+>> +    rmi_op_mem_donate(sro_handle,
+>> +              virt_to_phys(&sro->addr_list[sro->addr_count]), 1,
+>> +              0, out_regs);
+>> +    donated_granules = out_regs->a1;
+>> +
+>> +    if (WARN_ON(donated_granules > (size >> PAGE_SHIFT)))
+>> +        donated_granules = (size >> PAGE_SHIFT);
+>> +
+>> +    donated_size = donated_granules << PAGE_SHIFT;
+>> +
+>> +    /* All granules consumed by the RMM */
+>> +    if (donated_size == size)
+>> +        return 0;
+>> +    /* No granules were consumed by the RMM, cache them */
+>> +    if (donated_granules == 0) {
+>> +        sro->addr_count++;
+>> +        return 0;
+>> +    }
+>> +
+> 
+> The first check is done against 'donated_size' and second one is done
+> against 'donated_granules'. Besides, the local variable 'donated_granules'
+> can be dropped as explained below.
+
+Ack, I see, it is a bit redundant.
+
+> 
+>> +    /* The granules were partially consumed, reclaim the unused ones. */
+>> +    free_addr_range(sro->addr_list[sro->addr_count], donated_size);
+>> +
+>> +    return 0;
+>> +}
+>> +
+> 
+> The local variable 'donated_granules' is redundant since we already have 
+> 'donated_size'.
+> 'donated_granules' can be dropped if 'donated_size' is updated with 
+> 'out_regs->a1 << PAGE_SHIFT'
+> in the first place, as below:
+> 
+>          donated_size = out_regs->a1 << PAGE_SHIFT;
+>          if (WARN_ON(donated_size > size))
+>                  donated_size = size;
+> 
+>          /* All granules consumed by the RMM */
+>          if (donated_size == size)
+>                  return 0;
+> 
+>          /* No granules were consumed by the RMM, cache them */
+>          if (donated_size == 0) {
+>                  sro->addr_count++;
+>                  return 0;
+>          }
+> 
+>          /* The granules were partially consumed, reclaim the unused 
+> ones. */
+>          free_addr_range(sro->addr_list[sro->addr_count], donated_size);
+> 
+>      return 0;
+> 
+>
+
+Ack. I have dropped donated_granules variable.
+
+>> +
+>> +long rmi_sro_memxfer_execute(struct rmi_sro_state *sro, gfp_t gfp)
+>> +{
+>> +    struct arm_smccc_1_2_regs *regs = &sro->regs;
+>> +    bool cancelled = false;
+>> +    unsigned long sro_handle;
+>> +
+>> +    rmi_smccc_invoke(regs);
+>> +
+>> +    sro_handle = regs->a1;
+>> +    while (RMI_RESULT_STATUS(regs->a0) == RMI_INCOMPLETE) {
+
+...
+
+>> +            break;
+>> +        default:
+>> +            WARN_ON_ONCE(1);
+>> +            ret = -ENXIO;
+>> +            break;
+>                          ^^^^^
+> 
+> The 'break' can be dropped.
+> 
+
+Ack
+
+
+
+Suzuki
 
