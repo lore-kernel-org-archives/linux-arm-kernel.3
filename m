@@ -4,116 +4,139 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E7BCECA5FA7
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 29 Sep 2026 16:48:39 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 15D1ECA5FA5
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 29 Sep 2026 16:49:13 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:Date:Message-Id:Subject:References:In-Reply-To:Cc:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:In-Reply-To:References:CC:To:Subject:From:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=h7fhQ9KGGUbPPoOeQdI2Gd4sk4/oPY6yvPOncKOrRvQ=; b=KNuDR+pIqcurdTMho5WAo/YY7L
-	OqS1uFcRCTfBbtCiw3JTtlRkwUY3FjLySS+k90BhSlZ2m786GQRTzyJNUwbE7A846ORDVYJXqLElU
-	Xvhg3EDaconqYpyCPaHTfeq0vyZTmQWx6TIu9QCocELs1A7FcoMK9JFoiAvChe2qwZP0d+hoUrSpG
-	DPawlJ7697u+OC5lmcazJvLwiYg8WOPGaA+LCcjbBBLQkDIURzq814T9BdWWKhZlrD6FJYz+sgtc9
-	gY9d0gfOqGa4A2VB0op/bIXZ7YaJmLM8O1mY+EFBfQoW55Efc9TdLfhg2KLSWsLt1GeNfYEiplhcp
-	ZHKBarnQ==;
+	bh=t8EcGFG35fUvCgI3SEmlpZItRnkF1dPhyJLO4GABlxk=; b=RXPU4tK9pqtQVXcxI5ISJ5U4Ar
+	vLwOrJfDn/qBcJ4umWQLQbxhnS2oJfeiJNg731TCp3H3Oeg7xRIsVJhrxwVElnQ0OL8Sm8mfKo4js
+	BImb3CyWbXL5nzmqNMZux+cp0cxmEUZJAXDrFOTQSAUxYokUN5gdxPJQ/uy1TUZbTyZ+miA58O+2O
+	IFk+f1enblVoZ7FEGoaxltJn+GKV1IF2zqOgHNI03gUG4E1QENl4BW//2xdkxTkz4af3YQWx5XD0w
+	5xUOgcfeeJ69ApDLu5s5xdulD/nPXzyM6inWbvipfri1lxxArizzzmw/WR2DsAjsojs7gcolT4+15
+	cFrajcMQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xBb0L-000000046JY-2sqA;
-	Tue, 29 Sep 2026 16:48:33 +0000
-Received: from us-smtp-delivery-124.mimecast.com ([170.10.129.124])
+	id 1xBb0q-000000046Nj-3ae3;
+	Tue, 29 Sep 2026 16:49:04 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xBb0J-000000046J7-0NQO
+	id 1xBb0X-000000046LJ-0nBf
+	for linux-arm-kernel@bombadil.infradead.org;
+	Tue, 29 Sep 2026 16:48:45 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:Content-Type
+	:In-Reply-To:References:CC:To:Subject:From:MIME-Version:Date:Message-ID:
+	Sender:Reply-To:Content-ID:Content-Description;
+	bh=t8EcGFG35fUvCgI3SEmlpZItRnkF1dPhyJLO4GABlxk=; b=J4nN33uMiwQ7fKgLpk+fhpn6yN
+	NYOl36iRpMTGlbtSFgX2LlERhFC/gBUrYD6YC9/4WlO2rXlDfnCDnboZ+garJBTisivT0hZNbNsGj
+	TnGrGHDYgDGuCtp15u5nX+Kj8LVnV+sMB8gZnCCFfYjKnTnX4OneNf0emZKwtCRJIdmpRGyyiyB+v
+	CJ9i8+ItPaMAu/ftb1o7kt8qsNhL77tFiNCQ4K3kMkGynz31CHVKm656NnlmygmOLKru6ltg9zRGG
+	tv6JvUiJKyksliCR+Ydp11NGuSedjQU3BskJQVf2nYV8BFEC6UyW8Ki8M93tHtTvwTI1qnw9pKZi2
+	HoD1bPaw==;
+Received: from mail-northeuropeazlp170120005.outbound.protection.outlook.com ([2a01:111:f403:c200::5] helo=DUZPR83CU001.outbound.protection.outlook.com)
+	by desiato.infradead.org with esmtps (Exim 4.99.2 #2 (Red Hat Linux))
+	id 1xBb0T-00000002s8a-1m49
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 29 Sep 2026 16:48:32 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1790700510;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=h7fhQ9KGGUbPPoOeQdI2Gd4sk4/oPY6yvPOncKOrRvQ=;
-	b=Yvqg4v028s6FrJNRbhEwQ72GLha1MTHeouOKeW1r2CpnAIxx7++qswTf+XUj/Qdk5TkKhS
-	xBV2nULSjdFSwtE6GVJJEBUpsFzPpXpGx8vxIoSec7l6pC3jmdvdovDHMhCyOOABbo8inV
-	qn+KJjeIPn1U/37/vnymzXcE4FLVxpg=
-Received: from mail-qk1-f198.google.com (mail-qk1-f198.google.com
- [209.85.222.198]) by relay.mimecast.com with ESMTP with STARTTLS
- (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
- us-mta-287-jUkTq0tjMcCib0_ySz27Gg-1; Tue, 29 Sep 2026 12:48:27 -0400
-X-MC-Unique: jUkTq0tjMcCib0_ySz27Gg-1
-X-Mimecast-MFC-AGG-ID: jUkTq0tjMcCib0_ySz27Gg_1790700507
-Received: by mail-qk1-f198.google.com with SMTP id af79cd13be357-93a1e564fd5so825272485a.1
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 29 Sep 2026 09:48:27 -0700 (PDT)
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1790700507; x=1791305307;
-        h=content-transfer-encoding:content-type:mime-version:date:message-id
-         :subject:references:in-reply-to:cc:to:from:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=h7fhQ9KGGUbPPoOeQdI2Gd4sk4/oPY6yvPOncKOrRvQ=;
-        b=tAIOcAdSuYoc1HSY5mDg+bytVLvTnxd+sXcFPHprKZF8qap5kMN1HpvcbvgSqlPSKy
-         R41j4Tmrz1vOixrnpn8NtiBpdhwxvzzHm63jizHVL4EJtvw6JKXEvxL1HuVVfHWkH3Xc
-         I7MRhplxpo9LwsmrdzzOmbiOp5Ma51uNQHetvg2D2LjtH3QcBsAIv6jOmeoE+4shTiRJ
-         WHUWfTEdJDLPIlV77QWausig41NDWIFm5MNx31fsT8frHfMh3luUbZBi+IjfO8DDpcej
-         USJSp6/pHJMiRICMcXOrnVMUv1YiwYfz0TANmpUouAB8/Uua7X/FX8ENBwSaYRpzml12
-         2Jpw==
-X-Forwarded-Encrypted: i=1; AKwUvByN/EXxbRuSOCkof/hfnZ/GDyWfvYob09kmTogTbpQ+Q/jG8hyQkTCzGbfnnA6w5GXEQ9JzML0eOO4ml3cKepH3@lists.infradead.org
-X-Gm-Message-State: AFuF++lOW4Pwu89P/1rFty5dmlTuLyC3+hhInfnOe7LZ1nnPRkAo4xXD
-	Ni6LwYirL87kNZLxkqZsO0gpIDA7SwA+KfO7guBVbqKQZ8/4endyXKjmruGCqQ3QeNwMVjDhYsc
-	+utWMfWml4kkOAuPcCEsEBoSooEwpwPYpEIt1Bo2SR4M8U1PkbYETDEndbCyPGoKi3OHSDzOIf2
-	DG
-X-Gm-Gg: AYBFou3HbUT1pujEzVHZh6l9Ry10Fh9S/oVCzYUayhdHseweR8PZaT3IiKVFrHZcaGc
-	Fi1qlaoSVLPPAZw1glNg2vTI1ffw3eytCuz1fY2DUrqR1qJ04M242b0an0jo1L98HYzlmMtbEMv
-	YdRZzyolOSRrCfrXcirQhvvObdT5IO4wpuwWdKC6vLn+iP1OZv9ssaG7XOT5u1TCKg6Gfq3ZAff
-	TyyR77NYI5J0nuz6CRxipphnV2QZQtV8LN6xuEp4E3LP0IVAgPsx5ON1gKzoObD5+QQL5MtAXao
-	gql+awM0YsBwbSZMgfbckgGlVtI2GXaqXVbYHPInyFjaUQEigFuWUg6Xf4PgkXvp0XqRxfXzlYo
-	Ebl8HR43sGhLVDHihqJtCOJ+GWzQNNymUJZEPu6RpJMjmJF0m0TQ=
-X-Received: by 2002:a05:620a:700a:b0:93a:1b82:4962 with SMTP id af79cd13be357-93c9f90d39emr21400685a.47.1790700506655;
-        Tue, 29 Sep 2026 09:48:26 -0700 (PDT)
-X-Received: by 2002:a05:620a:700a:b0:93a:1b82:4962 with SMTP id af79cd13be357-93c9f90d39emr21392085a.47.1790700505852;
-        Tue, 29 Sep 2026 09:48:25 -0700 (PDT)
-Received: from bmasney-x1.rmtuswv.csb (c-73-183-53-213.hsd1.pa.comcast.net. [73.183.53.213])
-        by smtp.gmail.com with ESMTPSA id af79cd13be357-93c9f54529asm10347985a.37.2026.09.29.09.48.23
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 29 Sep 2026 09:48:24 -0700 (PDT)
-From: Brian Masney <bmasney@redhat.com>
-To: linux-kernel@vger.kernel.org, 
- Dario Binacchi <dario.binacchi@amarulasolutions.com>
-Cc: michael@amarulasolutions.com, linux-amarula@amarulasolutions.com, 
- Abel Vesa <abelvesa@kernel.org>, Brian Masney <bmasney+clk@redhat.com>, 
- Cristian Marussi <cristian.marussi@arm.com>, 
- Fabio Estevam <festevam@gmail.com>, Frank Li <Frank.Li@nxp.com>, 
- Jerome Brunet <jbrunet+clk@baylibre.com>, Peng Fan <peng.fan@nxp.com>, 
- Pengutronix Kernel Team <kernel@pengutronix.de>, 
- Sascha Hauer <s.hauer@pengutronix.de>, Sebin Francis <sebin.francis@ti.com>, 
- Stephen Boyd <sboyd@kernel.org>, imx@lists.linux.dev, 
- linux-arm-kernel@lists.infradead.org, linux-clk@vger.kernel.org
-In-Reply-To: <20260904101243.412006-1-dario.binacchi@amarulasolutions.com>
-References: <20260904101243.412006-1-dario.binacchi@amarulasolutions.com>
-Subject: Re: (subset) [PATCH v14 0/4] Support spread spectrum clocking for
- i.MX8M PLLs
-Message-Id: <179070048452.199845.10870046832708018931.b4-ty@b4>
-Date: Tue, 29 Sep 2026 12:48:04 -0400
+	Tue, 29 Sep 2026 16:48:43 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=elgdYpTdat7HWmEscyvKJbOnHn03sxu7bocoWvnCiP0PeGnEAU2uQwLxxEdGvbtM0aOZ6O8YTbhoQXM+KiGRw2AgAUIGgivTxKTIHkD0vwJs7zGKJwpR3J6s3kzr/ZdhgFXuFCnrlXk72/C2SXOmB4lzIm5R1iaT+Tkri70Y40XD8e1K1M7GJaklKdd89szUKRHNzgeDkzp5g/tiieQYnBSXH8r2eMkAB77wPDANMnmjYz5qCn+rpFit5JHJBh0gIANm32p32Z25kPaMAgwUzz17zHDvdYCovbEAVRkx9qud9M+xm/D8nys8lYMZ05ZgFXgG8alQNPO1gR7M5IXAKA==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=t8EcGFG35fUvCgI3SEmlpZItRnkF1dPhyJLO4GABlxk=;
+ b=LKVIxvzf4lxHWWH+UZpdMjBrs8QzjlIt608Bx0EBJLnRMCyiPQN/+5CnAUUBGerJo6N2ik9EkxHTH8UhOdAQMtOzdLUYe7/g2JNsV1J9A0LXmB/bgjDOvM2jhgqmppcfHXBXJcvHPoTN2bljgbjt5LqP6NsOHnfQLr8PrgLOCMq5Xu8xha8iG9GQfvs+tRLw6Pql67lAAI9sNbXWqzzeBu1Pt4GPA5oz1gssNvf+9kOuuVa32sQaDfoT0DMvxgQ6fSFEnMVsh8ngwEwaG0kD+jir8q1CwQ0OoqrR4ZdlVUOLyWk4w0+7NaLCNWk1+GpqdvOzEnBdxV71jdGtGNifDA==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=fail (sender ip is
+ 164.130.1.60) smtp.rcpttodomain=intel.com smtp.mailfrom=foss.st.com;
+ dmarc=fail (p=none sp=none pct=100) action=none header.from=foss.st.com;
+ dkim=none (message not signed); arc=none (0)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=foss.st.com;
+ s=selector2;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=t8EcGFG35fUvCgI3SEmlpZItRnkF1dPhyJLO4GABlxk=;
+ b=Diu/bvU/6BbvJFjFsFnseqC4G8NB9Q+PJ3hZ8599RKP+1PT/86veLFZA/yDbAISXXOLQ2UkS8xE9UV3+3j/Ay9bE0dX7dU7of+macupNgGvEAlSbGk8DudjteH2Q9OAX6+4wHdpOV9b1iS5sjvQKwI6Dzui2bcin5SHR2UCr8q1LRn7yxM6qnPg97+wh6hxZeU4TQQz9mX7RA79bxWv4q9ZCiUi7N2pVZ5Cxw+QZqgo4sx/9/VIl5i8RNT1ref5AXafy5V0ce2a7xmiot8LzuI61MAwMfBzd02rWprAD6tiTBKPEHTQ3QTVQqdvHPLjfyHmGn3iwc+j/qVPEJyMMng==
+Received: from MI1P293CA0006.ITAP293.PROD.OUTLOOK.COM (2603:10a6:290:2::16) by
+ DB8PR10MB3291.EURPRD10.PROD.OUTLOOK.COM (2603:10a6:10:11a::20) with Microsoft
+ SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.21.451.24; Tue, 29 Sep 2026 16:48:31 +0000
+Received: from MI3PEPF00008485.eurprd02.prod.outlook.com
+ (2603:10a6:290:2:cafe::23) by MI1P293CA0006.outlook.office365.com
+ (2603:10a6:290:2::16) with Microsoft SMTP Server (version=TLS1_3,
+ cipher=TLS_AES_256_GCM_SHA384) id 15.21.472.14 via Frontend Transport; Tue,
+ 29 Sep 2026 16:48:31 +0000
+X-MS-Exchange-Authentication-Results: mx.microsoft.com 1; spf=fail (sender IP
+ is 164.130.1.60) smtp.mailfrom=foss.st.com; dkim=none (message not signed)
+ header.d=none;dmarc=fail action=none header.from=foss.st.com;
+Received-SPF: Fail (protection.outlook.com: domain of foss.st.com does not
+ designate 164.130.1.60 as permitted sender) receiver=protection.outlook.com;
+ client-ip=164.130.1.60; helo=smtpO365.st.com;
+Received: from smtpO365.st.com (164.130.1.60) by
+ MI3PEPF00008485.mail.protection.outlook.com (10.167.240.132) with Microsoft
+ SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.21.472.14 via Frontend Transport; Tue, 29 Sep 2026 16:48:31 +0000
+Received: from STKDAG1NODE2.st.com (10.75.128.133) by smtpO365.st.com
+ (10.250.44.72) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.43; Tue, 29 Sep
+ 2026 18:54:23 +0200
+Received: from [10.252.17.140] (10.252.17.140) by STKDAG1NODE2.st.com
+ (10.75.128.133) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.43; Tue, 29 Sep
+ 2026 18:48:29 +0200
+Message-ID: <8fd19ab1-6ec4-49d7-aadc-accec6e71410@foss.st.com>
+Date: Tue, 29 Sep 2026 18:48:28 +0200
 MIME-Version: 1.0
-X-Mailer: b4 0.16.0
-X-Developer-Signature: v=1; a=openpgp-sha256; l=705; i=bmasney@redhat.com;
- s=20250903; h=from:subject:message-id;
- bh=SAHYf/h8Oe0K/ekB9Nro0D69org/h+4brL2o93Uibw4=;
- b=owGbwMvMwCW2/dJd9di6A+2Mp9WSGLJ2v75WObHBi99/6nvz91sfuy9/aBE213x2T6bCawPDb
- lVWxc/nOkpZGMS4GGTFFFmW5BoVRKSusr13R5MFZg4rE8gQBi5OAZjILQVGhi1pPpPUYzwFivpu
- 5+WFhLcrLrx2Yo2ZS3zjMwHTvjirboZ/GtcvfHvLK77mYvkzJi1D73jODRmTUlvF/1fM2lIoJ7G
- eBwA=
-X-Developer-Key: i=bmasney@redhat.com; a=openpgp;
- fpr=A46D32705865AA3DDEDC2904B7D2DD275D7EC087
-X-Mimecast-Spam-Score: 0
-X-Mimecast-MFC-PROC-ID: Rg_Bo3EWErtRkBTVO-EJldKMkTKgE6eT2X7pkA8x3WQ_1790700507
-X-Mimecast-Originator: redhat.com
-Content-Type: text/plain; charset="utf-8"
+User-Agent: Mozilla Thunderbird
+From: Fabrice Gasnier <fabrice.gasnier@foss.st.com>
+Subject: Re: [PATCH v2 07/14] iio: adc: stm32-adc: add support for stm32mp25
+To: Andy Shevchenko <andriy.shevchenko@intel.com>
+CC: Jonathan Cameron <jic23@kernel.org>, David Lechner
+	<dlechner@baylibre.com>, =?UTF-8?Q?Nuno_S=C3=A1?= <nuno.sa@analog.com>, "Andy
+ Shevchenko" <andy@kernel.org>, Rob Herring <robh@kernel.org>, "Krzysztof
+ Kozlowski" <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, "Maxime
+ Coquelin" <mcoquelin.stm32@gmail.com>, Alexandre Torgue
+	<alexandre.torgue@foss.st.com>, Marek Vasut <marex@nabladev.com>,
+	<linux-iio@vger.kernel.org>, <devicetree@vger.kernel.org>,
+	<linux-stm32@st-md-mailman.stormreply.com>,
+	<linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>,
+	Cheick Traore <cheick.traore-ext@st.com>, Olivier Moysan
+	<olivier.moysan@foss.st.com>
+References: <20260923-adc-stm32mp25-v1-v2-0-46bc019537c6@foss.st.com>
+ <20260923-adc-stm32mp25-v1-v2-7-46bc019537c6@foss.st.com>
+ <arWPjx-JKt1IZCZl@ashevche-desk.local>
+Content-Language: en-US
+In-Reply-To: <arWPjx-JKt1IZCZl@ashevche-desk.local>
+Content-Type: text/plain; charset="UTF-8"
 Content-Transfer-Encoding: 7bit
+X-Originating-IP: [10.252.17.140]
+X-ClientProxiedBy: STKCAS1NODE1.st.com (10.75.128.134) To STKDAG1NODE2.st.com
+ (10.75.128.133)
+X-EOPAttributedMessage: 0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: MI3PEPF00008485:EE_|DB8PR10MB3291:EE_
+X-MS-Office365-Filtering-Correlation-Id: bd34c4bd-5e74-4e0e-8bcb-08df1e497e80
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|23010399003|7416014|376014|36860700016|82310400026|4143699003|6133799003|10067099003|11063799006|56012099006|18002099003|22082099003;
+X-Microsoft-Antispam-Message-Info: WEU7xC9g/yLvCwYbqaMp8wfrMWeDQLe5VcSPqANHxwtoPXFVKOq6c38gcZXyp8wuSqW6K1BZwp5iWHIPE8mzb1t3wzw0+pHFNeHFOxn0gRy2epVMctFkQmu8b33ClhHreQ1rGUVZuo8poFOJXyFUGheR14gCiY9x6/w+/jwQjw1yYoSohfJdzVDgnjjkUvIsXPHzRlDxYS5LmU/YQPxxFe0af6mCpK38h2eVnvelkHi4k49lXTxS0hwi4k5Q5bTSybELawucv9A4oG/cnf4TuDpB6rQIWi1+UxPExB86J8XcX3TtRknb1wZ+NyB/r01RXK0F0420jFOv9N6IgvvQb+p5hFR2RUSnKpylmhp76UozJm84KCCz3rLhw98XgrT1DQSoRbT0POHarVvIG5S/6UfsQfeTaM7BRdC7CmTgeRpLxHSUqHrNc2Yph3PG0NIAAns0YWQAxQgfvsPW/gpz75LNDvR6oHyeQQ7UyJYwNtXM8RPBF0bPLucG5+FVFMo5PTAUW79AwzN656HSUUTKihtR/X4lER1XlWra7LOL4zGjyo0uSpoVGJTN5eL9CnWL1H1pYo+e89bigPr5iythY4iwNlev0V9dTUO6whGQuSr9RYPhSczfHeNOcn5rTwpWefpdoFpVNACW5wAvA9OhP8r85dHXH6ER2VqoQq///6JxTRu+ZYVlVJRVkXYk1spOkatyXjj83Gzfh+aTgW/1uw==
+X-Forefront-Antispam-Report: CIP:164.130.1.60;CTRY:IT;LANG:en;SCL:1;SRV:;IPV:CAL;SFV:NSPM;H:smtpO365.st.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(1800799024)(23010399003)(7416014)(376014)(36860700016)(82310400026)(4143699003)(6133799003)(10067099003)(11063799006)(56012099006)(18002099003)(22082099003);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: y19eOb2BbZH5UEQiZkRbc+S55S+X7z8ayXfLuJolJxWPyAmA0Z46TMtP8xnFP5HmKO96OpIpJG9sn5oykxMjOVkO5hBHGEJzxbcD61PrZ9JNGJYfX1k/qrCO8q8TG43q+FSEliklBTdIMKuBvwUfQbLgSbR+Yv6M+UrWdymeytEAzRKyl97JwMtWzHGqxh5FksaLNY4DkKipF/pIMvVrVitdDANILH2St0XudoG6FeKihWzUYCpjT3QRhP/+0oFSrM5YekMXr3wWgDAMWUkbASopanHY9aUl+EOOtT6UNl2ljmdE4TglnZ6C0Rliol9gvCWG9QZqQbz8iJ1eaZ1OIJxZOxhYhs6b0RCWyijsf8h9Y2hmSo9DQ3ko+Ecyc2j95D0jHl2oVAiNQUXnwwy5sRYzKoF4yT9+bw98HwTrH3gqQLzxbZ8MBYMGFJGPaznh
+X-OriginatorOrg: foss.st.com
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 29 Sep 2026 16:48:31.2892
+ (UTC)
+X-MS-Exchange-CrossTenant-Network-Message-Id: bd34c4bd-5e74-4e0e-8bcb-08df1e497e80
+X-MS-Exchange-CrossTenant-Id: 75e027c9-20d5-47d5-b82f-77d7cd041e8f
+X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=75e027c9-20d5-47d5-b82f-77d7cd041e8f;Ip=[164.130.1.60];Helo=[smtpO365.st.com]
+X-MS-Exchange-CrossTenant-AuthSource: MI3PEPF00008485.eurprd02.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Anonymous
+X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: DB8PR10MB3291
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260929_094831_204253_5B66D229 
-X-CRM114-Status: GOOD (  11.54  )
+X-CRM114-CacheID: sfid-20260929_174842_197601_230E2A65 
+X-CRM114-Status: GOOD (  22.11  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -128,27 +151,112 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-
-On Fri, 04 Sep 2026 12:06:29 +0200, Dario Binacchi wrote:
-> Support spread spectrum clocking for i.MX8M PLLs
+On 9/24/26 23:01, Andy Shevchenko wrote:
+> On Wed, Sep 23, 2026 at 05:39:10PM +0200, Fabrice Gasnier wrote:
+>> Add support for ADC on STM32MP25 SoC. It has 3 ADCs, split into two blocks:
+>> - ADC1 & ADC2 are tightly coupled.
+>> - ADC3 is managed independently.
+>>
+>> Trigger list slightly changes between these blocks (ADC1 & ADC2). Other
+>> differences are found on channels interconnects (similar between ADC2
+>> and ADC3):
+>> - ADC1 is connected to 18 external channels + 2 internal channels
+>> - ADC2 is connected to 14 external channels + 6 internal channels
+>> - ADC3 is connected to 14 external channels + 6 internal channels
+>>
+>> Each ADC is a 12-bits successive approximation analog-to-digital converter,
+>> with up to 20 multiplexed channels that can be configured as single ended
+>> or differential. ADC resolution ranges from 6 to 12 bits.
+>>
+>> It introduces diversity regarding IRQs, clocks, software calibration
+>> procedure, internal voltage channels, sampling time (prescaler) and
+>> trigger list. Most of the architecture, and the driver engine remains
+>> similar. So, handle the differences w.r.t. other STM32 ADCs family with
+>> a dedicated compatible and compatible data.
 > 
-> The series adds support for spread spectrum clocking for i.MX8M{M,N,P}
-> PLLs (audio, video and DRAM). It has been tested for the video PLL on
-> boards using i.MX8MN and i.MX8MP.
+> ...
 > 
-> While at it, it validates the spread spectrum configuration in the clk
-> core before it reaches the providers, and fixes the i.MX SCMI OEM
-> extension, which converted the spread to the wrong unit.
+>>  		.compatible = "st,stm32mp13-adc-core",
+>>  		.data = (void *)&stm32mp13_adc_priv_cfg
+>>  	}, {
+>> -	},
+>> +		.compatible = "st,stm32mp25-adc-core",
+>> +		.data = (void *)&stm32mp25_adc_priv_cfg
+>> +	}, {
+>> +	}
 > 
-> [...]
+> Same issue and now it's a regression from maintenance perspective: you added an
+> unnedeed churn that has to be handled from now on... TL;DR: do add trailing
+> commas to the non-terminator entries and remove trailing commas in the
+> terminator entries.
 
-Applied, thanks!
+Hi Andy,
 
-[2/4] clk: validate spread spectrum configuration
-      commit: 109124b8ff43fb911d5b8790bb5e4c5684f72d88
+Do you wish I add a separate cleanup patch for existing match table ?
+This can also fit into 100 chars line now:
 
-Best regards,
--- 
-Brian Masney <bmasney@redhat.com>
+static const struct of_device_id stm32_adc_of_match[] = {
+	{ .compatible = "st,stm32f4-adc-core", .data = (void
+*)&stm32f4_adc_priv_cfg, },
+	{ .compatible = "st,stm32h7-adc-core", .data = (void
+*)&stm32h7_adc_priv_cfg, },
+	{ .compatible = "st,stm32mp1-adc-core",	.data = (void
+*)&stm32mp1_adc_priv_cfg, },
+	{ .compatible = "st,stm32mp13-adc-core", .data = (void
+*)&stm32mp13_adc_priv_cfg, },
+	{ }
+};
+
+> 
+>>  };
+> 
+> ...
+> 
+>> +	STM32_EXT23,
+>> +	STM32_EXT24,
+>> +	STM32_EXT25,
+>> +	STM32_EXT26,
+>> +	STM32_EXT27,
+>> +	STM32_EXT28
+> 
+> Same issue and so on...
+
+Ack,
+
+> 
+>>  };
+> 
+> ...
+> 
+> Are you doing patches with an assistance? LLMs might have a problem with the
+> style issues.
+
+My apologies, that was just me between the keyboard and the chair.
+
+> 
+> ...
+> 
+>> +retry:
+>> +	/* Clears or set CALADDOS (also clear old calibration data if any) */
+>> +	stm32_adc_writel(adc, STM32MP25_ADC_CALFACT,
+>> +			 FIELD_PREP(STM32MP25_CALFACT_CALADDOS, *add_offset));
+>> +
+>> +	ret = stm32mp25_adc_calib_get_average_data(indio_dev, &average);
+>> +	if (ret)
+>> +		return ret;
+>> +
+>> +	/* Add offset and retry single-ended calibration if the averaged data is zero */
+>> +	if (!average && !*add_offset) {
+>> +		*add_offset = true;
+>> +		goto retry;
+>> +	}
+> 
+> Refactor to avoid a label. It's possible to achieve.
+
+Ok, I'll refactor in v3.
+
+Thanks for reviewing,
+BR,
+Fabrice
 
 
