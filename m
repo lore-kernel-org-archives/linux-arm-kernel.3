@@ -4,108 +4,95 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B8773CA5FA1
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 29 Sep 2026 05:43:52 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9A736CA5FA1
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 29 Sep 2026 05:47:01 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=m4yQX+fqhwHs5ZsHqNqJS/2q+nx4lbtWQ5vxLSVbwUA=; b=YAezFGRrPnOhGmbVH+YSSgNcUQ
-	F0hqHXuHuerFBdw3Zqni3PpgAmMRJjQNrmQxMfR24q3BWLncY5Nba2keMhTzVZwVGqpPlB+qQ0YR4
-	1dNsT0ndORKxfOLimxBKFs31wUELCW4cTo+Kily9hmQV09i0629Zui96DAUuOl1MpUUOJ3QPFLnib
-	bdKyXPfqFKkBZxDZsgUVv1Utr7u7G1uG05bGrSNMbpzArJI+c3O6FMmvnmE16ocGr/5BCLBmues+d
-	evyC1++YFc/hzZqfrCONivLPfigesTwnAJ6uPW8Kr7hvvDtLJCDZNfbVfhgP3Fj3hHPs+4rXVFZBh
-	Q/v5tbaA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=cHaIQHQAzypExf5bg6wFndJXSrqRhD8ZT8crEHQrTnE=; b=iy6bfMw0U4aE/YXPWW6hDIIZAG
+	Fnl1SWcaDw94CFn4YthV7C01aDmYpZzFx81bng2Y6Oyip4FRKmmcrcQ2oXMNne09Ml9n05lqVgqNP
+	7889T25TwshL57YowJxRJEA86POgS5QnzUllHBG/hyJVTpchqdMdw48tLs+DT0wYeeZ7yXBk26Su3
+	yTKKlY2N0wTuu/co4XPSUs1X5GdLJiLifa/rjmzhkMt/U14mUv1hl1CYxNdYJWD7Rxy9bRXSrNUSZ
+	TKDcAI+8zJ2Hw/+GwrqaD9x3KXEcA+FcPoby1HtHFET+6txbQRB67OAe03c0K5mXpgM1ezpTiYbVL
+	vSfL+QgA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xBQd0-00000002Nof-3COQ;
-	Tue, 29 Sep 2026 05:43:46 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1xBQg3-00000002O2n-0Glo;
+	Tue, 29 Sep 2026 05:46:55 +0000
+Received: from mail-wm2-x11.google.com ([2a00:1450:4864:31::11])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xBQcz-00000002NoO-1akM
+	id 1xBQg0-00000002O1o-3Lev
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 29 Sep 2026 05:43:45 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 272FA41691;
-	Tue, 29 Sep 2026 05:43:45 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 971871F000FF;
-	Tue, 29 Sep 2026 05:43:40 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1790660625;
-	bh=m4yQX+fqhwHs5ZsHqNqJS/2q+nx4lbtWQ5vxLSVbwUA=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To;
-	b=YPfZ9mbrlw5GsPvAqr4lVOSoY513OpXoTZ+5Q+gjw266gLpCjcsX9EcYZr9Vi25ZD
-	 zFKVqj9rp12Q7KV+KWdiJicYyXywa0M/tHfp9/PkO5JY1NCjLMQVRsKKs335vcIX9O
-	 nGmznRaVYPt93UJo9HPtBKW2c0BFRPrBqdv2jPti2X1AYP+9JAHG7JfL4sPxdBkHNp
-	 5zYXpoqb5AeIr6dyr9dIAvW4CMdpsT60Y38eZv0GKN8Mimd5muLeL929FtA6mTVjVc
-	 6VxCh8z9VkNxL582M/xNjglZvoT+gqOc4VCnzv4qyVohLXNaYK0m+IW99Mry1bDtNY
-	 wlAWu/BFynzMw==
-Message-ID: <f174b390-6f54-46a6-aeda-a7d9e6eb2f81@kernel.org>
-Date: Tue, 29 Sep 2026 07:43:37 +0200
+	Tue, 29 Sep 2026 05:46:53 +0000
+Received: by mail-wm2-x11.google.com with SMTP id 5b1f17b1804b1-49ff9642c57so2653115e9.0
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 28 Sep 2026 22:46:51 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20251104; t=1790660810; x=1791265610; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:content-type:mime-version
+         :references:message-id:subject:cc:to:from:date:from:to:cc:subject
+         :date:message-id:reply-to:content-type;
+        bh=cHaIQHQAzypExf5bg6wFndJXSrqRhD8ZT8crEHQrTnE=;
+        b=A96DTktHjXgoufi9b4GqaukPGOgQMNe5KjuaGpcFPypzIScIDbMHtU0cOwRU8x6OFK
+         HYjVh9f/x2XW5d3hGFfTtF3DMDVRe8V+mQXXNRGlQkEdDbg5mUtYSJ614Cyv3qDfcy61
+         y8oxustKhRH9BNj8yADec7U3/rzgGggKEcBNDEIkRBeRZa9RrSWJne91A/EgCpljtrFH
+         6RmJrmr6LrPhvaU3yuShjbPEZF/BBNcMNJaxtvVnR7nNQJAl6V4IjmoU+Hhq92k9EPdV
+         Rq1+du3p+KnY/cIr7yqF4LtLIzpIcUoFkqGXJIFyA9JRhZNlZx9L/z2ONk7eg7a933Xd
+         bMng==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1790660810; x=1791265610;
+        h=in-reply-to:content-disposition:content-type:mime-version
+         :references:message-id:subject:cc:to:from:date:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=cHaIQHQAzypExf5bg6wFndJXSrqRhD8ZT8crEHQrTnE=;
+        b=UcgV4iuf8ctIHy8Lkq25CcTbTHwx7LFj9M6AdmZ06fcCfm5ACQv6hoih42a4egLpsA
+         YqnJuU6W3t6CAx+W5LlYcHqZtrsMcomJp7ytDZKQn9WuQVtozeyn3PYD95CuAfDCi99g
+         XNmc/avVf3i4p+bgCXbzwXeEy+mOG44nxp/HBj3ouEEK2zZ0e94ZPak16xenW0vAO5zD
+         c/ZjPz1qhyzh/AKa8O61l69Ze2GfMa+2uPK4FACtUsF1g5ILXc3ZUuEVgZn1+5Yqfm3P
+         gzEpF8bcx2nXiZ58l8fMrP+jr+Uh3HBz53Qofc07JPlzCXtBjxwrrk4SkF0JLVot63oW
+         KzcA==
+X-Forwarded-Encrypted: i=1; AKwUvBzuUvwY1QSuPElA2FGTGv1vHXwjDEo2sCJ960iX6N96s529m51TZnBReD2CHGX8CYN1B7F/qm5tlMvBJJSQsjMt@lists.infradead.org
+X-Gm-Message-State: AFuF++lBSSeVhGrpGdbRAmcGpmluJd8c+pWYbuSQ4SEXgNfyo8RioUiY
+	sO0lqif4S0qlJZwH6vZwFuCEeMONxvhplh2u3UKuPVmk8dX8wD6rNtg+
+X-Gm-Gg: AYBFou3QGalkZbCY2uPi/Qp+aGxqBTLFIG+RE6hGZj18oUcqhlex/CByI28GQB8mH7C
+	R5gM1H/hmAcBNxG0WvNyK7XvnEi9P0OO2mv836LeAHF61TwIUTwX8s0c+vicJ5Bxwjqt8+YbDY3
+	N9bz0ai1zP6TFNk+M8lUz3g7XpCmMTfJs9+l2d5+26GbMSBbciFbchm/EHCRm/Fy1Hw2ycjJ0zs
+	evm8zwFDPucR/leEzZjckS6td4t5IAoopVF04ntM31Z9KbHBf4K1FQqa3XCDmsZ2sci28lFjSbH
+	KYTJv82zrz2iTNlhUXPrhaSTY7MLXBg3y0suyTO6kYvZXW29fUJbbH9bxtfmGGbvHA5B4W2cyN5
+	PB9psvEvAUeaFzSjbRBUYyFQyfU569zlmowVHrzzhrcf/Fb3vVIPo9TznUkBQQPVHroteIoxvZH
+	n9ygmaeifh7USTcmWRN4HGer0hC7pKXOTpxV6FNejnuPZ47MmYd7BaH6RdFru6uIBhFqA=
+X-Received: by 2002:a05:600c:1550:b0:49f:fefc:7d01 with SMTP id 5b1f17b1804b1-4a00d778f09mr19426275e9.15.1790660810212;
+        Mon, 28 Sep 2026 22:46:50 -0700 (PDT)
+Received: from localhost ([2c0f:3d00:6be:8900:ce5e:9212:ea4b:f30])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4a00d45ce1csm32021415e9.3.2026.09.28.22.46.48
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Mon, 28 Sep 2026 22:46:49 -0700 (PDT)
+Date: Tue, 29 Sep 2026 08:46:45 +0300
+From: Dan Carpenter <error27@gmail.com>
+To: Michael Freidkin <freidkin@gmail.com>
+Cc: Neil Armstrong <neil.armstrong@linaro.org>,
+	Mauro Carvalho Chehab <mchehab@kernel.org>,
+	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+	Kevin Hilman <khilman@baylibre.com>,
+	Jerome Brunet <jbrunet@baylibre.com>,
+	Martin Blumenstingl <martin.blumenstingl@googlemail.com>,
+	linux-media@vger.kernel.org, linux-amlogic@lists.infradead.org,
+	linux-staging@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org
+Subject: Re: [PATCH] media: meson: vdec: size capture planes from the aligned
+ canvas
+Message-ID: <artQxRR3kJUv-mBF@stanley.mountain>
+References: <20260928165045.642354-1-freidkin@gmail.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 01/16] arm64: dts: exynos2200: Remove empty line at end of
- node
-To: Waqar Hameed <waqar.hameed@axis.com>,
- Ivaylo Ivanov <ivo.ivanov.ivanov1@gmail.com>, Rob Herring <robh@kernel.org>,
- Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
- <conor+dt@kernel.org>, Peter Griffin <peter.griffin@linaro.org>,
- Alim Akhtar <alim.akhtar@samsung.com>
-Cc: kernel@axis.com, linux-arm-kernel@lists.infradead.org,
- linux-samsung-soc@vger.kernel.org, devicetree@vger.kernel.org,
- linux-kernel@vger.kernel.org
-References: <cover.1790629313.git.waqar.hameed@axis.com>
- <58f66e4612773be8c0391e3e963c72978aba58ae.1790629313.git.waqar.hameed@axis.com>
-From: Krzysztof Kozlowski <krzk@kernel.org>
-Content-Language: en-US
-Autocrypt: addr=krzk@kernel.org; keydata=
- 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
-In-Reply-To: <58f66e4612773be8c0391e3e963c72978aba58ae.1790629313.git.waqar.hameed@axis.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20260928165045.642354-1-freidkin@gmail.com>
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260928_224652_896717_EC27E602 
+X-CRM114-Status: GOOD (  17.79  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -120,29 +107,33 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 29/09/2026 00:38, Waqar Hameed wrote:
-> There shouldn't be an empty line at end of node definition. Found/fixed
-> with dtfmt (Devicetree Source formatter).
+On Mon, Sep 28, 2026 at 07:50:45PM +0300, Michael Freidkin wrote:
+> The decoder writes a whole canvas of ALIGN(width, 32) x ALIGN(height, 32)
+> (amvdec_set_canvases()) and reports bytesperline = ALIGN(width, 32), but
+> get_output_size() derives sizeimage from the raw width x height.
 > 
-> Signed-off-by: Waqar Hameed <waqar.hameed@axis.com>
-> ---
->  arch/arm64/boot/dts/exynos/exynos2200-pinctrl.dtsi | 2 --
->  arch/arm64/boot/dts/exynos/exynos2200.dtsi         | 1 -
->  2 files changed, 3 deletions(-)
+> When the width is not a multiple of 32 the planes are too small for the
+> advertised stride: for 720x360 NV12M the luma plane is 262144 bytes while
+> 736 * 360 = 264960 are needed (282624 for the canvas the firmware fills).
+> The decoder writes past the buffer, and importing the capture dma-buf
+> into DRM fails: drmModeAddFB2() returns -EINVAL, so e.g. Kodi plays the
+> sound over a black screen. 1280x720 and 1920x1080 are not affected.
 > 
-> diff --git a/arch/arm64/boot/dts/exynos/exynos2200-pinctrl.dtsi b/arch/arm64/boot/dts/exynos/exynos2200-pinctrl.dtsi
-> index 5877da7baf5c4..d5aede3af15f7 100644
-> --- a/arch/arm64/boot/dts/exynos/exynos2200-pinctrl.dtsi
-> +++ b/arch/arm64/boot/dts/exynos/exynos2200-pinctrl.dtsi
-> @@ -702,7 +702,6 @@ uart20_bus_dual: uart20-bus-dual-pins {
->  		samsung,pin-function = <EXYNOS_PIN_FUNC_2>;
->  		samsung,pin-pud = <EXYNOS_PIN_PULL_NONE>;
->  	};
-> -
->  };
+> Size the planes from the aligned canvas the hardware actually uses.
+> 
+> Tested on an S905X (GXL p212) board with LibreELEC 12 (6.16.0-rc3):
+> 720x360 and 1920x1080 H.264 play through V4L2 m2m + DRM PRIME with no
+> AddFB2 errors.
+> 
+> Fixes: 3e7f51bd9607 ("media: meson: add v4l2 m2m video decoder driver")
+> Signed-off-by: Michael Freidkin <freidkin@gmail.com>
 
-There is no such code.
+Reviewed-by: Dan Carpenter <error27@gmail.com>
 
-Best regards,
-Krzysztof
+It would probably be more reliable to just ALIGN() the width and
+height at the start so we don't have to do it over and over again.
+
+regards,
+dan carpenter
+
 
