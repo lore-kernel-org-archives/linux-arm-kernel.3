@@ -4,85 +4,86 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1B3ADCA5FA1
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 29 Sep 2026 03:46:10 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 517DBCA5FA1
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 29 Sep 2026 03:46:59 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:From:
 	Subject:Message-ID:References:Mime-Version:In-Reply-To:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=KVWbroKeyy/vXGetpyerZbPvNTfOYuPtP3zO4UmiVu0=; b=qVlLXWeeI7ZHoybyWTe7mJmwYp
-	7zbYr8iispWXP7rFebi6EObA8uK049OUcS0thI7959XlOhbPhr0c733BEdeX2la1g74ZtJJQXRC7I
-	caLsLBUzNv7llqTgKMkd9a2a6esdz+Pd7aVxVUW4GgJQoH9mwU0lHairY7vpa+iGMx3SMR3KvEd9w
-	dHJHBM5E1AJSL/PtP5s64bLwzO8pR+Qyo6Z65IoCQ2ail3T/5TM/wiFFOw95wGfUTUcksJmrLQ77/
-	Qm4ufH9h4kc3+yLQV0s76iBNaOdqGTtxGapYDsXpWffQTimgRCG+OiFmQRWpQX8ytawgwDZ7lcyzw
-	fm0iHk2Q==;
+	bh=DJUc8W66LdXd5niQlho6vVTddWB/e8RRGn6UCJy7ACg=; b=QmRdPF7MUTcmhrqSy4QVftQ7Q3
+	4Yxp9dBS+7tIyNyfxYllvm4VUHhwvN3iqF4VW3y1tybMN07Hf7rAd4/Qv2LELJIxfPES5kqmVfmkC
+	FU3/48Hnl25GwSkj3GRUqTZTzrJzuva3CnV7Nn1pg2xrcq+P0WBw+sEpWNvR6D8rn4I6/aHuMirsf
+	bCURkKJOjZ9Ynn4CxE1KhvFqRBrZOddkFkuY3aew7KLdssmG25d8w+yaOd6CfO1tZatrfGSC9Q/vB
+	fyNKindcQzXZ6rrp65mNvl5a1KjnIm6Wvg0byxSlcrIiOmD/DosEpFlhW0McIT9S9QAyPCBjqVjQJ
+	ocgBi4pw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xBOms-00000002GJc-400k;
-	Tue, 29 Sep 2026 03:45:50 +0000
+	id 1xBOns-00000002GvY-3BLx;
+	Tue, 29 Sep 2026 03:46:52 +0000
 Received: from casper.infradead.org ([2001:8b0:10b:1236::1])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xBOmn-00000002GGY-0Yhh
+	id 1xBOmw-00000002GNl-1J6O
 	for linux-arm-kernel@bombadil.infradead.org;
-	Tue, 29 Sep 2026 03:45:45 +0000
+	Tue, 29 Sep 2026 03:45:54 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=infradead.org; s=casper.20170209; h=Content-Type:Cc:To:From:Subject:
 	Message-ID:References:Mime-Version:In-Reply-To:Date:Sender:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description;
-	bh=KVWbroKeyy/vXGetpyerZbPvNTfOYuPtP3zO4UmiVu0=; b=NOaOENyGwc/jP8/FD3vNWhP4St
-	7OD+N10Trnoo36iPZO+t3kdX9fVGwa8vMIpRKI39Q/BjAgLeCv82BEco3WxWQwE91LWr+HFJJsEnx
-	jYGTQoUrLFB4PSlRq6GVl3HiQAPQK5r4iPF8DJJ5U1vdIVY9587VSSoOz4qmDGBwQSgBcHQkzv3JN
-	lSkEIfCEDjDJNC/X1n1XAVTCW7hmotRn5ukemuzE6jVxsOvg7HqWVIwKaw7QpF3T7LHvRjaGHG/HA
-	BiRSJ6kt7Smy75sb/qFf/yC9E3lNsSFH4oXpxfJHzZcdZZad+vn4S028AfAUhZztuo6mbFcfdoxKl
-	dYzalLwA==;
-Received: from mail-pl1-x648.google.com ([2607:f8b0:4864:20::648])
+	bh=DJUc8W66LdXd5niQlho6vVTddWB/e8RRGn6UCJy7ACg=; b=GgHYXmoay6J1THCcqzNFCNhOJX
+	X5f0gZAHHXK2EV6VyORigkRX1z/xquqVHd99BycA3y+mMz471FhFteL8tB5PMYQ4QCSTFrVieeMlo
+	NbCGRCm8BLrPleEbA1x59FDIOIzFcul7Uvco75zsXb5gF5+/wt/3TTvGq4S8H5ebWcvjxYRwwhQVg
+	nym2y+BFJs+fBgKPSfhbba3/WFwZ7sxFx9HKQx+5627hYyMKd/FlA++puusMJJjxR/4UdZVz5iy+V
+	Mav5Br4ufBvr4IBg5AvYgaBzETUfc8+qIUDeOeGzmAy+6hrxjLnivKxqY4My2EdaTsK1uLAwnz3/p
+	KyJ0885A==;
+Received: from mail-pg1-x547.google.com ([2607:f8b0:4864:20::547])
 	by casper.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xBOmk-0000000AYUn-0mzX
+	id 1xBOmt-0000000AYYX-0pXI
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 29 Sep 2026 03:45:44 +0000
-Received: by mail-pl1-x648.google.com with SMTP id d9443c01a7336-2d02df2bf09so26926025ad.0
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 28 Sep 2026 20:45:41 -0700 (PDT)
+	Tue, 29 Sep 2026 03:45:53 +0000
+Received: by mail-pg1-x547.google.com with SMTP id 41be03b00d2f7-cc51591102fso2532127a12.1
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 28 Sep 2026 20:45:48 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20251104; t=1790653539; x=1791258339; darn=lists.infradead.org;
+        d=google.com; s=20251104; t=1790653547; x=1791258347; darn=lists.infradead.org;
         h=content-type:cc:to:from:subject:message-id:references:mime-version
          :in-reply-to:date:from:to:cc:subject:date:message-id:reply-to
          :content-type;
-        bh=KVWbroKeyy/vXGetpyerZbPvNTfOYuPtP3zO4UmiVu0=;
-        b=R54tZkGAAneTgI8DquGmHaF1HG2pP+levrjrtw7vHc0Gz4ircTfn59LD1y3jy8uKpC
-         IbTEeze5JICpc6+7Q6lebKHQwELmp88zyGhe+7U1cqIEGZL2EM5aTQU6+63NIlzLQgnk
-         5XRtoLnJf7L2if7EwVDhaISSb2gsnChfXCwtc5J8SY+dY1HYdn/u/66CZsZSXXFMHhv9
-         rZBqpdr9VqxdxS020S7aZ7+OecAduEXgHAY5yTeFR2BfV5sfgvO3JWlpFVlw3gm5ItkP
-         4TyPebOFdo/2WUlkmNwN7uy5AhPtAAzkV7TcsB6jgjPP86X5zSNl0uttqcj8EW1LBX/W
-         txpw==
+        bh=DJUc8W66LdXd5niQlho6vVTddWB/e8RRGn6UCJy7ACg=;
+        b=SvIdW1DdSKwYM48aczhbC8T1d0bCY1NgOeO/wvysRAuRv3sbOo7P5m/K+dX64fclA8
+         RM+G/IseRl9yUEiNuFnS0F/PRIX7cipvAJ0DSihfDq7nGIebR7sNhFkXhrMLNs77ZKVy
+         F7ZsO8a/tHicjEYMST5Potc/wKCK14fihlpMmR5lc9qBGnLDAHUxV1sOSLIhncHVW+rM
+         06/pRVLhTVx0s41P6Ubziipv9NrZJ62s/Jupf+HaZ5IMqR0HEHEE0ODxPLHmIyvAEJH6
+         oCIYUzsZDnOYPx3jZl1s9rSCkafUv4XBxyEs1t4fCbEO0YdHEqCP0Zj33xN/yAJbCkuy
+         P70A==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1790653539; x=1791258339;
+        d=1e100.net; s=20260707; t=1790653547; x=1791258347;
         h=content-type:cc:to:from:subject:message-id:references:mime-version
          :in-reply-to:date:x-gm-message-state:from:to:cc:subject:date
          :message-id:reply-to:content-type;
-        bh=KVWbroKeyy/vXGetpyerZbPvNTfOYuPtP3zO4UmiVu0=;
-        b=v50ukjwjMcFKTdmDi827Bn8/8ucZNKR9YE4WklYlObJ5apu1gMJ0ScinVPN0FBgm66
-         m9w4VOhG4VzXPfyQ2Jy9mOdDeaRBJGpBQCtEQJ5duLes3TsVgTUegp48EYf7CUHrW4RO
-         cDabe8JHJhSsyBsvPXJEt+zSYJ6GkXW5y+ZP+kRzdkPw04vKLY5HXF105p5T1aErrUH+
-         uO8jxw3MRq1HIcDqdYCs+5Qo3zNdXCyRtmlO7sfiJfe05ocvdL94p6fnQID98DDGy4nm
-         hcrMZHQRuLdP+yqEV4axg9d3bmVIf0EL3eZ+PwczgjEL5cXnNi/FxcyFEJVksgv4emLp
-         h34g==
-X-Forwarded-Encrypted: i=1; AKwUvBxbN1WWrPCsHkt+aLS29m6EO7mfjczoM1XWvxKlTUe+MzryD3q3hbA8oOsFe9HuIVoZBKe5Wn60yzlnyvy1QgTG@lists.infradead.org
-X-Gm-Message-State: AFq9FYKuzZ0uDjM+gZcJqSnoWzzneo9LHSpo6ZtB++T6i306VmQ0Z3cW
-	i7DScJuV7XOWvb6dF1cgTp9E1K1TWcGGLG1LMGbhyvRHxZ1b07muNc4sT59ZIi9WW0O+gd9dLCC
-	Qpw==
-X-Received: from plqu23.prod.google.com ([2002:a17:902:a617:b0:2df:9ebf:232b])
- (user=praan job=prod-delivery.src-stubby-dispatcher) by 2002:a17:902:db06:b0:2e2:c84b:43e9
- with SMTP id d9443c01a7336-2e2c84b48d6mr8655125ad.1.1790653538595; Mon, 28
- Sep 2026 20:45:38 -0700 (PDT)
-Date: Tue, 29 Sep 2026 03:45:02 +0000
+        bh=DJUc8W66LdXd5niQlho6vVTddWB/e8RRGn6UCJy7ACg=;
+        b=CBaC+5R3v3RQX7VBdzYK6b0w13AYPCjwNksYZ0Z7bR4rVI1C3y6rCqUF0IWHG23hZq
+         tHjPzfiry+dybx6S6GKwNNidH6Dk0/OCus89hWpZKzBeHQ8wRgo9X8jV4drZrHDi5HeD
+         iXBisnfuX+lN7yggI8UCySCvN5EwCkEz7E5qxCexErcKDXtvK0wMTVIXNATVxOMhNMgd
+         k2OFz1HBB3AolzOtVp0y4uyiM1oS33w4e4F+lazl3vCFGPIWSFGTAUSoJneLDM+e3pf8
+         gDZecuxC848W0IW1hFzd81dxskONHY48XjbysW3JRCRy5l5O1b6Phz+E7Bwdz0O++wnm
+         aLkA==
+X-Forwarded-Encrypted: i=1; AKwUvBwtTjLoTnU6nKxKsX0Zb2ivyNzM5KPGck9IxI9ZfHEQqauYaNDibDwu+nwMfrAIxWa6R//qMQOFy9arMqYRi6pH@lists.infradead.org
+X-Gm-Message-State: AFuF++kkMN/dB1C0irnbTgCBc//T7DdLr57F6Wbg8fVLbNE6WhdLo0Ki
+	jfFg/6yeGx6CIsDtockRg/rIPKg11p8dHx0Aegq1o/puRVjGt+BRmE+H+HTFATCa73/RZ2Cn1ku
+	7rQ==
+X-Received: from pgdf1.prod.google.com ([2002:a05:6a02:5141:b0:cc7:56f1:71ad])
+ (user=praan job=prod-delivery.src-stubby-dispatcher) by 2002:a05:6a21:6f06:b0:3d3:ae40:51e5
+ with SMTP id adf61e73a8af0-3de0e750b0dmr13391618637.25.1790653546468; Mon, 28
+ Sep 2026 20:45:46 -0700 (PDT)
+Date: Tue, 29 Sep 2026 03:45:05 +0000
 In-Reply-To: <20260929034510.2023173-1-praan@google.com>
 Mime-Version: 1.0
 References: <20260929034510.2023173-1-praan@google.com>
 X-Mailer: git-send-email 2.56.0.rc1.315.gc6ed9934b7-goog
-Message-ID: <20260929034510.2023173-9-praan@google.com>
-Subject: [PATCH v11 08/16] genirq/msi: Provide msi_device_domain_restore_msi_msgs()
+Message-ID: <20260929034510.2023173-12-praan@google.com>
+Subject: [PATCH v11 11/16] iommu/arm-smmu-v3: Add CMDQ_PROD_STOP_FLAG to gate
+ CMDQ submissions
 From: Pranjal Shrivastava <praan@google.com>
 To: iommu@lists.linux.dev
 Cc: Will Deacon <will@kernel.org>, Joerg Roedel <joro@8bytes.org>, 
@@ -96,8 +97,8 @@ Cc: Will Deacon <will@kernel.org>, Joerg Roedel <joro@8bytes.org>,
 	Pranjal Shrivastava <praan@google.com>
 Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260929_044542_249275_8E74C895 
-X-CRM114-Status: GOOD (  14.34  )
+X-CRM114-CacheID: sfid-20260929_044551_345389_377DDC6C 
+X-CRM114-Status: GOOD (  18.22  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -112,85 +113,115 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Thomas Gleixner <tglx@kernel.org>
+Introduce a new bit flag, CMDQ_PROD_STOP_FLAG (bit 30), in the command
+queue's producer index to safely gate command submissions during device
+suspension.
 
-Devices that provide the message store for MSI interrupts in their own
-hardware registers often lose that register state across power transitions
-(such as runtime suspend or system sleep) and need to restore the cached
-MSI messages upon resume.
+The flag embeds the suspend state directly into the existing global state
+The flag is checked in the cmpxchg loop in arm_smmu_cmdq_issue_cmdlist(),
+which acts as a Point of Commitment, ensuring that no indices are
+reserved or committed once the SMMU begins suspending.
 
-Provide msi_device_domain_restore_msi_msgs() to iterate over all
-associated MSI descriptors in a device's MSI domain under proper
-descriptor and irq_desc locking and rewrite the cached MSI messages via
-the irq_chip hierarchy.
+This prevents a situation of "abandoned batches" where indices are
+incremented but commands are never written, which would otherwise
+lead to timeout during the drain poll.
 
-Signed-off-by: Thomas Gleixner <tglx@kernel.org>
-[praan: Use scoped_irqdesc_get_and_buslock(), fix the xarray range bound
- and write the commit message]
+Update queue_inc_prod_n() to preserve this flag during index
+calculations, ensuring that any in-flight commands that successfully
+passed the point of commitment can proceed to completion while the
+flag remains set.
+
+Suggested-by: Daniel Mentz <danielmentz@google.com>
+Reviewed-by: Nicolin Chen <nicolinc@nvidia.com>
 Signed-off-by: Pranjal Shrivastava <praan@google.com>
 ---
- include/linux/msi.h |  2 ++
- kernel/irq/msi.c    | 37 +++++++++++++++++++++++++++++++++++++
- 2 files changed, 39 insertions(+)
+ drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c | 35 +++++++++++++++++++--
+ drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.h |  5 +++
+ 2 files changed, 38 insertions(+), 2 deletions(-)
 
-diff --git a/include/linux/msi.h b/include/linux/msi.h
-index a4613de11960..44d551e85abd 100644
---- a/include/linux/msi.h
-+++ b/include/linux/msi.h
-@@ -669,6 +669,8 @@ void msi_domain_free_irqs_all(struct device *dev, unsigned int domid);
- 
- struct msi_domain_info *msi_get_domain_info(struct irq_domain *domain);
- 
-+void msi_device_domain_restore_msi_msgs(struct device *dev, unsigned int domid);
+diff --git a/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c b/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c
+index a123810fac57..7f89e2306942 100644
+--- a/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c
++++ b/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c
+@@ -218,7 +218,8 @@ static int queue_sync_prod_in(struct arm_smmu_queue *q)
+ static u32 queue_inc_prod_n(struct arm_smmu_ll_queue *q, int n)
+ {
+ 	u32 prod = Q_POS(q, q->prod) + n;
+-	return Q_OVF(q->prod) | Q_POS(q, prod);
 +
- /* Per device platform MSI */
- int platform_device_msi_init_and_alloc_irqs(struct device *dev, unsigned int nvec,
- 					    irq_write_msi_msg_t write_msi_msg);
-diff --git a/kernel/irq/msi.c b/kernel/irq/msi.c
-index df460a574d80..8fb855b5e09f 100644
---- a/kernel/irq/msi.c
-+++ b/kernel/irq/msi.c
-@@ -1784,3 +1784,40 @@ bool msi_device_has_isolated_msi(struct device *dev)
- 	return arch_is_isolated_msi();
++	return Q_OVF(q->prod) | Q_STOP(q->prod) | Q_POS(q, prod);
  }
- EXPORT_SYMBOL_GPL(msi_device_has_isolated_msi);
-+
-+/**
-+ * msi_device_domain_restore_msi_msgs - Restore MSI messages for a device domain
-+ * @dev:	The device to restore MSI messages for
-+ * @domid:	The id of the interrupt domain to restore
-+ */
-+void msi_device_domain_restore_msi_msgs(struct device *dev, unsigned int domid)
-+{
-+	if (!dev->msi.data)
-+		return;
-+
-+	guard(msi_descs_lock)(dev);
-+	struct irq_domain *domain = msi_get_device_domain(dev, domid);
-+
-+	if (!domain || !irq_domain_is_msi_device(domain))
-+		return;
-+
-+	struct xarray *xa = &dev->msi.data->__domains[domid].store;
-+	struct msi_domain_info *info = domain->host_data;
-+	struct msi_desc *msi_desc;
-+	unsigned long idx;
-+
-+	xa_for_each_range(xa, idx, msi_desc, 0, info->hwsize - 1) {
-+		/* Only handle MSI entries which have an interrupt associated */
-+		if (!msi_desc_match(msi_desc, MSI_DESC_ASSOCIATED))
-+			continue;
-+
-+		scoped_irqdesc_get_and_buslock(msi_desc->irq, 0) {
-+			struct irq_data *data = irq_desc_get_irq_data(scoped_irqdesc);
-+			struct msi_msg msg = msi_desc->msg;
-+
-+			if (data->chip)
-+				irq_chip_write_msi_msg(data, &msg);
+ 
+ static void queue_poll_init(struct arm_smmu_device *smmu,
+@@ -726,13 +727,42 @@ int __arm_smmu_cmdq_issue_cmdlist(struct arm_smmu_device *smmu,
+ 	do {
+ 		u64 old;
+ 
++		/*
++		 * If the SMMU is suspended/suspending, any new CMDs are elided.
++		 * This loop is the Point of Commitment. If we haven't cmpxchg'd
++		 * our new indices yet, we can safely bail. Once the indices are
++		 * committed, we MUST write valid commands to those slots to
++		 * avoid indefinite polling in the drain function.
++		 */
++		if (Q_STOP(llq.prod)) {
++			local_irq_restore(flags);
++			return 0;
 +		}
-+	}
-+}
-+EXPORT_SYMBOL_GPL(msi_device_domain_restore_msi_msgs);
++
+ 		while (!queue_has_space(&llq, n + sync)) {
+ 			local_irq_restore(flags);
++
++			/* Avoid waiting for space if the SMMU is suspending */
++			if (Q_STOP(READ_ONCE(cmdq->q.llq.prod)))
++				return 0;
++
+ 			if (arm_smmu_cmdq_poll_until_not_full(smmu, cmdq, &llq))
+ 				dev_err_ratelimited(smmu->dev, "CMDQ timeout\n");
+ 			local_irq_save(flags);
+ 		}
+ 
++		/*
++		 * If we exited the polling loop because the queue finally
++		 * has space, but the STOP_FLAG was set during the poll,
++		 * we must abort immediately. If we proceed, we will
++		 * commit new commands beyond the Point of Commitment while
++		 * the SMMU is suspending.
++		 */
++		if (Q_STOP(llq.prod)) {
++			local_irq_restore(flags);
++			return 0;
++		}
++
+ 		head.cons = llq.cons;
+ 		head.prod = queue_inc_prod_n(&llq, n + sync) |
+ 					     CMDQ_PROD_OWNED_FLAG;
+@@ -779,7 +809,8 @@ int __arm_smmu_cmdq_issue_cmdlist(struct arm_smmu_device *smmu,
+ 		/* b. Stop gathering work by clearing the owned flag */
+ 		prod = atomic_fetch_andnot_relaxed(CMDQ_PROD_OWNED_FLAG,
+ 						   &cmdq->q.llq.atomic.prod);
+-		prod &= ~CMDQ_PROD_OWNED_FLAG;
++		/* Strip all metadata flags */
++		prod &= CMDQ_PROD_IDX_MASK;
+ 
+ 		/*
+ 		 * c. Wait for any gathered work to be written to the queue.
+diff --git a/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.h b/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.h
+index deefb17e31eb..794b258550dd 100644
+--- a/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.h
++++ b/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.h
+@@ -394,6 +394,11 @@ static inline unsigned int arm_smmu_cdtab_l2_idx(unsigned int ssid)
+ #define CMDQ_ERR_CERROR_ATC_INV_IDX	3
+ 
+ #define CMDQ_PROD_OWNED_FLAG		Q_OVERFLOW_FLAG
++#define CMDQ_PROD_STOP_FLAG		(1U << 30)
++#define Q_STOP(p)			((p) & CMDQ_PROD_STOP_FLAG)
++
++/* Mask out software-only metadata flags to get the pure queue index/wrap bits */
++#define CMDQ_PROD_IDX_MASK		~(CMDQ_PROD_STOP_FLAG | CMDQ_PROD_OWNED_FLAG)
+ 
+ struct arm_smmu_cmd {
+ 	u64 data[CMDQ_ENT_DWORDS];
 -- 
 2.56.0.rc1.315.gc6ed9934b7-goog
 
