@@ -4,90 +4,97 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 87D28CA5FAD
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6FB5ECA5FAE
 	for <linux-arm-kernel@archiver.kernel.org>; Tue, 29 Sep 2026 10:38:23 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
-	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=QD12wy70TSq/tTZOlQTiNE7N6Wmf5bjie5E1X0Lng3g=; b=eP2P7Yur9jsl3NlvEfWK6prJXk
-	5YKicBqW4F7RqCZIZdj6UR9cKwwnVdyzf3ryZzeC8jzqtTn6BlvZDbZThaSW1kRnZhVJiu9dFooDk
-	0EgGfzPWTAB3zZdLya5bvDBpsEBg5IegsG390OLUnHFCfyr9ftUyGoC5f3hJUm+0Gab2rURtBMzih
-	1h13bZInCIIJdYgA3p/sdZs6znsK0ZBdJSHrlalDnm2OgGDJNZN6t98SEgvEali8pfjepsugbEjW3
-	tB0mgtmUxGr8h5I1nXfOFo/PXSqezPNcNsZHQHkvxOPfLKnaq3z+WMbx8yK/eyX8ij6Au98SZEx1B
-	si10lIXQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
+	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=Aq/miDDh+FHesOvczcSzM5kxiy3v5uRbviWlnSzPe50=; b=XANvMjnWeO3BmltG0qGWlhaf3u
+	F9mZP+pfUueJRhmftJOYvDplnPXJkKh0PeOmS/PE+mpAle3JTFg4nVPvxTfg3Eq97XXDe9IIxa51W
+	maAKLwePhlqdI/7Yo6FOa31bpQaT/18kXV+l4n/2gu5S9YSPAwTBLWWwj8+GKye7MzLxhanWqsTSv
+	4JfVu4zgyXo+B7Pn6Q4D+GsSv0yKnRbL3S6N9zMWqm/8R3ADVLOkSoI+lUF/WhKaZXj8kL3rIBk1Y
+	q2FCQdljXJstbBHYXC6SEqelpxj8jjVWsRWq13tzqKq/hRK2TZzr1oGyN+U8ak8nZq03sA4oQgxdJ
+	2FZYR6eg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xBVDo-00000003H4n-0wVv;
-	Tue, 29 Sep 2026 10:38:04 +0000
+	id 1xBVDq-00000003H7i-0TYE;
+	Tue, 29 Sep 2026 10:38:06 +0000
 Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xBVDI-00000003GoS-2xhW
+	id 1xBVDQ-00000003Grt-1gtb
 	for linux-arm-kernel@bombadil.infradead.org;
-	Tue, 29 Sep 2026 10:37:32 +0000
+	Tue, 29 Sep 2026 10:37:40 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Content-Type:Content-Transfer-Encoding
-	:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:CC:To:From:
-	Sender:Reply-To:Content-ID:Content-Description;
-	bh=QD12wy70TSq/tTZOlQTiNE7N6Wmf5bjie5E1X0Lng3g=; b=M2BBqWqz2N85oR7v/6BNzExRQp
-	1on4u/2eUDc6zIz+eh+dP5AvvTjtjO66QhkxyqhiNam79e76eu13ltB7huAty375bztOqEfxvwT0h
-	G88gFCEO8nWYXpxjoF/wbmJ7p9MgX7hlL8KTuExKENGKFVihbHr3nBEVEiL1ZsLcnx3YjqdUlBc8z
-	MHaUNsk8Om7MhdyMUj8c2S/xpf10rLONFgBoBgMABxGKSunl3p+WIqkn76YtytNzioevvwnlzrG7m
-	kMX9x9TeD3b4H1FmpUnLRoE3e6xxKNjmtOJ8HJ3v0walImdfSHZttURjlgmvmiuDJHYX5MzS2iGOX
-	+8I5ANbw==;
-Received: from canpmsgout09.his.huawei.com ([113.46.200.224])
+	d=infradead.org; s=desiato.20200630; h=Cc:To:In-Reply-To:References:
+	Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
+	From:Sender:Reply-To:Content-ID:Content-Description;
+	bh=Aq/miDDh+FHesOvczcSzM5kxiy3v5uRbviWlnSzPe50=; b=Fm2ccfC54dmOZl+7YSHD/QT4Fp
+	CAyVcOqJpiJnr3kJ0CnukMUQ+UGZdGy/c1fEBjoRczpM7YXxYUuNO396oXzXudE2biMZrwyLENUkh
+	kWTo/N/mY1TBonBSGQtuZHVoj9GQ8Q4BqR3ckdtW+rZDBQS9u5/wnkkszXGH4lj4Vbon5ZVqoltQQ
+	+UvWLOJjpbEHibxh75FguxOCIDo1SHUymU5PJTlWBrCvURX3Mk09WyOFTWWGCiw1mIXAfGFFgx+Zt
+	/OGg0IH7ds3tAH4cdbmJ9PBDhsw5jrSv3faFj/y0j2CJtT/oSvsHICs2Lt/U/PSdISrqfbFBlGpbq
+	Y375Ebdw==;
+Received: from smtpout-02.galae.net ([185.246.84.56])
 	by desiato.infradead.org with esmtps (Exim 4.99.2 #2 (Red Hat Linux))
-	id 1xBVD2-00000002VFy-2EXH
+	id 1xBVDL-00000002VNS-40qc
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 29 Sep 2026 10:37:28 +0000
-dkim-signature: v=1; a=rsa-sha256; d=huawei.com; s=dkim;
-	c=relaxed/relaxed; q=dns/txt;
-	h=From;
-	bh=QD12wy70TSq/tTZOlQTiNE7N6Wmf5bjie5E1X0Lng3g=;
-	b=HvLJpW9Cosxcsx/1j+ZjQo0fHaeFOExk2G1PwxmWEeqad9RWHDo8pB3EejDa9fDLm2fWh9WMD
-	dAH7tCRk/A4zNr96l+JQ6aSChhQryazK01Pojqvj6zpepgs8ATJUlTgZCfPWD395gWS1YG5meow
-	HrO/qz73uwssvQQgW+36Qh0=
-Received: from mail.maildlp.com (unknown [172.19.163.163])
-	by canpmsgout09.his.huawei.com (SkyGuard) with ESMTPS id 4hvDpq1cL3z1cyS4;
-	Tue, 29 Sep 2026 18:25:55 +0800 (CST)
-Received: from kwepemr100010.china.huawei.com (unknown [7.202.195.125])
-	by mail.maildlp.com (Postfix) with ESMTPS id 4CA904048B;
-	Tue, 29 Sep 2026 18:37:01 +0800 (CST)
-Received: from huawei.com (10.50.163.32) by kwepemr100010.china.huawei.com
- (7.202.195.125) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.45; Tue, 29 Sep
- 2026 18:37:00 +0800
-From: Tian Zheng <zhengtian10@huawei.com>
-To: <maz@kernel.org>, <oupton@kernel.org>, <catalin.marinas@arm.com>,
-	<will@kernel.org>, <corbet@lwn.net>, <pbonzini@redhat.com>,
-	<zhengtian10@huawei.com>, <leo.bras@arm.com>
-CC: <yuzenghui@huawei.com>, <wangzhou1@hisilicon.com>,
-	<yangjinqian1@huawei.com>, <caijian11@h-partners.com>,
-	<liuyonglong@huawei.com>, <tangchengchang@huawei.com>,
-	<yezhenyu2@huawei.com>, <yubihong@huawei.com>, <linuxarm@huawei.com>,
-	<joey.gouly@arm.com>, <kvmarm@lists.linux.dev>, <kvm@vger.kernel.org>,
-	<linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>,
-	<seiden@linux.ibm.com>, <suzuki.poulose@arm.com>, <fuad.tabba@linux.dev>,
-	<mark.rutland@arm.com>, <seanjc@google.com>, <rdunlap@infradead.org>,
-	<linux-doc@vger.kernel.org>, <linux-kselftest@vger.kernel.org>,
-	<skhan@linuxfoundation.org>
-Subject: [PATCH v5 06/15] KVM: arm64: Add support for FEAT_HDBSS
-Date: Tue, 29 Sep 2026 18:36:46 +0800
-Message-ID: <20260929103655.85107-7-zhengtian10@huawei.com>
-X-Mailer: git-send-email 2.33.0
-In-Reply-To: <20260929103655.85107-1-zhengtian10@huawei.com>
-References: <20260929103655.85107-1-zhengtian10@huawei.com>
+	Tue, 29 Sep 2026 10:37:38 +0000
+Received: from smtpout-01.galae.net (smtpout-01.galae.net [212.83.139.233])
+	by smtpout-02.galae.net (Postfix) with ESMTPS id 0AB8D1A1059;
+	Tue, 29 Sep 2026 10:37:35 +0000 (UTC)
+Received: from mail.galae.net (mail.galae.net [212.83.136.155])
+	by smtpout-01.galae.net (Postfix) with ESMTPS id D24AB601BD;
+	Tue, 29 Sep 2026 10:37:34 +0000 (UTC)
+Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id A6BBB103297AF;
+	Tue, 29 Sep 2026 12:37:28 +0200 (CEST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=dkim;
+	t=1790678253; h=from:subject:date:message-id:to:cc:mime-version:content-type:
+	 content-transfer-encoding:in-reply-to:references;
+	bh=Aq/miDDh+FHesOvczcSzM5kxiy3v5uRbviWlnSzPe50=;
+	b=xFWWeVC+oeNOjqXAdOi77g+AXgAib7PPbvOa6ZG181NE2dQGdrSTU4VLiyGxXRwcIlXA9a
+	IuntcrYc3PDfrZ7K8pWtNJvwhaW1jsaM0iyBAebn8La4S600cbQBhcpDfEAqvoH2kXrKct
+	/Om21RGpyULsuJKb0QZ5WVh/Phg6TO2TvMjdz5tmA7qfvwiWJ1tajgbpkHFPj/V4mmqYCo
+	d6hNljqygdk0a22n+iXBdh6I1abYB2aMR+1gQfGyVh3zP4BDdhhAuGLhMCkpkI7Il9+6KW
+	EfNXZ8ICN74ad3DTYMKCMbg2Qa7fyDRcKF1gxMxilTgUUEcnJk8YoGlO4mE+HQ==
+From: Luca Ceresoli <luca.ceresoli@bootlin.com>
+Date: Tue, 29 Sep 2026 12:36:39 +0200
+Subject: [PATCH 7/7] drm: renesas: shmobile: stop using deprecated
+ devm_drm_of_get_bridge()
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-Content-Type: text/plain
-X-Originating-IP: [10.50.163.32]
-X-ClientProxiedBy: kwepems500002.china.huawei.com (7.221.188.17) To
- kwepemr100010.china.huawei.com (7.202.195.125)
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+Message-Id: <20260929-drm-fix-of_get_bridge-build-regression-v1-7-ccb7e602daad@bootlin.com>
+References: <20260929-drm-fix-of_get_bridge-build-regression-v1-0-ccb7e602daad@bootlin.com>
+In-Reply-To: <20260929-drm-fix-of_get_bridge-build-regression-v1-0-ccb7e602daad@bootlin.com>
+To: Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, 
+ Maxime Ripard <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>, 
+ David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>, 
+ Frank Li <Frank.Li@nxp.com>, Sascha Hauer <s.hauer@pengutronix.de>, 
+ Pengutronix Kernel Team <kernel@pengutronix.de>, 
+ Fabio Estevam <festevam@gmail.com>, Icenowy Zheng <zhengxingda@iscas.ac.cn>, 
+ Andrzej Hajda <andrzej.hajda@intel.com>, 
+ Neil Armstrong <neil.armstrong@linaro.org>, Robert Foss <rfoss@kernel.org>, 
+ Laurent Pinchart <Laurent.pinchart@ideasonboard.com>, 
+ Jonas Karlman <jonas@kwiboo.se>, Jernej Skrabec <jernej.skrabec@gmail.com>, 
+ Dave Stevenson <dave.stevenson@raspberrypi.com>, 
+ =?utf-8?q?Ma=C3=ADra_Canal?= <mcanal@igalia.com>, 
+ Raspberry Pi Kernel Maintenance <kernel-list@raspberrypi.com>, 
+ Geert Uytterhoeven <geert+renesas@glider.be>
+Cc: Arnd Bergmann <arnd@kernel.org>, Doug Anderson <dianders@chromium.org>, 
+ Hui Pu <Hui.Pu@gehealthcare.com>, Ian Ray <ian.ray@gehealthcare.com>, 
+ Thomas Petazzoni <thomas.petazzoni@bootlin.com>, 
+ dri-devel@lists.freedesktop.org, imx@lists.linux.dev, 
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
+ linux-renesas-soc@vger.kernel.org, 
+ Luca Ceresoli <luca.ceresoli@bootlin.com>
+X-Mailer: b4 0.16.0
+X-Last-TLS-Session-Version: TLSv1.3
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260929_113717_254187_71F2A5E5 
-X-CRM114-Status: GOOD (  13.58  )
+X-CRM114-CacheID: sfid-20260929_113736_216580_8162A14E 
+X-CRM114-Status: GOOD (  13.53  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -102,83 +109,49 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Armv9.5 introduces the Hardware dirty state tracking structure
-(HDBSS), indicated by ID_AA64MMFR1_EL1.HAFDBS == 0b0100.
+devm_drm_of_get_bridge() is deprecated, switch to
+of_drm_get_bridge_by_endpoint(). As of_drm_get_bridge_by_endpoint() returns
+a refcounted bridge, ensure it is put.
 
-Add CPU capability detection for HDBSS. The capability is restricted
-to VHE systems, as the buffer registers HDBSSBR_EL2 and HDBSSPROD_EL2
-are EL2-only and are programmed directly from host context. A
-system_supports_hdbss() helper is provided for the rest of the series.
+drm_panel.h becomes unused, drop the include.
 
-Suggested-by: Zhou Wang <wangzhou1@hisilicon.com>
-Co-developed-by: Eillon <yezhenyu2@huawei.com>
-Signed-off-by: Eillon <yezhenyu2@huawei.com>
-Signed-off-by: Tian Zheng <zhengtian10@huawei.com>
+Signed-off-by: Luca Ceresoli <luca.ceresoli@bootlin.com>
 ---
- arch/arm64/include/asm/cpufeature.h |  5 +++++
- arch/arm64/kernel/cpufeature.c      | 12 ++++++++++++
- arch/arm64/tools/cpucaps            |  1 +
- 3 files changed, 18 insertions(+)
+ drivers/gpu/drm/renesas/shmobile/shmob_drm_crtc.c | 5 ++---
+ 1 file changed, 2 insertions(+), 3 deletions(-)
 
-diff --git a/arch/arm64/include/asm/cpufeature.h b/arch/arm64/include/asm/cpufeature.h
-index 4f04ad82ea34..0592e6f6b4d7 100644
---- a/arch/arm64/include/asm/cpufeature.h
-+++ b/arch/arm64/include/asm/cpufeature.h
-@@ -856,6 +856,11 @@ static inline bool system_supports_haft(void)
- 	return cpus_have_final_cap(ARM64_HAFT);
- }
-
-+static inline bool system_supports_hdbss(void)
-+{
-+	return cpus_have_final_cap(ARM64_HAS_HDBSS);
-+}
-+
- static __always_inline bool system_supports_mpam(void)
+diff --git a/drivers/gpu/drm/renesas/shmobile/shmob_drm_crtc.c b/drivers/gpu/drm/renesas/shmobile/shmob_drm_crtc.c
+index 328a36215e39..51bae2008cc6 100644
+--- a/drivers/gpu/drm/renesas/shmobile/shmob_drm_crtc.c
++++ b/drivers/gpu/drm/renesas/shmobile/shmob_drm_crtc.c
+@@ -28,7 +28,6 @@
+ #include <drm/drm_gem_dma_helper.h>
+ #include <drm/drm_modeset_helper.h>
+ #include <drm/drm_modeset_helper_vtables.h>
+-#include <drm/drm_panel.h>
+ #include <drm/drm_probe_helper.h>
+ #include <drm/drm_vblank.h>
+ 
+@@ -447,7 +446,6 @@ static const struct drm_encoder_funcs shmob_encoder_funcs = {
+ int shmob_drm_encoder_create(struct shmob_drm_device *sdev)
  {
- 	return alternative_has_cap_unlikely(ARM64_MPAM);
-diff --git a/arch/arm64/kernel/cpufeature.c b/arch/arm64/kernel/cpufeature.c
-index 32102c3912fa..12fa37328dd2 100644
---- a/arch/arm64/kernel/cpufeature.c
-+++ b/arch/arm64/kernel/cpufeature.c
-@@ -2158,6 +2158,11 @@ static bool hvhe_possible(const struct arm64_cpu_capabilities *entry,
- 	return arm64_test_sw_feature_override(ARM64_SW_FEATURE_OVERRIDE_HVHE);
- }
+ 	struct drm_encoder *encoder = &sdev->encoder;
+-	struct drm_bridge *bridge;
+ 	int ret;
+ 
+ 	encoder->possible_crtcs = 1;
+@@ -463,7 +461,8 @@ int shmob_drm_encoder_create(struct shmob_drm_device *sdev)
+ 	}
+ 
+ 	/* Create a panel bridge */
+-	bridge = devm_drm_of_get_bridge(sdev->dev, sdev->dev->of_node, 0, 0);
++	struct drm_bridge *bridge __free(drm_bridge_put) =
++		of_drm_get_bridge_by_endpoint(sdev->dev->of_node, 0, 0);
+ 	if (IS_ERR(bridge))
+ 		return PTR_ERR(bridge);
+ 
 
-+static bool has_vhe_hdbss(const struct arm64_cpu_capabilities *entry, int scope)
-+{
-+	return is_kernel_in_hyp_mode() && has_cpuid_feature(entry, scope);
-+}
-+
- bool cpu_supports_bbml3(void)
- {
- 	/* CPUs that support BBML3 but dont advertise through ID_AA64MMFR2_EL1 */
-@@ -2816,6 +2821,13 @@ static const struct arm64_cpu_capabilities arm64_features[] = {
- 		ARM64_CPUID_FIELDS(ID_AA64MMFR1_EL1, HAFDBS, HAFT)
- 	},
- #endif
-+	{
-+		.desc = "Hardware dirty state tracking structure (HDBSS)",
-+		.type = ARM64_CPUCAP_SYSTEM_FEATURE,
-+		.capability = ARM64_HAS_HDBSS,
-+		.matches = has_vhe_hdbss,
-+		ARM64_CPUID_FIELDS(ID_AA64MMFR1_EL1, HAFDBS, HDBSS)
-+	},
- 	{
- 		.desc = "CRC32 instructions",
- 		.capability = ARM64_HAS_CRC32,
-diff --git a/arch/arm64/tools/cpucaps b/arch/arm64/tools/cpucaps
-index 2775ba3359cf..8acb3db980c9 100644
---- a/arch/arm64/tools/cpucaps
-+++ b/arch/arm64/tools/cpucaps
-@@ -71,6 +71,7 @@ HAS_VA52
- HAS_VIRT_HOST_EXTN
- HAS_WFXT
- HAS_XNX
-+HAS_HDBSS
- HAFT
- HW_DBM
- KVM_HVHE
---
-2.43.0
+-- 
+2.55.0
 
 
