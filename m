@@ -4,63 +4,61 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 883A8CA5FA5
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 29 Sep 2026 02:21:50 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8B0A1CA5FA5
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 29 Sep 2026 02:29:05 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:To:Subject:Cc:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=608TxoAcsSFja39GdQX5iExTG94VTDqd7cjXZfeJR4s=; b=sbwIPoNEaFzCwayee6mgdcdEWe
-	TdKMqjn3A99EVhGFLrc6f8FQBRLjFmkrPDaX2XJsOgoM2aSBInrA6TZm0scnnwK7wps9rJKVkGqDc
-	At6rDATp5x8/KAfTBjEKCnuHdylSzy1l3K1ceUMVskO5ejNiPSYyfazqRoCjFhk38q0G8CqzSZI8W
-	akDp+bHS9xaUdzYne50Y71674GaEGbqaM2g+YWAsqs3bEhgM1ck7MNkGtPMxkST1N7O+xenryOhYn
-	F8n6J2RI+lMEQizG4FejhimEsdNqQbx9GKTEBQ5EkVXYuaUAauVmIGx9Vbvo2VPs2jP9CiANYsMhF
-	Y51UMgOQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:References:In-Reply-To:Date:Cc:To:From
+	:Subject:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=AyOlMOGbyQvd231IhMBOex53XSeKW1Mj9ZrDcc2VVoM=; b=cQ94zAnQ76lD31N5lpGDb2Y2gn
+	tH0V8rEsLYR7sXUstNaVElpj5lRmbtypvp9yH5y1s6U7q2G6B2rshb2gY84NTlV0ILsTaITpZERD5
+	8R8orYGTJ57HJFgvfDEROWPl+hbyAE4d6K/uhB/OuLA6uBgt9mZZm7mCuet0YL8dXim9lAu7fR6b0
+	cAvqGczEn67GeaTzcS0SRytq/hUehEw6j7ySL47co+Ty/jE4d2tqQAKtIW3gc0mDaIw1cWdpxCGdN
+	ph/KXuVwQxhHn/3hrn6NcamWxtAKJMSqF0PGA5sFODE+MBluuvlphFxdqLa+SUUWcSvh+s2PP4GHv
+	PS4bNcLg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xBNTU-000000027Sz-2feV;
-	Tue, 29 Sep 2026 02:21:44 +0000
-Received: from mail-m93204.xmail.ntesmail.com ([103.126.93.204])
+	id 1xBNaU-000000027wI-1OTC;
+	Tue, 29 Sep 2026 02:28:58 +0000
+Received: from xs1.mindbit.ro ([80.86.107.70] helo=mail.mindbit.ro)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xBNTM-000000027Qg-1qSL;
-	Tue, 29 Sep 2026 02:21:39 +0000
-Received: from [172.16.12.48] (unknown [61.154.14.86])
-	by smtp.qiye.163.com (Hmail) with ESMTP id 4f6d2dccf;
-	Tue, 29 Sep 2026 10:21:32 +0800 (GMT+08:00)
-Message-ID: <23589ca5-7b7e-4f0a-8da7-1cd8ca8cdc6e@rock-chips.com>
-Date: Tue, 29 Sep 2026 10:21:31 +0800
+	id 1xBNaQ-000000027vj-37Qt
+	for linux-arm-kernel@lists.infradead.org;
+	Tue, 29 Sep 2026 02:28:56 +0000
+Received: from dog.kanata.rendec.net (pool-174-112-193-187.cpe.net.cable.rogers.com [174.112.193.187])
+	by mail.mindbit.ro (Postfix) with ESMTPSA id 2DECDD0A70;
+	Tue, 29 Sep 2026 05:28:47 +0300 (EEST)
+DKIM-Filter: OpenDKIM Filter v2.11.0 mail.mindbit.ro 2DECDD0A70
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=rendec.net;
+	s=default; t=1790648928;
+	bh=AyOlMOGbyQvd231IhMBOex53XSeKW1Mj9ZrDcc2VVoM=;
+	h=Subject:From:To:Cc:Date:In-Reply-To:References:From;
+	b=PtjSYnUnvWge+6+Zgey9kCgJGe/3RZ3QeyHDgfo5ERhhDSqEsHkyUhlCWHGptpXtc
+	 IV/HMYOrurmGARe6ySab6hs+EnyZdG1OAZTcpnkwqvZGPvSaemK10tqcePjAkSp9RI
+	 GEw0TBli+iU9IT9Ax1bsHGlxLVVuPvI3td656MTGja2sF6R8D1P6PFbw0VBY8LneXm
+	 9Dj/YzXFrzLhyOlhkzXoe1AvwWDrjvEs8nlBx1ieQV4gHwsnQ2nUCRXN5UfJXBZA9f
+	 veUJ1VjMjLUrVecriVuial/YliOJupwuxIPM2PyqLx/E/E50qD6NTtFR6QVTc2BZ99
+	 Nzo4gRRByl4gQ==
+Message-ID: <9b32a65ad4ed4d34068bb6dafb8503cb4588638f.camel@rendec.net>
+Subject: Re: [PATCH v4] irqchip/gic: Fix UBSAN shift-out-of-bounds in GIC
+ helpers
+From: Radu Rendec <radu@rendec.net>
+To: Zhu Ling <zhuling2709@phytium.com.cn>, maz@kernel.org, tglx@kernel.org
+Cc: zenghui.yu@linux.dev, linux-arm-kernel@lists.infradead.org, 
+	linux-kernel@vger.kernel.org
+Date: Mon, 28 Sep 2026 22:28:45 -0400
+In-Reply-To: <20260928013209.7242-1-zhuling2709@phytium.com.cn>
+References: <20260923082804.13197-1-zhuling2709@phytium.com.cn>
+	 <20260928013209.7242-1-zhuling2709@phytium.com.cn>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
+User-Agent: Evolution 3.58.3 (3.58.3-1.fc43) 
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Cc: shawn.lin@rock-chips.com, linux-spi@vger.kernel.org,
- linux-kernel@vger.kernel.org, linusw@kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org,
- jon.lin@rock-chips.com, bcm-kernel-feedback-list@broadcom.com,
- noltari@gmail.com
-Subject: Re: [PATCH 2/3] spi: rockchip-sfc: Clean up runtime PM on remove
-To: Guangshuo Li <lgs201920130244@gmail.com>, broonie@kernel.org,
- heiko@sntech.de, william.zhang@broadcom.com, kursad.oney@broadcom.com,
- jonas.gorski@gmail.com
-References: <20260924112329.1566051-1-lgs201920130244@gmail.com>
- <20260924112329.1566051-3-lgs201920130244@gmail.com>
-From: Shawn Lin <shawn.lin@rock-chips.com>
-In-Reply-To: <20260924112329.1566051-3-lgs201920130244@gmail.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 8bit
-X-HM-Tid: 0aa0eaf7a0ba03a4kunm3f316cb87f1ea3
-X-HM-MType: 1
-X-HM-Spam-Status: e1kfGhgUHx5ZQUpXWQgPGg8OCBgUHx5ZQUlOS1dZFg8aDwILHllBWSg2Ly
-	tZV1koWUFITzdXWRgWCB1ZQUpXWS1ZQUlXWQ8JGhUIEh9ZQVlCSk9CVh9NQk1NGk8fHx1OTFYVFA
-	kWGhdVEwETFhoSFyQUDg9ZV1kYEgtZQVlNSlVKTk9VSk9VQ01ZV1kWGg8SFR0UWUFZT0tIVUpLSU
-	9PT0hVSktLVUpCS0tZBg++
-DKIM-Signature: a=rsa-sha256;
-	b=b0Nmn4A2L3sB7JXXDYNJoZwkmkRNQshPXshO1PivLsRYoBKNfmCpAX4c41WhmHiA0V3vSIAX9UViYpiGG1X/sPsl25P7DD6NNfhtT2G05ZEkmQX+3/LTlPQGKQ4gWt5eINnmjHlEtJlDI4xXqGRHli26/2zelrE9jjcj0uhCTt4=; s=default; c=relaxed/relaxed; d=rock-chips.com; v=1;
-	bh=608TxoAcsSFja39GdQX5iExTG94VTDqd7cjXZfeJR4s=;
-	h=date:mime-version:subject:message-id:from;
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260928_192136_689152_4A1362DC 
-X-CRM114-Status: GOOD (  12.98  )
+X-CRM114-CacheID: sfid-20260928_192855_118436_7CBACF0A 
+X-CRM114-Status: GOOD (  24.09  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -75,47 +73,130 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Guangshuo
+On Mon, 2026-09-28 at 09:32 +0800, Zhu Ling wrote:
+> When running with UBSAN enabled, enabling a GPIO controller that uses a
+> GIC interrupt as its parent triggers several shift-out-of-bounds warnings=
+:
+>=20
+> =C2=A0 shift-out-of-bounds in drivers/irqchip/irq-gic-common.c:50:21
+> =C2=A0 left shift of 2 by 30 places cannot be represented in type 'int'
+>=20
+> Similar reports are emitted from gic_poke_irq() and gic_peek_irq() in
+> drivers/irqchip/irq-gic-v3.c. The corresponding GICv2 helpers use the
+> same signed-shift pattern. These masks are generated by shifting signed
+> integer constants, which invokes undefined behavior when bit 31 is
+> selected.
+>=20
+> Use BIT() to generate the masks with an unsigned type and make their
+> intent explicit.
+>=20
+> Fixes: 5c0c1f08abf0 ("ARM: 6150/1: gic: implement set_type")
+> Fixes: 567178077c36 ("irqchip: GIC: Add support for irq_[get, set]_irqchi=
+p_state()")
 
-在 2026/09/24 星期四 19:23, Guangshuo Li 写道:
-> rockchip_sfc_probe() enables runtime PM and autosuspend before registering
-> the controller. After a successful probe, rockchip_sfc_remove() tears down
-> the controller and clocks without undoing that runtime PM setup.
-> 
-> The probe error path resumes the device, drops the temporary usage count,
-> disables runtime PM, marks the device suspended, and stops using
-> autosuspend before disabling the clocks. The remove path lacks this
-> matching cleanup.
-> 
-> Mirror the existing error-path sequence in rockchip_sfc_remove() before
-> disabling the clocks.
-> 
+Thanks for adding these and sorry for being pedantic. The above commit
+just moved around the offending lines, and so did the previous one that
+touched them. I traced them back to f27ecacc54cc ("[ARM] Add support
+for ARM GIC") - the commit that added the GIC driver *21 years* ago.
 
-Thanks for this patch. However, it was fixed, see:
-https://git.kernel.org/pub/scm/linux/kernel/git/next/linux-next.git/commit/?id=34e32e9ade58e32daf933974c9b697d066fc5aaa
+> Fixes: b594c6e20c7f ("irqchip: GICv3: Add support for irq_[get, set]_irqc=
+hip_state()")
 
-> Fixes: 8011709906d0 ("spi: rockchip-sfc: Support pm ops")
-> Signed-off-by: Guangshuo Li <lgs201920130244@gmail.com>
+Same here. That commit just moved around gic_peek_irq(). The offending
+lines trace back to 021f653791ad ("irqchip: gic-v3: Initial support for
+GICv3") - the commit that added the GICv3 driver *12 years* ago.
+
+These UB issues have been there for quite a while :) FWIW, I did some
+research, and gcc actually generates correct machine code for these
+shifts, even though they are UB from the C standard's perspective. I
+guess that explains why they have gone unnoticed for so long; people
+started to use clang only much more recently to compile the kernel.
+
+> Signed-off-by: Zhu Ling <zhuling2709@phytium.com.cn>
 > ---
->   drivers/spi/spi-rockchip-sfc.c | 6 ++++++
->   1 file changed, 6 insertions(+)
-> 
-> diff --git a/drivers/spi/spi-rockchip-sfc.c b/drivers/spi/spi-rockchip-sfc.c
-> index 662a994da60b..6e1c7d6318bb 100644
-> --- a/drivers/spi/spi-rockchip-sfc.c
-> +++ b/drivers/spi/spi-rockchip-sfc.c
-> @@ -747,6 +747,12 @@ static void rockchip_sfc_remove(struct platform_device *pdev)
->   			 DMA_BIDIRECTIONAL);
->   	free_pages((unsigned long)sfc->buffer, get_order(sfc->max_iosize));
->   
-> +	pm_runtime_get_sync(&pdev->dev);
-> +	pm_runtime_put_noidle(&pdev->dev);
-> +	pm_runtime_disable(&pdev->dev);
-> +	pm_runtime_set_suspended(&pdev->dev);
-> +	pm_runtime_dont_use_autosuspend(&pdev->dev);
-> +
->   	clk_disable_unprepare(sfc->clk);
->   	clk_disable_unprepare(sfc->hclk);
->   }
-
+> Changes in v4:
+> - Add Fixes tags for the commits that introduced the affected masks.
+>=20
+> Changes in v3:
+> - Fix the same issue in the GICv2 gic_poke_irq() and gic_peek_irq()
+> =C2=A0 helpers, as pointed out by Zenghui.
+>=20
+> Changes in v2:
+> - Use BIT() instead of explicit unsigned shifts, as suggested by Marc.
+> - Drop the redundant introductory text from the email.
+> - Update the author email address.
+>=20
+> Link: https://lore.kernel.org/r/2fJDwUUYdEf2_eaRa041L9xkT8RkSWFeo7euOnqMb=
+bPhUatLlEaAvGfB6sOspDmXaxO87Eh7bQLV9UolyjbMtZBT1wB2UGypjPOo0Z-RC0Q=3D@proto=
+n.me
+> ---
+> =C2=A0drivers/irqchip/irq-gic-common.c | 2 +-
+> =C2=A0drivers/irqchip/irq-gic-v3.c=C2=A0=C2=A0=C2=A0=C2=A0 | 4 ++--
+> =C2=A0drivers/irqchip/irq-gic.c=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=
+ | 4 ++--
+> =C2=A03 files changed, 5 insertions(+), 5 deletions(-)
+>=20
+> diff --git a/drivers/irqchip/irq-gic-common.c b/drivers/irqchip/irq-gic-c=
+ommon.c
+> index c776f9142610..8bd1eaa54295 100644
+> --- a/drivers/irqchip/irq-gic-common.c
+> +++ b/drivers/irqchip/irq-gic-common.c
+> @@ -48,7 +48,7 @@ void gic_enable_quirks(u32 iidr, const struct gic_quirk=
+ *quirks,
+> =C2=A0int gic_configure_irq(unsigned int irq, unsigned int type,
+> =C2=A0		=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 void __iomem *base)
+> =C2=A0{
+> -	u32 confmask =3D 0x2 << ((irq % 16) * 2);
+> +	u32 confmask =3D BIT(((irq % 16) * 2) + 1);
+> =C2=A0	u32 confoff =3D (irq / 16) * 4;
+> =C2=A0	u32 val, oldval;
+> =C2=A0	int ret =3D 0;
+> diff --git a/drivers/irqchip/irq-gic-v3.c b/drivers/irqchip/irq-gic-v3.c
+> index 6e1fa5b247fc..15110d47ddb0 100644
+> --- a/drivers/irqchip/irq-gic-v3.c
+> +++ b/drivers/irqchip/irq-gic-v3.c
+> @@ -457,7 +457,7 @@ static int gic_peek_irq(struct irq_data *d, u32 offse=
+t)
+> =C2=A0	u32 index, mask;
+> =C2=A0
+> =C2=A0	offset =3D convert_offset_index(d, offset, &index);
+> -	mask =3D 1 << (index % 32);
+> +	mask =3D BIT(index % 32);
+> =C2=A0
+> =C2=A0	if (gic_irq_in_rdist(d))
+> =C2=A0		base =3D gic_data_rdist_sgi_base();
+> @@ -473,7 +473,7 @@ static void gic_poke_irq(struct irq_data *d, u32 offs=
+et)
+> =C2=A0	u32 index, mask;
+> =C2=A0
+> =C2=A0	offset =3D convert_offset_index(d, offset, &index);
+> -	mask =3D 1 << (index % 32);
+> +	mask =3D BIT(index % 32);
+> =C2=A0
+> =C2=A0	if (gic_irq_in_rdist(d))
+> =C2=A0		base =3D gic_data_rdist_sgi_base();
+> diff --git a/drivers/irqchip/irq-gic.c b/drivers/irqchip/irq-gic.c
+> index f6bc29f515fb..fb7a55f5b394 100644
+> --- a/drivers/irqchip/irq-gic.c
+> +++ b/drivers/irqchip/irq-gic.c
+> @@ -178,14 +178,14 @@ static inline bool cascading_gic_irq(struct irq_dat=
+a *d)
+> =C2=A0 */
+> =C2=A0static void gic_poke_irq(struct irq_data *d, u32 offset)
+> =C2=A0{
+> -	u32 mask =3D 1 << (irqd_to_hwirq(d) % 32);
+> +	u32 mask =3D BIT(irqd_to_hwirq(d) % 32);
+> =C2=A0
+> =C2=A0	writel_relaxed(mask, gic_dist_base(d) + offset + (irqd_to_hwirq(d)=
+ / 32) * 4);
+> =C2=A0}
+> =C2=A0
+> =C2=A0static int gic_peek_irq(struct irq_data *d, u32 offset)
+> =C2=A0{
+> -	u32 mask =3D 1 << (irqd_to_hwirq(d) % 32);
+> +	u32 mask =3D BIT(irqd_to_hwirq(d) % 32);
+> =C2=A0
+> =C2=A0	return !!(readl_relaxed(gic_dist_base(d) + offset + (irqd_to_hwirq=
+(d) / 32) * 4) & mask);
+> =C2=A0}
 
