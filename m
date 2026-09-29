@@ -4,97 +4,90 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 414D8CA5FA5
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6015DCA5FA1
 	for <linux-arm-kernel@archiver.kernel.org>; Tue, 29 Sep 2026 10:38:23 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=7bn5YXIcFILcy8+D6koE5PJVirhIe/szeX2l5bXBcO4=; b=pCV2Klyx5stkJKA2B15k7sdnln
-	P+raiAiQf2N0QotZjysNM/eA5do51MRSgIvBUJZdBOk6cAlQ0zDaXguf9Ge/Witfg7fc0p81NTArx
-	JcEvM7EJLZ8h4kI5qHkYpnBwVZ/GczH9eS0un6+P4oyafBenPB76bULOJoFi7fU1vELplA0ndaQZI
-	rkzRv5Mk9MhBWbHJmmrs7qc6Of2uCJi7hwlzRUKwSPF8SAZjTa/6r2gMrRQ9eCdTREOJX6LrdqLKU
-	HCQ/93CJsdwPxJqcVcuXEIstKvOQUKTCCrjq232rMzoEeR65u8VF5CJC7iZa9PL4d/08c5fKTgqPY
-	r5J+4gKg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
+	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=4x36drenHC31a65AUAmISM+E18V5XgYGEXDL6/a05K8=; b=eWMivsDn8Ha6NYvRImFqFErTxt
+	Dy/oC+1hLOqUBt91TgY9w89hGC4+2xlrp1rAlm5MCtNqoMZBv5Cq8lU7nkI4R7h1EDU/tgcNfIQco
+	EWVheCFWwkcAAA7JgbtMpTDFsgitxp2rzyEuYfjoSPuomE+6RH6C0J5inRjA3ymxMYauSiLg+odwu
+	7p1E9LumNrzFe7lSH09vHKFq7G5QsMN7Prb5g8D3XlXaqm+gxIWbNKahdIhRwJ5E93QmIdsBi0KDU
+	hvc8KS7RFp11X+R9l8XiLZmF54jpoWki/KlzRhpMHNnesVCAgXyKgN58ZEvVWotlmUanzVSnM1XSF
+	Jwu0/4wg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xBVDp-00000003H70-3eoM;
-	Tue, 29 Sep 2026 10:38:05 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1xBVDj-00000003Gwh-0vZG;
+	Tue, 29 Sep 2026 10:37:59 +0000
+Received: from casper.infradead.org ([2001:8b0:10b:1236::1])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xBVDL-00000003Gpd-05x5
+	id 1xBVD5-00000003GfR-3Qq2
 	for linux-arm-kernel@bombadil.infradead.org;
-	Tue, 29 Sep 2026 10:37:35 +0000
+	Tue, 29 Sep 2026 10:37:19 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Cc:To:In-Reply-To:References:
-	Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Sender:Reply-To:Content-ID:Content-Description;
-	bh=7bn5YXIcFILcy8+D6koE5PJVirhIe/szeX2l5bXBcO4=; b=E2nRzBTlk5/yZh0J8wIOup2HKn
-	jVprIDXOVNmSzQfcj2WjrMWIERfDcEbP+5kqTq3N9HmCLHT24mLWNdrLDjk962ihFMPRC2rCaHTa7
-	QmZ5l0VuQR2IYvXnunUgu43bvBdQSUp33Bchlz21u9maxbxD/J3D6cGxepa+CaldDgsHV8NU7FHjF
-	xb2wxfKhZcVlf4zgykCtLJvRXuSAK6r/vzWuQF+e5W6enhfvmTOL79n655ekNgZkzSbsutaSC0sbc
-	/ChSsEBhs1KRinXn+HbiEMhbsu6kdDBwJJLfHS2PyvuF5JI0ceOkc/DKPeyCbz+P67+NPo3qQZQuW
-	gYLBrisA==;
-Received: from smtpout-03.galae.net ([185.246.85.4])
-	by desiato.infradead.org with esmtps (Exim 4.99.2 #2 (Red Hat Linux))
-	id 1xBVDH-00000002VLg-0dNF
+	d=infradead.org; s=casper.20170209; h=Content-Type:Content-Transfer-Encoding:
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:CC:To:From:Sender
+	:Reply-To:Content-ID:Content-Description;
+	bh=4x36drenHC31a65AUAmISM+E18V5XgYGEXDL6/a05K8=; b=dzHs8QDhhMtQ5YC7JIDU8YDPbL
+	qR8WrGjkMXTf/zkTiGDyluhQqwbXvMCNvi0tC0eOs/PYcwZ4/BPs+1DZXVDy2kfrxWoTVftc0x3Ll
+	0fyPS1nc/l9CkczUY4v8oreBk+Jo7uJZOucJmMWcdvK952xGSH7OhsSceEqwcn/z1NTkD9OwFy0cu
+	pZQg0vVEXvKz5KyVjCerNHla9GsMjWcf/pE5mTGLmps5R1UU6GvKS0oc/Tfa6yQ/dK/9ad9iljLSm
+	9yODkasR2IRELWX7qrQfUD281eOFoZ/DmLyExlEqH8xrltjaxhDC0jKz1hXn3U5o0HRf3ndzaqeH0
+	SDEpEBjg==;
+Received: from canpmsgout08.his.huawei.com ([113.46.200.223])
+	by casper.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1xBVD2-0000000CL93-2thf
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 29 Sep 2026 10:37:33 +0000
-Received: from smtpout-01.galae.net (smtpout-01.galae.net [212.83.139.233])
-	by smtpout-03.galae.net (Postfix) with ESMTPS id 7D3694E410B7;
-	Tue, 29 Sep 2026 10:37:30 +0000 (UTC)
-Received: from mail.galae.net (mail.galae.net [212.83.136.155])
-	by smtpout-01.galae.net (Postfix) with ESMTPS id 4F595601BD;
-	Tue, 29 Sep 2026 10:37:30 +0000 (UTC)
-Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 78C41103295E3;
-	Tue, 29 Sep 2026 12:37:19 +0200 (CEST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=dkim;
-	t=1790678244; h=from:subject:date:message-id:to:cc:mime-version:content-type:
-	 content-transfer-encoding:in-reply-to:references;
-	bh=7bn5YXIcFILcy8+D6koE5PJVirhIe/szeX2l5bXBcO4=;
-	b=RfgxFsQpYr8nSMemqAsTUzlMVWLzCV5fkIAi0yP1d53ux0NqMYtlmCirLOLFrHyf3QQlOX
-	JUtF1Ong+v9YcPAtrHan7LADmTvTegVgSKQ9klVPjQukj1Zk1eNNz4uKdF/6bvcUspZNDA
-	UHvdmdHMS45V8PO9GFOTlyEhuBwTLRtDL1Y8D2QTtqxKqObAMALV6izccg741TtMNnqjgP
-	4ZxdsxP96j8sY6iN6FREoxWeECnZoffxZQgYMr+YdaZA4tbu+5nfIRGqyfLo7QADS9MPOc
-	HuMpspvg38N5JH6NjasFIBKx+hTxWvYFOL8wFtO7Zze6+AjbfEQ2yNbDw6zrCQ==
-From: Luca Ceresoli <luca.ceresoli@bootlin.com>
-Date: Tue, 29 Sep 2026 12:36:38 +0200
-Subject: [PATCH 6/7] drm/vc4: dsi: stop using deprecated
- drmm_of_get_bridge()
+	Tue, 29 Sep 2026 10:37:18 +0000
+dkim-signature: v=1; a=rsa-sha256; d=huawei.com; s=dkim;
+	c=relaxed/relaxed; q=dns/txt;
+	h=From;
+	bh=4x36drenHC31a65AUAmISM+E18V5XgYGEXDL6/a05K8=;
+	b=HXEyhcQipW8cTovkTLfbN3Ra9WRx0WOhjMNGAo+9/HNiZzbp0qFABbhzNayLfuwRX/maeiISE
+	hKwzDJSGVwGZdO8X8NrCCYqD7pZqTX2aOsl7blLNDtukSOaeGInylpquqBM4pTqoDgXBPeVLecl
+	u01kqFu3Yu1zWnO6EEvtOkU=
+Received: from mail.maildlp.com (unknown [172.19.163.163])
+	by canpmsgout08.his.huawei.com (SkyGuard) with ESMTPS id 4hvDnh6V19zmVCD;
+	Tue, 29 Sep 2026 18:24:56 +0800 (CST)
+Received: from kwepemr100010.china.huawei.com (unknown [7.202.195.125])
+	by mail.maildlp.com (Postfix) with ESMTPS id 34E964048B;
+	Tue, 29 Sep 2026 18:37:05 +0800 (CST)
+Received: from huawei.com (10.50.163.32) by kwepemr100010.china.huawei.com
+ (7.202.195.125) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.45; Tue, 29 Sep
+ 2026 18:37:04 +0800
+From: Tian Zheng <zhengtian10@huawei.com>
+To: <maz@kernel.org>, <oupton@kernel.org>, <catalin.marinas@arm.com>,
+	<will@kernel.org>, <corbet@lwn.net>, <pbonzini@redhat.com>,
+	<zhengtian10@huawei.com>, <leo.bras@arm.com>
+CC: <yuzenghui@huawei.com>, <wangzhou1@hisilicon.com>,
+	<yangjinqian1@huawei.com>, <caijian11@h-partners.com>,
+	<liuyonglong@huawei.com>, <tangchengchang@huawei.com>,
+	<yezhenyu2@huawei.com>, <yubihong@huawei.com>, <linuxarm@huawei.com>,
+	<joey.gouly@arm.com>, <kvmarm@lists.linux.dev>, <kvm@vger.kernel.org>,
+	<linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>,
+	<seiden@linux.ibm.com>, <suzuki.poulose@arm.com>, <fuad.tabba@linux.dev>,
+	<mark.rutland@arm.com>, <seanjc@google.com>, <rdunlap@infradead.org>,
+	<linux-doc@vger.kernel.org>, <linux-kselftest@vger.kernel.org>,
+	<skhan@linuxfoundation.org>
+Subject: [PATCH v5 11/15] KVM: arm64: Reserve dirty ring space for the HDBSS buffer
+Date: Tue, 29 Sep 2026 18:36:51 +0800
+Message-ID: <20260929103655.85107-12-zhengtian10@huawei.com>
+X-Mailer: git-send-email 2.33.0
+In-Reply-To: <20260929103655.85107-1-zhengtian10@huawei.com>
+References: <20260929103655.85107-1-zhengtian10@huawei.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20260929-drm-fix-of_get_bridge-build-regression-v1-6-ccb7e602daad@bootlin.com>
-References: <20260929-drm-fix-of_get_bridge-build-regression-v1-0-ccb7e602daad@bootlin.com>
-In-Reply-To: <20260929-drm-fix-of_get_bridge-build-regression-v1-0-ccb7e602daad@bootlin.com>
-To: Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, 
- Maxime Ripard <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>, 
- David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>, 
- Frank Li <Frank.Li@nxp.com>, Sascha Hauer <s.hauer@pengutronix.de>, 
- Pengutronix Kernel Team <kernel@pengutronix.de>, 
- Fabio Estevam <festevam@gmail.com>, Icenowy Zheng <zhengxingda@iscas.ac.cn>, 
- Andrzej Hajda <andrzej.hajda@intel.com>, 
- Neil Armstrong <neil.armstrong@linaro.org>, Robert Foss <rfoss@kernel.org>, 
- Laurent Pinchart <Laurent.pinchart@ideasonboard.com>, 
- Jonas Karlman <jonas@kwiboo.se>, Jernej Skrabec <jernej.skrabec@gmail.com>, 
- Dave Stevenson <dave.stevenson@raspberrypi.com>, 
- =?utf-8?q?Ma=C3=ADra_Canal?= <mcanal@igalia.com>, 
- Raspberry Pi Kernel Maintenance <kernel-list@raspberrypi.com>, 
- Geert Uytterhoeven <geert+renesas@glider.be>
-Cc: Arnd Bergmann <arnd@kernel.org>, Doug Anderson <dianders@chromium.org>, 
- Hui Pu <Hui.Pu@gehealthcare.com>, Ian Ray <ian.ray@gehealthcare.com>, 
- Thomas Petazzoni <thomas.petazzoni@bootlin.com>, 
- dri-devel@lists.freedesktop.org, imx@lists.linux.dev, 
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
- linux-renesas-soc@vger.kernel.org, 
- Luca Ceresoli <luca.ceresoli@bootlin.com>
-X-Mailer: b4 0.16.0
-X-Last-TLS-Session-Version: TLSv1.3
+Content-Transfer-Encoding: 8bit
+Content-Type: text/plain
+X-Originating-IP: [10.50.163.32]
+X-ClientProxiedBy: kwepems500002.china.huawei.com (7.221.188.17) To
+ kwepemr100010.china.huawei.com (7.202.195.125)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260929_113731_823618_A5845CDA 
-X-CRM114-Status: GOOD (  14.80  )
+X-CRM114-CacheID: sfid-20260929_113717_003803_B47D15B3 
+X-CRM114-Status: GOOD (  10.20  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -109,61 +102,56 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-devm_drm_of_get_bridge() is deprecated, switch to
-of_drm_get_bridge_by_endpoint(). As of_drm_get_bridge_by_endpoint() returns
-a refcounted bridge, ensure it is put by using bridge.next_bridge.
+The dirty ring reserves room for CPU-side dirty buffers via
+kvm_cpu_dirty_log_size(). Report the HDBSS buffer entry count
+through it, so a full buffer flush always fits in the ring.
 
-drm_panel.h becomes unused, drop the include.
+Pin the HDBSS buffer size to PAGE_SIZE when dirty-ring is enabled,
+via kvm_arch_dirty_ring_size_updated(): a larger buffer only
+shrinks the soft_limit and forces more frequent userspace drains.
 
-Signed-off-by: Luca Ceresoli <luca.ceresoli@bootlin.com>
+Signed-off-by: Tian Zheng <zhengtian10@huawei.com>
 ---
- drivers/gpu/drm/vc4/vc4_dsi.c | 10 ++++------
- 1 file changed, 4 insertions(+), 6 deletions(-)
+ arch/arm64/kvm/arm.c | 8 ++++++++
+ arch/arm64/kvm/mmu.c | 8 ++++++++
+ 2 files changed, 16 insertions(+)
 
-diff --git a/drivers/gpu/drm/vc4/vc4_dsi.c b/drivers/gpu/drm/vc4/vc4_dsi.c
-index 0148f2befed1..30598738cfcf 100644
---- a/drivers/gpu/drm/vc4/vc4_dsi.c
-+++ b/drivers/gpu/drm/vc4/vc4_dsi.c
-@@ -35,7 +35,6 @@
- #include <drm/drm_edid.h>
- #include <drm/drm_mipi_dsi.h>
- #include <drm/drm_of.h>
--#include <drm/drm_panel.h>
- #include <drm/drm_print.h>
- #include <drm/drm_probe_helper.h>
- #include <drm/drm_simple_kms_helper.h>
-@@ -555,7 +554,6 @@ struct vc4_dsi {
- 
- 	struct platform_device *pdev;
- 
--	struct drm_bridge *out_bridge;
- 	struct drm_bridge bridge;
- 
- 	void __iomem *regs;
-@@ -1165,7 +1163,7 @@ static int vc4_dsi_bridge_attach(struct drm_bridge *bridge,
- 	struct vc4_dsi *dsi = bridge_to_vc4_dsi(bridge);
- 
- 	/* Attach the panel or bridge to the dsi bridge */
--	return drm_bridge_attach(encoder, dsi->out_bridge,
-+	return drm_bridge_attach(encoder, dsi->bridge.next_bridge,
- 				 &dsi->bridge, flags);
+diff --git a/arch/arm64/kvm/arm.c b/arch/arm64/kvm/arm.c
+index 9d7bdece149a..5a7046acb62e 100644
+--- a/arch/arm64/kvm/arm.c
++++ b/arch/arm64/kvm/arm.c
+@@ -215,6 +215,14 @@ static int kvm_arm_default_max_vcpus(void)
+ 	return vgic_present ? kvm_vgic_get_max_vcpus() : KVM_MAX_VCPUS;
  }
- 
-@@ -1749,9 +1747,9 @@ static int vc4_dsi_bind(struct device *dev, struct device *master, void *data)
- 		return ret;
- 	}
- 
--	dsi->out_bridge = drmm_of_get_bridge(drm, dev->of_node, 0, 0);
--	if (IS_ERR(dsi->out_bridge))
--		return PTR_ERR(dsi->out_bridge);
-+	dsi->bridge.next_bridge = of_drm_get_bridge_by_endpoint(dev->of_node, 0, 0);
-+	if (IS_ERR(dsi->bridge.next_bridge))
-+		return PTR_ERR(dsi->bridge.next_bridge);
- 
- 	/* The esc clock rate is supposed to always be 100Mhz. */
- 	ret = clk_set_rate(dsi->escape_clock, 100 * 1000000);
 
--- 
-2.55.0
++void kvm_arch_dirty_ring_size_updated(struct kvm *kvm)
++{
++	if (!system_supports_hdbss())
++		return;
++
++	kvm->arch.hdbss_buffer_size = KVM_ARM_HDBSS_DEFAULT_SIZE;
++}
++
+ /**
+  * kvm_arch_init_vm - initializes a VM data structure
+  * @kvm:	pointer to the KVM struct
+diff --git a/arch/arm64/kvm/mmu.c b/arch/arm64/kvm/mmu.c
+index 7bf82d65041c..c1e09ba98d48 100644
+--- a/arch/arm64/kvm/mmu.c
++++ b/arch/arm64/kvm/mmu.c
+@@ -2841,3 +2841,11 @@ void kvm_toggle_cache(struct kvm_vcpu *vcpu, bool was_enabled)
+
+ 	trace_kvm_toggle_cache(*vcpu_pc(vcpu), was_enabled, now_enabled);
+ }
++
++int kvm_cpu_dirty_log_size(struct kvm *kvm)
++{
++	if (!system_supports_hdbss())
++		return 0;
++
++	return kvm_hdbss_buffer_size(kvm) / sizeof(u64);
++}
+--
+2.43.0
 
 
