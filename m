@@ -4,116 +4,63 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4E1C8C9832A
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 29 Sep 2026 06:13:19 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E560CCA5FA1
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 29 Sep 2026 06:21:23 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=o1ihgfA2Xx/YQxYVKmUYf4V9Nz+OYG4xbe0ZFsfUP2g=; b=qeIrgyhp+IdVBZaqWBIBCP37J7
-	iiktMP8rt+ZCVmCQxLA/Pr6WFcxshaOZQg7uSM7woaRqHKTKwC1r+FByRLCmAgPXAgMFYcWqnTuHn
-	tPM6y0pdrssqESxQWE6HsyngQS4dpoeSRvxeyv/R+xI53iJU7za1rrFGCCzu7F2pAUGhxYaU+dnTw
-	rSMWPOXwwJjTJmwlcjvGmixhoHPoDi2mPJ9xJG3n3b687AQyxLEffu6tgkbH1lSLb/eJdD04hvEXn
-	adjlZDXZJh0CJkSmtrQIsGGBiuYa5BuEjY+tpZBKKH63m9qDVS426qknXDkHB2C/nGJs5F69ziAz6
-	NKg83Deg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=cLzkxWuX73OtZPd+2cLPey94fJOtYMpaXEvCrZ8y+fI=; b=x+Ryw74cFzQGh1YeE1+P+ttplt
+	lrDQLHk0dZ2SoeGYoET2rXJ+9hIqTURRov0xC/2MQlviJkduEnFTQvTKnhI6HjrjwD8lX4nYeSIDO
+	cJvk93IG/7UsqUg4kXKPRDTbooMoL7GVFvFwIprTwHFAggf7wxPDOH/TgJfQJfv07qUa8LCOztXbN
+	LaNQ8XkcM7eY99D1dQfETU+l848KrcVu250KDMEgPOs/L4WnWA8Ljjfkmgh5dIrg6xaXsAiy+Szdb
+	TrCX6sZQcTiSzlHz9JIBRVLC1wAaLE17uxHaBLZgkr6XhxN1zrbHaNGYUfK76XcbrHFnOhL1amcV5
+	wPIBIFjg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xBR5U-00000002QNh-3inQ;
-	Tue, 29 Sep 2026 06:13:12 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
-	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xBR5F-00000002QBX-1qdz
-	for linux-arm-kernel@bombadil.infradead.org;
-	Tue, 29 Sep 2026 06:12:57 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:MIME-Version
-	:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Sender:Reply-To:
-	Content-Type:Content-ID:Content-Description;
-	bh=o1ihgfA2Xx/YQxYVKmUYf4V9Nz+OYG4xbe0ZFsfUP2g=; b=Y0O++ZpJ2RpR9YNFhf+K0IjujU
-	5rz9Juq8EDSKEPrkIbhqkebkWlXF8C8+5IsZ1571l1sun4/z3sO8av+G2L1TxbQcGsu0KEjOP5jnj
-	HT5sHqxNbTZUx0vCY4PmrOb/ERNS9RwAiKF4OREXQATUtAxuqYmEGgIgnIWupR/0727YW5NUOSNiK
-	GqnK12KdPlaJY+b0vuuXoa0S+d79/7UhcB4NGxLUkd43fNuA1zMoe0kkVZtOPXM82G1INXhjDxI+V
-	mSMS7Gq3IAWPgF4xW625B+ZnNotMqn1z6JVLZkbq0olcDvZ1jbKEZwJopZryyk/tTT2CKSEvU8l8j
-	z7Kpo+1Q==;
-Received: from mail-pj2-x2b.google.com ([2607:f8b0:4864:39::2b])
-	by desiato.infradead.org with esmtps (Exim 4.99.2 #2 (Red Hat Linux))
-	id 1xBR4q-00000002EZb-1IOt
+	id 1xBRDJ-00000002RKS-1ovk;
+	Tue, 29 Sep 2026 06:21:17 +0000
+Received: from linux.microsoft.com ([13.77.154.182])
+	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1xBRDG-00000002RJm-3G6k
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 29 Sep 2026 06:12:53 +0000
-Received: by mail-pj2-x2b.google.com with SMTP id 98e67ed59e1d1-3a47d6146d1so768305a91.0
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 28 Sep 2026 23:12:31 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1790662350; x=1791267150; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=o1ihgfA2Xx/YQxYVKmUYf4V9Nz+OYG4xbe0ZFsfUP2g=;
-        b=ezIv2HjcImQkDvBGfYI67UyCa8EpFjpKnFBPWYjP9VjWKcgEq8abivyPta0XHp1vg3
-         MH56mBlbYit44f7L3VWLSySVXNkQnsY9Ga6kNBfUNNbjGNQmLndzfc7J/R/fURw78nTX
-         0+ICTmFJm0Q1sCPNKFQPeYRIPulfxKFmE8pKzI3bEycsIlJUJ8gTPVaTg/23gVOyg56K
-         PhhlqtETks6exBWZsDszcdTI1QIMIvNJoAFYrXs+KlI6OMPATqkbXDR4DJ7vffQ9hEGS
-         STnTmFBww3v0aKEi8njFsQhcfcP1p5i5miToA55/CDLoi/KEb8T7gnyT4TMM+jvhjBkG
-         kcvw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1790662350; x=1791267150;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=o1ihgfA2Xx/YQxYVKmUYf4V9Nz+OYG4xbe0ZFsfUP2g=;
-        b=VhTLiebm7IJG7s9gEWnQ3hSjEZPrhSDh6nhYym0EYQse8hKAUIg232HmRtHJSsV8ge
-         2z41U/w7GL4Ar7tyMXyx3ZfODtdQk8aYoFDxeQYvxgWYbiO4ARJFEp6xGv4PPH18rbj/
-         er/BvDUhE/b3LiZa/28NxRUHn6oQYM5LgPV61sSdeXR3Pto3Q8ZfZc0gwWCaa/qdatpd
-         ArqrW4TGBpqUdUAUXK0ZsmXXF9hyS2po+JGXoT3ImTaYf4hJwnNplYYwGqg14sNkKtx1
-         oNX5a9Kk4gCbUmoZII4RL+fZmGk9IYogSuKPLbUEwEDf5xk6Li50hpGeyvcfzbYULFfa
-         S+xQ==
-X-Forwarded-Encrypted: i=1; AKwUvBycsclvphmGnMyG8xAZl8hSCFGDQxLWpUM3vR2GQEyvhvkqLeZW/B4pUHue8atDkG7Zzac3hkrIErWCwzTIcnuj@lists.infradead.org
-X-Gm-Message-State: AFq9FYKk27LqlmjflAvfCDVui80YPj9+D65Hp08WERorHAfHs2VUDubQ
-	bMj+dUSF+Y7YtCNRVEYLaRXAIvvva+N49MBxMk1nJacmrq70SUWckkXF
-X-Gm-Gg: AYBFou3168dAa5ljLXKWBuYpmaFG2S1LZwP4PcNwF83W2Nk2ZbMI80GgfDDGQhZPQbw
-	jW47dTxc2h+t4Hdkn1C3buuN1ZzHwZqX4N+1Aa2Kz0AbcI8++uRdRJPdMKx919Xmq/b07N/N2D9
-	to/8RA5VJr9BkbvicPCxd+nsHbi5vv+awbj9fUTNA13Gu5Jfg404g7q+3s94YIdxWSDKkQAr4TG
-	087aVxBvpWjd/FBimtr5XQQxox3i1CBoCA0vBnxqJZN+qhEk9J53F22nB0AxKMqLyjiXYQThbnD
-	SJssOk/4oBD9fZzwjqTKMDc+qj6CjUQhxD8zBCbAca/G68RDbYQl/PH3MvAiycToiED2pkTEE6d
-	S4UggLcdLzimhJ3uixpWKeTilRPum2QcDhlaC/h3a7+pag6a9n7xIGNUWrxBm3KDLDe0DIHgcOJ
-	+IDEUxvyDKfveiKg78zn6vt3vZh8iUuc2c5iy66pFXXfGSAkDDxFEmgg6Ch4EYX59Px+eRm6nyc
-	62QTUi9yCxT/GD/XwDvb1z8JDbd12fykX406C9hk6vtwSMuY+Z4Dq1SAclObnIoNPsvg+iFxM5t
-	jbHMpLoG709SFg==
-X-Received: by 2002:a17:90b:3c0d:b0:3a4:6ff5:778 with SMTP id 98e67ed59e1d1-3a46ff510efmr2033501a91.44.1790662349906;
-        Mon, 28 Sep 2026 23:12:29 -0700 (PDT)
-Received: from phuc-desktop.. ([183.91.15.56])
-        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-3a498726d63sm3280965a91.17.2026.09.28.23.12.26
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 28 Sep 2026 23:12:29 -0700 (PDT)
-From: phucduc.bui@gmail.com
-To: Mark Brown <broonie@kernel.org>,
-	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
-	Darren Ye <darren.ye@mediatek.com>
-Cc: Liam Girdwood <lgirdwood@gmail.com>,
-	Matthias Brugger <matthias.bgg@gmail.com>,
-	Jaroslav Kysela <perex@perex.cz>,
-	Takashi Iwai <tiwai@suse.com>,
-	cassiogabrielcontato@gmail.com,
-	Mukesh Ojha <mukesh.ojha@oss.qualcomm.com>,
-	Liviu Dudau <liviu.dudau@arm.com>,
-	Cyril Chao <Cyril.Chao@mediatek.com>,
-	linux-sound@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-mediatek@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	bui duc phuc <phucduc.bui@gmail.com>
-Subject: [PATCH 07/10] ASoC: mediatek: mt8196: fix runtime resume error handling
-Date: Tue, 29 Sep 2026 13:11:18 +0700
-Message-ID: <20260929061121.124001-8-phucduc.bui@gmail.com>
-X-Mailer: git-send-email 2.43.0
-In-Reply-To: <20260929061121.124001-1-phucduc.bui@gmail.com>
-References: <20260929061121.124001-1-phucduc.bui@gmail.com>
+	Tue, 29 Sep 2026 06:21:16 +0000
+Received: by linux.microsoft.com (Postfix, from userid 1134)
+	id 408F420B7166; Mon, 28 Sep 2026 23:20:21 -0700 (PDT)
+DKIM-Filter: OpenDKIM Filter v2.11.0 linux.microsoft.com 408F420B7166
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.microsoft.com;
+	s=default; t=1790662821;
+	bh=cLzkxWuX73OtZPd+2cLPey94fJOtYMpaXEvCrZ8y+fI=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=DzssL94+9fOyz+ZaO/F7E9BDILNqy8pwVQc2RQ83Kv8Za0Y+WOa4CsCA9Pn/ZSY89
+	 8XBi4LF1WftGQwJVK1aUZ1qRatUxpMKKyzYDAn/TVmHrc6vaJus5cXnm5d1jyFmvr5
+	 yzRwEo/5Anb0z4nGsNjtCKYYtWVvOlsQOhwGrbTc=
+Date: Mon, 28 Sep 2026 23:20:21 -0700
+From: Shradha Gupta <shradhagupta@linux.microsoft.com>
+To: Michael Kelley <mhklinux@outlook.com>
+Cc: "K . Y . Srinivasan" <kys@microsoft.com>,
+	Haiyang Zhang <haiyangz@microsoft.com>,
+	Wei Liu <wei.liu@kernel.org>, Dexuan Cui <decui@microsoft.com>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Will Deacon <will@kernel.org>, Mark Rutland <mark.rutland@arm.com>,
+	"linux-hyperv@vger.kernel.org" <linux-hyperv@vger.kernel.org>,
+	"linux-arm-kernel@lists.infradead.org" <linux-arm-kernel@lists.infradead.org>,
+	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
+	"namjain@linux.microsoft.com" <namjain@linux.microsoft.com>
+Subject: Re: [PATCH v2] arm64: hyperv: run VMBus kexec handler via syscore
+ shutdown
+Message-ID: <artYpdKh6LJpQKgu@linuxonhyperv3.guj3yctzbm1etfxqx2vob5hsef.xx.internal.cloudapp.net>
+References: <20260907092544.230338-1-shradhagupta@linux.microsoft.com>
+ <SN6PR02MB4157A59FB4154C18BFBCB87BD48E2@SN6PR02MB4157.namprd02.prod.outlook.com>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <SN6PR02MB4157A59FB4154C18BFBCB87BD48E2@SN6PR02MB4157.namprd02.prod.outlook.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260929_071251_946744_927169F1 
-X-CRM114-Status: GOOD (  14.88  )
+X-CRM114-CacheID: sfid-20260928_232114_875325_46FF6775 
+X-CRM114-Status: GOOD (  52.20  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -128,68 +75,174 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: bui duc phuc <phucduc.bui@gmail.com>
+On Sun, Sep 27, 2026 at 08:26:45PM +0000, Michael Kelley wrote:
+> From: Shradha Gupta <shradhagupta@linux.microsoft.com> Sent: Monday, September 7, 2026 2:26 AM
+> > 
+> > On ARM64, machine_shutdown() does not provide a platform hook between
+> > device_shutdown() and smp_shutdown_nonboot_cpus(), unlike x86's
+> > machine_ops.shutdown. This prevents the Hyper-V VMBus kexec handler
+> > from running at the correct point during kexec shutdown, causing
+> > kexec reboot to fail on ARM64 Hyper-V guests.
+> > 
+> > Use syscore_ops.shutdown instead: syscore_shutdown() runs in the same
+> > window (after device_shutdown(), before CPUs are taken offline) where
+> > VMBus UNLOAD and cpuhp_remove_state() must execute.
+> > 
+> > Provide ARM64-specific overrides of hv_setup_kexec_handler() and
+> > hv_remove_kexec_handler() that register/unregister a syscore_ops
+> > shutdown callback, replacing the __weak no-op stubs in hv_common.c.
+> > On x86, the existing machine_ops.shutdown mechanism is unchanged.
+> 
+> Reviewing the code, I think this patch works as intended to provide the
+> missing functionality on arm64. But it adds to code sprawl by having
+> separate implementations on x86 and arm64, and there's an
+> opportunity to combine into a single arch independent implementation
+> based on syscore_ops.shutdown. Here's an outline of that approach:
+> 
+> 1) Move the current kexec_handler setup functions from
+> arch/x86/kernel/cpu/mshyperv.c to vmbus_drv.c. (Or maybe
+> they all just go away per my #4 below.)
+> 
+> 2) There's already hv_synic_syscore_ops defined and registered
+> in vmbus_drv.c. Add the .shutdown function to that syscore_ops.
+> (And perhaps rename it to hv_vmbus_syscore_ops as it is no
+> longer specific to synic.)
+> 
+> 3) Remove the hv_kexec_handler code from hv_machine_shutdown().
+> The new syscore_ops.shutdown path will run before
+> hv_machine_shutdown(), which mean it happens before the call
+> to hv_stimer_global_cleanup() instead of after. Until just recently,
+> that would have been an ordering problem. But with support for
+> Windows Server 2012 Hyper-V having been removed along with
+> the legacy message-based path for stimer interrupts,  it's now
+> OK for hv_stimer_global_cleanup() to run after the kexec handler
+> has done the VMBus unload.
+> 
+> 4) With all the above code now in vmbus_drv.c, the kexec handler
+> functions and data can be static. The __weak stubs for the kexec
+> handler can be removed from hv_common.c. And having a
+> global variable to store the pointer to hv_kexec_handler()
+> is probably unnecessary -- it can just be called directly.
+> 
+> Net, overall there might be a few less lines of code, instead
+> of adding 40 lines. I haven't coded this up, so maybe there's
+> an issue I'm missing, but hopefully it could be worked out.
+> When possible, having a single arch independent
+> implementation is almost always better than separate
+> implementations for each architecture.
+> 
+> One issue: The arch independent approach I've proposed
+> wouldn't backport very well. If a backport is important, it
+> might have to be the arm64 specific implementation that
+> you have in this version of the patch. Then supersede it
+> with the arch independent version for simplicity going
+> forward.
+> 
+> > 
+> > Fixes: 9d7cf2c96758 ("Drivers: hv: Add arch independent default functions for some Hyper-V handlers")
+> 
+> I'm not clear on how this commit is related to fixing/adding
+> the kexec support on arm64.
+> 
+> Michael
+>
 
-Propagate errors from regcache_sync() and main clock enable operations
-instead of ignoring them.
+Thanks, Michael.
 
-On failure, restore cache-only mode, disable register access clocks, and
-clear the 26M clock request as needed to clean up the runtime resume
-state.
+I initially kept the implementation ARM64-specific to avoid changing
+the existing x86 shutdown path. Using the common syscore callback would
+require moving the x86 VMBus teardown out of hv_machine_shutdown(),
+including changing the established ordering where
+hv_stimer_global_cleanup() runs before VMBus UNLOAD.
 
-Fixes: 7384ecab34eb ("ASoC: mediatek: mt8196: support audio clock control")
-Signed-off-by: bui duc phuc <phucduc.bui@gmail.com>
----
- sound/soc/mediatek/mt8196/mt8196-afe-pcm.c | 18 +++++++++++++++---
- 1 file changed, 15 insertions(+), 3 deletions(-)
+Commit be0cfab740e5 ("clocksource: hyper-v: Remove support for stimer
+interrupts in message mode") has since removed that dependency. With
+this ordering constraint gone, the architecture-independent
+implementation is now the cleaner approach, and I will rework the patch
+accordingly.
 
-diff --git a/sound/soc/mediatek/mt8196/mt8196-afe-pcm.c b/sound/soc/mediatek/mt8196/mt8196-afe-pcm.c
-index dcee037991aa..9888812cd993 100644
---- a/sound/soc/mediatek/mt8196/mt8196-afe-pcm.c
-+++ b/sound/soc/mediatek/mt8196/mt8196-afe-pcm.c
-@@ -2211,7 +2211,7 @@ static int mt8196_afe_runtime_suspend(struct device *dev)
- static int mt8196_afe_runtime_resume(struct device *dev)
- {
- 	struct mtk_base_afe *afe = dev_get_drvdata(dev);
--	int ret = 0;
-+	int ret;
- 
- 	ret = mt8196_afe_enable_reg_rw_clk(afe);
- 	if (ret)
-@@ -2222,7 +2222,9 @@ static int mt8196_afe_runtime_resume(struct device *dev)
- 		goto skip_regmap;
- 	}
- 	regcache_cache_only(afe->regmap, false);
--	regcache_sync(afe->regmap);
-+	ret = regcache_sync(afe->regmap);
-+	if (ret)
-+		goto err_set_cache_only;
- 
- 	/* set audio 26M request */
- 	regmap_update_bits(afe->regmap, AFE_SPM_CONTROL_REQ, 0x1, 0x1);
-@@ -2233,10 +2235,20 @@ static int mt8196_afe_runtime_resume(struct device *dev)
- 			   CPU_HD_ALIGN_MASK_SFT, 0 << CPU_HD_ALIGN_SFT);
- 
- 	/* enable AFE */
--	mt8196_afe_enable_main_clock(afe);
-+	ret = mt8196_afe_enable_main_clock(afe);
-+	if (ret)
-+		goto err_reset_26m_req;
- 
- skip_regmap:
- 	return 0;
-+
-+err_reset_26m_req:
-+	regmap_update_bits(afe->regmap, AFE_SPM_CONTROL_REQ, 0x1, 0x0);
-+err_set_cache_only:
-+	regcache_cache_only(afe->regmap, true);
-+	mt8196_afe_disable_reg_rw_clk(afe);
-+
-+	return ret;
- }
- 
- static int mt8196_afe_component_probe(struct snd_soc_component *component)
--- 
-2.43.0
+For stable backports to kernels that still support message-mode
+stimers, I will prepare an ARM64-specific adaptation that preserves the
+existing x86 ordering.
 
+Regarding the Fixes tag, I used 9d7cf2c96758 because it introduced the
+weak no-op handlers used by ARM64. However, I agree that it made no
+functional change and did not introduce the failure. I will change the
+tag to:
+
+Fixes: 9bbb888824e3 ("arm64: hyperv: Initialize hypervisor on boot")
+
+Thanks,
+Shradha
+ 
+> > Link: https://lore.kernel.org/all/20260814093133.3191250-1-shradhagupta@linux.microsoft.com/
+> > Suggested-by: Catalin Marinas <catalin.marinas@arm.com>
+> > Signed-off-by: Shradha Gupta <shradhagupta@linux.microsoft.com>
+> > Reviewed-by: Naman Jain <namjain@linux.microsoft.com>
+> > ---
+> >  Changes in V2
+> >  * Use syscore_ops.shutdown instead of a bare function pointer hook in
+> >    machine_shutdown(), per Catalin's suggestion.
+> > ---
+> >  arch/arm64/hyperv/mshyperv.c | 40 ++++++++++++++++++++++++++++++++++++
+> >  1 file changed, 40 insertions(+)
+> > 
+> > diff --git a/arch/arm64/hyperv/mshyperv.c b/arch/arm64/hyperv/mshyperv.c
+> > index 4fdc26ade1d7..e608e546a395 100644
+> > --- a/arch/arm64/hyperv/mshyperv.c
+> > +++ b/arch/arm64/hyperv/mshyperv.c
+> > @@ -15,10 +15,50 @@
+> >  #include <linux/errno.h>
+> >  #include <linux/version.h>
+> >  #include <linux/cpuhotplug.h>
+> > +#include <linux/kexec.h>
+> > +#include <linux/syscore_ops.h>
+> >  #include <asm/mshyperv.h>
+> > 
+> >  static bool hyperv_initialized;
+> > 
+> > +/*
+> > + * Kexec handler registered by VMBus.
+> > + *
+> > + * On ARM64, machine_shutdown() does not provide a platform hook between
+> > + * device_shutdown() and smp_shutdown_nonboot_cpus(), unlike the
+> > + * machine_ops.shutdown mechanism used on x86.  Use a syscore_ops shutdown
+> > + * callback instead: syscore_shutdown() runs after device_shutdown() and
+> > + * before CPUs are taken offline, which is the same window VMBus needs to
+> > + * run its UNLOAD message and cpuhp_remove_state() during kexec.
+> > + */
+> > +static void (*hv_kexec_handler_fn)(void);
+> > +
+> > +static void hv_kexec_syscore_shutdown(void *data)
+> > +{
+> > +	if (kexec_in_progress && hv_kexec_handler_fn)
+> > +		hv_kexec_handler_fn();
+> > +}
+> > +
+> > +static const struct syscore_ops hv_kexec_syscore_ops = {
+> > +	.shutdown	= hv_kexec_syscore_shutdown,
+> > +};
+> > +
+> > +static struct syscore hv_kexec_syscore = {
+> > +	.ops		= &hv_kexec_syscore_ops,
+> > +};
+> > +
+> > +void hv_setup_kexec_handler(void (*handler)(void))
+> > +{
+> > +	hv_kexec_handler_fn = handler;
+> > +	register_syscore(&hv_kexec_syscore);
+> > +}
+> > +
+> > +void hv_remove_kexec_handler(void)
+> > +{
+> > +	unregister_syscore(&hv_kexec_syscore);
+> > +	hv_kexec_handler_fn = NULL;
+> > +}
+> > +
+> >  int hv_get_hypervisor_version(union hv_hypervisor_version_info *info)
+> >  {
+> >  	hv_get_vpreg_128(HV_REGISTER_HYPERVISOR_VERSION,
+> > --
+> > 2.43.0
+> > 
 
