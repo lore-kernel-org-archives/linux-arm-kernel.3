@@ -4,81 +4,94 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 01F1FCA5FA7
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 29 Sep 2026 18:25:48 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8E042CA5FA7
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 29 Sep 2026 18:26:50 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
-	:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=thGR81HMiGTJKquWx1al1feKzMrOj7hpr91FOagyffw=; b=kpj1/hjDvZ1Qt2Ni15ZvKyaX3O
-	vjn6TGwivel4xzbO9AeUAKUreir6352FamKy9f2VzsI2nvXDuhD+T7CASFC2yA0lgEFn7cz2OxdNU
-	mtg+FD5GF0Vjsj72I+Ypd4kWt94VQBpraKCZvwuTAjWzIglMYeO4KNPpTYiM6ZkAVuIrwAb/CR3C2
-	0qZ1G8L4wY+SjXMilvHTfCESQS7srsbBAX/wEwJFdy7t2myG2LQhZu9H2yYsFu0R8hTNn9At1lkrP
-	jRoX7kPYAXY8/nFgNzVzD0doLhVJiRWfZ4l/uf23WDlWJ/L56wG87WFJxjLEH7b66WSN7D5t3nGTN
-	MXMdm+SQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=uKbN1/2S72+Ds1i9QYOJgPbItX37Pf7LrEr2RrJNMN4=; b=FE0wCjBHaN1DCD
+	6LDE4RmXqE39taaZaiDXp0oYbq+is6gxxDlhwWF6HlD3Exz0PtkgwXyy42Se2n4opO841EUL39Edk
+	iGQxhe87uTzQng01RmQewIVl9fiv7l1OuVLIHXkMSFM2I9M8jhijDAYmQDm0vlEPuKfnHsZwcPrdU
+	uTrUdUiW7elL8tMqwL9pG1oeWbv4bpXws2mOQukS6QTTvF4CBHfsOMUEwJ+zW0DSxgxaQ5T+9Y2iH
+	SS07eLK8R6Rr8rHzRxxovqSgeu7dcGd89oC/h9KUohkTt7GL4jEdktpROaAMJDryLzZdw8KF1uwhJ
+	hmakhl3yVd0Ti3UGQYqA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xBcWM-00000004HJq-3lON;
-	Tue, 29 Sep 2026 18:25:42 +0000
-Received: from sender4-pp-f112.zoho.com ([136.143.188.112])
+	id 1xBbbx-00000004BFv-2WEg;
+	Tue, 29 Sep 2026 17:27:25 +0000
+Received: from sender6-op-o15.zoho.com ([165.173.180.15])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xBcWJ-00000004HIo-2GmO;
-	Tue, 29 Sep 2026 18:25:40 +0000
-ARC-Seal: i=1; a=rsa-sha256; t=1790706296; cv=none; 
+	id 1xBbbt-00000004BEu-0dje;
+	Tue, 29 Sep 2026 17:27:23 +0000
+ARC-Seal: i=1; a=rsa-sha256; t=1790702811; cv=none; 
 	d=zohomail.com; s=zohoarc; 
-	b=nMxPc38Cl9VS2QoZmUhA2drxBC6wmqcEChJ91L7sAXyZISXwRC6zMm24wq/SE0NLgZuVOoZPXRDd/Q51Fpsoexc1L8lqSWHIXmMEbSZFCB7KtHKS615RNpVKU0h9/toChgOD54Wya17lznelDDsOhDdLQk0YJ6BrmhlPtfTKu6I=
+	b=Vhhckjv+Fp9yy4wONDWghNm8HBWYDPtQP4iYbZ5xTE/f1J1j/UhiLDupiUCbMaX8BTClRmThYqiMVmMTmSAxpObBydaYTRbap3rz4IhQIlQsruJ03s1flgXyhpbiNjguPmgqY+fL4SqarZxkFm1rCCMjp2Zo2Dhs6dJYuIw+uyQ=
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=zohomail.com; s=zohoarc; 
-	t=1790706296; h=Content-Type:Content-Transfer-Encoding:Cc:Cc:Date:Date:From:From:In-Reply-To:MIME-Version:Message-ID:Subject:Subject:To:To:Message-Id:Reply-To; 
-	bh=thGR81HMiGTJKquWx1al1feKzMrOj7hpr91FOagyffw=; 
-	b=kf9KMfWRuYNJkRQ1+xtMr86HPpJsIbEGB6HiRHiao9nORMi1N0lBYVV5eulEC7EJXMt0lbFZyhC71ZVnKch1L2z7dCNljR+QxWJTZUeiAYcRMZmLt7GqaBxplCTm/vaaJdk/W6q0o+JFGdyj3OUnKmkWg2n0dmCddZFM3/F0iEs=
+	t=1790702811; h=Content-Type:Content-Transfer-Encoding:Cc:Cc:Date:Date:From:From:MIME-Version:Message-ID:Subject:Subject:To:To:Message-Id:Reply-To; 
+	bh=uKbN1/2S72+Ds1i9QYOJgPbItX37Pf7LrEr2RrJNMN4=; 
+	b=I9HiVCyFW/1dAlPhxJ0la2SqCxljMxY/marh5UT/+nXeVr6rsnC1GKJ6jHqzHvj7m5dIJJfcR8A8T4no7G8lUETym9Wi7xyLlsrgVt/oOqPF1q1QhBLLgKc6N3siQpEfAJKrVxMxUy/bj0KBVvyK9o/E/A7jGsoU+uv+4Rfb5OE=
 ARC-Authentication-Results: i=1; mx.zohomail.com;
-	dkim=pass  header.i=collabora.com;
-	spf=pass  smtp.mailfrom=nicolas.frattaroli@collabora.com;
-	dmarc=pass header.from=<nicolas.frattaroli@collabora.com>
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; t=1790706296;
-	s=zohomail; d=collabora.com; i=nicolas.frattaroli@collabora.com;
-	h=From:From:To:To:Cc:Cc:Subject:Subject:Date:Date:Message-ID:In-Reply-To:MIME-Version:Content-Transfer-Encoding:Content-Type:Message-Id:Reply-To;
-	bh=thGR81HMiGTJKquWx1al1feKzMrOj7hpr91FOagyffw=;
-	b=H27+me2Y6bGa1EIDyLXPtpPoy6B13kvLba8Gre5goQsXgpdbIw/N/O0cOM1P57dy
-	E020DeY0glJJjJRplFtYzMz7/Iz7Z10H/lvfEVo4EKbFtqmROPkFbtDMB9Awp1HLTdq
-	nGIX1ONF2RV4df0tLVi9lDBroHRF2lcwa/8gL4p0=
-Received: by smtp.zohomail.com with SMTPS id 1790706296001546.8130167598731;
-	Tue, 29 Sep 2026 11:24:56 -0700 (PDT)
-From: Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
-To: Michel =?UTF-8?B?RMOkbnplcg==?= <michel.daenzer@mailbox.org>,
- "Borah, Chaitanya Kumar" <chaitanya.kumar.borah@intel.com>,
- Daniel Stone <daniels@collabora.com>,
- Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
- Maxime Ripard <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>,
- David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>,
- Helge Deller <deller@gmx.de>, Andrzej Hajda <andrzej.hajda@intel.com>,
- Neil Armstrong <neil.armstrong@linaro.org>, Robert Foss <rfoss@kernel.org>,
- Laurent Pinchart <Laurent.pinchart@ideasonboard.com>,
- Jonas Karlman <jonas@kwiboo.se>, Jernej Skrabec <jernej.skrabec@gmail.com>,
- Luca Ceresoli <luca.ceresoli@bootlin.com>, Sandy Huang <hjc@rock-chips.com>,
- Heiko =?UTF-8?B?U3TDvGJuZXI=?= <heiko@sntech.de>,
- Andy Yan <andy.yan@rock-chips.com>, Xaver Hugl <xaver.hugl@gmail.com>,
- Leo Li <sunpeng.li@amd.com>
-Cc: dri-devel@lists.freedesktop.org, linux-kernel@vger.kernel.org,
- linux-fbdev@vger.kernel.org, linux-rockchip@lists.infradead.org,
- linux-arm-kernel@lists.infradead.org, kernel@collabora.com,
- Derek Foreman <derek.foreman@collabora.com>,
- wayland-devel@lists.freedesktop.org
-Subject: Re: [PATCH RFC 13/25] drm: Add VRR target frame rate properties
-Date: Tue, 29 Sep 2026 20:24:49 +0200
-Message-ID: <tvRw82ZVR2-oL-HXZ6n6bQ@collabora.com>
-In-Reply-To: <SwRul6_8Tc-C-2oBT64DOg@collabora.com>
-References: <20260921-vrr-limiter-uapi-v1-0-2fcd7d011646@collabora.com>
- <164d00c2-e4cb-4962-8e4e-389ae77af943@amd.com>
- <SwRul6_8Tc-C-2oBT64DOg@collabora.com>
+	dkim=pass  header.i=pigmoral.tech;
+	spf=pass  smtp.mailfrom=junhui.liu@pigmoral.tech;
+	dmarc=pass header.from=<junhui.liu@pigmoral.tech>
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; t=1790702811;
+	s=zmail; d=pigmoral.tech; i=junhui.liu@pigmoral.tech;
+	h=From:From:Subject:Subject:Date:Date:Message-Id:Message-Id:MIME-Version:Content-Type:Content-Transfer-Encoding:To:To:Cc:Cc:Reply-To;
+	bh=uKbN1/2S72+Ds1i9QYOJgPbItX37Pf7LrEr2RrJNMN4=;
+	b=q9JliJP0jLlP954Aqp+Kr1YUHjUf0M7ZEwkXLgClIxWO7tgXZzu6LHb3BQ6q5kvt
+	qpk/BcEHv14/tz/PfYwNz6alvs3mrovAK2EgnsqTOkRAduAuPw+4kpVrWpl0/LM+Odo
+	bJlkPug2cseu+GgF8sEfAFGplXcltN6E6Acv/toc=
+Received: by smtp.zohomail.com with SMTPS id 1790702810475424.1998192636315;
+	Tue, 29 Sep 2026 10:26:50 -0700 (PDT)
+From: Junhui Liu <junhui.liu@pigmoral.tech>
+Subject: [PATCH v5 0/8] clk: sunxi-ng: Add support for Allwinner A733 CCU
+ and PRCM
+Date: Wed, 30 Sep 2026 01:26:07 +0800
+Message-Id: <20260930-a733-clk-v5-0-11175b41cd2d@pigmoral.tech>
 MIME-Version: 1.0
-Content-Transfer-Encoding: quoted-printable
 Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+X-B4-Tracking: v=1; b=H4sIAAAAAAAC/22QS2rDMBRFt2I0roJ+tiwTSvdROpCfnxLR+FPJM
+ Skhe69sF+yWTARX6Jwr7p1EDB4jqbI7CTj56PsuhfwlI3C23Qmpb1ImgomCpYNaLSWFyydljXL
+ AmDXOAEnPh4DO3xbV+0fKZx/HPnwv5onPt6tEcrZJJk4ZlUWt0NRCqVy/Df7U9sFeDiPCmcyiS
+ Wyw5nwHiwQbrRpellAjg2ew3GDD8h0sE5wzJ2TppAFdPoPVDhb7ZjU3Ay8V1mgs8P/wYx0k4Nc
+ 1TTquq5AWY7TLpFV2/P1SQeO1u/lF2/V0WCeBukHBwTgszF/367x1bSNS6NvWj1U26YOkAXhqf
+ fwAgGvNKNABAAA=
+X-Change-ID: 20260202-a733-clk-0d4fc00a9f9c
+To: Stephen Boyd <sboyd@kernel.org>, Brian Masney <bmasney+clk@redhat.com>, 
+ Jerome Brunet <jbrunet+clk@baylibre.com>, Rob Herring <robh@kernel.org>, 
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, Chen-Yu Tsai <wens@kernel.org>, 
+ Jernej Skrabec <jernej.skrabec@gmail.com>, 
+ Samuel Holland <samuel@sholland.org>, 
+ Philipp Zabel <p.zabel@pengutronix.de>, 
+ Junhui Liu <junhui.liu@pigmoral.tech>, Paul Walmsley <pjw@kernel.org>, 
+ Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, 
+ Alexandre Ghiti <alex@ghiti.fr>, Richard Cochran <richardcochran@gmail.com>
+Cc: linux-clk@vger.kernel.org, devicetree@vger.kernel.org, 
+ linux-arm-kernel@lists.infradead.org, linux-sunxi@lists.linux.dev, 
+ linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org, 
+ netdev@vger.kernel.org, Jerome Brunet <jbrunet@baylibre.com>, 
+ Enzo Adriano <enzo.adriano.code@gmail.com>, 
+ Andre Przywara <andre.przywara@arm.com>, 
+ Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
+X-Mailer: b4 0.16.0
+X-Developer-Signature: v=1; a=openpgp-sha256; l=6367;
+ i=junhui.liu@pigmoral.tech; h=from:subject:message-id;
+ bh=p/GHIp4Q+wktNYmNZSYzDRjvrWbldK01OubfVytpjns=;
+ b=owGbwMvMwCWWvDb1VEXc8j+Mp9WSGLJ2f9m0uvIjT8M6D1kb3+js7l0rYgUSORcuef0+8kR5f
+ T2/RoR3RykLgxgXg6yYIguXv/g/ax2eb0cEWu/DzGFlAhnCwMUpABPRkGX473w0OP7o+4LDr1zP
+ hhaJWernXflodeDhu1O+3LF8J0tMXBj+cNybKnfYJUUmy7xlX4zCL7Ml3oWmB7T85jkKL5kifyC
+ HFwA=
+X-Developer-Key: i=junhui.liu@pigmoral.tech; a=openpgp;
+ fpr=15B30CC69C4BF0CC3C08F85A2A90CDC122DF37BF
+X-ZohoMailClient: External
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260929_112539_635694_3531AC9E 
-X-CRM114-Status: GOOD (  36.17  )
+X-CRM114-CacheID: sfid-20260929_102721_573336_B83B0E3F 
+X-CRM114-Status: GOOD (  15.94  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -93,131 +106,131 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tuesday, 29 September 2026 20:14:34 Central European Summer Time Nicolas=
- Frattaroli wrote:
-> On Tuesday, 29 September 2026 16:34:58 Central European Summer Time Leo L=
-i wrote:
-> >=20
-> > On 2026-09-28 04:10, Michel D=C3=A4nzer wrote:
-> > >>> You can picture VRR limiting as always being active, but with a lim=
-it rational
-> > >>> of 0 it uses the display's limit as per the EDID, which is what unl=
-imited game
-> > >>> mode is. So with how it's implemented right now in hdmi_validate_vr=
-r(), your
-> > >>> example would set a maximum target, but leave the minimum at whatev=
-er the
-> > >>> display defaults to.
-> > >>>
-> > >>> Now that I'm thinking through this, a possible problem is that
-> > >>> drm_crtc_helper_vrr_is_fixed_rate() operates on the user supplied l=
-imits, but
-> > >>> if the display supplied lower limit is equal to the user supplied u=
-pper limit,
-> > >>> then we have a fixed rate scenario without recognising it as such. =
-I think I
-> > >>> need to have a ponder on what the least surprising behaviour for us=
-erspace
-> > >>> is in that instance. The display limit stuff gets a bit complex due=
- to
-> > >>> CinemaVRR and QMS TFRmin/TFRmax.
-> > >>>
-> > >>> I'll improve the documentation on the next revision to make the mea=
-nings more
-> > >>> explicit.
-> > >> Perhaps a simple way is to require simultaneous setting MIN and MAX =
-pairs?
-> > >> IOW, require userspace to set MIN and MAX simultaneously to >0, or =
-=3D0. For example:
-> > >>
-> > >> if ((vrr_min_n =3D=3D 0 || vrr_min_d =3D=3D 0 ||
-> > >>      vrr_max_n =3D=3D 0 || vrr_max_d =3D=3D 0) &&
-> > >>     (vrr_min_n > 0 || vrr_max_n > 0))
-> > >> 	return -EINVAL;
-> > >> That way, it's never ambiguous what userspace has requested for the =
-range.
-> > >> They can copy the EDID supported range if they don't care about limi=
-ting one side, rather than leaving it at 0.
-> > > Determining the actual limits can be non-trivial (though I guess that=
- might be fine as long as libdisplay-info can work them out), if user space=
- gets them wrong, it might accidentally apply a narrower limit than intende=
-d.
-> > >=20
-> > >=20
-> > >> It's then also clear if they requested a static Hz.
-> > > I do see the benefit of your suggestion for this though.
-> >=20
-> > Xaver and I were chatting about this at XDC, and yeah it'll be difficult
-> > to match KMD's monitor range, especially if KMD decides to patch it with
-> > quirks and whatnot.
-> >=20
-> > Since we are handing compositors control over vrr range, does it sound
-> > sensible to expose KMD's monitor range as a read-only property pair on
-> > the drm connector? We probably don't need a num/den pair for it, it's
-> > not like panels advertise fractional VRR ranges (right?).
->=20
-> Sounds good to me.
->=20
-> And yeah, we don't really need num/denom for it; the safe assumption is t=
-hat the
-> minimum range is expressed with a denominator of 1.001 whereas the maximu=
-m range
-> is expressed with a numerator of 1. That's sort of non-obvious for usersp=
-ace
+Add support for the main CCU and the PRCM module (R-CCU) found in the
+Allwinner A733 SoC. The clock architecture is derived from the previous
+A523 design, with the MCU_CCU removed and the clock tree extended for
+the additional functional blocks found on the A733.
 
-err, *denominator of 1 here. It's late.
+The A733 introduces a "pll-ref" clock that normalizes the physical
+oscillator frequency, which can be 19.2MHz, 24MHz, or 26MHz, into a
+consistent 24MHz reference for the PLL clock tree.
 
-While I'm already sending this correction, I'm now thinking that we could a=
-lso
-either use special values (like 0/n again, but with reworked logic to get t=
-he
-default frame rate?) or maybe really do have a numerator/denominator display
-pair.
+The peripheral, video, and DE PLLs provide multiple independently gated
+outputs with programmable dividers. Model these outputs as separate
+divider-and-gate child clocks. Also follow the documented hierarchy for
+the derived peripheral PLL outputs. The explicitly named PLL_AUDIO1 /2
+and /5 outputs are modeled as fixed-factor clocks, with their divider
+fields initialized accordingly.
 
-Entirely possible I'll keep the 0/n behaviour but refactor the "get range f=
-rom
-connector" part into its own thing. I think the hdmi_validate_vrr function
-right now is trying to do too much and suffers in clarity and reusability as
-a result.
+Also extend the sunxi-ng SDM (Sigma-Delta Modulation) support for the
+dual-pattern register layout used by the A733 PLLs. PLL_AUDIO0 uses the
+dual-pattern SDM support to synthesize its fractional output.
+PLL_AUDIO1 does not expose fractional rates, but its SDM controls are
+modeled so that stale settings left by firmware can be disabled when an
+integer rate is programmed.
 
-> though, so I'll need to do some thinking around the specified behaviour.
->=20
-> This sounds like a mainly theoretical concern but it's a real one, the mo=
-st
-> common 1.001 rates we'll run into are likely 24/1.001 or 30/1.001 and tho=
-se
-> are also very reasonable for a monitor to have as a lower limit. And when
-> they specify that lower limit, they'll do it as just the integer rounded
-> value, but seemingly expect them to be understood as the 1.001 value for
-> the lower limit.
->=20
-> > Fun fact: vrr_range is exposed today over debugfs for IGT testing
-> > https://elixir.bootlin.com/linux/v7.3-rc5/source/drivers/gpu/drm/drm_de=
-bugfs.c#L586
->=20
-> Speaking of that, v2 will deduplicate my accidentally rebased-over
-> mostly duplicated EDID parsing and fix this function to report the
-> newly added vrr_min/vrr_max fields of the display_info. (Since
-> apparently monitor_range is populated by VESA and messing with it
-> may not be okay?)
->=20
-> Kind regards,
-> Nicolas Frattaroli
->=20
-> >=20
-> > Thanks,
-> > Leo
-> >=20
-> > >=20
-> > >=20
-> > > -- Earthling Michel D=C3=A4nzer \ GNOME / Xwayland / Mesa developer h=
-ttps://redhat.com \ Libre software enthusiast
-> >=20
-> >=20
->=20
->=20
+The actual parents of a small number of bus gates are not documented in
+the user manual. Follow the vendor BSP and keep these gates parented to
+"hosc" until more complete hardware information is available.
 
+This series depends on the A523 single-divider clock fixes [1], which
+add feature support to the M-only clock macro used by the MBUS and DRAM0
+clocks. The prerequisite series has been applied to the
+sunxi/clk-for-7.4 branch.
 
+Link: https://patch.msgid.link/20260906-sunxi-clk-no-p-v1-0-cbde21c9fe69@pigmoral.tech [1]
+Signed-off-by: Junhui Liu <junhui.liu@pigmoral.tech>
+---
+Changes in v5:
+- Add the CLK_GIC binding ID, inserted after CLK_TRACE
+- Add the GIC clock and mark it critical
+- Fix the continuation line alignment of the trace clock
+- Mark ahb-cpus critical
+- Link to v4: https://patch.msgid.link/20260921-a733-clk-v4-0-9c184ebe9ac1@pigmoral.tech
 
+Changes in v4:
+- Model the MBUS and DRAM0 clocks as M-only clocks
+- Base the series on the A523 single-divider clock fixes
+- Link to v3: https://patch.msgid.link/20260905-a733-clk-v3-0-50f238f39c78@pigmoral.tech
+
+Changes in v3:
+- Patch 1: Rename the clock/reset binding headers with the allwinner vendor
+  prefix, use BSD-2-Clause for their dual license, and reorder the binding
+  properties according to the preferred schema layout
+- Patches 1 and 4: Drop the undocumented 12X suffix from the video and DE
+  PLL core clock names and binding IDs
+- Patch 2: Require all PAT1 enable bits to be set when checking whether SDM
+  is enabled
+- Patch 4: Model the independently gated peripheral, video, and DE PLL
+  outputs as programmable-divider child clocks
+- Patch 4: Follow the documented hierarchy for the derived peripheral PLL
+  outputs
+- Patch 4: Model the explicitly named PLL_AUDIO1 /2 and /5 outputs as
+  fixed-factor clocks and initialize their divider fields accordingly
+- Patch 4: Model the PLL_AUDIO1 SDM controls so stale firmware settings are
+  disabled when an integer rate is programmed
+- Patch 4: Add the missing module device table and remove an unused include
+- Patch 6: Replace the MP helpers used by timer clocks, which have no M
+  divider, with the corresponding P-only helpers
+- Patch 7: Document the unresolved parents of bus gates kept on hosc and
+  fix the APB/AHB IOMMU1 system clock names
+- Patches 3 and 8: Make the reset maps const
+- Link to v2: https://patch.msgid.link/20260711-a733-clk-v2-0-974d188cbe0c@pigmoral.tech
+
+Changes in v2:
+- Rework the clocks property in DT bindings to source hosc directly from
+  the oscillator to adapt to the new RTC binding
+- Clean up the SDM dual-pattern helper macro and add the missing enable
+  parameter for pll-audio0
+- Number single-instance clocks with 0, e.g. GPU0, VE_ENC0/VE_DEC0,
+  DRAM0, NAND0, GPADC0, THS0, etc
+- Correct 8x PLL post-divider names to 12x for video and DE PLLs
+  (pll-videoX-12x, pll-de-12x)
+- Drop gic, cpu-peri, nsi clocks
+- Rename clocks: OWA -> SPDIF, USB_REF -> USB01_REF, HDMI_ESM -> HDCP_ESM,
+  PWMCTRL -> PWM
+- Mark bus-dram0, ahb-store and mbus-store critical to avoid DMA, MMC and
+  SPI NOR failures when unused clocks are disabled
+- Switch PRCM timer clocks to P-only helpers
+- Fix bus gate bit positions for UARTs and correct the sysdap register
+  address
+- Interleave bus clocks into function clocks
+- Link to v1: https://lore.kernel.org/r/20260310-a733-clk-v1-0-36b4e9b24457@pigmoral.tech
+
+---
+Junhui Liu (8):
+      dt-bindings: clk: sun60i-a733-ccu: Add Allwinner A733 support
+      clk: sunxi-ng: sdm: Add dual patterns support
+      clk: sunxi-ng: a733: Add PRCM CCU
+      clk: sunxi-ng: a733: Add PLL clocks support
+      clk: sunxi-ng: a733: Add bus clocks support
+      clk: sunxi-ng: a733: Add mod clocks support
+      clk: sunxi-ng: a733: Add bus clock gates
+      clk: sunxi-ng: a733: Add reset lines
+
+ .../bindings/clock/allwinner,sun60i-a733-ccu.yaml  |  107 +
+ drivers/clk/sunxi-ng/Kconfig                       |   10 +
+ drivers/clk/sunxi-ng/Makefile                      |    4 +
+ drivers/clk/sunxi-ng/ccu-sun60i-a733-r.c           |  273 +++
+ drivers/clk/sunxi-ng/ccu-sun60i-a733.c             | 2406 ++++++++++++++++++++
+ drivers/clk/sunxi-ng/ccu_sdm.c                     |   52 +-
+ drivers/clk/sunxi-ng/ccu_sdm.h                     |   29 +-
+ .../dt-bindings/clock/allwinner,sun60i-a733-ccu.h  |  291 +++
+ .../clock/allwinner,sun60i-a733-r-ccu.h            |   39 +
+ .../dt-bindings/reset/allwinner,sun60i-a733-ccu.h  |  129 ++
+ .../reset/allwinner,sun60i-a733-r-ccu.h            |   23 +
+ 11 files changed, 3337 insertions(+), 26 deletions(-)
+---
+base-commit: e5e04726cdd043e309677071ab1b65a4b18f422b
+change-id: 20260202-a733-clk-0d4fc00a9f9c
+prerequisite-message-id: <20260906-sunxi-clk-no-p-v1-0-cbde21c9fe69@pigmoral.tech>
+prerequisite-patch-id: 0df2ae41836b86fd868dfa01ddfde57f888f761a
+prerequisite-patch-id: 88f3a431e7c551a9fa732f062188f10fdd362eeb
+prerequisite-patch-id: 3e88bc873c909059d1199f82cda4013765e7a5e5
+prerequisite-patch-id: 0dbc27cd7417352319a0705a051dff35085e8922
+
+Best regards,
+--  
+Junhui Liu <junhui.liu@pigmoral.tech>
 
 
