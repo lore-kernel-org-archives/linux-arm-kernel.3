@@ -4,95 +4,127 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 720E4CA5FA5
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 29 Sep 2026 18:16:08 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8DD46CA5FA7
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 29 Sep 2026 18:24:34 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
-	:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=VqA5KD7T6CUdh/gnvAhmHBiLWsN4nMCl68qkHoiN4+I=; b=YtEfED7a5qP7Em/gx7bbFoU8RA
-	fy2A6Hu4HEw+brzxQbv3jZ1eHR3fsvVW8y6S+fk/rRMkIuc9ymDm3rJFotYt3NrB9yKeEna9y2Ltn
-	aAsrQd6aX7x15lwgVNYUnDmwmP4+JXPnoOspv3KC//n2E7677LM0DZSV00znoPIblfiWKQuXCEbGa
-	WabGhNe4k38V/EWkE6j5zVr5PIXg1RYEUbVjp77jDc6UFuHQ6oQnXD12qAq9qxUBvuZ3v4s5mtTBf
-	amOzt5jswNJDI7jmp5Lr/A6Kpe1Nxij1lCbPgtYzacUXUn7nnPjbcO5Q3Vu9A6v9UpnmyJrisfWN5
-	HX4MDJ5A==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=g5iqo8UY2L5mZlXboZ0sxIpBdYrZWI1CLq6z3i5raKI=; b=IWFdQXRGFnHiLmeTY8JrPJQOVD
+	tuFLDUAwXjYsS1mU8CH1A83rR54ElFpAXbRge9c3X9HNThyIWbhjDrUeX4R6xOzdZCiqSuft6+Bep
+	RfsoRWUgTxk6Jx4OcGu8NwzWzG93/dvX5KtHHUlageao4xKwtDryDn/Q/XbezdLAcETgI59QGRvIa
+	jJDx6c0DpZ2F4K5OLBQrVhfocrTX2/Jin1vTcEDJ7NLzmVdE06+isyUuNBJ6o70poSW8AhB8DJFCB
+	kW62IcFXmCa2HC34YT5dy+CWPkW6CfoRC8InqvHfX/09+z3fTcEMoXJX83O0eex68/N6whS66fl67
+	GLOkXPZA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xBcMz-00000004GMC-1EMg;
-	Tue, 29 Sep 2026 18:16:01 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1xBcVA-00000004H40-21SN;
+	Tue, 29 Sep 2026 18:24:28 +0000
+Received: from mail-wr2-x0f.google.com ([2a00:1450:4864:30::f])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xBcMx-00000004GLT-0Q04;
-	Tue, 29 Sep 2026 18:15:59 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Content-Type:Content-Transfer-Encoding
-	:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Sender:Reply-To:Content-ID:Content-Description;
-	bh=VqA5KD7T6CUdh/gnvAhmHBiLWsN4nMCl68qkHoiN4+I=; b=Y1hXVF91KZ9Gae2OyNpbh2rnz4
-	aqHD4Gcmy+TzFiCbX9Kg5VA3uz5SDrOBhaI4VBIrCNsuIpxCSqyYrhEFFmelAgXZGyYDXytgJ12Fq
-	7tpT0yZ2qYIpoEidZO+vZtQdHtmzFld+u718Sb26otJKq/IoskG1ZHvY/CGlLT6O5JmNRe4R64QFi
-	EbxGaUFsoC51f9lq0nkbZRol2C9NLT/PzrS4UBKOH5EYA4g13CAxU5+0na2/HZ5WFYL0jHHUsTc1K
-	iy3fxT3xA6TGdQSSem8Yr4Da71LPufCXUSi4LJWUXSodHEavhxOFrSOd+utfENJRV9gASQNT6AlU7
-	RHA+Wkdw==;
-Received: from sender4-pp-f112.zoho.com ([136.143.188.112])
-	by desiato.infradead.org with esmtps (Exim 4.99.2 #2 (Red Hat Linux))
-	id 1xBcMt-00000002wPz-2L34;
-	Tue, 29 Sep 2026 18:15:58 +0000
-ARC-Seal: i=1; a=rsa-sha256; t=1790705684; cv=none; 
-	d=zohomail.com; s=zohoarc; 
-	b=CbSTsuEIzMi8NQDvjEYx3+qKzuZPiaGg6yjSl2wL7fKDcqnU40Hcxv2p5UJCWQ4OCmyxQqaf8MbrkESheURSaQhiYlT3xscOMelbSvSc9ZjRmRVUYr7xqb5Aq/H5PT6xuy/8W3ld0XhktiDcm4YWdHPgw3k4CEb1V6E3xxBVFec=
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=zohomail.com; s=zohoarc; 
-	t=1790705684; h=Content-Type:Content-Transfer-Encoding:Cc:Cc:Date:Date:From:From:In-Reply-To:MIME-Version:Message-ID:Subject:Subject:To:To:Message-Id:Reply-To; 
-	bh=VqA5KD7T6CUdh/gnvAhmHBiLWsN4nMCl68qkHoiN4+I=; 
-	b=H2yH23gEGGnPlLCTD+lmgXvD7FHqDagxEI69FkiR0OTKG76iq+p39A61mo5QC7OJI55fHjr1TBHdPgBokdMaHC+WVIkbtnYvSSB6m0RXkXYEUKdU+JTDlxa9tyels62rBo7KtKq5uhna2WMIta6faHwLbfPTNLY8iU/lAodzQXI=
-ARC-Authentication-Results: i=1; mx.zohomail.com;
-	dkim=pass  header.i=collabora.com;
-	spf=pass  smtp.mailfrom=nicolas.frattaroli@collabora.com;
-	dmarc=pass header.from=<nicolas.frattaroli@collabora.com>
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; t=1790705684;
-	s=zohomail; d=collabora.com; i=nicolas.frattaroli@collabora.com;
-	h=From:From:To:To:Cc:Cc:Subject:Subject:Date:Date:Message-ID:In-Reply-To:MIME-Version:Content-Transfer-Encoding:Content-Type:Message-Id:Reply-To;
-	bh=VqA5KD7T6CUdh/gnvAhmHBiLWsN4nMCl68qkHoiN4+I=;
-	b=M0M4pbef6ULbnfyRVPCBj57Llpuo6uG+9wRTfbaPJMvQiWVNzn0NEWgafMR24rfK
-	qF6VmlEKQYOkC4ZfNio0OTumKLYG5uSb1AX18AZqP5mTSoLgPvUIjM3qajdmSVv/CRw
-	Yxk5gk5CjN68cRDlwHYgXj3hNHBwxyeb7qQqPIFM=
-Received: by smtp.zohomail.com with SMTPS id 17907056822681009.9156419401866;
-	Tue, 29 Sep 2026 11:14:42 -0700 (PDT)
-From: Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
-To: Michel =?UTF-8?B?RMOkbnplcg==?= <michel.daenzer@mailbox.org>,
- "Borah, Chaitanya Kumar" <chaitanya.kumar.borah@intel.com>,
- Daniel Stone <daniels@collabora.com>,
- Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
- Maxime Ripard <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>,
- David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>,
- Helge Deller <deller@gmx.de>, Andrzej Hajda <andrzej.hajda@intel.com>,
- Neil Armstrong <neil.armstrong@linaro.org>, Robert Foss <rfoss@kernel.org>,
- Laurent Pinchart <Laurent.pinchart@ideasonboard.com>,
- Jonas Karlman <jonas@kwiboo.se>, Jernej Skrabec <jernej.skrabec@gmail.com>,
- Luca Ceresoli <luca.ceresoli@bootlin.com>, Sandy Huang <hjc@rock-chips.com>,
- Heiko =?UTF-8?B?U3TDvGJuZXI=?= <heiko@sntech.de>,
- Andy Yan <andy.yan@rock-chips.com>, Xaver Hugl <xaver.hugl@gmail.com>,
- Leo Li <sunpeng.li@amd.com>
-Cc: dri-devel@lists.freedesktop.org, linux-kernel@vger.kernel.org,
- linux-fbdev@vger.kernel.org, linux-rockchip@lists.infradead.org,
- linux-arm-kernel@lists.infradead.org, kernel@collabora.com,
- Derek Foreman <derek.foreman@collabora.com>,
- wayland-devel@lists.freedesktop.org
-Subject: Re: [PATCH RFC 13/25] drm: Add VRR target frame rate properties
-Date: Tue, 29 Sep 2026 20:14:34 +0200
-Message-ID: <SwRul6_8Tc-C-2oBT64DOg@collabora.com>
-In-Reply-To: <164d00c2-e4cb-4962-8e4e-389ae77af943@amd.com>
-References: <20260921-vrr-limiter-uapi-v1-0-2fcd7d011646@collabora.com>
- <3cf7143d-7013-4a3b-a831-96c3f125c2f6@mailbox.org>
- <164d00c2-e4cb-4962-8e4e-389ae77af943@amd.com>
+	id 1xBcV8-00000004H35-0iPv
+	for linux-arm-kernel@lists.infradead.org;
+	Tue, 29 Sep 2026 18:24:27 +0000
+Received: by mail-wr2-x0f.google.com with SMTP id ffacd0b85a97d-4887f6cf16bso2850383f8f.0
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 29 Sep 2026 11:24:24 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1790706263; cv=none;
+        d=google.com; s=arc-20260327;
+        b=RctFUfNtxBp7EKtsEHJPBl+gCTTgVNXmjf047M5Yx/FCJDdZII9iVzI5cQTBmfAasU
+         XTjIG1YgF0xTXZ7f360ZcjOTctysEZZsHoGHtVTF4ZIbp2H2ysfwzVTGutblXXZaurQR
+         1iRdqu+fO0sRq1kaIIKiZ6+dsAJhhUlDcz0hsbR0crP77A79cvMlSwi+QgvBxyekd52+
+         YXELlH1sYK+h64BJvza99UdtJn5DdkusxpnA67WD2p2sy7X1M+9rb3vsfaH+oZKdQSxc
+         yjNfjf4kQ7rAhWKP00AL2l+6SRob5GeDOE0P1KX+5fzEhqBOM5PffV2XVthQPzBVeQh+
+         tnrA==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:dkim-signature;
+        bh=g5iqo8UY2L5mZlXboZ0sxIpBdYrZWI1CLq6z3i5raKI=;
+        fh=iNo/Xs6HJOrdNFaTcI1nBKGLnj/AESPH5A65FmZPCr4=;
+        b=dlZWCs74yZzouZhnuWYUXekg7orhG9Ijv+zvKJRMVY1ibtpM+3jtzJp+N8GpkHi8Wi
+         BQK8MbruObHT77ANlLvB2dzJY33JgaVmi5YG5ZAjr4Sbw/9PyL36obipMD4AQBA2Yjl1
+         cGb+/3BBcMyDjQzi06sWLtSE7XumIWmraPUg9pB2lEDsrLPHUgNKz8x7JzNHulm3SKb2
+         me/uDzTrQQMLiTxwhIJAcoZw0pucTWa5MT6XVbs0tIzuBXf46sngmfiteVo+VF1Uwo3c
+         xFkvjQ0FNmgSG6j+mHYTb3wGQUwspfTPC6wI7xfSLUOc4snGg8Xa/SD9576aEIdbhsej
+         wK/A==;
+        darn=lists.infradead.org
+ARC-Authentication-Results: i=1; mx.google.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=google.com; s=20251104; t=1790706263; x=1791311063; darn=lists.infradead.org;
+        h=content-transfer-encoding:content-type:cc:to:subject:message-id
+         :date:from:in-reply-to:references:mime-version:from:to:cc:subject
+         :date:message-id:reply-to:content-type;
+        bh=g5iqo8UY2L5mZlXboZ0sxIpBdYrZWI1CLq6z3i5raKI=;
+        b=Ma/Y5eT5sZDlHzVr2E1w7xUlwJ3Te0/PpzxqqxLY7DVJzxz1YZlsHPeWbe6950NHwd
+         Hc9S4fkUogyH9XZMZpahz7Yt2vKWiws/bF+ejdaZNYn/BzT4wW9yllqXHGfPYZWX4yoZ
+         Rhg7zkir7a/U3aYnSNFJ7ZI+WC6NcVVXd5Y2d1fknS77yV+BABY4lqPJxU7MpSz7oDo5
+         1hEmYftLPfM6kPNGIZUWgsy4r9Zj7pvxelpUP8q0yMKZPYPWYmBc2iN2VY6w7oXMqHHC
+         5hWN3GycQiErRd31HiO1VJ6Bt8Kaw6FlSqsd93HJSswkE8PzEuVjpC0gFN+PSVYfCq7/
+         OaOA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1790706263; x=1791311063;
+        h=content-transfer-encoding:content-type:cc:to:subject:message-id
+         :date:from:in-reply-to:references:mime-version:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=g5iqo8UY2L5mZlXboZ0sxIpBdYrZWI1CLq6z3i5raKI=;
+        b=Lznpi4SaUr0nswWaCfxZJxxr/JvWBg+nSRlx3HQ9gctb45UOGAMuQyvdrlLXZRx38o
+         7NPajP+ILYzKMTEIVqwwGhcjhkdTmSaMO7ZpQn+O7nI5BO8iaybdJ2x+DT3PZNmFF5Od
+         x908/pr9TPkUDFHXvNkT8c0u8SAPWQtxbMGGF6aC+Gr4slx4NP/lUj/chc+je2/VhaGB
+         WETbRoast7XE95sUmXVruYhQmB+ObITt6uN+MiLovIkUoLBLaPgWYHpK3+PU7r5YOUMn
+         iHpCNTxCJITYd2g+ZMOmzPz4uJFmOiWW21VrKhEeGqUzacaVswkTdJhW+o8qT+e5bf95
+         MvGg==
+X-Forwarded-Encrypted: i=1; AKwUvBzind/tTvXmwYHWRr1QjK3V5oib7kIyQ234OIXAKlcpzqo4BciPCQXrsdp7ew8IRZQgkT5u9lEiXJZ2LjykcoYt@lists.infradead.org
+X-Gm-Message-State: AFq9FYJvMz8diz0EPHd6PfGKKDMKI01LGlvjXm2kI902GNAIx7QlqiAt
+	X/dtFzG3oNYONcWXOE3eEwHdVAhNJcbszG9T0zH53PYEr/d73cAYuzfM64gtnWCGnLUTzLvfFWM
+	u5q3GxbmHT01X7dZTEyjJcuuogtDzdFelSqNVTQyA
+X-Gm-Gg: AYBFou1i57LJVkRI0HzH1SRGOg9DTsutCxYS0J7EMjWTTc5Bndjp1IHoNchoZ9sl9wd
+	Mtrs1817Cig/EWbLgS6idPjLaUCERdBrNHtsylNWmihN5NFY0fuYzGF2Wkslznwp98xAqF9YOSl
+	2pMWQ+jsOh1plkyxSdu/xQmW4xm/51I/6X7D20X850zTHY6hBmvchqHEBkfYzu+qsHWgDctxlGc
+	fcc2I3ml+rEYODvX/6K8g+AIAUVkGW1BnNUizxFICl8sDfixNZsq9Er2IGFJiJw0E2M/rGBI3H3
+	1iOdfrwFb+UqJLabc2+qluaVBnalKKEuy1+G4HlVQapZLVwBasxwl30Ehbs8R0n42LN37Y7f47W
+	r4eFlVmwO8u1mqoOBEuNspEEgVlYIgnYxq158R0/k/Buc1Hj/FA+xaFEdGOkjozyQc+k=
+X-Received: by 2002:a05:6000:2381:b0:48a:fba3:d5b6 with SMTP id
+ ffacd0b85a97d-48afe7ab8dbmr265943f8f.56.1790706262469; Tue, 29 Sep 2026
+ 11:24:22 -0700 (PDT)
 MIME-Version: 1.0
+References: <20260925-vdso-getrandom-avoid-memset-llvm-24-v2-1-ce640f872393@kernel.org>
+ <CAKwvOdmuvn0LZkYEsH84hnOGTYhTtzuWs3wMARtWdTeL6dD9sA@mail.gmail.com>
+ <CAKwvOdnxKVpn=nAFaqP+9PTx4PqgHsUVWv6e60Pcr29W_eZrpQ@mail.gmail.com>
+ <CAKwvOdmNZL3eFvV3v77GXDzL+XLgz+BT9TA=my0yTnbsHqVeSg@mail.gmail.com>
+ <areYMjNcaqe86ds4@zx2c4.com> <9d1c338b-368f-4ea2-a12e-c28d49adff5e@kernel.org>
+ <are6s5e6On3hpD3M@zx2c4.com>
+In-Reply-To: <are6s5e6On3hpD3M@zx2c4.com>
+From: Nick Desaulniers <ndesaulniers@google.com>
+Date: Tue, 29 Sep 2026 11:24:11 -0700
+X-Gm-Features: AclHuK_OlHRHmRVZkjU6Ad7ygjuA5O41_jDQwI5Gzaif3nG5KjlJX6HrrO4nUUw
+Message-ID: <CAKwvOd=BrMfFT88jsvBPhh383qqk5G+J07CsofNu0MVkziyhCg@mail.gmail.com>
+Subject: Re: [PATCH v2] random: vDSO: Avoid call to memset() when zeroing
+ reserved in __cvdso_getrandom_data()
+To: "Jason A. Donenfeld" <Jason@zx2c4.com>, Nathan Chancellor <nathan@kernel.org>
+Cc: "Christophe Leroy (CS GROUP)" <chleroy@kernel.org>, Andy Lutomirski <luto@kernel.org>, 
+	Thomas Gleixner <tglx@kernel.org>, "Theodore Ts'o" <tytso@mit.edu>, 
+	Vincenzo Frascino <vincenzo.frascino@arm.com>, Bill Wendling <morbo@google.com>, 
+	Justin Stitt <justinstitt@google.com>, Catalin Marinas <catalin.marinas@arm.com>, 
+	Will Deacon <will@kernel.org>, Mark Rutland <mark.rutland@arm.com>, 
+	Huacai Chen <chenhuacai@kernel.org>, WANG Xuerui <kernel@xen0n.name>, 
+	Madhavan Srinivasan <maddy@linux.ibm.com>, Michael Ellerman <mpe@ellerman.id.au>, 
+	Nicholas Piggin <npiggin@gmail.com>, Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>, 
+	Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>, 
+	Heiko Carstens <hca@linux.ibm.com>, Vasily Gorbik <gor@linux.ibm.com>, 
+	Alexander Gordeev <agordeev@linux.ibm.com>, Christian Borntraeger <borntraeger@linux.ibm.com>, 
+	Sven Schnelle <svens@linux.ibm.com>, Ingo Molnar <mingo@redhat.com>, Borislav Petkov <bp@alien8.de>, 
+	Dave Hansen <dave.hansen@linux.intel.com>, "H. Peter Anvin" <hpa@zytor.com>, x86@kernel.org, 
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
+	loongarch@lists.linux.dev, linuxppc-dev@lists.ozlabs.org, 
+	linux-riscv@lists.infradead.org, linux-s390@vger.kernel.org, 
+	llvm@lists.linux.dev
+Content-Type: text/plain; charset="UTF-8"
 Content-Transfer-Encoding: quoted-printable
-Content-Type: text/plain; charset="utf-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260929_191555_889866_0AF8FD9F 
-X-CRM114-Status: GOOD (  31.43  )
+X-CRM114-CacheID: sfid-20260929_112426_237876_DB3770AB 
+X-CRM114-Status: GOOD (  19.82  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -107,106 +139,64 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tuesday, 29 September 2026 16:34:58 Central European Summer Time Leo Li =
-wrote:
->=20
-> On 2026-09-28 04:10, Michel D=C3=A4nzer wrote:
-> >>> You can picture VRR limiting as always being active, but with a limit=
- rational
-> >>> of 0 it uses the display's limit as per the EDID, which is what unlim=
-ited game
-> >>> mode is. So with how it's implemented right now in hdmi_validate_vrr(=
-), your
-> >>> example would set a maximum target, but leave the minimum at whatever=
- the
-> >>> display defaults to.
-> >>>
-> >>> Now that I'm thinking through this, a possible problem is that
-> >>> drm_crtc_helper_vrr_is_fixed_rate() operates on the user supplied lim=
-its, but
-> >>> if the display supplied lower limit is equal to the user supplied upp=
-er limit,
-> >>> then we have a fixed rate scenario without recognising it as such. I =
-think I
-> >>> need to have a ponder on what the least surprising behaviour for user=
-space
-> >>> is in that instance. The display limit stuff gets a bit complex due to
-> >>> CinemaVRR and QMS TFRmin/TFRmax.
-> >>>
-> >>> I'll improve the documentation on the next revision to make the meani=
-ngs more
-> >>> explicit.
-> >> Perhaps a simple way is to require simultaneous setting MIN and MAX pa=
-irs?
-> >> IOW, require userspace to set MIN and MAX simultaneously to >0, or =3D=
-0. For example:
-> >>
-> >> if ((vrr_min_n =3D=3D 0 || vrr_min_d =3D=3D 0 ||
-> >>      vrr_max_n =3D=3D 0 || vrr_max_d =3D=3D 0) &&
-> >>     (vrr_min_n > 0 || vrr_max_n > 0))
-> >> 	return -EINVAL;
-> >> That way, it's never ambiguous what userspace has requested for the ra=
-nge.
-> >> They can copy the EDID supported range if they don't care about limiti=
-ng one side, rather than leaving it at 0.
-> > Determining the actual limits can be non-trivial (though I guess that m=
-ight be fine as long as libdisplay-info can work them out), if user space g=
-ets them wrong, it might accidentally apply a narrower limit than intended.
-> >=20
-> >=20
-> >> It's then also clear if they requested a static Hz.
-> > I do see the benefit of your suggestion for this though.
->=20
-> Xaver and I were chatting about this at XDC, and yeah it'll be difficult
-> to match KMD's monitor range, especially if KMD decides to patch it with
-> quirks and whatnot.
->=20
-> Since we are handing compositors control over vrr range, does it sound
-> sensible to expose KMD's monitor range as a read-only property pair on
-> the drm connector? We probably don't need a num/den pair for it, it's
-> not like panels advertise fractional VRR ranges (right?).
+On Sat, Sep 26, 2026 at 5:29=E2=80=AFAM Jason A. Donenfeld <Jason@zx2c4.com=
+> wrote:
+>
+> On Sat, Sep 26, 2026 at 12:55:34PM +0200, Christophe Leroy (CS GROUP) wro=
+te:
+> > Hi Jason,
+> >
+> > Le 26/09/2026 =C3=A0 12:02, Jason A. Donenfeld a =C3=A9crit :
+> > > Apparently not on RISCV, which is what prompted this patch in the fir=
+st
+> > > place. So I suspect Nathan's v2 here is the way to go.
+> >
+> >
+> > Don't you have -fno-builtin on RISCV like we have on powerpc ?
+>
+> I think Nick mentioned this led to other problems and didn't exactly
+> solve the problem.
 
-Sounds good to me.
+Sorry, been very busy.  Getting blasted from a fire hose of AI
+generated patches to review...
 
-And yeah, we don't really need num/denom for it; the safe assumption is tha=
-t the
-minimum range is expressed with a denominator of 1.001 whereas the maximum =
-range
-is expressed with a numerator of 1. That's sort of non-obvious for userspace
-though, so I'll need to do some thinking around the specified behaviour.
+arch/arm64/kvm/hyp/nvhe/Makefile has this pattern for exactly the same
+problem I suspect.  Maybe that's the right tool in the toolbox?
 
-This sounds like a mainly theoretical concern but it's a real one, the most
-common 1.001 rates we'll run into are likely 24/1.001 or 30/1.001 and those
-are also very reasonable for a monitor to have as a lower limit. And when
-they specify that lower limit, they'll do it as just the integer rounded
-value, but seemingly expect them to be understood as the 1.001 value for
-the lower limit.
+```
+diff --git a/arch/riscv/kernel/vdso/Makefile b/arch/riscv/kernel/vdso/Makef=
+ile
+index 8dbf2532a573..27fa72d8fb86 100644
+--- a/arch/riscv/kernel/vdso/Makefile
++++ b/arch/riscv/kernel/vdso/Makefile
+@@ -27,7 +27,7 @@ asflags-y +=3D -DVDSO_CFI=3D1
+ endif
 
-> Fun fact: vrr_range is exposed today over debugfs for IGT testing
-> https://elixir.bootlin.com/linux/v7.3-rc5/source/drivers/gpu/drm/drm_debu=
-gfs.c#L586
+ # Files to link into the vdso
+-obj-vdso =3D $(patsubst %, %.o, $(vdso-syms)) note.o
++obj-vdso =3D $(patsubst %, %.o, $(vdso-syms)) note.o ../../lib/memset.o
 
-Speaking of that, v2 will deduplicate my accidentally rebased-over
-mostly duplicated EDID parsing and fix this function to report the
-newly added vrr_min/vrr_max fields of the display_info. (Since
-apparently monitor_range is populated by VESA and messing with it
-may not be okay?)
+ ifdef CONFIG_VDSO_GETRANDOM
+ obj-vdso +=3D vgetrandom-chacha.o
+```
+Fixes `make -skj"$(nproc)" ARCH=3Driscv LLVM=3D1 mrproper allmodconfig
+vdso_prepare` for me, as per
+https://github.com/ClangBuiltLinux/linux/issues/2183
+(Nathan, don't forget to link to that in the commit message)
+I'm surprised I didn't need -fno-semantic-interposition (or one of the
+related flags... -fvisibility=3Dhidden)
 
-Kind regards,
-Nicolas Frattaroli
-
->=20
-> Thanks,
-> Leo
->=20
-> >=20
-> >=20
-> > -- Earthling Michel D=C3=A4nzer \ GNOME / Xwayland / Mesa developer htt=
-ps://redhat.com \ Libre software enthusiast
->=20
->=20
-
-
-
-
+If we want to get better, (if performance matters here and we want to
+trade source+build system complexity for absolute code perf) I would
+start with that, then worry about clawing back performance via things
+like:
+- __builtin_memset_inline
+- -finline-stringops=3Dmemset
+- -ffunction-sections+-Wl,--gc-sections to dead code eliminate the out
+of line copy of memset, though IIRC there's potential for wasted space
+due to alignment requirements (maybe the out of line copy of memset is
+smaller...idk)
+--=20
+Thanks,
+~Nick Desaulniers
 
