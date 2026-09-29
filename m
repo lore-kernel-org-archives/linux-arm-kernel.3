@@ -4,73 +4,73 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 55F36C9832A
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 29 Sep 2026 06:12:06 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3D6D4C9832A
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 29 Sep 2026 06:12:16 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=iCVvBPbKtk3VcJreNW7SRJiAXgmB7FAeWV2dOTbxzuc=; b=J6MUX3A8PW7v4nxlQgGgnmh3nO
-	AsjbNiQ/N/vzggvjip2jinZ3GMkT3ub2WhwmfcREXeJvFRf1Wfx8OOB7C2nIxipWzDbkW6dHhkPh/
-	b0/TtB1fiF0wWfE6aA4Z8At+HEa3r/UF39D2uB13ylzK9lqaCEfdZLp+sEKCEWLlyOBzb80JqH8tz
-	GFVpVtJPezxlxm8UYsUawLjBktK8mnfRri4dabihMrnP7TYdoESfP37089RRZjH/yWawylh4hYU/t
-	qzpkaKAYsH4uy1DO4MD5VAgspdc5zLdN7JOcBW2M+b3wRRHaAWIrN3uCX5EllzfDagsrEb6aPqZBi
-	za1KVC2A==;
+	bh=Vj13ChAHd3bCWGU6cXQ2y/gw1Mtr1ISY+VXDwMotkXI=; b=ZRzFi7/tlHfKjUDRujWQXE5YYw
+	6SL2CGslKU4/9MDL7QSw/pKqGeU4u0MUoYKYiA6uaM1FPhmSpm3cJ9Qd1/GcLXC0BdWdzYdcfgBA2
+	MggY6BAPiv5Bl4LaUSBYf50Eyl2wAvjhWQoEgsAaMyYih32B1tGa24G2nfPJ3ax1dq+1bOUGSjgfc
+	3S0LMIrQAnAAQaioe+lAdSHWZfZubUpxEFOjLYAkq7y9kUmd8ya+TAUM4jabEFdh6arGhW5yksYi/
+	gwHHpaR9p9CURU4wtrG+Z3OZpOcZonOZQ6eJAckjschEkl/9VHQ8oT4v1BN8mXLMrGqL/zqbpm0XC
+	XLNFb2Lg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xBR4K-00000002Pge-18MF;
-	Tue, 29 Sep 2026 06:12:00 +0000
-Received: from mail-pj2-x11.google.com ([2607:f8b0:4864:39::11])
+	id 1xBR4T-00000002Pkg-1lND;
+	Tue, 29 Sep 2026 06:12:09 +0000
+Received: from mail-pj2-x0f.google.com ([2607:f8b0:4864:39::f])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xBR4H-00000002Pfa-2IgQ
+	id 1xBR4Q-00000002PjK-2bHR
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 29 Sep 2026 06:11:58 +0000
-Received: by mail-pj2-x11.google.com with SMTP id 98e67ed59e1d1-396ccc09d65so2265503a91.3
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 28 Sep 2026 23:11:57 -0700 (PDT)
+	Tue, 29 Sep 2026 06:12:07 +0000
+Received: by mail-pj2-x0f.google.com with SMTP id 98e67ed59e1d1-396ccb1a98fso2772911a91.1
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 28 Sep 2026 23:12:06 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1790662317; x=1791267117; darn=lists.infradead.org;
+        d=gmail.com; s=20251104; t=1790662326; x=1791267126; darn=lists.infradead.org;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to:content-type;
-        bh=iCVvBPbKtk3VcJreNW7SRJiAXgmB7FAeWV2dOTbxzuc=;
-        b=kKKE6dbHpclCjIuW2IzIHBy5+aciCSEJdMnV9Od0WUMRq5S5X485zy6dG6haaXND5N
-         uX0ytEFTyf0Wyy/nrqwWJ7uZ0FTbc15rsIddkUxnSoNvZy9IDYOO1yGq8/QiiXZkMUPe
-         Zv6flczvV9Iaf4t1sLT68tLI76tIngGgPYj/jKkLthPNblhGMbAumCrnEv8gnXN7eazA
-         Ncpvr1KVvw/mxx7hDtQOw6LQVu0exblqqgblN4Z5sXvnja8iXp7sPyCQGYJP/X8wgAsu
-         cbWxi//Q0nDd9B9v8fuMEvcFudAvlmNmqtwhCfWqAYJufea1IGWjKNIZQPtG30gfkTl2
-         IxBA==
+        bh=Vj13ChAHd3bCWGU6cXQ2y/gw1Mtr1ISY+VXDwMotkXI=;
+        b=Q/j/xyVF8CnZAbQ6VgO9f6o3TbAs7OA/xxc1bT2wnJqYjU0TsUxWoRQ5OeN1M+XtjZ
+         fYSkV+1YudzIeF/enz4G8RfY/Move1Jf0hZRKdN4/d0peMY9pgIpBfMCVqyzMlhsMdtQ
+         o14IKmSLbf4CrXJn8c4XtuzJb80YxjRPYXnST5iJ1JHAAFt7uAYOfevVEIK8tAozuJaI
+         vHxmbt/7tm2G5Sg0WJ0jdK0/sqWm7KydP3Wrjd744RWpD4M/KUk24FrbcIkoU1ZiETqq
+         TvEqUGrGZKsa3Vd4XSRa4RQB+qi5gI2RXvk2dOK3MYwi9Epz2zG3h0mhZAqvGYC7u8Ps
+         tNmA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1790662317; x=1791267117;
+        d=1e100.net; s=20260707; t=1790662326; x=1791267126;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
          :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=iCVvBPbKtk3VcJreNW7SRJiAXgmB7FAeWV2dOTbxzuc=;
-        b=wisjaFfNnejBC1O1022fC4nLs8oUAgHzxPgLpItlot0rY3qEglRBfeqSAa2Q0r4qMc
-         67HJ3taq1ue7MPe7PSKinUcM0o5oDCF2YB7LNWb423QkFdT8kmNfYEkzu3NJoli2/kng
-         4us5GiGTkJ/xhpx5M61LEzlZClI5tOf63O5yvOshI5R0ozM5rOYnEWa63xmBMgG6Mn/F
-         xyws9mCucdY6N0U7BPFuOqseSXg6Mdl9TK0tqSlSXurHBlIi+IbyTrBFARHP8RTRrTx5
-         +fgK77BoOEqWAFmWg0eLWZsv+SPh98LAiNtfXFmR/dKj9V32rzku+iDF08rKque/a9ms
-         ip2w==
-X-Forwarded-Encrypted: i=1; AKwUvByfJw+oQTo9troYe6MNZdh7C/bSNfqXr4k4NqEUpJtRheHVTDK6zkURK0Byzq11mue8nw40uJMqArwrm1DaF252@lists.infradead.org
-X-Gm-Message-State: AFq9FYK02HIKTelF5MsckfmFlFmY706sFv5Nf1JcVZCU1b/2QdyXJPZ4
-	Px6hESe05jbl7661rkedS74b3B02DEmzu7hErPFaNMVNLN7sqXg1bVqT
-X-Gm-Gg: AYBFou0MEQiXzAe2AI3BAqgXYEWgAQEArPfpnalmn51D6h/iRhQAL2tCJvgMA6oV9tY
-	F5hnURXeD1cvd/49t6qroG+HHwf/Jz8kfcGTVRqmdQeMgzHZeRPmuxcCUmc3+9h85untpvVNiw6
-	xzmAHDHjJptHbAl3mNPl60ftz1Q96AEmV/i8bRgSwlaEAPCO3avl3lGY8EjSx1syLpOtfSJFvLY
-	0Z9MLFZifoZoDBXioDtxcN6ra6BpVFi7qK9k+b/z5DitXv7eU5Fa2VBoZYPxIGU++o6qcINV/mW
-	h0G6zOIZ9D5FxIXihHxLRfOxky/38KBd3kQHUUuMMQUmnRuzt685hwKirUKkO4iY+3RCIkMOORB
-	aOzaiR/ANrtevjqBbGbOSZiLje/RUGOo6TdgLl3ubxR7eKGiakBOo/oTVcUtMYOSjF1gPYeAzUO
-	0PDi1zoNlAzrdutxwQZiLDsMjVdoes43AG7RYAMRBGYck2tI4gTUl1FsoSXc8pCwC/0yef+hSD7
-	/PkRHvU/3EiOV/Dc0LUVfnF1yJezhaJWeKJStvZZa6fF+4AGOY9D/511jdWKKbDARX6K8RYFFKW
-	e6/4QUVWIDe+6DPSYi3rdoDQ
-X-Received: by 2002:a17:90b:3a4d:b0:3a4:9ba1:94fb with SMTP id 98e67ed59e1d1-3a49ba1ad2emr1589587a91.52.1790662316829;
-        Mon, 28 Sep 2026 23:11:56 -0700 (PDT)
+        bh=Vj13ChAHd3bCWGU6cXQ2y/gw1Mtr1ISY+VXDwMotkXI=;
+        b=bo38nIBTc9I4OuHuiake1UNHTFJYtVqnvq1KPrqh8LpKFe2JmKRdR2zfNOifGTyVOW
+         RJxgga74msQXjHvkNWHcptnK+ATfY4bttCAAMNBD42EPQ3P+AbDV9Zj9TOiG+zxJqvZO
+         12qXOAUbFTDvfbofxENKGJg9Cm4ABkZVK+9EEQrzmlVy4QG6RLPnQ+6rnxy4HwQfLWTO
+         itkzA7c/Cq6ylcWJfx9+bH/NOES5u2Ok9ix3MVDG6WoM0hfonCrcpEDNmzBCLoqn/OhS
+         JjtUlZWUXsUd3cpwSzKPGQZt9Xjvv6jbJd1brHScI8sJenlEfQWdnoPuybq7TGeYtSJb
+         cYVg==
+X-Forwarded-Encrypted: i=1; AKwUvBzuXTN/qJIOxYXcxBq6D+7RxehtN58ztuEaAsq0VxYNpuGk1p9l4HWcOnjH9dETHHBnfTP9EKji/9bi0UCL65kb@lists.infradead.org
+X-Gm-Message-State: AFq9FYKJwWfi9uASK86jt6jbnW4W7CsKwIqg0hONI3mC+pcqtWEUF5vc
+	bPIAv+e3TyOcdkSZZDYT32VCLUIs34vAq8Pw9cHJecotYT5xDhrcqxBG
+X-Gm-Gg: AYBFou3efOshoYY1iEb4igL40sC+vflDUS4BE0apAFtZA5eYw1SdYvBWl5FVSQPYTXt
+	NiB/DyVsVibBN+rsTRukA+pLGQN3WdzF8Pi0qE0FHuDkbUOUHa82rOEG+nhofZ0KB9HjswaHktr
+	wr1cRWyM5zp5qIoDoXyGUK6hAnSC7gWHImLYnSZ4JoE28vMKgNwuhu/BJmP9xs/70OgMaqcOyzf
+	N8mP+jhVnwnsfK7dk5yaMQ60WDfMeczkCK3Bwz+jWXS4YUnBdMlLMa6RlFb9qBHarFonRcc8r8K
+	LhR/DTpgBsViuc/RAZICPLOj33NOrSDoYyhJI1AH2J41NjaQ8U3WKqPGO771MmNHnEmsItfqXLZ
+	GtR6dy+lguZ2XhFrUwQxkgn1SlVTqVRf8fwQVlRM8aNDJUMOfbbMyBCNUt0TGhsCpU4C5guDbZY
+	Ucp745keUat7uIkMtGeE/Ntp+lR//OUumOMiPQKCPB8RJEELA+Jk7DgYoesq38Q8mmjhyJXviMV
+	S+eeRgamBK4JqHR0TzV2yZrwXl8VDLXtL0co6dZAelsbV8Nl6E1Q9U4PvXANWIY358ozZJXafS/
+	OAdqfRjzRPpt4A==
+X-Received: by 2002:a17:90b:548c:b0:39e:6c6a:656c with SMTP id 98e67ed59e1d1-3a0bb63224amr9430503a91.47.1790662325592;
+        Mon, 28 Sep 2026 23:12:05 -0700 (PDT)
 Received: from phuc-desktop.. ([183.91.15.56])
-        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-3a498726d63sm3280965a91.17.2026.09.28.23.11.52
+        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-3a498726d63sm3280965a91.17.2026.09.28.23.12.01
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 28 Sep 2026 23:11:56 -0700 (PDT)
+        Mon, 28 Sep 2026 23:12:05 -0700 (PDT)
 From: phucduc.bui@gmail.com
 To: Mark Brown <broonie@kernel.org>,
 	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
@@ -88,17 +88,17 @@ Cc: Liam Girdwood <lgirdwood@gmail.com>,
 	linux-mediatek@lists.infradead.org,
 	linux-kernel@vger.kernel.org,
 	bui duc phuc <phucduc.bui@gmail.com>
-Subject: [PATCH 01/10] ASoC: mediatek: mt8196: fix APLL mux error handling
-Date: Tue, 29 Sep 2026 13:11:12 +0700
-Message-ID: <20260929061121.124001-2-phucduc.bui@gmail.com>
+Subject: [PATCH 02/10] ASoC: mediatek: mt8196: fix APLL enable error handling
+Date: Tue, 29 Sep 2026 13:11:13 +0700
+Message-ID: <20260929061121.124001-3-phucduc.bui@gmail.com>
 X-Mailer: git-send-email 2.43.0
 In-Reply-To: <20260929061121.124001-1-phucduc.bui@gmail.com>
 References: <20260929061121.124001-1-phucduc.bui@gmail.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260928_231157_597686_46E59810 
-X-CRM114-Status: GOOD (  11.59  )
+X-CRM114-CacheID: sfid-20260928_231206_698391_55010F46 
+X-CRM114-Status: GOOD (  11.67  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -115,125 +115,119 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 
 From: bui duc phuc <phucduc.bui@gmail.com>
 
-Propagate errors from clock operations in the enable path and clean up
-previously enabled clocks when a later operation fails.
+Propagate errors from the APLL mux and clock enable operations instead of
+ignoring them or returning success on failure.
 
-For the disable path, continue disabling all clocks even if a clock
-operation fails. Do not propagate the errors so that the disable path
-can perform as much cleanup as possible.
+Clean up previously enabled clocks and disable the APLL tuner when a
+later clock operation fails, restoring the APLL mux state before
+returning the error.
 
 Fixes: 7384ecab34eb ("ASoC: mediatek: mt8196: support audio clock control")
 Signed-off-by: bui duc phuc <phucduc.bui@gmail.com>
 ---
- sound/soc/mediatek/mt8196/mt8196-afe-clk.c | 56 +++++++++++++---------
- 1 file changed, 34 insertions(+), 22 deletions(-)
+ sound/soc/mediatek/mt8196/mt8196-afe-clk.c | 47 ++++++++++++++++------
+ 1 file changed, 34 insertions(+), 13 deletions(-)
 
 diff --git a/sound/soc/mediatek/mt8196/mt8196-afe-clk.c b/sound/soc/mediatek/mt8196/mt8196-afe-clk.c
-index 286e39f53ae0..91ae44024949 100644
+index 91ae44024949..1dc4210e58c7 100644
 --- a/sound/soc/mediatek/mt8196/mt8196-afe-clk.c
 +++ b/sound/soc/mediatek/mt8196/mt8196-afe-clk.c
-@@ -220,33 +220,39 @@ static int apll1_mux_setting(struct mtk_base_afe *afe, bool enable)
- 		ret = mt8196_afe_set_clk_rate(afe, afe_priv->clk[MT8196_CLK_VLP_MUX_AUD_ENG1],
- 					      MT8196_AUD_ENG1_CLK);
- 		if (ret)
--			return ret;
-+			goto err_disable_eng1;
+@@ -314,15 +314,17 @@ int mt8196_apll1_enable(struct mtk_base_afe *afe)
+ 	int ret;
  
- 		ret = mt8196_afe_enable_clk(afe, afe_priv->clk[MT8196_CLK_VLP_MUX_AUDIO_H]);
- 		if (ret)
--			return ret;
-+			goto err_restore_eng1;
+ 	/* setting for APLL */
+-	apll1_mux_setting(afe, true);
++	ret = apll1_mux_setting(afe, true);
++	if (ret)
++		return ret;
  
- 		ret = mt8196_afe_set_clk_rate(afe, afe_priv->clk[MT8196_CLK_VLP_MUX_AUDIO_H],
- 					      apll_rate);
- 		if (ret)
--			return ret;
-+			goto err_disable_audio_h;
- 	} else {
--		ret = mt8196_afe_set_clk_rate(afe, afe_priv->clk[MT8196_CLK_VLP_MUX_AUD_ENG1],
--					      MT8196_AFE_26M);
--		if (ret)
--			return ret;
-+		mt8196_afe_set_clk_rate(afe, afe_priv->clk[MT8196_CLK_VLP_MUX_AUD_ENG1],
-+					MT8196_AFE_26M);
+ 	ret = mt8196_afe_enable_top_cg(afe, MT8196_CG_APLL1_CK);
+ 	if (ret)
+-		goto err_clk_apll1;
++		goto err_disable_mux;
  
- 		mt8196_afe_disable_clk(afe, afe_priv->clk[MT8196_CLK_VLP_MUX_AUD_ENG1]);
+ 	ret = mt8196_afe_enable_top_cg(afe, MT8196_PDN_APLL_TUNER1);
+ 	if (ret)
+-		goto err_clk_apll1_tuner;
++		goto err_disable_apll1_ck;
  
--		ret = mt8196_afe_set_clk_rate(afe, afe_priv->clk[MT8196_CLK_VLP_MUX_AUDIO_H],
--					      MT8196_AFE_26M);
--		if (ret)
--			return ret;
-+		mt8196_afe_set_clk_rate(afe, afe_priv->clk[MT8196_CLK_VLP_MUX_AUDIO_H],
-+					MT8196_AFE_26M);
+ 	/* sel 44.1kHz:1, apll_div:7, upper bound:3 */
+ 	regmap_update_bits(afe->regmap, AFE_APLL1_TUNER_CFG,
+@@ -336,14 +338,22 @@ int mt8196_apll1_enable(struct mtk_base_afe *afe)
+ 			   0x1 << FREQ_TUNER_EN_SFT);
  
- 		mt8196_afe_disable_clk(afe, afe_priv->clk[MT8196_CLK_VLP_MUX_AUDIO_H]);
- 	}
+ 	/* audio apll1 on */
+-	mt8196_afe_enable_top_cg(afe, MT8196_AUDIO_APLL1_EN_ON);
++	ret = mt8196_afe_enable_top_cg(afe, MT8196_AUDIO_APLL1_EN_ON);
++	if (ret)
++		goto err_disable_tuner;
  
  	return 0;
+ 
+-err_clk_apll1_tuner:
++err_disable_tuner:
++	regmap_update_bits(afe->regmap, AFE_APLL1_TUNER_CFG,
++			   FREQ_TUNER_EN_MASK_SFT,
++			   0x0);
+ 	mt8196_afe_disable_top_cg(afe, MT8196_PDN_APLL_TUNER1);
+-err_clk_apll1:
++err_disable_apll1_ck:
+ 	mt8196_afe_disable_top_cg(afe, MT8196_CG_APLL1_CK);
++err_disable_mux:
++	apll1_mux_setting(afe, false);
 +
-+err_disable_audio_h:
-+	mt8196_afe_disable_clk(afe, afe_priv->clk[MT8196_CLK_VLP_MUX_AUDIO_H]);
-+err_restore_eng1:
-+	mt8196_afe_set_clk_rate(afe, afe_priv->clk[MT8196_CLK_VLP_MUX_AUD_ENG1],
-+				MT8196_AFE_26M);
-+err_disable_eng1:
-+	mt8196_afe_disable_clk(afe, afe_priv->clk[MT8196_CLK_VLP_MUX_AUD_ENG1]);
+ 	return ret;
+ }
+ 
+@@ -367,15 +377,17 @@ int mt8196_apll2_enable(struct mtk_base_afe *afe)
+ 	int ret;
+ 
+ 	/* setting for APLL */
+-	apll2_mux_setting(afe, true);
++	ret = apll2_mux_setting(afe, true);
++	if (ret)
++		return ret;
+ 
+ 	ret = mt8196_afe_enable_top_cg(afe, MT8196_CG_APLL2_CK);
+ 	if (ret)
+-		goto err_clk_apll2;
++		goto err_disable_mux;
+ 
+ 	ret = mt8196_afe_enable_top_cg(afe, MT8196_PDN_APLL_TUNER2);
+ 	if (ret)
+-		goto err_clk_apll2_tuner;
++		goto err_disable_apll2_ck;
+ 
+ 	/* sel 48kHz: 2, apll_div: 7, upper bound: 3*/
+ 	regmap_update_bits(afe->regmap, AFE_APLL2_TUNER_CFG,
+@@ -389,14 +401,23 @@ int mt8196_apll2_enable(struct mtk_base_afe *afe)
+ 			   0x1 << FREQ_TUNER_EN_SFT);
+ 
+ 	/* audio apll2 on */
+-	mt8196_afe_enable_top_cg(afe, MT8196_AUDIO_APLL2_EN_ON);
++	ret = mt8196_afe_enable_top_cg(afe, MT8196_AUDIO_APLL2_EN_ON);
++	if (ret)
++		goto err_disable_tuner2;
++
+ 	return 0;
+ 
+-err_clk_apll2_tuner:
++err_disable_tuner2:
++	regmap_update_bits(afe->regmap, AFE_APLL2_TUNER_CFG,
++			   FREQ_TUNER_EN_MASK_SFT,
++			   0x0);
+ 	mt8196_afe_disable_top_cg(afe, MT8196_PDN_APLL_TUNER2);
+-err_clk_apll2:
++err_disable_apll2_ck:
+ 	mt8196_afe_disable_top_cg(afe, MT8196_CG_APLL2_CK);
+-	return 0;
++err_disable_mux:
++	apll2_mux_setting(afe, false);
 +
 +	return ret;
  }
  
- static int apll2_mux_setting(struct mtk_base_afe *afe, bool enable)
-@@ -268,33 +274,39 @@ static int apll2_mux_setting(struct mtk_base_afe *afe, bool enable)
- 		ret = mt8196_afe_set_clk_rate(afe, afe_priv->clk[MT8196_CLK_VLP_MUX_AUD_ENG2],
- 					      MT8196_AUD_ENG2_CLK);
- 		if (ret)
--			return ret;
-+			goto err_disable_eng2;
- 
- 		ret = mt8196_afe_enable_clk(afe, afe_priv->clk[MT8196_CLK_VLP_MUX_AUDIO_H]);
- 		if (ret)
--			return ret;
-+			goto err_restore_eng2;
- 
- 		ret = mt8196_afe_set_clk_rate(afe, afe_priv->clk[MT8196_CLK_VLP_MUX_AUDIO_H],
- 					      apll_rate);
- 		if (ret)
--			return ret;
-+			goto err_disable_audio_h;
- 	} else {
--		ret = mt8196_afe_set_clk_rate(afe, afe_priv->clk[MT8196_CLK_VLP_MUX_AUD_ENG2],
--					      MT8196_AFE_26M);
--		if (ret)
--			return ret;
-+		mt8196_afe_set_clk_rate(afe, afe_priv->clk[MT8196_CLK_VLP_MUX_AUD_ENG2],
-+					MT8196_AFE_26M);
- 
- 		mt8196_afe_disable_clk(afe, afe_priv->clk[MT8196_CLK_VLP_MUX_AUD_ENG2]);
- 
--		ret = mt8196_afe_set_clk_rate(afe, afe_priv->clk[MT8196_CLK_VLP_MUX_AUDIO_H],
--					      MT8196_AFE_26M);
--		if (ret)
--			return ret;
-+		mt8196_afe_set_clk_rate(afe, afe_priv->clk[MT8196_CLK_VLP_MUX_AUDIO_H],
-+					MT8196_AFE_26M);
- 
- 		mt8196_afe_disable_clk(afe, afe_priv->clk[MT8196_CLK_VLP_MUX_AUDIO_H]);
- 	}
- 
- 	return 0;
-+
-+err_disable_audio_h:
-+	mt8196_afe_disable_clk(afe, afe_priv->clk[MT8196_CLK_VLP_MUX_AUDIO_H]);
-+err_restore_eng2:
-+	mt8196_afe_set_clk_rate(afe, afe_priv->clk[MT8196_CLK_VLP_MUX_AUD_ENG2],
-+				MT8196_AFE_26M);
-+err_disable_eng2:
-+	mt8196_afe_disable_clk(afe, afe_priv->clk[MT8196_CLK_VLP_MUX_AUD_ENG2]);
-+
-+	return ret;
- }
- 
- int mt8196_apll1_enable(struct mtk_base_afe *afe)
+ void mt8196_apll2_disable(struct mtk_base_afe *afe)
 -- 
 2.43.0
 
