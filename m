@@ -4,75 +4,66 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DE33FCA5FA7
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 29 Sep 2026 19:41:06 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 78735CA5FA7
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 29 Sep 2026 19:41:15 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=KAUghNeL44tviTaVmIMjHkDsIJ29Dhpn/+AN6JDKLAs=; b=kLQo80O/ZAgBL6luc+aifBG0wz
-	8+1OGXy0IvO31JzmstZEVZNKZnqaxJbAWU3a/xSs0prfWp8THQ48xO/lwr/7CZ+RKYKxf8i/UB3lq
-	pnqfRlayOLn25B4mD11KHir7BiN8fH8RPH8iaUhnqTVoAss8pW5qnco5tmSSF8wCvaAkGXYNKlfXx
-	oiBhYa1xcFLV4sOz9zFxV2g93sLp50zHLhpZpUROQTp7Q5HP+v9JNsMiXF/C2AloP8O2yvVF9jhEu
-	AcQcq92wlKlm7nlxLyD5qcWyGu8iQPlVSXpmTN1iCgzgM7BphB2hr9s/oURErQDPIyu1LbgwPThQw
-	dpPFzAww==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=0XCBv3O3B5U/0RI7i7/PfYDk3hpKzkqZDOf+4YfGQmw=; b=0yj1Ob7OWBEmg7Plu26XLtzyqE
+	kS6TvP2eCuw4qanooxsYtPu3dF63qYD6VpHCwnSa2NFqLd7n9y2HC7qfj2cahkWc+apeaF784qv+b
+	H9UpyKgOGmB/Fcwefm2+nplUNHs4Mgv16UJKTxkGz1ZVugv0gYyqrUa00KdxqdB03eBO+lbJwdzuw
+	hy49hz+Pb7FIrrtnxt1A08NJPDKPkZKx8j6vibEK+brKed2oemCA+cOn+cAa/Wa7fsSDVrez4cD09
+	KgQnjHArhm3nRHQIxJo174yvbCoJl+BPAU26BxKerGcmz3JhzAyeFyJhWokYTnOaWUNs18hpdoKO+
+	FrdkvMEg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xBdhE-00000004OhB-4A6k;
-	Tue, 29 Sep 2026 19:41:00 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1xBdhN-00000004Oko-15eg;
+	Tue, 29 Sep 2026 19:41:09 +0000
+Received: from mx.nabladev.com ([2a00:f820:417:0:178:251:229:89])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xBdhE-00000004Ogl-0IWb;
-	Tue, 29 Sep 2026 19:41:00 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id 474326022F;
-	Tue, 29 Sep 2026 19:40:59 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id E20111F000FF;
-	Tue, 29 Sep 2026 19:40:53 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1790710859;
-	bh=KAUghNeL44tviTaVmIMjHkDsIJ29Dhpn/+AN6JDKLAs=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=P2d3TTkISdUJC1YsLuhZljaOYdZOKKzQF+g7bVMFxM78S9Y9e+uNzUmoc/ZtK4D3F
-	 LIstQvkhHvev0H5nG4LCBasAdNG0umlWOg8/QZW+Zjk4C1PfR3W71azyaBKDfe+hiU
-	 sI/Mnpfc/dntc7NK0ZruCuOnKM8ucxfqNICfC9BmvVnXi115NbQ2a2Ne0F2TnBjPAl
-	 lXvm4XHznPyHKOhVeq8wj/Ay9+UZdpd0NtahbFiQ4kYL22BdR8YhMCjt2ZqjkPu+Bs
-	 juq/wcsIezSGXOEDR7kvrCbPcLsZdyC15CG3OetKSBLIGAPE5Y1rJGTW31qSg+EOSA
-	 mOqszPh2hETDw==
-Date: Tue, 29 Sep 2026 20:40:51 +0100
-From: Conor Dooley <conor@kernel.org>
-To: Jisheng Zhang <jszhang@kernel.org>
-Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>, Stephen Boyd <sboyd@kernel.org>,
-	Brian Masney <bmasney+clk@redhat.com>,
-	Jerome Brunet <jbrunet+clk@baylibre.com>,
-	Andi Shyti <andi.shyti@kernel.org>,
-	Alexandre Belloni <alexandre.belloni@bootlin.com>,
-	Frank Li <Frank.Li@nxp.com>, Lee Jones <lee@kernel.org>,
+	id 1xBdhH-00000004Ohn-1dz5
+	for linux-arm-kernel@lists.infradead.org;
+	Tue, 29 Sep 2026 19:41:04 +0000
+Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 265A8106C95;
+	Tue, 29 Sep 2026 21:40:56 +0200 (CEST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nabladev.com;
+	s=dkim; t=1790710856; h=from:subject:date:message-id:to:cc:mime-version:
+	 content-transfer-encoding:in-reply-to:references;
+	bh=0XCBv3O3B5U/0RI7i7/PfYDk3hpKzkqZDOf+4YfGQmw=;
+	b=IT3x5eyVq2rxZJTC300zmKmC8Go0EtXwiKIEkZOJYaWoLMLm4+RQSJKczSiOGxguUc26vD
+	OEGHO6P5I6D4w4+HyfXPKsk1oN4leLVIFFJFCC8/DfduT/HbgHR08r+gpzgKEW8cGN/qzA
+	oyrA2YNlWQnG15ww8pbnUX3y4WuJIJKxjyEA63ni2dnBymi7fLu0IF7+qBtqwpACeNzuK8
+	bFa+oyY/S+mZ1nMlRmAIt9ibHmNn7esTLN0M0TBBS6pGV+NkNbevxHM3K7TakszOpaMDLz
+	pwMdQ3xautJe2jmo1ZecklsQQocW9+wFNsFFs6wHBkepSEhIVrL0i1OOoH/O7w==
+From: Marek Vasut <marex@nabladev.com>
+To: linux-arm-kernel@lists.infradead.org
+Cc: Marek Vasut <marex@nabladev.com>,
+	Alexandre Torgue <alexandre.torgue@foss.st.com>,
+	Bartosz Golaszewski <brgl@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
 	Linus Walleij <linusw@kernel.org>,
-	Liam Girdwood <lgirdwood@gmail.com>,
-	Mark Brown <broonie@kernel.org>,
-	Philipp Zabel <p.zabel@pengutronix.de>,
-	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
-	Jiri Slaby <jirislaby@kernel.org>,
-	Sebastian Hesselbarth <sebastian.hesselbarth@gmail.com>,
-	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
-	linux-clk@vger.kernel.org, linux-i2c@vger.kernel.org,
-	linux-i3c@lists.infradead.org, mfd@lists.linux.dev,
-	linux-gpio@vger.kernel.org, linux-serial@vger.kernel.org,
-	linux-spi@vger.kernel.org, linux-arm-kernel@lists.infradead.org
-Subject: Re: [PATCH 18/20] regulator: dt-bindings: sy8827n: support standard
- properties
-Message-ID: <20260929-childish-ethically-0a9c6d63ee62@spud>
-References: <20260929061417.20733-1-jszhang@kernel.org>
- <20260929061417.20733-19-jszhang@kernel.org>
+	Rob Herring <robh@kernel.org>,
+	devicetree@vger.kernel.org,
+	kernel@dh-electronics.com,
+	linux-gpio@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	linux-stm32@st-md-mailman.stormreply.com
+Subject: [PATCH 2/5] arm64: dts: st: Fix PF7 AF10 comment
+Date: Tue, 29 Sep 2026 21:39:56 +0200
+Message-ID: <20260929194035.496244-2-marex@nabladev.com>
+X-Mailer: git-send-email 2.53.0
+In-Reply-To: <20260929194035.496244-1-marex@nabladev.com>
+References: <20260929194035.496244-1-marex@nabladev.com>
 MIME-Version: 1.0
-Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="6jYRsrYHOKy0uFBN"
-Content-Disposition: inline
-In-Reply-To: <20260929061417.20733-19-jszhang@kernel.org>
+Content-Transfer-Encoding: 8bit
+X-Last-TLS-Session-Version: TLSv1.3
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260929_124103_580913_39C53AFE 
+X-CRM114-Status: GOOD (  10.77  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -87,23 +78,41 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
---6jYRsrYHOKy0uFBN
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
+The PF10 AF10 is ETH_RGMII_GTX_CLK , fix the comment.
 
-Acked-by: Conor Dooley <conor.dooley@microchip.com>
-pw-bot: not-applicable
+Fixes: e2fce4620933 ("arm64: dts: st: Add pinmux nodes for DH electronics STM32MP23xx/STM32MP25xx DHCOS SoM and Breakout Board")
+Signed-off-by: Marek Vasut <marex@nabladev.com>
+---
+Cc: Alexandre Torgue <alexandre.torgue@foss.st.com>
+Cc: Bartosz Golaszewski <brgl@kernel.org>
+Cc: Conor Dooley <conor+dt@kernel.org>
+Cc: Krzysztof Kozlowski <krzk+dt@kernel.org>
+Cc: Linus Walleij <linusw@kernel.org>
+Cc: Rob Herring <robh@kernel.org>
+Cc: devicetree@vger.kernel.org
+Cc: kernel@dh-electronics.com
+Cc: linux-arm-kernel@lists.infradead.org
+Cc: linux-gpio@vger.kernel.org
+Cc: linux-kernel@vger.kernel.org
+Cc: linux-stm32@st-md-mailman.stormreply.com
+---
+ arch/arm64/boot/dts/st/stm32mp25-pinctrl.dtsi | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
 
---6jYRsrYHOKy0uFBN
-Content-Type: application/pgp-signature; name=signature.asc
+diff --git a/arch/arm64/boot/dts/st/stm32mp25-pinctrl.dtsi b/arch/arm64/boot/dts/st/stm32mp25-pinctrl.dtsi
+index 75f516b8d6af7..674d30dac4d09 100644
+--- a/arch/arm64/boot/dts/st/stm32mp25-pinctrl.dtsi
++++ b/arch/arm64/boot/dts/st/stm32mp25-pinctrl.dtsi
+@@ -244,7 +244,7 @@ pins1 {
+ 		};
+ 		pins2 {
+ 			pinmux = <STM32_PINMUX('F', 8, AF10)>, /* ETH_RGMII_CLK125 */
+-				 <STM32_PINMUX('F', 7, AF10)>; /* ETH_MDC */
++				 <STM32_PINMUX('F', 7, AF10)>; /* ETH_RGMII_GTX_CLK */
+ 			bias-disable;
+ 			drive-push-pull;
+ 			slew-rate = <3>;
+-- 
+2.53.0
 
------BEGIN PGP SIGNATURE-----
-
-iHUEABYKAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCarwUQwAKCRB4tDGHoIJi
-0kiZAP98RDyWo+sgTIVhEcs8b/0YZbaCHEucmwHwYittmSNXQgD/ViPojKzhd0DA
-1NfubBBIQUkUPapBQUZaKnCSWaP1BAw=
-=mlj2
------END PGP SIGNATURE-----
-
---6jYRsrYHOKy0uFBN--
 
