@@ -4,106 +4,106 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9D08FCA5FA5
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 29 Sep 2026 15:05:42 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 30FE3CA5FA5
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 29 Sep 2026 15:06:28 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:References:In-Reply-To:Date:Cc:To:From
-	:Subject:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	Message-ID:Date:References:In-Reply-To:Subject:Cc:To:From:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=NGBYh8tP8IykhTqy306lXTCsl31LGpftRR50ypp+mgY=; b=fwXXDBq72DK3N/iRkTqEzFtsw+
-	T5FZJg3AgvZ4rbbMyBYDN38/sTh3K2kERncX6dVtqJxtIIU7nUSHRGYNc2zygIA5bzmKX59zZy7Gb
-	NqTcjRM7/CDfHziSOZb/460HYmIg5LXAoGsQ7lWs/c0gnI/0gzV6DioWO+NzQ9d/4pYJMKhAZyoLY
-	qqVvguSWi1GGO5yKmTtWeC6Dq7dJaQn+kt605T0CV6ELK2WFWjjtSsjDc49CosXI7WRivhhgFACTk
-	D0tATAmPlDQLnMca/IHPLpHed/wddRpt40ICUtmP2Zw59MaVlRqALY63UaN2jeQxGf3OHDV6GRyps
-	bn8/zILA==;
+	bh=YLptK7nHgocKDIIOZU1ThQFrj1CHU/IAWIcXLfeThzY=; b=KKYHHsKTMJ+0pk6y+LL91FDZHl
+	1E1ZXN3B4a547Ph/pJ3KLqGcnEJ75TJ6eTWTBtM5cb0frTdInS7irA77zlIQbUtBZ1X8X9mnf1Vtp
+	fPt+JvB5Lcfa76PQSW7uVoS8kQl2lpteGzzOMqsnp3I6v41hcLB82G3X4bhMMyjHGfXxEJiF6o+oY
+	NZrNyJ8tiE4nCL8xXSduyAVhoQz+Us+zk1dR25sAT2pk86JyfmYPxUzXNbWMgGkdeloVzE/sgHzAu
+	I8J4JxXadMd+AGJBVRBQQjTQrDYdj9B5+nStv4pRx7XX1g76Fecuu2M2jjQ9A7oYYYQJ5cEu0w74x
+	jfGIye4g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xBZOi-00000003t49-1wbf;
-	Tue, 29 Sep 2026 15:05:36 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1xBZPS-00000003tPW-0NDr;
+	Tue, 29 Sep 2026 15:06:22 +0000
+Received: from mail-wr2-x0f.google.com ([2a00:1450:4864:30::f])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xBZOY-00000003t0u-3EPp;
-	Tue, 29 Sep 2026 15:05:26 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=MIME-Version:Content-Transfer-Encoding
-	:Content-Type:References:In-Reply-To:Date:Cc:To:From:Subject:Message-ID:
-	Sender:Reply-To:Content-ID:Content-Description;
-	bh=NGBYh8tP8IykhTqy306lXTCsl31LGpftRR50ypp+mgY=; b=HCG/8YXuFXQml30XI9u+fFuzj8
-	Pk3BLa/IAR/vLYolWBd9BQEU8cr5BXQaLZ/yCiqKjRFg5LPHfnFdv/VCw+oJSaOO2MNiHn47qRVs3
-	nI5suTkeivFzceq+y0uw+ezvDZ2Wt//oEBEyGnl5SetQv/hbOyHLej1s/UGDzM90ByAOhDMnFd5lv
-	igKkoW7kQ+wGSG+Zdly6cHZtikS1UV0ksJy3wjw8kn5ueEmCTs61QhJ6PsAVrNu/UrH5NNzAO5kvX
-	+3sYZjO5DTnDnoX/rK3RGW/Nq9APoRg8/k3JE1QwebCE4RrBOlESxdxp9s11lzCO/kWrNzOblAjFI
-	QsjjaKBw==;
-Received: from smtp25.cstnet.cn ([159.226.251.25] helo=cstnet.cn)
-	by desiato.infradead.org with esmtps (Exim 4.99.2 #2 (Red Hat Linux))
-	id 1xBZOU-00000002lu6-2Ocd;
-	Tue, 29 Sep 2026 15:05:25 +0000
-Received: from edelgard.fodlan.icenowy.me (unknown [112.94.101.54])
-	by APP-05 (Coremail) with SMTP id zQCowAD3YTyZ07tqyZevCQ--.6680S2;
-	Tue, 29 Sep 2026 23:04:59 +0800 (CST)
-Message-ID: <fa05718e4767b44b3d4530533b48391562d0f614.camel@iscas.ac.cn>
-Subject: Re: [PATCH v4 12/20] soc: starfive: Add jh7110-hdmi-subsystem driver
-From: Icenowy Zheng <zhengxingda@iscas.ac.cn>
-To: Michal Wilczynski <m.wilczynski@samsung.com>, Vinod Koul
- <vkoul@kernel.org>,  Neil Armstrong <neil.armstrong@linaro.org>, Rob
- Herring <robh@kernel.org>, Krzysztof Kozlowski	 <krzk+dt@kernel.org>, Conor
- Dooley <conor+dt@kernel.org>, Andrzej Hajda	 <andrzej.hajda@intel.com>,
- Robert Foss <rfoss@kernel.org>, Laurent Pinchart	
- <Laurent.pinchart@ideasonboard.com>, Jonas Karlman <jonas@kwiboo.se>,
- Jernej Skrabec <jernej.skrabec@gmail.com>, Luca Ceresoli
- <luca.ceresoli@bootlin.com>, Maarten Lankhorst	
- <maarten.lankhorst@linux.intel.com>, Maxime Ripard <mripard@kernel.org>, 
- Thomas Zimmermann <tzimmermann@suse.de>, Lee Jones <lee@kernel.org>, Andy
- Yan <andy.yan@rock-chips.com>, Philipp Zabel	 <p.zabel@pengutronix.de>,
- Emil Renner Berthing <kernel@esmil.dk>, Hal Feng	
- <hal.feng@starfivetech.com>, Michael Turquette <mturquette@baylibre.com>, 
- Stephen Boyd <sboyd@kernel.org>, Heiko Stuebner <heiko@sntech.de>, Paul
- Walmsley <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou
- <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>,  Dominique
- Belhachemi	 <db@domibel.de>, Brian Masney <bmasney+clk@redhat.com>, Jerome
- Brunet	 <jbrunet+clk@baylibre.com>
-Cc: linux-phy@lists.infradead.org, devicetree@vger.kernel.org, 
-	linux-kernel@vger.kernel.org, dri-devel@lists.freedesktop.org, 
-	mfd@lists.linux.dev, linux-clk@vger.kernel.org, 
-	linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org, 
-	linux-riscv@lists.infradead.org, Marek Szyprowski
- <m.szyprowski@samsung.com>,  Maud Spierings <maud_spierings@murena.io>,
- Graham Markall <hello@big-grey.co.uk>, Chaoyi Chen	
- <chaoyi.chen@rock-chips.com>, Joshua Peisach <jpeisach@ubuntu.com>, Uwe
- =?ISO-8859-1?Q?Kleine-K=F6nig?=	 <u.kleine-koenig@baylibre.com>
-Date: Tue, 29 Sep 2026 23:04:57 +0800
-In-Reply-To: <20260915-jh7110-clean-send-v4-12-f0e4fd6f2cc8@samsung.com>
-References: <20260915-jh7110-clean-send-v4-0-f0e4fd6f2cc8@samsung.com>
-	 <CGME20260915153234eucas1p221dd53b5f1bccb6228c0a5a7d0be8394@eucas1p2.samsung.com>
-	 <20260915-jh7110-clean-send-v4-12-f0e4fd6f2cc8@samsung.com>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
-User-Agent: Evolution 3.58.3 
+	id 1xBZPO-00000003tNY-0gsM
+	for linux-arm-kernel@lists.infradead.org;
+	Tue, 29 Sep 2026 15:06:20 +0000
+Received: by mail-wr2-x0f.google.com with SMTP id ffacd0b85a97d-482f635552aso3392852f8f.2
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 29 Sep 2026 08:06:16 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=baylibre.com; s=google; t=1790694375; x=1791299175; darn=lists.infradead.org;
+        h=content-type:mime-version:message-id:date:references:in-reply-to
+         :subject:cc:to:from:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=YLptK7nHgocKDIIOZU1ThQFrj1CHU/IAWIcXLfeThzY=;
+        b=PDZtG6i4J62UlieR/XuDSXqwBA1a0quXRb1wYi7LVuGNHQDm7hclHvmJJXtSzs8Hc1
+         FqD3+CJ+UYttsrW8J+/R203/aQJQqlM+NfkSv0EvUZ/vcA0/DUNaJ4+DNAm0+UAa6uog
+         /E9IZLg4NU0Usv8V06mZed/HWBlZ0LjUBu2p30atF5IwdAe2RbeSatBATHXYI7RLDkWX
+         futPPwUu9UCeN7eospbzsuU5op8jAz8VGrfeu2P9Joqg/g4QG9fmehsEg9LUoAKj23PW
+         rhKSGFAAS1hBrNPM5ePmLm6MmajvZ4I8+tHb42smDf1wf3S4qyYUzh1rLJKMEuqSeZqF
+         EEHQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1790694375; x=1791299175;
+        h=content-type:mime-version:message-id:date:references:in-reply-to
+         :subject:cc:to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject
+         :date:message-id:reply-to:content-type;
+        bh=YLptK7nHgocKDIIOZU1ThQFrj1CHU/IAWIcXLfeThzY=;
+        b=rxN4Syqq4fC3fudU9Qk/xdq/f2a7foulFdfJXkkdDpY2ZlWRq6u6fc9dw917zw8yhy
+         nQe9veDFlNr7c976mf1Avl8QXX2ov+FlW9Ixy7xEqsLfZ8XSTiFL5mENPJq0NLOOXNSl
+         BnXuO24NPMHSqgwVwfm23xRarT9t9CcPqRe0RHmqx7xJjZ/HM/XnJ9ZYUbuNRRiN8pSn
+         26Kqw817Dvy7qQ7UuLP5xfRlHBy2FdrFgJah3bhSQZ16UIvMpWzqAtDBWjG1lXhIdCdx
+         RLBdoSDJOxrn1h1koryNnIjpuurX4B+KoDdCuYdABB4Wxa6UcO5xbeo//6ixp29t0giJ
+         YZkA==
+X-Forwarded-Encrypted: i=1; AKwUvBzKPkEahFFA5GUvZVQNUBvVVT1OyS0sP9h++V0raPLtuTlAtdewUV3Uj7lw1ZmfaHyej+h41xQHOSE1im4slNbZ@lists.infradead.org
+X-Gm-Message-State: AFq9FYKe4gW3hpT+bGssV0fz2d+3iAy/AynWg1/SGDEW64S2fh9xq1jj
+	FXz7UV8eztbkJEZymb0fOomqzBHOgN8/z1LT4DPwk3trpiPAGq0U7a+EIHK+SoIxDow=
+X-Gm-Gg: AYBFou2KgXS9IN7bRMvzQYGNpeyCnSmWg9v9eYxjM68ASBgPnCj+X251LPtelu6mY78
+	jl4h5St99xlMwqf/EcBE7HcyBIutCCJgkj3S2a4cbtvDpJVo7b9OxKugYBTEGcRMLgDyKCO7Vyg
+	LqfVX6f9gc9UUDnFPPQ6j3JOwX568A18gaR4F2uzi7dcW3w6y/albuY2WQ3ArdSy+Z55BbcP7I/
+	ObtQK5j0EqU0drkKZ3KDMaSVSqWhevxZFvsZJiJJzACRGnKzt4bLYCPnjRBCJz20gybXBiFD3mg
+	5INrBgbtSyl4oYCmh2sRCXXg77OXhMnwy5v7Hvq68by3Nfaqlfqlu2rEfe+BPr5rNPI4K9tSo0f
+	xZQJMum6kL9x9CJfdBV1KwWearkIBbLGSmNh3yXKqU975PfUnSBe3lLVT3mzLPSzWvHJiEIStj1
+	s8B5UzsRHj+4IZi4FUhzvCJF3wCzRBN9jIOXsJLdSdghbIBsBJ8hFZByhutcAD4Fz6wgiNqZpfl
+	tt58MEdqqzzSsRlV1sesECQXbZIag==
+X-Received: by 2002:adf:e19c:0:b0:487:799:c04a with SMTP id ffacd0b85a97d-48872a5c8dcmr29383832f8f.3.1790694375596;
+        Tue, 29 Sep 2026 08:06:15 -0700 (PDT)
+Received: from localhost (82-67-6-57.subs.proxad.net. [82.67.6.57])
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-48af4f8edebsm4909091f8f.2.2026.09.29.08.06.14
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Tue, 29 Sep 2026 08:06:14 -0700 (PDT)
+From: Jerome Brunet <jbrunet@baylibre.com>
+To: Andrew Lunn <andrew@lunn.ch>
+Cc: Andrew Lunn <andrew+netdev@lunn.ch>, "David S. Miller"
+ <davem@davemloft.net>, Eric Dumazet <edumazet@google.com>, Jakub Kicinski
+ <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>, Rob Herring
+ <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
+ <conor+dt@kernel.org>, Chen-Yu Tsai <wens@kernel.org>, Jernej Skrabec
+ <jernej.skrabec@gmail.com>, Samuel Holland <samuel@sholland.org>, Richard
+ Cochran <richardcochran@gmail.com>, Maxime Ripard <mripard@kernel.org>,
+ Maxime Coquelin <mcoquelin.stm32@gmail.com>, Alexandre Torgue
+ <alexandre.torgue@foss.st.com>, Philipp Zabel <p.zabel@pengutronix.de>,
+ Maxime Chevallier <maxime.chevallier@bootlin.com>, netdev@vger.kernel.org,
+ devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-sunxi@lists.linux.dev, linux-kernel@vger.kernel.org,
+ linux-stm32@st-md-mailman.stormreply.com, Andre Przywara
+ <andre.przywara@arm.com>
+Subject: Re: [PATCH net-next v3 0/5] net: stmmac: Add support for Allwinner
+ A733 GMAC210
+In-Reply-To: <b41e7fe4-2ec8-428e-81ff-47e1c75003b1@lunn.ch>
+References: <20260923-allwinner-a733-gmac-support-v3-0-15735155a789@baylibre.com>
+ <9cc61625-47c9-4bdf-97f0-0528f661a399@lunn.ch>
+ <1j7bkb9h5k.fsf@starbuckisacylon.baylibre.com>
+ <5fae3b42-552a-458a-9710-927360e58c37@lunn.ch>
+ <1jv77u8yak.fsf@starbuckisacylon.baylibre.com>
+ <491f043e-6dc6-4936-a490-31a3362c5b6e@lunn.ch>
+ <1jse2x91oh.fsf@starbuckisacylon.baylibre.com>
+ <b41e7fe4-2ec8-428e-81ff-47e1c75003b1@lunn.ch>
+Date: Tue, 29 Sep 2026 17:06:14 +0200
+Message-ID: <1jecec3xnd.fsf@starbuckisacylon.baylibre.com>
 MIME-Version: 1.0
-X-CM-TRANSID: zQCowAD3YTyZ07tqyZevCQ--.6680S2
-X-Coremail-Antispam: 1UD129KBjvJXoW3Wr1xtFW5AFWUtw1DGFW8Crg_yoWxuF4UpF
-	4kJFy3CrW8JF1fArZ8Xw1UAFyrKws2va4Yk34xX3W2qr1UAryjqwn2qryY9rsrJrZ7Gw17
-	tFyUurWa9F4UJw7anT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
-	9KBjDU0xBIdaVrnRJUUUvKb7Iv0xC_tr1lb4IE77IF4wAFF20E14v26rWj6s0DM7CY07I2
-	0VC2zVCF04k26cxKx2IYs7xG6rWj6s0DM7CIcVAFz4kK6r1j6r18M28lY4IEw2IIxxk0rw
-	A2F7IY1VAKz4vEj48ve4kI8wA2z4x0Y4vE2Ix0cI8IcVAFwI0_Gr0_Xr1l84ACjcxK6xII
-	jxv20xvEc7CjxVAFwI0_Gr1j6F4UJwA2z4x0Y4vEx4A2jsIE14v26rxl6s0DM28EF7xvwV
-	C2z280aVCY1x0267AKxVW0oVCq3wAS0I0E0xvYzxvE52x082IY62kv0487Mc02F40EFcxC
-	0VAKzVAqx4xG6I80ewAv7VC0I7IYx2IY67AKxVWUAVWUtwAv7VC2z280aVAFwI0_Jr0_Gr
-	1lOx8S6xCaFVCjc4AY6r1j6r4UM4x0Y48IcVAKI48JM4IIrI8v6xkF7I0E8cxan2IY04v7
-	MxkF7I0En4kS14v26rWY6Fy7MxAIw28IcxkI7VAKI48JMxC20s026xCaFVCjc4AY6r1j6r
-	4UMI8I3I0E5I8CrVAFwI0_Jr0_Jr4lx2IqxVCjr7xvwVAFwI0_JrI_JrWlx4CE17CEb7AF
-	67AKxVWrXVW8Jr1lIxkGc2Ij64vIr41lIxAIcVC0I7IYx2IY67AKxVWUJVWUCwCI42IY6x
-	IIjxv20xvEc7CjxVAFwI0_Gr1j6F4UJwCI42IY6xAIw20EY4v20xvaj40_Jr0_JF4lIxAI
-	cVC2z280aVAFwI0_Gr0_Cr1lIxAIcVC2z280aVCY1x0267AKxVW8Jr0_Cr1UYxBIdaVFxh
-	VjvjDU0xZFpf9x07jmsjUUUUUU=
-X-Originating-IP: [112.94.101.54]
-X-CM-SenderInfo: x2kh0wp0lqwv3d6l2u1dvotugofq/
+Content-Type: text/plain
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260929_160523_648736_B5F9AA4D 
-X-CRM114-Status: GOOD (  31.97  )
+X-CRM114-CacheID: sfid-20260929_080618_517993_75341177 
+X-CRM114-Status: GOOD (  29.03  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -118,220 +118,80 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-=E5=9C=A8 2026-09-15=E4=BA=8C=E7=9A=84 17:32 +0200=EF=BC=8CMichal Wilczynsk=
-i=E5=86=99=E9=81=93=EF=BC=9A
-> Add the parent driver for the monolithic JH7110 HDMI IP block.
->=20
-> This driver binds to the starfive,jh7110-hdmi-subsystem node. It maps
-> the
-> shared register block, creates a regmap, and calls
-> devm_of_platform_populate() to create its hdmi_phy and
-> hdmi_controller
-> child devices, which retrieve the shared regmap from this parent.
->=20
-> The NoC display bus clock and reset that gate access to this region,
-> and
-> the PD_VOUT power domain it sits in, are held by the video output
-> subsystem parent for as long as this device exists, so there is
-> nothing
-> for this driver to bring up itself.
->=20
-> Co-developed-by: Dominique Belhachemi <db@domibel.de>
-> Signed-off-by: Dominique Belhachemi <db@domibel.de>
-> Signed-off-by: Michal Wilczynski <m.wilczynski@samsung.com>
+On ven. 25 sept. 2026 at 21:45, Andrew Lunn <andrew@lunn.ch> wrote:
 
-```
-Tested-by: Icenowy Zheng <zhengxingda@iscas.ac.cn>
-```
+>> > You need to differentiate between small fine tuning delays, and the
+>> > 2ns delay required by the RGMII standard. If the MAC is just doing
+>> > fine tuning, you need to still pass PHY_INTERFACE_MODE_RGMII_ID so the
+>> > PHY adds the 2ns delay. If the MAC is adding a big delay, you need to
+>> > pass PHY_INTERFACE_MODE_RGMII to the PHY.
+>> 
+>> The PHY is one concern but the series here does not really address this
+>> topic. DTS and board specific concerns will come later.
+>
+> They are all interconnected. When phy-mode says 'rgmii-id', it is the
+> MAC/PHY pair which needs to decide who adds the delay. If the phy-mode
+> is 'na', how does the MAC know it needs to use RGMII, not MII, as you
+> said.
+>
+> We need to keep the big picture in mind, otherwise you could go down a
+> dead end, and a dead end which makes backwards compatibility really
+> messy.
 
-Thanks,
-Icenowy
+I agree with you with on all this. I understand this particular MAC/PHY
+combo is sparking this discussion, Let's sort this out properly, no
+rush.
 
-> ---
-> =C2=A0drivers/soc/Kconfig=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=
-=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=
-=A0=C2=A0=C2=A0=C2=A0=C2=A0 |=C2=A0 1 +
-> =C2=A0drivers/soc/Makefile=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=
-=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=
-=C2=A0=C2=A0=C2=A0=C2=A0 |=C2=A0 1 +
-> =C2=A0drivers/soc/starfive/Kconfig=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=
-=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 | 28 +++++++++++
-> =C2=A0drivers/soc/starfive/Makefile=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=
-=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 |=C2=A0 2 +
-> =C2=A0drivers/soc/starfive/jh7110-hdmi-subsystem.c | 73
-> ++++++++++++++++++++++++++++
-> =C2=A05 files changed, 105 insertions(+)
->=20
-> diff --git a/drivers/soc/Kconfig b/drivers/soc/Kconfig
-> index
-> a2d65adffb8052c0ac5a6b60bf33fa9c644701bb..b3b01fc38139d98076c14f626a4
-> 2ae3b7ef7c5d6 100644
-> --- a/drivers/soc/Kconfig
-> +++ b/drivers/soc/Kconfig
-> @@ -24,6 +24,7 @@ source "drivers/soc/renesas/Kconfig"
-> =C2=A0source "drivers/soc/rockchip/Kconfig"
-> =C2=A0source "drivers/soc/samsung/Kconfig"
-> =C2=A0source "drivers/soc/sophgo/Kconfig"
-> +source "drivers/soc/starfive/Kconfig"
-> =C2=A0source "drivers/soc/sunxi/Kconfig"
-> =C2=A0source "drivers/soc/tegra/Kconfig"
-> =C2=A0source "drivers/soc/ti/Kconfig"
-> diff --git a/drivers/soc/Makefile b/drivers/soc/Makefile
-> index
-> c9e689080ceb759384f690c2b65a82b3cb451c74..009f85ff891a15e0455f92c5d5a
-> 4059d8b1fcd3f 100644
-> --- a/drivers/soc/Makefile
-> +++ b/drivers/soc/Makefile
-> @@ -30,6 +30,7 @@ obj-y				+=3D renesas/
-> =C2=A0obj-y				+=3D rockchip/
-> =C2=A0obj-$(CONFIG_SOC_SAMSUNG)	+=3D samsung/
-> =C2=A0obj-y				+=3D sophgo/
-> +obj-y				+=3D starfive/
-> =C2=A0obj-y				+=3D sunxi/
-> =C2=A0obj-$(CONFIG_ARCH_TEGRA)	+=3D tegra/
-> =C2=A0obj-y				+=3D ti/
-> diff --git a/drivers/soc/starfive/Kconfig
-> b/drivers/soc/starfive/Kconfig
-> new file mode 100644
-> index
-> 0000000000000000000000000000000000000000..e738638ab0f755fbbabca259264
-> abb56f3b6101f
-> --- /dev/null
-> +++ b/drivers/soc/starfive/Kconfig
-> @@ -0,0 +1,28 @@
-> +# SPDX-License-Identifier: GPL-2.0-only
-> +#
-> +# Starfive SoC drivers
-> +#
-> +
-> +if ARCH_STARFIVE || COMPILE_TEST
-> +menu "Starfive SoC drivers"
-> +
-> +config SOC_STARFIVE_JH7110_HDMI_SUBSYSTEM
-> +	tristate "StarFive JH7110 HDMI subsystem driver"
-> +	depends on OF
-> +	select REGMAP_MMIO
-> +	help
-> +	=C2=A0 This option enables the parent driver
-> +	=C2=A0 for the monolithic StarFive JH7110 HDMI peripheral.
-> +
-> +	=C2=A0 The JH7110 HDMI IP block contains both the digital
-> controller
-> +	=C2=A0 (DRM bridge) and the analog PHY (clock/phy provider) logic
-> within
-> +	=C2=A0 a single shared register space.
-> +
-> +	=C2=A0 This driver acts as a wrapper. Its only job is to map the
-> +	=C2=A0 shared registers and create separate logical child devices
-> +	=C2=A0 for the "PHY" and the "controller". This is required to
-> +	=C2=A0 correctly manage resources and break a circular clock
-> dependency
-> +	=C2=A0 between the PHY and the VOUT clock generator at probe
-> time.
-> +
-> +endmenu
-> +endif
-> diff --git a/drivers/soc/starfive/Makefile
-> b/drivers/soc/starfive/Makefile
-> new file mode 100644
-> index
-> 0000000000000000000000000000000000000000..be89d8119212b7a7038817c2f0e
-> 8eac1984ada88
-> --- /dev/null
-> +++ b/drivers/soc/starfive/Makefile
-> @@ -0,0 +1,2 @@
-> +# SPDX-License-Identifier: GPL-2.0-only
-> +obj-$(CONFIG_SOC_STARFIVE_JH7110_HDMI_SUBSYSTEM) +=3D jh7110-hdmi-
-> subsystem.o
-> diff --git a/drivers/soc/starfive/jh7110-hdmi-subsystem.c
-> b/drivers/soc/starfive/jh7110-hdmi-subsystem.c
-> new file mode 100644
-> index
-> 0000000000000000000000000000000000000000..e64a22263045935ae69541cf8a1
-> 44f6128170c11
-> --- /dev/null
-> +++ b/drivers/soc/starfive/jh7110-hdmi-subsystem.c
-> @@ -0,0 +1,73 @@
-> +// SPDX-License-Identifier: GPL-2.0
-> +/*
-> + * Driver for the StarFive JH7110 HDMI subsystem
-> + *
-> + * Copyright (c) 2025 Samsung Electronics Co., Ltd.
-> + * Author: Michal Wilczynski <m.wilczynski@samsung.com>
-> + *
-> + * This driver binds to the monolithic HDMI block and creates
-> separate
-> + * logical platform devices for the HDMI Controller (bridge) and the
-> + * HDMI PHY (clock/phy provider), allowing them to share a single
-> regmap
-> + * and breaking the probing circular dependency.
-> + */
-> +
-> +#include <linux/module.h>
-> +#include <linux/of.h>
-> +#include <linux/of_platform.h>
-> +#include <linux/platform_device.h>
-> +#include <linux/regmap.h>
-> +
-> +static const struct regmap_config starfive_hdmi_regmap_config =3D {
-> +	.reg_bits =3D 32,
-> +	.val_bits =3D 8,
-> +	.max_register =3D 0x3fff,
-> +};
-> +
-> +static int starfive_hdmi_subsys_probe(struct platform_device *pdev)
-> +{
-> +	struct device *dev =3D &pdev->dev;
-> +	struct regmap *regmap;
-> +	void __iomem *regs;
-> +	int ret;
-> +
-> +	/*
-> +	 * The NoC display bus clock and reset that gate access to
-> this region,
-> +	 * and the PD_VOUT power domain it sits in, are held by the
-> video
-> +	 * output subsystem parent for as long as this device
-> exists.
-> +	 */
-> +	regs =3D devm_platform_ioremap_resource(pdev, 0);
-> +	if (IS_ERR(regs))
-> +		return PTR_ERR(regs);
-> +
-> +	regmap =3D devm_regmap_init_mmio(dev, regs,
-> +				=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0
-> &starfive_hdmi_regmap_config);
-> +	if (IS_ERR(regmap))
-> +		return dev_err_probe(dev, PTR_ERR(regmap),
-> +				=C2=A0=C2=A0=C2=A0=C2=A0 "Failed to init shared
-> regmap\n");
-> +
-> +	ret =3D devm_of_platform_populate(dev);
-> +	if (ret)
-> +		return dev_err_probe(dev, ret,
-> +				=C2=A0=C2=A0=C2=A0=C2=A0 "Failed to populate child
-> devices\n");
-> +
-> +	return 0;
-> +}
-> +
-> +static const struct of_device_id starfive_hdmi_subsys_of_match[] =3D {
-> +	{ .compatible =3D "starfive,jh7110-hdmi-subsystem", },
-> +	{ /* sentinel */ }
-> +};
-> +MODULE_DEVICE_TABLE(of, starfive_hdmi_subsys_of_match);
-> +
-> +static struct platform_driver starfive_hdmi_subsys_driver =3D {
-> +	.probe =3D starfive_hdmi_subsys_probe,
-> +	.driver =3D {
-> +		.name =3D "starfive-hdmi-subsystem",
-> +		.of_match_table =3D starfive_hdmi_subsys_of_match,
-> +	},
-> +};
-> +module_platform_driver(starfive_hdmi_subsys_driver);
-> +
-> +MODULE_AUTHOR("Michal Wilczynski <m.wilczynski@samsung.com>");
-> +MODULE_DESCRIPTION("StarFive JH7110 HDMI subsystem Driver");
-> +MODULE_LICENSE("GPL");
+I'm merely pointing out that the problem is not introduced by the code
+submited here. Other MAC can set delays, Other MACs would need to handle
+mis-behaving PHY too.
 
+>
+>> It is really just the MAC. So, how does the MAC is supposed to
+>> make the decision to amend the PHY mode ? is there a threshold you'd
+>> like to recommend for this differentiation ? 
+>
+> This is the first time we have had this condition. So it has not
+> really been thought about too much. Maybe 1ns. That is the middle of
+> the 2ns required by RGMII.
+>
+>> I'll try to reach out, just in case. I have the schematics but without
+>> the PHY doc, it does not help much.
+>
+> From that i assume you missed the other emails. Somebody from ARM give
+> a link to the data sheet. It documents the strapping. Search for the
+> patch adding the PHY driver, it is in that thread.
+>
+
+Thanks for the heads up. So if I'm reading the doc correctly the PHY
+adds 2ns
+ * on RX if there a 4.7k pull-up on RXD0
+ * on TX if there a 4.7k pull-up on RXD1
+
+The schematics for the board are available here [1]
+
+* 4.7k pull-up on RXD0: so we should have 2ns Rx from the PHY
+* 4.7k pull-down on RXD1: no idea what this does. Presumably no delay ?
+
+I've cross-checked the HW, the resistors are actually fitted as the
+schematic says they are.
+
+With the HW setup, the MAC setup that works for me remains
+
+	tx-internal-delay-ps = <1620>;
+	rx-internal-delay-ps = <1800>;
+
+I know it is not aligned with what it expected but still.
+
+I've tried with
+ * rx-internal-delay-ps = <0>. No Rx.
+ * tx-internal-delay-ps at 1800ps, it still works with some TCP retries here and
+   there on iperf3. 1980ps stalls after just a few packets.
+
+[1]: https://dl.radxa.com/cubie/a7a/docs/hw/radxa_cubie_a7a_v1.10_schematic.pdf
+
+> 	Andrew
+
+-- 
+Jerome
 
