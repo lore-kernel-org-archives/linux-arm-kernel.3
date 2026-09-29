@@ -4,73 +4,151 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0F279CA5FA1
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 29 Sep 2026 07:27:14 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5385CC9832A
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 29 Sep 2026 07:29:11 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=c2C/eVtAJPpjMYDLNwQibSrOlOhibS0dGw/VMLKUe3Y=; b=u84tbMWPg00Xs4xkX1AGhiAWJS
-	Dn+UBsLFuYpkcB1GNcBTMWPb/Ds+s4Wa4MN/WvfzyjRHdCl9WbV8X67JWibQ7gfzhyZW8WKNBJXCO
-	Tb1uxiqEEtkrPs6oTAezeyTRWsJ9a3/1QMXmKng7Y+qqCHiY/xwdfBUgLwSrlYpFi1O8jWfFfT8UB
-	H1yOP135RNTNIc1RayBLqSLKMhJx2+1QsprzNb2GNpmO+045P5n2tZnJciteKEh8PU3S0U9qbTOgl
-	ADLhQ2q3E63NnDAxhDTCMY4Ubvzzzl2minJ1ola3PaotPA8cbh+jtiH5TlEQR+nZlsCi/iNI4EX5t
-	LbXCp0aQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Content-Type:
+	Content-Transfer-Encoding:References:In-Reply-To:Message-ID:Date:Subject:Cc:
+	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=sMDgxOnntUM4Mqp2gyb0ZzF+sPD9Fz6yuDG/SWQ7Q+I=; b=EIHN0lxeDk7M6lNtrUr3gB3ErW
+	D2avxDgr1UFTGpiUAkYrEIEbjeCS74YfbsBucWNqNnFlRypeLrDMbMvp2PDXNqOD0/MLr6WjbECZf
+	tWsywbTKOU+YPKV7c2Ao+upUqL5yN8jtSqUo2pfvpNMze4kAEEer+fyXaANveCdQxTxrDyAe1dtvB
+	JE6yJCMkYUdvQncMTcfhbA8gNIwNzDkH2SIecgFpcRf9jGM1dmeSuO03ontNaBXWAji+DT01zQurO
+	fefm51FwUNJTObmijVPybqE1Zn/gg/xv8/Mi1AKu3aoclMO4gq9ChScKLAkcdyUQhQSLUtyKEtoIC
+	VjqC190Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xBSF0-00000002btM-3EM1;
-	Tue, 29 Sep 2026 07:27:06 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1xBSGu-00000002cOI-2kBg;
+	Tue, 29 Sep 2026 07:29:04 +0000
+Received: from mail-westusazon11010063.outbound.protection.outlook.com ([52.101.85.63] helo=BYAPR05CU005.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xBSEy-00000002btD-2RtR;
-	Tue, 29 Sep 2026 07:27:04 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id D50B660210;
-	Tue, 29 Sep 2026 07:27:03 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id F0D911F000FF;
-	Tue, 29 Sep 2026 07:27:02 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1790666823;
-	bh=c2C/eVtAJPpjMYDLNwQibSrOlOhibS0dGw/VMLKUe3Y=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=U+BO6Q9/X08aLazZhmJKUWRGrmjj+Snm4vmwY09KdDXNKy0CeH88HD15e/T1wMBOV
-	 35UauizxtojbWrKfrEFN7w+FfGso44H61e35C7lMDcGAtssEtKbbfEQ4nrUTd3eXVD
-	 gLf8fXYqi1N+UaXw93NJzh/e73uY0W5hB7RFpG4e5KiaRvKnkB1Q7fPie1Qw0C7HFC
-	 NiawgI8jEPDocDiE3T7sUTqwZcAqNzg5v99hVtNFiSrfQTvdPI8gyvQrA2RGg05+vr
-	 z2UTwUB4fW60fzsg8yPP29R6BttDkBiQz56CL1Lxf1Y+KfgSJV6jeKlt9OlvMLrTV4
-	 5e+4XWjij65Zg==
-Date: Tue, 29 Sep 2026 09:27:00 +0200
-From: Maxime Ripard <mripard@kernel.org>
-To: Neil Armstrong <neil.armstrong@linaro.org>
-Cc: Benjamin Tissoires <bentiss@kernel.org>, 
-	Jessica Zhang <jesszhan0024@gmail.com>, David Airlie <airlied@gmail.com>, 
-	Simona Vetter <simona@ffwll.ch>, Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, 
-	Thomas Zimmermann <tzimmermann@suse.de>, Rob Herring <robh@kernel.org>, 
-	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
-	Nathan Chancellor <nathan@kernel.org>, Nick Desaulniers <ndesaulniers@google.com>, 
-	Bill Wendling <morbo@google.com>, Justin Stitt <justinstitt@google.com>, 
-	Florian Fainelli <florian.fainelli@broadcom.com>, 
-	Broadcom internal kernel review list <bcm-kernel-feedback-list@broadcom.com>, Andrzej Hajda <andrzej.hajda@intel.com>, 
-	Robert Foss <rfoss@kernel.org>, Laurent Pinchart <Laurent.pinchart@ideasonboard.com>, 
-	Jonas Karlman <jonas@kwiboo.se>, Jernej Skrabec <jernej.skrabec@gmail.com>, 
-	Luca Ceresoli <luca.ceresoli@bootlin.com>, Albert Esteve <aesteve@redhat.com>, 
-	Dave Stevenson <dave.stevenson@raspberrypi.com>, Javier Martinez Canillas <javierm@redhat.com>, 
-	dri-devel@lists.freedesktop.org, devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
-	bpf@vger.kernel.org, llvm@lists.linux.dev, linux-rpi-kernel@lists.infradead.org, 
-	linux-arm-kernel@lists.infradead.org
-Subject: Re: [PATCH 0/6] drm/bridge: Add a BPF-based MIPI-DSI panel driver
-Message-ID: <artlIYhgbskRJXDQ@houat>
-References: <20260928-drm-mipi-dsi-panel-ebpf-v1-0-5244926aace4@kernel.org>
- <6b80cb97-6706-412a-b013-9423f6f75153@linaro.org>
- <arqhwHiVf00j94J7@beelink>
- <0259fe4b-3118-4ab0-9b62-55101bfd7f33@linaro.org>
+	id 1xBSGr-00000002cN8-2yUt
+	for linux-arm-kernel@lists.infradead.org;
+	Tue, 29 Sep 2026 07:29:03 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=CRzDOMP6bsDXurS3WjeU9E+IenhSDC5b+hpLGK2qSeeT3mQoiYnggAif8UmC12opseJ27MaeA9VXUerZFVfLOb+Z/v6CcsFG+hJF+mtgihpZjkiWe5fKxyNqA1Ja/xoKn6tm2n7YLhPpLs4ejCCUpFotPfT27FNGIWwUvcPqVxTm0Th2AFmvsBSav+NywR5I0VjpbonDFSx9NwL9CIJwTdQO7MmjSY7vCjdPQUSheWut0xLlURWPgrlly81CxCWK8MUh2bBjn/jTUwX+hMuK9I9TBR0FyJaFPdAnmADJZssP6jThJ2r2gTnY8ro4hqrMeWFxD+6wMJ4BM5kucBJZrA==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=sMDgxOnntUM4Mqp2gyb0ZzF+sPD9Fz6yuDG/SWQ7Q+I=;
+ b=O8smkyNWfelNtRlTZbkPqAt8JZMeMYaHtuBQXvDv4af8BXAItvPOKlcIc5hjXKngvuMk3KR79SxhXhNDje4RQ40zyQ6SbnoQzjBvU/iWhvb+F+LGW4sqoh9xAEYYl4G6QQzsgB6UJZ7iOwu0BQ8hylWSlCWwmxVakBpfsPuzSwPJUPXMsA0YWtqBYsuFnvhcOyGgkfsFbb+RWYKA0KoAuRwPKplyFO0SuImSVPu/2q1BXX9J5f7fa5f/FI9yutBFFp7KrXyQGc+wciblWcYJg5FqdYUZijLpRcuH3h6N5EGNuTcbushbesKHLVPMQmiZbm/WxWtrMJxjJ1ToLKMB5g==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=nvidia.com; dmarc=pass action=none header.from=nvidia.com;
+ dkim=pass header.d=nvidia.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
+ s=selector2;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=sMDgxOnntUM4Mqp2gyb0ZzF+sPD9Fz6yuDG/SWQ7Q+I=;
+ b=agEi3mQcLFQZa7Xd1p9pjBXKqP6n3+BhhhZmrSDOawLT5ufGCZRRahaSHzOfh1D6RRKqF4ynoLWfiioqVHd+eDmbbkgjj0qiitOf2SMzhBgfOJ9pknL+yEOJcHDM9hieL3A79UtWhlx2AiWv7eLSDWjUXLAwIIldyXivy4x76ZIyEnMINNutSiSjunnHknhE3Z7RtO38xGT/TDsS49K6p9vXMR0hBzBHo/PFeYVZbggC3dTzMWRrasJs4yfVIxOn9T0SUdBfOjQrqH+n+sht+jjMAHa4+2uVLqCJ/QBtzSH3kueCFY75DARJrm779Iojz2CTcUr9pYpcjsw5eTng4g==
+Authentication-Results: mx.microsoft.com 1; dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=nvidia.com;
+Received: from SJ2PR12MB9161.namprd12.prod.outlook.com (2603:10b6:a03:566::20)
+ by CY8PR12MB7706.namprd12.prod.outlook.com (2603:10b6:930:85::18) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.451.25; Tue, 29 Sep
+ 2026 07:28:52 +0000
+Received: from SJ2PR12MB9161.namprd12.prod.outlook.com
+ ([fe80::d9d1:8c49:a703:b017]) by SJ2PR12MB9161.namprd12.prod.outlook.com
+ ([fe80::d9d1:8c49:a703:b017%5]) with mapi id 15.21.0451.022; Tue, 29 Sep 2026
+ 07:28:52 +0000
+From: Mikko Perttunen <mperttunen@nvidia.com>
+To: Robin Murphy <robin.murphy@arm.com>,
+ "Joerg Roedel (AMD)" <joro@8bytes.org>, Will Deacon <will@kernel.org>,
+ Russell King <linux@armlinux.org.uk>, Heiko Stuebner <heiko@sntech.de>,
+ Thierry Reding <thierry.reding@kernel.org>, David Airlie <airlied@gmail.com>,
+ Simona Vetter <simona@ffwll.ch>, Jonathan Hunter <jonathanh@nvidia.com>,
+ Krishna Reddy <vdumpa@nvidia.com>, Krzysztof Kozlowski <krzk@kernel.org>,
+ Jason Gunthorpe <jgg@ziepe.ca>, Marek Szyprowski <m.szyprowski@samsung.com>
+Cc: Peter Griffin <peter.griffin@linaro.org>,
+ Alim Akhtar <alim.akhtar@samsung.com>, Chen-Yu Tsai <wens@kernel.org>,
+ Jernej Skrabec <jernej.skrabec@gmail.com>,
+ Samuel Holland <samuel@sholland.org>, Yong Wu <yong.wu@mediatek.com>,
+ Matthias Brugger <matthias.bgg@gmail.com>,
+ AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
+ Rob Clark <robin.clark@oss.qualcomm.com>,
+ Geert Uytterhoeven <geert+renesas@glider.be>, iommu@lists.linux.dev,
+ linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ dri-devel@lists.freedesktop.org, linux-tegra@vger.kernel.org
+Subject: Re: [PATCH 00/11] Make the 32-bit ARM DMA API work with normal IOMMU DMA
+ default domains (+ Tegra PoC)
+Date: Tue, 29 Sep 2026 16:28:40 +0900
+Message-ID: <fpDSraffSy-uBmhoTN1C9A@nvidia.com>
+In-Reply-To: <a5b453db-a4f9-4dba-b150-6e4045f61027@samsung.com>
+References: <CGME20260915021542eucas1p254addab18c10cb117f42ccf3d3522883@eucas1p2.samsung.com>
+ <20260915-b4-arm32-iommu-dma-cookie-v1-0-ba4f9d33a2b8@nvidia.com>
+ <a5b453db-a4f9-4dba-b150-6e4045f61027@samsung.com>
+Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset="utf-8"
+X-ClientProxiedBy: TYCP286CA0143.JPNP286.PROD.OUTLOOK.COM
+ (2603:1096:400:31b::19) To SJ2PR12MB9161.namprd12.prod.outlook.com
+ (2603:10b6:a03:566::20)
 MIME-Version: 1.0
-Content-Type: multipart/signed; micalg=pgp-sha384;
-	protocol="application/pgp-signature"; boundary="nstt4rbbt4m4mdpf"
-Content-Disposition: inline
-In-Reply-To: <0259fe4b-3118-4ab0-9b62-55101bfd7f33@linaro.org>
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: SJ2PR12MB9161:EE_|CY8PR12MB7706:EE_
+X-MS-Office365-Filtering-Correlation-Id: 3f010b08-d67a-4577-a18d-08df1dfb4f58
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|23010399003|7416014|376014|10070799003|366016|921020|4143699003|10067099003|11063799006|56012099006|18002099003|22082099003|6133799003;
+X-Microsoft-Antispam-Message-Info: +qEftXZoHdfYddJ3Puras6jQ0pOwIS/rwrhUt39i+K1HWCJiFFIys/sVWe2TTUQ0UzYt5PyOnOkP7UlUQTRfNR7ijAkr9ZEinnOdcQqZZowNsQvRanv/jMXF/zrosE8Y22DI8M9Aye4CoilX1KcITp0a+OCpQolSL7iXd6SVmQaUSM5yzI9vK8uUesWmIx9Y+5Q65hpYkSZSvUtRFYMi9Suhjv3cRIxQAM8JLZ85SA8EbCqSOchYwPcxQs/QpZIdYB7Nr0/NXc0cTnFRsGad15erjs0JiX6gAIZ2Py29lXhqWYDdqs02SlliJDhZ6v22qqWy7exiv+mt8kD17kbgoWs/9XdJ5Q37H6oFlaSGngq431MwjxzjoQ9/UJju47ciJ5xooMWDI8x8zTLrdiCTPPcLk6Lrat7GHrMaBmzJFNVjezlLXGzxdTYB1kipBrpvJD9C4DJ1TQsmAqmgXQhwZeBJNZDU8ZmKpXN3lZRcyFyssf/8RnH9gth2G9zmUWwrhwN3WZZ1CvotEEBEfddDwR55EKLZq4uZWPnVs7R+Wv8WlG749q0p7CiVW7UBAKhCM2nAuomeo9Tp+msF9lQsjlL6I49fS2xmeSYk8iTHSUe66/v8GHcCb7bcstN+XRilC/SwPoDegH3xrjMRR3Yc6p1AWSR8ETFRcwX9GVVyqTFsNiGJxZVfI0pdIe08O29eQXJQPqI5YHokuR6Fb4l2VQ==
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:SJ2PR12MB9161.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(23010399003)(7416014)(376014)(10070799003)(366016)(921020)(4143699003)(10067099003)(11063799006)(56012099006)(18002099003)(22082099003)(6133799003);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 2
+X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?elZITmsxMTlTdWsrZ0t4MjVLRWczRFlHRkdoU2Nrb2tpWjVlMFdGWDhzT3dS?=
+ =?utf-8?B?S1gwRjF5eG9NTUZmQVQ1Y3d4Y1NNWFIzelhtbGV1N1pNd3h0TjVrWTNqOXU5?=
+ =?utf-8?B?QjBlMnBleVljS2tCMjlIZUZoVC93bEhyTHExZjZzbmdDcWppc3NyNExJUXNR?=
+ =?utf-8?B?VTgwRW5RMisydDNrNlBNZU5MN0JlcGJiMUI2NHV2aFdVa3lkQXZTbmhPQTFQ?=
+ =?utf-8?B?NFZDcWtmOXVZeFp0NHV1bUloQ3hsVTdUUXIvdEJxQ2pOcUVwREgwZTk4NDEw?=
+ =?utf-8?B?MGM4NlNocmJOT21XV0lSTmlvU1h1YTIySk0wS1pEK1RLZ1ZFVG9QSkhLdjdD?=
+ =?utf-8?B?OU5PSnV5WVQwVW5MN1VocWQ2aWZKMDJiZHNCbUdYMUZhQnZYK3dVSDNkclZo?=
+ =?utf-8?B?RkJYVUFYZFpnZGVXUndoNWJYeHpiR3dzcFZKMUtLOVpKcXZCT1hyVFVhTlM5?=
+ =?utf-8?B?eTgrSXVjSElxNHNobzAxRUJId21rNTIza3VQdExuenhidjF4ZWFKQTd0NStP?=
+ =?utf-8?B?RnA2dXJZM2Z5WmJ1UFpPTFRTUVQ3OUNwTlMyWUFZT3U4eWFoMlRuZUZDWkJU?=
+ =?utf-8?B?aFRpUFYra01LemdBWXRSeFpSd0F4YWVKeFdJQ0liK011Y1ZFd1prSFhac1ow?=
+ =?utf-8?B?RmNVM0c3QkdSZjR6ZGQyYm9iZlZQSXltNCtkbEFONVJ6WWhRWDRpdU42NSty?=
+ =?utf-8?B?QWt1cmtaelFBRDhsOGZTVzl3dkcyNDFWc0w0TjVLdWJnaGx1emFmbzFzVUI3?=
+ =?utf-8?B?R3ZYZUNxaGRDRUY3QUd0Y2lrRGIrbW5HM040RC85MWp3NWpTd2l0cjlyMHp3?=
+ =?utf-8?B?THRSUVM2K05zZ0d3K0Iza1BvSWlZRjZqUXVrZ0lpQVh1b0Z4aUhva1R5RU9t?=
+ =?utf-8?B?Z09IZnFSeWROTnZ1ZFlNZEIzZUN4Mm5QbTZQS1Vzcm8wbXl2bjNUQkxqYnFk?=
+ =?utf-8?B?c093Q2dRTXA4VUZjZEd1dzBUckNTeGZqaVBXbEE3Q3hpNkxVS1J1RCtUTGxG?=
+ =?utf-8?B?eUdiUGI1T3VsazlFY0c4ZTlIWHRvNlNnN2tuSkV5RFp2TS9rdG5ONUJvUk5N?=
+ =?utf-8?B?RzM4OTljYlVlQWxGdFIzMXFvTWgyd1ZObFFPSkpOYTIvMzgrVTBFQnZocVpI?=
+ =?utf-8?B?TElzTHc2eWcraGNEQ1ZsdHhLckc0Y0J4QTF6eDFKRUhJYXhBemRSYkR3VjRa?=
+ =?utf-8?B?cU0xQS9xRnpTeXIrNEVXdVEzam5yUlJIMlkycjRqbUpiOS9kYkxmNmZJd2Vu?=
+ =?utf-8?B?QWdiTGJ3cFpIaWFPNTlnV294dGo3VTU4L0RRQzlORHphTjMvbm5KOVFOQ2Fh?=
+ =?utf-8?B?dGtka0VKaUs3YTR4cUljZCt4dHQ1emMxSGlNbkx1endhREFFMC8wVHN0Rmsx?=
+ =?utf-8?B?aCtQOGtQNlIwMzFCT1NHaXJObWhUTmhjdnltSnNKdDFvVDI1bXorS2xlMnMz?=
+ =?utf-8?B?ZExxdnpOdnJpQ0ROOE04elN2L3h3NTlYa2pYdS8xME5EUTlCMktLSFFyQm9F?=
+ =?utf-8?B?VUM1VWlTYi9UTE9UVmVWemx5andKOTRIV3o4MVlUbkRuV2FuUlJUcGZLOUhW?=
+ =?utf-8?B?enY2Q3E0SzQxY0kzcGgzQUxSeWJtM0pJeUh5MHRRREx6WXB5Q2JueFFnSThG?=
+ =?utf-8?B?Z1RKeFZrampYNERINmlOWUludG82dGxYMmovK25nbXVyN241dithVThRLzJy?=
+ =?utf-8?B?NHF5eWkwUFRwU00wY3BRYVFnd09meFNvUDVzYmRRSjhESW1VYmQzOTVwUlZK?=
+ =?utf-8?B?YXEvSStuZkdUclRFMHlhUlU1Qmd4UDI0THVJNzZmOUZGZ0tIcklqTmtOb0d0?=
+ =?utf-8?B?NTl3UG5ZNkVnVWU3a09saXZCSDZhRVY3Yk9XYjdURmxVc3kzVjRNWVA0am5E?=
+ =?utf-8?B?NlZmL1ZRcTFBWng1Wm16Ump2K0dJVXgvQTlIc2V1MGQyVVBmdThIc2lZUC9s?=
+ =?utf-8?B?OUtsYnk4T0R3V3FKSzQvNXQ5dTRSeUZEWm84M21XclZZUGVrLzYyUFR5SXZE?=
+ =?utf-8?B?TWhvUGJhVmZjRGg2cU5BMm5xZTlRS2JpNXd2RklzYzUrRk5lZmtRdlBPTkZY?=
+ =?utf-8?B?WmF3dVJWdjFxdmlDQWUwTTBuUEFvMHQwS1hscU1QNWJsd3FCL2pFb0U3V2Fj?=
+ =?utf-8?B?WVZ0OTM4VEJPOHU1QVVlL0Y2Y3B2N0NiWStUVm5UTVpwZ3ovUjF4TjdZMEdN?=
+ =?utf-8?B?TjBMTVllam5CRWFaQ0JiWDdET3VjN1d6NEM5ak41bjJDaHAvMlQ4aXZCZU5k?=
+ =?utf-8?B?SXZOdkV3MGtENGdWc1pPb2U1dWFpL1pVZk9ya3l1ZFRWYkFUUGYycWcvWUMr?=
+ =?utf-8?B?SFpuQWVQTEgrcmRhVnJyNE9NSjJUNisxM1g1WWhONUxDTnllZEFQUUZzNXYy?=
+ =?utf-8?Q?qxtY6/XS1JE/90oiKZQWdNMIVBaIQMooJkl5ISQAuvsXy?=
+X-MS-Exchange-AntiSpam-MessageData-1: 7x90EcBWwRMhIw==
+X-OriginatorOrg: Nvidia.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 3f010b08-d67a-4577-a18d-08df1dfb4f58
+X-MS-Exchange-CrossTenant-AuthSource: SJ2PR12MB9161.namprd12.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 29 Sep 2026 07:28:52.0395
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: EnBivfYtFavwTZvq6/k0h29ponIRg8NfCNt342YJoUbeAHtvqdXynbR5tfZo6g+Xn0IiuD5iaZGvScZH0tSmzA==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: CY8PR12MB7706
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260929_002901_755476_98649F30 
+X-CRM114-Status: GOOD (  41.99  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -85,156 +163,159 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-
---nstt4rbbt4m4mdpf
-Content-Type: text/plain; protected-headers=v1; charset=us-ascii
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
-Subject: Re: [PATCH 0/6] drm/bridge: Add a BPF-based MIPI-DSI panel driver
-MIME-Version: 1.0
-
-On Mon, Sep 28, 2026 at 09:20:12PM +0200, Neil Armstrong wrote:
-> On 9/28/26 19:24, Benjamin Tissoires wrote:
-> > On Sep 28 2026, Neil Armstrong wrote:
-> > > Hi,
-> > >=20
-> > > On 9/28/26 18:22, Maxime Ripard wrote:
-> > > > Hi,
-> > > >=20
-> > > > Panels in general, and MIPI-DSI panels in particular, are pretty
-> > > > difficult to support and require pretty much a panel driver for each
-> > > > panel produced. Most of them are pretty simple, and require an opaq=
-ue
-> > > > initialization sequence that is usually poorly documented.
-> > > >=20
-> > > > This creates a tension between OEMs and distros because OEMs will
-> > > > typically get a new panel to react to a sourcing issue during
-> > > > production, and thus need some swift turnaround between getting the=
-ir
-> > > > new panel and it being operational in the OS. Distributions on the =
-other
-> > > > hand can take years to ship a kernel with that new panel driver.
-> > > >=20
-> > > > To solve this, I followed the example of HID-BPF and wrote a panel
-> > > > driver that will rely on BPF programs to perform the panel
-> > > > initialization. That way, we can ship the programs separately from =
-the
-> > > > kernel, and with a different lifecycle. If this driver is accepted,=
- the
-> > > > plan is to have a userspace component started by udev to identify a=
-nd
-> > > > load the right BPF program for the panels found on the device.
-> > >=20
-> > > This is kind of late for serious applications except if we manage to
-> > > solve the bootloader to Linux display engine transition.
-> > >=20
-> > > >=20
-> > > > This driver is fully functional and works with both 5" and 7" Touch
-> > > > Display 2 panels for the RaspberryPi. However, it breaks away from =
-the
-> > > > typical panel driver in multiple ways:
-> > > >=20
-> > > > - BPF programs can only be loaded by userspace. This leaves us with=
- two
-> > > >     choices:
-> > > >=20
-> > > >     * We prevent the driver from loading until the script itself is
-> > > >       loaded. This has the side effect of preventing any other outp=
-ut to
-> > > >       be used until the initramfs is ran at the earliest, and possi=
-bly
-> > > >       ever if the loader isn't installed for example.
-> > >=20
-> > > This adds a dependency on user-space behavior and if somehow the
-> > > initramfs doesn't load for a reason we won't have a way to display
-> > > an error.
-> > >=20
-> > > >=20
-> > > >     * Or we probe the driver all the time, but only report it as co=
-nnected
-> > > >       once a program has been registered. This is somewhat unconven=
-tional,
-> > > >       but allows the other outputs to be functional, *and* allows t=
-he user
-> > > >       to force the output if their panel doesn't require any
-> > > >       initialization or during debugging. I chose this solution.
-> > >=20
-> > > Both options are not really great...
-> > >=20
-> > > >=20
-> > > > - It's not a panel driver, but a bridge one, which is also pretty
-> > > >     unconventional. This is required because panel drivers don't ha=
-ve
-> > > >     access to a detect callback that is required for the above, but=
- I also
-> > > >     think that the recent work from Luca blurs the line from panels=
- and
-> > > >     bridges and we'll end up going that road anyway.
-> > >=20
-> > > On this point, DDIC _are_ bridges, but in the current panel API we bl=
-ur the line between
-> > > the panel and the DDIC. So being a bridge is fine, but in a general w=
-ay we lack
-> > > a proper way to describe the display/panel/monitor independently of t=
-he DDIC.
-> > >=20
-> > > At first glance it's a nice driver, but moving the timings into a blo=
-b moves something
-> > > into possible proprietary binaries with possible closed licence and d=
-istribution
-> > > restriction so it's a downgrade for the same of bringing up a panel f=
-aster.
-> >=20
-> > Quick answer on this, because I had the very same questions regarding
-> > HID-BPF:
-> > - in BPF, you can require (and by default it does) that only GPL
-> > 	compatible BPF programs are loaded, closing the argument of "closed
-> > 	licence and distribution restriction"
-> > - also, a BPF program can be disassembled much easier than a binary
-> > 	blob, and I remember Alexei showing me an example where you get almost
-> > 	the source code from the BPF object in just one pass.
+On Saturday, September 26, 2026 12:20=E2=80=AFAM Marek Szyprowski wrote:
+> On 15.09.2026 04:14, Mikko Perttunen wrote:
+> > Depending on the probe ordering, TegraDRM does not currently probe on=20
+> > kernels with CONFIG_ARM_DMA_USE_IOMMU enabled, such as with=20
+> > multi_v7_defconfig. The Tegra SMMU puts several display and 2D/3D=20
+> > clients into one IOMMU group, and the legacy 32-bit ARM DMA API path=20
+> > creates one UNMANAGED domain per device and attaches it with=20
+> > iommu_attach_device(). That only works for one device per group, so=20
+> > every client after the first fails to attach,=20
+> > iommu_device_use_default_domain() rejects the group with -EBUSY, and th=
+e=20
+> > driver goes down with it. tegra_defconfig is currently working by virtu=
+e=20
+> > of not enabling CONFIG_ARM_DMA_USE_IOMMU.
+> >
+> > Robin suggested [1] that instead of teaching the legacy path about=20
+> > groups, we should explore modernizing the 32-bit ARM DMA code a bit by=
+=20
+> > making it use domain cookies and have the core code own the domains, as=
+=20
+> > is the case on other architectures. Still, ARM's own DMA code is kept t=
+o=20
+> > support existing drivers and APIs that expect it, and because dma-iommu=
+=20
+> > is considered too big and unnecessary for 32-bit ARM.
 >=20
-> Right, it "solve" one of my question, but doesn't really solve the issue
-> of vendors providing "GPL" bpf programs with source available "somewhere".
+>=20
+> I agree that such little modernization is the right step to unify a bit
+> ARM 32bit with modern archs and get rid of some workaround in the drivers=
+.
 
-Would you be ok if I was to make a tool to decompile a BPF program into its
-source file equivalent?
+Yes -- certainly TegraDRM's memory management paths have grown to be=20
+rather cumbersome.
 
-> Another big issue is the API, I don't want to keep the current API as-is,
-> we plan to support more advanced panel features and use try to use the
-> atomic states to support rate switching for example, and I'm not confident
-> it's a good idea since there's no "simple" and "forever valid" API
-> to initialize panels...
+>=20
+> It was me who raised the concern about the drivers depending on the first=
+-fit
+> allocation algorithm used in the32-bit ARM DMA code. This is an issue for=
+ some
+> legacy Samsung Exynos drivers. I not aware of any other driver used on AR=
+M 32bit
+> SoCs that depends on this behavior.
+>=20
+> If one is still interested in switching ARM 32bit to generic IOMMU-DMA co=
+de I
+> can prepare a workaround for those Exynos drivers. I still have it on my =
+todo
+> list, but in meantime there was no interest in updating ARM 32bit DMA cod=
+e.
+>=20
 
-So, a couple of things here. First, I really don't think we should
-extend the panel API, like at all. But let's discuss that at Plumbers, I
-don't think it's very relevant to this discussion anyway.
+While I don't see any immediate need to touch the allocation algorithm,=20
+being able to get rid of some or all of the arm_iommu_* functions would=20
+be nice. At least for create/attach, there aren't very many callers.=20
+Most drivers just get rid of the ARM mapping.
 
-Second, you don't have to use this driver, like, at all. For anything
-more complicated than what this driver can provide, I totally expect to
-still merge dedicated panel drivers if it makes sense. I also expect
-that this driver would be enough for 90% of our panel drivers and
-would allow us to support most of the cruft.
+Thank you!
+Mikko
 
-Finally, the BPF API is flexible. You can extend it later on and old
-programs would still work. The verifier would fail only if a program
-uses a new function in a kernel that doesn't support it. I was kind of
-expecting to put drm_display_mode in there at some point, if the state
-makes sense then why not.
+>=20
+> > The series is in four parts:
+> >
+> > - Patches 1-2 are preparation in the IOMMU core:
+> >   1. Add iommu_teardown_dma_ops, counterpart to iommu_setup_dma_ops.
+> >   2. Add cookie type for ARM's DMA domains.
+> > - Patches 3-6 implement the DMA API side on 32-bit ARM:
+> >   3. Split up domain and address space management code in arch/arm/.
+> >   4. Implement parallel dma_ops / cookie APIs on ARM side.
+> >   5. Avoid domain allocation when IOMMU core does it.
+> >   6. Support foreign-allocated sg_tables.
+> > - Patch 7 enables 32-bit ARM IOMMU drivers to provide a DMA default=20
+> >   domain.
+> > - Patches 8-11 convert Tegra:
+> >   8. Allows deferring translation enable until driver handshake for
+> >      selected devices.
+> >   9-10. Removes code detaching ARM UNMANAGED DMA domains in
+> >         Host1x/TegraDRM.
+> >   11. Enables DMA default domain for selected Tegra devices.
+> >
+> > None of this should have any functional effect on any device other than=
+=20
+> > the Tegra devices enabled in patches 8-11. Other IOMMU drivers can opt=
+=20
+> > in later. The new DMA default domains are enabled only when the IOMMU=20
+> > driver explicitly specifies a DMA domain type, just returning 0 for the=
+=20
+> > default is not enough (unlike on arm64), keeping the current behavior.
+> >
+> > Patches 8-11 are provided for demonstration but we can deal with them=20
+> > separately if the rest of the series is accepted.
+> >
+> > Patches 1,2,3 are applicable independently.
+> > Patches 4,5 depend on the previous patches.
+> > Patch 6 can be applied independently but is only required once
+> >   the whole series lands (by TegraDRM).
+> > Patch 7 depends on patch 4.
+> >
+> > Patches 1-7 only touch drivers/iommu/ and arch/arm/mm/ and associated=20
+> > headers.
+> >
+> > Best regards,
+> > Mikko
+> >
+> > [1] https://lore.kernel.org/linux-tegra/910d1492-ad3b-4201-93c6-208be1d=
+cde7d@arm.com/
+> >
+> > ---
+> > Mikko Perttunen (11):
+> >       iommu: Add iommu_teardown_dma_ops
+> >       iommu: Add cookie type for ARM_DMA_USE_IOMMU
+> >       ARM: dma-mapping: Split mapping allocation from domain allocation
+> >       ARM: dma-mapping: Implement and expose DMA setup functions
+> >       ARM: dma-mapping: Bypass the legacy path for core-owned DMA API d=
+omains
+> >       ARM: dma-mapping: Handle foreign buffers in arm_iommu_get_sgtable
+> >       iommu: Let 32-bit ARM drivers opt into a DMA API default domain
+> >       iommu/tegra-smmu: Defer display client translation to driver hand=
+over
+> >       gpu: host1x: Drop release of legacy 32-bit ARM DMA domain
+> >       drm/tegra: Drop release of legacy 32-bit ARM DMA domain
+> >       iommu/tegra-smmu: Use a DMA API default domain per swgroup
+> >
+> >  arch/arm/include/asm/dma-iommu.h |  17 ++++
+> >  arch/arm/mm/dma-mapping.c        | 209 +++++++++++++++++++++++++++++++=
++-------
+> >  drivers/gpu/drm/tegra/dc.c       |   8 ++
+> >  drivers/gpu/drm/tegra/drm.c      |  15 ---
+> >  drivers/gpu/host1x/dev.c         |  15 ---
+> >  drivers/iommu/Kconfig            |   1 +
+> >  drivers/iommu/dma-iommu.c        |   5 +
+> >  drivers/iommu/dma-iommu.h        |  52 +++++++---
+> >  drivers/iommu/iommu.c            |  24 ++---
+> >  drivers/iommu/tegra-smmu.c       | 109 +++++++++++++++++++-
+> >  drivers/memory/tegra/tegra114.c  |  15 ++-
+> >  drivers/memory/tegra/tegra124.c  |  12 ++-
+> >  drivers/memory/tegra/tegra210.c  |   6 +-
+> >  drivers/memory/tegra/tegra30.c   |  18 ++--
+> >  include/linux/iommu.h            |   3 +
+> >  include/soc/tegra/mc.h           |  20 ++++
+> >  16 files changed, 410 insertions(+), 119 deletions(-)
+> > ---
+> > base-commit: f5098b6bae761e346ebcd9da7f95622c04733cff
+> > change-id: 20260728-b4-arm32-iommu-dma-cookie-3170e07f9125
+> >
+> >
+> Best regards
+> --=20
+> Marek Szyprowski, PhD
+> Samsung R&D Institute Poland
+>=20
+>=20
 
-Maxime
 
---nstt4rbbt4m4mdpf
-Content-Type: application/pgp-signature; name="signature.asc"
 
------BEGIN PGP SIGNATURE-----
 
-iJUEABMJAB0WIQTkHFbLp4ejekA/qfgnX84Zoj2+dgUCartoQwAKCRAnX84Zoj2+
-dtp2AYDqEryYzoPxdZ0pP0QpPZFfX3gKsTQtb0FXlWyICU6KGPBCCAuKMYFJRLHL
-EXEyYZYBgNINSL3vSxMjOnTdTOBwGIGO7iXBZhJuZPS9DZO3C/TaZk7LCjj9P+uG
-pQo0MpI0BA==
-=BzAp
------END PGP SIGNATURE-----
-
---nstt4rbbt4m4mdpf--
 
