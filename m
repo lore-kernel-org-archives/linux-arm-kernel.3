@@ -4,148 +4,133 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0BE83C9832A
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 29 Sep 2026 07:13:45 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7EF71C9832A
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 29 Sep 2026 07:16:19 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=aRA7DODR2959lHEtpusPTNFuptGLf/zMYDjv6njZNl0=; b=nqYcgro9nG71RQRNKMg/GMtMGP
-	Ba4wjBY3Di41aPishPxd9GlGvbgQlHnlQ1Rt9oaHlHGoopgGjRJX1iYQvoDqNy48ewzTL3HPgta7b
-	e6skg5ifHt9Edqwew4uWSoqcoODU6nVVH8Yp3Whr8H3ByhEHNN2yrb4dSnMGcbb6HCjvrPLlRzt40
-	d+rbDPBKqRTuHC54aSjfs0homBKwKosZO9HAnQvuGXLv4oiB6hezeu5sS9dYxbMMwErCSQOQj/nHZ
-	vYANPA0YEB/2Jb68+Vok5eao3PybtyxKGQVFGoh8+3RxnEJtaTfmk1nFYToAe5dQRt5OaU5g2sYp0
-	fGX3NKDQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=FZ9JuuSs/D+akfl91xU7OP2eBpxBAvfXWSZY4zEvYBU=; b=PH260z/pOEf+S7E3qExaMKuR8c
+	bHrW9rmXpHad+Hm8JI5b9Jbx3JdRTsiZ+SJiF9PFopnQzKDTXVFNRefiS7F7kOG6kDdJ81uoSv2ek
+	5ECGFzx/Ldu1P5x2/UxYqc6FASK3nBIK0/p29RIdcDVQUmq9tDj549fhXmctKFTZjFhr3PMSwmWIW
+	MIC+AoJUQ85dYeYz+iYo181PeRxJvGuew6cLId9uJcjOIHKef8Enn9yzPkuMe//+jEdsiTZs8WPU1
+	n3rMtc5JRWU4St3mUCM91z+UDY5myEVX3a/yaxl/m8Hw20qBBayruwpjOWN1Z+CRsCLL8uXSC8g4j
+	IEwKdvMQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xBS1y-00000002ZFd-0ZGE;
-	Tue, 29 Sep 2026 07:13:38 +0000
-Received: from mx0a-0031df01.pphosted.com ([205.220.168.131])
+	id 1xBS4S-00000002Zbk-1ebG;
+	Tue, 29 Sep 2026 07:16:12 +0000
+Received: from mx0a-001b2d01.pphosted.com ([148.163.156.1])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xBS1v-00000002ZFG-3JMV
-	for linux-arm-kernel@lists.infradead.org;
-	Tue, 29 Sep 2026 07:13:36 +0000
-Received: from pps.filterd (m0279863.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 68T478YG3643005
-	for <linux-arm-kernel@lists.infradead.org>; Tue, 29 Sep 2026 07:13:35 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
-	cc:content-type:date:from:in-reply-to:message-id:mime-version
-	:references:subject:to; s=qcppdkim1; bh=aRA7DODR2959lHEtpusPTNFu
-	ptGLf/zMYDjv6njZNl0=; b=ppg4JIaNJrD60qPhc3j5QQ2Br97bfPxdFzjvjiAH
-	wVEg2El/VgB1E8kCP2fxP2I+Bb8VSI6MgatqI5IKjhXWtaeY/LK1d9vYP1KKLmry
-	jOZ/m8gusaZI7lLOH9Qv8iDEJfS56NdIbO4fRANNs5+O31eR0EAQGLk1dEEM+w4b
-	SoAk2yyRrN5k5eZ1PYf3B2Jz9UYqH4HMzpxe8C9t8u9f54LcBRJw4zMr0FDHjnoX
-	BLZZrFNxjAktdirKEzOC3XZWk25lJLXwD2aKr13UFF8Jxo9OGH1aF492qZGEfUqM
-	uYy6NVQ5IC5zkBO+dIifZKY1hE5wuLx2L7xPazOfkrTsDg==
-Received: from mail-qk1-f199.google.com (mail-qk1-f199.google.com [209.85.222.199])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4h00s4sqqk-1
-	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
-	for <linux-arm-kernel@lists.infradead.org>; Tue, 29 Sep 2026 07:13:35 +0000 (GMT)
-Received: by mail-qk1-f199.google.com with SMTP id af79cd13be357-93c444b438aso834306785a.2
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 29 Sep 2026 00:13:34 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=oss.qualcomm.com; s=google; t=1790666014; x=1791270814; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:content-type:mime-version
-         :references:message-id:subject:cc:to:from:date:from:to:cc:subject
-         :date:message-id:reply-to:content-type;
-        bh=aRA7DODR2959lHEtpusPTNFuptGLf/zMYDjv6njZNl0=;
-        b=AQZtiYeW4wlsFqjRmYzOW47Gab/cOr8wItGhn+RAizGn8LhEdqq4DX5CDdgW5rGCWX
-         7PVFjVHzIBdpluafVWj5dp9Oqz0uCenzgaqJMmKFtn6GM3T9QwHpIiNDLqnk3X+ZdMS7
-         dUKhMEPRUn2HZ79p62Yggl4my9Ys9nwWpDeouPzl/Gz4+63c6GEWLDrBCBLY0N4pQVVm
-         V0BCRWva04iJXsUd+x91X7PWpmagt1dtlEWkz4Ycy2nTq7wI5ZbUjAhtUWt+3xWwCv6J
-         kO5Jshs86a2TcxUT7rbmsyoCQCIyTmmXIAnW8Z4Qa9eBcWmjhSylLQu3Hb4anxmV1gyN
-         CQIA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1790666014; x=1791270814;
-        h=in-reply-to:content-disposition:content-type:mime-version
-         :references:message-id:subject:cc:to:from:date:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=aRA7DODR2959lHEtpusPTNFuptGLf/zMYDjv6njZNl0=;
-        b=ybpdgd2BCsyM2Yh8ypQ4Tb6epkxNdRIQXLNSCIv2KTzBDtMF8YH1g/wvvkCBM4hsud
-         6ZIrcP43i8kBcaZ9cvpEtSyQ1x59F2ZO1q7wg7XmxW4AYkmnjjQyb6Qd9EPubODvZTtE
-         5bDvFLAHdQT335gY7yUL3c/A0yuSyzOZfs8+B2xt+fZLx+X1nKifW5acUr2LYto1UvNo
-         8X4/xjAnQE29CVZ5bb3f5v5SMA6gditw3IbL+cBZfXr9NOgZFW9REXfkueAhrIlMR+Ql
-         4uGXEoPvsCl39vpt2Lqxa7S8jnnSJvnFJbNgvcdR3y2A/soOiuj0BDmy1pjJfq0pF+Ej
-         zrEQ==
-X-Forwarded-Encrypted: i=1; AKwUvBygRHwhlLQkA6gmb7W7FaeFby8Gc52u1q1145jBl81VoXmMpsZeGMCPQEdFpo/RVUZueEG0onYVyPNtr9PofoiZ@lists.infradead.org
-X-Gm-Message-State: AFuF++lTie1Me18GhAsr+fv1CrwxgtLK1cUeYMndc5T6F1AyKBbQn/Fd
-	raB1uYGB6o1S27dcEJifX5jfXZlLBIuZ6yJ/AmL8wu6/aNMobMx6iWnKbCeNufnYzwpEnQHyKol
-	WKfG/+cnP56EL1MdSslIDNCvlSpSZbGRnEosEO8oJsoG9/cLZixqrtWPpCL8v/XSXsg2uREneuX
-	/p7g==
-X-Gm-Gg: AYBFou0BVaI2qM4XakWtHCKdxaeBEqFlVP1d+9V4i3Th1ZrKYSkFCkqBqtbhNtQwVeI
-	EJVd4ZCu8AanacL8wo1tEfLZsB5eSFJ/dYm30yJjLY3LXsJBtTHa2tPbodx7GZuev/23sYLNQVX
-	F8rHbvuVyYIeBccfcBrQrMMCtxKkFe84ewcu5FpX4bzjX+AjN3DL5TRJnJXp99TPrc9CQan7AlN
-	6GJqdCVnjq3RBOECu+mCnxjJ9beK7ANJrXnhdxtTFzSn7xGkgoDg9fCHihMWNtb8g/kAnnly0h7
-	XGhcjfWSl3qTyx0XNo2HsIS2xb12aJ4cHkRfu+P/qwZ13i6Ck6GR/y78SzxQXyYYPR4PRpYUFYv
-	1efZi7p+DYPYfcg==
-X-Received: by 2002:a05:620a:404d:b0:93b:ee1e:6714 with SMTP id af79cd13be357-93c43d2359dmr2340390585a.60.1790666013992;
-        Tue, 29 Sep 2026 00:13:33 -0700 (PDT)
-X-Received: by 2002:a05:620a:404d:b0:93b:ee1e:6714 with SMTP id af79cd13be357-93c43d2359dmr2340386485a.60.1790666013318;
-        Tue, 29 Sep 2026 00:13:33 -0700 (PDT)
-Received: from localhost ([188.216.77.92])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-48af507f33fsm1745638f8f.24.2026.09.29.00.13.32
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 29 Sep 2026 00:13:32 -0700 (PDT)
-Date: Tue, 29 Sep 2026 09:13:31 +0200
-From: Lorenzo Bianconi <lorenzo.bianconi@oss.qualcomm.com>
-To: Maxime Chevallier <maxime.chevallier@bootlin.com>
-Cc: Andrew Lunn <andrew+netdev@lunn.ch>, Jakub Kicinski <kuba@kernel.org>,
-        davem@davemloft.net, Eric Dumazet <edumazet@google.com>,
-        Paolo Abeni <pabeni@redhat.com>, Simon Horman <horms@kernel.org>,
-        Maxime Coquelin <mcoquelin.stm32@gmail.com>,
-        Alexandre Torgue <alexandre.torgue@foss.st.com>,
-        Russell King <linux@armlinux.org.uk>,
-        Nicolai Buchwitz <nb@tipi-net.de>,
-        Jitendra Vegiraju <jitendra.vegiraju@broadcom.com>,
-        thomas.petazzoni@bootlin.com,
-        Alexis =?iso-8859-1?Q?Lothor=E9?= <alexis.lothore@bootlin.com>,
-        netdev@vger.kernel.org, linux-kernel@vger.kernel.org,
-        linux-arm-kernel@lists.infradead.org,
-        linux-stm32@st-md-mailman.stormreply.com,
-        Peter Robinson <pbrobinson@gmail.com>
-Subject: Re: [PATCH net-next v2 2/2] net: stmmac: Don't set or get RSS
- parameters when not supported
-Message-ID: <artlGxdHjIKyuPuP@lore-desk>
-References: <20260928145043.1228968-1-maxime.chevallier@bootlin.com>
- <20260928145043.1228968-3-maxime.chevallier@bootlin.com>
+	id 1xBS4P-00000002ZbD-1WPn;
+	Tue, 29 Sep 2026 07:16:11 +0000
+Received: from pps.filterd (m0360083.ppops.net [127.0.0.1])
+	by mx0a-001b2d01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 68T46KHA3076706;
+	Tue, 29 Sep 2026 07:15:49 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ibm.com; h=cc
+	:content-transfer-encoding:content-type:date:from:in-reply-to
+	:message-id:mime-version:references:subject:to; s=pp1; bh=FZ9Juu
+	Ss/D+akfl91xU7OP2eBpxBAvfXWSZY4zEvYBU=; b=pnv94pymYS0IkF3b2G50M4
+	RVkV8lncqhwY25+KxnAPc7KJwZVwdpd0iKVIrj4PwxwfYDMRh5T+oR2yEtuzPbH2
+	kdv9XrbE4eQtQLFmYta2zPltzRW7rhH586EJ2ybEDNqh8OSAuakepqe+7Pt4n5mP
+	DGX5X/mETzLJG1sXOqDhr2Rb9wpxG36dw3L/5R+pFX+nps9uXskpE6ZIFYlEJcWJ
+	g08Vtu+2FfMj+4am4v8c63suUwZPSmRO2N3qPwVCozQd+Ycy+/YuLD8AUcNxhXzb
+	L8/IXF/12LKdKDVVQyMOqk7m12zbbTGC4wNJ68wXadbZIqsb5kDKowEw1/TRnTvQ
+	==
+Received: from ppma13.dal12v.mail.ibm.com (dd.9e.1632.ip4.static.sl-reverse.com [50.22.158.221])
+	by mx0a-001b2d01.pphosted.com (PPS) with ESMTPS id 4gx5j55tup-1
+	(version=TLSv1.3 cipher=TLS_AES_256_GCM_SHA384 bits=256 verify=NOT);
+	Tue, 29 Sep 2026 07:15:48 +0000 (GMT)
+Received: from pps.filterd (ppma13.dal12v.mail.ibm.com [127.0.0.1])
+	by ppma13.dal12v.mail.ibm.com (8.18.1.11/8.18.1.11) with ESMTP id 68T4HjaP4070253;
+	Tue, 29 Sep 2026 07:15:47 GMT
+Received: from smtprelay03.wdc07v.mail.ibm.com ([172.16.1.70])
+	by ppma13.dal12v.mail.ibm.com (PPS) with ESMTPS id 4gxtkg8h5r-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Tue, 29 Sep 2026 07:15:47 +0000 (GMT)
+Received: from smtpav03.dal12v.mail.ibm.com (smtpav03.dal12v.mail.ibm.com [10.241.53.102])
+	by smtprelay03.wdc07v.mail.ibm.com (8.14.9/8.14.9/NCO v10.0) with ESMTP id 68T7F1jI63111648
+	(version=TLSv1/SSLv3 cipher=DHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
+	Tue, 29 Sep 2026 07:15:01 GMT
+Received: from smtpav03.dal12v.mail.ibm.com (unknown [127.0.0.1])
+	by IMSVA (Postfix) with ESMTP id 9B92B5803F;
+	Tue, 29 Sep 2026 07:15:45 +0000 (GMT)
+Received: from smtpav03.dal12v.mail.ibm.com (unknown [127.0.0.1])
+	by IMSVA (Postfix) with ESMTP id C7B0358056;
+	Tue, 29 Sep 2026 07:15:33 +0000 (GMT)
+Received: from [9.39.21.128] (unknown [9.39.21.128])
+	by smtpav03.dal12v.mail.ibm.com (Postfix) with ESMTPS;
+	Tue, 29 Sep 2026 07:15:33 +0000 (GMT)
+Message-ID: <e5a70518-9dfb-47e5-ac32-58b75c07a858@ibm.com>
+Date: Tue, 29 Sep 2026 12:45:30 +0530
 MIME-Version: 1.0
-Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="UlNQx2lngAS2JeLJ"
-Content-Disposition: inline
-In-Reply-To: <20260928145043.1228968-3-maxime.chevallier@bootlin.com>
-X-Proofpoint-Spam-Info: AW1haW4tMjYwOTI5MDAyOCBTYWx0ZWRfX3PGQcDRetfih
- pEFfrtLJMrvVMThwRfmoOlvgFlu4otC+zsu3OZw14SkPFDztkT+zQdirW/SXRPEqwXZmlIalQBJ
- te87rAvdSsJ5NIITE0Bqq50diuwKsvs=
-X-Authority-Analysis: v=2.4 cv=ALbfqNVA c=1 sm=1 tr=0 ts=6abb651f cx=c_pps
- a=HLyN3IcIa5EE8TELMZ618Q==:117 a=WpTaRW6qxYHRGzLzQsVYzg==:17
- a=VdqzKS8jKosA:10 a=s4-Qcg_JpJYA:10 a=VkNPw1HP01LnGYTKEx00:22
- a=u7WPNUs3qKkmUXheDGA7:22 a=yOCtJkima9RkubShWh1s:22 a=P-IC7800AAAA:8
- a=EUspDBNiAAAA:8 a=8xPVtbtLPbnhiEF_wpUA:9 a=CjuIK1q_8ugA:10
- a=pZA6dvReJZDbMZWyEwoA:9 a=bTQJ7kPSJx9SKPbeHEYW:22 a=d3PnA9EDa4IxuAV0gXij:22
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwOTI5MDAyOCBTYWx0ZWRfXx9ou4tzCIbFi
- XaFps5CLamA+9TDuoysaO5oKKH0dOm4PGU6DyBzCpezEyDTtk7phbhAbUC9zkfykA6cFGo/MeK4
- y73lAZpaO7EeGXdQZ3PfqXzI+a4vDzf6fEZl62omAu+gnnTHWAUmnsFzGMwqK79K2mvLt0Ynx0m
- xwDBYIiYM3zx2C21+EHIhdpiRt+LpYmrW79Mekdwkm6gmK1oGno1oySVcm/6CGZjHHT+A75jqOU
- GPnECd0othYlJDuDGcfyIdJkrTVRRBjU7cU5S80iU/fTOrU1E2uoiupR9danMJdYi8A60+o1VVm
- GuLaXhRWOsMx0zDW6RYWLGAMx48GfJJ2nXl7fAJI2iFk60AX9ZNcHD7tibhUzTUDI8QUNZFEdyI
- xMZnSAsnAf1n3kbERuNUt4ABqHu/CLmWbSdeD8U2pzVPTH3LgKgxPEMO7bjHflDMAWRC+PHKmqV
- IBi3p2dPkwzn2cqOuug==
-X-Proofpoint-GUID: bDyKJoYa7IwNenKPU5tm5ep1Yky-hsKv
-X-Proofpoint-ORIG-GUID: bDyKJoYa7IwNenKPU5tm5ep1Yky-hsKv
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v2 00/20] KVM: selftests: PPC pre-enabling
+To: Sean Christopherson <seanjc@google.com>, Marc Zyngier <maz@kernel.org>,
+        Oliver Upton <oupton@kernel.org>, Paolo Bonzini <pbonzini@redhat.com>,
+        Tianrui Zhao <zhaotianrui@loongson.cn>, Bibo Mao <maobibo@loongson.cn>,
+        Huacai Chen <chenhuacai@kernel.org>, Anup Patel <anup@brainfault.org>,
+        Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>,
+        Albert Ou <aou@eecs.berkeley.edu>,
+        Christian Borntraeger <borntraeger@linux.ibm.com>,
+        Janosch Frank <frankja@linux.ibm.com>,
+        Claudio Imbrenda <imbrenda@linux.ibm.com>,
+        linux-kernel@vger.kernel.org, kvm@vger.kernel.org,
+        Ritesh Harjani <ritesh.list@gmail.com>,
+        Madhavan Srinivasan <maddy@linux.ibm.com>
+Cc: Fuad Tabba <fuad.tabba@linux.dev>, Joey Gouly <joey.gouly@arm.com>,
+        Steffen Eiden <seiden@linux.ibm.com>,
+        Suzuki K Poulose <suzuki.poulose@arm.com>,
+        Zenghui Yu
+ <yuzenghui@huawei.com>,
+        Atish Patra <atish.patra@linux.dev>, Alexandre Ghiti <alex@ghiti.fr>,
+        David Hildenbrand <david@kernel.org>,
+        linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev,
+        loongarch@lists.linux.dev, kvm-riscv@lists.infradead.org,
+        linux-riscv@lists.infradead.org,
+        Itaru Kitayama
+ <itaru.kitayama@fujitsu.com>,
+        Nicholas Piggin <npiggin@gmail.com>
+References: <20260902164123.2546762-1-seanjc@google.com>
+Content-Language: en-US
+From: Anushree Mathur <anushree.mathur2@ibm.com>
+In-Reply-To: <20260902164123.2546762-1-seanjc@google.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 8bit
+X-TM-AS-GCONF: 00
+X-Proofpoint-Reinject: loops=2 maxloops=12
+X-Proofpoint-Spam-Info: AW1haW4tMjYwOTI5MDAyOCBTYWx0ZWRfX4W62F1yk8l8n
+ XRhO7dxw6DEBdNCkzVHNd7rm217fvhWBjLGNh2KVb7AZ6oSj/1GseOaZgbN6WYJGep0nXfw82O7
+ jJOdA+BHclkxjO9Ket6CpoVz9mTJDmQ=
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwOTI5MDAyOCBTYWx0ZWRfX29hXdJK+LPTK
+ cxwZVEFGcWGq/Mgo5FUIs2Vb4htVFQjwN8KlZwtb4sjWi5GeUTQcnBZbpE1O091Ihohaeuh5qkR
+ SLpswNapgrgeZaNwRvBWGshWh7SXpWZgnE3wlbUUG8uCHLJnYNHq3PzZ/6PO4ms+P9cf1E8kgMY
+ 9/GzKedeG8bpauhAcmM9Si0xRO+IzkXkqqbrkBV2yTKLPErnsIB9vtqbLM3S8SvO+uhIRBKupnc
+ XLHQRfxTuk3WJIgYj1huHrtlzo4qHBfCjMIkb+EXNecZLXBk7ls9pat6npTqb56LiPtrNmbg5/h
+ v1nDPuLvnwRP6XLiA4YRRw9MfHFT5zP1/vQQh/rgnHbqWeHrsgLfHlR5NVZK4aZy05CsaHl5QEA
+ sPXalB7Hzb37c68E5EyXRywagkkFFrGZ1FcWNV4uV2zUQPqqU/b51FTOrRFYoqOZnQSvrSVpsWY
+ iup3H4jBaxT2Nyul/yw==
+X-Proofpoint-GUID: lq-aGJq6ZdFWNGe-LVvOh1HYDcJzNXa4
+X-Authority-Analysis: v=2.4 cv=RKcmjIi+ c=1 sm=1 tr=0 ts=6abb65a5 cx=c_pps
+ a=AfN7/Ok6k8XGzOShvHwTGQ==:117 a=AfN7/Ok6k8XGzOShvHwTGQ==:17
+ a=IkcTkHD0fZMA:10 a=VdqzKS8jKosA:10 a=VkNPw1HP01LnGYTKEx00:22
+ a=RnoormkPH1_aCDwRdu11:22 a=iQ6ETzBq9ecOQQE5vZCe:22 a=VwQbUJbxAAAA:8
+ a=1XWaLZrsAAAA:8 a=pGLkceISAAAA:8 a=VnNF1IyMAAAA:8 a=zvVxG0z6fLcq2R3n2ywA:9
+ a=3ZKOabzyN94A:10 a=QEXdDO2ut3YA:10
+X-Proofpoint-ORIG-GUID: pfPYA5yzPUw02pptXEK0MLlNkLCDJqba
 X-Proofpoint-Virus-Version: vendor=baseguard
  engine=ICAP:2.0.293,Aquarius:18.0.1176,Hydra:6.1.134,FMLib:17.12.100.49
  definitions=2026-09-29_02,2026-09-21_02,2025-10-01_01
 X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- adultscore=0 priorityscore=1501 spamscore=0 clxscore=1015 suspectscore=0
- impostorscore=0 phishscore=0 lowpriorityscore=0 malwarescore=0 bulkscore=0
+ clxscore=1011 priorityscore=1501 spamscore=0 bulkscore=0 impostorscore=0
+ adultscore=0 lowpriorityscore=0 suspectscore=0 malwarescore=0 phishscore=0
  classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
  reason=mlx scancount=1 engine=8.22.0-2609040000 definitions=main-2609290028
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260929_001335_838011_5ED66B10 
-X-CRM114-Status: GOOD (  25.30  )
+X-CRM114-CacheID: sfid-20260929_001609_419673_CCEF3319 
+X-CRM114-Status: GOOD (  21.31  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -160,91 +145,163 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
---UlNQx2lngAS2JeLJ
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
 
-> The RSS kselftests fail on stmmac, and this is partly due to the driver
-> reporting bogus data for the RSS ops :
->=20
->  - ethtool -x reports an indirection table and a key while the hardware
->    doesn't have any of that
->  - ethtool -X fails with -EINVAL.
->=20
-> Let's return early in the rss ops if we know the hardware and platform
-> don't support RSS.
->=20
-> Signed-off-by: Maxime Chevallier <maxime.chevallier@bootlin.com>
+On 02/09/26 10:11 PM, Sean Christopherson wrote:
+> This is a big pile of cleanups and refactoring to prepare for PPC support in
+> KVM selftests.  PPC has paging modes that require multi-page page tables, and
+> those page tables need to be naturally aligned.  The original proposal was to
+> plumb in an @align param to the page allocators[*], but I didn't love the idea
+> of adding another rarely used param to the allocators.
+>
+> v2:
+>   - Collect tags. [Itaru, Bibo]
+>   - Use 0x180000 as the min GPA for page table pages on LoongArch, instead of
+>     changing every other arch to use 0x200000. [Sashiko, Bibo]
+>   - Opportunistically move the vGIC LPI stress test's global "gpa_base" variable
+>     into setup_memslot(). [Sashiko]
+>
+> v1: https://lore.kernel.org/all/20260826230511.972824-1-seanjc@google.com
+>
+> [*] https://lore.kernel.org/all/df86b5ccdbdafc3509d9538bd5e6796737bab2db.1781093720.git.ritesh.list@gmail.com
+>
+> Nicholas Piggin (1):
+>    KVM: selftests: Use goto instead of do-while to retry finding unused
+>      physical pages
+>
+> Sean Christopherson (19):
+>    KVM: selftests: Use MEM_REGION_PT memslot instead of '0' for s390
+>      regions/segments
+>    KVM: selftests: Use the common minimum GPA for page tables on
+>      LoongArch
+>    KVM: selftests: Use vm_alloc_page_table() to allocate LoongArch page
+>      tables
+>    KVM: selftests: Rename "num" param to "nr_pages" for physical page
+>      allocators
+>    KVM: selftests: Extend page allocator to support naturally aligned
+>      allocations
+>    KVM: selftests: Make the single-page allocator APIs static inline
+>    KVM: selftests: Use the innermost page allocator API in the memslot
+>      perf test
+>    KVM: selftests: Use the innermost page allocator API in s390's IRQ
+>      routing test
+>    KVM: selftests: Add a wrapper API to allocate multiple page table
+>      pages
+>    KVM: selftests: Initialize vm->memslots[] with invalid memslots during
+>      creation
+>    KVM: selftests: Add APIs to override memory region types with custom
+>      memslots
+>    KVM: selftests: Add TEST_EXTRA memory region type for "special"
+>      memslots
+>    KVM: selftests: Use TEST_EXTRA region in arm64's vGIC LPI stress test
+>    KVM: selftests: Use TEST_EXTRA region in x86's smaller MAXPHYADDR test
+>    KVM: selftests: Use TEST_EXTRA region in set memory region test
+>    KVM: selftests: Take the memory region type, not memslot, in page
+>      allocators
+>    KVM: selftests: Use TEST_ASSERT(), not assert(), in
+>      vm_get_mem_region()
+>    KVM: selftests: Automatically pick min_gpa for allocations based on
+>      region type
+>    KVM: selftests: Add arch hook to force page tables to be naturally
+>      aligned
+>
+>   .../selftests/kvm/arm64/page_fault_test.c     |  18 ++-
+>   .../selftests/kvm/arm64/vgic_lpi_stress.c     |  21 ++-
+>   .../testing/selftests/kvm/include/kvm_util.h  | 106 +++++++++++++--
+>   tools/testing/selftests/kvm/include/x86/smm.h |   2 +-
+>   .../selftests/kvm/lib/arm64/processor.c       |   4 +-
+>   tools/testing/selftests/kvm/lib/kvm_util.c    | 127 +++++++++++-------
+>   .../selftests/kvm/lib/loongarch/processor.c   |   5 +-
+>   .../selftests/kvm/lib/riscv/processor.c       |   4 +-
+>   .../selftests/kvm/lib/s390/processor.c        |   7 +-
+>   .../testing/selftests/kvm/lib/x86/processor.c |  15 ++-
+>   .../testing/selftests/kvm/memslot_perf_test.c |   3 +-
+>   tools/testing/selftests/kvm/s390/cmma_test.c  |  19 +--
+>   .../testing/selftests/kvm/s390/irq_routing.c  |   2 +-
+>   .../selftests/kvm/set_memory_region_test.c    |   8 +-
+>   .../x86/smaller_maxphyaddr_emulation_test.c   |   9 +-
+>   15 files changed, 221 insertions(+), 129 deletions(-)
+>
+>
+> base-commit: 76671054f9a1ff6abb976583cd8da37650acdc97
 
-Acked-by: Lorenzo Bianconi <lorenzo.bianconi@oss.qualcomm.com>
+Hi Sean,
 
-> ---
->  drivers/net/ethernet/stmicro/stmmac/stmmac_ethtool.c | 12 ++++++++++++
->  1 file changed, 12 insertions(+)
->=20
-> diff --git a/drivers/net/ethernet/stmicro/stmmac/stmmac_ethtool.c b/drive=
-rs/net/ethernet/stmicro/stmmac/stmmac_ethtool.c
-> index 154cc0c7623d..b78dc301d70d 100644
-> --- a/drivers/net/ethernet/stmicro/stmmac/stmmac_ethtool.c
-> +++ b/drivers/net/ethernet/stmicro/stmmac/stmmac_ethtool.c
-> @@ -927,6 +927,9 @@ static u32 stmmac_get_rxfh_key_size(struct net_device=
- *dev)
->  {
->  	struct stmmac_priv *priv =3D netdev_priv(dev);
-> =20
-> +	if (!stmmac_rss_is_supported(priv))
-> +		return 0;
-> +
->  	return sizeof(priv->rss.key);
->  }
-> =20
-> @@ -934,6 +937,9 @@ static u32 stmmac_get_rxfh_indir_size(struct net_devi=
-ce *dev)
->  {
->  	struct stmmac_priv *priv =3D netdev_priv(dev);
-> =20
-> +	if (!stmmac_rss_is_supported(priv))
-> +		return 0;
-> +
->  	return ARRAY_SIZE(priv->rss.table);
->  }
-> =20
-> @@ -943,6 +949,9 @@ static int stmmac_get_rxfh(struct net_device *dev,
->  	struct stmmac_priv *priv =3D netdev_priv(dev);
->  	int i;
-> =20
-> +	if (!stmmac_rss_is_supported(priv))
-> +		return -EOPNOTSUPP;
-> +
->  	if (rxfh->indir) {
->  		for (i =3D 0; i < ARRAY_SIZE(priv->rss.table); i++)
->  			rxfh->indir[i] =3D priv->rss.table[i];
-> @@ -962,6 +971,9 @@ static int stmmac_set_rxfh(struct net_device *dev,
->  	struct stmmac_priv *priv =3D netdev_priv(dev);
->  	int i;
-> =20
-> +	if (!stmmac_rss_is_supported(priv))
-> +		return -EOPNOTSUPP;
-> +
->  	if (rxfh->hfunc !=3D ETH_RSS_HASH_NO_CHANGE &&
->  	    rxfh->hfunc !=3D ETH_RSS_HASH_TOP)
->  		return -EOPNOTSUPP;
-> --=20
-> 2.55.0
->=20
->=20
+Thanks for working on this patch series. I tested this series (v2) as a 
+base
+for Ritesh's PowerPC KVM selftest series (v5) [1] on two real 
+PowerPC(ppc64le)
+PowerVM & PowerNV systems. Your patches applied cleanly and the core 
+infrastructure
+changes worked correctly on PowerPC — exactly the foundation Ritesh's 
+series needed.
 
---UlNQx2lngAS2JeLJ
-Content-Type: application/pgp-signature; name=signature.asc
 
------BEGIN PGP SIGNATURE-----
+Ritesh's patch series : 
+https://lore.kernel.org/linuxppc-dev/cover.1790101179.git.ritesh.list@gmail.com/
 
-iHUEABYKAB0WIQTquNwa3Txd3rGGn7Y6cBh0uS2trAUCartlGwAKCRA6cBh0uS2t
-rJCeAQCl/sM1/UiVOqNd4jhL5Oy3pU029vOCKWXEOSlJSz+XZgD/d+i/oeT18HiZ
-DpFlaHzEx66iglM4gU7yoatpOMjQPwc=
-=kiG3
------END PGP SIGNATURE-----
+Full test suite summary (make run_tests):
+-----------------------------------------
+                                    LPAR    bare-metal
+   demand_paging_test               PASS      PASS
+   dirty_log_test                   PASS      PASS
+   dirty_log_perf_test              PASS      PASS
+   guest_print_test                 PASS      PASS
+   hardware_disable_test            PASS      PASS
+   kvm_binary_stats_test            PASS      PASS
+   kvm_create_max_vcpus             PASS      PASS
+   kvm_page_table_test              PASS      PASS
+   set_memory_region_test           PASS      PASS
+   memslot_modification_stress_test PASS      PASS
+   memslot_perf_test                PASS      PASS
+   access_tracking_perf_test        PASS      PASS
+   irqfd_test                       SKIP      SKIP
+   vm_types_test                    SKIP      SKIP
+   --------------------------------------------------
+   Total                         12 PASS   12 PASS
+                                  2 SKIP    2 SKIP
 
---UlNQx2lngAS2JeLJ--
+My Detailed testing analysis for your patches on PowerPC (ppc64le):
+-------------------------------------------------
+Patches 1-5 [Page allocator and memslot refactoring]
+   Core page allocator and memslot infrastructure exercised by all 14
+   tests on both systems — no regressions observed.
+
+Patches 6-10 [Extended page allocator APIs]
+   Exercised via kvm_create_max_vcpus and memslot_perf_test on both
+   systems — APIs work correctly on PowerPC.
+
+Patches 11-13, 16 [Memslot initialization and TEST_EXTRA region]
+   set_memory_region_test and memslot_modification_stress_test ran
+   successfully on both systems — memslot init, TEST_EXTRA region, and
+   its usage in set_memory_region_test all working correctly.
+
+Patch 17 [Memory region type API]
+   Exercised by set_memory_region_test — PASS on both systems.
+
+Patch 18 [Use TEST_ASSERT() in kvm_util.c]
+   Exercised by all tests — no assertion failures observed.
+
+Patch 19 [Auto-pick min_gpa for PowerPC]
+   This is the critical patch for PPC — guest physical test memory
+   was correctly placed above 256M on both systems:
+     LPAR:       guest physical test memory: [0xfffffbfff0000, 
+0xfffffffff0000)
+     bare-metal: guest physical test memory: [0xfffffbfff0000, 
+0xfffffffff0000)
+
+Patch 20 [Add arch hook to force page table setup]
+   lib/powerpc/processor.c correctly hooks into this — guest page
+   tables set up correctly on both systems.
+
+Note: Patches 14 and 15 (arm64/x86-specific TEST_EXTRA usage) were
+not exercised as those tests don't build on PowerPC — as expected.
+
+
+Please feel free to add :
+
+Tested-by: Anushree Mathur <anushree.mathur@linux.ibm.com>
+
+Thank you,
+Anushree Mathur
+
 
