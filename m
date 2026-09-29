@@ -4,7 +4,7 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D540ACA5FA5
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A7D17CA5FA7
 	for <linux-arm-kernel@archiver.kernel.org>; Tue, 29 Sep 2026 19:41:32 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
@@ -12,32 +12,32 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=a503ZvQbaOcbrGVP+C0Du3gnG7TeATUmwBd+VIhzDak=; b=YPcod/yHeYUM06x65VzriU7ojK
-	0dKvLdicMdg6nJJbogU5bOiZtqSNSaZYf3iGDjYJWkH/P9l6AetOVrxDjlrah70yzUZUm9rxVV5sE
-	CqqN4Q7EWykZG8jKlt9xVqYi+GWhj1qOwURkubf+5/zXt0Tz80Durp7wab5apSeeOc7xkcCDxLMNW
-	YF/6COws1oNEU4avUE1Veaf7apwFPs8VbOdeB8Vv/W8tWVg1MaS/4nyYupLYkRwaDhj9mU/kL9SCR
-	guiltMYLLutEF7nwnCPm6nZ0GrNHbSJEDeKlu+yi7IXjZAyvhK23CQzh5Fgf3Wkvq32bw6++36M8F
-	LzY/1qqw==;
+	bh=PODLXCRFLWkJ9Cd44TlRnXrHGHAgSH6/cDTQhJY6Y6U=; b=bQ8UbhwcpZ/PfW31pBqw7EMaed
+	2YJ8mkHFSyCxsKr+TVZcaJy5q+Clb+wJhMrde5kZsggIupjzwcIFNBAwttCsf3YP2CW/YwnlguGgH
+	GG+9yzrtNTVDbU7vubV6rtzQ4K+TwEovboNtUYC3UXMF2g3IBLum6lcly+YlHoiWD9xCpc0UAhI6I
+	rW/aAb/WSq/ITQynpXUEDYFfo6pH50UdTYtpO4gpRPsNEwame0xdCexkpJFQTwSUQS+46XlvnQivc
+	FCXNzcCZ67zBTXRLaIUjetYUCGlTwV0NbSgd4ANnBxsH+/3CFTW29k7+wz5HDq1bAbdfH1zByWATk
+	CNtb7yzQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xBdhe-00000004Oto-2K35;
+	id 1xBdhe-00000004OtO-1ZKh;
 	Tue, 29 Sep 2026 19:41:26 +0000
 Received: from mx.nabladev.com ([178.251.229.89])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xBdhV-00000004Oov-3wpl
+	id 1xBdhL-00000004OjM-2r9t
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 29 Sep 2026 19:41:19 +0000
-Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 2F6C2106CF2;
-	Tue, 29 Sep 2026 21:41:11 +0200 (CEST)
+	Tue, 29 Sep 2026 19:41:09 +0000
+Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 45166106D69;
+	Tue, 29 Sep 2026 21:41:01 +0200 (CEST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nabladev.com;
-	s=dkim; t=1790710871; h=from:subject:date:message-id:to:cc:mime-version:
+	s=dkim; t=1790710862; h=from:subject:date:message-id:to:cc:mime-version:
 	 content-transfer-encoding:in-reply-to:references;
-	bh=a503ZvQbaOcbrGVP+C0Du3gnG7TeATUmwBd+VIhzDak=;
-	b=Jh4VjVqKLZq+ZPiq0ostQQww0AuXnY/J0US3guNqQ2cjxK9tIaPpDymbpOOKeu+GkPi+qT
-	f4K+jij31eLLcFdbzYa8+3YfeQsXV50fnqLKPY3WUrOfk1LX06/rNCEW7Ga7FeKW1E9J0y
-	EM8waL4jrQ14ZPl9dGagBAhVc3+q5lyAVybvZ2vslnBbTXVpHIK0n9T9FVyFyXGjKhqoFG
-	/qKiQfV52sNfJYGc/vlbTfIsnZGLZZ/NXsog7ACH+H4iDd0RFqKsqvuIXpLnUxXJY9tHsd
-	c0eiRcFw626Za0WjaejprLVm9bjVJ1E+uppvBR81ZaZb/0Ur2dlXBqbujWt+mQ==
+	bh=PODLXCRFLWkJ9Cd44TlRnXrHGHAgSH6/cDTQhJY6Y6U=;
+	b=FeJJbuLFBuxSXWDfU8B+6vj0OXaX1XfnVMCl8aWUnHWWcSow3ciomC4WCtmQ0ntiZeNHBT
+	g9bfralnnPzb2Ubvkat2fXP4Edc60sbHl5eIkBKqcYaJTVmVYX319pdgx0l5hZmoP7s9nA
+	+sHBn03+tKiScSlaO0JBpyLaSvoY554DVmEQm5Kd5Zq+x4n2GwEJb86iw6sOlASXuaouBx
+	PFplloFstxoQMssU8HojV0TDSiA6bKDszn748ZJmKT5T2aDOV00R+x7GAqVpAMLkdIIg5b
+	L+X2RXV7Vn4hyAVj+e3bDllbNHJOE3WmWICBxxgEQU4+L4zJIzusxEmpBQIoBw==
 From: Marek Vasut <marex@nabladev.com>
 To: linux-arm-kernel@lists.infradead.org
 Cc: Marek Vasut <marex@nabladev.com>,
@@ -52,9 +52,9 @@ Cc: Marek Vasut <marex@nabladev.com>,
 	linux-gpio@vger.kernel.org,
 	linux-kernel@vger.kernel.org,
 	linux-stm32@st-md-mailman.stormreply.com
-Subject: [PATCH 5/5] arm64: dts: st: Do not encode path in sdmmc2_*_pins_a/pins2 phandle
-Date: Tue, 29 Sep 2026 21:39:59 +0200
-Message-ID: <20260929194035.496244-5-marex@nabladev.com>
+Subject: [PATCH 3/5] arm64: dts: st: Reuse sdmmc1_*_pins_a pinmux
+Date: Tue, 29 Sep 2026 21:39:57 +0200
+Message-ID: <20260929194035.496244-3-marex@nabladev.com>
 X-Mailer: git-send-email 2.53.0
 In-Reply-To: <20260929194035.496244-1-marex@nabladev.com>
 References: <20260929194035.496244-1-marex@nabladev.com>
@@ -62,9 +62,8 @@ MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-Last-TLS-Session-Version: TLSv1.3
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260929_124118_133221_5F91A11A 
-X-CRM114-Status: UNSURE (   9.67  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260929_124107_866164_6FD04FC4 
+X-CRM114-Status: GOOD (  11.79  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -79,8 +78,9 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Do not encode node path in phandles, describe subnodes instead.
-This is only a consistency change, no functional change.
+It is perfectly possible to use sdmmc1_*_pins_a on the DH electronics
+STM32MP23xx/STM32MP25xx DHCOS SoM, the only difference is the slew rate.
+Reuse sdmmc1_*_pins_a with updated slew rate on board level.
 
 Fixes: 9b584c92f94f ("arm64: dts: st: Add support for DH electronics STM32MP23xx/STM32MP25xx DHCOS SoM and Breakout Board and DHSBC")
 Signed-off-by: Marek Vasut <marex@nabladev.com>
@@ -98,38 +98,50 @@ Cc: linux-gpio@vger.kernel.org
 Cc: linux-kernel@vger.kernel.org
 Cc: linux-stm32@st-md-mailman.stormreply.com
 ---
- .../arm64/boot/dts/st/stm32mp2xxx-dhcos-som.dtsi | 16 ++++++++++------
- 1 file changed, 10 insertions(+), 6 deletions(-)
+ .../boot/dts/st/stm32mp255c-dhcos-dhsbc.dts   | 28 +++++++++++++++++--
+ 1 file changed, 26 insertions(+), 2 deletions(-)
 
-diff --git a/arch/arm64/boot/dts/st/stm32mp2xxx-dhcos-som.dtsi b/arch/arm64/boot/dts/st/stm32mp2xxx-dhcos-som.dtsi
-index 80d829c55d9d8..bcf63e2ea9898 100644
---- a/arch/arm64/boot/dts/st/stm32mp2xxx-dhcos-som.dtsi
-+++ b/arch/arm64/boot/dts/st/stm32mp2xxx-dhcos-som.dtsi
-@@ -389,14 +389,18 @@ &scmi_vddio4 {
- 	regulator-always-on;
+diff --git a/arch/arm64/boot/dts/st/stm32mp255c-dhcos-dhsbc.dts b/arch/arm64/boot/dts/st/stm32mp255c-dhcos-dhsbc.dts
+index 332a8034cc372..eea7a76953639 100644
+--- a/arch/arm64/boot/dts/st/stm32mp255c-dhcos-dhsbc.dts
++++ b/arch/arm64/boot/dts/st/stm32mp255c-dhcos-dhsbc.dts
+@@ -145,10 +145,34 @@ &scmi_vddio1 {
+ 	regulator-settling-time-down-us = <100000>;
  };
  
--&{sdmmc2_b4_pins_a/pins2} {
--	/delete-property/ bias-disable;
--	bias-pull-up;
-+&sdmmc2_b4_pins_a {
-+	pins2 {
-+		/delete-property/ bias-disable;
-+		bias-pull-up;
++&sdmmc1_b4_pins_a {
++	pins1 {
++		slew-rate = <1>;
 +	};
- };
- 
--&{sdmmc2_b4_od_pins_a/pins2} {
--	/delete-property/ bias-disable;
--	bias-pull-up;
-+&sdmmc2_b4_od_pins_a {
++
 +	pins2 {
-+		/delete-property/ bias-disable;
-+		bias-pull-up;
++		slew-rate = <2>;
 +	};
- };
- 
- &sdmmc2 {
++};
++
++&sdmmc1_b4_od_pins_a {
++	pins1 {
++		slew-rate = <1>;
++	};
++
++	pins2 {
++		slew-rate = <2>;
++	};
++
++	pins3 {
++		slew-rate = <1>;
++	};
++};
++
+ &sdmmc1 {
+ 	pinctrl-names = "default", "opendrain", "sleep";
+-	pinctrl-0 = <&sdmmc1_b4_pins_b>;
+-	pinctrl-1 = <&sdmmc1_b4_od_pins_b>;
++	pinctrl-0 = <&sdmmc1_b4_pins_a>;
++	pinctrl-1 = <&sdmmc1_b4_od_pins_a>;
+ 	pinctrl-2 = <&sdmmc1_b4_sleep_pins_a>;
+ 	cd-gpios = <&ioexp 8 GPIO_ACTIVE_HIGH>;
+ 	disable-wp;
 -- 
 2.53.0
 
