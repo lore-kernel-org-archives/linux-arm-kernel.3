@@ -4,101 +4,82 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BAA35C9832A
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 29 Sep 2026 07:17:01 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 75805CA5FA1
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 29 Sep 2026 07:20:05 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=g8yFIMfXcamOSTdytiUcdogK/QABhn5sWuK0oBzBWh8=; b=EYN49zeJUe18c6lZ3VqaupGqkR
-	FPDB8EvKq/2ABaCUCdxxifSI/bhR0i1sCEG77lw3YtUZ/ow2O54GIHOqBI47zZAtf0ZAt7J8L1hqj
-	hwK1NSOzAZvsKqrT7o6/DalTKsBX2ahCCm4WupUkSivml28M+jS4QO/VmPofLCRNYIJj6vHGdnrxj
-	En7PFrXu/OcigJ5AV4b/Cb9jd6sd1lvuKEEN/YhkBG5bH9OyGneOaP7vwZ6otUh9fGaQi4YRyDyC7
-	kleL+H0R7C2mWx11Qqed/QenskH2VD7l32/BB6tNsrFr+QsxEGIZH+kJTUfhrFl2yxZZBrT0MRqI8
-	q0vq0jGw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:From:
+	Subject:Message-ID:Mime-Version:Date:Reply-To:Content-Transfer-Encoding:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=0QkpnEIdbuhsyhHvyTGjlw2S9g9xsutWV9HU9W/cLGk=; b=mr1xuHoJqalDBIPVDB3SUqfS96
+	ZY9UlTog7RCbkXsMbGyZpmaReeG3oLyFv8McLpk5XgEL+/jB/Rr+3koP8B1njDSWVf+/eTXI142UK
+	/bGbk2B+sABeDQBPT3KfAlg6HUFmahqkLuagDY4y02QJKVIBTM1mOSUDIyWZ2/l8+bjE6Aq3WvAWm
+	Q3Lm3wbstPllQrC6/5WFxKN5QCiodJo7UxyRtX7Qzqn1/kCKZHGf1eXGVs9ug//7Ns/Pty8bbZYaq
+	Kl4COxieNire1C4FYwec+KNz0lfRwI28VdxaCyLtoMyK0NCoFUBenOpkQyGODkoNLBKgpbdYoUtAF
+	hRjOUVbA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xBS57-00000002ZnT-2bD1;
-	Tue, 29 Sep 2026 07:16:53 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1xBS86-00000002aEA-1qFv;
+	Tue, 29 Sep 2026 07:19:58 +0000
+Received: from mail-pg1-x545.google.com ([2607:f8b0:4864:20::545])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xBS4r-00000002Zj6-0dCB;
-	Tue, 29 Sep 2026 07:16:37 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:Content-Type
-	:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:Message-ID:
-	Sender:Reply-To:Content-ID:Content-Description;
-	bh=g8yFIMfXcamOSTdytiUcdogK/QABhn5sWuK0oBzBWh8=; b=JU6SdQtfHbp7GOa0g/LtGGQiur
-	j3xDjNclktugrMB9t0vVuOriXQQUp8D8yojzbTQES5lCn3nJYWK7KgedNcyDhWL9yx22KjTWgWxPA
-	Aakyp7g4tdpT8aRGIcuHtOxrFiGuOFa1CN2835Vgki+tcJUnmbmak3nmM/NpBjE28BJNW7jnchm0t
-	e1FiCVG7magzcbdrffqTs4ICN/PQqLnbZhyQ4Mxpulu5NKC3ABgq+hQ3O97/ohioCEb4MPLPu6NCD
-	0JRTXMPsYfSh41U6eTYcy7IRgam7nju2X7l7MQANT/nqeil9bIgwz8Xl1f1doW9BVjJoIxHX9/foT
-	tAkvCy/Q==;
-Received: from mx1.white.stw.pengutronix.de ([2a0a:edc0:0:b01:1d::107])
-	by desiato.infradead.org with esmtps (Exim 4.99.2 #2 (Red Hat Linux))
-	id 1xBS4n-00000002HSQ-1rT3;
-	Tue, 29 Sep 2026 07:16:36 +0000
-Received: from [0.0.0.0] (ptz.office.stw.pengutronix.de [IPv6:2a0a:edc0:0:900:1d::77])
-	(Authenticated sender: spu@pengutronix.de)
-	by mx1.white.stw.pengutronix.de (Postfix) with ESMTPSA id E1FB5201548;
-	Tue, 29 Sep 2026 09:16:30 +0200 (CEST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=pengutronix.de;
-	s=20260414; t=1790666191;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=g8yFIMfXcamOSTdytiUcdogK/QABhn5sWuK0oBzBWh8=;
-	b=ZHw0xdkYy/CgZdHMayUgrCk0soMlwyhaMORQtte2UHNbGN0o201RQsAvUvvJO0B/tASX+K
-	/e0QmBTAs0E8LKSyAfA4hd2UAsZXpkivVzKhxGuDX4TfgNMICqDkuMmn48zqRWQX3qvPF6
-	DfeWkjOBdLoVRw0n213tpVu59oBTgSu9LjsbEOUJxM9A+RyJ3odHCwW9Gcewpwi3es0t3O
-	tlfG1smpcr8FKjykCeJJ52sDjjmZdksnikADGoc1+fSMbkdYRyrhl+OErnc/xq3XdEMsv9
-	EuR0AYN9PxHH5HcwEeYN9/lPQXY4kV6tWJ5AiUqFE+JQXlWhzHB9qmvqDc6Ong==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=pengutronix.de;
-	s=20260414; t=1790666191;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=g8yFIMfXcamOSTdytiUcdogK/QABhn5sWuK0oBzBWh8=;
-	b=M+JKN1oGvusBH3GBbsSTZwkM4KbQFzknN49NdMhTKlqHKiBQJY4k1juzDjamtQAQ8oPB42
-	5aA3ZEb0Ez2mG5RFTyZ0Ban7gPtS1dziE/z1uAc8TrABDztC45SrHuOrk5YQdx0N+1ulIB
-	aneZeVJR0b2X2p8GxboV2RsfyDY54tyrxLg5IZLD4VJcttFfbTNBVyHSejK05VXBxle0yV
-	kC+bU5sSk0PUkd1z+uVJNKKYqf2NRx9dvHoqNBD2Wo2WGfFQLoWyRHB9HYqPEb9ZvSLq91
-	KqdkhQXcWNrik2OuYExfRRGTSyEEY9qCD8rp3VoIJS+NVKJ8JZy7QuZwQGkWSQ==
-ARC-Seal: i=1; s=20260414; d=pengutronix.de; t=1790666191; a=rsa-sha256;
-	cv=none;
-	b=Ii8cJJuTLEYqiYxjCnvVvpCmlwjg6YT9uF6cvpIcfUkAdlNqZJR+/9KjwdoBQfHNHDdTNI
-	r2tpE0lmVSyfwqqWL/5BTsriQOQoQ1DzcdcWbvE6cPVSeraHe9aHfx0ZTpEXUjF2dgs+1C
-	1WfW308uJJtKuPmNtHwWlkisDqE9GgAYL2XzaKda1BL5QBRk+wQR1Ld1rYLhku1NzY83bH
-	zeLUvWs8BWlZ11bkzJy4O77PE5UbzMj1vTM71AzOJ5cqjIi5tQqKjaROg/B84Wv5OWu5PK
-	6tO8nZdpMj/J6UK6/C9ZK+LR1SrUrHEmZKnj/A3uvNtxQlDLkheGUayXk4BftA==
-ARC-Authentication-Results: i=1;
-	ORIGINATING;
-	auth=pass smtp.auth=spu@pengutronix.de smtp.mailfrom=s.pueschel@pengutronix.de
-Message-ID: <b3b26ca0-c362-47ff-837f-989fb8f9cc12@pengutronix.de>
-Date: Tue, 29 Sep 2026 09:16:30 +0200
-MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2] media: rockchip: rga: quiesce IRQ before releasing m2m
- state
-To: Nicolas Dufresne <nicolas@ndufresne.ca>, Fan Wu <fanwu01@zju.edu.cn>,
- jacob-chen@iotwrt.com, ezequiel@vanguardiasur.com.ar
-Cc: mchehab@kernel.org, heiko@sntech.de, linux-media@vger.kernel.org,
- linux-rockchip@lists.infradead.org, linux-arm-kernel@lists.infradead.org,
- linux-kernel@vger.kernel.org, stable@vger.kernel.org
-References: <20260704084659.612221-1-fanwu01@zju.edu.cn>
- <c5bb16dec180576cb7e68221880b5e36b7cb689b.camel@ndufresne.ca>
-Content-Language: en-US
-From: =?UTF-8?Q?Sven_P=C3=BCschel?= <s.pueschel@pengutronix.de>
-In-Reply-To: <c5bb16dec180576cb7e68221880b5e36b7cb689b.camel@ndufresne.ca>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 8bit
+	id 1xBS82-00000002aCm-3z8v
+	for linux-arm-kernel@lists.infradead.org;
+	Tue, 29 Sep 2026 07:19:57 +0000
+Received: by mail-pg1-x545.google.com with SMTP id 41be03b00d2f7-cc79125e4b8so2016803a12.2
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 29 Sep 2026 00:19:53 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=google.com; s=20251104; t=1790666393; x=1791271193; darn=lists.infradead.org;
+        h=content-type:cc:to:from:subject:message-id:mime-version:date:from
+         :to:cc:subject:date:message-id:reply-to:content-type;
+        bh=0QkpnEIdbuhsyhHvyTGjlw2S9g9xsutWV9HU9W/cLGk=;
+        b=VkHygggvOYCvF85NfnIGuHPd8isfNZA8rGeM6g8beweiJ9uQCHyaAsWrjOpDfhEDnU
+         s8glSYwHaJVA96iR+lTf5abjeP/ITQdPoecZFfk2ptN01SBpk6oYP340+HqKSR90mA6B
+         SbpWQ5NZHmw2TDQE7cyoNVbPnimbucgvNTkyCVoFSrBvFIgpm09r1ngkphxjrATGBwFB
+         uhKfweH9ae+up1Pvx8CbY6VnB+W9Jsd4REWtueHpbmzdVFsc3Ie2NUCNpZCWpCXpx7ob
+         VYKjFdeqTL6NPBkT4GHucRjO8jfoYEQL1aQUdZ9lU4L3c80dsiLzyDJOtKjFa1cftAgD
+         goQQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1790666393; x=1791271193;
+        h=content-type:cc:to:from:subject:message-id:mime-version:date
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=0QkpnEIdbuhsyhHvyTGjlw2S9g9xsutWV9HU9W/cLGk=;
+        b=L6w3wIAuX6785P5sw3NL0W3hnXVWNRKx3I7Br0o4rdvoO7tbHVvLubWFMAYS7oIqE/
+         3HBwjvxCzODa9yZmvQuwxSCAQBBfLDJ6h8Njnj8k+eqvr83yGQySrxirNSAhzU08byEz
+         bC1/0eTrZ7m8Ogv1UIdNh1hn6gZryNGsP99D6TUB+pKipBMzeUQep2bNaC5E4E6/c/L+
+         w4V4i8jfIBv4GvlPmNCF22wpTsDZ07V9k8PPmjU0RDm2/XL1lHnGgbArp204qLnJ7I0e
+         fi/ndb1cH+ZVlMqZi+JIOMKqaQEF2MlQRXZR1CAsElLU+jxYEFpljEU6abYPaFEMdfAG
+         P6rA==
+X-Forwarded-Encrypted: i=1; AKwUvBxkjUxm13D7DC6DS+Rvtp522xO5KtdpE14inb2jtc4Qiz4ko3dqqOyaZSFPNVqWqMbkj4qLD7Sq37JWKCFma3Zu@lists.infradead.org
+X-Gm-Message-State: AFuF++mfmfuWB2J4AeLTj7d3nUxJ3B48uvJzURACqGZloQ/SVKyxQFlg
+	be5LAgB/wtJ4C4ORC2WD1nKMSwrP/B/NOXFzwaBIVw07GJP70hVOyq541c55rsYSZqRtBaWNZWl
+	AQA==
+X-Received: from pgbgf2.prod.google.com ([2002:a05:6a02:2cc2:b0:cc1:cba6:484c])
+ (user=praan job=prod-delivery.src-stubby-dispatcher) by 2002:a05:6a20:7352:b0:3da:5eda:d167
+ with SMTP id adf61e73a8af0-3de0e7136efmr15088339637.5.1790666393084; Tue, 29
+ Sep 2026 00:19:53 -0700 (PDT)
+Date: Tue, 29 Sep 2026 07:19:41 +0000
+Mime-Version: 1.0
+X-Mailer: git-send-email 2.56.0.rc1.315.gc6ed9934b7-goog
+Message-ID: <20260929071950.2710070-1-praan@google.com>
+Subject: [RFC PATCH v1 0/9] iommu/arm-smmu-v3: Implement Live Update support
+From: Pranjal Shrivastava <praan@google.com>
+To: iommu@lists.linux.dev, Will Deacon <will@kernel.org>, 
+	Jason Gunthorpe <jgg@nvidia.com>
+Cc: Robin Murphy <robin.murphy@arm.com>, Joerg Roedel <joro@8bytes.org>, 
+	Nicolin Chen <nicolinc@nvidia.com>, Kevin Tian <kevin.tian@intel.com>, 
+	Samiullah Khawaja <skhawaja@google.com>, David Matlack <dmatlack@google.com>, 
+	Vipin Sharma <vipinsh@google.com>, Mostafa Saleh <smostafa@google.com>, 
+	Daniel Mentz <danielmentz@google.com>, Pasha Tatashin <pasha.tatashin@soleen.com>, 
+	Pratyush Yadav <pratyush@kernel.org>, linux-arm-kernel@lists.infradead.org, 
+	kexec@lists.infradead.org, linux-kernel@vger.kernel.org, 
+	Pranjal Shrivastava <praan@google.com>
+Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260929_081633_835612_D5B53D9F 
-X-CRM114-Status: GOOD (  23.77  )
+X-CRM114-CacheID: sfid-20260929_001955_009365_D24399A0 
+X-CRM114-Status: GOOD (  33.28  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -113,100 +94,207 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi,
+The IOMMU Live Update framework [1] preserves the IOMMU hardware state and
+the translation (HWPTs) of devices assigned to userspace via iommufd/VFIO
+across a kexec based Live Update, using KHO and the DMA allocation
+preservation API [2]. This series implements the arm-smmu-v3 side of it,
+allowing an SMMUv3 to keep translating the DMA of preserved devices,
+without any disruption, while the kernel underneath is replaced.
 
-On 9/28/26 22:18, Nicolas Dufresne wrote:
-> Hi,
->
-> Le samedi 04 juillet 2026 à 08:46 +0000, Fan Wu a écrit :
->> rga_remove() releases the m2m state before the IRQ is freed. The IRQ is
->> devm-managed and is only released once rga_remove() returns, so rga_isr()
->> can still run while the m2m device state is being torn down.
->>
->> Store the IRQ number in struct rockchip_rga, unregister the video device
->> first, and free the IRQ before releasing the m2m state so the handler
->> cannot run against the freed state.
->>
->> Fixes: f7e7b48e6d79 ("[media] rockchip/rga: v4l2 m2m support")
->> Cc: stable@vger.kernel.org
->> Signed-off-by: Fan Wu <fanwu01@zju.edu.cn>
-> Again, I don't know if this is a real issue, but seems fair.
+We have an alignment session planned on IOMMU Live Update at LPC 2026 [3].
 
-thanks for forwarding. Also stumbled upon the ordering in the remove 
-function but kept it, as it looked akward if it mismatched the probe 
-cleanup order (which comes from the fact that the video device is 
-allocated, then the m2m device and after that the video device is 
-registered). Is it possible to init the m2m device first and then 
-allocate and register the video_device, thus keeping the same teardown 
-order (i'd then adjust this in my multi-core series)? Or is there some 
-logic behind this probe ordering?
+Design
+======
+The arm-smmu-v3 operates almost entirely out of in-memory data structures
+(Stream Table, CD tables, page tables) that the HW registers point to.
+Hence, a Live Update boils down to preserving these structures, keeping
+the SMMU enabled across the kexec and having the incoming kernel take
+them over without ever reprogramming anything that the HW is walking.
 
-Btw. the irq variable will probably be dropped with my 
-mulit-core/component-devices patchset, as I then have a separate core 
-struct and can check if my core has been already bound to something (and 
-otherwise ignore IRQs). See [1][2]
+1. Preservation (outgoing kernel)
+  a. .preserve (per SMMU): Serializes the SMMU identity (the MMIO base is
+     used as the token, similar to VT-d), STRTAB_BASE_CFG and the Stream
+     Table. A linear Stream Table is preserved as a whole, for a 2-level
+     table the L1 table is preserved, along with an array of L2 tokens
+     indexed by the L1 index.
+  b. .preserve_device (per master): Preserves the L2 Stream Tables holding
+     the STEs of the master, since .preserve only runs for the first
+     preserved device. For an S1 domain, the CD table of the master
+     (linear, or L1 + active L2 tables) is preserved too. SVA domains and
+     masters with active PASIDs are rejected, matching the granularity of
+     the core. The ASID/VMID tagging the translation is recorded in the
+     attachment_id of the device state.
+  c. For S2 and nested domains only the STE is needed. The page tables
+     come from the preserved domain, and a guest-owned (nested) CD table
+     lives in guest RAM, which is preserved with the guest memory anyway.
+  d. The Event queue memory is preserved as well, as it stays enabled
+     across the kexec. Only its preservation token is serialized; its
+     base, size, PROD and CONS are left in the EVTQ registers.
+  e. .unpreserve_device and .unpreserve undo the above. An L2 Stream
+     Table is unpreserved once no preserved master uses it.
 
+2. Shutdown (outgoing kernel)
+Instead of clearing SMMUEN, .shutdown:
+  a. Masks the SMMU interrupts and waits for a running EVTQ handler.
+  b. Installs abort STEs for all the unpreserved masters and clears the L1
+     descriptors of L2 tables that have no preserved stream.
+  c. Issues CFGI_ALL + TLBI_{EL2,NSNH}_ALL.
+  d. Disables the CMDQ and the PRIQ, leaving SMMUEN and EVTQEN set for the
+     preserved devices.
+If any of this fails, it falls back to the regular full disable.
 
-Sincerely
-     Sven
+3. Restoration (incoming kernel)
+  a. arm_smmu_init_strtab() takes over the preserved Stream Table instead
+     of allocating a new one. The layout read back from STRTAB_BASE{,_CFG}
+     is validated with the common kexec helpers from the kdump series [4]
+     and the in-use ASIDs/VMIDs are reserved, such that new domains can
+     never alias the preserved ones.
+  b. arm_smmu_alloc_cd_tables() takes over the CD table of a restored
+     master, validated with arm_smmu_kexec_check_ste_cdtab().
+  c. arm_smmu_init_queues() adopts the preserved EVTQ, resuming from the
+     live EVTQ_BASE/PROD/CONS, so any event recorded across the Live
+     Update is left pending for the EVTQ handler of the incoming kernel.
+  d. The stream tables and the EVTQ are restored with the managed (dmam_*)
+     variants of [2] as they're devres allocations tied to the SMMU, while
+     CD tables use the unmanaged (dma_*) variants, as their lifetime
+     follows the master.
 
+4. Hitless reset
+When there's incoming preserved state for the SMMU (a failed restoration
+fails the probe, so this implies a restored Stream Table),
+arm_smmu_device_reset() shares the kdump adoption path, which already
+solves the problem of a live Stream Table:
+  a. SMMUEN and ATSCHK are retained, CR1/CR2/STRTAB_BASE are left alone,
+     as updating them with SMMUEN=1 is CONSTRAINED UNPREDICTABLE.
+  b. The CMDQ and the PRIQ (already disabled by the outgoing kernel) are
+     reset as usual, while EVTQEN and the EVTQ registers are left alone
+     for the adopted EVTQ.
+  c. Any GERROR latched across the kexec is acked before the CMDQ is
+     re-enabled.
+  d. The interrupts are re-wired to the incoming kernel. The IRQs are
+     masked, hence IRQ_CFGn can be reprogrammed with SMMUEN=1. The EVTQ
+     thread is then woken up to handle the events already pending.
+  e. CFGI_ALL and TLBI_NSNH_ALL/TLBI_EL2_ALL flush everything cached for
+     the previous kernel. The preserved devices merely re-walk the
+     preserved tables.
 
-[1] 
-https://lore.kernel.org/linux-media/20260916-spu-rga3multicore-v2-13-23aa2cb74e61@pengutronix.de/
+5. Hitless re-attach
+The IOMMU core restores a preserved domain by allocating a new paging
+domain around the preserved page table and attaching it to the restored
+device [1]. A new domain comes with a new ASID/VMID though, while the
+device is still doing DMA through the preserved CD/STE.
 
-[2] 
-https://lore.kernel.org/linux-media/20260916-spu-rga3multicore-v2-14-23aa2cb74e61@pengutronix.de/
+Similar to the Intel driver reclaiming the preserved Domain ID, the
+restored domain inherits the ASID/VMID of the live CD/STE on its first
+attach (the ID was reserved in 3.a, so it's just handed over). The stage,
+the page table root and the ID recorded in 1.b are cross-checked against
+the live CD/STE, failing the attach if the restored domain isn't what the
+HW is walking. With this, the CD/STE computed for the restored domain are
+identical to the live ones and the re-attach is a no-op for the HW.
 
+Relation to the kdump adoption series
+=====================================
+Nicolin's kdump series [4] factored the parsing and validation of the
+previous kernel's SMMU tables into arm-smmu-v3-kexec.c with Live Update
+in mind. This series builds on it: ARM_SMMU_V3_KEXEC is also enabled by
+IOMMU_LIVEUPDATE, the restore paths use those helpers, the kdump reset
+path is shared via arm_smmu_strtab_is_live(), and a small
+arm_smmu_kexec_check_cdtab_l1_desc() helper is factored out of the ASID
+scan to be shared with the CD table restoration.
 
-> Reviewed-by: Nicolas Dufresne <nicolas.dufresne@collabora.com>
->
-> Picked, ty
->
->> ---
->> Changes in v2:
->> - Rebased onto media-committers/fixes (Linux 7.2-rc1) so the Media CI
->>    valid-ancestor check passes. The rga driver was rewritten upstream
->>    (rga3 support, external IOMMU, clk_bulk, cmdbuf moved to rga_ctx), so
->>    this is a re-port rather than a pure rebase: the resource freed during
->>    removal is now rga->m2m_dev.
->> ---
->>   drivers/media/platform/rockchip/rga/rga.c | 4 +++-
->>   drivers/media/platform/rockchip/rga/rga.h | 1 +
->>   2 files changed, 4 insertions(+), 1 deletion(-)
->>
->> diff --git a/drivers/media/platform/rockchip/rga/rga.c b/drivers/media/platform/rockchip/rga/rga.c
->> index b3cb6bf8eb86..fbc99462dce2 100644
->> --- a/drivers/media/platform/rockchip/rga/rga.c
->> +++ b/drivers/media/platform/rockchip/rga/rga.c
->> @@ -797,6 +797,7 @@ static int rga_probe(struct platform_device *pdev)
->>   		ret = irq;
->>   		goto err_put_clk;
->>   	}
->> +	rga->irq = irq;
->>   
->>   	ret = devm_request_irq(rga->dev, irq, rga_isr,
->>   			       rga_has_internal_iommu(rga) ? 0 : IRQF_SHARED,
->> @@ -876,8 +877,9 @@ static void rga_remove(struct platform_device *pdev)
->>   
->>   	v4l2_info(&rga->v4l2_dev, "Removing\n");
->>   
->> -	v4l2_m2m_release(rga->m2m_dev);
->>   	video_unregister_device(rga->vfd);
->> +	devm_free_irq(rga->dev, rga->irq, rga);
->> +	v4l2_m2m_release(rga->m2m_dev);
->>   	v4l2_device_unregister(&rga->v4l2_dev);
->>   
->>   	pm_runtime_disable(rga->dev);
->> diff --git a/drivers/media/platform/rockchip/rga/rga.h b/drivers/media/platform/rockchip/rga/rga.h
->> index bd431534d0d3..7bcdf36c11b4 100644
->> --- a/drivers/media/platform/rockchip/rga/rga.h
->> +++ b/drivers/media/platform/rockchip/rga/rga.h
->> @@ -73,6 +73,7 @@ struct rockchip_rga {
->>   	struct device *dev;
->>   	struct regmap *grf;
->>   	void __iomem *regs;
->> +	int irq;
->>   	struct clk_bulk_data *clks;
->>   	int num_clks;
->>   	struct rockchip_rga_version version;
+Open issues and discussion points
+=================================
+1. Stage of the restored domain: The core restores a domain with
+   iommu_paging_domain_alloc(), i.e. flags == 0, which gives an S1 domain
+   on SMMUs supporting S1. This covers VFIO/iommufd paging HWPTs, but a
+   preserved S2 (NEST_PARENT) domain can't be restored as such. The core
+   has to preserve the allocation flags. For now, such a mismatch fails
+   the attach instead of switching the device to a different translation.
+
+2. Hitless domain replace: A restored domain is immutable (no map/unmap),
+   so the VMM has to replace it with a new HWPT after the Live Update.
+   With S1, the ASID and TTB0 live in different CD qwords, making the
+   replace non-hitless today; [11] addresses it with a temporary ASID.
+   S2 has the same problem with the VMID and S2TTB and needs a temporary
+   VMID.
+
+3. Queue drain: The shutdown doesn't drain the CMDQ before disabling it,
+   as the final invalidations are synced, there are no other submitters
+   left at shutdown and the incoming kernel invalidates everything again.
+   However, the CMDQV VCMDQs assigned to guests may need to be quiesced,
+   which is future work along with the ATS and PASID support.
+
+4. RMR SIDs: The outgoing kernel parks the unpreserved RMR streams in
+   abort, and the incoming kernel skips installing the RMR bypass STEs, as
+   it does for kdump, since they're written assuming a Stream Table that
+   isn't live yet.
+
+5. A failed restoration fails the SMMU probe instead of falling back to a
+   full reset (which would at least keep the system usable). Also, a
+   partially restored CD table isn't unwound on failure yet.
+
+6. PASID granularity, PRI and ATS state of the preserved PCI devices are
+   not handled yet (e.g. arm_smmu_enable_pasid() at probe for a device
+   that still has ATS enabled).
+
+7. The kdump [4] and invalidation [5] series both define ARM_SMMU_OPT
+   bit 5; this tree moves ARM_SMMU_OPT_KDUMP_ADOPT to bit 6.
+
+Dependencies
+============
+This series depends on the following series, applied in this order on
+top of v7.3-rc5:
+ 1. iommu/arm-smmu-v3: Invalidation rework (v7), by Jason [5]
+ 2. iommupt: Generic IOMMU page table for SMMUv3 (v2), by Jason [6]
+ 3. iommu/arm-smmu-v3: kdump Stream Table adoption (v10), by Nicolin [4]
+ 4. dma: DMA allocation preservation (RFC v2), by Samiullah [2]
+ 5. vfio/pci: Live Update preservation of VFIO cdev (v5), by Vipin [8]
+ 6. iommu: IOMMU Live Update state preservation (v5), by Samiullah [1]
+
+The luo_file internal APIs [10] and the PCI Live Update series [7] are
+already merged in linux-next.
+
+The VFIO series is taken as carried in [9], along with a small build
+fixup for the stack.
+
+A tree with everything applied is available at:
+https://github.com/pran005/linux/tree/arm-smmu-v3-liveupdate-rfc
+
+[1] https://lore.kernel.org/all/20260921004834.2601285-1-skhawaja@google.com/
+[2] https://lore.kernel.org/all/20260708234854.4044652-1-skhawaja@google.com/
+[3] https://lpc.events/event/20/contributions/2612/
+[4] https://lore.kernel.org/all/cover.1788130528.git.nicolinc@nvidia.com/
+[5] https://lore.kernel.org/all/0-v7-e84261bbe7cd+2ea80b-smmu_tlbi_jgg@nvidia.com/
+[6] https://lore.kernel.org/all/0-v2-563ee63886f0+1209-iommupt_armv8_jgg@nvidia.com/
+[7] https://lore.kernel.org/all/20260918200640.887030-1-dmatlack@google.com/
+[8] https://lore.kernel.org/kvm/20260714151505.3466855-1-vipinsh@google.com/
+[9] https://github.com/samikhawaja/linux/tree/iommu/phase1-v5
+[10] https://patch.msgid.link/20260723202912.1467112-2-skhawaja@google.com
+[11] https://lore.kernel.org/all/20260925011308.3381953-1-skhawaja@google.com/
+
+Pranjal Shrivastava (9):
+  iommu/kho: Extend IOMMU KHO ABI for ARM SMMUv3
+  iommu/arm-smmu-v3: Implement KHO preservation for STEs
+  iommu/arm-smmu-v3: Implement CD Table preservation
+  iommu/arm-smmu-v3: Implement Live Update Stream Table restoration
+  iommu/arm-smmu-v3: Implement Live Update CD Table restoration
+  iommu/arm-smmu-v3: Implement Live Update shutdown
+  iommu/arm-smmu-v3: Retain SMMUEN across a Live Update restore
+  iommu/arm-smmu-v3: Inherit the ASID/VMID of restored domains
+  iommu/arm-smmu-v3: Adopt the Event queue across a Live Update
+
+ drivers/iommu/arm/Kconfig                     |   2 +-
+ drivers/iommu/arm/arm-smmu-v3/Makefile        |   1 +
+ .../iommu/arm/arm-smmu-v3/arm-smmu-v3-kexec.c |  44 +-
+ .../arm/arm-smmu-v3/arm-smmu-v3-liveupdate.c  | 997 ++++++++++++++++++
+ drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c   | 119 ++-
+ drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.h   |  56 +
+ include/linux/kho/abi/iommu.h                 |  38 +
+ 7 files changed, 1220 insertions(+), 37 deletions(-)
+ create mode 100644 drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3-liveupdate.c
+
+base-commit: 72d3fcf802c45d00b300f25b848a93c3a2bd7c7e
+-- 
+2.56.0.rc1.315.gc6ed9934b7-goog
+
 
