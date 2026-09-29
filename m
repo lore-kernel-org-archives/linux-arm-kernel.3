@@ -4,98 +4,76 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7C005CA5FA5
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 29 Sep 2026 13:55:44 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 79DF6C9832A
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 29 Sep 2026 13:56:34 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=R9UFah7dL2mNY2meqJf4W09SVFZ5MUi1IU/9ko/DymA=; b=EVu0198Jkj9VWWwairav/NuHAp
-	KWUmX4Iq10LgJ76lX/5m9+a1W3D4cgwDo+a2EXYXjzhM8LPSe+jFIsSFctT5Wy9t1+HEXWy7aSeMF
-	g7riUmxESB/g7gRzevlXj06UyB6OIGy3RMvOcoNRK9b4779td+hZ1YNb6HC9HVsYc8iZW1qB0EkAb
-	X3LK0GU4ILCxRKyr/tfHpRBcQ6lG26ParwVFn1QjryXnZyxxqlVYlwrpx+TSfRWtvEjFTa0khU/4+
-	i/0Q/FdBlawyTxie7Ew5ATexpAJryRgFy3983TYccds/Ly1ACkCv7cqsAw5HNlgvnNRfLOOGcJj6D
-	/JW2jMYg==;
+	bh=QFsn630Py9AAgmOeUOScJpmEIDQZd/kQytbMgzq4hBY=; b=ThSxG+u4bYPXcmNkObj6prClxc
+	UO9aWaRrQHk7FLtaE8/DFiBSpC0Xug9je7lcsf3yK1XEsW21pjSbEEAeZCAKofUpMY3XLzd6TcVAj
+	7Rc/QEukdYpXBDXQhgiNz9P9L4bn+3vGVrpIbIrBfJyBozBpnzt0qyKrc5WNP7EBf+/kAqnb/Rrih
+	OK0/FVljyoAL41FG3I6WCugzOnWqSiwisWHNyi1CHrenGvdMYc5fCYvSNk9WIYbtvrmoWRVQhC9LV
+	Omfo1JMvLt+b3/ULbrZ1azdIxIfwCBjC7GHeB7T/2STxoCEpNO7TViP42c/Tsgf2HRoz93oaCWmh0
+	sHUwBwAQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xBYIx-00000003jFE-0DS5;
-	Tue, 29 Sep 2026 13:55:35 +0000
-Received: from mail-ed2-x0c.google.com ([2a00:1450:4864:33::c])
+	id 1xBYJm-00000003jLl-1ExX;
+	Tue, 29 Sep 2026 13:56:26 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xBYIu-00000003jEb-1Kvp
+	id 1xBYJk-00000003jLM-1cE3
+	for linux-arm-kernel@bombadil.infradead.org;
+	Tue, 29 Sep 2026 13:56:24 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:Content-Type
+	:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:Message-ID:
+	Sender:Reply-To:Content-ID:Content-Description;
+	bh=QFsn630Py9AAgmOeUOScJpmEIDQZd/kQytbMgzq4hBY=; b=R2rsLJZuCR/7yJlk/c3YYlZH32
+	5pw51T2ph3bnqMHBxUw8Sfm89aurFHeWr+NT5aOWPKi8Tifrz1I/lpuXbc+3eDWVTdz7pPEVLOzbM
+	UPo6fxjLXPpxGU7XrmHB/lAbE2AOMD20VUmCpx5SJkyPcb/xKSJpJfruTrAKwqe5DQArC6XiPD+jg
+	KmkPtXscPurqrhoBIBN+Y211Wsxq8a/V3BvNJzf/eJym6hzLfYtaR/5ie+wTXFO2JfiMTrY6I51SO
+	+mPEuLv13a0CtTzR79pfMbb/FPiFQfmwgEJzbcUUEworEnQqunOL0WMM+c7osakVvq2ax5F2DOa9W
+	xoowVLyA==;
+Received: from foss.arm.com ([217.140.110.172])
+	by desiato.infradead.org with esmtp (Exim 4.99.2 #2 (Red Hat Linux))
+	id 1xBYJQ-00000002hsX-3wJ9
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 29 Sep 2026 13:55:33 +0000
-Received: by mail-ed2-x0c.google.com with SMTP id 4fb4d7f45d1cf-6acb8b78d6cso936855a12.2
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 29 Sep 2026 06:55:31 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1790690130; x=1791294930; darn=lists.infradead.org;
-        h=content-transfer-encoding:content-type:in-reply-to:from
-         :content-language:references:cc:to:subject:user-agent:mime-version
-         :date:message-id:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=R9UFah7dL2mNY2meqJf4W09SVFZ5MUi1IU/9ko/DymA=;
-        b=cYPzlSaz/DOuHY3VTMPzo0PKuKak9eBC3yjIsXLEg9wGWWUzd8nLVuiZ6lbxff4gn0
-         TjzAraC6YZ9UGOOM4Li4/pnVj1P5zjCCsSpuospPzBHHm84v2v/p/tFRLjTSV/BhkuqU
-         aSNBSaeMZcBcr7/MQ4Az6tseJw41AIghrtcj0xG+CFX1Z16nGSg1EwdJVM8oa2Bc5O+J
-         IfZelE1ieOyBN/Gk4XqYtdYYMBFmqBYkXCkhlGs5LscBSer8pMtuVQG2TM8KgWcbgFoy
-         r/ArW8iWyfNgzP7YTXdxLcB3bjITCLJowCrJBNPtirtD6VIiOODqEYaaVK8bf2mxlpZQ
-         FiHQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1790690130; x=1791294930;
-        h=content-transfer-encoding:content-type:in-reply-to:from
-         :content-language:references:cc:to:subject:user-agent:mime-version
-         :date:message-id:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=R9UFah7dL2mNY2meqJf4W09SVFZ5MUi1IU/9ko/DymA=;
-        b=jeqEpok+z9XSsYR4hkzXKpyj44D53dVnrGaf4Tzzr01aFEEFdy3n6+7Wu6W8wwDQPh
-         VBcfG14e9+fduI1rUcJO9vot7ErI3BBoSkmziDS8kxSLJf6Hpce+rMq0MvdMCmxQvkKT
-         C3Ds5UqYqODTqE01vKPLiVHWtnU3LXOEFkmMwN7JCoI60eVJMM2xz3Qwv2ShdqUl/e8G
-         Vha2Enr8IgpaRMWIvt6+X9IWQqjJ/5A0jlac7Ctdr29H+XxEpYvla30duSNwsjbh6zdG
-         xLdXdZsRQ87TB2OwGIMxcymGjoRQOwQtbyBRLpunUMX7kbWzi9OYyX33rM8N/uXT+tiV
-         SLtg==
-X-Forwarded-Encrypted: i=1; AKwUvBwJpGqaLkzgcUYL/c8RLuRp/p8xiwC8aJuAQm4COUxe77oeh44PUEuBV2m6KtU9Ovx6QCV0Kf34cBgY8Eh+F0Bb@lists.infradead.org
-X-Gm-Message-State: AFuF++lP6p4EQejoBq3mR6Fo/GZHU5R/jq7aU4Ekg0Fo8vqX2OPOnKCj
-	TILNVNFUCfCH5jMtw947vWRZlwMelv5OeWelylgou+UXYsVTEWoPUWb91A+oym7lpRI=
-X-Gm-Gg: AYBFou1H6APq9RrmSFROPqUjcbFda0MH0PtZZWui0KaLwpL9ejhSEr08eGbIQq8pRDi
-	oirZo6yGktZqXe1ulQvtejYc2lXu4INg3o8nmf8288Q4otPM0fL7rtqhoaPqFnguRss+tDWnCzD
-	f7WMczNHleTWV6DRbjOMm2Ovt+JqF1Y6/ONBq8d9vOEcJmUfqvW/qOUzJHND1zvp4b4+4S69Pk3
-	tLUv0JXGHdLmnl2T7tcVlN0nL2TBO+VKbekKV1I8GXPOiqgMp7Xa/nEq0PN/7yhcOXoigDyVlrr
-	XVO4OPJDipxhfe/aQ2phUNMf+covUokwHNFvC87j/h+tKK/WixoQ07hjwA7SZy/pJVJZstYtKsZ
-	AE/xyhDB5zY/MMUR+ZsKpz5bO0CmqZnR2Ac5uPUyDVED5MfUdZ9dDrHQQTYL2sJv1KPiHNuMoQi
-	jPQF/CBDUi3kJNU6ayUtdFXLLCFHW3ObkBXMTg4l6H3g9nt8iXlyI0DqFK2KwI5J7a2zoWAHmL6
-	vI3HCq5JAIhaw==
-X-Received: by 2002:a17:907:a28f:b0:c26:2ff1:cac2 with SMTP id a640c23a62f3a-c2ae9f31dedmr1035004766b.31.1790690130146;
-        Tue, 29 Sep 2026 06:55:30 -0700 (PDT)
-Received: from [192.168.1.3] ([37.18.141.193])
-        by smtp.gmail.com with ESMTPSA id 4fb4d7f45d1cf-6acb9057b4csm872836a12.33.2026.09.29.06.55.29
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Tue, 29 Sep 2026 06:55:29 -0700 (PDT)
-Message-ID: <3852b153-9be1-4ab4-803e-cb8a6de34879@linaro.org>
-Date: Tue, 29 Sep 2026 14:55:28 +0100
+	Tue, 29 Sep 2026 13:56:20 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 90D4D1476;
+	Tue, 29 Sep 2026 06:55:57 -0700 (PDT)
+Received: from [10.0.153.43] (e121487-lin.cambridge.arm.com [10.0.153.43])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 0C9833F85F;
+	Tue, 29 Sep 2026 06:55:58 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
+	t=1790690161; bh=m19B67tO6yA36DYUEW/3W38fHYK7u9VkS9Qn+xT2Cjg=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=D3dCr0pvlRcVbfNihRuMchu/3XaIn8876ItpJktMauXeVWiJoVYk97kIAeGRtuZHC
+	 Un19rkp4+rtvXrHyGcDuaCFCuwwKQL3n3AA+RlvDY0ifHcKwQy9yO5+V+S6F0U1mBr
+	 cBA9Z4+F0vMFQZpl8hS+2xCsh4Ll09Nq0AImkmYs=
+Message-ID: <491d09a3-cfaf-45d5-9715-459e89180068@arm.com>
+Date: Tue, 29 Sep 2026 14:55:56 +0100
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2 05/14] perf cs-etm: Use the recorded instruction size
- for A32 and A64
-To: Leo Yan <leo.yan@arm.com>
-Cc: Arnaldo Carvalho de Melo <acme@redhat.com>, coresight@lists.linaro.org,
- linux-arm-kernel@lists.infradead.org, linux-perf-users@vger.kernel.org,
- linux-kernel@vger.kernel.org, Arnaldo Carvalho de Melo <acme@kernel.org>,
- Namhyung Kim <namhyung@kernel.org>, Jiri Olsa <jolsa@kernel.org>,
- Ian Rogers <irogers@google.com>, Adrian Hunter <adrian.hunter@intel.com>,
- Mike Leach <mike.leach@arm.com>, Suzuki K Poulose <suzuki.poulose@arm.com>,
- Suyash Mahar <smahar@meta.com>, Amir Ayupov <aaupov@fb.com>
-References: <20260923-perf_cs_etm_fix_non_taken-v2-0-6ab8c07a5455@arm.com>
- <20260923-perf_cs_etm_fix_non_taken-v2-5-6ab8c07a5455@arm.com>
-Content-Language: en-US
-From: James Clark <james.clark@linaro.org>
-In-Reply-To: <20260923-perf_cs_etm_fix_non_taken-v2-5-6ab8c07a5455@arm.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
+Subject: Re: [PATCH v2] arm64: errata: Add Cortex-A725 erratum 3821522
+ workaround
+To: Beata Michalska <beata.michalska@arm.com>,
+ linux-arm-kernel@lists.infradead.org
+Cc: catalin.marinas@arm.com, will@kernel.org, suzuki.poulose@arm.com,
+ James.Morse@arm.com, xuewen.yan94@gmail.com, seanwang1@lenovo.com,
+ linux-kernel@vger.kernel.org
+References: <20260929134055.3241587-1-beata.michalska@arm.com>
+Content-Language: en-GB
+From: Vladimir Murzin <vladimir.murzin@arm.com>
+In-Reply-To: <20260929134055.3241587-1-beata.michalska@arm.com>
+Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260929_065532_396073_2B1CB4DC 
-X-CRM114-Status: GOOD (  18.78  )
+X-CRM114-CacheID: sfid-20260929_145607_396466_15AF17B0 
+X-CRM114-Status: GOOD (  30.36  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -110,42 +88,132 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+Hi Beata,
 
+On 9/29/26 14:40, Beata Michalska wrote:
+> Cortex-A725 erratum 3821522 affects the CNT_CYCLES event, which can
+> incur a significant increment error when a CPU enters and subsequently
+> exits WFE or WFI, and may no longer track the system counter frequency.
+> 
+> The AMEVCNTR01_EL0 counter is being used as the AMU constant counter for
+> frequency invariance and CPPC FFH feedback counters. Treat the affected
+> AMU counter as unavailable by returning zero in the AMU counter paths,
+> matching the existing convention used when the counter is disabled or
+> unusable. This prevents the broken counter from being used as a reference
+> source.
+> 
+> The erratum can also affect PMUv3 users of the CNT_CYCLES event, but this
+> workaround intentionally does not change PMU event handling. Hiding or
+> rejecting the PMU event from the erratum code would change the perf-visible
+> PMU event interface, including raw event selection, and would need
+> separate PMU specific approach rather than being folded into the AMU
+> reference-counter workaround.
+> 
+> This also folds the per-erratum workarounds for ARM errata 2457168 and
+> 3821522 into a single AMU constant-counter capability, as both require
+> treating AMEVCNTR01 as unreliable and unavailable.
+> 
 
-On 23/09/2026 16:21, Leo Yan wrote:
-> Use packet->last_instr_size in cs_etm__instr_size() instead of a
-> hard-coded value, allowing the decoder to supply the instruction size.
-> 
-> Keep per-address decoding for T32. A range can mix 16-bit and 32-bit
-> instructions, so last_instr_size describes only the final instruction
-> and cannot determine the size at an arbitrary address in the range.
-> 
-> Assisted-by: Codex:gpt-6
-> Signed-off-by: Leo Yan <leo.yan@arm.com>
+Can we please split this in two patches:
+
+1. Factor out ARM64_WORKAROUND_2457168 into generic ARM64_WORKAROUND_BROKEN_AMU_CONSTCNT
+2. Wire up Cortex-A725 erratum 3821522
+
+> CC: <stable@vger.kernel.org>
+> Signed-off-by: Beata Michalska <beata.michalska@arm.com>
 > ---
->   tools/perf/util/cs-etm.c | 3 +--
->   1 file changed, 1 insertion(+), 2 deletions(-)
+>  Documentation/arch/arm64/silicon-errata.rst |  2 ++
+>  arch/arm64/Kconfig                          | 30 +++++++++++++++++++++
+>  arch/arm64/include/asm/cpucaps.h            |  3 ++-
+>  arch/arm64/kernel/cpu_errata.c              | 29 +++++++++++++++-----
+>  arch/arm64/kernel/cpufeature.c              |  2 +-
+>  arch/arm64/kernel/topology.c                | 16 ++++++-----
+>  arch/arm64/tools/cpucaps                    |  2 +-
+>  7 files changed, 68 insertions(+), 16 deletions(-)
 > 
-> diff --git a/tools/perf/util/cs-etm.c b/tools/perf/util/cs-etm.c
-> index 2d1ab34f7b6b5a6331005c16c6a418d123c815eb..0163d93ac2d537a2190536e77d24628b4d707751 100644
-> --- a/tools/perf/util/cs-etm.c
-> +++ b/tools/perf/util/cs-etm.c
-> @@ -1358,8 +1358,7 @@ static inline int cs_etm__instr_size(struct cs_etm_queue *etmq,
->   	if (packet->isa == CS_ETM_ISA_T32)
->   		return cs_etm__t32_instr_size(etmq, tidq, packet, addr);
->   
-> -	/* Otherwise, 4-byte instruction size for A32/A64 */
-> -	return 4;
-> +	return packet->last_instr_size;
+> diff --git a/Documentation/arch/arm64/silicon-errata.rst b/Documentation/arch/arm64/silicon-errata.rst
+> index ac3248b9f2f3b..99a1eb4b833dd 100644
+> --- a/Documentation/arch/arm64/silicon-errata.rst
+> +++ b/Documentation/arch/arm64/silicon-errata.rst
+> @@ -174,6 +174,8 @@ stable kernels.
+>  +----------------+-----------------+-----------------+-----------------------------+
+>  | ARM            | Cortex-A725     | #3456106        | ARM64_ERRATUM_3194386       |
+>  +----------------+-----------------+-----------------+-----------------------------+
+> +| ARM            | Cortex-A725     | #3821522        | ARM64_ERRATUM_3821522       |
+> ++----------------+-----------------+-----------------+-----------------------------+
+>  | ARM            | Cortex-X1       | #1502854        | N/A                         |
+>  +----------------+-----------------+-----------------+-----------------------------+
+>  | ARM            | Cortex-X1       | #3324344        | ARM64_ERRATUM_3194386       |
+> diff --git a/arch/arm64/Kconfig b/arch/arm64/Kconfig
+> index b5a51b0ef9440..cab741a695f52 100644
+> --- a/arch/arm64/Kconfig
+> +++ b/arch/arm64/Kconfig
+> @@ -1040,9 +1040,17 @@ config ARM64_ERRATUM_1902691
+>  
+>  	  If unsure, say Y.
+>  
+> +config ARM64_WORKAROUND_BROKEN_AMU_CONSTCNT
+> +	bool
+> +	# Targeting errata affecting AMEVCNTR01, the AMU constant counter.
+> +	# On affected CPUs the counter may not increment at the expected rate,
+> +	# making it unreliable. As a result, AMU users should treat it as
+> +	# unavailable rather than relying on misleading counter values.
+> +
+>  config ARM64_ERRATUM_2457168
+>  	bool "Cortex-A510: 2457168: workaround for AMEVCNTR01 incrementing incorrectly"
+>  	depends on ARM64_AMU_EXTN
+> +	select ARM64_WORKAROUND_BROKEN_AMU_CONSTCNT
+>  	default y
+>  	help
+>  	  This option adds the workaround for ARM Cortex-A510 erratum 2457168.
+> @@ -1073,6 +1081,28 @@ config ARM64_ERRATUM_2645198
+>  
+>  	  If unsure, say Y.
+>  
+> +config ARM64_ERRATUM_3821522
+> +	bool "Cortex-A725: 3821522: workaround for possible CNT_CYCLES increment error due to WFE/WFI"
+> +	depends on ARM64_AMU_EXTN
+> +	select ARM64_WORKAROUND_BROKEN_AMU_CONSTCNT
+> +	default y
+> +	help
+> +	  This option adds the workaround for ARM Cortex-A725 erratum 3821522.
+> +
+> +	  On affected A725 cores, the CNT_CYCLES event may incur a significant
+> +	  increment error when entering and subsequently exiting WFx.
+> +	  As a result, the CNT_CYCLES may diverge from the system counter
+> +	  frequency at which it is expected to increment.
+> +	  This renders the AMU counter AMEVCNTR01, that implements CNT_CYCLES,
+> +	  being unreliable and unsuitable for use.
+> +
+> +	  Since there is no hardware workaround, reads of the affected CNT_CYCLES
+> +	  counter return 0 in the relevant paths. This causes users of the counter
+> +	  to treat it as unavailable and is functionally equivalent to firmware
+> +	  disabling the affected counter.
+> +
+> +	  If unsure, say Y.
+> +
+>  config ARM64_WORKAROUND_SPECULATIVE_UNPRIV_LOAD
+>  	bool
+>  
+> diff --git a/arch/arm64/include/asm/cpucaps.h b/arch/arm64/include/asm/cpucaps.h
+> index 76350b38f0d7a..120c5dc3c11d7 100644
+> --- a/arch/arm64/include/asm/cpucaps.h
+> +++ b/arch/arm64/include/asm/cpucaps.h
+> @@ -75,8 +75,9 @@ cpucap_is_possible(const unsigned int cap)
+>  		return IS_ENABLED(CONFIG_HW_PERF_EVENTS);
+>  	case ARM64_HAS_LSUI:
+>  		return IS_ENABLED(CONFIG_ARM64_LSUI);
+> +	case ARM64_WORKAROUND_BROKEN_AMU_CONSTCNT:
+> +		return IS_ENABLED(CONFIG_ARM64_WORKAROUND_BROKEN_AMU_CONSTCNT);
 
-Why not use last_instr_size for CS_ETM_ISA_T32 too? I'm wondering how 
-and when this change actually makes a difference? last_instr_size isn't 
-any better than '4' for any instruction in the range other than the last 
-one, so it's not clear what the issue is.
+Hmm, ARM64_WORKAROUND_2457168 has not been present here, so seeing
+ARM64_WORKAROUND_BROKEN_AMU_CONSTCNT here is not quite expected...
 
->   }
->   
->   static inline u64 cs_etm__first_executed_instr(struct cs_etm_packet *packet)
-> 
+>  	}
+> -
 
+Nitpick: unrelated change?
+
+Thanks
+Vladimir
 
