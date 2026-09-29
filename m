@@ -4,62 +4,60 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8EBBEC9832A
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 29 Sep 2026 05:43:30 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B8773CA5FA1
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 29 Sep 2026 05:43:52 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=gtP8IqSzqQqjSXO/gR1w94Q4JndPAg4CmY6Ja2LAJvA=; b=jp8vVWIrO4qRKInwp8o0NCsHww
-	ZG4di8Qq+hytrKdeccwhivnloM7J8Oq3npMbyHttwrUkSllJ0Brs8xoYUMWqy0w03s2Bz3mXtUjju
-	fZwo4lN8p+h/06aHUO5jzLCMDAAlLPianWsXVzAT0xMrJWgVnLy8hOoUDAijfAAWn6pbDH6rGxF5Q
-	mHLkQzXqnSK03oxelVsgTSxD3Kr9qYtDmS4z+X0kpZ5hsaXZ9tdmeNS/MEGLzpxNVvdW/xxdKkt/c
-	hNksDnrt4fjASJm9AWLvCwcfXSzOB0AsjFHXrs1I5xCoMJB/xAPp5sH0dUxIl4LkRtdwOArx72gDU
-	dEx63lqw==;
+	bh=m4yQX+fqhwHs5ZsHqNqJS/2q+nx4lbtWQ5vxLSVbwUA=; b=YAezFGRrPnOhGmbVH+YSSgNcUQ
+	F0hqHXuHuerFBdw3Zqni3PpgAmMRJjQNrmQxMfR24q3BWLncY5Nba2keMhTzVZwVGqpPlB+qQ0YR4
+	1dNsT0ndORKxfOLimxBKFs31wUELCW4cTo+Kily9hmQV09i0629Zui96DAUuOl1MpUUOJ3QPFLnib
+	bdKyXPfqFKkBZxDZsgUVv1Utr7u7G1uG05bGrSNMbpzArJI+c3O6FMmvnmE16ocGr/5BCLBmues+d
+	evyC1++YFc/hzZqfrCONivLPfigesTwnAJ6uPW8Kr7hvvDtLJCDZNfbVfhgP3Fj3hHPs+4rXVFZBh
+	Q/v5tbaA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xBQce-00000002NlJ-2gZ9;
-	Tue, 29 Sep 2026 05:43:24 +0000
+	id 1xBQd0-00000002Nof-3COQ;
+	Tue, 29 Sep 2026 05:43:46 +0000
 Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xBQcd-00000002NlB-0WHO
+	id 1xBQcz-00000002NoO-1akM
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 29 Sep 2026 05:43:23 +0000
+	Tue, 29 Sep 2026 05:43:45 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id C2E4D41691;
-	Tue, 29 Sep 2026 05:43:20 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 8D7451F000FF;
-	Tue, 29 Sep 2026 05:43:14 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 272FA41691;
+	Tue, 29 Sep 2026 05:43:45 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 971871F000FF;
+	Tue, 29 Sep 2026 05:43:40 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1790660600;
-	bh=gtP8IqSzqQqjSXO/gR1w94Q4JndPAg4CmY6Ja2LAJvA=;
+	s=k20260515; t=1790660625;
+	bh=m4yQX+fqhwHs5ZsHqNqJS/2q+nx4lbtWQ5vxLSVbwUA=;
 	h=Date:Subject:To:Cc:References:From:In-Reply-To;
-	b=hrjqYJIEK/o/khodU8aWLL20wutTUKBgZeW7h5RR6G1GQT+RJW5CeT3WTMDRxbca0
-	 TjEpKCwvWDlIMudjWe4Ni1WfhzNDLeL4+l39lGtje2TAznHxWpDATkYWQLF0QmV9wg
-	 xFKrJr9CLCjRYLYqO7jJLXIyzqRMYnU5Hxl+OpGTMZjPt/d0vUNHfgk2gUPMIxUMyA
-	 99ylW5/HHin+A8/V7c01lHXU+0dQY8PYHaGjfNAA1IFhbLA72xfcWvzP0atUSTtEUp
-	 ywv/QapQ62ejszG+eoftl/VMOCNkfHESiaiJVjKrt5NGzVPVFUsWL89cWDDTjTa61w
-	 liiS6wwCTy0QQ==
-Message-ID: <ba1939f5-c528-42b8-971a-4b16998c37f9@kernel.org>
-Date: Tue, 29 Sep 2026 07:43:11 +0200
+	b=YPfZ9mbrlw5GsPvAqr4lVOSoY513OpXoTZ+5Q+gjw266gLpCjcsX9EcYZr9Vi25ZD
+	 zFKVqj9rp12Q7KV+KWdiJicYyXywa0M/tHfp9/PkO5JY1NCjLMQVRsKKs335vcIX9O
+	 nGmznRaVYPt93UJo9HPtBKW2c0BFRPrBqdv2jPti2X1AYP+9JAHG7JfL4sPxdBkHNp
+	 5zYXpoqb5AeIr6dyr9dIAvW4CMdpsT60Y38eZv0GKN8Mimd5muLeL929FtA6mTVjVc
+	 6VxCh8z9VkNxL582M/xNjglZvoT+gqOc4VCnzv4qyVohLXNaYK0m+IW99Mry1bDtNY
+	 wlAWu/BFynzMw==
+Message-ID: <f174b390-6f54-46a6-aeda-a7d9e6eb2f81@kernel.org>
+Date: Tue, 29 Sep 2026 07:43:37 +0200
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 00/16] arm64: dts: exynos: Format with dtfmt
+Subject: Re: [PATCH 01/16] arm64: dts: exynos2200: Remove empty line at end of
+ node
 To: Waqar Hameed <waqar.hameed@axis.com>,
- Peter Griffin <peter.griffin@linaro.org>,
- =?UTF-8?Q?Andr=C3=A9_Draszik?= <andre.draszik@linaro.org>,
- Tudor Ambarus <tudor.ambarus@linaro.org>, Rob Herring <robh@kernel.org>,
+ Ivaylo Ivanov <ivo.ivanov.ivanov1@gmail.com>, Rob Herring <robh@kernel.org>,
  Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
- <conor+dt@kernel.org>, Alim Akhtar <alim.akhtar@samsung.com>,
- Sam Protsenko <semen.protsenko@linaro.org>,
- Ivaylo Ivanov <ivo.ivanov.ivanov1@gmail.com>,
- Konrad Dybcio <konradybcio@kernel.org>
+ <conor+dt@kernel.org>, Peter Griffin <peter.griffin@linaro.org>,
+ Alim Akhtar <alim.akhtar@samsung.com>
 Cc: kernel@axis.com, linux-arm-kernel@lists.infradead.org,
  linux-samsung-soc@vger.kernel.org, devicetree@vger.kernel.org,
  linux-kernel@vger.kernel.org
 References: <cover.1790629313.git.waqar.hameed@axis.com>
+ <58f66e4612773be8c0391e3e963c72978aba58ae.1790629313.git.waqar.hameed@axis.com>
 From: Krzysztof Kozlowski <krzk@kernel.org>
 Content-Language: en-US
 Autocrypt: addr=krzk@kernel.org; keydata=
@@ -105,7 +103,7 @@ Autocrypt: addr=krzk@kernel.org; keydata=
  K9bCVaboTA2T77QYkRcRJYSsO1alGX0ome/hMLD1daXlkrNUp1HWa3K4iytLRXjCSIorWiGs
  n+q3krnpXu3TFkA8qtOFZMdnIiFuiq1yLT8hptsV5xh1TA2nsVvSYiaCr3q4s4BKjS/KrLDb
  qoxzw8ISjdUp4pA85vb6YLCmb39NgidD+7PmAr65lBNveIFynTgsja1rRQ4=
-In-Reply-To: <cover.1790629313.git.waqar.hameed@axis.com>
+In-Reply-To: <58f66e4612773be8c0391e3e963c72978aba58ae.1790629313.git.waqar.hameed@axis.com>
 Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
 X-BeenThere: linux-arm-kernel@lists.infradead.org
@@ -123,17 +121,27 @@ Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
 On 29/09/2026 00:38, Waqar Hameed wrote:
-> I was looking through the notes for the last Devicetree microconference
-> at Linux Plumbers (LPC) 2025 [1], and realized that the tool I have been
-> working on might be of interest here: dtfmt - a Devicetree Source
-> formatter [2].
+> There shouldn't be an empty line at end of node definition. Found/fixed
+> with dtfmt (Devicetree Source formatter).
 > 
-> dtfmt uses a parser with lexical grammar (tree-sitter) directly ported
+> Signed-off-by: Waqar Hameed <waqar.hameed@axis.com>
+> ---
+>  arch/arm64/boot/dts/exynos/exynos2200-pinctrl.dtsi | 2 --
+>  arch/arm64/boot/dts/exynos/exynos2200.dtsi         | 1 -
+>  2 files changed, 3 deletions(-)
+> 
+> diff --git a/arch/arm64/boot/dts/exynos/exynos2200-pinctrl.dtsi b/arch/arm64/boot/dts/exynos/exynos2200-pinctrl.dtsi
+> index 5877da7baf5c4..d5aede3af15f7 100644
+> --- a/arch/arm64/boot/dts/exynos/exynos2200-pinctrl.dtsi
+> +++ b/arch/arm64/boot/dts/exynos/exynos2200-pinctrl.dtsi
+> @@ -702,7 +702,6 @@ uart20_bus_dual: uart20-bus-dual-pins {
+>  		samsung,pin-function = <EXYNOS_PIN_FUNC_2>;
+>  		samsung,pin-pud = <EXYNOS_PIN_PULL_NONE>;
+>  	};
+> -
+>  };
 
-We do not use dtfmt. I think you missed entire recent work and recent
-commits, where `git log` would point you.
-
-https://lore.kernel.org/all/20260911-b4-dts-samsung-cleanup-strict-continued-v1-0-9aa55051c42b@oss.qualcomm.com/
+There is no such code.
 
 Best regards,
 Krzysztof
