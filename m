@@ -4,82 +4,74 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C137FCA5FA5
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 29 Sep 2026 13:41:28 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id AD5B5CA5FA5
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 29 Sep 2026 13:41:43 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=+Jbi3ZrbjMftX9+oR4Dt/bNs2t3qNv36/aL/DtZbOIA=; b=MBiIpzLdCP++zHwW15takgLjSa
-	e1FZq0ZjC2TDc2MQThAFuqsS4cl3kfTEoiKukOh3qUjlTfYyXpy4lqo0trg4Y9pqzuEXhLpAsxwPU
-	SMrHNUzvSUZyj57aR4e4Ne/CStLuZJK1vKyBCOvAvC6N/7hr1zo7nzloRWV4UxpLzz+qK+1yvSePP
-	brdMPk+MJvF5mzlZuCFSj/mVa26gdCDmNzaTZO1p/f1mkgNMher/9tp3CAn1U1dBQe/j6siWtJoHr
-	q56PS2j7GREu11Uk3MBmbY6pkxC8CoyxwXZzocfrqvTnrJsSrR6SpWcsZjLlqKZ6xgKuyr8gEBgBB
-	ZLOFIV6A==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=/ypv8F6nTLCDmhk04jTRq4j/1jiDXcMRwF2psCSIN5Y=; b=iog0BHIwJRWh4t9LR2kWOfNH7U
+	EqpN5Hxw0INLlRDBKSr/YJfynxMZjnvRQsMDmX8umgFlN8sU8sDg6OPYKb2SXRNvLiAOa6IJdTf+e
+	LUjCSV784cVroRhfsEqYCJRUWq9yNXy5O90BZQPBuzSE44nzdaQa+tM27JWdpfH3NcIJ2XTTHeQvl
+	8x2iPA8dO6qKp+Rp1oSM6oziM1HSc9ClRIrLd9nORWqIPUi77NATrgSXwzztDcIf73Du9mRtr5chv
+	R2OPG58qtgsYfK4dhGRzLRwXpGCyY9/oD9us3Ckjvqk48two0h5SVt/VeXpZQV+j80p1odrQjamlo
+	CXoYbApA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xBY53-00000003hJq-1ql3;
-	Tue, 29 Sep 2026 13:41:13 +0000
-Received: from smtpout-03.galae.net ([185.246.85.4])
+	id 1xBY5R-00000003hXY-2NRu;
+	Tue, 29 Sep 2026 13:41:37 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xBY4s-00000003hDk-3eeA
+	id 1xBY5Q-00000003hWl-2EPl
+	for linux-arm-kernel@bombadil.infradead.org;
+	Tue, 29 Sep 2026 13:41:36 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:MIME-Version
+	:Message-ID:Date:Subject:Cc:To:From:Sender:Reply-To:Content-Type:Content-ID:
+	Content-Description:In-Reply-To:References;
+	bh=/ypv8F6nTLCDmhk04jTRq4j/1jiDXcMRwF2psCSIN5Y=; b=A3MytQtpC38Qsrc7+SmP+mLMcB
+	smZLHQwznH7pOoUgYu+RHtDD6jhC76KbKe8GaxQMd/ycRKYvLLuQDZZPAVwX0vRyLNtIyVaik+7SS
+	6NKxQpwfft4aSE87ibrZquQKXm4irZ9sYxPSazX0lFCHUNV4+AXeI9t6yy5N5egJ2rtAwbQj2wv3o
+	JkDBiO09EIXMK0HaJ17Y9L0g86RpoV45dsB1iCmkpnZL5E6katJ6le4r0moZNp48ioK3rm7SqMOVp
+	BYld1e14+endP6sGXkrQVRB9es3dlb1RKJC2Q0Ciky0btSAyFUTKliGI9t+d2b4Vk+6FM37XtaaMy
+	B7iXkuxA==;
+Received: from foss.arm.com ([217.140.110.172])
+	by desiato.infradead.org with esmtp (Exim 4.99.2 #2 (Red Hat Linux))
+	id 1xBY5M-00000002h0j-2gJq
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 29 Sep 2026 13:41:04 +0000
-Received: from smtpout-01.galae.net (smtpout-01.galae.net [212.83.139.233])
-	by smtpout-03.galae.net (Postfix) with ESMTPS id 4FF934E410B5;
-	Tue, 29 Sep 2026 13:41:01 +0000 (UTC)
-Received: from mail.galae.net (mail.galae.net [212.83.136.155])
-	by smtpout-01.galae.net (Postfix) with ESMTPS id 21A0A601BD;
-	Tue, 29 Sep 2026 13:41:01 +0000 (UTC)
-Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 6E735103297BA;
-	Tue, 29 Sep 2026 15:40:54 +0200 (CEST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=dkim;
-	t=1790689258; h=from:subject:date:message-id:to:cc:mime-version:content-type:
-	 content-transfer-encoding:in-reply-to:references;
-	bh=+Jbi3ZrbjMftX9+oR4Dt/bNs2t3qNv36/aL/DtZbOIA=;
-	b=mw9KHbtzMuNVa4Ij0ksdAIhkqT6DDh55fBMfnuOaMz1Dgrw7uTA5MLDYPmjcVHP8gBDsSc
-	fmMkHj6YzYsxESdZx0vOPYOFGR+Wnb+J9I8mOXDfVrYbGdQEnMUIBs++qI3goOFU0qLB45
-	h2w/bX1b9Kj+ldCkdHV6Vo2wqfVDhaeHhRO/MdvQYkAbKAiUltjvvZdyJGObNLQ2FQINN6
-	wX3OcTZeSbRjvV0zMN8JD1QeD0Ulo0Y9zqHRAyW26/wtlKM0hqYD+GGMBQgZZ7ogqir1CL
-	GHFzDlaEe5Wq4jwnoFYiaVSPWuaxF1Iny8s5bFCQdfeweuvHTYU6MblRpXTFlw==
-From: Luca Ceresoli <luca.ceresoli@bootlin.com>
-Date: Tue, 29 Sep 2026 15:39:56 +0200
-Subject: [PATCH v2 7/7] drm: renesas: shmobile: stop using deprecated
- devm_drm_of_get_bridge()
+	Tue, 29 Sep 2026 13:41:35 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 818241476;
+	Tue, 29 Sep 2026 06:41:24 -0700 (PDT)
+Received: from e143943.arm.com (unknown [10.57.78.3])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPA id D0B2C3F85F;
+	Tue, 29 Sep 2026 06:41:25 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
+	t=1790689288; bh=8OuCG/fl2EYuiKnuarntipcfkB/aqIWXIhmS9rQ5/Dk=;
+	h=From:To:Cc:Subject:Date:From;
+	b=CIjSgt/NEuiTjwVz+wTF2qCVYipZPNRI6e7m9YeKahionIxixbkSD5re8+n8STTYJ
+	 nw4z545BeRBdTcZCqx+QM1aj9uyYB86ZiFk1G7rEnaFx+yMPha8LCcECmsjKg8CuHH
+	 dbKVaGXXVZTmxsoWWG95T11v2+4uKKa9l41YiMj8=
+From: Beata Michalska <beata.michalska@arm.com>
+To: linux-arm-kernel@lists.infradead.org
+Cc: catalin.marinas@arm.com,
+	will@kernel.org,
+	suzuki.poulose@arm.com,
+	James.Morse@arm.com,
+	xuewen.yan94@gmail.com,
+	seanwang1@lenovo.com,
+	linux-kernel@vger.kernel.org
+Subject: [PATCH v2] arm64: errata: Add Cortex-A725 erratum 3821522 workaround
+Date: Tue, 29 Sep 2026 15:40:36 +0200
+Message-ID: <20260929134055.3241587-1-beata.michalska@arm.com>
+X-Mailer: git-send-email 2.43.0
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20260929-drm-fix-of_get_bridge-build-regression-v2-7-6da431d8f180@bootlin.com>
-References: <20260929-drm-fix-of_get_bridge-build-regression-v2-0-6da431d8f180@bootlin.com>
-In-Reply-To: <20260929-drm-fix-of_get_bridge-build-regression-v2-0-6da431d8f180@bootlin.com>
-To: Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, 
- Maxime Ripard <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>, 
- David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>, 
- Frank Li <Frank.Li@nxp.com>, Sascha Hauer <s.hauer@pengutronix.de>, 
- Pengutronix Kernel Team <kernel@pengutronix.de>, 
- Fabio Estevam <festevam@gmail.com>, Icenowy Zheng <zhengxingda@iscas.ac.cn>, 
- Andrzej Hajda <andrzej.hajda@intel.com>, 
- Neil Armstrong <neil.armstrong@linaro.org>, Robert Foss <rfoss@kernel.org>, 
- Laurent Pinchart <Laurent.pinchart@ideasonboard.com>, 
- Jonas Karlman <jonas@kwiboo.se>, Jernej Skrabec <jernej.skrabec@gmail.com>, 
- Dave Stevenson <dave.stevenson@raspberrypi.com>, 
- =?utf-8?q?Ma=C3=ADra_Canal?= <mcanal@igalia.com>, 
- Raspberry Pi Kernel Maintenance <kernel-list@raspberrypi.com>, 
- Geert Uytterhoeven <geert+renesas@glider.be>
-Cc: Arnd Bergmann <arnd@kernel.org>, Doug Anderson <dianders@chromium.org>, 
- Hui Pu <Hui.Pu@gehealthcare.com>, Ian Ray <ian.ray@gehealthcare.com>, 
- Thomas Petazzoni <thomas.petazzoni@bootlin.com>, 
- dri-devel@lists.freedesktop.org, imx@lists.linux.dev, 
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
- linux-renesas-soc@vger.kernel.org, 
- Luca Ceresoli <luca.ceresoli@bootlin.com>
-X-Mailer: b4 0.16.0
-X-Last-TLS-Session-Version: TLSv1.3
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260929_064103_055935_E4007C5B 
-X-CRM114-Status: GOOD (  11.76  )
+X-CRM114-CacheID: sfid-20260929_144133_163937_81082C7B 
+X-CRM114-Status: GOOD (  28.32  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -94,50 +86,234 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-devm_drm_of_get_bridge() is deprecated, switch to
-of_drm_get_bridge_by_endpoint(). As of_drm_get_bridge_by_endpoint() returns
-a refcounted bridge, ensure it is put.
+Cortex-A725 erratum 3821522 affects the CNT_CYCLES event, which can
+incur a significant increment error when a CPU enters and subsequently
+exits WFE or WFI, and may no longer track the system counter frequency.
 
-drm_panel.h becomes unused, drop the include.
+The AMEVCNTR01_EL0 counter is being used as the AMU constant counter for
+frequency invariance and CPPC FFH feedback counters. Treat the affected
+AMU counter as unavailable by returning zero in the AMU counter paths,
+matching the existing convention used when the counter is disabled or
+unusable. This prevents the broken counter from being used as a reference
+source.
 
-Acked-by: Maxime Ripard <mripard@kernel.org>
-Signed-off-by: Luca Ceresoli <luca.ceresoli@bootlin.com>
+The erratum can also affect PMUv3 users of the CNT_CYCLES event, but this
+workaround intentionally does not change PMU event handling. Hiding or
+rejecting the PMU event from the erratum code would change the perf-visible
+PMU event interface, including raw event selection, and would need
+separate PMU specific approach rather than being folded into the AMU
+reference-counter workaround.
+
+This also folds the per-erratum workarounds for ARM errata 2457168 and
+3821522 into a single AMU constant-counter capability, as both require
+treating AMEVCNTR01 as unreliable and unavailable.
+
+CC: <stable@vger.kernel.org>
+Signed-off-by: Beata Michalska <beata.michalska@arm.com>
 ---
- drivers/gpu/drm/renesas/shmobile/shmob_drm_crtc.c | 5 ++---
- 1 file changed, 2 insertions(+), 3 deletions(-)
+ Documentation/arch/arm64/silicon-errata.rst |  2 ++
+ arch/arm64/Kconfig                          | 30 +++++++++++++++++++++
+ arch/arm64/include/asm/cpucaps.h            |  3 ++-
+ arch/arm64/kernel/cpu_errata.c              | 29 +++++++++++++++-----
+ arch/arm64/kernel/cpufeature.c              |  2 +-
+ arch/arm64/kernel/topology.c                | 16 ++++++-----
+ arch/arm64/tools/cpucaps                    |  2 +-
+ 7 files changed, 68 insertions(+), 16 deletions(-)
 
-diff --git a/drivers/gpu/drm/renesas/shmobile/shmob_drm_crtc.c b/drivers/gpu/drm/renesas/shmobile/shmob_drm_crtc.c
-index 328a36215e39..51bae2008cc6 100644
---- a/drivers/gpu/drm/renesas/shmobile/shmob_drm_crtc.c
-+++ b/drivers/gpu/drm/renesas/shmobile/shmob_drm_crtc.c
-@@ -28,7 +28,6 @@
- #include <drm/drm_gem_dma_helper.h>
- #include <drm/drm_modeset_helper.h>
- #include <drm/drm_modeset_helper_vtables.h>
--#include <drm/drm_panel.h>
- #include <drm/drm_probe_helper.h>
- #include <drm/drm_vblank.h>
+diff --git a/Documentation/arch/arm64/silicon-errata.rst b/Documentation/arch/arm64/silicon-errata.rst
+index ac3248b9f2f3b..99a1eb4b833dd 100644
+--- a/Documentation/arch/arm64/silicon-errata.rst
++++ b/Documentation/arch/arm64/silicon-errata.rst
+@@ -174,6 +174,8 @@ stable kernels.
+ +----------------+-----------------+-----------------+-----------------------------+
+ | ARM            | Cortex-A725     | #3456106        | ARM64_ERRATUM_3194386       |
+ +----------------+-----------------+-----------------+-----------------------------+
++| ARM            | Cortex-A725     | #3821522        | ARM64_ERRATUM_3821522       |
+++----------------+-----------------+-----------------+-----------------------------+
+ | ARM            | Cortex-X1       | #1502854        | N/A                         |
+ +----------------+-----------------+-----------------+-----------------------------+
+ | ARM            | Cortex-X1       | #3324344        | ARM64_ERRATUM_3194386       |
+diff --git a/arch/arm64/Kconfig b/arch/arm64/Kconfig
+index b5a51b0ef9440..cab741a695f52 100644
+--- a/arch/arm64/Kconfig
++++ b/arch/arm64/Kconfig
+@@ -1040,9 +1040,17 @@ config ARM64_ERRATUM_1902691
  
-@@ -447,7 +446,6 @@ static const struct drm_encoder_funcs shmob_encoder_funcs = {
- int shmob_drm_encoder_create(struct shmob_drm_device *sdev)
- {
- 	struct drm_encoder *encoder = &sdev->encoder;
--	struct drm_bridge *bridge;
- 	int ret;
+ 	  If unsure, say Y.
  
- 	encoder->possible_crtcs = 1;
-@@ -463,7 +461,8 @@ int shmob_drm_encoder_create(struct shmob_drm_device *sdev)
++config ARM64_WORKAROUND_BROKEN_AMU_CONSTCNT
++	bool
++	# Targeting errata affecting AMEVCNTR01, the AMU constant counter.
++	# On affected CPUs the counter may not increment at the expected rate,
++	# making it unreliable. As a result, AMU users should treat it as
++	# unavailable rather than relying on misleading counter values.
++
+ config ARM64_ERRATUM_2457168
+ 	bool "Cortex-A510: 2457168: workaround for AMEVCNTR01 incrementing incorrectly"
+ 	depends on ARM64_AMU_EXTN
++	select ARM64_WORKAROUND_BROKEN_AMU_CONSTCNT
+ 	default y
+ 	help
+ 	  This option adds the workaround for ARM Cortex-A510 erratum 2457168.
+@@ -1073,6 +1081,28 @@ config ARM64_ERRATUM_2645198
+ 
+ 	  If unsure, say Y.
+ 
++config ARM64_ERRATUM_3821522
++	bool "Cortex-A725: 3821522: workaround for possible CNT_CYCLES increment error due to WFE/WFI"
++	depends on ARM64_AMU_EXTN
++	select ARM64_WORKAROUND_BROKEN_AMU_CONSTCNT
++	default y
++	help
++	  This option adds the workaround for ARM Cortex-A725 erratum 3821522.
++
++	  On affected A725 cores, the CNT_CYCLES event may incur a significant
++	  increment error when entering and subsequently exiting WFx.
++	  As a result, the CNT_CYCLES may diverge from the system counter
++	  frequency at which it is expected to increment.
++	  This renders the AMU counter AMEVCNTR01, that implements CNT_CYCLES,
++	  being unreliable and unsuitable for use.
++
++	  Since there is no hardware workaround, reads of the affected CNT_CYCLES
++	  counter return 0 in the relevant paths. This causes users of the counter
++	  to treat it as unavailable and is functionally equivalent to firmware
++	  disabling the affected counter.
++
++	  If unsure, say Y.
++
+ config ARM64_WORKAROUND_SPECULATIVE_UNPRIV_LOAD
+ 	bool
+ 
+diff --git a/arch/arm64/include/asm/cpucaps.h b/arch/arm64/include/asm/cpucaps.h
+index 76350b38f0d7a..120c5dc3c11d7 100644
+--- a/arch/arm64/include/asm/cpucaps.h
++++ b/arch/arm64/include/asm/cpucaps.h
+@@ -75,8 +75,9 @@ cpucap_is_possible(const unsigned int cap)
+ 		return IS_ENABLED(CONFIG_HW_PERF_EVENTS);
+ 	case ARM64_HAS_LSUI:
+ 		return IS_ENABLED(CONFIG_ARM64_LSUI);
++	case ARM64_WORKAROUND_BROKEN_AMU_CONSTCNT:
++		return IS_ENABLED(CONFIG_ARM64_WORKAROUND_BROKEN_AMU_CONSTCNT);
  	}
+-
+ 	return true;
+ }
+ #endif /* __ASSEMBLER__ */
+diff --git a/arch/arm64/kernel/cpu_errata.c b/arch/arm64/kernel/cpu_errata.c
+index 5db8f0619e4bc..42a6fff8c3f44 100644
+--- a/arch/arm64/kernel/cpu_errata.c
++++ b/arch/arm64/kernel/cpu_errata.c
+@@ -381,6 +381,24 @@ static const struct arm64_cpu_capabilities arm64_repeat_tlbi_list[] = {
+ };
+ #endif
  
- 	/* Create a panel bridge */
--	bridge = devm_drm_of_get_bridge(sdev->dev, sdev->dev->of_node, 0, 0);
-+	struct drm_bridge *bridge __free(drm_bridge_put) =
-+		of_drm_get_bridge_by_endpoint(sdev->dev->of_node, 0, 0);
- 	if (IS_ERR(bridge))
- 		return PTR_ERR(bridge);
++#ifdef CONFIG_ARM64_WORKAROUND_BROKEN_AMU_CONSTCNT
++static const struct arm64_cpu_capabilities arm64_repeat_amu_constcnt_list[] = {
++#ifdef CONFIG_ARM64_ERRATUM_2457168
++	{
++		/* Cortex-A510 r0p0-r1p1 */
++		CAP_MIDR_RANGE(MIDR_CORTEX_A510, 0, 0, 1, 1)
++	},
++#endif
++#ifdef CONFIG_ARM64_ERRATUM_3821522
++	{
++		/* Cortex-A725 r0p0 - r0p2 */
++		CAP_MIDR_RANGE(MIDR_CORTEX_A725, 0, 0, 0, 2)
++	},
++#endif
++	{}
++};
++#endif /* CONFIG_ARM64_WORKAROUND_BROKEN_AMU_CONSTCNT */
++
+ #ifdef CONFIG_CAVIUM_ERRATUM_23154
+ static const struct midr_range cavium_erratum_23154_cpus[] = {
+ 	MIDR_ALL_VERSIONS(MIDR_THUNDERX),
+@@ -916,14 +934,13 @@ const struct arm64_cpu_capabilities arm64_errata[] = {
+ 		ERRATA_MIDR_REV_RANGE(MIDR_CORTEX_A510, 0, 0, 2)
+ 	},
+ #endif
+-#ifdef CONFIG_ARM64_ERRATUM_2457168
++#ifdef CONFIG_ARM64_WORKAROUND_BROKEN_AMU_CONSTCNT
+ 	{
+-		.desc = "ARM erratum 2457168",
+-		.capability = ARM64_WORKAROUND_2457168,
++		.desc = "Broken AMU AMEVCNTR01 (const counter)",
++		.capability = ARM64_WORKAROUND_BROKEN_AMU_CONSTCNT,
+ 		.type = ARM64_CPUCAP_WEAK_LOCAL_CPU_FEATURE,
+-
+-		/* Cortex-A510 r0p0-r1p1 */
+-		CAP_MIDR_RANGE(MIDR_CORTEX_A510, 0, 0, 1, 1)
++		.matches = cpucap_multi_entry_cap_matches,
++		.match_list = arm64_repeat_amu_constcnt_list
+ 	},
+ #endif
+ #ifdef CONFIG_ARM64_ERRATUM_2038923
+diff --git a/arch/arm64/kernel/cpufeature.c b/arch/arm64/kernel/cpufeature.c
+index 17b83a2518a8f..1569f84214763 100644
+--- a/arch/arm64/kernel/cpufeature.c
++++ b/arch/arm64/kernel/cpufeature.c
+@@ -2064,7 +2064,7 @@ static void cpu_amu_enable(struct arm64_cpu_capabilities const *cap)
+ 		cpumask_set_cpu(smp_processor_id(), &amu_cpus);
  
-
+ 		/* 0 reference values signal broken/disabled counters */
+-		if (!this_cpu_has_cap(ARM64_WORKAROUND_2457168))
++		if (!this_cpu_has_cap(ARM64_WORKAROUND_BROKEN_AMU_CONSTCNT))
+ 			update_freq_counters_refs();
+ 	}
+ }
+diff --git a/arch/arm64/kernel/topology.c b/arch/arm64/kernel/topology.c
+index d28438f8b83f1..fc5d3abd12905 100644
+--- a/arch/arm64/kernel/topology.c
++++ b/arch/arm64/kernel/topology.c
+@@ -397,12 +397,13 @@ static void cpu_read_corecnt(void *val)
+ static void cpu_read_constcnt(void *val)
+ {
+ 	/*
+-	 * Return 0 if the current CPU is affected by erratum 2457168. A value
+-	 * of 0 is also returned if the current CPU does not support AMUs or if
+-	 * the counter is disabled. A return value of 0 at counter read is
+-	 * properly handled as an error case by the users of the counter.
++	 * Return 0 if the current CPU is affected by either erratum 2457168
++	 * or erratum 3821522. A value of 0 is also returned if the current
++	 * CPU does not support AMUs or if the counter is disabled. A return
++	 * value of 0 at counter read is properly handled as an error case
++	 * by the users of the counter.
+ 	 */
+-	*(u64 *)val = this_cpu_has_cap(ARM64_WORKAROUND_2457168) ?
++	*(u64 *)val = this_cpu_has_cap(ARM64_WORKAROUND_BROKEN_AMU_CONSTCNT) ?
+ 		      0UL : read_constcnt();
+ }
+ 
+@@ -463,8 +464,9 @@ static void amu_read_core_const_ctrs(void *val)
+ 
+ 	/*
+ 	 * cpu_read_constcnt() incurs slight latency due to the
+-	 * ARM64_WORKAROUND_2457168 check. Read it first to minimize
+-	 * the sampling skew between the const and core counters.
++	 * ARM64_WORKAROUND_BROKEN_AMU_CONSTCNT check.
++	 * Read it first to minimize the sampling skew between the const
++	 * and core counters.
+ 	 */
+ 	cpu_read_constcnt(&ctrs->constcnt);
+ 	cpu_read_corecnt(&ctrs->corecnt);
+diff --git a/arch/arm64/tools/cpucaps b/arch/arm64/tools/cpucaps
+index 2775ba3359cfe..58b6c084f9f25 100644
+--- a/arch/arm64/tools/cpucaps
++++ b/arch/arm64/tools/cpucaps
+@@ -105,7 +105,6 @@ WORKAROUND_1902691
+ WORKAROUND_2038923
+ WORKAROUND_2064142
+ WORKAROUND_2077057
+-WORKAROUND_2457168
+ WORKAROUND_2645198
+ WORKAROUND_2658417
+ WORKAROUND_4193714
+@@ -132,3 +131,4 @@ WORKAROUND_REPEAT_TLBI_SYNC
+ WORKAROUND_SPECULATIVE_AT
+ WORKAROUND_SPECULATIVE_SSBS
+ WORKAROUND_SPECULATIVE_UNPRIV_LOAD
++WORKAROUND_BROKEN_AMU_CONSTCNT
 -- 
-2.55.0
+2.43.0
 
 
