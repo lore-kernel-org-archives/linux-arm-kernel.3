@@ -4,73 +4,76 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 81088CA5FA1
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 29 Sep 2026 09:38:14 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9E59ECA5FA1
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 29 Sep 2026 09:41:26 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:MIME-Version:Date:Message-Id:Subject:References:In-Reply-To:Cc:
+	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=WgWgUyqIwCZYbNJUU+AhLYr08CuhiyxlVws3w1/8zMY=; b=gf+SJjnUyNl4XaphyWEbBPtSzM
-	PCksLN8bIGA0pFmrPaKJOxyyGNA423X5O78wW/E4rwADB1k1ymFsCIOkhdIgj7T0cmchwZzjWQKHi
-	3s3iGjD+qROrUuYT8Ifx6WB0fYqsOM0DPXQwZe7MAHUeK0oGU5Vm2cGs26CEJbGgoT5TBkr3ToLlv
-	0KlOd2m9V2SGNQWalAQew/Lv9LXR7+ZUZagDcCnjjV9fQLt4DxjWnnTeH5nhGykjsfHw8XViqkxfr
-	Ca0ps6onisGtD8fipXezhp25u5dIfc3xok48Y50BWDfvicevfboxCvJHFho1azypCTe4CtSFHlaho
-	U8h6R4rw==;
+	bh=wh/y+8ww4qgzVtVEmUDXThCVXr+h/XhtDr932zbuajk=; b=EBHt/wmMIEZDFEQV4szzAsdPEd
+	NG4Ergjh1wui5CRIposBZ3epvunOHH1SItjAmTy4yGJ3ZPg2uhQsbnQmIBSoal42ltNE1mbEdNGOj
+	ykhhBoFqLRYP68KjVTF2IGTsyfRWdIyTAVAbbl5PIA8IuHRdiVhNgvekecRTcLSJTuB7BKsNt34A1
+	UY5rDEhzex7y+P2VizkR2N4M/YlaD/VjOFwdkRjdGiXS6OOgcD/PFnTwn9xWxdv3U24ybTIhYL6/N
+	2xye9E8Jb0i7yXvQnpT+y0HhSg/oZhQJf86mK//7m6csZRHRldE+Def/4Ya7hI3MNV6ifPa5elESZ
+	qWoGGfSw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xBUGR-00000002ylB-3Ul4;
-	Tue, 29 Sep 2026 09:36:43 +0000
+	id 1xBUKu-00000002zo1-1d8Z;
+	Tue, 29 Sep 2026 09:41:20 +0000
 Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xBUGP-00000002yjH-4B88
+	id 1xBUKq-00000002zn2-231x
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 29 Sep 2026 09:36:42 +0000
+	Tue, 29 Sep 2026 09:41:16 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id 5BF4C601DB;
-	Tue, 29 Sep 2026 09:36:41 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 113611F0089B;
-	Tue, 29 Sep 2026 09:36:41 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 6AA9360008;
+	Tue, 29 Sep 2026 09:41:15 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id B868A1F000FF;
+	Tue, 29 Sep 2026 09:41:04 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1790674601;
-	bh=WgWgUyqIwCZYbNJUU+AhLYr08CuhiyxlVws3w1/8zMY=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References;
-	b=YcSjqq4RxJ21ikWGFG6m6KbS8CBC9eeUfwrzCva77FwZ+iwr0+SakAModKOrDq+jj
-	 HkOObJJ2EVGrbKZ8W6dbX68rquEJaJir67oPw+M1EvNY8p1iBVeKVLDNRQjWJVCdrX
-	 dTWnUUR2rYXuYTNrqZpOYAOgXg8378ITasJbr3R8bMdU0bFkM9ZPLwrsqQHZ6WGnnx
-	 0z1r7ySZwbTHSxDq732p4tA+AcJbrwikN4P9yp5Zzmn+WgeEGYjaP0dijCEkRjuRez
-	 e8ge5Nv4D2k4XDZGvrpYZ6GC3Yl6KnY4sDPJlO/lW2FYpwPFDohaGcoSnLlk62wEml
-	 fVtoo7Zl1N2tQ==
-Received: from sofa.misterjones.org ([185.219.108.64] helo=valley-girl.lan)
-	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.98.2)
-	(envelope-from <maz@kernel.org>)
-	id 1xBUGN-0000000ElEa-14PP;
-	Tue, 29 Sep 2026 09:36:39 +0000
-From: Marc Zyngier <maz@kernel.org>
-To: kvmarm@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org
-Cc: Steffen Eiden <seiden@linux.ibm.com>,
-	Joey Gouly <joey.gouly@arm.com>,
-	Suzuki K Poulose <suzuki.poulose@arm.com>,
-	Oliver Upton <oupton@kernel.org>,
-	Zenghui Yu <yuzenghui@huawei.com>,
-	Fuad Tabba <fuad.tabba@linux.dev>,
-	Yuchao Zhang <ndaugoing@gmail.com>,
-	stable@vger.kernel.org
-Subject: [PATCH v2 4/7] KVM: arm64: vgic: Take a refcount on IRQs referenced by last_lr_irq
-Date: Tue, 29 Sep 2026 10:35:45 +0100
-Message-ID: <20260929093548.3598547-5-maz@kernel.org>
-X-Mailer: git-send-email 2.47.3
-In-Reply-To: <20260929093548.3598547-1-maz@kernel.org>
-References: <20260929093548.3598547-1-maz@kernel.org>
+	s=k20260515; t=1790674875;
+	bh=wh/y+8ww4qgzVtVEmUDXThCVXr+h/XhtDr932zbuajk=;
+	h=From:To:Cc:In-Reply-To:References:Subject:Date;
+	b=eTycSW45LWX7/MF/VprD1aZhTjRJiAnwtoSIPTcvI0ixyV2lo462dvvMoGBuXePXn
+	 RcHqZ96S4lKeUa+2akNWJzW7T7MSIELhVevIsTmR0R0/dHxbKkO56mPQPFzWtTBq5g
+	 5HUdFlp5nEQcsDhpTT5gSzE8BG9usfZegJKCptcAxCQPRztTkyySKoFLLzDOjMYcRm
+	 dmHRFlf7VVwKXPh+bPs2E7hHvymkou/rjr8QhyA0UaGCigsoYz5go0TIUmjdqh5MFc
+	 ibIChelswMAfcE2R7kWD7RSPpXJzdOsUz5/jpmC5cPcxTixG9lM8YnQ30llhP/bJpM
+	 TIum7PFha6skQ==
+From: Krzysztof Kozlowski <krzk@kernel.org>
+To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, 
+ =?utf-8?q?Andr=C3=A9_Draszik?= <andre.draszik@linaro.org>, 
+ Tudor Ambarus <tudor.ambarus@linaro.org>, 
+ Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>, 
+ Mark Rutland <mark.rutland@arm.com>, Arnd Bergmann <arnd@arndb.de>, 
+ Alexandre Belloni <alexandre.belloni@bootlin.com>, 
+ Linus Walleij <linusw@kernel.org>, Drew Fustini <fustini@kernel.org>, 
+ Kees Cook <kees@kernel.org>, Tony Luck <tony.luck@intel.com>, 
+ "Guilherme G. Piccoli" <gpiccoli@igalia.com>, 
+ Greg Kroah-Hartman <gregkh@linuxfoundation.org>, 
+ Jiri Slaby <jirislaby@kernel.org>, Peter Griffin <peter.griffin@linaro.org>
+Cc: devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
+ linux-arm-kernel@lists.infradead.org, linux-samsung-soc@vger.kernel.org, 
+ soc@lists.linux.dev, Douglas Anderson <dianders@chromium.org>, 
+ Juan Yescas <jyescas@google.com>, RD Babiera <rdbabiera@google.com>, 
+ Brian Norris <briannorris@google.com>, 
+ William McVicker <willmcvicker@google.com>, kernel-team@android.com, 
+ linux-serial@vger.kernel.org, 
+ Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>, 
+ Brian Norris <briannorris@chromium.org>
+In-Reply-To: <20260918-contrib-pg-pixel10-initial-dts-v4-0-745eaca28b1a@linaro.org>
+References: <20260918-contrib-pg-pixel10-initial-dts-v4-0-745eaca28b1a@linaro.org>
+Subject: Re: [PATCH v4 0/4] Add Laguna/Tensor G5 SoC and Frankel, Blazer &
+ Mustang boards
+Message-Id: <179067486422.102650.10176830320558486814.b4-ty@b4>
+Date: Tue, 29 Sep 2026 11:41:04 +0200
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-X-SA-Exim-Connect-IP: 185.219.108.64
-X-SA-Exim-Rcpt-To: kvmarm@lists.linux.dev, linux-arm-kernel@lists.infradead.org, seiden@linux.ibm.com, joey.gouly@arm.com, suzuki.poulose@arm.com, oupton@kernel.org, yuzenghui@huawei.com, fuad.tabba@linux.dev, ndaugoing@gmail.com, stable@vger.kernel.org
-X-SA-Exim-Mail-From: maz@kernel.org
-X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+X-Mailer: b4 0.16.0
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -85,58 +88,31 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Referencing the last interrupt inserted in an LR is rather fragile, as
-this interrupt can vanish if a concurrently unmapped LPI.
 
-Solve this by bumping up the refcount on the interrupt when populating
-last_lr_irq, and drop it at vgic_prune_ap_list() time, when LPIs are
-being reclaimed.
+On Fri, 18 Sep 2026 19:05:01 +0000, Peter Griffin wrote:
+> This series adds initial basic support for Laguna (Tensor G5 SoC)
+> found in Frankel (Pixel 10), Blazer (Pixel 10 Pro) and Mustang (Pixel
+> 10 Pro XL) phones.
+> 
+> Whilst Tensor G1 to G4 SoCs (found in Pixel 6 to Pixel 9 and Pixel
+> 10a) were offshoots from the Samsung Exynos family. Laguna is an
+> entirely in-house Google designed SoC.
+> 
+> [...]
 
-Fixes: 6da5e537f5afe ("KVM: arm64: vgic: Pick EOIcount deactivations from AP-list tail")
-Reported-by: Yuchao Zhang <ndaugoing@gmail.com>
-Reviewed-by: Fuad Tabba <fuad.tabba@linux.dev>
-Tested-by: Fuad Tabba <fuad.tabba@linux.dev>
-Signed-off-by: Marc Zyngier <maz@kernel.org>
-Cc: stable@vger.kernel.org
----
- arch/arm64/kvm/vgic/vgic.c | 15 ++++++++++++++-
- 1 file changed, 14 insertions(+), 1 deletion(-)
+Applied, thanks!
 
-diff --git a/arch/arm64/kvm/vgic/vgic.c b/arch/arm64/kvm/vgic/vgic.c
-index 425503e0c5825..5cf5a1ef86cdd 100644
---- a/arch/arm64/kvm/vgic/vgic.c
-+++ b/arch/arm64/kvm/vgic/vgic.c
-@@ -853,6 +853,17 @@ static void vgic_prune_ap_list(struct kvm_vcpu *vcpu)
- 		goto retry;
- 	}
- 
-+	/*
-+	 * Fix the last_lr_irq refcount which was obtained while
-+	 * populating the LRs. This can also result in the LPI being
-+	 * deleted.
-+	 */
-+	irq = *host_data_ptr(last_lr_irq);
-+	if (irq) {
-+		deleted_lpis |= vgic_put_irq_norelease(vcpu->kvm, irq);
-+		*host_data_ptr(last_lr_irq) = NULL;
-+	}
-+
- 	raw_spin_unlock(&vgic_cpu->ap_list_lock);
- 
- 	if (unlikely(deleted_lpis))
-@@ -1018,8 +1029,10 @@ static void vgic_flush_lr_state(struct kvm_vcpu *vcpu)
- 		scoped_guard(raw_spinlock,  &irq->irq_lock) {
- 			if (likely(vgic_target_oracle(irq) == vcpu)) {
- 				vgic_populate_lr(vcpu, irq, count++);
--				if (count == kvm_vgic_global_state.nr_lr)
-+				if (count == kvm_vgic_global_state.nr_lr) {
-+					vgic_get_irq_ref(irq);
- 					*host_data_ptr(last_lr_irq) = irq;
-+				}
- 			}
- 		}
- 
+[1/4] dt-bindings: arm: google: Add dt bindings for frankel/blazer/mustang
+      https://git.kernel.org/krzk/linux/c/ecf6405fa6c503c34eb4e7e905957d70d4018e93
+[2/4] arm64: dts: google: Add dts directory for Google-designed silicon
+      https://git.kernel.org/krzk/linux/c/cf3df78629f24b40cd0cb2da74e3ea4a944bed82
+[3/4] arm64: dts: google: Add initial dts for frankel/blazer/mustang
+      https://git.kernel.org/krzk/linux/c/54edd8698bb1fb40c339d0cb2f15baad6993dd48
+[4/4] arm64: defconfig: enable Tensor G5 SoC family
+      https://git.kernel.org/krzk/linux/c/63f674fe8a0a8d6e4bee3e72f7ae658f0e9a0686
+
+Best regards,
 -- 
-2.47.3
+Krzysztof Kozlowski <krzk@kernel.org>
 
 
