@@ -4,65 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D94F9CA5FA5
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 29 Sep 2026 11:30:42 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6BB94CA5FA1
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 29 Sep 2026 11:31:18 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:Date:Message-Id:Subject:References:In-Reply-To:Cc:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=2COO99V3tWZkY2vKSP/RcAXFdKtCl9Xe902JMrRqT08=; b=AZQJDkdMe6AUyRpUdy1BQ0Jtpv
-	Sm8YdoANWS8pfWU2SgekFAMOaeGBeRq01iI/bZkXSkqDlgzKo296HEagnWZtWGA6sc1c9wyd5q7mD
-	tlPjoDMb78QhcTA2Y/fsCdCY7uNyp5z41DE7bfgH97LWMtNW7VhiT79CVG6rgX88FnRX9ofiVFnME
-	fHuumwz2Qkkz2WDGBObiVm4qPLcV7Z88enrFbmAspekqVW6U+GjmRRatHkauaHzq6btw4DVdfaZe0
-	63nJyDdqCX2dl4W/+zlT1q1CbhyVe9psIUljxpM2l9e1lP7DT0gUMNgtfpGw2EbyrBQw3YtJ89WSl
-	m2CnZnpg==;
+	bh=i999MGH5SdNPcu4Q8VB0Q3AdAc6DTMs0HY0/qk7ot9g=; b=02Npc27S19QfBjuqqLSn1qGcnB
+	rxE3iJoqfCxvh1uqQ8dzHB6XvVhNioz6jIhv/O1xmd6EEmZGbgJGxFxuUY6SkjknXt+ebtYB2F1HX
+	O0w4UW042aMAhYM5Sl+yHq+4Xfz6zWU44QFXUpswM1OJF+2aKm3695z6lS2vcPGxTGeo1l564q4J5
+	+KDEpPp6hfjvIkVL95kiwg6RqF9UUyz/isIZPjqK3NErakTh9MRdtsVUl0tsn+BZJOvztp3eTz1w/
+	P/oZ370dzjRypvs4fCunzkpkktW7O+EeFpWEt86/0sv3xHzvJk/8+/5cOjV05w0wVzCjpQO9GQ3pp
+	FilptC+A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xBW2e-00000003Pio-3PHo;
-	Tue, 29 Sep 2026 11:30:36 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1xBW3D-00000003PtQ-43Bi;
+	Tue, 29 Sep 2026 11:31:11 +0000
+Received: from canpmsgout09.his.huawei.com ([113.46.200.224])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xBW2U-00000003PgG-28ag
+	id 1xBW3A-00000003Prz-3nwU
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 29 Sep 2026 11:30:26 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 0C86943E9E;
-	Tue, 29 Sep 2026 11:30:26 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 923971F00893;
-	Tue, 29 Sep 2026 11:30:21 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1790681425;
-	bh=2COO99V3tWZkY2vKSP/RcAXFdKtCl9Xe902JMrRqT08=;
-	h=From:To:Cc:In-Reply-To:References:Subject:Date;
-	b=YhIScCCD2hrldStzzqLVcyZE5j66LQO/qOfz4sFArIpQ2PaLnC5+1+qAN7m54zyB/
-	 SG2CxllzCp8opF3hCLOn6KCFj96YcUsRkUlqI4cUSQsfmEzSs4K62HgSck/Eb8HXEW
-	 wM1ucBZoYMRH/fPM0icbvi1Gk6zp6oXT3/gvFG+OKOabKJI8AggI4JrV+yYpqsJzpq
-	 CoC9LA9YZ0TsWHlXpkoaFOgDKUje/X8QcWk+N+cctaO8xPf8vf9g3CflreSPsDzJDa
-	 Eq5Nv71xnMnY2XqkEHwOURk6ysX7vtPuTJrEKfjJYO634tKTV1/EnTQO0skRm0Fdpw
-	 EHGG4uYFM7N0A==
-From: Mark Brown <broonie@kernel.org>
-To: lgirdwood@gmail.com, robh@kernel.org, krzk+dt@kernel.org, 
- conor+dt@kernel.org, Frank.Li@nxp.com, s.hauer@pengutronix.de, 
- kernel@pengutronix.de, festevam@gmail.com, shawnguo@kernel.org, 
- linux-sound@vger.kernel.org, devicetree@vger.kernel.org, 
- imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org, 
- linux-kernel@vger.kernel.org, shengjiu.wang@gmail.com, Xiubo.Lee@gmail.com, 
- nicoleotsuka@gmail.com, perex@perex.cz, tiwai@suse.com, 
- linuxppc-dev@lists.ozlabs.org, shengjiu.wang@oss.nxp.com
-Cc: Shengjiu Wang <shengjiu.wang@nxp.com>, 
- Chancel Liu <chancel.liu@gmail.com>, Daniel Baluta <daniel.baluta@nxp.com>
-In-Reply-To: <20260928061756.1844185-1-shengjiu.wang@oss.nxp.com>
-References: <20260928061756.1844185-1-shengjiu.wang@oss.nxp.com>
-Subject: Re: [PATCH v6 5/5] ASoC: fsl_easrc: expose individual DAIs per
- conversion path
-Message-Id: <179068142132.159801.7683706041383677671.b4-ty@b4>
-Date: Tue, 29 Sep 2026 12:30:21 +0100
+	Tue, 29 Sep 2026 11:31:10 +0000
+dkim-signature: v=1; a=rsa-sha256; d=huawei.com; s=dkim;
+	c=relaxed/relaxed; q=dns/txt;
+	h=From;
+	bh=i999MGH5SdNPcu4Q8VB0Q3AdAc6DTMs0HY0/qk7ot9g=;
+	b=IS67ruVhdS/g2OwlEG9o0G9CqS+WcM/qqKiiXSqtCwqQ0In275KUqJnyy6fjdepPQnCc+cdiE
+	EXSs8oNfsVBWwoCv7CrDKzK4diJNMtcNdqxQZ8m/uUaCQRv5yoC6O+fYDu8VbMT+mcjhwfo1eOc
+	n8cXeuqeY5dDOZAdlOzHBC4=
+Received: from mail.maildlp.com (unknown [172.19.163.214])
+	by canpmsgout09.his.huawei.com (SkyGuard) with ESMTPS id 4hvG146RK8z1cyPY;
+	Tue, 29 Sep 2026 19:19:52 +0800 (CST)
+Received: from kwepemr100010.china.huawei.com (unknown [7.202.195.125])
+	by mail.maildlp.com (Postfix) with ESMTPS id 05A164057C;
+	Tue, 29 Sep 2026 19:30:59 +0800 (CST)
+Received: from [10.67.120.103] (10.67.120.103) by
+ kwepemr100010.china.huawei.com (7.202.195.125) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.2562.45; Tue, 29 Sep 2026 19:30:58 +0800
+Message-ID: <3e23f91a-38d0-486a-b3f8-d94bd24d377f@huawei.com>
+Date: Tue, 29 Sep 2026 19:30:58 +0800
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
+User-Agent: Mozilla Thunderbird
+Subject: Re: [RFC PATCH 5/5] KVM: arm64: Enable HAFDBS for guests not on
+ migration
+To: Leonardo Bras <leo.bras@arm.com>
+CC: <linux-arm-kernel@lists.infradead.org>, <kvmarm@lists.linux.dev>,
+	<linux-kernel@vger.kernel.org>
+References: <20260901171558.2674031-1-leo.bras@arm.com>
+ <20260901171558.2674031-6-leo.bras@arm.com>
+ <497c6239-a75f-4087-83c8-efface3fe3d7@huawei.com>
+ <arE_Jh4UHiUdjrSi@LeoBrasDK>
+From: Tian Zheng <zhengtian10@huawei.com>
+In-Reply-To: <arE_Jh4UHiUdjrSi@LeoBrasDK>
+Content-Type: text/plain; charset="UTF-8"; format=flowed
 Content-Transfer-Encoding: 7bit
-X-Mailer: b4 0.17-dev
+X-Originating-IP: [10.67.120.103]
+X-ClientProxiedBy: kwepems500002.china.huawei.com (7.221.188.17) To
+ kwepemr100010.china.huawei.com (7.202.195.125)
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260929_043109_307792_59245340 
+X-CRM114-Status: GOOD (  25.53  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -77,44 +81,125 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, 28 Sep 2026 14:17:56 +0800, shengjiu.wang@oss.nxp.com wrote:
-> The i.MX EASRC hardware supports four independent conversion contexts
-> (A, B, C, D). The driver previously registered a single DAI with generic
-> stream names "ASRC-Playback" and "ASRC-Capture", which prevents
-> multiple independent conversion paths from being used simultaneously.
-> 
-> Replace the single fsl_easrc_dai instance with an array of four DAI
-> drivers to allow up to four independent conversion paths to be active
-> at the same time:
-> 
-> [...]
 
-Applied to
 
-   https://git.kernel.org/pub/scm/linux/kernel/git/broonie/sound.git for-next
+On 9/21/2026 10:28 PM, Leonardo Bras wrote:
+> On Fri, Sep 18, 2026 at 07:58:43PM +0800, Tian Zheng wrote:
+>>
+>>
+>> On 9/2/2026 1:15 AM, Leonardo Bras wrote:
+>>> @@ -2570,53 +2571,76 @@ int __init kvm_mmu_init(u32 hyp_va_bits)
+>>>    out_destroy_pgtable:
+>>>    	kvm_pgtable_hyp_destroy(hyp_pgtable);
+>>>    out_free_pgtable:
+>>>    	kfree(hyp_pgtable);
+>>>    	hyp_pgtable = NULL;
+>>>    out:
+>>>    	return err;
+>>>    }
+>>> +static void kvm_set_hafdbs(struct kvm *kvm, bool set)
+>>> +{
+>>> +	/* Check if no action required */
+>>> +	if (!!(kvm->arch.mmu.vtcr & VTCR_EL2_HD) == set)
+>>> +		return;
+>>> +
+>>> +	if (set)
+>>> +		kvm->arch.mmu.vtcr |= VTCR_EL2_HD;
+>>> +	else
+>>> +		kvm->arch.mmu.vtcr &= ~VTCR_EL2_HD;
+>>> +
+>>> +	kvm_make_all_cpus_request(kvm, KVM_REQ_RELOAD_STAGE2);
+>>> +}
+>>> +
+>>
+>> Hi Leo,
+>>
+>> HD alone is architecturally a no-op. According to the Arm spec, the
+>> VTCR_EL2.HD field description reads: "When the Effective value of
+>> VTCR_EL2.HA is 0, this field behaves as 0 for all purposes other than a
+>> direct read of the value of this bit." So patch 5 as it stands never
+>> actually enables stage-2 dirty management.
+> 
+> Oh, right, I missed that. :/
+> 
+> For the above to work it would need to have the HA bit:
+> 
+> +	if (set)
+> +		kvm->arch.mmu.vtcr |= VTCR_EL2_HA | VTCR_EL2_HD;
+> +	else
+> +		kvm->arch.mmu.vtcr &= ~(VTCR_EL2_HA |VTCR_EL2_HD);
+> 
+
+Hi Leo,
+
+Yep, I've already fixed this in v5.
+
+>>
+>> In the combined series, I'm planning to replace both kvm_set_hafdbs()
+>> and our earlier enable/disable hooks with a single derived mode:
+>>
+>> ```
+>> /*
+>>   *   logging && HDBSS-capable  ->  HDBSS  (HD|HA|HDBSS)
+>>   *   logging, no HDBSS         ->  off
+>>   *   !logging, HAFDBS-capable  ->  HAFDBS (HD|HA)
+>>   */
+> 
+> Yes, seems correct, if the performance numbers can show patch 5 provides
+> performance improvements.
+> 
+
+Right, I've added this function in patch 12 of the HDBSS v5 series.
+Performance numbers look good so far.
+
+>> void kvm_arch_update_hw_dirty_mode(struct kvm *kvm)
+>> {
+>> 	bool logging = atomic_read(&kvm->nr_memslots_dirty_logging) != 0;
+>> 	unsigned long target;
+>>
+>> 	if (logging && kvm_supports_hdbss(kvm))
+>> 		target = VTCR_EL2_HD | VTCR_EL2_HA | VTCR_EL2_HDBSS;
+>> 	else if (logging || !kvm_supports_hafdbs(kvm))
+>> 		target = 0;
+>> 	else
+>> 		target = VTCR_EL2_HD | VTCR_EL2_HA;
+>> 	...
+>> }
+>> ```
+> 
+> Humm, do we actually need the atomic_read being ran when we are enabling
+> dirty_logging? Maybe we can restrain it only to the disabling part.
+> 
+
+True, but it's just a plain load. Keeping it unconditional avoids
+tracking the transition direction, so I'd prefer to keep it. Looking
+forward to your further review.
+
+>>
+>> HA is always set alongside HD by construction, so the no-op issue goes
+>> away.
+> 
+> Right.
+> 
+>>
+>> I'll fold this into the HDBSS v5 series when I send it out. Let me know
+>> if you'd rather keep it in your v2 instead.
+>>
+> 
+> Feel free to merge your part on top of that, I will work on collecting the
+> numbers, though.
+> 
+> Thanks!
+> Leo
+> 
+
+Sorry for the late reply. I was running HDBSS+DBM tests over the past
+few days. The HDBSS v5 series with your DBM code merged is now sent out
+to the community. Feedback welcome:
+
+https://lore.kernel.org/all/20260929103655.85107-1-zhengtian10@huawei.com/
 
 Thanks!
-
-[5/5] ASoC: fsl_easrc: expose individual DAIs per conversion path
-      https://git.kernel.org/broonie/sound/c/788e893edb6a
-
-All being well this means that it will be integrated into the linux-next
-tree (usually sometime in the next 24 hours) and sent to Linus during
-the next merge window (or sooner if it is a bug fix), however if
-problems are discovered then the patch may be dropped or reverted.
-
-You may get further e-mails resulting from automated or manual testing
-and review of the tree, please engage with people reporting problems and
-send followup patches addressing any issues that are reported if needed.
-
-If any updates are required or you are submitting further changes they
-should be sent as incremental updates against current git, existing
-patches will not be replaced.
-
-Please add any relevant lists and maintainers to the CCs when replying
-to this mail.
-
-Thanks,
-Mark
+Tian
 
 
