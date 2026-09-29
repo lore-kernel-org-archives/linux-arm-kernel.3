@@ -4,61 +4,61 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 97579CA5FB4
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 29 Sep 2026 10:38:18 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 72EE2CA5FAE
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 29 Sep 2026 10:38:17 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
 	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
 	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=UhCl5i1QqeG6DsLGoEVhwhQZILgarOVG0u5bGP7j+qo=; b=dJOue+QiYGVJV5T6qd/6GwfQzj
-	nkvVljGvsXFWrSe/QHWK/OLFhcQc5ZmxDFgilYsWf+Ky8OhyGEt/Cam6LDDKzpATPFwJQ9xnU6+Og
-	ovgL+DvvMvPu7N/t7B88zvvf6DOGzL3ZYHt7Qy+LhFjYh478ub38sm77XHfv15C9IVBUJaHTisNZs
-	TfwdK/CWHOTgAvqs456rbGSucofnRmXFEj7tnf7Ex5/T6iK499X6hqHntAR584sca/jIl4//Wf7jc
-	O/RDJLuAn2gfJD05ITkQy7aRONu6j6Uczl4Ts68+FU5p9iGyvQzMf+k6iNYQKzU7sWe3vSUljgXIh
-	w5sXHkrQ==;
+	bh=CEDPGYC1RPsp34/2huo9oDvdsWGlpazljPcYpxq/p2I=; b=kHU1ttMPxF6UZtF5r17fSsV68Q
+	UwVwhJhQ96W4y1MwyDBThXnXDnnL8qNsDmgK5Xss8yKCFmXfiEvfRRVU/fTBUU0Hdq2yWhwdpYruO
+	0+1fzrIU3ox6hzUluoJBXoMo4VWz4rlZymQac6/aECFtnkbD9zo5IV6Jh6DYWPgZ6iOVA/az7G/nv
+	+rIDf1VaRLgKh1T6ZgY6KjadwzSd9HeEmCJHEUBMS7qJ1QgPpVkefATux8ZWW7fem+6xqCGCS5WEu
+	uV4FNot7WSULS8c7PKlDoHKmpi2FiIIYN7jre/KyG5Pm2/FMkbfZfQjeSbYITBqT/uvsvsuNEeE89
+	yms48msQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xBVDn-00000003H4L-3yU6;
-	Tue, 29 Sep 2026 10:38:03 +0000
+	id 1xBVDk-00000003GzA-1tix;
+	Tue, 29 Sep 2026 10:38:00 +0000
 Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xBVDF-00000003GmU-2r0F
+	id 1xBVDF-00000003GmO-2AZC
 	for linux-arm-kernel@bombadil.infradead.org;
 	Tue, 29 Sep 2026 10:37:29 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=infradead.org; s=desiato.20200630; h=Content-Type:Content-Transfer-Encoding
 	:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:CC:To:From:
 	Sender:Reply-To:Content-ID:Content-Description;
-	bh=UhCl5i1QqeG6DsLGoEVhwhQZILgarOVG0u5bGP7j+qo=; b=B3Vl7SPk8w4U3Lm87jLWp+BXXc
-	PSHBzaWu+mwJBi2HEmurxM486nvEB5VAout1L68xT1QVlr1nrZ8FsAvEW4ODzbErmgo632UAAnk/p
-	J5fl9ufM0qQJ7M5UXLJvojrO9ZanjTo+S24ucEz94TfLSgw/4blte1iwyGq7rsn+4vySRGv890BIp
-	NhSmhQ2hYKO3QFFOzolmZO2jSBksXeKmnUHNf0R4pdHNRk6tP7ZsoSkhtH2v3ad/ZuFV/3JxrOlmN
-	cLCZCPSBIar4nhIP3UOAQPDbrAsi/y/5fJ7Z60RqkJUR95C5/L6Dz55KVA7oD5Par0S9o65kP0jjd
-	v5u5/MJA==;
-Received: from canpmsgout04.his.huawei.com ([113.46.200.219])
+	bh=CEDPGYC1RPsp34/2huo9oDvdsWGlpazljPcYpxq/p2I=; b=CVq4iVEz/7W4DDsppAGFXpislY
+	eZBGzjFDVRPTCn6uJMFdUH+5jHUa/kV+O8ycwgPstvIhW5nDDjLxXypow4IMrgQ2fCVqTIo3enGVz
+	zMvaW5qr0lK9ut90dHk4L2Y9tlEMLy6zNbBmML+jGfQzZLQ5CVqd1Zv34tHcuPe+kG4pmkBx3NbrT
+	d8wpvJ2GtUuroEVZh2voJAqa/oJmETfGZyS0DNnXsIu7M/vCXLCv7TL2eI/k5BzEBDUn1QmjinY2J
+	ijeK2bUWvBsjMTfv14WA+9fI3mtit/9KK+AAvCt0Swkkgv+EzXzwnxhIDBjq4gDtp3L/4UksSx3rV
+	BUGtbUGg==;
+Received: from canpmsgout02.his.huawei.com ([113.46.200.217])
 	by desiato.infradead.org with esmtps (Exim 4.99.2 #2 (Red Hat Linux))
-	id 1xBVCz-00000002VF6-1Mcr
+	id 1xBVCy-00000002VF2-47VK
 	for linux-arm-kernel@lists.infradead.org;
 	Tue, 29 Sep 2026 10:37:17 +0000
 dkim-signature: v=1; a=rsa-sha256; d=huawei.com; s=dkim;
 	c=relaxed/relaxed; q=dns/txt;
 	h=From;
-	bh=UhCl5i1QqeG6DsLGoEVhwhQZILgarOVG0u5bGP7j+qo=;
-	b=gD4gRAxfs4SbgG+kI4hny6tT0fFtf6zYwuRXd+A1rHopu/M32i+ZYP0i2JRO2/OpYIT6FslfL
-	1ROClicrUEOgjqdQ49NYH7Uy3alwpWNcfktQyCVzkFtybvL3MuPk6rUUpaSmdw6qdZRxzzbAQe2
-	Pks7TeWi8tA5K0TNNNsmNGo=
-Received: from mail.maildlp.com (unknown [172.19.162.140])
-	by canpmsgout04.his.huawei.com (SkyGuard) with ESMTPS id 4hvDnc0xypz1prLc;
-	Tue, 29 Sep 2026 18:24:52 +0800 (CST)
+	bh=CEDPGYC1RPsp34/2huo9oDvdsWGlpazljPcYpxq/p2I=;
+	b=hgUnkkiogWWkH7pZKOinYR2DNSU52mvRAVR3j5GBOkMDrN1DJWXryE1cs8DYdMeia8UT3Mlcb
+	wjddmZZtAjxjvHIo5Z9Ig+uPXpOh9UsIWklvh4BRmahW52P1uOllLrraCEKesBNfyi7j6SqNB3v
+	z/H1Cn3Y7DBA4tLgh+eHxqA=
+Received: from mail.maildlp.com (unknown [172.19.162.197])
+	by canpmsgout02.his.huawei.com (SkyGuard) with ESMTPS id 4hvDpB0ZV4zcb44;
+	Tue, 29 Sep 2026 18:25:22 +0800 (CST)
 Received: from kwepemr100010.china.huawei.com (unknown [7.202.195.125])
-	by mail.maildlp.com (Postfix) with ESMTPS id E1A5E203C8;
-	Tue, 29 Sep 2026 18:37:02 +0800 (CST)
+	by mail.maildlp.com (Postfix) with ESMTPS id 626594057D;
+	Tue, 29 Sep 2026 18:36:57 +0800 (CST)
 Received: from huawei.com (10.50.163.32) by kwepemr100010.china.huawei.com
  (7.202.195.125) with Microsoft SMTP Server (version=TLS1_2,
  cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.45; Tue, 29 Sep
- 2026 18:37:01 +0800
+ 2026 18:36:56 +0800
 From: Tian Zheng <zhengtian10@huawei.com>
 To: <maz@kernel.org>, <oupton@kernel.org>, <catalin.marinas@arm.com>,
 	<will@kernel.org>, <corbet@lwn.net>, <pbonzini@redhat.com>,
@@ -73,9 +73,9 @@ CC: <yuzenghui@huawei.com>, <wangzhou1@hisilicon.com>,
 	<mark.rutland@arm.com>, <seanjc@google.com>, <rdunlap@infradead.org>,
 	<linux-doc@vger.kernel.org>, <linux-kselftest@vger.kernel.org>,
 	<skhan@linuxfoundation.org>
-Subject: [PATCH v5 08/15] KVM: arm64: Flush the HDBSS buffer on VM exit
-Date: Tue, 29 Sep 2026 18:36:48 +0800
-Message-ID: <20260929103655.85107-9-zhengtian10@huawei.com>
+Subject: [PATCH v5 01/15] KVM: arm64: pgtables: Change write bit from S2AP_W to DBM
+Date: Tue, 29 Sep 2026 18:36:41 +0800
+Message-ID: <20260929103655.85107-2-zhengtian10@huawei.com>
 X-Mailer: git-send-email 2.33.0
 In-Reply-To: <20260929103655.85107-1-zhengtian10@huawei.com>
 References: <20260929103655.85107-1-zhengtian10@huawei.com>
@@ -86,8 +86,8 @@ X-Originating-IP: [10.50.163.32]
 X-ClientProxiedBy: kwepems500002.china.huawei.com (7.221.188.17) To
  kwepemr100010.china.huawei.com (7.202.195.125)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260929_113714_127806_E0328ED4 
-X-CRM114-Status: GOOD (  21.07  )
+X-CRM114-CacheID: sfid-20260929_113714_088225_69E9A355 
+X-CRM114-Status: GOOD (  17.93  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -102,166 +102,120 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Eillon <yezhenyu2@huawei.com>
+From: Leonardo Bras <leo.bras@arm.com>
 
-HDBSS entries accumulate in the per-vCPU buffer while the guest runs,
-and must be drained into the dirty bitmap or dirty ring before
-userspace can observe them.
+As a first step of changing the encoding for the Stage2 PTE descriptor,
+introduce the DBM bit, and adapt every usage of writable to use the DBM
+bit (51) instead of S2AP[1]/Dirty bit (7).
 
-Drain the buffer at a single point: kvm_arch_vcpu_ioctl_run() flushes
-it on every VM exit, before the exit reason is handled. Flushing
-inside the run loop keeps the dirty-ring feedback timely: when a flush
-pushes the ring past its soft limit, kvm_dirty_ring_push() raises
-KVM_REQ_DIRTY_RING_SOFT_FULL, which check_vcpu_requests() observes at
-the top of the next loop iteration, so the vCPU exits to userspace for
-the harvest before re-entering the guest.
+With DBM as the write permission bit and S2AP[1] as the dirty state,
+the encoding follows the FEAT_S2PIE principle of managing permissions
+and dirty state independently.
 
-kvm_arch_sync_dirty_log() relies on the exit path to flush: it kicks
-vCPUs out of guest mode, and the GET/CLEAR protocol tolerates
-concurrent bitmap writes, so the snapshot is complete without extra
-synchronization.
+For this step, we convert usages of RW(Dirty) -> WD(DBM|Dirty): every
+writable mapping sets both bits, read-only mappings clear both, and no
+behaviour changes.
 
-Signed-off-by: Eillon <yezhenyu2@huawei.com>
+Link: https://lore.kernel.org/all/20260901171558.2674031-2-leo.bras@arm.com/
+Signed-off-by: Leonardo Bras <leo.bras@arm.com>
+[zhengtian: keep the nested walker reading writability from S2AP[1]
+alone, document why, and reword the commit message]
 Signed-off-by: Tian Zheng <zhengtian10@huawei.com>
 ---
- arch/arm64/include/asm/kvm_dirty_bit.h | 15 +++++++++
- arch/arm64/kvm/arm.c                   | 20 ++++++++++++
- arch/arm64/kvm/dirty_bit.c             | 45 ++++++++++++++++++++++++++
- 3 files changed, 80 insertions(+)
+ arch/arm64/include/asm/kvm_pgtable.h | 3 +++
+ arch/arm64/kvm/hyp/pgtable.c         | 7 ++++---
+ arch/arm64/kvm/nested.c              | 5 +++++
+ arch/arm64/kvm/ptdump.c              | 4 ++--
+ 4 files changed, 14 insertions(+), 5 deletions(-)
 
-diff --git a/arch/arm64/include/asm/kvm_dirty_bit.h b/arch/arm64/include/asm/kvm_dirty_bit.h
-index fe703f02626b..d828e6b43fe9 100644
---- a/arch/arm64/include/asm/kvm_dirty_bit.h
-+++ b/arch/arm64/include/asm/kvm_dirty_bit.h
-@@ -13,6 +13,9 @@
- #include <asm/sysreg.h>
- #include <linux/sizes.h>
+diff --git a/arch/arm64/include/asm/kvm_pgtable.h b/arch/arm64/include/asm/kvm_pgtable.h
+index 41a8687938eb..37baa86d6fd8 100644
+--- a/arch/arm64/include/asm/kvm_pgtable.h
++++ b/arch/arm64/include/asm/kvm_pgtable.h
+@@ -93,10 +93,13 @@ typedef u64 kvm_pte_t;
 
-+#define HDBSS_ENTRY_VALID	BIT(0)
-+#define HDBSS_ENTRY_IPA	GENMASK_ULL(55, 12)
+ #define KVM_PTE_LEAF_ATTR_HI_S2_XN	GENMASK(54, 53)
+
++#define KVM_PTE_LEAF_ATTR_HI_S2_DBM	BIT(51)
 +
- #define KVM_ARM_HDBSS_DEFAULT_SIZE  PAGE_SIZE
- #define KVM_ARM_HDBSS_MAX_SIZE      SZ_2M
+ #define KVM_PTE_LEAF_ATTR_HI_S1_GP	BIT(50)
 
-@@ -22,7 +25,19 @@ static inline u32 kvm_hdbss_buffer_size(struct kvm *kvm)
- 	return kvm->arch.hdbss_buffer_size ?: KVM_ARM_HDBSS_DEFAULT_SIZE;
- }
+ #define KVM_PTE_LEAF_ATTR_S2_PERMS	(KVM_PTE_LEAF_ATTR_LO_S2_S2AP_R | \
+ 					 KVM_PTE_LEAF_ATTR_LO_S2_S2AP_W | \
++					 KVM_PTE_LEAF_ATTR_HI_S2_DBM | \
+ 					 KVM_PTE_LEAF_ATTR_HI_S2_XN)
 
-+static inline bool kvm_hdbss_enabled(struct kvm *kvm)
-+{
-+	return kvm->arch.mmu.vtcr & VTCR_EL2_HDBSS;
-+}
-+
-+static inline bool vcpu_hdbss_enabled(struct kvm_vcpu *vcpu)
-+{
-+	return vcpu->arch.hw_mmu &&
-+		(vcpu->arch.hw_mmu->vtcr & VTCR_EL2_HDBSS);
-+}
-+
- int kvm_arm_vcpu_alloc_hdbss(struct kvm_vcpu *vcpu);
- void kvm_arm_vcpu_free_hdbss(struct kvm_vcpu *vcpu);
-+void kvm_flush_hdbss_buffer(struct kvm_vcpu *vcpu);
+ /* pKVM invalid pte encodings */
+diff --git a/arch/arm64/kvm/hyp/pgtable.c b/arch/arm64/kvm/hyp/pgtable.c
+index b74dd5ce1efd..50f4d3a74f77 100644
+--- a/arch/arm64/kvm/hyp/pgtable.c
++++ b/arch/arm64/kvm/hyp/pgtable.c
+@@ -732,7 +732,7 @@ static int stage2_set_prot_attr(struct kvm_pgtable *pgt, enum kvm_pgtable_prot p
+ 		attr |= KVM_PTE_LEAF_ATTR_LO_S2_S2AP_R;
 
- #endif /* __ARM64_KVM_DIRTY_BIT_H__ */
-diff --git a/arch/arm64/kvm/arm.c b/arch/arm64/kvm/arm.c
-index 5ea4ac26995e..9d7bdece149a 100644
---- a/arch/arm64/kvm/arm.c
-+++ b/arch/arm64/kvm/arm.c
-@@ -1430,6 +1430,14 @@ int kvm_arch_vcpu_ioctl_run(struct kvm_vcpu *vcpu)
+ 	if (prot & KVM_PGTABLE_PROT_W)
+-		attr |= KVM_PTE_LEAF_ATTR_LO_S2_S2AP_W;
++		attr |= KVM_PTE_LEAF_ATTR_HI_S2_DBM | KVM_PTE_LEAF_ATTR_LO_S2_S2AP_W;
 
- 		trace_kvm_exit(ret, kvm_vcpu_trap_get_class(vcpu), *vcpu_pc(vcpu));
+ 	if (!kvm_lpa2_is_enabled())
+ 		attr |= FIELD_PREP(KVM_PTE_LEAF_ATTR_LO_S2_SH, sh);
+@@ -753,7 +753,7 @@ enum kvm_pgtable_prot kvm_pgtable_stage2_pte_prot(kvm_pte_t pte)
 
-+		/*
-+		 * Drain the HDBSS buffer before the exit is handled, so
-+		 * entries pushed to the dirty ring are accounted for by
-+		 * dirty_ring_check_request() on the next iteration.
-+		 */
-+		if (vcpu_hdbss_enabled(vcpu))
-+			kvm_flush_hdbss_buffer(vcpu);
-+
- 		/* Exit types that need handling before we can be preempted */
- 		handle_exit_early(vcpu, ret);
+ 	if (pte & KVM_PTE_LEAF_ATTR_LO_S2_S2AP_R)
+ 		prot |= KVM_PGTABLE_PROT_R;
+-	if (pte & KVM_PTE_LEAF_ATTR_LO_S2_S2AP_W)
++	if (pte & KVM_PTE_LEAF_ATTR_HI_S2_DBM)
+ 		prot |= KVM_PGTABLE_PROT_W;
 
-@@ -2017,7 +2025,19 @@ long kvm_arch_vcpu_unlocked_ioctl(struct file *filp, unsigned int ioctl,
-
- void kvm_arch_sync_dirty_log(struct kvm *kvm, struct kvm_memory_slot *memslot)
+ 	switch (FIELD_GET(KVM_PTE_LEAF_ATTR_HI_S2_XN, pte)) {
+@@ -1288,6 +1288,7 @@ static int stage2_update_leaf_attrs(struct kvm_pgtable *pgt, u64 addr,
+ int kvm_pgtable_stage2_wrprotect(struct kvm_pgtable *pgt, u64 addr, u64 size)
  {
-+	unsigned long i;
-+	struct kvm_vcpu *vcpu;
+ 	return stage2_update_leaf_attrs(pgt, addr, size, 0,
++					KVM_PTE_LEAF_ATTR_HI_S2_DBM |
+ 					KVM_PTE_LEAF_ATTR_LO_S2_S2AP_W,
+ 					NULL, NULL,
+ 					KVM_PGTABLE_WALK_IGNORE_EAGAIN);
+@@ -1368,7 +1369,7 @@ int kvm_pgtable_stage2_relax_perms(struct kvm_pgtable *pgt, u64 addr,
+ 		set |= KVM_PTE_LEAF_ATTR_LO_S2_S2AP_R;
 
-+	if (!kvm_hdbss_enabled(kvm))
-+		return;
-+
+ 	if (prot & KVM_PGTABLE_PROT_W)
+-		set |= KVM_PTE_LEAF_ATTR_LO_S2_S2AP_W;
++		set |= KVM_PTE_LEAF_ATTR_HI_S2_DBM | KVM_PTE_LEAF_ATTR_LO_S2_S2AP_W;
+
+ 	if (prot & KVM_PGTABLE_PROT_X) {
+ 		ret = stage2_set_xn_attr(prot, &xn);
+diff --git a/arch/arm64/kvm/nested.c b/arch/arm64/kvm/nested.c
+index b191365d97cc..4d7f52f4bc09 100644
+--- a/arch/arm64/kvm/nested.c
++++ b/arch/arm64/kvm/nested.c
+@@ -388,6 +388,11 @@ static int walk_nested_s2_pgd(struct kvm_vcpu *vcpu, phys_addr_t ipa,
+ 		(ipa & GENMASK_ULL(addr_bottom - 1, 0));
+ 	out->output = paddr;
+ 	out->block_size = 1UL << ((3 - level) * stride + wi->pgshift);
 +	/*
-+	 * The buffer is drained on every VM exit, so kicking running
-+	 * vCPUs is enough to flush them; the dirty-log GET/CLEAR
-+	 * protocol tolerates bits set concurrently with the snapshot.
++	 * L1 descriptors keep the legacy encoding: S2AP[1] is the write
++	 * permission, and DBM is RES0 (the L1-visible HAFDBS is limited
++	 * to AF-only).
 +	 */
-+	kvm_for_each_vcpu(i, vcpu, kvm)
-+		kvm_vcpu_kick(vcpu);
- }
-
- static int kvm_vm_ioctl_set_device_addr(struct kvm *kvm,
-diff --git a/arch/arm64/kvm/dirty_bit.c b/arch/arm64/kvm/dirty_bit.c
-index f9aeb9f34ad0..be0d12555c84 100644
---- a/arch/arm64/kvm/dirty_bit.c
-+++ b/arch/arm64/kvm/dirty_bit.c
-@@ -13,6 +13,7 @@
- #include <linux/kconfig.h>
- #include <linux/log2.h>
- #include <linux/mm.h>
-+#include <linux/srcu.h>
-
- int kvm_arm_vcpu_alloc_hdbss(struct kvm_vcpu *vcpu)
- {
-@@ -53,3 +54,47 @@ void kvm_arm_vcpu_free_hdbss(struct kvm_vcpu *vcpu)
- 	vcpu->arch.hdbss.hdbss_pg = NULL;
- 	vcpu->arch.hdbss.hdbssbr_el2 = 0;
- }
-+
-+void kvm_flush_hdbss_buffer(struct kvm_vcpu *vcpu)
-+{
-+	int idx, curr_idx;
-+	u64 prod;
-+	u32 entries;
-+	u64 *hdbss_buf;
-+	struct kvm *kvm = vcpu->kvm;
-+	int srcu_idx;
-+
-+	if (!vcpu_hdbss_enabled(vcpu))
-+		return;
-+
-+	prod = read_sysreg_s(SYS_HDBSSPROD_EL2);
-+	curr_idx = HDBSSPROD_IDX(prod);
-+
-+	if (curr_idx == 0 || !vcpu->arch.hdbss.hdbss_pg)
-+		return;
-+
-+	hdbss_buf = page_address(vcpu->arch.hdbss.hdbss_pg);
-+	if (!hdbss_buf)
-+		return;
-+
-+	entries = kvm_hdbss_buffer_size(kvm) / sizeof(u64);
-+
-+	/* kvm_vcpu_mark_page_dirty() resolves the memslot under SRCU. */
-+	srcu_idx = srcu_read_lock(&kvm->srcu);
-+	for (idx = 0; idx < min_t(u32, curr_idx, entries); idx++) {
-+		u64 gpa;
-+
-+		gpa = hdbss_buf[idx];
-+		if (!(gpa & HDBSS_ENTRY_VALID))
-+			continue;
-+
-+		gpa &= HDBSS_ENTRY_IPA;
-+		kvm_vcpu_mark_page_dirty(vcpu, gpa >> PAGE_SHIFT);
-+	}
-+	srcu_read_unlock(&kvm->srcu, srcu_idx);
-+
-+	prod &= ~HDBSSPROD_EL2_INDEX_MASK;
-+	write_sysreg_s(prod, SYS_HDBSSPROD_EL2);
-+	vcpu->arch.hdbss.hdbssprod_el2 = prod;
-+	isb();
-+}
+ 	out->readable = desc & KVM_PTE_LEAF_ATTR_LO_S2_S2AP_R;
+ 	out->writable = desc & KVM_PTE_LEAF_ATTR_LO_S2_S2AP_W;
+ 	out->level = level;
+diff --git a/arch/arm64/kvm/ptdump.c b/arch/arm64/kvm/ptdump.c
+index 69899797dbad..b0cb8d84a9e9 100644
+--- a/arch/arm64/kvm/ptdump.c
++++ b/arch/arm64/kvm/ptdump.c
+@@ -40,8 +40,8 @@ static const struct ptdump_prot_bits stage2_pte_bits[] = {
+ 		.clear	= " ",
+ 	},
+ 	{
+-		.mask	= KVM_PTE_LEAF_ATTR_LO_S2_S2AP_W,
+-		.val	= KVM_PTE_LEAF_ATTR_LO_S2_S2AP_W,
++		.mask	= KVM_PTE_LEAF_ATTR_HI_S2_DBM,
++		.val	= KVM_PTE_LEAF_ATTR_HI_S2_DBM,
+ 		.set	= "W",
+ 		.clear	= " ",
+ 	},
 --
 2.43.0
 
