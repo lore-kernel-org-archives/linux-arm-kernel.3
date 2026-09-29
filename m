@@ -4,75 +4,78 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4C902C9832A
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 29 Sep 2026 14:10:09 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 802F9C9832A
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 29 Sep 2026 14:13:40 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:References:In-Reply-To:Subject:Cc:To:From:
+	Message-ID:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=o0YpWFeHwuuuO8J+KMdMJU+QUfbxG9RRHw/4ci6IJFg=; b=IxjAyyx+Gg1EJKfJBDwgNj1Yzl
-	2SGTSzzsrN3m8SNhtH9NzVESv/kEfWztiQPjyHZ1vhXM3vP391aFAoEE1u770LKLNW0UgKTZjZJxD
-	iy3AMrXNRBe7vBASkZJdf2HnIwX6JJ7ZVFBSjkHZe51GQafFAEpvOwCoalP5AUO/8lp2biYI7aUc+
-	3lPOvwJ9Nvl8kyRFUTYUg8rHQ0Nq5HI5TVZCcGQwKkaYWkH6HUSLFTcdz9PZciVcnnKJPy+3fiCLL
-	NRwlBBRzHVc02g0+KwI2CT8dyLypiTW1/BAbkhoZqru2LZlXxT/0yHXRfCZsril+9bG9K7ix8LyNx
-	O7L5m51g==;
+	bh=2Dk0LckhodBoHKrWlTBpRMQHe6Wk8ImTuZYBryUACZo=; b=C4a92N5WI7AS+Sd9RbdaSSebx8
+	hIGoLXtv8q0baSrn35/JS+Q6IrvhxT2q5XculPTAIL6ysrIl4kidnxGOQTVRv9Tz6HHj4qviEIiNy
+	GMN83thIeMnaihKxT1ZqXCHseAB4OJyCfXW6uGqNHz/O3s4kyMH3w2SBW0hUIz6XhiTKB+IAfNC3T
+	dLD5HTD6nOVM2EJ4+Mtq/CgPyeuRlYSNkP72ffYAYlnuWDFYV6Hagadnk9XLy7xsdc/TFvN839NRR
+	AbsldpZoMdr+IQMQTOWUyE3hd3JB9o2bFmTd5SU0oCPP1DEtKlmHGV2TiFkz3bItf26MG6sgPuSkO
+	4tC3wRVg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xBYWx-00000003l1a-0sxV;
-	Tue, 29 Sep 2026 14:10:03 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1xBYaL-00000003lKN-34K5;
+	Tue, 29 Sep 2026 14:13:33 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xBYWv-00000003l0w-1XFU
-	for linux-arm-kernel@bombadil.infradead.org;
-	Tue, 29 Sep 2026 14:10:01 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=In-Reply-To:Content-Type:MIME-Version:
-	References:Message-ID:Subject:Cc:To:From:Date:Sender:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description;
-	bh=o0YpWFeHwuuuO8J+KMdMJU+QUfbxG9RRHw/4ci6IJFg=; b=XQ/OmoAeBiuhqRy8k/P3GwwIMZ
-	bYuJHjW1/KMO/AGpmNUcDX3aeQkWgSeVdZ25R1eL+8Bk6PHrfa2djLTA0EivzwMMXrkyNpnQRMhC2
-	H09RTBr78+9ZRMtU4yEvk8zsBiY+GhJ4aYuIy6Pw9Vbhl/4zUM/4HSO9ML+DHe5AbV9NUp70u/NlA
-	FOATUBdM+KbQHq33AE2MhC2J3Nr+SUiwfdZCuT9SvxJXJdCc00zhxzWkmMlhKCRR/cL1XA1cOYfbq
-	WmRUiIkttAtD/O19yOCMj3vjSFxL5uGHYPefdWGbBpjPCyuG0/J+X3jCO4oZABwb5Jj7xsUmkHpwD
-	WZwLHnVA==;
-Received: from foss.arm.com ([217.140.110.172])
-	by desiato.infradead.org with esmtp (Exim 4.99.2 #2 (Red Hat Linux))
-	id 1xBYWs-00000002imB-164Y
+	id 1xBYaK-00000003lK2-2HGQ
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 29 Sep 2026 14:10:00 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id B710C152B;
-	Tue, 29 Sep 2026 07:09:52 -0700 (PDT)
-Received: from arm.com (usa-sjc-imap-foss1.foss.arm.com [10.121.207.14])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 122183F86F;
-	Tue, 29 Sep 2026 07:09:53 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1790690996; bh=drjAjLIf0FiNjXb30u1fBy6oMHBuPaNbZ6+6LguMfEw=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=Q1A79Yev43HvgLhsasL5CE3UA2ZZebu7AhW0HmQxZh77T5S/AX48u8EipgJqa2ntG
-	 jUT+j65NR85Fl/c5U4vti8w404B0nAF+O2Zx+6yCHl38iZ5eXZb3WHoVKJVFhQ2JGJ
-	 N5dGYi7EjKCuj14UfdM/aZtzVe09z5XgLkAtYIM8=
-Date: Tue, 29 Sep 2026 16:09:50 +0200
-From: Beata Michalska <beata.michalska@arm.com>
-To: Vladimir Murzin <vladimir.murzin@arm.com>
-Cc: linux-arm-kernel@lists.infradead.org, catalin.marinas@arm.com,
-	will@kernel.org, suzuki.poulose@arm.com, James.Morse@arm.com,
-	xuewen.yan94@gmail.com, seanwang1@lenovo.com,
-	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v2] arm64: errata: Add Cortex-A725 erratum 3821522
- workaround
-Message-ID: <arvGrikAp8focp2Y@arm.com>
-References: <20260929134055.3241587-1-beata.michalska@arm.com>
- <491d09a3-cfaf-45d5-9715-459e89180068@arm.com>
-MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <491d09a3-cfaf-45d5-9715-459e89180068@arm.com>
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260929_150958_659832_A7A372BC 
-X-CRM114-Status: GOOD (  38.49  )
+	Tue, 29 Sep 2026 14:13:32 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by tor.source.kernel.org (Postfix) with ESMTP id A043C60008;
+	Tue, 29 Sep 2026 14:13:31 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 56A781F000FF;
+	Tue, 29 Sep 2026 14:13:31 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1790691211;
+	bh=2Dk0LckhodBoHKrWlTBpRMQHe6Wk8ImTuZYBryUACZo=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References;
+	b=Ptw+rtCUl02YbGD2eAmr156Rdq4+2BStIyQCChm1r4K5TYo9ZXC4sSL5NzlImWci7
+	 e1Wyo1lSuWTT6EM0h0Dx9hVkvRzAeEeRA+CUVFhBoVxAgwiHcLhMpDySdC3EpAfzr8
+	 4pla3s37orME7jOdl3UU93yXB9bBsWzs6Iw1FwZbpgCgwaVYabZLvWZXIm1rg68qZw
+	 z7UzpR5GuRPnA9DmvHtmzDGrDpflTZ2cSwNHyfqij85jWc8wX47ARa7lCRvzXTWne0
+	 elm5E5Htplv8tyNGcz9umtv9CBW9aatFmzaECL6GqAnQgBTZ1jRXAAzmfOEE8YrDg3
+	 Vzv8QP4jnz2eQ==
+Received: from sofa.misterjones.org ([185.219.108.64] helo=goblin-girl.misterjones.org)
+	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.98.2)
+	(envelope-from <maz@kernel.org>)
+	id 1xBYaG-0000000Et43-3ZdE;
+	Tue, 29 Sep 2026 14:13:28 +0000
+Date: Tue, 29 Sep 2026 15:13:28 +0100
+Message-ID: <86a4p0403b.wl-maz@kernel.org>
+From: Marc Zyngier <maz@kernel.org>
+To: Fuad Tabba <fuad.tabba@linux.dev>
+Cc: kvmarm@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org,
+	Steffen Eiden <seiden@linux.ibm.com>,
+	Joey Gouly <joey.gouly@arm.com>,
+	Suzuki K Poulose <suzuki.poulose@arm.com>,
+	Oliver Upton <oupton@kernel.org>,
+	Zenghui Yu <yuzenghui@huawei.com>,
+	Yuchao Zhang <ndaugoing@gmail.com>,
+	stable@vger.kernel.org
+Subject: Re: [PATCH v2 1/7] KVM: arm64: Move OUTSIDE_GUEST_MODE publication past context being saved
+In-Reply-To: <CA+EHjTwZSFUZmavbB4tE-eFxHg9WF80CA230EwvynuNcZQ0prg@mail.gmail.com>
+References: <20260929093548.3598547-1-maz@kernel.org>
+	<20260929093548.3598547-2-maz@kernel.org>
+	<CA+EHjTwZSFUZmavbB4tE-eFxHg9WF80CA230EwvynuNcZQ0prg@mail.gmail.com>
+User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
+ FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/30.1
+ (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
+MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
+Content-Type: text/plain; charset=US-ASCII
+Content-Transfer-Encoding: quoted-printable
+X-SA-Exim-Connect-IP: 185.219.108.64
+X-SA-Exim-Rcpt-To: fuad.tabba@linux.dev, kvmarm@lists.linux.dev, linux-arm-kernel@lists.infradead.org, seiden@linux.ibm.com, joey.gouly@arm.com, suzuki.poulose@arm.com, oupton@kernel.org, yuzenghui@huawei.com, ndaugoing@gmail.com, stable@vger.kernel.org
+X-SA-Exim-Mail-From: maz@kernel.org
+X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -87,142 +90,130 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi,
-On Tue, Sep 29, 2026 at 02:55:56PM +0100, Vladimir Murzin wrote:
-> Hi Beata,
-> 
-> On 9/29/26 14:40, Beata Michalska wrote:
-> > Cortex-A725 erratum 3821522 affects the CNT_CYCLES event, which can
-> > incur a significant increment error when a CPU enters and subsequently
-> > exits WFE or WFI, and may no longer track the system counter frequency.
-> > 
-> > The AMEVCNTR01_EL0 counter is being used as the AMU constant counter for
-> > frequency invariance and CPPC FFH feedback counters. Treat the affected
-> > AMU counter as unavailable by returning zero in the AMU counter paths,
-> > matching the existing convention used when the counter is disabled or
-> > unusable. This prevents the broken counter from being used as a reference
-> > source.
-> > 
-> > The erratum can also affect PMUv3 users of the CNT_CYCLES event, but this
-> > workaround intentionally does not change PMU event handling. Hiding or
-> > rejecting the PMU event from the erratum code would change the perf-visible
-> > PMU event interface, including raw event selection, and would need
-> > separate PMU specific approach rather than being folded into the AMU
-> > reference-counter workaround.
-> > 
-> > This also folds the per-erratum workarounds for ARM errata 2457168 and
-> > 3821522 into a single AMU constant-counter capability, as both require
-> > treating AMEVCNTR01 as unreliable and unavailable.
-> > 
-> 
-> Can we please split this in two patches:
-> 
-> 1. Factor out ARM64_WORKAROUND_2457168 into generic ARM64_WORKAROUND_BROKEN_AMU_CONSTCNT
-> 2. Wire up Cortex-A725 erratum 3821522
-Sure,
-> 
-> > CC: <stable@vger.kernel.org>
-> > Signed-off-by: Beata Michalska <beata.michalska@arm.com>
-> > ---
-> >  Documentation/arch/arm64/silicon-errata.rst |  2 ++
-> >  arch/arm64/Kconfig                          | 30 +++++++++++++++++++++
-> >  arch/arm64/include/asm/cpucaps.h            |  3 ++-
-> >  arch/arm64/kernel/cpu_errata.c              | 29 +++++++++++++++-----
-> >  arch/arm64/kernel/cpufeature.c              |  2 +-
-> >  arch/arm64/kernel/topology.c                | 16 ++++++-----
-> >  arch/arm64/tools/cpucaps                    |  2 +-
-> >  7 files changed, 68 insertions(+), 16 deletions(-)
-> > 
-> > diff --git a/Documentation/arch/arm64/silicon-errata.rst b/Documentation/arch/arm64/silicon-errata.rst
-> > index ac3248b9f2f3b..99a1eb4b833dd 100644
-> > --- a/Documentation/arch/arm64/silicon-errata.rst
-> > +++ b/Documentation/arch/arm64/silicon-errata.rst
-> > @@ -174,6 +174,8 @@ stable kernels.
-> >  +----------------+-----------------+-----------------+-----------------------------+
-> >  | ARM            | Cortex-A725     | #3456106        | ARM64_ERRATUM_3194386       |
-> >  +----------------+-----------------+-----------------+-----------------------------+
-> > +| ARM            | Cortex-A725     | #3821522        | ARM64_ERRATUM_3821522       |
-> > ++----------------+-----------------+-----------------+-----------------------------+
-> >  | ARM            | Cortex-X1       | #1502854        | N/A                         |
-> >  +----------------+-----------------+-----------------+-----------------------------+
-> >  | ARM            | Cortex-X1       | #3324344        | ARM64_ERRATUM_3194386       |
-> > diff --git a/arch/arm64/Kconfig b/arch/arm64/Kconfig
-> > index b5a51b0ef9440..cab741a695f52 100644
-> > --- a/arch/arm64/Kconfig
-> > +++ b/arch/arm64/Kconfig
-> > @@ -1040,9 +1040,17 @@ config ARM64_ERRATUM_1902691
-> >  
-> >  	  If unsure, say Y.
-> >  
-> > +config ARM64_WORKAROUND_BROKEN_AMU_CONSTCNT
-> > +	bool
-> > +	# Targeting errata affecting AMEVCNTR01, the AMU constant counter.
-> > +	# On affected CPUs the counter may not increment at the expected rate,
-> > +	# making it unreliable. As a result, AMU users should treat it as
-> > +	# unavailable rather than relying on misleading counter values.
-> > +
-> >  config ARM64_ERRATUM_2457168
-> >  	bool "Cortex-A510: 2457168: workaround for AMEVCNTR01 incrementing incorrectly"
-> >  	depends on ARM64_AMU_EXTN
-> > +	select ARM64_WORKAROUND_BROKEN_AMU_CONSTCNT
-> >  	default y
-> >  	help
-> >  	  This option adds the workaround for ARM Cortex-A510 erratum 2457168.
-> > @@ -1073,6 +1081,28 @@ config ARM64_ERRATUM_2645198
-> >  
-> >  	  If unsure, say Y.
-> >  
-> > +config ARM64_ERRATUM_3821522
-> > +	bool "Cortex-A725: 3821522: workaround for possible CNT_CYCLES increment error due to WFE/WFI"
-> > +	depends on ARM64_AMU_EXTN
-> > +	select ARM64_WORKAROUND_BROKEN_AMU_CONSTCNT
-> > +	default y
-> > +	help
-> > +	  This option adds the workaround for ARM Cortex-A725 erratum 3821522.
-> > +
-> > +	  On affected A725 cores, the CNT_CYCLES event may incur a significant
-> > +	  increment error when entering and subsequently exiting WFx.
-> > +	  As a result, the CNT_CYCLES may diverge from the system counter
-> > +	  frequency at which it is expected to increment.
-> > +	  This renders the AMU counter AMEVCNTR01, that implements CNT_CYCLES,
-> > +	  being unreliable and unsuitable for use.
-> > +
-> > +	  Since there is no hardware workaround, reads of the affected CNT_CYCLES
-> > +	  counter return 0 in the relevant paths. This causes users of the counter
-> > +	  to treat it as unavailable and is functionally equivalent to firmware
-> > +	  disabling the affected counter.
-> > +
-> > +	  If unsure, say Y.
-> > +
-> >  config ARM64_WORKAROUND_SPECULATIVE_UNPRIV_LOAD
-> >  	bool
-> >  
-> > diff --git a/arch/arm64/include/asm/cpucaps.h b/arch/arm64/include/asm/cpucaps.h
-> > index 76350b38f0d7a..120c5dc3c11d7 100644
-> > --- a/arch/arm64/include/asm/cpucaps.h
-> > +++ b/arch/arm64/include/asm/cpucaps.h
-> > @@ -75,8 +75,9 @@ cpucap_is_possible(const unsigned int cap)
-> >  		return IS_ENABLED(CONFIG_HW_PERF_EVENTS);
-> >  	case ARM64_HAS_LSUI:
-> >  		return IS_ENABLED(CONFIG_ARM64_LSUI);
-> > +	case ARM64_WORKAROUND_BROKEN_AMU_CONSTCNT:
-> > +		return IS_ENABLED(CONFIG_ARM64_WORKAROUND_BROKEN_AMU_CONSTCNT);
-> 
-> Hmm, ARM64_WORKAROUND_2457168 has not been present here, so seeing
-> ARM64_WORKAROUND_BROKEN_AMU_CONSTCNT here is not quite expected...
-Yeah, it's bit of a stretch and not necessarily needed.
-Added that for completeness but it's not really required.
-Can get rid of that.
+On Tue, 29 Sep 2026 13:59:23 +0100,
+Fuad Tabba <fuad.tabba@linux.dev> wrote:
+>=20
+> Hi Marc,
+>=20
+> On Tue, 29 Sep 2026 10:35:42 +0100, Marc Zyngier <maz@kernel.org> wrote:
+> [...]
+> > Move the publication of OUTSIDE_GUEST_MODE to the point where the state
+> > is actually written, and give this write release semantics to ensure the
+> > correct ordering.
+> >
+> > Signed-off-by: Marc Zyngier <maz@kernel.org>
+> > Cc: stable@vger.kernel.org
+>=20
+>=20
+> No Fixes: tag?
 
----
-BR
-Beata
-> 
-> >  	}
-> > -
-> 
-> Nitpick: unrelated change?
-> 
-> Thanks
-> Vladimir
+No. It's always been fsck'd.
+
+>=20
+> [...]
+> > diff --git a/arch/arm64/kvm/arm.c b/arch/arm64/kvm/arm.c
+> [...]
+> > @@ -1386,6 +1385,12 @@ int kvm_arch_vcpu_ioctl_run(struct kvm_vcpu *vcp=
+u)
+> >
+> >               kvm_arch_vcpu_ctxsync_fp(vcpu);
+> >
+> > +             /*
+> > +              * All the state has been synchronised, let advertise
+> > +              * we're outside of the guest.
+> > +              */
+> > +             smp_store_release(&vcpu->mode, OUTSIDE_GUEST_MODE);
+>=20
+> Pardon my atomics :)
+
+This is not an atomic instruction. However, it composes with atomics.
+
+> , but what does the release pair with? On the halt
+> path, the only reader I can find is the cmpxchg() in
+> kvm_vcpu_exiting_guest_mode()
+
+=46rom Documentation/atomic_t.txt:
+
+<quote>
+ - RMW operations that have a return value are fully ordered;
+
+ - RMW operations that are conditional are unordered on FAILURE,
+   otherwise the above rules apply.
+</quote>
+
+The acquire side of cmpxchg() is therefore interacting with the above
+release, which gives us the required ordering.
+
+However, there is a problem if cmpxchg() fails, as there is no
+ordering in that case, and I'm not sure the smp_mb__before_atomic()
+saves the bacon in that case. It feels we'd need an acquire
+somewhere, a bit like this:
+
+diff --git a/include/linux/kvm_host.h b/include/linux/kvm_host.h
+index 03bfc92864b6e..2efb4febcb235 100644
+--- a/include/linux/kvm_host.h
++++ b/include/linux/kvm_host.h
+@@ -563,9 +563,15 @@ static inline int kvm_vcpu_exiting_guest_mode(struct k=
+vm_vcpu *vcpu)
+ 	 * The memory barrier ensures a previous write to vcpu->requests cannot
+ 	 * be reordered with the read of vcpu->mode.  It pairs with the general
+ 	 * memory barrier following the write of vcpu->mode in VCPU RUN.
++	 *
++	 * cmpxchg() is not ordered when failing, so make sure we perform an
++	 * acquire in that case.
+ 	 */
+ 	smp_mb__before_atomic();
+-	return cmpxchg(&vcpu->mode, IN_GUEST_MODE, EXITING_GUEST_MODE);
++	if (cmpxchg(&vcpu->mode, IN_GUEST_MODE, EXITING_GUEST_MODE) !=3D IN_GUEST=
+_MODE)
++		return smp_load_acquire(&vcpu->mode);
++
++	return IN_GUEST_MODE;
+ }
+=20
+ /*
+
+> , and the LPI-disable and MOVALL halts
+> then take ap_list_lock or irq_lock. Would WRITE_ONCE() be enough?
+
+We need a release so that we know for sure that any state stored
+before is visible by the time we can observe OUTSIDE_GUEST_MODE, and
+WRITE_ONCE() doesn't provide that (it can be reordered).
+
+I don't see what taking a lock changes to the ordering requirement.
+
+>
+> Should the early exit path (the kvm_vcpu_exit_request() bail-out) get
+> the same treatment? I think that's what Sashiko is trying to say in
+> the patch 5 review [1].
+
+I don't understand what sashiko is trying to say, but this is clearly
+missing from the patch, see below. Not sure how I missed that one.
+
+diff --git a/arch/arm64/kvm/arm.c b/arch/arm64/kvm/arm.c
+index 9a4871cd796bc..1a3a15bc6f55c 100644
+--- a/arch/arm64/kvm/arm.c
++++ b/arch/arm64/kvm/arm.c
+@@ -1333,13 +1333,13 @@ int kvm_arch_vcpu_ioctl_run(struct kvm_vcpu *vcpu)
+ 		smp_store_mb(vcpu->mode, IN_GUEST_MODE);
+=20
+ 		if (ret <=3D 0 || kvm_vcpu_exit_request(vcpu, &ret)) {
+-			vcpu->mode =3D OUTSIDE_GUEST_MODE;
+ 			isb(); /* Ensure work in x_flush_hwstate is committed */
+ 			if (kvm_vcpu_has_pmu(vcpu))
+ 				kvm_pmu_sync_hwstate(vcpu);
+ 			if (unlikely(!irqchip_in_kernel(vcpu->kvm)))
+ 				kvm_timer_sync_user(vcpu);
+ 			kvm_vgic_sync_hwstate(vcpu);
++			smp_store_release(&vcpu->mode, OUTSIDE_GUEST_MODE);
+ 			local_irq_enable();
+ 			preempt_enable();
+ 			continue;
+
+Thanks,
+
+	M.
+
+--=20
+Without deviation from the norm, progress is not possible.
 
