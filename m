@@ -4,133 +4,101 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7EF71C9832A
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 29 Sep 2026 07:16:19 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BAA35C9832A
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 29 Sep 2026 07:17:01 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=FZ9JuuSs/D+akfl91xU7OP2eBpxBAvfXWSZY4zEvYBU=; b=PH260z/pOEf+S7E3qExaMKuR8c
-	bHrW9rmXpHad+Hm8JI5b9Jbx3JdRTsiZ+SJiF9PFopnQzKDTXVFNRefiS7F7kOG6kDdJ81uoSv2ek
-	5ECGFzx/Ldu1P5x2/UxYqc6FASK3nBIK0/p29RIdcDVQUmq9tDj549fhXmctKFTZjFhr3PMSwmWIW
-	MIC+AoJUQ85dYeYz+iYo181PeRxJvGuew6cLId9uJcjOIHKef8Enn9yzPkuMe//+jEdsiTZs8WPU1
-	n3rMtc5JRWU4St3mUCM91z+UDY5myEVX3a/yaxl/m8Hw20qBBayruwpjOWN1Z+CRsCLL8uXSC8g4j
-	IEwKdvMQ==;
+	bh=g8yFIMfXcamOSTdytiUcdogK/QABhn5sWuK0oBzBWh8=; b=EYN49zeJUe18c6lZ3VqaupGqkR
+	FPDB8EvKq/2ABaCUCdxxifSI/bhR0i1sCEG77lw3YtUZ/ow2O54GIHOqBI47zZAtf0ZAt7J8L1hqj
+	hwK1NSOzAZvsKqrT7o6/DalTKsBX2ahCCm4WupUkSivml28M+jS4QO/VmPofLCRNYIJj6vHGdnrxj
+	En7PFrXu/OcigJ5AV4b/Cb9jd6sd1lvuKEEN/YhkBG5bH9OyGneOaP7vwZ6otUh9fGaQi4YRyDyC7
+	kleL+H0R7C2mWx11Qqed/QenskH2VD7l32/BB6tNsrFr+QsxEGIZH+kJTUfhrFl2yxZZBrT0MRqI8
+	q0vq0jGw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xBS4S-00000002Zbk-1ebG;
-	Tue, 29 Sep 2026 07:16:12 +0000
-Received: from mx0a-001b2d01.pphosted.com ([148.163.156.1])
+	id 1xBS57-00000002ZnT-2bD1;
+	Tue, 29 Sep 2026 07:16:53 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xBS4P-00000002ZbD-1WPn;
-	Tue, 29 Sep 2026 07:16:11 +0000
-Received: from pps.filterd (m0360083.ppops.net [127.0.0.1])
-	by mx0a-001b2d01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 68T46KHA3076706;
-	Tue, 29 Sep 2026 07:15:49 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ibm.com; h=cc
-	:content-transfer-encoding:content-type:date:from:in-reply-to
-	:message-id:mime-version:references:subject:to; s=pp1; bh=FZ9Juu
-	Ss/D+akfl91xU7OP2eBpxBAvfXWSZY4zEvYBU=; b=pnv94pymYS0IkF3b2G50M4
-	RVkV8lncqhwY25+KxnAPc7KJwZVwdpd0iKVIrj4PwxwfYDMRh5T+oR2yEtuzPbH2
-	kdv9XrbE4eQtQLFmYta2zPltzRW7rhH586EJ2ybEDNqh8OSAuakepqe+7Pt4n5mP
-	DGX5X/mETzLJG1sXOqDhr2Rb9wpxG36dw3L/5R+pFX+nps9uXskpE6ZIFYlEJcWJ
-	g08Vtu+2FfMj+4am4v8c63suUwZPSmRO2N3qPwVCozQd+Ycy+/YuLD8AUcNxhXzb
-	L8/IXF/12LKdKDVVQyMOqk7m12zbbTGC4wNJ68wXadbZIqsb5kDKowEw1/TRnTvQ
-	==
-Received: from ppma13.dal12v.mail.ibm.com (dd.9e.1632.ip4.static.sl-reverse.com [50.22.158.221])
-	by mx0a-001b2d01.pphosted.com (PPS) with ESMTPS id 4gx5j55tup-1
-	(version=TLSv1.3 cipher=TLS_AES_256_GCM_SHA384 bits=256 verify=NOT);
-	Tue, 29 Sep 2026 07:15:48 +0000 (GMT)
-Received: from pps.filterd (ppma13.dal12v.mail.ibm.com [127.0.0.1])
-	by ppma13.dal12v.mail.ibm.com (8.18.1.11/8.18.1.11) with ESMTP id 68T4HjaP4070253;
-	Tue, 29 Sep 2026 07:15:47 GMT
-Received: from smtprelay03.wdc07v.mail.ibm.com ([172.16.1.70])
-	by ppma13.dal12v.mail.ibm.com (PPS) with ESMTPS id 4gxtkg8h5r-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Tue, 29 Sep 2026 07:15:47 +0000 (GMT)
-Received: from smtpav03.dal12v.mail.ibm.com (smtpav03.dal12v.mail.ibm.com [10.241.53.102])
-	by smtprelay03.wdc07v.mail.ibm.com (8.14.9/8.14.9/NCO v10.0) with ESMTP id 68T7F1jI63111648
-	(version=TLSv1/SSLv3 cipher=DHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
-	Tue, 29 Sep 2026 07:15:01 GMT
-Received: from smtpav03.dal12v.mail.ibm.com (unknown [127.0.0.1])
-	by IMSVA (Postfix) with ESMTP id 9B92B5803F;
-	Tue, 29 Sep 2026 07:15:45 +0000 (GMT)
-Received: from smtpav03.dal12v.mail.ibm.com (unknown [127.0.0.1])
-	by IMSVA (Postfix) with ESMTP id C7B0358056;
-	Tue, 29 Sep 2026 07:15:33 +0000 (GMT)
-Received: from [9.39.21.128] (unknown [9.39.21.128])
-	by smtpav03.dal12v.mail.ibm.com (Postfix) with ESMTPS;
-	Tue, 29 Sep 2026 07:15:33 +0000 (GMT)
-Message-ID: <e5a70518-9dfb-47e5-ac32-58b75c07a858@ibm.com>
-Date: Tue, 29 Sep 2026 12:45:30 +0530
+	id 1xBS4r-00000002Zj6-0dCB;
+	Tue, 29 Sep 2026 07:16:37 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:Content-Type
+	:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:Message-ID:
+	Sender:Reply-To:Content-ID:Content-Description;
+	bh=g8yFIMfXcamOSTdytiUcdogK/QABhn5sWuK0oBzBWh8=; b=JU6SdQtfHbp7GOa0g/LtGGQiur
+	j3xDjNclktugrMB9t0vVuOriXQQUp8D8yojzbTQES5lCn3nJYWK7KgedNcyDhWL9yx22KjTWgWxPA
+	Aakyp7g4tdpT8aRGIcuHtOxrFiGuOFa1CN2835Vgki+tcJUnmbmak3nmM/NpBjE28BJNW7jnchm0t
+	e1FiCVG7magzcbdrffqTs4ICN/PQqLnbZhyQ4Mxpulu5NKC3ABgq+hQ3O97/ohioCEb4MPLPu6NCD
+	0JRTXMPsYfSh41U6eTYcy7IRgam7nju2X7l7MQANT/nqeil9bIgwz8Xl1f1doW9BVjJoIxHX9/foT
+	tAkvCy/Q==;
+Received: from mx1.white.stw.pengutronix.de ([2a0a:edc0:0:b01:1d::107])
+	by desiato.infradead.org with esmtps (Exim 4.99.2 #2 (Red Hat Linux))
+	id 1xBS4n-00000002HSQ-1rT3;
+	Tue, 29 Sep 2026 07:16:36 +0000
+Received: from [0.0.0.0] (ptz.office.stw.pengutronix.de [IPv6:2a0a:edc0:0:900:1d::77])
+	(Authenticated sender: spu@pengutronix.de)
+	by mx1.white.stw.pengutronix.de (Postfix) with ESMTPSA id E1FB5201548;
+	Tue, 29 Sep 2026 09:16:30 +0200 (CEST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=pengutronix.de;
+	s=20260414; t=1790666191;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=g8yFIMfXcamOSTdytiUcdogK/QABhn5sWuK0oBzBWh8=;
+	b=ZHw0xdkYy/CgZdHMayUgrCk0soMlwyhaMORQtte2UHNbGN0o201RQsAvUvvJO0B/tASX+K
+	/e0QmBTAs0E8LKSyAfA4hd2UAsZXpkivVzKhxGuDX4TfgNMICqDkuMmn48zqRWQX3qvPF6
+	DfeWkjOBdLoVRw0n213tpVu59oBTgSu9LjsbEOUJxM9A+RyJ3odHCwW9Gcewpwi3es0t3O
+	tlfG1smpcr8FKjykCeJJ52sDjjmZdksnikADGoc1+fSMbkdYRyrhl+OErnc/xq3XdEMsv9
+	EuR0AYN9PxHH5HcwEeYN9/lPQXY4kV6tWJ5AiUqFE+JQXlWhzHB9qmvqDc6Ong==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=pengutronix.de;
+	s=20260414; t=1790666191;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=g8yFIMfXcamOSTdytiUcdogK/QABhn5sWuK0oBzBWh8=;
+	b=M+JKN1oGvusBH3GBbsSTZwkM4KbQFzknN49NdMhTKlqHKiBQJY4k1juzDjamtQAQ8oPB42
+	5aA3ZEb0Ez2mG5RFTyZ0Ban7gPtS1dziE/z1uAc8TrABDztC45SrHuOrk5YQdx0N+1ulIB
+	aneZeVJR0b2X2p8GxboV2RsfyDY54tyrxLg5IZLD4VJcttFfbTNBVyHSejK05VXBxle0yV
+	kC+bU5sSk0PUkd1z+uVJNKKYqf2NRx9dvHoqNBD2Wo2WGfFQLoWyRHB9HYqPEb9ZvSLq91
+	KqdkhQXcWNrik2OuYExfRRGTSyEEY9qCD8rp3VoIJS+NVKJ8JZy7QuZwQGkWSQ==
+ARC-Seal: i=1; s=20260414; d=pengutronix.de; t=1790666191; a=rsa-sha256;
+	cv=none;
+	b=Ii8cJJuTLEYqiYxjCnvVvpCmlwjg6YT9uF6cvpIcfUkAdlNqZJR+/9KjwdoBQfHNHDdTNI
+	r2tpE0lmVSyfwqqWL/5BTsriQOQoQ1DzcdcWbvE6cPVSeraHe9aHfx0ZTpEXUjF2dgs+1C
+	1WfW308uJJtKuPmNtHwWlkisDqE9GgAYL2XzaKda1BL5QBRk+wQR1Ld1rYLhku1NzY83bH
+	zeLUvWs8BWlZ11bkzJy4O77PE5UbzMj1vTM71AzOJ5cqjIi5tQqKjaROg/B84Wv5OWu5PK
+	6tO8nZdpMj/J6UK6/C9ZK+LR1SrUrHEmZKnj/A3uvNtxQlDLkheGUayXk4BftA==
+ARC-Authentication-Results: i=1;
+	ORIGINATING;
+	auth=pass smtp.auth=spu@pengutronix.de smtp.mailfrom=s.pueschel@pengutronix.de
+Message-ID: <b3b26ca0-c362-47ff-837f-989fb8f9cc12@pengutronix.de>
+Date: Tue, 29 Sep 2026 09:16:30 +0200
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2 00/20] KVM: selftests: PPC pre-enabling
-To: Sean Christopherson <seanjc@google.com>, Marc Zyngier <maz@kernel.org>,
-        Oliver Upton <oupton@kernel.org>, Paolo Bonzini <pbonzini@redhat.com>,
-        Tianrui Zhao <zhaotianrui@loongson.cn>, Bibo Mao <maobibo@loongson.cn>,
-        Huacai Chen <chenhuacai@kernel.org>, Anup Patel <anup@brainfault.org>,
-        Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>,
-        Albert Ou <aou@eecs.berkeley.edu>,
-        Christian Borntraeger <borntraeger@linux.ibm.com>,
-        Janosch Frank <frankja@linux.ibm.com>,
-        Claudio Imbrenda <imbrenda@linux.ibm.com>,
-        linux-kernel@vger.kernel.org, kvm@vger.kernel.org,
-        Ritesh Harjani <ritesh.list@gmail.com>,
-        Madhavan Srinivasan <maddy@linux.ibm.com>
-Cc: Fuad Tabba <fuad.tabba@linux.dev>, Joey Gouly <joey.gouly@arm.com>,
-        Steffen Eiden <seiden@linux.ibm.com>,
-        Suzuki K Poulose <suzuki.poulose@arm.com>,
-        Zenghui Yu
- <yuzenghui@huawei.com>,
-        Atish Patra <atish.patra@linux.dev>, Alexandre Ghiti <alex@ghiti.fr>,
-        David Hildenbrand <david@kernel.org>,
-        linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev,
-        loongarch@lists.linux.dev, kvm-riscv@lists.infradead.org,
-        linux-riscv@lists.infradead.org,
-        Itaru Kitayama
- <itaru.kitayama@fujitsu.com>,
-        Nicholas Piggin <npiggin@gmail.com>
-References: <20260902164123.2546762-1-seanjc@google.com>
+Subject: Re: [PATCH v2] media: rockchip: rga: quiesce IRQ before releasing m2m
+ state
+To: Nicolas Dufresne <nicolas@ndufresne.ca>, Fan Wu <fanwu01@zju.edu.cn>,
+ jacob-chen@iotwrt.com, ezequiel@vanguardiasur.com.ar
+Cc: mchehab@kernel.org, heiko@sntech.de, linux-media@vger.kernel.org,
+ linux-rockchip@lists.infradead.org, linux-arm-kernel@lists.infradead.org,
+ linux-kernel@vger.kernel.org, stable@vger.kernel.org
+References: <20260704084659.612221-1-fanwu01@zju.edu.cn>
+ <c5bb16dec180576cb7e68221880b5e36b7cb689b.camel@ndufresne.ca>
 Content-Language: en-US
-From: Anushree Mathur <anushree.mathur2@ibm.com>
-In-Reply-To: <20260902164123.2546762-1-seanjc@google.com>
+From: =?UTF-8?Q?Sven_P=C3=BCschel?= <s.pueschel@pengutronix.de>
+In-Reply-To: <c5bb16dec180576cb7e68221880b5e36b7cb689b.camel@ndufresne.ca>
 Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 8bit
-X-TM-AS-GCONF: 00
-X-Proofpoint-Reinject: loops=2 maxloops=12
-X-Proofpoint-Spam-Info: AW1haW4tMjYwOTI5MDAyOCBTYWx0ZWRfX4W62F1yk8l8n
- XRhO7dxw6DEBdNCkzVHNd7rm217fvhWBjLGNh2KVb7AZ6oSj/1GseOaZgbN6WYJGep0nXfw82O7
- jJOdA+BHclkxjO9Ket6CpoVz9mTJDmQ=
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwOTI5MDAyOCBTYWx0ZWRfX29hXdJK+LPTK
- cxwZVEFGcWGq/Mgo5FUIs2Vb4htVFQjwN8KlZwtb4sjWi5GeUTQcnBZbpE1O091Ihohaeuh5qkR
- SLpswNapgrgeZaNwRvBWGshWh7SXpWZgnE3wlbUUG8uCHLJnYNHq3PzZ/6PO4ms+P9cf1E8kgMY
- 9/GzKedeG8bpauhAcmM9Si0xRO+IzkXkqqbrkBV2yTKLPErnsIB9vtqbLM3S8SvO+uhIRBKupnc
- XLHQRfxTuk3WJIgYj1huHrtlzo4qHBfCjMIkb+EXNecZLXBk7ls9pat6npTqb56LiPtrNmbg5/h
- v1nDPuLvnwRP6XLiA4YRRw9MfHFT5zP1/vQQh/rgnHbqWeHrsgLfHlR5NVZK4aZy05CsaHl5QEA
- sPXalB7Hzb37c68E5EyXRywagkkFFrGZ1FcWNV4uV2zUQPqqU/b51FTOrRFYoqOZnQSvrSVpsWY
- iup3H4jBaxT2Nyul/yw==
-X-Proofpoint-GUID: lq-aGJq6ZdFWNGe-LVvOh1HYDcJzNXa4
-X-Authority-Analysis: v=2.4 cv=RKcmjIi+ c=1 sm=1 tr=0 ts=6abb65a5 cx=c_pps
- a=AfN7/Ok6k8XGzOShvHwTGQ==:117 a=AfN7/Ok6k8XGzOShvHwTGQ==:17
- a=IkcTkHD0fZMA:10 a=VdqzKS8jKosA:10 a=VkNPw1HP01LnGYTKEx00:22
- a=RnoormkPH1_aCDwRdu11:22 a=iQ6ETzBq9ecOQQE5vZCe:22 a=VwQbUJbxAAAA:8
- a=1XWaLZrsAAAA:8 a=pGLkceISAAAA:8 a=VnNF1IyMAAAA:8 a=zvVxG0z6fLcq2R3n2ywA:9
- a=3ZKOabzyN94A:10 a=QEXdDO2ut3YA:10
-X-Proofpoint-ORIG-GUID: pfPYA5yzPUw02pptXEK0MLlNkLCDJqba
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1176,Hydra:6.1.134,FMLib:17.12.100.49
- definitions=2026-09-29_02,2026-09-21_02,2025-10-01_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- clxscore=1011 priorityscore=1501 spamscore=0 bulkscore=0 impostorscore=0
- adultscore=0 lowpriorityscore=0 suspectscore=0 malwarescore=0 phishscore=0
- classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
- reason=mlx scancount=1 engine=8.22.0-2609040000 definitions=main-2609290028
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260929_001609_419673_CCEF3319 
-X-CRM114-Status: GOOD (  21.31  )
+X-CRM114-CacheID: sfid-20260929_081633_835612_D5B53D9F 
+X-CRM114-Status: GOOD (  23.77  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -145,163 +113,100 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+Hi,
 
-On 02/09/26 10:11 PM, Sean Christopherson wrote:
-> This is a big pile of cleanups and refactoring to prepare for PPC support in
-> KVM selftests.  PPC has paging modes that require multi-page page tables, and
-> those page tables need to be naturally aligned.  The original proposal was to
-> plumb in an @align param to the page allocators[*], but I didn't love the idea
-> of adding another rarely used param to the allocators.
+On 9/28/26 22:18, Nicolas Dufresne wrote:
+> Hi,
 >
-> v2:
->   - Collect tags. [Itaru, Bibo]
->   - Use 0x180000 as the min GPA for page table pages on LoongArch, instead of
->     changing every other arch to use 0x200000. [Sashiko, Bibo]
->   - Opportunistically move the vGIC LPI stress test's global "gpa_base" variable
->     into setup_memslot(). [Sashiko]
+> Le samedi 04 juillet 2026 à 08:46 +0000, Fan Wu a écrit :
+>> rga_remove() releases the m2m state before the IRQ is freed. The IRQ is
+>> devm-managed and is only released once rga_remove() returns, so rga_isr()
+>> can still run while the m2m device state is being torn down.
+>>
+>> Store the IRQ number in struct rockchip_rga, unregister the video device
+>> first, and free the IRQ before releasing the m2m state so the handler
+>> cannot run against the freed state.
+>>
+>> Fixes: f7e7b48e6d79 ("[media] rockchip/rga: v4l2 m2m support")
+>> Cc: stable@vger.kernel.org
+>> Signed-off-by: Fan Wu <fanwu01@zju.edu.cn>
+> Again, I don't know if this is a real issue, but seems fair.
+
+thanks for forwarding. Also stumbled upon the ordering in the remove 
+function but kept it, as it looked akward if it mismatched the probe 
+cleanup order (which comes from the fact that the video device is 
+allocated, then the m2m device and after that the video device is 
+registered). Is it possible to init the m2m device first and then 
+allocate and register the video_device, thus keeping the same teardown 
+order (i'd then adjust this in my multi-core series)? Or is there some 
+logic behind this probe ordering?
+
+Btw. the irq variable will probably be dropped with my 
+mulit-core/component-devices patchset, as I then have a separate core 
+struct and can check if my core has been already bound to something (and 
+otherwise ignore IRQs). See [1][2]
+
+
+Sincerely
+     Sven
+
+
+[1] 
+https://lore.kernel.org/linux-media/20260916-spu-rga3multicore-v2-13-23aa2cb74e61@pengutronix.de/
+
+[2] 
+https://lore.kernel.org/linux-media/20260916-spu-rga3multicore-v2-14-23aa2cb74e61@pengutronix.de/
+
+
+> Reviewed-by: Nicolas Dufresne <nicolas.dufresne@collabora.com>
 >
-> v1: https://lore.kernel.org/all/20260826230511.972824-1-seanjc@google.com
+> Picked, ty
 >
-> [*] https://lore.kernel.org/all/df86b5ccdbdafc3509d9538bd5e6796737bab2db.1781093720.git.ritesh.list@gmail.com
->
-> Nicholas Piggin (1):
->    KVM: selftests: Use goto instead of do-while to retry finding unused
->      physical pages
->
-> Sean Christopherson (19):
->    KVM: selftests: Use MEM_REGION_PT memslot instead of '0' for s390
->      regions/segments
->    KVM: selftests: Use the common minimum GPA for page tables on
->      LoongArch
->    KVM: selftests: Use vm_alloc_page_table() to allocate LoongArch page
->      tables
->    KVM: selftests: Rename "num" param to "nr_pages" for physical page
->      allocators
->    KVM: selftests: Extend page allocator to support naturally aligned
->      allocations
->    KVM: selftests: Make the single-page allocator APIs static inline
->    KVM: selftests: Use the innermost page allocator API in the memslot
->      perf test
->    KVM: selftests: Use the innermost page allocator API in s390's IRQ
->      routing test
->    KVM: selftests: Add a wrapper API to allocate multiple page table
->      pages
->    KVM: selftests: Initialize vm->memslots[] with invalid memslots during
->      creation
->    KVM: selftests: Add APIs to override memory region types with custom
->      memslots
->    KVM: selftests: Add TEST_EXTRA memory region type for "special"
->      memslots
->    KVM: selftests: Use TEST_EXTRA region in arm64's vGIC LPI stress test
->    KVM: selftests: Use TEST_EXTRA region in x86's smaller MAXPHYADDR test
->    KVM: selftests: Use TEST_EXTRA region in set memory region test
->    KVM: selftests: Take the memory region type, not memslot, in page
->      allocators
->    KVM: selftests: Use TEST_ASSERT(), not assert(), in
->      vm_get_mem_region()
->    KVM: selftests: Automatically pick min_gpa for allocations based on
->      region type
->    KVM: selftests: Add arch hook to force page tables to be naturally
->      aligned
->
->   .../selftests/kvm/arm64/page_fault_test.c     |  18 ++-
->   .../selftests/kvm/arm64/vgic_lpi_stress.c     |  21 ++-
->   .../testing/selftests/kvm/include/kvm_util.h  | 106 +++++++++++++--
->   tools/testing/selftests/kvm/include/x86/smm.h |   2 +-
->   .../selftests/kvm/lib/arm64/processor.c       |   4 +-
->   tools/testing/selftests/kvm/lib/kvm_util.c    | 127 +++++++++++-------
->   .../selftests/kvm/lib/loongarch/processor.c   |   5 +-
->   .../selftests/kvm/lib/riscv/processor.c       |   4 +-
->   .../selftests/kvm/lib/s390/processor.c        |   7 +-
->   .../testing/selftests/kvm/lib/x86/processor.c |  15 ++-
->   .../testing/selftests/kvm/memslot_perf_test.c |   3 +-
->   tools/testing/selftests/kvm/s390/cmma_test.c  |  19 +--
->   .../testing/selftests/kvm/s390/irq_routing.c  |   2 +-
->   .../selftests/kvm/set_memory_region_test.c    |   8 +-
->   .../x86/smaller_maxphyaddr_emulation_test.c   |   9 +-
->   15 files changed, 221 insertions(+), 129 deletions(-)
->
->
-> base-commit: 76671054f9a1ff6abb976583cd8da37650acdc97
-
-Hi Sean,
-
-Thanks for working on this patch series. I tested this series (v2) as a 
-base
-for Ritesh's PowerPC KVM selftest series (v5) [1] on two real 
-PowerPC(ppc64le)
-PowerVM & PowerNV systems. Your patches applied cleanly and the core 
-infrastructure
-changes worked correctly on PowerPC — exactly the foundation Ritesh's 
-series needed.
-
-
-Ritesh's patch series : 
-https://lore.kernel.org/linuxppc-dev/cover.1790101179.git.ritesh.list@gmail.com/
-
-Full test suite summary (make run_tests):
------------------------------------------
-                                    LPAR    bare-metal
-   demand_paging_test               PASS      PASS
-   dirty_log_test                   PASS      PASS
-   dirty_log_perf_test              PASS      PASS
-   guest_print_test                 PASS      PASS
-   hardware_disable_test            PASS      PASS
-   kvm_binary_stats_test            PASS      PASS
-   kvm_create_max_vcpus             PASS      PASS
-   kvm_page_table_test              PASS      PASS
-   set_memory_region_test           PASS      PASS
-   memslot_modification_stress_test PASS      PASS
-   memslot_perf_test                PASS      PASS
-   access_tracking_perf_test        PASS      PASS
-   irqfd_test                       SKIP      SKIP
-   vm_types_test                    SKIP      SKIP
-   --------------------------------------------------
-   Total                         12 PASS   12 PASS
-                                  2 SKIP    2 SKIP
-
-My Detailed testing analysis for your patches on PowerPC (ppc64le):
--------------------------------------------------
-Patches 1-5 [Page allocator and memslot refactoring]
-   Core page allocator and memslot infrastructure exercised by all 14
-   tests on both systems — no regressions observed.
-
-Patches 6-10 [Extended page allocator APIs]
-   Exercised via kvm_create_max_vcpus and memslot_perf_test on both
-   systems — APIs work correctly on PowerPC.
-
-Patches 11-13, 16 [Memslot initialization and TEST_EXTRA region]
-   set_memory_region_test and memslot_modification_stress_test ran
-   successfully on both systems — memslot init, TEST_EXTRA region, and
-   its usage in set_memory_region_test all working correctly.
-
-Patch 17 [Memory region type API]
-   Exercised by set_memory_region_test — PASS on both systems.
-
-Patch 18 [Use TEST_ASSERT() in kvm_util.c]
-   Exercised by all tests — no assertion failures observed.
-
-Patch 19 [Auto-pick min_gpa for PowerPC]
-   This is the critical patch for PPC — guest physical test memory
-   was correctly placed above 256M on both systems:
-     LPAR:       guest physical test memory: [0xfffffbfff0000, 
-0xfffffffff0000)
-     bare-metal: guest physical test memory: [0xfffffbfff0000, 
-0xfffffffff0000)
-
-Patch 20 [Add arch hook to force page table setup]
-   lib/powerpc/processor.c correctly hooks into this — guest page
-   tables set up correctly on both systems.
-
-Note: Patches 14 and 15 (arm64/x86-specific TEST_EXTRA usage) were
-not exercised as those tests don't build on PowerPC — as expected.
-
-
-Please feel free to add :
-
-Tested-by: Anushree Mathur <anushree.mathur@linux.ibm.com>
-
-Thank you,
-Anushree Mathur
-
+>> ---
+>> Changes in v2:
+>> - Rebased onto media-committers/fixes (Linux 7.2-rc1) so the Media CI
+>>    valid-ancestor check passes. The rga driver was rewritten upstream
+>>    (rga3 support, external IOMMU, clk_bulk, cmdbuf moved to rga_ctx), so
+>>    this is a re-port rather than a pure rebase: the resource freed during
+>>    removal is now rga->m2m_dev.
+>> ---
+>>   drivers/media/platform/rockchip/rga/rga.c | 4 +++-
+>>   drivers/media/platform/rockchip/rga/rga.h | 1 +
+>>   2 files changed, 4 insertions(+), 1 deletion(-)
+>>
+>> diff --git a/drivers/media/platform/rockchip/rga/rga.c b/drivers/media/platform/rockchip/rga/rga.c
+>> index b3cb6bf8eb86..fbc99462dce2 100644
+>> --- a/drivers/media/platform/rockchip/rga/rga.c
+>> +++ b/drivers/media/platform/rockchip/rga/rga.c
+>> @@ -797,6 +797,7 @@ static int rga_probe(struct platform_device *pdev)
+>>   		ret = irq;
+>>   		goto err_put_clk;
+>>   	}
+>> +	rga->irq = irq;
+>>   
+>>   	ret = devm_request_irq(rga->dev, irq, rga_isr,
+>>   			       rga_has_internal_iommu(rga) ? 0 : IRQF_SHARED,
+>> @@ -876,8 +877,9 @@ static void rga_remove(struct platform_device *pdev)
+>>   
+>>   	v4l2_info(&rga->v4l2_dev, "Removing\n");
+>>   
+>> -	v4l2_m2m_release(rga->m2m_dev);
+>>   	video_unregister_device(rga->vfd);
+>> +	devm_free_irq(rga->dev, rga->irq, rga);
+>> +	v4l2_m2m_release(rga->m2m_dev);
+>>   	v4l2_device_unregister(&rga->v4l2_dev);
+>>   
+>>   	pm_runtime_disable(rga->dev);
+>> diff --git a/drivers/media/platform/rockchip/rga/rga.h b/drivers/media/platform/rockchip/rga/rga.h
+>> index bd431534d0d3..7bcdf36c11b4 100644
+>> --- a/drivers/media/platform/rockchip/rga/rga.h
+>> +++ b/drivers/media/platform/rockchip/rga/rga.h
+>> @@ -73,6 +73,7 @@ struct rockchip_rga {
+>>   	struct device *dev;
+>>   	struct regmap *grf;
+>>   	void __iomem *regs;
+>> +	int irq;
+>>   	struct clk_bulk_data *clks;
+>>   	int num_clks;
+>>   	struct rockchip_rga_version version;
 
