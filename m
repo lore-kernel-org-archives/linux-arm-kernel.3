@@ -4,53 +4,97 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 78BC6CA5FA5
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 29 Sep 2026 23:45:07 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 54EB0CA5FAD
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 29 Sep 2026 23:50:51 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Date:Cc:To:From:Subject:
-	References:In-Reply-To:Message-Id:MIME-Version:Content-Type:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=YNLY9h/lESi+DJlGbg7hdoABGxfqloa2+qriVaM34lg=; b=TbZXM5njC1+gfbM9y/psu9Ae4B
-	m1nCFQdzAWEbfXtMT/oPEok/1BNKOZhKKab2VwfdqLnt1apPeC48WwTc97KijGRUKK9kjqYSBcWDx
-	jJRzqL4n7YYPKWYeWvx+suoSHjqETgGABQZ+7RaYFHKLmTOTOVlWkap5nO2Yk5plYLpW1EoTCWNL8
-	7U8nw6W24DS1jZodyxF4f0jsxdcvw9Fv5u3B8Utvo8O6ksM18bcVO3yn5JG71AQ9JrqmqaCgU7Zhx
-	kdmtfD7pUmoeOo7tQUqhPo5FIGdYyws2jcPP9PFlAYRt0hIrbdx2aa+ZFnztqZ/+HXhhpU8LUExCB
-	qvxpW25g==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:Message-Id:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:From:
+	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
+	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=hWOGcG3v4AgHUs+7mYFR/bdBwHYxuCY2aIESRfZ3+nQ=; b=RCbQsbLB0Fld0/dWfiTIe1A39Y
+	50F9elVP4W+6wkqaAQfpZfar9XkB/wVgM3M8BThJPJ+J6g615JK09Uqe8v7+YIZXoLdBx3Bk8uPsg
+	ZhW6slSP0o7T4AKQVcpW0TmitUHncxi9zqBiMB0eX440P1LEayfJTg0Y0+iB4siWy4F/GIP0fYI8Z
+	dcxVDz4b6TX6PK1Yv2IDAjWCEcQenXRvF6+lgr3YHtR78y4W/E0f2E8DHztn9diYXsngjHSb5JRp+
+	QXSCME3GaVaRbuN+kTFX6qx8CMWTmHcRYQfSpu3Kd832tc14AYzIIyV/95LDuB5as3OVcoxwk+Z1w
+	ovAy1kew==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xBhVL-00000004lwm-1zNf;
-	Tue, 29 Sep 2026 23:44:59 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1xBhau-00000004mSz-0pWb;
+	Tue, 29 Sep 2026 23:50:44 +0000
+Received: from mail-wr2-x0f.google.com ([2a00:1450:4864:30::f])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xBhVD-00000004lun-2aib;
-	Tue, 29 Sep 2026 23:44:51 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id 5B8D860234;
-	Tue, 29 Sep 2026 23:44:50 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 786CC1F00893;
-	Tue, 29 Sep 2026 23:44:48 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1790725490;
-	bh=YNLY9h/lESi+DJlGbg7hdoABGxfqloa2+qriVaM34lg=;
-	h=In-Reply-To:References:Subject:From:To:Cc:Date;
-	b=QwyawEuOSXJhWe1rKmIBygCQtqJ84CZXc7XkiZ/r9UiCWX8ZbRwxK/XF94ZRJG3g3
-	 XykA1gCrLKF0r46vluzPiXkYdXh7M0p6Enuvx8TIMiAyEdvxTSYQ7C1GGsDl74tcAc
-	 MIVZaaP6MtBfjsh1vIQ0damlciywgP2IOu1QThcx8N3TQLEk4JN8lN6wPiQ828R22o
-	 1zNKK0gRaJSKrL9izB8ljUNnKoOw26VqWmuEI8vVtdkcSheZmY0Ibxeacok7R1yiKq
-	 AU2oD+k+UfWXUnbkMSrWbgWP1CRa1RbeC5wPXxqlbrsMsMmyK6HPtpw7NKQBobqPi5
-	 GCn7abJjXVIHw==
-Content-Type: multipart/mixed; boundary="===============3190992738228849883=="
+	id 1xBhas-00000004mST-0ZV6
+	for linux-arm-kernel@lists.infradead.org;
+	Tue, 29 Sep 2026 23:50:43 +0000
+Received: by mail-wr2-x0f.google.com with SMTP id ffacd0b85a97d-48881a62e09so2922807f8f.2
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 29 Sep 2026 16:50:41 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=linaro.org; s=google; t=1790725840; x=1791330640; darn=lists.infradead.org;
+        h=cc:to:message-id:content-transfer-encoding:content-type
+         :mime-version:subject:date:from:from:to:cc:subject:date:message-id
+         :reply-to:content-type;
+        bh=hWOGcG3v4AgHUs+7mYFR/bdBwHYxuCY2aIESRfZ3+nQ=;
+        b=nuDaKkUXh5BAP9yzcyIu1M4KpyZUeOU1lwCL10r2ODMSkTLk4l6W6ugvN7ESUMVnkM
+         EJLVvx9TQKt7YZFBFVvIyZC7bDdb2h/zSy3elYaTpz1kS5DZ4bJyyOVnuCfpJgpBWS6U
+         CeMP9FmzTngCBCvsTC24WGZZdvIQp4laW4U9VX3dJiu5SW67rLP3yhCq2aT2nlOmQreM
+         5crKcaT4qjLL35ocnIcIqEQKGHSx8Yzg5kQsCA8gjmCj4rEF5dVwfgw3bCSX7LOLthXn
+         yVLLH3aHEQEr3YevOzS8g/gKeZTg5LJMU6/ywBMm8awh46RP0jFAoWts6ORG5Fa/0h7g
+         pVdg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1790725840; x=1791330640;
+        h=cc:to:message-id:content-transfer-encoding:content-type
+         :mime-version:subject:date:from:x-gm-gg:x-gm-message-state:from:to
+         :cc:subject:date:message-id:reply-to:content-type;
+        bh=hWOGcG3v4AgHUs+7mYFR/bdBwHYxuCY2aIESRfZ3+nQ=;
+        b=AeM7UjE2G5q38Aoo4nt4CbXGB/OrkNkoMkqlInAPx+xbssobv2wLkXjh1R+fI4wmcZ
+         fGhNM3fha01vLP7YV8uR/E3mveGcT1jM7XrxvBD+xkOT58U/cmG4RF966IPlAe7eMskT
+         HHsdzar+OgthDTU/GKuNlRsXhY+I/2UH62ylxzYGBYN3XkxaXEebKb0sZmYiHbq2FTG3
+         xrVebsLuRzZKIn2vNjmhgdYmNR1wXq1qFo0xthHGBTVFWcDlNQvQSwgVPCtXJUMSd6yx
+         b4m2YAmGS7CBSFXDg8y50LP2oUyY48+lxBabIqIK33kP9gMEqco8CosKBUjDLnsy9Ioa
+         kxkQ==
+X-Forwarded-Encrypted: i=1; AKwUvBzYSH1a/JR7qUDU+sgpLUbc0uuYy9BP/33YejQQU4n35JqVv42ruWsSUBRP4wBfI6vE+aUU5TgiqYu4iVfEa7KT@lists.infradead.org
+X-Gm-Message-State: AFq9FYKmWLmW3SrwWs+acCts1hgLitDYQeZzgvB5ubP79uSHwCwVZQCQ
+	vQwklh/W+zhg3fwSHWMnCw+DsNfI0MgOb9vedTdaBWG140yaKXrtwg4HfqMl8CsGaG8jaGGUKh3
+	gr1rUuh4=
+X-Gm-Gg: AYBFou1QWuLNcleFcoXT02lXpfVJbq1GPH5fxBwdFMVlEJhsC3wpOPxsMFiNgRKV6Dm
+	bVQ/v97TcQEqTMvm0RLkCEAiJU6tIT1cLvxC8ithlMm54/nbGudB+3vFBzMXaSRAdcjlK2CDC3y
+	oH8XFjW8/FujGX+AuijPFxAMIFWOcSSOSgMnv2Uu3Oc41BRKghPGn62s9vEib4+5h3waWnePqFs
+	TQX0fkBH8O96y6waUoRCIDkqSdVVrREgyoEhn26iHPpawtkrbNLuX+OlANCCYejabIkhyLWCmAM
+	kA63a9futPj14pSQvDsVY9/Zap4x8pJOdLp93BbEbdX2pnEvOHzG15oN8G4LBFCvQYbVrw1ymOI
+	7LwScNLjy1w0Ve4KKelJEAnlkmF7mcbGvhmSuZBRNMLq0iQ1v+MZLEN7nNhummSDicfqURU29VR
+	Ad5wK0Vp1iJ9/rsMoiQhGgqy0UDOdbR5Fzcg7KMaJxNfzRDh5gO1ibRSwpAHut4IyHgdtJD4uOS
+	NblfWf9veMuQdYDZ9CyDl3ivWJWqiuseZAp/wL7Joj+E07QnkOodEB0rJYJ0Q==
+X-Received: by 2002:a05:6000:2206:b0:487:9a9:6d24 with SMTP id ffacd0b85a97d-48afe799017mr1378259f8f.19.1790725839746;
+        Tue, 29 Sep 2026 16:50:39 -0700 (PDT)
+Received: from [127.0.1.1] ([94.4.85.166])
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-48afe68056dsm1939443f8f.13.2026.09.29.16.50.38
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Tue, 29 Sep 2026 16:50:38 -0700 (PDT)
+From: Alexey Klimov <alexey.klimov@linaro.org>
+Date: Wed, 30 Sep 2026 00:50:31 +0100
+Subject: [PATCH v3] soc: samsung: exynos-pmu: fix error paths in
+ cpuhotplug/idle states setup
 MIME-Version: 1.0
-Message-Id: <052fc5fccb1cfb3a9bb4751e68080c92bc0e1759be9d1dc42972f2fe6f822976@mail.kernel.org>
-In-Reply-To: <20260928-drm-mipi-dsi-panel-ebpf-v1-3-5244926aace4@kernel.org>
-References: <20260928-drm-mipi-dsi-panel-ebpf-v1-3-5244926aace4@kernel.org>
-Subject: Re: [PATCH 3/6] drm/panel: dsi-bpf: Add BPF program build infrastructure and helper header
-From: bot+bpf-ci@kernel.org
-To: mripard@kernel.org,neil.armstrong@linaro.org,jesszhan0024@gmail.com,airlied@gmail.com,simona@ffwll.ch,maarten.lankhorst@linux.intel.com,tzimmermann@suse.de,robh@kernel.org,krzk+dt@kernel.org,conor+dt@kernel.org,nathan@kernel.org,ndesaulniers@google.com,morbo@google.com,justinstitt@google.com,florian.fainelli@broadcom.com,bcm-kernel-feedback-list@broadcom.com
-Cc: andrzej.hajda@intel.com,neil.armstrong@linaro.org,rfoss@kernel.org,Laurent.pinchart@ideasonboard.com,jonas@kwiboo.se,jernej.skrabec@gmail.com,luca.ceresoli@bootlin.com,aesteve@redhat.com,dave.stevenson@raspberrypi.com,javierm@redhat.com,dri-devel@lists.freedesktop.org,devicetree@vger.kernel.org,linux-kernel@vger.kernel.org,bpf@vger.kernel.org,llvm@lists.linux.dev,linux-rpi-kernel@lists.infradead.org,linux-arm-kernel@lists.infradead.org,mripard@kernel.org,bentiss@kernel.org,ast@kernel.org,andrii@kernel.org,daniel@iogearbox.net,martin.lau@kernel.org,eddyz87@gmail.com,yonghong.song@linux.dev,mason@kernel.org,ihor.solodrai@linux.dev
-Date: Tue, 29 Sep 2026 23:44:48 +0000 (UTC)
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+Message-Id: <20260930-exynos-pmu-cpuhp-idle-fixes-v3-1-4269d8425978@linaro.org>
+X-B4-Tracking: v=1; b=H4sIAMZOvGoC/43NQQ6DIBCF4as0rDsNYETsqvdoulAYlcQCgUo0x
+ rsX3TTdNF3+85JvVhIxGIzkelpJwGSicTZHcT4RNTS2RzA6N+GUCypoCTgv1kXwzwmUnwaf9xG
+ hMzNGKHhXoq5ULeqOZMEHPIYM3B+5BxNfLizHs8T2639uYkCBKk1LJVkjub6NxjbBXVzoyQ4n/
+ sEkl78xvmOiVSgYrVotvrBt2949j/A4FAEAAA==
+X-Change-ID: 20260605-exynos-pmu-cpuhp-idle-fixes-32f5ed7c969f
+To: Krzysztof Kozlowski <krzk@kernel.org>, 
+ Alim Akhtar <alim.akhtar@samsung.com>, 
+ Peter Griffin <peter.griffin@linaro.org>
+Cc: Sam Protsenko <semen.protsenko@linaro.org>, 
+ linux-samsung-soc@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+ linux-kernel@vger.kernel.org, stable@vger.kernel.org, 
+ Sashiko <sashiko-bot@kernel.org>
+X-Mailer: b4 0.14.3
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260929_165042_227524_78247343 
+X-CRM114-Status: GOOD (  21.13  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -65,147 +109,163 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
---===============3190992738228849883==
-Content-Type: text/plain; charset="us-ascii"
-MIME-Version: 1.0
-Content-Transfer-Encoding: 7bit
+The setup_cpuhp_and_cpuidle() initialisation sequence currently ignores
+the return values of cpuhp_setup_state(), cpu_pm_register_notifier(), and
+register_reboot_notifier(). If any of these registrations fail during
+probe() routine, the driver returns 0, leaving the driver partially
+configured.
 
-> diff --git a/drivers/gpu/drm/panel/bpf/progs/Makefile b/drivers/gpu/drm/panel/bpf/progs/Makefile
-> new file mode 100644
-> index 000000000000..74190ee618ab
-> --- /dev/null
-> +++ b/drivers/gpu/drm/panel/bpf/progs/Makefile
+Furthermore, if anything after setup_cpuhp_and_cpuidle() fails in probe()
+routine, for instance devm_mfd_add_devices(), the probe() lacks an error
+path and leaves notifiers and cpu hotplug states registered.
 
-[ ... ]
+Introduce variables for the cpu hotplug state IDs in exynos_pmu_context
+struct, that should be initialised to CPUHP_INVALID by default. Check all
+return codes in setup_cpuhp_and_cpuidle(), and add an error path to remove
+registered states on failure. Finally, add destroy_cpuhp_and_cpuidle()
+helper to safely tear down notifiers and cpu hotplug states.
 
-> @@ -0,0 +1,93 @@
-> +VMLINUX_BTF_PATHS ?= $(if $(O),$(O)/vmlinux)				\
-> +		     $(if $(KBUILD_OUTPUT),$(KBUILD_OUTPUT)/vmlinux)	\
-> +		     ../../../../../../vmlinux				\
-> +		     /sys/kernel/btf/vmlinux				\
-> +		     /boot/vmlinux-$(shell uname -r)
-> +VMLINUX_BTF ?= $(abspath $(firstword $(wildcard $(VMLINUX_BTF_PATHS))))
+Reported-by: Sashiko <sashiko-bot@kernel.org>
+Closes: https://sashiko.dev/#/patchset/20260513-exynos850-cpuhotplug-v4-0-54fec5f65362@linaro.org?part=3
+Fixes: 78b72897a5c8 ("soc: samsung: exynos-pmu: Enable CPU Idle for gs101")
+Cc: stable@vger.kernel.org
+Signed-off-by: Alexey Klimov <alexey.klimov@linaro.org>
+---
+This was reported by Sashiko here:
+https://sashiko.dev/#/patchset/20260513-exynos850-cpuhotplug-v4-0-54fec5f65362@linaro.org?part=3
+and was mainly introduced by enabling cpu hotplug support and cpuidle for
+gs101-based SoCs.
 
-[ ... ]
+In this third version only one patch remains and it was reworked according
+Krzysztof suggestions.
+Tested on exynos850 e850-96 board with sequential series that implements
+hotplug. I don't see any regressions but testing from others will be
+appreciated.
+---
+Changes in v3:
+- drop the patch 1/2 that was accepted;
+- moved destroy_cpuhp_and_cpuidle() after setup_cpuhp_and_cpuidle()
+  as suggested by Krzysztof;
+- reworked error path as suggested by Krzysztof, added label
+  clean_cpuhp_state_prepare to clean only one hotplug state;
+- re-tested;
+- Link to v2: https://lore.kernel.org/r/20260828-exynos-pmu-cpuhp-idle-fixes-v2-0-06bce6107bd6@linaro.org
 
-> +vmlinux.h: $(VMLINUX_BTF) $(BPFTOOL) | $(INCLUDE_DIR)
-> +ifeq ($(VMLINUX_H),)
-> +	$(call msg,GEN,,$@)
-> +	$(Q)$(BPFTOOL) btf dump file $(VMLINUX_BTF) format c > $@
-> +else
-> +	$(call msg,CP,,$@)
-> +	$(Q)cp "$(VMLINUX_H)" $@
-> +endif
+Changes in v2:
+- destroy_cpuhp_and_cpuidle() is called only if
+  (pmu_context->pmu_data && pmu_context->pmu_data->pmu_cpuhp) == true
+  (as suggested by Peter) (second patch in this series);
+- in clean_cpuhp_states error path the cpuhp states variables are now
+  reset to CPUHP_INVALID;
+- re-implemented "soc: samsung: exynos-pmu: fix use-after-free of interrupt
+  generator node" -- used __free(device_node) at declaration;
+  (as suggested by Peter);
+- drop "[PATCH 1/3] soc: samsung: exynos-pmu: use target cpu ID in hotplug
+  callbacks". If we get some information about CPUx_INFORM registers usage
+  then we may fix it later, but for now it was decided to keep it
+  consistent with downstream implementation;
+- Link to v1: https://lore.kernel.org/r/20260605-exynos-pmu-cpuhp-idle-fixes-v1-0-0cd05c81a82d@linaro.org
+---
+ drivers/soc/samsung/exynos-pmu.c | 61 ++++++++++++++++++++++++++++++++++------
+ 1 file changed, 53 insertions(+), 8 deletions(-)
 
-Does this build work when CONFIG_DRM_PANEL_BPF_MIPI_DSI=m?
-
-The Makefile generates vmlinux.h from vmlinux BTF only. The BPF programs
-need types defined in the panel driver: struct drm_panel_dsi_bpf_ops,
-struct panel_bpf_mipi_dsi_ctx, and the panel_bpf_mipi_dsi_supply and
-panel_bpf_mipi_dsi_gpio enums.
-
-DRM_PANEL_BPF_MIPI_DSI is tristate and becomes =m when CONFIG_DRM=m
-(the case in arch/arm64/configs/defconfig, the Raspberry Pi target).
-With =m, these types exist only in the module's split BTF at
-/sys/kernel/btf/panel_bpf_mipi_dsi, not in vmlinux BTF.
-
-panel-bpf-mipi-dsi.h declares PANEL_BPF_MIPI_DSI_OPS(x) which expands
-to "struct drm_panel_dsi_bpf_ops x", and uses PANEL_BPF_MIPI_DSI_SUPPLY_*
-and PANEL_BPF_MIPI_DSI_GPIO_* enum values. Without the module BTF dump,
-the struct is incomplete and the enums are undeclared. The panel programs
-added later in the series would fail to compile.
-
-The commit message says the Makefile follows drivers/hid/bpf/progs/, but
-that works because HID_BPF is bool and its types always land in vmlinux
-BTF.
-
-You could either dump the module BTF:
-
-  bpftool btf dump file /sys/kernel/btf/panel_bpf_mipi_dsi \
-    -B $(VMLINUX_BTF) format c >> vmlinux.h
-
-or define the ABI types directly in panel-bpf-mipi-dsi.h, as the bpf_testmod
-selftests do.
-
-> diff --git a/drivers/gpu/drm/panel/bpf/progs/panel-bpf-mipi-dsi.h b/drivers/gpu/drm/panel/bpf/progs/panel-bpf-mipi-dsi.h
-> new file mode 100644
-> index 000000000000..e2b03afef2c8
-> --- /dev/null
-> +++ b/drivers/gpu/drm/panel/bpf/progs/panel-bpf-mipi-dsi.h
-
-[ ... ]
-
-> diff --git a/include/drm/drm_panel_dsi_bpf.h b/include/drm/drm_panel_dsi_bpf.h
-> deleted file mode 100644
-> index 02d4707fd0a0..000000000000
-> --- a/include/drm/drm_panel_dsi_bpf.h
-> +++ /dev/null
-> @@ -1,50 +0,0 @@
-> -/* SPDX-License-Identifier: GPL-2.0 */
-> -#ifndef __DRM_PANEL_DSI_BPF_H__
-> -#define __DRM_PANEL_DSI_BPF_H__
-> -
-> -#include <linux/bpf.h>
-> -
-> -struct mipi_dsi_device;
-> -struct drm_panel;
-> -
-> -#define DSI_BPF_PANEL_ID_LEN	64
-> -
-> -/**
-> - * struct dsi_bpf_ctx - Context passed to BPF panel programs
-> - * @panel: The drm_panel this callback operates on (private)
-> - */
-> -struct dsi_bpf_ctx {
-> -	struct drm_panel *panel;
-> -};
-> -
-> -/**
-> - * struct drm_panel_dsi_bpf_ops - BPF struct_ops for MIPI-DSI panels
-> - * @panel_id: Device identifier for matching. On DT systems this holds
-> - *	the panel's compatible string. Firmware-agnostic to allow future
-> - *	ACPI support. Written before load, immutable after.
-> - * @panel_prepare: Called to power on the panel and send init commands.
-> - *	Must enable regulators, toggle GPIOs, and send the DSI init
-> - *	sequence. Sleepable.
-> - * @panel_unprepare: Called to power off the panel. Must send shutdown
-> - *	commands, assert reset, and disable regulators. Sleepable.
-> - * @panel_enable: Optional. Called after video stream starts, for panels
-> - *	that need post-video-start DSI commands. Sleepable.
-> - * @panel_disable: Optional. Called before video stream stops. Sleepable.
-> - * @set_brightness: Optional. Called to set backlight brightness via DSI
-> - *	commands. Sleepable.
-> - */
-> -struct drm_panel_dsi_bpf_ops {
-> -	char			panel_id[DSI_BPF_PANEL_ID_LEN];
-> -
-> -	/* private: internal bookkeeping */
-> -	struct drm_panel	*panel;
-> -
-> -	/* public: */
-> -	int (*panel_prepare)(struct dsi_bpf_ctx *ctx);
-> -	int (*panel_unprepare)(struct dsi_bpf_ctx *ctx);
-> -	int (*panel_enable)(struct dsi_bpf_ctx *ctx);
-> -	int (*panel_disable)(struct dsi_bpf_ctx *ctx);
-> -	int (*set_brightness)(struct dsi_bpf_ctx *ctx, u32 brightness);
-> -};
-> -
-> -#endif /* __DRM_PANEL_DSI_BPF_H__ */
-
-The commit message describes adding the BPF-side header and Makefile, but
-doesn't mention removing include/drm/drm_panel_dsi_bpf.h. The header was
-added one patch earlier by 095e3b42d5ca and contains a stale ABI definition
-(struct drm_panel_dsi_bpf_ops with dsi_bpf_ctx) that conflicts with the
-real definition in drivers/gpu/drm/panel/bpf/panel-bpf-mipi-dsi.h.
-
-Why is the file being removed as a side effect here rather than being
-excluded from the earlier patch?
-
+diff --git a/drivers/soc/samsung/exynos-pmu.c b/drivers/soc/samsung/exynos-pmu.c
+index efccdd63e40e..c764f35fbfc2 100644
+--- a/drivers/soc/samsung/exynos-pmu.c
++++ b/drivers/soc/samsung/exynos-pmu.c
+@@ -38,6 +38,8 @@ struct exynos_pmu_context {
+ 	unsigned long *in_cpuhp;
+ 	bool sys_insuspend;
+ 	bool sys_inreboot;
++	int cpuhp_prepare_state;
++	int cpuhp_online_state;
+ };
+ 
+ void __iomem *pmu_base_addr;
+@@ -458,16 +460,55 @@ static int setup_cpuhp_and_cpuidle(struct device *dev)
+ 		gs101_cpuhp_pmu_online(cpu);
+ 
+ 	/* register CPU hotplug callbacks */
+-	cpuhp_setup_state(CPUHP_BP_PREPARE_DYN,	"soc/exynos-pmu:prepare",
+-			  gs101_cpuhp_pmu_online, NULL);
++	pmu_context->cpuhp_prepare_state = CPUHP_INVALID;
++	pmu_context->cpuhp_online_state = CPUHP_INVALID;
+ 
+-	cpuhp_setup_state(CPUHP_AP_ONLINE_DYN, "soc/exynos-pmu:online",
+-			  NULL, gs101_cpuhp_pmu_offline);
++	ret = cpuhp_setup_state(CPUHP_BP_PREPARE_DYN, "soc/exynos-pmu:prepare",
++				gs101_cpuhp_pmu_online, NULL);
++	if (ret < 0)
++		return ret;
++
++	pmu_context->cpuhp_prepare_state = ret;
++
++	ret = cpuhp_setup_state(CPUHP_AP_ONLINE_DYN, "soc/exynos-pmu:online",
++				NULL, gs101_cpuhp_pmu_offline);
++	if (ret < 0)
++		goto clean_cpuhp_state_prepare;
++
++	pmu_context->cpuhp_online_state = ret;
+ 
+ 	/* register CPU PM notifiers for cpuidle */
+-	cpu_pm_register_notifier(&gs101_cpu_pm_notifier);
+-	register_reboot_notifier(&exynos_cpupm_reboot_nb);
+-	return 0;
++	ret = cpu_pm_register_notifier(&gs101_cpu_pm_notifier);
++	if (ret)
++		goto clean_cpuhp_states;
++
++	ret = register_reboot_notifier(&exynos_cpupm_reboot_nb);
++	if (!ret)
++		/* Success */
++		return ret;
++
++	cpu_pm_unregister_notifier(&gs101_cpu_pm_notifier);
++
++clean_cpuhp_states:
++	cpuhp_remove_state(pmu_context->cpuhp_online_state);
++	pmu_context->cpuhp_online_state = CPUHP_INVALID;
++
++clean_cpuhp_state_prepare:
++	cpuhp_remove_state(pmu_context->cpuhp_prepare_state);
++	pmu_context->cpuhp_prepare_state = CPUHP_INVALID;
++
++	return ret;
++}
++
++static void destroy_cpuhp_and_cpuidle(void)
++{
++	cpu_pm_unregister_notifier(&gs101_cpu_pm_notifier);
++	unregister_reboot_notifier(&exynos_cpupm_reboot_nb);
++
++	if (pmu_context->cpuhp_prepare_state != CPUHP_INVALID)
++		cpuhp_remove_state(pmu_context->cpuhp_prepare_state);
++	if (pmu_context->cpuhp_online_state != CPUHP_INVALID)
++		cpuhp_remove_state(pmu_context->cpuhp_online_state);
+ }
+ 
+ static int exynos_pmu_probe(struct platform_device *pdev)
+@@ -541,8 +582,12 @@ static int exynos_pmu_probe(struct platform_device *pdev)
+ 
+ 	ret = devm_mfd_add_devices(dev, PLATFORM_DEVID_NONE, exynos_pmu_devs,
+ 				   ARRAY_SIZE(exynos_pmu_devs), NULL, 0, NULL);
+-	if (ret)
++	if (ret) {
++		if (pmu_context->pmu_data && pmu_context->pmu_data->pmu_cpuhp)
++			destroy_cpuhp_and_cpuidle();
++
+ 		return ret;
++	}
+ 
+ 	if (devm_of_platform_populate(dev))
+ 		dev_err(dev, "Error populating children, reboot and poweroff might not work properly\n");
 
 ---
-AI reviewed your patch. Please fix the bug or email reply why it's not a bug.
-See: https://github.com/kernel-patches/vmtest/blob/master/ci/claude/README.md
+base-commit: 6375e61c01e93e35ee7acd336a689ac1fae4b509
+change-id: 20260605-exynos-pmu-cpuhp-idle-fixes-32f5ed7c969f
 
-CI run summary: https://github.com/kernel-patches/bpf/actions/runs/36644629998
---===============3190992738228849883==--
+Best regards,
+-- 
+Alexey Klimov <alexey.klimov@linaro.org>
+
 
