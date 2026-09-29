@@ -4,75 +4,47 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6010BCA5FA5
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 29 Sep 2026 12:24:34 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BA153CA5FA1
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 29 Sep 2026 12:26:08 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
-	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=76CIBP4H7EHvQiPkpaJ4BZqjj5jFIlrcHq0F+WJzE3o=; b=G2sX3CbsnA3tQL0d4y/I3/7CL7
-	T/mrzdkpDa2Cvtw36p7hSYOd8tg5dsBK8OANX2jji5KIDzkAExHYEVWEzo2+l680Wf4CSOhPUPm66
-	xgD95jQQJ8iPbMVz8PZEt9CXlGqfYBAWwfRKqG/5kKsDqnwFhYPLjoLE8Z8dYrDMQRe84WPHgp1Kx
-	CF86Q5R5oVPa1IL7w1QtlDyGEucdxt4rBhyTsPmerOmgLxz9eQGvuRk/SDhTOTHVpOQ8eVWgrTnOd
-	5haxm0o7qQ2Hfap+h1rs5LNPwlo/UFOAqAS8hgp9g+bMzW9sN7cGaWe6BrHUI2IafL4lHJ0M8pNrG
-	znA3g01Q==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=F4XxJijc9G+DqADHrTsE0EK90ox3NJR/ju9bW0nPza0=; b=01yzzaREDwxMwi972jHXc0W6qh
+	DfstevEgz24Ayd94Meyqdv4jPHEqYb43/5atjUAP6kkP0nXXdU+PBladVxJuWpmvyDVF3Jrig/AQC
+	L4YvQl1ep3jKuPbsxE0cuBdy4rgh/zQqvj1xOyHTDy9AesDpnbH+ENxYClRkLj3BWhLAEpo5Si4DV
+	RoVdYg0tdoqzn5QDHRwETiCmZAmBNGfgXNndq4P6tKm+FTaMv/pKmyFj0FT0o/CuSGBWhiWz/Cc+f
+	8dPO2GWtCSMENomvIu0Izm295oa0/1lD1I28V6O29erPgbWMdFWgVDlLLWDX8wJqG/yjolB/3l6x2
+	q8mCjtgQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xBVDj-00000003GwB-00V7;
-	Tue, 29 Sep 2026 10:37:59 +0000
-Received: from canpmsgout09.his.huawei.com ([113.46.200.224])
+	id 1xBWuI-00000003WP7-27X2;
+	Tue, 29 Sep 2026 12:26:02 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xBVCw-00000003GU3-2wXU
+	id 1xBWuI-00000003WOn-0OC3
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 29 Sep 2026 10:37:12 +0000
-dkim-signature: v=1; a=rsa-sha256; d=huawei.com; s=dkim;
-	c=relaxed/relaxed; q=dns/txt;
-	h=From;
-	bh=76CIBP4H7EHvQiPkpaJ4BZqjj5jFIlrcHq0F+WJzE3o=;
-	b=QPNRPNxj53Z83AQ082PUc0ysOfKsvgBR9/nwqNMuCIFcP1D27lpB6ny4oQ8PPiispsxpANzQK
-	rqrssDfkVBe5YZvgbZ+3VoL9aHeYvSItzkxP7CdzrWJ5gHFh7de0LomBLtjnc8VSHcqrR0J2R0p
-	VmLHvAt9Irm0Y+jPbxXKxwM=
-Received: from mail.maildlp.com (unknown [172.19.163.15])
-	by canpmsgout09.his.huawei.com (SkyGuard) with ESMTPS id 4hvDpv6k1sz1cyVf;
-	Tue, 29 Sep 2026 18:25:59 +0800 (CST)
-Received: from kwepemr100010.china.huawei.com (unknown [7.202.195.125])
-	by mail.maildlp.com (Postfix) with ESMTPS id 064BB40578;
-	Tue, 29 Sep 2026 18:37:06 +0800 (CST)
-Received: from huawei.com (10.50.163.32) by kwepemr100010.china.huawei.com
- (7.202.195.125) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.45; Tue, 29 Sep
- 2026 18:37:05 +0800
-From: Tian Zheng <zhengtian10@huawei.com>
-To: <maz@kernel.org>, <oupton@kernel.org>, <catalin.marinas@arm.com>,
-	<will@kernel.org>, <corbet@lwn.net>, <pbonzini@redhat.com>,
-	<zhengtian10@huawei.com>, <leo.bras@arm.com>
-CC: <yuzenghui@huawei.com>, <wangzhou1@hisilicon.com>,
-	<yangjinqian1@huawei.com>, <caijian11@h-partners.com>,
-	<liuyonglong@huawei.com>, <tangchengchang@huawei.com>,
-	<yezhenyu2@huawei.com>, <yubihong@huawei.com>, <linuxarm@huawei.com>,
-	<joey.gouly@arm.com>, <kvmarm@lists.linux.dev>, <kvm@vger.kernel.org>,
-	<linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>,
-	<seiden@linux.ibm.com>, <suzuki.poulose@arm.com>, <fuad.tabba@linux.dev>,
-	<mark.rutland@arm.com>, <seanjc@google.com>, <rdunlap@infradead.org>,
-	<linux-doc@vger.kernel.org>, <linux-kselftest@vger.kernel.org>,
-	<skhan@linuxfoundation.org>
-Subject: [PATCH v5 12/15] KVM: arm64: Derive the VM hardware dirty mode from dirty logging
-Date: Tue, 29 Sep 2026 18:36:52 +0800
-Message-ID: <20260929103655.85107-13-zhengtian10@huawei.com>
-X-Mailer: git-send-email 2.33.0
-In-Reply-To: <20260929103655.85107-1-zhengtian10@huawei.com>
-References: <20260929103655.85107-1-zhengtian10@huawei.com>
+	Tue, 29 Sep 2026 12:26:02 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by sea.source.kernel.org (Postfix) with ESMTP id 58F3E439CF;
+	Tue, 29 Sep 2026 12:26:01 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id C3B401F000FF;
+	Tue, 29 Sep 2026 12:25:59 +0000 (UTC)
+From: Geert Uytterhoeven <geert+renesas@glider.be>
+To: Sudeep Holla <sudeep.holla@kernel.org>,
+	Cristian Marussi <cristian.marussi@arm.com>
+Cc: arm-scmi@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	Geert Uytterhoeven <geert+renesas@glider.be>
+Subject: [PATCH] firmware: arm_scmi: Update ARM_SCMI_HAVE_TRANSPORT rationale
+Date: Tue, 29 Sep 2026 14:25:56 +0200
+Message-ID: <48c4bed8036dcb55f554f513ce2ae61807c5677d.1790684637.git.geert+renesas@glider.be>
+X-Mailer: git-send-email 2.43.0
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
-Content-Type: text/plain
-X-Originating-IP: [10.50.163.32]
-X-ClientProxiedBy: kwepems500002.china.huawei.com (7.221.188.17) To
- kwepemr100010.china.huawei.com (7.202.195.125)
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260929_033711_322303_34DE073F 
-X-CRM114-Status: GOOD (  24.59  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -87,210 +59,32 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Both HAFDBS and HDBSS flip VTCR_EL2.HD at memslot-update time. Two
-independent toggles allow an intermediate HDBSS-set/HD-clear state,
-an illegal combination, and need locking against concurrent updates.
+Not enabling any transports no longer breaks the build.
 
-Replace both with kvm_arch_update_hw_dirty_mode(), a pure function
-of the static capabilities and the number of logging memslots:
-
-  - logging && HDBSS-capable  -> HD|HA|HDBSS
-  - logging, no HDBSS         -> off
-  - !logging && HAFDBS-cap.   -> HD|HA
-
-Recomputing rather than toggling needs no locking against racing
-writers, and a vCPU created mid-migration inherits the current mode
-from the shared VTCR at its first vcpu_load().
-
-The HAFDBS leg is not gated on nested virtualization: shadow MMUs
-build their own VTCR without HD, and the L1-visible HAFDBS ID is
-capped at AF-only. The HDBSS leg stays gated for now, as the nested
-exit-flush and harvest paths are unaudited.
-
-kvm_s2_fault_compute_prot() consults the live HD state of the target
-MMU rather than the canonical VTCR, so a nested read fault does not
-install a writable-clean shadow entry, which is read-only under the
-HD-less shadow VTCR.
-
-The mode switch issues one KVM_REQ_RELOAD_STAGE2 followed by a
-VMID-wide TLB invalidation, as the request only reloads VTCR_EL2 and
-cached translations outlive the old mode. HA is always set together
-with HD, as FEAT_HDBSS requires VTCR_EL2.{HDBSS,HA,HD}.
-
-Also factor kvm_has_nv() out of vcpu_has_nv() for the VM-level HDBSS
-check.
-
-This is a rework of Leonardo Bras' "Enable HAFDBS for guests not on
-migration".
-
-Link: https://lore.kernel.org/all/20260901171558.2674031-6-leo.bras@arm.com/
-Signed-off-by: Tian Zheng <zhengtian10@huawei.com>
+Fixes: c0397c85b53d0bc6 ("firmware: arm_scmi: Use WARN_ON() to check configured transports")
+Signed-off-by: Geert Uytterhoeven <geert+renesas@glider.be>
 ---
- arch/arm64/include/asm/kvm_mmu.h    | 18 ++++++++++
- arch/arm64/include/asm/kvm_nested.h |  9 +++--
- arch/arm64/kvm/hyp/pgtable.c        | 14 ++++++--
- arch/arm64/kvm/mmu.c                | 56 ++++++++++++++++++++++++++++-
- 4 files changed, 91 insertions(+), 6 deletions(-)
+Perhaps ARM_SCMI_HAVE_TRANSPORT and the WARN_ON() in scmi_driver_init()
+should just be removed? See also commit fc789363c9f095ed ("firmware:
+arm_scmi: Remove legacy transport-layer code").
+---
+ drivers/firmware/arm_scmi/transports/Kconfig | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
 
-diff --git a/arch/arm64/include/asm/kvm_mmu.h b/arch/arm64/include/asm/kvm_mmu.h
-index 6eae7e7e2a68..24407194444a 100644
---- a/arch/arm64/include/asm/kvm_mmu.h
-+++ b/arch/arm64/include/asm/kvm_mmu.h
-@@ -390,6 +390,24 @@ static inline bool kvm_supports_cacheable_pfnmap(void)
- 	       cpus_have_final_cap(ARM64_HAS_CACHE_DIC);
- }
-
-+static inline bool kvm_supports_hafdbs(void)
-+{
-+	return IS_ENABLED(CONFIG_ARM64_HW_AFDBM) && has_vhe() &&
-+		cpus_have_final_cap(ARM64_HW_DBM);
-+}
-+
-+static inline bool kvm_supports_hdbss(struct kvm *kvm)
-+{
-+	return system_supports_hdbss() && !kvm_has_nv(kvm);
-+}
-+
-+void kvm_arch_update_hw_dirty_mode(struct kvm *kvm);
-+
-+static inline bool kvm_hw_dirty_enabled(struct kvm_s2_mmu *mmu)
-+{
-+	return mmu->vtcr & VTCR_EL2_HD;
-+}
-+
- #ifdef CONFIG_PTDUMP_STAGE2_DEBUGFS
- void kvm_s2_ptdump_create_debugfs(struct kvm *kvm);
- void kvm_nested_s2_ptdump_create_debugfs(struct kvm_s2_mmu *mmu);
-diff --git a/arch/arm64/include/asm/kvm_nested.h b/arch/arm64/include/asm/kvm_nested.h
-index 586026e85903..6226b330d7c8 100644
---- a/arch/arm64/include/asm/kvm_nested.h
-+++ b/arch/arm64/include/asm/kvm_nested.h
-@@ -7,11 +7,16 @@
- #include <asm/kvm_emulate.h>
- #include <asm/kvm_pgtable.h>
-
--static inline bool vcpu_has_nv(const struct kvm_vcpu *vcpu)
-+static inline bool kvm_has_nv(const struct kvm *kvm)
- {
- 	return (!__is_defined(__KVM_NVHE_HYPERVISOR__) &&
- 		cpus_have_final_cap(ARM64_HAS_NESTED_VIRT) &&
--		vcpu_has_feature(vcpu, KVM_ARM_VCPU_HAS_EL2));
-+		kvm_vcpu_has_feature(kvm, KVM_ARM_VCPU_HAS_EL2));
-+}
-+
-+static inline bool vcpu_has_nv(const struct kvm_vcpu *vcpu)
-+{
-+	return kvm_has_nv(vcpu->kvm);
- }
-
- /* Translation helpers from non-VHE EL2 to EL1 */
-diff --git a/arch/arm64/kvm/hyp/pgtable.c b/arch/arm64/kvm/hyp/pgtable.c
-index 9dde7e779699..0472edcb63b9 100644
---- a/arch/arm64/kvm/hyp/pgtable.c
-+++ b/arch/arm64/kvm/hyp/pgtable.c
-@@ -1313,9 +1313,17 @@ static int stage2_wrprotect_walker(const struct kvm_pgtable_visit_ctx *ctx,
- 		ctx->mm_ops->mark_page_dirty(kvm_pte_to_phys(ctx->old));
-
- 	/*
--	 * We may race with the CPU trying to set the access flag here,
--	 * but worst-case the access flag update gets lost and will be
--	 * set on the next access instead.
-+	 * The plain WRITE_ONCE races with hardware updates; both are
-+	 * benign.
-+	 *
-+	 * AF: the update may be lost, and is set on the next access.
-+	 *
-+	 * Dirty state: we only rewrite entries whose old value had S2AP[1]
-+	 * set, while hardware only promotes entries with S2AP[1] clear, so
-+	 * the two never touch the same entry. The one overlap is DBM removal
-+	 * on writable-clean blocks: a racing promotion is demoted back to
-+	 * read-only, but the write is still recorded in the HDBSS buffer and
-+	 * the folio was marked dirty at fault-in, so nothing is lost.
- 	 */
- 	if (kvm_pte_valid(ctx->old) && ctx->old != new)
- 		WRITE_ONCE(*ctx->ptep, new);
-diff --git a/arch/arm64/kvm/mmu.c b/arch/arm64/kvm/mmu.c
-index c1e09ba98d48..17786453c004 100644
---- a/arch/arm64/kvm/mmu.c
-+++ b/arch/arm64/kvm/mmu.c
-@@ -2022,7 +2022,19 @@ static int kvm_s2_fault_compute_prot(const struct kvm_s2_fault_desc *s2fd,
- 	if (s2vi->map_writable) {
- 		*prot |= KVM_PGTABLE_PROT_W;
-
--		if (s2vi->device || !memslot_is_logging(s2fd->memslot) ||
-+		/*
-+		 * Check the live HD state of the MMU being installed
-+		 * into, not the static capability: HD is off for the
-+		 * whole VM as soon as any memslot logs, and under HD=0 a
-+		 * writable-clean entry behaves as read-only, costing an
-+		 * extra permission fault per page. Shadow MMUs never
-+		 * carry HD, so nested installs are always writable-dirty.
-+		 * A racing flip is benign: at worst one page takes one
-+		 * extra fault.
-+		 */
-+		if (s2vi->device ||
-+		    !(memslot_is_logging(s2fd->memslot) ||
-+		      kvm_hw_dirty_enabled(s2fd->vcpu->arch.hw_mmu)) ||
- 		    kvm_is_write_fault(s2fd->vcpu))
- 			*prot |= KVM_PGTABLE_PROT_DIRTY;
- 	}
-@@ -2617,6 +2629,45 @@ int __init kvm_mmu_init(u32 hyp_va_bits)
- 	return err;
- }
-
-+/*
-+ * The VM's hardware dirty-management mode is a derived value, a pure
-+ * function of the static capabilities and the number of logging
-+ * memslots, so recomputing it on every event cannot lose an update
-+ * and needs no locking against racing writers:
-+ *
-+ *   logging && HDBSS-capable  ->  HD|HA|HDBSS (hardware tracking)
-+ *   logging, no HDBSS         ->  off (write-protect faults)
-+ *   !logging && HAFDBS-cap.   ->  HD|HA (only written pages go dirty)
-+ */
-+void kvm_arch_update_hw_dirty_mode(struct kvm *kvm)
-+{
-+	unsigned long cur, target;
-+	bool logging = atomic_read(&kvm->nr_memslots_dirty_logging) != 0;
-+
-+	if (logging && kvm_supports_hdbss(kvm))
-+		target = VTCR_EL2_HD | VTCR_EL2_HA | VTCR_EL2_HDBSS;
-+	else if (logging || !kvm_supports_hafdbs())
-+		target = 0;
-+	else
-+		target = VTCR_EL2_HD | VTCR_EL2_HA;
-+
-+	cur = kvm->arch.mmu.vtcr & (VTCR_EL2_HD | VTCR_EL2_HA | VTCR_EL2_HDBSS);
-+	if (cur == target)
-+		return;
-+
-+	kvm->arch.mmu.vtcr = (kvm->arch.mmu.vtcr &
-+			      ~(VTCR_EL2_HD | VTCR_EL2_HA | VTCR_EL2_HDBSS)) |
-+			     target;
-+
-+	kvm_make_all_cpus_request(kvm, KVM_REQ_RELOAD_STAGE2);
-+
-+	/*
-+	 * The request only reloads VTCR_EL2; cached translations keep
-+	 * the old permissions until invalidated.
-+	 */
-+	kvm_flush_remote_tlbs(kvm);
-+}
-+
- void kvm_arch_commit_memory_region(struct kvm *kvm,
- 				   struct kvm_memory_slot *old,
- 				   const struct kvm_memory_slot *new,
-@@ -2624,6 +2675,9 @@ void kvm_arch_commit_memory_region(struct kvm *kvm,
- {
- 	bool log_dirty_pages = new && new->flags & KVM_MEM_LOG_DIRTY_PAGES;
-
-+	/* Derive the hardware dirty mode from the new logging state. */
-+	kvm_arch_update_hw_dirty_mode(kvm);
-+
- 	/*
- 	 * At this point memslot has been committed and there is an
- 	 * allocated dirty_bitmap[], dirty pages will be tracked while the
---
+diff --git a/drivers/firmware/arm_scmi/transports/Kconfig b/drivers/firmware/arm_scmi/transports/Kconfig
+index 0e34fbf250532327..6ba0dcb86204d7e9 100644
+--- a/drivers/firmware/arm_scmi/transports/Kconfig
++++ b/drivers/firmware/arm_scmi/transports/Kconfig
+@@ -5,7 +5,7 @@ config ARM_SCMI_HAVE_TRANSPORT
+ 	bool
+ 	help
+ 	  This declares whether at least one SCMI transport has been configured.
+-	  Used to trigger a build bug when trying to build SCMI without any
++	  Used to trigger a runtime warning when enabling SCMI without any
+ 	  configured transport.
+ 
+ config ARM_SCMI_HAVE_SHMEM
+-- 
 2.43.0
 
 
