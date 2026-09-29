@@ -4,74 +4,99 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E33C7CA5FA5
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 29 Sep 2026 19:44:28 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 26C7BCA5FA5
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 29 Sep 2026 19:45:14 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
+	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=q3QKjMvgAUkuQ17t6YdqoLww5IfrGk8hudIFHctZSl0=; b=rISvJeCv9fIzzf353RLUfolu/E
-	0ZmyUdJpoYiN65wSuwmRWjY9YLT4LtKWt23014cXkdLqwkQJoo95XdvVb20Mz8XSeEm/8jO6WKhSB
-	NikaerQV5dckQG8FfEvq/P+ue/T2AWTNtc314GC5sLf/9fEQuy+Oxk8N2xHcZmj/oW6jqVPqwZvNv
-	9QYSI2PS3ZRfYLMSaUXBv3+wFpR5T9Fpy3wxDdYqTyskLc5QeQSMjIs819YIpWLtlOYm2xy3aMKsq
-	+H4La8+85OgyWzFdTssGuNIOOaxjqPEBkZh5S5be2VAADcNz06HY6219O88wTIWedvGesWoZ8sbzW
-	DjXgj1JA==;
+	bh=dlqSekmBIvaPzDfuozpOnY+MYgiQ1xGecmLC2it8BD0=; b=fZ1tsj4IwY54zthS3aOyPr4tmc
+	eFOpCgQXcVyPVCbpYgLG2yDURuiRVzhT4Q8rdivgyABtY21VuMK0RsnihfWY3fktvuicLtcZAzW5i
+	cG7agIRS4LFjcebfTYgzPw8yYmzefs2CSNuEUA56AkzFIbH6LAPwlH9jYR5xfFSNKrtwLf4KZ+y75
+	RxnFAXdRnv5tcHz6cXCt2urPFZzv/VHbZcZpHGGE5xNCGSucaDMTwltm5bVUeuCdtBbwC3qHQbmQU
+	Yc+L0dDAKSZkfURB5J1ZsKrRA7jySwlSu8GtzP4V/mCvVtvVylmBXMBHW/GTYRqy9FGESGZiDvOG3
+	jj5BNK7Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xBdkU-00000004PlM-228B;
-	Tue, 29 Sep 2026 19:44:22 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1xBdlD-00000004PuW-3k7I;
+	Tue, 29 Sep 2026 19:45:07 +0000
+Received: from mail-dy2-x0e.google.com ([2607:f8b0:4864:36::e])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xBdkT-00000004Pkz-2OUe;
-	Tue, 29 Sep 2026 19:44:21 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id E39986022B;
-	Tue, 29 Sep 2026 19:44:20 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id ACB941F000FF;
-	Tue, 29 Sep 2026 19:44:15 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1790711060;
-	bh=q3QKjMvgAUkuQ17t6YdqoLww5IfrGk8hudIFHctZSl0=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=Z3CdhxMvpO05S2GgF2NZcveZP8lKIPhs7HlQHh6JwjS1CdumoqzZY3CzYY0Dy12x+
-	 FqbBLDsmkXJBRJsPr5MEuclQkEbdHXeibLfySXgXA4FSqzSrTjG8+unEq2/mnNe9MY
-	 Z6101ZT+tNWCw/LONh33tvF4SUb1OXgrcNT+tDRfievI3hEMYcPyI68GX0ziI9050k
-	 IcwWnZyUg2tDZPaYu1JNMEDYZSEiNwtM4Y8WYz+FZvu+gto+yzQeKLTEjjIc8n+w6Q
-	 fyuIqGlEQgpeV/GQwMvAyQRVR7kSMBQH6qR/9hF46TZ6Uen9cy5H+12FYsUSXQoj3K
-	 oN/Er3jEluMng==
-Date: Tue, 29 Sep 2026 20:44:13 +0100
-From: Conor Dooley <conor@kernel.org>
-To: Jisheng Zhang <jszhang@kernel.org>
-Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>, Stephen Boyd <sboyd@kernel.org>,
-	Brian Masney <bmasney+clk@redhat.com>,
-	Jerome Brunet <jbrunet+clk@baylibre.com>,
-	Andi Shyti <andi.shyti@kernel.org>,
-	Alexandre Belloni <alexandre.belloni@bootlin.com>,
-	Frank Li <Frank.Li@nxp.com>, Lee Jones <lee@kernel.org>,
-	Linus Walleij <linusw@kernel.org>,
-	Liam Girdwood <lgirdwood@gmail.com>,
-	Mark Brown <broonie@kernel.org>,
-	Philipp Zabel <p.zabel@pengutronix.de>,
-	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
-	Jiri Slaby <jirislaby@kernel.org>,
-	Sebastian Hesselbarth <sebastian.hesselbarth@gmail.com>,
-	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
-	linux-clk@vger.kernel.org, linux-i2c@vger.kernel.org,
-	linux-i3c@lists.infradead.org, mfd@lists.linux.dev,
-	linux-gpio@vger.kernel.org, linux-serial@vger.kernel.org,
-	linux-spi@vger.kernel.org, linux-arm-kernel@lists.infradead.org
-Subject: Re: [PATCH 08/20] dt-bindings: reset: add Synaptics SL261X SoCs
-Message-ID: <20260929-sprang-stir-af07a907ccb2@spud>
-References: <20260929061417.20733-1-jszhang@kernel.org>
- <20260929061417.20733-9-jszhang@kernel.org>
+	id 1xBdlB-00000004Pu6-2fLi
+	for linux-arm-kernel@lists.infradead.org;
+	Tue, 29 Sep 2026 19:45:06 +0000
+Received: by mail-dy2-x0e.google.com with SMTP id 5a478bee46e88-3411e0ace58so5898381eec.0
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 29 Sep 2026 12:45:04 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=ziepe.ca; s=google; t=1790711104; x=1791315904; darn=lists.infradead.org;
+        h=in-reply-to:content-transfer-encoding:content-disposition
+         :content-type:mime-version:references:message-id:subject:cc:to:from
+         :date:from:to:cc:subject:date:message-id:reply-to:content-type;
+        bh=dlqSekmBIvaPzDfuozpOnY+MYgiQ1xGecmLC2it8BD0=;
+        b=mu1KlSwEYuAzTJE9qWkC26aPyBZbY4mBp/BTwO8COrmtXAvNM76ZWU1z0uDrqMN6V6
+         CrIt6qDNklDT9flc4Ln857tUCfKFSiJpfSC97eiZoUn44/N0hvGPaawpe3Er7s0fabt6
+         Fj25LcOBHo5U8FJxWatZcDPMpygrdrDlWqkJBWyHe5NSG23p6hZpz7htWXSYG37bjybF
+         +kaCUZv67ttnLrSRnWkaJdZLn+r2Vq+/V1vkAy+RkV7AV9kD9L3cksTtrxzpZtAb6r/h
+         MvGEOF1EK0cI9xRKtFOFkDEwjlx4tWNu1ls8inokjMq5Y3VhX3u2MQ59L3C7lLXhkmFC
+         6XcQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1790711104; x=1791315904;
+        h=in-reply-to:content-transfer-encoding:content-disposition
+         :content-type:mime-version:references:message-id:subject:cc:to:from
+         :date:x-gm-gg:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to:content-type;
+        bh=dlqSekmBIvaPzDfuozpOnY+MYgiQ1xGecmLC2it8BD0=;
+        b=O2OBATYcxjKw4tVVTucpLRcjnWqvNlRG9JuRmCfJz22BhgpoDOYMdVdoiJs8Dv59WF
+         /JiyMH3NVq2JkxPn641R+ZHvt4N0OD+moB56kr1zM+7SRgz/MP1R0ECGtwLDtt8REnSh
+         nHxXAScTn0qAKNz2Biu+VEOlc560d7lm/GGNuML2MwXCZyZ33LdI/UQbt/40FM7TwmV5
+         8m8MorWTqZ5qI5fL+1GCmNjPMFRQ4elLwXczIpL0yk/15KoVxiSpck3Y3Th1DweJmj5A
+         lsPPninsRQjKVk8M2CsWLzSAfQRRJgdrCo30vbaSsk8/VEAjicMtim3PNh73+CtcJB4L
+         vpWw==
+X-Gm-Message-State: AFuF++k2yZUQHl42m6otUnnP3mdewV/JsMcRWKCh6gT74ZHI+20Wk3ir
+	1tvEExB9R4OeatBizc8USmeaRKyYk1DsnmiUsezV6WcnsuYVeViJFImVkq7y7or55ks=
+X-Gm-Gg: AYBFou09AhqJ2MmJHRg7qFRL4GkX2G9Sy+3xKyOviiS0pBiFuqrdhzHpXW/Vqrp4bJt
+	TllWodOSywa+QYy+XEdrh6XZroctUbLUUEGiSIGPoyyfSrFxidCB2DHxVwkZKfduYEyyBwx599q
+	aDOC50ea/JqTuN+Onj82MquRBP169qdza9fRAmNYEyUN5WcvNQRYoXnuyZOJNxiHtFPHmkRBpDH
+	ZnhjJt8AS0aTrvLflh0vcUmRWhM7ozzrTeegH2JnMLUpddnktFzDLebfm4O8imPEW3lfFpQhh1P
+	q08ITSu4UmZGiNPNLJPR6hn06ZoyXYygkf5pMiufIgmnUwQjvTludldoRTKdP6ELMMT6PVnOxEI
+	Mkxdte9M6pjIukHeQmAbqmkLR0fww/abEVbn1gY/Y67/9xk6nUtXaNTD/qNmZ+FUctZ0H+1rbKO
+	sutZi3v5scCi3masevEZLYvkvwpeuODz0FQeUHtMlg9XTb
+X-Received: by 2002:a05:7022:7f1b:b0:13b:2f26:6881 with SMTP id a92af1059eb24-14c9c46fbf0mr312799c88.4.1790711104075;
+        Tue, 29 Sep 2026 12:45:04 -0700 (PDT)
+Received: from ziepe.ca ([130.41.10.202])
+        by smtp.gmail.com with ESMTPSA id a92af1059eb24-14c63acab5esm1202011c88.10.2026.09.29.12.45.02
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Tue, 29 Sep 2026 12:45:03 -0700 (PDT)
+Received: from jgg by wakko with local (Exim 4.97)
+	(envelope-from <jgg@ziepe.ca>)
+	id 1xBdl7-00000009uUb-3ljP;
+	Tue, 29 Sep 2026 16:45:01 -0300
+Date: Tue, 29 Sep 2026 16:45:01 -0300
+From: Jason Gunthorpe <jgg@ziepe.ca>
+To: Yeoreum Yun <yeoreum.yun@arm.com>
+Cc: linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Will Deacon <will@kernel.org>,
+	Suzuki Poulose <suzuki.poulose@arm.com>,
+	Steven Price <steven.price@arm.com>,
+	Sami Mujawar <sami.mujawar@arm.com>, thuth@redhat.com,
+	Jiri Pirko <jiri@nvidia.com>
+Subject: Re: [PATCH v2 0/3] arm64/virt: Add Arm CCA measurement register
+ support
+Message-ID: <20260929194501.GO163130@ziepe.ca>
+References: <20260929-arm_cca_mr-v2-0-1d98bba187fd@arm.com>
+ <20260929192051.GN163130@ziepe.ca>
+ <arwUrOYn0NVySdzm@e129823.arm.com>
 MIME-Version: 1.0
-Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="/eZs2VEqyPUB++Zv"
+Content-Type: text/plain; charset=utf-8
 Content-Disposition: inline
-In-Reply-To: <20260929061417.20733-9-jszhang@kernel.org>
+Content-Transfer-Encoding: 8bit
+In-Reply-To: <arwUrOYn0NVySdzm@e129823.arm.com>
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260929_124505_675550_83FAF64C 
+X-CRM114-Status: GOOD (  20.31  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -86,177 +111,29 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
---/eZs2VEqyPUB++Zv
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
+On Tue, Sep 29, 2026 at 08:42:36PM +0100, Yeoreum Yun wrote:
+> On Tue, Sep 29, 2026 at 04:20:51PM -0300, Jason Gunthorpe wrote:
+> > On Tue, Sep 29, 2026 at 05:57:46PM +0100, Yeoreum Yun wrote:
+> > > This series adds support for Arm Confidential Compute Architecture (CCA)
+> > > measurement registers in the Linux kernel, enabling guest Realms to
+> > > access, extend, and expose measurement values for attestation and runtime
+> > > integrity tracking.
+> > 
+> > I'd prefer not to add any more tsm_measurements users until we bottom
+> > out on the attestation subsystem.. Mainly because it establishes uAPI
+> > that doesn't really do everything people need from this stuff..
+> 
+> Tend to agree. However, I think this seems like an integration with
+> the attestation subsystem.
+> IOW, although the functionality and interface are currently scattered,
+> the functionality of the TSM MR doesn't change —
+> showing the current measurement register status and generating
+> a token with a challenge. Therefore, even if the subsystem is refactored,
+> I don't think this would be a burden for it, and personally,
+> I'd like to see this patch series emancipated from almost six months of waiting ;)
 
-On Tue, Sep 29, 2026 at 02:14:05PM +0800, Jisheng Zhang wrote:
-> Add device tree bindings for the resets on Synaptics SL261X SoCs.
->=20
-> Signed-off-by: Jisheng Zhang <jszhang@kernel.org>
-> ---
->  .../bindings/reset/syna,sl261x-reset.yaml     | 40 ++++++++++
->  include/dt-bindings/reset/syna,sl261x-reset.h | 80 +++++++++++++++++++
->  2 files changed, 120 insertions(+)
->  create mode 100644 Documentation/devicetree/bindings/reset/syna,sl261x-r=
-eset.yaml
->  create mode 100644 include/dt-bindings/reset/syna,sl261x-reset.h
->=20
-> diff --git a/Documentation/devicetree/bindings/reset/syna,sl261x-reset.ya=
-ml b/Documentation/devicetree/bindings/reset/syna,sl261x-reset.yaml
-> new file mode 100644
-> index 000000000000..8cfec17df800
-> --- /dev/null
-> +++ b/Documentation/devicetree/bindings/reset/syna,sl261x-reset.yaml
-> @@ -0,0 +1,40 @@
-> +# SPDX-License-Identifier: (GPL-2.0 OR BSD-2-Clause)
-> +# Copyright (C) 2026 Synaptics Incorporated
-> +%YAML 1.2
-> +---
-> +$id: http://devicetree.org/schemas/reset/syna,sl261x-reset.yaml#
-> +$schema: http://devicetree.org/meta-schemas/core.yaml#
-> +
-> +title: Synaptics SL261X reset controller
-> +
-> +maintainers:
-> +  - Jisheng Zhang <jszhang@kernel.org>
-> +
-> +description: The reset controller node must be a sub-node of the chip
-> +  controller node on SL261X SoCs.
-> +
-> +properties:
-> +  compatible:
-> +    enum:
-> +      - syna,sl261x-soc-reset
-> +      - syna,sl261x-system-reset
-> +
-> +  "#reset-cells":
-> +    const: 1
-> +
-> +required:
-> +  - compatible
-> +  - "#reset-cells"
-> +
-> +additionalProperties: false
-> +
-> +examples:
-> +  - |
-> +    chip: chip-control@f7e10000 {
-> +        reg =3D <0xf7e10000 0x1000>;
-> +
-> +        chip_rst: reset {
-> +            compatible =3D "syna,sl261x-soc-reset";
-> +            #reset-cells =3D <1>;
-> +        };
+Yeah, but it immediately establishes a sysfs uAPI that we don't want
+anyone to implement :( That's my main issue..
 
-Why can't this just be part of the parent node?
-=46rom a quick check of the dts, the node with this subnode didn't also
-have a system-reset node too, so there's no conflict or anything of that
-nature.
-
-> +    };
-> diff --git a/include/dt-bindings/reset/syna,sl261x-reset.h b/include/dt-b=
-indings/reset/syna,sl261x-reset.h
-> new file mode 100644
-> index 000000000000..7034f58aae5b
-> --- /dev/null
-> +++ b/include/dt-bindings/reset/syna,sl261x-reset.h
-> @@ -0,0 +1,80 @@
-> +/* SPDX-License-Identifier: (GPL-2.0 OR MIT) */
-> +/*
-> + * Copyright (C) 2026 Synaptics Incorporated
-> + *
-> + * Author: Jisheng Zhang <jszhang@kernel.org>
-> + */
-> +
-> +#ifndef _DT_BINDINGS_SL261X_RESET_H
-> +#define _DT_BINDINGS_SL261X_RESET_H
-> +
-> +/* ACPU subsystem */
-> +#define RST_SOC_SDIO0		0
-> +#define RST_SOC_USB0		1
-> +#define RST_SOC_EMMC		2
-> +#define RST_SOC_GETH0		3
-> +#define RST_SOC_SDIO1		4
-> +#define RST_SOC_USB1		5
-> +#define RST_SOC_GETH1		6
-> +#define RST_SOC_USB0PHY		7
-> +#define RST_SOC_USB0CORE	8
-> +#define RST_SOC_USB0MAHB	9
-> +#define RST_SOC_USB1PHY		10
-> +#define RST_SOC_USB1CORE	11
-> +#define RST_SOC_USB1MAHB	12
-> +#define RST_SOC_UART0		13
-> +#define RST_SOC_UART1		14
-> +#define RST_SOC_UART2		15
-> +#define RST_SOC_UART3		16
-> +#define RST_SOC_I2C0		17
-> +#define RST_SOC_I2C1		18
-> +#define RST_SOC_SPI0		19
-> +#define RST_SOC_SPI1		20
-> +#define RST_SOC_SPI2		21
-> +#define RST_SOC_SPI3		22
-> +#define RST_SOC_APBTIMERS	23
-> +#define RST_SOC_APBSYSCNT	24
-> +#define RST_SOC_APBWDT		25
-> +#define RST_SOC_APBGPIO		26
-> +#define RST_SOC_APBDMA		27
-> +#define RST_SOC_GPUCORE		28
-> +#define RST_SOC_NPUCORE		29
-> +#define RST_SOC_AVIOAIOG	30
-> +#define RST_SOC_AVIOVPPG	31
-> +#define RST_SOC_AVIOVIPG	32
-> +
-> +/* system subsystem */
-> +#define RST_SM_ADCCORE		0
-> +#define RST_SM_ADCPRST		1
-> +#define RST_SM_CAN0PRST		2
-> +#define RST_SM_CAN0SRST		3
-> +#define RST_SM_CAN1PRST		4
-> +#define RST_SM_CAN1SRST		5
-> +#define RST_SM_GPIOPRST		6
-> +#define RST_SM_GPIOSRST		7
-> +#define RST_SM_I2CM0PRST	8
-> +#define RST_SM_I2CM0SRST	9
-> +#define RST_SM_I2CM1PRST	10
-> +#define RST_SM_I2CM1SRST	11
-> +#define RST_SM_I3CPRST		12
-> +#define RST_SM_I3CSRST		13
-> +#define RST_SM_PDMPRST		14
-> +#define RST_SM_PDMSRST		15
-> +#define RST_SM_PVTHSRST		16
-> +#define RST_SM_PVTPRST		17
-> +#define RST_SM_PWMPERIRST	18
-> +#define RST_SM_PWMPRST		19
-> +#define RST_SM_SPIMPRST		20
-> +#define RST_SM_SPIMSRST		21
-> +#define RST_SM_SPISPRST		22
-> +#define RST_SM_SPISSRST		23
-> +#define RST_SM_UART0PRST	24
-> +#define RST_SM_UART0SRST	25
-> +#define RST_SM_UART1PRST	26
-> +#define RST_SM_UART1SRST	27
-> +#define RST_SM_UART2PRST	28
-> +#define RST_SM_UART2SRST	29
-> +#define RST_SM_UART3PRST	30
-> +#define RST_SM_UART3SRST	31
-> +
-> +#endif /* _DT_BINDINGS_SL261X_RESET_H */
-> --=20
-> 2.53.0
->=20
-
---/eZs2VEqyPUB++Zv
-Content-Type: application/pgp-signature; name=signature.asc
-
------BEGIN PGP SIGNATURE-----
-
-iHUEABYKAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCarwVDQAKCRB4tDGHoIJi
-0hGwAP4ptyfAiZ/Hyv5m5DXC1l4L5OIOyvVbaRVAxy6CVrteRgD7BDhIbPYIHQMg
-hqZCgq4VRutWdr432OpL5OAfu0MmLQM=
-=RY0u
------END PGP SIGNATURE-----
-
---/eZs2VEqyPUB++Zv--
+Jason
 
