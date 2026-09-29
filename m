@@ -4,84 +4,65 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5E7C8CA5FA5
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 29 Sep 2026 13:23:11 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 237CCCA5FA5
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 29 Sep 2026 13:29:59 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
-	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=yTesFDq/YxSwK5ZXsSdDYLDRLFxVTwZi0rSBp7hpZ7c=; b=P/3/q92D2ZU940HFIY8KdBPKSx
-	3u+yUaZVvO+cVcRSjyCRow/gGF8lR+UpyKofGfeOLLQ0IbAOBqsdMgL//gJuruQWIioGQZ+69B8im
-	cpp6I9A5H7J3v6BP6oasoMAhNxm6rt8PKrJyiuyCinfAj1VzrPwRm886Xl6hHe8tvY94VSbdaz5l1
-	8oxn8vNIXmGRXLvv7gg0Awemurx4iM4az90aVTIaiMXkbIiNa0Hngfsqt0RLdYWkeo2qBseK3/Y7i
-	L8IuvblqdXdWmkv69zxMg/jl7acc3s0AypH5V8tfTLuENOWMir5Y6CiYTOuOlXgNdY0AeWy9ALtO6
-	6VkuEYoQ==;
+	bh=tfN6V/0jpVSKj8us4BMTgHrYZ7PEZU7VE8KWI178lvU=; b=dYDB3r6NdJZk0aBtHu6fVk19fm
+	kxu9g6m8yIEft+aQqYchhOA+hpt6scvXtpC0TOm/V6XysIBiaJbjwl02R3c0D4ZrVEagUeKvmKJ5z
+	zWzsZyQ3RnLTwKQdmw4KQHnzEXZSIFS/F/ZPoJHiKP4e/ncqFoyyQkXQBjHtNGvN0CTZKBcw0hucQ
+	sBF5LyczRSHXyJdTxWqN1nR7Lp8aBY9HTwLgw8VAcwSHJWQQruh2JpVN+CxJnZ546VRR5t2B09HV5
+	fFwm4duE5Wb7kqu0fDU/erYIcEimavcnJMY3CSuat1Os2jVgTPeqIjxQIvvsFRw3QGylndO4UzjlC
+	oinAn0kQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xBXnS-00000003fEc-1JfN;
-	Tue, 29 Sep 2026 13:23:02 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1xBXu2-00000003fr8-0SeG;
+	Tue, 29 Sep 2026 13:29:50 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xBXnR-00000003fDq-0v3t
-	for linux-arm-kernel@bombadil.infradead.org;
-	Tue, 29 Sep 2026 13:23:01 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Content-Type:Cc:To:Subject:Message-ID:
-	Date:From:In-Reply-To:References:MIME-Version:Sender:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description;
-	bh=yTesFDq/YxSwK5ZXsSdDYLDRLFxVTwZi0rSBp7hpZ7c=; b=U9Y+9SwGauMnGl03tLEhXleqH6
-	VBKXN60cH3k5z/9h3TYqpJzyz1yTnzooDjrh00Jq304zTjLVGn1v+fTIqNv+bHcjay1jnPinZz6Wh
-	nRZQr2E/VM27FPCwL/YCjRBNN8AsSD2wGvK/JDCSqmO42KG+CoA7TDeRb9JCD3CaubzOuSbR0ngC1
-	VBA6QGMY8DalgdkaSoewzEIOWNjeDeDZ2JxX8J1CImzHofMTPQXWf+HIAe0pb7OA8yg87Zdse6A3F
-	FRtK9n9xkWnv3DAnHB2ByLNvuEdG7Tdp/chKiZmxzR8ZShbubXEY+0JVehUwswoGAcx3dcSGILT5j
-	j52yufvw==;
-Received: from out-161.mta1.migadu.com ([95.215.58.161] helo=mta1.migadu.com)
-	by desiato.infradead.org with esmtps (Exim 4.99.2 #2 (Red Hat Linux))
-	id 1xBXnM-00000002fnX-0Vm8
+	id 1xBXu0-00000003fr0-39IF
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 29 Sep 2026 13:22:57 +0000
-X-Envelope-To: linux-arm-kernel@lists.infradead.org
-DKIM-Signature: a=rsa-sha256; bh=A/v7LPhRkH6ascBEThHb/vODFW80MSZ8BAktCxFOPL4=;
- c=simple/simple; d=linux.dev;
- h=from:to:subject:date:message-id:mime-version:content-type; s=key1;
- t=1790688174; v=1; x=1791292974;
- b=xGRPHOC4VOQ3+sVj6In3mJimicpaYt8IRvt3bbJmY8rATe+IBu1to0tcWpdroAMk28KRyw8z
- 1vNS9kEXQOAsVHWYmfL5UJGb1Lz8B8xfuFaqGR7ZS565Np4Qg7aV4tBMNAgYeJfY07WNpWS40B5
- GVmfoygewO1neYtgJN5LH9mE=
-X-Envelope-To: linux-arm-kernel@lists.infradead.org
-Received: by smtp.migadu.com with ESMTPS id 3c553971cea933f3;
-	Tue, 29 Sep 2026 13:22:54 +0000
-X-Mizu-Trace-ID: 3c553971cea933f3
-X-Migadu-Flow: FLOW_OUT
-Received: by mail-lf1-f53.google.com with SMTP id 2adb3069b0e04-5b8ea0ca5baso7699e87.1
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 29 Sep 2026 06:22:54 -0700 (PDT)
-X-Forwarded-Encrypted: i=1; AKwUvBzZOKzQf6nNzNmuOfEZCDjsYlR2Nwrqcvp12T7bevNtGzuPMXuE9ztf5bvQ9mIqdeI2cRLgK44BN2Kw8mWVeYcr@lists.infradead.org
-X-Gm-Message-State: AFq9FYK1eLTZJd5dyaopNXt5DZSlt/bWlI1frYenpvFyQ48wy80CZ7YX
-	aP/UXiKhGHE+I1KG98Hheal32RO997Gt1KTfRWFU+QJWUNcH0jpteMf3nLWvu2ABU9xf9fFEdQ3
-	yWhgaCLdAgZi9geNRCABkZP/rtRBbj2wWmErsyy2b
-X-Received: by 2002:a05:6512:628d:b0:5ae:b1b3:145a with SMTP id
- 2adb3069b0e04-5ba2e7b40d0mr148813e87.6.1790688173434; Tue, 29 Sep 2026
- 06:22:53 -0700 (PDT)
+	Tue, 29 Sep 2026 13:29:48 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by tor.source.kernel.org (Postfix) with ESMTP id CB66D600E2;
+	Tue, 29 Sep 2026 13:29:47 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id B73511F000FF;
+	Tue, 29 Sep 2026 13:29:44 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1790688587;
+	bh=tfN6V/0jpVSKj8us4BMTgHrYZ7PEZU7VE8KWI178lvU=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=fK7JE+5kuq0ZqZon40ZtxqT4EpnKQlLh7t1CJdAzoeIfvZejJE8bwT7vPe/MR554B
+	 bIsWpP8icPL5GBYilqRRS1vgu2VljQFBOnK8PTQ7GW8VcPFNgWqZgxjFByhk/8RyPZ
+	 PRMjk8+IOw0KSNRXGUMSWyheKevBZccQXCj6XO4jwLs6w2XgzWvXr2DOtmTINuCd7w
+	 uqPL7wrNhQgmfV6AyvdfS+wvPsDTW3rRcNcbvYagfR4RlRwXf96XixArGa70mqM8a6
+	 4ZtZui5Yhdl8U5AQfZrqI6GkGAiWJYwFLWRDPLbt6rIu462kbvxOPg9FZ5irJ7vTUK
+	 Jf832SwU2dFmg==
+Date: Tue, 29 Sep 2026 14:29:41 +0100
+From: Will Deacon <will@kernel.org>
+To: Koba Ko <kobak@nvidia.com>
+Cc: Catalin Marinas <catalin.marinas@arm.com>,
+	Rob Herring <robh@kernel.org>, Breno Leitao <leitao@debian.org>,
+	Jonathan Corbet <corbet@lwn.net>,
+	Shuah Khan <skhan@linuxfoundation.org>,
+	linux-arm-kernel@lists.infradead.org, linux-doc@vger.kernel.org,
+	linux-kernel@vger.kernel.org, linux-kselftest@vger.kernel.org,
+	Fenghua Yu <fenghuay@nvidia.com>, Tushar Dave <tdave@nvidia.com>,
+	Kai-Heng Feng <kaihengf@nvidia.com>, rupakr@nvidia.com,
+	mohammedk@nvidia.com
+Subject: Re: [RFC PATCH v2 1/3] arm64: add CPU prefetch and cache modulation
+ sysfs interface
+Message-ID: <aru9Rf7BzW3-vcm0@willie-the-truck>
+References: <20260825181701.3-1-kobak@nvidia.com>
+ <20260825181701.3-2-kobak@nvidia.com>
 MIME-Version: 1.0
-References: <20260929093548.3598547-1-maz@kernel.org> <20260929093548.3598547-3-maz@kernel.org>
-In-Reply-To: <20260929093548.3598547-3-maz@kernel.org>
-From: Fuad Tabba <fuad.tabba@linux.dev>
-Date: Tue, 29 Sep 2026 14:22:17 +0100
-X-Gmail-Original-Message-ID: <CA+EHjTzzX9g1+kgX_hBZ8gKQ1hbGbNjHrm0QMjQMmM0j-=SoXQ@mail.gmail.com>
-X-Gm-Features: AclHuK_L9SaIlRtG-n3tXUkF9oIjgxk-0gMREksoQR95sfSSAdxHohLUu-uHe4Y
-Message-ID: <CA+EHjTzzX9g1+kgX_hBZ8gKQ1hbGbNjHrm0QMjQMmM0j-=SoXQ@mail.gmail.com>
-Subject: Re: [PATCH v2 2/7] KVM: arm64: Turn vcpu->arch.pause into a counter
-To: Marc Zyngier <maz@kernel.org>
-Cc: kvmarm@lists.linux.dev, linux-arm-kernel@lists.infradead.org, 
-	Steffen Eiden <seiden@linux.ibm.com>, Joey Gouly <joey.gouly@arm.com>, 
-	Suzuki K Poulose <suzuki.poulose@arm.com>, Oliver Upton <oupton@kernel.org>, 
-	Zenghui Yu <yuzenghui@huawei.com>, Yuchao Zhang <ndaugoing@gmail.com>, stable@vger.kernel.org
-Content-Type: text/plain; charset="UTF-8"
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260929_142256_327591_9F81916B 
-X-CRM114-Status: GOOD (  28.09  )
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20260825181701.3-2-kobak@nvidia.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -96,121 +77,108 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, 29 Sept 2026 at 10:36, Marc Zyngier <maz@kernel.org> wrote:
->
-> We have situations where we can call kvm_arm_halt_guest() without
-> holding config_lock, which means that halt and resume can overlap in
-> funny ways when called from separate contexts, and result in situations
-> where a vcpu is resumed while other parts of KVM assume it is halted.
-> Consequences are left to the imagination of the reader.
->
-> Fix this sorry situation by turning kvm_vcpu_arch::pause into an
-> atomic counter, which makes the races described above harmless.
->
-> Fixes: 3b92830ad41b2 ("KVM: arm/arm64: implement kvm_arm_[halt,resume]_guest")
-> Signed-off-by: Marc Zyngier <maz@kernel.org>
-> Cc: stable@vger.kernel.org
-
-Reviewed-by: Fuad Tabba <fuad.tabba@linux.dev>
-Tested-by: Fuad Tabba < fuad.tabba@linux.dev>
-
-Cheers,
-/fuad
-
-
+On Wed, Aug 26, 2026 at 02:16:59AM +0800, Koba Ko wrote:
+> Performance characterization on arm64 systems sometimes needs a way to
+> inspect and bracket selected implementation-defined prefetch and cache
+> controls without exposing raw register contents. Add an RFC-only arm64
+> cpumod interface that presents a small set of named, range-checked
+> per-CPU sysfs attributes under each CPU device.
+> 
+> Establish the Kconfig and Makefile plumbing, CPU profile detection for
+> Grace and Vera from the target CPU's MIDR, register-field descriptors,
+> per-CPU kobject and attribute helpers, locking, and target-CPU read/write
+> callbacks. Common attributes are exposed for all supported profiles,
+> while Grace- and Vera-specific fields are exposed only for the matching
+> profile. Place the option at the end of the top-level Kernel Features
+> menu because these implementation controls are not tied to an Arm
+> architecture revision.
+> 
+> Per-CPU cpumod sysfs state follows the CPU lifecycle. Module
+> initialization populates subtrees for every online CPU while holding
+> cpus_read_lock(), so initial enumeration and CPU hotplug state
+> registration are serialized against concurrent topology changes. Offline
+> CPUs are intentionally skipped during initial setup because target-CPU
+> MIDR detection requires an IPI-capable online CPU; a later online callback
+> creates their subtree.
+> 
+> Profile detection reads MIDR through a synchronous callback on the CPU
+> owning the sysfs subtree and returns nonzero only when that dispatch
+> fails, so no IPI error can be hidden. After a successful read, retain
+> CPUMOD_PROFILE_UNKNOWN as the unsupported-profile sentinel. Subtree
+> creation skips that profile during both initial online enumeration and
+> later CPUHP online callbacks without blocking module load or CPU hotplug.
+> Object and sysfs setup failures remain fatal and are propagated.
+> 
+> Keep the dynamically allocated kobject state in a private per-CPU pointer
+> instead of the CPU device's generic driver-data slot. The online callback
+> is idempotent when that pointer already records a subtree. The offline
+> callback clears the private pointer before dropping the kobject reference,
+> allowing the release callback to retain ownership of the final free.
+> 
+> Register-backed controls are root-only read/write files. Reads
+> synchronously execute on the target CPU and return the live register field
+> value from that callback. Writes remain range-checked and continue to log
+> the target-CPU readback after the register update.
+> 
+> Register the dynamic CPUHP state with
+> cpuhp_setup_state_nocalls_cpuslocked(). The nocalls form avoids replaying
+> startup callbacks for CPUs already initialized by the explicit online
+> enumeration. On init failure, release the CPU read lock, destroy all
+> subtrees created so far, and return the error. Module exit removes the
+> CPUHP state with the matching nocalls helper and tears down all remaining
+> per-CPU state across possible CPUs.
+> 
+> Reviewed-by: Fenghua Yu <fenghuay@nvidia.com>
+> Reviewed-by: Tushar Dave <tdave@nvidia.com>
+> Reviewed-by: Kai-Heng Feng <kaihengf@nvidia.com>
+> Signed-off-by: Koba Ko <kobak@nvidia.com>
 > ---
->  arch/arm64/include/asm/kvm_host.h |  7 +++----
->  arch/arm64/kvm/arm.c              | 21 ++++++++++++---------
->  2 files changed, 15 insertions(+), 13 deletions(-)
->
-> diff --git a/arch/arm64/include/asm/kvm_host.h b/arch/arm64/include/asm/kvm_host.h
-> index 27fe0cd5b2d7a..66ea2372f9870 100644
-> --- a/arch/arm64/include/asm/kvm_host.h
-> +++ b/arch/arm64/include/asm/kvm_host.h
-> @@ -889,11 +889,10 @@ struct kvm_vcpu_arch {
->         /*
->          * Don't run the guest (internal implementation need).
->          *
-> -        * Contrary to the flags above, this is set/cleared outside of
-> -        * a vcpu context, and thus cannot be mixed with the flags
-> -        * themselves (or the flag accesses need to be made atomic).
-> +        * Contrary to the flags above, this is updated outside of
-> +        * a vcpu context, and thus cannot be mixed with the flags.
->          */
-> -       bool pause;
-> +       atomic_t pause;
->
->         /*
->          * We maintain more than a single set of debug registers to support
-> diff --git a/arch/arm64/kvm/arm.c b/arch/arm64/kvm/arm.c
-> index 5f5dd8bead4b9..9a4871cd796bc 100644
-> --- a/arch/arm64/kvm/arm.c
-> +++ b/arch/arm64/kvm/arm.c
-> @@ -561,6 +561,7 @@ int kvm_arch_vcpu_create(struct kvm_vcpu *vcpu)
->         kvm_arm_pvtime_vcpu_init(&vcpu->arch);
->
->         vcpu->arch.hw_mmu = &vcpu->kvm->arch.mmu;
-> +       atomic_set(&vcpu->arch.pause, 0);
->
->         /*
->          * This vCPU may have been created after mpidr_data was initialized.
-> @@ -835,6 +836,11 @@ int kvm_arch_vcpu_ioctl_set_mpstate(struct kvm_vcpu *vcpu,
->         return ret;
->  }
->
-> +static bool vcpu_can_run(struct kvm_vcpu *vcpu)
-> +{
-> +       return !kvm_arm_vcpu_stopped(vcpu) && !atomic_read(&vcpu->arch.pause);
-> +}
+>  arch/arm64/Kconfig                      |  17 +
+>  arch/arm64/kernel/Makefile              |   1 +
+>  arch/arm64/kernel/arm_cpumod.c          | 458 ++++++++++++++++++++++++
+>  arch/arm64/kernel/arm_cpumod_internal.h |  93 +++++
+>  4 files changed, 569 insertions(+)
+>  create mode 100644 arch/arm64/kernel/arm_cpumod.c
+>  create mode 100644 arch/arm64/kernel/arm_cpumod_internal.h
+> 
+> diff --git a/arch/arm64/Kconfig b/arch/arm64/Kconfig
+> index b3afe0688919b..5e4ada4884b89 100644
+> --- a/arch/arm64/Kconfig
+> +++ b/arch/arm64/Kconfig
+> @@ -2417,6 +2417,23 @@ config ARM64_CONTPTE
+>  	  bit, for any mappings that meet the size and alignment requirements.
+>  	  This reduces TLB pressure and improves performance.
+>  
+> +config ARM64_CPUMOD
+> +	tristate "Arm CPU prefetch modulation sysfs controls"
+> +	help
+> +	  Expose selected CPU implementation control register fields through
+> +	  per-CPU sysfs attributes for performance characterization.
 > +
->  /**
->   * kvm_arch_vcpu_runnable - determine if the vcpu can be scheduled
->   * @v:         The VCPU pointer
-> @@ -850,8 +856,7 @@ int kvm_arch_vcpu_runnable(struct kvm_vcpu *v)
->                       (kvm_timer_should_notify_user(v) ||
->                        kvm_pmu_should_notify_user(v)));
->
-> -       return ((irq_lines || kvm_vgic_vcpu_pending_irq(v))
-> -               && !kvm_arm_vcpu_stopped(v) && !v->arch.pause);
-> +       return ((irq_lines || kvm_vgic_vcpu_pending_irq(v)) && vcpu_can_run(v));
->  }
->
->  bool kvm_arch_vcpu_in_kernel(struct kvm_vcpu *vcpu)
-> @@ -1014,7 +1019,7 @@ void kvm_arm_halt_guest(struct kvm *kvm)
->         struct kvm_vcpu *vcpu;
->
->         kvm_for_each_vcpu(i, vcpu, kvm)
-> -               vcpu->arch.pause = true;
-> +               atomic_inc(&vcpu->arch.pause);
->         kvm_make_all_cpus_request(kvm, KVM_REQ_SLEEP);
->  }
->
-> @@ -1024,8 +1029,8 @@ void kvm_arm_resume_guest(struct kvm *kvm)
->         struct kvm_vcpu *vcpu;
->
->         kvm_for_each_vcpu(i, vcpu, kvm) {
-> -               vcpu->arch.pause = false;
-> -               __kvm_vcpu_wake_up(vcpu);
-> +               if (atomic_dec_and_test(&vcpu->arch.pause))
-> +                       __kvm_vcpu_wake_up(vcpu);
->         }
->  }
->
-> @@ -1033,11 +1038,9 @@ static void kvm_vcpu_sleep(struct kvm_vcpu *vcpu)
->  {
->         struct rcuwait *wait = kvm_arch_vcpu_get_wait(vcpu);
->
-> -       rcuwait_wait_event(wait,
-> -                          (!kvm_arm_vcpu_stopped(vcpu)) && (!vcpu->arch.pause),
-> -                          TASK_INTERRUPTIBLE);
-> +       rcuwait_wait_event(wait, vcpu_can_run(vcpu), TASK_INTERRUPTIBLE);
->
-> -       if (kvm_arm_vcpu_stopped(vcpu) || vcpu->arch.pause) {
-> +       if (!vcpu_can_run(vcpu)) {
->                 /* Awaken to handle a signal, request we sleep again later. */
->                 kvm_make_request(KVM_REQ_SLEEP, vcpu);
->         }
-> --
-> 2.47.3
->
+> +	  The exposed controls allow hardware prefetch and cache-management
+> +	  policy fields to be inspected and adjusted on CPUs where firmware
+> +	  permits EL1 access to the relevant implementation control registers.
+> +	  Systems where firmware traps or blocks these writes cannot use this
+> +	  interface.
+> +
+> +	  This interface is intended for controlled performance evaluation and
+> +	  should not be enabled by default on production systems.
+> +
+> +	  If unsure, say N.
+
+We don't tend to support these sort of implementation-defined features
+as:
+
+   - They're generally not something we can virtualise
+   - The registers should not be accessible to the kernel in production
+   - It's not clear what other bits are exposed in the registers
+   - These sort of controls can't always be toggled while the memory system
+     is active
+   - We can't test them or maintain the zoo of interfaces we'd end up with
+     if we started merging them
+
+So exposing the registers directly to userspace doesn't feel like a
+particularly good idea to me.
+
+Will
 
