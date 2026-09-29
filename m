@@ -4,120 +4,120 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 301E8CA5FB4
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 29 Sep 2026 20:19:47 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0AB99CA5FA7
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 29 Sep 2026 20:21:18 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
 	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
 	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=hZlvxWm2fc61hcwQ04xAyUiXpxto5cyclVFr5Z5OK+g=; b=XNeVYgA/cLFtVUCHSDQdlSxR9l
-	LBiEVi/ihqZnv1q9y+Ly7FbCvrRm36TOZ3DU5NlIMDVQGkUXAoHkoPVze6wpKI+q4ZNmDfwhSDrsb
-	7Vu1pq9yFYhQ0ziVzdkBMURZ4d3wuS1WSndDM2/i9H0+QiXY4bftIwywYA/vZHKRDrMAF2uhY2F/D
-	PjyMO65oCkmnwgUI4UV6pxgIxSfgRPzHslcK7Hfk+lZHE4513NlJYtpyRO3z5p2q/WErT+L1L+1dv
-	mvqXxr7khG0e9oYi1DCibzLOjT2oJTKrNvV/2WRK/ztLPtSay8pTUMF+WQ4+RYr/zRtNmRRskn1ib
-	hHr6iRmw==;
+	bh=LlqrS58w7/rx4vgYHukMM6wuQABrJXq7ONc4aHKO7E4=; b=RIxP9DBsc0dNbWwmBjuLVcl7tr
+	acYB2RSHtC6XiuTSTSPlQ3B6wFD742WeXjNZVl4u/LS/HeoSJTZkrUCAYbOMyBd7oUEihB8ZK7Hbl
+	6pBkCDCwdLZ22k5ntsqGpUY2R2PSBJm4CR7c3jSsoXpBGzc6Msb1yTEAucRUrW+j4I/255nkDRtbQ
+	+ge5JIkFHuzQDfr0633DzLkuvE6aSWk0mm70YcUW0O8e4US9314LGNe6AgtU8X9g4L0w0qIrgmcTE
+	1pskF5Pv51PoLbv5muYCe8JkblDwaCRcmIIuPGwLoivWHiuJN9+Kb82G8MTyMVN3j82Zca4ZqPICS
+	+J3TLvLw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xBeIM-00000004Sl4-37Vh;
-	Tue, 29 Sep 2026 20:19:24 +0000
+	id 1xBeK2-00000004Tgv-0ffq;
+	Tue, 29 Sep 2026 20:21:06 +0000
 Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xBeHu-00000004SY9-3sSG
+	id 1xBeIl-00000004T9s-2RAd
 	for linux-arm-kernel@bombadil.infradead.org;
-	Tue, 29 Sep 2026 20:18:55 +0000
+	Tue, 29 Sep 2026 20:19:47 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=infradead.org; s=desiato.20200630; h=Content-Type:Content-Transfer-Encoding
 	:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:CC:To:From:
 	Sender:Reply-To:Content-ID:Content-Description;
-	bh=hZlvxWm2fc61hcwQ04xAyUiXpxto5cyclVFr5Z5OK+g=; b=o4VDmrg6hvCJzBN7SVYluCkSNi
-	3yvekoAcoVx+udyhqecxdLCsLjybbJF67cJo8lJE/H8Bqbembag0ElLsuxsj1n9mOfQYy0eETCLVK
-	Qx4QsWLzkgIEM1Kz6J9wAs3Cz3DoaIyADoTNqAFOhHcGmbG3TnEnlBkp1hZEXGMK4PV0COrczyqYD
-	Vbw65nXU3/G5dV1vEoltOoFq1F0UAHV8jPZBeKW//12s7ulwDxNeS5RIjY+JN/LaNQsfEWHifeg0C
-	mdWqYjeuDYbmlS3P+WzSBdI7cTFligGJzvvhB3tglUiboJUDB8yRZrg6a+vgD3O5kKQHZ/0B1pkJW
-	fS2IzHiw==;
+	bh=LlqrS58w7/rx4vgYHukMM6wuQABrJXq7ONc4aHKO7E4=; b=XhF+emheElVYwV8rJEHHVfKFWP
+	JRkTEMurFkzI8jzz0ElwDfiT/y2exMSHZSaemn7Rp75h9pMBevaF2sD5su9GK49J8vk6k7HWj6rfU
+	Rbyv9tKikUTeqiqI4MpQazXKrbxOofzg2bLsnI+fHSuVCP2cyjl4PQRFjW+e4B9X+IZYFVa/TRoMH
+	lSATQ1rPKOqSLzpXBFN7+qVurTVyHC1uYAQ1YlamwgGsw/fxHeSYn66E/Kpugl25t3B+YIkkIwqyX
+	pLvl5naSOEGhFry/008FmzDhKGZmT1OeLctWzM0g0Mm+3zND6DKAuk4j7+TsoA2xAYs+HyogJ58Rq
+	cvK9HOhA==;
 Received: from mx0a-0002e601.pphosted.com ([148.163.150.75])
 	by desiato.infradead.org with esmtps (Exim 4.99.2 #2 (Red Hat Linux))
-	id 1xBeHo-000000033E4-0JMw
+	id 1xBeIh-000000033NU-2M2P
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 29 Sep 2026 20:18:53 +0000
-Received: from pps.filterd (m0380145.ppops.net [127.0.0.1])
-	by m0380145.ppops.net (8.18.1.11/8.18.1.11) with ESMTP id 68TFoJm5152387;
-	Tue, 29 Sep 2026 15:18:43 -0500
+	Tue, 29 Sep 2026 20:19:46 +0000
+Received: from pps.filterd (m0384305.ppops.net [127.0.0.1])
+	by m0384305.ppops.net (8.18.1.11/8.18.1.11) with ESMTP id 68TFjP7w807535;
+	Tue, 29 Sep 2026 15:19:28 -0500
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com; h=cc
 	:content-transfer-encoding:content-type:date:from:in-reply-to
 	:message-id:mime-version:references:subject:to; s=
-	proofpoint-05-2026; bh=hZlvxWm2fc61hcwQ04xAyUiXpxto5cyclVFr5Z5OK
-	+g=; b=i/Im2b/fiFjZb1tvRzduuH/cz/srHqD7FKCI0ivSdpMAyWCbL6h76eHnp
-	7ZeE3JiIlL9RgeDMLbhaqvieykl8j/mvKPi7JhZsfvry5afYVTgUOCcPjZ/53kkQ
-	3xCQiTl3U/s2CrQXfqm/Fsv+Dic/4IPF2WyKxYFFteVdf6MrpP2XheA5EPG1yw27
-	Gn8EPh3Bes41fl806jTj+mh+Lon3U+Gkr8qic/X9wd04umZ+S22sFi+v9hXUcLSi
-	qv2/TAPkXREqgY7SzCb3kEzk70OLr75+qpXrmh2cc7m5JY99IsFeKxN0rGfmtEPJ
-	eZpuNgRJvzBXHulcTdTAX1kHZDTFw==
-Received: from dm5pr21cu001.outbound.protection.outlook.com (mail-centralusazon11011015.outbound.protection.outlook.com [52.101.62.15])
-	by m0380145.ppops.net (PPS) with ESMTPS id 4h099y45gv-1
+	proofpoint-05-2026; bh=LlqrS58w7/rx4vgYHukMM6wuQABrJXq7ONc4aHKO7
+	E4=; b=kPOMRCzCig3s5brcu8/3yt+bMSkfTPubYbl/d8nNsORmch6EyGWFLhOQP
+	709Jciagbwrqoh4WEdsSu2WbaobeRoLJJ9hWb21VCXCnOPuT4yzxcaNMXGQVOzbl
+	bhtiiflLnN5YUUlrNcsmTIrjsrBXRkNSB1UQ5fhxIB4h0NGlQrMqCX6hKvIO2wsA
+	n1YbkbSnJ+PaoF1W6gGZHxuU7RVJvYLv/zYS3azK0J4GV+/3C6kukAAdF7t+Xtnn
+	M3ZLXFcvN/txTd43s04y6S1ufPkpdk2Lm8qf5x56UqNcdX9qMOqtqws8bX/pUHEL
+	sdnlqOpltBZf9bF+hLJyWgMDwcrZA==
+Received: from sn4pr0501cu005.outbound.protection.outlook.com (mail-southcentralusazon11011062.outbound.protection.outlook.com [40.93.194.62])
+	by m0384305.ppops.net (PPS) with ESMTPS id 4h02j6ej48-1
 	(version=TLSv1.3 cipher=TLS_AES_256_GCM_SHA384 bits=256 verify=NOT);
-	Tue, 29 Sep 2026 15:18:43 -0500 (CDT)
+	Tue, 29 Sep 2026 15:19:28 -0500 (CDT)
 ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=UULhdkaXE2AyEuMHDjWmJCxM6sv5mjmR2nYxIhkmisLkSxULQNE0c3qIRY5JiDNW3t1sNk1xUjp9Lq4drYbEhhpvQTMI8q+vylPSN4YhrInkjcO7A+jb1iErmHHXzG9bVNqJ3yuR1tfdQVQlGakIu6dw/eTAwuGnCIx4fToCUrtuHMQNlMRX9E2+BYr77S5si81CNMN2KuAmXza/nsh4X4mEwbpZRwrDjRJ9ys26BemzxnsBktcoMDDJoNGphhVAwrDysZ2QMmSwbrUJmJi0nT25sSwIbN4aalvxzbEO7FssoQx39TixUunLu5OjjbufRX65xd90DtH+KixORZcHxA==
+ b=hU4uUiV9xPZgc8HelFttjsxT662mu8iDZaDquiWLf6T8tyoADN4VI5XS84kYQPj/owHPsSHIEdnjdghc3N/MgVb91E2kZpIJhoOwh3enftvUIsgj+pt77SWoEiFfp0omMprVKvrV0wTfqRX+qM8hoFFyanwFBWEVHaH19Dds/QiW0MkkfTQwBah8fusU/7oPKOpff9B8SzvwDjyJcLOsuaIwRDqxeRbNHt7NyAZRv/nJ6GUJb7AW6WioX4SX5Uf5Y+y3Z0VFf2gb4hI+tQGATuXQCJqlXp7zh01DD7mJCzod7HsB6YDyAUew5f2FgTGUJMDEP14aSBNL5BsmBWALFQ==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
  s=arcselector10001;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=hZlvxWm2fc61hcwQ04xAyUiXpxto5cyclVFr5Z5OK+g=;
- b=n/YtZBVrN+JfTgDlOSTHXZY27xQ0IdJUf/DfZuBjSd2/WXOJxu8qkFcDO+rYzIns77J1u4xWAPvTgOGdWtSpRIQuv8vZ4ErObGI5b5y5gdG/Ohqqeep4++HE+ptQ7Oft9ZUYMNG1v1NWqBgDoMbKLbIwj6QxSO8rUsiispxPuzS6A5smfG7Pe3/zCZD/X6wq5RkGuuQqcPoPSXZgUTZHsv2/557zeU/oARs3RPZDMqVTMLyuQtMzErSp9zznTWdsF+BJ0vH9aMH2ly3G/yH03Npcl4nR+SbOIuWn5MWRtaz8CLCOpVW+EgIzP7yu3dfj5mbR5VnO9xeVn1MSbdQt0g==
+ bh=LlqrS58w7/rx4vgYHukMM6wuQABrJXq7ONc4aHKO7E4=;
+ b=Cmvhkk8bRM4akIsMNITj/TKzlklE12FiSHrj4mGfn2+l+PXZ8+j9Mni51bj0m/EqMatzyiyrIJEJ9Fq2MkzHh1UCxQcVTM+I+3KtgMtFeSYizGfsNHklacZm6WXEHlpLhjNvazrFsAZ4409RQlnJ1L/GIwbDLxwtNmd6CykMkb1D9zF+y/8tRWLMsnTHbEJBVVld9E4JVvyLYYz8fLOfRsWRyB8T/xOYiJuOsANXyqIuHWKHGtg2orJjTYmv8VYPHZ405ZNfRkVmtSpcXk6OaxKCsXeZ5kZfv4RJmsqr0MeNOUWN0dLs5eA8VgBNj91x8PzS89Rl1Yh7ICCNonk3aA==
 ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
- 198.47.23.195) smtp.rcpttodomain=lists.infradead.org smtp.mailfrom=ti.com;
+ 198.47.21.195) smtp.rcpttodomain=lists.infradead.org smtp.mailfrom=ti.com;
  dmarc=pass (p=quarantine sp=none pct=100) action=none header.from=ti.com;
  dkim=none (message not signed); arc=none (0)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
  d=ticloud.onmicrosoft.com; s=selector1-ticloud-onmicrosoft-com;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=hZlvxWm2fc61hcwQ04xAyUiXpxto5cyclVFr5Z5OK+g=;
- b=LelpV72vQALgiYjIsk4WZWeHO3NfAbp1urPEa3VoitAP4mHK9Le9iWr+TW6d8qheHt6vKa8rnLyCaHMFCCXwnFJReEDOdiTXCvqBn9nrk0PKCPnUPXDIQM64jutSXfgA30NgrD3CrAks2uJJLTtz71m4M9FEaT+F4oQfxvtAFxk=
-Received: from CH2PR15CA0021.namprd15.prod.outlook.com (2603:10b6:610:51::31)
- by IA0PR10MB7184.namprd10.prod.outlook.com (2603:10b6:208:409::14) with
+ bh=LlqrS58w7/rx4vgYHukMM6wuQABrJXq7ONc4aHKO7E4=;
+ b=eg+Mlg/sb8E+3/HgyX9AIPWVaflz/QlxGVJ6M7HdeivGgLi5Q08na9VNZ2dpnbxEIWKdN524WPSvvwihe2h6/rFlrBVe7TRFzbKSfDL1/t/aJUcj+hj8vw/JJalNQ6SVKoOcqINWzPWM4DMxJYCpXnGQW6UwVGG/CI/v8ChK08Y=
+Received: from DS1P220CA0013.NAMP220.PROD.OUTLOOK.COM (2603:10b6:8:455::8) by
+ EAYPR10MB998117.namprd10.prod.outlook.com (2603:10b6:303:2cb::13) with
  Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.472.14; Tue, 29 Sep
- 2026 20:18:33 +0000
-Received: from CH1PEPF0000AD7F.namprd04.prod.outlook.com
- (2603:10b6:610:51:cafe::9c) by CH2PR15CA0021.outlook.office365.com
- (2603:10b6:610:51::31) with Microsoft SMTP Server (version=TLS1_3,
- cipher=TLS_AES_256_GCM_SHA384) id 15.21.472.15 via Frontend Transport; Tue,
- 29 Sep 2026 20:18:33 +0000
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.472.7; Tue, 29 Sep
+ 2026 20:19:25 +0000
+Received: from DS2PEPF000061C1.namprd02.prod.outlook.com
+ (2603:10b6:8:455:cafe::1f) by DS1P220CA0013.outlook.office365.com
+ (2603:10b6:8:455::8) with Microsoft SMTP Server (version=TLS1_3,
+ cipher=TLS_AES_256_GCM_SHA384) id 15.21.472.14 via Frontend Transport; Tue,
+ 29 Sep 2026 20:19:25 +0000
 X-MS-Exchange-Authentication-Results: mx.microsoft.com 1; spf=pass (sender IP
- is 198.47.23.195) smtp.mailfrom=ti.com; dkim=none (message not signed)
+ is 198.47.21.195) smtp.mailfrom=ti.com; dkim=none (message not signed)
  header.d=none;dmarc=pass action=none header.from=ti.com;
 Received-SPF: Pass (protection.outlook.com: domain of ti.com designates
- 198.47.23.195 as permitted sender) receiver=protection.outlook.com;
- client-ip=198.47.23.195; helo=lewvzet201.ext.ti.com; pr=C
-Received: from lewvzet201.ext.ti.com (198.47.23.195) by
- CH1PEPF0000AD7F.mail.protection.outlook.com (10.167.244.88) with Microsoft
+ 198.47.21.195 as permitted sender) receiver=protection.outlook.com;
+ client-ip=198.47.21.195; helo=flwvzet201.ext.ti.com; pr=C
+Received: from flwvzet201.ext.ti.com (198.47.21.195) by
+ DS2PEPF000061C1.mail.protection.outlook.com (10.167.23.68) with Microsoft
  SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.21.472.14 via Frontend Transport; Tue, 29 Sep 2026 20:18:33 +0000
-Received: from DLEE202.ent.ti.com (157.170.170.77) by lewvzet201.ext.ti.com
- (10.4.14.104) with Microsoft SMTP Server (version=TLS1_2,
+ 15.21.472.14 via Frontend Transport; Tue, 29 Sep 2026 20:19:24 +0000
+Received: from DFLE201.ent.ti.com (10.64.6.59) by flwvzet201.ext.ti.com
+ (10.248.192.32) with Microsoft SMTP Server (version=TLS1_2,
  cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.45; Tue, 29 Sep
- 2026 15:18:18 -0500
-Received: from DLEE208.ent.ti.com (157.170.170.97) by DLEE202.ent.ti.com
- (157.170.170.77) with Microsoft SMTP Server (version=TLS1_2,
+ 2026 15:18:58 -0500
+Received: from DFLE207.ent.ti.com (10.64.6.65) by DFLE201.ent.ti.com
+ (10.64.6.59) with Microsoft SMTP Server (version=TLS1_2,
  cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.45; Tue, 29 Sep
- 2026 15:18:18 -0500
-Received: from lelvem-mr06.itg.ti.com (10.180.75.8) by DLEE208.ent.ti.com
- (157.170.170.97) with Microsoft SMTP Server (version=TLS1_2,
+ 2026 15:18:58 -0500
+Received: from lelvem-mr06.itg.ti.com (10.180.75.8) by DFLE207.ent.ti.com
+ (10.64.6.65) with Microsoft SMTP Server (version=TLS1_2,
  cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.45 via Frontend
- Transport; Tue, 29 Sep 2026 15:18:18 -0500
+ Transport; Tue, 29 Sep 2026 15:18:58 -0500
 Received: from uda0510294.dhcp.ti.com (uda0510294.dhcp.ti.com [10.24.50.162])
-	by lelvem-mr06.itg.ti.com (8.18.1/8.18.1) with ESMTP id 68TKHlMh1688208;
-	Tue, 29 Sep 2026 15:18:15 -0500
+	by lelvem-mr06.itg.ti.com (8.18.1/8.18.1) with ESMTP id 68TKHlMu1688208;
+	Tue, 29 Sep 2026 15:18:55 -0500
 From: Beleswar Padhi <b-padhi@ti.com>
 To: <nm@ti.com>, <kristo@kernel.org>, <ssantosh@kernel.org>, <afd@ti.com>,
         <vigneshr@ti.com>, <u-kumar1@ti.com>
 CC: <linux-kernel@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
         <b-padhi@ti.com>
-Subject: [PATCH 09/22] firmware: ti_sci: Fetch info struct from handle inside ti_sci_do_xfer()
-Date: Wed, 30 Sep 2026 01:47:33 +0530
-Message-ID: <20260929201746.4078803-10-b-padhi@ti.com>
+Subject: [PATCH 22/22] firmware: ti: ti_sci_proc: Move processor ops into its own file
+Date: Wed, 30 Sep 2026 01:47:46 +0530
+Message-ID: <20260929201746.4078803-23-b-padhi@ti.com>
 X-Mailer: git-send-email 2.34.1
 In-Reply-To: <20260929201746.4078803-1-b-padhi@ti.com>
 References: <20260929201746.4078803-1-b-padhi@ti.com>
@@ -126,55 +126,55 @@ Content-Transfer-Encoding: 8bit
 Content-Type: text/plain
 X-EOPAttributedMessage: 0
 X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: CH1PEPF0000AD7F:EE_|IA0PR10MB7184:EE_
-X-MS-Office365-Filtering-Correlation-Id: 34cf7cbf-3bb7-43bb-720c-08df1e66d5f3
+X-MS-TrafficTypeDiagnostic: DS2PEPF000061C1:EE_|EAYPR10MB998117:EE_
+X-MS-Office365-Filtering-Correlation-Id: 296f58ae-8d47-4351-a900-08df1e66f450
 X-MS-Exchange-SenderADCheck: 1
 X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|36860700016|23010399003|376014|1800799024|82310400026|18002099003|22082099003|10067099003|56012099006;
-X-Microsoft-Antispam-Message-Info: lVTppo2GPkjXcfGJoIXhB5BEcX24ba79fjEK5tnHMqvH1yQE/hHWyiPfuBKRpZ0He4Z1X8H1xfGgwA22GML0ya8L6pqGYiEX+BS3qgq3AMFb4oj4+jE3oyNyv/T8OMoe8QkKTrajKLidJzYf47000IEyPCmSt5Nn0AaT9V8FQOw/zzFTS51yqu7JpoaagKZ9uEhQdR93qbzA2+l/rkuMfis18o3QiT6abExv6iN3TMnYrocTLrrzojUwBp5CJkv16y/qYadDNXS79RN38rpag+Lf1SpiFPyDWkZ7DzAbWE+e5vWxLvJ8Q4J/b3sVKI9SfhH5CLkbJL91xelj0mqMWrUN5MA1VADIpb3J9oaMHoqVOr35dwNtgTlVj+d/AGQLF60kxqgaMDasRbujjh/Za6JqJeq101elT2izkFcU8RdPNZ7nISP06FPgv8bTxIQ9zEmFv8FF2zfa7td/k0jAw6w1rkQC/YPiMFj1Yvx27rNto+RzTagrPIDvP0sMPLv+sdexooF7bFZmu+zd1Sa4EgUEII3mOwfQC9txhhSF8e0323p1ZDJJnhNoWhGcHowYjUPaHQv0LeZW/ONP4eFS+eDA9JBWHT6/+rG1UldjAB/YGF2+jJK34suabnYJ6H0+VbfxaaxR232poDV8NopFUWdEeWtpZBki4f9oHF4qXq4BcCuu3zPb0Tx+399dYogGd3rGJ5uk9FdU6PgeAANiaA==
-X-Forefront-Antispam-Report: CIP:198.47.23.195;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:lewvzet201.ext.ti.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(36860700016)(23010399003)(376014)(1800799024)(82310400026)(18002099003)(22082099003)(10067099003)(56012099006);DIR:OUT;SFP:1101;
+X-Microsoft-Antispam: BCL:0;ARA:13230040|23010399003|82310400026|376014|1800799024|36860700016|3023799007|10067099003|6133799003|56012099006|22082099003|18002099003;
+X-Microsoft-Antispam-Message-Info: 8C3OQI0V4huLOpFAiRr4iaftgBFhoET9HvyQfEcmUynk8VHS4in4WMgnjuTdjZ4zG+orqaK4xu8WmAfjoA7hTm9/snZxjRPgeG4dkvHqA9sZh69epXr5Dd3zjCXmlsru+LgcQSiNi7Kikiu8s0O7qT8zZkOwkzxJrYcTgrNUu3dXYGk0K92mfpwy9dUBC/4eU+U3QUR7H5oDHBbjjCupO19ES0y2Yfmo3Q02CG6H+7qS9wLCDrmCuZT287I/jOqZl8Fo78V+yR54FlBz0p+iCgjh/7rNxf2F/okXne5k8MTq76JLP3mNOJVKSIOH5AbSYpblyFaP/bauPJwjN66SonrvGNhxVvxFnnwG2tnl7xwYwNk4hc4kifWi2cUpI20NIs0QyjIGTu4hBbFyolx2DGI78dpk32FmLEh8KurYCPuCKU2cHeng9gtwxerwtZ7GCeWMzjQTpwvzQ6Yt/Z/NpwySdvojyiuqvke2PqqYuSBtdrH4EsVeQZ9/0lom4UQgqBY1H3b0CycWoZnfBiHqOMywEWePW+G+xxjgbEC64RwhKw07I18UafqwATDSQ2kGEwDFmP0iMBsu+9gOH2X/y290XwMUq4eiFmiENNR/sar9SH9nDbg8UC3KLhw0V9rqW2vo9NtKvXLTCj6Hwjth/Q==
+X-Forefront-Antispam-Report: CIP:198.47.21.195;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:flwvzet201.ext.ti.com;PTR:ErrorRetry;CAT:NONE;SFS:(13230040)(23010399003)(82310400026)(376014)(1800799024)(36860700016)(3023799007)(10067099003)(6133799003)(56012099006)(22082099003)(18002099003);DIR:OUT;SFP:1101;
 X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: QQI4sdUvuDZ6g8ZEnlfiXKNOnRafsMXUKnn6QbsgrRaXfPtFwRNa05BWq3nqeh4uosQX2+g0F4Ov1Fj9Ek+pLFKC6I+JMaU1tbOHWC10i4raMvog3GSWJGUE7PJeF7GE7uy9iJr5ShxBrVUp16JZfIXYr1iDxyZIiTQxpGJzxZJfQcGT+79mDT3Ax1LCAXk2tYyp+VtQ0qxy2UnVPk5Rh1BXvIcEhuq3AydOznPd6KcE+zFgXiK8bXkjN8Npcctspfd7LxmtmDOKrko0cs1Chn4B8yLbCXOTASW+STL8RjrWF8kYhwxTroU9W1/igki1L2lNUqCm9REVHUpv9/rpyWGlqJICPQ31HzVA4tzCWlQBOMz3t+nVCgy4Oh32ojka05bXHpwmFOc7Epw438bFxLQyiQ2ZmH4o7QZiI5+6lOn2bbV+3ScMIFVTlRKCEoET
-X-Exchange-RoutingPolicyChecked: OuR45ryFtanC+FHpHYTEGD85M7GuOv4Rp2uXoO8Rz3z4BZ8ZV8vZ5qsFXtTKUbAzsOgXri0lFBsZjxuqSoJ8aJV6gAGQrxTElv0KB4FHmbGcLxm0++8Tpojs37c1ZH/yyjnF7GCRIZhyA22HEWOlNDVItyg7a6w0PHVex67iOkbxwK51XYCJX5SwjqzN+IoKsjUDb1mDDl/b5Ri91x117VcntbF7oKxUjLzlsIdkqnvx3qPYq7Kh+0ZdY1+DcmiFiC961achJ5D+oxJCIlsukbYcfOVIHGECF34k9IbHImioau5q+e881feGlamWKdVJUUL/fmBm/Md19zKYUnHHFQ==
+X-MS-Exchange-AntiSpam-MessageData-0: Y3rBYJr8k3OBoGl5igfo6JsstsiS496TrHX8Z4O+yuXD95EFvP8ySY0ZxSyu/nVmud7XcDKsAFs7+MtYKrH4OQo3FVS8jtdsCJ+e0C1hWOnGxE3axgjPonCgK6ExfiuBsdbMgUG+bKQYSSfqApADbxaitTb2T2/AjncWzkiholqyQELWi1QwTepteYzSU+pk60TLmpHYYyG2SeTdBU52s+nUhBhmTNxytc7LIBp8Wh9ZMRGEhib0h+SnyucWxKqpoSv+BYj4pIiseDgjmJ4p13h3xxPNHjrBc20QDamjYnRUvCr/RhwQCoHXfkb4iiWbW+D+BXv0Hk3GuABDL/T7+QJ/00Nk9Ufnl0VdPrudAzx3B6ZcaTTjwx4EmYP/1mFertbizukSuZi/SLu5t/sAc/CgkjLWzo/GsvP0UGTrZ/iUXJ2bbb0RwMFNnDIaAdvI
+X-Exchange-RoutingPolicyChecked: fb9hMlLSMrEIYYNHbuF4/XVQl0oUQVhFX2ja4Q2J+/focEHn5t9GoGwkvKHqYZNifFyT52hdfmexhF9fh+Ap5rdNR7xDZyYG1PevtBurbgDzn+ZEwyVO8mcXsMZC2VivHEBgB2wPuhCNO+cMKlDPKmHiUHv/UkuhHE3wX+qf9jeXq0zUZbDb/gKEmUH0fe6SKk5hbGJlYqfEeLroYcrCSLVXOaCimEm9KP+JeU4SGaMX5li+CY4pr8VsE9Fpq1vEUhw8FhEZLxlGe6jC8EqGHlQWXSZKYxQSmghd9d7lvvpItHqBo7Dusb/CpGOP36e2EziQWkU010Nd1NCXxgDF8A==
 X-OriginatorOrg: ti.com
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 29 Sep 2026 20:18:33.3945
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 29 Sep 2026 20:19:24.3394
  (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: 34cf7cbf-3bb7-43bb-720c-08df1e66d5f3
+X-MS-Exchange-CrossTenant-Network-Message-Id: 296f58ae-8d47-4351-a900-08df1e66f450
 X-MS-Exchange-CrossTenant-Id: e5b49634-450b-4709-8abb-1e2b19b982b7
-X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=e5b49634-450b-4709-8abb-1e2b19b982b7;Ip=[198.47.23.195];Helo=[lewvzet201.ext.ti.com]
-X-MS-Exchange-CrossTenant-AuthSource: CH1PEPF0000AD7F.namprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=e5b49634-450b-4709-8abb-1e2b19b982b7;Ip=[198.47.21.195];Helo=[flwvzet201.ext.ti.com]
+X-MS-Exchange-CrossTenant-AuthSource: DS2PEPF000061C1.namprd02.prod.outlook.com
 X-MS-Exchange-CrossTenant-AuthAs: Anonymous
 X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: IA0PR10MB7184
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwOTI5MDA4MCBTYWx0ZWRfXz66/ibPr1mON
- K6jXR9uuZpRaG5c5CB1BBPydbLoVgysG9jsltP4S2LrpUvr5MFYHCVOclOG+G4/Rb4dS8eM0BN0
- 1jbds7tNyg+edrZ0AsZ/DjKR3s8Lv7wNlmCZ1zBtx3RbTzritN1TBWQiFuX9bsZis7Ui1srDWPV
- Pk+G1D3ZPYpCuYWlSARAz7hUd7St5Ip7S3DVC3b4x/SC4ESQrOstXgEJShpPiZqPkly2qm9F4rq
- RwQ0y6/RdVU8dsJLOMulPQZHDHkBLwHuV56+89dPrYjuz1ddo+tJVJE0KDnldSCUDC2PmWc6mZC
- 6Z2cRTZR35qV4oR42bXr34WdCBzJ1+Zx40mr7sx5GBTsv7W1ZSUI2qOLPOVt4/zjI+yafYNeAHu
- rOKrOA4kCGNa1cdzMCNYD7QuFEaqIDn6S7khKu05WAb29GDatQwBNSK4hA9LDVy1QnCBbNMEQxn
- rkAZFBRkjQ9bcwZqDDQ==
-X-Proofpoint-Spam-Info: AW1haW4tMjYwOTI5MDA4MCBTYWx0ZWRfX2b5YJMQU9Ux/
- lw98qfBSgDhATsoiQ06ThZW/LcN+rEiG2YHVK3bfngl43F5LZBDjEBdgOCXQ+4/qMndvQPcD8xG
- Is5ARA1B0zqTGCw2GqTDcVj4zkMq3Wg=
-X-Authority-Analysis: v=2.4 cv=GdGCDgXL c=1 sm=1 tr=0 ts=6abc1d23 cx=c_pps
- a=+kBkz34/1DjdJIz+AnMsKg==:117 a=f+v6EHfkeJbVwR46tk4DMg==:17
- a=6eWqkTHjU83fiwn7nKZWdM+Sl24=:19 a=VdqzKS8jKosA:10 a=s63m1ICgrNkA:10
- a=AlMIdn_sM9wA:10 a=VkNPw1HP01LnGYTKEx00:22 a=Z8NIEmU8O1QQgoT56wFK:22
- a=gO1vWkAQAl3rybz1DQOp:22 a=sozttTNsAAAA:8 a=we-QN_a4EPTVeeq35NwA:9
-X-Proofpoint-GUID: SGz1BtlCIdT6mPeqVZsXIApb7S5ejobV
-X-Proofpoint-ORIG-GUID: SGz1BtlCIdT6mPeqVZsXIApb7S5ejobV
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: EAYPR10MB998117
+X-Proofpoint-Spam-Info: AW1haW4tMjYwOTI5MDA4MCBTYWx0ZWRfX5RonZpW95eGh
+ nkm8wjp8TdAOfQK1kIxQtVFQmkzMnw+5JajIZjaJ+ljwAyHTIklgW7fEQM8fg3H7ktPdqvFDEnQ
+ gF9YU5SuK9lp0CJuortibHTCEVjgiBE=
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwOTI5MDA4MCBTYWx0ZWRfX07AHtedAgUgV
+ 3PURDj6rXWeP1p9Vr3430MykzwUBfRmrO5FDCoThr23ziLNVOtda2imcnEYayccm9lUaCRFvdd0
+ MG/j4KbcUBhNSmwIBPvOW7Hpp52qeMy5u8BM/AUW8HOcK2JxzxXjDooOdx9ONOEAZ9P8z+CE6M9
+ lG+xZK/en1o9aM+ZbRyLLro9YJ1l/TvoDNrc4L4OGbUldXzZQmSOUfFjCLdvtJ2n6jkD/VtzvZ8
+ FeybT2XFocWX+w09Y/9OGxxjwG1s4IbFWtWZe/dHp3IEjPkLRPvtTBm/hP9YrcMlmO4XRUR39wx
+ rn8keOWSge7cRoVNO2yl4RAoFToDVGhHjUN6ik6mW85J9E+RN8Gmk0ZwAOVk+cQI07r+AK2933b
+ 3+25D6zjfm8glP3L0lMMa0u70Os0rFLk9sa/zP65A8dD5iM2Y0l4KxmmT4MjHezEOBUiTAe1ms2
+ jo/j8TLsb22WAIrhd/Q==
+X-Authority-Analysis: v=2.4 cv=Z4p5j3RA c=1 sm=1 tr=0 ts=6abc1d50 cx=c_pps
+ a=MAgfROEylrrND5Jw8NuT2A==:117 a=tJyPKKxUohctrY4NYmUjkA==:17
+ a=6eWqkTHjU83fiwn7nKZWdM+Sl24=:19 a=VdqzKS8jKosA:10 a=AlMIdn_sM9wA:10
+ a=VkNPw1HP01LnGYTKEx00:22 a=Z8NIEmU8O1QQgoT56wFK:22 a=taLDd7a_hP9WKsMzeGRc:22
+ a=sozttTNsAAAA:8 a=DwFzR0z2sfOMQUobDtkA:9
+X-Proofpoint-GUID: 7HOzJa1WslmYjQciVc6P3EAgYkuLtJd7
+X-Proofpoint-ORIG-GUID: 7HOzJa1WslmYjQciVc6P3EAgYkuLtJd7
 X-Proofpoint-Virus-Version: vendor=baseguard
  engine=ICAP:2.0.293,Aquarius:18.0.1176,Hydra:6.1.134,FMLib:17.12.100.49
  definitions=2026-09-29_04,2026-09-21_02,2025-10-01_01
 X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- lowpriorityscore=0 bulkscore=0 adultscore=0 malwarescore=0 clxscore=1011
- suspectscore=0 impostorscore=0 priorityscore=1501 phishscore=0 spamscore=0
+ priorityscore=1501 bulkscore=0 spamscore=0 adultscore=0 clxscore=1015
+ suspectscore=0 malwarescore=0 phishscore=0 impostorscore=0 lowpriorityscore=0
  classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
  reason=mlx scancount=1 engine=8.22.0-2609040000 definitions=main-2609290080
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260929_211852_047164_BCC30CA1 
-X-CRM114-Status: GOOD (  18.91  )
+X-CRM114-CacheID: sfid-20260929_211944_243305_762A8A30 
+X-CRM114-Status: GOOD (  17.93  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -189,887 +189,476 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Andrew Davis <afd@ti.com>
+Extract the processor operations related functions and services from
+ti_sci_core.c into its own file. This breaks down the single large
+file into smaller logical files for better readability and maintenance.
 
-As the only use for the handle is to fetch the info struct, which is only
-used by the ti_sci_do_xfer() function, move the info struct retrieval
-into that function. This also allows us to move the handle validity check
-inside also, saving us from needing to do this at each message function.
-
-Signed-off-by: Andrew Davis <afd@ti.com>
-Co-developed-by: Beleswar Padhi <b-padhi@ti.com>
 Signed-off-by: Beleswar Padhi <b-padhi@ti.com>
 ---
- drivers/firmware/ti_sci.c | 306 ++++++++------------------------------
- 1 file changed, 60 insertions(+), 246 deletions(-)
+ drivers/firmware/ti/Makefile      |   1 +
+ drivers/firmware/ti/ti_sci.h      |   1 +
+ drivers/firmware/ti/ti_sci_core.c | 197 +--------------------------
+ drivers/firmware/ti/ti_sci_proc.c | 214 ++++++++++++++++++++++++++++++
+ 4 files changed, 217 insertions(+), 196 deletions(-)
+ create mode 100644 drivers/firmware/ti/ti_sci_proc.c
 
-diff --git a/drivers/firmware/ti_sci.c b/drivers/firmware/ti_sci.c
-index 6d0ecb77d731e..dbe192142bf17 100644
---- a/drivers/firmware/ti_sci.c
-+++ b/drivers/firmware/ti_sci.c
-@@ -435,7 +435,7 @@ static inline bool ti_sci_is_response_ack(void *r)
+diff --git a/drivers/firmware/ti/Makefile b/drivers/firmware/ti/Makefile
+index 7d9c2a73bf5a6..8a32cb65b6fa5 100644
+--- a/drivers/firmware/ti/Makefile
++++ b/drivers/firmware/ti/Makefile
+@@ -4,5 +4,6 @@ ti_sci-y			:= ti_sci_core.o
+ ti_sci-y			+= ti_sci_clock.o
+ ti_sci-y			+= ti_sci_device.o
+ ti_sci-y			+= ti_sci_pm.o
++ti_sci-y			+= ti_sci_proc.o
+ ti_sci-y			+= ti_sci_rm.o
+ obj-$(CONFIG_TI_SCI_PROTOCOL)	+= ti_sci.o
+diff --git a/drivers/firmware/ti/ti_sci.h b/drivers/firmware/ti/ti_sci.h
+index e8d6589eec0e9..8f9f0b1aa767d 100644
+--- a/drivers/firmware/ti/ti_sci.h
++++ b/drivers/firmware/ti/ti_sci.h
+@@ -1687,5 +1687,6 @@ int ti_sci_manage_irq(const struct ti_sci_handle *handle, u32 valid_params,
+ 		      u16 src_id, u16 src_index, u16 dst_id, u16 dst_host_irq,
+ 		      u16 ia_id, u16 vint, u16 global_event, u8 vint_status_bit,
+ 		      u8 s_host, u16 type);
++void ti_sci_setup_proc_ops(struct ti_sci_proc_ops *pops);
+ 
+ #endif /* __TI_SCI_H */
+diff --git a/drivers/firmware/ti/ti_sci_core.c b/drivers/firmware/ti/ti_sci_core.c
+index b1345e06341db..1f7484b118375 100644
+--- a/drivers/firmware/ti/ti_sci_core.c
++++ b/drivers/firmware/ti/ti_sci_core.c
+@@ -620,195 +620,6 @@ static int ti_sci_cmd_core_reboot(const struct ti_sci_handle *handle)
+ 	return 0;
+ }
+ 
+-/**
+- * ti_sci_cmd_proc_request() - Command to request a physical processor control
+- * @handle:	Pointer to TI SCI handle
+- * @proc_id:	Processor ID this request is for
+- *
+- * Return: 0 if all went well, else returns appropriate error value.
+- */
+-static int ti_sci_cmd_proc_request(const struct ti_sci_handle *handle,
+-				   u8 proc_id)
+-{
+-	struct ti_sci_msg_req_proc_request req;
+-	struct ti_sci_msg_hdr resp;
+-	int ret = 0;
+-
+-	req.processor_id = proc_id;
+-
+-	ret = ti_sci_do_xfer(handle, TI_SCI_MSG_PROC_REQUEST,
+-			     TI_SCI_FLAG_REQ_ACK_ON_PROCESSED,
+-			     &req, sizeof(req),
+-			     &resp, sizeof(resp));
+-	if (ret)
+-		return ret;
+-
+-	return 0;
+-}
+-
+-/**
+- * ti_sci_cmd_proc_release() - Command to release a physical processor control
+- * @handle:	Pointer to TI SCI handle
+- * @proc_id:	Processor ID this request is for
+- *
+- * Return: 0 if all went well, else returns appropriate error value.
+- */
+-static int ti_sci_cmd_proc_release(const struct ti_sci_handle *handle,
+-				   u8 proc_id)
+-{
+-	struct ti_sci_msg_req_proc_release req;
+-	struct ti_sci_msg_hdr resp;
+-	int ret = 0;
+-
+-	req.processor_id = proc_id;
+-
+-	ret = ti_sci_do_xfer(handle, TI_SCI_MSG_PROC_RELEASE,
+-			     TI_SCI_FLAG_REQ_ACK_ON_PROCESSED,
+-			     &req, sizeof(req),
+-			     &resp, sizeof(resp));
+-	if (ret)
+-		return ret;
+-
+-	return 0;
+-}
+-
+-/**
+- * ti_sci_cmd_proc_handover() - Command to handover a physical processor
+- *				control to a host in the processor's access
+- *				control list.
+- * @handle:	Pointer to TI SCI handle
+- * @proc_id:	Processor ID this request is for
+- * @host_id:	Host ID to get the control of the processor
+- *
+- * Return: 0 if all went well, else returns appropriate error value.
+- */
+-static int ti_sci_cmd_proc_handover(const struct ti_sci_handle *handle,
+-				    u8 proc_id, u8 host_id)
+-{
+-	struct ti_sci_msg_req_proc_handover req;
+-	struct ti_sci_msg_hdr resp;
+-	int ret = 0;
+-
+-	req.processor_id = proc_id;
+-	req.host_id = host_id;
+-
+-	ret = ti_sci_do_xfer(handle, TI_SCI_MSG_PROC_HANDOVER,
+-			     TI_SCI_FLAG_REQ_ACK_ON_PROCESSED,
+-			     &req, sizeof(req),
+-			     &resp, sizeof(resp));
+-	if (ret)
+-		return ret;
+-
+-	return 0;
+-}
+-
+-/**
+- * ti_sci_cmd_proc_set_config() - Command to set the processor boot
+- *				    configuration flags
+- * @handle:		Pointer to TI SCI handle
+- * @proc_id:		Processor ID this request is for
+- * @bootvector:		Processor Boot vector (start address)
+- * @config_flags_set:	Configuration flags to be set
+- * @config_flags_clear:	Configuration flags to be cleared.
+- *
+- * Return: 0 if all went well, else returns appropriate error value.
+- */
+-static int ti_sci_cmd_proc_set_config(const struct ti_sci_handle *handle,
+-				      u8 proc_id, u64 bootvector,
+-				      u32 config_flags_set,
+-				      u32 config_flags_clear)
+-{
+-	struct ti_sci_msg_req_set_config req;
+-	struct ti_sci_msg_hdr resp;
+-	int ret = 0;
+-
+-	req.processor_id = proc_id;
+-	req.bootvector_low = bootvector & TI_SCI_ADDR_LOW_MASK;
+-	req.bootvector_high = (bootvector & TI_SCI_ADDR_HIGH_MASK) >>
+-				TI_SCI_ADDR_HIGH_SHIFT;
+-	req.config_flags_set = config_flags_set;
+-	req.config_flags_clear = config_flags_clear;
+-
+-	ret = ti_sci_do_xfer(handle, TI_SCI_MSG_SET_CONFIG,
+-			     TI_SCI_FLAG_REQ_ACK_ON_PROCESSED,
+-			     &req, sizeof(req),
+-			     &resp, sizeof(resp));
+-	if (ret)
+-		return ret;
+-
+-	return 0;
+-}
+-
+-/**
+- * ti_sci_cmd_proc_set_control() - Command to set the processor boot
+- *				     control flags
+- * @handle:			Pointer to TI SCI handle
+- * @proc_id:			Processor ID this request is for
+- * @control_flags_set:		Control flags to be set
+- * @control_flags_clear:	Control flags to be cleared
+- *
+- * Return: 0 if all went well, else returns appropriate error value.
+- */
+-static int ti_sci_cmd_proc_set_control(const struct ti_sci_handle *handle,
+-				       u8 proc_id, u32 control_flags_set,
+-				       u32 control_flags_clear)
+-{
+-	struct ti_sci_msg_req_set_ctrl req;
+-	struct ti_sci_msg_hdr resp;
+-	int ret = 0;
+-
+-	req.processor_id = proc_id;
+-	req.control_flags_set = control_flags_set;
+-	req.control_flags_clear = control_flags_clear;
+-
+-	ret = ti_sci_do_xfer(handle, TI_SCI_MSG_SET_CTRL,
+-			     TI_SCI_FLAG_REQ_ACK_ON_PROCESSED,
+-			     &req, sizeof(req),
+-			     &resp, sizeof(resp));
+-	if (ret)
+-		return ret;
+-
+-	return 0;
+-}
+-
+-/**
+- * ti_sci_cmd_proc_get_status() - Command to get the processor boot status
+- * @handle:	Pointer to TI SCI handle
+- * @proc_id:	Processor ID this request is for
+- * @bv:		Processor Boot vector (start address)
+- * @cfg_flags:	Processor specific configuration flags
+- * @ctrl_flags:	Processor specific control flags
+- * @sts_flags:	Processor specific status flags
+- *
+- * Return: 0 if all went well, else returns appropriate error value.
+- */
+-static int ti_sci_cmd_proc_get_status(const struct ti_sci_handle *handle,
+-				      u8 proc_id, u64 *bv, u32 *cfg_flags,
+-				      u32 *ctrl_flags, u32 *sts_flags)
+-{
+-	struct ti_sci_msg_resp_get_status resp;
+-	struct ti_sci_msg_req_get_status req;
+-	int ret = 0;
+-
+-	req.processor_id = proc_id;
+-
+-	ret = ti_sci_do_xfer(handle, TI_SCI_MSG_GET_STATUS,
+-			     TI_SCI_FLAG_REQ_ACK_ON_PROCESSED,
+-			     &req, sizeof(req),
+-			     &resp, sizeof(resp));
+-	if (ret)
+-		return ret;
+-
+-	*bv = (resp.bootvector_low & TI_SCI_ADDR_LOW_MASK) |
+-	      (((u64)resp.bootvector_high << TI_SCI_ADDR_HIGH_SHIFT) &
+-	       TI_SCI_ADDR_HIGH_MASK);
+-	*cfg_flags = resp.config_flags;
+-	*ctrl_flags = resp.control_flags;
+-	*sts_flags = resp.status_flags;
+-
+-	return 0;
+-}
+-
+ /*
+  * ti_sci_setup_ops() - Setup the operations structures
+  * @info:	pointer to TISCI pointer
+@@ -839,13 +650,7 @@ static void ti_sci_setup_ops(struct ti_sci_info *info)
+ 	ti_sci_setup_rm_ringacc_ops(rops);
+ 	ti_sci_setup_rm_psil_ops(psilops);
+ 	ti_sci_setup_rm_udmap_ops(udmap_ops);
+-
+-	pops->request = ti_sci_cmd_proc_request;
+-	pops->release = ti_sci_cmd_proc_release;
+-	pops->handover = ti_sci_cmd_proc_handover;
+-	pops->set_config = ti_sci_cmd_proc_set_config;
+-	pops->set_control = ti_sci_cmd_proc_set_control;
+-	pops->get_status = ti_sci_cmd_proc_get_status;
++	ti_sci_setup_proc_ops(pops);
+ }
  
  /**
-  * ti_sci_do_xfer() - Do one transfer
-- * @info:	Pointer to SCI entity information
+diff --git a/drivers/firmware/ti/ti_sci_proc.c b/drivers/firmware/ti/ti_sci_proc.c
+new file mode 100644
+index 0000000000000..6c0430f7b444a
+--- /dev/null
++++ b/drivers/firmware/ti/ti_sci_proc.c
+@@ -0,0 +1,214 @@
++// SPDX-License-Identifier: GPL-2.0
++/*
++ * Texas Instruments System Control Interface Protocol Driver
++ *
++ * Copyright (C) 2015-2026 Texas Instruments Incorporated - https://www.ti.com/
++ *	Nishanth Menon
++ */
++
++#include <linux/soc/ti/ti_sci_protocol.h>
++
++#include "ti_sci.h"
++
++/**
++ * ti_sci_cmd_proc_request() - Command to request a physical processor control
 + * @handle:	Pointer to TI SCI handle
-  * @msg_type:	Message type
-  * @msg_flags:	Flag to set for the message
-  * @tx_message: transmit message storage location
-@@ -443,23 +443,26 @@ static inline bool ti_sci_is_response_ack(void *r)
-  * @rx_message: receive message storage location
-  * @rx_message_size: receive message size
-  *
-- * Return: -ETIMEDOUT in case of no response, or
-+ * Return: -EINVAL if @handle is NULL, or
-+ *         PTR_ERR(@handle) if @handle is an error pointer, or
-+ *         -ETIMEDOUT in case of no response, or
-  *         -ENODEV in case of a NACK response, or
-  *         corresponding error if xfer allocation fails, or
-  *         corresponding error if transmit fails, or
-  *         return 0, if all goes well.
-  */
--static inline int ti_sci_do_xfer(struct ti_sci_info *info,
-+static inline int ti_sci_do_xfer(const struct ti_sci_handle *handle,
- 				 u16 msg_type, u32 msg_flags,
- 				 void *tx_message, size_t tx_message_size,
- 				 void *rx_message, size_t rx_message_size)
- {
-+	struct ti_sci_info *info;
- 	struct ti_sci_xfer *xfer;
- 	bool response_expected = !!(msg_flags & (TI_SCI_FLAG_REQ_ACK_ON_PROCESSED |
- 						 TI_SCI_FLAG_REQ_ACK_ON_RECEIVED));
- 	int ret;
- 	int timeout;
--	struct device *dev = info->dev;
-+	struct device *dev;
- 	bool done_state = true;
- 	void *caller;
- 
-@@ -470,6 +473,14 @@ static inline int ti_sci_do_xfer(struct ti_sci_info *info,
- 	 */
- 	caller = (void *)_RET_IP_;
- 
-+	if (IS_ERR(handle))
-+		return PTR_ERR(handle);
-+	if (!handle)
-+		return -EINVAL;
++ * @proc_id:	Processor ID this request is for
++ *
++ * Return: 0 if all went well, else returns appropriate error value.
++ */
++static int ti_sci_cmd_proc_request(const struct ti_sci_handle *handle,
++				   u8 proc_id)
++{
++	struct ti_sci_msg_req_proc_request req;
++	struct ti_sci_msg_hdr resp;
++	int ret = 0;
 +
-+	info = handle_to_ti_sci_info(handle);
-+	dev = info->dev;
++	req.processor_id = proc_id;
 +
- 	xfer = ti_sci_get_one_xfer(info, msg_type, msg_flags,
- 				   tx_message, tx_message_size,
- 				   rx_message, rx_message_size, caller);
-@@ -551,7 +562,7 @@ static int ti_sci_cmd_get_revision(struct ti_sci_info *info)
- 	struct ti_sci_msg_resp_version resp;
- 	int ret;
- 
--	ret = ti_sci_do_xfer(info, TI_SCI_MSG_VERSION,
-+	ret = ti_sci_do_xfer(handle, TI_SCI_MSG_VERSION,
- 			     TI_SCI_FLAG_REQ_ACK_ON_PROCESSED,
- 			     &req, sizeof(req),
- 			     &resp, sizeof(resp));
-@@ -579,22 +590,14 @@ static int ti_sci_cmd_get_revision(struct ti_sci_info *info)
- static int ti_sci_set_device_state(const struct ti_sci_handle *handle,
- 				   u32 id, u32 flags, u8 state)
- {
--	struct ti_sci_info *info;
- 	struct ti_sci_msg_req_set_device_state req;
- 	struct ti_sci_msg_hdr resp;
- 	int ret = 0;
- 
--	if (IS_ERR(handle))
--		return PTR_ERR(handle);
--	if (!handle)
--		return -EINVAL;
--
--	info = handle_to_ti_sci_info(handle);
--
- 	req.id = id;
- 	req.state = state;
- 
--	ret = ti_sci_do_xfer(info, TI_SCI_MSG_SET_DEVICE_STATE,
-+	ret = ti_sci_do_xfer(handle, TI_SCI_MSG_SET_DEVICE_STATE,
- 			     flags | TI_SCI_FLAG_REQ_ACK_ON_PROCESSED,
- 			     &req, sizeof(req),
- 			     &resp, sizeof(resp));
-@@ -619,24 +622,16 @@ static int ti_sci_get_device_state(const struct ti_sci_handle *handle,
- 				   u32 id,  u32 *clcnt,  u32 *resets,
- 				    u8 *p_state,  u8 *c_state)
- {
--	struct ti_sci_info *info;
- 	struct ti_sci_msg_req_get_device_state req;
- 	struct ti_sci_msg_resp_get_device_state resp;
- 	int ret = 0;
- 
--	if (IS_ERR(handle))
--		return PTR_ERR(handle);
--	if (!handle)
--		return -EINVAL;
--
- 	if (!clcnt && !resets && !p_state && !c_state)
- 		return -EINVAL;
- 
--	info = handle_to_ti_sci_info(handle);
--
- 	req.id = id;
- 
--	ret = ti_sci_do_xfer(info, TI_SCI_MSG_GET_DEVICE_STATE,
-+	ret = ti_sci_do_xfer(handle, TI_SCI_MSG_GET_DEVICE_STATE,
- 			     TI_SCI_FLAG_REQ_ACK_ON_PROCESSED,
- 			     &req, sizeof(req),
- 			     &resp, sizeof(resp));
-@@ -905,22 +900,14 @@ static int ti_sci_cmd_dev_is_trans(const struct ti_sci_handle *handle, u32 id,
- static int ti_sci_cmd_set_device_resets(const struct ti_sci_handle *handle,
- 					u32 id, u32 reset_state)
- {
--	struct ti_sci_info *info;
- 	struct ti_sci_msg_req_set_device_resets req;
- 	struct ti_sci_msg_hdr resp;
- 	int ret = 0;
- 
--	if (IS_ERR(handle))
--		return PTR_ERR(handle);
--	if (!handle)
--		return -EINVAL;
--
--	info = handle_to_ti_sci_info(handle);
--
- 	req.id = id;
- 	req.resets = reset_state;
- 
--	ret = ti_sci_do_xfer(info, TI_SCI_MSG_SET_DEVICE_RESETS,
-+	ret = ti_sci_do_xfer(handle, TI_SCI_MSG_SET_DEVICE_RESETS,
- 			     TI_SCI_FLAG_REQ_ACK_ON_PROCESSED,
- 			     &req, sizeof(req),
- 			     &resp, sizeof(resp));
-@@ -962,18 +949,10 @@ static int ti_sci_set_clock_state(const struct ti_sci_handle *handle,
- 				  u32 dev_id, u32 clk_id,
- 				  u32 flags, u8 state)
- {
--	struct ti_sci_info *info;
- 	struct ti_sci_msg_req_set_clock_state req;
- 	struct ti_sci_msg_hdr resp;
- 	int ret = 0;
- 
--	if (IS_ERR(handle))
--		return PTR_ERR(handle);
--	if (!handle)
--		return -EINVAL;
--
--	info = handle_to_ti_sci_info(handle);
--
- 	req.dev_id = dev_id;
- 	if (clk_id < 255) {
- 		req.clk_id = clk_id;
-@@ -983,7 +962,7 @@ static int ti_sci_set_clock_state(const struct ti_sci_handle *handle,
- 	}
- 	req.request_state = state;
- 
--	ret = ti_sci_do_xfer(info, TI_SCI_MSG_SET_CLOCK_STATE,
-+	ret = ti_sci_do_xfer(handle, TI_SCI_MSG_SET_CLOCK_STATE,
- 			     flags | TI_SCI_FLAG_REQ_ACK_ON_PROCESSED,
- 			     &req, sizeof(req),
- 			     &resp, sizeof(resp));
-@@ -1009,21 +988,13 @@ static int ti_sci_cmd_get_clock_state(const struct ti_sci_handle *handle,
- 				      u32 dev_id, u32 clk_id,
- 				      u8 *programmed_state, u8 *current_state)
- {
--	struct ti_sci_info *info;
- 	struct ti_sci_msg_req_get_clock_state req;
- 	struct ti_sci_msg_resp_get_clock_state resp;
- 	int ret = 0;
- 
--	if (IS_ERR(handle))
--		return PTR_ERR(handle);
--	if (!handle)
--		return -EINVAL;
--
- 	if (!programmed_state && !current_state)
- 		return -EINVAL;
- 
--	info = handle_to_ti_sci_info(handle);
--
- 	req.dev_id = dev_id;
- 	if (clk_id < 255) {
- 		req.clk_id = clk_id;
-@@ -1032,7 +1003,7 @@ static int ti_sci_cmd_get_clock_state(const struct ti_sci_handle *handle,
- 		req.clk_id_32 = clk_id;
- 	}
- 
--	ret = ti_sci_do_xfer(info, TI_SCI_MSG_GET_CLOCK_STATE,
-+	ret = ti_sci_do_xfer(handle, TI_SCI_MSG_GET_CLOCK_STATE,
- 			     TI_SCI_FLAG_REQ_ACK_ON_PROCESSED,
- 			     &req, sizeof(req),
- 			     &resp, sizeof(resp));
-@@ -1222,18 +1193,10 @@ static int ti_sci_cmd_clk_is_off(const struct ti_sci_handle *handle, u32 dev_id,
- static int ti_sci_cmd_clk_set_parent(const struct ti_sci_handle *handle,
- 				     u32 dev_id, u32 clk_id, u32 parent_id)
- {
--	struct ti_sci_info *info;
- 	struct ti_sci_msg_req_set_clock_parent req;
- 	struct ti_sci_msg_hdr resp;
- 	int ret = 0;
- 
--	if (IS_ERR(handle))
--		return PTR_ERR(handle);
--	if (!handle)
--		return -EINVAL;
--
--	info = handle_to_ti_sci_info(handle);
--
- 	req.dev_id = dev_id;
- 	if (clk_id < 255) {
- 		req.clk_id = clk_id;
-@@ -1248,7 +1211,7 @@ static int ti_sci_cmd_clk_set_parent(const struct ti_sci_handle *handle,
- 		req.parent_id_32 = parent_id;
- 	}
- 
--	ret = ti_sci_do_xfer(info, TI_SCI_MSG_SET_CLOCK_PARENT,
-+	ret = ti_sci_do_xfer(handle, TI_SCI_MSG_SET_CLOCK_PARENT,
- 			     TI_SCI_FLAG_REQ_ACK_ON_PROCESSED,
- 			     &req, sizeof(req),
- 			     &resp, sizeof(resp));
-@@ -1272,18 +1235,13 @@ static int ti_sci_cmd_clk_set_parent(const struct ti_sci_handle *handle,
- static int ti_sci_cmd_clk_get_parent(const struct ti_sci_handle *handle,
- 				     u32 dev_id, u32 clk_id, u32 *parent_id)
- {
--	struct ti_sci_info *info;
- 	struct ti_sci_msg_req_get_clock_parent req;
- 	struct ti_sci_msg_resp_get_clock_parent resp;
- 	int ret = 0;
- 
--	if (IS_ERR(handle))
--		return PTR_ERR(handle);
--	if (!handle || !parent_id)
-+	if (!parent_id)
- 		return -EINVAL;
- 
--	info = handle_to_ti_sci_info(handle);
--
- 	req.dev_id = dev_id;
- 	if (clk_id < 255) {
- 		req.clk_id = clk_id;
-@@ -1292,7 +1250,7 @@ static int ti_sci_cmd_clk_get_parent(const struct ti_sci_handle *handle,
- 		req.clk_id_32 = clk_id;
- 	}
- 
--	ret = ti_sci_do_xfer(info, TI_SCI_MSG_GET_CLOCK_PARENT,
-+	ret = ti_sci_do_xfer(handle, TI_SCI_MSG_GET_CLOCK_PARENT,
- 			     TI_SCI_FLAG_REQ_ACK_ON_PROCESSED,
- 			     &req, sizeof(req),
- 			     &resp, sizeof(resp));
-@@ -1322,18 +1280,13 @@ static int ti_sci_cmd_clk_get_num_parents(const struct ti_sci_handle *handle,
- 					  u32 dev_id, u32 clk_id,
- 					  u32 *num_parents)
- {
--	struct ti_sci_info *info;
- 	struct ti_sci_msg_req_get_clock_num_parents req;
- 	struct ti_sci_msg_resp_get_clock_num_parents resp;
- 	int ret = 0;
- 
--	if (IS_ERR(handle))
--		return PTR_ERR(handle);
--	if (!handle || !num_parents)
-+	if (!num_parents)
- 		return -EINVAL;
- 
--	info = handle_to_ti_sci_info(handle);
--
- 	req.dev_id = dev_id;
- 	if (clk_id < 255) {
- 		req.clk_id = clk_id;
-@@ -1342,7 +1295,7 @@ static int ti_sci_cmd_clk_get_num_parents(const struct ti_sci_handle *handle,
- 		req.clk_id_32 = clk_id;
- 	}
- 
--	ret = ti_sci_do_xfer(info, TI_SCI_MSG_GET_NUM_CLOCK_PARENTS,
-+	ret = ti_sci_do_xfer(handle, TI_SCI_MSG_GET_NUM_CLOCK_PARENTS,
- 			     TI_SCI_FLAG_REQ_ACK_ON_PROCESSED,
- 			     &req, sizeof(req),
- 			     &resp, sizeof(resp));
-@@ -1381,18 +1334,13 @@ static int ti_sci_cmd_clk_get_match_freq(const struct ti_sci_handle *handle,
- 					 u64 target_freq, u64 max_freq,
- 					 u64 *match_freq)
- {
--	struct ti_sci_info *info;
- 	struct ti_sci_msg_req_query_clock_freq req;
- 	struct ti_sci_msg_resp_query_clock_freq resp;
- 	int ret = 0;
- 
--	if (IS_ERR(handle))
--		return PTR_ERR(handle);
--	if (!handle || !match_freq)
-+	if (!match_freq)
- 		return -EINVAL;
- 
--	info = handle_to_ti_sci_info(handle);
--
- 	req.dev_id = dev_id;
- 	if (clk_id < 255) {
- 		req.clk_id = clk_id;
-@@ -1404,7 +1352,7 @@ static int ti_sci_cmd_clk_get_match_freq(const struct ti_sci_handle *handle,
- 	req.target_freq_hz = target_freq;
- 	req.max_freq_hz = max_freq;
- 
--	ret = ti_sci_do_xfer(info, TI_SCI_MSG_QUERY_CLOCK_FREQ,
-+	ret = ti_sci_do_xfer(handle, TI_SCI_MSG_QUERY_CLOCK_FREQ,
- 			     TI_SCI_FLAG_REQ_ACK_ON_PROCESSED,
- 			     &req, sizeof(req),
- 			     &resp, sizeof(resp));
-@@ -1438,18 +1386,10 @@ static int ti_sci_cmd_clk_set_freq(const struct ti_sci_handle *handle,
- 				   u32 dev_id, u32 clk_id, u64 min_freq,
- 				   u64 target_freq, u64 max_freq)
- {
--	struct ti_sci_info *info;
- 	struct ti_sci_msg_req_set_clock_freq req;
- 	struct ti_sci_msg_hdr resp;
- 	int ret = 0;
- 
--	if (IS_ERR(handle))
--		return PTR_ERR(handle);
--	if (!handle)
--		return -EINVAL;
--
--	info = handle_to_ti_sci_info(handle);
--
- 	req.dev_id = dev_id;
- 	if (clk_id < 255) {
- 		req.clk_id = clk_id;
-@@ -1461,7 +1401,7 @@ static int ti_sci_cmd_clk_set_freq(const struct ti_sci_handle *handle,
- 	req.target_freq_hz = target_freq;
- 	req.max_freq_hz = max_freq;
- 
--	ret = ti_sci_do_xfer(info, TI_SCI_MSG_SET_CLOCK_FREQ,
-+	ret = ti_sci_do_xfer(handle, TI_SCI_MSG_SET_CLOCK_FREQ,
- 			     TI_SCI_FLAG_REQ_ACK_ON_PROCESSED,
- 			     &req, sizeof(req),
- 			     &resp, sizeof(resp));
-@@ -1485,18 +1425,13 @@ static int ti_sci_cmd_clk_set_freq(const struct ti_sci_handle *handle,
- static int ti_sci_cmd_clk_get_freq(const struct ti_sci_handle *handle,
- 				   u32 dev_id, u32 clk_id, u64 *freq)
- {
--	struct ti_sci_info *info;
- 	struct ti_sci_msg_req_get_clock_freq req;
- 	struct ti_sci_msg_resp_get_clock_freq resp;
- 	int ret = 0;
- 
--	if (IS_ERR(handle))
--		return PTR_ERR(handle);
--	if (!handle || !freq)
-+	if (!freq)
- 		return -EINVAL;
- 
--	info = handle_to_ti_sci_info(handle);
--
- 	req.dev_id = dev_id;
- 	if (clk_id < 255) {
- 		req.clk_id = clk_id;
-@@ -1505,7 +1440,7 @@ static int ti_sci_cmd_clk_get_freq(const struct ti_sci_handle *handle,
- 		req.clk_id_32 = clk_id;
- 	}
- 
--	ret = ti_sci_do_xfer(info, TI_SCI_MSG_GET_CLOCK_FREQ,
-+	ret = ti_sci_do_xfer(handle, TI_SCI_MSG_GET_CLOCK_FREQ,
- 			     TI_SCI_FLAG_REQ_ACK_ON_PROCESSED,
- 			     &req, sizeof(req),
- 			     &resp, sizeof(resp));
-@@ -1533,7 +1468,6 @@ static int ti_sci_cmd_prepare_sleep(const struct ti_sci_handle *handle, u8 mode,
- 	u32 msg_flags = mode == TISCI_MSG_VALUE_SLEEP_MODE_PARTIAL_IO ?
- 			TI_SCI_FLAG_REQ_GENERIC_NORESPONSE :
- 			TI_SCI_FLAG_REQ_ACK_ON_PROCESSED;
--	struct ti_sci_info *info;
- 	struct ti_sci_msg_req_prepare_sleep req;
- 	struct ti_sci_msg_hdr resp;
- 	struct device *dev;
-@@ -1544,15 +1478,14 @@ static int ti_sci_cmd_prepare_sleep(const struct ti_sci_handle *handle, u8 mode,
- 	if (!handle)
- 		return -EINVAL;
- 
--	info = handle_to_ti_sci_info(handle);
--	dev = info->dev;
-+	dev = handle_to_ti_sci_info(handle)->dev;
- 
- 	req.mode = mode;
- 	req.ctx_lo = ctx_lo;
- 	req.ctx_hi = ctx_hi;
- 	req.debug_flags = debug_flags;
- 
--	ret = ti_sci_do_xfer(info, TI_SCI_MSG_PREPARE_SLEEP,
-+	ret = ti_sci_do_xfer(handle, TI_SCI_MSG_PREPARE_SLEEP,
- 			     msg_flags,
- 			     &req, sizeof(req),
- 			     &resp, sizeof(resp));
-@@ -1578,7 +1511,6 @@ static int ti_sci_cmd_prepare_sleep(const struct ti_sci_handle *handle, u8 mode,
- static int ti_sci_msg_cmd_query_fw_caps(const struct ti_sci_handle *handle,
- 					u64 *fw_caps)
- {
--	struct ti_sci_info *info;
- 	struct ti_sci_msg_hdr req;
- 	struct ti_sci_msg_resp_query_fw_caps resp;
- 	struct device *dev;
-@@ -1589,10 +1521,9 @@ static int ti_sci_msg_cmd_query_fw_caps(const struct ti_sci_handle *handle,
- 	if (!handle)
- 		return -EINVAL;
- 
--	info = handle_to_ti_sci_info(handle);
--	dev = info->dev;
-+	dev = handle_to_ti_sci_info(handle)->dev;
- 
--	ret = ti_sci_do_xfer(info, TI_SCI_MSG_QUERY_FW_CAPS,
-+	ret = ti_sci_do_xfer(handle, TI_SCI_MSG_QUERY_FW_CAPS,
- 			     TI_SCI_FLAG_REQ_ACK_ON_PROCESSED,
- 			     &req, sizeof(req),
- 			     &resp, sizeof(resp));
-@@ -1617,7 +1548,6 @@ static int ti_sci_msg_cmd_query_fw_caps(const struct ti_sci_handle *handle,
- static int ti_sci_cmd_set_io_isolation(const struct ti_sci_handle *handle,
- 				       u8 state)
- {
--	struct ti_sci_info *info;
- 	struct ti_sci_msg_req_set_io_isolation req;
- 	struct ti_sci_msg_hdr resp;
- 	struct device *dev;
-@@ -1628,12 +1558,11 @@ static int ti_sci_cmd_set_io_isolation(const struct ti_sci_handle *handle,
- 	if (!handle)
- 		return -EINVAL;
- 
--	info = handle_to_ti_sci_info(handle);
--	dev = info->dev;
-+	dev = handle_to_ti_sci_info(handle)->dev;
- 
- 	req.state = state;
- 
--	ret = ti_sci_do_xfer(info, TI_SCI_MSG_SET_IO_ISOLATION,
-+	ret = ti_sci_do_xfer(handle, TI_SCI_MSG_SET_IO_ISOLATION,
- 			     TI_SCI_FLAG_REQ_ACK_ON_PROCESSED,
- 			     &req, sizeof(req),
- 			     &resp, sizeof(resp));
-@@ -1658,7 +1587,6 @@ static int ti_sci_cmd_set_io_isolation(const struct ti_sci_handle *handle,
- static int ti_sci_msg_cmd_lpm_wake_reason(const struct ti_sci_handle *handle,
- 					  u32 *source, u64 *timestamp, u8 *pin, u8 *mode)
- {
--	struct ti_sci_info *info;
- 	struct ti_sci_msg_hdr req;
- 	struct ti_sci_msg_resp_lpm_wake_reason resp;
- 	struct device *dev;
-@@ -1669,10 +1597,9 @@ static int ti_sci_msg_cmd_lpm_wake_reason(const struct ti_sci_handle *handle,
- 	if (!handle)
- 		return -EINVAL;
- 
--	info = handle_to_ti_sci_info(handle);
--	dev = info->dev;
-+	dev = handle_to_ti_sci_info(handle)->dev;
- 
--	ret = ti_sci_do_xfer(info, TI_SCI_MSG_LPM_WAKE_REASON,
-+	ret = ti_sci_do_xfer(handle, TI_SCI_MSG_LPM_WAKE_REASON,
- 			     TI_SCI_FLAG_REQ_ACK_ON_PROCESSED,
- 			     &req, sizeof(req),
- 			     &resp, sizeof(resp));
-@@ -1704,7 +1631,6 @@ static int ti_sci_msg_cmd_lpm_wake_reason(const struct ti_sci_handle *handle,
- static int ti_sci_cmd_set_device_constraint(const struct ti_sci_handle *handle,
- 					    u32 id, u8 state)
- {
--	struct ti_sci_info *info;
- 	struct ti_sci_msg_req_lpm_set_device_constraint req;
- 	struct ti_sci_msg_hdr resp;
- 	struct device *dev;
-@@ -1715,13 +1641,12 @@ static int ti_sci_cmd_set_device_constraint(const struct ti_sci_handle *handle,
- 	if (!handle)
- 		return -EINVAL;
- 
--	info = handle_to_ti_sci_info(handle);
--	dev = info->dev;
-+	dev = handle_to_ti_sci_info(handle)->dev;
- 
- 	req.id = id;
- 	req.state = state;
- 
--	ret = ti_sci_do_xfer(info, TI_SCI_MSG_LPM_SET_DEVICE_CONSTRAINT,
-+	ret = ti_sci_do_xfer(handle, TI_SCI_MSG_LPM_SET_DEVICE_CONSTRAINT,
- 			     TI_SCI_FLAG_REQ_ACK_ON_PROCESSED,
- 			     &req, sizeof(req),
- 			     &resp, sizeof(resp));
-@@ -1744,7 +1669,6 @@ static int ti_sci_cmd_set_device_constraint(const struct ti_sci_handle *handle,
- static int ti_sci_cmd_set_latency_constraint(const struct ti_sci_handle *handle,
- 					     u16 latency, u8 state)
- {
--	struct ti_sci_info *info;
- 	struct ti_sci_msg_req_lpm_set_latency_constraint req;
- 	struct ti_sci_msg_hdr resp;
- 	struct device *dev;
-@@ -1755,13 +1679,12 @@ static int ti_sci_cmd_set_latency_constraint(const struct ti_sci_handle *handle,
- 	if (!handle)
- 		return -EINVAL;
- 
--	info = handle_to_ti_sci_info(handle);
--	dev = info->dev;
-+	dev = handle_to_ti_sci_info(handle)->dev;
- 
- 	req.latency = latency;
- 	req.state = state;
- 
--	ret = ti_sci_do_xfer(info, TI_SCI_MSG_LPM_SET_LATENCY_CONSTRAINT,
-+	ret = ti_sci_do_xfer(handle, TI_SCI_MSG_LPM_SET_LATENCY_CONSTRAINT,
- 			     TI_SCI_FLAG_REQ_ACK_ON_PROCESSED,
- 			     &req, sizeof(req),
- 			     &resp, sizeof(resp));
-@@ -1786,7 +1709,7 @@ static int ti_sci_cmd_lpm_abort(struct device *dev)
- 	struct ti_sci_msg_hdr resp;
- 	int ret = 0;
- 
--	ret = ti_sci_do_xfer(info, TI_SCI_MSG_LPM_ABORT,
-+	ret = ti_sci_do_xfer(&info->handle, TI_SCI_MSG_LPM_ABORT,
- 			     TI_SCI_FLAG_REQ_ACK_ON_PROCESSED,
- 			     &req, sizeof(req),
- 			     &resp, sizeof(resp));
-@@ -1798,19 +1721,11 @@ static int ti_sci_cmd_lpm_abort(struct device *dev)
- 
- static int ti_sci_cmd_core_reboot(const struct ti_sci_handle *handle)
- {
--	struct ti_sci_info *info;
- 	struct ti_sci_msg_req_reboot req;
- 	struct ti_sci_msg_hdr resp;
- 	int ret = 0;
- 
--	if (IS_ERR(handle))
--		return PTR_ERR(handle);
--	if (!handle)
--		return -EINVAL;
--
--	info = handle_to_ti_sci_info(handle);
--
--	ret = ti_sci_do_xfer(info, TI_SCI_MSG_SYS_RESET,
-+	ret = ti_sci_do_xfer(handle, TI_SCI_MSG_SYS_RESET,
- 			     TI_SCI_FLAG_REQ_ACK_ON_PROCESSED,
- 			     &req, sizeof(req),
- 			     &resp, sizeof(resp));
-@@ -1840,21 +1755,16 @@ static int ti_sci_get_resource_range(const struct ti_sci_handle *handle,
- {
- 	struct ti_sci_msg_resp_get_resource_range resp;
- 	struct ti_sci_msg_req_get_resource_range req;
--	struct ti_sci_info *info;
- 	int ret = 0;
- 
--	if (IS_ERR(handle))
--		return PTR_ERR(handle);
--	if (!handle || !desc)
-+	if (!desc)
- 		return -EINVAL;
- 
--	info = handle_to_ti_sci_info(handle);
--
- 	req.secondary_host = s_host;
- 	req.type = dev_id & MSG_RM_RESOURCE_TYPE_MASK;
- 	req.subtype = subtype & MSG_RM_RESOURCE_SUBTYPE_MASK;
- 
--	ret = ti_sci_do_xfer(info, TI_SCI_MSG_GET_RESOURCE_RANGE,
-+	ret = ti_sci_do_xfer(handle, TI_SCI_MSG_GET_RESOURCE_RANGE,
- 			     TI_SCI_FLAG_REQ_ACK_ON_PROCESSED,
- 			     &req, sizeof(req),
- 			     &resp, sizeof(resp));
-@@ -1943,16 +1853,8 @@ static int ti_sci_manage_irq(const struct ti_sci_handle *handle,
- {
- 	struct ti_sci_msg_req_manage_irq req;
- 	struct ti_sci_msg_hdr resp;
--	struct ti_sci_info *info;
- 	int ret = 0;
- 
--	if (IS_ERR(handle))
--		return PTR_ERR(handle);
--	if (!handle)
--		return -EINVAL;
--
--	info = handle_to_ti_sci_info(handle);
--
- 	req.valid_params = valid_params;
- 	req.src_id = src_id;
- 	req.src_index = src_index;
-@@ -1964,7 +1866,7 @@ static int ti_sci_manage_irq(const struct ti_sci_handle *handle,
- 	req.vint_status_bit = vint_status_bit;
- 	req.secondary_host = s_host;
- 
--	ret = ti_sci_do_xfer(info, type, TI_SCI_FLAG_REQ_ACK_ON_PROCESSED,
-+	ret = ti_sci_do_xfer(handle, type, TI_SCI_FLAG_REQ_ACK_ON_PROCESSED,
- 			     &req, sizeof(req),
- 			     &resp, sizeof(resp));
- 	if (ret)
-@@ -2250,14 +2152,8 @@ static int ti_sci_cmd_rm_ring_cfg(const struct ti_sci_handle *handle,
- {
- 	struct ti_sci_msg_rm_ring_cfg_req req;
- 	struct ti_sci_msg_hdr resp;
--	struct ti_sci_info *info;
- 	int ret = 0;
- 
--	if (IS_ERR_OR_NULL(handle))
--		return -EINVAL;
--
--	info = handle_to_ti_sci_info(handle);
--
- 	req.valid_params = params->valid_params;
- 	req.nav_id = params->nav_id;
- 	req.index = params->index;
-@@ -2270,7 +2166,7 @@ static int ti_sci_cmd_rm_ring_cfg(const struct ti_sci_handle *handle,
- 	req.virtid = params->virtid;
- 	req.asel = params->asel;
- 
--	ret = ti_sci_do_xfer(info, TI_SCI_MSG_RM_RING_CFG,
-+	ret = ti_sci_do_xfer(handle, TI_SCI_MSG_RM_RING_CFG,
- 			     TI_SCI_FLAG_REQ_ACK_ON_PROCESSED,
- 			     &req, sizeof(req),
- 			     &resp, sizeof(resp));
-@@ -2295,21 +2191,13 @@ static int ti_sci_cmd_rm_psil_pair(const struct ti_sci_handle *handle,
- {
- 	struct ti_sci_msg_psil_pair req;
- 	struct ti_sci_msg_hdr resp;
--	struct ti_sci_info *info;
- 	int ret = 0;
- 
--	if (IS_ERR(handle))
--		return PTR_ERR(handle);
--	if (!handle)
--		return -EINVAL;
--
--	info = handle_to_ti_sci_info(handle);
--
- 	req.nav_id = nav_id;
- 	req.src_thread = src_thread;
- 	req.dst_thread = dst_thread;
- 
--	ret = ti_sci_do_xfer(info, TI_SCI_MSG_RM_PSIL_PAIR,
-+	ret = ti_sci_do_xfer(handle, TI_SCI_MSG_RM_PSIL_PAIR,
- 			     TI_SCI_FLAG_REQ_ACK_ON_PROCESSED,
- 			     &req, sizeof(req),
- 			     &resp, sizeof(resp));
-@@ -2334,21 +2222,13 @@ static int ti_sci_cmd_rm_psil_unpair(const struct ti_sci_handle *handle,
- {
- 	struct ti_sci_msg_psil_unpair req;
- 	struct ti_sci_msg_hdr resp;
--	struct ti_sci_info *info;
- 	int ret = 0;
- 
--	if (IS_ERR(handle))
--		return PTR_ERR(handle);
--	if (!handle)
--		return -EINVAL;
--
--	info = handle_to_ti_sci_info(handle);
--
- 	req.nav_id = nav_id;
- 	req.src_thread = src_thread;
- 	req.dst_thread = dst_thread;
- 
--	ret = ti_sci_do_xfer(info, TI_SCI_MSG_RM_PSIL_UNPAIR,
-+	ret = ti_sci_do_xfer(handle, TI_SCI_MSG_RM_PSIL_UNPAIR,
- 			     TI_SCI_FLAG_REQ_ACK_ON_PROCESSED,
- 			     &req, sizeof(req),
- 			     &resp, sizeof(resp));
-@@ -2374,14 +2254,8 @@ static int ti_sci_cmd_rm_udmap_tx_ch_cfg(const struct ti_sci_handle *handle,
- {
- 	struct ti_sci_msg_rm_udmap_tx_ch_cfg_req req;
- 	struct ti_sci_msg_hdr resp;
--	struct ti_sci_info *info;
- 	int ret = 0;
- 
--	if (IS_ERR_OR_NULL(handle))
--		return -EINVAL;
--
--	info = handle_to_ti_sci_info(handle);
--
- 	req.valid_params = params->valid_params;
- 	req.nav_id = params->nav_id;
- 	req.index = params->index;
-@@ -2403,7 +2277,7 @@ static int ti_sci_cmd_rm_udmap_tx_ch_cfg(const struct ti_sci_handle *handle,
- 	req.tx_tdtype = params->tx_tdtype;
- 	req.extended_ch_type = params->extended_ch_type;
- 
--	ret = ti_sci_do_xfer(info, TISCI_MSG_RM_UDMAP_TX_CH_CFG,
-+	ret = ti_sci_do_xfer(handle, TISCI_MSG_RM_UDMAP_TX_CH_CFG,
- 			     TI_SCI_FLAG_REQ_ACK_ON_PROCESSED,
- 			     &req, sizeof(req),
- 			     &resp, sizeof(resp));
-@@ -2429,14 +2303,8 @@ static int ti_sci_cmd_rm_udmap_rx_ch_cfg(const struct ti_sci_handle *handle,
- {
- 	struct ti_sci_msg_rm_udmap_rx_ch_cfg_req req;
- 	struct ti_sci_msg_hdr resp;
--	struct ti_sci_info *info;
- 	int ret = 0;
- 
--	if (IS_ERR_OR_NULL(handle))
--		return -EINVAL;
--
--	info = handle_to_ti_sci_info(handle);
--
- 	req.valid_params = params->valid_params;
- 	req.nav_id = params->nav_id;
- 	req.index = params->index;
-@@ -2455,7 +2323,7 @@ static int ti_sci_cmd_rm_udmap_rx_ch_cfg(const struct ti_sci_handle *handle,
- 	req.rx_ignore_long = params->rx_ignore_long;
- 	req.rx_burst_size = params->rx_burst_size;
- 
--	ret = ti_sci_do_xfer(info, TISCI_MSG_RM_UDMAP_RX_CH_CFG,
-+	ret = ti_sci_do_xfer(handle, TISCI_MSG_RM_UDMAP_RX_CH_CFG,
- 			     TI_SCI_FLAG_REQ_ACK_ON_PROCESSED,
- 			     &req, sizeof(req),
- 			     &resp, sizeof(resp));
-@@ -2481,14 +2349,8 @@ static int ti_sci_cmd_rm_udmap_rx_flow_cfg(const struct ti_sci_handle *handle,
- {
- 	struct ti_sci_msg_rm_udmap_flow_cfg_req req;
- 	struct ti_sci_msg_hdr resp;
--	struct ti_sci_info *info;
- 	int ret = 0;
- 
--	if (IS_ERR_OR_NULL(handle))
--		return -EINVAL;
--
--	info = handle_to_ti_sci_info(handle);
--
- 	req.valid_params = params->valid_params;
- 	req.nav_id = params->nav_id;
- 	req.flow_index = params->flow_index;
-@@ -2512,7 +2374,7 @@ static int ti_sci_cmd_rm_udmap_rx_flow_cfg(const struct ti_sci_handle *handle,
- 	req.rx_fdq3_qnum = params->rx_fdq3_qnum;
- 	req.rx_ps_location = params->rx_ps_location;
- 
--	ret = ti_sci_do_xfer(info, TISCI_MSG_RM_UDMAP_FLOW_CFG,
-+	ret = ti_sci_do_xfer(handle, TISCI_MSG_RM_UDMAP_FLOW_CFG,
- 			     TI_SCI_FLAG_REQ_ACK_ON_PROCESSED,
- 			     &req, sizeof(req),
- 			     &resp, sizeof(resp));
-@@ -2534,19 +2396,11 @@ static int ti_sci_cmd_proc_request(const struct ti_sci_handle *handle,
- {
- 	struct ti_sci_msg_req_proc_request req;
- 	struct ti_sci_msg_hdr resp;
--	struct ti_sci_info *info;
- 	int ret = 0;
- 
--	if (!handle)
--		return -EINVAL;
--	if (IS_ERR(handle))
--		return PTR_ERR(handle);
--
--	info = handle_to_ti_sci_info(handle);
--
- 	req.processor_id = proc_id;
- 
--	ret = ti_sci_do_xfer(info, TI_SCI_MSG_PROC_REQUEST,
 +	ret = ti_sci_do_xfer(handle, TI_SCI_MSG_PROC_REQUEST,
- 			     TI_SCI_FLAG_REQ_ACK_ON_PROCESSED,
- 			     &req, sizeof(req),
- 			     &resp, sizeof(resp));
-@@ -2568,19 +2422,11 @@ static int ti_sci_cmd_proc_release(const struct ti_sci_handle *handle,
- {
- 	struct ti_sci_msg_req_proc_release req;
- 	struct ti_sci_msg_hdr resp;
--	struct ti_sci_info *info;
- 	int ret = 0;
- 
--	if (!handle)
--		return -EINVAL;
--	if (IS_ERR(handle))
--		return PTR_ERR(handle);
--
--	info = handle_to_ti_sci_info(handle);
--
- 	req.processor_id = proc_id;
- 
--	ret = ti_sci_do_xfer(info, TI_SCI_MSG_PROC_RELEASE,
++			     TI_SCI_FLAG_REQ_ACK_ON_PROCESSED,
++			     &req, sizeof(req),
++			     &resp, sizeof(resp));
++	if (ret)
++		return ret;
++
++	return 0;
++}
++
++/**
++ * ti_sci_cmd_proc_release() - Command to release a physical processor control
++ * @handle:	Pointer to TI SCI handle
++ * @proc_id:	Processor ID this request is for
++ *
++ * Return: 0 if all went well, else returns appropriate error value.
++ */
++static int ti_sci_cmd_proc_release(const struct ti_sci_handle *handle,
++				   u8 proc_id)
++{
++	struct ti_sci_msg_req_proc_release req;
++	struct ti_sci_msg_hdr resp;
++	int ret = 0;
++
++	req.processor_id = proc_id;
++
 +	ret = ti_sci_do_xfer(handle, TI_SCI_MSG_PROC_RELEASE,
- 			     TI_SCI_FLAG_REQ_ACK_ON_PROCESSED,
- 			     &req, sizeof(req),
- 			     &resp, sizeof(resp));
-@@ -2605,20 +2451,12 @@ static int ti_sci_cmd_proc_handover(const struct ti_sci_handle *handle,
- {
- 	struct ti_sci_msg_req_proc_handover req;
- 	struct ti_sci_msg_hdr resp;
--	struct ti_sci_info *info;
- 	int ret = 0;
- 
--	if (!handle)
--		return -EINVAL;
--	if (IS_ERR(handle))
--		return PTR_ERR(handle);
--
--	info = handle_to_ti_sci_info(handle);
--
- 	req.processor_id = proc_id;
- 	req.host_id = host_id;
- 
--	ret = ti_sci_do_xfer(info, TI_SCI_MSG_PROC_HANDOVER,
++			     TI_SCI_FLAG_REQ_ACK_ON_PROCESSED,
++			     &req, sizeof(req),
++			     &resp, sizeof(resp));
++	if (ret)
++		return ret;
++
++	return 0;
++}
++
++/**
++ * ti_sci_cmd_proc_handover() - Command to handover a physical processor
++ *				control to a host in the processor's access
++ *				control list.
++ * @handle:	Pointer to TI SCI handle
++ * @proc_id:	Processor ID this request is for
++ * @host_id:	Host ID to get the control of the processor
++ *
++ * Return: 0 if all went well, else returns appropriate error value.
++ */
++static int ti_sci_cmd_proc_handover(const struct ti_sci_handle *handle,
++				    u8 proc_id, u8 host_id)
++{
++	struct ti_sci_msg_req_proc_handover req;
++	struct ti_sci_msg_hdr resp;
++	int ret = 0;
++
++	req.processor_id = proc_id;
++	req.host_id = host_id;
++
 +	ret = ti_sci_do_xfer(handle, TI_SCI_MSG_PROC_HANDOVER,
- 			     TI_SCI_FLAG_REQ_ACK_ON_PROCESSED,
- 			     &req, sizeof(req),
- 			     &resp, sizeof(resp));
-@@ -2646,16 +2484,8 @@ static int ti_sci_cmd_proc_set_config(const struct ti_sci_handle *handle,
- {
- 	struct ti_sci_msg_req_set_config req;
- 	struct ti_sci_msg_hdr resp;
--	struct ti_sci_info *info;
- 	int ret = 0;
- 
--	if (!handle)
--		return -EINVAL;
--	if (IS_ERR(handle))
--		return PTR_ERR(handle);
--
--	info = handle_to_ti_sci_info(handle);
--
- 	req.processor_id = proc_id;
- 	req.bootvector_low = bootvector & TI_SCI_ADDR_LOW_MASK;
- 	req.bootvector_high = (bootvector & TI_SCI_ADDR_HIGH_MASK) >>
-@@ -2663,7 +2493,7 @@ static int ti_sci_cmd_proc_set_config(const struct ti_sci_handle *handle,
- 	req.config_flags_set = config_flags_set;
- 	req.config_flags_clear = config_flags_clear;
- 
--	ret = ti_sci_do_xfer(info, TI_SCI_MSG_SET_CONFIG,
++			     TI_SCI_FLAG_REQ_ACK_ON_PROCESSED,
++			     &req, sizeof(req),
++			     &resp, sizeof(resp));
++	if (ret)
++		return ret;
++
++	return 0;
++}
++
++/**
++ * ti_sci_cmd_proc_set_config() - Command to set the processor boot
++ *				    configuration flags
++ * @handle:		Pointer to TI SCI handle
++ * @proc_id:		Processor ID this request is for
++ * @bootvector:		Processor Boot vector (start address)
++ * @config_flags_set:	Configuration flags to be set
++ * @config_flags_clear:	Configuration flags to be cleared.
++ *
++ * Return: 0 if all went well, else returns appropriate error value.
++ */
++static int ti_sci_cmd_proc_set_config(const struct ti_sci_handle *handle,
++				      u8 proc_id, u64 bootvector,
++				      u32 config_flags_set,
++				      u32 config_flags_clear)
++{
++	struct ti_sci_msg_req_set_config req;
++	struct ti_sci_msg_hdr resp;
++	int ret = 0;
++
++	req.processor_id = proc_id;
++	req.bootvector_low = bootvector & TI_SCI_ADDR_LOW_MASK;
++	req.bootvector_high = (bootvector & TI_SCI_ADDR_HIGH_MASK) >>
++				TI_SCI_ADDR_HIGH_SHIFT;
++	req.config_flags_set = config_flags_set;
++	req.config_flags_clear = config_flags_clear;
++
 +	ret = ti_sci_do_xfer(handle, TI_SCI_MSG_SET_CONFIG,
- 			     TI_SCI_FLAG_REQ_ACK_ON_PROCESSED,
- 			     &req, sizeof(req),
- 			     &resp, sizeof(resp));
-@@ -2689,21 +2519,13 @@ static int ti_sci_cmd_proc_set_control(const struct ti_sci_handle *handle,
- {
- 	struct ti_sci_msg_req_set_ctrl req;
- 	struct ti_sci_msg_hdr resp;
--	struct ti_sci_info *info;
- 	int ret = 0;
- 
--	if (!handle)
--		return -EINVAL;
--	if (IS_ERR(handle))
--		return PTR_ERR(handle);
--
--	info = handle_to_ti_sci_info(handle);
--
- 	req.processor_id = proc_id;
- 	req.control_flags_set = control_flags_set;
- 	req.control_flags_clear = control_flags_clear;
- 
--	ret = ti_sci_do_xfer(info, TI_SCI_MSG_SET_CTRL,
++			     TI_SCI_FLAG_REQ_ACK_ON_PROCESSED,
++			     &req, sizeof(req),
++			     &resp, sizeof(resp));
++	if (ret)
++		return ret;
++
++	return 0;
++}
++
++/**
++ * ti_sci_cmd_proc_set_control() - Command to set the processor boot
++ *				     control flags
++ * @handle:			Pointer to TI SCI handle
++ * @proc_id:			Processor ID this request is for
++ * @control_flags_set:		Control flags to be set
++ * @control_flags_clear:	Control flags to be cleared
++ *
++ * Return: 0 if all went well, else returns appropriate error value.
++ */
++static int ti_sci_cmd_proc_set_control(const struct ti_sci_handle *handle,
++				       u8 proc_id, u32 control_flags_set,
++				       u32 control_flags_clear)
++{
++	struct ti_sci_msg_req_set_ctrl req;
++	struct ti_sci_msg_hdr resp;
++	int ret = 0;
++
++	req.processor_id = proc_id;
++	req.control_flags_set = control_flags_set;
++	req.control_flags_clear = control_flags_clear;
++
 +	ret = ti_sci_do_xfer(handle, TI_SCI_MSG_SET_CTRL,
- 			     TI_SCI_FLAG_REQ_ACK_ON_PROCESSED,
- 			     &req, sizeof(req),
- 			     &resp, sizeof(resp));
-@@ -2730,19 +2552,11 @@ static int ti_sci_cmd_proc_get_status(const struct ti_sci_handle *handle,
- {
- 	struct ti_sci_msg_resp_get_status resp;
- 	struct ti_sci_msg_req_get_status req;
--	struct ti_sci_info *info;
- 	int ret = 0;
- 
--	if (!handle)
--		return -EINVAL;
--	if (IS_ERR(handle))
--		return PTR_ERR(handle);
--
--	info = handle_to_ti_sci_info(handle);
--
- 	req.processor_id = proc_id;
- 
--	ret = ti_sci_do_xfer(info, TI_SCI_MSG_GET_STATUS,
++			     TI_SCI_FLAG_REQ_ACK_ON_PROCESSED,
++			     &req, sizeof(req),
++			     &resp, sizeof(resp));
++	if (ret)
++		return ret;
++
++	return 0;
++}
++
++/**
++ * ti_sci_cmd_proc_get_status() - Command to get the processor boot status
++ * @handle:	Pointer to TI SCI handle
++ * @proc_id:	Processor ID this request is for
++ * @bv:		Processor Boot vector (start address)
++ * @cfg_flags:	Processor specific configuration flags
++ * @ctrl_flags:	Processor specific control flags
++ * @sts_flags:	Processor specific status flags
++ *
++ * Return: 0 if all went well, else returns appropriate error value.
++ */
++static int ti_sci_cmd_proc_get_status(const struct ti_sci_handle *handle,
++				      u8 proc_id, u64 *bv, u32 *cfg_flags,
++				      u32 *ctrl_flags, u32 *sts_flags)
++{
++	struct ti_sci_msg_resp_get_status resp;
++	struct ti_sci_msg_req_get_status req;
++	int ret = 0;
++
++	req.processor_id = proc_id;
++
 +	ret = ti_sci_do_xfer(handle, TI_SCI_MSG_GET_STATUS,
- 			     TI_SCI_FLAG_REQ_ACK_ON_PROCESSED,
- 			     &req, sizeof(req),
- 			     &resp, sizeof(resp));
++			     TI_SCI_FLAG_REQ_ACK_ON_PROCESSED,
++			     &req, sizeof(req),
++			     &resp, sizeof(resp));
++	if (ret)
++		return ret;
++
++	*bv = (resp.bootvector_low & TI_SCI_ADDR_LOW_MASK) |
++	      (((u64)resp.bootvector_high << TI_SCI_ADDR_HIGH_SHIFT) &
++	       TI_SCI_ADDR_HIGH_MASK);
++	*cfg_flags = resp.config_flags;
++	*ctrl_flags = resp.control_flags;
++	*sts_flags = resp.status_flags;
++
++	return 0;
++}
++
++/*
++ * ti_sci_setup_proc_ops() - Setup the processor operations structures
++ * @pops:	pointer to TISCI processor ops structure
++ */
++void ti_sci_setup_proc_ops(struct ti_sci_proc_ops *pops)
++{
++	pops->request = ti_sci_cmd_proc_request;
++	pops->release = ti_sci_cmd_proc_release;
++	pops->handover = ti_sci_cmd_proc_handover;
++	pops->set_config = ti_sci_cmd_proc_set_config;
++	pops->set_control = ti_sci_cmd_proc_set_control;
++	pops->get_status = ti_sci_cmd_proc_get_status;
++}
 -- 
 2.34.1
 
