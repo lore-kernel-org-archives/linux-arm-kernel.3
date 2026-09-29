@@ -4,94 +4,73 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C88C1CA5FA7
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 29 Sep 2026 07:21:31 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0F279CA5FA1
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 29 Sep 2026 07:27:14 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=FJ5b28oMDQ1JFt7ArCRl+jwTwYnaX4rf00YVBlonXGs=; b=FvYmhdnGB6qWpXmXDqwTsaSlSy
-	ty59ma9VyFnoTBJ7YFT6ucEtKSSFXym4mlfbMYA986FLInPzxWFbV71kwKVx6GQAO0TQ3TbGWire1
-	YrmgWOh0a1HPFt7LUqN+VYvWQjP/IvYaCyiL2JqzFqyX7Y4mdnTiqfF171Za7wVqwexIrvCd+y1Iu
-	Og11TyzKimpecJXRftjPQeEIAmHQt+PVLmplxHryCaeuSG+WPLZh/89RE6VuHO8NAzEjacZzDqYVh
-	QyEv5Nt8qwxbKy6qsOuprXYw6a+IqdU5OtrT2Tsc7oNMN2gn80hpdg5y7wYvdluh5k0+oHj5A19KV
-	WOSr999w==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=c2C/eVtAJPpjMYDLNwQibSrOlOhibS0dGw/VMLKUe3Y=; b=u84tbMWPg00Xs4xkX1AGhiAWJS
+	Dn+UBsLFuYpkcB1GNcBTMWPb/Ds+s4Wa4MN/WvfzyjRHdCl9WbV8X67JWibQ7gfzhyZW8WKNBJXCO
+	Tb1uxiqEEtkrPs6oTAezeyTRWsJ9a3/1QMXmKng7Y+qqCHiY/xwdfBUgLwSrlYpFi1O8jWfFfT8UB
+	H1yOP135RNTNIc1RayBLqSLKMhJx2+1QsprzNb2GNpmO+045P5n2tZnJciteKEh8PU3S0U9qbTOgl
+	ADLhQ2q3E63NnDAxhDTCMY4Ubvzzzl2minJ1ola3PaotPA8cbh+jtiH5TlEQR+nZlsCi/iNI4EX5t
+	LbXCp0aQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xBS9V-00000002bIK-09uO;
-	Tue, 29 Sep 2026 07:21:25 +0000
-Received: from mail-pj2-x0d.google.com ([2607:f8b0:4864:39::d])
+	id 1xBSF0-00000002btM-3EM1;
+	Tue, 29 Sep 2026 07:27:06 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xBS9L-00000002bEE-2S5y
-	for linux-arm-kernel@lists.infradead.org;
-	Tue, 29 Sep 2026 07:21:16 +0000
-Received: by mail-pj2-x0d.google.com with SMTP id 98e67ed59e1d1-3a0bcdf41a3so2029240a91.2
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 29 Sep 2026 00:21:15 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1790666475; x=1791271275; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=FJ5b28oMDQ1JFt7ArCRl+jwTwYnaX4rf00YVBlonXGs=;
-        b=QFTO+89WYrDuwD9pz7I/9e1UXKD2cq+8gEDx9qgq6AZePfsBjjnDoU3orU1qNNSzTv
-         tdgGCZ4TRbd0FrN0mjNc5WyFAxz4dZAj6kBcYhzzvOrynh+tMNDvRwES/JT2VhuDs1wJ
-         d7tB8JnHQh6aMkQ17PlQFwSfCC2GBjLXu6jW8QhQZqfvBNheISTxJPcTPMswjFk5DK9c
-         px6wWJ5W19XTiW8EpyWOQCWdvKXmg1kW91XaZr7D2LaZsiTKqR1AaeefbkQvAmV430aW
-         K85bYU/OP6XPBnwcGo5wCkthtZB++EjynVH8muXsvmeR941y25qtxcYiw/sJAVQVYcAr
-         hH9g==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1790666475; x=1791271275;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=FJ5b28oMDQ1JFt7ArCRl+jwTwYnaX4rf00YVBlonXGs=;
-        b=F6YD7qplSmhnHWikafLuj6SkX+wvczNl0Wp8sz5ez9Ei9jgnXO2grhOiQRugQhMmt6
-         FBJg7PG+Kn6rESd4rfGMtD48QIHcUZ+FBBYn7EwKrYDHuES4v9WxPqoL0vECOBX1KSFy
-         BanR3FD5cmRg5fXoTFiT4Qy9bOaXdu/f+uGPPfJ/wVTtVaTosFh7a+PRcxKkF36Hr+fA
-         9EHAIrGZZ1H1uTWB0YNux67Yv5YH6GammySm+WISpASa4Zq8fAD87UePrwK0Jga2Ynll
-         +KG5uoFEHVz1rdj6BM+EJeu7zcimtRPVkIsG9t0dtk+1cOzq6YHGnxXuq6FFqOwy2sr1
-         ILfA==
-X-Forwarded-Encrypted: i=1; AKwUvBwgnK3IXCqy/omeRnP4t+rh9UWtOXyVFPhwiKakDsHLhIbtYng1MYS77ZpXf4+EykJEehsPmYmHdO1ITOeV45Zl@lists.infradead.org
-X-Gm-Message-State: AFq9FYITFkgBM28TOWpWjWaMofTdT7HRbQKkjT4eflpQjVJ3AzDEdLlH
-	sBBqpbJXhlatYSFdRYr8UI8zoss5nsuL0egIR+2WCJWtfq2OaQyR+078
-X-Gm-Gg: AYBFou16mkf/SqE8KMnfbMH/hvc7eYw0MXSGBqU1kNQeTKsxm2DNvEQCi4XqP45TCKB
-	j0q8QcQHhlB1WU5LbiNPNzDmzF4BaVjY0TnOA6yG3DncSTy3gsVSF3ycBcsPzC8kPR0OaFHF0Sm
-	PAqli1yL2CPWfCBMQCE+RsLvT4qlaDTEFemOUkg4v178jssaCXxnw++tHyNA+RjNskEnZ/YipTt
-	34oTzG3WFidHJyH6HzH+3lRiWmXVDV9MmQlWL32htdALmGL9zotPvuus0RG8O6p73iEN3+GFBer
-	VKhFA0n8/Pwk72jx2kJnYlzEwFKAnYeMwrhunvWQMw40eBmgwhIWETMsVb2Cztd7DUS1htCu3vd
-	pgmUwb7R+JtH5wCxasbD9vSI6+ntfFtswHtCoMejWreUgjIsXSeS5cHs9PF9uzAxAgfx92nbRc8
-	5YARzzBUyjydy2U2TPod5rUTz3jg5nj16MXFnuRNekfm/PHytiM/7B1jbBwsNRb4Rxy3IYgmfZk
-	6hscIa5bHls8Pqx/SpjvbIT3TwKj96JqcaAGE6wpwCN7OLmHqYeDHVFCPi3Zxk=
-X-Received: by 2002:a17:90b:2247:b0:3a0:ca03:3e1f with SMTP id 98e67ed59e1d1-3a0ca03447amr7882860a91.32.1790666474523;
-        Tue, 29 Sep 2026 00:21:14 -0700 (PDT)
-Received: from localhost.localdomain (60-250-196-139.hinet-ip.hinet.net. [60.250.196.139])
-        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-3a497edd76dsm3833931a91.7.2026.09.29.00.21.12
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 29 Sep 2026 00:21:14 -0700 (PDT)
-From: Joey Lu <a0987203069@gmail.com>
-To: sboyd@kernel.org
-Cc: ychuang3@nuvoton.com,
-	schung@nuvoton.com,
-	yclu4@nuvoton.com,
-	bmasney+clk@redhat.com,
-	jbrunet+clk@baylibre.com,
-	linux-arm-kernel@lists.infradead.org,
-	linux-clk@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	Joey Lu <a0987203069@gmail.com>
-Subject: [PATCH 1/1] clk: nuvoton: ma35d1-divider: use direct formula instead of divider table
-Date: Tue, 29 Sep 2026 15:21:06 +0800
-Message-ID: <20260929072106.175202-2-a0987203069@gmail.com>
-X-Mailer: git-send-email 2.43.0
-In-Reply-To: <20260929072106.175202-1-a0987203069@gmail.com>
-References: <20260929072106.175202-1-a0987203069@gmail.com>
+	id 1xBSEy-00000002btD-2RtR;
+	Tue, 29 Sep 2026 07:27:04 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by tor.source.kernel.org (Postfix) with ESMTP id D50B660210;
+	Tue, 29 Sep 2026 07:27:03 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id F0D911F000FF;
+	Tue, 29 Sep 2026 07:27:02 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1790666823;
+	bh=c2C/eVtAJPpjMYDLNwQibSrOlOhibS0dGw/VMLKUe3Y=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=U+BO6Q9/X08aLazZhmJKUWRGrmjj+Snm4vmwY09KdDXNKy0CeH88HD15e/T1wMBOV
+	 35UauizxtojbWrKfrEFN7w+FfGso44H61e35C7lMDcGAtssEtKbbfEQ4nrUTd3eXVD
+	 gLf8fXYqi1N+UaXw93NJzh/e73uY0W5hB7RFpG4e5KiaRvKnkB1Q7fPie1Qw0C7HFC
+	 NiawgI8jEPDocDiE3T7sUTqwZcAqNzg5v99hVtNFiSrfQTvdPI8gyvQrA2RGg05+vr
+	 z2UTwUB4fW60fzsg8yPP29R6BttDkBiQz56CL1Lxf1Y+KfgSJV6jeKlt9OlvMLrTV4
+	 5e+4XWjij65Zg==
+Date: Tue, 29 Sep 2026 09:27:00 +0200
+From: Maxime Ripard <mripard@kernel.org>
+To: Neil Armstrong <neil.armstrong@linaro.org>
+Cc: Benjamin Tissoires <bentiss@kernel.org>, 
+	Jessica Zhang <jesszhan0024@gmail.com>, David Airlie <airlied@gmail.com>, 
+	Simona Vetter <simona@ffwll.ch>, Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, 
+	Thomas Zimmermann <tzimmermann@suse.de>, Rob Herring <robh@kernel.org>, 
+	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
+	Nathan Chancellor <nathan@kernel.org>, Nick Desaulniers <ndesaulniers@google.com>, 
+	Bill Wendling <morbo@google.com>, Justin Stitt <justinstitt@google.com>, 
+	Florian Fainelli <florian.fainelli@broadcom.com>, 
+	Broadcom internal kernel review list <bcm-kernel-feedback-list@broadcom.com>, Andrzej Hajda <andrzej.hajda@intel.com>, 
+	Robert Foss <rfoss@kernel.org>, Laurent Pinchart <Laurent.pinchart@ideasonboard.com>, 
+	Jonas Karlman <jonas@kwiboo.se>, Jernej Skrabec <jernej.skrabec@gmail.com>, 
+	Luca Ceresoli <luca.ceresoli@bootlin.com>, Albert Esteve <aesteve@redhat.com>, 
+	Dave Stevenson <dave.stevenson@raspberrypi.com>, Javier Martinez Canillas <javierm@redhat.com>, 
+	dri-devel@lists.freedesktop.org, devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
+	bpf@vger.kernel.org, llvm@lists.linux.dev, linux-rpi-kernel@lists.infradead.org, 
+	linux-arm-kernel@lists.infradead.org
+Subject: Re: [PATCH 0/6] drm/bridge: Add a BPF-based MIPI-DSI panel driver
+Message-ID: <artlIYhgbskRJXDQ@houat>
+References: <20260928-drm-mipi-dsi-panel-ebpf-v1-0-5244926aace4@kernel.org>
+ <6b80cb97-6706-412a-b013-9423f6f75153@linaro.org>
+ <arqhwHiVf00j94J7@beelink>
+ <0259fe4b-3118-4ab0-9b62-55101bfd7f33@linaro.org>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260929_002115_630585_05E788C1 
-X-CRM114-Status: GOOD (  23.20  )
+Content-Type: multipart/signed; micalg=pgp-sha384;
+	protocol="application/pgp-signature"; boundary="nstt4rbbt4m4mdpf"
+Content-Disposition: inline
+In-Reply-To: <0259fe4b-3118-4ab0-9b62-55101bfd7f33@linaro.org>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -106,207 +85,156 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The ADC clock divider register implements a simple closed-form relation,
-rate = parent_rate / (2 * (N + 1)), but it was previously modeled by
-building a clk_div_table with one entry per possible divider value (up
-to 2^width entries) and feeding it through the generic
-divider_recalc_rate()/divider_determine_rate()/divider_get_val() helpers.
-This is unnecessarily expensive (a large table allocation and a linear
-scan on every rate lookup) for what is just a closed-form expression.
 
-Also drop the mask_bit/mask mechanism: the previous code unconditionally
-OR'd an arbitrary bit into the divider register on every set_rate() call.
-The one existing caller passed mask_bit as a bitmask value (0x1ffff)
-rather than a bit index, which BIT() then shifted by an out-of-range
-amount, undefined behavior. Since the divider field write already clears
-and rewrites only its own bits, no extra forced bit is required, so the
-parameter is removed entirely.
+--nstt4rbbt4m4mdpf
+Content-Type: text/plain; protected-headers=v1; charset=us-ascii
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
+Subject: Re: [PATCH 0/6] drm/bridge: Add a BPF-based MIPI-DSI panel driver
+MIME-Version: 1.0
 
-Compute the divisor directly in recalc_rate()/determine_rate()/set_rate()
-instead, with explicit range clamping and a rate == 0 guard.
+On Mon, Sep 28, 2026 at 09:20:12PM +0200, Neil Armstrong wrote:
+> On 9/28/26 19:24, Benjamin Tissoires wrote:
+> > On Sep 28 2026, Neil Armstrong wrote:
+> > > Hi,
+> > >=20
+> > > On 9/28/26 18:22, Maxime Ripard wrote:
+> > > > Hi,
+> > > >=20
+> > > > Panels in general, and MIPI-DSI panels in particular, are pretty
+> > > > difficult to support and require pretty much a panel driver for each
+> > > > panel produced. Most of them are pretty simple, and require an opaq=
+ue
+> > > > initialization sequence that is usually poorly documented.
+> > > >=20
+> > > > This creates a tension between OEMs and distros because OEMs will
+> > > > typically get a new panel to react to a sourcing issue during
+> > > > production, and thus need some swift turnaround between getting the=
+ir
+> > > > new panel and it being operational in the OS. Distributions on the =
+other
+> > > > hand can take years to ship a kernel with that new panel driver.
+> > > >=20
+> > > > To solve this, I followed the example of HID-BPF and wrote a panel
+> > > > driver that will rely on BPF programs to perform the panel
+> > > > initialization. That way, we can ship the programs separately from =
+the
+> > > > kernel, and with a different lifecycle. If this driver is accepted,=
+ the
+> > > > plan is to have a userspace component started by udev to identify a=
+nd
+> > > > load the right BPF program for the panels found on the device.
+> > >=20
+> > > This is kind of late for serious applications except if we manage to
+> > > solve the bootloader to Linux display engine transition.
+> > >=20
+> > > >=20
+> > > > This driver is fully functional and works with both 5" and 7" Touch
+> > > > Display 2 panels for the RaspberryPi. However, it breaks away from =
+the
+> > > > typical panel driver in multiple ways:
+> > > >=20
+> > > > - BPF programs can only be loaded by userspace. This leaves us with=
+ two
+> > > >     choices:
+> > > >=20
+> > > >     * We prevent the driver from loading until the script itself is
+> > > >       loaded. This has the side effect of preventing any other outp=
+ut to
+> > > >       be used until the initramfs is ran at the earliest, and possi=
+bly
+> > > >       ever if the loader isn't installed for example.
+> > >=20
+> > > This adds a dependency on user-space behavior and if somehow the
+> > > initramfs doesn't load for a reason we won't have a way to display
+> > > an error.
+> > >=20
+> > > >=20
+> > > >     * Or we probe the driver all the time, but only report it as co=
+nnected
+> > > >       once a program has been registered. This is somewhat unconven=
+tional,
+> > > >       but allows the other outputs to be functional, *and* allows t=
+he user
+> > > >       to force the output if their panel doesn't require any
+> > > >       initialization or during debugging. I chose this solution.
+> > >=20
+> > > Both options are not really great...
+> > >=20
+> > > >=20
+> > > > - It's not a panel driver, but a bridge one, which is also pretty
+> > > >     unconventional. This is required because panel drivers don't ha=
+ve
+> > > >     access to a detect callback that is required for the above, but=
+ I also
+> > > >     think that the recent work from Luca blurs the line from panels=
+ and
+> > > >     bridges and we'll end up going that road anyway.
+> > >=20
+> > > On this point, DDIC _are_ bridges, but in the current panel API we bl=
+ur the line between
+> > > the panel and the DDIC. So being a bridge is fine, but in a general w=
+ay we lack
+> > > a proper way to describe the display/panel/monitor independently of t=
+he DDIC.
+> > >=20
+> > > At first glance it's a nice driver, but moving the timings into a blo=
+b moves something
+> > > into possible proprietary binaries with possible closed licence and d=
+istribution
+> > > restriction so it's a downgrade for the same of bringing up a panel f=
+aster.
+> >=20
+> > Quick answer on this, because I had the very same questions regarding
+> > HID-BPF:
+> > - in BPF, you can require (and by default it does) that only GPL
+> > 	compatible BPF programs are loaded, closing the argument of "closed
+> > 	licence and distribution restriction"
+> > - also, a BPF program can be disassembled much easier than a binary
+> > 	blob, and I remember Alexei showing me an example where you get almost
+> > 	the source code from the BPF object in just one pass.
+>=20
+> Right, it "solve" one of my question, but doesn't really solve the issue
+> of vendors providing "GPL" bpf programs with source available "somewhere".
 
-Fixes: 691521a367cf ("clk: nuvoton: Add clock driver for ma35d1 clock controller")
-Signed-off-by: Joey Lu <a0987203069@gmail.com>
----
- drivers/clk/nuvoton/clk-ma35d1-divider.c | 73 +++++++++++-------------
- drivers/clk/nuvoton/clk-ma35d1.c         |  2 +-
- drivers/clk/nuvoton/clk-ma35d1.h         |  2 +-
- 3 files changed, 36 insertions(+), 41 deletions(-)
+Would you be ok if I was to make a tool to decompile a BPF program into its
+source file equivalent?
 
-diff --git a/drivers/clk/nuvoton/clk-ma35d1-divider.c b/drivers/clk/nuvoton/clk-ma35d1-divider.c
-index e992e7c30341..03fcf87caae1 100644
---- a/drivers/clk/nuvoton/clk-ma35d1-divider.c
-+++ b/drivers/clk/nuvoton/clk-ma35d1-divider.c
-@@ -16,8 +16,6 @@ struct ma35d1_adc_clk_div {
- 	void __iomem *reg;
- 	u8 shift;
- 	u8 width;
--	u32 mask;
--	const struct clk_div_table *table;
- 	/* protects concurrent access to clock divider registers */
- 	spinlock_t *lock;
- };
-@@ -29,44 +27,60 @@ static inline struct ma35d1_adc_clk_div *to_ma35d1_adc_clk_div(struct clk_hw *_h
- 
- static unsigned long ma35d1_clkdiv_recalc_rate(struct clk_hw *hw, unsigned long parent_rate)
- {
--	unsigned int val;
- 	struct ma35d1_adc_clk_div *dclk = to_ma35d1_adc_clk_div(hw);
-+	unsigned int val;
- 
- 	val = readl_relaxed(dclk->reg) >> dclk->shift;
- 	val &= clk_div_mask(dclk->width);
--	val += 1;
--	return divider_recalc_rate(hw, parent_rate, val, dclk->table,
--				   CLK_DIVIDER_ROUND_CLOSEST, dclk->width);
-+
-+	return DIV_ROUND_CLOSEST_ULL((u64)parent_rate, 2 * (val + 1));
- }
- 
- static int ma35d1_clkdiv_determine_rate(struct clk_hw *hw,
- 					struct clk_rate_request *req)
- {
- 	struct ma35d1_adc_clk_div *dclk = to_ma35d1_adc_clk_div(hw);
-+	unsigned int val;
-+
-+	if (!req->rate)
-+		return -EINVAL;
- 
--	return divider_determine_rate(hw, req, dclk->table, dclk->width,
--				      CLK_DIVIDER_ROUND_CLOSEST);
-+	val = DIV_ROUND_UP(req->best_parent_rate, 2 * req->rate);
-+	if (val == 0)
-+		val = 1;
-+	if (val > (unsigned int)clk_div_mask(dclk->width) + 1)
-+		val = clk_div_mask(dclk->width) + 1;
-+
-+	req->rate = DIV_ROUND_CLOSEST_ULL((u64)req->best_parent_rate, 2 * val);
-+
-+	return 0;
- }
- 
- static int ma35d1_clkdiv_set_rate(struct clk_hw *hw, unsigned long rate, unsigned long parent_rate)
- {
--	int value;
--	unsigned long flags = 0;
--	u32 data;
- 	struct ma35d1_adc_clk_div *dclk = to_ma35d1_adc_clk_div(hw);
-+	unsigned long flags;
-+	unsigned int val;
-+	u32 data;
-+
-+	if (!rate)
-+		return -EINVAL;
- 
--	value = divider_get_val(rate, parent_rate, dclk->table,
--				dclk->width, CLK_DIVIDER_ROUND_CLOSEST);
-+	val = DIV_ROUND_UP(parent_rate, 2 * rate);
-+	if (val == 0)
-+		val = 1;
-+	if (val > (unsigned int)clk_div_mask(dclk->width) + 1)
-+		val = clk_div_mask(dclk->width) + 1;
- 
- 	spin_lock_irqsave(dclk->lock, flags);
- 
- 	data = readl_relaxed(dclk->reg);
- 	data &= ~(clk_div_mask(dclk->width) << dclk->shift);
--	data |= (value - 1) << dclk->shift;
--	data |= dclk->mask;
-+	data |= (val - 1) << dclk->shift;
- 	writel_relaxed(data, dclk->reg);
- 
- 	spin_unlock_irqrestore(dclk->lock, flags);
-+
- 	return 0;
- }
- 
-@@ -79,39 +93,21 @@ static const struct clk_ops ma35d1_adc_clkdiv_ops = {
- struct clk_hw *ma35d1_reg_adc_clkdiv(struct device *dev, const char *name,
- 				     struct clk_hw *parent_hw, spinlock_t *lock,
- 				     unsigned long flags, void __iomem *reg,
--				     u8 shift, u8 width, u32 mask_bit)
-+				     u8 shift, u8 width)
- {
--	struct ma35d1_adc_clk_div *div;
--	struct clk_init_data init;
--	struct clk_div_table *table;
- 	struct clk_parent_data pdata = { .index = 0 };
--	u32 max_div, min_div;
-+	struct ma35d1_adc_clk_div *div;
-+	struct clk_init_data init = {};
- 	struct clk_hw *hw;
- 	int ret;
--	int i;
- 
- 	div = devm_kzalloc(dev, sizeof(*div), GFP_KERNEL);
- 	if (!div)
- 		return ERR_PTR(-ENOMEM);
- 
--	max_div = clk_div_mask(width) + 1;
--	min_div = 1;
--
--	table = devm_kcalloc(dev, max_div + 1, sizeof(*table), GFP_KERNEL);
--	if (!table)
--		return ERR_PTR(-ENOMEM);
--
--	for (i = 0; i < max_div; i++) {
--		table[i].val = min_div + i;
--		table[i].div = 2 * table[i].val;
--	}
--	table[max_div].val = 0;
--	table[max_div].div = 0;
--
--	memset(&init, 0, sizeof(init));
- 	init.name = name;
- 	init.ops = &ma35d1_adc_clkdiv_ops;
--	init.flags |= flags;
-+	init.flags = flags;
- 	pdata.hw = parent_hw;
- 	init.parent_data = &pdata;
- 	init.num_parents = 1;
-@@ -119,15 +115,14 @@ struct clk_hw *ma35d1_reg_adc_clkdiv(struct device *dev, const char *name,
- 	div->reg = reg;
- 	div->shift = shift;
- 	div->width = width;
--	div->mask = mask_bit ? BIT(mask_bit) : 0;
- 	div->lock = lock;
- 	div->hw.init = &init;
--	div->table = table;
- 
- 	hw = &div->hw;
- 	ret = devm_clk_hw_register(dev, hw);
- 	if (ret)
- 		return ERR_PTR(ret);
-+
- 	return hw;
- }
- EXPORT_SYMBOL_GPL(ma35d1_reg_adc_clkdiv);
-diff --git a/drivers/clk/nuvoton/clk-ma35d1.c b/drivers/clk/nuvoton/clk-ma35d1.c
-index 9f65d0623517..f91a8369a2bc 100644
---- a/drivers/clk/nuvoton/clk-ma35d1.c
-+++ b/drivers/clk/nuvoton/clk-ma35d1.c
-@@ -1017,7 +1017,7 @@ static int ma35d1_clocks_probe(struct platform_device *pdev)
- 	hws[ADC_DIV] = ma35d1_reg_adc_clkdiv(dev, "adc_div", hws[PCLK0],
- 					     &ma35d1_lock, 0,
- 					     clk_base + REG_CLK_CLKDIV4,
--					     4, 17, 0x1ffff);
-+					     4, 17);
- 	hws[ADC_GATE] = ma35d1_clk_gate(dev, "adc_gate", "adc_div",
- 					clk_base + REG_CLK_APBCLK2, 24);
- 
-diff --git a/drivers/clk/nuvoton/clk-ma35d1.h b/drivers/clk/nuvoton/clk-ma35d1.h
-index 3adee440f60a..1fdcd4658b5f 100644
---- a/drivers/clk/nuvoton/clk-ma35d1.h
-+++ b/drivers/clk/nuvoton/clk-ma35d1.h
-@@ -13,6 +13,6 @@ struct clk_hw *ma35d1_reg_clk_pll(struct device *dev, u32 id, u8 u8mode, const c
- struct clk_hw *ma35d1_reg_adc_clkdiv(struct device *dev, const char *name,
- 				     struct clk_hw *parent_hw, spinlock_t *lock,
- 				     unsigned long flags, void __iomem *reg,
--				     u8 shift, u8 width, u32 mask_bit);
-+				     u8 shift, u8 width);
- 
- #endif /* __DRV_CLK_NUVOTON_MA35D1_H */
--- 
-2.43.0
+> Another big issue is the API, I don't want to keep the current API as-is,
+> we plan to support more advanced panel features and use try to use the
+> atomic states to support rate switching for example, and I'm not confident
+> it's a good idea since there's no "simple" and "forever valid" API
+> to initialize panels...
 
+So, a couple of things here. First, I really don't think we should
+extend the panel API, like at all. But let's discuss that at Plumbers, I
+don't think it's very relevant to this discussion anyway.
+
+Second, you don't have to use this driver, like, at all. For anything
+more complicated than what this driver can provide, I totally expect to
+still merge dedicated panel drivers if it makes sense. I also expect
+that this driver would be enough for 90% of our panel drivers and
+would allow us to support most of the cruft.
+
+Finally, the BPF API is flexible. You can extend it later on and old
+programs would still work. The verifier would fail only if a program
+uses a new function in a kernel that doesn't support it. I was kind of
+expecting to put drm_display_mode in there at some point, if the state
+makes sense then why not.
+
+Maxime
+
+--nstt4rbbt4m4mdpf
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iJUEABMJAB0WIQTkHFbLp4ejekA/qfgnX84Zoj2+dgUCartoQwAKCRAnX84Zoj2+
+dtp2AYDqEryYzoPxdZ0pP0QpPZFfX3gKsTQtb0FXlWyICU6KGPBCCAuKMYFJRLHL
+EXEyYZYBgNINSL3vSxMjOnTdTOBwGIGO7iXBZhJuZPS9DZO3C/TaZk7LCjj9P+uG
+pQo0MpI0BA==
+=BzAp
+-----END PGP SIGNATURE-----
+
+--nstt4rbbt4m4mdpf--
 
