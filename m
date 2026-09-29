@@ -4,43 +4,43 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1A2DAC9832A
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 29 Sep 2026 06:35:20 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CF979CA5FA1
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 29 Sep 2026 06:35:36 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=AqkLOG6vp6Vsh99YJdEMgsfkLHRJ2+yxOnHunFY/tzo=; b=F7WIBawKSfU3OKCzWxYHIAyYby
-	pN9MuGK68iW0cc1k9hwBbpTfB57SDtHnzXZqGrrSqWaLEUwrjJ3EE9Evgd5uZfQAQgnF2jz7O636q
-	M6zk2XMJv41J9BOo5wUtGIfoccSAJjJd1bVlp9jKRB1otTEl1G99gK15nNPE1EzcC4uKbvZHo4Vet
-	Um7a5DUMEyMgAS44ux6982/zzPnAlKZKPBXV/6hVsvxc+DHgfqiWhSMEiSZsySUbTFzydimiE23y+
-	v+V6ViIlrWhxjrK39Chu0O9lH8oUI8Pxf72u7IeRng93a9TjwxC0XF2PVXF/MlpDbscSAi+CUmY+T
-	sGpKDXFw==;
+	bh=FQRE6zm4jzta+yzL3PXAUdwtwL/jge19ROTzCi6gyT8=; b=NG+AtAHdWuE5TDvCiIfcU4WzzA
+	Jbo4RovKVhOPrjmuCKT79QjKLDJMDTETnUbQ8VN8ILCvO0tX2fuamGHtn60PkSCc87C7Ab95vscnU
+	m8nsq/t98OwhzjAFaJ0YQ7zvKRp3z67T+oizok2I67D/O0QUJo5juFGPqOsD30tDERwxEaHu9D6l4
+	RqWylkhOxVwh22NiXRGXnON8LQV6506D+QTNAjPN/44+vDcl05UouW7E6s5gw5TVTLz05+2VDCZwZ
+	kqbFh78Tt/CyCa8yOPutzslDji9MSf4KP8MCH8eCzo+UX5xP3z7DyvkEziMoRTvQ5KDBOJK0ny1dO
+	agqqZQCw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xBRQn-00000002SzC-2bip;
-	Tue, 29 Sep 2026 06:35:13 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1xBRR3-00000002TB0-44xl;
+	Tue, 29 Sep 2026 06:35:29 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xBRQe-00000002Ssv-014e;
-	Tue, 29 Sep 2026 06:35:04 +0000
+	id 1xBRQj-00000002Svs-2IGZ;
+	Tue, 29 Sep 2026 06:35:09 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id 7281260A65;
+	by sea.source.kernel.org (Postfix) with ESMTP id 4D0EB43C56;
+	Tue, 29 Sep 2026 06:35:09 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id F0A771F000FF;
 	Tue, 29 Sep 2026 06:35:03 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 8CE191F00893;
-	Tue, 29 Sep 2026 06:34:57 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1790663703;
-	bh=AqkLOG6vp6Vsh99YJdEMgsfkLHRJ2+yxOnHunFY/tzo=;
+	s=k20260515; t=1790663709;
+	bh=FQRE6zm4jzta+yzL3PXAUdwtwL/jge19ROTzCi6gyT8=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References;
-	b=Iw+NfNvNfng8RYycBeEcqjiCQkvCeOLe+H5W5jTqtMfVpx/8AC3ZXwaKuEHko+Rbl
-	 +eZGIwiw+YuXBxHjwgCCfRSyUkh0yifA794BkxAj6XF6FEQei+kebchAauNGyqg8N5
-	 65MtUbVO/LLBm/GlnM3rsyFWrOo6M/Mr9w7jIcMah7kcAxea9QFa90dAmWx+UVTG4t
-	 ysqrbFmadMlHUDWm/uhjlzjl8/uFUXyT1bd3t5NdVye9esKVdA8x75WGB/IFyUTETS
-	 gTTC4I8QDdGBOfINagsOgi3Dc1lRZYeKYsKcLcFaczuM97gVDdoyCBW+yazmXQ0s1F
-	 3YkDLa7fmTuvQ==
+	b=epa6dkOIYN9MovueY6sE7qXOFEbfYOX1K8FYwkz1MnwhAcrMKq1BeAyhKfg+84VZC
+	 ssS3ptRPwUmav4M/hDEWVQ2W5AU49xpDU41fMMo5NNfpkV0I0XIGdtKMZ3j12G6J0+
+	 Acyu5dPLQjqttY36ZY+yVl8dDneffzao+hTGEWiyeN6hX96gJBQmkAezBsF2uu8ud5
+	 N89psV6xKm2yK4vkyKTKuaFr4co+QT+6s4JBlxGC8KO++Df59ydTa+STaU3gNtwoEH
+	 kkjJ51YAL1k2glvraqHbRhBUK8qIdCithBSBsHAw35XV81zGICH4kWuIntnl7YAJOV
+	 kIFuP/CIBGdCg==
 From: Jisheng Zhang <jszhang@kernel.org>
 To: Rob Herring <robh@kernel.org>,
 	Krzysztof Kozlowski <krzk+dt@kernel.org>,
@@ -69,9 +69,9 @@ Cc: devicetree@vger.kernel.org,
 	linux-serial@vger.kernel.org,
 	linux-spi@vger.kernel.org,
 	linux-arm-kernel@lists.infradead.org
-Subject: [PATCH 07/20] arm64: kconfig: let ARCH_BERLIN cover Synaptics arm64 SoCs
-Date: Tue, 29 Sep 2026 14:14:04 +0800
-Message-ID: <20260929061417.20733-8-jszhang@kernel.org>
+Subject: [PATCH 08/20] dt-bindings: reset: add Synaptics SL261X SoCs
+Date: Tue, 29 Sep 2026 14:14:05 +0800
+Message-ID: <20260929061417.20733-9-jszhang@kernel.org>
 X-Mailer: git-send-email 2.51.0
 In-Reply-To: <20260929061417.20733-1-jszhang@kernel.org>
 References: <20260929061417.20733-1-jszhang@kernel.org>
@@ -91,33 +91,148 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Extend ARCH_BERLIN to cover Synaptics arm64 SoCs.
+Add device tree bindings for the resets on Synaptics SL261X SoCs.
 
 Signed-off-by: Jisheng Zhang <jszhang@kernel.org>
 ---
- arch/arm64/Kconfig.platforms | 4 ++--
- 1 file changed, 2 insertions(+), 2 deletions(-)
+ .../bindings/reset/syna,sl261x-reset.yaml     | 40 ++++++++++
+ include/dt-bindings/reset/syna,sl261x-reset.h | 80 +++++++++++++++++++
+ 2 files changed, 120 insertions(+)
+ create mode 100644 Documentation/devicetree/bindings/reset/syna,sl261x-reset.yaml
+ create mode 100644 include/dt-bindings/reset/syna,sl261x-reset.h
 
-diff --git a/arch/arm64/Kconfig.platforms b/arch/arm64/Kconfig.platforms
-index d2acfac73003..1c0747555a57 100644
---- a/arch/arm64/Kconfig.platforms
-+++ b/arch/arm64/Kconfig.platforms
-@@ -108,13 +108,13 @@ config ARCH_BRCMSTB
- endif
- 
- config ARCH_BERLIN
--	bool "Marvell Berlin SoC Family"
-+	bool "Synaptics/Marvell Berlin SoC Family"
- 	select DW_APB_ICTL
- 	select DW_APB_TIMER_OF
- 	select GPIOLIB
- 	select PINCTRL
- 	help
--	  This enables support for Marvell Berlin SoC Family
-+	  This enables support for Synaptics SoCs or Marvell Berlin SoC Family
- 
- config ARCH_BITMAIN
- 	bool "Bitmain SoC Platforms"
+diff --git a/Documentation/devicetree/bindings/reset/syna,sl261x-reset.yaml b/Documentation/devicetree/bindings/reset/syna,sl261x-reset.yaml
+new file mode 100644
+index 000000000000..8cfec17df800
+--- /dev/null
++++ b/Documentation/devicetree/bindings/reset/syna,sl261x-reset.yaml
+@@ -0,0 +1,40 @@
++# SPDX-License-Identifier: (GPL-2.0 OR BSD-2-Clause)
++# Copyright (C) 2026 Synaptics Incorporated
++%YAML 1.2
++---
++$id: http://devicetree.org/schemas/reset/syna,sl261x-reset.yaml#
++$schema: http://devicetree.org/meta-schemas/core.yaml#
++
++title: Synaptics SL261X reset controller
++
++maintainers:
++  - Jisheng Zhang <jszhang@kernel.org>
++
++description: The reset controller node must be a sub-node of the chip
++  controller node on SL261X SoCs.
++
++properties:
++  compatible:
++    enum:
++      - syna,sl261x-soc-reset
++      - syna,sl261x-system-reset
++
++  "#reset-cells":
++    const: 1
++
++required:
++  - compatible
++  - "#reset-cells"
++
++additionalProperties: false
++
++examples:
++  - |
++    chip: chip-control@f7e10000 {
++        reg = <0xf7e10000 0x1000>;
++
++        chip_rst: reset {
++            compatible = "syna,sl261x-soc-reset";
++            #reset-cells = <1>;
++        };
++    };
+diff --git a/include/dt-bindings/reset/syna,sl261x-reset.h b/include/dt-bindings/reset/syna,sl261x-reset.h
+new file mode 100644
+index 000000000000..7034f58aae5b
+--- /dev/null
++++ b/include/dt-bindings/reset/syna,sl261x-reset.h
+@@ -0,0 +1,80 @@
++/* SPDX-License-Identifier: (GPL-2.0 OR MIT) */
++/*
++ * Copyright (C) 2026 Synaptics Incorporated
++ *
++ * Author: Jisheng Zhang <jszhang@kernel.org>
++ */
++
++#ifndef _DT_BINDINGS_SL261X_RESET_H
++#define _DT_BINDINGS_SL261X_RESET_H
++
++/* ACPU subsystem */
++#define RST_SOC_SDIO0		0
++#define RST_SOC_USB0		1
++#define RST_SOC_EMMC		2
++#define RST_SOC_GETH0		3
++#define RST_SOC_SDIO1		4
++#define RST_SOC_USB1		5
++#define RST_SOC_GETH1		6
++#define RST_SOC_USB0PHY		7
++#define RST_SOC_USB0CORE	8
++#define RST_SOC_USB0MAHB	9
++#define RST_SOC_USB1PHY		10
++#define RST_SOC_USB1CORE	11
++#define RST_SOC_USB1MAHB	12
++#define RST_SOC_UART0		13
++#define RST_SOC_UART1		14
++#define RST_SOC_UART2		15
++#define RST_SOC_UART3		16
++#define RST_SOC_I2C0		17
++#define RST_SOC_I2C1		18
++#define RST_SOC_SPI0		19
++#define RST_SOC_SPI1		20
++#define RST_SOC_SPI2		21
++#define RST_SOC_SPI3		22
++#define RST_SOC_APBTIMERS	23
++#define RST_SOC_APBSYSCNT	24
++#define RST_SOC_APBWDT		25
++#define RST_SOC_APBGPIO		26
++#define RST_SOC_APBDMA		27
++#define RST_SOC_GPUCORE		28
++#define RST_SOC_NPUCORE		29
++#define RST_SOC_AVIOAIOG	30
++#define RST_SOC_AVIOVPPG	31
++#define RST_SOC_AVIOVIPG	32
++
++/* system subsystem */
++#define RST_SM_ADCCORE		0
++#define RST_SM_ADCPRST		1
++#define RST_SM_CAN0PRST		2
++#define RST_SM_CAN0SRST		3
++#define RST_SM_CAN1PRST		4
++#define RST_SM_CAN1SRST		5
++#define RST_SM_GPIOPRST		6
++#define RST_SM_GPIOSRST		7
++#define RST_SM_I2CM0PRST	8
++#define RST_SM_I2CM0SRST	9
++#define RST_SM_I2CM1PRST	10
++#define RST_SM_I2CM1SRST	11
++#define RST_SM_I3CPRST		12
++#define RST_SM_I3CSRST		13
++#define RST_SM_PDMPRST		14
++#define RST_SM_PDMSRST		15
++#define RST_SM_PVTHSRST		16
++#define RST_SM_PVTPRST		17
++#define RST_SM_PWMPERIRST	18
++#define RST_SM_PWMPRST		19
++#define RST_SM_SPIMPRST		20
++#define RST_SM_SPIMSRST		21
++#define RST_SM_SPISPRST		22
++#define RST_SM_SPISSRST		23
++#define RST_SM_UART0PRST	24
++#define RST_SM_UART0SRST	25
++#define RST_SM_UART1PRST	26
++#define RST_SM_UART1SRST	27
++#define RST_SM_UART2PRST	28
++#define RST_SM_UART2SRST	29
++#define RST_SM_UART3PRST	30
++#define RST_SM_UART3SRST	31
++
++#endif /* _DT_BINDINGS_SL261X_RESET_H */
 -- 
 2.53.0
 
