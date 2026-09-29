@@ -4,162 +4,97 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 19597CA5FA5
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 29 Sep 2026 12:22:00 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7539ECA5FA1
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 29 Sep 2026 12:23:11 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:Cc:To:
-	Subject:Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=po1J0odtjG06Jn6CopZl3x5TJwVKeGH6cPusXe2go0I=; b=ymqLQhAHSQEm5gUgowlDsAdlUP
-	Bg+NaGsZr/oj6V+OD4sDRkqfmb9dOCu46EyI2malZRIPM/y50//AspKVYLqIHQShYT0v1kIi8+ehb
-	GynZWYIaxetL3Yy14zMPtpFBMKcDEO9yLXVQe7JrHTAc4uHGfAM/6ZlyVNugs7QnhyYe4JeSvZXoL
-	ytguR8xKSsdXwyhTA6iTk8raCc3bQifS8vD8NXuRZJh+FoV9p3L1EZqBQ1m0mhhD6w7xo/Y93A3h+
-	Dl0zk0Za4MVwhpNf9k3CpE3Vq0Jw5+3NYfIBOAO+0vIFQhLmGD/CE3N3t+H8F5LWcbNdDoVB/nQpl
-	AqbR7APw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=oAoykZR6asRmW0K7OS4CG9fLxAWwLUV9JiX7VJ+7PxE=; b=JGKIUMY6+29w3rhdJWAjMvu7iE
+	qhu8Oxxkstt2+FGUjHhdjEP2b8CemxdrkAXIfhtZh87y2nKhHuxaD1YUExIoJpa0slvakSYT31lhX
+	R5Bs/TplteF8d6b46Q8+XZgiOmgf1+ZGq7w9uRfXIv4QfP7mjvhiTsuYrBhFTth84NphFwR4yF88c
+	CMoEA1QuTaxUlRUgZeLudd2ogtsr19U10Do+axTuP5KE+ukaKfTgk52UxKjUxKVS+zZ62ASOT7MZ3
+	6qqZ3qC13W+thrR9VeTGSH1BnsQnTDOWcY1jCbPv20Ki7Sa5pJxZMBnruxxI8I03oa/QW67ImWbVA
+	jjAcd9Og==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xBWqD-00000003VnN-3E7Z;
-	Tue, 29 Sep 2026 12:21:49 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1xBWrP-00000003VzA-0WyG;
+	Tue, 29 Sep 2026 12:23:03 +0000
+Received: from mail-wm2-x11.google.com ([2a00:1450:4864:31::11])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xBWqB-00000003VnE-3L6q
-	for linux-arm-kernel@bombadil.infradead.org;
-	Tue, 29 Sep 2026 12:21:48 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=MIME-Version:Content-Transfer-Encoding
-	:Content-Type:In-Reply-To:From:References:Cc:To:Subject:Date:Message-ID:
-	Sender:Reply-To:Content-ID:Content-Description;
-	bh=po1J0odtjG06Jn6CopZl3x5TJwVKeGH6cPusXe2go0I=; b=DqO6DR1BZAzvN5ZYGOBCE1RWv4
-	QZuqNEcFjO51YS0J6gbllbcsUdseLlXxaRN0QFwIPhuP2DrPezjkSRkYqjH2eJSGYQ2lJ7mQbvogf
-	s0EZWn1LaPQKtk5DcRm6n9LQzSJITHqboAIiXTNV5YMSXmt+I8OrkPBGXDjC1th8GJwJmi50ClOgM
-	/Iq4nzWEyTIA1vLfHY3pQq84FSOQFCk3YtQih//LJnLmE3LBA2xR9Wk/Jd+F7U5pRV7i9aqgdUnTg
-	O2t8Hm8EHCOudiDUrH1TWWdfh3FxitgTBCXv3GhMw5hCE3rGKVv1NespS0vvq4qfopTA/07Iv4e+W
-	UNx+5T7g==;
-Received: from mail-northeuropeazon11010004.outbound.protection.outlook.com ([52.101.84.4] helo=DB3PR0202CU003.outbound.protection.outlook.com)
-	by desiato.infradead.org with esmtps (Exim 4.99.2 #2 (Red Hat Linux))
-	id 1xBWq6-00000002bMK-2Ixp
+	id 1xBWrL-00000003Vy5-3R7X
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 29 Sep 2026 12:21:46 +0000
-ARC-Seal: i=2; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=pass;
- b=negvxNE1+BTjkSgG6ngBPaivWGBCke7pyA1SPtztXEWgs2lWHL4EaV0k5KH9cPaorZO6wXlZ5w1kWvDprEA9fOlYaD8OqZTNVAFJ28MWJCmZWH8IBz7Zy0ohQDUjyE/WUV2BfCP1KL3hM9yFZnYeQ/poWNtOEElZ1u0IBnMREi+Cpc2ZvUjpHZ2fF94zPVL2Iua+UzMhA2uSTBGihmBM1Z3E/Bj9gCYjpg9/Nhyah16DCV1wzQmJlKDTnw6sHP/p0GuN95XPPfKWOE0yFRo8vMEKPXc4PCNZZjF3Lm2x91rlz1dsF/2tqfHdnTX1apB2h0EoMnd8YuM2F7ug5cKl5Q==
-ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=po1J0odtjG06Jn6CopZl3x5TJwVKeGH6cPusXe2go0I=;
- b=PP4aMzhlm9wPcju7FTK6cy7Fe048MiySIOkeRbpIYyqyy8DpW/DqGKSSsQegICpPkAyXuddJiOwsTilO0vklts6DJMz24MmJPFc5WzEPQVNvgm4GMK2+lARyKqxmXv7yyQIpLPtlrdVj0xUydQ1ZsNDvufkA9vW/DRyC4Sb8Dc7qW9tJxAGJfxPINiFVnlDbV1znIDAxVfy9Rm4KAjzpbwLO+ydcg81b8iNc2/1ZxJTqRHrtfbrEjoWmAu3wC4Mhl0armM4zawpEtaScG2BNYeh/hyiYJfXKpSrwnKnWUnG2TNIhvRHe5i6Umes5Bz/VJgvRFsKB0+cZ3JdaRzJ89w==
-ARC-Authentication-Results: i=2; mx.microsoft.com 1; spf=pass (sender ip is
- 4.158.2.129) smtp.rcpttodomain=kylinsec.com.cn smtp.mailfrom=arm.com;
- dmarc=pass (p=none sp=none pct=100) action=none header.from=arm.com;
- dkim=pass (signature was verified) header.d=arm.com; arc=pass (0 oda=1 ltdi=1
- spf=[1,1,smtp.mailfrom=arm.com] dkim=[1,1,header.d=arm.com]
- dmarc=[1,1,header.from=arm.com])
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=arm.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=po1J0odtjG06Jn6CopZl3x5TJwVKeGH6cPusXe2go0I=;
- b=Ym+dRGEPTFByoTUgDpYsTp0/glO7ZRL8Edorz425PdXSlTSk0oA0PJW7CGhiiU5Zku//DtWAB9XqzIJOn5DuR3R8cJMVLFgJg8gePPtD9mfnuBRmnB1jr1x968Ed559FK1zQvyD78w7ErHoXSVHHTB39BaALZFphTsmcHSt+9H8=
-Received: from PAZP264CA0077.FRAP264.PROD.OUTLOOK.COM (2603:10a6:102:1fa::15)
- by GVXPR08MB11471.eurprd08.prod.outlook.com (2603:10a6:150:2e3::14) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.451.23; Tue, 29 Sep
- 2026 12:21:35 +0000
-Received: from MAD0EPF000008BF.eurprd04.prod.outlook.com
- (2603:10a6:102:1fa:cafe::4) by PAZP264CA0077.outlook.office365.com
- (2603:10a6:102:1fa::15) with Microsoft SMTP Server (version=TLS1_3,
- cipher=TLS_AES_256_GCM_SHA384) id 15.21.451.24 via Frontend Transport; Tue,
- 29 Sep 2026 12:21:35 +0000
-X-MS-Exchange-Authentication-Results: mx.microsoft.com 1; spf=pass (sender IP
- is 4.158.2.129) smtp.mailfrom=arm.com; dkim=pass (signature was verified)
- header.d=arm.com;dmarc=pass action=none header.from=arm.com;
-Received-SPF: Pass (protection.outlook.com: domain of arm.com designates
- 4.158.2.129 as permitted sender) receiver=protection.outlook.com;
- client-ip=4.158.2.129; helo=outbound-uk1.az.dlp.m.darktrace.com; pr=C
-Received: from outbound-uk1.az.dlp.m.darktrace.com (4.158.2.129) by
- MAD0EPF000008BF.mail.protection.outlook.com (10.167.241.168) with Microsoft
- SMTP Server (version=TLS1_3, cipher=TLS_AES_256_GCM_SHA384) id 15.21.472.14
- via Frontend Transport; Tue, 29 Sep 2026 12:21:34 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=IvV2KAlVXv2M1AptqGR8hEAMwmJSKP1D0puyoKfbxahIfDKdtDesFRDAAwlTG3WUXcrsW28gQ+A0B5KWQRHTxMT6Yzt5vRyb44m8UekINJC0+scmbE78BIenJ80XUQ2fUTM96/jXvldHlicW3JVtLECNHdAduu4WBjxLXRD9MjwbILoYDeReTRDwgH3UCmv+61pY+GeRKfm+eNRE7p5dO9NGfhcGdyfTj3DA6eUFq9p+wN16kaZK0M/yjekFdy+plesAXbjymziU6FbAObOSPhCS5r0B89hnexvzMZrCRs8b42nBtz9L+Zl6MP4G6EdFX3Kl405zcU2T6Nknmr0ZZQ==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=po1J0odtjG06Jn6CopZl3x5TJwVKeGH6cPusXe2go0I=;
- b=xU0qF/viezf0RGZEcy6i4kQ75wlrodpaVny71t6Q9D+93lgSBg8ysvUI6T5/4ZBTv453c9zKaiTcuBsfnr8Zp36sGUEbGsl4NMphor8LV4xNSBI1d+l+HfhIobIUnZndvCtOpalfJwAbdZbGXwlKLCvXFulygwNGwco1sjGMT2PVr++y/jy8Q2rv8d3nw0uA+Chbg6BTti4I01A6Ur86AuJRCzue9FfFCHSnnO9RCZRyYGx4dCaEtgUEBddPepBEu8+o+dPmw94d4UjtwGyz6Ele7h/NzuxTVFSLWFiaczpVRTlTP9J7r+Oms5bMIV86dx/AiBQBy5Dh4x8P7Lw+fA==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=arm.com; dmarc=pass action=none header.from=arm.com; dkim=pass
- header.d=arm.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=arm.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=po1J0odtjG06Jn6CopZl3x5TJwVKeGH6cPusXe2go0I=;
- b=Ym+dRGEPTFByoTUgDpYsTp0/glO7ZRL8Edorz425PdXSlTSk0oA0PJW7CGhiiU5Zku//DtWAB9XqzIJOn5DuR3R8cJMVLFgJg8gePPtD9mfnuBRmnB1jr1x968Ed559FK1zQvyD78w7ErHoXSVHHTB39BaALZFphTsmcHSt+9H8=
-Authentication-Results-Original: mx.microsoft.com 1; dkim=none (message not
- signed) header.d=none;dmarc=none action=none header.from=arm.com;
-Received: from PAVPR08MB9674.eurprd08.prod.outlook.com (2603:10a6:102:31d::14)
- by DU0PR08MB9464.eurprd08.prod.outlook.com (2603:10a6:10:42c::19) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.472.7; Tue, 29 Sep
- 2026 12:21:01 +0000
-Received: from PAVPR08MB9674.eurprd08.prod.outlook.com
- ([fe80::6f25:3681:7c97:ea2e]) by PAVPR08MB9674.eurprd08.prod.outlook.com
- ([fe80::6f25:3681:7c97:ea2e%5]) with mapi id 15.21.0472.005; Tue, 29 Sep 2026
- 12:21:01 +0000
-Message-ID: <59e10194-cc34-4535-a8c9-6cfb808582c2@arm.com>
-Date: Tue, 29 Sep 2026 13:20:59 +0100
+	Tue, 29 Sep 2026 12:23:01 +0000
+Received: by mail-wm2-x11.google.com with SMTP id 5b1f17b1804b1-49ffde3cec6so14952865e9.3
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 29 Sep 2026 05:22:59 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=linaro.org; s=google; t=1790684578; x=1791289378; darn=lists.infradead.org;
+        h=content-transfer-encoding:content-type:in-reply-to:from
+         :content-language:references:cc:to:subject:user-agent:mime-version
+         :date:message-id:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=oAoykZR6asRmW0K7OS4CG9fLxAWwLUV9JiX7VJ+7PxE=;
+        b=OodaUjvMfXgFAoDdz134Qwk1zgRcYWfUPym9DuZnx5NF9cPRhNv3DrfoY6xcORmtqh
+         OFbxAIZ1IW39jEwxoVv1Fy9QPRx6+p69lWCADpT8thvKF/kC0+S0h+6mrkWJA6PnkVDX
+         DZi/i1Uq9N/aaXvr0SZ0HclIKfU0lTKaO3qnd52vMa/5voc+kVuwrRhlBD0M+Ok8JJIs
+         m/00WIlWomq79inxYdaOA6E63ketX5hKqZqc78crwZusXpolamIjLPxG9Ni0dgLxOHyx
+         MdA1wRztjHcZXyecS4C+3om5uxI3e5lNsZ4gdt2u4V8jHMhontXD30ZY6alMjoEUx0tU
+         6q5Q==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1790684578; x=1791289378;
+        h=content-transfer-encoding:content-type:in-reply-to:from
+         :content-language:references:cc:to:subject:user-agent:mime-version
+         :date:message-id:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=oAoykZR6asRmW0K7OS4CG9fLxAWwLUV9JiX7VJ+7PxE=;
+        b=OgvyBieXiaV+r3fPQ+knGIBOc7nuFHIc17uka4g2yZE5pfEHjGWvYRdV/IK6q8yE59
+         +nDO7gMaiQoeq/diQueY+aGypiv/PE66j46lxGsHwP9w3p12/ucdICzkNqBXR1Wzjgl3
+         avWE46JkUl7g9VDTJrXKGBqKT1W0tEKkkQ8hvy2FmYQBhZvNSOIfk2pDQAbtBXSnzoQ0
+         e4Yi/i0a886+sOy2A5Y4U9F+cR6w0xVe3PY3FNF3xhCEAf9lFx/g4n+m0fvDdC0dii27
+         peIAMfPEmIS0CpTXlNUNQ2dyoHck5JsIZdJqPC3A/WLcP4PW8v0ljsibL7kR4Ztmyhlh
+         tlzA==
+X-Forwarded-Encrypted: i=1; AKwUvBzn5PbkdnVmK98s0HBLTwsSVHujWRve+qLypKp250dQvNtO+U7zwHeO+N0oaehRrVydJVeTbg7Je56RuV0ENySR@lists.infradead.org
+X-Gm-Message-State: AFuF++lulfWtuclwbikbE+lfjFVduLs16d37Y+CkzUPEAvg7JaVJMsqQ
+	akroSTLQrv5q6uUEgcMPIwDCLauPcgp+4bP7uwuG6AfdETVbp82sUDn4aAy098AEwOA=
+X-Gm-Gg: AYBFou25l2BzylBs7Agl/QaqdTHzt1PWoz7nUjTSiP34h2WNLiTEz29kQ/4zvKjJiyY
+	hb/YxvxilPqXta18VieMaC9MH0ya9RyLNffw8BqbnlMUfweRkCxZb67b06y42Hrcmz6jMHEmnd4
+	UsKB4HXOaI1Qiazb/BJHGzzGkNHquC8ztAD8xxPeuVvCIvFlS4iFgSV5NjsKgf0u7ghtFgTDxPr
+	jl8veubdLO9JyBxw/CPb+k0cejVcr8r2eGSlvMKgTC+pt3Z1mE2BkhXviECcKXILS2qpnD43lhK
+	sw6rgWKIwX+MGrEzrTj6W8TlDo++vfDKWT/gXlAARR+Q4MiW961uhJ62nhlq7pQiWh+INFnYgsR
+	kEREcpFnFi2EMYLoMXjswLFPSI9BxO/hRwNPURIZhtF1VIbkWY6YxYAJGU1x6RuXlzWsWCdR5wK
+	0fub2FophVvPTfKuF1eqqIwucwjJ5n8lr59XyUNH5e+OjhowrJBD3Sxlk1RHtyKQbdadq5YW1xf
+	mA=
+X-Received: by 2002:a05:600c:4ecf:b0:4a0:108:3b54 with SMTP id 5b1f17b1804b1-4a001e8c316mr100957425e9.32.1790684577698;
+        Tue, 29 Sep 2026 05:22:57 -0700 (PDT)
+Received: from [192.168.1.3] ([37.18.141.193])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4a013b8f6f5sm5072545e9.10.2026.09.29.05.22.56
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Tue, 29 Sep 2026 05:22:57 -0700 (PDT)
+Message-ID: <d371220f-9ad2-41ca-a2a5-930c46801c31@linaro.org>
+Date: Tue, 29 Sep 2026 13:22:55 +0100
+MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH] coresight: syscfg: Fix null pointer dereference when
- configfs init fails
-To: Yingchao Deng <dengyingchao@kylinsec.com.cn>,
- Suzuki K Poulose <suzuki.poulose@arm.com>,
- Alexander Shishkin <alexander.shishkin@linux.intel.com>,
- James Clark <james.clark@linaro.org>, Leo Yan <leo.yan@arm.com>
-Cc: coresight@lists.linaro.org, linux-arm-kernel@lists.infradead.org,
- linux-kernel@vger.kernel.org, qinyungao@kylinsec.com.cn,
- luoqiu@kylinsec.com.cn, liudalin@kylinsec.com.cn, nd@arm.com
-References: <C73E0F9BDC0A8FE7+20260928123515.2032-1-dengyingchao@kylinsec.com.cn>
+Subject: Re: [PATCH v2 11/14] perf tests: Check CoreSight IRQ entry and exit
+To: Leo Yan <leo.yan@arm.com>
+Cc: Arnaldo Carvalho de Melo <acme@redhat.com>, coresight@lists.linaro.org,
+ linux-arm-kernel@lists.infradead.org, linux-perf-users@vger.kernel.org,
+ linux-kernel@vger.kernel.org, Arnaldo Carvalho de Melo <acme@kernel.org>,
+ Namhyung Kim <namhyung@kernel.org>, Jiri Olsa <jolsa@kernel.org>,
+ Ian Rogers <irogers@google.com>, Adrian Hunter <adrian.hunter@intel.com>,
+ Mike Leach <mike.leach@arm.com>, Suzuki K Poulose <suzuki.poulose@arm.com>,
+ Suyash Mahar <smahar@meta.com>, Amir Ayupov <aaupov@fb.com>
+References: <20260923-perf_cs_etm_fix_non_taken-v2-0-6ab8c07a5455@arm.com>
+ <20260923-perf_cs_etm_fix_non_taken-v2-11-6ab8c07a5455@arm.com>
 Content-Language: en-US
-From: Mike Leach <mike.leach@arm.com>
-In-Reply-To: <C73E0F9BDC0A8FE7+20260928123515.2032-1-dengyingchao@kylinsec.com.cn>
+From: James Clark <james.clark@linaro.org>
+In-Reply-To: <20260923-perf_cs_etm_fix_non_taken-v2-11-6ab8c07a5455@arm.com>
 Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 7bit
-X-ClientProxiedBy: PA7P264CA0340.FRAP264.PROD.OUTLOOK.COM
- (2603:10a6:102:39a::7) To PAVPR08MB9674.eurprd08.prod.outlook.com
- (2603:10a6:102:31d::14)
-MIME-Version: 1.0
-X-MS-TrafficTypeDiagnostic: PAVPR08MB9674:EE_|DU0PR08MB9464:EE_|MAD0EPF000008BF:EE_|GVXPR08MB11471:EE_
-X-MS-Office365-Filtering-Correlation-Id: 1f54e7f8-886e-4d7c-d150-08df1e2433ce
-X-LD-Processed: f34e5979-57d9-4aaa-ad4d-b122a662184d,ExtAddr,ExtAddr
-x-checkrecipientrouted: true
-NoDisclaimer: true
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam-Untrusted: BCL:0;ARA:13230040|376014|366016|1800799024|23010399003|10067099003|11063799006|6133799003|18002099003|22082099003|56012099006;
-X-Microsoft-Antispam-Message-Info-Original: qD/CnUAH6Ev0CuLkRWbv1dJS5zNJtV8kd+/O4Mzk8zHxNP0gYZeI/Z0Fi7eItYZUSdvm+2hex+5TKxYED8KjfoG37WP6zMHhgs5dq/FzHUChtuVhT6TS6y5I2lKPBs9agvR9oyG89+ZGQwXz7RvCFd+hT6TevOP2S9YantEQSGnrzRCb3Te/JJVzhxr3OKDohljvgK5DVz8aA2il2qS7qQW5AjcYm5rY92oQkQEMHR22UIwKpKcITMUaByPhT6PgIe7WXuq516bPWEOtZU8f861YGejrrHbqGxSbSA7s8We02+F/MZ9Os+vurDZBbdocvtdMsrLWR+DoWMZjCvhtlrE+4kDu6I+DvXSBX6Y4bdi1gPilEjxeols1S8ByKfiIrytvb1BbCEP5Rw/lOcSdcNU1Yg34/ZqqESWu1unVnGr3bVkwVwX37hO7imEEClOL1FUbsSwdt7+trljwDpgfXBqKvjXdqWxbJrQRwn0dCgNO5EiMzbtyYXHfRuGsuhkyGHwUIhQ2LtQeg/JPAsXldIar16WYEuUOX4cAaSY0nYcaY7Zn/WqMycP2kwUefEctzp1ZG8r1FaY0xgs/78MY/bJMEEonDtlJia7iGgPJv/Q8rjRl6LuqElt6fqLo/Pfk
-X-Forefront-Antispam-Report-Untrusted: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PAVPR08MB9674.eurprd08.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(376014)(366016)(1800799024)(23010399003)(10067099003)(11063799006)(6133799003)(18002099003)(22082099003)(56012099006);DIR:OUT;SFP:1101;
-X-Exchange-RoutingPolicyChecked: LgZFwdVJrEmiRc2WI3EF3a0SftBTCeCyY88G3st4vCKd3jymYwcWA+iDhuum6XEw+XSgta4Of/HbUw8j25qcej5xdsMIUIZix9fW53O7NNz+/XOVxk320D7Gjvb4fWnrMPSujiCsKbwwZ4wDmZxwGK2EB6E6GM5RQLEgLE9I2uuXNFXhjWl72UUh71gKs4wai/kvXUkI2QUob4rj8i1olzIJ523rg5tK4eGnzUPkdUpX2uOHoj274rjk9tPf/GrWn0YRrBfQ1abszAU3RLgDOKVPSN+REJxFNZ160qYPBgzansL+rNnM5wKlDWHWFOunlv0qe/D2TC52gzBVXYujiQ==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: DU0PR08MB9464
-X-EOPAttributedMessage: 0
-X-MS-Exchange-Transport-CrossTenantHeadersStripped: MAD0EPF000008BF.eurprd04.prod.outlook.com
-X-MS-PublicTrafficType: Email
-X-MS-Office365-Filtering-Correlation-Id-Prvs: 6e93c87b-f61c-4074-b5bf-08df1e241f9e
-X-Microsoft-Antispam: BCL:0;ARA:13230040|35042699022|23010399003|376014|1800799024|36860700016|82310400026|14060799003|6133799003|11063799006|10067099003|56012099006|22082099003|18002099003;
-X-Microsoft-Antispam-Message-Info: 7sv99CVYxd8MyXk7uoAh9g8w40ztW0Wn+0Hor8imJT5iAEQbCa4tz1gTWcb7NXlJNet8qQc/teNb8xN8ZbyPTkUwndhoXO40/oN6sNz5civ4v9vrrYdlA+HlP9KSZxWzbyfMMAPsGg5JTarjFJfl7kRJ6zwwCd9MITshnunz2ITpHSJgSyJSx31pzboV3sRfxyKz23Q+7UexWC9K2aF7EU30OKYlM/3Sxz+L4myxerW5YTf39b/68VUC2t5qaoFx6wfTglVeUNl6iWddPsmbnT+z6pFEE4EHmHVxiVLb8dvlAQ5rkk5rlFjt3Kz32Jq2mJPMBkuMmOZZoCu4qkBUNe7M/Ee0SISIGH2kz9WK2Gpq7bmOvqviQE/qQSLuN8bZMW1uyJUvy27ganveI8gECdTe0/gkpFbMEgzyM2x0tXzC7f6zugp1GvD55YKYW3ChokWO/7EO5WExh4aMFOJ4I5Qr3DJjnJUEX9W1JDtCnQi4uz6Ic1heiMjPX0DxBsoIXDcIVpVKtpUbt6030N3ovkIF0meoYyv6wzuX7W2U1HPop4iIQN7RJKHFEz7jk7tp6cABKMBTLGYw+/LLxyQ8q1UOH0XMTnKs3nlULRhJWUhM+DhO+ul6AIsk8xRe22Iv9jIkIM7v01BU0x26X6wH+2UHj4p8gGSaGEJ7RBhKlEk=
-X-Forefront-Antispam-Report: CIP:4.158.2.129;CTRY:GB;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:outbound-uk1.az.dlp.m.darktrace.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(35042699022)(23010399003)(376014)(1800799024)(36860700016)(82310400026)(14060799003)(6133799003)(11063799006)(10067099003)(56012099006)(22082099003)(18002099003);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: OeNd3nPUmYCGH4ENG9qNIZmOE7ArbZ1Fzp8zB55P3FOaqY1LDKwj24NJKLcANxjkUjYugmoBWyAAU3ODX8VNdbwgHn4uuS8YTlEL4pQtdDCuaG2kzuh+P21Rl30zjFiAM1qVd49WXMvTy6l1NYk9SSUg8MjQtD54zoxCNWhNaNf6uv+yZ2sb96gVUaS4uL2NYeL8GdKAIndEcFk7L9nsssN4Oii7CpsFzsF+fIepbI+UDHV1nQbgJG91d+6ZYXVbUb6Ntqf9XhtY/ge/iEj6/KEZPUh67AvI+PmRK6lMInm90asdG+pY8/iom/8Xs91JdUvqpgFnml2XGEBoQMTBxF4BJ6p4EX9MHlPPvx0zSl9kxuyo10sucKu+prbXE/PJKGOA7ApLPNvR4whJN2g4o32NE1ZKzzrhRJQxt0VW72+Iry2gfbh8ltV7iLeRhTcH
-X-OriginatorOrg: arm.com
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 29 Sep 2026 12:21:34.5142
- (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: 1f54e7f8-886e-4d7c-d150-08df1e2433ce
-X-MS-Exchange-CrossTenant-Id: f34e5979-57d9-4aaa-ad4d-b122a662184d
-X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=f34e5979-57d9-4aaa-ad4d-b122a662184d;Ip=[4.158.2.129];Helo=[outbound-uk1.az.dlp.m.darktrace.com]
-X-MS-Exchange-CrossTenant-AuthSource: MAD0EPF000008BF.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Anonymous
-X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: GVXPR08MB11471
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260929_132142_926322_FD39C288 
-X-CRM114-Status: GOOD (  19.91  )
+X-CRM114-CacheID: sfid-20260929_052259_910475_4D107005 
+X-CRM114-Status: GOOD (  30.44  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -174,53 +109,176 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Reviewed-by: Mike Leach <mike.leach@arm.com>
 
-On 9/28/26 13:35, Yingchao Deng wrote:
-> If cscfg_configfs_init() fails, cscfg_init() takes the exit_err path:
+
+On 23/09/2026 16:21, Leo Yan wrote:
+> Add an AArch64 branch_not_taken_loop workload and a CoreSight shell test
+> checking IRQ entry and exit PCs. Use cpu-clock generates timer
+> interrupts.
 > 
-> 	cscfg_init() -> cscfg_clear_device() -> cscfg_configfs_release()
-> 		     -> configfs_unregister_subsystem()
+> Retry at different timer frequencies and skip if no complete pair is
+> captured.
+
+Maybe we need to look into storing existing recordings somewhere or 
+committing small ones into the repo again. This test took 3 minutes to 
+run on my N1SDP, which is 3x longer than the entire Coresight suite, and 
+then it skipped anyway:
+
+173: CoreSight IRQ entry and exit:
+---- start ----
+test child forked, pid 6804
+Recording timer IRQs at 1000 Hz
+No complete exception entry/exit pair
+No complete IRQ pair in this recording
+Recording timer IRQs at 4000 Hz
+No complete exception entry/exit pair
+No complete IRQ pair in this recording
+Recording timer IRQs at 10000 Hz
+No complete exception entry/exit pair
+No complete IRQ pair in this recording
+[Skip] No complete IRQ pair after three recordings
+---- end(-2) ----
+173: CoreSight IRQ entry and exit
+
+
+Really this test is only looking for how a single exception on a single 
+branch is decoded, it shouldn't be affected by how it was recorded. Even 
+a few bytes of trace would be enough to test it. Or maybe we could add 
+some kind of unit test framework that mocks out OpenCSD and allows us to 
+script how different packets affect the decoder?
+
+But we have to be careful to not add slow tests because it means they're 
+much less likely to be run, or results ignored as it's so hard to 
+iterate quickly. Or also in this case, silently skipped if something 
+regresses.
+
 > 
-> which tears down a configfs subsystem that was never registered.
-> configfs_unregister_subsystem() begins with:
+> For example, an expected hw int/iret pair is:
 > 
-> 	struct dentry *dentry = dget(group->cg_item.ci_dentry);
-> 	struct dentry *root = dentry->d_sb->s_root;
+>    hw int           5cc928 => ffff800080010c80 insn: 63 04 00 f1
+>    ...
+>    iret   ffff800080012284 =>           5cc928 insn: e0 03 9f d6
 > 
-> ci_dentry is assigned in configfs_create_dir() only once the subsystem
-> directory has been created, which never happened here.  cscfg_mgr
-> comes from kzalloc_obj(), so ci_dentry is still NULL, and dget()
-> hands a NULL dentry back unchanged - the next line dereferences it.
+> The entry PC is the architectural resume address, here SUBS X3, X3, #1
+> at 0x5cc928. After the IRQ is handled, ERET returns to the same PC to
+> continue execution.
 > 
-> Handle the failure in cscfg_init() directly: unregister the device and
-> return the error, releasing the devres-allocated config item type and
-> cscfg_mgr without touching the subsystem.
-> 
-> Fixes: a13d5a246aca ("coresight: syscfg: Add initial configfs support")
-> Suggested-by: Leo Yan <leo.yan@arm.com>
-> Link: https://lore.kernel.org/all/20260924162404.GN200420@e132581.arm.com/
-> Signed-off-by: Yingchao Deng <dengyingchao@kylinsec.com.cn>
+> Assisted-by: Codex:gpt-6
+> Signed-off-by: Leo Yan <leo.yan@arm.com>
 > ---
->   drivers/hwtracing/coresight/coresight-syscfg.c | 6 ++++--
->   1 file changed, 4 insertions(+), 2 deletions(-)
+>   tools/perf/tests/builtin-test.c                    |   1 +
+>   tools/perf/tests/shell/coresight/irq_entry_exit.sh |  37 +++++
+>   tools/perf/tests/shell/lib/coresight_exception.sh  | 165 +++++++++++++++++++++
+>   tools/perf/tests/tests.h                           |   1 +
+>   tools/perf/tests/workloads/Build                   |   2 +
+>   tools/perf/tests/workloads/branch_not_taken_loop.c |  33 +++++
+>   6 files changed, 239 insertions(+)
 > 
-> diff --git a/drivers/hwtracing/coresight/coresight-syscfg.c b/drivers/hwtracing/coresight/coresight-syscfg.c
-> index 2bfdd7b45e49..00b29d1656c0 100644
-> --- a/drivers/hwtracing/coresight/coresight-syscfg.c
-> +++ b/drivers/hwtracing/coresight/coresight-syscfg.c
-> @@ -1299,8 +1299,10 @@ int __init cscfg_init(void)
->   
->   	/* initialise configfs subsystem */
->   	err = cscfg_configfs_init(cscfg_mgr);
-> -	if (err)
-> -		goto exit_err;
-> +	if (err) {
-> +		device_unregister(cscfg_device());
-> +		return err;
-> +	}
->   
->   	/* preload built-in configurations */
->   	err = cscfg_preload(THIS_MODULE);
+> diff --git a/tools/perf/tests/builtin-test.c b/tools/perf/tests/builtin-test.c
+> index 6259ed805c5f75799d52ac742b77cf278f98bd9d..8eab221f115e75a3ef90be975d4ed0558ceb2b16 100644
+> --- a/tools/perf/tests/builtin-test.c
+> +++ b/tools/perf/tests/builtin-test.c
+> @@ -171,6 +171,7 @@ static struct test_workload *workloads[] = {
+>   	&workload__datasym,
+>   	&workload__landlock,
+>   	&workload__traploop,
+> +	&workload__branch_not_taken_loop,
+>   	&workload__inlineloop,
+>   	&workload__jitdump,
+>   	&workload__context_switch_loop,
+> diff --git a/tools/perf/tests/shell/coresight/irq_entry_exit.sh b/tools/perf/tests/shell/coresight/irq_entry_exit.sh
+> new file mode 100755
+> index 0000000000000000000000000000000000000000..f164daa222b0550ceb106aa6a1215740a1432017
+> --- /dev/null
+> +++ b/tools/perf/tests/shell/coresight/irq_entry_exit.sh
+> @@ -0,0 +1,37 @@
+> +#!/bin/bash
+> +# SPDX-License-Identifier: GPL-2.0
+> +# CoreSight IRQ entry and exit (exclusive)
+> +
+> +# shellcheck source=../lib/coresight_exception.sh
+
+No need for these anymore, see 
+https://lore.kernel.org/linux-perf-users/20260921-james-perf-shellcheck-source-v1-1-adcfc107c997@linaro.org/
+
+> +. "$(dirname "$0")/../lib/coresight_exception.sh"
+> +
+> +test_irq_entry_exit()
+> +{
+> +	# IRQs must return to the interrupted PC. Retry at different timer
+> +	# frequencies if trace gaps leave no complete entry/exit pair.
+> +	for freq in 1000 4000 10000; do
+> +		echo "Recording timer IRQs at $freq Hz"
+> +		if ! record_trace_with_cpu_clock "$freq" branch_not_taken_loop; then
+> +			cat "$tmpdir/record.log"
+> +			echo "Failed to record the IRQ workload"
+> +			return 1
+> +		fi
+> +
+> +		decode_trace || return 1
+> +
+> +		check_exception_pairs "hw int" "iret" 0
+> +		result=$?
+> +		case $result in
+> +		0) return 0 ;;
+> +		1) cat "$tmpdir/script.log"; return 1 ;;
+> +		2) echo "No complete IRQ pair in this recording" ;;
+> +		*) return "$result" ;;
+> +		esac
+> +	done
+> +
+> +	echo "[Skip] No complete IRQ pair after three recordings"
+> +	return 2
+> +}
+> +
+> +setup_exception_test || exit $?
+> +test_irq_entry_exit
+> diff --git a/tools/perf/tests/shell/lib/coresight_exception.sh b/tools/perf/tests/shell/lib/coresight_exception.sh
+> new file mode 100644
+> index 0000000000000000000000000000000000000000..f0133c258625147405ba4641ff7e442437fc66b8
+> --- /dev/null
+> +++ b/tools/perf/tests/shell/lib/coresight_exception.sh
+> @@ -0,0 +1,165 @@
+> +# SPDX-License-Identifier: GPL-2.0
+> +# Common helpers for CoreSight exception entry and return tests.
+> +
+> +cleanup()
+> +{
+> +	case $? in
+> +	0|2) rm -rf "$tmpdir" ;;
+> +	*) echo "Test files retained in $tmpdir" ;;
+> +	esac
+> +}
+> +
+> +record_trace_with_cpu_clock()
+> +{
+> +	local clock_opts=()
+> +
+> +	record_freq=$1
+> +	shift
+> +
+> +	# A zero frequency omits the cpu-clock event.
+> +	if [ "$record_freq" -gt 0 ]; then
+> +		# Generate timer IRQs without delivering a signal to the workload.
+> +		clock_opts=(-e cpu-clock:u -F "$record_freq")
+> +	fi
+> +
+> +	# FIFO control bounds the trace to the workload.
+> +	# --kcore supplies the running kernel's instructions for decoding.
+> +	taskset -c "$cpu" perf record -B --no-bpf-event --per-thread --kcore \
+> +		-e cs_etm/timestamp=0/uk "${clock_opts[@]}" \
+> +		-m,4M -D -1 --control fifo:"$tmpdir/ctl","$tmpdir/ack" \
+> +		-o "$tmpdir/data" -- \
+> +		perf test --record-ctl fifo:"$tmpdir/ctl","$tmpdir/ack" -w "$@" \
+> +		> "$tmpdir/record.log" 2>&1
+
+There's a shellcheck warning here:
+
+   (warning): Word is of the form "A"B"C" (B indicated). Did you mean 
+"ABC" or "A\"B\"C"?
+
+You can avoid it by passing the whole path as "$cf" and "$af" like the 
+other coresight tests.
+
 
 
