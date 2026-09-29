@@ -4,68 +4,67 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 96611CA5FA5
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 29 Sep 2026 10:34:38 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BA43ACA5FAD
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 29 Sep 2026 10:34:51 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:References:Content-Type:Cc:
 	To:In-Reply-To:Message-Id:Content-Transfer-Encoding:MIME-Version:Subject:Date
 	:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=g2gkP6QTkzBzjoWSowCuBB6gX74AOnhoDC7o/M2YKbA=; b=JpT5JeCgHMXHHNYcg6Ik0ESCAZ
-	AuToFD9FAKcNhFax5Nmkzhm1nyFNpCDq5EecDET0awtBT84frVoohg7cldrCSNY1vwaTRBxluOivr
-	i4662glcWMopOvOtWzfap0IbD8JkPC1E2VfclSK7CkRlSuJFO9ofV6aSZfmL2eLJ0YDsMOxY3smUN
-	04hjwza5X6xwi2NhJJ9gX6AseDsaASBxWzG3tgnvtSJfMGwQr75Nu5Z+1eyHQoIwAnSW7nfgkK02F
-	fudVZK13JUnnBFbRQ/sAiWB4ZRC85l1R1eNQpi/I4JPmNvua8cz82k7ZwUvTLDXcD7dfXcTHuYQ79
-	S0zxzyGQ==;
+	bh=sH+xZkZrlWCLVn5PSU/HsI1mSFzFtZNw1J3UtaFtBck=; b=i1zV26WzTwON1uIhoqSkbghEKD
+	fjFAAZWhvrsvQYqG1WmZQcerT2f7spMpLKmrX0akauJy53LAgHf+cLXYS1acjBV5tiSxBqC6ZMYjn
+	A7es+O4YDEvXCH0fkFcP91tfxHLia/H4rPkdUby/nwTIWi8PoMOjElOJgYe7uvyyv/JWu+Exl1cPs
+	/LNNsj9cnm4yzdZOtIRDIIfHWnpyZx7TqHkOjku+3i1hXcMGjKlIksses5FL6W/p7JXIKpymOc15O
+	7RXX+ZUSrrwmDaFpkoCGatudMznpDp4uk9jOMWkxx0mmBF5Lz8jHIzBtiBJ4JNcL63nuBr9Oien8y
+	qB2UnnOA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xBVAO-00000003DzZ-0D7H;
-	Tue, 29 Sep 2026 10:34:32 +0000
+	id 1xBVAb-00000003EF2-0DEu;
+	Tue, 29 Sep 2026 10:34:45 +0000
 Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xBV8U-00000003BrW-33HA;
-	Tue, 29 Sep 2026 10:32:34 +0000
+	id 1xBV8a-00000003Byk-1w8z;
+	Tue, 29 Sep 2026 10:32:40 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=infradead.org; s=desiato.20200630; h=References:Content-Type:Cc:To:
 	In-Reply-To:Message-Id:Content-Transfer-Encoding:MIME-Version:Subject:Date:
 	From:Sender:Reply-To:Content-ID:Content-Description;
-	bh=g2gkP6QTkzBzjoWSowCuBB6gX74AOnhoDC7o/M2YKbA=; b=nC+o0l274vSZ32R9YJ4+MZIyOl
-	LSM2nz3Ei/7LL91Bp/ziFtOSdpQ7cJ05isYaCqC80aOtgpxSRqAh/ZP3qiTyzP6WWxSBnL/SshMLj
-	gIxoZ0khssmVKm8m4luS4EgyeHYYqdlYLYfDVtfocpIWyF1rNE1J/mnZDWec+u6bRcQjttojbauzf
-	IiszCC+/ohvxddImD5zYpTbMUhZ1YVTgXGDRtpaIcxdDkU1uhiUGqp1jEKfZ26T507ugHNNAk12sE
-	w5T3voR8oXgrA0R0tspr60LL5AwhFAo8e90HjN58OXdu9O2yOW8ckXDNZVYhbGB7ryXcoB4HIlf1T
-	D/4ryxbg==;
+	bh=sH+xZkZrlWCLVn5PSU/HsI1mSFzFtZNw1J3UtaFtBck=; b=ctRw052w/4MrbLuOnAh2UqP4Kv
+	fNIKOm4ESENjaXMYs+r5l8alXJnu2kXmzSXC0WU2/Wgd/RiuIR363VS+aY+/YbKyadSNM0FAktQsM
+	wF5e8DEGVCXfJva2YrVFa9sEo8GLxGwIFnq96MoG0hY/nc97tlUzZzx40EgNg1fYqlbwdrNhSmslD
+	FoRYXyqM5cricbaPdui6AhzE3xh/uQ/dODCxMzi9/tmm/qfm/r8RSWyXo+hwYy+yHgHS20GCCQ5rU
+	II2e+AIsehea74+CZBR80bx/dVYS77QfrahYW40OpbXHlSdjbx32wQL/Rf+OM57NpzplNBUcjQ0a/
+	nBvqu1eg==;
 Received: from mailout2.w1.samsung.com ([210.118.77.12])
 	by desiato.infradead.org with esmtps (Exim 4.99.2 #2 (Red Hat Linux))
-	id 1xBV8Q-00000002UCp-2z2R;
-	Tue, 29 Sep 2026 10:32:33 +0000
+	id 1xBV8W-00000002UEl-1cFX;
+	Tue, 29 Sep 2026 10:32:39 +0000
 Received: from eucas1p2.samsung.com (unknown [182.198.249.207])
-	by mailout2.w1.samsung.com (KnoxPortal) with ESMTP id 20260929103229euoutp02cdef8b3399166e98e2ae3ef8fd3d67ca~ZxBujrRpR2627326273euoutp02k;
-	Tue, 29 Sep 2026 10:32:29 +0000 (GMT)
-DKIM-Filter: OpenDKIM Filter v2.11.0 mailout2.w1.samsung.com 20260929103229euoutp02cdef8b3399166e98e2ae3ef8fd3d67ca~ZxBujrRpR2627326273euoutp02k
+	by mailout2.w1.samsung.com (KnoxPortal) with ESMTP id 20260929103235euoutp02a2dadb606bf62f1ebf272ceb2f676c4b~ZxB0BQiqO2495624956euoutp02c;
+	Tue, 29 Sep 2026 10:32:35 +0000 (GMT)
+DKIM-Filter: OpenDKIM Filter v2.11.0 mailout2.w1.samsung.com 20260929103235euoutp02a2dadb606bf62f1ebf272ceb2f676c4b~ZxB0BQiqO2495624956euoutp02c
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=samsung.com;
-	s=mail20170921; t=1790677949;
-	bh=g2gkP6QTkzBzjoWSowCuBB6gX74AOnhoDC7o/M2YKbA=;
+	s=mail20170921; t=1790677955;
+	bh=sH+xZkZrlWCLVn5PSU/HsI1mSFzFtZNw1J3UtaFtBck=;
 	h=From:Date:Subject:In-Reply-To:To:Cc:References:From;
-	b=Xtw1s8HM/XYBkAji3jEm6inUt18cF9aoHTs2KzQFDBJoJI5PUN7pV34PE4f2wyu/1
-	 a8sASUrYVokawQtcOwnaj8ToRh0qLPxfpAuAHW8ovq8yE/ECR0DiO3er1jY1e58Hiq
-	 p+4S33blm1K+9zmA4bblj4yO9bh7P0s9ITHESAeU=
+	b=eqVVGpUl7vzDmkbt3HnwPQCjMwlHw0XnWb+fv3yiO8iOap+aOZsfEy4z26f7FTKdd
+	 GANUZ8M2KiYs0FCiG/BSH+ShJ1hwYs350pG0SgXUBJCmWe5lXr1BOCwSoxA4x7NTcs
+	 CFbovCqCbMRGTXhhxpxEmkgNH1YsXhUTKBXDyvqk=
 Received: from eusmtip1.samsung.com (unknown [203.254.199.221]) by
 	eucas1p2.samsung.com (KnoxPortal) with ESMTPA id
-	20260929103229eucas1p2e440f2ec00fdf7986eed7597674bf6a9~ZxBuBzbxc0947109471eucas1p2n;
-	Tue, 29 Sep 2026 10:32:29 +0000 (GMT)
+	20260929103235eucas1p21a40b512088347e51cc4bfdbc642461e~ZxBzmolQT0947109471eucas1p2t;
+	Tue, 29 Sep 2026 10:32:35 +0000 (GMT)
 Received: from AMDC4942.eu.corp.samsungelectronics.net (unknown
 	[106.210.136.40]) by eusmtip1.samsung.com (KnoxPortal) with ESMTPA id
-	20260929103227eusmtip1b525eb6df798367ceab5e17017164a8a~ZxBsIKegX0259202592eusmtip11;
-	Tue, 29 Sep 2026 10:32:27 +0000 (GMT)
+	20260929103233eusmtip107d0959345cd1736cb226cfb0a7fe47f~ZxBx3Yjak0253902539eusmtip1O;
+	Tue, 29 Sep 2026 10:32:33 +0000 (GMT)
 From: Michal Wilczynski <m.wilczynski@samsung.com>
-Date: Tue, 29 Sep 2026 12:31:08 +0200
-Subject: [PATCH v5 11/21] drm/bridge: inno-hdmi: Add .mode_valid platform
- operation
+Date: Tue, 29 Sep 2026 12:31:11 +0200
+Subject: [PATCH v5 14/21] soc: starfive: Add jh7110-hdmi-subsystem driver
 MIME-Version: 1.0
 Content-Transfer-Encoding: 7bit
-Message-Id: <20260929-jh7110-clean-send-v5-11-82b4d8e3c6c7@samsung.com>
+Message-Id: <20260929-jh7110-clean-send-v5-14-82b4d8e3c6c7@samsung.com>
 In-Reply-To: <20260929-jh7110-clean-send-v5-0-82b4d8e3c6c7@samsung.com>
 To: Vinod Koul <vkoul@kernel.org>, Manivannan Sadhasivam <mani@kernel.org>,
 	Neil Armstrong <neil.armstrong@linaro.org>, Rob Herring <robh@kernel.org>, 
@@ -95,17 +94,17 @@ Cc: linux-phy@lists.infradead.org, devicetree@vger.kernel.org,
 	<u.kleine-koenig@baylibre.com>,  Michal Wilczynski
 	<m.wilczynski@samsung.com>
 X-Mailer: b4 0.15-dev
-X-CMS-MailID: 20260929103229eucas1p2e440f2ec00fdf7986eed7597674bf6a9
+X-CMS-MailID: 20260929103235eucas1p21a40b512088347e51cc4bfdbc642461e
 X-Msg-Generator: CA
 Content-Type: text/plain; charset="utf-8"
-X-RootMTR: 20260929103229eucas1p2e440f2ec00fdf7986eed7597674bf6a9
+X-RootMTR: 20260929103235eucas1p21a40b512088347e51cc4bfdbc642461e
 X-EPHeader: CA
-X-CMS-RootMailID: 20260929103229eucas1p2e440f2ec00fdf7986eed7597674bf6a9
+X-CMS-RootMailID: 20260929103235eucas1p21a40b512088347e51cc4bfdbc642461e
 References: <20260929-jh7110-clean-send-v5-0-82b4d8e3c6c7@samsung.com>
-	<CGME20260929103229eucas1p2e440f2ec00fdf7986eed7597674bf6a9@eucas1p2.samsung.com>
+	<CGME20260929103235eucas1p21a40b512088347e51cc4bfdbc642461e@eucas1p2.samsung.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260929_113232_084047_A1FD4BCF 
-X-CRM114-Status: GOOD (  19.10  )
+X-CRM114-CacheID: sfid-20260929_113236_919609_6C9D3567 
+X-CRM114-Status: GOOD (  24.93  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -120,78 +119,174 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-inno_hdmi_bridge_mode_valid() validates the pixel clock against
-hdmi->refclk, but that clock is optional and is only present on
-platforms that describe a "ref" clock. Platforms where the pixel clock
-is produced by a separate device - such as the StarFive JH7110, whose
-PHY is both the clock and the PHY provider - have no "ref" clock, so
-the check is skipped entirely and every mode is reported as valid.
+Add the parent driver for the monolithic JH7110 HDMI IP block.
 
-A mode the platform cannot generate is then advertised to userspace.
-The subsequent modeset appears to succeed, since the atomic enable path
-cannot fail, and the display silently stays blank.
+This driver binds to the starfive,jh7110-hdmi-subsystem node. It maps the
+shared register block, creates a regmap, and calls
+devm_of_platform_populate() to create its hdmi_phy and hdmi_controller
+child devices, which retrieve the shared regmap from this parent.
 
-Add a .mode_valid platform operation so platforms can reject modes they
-are unable to drive. Platforms that do not implement it are unaffected.
+The NoC display bus clock and reset that gate access to this region, and
+the PD_VOUT power domain it sits in, are held by the video output
+subsystem parent for as long as this device exists, so there is nothing
+for this driver to bring up itself.
 
-Reviewed-by: Joshua Peisach <jpeisach@ubuntu.com>
+Co-developed-by: Dominique Belhachemi <db@domibel.de>
+Signed-off-by: Dominique Belhachemi <db@domibel.de>
 Signed-off-by: Michal Wilczynski <m.wilczynski@samsung.com>
 ---
- drivers/gpu/drm/bridge/inno-hdmi.c | 9 +++++++++
- include/drm/bridge/inno_hdmi.h     | 5 ++++-
- 2 files changed, 13 insertions(+), 1 deletion(-)
+ drivers/soc/Kconfig                          |  1 +
+ drivers/soc/Makefile                         |  1 +
+ drivers/soc/starfive/Kconfig                 | 28 +++++++++++
+ drivers/soc/starfive/Makefile                |  2 +
+ drivers/soc/starfive/jh7110-hdmi-subsystem.c | 73 ++++++++++++++++++++++++++++
+ 5 files changed, 105 insertions(+)
 
-diff --git a/drivers/gpu/drm/bridge/inno-hdmi.c b/drivers/gpu/drm/bridge/inno-hdmi.c
-index 212cbdd7b535c108fea4e30212b38170fe7085f5..10cfdaa2891bb1a1389002d17cd0dfcec9398212 100644
---- a/drivers/gpu/drm/bridge/inno-hdmi.c
-+++ b/drivers/gpu/drm/bridge/inno-hdmi.c
-@@ -823,6 +823,7 @@ static enum drm_mode_status inno_hdmi_bridge_mode_valid(struct drm_bridge *bridg
- 							const struct drm_display_mode *mode)
- {
- 	struct inno_hdmi *hdmi = bridge_to_inno_hdmi(bridge);
-+	const struct inno_hdmi_plat_ops *plat_ops = hdmi->plat_data->ops;
- 	unsigned long mpixelclk, max_tolerance;
- 	long rounded_refclk;
- 
-@@ -838,6 +839,14 @@ static enum drm_mode_status inno_hdmi_bridge_mode_valid(struct drm_bridge *bridg
- 	if (inno_hdmi_find_phy_config(hdmi, mpixelclk) < 0)
- 		return MODE_CLOCK_HIGH;
- 
-+	if (plat_ops && plat_ops->mode_valid) {
-+		enum drm_mode_status status;
+diff --git a/drivers/soc/Kconfig b/drivers/soc/Kconfig
+index a2d65adffb8052c0ac5a6b60bf33fa9c644701bb..b3b01fc38139d98076c14f626a42ae3b7ef7c5d6 100644
+--- a/drivers/soc/Kconfig
++++ b/drivers/soc/Kconfig
+@@ -24,6 +24,7 @@ source "drivers/soc/renesas/Kconfig"
+ source "drivers/soc/rockchip/Kconfig"
+ source "drivers/soc/samsung/Kconfig"
+ source "drivers/soc/sophgo/Kconfig"
++source "drivers/soc/starfive/Kconfig"
+ source "drivers/soc/sunxi/Kconfig"
+ source "drivers/soc/tegra/Kconfig"
+ source "drivers/soc/ti/Kconfig"
+diff --git a/drivers/soc/Makefile b/drivers/soc/Makefile
+index c9e689080ceb759384f690c2b65a82b3cb451c74..009f85ff891a15e0455f92c5d5a4059d8b1fcd3f 100644
+--- a/drivers/soc/Makefile
++++ b/drivers/soc/Makefile
+@@ -30,6 +30,7 @@ obj-y				+= renesas/
+ obj-y				+= rockchip/
+ obj-$(CONFIG_SOC_SAMSUNG)	+= samsung/
+ obj-y				+= sophgo/
++obj-y				+= starfive/
+ obj-y				+= sunxi/
+ obj-$(CONFIG_ARCH_TEGRA)	+= tegra/
+ obj-y				+= ti/
+diff --git a/drivers/soc/starfive/Kconfig b/drivers/soc/starfive/Kconfig
+new file mode 100644
+index 0000000000000000000000000000000000000000..e738638ab0f755fbbabca259264abb56f3b6101f
+--- /dev/null
++++ b/drivers/soc/starfive/Kconfig
+@@ -0,0 +1,28 @@
++# SPDX-License-Identifier: GPL-2.0-only
++#
++# Starfive SoC drivers
++#
 +
-+		status = plat_ops->mode_valid(hdmi->dev, mode);
-+		if (status != MODE_OK)
-+			return status;
-+	}
++if ARCH_STARFIVE || COMPILE_TEST
++menu "Starfive SoC drivers"
 +
- 	if (hdmi->refclk) {
- 		rounded_refclk = clk_round_rate(hdmi->refclk, mpixelclk);
- 		if (rounded_refclk < 0)
-diff --git a/include/drm/bridge/inno_hdmi.h b/include/drm/bridge/inno_hdmi.h
-index 5fca651c56b056d814124aa9c7e91aa7fd7ed1cd..1e9974401c39e3773bb339eaec0b45ff1dd9c975 100644
---- a/include/drm/bridge/inno_hdmi.h
-+++ b/include/drm/bridge/inno_hdmi.h
-@@ -8,15 +8,18 @@
- 
- #include <linux/types.h>
- 
-+#include <drm/drm_modes.h>
++config SOC_STARFIVE_JH7110_HDMI_SUBSYSTEM
++	tristate "StarFive JH7110 HDMI subsystem driver"
++	depends on OF
++	select REGMAP_MMIO
++	help
++	  This option enables the parent driver
++	  for the monolithic StarFive JH7110 HDMI peripheral.
 +
- struct device;
- struct drm_encoder;
--struct drm_display_mode;
- struct inno_hdmi;
- struct platform_device;
- 
- struct inno_hdmi_plat_ops {
- 	void (*enable)(struct device *pdev, struct drm_display_mode *mode);
- 	void (*disable)(struct device *pdev);
-+	enum drm_mode_status (*mode_valid)(struct device *pdev,
-+					   const struct drm_display_mode *mode);
- };
- 
- struct inno_hdmi_phy_config {
++	  The JH7110 HDMI IP block contains both the digital controller
++	  (DRM bridge) and the analog PHY (clock/phy provider) logic within
++	  a single shared register space.
++
++	  This driver acts as a wrapper. Its only job is to map the
++	  shared registers and create separate logical child devices
++	  for the "PHY" and the "controller". This is required to
++	  correctly manage resources and break a circular clock dependency
++	  between the PHY and the VOUT clock generator at probe time.
++
++endmenu
++endif
+diff --git a/drivers/soc/starfive/Makefile b/drivers/soc/starfive/Makefile
+new file mode 100644
+index 0000000000000000000000000000000000000000..be89d8119212b7a7038817c2f0e8eac1984ada88
+--- /dev/null
++++ b/drivers/soc/starfive/Makefile
+@@ -0,0 +1,2 @@
++# SPDX-License-Identifier: GPL-2.0-only
++obj-$(CONFIG_SOC_STARFIVE_JH7110_HDMI_SUBSYSTEM) += jh7110-hdmi-subsystem.o
+diff --git a/drivers/soc/starfive/jh7110-hdmi-subsystem.c b/drivers/soc/starfive/jh7110-hdmi-subsystem.c
+new file mode 100644
+index 0000000000000000000000000000000000000000..e64a22263045935ae69541cf8a144f6128170c11
+--- /dev/null
++++ b/drivers/soc/starfive/jh7110-hdmi-subsystem.c
+@@ -0,0 +1,73 @@
++// SPDX-License-Identifier: GPL-2.0
++/*
++ * Driver for the StarFive JH7110 HDMI subsystem
++ *
++ * Copyright (c) 2025 Samsung Electronics Co., Ltd.
++ * Author: Michal Wilczynski <m.wilczynski@samsung.com>
++ *
++ * This driver binds to the monolithic HDMI block and creates separate
++ * logical platform devices for the HDMI Controller (bridge) and the
++ * HDMI PHY (clock/phy provider), allowing them to share a single regmap
++ * and breaking the probing circular dependency.
++ */
++
++#include <linux/module.h>
++#include <linux/of.h>
++#include <linux/of_platform.h>
++#include <linux/platform_device.h>
++#include <linux/regmap.h>
++
++static const struct regmap_config starfive_hdmi_regmap_config = {
++	.reg_bits = 32,
++	.val_bits = 8,
++	.max_register = 0x3fff,
++};
++
++static int starfive_hdmi_subsys_probe(struct platform_device *pdev)
++{
++	struct device *dev = &pdev->dev;
++	struct regmap *regmap;
++	void __iomem *regs;
++	int ret;
++
++	/*
++	 * The NoC display bus clock and reset that gate access to this region,
++	 * and the PD_VOUT power domain it sits in, are held by the video
++	 * output subsystem parent for as long as this device exists.
++	 */
++	regs = devm_platform_ioremap_resource(pdev, 0);
++	if (IS_ERR(regs))
++		return PTR_ERR(regs);
++
++	regmap = devm_regmap_init_mmio(dev, regs,
++				       &starfive_hdmi_regmap_config);
++	if (IS_ERR(regmap))
++		return dev_err_probe(dev, PTR_ERR(regmap),
++				     "Failed to init shared regmap\n");
++
++	ret = devm_of_platform_populate(dev);
++	if (ret)
++		return dev_err_probe(dev, ret,
++				     "Failed to populate child devices\n");
++
++	return 0;
++}
++
++static const struct of_device_id starfive_hdmi_subsys_of_match[] = {
++	{ .compatible = "starfive,jh7110-hdmi-subsystem", },
++	{ /* sentinel */ }
++};
++MODULE_DEVICE_TABLE(of, starfive_hdmi_subsys_of_match);
++
++static struct platform_driver starfive_hdmi_subsys_driver = {
++	.probe = starfive_hdmi_subsys_probe,
++	.driver = {
++		.name = "starfive-hdmi-subsystem",
++		.of_match_table = starfive_hdmi_subsys_of_match,
++	},
++};
++module_platform_driver(starfive_hdmi_subsys_driver);
++
++MODULE_AUTHOR("Michal Wilczynski <m.wilczynski@samsung.com>");
++MODULE_DESCRIPTION("StarFive JH7110 HDMI subsystem Driver");
++MODULE_LICENSE("GPL");
 
 -- 
 2.34.1
