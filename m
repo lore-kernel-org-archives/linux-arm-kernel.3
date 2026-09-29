@@ -4,106 +4,110 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A07A8C9832A
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 29 Sep 2026 05:38:05 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 247F8CA5FA1
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 29 Sep 2026 05:40:59 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Cc:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ywMDNY3EI7iDZTym+kV52AlLxDjfRMFnaIbif0jeJZU=; b=Upn1YIusVSEIBufQSckHkaJFdt
-	ZeTtUMrFl/O83dispTNQ/JWCN3v7mtlls5Nc40vVlsKPwB9vzQSb2I0LjqTZJolf8iNFQQlMHIP/+
-	xD110nBT/szsYUKl0h7SQ+J9y36ym1yiaWobgCdt/lCu3VQLCBsm84bmGG7XPFznN/jiHQCQ4g4hD
-	X6adCMG2zxdLTpDrJsVWKNt8is5Ae4JtzqEY5NJxJ1YQdmuHMvOqxUZXAv7k6clqsAectvMZsNaO8
-	r7IQW6hz667ON/7aG5kwyA5rP3TxpjVlxUQjfPqa0+D1Ij/7+g4X5q1fGxKhFe2l6eF6+Jz0f2uuM
-	xPjVV1+g==;
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=EulcM3Sez+szsCjpIOBGwG5tjCkG7m4d88gy5OahXvI=; b=0/0+6EG39PAFpoPEyJN/tb+Edj
+	yGaM34cabXIP9guwlacE8EZ4pJG5uyxZqGu9Mh+0MQ81mqMmvegVg9wGodu2BpDMtlVB8CaSeRd4H
+	iWT/UQhlPEGLciEqqeSUWKQuUE8hKL5dFQaZut31+yvUSTULmVJIDJccjBQ62FdHzFmlXbL5qHGBu
+	p5f7yP3jp8fhRdXvuZFUoQDbVUaYuthZhbgTB0qMOUpt3kWU4JGln00QO3YQv5L45XS82i8BkHM7b
+	P5fN/b4nTDTl3BJUjkelVa58PNZRSVkHYqFe9LLDSVqotyuiqNLUcE/hH1hgRWdg+x8//5a+UFvoT
+	P2++XNRQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xBQXM-00000002NM6-3VqL;
-	Tue, 29 Sep 2026 05:37:56 +0000
-Received: from mail-lj1-x231.google.com ([2a00:1450:4864:20::231])
+	id 1xBQaB-00000002NZf-10Uq;
+	Tue, 29 Sep 2026 05:40:51 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xBQXJ-00000002NLO-1NyZ
-	for linux-arm-kernel@lists.infradead.org;
-	Tue, 29 Sep 2026 05:37:54 +0000
-Received: by mail-lj1-x231.google.com with SMTP id 38308e7fff4ca-3a20f06cce6so6115361fa.1
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 28 Sep 2026 22:37:52 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1790660271; cv=none;
-        d=google.com; s=arc-20260327;
-        b=mrcwO3kTOWGmil0Bmk5r6lcIfyJP1BVID2VUsxqc/ceTmLD22toGzYDUadib8zNSWi
-         +C/XIwxhHSbI8pyVH4br49WhYSa3wjYJfhz+9HLlD5dMbfJB17/m1i1HOb83VSqdjgoR
-         TCIm7olEfKuGXaotBDNo84rQ4UdYfOBRPHTNYdI60/qQk5msAV77y+Vn6T4Euovpbm9E
-         MDClPS+zkFQPN+I7G0ITuFHAOu477Dt61XwfXP2BjpoGAaMUC4TzlC0FpMef4oR6GLzU
-         gcorG03Ga9MyJR1jEVeChsG386qBF6W6ojsC5bY/PlApU6d3hTLcFo9EHOc2NPQHuDgU
-         PFUw==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
-        h=content-transfer-encoding:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:dkim-signature;
-        bh=ywMDNY3EI7iDZTym+kV52AlLxDjfRMFnaIbif0jeJZU=;
-        fh=CIQu9uMe/5Wvx8GA5gJCiQwPLbrwAxo5dO4Mu7pM8AQ=;
-        b=Ddvd4WNUryH8vmWWkpNpsdI6EfWqGnYYU4WCzJg3DnRGroEN+KX35YsWHsasfzB0Vs
-         3EtTBxuqUvU1d1ecLKJcRPJcB5vnkOwxU4Go4DhdEG2ndZsebJoTQsOjBx8JOMBODGmN
-         506E1ZNGh5Ru1hm8qVfhaW7d0tg8g9ymgFLxu71zw0+bON1Z/QuK3PbhooEHdlrSW02H
-         SWOVFPaKxNH81jd0BG2bq6davaAyGI5FNlim0do5o/fFJrhX6rbCRm2el0V6RbA6+P2o
-         Zh1lpMzKkAOcscX5XEHfN/6jmpKGp0FvP7r4BX4ImBa723fzuexIgWimNZs+dMGETsNr
-         iS2g==;
-        darn=lists.infradead.org
-ARC-Authentication-Results: i=1; mx.google.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1790660271; x=1791265071; darn=lists.infradead.org;
-        h=content-transfer-encoding:content-type:to:subject:message-id:date
-         :from:in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=ywMDNY3EI7iDZTym+kV52AlLxDjfRMFnaIbif0jeJZU=;
-        b=ZqapYxvl5nmknnuiWPFMHtHxNEW/lGQkmK4TPKlmSuKS0d0887MEaGzEDu7tlmv46W
-         7422aJUeJtEksyI9AFKyju9LgTR0v3+KxKcH9HBvkOmqhREdc/LPQntNSiZArVwoRcbE
-         1H/4HrH0py+t9y1qGzP6KYDfoLPrZGyz8PD6JnC/2rQt2E6ldKn38ysWFPU8PvXHojcZ
-         7NMP/KiLbHDeyfTk9CQOru3FIX9UZWEPYm1CItKRGf/4EvWUX13UvOxymf9F1NHbjSai
-         +cSpCybyEthGtDaGRfDEvdzht2Xaxg/Tk2en6OGJWEZ3GCYtaWb1XqoLfqCPo68WrgZP
-         QcbA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1790660271; x=1791265071;
-        h=content-transfer-encoding:content-type:to:subject:message-id:date
-         :from:in-reply-to:references:mime-version:x-gm-gg:x-gm-message-state
-         :from:to:cc:subject:date:message-id:reply-to:content-type;
-        bh=ywMDNY3EI7iDZTym+kV52AlLxDjfRMFnaIbif0jeJZU=;
-        b=b3T7MgCjjjtYqAX1SwYEaUHxg8SBOj3564P8EkoNOFWbWDKcOcBnuKkfywMIQmAYWe
-         7PfvrtKpXNIAcEXcN1R5ffz1dokf1RL4eWUEiEtQUnEaLnL+bU7X8KsDJ40b7RHR/MFj
-         pQzgOomFzXVlCeO4wn5QcbpIbmK7rzsTWQiseFJouEvjaX32WWLO1xvmmommpU2fZPBR
-         GLN5KlRuIE5eF/o8mDJn3q/5X6WXfD61GnJbEr/H2MDCMT19k1mb1LGqp6UNK9J0xAqj
-         kciS7U7OawCxN7aNOPnQZ0MccFl83+diT4dDQYhN6Ew7hMDr80eYEASto4y3y0NJem/N
-         XQIA==
-X-Forwarded-Encrypted: i=1; AKwUvByqrDlh2bZfZIO0AbDQBO1YBfQ6LOkbThsIpeuKi0MQSKwhVo6AGr1ElZPLPPokTVYTMNZPw0fp+JWCGx/1i5sc@lists.infradead.org
-X-Gm-Message-State: AFq9FYLWhxi420hEy2pMJWdfBC5gjz+5nwTmIZIC8lGiP8Kmi1MiE8qU
-	HYddOwtfYvkSD6VRTrX3n327DoN4aXsGtrIMSQ4YZCpqqAHaIITzFwKSzZFsS+eKI4YL5+ar+7O
-	XIx8bJy47HVrv63MQmwCXAHAT64Cka1k=
-X-Gm-Gg: AYBFou0C/0Pm04SBRj3K88uSOapyskWznSgBbKLUDp+yKitBQBSbfpyz6ohEVcU5hvG
-	ZbxfnMICCck1505AVOYiTtNHqIJvPEoxrD3/RB57SzYZrDly07VStXNtzzaQ3lUoP/hFLpO6sOz
-	c6KHNkRcGW84eD4/q98ihL3Waq4sWFujXC84qnP1dDjbWZA6LQpM2x2bwhVi5s7dbZyQgCaXfH2
-	YOms8MlXAJ9ihlGA079n64hWtfPRdN0XxBdzZYSlqD/trumn5fnFh7EMJu1dkaEjztq5sQt7/MD
-	kbmj6o/jc1bm+8z+mDbGx4wufFSsrm47780pIFNcspGX4G7AlrPjPg==
-X-Received: by 2002:a2e:a803:0:b0:3a6:62bb:906e with SMTP id
- 38308e7fff4ca-3a76479b880mr2991121fa.20.1790660270947; Mon, 28 Sep 2026
- 22:37:50 -0700 (PDT)
+	id 1xBQa9-00000002NZI-32C1;
+	Tue, 29 Sep 2026 05:40:49 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by tor.source.kernel.org (Postfix) with ESMTP id D7A0C60210;
+	Tue, 29 Sep 2026 05:40:48 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id D4F2B1F000FF;
+	Tue, 29 Sep 2026 05:40:44 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1790660448;
+	bh=EulcM3Sez+szsCjpIOBGwG5tjCkG7m4d88gy5OahXvI=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To;
+	b=TjWVifi50PlhyMwHlCn+/EPVWx27OtgK+/1gaxTsveJKzQf/197wj5N1N0Ka/xo8R
+	 NlVCpjlnX1m502N9OcsE8jGrPQwj9RZV+loFmPoW1YDM4nlsqzBDfXlfHi0mVppWFn
+	 9PzIUJl/KVw4TZ+pkrU3/b1fmqIkk5Ws9lVI42N0uQNml6dFBlkykZXdGognVBl6rY
+	 v8c7XxE2uJZ0VgbcqsLZ38To98Cy1u0Ex5jMy27/EqCxgFhVdPQ9yGNSol4Zg2dFfd
+	 qxNtjH4csoJtHc6nLycXLfAL/Gs1L7/19KLnL8uMIuh7BhzxLkBk3x967t8irQBroi
+	 Jpl4iZKdug4vQ==
+Message-ID: <33499600-5df7-48fb-a2ac-5a703df8dc2d@kernel.org>
+Date: Tue, 29 Sep 2026 07:40:42 +0200
 MIME-Version: 1.0
-References: <20260927081034.350422-1-maimon.sagi@gmail.com> <arsCWFmUhSYkhcCv@devvm20253.cco0.facebook.com>
-In-Reply-To: <arsCWFmUhSYkhcCv@devvm20253.cco0.facebook.com>
-From: Sagi Maimon <maimon.sagi@gmail.com>
-Date: Tue, 29 Sep 2026 08:37:24 +0300
-X-Gm-Features: AclHuK8JAeWlDi0d7__PRO1w7MUiU220HLhnmM4wnT1m-kDeU30Mnzj_nbHR38A
-Message-ID: <CAMuE1bH_=zqxf0-cfJozeaytGmK=q_WK0iwVxP_yH+AkJxHO=g@mail.gmail.com>
-Subject: Re: [PATCH net] net: axienet: free outstanding TX buffers in axienet_dma_bd_release()
-To: Joe Damato <joe@dama.to>, Sagi Maimon <maimon.sagi@gmail.com>, netdev@vger.kernel.org, 
-	radhey.shyam.pandey@amd.com, michal.simek@amd.com, andrew+netdev@lunn.ch, 
-	davem@davemloft.net, edumazet@google.com, kuba@kernel.org, pabeni@redhat.com, 
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
-	daniel@iogearbox.net
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260928_223753_403225_27AF4C4E 
-X-CRM114-Status: GOOD (  14.96  )
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v10 3/6] media: dt-bindings: Add Amlogic V4L2 video
+ decoder
+To: Zhentao Guo <zhentao.guo@amlogic.com>
+Cc: Neil Armstrong <neil.armstrong@linaro.org>,
+ Kevin Hilman <khilman@baylibre.com>, Jerome Brunet <jbrunet@baylibre.com>,
+ Martin Blumenstingl <martin.blumenstingl@googlemail.com>,
+ Mauro Carvalho Chehab <mchehab@kernel.org>, Rob Herring <robh@kernel.org>,
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
+ <conor+dt@kernel.org>, linux-arm-kernel@lists.infradead.org,
+ linux-amlogic@lists.infradead.org, linux-kernel@vger.kernel.org,
+ linux-media@vger.kernel.org, devicetree@vger.kernel.org
+References: <20260924-b4-s4-vdec-upstream-v10-0-1289303a58a4@amlogic.com>
+ <20260924-b4-s4-vdec-upstream-v10-3-1289303a58a4@amlogic.com>
+ <20260928-efficient-secret-manatee-2fcca6@quoll>
+ <7fe35ef7-e894-4137-975a-9a5f621a8156@amlogic.com>
+From: Krzysztof Kozlowski <krzk@kernel.org>
+Content-Language: en-US
+Autocrypt: addr=krzk@kernel.org; keydata=
+ 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
+In-Reply-To: <7fe35ef7-e894-4137-975a-9a5f621a8156@amlogic.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -118,29 +122,60 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Sep 29, 2026 at 3:12=E2=80=AFAM Joe Damato <joe@dama.to> wrote:
->
-> On Sun, Sep 27, 2026 at 11:10:34AM +0300, Sagi Maimon wrote:
->
-> [...]
->
-> > Walk the TX ring the way axienet_dma_err_handler() already does: unmap
-> > every descriptor whose cntrl is still set - axienet_free_tx_chain()
-> > clears it on reclaim - and free any skb still attached.
->
-> The code added in this patch and in axienet_dma_err_handler are almost
-> identical (as your commit message suggests). I am wondering if it's possi=
-ble
-> to factor this code out into a helper and instead call it from both place=
-s
-> instead of repeating the same code?
+On 29/09/2026 04:59, Zhentao Guo wrote:
+> Hi Krzysztof,
+> 
+>> On Thu, Sep 24, 2026 at 03:55:10PM +0800, Zhentao Guo wrote:
+>>> Add bindings for Amlogic hardware decoder accelerator.
+>>>
+>>> Signed-off-by: Zhentao Guo <zhentao.guo@amlogic.com>
+>>> ---
+>>>   .../devicetree/bindings/media/amlogic,s4-vdec.yaml | 114 +++++++++++++++++++++
+>>>   1 file changed, 114 insertions(+)
+>>>
+>>> diff --git a/Documentation/devicetree/bindings/media/amlogic,s4-vdec.yaml b/Documentation/devicetree/bindings/media/amlogic,s4-vdec.yaml
+>>> new file mode 100644
+>>> index 000000000000..751043c3d9cc
+>>> --- /dev/null
+>>> +++ b/Documentation/devicetree/bindings/media/amlogic,s4-vdec.yaml
+>>> @@ -0,0 +1,114 @@
+>>> +# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
+>>> +# Copyright (C) 2025 Amlogic, Inc. All rights reserved
+>>> +%YAML 1.2
+>>> +---
+>>> +$id: http://devicetree.org/schemas/media/amlogic,s4-vdec.yaml#
+>>> +$schema: http://devicetree.org/meta-schemas/core.yaml#
+>>> +
+>>> +title: Amlogic Video Decode Accelerator
+>>> +
+>>> +maintainers:
+>>> +  - Zhentao Guo <zhentao.guo@amlogic.com>
+>>> +
+>>> +description:
+>>> +  The Video Decoder Accelerator present on Amlogic SOCs.
+>>> +  It supports stateless h264 decoding.
+>>> +
+>>> +properties:
+>>> +  compatible:
+>>> +    const: amlogic,s4-vdec
+>>> +
+>>> +  reg:
+>>> +    minItems: 2
+>> What is happening here? Previous version was different.
+> 
+> maxItems: 2 implies that a single items is also allowed,but the hardware actually requires at least two register regions (dos 
 
-Yes, the unmap-and-free part is the same; the error handler also clears
-each descriptor for reuse, and frees with dev_kfree_skb_irq() where this
-uses dev_kfree_skb(), so a shared helper would use dev_kfree_skb_any().
-Since this goes to net with a Fixes: tag I kept it to the minimal
-change.  I will send the helper to net-next once this fix has reached
-it, if that works for you.
-Thanks,
-Sagi
+Since when?
+
+> and dmc) to work, so minItems:2 makes sense here.
+> 
+> The same applies to |power-domain| and |interrupts| below. At least 2 
+> power-domains to make the hardware work, and at least 2 interrupts 
+> needed for the two sub-cores.
+
+
+
+
+Best regards,
+Krzysztof
 
