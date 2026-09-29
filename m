@@ -4,60 +4,82 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2F2DAC9832A
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 29 Sep 2026 03:42:25 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C30BECA5FA1
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 29 Sep 2026 03:45:25 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=n1YI4hyXyX0aivEKDfVA4Aorptcg2BNBjE9ovwLnXig=; b=R2GPKsS/ph9CmJGny7vdLvxiWV
-	jLLMZ8CAejnYXwUqF7C5BG9SrUmx40lDtiDCRs7O2qVehEsY9symC7B7G8ZlEeN8w7ZqJz2SU3IoW
-	qykdbfSGAjAVH56YWWc0+UHwFLT+iSNc9bUysS/hh9GSzh+LHm/z1RueID03tLcjMWqbahhd6WlOa
-	FGO4GBIKPtiF2EgOUJilYbgnSPivoHmXhIlpdizqDQ5h/3dhNicYunPkmccSr8qBGIjErq+PP6B2L
-	cd1Bra3GdYctXqvjx1DTL6/FRmTdyKEOCFitHpRUndiQEt+xnAdKm9dsBL9Lzlw3kXuTfRDpheko1
-	8GNXvPjA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:From:
+	Subject:Message-ID:Mime-Version:Date:Reply-To:Content-Transfer-Encoding:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=cO5CSezgILdCLgBGPoB5QW8zV3ggyW4Ktr4y/Mx2zCY=; b=EVT6oH71hU/2KPMpb3Ri+K8P9G
+	JUxTkBfVTQVnTbc6EQEOPtOQpgk793cuCm0aEkmhF/sl9pUUTbPFaN+z0NafB7eAbQsA2N63Vnip5
+	KZ2BcGJgk/3eThBQEk1UiljT6SFPPRHPN9CP8KqnHIbhteQ0HpvJGww181huv2WsnJUXTAKCIfDzB
+	rVjL4ECj3Y9xzBrWMbcO9usVBRzMiaADnn+OgNRfvaAsFUKUUDs6Zrv3QDGDVpuoNj1Xz5QQ1G3y8
+	G/GZ91N7F103g8SMy3lxA/XG6GxhdmEWhLgrxOCtPTgb+wLMbTCXZfnt/JoMSh+xuTo9hlahVgBxK
+	hJttWD5A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xBOjR-00000002FIc-3fnv;
-	Tue, 29 Sep 2026 03:42:17 +0000
-Received: from sendmail.purelymail.com ([34.202.193.197])
+	id 1xBOmM-00000002G3G-1Ikt;
+	Tue, 29 Sep 2026 03:45:18 +0000
+Received: from mail-pf1-x445.google.com ([2607:f8b0:4864:20::445])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xBOjP-00000002FGf-25CC
+	id 1xBOmJ-00000002G2s-30E4
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 29 Sep 2026 03:42:17 +0000
-DKIM-Signature: a=rsa-sha256; b=8W339XFfyT9SFEY3Sc5sviYn0vReELruMLixJvSJMKpMcGRP8m3mQ5nBMFyugscrShj/h14wABzkkSCTCwO0Rs/jI9XZfhf/iVuYbL2do33URSqS2nyNo11niZgDvf7KBssl25CfTA/Mds4FdvHy5/SJJoLKMKepDPtRqaAyY+I08P5jDe/GdKaom2CpLfG8Wsc1stfoc1iaBZIcEm47dtEn/SwqU6vtn5jl8T1IXCrTcnh2kFGqNiRJzu/C7Uxkq4VDwJCFfraW0pm47q5qanDYPXR4vcrQWEEN0CHcAXQnnRm2AsrQS1jRn2+pFLelCZeRqNkhvVVQfTqnRmf8kg==; s=purelymail3; d=q-lab.dev; v=1; bh=sd8FdrlgIj4k+JN42x1/AYfG2xFFyGj5w/xQanSsFV8=; h=Received:Date:Subject:To:From;
-DKIM-Signature: a=rsa-sha256; b=9ctI/jik4yDNFoHtDukzsQjJYyhlGqcnCUcAjtaBcITojg+5tL41x4PwJtHbEzJKHAFTCyl5PjW6oYP2CdM3IhEEEr8reo/YjZG6RVmfunONzUKmpAVwMVZBLVhTm07JLJSH83r5VaVJaCtrhrqktXGdS3xtq5Mlz4m8ymmFcmJGCU+Fif/6Z5xajm4TAK1C3gGDkwJlTexmzjser/xXHsXJhmca0+q5GpYpS9z3hCpDy15xUvIMlieDFYxyZI4O1M/RnJPQSXJZryS/ovVBsWHXB8kEV2LmtqN0RW/LVKYk4SlnvPY9wdQabVpVF8OEOmq9gFhO16cPbFxvqCZeyw==; s=purelymail3; d=purelymail.com; v=1; bh=sd8FdrlgIj4k+JN42x1/AYfG2xFFyGj5w/xQanSsFV8=; h=Feedback-ID:Received:Date:Subject:To:From;
-Feedback-ID: 284201:25281:null:purelymail
-X-Pm-Original-To: linux-arm-kernel@lists.infradead.org
-Authentication-Results: purelymail.com; auth=pass
-Received: by smtp.purelymail.com (Purelymail SMTP) with ESMTPSA id 898957456;
-          (version=TLSv1.3 cipher=TLS_AES_256_GCM_SHA384);
-          Tue, 29 Sep 2026 03:41:40 +0000 (UTC)
-Message-ID: <4e1ef527-e843-4f1b-9f7f-cf2400fa443e@q-lab.dev>
-Date: Mon, 28 Sep 2026 20:41:29 -0700
-MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH net] net: sparx5: start the domain 0 TOD counter on
- non-PTP lan969x variants
-To: Daniel Machon <daniel.machon@microchip.com>
-Cc: netdev@vger.kernel.org, Andrew Lunn <andrew+netdev@lunn.ch>,
- "David S. Miller" <davem@davemloft.net>, Eric Dumazet <edumazet@kernel.org>,
- Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
- Steen Hegelund <Steen.Hegelund@microchip.com>, UNGLinuxDriver@microchip.com,
- Richard Cochran <richardcochran@gmail.com>,
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-References: <20260928044955.29647-1-quentin@q-lab.dev>
- <20260928151453.fzch356vrp3ergy7@DEN-DL-M70577>
-Content-Language: en-US
-From: Quentin Freimanis <quentin@q-lab.dev>
-In-Reply-To: <20260928151453.fzch356vrp3ergy7@DEN-DL-M70577>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
+	Tue, 29 Sep 2026 03:45:17 +0000
+Received: by mail-pf1-x445.google.com with SMTP id d2e1a72fcca58-8814bf38f80so2341989b3a.1
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 28 Sep 2026 20:45:14 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=google.com; s=20251104; t=1790653514; x=1791258314; darn=lists.infradead.org;
+        h=content-type:cc:to:from:subject:message-id:mime-version:date:from
+         :to:cc:subject:date:message-id:reply-to:content-type;
+        bh=cO5CSezgILdCLgBGPoB5QW8zV3ggyW4Ktr4y/Mx2zCY=;
+        b=PtwgAGH1FAUu2sScQ8TswnLGFw8r1ILEokMwzdAZU64rlSfGEyOELjqZo2i/ybwwZZ
+         u+nLgHG484tnVw0XHCwUggDZlUuu/urDvnknoVjsSbNh3kSkVE0X9XO7AgDoEWcMMdYq
+         iYSBRyospTKHWEodhSulEkLbiGOHvvv0JJCm8wXrZA+rADhuTmUPDZMpCssWJEtZaPUd
+         Hms886M9tnc9CJ3YSLTAjA7ZEAJ2ASI+Z7lE4vt8EVeM5XBcg4n8WYeMPcCLFr00U8er
+         TG7O3/JJP0Zuf7+ApllWjILFQLBVxRWRZ1R3mJLydKEtMfGhxg2v6lnuqUsnukmaE/vm
+         CLRw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1790653514; x=1791258314;
+        h=content-type:cc:to:from:subject:message-id:mime-version:date
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=cO5CSezgILdCLgBGPoB5QW8zV3ggyW4Ktr4y/Mx2zCY=;
+        b=NFZgbnGW0wsRytEmgOQsAKTHGYzzGfqQgTcP1vqWjNlvcyk8WBwGbFCYsItKzopp+x
+         hFU4JLZLHBc3syE9RG+S7nBM5i93y3Q35a4r0fl1v+y/nbyh3/TwprQ2EpPZzTr5IWNG
+         91Q6eV+QtFjuaambAOKUqi7+m9kgEKQdDdsomq2joDmV9K6c1jjhjLOwkLB7XakeMAJQ
+         qhmyrDCsej4l9nD3fpl5hjPoa45rVJ5ysPtpFqTEB9k+qqxOTVfRsPuLDz1Y+OA/DCVU
+         I8Rf8pi8fV3AHDHPDmJkZKH/8ig6GM7Yz1o0YDRBmPbnORK2PoGFMo3Wj+sn//kF/TeI
+         8usQ==
+X-Forwarded-Encrypted: i=1; AKwUvByoYSV8qlQvOfm2RZfNBt87BPttokx4meOzSBmoOVGOCJz8jtapzNqpaay49AsAHo+Di+9W9DoW8MY7RLE0xox2@lists.infradead.org
+X-Gm-Message-State: AFuF++mE2LUpirBkcDEL0ECjfWYUO+zi40B3zi9w+8hg6o20qeVROA8L
+	YHsf0qj4yLD3OxnosGcAFWPUaUcVZre9AetPqVGrx3rw5eAeC0+XpWPxAsBPM9WdZDSoAXg4tgx
+	n3A==
+X-Received: from pfbem34.prod.google.com ([2002:a05:6a00:3762:b0:87f:b894:8564])
+ (user=praan job=prod-delivery.src-stubby-dispatcher) by 2002:a05:6a00:1a8d:b0:883:54dc:7892
+ with SMTP id d2e1a72fcca58-88354dc7c05mr3977977b3a.52.1790653513709; Mon, 28
+ Sep 2026 20:45:13 -0700 (PDT)
+Date: Tue, 29 Sep 2026 03:44:54 +0000
+Mime-Version: 1.0
+X-Mailer: git-send-email 2.56.0.rc1.315.gc6ed9934b7-goog
+Message-ID: <20260929034510.2023173-1-praan@google.com>
+Subject: [PATCH v11 00/16] iommu/arm-smmu-v3: Implement Runtime/System Sleep ops
+From: Pranjal Shrivastava <praan@google.com>
+To: iommu@lists.linux.dev
+Cc: Will Deacon <will@kernel.org>, Joerg Roedel <joro@8bytes.org>, 
+	Robin Murphy <robin.murphy@arm.com>, Jason Gunthorpe <jgg@ziepe.ca>, Mostafa Saleh <smostafa@google.com>, 
+	Nicolin Chen <nicolinc@nvidia.com>, Daniel Mentz <danielmentz@google.com>, 
+	Ashish Mhetre <amhetre@nvidia.com>, linux-arm-kernel@lists.infradead.org, 
+	Thomas Gleixner <tglx@kernel.org>, Radu Rendec <radu@rendec.net>, Bjorn Helgaas <bhelgaas@google.com>, 
+	linux-pci@vger.kernel.org, linux-kernel@vger.kernel.org, 
+	Greg Kroah-Hartman <gregkh@linuxfoundation.org>, rafael@kernel.org, 
+	Danilo Krummrich <dakr@kernel.org>, driver-core@lists.linux.dev, 
+	Pranjal Shrivastava <praan@google.com>
+Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260928_204215_669155_F1C86370 
-X-CRM114-Status: GOOD (  33.73  )
+X-CRM114-CacheID: sfid-20260928_204515_780669_9C8CC59C 
+X-CRM114-Status: GOOD (  22.24  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -72,267 +94,286 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Daniel, thanks for taking the time to reply.
+As arm-smmu-v3 rapidly finds its way into SoCs designed for hand-held
+devices, power management capabilities, similar to its predecessors, are
+crucial for these applications. This series introduces power management
+support for the arm-smmu-v3 driver.
 
-On 9/28/26 8:14 AM, Daniel Machon wrote:
-> Hi Quentin,
-> 
->> Currently the base non-PTP capable lan969x variants don't forward any
->> ethernet frames. Testing showed that starting the domain 0 TOD counter
->> gets them working again.
-> 
-> Ack. Not initializing the TOD domains on certain variants is a problem.
-> 
-> However, TOD domains shouldn't affect basic forwarding. I tried it on my board
-> with PTP forced off - no forwarding issues.
-> 
-> Certain TSN features do require TOD domains to be configured, though. How did
-> you test this, and what exactly did you see fail?
+Design
+======
+The arm-smmu-v3 primarily operates with in-memory data structures
+through HW registers pointing to these data structures. The proposed design
+makes use of this fact for implementing suspend and resume ops, centered
+around a software gate embedded in the command queue.
 
-Here is my test setup:
+1. CMDQ Gate (CMDQ_PROD_STOP_FLAG)
+To safely manage runtime PM without regressing performance on high core
+count servers or systems not opting for runtime power management,
+this series introduces a CMDQ_PROD_STOP_FLAG (bit 30) in the command
+queue's producer index. The flag acts as a Point of Commitment in the
+cmpxchg loop of arm_smmu_cmdq_issue_cmdlist(), ensuring no new indices
+are reserved once suspension begins.
 
-- a LAN9698-V/3KW purchased on digikey in October 2025.
+2. Suspend / Resume Flow
+The suspend operation follows a multi-stage quiesce sequence:
+  a. Stop Traffic: Sets SMMUEN=0 and GBPA=Abort to halt new transactions.
+  b. Gate CMDQ: Sets the CMDQ_PROD_STOP_FLAG to block new submissions.
+  c. Command Flush: Waits for any in-flight "owner" threads to commit
+     their reserved indices to hardware.
+  d. SW Quiesce: Waits for all concurrent threads to release the shared
+     cmdq->lock, ensuring no CPUs are left polling CONS register.
+  e. HW Drain: Polls the CMDQ until all committed commands are consumed.
+  f. IRQ Quiesce: Disables hardware IRQs and waits for racing handlers to
+     complete via synchronize_irq()
 
-- My SoM dtsi [1], board dts [2], schematics of the som [3] and 
-schematics of the carrier board [4].
+Entering the suspend sequence implies that the device has no active
+clients. In v8, a surgical state-correction is added to runtime_suspend:
+if draining fails, the software trackers (cons and owner_prod) are forced
+to align with the masked producer index. This voids any stale commands for
+the next session and prevents deadlocks or spurious executions upon
+resumption.
 
-- net/main commit a7bfaba4823e
+The resume operation clears the STOP_FLAG & performs a full device
+reset via arm_smmu_device_reset(), which re-initializes the HW using the
+SW-copies maintained by the driver and clears all cached configurations.
 
-- a minimal buildroot initramfs [5]
+3. Guarding Hardware Access and Elision
+The driver ensures the SMMU is active before hardware access via
+arm_smmu_rpm_get() and arm_smmu_rpm_put() helpers. To maintain code
+clarity, invalidation call-sites no longer perform manual elision checks;
+instead, elision is authoritative within the CMDQ submission path.
 
-- eth10 in the test log is a 1g RGMII port connected to a RTL8211F PHY.
+The renamed helper, arm_smmu_is_active(), is preserved only for
+critical diagnostic (ATC), early-drop (Page Response), and gerror
+short-circuits. For ATC invalidations, devlinks must guarantee the SMMU
+is active if the endpoint is active; a WARN_ON_ONCE() catches
+inconsistencies.
 
-Note: I've snipped the output of some commands to save space.
+4. Implementation-Specific Quiescing (Tegra VCMDQ)
+Implementation-specific gating and draining are consolidated into
+a unified quiesce_and_drain_queues callback. The tegra241-cmdqv driver
+is updated to gate all active local virtual queues (VINTF0) before
+draining.
 
-Without this patch, right after a reboot:
+5. Interrupt Re-config
+a. Wired irqs: The series refactors arm_smmu_setup_irqs to allow
+separate installation of handlers, aiding in correct re-initialization.
 
-     $ cat /proc/cmdline
-     console=ttyAT0,115200 earlycon
-     systemd.mask=systemd-networkd.service
-     systemd.mask=systemd-networkd.socket
+b. MSIs: The genirq/msi core caches the msi_msg in
+irq_chip_write_msi_msg() and provides msi_device_domain_restore_msi_msgs(),
+which arm_smmu_resume_msis() invokes during resume.
 
-     $ uname -a
-     Linux buildroot 7.3.0-rc4 #11 SMP PREEMPT Mon Sep 28 19:14:03 PDT 
-2026 aarch64 GNU/Linux
+c. GERROR: Late-breaking global errors are captured and handled
+immediately after SMMU disablement during suspend to ensure no diagnostic
+information is lost.
 
-     $ ip link set eth10 up
+Scalability and Performance
+===========================
+A key design goal of this series is to ensure that high-performance
+systems (typically servers) that do not enable runtime PM are not
+penalized. By embedding a stop flag in the command queue's producer
+index and designing RPM helpers to perform only read-only checks when
+RPM is disabled, command submission on these systems incurs negligible
+overhead. Power-managed systems only utilize runtime PM atomics as
+necessary, ensuring that scalability is maintained across all hardware
+classes.
 
-     $ ip addr add 10.0.0.45/24 dev eth10
+Sashiko Reviews and Documentation
+=================================
+The series was run through Sashiko locally. In response to the review
+feedback, extensive verbose comments have been added across the series to
+thoroughly document hardware/software synchronization invariants, memory
+ordering dependencies (Point of Commitment, dma_wmb vs. smp_mb), and
+devlink power guarantees. Several edge-case race conditions, unmasking
+bugs, and resource leak paths were also addressed.
 
-     $ ping 10.0.0.1
-     PING 10.0.0.1 (10.0.0.1): 56 data bytes
-     --- 10.0.0.1 ping statistics ---
-     9 packets transmitted, 0 packets received, 100% packet loss
+[v11]
+ - Replaced platform_device_msi_rewrite() and driver-side msi_msg caching
+   with generic genirq/msi core support as suggested and provided by tglx
+   (Thomas Gleixner):
+   * Cache desc->msg in irq_chip_write_msi_msg() and document why the
+     assignment in __pci_write_msi_msg() remains for direct callers.
+   * Provide msi_device_domain_restore_msi_msgs() in kernel/irq/msi.c.
+   * Update arm_smmu_resume_msis() to call msi_device_domain_restore_msi_msgs()
+     and drop manual msi_msg caching from arm_smmu_write_msi_msg().
+ - Rebased onto v7.3-rc4.
 
-     $ cat /proc/interrupts
-                 CPU0
-     20:          0  GIC-0  120 Level     sparx5-fdma
+[v10]
+ - https://lore.kernel.org/all/20260908171712.356645-1-praan@google.com/
+ - Picked up common drain helpers from Nicolin's PRI series v3 [1].
+ - Introduced platform_device_msi_rewrite() in platform/msi core
+   (suggested by Jason).
+ - Fixed the stale interrupt issue caused by calling arm_smmu_setup_irqs()
+   early in probe (as reported by Sashiko in v9) by passing a bool to 
+   arm_smmu_device_reset() to ensure irqs aren't set-up again on resume.
+ - Fixed a CMDQ gate bypass race where threads waking from 
+   poll_until_not_full() could commit commands after STOP_FLAG was asserted
+ - Fixed a masking issue in __arm_smmu_cmdq_issue_cmdlist() & tegra241-cmdqv
+ - Added tegra241_vcmdq_wait_quiescent() to wait for in-flight owner threads
+ - Fixed VCMDQ drain loop error handling to continue draining remaining
+   queues rather than abandoning them on timeout (pointed by Sashiko in v9)
+ - Explicitly zeroed *_IRQ_CFG0 registers during resume as they reset to
+   unknown values.
+ - Cleared ARM_SMMU_FEAT_MSI on MSI setup fallback to avoid spurious
+   MSI rewrites on resume.
+ - Retitled GERROR patch to "Factor out arm_smmu_handle_gerror()" for clarity
+ - Handled devlink creation failure in arm_smmu_probe_device()
+ - Added checks for the retval of arm_smmu_rpm_get() in 
+   arm_smmu_disable_action() & arm_smmu_device_shutdown()
+ - Clarified rationale for asynchronous put in teardown and shutdown paths
+   where hardware has already been explicitly disabled.
+ - Documented safety of eliding ATC invalidations during suspend based on
+   PCIe link power states and devlink guarantees per Jason's comment.
+ - Fixed stack timer lifecycle in KUnit tests using timer_setup_on_stack()
+   and timer_destroy_on_stack(), and resolved mock register endianness.
+ - Added extensive verbose comments across the patches explaining locking,
+   synchronization invariants, and devlink power guarantees based on local
+   Sashiko review.
+ - Collected Reviewed-by tags from Jason Gunthorpe.
+ - Rebased onto latest arm/smmu/updates
+   [1] https://lore.kernel.org/all/cover.1788222485.git.nicolinc@nvidia.com/
 
-     $ ip -s link
-     12: eth10: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1500 qdisc mq 
-state UP mode DEFAULT group default qlen 1000
-         link/ether 4e:b7:8e:61:37:1e brd ff:ff:ff:ff:ff:ff
-         RX:  bytes packets errors dropped  missed   mcast
-             53745     278      0       0       0     174
-         TX:  bytes packets errors dropped carrier collsns
-                 0       0      0       0       0       0
-         altname enx4eb78e61371e
+[v9]
+ - https://lore.kernel.org/all/20260728210928.1050849-1-praan@google.com/
+ - Replaced atomic_fetch_or_relaxed() with atomic_fetch_or() for
+   correct ordering while asserting the STOP_FLAG
+ - Moved arm_smmu_drain_queues() after the cmdq->lock wait loop in
+   runtime_suspend() as per feedback in v8.
+ - Refactored suspend sequence to use arm_smmu_disable_irqs() and
+   synchronize_irq() for safe GERROR handling.
+ - Fixed an off-by-one error in suspend polling timeouts.
+ - Dropped arm_smmu_cmdq_can_elide() check from inv_range
+ - Renamed arm_smmu_cmdq_can_elide() to arm_smmu_is_active().
+ - Removed redundant bitwise masking from owner_prod reads.
+ - Added comments to explain locking, gating and elision better.
+ - Added comments to explain secondary cmdq draining and gating.
+ - Rebased on arm/smmu/updates
 
-After a fresh boot with this patch:
+[v8]
+ - https://lore.kernel.org/all/20260601215909.3958732-1-praan@google.com/
+ - Centralized elision logic: dropped redundant checks from invalidation
+   call-sites; elision is now authoritative within the CMDQ layer.
+ - Renamed elision helper to arm_smmu_cmdq_can_elide() and preserved it
+   only for diagnostic/safety paths (ATC, GERROR, Page Response).
+ - Consolidated implementation-specific gating and draining into a
+   unified quiesce_and_drain_queues callback.
+ - Updated tegra241-cmdqv to gate virtual queues before draining,
+   addressing non-deterministic timeouts from guest-side submissions.
+ - Re-ordered probe sequence to enable pm_runtime only at the end,
+   aligning with SMMUv2 and simplifying error paths.
+ - Refactored KUnit tests for better, addressed Nicolin's comments & added
+   a multi-threaded kthread race test.
+ - Refactored RPM helpers to use early-return patterns for improved clarity.
+ - Collected R-bs from Nicolin.
 
-     $ cat /proc/cmdline
-     console=ttyAT0,115200 earlycon 
-systemd.mask=systemd-networkd.service systemd.mask=systemd-networkd.socket
+[v7]
+ - https://lore.kernel.org/all/20260527221407.1756491-1-praan@google.com/
+ - Rebased on the latest arm/smmu/updates branch (which has the removal of
+   struct arm_smmu_cmdq_ent merged)
+ - Converted manual cmpxchg loops in suspend/resume to use atomics
+ - Re-worked to elide invalidations solely based on the CMDQ_PROD_STOP_FLAG
+   via arm_smmu_can_elide(), dropping any need for pm_runtime_get_if_active
+ - Added an smp_mb() fence in the reset sequence to ensure that the SMMU
+   acquires all RAM updates made by newly un-gated threads before SMMUEN=1
+ - Implemented bitwise masking for the PROD register to prevent software
+   metadata (STOP_FLAG) bits from being written to physical hardware.
+ - Introduced a KUnit test suite to verify the CMDQ gating algorithm
 
-     $ uname -a
-     Linux buildroot 7.3.0-rc4 #10 SMP PREEMPT Sun Sep 27 21:23:12 PDT 
-2026 aarch64 GNU/Linux
+[v6]
+ - https://lore.kernel.org/all/20260414194702.1229094-1-praan@google.com/
+ - Replaced the atomic nr_cmdq_users counter with CMDQ_PROD_STOP_FLAG
+   to eliminate atomic overhead on high-core count servers.
+ - Implemented a 5-step quiesce sequence in runtime_suspend including
+   pipeline flushes and software completion barriers.
+ - Introduced arm_smmu_rpm_get_if_active() to elide TLB/CFG/ATC
+   invalidations when the SMMU is suspended.
+ - Added WARN_ON_ONCE() in invalidation paths to detect inconsistent
+   power states for active endpoints.
+ - Refined batch submission in __arm_smmu_domain_inv_range() to ensure
+   clean state when dropping batches.
+ - Refactored GERROR handling for better integration with suspend.
+ - Added Suggested-by tags for Daniel Mentz.
 
-     $ ip link set eth10 up
+[v5]
+ - https://lore.kernel.org/all/20260126151157.3418145-1-praan@google.com/
+ - Refactored GERROR handling into a helper function and invoked it during
+   runtime suspend after disabling the SMMU to capture any late-breaking
+   gerrors as suggested by Jason.
+ - Updated `arm_smmu_page_response` to be power-state aware and drop
+   page faults received while suspended.
+ - Included a patch from Ashish to correctly restore PROD and CONS
+   indices for tegra241-cmdqv after a hardware reset.
+ - Collected Reviewed-bys from Mostafa and Nicolin.
 
-     $ ip addr add 10.0.0.45/24 dev eth10
+[v4]
+ - https://lore.kernel.org/all/20251117191433.3360130-1-praan@google.com/
+ - Dropped the `pm_runtime_get_if_not_suspended()` API in favor of a
+   simpler, driver-specific biased counter (`nr_cmdq_users`) to manage
+   runtime PM state.
+ - Reworked the suspend callback to poll on the biased counter before
+   disabling the SMMU.
+ - Addressed comments for the MSI refactor.
 
-     $ ping 10.0.0.1
-     PING 10.0.0.1 (10.0.0.1): 56 data bytes
-     64 bytes from 10.0.0.1: seq=0 ttl=64 time=1.927 ms
-     64 bytes from 10.0.0.1: seq=1 ttl=64 time=0.876 ms
-     64 bytes from 10.0.0.1: seq=2 ttl=64 time=0.832 ms
-     --- 10.0.0.1 ping statistics ---
-     3 packets transmitted, 3 packets received, 0% packet loss
-     round-trip min/avg/max = 0.832/1.211/1.927 ms
+[v3]
+ - https://lore.kernel.org/all/20250616203149.2649118-1-praan@google.com/
+ - Introduced `pm_runtime_get_if_not_suspended` API to avoid races due
+   to bouncing RPM states while eliding TLBIs as pointed out by Daniel.
+ - Addressed Nicolin's comments regarding msi_resume and CMDQV flush
+ - Addressed Daniel's comments about CMDQ locking and draining
+ - Addressed issues related to draining the evtq and priq
+ - Dropped the code to identify and track user-space attachments
 
-     $ cat /proc/interrupts
-                 CPU0
-     20:       2039  GIC-0  120 Level     sparx5-fdma
+[v2]
+ - https://lore.kernel.org/all/20250418233409.3926715-1-praan@google.com/
+ - Introduced `arm_smmu_rpm_get_if_active` for eliding TLBIs & CFGIs
+ - Updated the rpm helper invocation strategy.
+ - Drained all queues in suspend callback (including tegra241-cmdv)
+ - Cache and restore msi_msg instead of free-ing realloc-ing on resume
+ - Added support to identify and track user-space attachments
+ - Fixed the setup_irqs as per Nicolin & Mostafa's suggestions
+ - Used force_runtime_suspend/resume instead as per Mostafa's suggestion.
+ - Added "Reviewed-by" line from Mostafa on an unchanged patch
 
-     $ ip -s link
+[v1]
+ - https://lore.kernel.org/all/20250319004254.2547950-1-praan@google.com/
 
-     12: eth10: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1500 qdisc mq 
-state UP mode DEFAULT group default qlen 1000
-         link/ether a2:ef:53:a5:06:73 brd ff:ff:ff:ff:ff:ff
-         RX:  bytes packets errors dropped  missed   mcast
-             147075    1646      0      96       0      61
-         TX:  bytes packets errors dropped carrier collsns
-             75918     957      0       0       0       0
+Ashish Mhetre (1):
+  iommu/tegra241-cmdqv: Restore PROD and CONS after resume
+
+Nicolin Chen (2):
+  iommu/arm-smmu-v3: Add Q_POS() macro
+  iommu/arm-smmu-v3: Add arm_smmu_drain_queue() helper
+
+Pranjal Shrivastava (12):
+  iommu/arm-smmu-v3: Refactor arm_smmu_setup_irqs
+  iommu/tegra241-cmdqv: Add a helper to drain VCMDQs
+  iommu/arm-smmu-v3: Add a helper to drain cmd queues
+  genirq/msi: Cache MSI message in irq_chip_write_msi_msg()
+  iommu/arm-smmu-v3: Restore MSI config on resume
+  iommu/arm-smmu-v3: Factor out arm_smmu_handle_gerror()
+  iommu/arm-smmu-v3: Add CMDQ_PROD_STOP_FLAG to gate CMDQ submissions
+  iommu/tegra241-cmdqv: Add a helper to quiesce VCMDQs
+  iommu/arm-smmu-v3: Implement pm_runtime & system sleep ops
+  iommu/arm-smmu-v3: Enable pm_runtime and setup devlinks
+  iommu/arm-smmu-v3: Invoke pm_runtime before hw access
+  iommu/arm-smmu-v3: Add KUnit unit tests for Runtime PM
+
+Thomas Gleixner (1):
+  genirq/msi: Provide msi_device_domain_restore_msi_msgs()
+
+ .../arm/arm-smmu-v3/arm-smmu-v3-iommufd.c     |  20 +-
+ .../iommu/arm/arm-smmu-v3/arm-smmu-v3-test.c  | 215 ++++++
+ drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c   | 702 +++++++++++++++++-
+ drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.h   |  29 +
+ .../iommu/arm/arm-smmu-v3/tegra241-cmdqv.c    | 128 ++++
+ drivers/pci/msi/msi.c                         |   6 +
+ include/linux/msi.h                           |   2 +
+ kernel/irq/msi.c                              |  46 ++
+ 8 files changed, 1109 insertions(+), 39 deletions(-)
 
 
-> 
->>
->> Fix by moving the TOD counter start code into a helper and calling it in
->> sparx5_ptp_init(). Non-PTP capable lan969x parts now start the domain 0
->> counter, and PTP-capable parts start all three, as they used to. A similar
->> workaround that starts all three and registers the PHC clocks is
->> implemented in the vendor BSP 6.18 kernel [1].
-> 
-> What we do downstream, is to ensure that all domains and PHC's are configured
-> and registered on all variants, with a very simple is_sparx5() check.
-
-My reasoning for only enabling the first counter and not registering the 
-clocks is that the part does not have SPX5_FEATURE_PTP, so it should not 
-expose any PTP features to userspace.
-
-> 
->>
->> [1] https://github.com/microchip-ung/linux/tree/bsp-6.18-2026
->>
->> Fixes: 207966787b71 ("net: sparx5: add feature support")
->> Signed-off-by: Quentin Freimanis <quentin@q-lab.dev>
->> ---
->> If anyone with access to documentation more detailed than the
->> register map knows WHY this clock needs to be running, I'd like to add
->> that to the commit message.
-> 
-> 
->>
->>   .../ethernet/microchip/sparx5/sparx5_ptp.c    | 72 +++++++++++++------
->>   1 file changed, 49 insertions(+), 23 deletions(-)
->>
->> diff --git a/drivers/net/ethernet/microchip/sparx5/sparx5_ptp.c b/drivers/net/ethernet/microchip/sparx5/sparx5_ptp.c
->> index 5953e04ef14e..b436684ddae6 100644
->> --- a/drivers/net/ethernet/microchip/sparx5/sparx5_ptp.c
->> +++ b/drivers/net/ethernet/microchip/sparx5/sparx5_ptp.c
->> @@ -573,6 +573,42 @@ static int sparx5_ptp_adjtime(struct ptp_clock_info *ptp, s64 delta)
->>          return 0;
->>   }
->>
->> +static int sparx5_ptp_tod_start(struct sparx5 *sparx5, u8 phc_mask)
->> +{
->> +       u64 tod_adj = sparx5_ptp_get_nominal_value(sparx5);
->> +       int i;
->> +
->> +       if (phc_mask > GENMASK(SPARX5_PHC_COUNT - 1, 0))
->> +               return -EINVAL;
->> +
->> +       /* Disable master counters */
->> +       spx5_wr(PTP_PTP_DOM_CFG_PTP_ENA_SET(0), sparx5, PTP_PTP_DOM_CFG);
->> +
->> +       /* Configure the nominal TOD increment per clock cycle */
->> +       spx5_rmw(PTP_PTP_DOM_CFG_PTP_CLKCFG_DIS_SET(phc_mask),
->> +                PTP_PTP_DOM_CFG_PTP_CLKCFG_DIS,
->> +                sparx5, PTP_PTP_DOM_CFG);
->> +
->> +       for (i = 0; i < SPARX5_PHC_COUNT; ++i) {
->> +               if (!(phc_mask & BIT(i)))
->> +                       continue;
->> +
->> +               spx5_wr((u32)tod_adj & 0xFFFFFFFF, sparx5,
->> +                       PTP_CLK_PER_CFG(i, 0));
->> +               spx5_wr((u32)(tod_adj >> 32), sparx5,
->> +                       PTP_CLK_PER_CFG(i, 1));
->> +       }
->> +
->> +       spx5_rmw(PTP_PTP_DOM_CFG_PTP_CLKCFG_DIS_SET(0),
->> +                PTP_PTP_DOM_CFG_PTP_CLKCFG_DIS,
->> +                sparx5, PTP_PTP_DOM_CFG);
->> +
->> +       /* Enable master counters */
->> +       spx5_wr(PTP_PTP_DOM_CFG_PTP_ENA_SET(phc_mask), sparx5, PTP_PTP_DOM_CFG);
->> +
->> +       return 0;
->> +}
->> +
->>   static struct ptp_clock_info sparx5_ptp_clock_info = {
->>          .owner          = THIS_MODULE,
->>          .name           = "sparx5 ptp",
->> @@ -605,7 +641,6 @@ static int sparx5_ptp_phc_init(struct sparx5 *sparx5,
->>
->>   int sparx5_ptp_init(struct sparx5 *sparx5)
->>   {
->> -       u64 tod_adj = sparx5_ptp_get_nominal_value(sparx5);
->>          const struct sparx5_ops *ops = sparx5->data->ops;
->>          struct sparx5_port *port;
->>          int err, i;
->> @@ -622,8 +657,17 @@ int sparx5_ptp_init(struct sparx5 *sparx5)
->>                  sparx5->ptp = 1;
->>          }
->>
->> -       if (!sparx5->ptp)
->> +       if (!sparx5->ptp) {
->> +               if (!is_sparx5(sparx5)) {
->> +                       /* the base, non-ptp-capable lan969x variants need the first tod counter
-> 
-> Nit: s/the/The
-> 
->> +                        * running to forward frames.
->> +                        */
->> +                       err = sparx5_ptp_tod_start(sparx5, BIT(0));
->> +                       if (err)
->> +                               return err;
->> +               }
->>                  return 0;
->> +       }
->>
->>          for (i = 0; i < SPARX5_PHC_COUNT; ++i) {
->>                  err = sparx5_ptp_phc_init(sparx5, i, &sparx5_ptp_clock_info);
->> @@ -635,27 +679,9 @@ int sparx5_ptp_init(struct sparx5 *sparx5)
->>          spin_lock_init(&sparx5->ptp_ts_id_lock);
->>          mutex_init(&sparx5->ptp_lock);
->>
->> -       /* Disable master counters */
->> -       spx5_wr(PTP_PTP_DOM_CFG_PTP_ENA_SET(0), sparx5, PTP_PTP_DOM_CFG);
->> -
->> -       /* Configure the nominal TOD increment per clock cycle */
->> -       spx5_rmw(PTP_PTP_DOM_CFG_PTP_CLKCFG_DIS_SET(0x7),
->> -                PTP_PTP_DOM_CFG_PTP_CLKCFG_DIS,
->> -                sparx5, PTP_PTP_DOM_CFG);
->> -
->> -       for (i = 0; i < SPARX5_PHC_COUNT; ++i) {
->> -               spx5_wr((u32)tod_adj & 0xFFFFFFFF, sparx5,
->> -                       PTP_CLK_PER_CFG(i, 0));
->> -               spx5_wr((u32)(tod_adj >> 32), sparx5,
->> -                       PTP_CLK_PER_CFG(i, 1));
->> -       }
->> -
->> -       spx5_rmw(PTP_PTP_DOM_CFG_PTP_CLKCFG_DIS_SET(0),
->> -                PTP_PTP_DOM_CFG_PTP_CLKCFG_DIS,
->> -                sparx5, PTP_PTP_DOM_CFG);
->> -
->> -       /* Enable master counters */
->> -       spx5_wr(PTP_PTP_DOM_CFG_PTP_ENA_SET(0x7), sparx5, PTP_PTP_DOM_CFG);
->> +       err = sparx5_ptp_tod_start(sparx5, GENMASK(SPARX5_PHC_COUNT - 1, 0));
->> +       if (err)
->> +               return err;
->>
->>          for (i = 0; i < sparx5->data->consts->n_ports; i++) {
->>                  port = sparx5->ports[i];
->> --
->> 2.55.0
->>
->>
-> 
-> /Daniel
-
-[1] 
-https://gitlab.com/qfreiman/buildroot-external-qlab/-/blob/master/board/qlab/openswitch-lan969x/dts/microchip/lan9698-openswitch.dtsi
-[2] 
-https://gitlab.com/qfreiman/buildroot-external-qlab/-/blob/master/board/qlab/openswitch-lan969x/dts/microchip/lan9698-openswitch-10x10g.dts
-[3] 
-https://gitlab.com/qfreiman/openswitch-lan969x/-/blob/master/openswitch-lan969x.pdf
-[4] 
-https://gitlab.com/qfreiman/openswitch-10x10g-carrier/-/blob/master/openswitch-10x10g-carrier.pdf
-[5] 
-https://gitlab.com/qfreiman/buildroot-external-qlab/-/blob/master/configs/qlab_openswitch_lan969x_defconfig
-
-- Quentin
+base-commit: 93f51579e7df248780214094418f205253383cc5
+-- 
+2.56.0.rc1.315.gc6ed9934b7-goog
 
 
