@@ -4,144 +4,120 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 88D65CA5FA5
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 29 Sep 2026 09:53:25 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 45C1CCA5FA1
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 29 Sep 2026 09:56:26 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
-	References:In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=5QndERAeyHrOlKw2dyPW8c3xDWXtZf30X6T2Mz/d8oU=; b=oT5YM5ypuO4mOIqVOS0ko+26yx
-	ChMdwUONkkPtAa/uQIpgJGk+UZMfhJfe6vhelV1b962OjXutUzTkH8+mZKkMYx0S82HPLCGVqJk+W
-	dmiiBScPt3eipVGRUMG1EsLzMHNBz47jqJjAPxUbMd+MWUehLEv+sRt+YZoM5Wrt8ZP9VsCRrYjoa
-	/XRb9eYTl7XDl6DMwHXtR2U9pgyrsHTzakmcW2paYfeYh1Mr8GQsUD6kYFUzhFKWCp+re57MTBP6Z
-	3425QFH2UyoDSqJLf9giNCyaMpgai/rrHCg6NqRgIbOaq7kPXWsP9XQSyivovWQ9l1EEQv4ppoH/u
-	vTSOI9Fg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=8h8J0IOs4ABVh0RRJQWq2tQs9g6ThnkfheamgiiqUY4=; b=jxZdStglNdlXi3ghhvdOQE7R3A
+	xWRJy6+H/4WV/e1WEUmeBm/OJKdezlEff1JLtcEygSQutmB/t3Zy7Z3u/6NeoQsB6NKFClhQ8f2hI
+	XSFMQHPerPgrz1AgYz0B/1B0OJB7psy6JcPejZv8j19OCbhhbShZq13ceYN0r9OIzoXTMCmMxsd+e
+	rLHvV1ILglnpwLViLyyPdm3VAFZ7E2L6RBXcdEFOtEae/Oba8ZM8/i6rKs5hebO4jV16Lf66ispCl
+	NJthGvF+rim7LyyccGFJqzWqlg2Ai18OCbEPztyNeA18/mlQ4LD/hq2wGVuRBPSHNzSaDp6KTjCY6
+	VzCXObag==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xBUWV-000000031vT-0ZlP;
-	Tue, 29 Sep 2026 09:53:19 +0000
-Received: from smtp-out2.suse.de ([195.135.223.131])
+	id 1xBUZO-000000032Ga-2hgZ;
+	Tue, 29 Sep 2026 09:56:18 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xBUWS-000000031um-1AgL;
-	Tue, 29 Sep 2026 09:53:17 +0000
-Received: from imap1.dmz-prg2.suse.org (imap1.dmz-prg2.suse.org [IPv6:2a07:de40:b281:104:10:150:64:97])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(No client certificate requested)
-	by smtp-out2.suse.de (Postfix) with ESMTPS id 820551F444;
-	Tue, 29 Sep 2026 09:53:04 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=suse.de; s=susede2_rsa;
-	t=1790675588; h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
-	 mime-version:mime-version:content-type:content-type:
-	 in-reply-to:in-reply-to:references:references;
-	bh=5QndERAeyHrOlKw2dyPW8c3xDWXtZf30X6T2Mz/d8oU=;
-	b=IR6OyRhy9njtgSWGu5dmBV5fq2a2iSY7zSpuCnAC4r1LDvrMzaF7HrsGWBC9yc7030Cmey
-	YXmlWgv3VqyPwuNf6kxvymlGhY+o3GG7NYNBT62HDXFxRifA5OUEMpQOyaq/Fld9DIfyDk
-	mCEsKPFAsFoM4TFKDJjgzKC0O/tdx+c=
-DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=suse.de;
-	s=susede2_ed25519; t=1790675588;
-	h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
-	 mime-version:mime-version:content-type:content-type:
-	 in-reply-to:in-reply-to:references:references;
-	bh=5QndERAeyHrOlKw2dyPW8c3xDWXtZf30X6T2Mz/d8oU=;
-	b=RI2iC9Uyd+Kid4F1uCZuCevrwCYLsVo5HsM3K2NX+dg/JmeWGYDnMpfctjG7FyGif9graT
-	+6ofcNl6xgt105CA==
-Authentication-Results: smtp-out2.suse.de;
-	dkim=pass header.d=suse.de header.s=susede2_rsa header.b=ef8ORTcE;
-	dkim=pass header.d=suse.de header.s=susede2_ed25519 header.b=Jy6iYy8+
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=suse.de; s=susede2_rsa;
-	t=1790675584; h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
-	 mime-version:mime-version:content-type:content-type:
-	 in-reply-to:in-reply-to:references:references;
-	bh=5QndERAeyHrOlKw2dyPW8c3xDWXtZf30X6T2Mz/d8oU=;
-	b=ef8ORTcEBdUmzDfukXYj0Ra0pCYyGNwZY3AeOcAIG9jdfWU/pD8IBdQxlADdWGHW2yjS6A
-	USif8lF+XS4DV8rGdUqE4YbVrGT9WjOalCZ06HO8AR4WHsw6bsgl4+Gl/jJMvmgwsZ/1Tx
-	MYw0bRj5uKlZTEEFtZz8mpZtlsATiUg=
-DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=suse.de;
-	s=susede2_ed25519; t=1790675584;
-	h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
-	 mime-version:mime-version:content-type:content-type:
-	 in-reply-to:in-reply-to:references:references;
-	bh=5QndERAeyHrOlKw2dyPW8c3xDWXtZf30X6T2Mz/d8oU=;
-	b=Jy6iYy8+AVNnk0GnA+0G2zcraJ5WdNWWhd1npGOvbUlB+jAegV9NL2JeFC1K2wDFiPXusW
-	ht7mubNR55etGoCA==
-Received: from imap1.dmz-prg2.suse.org (localhost [127.0.0.1])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(No client certificate requested)
-	by imap1.dmz-prg2.suse.org (Postfix) with ESMTPS id 03EE2136E4;
-	Tue, 29 Sep 2026 09:53:04 +0000 (UTC)
-Received: from dovecot-director2.suse.de ([2a07:de40:b281:106:10:150:64:167])
-	by imap1.dmz-prg2.suse.org with ESMTPSA
-	id P+SYMn+Ku2pSLQAAD6G6ig
-	(envelope-from <tiwai@suse.de>); Tue, 29 Sep 2026 09:53:04 +0000
-Date: Tue, 29 Sep 2026 11:52:59 +0200
-Message-ID: <878q4k2xl0.wl-tiwai@suse.de>
-From: Takashi Iwai <tiwai@suse.de>
-To: James Calligeros <jcalligeros99@gmail.com>
-Cc: Martin =?ISO-8859-2?Q?Povi=B9er?= <povik+lin@cutebit.org>,	Liam Girdwood
- <lgirdwood@gmail.com>,	Mark Brown <broonie@kernel.org>,	Rob Herring
- <robh@kernel.org>,	Krzysztof Kozlowski <krzk+dt@kernel.org>,	Conor Dooley
- <conor+dt@kernel.org>,	Sven Peter <sven@kernel.org>,	Janne Grunau
- <j@jannau.net>,	Neal Gompa <neal@gompa.dev>,	David Rhodes
- <david.rhodes@cirrus.com>,	Richard Fitzgerald <rf@opensource.cirrus.com>,
-	Jaroslav Kysela <perex@perex.cz>,	Takashi Iwai <tiwai@suse.com>,	Ulf
- Hansson <ulfh@kernel.org>,	Amit Kucheria <amit.kucheria@linaro.org>,
-	"Rafael J. Wysocki" <rafael.j.wysocki@intel.com>,	Lars-Peter Clausen
- <lars@metafoo.de>,	Vinod Koul <vkoul@kernel.org>,	Matthias Brugger
- <matthias.bgg@gmail.com>,	AngeloGioacchino Del Regno
- <angelogioacchino.delregno@collabora.com>,	Shenghao Ding
- <shenghao-ding@ti.com>,	Kevin Lu <kevin-lu@ti.com>,	Baojun Xu
- <baojun.xu@ti.com>,	Sen Wang <sen@ti.com>,	James Schulman
- <james.schulman@cirrus.com>,	asahi@lists.linux.dev,
-	linux-sound@vger.kernel.org,	devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org,	linux-arm-kernel@lists.infradead.org,
-	patches@opensource.cirrus.com,	Takashi Iwai <tiwai@suse.de>,
-	linux-mediatek@lists.infradead.org,	Hector Martin <marcan@marcan.st>
-Subject: Re: [PATCH 08/28] ALSA: control: Add kcontrol callbacks for lock/unlock
-In-Reply-To: <20260920-macaudio-v1-8-741cc20a74e5@gmail.com>
-References: <20260920-macaudio-v1-0-741cc20a74e5@gmail.com>
-	<20260920-macaudio-v1-8-741cc20a74e5@gmail.com>
-User-Agent: Wanderlust/2.15.9 (Almost Unreal) Emacs/30.2 Mule/6.0
-MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
-Content-Type: text/plain; charset=US-ASCII
-X-Rspamd-Server: rspamd2.dmz-prg2.suse.org
-X-Rspamd-Queue-Id: 820551F444
-X-Rspamd-Action: no action
-X-Spamd-Result: default: False [-1.01 / 50.00];
-	BAYES_HAM(-3.00)[99.99%];
-	SUSPICIOUS_RECIPS(1.50)[];
-	MID_CONTAINS_FROM(1.00)[];
-	R_DKIM_ALLOW(-0.20)[suse.de:s=susede2_rsa,suse.de:s=susede2_ed25519];
-	NEURAL_HAM_SHORT(-0.20)[-1.000];
-	MIME_GOOD(-0.10)[text/plain];
-	MX_GOOD(-0.01)[];
-	RCPT_COUNT_TWELVE(0.00)[35];
-	TO_MATCH_ENVRCPT_ALL(0.00)[];
-	ARC_NA(0.00)[];
-	FREEMAIL_TO(0.00)[gmail.com];
-	MIME_TRACE(0.00)[0:+];
-	URIBL_BLOCKED(0.00)[suse.de:mid,suse.de:dkim,imap1.dmz-prg2.suse.org:helo,imap1.dmz-prg2.suse.org:rdns,marcan.st:email];
-	DKIM_SIGNED(0.00)[suse.de:s=susede2_rsa,suse.de:s=susede2_ed25519];
-	FREEMAIL_ENVRCPT(0.00)[gmail.com];
-	FREEMAIL_CC(0.00)[cutebit.org,gmail.com,kernel.org,jannau.net,gompa.dev,cirrus.com,opensource.cirrus.com,perex.cz,suse.com,linaro.org,intel.com,metafoo.de,collabora.com,ti.com,lists.linux.dev,vger.kernel.org,lists.infradead.org,suse.de,marcan.st];
-	RCVD_TLS_ALL(0.00)[];
-	RCVD_COUNT_TWO(0.00)[2];
-	DBL_BLOCKED_OPENRESOLVER(0.00)[suse.de:mid,suse.de:dkim,imap1.dmz-prg2.suse.org:helo,imap1.dmz-prg2.suse.org:rdns];
-	FROM_EQ_ENVFROM(0.00)[];
-	FROM_HAS_DN(0.00)[];
-	TO_DN_SOME(0.00)[];
-	DNSWL_BLOCKED(0.00)[2a07:de40:b281:106:10:150:64:167:received,2a07:de40:b281:104:10:150:64:97:from];
-	RCVD_VIA_SMTP_AUTH(0.00)[];
-	TAGGED_RCPT(0.00)[lin,dt];
-	DKIM_TRACE(0.00)[suse.de:+];
-	R_RATELIMIT(0.00)[to_ip_from(RLs9qncch5cpanyka9neihc978)];
-	SPAMHAUS_XBL(0.00)[2a07:de40:b281:104:10:150:64:97:from]
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260929_025316_678232_F630A089 
-X-CRM114-Status: GOOD (  15.63  )
+	id 1xBUZN-000000032GU-3tQT
+	for linux-arm-kernel@lists.infradead.org;
+	Tue, 29 Sep 2026 09:56:18 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by sea.source.kernel.org (Postfix) with ESMTP id 57A5F400C4;
+	Tue, 29 Sep 2026 09:56:17 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id B129B1F000FF;
+	Tue, 29 Sep 2026 09:56:07 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1790675777;
+	bh=8h8J0IOs4ABVh0RRJQWq2tQs9g6ThnkfheamgiiqUY4=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To;
+	b=PDLYn3Uwk8+LD47yZkI2u2eZQ7r/EjVT5S6AwaUZyFtUzuo9wXyFUftmpKv7PrkuP
+	 UMvbgw0SpJihprGyGDajRJi4+W2KyA+OpU+te8rRyHwify1eFIJeWuVGxRA6GMKeru
+	 2w07sD5+YI0fcW02DDbw9Gw+YgzNOiY+iGxVdrwLLR4BrkMfpMJBIRURy5iWaGGwtU
+	 qHCA4Gslb6sNC9dvObCEx7yqDSKIjcSq5xFVtUHbe35eaj61nuX7c2D0BIQbrFGD4f
+	 TIo7PxZo0gwblv2wil9LYFDQwiwOZwsIRU+xlP/NMfZCPUjY2i8xL/MbD/oJYqjVHM
+	 DMkOIfvUKnySQ==
+Message-ID: <550a74bc-f0b9-4141-9fc8-db175bb0b1ae@kernel.org>
+Date: Tue, 29 Sep 2026 11:56:05 +0200
+MIME-Version: 1.0
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v4 0/4] Add Laguna/Tensor G5 SoC and Frankel, Blazer &
+ Mustang boards
+To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+ Conor Dooley <conor+dt@kernel.org>, =?UTF-8?Q?Andr=C3=A9_Draszik?=
+ <andre.draszik@linaro.org>, Tudor Ambarus <tudor.ambarus@linaro.org>,
+ Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
+ Mark Rutland <mark.rutland@arm.com>, Arnd Bergmann <arnd@arndb.de>,
+ Alexandre Belloni <alexandre.belloni@bootlin.com>,
+ Linus Walleij <linusw@kernel.org>, Drew Fustini <fustini@kernel.org>,
+ Kees Cook <kees@kernel.org>, Tony Luck <tony.luck@intel.com>,
+ "Guilherme G. Piccoli" <gpiccoli@igalia.com>,
+ Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+ Jiri Slaby <jirislaby@kernel.org>, Peter Griffin <peter.griffin@linaro.org>
+Cc: devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, linux-samsung-soc@vger.kernel.org,
+ soc@lists.linux.dev, Douglas Anderson <dianders@chromium.org>,
+ Juan Yescas <jyescas@google.com>, RD Babiera <rdbabiera@google.com>,
+ Brian Norris <briannorris@google.com>,
+ William McVicker <willmcvicker@google.com>, kernel-team@android.com,
+ linux-serial@vger.kernel.org,
+ Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>,
+ Brian Norris <briannorris@chromium.org>
+References: <20260918-contrib-pg-pixel10-initial-dts-v4-0-745eaca28b1a@linaro.org>
+ <179067486422.102650.10176830320558486814.b4-ty@b4>
+From: Krzysztof Kozlowski <krzk@kernel.org>
+Content-Language: en-US
+Autocrypt: addr=krzk@kernel.org; keydata=
+ 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
+In-Reply-To: <179067486422.102650.10176830320558486814.b4-ty@b4>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -156,31 +132,43 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Sun, 20 Sep 2026 06:53:47 +0200,
-James Calligeros wrote:
+On 29/09/2026 11:41, Krzysztof Kozlowski wrote:
 > 
-> From: Hector Martin <marcan@marcan.st>
+> On Fri, 18 Sep 2026 19:05:01 +0000, Peter Griffin wrote:
+>> This series adds initial basic support for Laguna (Tensor G5 SoC)
+>> found in Frankel (Pixel 10), Blazer (Pixel 10 Pro) and Mustang (Pixel
+>> 10 Pro XL) phones.
+>>
+>> Whilst Tensor G1 to G4 SoCs (found in Pixel 6 to Pixel 9 and Pixel
+>> 10a) were offshoots from the Samsung Exynos family. Laguna is an
+>> entirely in-house Google designed SoC.
+>>
+>> [...]
 > 
-> This allows drivers to implement policy around locking/unlocking
-> controls, such as enforcing that a group of controls may only be locked
-> by the same process/file, and taking actions when the controls
-> lock/unlock (such as granting special access on lock and resetting
-> values on unlock).
+> Applied, thanks!
 > 
-> This is, in particular, useful to implement volume safety controls, such
-> that only a particular process (that locks controls and completes a
-> handshake) may increase volumes above a given safe limit. It also allows
-> the volume to be automatically lowered if that process dies (which will
-> trigger an implicit unlock).
+> [1/4] dt-bindings: arm: google: Add dt bindings for frankel/blazer/mustang
+>       https://git.kernel.org/krzk/linux/c/ecf6405fa6c503c34eb4e7e905957d70d4018e93
+> [2/4] arm64: dts: google: Add dts directory for Google-designed silicon
+>       https://git.kernel.org/krzk/linux/c/cf3df78629f24b40cd0cb2da74e3ea4a944bed82
+> [3/4] arm64: dts: google: Add initial dts for frankel/blazer/mustang
+>       https://git.kernel.org/krzk/linux/c/54edd8698bb1fb40c339d0cb2f15baad6993dd48
+> [4/4] arm64: defconfig: enable Tensor G5 SoC family
+>       https://git.kernel.org/krzk/linux/c/63f674fe8a0a8d6e4bee3e72f7ae658f0e9a0686
 > 
-> Signed-off-by: Hector Martin <marcan@marcan.st>
-> Signed-off-by: James Calligeros <jcalligeros99@gmail.com>
 
-This doesn't sound like a good approach to me, and this looks rather
-irrelevant with the purpose of the series.
+This introduces new warnings:
 
+/home/buildbot/kernel/build/arch/arm64/boot/dts/google/lga.dtsi:368.37-391.5:
+Warning (avoid_unnecessary_addr_size):
+/soc@0/interrupt-controller@5880000: unnecessary
+#address-cells/#size-cells without "ranges", "dma-ranges" or child "reg"
+or "ranges" property
 
-thanks,
+https://krzk.eu/#/builders/28/builds/845
 
-Takashi
+Probably you wanted address-cells=0?
+
+Best regards,
+Krzysztof
 
