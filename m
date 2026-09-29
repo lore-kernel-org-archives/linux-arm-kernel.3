@@ -4,177 +4,136 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 726D6CA5FA5
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 29 Sep 2026 21:04:26 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 27D92CA5FA7
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 29 Sep 2026 21:06:00 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
-	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Content-Type:
+	References:Message-ID:In-Reply-To:Subject:cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=piRaDrDGV1hK2AnIT4/x9QIhv11MVHY4h+yWbzVR2BU=; b=MmSnkahJhNH56yOcv6bXOE78cS
-	GYaG/eAfQYy6cYgCMWOltemWoZuPwh8y7LPaKn+ypMZmLIXDGIYRyH0rzhtYfMUQY7dBCt+rHEY/f
-	QyWTXtRPyLR+gz4DhKjyGMuloO1G8fF4dadD67TKs9xRYoMY2hKmd92x6ncJ6++hxFwPrPhnn67GQ
-	X0WkIeAoIvvOiEJBYDSa3X9fUDi4k8Xtbs6kC3AD37RBs09+NecjVX2RCp7ASBUn0ziqo9gZH/D3I
-	zqIhj4aJbN6p96PJJFxqVSasWm4JCSM0R19+5HWJ4ZsxlrnpSQJjp4rt3IwVJw2WnabkUHzpmYEUM
-	ph9D0IvQ==;
+	bh=9vb1TB2PYMFrr7rbptCKSe7zzawYmSC3BO89Ro+MC0c=; b=YN+4niT4/uBfa9t0h/JrtHF4IN
+	PMQ/FM7u7QnaSPQAGb6i3W85VRF3aBfzgzC6xfMXsEtE9uRocKwFDyBwGuaRMjScYjHLfd0rv4Nbv
+	eZHNQMgaVZoeO2gHkHqnLGvLDRkDRXYIMjKsZkOpJ5KGZa8ReW1siQqxKPucaoONH5nAm0kA1W7TE
+	JAw0fa40TkmbVAJXfOz/oT5wXJWsydY+Zy4Bd9QR0W3y185O6uXWT9K4VDeTOzC+9Ri3yuWeVGWKI
+	AwUUAClftnxXmFEnTyTqIv0yyn8arjWNhR6dx9P4u4+Qc6DGwIrV9QD6OYqGdxj2gqrJFyOsTxPU7
+	GORknsCw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xBeK1-00000004Tfl-2Se8;
-	Tue, 29 Sep 2026 20:21:05 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1xBf1K-00000004ZB3-39jJ;
+	Tue, 29 Sep 2026 21:05:50 +0000
+Received: from mail-westus3azon11012013.outbound.protection.outlook.com ([40.107.209.13] helo=PH8PR06CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xBeIU-00000004Srt-3TPC
-	for linux-arm-kernel@bombadil.infradead.org;
-	Tue, 29 Sep 2026 20:19:33 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Content-Type:Content-Transfer-Encoding
-	:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:CC:To:From:
-	Sender:Reply-To:Content-ID:Content-Description;
-	bh=piRaDrDGV1hK2AnIT4/x9QIhv11MVHY4h+yWbzVR2BU=; b=Rm1syMP65aTjNerDso1WJZ/Yqy
-	wBCw1ctCsT/ovGYa7yEeuY7/UIUXxaSmsnMko1b8FsgWhFdsfBFHgOB01iC8X6fzNz7Bb/i/NbR3Y
-	qiVPAX9KOD0D3MWar1WfuROlF/nZcuBff2HOrfp11d4hnHhwVpez4VXwUjIzt8NwJzOOmTU3zMQ3F
-	Cep73nOsdwEb3H+FCa3BWmlJ80OQNCymbHho7VK9L0DO0HjO92etQsWP2D77bkno/lrqcSWQ28CEZ
-	nfIift5FjwyhyDFiYDTWSFYMz8A/UXoMhhKL09Rkx0FeDUr+ORsddFlbyM/wPypugYQGJ4nYKgGAi
-	lu81cxmQ==;
-Received: from mx0b-0002e601.pphosted.com ([148.163.154.28])
-	by desiato.infradead.org with esmtps (Exim 4.99.2 #2 (Red Hat Linux))
-	id 1xBeIQ-000000033Kj-36jt
-	for linux-arm-kernel@lists.infradead.org;
-	Tue, 29 Sep 2026 20:19:29 +0000
-Received: from pps.filterd (m0374955.ppops.net [127.0.0.1])
-	by mx0b-0002e601.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 68TGN77H486521;
-	Tue, 29 Sep 2026 15:19:20 -0500
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com; h=cc
-	:content-transfer-encoding:content-type:date:from:in-reply-to
-	:message-id:mime-version:references:subject:to; s=
-	proofpoint-05-2026; bh=piRaDrDGV1hK2AnIT4/x9QIhv11MVHY4h+yWbzVR2
-	BU=; b=eBuPqOq8nQJGbdm0uIBRwpe5uQ8B3W6SQoDxqi70EHgX1MQtgxYlhMUn7
-	GIor8z5CmoCxTU1Y4hrFf7ddi0EBoHlhpaip6v5TIDF5R7pL2j9jw/Yf7CV9Z90Z
-	fsMHoRxVNVuIvBsqV0F0WrybuxiCmT1ChvfbWvF+UGsK695cq0ErBa4tGx8dpUDO
-	O8TJuwzGU5xFxjU+SC55o1rewdtvxT9ruG+E6fsDEK+dPBYTRkOOHOp86Qbdbg31
-	aiqCDa5vl5gQuWeEsApyK74+a5BmXpghSy8vvYfyUAPRLdhybRjLONwPjAuiYSlR
-	+USvt3lYDpQW3XJB25pCA9xxLw4Gw==
-Received: from bl2pr02cu003.outbound.protection.outlook.com (mail-eastusazon11011019.outbound.protection.outlook.com [52.101.52.19])
-	by mx0b-0002e601.pphosted.com (PPS) with ESMTPS id 4h0cpc3a3h-1
-	(version=TLSv1.3 cipher=TLS_AES_256_GCM_SHA384 bits=256 verify=NOT);
-	Tue, 29 Sep 2026 15:19:20 -0500 (CDT)
+	id 1xBf1I-00000004ZAb-1h4a;
+	Tue, 29 Sep 2026 21:05:49 +0000
 ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=VOyP6l/I1DsAt5LMcKcfqDXQUU3eGg3CU+kAkAQ4Gpo1YOgcWj18HB96R7UWvCZOfhDvygsa5Zsk8fbv2+QlhpoecTmYsKrNUIDRluttQg19rjuHN/pE4nI/KMY/LG9PsNUaYnI1yOEaDh81MpfQhYTnqXk6hQ/o/7f9gS+x3kL4XV23tcPL3krsW31/CJ+IPAbz/0eZxbtLzVGkqj3fwqQ5VSjQlRnonXiSFHVweDi2sI7CbLipZGJEOutfaGQHu6ME1loCdY6LYNW0uZ9HmpwiWqu7c9IxjGs8m+RyjRcYGYpNLKqsv3iWIaoKCEeByqgbAmH4m9ae9ToesXPBig==
+ b=xSo5hXkS0uEWytslRZZNXRW7bGVtnW7tAS6zo7buP2c+duVF50N1/Hqp7oGbSokNz5v+dImq8HVhDuTVia1wbaLJMeT5jTgZ7OxIpwV8zQx9w8xbO930fGc5erXevDrRjd/+z+y/wlnQn3a8C0MS/QbnAa+IQAYJBKsB/50EF46ubLEdAzz3qZEBpNwrFcpOnMlBzEOvCmqztQlyqnFUFz0Sv4JpIndx7clXWJ/Nzj6j3fYacb2t/zv/HbxfNJQrvr9TvEF71ztuIgMyb0C1Q5Yn2b3cuxiPUk7pRRqHD71Ql/UO2mZMZkYFTJgTu5FRfMJ2wlI26j2fdiZe+lR54w==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
  s=arcselector10001;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=piRaDrDGV1hK2AnIT4/x9QIhv11MVHY4h+yWbzVR2BU=;
- b=Do3EHVyKuA7U/FugLZJR6YLdjNcbrDmXUGj8R3FzEsezUA3FVcfxwF9o+shkUL7QY+Tmhgyvdk5wBjsO9jgmEy8HlHjiiW2yoLinQyl3t/Xa2uHDK/Pa6rZqezDA3xRLJmTJigbcd+zVScHpb5EcSMAGbcM1qklwAtvq8eriKcKhOhAd/pV6vwPb7fMd/W/jzL2/U1H+y78k1ZYzi1lUUCeJbZMOvQiT3NJ8CqVmf+WgfauIrnGTXOjJ8GHsPCYWrK/q5S4qzvdcyCNvoJjQVpZV19w7yvrxNP2LnoC6XZCtyF+9eWAMtj9NKvxmHv0JLqSvvqYCn3BgD++BquUxrg==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
- 198.47.23.194) smtp.rcpttodomain=lists.infradead.org smtp.mailfrom=ti.com;
- dmarc=pass (p=quarantine sp=none pct=100) action=none header.from=ti.com;
- dkim=none (message not signed); arc=none (0)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=ticloud.onmicrosoft.com; s=selector1-ticloud-onmicrosoft-com;
+ bh=9vb1TB2PYMFrr7rbptCKSe7zzawYmSC3BO89Ro+MC0c=;
+ b=pBsw5yotzHgIro06CROSKK0kvXHliKbKA35FoPlt5VycXV5jiDH1z1rKxNrCvYfyQo5HSYerIVLg/xdFUGPqgDcanzvgSlx/Q+UNDNmulokfd82C8T2Rjv11cQrG+VzT/mCScbjYas3JbVAccn6mLAk+2Kag2LFuoPMExvHj2USAy4H38rrqOeJsxe88TgnYs15VjDpg7UodDidFXVFzdRM4h1MQEQ6KuGLotrdLK7hdTHqA85q0K6OzBnJQdL8OaVmJUTeWDJqqzhpW/BxiCM6F8qh5qE3JDpT0PVw00QaW3mnhqtGSbTWweILncfy1sMAr5cKyZj5CEjXEUxVrGQ==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=nvidia.com; dmarc=pass action=none header.from=nvidia.com;
+ dkim=pass header.d=nvidia.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
+ s=selector2;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=piRaDrDGV1hK2AnIT4/x9QIhv11MVHY4h+yWbzVR2BU=;
- b=KP4eaEZ24Cr9v04bO9Tok9XiKwcpGPCPfSUHNfLffdEQ7+AKoUYJleERktCzGslJc/kCulVXH/O9UGeCagz4b/tIEVoQ4qrIb1MhCQJFYjxa+RjTi1P6QSnrasl3G845UQUgeh9EWCrERtcjOKOjWZpIbw4F6sbHOG1YKua+WVI=
-Received: from BN9PR03CA0392.namprd03.prod.outlook.com (2603:10b6:408:111::7)
- by PH0PR10MB997641.namprd10.prod.outlook.com (2603:10b6:510:386::15) with
+ bh=9vb1TB2PYMFrr7rbptCKSe7zzawYmSC3BO89Ro+MC0c=;
+ b=b2mhPUbg+37y/LpdPcYkfgnpyMq6071V6OyuwxL0riA3yTVii3sevW2FyyBUY7jXh906iHmeVV9hnCYR7x8kSGrwIdFioc/HXwDZ0LKoEUXTpcgjbXFI/m1WdV9xkgZrmXQoI6cxRTH+rsUqnCSvQr0c6yQqSXMQIYR5Qy9x5NFaku5paMWqFBi/d3mgeJKQYTnBjHHFbEgEF5r6jx7nkwXP2DsEwZNXsfJ955GW7crUebPECXkg7ps4XznDnF4omxnVZZqrZFSIXK4CPfu4fXh6XJ49zjnbqXbrM70mU4t3r2ulAQug+O3F0Kc+WMXf1zBobmKNEeAHkRNdS+ls5g==
+Authentication-Results: mx.microsoft.com 1; dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=nvidia.com;
+Received: from DM6PR12MB4925.namprd12.prod.outlook.com (2603:10b6:5:1b7::8) by
+ LV2PR12MB5871.namprd12.prod.outlook.com (2603:10b6:408:174::13) with
  Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.472.14; Tue, 29 Sep
- 2026 20:19:15 +0000
-Received: from BN2PEPF000044A7.namprd04.prod.outlook.com
- (2603:10b6:408:111:cafe::32) by BN9PR03CA0392.outlook.office365.com
- (2603:10b6:408:111::7) with Microsoft SMTP Server (version=TLS1_3,
- cipher=TLS_AES_256_GCM_SHA384) id 15.21.472.15 via Frontend Transport; Tue,
- 29 Sep 2026 20:19:15 +0000
-X-MS-Exchange-Authentication-Results: mx.microsoft.com 1; spf=pass (sender IP
- is 198.47.23.194) smtp.mailfrom=ti.com; dkim=none (message not signed)
- header.d=none;dmarc=pass action=none header.from=ti.com;
-Received-SPF: Pass (protection.outlook.com: domain of ti.com designates
- 198.47.23.194 as permitted sender) receiver=protection.outlook.com;
- client-ip=198.47.23.194; helo=lewvzet200.ext.ti.com; pr=C
-Received: from lewvzet200.ext.ti.com (198.47.23.194) by
- BN2PEPF000044A7.mail.protection.outlook.com (10.167.243.101) with Microsoft
- SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.21.472.14 via Frontend Transport; Tue, 29 Sep 2026 20:19:15 +0000
-Received: from DLEE215.ent.ti.com (157.170.170.118) by lewvzet200.ext.ti.com
- (10.4.14.103) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.45; Tue, 29 Sep
- 2026 15:18:55 -0500
-Received: from DLEE215.ent.ti.com (157.170.170.118) by DLEE215.ent.ti.com
- (157.170.170.118) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.45; Tue, 29 Sep
- 2026 15:18:55 -0500
-Received: from lelvem-mr06.itg.ti.com (10.180.75.8) by DLEE215.ent.ti.com
- (157.170.170.118) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.45 via Frontend
- Transport; Tue, 29 Sep 2026 15:18:55 -0500
-Received: from uda0510294.dhcp.ti.com (uda0510294.dhcp.ti.com [10.24.50.162])
-	by lelvem-mr06.itg.ti.com (8.18.1/8.18.1) with ESMTP id 68TKHlMt1688208;
-	Tue, 29 Sep 2026 15:18:52 -0500
-From: Beleswar Padhi <b-padhi@ti.com>
-To: <nm@ti.com>, <kristo@kernel.org>, <ssantosh@kernel.org>, <afd@ti.com>,
-        <vigneshr@ti.com>, <u-kumar1@ti.com>
-CC: <linux-kernel@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
-        <b-padhi@ti.com>
-Subject: [PATCH 21/22] firmware: ti: ti_sci_rm: Move rm ops into its own file
-Date: Wed, 30 Sep 2026 01:47:45 +0530
-Message-ID: <20260929201746.4078803-22-b-padhi@ti.com>
-X-Mailer: git-send-email 2.34.1
-In-Reply-To: <20260929201746.4078803-1-b-padhi@ti.com>
-References: <20260929201746.4078803-1-b-padhi@ti.com>
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.451.25; Tue, 29 Sep
+ 2026 21:05:39 +0000
+Received: from DM6PR12MB4925.namprd12.prod.outlook.com
+ ([fe80::9ac7:5274:235:5d72]) by DM6PR12MB4925.namprd12.prod.outlook.com
+ ([fe80::9ac7:5274:235:5d72%4]) with mapi id 15.21.0451.022; Tue, 29 Sep 2026
+ 21:05:37 +0000
+Date: Tue, 29 Sep 2026 16:05:35 -0500 (CDT)
+From: Vidith Madhu <vmadhu@nvidia.com>
+To: Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
+cc: "Borah, Chaitanya Kumar" <chaitanya.kumar.borah@intel.com>, 
+    Leo Li <sunpeng.li@amd.com>, Daniel Stone <daniels@collabora.com>, 
+    Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, 
+    Maxime Ripard <mripard@kernel.org>, 
+    Thomas Zimmermann <tzimmermann@suse.de>, David Airlie <airlied@gmail.com>, 
+    Simona Vetter <simona@ffwll.ch>, Helge Deller <deller@gmx.de>, 
+    Andrzej Hajda <andrzej.hajda@intel.com>, 
+    Neil Armstrong <neil.armstrong@linaro.org>, Robert Foss <rfoss@kernel.org>, 
+    Laurent Pinchart <Laurent.pinchart@ideasonboard.com>, 
+    Jonas Karlman <jonas@kwiboo.se>, Jernej Skrabec <jernej.skrabec@gmail.com>, 
+    Luca Ceresoli <luca.ceresoli@bootlin.com>, 
+    Sandy Huang <hjc@rock-chips.com>, 
+    =?ISO-8859-15?Q?Heiko_St=FCbner?= <heiko@sntech.de>, 
+    Andy Yan <andy.yan@rock-chips.com>, dri-devel@lists.freedesktop.org, 
+    linux-kernel@vger.kernel.org, linux-fbdev@vger.kernel.org, 
+    linux-rockchip@lists.infradead.org, linux-arm-kernel@lists.infradead.org, 
+    kernel@collabora.com, Derek Foreman <derek.foreman@collabora.com>, 
+    wayland-devel@lists.freedesktop.org
+Subject: Re: [PATCH RFC 13/25] drm: Add VRR target frame rate properties
+In-Reply-To: <mo2g3IAXRpOKy4yZocem9w@collabora.com>
+Message-ID: <4380e0bd-d4c4-a247-7f7b-eba0288b390b@nvidia.com>
+References: <20260921-vrr-limiter-uapi-v1-0-2fcd7d011646@collabora.com> <20260921-vrr-limiter-uapi-v1-13-2fcd7d011646@collabora.com> <1b722d71-93d2-93a4-acdd-bc02b9a36f95@nvidia.com> <mo2g3IAXRpOKy4yZocem9w@collabora.com>
+Content-Type: text/plain; charset=US-ASCII
+X-ClientProxiedBy: SN7PR04CA0203.namprd04.prod.outlook.com
+ (2603:10b6:806:126::28) To DM6PR12MB4925.namprd12.prod.outlook.com
+ (2603:10b6:5:1b7::8)
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-Content-Type: text/plain
-X-EOPAttributedMessage: 0
 X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: BN2PEPF000044A7:EE_|PH0PR10MB997641:EE_
-X-MS-Office365-Filtering-Correlation-Id: b52740db-a577-41f2-2e0e-08df1e66eed5
+X-MS-TrafficTypeDiagnostic: DM6PR12MB4925:EE_|LV2PR12MB5871:EE_
+X-MS-Office365-Filtering-Correlation-Id: 3873aa89-7d2b-47af-3b04-08df1e6d6926
 X-MS-Exchange-SenderADCheck: 1
 X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|36860700016|376014|82310400026|1800799024|23010399003|56012099006|10067099003|18002099003|22082099003|6133799003|3023799007;
-X-Microsoft-Antispam-Message-Info: tfb/rGD26+L485wGFbXppsFpyi83eCjsVgMr/aKCakdBEqNNY3Nbv/4NvtCydYExSvnmWlrEa5wnPBSe7ES1LMNX39Xza6QajiNIPro35MntbNcaMYwkE4FI0rcY4nNWMC2t0a0leO3IiCotmyEmX64gfp78B1dK/ZXvcxwFC4e14tlDwcRAOA36VTaGmQ/J7bIBri2imIuuZBj0BCQTGy2xLk5zsbqvvCxJP3ooKa6tXzmlTLgHVFtLNVoWdUEU+dx2L1RZGA/OaXN+jn/+sCt/Qg2ibu5oDjtqkbqUI0TGp4C+Sc/k3pYPTKQiipZV/B2r1ikifb/ijagFUX8VgNHl5vDKfv2WpVxsO4Qd/FLD3jsb1COlEjgsG+ey06eH70sn98tkXATeysHySaD2/pRwH+WaPxThduTiHg6zoU2j04Qop/orbQm+3WINXvuYuaeKXakiomZpb97ABq9JlWPxGjyimfVX9SwzKWyh5rhvhDUl+Sgh9xAbdkpFBk8WAl5LLqQ674rpKPGiA1cBj44iMe99rEa0+RWEKoZTchh0NLX3+7v1IhpA4Smy6RqsU0G668BgrYRMgsVBpaZ3nNow0ZNDatohGTk9+IiZJ1Dc3TlVoPqcGfMXuTBM0qro1ewV65N90FQFaHGXJCtCrg==
-X-Forefront-Antispam-Report: CIP:198.47.23.194;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:lewvzet200.ext.ti.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(36860700016)(376014)(82310400026)(1800799024)(23010399003)(56012099006)(10067099003)(18002099003)(22082099003)(6133799003)(3023799007);DIR:OUT;SFP:1101;
+X-Microsoft-Antispam: BCL:0;ARA:13230040|7416014|376014|366016|23010399003|1800799024|10067099003|56012099006|11063799006|4143699003|6133799003|3023799007|18002099003|22082099003;
+X-Microsoft-Antispam-Message-Info: lNkkX7QTlYHK9TDPhDC2Q+yasxxYm8QDjcqwIXnaLOywND1ds8KNf6iG5+AO1SXNGo6UC6g7G+gcPd22RMQi7JARp7EB1Ha4TuqIJaEcdTbZqvdOxyCwLfCq1SShzw7UuEwNp01APL/k8Rks63XDm5cicvFYjxiwxRsWuDB0Xw7ywWvNv8sxYCsHrbHAovB4E3X2JVpV5qAr/IQ+6/p9S82O91M+yAHD9Pi5JH6mur6cYNXm7rSYPhb6Qsl5D/fg9AKCBmgVavFoi83b1OvI0xMkqfGNPC6ncJEow1081Dj8RkN0zkEoK3z2TlS/DO+dVim/ik4KkahW2xV4kQJmxmnXmc6+NFeZc/scf67TZ+/UPLmkFl/hJB8jY3Za5IugnyZ3vO3sbc4WJs/NigvQ7AiN08OzpjBU2OEvW99WzaNxRDcyi80NfLTnxaED2wM3Un03n1q/+8qHXxNxfuolJ/hUDB1QX3XMksvYhRiM8l+z7tuXeqCvHVJnhWmpPgmNN13fTfpTMFv3AirJQSWt+0KyEvqdSUWaB4XM5TiQjSKzuLEGjE2V7qFTJTPrz+IEBLyXMQq02/hgTgyi85YIAJbjcwFrBW1h8QKjECVJppl0Qi5niDMIPGiw/oX5ryciUCTalzi9++NC2021lnedVqO3CG2MpCSgz1ZujLJ8Abs=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:DM6PR12MB4925.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(7416014)(376014)(366016)(23010399003)(1800799024)(10067099003)(56012099006)(11063799006)(4143699003)(6133799003)(3023799007)(18002099003)(22082099003);DIR:OUT;SFP:1101;
 X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: d70TIsjitqH5OiOkqn7allsiDK7EqrSzrg0FgJLgpuRvMwgLFb6qf3GoLWU+TGXzCx9SjLtGFAVCaKyMpukolieAV8nixsmrxuhjFjX+jmSl3j7TbGA7jLKsPkKvnEtj8d2WQo4G5ruwwfZJqGvV2VQc3d3x5t7bh0s7AHcIqptnS3DsE3xUhK8HSSkJVFYJknwBNrVQsaqO6aev5teEX59z5fyAiZM5/PWDu+6oL8xdPeEeua/Pty84z16yPa3dAkWa2egG5zkhpjVKBr72P0mk0rMWgADfVwNZOGQs1lmFSsPpwDG0M/zH34dkBTJ6MqAZ8Rljv+oUJOQft6eRzCN9M2a637e9BEO2SAmE0yeLu6cwnbD4qJ12t0ayJPlmFy9ONc2OY/Rsz9wzLlhPbOLoi1SX8AFuaCNlNhGDYerT/hNfqcQjf0wfBqQzaSVH
-X-Exchange-RoutingPolicyChecked: TmqT4obyH0kHbMbX7IDUQHDWegSH1NIy1lfeuRPzAO5ZR0DxNnyvC7MD5OVLbJ7iqrKpTPks/WW2mmhG/EjZVmaSkn1KBuyutD78Zt7n26E38Oy2RaJxBW+LozvT+teOjXVeMjBKrdApo9OmjYIpNI/aE6ZsTA4g2dZ9dxP5vv7uueApZOjEUhgC7lu0Gf1yPSLhzGR/Mxn1CI25JgUvYNm/QK4YwaXfTfntlFXU3gA3Q9AiO9NAhgazia4onCqisuxtapUmPIYFaJ56L7a83KWerBIdEk4+IHpLMpW5dc1kZ+VcWpdt+w6bEYBdvFVUu9K69K+yyLeUrL0mB168Hw==
-X-OriginatorOrg: ti.com
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 29 Sep 2026 20:19:15.1212
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?nB2LN1W6tSRU6B9uxr/rQhTj4qBEDOgD0nBWfKIidtdaSbmx9HIPmlsfRuBT?=
+ =?us-ascii?Q?O3SMbP+FflMMI9iCb/R5QfKFezavdb34svqGJuJvupFDp4/x1R0wPqUR8De8?=
+ =?us-ascii?Q?2pXkJRFlr8jwIDLG5BS1IOmcaqiAkYtMWqs42WLUprghrjT50zbmqO4Fi+kf?=
+ =?us-ascii?Q?UWFdFD/cfTQW1FfG2EOWRNasA8ExR5gywbsy7AJBq0+Cap/zE98d27YxZdPU?=
+ =?us-ascii?Q?OIoqSE4Rf3WyGnBkzI3DzibVIuIVTNHi8IjiDfFUo1dIIer7mXmvVkmihCNb?=
+ =?us-ascii?Q?lbTYe7qSnC49wtYEJz6NISBQqu7Wn3b8Rg/hjRYm2xFHqq6YN04nUoom5Dmi?=
+ =?us-ascii?Q?VnaCR1bI47wDee+7MgQsIUGTJtWwjRKGVDHeAsvVCJMgKH1d4uEtikDrMWol?=
+ =?us-ascii?Q?OSDSO6SgkH+Fq0ugpOZu+1DeHfUmL8Iy+XDXeCL5Ndn1a1pZU+clNDDXj1ZQ?=
+ =?us-ascii?Q?sZmRo2FpFuyrjR/kJEc8b9+wk54DOakhJxXXc83OOxLIkYZaLE99nDk+2F5L?=
+ =?us-ascii?Q?baQM+OT+R+eo6Unb/JDtlQvodekAqyqpWQyBGrARL5mgGvfwKXSAlL7EO1wF?=
+ =?us-ascii?Q?QzMEYPIsGh5jMJ1th7H4Zsq3L9SqhFjtYmiMKin/HUFBMWJ0wiwtToweKETU?=
+ =?us-ascii?Q?gqwO+6gx0WiRgR5Le0jyuTROXMVDNyJM8lVXx//7lb2eAtFkckAmLIszep5J?=
+ =?us-ascii?Q?z6uOEMKgTiJ6PYyWnsVN+6UFChN0i3Ks7F7cfw8P9H6twj0xuRrwUDR9h49S?=
+ =?us-ascii?Q?RFRzfvxB2Se4iHZFU0GgvnDw40r+c8o5BjOI9f8s/lm4zRFDOGMwDhxsRvKP?=
+ =?us-ascii?Q?UegzGoZlXHdXVZ6YcgE0kyKBTppG9/K1aFJPuiud/+kwAMOtdvDhnJTsrwK8?=
+ =?us-ascii?Q?wjBmKc5QbnTW0lOu3d1kEruPmQdTYgHh0Jxuz0G+0I3cg7hocl/W8gA5ErLr?=
+ =?us-ascii?Q?5SwhGbKEIS0VC/mzdNm+jE5/vs2B58PAmuGD9fubgE7FcQ6BL4j85H8isvCH?=
+ =?us-ascii?Q?1itJTkt40RWL9XGGnOhzJZFock7GuG94Zze8briDjjavo1i3rSUVG5QlGSzr?=
+ =?us-ascii?Q?/VmRCemmWwALamS6wUEDgGB6jGT3RSBJzK17MykHb8S0Sc+V+d/mU0njbjmK?=
+ =?us-ascii?Q?El4AQWnzi+tqIliq6i1Xwx5NQutXqJPXpU1Tc3dqHbXnmHwhnEBEdPQfqxTk?=
+ =?us-ascii?Q?dZGFdslQM//Sh/eV6nqqIuyPoSAvVP1iIDfQER1BCS2ASmA5uVx1Om4CuVrH?=
+ =?us-ascii?Q?KaROJg7hjLQiPwprt8YUSlOUHOiYOcPFwgRlIGErEhOr07+/VZD3KN5JMX87?=
+ =?us-ascii?Q?1pM0UMIDTZdHHKCjDcAUHocXI7YQtuTC+sqX9XFvzjLOCkmIx6P4zUM2sf9q?=
+ =?us-ascii?Q?VHOfwm239+kPwe5EIE22O/Xq1YMND/Gog+pBM96tFWgfIIj+ZMu97WCO2HS3?=
+ =?us-ascii?Q?dqg2a0g3Z24/PVlsBK4JNRb/SSzaQAGwxDnjNxX4OOlrgLej1ym2Zlm2G6Tq?=
+ =?us-ascii?Q?UKCivRGFnEYz0cGEyWtgjLtEqgSzs86DFfPhGqgyWD0LtL2UerfvbGwn566B?=
+ =?us-ascii?Q?Y8glbBydZ3wXWsU9uekhMWljXxDNCgBb33QM1nCYa1jf6FldSBvRduBjGYXK?=
+ =?us-ascii?Q?Fs0rh5D1CpmFmcMQwcgXIH4dB6a1QxHMcIUQdJiZuBcFCf/CJTCty6hET0i7?=
+ =?us-ascii?Q?UWgS6+XjswwoWJ8Xq+ANte7SZc7lvwhS7FYsG4eqKxFjlBub?=
+X-OriginatorOrg: Nvidia.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 3873aa89-7d2b-47af-3b04-08df1e6d6926
+X-MS-Exchange-CrossTenant-AuthSource: DM6PR12MB4925.namprd12.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 29 Sep 2026 21:05:37.5859
  (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: b52740db-a577-41f2-2e0e-08df1e66eed5
-X-MS-Exchange-CrossTenant-Id: e5b49634-450b-4709-8abb-1e2b19b982b7
-X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=e5b49634-450b-4709-8abb-1e2b19b982b7;Ip=[198.47.23.194];Helo=[lewvzet200.ext.ti.com]
-X-MS-Exchange-CrossTenant-AuthSource: BN2PEPF000044A7.namprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Anonymous
-X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: PH0PR10MB997641
-X-Proofpoint-Spam-Info: AW1haW4tMjYwOTI5MDA4MCBTYWx0ZWRfX0vWyVx0rVYFQ
- ZBcEVNqhHX/1HQ+ZZQIGlSaUqW52PZsBcque8XC8g0fwFjVOPEACLyydNDJnBzEDiThB7lvn2ID
- 7/KljJxK4DtcyoTRzQF3Y6hLBYUSvV4=
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwOTI5MDA4MCBTYWx0ZWRfX3tsUdBrvH8gF
- VX8x68IDkLpny51kxaplzFodzuYljuwOqkY8TsJ6hCThFbo50XOz97GVPuCJu1T/1VAIEFmBTuz
- NT0n3vJ1AL+hk4gxqLhKN7uDqEDbEFFhtKGkUhYLB1aQRNUxBmTYHv4HbUji1d6B2mSzp5a1dHy
- ksBNSuxjmlNhT/hWegMaEG+iV9F7+380iJLECsNXk3zD8wwQSQ++nZzffIy+wrrrk8/CvoS4vVD
- E5sUOHCwn2ntq1YLolv9a+qJbtk1GG8D4cQ/WO9a3BvvNdNBRZZSAUVy3t2cT+oVFQb5c5HY8pw
- hx9hGQGXAx720oVXjL8XJFHm1pFIPI/HNjr4dWoxMb3Wq+n9wBOmBl69gIreE0+LSdkhhkdUeuW
- Aim106/ClfdXT6nS35ZimOVWl8DI/fyBibqO2FC3yT+BRKIJajEEOs0sLzWPZNHeRw0M4o5PowS
- FHMy7o6OJMVP4R7OLWA==
-X-Authority-Analysis: v=2.4 cv=Y4xtIReN c=1 sm=1 tr=0 ts=6abc1d48 cx=c_pps
- a=k0I/Xeyziwozq/4EdJtLuw==:117 a=WotqVVQAdb04rnGuttW3Kw==:17
- a=6eWqkTHjU83fiwn7nKZWdM+Sl24=:19 a=VdqzKS8jKosA:10 a=s63m1ICgrNkA:10
- a=AlMIdn_sM9wA:10 a=VkNPw1HP01LnGYTKEx00:22 a=Z8NIEmU8O1QQgoT56wFK:22
- a=fPAWb5peG099m5CrUpKH:22 a=sozttTNsAAAA:8 a=VwC-_Cji1ZHplTYqCF8A:9
-X-Proofpoint-GUID: LgIZc7Dakhj9f1XkZjwBuso-88PtywVW
-X-Proofpoint-ORIG-GUID: LgIZc7Dakhj9f1XkZjwBuso-88PtywVW
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1176,Hydra:6.1.134,FMLib:17.12.100.49
- definitions=2026-09-29_04,2026-09-21_02,2025-10-01_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- clxscore=1015 bulkscore=0 suspectscore=0 phishscore=0 lowpriorityscore=0
- malwarescore=0 impostorscore=0 priorityscore=1501 spamscore=0 adultscore=0
- classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
- reason=mlx scancount=1 engine=8.22.0-2609040000 definitions=main-2609290080
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: Qr8OzOsJBjxClJQms8TJmqv1/65H3AUeo97GKJrxgdRKLV0Oi/jfZqd2cea4fYVM8EeZTyjOg3/UZZpENleh6Q==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: LV2PR12MB5871
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260929_211927_417149_2E91E78C 
-X-CRM114-Status: GOOD (  21.04  )
+X-CRM114-CacheID: sfid-20260929_140548_522261_0EE91328 
+X-CRM114-Status: GOOD (  51.59  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -189,1899 +148,338 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Andrew Davis <afd@ti.com>
 
-Extract the resource management operations related functions and
-services from ti_sci_core.c into its own file. This breaks down the
-single large file into smaller logical files for better readability
-and maintenance.
 
-Signed-off-by: Andrew Davis <afd@ti.com>
-Co-developed-by: Beleswar Padhi <b-padhi@ti.com>
-Signed-off-by: Beleswar Padhi <b-padhi@ti.com>
----
- drivers/firmware/ti/Makefile      |   1 +
- drivers/firmware/ti/ti_sci.h      |  20 +
- drivers/firmware/ti/ti_sci_core.c | 875 +---------------------------
- drivers/firmware/ti/ti_sci_rm.c   | 907 ++++++++++++++++++++++++++++++
- 4 files changed, 933 insertions(+), 870 deletions(-)
- create mode 100644 drivers/firmware/ti/ti_sci_rm.c
+On Tue, 29 Sep 2026, Nicolas Frattaroli wrote:
 
-diff --git a/drivers/firmware/ti/Makefile b/drivers/firmware/ti/Makefile
-index bbfe73587a3c7..7d9c2a73bf5a6 100644
---- a/drivers/firmware/ti/Makefile
-+++ b/drivers/firmware/ti/Makefile
-@@ -4,4 +4,5 @@ ti_sci-y			:= ti_sci_core.o
- ti_sci-y			+= ti_sci_clock.o
- ti_sci-y			+= ti_sci_device.o
- ti_sci-y			+= ti_sci_pm.o
-+ti_sci-y			+= ti_sci_rm.o
- obj-$(CONFIG_TI_SCI_PROTOCOL)	+= ti_sci.o
-diff --git a/drivers/firmware/ti/ti_sci.h b/drivers/firmware/ti/ti_sci.h
-index 7a707c632276e..e8d6589eec0e9 100644
---- a/drivers/firmware/ti/ti_sci.h
-+++ b/drivers/firmware/ti/ti_sci.h
-@@ -112,6 +112,7 @@ struct ti_sci_info {
- 	int users;
- };
- 
-+#define cl_to_ti_sci_info(c)	container_of(c, struct ti_sci_info, cl)
- #define handle_to_ti_sci_info(h) container_of(h, struct ti_sci_info, handle)
- 
- /* Generic Messages */
-@@ -906,6 +907,16 @@ struct ti_sci_msg_req_manage_irq {
- 	u8 secondary_host;
- } __packed;
- 
-+/**
-+ * struct ti_sci_irq - Description of allocated irqs
-+ * @node: Link to hash table
-+ * @desc: Description of the irq
-+ */
-+struct ti_sci_irq {
-+	struct hlist_node node;
-+	struct ti_sci_msg_req_manage_irq desc;
-+};
-+
- /**
-  * struct ti_sci_msg_rm_ring_cfg_req - Configure a Navigator Subsystem ring
-  *
-@@ -1667,5 +1678,14 @@ int ti_sci_do_xfer(const struct ti_sci_handle *handle,
- void ti_sci_setup_device_ops(struct ti_sci_dev_ops *dops);
- void ti_sci_setup_clock_ops(struct ti_sci_clk_ops *cops);
- void ti_sci_setup_pm_ops(struct ti_sci_pm_ops *pmops);
-+void ti_sci_setup_rm_core_ops(struct ti_sci_rm_core_ops *rm_core_ops);
-+void ti_sci_setup_rm_irq_ops(struct ti_sci_rm_irq_ops *iops);
-+void ti_sci_setup_rm_ringacc_ops(struct ti_sci_rm_ringacc_ops *rops);
-+void ti_sci_setup_rm_psil_ops(struct ti_sci_rm_psil_ops *psilops);
-+void ti_sci_setup_rm_udmap_ops(struct ti_sci_rm_udmap_ops *udmap_ops);
-+int ti_sci_manage_irq(const struct ti_sci_handle *handle, u32 valid_params,
-+		      u16 src_id, u16 src_index, u16 dst_id, u16 dst_host_irq,
-+		      u16 ia_id, u16 vint, u16 global_event, u8 vint_status_bit,
-+		      u8 s_host, u16 type);
- 
- #endif /* __TI_SCI_H */
-diff --git a/drivers/firmware/ti/ti_sci_core.c b/drivers/firmware/ti/ti_sci_core.c
-index 60d0d64ac4ae8..b1345e06341db 100644
---- a/drivers/firmware/ti/ti_sci_core.c
-+++ b/drivers/firmware/ti/ti_sci_core.c
-@@ -35,18 +35,6 @@ static LIST_HEAD(ti_sci_list);
- /* Protection for the entire list */
- static DEFINE_MUTEX(ti_sci_list_mutex);
- 
--/**
-- * struct ti_sci_irq - Description of allocated irqs
-- * @node: Link to hash table
-- * @desc: Description of the irq
-- */
--struct ti_sci_irq {
--	struct hlist_node node;
--	struct ti_sci_msg_req_manage_irq desc;
--};
--
--#define cl_to_ti_sci_info(c)	container_of(c, struct ti_sci_info, cl)
--
- #ifdef CONFIG_DEBUG_FS
- 
- /**
-@@ -632,655 +620,6 @@ static int ti_sci_cmd_core_reboot(const struct ti_sci_handle *handle)
- 	return 0;
- }
- 
--/**
-- * ti_sci_get_resource_range - Helper to get a range of resources assigned
-- *			       to a host. Resource is uniquely identified by
-- *			       type and subtype.
-- * @handle:		Pointer to TISCI handle.
-- * @dev_id:		TISCI device ID.
-- * @subtype:		Resource assignment subtype that is being requested
-- *			from the given device.
-- * @s_host:		Host processor ID to which the resources are allocated
-- * @desc:		Pointer to ti_sci_resource_desc to be updated with the
-- *			resource range start index and number of resources
-- *
-- * Return: 0 if all went fine, else return appropriate error.
-- */
--static int ti_sci_get_resource_range(const struct ti_sci_handle *handle,
--				     u32 dev_id, u8 subtype, u8 s_host,
--				     struct ti_sci_resource_desc *desc)
--{
--	struct ti_sci_msg_resp_get_resource_range resp;
--	struct ti_sci_msg_req_get_resource_range req;
--	int ret = 0;
--
--	if (!desc)
--		return -EINVAL;
--
--	req.secondary_host = s_host;
--	req.type = dev_id & MSG_RM_RESOURCE_TYPE_MASK;
--	req.subtype = subtype & MSG_RM_RESOURCE_SUBTYPE_MASK;
--
--	ret = ti_sci_do_xfer(handle, TI_SCI_MSG_GET_RESOURCE_RANGE,
--			     TI_SCI_FLAG_REQ_ACK_ON_PROCESSED,
--			     &req, sizeof(req),
--			     &resp, sizeof(resp));
--	if (ret)
--		return ret;
--
--	if (!resp.range_num && !resp.range_num_sec) {
--		/* Neither of the two resource range is valid */
--		ret = -ENODEV;
--	} else {
--		desc->start = resp.range_start;
--		desc->num = resp.range_num;
--		desc->start_sec = resp.range_start_sec;
--		desc->num_sec = resp.range_num_sec;
--	}
--
--	return ret;
--}
--
--/**
-- * ti_sci_cmd_get_resource_range - Get a range of resources assigned to host
-- *				   that is same as ti sci interface host.
-- * @handle:		Pointer to TISCI handle.
-- * @dev_id:		TISCI device ID.
-- * @subtype:		Resource assignment subtype that is being requested
-- *			from the given device.
-- * @desc:		Pointer to ti_sci_resource_desc to be updated with the
-- *			resource range start index and number of resources
-- *
-- * Return: 0 if all went fine, else return appropriate error.
-- */
--static int ti_sci_cmd_get_resource_range(const struct ti_sci_handle *handle,
--					 u32 dev_id, u8 subtype,
--					 struct ti_sci_resource_desc *desc)
--{
--	return ti_sci_get_resource_range(handle, dev_id, subtype,
--					 TI_SCI_IRQ_SECONDARY_HOST_INVALID,
--					 desc);
--}
--
--/**
-- * ti_sci_cmd_get_resource_range_from_shost - Get a range of resources
-- *					      assigned to a specified host.
-- * @handle:		Pointer to TISCI handle.
-- * @dev_id:		TISCI device ID.
-- * @subtype:		Resource assignment subtype that is being requested
-- *			from the given device.
-- * @s_host:		Host processor ID to which the resources are allocated
-- * @desc:		Pointer to ti_sci_resource_desc to be updated with the
-- *			resource range start index and number of resources
-- *
-- * Return: 0 if all went fine, else return appropriate error.
-- */
--static
--int ti_sci_cmd_get_resource_range_from_shost(const struct ti_sci_handle *handle,
--					     u32 dev_id, u8 subtype, u8 s_host,
--					     struct ti_sci_resource_desc *desc)
--{
--	return ti_sci_get_resource_range(handle, dev_id, subtype, s_host, desc);
--}
--
--/**
-- * ti_sci_manage_irq() - Helper api to configure/release the irq route between
-- *			 the requested source and destination
-- * @handle:		Pointer to TISCI handle.
-- * @valid_params:	Bit fields defining the validity of certain params
-- * @src_id:		Device ID of the IRQ source
-- * @src_index:		IRQ source index within the source device
-- * @dst_id:		Device ID of the IRQ destination
-- * @dst_host_irq:	IRQ number of the destination device
-- * @ia_id:		Device ID of the IA, if the IRQ flows through this IA
-- * @vint:		Virtual interrupt to be used within the IA
-- * @global_event:	Global event number to be used for the requesting event
-- * @vint_status_bit:	Virtual interrupt status bit to be used for the event
-- * @s_host:		Secondary host ID to which the irq/event is being
-- *			requested for.
-- * @type:		Request type irq set or release.
-- *
-- * Return: 0 if all went fine, else return appropriate error.
-- */
--static int ti_sci_manage_irq(const struct ti_sci_handle *handle,
--			     u32 valid_params, u16 src_id, u16 src_index,
--			     u16 dst_id, u16 dst_host_irq, u16 ia_id, u16 vint,
--			     u16 global_event, u8 vint_status_bit, u8 s_host,
--			     u16 type)
--{
--	struct ti_sci_msg_req_manage_irq req;
--	struct ti_sci_msg_hdr resp;
--	int ret = 0;
--
--	req.valid_params = valid_params;
--	req.src_id = src_id;
--	req.src_index = src_index;
--	req.dst_id = dst_id;
--	req.dst_host_irq = dst_host_irq;
--	req.ia_id = ia_id;
--	req.vint = vint;
--	req.global_event = global_event;
--	req.vint_status_bit = vint_status_bit;
--	req.secondary_host = s_host;
--
--	ret = ti_sci_do_xfer(handle, type, TI_SCI_FLAG_REQ_ACK_ON_PROCESSED,
--			     &req, sizeof(req),
--			     &resp, sizeof(resp));
--	if (ret)
--		return ret;
--
--	return 0;
--}
--
--/**
-- * ti_sci_irq_hash() - Helper API to compute irq hash for the hash table.
-- * @irq:	irq to hash
-- *
-- * Return: the computed hash value.
-- */
--static int ti_sci_irq_hash(struct ti_sci_msg_req_manage_irq *irq)
--{
--	return irq->src_id ^ irq->src_index;
--}
--
--/**
-- * ti_sci_irq_equal() - Helper API to compare two irqs (generic headers are not
-- *                       compared)
-- * @irq_a:	irq_a to compare
-- * @irq_b:	irq_b to compare
-- *
-- * Return: true if the two irqs are equal, else false.
-- */
--static bool ti_sci_irq_equal(struct ti_sci_msg_req_manage_irq *irq_a,
--			     struct ti_sci_msg_req_manage_irq *irq_b)
--{
--	return !memcmp(&irq_a->valid_params, &irq_b->valid_params,
--		       sizeof(*irq_a) - sizeof(irq_a->hdr));
--}
--
--/**
-- * ti_sci_set_irq() - Helper api to configure the irq route between the
-- *		      requested source and destination
-- * @handle:		Pointer to TISCI handle.
-- * @valid_params:	Bit fields defining the validity of certain params
-- * @src_id:		Device ID of the IRQ source
-- * @src_index:		IRQ source index within the source device
-- * @dst_id:		Device ID of the IRQ destination
-- * @dst_host_irq:	IRQ number of the destination device
-- * @ia_id:		Device ID of the IA, if the IRQ flows through this IA
-- * @vint:		Virtual interrupt to be used within the IA
-- * @global_event:	Global event number to be used for the requesting event
-- * @vint_status_bit:	Virtual interrupt status bit to be used for the event
-- * @s_host:		Secondary host ID to which the irq/event is being
-- *			requested for.
-- *
-- * Return: 0 if all went fine, else return appropriate error.
-- */
--static int ti_sci_set_irq(const struct ti_sci_handle *handle, u32 valid_params,
--			  u16 src_id, u16 src_index, u16 dst_id,
--			  u16 dst_host_irq, u16 ia_id, u16 vint,
--			  u16 global_event, u8 vint_status_bit, u8 s_host)
--{
--	struct ti_sci_info *info = handle_to_ti_sci_info(handle);
--	struct ti_sci_msg_req_manage_irq *desc;
--	struct ti_sci_irq *irq;
--	int ret;
--
--	/* Lock for set_irq() and free_irq() to keep the IRQ hash list consistent */
--	guard(mutex)(&info->irq_lock);
--
--	pr_debug("%s: IRQ set with valid_params = 0x%x from src = %d, index = %d, to dst = %d, irq = %d,via ia_id = %d, vint = %d, global event = %d,status_bit = %d\n",
--		 __func__, valid_params, src_id, src_index,
--		 dst_id, dst_host_irq, ia_id, vint, global_event,
--		 vint_status_bit);
--
--	ret = ti_sci_manage_irq(handle, valid_params, src_id, src_index,
--				dst_id, dst_host_irq, ia_id, vint,
--				global_event, vint_status_bit, s_host,
--				TI_SCI_MSG_SET_IRQ);
--
--	if (ret || !(info->fw_caps & MSG_FLAG_CAPS_LPM_IRQ_CONTEXT_LOST))
--		goto end;
--
--	irq = kzalloc_obj(*irq);
--	if (!irq) {
--		ti_sci_manage_irq(handle, valid_params, src_id, src_index,
--				  dst_id, dst_host_irq, ia_id, vint,
--				  global_event, vint_status_bit, s_host,
--				  TI_SCI_MSG_FREE_IRQ);
--		ret = -ENOMEM;
--		goto end;
--	}
--
--	desc = &irq->desc;
--	desc->valid_params = valid_params;
--	desc->src_id = src_id;
--	desc->src_index = src_index;
--	desc->dst_id = dst_id;
--	desc->dst_host_irq = dst_host_irq;
--	desc->ia_id = ia_id;
--	desc->vint = vint;
--	desc->global_event = global_event;
--	desc->vint_status_bit = vint_status_bit;
--	desc->secondary_host = s_host;
--
--	hash_add(info->irqs, &irq->node, ti_sci_irq_hash(desc));
--
--end:
--	return ret;
--}
--
--/**
-- * ti_sci_free_irq() - Helper api to free the irq route between the
-- *			   requested source and destination
-- * @handle:		Pointer to TISCI handle.
-- * @valid_params:	Bit fields defining the validity of certain params
-- * @src_id:		Device ID of the IRQ source
-- * @src_index:		IRQ source index within the source device
-- * @dst_id:		Device ID of the IRQ destination
-- * @dst_host_irq:	IRQ number of the destination device
-- * @ia_id:		Device ID of the IA, if the IRQ flows through this IA
-- * @vint:		Virtual interrupt to be used within the IA
-- * @global_event:	Global event number to be used for the requesting event
-- * @vint_status_bit:	Virtual interrupt status bit to be used for the event
-- * @s_host:		Secondary host ID to which the irq/event is being
-- *			requested for.
-- *
-- * Return: 0 if all went fine, else return appropriate error.
-- */
--static int ti_sci_free_irq(const struct ti_sci_handle *handle, u32 valid_params,
--			   u16 src_id, u16 src_index, u16 dst_id,
--			   u16 dst_host_irq, u16 ia_id, u16 vint,
--			   u16 global_event, u8 vint_status_bit, u8 s_host)
--{
--	struct ti_sci_info *info = handle_to_ti_sci_info(handle);
--	struct ti_sci_msg_req_manage_irq irq_desc;
--	struct device *dev = info->dev;
--	struct ti_sci_irq *this_irq;
--	struct hlist_node *tmp_node;
--	int ret;
--
--	guard(mutex)(&info->irq_lock);
--
--	pr_debug("%s: IRQ release with valid_params = 0x%x from src = %d, index = %d, to dst = %d, irq = %d,via ia_id = %d, vint = %d, global event = %d,status_bit = %d\n",
--		 __func__, valid_params, src_id, src_index,
--		 dst_id, dst_host_irq, ia_id, vint, global_event,
--		 vint_status_bit);
--
--	ret = ti_sci_manage_irq(handle, valid_params, src_id, src_index,
--				dst_id, dst_host_irq, ia_id, vint,
--				global_event, vint_status_bit, s_host,
--				TI_SCI_MSG_FREE_IRQ);
--
--	if (ret || !(info->fw_caps & MSG_FLAG_CAPS_LPM_IRQ_CONTEXT_LOST))
--		goto end;
--
--	irq_desc.valid_params = valid_params;
--	irq_desc.src_id = src_id;
--	irq_desc.src_index = src_index;
--	irq_desc.dst_id = dst_id;
--	irq_desc.dst_host_irq = dst_host_irq;
--	irq_desc.ia_id = ia_id;
--	irq_desc.vint = vint;
--	irq_desc.global_event = global_event;
--	irq_desc.vint_status_bit = vint_status_bit;
--	irq_desc.secondary_host = s_host;
--
--	hash_for_each_possible_safe(info->irqs, this_irq, tmp_node, node,
--				    ti_sci_irq_hash(&irq_desc)) {
--		if (ti_sci_irq_equal(&irq_desc, &this_irq->desc)) {
--			hlist_del(&this_irq->node);
--			kfree(this_irq);
--			goto end;
--		}
--	}
--
--	dev_warn(dev, "%s: should not be here, IRQ was not found in hash list\n",
--		 __func__);
--
--end:
--	return ret;
--}
--
--/**
-- * ti_sci_cmd_set_irq() - Configure a host irq route between the requested
-- *			  source and destination.
-- * @handle:		Pointer to TISCI handle.
-- * @src_id:		Device ID of the IRQ source
-- * @src_index:		IRQ source index within the source device
-- * @dst_id:		Device ID of the IRQ destination
-- * @dst_host_irq:	IRQ number of the destination device
-- *
-- * Return: 0 if all went fine, else return appropriate error.
-- */
--static int ti_sci_cmd_set_irq(const struct ti_sci_handle *handle, u16 src_id,
--			      u16 src_index, u16 dst_id, u16 dst_host_irq)
--{
--	u32 valid_params = MSG_FLAG_DST_ID_VALID | MSG_FLAG_DST_HOST_IRQ_VALID;
--
--	return ti_sci_set_irq(handle, valid_params, src_id, src_index, dst_id,
--			      dst_host_irq, 0, 0, 0, 0, 0);
--}
--
--/**
-- * ti_sci_cmd_set_event_map() - Configure an event based irq route between the
-- *				requested source and Interrupt Aggregator.
-- * @handle:		Pointer to TISCI handle.
-- * @src_id:		Device ID of the IRQ source
-- * @src_index:		IRQ source index within the source device
-- * @ia_id:		Device ID of the IA, if the IRQ flows through this IA
-- * @vint:		Virtual interrupt to be used within the IA
-- * @global_event:	Global event number to be used for the requesting event
-- * @vint_status_bit:	Virtual interrupt status bit to be used for the event
-- *
-- * Return: 0 if all went fine, else return appropriate error.
-- */
--static int ti_sci_cmd_set_event_map(const struct ti_sci_handle *handle,
--				    u16 src_id, u16 src_index, u16 ia_id,
--				    u16 vint, u16 global_event,
--				    u8 vint_status_bit)
--{
--	u32 valid_params = MSG_FLAG_IA_ID_VALID | MSG_FLAG_VINT_VALID |
--			   MSG_FLAG_GLB_EVNT_VALID |
--			   MSG_FLAG_VINT_STS_BIT_VALID;
--
--	return ti_sci_set_irq(handle, valid_params, src_id, src_index, 0, 0,
--			      ia_id, vint, global_event, vint_status_bit, 0);
--}
--
--/**
-- * ti_sci_cmd_free_irq() - Free a host irq route between the between the
-- *			   requested source and destination.
-- * @handle:		Pointer to TISCI handle.
-- * @src_id:		Device ID of the IRQ source
-- * @src_index:		IRQ source index within the source device
-- * @dst_id:		Device ID of the IRQ destination
-- * @dst_host_irq:	IRQ number of the destination device
-- *
-- * Return: 0 if all went fine, else return appropriate error.
-- */
--static int ti_sci_cmd_free_irq(const struct ti_sci_handle *handle, u16 src_id,
--			       u16 src_index, u16 dst_id, u16 dst_host_irq)
--{
--	u32 valid_params = MSG_FLAG_DST_ID_VALID | MSG_FLAG_DST_HOST_IRQ_VALID;
--
--	return ti_sci_free_irq(handle, valid_params, src_id, src_index, dst_id,
--			       dst_host_irq, 0, 0, 0, 0, 0);
--}
--
--/**
-- * ti_sci_cmd_free_event_map() - Free an event map between the requested source
-- *				 and Interrupt Aggregator.
-- * @handle:		Pointer to TISCI handle.
-- * @src_id:		Device ID of the IRQ source
-- * @src_index:		IRQ source index within the source device
-- * @ia_id:		Device ID of the IA, if the IRQ flows through this IA
-- * @vint:		Virtual interrupt to be used within the IA
-- * @global_event:	Global event number to be used for the requesting event
-- * @vint_status_bit:	Virtual interrupt status bit to be used for the event
-- *
-- * Return: 0 if all went fine, else return appropriate error.
-- */
--static int ti_sci_cmd_free_event_map(const struct ti_sci_handle *handle,
--				     u16 src_id, u16 src_index, u16 ia_id,
--				     u16 vint, u16 global_event,
--				     u8 vint_status_bit)
--{
--	u32 valid_params = MSG_FLAG_IA_ID_VALID |
--			   MSG_FLAG_VINT_VALID | MSG_FLAG_GLB_EVNT_VALID |
--			   MSG_FLAG_VINT_STS_BIT_VALID;
--
--	return ti_sci_free_irq(handle, valid_params, src_id, src_index, 0, 0,
--			       ia_id, vint, global_event, vint_status_bit, 0);
--}
--
--/**
-- * ti_sci_cmd_rm_ring_cfg() - Configure a NAVSS ring
-- * @handle:	Pointer to TI SCI handle.
-- * @params:	Pointer to ti_sci_msg_rm_ring_cfg ring config structure
-- *
-- * Return: 0 if all went well, else returns appropriate error value.
-- *
-- * See @ti_sci_msg_rm_ring_cfg and @ti_sci_msg_rm_ring_cfg_req for
-- * more info.
-- */
--static int ti_sci_cmd_rm_ring_cfg(const struct ti_sci_handle *handle,
--				  const struct ti_sci_msg_rm_ring_cfg *params)
--{
--	struct ti_sci_msg_rm_ring_cfg_req req;
--	struct ti_sci_msg_hdr resp;
--	int ret = 0;
--
--	req.valid_params = params->valid_params;
--	req.nav_id = params->nav_id;
--	req.index = params->index;
--	req.addr_lo = params->addr_lo;
--	req.addr_hi = params->addr_hi;
--	req.count = params->count;
--	req.mode = params->mode;
--	req.size = params->size;
--	req.order_id = params->order_id;
--	req.virtid = params->virtid;
--	req.asel = params->asel;
--
--	ret = ti_sci_do_xfer(handle, TI_SCI_MSG_RM_RING_CFG,
--			     TI_SCI_FLAG_REQ_ACK_ON_PROCESSED,
--			     &req, sizeof(req),
--			     &resp, sizeof(resp));
--	if (ret)
--		return ret;
--
--	return 0;
--}
--
--/**
-- * ti_sci_cmd_rm_psil_pair() - Pair PSI-L source to destination thread
-- * @handle:	Pointer to TI SCI handle.
-- * @nav_id:	Device ID of Navigator Subsystem which should be used for
-- *		pairing
-- * @src_thread:	Source PSI-L thread ID
-- * @dst_thread: Destination PSI-L thread ID
-- *
-- * Return: 0 if all went well, else returns appropriate error value.
-- */
--static int ti_sci_cmd_rm_psil_pair(const struct ti_sci_handle *handle,
--				   u32 nav_id, u32 src_thread, u32 dst_thread)
--{
--	struct ti_sci_msg_psil_pair req;
--	struct ti_sci_msg_hdr resp;
--	int ret = 0;
--
--	req.nav_id = nav_id;
--	req.src_thread = src_thread;
--	req.dst_thread = dst_thread;
--
--	ret = ti_sci_do_xfer(handle, TI_SCI_MSG_RM_PSIL_PAIR,
--			     TI_SCI_FLAG_REQ_ACK_ON_PROCESSED,
--			     &req, sizeof(req),
--			     &resp, sizeof(resp));
--	if (ret)
--		return ret;
--
--	return 0;
--}
--
--/**
-- * ti_sci_cmd_rm_psil_unpair() - Unpair PSI-L source from destination thread
-- * @handle:	Pointer to TI SCI handle.
-- * @nav_id:	Device ID of Navigator Subsystem which should be used for
-- *		unpairing
-- * @src_thread:	Source PSI-L thread ID
-- * @dst_thread:	Destination PSI-L thread ID
-- *
-- * Return: 0 if all went well, else returns appropriate error value.
-- */
--static int ti_sci_cmd_rm_psil_unpair(const struct ti_sci_handle *handle,
--				     u32 nav_id, u32 src_thread, u32 dst_thread)
--{
--	struct ti_sci_msg_psil_unpair req;
--	struct ti_sci_msg_hdr resp;
--	int ret = 0;
--
--	req.nav_id = nav_id;
--	req.src_thread = src_thread;
--	req.dst_thread = dst_thread;
--
--	ret = ti_sci_do_xfer(handle, TI_SCI_MSG_RM_PSIL_UNPAIR,
--			     TI_SCI_FLAG_REQ_ACK_ON_PROCESSED,
--			     &req, sizeof(req),
--			     &resp, sizeof(resp));
--	if (ret)
--		return ret;
--
--	return 0;
--}
--
--/**
-- * ti_sci_cmd_rm_udmap_tx_ch_cfg() - Configure a UDMAP TX channel
-- * @handle:	Pointer to TI SCI handle.
-- * @params:	Pointer to ti_sci_msg_rm_udmap_tx_ch_cfg TX channel config
-- *		structure
-- *
-- * Return: 0 if all went well, else returns appropriate error value.
-- *
-- * See @ti_sci_msg_rm_udmap_tx_ch_cfg and @ti_sci_msg_rm_udmap_tx_ch_cfg_req for
-- * more info.
-- */
--static int ti_sci_cmd_rm_udmap_tx_ch_cfg(const struct ti_sci_handle *handle,
--			const struct ti_sci_msg_rm_udmap_tx_ch_cfg *params)
--{
--	struct ti_sci_msg_rm_udmap_tx_ch_cfg_req req;
--	struct ti_sci_msg_hdr resp;
--	int ret = 0;
--
--	req.valid_params = params->valid_params;
--	req.nav_id = params->nav_id;
--	req.index = params->index;
--	req.tx_pause_on_err = params->tx_pause_on_err;
--	req.tx_filt_einfo = params->tx_filt_einfo;
--	req.tx_filt_pswords = params->tx_filt_pswords;
--	req.tx_atype = params->tx_atype;
--	req.tx_chan_type = params->tx_chan_type;
--	req.tx_supr_tdpkt = params->tx_supr_tdpkt;
--	req.tx_fetch_size = params->tx_fetch_size;
--	req.tx_credit_count = params->tx_credit_count;
--	req.txcq_qnum = params->txcq_qnum;
--	req.tx_priority = params->tx_priority;
--	req.tx_qos = params->tx_qos;
--	req.tx_orderid = params->tx_orderid;
--	req.fdepth = params->fdepth;
--	req.tx_sched_priority = params->tx_sched_priority;
--	req.tx_burst_size = params->tx_burst_size;
--	req.tx_tdtype = params->tx_tdtype;
--	req.extended_ch_type = params->extended_ch_type;
--
--	ret = ti_sci_do_xfer(handle, TISCI_MSG_RM_UDMAP_TX_CH_CFG,
--			     TI_SCI_FLAG_REQ_ACK_ON_PROCESSED,
--			     &req, sizeof(req),
--			     &resp, sizeof(resp));
--	if (ret)
--		return ret;
--
--	return 0;
--}
--
--/**
-- * ti_sci_cmd_rm_udmap_rx_ch_cfg() - Configure a UDMAP RX channel
-- * @handle:	Pointer to TI SCI handle.
-- * @params:	Pointer to ti_sci_msg_rm_udmap_rx_ch_cfg RX channel config
-- *		structure
-- *
-- * Return: 0 if all went well, else returns appropriate error value.
-- *
-- * See @ti_sci_msg_rm_udmap_rx_ch_cfg and @ti_sci_msg_rm_udmap_rx_ch_cfg_req for
-- * more info.
-- */
--static int ti_sci_cmd_rm_udmap_rx_ch_cfg(const struct ti_sci_handle *handle,
--			const struct ti_sci_msg_rm_udmap_rx_ch_cfg *params)
--{
--	struct ti_sci_msg_rm_udmap_rx_ch_cfg_req req;
--	struct ti_sci_msg_hdr resp;
--	int ret = 0;
--
--	req.valid_params = params->valid_params;
--	req.nav_id = params->nav_id;
--	req.index = params->index;
--	req.rx_fetch_size = params->rx_fetch_size;
--	req.rxcq_qnum = params->rxcq_qnum;
--	req.rx_priority = params->rx_priority;
--	req.rx_qos = params->rx_qos;
--	req.rx_orderid = params->rx_orderid;
--	req.rx_sched_priority = params->rx_sched_priority;
--	req.flowid_start = params->flowid_start;
--	req.flowid_cnt = params->flowid_cnt;
--	req.rx_pause_on_err = params->rx_pause_on_err;
--	req.rx_atype = params->rx_atype;
--	req.rx_chan_type = params->rx_chan_type;
--	req.rx_ignore_short = params->rx_ignore_short;
--	req.rx_ignore_long = params->rx_ignore_long;
--	req.rx_burst_size = params->rx_burst_size;
--
--	ret = ti_sci_do_xfer(handle, TISCI_MSG_RM_UDMAP_RX_CH_CFG,
--			     TI_SCI_FLAG_REQ_ACK_ON_PROCESSED,
--			     &req, sizeof(req),
--			     &resp, sizeof(resp));
--	if (ret)
--		return ret;
--
--	return 0;
--}
--
--/**
-- * ti_sci_cmd_rm_udmap_rx_flow_cfg() - Configure UDMAP RX FLOW
-- * @handle:	Pointer to TI SCI handle.
-- * @params:	Pointer to ti_sci_msg_rm_udmap_flow_cfg RX FLOW config
-- *		structure
-- *
-- * Return: 0 if all went well, else returns appropriate error value.
-- *
-- * See @ti_sci_msg_rm_udmap_flow_cfg and @ti_sci_msg_rm_udmap_flow_cfg_req for
-- * more info.
-- */
--static int ti_sci_cmd_rm_udmap_rx_flow_cfg(const struct ti_sci_handle *handle,
--			const struct ti_sci_msg_rm_udmap_flow_cfg *params)
--{
--	struct ti_sci_msg_rm_udmap_flow_cfg_req req;
--	struct ti_sci_msg_hdr resp;
--	int ret = 0;
--
--	req.valid_params = params->valid_params;
--	req.nav_id = params->nav_id;
--	req.flow_index = params->flow_index;
--	req.rx_einfo_present = params->rx_einfo_present;
--	req.rx_psinfo_present = params->rx_psinfo_present;
--	req.rx_error_handling = params->rx_error_handling;
--	req.rx_desc_type = params->rx_desc_type;
--	req.rx_sop_offset = params->rx_sop_offset;
--	req.rx_dest_qnum = params->rx_dest_qnum;
--	req.rx_src_tag_hi = params->rx_src_tag_hi;
--	req.rx_src_tag_lo = params->rx_src_tag_lo;
--	req.rx_dest_tag_hi = params->rx_dest_tag_hi;
--	req.rx_dest_tag_lo = params->rx_dest_tag_lo;
--	req.rx_src_tag_hi_sel = params->rx_src_tag_hi_sel;
--	req.rx_src_tag_lo_sel = params->rx_src_tag_lo_sel;
--	req.rx_dest_tag_hi_sel = params->rx_dest_tag_hi_sel;
--	req.rx_dest_tag_lo_sel = params->rx_dest_tag_lo_sel;
--	req.rx_fdq0_sz0_qnum = params->rx_fdq0_sz0_qnum;
--	req.rx_fdq1_qnum = params->rx_fdq1_qnum;
--	req.rx_fdq2_qnum = params->rx_fdq2_qnum;
--	req.rx_fdq3_qnum = params->rx_fdq3_qnum;
--	req.rx_ps_location = params->rx_ps_location;
--
--	ret = ti_sci_do_xfer(handle, TISCI_MSG_RM_UDMAP_FLOW_CFG,
--			     TI_SCI_FLAG_REQ_ACK_ON_PROCESSED,
--			     &req, sizeof(req),
--			     &resp, sizeof(resp));
--	if (ret)
--		return ret;
--
--	return 0;
--}
--
- /**
-  * ti_sci_cmd_proc_request() - Command to request a physical processor control
-  * @handle:	Pointer to TI SCI handle
-@@ -1495,23 +834,11 @@ static void ti_sci_setup_ops(struct ti_sci_info *info)
- 		ti_sci_setup_pm_ops(pmops);
- 	}
- 
--	rm_core_ops->get_range = ti_sci_cmd_get_resource_range;
--	rm_core_ops->get_range_from_shost =
--				ti_sci_cmd_get_resource_range_from_shost;
--
--	iops->set_irq = ti_sci_cmd_set_irq;
--	iops->set_event_map = ti_sci_cmd_set_event_map;
--	iops->free_irq = ti_sci_cmd_free_irq;
--	iops->free_event_map = ti_sci_cmd_free_event_map;
--
--	rops->set_cfg = ti_sci_cmd_rm_ring_cfg;
--
--	psilops->pair = ti_sci_cmd_rm_psil_pair;
--	psilops->unpair = ti_sci_cmd_rm_psil_unpair;
--
--	udmap_ops->tx_ch_cfg = ti_sci_cmd_rm_udmap_tx_ch_cfg;
--	udmap_ops->rx_ch_cfg = ti_sci_cmd_rm_udmap_rx_ch_cfg;
--	udmap_ops->rx_flow_cfg = ti_sci_cmd_rm_udmap_rx_flow_cfg;
-+	ti_sci_setup_rm_core_ops(rm_core_ops);
-+	ti_sci_setup_rm_irq_ops(iops);
-+	ti_sci_setup_rm_ringacc_ops(rops);
-+	ti_sci_setup_rm_psil_ops(psilops);
-+	ti_sci_setup_rm_udmap_ops(udmap_ops);
- 
- 	pops->request = ti_sci_cmd_proc_request;
- 	pops->release = ti_sci_cmd_proc_release;
-@@ -1722,198 +1049,6 @@ const struct ti_sci_handle *devm_ti_sci_get_by_phandle(struct device *dev,
- }
- EXPORT_SYMBOL_GPL(devm_ti_sci_get_by_phandle);
- 
--/**
-- * ti_sci_get_free_resource() - Get a free resource from TISCI resource.
-- * @res:	Pointer to the TISCI resource
-- *
-- * Return: resource num if all went ok else TI_SCI_RESOURCE_NULL.
-- */
--u16 ti_sci_get_free_resource(struct ti_sci_resource *res)
--{
--	unsigned long flags;
--	u16 set, free_bit;
--
--	raw_spin_lock_irqsave(&res->lock, flags);
--	for (set = 0; set < res->sets; set++) {
--		struct ti_sci_resource_desc *desc = &res->desc[set];
--		int res_count = desc->num + desc->num_sec;
--
--		free_bit = find_first_zero_bit(desc->res_map, res_count);
--		if (free_bit != res_count) {
--			__set_bit(free_bit, desc->res_map);
--			raw_spin_unlock_irqrestore(&res->lock, flags);
--
--			if (desc->num && free_bit < desc->num)
--				return desc->start + free_bit;
--			else
--				return desc->start_sec + free_bit;
--		}
--	}
--	raw_spin_unlock_irqrestore(&res->lock, flags);
--
--	return TI_SCI_RESOURCE_NULL;
--}
--EXPORT_SYMBOL_GPL(ti_sci_get_free_resource);
--
--/**
-- * ti_sci_release_resource() - Release a resource from TISCI resource.
-- * @res:	Pointer to the TISCI resource
-- * @id:		Resource id to be released.
-- */
--void ti_sci_release_resource(struct ti_sci_resource *res, u16 id)
--{
--	unsigned long flags;
--	u16 set;
--
--	raw_spin_lock_irqsave(&res->lock, flags);
--	for (set = 0; set < res->sets; set++) {
--		struct ti_sci_resource_desc *desc = &res->desc[set];
--
--		if (desc->num && desc->start <= id &&
--		    (desc->start + desc->num) > id)
--			__clear_bit(id - desc->start, desc->res_map);
--		else if (desc->num_sec && desc->start_sec <= id &&
--			 (desc->start_sec + desc->num_sec) > id)
--			__clear_bit(id - desc->start_sec, desc->res_map);
--	}
--	raw_spin_unlock_irqrestore(&res->lock, flags);
--}
--EXPORT_SYMBOL_GPL(ti_sci_release_resource);
--
--/**
-- * ti_sci_get_num_resources() - Get the number of resources in TISCI resource
-- * @res:	Pointer to the TISCI resource
-- *
-- * Return: Total number of available resources.
-- */
--u32 ti_sci_get_num_resources(struct ti_sci_resource *res)
--{
--	u32 set, count = 0;
--
--	for (set = 0; set < res->sets; set++)
--		count += res->desc[set].num + res->desc[set].num_sec;
--
--	return count;
--}
--EXPORT_SYMBOL_GPL(ti_sci_get_num_resources);
--
--/**
-- * devm_ti_sci_get_resource_sets() - Get a TISCI resources assigned to a device
-- * @handle:	TISCI handle
-- * @dev:	Device pointer to which the resource is assigned
-- * @dev_id:	TISCI device id to which the resource is assigned
-- * @sub_types:	Array of sub_types assigned corresponding to device
-- * @sets:	Number of sub_types
-- *
-- * Return: Pointer to ti_sci_resource if all went well else appropriate
-- *	   error pointer.
-- */
--static struct ti_sci_resource *
--devm_ti_sci_get_resource_sets(const struct ti_sci_handle *handle,
--			      struct device *dev, u32 dev_id, u32 *sub_types,
--			      u32 sets)
--{
--	struct ti_sci_resource *res;
--	bool valid_set = false;
--	int i, ret, res_count;
--
--	res = devm_kzalloc(dev, sizeof(*res), GFP_KERNEL);
--	if (!res)
--		return ERR_PTR(-ENOMEM);
--
--	res->sets = sets;
--	res->desc = devm_kcalloc(dev, res->sets, sizeof(*res->desc),
--				 GFP_KERNEL);
--	if (!res->desc)
--		return ERR_PTR(-ENOMEM);
--
--	for (i = 0; i < res->sets; i++) {
--		ret = handle->ops.rm_core_ops.get_range(handle, dev_id,
--							sub_types[i],
--							&res->desc[i]);
--		if (ret) {
--			dev_dbg(dev, "dev = %d subtype %d not allocated for this host\n",
--				dev_id, sub_types[i]);
--			memset(&res->desc[i], 0, sizeof(res->desc[i]));
--			continue;
--		}
--
--		dev_dbg(dev, "dev/sub_type: %d/%d, start/num: %d/%d | %d/%d\n",
--			dev_id, sub_types[i], res->desc[i].start,
--			res->desc[i].num, res->desc[i].start_sec,
--			res->desc[i].num_sec);
--
--		valid_set = true;
--		res_count = res->desc[i].num + res->desc[i].num_sec;
--		res->desc[i].res_map = devm_bitmap_zalloc(dev, res_count,
--							  GFP_KERNEL);
--		if (!res->desc[i].res_map)
--			return ERR_PTR(-ENOMEM);
--	}
--	raw_spin_lock_init(&res->lock);
--
--	if (valid_set)
--		return res;
--
--	return ERR_PTR(-EINVAL);
--}
--
--/**
-- * devm_ti_sci_get_of_resource() - Get a TISCI resource assigned to a device
-- * @handle:	TISCI handle
-- * @dev:	Device pointer to which the resource is assigned
-- * @dev_id:	TISCI device id to which the resource is assigned
-- * @of_prop:	property name by which the resource are represented
-- *
-- * Return: Pointer to ti_sci_resource if all went well else appropriate
-- *	   error pointer.
-- */
--struct ti_sci_resource *
--devm_ti_sci_get_of_resource(const struct ti_sci_handle *handle,
--			    struct device *dev, u32 dev_id, char *of_prop)
--{
--	struct ti_sci_resource *res;
--	u32 *sub_types;
--	int sets;
--
--	sets = of_property_count_elems_of_size(dev_of_node(dev), of_prop,
--					       sizeof(u32));
--	if (sets < 0) {
--		dev_err(dev, "%s resource type ids not available\n", of_prop);
--		return ERR_PTR(sets);
--	}
--
--	sub_types = kcalloc(sets, sizeof(*sub_types), GFP_KERNEL);
--	if (!sub_types)
--		return ERR_PTR(-ENOMEM);
--
--	of_property_read_u32_array(dev_of_node(dev), of_prop, sub_types, sets);
--	res = devm_ti_sci_get_resource_sets(handle, dev, dev_id, sub_types,
--					    sets);
--
--	kfree(sub_types);
--	return res;
--}
--EXPORT_SYMBOL_GPL(devm_ti_sci_get_of_resource);
--
--/**
-- * devm_ti_sci_get_resource() - Get a resource range assigned to the device
-- * @handle:	TISCI handle
-- * @dev:	Device pointer to which the resource is assigned
-- * @dev_id:	TISCI device id to which the resource is assigned
-- * @sub_type:	TISCI resource subytpe representing the resource.
-- *
-- * Return: Pointer to ti_sci_resource if all went well else appropriate
-- *	   error pointer.
-- */
--struct ti_sci_resource *
--devm_ti_sci_get_resource(const struct ti_sci_handle *handle, struct device *dev,
--			 u32 dev_id, u32 sub_type)
--{
--	return devm_ti_sci_get_resource_sets(handle, dev, dev_id, &sub_type, 1);
--}
--EXPORT_SYMBOL_GPL(devm_ti_sci_get_resource);
--
- /*
-  * Iterate all device nodes that have a wakeup-source property and check if one
-  * of the possible phandles points to a Partial-IO system state. If it
-diff --git a/drivers/firmware/ti/ti_sci_rm.c b/drivers/firmware/ti/ti_sci_rm.c
-new file mode 100644
-index 0000000000000..24ac3d963f370
---- /dev/null
-+++ b/drivers/firmware/ti/ti_sci_rm.c
-@@ -0,0 +1,907 @@
-+// SPDX-License-Identifier: GPL-2.0
-+/*
-+ * Texas Instruments System Control Interface Protocol Driver
-+ *
-+ * Copyright (C) 2015-2026 Texas Instruments Incorporated - https://www.ti.com/
-+ *	Nishanth Menon
-+ */
-+
-+#include <linux/errno.h>
-+#include <linux/export.h>
-+#include <linux/soc/ti/ti_sci_protocol.h>
-+
-+#include "ti_sci.h"
-+
-+/**
-+ * ti_sci_get_resource_range - Helper to get a range of resources assigned
-+ *			       to a host. Resource is uniquely identified by
-+ *			       type and subtype.
-+ * @handle:		Pointer to TISCI handle.
-+ * @dev_id:		TISCI device ID.
-+ * @subtype:		Resource assignment subtype that is being requested
-+ *			from the given device.
-+ * @s_host:		Host processor ID to which the resources are allocated
-+ * @desc:		Pointer to ti_sci_resource_desc to be updated with the
-+ *			resource range start index and number of resources
-+ *
-+ * Return: 0 if all went fine, else return appropriate error.
-+ */
-+static int ti_sci_get_resource_range(const struct ti_sci_handle *handle,
-+				     u32 dev_id, u8 subtype, u8 s_host,
-+				     struct ti_sci_resource_desc *desc)
-+{
-+	struct ti_sci_msg_resp_get_resource_range resp;
-+	struct ti_sci_msg_req_get_resource_range req;
-+	int ret = 0;
-+
-+	if (!desc)
-+		return -EINVAL;
-+
-+	req.secondary_host = s_host;
-+	req.type = dev_id & MSG_RM_RESOURCE_TYPE_MASK;
-+	req.subtype = subtype & MSG_RM_RESOURCE_SUBTYPE_MASK;
-+
-+	ret = ti_sci_do_xfer(handle, TI_SCI_MSG_GET_RESOURCE_RANGE,
-+			     TI_SCI_FLAG_REQ_ACK_ON_PROCESSED,
-+			     &req, sizeof(req),
-+			     &resp, sizeof(resp));
-+	if (ret)
-+		return ret;
-+
-+	if (!resp.range_num && !resp.range_num_sec) {
-+		/* Neither of the two resource range is valid */
-+		ret = -ENODEV;
-+	} else {
-+		desc->start = resp.range_start;
-+		desc->num = resp.range_num;
-+		desc->start_sec = resp.range_start_sec;
-+		desc->num_sec = resp.range_num_sec;
-+	}
-+
-+	return ret;
-+}
-+
-+/**
-+ * ti_sci_cmd_get_resource_range - Get a range of resources assigned to host
-+ *				   that is same as ti sci interface host.
-+ * @handle:		Pointer to TISCI handle.
-+ * @dev_id:		TISCI device ID.
-+ * @subtype:		Resource assignment subtype that is being requested
-+ *			from the given device.
-+ * @desc:		Pointer to ti_sci_resource_desc to be updated with the
-+ *			resource range start index and number of resources
-+ *
-+ * Return: 0 if all went fine, else return appropriate error.
-+ */
-+static int ti_sci_cmd_get_resource_range(const struct ti_sci_handle *handle,
-+					 u32 dev_id, u8 subtype,
-+					 struct ti_sci_resource_desc *desc)
-+{
-+	return ti_sci_get_resource_range(handle, dev_id, subtype,
-+					 TI_SCI_IRQ_SECONDARY_HOST_INVALID,
-+					 desc);
-+}
-+
-+/**
-+ * ti_sci_cmd_get_resource_range_from_shost - Get a range of resources
-+ *					      assigned to a specified host.
-+ * @handle:		Pointer to TISCI handle.
-+ * @dev_id:		TISCI device ID.
-+ * @subtype:		Resource assignment subtype that is being requested
-+ *			from the given device.
-+ * @s_host:		Host processor ID to which the resources are allocated
-+ * @desc:		Pointer to ti_sci_resource_desc to be updated with the
-+ *			resource range start index and number of resources
-+ *
-+ * Return: 0 if all went fine, else return appropriate error.
-+ */
-+static
-+int ti_sci_cmd_get_resource_range_from_shost(const struct ti_sci_handle *handle,
-+					     u32 dev_id, u8 subtype, u8 s_host,
-+					     struct ti_sci_resource_desc *desc)
-+{
-+	return ti_sci_get_resource_range(handle, dev_id, subtype, s_host, desc);
-+}
-+
-+/**
-+ * ti_sci_manage_irq() - Helper api to configure/release the irq route between
-+ *			 the requested source and destination
-+ * @handle:		Pointer to TISCI handle.
-+ * @valid_params:	Bit fields defining the validity of certain params
-+ * @src_id:		Device ID of the IRQ source
-+ * @src_index:		IRQ source index within the source device
-+ * @dst_id:		Device ID of the IRQ destination
-+ * @dst_host_irq:	IRQ number of the destination device
-+ * @ia_id:		Device ID of the IA, if the IRQ flows through this IA
-+ * @vint:		Virtual interrupt to be used within the IA
-+ * @global_event:	Global event number to be used for the requesting event
-+ * @vint_status_bit:	Virtual interrupt status bit to be used for the event
-+ * @s_host:		Secondary host ID to which the irq/event is being
-+ *			requested for.
-+ * @type:		Request type irq set or release.
-+ *
-+ * Return: 0 if all went fine, else return appropriate error.
-+ */
-+int ti_sci_manage_irq(const struct ti_sci_handle *handle,
-+		      u32 valid_params, u16 src_id, u16 src_index,
-+		      u16 dst_id, u16 dst_host_irq, u16 ia_id, u16 vint,
-+		      u16 global_event, u8 vint_status_bit, u8 s_host,
-+		      u16 type)
-+{
-+	struct ti_sci_msg_req_manage_irq req;
-+	struct ti_sci_msg_hdr resp;
-+	int ret = 0;
-+
-+	req.valid_params = valid_params;
-+	req.src_id = src_id;
-+	req.src_index = src_index;
-+	req.dst_id = dst_id;
-+	req.dst_host_irq = dst_host_irq;
-+	req.ia_id = ia_id;
-+	req.vint = vint;
-+	req.global_event = global_event;
-+	req.vint_status_bit = vint_status_bit;
-+	req.secondary_host = s_host;
-+
-+	ret = ti_sci_do_xfer(handle, type, TI_SCI_FLAG_REQ_ACK_ON_PROCESSED,
-+			     &req, sizeof(req),
-+			     &resp, sizeof(resp));
-+	if (ret)
-+		return ret;
-+
-+	return 0;
-+}
-+
-+/**
-+ * ti_sci_irq_hash() - Helper API to compute irq hash for the hash table.
-+ * @irq:	irq to hash
-+ *
-+ * Return: the computed hash value.
-+ */
-+static int ti_sci_irq_hash(struct ti_sci_msg_req_manage_irq *irq)
-+{
-+	return irq->src_id ^ irq->src_index;
-+}
-+
-+/**
-+ * ti_sci_irq_equal() - Helper API to compare two irqs (generic headers are not
-+ *                       compared)
-+ * @irq_a:	irq_a to compare
-+ * @irq_b:	irq_b to compare
-+ *
-+ * Return: true if the two irqs are equal, else false.
-+ */
-+static bool ti_sci_irq_equal(struct ti_sci_msg_req_manage_irq *irq_a,
-+			     struct ti_sci_msg_req_manage_irq *irq_b)
-+{
-+	return !memcmp(&irq_a->valid_params, &irq_b->valid_params,
-+		       sizeof(*irq_a) - sizeof(irq_a->hdr));
-+}
-+
-+/**
-+ * ti_sci_set_irq() - Helper api to configure the irq route between the
-+ *		      requested source and destination
-+ * @handle:		Pointer to TISCI handle.
-+ * @valid_params:	Bit fields defining the validity of certain params
-+ * @src_id:		Device ID of the IRQ source
-+ * @src_index:		IRQ source index within the source device
-+ * @dst_id:		Device ID of the IRQ destination
-+ * @dst_host_irq:	IRQ number of the destination device
-+ * @ia_id:		Device ID of the IA, if the IRQ flows through this IA
-+ * @vint:		Virtual interrupt to be used within the IA
-+ * @global_event:	Global event number to be used for the requesting event
-+ * @vint_status_bit:	Virtual interrupt status bit to be used for the event
-+ * @s_host:		Secondary host ID to which the irq/event is being
-+ *			requested for.
-+ *
-+ * Return: 0 if all went fine, else return appropriate error.
-+ */
-+static int ti_sci_set_irq(const struct ti_sci_handle *handle, u32 valid_params,
-+			  u16 src_id, u16 src_index, u16 dst_id,
-+			  u16 dst_host_irq, u16 ia_id, u16 vint,
-+			  u16 global_event, u8 vint_status_bit, u8 s_host)
-+{
-+	struct ti_sci_info *info = handle_to_ti_sci_info(handle);
-+	struct ti_sci_msg_req_manage_irq *desc;
-+	struct ti_sci_irq *irq;
-+	int ret;
-+
-+	/* Lock for set_irq() and free_irq() to keep the IRQ hash list consistent */
-+	guard(mutex)(&info->irq_lock);
-+
-+	pr_debug("%s: IRQ set with valid_params = 0x%x from src = %d, index = %d, to dst = %d, irq = %d,via ia_id = %d, vint = %d, global event = %d,status_bit = %d\n",
-+		 __func__, valid_params, src_id, src_index,
-+		 dst_id, dst_host_irq, ia_id, vint, global_event,
-+		 vint_status_bit);
-+
-+	ret = ti_sci_manage_irq(handle, valid_params, src_id, src_index,
-+				dst_id, dst_host_irq, ia_id, vint,
-+				global_event, vint_status_bit, s_host,
-+				TI_SCI_MSG_SET_IRQ);
-+
-+	if (ret || !(info->fw_caps & MSG_FLAG_CAPS_LPM_IRQ_CONTEXT_LOST))
-+		goto end;
-+
-+	irq = kzalloc_obj(*irq);
-+	if (!irq) {
-+		ti_sci_manage_irq(handle, valid_params, src_id, src_index,
-+				  dst_id, dst_host_irq, ia_id, vint,
-+				  global_event, vint_status_bit, s_host,
-+				  TI_SCI_MSG_FREE_IRQ);
-+		ret = -ENOMEM;
-+		goto end;
-+	}
-+
-+	desc = &irq->desc;
-+	desc->valid_params = valid_params;
-+	desc->src_id = src_id;
-+	desc->src_index = src_index;
-+	desc->dst_id = dst_id;
-+	desc->dst_host_irq = dst_host_irq;
-+	desc->ia_id = ia_id;
-+	desc->vint = vint;
-+	desc->global_event = global_event;
-+	desc->vint_status_bit = vint_status_bit;
-+	desc->secondary_host = s_host;
-+
-+	hash_add(info->irqs, &irq->node, ti_sci_irq_hash(desc));
-+
-+end:
-+	return ret;
-+}
-+
-+/**
-+ * ti_sci_free_irq() - Helper api to free the irq route between the
-+ *			   requested source and destination
-+ * @handle:		Pointer to TISCI handle.
-+ * @valid_params:	Bit fields defining the validity of certain params
-+ * @src_id:		Device ID of the IRQ source
-+ * @src_index:		IRQ source index within the source device
-+ * @dst_id:		Device ID of the IRQ destination
-+ * @dst_host_irq:	IRQ number of the destination device
-+ * @ia_id:		Device ID of the IA, if the IRQ flows through this IA
-+ * @vint:		Virtual interrupt to be used within the IA
-+ * @global_event:	Global event number to be used for the requesting event
-+ * @vint_status_bit:	Virtual interrupt status bit to be used for the event
-+ * @s_host:		Secondary host ID to which the irq/event is being
-+ *			requested for.
-+ *
-+ * Return: 0 if all went fine, else return appropriate error.
-+ */
-+static int ti_sci_free_irq(const struct ti_sci_handle *handle, u32 valid_params,
-+			   u16 src_id, u16 src_index, u16 dst_id,
-+			   u16 dst_host_irq, u16 ia_id, u16 vint,
-+			   u16 global_event, u8 vint_status_bit, u8 s_host)
-+{
-+	struct ti_sci_info *info = handle_to_ti_sci_info(handle);
-+	struct ti_sci_msg_req_manage_irq irq_desc;
-+	struct device *dev = info->dev;
-+	struct ti_sci_irq *this_irq;
-+	struct hlist_node *tmp_node;
-+	int ret;
-+
-+	guard(mutex)(&info->irq_lock);
-+
-+	pr_debug("%s: IRQ release with valid_params = 0x%x from src = %d, index = %d, to dst = %d, irq = %d,via ia_id = %d, vint = %d, global event = %d,status_bit = %d\n",
-+		 __func__, valid_params, src_id, src_index,
-+		 dst_id, dst_host_irq, ia_id, vint, global_event,
-+		 vint_status_bit);
-+
-+	ret = ti_sci_manage_irq(handle, valid_params, src_id, src_index,
-+				dst_id, dst_host_irq, ia_id, vint,
-+				global_event, vint_status_bit, s_host,
-+				TI_SCI_MSG_FREE_IRQ);
-+
-+	if (ret || !(info->fw_caps & MSG_FLAG_CAPS_LPM_IRQ_CONTEXT_LOST))
-+		goto end;
-+
-+	irq_desc.valid_params = valid_params;
-+	irq_desc.src_id = src_id;
-+	irq_desc.src_index = src_index;
-+	irq_desc.dst_id = dst_id;
-+	irq_desc.dst_host_irq = dst_host_irq;
-+	irq_desc.ia_id = ia_id;
-+	irq_desc.vint = vint;
-+	irq_desc.global_event = global_event;
-+	irq_desc.vint_status_bit = vint_status_bit;
-+	irq_desc.secondary_host = s_host;
-+
-+	hash_for_each_possible_safe(info->irqs, this_irq, tmp_node, node,
-+				    ti_sci_irq_hash(&irq_desc)) {
-+		if (ti_sci_irq_equal(&irq_desc, &this_irq->desc)) {
-+			hlist_del(&this_irq->node);
-+			kfree(this_irq);
-+			goto end;
-+		}
-+	}
-+
-+	dev_warn(dev, "%s: should not be here, IRQ was not found in hash list\n",
-+		 __func__);
-+
-+end:
-+	return ret;
-+}
-+
-+/**
-+ * ti_sci_cmd_set_irq() - Configure a host irq route between the requested
-+ *			  source and destination.
-+ * @handle:		Pointer to TISCI handle.
-+ * @src_id:		Device ID of the IRQ source
-+ * @src_index:		IRQ source index within the source device
-+ * @dst_id:		Device ID of the IRQ destination
-+ * @dst_host_irq:	IRQ number of the destination device
-+ *
-+ * Return: 0 if all went fine, else return appropriate error.
-+ */
-+static int ti_sci_cmd_set_irq(const struct ti_sci_handle *handle, u16 src_id,
-+			      u16 src_index, u16 dst_id, u16 dst_host_irq)
-+{
-+	u32 valid_params = MSG_FLAG_DST_ID_VALID | MSG_FLAG_DST_HOST_IRQ_VALID;
-+
-+	return ti_sci_set_irq(handle, valid_params, src_id, src_index, dst_id,
-+			      dst_host_irq, 0, 0, 0, 0, 0);
-+}
-+
-+/**
-+ * ti_sci_cmd_set_event_map() - Configure an event based irq route between the
-+ *				requested source and Interrupt Aggregator.
-+ * @handle:		Pointer to TISCI handle.
-+ * @src_id:		Device ID of the IRQ source
-+ * @src_index:		IRQ source index within the source device
-+ * @ia_id:		Device ID of the IA, if the IRQ flows through this IA
-+ * @vint:		Virtual interrupt to be used within the IA
-+ * @global_event:	Global event number to be used for the requesting event
-+ * @vint_status_bit:	Virtual interrupt status bit to be used for the event
-+ *
-+ * Return: 0 if all went fine, else return appropriate error.
-+ */
-+static int ti_sci_cmd_set_event_map(const struct ti_sci_handle *handle,
-+				    u16 src_id, u16 src_index, u16 ia_id,
-+				    u16 vint, u16 global_event,
-+				    u8 vint_status_bit)
-+{
-+	u32 valid_params = MSG_FLAG_IA_ID_VALID | MSG_FLAG_VINT_VALID |
-+			   MSG_FLAG_GLB_EVNT_VALID |
-+			   MSG_FLAG_VINT_STS_BIT_VALID;
-+
-+	return ti_sci_set_irq(handle, valid_params, src_id, src_index, 0, 0,
-+			      ia_id, vint, global_event, vint_status_bit, 0);
-+}
-+
-+/**
-+ * ti_sci_cmd_free_irq() - Free a host irq route between the between the
-+ *			   requested source and destination.
-+ * @handle:		Pointer to TISCI handle.
-+ * @src_id:		Device ID of the IRQ source
-+ * @src_index:		IRQ source index within the source device
-+ * @dst_id:		Device ID of the IRQ destination
-+ * @dst_host_irq:	IRQ number of the destination device
-+ *
-+ * Return: 0 if all went fine, else return appropriate error.
-+ */
-+static int ti_sci_cmd_free_irq(const struct ti_sci_handle *handle, u16 src_id,
-+			       u16 src_index, u16 dst_id, u16 dst_host_irq)
-+{
-+	u32 valid_params = MSG_FLAG_DST_ID_VALID | MSG_FLAG_DST_HOST_IRQ_VALID;
-+
-+	return ti_sci_free_irq(handle, valid_params, src_id, src_index, dst_id,
-+			       dst_host_irq, 0, 0, 0, 0, 0);
-+}
-+
-+/**
-+ * ti_sci_cmd_free_event_map() - Free an event map between the requested source
-+ *				 and Interrupt Aggregator.
-+ * @handle:		Pointer to TISCI handle.
-+ * @src_id:		Device ID of the IRQ source
-+ * @src_index:		IRQ source index within the source device
-+ * @ia_id:		Device ID of the IA, if the IRQ flows through this IA
-+ * @vint:		Virtual interrupt to be used within the IA
-+ * @global_event:	Global event number to be used for the requesting event
-+ * @vint_status_bit:	Virtual interrupt status bit to be used for the event
-+ *
-+ * Return: 0 if all went fine, else return appropriate error.
-+ */
-+static int ti_sci_cmd_free_event_map(const struct ti_sci_handle *handle,
-+				     u16 src_id, u16 src_index, u16 ia_id,
-+				     u16 vint, u16 global_event,
-+				     u8 vint_status_bit)
-+{
-+	u32 valid_params = MSG_FLAG_IA_ID_VALID |
-+			   MSG_FLAG_VINT_VALID | MSG_FLAG_GLB_EVNT_VALID |
-+			   MSG_FLAG_VINT_STS_BIT_VALID;
-+
-+	return ti_sci_free_irq(handle, valid_params, src_id, src_index, 0, 0,
-+			       ia_id, vint, global_event, vint_status_bit, 0);
-+}
-+
-+/**
-+ * ti_sci_cmd_rm_ring_cfg() - Configure a NAVSS ring
-+ * @handle:	Pointer to TI SCI handle.
-+ * @params:	Pointer to ti_sci_msg_rm_ring_cfg ring config structure
-+ *
-+ * Return: 0 if all went well, else returns appropriate error value.
-+ *
-+ * See @ti_sci_msg_rm_ring_cfg and @ti_sci_msg_rm_ring_cfg_req for
-+ * more info.
-+ */
-+static int ti_sci_cmd_rm_ring_cfg(const struct ti_sci_handle *handle,
-+				  const struct ti_sci_msg_rm_ring_cfg *params)
-+{
-+	struct ti_sci_msg_rm_ring_cfg_req req;
-+	struct ti_sci_msg_hdr resp;
-+	int ret = 0;
-+
-+	req.valid_params = params->valid_params;
-+	req.nav_id = params->nav_id;
-+	req.index = params->index;
-+	req.addr_lo = params->addr_lo;
-+	req.addr_hi = params->addr_hi;
-+	req.count = params->count;
-+	req.mode = params->mode;
-+	req.size = params->size;
-+	req.order_id = params->order_id;
-+	req.virtid = params->virtid;
-+	req.asel = params->asel;
-+
-+	ret = ti_sci_do_xfer(handle, TI_SCI_MSG_RM_RING_CFG,
-+			     TI_SCI_FLAG_REQ_ACK_ON_PROCESSED,
-+			     &req, sizeof(req),
-+			     &resp, sizeof(resp));
-+	if (ret)
-+		return ret;
-+
-+	return 0;
-+}
-+
-+/**
-+ * ti_sci_cmd_rm_psil_pair() - Pair PSI-L source to destination thread
-+ * @handle:	Pointer to TI SCI handle.
-+ * @nav_id:	Device ID of Navigator Subsystem which should be used for
-+ *		pairing
-+ * @src_thread:	Source PSI-L thread ID
-+ * @dst_thread: Destination PSI-L thread ID
-+ *
-+ * Return: 0 if all went well, else returns appropriate error value.
-+ */
-+static int ti_sci_cmd_rm_psil_pair(const struct ti_sci_handle *handle,
-+				   u32 nav_id, u32 src_thread, u32 dst_thread)
-+{
-+	struct ti_sci_msg_psil_pair req;
-+	struct ti_sci_msg_hdr resp;
-+	int ret = 0;
-+
-+	req.nav_id = nav_id;
-+	req.src_thread = src_thread;
-+	req.dst_thread = dst_thread;
-+
-+	ret = ti_sci_do_xfer(handle, TI_SCI_MSG_RM_PSIL_PAIR,
-+			     TI_SCI_FLAG_REQ_ACK_ON_PROCESSED,
-+			     &req, sizeof(req),
-+			     &resp, sizeof(resp));
-+	if (ret)
-+		return ret;
-+
-+	return 0;
-+}
-+
-+/**
-+ * ti_sci_cmd_rm_psil_unpair() - Unpair PSI-L source from destination thread
-+ * @handle:	Pointer to TI SCI handle.
-+ * @nav_id:	Device ID of Navigator Subsystem which should be used for
-+ *		unpairing
-+ * @src_thread:	Source PSI-L thread ID
-+ * @dst_thread:	Destination PSI-L thread ID
-+ *
-+ * Return: 0 if all went well, else returns appropriate error value.
-+ */
-+static int ti_sci_cmd_rm_psil_unpair(const struct ti_sci_handle *handle,
-+				     u32 nav_id, u32 src_thread, u32 dst_thread)
-+{
-+	struct ti_sci_msg_psil_unpair req;
-+	struct ti_sci_msg_hdr resp;
-+	int ret = 0;
-+
-+	req.nav_id = nav_id;
-+	req.src_thread = src_thread;
-+	req.dst_thread = dst_thread;
-+
-+	ret = ti_sci_do_xfer(handle, TI_SCI_MSG_RM_PSIL_UNPAIR,
-+			     TI_SCI_FLAG_REQ_ACK_ON_PROCESSED,
-+			     &req, sizeof(req),
-+			     &resp, sizeof(resp));
-+	if (ret)
-+		return ret;
-+
-+	return 0;
-+}
-+
-+/**
-+ * ti_sci_cmd_rm_udmap_tx_ch_cfg() - Configure a UDMAP TX channel
-+ * @handle:	Pointer to TI SCI handle.
-+ * @params:	Pointer to ti_sci_msg_rm_udmap_tx_ch_cfg TX channel config
-+ *		structure
-+ *
-+ * Return: 0 if all went well, else returns appropriate error value.
-+ *
-+ * See @ti_sci_msg_rm_udmap_tx_ch_cfg and @ti_sci_msg_rm_udmap_tx_ch_cfg_req for
-+ * more info.
-+ */
-+static int ti_sci_cmd_rm_udmap_tx_ch_cfg(const struct ti_sci_handle *handle,
-+					 const struct ti_sci_msg_rm_udmap_tx_ch_cfg *params)
-+{
-+	struct ti_sci_msg_rm_udmap_tx_ch_cfg_req req;
-+	struct ti_sci_msg_hdr resp;
-+	int ret = 0;
-+
-+	req.valid_params = params->valid_params;
-+	req.nav_id = params->nav_id;
-+	req.index = params->index;
-+	req.tx_pause_on_err = params->tx_pause_on_err;
-+	req.tx_filt_einfo = params->tx_filt_einfo;
-+	req.tx_filt_pswords = params->tx_filt_pswords;
-+	req.tx_atype = params->tx_atype;
-+	req.tx_chan_type = params->tx_chan_type;
-+	req.tx_supr_tdpkt = params->tx_supr_tdpkt;
-+	req.tx_fetch_size = params->tx_fetch_size;
-+	req.tx_credit_count = params->tx_credit_count;
-+	req.txcq_qnum = params->txcq_qnum;
-+	req.tx_priority = params->tx_priority;
-+	req.tx_qos = params->tx_qos;
-+	req.tx_orderid = params->tx_orderid;
-+	req.fdepth = params->fdepth;
-+	req.tx_sched_priority = params->tx_sched_priority;
-+	req.tx_burst_size = params->tx_burst_size;
-+	req.tx_tdtype = params->tx_tdtype;
-+	req.extended_ch_type = params->extended_ch_type;
-+
-+	ret = ti_sci_do_xfer(handle, TISCI_MSG_RM_UDMAP_TX_CH_CFG,
-+			     TI_SCI_FLAG_REQ_ACK_ON_PROCESSED,
-+			     &req, sizeof(req),
-+			     &resp, sizeof(resp));
-+	if (ret)
-+		return ret;
-+
-+	return 0;
-+}
-+
-+/**
-+ * ti_sci_cmd_rm_udmap_rx_ch_cfg() - Configure a UDMAP RX channel
-+ * @handle:	Pointer to TI SCI handle.
-+ * @params:	Pointer to ti_sci_msg_rm_udmap_rx_ch_cfg RX channel config
-+ *		structure
-+ *
-+ * Return: 0 if all went well, else returns appropriate error value.
-+ *
-+ * See @ti_sci_msg_rm_udmap_rx_ch_cfg and @ti_sci_msg_rm_udmap_rx_ch_cfg_req for
-+ * more info.
-+ */
-+static int ti_sci_cmd_rm_udmap_rx_ch_cfg(const struct ti_sci_handle *handle,
-+					 const struct ti_sci_msg_rm_udmap_rx_ch_cfg *params)
-+{
-+	struct ti_sci_msg_rm_udmap_rx_ch_cfg_req req;
-+	struct ti_sci_msg_hdr resp;
-+	int ret = 0;
-+
-+	req.valid_params = params->valid_params;
-+	req.nav_id = params->nav_id;
-+	req.index = params->index;
-+	req.rx_fetch_size = params->rx_fetch_size;
-+	req.rxcq_qnum = params->rxcq_qnum;
-+	req.rx_priority = params->rx_priority;
-+	req.rx_qos = params->rx_qos;
-+	req.rx_orderid = params->rx_orderid;
-+	req.rx_sched_priority = params->rx_sched_priority;
-+	req.flowid_start = params->flowid_start;
-+	req.flowid_cnt = params->flowid_cnt;
-+	req.rx_pause_on_err = params->rx_pause_on_err;
-+	req.rx_atype = params->rx_atype;
-+	req.rx_chan_type = params->rx_chan_type;
-+	req.rx_ignore_short = params->rx_ignore_short;
-+	req.rx_ignore_long = params->rx_ignore_long;
-+	req.rx_burst_size = params->rx_burst_size;
-+
-+	ret = ti_sci_do_xfer(handle, TISCI_MSG_RM_UDMAP_RX_CH_CFG,
-+			     TI_SCI_FLAG_REQ_ACK_ON_PROCESSED,
-+			     &req, sizeof(req),
-+			     &resp, sizeof(resp));
-+	if (ret)
-+		return ret;
-+
-+	return 0;
-+}
-+
-+/**
-+ * ti_sci_cmd_rm_udmap_rx_flow_cfg() - Configure UDMAP RX FLOW
-+ * @handle:	Pointer to TI SCI handle.
-+ * @params:	Pointer to ti_sci_msg_rm_udmap_flow_cfg RX FLOW config
-+ *		structure
-+ *
-+ * Return: 0 if all went well, else returns appropriate error value.
-+ *
-+ * See @ti_sci_msg_rm_udmap_flow_cfg and @ti_sci_msg_rm_udmap_flow_cfg_req for
-+ * more info.
-+ */
-+static int ti_sci_cmd_rm_udmap_rx_flow_cfg(const struct ti_sci_handle *handle,
-+					   const struct ti_sci_msg_rm_udmap_flow_cfg *params)
-+{
-+	struct ti_sci_msg_rm_udmap_flow_cfg_req req;
-+	struct ti_sci_msg_hdr resp;
-+	int ret = 0;
-+
-+	req.valid_params = params->valid_params;
-+	req.nav_id = params->nav_id;
-+	req.flow_index = params->flow_index;
-+	req.rx_einfo_present = params->rx_einfo_present;
-+	req.rx_psinfo_present = params->rx_psinfo_present;
-+	req.rx_error_handling = params->rx_error_handling;
-+	req.rx_desc_type = params->rx_desc_type;
-+	req.rx_sop_offset = params->rx_sop_offset;
-+	req.rx_dest_qnum = params->rx_dest_qnum;
-+	req.rx_src_tag_hi = params->rx_src_tag_hi;
-+	req.rx_src_tag_lo = params->rx_src_tag_lo;
-+	req.rx_dest_tag_hi = params->rx_dest_tag_hi;
-+	req.rx_dest_tag_lo = params->rx_dest_tag_lo;
-+	req.rx_src_tag_hi_sel = params->rx_src_tag_hi_sel;
-+	req.rx_src_tag_lo_sel = params->rx_src_tag_lo_sel;
-+	req.rx_dest_tag_hi_sel = params->rx_dest_tag_hi_sel;
-+	req.rx_dest_tag_lo_sel = params->rx_dest_tag_lo_sel;
-+	req.rx_fdq0_sz0_qnum = params->rx_fdq0_sz0_qnum;
-+	req.rx_fdq1_qnum = params->rx_fdq1_qnum;
-+	req.rx_fdq2_qnum = params->rx_fdq2_qnum;
-+	req.rx_fdq3_qnum = params->rx_fdq3_qnum;
-+	req.rx_ps_location = params->rx_ps_location;
-+
-+	ret = ti_sci_do_xfer(handle, TISCI_MSG_RM_UDMAP_FLOW_CFG,
-+			     TI_SCI_FLAG_REQ_ACK_ON_PROCESSED,
-+			     &req, sizeof(req),
-+			     &resp, sizeof(resp));
-+	if (ret)
-+		return ret;
-+
-+	return 0;
-+}
-+
-+/**
-+ * ti_sci_get_free_resource() - Get a free resource from TISCI resource.
-+ * @res:	Pointer to the TISCI resource
-+ *
-+ * Return: resource num if all went ok else TI_SCI_RESOURCE_NULL.
-+ */
-+u16 ti_sci_get_free_resource(struct ti_sci_resource *res)
-+{
-+	unsigned long flags;
-+	u16 set, free_bit;
-+
-+	raw_spin_lock_irqsave(&res->lock, flags);
-+	for (set = 0; set < res->sets; set++) {
-+		struct ti_sci_resource_desc *desc = &res->desc[set];
-+		int res_count = desc->num + desc->num_sec;
-+
-+		free_bit = find_first_zero_bit(desc->res_map, res_count);
-+		if (free_bit != res_count) {
-+			__set_bit(free_bit, desc->res_map);
-+			raw_spin_unlock_irqrestore(&res->lock, flags);
-+
-+			if (desc->num && free_bit < desc->num)
-+				return desc->start + free_bit;
-+			else
-+				return desc->start_sec + free_bit;
-+		}
-+	}
-+	raw_spin_unlock_irqrestore(&res->lock, flags);
-+
-+	return TI_SCI_RESOURCE_NULL;
-+}
-+EXPORT_SYMBOL_GPL(ti_sci_get_free_resource);
-+
-+/**
-+ * ti_sci_release_resource() - Release a resource from TISCI resource.
-+ * @res:	Pointer to the TISCI resource
-+ * @id:		Resource id to be released.
-+ */
-+void ti_sci_release_resource(struct ti_sci_resource *res, u16 id)
-+{
-+	unsigned long flags;
-+	u16 set;
-+
-+	raw_spin_lock_irqsave(&res->lock, flags);
-+	for (set = 0; set < res->sets; set++) {
-+		struct ti_sci_resource_desc *desc = &res->desc[set];
-+
-+		if (desc->num && desc->start <= id &&
-+		    (desc->start + desc->num) > id)
-+			__clear_bit(id - desc->start, desc->res_map);
-+		else if (desc->num_sec && desc->start_sec <= id &&
-+			 (desc->start_sec + desc->num_sec) > id)
-+			__clear_bit(id - desc->start_sec, desc->res_map);
-+	}
-+	raw_spin_unlock_irqrestore(&res->lock, flags);
-+}
-+EXPORT_SYMBOL_GPL(ti_sci_release_resource);
-+
-+/**
-+ * ti_sci_get_num_resources() - Get the number of resources in TISCI resource
-+ * @res:	Pointer to the TISCI resource
-+ *
-+ * Return: Total number of available resources.
-+ */
-+u32 ti_sci_get_num_resources(struct ti_sci_resource *res)
-+{
-+	u32 set, count = 0;
-+
-+	for (set = 0; set < res->sets; set++)
-+		count += res->desc[set].num + res->desc[set].num_sec;
-+
-+	return count;
-+}
-+EXPORT_SYMBOL_GPL(ti_sci_get_num_resources);
-+
-+/**
-+ * devm_ti_sci_get_resource_sets() - Get a TISCI resources assigned to a device
-+ * @handle:	TISCI handle
-+ * @dev:	Device pointer to which the resource is assigned
-+ * @dev_id:	TISCI device id to which the resource is assigned
-+ * @sub_types:	Array of sub_types assigned corresponding to device
-+ * @sets:	Number of sub_types
-+ *
-+ * Return: Pointer to ti_sci_resource if all went well else appropriate
-+ *	   error pointer.
-+ */
-+static struct ti_sci_resource *
-+devm_ti_sci_get_resource_sets(const struct ti_sci_handle *handle,
-+			      struct device *dev, u32 dev_id, u32 *sub_types,
-+			      u32 sets)
-+{
-+	struct ti_sci_resource *res;
-+	bool valid_set = false;
-+	int i, ret, res_count;
-+
-+	res = devm_kzalloc(dev, sizeof(*res), GFP_KERNEL);
-+	if (!res)
-+		return ERR_PTR(-ENOMEM);
-+
-+	res->sets = sets;
-+	res->desc = devm_kcalloc(dev, res->sets, sizeof(*res->desc),
-+				 GFP_KERNEL);
-+	if (!res->desc)
-+		return ERR_PTR(-ENOMEM);
-+
-+	for (i = 0; i < res->sets; i++) {
-+		ret = handle->ops.rm_core_ops.get_range(handle, dev_id,
-+							sub_types[i],
-+							&res->desc[i]);
-+		if (ret) {
-+			dev_dbg(dev, "dev = %d subtype %d not allocated for this host\n",
-+				dev_id, sub_types[i]);
-+			memset(&res->desc[i], 0, sizeof(res->desc[i]));
-+			continue;
-+		}
-+
-+		dev_dbg(dev, "dev/sub_type: %d/%d, start/num: %d/%d | %d/%d\n",
-+			dev_id, sub_types[i], res->desc[i].start,
-+			res->desc[i].num, res->desc[i].start_sec,
-+			res->desc[i].num_sec);
-+
-+		valid_set = true;
-+		res_count = res->desc[i].num + res->desc[i].num_sec;
-+		res->desc[i].res_map = devm_bitmap_zalloc(dev, res_count,
-+							  GFP_KERNEL);
-+		if (!res->desc[i].res_map)
-+			return ERR_PTR(-ENOMEM);
-+	}
-+	raw_spin_lock_init(&res->lock);
-+
-+	if (valid_set)
-+		return res;
-+
-+	return ERR_PTR(-EINVAL);
-+}
-+
-+/**
-+ * devm_ti_sci_get_of_resource() - Get a TISCI resource assigned to a device
-+ * @handle:	TISCI handle
-+ * @dev:	Device pointer to which the resource is assigned
-+ * @dev_id:	TISCI device id to which the resource is assigned
-+ * @of_prop:	property name by which the resource are represented
-+ *
-+ * Return: Pointer to ti_sci_resource if all went well else appropriate
-+ *	   error pointer.
-+ */
-+struct ti_sci_resource *
-+devm_ti_sci_get_of_resource(const struct ti_sci_handle *handle,
-+			    struct device *dev, u32 dev_id, char *of_prop)
-+{
-+	struct ti_sci_resource *res;
-+	u32 *sub_types;
-+	int sets;
-+
-+	sets = of_property_count_elems_of_size(dev_of_node(dev), of_prop,
-+					       sizeof(u32));
-+	if (sets < 0) {
-+		dev_err(dev, "%s resource type ids not available\n", of_prop);
-+		return ERR_PTR(sets);
-+	}
-+
-+	sub_types = kcalloc(sets, sizeof(*sub_types), GFP_KERNEL);
-+	if (!sub_types)
-+		return ERR_PTR(-ENOMEM);
-+
-+	of_property_read_u32_array(dev_of_node(dev), of_prop, sub_types, sets);
-+	res = devm_ti_sci_get_resource_sets(handle, dev, dev_id, sub_types,
-+					    sets);
-+
-+	kfree(sub_types);
-+	return res;
-+}
-+EXPORT_SYMBOL_GPL(devm_ti_sci_get_of_resource);
-+
-+/**
-+ * devm_ti_sci_get_resource() - Get a resource range assigned to the device
-+ * @handle:	TISCI handle
-+ * @dev:	Device pointer to which the resource is assigned
-+ * @dev_id:	TISCI device id to which the resource is assigned
-+ * @sub_type:	TISCI resource subytpe representing the resource.
-+ *
-+ * Return: Pointer to ti_sci_resource if all went well else appropriate
-+ *	   error pointer.
-+ */
-+struct ti_sci_resource *
-+devm_ti_sci_get_resource(const struct ti_sci_handle *handle, struct device *dev,
-+			 u32 dev_id, u32 sub_type)
-+{
-+	return devm_ti_sci_get_resource_sets(handle, dev, dev_id, &sub_type, 1);
-+}
-+EXPORT_SYMBOL_GPL(devm_ti_sci_get_resource);
-+
-+/*
-+ * ti_sci_setup_rm_core_ops() - Setup the Resource Management core operations structures
-+ * @rm_core_ops:	pointer to TISCI rm core ops structure
-+ */
-+void ti_sci_setup_rm_core_ops(struct ti_sci_rm_core_ops *rm_core_ops)
-+{
-+	rm_core_ops->get_range = ti_sci_cmd_get_resource_range;
-+	rm_core_ops->get_range_from_shost =
-+		ti_sci_cmd_get_resource_range_from_shost;
-+}
-+
-+/*
-+ * ti_sci_setup_rm_irq_ops() - Setup the Resource Management IRQ operations structures
-+ * @iops:	pointer to TISCI rm irq ops structure
-+ */
-+void ti_sci_setup_rm_irq_ops(struct ti_sci_rm_irq_ops *iops)
-+{
-+	iops->set_irq = ti_sci_cmd_set_irq;
-+	iops->set_event_map = ti_sci_cmd_set_event_map;
-+	iops->free_irq = ti_sci_cmd_free_irq;
-+	iops->free_event_map = ti_sci_cmd_free_event_map;
-+}
-+
-+/*
-+ * ti_sci_setup_rm_ringacc_ops() - Setup the Resource Management RINGACC operations structures
-+ * @rops:	pointer to TISCI rm ringacc ops structure
-+ */
-+void ti_sci_setup_rm_ringacc_ops(struct ti_sci_rm_ringacc_ops *rops)
-+{
-+	rops->set_cfg = ti_sci_cmd_rm_ring_cfg;
-+}
-+
-+/*
-+ * ti_sci_setup_rm_psil_ops() - Setup the Resource Management PSIL operations structures
-+ * @psilops:	pointer to TISCI rm psil ops structure
-+ */
-+void ti_sci_setup_rm_psil_ops(struct ti_sci_rm_psil_ops *psilops)
-+{
-+	psilops->pair = ti_sci_cmd_rm_psil_pair;
-+	psilops->unpair = ti_sci_cmd_rm_psil_unpair;
-+}
-+
-+/*
-+ * ti_sci_setup_rm_udmap_ops() - Setup the Resource Management UDMAP operations structures
-+ * @udmap_ops:	pointer to TISCI rm udmap ops structure
-+ */
-+void ti_sci_setup_rm_udmap_ops(struct ti_sci_rm_udmap_ops *udmap_ops)
-+{
-+	udmap_ops->tx_ch_cfg = ti_sci_cmd_rm_udmap_tx_ch_cfg;
-+	udmap_ops->rx_ch_cfg = ti_sci_cmd_rm_udmap_rx_ch_cfg;
-+	udmap_ops->rx_flow_cfg = ti_sci_cmd_rm_udmap_rx_flow_cfg;
-+}
--- 
-2.34.1
+> On Tuesday, 29 September 2026 21:16:57 Central European Summer Time Vidith Madhu wrote:
+> > 
+> > On Mon, 21 Sep 2026, Nicolas Frattaroli wrote:
+> > 
+> > > Userspace may wish to set a target frame rate for the Variable Refresh
+> > > Rate mechanism. There are multiple possible ways such a target could be
+> > > communicated.
+> > > 
+> > > It's desirable for userspace to not only set a fixed target, but a
+> > > target range within which VRR may operate. This is because even if a
+> > > sink advertises a certain range as supported, said range may not be the
+> > > ideal range to use, as numbers on the extreme end of the range may
+> > > induce flickering or other glitches.
+> > My understanding is that flicker may also happen if the refresh rate 
+> > fluctuates significantly within the sinks' range, although I don't know 
+> > how common this is in practice. I would imagine these frame range limits
+> > would also be useful there to "dampen" the fluctuation.
+> 
+> Theoretically, the HDMI E-EDID extension does have a field to specify the
+> maximum change in VRR per frame that's allowed without visual issues, but
+> I'm not sure if any display sets this to a sensible value because such
+> issues can range from the mentioned brightness inconsistencies to pictures
+> that are positioned/scaled wrong in the vertical axis. In the absence of
+> evidence that this flag is used usefully, I've not implemented it in my
+> HDMI state helper implementation of VRR so far.
+> 
+> > In any case, if we expect userspace to use the frame range limits for the 
+> > purpose of flicker avoidance, it may make sense to expose a read-only 
+> > connector property for whether the display is susceptible to such
+> > flickering. For example, NVIDIA G-SYNC monitors are resilient to this and
+> > it would hinder the user experience to unnecessarily impose such a limit.
+> 
+> Short of keeping a whole quirks database, I don't think we can solve this
+> generally. The idea I've been working off of is that the compositor has
+> settings to explicitly specify such limits, much like e.g. KDE has a
+> checkbox in the monitor settings right now to enable/disable VRR for a
+> specific monitor, or weston.ini has an output config option. The user can
+> then impose a limit if they do notice issues with their particular monitor
+> in their particular use-case.
+> 
+> I can see adding an additional property to communicate a specific flavor
+> of VRR implementation, especially if this is non-trivial for userspace
+> to figure out otherwise, e.g. because some displays may use several and
+> the driver picks the best one.
+Right, this is what I had in mind. It would be nice if drivers at least 
+had the ability to supply a hint on what the VRR policy should be to 
+userspace.
 
+Thanks,
+Vidith
+> 
+> I do encourage additional fleshing out of the problem space we're trying
+> to address here though, so if anyone or their loved one is entitled to
+> compensation for the hurt caused by flickery VRR, I'd love to hear
+> specifics. I have experienced it with dark gaming content on a
+> ASUS ROG STRIX XG27AQDMG connected over DisplayPort to an AMD GPU. At the
+> same time, I've yet to notice anything on that same monitor when
+> displaying VRR content over HDMI from a RK3588 SBC, but that might be
+> because SuperTuxKart happens to run too consistently frame-to-frame to
+> trigger it.
+> 
+> Kind regards,
+> Nicolas Frattaroli
+> 
+> > >
+> > > There's four choices to how one bracketing value for the target range
+> > > could be communicated:
+> > > 1. Target frame rate in something like millihertz
+> > > 2. Target frame period in something like usecs
+> > > 3. Target vtotal value
+> > > 4. Target frame rate as a fraction expressed by two integers
+> > > 
+> > > Choice 1 is unpleasant as it would introduce some amount of rounding to
+> > > common broadcast framerates like 24/1.001, which seems minor except that
+> > > exact matches to standard framerates would rely on making all userspace
+> > > and kernel agree on a specific method of rounding. This is sure to go
+> > > wrong, so is disqualified.
+> > > 
+> > > Choice 2 has the same problem as 1, with the added complication that
+> > > the EDID's VRR range is expressed in frames per second, and other HDMI
+> > > features express things in frames per second as well, which would
+> > > require possibly imprecise computations.
+> > > 
+> > > Choice 3 is disqualified as mechanisms other than VRR, such as FVA, may
+> > > also modify the vtotal value. Additionally, it has the same drawbacks of
+> > > choice 2 and 1.
+> > > 
+> > > Choice 4 is therefore what's implemented. The frame rate 24/1.001Hz, for
+> > > example, is expressed as nominator=24000 and denominator=1001. As there
+> > > is both a minimum and a maximum, there are 4 properties in total: two
+> > > numerators, and two denominators. A fixed rate with no variability is
+> > > expressed by setting the minimum fractional and the maximum fractional
+> > > properties to the same value.
+> > > 
+> > > Signed-off-by: Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
+> > > ---
+> > >  drivers/gpu/drm/drm_atomic_uapi.c | 24 +++++++++++++++++++++
+> > >  drivers/gpu/drm/drm_connector.c   | 45 +++++++++++++++++++++++++++++++++++++++
+> > >  drivers/gpu/drm/drm_crtc.c        |  8 +++++++
+> > >  drivers/gpu/drm/drm_mode_config.c | 20 +++++++++++++++++
+> > >  include/drm/drm_crtc.h            |  4 ++++
+> > >  include/drm/drm_mode_config.h     | 45 +++++++++++++++++++++++++++++++++++++++
+> > >  6 files changed, 146 insertions(+)
+> > > 
+> > > diff --git a/drivers/gpu/drm/drm_atomic_uapi.c b/drivers/gpu/drm/drm_atomic_uapi.c
+> > > index 1eebcf6f5e05..c9eb01d740b3 100644
+> > > --- a/drivers/gpu/drm/drm_atomic_uapi.c
+> > > +++ b/drivers/gpu/drm/drm_atomic_uapi.c
+> > > @@ -420,6 +420,22 @@ static int drm_atomic_crtc_set_property(struct drm_crtc *crtc,
+> > >  		return ret;
+> > >  	} else if (property == config->prop_vrr_enabled) {
+> > >  		state->vrr_enabled = val;
+> > > +	} else if (property == config->prop_vrr_min_numerator) {
+> > > +		if (val > U32_MAX)
+> > > +			return -EINVAL;
+> > > +		state->vrr_state.vrr_min_n = val;
+> > > +	} else if (property == config->prop_vrr_min_denominator) {
+> > > +		if (val > U32_MAX)
+> > > +			return -EINVAL;
+> > > +		state->vrr_state.vrr_min_d = val;
+> > > +	} else if (property == config->prop_vrr_max_numerator) {
+> > > +		if (val > U32_MAX)
+> > > +			return -EINVAL;
+> > > +		state->vrr_state.vrr_max_n = val;
+> > > +	} else if (property == config->prop_vrr_max_denominator) {
+> > > +		if (val > U32_MAX)
+> > > +			return -EINVAL;
+> > > +		state->vrr_state.vrr_max_d = val;
+> > >  	} else if (property == config->degamma_lut_property) {
+> > >  		const size_t elem_size = sizeof(struct drm_color_lut);
+> > >  		u64 lut_size;
+> > > @@ -505,6 +521,14 @@ drm_atomic_crtc_get_property(struct drm_crtc *crtc,
+> > >  		*val = (state->mode_blob) ? state->mode_blob->base.id : 0;
+> > >  	else if (property == config->prop_vrr_enabled)
+> > >  		*val = state->vrr_enabled;
+> > > +	else if (property == config->prop_vrr_min_numerator)
+> > > +		*val = state->vrr_state.vrr_min_n;
+> > > +	else if (property == config->prop_vrr_min_denominator)
+> > > +		*val = state->vrr_state.vrr_min_d;
+> > > +	else if (property == config->prop_vrr_max_numerator)
+> > > +		*val = state->vrr_state.vrr_max_n;
+> > > +	else if (property == config->prop_vrr_max_denominator)
+> > > +		*val = state->vrr_state.vrr_max_d;
+> > >  	else if (property == config->degamma_lut_property)
+> > >  		*val = (state->degamma_lut) ? state->degamma_lut->base.id : 0;
+> > >  	else if (property == config->ctm_property)
+> > > diff --git a/drivers/gpu/drm/drm_connector.c b/drivers/gpu/drm/drm_connector.c
+> > > index fc7d9fcf9d9f..5c07bd221977 100644
+> > > --- a/drivers/gpu/drm/drm_connector.c
+> > > +++ b/drivers/gpu/drm/drm_connector.c
+> > > @@ -2579,6 +2579,51 @@ EXPORT_SYMBOL(drm_mode_create_scaling_mode_property);
+> > >   *
+> > >   *	The driver may place further restrictions within these minimum
+> > >   *	and maximum bounds.
+> > > + *
+> > > + * VRR Limiter/Target Properties
+> > > + * ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+> > > + *
+> > > + * The ``VRR_{MIN,MAX}_{NUMERATOR,DENOMINATOR}`` properties expose a mechanism
+> > > + * through which userspace can control the desired range of refresh rates in
+> > > + * which VRR is allowed to operate. Each rate is expressed as a
+> > > + * numerator/denominator fraction of refresh rates in Hz, allowing for rational
+> > > + * target rates like 24/1.001 Hz with no loss of precision or ambiguity.
+> > > + *
+> > > + * If the minimum and maximum rate are set to the same value (and not 0), they
+> > > + * are understood as a fixed target rate. This is especially useful for media
+> > > + * playback, where the content's frame rate is both constant and known in
+> > > + * advance. In such cases, a refresh rate that is not an integer multiple of the
+> > > + * content's frame rate will introduce judder, since not every frame is
+> > > + * displayed for the same amount of time. A modeset of the display with a
+> > > + * compatible rate may in those cases be either undesirable or impossible, but
+> > > + * the rate can still effectively be reached through VRR.
+> > > + *
+> > > + * .. _VRR-MIN-NUMERATOR:
+> > > + *
+> > > + * "VRR_MIN_NUMERATOR":
+> > > + *	Default &drm_crtc integer property forming the numerator of a
+> > > + *	numerator/denominator pair of a frame rate to set as the minimum VRR
+> > > + *	target rate. Set to 0 to disable.
+> > > + *
+> > > + * "VRR_MIN_DENOMINATOR":
+> > > + *	Default &drm_crtc integer property forming the denominator of a
+> > > + *	numerator/denominator pair of a frame rate to set as the minimum VRR
+> > > + *	target rate. If :ref:`VRR_MIN_NUMERATOR <VRR-MIN-NUMERATOR>` is not
+> > > + *	zero, it must be non-zero.
+> > > + *	Otherwise, must also be zero.
+> > > + *
+> > > + * .. _VRR-MAX-NUMERATOR:
+> > > + *
+> > > + * "VRR_MAX_NUMERATOR":
+> > > + *	Default &drm_crtc integer property forming the numerator of a
+> > > + *	numerator/denominator pair of a frame rate to set as the maximum VRR
+> > > + *	target rate. Set to 0 to disable.
+> > > + *
+> > > + * "VRR_MAX_DENOMINATOR":
+> > > + *	Default &drm_crtc integer property forming the denominator of a
+> > > + *	numerator/denominator pair of a frame rate to set as the maximum VRR
+> > > + *	target rate. If :ref:`VRR_MAX_NUMERATOR <VRR-MAX-NUMERATOR>` is not
+> > > + *	zero, it must be non-zero. Otherwise, must also be zero.
+> > >   */
+> > >  
+> > >  /**
+> > > diff --git a/drivers/gpu/drm/drm_crtc.c b/drivers/gpu/drm/drm_crtc.c
+> > > index 63ead8ba6756..9244fbf97029 100644
+> > > --- a/drivers/gpu/drm/drm_crtc.c
+> > > +++ b/drivers/gpu/drm/drm_crtc.c
+> > > @@ -322,6 +322,14 @@ static int __drm_crtc_init_with_planes(struct drm_device *dev, struct drm_crtc *
+> > >  					   config->prop_out_fence_ptr, 0);
+> > >  		drm_object_attach_property(&crtc->base,
+> > >  					   config->prop_vrr_enabled, 0);
+> > > +		drm_object_attach_property(&crtc->base,
+> > > +					   config->prop_vrr_min_numerator, 0);
+> > > +		drm_object_attach_property(&crtc->base,
+> > > +					   config->prop_vrr_min_denominator, 0);
+> > > +		drm_object_attach_property(&crtc->base,
+> > > +					   config->prop_vrr_max_numerator, 0);
+> > > +		drm_object_attach_property(&crtc->base,
+> > > +					   config->prop_vrr_max_denominator, 0);
+> > >  	}
+> > >  
+> > >  	return 0;
+> > > diff --git a/drivers/gpu/drm/drm_mode_config.c b/drivers/gpu/drm/drm_mode_config.c
+> > > index 48a56f23dadb..da967d60f832 100644
+> > > --- a/drivers/gpu/drm/drm_mode_config.c
+> > > +++ b/drivers/gpu/drm/drm_mode_config.c
+> > > @@ -535,6 +535,26 @@ static int drm_mode_create_standard_properties(struct drm_device *dev)
+> > >  		return -ENOMEM;
+> > >  	dev->mode_config.prop_vrr_enabled = prop;
+> > >  
+> > > +	prop = drm_property_create_range(dev, 0, "VRR_MIN_NUMERATOR", 0, U32_MAX);
+> > > +	if (!prop)
+> > > +		return -ENOMEM;
+> > > +	dev->mode_config.prop_vrr_min_numerator = prop;
+> > > +
+> > > +	prop = drm_property_create_range(dev, 0, "VRR_MIN_DENOMINATOR", 0, U32_MAX);
+> > > +	if (!prop)
+> > > +		return -ENOMEM;
+> > > +	dev->mode_config.prop_vrr_min_denominator = prop;
+> > > +
+> > > +	prop = drm_property_create_range(dev, 0, "VRR_MAX_NUMERATOR", 0, U32_MAX);
+> > > +	if (!prop)
+> > > +		return -ENOMEM;
+> > > +	dev->mode_config.prop_vrr_max_numerator = prop;
+> > > +
+> > > +	prop = drm_property_create_range(dev, 0, "VRR_MAX_DENOMINATOR", 0, U32_MAX);
+> > > +	if (!prop)
+> > > +		return -ENOMEM;
+> > > +	dev->mode_config.prop_vrr_max_denominator = prop;
+> > > +
+> > >  	prop = drm_property_create(dev,
+> > >  			DRM_MODE_PROP_BLOB,
+> > >  			"DEGAMMA_LUT", 0);
+> > > diff --git a/include/drm/drm_crtc.h b/include/drm/drm_crtc.h
+> > > index 9d58158af459..df37f4ebb58e 100644
+> > > --- a/include/drm/drm_crtc.h
+> > > +++ b/include/drm/drm_crtc.h
+> > > @@ -67,6 +67,10 @@ struct drm_crtc_vrr_state {
+> > >  	u8 vic;
+> > >  	u16 cur_vtotal;
+> > >  	u16 max_vtotal;
+> > > +	u32 vrr_min_n;
+> > > +	u32 vrr_min_d;
+> > > +	u32 vrr_max_n;
+> > > +	u32 vrr_max_d;
+> > >  	u16 base_vtotal;
+> > >  	bool dynamic;
+> > >  };
+> > > diff --git a/include/drm/drm_mode_config.h b/include/drm/drm_mode_config.h
+> > > index 084517beb924..c8d5286f9267 100644
+> > > --- a/include/drm/drm_mode_config.h
+> > > +++ b/include/drm/drm_mode_config.h
+> > > @@ -702,6 +702,51 @@ struct drm_mode_config {
+> > >  	 */
+> > >  	struct drm_property *prop_vrr_enabled;
+> > >  
+> > > +	/**
+> > > +	 * @prop_vrr_min_numerator: Default atomic CRTC property to indicate the
+> > > +	 * numerator of a numerator/denominator variable refresh rate minimum
+> > > +	 * target frame rate.
+> > > +	 *
+> > > +	 * If not zero, @prop_vrr_min_numerator divided by
+> > > +	 * @prop_vrr_min_denominator must result in a frame rate above the
+> > > +	 * sink's minimum VRR rate.
+> > > +	 */
+> > > +	struct drm_property *prop_vrr_min_numerator;
+> > > +
+> > > +	/**
+> > > +	 * @prop_vrr_min_denominator: Default atomic CRTC property to indicate
+> > > +	 * the denominator of a numerator/denominator variable refresh rate
+> > > +	 * minimum target frame rate.
+> > > +	 *
+> > > +	 * If @prop_vrr_min_numerator is set, @prop_vrr_min_denominator must not
+> > > +	 * be 0, and @prop_vrr_min_numerator divided by @prop_vrr_min_denominator
+> > > +	 * must result in a frame rate above the minimum VRR rate.
+> > > +	 */
+> > > +	struct drm_property *prop_vrr_min_denominator;
+> > > +
+> > > +	/**
+> > > +	 * @prop_vrr_max_numerator: Default atomic CRTC property to indicate the
+> > > +	 * numerator of a numerator/denominator variable refresh rate maximum
+> > > +	 * target frame rate range.
+> > > +	 *
+> > > +	 * The fraction expressed by this property divided by its corresponding
+> > > +	 * denominator must be equal to or greater than the value of
+> > > +	 * @prop_vrr_min_numerator.
+> > > +	 */
+> > > +	struct drm_property *prop_vrr_max_numerator;
+> > > +
+> > > +	/**
+> > > +	 * @prop_vrr_max_denominator: Default atomic CRTC property to indicate
+> > > +	 * the denominator of a numerator/denominator variable refresh rate
+> > > +	 * maximum target frame rate range.
+> > > +	 *
+> > > +	 * If @prop_vrr_max_numerator is set, @prop_vrr_max_denominator must not
+> > > +	 * be 0, and @prop_vrr_max_numerator divided by @prop_vrr_max_denominator
+> > > +	 * must result in a frame rate equal to or above @prop_vrr_min_numerator
+> > > +	 * divided by @prop_vrr_min_denominator.
+> > > +	 */
+> > > +	struct drm_property *prop_vrr_max_denominator;
+> > > +
+> > >  	/**
+> > >  	 * @dvi_i_subconnector_property: Optional DVI-I property to
+> > >  	 * differentiate between analog or digital mode.
+> > > 
+> > 
+> 
+> 
+> 
+> 
+> 
 
