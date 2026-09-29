@@ -4,69 +4,65 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6BB94CA5FA1
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 29 Sep 2026 11:31:18 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8D085CA5FAC
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 29 Sep 2026 11:33:24 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=i999MGH5SdNPcu4Q8VB0Q3AdAc6DTMs0HY0/qk7ot9g=; b=02Npc27S19QfBjuqqLSn1qGcnB
-	rxE3iJoqfCxvh1uqQ8dzHB6XvVhNioz6jIhv/O1xmd6EEmZGbgJGxFxuUY6SkjknXt+ebtYB2F1HX
-	O0w4UW042aMAhYM5Sl+yHq+4Xfz6zWU44QFXUpswM1OJF+2aKm3695z6lS2vcPGxTGeo1l564q4J5
-	+KDEpPp6hfjvIkVL95kiwg6RqF9UUyz/isIZPjqK3NErakTh9MRdtsVUl0tsn+BZJOvztp3eTz1w/
-	P/oZ370dzjRypvs4fCunzkpkktW7O+EeFpWEt86/0sv3xHzvJk/8+/5cOjV05w0wVzCjpQO9GQ3pp
-	FilptC+A==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=e+gknYVW9XCp81xeC0RXx9vcOUHAJigZEtqY/xe8b6c=; b=f1mXTmqMDXEx/75RtgL74rmzK/
+	52qCVNNWEg5rUn98+WaBFzkw3qP/W1ClSLhH/u8HFFaEsvGNfMcAVX4PPr/D8A+5WhxhkT5bkyc8X
+	abf0BGbpQcRhMylX3GhkPO4QCbm+FGQsP+O5EWYKh4J/cTuCiVAi3p57NskT0KPLN6JbMuTOUm31y
+	f6FQlnimiSfluntPQ/KLxssSRKA12ffD44bfmZWm3tLgUFflT+6i2gPgkfmZcF83Bu6kU6Qlk7kMx
+	a6GyZFQOuM5yBhim/k6NxYINDurKhxIa5WfuXM1lUggJzVrhqyzOU4rS+yax0cQmCeKUKhMdxJCxy
+	Bmyu9kxA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xBW3D-00000003PtQ-43Bi;
-	Tue, 29 Sep 2026 11:31:11 +0000
-Received: from canpmsgout09.his.huawei.com ([113.46.200.224])
+	id 1xBW5G-00000003QDW-1S8f;
+	Tue, 29 Sep 2026 11:33:18 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xBW3A-00000003Prz-3nwU
+	id 1xBW5E-00000003QD5-0DM7
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 29 Sep 2026 11:31:10 +0000
-dkim-signature: v=1; a=rsa-sha256; d=huawei.com; s=dkim;
-	c=relaxed/relaxed; q=dns/txt;
-	h=From;
-	bh=i999MGH5SdNPcu4Q8VB0Q3AdAc6DTMs0HY0/qk7ot9g=;
-	b=IS67ruVhdS/g2OwlEG9o0G9CqS+WcM/qqKiiXSqtCwqQ0In275KUqJnyy6fjdepPQnCc+cdiE
-	EXSs8oNfsVBWwoCv7CrDKzK4diJNMtcNdqxQZ8m/uUaCQRv5yoC6O+fYDu8VbMT+mcjhwfo1eOc
-	n8cXeuqeY5dDOZAdlOzHBC4=
-Received: from mail.maildlp.com (unknown [172.19.163.214])
-	by canpmsgout09.his.huawei.com (SkyGuard) with ESMTPS id 4hvG146RK8z1cyPY;
-	Tue, 29 Sep 2026 19:19:52 +0800 (CST)
-Received: from kwepemr100010.china.huawei.com (unknown [7.202.195.125])
-	by mail.maildlp.com (Postfix) with ESMTPS id 05A164057C;
-	Tue, 29 Sep 2026 19:30:59 +0800 (CST)
-Received: from [10.67.120.103] (10.67.120.103) by
- kwepemr100010.china.huawei.com (7.202.195.125) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.2562.45; Tue, 29 Sep 2026 19:30:58 +0800
-Message-ID: <3e23f91a-38d0-486a-b3f8-d94bd24d377f@huawei.com>
-Date: Tue, 29 Sep 2026 19:30:58 +0800
+	Tue, 29 Sep 2026 11:33:16 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by tor.source.kernel.org (Postfix) with ESMTP id 5955860008;
+	Tue, 29 Sep 2026 11:33:15 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 998C31F000FF;
+	Tue, 29 Sep 2026 11:33:11 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1790681595;
+	bh=e+gknYVW9XCp81xeC0RXx9vcOUHAJigZEtqY/xe8b6c=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=eDfq3ESVa10xLkpSv+CeI5FF1JUQktUhny83NdvHPN+F/Gsl0SORQ8nYLanhlRObL
+	 3rtdxQBVjPAYI6hiVUnHd2NqzqZjFK+DdiO30XeURd23enxO2BENrhbozvNTo5RMYo
+	 MYRqeYSyedXYG4xB4W19ElcDnoU1dp5FvngYHL6+vLcL7hF3RwBnN7qcbNHBTDS8zJ
+	 G4jFmbmUNbbCax96iFWSepuDD2HCv4SUjvmjwVLpy5ix5REIGjVm+psvkgOeJbOSOT
+	 dtC2VTT9NqBZqFMgmDJbtzbdP8r2tD9CXrS2Vf0OI6pkF21ISs5ROETw/aW89lfLlc
+	 xH4NbBNe8Tgjg==
+Date: Tue, 29 Sep 2026 12:33:07 +0100
+From: Will Deacon <will@kernel.org>
+To: sumit.garg@kernel.org
+Cc: brendan.jackman@linux.dev, Vincent Donnefort <vdonnefort@google.com>,
+	catalin.marinas@arm.com, rppt@kernel.org, akpm@linux-foundation.org,
+	sudeep.holla@kernel.org, jenswi@kernel.org, robh@kernel.org,
+	mark.rutland@arm.com, ardb@kernel.org, thierry.reding@kernel.org,
+	david@kernel.org, danielmentz@google.com,
+	linux-arm-kernel@lists.infradead.org, linux-mm@kvack.org,
+	op-tee@lists.trustedfirmware.org, devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v2 0/8] arm64: Unmap FF-A lent memory from direct map
+Message-ID: <aruh86rd5FMv2i9G@willie-the-truck>
+References: <20260921110050.3977591-1-vdonnefort@google.com>
+ <arIYtjmSKCs14SqO@sumit-xelite>
+ <arKW_91EeKA-w96m@willie-the-truck>
+ <are21BjeS1O3RYE3@sumit-xelite>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [RFC PATCH 5/5] KVM: arm64: Enable HAFDBS for guests not on
- migration
-To: Leonardo Bras <leo.bras@arm.com>
-CC: <linux-arm-kernel@lists.infradead.org>, <kvmarm@lists.linux.dev>,
-	<linux-kernel@vger.kernel.org>
-References: <20260901171558.2674031-1-leo.bras@arm.com>
- <20260901171558.2674031-6-leo.bras@arm.com>
- <497c6239-a75f-4087-83c8-efface3fe3d7@huawei.com>
- <arE_Jh4UHiUdjrSi@LeoBrasDK>
-From: Tian Zheng <zhengtian10@huawei.com>
-In-Reply-To: <arE_Jh4UHiUdjrSi@LeoBrasDK>
-Content-Type: text/plain; charset="UTF-8"; format=flowed
-Content-Transfer-Encoding: 7bit
-X-Originating-IP: [10.67.120.103]
-X-ClientProxiedBy: kwepems500002.china.huawei.com (7.221.188.17) To
- kwepemr100010.china.huawei.com (7.202.195.125)
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260929_043109_307792_59245340 
-X-CRM114-Status: GOOD (  25.53  )
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <are21BjeS1O3RYE3@sumit-xelite>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -81,125 +77,57 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+On Sat, Sep 26, 2026 at 05:43:08PM +0530, Sumit Garg wrote:
+> Looks like you dropped me from your reply.
 
+Huh, that's weird. If I hit reply-all ('g') in mutt, it moves the entire
+CC list to To: and drops you. I suspect the same thing happened to Thierry
+when he replied here:
 
-On 9/21/2026 10:28 PM, Leonardo Bras wrote:
-> On Fri, Sep 18, 2026 at 07:58:43PM +0800, Tian Zheng wrote:
->>
->>
->> On 9/2/2026 1:15 AM, Leonardo Bras wrote:
->>> @@ -2570,53 +2571,76 @@ int __init kvm_mmu_init(u32 hyp_va_bits)
->>>    out_destroy_pgtable:
->>>    	kvm_pgtable_hyp_destroy(hyp_pgtable);
->>>    out_free_pgtable:
->>>    	kfree(hyp_pgtable);
->>>    	hyp_pgtable = NULL;
->>>    out:
->>>    	return err;
->>>    }
->>> +static void kvm_set_hafdbs(struct kvm *kvm, bool set)
->>> +{
->>> +	/* Check if no action required */
->>> +	if (!!(kvm->arch.mmu.vtcr & VTCR_EL2_HD) == set)
->>> +		return;
->>> +
->>> +	if (set)
->>> +		kvm->arch.mmu.vtcr |= VTCR_EL2_HD;
->>> +	else
->>> +		kvm->arch.mmu.vtcr &= ~VTCR_EL2_HD;
->>> +
->>> +	kvm_make_all_cpus_request(kvm, KVM_REQ_RELOAD_STAGE2);
->>> +}
->>> +
->>
->> Hi Leo,
->>
->> HD alone is architecturally a no-op. According to the Arm spec, the
->> VTCR_EL2.HD field description reads: "When the Effective value of
->> VTCR_EL2.HA is 0, this field behaves as 0 for all purposes other than a
->> direct read of the value of this bit." So patch 5 as it stands never
->> actually enables stage-2 dirty management.
-> 
-> Oh, right, I missed that. :/
-> 
-> For the above to work it would need to have the HA bit:
-> 
-> +	if (set)
-> +		kvm->arch.mmu.vtcr |= VTCR_EL2_HA | VTCR_EL2_HD;
-> +	else
-> +		kvm->arch.mmu.vtcr &= ~(VTCR_EL2_HA |VTCR_EL2_HD);
-> 
+https://lore.kernel.org/all/arJcN60nagFKXj2Q@orome/
 
-Hi Leo,
+I can't figure out why that's happening :/
+I manually tried to fix the To: and Cc: lines in this message.
 
-Yep, I've already fixed this in v5.
-
->>
->> In the combined series, I'm planning to replace both kvm_set_hafdbs()
->> and our earlier enable/disable hooks with a single derived mode:
->>
->> ```
->> /*
->>   *   logging && HDBSS-capable  ->  HDBSS  (HD|HA|HDBSS)
->>   *   logging, no HDBSS         ->  off
->>   *   !logging, HAFDBS-capable  ->  HAFDBS (HD|HA)
->>   */
+> On Tue, 22 Sep 2026 at 15:55:59 +0100, Will Deacon wrote:
+> > I spoke to Brendan at LPC (?) last year but this doesn't really work
+> > for arm64 because it relies on being able to unmap arbitrary parts of
+> > the linear map, which isn't generally possible unless you force pte-level
+> > mappings for everything, which is prohibitive for perf/power.
 > 
-> Yes, seems correct, if the performance numbers can show patch 5 provides
-> performance improvements.
-> 
+> As per the cover letter it's about allocating pages that are not present
+> in the direct map. This essentially fits the protected DMABufs use-case
+> where we don't want any kernel mapping to exist at any time. Bufers
+> allocated from protected DMABufs are only meant to be accessed by the
+> TEE implementation or HW accelerators like in the secure media pipeline.
 
-Right, I've added this function in patch 12 of the HDBSS v5 series.
-Performance numbers look good so far.
+That sounds like it should probably build on top of this series, then.
+You could allocate the DMABufs from a CMA region that has no linear alias.
 
->> void kvm_arch_update_hw_dirty_mode(struct kvm *kvm)
->> {
->> 	bool logging = atomic_read(&kvm->nr_memslots_dirty_logging) != 0;
->> 	unsigned long target;
->>
->> 	if (logging && kvm_supports_hdbss(kvm))
->> 		target = VTCR_EL2_HD | VTCR_EL2_HA | VTCR_EL2_HDBSS;
->> 	else if (logging || !kvm_supports_hafdbs(kvm))
->> 		target = 0;
->> 	else
->> 		target = VTCR_EL2_HD | VTCR_EL2_HA;
->> 	...
->> }
->> ```
+> > Vincent's series tackles that by using a pool so that only that part of
+> > memory requires the pte-level mappings in the linear map. That's the
+> > whole point of it, so I don't think it makes sense to drop it in favour
+> > of Brendan's approach (which doesn't work).
+> > 
 > 
-> Humm, do we actually need the atomic_read being ran when we are enabling
-> dirty_logging? Maybe we can restrain it only to the disabling part.
-> 
+> For protected DMABufs, we even don't require any pte-level mappings in
+> linear map. The whole idea of mapping and unmapping is just a bottleneck
+> for performance sensitive secure media pipeline use-cases. That's why if
+> we can support __GFP_UNMAPPED with the memory allocator on arm64 would
+> be the best fit for this use-case.
 
-True, but it's just a plain load. Keeping it unconditional avoids
-tracking the transition direction, so I'd prefer to keep it. Looking
-forward to your further review.
+The point is that you will require pte-level mappings for the linear map
+if you want to unmap from it at runtime on arm64. If you don't, then you
+can end up needing to split a block mapping (e.g. pmd-level) when you
+decide to unmap only part of it and there isn't a safe way to do that on
+arm64 without transiently unmapping the entire block, which can lead to
+fatal translation faults during that window.
 
->>
->> HA is always set alongside HD by construction, so the no-op issue goes
->> away.
-> 
-> Right.
-> 
->>
->> I'll fold this into the HDBSS v5 series when I send it out. Let me know
->> if you'd rather keep it in your v2 instead.
->>
-> 
-> Feel free to merge your part on top of that, I will work on collecting the
-> numbers, though.
-> 
-> Thanks!
-> Leo
-> 
+> Now the question is why arm64 can't support __GFP_UNMAPPED similar to
+> how Brendan is doing it for x86?
 
-Sorry for the late reply. I was running HDBSS+DBM tests over the past
-few days. The HDBSS v5 series with your DBM code merged is now sent out
-to the community. Feedback welcome:
+Because arm64 != x86? Presumably x86 doesn't have the strict
+break-before-make requirements we have on arm64.
 
-https://lore.kernel.org/all/20260929103655.85107-1-zhengtian10@huawei.com/
-
-Thanks!
-Tian
-
+Will
 
