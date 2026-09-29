@@ -4,71 +4,98 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 227DFCA5FA5
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 29 Sep 2026 09:01:39 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 305A5CA5FA5
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 29 Sep 2026 09:02:34 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=b+C/gN6kTWG4u/gazhv5Ye+IpWz75t6Q3QGhbrhhLjQ=; b=tPQ7DCzoxPoJ+eUMlHG+kN+IR4
-	tkxw0VKluFI9Im/D9+UmHWt461tS0Rw+PLfy7NXUfdoLefzTQS9BKFQYT/KUcICRCY1Qx0fmSWRQb
-	u7pmK8ZIG0BSmjFGQKRF6TLthJbGwri497JJhNAEjZnLsLTJRaU7P0QkBhns5KfDOROC7lswLf6nb
-	YaYuKCfxOJqb7+EanRKnpL6zyuBqFA/mG0eogvwMiCwNeK4Qo9ommcyncVUcjI6ba29kckVHbt72j
-	L5K1Fdbe8+cUzlFYwNOKbisih09t/1s1TeX5yzWjjVDbdhoigqggYFCDWBsdWx1m5ExD/k0Zy4kRh
-	Jj0lGhJA==;
+	bh=BwJjdqcFj709Qv5LzibFkFCPgjMc0g1wC/gY1GLFeWU=; b=VzcQx040slSPyq0dktROrkdiI9
+	bvxGc7LjLLuSH7rDWf/ABWEk4prGKAwIrjcMOdlXJyF38WEFqlZaimgX1c8gV8uyA0mjU6DBIBFpo
+	esej4e3YPf7UUw8eIz7Ve0jagNqMHh6Os6somjDtX73efUGAnZqpBg1GCcq0TirSL4LuqcwgqMAAN
+	c9RmD3YByTTm3I97YGp0yT+QIQW/gaDyCm6bjBfAwuK034QJJcSw6NnY7ieKEVqLPRJ+10WSQ1chK
+	yh2fsJ9rEepSU/xeFgoQVsqbHGvHSq1CiUI1EVDUg0drzfImH+oXYaivLueL/oO6VsZcLmWEgohPN
+	rvOc+sqQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xBTiP-00000002ukx-0OzI;
-	Tue, 29 Sep 2026 09:01:33 +0000
-Received: from out-47.mta0.migadu.com ([2001:41d0:1004:224b::2f] helo=mta0.migadu.com)
+	id 1xBTjH-00000002v20-1Rk6;
+	Tue, 29 Sep 2026 09:02:27 +0000
+Received: from mail-wr2-x0e.google.com ([2a00:1450:4864:30::e])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xBTiH-00000002ugf-2FdW
+	id 1xBTjE-00000002v0l-3A78
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 29 Sep 2026 09:01:28 +0000
-X-Envelope-To: linux-arm-kernel@lists.infradead.org
-DKIM-Signature: a=rsa-sha256; bh=9u1xb87yGfGazyR96ri6hSUGdO9iU79tn1MK3OJoWjI=;
- c=simple/simple; d=linux.dev;
- h=from:to:subject:date:message-id:mime-version:content-type; s=key1;
- t=1790672483; v=1; x=1791277283;
- b=eUjol+GI/vZmVtUYQtJOjOyU6H1WzxwpjObLOgva+y+7YDk0RbRu+wZvHzoc/SugoXilQH1C
- wt4WgGaCQnmN4yHcihVgJpESiAtJvY4P1nnFh8rH+0+jrt20pi9M2xXwyDM2tITFopN3JWS68bW
- F3TH1vznqLLDRZ5XyXjS0458=
-X-Envelope-To: linux-arm-kernel@lists.infradead.org
-Received: by smtp.migadu.com with ESMTPS id cd8c479a161a7a38;
-	Tue, 29 Sep 2026 09:01:23 +0000
-X-Mizu-Trace-ID: cd8c479a161a7a38
-X-Migadu-Flow: FLOW_OUT
-From: Fuad Tabba <fuad.tabba@linux.dev>
-To: Marc Zyngier <maz@kernel.org>,
-	Oliver Upton <oupton@kernel.org>,
-	kvmarm@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org
-Cc: Joey Gouly <joey.gouly@arm.com>,
-	Suzuki K Poulose <suzuki.poulose@arm.com>,
-	Zenghui Yu <yuzenghui@huawei.com>,
-	Steffen Eiden <seiden@linux.ibm.com>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Will Deacon <will@kernel.org>,
-	Mark Rutland <mark.rutland@arm.com>,
-	Quentin Perret <qperret@google.com>,
-	Vincent Donnefort <vdonnefort@google.com>,
-	Wei-Lin Chang <weilin.chang@arm.com>,
-	Venkata Rao Kakani <venkata.kakani@oss.qualcomm.com>,
-	Fuad Tabba <tabba@google.com>,
-	linux-kernel@vger.kernel.org
-Subject: [PATCH v3 4/4] KVM: arm64: selftests: Check a feature hidden in an ID register is UNDEF
-Date: Tue, 29 Sep 2026 10:00:31 +0100
-Message-Id: <20260929090031.3829185-5-fuad.tabba@linux.dev>
-X-Mailer: git-send-email 2.39.5
-In-Reply-To: <20260929090031.3829185-1-fuad.tabba@linux.dev>
-References: <20260929090031.3829185-1-fuad.tabba@linux.dev>
+	Tue, 29 Sep 2026 09:02:25 +0000
+Received: by mail-wr2-x0e.google.com with SMTP id ffacd0b85a97d-48af5ae31d8so205290f8f.2
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 29 Sep 2026 02:02:23 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=linaro.org; s=google; t=1790672542; x=1791277342; darn=lists.infradead.org;
+        h=content-transfer-encoding:content-type:in-reply-to:from
+         :content-language:references:cc:to:subject:user-agent:mime-version
+         :date:message-id:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=BwJjdqcFj709Qv5LzibFkFCPgjMc0g1wC/gY1GLFeWU=;
+        b=Vp/OL+LdANTAi2F8LiuLQS4VoTUM9EEu/fOv4I/RpvJNPSyYINsIE3HTcBhf2OCoi2
+         w7I5t8ir6thxvp5BswPFSAXr3rsDY+6SmDPN3wpt7O8z1m51YP+yQsRCkrTbyB3YvXkb
+         xTzZJBFIXZSXUAjkRRKvd+veD0sGOVj/HNjp0lF+EBE7Pz1IrMGYXwTUE1ZQSiLLPpnr
+         OPETSZ74fBwGEZkgFtQxk7gfwqMF6e/ENMFizvPvoQ/wY7uIPmjmAH8tr8HE9MLrjBRE
+         tfTOV6hdAt650zlur8db6wIopc7qPgmRwXeYuR5Sx0zEeJsCbsq2KJ89LV568VGZkXJt
+         TYfw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1790672542; x=1791277342;
+        h=content-transfer-encoding:content-type:in-reply-to:from
+         :content-language:references:cc:to:subject:user-agent:mime-version
+         :date:message-id:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=BwJjdqcFj709Qv5LzibFkFCPgjMc0g1wC/gY1GLFeWU=;
+        b=MrLiHVLi+CJvLWYTTXh/5NiSlcfqLYKFsRJntzKw5PYC4OVf0REEEZCD9ZXJyR9sQB
+         XvALqwsGr6S1QOgAR1x+49Bpf5vAZ8tXPU+tNFZQLDbWO84f1Ohe5hhqb3PmZQr/wqw0
+         LvgTmqHb9K/7yOJu7rsMPakEX2phjZ7+UJ80z6dHIZXUFKFifLoW7MZX5teDtBU5b0Ev
+         xJW0daLIMmstzvXpTAu25guMlUruPlBzHZ4rFF2b95KUwslqCzuljXXDmU0vTNIZHnze
+         gylLHUiAsquz4WvV4ABqGvOsTV94HjZAtmWfNGYDsGS7wqkTprje2GZjC8Cfq27FXk2d
+         8aHw==
+X-Forwarded-Encrypted: i=1; AKwUvBxOa1P7cOlCK5Lmhbp0cmMi3FJ80GLmycxXPDzKEsBuojrDwXOYE82nhra1127dOB5rdP21WMD8qDNxHK7tBG/K@lists.infradead.org
+X-Gm-Message-State: AFq9FYIMWcTZO6ZH6GxDo0XeRQCpxN9zrB3OhflAxL34uIFTh6oR7/0v
+	uT81rP8keZq5DvVG4ssUXvRgnmTfHx8G7sHwlJ3LtFg3GgaO64ao4TPVin9/Z0VBc1bIo/uVO0x
+	0ijRU
+X-Gm-Gg: AYBFou034mszAKMgAGkTHRXJEeC1mTlu71UVqc60UAXnp9E8DCDitX2S6urGe1GMmiH
+	/ZjosRtEF98ZPgxkbnlFymJu5rNfqINj9d4t7fLf87GOfk9yjOgK/G9c8Yc0H0xotD2ZvX47BtN
+	2V6eYpEJEVdvwpu0dKaiQT68bIIV10pTTfzJM6gsf6YkEw1jOHHNnnQC62C3AK/le2AQN3pZ7t9
+	3FbqT3uoCayZAfPc60XtQLyM8ywe60N+Yzs05QmGSyJ5GewMeN7++uU9PGCE8hE0tdVf5foVlUv
+	uL1Do8EBtlqPZs/Zydg/BY8+GVWqbvPKFKK0U1UfGUCNpTE38D6sWURk5zZXti2IcR/8Al32D3n
+	fHoFbEy1qWayxIRIbLcbI0gR0EG++fAvZEqMuSGwVkTZ24vfe/TijPo9hS+IvKeENKU6AFzroGJ
+	otFbaqHmRdrdhsi+TI/YMKVZvwG3kwbL9hsm+DzZLTTmEEXnm5SgfmFGl8D3PUx8fMtw4JHxyhq
+	rm26VVk
+X-Received: by 2002:a05:6000:4009:b0:487:92e:c608 with SMTP id ffacd0b85a97d-48af1b1cc9amr3124751f8f.1.1790672542160;
+        Tue, 29 Sep 2026 02:02:22 -0700 (PDT)
+Received: from [10.11.12.111] ([79.115.63.240])
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-48af5058c52sm2748227f8f.19.2026.09.29.02.02.21
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Tue, 29 Sep 2026 02:02:21 -0700 (PDT)
+Message-ID: <7b5dded4-c475-40dd-b5c4-5086bab4162e@linaro.org>
+Date: Tue, 29 Sep 2026 12:02:18 +0300
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH 1/2] arm64: dts: exynos850: Add ACPM firmware node
+To: Alexey Klimov <alexey.klimov@linaro.org>,
+ Sam Protsenko <semen.protsenko@linaro.org>, Rob Herring <robh@kernel.org>,
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
+ <conor+dt@kernel.org>, Peter Griffin <peter.griffin@linaro.org>,
+ Alim Akhtar <alim.akhtar@samsung.com>
+Cc: Thomas Turner <tturner@lineageos.org>, linux-samsung-soc@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, devicetree@vger.kernel.org,
+ linux-kernel@vger.kernel.org
+References: <20260929-exynos850-acpm-node-cpufreq-v1-0-5a86c1d404b8@linaro.org>
+ <20260929-exynos850-acpm-node-cpufreq-v1-1-5a86c1d404b8@linaro.org>
+Content-Language: en-US
+From: Tudor Ambarus <tudor.ambarus@linaro.org>
+In-Reply-To: <20260929-exynos850-acpm-node-cpufreq-v1-1-5a86c1d404b8@linaro.org>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260929_020125_709473_C76CB277 
-X-CRM114-Status: GOOD (  19.19  )
+X-CRM114-CacheID: sfid-20260929_020224_822918_99250CB5 
+X-CRM114-Status: GOOD (  15.28  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -83,227 +110,55 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Userspace can hide a feature from a guest by clearing its field in a
-writable ID register, and KVM then makes the feature's instructions
-UNDEFINED in the guest by trapping or disabling them. No selftest checks
-that.
+Hi, Alexey,
 
-Add a test that runs the instruction of each of TLBI OS, MOPS, TCR2_EL1
-and FPMR once with its field as advertised and once with it cleared, and
-expects an UNDEF only when cleared. A feature the vCPU doesn't advertise
-is skipped, as is hidden TLBI OS on a CPU with neither FGT nor
-FEAT_EVT2, where KVM can't trap it.
+On 9/29/26 6:10 AM, Alexey Klimov wrote:
+> Add the ACPM firmware node with cpucl0 and cpucl1 clocks. ACPM firmware
+> protocol provides interface for all client drivers to actually use
+> features exposed by the APM co-processor.
+> 
+> Signed-off-by: Alexey Klimov <alexey.klimov@linaro.org>
+> ---
+>  arch/arm64/boot/dts/exynos/exynos850.dtsi | 13 +++++++++++++
+>  1 file changed, 13 insertions(+)
+> 
+> diff --git a/arch/arm64/boot/dts/exynos/exynos850.dtsi b/arch/arm64/boot/dts/exynos/exynos850.dtsi
+> index 8a4771899a8e..91c6cee8f483 100644
+> --- a/arch/arm64/boot/dts/exynos/exynos850.dtsi
+> +++ b/arch/arm64/boot/dts/exynos/exynos850.dtsi
+> @@ -11,6 +11,7 @@
+>   */
+>  
+>  #include <dt-bindings/clock/exynos850.h>
+> +#include <dt-bindings/clock/samsung,exynos850-acpm.h>
+>  #include <dt-bindings/interrupt-controller/arm-gic.h>
+>  #include <dt-bindings/soc/samsung,exynos-usi.h>
+>  
+> @@ -170,6 +171,18 @@ timer: timer {
+>  		     <GIC_PPI 10 (GIC_CPU_MASK_SIMPLE(8) | IRQ_TYPE_LEVEL_LOW)>;
+>  	};
+>  
+> +	firmware {
+> +		acpm_ipc: power-management {
+> +			compatible = "samsung,exynos850-acpm-ipc";
+> +			mboxes = <&ap2apm_mailbox>;
+> +			shmem = <&apm_sram>;
+> +			clocks = <&cmu_cpucl0 CLK_FOUT_CPUCL0_PLL>,
+> +				 <&cmu_cpucl1 CLK_FOUT_CPUCL1_PLL>;
 
-Signed-off-by: Fuad Tabba <fuad.tabba@linux.dev>
----
- tools/testing/selftests/kvm/Makefile.kvm      |   1 +
- .../selftests/kvm/arm64/hidden_features.c     | 184 ++++++++++++++++++
- 2 files changed, 185 insertions(+)
- create mode 100644 tools/testing/selftests/kvm/arm64/hidden_features.c
+Why do you describe these clocks?
 
-diff --git a/tools/testing/selftests/kvm/Makefile.kvm b/tools/testing/selftests/kvm/Makefile.kvm
-index 96bab7002d39e..864fdca7f362e 100644
---- a/tools/testing/selftests/kvm/Makefile.kvm
-+++ b/tools/testing/selftests/kvm/Makefile.kvm
-@@ -194,6 +194,7 @@ TEST_GEN_PROGS_arm64 += arm64/vgic_v5
- TEST_GEN_PROGS_arm64 += arm64/vpmu_counter_access
- TEST_GEN_PROGS_arm64 += arm64/no-vgic
- TEST_GEN_PROGS_arm64 += arm64/idreg-idst
-+TEST_GEN_PROGS_arm64 += arm64/hidden_features
- TEST_GEN_PROGS_arm64 += arm64/kvm-uuid
- TEST_GEN_PROGS_arm64 += access_tracking_perf_test
- TEST_GEN_PROGS_arm64 += arch_timer
-diff --git a/tools/testing/selftests/kvm/arm64/hidden_features.c b/tools/testing/selftests/kvm/arm64/hidden_features.c
-new file mode 100644
-index 0000000000000..194d746e7605e
---- /dev/null
-+++ b/tools/testing/selftests/kvm/arm64/hidden_features.c
-@@ -0,0 +1,184 @@
-+// SPDX-License-Identifier: GPL-2.0-only
-+/*
-+ * hidden_features - Check that a feature's instruction runs in the guest when
-+ * its ID register field is advertised, and is UNDEFINED when userspace clears
-+ * the field.
-+ *
-+ * Copyright (c) 2026 Google LLC
-+ * Author: Fuad Tabba <fuad.tabba@linux.dev>
-+ */
-+#include "kvm_util.h"
-+#include "processor.h"
-+#include "test_util.h"
-+
-+static volatile bool undef;
-+
-+static void guest_tlbi_os(void)
-+{
-+	/* tlbi vmalle1os */
-+	asm volatile("sys #0, c8, c1, #0\n\tdsb ish\n\tisb" ::: "memory");
-+}
-+
-+static void guest_mops(void)
-+{
-+	register u64 *d asm("x0");
-+	register u64 n asm("x1");
-+	register u64 s asm("x2");
-+	u64 buf[8];
-+
-+	d = buf;
-+	n = sizeof(buf);
-+	s = 0;
-+	/* setp [x0]!, x1!, x2; setm; sete */
-+	asm volatile(".inst 0x19c20420\n\t.inst 0x19c24420\n\t.inst 0x19c28420"
-+		     : "+r"(d), "+r"(n) : "r"(s) : "cc", "memory");
-+}
-+
-+static void guest_tcr2(void)
-+{
-+	read_sysreg_s(SYS_TCR2_EL1);
-+}
-+
-+static void guest_fpmr(void)
-+{
-+	read_sysreg_s(SYS_FPMR);
-+}
-+
-+struct feature {
-+	const char *name;
-+	u64 id_reg;
-+	u64 mask;
-+	u8 shift;
-+	u64 min;
-+	void (*insn)(void);
-+	bool (*trappable)(struct kvm_vcpu *vcpu);
-+};
-+
-+/* Without FGT, KVM traps a hidden TLBI OS only through HCR_EL2.TTLBOS (FEAT_EVT2). */
-+static bool tlbi_os_trappable(struct kvm_vcpu *vcpu)
-+{
-+	u64 mmfr0 = vcpu_get_reg(vcpu, KVM_ARM64_SYS_REG(SYS_ID_AA64MMFR0_EL1));
-+	u64 mmfr2 = vcpu_get_reg(vcpu, KVM_ARM64_SYS_REG(SYS_ID_AA64MMFR2_EL1));
-+
-+	return SYS_FIELD_GET(ID_AA64MMFR0_EL1, FGT, mmfr0) >= ID_AA64MMFR0_EL1_FGT_IMP ||
-+	       SYS_FIELD_GET(ID_AA64MMFR2_EL1, EVT, mmfr2) >= ID_AA64MMFR2_EL1_EVT_TTLBxS;
-+}
-+
-+#define FEATURE(n, reg, field, min_val, fn, trap)		\
-+{								\
-+	.name		= n,					\
-+	.id_reg		= SYS_##reg,				\
-+	.mask		= reg##_##field##_MASK,			\
-+	.shift		= reg##_##field##_SHIFT,		\
-+	.min		= reg##_##field##_##min_val,		\
-+	.insn		= fn,					\
-+	.trappable	= trap,					\
-+}
-+
-+static const struct feature features[] = {
-+	FEATURE("TLBI OS", ID_AA64ISAR0_EL1, TLB, OS, guest_tlbi_os, tlbi_os_trappable),
-+	FEATURE("MOPS", ID_AA64ISAR2_EL1, MOPS, IMP, guest_mops, NULL),
-+	FEATURE("TCR2_EL1", ID_AA64MMFR3_EL1, TCRX, IMP, guest_tcr2, NULL),
-+	FEATURE("FPMR", ID_AA64PFR2_EL1, FPMR, IMP, guest_fpmr, NULL),
-+};
-+
-+static void guest_code(const struct feature *feat)
-+{
-+	undef = false;
-+	feat->insn();
-+	GUEST_SYNC(undef);
-+	GUEST_DONE();
-+}
-+
-+static void guest_undef_handler(struct ex_regs *regs)
-+{
-+	undef = true;
-+	regs->pc += 4;
-+}
-+
-+static bool run(const struct feature *feat, bool hide)
-+{
-+	struct kvm_vcpu *vcpu;
-+	struct kvm_vm *vm;
-+	struct ucall uc;
-+	bool got = false;
-+	u64 val;
-+
-+	vm = vm_create_with_one_vcpu(&vcpu, (void *)guest_code);
-+	vm_init_descriptor_tables(vm);
-+	vcpu_init_descriptor_tables(vcpu);
-+	vm_install_sync_handler(vm, VECTOR_SYNC_CURRENT, ESR_ELx_EC_UNKNOWN, guest_undef_handler);
-+	vcpu_args_set(vcpu, 1, feat);
-+
-+	if (hide) {
-+		val = vcpu_get_reg(vcpu, KVM_ARM64_SYS_REG(feat->id_reg));
-+		vcpu_set_reg(vcpu, KVM_ARM64_SYS_REG(feat->id_reg), val & ~feat->mask);
-+	}
-+
-+	for (;;) {
-+		vcpu_run(vcpu);
-+		switch (get_ucall(vcpu, &uc)) {
-+		case UCALL_SYNC:
-+			got = uc.args[1];
-+			break;
-+		case UCALL_ABORT:
-+			REPORT_GUEST_ASSERT(uc);
-+			break;
-+		case UCALL_DONE:
-+			kvm_vm_free(vm);
-+			return got;
-+		default:
-+			TEST_FAIL("Unknown ucall %lu", uc.cmd);
-+		}
-+	}
-+}
-+
-+static void probe_feature(const struct feature *feat, bool *present, bool *trappable)
-+{
-+	struct kvm_vcpu *vcpu;
-+	struct kvm_vm *vm;
-+	u64 val;
-+
-+	vm = vm_create_with_one_vcpu(&vcpu, NULL);
-+	val = vcpu_get_reg(vcpu, KVM_ARM64_SYS_REG(feat->id_reg));
-+	*present = ((val & feat->mask) >> feat->shift) >= feat->min;
-+	*trappable = !feat->trappable || feat->trappable(vcpu);
-+	kvm_vm_free(vm);
-+}
-+
-+int main(void)
-+{
-+	const struct feature *feat;
-+	bool present, trappable;
-+	int i;
-+
-+	test_disable_default_vgic();
-+
-+	ksft_print_header();
-+	ksft_set_plan(ARRAY_SIZE(features) * 2);
-+
-+	for (i = 0; i < ARRAY_SIZE(features); i++) {
-+		feat = &features[i];
-+
-+		probe_feature(feat, &present, &trappable);
-+		if (!present) {
-+			ksft_test_result_skip("%s advertised, not supported\n", feat->name);
-+			ksft_test_result_skip("%s hidden, not supported\n", feat->name);
-+			continue;
-+		}
-+
-+		if (run(feat, false))
-+			ksft_test_result_fail("%s advertised, UNDEF\n", feat->name);
-+		else
-+			ksft_test_result_pass("%s advertised\n", feat->name);
-+
-+		if (!trappable)
-+			ksft_test_result_skip("%s hidden, not trappable\n", feat->name);
-+		else if (run(feat, true))
-+			ksft_test_result_pass("%s hidden\n", feat->name);
-+		else
-+			ksft_test_result_fail("%s hidden, no UNDEF\n", feat->name);
-+	}
-+
-+	ksft_finished();
-+}
--- 
-2.39.5
+Thanks,
+ta
+
+> +			clock-names = "cpucl0", "cpucl1";
+> +			#clock-cells = <1>;
+> +		};
+> +	};
+> +
+>  	soc: soc@0 {
+>  		compatible = "simple-bus";
+>  		#address-cells = <1>;
+> 
 
 
