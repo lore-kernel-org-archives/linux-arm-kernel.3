@@ -4,78 +4,131 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 802F9C9832A
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 29 Sep 2026 14:13:40 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8A986CA5FAE
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 29 Sep 2026 14:20:40 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Subject:Cc:To:From:
-	Message-ID:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
+	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=2Dk0LckhodBoHKrWlTBpRMQHe6Wk8ImTuZYBryUACZo=; b=C4a92N5WI7AS+Sd9RbdaSSebx8
-	hIGoLXtv8q0baSrn35/JS+Q6IrvhxT2q5XculPTAIL6ysrIl4kidnxGOQTVRv9Tz6HHj4qviEIiNy
-	GMN83thIeMnaihKxT1ZqXCHseAB4OJyCfXW6uGqNHz/O3s4kyMH3w2SBW0hUIz6XhiTKB+IAfNC3T
-	dLD5HTD6nOVM2EJ4+Mtq/CgPyeuRlYSNkP72ffYAYlnuWDFYV6Hagadnk9XLy7xsdc/TFvN839NRR
-	AbsldpZoMdr+IQMQTOWUyE3hd3JB9o2bFmTd5SU0oCPP1DEtKlmHGV2TiFkz3bItf26MG6sgPuSkO
-	4tC3wRVg==;
+	bh=AIOCmutbwd8F2t+MiX36pDWhxX0/jkdB2DenpWMn1KA=; b=kbJ6eTt7gsAWHJXCsycwUB+qr0
+	nCFnxt6L71vYw2Q7l5hIj2OVZW3Lv5zaHEcH/NayWRZ8f2ldr3oGiownHFX/90LnwbAOGCfLhESwj
+	o19FJfqFzq8gFNNEPgITgXX1FI/Dw0t3sJAAiVbx40U9Kl3RhOoPMGGx/6Hhf/rf/+ssP4XazPOyU
+	oCS4c85oK52T4lSMjiYm5lty07w8K45PQAx/BQXdF3f8RwhrUhti1nAm6Ea0YQOgl0qfxgsRf4aCx
+	QUfOyBnIGd9nX0LRybMuYXHYImognYVyXKgPJr1Mw673jJ0zDZNXR0mQvCHfUvRGF+zGRHn/KsMEo
+	kg2u4RYQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xBYaL-00000003lKN-34K5;
-	Tue, 29 Sep 2026 14:13:33 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1xBYh4-00000003lp4-2zLe;
+	Tue, 29 Sep 2026 14:20:30 +0000
+Received: from mail-westusazon11012037.outbound.protection.outlook.com ([52.101.43.37] helo=SJ2PR03CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xBYaK-00000003lK2-2HGQ
+	id 1xBYh2-00000003loZ-0F02
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 29 Sep 2026 14:13:32 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id A043C60008;
-	Tue, 29 Sep 2026 14:13:31 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 56A781F000FF;
-	Tue, 29 Sep 2026 14:13:31 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1790691211;
-	bh=2Dk0LckhodBoHKrWlTBpRMQHe6Wk8ImTuZYBryUACZo=;
-	h=Date:From:To:Cc:Subject:In-Reply-To:References;
-	b=Ptw+rtCUl02YbGD2eAmr156Rdq4+2BStIyQCChm1r4K5TYo9ZXC4sSL5NzlImWci7
-	 e1Wyo1lSuWTT6EM0h0Dx9hVkvRzAeEeRA+CUVFhBoVxAgwiHcLhMpDySdC3EpAfzr8
-	 4pla3s37orME7jOdl3UU93yXB9bBsWzs6Iw1FwZbpgCgwaVYabZLvWZXIm1rg68qZw
-	 z7UzpR5GuRPnA9DmvHtmzDGrDpflTZ2cSwNHyfqij85jWc8wX47ARa7lCRvzXTWne0
-	 elm5E5Htplv8tyNGcz9umtv9CBW9aatFmzaECL6GqAnQgBTZ1jRXAAzmfOEE8YrDg3
-	 Vzv8QP4jnz2eQ==
-Received: from sofa.misterjones.org ([185.219.108.64] helo=goblin-girl.misterjones.org)
-	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.98.2)
-	(envelope-from <maz@kernel.org>)
-	id 1xBYaG-0000000Et43-3ZdE;
-	Tue, 29 Sep 2026 14:13:28 +0000
-Date: Tue, 29 Sep 2026 15:13:28 +0100
-Message-ID: <86a4p0403b.wl-maz@kernel.org>
-From: Marc Zyngier <maz@kernel.org>
-To: Fuad Tabba <fuad.tabba@linux.dev>
-Cc: kvmarm@lists.linux.dev,
+	Tue, 29 Sep 2026 14:20:29 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=M8rdHzOhlMlBvdMnIvaftuG/tsf6z8RpJgZs4wrPQCNvGxFNnJ3rN0N65wLxVCL799ZZFHJ5obtvi13wufXV2M2op3AXuR558hdVpXV9dGXNMPgHAQ1VQiXAW3QnF2wi1OW+weY9MPfmHPFbV+CZx+0esN0l1523TiosljwL2NY/WhbHU40iZ31yE3Z/2I1DwwoWg+lmXUEwFGsQiHGS+PDGA8ufelkSVJ6JcG6M/8x0ibrc6KS5hh1ODmGbNQjujV+D0V7KBbxk1sfLhM/zGP0L6DzZwWbmd8VBwueDcHMHtdtiOL/hu2FCnYI/78xkhiKpHZnV0S8Gku74n//NZw==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=AIOCmutbwd8F2t+MiX36pDWhxX0/jkdB2DenpWMn1KA=;
+ b=CCoVui84PnTFyJm5kyE5Ij2XJGD7Yn6P6N9uRPE1M0S5xBqTnigGUIS0TNlSLfCTW3AFyO+d8JTXWdbupWt868iMYaM2RBI6ND5jQJWfyKV4ej2J6KKTmNw/pLiNvLNzEcqS98Qfeo1zh82bbK1YBuRrHOd50y4zNFYMZZB+ecbrBdDlV+85gQcdxJSzIIaItYmKnzUkI9UqGy9cwRFiHe6ImR7kCCLhAl8Vi4mKnWQN5hBqq3LPvkReD8vKiTa88VgyMxpw1eaUacAcH8RNBIbXx26TeGiw28WjiwUCHoovNptp/5cYtsRdeAizZGzMH8CBXuf8UcN9tSTyzRAemQ==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=nvidia.com; dmarc=pass action=none header.from=nvidia.com;
+ dkim=pass header.d=nvidia.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
+ s=selector2;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=AIOCmutbwd8F2t+MiX36pDWhxX0/jkdB2DenpWMn1KA=;
+ b=qWagKXmVI3XOcmaDwoP487ELCHxbHSHLMwjU5NQE5RLk1//Hai92lxASB5yQJpucNfInzqy/qJfMMbpObtsd5w3IpE/ikUSRNzoxqP1HjSSzgO1Geu4e0quyfSjXWgUG4ztJRHilnU1M5jDNc47Aont0U2t3jvKXHIVpbSBFxJ4qjCCgM7K3xWdLUm0YecjxoKPrMpjZaFbldVXZF6YJcZ88XxDfhZ/kHDgDQQhqKskEWPZWON079OZWkikqU1njPbfoz80JeVlSvz0guudNKbu5VvG0QkzUlJvGwilUv504YiozsEpnYmHCnXLfb6I+nhbea2Cnto2wbxNNxR8NYw==
+Authentication-Results: mx.microsoft.com 1; dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=nvidia.com;
+Received: from CHBPR12MB731189.namprd12.prod.outlook.com
+ (2603:10b6:610:33d::12) by LV5PR12MB9825.namprd12.prod.outlook.com
+ (2603:10b6:408:2ff::21) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.451.24; Tue, 29 Sep
+ 2026 14:20:20 +0000
+Received: from CHBPR12MB731189.namprd12.prod.outlook.com
+ ([fe80::b0e5:123d:fe06:e10d]) by CHBPR12MB731189.namprd12.prod.outlook.com
+ ([fe80::b0e5:123d:fe06:e10d%6]) with mapi id 15.21.0451.024; Tue, 29 Sep 2026
+ 14:20:20 +0000
+Date: Tue, 29 Sep 2026 11:20:18 -0300
+From: Jason Gunthorpe <jgg@nvidia.com>
+To: Pranjal Shrivastava <praan@google.com>
+Cc: iommu@lists.linux.dev, "Joerg Roedel (AMD)" <joro@8bytes.org>,
+	Jean-Philippe Brucker <jpb@kernel.org>,
 	linux-arm-kernel@lists.infradead.org,
-	Steffen Eiden <seiden@linux.ibm.com>,
-	Joey Gouly <joey.gouly@arm.com>,
-	Suzuki K Poulose <suzuki.poulose@arm.com>,
-	Oliver Upton <oupton@kernel.org>,
-	Zenghui Yu <yuzenghui@huawei.com>,
-	Yuchao Zhang <ndaugoing@gmail.com>,
-	stable@vger.kernel.org
-Subject: Re: [PATCH v2 1/7] KVM: arm64: Move OUTSIDE_GUEST_MODE publication past context being saved
-In-Reply-To: <CA+EHjTwZSFUZmavbB4tE-eFxHg9WF80CA230EwvynuNcZQ0prg@mail.gmail.com>
-References: <20260929093548.3598547-1-maz@kernel.org>
-	<20260929093548.3598547-2-maz@kernel.org>
-	<CA+EHjTwZSFUZmavbB4tE-eFxHg9WF80CA230EwvynuNcZQ0prg@mail.gmail.com>
-User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
- FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/30.1
- (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
-MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
-Content-Type: text/plain; charset=US-ASCII
-Content-Transfer-Encoding: quoted-printable
-X-SA-Exim-Connect-IP: 185.219.108.64
-X-SA-Exim-Rcpt-To: fuad.tabba@linux.dev, kvmarm@lists.linux.dev, linux-arm-kernel@lists.infradead.org, seiden@linux.ibm.com, joey.gouly@arm.com, suzuki.poulose@arm.com, oupton@kernel.org, yuzenghui@huawei.com, ndaugoing@gmail.com, stable@vger.kernel.org
-X-SA-Exim-Mail-From: maz@kernel.org
-X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
+	Robin Murphy <robin.murphy@arm.com>, Will Deacon <will@kernel.org>,
+	David Matlack <dmatlack@google.com>,
+	Pasha Tatashin <pasha.tatashin@soleen.com>, patches@lists.linux.dev,
+	Samiullah Khawaja <skhawaja@google.com>,
+	Mostafa Saleh <smostafa@google.com>
+Subject: Re: [PATCH v2 2/9] iommupt/kunit: Skip test configs without
+ supported features
+Message-ID: <20260929142018.GM1616761@nvidia.com>
+References: <0-v2-563ee63886f0+1209-iommupt_armv8_jgg@nvidia.com>
+ <2-v2-563ee63886f0+1209-iommupt_armv8_jgg@nvidia.com>
+ <arr1SdQI-s46qG20@google.com>
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <arr1SdQI-s46qG20@google.com>
+X-ClientProxiedBy: SJ0PR05CA0007.namprd05.prod.outlook.com
+ (2603:10b6:a03:33b::12) To CHBPR12MB731189.namprd12.prod.outlook.com
+ (2603:10b6:610:33d::12)
+MIME-Version: 1.0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: CHBPR12MB731189:EE_|LV5PR12MB9825:EE_
+X-MS-Office365-Filtering-Correlation-Id: 1ee491ff-43d8-4e77-d47c-08df1e34cafb
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|23010399003|7416014|376014|366016|1800799024|22082099003|18002099003|11063799006|56012099006|10067099003|4143699003;
+X-Microsoft-Antispam-Message-Info: omLk/jHcBBJQdIhkNFJn/P8YeDsWcFfYawtsdqKXq06R/xm8Y2Ap2S5WTfqrjKpnqNHgXTQnJ9pfuPau2tNexFEMJYrfDFSPMiP03kagpFWKh/kkXbFMITT0QIYIitCrtU9cV2VOFWw8aYZBE7HiLOS7DE5ZFqzfX1baaTJ30Rnp0HXdef7bKZfDW8x06OCbKj+d3hMAHobQwUZZYfzri3xEJZFl1MSPDjTdpLxzEl5JZ414eI3NLF8C4SpAiQqoD6lyaH19e376SLDtmu6pXBnTftyFbHmEaKNIsBQRnraJdG4gAx6tboVOmiZJTuKbexjAFpBTA+RRDy5eA+6KB1a1m/06jX/pNa7T2fvTPUM+kW2Xq2MsRoNEFpUBeifmdpi71uzuN9ZzNdN9HzuaOO98U6kzyNStWzQO0lLR3L1xUiDPDeUmaE2+gP4MTRZQUiXKBEJFfMit28l0OoOJZKTeRgGh9N6/Py8aRPEld6P+FrRAjM+XZPSagCrqwydBodLyFehs2sGtE7iNuqxIKjoUZpgW9ZlMrKBeXK7XR5IIbI9TCPbQA92gQG2E/awA9/JYj/F6qYd1EZ7DQYYdWMVh++DcgcOL2ZigaUNpkOEFNrO1q06ZLr+d6RTvLo4XSPHxWQE7cCUHYtMsvot5Cmp1xtGC+I6RyYohunmr+Go=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:CHBPR12MB731189.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(23010399003)(7416014)(376014)(366016)(1800799024)(22082099003)(18002099003)(11063799006)(56012099006)(10067099003)(4143699003);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?SGRIrSz7cvMzsgnH11jP7XcqxXq5mVje5Dex4QhNpbd9JIzd4HwmaqEnaWWg?=
+ =?us-ascii?Q?vlHO2JJ/gY62PoZ+TadSjJ3761Y59O58AJ/X99/euGBmypDXENYGFYqOZ2te?=
+ =?us-ascii?Q?cA5EXNGgNTvK3KDyXMLoy7MFOI/wLu4N8l8rnA4ktA1uM031C7A0SFfJNUMM?=
+ =?us-ascii?Q?EIlHJ2kWmWn9VOAp3U/N+oDV40cP25nsVn/wDoQao1WLnwZBJP0/u6YNF3DA?=
+ =?us-ascii?Q?Rt4ej+iTGdkYSrsW4k/+++H0Bhe8elYv9CiedJsOdy5CVZnb47U/4yQDxSrI?=
+ =?us-ascii?Q?d0Q/+zj4dqk6nxz5R8ddraASgLRvUv0ABUFb5lBhGhnWyBQ8zKbPE5O2Z7P1?=
+ =?us-ascii?Q?29n5VhfTxQoNet9oWLkBTPZyuhrQNzCq5AocV4d5kH91r6pMivTf+dnEAqhg?=
+ =?us-ascii?Q?ZpCLd5aQ7KsfTgM7XwBIZ6UIrnPHPSQ7UVe0BuiOAd2fqZnoiXRLJtgBPgqy?=
+ =?us-ascii?Q?TQNtm/xANxT8A8aSlzTZY4TdQUJpBQmtG/x32s8EmbT7+irQ7POAa98Sb6sQ?=
+ =?us-ascii?Q?LckXJTlnG4384SFgSrC8Ic1Rvl8AKtXkAQdKH9hO4KD9MLtjp5abQM4DjW9u?=
+ =?us-ascii?Q?vCf7vRZhE6wHNMaMazpTGgh0iP2F3LyS8IyQ7BF9PY1I0Zzux+Fud9X44rV1?=
+ =?us-ascii?Q?pRWBKsddti9LQC187aE4QenmPCp1drcdzRmyhw5Kbdf61jspnwz7HAmiYvsG?=
+ =?us-ascii?Q?GJHG8CqpOSLe6+fXaJsUeG6bzqRWYACazh5D9MmxhC9w05ljqWH93LjjYRHu?=
+ =?us-ascii?Q?iI57iYETybZ1VhjZ4eXZWn3lYVzajN0YbF6O32sz/GrmuNXQDuOYujF81Jct?=
+ =?us-ascii?Q?YmTOkeC2A91RCpEWLwrFsskN3rBilC3Ao6NQUvh4Vb36nhwzuiQGXY4Aoyx/?=
+ =?us-ascii?Q?aIND+u0D6R+gaqHxP0+pRSKdDZgvtUG1jpsdKNDhAlm+wE7H9ecfFukaZjZH?=
+ =?us-ascii?Q?YILvBe3d47nKVwFUgxuwB09U8T6EorP1nAX9TEn/LXj2dogHKIKj/n5PvwBr?=
+ =?us-ascii?Q?Bsa15+CZ7CAU6GVfquQOGBH4AKy35h4xOeFicgWpowkU0o4qKQXnqaj0m+hQ?=
+ =?us-ascii?Q?JqnfiJVpqzwTT22j5oZhuuIpy2IVkSptEp3RQ56d/9UWjuCPduUbVEFFsYX3?=
+ =?us-ascii?Q?vKyorJDrdCfpBj7zKNSCVBtC4mn/vS4oNBIYjWYiTvd+6EpafL6ysmjmF5YK?=
+ =?us-ascii?Q?VkN3C/QdH3EO1biu6/ob6QFLUwyDFJwoow53hYXuX2qEIaClYaUXdP0u+zMT?=
+ =?us-ascii?Q?aVMj1tv94jctzmJASQiPCsxC37TGrBN2NN06HZu+kjx9WkfSfgxYluARqlBU?=
+ =?us-ascii?Q?PIvuYB9c2DxH+1QgcIsOriGdDELqPdh/Bqa3xICOrR4ID2g58b6EMNxc5XyG?=
+ =?us-ascii?Q?ritcVUPSdhXkH9xtZg+JykQ/vW2ByBwTZUp1PyiHsUX2AvILTl1gE8L9jZYH?=
+ =?us-ascii?Q?itunLQumwdP2R+MpOGavVZd+XMyjyQzs6X5vuiviU2ALoOsvsJNFXfTm+LAf?=
+ =?us-ascii?Q?Y4B4bwk01NVE47su7a4Orq5bXTCkuYnHr3OFjcoUr26wzWK8d47FPE43SWaT?=
+ =?us-ascii?Q?kmcSnFrO9M5Gkib8GDBOFrDQh8uzmpyLq+lhiu/jS/rRwUc7XETG5YMjtdV2?=
+ =?us-ascii?Q?9ANnxTNxNYs08gyVvWgPBmzA5jth/Qc2Bd31+b3wFUWJiqVUKCU4L9oBkqap?=
+ =?us-ascii?Q?yXOQxXDYDtoK9BAQbDkD2I9XIkc8zFVI6pnv8Tj9cAJWIfOn?=
+X-OriginatorOrg: Nvidia.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 1ee491ff-43d8-4e77-d47c-08df1e34cafb
+X-MS-Exchange-CrossTenant-AuthSource: CHBPR12MB731189.namprd12.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 29 Sep 2026 14:20:20.3487
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: 8WJT1Z2wmX+Pp7x4zqDMnbYltp0lJpGzWlLuTj1CA6EZ8LX8BLjRSind9xjnl9zn
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: LV5PR12MB9825
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260929_072028_130200_19A7BF1F 
+X-CRM114-Status: GOOD (  11.81  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -90,130 +143,28 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, 29 Sep 2026 13:59:23 +0100,
-Fuad Tabba <fuad.tabba@linux.dev> wrote:
->=20
-> Hi Marc,
->=20
-> On Tue, 29 Sep 2026 10:35:42 +0100, Marc Zyngier <maz@kernel.org> wrote:
-> [...]
-> > Move the publication of OUTSIDE_GUEST_MODE to the point where the state
-> > is actually written, and give this write release semantics to ensure the
-> > correct ordering.
-> >
-> > Signed-off-by: Marc Zyngier <maz@kernel.org>
-> > Cc: stable@vger.kernel.org
->=20
->=20
-> No Fixes: tag?
+On Mon, Sep 28, 2026 at 11:16:25PM +0000, Pranjal Shrivastava wrote:
+> I can't quite build this as I can't find this macro:
+> 
+> drivers/iommu/generic_pt/fmt/../kunit_iommu.h:129:35: error: use of undeclared identifier 'KUNIT_PT_SUPPORTED_FEATURES'
+>   129 |         if (priv->cfg.common.features & ~KUNIT_PT_SUPPORTED_FEATURES)
+>       |                                          ^~~~~~~~~~~~~~~~~~~~~~~~~~~
+>   CC      drivers/tty/tty_port.o
+>   CC      drivers/clk/clk-fixed-factor.o
+>   AS      arch/arm64/lib/strrchr.o
+> 1 error generated.
+> make[5]: *** [drivers/iommu/generic_pt/fmt/Makefile:30: drivers/iommu/generic_pt/fmt/kunit_iommu_armv8.o] Error 1
+> make[4]: *** [scripts/Makefile.build:551: drivers/iommu/generic_pt/fmt] Error 2
+> 
+> Am I missing a series it was defined in? Can't find anything on lore,
+> but I did find a commit on your github [1] that is supposed to preclude
+> this, I guess?
 
-No. It's always been fsck'd.
+Oh, there is a patch in my pile I didn't realize was needed, I'll add
+it to this series. The github has it:
 
->=20
-> [...]
-> > diff --git a/arch/arm64/kvm/arm.c b/arch/arm64/kvm/arm.c
-> [...]
-> > @@ -1386,6 +1385,12 @@ int kvm_arch_vcpu_ioctl_run(struct kvm_vcpu *vcp=
-u)
-> >
-> >               kvm_arch_vcpu_ctxsync_fp(vcpu);
-> >
-> > +             /*
-> > +              * All the state has been synchronised, let advertise
-> > +              * we're outside of the guest.
-> > +              */
-> > +             smp_store_release(&vcpu->mode, OUTSIDE_GUEST_MODE);
->=20
-> Pardon my atomics :)
-
-This is not an atomic instruction. However, it composes with atomics.
-
-> , but what does the release pair with? On the halt
-> path, the only reader I can find is the cmpxchg() in
-> kvm_vcpu_exiting_guest_mode()
-
-=46rom Documentation/atomic_t.txt:
-
-<quote>
- - RMW operations that have a return value are fully ordered;
-
- - RMW operations that are conditional are unordered on FAILURE,
-   otherwise the above rules apply.
-</quote>
-
-The acquire side of cmpxchg() is therefore interacting with the above
-release, which gives us the required ordering.
-
-However, there is a problem if cmpxchg() fails, as there is no
-ordering in that case, and I'm not sure the smp_mb__before_atomic()
-saves the bacon in that case. It feels we'd need an acquire
-somewhere, a bit like this:
-
-diff --git a/include/linux/kvm_host.h b/include/linux/kvm_host.h
-index 03bfc92864b6e..2efb4febcb235 100644
---- a/include/linux/kvm_host.h
-+++ b/include/linux/kvm_host.h
-@@ -563,9 +563,15 @@ static inline int kvm_vcpu_exiting_guest_mode(struct k=
-vm_vcpu *vcpu)
- 	 * The memory barrier ensures a previous write to vcpu->requests cannot
- 	 * be reordered with the read of vcpu->mode.  It pairs with the general
- 	 * memory barrier following the write of vcpu->mode in VCPU RUN.
-+	 *
-+	 * cmpxchg() is not ordered when failing, so make sure we perform an
-+	 * acquire in that case.
- 	 */
- 	smp_mb__before_atomic();
--	return cmpxchg(&vcpu->mode, IN_GUEST_MODE, EXITING_GUEST_MODE);
-+	if (cmpxchg(&vcpu->mode, IN_GUEST_MODE, EXITING_GUEST_MODE) !=3D IN_GUEST=
-_MODE)
-+		return smp_load_acquire(&vcpu->mode);
-+
-+	return IN_GUEST_MODE;
- }
-=20
- /*
-
-> , and the LPI-disable and MOVALL halts
-> then take ap_list_lock or irq_lock. Would WRITE_ONCE() be enough?
-
-We need a release so that we know for sure that any state stored
-before is visible by the time we can observe OUTSIDE_GUEST_MODE, and
-WRITE_ONCE() doesn't provide that (it can be reordered).
-
-I don't see what taking a lock changes to the ordering requirement.
-
->
-> Should the early exit path (the kvm_vcpu_exit_request() bail-out) get
-> the same treatment? I think that's what Sashiko is trying to say in
-> the patch 5 review [1].
-
-I don't understand what sashiko is trying to say, but this is clearly
-missing from the patch, see below. Not sure how I missed that one.
-
-diff --git a/arch/arm64/kvm/arm.c b/arch/arm64/kvm/arm.c
-index 9a4871cd796bc..1a3a15bc6f55c 100644
---- a/arch/arm64/kvm/arm.c
-+++ b/arch/arm64/kvm/arm.c
-@@ -1333,13 +1333,13 @@ int kvm_arch_vcpu_ioctl_run(struct kvm_vcpu *vcpu)
- 		smp_store_mb(vcpu->mode, IN_GUEST_MODE);
-=20
- 		if (ret <=3D 0 || kvm_vcpu_exit_request(vcpu, &ret)) {
--			vcpu->mode =3D OUTSIDE_GUEST_MODE;
- 			isb(); /* Ensure work in x_flush_hwstate is committed */
- 			if (kvm_vcpu_has_pmu(vcpu))
- 				kvm_pmu_sync_hwstate(vcpu);
- 			if (unlikely(!irqchip_in_kernel(vcpu->kvm)))
- 				kvm_timer_sync_user(vcpu);
- 			kvm_vgic_sync_hwstate(vcpu);
-+			smp_store_release(&vcpu->mode, OUTSIDE_GUEST_MODE);
- 			local_irq_enable();
- 			preempt_enable();
- 			continue;
+ iommupt/kunit: Do not test INCOHERENT on anything but x86
 
 Thanks,
-
-	M.
-
---=20
-Without deviation from the norm, progress is not possible.
+Jason
 
