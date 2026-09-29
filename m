@@ -4,74 +4,74 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4EF51CA5FAC
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 29 Sep 2026 21:01:09 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 53CA9CA5FA5
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 29 Sep 2026 21:01:35 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Content-Type:
 	References:In-Reply-To:Date:Cc:To:From:Subject:Message-ID:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=6WFXVZDT0yfhcBTuFPg21aJm8jhlblvZ+mRIY0J9dPY=; b=Ij2UpANedyiPuHKbxFLrT332Gl
-	WOSuufHbkyhcZowVUww8rGyXt3hpRgFqdq5IyTQhrnlBh/gp5A1cj0iP401oFgoqohKTqc0e+cOlS
-	037leD1SIVyUC+rBnO0ON2C/WWsu07e3MrTvz1XzltbLsgly0QJLGgKiHsKUmkeZtp5i6JPGtcgru
-	esAJlR7pLBwc7zoVC7iOnVVTUhxk5OswyfnB9KAmUToD1QHRwVRCtXZnBIVMMKuxfEp5KE7Uyqgkm
-	1H1Nj23DlcXMwtUDlAW5+1iU4spL1sdRYF7KCN9/SnCPp2B60tlUh3IQp3FnllfGSy6ijhnREmrYJ
-	XlsoGxCg==;
+	bh=YQOfsK+HlKeVCf8Z4OdzeQNNGZLvLEYB73B+IGrPM8Q=; b=4KDVlNOs/KTaXL0AMDgLwY8uI1
+	wpnmPvkO97DGSFTM82TnBZsQMF1fRJ/8CjbQ4Zy/uxneR0t9Qcf6eVgPcIqF4wBfTotE278ZmS2nV
+	89J8xfDgJkvgaIi+tJ+e/8nniomLkHcUGOqQu4+x4W/N4MsYh+O9MjS9IPvtk+VUOrmZKu1aXLEEC
+	VWKwEPMPKqa/nwMUQ0/5w7zusDQy/B4YInTbjAOq6UIHkhSO+cHhqt1chWLwOxn1AAwCf9Vt31T/f
+	sVuUncylWLyx3QzXlgToVc8ccoAnd+/ba0VyT56GoaqI7yR49vbq5AQZJQYOxgDXzP0LAaYRQt2Ra
+	xsQc+6ng==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xBewh-00000004Yk2-0XPE;
-	Tue, 29 Sep 2026 21:01:03 +0000
-Received: from mail-vs2-x15.google.com ([2a00:1450:4864:3a::15])
+	id 1xBex2-00000004YrE-1LN4;
+	Tue, 29 Sep 2026 21:01:24 +0000
+Received: from mail-vs2-x0f.google.com ([2a00:1450:4864:3a::f])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xBewd-00000004Yhh-3bSb
+	id 1xBewx-00000004Yoi-22lw
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 29 Sep 2026 21:01:02 +0000
-Received: by mail-vs2-x15.google.com with SMTP id 71dfb90a1353d-5cd13e9ec34so1958381e0c.3
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 29 Sep 2026 14:00:59 -0700 (PDT)
+	Tue, 29 Sep 2026 21:01:21 +0000
+Received: by mail-vs2-x0f.google.com with SMTP id 71dfb90a1353d-5c82bb05ddaso3060191e0c.3
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 29 Sep 2026 14:01:19 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=ndufresne-ca.20251104.gappssmtp.com; s=20251104; t=1790715658; x=1791320458; darn=lists.infradead.org;
+        d=ndufresne-ca.20251104.gappssmtp.com; s=20251104; t=1790715678; x=1791320478; darn=lists.infradead.org;
         h=mime-version:user-agent:content-type:autocrypt:references
          :in-reply-to:date:cc:to:from:subject:message-id:from:to:cc:subject
          :date:message-id:reply-to:content-type;
-        bh=6WFXVZDT0yfhcBTuFPg21aJm8jhlblvZ+mRIY0J9dPY=;
-        b=zLvXnnYs+0SLrTirRysnKctcWs/zX3mGoij3ZrEd05uZPCJPFCR/VKycQLhdjuNMq2
-         tDHLJBhpzu4W8YnVfnsRIvC8eYvJRw8sK3Eyx+K73F2r/E1CHzF9h95rZB+cskX9583J
-         kB+TyDr0T0RzzjLA7ujmvxz+8OIbGaS2gON+YYCd+1AOYZHims1HKPaTPBMqqzH8h3UQ
-         XeBMid417qhL+ueNMZnZJGzBZxfwas8AvfyGhMYWFU6/DYH/MD90hrKAMr2G6oGUicZb
-         kbWOjNeaHm6cXbE6fM7+G80tILhEK6J+7/jKWBOyyDXpt3R37sV3M2tVDkyBHjpAqPy3
-         bv5w==
+        bh=YQOfsK+HlKeVCf8Z4OdzeQNNGZLvLEYB73B+IGrPM8Q=;
+        b=s/56zz8lXDc5/nd7pM02A8uESGEcf8oxGtYMVUywJRrYSoiO7/813TrU4/LExNUxx3
+         mn10YhERg9GYtQ2LpL6HHmgwrp3c4kGwgP5+GbAxUQYcinuQVgU2HVUzsVTR5GD3+PE6
+         TKfQtwXfkT6TAYrF6pPF8KA8Jc58T3m1bGwGYIkVe+TbZe9ElE+O25FDgz7W+Njt3XpJ
+         QVJ7Z05rZC2I2AURruaRTbsycWGAMb+bFzcwpGzpCRgebZ+hdnlG7oNijQfPL7Bz9C17
+         KRD5CbOEFXl0iJEUbDhlJf3wxvPGMlszmGsmWCMO4VBCBO73iWG9U3jLkAW6hhcQ/7rG
+         xupQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1790715658; x=1791320458;
+        d=1e100.net; s=20260707; t=1790715678; x=1791320478;
         h=mime-version:user-agent:content-type:autocrypt:references
          :in-reply-to:date:cc:to:from:subject:message-id:x-gm-gg
          :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
          :content-type;
-        bh=6WFXVZDT0yfhcBTuFPg21aJm8jhlblvZ+mRIY0J9dPY=;
-        b=HCPGlON3Y3nFH9hhoSjhxk8Zdqr9jBuCa8qHYhJJdWlq3SLai8+2abb8o8gg0aZmmC
-         aNlSR3OOWiGtWzmAV6tMMgP7TGOH4d011GiZsD2c1Q4cI3RGy/boKTNawQ+NE1L03rL7
-         bLv9pe1e+rqwmhAEdFhWCAUsYNxqLfX9b1jcpBb+JdQGeHbRKSciMx1hz4Hs/i9oAPno
-         mUvrTL30a9ZrL0LMJJR/xHFWHswhBTzFgVYfP2t+vQWwAFpCDhBrKTPp3UrKd/9S+YFJ
-         pVcs/o1pycJ+MSKfJ1ILMMFpz/KYXwHY3ok0/D47oWyxpvbQZDRsyPmEeAy2zFtzIfpE
-         1DZQ==
-X-Forwarded-Encrypted: i=1; AKwUvBwMaqp6PHaQeMEVOJxUiKwZFUlJXoAJpVNq2tfjtqzWwFqirfYBnx85NGn1llh3lacaXlm4A+vuMjg+CNnilxXF@lists.infradead.org
-X-Gm-Message-State: AFq9FYKJo1wqr/5oZcBiVBYuQFx4XlvPfXFrqONmM0CvK8sb1l11v8uJ
-	COF1Rwf/A7c4+67LtNPPEUpUxii0wh36GgDmxRHrQw/+jjVfrsg87hshF0K2/MW5Zik=
-X-Gm-Gg: AYBFou34d3RA/91zhzVelXWdFGOALlGZUt+gq1RfnnMsMj/A4LvIguqXAhXyTCjup5J
-	TiR3179LEtWUH6RAZxbbaieiAxZOuiNOv9wn6FLL7GKcibx4TGXqj9tcGOkDWSzwgDyTXqsm7wy
-	eDR6BFwzP7JEVZu8BU7eE+dkJJm1Tvwb+ohETsVi50vpz9+5vyKD8PhJJ86tc0t/cdeCCG+fmsU
-	47g9u5n0auy3WPXghLKT8MTxgDqFsrlE+/KghMdIE/hSIhvqYY3VtkcygoqJyAWQ3Pgb1Nhv/qY
-	x3AvEcw7qzRjB+Pnn9cRCHAnpoaCis1T2G+6/XwGgZRppfgQgAAKheUscvQjcRdc5CsMX43mzNA
-	NdZE/OHE8FTFMXcJNocvxZya5XCC/UN7Z+xubhF3wiH3zbOwpTNBKatvNRbiTVIXAfNFfjoVLfe
-	Ux6yayI6Ktj4xSjqjRBsd8GAYkQTXfoMB/y4uea9qe+NFYlY4C+2RA9fNNVhcr+LcC3SdgGz7js
-	8zjHJv8JXC7dg==
-X-Received: by 2002:a05:6102:2d02:b0:7aa:1b48:ca3f with SMTP id ada2fe7eead31-7bc39333beamr267682137.3.1790715658269;
-        Tue, 29 Sep 2026 14:00:58 -0700 (PDT)
+        bh=YQOfsK+HlKeVCf8Z4OdzeQNNGZLvLEYB73B+IGrPM8Q=;
+        b=L27vQLCMERUfzOluAP2pG/+8GkajYJtCS04D6T0MzqDN4V0+vFh5CRykM+1Wn/bEep
+         ZJUFU4N0cXBCv58AhZUWstc98oYvqawc2x0RbTsMjI4smYqJiT1162pmXT2/7JgTKgRn
+         mmWuBnWUVq77bHcNI2jsclN3ZtY9YQZnRaw7UhoNVjY7DQQp1Vj1NAKbTAs917FrryaH
+         SXrl6OPGs/2ek90e/RCw6kVIMWCkvQEJiMCy2YGBbbSCVjJQ+4ZWDGAwwdBC9CyellO/
+         xtGgqq4si8CRaWP2z+LYf+3H3UCPrqm3sDB0y2L8AhoNOTZ7ys05jRkmFZ8x9Q0fW8ed
+         s0ZQ==
+X-Forwarded-Encrypted: i=1; AKwUvBzP6jN2olncRH9wVodw8icnz53JN9Vla4kkN+XeUDp3eUUiZrwGp+xDyogE8xagC/F9r0cbbPkeViiP6VpExM/y@lists.infradead.org
+X-Gm-Message-State: AFq9FYJTfHmQNpJGEvHhV7JuRSNZCsxwJj7cMRgNIzNJsvdhEUItdjMz
+	zHt5IXBiaJvjfqi3wXqL1Mw8y62HoUAfzxMC5CBMF6qe+CdrTSxLgsFG751Laq8sXCk=
+X-Gm-Gg: AYBFou2NZIxThEb4+elivpEsNiy2cc85AspY9pnQHwMnMRGedmKkJOQLj4hNZSh84V9
+	E8BeuCq1i0PIfVf9ikNEDEJX/WywvpvObjUXx14Nb9hwaMgzFtLlyu4xBnjmhY6SprGBVLVHHTS
+	dIyXEraiJjoJdaznDnXoePSY10yhK6lIBKNT7wJxQKquzFFtEswdAZt3f5mOQl/jv9igYKP/0dG
+	fZK97BocN+/cF3346wxbzjzxYGFwuaMrjUKnftJ4Va0dKiNnSc+48tf++6qYghIqrSZ0phK2DiS
+	nG9mRGy2yxCukRabmC9VY6JXo3m4Ra0KFeZLN3wmRvQTX4HQrwvOlpIE2OFUxxS2uVp6drM5QrF
+	XA+Mg5k0XD5dPTaQlG3GnISqfMCnNzu9uyY9DUlZ+Ug0P47wswKkQ9DewVHT8nGKmQBoJUEXfaM
+	OUBq3BtoJr9N8jU5jKWT8Zb53OnSfPvgJdESUR89exDCJNWJMDJgBcmDlGrlCuQDj0kJ6lT5Ezi
+	qeu8OqiluHYxbTvUCkfymAU
+X-Received: by 2002:a05:6122:1c05:b0:5c9:ae70:e784 with SMTP id 71dfb90a1353d-5d5131cdd4cmr304268e0c.3.1790715678096;
+        Tue, 29 Sep 2026 14:01:18 -0700 (PDT)
 Received: from ?IPv6:2606:6d00:11:34bd::5ac? ([2606:6d00:11:34bd::5ac])
-        by smtp.gmail.com with ESMTPSA id 71dfb90a1353d-5d4e778bf23sm1128224e0c.3.2026.09.29.14.00.54
+        by smtp.gmail.com with ESMTPSA id 71dfb90a1353d-5d4e778bafasm1226873e0c.5.2026.09.29.14.01.16
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 29 Sep 2026 14:00:55 -0700 (PDT)
-Message-ID: <2e3c6c4eb72d79ef8b995d6ae62a6424685ec281.camel@ndufresne.ca>
+        Tue, 29 Sep 2026 14:01:17 -0700 (PDT)
+Message-ID: <dd1d9010ad1a3ee11fc38923dfa1252992c2b245.camel@ndufresne.ca>
 Subject: Re: [PATCH] media: mtk-jpeg: Fix runtime PM leak in
  mtk_jpegdec_worker()
 From: Nicolas Dufresne <nicolas@ndufresne.ca>
@@ -81,7 +81,7 @@ Cc: bin.liu@mediatek.com, hverkuil@kernel.org, irui.wang@mediatek.com,
 	linux-kernel@vger.kernel.org, linux-media@vger.kernel.org, 
 	linux-mediatek@lists.infradead.org, matthias.bgg@gmail.com,
  mchehab@kernel.org, 	stable@vger.kernel.org
-Date: Tue, 29 Sep 2026 17:00:54 -0400
+Date: Tue, 29 Sep 2026 17:01:16 -0400
 In-Reply-To: <20260917100247.2145872-1-vulab@iscas.ac.cn>
 References: <20260917100247.2145872-1-vulab@iscas.ac.cn>
 Autocrypt: addr=nicolas@ndufresne.ca; prefer-encrypt=mutual;
@@ -98,12 +98,12 @@ Autocrypt: addr=nicolas@ndufresne.ca; prefer-encrypt=mutual;
  ECHgcCF4AACgkQ2UGUUSlgcvRObgD/YnQjfi4+L8f4fI7p1pPMTwRTcaRdy6aqkKEmKsCArzQBAK8
  bRLv9QjuqsE6oQZra/RB4widZPvphs78H0P6NmpIJ
 Content-Type: multipart/signed; micalg="pgp-sha512";
-	protocol="application/pgp-signature"; boundary="=-LdOO8KXcg0f7Ano5ixCQ"
+	protocol="application/pgp-signature"; boundary="=-OaQi5nvPKDU3qCHl6JAX"
 User-Agent: Evolution 3.60.2 (3.60.2-1.fc44) 
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260929_140100_170373_C683BD29 
-X-CRM114-Status: GOOD (  16.68  )
+X-CRM114-CacheID: sfid-20260929_140119_551980_FEB34D89 
+X-CRM114-Status: GOOD (  16.60  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -119,7 +119,7 @@ Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
 
---=-LdOO8KXcg0f7Ano5ixCQ
+--=-OaQi5nvPKDU3qCHl6JAX
 Content-Type: text/plain; charset="UTF-8"
 Content-Transfer-Encoding: quoted-printable
 
@@ -160,17 +160,17 @@ work)
 >  		dev_err(jpeg->dev, "%s : %d, pm_runtime_get_sync fail !!!\n",
 >  			__func__, __LINE__);
 
---=-LdOO8KXcg0f7Ano5ixCQ
+--=-OaQi5nvPKDU3qCHl6JAX
 Content-Type: application/pgp-signature; name="signature.asc"
 Content-Description: This is a digitally signed message part
 
 -----BEGIN PGP SIGNATURE-----
 
-iHUEABYKAB0WIQTvDVKBFcTDwhoEbxLZQZRRKWBy9AUCarwnBgAKCRDZQZRRKWBy
-9JxRAQCaqpvPcMxkU8M6x7Jg8iRFYx/F7tQzZ4yTAJ0dpC4WDAEAkMVIPHkUqYox
-NeqJq4h74JpK7UjBvsNaj7x4tjst7QM=
-=Fvo3
+iHUEABYKAB0WIQTvDVKBFcTDwhoEbxLZQZRRKWBy9AUCarwnHAAKCRDZQZRRKWBy
+9E83APwLk0zeKWzQOIGJYqNZSVuM65LfwP9mlNJVQ/ss2bY3FAD9EhLs8d7/vbqz
+J2u9T+/yffmnP0xvF8G43YoE4lnGZQg=
+=AlR/
 -----END PGP SIGNATURE-----
 
---=-LdOO8KXcg0f7Ano5ixCQ--
+--=-OaQi5nvPKDU3qCHl6JAX--
 
