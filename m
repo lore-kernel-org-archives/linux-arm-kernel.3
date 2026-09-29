@@ -4,119 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 64BECCA5FAC
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 29 Sep 2026 12:59:04 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B8BD9CA5FA1
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 29 Sep 2026 13:00:25 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=piB6olxsDjTKBBKWtT/80MoIuyo/txOuxpczb55KJIY=; b=r6IoBQKbQXQGjKt4XGfuj01SFY
-	NZvCd/GmkbrTQfjg0FUbDGofKbyMSwsOEjNShmbtIPXgKZ4GrGewFwWIoKZsIIY1nP202yGqqt/2Y
-	IU2MZ+uDPUoo4u2Y5PYJ3fVUKOrt2pb//nUQeD4CzkLWvIMsvdmIjks9Mandlw6ojmnA+oUT25Slz
-	bYheYbWXN9riSl32Xumw9ZAjG7j+T/oCla1lioRDpVusNMObebwkt7mnwo008BL9yRqkfiXBQUO+9
-	mRp+nnlDuJsoqgp7wX4fG9WbUCVHuJlRToL23cAGOwaF2lKPBRaOMvBdWZbN/jmaOkQ9TsfA1nfvZ
-	IH3pvRTg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
+	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=dR4qcRDxX3hO7ETMKHI+QRh0vavJ6h+pN11Uh696H1M=; b=yf3xLuhP7p8ZdurxfoQDyaaA1d
+	w5bZd0i4+b4EWMWo+hpHpxfRRC6oCg4PSkvj7S2HOfDInvmkAkj5UNQIf6PeYUwJbBbOGo+AJZXhv
+	DEONgCve0Yr8A0aLXbWhrUkaJdAtS37E/yyN4K9qqjdQXm3XmxCa63wPZwA8CdeKWVd37jKf3dcR0
+	AT02wZ74G0q7a/aNlBqX8N1pm1FvDyqn/rJuBZkaGIls0YPFo6/y2/ZuIJNgcZDLLSpduZaCvKDSW
+	X0LPuzf3q0R8G7Iut2qgA1ArZCenlYGEGP1EUFGHTQWevNavJ4tGHGGfRoYm2AdozgkY6VmKY511A
+	o5bYAsNg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xBXQ8-00000003byv-2U3Q;
-	Tue, 29 Sep 2026 12:58:56 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1xBXRR-00000003cFN-3u2s;
+	Tue, 29 Sep 2026 13:00:17 +0000
+Received: from out-125.mta0.migadu.com ([2001:41d0:1004:224b::7d] helo=mta0.migadu.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xBXPs-00000003bu9-2v4Y
-	for linux-arm-kernel@bombadil.infradead.org;
-	Tue, 29 Sep 2026 12:58:40 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:MIME-Version
-	:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Sender:Reply-To:
-	Content-Type:Content-ID:Content-Description;
-	bh=piB6olxsDjTKBBKWtT/80MoIuyo/txOuxpczb55KJIY=; b=LgwvKnxx8DJLir1Rznsu0OlCgB
-	K+0QAFVXrEqmWlxyIBqMds5mFv39hnoWCbQzaHM9Hl1zVcS3vTNomboi5xTTYNOi5iW3UtCvT97dr
-	1SEevc4TODI4xAHy7uO2nhqNO7YxhdlSKPI6FDtFC6ISRa0pOmQkrUL7icIkrPKuydB5rKqNX1h62
-	Ghy6CGuquZHAfLSTC/B1VoPAKczLnqNLOBcpogHUnNR0ykoq3QYwjxgIxftr2L4F7t5iK8p1jgyGv
-	sqNIACteoJSN0E4d1cpe5AGhnVxsokNxkxLybeshpOI0DuGctdF01yhk+fAzYBL9Yc94OTKnbecbX
-	gvaVnjow==;
-Received: from mail-wm2-x11.google.com ([2a00:1450:4864:31::11])
-	by desiato.infradead.org with esmtps (Exim 4.99.2 #2 (Red Hat Linux))
-	id 1xBXPn-00000002e8E-1SKI
+	id 1xBXRO-00000003cE2-0cYh
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 29 Sep 2026 12:58:39 +0000
-Received: by mail-wm2-x11.google.com with SMTP id 5b1f17b1804b1-49e721b5503so39111555e9.0
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 29 Sep 2026 05:58:34 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=suse.com; s=google; t=1790686714; x=1791291514; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=piB6olxsDjTKBBKWtT/80MoIuyo/txOuxpczb55KJIY=;
-        b=foMHXd98NqkNSVYOPUeNf1Lpyb/vfayZ9EpiL6WtJNJl8xk3srh3GzSlQ9yGprViHe
-         lJJxxPTJ4pMZTLpjHTctJcm+PRXjaZ0kMR/+ezos0g37pD6rzqP5lhatVJ+lelsCoyH2
-         4ivQyZJzrNjfTeJYOXXZtTOUZsmj6HxE0TK2Uo/DDUjUHyNBmOxxiTgauVOvdgpo5taa
-         PITSgGR3/+MLYDIEPXQnw2N1qImB1himcBnXKaQrPRqk0rGZ0Ee5rFjGt99cptSNCUKw
-         +7z8o7wkYwk+FB4FT+e+FsAnQCoJjdXX9cqREYqRcPGgBLxGlt1v9H1t2BaT9gQUTZJg
-         s8LQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1790686714; x=1791291514;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=piB6olxsDjTKBBKWtT/80MoIuyo/txOuxpczb55KJIY=;
-        b=Idf+sY+qu8hYs+E4xHWb2oljK9XRo4rewZQ/2/elNAB8TELEBwjZMt+wSDDchm/Mfx
-         Hz1mHU5Y1kJ+gKY1SYCOipj9tRpGqC7JUvOkGi/os8LkPBr/50BCMeZNTYblRmcTaQ2c
-         VSESjaj3MByAQ7UcYKb5PLsz6fPu/YQFHycRPgU7dqi6lCMAbByHzQ38ZYYKZaVWVCyz
-         q1nxhF0VmCsNAMw2eumsyN4s6jsl0VOBSBHEvWdpnvZN/RmN2F0E/xXXnT1Wy9AfzF7k
-         SrLb0W0OpNQKhB6Q7YJc033q65cAO96JjZvGlXt7T7Xj1folc9asdCGMIAiJc4stFJ+w
-         hAkw==
-X-Forwarded-Encrypted: i=1; AKwUvBzPw+Wqj6x8kOf9HXaN9vVzNUc/dK/Ms+dk9o+spMAmQm3AgaUykqUTd3OJbQSGlpLIgV/A/bSQ55Sb+PTtzhpV@lists.infradead.org
-X-Gm-Message-State: AFuF++mmlXRRhNa86voyCTPLTRn9We5si5r5wuf0fXEgt++iF+oPzRce
-	+WXKHmMib9jcONWcpNzE1bJ/gtRe4mj6c5KrZVKvtI3vTGt7m8lwed2oh9zpsWISBcI=
-X-Gm-Gg: AYBFou0hUSg3v3CaFytj4b4EucTiqhlTJK9J6Q8FimZ9Dscr5TlEzKpkW8kIStMXAKj
-	MUFxr6XAWDrfsQvVfjqdfMXZB5+wAYIJkCpQI0y67xg+uPnKqXiofjEb8cnp6c4h4oJIVHTjXHo
-	ln4LxQw82y9gzLSJUi8CuGqJzvdCISrimswTH5ZuyJekGOOjkueZUonyPJgq5rHUdXAFgYCdViW
-	EJNpSplLCN6Ubxg3z4jCVm/TgE52OpV4SCpQ5lXrdT54yHYIhO8zEI0wHyfeXMfHv3oB9Kqtke3
-	7ITrC6KIfCn5QCuGqkKYU2BXeX8yQrQWEHe8qLyezvkaTs7fQWMsBja+q1ZUtvnj6DZejDTg2dP
-	kX5Wj/j8Ir+lGUxcReq+cO6pTUYfHs06Mlo0CXazUAgXYePPAla7+Xf26tUFy8gNK/Bo4f0jHu5
-	fXoaoRWB9joXZwEuvwz/6VFeoUASMvCb1ce54EqS6FCA2o6zntivbncpJQPcVwdW0QV22zpecS4
-	es1zjOE
-X-Received: by 2002:a05:600c:4ed2:b0:49f:e3f2:f5a3 with SMTP id 5b1f17b1804b1-49fe6685393mr284862965e9.0.1790686713541;
-        Tue, 29 Sep 2026 05:58:33 -0700 (PDT)
-Received: from localhost ([195.94.147.179])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4a00cfe13a1sm75682335e9.5.2026.09.29.05.58.32
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 29 Sep 2026 05:58:33 -0700 (PDT)
-From: Andrea della Porta <andrea.porta@suse.com>
-To: =?UTF-8?q?Uwe=20Kleine-K=C3=B6nig?= <ukleinek@kernel.org>,
-	linux-pwm@vger.kernel.org,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Florian Fainelli <florian.fainelli@broadcom.com>,
-	Broadcom internal kernel review list <bcm-kernel-feedback-list@broadcom.com>,
-	Andrea della Porta <andrea.porta@suse.com>,
-	devicetree@vger.kernel.org,
-	linux-rpi-kernel@lists.infradead.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	Naushir Patuck <naush@raspberrypi.com>,
-	Stanimir Varbanov <svarbanov@suse.de>,
-	mbrugger@suse.com,
-	Sean Young <sean@mess.org>,
-	Julian Braha <julianbraha@gmail.com>,
-	"Gary Guo" <gary@garyguo.net>,
-	Christophe JAILLET <christophe.jaillet@wanadoo.fr>
-Cc: Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
-Subject: [PATCH v12 1/2] dt-bindings: pwm: Add Raspberry Pi RP1 PWM controller
-Date: Tue, 29 Sep 2026 15:02:11 +0200
-Message-ID: <ee0aa89faa14e0073f1271693bae28678652998b.1790686331.git.andrea.porta@suse.com>
-X-Mailer: git-send-email 2.51.0
-In-Reply-To: <cover.1790686331.git.andrea.porta@suse.com>
-References: <cover.1790686331.git.andrea.porta@suse.com>
+	Tue, 29 Sep 2026 13:00:16 +0000
+X-Envelope-To: linux-arm-kernel@lists.infradead.org
+DKIM-Signature: a=rsa-sha256; bh=3g9q9xAMofPTtsw+JqswDBxUzsiZn8hnkYRupWW+aWE=;
+ c=simple/simple; d=linux.dev;
+ h=from:to:subject:date:message-id:mime-version:content-type; s=key1;
+ t=1790686811; v=1; x=1791291611;
+ b=fAy3OKejVm+gRCeTFoptivE9lwuAPD94U0O/kjVb2+/JtZn2ZN0lpmWaEJvuK4hDMZfi69tk
+ KRghxPR8H662qXx16ZhHNTOlQ/p2GRlhM2QNE88xu+Oa9/nXUc/qIpRQXYilX4AE8J6XPxup0XX
+ L4K6/w3PkRHpv8d/r/pG/6pc=
+X-Envelope-To: linux-arm-kernel@lists.infradead.org
+Received: by smtp.migadu.com with ESMTPS id 2ac412c2879f231f;
+	Tue, 29 Sep 2026 13:00:01 +0000
+X-Mizu-Trace-ID: 2ac412c2879f231f
+X-Migadu-Flow: FLOW_OUT
+Received: by mail-lf1-f46.google.com with SMTP id 2adb3069b0e04-5b8ea0ca5baso7216e87.1
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 29 Sep 2026 06:00:00 -0700 (PDT)
+X-Forwarded-Encrypted: i=1; AKwUvBzdOqAq8BRJrkXgvlAUK0JC4WeoZ2FzYwkydF1dbwsZ2E0WmUDSCw8a775b7pKXF0apt7PHzgojmp7lXuiFhdJ/@lists.infradead.org
+X-Gm-Message-State: AFq9FYJYrO9yqFkstE+/xJqd9KGrxTj0Ugc9Z0aLvhoa/WYYIJ7HL3O/
+	Agfcku1PWLr8ecxd5yf2VNv8NDT3XU+fLD8d7c7mXKh8Fh5QGMgf6vuyEtp5Ax2n3E1v4RBBH1z
+	bIOisa2w1Wwc8YqxJLKVSJC2g8PV6BV3u/Sm99VVF
+X-Received: by 2002:ac2:5b03:0:b0:5ba:3602:4343 with SMTP id
+ 2adb3069b0e04-5ba360245a5mr41833e87.16.1790686800038; Tue, 29 Sep 2026
+ 06:00:00 -0700 (PDT)
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+References: <20260929093548.3598547-1-maz@kernel.org> <20260929093548.3598547-2-maz@kernel.org>
+In-Reply-To: <20260929093548.3598547-2-maz@kernel.org>
+From: Fuad Tabba <fuad.tabba@linux.dev>
+Date: Tue, 29 Sep 2026 13:59:23 +0100
+X-Gmail-Original-Message-ID: <CA+EHjTwZSFUZmavbB4tE-eFxHg9WF80CA230EwvynuNcZQ0prg@mail.gmail.com>
+X-Gm-Features: AclHuK9iOAMxlNpl03FjFTpY7NaQOY39bA66xUuGfPVEXi6mkeEvy65UK09-Y0M
+Message-ID: <CA+EHjTwZSFUZmavbB4tE-eFxHg9WF80CA230EwvynuNcZQ0prg@mail.gmail.com>
+Subject: Re: [PATCH v2 1/7] KVM: arm64: Move OUTSIDE_GUEST_MODE publication
+ past context being saved
+To: Marc Zyngier <maz@kernel.org>
+Cc: kvmarm@lists.linux.dev, linux-arm-kernel@lists.infradead.org, 
+	Steffen Eiden <seiden@linux.ibm.com>, Joey Gouly <joey.gouly@arm.com>, 
+	Suzuki K Poulose <suzuki.poulose@arm.com>, Oliver Upton <oupton@kernel.org>, 
+	Zenghui Yu <yuzenghui@huawei.com>, Yuchao Zhang <ndaugoing@gmail.com>, stable@vger.kernel.org
+Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260929_135836_472216_A2D4E330 
-X-CRM114-Status: GOOD (  17.74  )
+X-CRM114-CacheID: sfid-20260929_060015_197096_074DF0D8 
+X-CRM114-Status: GOOD (  13.30  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -131,94 +82,46 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Naushir Patuck <naush@raspberrypi.com>
+Hi Marc,
 
-Add the devicetree binding documentation for the PWM
-controller found in the Raspberry Pi RP1 chipset.
+On Tue, 29 Sep 2026 10:35:42 +0100, Marc Zyngier <maz@kernel.org> wrote:
+[...]
+> Move the publication of OUTSIDE_GUEST_MODE to the point where the state
+> is actually written, and give this write release semantics to ensure the
+> correct ordering.
+>
+> Signed-off-by: Marc Zyngier <maz@kernel.org>
+> Cc: stable@vger.kernel.org
 
-Signed-off-by: Naushir Patuck <naush@raspberrypi.com>
-Co-developed-by: Stanimir Varbanov <svarbanov@suse.de>
-Signed-off-by: Stanimir Varbanov <svarbanov@suse.de>
-Signed-off-by: Andrea della Porta <andrea.porta@suse.com>
-Reviewed-by: Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
----
- .../bindings/pwm/raspberrypi,rp1-pwm.yaml     | 66 +++++++++++++++++++
- 1 file changed, 66 insertions(+)
- create mode 100644 Documentation/devicetree/bindings/pwm/raspberrypi,rp1-pwm.yaml
 
-diff --git a/Documentation/devicetree/bindings/pwm/raspberrypi,rp1-pwm.yaml b/Documentation/devicetree/bindings/pwm/raspberrypi,rp1-pwm.yaml
-new file mode 100644
-index 0000000000000..be020583fd0ba
---- /dev/null
-+++ b/Documentation/devicetree/bindings/pwm/raspberrypi,rp1-pwm.yaml
-@@ -0,0 +1,66 @@
-+# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
-+%YAML 1.2
-+---
-+$id: http://devicetree.org/schemas/pwm/raspberrypi,rp1-pwm.yaml#
-+$schema: http://devicetree.org/meta-schemas/core.yaml#
-+
-+title: Raspberry Pi RP1 PWM controller
-+
-+maintainers:
-+  - Naushir Patuck <naush@raspberrypi.com>
-+  - Andrea della Porta <andrea.porta@suse.com>
-+  - Stanimir Varbanov <svarbanov@suse.de>
-+
-+allOf:
-+  - $ref: pwm.yaml#
-+
-+description: |
-+  The PWM peripheral is a flexible waveform generator with a
-+  variety of operational modes. It has the following features:
-+   - four independent output channels
-+   - 32-bit counter widths
-+   - Seven output generation modes
-+   - Optional per-channel output inversion
-+   - Optional duty-cycle data FIFO with DMA support
-+   - Optional sigma-delta noise shaping engine
-+  Serves as a fan speed provider to other nodes for a PWM-connected
-+  fan.
-+
-+properties:
-+  compatible:
-+    const: raspberrypi,rp1-pwm
-+
-+  reg:
-+    maxItems: 1
-+
-+  clocks:
-+    maxItems: 1
-+
-+  "#pwm-cells":
-+    const: 3
-+
-+  dmas:
-+    maxItems: 1
-+    description: |
-+      Phandle to the DMA controller and the channel specifier for
-+      the duty-cycle FIFO.
-+
-+  dma-names:
-+    items:
-+      - const: tx
-+
-+required:
-+  - compatible
-+  - reg
-+  - clocks
-+
-+unevaluatedProperties: false
-+
-+examples:
-+  - |
-+    pwm@98000 {
-+      compatible = "raspberrypi,rp1-pwm";
-+      reg = <0x98000 0x100>;
-+      clocks = <&rp1_clocks 17>;
-+      #pwm-cells = <3>;
-+    };
--- 
-2.35.3
+No Fixes: tag?
 
+[...]
+> diff --git a/arch/arm64/kvm/arm.c b/arch/arm64/kvm/arm.c
+[...]
+> @@ -1386,6 +1385,12 @@ int kvm_arch_vcpu_ioctl_run(struct kvm_vcpu *vcpu)
+>
+>               kvm_arch_vcpu_ctxsync_fp(vcpu);
+>
+> +             /*
+> +              * All the state has been synchronised, let advertise
+> +              * we're outside of the guest.
+> +              */
+> +             smp_store_release(&vcpu->mode, OUTSIDE_GUEST_MODE);
+
+Pardon my atomics :), but what does the release pair with? On the halt
+path, the only reader I can find is the cmpxchg() in
+kvm_vcpu_exiting_guest_mode(), and the LPI-disable and MOVALL halts
+then take ap_list_lock or irq_lock. Would WRITE_ONCE() be enough?
+
+Should the early exit path (the kvm_vcpu_exit_request() bail-out) get
+the same treatment? I think that's what Sashiko is trying to say in
+the patch 5 review [1].
+
+nit: "let advertise" -> "publish"?
+
+Cheers,
+/fuad
+
+[1] https://sashiko.dev/#/patchset/20260929093548.3598547-1-maz%40kernel.org?part=5
 
