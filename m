@@ -4,94 +4,86 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8E042CA5FA7
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 29 Sep 2026 18:26:50 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E478FCA5FA5
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 29 Sep 2026 18:39:21 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
-	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=uKbN1/2S72+Ds1i9QYOJgPbItX37Pf7LrEr2RrJNMN4=; b=FE0wCjBHaN1DCD
-	6LDE4RmXqE39taaZaiDXp0oYbq+is6gxxDlhwWF6HlD3Exz0PtkgwXyy42Se2n4opO841EUL39Edk
-	iGQxhe87uTzQng01RmQewIVl9fiv7l1OuVLIHXkMSFM2I9M8jhijDAYmQDm0vlEPuKfnHsZwcPrdU
-	uTrUdUiW7elL8tMqwL9pG1oeWbv4bpXws2mOQukS6QTTvF4CBHfsOMUEwJ+zW0DSxgxaQ5T+9Y2iH
-	SS07eLK8R6Rr8rHzRxxovqSgeu7dcGd89oC/h9KUohkTt7GL4jEdktpROaAMJDryLzZdw8KF1uwhJ
-	hmakhl3yVd0Ti3UGQYqA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=+mz+DR/cNP0US6qM+V0NJZZkwyCBeScDtMfTKHVJnik=; b=ShRXNeYgSFvFGVWfx+eD5/qJBY
+	KhFKwD478kkcEbOcO4sVD44BP04fWJQXmevx+SqgejTjlet6PS4ZMqMNXa1RF4hMu0GvuBaJ/AfA4
+	MlaOT2RPL9UsATEeR9i+MLrESr7K+6lUXau2n54cAfr6kV01+I9xVViyx6YtYH46G2J6Sl3X41lXb
+	VbLsZD2GFFkm9hF+Rh9AFTC66rEW1TEuQHSmE9BHoPqVIFr/q64LTn4SnvPQgOZoMIZydJNgDwTaI
+	rBjv0/ag3EKCRhU6jWahHmKhIHz5k+0ctLgM4/gAiAmEhfqeQJcfMzMe4Sq5FMSWbj7gU3r3w+qsj
+	ML1sGDcQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xBbbx-00000004BFv-2WEg;
-	Tue, 29 Sep 2026 17:27:25 +0000
-Received: from sender6-op-o15.zoho.com ([165.173.180.15])
+	id 1xBcjR-00000004IPm-0YQS;
+	Tue, 29 Sep 2026 18:39:13 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xBbbt-00000004BEu-0dje;
-	Tue, 29 Sep 2026 17:27:23 +0000
-ARC-Seal: i=1; a=rsa-sha256; t=1790702811; cv=none; 
-	d=zohomail.com; s=zohoarc; 
-	b=Vhhckjv+Fp9yy4wONDWghNm8HBWYDPtQP4iYbZ5xTE/f1J1j/UhiLDupiUCbMaX8BTClRmThYqiMVmMTmSAxpObBydaYTRbap3rz4IhQIlQsruJ03s1flgXyhpbiNjguPmgqY+fL4SqarZxkFm1rCCMjp2Zo2Dhs6dJYuIw+uyQ=
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=zohomail.com; s=zohoarc; 
-	t=1790702811; h=Content-Type:Content-Transfer-Encoding:Cc:Cc:Date:Date:From:From:MIME-Version:Message-ID:Subject:Subject:To:To:Message-Id:Reply-To; 
-	bh=uKbN1/2S72+Ds1i9QYOJgPbItX37Pf7LrEr2RrJNMN4=; 
-	b=I9HiVCyFW/1dAlPhxJ0la2SqCxljMxY/marh5UT/+nXeVr6rsnC1GKJ6jHqzHvj7m5dIJJfcR8A8T4no7G8lUETym9Wi7xyLlsrgVt/oOqPF1q1QhBLLgKc6N3siQpEfAJKrVxMxUy/bj0KBVvyK9o/E/A7jGsoU+uv+4Rfb5OE=
-ARC-Authentication-Results: i=1; mx.zohomail.com;
-	dkim=pass  header.i=pigmoral.tech;
-	spf=pass  smtp.mailfrom=junhui.liu@pigmoral.tech;
-	dmarc=pass header.from=<junhui.liu@pigmoral.tech>
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; t=1790702811;
-	s=zmail; d=pigmoral.tech; i=junhui.liu@pigmoral.tech;
-	h=From:From:Subject:Subject:Date:Date:Message-Id:Message-Id:MIME-Version:Content-Type:Content-Transfer-Encoding:To:To:Cc:Cc:Reply-To;
-	bh=uKbN1/2S72+Ds1i9QYOJgPbItX37Pf7LrEr2RrJNMN4=;
-	b=q9JliJP0jLlP954Aqp+Kr1YUHjUf0M7ZEwkXLgClIxWO7tgXZzu6LHb3BQ6q5kvt
-	qpk/BcEHv14/tz/PfYwNz6alvs3mrovAK2EgnsqTOkRAduAuPw+4kpVrWpl0/LM+Odo
-	bJlkPug2cseu+GgF8sEfAFGplXcltN6E6Acv/toc=
-Received: by smtp.zohomail.com with SMTPS id 1790702810475424.1998192636315;
-	Tue, 29 Sep 2026 10:26:50 -0700 (PDT)
-From: Junhui Liu <junhui.liu@pigmoral.tech>
-Subject: [PATCH v5 0/8] clk: sunxi-ng: Add support for Allwinner A733 CCU
- and PRCM
-Date: Wed, 30 Sep 2026 01:26:07 +0800
-Message-Id: <20260930-a733-clk-v5-0-11175b41cd2d@pigmoral.tech>
+	id 1xBcjP-00000004IPI-2l6v;
+	Tue, 29 Sep 2026 18:39:11 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:Content-Type
+	:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:Message-ID:
+	Sender:Reply-To:Content-ID:Content-Description;
+	bh=+mz+DR/cNP0US6qM+V0NJZZkwyCBeScDtMfTKHVJnik=; b=It2V2EhRfVsp0r24BzxuxeIE4f
+	cwaIF+OmtKNRNOz7yyQDfAmw6GFF5I4n/ULTobjR+WqZPTmSMAIOLIr1LHAIJtBub9VJDwLXLxx/i
+	QiiSMmu6waDxNk9bXCmYiPedXmSFF+zw1+qgEqT+9bvIWPBsBRZiJKcRZyj9u87d58yi28kqnLr7x
+	fcNT1S5l/L1GpQ6EEwpn/w61boNJVMBcYKKP6C9N0jjRAqaG9pMWfPq0qV/Yq9T6+SlxokRuEKW8x
+	CJm/U/6q53lM8o+xm5r4IFRC8eNfr90u+DYL1zNKVtS7/a00pwt19JK3GO7cFgkVPDkiuDCWg+nbM
+	lnmaVmYA==;
+Received: from mx.nabladev.com ([178.251.229.89])
+	by desiato.infradead.org with esmtps (Exim 4.99.2 #2 (Red Hat Linux))
+	id 1xBcjM-00000002xOS-016p;
+	Tue, 29 Sep 2026 18:39:10 +0000
+Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id AF779106CA0;
+	Tue, 29 Sep 2026 20:38:50 +0200 (CEST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nabladev.com;
+	s=dkim; t=1790707133;
+	h=from:subject:date:message-id:to:cc:mime-version:content-type:
+	 content-transfer-encoding:content-language:in-reply-to:references;
+	bh=+mz+DR/cNP0US6qM+V0NJZZkwyCBeScDtMfTKHVJnik=;
+	b=VZGtWy+TnRRjNQTbwO2hS2qxQNoSfigFgLQtQ6lSy8wTUxCm1pSlqzLhf6Hmf2ySNOMvI4
+	1nXo68OLK7P+vcD/tS9Z75jRByo2YGJ0Ckh8JCy4jbC4gaJjheDrs6+XjLJLXVbOCOvZjK
+	aFWhTXRZy7dR7vD4exC2woOXd5Nuv3nnW+ZbL5vUzqYXKwlCDmj1AViVQCugILH2uaogI8
+	S8rMDr/EKcMVwMwQM72JxK/GjZlIqIst8zJPbjFczbIxUY2qCCwRyG3lWdSUZp/jHN5OxJ
+	8H9A8lYrbJBq3UqTsnptbFDlO7P8rqj8fK5GP5leIJeQewqlebMFSvL6Kru3Zw==
+Message-ID: <0a65ca90-2b0f-4f58-94bb-11fa2737519a@nabladev.com>
+Date: Tue, 29 Sep 2026 20:38:50 +0200
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v5 2/2] phy: stm32: Add support for ST STM32MP25
+ USB2-FEMTO PHY
+To: Fabrice Gasnier <fabrice.gasnier@foss.st.com>,
+ linux-phy@lists.infradead.org, Manivannan Sadhasivam <mani@kernel.org>,
+ Alexandre Torgue <alexandre.torgue@foss.st.com>
+Cc: Pankaj Dev <pankaj.dev@st.com>, Rahul Kumar <rahul.kumar05@st.com>,
+ Christian Bruel <christian.bruel@foss.st.com>,
+ Conor Dooley <conor+dt@kernel.org>, Krzysztof Kozlowski
+ <krzk+dt@kernel.org>, Maxime Coquelin <mcoquelin.stm32@gmail.com>,
+ Neil Armstrong <neil.armstrong@linaro.org>,
+ Patrice Chotard <patrice.chotard@foss.st.com>, Rob Herring
+ <robh@kernel.org>, Rosen Penev <rosenp@gmail.com>,
+ Vinod Koul <vkoul@kernel.org>, devicetree@vger.kernel.org,
+ kernel@dh-electronics.com, linux-arm-kernel@lists.infradead.org,
+ linux-kernel@vger.kernel.org, linux-stm32@st-md-mailman.stormreply.com
+References: <20260902141312.649406-1-marex@nabladev.com>
+ <20260902141312.649406-2-marex@nabladev.com>
+ <bf8e7888-1917-4ddc-9a6d-20490835c742@foss.st.com>
+Content-Language: en-US
+From: Marek Vasut <marex@nabladev.com>
+In-Reply-To: <bf8e7888-1917-4ddc-9a6d-20490835c742@foss.st.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 7bit
-X-B4-Tracking: v=1; b=H4sIAAAAAAAC/22QS2rDMBRFt2I0roJ+tiwTSvdROpCfnxLR+FPJM
- Skhe69sF+yWTARX6Jwr7p1EDB4jqbI7CTj56PsuhfwlI3C23Qmpb1ImgomCpYNaLSWFyydljXL
- AmDXOAEnPh4DO3xbV+0fKZx/HPnwv5onPt6tEcrZJJk4ZlUWt0NRCqVy/Df7U9sFeDiPCmcyiS
- Wyw5nwHiwQbrRpellAjg2ew3GDD8h0sE5wzJ2TppAFdPoPVDhb7ZjU3Ay8V1mgs8P/wYx0k4Nc
- 1TTquq5AWY7TLpFV2/P1SQeO1u/lF2/V0WCeBukHBwTgszF/367x1bSNS6NvWj1U26YOkAXhqf
- fwAgGvNKNABAAA=
-X-Change-ID: 20260202-a733-clk-0d4fc00a9f9c
-To: Stephen Boyd <sboyd@kernel.org>, Brian Masney <bmasney+clk@redhat.com>, 
- Jerome Brunet <jbrunet+clk@baylibre.com>, Rob Herring <robh@kernel.org>, 
- Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>, Chen-Yu Tsai <wens@kernel.org>, 
- Jernej Skrabec <jernej.skrabec@gmail.com>, 
- Samuel Holland <samuel@sholland.org>, 
- Philipp Zabel <p.zabel@pengutronix.de>, 
- Junhui Liu <junhui.liu@pigmoral.tech>, Paul Walmsley <pjw@kernel.org>, 
- Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, 
- Alexandre Ghiti <alex@ghiti.fr>, Richard Cochran <richardcochran@gmail.com>
-Cc: linux-clk@vger.kernel.org, devicetree@vger.kernel.org, 
- linux-arm-kernel@lists.infradead.org, linux-sunxi@lists.linux.dev, 
- linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org, 
- netdev@vger.kernel.org, Jerome Brunet <jbrunet@baylibre.com>, 
- Enzo Adriano <enzo.adriano.code@gmail.com>, 
- Andre Przywara <andre.przywara@arm.com>, 
- Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
-X-Mailer: b4 0.16.0
-X-Developer-Signature: v=1; a=openpgp-sha256; l=6367;
- i=junhui.liu@pigmoral.tech; h=from:subject:message-id;
- bh=p/GHIp4Q+wktNYmNZSYzDRjvrWbldK01OubfVytpjns=;
- b=owGbwMvMwCWWvDb1VEXc8j+Mp9WSGLJ2f9m0uvIjT8M6D1kb3+js7l0rYgUSORcuef0+8kR5f
- T2/RoR3RykLgxgXg6yYIguXv/g/ax2eb0cEWu/DzGFlAhnCwMUpABPRkGX473w0OP7o+4LDr1zP
- hhaJWernXflodeDhu1O+3LF8J0tMXBj+cNybKnfYJUUmy7xlX4zCL7Ml3oWmB7T85jkKL5kifyC
- HFwA=
-X-Developer-Key: i=junhui.liu@pigmoral.tech; a=openpgp;
- fpr=15B30CC69C4BF0CC3C08F85A2A90CDC122DF37BF
-X-ZohoMailClient: External
+X-Last-TLS-Session-Version: TLSv1.3
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260929_102721_573336_B83B0E3F 
-X-CRM114-Status: GOOD (  15.94  )
+X-CRM114-CacheID: sfid-20260929_193908_182791_BAB08735 
+X-CRM114-Status: UNSURE (   9.52  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -106,131 +98,23 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add support for the main CCU and the PRCM module (R-CCU) found in the
-Allwinner A733 SoC. The clock architecture is derived from the previous
-A523 design, with the MCU_CCU removed and the clock tree extended for
-the additional functional blocks found on the A733.
+On 9/3/26 12:19 PM, Fabrice Gasnier wrote:
+> On 9/2/26 16:13, Marek Vasut wrote:
+>> From: Pankaj Dev <pankaj.dev@st.com>
+>>
+>> Add USB2 PHY driver for STM32MP25 USB2 controllers, which includes the
+>> USB2.0 host-only controller and USB 2.0 part of the DWC3 controller.
+>> Two such PHYs in total are present in STM32MP25 SoC, they both are
+>> slightly different, therefore they use different compatible string
+>> to discern them.
+> 
+> Hello Marek,
+> 
+> I'm not sure if/how this fit with all below tags. For all the
+> contributions you've made, you can add my:
+> Reviewed-by: Fabrice Gasnier <fabrice.gasnier@foss.st.com>
+> Tested-by: Fabrice Gasnier <fabrice.gasnier@foss.st.com>
+Is there anything left to do with this series ?
 
-The A733 introduces a "pll-ref" clock that normalizes the physical
-oscillator frequency, which can be 19.2MHz, 24MHz, or 26MHz, into a
-consistent 24MHz reference for the PLL clock tree.
-
-The peripheral, video, and DE PLLs provide multiple independently gated
-outputs with programmable dividers. Model these outputs as separate
-divider-and-gate child clocks. Also follow the documented hierarchy for
-the derived peripheral PLL outputs. The explicitly named PLL_AUDIO1 /2
-and /5 outputs are modeled as fixed-factor clocks, with their divider
-fields initialized accordingly.
-
-Also extend the sunxi-ng SDM (Sigma-Delta Modulation) support for the
-dual-pattern register layout used by the A733 PLLs. PLL_AUDIO0 uses the
-dual-pattern SDM support to synthesize its fractional output.
-PLL_AUDIO1 does not expose fractional rates, but its SDM controls are
-modeled so that stale settings left by firmware can be disabled when an
-integer rate is programmed.
-
-The actual parents of a small number of bus gates are not documented in
-the user manual. Follow the vendor BSP and keep these gates parented to
-"hosc" until more complete hardware information is available.
-
-This series depends on the A523 single-divider clock fixes [1], which
-add feature support to the M-only clock macro used by the MBUS and DRAM0
-clocks. The prerequisite series has been applied to the
-sunxi/clk-for-7.4 branch.
-
-Link: https://patch.msgid.link/20260906-sunxi-clk-no-p-v1-0-cbde21c9fe69@pigmoral.tech [1]
-Signed-off-by: Junhui Liu <junhui.liu@pigmoral.tech>
----
-Changes in v5:
-- Add the CLK_GIC binding ID, inserted after CLK_TRACE
-- Add the GIC clock and mark it critical
-- Fix the continuation line alignment of the trace clock
-- Mark ahb-cpus critical
-- Link to v4: https://patch.msgid.link/20260921-a733-clk-v4-0-9c184ebe9ac1@pigmoral.tech
-
-Changes in v4:
-- Model the MBUS and DRAM0 clocks as M-only clocks
-- Base the series on the A523 single-divider clock fixes
-- Link to v3: https://patch.msgid.link/20260905-a733-clk-v3-0-50f238f39c78@pigmoral.tech
-
-Changes in v3:
-- Patch 1: Rename the clock/reset binding headers with the allwinner vendor
-  prefix, use BSD-2-Clause for their dual license, and reorder the binding
-  properties according to the preferred schema layout
-- Patches 1 and 4: Drop the undocumented 12X suffix from the video and DE
-  PLL core clock names and binding IDs
-- Patch 2: Require all PAT1 enable bits to be set when checking whether SDM
-  is enabled
-- Patch 4: Model the independently gated peripheral, video, and DE PLL
-  outputs as programmable-divider child clocks
-- Patch 4: Follow the documented hierarchy for the derived peripheral PLL
-  outputs
-- Patch 4: Model the explicitly named PLL_AUDIO1 /2 and /5 outputs as
-  fixed-factor clocks and initialize their divider fields accordingly
-- Patch 4: Model the PLL_AUDIO1 SDM controls so stale firmware settings are
-  disabled when an integer rate is programmed
-- Patch 4: Add the missing module device table and remove an unused include
-- Patch 6: Replace the MP helpers used by timer clocks, which have no M
-  divider, with the corresponding P-only helpers
-- Patch 7: Document the unresolved parents of bus gates kept on hosc and
-  fix the APB/AHB IOMMU1 system clock names
-- Patches 3 and 8: Make the reset maps const
-- Link to v2: https://patch.msgid.link/20260711-a733-clk-v2-0-974d188cbe0c@pigmoral.tech
-
-Changes in v2:
-- Rework the clocks property in DT bindings to source hosc directly from
-  the oscillator to adapt to the new RTC binding
-- Clean up the SDM dual-pattern helper macro and add the missing enable
-  parameter for pll-audio0
-- Number single-instance clocks with 0, e.g. GPU0, VE_ENC0/VE_DEC0,
-  DRAM0, NAND0, GPADC0, THS0, etc
-- Correct 8x PLL post-divider names to 12x for video and DE PLLs
-  (pll-videoX-12x, pll-de-12x)
-- Drop gic, cpu-peri, nsi clocks
-- Rename clocks: OWA -> SPDIF, USB_REF -> USB01_REF, HDMI_ESM -> HDCP_ESM,
-  PWMCTRL -> PWM
-- Mark bus-dram0, ahb-store and mbus-store critical to avoid DMA, MMC and
-  SPI NOR failures when unused clocks are disabled
-- Switch PRCM timer clocks to P-only helpers
-- Fix bus gate bit positions for UARTs and correct the sysdap register
-  address
-- Interleave bus clocks into function clocks
-- Link to v1: https://lore.kernel.org/r/20260310-a733-clk-v1-0-36b4e9b24457@pigmoral.tech
-
----
-Junhui Liu (8):
-      dt-bindings: clk: sun60i-a733-ccu: Add Allwinner A733 support
-      clk: sunxi-ng: sdm: Add dual patterns support
-      clk: sunxi-ng: a733: Add PRCM CCU
-      clk: sunxi-ng: a733: Add PLL clocks support
-      clk: sunxi-ng: a733: Add bus clocks support
-      clk: sunxi-ng: a733: Add mod clocks support
-      clk: sunxi-ng: a733: Add bus clock gates
-      clk: sunxi-ng: a733: Add reset lines
-
- .../bindings/clock/allwinner,sun60i-a733-ccu.yaml  |  107 +
- drivers/clk/sunxi-ng/Kconfig                       |   10 +
- drivers/clk/sunxi-ng/Makefile                      |    4 +
- drivers/clk/sunxi-ng/ccu-sun60i-a733-r.c           |  273 +++
- drivers/clk/sunxi-ng/ccu-sun60i-a733.c             | 2406 ++++++++++++++++++++
- drivers/clk/sunxi-ng/ccu_sdm.c                     |   52 +-
- drivers/clk/sunxi-ng/ccu_sdm.h                     |   29 +-
- .../dt-bindings/clock/allwinner,sun60i-a733-ccu.h  |  291 +++
- .../clock/allwinner,sun60i-a733-r-ccu.h            |   39 +
- .../dt-bindings/reset/allwinner,sun60i-a733-ccu.h  |  129 ++
- .../reset/allwinner,sun60i-a733-r-ccu.h            |   23 +
- 11 files changed, 3337 insertions(+), 26 deletions(-)
----
-base-commit: e5e04726cdd043e309677071ab1b65a4b18f422b
-change-id: 20260202-a733-clk-0d4fc00a9f9c
-prerequisite-message-id: <20260906-sunxi-clk-no-p-v1-0-cbde21c9fe69@pigmoral.tech>
-prerequisite-patch-id: 0df2ae41836b86fd868dfa01ddfde57f888f761a
-prerequisite-patch-id: 88f3a431e7c551a9fa732f062188f10fdd362eeb
-prerequisite-patch-id: 3e88bc873c909059d1199f82cda4013765e7a5e5
-prerequisite-patch-id: 0dbc27cd7417352319a0705a051dff35085e8922
-
-Best regards,
---  
-Junhui Liu <junhui.liu@pigmoral.tech>
-
+Thank you for your help !
 
