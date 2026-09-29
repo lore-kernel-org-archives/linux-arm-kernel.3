@@ -4,73 +4,88 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 85B62CA5FA1
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 29 Sep 2026 12:28:55 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CF8BCCA5FA5
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 29 Sep 2026 12:29:41 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Rya2/xvwmnG+LUNaAktFCoDG7sJ7+awgSLfG71+jbJ8=; b=06qaiatzSgHTYK2dvFgGdetsT6
-	krjrl7FZ/0bfeLyhxi6kqnTNlk5TIvxf45RFV30XTcBg/vROCbRI0L5iJbuIrL5xkvOhHoH7acSox
-	rXkA9WifbQyzSzEE8sedQejzCOBthCfTvYMBSVmW+By1quhiAy4qEycc5UHP/jwDrdNbe5eHI0OrD
-	/7Uehp43dERTUUgNcSE5AOwhw4nFu1KI8oIrE1jCD9R4um+AeXzmCHnIa4Yr7dQZJtZodeK7WGKAu
-	TqLSlChZnT85vjRfu9ODN9BZBzxw5Bg+kWLbvJ57QURArQ6cvRty6H6kespIFnCXgV4mAA3GB7Ia6
-	N2fzIo4g==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:CC:To:From:
+	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
+	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=BTYbqIl27tkLsfYQLjeiceAlSl6nFmNQvil4C5coGo8=; b=e5VdUYN2PhyF92DmCXq6bxqOPd
+	0MQP2KuWofcBvbY8Ok4fRiUaP7gp84nKD5KqG2nRl81kfG3agg7xIC0z9+C9LiXYpja6cwzZuxsn6
+	ahr/pHLdDt53iVW+CpjyDmubtmKBgQcmFGBNorPag+EpTmDbVR31h7R3tJuJnU6yfB13wLOkclY/h
+	hEPIG/sxdev2RVeBfaZr32RGR2DRgwMh7/RtHwDJsOtLuf1Ut1C/+LRWywhl8nL7JH9wZIHmZF8OM
+	quCLdLtZ34Ghz7aU0j/qrQ/LWbNVX2DNhuVsjsk36s0vdsVE1GcOI9OkoNovlGs0uNqkQBR3vyTaM
+	C7P8SkFw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xBWwz-00000003Ws9-0ZrZ;
-	Tue, 29 Sep 2026 12:28:49 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1xBVDj-00000003GyE-3uOG;
+	Tue, 29 Sep 2026 10:37:59 +0000
+Received: from casper.infradead.org ([2001:8b0:10b:1236::1])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xBWwx-00000003Wrr-2Njy;
-	Tue, 29 Sep 2026 12:28:47 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 41171412B1;
-	Tue, 29 Sep 2026 12:28:47 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 9F8E61F000FF;
-	Tue, 29 Sep 2026 12:28:46 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1790684927;
-	bh=Rya2/xvwmnG+LUNaAktFCoDG7sJ7+awgSLfG71+jbJ8=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=KDgs52RDTx6mh31I7eMF9UWgZiSg1uUMHsWF7NmqCu8jGXUdqsG5RRco4NAQ1yybk
-	 xQ+m+bbw1/UwtG3KjfgwVgTA5CaoLUfvpIS8lFDoTctzuu7VSyBxeowIx5ueXoinnE
-	 8tKck5octUTdRzH9FOQQ5rKCVgLBSz3czzpqXIl3DCc+gA8SVFh5ujozuK/cQlWlr3
-	 laRfPA3ooCYxIdbhJVJPI51VwDjiItiCpStTQWukUYuWtEtyJAROcrFDWye7LIwjKJ
-	 BEx8eFAfDOOrw/HeBkx0lBbtw4Jx8mATUrz9BoFpYrTbqm0g4vGPopfAaieDMB8Iyg
-	 sD/aDTz9tWV9g==
-Date: Tue, 29 Sep 2026 14:28:43 +0200
-From: Maxime Ripard <mripard@kernel.org>
-To: Jani Nikula <jani.nikula@linux.intel.com>
-Cc: Benjamin Tissoires <bentiss@kernel.org>, 
-	Neil Armstrong <neil.armstrong@linaro.org>, Jessica Zhang <jesszhan0024@gmail.com>, 
-	David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>, 
-	Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, Thomas Zimmermann <tzimmermann@suse.de>, 
-	Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
-	Conor Dooley <conor+dt@kernel.org>, Nathan Chancellor <nathan@kernel.org>, 
-	Nick Desaulniers <ndesaulniers@google.com>, Bill Wendling <morbo@google.com>, 
-	Justin Stitt <justinstitt@google.com>, Florian Fainelli <florian.fainelli@broadcom.com>, 
-	Broadcom internal kernel review list <bcm-kernel-feedback-list@broadcom.com>, Andrzej Hajda <andrzej.hajda@intel.com>, 
-	Robert Foss <rfoss@kernel.org>, Laurent Pinchart <Laurent.pinchart@ideasonboard.com>, 
-	Jonas Karlman <jonas@kwiboo.se>, Jernej Skrabec <jernej.skrabec@gmail.com>, 
-	Luca Ceresoli <luca.ceresoli@bootlin.com>, Albert Esteve <aesteve@redhat.com>, 
-	Dave Stevenson <dave.stevenson@raspberrypi.com>, Javier Martinez Canillas <javierm@redhat.com>, 
-	dri-devel@lists.freedesktop.org, devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
-	bpf@vger.kernel.org, llvm@lists.linux.dev, linux-rpi-kernel@lists.infradead.org, 
-	linux-arm-kernel@lists.infradead.org
-Subject: Re: [PATCH 0/6] drm/bridge: Add a BPF-based MIPI-DSI panel driver
-Message-ID: <arut8kWzqX5YW5wE@houat>
-References: <20260928-drm-mipi-dsi-panel-ebpf-v1-0-5244926aace4@kernel.org>
- <054ef52478fc93fc213a9dae23ea77f73094aaf2@intel.com>
- <aruD5kwOEsvFhW2e@beelink>
- <42cfa3fb2246c66d69e45d7d9b8d6aaadc0da4c4@intel.com>
+	id 1xBVDA-00000003GjC-0otP
+	for linux-arm-kernel@bombadil.infradead.org;
+	Tue, 29 Sep 2026 10:37:24 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=casper.20170209; h=Content-Type:Content-Transfer-Encoding:
+	MIME-Version:Message-ID:Date:Subject:CC:To:From:Sender:Reply-To:Content-ID:
+	Content-Description:In-Reply-To:References;
+	bh=BTYbqIl27tkLsfYQLjeiceAlSl6nFmNQvil4C5coGo8=; b=Qnav891v44jOKn8lT6mb670RZY
+	xQAF/8xrRBqEjJun9NBsoBs+XjiYYncz+A914wPM0Qeorx5Q0ePWM5F9D8yWr+usrS9OlnbivBnPr
+	ar2dxarnldxzX5S4/wz2OvF/xNDjhAU1f3V1kwWktP1aRgggMqpxUjw8puy1hWpuSQc05C/EF8YdG
+	glHkqEm5nsvEcL0G6i0J6qpfSBZ3/bmvcWJE0BmKE3PsDps9y+JHHp3iJBfY7Dfp1jVayzj/JwvQ2
+	B6pQW/gw2JVv/gFH8Zu7VzO0MZH9M8KLqp52bsPFgqY9kkNF4ieCoc1lGcMsNrsc5YJ8qxwsu2myS
+	/wXHaPwA==;
+Received: from canpmsgout09.his.huawei.com ([113.46.200.224])
+	by casper.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1xBVD2-0000000CL9X-3jhp
+	for linux-arm-kernel@lists.infradead.org;
+	Tue, 29 Sep 2026 10:37:23 +0000
+dkim-signature: v=1; a=rsa-sha256; d=huawei.com; s=dkim;
+	c=relaxed/relaxed; q=dns/txt;
+	h=From;
+	bh=BTYbqIl27tkLsfYQLjeiceAlSl6nFmNQvil4C5coGo8=;
+	b=DjPMdWc9fCMMgRs+uzDdgUQahiOtTiIA3Db27qniDoDwUOx2ohxoGSjPCxqjHJ1X4Cg2mJvP5
+	MJ0B2BXIcxLlOCkTKyCkCIfH5PoLo5F3VtFKQRDqaYn2o5eQ0q3ym7Bw3+Q3R+vDFKqOL+6EJ1E
+	/gc1oAk/bhkSIlpIR6ftwnQ=
+Received: from mail.maildlp.com (unknown [172.19.163.127])
+	by canpmsgout09.his.huawei.com (SkyGuard) with ESMTPS id 4hvDpk4VSWz1cyQh;
+	Tue, 29 Sep 2026 18:25:50 +0800 (CST)
+Received: from kwepemr100010.china.huawei.com (unknown [7.202.195.125])
+	by mail.maildlp.com (Postfix) with ESMTPS id A9CBC40561;
+	Tue, 29 Sep 2026 18:36:56 +0800 (CST)
+Received: from huawei.com (10.50.163.32) by kwepemr100010.china.huawei.com
+ (7.202.195.125) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.45; Tue, 29 Sep
+ 2026 18:36:55 +0800
+From: Tian Zheng <zhengtian10@huawei.com>
+To: <maz@kernel.org>, <oupton@kernel.org>, <catalin.marinas@arm.com>,
+	<will@kernel.org>, <corbet@lwn.net>, <pbonzini@redhat.com>,
+	<zhengtian10@huawei.com>, <leo.bras@arm.com>
+CC: <yuzenghui@huawei.com>, <wangzhou1@hisilicon.com>,
+	<yangjinqian1@huawei.com>, <caijian11@h-partners.com>,
+	<liuyonglong@huawei.com>, <tangchengchang@huawei.com>,
+	<yezhenyu2@huawei.com>, <yubihong@huawei.com>, <linuxarm@huawei.com>,
+	<joey.gouly@arm.com>, <kvmarm@lists.linux.dev>, <kvm@vger.kernel.org>,
+	<linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>,
+	<seiden@linux.ibm.com>, <suzuki.poulose@arm.com>, <fuad.tabba@linux.dev>,
+	<mark.rutland@arm.com>, <seanjc@google.com>, <rdunlap@infradead.org>,
+	<linux-doc@vger.kernel.org>, <linux-kselftest@vger.kernel.org>,
+	<skhan@linuxfoundation.org>
+Subject: [PATCH v5 00/15] KVM: arm64: FEAT_HDBSS support for stage-2 dirty tracking
+Date: Tue, 29 Sep 2026 18:36:40 +0800
+Message-ID: <20260929103655.85107-1-zhengtian10@huawei.com>
+X-Mailer: git-send-email 2.33.0
 MIME-Version: 1.0
-Content-Type: multipart/signed; micalg=pgp-sha384;
-	protocol="application/pgp-signature"; boundary="tn7gfu35hmfimxib"
-Content-Disposition: inline
-In-Reply-To: <42cfa3fb2246c66d69e45d7d9b8d6aaadc0da4c4@intel.com>
+Content-Transfer-Encoding: 8bit
+Content-Type: text/plain
+X-Originating-IP: [10.50.163.32]
+X-ClientProxiedBy: kwepems500002.china.huawei.com (7.221.188.17) To
+ kwepemr100010.china.huawei.com (7.202.195.125)
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260929_113717_501355_077BE194 
+X-CRM114-Status: GOOD (  20.97  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -85,84 +100,210 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+This series implements hardware-assisted stage-2 dirty tracking on
+arm64 using FEAT_HDBSS. It combines Leonardo Bras' HAFDBS descriptor
+rework [1] with the HDBSS buffer support built on top of it, as
+requested during the review of [1].
 
---tn7gfu35hmfimxib
-Content-Type: text/plain; protected-headers=v1; charset=us-ascii
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
-Subject: Re: [PATCH 0/6] drm/bridge: Add a BPF-based MIPI-DSI panel driver
-MIME-Version: 1.0
+Patches 1-4 are from Leonardo's RFC, reworked per the review; patch 5
+adds the folio-account harvest from the HDBSS validation work. The
+descriptor encoding moves the stage-2 write permission from S2AP[1]
+to DBM and reuses S2AP[1] as the dirty state:
 
-On Tue, Sep 29, 2026 at 01:16:41PM +0300, Jani Nikula wrote:
-> On Tue, 29 Sep 2026, Benjamin Tissoires <bentiss@kernel.org> wrote:
-> > Ouch. This immediately raises the "let's implement a parser in the
-> > kernel" flag, or "let's create a new langage".
->=20
-> Fair.
->=20
-> > You'd still need a dedicated driver for your new blob parser, with far
-> > fewer people who had had a look at it than BPF who has been working on
-> > for several years.
->=20
-> Fair.
+    RO  (DBM=0, S2AP[1]=0)  read-only, write -> permission fault
+    WC  (DBM=1, S2AP[1]=0)  writable-clean, hw promotes on write
+    WD  (DBM=1, S2AP[1]=1)  writable-dirty
 
-Also, it's kind of what we had with panel-mipi-dbi:
-https://github.com/notro/panel-mipi-dbi/wiki
+The remaining patches implement the HDBSS buffer machinery: the
+buffer size is configured before the first vCPU is created, the
+buffers are allocated at vCPU creation, a full buffer raises a fault
+that forces an exit, and every VM exit flushes the entries into the
+dirty bitmap or the dirty ring. The size ioctl only applies to
+dirty-bitmap mode, as dirty-ring mode pins the buffer size to
+PAGE_SIZE. A single derived hardware-dirty mode selects the
+configuration:
 
-It didn't really take off.
+    migration with HDBSS  -> HD|HA|HDBSS
+    migration without     -> HD off, write-protect faults
+    no migration          -> HD|HA, only written pages go dirty
 
-> > The integration of BPF and the kernel is honestly transparent nowaday:
-> > calling a struct_ops BPF function is just a function call away, and from
-> > the bpf calling anything in the kernel is also just a call away.
->=20
-> I don't know if I'm just being overly conservative here, but it seems to
-> me BPF provides too much flexibility for the use case. But maybe the
-> point is completely moot, and you should just ignore me. ;)
->=20
-> > See Maxime's answers: yes, falling back to dedicated driver is still
-> > encouraged.
->=20
-> [Moved the above to go with below.]
->=20
-> > Isn't that what Maxime wants to have? One driver for a plethora of DSI
-> > panels, with the same ability the BIOS has to also do function calls to
-> > set things up?
->=20
-> I suppose this is something that could use some clarification. Is the
-> idea that most (simple) dedicated panel drivers eventually get converted
-> to BPF?
+The HDBSS registers are programmed on vCPU load (patch 7): HDBSS can
+be enabled while a vCPU is mid-KVM_RUN, and hardware appends dirty
+entries without any fault, so HDBSSBR_EL2 must already point at the
+running vCPU's buffer.
 
-I don't think most of the existing panels will be converted, if only
-because it would require a different DT binding for most of them. We
-should totally fix the "what happens the panel is supported by a driver
-and the bpf driver" situation Rob (I think?) pointed out though, because
-I do think some will be converted still.
+HAFDBS is not gated on nested virtualization: shadow stage-2 MMUs
+build their own VTCR without HD via kvm_get_vtcr(). HDBSS stays
+gated, as the nested exit-flush and harvest paths are unaudited.
+This series was only tested on non-nested guests, so reviewer
+attention on the nested paths is appreciated.
 
-> Or is the idea that BPF is easy for prototyping and development
-> using stable kernels and short time to market, and most of them would
-> eventually get converted to dedicated panel drivers?
+The KVM_CAP_ARM_HDBSS_BUFFER_SIZE interface is exercised by a new
+selftest (patch 15), including the contract that dirty-ring mode
+pins the buffer size to the default.
 
-Even though it does make prototyping easier, I totally expect this to be
-a production-grade driver, just like any other panel driver.
+Comments welcome, especially on:
 
-> The story wrt display before userspace is up and running also needs
-> clarification.
+  - allocating the HDBSS buffer at vCPU creation and programming the
+    HDBSSBR_EL2 and HDBSSPROD_EL2 registers on vCPU load (patch 7),
+    rather than at each mode switch,
+  - keeping HDBSS NV-gated while HAFDBS is not (patch 12),
+  - using the target MMU's live HD state (kvm_hw_dirty_enabled())
+    instead of the hardware capability (patch 12), so shadow MMUs
+    keep installing writable-dirty entries as before.
 
-Yeah, I'll work on an in-kernel loader for v2.
+Relative to Leonardo's RFC [1]:
 
-Maxime
+  - Patch 1 keeps reading stage-2 writability from S2AP[1] in the
+    nested walker, as DBM is RES0 from L1's perspective.
+  - Patch 2 splits the two dirty ledgers on the fault paths: the
+    host folio account is marked speculatively on PROT_W while the
+    KVM dirty bitmap is only marked on PROT_DIRTY.
+  - Patch 5's HAFDBS toggle becomes the derived mode (patch 12),
+    which computes the full VTCR_EL2 dirty configuration (off,
+    HAFDBS or HDBSS) from the capabilities and the logging state.
+  - The folio-account harvest, the dirty-ring reservation and the
+    buffer-size UAPI are new.
 
---tn7gfu35hmfimxib
-Content-Type: application/pgp-signature; name="signature.asc"
+Changes since v4 [2]:
 
------BEGIN PGP SIGNATURE-----
+- Rebased onto Leonardo's descriptor rework [1]: write permission
+  moves to DBM, S2AP[1] becomes the pure dirty state. Replaces v4's
+  auto-DBM patch and drops the eager-splitting dependency, as the
+  walker clears DBM on blocks so lazy splitting keeps working.
+- New: harvest of the stage-2 dirty state into the host folio
+  account at unmap/write-protect time.
+- Buffer lifetime tied to the vCPU: allocated at creation, freed at
+  destruction, registers programmed on ownership. Closes the
+  use-after-free window on a concurrent mode switch.
+- Auto enable/disable replaced by a single derived mode: no illegal
+  intermediate VTCR_EL2 state, no locking.
+- Outside migration, HAFDBS is now enabled (Leonardo's RFC [1]):
+  read faults install writable-clean pages, hardware promotes them
+  on write, and only pages actually written to become dirty.
+- Flush and HDBSS fault handling split into separate patches, with
+  the flush unified at VM exit so that entries pushed to the dirty
+  ring are accounted for before the vCPU re-enters the guest.
+- New: dirty-ring support (ring reserves room for a full flush,
+  buffer pinned to PAGE_SIZE) and the KVM_CAP_ARM_HDBSS_BUFFER_SIZE
+  UAPI with documentation and a selftest.
 
-iJUEABMJAB0WIQTkHFbLp4ejekA/qfgnX84Zoj2+dgUCaruu+wAKCRAnX84Zoj2+
-dvaDAYDbgFmn3VTPnwMmRkcBxrTVtKlQ2i2nTFTQqsY6+h83dQfdgZBSKyv4PaD8
-t21q8pIBgLJeTlsC72CRcfaSgL7zPCcpR02uuJQEdtsW57i6k17jJYgTCB0r9j+y
-8X+t6kZwEw==
-=GOdP
------END PGP SIGNATURE-----
+Changes since v3 [3]:
 
---tn7gfu35hmfimxib--
+- Merge sysreg definitions into the FEAT_HDBSS detection patch (was a
+  separate patch in v3).
+- Add auto DBM (Dirty Bit Modifier) support as a new patch, suggested
+  by Leonardo Bras. DBM is now controlled as a page-table level flag
+  (KVM_PGTABLE_S2_DBM) rather than per-PTE. Note that DBM is injected
+  at stage-2 MMU creation time, not lazily on first dirty access. This
+  means the first write to a dirty-logged page does not generate a
+  page fault, which is a key reason for the mandatory dependency on
+  Leonardo's eager hugepage splitting patch.
+- Split the v3 "Enable HDBSS support and handle HDBSSF events" patch
+  into three patches: per-vCPU buffer management, fault handling and
+  buffer flush, and auto enable/disable on dirty logging change. This
+  implements kernel-managed automatic HDBSS enable/disable.
+- Remove the KVM_CAP_ARM_HW_DIRTY_STATE_TRACK ioctl for manual HDBSS
+  on/off. HDBSS is now automatically enabled/disabled based on dirty
+  logging state via kvm_arch_commit_memory_region().
+- Change HDBSS buffer flush triggers to vcpu_put, check_vcpu_requests,
+  and kvm_handle_guest_abort.
+- Store hdbss_order at VM level (kvm->arch.hdbss_order) instead of
+  per-vCPU, since all vCPUs share the same order.
+- Document patch is not included in this version; will be sent in a
+  follow-up series.
+
+Changes since v2 [4]:
+
+- Remove the ARM64_HDBSS configuration option and ensure this feature
+  is only enabled in VHE mode.
+- Move HDBSS-related variables to the arch-independent portion of the
+  kvm structure.
+- Remove error messages during HDBSS enable/disable operations.
+- Change HDBSS buffer flushing from handle_exit to vcpu_put,
+  check_vcpu_requests, and kvm_handle_guest_abort.
+- Add fault handling for HDBSS including buffer full, external abort,
+  and general protection fault (GPF).
+- Add support for a 4KB HDBSS buffer size, mapped to the value 0b0000.
+- Add a second argument to the ioctl to turn HDBSS on or off.
+
+Changes since v1 [5]:
+
+- Removed redundant macro definitions and switched to tool-generated.
+- Split HDBSS interface and implementation into separate patches.
+- Integrate system_supports_hdbss() into ARM feature initialization.
+- Refactored HDBSS data structure to store meaningful values instead
+  of raw register contents.
+- Fixed permission checks when applying DBM bits in page tables to
+  prevent potential memory corruption.
+- Removed unnecessary dsb instructions.
+- Drop the debugging printks.
+- Merged the two patches "using ioctl to enable/disable the HDBSS
+  feature" and "support to handle the HDBSSF event" into one.
+
+[1] https://lore.kernel.org/all/20260901171558.2674031-1-leo.bras@arm.com/
+[2] https://lore.kernel.org/all/20260709104026.2612599-1-zhengtian10@huawei.com/
+[3] https://lore.kernel.org/all/20260225040421.2683931-1-zhengtian10@huawei.com/
+[4] https://lore.kernel.org/all/20251121092342.3393318-1-zhengtian10@huawei.com/
+[5] https://lore.kernel.org/all/20250311040321.1460-1-yezhenyu2@huawei.com/
+
+Signed-off-by: Tian Zheng <zhengtian10@huawei.com>
+
+Eillon (3):
+  KVM: arm64: Add HDBSS per-vCPU buffer management
+  KVM: arm64: Flush the HDBSS buffer on VM exit
+  KVM: arm64: Handle HDBSS faults
+
+Leonardo Bras (4):
+  KVM: arm64: pgtables: Change write bit from S2AP_W to DBM
+  KVM: arm64: Add KVM_PGTABLE_PROT_DIRTY
+  KVM: arm64: Introduce a dedicated walker for stage2 write-protect
+  KVM: arm64: Add KVM_REQ_RELOAD_STAGE2
+
+Tian Zheng (8):
+  KVM: arm64: Harvest stage-2 dirty state into the host folio account
+  KVM: arm64: Add support for FEAT_HDBSS
+  KVM: Add kvm_arch_dirty_ring_size_updated() hook
+  KVM: arm64: Reserve dirty ring space for the HDBSS buffer
+  KVM: arm64: Derive the VM hardware dirty mode from dirty logging
+  KVM: arm64: Add HDBSS buffer size ioctl for dirty-bitmap mode
+  KVM: arm64: Document HDBSS buffer size ioctl
+  KVM: arm64: selftests: Add HDBSS buffer size ioctl interface test
+
+ Documentation/virt/kvm/api.rst                |  28 +++
+ arch/arm64/include/asm/cpufeature.h           |   5 +
+ arch/arm64/include/asm/esr.h                  |   5 +
+ arch/arm64/include/asm/kvm_dirty_bit.h        |  44 ++++
+ arch/arm64/include/asm/kvm_host.h             |  15 ++
+ arch/arm64/include/asm/kvm_mmu.h              |  18 ++
+ arch/arm64/include/asm/kvm_nested.h           |   9 +-
+ arch/arm64/include/asm/kvm_pgtable.h          |  14 +-
+ arch/arm64/include/asm/sysreg.h               |   9 +
+ arch/arm64/kernel/cpufeature.c                |  12 +
+ arch/arm64/kvm/Makefile                       |   1 +
+ arch/arm64/kvm/arm.c                          |  84 ++++++-
+ arch/arm64/kvm/dirty_bit.c                    | 129 ++++++++++
+ arch/arm64/kvm/hyp/pgtable.c                  |  74 +++++-
+ arch/arm64/kvm/hyp/vhe/switch.c               |  17 ++
+ arch/arm64/kvm/mmu.c                          | 118 ++++++++-
+ arch/arm64/kvm/nested.c                       |   5 +
+ arch/arm64/kvm/ptdump.c                       |  10 +-
+ arch/arm64/kvm/reset.c                        |   3 +
+ arch/arm64/tools/cpucaps                      |   1 +
+ include/linux/kvm_dirty_ring.h                |   1 +
+ include/uapi/linux/kvm.h                      |   1 +
+ tools/testing/selftests/kvm/Makefile.kvm      |   1 +
+ .../testing/selftests/kvm/arm64/hdbss_test.c  | 224 ++++++++++++++++++
+ virt/kvm/dirty_ring.c                         |   4 +
+ virt/kvm/kvm_main.c                           |   1 +
+ 26 files changed, 803 insertions(+), 30 deletions(-)
+ create mode 100644 arch/arm64/include/asm/kvm_dirty_bit.h
+ create mode 100644 arch/arm64/kvm/dirty_bit.c
+ create mode 100644 tools/testing/selftests/kvm/arm64/hdbss_test.c
+
+
+base-commit: 72d3fcf802c45d00b300f25b848a93c3a2bd7c7e
+-- 
+2.43.0
+
 
