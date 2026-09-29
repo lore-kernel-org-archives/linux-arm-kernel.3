@@ -4,86 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E478FCA5FA5
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 29 Sep 2026 18:39:21 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1CA98CA5FAD
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 29 Sep 2026 18:45:58 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=+mz+DR/cNP0US6qM+V0NJZZkwyCBeScDtMfTKHVJnik=; b=ShRXNeYgSFvFGVWfx+eD5/qJBY
-	KhFKwD478kkcEbOcO4sVD44BP04fWJQXmevx+SqgejTjlet6PS4ZMqMNXa1RF4hMu0GvuBaJ/AfA4
-	MlaOT2RPL9UsATEeR9i+MLrESr7K+6lUXau2n54cAfr6kV01+I9xVViyx6YtYH46G2J6Sl3X41lXb
-	VbLsZD2GFFkm9hF+Rh9AFTC66rEW1TEuQHSmE9BHoPqVIFr/q64LTn4SnvPQgOZoMIZydJNgDwTaI
-	rBjv0/ag3EKCRhU6jWahHmKhIHz5k+0ctLgM4/gAiAmEhfqeQJcfMzMe4Sq5FMSWbj7gU3r3w+qsj
-	ML1sGDcQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
+	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=ErrQurI5vTu6O9lAc7urmvhNRjJ24bJg35B9m6dACQ0=; b=2xQBfHzVdHiyRqDbx8iwr+H1RL
+	7isGW4TP6MBXQPg/rcizzyfVKBIieINomuacf8g3QcukoIGqMBsIXZ+kkhTC56dz2n4LhA4HHyIcw
+	0GPqjOVLnt4surMFHSpbRXWaxTn31U4XZ5r596NTHMbxE6j130Ls6CSf7Xl62v5lwX7LSmgbownde
+	tTGJPp2EaPQaI568B4auzqwg7MheNbb36Oep+coxm9IUkQnB5MLLVi/ZRTLfuzvKmiPKA8TBXcmuS
+	ZjW5NNIwSxFqqjsry1ohSOQVUkON+pf2lgp0FafKm1JHXhmQT+5ZVEpiWX/qsJYmbxI4zLANBWcgo
+	m1TYI4BQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xBcjR-00000004IPm-0YQS;
-	Tue, 29 Sep 2026 18:39:13 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1xBcpp-00000004J6O-1TDd;
+	Tue, 29 Sep 2026 18:45:49 +0000
+Received: from out-108.mta1.migadu.com ([95.215.58.108] helo=mta1.migadu.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xBcjP-00000004IPI-2l6v;
-	Tue, 29 Sep 2026 18:39:11 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:Content-Type
-	:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:Message-ID:
-	Sender:Reply-To:Content-ID:Content-Description;
-	bh=+mz+DR/cNP0US6qM+V0NJZZkwyCBeScDtMfTKHVJnik=; b=It2V2EhRfVsp0r24BzxuxeIE4f
-	cwaIF+OmtKNRNOz7yyQDfAmw6GFF5I4n/ULTobjR+WqZPTmSMAIOLIr1LHAIJtBub9VJDwLXLxx/i
-	QiiSMmu6waDxNk9bXCmYiPedXmSFF+zw1+qgEqT+9bvIWPBsBRZiJKcRZyj9u87d58yi28kqnLr7x
-	fcNT1S5l/L1GpQ6EEwpn/w61boNJVMBcYKKP6C9N0jjRAqaG9pMWfPq0qV/Yq9T6+SlxokRuEKW8x
-	CJm/U/6q53lM8o+xm5r4IFRC8eNfr90u+DYL1zNKVtS7/a00pwt19JK3GO7cFgkVPDkiuDCWg+nbM
-	lnmaVmYA==;
-Received: from mx.nabladev.com ([178.251.229.89])
-	by desiato.infradead.org with esmtps (Exim 4.99.2 #2 (Red Hat Linux))
-	id 1xBcjM-00000002xOS-016p;
-	Tue, 29 Sep 2026 18:39:10 +0000
-Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id AF779106CA0;
-	Tue, 29 Sep 2026 20:38:50 +0200 (CEST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nabladev.com;
-	s=dkim; t=1790707133;
-	h=from:subject:date:message-id:to:cc:mime-version:content-type:
-	 content-transfer-encoding:content-language:in-reply-to:references;
-	bh=+mz+DR/cNP0US6qM+V0NJZZkwyCBeScDtMfTKHVJnik=;
-	b=VZGtWy+TnRRjNQTbwO2hS2qxQNoSfigFgLQtQ6lSy8wTUxCm1pSlqzLhf6Hmf2ySNOMvI4
-	1nXo68OLK7P+vcD/tS9Z75jRByo2YGJ0Ckh8JCy4jbC4gaJjheDrs6+XjLJLXVbOCOvZjK
-	aFWhTXRZy7dR7vD4exC2woOXd5Nuv3nnW+ZbL5vUzqYXKwlCDmj1AViVQCugILH2uaogI8
-	S8rMDr/EKcMVwMwQM72JxK/GjZlIqIst8zJPbjFczbIxUY2qCCwRyG3lWdSUZp/jHN5OxJ
-	8H9A8lYrbJBq3UqTsnptbFDlO7P8rqj8fK5GP5leIJeQewqlebMFSvL6Kru3Zw==
-Message-ID: <0a65ca90-2b0f-4f58-94bb-11fa2737519a@nabladev.com>
-Date: Tue, 29 Sep 2026 20:38:50 +0200
+	id 1xBcpm-00000004J5y-3lsh
+	for linux-arm-kernel@lists.infradead.org;
+	Tue, 29 Sep 2026 18:45:48 +0000
+X-Envelope-To: linux-arm-kernel@lists.infradead.org
+DKIM-Signature: a=rsa-sha256; bh=mx1pndh9NACF4v//8sWUqY+ii9IXnTRJQEeestc8TIE=;
+ c=simple/simple; d=linux.dev;
+ h=from:to:subject:date:message-id:mime-version:content-type; s=key1;
+ t=1790707545; v=1; x=1791312345;
+ b=mInu1egAD6zBnXoaykZw4eXGO9/jvSeNDaNSdHgrf8K9jdbx7evlx1Yjmb5jk3rtzUEjQBNO
+ 98gNkTnYXbcT88DhietNWqTrU89cHZUmDFV6JPqww1lZMynw4yjdF+XcpZy2EqT1t0NAtGWl1bp
+ rC3xIKFoJYtqhH6vkRgipbFk=
+X-Envelope-To: linux-arm-kernel@lists.infradead.org
+Received: by smtp.migadu.com with ESMTPS id 6ca91fa5fe248374;
+	Tue, 29 Sep 2026 18:45:42 +0000
+X-Mizu-Trace-ID: 6ca91fa5fe248374
+X-Migadu-Flow: FLOW_OUT
+Received: by mail-lf1-f49.google.com with SMTP id 2adb3069b0e04-5b8ea0ca5baso1074e87.1
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 29 Sep 2026 11:45:42 -0700 (PDT)
+X-Forwarded-Encrypted: i=1; AKwUvBxLulkVqaTA78Sl+dXZG2E7kI8o2THpAUatDjaqkD9cg1OOIJR3Pu8eBP6AUQmnwV+DmiDWLjWFptW/jYXo/dfo@lists.infradead.org
+X-Gm-Message-State: AFq9FYLhpH7g/jyQ+lkHVVQa+v//07VdCf1AJrGe4L11PK0qqbl8gHZG
+	YhQHduNosAMtyHBVhEbBO9TsN4LlgRb3pc3RnhqhCpLZAg5q8dn9zYklV2p3irqRH3t9FndWNFL
+	Q/tAHXsqU/bngOgGtOHs+KOtHWLhOlrbv4yO856JB
+X-Received: by 2002:a05:6512:1052:b0:5b8:c95d:529c with SMTP id
+ 2adb3069b0e04-5ba3c039e63mr21526e87.0.1790707541274; Tue, 29 Sep 2026
+ 11:45:41 -0700 (PDT)
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v5 2/2] phy: stm32: Add support for ST STM32MP25
- USB2-FEMTO PHY
-To: Fabrice Gasnier <fabrice.gasnier@foss.st.com>,
- linux-phy@lists.infradead.org, Manivannan Sadhasivam <mani@kernel.org>,
- Alexandre Torgue <alexandre.torgue@foss.st.com>
-Cc: Pankaj Dev <pankaj.dev@st.com>, Rahul Kumar <rahul.kumar05@st.com>,
- Christian Bruel <christian.bruel@foss.st.com>,
- Conor Dooley <conor+dt@kernel.org>, Krzysztof Kozlowski
- <krzk+dt@kernel.org>, Maxime Coquelin <mcoquelin.stm32@gmail.com>,
- Neil Armstrong <neil.armstrong@linaro.org>,
- Patrice Chotard <patrice.chotard@foss.st.com>, Rob Herring
- <robh@kernel.org>, Rosen Penev <rosenp@gmail.com>,
- Vinod Koul <vkoul@kernel.org>, devicetree@vger.kernel.org,
- kernel@dh-electronics.com, linux-arm-kernel@lists.infradead.org,
- linux-kernel@vger.kernel.org, linux-stm32@st-md-mailman.stormreply.com
-References: <20260902141312.649406-1-marex@nabladev.com>
- <20260902141312.649406-2-marex@nabladev.com>
- <bf8e7888-1917-4ddc-9a6d-20490835c742@foss.st.com>
-Content-Language: en-US
-From: Marek Vasut <marex@nabladev.com>
-In-Reply-To: <bf8e7888-1917-4ddc-9a6d-20490835c742@foss.st.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
-X-Last-TLS-Session-Version: TLSv1.3
+References: <20260929093548.3598547-1-maz@kernel.org> <20260929093548.3598547-8-maz@kernel.org>
+In-Reply-To: <20260929093548.3598547-8-maz@kernel.org>
+From: Fuad Tabba <fuad.tabba@linux.dev>
+Date: Tue, 29 Sep 2026 19:45:05 +0100
+X-Gmail-Original-Message-ID: <CA+EHjTyT7_DvnnPM3H4=o=aTkBksNQuQTTyXB=Jh=uzpRsnEXQ@mail.gmail.com>
+X-Gm-Features: AclHuK9ckX2XdpBIMn2iv43c3Ok9eDLeQw0Pba9h2d2_EeCe5NJES3JhNqa7_ho
+Message-ID: <CA+EHjTyT7_DvnnPM3H4=o=aTkBksNQuQTTyXB=Jh=uzpRsnEXQ@mail.gmail.com>
+Subject: Re: [PATCH v2 7/7] KVM: arm64: vgic-its: Stop the VM when handling MOVALL
+To: Marc Zyngier <maz@kernel.org>
+Cc: kvmarm@lists.linux.dev, linux-arm-kernel@lists.infradead.org, 
+	Steffen Eiden <seiden@linux.ibm.com>, Joey Gouly <joey.gouly@arm.com>, 
+	Suzuki K Poulose <suzuki.poulose@arm.com>, Oliver Upton <oupton@kernel.org>, 
+	Zenghui Yu <yuzenghui@huawei.com>, Yuchao Zhang <ndaugoing@gmail.com>
+Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260929_193908_182791_BAB08735 
-X-CRM114-Status: UNSURE (   9.52  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260929_114547_086815_F18AAE9C 
+X-CRM114-Status: GOOD (  22.06  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -98,23 +81,64 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 9/3/26 12:19 PM, Fabrice Gasnier wrote:
-> On 9/2/26 16:13, Marek Vasut wrote:
->> From: Pankaj Dev <pankaj.dev@st.com>
->>
->> Add USB2 PHY driver for STM32MP25 USB2 controllers, which includes the
->> USB2.0 host-only controller and USB 2.0 part of the DWC3 controller.
->> Two such PHYs in total are present in STM32MP25 SoC, they both are
->> slightly different, therefore they use different compatible string
->> to discern them.
-> 
-> Hello Marek,
-> 
-> I'm not sure if/how this fit with all below tags. For all the
-> contributions you've made, you can add my:
-> Reviewed-by: Fabrice Gasnier <fabrice.gasnier@foss.st.com>
-> Tested-by: Fabrice Gasnier <fabrice.gasnier@foss.st.com>
-Is there anything left to do with this series ?
+On Tue, 29 Sept 2026 at 10:36, Marc Zyngier <maz@kernel.org> wrote:
+>
+> MOVALL is a royal pain, as it requires us to iterate over all the LPIs
+> and move them around if they are on the correct source vcpu, and
+> requiring locking for each of them.
+>
+> This locking can result in contention for vcpus that enter and exit
+> the guest, and hinders forward progress. In order to make sure such
+> process is not contended, just stop the VM altogether.
+>
+> Nobody in their right mind uses MOVALL anyway, as this is a rather
+> braindead aspect of the GICv3 architecture.
+>
+> Signed-off-by: Marc Zyngier <maz@kernel.org>
 
-Thank you for your help !
+This is the only patch in the series without Cc: stable. Was that deliberate?
+
+Reviewed-by: Fuad Tabba <fuad.tabba@linux.dev>
+Tested-by: Fuad Tabba < fuad.tabba@linux.dev>
+
+Cheers,
+/fuad
+
+
+> ---
+>  arch/arm64/kvm/vgic/vgic-its.c | 11 +++++++++++
+>  1 file changed, 11 insertions(+)
+>
+> diff --git a/arch/arm64/kvm/vgic/vgic-its.c b/arch/arm64/kvm/vgic/vgic-its.c
+> index cc02d9b62bd95..094eede267e54 100644
+> --- a/arch/arm64/kvm/vgic/vgic-its.c
+> +++ b/arch/arm64/kvm/vgic/vgic-its.c
+> @@ -1382,6 +1382,15 @@ static int vgic_its_cmd_handle_movall(struct kvm *kvm, struct vgic_its *its,
+>         if (vcpu1 == vcpu2)
+>                 return 0;
+>
+> +       /*
+> +        * Bulk operations such as MOVALL are a pain, as they can clash
+> +        * badly locking-wise with other vcpus entering and exiting the
+> +        * guest, should they be affected by it. Stopping the guest is a
+> +        * safer bet to ensure uncontended access and ultimately forward
+> +        * progress. Yeah...
+> +        */
+> +       kvm_arm_halt_guest(kvm);
+> +
+>         xa_for_each(&dist->lpi_xa, intid, irq) {
+>                 irq = vgic_get_irq(kvm, intid);
+>                 if (!irq)
+> @@ -1394,6 +1403,8 @@ static int vgic_its_cmd_handle_movall(struct kvm *kvm, struct vgic_its *its,
+>
+>         vgic_its_invalidate_cache(its);
+>
+> +       kvm_arm_resume_guest(kvm);
+> +
+>         return 0;
+>  }
+>
+> --
+> 2.47.3
+>
 
