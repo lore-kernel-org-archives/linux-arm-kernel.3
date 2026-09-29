@@ -4,144 +4,78 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9BAFBCA5FA7
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 29 Sep 2026 22:30:01 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 783A4CA5FA7
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 29 Sep 2026 22:33:20 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:Cc:To:
-	Subject:Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=DT6gKUqYDY146ITRHuwFaVewBUoLrzbC21f9UMH04tA=; b=0ZuSF5fZ/fC+Of+RUT3jt6qArt
-	9xB+zWeXXDVChIc0hRHT1aOBl6N/ZIR+ds5UG15/WnacNlM0w80dpNfAjsVY05NB5OzKPIXBFt6PD
-	IGqG1Gf5jfI87/0xCI71vZSuRSofDtsa1tV27j5027FjrzqCDnEB0EZzz6PwJQpfyhP10rF6cxdY0
-	ANXJojiJ9QGyP+1cpxEB3MGQZWwml/GO2dlVSvdmHfBSClg6z6mgQ/9Mz/9TrwWbqN3hEVyNn0TJw
-	QIyka2lo4zOqBsjEsL1RsacHQs8ehF1AAakDSJJkbIqe4dsVK/XA/x57alFx17gZpoBLY/sBXs5iF
-	XqfgGLXQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:CC:To:From:
+	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
+	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=DY4sXodOhCp9wlt2rAUIWY80nmvX1kDabrEBUPcCOM0=; b=r6zPAFVTVvSBnDLvO3sCMdSkVL
+	bM9qvK0qKycgZDalxA5FudiPDTV3Nzm+YsSinXDogAu5XCU1SObO/H47R3W6fDTLZHbfnjzIwT3Pp
+	afgfCIGW7zSc4EKbBiCHKhm5ydZAkXLOP1bmwt41og3h4Qayk+DGbYlVBYb7jmvLaNcRpT63PaMBP
+	6OINb1816xTNR9aKPyG79/jM6uCJlTvRa7AG3Gj9YpF6S77QQcQRleJPCng77lt7eZ33FUXtdlEb8
+	lskWZXpQ/nC4+rZ2FbHnfE8Y5gE0QY2Rzav3cFrJ7n9CylJfb7wFP9Sp2oSegsnQKbK3UKf2RU7mA
+	9MaZ33zg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xBgKg-00000004hhb-097q;
-	Tue, 29 Sep 2026 22:29:54 +0000
-Received: from mail-westcentralusazon11010045.outbound.protection.outlook.com ([40.93.198.45] helo=CY7PR03CU001.outbound.protection.outlook.com)
+	id 1xBgNt-00000004i6C-1rWq;
+	Tue, 29 Sep 2026 22:33:13 +0000
+Received: from pdx-out-012.esa.us-west-2.outbound.mail-perimeter.amazon.com ([35.162.73.231])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xBgKd-00000004hgu-2eSi
+	id 1xBgNq-00000004i5U-47Xj
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 29 Sep 2026 22:29:53 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=ad/XyJLOiH6SYJkMZ1XkUrJ78w34uKeiYdFAIuM0D6GmMfaPYAx/ocPLiIkb1ERRV/75pFsTAld2T6gUsNd4u6iHBi/6TlZjHIdArDSc4Wfoxw/XwpNCVnzY2HTb8jaYHF7ZHHX7s9jnbZgv7KgbRx9E375G0chog/UkgPqRwNB9tr+E7zYierO0ZN1D6+l4mMfFkDbMIe8d7+C2tAeQw8vSL4Zk/bUMqosog7hmZ0hrUehvBB0YX0mNtgZehcjDTdEaV3GozLaXTFbKi3Zmu9Qhvb63+u4bFfTp3XEW2YwR/6G4ifL3a5sKB5dJOIvbmt7F8NXKOEILlvTyi1o68A==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=DT6gKUqYDY146ITRHuwFaVewBUoLrzbC21f9UMH04tA=;
- b=JyL1GZ6Z/Nc8p/baUQpEZBHaDM6+55wj9OVNLtFi5KVSctVgzh/NSjG565VGo4XQeLnvrEHyQCTk+zLmnC+MS8hGjsPd5SZMlYY3sd6kXLvgLllJRuawJSAz3bMqNdlPh5SKWfK+oZ1eUezjfettf0Xigo+LQlYpNIwyI0kTEltJa6/JgDP8hmaFGjRLWby24ETTijvgeV0P/5+jSw7SOd/XsM+YMxoWW8AJ+gqz6rYCHXktMfM1Hv2W+SxDaCarfety/aj1zE+7KIxuCie58v2I9shgJ1OEHQm49fl/eLNLprmgUX4aYJ/Dr0yaJmPmw2w6H/b/KhEazcJ6ioeUoA==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nvidia.com; dmarc=pass action=none header.from=nvidia.com;
- dkim=pass header.d=nvidia.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
- s=selector2;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=DT6gKUqYDY146ITRHuwFaVewBUoLrzbC21f9UMH04tA=;
- b=pgC9evrrod1yysI7DoQYI5J9tgYJcrOi5121iUpRa5z+bZgLorvOi2Ab2LoEdX9/q7El7HKYCFji6aVM2h4nWWinrHsLgcx/WbzTtk6LxPcCbEFpzQNIvhArAd+CHw9qJEl0Y87CGMMn4qUGr1cdkK3VYrSyPtF/7mRXmEnp5cM+0+ti0SnixOvf6MgvuuRwjIOUWXh6GIlA1XvtX2f935aqaP1fSs0ZkGUr9jf2iY99TBPjaRR6Cvaq+jOmAvFQMc6fL6ve2Cz50OaropbXPnsZ+Q1HuM5Nme4jsC7XWPBdZ2Yn2xl7+7+/WKQkHV1RRa4l1Hi4TXZbCeIFQJVMzw==
-Authentication-Results: mx.microsoft.com 1; dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nvidia.com;
-Received: from IA1PR12MB6089.namprd12.prod.outlook.com (2603:10b6:208:3ef::9)
- by SA1PR12MB8644.namprd12.prod.outlook.com (2603:10b6:806:384::17) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.451.18; Tue, 29 Sep
- 2026 22:29:44 +0000
-Received: from IA1PR12MB6089.namprd12.prod.outlook.com
- ([fe80::abd0:32b3:6f57:1d3c]) by IA1PR12MB6089.namprd12.prod.outlook.com
- ([fe80::abd0:32b3:6f57:1d3c%6]) with mapi id 15.21.0428.018; Tue, 29 Sep 2026
- 22:29:44 +0000
-Message-ID: <a27970c6-a7d2-4abc-84c3-7e50225f0a1a@nvidia.com>
-Date: Tue, 29 Sep 2026 17:29:41 -0500
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v19 6/7] firmware: arm_rmm: Ensure the RMM has GPT entries
- for memory
-To: Suzuki K Poulose <suzuki.poulose@arm.com>, kvm@vger.kernel.org,
- kvmarm@lists.linux.dev
-Cc: maz@kernel.org, will@kernel.org, catalin.marinas@arm.com,
- linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- steven.price@arm.com, aneesh.kumar@kernel.org, oupton@kernel.org,
- gshan@redhat.com, joey.gouly@arm.com, tabba@google.com,
- yuzenghui@huawei.com, linux-coco@lists.linux.dev,
- gankulkarni@os.amperecomputing.com, alpergun@google.com,
- fj0570is@fujitsu.com, WeiLin.Chang@arm.com, lpieralisi@kernel.org,
- enju.kohei@fujitsu.com, sudeep.holla@arm.com,
- jonathan.cameron@oss.qualcomm.com
-References: <20260924135201.850038-1-suzuki.poulose@arm.com>
- <20260924135201.850038-7-suzuki.poulose@arm.com>
-Content-Language: en-US
-From: Shanker Donthineni <sdonthineni@nvidia.com>
-In-Reply-To: <20260924135201.850038-7-suzuki.poulose@arm.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
-X-ClientProxiedBy: BY3PR05CA0021.namprd05.prod.outlook.com
- (2603:10b6:a03:254::26) To IA1PR12MB6089.namprd12.prod.outlook.com
- (2603:10b6:208:3ef::9)
+	Tue, 29 Sep 2026 22:33:12 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+  d=amazon.com; i=@amazon.com; q=dns/txt; s=amazoncorp2;
+  t=1790721190; x=1822257190;
+  h=from:to:cc:subject:date:message-id:mime-version:
+   content-transfer-encoding;
+  bh=DY4sXodOhCp9wlt2rAUIWY80nmvX1kDabrEBUPcCOM0=;
+  b=AD7uLSprk1W8ppnoWHnLi/tol+GuhFMCpnsek/LN9NxnX+KWcD9+sJxY
+   Mdg1sKMTmGT8oDpd+WNB1oFGdLDWgh+MTQiw2mSvkVcIEq+hzzYpzxhdR
+   A8QNym3nmsgqiAf17HzJSlOtFgIIdEE5qw55LZGGVyK0B17dxV7B47MTT
+   V8TwVBS8iyPnskHerHE1uhdSigBOUQhw37BnqVno30rNT0Cv34JSxyTgj
+   Zda2RW4JnTd6uESqf998zY9ijan9Y58JuRavsQQdWJjxAJaIU47She/4p
+   jc2uNp1r4DwQ6wvCtC4wCzHlfIzWQjSIZmqg3wRwtin/6I2cuTv6pjC0U
+   w==;
+X-CSE-ConnectionGUID: QyTwzQdUQ/SqOgU+VJvd2Q==
+X-CSE-MsgGUID: uvvNJ33tSx6EfHRnjh8bcg==
+X-IronPort-AV: E=Sophos;i="6.27,130,1787011200"; 
+   d="scan'208";a="29787665"
+Received: from ip-10-5-12-219.us-west-2.compute.internal (HELO smtpout.naws.us-west-2.prod.farcaster.email.amazon.dev) ([10.5.12.219])
+  by internal-pdx-out-012.esa.us-west-2.outbound.mail-perimeter.amazon.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 29 Sep 2026 22:33:06 +0000
+Received: from EX19MTAUWA002.ant.amazon.com [205.251.233.234:21855]
+ by smtpin.naws.us-west-2.prod.farcaster.email.amazon.dev [10.0.15.186:2525] with esmtp (Farcaster)
+ id af25f2ba-4ab8-4712-beda-51e479165d3b; Tue, 29 Sep 2026 22:33:06 +0000 (UTC)
+X-Farcaster-Flow-ID: af25f2ba-4ab8-4712-beda-51e479165d3b
+Received: from EX19D001UWA001.ant.amazon.com (10.13.138.214) by
+ EX19MTAUWA002.ant.amazon.com (10.250.64.202) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA) id 15.2.2562.49;
+ Tue, 29 Sep 2026 22:33:06 +0000
+Received: from u34cccd802f2d52.amazon.com (10.106.179.9) by
+ EX19D001UWA001.ant.amazon.com (10.13.138.214) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA) id 15.2.2562.49;
+ Tue, 29 Sep 2026 22:33:05 +0000
+From: Haris Okanovic <harisokn@amazon.com>
+To: <robin.murphy@arm.com>, <mark.rutland@arm.com>, <will@kernel.org>
+CC: <linux-arm-kernel@lists.infradead.org>,
+	<linux-perf-users@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
+	<harisokn@amazon.com>
+Subject: [PATCH] perf/arm-cmn: Allow userspace to select the PMU's CPU
+Date: Tue, 29 Sep 2026 17:32:44 -0500
+Message-ID: <20260929223244.2411400-1-harisokn@amazon.com>
+X-Mailer: git-send-email 2.34.1
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: IA1PR12MB6089:EE_|SA1PR12MB8644:EE_
-X-MS-Office365-Filtering-Correlation-Id: c3755cc5-1310-4744-685e-08df1e7928ed
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|23010399003|7416014|376014|366016|10067099003|56012099006|5023799004|11063799006|6133799003|4143699003|22082099003|18002099003;
-X-Microsoft-Antispam-Message-Info: 4wZLxT1X8ZHnd7lL7EMncUciuEt24IA0CS11KtY7zA1wNMyGVSxcWoRU0VvDK/AXtv3g4VYdLTKDJwXc63kJebSzTDzN9JFDsdFCpnB4guBoVfJYZtsxpzcamIAgzKi1NFxteApVMDqT/ztCsWq9FSFucrYFJwA6nUYZyO382lxVjx9Pp2N2sqhe4qf3zNfnk8Oy7vtLuosKMbEYPDUAIs7UELuRtyRs9XpPTwpmiiEiCrascvdY930lGL3TaXvLQOXCvw4BsCygUFvKJzFdw+skW0OAZ3Vaa1fSgy9GGuRCOg6Dvsg58SxD2/kfTZIpc8Ts3ALMgrDUgJKYztvgsRPuTGr4OUNZCfgispG1xAgPX7bB84wbOAoPH/FVke9KXFRbWDU5+jKFARyPnFsPyhF7gxF88YXsWyqPDF8T68sxwlfAuZKTX50rmC4Jo/PsYxy5LI0U2i3xRjLMPQrq6EBa8KSuHPjIX67WmyExCNozv8PfxSPsi6PTvUsQBD9DdmGwziI5ZgmziLiGpYZ7VWLzwPOh3Y4C0wboz5kACneRxsMkpjW0vIYVQheHTSs6Za1vX4i89UB3vh/ovYDp7rolzgThS9MMxTeLJUN7yjqqm3bShUHydEoIIrJR3G7RMWxPAjnVI2NelHiIBIzyxvacP4Mf5hD+jAkCLpG81l8=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:IA1PR12MB6089.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(23010399003)(7416014)(376014)(366016)(10067099003)(56012099006)(5023799004)(11063799006)(6133799003)(4143699003)(22082099003)(18002099003);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?NVdCRG1BQVpUVWpOSUl4Z2U1cVpTY1lHUUJsSU9LVElUNFBWNmZJaGhQK1FR?=
- =?utf-8?B?Z0RBMWlaV0EzSXRxQXRjRHBZNkhQcEd1blM3TkU1am9veCtGQmlDUlBkZ0N5?=
- =?utf-8?B?ZDVsMnpPZmRXTTlzNXo1TmFzczF3UUhWSDI4Qm1uV080R1NQMHZjQUhDclND?=
- =?utf-8?B?U2pUNXdSZVBlWjRPNTI0cFQvMzRvWS9WdUt4OVNXWkZjLzl6YzFEbTNUWmNo?=
- =?utf-8?B?REk3QzVoR1hRMTlrT3gvYVo2cmw3VTdtbEZ3b3lmN1pqZUNsZUZ5eTc5TkJ5?=
- =?utf-8?B?clhEeXJ5aTBqNWxIZktsOHI5clA2aGdZVkFQZHZyQUE5aHNLUWhSTFpTRHFO?=
- =?utf-8?B?MmFsalNoZGhWdlB1Z1dlUmQyZTJUZUVML01UQ3I0RWVXQ2MwOGlydDVNNnFH?=
- =?utf-8?B?aGNDQk9LdVZDckpIcXVBTzJFWkZqT2toY1dKbEthY0dyQmZ4QklEMG9VQUpu?=
- =?utf-8?B?c2VpS1dhLzg2UGc0TE0rUDY3VEs3VjRHbjFHQ0Zxdjd4aGZxVndaTmg2Q0lQ?=
- =?utf-8?B?RUZadDVsMVpjcWZXL2xPaEhuSWNWYjdEeGFWOEpGUGV5TzU1OExabDhNMkxR?=
- =?utf-8?B?cG9vMmVrdVBRTUxPdmFlVEh4OG5BU1Z6ZUJzWjJkNUJab0RQU2IrbHk0a2hE?=
- =?utf-8?B?RVRueE1SSEo4NFpOeUcyWllTaGV1eTRadXVYbHRqRy9PVEZVNzFpU2NzZDRN?=
- =?utf-8?B?czVHYWMxRzJhcTVPV1JKUFY1QTRGdllWTmZhRFRNbVZ0dERLR0JVeXZweEtC?=
- =?utf-8?B?US9MLzdVSGlNTUFBMGpOSjlnRTZyczV5RDBTR3RHcEVaSnYxeFJNRVZqY0dB?=
- =?utf-8?B?NHp5aitjOC9nczR2dytEVVIrdnhrK3JzUHFzZUJ6ZVVqaElGS2FFaGJrdDVs?=
- =?utf-8?B?bmpSL0FQVTNGZmtteFBsWkdvUnFpVHA2QmJCQmNMVFU5ZGpJV1hoRVg5Y2th?=
- =?utf-8?B?MmdOU2RVa0ZkTmtPZGR2d2hWMGlUTFNvUStCYmJMc0wrbTEzZ3laVlB2SlBV?=
- =?utf-8?B?T2RVN05vSzY5WG5IZ28rcTQ5aUMrUUdFemI0MUptOEQ0WDZjZjNXeitvZjZo?=
- =?utf-8?B?RnpDb1N3ZGdXajdCUmxTS2RkZHZLa2tSYlFLUjFuZmxNeUdoTlJtd0ZMU012?=
- =?utf-8?B?UmdIdTNVZ3l1aEpnSzg5UXM1REpyTENpVmo1dFRFOGRWaEhzdU93NEZpM0o3?=
- =?utf-8?B?RngwM3JJMERETjVJRFZaa1JUeWIrY01kNlNlNEQ3ZnVkL2xlbHg4WWdSOWN4?=
- =?utf-8?B?V05yNDlhVUtWN0V6dDlxYmxoeldHeWxYRzl0d1J5UHBkUXgzTTlDMmNvKzZr?=
- =?utf-8?B?bDdsK2ErYi9Zd0JSNEo0Q0hicHVoZ1dvK1VsMVR2WHJxK3k1OFFhalR2L1BQ?=
- =?utf-8?B?LzNOUy80TTMxVFR3TFpvNVlGbDd2WVVQdDVpS21RcUVwaTZ4TkU2RlNyL2Rp?=
- =?utf-8?B?d1hzbnJHaTB4YjZpVkUxbTQ1MlZod3lIUkM5TE1iNEJDTURLTFRBU1BTVnVy?=
- =?utf-8?B?Wm5SREFid2VST1R2My9sTXcySC9RS1RQWWxFMzZWMnl0SGJXaUlqMFNEUmJF?=
- =?utf-8?B?WlByV2xRUmRZYnU5WUpqbjAyNWtoR0UvUURkQlQra1JmT1BDSzNUc1Z3UHcv?=
- =?utf-8?B?Zld0MnN4a1BlNUY0bkxIeGgyUzRsL0p1N2lPQWVvUy9ybW9WVFF1ditLRU9K?=
- =?utf-8?B?UHlrRmszaTJFUEk3SGNoRWhyTmZkOEF5cklDVHY4eHExcThhUm9WcmVFZFNX?=
- =?utf-8?B?UEg0RXNyUXd3NlRPTkxFbWRUUkwwMDEwUmpoUU4yOFdUMmMrc01aWkRXV0VG?=
- =?utf-8?B?SS9nYmFXVlY4MHNUSGkwaVR5Tlo4NFNlWGdMeTBtL2dGcUJwZ2VWTGt5bnhm?=
- =?utf-8?B?a3ozN1FGSk03WURJQUlGK3EwcnpvSVBUbzdNa09udVlwZWh1QjRGWGVMQ1Zy?=
- =?utf-8?B?YTRQUnVSaEVybVA1ZDZaY2MwTm1hWUtUUmFXSG1KK2M5ZzV2dnpIZWp5NFJK?=
- =?utf-8?B?bDliRmo2REVtZzZTLzdYRk1XcTBtK0RnbUxDbjdqVFZOVUdyaGF3RU4veDg5?=
- =?utf-8?B?SDhyRFVxWkhGa0kzd0JsNkdkL2JjU1FnKzBOM1gzNDZocUVMZVduNzYvODlS?=
- =?utf-8?B?SHBkZ1RPQWliYW9ZKzlFUUZTemt5eXBpeE1TR3RQdEFrSjJrcGNCb1I3ZXBB?=
- =?utf-8?B?K2lHaHJrWVpoSjZOeTVmeUo0YmNJbWV2bG1VNTlLRVM4c1gyV0JNZVQxeGtB?=
- =?utf-8?B?M3JZV1JOdUZ1U0ZMQ3VnYVRyWWZiSncvTm9relZRaXFJQWlScHFXVjB5TVhU?=
- =?utf-8?B?SW1QT0pweldXakV6SVBQR1R0RkdQNERwY09WdXZCL21oU29CMlNmQT09?=
-X-OriginatorOrg: Nvidia.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: c3755cc5-1310-4744-685e-08df1e7928ed
-X-MS-Exchange-CrossTenant-AuthSource: IA1PR12MB6089.namprd12.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 29 Sep 2026 22:29:43.9550
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: kMGlRYi77ETuBVA/Nrs0rSQ0JnTzNzlXyIRvG+Q/I7mWdt9J/Rz9deL86oDbvc0EN2ngYPH17bMW1kCNxbzEPA==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: SA1PR12MB8644
+Content-Transfer-Encoding: 8bit
+Content-Type: text/plain
+X-Originating-IP: [10.106.179.9]
+X-ClientProxiedBy: EX19D038UWB001.ant.amazon.com (10.13.139.148) To
+ EX19D001UWA001.ant.amazon.com (10.13.138.214)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260929_152951_726597_6562CC15 
-X-CRM114-Status: GOOD (  35.19  )
+X-CRM114-CacheID: sfid-20260929_153311_094273_60C58C30 
+X-CRM114-Status: GOOD (  23.06  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -156,352 +90,159 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Suzuki,
+arm_cmn_probe() picks the CPU that owns the PMU with
 
-On 9/24/2026 8:52 AM, Suzuki K Poulose wrote:
-> External email: Use caution opening links or attachments
->
->
-> From: Steven Price <steven.price@arm.com>
->
-> The RMM maintains the state of all the granules in the system to make
-> sure that the host is abiding by the rules. This state can be maintained
-> at different granularity, per page (TRACKING_FINE) or per region
-> (TRACKING_COARSE or TRACKING_INTERMEDIATE). The region size depends on the
-> underlying "RMI_GRANULE_SIZE". For a "coarse"/"intermediate" region,
-> all pages in the region must be of the same state, this implies we need to
-> have "fine" tracking for DRAM, so that we can delegate individual pages.
->
-> For now we only support a statically carved out memory for tracking
-> granules for the "fine" regions. This can be extended in the future to
-> allow modifying the tracking granularity and remove the need for a
-> static allocation by the firmware.
->
-> Similarly, the firmware may create L0 GPT entries describing the total
-> address space. But if we change the "PAS" (Physical Address Space) of a
-> granule, then the firmware may need to create L1 tables to track the PAS
-> at a finer granularity. Linux therefore checks if the platform firmware
-> manages the PAR region. i.e., the firmware is in charge of managing the
-> L1 GPTs (creation and the required memory for the GPT tables - via static
-> carveouts) without host intervention. Support for dynamic GPT creation by
-> the host will be added later.
->
-> If the firmware requires us to manage the tracking or GPT memory,
-> deactivate the RMM and reclaim any memory donated at RMM activation.
->
-> Apply the same checks when hotplugged memory is brought online.
->
-> Signed-off-by: Steven Price <steven.price@arm.com>
-> [ Switch to RMI_GPT_L1_INFO for checking GPTs and deactivate RMM ]
-> Co-developed-by: Suzuki K Poulose <suzuki.poulose@arm.com>
-> Signed-off-by: Suzuki K Poulose <suzuki.poulose@arm.com>
-> ---
->   Changes since v19:
->       * Avoid mixing gotos with __free cleanups for arm64_init_rmi()
->   Changes since v18:
->       * Handle buggy RMM to make forward progress for RMI_GPT_INFO and
->         RMI_GRANULE_TRACKING_GET
->       * Make sure the memory ranges are not inverted and reject such ranges.
->       * Move granule_tracking_get/gpt_info wrappers closer to the callers
->         Drop "inline", let the compiler do its job
->   Changes since v17:
->       * Move wrappers that may not be used elsewhere, out of arm-rmi-cmds.h
->   Changes since v16:
->       * Check fine tracking and create L1 GPTs for hotplug-added memory.
->       * Clarify the L1 GPT setup and move the explanatory comment.
->       * Switch to using RMI_GPT_INFO command for checking the GPTs.
->       * Deactivate the RMM and reclaim the memory if we can't proceed.
->   Changes since v15:
->       * Skip firmware-reserved NOMAP memory in rmi_init_metadata()
->       * Handle negative error codes from wrappers.
->   Changes since v14:
->       * Move the implementation into drivers/firmware/arm_rmm.
->   Changes since v13:
->       * Moved out of KVM
-> ---
->   drivers/firmware/arm_rmm/rmi.c | 218 ++++++++++++++++++++++++++++++++-
->   include/linux/arm-rmi-cmds.h   |   2 +
->   2 files changed, 219 insertions(+), 1 deletion(-)
->
-> diff --git a/drivers/firmware/arm_rmm/rmi.c b/drivers/firmware/arm_rmm/rmi.c
-> index 0859f256e192b..1a8f3debd844a 100644
-> --- a/drivers/firmware/arm_rmm/rmi.c
-> +++ b/drivers/firmware/arm_rmm/rmi.c
-> @@ -5,6 +5,7 @@
->
->   #include <linux/cpufeature.h>
->   #include <linux/memblock.h>
-> +#include <linux/memory.h>
->   #include <linux/arm-rmi-cmds.h>
->   #include <linux/slab.h>
->
-> @@ -13,6 +14,7 @@
->
->   /* RMM defines RmiFeatureRegister0 to RmiFeatureRegister5. */
->   static unsigned long rmi_feat_reg_cache[5] __ro_after_init;
-> +static bool arm64_rmi_is_available;
->
->   /**
->    * rmi_granule_range_undelegate() - Undelegate a range of granules
-> @@ -817,6 +819,210 @@ static int rmi_configure(void)
->          return ret;
->   }
->
-> +/**
-> + * rmi_granule_tracking_get() - Get configuration of a Granule tracking region
-> + * @start: Base PA of the tracking region
-> + * @end: End of the PA region
-> + * @out_category: Memory category
-> + * @out_state: Tracking region state
-> + * @out_top: Top of the memory region
-> + *
-> + * Return: RMI return code
-> + */
-> +static int rmi_granule_tracking_get(unsigned long start,
-> +                                   unsigned long end,
-> +                                   unsigned long *out_category,
-> +                                   unsigned long *out_state,
-> +                                   unsigned long *out_top)
-> +{
-> +       struct arm_smccc_1_2_regs regs = {
-> +               SMC_RMI_GRANULE_TRACKING_GET, start, end,
-> +       };
-> +
-> +       rmi_smccc_invoke(&regs);
-> +
-> +       if (regs.a0 != RMI_SUCCESS)
-> +               return regs.a0;
-> +
-> +       if (out_category)
-> +               *out_category = regs.a1;
-> +       if (out_state)
-> +               *out_state = regs.a2;
-> +       if (out_top)
-> +               *out_top = regs.a3;
-> +
-> +       return RMI_SUCCESS;
-> +}
-> +
-> +/*
-> + * Make sure the area is tracked by RMM at FINE granularity.
-> + * We do not support changing the tracking yet.
-> + */
-> +static int rmi_verify_memory_tracking(phys_addr_t start, phys_addr_t end)
-> +{
-> +       while (start < end) {
-> +               unsigned long ret, category, state, next;
-> +
-> +               ret = rmi_granule_tracking_get(start, end, &category, &state, &next);
-> +               if (ret != RMI_SUCCESS)
-> +                       return -ENOMEM;
-> +
-> +               if (WARN_ON(next <= start))
-> +                       return -ENXIO;
-> +
-> +               if (state != RMI_TRACKING_FINE ||
-> +                   category != RMI_MEM_CATEGORY_CONVENTIONAL) {
-> +                       /* TODO: Set granule tracking in this case */
-> +                       pr_err("Granule tracking for region isn't fine/conventional: %llx-%lx\n",
-> +                              start, next);
-> +                       return -ENODEV;
-> +               }
-> +               start = next;
-> +       }
-> +
-> +       return 0;
-> +}
-> +
-> +/*
-> + * rmi_gpt_info - Query the GPT info for the given PAR.
-> + * @start: Base of the physical address region
-> + * @end: Top of the physical address region
-> + * @out_top: Top of the physical address region for which
-> + *             the GPT @out_gpt_par_state is valid
-> + * @out_gpt_par_state: State of the GPT covered by [start, out_top)
-> + */
-> +static long rmi_gpt_info(unsigned long start, unsigned long end,
-> +                        unsigned long *out_top,
-> +                        unsigned long *out_gpt_par_state)
-> +{
-> +       struct arm_smccc_1_2_regs regs = {
-> +               SMC_RMI_GPT_INFO, start, end,
-> +       };
-> +
-> +       rmi_smccc_invoke(&regs);
-> +       if (regs.a0 != RMI_SUCCESS)
-> +               return regs.a0;
-> +
-> +       if (out_top)
-> +               *out_top = regs.a1;
-> +       if (out_gpt_par_state)
-> +               *out_gpt_par_state = regs.a2;
-> +
-> +       return RMI_SUCCESS;
-> +}
-> +
-> +/*
-> + * We do not support creating L1 GPTs yet. So, make sure that
-> + * all the regions are managed by the firmware.
-> + */
-> +static int rmi_verify_gpt_firmware_managed(phys_addr_t start, phys_addr_t end)
-> +{
-> +       unsigned long l0gpt_sz;
-> +       unsigned long next, par_state;
-> +
-> +       l0gpt_sz = 1UL << (30 + FIELD_GET(RMI_FEATURE_REGISTER_1_L0GPTSZ,
-> +                                         rmi_feat_reg(1)));
-> +       start = ALIGN_DOWN(start, l0gpt_sz);
-> +       end = ALIGN(end, l0gpt_sz);
-> +
-> +       while (start < end) {
-> +               long ret = rmi_gpt_info(start, end, &next, &par_state);
-> +
-> +               if (ret != RMI_SUCCESS)
-> +                       return -ENOMEM;
-> +
-> +               if (WARN_ON(next <= start))
-> +                       return -ENXIO;
-> +
-> +               if (par_state != RMI_GPT_PAR_PLAT) {
-> +                       pr_err("GPT for the region is not managed by firmware %llx-%lx\n",
-> +                               start, next);
-> +                       return -ENOMEM;
+	cmn->cpu = cpumask_local_spread(0, dev_to_node(cmn->dev));
 
-Accepting only RMI_GPT_PAR_PLAT rules out the host ever creating its own
-L1 GPTs. On NVIDIA platforms the PARs backing system RAM come up as
-RMI_GPT_PAR_HOST_NOT_CREATED, so this returns -ENOMEM and CCA cannot be
-enabled at all.
+and arm_cmn_event_init() then binds every event to it unconditionally.
+That choice is only revisited by the CPU hotplug callbacks, so in
+practice the PMU stays on the first CPU local to the interconnect's NUMA
+node, which is usually CPU 0.
 
-With local changes to promote granule tracking via RMI_GRANULE_TRACKING_SET
-and to create the host L1 GPTs, I was able to boot a Realm with multiple
-vCPUs and exercise basic boot functionality on NVIDIA silicon.
+All of the PMU's recurring work therefore lands on one CPU. This is
+problematic on systems which reserve particular CPUs for latency
+sensitive work or confine background activity to a chosen set of
+housekeeping CPUs.
 
--Shanker
+There is no way to set it explicitly. perf_event_open() and 'perf stat
+-C' have no effect because arm_cmn_event_init() overwrites event->cpu;
+/proc/irq/*/smp_affinity is refused for the DTC interrupts, which are
+requested with IRQF_NOBALANCING because their affinity has to follow the
+owning CPU.
 
-> +               }
-> +               start = next;
-> +       }
-> +
-> +       return 0;
-> +}
-> +
-> +static int rmi_prepare_memory(phys_addr_t start, phys_addr_t end)
-> +{
-> +       int ret;
-> +
-> +       if (start >= end)
-> +               return -EINVAL;
-> +
-> +       ret = rmi_verify_memory_tracking(start, end);
-> +       if (ret)
-> +               return ret;
-> +
-> +       return rmi_verify_gpt_firmware_managed(start, end);
-> +}
-> +
-> +static int rmi_init_metadata(void)
-> +{
-> +       phys_addr_t start, end;
-> +       struct memblock_region *r;
-> +
-> +       for_each_mem_region(r) {
-> +               int ret;
-> +
-> +               /* Firmware-reserved NOMAP regions are not usable system RAM */
-> +               if (memblock_is_nomap(r))
-> +                       continue;
-> +
-> +               start = PAGE_ALIGN(r->base);
-> +               end = PAGE_ALIGN_DOWN(r->base + r->size);
-> +               /* Too small ? */
-> +               if (start >= end)
-> +                       continue;
-> +
-> +               ret = rmi_prepare_memory(start, end);
-> +               if (ret)
-> +                       return ret;
-> +       }
-> +
-> +       return 0;
-> +}
-> +
-> +static int rmi_memory_notifier(struct notifier_block *nb,
-> +                              unsigned long action, void *data)
-> +{
-> +       struct memory_notify *arg = data;
-> +       phys_addr_t start, end;
-> +       int ret;
-> +
-> +       if (action != MEM_GOING_ONLINE)
-> +               return NOTIFY_DONE;
-> +
-> +       start = PFN_PHYS(arg->start_pfn);
-> +       end = PFN_PHYS(arg->start_pfn + arg->nr_pages);
-> +       ret = rmi_prepare_memory(start, end);
-> +
-> +       return notifier_from_errno(ret);
-> +}
-> +
-> +static struct notifier_block rmi_memory_nb = {
-> +       .notifier_call = rmi_memory_notifier,
-> +};
-> +
-> +bool is_rmi_available(void)
-> +{
-> +       return arm64_rmi_is_available;
-> +}
-> +EXPORT_SYMBOL_GPL(is_rmi_available);
-> +
-> +static int rmi_init_memory(void)
-> +{
-> +       int ret;
-> +
-> +       ret = rmi_init_metadata();
-> +       if (ret)
-> +               return ret;
-> +
-> +       return register_memory_notifier(&rmi_memory_nb);
-> +}
-> +
->   static int __init arm64_init_rmi(void)
->   {
->          int ret;
-> @@ -843,9 +1049,19 @@ static int __init arm64_init_rmi(void)
->          if (ret) {
->                  pr_err("RMM activate failed (%d)\n", ret);
->                  ret = ret < 0 ? ret : -ENXIO;
-> +               return ret;
->          }
->
-> -       return ret;
-> +       ret = rmi_init_memory();
-> +       if (ret) {
-> +               /* Deactivate the RMM */
-> +               WARN_ON(rmi_sro_memxfer_cmd(sro, GFP_KERNEL, SMC_RMI_RMM_DEACTIVATE));
-> +               return ret;
-> +       }
-> +
-> +       arm64_rmi_is_available = true;
-> +       pr_info("RMI configured\n");
-> +       return 0;
->   }
->
->   /*
-> diff --git a/include/linux/arm-rmi-cmds.h b/include/linux/arm-rmi-cmds.h
-> index b03974fd8168c..5b177bb176326 100644
-> --- a/include/linux/arm-rmi-cmds.h
-> +++ b/include/linux/arm-rmi-cmds.h
-> @@ -70,6 +70,8 @@ static inline int rmi_undelegate_page(phys_addr_t phys)
->          return rmi_undelegate_range(phys, PAGE_SIZE);
->   }
->
-> +bool is_rmi_available(void);
-> +
->   long rmi_sro_memxfer_execute(struct rmi_sro_state *sro, gfp_t gfp);
->   void rmi_sro_free(struct rmi_sro_state *sro);
->   long rmi_sro_execute(struct arm_smccc_1_2_regs *regs);
-> --
-> 2.43.0
->
+Make the existing 'cpumask' attribute writable. It already reports the
+CPU which owns the PMU; writing a CPU number now migrates the PMU there
+via the existing arm_cmn_migrate(), which moves the perf contexts and
+the DTC interrupt affinity together. Since the PMU has a single owning
+CPU, anything other than one CPU number is rejected.
+
+The attribute expresses a preference rather than a guarantee. The
+hotplug callbacks may still move the PMU, for example when the chosen
+CPU is offlined.
+
+Signed-off-by: Haris Okanovic <harisokn@amazon.com>
+---
+I made the existing 'cpumask' attribute writable rather than
+adding a new one. Every other implementation of that file is read-only,
+so I am happy to switch to a separate attribute if you would prefer to
+keep 'cpumask' uniformly read-only across PMUs.
+
+Tested on two platforms with CONFIG_PROVE_LOCKING=y:
+
+  AWS m9g.metal-48xl CMN S3,  one mesh,   192 CPUs
+  AWS m8g.metal-48xl CMN-700, two meshes, 192 CPUs
+
+  - Multiplexing occurs on the configured CPU.
+  - Offlining the owning CPU migrates the PMU and updates the attribute.
+  - Writes racing CPU offline/online produced no lockdep reports.
+---
+ Documentation/admin-guide/perf/arm-cmn.rst | 18 ++++++++++
+ drivers/perf/arm-cmn.c                     | 40 +++++++++++++++++++++-
+ 2 files changed, 57 insertions(+), 1 deletion(-)
+
+diff --git a/Documentation/admin-guide/perf/arm-cmn.rst b/Documentation/admin-guide/perf/arm-cmn.rst
+index 796e25b7027b2..bf75b686cef76 100644
+--- a/Documentation/admin-guide/perf/arm-cmn.rst
++++ b/Documentation/admin-guide/perf/arm-cmn.rst
+@@ -44,6 +44,24 @@ given type. To target a specific node, "bynodeid" must be set to 1 and
+ "nodeid" to the appropriate value derived from the CMN configuration
+ (as defined in the "Node ID Mapping" section of the TRM).
+ 
++CPU affinity
++------------
++
++The driver also provides a "cpumask" sysfs attribute, which contains a
++single CPU ID, of the processor which will be used to handle all the CMN
++PMU events.
++
++The attribute is writable, and accepts a single CPU ID to move the PMU
++to that processor, for instance to keep counter reads, interrupt handling
++and event rotation away from CPUs reserved for latency sensitive work::
++
++  $# echo 5 > /sys/bus/event_source/devices/arm_cmn_0/cpumask
++
++This expresses a preference rather than a guarantee. In case of the
++chosen processor being offlined, or a processor local to the
++interconnect's NUMA node coming online while the chosen one is not, the
++events and interrupts are migrated and the attribute is updated.
++
+ Watchpoints
+ -----------
+ 
+diff --git a/drivers/perf/arm-cmn.c b/drivers/perf/arm-cmn.c
+index 5378fba916cf5..4f82d667d8828 100644
+--- a/drivers/perf/arm-cmn.c
++++ b/drivers/perf/arm-cmn.c
+@@ -5,6 +5,7 @@
+ #include <linux/acpi.h>
+ #include <linux/bitfield.h>
+ #include <linux/bitops.h>
++#include <linux/cpu.h>
+ #include <linux/debugfs.h>
+ #include <linux/interrupt.h>
+ #include <linux/io.h>
+@@ -12,6 +13,7 @@
+ #include <linux/kernel.h>
+ #include <linux/list.h>
+ #include <linux/module.h>
++#include <linux/mutex.h>
+ #include <linux/of.h>
+ #include <linux/perf_event.h>
+ #include <linux/platform_device.h>
+@@ -404,6 +406,8 @@ struct arm_cmn_nodeid {
+ 	u8 dev;
+ };
+ 
++static void arm_cmn_migrate(struct arm_cmn *cmn, unsigned int cpu);
++
+ static int arm_cmn_xyidbits(const struct arm_cmn *cmn)
+ {
+ 	return fls((cmn->mesh_x - 1) | (cmn->mesh_y - 1));
+@@ -1519,8 +1523,42 @@ static ssize_t arm_cmn_cpumask_show(struct device *dev,
+ 	return sysfs_emit(buf, "%*pbl\n", cpumask_pr_args(cpumask_of(cmn->cpu)));
+ }
+ 
++static ssize_t arm_cmn_cpumask_store(struct device *dev,
++				     struct device_attribute *attr,
++				     const char *buf, size_t count)
++{
++	static DEFINE_MUTEX(cpumask_mutex);
++
++	struct arm_cmn *cmn = to_cmn(dev_get_drvdata(dev));
++	unsigned int cpu;
++	int err;
++
++	err = kstrtouint(buf, 0, &cpu);
++	if (err)
++		return err;
++
++	if (cpu >= nr_cpu_ids)
++		return -EINVAL;
++
++	/* Serialises multiple writers against each other */
++	mutex_lock(&cpumask_mutex);
++	/* Blocks hotplug during write */
++	cpus_read_lock();
++
++	if (!cpu_online(cpu))
++		err = -EINVAL;
++	else if (cpu != cmn->cpu)
++		arm_cmn_migrate(cmn, cpu);
++
++	cpus_read_unlock();
++	mutex_unlock(&cpumask_mutex);
++
++	return err ?: count;
++}
++
+ static struct device_attribute arm_cmn_cpumask_attr =
+-		__ATTR(cpumask, 0444, arm_cmn_cpumask_show, NULL);
++		__ATTR(cpumask, 0644, arm_cmn_cpumask_show,
++		       arm_cmn_cpumask_store);
+ 
+ static ssize_t arm_cmn_identifier_show(struct device *dev,
+ 				       struct device_attribute *attr, char *buf)
+-- 
+2.34.1
 
 
