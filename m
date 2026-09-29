@@ -4,127 +4,111 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5AE6ACA5FA5
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 29 Sep 2026 14:35:52 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D1402CA5FA5
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 29 Sep 2026 14:41:43 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=JJ3zBmAAYumqBWtZ5z5TrPexjuJJueU1AW0zWeQGirI=; b=eawRslm6NIByMX78/iT2MekNmf
-	80uRX2hFgkptIQSd2NzkTS2Kmy+7VidPbB6kk735eld5s7c3RmUh3gZ7sc18QmDN0S/hBkUz+gxgt
-	O2kLsNzyiM33MvGDehYw6/tgD7/NfQPkkLhJLLjOeMNhym/n0p7r8DWVKpX5ozZd3jeKPiBj37U4p
-	NYvxLX9MYwvYUXvzbvCJAnqxctD7EHkSmAfJy1RNIaED0E1QcTdpaaxL/agsm8Sw8G3tVWKfTwyf5
-	qILc8tiJO53r0qLkhaFRA/84reS2HEsoSOxy6z0Xu7N8x2kQgJB9Sdq9BqsiBvOuVYpve5ZhDuhHX
-	4fIG71Ww==;
+	bh=ljt9qo4CbaNAhZ8NBb8RScI9+T0M5HBa8xMXa6k6Vt0=; b=Io4l5B73s+9PQ/ka/+aTcmt2dv
+	GKN6c6DgugLePtEOXkqFftYeUw0E4e4XtqtNS++LKezTqvEQej3xaWo6DXdOvDIK4fN7FACllkkHi
+	pCD5RbExPZHbOYJfWOxWZGGW4PiV+la6irvPVWBCxETJOZ3SQuG3MuXG3HRraC016BNcy4XnTocMj
+	op8PKxWfNV7pQstJaSJaMbGvXQ3DkTvqWGRmOTJaPr19xVzIYTwCJPr5l56QVLpjXkUmes0/Qo3eM
+	Q9T2HJiV24zhZY3iil4sVpYVQpPAk9ZChO+DvnFphGTSpiQZnkPPaunmhUaUmDWV0NH1hdnZ6w7od
+	s5r+odvA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xBYvp-00000003nvt-1e1e;
-	Tue, 29 Sep 2026 14:35:45 +0000
-Received: from mail-eastusazon11012040.outbound.protection.outlook.com ([52.101.53.40] helo=BL0PR03CU003.outbound.protection.outlook.com)
+	id 1xBZ1V-00000003oSt-0OQe;
+	Tue, 29 Sep 2026 14:41:37 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xBYvl-00000003nuO-3I7M;
-	Tue, 29 Sep 2026 14:35:43 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=Dy+ICAngjBRs2dIcl4Qk6fqROZTzux9GxJgspRf/At5AGooszQflklcXG92B0xksXx7+pXNpnKWPv02AqD5fcJaBccPsfc85OdcPngOModkx/p7psed/ugOewQBUN6rfSBI5J1LXLYvzaU+llZSBZDNYAqQlSd3IP3R6EWIhCsEeJHN79jl+gI1cdplcuAB+S8Tj9YtYc4/2hKYSrk6Y5W7um5gmbOAT6StcAOqdao8EDnJOJ/kuU0mFw0SLDlFTzNNoMCtaRpE8asAnhUJxi0RvswuSeVrzMeavNwHZZRsqy7nLDQ8f4cYp+pvntZKjKY68Eyrchl5NoH8oxyXGCQ==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=JJ3zBmAAYumqBWtZ5z5TrPexjuJJueU1AW0zWeQGirI=;
- b=sIkgsO1M9JvSxABSUWNVSJakcaFvmdSsI6OuPTFj3+a3mWOxIy1vfKnlKbmxcKnqISctqnRHah6womD2IHVt06t+LSZiHS2IilhX6tElKjM/g9pBxFr/M6kCl/FoxiVma4XyRJeGj1oljTmCC6kn1tApvPNSV6ubmPkFUwd8s0AysFs1tNcOzlFhHOrE05dVcNaq7Z7kZrxzXu+4SMU4m6MQEk++Fq6fdz3+vYJBYmV9a7dX98Xrdef8ADzliuXDA5XqzOUfoDs0qa5NRzKXLQ6uTTJNfyeFOKVU2DevTyVwkFM3owk3otOyr0Ig4Xif5A+kmrUBM3dilurklgFiOw==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
- 165.204.84.17) smtp.rcpttodomain=mailbox.org smtp.mailfrom=amd.com;
- dmarc=pass (p=quarantine sp=quarantine pct=100) action=none
- header.from=amd.com; dkim=none (message not signed); arc=none (0)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=amd.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=JJ3zBmAAYumqBWtZ5z5TrPexjuJJueU1AW0zWeQGirI=;
- b=NV/6KskUG0/yuojxcIRr61uTnSbBW1g4W+hIqw3qu6jWSrRibt0MOWO2Fi4x97LmRTlTanYOaYyGc3RzgW8BpAJfUDM6BmhpxcQUhBwJ86S1FDNhuCP58ZebnQr5llXQCb1zZmYVHll09VUrrejwpPCL943JRKbTaHF90g/EJqU=
-Received: from BYAPR21CA0004.namprd21.prod.outlook.com (2603:10b6:a03:114::14)
- by BN7PPFEE0F400A9.namprd12.prod.outlook.com (2603:10b6:40f:fc02::6e9) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.451.24; Tue, 29 Sep
- 2026 14:35:14 +0000
-Received: from SJ1PEPF00002323.namprd03.prod.outlook.com
- (2603:10b6:a03:114:cafe::3) by BYAPR21CA0004.outlook.office365.com
- (2603:10b6:a03:114::14) with Microsoft SMTP Server (version=TLS1_3,
- cipher=TLS_AES_256_GCM_SHA384) id 15.21.496.5 via Frontend Transport; Tue, 29
- Sep 2026 14:35:14 +0000
-X-MS-Exchange-Authentication-Results: mx.microsoft.com 1; spf=pass (sender IP
- is 165.204.84.17) smtp.mailfrom=amd.com; dkim=none (message not signed)
- header.d=none;dmarc=pass action=none header.from=amd.com;
-Received-SPF: Pass (protection.outlook.com: domain of amd.com designates
- 165.204.84.17 as permitted sender) receiver=protection.outlook.com;
- client-ip=165.204.84.17; helo=satlexmb08.amd.com; pr=C
-Received: from satlexmb08.amd.com (165.204.84.17) by
- SJ1PEPF00002323.mail.protection.outlook.com (10.167.242.85) with Microsoft
- SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.21.472.14 via Frontend Transport; Tue, 29 Sep 2026 14:35:12 +0000
-Received: from satlexmb08.amd.com (10.181.42.217) by satlexmb08.amd.com
- (10.181.42.217) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.49; Tue, 29 Sep
- 2026 09:35:01 -0500
-Received: from [10.254.92.188] (10.180.168.240) by satlexmb08.amd.com
- (10.181.42.217) with Microsoft SMTP Server id 15.2.2562.49 via Frontend
- Transport; Tue, 29 Sep 2026 09:34:58 -0500
-Message-ID: <164d00c2-e4cb-4962-8e4e-389ae77af943@amd.com>
-Date: Tue, 29 Sep 2026 10:34:58 -0400
+	id 1xBZ1T-00000003oSb-3hI0
+	for linux-arm-kernel@bombadil.infradead.org;
+	Tue, 29 Sep 2026 14:41:36 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:Content-Type
+	:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:Message-ID:
+	Sender:Reply-To:Content-ID:Content-Description;
+	bh=ljt9qo4CbaNAhZ8NBb8RScI9+T0M5HBa8xMXa6k6Vt0=; b=Sh1ieKRyY4jLW/3+YG52nZ5bta
+	1H2em3c3NoUxvTElLPFWHrqzOokMjsbbgaTkLbeDoNV+pO9WHwISfEtgzdOtNn6IoSKfJFuIxZ8FX
+	wyqxr+UgoXStEgF/uaL0ZNARdKzFy+dPxaoWZ0mqHz5RL1NDzZK/t/3EeocZ/fECD/a2tDhAiV7+E
+	Fwn0laPEpbfatFm9RLtiy+U0ofZE2yhYpKWkoDIK+2WVf71o8ZC+7pbV61tbss1xd8HHR0OPGdbeA
+	XNUjv4im8S88xqD2nFQeAl1mou6+p9MZQTFjeBX/QWyE6gXbBIFDLDgz+0IZcWX57iothIOpwyR7S
+	dq9/XUmQ==;
+Received: from mail-ej2-x23.google.com ([2a00:1450:4864:34::23])
+	by desiato.infradead.org with esmtps (Exim 4.99.2 #2 (Red Hat Linux))
+	id 1xBZ1P-00000002kRw-2Wpl
+	for linux-arm-kernel@lists.infradead.org;
+	Tue, 29 Sep 2026 14:41:34 +0000
+Received: by mail-ej2-x23.google.com with SMTP id a640c23a62f3a-c29703cb796so602704666b.2
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 29 Sep 2026 07:41:31 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=linaro.org; s=google; t=1790692890; x=1791297690; darn=lists.infradead.org;
+        h=content-transfer-encoding:content-type:in-reply-to:from
+         :content-language:references:cc:to:subject:user-agent:mime-version
+         :date:message-id:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=ljt9qo4CbaNAhZ8NBb8RScI9+T0M5HBa8xMXa6k6Vt0=;
+        b=ozZ+LwWIpc44LfBrNif8BDl6ZTD4eoLchQzyKtAkkRo32JaP0MjNYJJ8wtgdz2YpaZ
+         njYzz+HQDXPbKJtbTyPB+mJmWKnOdkj1fCjGxTRQMmYP+mtfVJNbtWZp2uQSstpVyhzE
+         /kwWKFGK49ktE0C9OXQc5+Fh/GdfIHZN2j8E8pSPiUATDKH1a9SSrI9yfT776mP5lq0V
+         rtZHS+u0R6hAMipiSWn4l9UVzSQ36v3OsGHdtlHL/4LgKSU9yITyRdjf8HtJAq5DWJM+
+         Q6KlmiX8cPeCjCsdLUSjeBeu76Z+UQx2FhBNNd+A1T0Pg8lGFP0AVh3mfs6DV0ELDxI/
+         FsSg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1790692890; x=1791297690;
+        h=content-transfer-encoding:content-type:in-reply-to:from
+         :content-language:references:cc:to:subject:user-agent:mime-version
+         :date:message-id:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=ljt9qo4CbaNAhZ8NBb8RScI9+T0M5HBa8xMXa6k6Vt0=;
+        b=CCQuRO56apD/k3uc8anUV0wtN2z50mKhmVOB82H4YDYULMXNrxX/x8xDZd7fA11pY1
+         UzLRmKfpPkDa+BUzyo3MoLGnW032guQxpLuKUIeEypYJcRrMOP6miPG4nFX47EdZPR+S
+         trJLMsFwkBvTvtTcPIxb9u2n19lqX4Lm/nm7eeTBEZ7iektdxI+OxJO2icbb65HZQj+O
+         p50bPirOX+d9i6IFA+72DV0TjND5to0l/on5lyX4TUe38RkKLBpe+wRCUdgzyi+srPti
+         pBgvkKCHqwijIY2g9kcgl2Ad+Xo6wxnsCHBNCxsoEXrqep8C/itG/jnra1cRpabfENfQ
+         049Q==
+X-Forwarded-Encrypted: i=1; AKwUvBw7qOmmyO7U9GLZ4j8FDxW/hTPo+oUQGkel2/5lhdKVCwdJSHvQSQy3n5SDMSsaGA9IYEjtJL7GoDGX2oT42rKA@lists.infradead.org
+X-Gm-Message-State: AFq9FYIHlCFx0HT6RNUsAl0ueBApWP3CkVRAR8NFZ5qVOdWhs8bRjln8
+	2RiYRgwFHhtnJUX3Eipkz3FxIF4Mkey6zkfLNDTncriXZ8tV/TaNlTpvwD31v8svxf0=
+X-Gm-Gg: AYBFou1S8G1paR5eOOhasXRiJKmoVRUs3Z3rNUp7C5ZI0jMxCIxBpQRQqu0J5/8IjB2
+	NgkASHoNDdLrNH25jqmOqmAfzcJpO555LkNPxE8Ane0uMoLNuYlfQ8anB5Zufuw5ThO1uL81Vzd
+	+w7gtxJTcuQceqHtq4pG1DmFdSEAbF4qjya17j7EzVCxXjof5vB1qsNM74kxXwuqFuZDvE/Vft8
+	vTtiMpnpllwFKXoC0HI8dI3S9pwcMrCfr0RvArRpLC2l54ogv8h6+71qDvNHHHiKJeiRUI83cPP
+	kOt9l7xsxttfhsR/V4Yej81h1K1nrbgCGNr/xx3L3pq5nSZ6BaJsEnyjOE0tNgR3CNl2psAgwLH
+	TvEwuv9GjDJvA9yau3O70c0b6/qwqH8aYCB6//ML/yzug/sMWDgVdF0AdqnQipXPVL69b2OViTl
+	BvFLnb+f13jSst6GXMK7z6rPuyVlxNKs9MhqduquNfeS0QQKKArLUs5QEVq/SL
+X-Received: by 2002:a17:907:c310:b0:c25:32b0:e56c with SMTP id a640c23a62f3a-c2ac23862eemr1446037966b.4.1790692889352;
+        Tue, 29 Sep 2026 07:41:29 -0700 (PDT)
+Received: from [192.168.1.3] ([37.18.141.193])
+        by smtp.gmail.com with ESMTPSA id 4fb4d7f45d1cf-6acb905c6f4sm966711a12.37.2026.09.29.07.41.28
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Tue, 29 Sep 2026 07:41:28 -0700 (PDT)
+Message-ID: <8094040d-cb75-4f44-9662-97987f6eadef@linaro.org>
+Date: Tue, 29 Sep 2026 15:41:27 +0100
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH RFC 13/25] drm: Add VRR target frame rate properties
-To: =?UTF-8?Q?Michel_D=C3=A4nzer?= <michel.daenzer@mailbox.org>, Nicolas
- Frattaroli <nicolas.frattaroli@collabora.com>, "Borah, Chaitanya Kumar"
-	<chaitanya.kumar.borah@intel.com>, Daniel Stone <daniels@collabora.com>,
-	Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, Maxime Ripard
-	<mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>, David Airlie
-	<airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>, Helge Deller
-	<deller@gmx.de>, Andrzej Hajda <andrzej.hajda@intel.com>, Neil Armstrong
-	<neil.armstrong@linaro.org>, Robert Foss <rfoss@kernel.org>, Laurent Pinchart
-	<Laurent.pinchart@ideasonboard.com>, Jonas Karlman <jonas@kwiboo.se>, Jernej
- Skrabec <jernej.skrabec@gmail.com>, Luca Ceresoli
-	<luca.ceresoli@bootlin.com>, Sandy Huang <hjc@rock-chips.com>,
-	=?UTF-8?Q?Heiko_St=C3=BCbner?= <heiko@sntech.de>, Andy Yan
-	<andy.yan@rock-chips.com>, Xaver Hugl <xaver.hugl@gmail.com>
-CC: <dri-devel@lists.freedesktop.org>, <linux-kernel@vger.kernel.org>,
-	<linux-fbdev@vger.kernel.org>, <linux-rockchip@lists.infradead.org>,
-	<linux-arm-kernel@lists.infradead.org>, <kernel@collabora.com>, Derek Foreman
-	<derek.foreman@collabora.com>, <wayland-devel@lists.freedesktop.org>
-References: <20260921-vrr-limiter-uapi-v1-0-2fcd7d011646@collabora.com>
- <20260921-vrr-limiter-uapi-v1-13-2fcd7d011646@collabora.com>
- <0226527e-ee38-40ab-a2a8-1ae62013b950@amd.com>
- <VERVf-aJRRKsBOI_3dpScg@collabora.com>
- <8a3b2902-3255-4dd9-82f0-75a7747b710e@amd.com>
- <3cf7143d-7013-4a3b-a831-96c3f125c2f6@mailbox.org>
+Subject: Re: [PATCH v2 00/14] perf cs-etm: Fix bogus branch samples on
+ exceptions
+To: Leo Yan <leo.yan@arm.com>
+Cc: Arnaldo Carvalho de Melo <acme@redhat.com>, coresight@lists.linaro.org,
+ linux-arm-kernel@lists.infradead.org, linux-perf-users@vger.kernel.org,
+ linux-kernel@vger.kernel.org, Arnaldo Carvalho de Melo <acme@kernel.org>,
+ Namhyung Kim <namhyung@kernel.org>, Jiri Olsa <jolsa@kernel.org>,
+ Ian Rogers <irogers@google.com>, Adrian Hunter <adrian.hunter@intel.com>,
+ Mike Leach <mike.leach@arm.com>, Suzuki K Poulose <suzuki.poulose@arm.com>,
+ Suyash Mahar <smahar@meta.com>, Amir Ayupov <aaupov@fb.com>
+References: <20260923-perf_cs_etm_fix_non_taken-v2-0-6ab8c07a5455@arm.com>
 Content-Language: en-US
-From: Leo Li <sunpeng.li@amd.com>
-In-Reply-To: <3cf7143d-7013-4a3b-a831-96c3f125c2f6@mailbox.org>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: 8bit
-X-EOPAttributedMessage: 0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: SJ1PEPF00002323:EE_|BN7PPFEE0F400A9:EE_
-X-MS-Office365-Filtering-Correlation-Id: 9a219bd1-c51e-4d58-85b2-08df1e36df0b
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|82310400026|23010399003|36860700016|1800799024|7416014|376014|42112799006|11063799006|10067099003|921020|6133799003|56012099006|18002099003|22082099003|4143699003|13003099007;
-X-Microsoft-Antispam-Message-Info: GAVbmH6O41RdShvxcuU7nOi8PlOlaYcuEbMIGfgqibxYalFVe3A2FP+aZqa+TmtOgMPj8JD3RK9ME+9RSSGsHB6ZHfMrD2t+JySBf27oadSQPJSohBWeDP5WCG7sTqihXtyY72nPDj7BLWKFLt4I9ITldIsgHK+vzmHM6QQSc9KXIC0rqLayCbE2+sDyjU7o8SxIIKti0j0b1UA+HcYF+2OvG3bHU+k9EgudG9KEOMla46YVH40IUY/vrPOIAYzoX8kYYAq+rVvNjQOuYRT6JtICp2ZTCcU1cw+mDDl1BP43ncC44Sbmv9LhK6iuMsm1/z01CPjmSdnskg/1mTbKcMIuUjEgiic2oHJl6o9iqD/Tcq046y4Y1/v3NAPM9ZlD2BkWOAig+X9r37FbHM+nUF8chinMG/D7hcZhVcyJyLr73m1o9FLofjX2WIwHoRIDQcI03CFI194XpVZD5FBR7mMPvMuQUqAAqXtVnkHkaQcb+XXVUoq4ZoleLhe1UtmAyLraz3jbKZUHz0IUm3VnnFryXKmEYwAft8XKr33H1XsPfBVVTHXTPMQo6mKC98PW2M10mUCmeHoQrsG2ou8Gnm+am/9LGWzOBPVbRVXbb3QlEc1MMk+Yg/rvBce0R7qVeduH0pwGp2CBYfIedAjoRN6dyGoxra7CSV3IInAIUTAPlQma0GYVGZS84ysEsNn3
-X-Forefront-Antispam-Report: CIP:165.204.84.17;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:satlexmb08.amd.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(82310400026)(23010399003)(36860700016)(1800799024)(7416014)(376014)(42112799006)(11063799006)(10067099003)(921020)(6133799003)(56012099006)(18002099003)(22082099003)(4143699003)(13003099007);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: rh5edO2ljQR3ttOp5ZQ5/OiRc2u5UXvuTM4WHZ8YDIrkmIXWUU5E5BArxxJ4r35Mj/HaK4N3a9pYjaVZKOE1tBdROfJBfJwm0l8J8UN66mtkm9qTrzkhHS8mvu3O0Oa3zGsez3rhX7oizmcfEebSp7xvkoWEt9+7fsRaDyUoSut66jK6GLMVji8NGK+6z9YwLT7iDl61Q8vFjGnXLgFmFlwO5ZOHSrumfGJSsqjD429BizlLr+hFBuHY01rDveGKgAfVKiA17dEZT1VpDZgeaVA8Qx9gd89skOHK1Nrsl/AT8l80Cv5Z8FbCeKLggIZ5qBJSO6mK7hgsMkN5Y8tEZikLc0ESdERl5BIxkhCU14uR+HvxhIn/AFC31r4jmD/58+n4rt0mo37xtnaXNbVXHaR6tqIxit5ZJuWMAvM1W9j1UFpjOxZBQwoKOtCKcQHJ
-X-OriginatorOrg: amd.com
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 29 Sep 2026 14:35:12.8005
- (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: 9a219bd1-c51e-4d58-85b2-08df1e36df0b
-X-MS-Exchange-CrossTenant-Id: 3dd8961f-e488-4e60-8e11-a82d994e183d
-X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=3dd8961f-e488-4e60-8e11-a82d994e183d;Ip=[165.204.84.17];Helo=[satlexmb08.amd.com]
-X-MS-Exchange-CrossTenant-AuthSource: SJ1PEPF00002323.namprd03.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Anonymous
-X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: BN7PPFEE0F400A9
+From: James Clark <james.clark@linaro.org>
+In-Reply-To: <20260923-perf_cs_etm_fix_non_taken-v2-0-6ab8c07a5455@arm.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260929_073541_876600_E58E10B0 
-X-CRM114-Status: GOOD (  19.00  )
+X-CRM114-CacheID: sfid-20260929_154132_533918_439B6503 
+X-CRM114-Status: GOOD (  24.78  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -141,50 +125,105 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 
 
 
-On 2026-09-28 04:10, Michel Dänzer wrote:
->>> You can picture VRR limiting as always being active, but with a limit rational
->>> of 0 it uses the display's limit as per the EDID, which is what unlimited game
->>> mode is. So with how it's implemented right now in hdmi_validate_vrr(), your
->>> example would set a maximum target, but leave the minimum at whatever the
->>> display defaults to.
->>>
->>> Now that I'm thinking through this, a possible problem is that
->>> drm_crtc_helper_vrr_is_fixed_rate() operates on the user supplied limits, but
->>> if the display supplied lower limit is equal to the user supplied upper limit,
->>> then we have a fixed rate scenario without recognising it as such. I think I
->>> need to have a ponder on what the least surprising behaviour for userspace
->>> is in that instance. The display limit stuff gets a bit complex due to
->>> CinemaVRR and QMS TFRmin/TFRmax.
->>>
->>> I'll improve the documentation on the next revision to make the meanings more
->>> explicit.
->> Perhaps a simple way is to require simultaneous setting MIN and MAX pairs?
->> IOW, require userspace to set MIN and MAX simultaneously to >0, or =0. For example:
->>
->> if ((vrr_min_n == 0 || vrr_min_d == 0 ||
->>      vrr_max_n == 0 || vrr_max_d == 0) &&
->>     (vrr_min_n > 0 || vrr_max_n > 0))
->> 	return -EINVAL;
->> That way, it's never ambiguous what userspace has requested for the range.
->> They can copy the EDID supported range if they don't care about limiting one side, rather than leaving it at 0.
-> Determining the actual limits can be non-trivial (though I guess that might be fine as long as libdisplay-info can work them out), if user space gets them wrong, it might accidentally apply a narrower limit than intended.
+On 23/09/2026 16:21, Leo Yan wrote:
+> CoreSight currently models exception entry by changing the preceding
+> instruction range into a taken branch. This can give an IRQ the source
+> PC of an instruction that already retired and overwrite a real branch
+> immediately before the exception.
 > 
+> For an untaken B.LS followed by an IRQ, perf script currently reports:
 > 
->> It's then also clear if they requested a static Hz.
-> I do see the benefit of your suggestion for this though.
-
-Xaver and I were chatting about this at XDC, and yeah it'll be difficult to match KMD's monitor range, especially if KMD decides to patch it with quirks and whatnot.
-
-Since we are handing compositors control over vrr range, does it sound sensible to expose KMD's monitor range as a read-only property pair on the drm connector? We probably don't need a num/den pair for it, it's not like panels advertise fractional VRR ranges (right?).
-
-Fun fact: vrr_range is exposed today over debugfs for IGT testing
-https://elixir.bootlin.com/linux/v7.3-rc5/source/drivers/gpu/drm/drm_debugfs.c#L586
-
-Thanks,
-Leo
-
+>    hw int  4000f8 => ffff800080010c80  b.ls #0x400118
+>    ...
+>    iret    ffff800080012284 => 4000fc  eret
 > 
+> The hardware trace supplies 0x4000fc as the preferred return address.
+> For an IRQ, this is the architectural resume PC (Arm ARM, R_VBQMV).
+> B.LS has retired, and the saved PC identifies the boundary before the
+> following MOV. Using this PC as the IRQ source reflects the
+> architectural state at exception entry:
 > 
-> -- Earthling Michel Dänzer \ GNOME / Xwayland / Mesa developer https://redhat.com \ Libre software enthusiast
+>    hw int  4000fc => ffff800080010c80  movz x2, #0x1796
+>    ...
+>    iret    ffff800080012284 => 4000fc  eret
+> 
+> The IRQ sample represents the transfer from this architectural execution
+> position to the handler. The series synthesizes exception entries from
+> exception packets, preserving the preceding branch and its outcome.
+> 
+> The supporting changes:
+> 
+> - Let decoders supply sample.ret_addr so later instruction fetching cannot
+>    change thread-stack return addresses. Apply this to Intel PT
+>    asynchronous samples as well.
+> - Prepare packet ISA and instruction-size handling and share sample
+>    synthesis helpers. Mark untaken branches and break history when
+>    instruction memory is unavailable.
+> - Add a thread-stack regression test and four AArch64 CoreSight tests.
+>    IRQs and page faults must resume at the entry PC; SVC and emulated MRS
+>    must resume four bytes later.
+> 
+> Based on the AI search and test on my x86 machine, this matches perf's
+> Intel PT handling of IRQs. Intel PT records the next instruction's IP in
+> the FUP packet, and Perf uses that IP as the interrupt sample's source.
+> 
+> This series is verified on Orion6 board with "perf test coresight".
+> 
+> Signed-off-by: Leo Yan <leo.yan@arm.com>
+> ---
+> Changes in v2:
+> 
+> - Rework the fix around exception packets to preserve both exception
+>    entries and preceding branches.
+> - Add explicit return addresses and the Intel PT asynchronous-branch fix.
+> - Split out packet/synthesis preparation, record not-taken branches and
+>    handle unreadable instruction memory.
+> - Add thread-stack regression coverage and four CoreSight tests.
+> - Link to v1: https://lore.kernel.org/r/20260713-perf_cs_etm_fix_non_taken-v1-0-4561607fc69f@arm.com
+> 
+> ---
+> Leo Yan (14):
+>        perf sample: Allow decoders to supply branch return addresses
+>        perf intel-pt: Preserve return addresses for asynchronous branches
+>        perf cs-etm: Break branch history when instruction memory is unavailable
+>        perf cs-etm: Centralize packet ISA initialization
+>        perf cs-etm: Use the recorded instruction size for A32 and A64
+>        perf cs-etm: Mark branches that were not taken
+>        perf cs-etm: Factor out final instruction sample synthesis
+>        perf cs-etm: Centralize branch sample synthesis checks
+>        perf cs-etm: Classify exception calls using the exception packet
+>        perf cs-etm: Synthesize exception entries separately from branches
+>        perf tests: Check CoreSight IRQ entry and exit
+>        perf tests: Check CoreSight syscall entry and exit
+>        perf tests: Check CoreSight abort entry and exit
+>        perf tests: Check CoreSight emulated instruction entry and exit
+> 
+>   tools/perf/tests/Build                             |   1 +
+>   tools/perf/tests/builtin-test.c                    |   3 +
+>   .../perf/tests/shell/coresight/abort_entry_exit.sh |  21 ++
+>   tools/perf/tests/shell/coresight/irq_entry_exit.sh |  37 ++++
+>   .../tests/shell/coresight/syscall_entry_exit.sh    |  21 ++
+>   .../perf/tests/shell/coresight/trap_entry_exit.sh  |  24 +++
+>   tools/perf/tests/shell/lib/coresight_exception.sh  | 165 +++++++++++++++
+>   tools/perf/tests/tests.h                           |   3 +
+>   tools/perf/tests/thread-stack.c                    | 106 ++++++++++
+>   tools/perf/tests/workloads/Build                   |   4 +
+>   tools/perf/tests/workloads/branch_not_taken_loop.c |  33 +++
+>   tools/perf/tests/workloads/page_fault_loop.c       |  37 ++++
+>   tools/perf/util/cs-etm-decoder/cs-etm-decoder.c    | 106 +++++++---
+>   tools/perf/util/cs-etm.c                           | 222 ++++++++++-----------
+>   tools/perf/util/cs-etm.h                           |   2 +
+>   tools/perf/util/intel-pt.c                         |   7 +
+>   tools/perf/util/sample.c                           |   1 +
+>   tools/perf/util/sample.h                           |   5 +
+>   tools/perf/util/thread-stack.c                     |   5 +-
+>   19 files changed, 656 insertions(+), 147 deletions(-)
+> ---
+> base-commit: edd8a9fe2eca009599e013a29c421c7a6b5ad1b9
+> change-id: 20260713-perf_cs_etm_fix_non_taken-5b4d7f73f41e
+> 
+> Best regards,
+
+Reviewed-by: James Clark <james.clark@linaro.org>
 
 
