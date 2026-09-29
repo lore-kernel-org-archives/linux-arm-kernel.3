@@ -4,90 +4,97 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 72EE2CA5FAE
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 29 Sep 2026 10:38:17 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 414D8CA5FA5
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 29 Sep 2026 10:38:23 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
-	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=CEDPGYC1RPsp34/2huo9oDvdsWGlpazljPcYpxq/p2I=; b=kHU1ttMPxF6UZtF5r17fSsV68Q
-	UwVwhJhQ96W4y1MwyDBThXnXDnnL8qNsDmgK5Xss8yKCFmXfiEvfRRVU/fTBUU0Hdq2yWhwdpYruO
-	0+1fzrIU3ox6hzUluoJBXoMo4VWz4rlZymQac6/aECFtnkbD9zo5IV6Jh6DYWPgZ6iOVA/az7G/nv
-	+rIDf1VaRLgKh1T6ZgY6KjadwzSd9HeEmCJHEUBMS7qJ1QgPpVkefATux8ZWW7fem+6xqCGCS5WEu
-	uV4FNot7WSULS8c7PKlDoHKmpi2FiIIYN7jre/KyG5Pm2/FMkbfZfQjeSbYITBqT/uvsvsuNEeE89
-	yms48msQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
+	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=7bn5YXIcFILcy8+D6koE5PJVirhIe/szeX2l5bXBcO4=; b=pCV2Klyx5stkJKA2B15k7sdnln
+	P+raiAiQf2N0QotZjysNM/eA5do51MRSgIvBUJZdBOk6cAlQ0zDaXguf9Ge/Witfg7fc0p81NTArx
+	JcEvM7EJLZ8h4kI5qHkYpnBwVZ/GczH9eS0un6+P4oyafBenPB76bULOJoFi7fU1vELplA0ndaQZI
+	rkzRv5Mk9MhBWbHJmmrs7qc6Of2uCJi7hwlzRUKwSPF8SAZjTa/6r2gMrRQ9eCdTREOJX6LrdqLKU
+	HCQ/93CJsdwPxJqcVcuXEIstKvOQUKTCCrjq232rMzoEeR65u8VF5CJC7iZa9PL4d/08c5fKTgqPY
+	r5J+4gKg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xBVDk-00000003GzA-1tix;
-	Tue, 29 Sep 2026 10:38:00 +0000
+	id 1xBVDp-00000003H70-3eoM;
+	Tue, 29 Sep 2026 10:38:05 +0000
 Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xBVDF-00000003GmO-2AZC
+	id 1xBVDL-00000003Gpd-05x5
 	for linux-arm-kernel@bombadil.infradead.org;
-	Tue, 29 Sep 2026 10:37:29 +0000
+	Tue, 29 Sep 2026 10:37:35 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Content-Type:Content-Transfer-Encoding
-	:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:CC:To:From:
-	Sender:Reply-To:Content-ID:Content-Description;
-	bh=CEDPGYC1RPsp34/2huo9oDvdsWGlpazljPcYpxq/p2I=; b=CVq4iVEz/7W4DDsppAGFXpislY
-	eZBGzjFDVRPTCn6uJMFdUH+5jHUa/kV+O8ycwgPstvIhW5nDDjLxXypow4IMrgQ2fCVqTIo3enGVz
-	zMvaW5qr0lK9ut90dHk4L2Y9tlEMLy6zNbBmML+jGfQzZLQ5CVqd1Zv34tHcuPe+kG4pmkBx3NbrT
-	d8wpvJ2GtUuroEVZh2voJAqa/oJmETfGZyS0DNnXsIu7M/vCXLCv7TL2eI/k5BzEBDUn1QmjinY2J
-	ijeK2bUWvBsjMTfv14WA+9fI3mtit/9KK+AAvCt0Swkkgv+EzXzwnxhIDBjq4gDtp3L/4UksSx3rV
-	BUGtbUGg==;
-Received: from canpmsgout02.his.huawei.com ([113.46.200.217])
+	d=infradead.org; s=desiato.20200630; h=Cc:To:In-Reply-To:References:
+	Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
+	From:Sender:Reply-To:Content-ID:Content-Description;
+	bh=7bn5YXIcFILcy8+D6koE5PJVirhIe/szeX2l5bXBcO4=; b=E2nRzBTlk5/yZh0J8wIOup2HKn
+	jVprIDXOVNmSzQfcj2WjrMWIERfDcEbP+5kqTq3N9HmCLHT24mLWNdrLDjk962ihFMPRC2rCaHTa7
+	QmZ5l0VuQR2IYvXnunUgu43bvBdQSUp33Bchlz21u9maxbxD/J3D6cGxepa+CaldDgsHV8NU7FHjF
+	xb2wxfKhZcVlf4zgykCtLJvRXuSAK6r/vzWuQF+e5W6enhfvmTOL79n655ekNgZkzSbsutaSC0sbc
+	/ChSsEBhs1KRinXn+HbiEMhbsu6kdDBwJJLfHS2PyvuF5JI0ceOkc/DKPeyCbz+P67+NPo3qQZQuW
+	gYLBrisA==;
+Received: from smtpout-03.galae.net ([185.246.85.4])
 	by desiato.infradead.org with esmtps (Exim 4.99.2 #2 (Red Hat Linux))
-	id 1xBVCy-00000002VF2-47VK
+	id 1xBVDH-00000002VLg-0dNF
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 29 Sep 2026 10:37:17 +0000
-dkim-signature: v=1; a=rsa-sha256; d=huawei.com; s=dkim;
-	c=relaxed/relaxed; q=dns/txt;
-	h=From;
-	bh=CEDPGYC1RPsp34/2huo9oDvdsWGlpazljPcYpxq/p2I=;
-	b=hgUnkkiogWWkH7pZKOinYR2DNSU52mvRAVR3j5GBOkMDrN1DJWXryE1cs8DYdMeia8UT3Mlcb
-	wjddmZZtAjxjvHIo5Z9Ig+uPXpOh9UsIWklvh4BRmahW52P1uOllLrraCEKesBNfyi7j6SqNB3v
-	z/H1Cn3Y7DBA4tLgh+eHxqA=
-Received: from mail.maildlp.com (unknown [172.19.162.197])
-	by canpmsgout02.his.huawei.com (SkyGuard) with ESMTPS id 4hvDpB0ZV4zcb44;
-	Tue, 29 Sep 2026 18:25:22 +0800 (CST)
-Received: from kwepemr100010.china.huawei.com (unknown [7.202.195.125])
-	by mail.maildlp.com (Postfix) with ESMTPS id 626594057D;
-	Tue, 29 Sep 2026 18:36:57 +0800 (CST)
-Received: from huawei.com (10.50.163.32) by kwepemr100010.china.huawei.com
- (7.202.195.125) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.45; Tue, 29 Sep
- 2026 18:36:56 +0800
-From: Tian Zheng <zhengtian10@huawei.com>
-To: <maz@kernel.org>, <oupton@kernel.org>, <catalin.marinas@arm.com>,
-	<will@kernel.org>, <corbet@lwn.net>, <pbonzini@redhat.com>,
-	<zhengtian10@huawei.com>, <leo.bras@arm.com>
-CC: <yuzenghui@huawei.com>, <wangzhou1@hisilicon.com>,
-	<yangjinqian1@huawei.com>, <caijian11@h-partners.com>,
-	<liuyonglong@huawei.com>, <tangchengchang@huawei.com>,
-	<yezhenyu2@huawei.com>, <yubihong@huawei.com>, <linuxarm@huawei.com>,
-	<joey.gouly@arm.com>, <kvmarm@lists.linux.dev>, <kvm@vger.kernel.org>,
-	<linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>,
-	<seiden@linux.ibm.com>, <suzuki.poulose@arm.com>, <fuad.tabba@linux.dev>,
-	<mark.rutland@arm.com>, <seanjc@google.com>, <rdunlap@infradead.org>,
-	<linux-doc@vger.kernel.org>, <linux-kselftest@vger.kernel.org>,
-	<skhan@linuxfoundation.org>
-Subject: [PATCH v5 01/15] KVM: arm64: pgtables: Change write bit from S2AP_W to DBM
-Date: Tue, 29 Sep 2026 18:36:41 +0800
-Message-ID: <20260929103655.85107-2-zhengtian10@huawei.com>
-X-Mailer: git-send-email 2.33.0
-In-Reply-To: <20260929103655.85107-1-zhengtian10@huawei.com>
-References: <20260929103655.85107-1-zhengtian10@huawei.com>
+	Tue, 29 Sep 2026 10:37:33 +0000
+Received: from smtpout-01.galae.net (smtpout-01.galae.net [212.83.139.233])
+	by smtpout-03.galae.net (Postfix) with ESMTPS id 7D3694E410B7;
+	Tue, 29 Sep 2026 10:37:30 +0000 (UTC)
+Received: from mail.galae.net (mail.galae.net [212.83.136.155])
+	by smtpout-01.galae.net (Postfix) with ESMTPS id 4F595601BD;
+	Tue, 29 Sep 2026 10:37:30 +0000 (UTC)
+Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 78C41103295E3;
+	Tue, 29 Sep 2026 12:37:19 +0200 (CEST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=dkim;
+	t=1790678244; h=from:subject:date:message-id:to:cc:mime-version:content-type:
+	 content-transfer-encoding:in-reply-to:references;
+	bh=7bn5YXIcFILcy8+D6koE5PJVirhIe/szeX2l5bXBcO4=;
+	b=RfgxFsQpYr8nSMemqAsTUzlMVWLzCV5fkIAi0yP1d53ux0NqMYtlmCirLOLFrHyf3QQlOX
+	JUtF1Ong+v9YcPAtrHan7LADmTvTegVgSKQ9klVPjQukj1Zk1eNNz4uKdF/6bvcUspZNDA
+	UHvdmdHMS45V8PO9GFOTlyEhuBwTLRtDL1Y8D2QTtqxKqObAMALV6izccg741TtMNnqjgP
+	4ZxdsxP96j8sY6iN6FREoxWeECnZoffxZQgYMr+YdaZA4tbu+5nfIRGqyfLo7QADS9MPOc
+	HuMpspvg38N5JH6NjasFIBKx+hTxWvYFOL8wFtO7Zze6+AjbfEQ2yNbDw6zrCQ==
+From: Luca Ceresoli <luca.ceresoli@bootlin.com>
+Date: Tue, 29 Sep 2026 12:36:38 +0200
+Subject: [PATCH 6/7] drm/vc4: dsi: stop using deprecated
+ drmm_of_get_bridge()
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-Content-Type: text/plain
-X-Originating-IP: [10.50.163.32]
-X-ClientProxiedBy: kwepems500002.china.huawei.com (7.221.188.17) To
- kwepemr100010.china.huawei.com (7.202.195.125)
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+Message-Id: <20260929-drm-fix-of_get_bridge-build-regression-v1-6-ccb7e602daad@bootlin.com>
+References: <20260929-drm-fix-of_get_bridge-build-regression-v1-0-ccb7e602daad@bootlin.com>
+In-Reply-To: <20260929-drm-fix-of_get_bridge-build-regression-v1-0-ccb7e602daad@bootlin.com>
+To: Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, 
+ Maxime Ripard <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>, 
+ David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>, 
+ Frank Li <Frank.Li@nxp.com>, Sascha Hauer <s.hauer@pengutronix.de>, 
+ Pengutronix Kernel Team <kernel@pengutronix.de>, 
+ Fabio Estevam <festevam@gmail.com>, Icenowy Zheng <zhengxingda@iscas.ac.cn>, 
+ Andrzej Hajda <andrzej.hajda@intel.com>, 
+ Neil Armstrong <neil.armstrong@linaro.org>, Robert Foss <rfoss@kernel.org>, 
+ Laurent Pinchart <Laurent.pinchart@ideasonboard.com>, 
+ Jonas Karlman <jonas@kwiboo.se>, Jernej Skrabec <jernej.skrabec@gmail.com>, 
+ Dave Stevenson <dave.stevenson@raspberrypi.com>, 
+ =?utf-8?q?Ma=C3=ADra_Canal?= <mcanal@igalia.com>, 
+ Raspberry Pi Kernel Maintenance <kernel-list@raspberrypi.com>, 
+ Geert Uytterhoeven <geert+renesas@glider.be>
+Cc: Arnd Bergmann <arnd@kernel.org>, Doug Anderson <dianders@chromium.org>, 
+ Hui Pu <Hui.Pu@gehealthcare.com>, Ian Ray <ian.ray@gehealthcare.com>, 
+ Thomas Petazzoni <thomas.petazzoni@bootlin.com>, 
+ dri-devel@lists.freedesktop.org, imx@lists.linux.dev, 
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
+ linux-renesas-soc@vger.kernel.org, 
+ Luca Ceresoli <luca.ceresoli@bootlin.com>
+X-Mailer: b4 0.16.0
+X-Last-TLS-Session-Version: TLSv1.3
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260929_113714_088225_69E9A355 
-X-CRM114-Status: GOOD (  17.93  )
+X-CRM114-CacheID: sfid-20260929_113731_823618_A5845CDA 
+X-CRM114-Status: GOOD (  14.80  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -102,121 +109,61 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Leonardo Bras <leo.bras@arm.com>
+devm_drm_of_get_bridge() is deprecated, switch to
+of_drm_get_bridge_by_endpoint(). As of_drm_get_bridge_by_endpoint() returns
+a refcounted bridge, ensure it is put by using bridge.next_bridge.
 
-As a first step of changing the encoding for the Stage2 PTE descriptor,
-introduce the DBM bit, and adapt every usage of writable to use the DBM
-bit (51) instead of S2AP[1]/Dirty bit (7).
+drm_panel.h becomes unused, drop the include.
 
-With DBM as the write permission bit and S2AP[1] as the dirty state,
-the encoding follows the FEAT_S2PIE principle of managing permissions
-and dirty state independently.
-
-For this step, we convert usages of RW(Dirty) -> WD(DBM|Dirty): every
-writable mapping sets both bits, read-only mappings clear both, and no
-behaviour changes.
-
-Link: https://lore.kernel.org/all/20260901171558.2674031-2-leo.bras@arm.com/
-Signed-off-by: Leonardo Bras <leo.bras@arm.com>
-[zhengtian: keep the nested walker reading writability from S2AP[1]
-alone, document why, and reword the commit message]
-Signed-off-by: Tian Zheng <zhengtian10@huawei.com>
+Signed-off-by: Luca Ceresoli <luca.ceresoli@bootlin.com>
 ---
- arch/arm64/include/asm/kvm_pgtable.h | 3 +++
- arch/arm64/kvm/hyp/pgtable.c         | 7 ++++---
- arch/arm64/kvm/nested.c              | 5 +++++
- arch/arm64/kvm/ptdump.c              | 4 ++--
- 4 files changed, 14 insertions(+), 5 deletions(-)
+ drivers/gpu/drm/vc4/vc4_dsi.c | 10 ++++------
+ 1 file changed, 4 insertions(+), 6 deletions(-)
 
-diff --git a/arch/arm64/include/asm/kvm_pgtable.h b/arch/arm64/include/asm/kvm_pgtable.h
-index 41a8687938eb..37baa86d6fd8 100644
---- a/arch/arm64/include/asm/kvm_pgtable.h
-+++ b/arch/arm64/include/asm/kvm_pgtable.h
-@@ -93,10 +93,13 @@ typedef u64 kvm_pte_t;
+diff --git a/drivers/gpu/drm/vc4/vc4_dsi.c b/drivers/gpu/drm/vc4/vc4_dsi.c
+index 0148f2befed1..30598738cfcf 100644
+--- a/drivers/gpu/drm/vc4/vc4_dsi.c
++++ b/drivers/gpu/drm/vc4/vc4_dsi.c
+@@ -35,7 +35,6 @@
+ #include <drm/drm_edid.h>
+ #include <drm/drm_mipi_dsi.h>
+ #include <drm/drm_of.h>
+-#include <drm/drm_panel.h>
+ #include <drm/drm_print.h>
+ #include <drm/drm_probe_helper.h>
+ #include <drm/drm_simple_kms_helper.h>
+@@ -555,7 +554,6 @@ struct vc4_dsi {
+ 
+ 	struct platform_device *pdev;
+ 
+-	struct drm_bridge *out_bridge;
+ 	struct drm_bridge bridge;
+ 
+ 	void __iomem *regs;
+@@ -1165,7 +1163,7 @@ static int vc4_dsi_bridge_attach(struct drm_bridge *bridge,
+ 	struct vc4_dsi *dsi = bridge_to_vc4_dsi(bridge);
+ 
+ 	/* Attach the panel or bridge to the dsi bridge */
+-	return drm_bridge_attach(encoder, dsi->out_bridge,
++	return drm_bridge_attach(encoder, dsi->bridge.next_bridge,
+ 				 &dsi->bridge, flags);
+ }
+ 
+@@ -1749,9 +1747,9 @@ static int vc4_dsi_bind(struct device *dev, struct device *master, void *data)
+ 		return ret;
+ 	}
+ 
+-	dsi->out_bridge = drmm_of_get_bridge(drm, dev->of_node, 0, 0);
+-	if (IS_ERR(dsi->out_bridge))
+-		return PTR_ERR(dsi->out_bridge);
++	dsi->bridge.next_bridge = of_drm_get_bridge_by_endpoint(dev->of_node, 0, 0);
++	if (IS_ERR(dsi->bridge.next_bridge))
++		return PTR_ERR(dsi->bridge.next_bridge);
+ 
+ 	/* The esc clock rate is supposed to always be 100Mhz. */
+ 	ret = clk_set_rate(dsi->escape_clock, 100 * 1000000);
 
- #define KVM_PTE_LEAF_ATTR_HI_S2_XN	GENMASK(54, 53)
-
-+#define KVM_PTE_LEAF_ATTR_HI_S2_DBM	BIT(51)
-+
- #define KVM_PTE_LEAF_ATTR_HI_S1_GP	BIT(50)
-
- #define KVM_PTE_LEAF_ATTR_S2_PERMS	(KVM_PTE_LEAF_ATTR_LO_S2_S2AP_R | \
- 					 KVM_PTE_LEAF_ATTR_LO_S2_S2AP_W | \
-+					 KVM_PTE_LEAF_ATTR_HI_S2_DBM | \
- 					 KVM_PTE_LEAF_ATTR_HI_S2_XN)
-
- /* pKVM invalid pte encodings */
-diff --git a/arch/arm64/kvm/hyp/pgtable.c b/arch/arm64/kvm/hyp/pgtable.c
-index b74dd5ce1efd..50f4d3a74f77 100644
---- a/arch/arm64/kvm/hyp/pgtable.c
-+++ b/arch/arm64/kvm/hyp/pgtable.c
-@@ -732,7 +732,7 @@ static int stage2_set_prot_attr(struct kvm_pgtable *pgt, enum kvm_pgtable_prot p
- 		attr |= KVM_PTE_LEAF_ATTR_LO_S2_S2AP_R;
-
- 	if (prot & KVM_PGTABLE_PROT_W)
--		attr |= KVM_PTE_LEAF_ATTR_LO_S2_S2AP_W;
-+		attr |= KVM_PTE_LEAF_ATTR_HI_S2_DBM | KVM_PTE_LEAF_ATTR_LO_S2_S2AP_W;
-
- 	if (!kvm_lpa2_is_enabled())
- 		attr |= FIELD_PREP(KVM_PTE_LEAF_ATTR_LO_S2_SH, sh);
-@@ -753,7 +753,7 @@ enum kvm_pgtable_prot kvm_pgtable_stage2_pte_prot(kvm_pte_t pte)
-
- 	if (pte & KVM_PTE_LEAF_ATTR_LO_S2_S2AP_R)
- 		prot |= KVM_PGTABLE_PROT_R;
--	if (pte & KVM_PTE_LEAF_ATTR_LO_S2_S2AP_W)
-+	if (pte & KVM_PTE_LEAF_ATTR_HI_S2_DBM)
- 		prot |= KVM_PGTABLE_PROT_W;
-
- 	switch (FIELD_GET(KVM_PTE_LEAF_ATTR_HI_S2_XN, pte)) {
-@@ -1288,6 +1288,7 @@ static int stage2_update_leaf_attrs(struct kvm_pgtable *pgt, u64 addr,
- int kvm_pgtable_stage2_wrprotect(struct kvm_pgtable *pgt, u64 addr, u64 size)
- {
- 	return stage2_update_leaf_attrs(pgt, addr, size, 0,
-+					KVM_PTE_LEAF_ATTR_HI_S2_DBM |
- 					KVM_PTE_LEAF_ATTR_LO_S2_S2AP_W,
- 					NULL, NULL,
- 					KVM_PGTABLE_WALK_IGNORE_EAGAIN);
-@@ -1368,7 +1369,7 @@ int kvm_pgtable_stage2_relax_perms(struct kvm_pgtable *pgt, u64 addr,
- 		set |= KVM_PTE_LEAF_ATTR_LO_S2_S2AP_R;
-
- 	if (prot & KVM_PGTABLE_PROT_W)
--		set |= KVM_PTE_LEAF_ATTR_LO_S2_S2AP_W;
-+		set |= KVM_PTE_LEAF_ATTR_HI_S2_DBM | KVM_PTE_LEAF_ATTR_LO_S2_S2AP_W;
-
- 	if (prot & KVM_PGTABLE_PROT_X) {
- 		ret = stage2_set_xn_attr(prot, &xn);
-diff --git a/arch/arm64/kvm/nested.c b/arch/arm64/kvm/nested.c
-index b191365d97cc..4d7f52f4bc09 100644
---- a/arch/arm64/kvm/nested.c
-+++ b/arch/arm64/kvm/nested.c
-@@ -388,6 +388,11 @@ static int walk_nested_s2_pgd(struct kvm_vcpu *vcpu, phys_addr_t ipa,
- 		(ipa & GENMASK_ULL(addr_bottom - 1, 0));
- 	out->output = paddr;
- 	out->block_size = 1UL << ((3 - level) * stride + wi->pgshift);
-+	/*
-+	 * L1 descriptors keep the legacy encoding: S2AP[1] is the write
-+	 * permission, and DBM is RES0 (the L1-visible HAFDBS is limited
-+	 * to AF-only).
-+	 */
- 	out->readable = desc & KVM_PTE_LEAF_ATTR_LO_S2_S2AP_R;
- 	out->writable = desc & KVM_PTE_LEAF_ATTR_LO_S2_S2AP_W;
- 	out->level = level;
-diff --git a/arch/arm64/kvm/ptdump.c b/arch/arm64/kvm/ptdump.c
-index 69899797dbad..b0cb8d84a9e9 100644
---- a/arch/arm64/kvm/ptdump.c
-+++ b/arch/arm64/kvm/ptdump.c
-@@ -40,8 +40,8 @@ static const struct ptdump_prot_bits stage2_pte_bits[] = {
- 		.clear	= " ",
- 	},
- 	{
--		.mask	= KVM_PTE_LEAF_ATTR_LO_S2_S2AP_W,
--		.val	= KVM_PTE_LEAF_ATTR_LO_S2_S2AP_W,
-+		.mask	= KVM_PTE_LEAF_ATTR_HI_S2_DBM,
-+		.val	= KVM_PTE_LEAF_ATTR_HI_S2_DBM,
- 		.set	= "W",
- 		.clear	= " ",
- 	},
---
-2.43.0
+-- 
+2.55.0
 
 
