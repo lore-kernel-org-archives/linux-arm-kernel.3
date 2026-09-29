@@ -4,97 +4,90 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 905E6CA5FB3
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 29 Sep 2026 10:38:18 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 79592CA5FB2
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 29 Sep 2026 10:38:17 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=iOxyCS599oVo+AZS8JSoUu6X3bzbx9qa/yjHz16Q5+8=; b=j4EWJBp++EsQ74cTqZrPBGJ2Vs
-	DOvHPPmSfz6+Mn0yD816cPM1+MPAqYg8nCRtgwLLRzKAl1FoL0W8tgCp2vJzzPPiMOdE2pKyFyM3H
-	7o1K9uK3OAaf44fCKRmV15AsaMPy56l4hX09Q9M+jWvxAlP6xKOoBQ0xA5LR4jnMKAM9LkP7Cfpyd
-	t09MUR/4a4Unh9IT4WL2ZfgUierBbAxSudA9u3C0PhPubpyXpPUIUbvGefU56MOPaZdd5uVxxDlO/
-	pIPy03SY6vs1XE4Y+Lu1FalkZxuOkC/hEP6e7Bwb0jsnBqet0SbeY/Pl6rbLlcclzFcWtWXzcqQ3n
-	T7D2Pnbg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
+	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=Yrcv1tQpjgIhLK4FLW0aKahTYp0KRxC0JD0vGXJZB4c=; b=0w6ZK0ckz85QBUb/sw4sB5DWpi
+	Jx9lJgPl5PpMpaAF5ji+ODhbysonIfk7rMo1CLCVB/zaznHM/Qd14/T8xawPGoNa2hFqD6TigdRar
+	yuEX8kqYQ6u2ueBRvT0ye1Ayis6BSe/BMja+QzhwPdWNKf0k2bKAsyOc9acapz4TkzaVDk6zTKL1L
+	k2WqU72FrZRCxjiQntsnBW1WhUdRpIrA5JSCITPYNps4SH6OKmUnQSIptbplEqdI25z72PKDzcump
+	IsIjiw5yKBejAzJOZ17xUuei5wFnltrNPscww1bJIvF1Q05Moq3vXKzgxUPcChRKHzpZyM+S0QLv4
+	03eDdVtw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xBVDk-00000003Gym-0fcE;
-	Tue, 29 Sep 2026 10:38:00 +0000
-Received: from casper.infradead.org ([2001:8b0:10b:1236::1])
+	id 1xBVDn-00000003H3V-2j1L;
+	Tue, 29 Sep 2026 10:38:03 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xBVDB-00000003GkQ-3Y7H
+	id 1xBVDF-00000003GmR-2o7s
 	for linux-arm-kernel@bombadil.infradead.org;
-	Tue, 29 Sep 2026 10:37:25 +0000
+	Tue, 29 Sep 2026 10:37:29 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=casper.20170209; h=Cc:To:In-Reply-To:References:Message-Id
-	:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:From:Sender
-	:Reply-To:Content-ID:Content-Description;
-	bh=iOxyCS599oVo+AZS8JSoUu6X3bzbx9qa/yjHz16Q5+8=; b=F93cgbY2word9DbnmyHKCOJMFg
-	YgwOEZrJ7bUbT70J3IsQ4aBuNW9sZulwsTTpHKDPnXQDqYIiB0AenQG261CFvc6R3P15i9E7HVbsG
-	mVvHaMlqHO7VIr4vc3rS56xFbEMIHepJgyUZ78xHz2g0B0EOyS0591NF5SGddL/O74hYM0wytRvR7
-	+hF3Ms42wZYtAVQdKmdBBpH6hsk6ePWnQTUnwV42AfYwtVZ0yF05hgHsoI6W+mn91yayJo1QRhB0z
-	jCjd6erZy255JxrRU2JYPRdymZFvhZ6L2gyxtN/VoBsl+acb6pF9D6fV/pUX/1OPCDdkqAAUuPSLy
-	N4QBO46A==;
-Received: from smtpout-03.galae.net ([185.246.85.4])
-	by casper.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xBVD7-0000000CLDs-2H47
+	d=infradead.org; s=desiato.20200630; h=Content-Type:Content-Transfer-Encoding
+	:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:CC:To:From:
+	Sender:Reply-To:Content-ID:Content-Description;
+	bh=Yrcv1tQpjgIhLK4FLW0aKahTYp0KRxC0JD0vGXJZB4c=; b=dE9LFBGT8aJgq8vxtSAJeAjQQJ
+	jl1pN+csyc/Wd+cArXnfOw02/TH8qqCnWqK+H5YjwG3qK7kGyfh4utZ8eRqafRSYWXEz8Atq3Dl/V
+	mZsTYNnojkLghY4f7bo42I2pvJBXbUvZgy+mxVeTGYRFrTo3IwcpmcCl4dz1pNZ7UEC9O0unMZWOn
+	pbGNOEHHK2hIR3M/EFom9eBfjRTul0+F2T9Ca2/WsAQXSrF3gvJQsz5d21iySkzLUa4qTROJBQCjc
+	9hZvHLj47JhJmAokBPXz5GFO3CbUJ3hDi+8bagtjKFnk4ry9sYH5AOFlI8acVOxvZI2a2/xoTD5cG
+	aGAa85nQ==;
+Received: from canpmsgout02.his.huawei.com ([113.46.200.217])
+	by desiato.infradead.org with esmtps (Exim 4.99.2 #2 (Red Hat Linux))
+	id 1xBVCz-00000002VFA-0sTn
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 29 Sep 2026 10:37:24 +0000
-Received: from smtpout-01.galae.net (smtpout-01.galae.net [212.83.139.233])
-	by smtpout-03.galae.net (Postfix) with ESMTPS id E38334E410B8;
-	Tue, 29 Sep 2026 10:37:20 +0000 (UTC)
-Received: from mail.galae.net (mail.galae.net [212.83.136.155])
-	by smtpout-01.galae.net (Postfix) with ESMTPS id AD3D7601BD;
-	Tue, 29 Sep 2026 10:37:20 +0000 (UTC)
-Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 57982103297DC;
-	Tue, 29 Sep 2026 12:37:10 +0200 (CEST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=dkim;
-	t=1790678235; h=from:subject:date:message-id:to:cc:mime-version:content-type:
-	 content-transfer-encoding:in-reply-to:references;
-	bh=iOxyCS599oVo+AZS8JSoUu6X3bzbx9qa/yjHz16Q5+8=;
-	b=awY69VGzxHFCSZVboz5MVQUhK4Yr4tWBaJBBGV2WWHGpRF2fiN9X93UAm6z/xxKWWR703v
-	PTnDrGxLz/JSdWFilMw0GAFq/bsoXyeLMIy8r1Qi18WJnmEn/NYsN7z8a0gnzCofpOxoYJ
-	mej1BnLsULUJBvjTbXYPgNQwhf7aG+0kxntKvibiHYprvaL1AwH5UhwWobx3b7Zq5kqDgX
-	Wg6hJskBRWE8K/y/ap3/HaFIuGdHBdJ1CJPHredDsXnkX2kperR4I1w1g4gNUv5C8UmvKp
-	L0z2Sb24I7wSb9Lh9HFrM/Q5AkXxf2+T+40sTf50p3knnZqXg11V7qcoYsupMg==
-From: Luca Ceresoli <luca.ceresoli@bootlin.com>
-Date: Tue, 29 Sep 2026 12:36:37 +0200
-Subject: [PATCH 5/7] drm/vc4: dpi: stop using deprecated
- drmm_of_get_bridge()
+	Tue, 29 Sep 2026 10:37:17 +0000
+dkim-signature: v=1; a=rsa-sha256; d=huawei.com; s=dkim;
+	c=relaxed/relaxed; q=dns/txt;
+	h=From;
+	bh=Yrcv1tQpjgIhLK4FLW0aKahTYp0KRxC0JD0vGXJZB4c=;
+	b=FJn8bMvFIt5OHiANxsyr2y8qjm22EHDhXs8/Y4rtH54EMF7gRXebgSNGcRGaGhQjwYt/nFOsr
+	LKmBnonCabBTlKwTXlQDJtf6/7P0DE6sEMLGov7F3SilgXt8uSUCuDpLdAbsosPPxGnt/QVSnUU
+	bN2xdOjCYNIWoTyojnfQ5gE=
+Received: from mail.maildlp.com (unknown [172.19.162.144])
+	by canpmsgout02.his.huawei.com (SkyGuard) with ESMTPS id 4hvDpJ2nmGzcb4j;
+	Tue, 29 Sep 2026 18:25:28 +0800 (CST)
+Received: from kwepemr100010.china.huawei.com (unknown [7.202.195.125])
+	by mail.maildlp.com (Postfix) with ESMTPS id AC3654056D;
+	Tue, 29 Sep 2026 18:37:03 +0800 (CST)
+Received: from huawei.com (10.50.163.32) by kwepemr100010.china.huawei.com
+ (7.202.195.125) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.45; Tue, 29 Sep
+ 2026 18:37:02 +0800
+From: Tian Zheng <zhengtian10@huawei.com>
+To: <maz@kernel.org>, <oupton@kernel.org>, <catalin.marinas@arm.com>,
+	<will@kernel.org>, <corbet@lwn.net>, <pbonzini@redhat.com>,
+	<zhengtian10@huawei.com>, <leo.bras@arm.com>
+CC: <yuzenghui@huawei.com>, <wangzhou1@hisilicon.com>,
+	<yangjinqian1@huawei.com>, <caijian11@h-partners.com>,
+	<liuyonglong@huawei.com>, <tangchengchang@huawei.com>,
+	<yezhenyu2@huawei.com>, <yubihong@huawei.com>, <linuxarm@huawei.com>,
+	<joey.gouly@arm.com>, <kvmarm@lists.linux.dev>, <kvm@vger.kernel.org>,
+	<linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>,
+	<seiden@linux.ibm.com>, <suzuki.poulose@arm.com>, <fuad.tabba@linux.dev>,
+	<mark.rutland@arm.com>, <seanjc@google.com>, <rdunlap@infradead.org>,
+	<linux-doc@vger.kernel.org>, <linux-kselftest@vger.kernel.org>,
+	<skhan@linuxfoundation.org>
+Subject: [PATCH v5 09/15] KVM: arm64: Handle HDBSS faults
+Date: Tue, 29 Sep 2026 18:36:49 +0800
+Message-ID: <20260929103655.85107-10-zhengtian10@huawei.com>
+X-Mailer: git-send-email 2.33.0
+In-Reply-To: <20260929103655.85107-1-zhengtian10@huawei.com>
+References: <20260929103655.85107-1-zhengtian10@huawei.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20260929-drm-fix-of_get_bridge-build-regression-v1-5-ccb7e602daad@bootlin.com>
-References: <20260929-drm-fix-of_get_bridge-build-regression-v1-0-ccb7e602daad@bootlin.com>
-In-Reply-To: <20260929-drm-fix-of_get_bridge-build-regression-v1-0-ccb7e602daad@bootlin.com>
-To: Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, 
- Maxime Ripard <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>, 
- David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>, 
- Frank Li <Frank.Li@nxp.com>, Sascha Hauer <s.hauer@pengutronix.de>, 
- Pengutronix Kernel Team <kernel@pengutronix.de>, 
- Fabio Estevam <festevam@gmail.com>, Icenowy Zheng <zhengxingda@iscas.ac.cn>, 
- Andrzej Hajda <andrzej.hajda@intel.com>, 
- Neil Armstrong <neil.armstrong@linaro.org>, Robert Foss <rfoss@kernel.org>, 
- Laurent Pinchart <Laurent.pinchart@ideasonboard.com>, 
- Jonas Karlman <jonas@kwiboo.se>, Jernej Skrabec <jernej.skrabec@gmail.com>, 
- Dave Stevenson <dave.stevenson@raspberrypi.com>, 
- =?utf-8?q?Ma=C3=ADra_Canal?= <mcanal@igalia.com>, 
- Raspberry Pi Kernel Maintenance <kernel-list@raspberrypi.com>, 
- Geert Uytterhoeven <geert+renesas@glider.be>
-Cc: Arnd Bergmann <arnd@kernel.org>, Doug Anderson <dianders@chromium.org>, 
- Hui Pu <Hui.Pu@gehealthcare.com>, Ian Ray <ian.ray@gehealthcare.com>, 
- Thomas Petazzoni <thomas.petazzoni@bootlin.com>, 
- dri-devel@lists.freedesktop.org, imx@lists.linux.dev, 
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
- linux-renesas-soc@vger.kernel.org, 
- Luca Ceresoli <luca.ceresoli@bootlin.com>
-X-Mailer: b4 0.16.0
-X-Last-TLS-Session-Version: TLSv1.3
+Content-Transfer-Encoding: 8bit
+Content-Type: text/plain
+X-Originating-IP: [10.50.163.32]
+X-ClientProxiedBy: kwepems500002.china.huawei.com (7.221.188.17) To
+ kwepemr100010.china.huawei.com (7.202.195.125)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260929_113721_941125_C4F50F8C 
-X-CRM114-Status: GOOD (  12.34  )
+X-CRM114-CacheID: sfid-20260929_113714_096773_99A7A0FA 
+X-CRM114-Status: GOOD (  15.76  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -109,52 +102,113 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-devm_drm_of_get_bridge() is deprecated, switch to
-of_drm_get_bridge_by_endpoint(). As of_drm_get_bridge_by_endpoint() returns
-a refcounted bridge, ensure it is put.
+From: Eillon <yezhenyu2@huawei.com>
 
-drm_panel.h becomes unused, drop the include.
+Once the buffer is full, hardware stops promoting writable-clean
+descriptors and raises a stage-2 Permission fault with
+ESR_EL2.ISS2.HDBSSF instead. Failed HDBSS accesses, such as external
+aborts and granule protection faults, are reported the same way.
 
-Also remove a comment that is now obvious: now panels are just bridges.
+Dispatch from kvm_handle_guest_abort() via the new esr_iss2_is_hdbssf()
+helper. FSC == OK means the exit path already flushed, so resume the
+guest; any other FSC is an error - clear it and report -EFAULT.
 
-Signed-off-by: Luca Ceresoli <luca.ceresoli@bootlin.com>
+Signed-off-by: Eillon <yezhenyu2@huawei.com>
+Signed-off-by: Tian Zheng <zhengtian10@huawei.com>
 ---
- drivers/gpu/drm/vc4/vc4_dpi.c | 9 ++-------
- 1 file changed, 2 insertions(+), 7 deletions(-)
+ arch/arm64/include/asm/esr.h           |  5 +++++
+ arch/arm64/include/asm/kvm_dirty_bit.h |  1 +
+ arch/arm64/kvm/dirty_bit.c             | 29 ++++++++++++++++++++++++++
+ arch/arm64/kvm/mmu.c                   |  4 ++++
+ 4 files changed, 39 insertions(+)
 
-diff --git a/drivers/gpu/drm/vc4/vc4_dpi.c b/drivers/gpu/drm/vc4/vc4_dpi.c
-index 53f36626a50d..5060eb463704 100644
---- a/drivers/gpu/drm/vc4/vc4_dpi.c
-+++ b/drivers/gpu/drm/vc4/vc4_dpi.c
-@@ -16,7 +16,6 @@
- #include <drm/drm_drv.h>
- #include <drm/drm_edid.h>
- #include <drm/drm_of.h>
--#include <drm/drm_panel.h>
- #include <drm/drm_print.h>
- #include <drm/drm_probe_helper.h>
- #include <drm/drm_simple_kms_helper.h>
-@@ -279,16 +278,12 @@ static const struct of_device_id vc4_dpi_dt_match[] = {
- 	{}
- };
- 
--/* Sets up the next link in the display chain, whether it's a panel or
-- * a bridge.
-- */
- static int vc4_dpi_init_bridge(struct vc4_dpi *dpi)
+diff --git a/arch/arm64/include/asm/esr.h b/arch/arm64/include/asm/esr.h
+index f816f5d77f1a..4b3ccd407faa 100644
+--- a/arch/arm64/include/asm/esr.h
++++ b/arch/arm64/include/asm/esr.h
+@@ -437,6 +437,11 @@
+ #ifndef __ASSEMBLER__
+ #include <asm/types.h>
+
++static inline bool esr_iss2_is_hdbssf(unsigned long esr)
++{
++	return !!(ESR_ELx_ISS2(esr) & ESR_ELx_HDBSSF);
++}
++
+ static inline unsigned long esr_brk_comment(unsigned long esr)
  {
--	struct drm_device *drm = dpi->encoder.base.dev;
- 	struct device *dev = &dpi->pdev->dev;
--	struct drm_bridge *bridge;
- 
--	bridge = drmm_of_get_bridge(drm, dev->of_node, 0, 0);
-+	struct drm_bridge *bridge __free(drm_bridge_put) =
-+		of_drm_get_bridge_by_endpoint(dev->of_node, 0, 0);
- 	if (IS_ERR(bridge)) {
- 		/* If nothing was connected in the DT, that's not an
- 		 * error.
+ 	return esr & ESR_ELx_BRK64_ISS_COMMENT_MASK;
+diff --git a/arch/arm64/include/asm/kvm_dirty_bit.h b/arch/arm64/include/asm/kvm_dirty_bit.h
+index d828e6b43fe9..eb2039820777 100644
+--- a/arch/arm64/include/asm/kvm_dirty_bit.h
++++ b/arch/arm64/include/asm/kvm_dirty_bit.h
+@@ -39,5 +39,6 @@ static inline bool vcpu_hdbss_enabled(struct kvm_vcpu *vcpu)
+ int kvm_arm_vcpu_alloc_hdbss(struct kvm_vcpu *vcpu);
+ void kvm_arm_vcpu_free_hdbss(struct kvm_vcpu *vcpu);
+ void kvm_flush_hdbss_buffer(struct kvm_vcpu *vcpu);
++int kvm_handle_hdbss_fault(struct kvm_vcpu *vcpu);
 
--- 
-2.55.0
+ #endif /* __ARM64_KVM_DIRTY_BIT_H__ */
+diff --git a/arch/arm64/kvm/dirty_bit.c b/arch/arm64/kvm/dirty_bit.c
+index be0d12555c84..893a8c4248bc 100644
+--- a/arch/arm64/kvm/dirty_bit.c
++++ b/arch/arm64/kvm/dirty_bit.c
+@@ -98,3 +98,32 @@ void kvm_flush_hdbss_buffer(struct kvm_vcpu *vcpu)
+ 	vcpu->arch.hdbss.hdbssprod_el2 = prod;
+ 	isb();
+ }
++
++int kvm_handle_hdbss_fault(struct kvm_vcpu *vcpu)
++{
++	u64 prod;
++	u64 fsc;
++
++	if (WARN_ON_ONCE(!system_supports_hdbss()))
++		return -EFAULT;
++
++	if (WARN_ON_ONCE(!vcpu_hdbss_enabled(vcpu)))
++		return -EFAULT;
++
++	prod = read_sysreg_s(SYS_HDBSSPROD_EL2);
++	fsc = FIELD_GET(HDBSSPROD_EL2_FSC_MASK, prod);
++
++	if (fsc == HDBSSPROD_EL2_FSC_OK)
++		/* Buffer full: the exit path drained it before handle_exit. */
++		return 1;
++
++	if (fsc != HDBSSPROD_EL2_FSC_ExternalAbort &&
++	    fsc != HDBSSPROD_EL2_FSC_GPF)
++		WARN_ONCE(1,
++			  "Unexpected HDBSS fault type, FSC: 0x%llx (prod=0x%llx, vcpu=%d)\n",
++			  fsc, prod, vcpu->vcpu_id);
++
++	/* Clear FSC so hardware dirty state updates can resume. */
++	write_sysreg_s(prod & ~HDBSSPROD_EL2_FSC_MASK, SYS_HDBSSPROD_EL2);
++	return -EFAULT;
++}
+diff --git a/arch/arm64/kvm/mmu.c b/arch/arm64/kvm/mmu.c
+index 85a98d2c23a9..7bf82d65041c 100644
+--- a/arch/arm64/kvm/mmu.c
++++ b/arch/arm64/kvm/mmu.c
+@@ -15,6 +15,7 @@
+ #include <asm/pgalloc.h>
+ #include <asm/cacheflush.h>
+ #include <asm/kvm_arm.h>
++#include <asm/kvm_dirty_bit.h>
+ #include <asm/kvm_mmu.h>
+ #include <asm/kvm_pgtable.h>
+ #include <asm/kvm_pkvm.h>
+@@ -2315,6 +2316,9 @@ int kvm_handle_guest_abort(struct kvm_vcpu *vcpu)
+
+ 	is_iabt = kvm_vcpu_trap_is_iabt(vcpu);
+
++	if (esr_iss2_is_hdbssf(esr))
++		return kvm_handle_hdbss_fault(vcpu);
++
+ 	if (esr_fsc_is_translation_fault(esr)) {
+ 		/* Beyond sanitised PARange (which is the IPA limit) */
+ 		if (fault_ipa >= BIT_ULL(get_kvm_ipa_limit())) {
+--
+2.43.0
 
 
