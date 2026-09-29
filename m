@@ -4,106 +4,89 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 97556CA5FA7
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 29 Sep 2026 17:17:52 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1124FCA5FB2
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 29 Sep 2026 17:27:43 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Fe4PBb/Hf6DUzcCJY1sqn5uC1SzSruVIKDxh26oxA4E=; b=uCt/0tMh0zdqy8CWHSAOTyQRy1
-	V5/Yj7yIVQjLyi8ZfkaFHSzqn7lJRHL1yc1SFl+b8WTMU+x3L4naemZIVsAPPVssI/sbrekDqMQW+
-	07sv1du4gm2M8Hva2HaKQfSVoeQJXfxTAqYlhoGcrzgoFND+LpQmGyK4tC8XaH4WICTHb6nLcJOMS
-	31OrXHtwHCUawnrHEh1b2secC4DYzpE8A8ENOraS2vsVZ2XPGj/aifK9AYlKojKRVl7B6ymDOeKcb
-	tzQ5nRFid01QIzYx5A6HOowFTgBJfw7/P6MSoYjEDV/QyIlEqAUmSxlPG+LSWVA4IWsw67x+8ZYWd
-	2dxTAFIA==;
+	bh=MpsOcCoKeNrpYbDywcj4FELHKM7YdvSGs08G6Te0Kmc=; b=TyS2zv+DLGPPPq/dHpPG31rAuT
+	TK7PP65TMKhyl2hnAFT6oulpSVC8nX02ydHgp6YvyynwsZDjv1eMrwPKxteSHK+20QSI57h4b9L0v
+	BAIIlL6hS+RlUH38JWFhmZ2Gv52asNq6bJH6EDD20px+0HECZ1NCPB9A/hY4SUIEU2nvx8tBqC8UE
+	5Na5mk12rubw8Phla+qkjOIUS9pTP8HqbQ6Aho77vn0OAq4rWncuF+slwwdV18hwtwAITihirL1+O
+	v3xOPxkZSK+jaqLpWy0HHImTLDXhVX9LDJh1Zc0sFAeWJ3C+U5Q8v4WrPczVXGQJ/WDW139lPvA4X
+	8WaWK6iQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xBbSb-00000004AJZ-1GbR;
-	Tue, 29 Sep 2026 17:17:45 +0000
-Received: from mail-qk2-x2b.google.com ([2607:f8b0:4864:34::2b])
+	id 1xBbc7-00000004BJD-3WIf;
+	Tue, 29 Sep 2026 17:27:35 +0000
+Received: from sender6-op-o15.zoho.com ([165.173.180.15])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xBbSX-00000004AIJ-0HQJ
-	for linux-arm-kernel@lists.infradead.org;
-	Tue, 29 Sep 2026 17:17:43 +0000
-Received: by mail-qk2-x2b.google.com with SMTP id af79cd13be357-93c67dc38f4so159520685a.0
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 29 Sep 2026 10:17:40 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=toxicpanda.com; s=google; t=1790702260; x=1791307060; darn=lists.infradead.org;
-        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
-         :content-type:mime-version:subject:date:from:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=Fe4PBb/Hf6DUzcCJY1sqn5uC1SzSruVIKDxh26oxA4E=;
-        b=SmoJ5+b4hCEM8jffUik8Sp+ZVqBpO0UZjzt0CYAoSuFL5oPRM5aayCWMxoIdUmKiCl
-         Oa+D+i+VyawlhOC9GfZwpj9FW9c7BxaFypguVOwnBPVm84ub9m/4NuT2V7944HVVzpdj
-         uXhG7SGwQUQJlCAk0aiFlYxq8xuj3fqNpZl+4IOkLZNS1dQl1ybmbilpLrfwa2Bujb3p
-         MxGo9Mx8sM0/eXelfAgFN6bmx4+S2vjBllQEBWBnD/628dDkuLT3swW/d3E5ZbN4Bp0d
-         b+TJDZOLty44lVJYCKesIUBZMCqgml0ZtbB8tTCk2ak2qb6MObDpQQOdgIu0QAOb5/cZ
-         UAQA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1790702260; x=1791307060;
-        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
-         :content-type:mime-version:subject:date:from:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=Fe4PBb/Hf6DUzcCJY1sqn5uC1SzSruVIKDxh26oxA4E=;
-        b=RMLOH7JvXyi8/EXq60l/Q81wKuUtWpWKUkVJlLlWc/+Dl8Aw/WvYWgeCyg2f2+jaP4
-         5h7TaJF+M9bDvmD+Ae6/PoU5I1GuPKmXRwbvrs/9MJ8Oz+Sf6msy0DD5U8DBiEaLDKSs
-         V4zoo3/ifrJ8wCKlT+qYI0/zvqr5vVJ3oowywS26itCasQRTckL8ulZBYQEzyGCAM37d
-         7CA76KV7995UaAgfRx1ykWF70kFcrY0dD+2jwurPdFpCdI2chTlOw6a0IiKBWdCsEkGh
-         56JGWtmMhGlu7opN3MG7g/WKA7dn97i0m7o0RqoQLH/Fx5uWRSG8T5hYVp7g4qkl6Ffw
-         xMYg==
-X-Forwarded-Encrypted: i=1; AKwUvByvxeFf47UeRgnN17w5V88bP7V/QtMN7SFDIPCMmvQNSFPj+feJt7lDM7w+oVY8mNKmgDJF01C7ldh2ldnJYrUF@lists.infradead.org
-X-Gm-Message-State: AFuF++mJpllml7tHnujhwGL2aaFyDXD7YIAY39Bqtk/8TZb8DvhzVRCY
-	CeN2Lla/f6EWEW0MmbhhKVTaORZstgBPd6PsEuxUemJt7s9KaKePeP8tZ7r65RyQH8Q=
-X-Gm-Gg: AYBFou2/IrK4sJ0/UX9BYjHzkAOz0ygLvibm7y4RwuSgHCOaclcR1u1j+saM30HuDH7
-	CpLfd9zCykSLsfSXPgSTuIqRk8MWWau72CRwpvYXbnq0/Jm9b7gtDChfCOmNIjKjNDaXQ0LpYUc
-	HOXEw51B0XrLyQCONKwoLJz0vHUJbk6jN1tMiZMUFt39BLpAHy5lgXiQmIPtBX/sNZ9RT+CH34P
-	KkJLFstI29lNLcLJJHvlLVg59Ob15e7rlnNoPapMocMr8kuUlAM+bQrEHbZxYJ8+Fdz6weAY5YW
-	yBvPGUb/Z+a1T3wT7D8zXm9+WRv0DGL9YjTVvIQG/y01TcqzIjRYMy/A5rRdc3uCRSVigF5vyNH
-	H3gGJeYGcA76Z8BczRxPmLPvM+KMhr+PrttQJ5894aMOeWdrnBQ1Yb+URE8u35q1nGwp+3s6hV+
-	KmUkZ+fX+sQGmuuz3qAlnre7exXF3BPXsDtbZs7lHuZZaCQWCngKoDobiWFQ++5mpmQVWWCmhH7
-	kXpVxp6TSyaQWc=
-X-Received: by 2002:a05:620a:1451:b0:93c:2670:2c28 with SMTP id af79cd13be357-93c9f9846a4mr28084685a.10.1790702259614;
-        Tue, 29 Sep 2026 10:17:39 -0700 (PDT)
-Received: from toxicpanda.com ([153.61.196.251])
-        by smtp.gmail.com with ESMTPSA id af79cd13be357-93c9f503457sm17417585a.27.2026.09.29.10.17.38
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 29 Sep 2026 10:17:39 -0700 (PDT)
-From: Josef Bacik <josef@toxicpanda.com>
-Date: Tue, 29 Sep 2026 17:07:31 +0000
-Subject: [PATCH v6 14/14] x86, arm64: Build Tasks RCU on Tasks Trace
- readers in trampolines
+	id 1xBbbv-00000004BFJ-1tiX;
+	Tue, 29 Sep 2026 17:27:24 +0000
+ARC-Seal: i=1; a=rsa-sha256; t=1790702821; cv=none; 
+	d=zohomail.com; s=zohoarc; 
+	b=Lqnx3/e3TZi8lu2iBMxmaWWC8OXOzdEwYFXzuK3xACV5Vr4+Ft2fqP1LgZ0CXGY64eRc9IViHPpxkgR81tDKFGJxjP/ETbl1jZhqC7iuyjiz2N5nmlYaFPZNBmxRBmU/CiyfMHXhTjmQPAVNAG/wp1OCDZWOTieXtMjyElYt+QQ=
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=zohomail.com; s=zohoarc; 
+	t=1790702821; h=Content-Type:Content-Transfer-Encoding:Cc:Cc:Date:Date:From:From:In-Reply-To:MIME-Version:Message-ID:Subject:Subject:To:To:Message-Id:Reply-To; 
+	bh=MpsOcCoKeNrpYbDywcj4FELHKM7YdvSGs08G6Te0Kmc=; 
+	b=XXHSWLQjIs3JGAJ6NXWov136bo9ApfnbOeU8krhQd1MrxLg4F576Nl6RtpLn9RVexwY0d73WHv/k7pKPlOcaTcmLInymv0sE/Gep2yO0155f2GGuk/Bnl352YAsFi6ZbRhuno3+kC9NgewwbTFW/dK9fQpk9Jm85SFJ7AqbPxXE=
+ARC-Authentication-Results: i=1; mx.zohomail.com;
+	dkim=pass  header.i=pigmoral.tech;
+	spf=pass  smtp.mailfrom=junhui.liu@pigmoral.tech;
+	dmarc=pass header.from=<junhui.liu@pigmoral.tech>
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; t=1790702821;
+	s=zmail; d=pigmoral.tech; i=junhui.liu@pigmoral.tech;
+	h=From:From:Date:Date:Subject:Subject:MIME-Version:Content-Type:Content-Transfer-Encoding:Message-Id:Message-Id:In-Reply-To:To:To:Cc:Cc:Reply-To;
+	bh=MpsOcCoKeNrpYbDywcj4FELHKM7YdvSGs08G6Te0Kmc=;
+	b=m9nNbDcFsymi+dcsTzaMCnHLUXB702JIEp3IWDK9EY9DXraxDgA5T4XekDKOFMu2
+	+C/qcQDm1iKoTRBkJNWExBXGlsGAoJxe25vMtnc2l6V39czBqgABe9h8VGrF5Dcz6b9
+	/fK/73EaLEehydGGawQh3wxvNXdHJsjrXTLNAixo=
+Received: by smtp.zohomail.com with SMTPS id 1790702820539313.0466060519906;
+	Tue, 29 Sep 2026 10:27:00 -0700 (PDT)
+From: Junhui Liu <junhui.liu@pigmoral.tech>
+Date: Wed, 30 Sep 2026 01:26:08 +0800
+Subject: [PATCH v5 1/8] dt-bindings: clk: sun60i-a733-ccu: Add Allwinner
+ A733 support
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20260929-b4-rcu-tasks-preempt-qs-v6-14-c111ee02caca@toxicpanda.com>
-References: <20260929-b4-rcu-tasks-preempt-qs-v6-0-c111ee02caca@toxicpanda.com>
-In-Reply-To: <20260929-b4-rcu-tasks-preempt-qs-v6-0-c111ee02caca@toxicpanda.com>
-To: "Paul E. McKenney" <paulmck@kernel.org>, 
- Frederic Weisbecker <frederic@kernel.org>, 
- Alexei Starovoitov <ast@kernel.org>, Steven Rostedt <rostedt@goodmis.org>
-Cc: Boqun Feng <boqun@kernel.org>, Masami Hiramatsu <mhiramat@kernel.org>, 
- Mark Rutland <mark.rutland@arm.com>, Peter Zijlstra <peterz@infradead.org>, 
- Thomas Gleixner <tglx@kernel.org>, Daniel Borkmann <daniel@iogearbox.net>, 
- Andrii Nakryiko <andrii@kernel.org>, Puranjay Mohan <puranjay@kernel.org>, 
- rcu@vger.kernel.org, bpf@vger.kernel.org, 
- linux-trace-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
- linux-kernel@vger.kernel.org, Josef Bacik <josef@toxicpanda.com>
-X-Mailer: b4 0.15.2
-X-Developer-Signature: v=1; a=openssh-sha256; t=1790701682; l=6284;
- i=josef@toxicpanda.com; h=from:subject:message-id;
- bh=FBu4wPNvp6XKLCksA/EO6fe2fqobXZ0aLWTgQ92ND/M=;
- b=U1NIU0lHAAAAAQAAADMAAAALc3NoLWVkMjU1MTkAAAAgUBr36M/n0nWN0DNbnxwzIiCZez6MG
- JiruuNaSCI/zXsAAAAGcGF0YXR0AAAAAAAAAAZzaGE1MTIAAABTAAAAC3NzaC1lZDI1NTE5AAAA
- QM5aKK+gCbm3N+QZV9FJaROou1WOBBTQcvS6L+bOjkJ3lKBVKqJiXBvlyBo1oNNPHF0Pr3LTzCa
- TSaSfpKWd7AA=
-X-Developer-Key: i=josef@toxicpanda.com; a=openssh;
- fpr=SHA256:C8kOX2QUJCMqnCX+KEeoqRAjLo9L+ELOSH2NSAJHqGA
+Message-Id: <20260930-a733-clk-v5-1-11175b41cd2d@pigmoral.tech>
+References: <20260930-a733-clk-v5-0-11175b41cd2d@pigmoral.tech>
+In-Reply-To: <20260930-a733-clk-v5-0-11175b41cd2d@pigmoral.tech>
+To: Stephen Boyd <sboyd@kernel.org>, Brian Masney <bmasney+clk@redhat.com>, 
+ Jerome Brunet <jbrunet+clk@baylibre.com>, Rob Herring <robh@kernel.org>, 
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, Chen-Yu Tsai <wens@kernel.org>, 
+ Jernej Skrabec <jernej.skrabec@gmail.com>, 
+ Samuel Holland <samuel@sholland.org>, 
+ Philipp Zabel <p.zabel@pengutronix.de>, 
+ Junhui Liu <junhui.liu@pigmoral.tech>, Paul Walmsley <pjw@kernel.org>, 
+ Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, 
+ Alexandre Ghiti <alex@ghiti.fr>, Richard Cochran <richardcochran@gmail.com>
+Cc: linux-clk@vger.kernel.org, devicetree@vger.kernel.org, 
+ linux-arm-kernel@lists.infradead.org, linux-sunxi@lists.linux.dev, 
+ linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org, 
+ netdev@vger.kernel.org, Jerome Brunet <jbrunet@baylibre.com>, 
+ Enzo Adriano <enzo.adriano.code@gmail.com>, 
+ Andre Przywara <andre.przywara@arm.com>, 
+ Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
+X-Mailer: b4 0.16.0
+X-Developer-Signature: v=1; a=openpgp-sha256; l=19268;
+ i=junhui.liu@pigmoral.tech; h=from:subject:message-id;
+ bh=8iPOGHqlRA8qjcLdn4ItFg5lW+UAQAiK/M09aJci1/E=;
+ b=owGbwMvMwCWWvDb1VEXc8j+Mp9WSGLJ2f9nW4dm2u/PKM47C+3bXvfXiN/84sMFaUVC8o2Cvi
+ UzP+XfzOkpZGMS4GGTFFFm4/MX/WevwfDsi0HofZg4rE8gQBi5OAZiI5ltGhtMGj5k7lzxhnrm7
+ 4gO36WH1i8wFpuLKawz7c1hP/sn5d4Thf+LZnyteh67ZdeV7wvP4w4wVYeobjXW/7X8iYqLF/1B
+ tIxcA
+X-Developer-Key: i=junhui.liu@pigmoral.tech; a=openpgp;
+ fpr=15B30CC69C4BF0CC3C08F85A2A90CDC122DF37BF
+X-ZohoMailClient: External
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260929_101741_135809_DE730371 
-X-CRM114-Status: GOOD (  19.37  )
+X-CRM114-CacheID: sfid-20260929_102723_572472_D5CC4567 
+X-CRM114-Status: GOOD (  14.98  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -118,129 +101,647 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-With the preceding patches every trampoline whose lifetime Tasks RCU
-guards on x86-64 and arm64 -- ftrace_caller and its copies, the optprobe
-template, BPF trampolines, and the sample direct-call
-trampolines -- is a Tasks Trace RCU reader around its call-out, and the
-text outside that reader is known to rcu_tasks_trampoline_text().
-Select HAVE_RCU_TRAMPOLINE_READERS on both (x86-64 with SMP for Tree
-SRCU and DYNAMIC_FTRACE, which is where its ftrace_caller changes and
-arch_rcu_tasks_trampoline_text() live; arm64 with
-DYNAMIC_FTRACE_WITH_ARGS likewise), which switches CONFIG_TASKS_RCU to the
-implementation added earlier in the series: a Tasks RCU grace period
-becomes a per-CPU pass over context switches and irq-exit reschedules
-outside trampoline text plus a Tasks Trace grace period, bounded by a
-few jiffies and preempt-off latency instead of by the longest stretch
-any task runs without sleeping.
+The CCU and R-CCU (PRCM) modules provide clocks and reset functions for
+the Allwinner A733 SoC. The clock architecture of the A733 is evolved
+from the A523, though the root clocking strategy transitions from a
+static oscillator frequency in the Devicetree to the "hosc" clock, which
+is determined by choosing from three possible frequencies (19.2MHz,
+24MHz, or 26MHz) by the RTC hardware, and finally feeds the CCU and
+R-CCU.
 
-Other architectures keep the classic implementation.  Update
-Documentation/RCU and the FORCE_TASKS_RCU help text to describe the
-variant and the obligation it places on trampolines.
+Additionally, the MCU_CCU module found in previous designs is removed
+from the A733, and the clock tree is expanded with more clock outputs
+to support new functional modules.
 
-Assisted-by: LLM
-Signed-off-by: Josef Bacik <josef@toxicpanda.com>
+Reviewed-by: Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
+Signed-off-by: Junhui Liu <junhui.liu@pigmoral.tech>
 ---
- .../RCU/Design/Requirements/Requirements.rst       | 24 ++++++++++++++++++++++
- Documentation/RCU/checklist.rst                    |  7 ++++++-
- arch/arm64/Kconfig                                 |  1 +
- arch/x86/Kconfig                                   |  1 +
- kernel/rcu/Kconfig                                 |  6 ++++--
- 5 files changed, 36 insertions(+), 3 deletions(-)
+ .../bindings/clock/allwinner,sun60i-a733-ccu.yaml  | 107 ++++++++
+ .../dt-bindings/clock/allwinner,sun60i-a733-ccu.h  | 291 +++++++++++++++++++++
+ .../clock/allwinner,sun60i-a733-r-ccu.h            |  39 +++
+ .../dt-bindings/reset/allwinner,sun60i-a733-ccu.h  | 129 +++++++++
+ .../reset/allwinner,sun60i-a733-r-ccu.h            |  23 ++
+ 5 files changed, 589 insertions(+)
 
-diff --git a/Documentation/RCU/Design/Requirements/Requirements.rst b/Documentation/RCU/Design/Requirements/Requirements.rst
-index 8101fe6229d5..c059c463e083 100644
---- a/Documentation/RCU/Design/Requirements/Requirements.rst
-+++ b/Documentation/RCU/Design/Requirements/Requirements.rst
-@@ -2756,6 +2756,30 @@ synchronize_rcu(), and rcu_barrier(), respectively. In
- three APIs are therefore implemented by separate functions that check
- for voluntary context switches.
- 
-+Architectures that select ``CONFIG_HAVE_RCU_TRAMPOLINE_READERS`` keep the
-+same three APIs but implement the grace period differently
-+(``CONFIG_TASKS_RCU_TRAMPOLINE_READERS``).  There, every trampoline whose
-+lifetime Tasks RCU guards enters a Tasks Trace RCU read-side critical
-+section (rcu_read_lock_trace() or its assembly equivalent) before calling
-+out and leaves it before returning, so a task anywhere inside such a
-+call-out is an ordinary Tasks Trace reader whether or not it is
-+preempted.  The few trampoline instructions outside that reader can only
-+be occupied by a task that was interrupted there, so the grace period
-+additionally waits for each CPU to pass through a context switch, and the
-+irq-exit preemption path, the only switch that can catch a task inside
-+such text (rcu_tasks_trampoline_text()), briefly makes such a task a
-+holdout until it is next seen elsewhere.  On such kernels an involuntary
-+context switch outside trampoline text *is* a Tasks-RCU quiescent state,
-+a Tasks RCU grace period no longer depends on how long any task runs
-+without sleeping, cond_resched_tasks_rcu_qs() is unnecessary, and the
-+obligation moves to the trampolines: anything that relies on
-+synchronize_rcu_tasks() to protect code a task may be preempted in must
-+take the Tasks Trace reader (see register_ftrace_direct()), or, where
-+that is impossible because the code is ordinary text with no trampoline
-+of its own, make it known to rcu_tasks_trampoline_text() and wait out
-+tasks already parked there with rcu_tasks_wait_irq_preempted(), as the
-+kprobe jump optimizer does.
+diff --git a/Documentation/devicetree/bindings/clock/allwinner,sun60i-a733-ccu.yaml b/Documentation/devicetree/bindings/clock/allwinner,sun60i-a733-ccu.yaml
+new file mode 100644
+index 000000000000..7c9068d3bbb0
+--- /dev/null
++++ b/Documentation/devicetree/bindings/clock/allwinner,sun60i-a733-ccu.yaml
+@@ -0,0 +1,107 @@
++# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
++%YAML 1.2
++---
++$id: http://devicetree.org/schemas/clock/allwinner,sun60i-a733-ccu.yaml#
++$schema: http://devicetree.org/meta-schemas/core.yaml#
 +
- Tasks Rude RCU
- ~~~~~~~~~~~~~~
- 
-diff --git a/Documentation/RCU/checklist.rst b/Documentation/RCU/checklist.rst
-index 4b30f701225f..87dd506bffef 100644
---- a/Documentation/RCU/checklist.rst
-+++ b/Documentation/RCU/checklist.rst
-@@ -252,7 +252,12 @@ over a rather long period of time, but improvements are always welcome!
- 	a.	If the updater uses synchronize_rcu_tasks() or
- 		call_rcu_tasks(), then the readers must refrain from
- 		executing voluntary context switches, that is, from
--		blocking.
-+		blocking.  On architectures that select
-+		CONFIG_HAVE_RCU_TRAMPOLINE_READERS a reader must in
-+		addition be a Tasks Trace RCU reader (that is what the
-+		trampolines there do around their call-outs) or be text
-+		that rcu_tasks_trampoline_text() recognises; an arbitrary
-+		stretch of preemptible kernel code is not protected.
- 
- 	b.	If the updater uses call_rcu_tasks_trace()
- 		or synchronize_rcu_tasks_trace(), then the
-diff --git a/arch/arm64/Kconfig b/arch/arm64/Kconfig
-index b5a51b0ef944..bf0e56006863 100644
---- a/arch/arm64/Kconfig
-+++ b/arch/arm64/Kconfig
-@@ -218,6 +218,7 @@ config ARM64
- 	select HAVE_PERF_REGS
- 	select HAVE_PERF_USER_STACK_DUMP
- 	select HAVE_PREEMPT_DYNAMIC_KEY
-+	select HAVE_RCU_TRAMPOLINE_READERS if DYNAMIC_FTRACE_WITH_ARGS
- 	select HAVE_REGS_AND_STACK_ACCESS_API
- 	select HAVE_RELIABLE_STACKTRACE
- 	select HAVE_POSIX_CPU_TIMERS_TASK_WORK
-diff --git a/arch/x86/Kconfig b/arch/x86/Kconfig
-index 15fd9ec5ecac..64c3814eb745 100644
---- a/arch/x86/Kconfig
-+++ b/arch/x86/Kconfig
-@@ -288,6 +288,7 @@ config X86
- 	select MMU_GATHER_RCU_TABLE_FREE
- 	select MMU_GATHER_MERGE_VMAS
- 	select HAVE_POSIX_CPU_TIMERS_TASK_WORK
-+	select HAVE_RCU_TRAMPOLINE_READERS	if X86_64 && SMP && DYNAMIC_FTRACE
- 	select HAVE_REGS_AND_STACK_ACCESS_API
- 	select HAVE_RELIABLE_STACKTRACE		if UNWINDER_ORC || STACK_VALIDATION
- 	select HAVE_FUNCTION_ARG_ACCESS_API
-diff --git a/kernel/rcu/Kconfig b/kernel/rcu/Kconfig
-index e3dc348bff29..abff3a924e1e 100644
---- a/kernel/rcu/Kconfig
-+++ b/kernel/rcu/Kconfig
-@@ -95,8 +95,10 @@ config FORCE_TASKS_RCU
- 	help
- 	  This option force-enables a task-based RCU implementation
- 	  that uses only voluntary context switch (not preemption!),
--	  idle, and user-mode execution as quiescent states.  Not for
--	  manual selection in most cases.
-+	  idle, and user-mode execution as quiescent states, or, on
-+	  HAVE_RCU_TRAMPOLINE_READERS architectures, the variant built on
-+	  Tasks Trace RCU readers in trampolines.  Not for manual
-+	  selection in most cases.
- 
- config NEED_TASKS_RCU
- 	bool
++title: Allwinner A733 Clock Control Unit
++
++maintainers:
++  - Junhui Liu <junhui.liu@pigmoral.tech>
++
++properties:
++  compatible:
++    enum:
++      - allwinner,sun60i-a733-ccu
++      - allwinner,sun60i-a733-r-ccu
++
++  reg:
++    maxItems: 1
++
++  clocks:
++    minItems: 4
++    maxItems: 7
++
++  clock-names:
++    minItems: 4
++    maxItems: 7
++
++  "#clock-cells":
++    const: 1
++
++  "#reset-cells":
++    const: 1
++
++required:
++  - compatible
++  - reg
++  - clocks
++  - clock-names
++  - "#clock-cells"
++  - "#reset-cells"
++
++allOf:
++  - if:
++      properties:
++        compatible:
++          enum:
++            - allwinner,sun60i-a733-ccu
++
++    then:
++      properties:
++        clocks:
++          items:
++            - description: High Frequency Oscillator (19.2MHz, 24MHz, or 26MHz)
++            - description: Low Frequency Oscillator (usually at 32kHz)
++            - description: Internal Oscillator
++            - description: Low Frequency Oscillator fanout
++
++        clock-names:
++          items:
++            - const: hosc
++            - const: losc
++            - const: iosc
++            - const: losc-fanout
++
++  - if:
++      properties:
++        compatible:
++          enum:
++            - allwinner,sun60i-a733-r-ccu
++
++    then:
++      properties:
++        clocks:
++          items:
++            - description: High Frequency Oscillator (19.2MHz, 24MHz, or 26MHz)
++            - description: Low Frequency Oscillator (usually at 32kHz)
++            - description: Internal Oscillator
++            - description: System 24MHz Clock
++            - description: Peripherals PLL 0 (200 MHz output)
++            - description: Peripherals PLL 0 (300 MHz output)
++            - description: Peripherals PLL 1 (300 MHz output)
++
++        clock-names:
++          items:
++            - const: hosc
++            - const: losc
++            - const: iosc
++            - const: sys-24m
++            - const: pll-periph0-200m
++            - const: pll-periph0-300m
++            - const: pll-periph1-300m
++
++additionalProperties: false
++
++examples:
++  - |
++    clock-controller@2002000 {
++      compatible = "allwinner,sun60i-a733-ccu";
++      reg = <0x02002000 0x2000>;
++      clocks = <&osc>, <&rtc 0>, <&rtc 2>, <&rtc 1>;
++      clock-names = "hosc", "losc", "iosc", "losc-fanout";
++      #clock-cells = <1>;
++      #reset-cells = <1>;
++    };
++
++...
+diff --git a/include/dt-bindings/clock/allwinner,sun60i-a733-ccu.h b/include/dt-bindings/clock/allwinner,sun60i-a733-ccu.h
+new file mode 100644
+index 000000000000..eb6276e9b7a5
+--- /dev/null
++++ b/include/dt-bindings/clock/allwinner,sun60i-a733-ccu.h
+@@ -0,0 +1,291 @@
++/* SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause) */
++/*
++ * Copyright (C) 2026 Junhui Liu <junhui.liu@pigmoral.tech>
++ *
++ * The user manual uses PCLK, HCLK, and MCLK suffixes for some bus clocks.
++ * These are represented here as APB, AHB, and MBUS prefixes respectively,
++ * with the bus type moved to the front of the clock name.
++ */
++
++#ifndef _DT_BINDINGS_CLK_ALLWINNER_SUN60I_A733_CCU_H_
++#define _DT_BINDINGS_CLK_ALLWINNER_SUN60I_A733_CCU_H_
++
++#define CLK_PLL_REF		0
++#define CLK_SYS_24M		1
++#define CLK_PLL_DDR		2
++#define CLK_PLL_PERIPH0_4X	3
++#define CLK_PLL_PERIPH0_2X	4
++#define CLK_PLL_PERIPH0_800M	5
++#define CLK_PLL_PERIPH0_480M	6
++#define CLK_PLL_PERIPH0_600M	7
++#define CLK_PLL_PERIPH0_400M	8
++#define CLK_PLL_PERIPH0_300M	9
++#define CLK_PLL_PERIPH0_200M	10
++#define CLK_PLL_PERIPH0_160M	11
++#define CLK_PLL_PERIPH0_150M	12
++#define CLK_PLL_PERIPH1_4X	13
++#define CLK_PLL_PERIPH1_2X	14
++#define CLK_PLL_PERIPH1_800M	15
++#define CLK_PLL_PERIPH1_480M	16
++#define CLK_PLL_PERIPH1_600M	17
++#define CLK_PLL_PERIPH1_400M	18
++#define CLK_PLL_PERIPH1_300M	19
++#define CLK_PLL_PERIPH1_200M	20
++#define CLK_PLL_PERIPH1_160M	21
++#define CLK_PLL_PERIPH1_150M	22
++#define CLK_PLL_GPU0		23
++#define CLK_PLL_VIDEO0		24
++#define CLK_PLL_VIDEO0_4X	25
++#define CLK_PLL_VIDEO0_3X	26
++#define CLK_PLL_VIDEO1		27
++#define CLK_PLL_VIDEO1_4X	28
++#define CLK_PLL_VIDEO1_3X	29
++#define CLK_PLL_VIDEO2		30
++#define CLK_PLL_VIDEO2_4X	31
++#define CLK_PLL_VIDEO2_3X	32
++#define CLK_PLL_VE0		33
++#define CLK_PLL_VE1		34
++#define CLK_PLL_AUDIO0_4X	35
++#define CLK_PLL_AUDIO1		36
++#define CLK_PLL_AUDIO1_DIV2	37
++#define CLK_PLL_AUDIO1_DIV5	38
++#define CLK_PLL_NPU		39
++#define CLK_PLL_DE		40
++#define CLK_PLL_DE_4X		41
++#define CLK_PLL_DE_3X		42
++#define CLK_AHB			43
++#define CLK_APB0		44
++#define CLK_APB1		45
++#define CLK_APB_UART		46
++#define CLK_TRACE		47
++#define CLK_GIC			48
++#define CLK_BUS_ITS_PCIE0_ACLK	49
++#define CLK_MBUS		50
++#define CLK_MBUS_IOMMU0_SYS	51
++#define CLK_APB_IOMMU0_SYS	52
++#define CLK_AHB_IOMMU0_SYS	53
++#define CLK_BUS_MSI_LITE0	54
++#define CLK_BUS_MSI_LITE1	55
++#define CLK_BUS_MSI_LITE2	56
++#define CLK_MBUS_IOMMU1_SYS	57
++#define CLK_APB_IOMMU1_SYS	58
++#define CLK_AHB_IOMMU1_SYS	59
++#define CLK_AHB_VE_DEC		60
++#define CLK_AHB_VE_ENC		61
++#define CLK_AHB_VID_IN		62
++#define CLK_AHB_VID_COUT0	63
++#define CLK_AHB_VID_COUT1	64
++#define CLK_AHB_DE		65
++#define CLK_AHB_NPU		66
++#define CLK_AHB_GPU0		67
++#define CLK_AHB_SERDES		68
++#define CLK_AHB_USB_SYS		69
++#define CLK_AHB_MSI_LITE0	70
++#define CLK_AHB_STORE		71
++#define CLK_AHB_CPUS		72
++#define CLK_MBUS_IOMMU0		73
++#define CLK_MBUS_IOMMU1		74
++#define CLK_MBUS_DESYS		75
++#define CLK_MBUS_VE_ENC0_GATE	76
++#define CLK_MBUS_VE_DEC0_GATE	77
++#define CLK_MBUS_GPU0		78
++#define CLK_MBUS_NPU		79
++#define CLK_MBUS_VID_IN		80
++#define CLK_MBUS_SERDES		81
++#define CLK_MBUS_MSI_LITE0	82
++#define CLK_MBUS_STORE		83
++#define CLK_MBUS_MSI_LITE2	84
++#define CLK_MBUS_DMA0		85
++#define CLK_MBUS_VE_ENC0	86
++#define CLK_MBUS_CE		87
++#define CLK_MBUS_DMA1		88
++#define CLK_MBUS_NAND		89
++#define CLK_MBUS_CSI		90
++#define CLK_MBUS_ISP		91
++#define CLK_MBUS_GMAC0		92
++#define CLK_MBUS_GMAC1		93
++#define CLK_MBUS_VE_DEC0	94
++#define CLK_BUS_DMA0		95
++#define CLK_BUS_DMA1		96
++#define CLK_BUS_SPINLOCK	97
++#define CLK_BUS_MSGBOX0		98
++#define CLK_BUS_PWM0		99
++#define CLK_BUS_PWM1		100
++#define CLK_BUS_DBG		101
++#define CLK_BUS_SYSDAP		102
++#define CLK_TIMER0		103
++#define CLK_TIMER1		104
++#define CLK_TIMER2		105
++#define CLK_TIMER3		106
++#define CLK_TIMER4		107
++#define CLK_TIMER5		108
++#define CLK_TIMER6		109
++#define CLK_TIMER7		110
++#define CLK_TIMER8		111
++#define CLK_TIMER9		112
++#define CLK_BUS_TIMER		113
++#define CLK_AVS			114
++#define CLK_DE0			115
++#define CLK_BUS_DE0		116
++#define CLK_DI			117
++#define CLK_BUS_DI		118
++#define CLK_G2D			119
++#define CLK_BUS_G2D		120
++#define CLK_EINK		121
++#define CLK_EINK_PANEL		122
++#define CLK_BUS_EINK		123
++#define CLK_VE_ENC0		124
++#define CLK_VE_DEC0		125
++#define CLK_BUS_VE_ENC0		126
++#define CLK_BUS_VE_DEC0		127
++#define CLK_CE			128
++#define CLK_BUS_CE		129
++#define CLK_BUS_CE_SYS		130
++#define CLK_NPU			131
++#define CLK_BUS_NPU		132
++#define CLK_GPU0		133
++#define CLK_BUS_GPU0		134
++#define CLK_DRAM0		135
++#define CLK_BUS_DRAM0		136
++#define CLK_NAND0_CLK0		137
++#define CLK_NAND0_CLK1		138
++#define CLK_BUS_NAND0		139
++#define CLK_MMC0		140
++#define CLK_BUS_MMC0		141
++#define CLK_MMC1		142
++#define CLK_BUS_MMC1		143
++#define CLK_MMC2		144
++#define CLK_BUS_MMC2		145
++#define CLK_MMC3		146
++#define CLK_BUS_MMC3		147
++#define CLK_UFS_AXI		148
++#define CLK_UFS_CFG		149
++#define CLK_BUS_UFS		150
++#define CLK_BUS_UART0		151
++#define CLK_BUS_UART1		152
++#define CLK_BUS_UART2		153
++#define CLK_BUS_UART3		154
++#define CLK_BUS_UART4		155
++#define CLK_BUS_UART5		156
++#define CLK_BUS_UART6		157
++#define CLK_BUS_I2C0		158
++#define CLK_BUS_I2C1		159
++#define CLK_BUS_I2C2		160
++#define CLK_BUS_I2C3		161
++#define CLK_BUS_I2C4		162
++#define CLK_BUS_I2C5		163
++#define CLK_BUS_I2C6		164
++#define CLK_BUS_I2C7		165
++#define CLK_BUS_I2C8		166
++#define CLK_BUS_I2C9		167
++#define CLK_BUS_I2C10		168
++#define CLK_BUS_I2C11		169
++#define CLK_BUS_I2C12		170
++#define CLK_SPI0		171
++#define CLK_BUS_SPI0		172
++#define CLK_SPI1		173
++#define CLK_BUS_SPI1		174
++#define CLK_SPI2		175
++#define CLK_BUS_SPI2		176
++#define CLK_SPIF		177
++#define CLK_BUS_SPIF		178
++#define CLK_SPI3		179
++#define CLK_BUS_SPI3		180
++#define CLK_SPI4		181
++#define CLK_BUS_SPI4		182
++#define CLK_GPADC0_24M		183
++#define CLK_BUS_GPADC0		184
++#define CLK_BUS_THS0		185
++#define CLK_IRRX		186
++#define CLK_BUS_IRRX		187
++#define CLK_IRTX		188
++#define CLK_BUS_IRTX		189
++#define CLK_BUS_LRADC		190
++#define CLK_SGPIO		191
++#define CLK_BUS_SGPIO		192
++#define CLK_LPC			193
++#define CLK_BUS_LPC		194
++#define CLK_I2SPCM0		195
++#define CLK_BUS_I2SPCM0		196
++#define CLK_I2SPCM1		197
++#define CLK_BUS_I2SPCM1		198
++#define CLK_I2SPCM2		199
++#define CLK_I2SPCM2_ASRC	200
++#define CLK_BUS_I2SPCM2		201
++#define CLK_I2SPCM3		202
++#define CLK_BUS_I2SPCM3		203
++#define CLK_I2SPCM4		204
++#define CLK_BUS_I2SPCM4		205
++#define CLK_SPDIF_TX		206
++#define CLK_SPDIF_RX		207
++#define CLK_BUS_SPDIF		208
++#define CLK_DMIC		209
++#define CLK_BUS_DMIC		210
++#define CLK_USB_OHCI0		211
++#define CLK_BUS_OHCI0		212
++#define CLK_BUS_EHCI0		213
++#define CLK_BUS_OTG		214
++#define CLK_USB_OHCI1		215
++#define CLK_BUS_OHCI1		216
++#define CLK_BUS_EHCI1		217
++#define CLK_USB01_REF		218
++#define CLK_USB2_U2_REF		219
++#define CLK_USB2_SUSPEND	220
++#define CLK_USB2_MF		221
++#define CLK_USB2_U3_UTMI	222
++#define CLK_USB2_U2_PIPE	223
++#define CLK_PCIE_AUX		224
++#define CLK_PCIE_AXI_SLV	225
++#define CLK_SERDES_PHY		226
++#define CLK_GMAC_PTP		227
++#define CLK_GMAC0_PHY		228
++#define CLK_BUS_GMAC0		229
++#define CLK_GMAC1_PHY		230
++#define CLK_BUS_GMAC1		231
++#define CLK_TCON_LCD0		232
++#define CLK_BUS_TCON_LCD0	233
++#define CLK_TCON_LCD1		234
++#define CLK_BUS_TCON_LCD1	235
++#define CLK_TCON_LCD2		236
++#define CLK_BUS_TCON_LCD2	237
++#define CLK_DSI0		238
++#define CLK_BUS_DSI0		239
++#define CLK_DSI1		240
++#define CLK_BUS_DSI1		241
++#define CLK_COMBPHY0		242
++#define CLK_COMBPHY1		243
++#define CLK_BUS_TCON_TV0	244
++#define CLK_BUS_TCON_TV1	245
++#define CLK_EDP_TV		246
++#define CLK_BUS_EDP_TV		247
++#define CLK_HDMI_CEC_32K	248
++#define CLK_HDMI_CEC		249
++#define CLK_HDMI_TV		250
++#define CLK_BUS_HDMI_TV		251
++#define CLK_HDMI_SFR		252
++#define CLK_HDCP_ESM		253
++#define CLK_BUS_DPSS_TOP0	254
++#define CLK_BUS_DPSS_TOP1	255
++#define CLK_LEDC		256
++#define CLK_BUS_LEDC		257
++#define CLK_BUS_DSC		258
++#define CLK_CSI_MASTER0		259
++#define CLK_CSI_MASTER1		260
++#define CLK_CSI_MASTER2		261
++#define CLK_CSI			262
++#define CLK_BUS_CSI		263
++#define CLK_ISP			264
++#define CLK_RES_DCAP_24M	265
++#define CLK_APB2JTAG		266
++#define CLK_FANOUT_24M		267
++#define CLK_FANOUT_12M		268
++#define CLK_FANOUT_16M		269
++#define CLK_FANOUT_25M		270
++#define CLK_FANOUT_27M		271
++#define CLK_FANOUT_PCLK		272
++#define CLK_FANOUT0		273
++#define CLK_FANOUT1		274
++#define CLK_FANOUT2		275
++#define CLK_FANOUT3		276
++
++#endif /* _DT_BINDINGS_CLK_ALLWINNER_SUN60I_A733_CCU_H_ */
+diff --git a/include/dt-bindings/clock/allwinner,sun60i-a733-r-ccu.h b/include/dt-bindings/clock/allwinner,sun60i-a733-r-ccu.h
+new file mode 100644
+index 000000000000..d620c6882c50
+--- /dev/null
++++ b/include/dt-bindings/clock/allwinner,sun60i-a733-r-ccu.h
+@@ -0,0 +1,39 @@
++/* SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause) */
++/*
++ * Copyright (C) 2026 Junhui Liu <junhui.liu@pigmoral.tech>
++ */
++
++#ifndef _DT_BINDINGS_CLK_ALLWINNER_SUN60I_A733_R_CCU_H_
++#define _DT_BINDINGS_CLK_ALLWINNER_SUN60I_A733_R_CCU_H_
++
++#define CLK_R_AHB		0
++#define CLK_R_APB0		1
++#define CLK_R_APB1		2
++#define CLK_R_TIMER0		3
++#define CLK_R_TIMER1		4
++#define CLK_R_TIMER2		5
++#define CLK_R_TIMER3		6
++#define CLK_BUS_R_TIMER		7
++#define CLK_BUS_R_TWD		8
++#define CLK_R_PWM		9
++#define CLK_BUS_R_PWM		10
++#define CLK_R_SPI		11
++#define CLK_BUS_R_SPI		12
++#define CLK_BUS_R_MSGBOX	13
++#define CLK_BUS_R_UART0		14
++#define CLK_BUS_R_UART1		15
++#define CLK_BUS_R_I2C0		16
++#define CLK_BUS_R_I2C1		17
++#define CLK_BUS_R_I2C2		18
++#define CLK_BUS_R_PPU		19
++#define CLK_BUS_R_TZMA		20
++#define CLK_BUS_R_CPU_BIST	21
++#define CLK_R_IR_RX		22
++#define CLK_BUS_R_IR_RX		23
++#define CLK_BUS_R_RTC		24
++#define CLK_R_RISCV		25
++#define CLK_BUS_R_RISCV		26
++#define CLK_BUS_R_RISCV_CFG	27
++#define CLK_BUS_R_CPUCFG	28
++
++#endif /* _DT_BINDINGS_CLK_ALLWINNER_SUN60I_A733_R_CCU_H_ */
+diff --git a/include/dt-bindings/reset/allwinner,sun60i-a733-ccu.h b/include/dt-bindings/reset/allwinner,sun60i-a733-ccu.h
+new file mode 100644
+index 000000000000..a4db2f673bd0
+--- /dev/null
++++ b/include/dt-bindings/reset/allwinner,sun60i-a733-ccu.h
+@@ -0,0 +1,129 @@
++/* SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause) */
++/*
++ * Copyright (C) 2026 Junhui Liu <junhui.liu@pigmoral.tech>
++ */
++
++#ifndef _DT_BINDINGS_RST_ALLWINNER_SUN60I_A733_CCU_H_
++#define _DT_BINDINGS_RST_ALLWINNER_SUN60I_A733_CCU_H_
++
++#define RST_BUS_ITS_PCIE0	0
++#define RST_BUS_IOMMU0_SYS	1
++#define RST_BUS_MSI_LITE0_AHB	2
++#define RST_BUS_MSI_LITE0_MBUS	3
++#define RST_BUS_MSI_LITE1_AHB	4
++#define RST_BUS_MSI_LITE1_MBUS	5
++#define RST_BUS_MSI_LITE2_AHB	6
++#define RST_BUS_MSI_LITE2_MBUS	7
++#define RST_BUS_IOMMU1_SYS	8
++#define RST_BUS_DMA0		9
++#define RST_BUS_DMA1		10
++#define RST_BUS_SPINLOCK	11
++#define RST_BUS_MSGBOX		12
++#define RST_BUS_PWM0		13
++#define RST_BUS_PWM1		14
++#define RST_BUS_DBG		15
++#define RST_BUS_SYSDAP		16
++#define RST_BUS_TIMER0		17
++#define RST_BUS_DE0		18
++#define RST_BUS_DI		19
++#define RST_BUS_G2D		20
++#define RST_BUS_EINK		21
++#define RST_BUS_DE_SYS		22
++#define RST_BUS_VE_ENC0		23
++#define RST_BUS_VE_DEC0		24
++#define RST_BUS_CE		25
++#define RST_BUS_CE_SYS		26
++#define RST_BUS_NPU_CORE	27
++#define RST_BUS_NPU_AXI		28
++#define RST_BUS_NPU_AHB		29
++#define RST_BUS_NPU_SRAM	30
++#define RST_BUS_GPU0		31
++#define RST_BUS_DRAM0		32
++#define RST_BUS_NAND0		33
++#define RST_BUS_MMC0		34
++#define RST_BUS_MMC1		35
++#define RST_BUS_MMC2		36
++#define RST_BUS_MMC3		37
++#define RST_BUS_UFS_AHB		38
++#define RST_BUS_UFS_AXI		39
++#define RST_BUS_UFS_PHY		40
++#define RST_BUS_UFS_CORE	41
++#define RST_BUS_UART0		42
++#define RST_BUS_UART1		43
++#define RST_BUS_UART2		44
++#define RST_BUS_UART3		45
++#define RST_BUS_UART4		46
++#define RST_BUS_UART5		47
++#define RST_BUS_UART6		48
++#define RST_BUS_I2C0		49
++#define RST_BUS_I2C1		50
++#define RST_BUS_I2C2		51
++#define RST_BUS_I2C3		52
++#define RST_BUS_I2C4		53
++#define RST_BUS_I2C5		54
++#define RST_BUS_I2C6		55
++#define RST_BUS_I2C7		56
++#define RST_BUS_I2C8		57
++#define RST_BUS_I2C9		58
++#define RST_BUS_I2C10		59
++#define RST_BUS_I2C11		60
++#define RST_BUS_I2C12		61
++#define RST_BUS_SPI0		62
++#define RST_BUS_SPI1		63
++#define RST_BUS_SPI2		64
++#define RST_BUS_SPIF		65
++#define RST_BUS_SPI3		66
++#define RST_BUS_SPI4		67
++#define RST_BUS_GPADC0		68
++#define RST_BUS_THS0		69
++#define RST_BUS_IRRX		70
++#define RST_BUS_IRTX		71
++#define RST_BUS_LRADC		72
++#define RST_BUS_SGPIO		73
++#define RST_BUS_LPC		74
++#define RST_BUS_I2SPCM0		75
++#define RST_BUS_I2SPCM1		76
++#define RST_BUS_I2SPCM2		77
++#define RST_BUS_I2SPCM3		78
++#define RST_BUS_I2SPCM4		79
++#define RST_BUS_SPDIF		80
++#define RST_BUS_DMIC		81
++#define RST_USB_PHY0		82
++#define RST_BUS_OHCI0		83
++#define RST_BUS_EHCI0		84
++#define RST_BUS_OTG		85
++#define RST_USB_PHY1		86
++#define RST_BUS_OHCI1		87
++#define RST_BUS_EHCI1		88
++#define RST_BUS_USB2		89
++#define RST_BUS_PCIE_PWRUP	90
++#define RST_BUS_PCIE		91
++#define RST_BUS_SERDES		92
++#define RST_BUS_GMAC0		93
++#define RST_BUS_GMAC0_AXI	94
++#define RST_BUS_GMAC1		95
++#define RST_BUS_GMAC1_AXI	96
++#define RST_BUS_TCON_LCD0	97
++#define RST_BUS_TCON_LCD1	98
++#define RST_BUS_TCON_LCD2	99
++#define RST_BUS_LVDS0		100
++#define RST_BUS_LVDS1		101
++#define RST_BUS_DSI0		102
++#define RST_BUS_DSI1		103
++#define RST_BUS_TCON_TV0	104
++#define RST_BUS_TCON_TV1	105
++#define RST_BUS_EDP		106
++#define RST_BUS_HDMI_MAIN	107
++#define RST_BUS_HDMI_SUB	108
++#define RST_BUS_HDMI_HDCP	109
++#define RST_BUS_DPSS_TOP0	110
++#define RST_BUS_DPSS_TOP1	111
++#define RST_BUS_VIDEO_OUT0	112
++#define RST_BUS_VIDEO_OUT1	113
++#define RST_BUS_LEDC		114
++#define RST_BUS_DSC		115
++#define RST_BUS_CSI		116
++#define RST_BUS_VIDEO_IN	117
++#define RST_BUS_APB2JTAG	118
++
++#endif /* _DT_BINDINGS_RST_ALLWINNER_SUN60I_A733_CCU_H_ */
+diff --git a/include/dt-bindings/reset/allwinner,sun60i-a733-r-ccu.h b/include/dt-bindings/reset/allwinner,sun60i-a733-r-ccu.h
+new file mode 100644
+index 000000000000..69fc7d405e1d
+--- /dev/null
++++ b/include/dt-bindings/reset/allwinner,sun60i-a733-r-ccu.h
+@@ -0,0 +1,23 @@
++/* SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause) */
++/*
++ * Copyright (C) 2026 Junhui Liu <junhui.liu@pigmoral.tech>
++ */
++
++#ifndef _DT_BINDINGS_RST_ALLWINNER_SUN60I_A733_R_CCU_H_
++#define _DT_BINDINGS_RST_ALLWINNER_SUN60I_A733_R_CCU_H_
++
++#define RST_BUS_R_TIMER		0
++#define RST_BUS_R_PWM		1
++#define RST_BUS_R_SPI		2
++#define RST_BUS_R_MSGBOX	3
++#define RST_BUS_R_UART0		4
++#define RST_BUS_R_UART1		5
++#define RST_BUS_R_I2C0		6
++#define RST_BUS_R_I2C1		7
++#define RST_BUS_R_I2C2		8
++#define RST_BUS_R_IR_RX		9
++#define RST_BUS_R_RTC		10
++#define RST_BUS_R_RISCV_CFG	11
++#define RST_BUS_R_CPUCFG	12
++
++#endif /* _DT_BINDINGS_RST_ALLWINNER_SUN60I_A733_R_CCU_H_ */
 
 -- 
 2.55.0
