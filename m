@@ -4,44 +4,44 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 94320CA5FA1
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 29 Sep 2026 12:30:29 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A8E75CA5FA5
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 29 Sep 2026 12:30:39 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
 	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
 	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=QVSxnwIJqZkRreJjQfIbbsxCcEJwuhlGaTzg7HTiWVo=; b=MHXSjDyFUSl2VX57KtWLd5JA65
-	tStoF/lTGaH3wzZdN4a4+PeB2R8aVaH2jHgnjRe9fNDi2TIUZj1CbN0sQmXy4U3JSH/aXMAa3n+Se
-	Fw7dZr3DrOZPu42dKsF+VI5WmxpA19K9Z3WTFOazxlUzp+ZYuUbfHfIGomEC5/ASnojysuZlS0cjA
-	C2Bys+omQS/g8gFAkUzQRzJCYUCm5H0DSHeo+zk7BPT84dxoc345NcY1nqRMuK8NunCWgJHbjkRpJ
-	ypasmiiQ6w2ZwQHhI/wHOi8SY44rMXDJCmpAKzGgvhiPaai4rRRrw1N9E6/ahJ/POPeoEU4CyPPzl
-	TTBqB2ng==;
+	bh=OdWMiN2jy8drBuF4VcdQsXqyjFoMik5zdyy8hzyUDhs=; b=3UGsLQS9xnC9SpO47EKesNE2oT
+	CyhkWypcEyPONOzM5wggC0mBoZfuLOgfW7/KIn4VaRqmTnY07Io0XCGOgnW94AT4RSLlr+h0zj8VU
+	3AA31EyQ859MTIfAlzDrGzSH0IgxU6wWS6fTnx5IIYUN5Ip7h1rULzCCFDQ5X6e2/XEbE4iZzFslL
+	XYjq5FbLlYifQt25cN0hqExR8KNhvGsLY8qKvkE7wSpYu8IsYXhlxH6cOuuBp7uafMi3GiuVu9dK7
+	NGXYe/0UNTxIVoFVqAbhcBHnBwfoDRpoTa7Y1t10rd+are3DhKHHVJ5M/zLC4o+vl+6QOi9gj1QoA
+	9PGXV8Ug==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xBWyU-00000003X9X-1fEj;
-	Tue, 29 Sep 2026 12:30:22 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1xBWyf-00000003XCQ-23g9;
+	Tue, 29 Sep 2026 12:30:33 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xBWyT-00000003X9N-3ksW
+	id 1xBWya-00000003XBb-3N8D
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 29 Sep 2026 12:30:21 +0000
+	Tue, 29 Sep 2026 12:30:28 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id EC6A0600D1;
-	Tue, 29 Sep 2026 12:30:20 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 79DEB1F000FF;
-	Tue, 29 Sep 2026 12:30:18 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 8D672402E3;
+	Tue, 29 Sep 2026 12:30:28 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 15C231F000FF;
+	Tue, 29 Sep 2026 12:30:25 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1790685020;
-	bh=QVSxnwIJqZkRreJjQfIbbsxCcEJwuhlGaTzg7HTiWVo=;
+	s=k20260515; t=1790685028;
+	bh=OdWMiN2jy8drBuF4VcdQsXqyjFoMik5zdyy8hzyUDhs=;
 	h=From:To:Cc:Subject:Date;
-	b=ICPG7vJnAzgTQM2w+rZppwMb+SCGx+5MYluqDgDo7PyScOsCn4Rr/0zi+A14DkDJf
-	 BR+q9nX5vKv7YBXjFb7KQShAOujypriP/jyGlj7H0jMoLA1aA5y0/x5O/RFdicgu6M
-	 wzFRCEgYfxCj14u0bTMTERETJUWIq2dikDw2O7IGNRdm1jRWMNTwDjFH35SELcfBXw
-	 jh9SSsQZdozVlPUsFPEkUH/P4Q79ZpSKAjt5IpXiNVo2LRHKo+zAfoYpgzhimNHdbJ
-	 bwopsB+IAvgauJa/ALSnSOd8s5w6DKCU2rkoBdn+mIohsKdPDx9OpLabR+OeFV5TNO
-	 //DNVUdkT/77A==
+	b=XqBJnEEbUt3oKV0abXmH2olHDmY+UxSrhGgS48apvMIfxMxajtovtT1nl8H3oacX4
+	 Wxf8KGySXgKIMW6IlIfbfYBb9+yRU7EIYGZFMzJY5ynMgFtNlwodTCM4XlEIwuznNz
+	 o9OcT8LSA5u7H2JuXdlSbikTAIY1LquP8XR8j64Gcxrl1L31EEFpLShB/fCHF/gFek
+	 G+E+hSI0Xop/7Z4MnIvFRn+u6wFCDlsH/OQYvBUu4brLeep0G+7D0jCVuXfzqvSgRy
+	 hWXEQiUlJINKA+FlIaDmxgYJGMJo93bjcBRcPxjh5mHhb9nRgg6y+hhCoxaNXAqnQp
+	 YhGjNrTvQY4jA==
 From: Jisheng Zhang <jszhang@kernel.org>
 To: Maxime Chevallier <maxime.chevallier@bootlin.com>,
 	Andrew Lunn <andrew+netdev@lunn.ch>,
@@ -54,9 +54,9 @@ To: Maxime Chevallier <maxime.chevallier@bootlin.com>,
 Cc: netdev@vger.kernel.org,
 	linux-arm-kernel@lists.infradead.org,
 	linux-kernel@vger.kernel.org
-Subject: [PATCH] net: stmmac: Disable checksum insertion for XDP frame TX
-Date: Tue, 29 Sep 2026 20:10:25 +0800
-Message-ID: <20260929121025.20821-1-jszhang@kernel.org>
+Subject: [PATCH] net: stmmac: Disable unsolicited checksum insertion for AF_XDP TX
+Date: Tue, 29 Sep 2026 20:10:32 +0800
+Message-ID: <20260929121032.20835-1-jszhang@kernel.org>
 X-Mailer: git-send-email 2.51.0
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
@@ -74,41 +74,41 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-stmmac enables TX checksum insertion for XDP frames whenever the queue
-supports it. XDP frames carry no TX checksum offload request, so this
-can overwrite a checksum already present in the packet.
+stmmac enables TX checksum insertion for every AF_XDP packet on queues
+that support it. The driver does not implement tmo_request_checksum(), so
+it enables the offload regardless of whether the application requested it
+and ignores the requested checksum offsets.
 
-Pass false to stmmac_prepare_tx_desc() when transmitting an XDP frame
-so that the packet is sent with its checksum fields unchanged.
+Disable checksum insertion in the AF_XDP TX path. Applications must supply
+complete checksums until the driver can honor AF_XDP checksum metadata.
 
-Fixes: be8b38a722e6 ("net: stmmac: Add support for XDP_TX action")
-Fixes: 8b278a5b69a2 ("net: stmmac: Add support for XDP_REDIRECT action")
+Fixes: 132c32ee5bc0 ("net: stmmac: Add TX via XDP zero-copy socket")
 Signed-off-by: Jisheng Zhang <jszhang@kernel.org>
 ---
  drivers/net/ethernet/stmicro/stmmac/stmmac_main.c | 3 +--
  1 file changed, 1 insertion(+), 2 deletions(-)
 
 diff --git a/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c b/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
-index 24656b35350b..8fe75b00974f 100644
+index 8fe75b00974f..2db862f5abdb 100644
 --- a/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
 +++ b/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
-@@ -5184,7 +5184,6 @@ static int stmmac_xdp_xmit_xdpf(struct stmmac_priv *priv, int queue,
- {
- 	struct stmmac_txq_stats *txq_stats = &priv->xstats.txq_stats[queue];
+@@ -2683,7 +2683,6 @@ static bool stmmac_xdp_xmit_zc(struct stmmac_priv *priv, u32 queue, u32 budget)
+ 	struct netdev_queue *nq = netdev_get_tx_queue(priv->dev, queue);
  	struct stmmac_tx_queue *tx_q = &priv->dma_conf.tx_queue[queue];
+ 	struct stmmac_txq_stats *txq_stats = &priv->xstats.txq_stats[queue];
 -	bool csum = !priv->plat->tx_queues_cfg[queue].coe_unsupported;
+ 	struct xsk_buff_pool *pool = tx_q->xsk_pool;
  	unsigned int entry = tx_q->cur_tx;
- 	enum stmmac_txbuf_type buf_type;
- 	struct dma_desc *tx_desc;
-@@ -5229,7 +5228,7 @@ static int stmmac_xdp_xmit_xdpf(struct stmmac_priv *priv, int queue,
- 	stmmac_set_desc_addr(priv, tx_desc, dma_addr);
+ 	struct dma_desc *tx_desc = NULL;
+@@ -2762,7 +2761,7 @@ static bool stmmac_xdp_xmit_zc(struct stmmac_priv *priv, u32 queue, u32 budget)
+ 		}
  
- 	stmmac_prepare_tx_desc(priv, tx_desc, 1, xdpf->len,
--			       csum, priv->descriptor_mode, true, true,
-+			       false, priv->descriptor_mode, true, true,
- 			       xdpf->len);
+ 		stmmac_prepare_tx_desc(priv, tx_desc, 1, xdp_desc.len,
+-				       csum, priv->descriptor_mode, true, true,
++				       false, priv->descriptor_mode, true, true,
+ 				       xdp_desc.len);
  
- 	tx_q->tx_count_frames++;
+ 		stmmac_enable_dma_transmission(priv, priv->ioaddr, queue);
 -- 
 2.53.0
 
