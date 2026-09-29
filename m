@@ -4,62 +4,62 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 247F8CA5FA1
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 29 Sep 2026 05:40:59 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8EBBEC9832A
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 29 Sep 2026 05:43:30 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=EulcM3Sez+szsCjpIOBGwG5tjCkG7m4d88gy5OahXvI=; b=0/0+6EG39PAFpoPEyJN/tb+Edj
-	yGaM34cabXIP9guwlacE8EZ4pJG5uyxZqGu9Mh+0MQ81mqMmvegVg9wGodu2BpDMtlVB8CaSeRd4H
-	iWT/UQhlPEGLciEqqeSUWKQuUE8hKL5dFQaZut31+yvUSTULmVJIDJccjBQ62FdHzFmlXbL5qHGBu
-	p5f7yP3jp8fhRdXvuZFUoQDbVUaYuthZhbgTB0qMOUpt3kWU4JGln00QO3YQv5L45XS82i8BkHM7b
-	P5fN/b4nTDTl3BJUjkelVa58PNZRSVkHYqFe9LLDSVqotyuiqNLUcE/hH1hgRWdg+x8//5a+UFvoT
-	P2++XNRQ==;
+	bh=gtP8IqSzqQqjSXO/gR1w94Q4JndPAg4CmY6Ja2LAJvA=; b=jp8vVWIrO4qRKInwp8o0NCsHww
+	ZG4di8Qq+hytrKdeccwhivnloM7J8Oq3npMbyHttwrUkSllJ0Brs8xoYUMWqy0w03s2Bz3mXtUjju
+	fZwo4lN8p+h/06aHUO5jzLCMDAAlLPianWsXVzAT0xMrJWgVnLy8hOoUDAijfAAWn6pbDH6rGxF5Q
+	mHLkQzXqnSK03oxelVsgTSxD3Kr9qYtDmS4z+X0kpZ5hsaXZ9tdmeNS/MEGLzpxNVvdW/xxdKkt/c
+	hNksDnrt4fjASJm9AWLvCwcfXSzOB0AsjFHXrs1I5xCoMJB/xAPp5sH0dUxIl4LkRtdwOArx72gDU
+	dEx63lqw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xBQaB-00000002NZf-10Uq;
-	Tue, 29 Sep 2026 05:40:51 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1xBQce-00000002NlJ-2gZ9;
+	Tue, 29 Sep 2026 05:43:24 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xBQa9-00000002NZI-32C1;
-	Tue, 29 Sep 2026 05:40:49 +0000
+	id 1xBQcd-00000002NlB-0WHO
+	for linux-arm-kernel@lists.infradead.org;
+	Tue, 29 Sep 2026 05:43:23 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id D7A0C60210;
-	Tue, 29 Sep 2026 05:40:48 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id D4F2B1F000FF;
-	Tue, 29 Sep 2026 05:40:44 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id C2E4D41691;
+	Tue, 29 Sep 2026 05:43:20 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 8D7451F000FF;
+	Tue, 29 Sep 2026 05:43:14 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1790660448;
-	bh=EulcM3Sez+szsCjpIOBGwG5tjCkG7m4d88gy5OahXvI=;
+	s=k20260515; t=1790660600;
+	bh=gtP8IqSzqQqjSXO/gR1w94Q4JndPAg4CmY6Ja2LAJvA=;
 	h=Date:Subject:To:Cc:References:From:In-Reply-To;
-	b=TjWVifi50PlhyMwHlCn+/EPVWx27OtgK+/1gaxTsveJKzQf/197wj5N1N0Ka/xo8R
-	 NlVCpjlnX1m502N9OcsE8jGrPQwj9RZV+loFmPoW1YDM4nlsqzBDfXlfHi0mVppWFn
-	 9PzIUJl/KVw4TZ+pkrU3/b1fmqIkk5Ws9lVI42N0uQNml6dFBlkykZXdGognVBl6rY
-	 v8c7XxE2uJZ0VgbcqsLZ38To98Cy1u0Ex5jMy27/EqCxgFhVdPQ9yGNSol4Zg2dFfd
-	 qxNtjH4csoJtHc6nLycXLfAL/Gs1L7/19KLnL8uMIuh7BhzxLkBk3x967t8irQBroi
-	 Jpl4iZKdug4vQ==
-Message-ID: <33499600-5df7-48fb-a2ac-5a703df8dc2d@kernel.org>
-Date: Tue, 29 Sep 2026 07:40:42 +0200
+	b=hrjqYJIEK/o/khodU8aWLL20wutTUKBgZeW7h5RR6G1GQT+RJW5CeT3WTMDRxbca0
+	 TjEpKCwvWDlIMudjWe4Ni1WfhzNDLeL4+l39lGtje2TAznHxWpDATkYWQLF0QmV9wg
+	 xFKrJr9CLCjRYLYqO7jJLXIyzqRMYnU5Hxl+OpGTMZjPt/d0vUNHfgk2gUPMIxUMyA
+	 99ylW5/HHin+A8/V7c01lHXU+0dQY8PYHaGjfNAA1IFhbLA72xfcWvzP0atUSTtEUp
+	 ywv/QapQ62ejszG+eoftl/VMOCNkfHESiaiJVjKrt5NGzVPVFUsWL89cWDDTjTa61w
+	 liiS6wwCTy0QQ==
+Message-ID: <ba1939f5-c528-42b8-971a-4b16998c37f9@kernel.org>
+Date: Tue, 29 Sep 2026 07:43:11 +0200
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v10 3/6] media: dt-bindings: Add Amlogic V4L2 video
- decoder
-To: Zhentao Guo <zhentao.guo@amlogic.com>
-Cc: Neil Armstrong <neil.armstrong@linaro.org>,
- Kevin Hilman <khilman@baylibre.com>, Jerome Brunet <jbrunet@baylibre.com>,
- Martin Blumenstingl <martin.blumenstingl@googlemail.com>,
- Mauro Carvalho Chehab <mchehab@kernel.org>, Rob Herring <robh@kernel.org>,
+Subject: Re: [PATCH 00/16] arm64: dts: exynos: Format with dtfmt
+To: Waqar Hameed <waqar.hameed@axis.com>,
+ Peter Griffin <peter.griffin@linaro.org>,
+ =?UTF-8?Q?Andr=C3=A9_Draszik?= <andre.draszik@linaro.org>,
+ Tudor Ambarus <tudor.ambarus@linaro.org>, Rob Herring <robh@kernel.org>,
  Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
- <conor+dt@kernel.org>, linux-arm-kernel@lists.infradead.org,
- linux-amlogic@lists.infradead.org, linux-kernel@vger.kernel.org,
- linux-media@vger.kernel.org, devicetree@vger.kernel.org
-References: <20260924-b4-s4-vdec-upstream-v10-0-1289303a58a4@amlogic.com>
- <20260924-b4-s4-vdec-upstream-v10-3-1289303a58a4@amlogic.com>
- <20260928-efficient-secret-manatee-2fcca6@quoll>
- <7fe35ef7-e894-4137-975a-9a5f621a8156@amlogic.com>
+ <conor+dt@kernel.org>, Alim Akhtar <alim.akhtar@samsung.com>,
+ Sam Protsenko <semen.protsenko@linaro.org>,
+ Ivaylo Ivanov <ivo.ivanov.ivanov1@gmail.com>,
+ Konrad Dybcio <konradybcio@kernel.org>
+Cc: kernel@axis.com, linux-arm-kernel@lists.infradead.org,
+ linux-samsung-soc@vger.kernel.org, devicetree@vger.kernel.org,
+ linux-kernel@vger.kernel.org
+References: <cover.1790629313.git.waqar.hameed@axis.com>
 From: Krzysztof Kozlowski <krzk@kernel.org>
 Content-Language: en-US
 Autocrypt: addr=krzk@kernel.org; keydata=
@@ -105,7 +105,7 @@ Autocrypt: addr=krzk@kernel.org; keydata=
  K9bCVaboTA2T77QYkRcRJYSsO1alGX0ome/hMLD1daXlkrNUp1HWa3K4iytLRXjCSIorWiGs
  n+q3krnpXu3TFkA8qtOFZMdnIiFuiq1yLT8hptsV5xh1TA2nsVvSYiaCr3q4s4BKjS/KrLDb
  qoxzw8ISjdUp4pA85vb6YLCmb39NgidD+7PmAr65lBNveIFynTgsja1rRQ4=
-In-Reply-To: <7fe35ef7-e894-4137-975a-9a5f621a8156@amlogic.com>
+In-Reply-To: <cover.1790629313.git.waqar.hameed@axis.com>
 Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
 X-BeenThere: linux-arm-kernel@lists.infradead.org
@@ -122,59 +122,18 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 29/09/2026 04:59, Zhentao Guo wrote:
-> Hi Krzysztof,
+On 29/09/2026 00:38, Waqar Hameed wrote:
+> I was looking through the notes for the last Devicetree microconference
+> at Linux Plumbers (LPC) 2025 [1], and realized that the tool I have been
+> working on might be of interest here: dtfmt - a Devicetree Source
+> formatter [2].
 > 
->> On Thu, Sep 24, 2026 at 03:55:10PM +0800, Zhentao Guo wrote:
->>> Add bindings for Amlogic hardware decoder accelerator.
->>>
->>> Signed-off-by: Zhentao Guo <zhentao.guo@amlogic.com>
->>> ---
->>>   .../devicetree/bindings/media/amlogic,s4-vdec.yaml | 114 +++++++++++++++++++++
->>>   1 file changed, 114 insertions(+)
->>>
->>> diff --git a/Documentation/devicetree/bindings/media/amlogic,s4-vdec.yaml b/Documentation/devicetree/bindings/media/amlogic,s4-vdec.yaml
->>> new file mode 100644
->>> index 000000000000..751043c3d9cc
->>> --- /dev/null
->>> +++ b/Documentation/devicetree/bindings/media/amlogic,s4-vdec.yaml
->>> @@ -0,0 +1,114 @@
->>> +# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
->>> +# Copyright (C) 2025 Amlogic, Inc. All rights reserved
->>> +%YAML 1.2
->>> +---
->>> +$id: http://devicetree.org/schemas/media/amlogic,s4-vdec.yaml#
->>> +$schema: http://devicetree.org/meta-schemas/core.yaml#
->>> +
->>> +title: Amlogic Video Decode Accelerator
->>> +
->>> +maintainers:
->>> +  - Zhentao Guo <zhentao.guo@amlogic.com>
->>> +
->>> +description:
->>> +  The Video Decoder Accelerator present on Amlogic SOCs.
->>> +  It supports stateless h264 decoding.
->>> +
->>> +properties:
->>> +  compatible:
->>> +    const: amlogic,s4-vdec
->>> +
->>> +  reg:
->>> +    minItems: 2
->> What is happening here? Previous version was different.
-> 
-> maxItems: 2 implies that a single items is also allowed,but the hardware actually requires at least two register regions (dos 
+> dtfmt uses a parser with lexical grammar (tree-sitter) directly ported
 
-Since when?
+We do not use dtfmt. I think you missed entire recent work and recent
+commits, where `git log` would point you.
 
-> and dmc) to work, so minItems:2 makes sense here.
-> 
-> The same applies to |power-domain| and |interrupts| below. At least 2 
-> power-domains to make the hardware work, and at least 2 interrupts 
-> needed for the two sub-cores.
-
-
-
+https://lore.kernel.org/all/20260911-b4-dts-samsung-cleanup-strict-continued-v1-0-9aa55051c42b@oss.qualcomm.com/
 
 Best regards,
 Krzysztof
