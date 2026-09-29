@@ -4,114 +4,98 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6355ACA5FA7
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 29 Sep 2026 06:37:06 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 183C0C9832A
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 29 Sep 2026 06:38:12 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Apu9umVw6f5MGz/YikgNvdovZMGmU0R2l8aaBzpjgRM=; b=vBInhxgJXGngjENPwwKFUd4T8n
-	eh9D2BjeTu7bJeeZqYqMJZ9CON0YZRc11h3/ffXo95gCyBj9UexgXZO85o3aSHY5wuBoCvRY0uWT1
-	tNDGd1saIAgzgZNlCtQoA0/rFRnXl3weJiNOc7WjwaeTrYB6beh3ZuB+ri85siW584+m/SmIEdGAz
-	Hn4Zv5xFl/QY5aRLZWyWzRM+Vv66MRYaiyfSz9KkNvMfkzhI0QvP+8ElPEhD2gWnDgG14QSNV6+68
-	UZD+o+fW6pMFi3GP2VLV8U+d3xfqscyA0oRqfRTPSX0+pbs5Jp6u8xPFuWns1ZjcSXhWxPe+iND/G
-	DKXTLggQ==;
+	bh=ggM22qaVGaHjihmi1lkkmx3+x10+vUrFkk5gh3pgiME=; b=t8DkcZb1iGLkj4LBu8fIvdbFim
+	ElTc4HkLCAed5eHxqRmqREKJL/m69gH6N8B6wAU6e/wrip5JT4TmT5H3Q3SKoSd12geo9iiBzAjyM
+	S1IGEqN634GuxyUCY3bcI6qTrtO/kOQpr3SHWtlbXSgnGfqqnX1j0BaPZ3ONB+sQVSjSCdphmXzMB
+	gyy1XMUSZwjkQm3CwzZLbAleYnKHU8fdG5vPE2BJ0HmL9SWxyyjvuWmdi6aVMjGhmE73gMX/Tpzh3
+	AcnmAkVuSL19DW0J/pCol1t0j8ziw6j+DSRdF8xHFtfc5pDluLZ228huM/YSBc3ThKOJPgcBtZDe/
+	BI3tbZzg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xBRSG-00000002U1T-1Unn;
-	Tue, 29 Sep 2026 06:36:44 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1xBRTZ-00000002VS2-1jW8;
+	Tue, 29 Sep 2026 06:38:05 +0000
+Received: from mail-pz2-x0c.google.com ([2607:f8b0:4864:3b::c])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xBRS9-00000002Twy-10vu;
-	Tue, 29 Sep 2026 06:36:37 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id AB8C360A62;
-	Tue, 29 Sep 2026 06:36:36 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id B2A961F000FF;
-	Tue, 29 Sep 2026 06:36:31 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1790663796;
-	bh=Apu9umVw6f5MGz/YikgNvdovZMGmU0R2l8aaBzpjgRM=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To;
-	b=NDpgPnDssiQ4FOci63tAUEtIyYWeG6nhcGn4prPZP1v5XwDX6K0jqMMGXI1cQTOLw
-	 zZt/RKr7saDgCQ+ARMQlgnhpDUzWOSUURgcSnPcLgNPTpskIQ45g0ClCfrsjPeG6Iw
-	 ycFhI0JIEziCVgcwAg4xVGCwJZnieZ43IaXdDP3ov8KfYNVZE3Ra4u6FEF2tMcM7aA
-	 8bqM7b12bQiz1mvcSZKd3XF4ViptOziqMXS43HFS98HpivEYcBDGvgsXUUIN/uGcNL
-	 ME9F6UKOhjTlSFCMNolrOAISqWqQGFZRw7aFaom/r5S8ISe9hUF83NNSP4oyN3MxJD
-	 r3Z4QSR3uLwZQ==
-Message-ID: <d4f72cef-0973-4f98-9c9e-277894f72a6a@kernel.org>
-Date: Tue, 29 Sep 2026 08:36:28 +0200
+	id 1xBRTW-00000002VOw-0cF4
+	for linux-arm-kernel@lists.infradead.org;
+	Tue, 29 Sep 2026 06:38:03 +0000
+Received: by mail-pz2-x0c.google.com with SMTP id d2e1a72fcca58-880483985aeso1615040b3a.0
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 28 Sep 2026 23:38:01 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20251104; t=1790663881; x=1791268681; darn=lists.infradead.org;
+        h=content-transfer-encoding:content-type:in-reply-to:from
+         :content-language:references:cc:to:subject:user-agent:mime-version
+         :date:message-id:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=ggM22qaVGaHjihmi1lkkmx3+x10+vUrFkk5gh3pgiME=;
+        b=oFHuKRXa9d6DNqheuQJTfH9bNZEQqRO8MA0D15IgtJJ92H2y85UAOZfjzSSI7rVvcQ
+         8OJpbYLufauuO7s/+pQMzPMrfTrQ+tjJXYd58zp2sAybc0NZhh2VAPm9NKdPpy1Dv7j1
+         tdBpzgMtT4+OaOg9uXOcehJ8cw5hfYzUu1guE9jAk0Yffv054pI80mJs4YHzreLfx2us
+         Z6c+2NBd7Q87x89q2IeGAu/hCMXMcJRUJadDNyjOI1vuTmNSEHM6QJuyy2QCao6MpP6x
+         vmgb2TG7uY9zrRQfbrx9mFkaBjkZnw9r2M5ymHZPXGDIHSU6w4O/pbh18MI3+9MuLrYI
+         G0Jg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1790663881; x=1791268681;
+        h=content-transfer-encoding:content-type:in-reply-to:from
+         :content-language:references:cc:to:subject:user-agent:mime-version
+         :date:message-id:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=ggM22qaVGaHjihmi1lkkmx3+x10+vUrFkk5gh3pgiME=;
+        b=2csdG4kdCRTAyNIzFKqsyIeOQ6PW/IWE5T3VLWuf//Ux8UMUshUidD6eltga6rdXpb
+         b5GPlt5e2Xoals4GoRjvr9LHHF4iULddcFJCYcaojlj8nytwMs/cdGPi6kQ/GVlo85Ua
+         //nZJ9L0lyczuSHjpBAo9EFwysQZMS9iqRsnPdPh/YlgaP689QrZQKQRM8A1g74OlpZm
+         ILy/2GvEy38bTfiq19dWMO5Eu4KCln8/eC1pVivtwM2eTpIBG9r+VkapGF18TMTgXRf0
+         MkTtIe6slRj3v9kBQKqYund/CTSN5BEevOk21hr4jDjOjOR6AXL/VEcHj3dRjueXy0hG
+         0bTg==
+X-Forwarded-Encrypted: i=1; AKwUvBw6rjmNGUUy1tgno6I7Lq8TV6QfIsPv9XilX7jip8EyKuvIucpdnKsFy6bC1SU06frYicDGI1Fl3UtgipFiE4BV@lists.infradead.org
+X-Gm-Message-State: AFuF++nzDQJ91A3cLGpoMuyvvO/98HtOgC5MnfmLT/NbR0vpfVWQIMHq
+	Jp5miEZFtQaU1YvDwRFZNehzsPWXw16MT16NjMV+3FqR36+zzXkdB8ovOjxfvQ==
+X-Gm-Gg: AYBFou238gDu62KmxYxBHspbQOqQ8tmKswpTht4DdmHKAu8N5VPtujnVgnqDBm4IxaB
+	z++NzRe9uwnMtOJ2a1N5XSZXf21olAFuq+7K4HNCjZGiNr4NRmdUYpxcoYBsGr+YfOD7jgRtaiO
+	g/GqEGxqAOub2Te1NByRvLNX90rRLeY6NW/WWKHRSkeuhYHUFNq6u44ofWNAwvMDgFPwCUkxrIN
+	BfT6kTBCoiBWZshiCwC5zHYYNPjVhJXnNmbLgn9ndxoNJ0sji54+YKwO+IZ4ck6vKRdwQ0jyvut
+	t4k9c0AeySjrlJukKXn+rxVL3L/4mLE6LVtlsJwpVlvivOcZB/WlCsk5+KufA6Ms3WGyCtrVjbb
+	xzqqiau2xRdTnpuTWWQsNXIBfFg7v4CM3MaeA9LaeIcIyOpI6UDIymdAR4mKFUrYg1HLxxG+bIe
+	sBZIvufXZL6q44ueUyLGO7STcqpKHmhO9V5XiKFjPcQcL0km3tltlRIyuQZb0xILM7LUtwT0Tog
+	cYZZ4lxFhnN5qXrLC3F1EdgcoAltF4vhc/wLmvADvhFtug=
+X-Received: by 2002:a05:6a20:2450:b0:3d3:ad3c:49a9 with SMTP id adf61e73a8af0-3de0e744e71mr14694613637.23.1790663880945;
+        Mon, 28 Sep 2026 23:38:00 -0700 (PDT)
+Received: from [172.19.1.48] (60-250-196-139.hinet-ip.hinet.net. [60.250.196.139])
+        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-885e20f2068sm246849b3a.42.2026.09.28.23.37.58
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Mon, 28 Sep 2026 23:38:00 -0700 (PDT)
+Message-ID: <c382ec53-dae0-45eb-86ca-de04f5b42360@gmail.com>
+Date: Tue, 29 Sep 2026 14:37:58 +0800
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v10 3/6] media: dt-bindings: Add Amlogic V4L2 video
- decoder
-To: Zhentao Guo <zhentao.guo@amlogic.com>
-Cc: Neil Armstrong <neil.armstrong@linaro.org>,
- Kevin Hilman <khilman@baylibre.com>, Jerome Brunet <jbrunet@baylibre.com>,
- Martin Blumenstingl <martin.blumenstingl@googlemail.com>,
- Mauro Carvalho Chehab <mchehab@kernel.org>, Rob Herring <robh@kernel.org>,
- Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
- <conor+dt@kernel.org>, linux-arm-kernel@lists.infradead.org,
- linux-amlogic@lists.infradead.org, linux-kernel@vger.kernel.org,
- linux-media@vger.kernel.org, devicetree@vger.kernel.org
-References: <20260924-b4-s4-vdec-upstream-v10-0-1289303a58a4@amlogic.com>
- <20260924-b4-s4-vdec-upstream-v10-3-1289303a58a4@amlogic.com>
- <20260928-efficient-secret-manatee-2fcca6@quoll>
- <7fe35ef7-e894-4137-975a-9a5f621a8156@amlogic.com>
- <33499600-5df7-48fb-a2ac-5a703df8dc2d@kernel.org>
- <59541a34-eba9-4699-ba19-69e7b5b1525a@amlogic.com>
- <3b1e23f0-76d5-489c-a5eb-0774a21b0f63@kernel.org>
- <ab0e83e6-c0a1-4c8d-847d-81628c49a436@amlogic.com>
-From: Krzysztof Kozlowski <krzk@kernel.org>
+Subject: Re: [PATCH v10 2/3] i2c: ma35d1: Add Nuvoton MA35D1 I2C driver
+ support
+To: Andi Shyti <andi.shyti@kernel.org>
+Cc: linux-i2c@vger.kernel.org, devicetree@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+ Jacky Huang <ychuang3@nuvoton.com>, Shan-Chun Hung <schung@nuvoton.com>,
+ Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+ Conor Dooley <conor+dt@kernel.org>, Philipp Zabel <p.zabel@pengutronix.de>,
+ Andrew Jeffery <andrew@codeconstruct.com.au>
+References: <20260921083753.1109826-1-zychennvt@gmail.com>
+ <20260921083753.1109826-3-zychennvt@gmail.com>
+ <aro-QitaRwK87gdO@zenone.zhora.eu>
 Content-Language: en-US
-Autocrypt: addr=krzk@kernel.org; keydata=
- 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
-In-Reply-To: <ab0e83e6-c0a1-4c8d-847d-81628c49a436@amlogic.com>
+From: zychen <zychennvt@gmail.com>
+In-Reply-To: <aro-QitaRwK87gdO@zenone.zhora.eu>
 Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+Content-Transfer-Encoding: 8bit
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260928_233802_735771_AA3F656D 
+X-CRM114-Status: GOOD (  25.86  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -126,13 +110,166 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 29/09/2026 08:23, Zhentao Guo wrote:
+Hi Andi,
+Thanks for your review. 
+
+Andi Shyti 於 2026/9/28 下午 08:24 寫道:
+> Hi Zi-Yu,
 > 
-> In the previous version of this patch, 
-> allowing one entry was simply a mistake, not an option we ever supported.
+> ...
+> 
+>> +/* Constants */
+>> +#define MA35_CLKDIV_MSK		GENMASK(9, 0)
+>> +#define I2C_PM_TIMEOUT_MS	5000
+>> +#define STOP_TIMEOUT_MS		50
+> 
+> these two defines are the only ones without the MA35 prefix.
 
-I do not think it is true, please test it.
+Will add the MA35 prefix to these two definitions.
+> 
+> ...
+> 
+>> +static irqreturn_t ma35d1_i2c_irq_target_trx(struct ma35d1_i2c *i2c,
+>> +					     unsigned long i2c_status)
+>> +{
+>> +	unsigned char byte = 0;
+>> +
+>> +	switch (i2c_status) {
+>> +	case MA35_S_RECE_ARB_LOST:
+>> +		/*
+>> +		 * Arbitration lost during address transmission phase.
+>> +		 * The hardware switches to Target Transmitter mode when
+>> +		 * our own SLA+W is detected on the bus.
+>> +		 */
+>> +		i2c->err = -EAGAIN;
+>> +		ma35d1_i2c_controller_complete(i2c);
+>> +		i2c_slave_event(i2c->target, I2C_SLAVE_WRITE_REQUESTED, &byte);
+> 
+> All the return values of these i2c_slave_event()'s are ignored.
+> 
+>> +		break;
+>> +
+>> +	case MA35_S_RECE_ADDR_ACK:
+>> +		/* Own SLA+W has been receive; ACK has been return */
+>> +		i2c_slave_event(i2c->target, I2C_SLAVE_WRITE_REQUESTED, &byte);
+>> +		break;
+>> +
+>> +	case MA35_S_TRAN_DATA_NACK:
+>> +	case MA35_S_RECE_DATA_NACK:
+>> +		/*
+>> +		 * Data byte or last data in I2CDAT has been transmitted and NACK received,
+>> +		 * or previously addressed with own SLA address and NACK returned.
+>> +		 */
+>> +		break;
+>> +
+> 
+> ...
+> 
+>> +	default:
+>> +		dev_err(i2c->dev, "Status 0x%02lx is NOT processed\n",
+>> +			i2c_status);
+>> +		ma35d1_i2c_restore_idle(i2c);
+>> +		return IRQ_NONE;
+>> +	}
+>> +	ma35d1_i2c_write_ctl(i2c, MA35_CTL_SI_AA);
+> 
+> As far as I understood, this this is an unconditional ACK enabled
+> for the next bytes received, right? In that case are we ignoring
+> failed communications as above where we are supposed to send
+> NACKs?
+> 
+Regarding the two comments above:
+I will add handling for the return value of `I2C_SLAVE_WRITE_REQUESTED`. When it returns an error, subsequent bytes will be NACKed until the transfer ends.
 
-Best regards,
-Krzysztof
+For `I2C_SLAVE_WRITE_RECEIVED`, the MA35D1 hardware has already generated the ACK when this event is reported, so it is not possible to NACK the received byte at this point. Therefore, its return value can only be temporarily ignored.
+
+>> +	return IRQ_HANDLED;
+>> +}
+> 
+> ...
+> 
+>> +	i2c->regs = devm_platform_get_and_ioremap_resource(pdev, 0, &res);
+>> +	if (IS_ERR(i2c->regs))
+>> +		return PTR_ERR(i2c->regs);
+>> +
+>> +	i2c->rst = devm_reset_control_get_exclusive(&pdev->dev, NULL);
+>> +	if (IS_ERR(i2c->rst))
+>> +		return dev_err_probe(dev, PTR_ERR(i2c->rst),
+>> +				     "failed to get reset control\n");
+>> +
+>> +	ret = reset_control_deassert(i2c->rst);
+>> +	if (ret)
+>> +		return dev_err_probe(dev, ret, "failed to deassert reset line\n");
+>> +
+>> +	/* Setup info block for the I2C core */
+>> +	strscpy(i2c->adap.name, "ma35d1-i2c", sizeof(i2c->adap.name));
+>> +	i2c->adap.owner = THIS_MODULE;
+>> +	i2c->adap.algo = &ma35d1_i2c_algorithm;
+>> +	i2c->adap.quirks = &ma35d1_i2c_quirks;
+>> +	i2c->adap.retries = 2;
+>> +	i2c->adap.algo_data = i2c;
+>> +	i2c->adap.dev.parent = &pdev->dev;
+>> +	i2c->adap.dev.of_node = pdev->dev.of_node;
+>> +	i2c_set_adapdata(&i2c->adap, i2c);
+>> +
+>> +	if (!device_property_read_u32(dev, "clock-frequency", &val)) {
+>> +		if (val != 0 && val <= MEGA)
+>> +			busfreq = val;
+>> +	}
+>> +	/* Calculate divider based on the current peripheral clock rate */
+>> +	clkdiv = DIV_ROUND_CLOSEST(clk_get_rate(i2c->clk), busfreq * 4) - 1;
+>> +	if (clkdiv < 0 || clkdiv > 0x3ff)
+>> +		return dev_err_probe(dev, -EINVAL, "invalid clkdiv value: %d\n",
+>> +				     clkdiv);
+>> +
+>> +	i2c->irq = platform_get_irq(pdev, 0);
+>> +	if (i2c->irq < 0)
+>> +		return dev_err_probe(dev, i2c->irq, "failed to get irq\n");
+>> +
+>> +	platform_set_drvdata(pdev, i2c);
+>> +
+>> +	pm_runtime_set_autosuspend_delay(dev, I2C_PM_TIMEOUT_MS);
+>> +	pm_runtime_use_autosuspend(dev);
+>> +	pm_runtime_set_active(dev);
+>> +	pm_runtime_enable(dev);
+>> +
+>> +	ret = devm_add_action_or_reset(dev, ma35d1_i2c_pm_cleanup, dev);
+>> +	if (ret)
+>> +		return ret;
+> 
+> you are printing an error message everywhere, except of here.
+
+Right. I’ll add an error message here as well.
+
+> 
+>> +
+>> +	writel(MA35_CTL_I2CEN | MA35_CTL_INTEN, i2c->regs + MA35_CTL0);
+>> +	writel(FIELD_PREP(MA35_CLKDIV_MSK, clkdiv), i2c->regs + MA35_CLKDIV);
+>> +
+>> +	ret = devm_request_irq(dev, i2c->irq, ma35d1_i2c_irq, 0, dev_name(dev),
+>> +			       i2c);
+>> +	if (ret) {
+>> +		dev_err_probe(dev, ret, "cannot claim IRQ %d\n", i2c->irq);
+>> +		return ret;
+>> +	}
+>> +
+>> +	ret = devm_i2c_add_adapter(dev, &i2c->adap);
+>> +	if (ret) {
+>> +		dev_err_probe(dev, ret, "failed to add bus to i2c core\n");
+>> +		return ret;
+> 
+> return dev_err_probe(...)
+will do.
+
+> 
+> Thanks,
+> Andi
+> 
+>> +	}
+>> +
+>> +	dev_info(&i2c->adap.dev, "%pa MA35D1 I2C adapter registered\n",
+>> +		 &res->start);
+>> +	return 0;
+>> +}
+
 
