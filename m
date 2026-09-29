@@ -4,151 +4,74 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5385CC9832A
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 29 Sep 2026 07:29:11 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D1ADDC9832A
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 29 Sep 2026 07:32:59 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Content-Type:
-	Content-Transfer-Encoding:References:In-Reply-To:Message-ID:Date:Subject:Cc:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=sMDgxOnntUM4Mqp2gyb0ZzF+sPD9Fz6yuDG/SWQ7Q+I=; b=EIHN0lxeDk7M6lNtrUr3gB3ErW
-	D2avxDgr1UFTGpiUAkYrEIEbjeCS74YfbsBucWNqNnFlRypeLrDMbMvp2PDXNqOD0/MLr6WjbECZf
-	tWsywbTKOU+YPKV7c2Ao+upUqL5yN8jtSqUo2pfvpNMze4kAEEer+fyXaANveCdQxTxrDyAe1dtvB
-	JE6yJCMkYUdvQncMTcfhbA8gNIwNzDkH2SIecgFpcRf9jGM1dmeSuO03ontNaBXWAji+DT01zQurO
-	fefm51FwUNJTObmijVPybqE1Zn/gg/xv8/Mi1AKu3aoclMO4gq9ChScKLAkcdyUQhQSLUtyKEtoIC
-	VjqC190Q==;
+	bh=hD2niuyZYi4hGUz8wD8CQSqVmQtaAAm56xCDiCG8qiA=; b=gpgU9VaWEs9w5juJQp/qweHlZR
+	QQyw3ibkDzqMNE9Ld6Yq1auHhd48trviTcsF3nZXk6xI7hbuzsDbqWMuqaz/+nnN0MkoxLjBZm7AG
+	RbMI46ucELM0ediKrkXepjzr6l6O+yjZqAF+9NpSlL0oqOos5DIZ18d3IelevLAGF+CgW2gXR1EFg
+	/X1HkY/uZ+xg6Th5+/0d4VzG6pBaNTn1p+tJHCkWk4hnUhcov5A0dan+tb/+tQlvnVWf0Do6hjTRJ
+	kgwIeBw9BstGQqaPq/CnYtJx9R1tW1Y9LD3FJ/MWnSEONz28tyT/vpQ8KAYU/yVi/XC30R0OFuvhn
+	mApTEYdA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xBSGu-00000002cOI-2kBg;
-	Tue, 29 Sep 2026 07:29:04 +0000
-Received: from mail-westusazon11010063.outbound.protection.outlook.com ([52.101.85.63] helo=BYAPR05CU005.outbound.protection.outlook.com)
+	id 1xBSKb-00000002ck4-0pa6;
+	Tue, 29 Sep 2026 07:32:53 +0000
+Received: from sender4-pp-f112.zoho.com ([136.143.188.112])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xBSGr-00000002cN8-2yUt
-	for linux-arm-kernel@lists.infradead.org;
-	Tue, 29 Sep 2026 07:29:03 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=CRzDOMP6bsDXurS3WjeU9E+IenhSDC5b+hpLGK2qSeeT3mQoiYnggAif8UmC12opseJ27MaeA9VXUerZFVfLOb+Z/v6CcsFG+hJF+mtgihpZjkiWe5fKxyNqA1Ja/xoKn6tm2n7YLhPpLs4ejCCUpFotPfT27FNGIWwUvcPqVxTm0Th2AFmvsBSav+NywR5I0VjpbonDFSx9NwL9CIJwTdQO7MmjSY7vCjdPQUSheWut0xLlURWPgrlly81CxCWK8MUh2bBjn/jTUwX+hMuK9I9TBR0FyJaFPdAnmADJZssP6jThJ2r2gTnY8ro4hqrMeWFxD+6wMJ4BM5kucBJZrA==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=sMDgxOnntUM4Mqp2gyb0ZzF+sPD9Fz6yuDG/SWQ7Q+I=;
- b=O8smkyNWfelNtRlTZbkPqAt8JZMeMYaHtuBQXvDv4af8BXAItvPOKlcIc5hjXKngvuMk3KR79SxhXhNDje4RQ40zyQ6SbnoQzjBvU/iWhvb+F+LGW4sqoh9xAEYYl4G6QQzsgB6UJZ7iOwu0BQ8hylWSlCWwmxVakBpfsPuzSwPJUPXMsA0YWtqBYsuFnvhcOyGgkfsFbb+RWYKA0KoAuRwPKplyFO0SuImSVPu/2q1BXX9J5f7fa5f/FI9yutBFFp7KrXyQGc+wciblWcYJg5FqdYUZijLpRcuH3h6N5EGNuTcbushbesKHLVPMQmiZbm/WxWtrMJxjJ1ToLKMB5g==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nvidia.com; dmarc=pass action=none header.from=nvidia.com;
- dkim=pass header.d=nvidia.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
- s=selector2;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=sMDgxOnntUM4Mqp2gyb0ZzF+sPD9Fz6yuDG/SWQ7Q+I=;
- b=agEi3mQcLFQZa7Xd1p9pjBXKqP6n3+BhhhZmrSDOawLT5ufGCZRRahaSHzOfh1D6RRKqF4ynoLWfiioqVHd+eDmbbkgjj0qiitOf2SMzhBgfOJ9pknL+yEOJcHDM9hieL3A79UtWhlx2AiWv7eLSDWjUXLAwIIldyXivy4x76ZIyEnMINNutSiSjunnHknhE3Z7RtO38xGT/TDsS49K6p9vXMR0hBzBHo/PFeYVZbggC3dTzMWRrasJs4yfVIxOn9T0SUdBfOjQrqH+n+sht+jjMAHa4+2uVLqCJ/QBtzSH3kueCFY75DARJrm779Iojz2CTcUr9pYpcjsw5eTng4g==
-Authentication-Results: mx.microsoft.com 1; dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nvidia.com;
-Received: from SJ2PR12MB9161.namprd12.prod.outlook.com (2603:10b6:a03:566::20)
- by CY8PR12MB7706.namprd12.prod.outlook.com (2603:10b6:930:85::18) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.451.25; Tue, 29 Sep
- 2026 07:28:52 +0000
-Received: from SJ2PR12MB9161.namprd12.prod.outlook.com
- ([fe80::d9d1:8c49:a703:b017]) by SJ2PR12MB9161.namprd12.prod.outlook.com
- ([fe80::d9d1:8c49:a703:b017%5]) with mapi id 15.21.0451.022; Tue, 29 Sep 2026
- 07:28:52 +0000
-From: Mikko Perttunen <mperttunen@nvidia.com>
-To: Robin Murphy <robin.murphy@arm.com>,
- "Joerg Roedel (AMD)" <joro@8bytes.org>, Will Deacon <will@kernel.org>,
- Russell King <linux@armlinux.org.uk>, Heiko Stuebner <heiko@sntech.de>,
- Thierry Reding <thierry.reding@kernel.org>, David Airlie <airlied@gmail.com>,
- Simona Vetter <simona@ffwll.ch>, Jonathan Hunter <jonathanh@nvidia.com>,
- Krishna Reddy <vdumpa@nvidia.com>, Krzysztof Kozlowski <krzk@kernel.org>,
- Jason Gunthorpe <jgg@ziepe.ca>, Marek Szyprowski <m.szyprowski@samsung.com>
-Cc: Peter Griffin <peter.griffin@linaro.org>,
- Alim Akhtar <alim.akhtar@samsung.com>, Chen-Yu Tsai <wens@kernel.org>,
- Jernej Skrabec <jernej.skrabec@gmail.com>,
- Samuel Holland <samuel@sholland.org>, Yong Wu <yong.wu@mediatek.com>,
- Matthias Brugger <matthias.bgg@gmail.com>,
- AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
- Rob Clark <robin.clark@oss.qualcomm.com>,
- Geert Uytterhoeven <geert+renesas@glider.be>, iommu@lists.linux.dev,
- linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- dri-devel@lists.freedesktop.org, linux-tegra@vger.kernel.org
-Subject: Re: [PATCH 00/11] Make the 32-bit ARM DMA API work with normal IOMMU DMA
- default domains (+ Tegra PoC)
-Date: Tue, 29 Sep 2026 16:28:40 +0900
-Message-ID: <fpDSraffSy-uBmhoTN1C9A@nvidia.com>
-In-Reply-To: <a5b453db-a4f9-4dba-b150-6e4045f61027@samsung.com>
-References: <CGME20260915021542eucas1p254addab18c10cb117f42ccf3d3522883@eucas1p2.samsung.com>
- <20260915-b4-arm32-iommu-dma-cookie-v1-0-ba4f9d33a2b8@nvidia.com>
- <a5b453db-a4f9-4dba-b150-6e4045f61027@samsung.com>
-Content-Transfer-Encoding: quoted-printable
-Content-Type: text/plain; charset="utf-8"
-X-ClientProxiedBy: TYCP286CA0143.JPNP286.PROD.OUTLOOK.COM
- (2603:1096:400:31b::19) To SJ2PR12MB9161.namprd12.prod.outlook.com
- (2603:10b6:a03:566::20)
+	id 1xBSKH-00000002ci2-24jg;
+	Tue, 29 Sep 2026 07:32:46 +0000
+ARC-Seal: i=1; a=rsa-sha256; t=1790667141; cv=none; 
+	d=zohomail.com; s=zohoarc; 
+	b=Lo0q0GcuKW7LmnzRRytJBj2qcby1rCCGeWvBPzX9eCNGwidytCt3uBJ81RfMBgwkjUv0Ou8P1b6R8VkluY/ZCM+tiPas/Cm76u9lh+gJ9jjNtU1fJAGUtWE4dsSZVuixbq3VpZdq9xIhJ5tJkM6ASWz6UEi1ttL6hGmbYdm8H1w=
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=zohomail.com; s=zohoarc; 
+	t=1790667141; h=Content-Type:Content-Transfer-Encoding:Cc:Cc:Date:Date:From:From:In-Reply-To:MIME-Version:Message-ID:Subject:Subject:To:To:Message-Id:Reply-To; 
+	bh=hD2niuyZYi4hGUz8wD8CQSqVmQtaAAm56xCDiCG8qiA=; 
+	b=T4YgIcP7yYbgOs1EIt5mmPQYY8qP/vVdR0NXxDlVMxOTLA1occnFWx/6Oyz49Ysw22KvDQehwxQKCx3YNYn3lFnaWlPBl5uULVrHgD945nHm2wGcF0ZUvuIjUwxNamClZ/RWUM0ywKjoLsmOYE3v1GnqsKEh0IQbVwANvaGFYE8=
+ARC-Authentication-Results: i=1; mx.zohomail.com;
+	dkim=pass  header.i=collabora.com;
+	spf=pass  smtp.mailfrom=benjamin.gaignard@collabora.com;
+	dmarc=pass header.from=<benjamin.gaignard@collabora.com>
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; t=1790667141;
+	s=zohomail; d=collabora.com; i=benjamin.gaignard@collabora.com;
+	h=Message-ID:Date:Date:MIME-Version:Subject:Subject:To:To:Cc:Cc:From:From:In-Reply-To:Content-Type:Content-Transfer-Encoding:Message-Id:Reply-To;
+	bh=hD2niuyZYi4hGUz8wD8CQSqVmQtaAAm56xCDiCG8qiA=;
+	b=I4UlrcqXdx3XBEWklwWNlyHFab9MabsOmeY2n4oePKdbfSoZzYpdpaGdKbJCdIzB
+	tT4fPsg6GKDtmM2XNymH0Rjzmxn3Kko4/te7O8lB1izBiceYSdc9Pza8LPiyn72Dcuy
+	rT/6wc+oYqqejgsUsPzJqjYw/18891pZBrghtd8k=
+Received: by smtp.zohomail.com with SMTPS id 1790667140359748.8800768409743;
+	Tue, 29 Sep 2026 00:32:20 -0700 (PDT)
+Message-ID: <4ed94c10-edc7-423b-a4db-032af5180f3f@collabora.com>
+Date: Tue, 29 Sep 2026 09:32:15 +0200
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: SJ2PR12MB9161:EE_|CY8PR12MB7706:EE_
-X-MS-Office365-Filtering-Correlation-Id: 3f010b08-d67a-4577-a18d-08df1dfb4f58
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|23010399003|7416014|376014|10070799003|366016|921020|4143699003|10067099003|11063799006|56012099006|18002099003|22082099003|6133799003;
-X-Microsoft-Antispam-Message-Info: +qEftXZoHdfYddJ3Puras6jQ0pOwIS/rwrhUt39i+K1HWCJiFFIys/sVWe2TTUQ0UzYt5PyOnOkP7UlUQTRfNR7ijAkr9ZEinnOdcQqZZowNsQvRanv/jMXF/zrosE8Y22DI8M9Aye4CoilX1KcITp0a+OCpQolSL7iXd6SVmQaUSM5yzI9vK8uUesWmIx9Y+5Q65hpYkSZSvUtRFYMi9Suhjv3cRIxQAM8JLZ85SA8EbCqSOchYwPcxQs/QpZIdYB7Nr0/NXc0cTnFRsGad15erjs0JiX6gAIZ2Py29lXhqWYDdqs02SlliJDhZ6v22qqWy7exiv+mt8kD17kbgoWs/9XdJ5Q37H6oFlaSGngq431MwjxzjoQ9/UJju47ciJ5xooMWDI8x8zTLrdiCTPPcLk6Lrat7GHrMaBmzJFNVjezlLXGzxdTYB1kipBrpvJD9C4DJ1TQsmAqmgXQhwZeBJNZDU8ZmKpXN3lZRcyFyssf/8RnH9gth2G9zmUWwrhwN3WZZ1CvotEEBEfddDwR55EKLZq4uZWPnVs7R+Wv8WlG749q0p7CiVW7UBAKhCM2nAuomeo9Tp+msF9lQsjlL6I49fS2xmeSYk8iTHSUe66/v8GHcCb7bcstN+XRilC/SwPoDegH3xrjMRR3Yc6p1AWSR8ETFRcwX9GVVyqTFsNiGJxZVfI0pdIe08O29eQXJQPqI5YHokuR6Fb4l2VQ==
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:SJ2PR12MB9161.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(23010399003)(7416014)(376014)(10070799003)(366016)(921020)(4143699003)(10067099003)(11063799006)(56012099006)(18002099003)(22082099003)(6133799003);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 2
-X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?elZITmsxMTlTdWsrZ0t4MjVLRWczRFlHRkdoU2Nrb2tpWjVlMFdGWDhzT3dS?=
- =?utf-8?B?S1gwRjF5eG9NTUZmQVQ1Y3d4Y1NNWFIzelhtbGV1N1pNd3h0TjVrWTNqOXU5?=
- =?utf-8?B?QjBlMnBleVljS2tCMjlIZUZoVC93bEhyTHExZjZzbmdDcWppc3NyNExJUXNR?=
- =?utf-8?B?VTgwRW5RMisydDNrNlBNZU5MN0JlcGJiMUI2NHV2aFdVa3lkQXZTbmhPQTFQ?=
- =?utf-8?B?NFZDcWtmOXVZeFp0NHV1bUloQ3hsVTdUUXIvdEJxQ2pOcUVwREgwZTk4NDEw?=
- =?utf-8?B?MGM4NlNocmJOT21XV0lSTmlvU1h1YTIySk0wS1pEK1RLZ1ZFVG9QSkhLdjdD?=
- =?utf-8?B?OU5PSnV5WVQwVW5MN1VocWQ2aWZKMDJiZHNCbUdYMUZhQnZYK3dVSDNkclZo?=
- =?utf-8?B?RkJYVUFYZFpnZGVXUndoNWJYeHpiR3dzcFZKMUtLOVpKcXZCT1hyVFVhTlM5?=
- =?utf-8?B?eTgrSXVjSElxNHNobzAxRUJId21rNTIza3VQdExuenhidjF4ZWFKQTd0NStP?=
- =?utf-8?B?RnA2dXJZM2Z5WmJ1UFpPTFRTUVQ3OUNwTlMyWUFZT3U4eWFoMlRuZUZDWkJU?=
- =?utf-8?B?aFRpUFYra01LemdBWXRSeFpSd0F4YWVKeFdJQ0liK011Y1ZFd1prSFhac1ow?=
- =?utf-8?B?RmNVM0c3QkdSZjR6ZGQyYm9iZlZQSXltNCtkbEFONVJ6WWhRWDRpdU42NSty?=
- =?utf-8?B?QWt1cmtaelFBRDhsOGZTVzl3dkcyNDFWc0w0TjVLdWJnaGx1emFmbzFzVUI3?=
- =?utf-8?B?R3ZYZUNxaGRDRUY3QUd0Y2lrRGIrbW5HM040RC85MWp3NWpTd2l0cjlyMHp3?=
- =?utf-8?B?THRSUVM2K05zZ0d3K0Iza1BvSWlZRjZqUXVrZ0lpQVh1b0Z4aUhva1R5RU9t?=
- =?utf-8?B?Z09IZnFSeWROTnZ1ZFlNZEIzZUN4Mm5QbTZQS1Vzcm8wbXl2bjNUQkxqYnFk?=
- =?utf-8?B?c093Q2dRTXA4VUZjZEd1dzBUckNTeGZqaVBXbEE3Q3hpNkxVS1J1RCtUTGxG?=
- =?utf-8?B?eUdiUGI1T3VsazlFY0c4ZTlIWHRvNlNnN2tuSkV5RFp2TS9rdG5ONUJvUk5N?=
- =?utf-8?B?RzM4OTljYlVlQWxGdFIzMXFvTWgyd1ZObFFPSkpOYTIvMzgrVTBFQnZocVpI?=
- =?utf-8?B?TElzTHc2eWcraGNEQ1ZsdHhLckc0Y0J4QTF6eDFKRUhJYXhBemRSYkR3VjRa?=
- =?utf-8?B?cU0xQS9xRnpTeXIrNEVXdVEzam5yUlJIMlkycjRqbUpiOS9kYkxmNmZJd2Vu?=
- =?utf-8?B?QWdiTGJ3cFpIaWFPNTlnV294dGo3VTU4L0RRQzlORHphTjMvbm5KOVFOQ2Fh?=
- =?utf-8?B?dGtka0VKaUs3YTR4cUljZCt4dHQ1emMxSGlNbkx1endhREFFMC8wVHN0Rmsx?=
- =?utf-8?B?aCtQOGtQNlIwMzFCT1NHaXJObWhUTmhjdnltSnNKdDFvVDI1bXorS2xlMnMz?=
- =?utf-8?B?ZExxdnpOdnJpQ0ROOE04elN2L3h3NTlYa2pYdS8xME5EUTlCMktLSFFyQm9F?=
- =?utf-8?B?VUM1VWlTYi9UTE9UVmVWemx5andKOTRIV3o4MVlUbkRuV2FuUlJUcGZLOUhW?=
- =?utf-8?B?enY2Q3E0SzQxY0kzcGgzQUxSeWJtM0pJeUh5MHRRREx6WXB5Q2JueFFnSThG?=
- =?utf-8?B?Z1RKeFZrampYNERINmlOWUludG82dGxYMmovK25nbXVyN241dithVThRLzJy?=
- =?utf-8?B?NHF5eWkwUFRwU00wY3BRYVFnd09meFNvUDVzYmRRSjhESW1VYmQzOTVwUlZK?=
- =?utf-8?B?YXEvSStuZkdUclRFMHlhUlU1Qmd4UDI0THVJNzZmOUZGZ0tIcklqTmtOb0d0?=
- =?utf-8?B?NTl3UG5ZNkVnVWU3a09saXZCSDZhRVY3Yk9XYjdURmxVc3kzVjRNWVA0am5E?=
- =?utf-8?B?NlZmL1ZRcTFBWng1Wm16Ump2K0dJVXgvQTlIc2V1MGQyVVBmdThIc2lZUC9s?=
- =?utf-8?B?OUtsYnk4T0R3V3FKSzQvNXQ5dTRSeUZEWm84M21XclZZUGVrLzYyUFR5SXZE?=
- =?utf-8?B?TWhvUGJhVmZjRGg2cU5BMm5xZTlRS2JpNXd2RklzYzUrRk5lZmtRdlBPTkZY?=
- =?utf-8?B?WmF3dVJWdjFxdmlDQWUwTTBuUEFvMHQwS1hscU1QNWJsd3FCL2pFb0U3V2Fj?=
- =?utf-8?B?WVZ0OTM4VEJPOHU1QVVlL0Y2Y3B2N0NiWStUVm5UTVpwZ3ovUjF4TjdZMEdN?=
- =?utf-8?B?TjBMTVllam5CRWFaQ0JiWDdET3VjN1d6NEM5ak41bjJDaHAvMlQ4aXZCZU5k?=
- =?utf-8?B?SXZOdkV3MGtENGdWc1pPb2U1dWFpL1pVZk9ya3l1ZFRWYkFUUGYycWcvWUMr?=
- =?utf-8?B?SFpuQWVQTEgrcmRhVnJyNE9NSjJUNisxM1g1WWhONUxDTnllZEFQUUZzNXYy?=
- =?utf-8?Q?qxtY6/XS1JE/90oiKZQWdNMIVBaIQMooJkl5ISQAuvsXy?=
-X-MS-Exchange-AntiSpam-MessageData-1: 7x90EcBWwRMhIw==
-X-OriginatorOrg: Nvidia.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 3f010b08-d67a-4577-a18d-08df1dfb4f58
-X-MS-Exchange-CrossTenant-AuthSource: SJ2PR12MB9161.namprd12.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 29 Sep 2026 07:28:52.0395
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: EnBivfYtFavwTZvq6/k0h29ponIRg8NfCNt342YJoUbeAHtvqdXynbR5tfZo6g+Xn0IiuD5iaZGvScZH0tSmzA==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: CY8PR12MB7706
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v5 2/3] media: dt-bindings: media: nxp, imx8mq-vpu: Remove
+ nxp,imx8mq-vpu
+To: Conor Dooley <conor@kernel.org>
+Cc: nicolas.dufresne@collabora.com, p.zabel@pengutronix.de,
+ mchehab@kernel.org, robh@kernel.org, krzk+dt@kernel.org,
+ conor+dt@kernel.org, Frank.Li@nxp.com, s.hauer@pengutronix.de,
+ kernel@pengutronix.de, festevam@gmail.com, linux-media@vger.kernel.org,
+ linux-rockchip@lists.infradead.org, devicetree@vger.kernel.org,
+ imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
+ linux-kernel@vger.kernel.org, kernel@collabora.com,
+ Conor Dooley <conor.dooley@microchip.com>
+References: <20260928080822.19553-1-benjamin.gaignard@collabora.com>
+ <20260928080822.19553-3-benjamin.gaignard@collabora.com>
+ <20260928-primal-figurine-2a87db42eab0@spud>
+Content-Language: en-US
+From: Benjamin Gaignard <benjamin.gaignard@collabora.com>
+In-Reply-To: <20260928-primal-figurine-2a87db42eab0@spud>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260929_002901_755476_98649F30 
-X-CRM114-Status: GOOD (  41.99  )
+X-CRM114-CacheID: sfid-20260929_003235_254490_5CD1F335 
+X-CRM114-Status: GOOD (  15.43  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -163,159 +86,60 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Saturday, September 26, 2026 12:20=E2=80=AFAM Marek Szyprowski wrote:
-> On 15.09.2026 04:14, Mikko Perttunen wrote:
-> > Depending on the probe ordering, TegraDRM does not currently probe on=20
-> > kernels with CONFIG_ARM_DMA_USE_IOMMU enabled, such as with=20
-> > multi_v7_defconfig. The Tegra SMMU puts several display and 2D/3D=20
-> > clients into one IOMMU group, and the legacy 32-bit ARM DMA API path=20
-> > creates one UNMANAGED domain per device and attaches it with=20
-> > iommu_attach_device(). That only works for one device per group, so=20
-> > every client after the first fails to attach,=20
-> > iommu_device_use_default_domain() rejects the group with -EBUSY, and th=
-e=20
-> > driver goes down with it. tegra_defconfig is currently working by virtu=
-e=20
-> > of not enabling CONFIG_ARM_DMA_USE_IOMMU.
-> >
-> > Robin suggested [1] that instead of teaching the legacy path about=20
-> > groups, we should explore modernizing the 32-bit ARM DMA code a bit by=
-=20
-> > making it use domain cookies and have the core code own the domains, as=
-=20
-> > is the case on other architectures. Still, ARM's own DMA code is kept t=
-o=20
-> > support existing drivers and APIs that expect it, and because dma-iommu=
-=20
-> > is considered too big and unnecessary for 32-bit ARM.
->=20
->=20
-> I agree that such little modernization is the right step to unify a bit
-> ARM 32bit with modern archs and get rid of some workaround in the drivers=
-.
 
-Yes -- certainly TegraDRM's memory management paths have grown to be=20
-rather cumbersome.
+Le 28/09/2026 à 18:31, Conor Dooley a écrit :
+> On Mon, Sep 28, 2026 at 10:08:21AM +0200, Benjamin Gaignard wrote:
+>> nxp,imx8mq-vpu has been tagged has deprecated since a while and
+>> driver emitted a warning when this bindings was used.
+>> Vendor DT use the following node before they moved to mainline driver:
+>> vpu: vpu@38300000 {
+>> 	compatible = "nxp,imx8mq-hantro";
+>> 	...
+>> };
+>> but that binding has never be documented.
+>> After driver clean up it is time to remove it.
+>>
+>> Signed-off-by: Benjamin Gaignard <benjamin.gaignard@collabora.com>
+>> Reviewed-by: Frank Li <Frank.Li@nxp.com>
+>> Acked-by: Conor Dooley <conor.dooley@microchip.com>
+>> pw-bot: not-applicable
+> This is not a tag that you should put in your commits btw, this was me
+> telling the dt patchwork that this patch has been handled.
 
->=20
-> It was me who raised the concern about the drivers depending on the first=
--fit
-> allocation algorithm used in the32-bit ARM DMA code. This is an issue for=
- some
-> legacy Samsung Exynos drivers. I not aware of any other driver used on AR=
-M 32bit
-> SoCs that depends on this behavior.
->=20
-> If one is still interested in switching ARM 32bit to generic IOMMU-DMA co=
-de I
-> can prepare a workaround for those Exynos drivers. I still have it on my =
-todo
-> list, but in meantime there was no interest in updating ARM 32bit DMA cod=
-e.
->=20
+It was the first time I saw this tad and I didn't know what to do of it
+but I found it in some other commit messages so I added it.
 
-While I don't see any immediate need to touch the allocation algorithm,=20
-being able to get rid of some or all of the arm_iommu_* functions would=20
-be nice. At least for create/attach, there aren't very many callers.=20
-Most drivers just get rid of the ARM mapping.
-
-Thank you!
-Mikko
-
->=20
-> > The series is in four parts:
-> >
-> > - Patches 1-2 are preparation in the IOMMU core:
-> >   1. Add iommu_teardown_dma_ops, counterpart to iommu_setup_dma_ops.
-> >   2. Add cookie type for ARM's DMA domains.
-> > - Patches 3-6 implement the DMA API side on 32-bit ARM:
-> >   3. Split up domain and address space management code in arch/arm/.
-> >   4. Implement parallel dma_ops / cookie APIs on ARM side.
-> >   5. Avoid domain allocation when IOMMU core does it.
-> >   6. Support foreign-allocated sg_tables.
-> > - Patch 7 enables 32-bit ARM IOMMU drivers to provide a DMA default=20
-> >   domain.
-> > - Patches 8-11 convert Tegra:
-> >   8. Allows deferring translation enable until driver handshake for
-> >      selected devices.
-> >   9-10. Removes code detaching ARM UNMANAGED DMA domains in
-> >         Host1x/TegraDRM.
-> >   11. Enables DMA default domain for selected Tegra devices.
-> >
-> > None of this should have any functional effect on any device other than=
-=20
-> > the Tegra devices enabled in patches 8-11. Other IOMMU drivers can opt=
-=20
-> > in later. The new DMA default domains are enabled only when the IOMMU=20
-> > driver explicitly specifies a DMA domain type, just returning 0 for the=
-=20
-> > default is not enough (unlike on arm64), keeping the current behavior.
-> >
-> > Patches 8-11 are provided for demonstration but we can deal with them=20
-> > separately if the rest of the series is accepted.
-> >
-> > Patches 1,2,3 are applicable independently.
-> > Patches 4,5 depend on the previous patches.
-> > Patch 6 can be applied independently but is only required once
-> >   the whole series lands (by TegraDRM).
-> > Patch 7 depends on patch 4.
-> >
-> > Patches 1-7 only touch drivers/iommu/ and arch/arm/mm/ and associated=20
-> > headers.
-> >
-> > Best regards,
-> > Mikko
-> >
-> > [1] https://lore.kernel.org/linux-tegra/910d1492-ad3b-4201-93c6-208be1d=
-cde7d@arm.com/
-> >
-> > ---
-> > Mikko Perttunen (11):
-> >       iommu: Add iommu_teardown_dma_ops
-> >       iommu: Add cookie type for ARM_DMA_USE_IOMMU
-> >       ARM: dma-mapping: Split mapping allocation from domain allocation
-> >       ARM: dma-mapping: Implement and expose DMA setup functions
-> >       ARM: dma-mapping: Bypass the legacy path for core-owned DMA API d=
-omains
-> >       ARM: dma-mapping: Handle foreign buffers in arm_iommu_get_sgtable
-> >       iommu: Let 32-bit ARM drivers opt into a DMA API default domain
-> >       iommu/tegra-smmu: Defer display client translation to driver hand=
-over
-> >       gpu: host1x: Drop release of legacy 32-bit ARM DMA domain
-> >       drm/tegra: Drop release of legacy 32-bit ARM DMA domain
-> >       iommu/tegra-smmu: Use a DMA API default domain per swgroup
-> >
-> >  arch/arm/include/asm/dma-iommu.h |  17 ++++
-> >  arch/arm/mm/dma-mapping.c        | 209 +++++++++++++++++++++++++++++++=
-+-------
-> >  drivers/gpu/drm/tegra/dc.c       |   8 ++
-> >  drivers/gpu/drm/tegra/drm.c      |  15 ---
-> >  drivers/gpu/host1x/dev.c         |  15 ---
-> >  drivers/iommu/Kconfig            |   1 +
-> >  drivers/iommu/dma-iommu.c        |   5 +
-> >  drivers/iommu/dma-iommu.h        |  52 +++++++---
-> >  drivers/iommu/iommu.c            |  24 ++---
-> >  drivers/iommu/tegra-smmu.c       | 109 +++++++++++++++++++-
-> >  drivers/memory/tegra/tegra114.c  |  15 ++-
-> >  drivers/memory/tegra/tegra124.c  |  12 ++-
-> >  drivers/memory/tegra/tegra210.c  |   6 +-
-> >  drivers/memory/tegra/tegra30.c   |  18 ++--
-> >  include/linux/iommu.h            |   3 +
-> >  include/soc/tegra/mc.h           |  20 ++++
-> >  16 files changed, 410 insertions(+), 119 deletions(-)
-> > ---
-> > base-commit: f5098b6bae761e346ebcd9da7f95622c04733cff
-> > change-id: 20260728-b4-arm32-iommu-dma-cookie-3170e07f9125
-> >
-> >
-> Best regards
-> --=20
-> Marek Szyprowski, PhD
-> Samsung R&D Institute Poland
->=20
->=20
-
-
-
-
+>
+>> ---
+>> changes in v5:
+>> - add more details in commit message
+>> - add Conor Dooley accked-by tag
+>>
+>>   .../devicetree/bindings/media/nxp,imx8mq-vpu.yaml      | 10 ++++------
+>>   1 file changed, 4 insertions(+), 6 deletions(-)
+>>
+>> diff --git a/Documentation/devicetree/bindings/media/nxp,imx8mq-vpu.yaml b/Documentation/devicetree/bindings/media/nxp,imx8mq-vpu.yaml
+>> index 19528262810a..69619d2c86fa 100644
+>> --- a/Documentation/devicetree/bindings/media/nxp,imx8mq-vpu.yaml
+>> +++ b/Documentation/devicetree/bindings/media/nxp,imx8mq-vpu.yaml
+>> @@ -14,12 +14,10 @@ description:
+>>   
+>>   properties:
+>>     compatible:
+>> -    oneOf:
+>> -      - const: nxp,imx8mq-vpu
+>> -        deprecated: true
+>> -      - const: nxp,imx8mq-vpu-g1
+>> -      - const: nxp,imx8mq-vpu-g2
+>> -      - const: nxp,imx8mm-vpu-g1
+>> +    enum:
+>> +      - nxp,imx8mq-vpu-g1
+>> +      - nxp,imx8mq-vpu-g2
+>> +      - nxp,imx8mm-vpu-g1
+>>   
+>>     reg:
+>>       maxItems: 1
+>> -- 
+>> 2.53.0
+>>
 
