@@ -4,7 +4,7 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id ADEAECA5FA7
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B55A8CA5FAC
 	for <linux-arm-kernel@archiver.kernel.org>; Tue, 29 Sep 2026 16:26:03 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
@@ -12,44 +12,44 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=FDsvSmIYjY7Wlu5xjH/XblAkB0TRMYrgy/Yq1eEWrDQ=; b=Wst5oiZgaDsfOwm/b1zSusL6zi
-	Ppn91TYEqr66TSMoH9CXFD0ShfigumvXBp5W8PC5MEnRuOoy+UuMd9Tzzjrb0eUwnMfkeVbv8wNmN
-	x3iNtl0W9wfsvm9CuvGmSt1zB9tu/e8Dp6zoWBB/gbezkbHIaSuUFX0oZm3O6662kcoy1d1Unuc7i
-	CYT7Jxh4jI98ndPVyG3angxjUuV5uDijvwYqw1XBB+pxhIo/3DWAA/1RxTKcslAzFEfqnl8FTiXD6
-	OUIVHeABxtBZMMNr9iReK5CZiNB1JH5bGj5AqETaM955AaztiNbBgEgAPLLsfYCZvdzEq83ecPmto
-	nvJ0ixbQ==;
+	bh=28DySMoBykAbQU4o8+k5pV7Q2DHcOkjUAH3BYXyFqmY=; b=qfCWBwrS5TrUHeDK+XS04pipkn
+	yGAOSqnxUlZ/zeiox0ZA82w3xtJ3nQq9NCgQ3W8pbcqudA9NcncR2sydktOV9swbO/iXkXV58L/FB
+	Uk7q/7+HYNtHWNryhBKrAcW0U/aZhgqITUVN+WjiWoB7izqcoXqInm/EPIBPcFffeFSY5v0BdKwQI
+	eec6eV4V+ux4HxeLRDqAut+63XLHbX3Nj7fizW4eWuAWG938PFIZp/iiJgM15OyiEF6RT1dfX47MD
+	6FFsIvQTzNqOZkAbeJ/Jtw3t1vTmOGy41BY7+mlitkdL/cQwBy21+srdqRe+xTzxbPZtF90JeLv76
+	38RoiTbg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xBaeQ-000000042Uj-0a3g;
-	Tue, 29 Sep 2026 16:25:54 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1xBaeP-000000042U5-40bM;
+	Tue, 29 Sep 2026 16:25:53 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xBaeO-000000042Tf-0puo
+	id 1xBaeI-000000042SB-2FAD
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 29 Sep 2026 16:25:52 +0000
+	Tue, 29 Sep 2026 16:25:46 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id ACB6A41A8E;
-	Tue, 29 Sep 2026 16:25:51 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 0C1E91F00893;
-	Tue, 29 Sep 2026 16:25:48 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id DBE6360234;
+	Tue, 29 Sep 2026 16:25:45 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 085D41F00893;
+	Tue, 29 Sep 2026 16:25:42 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1790699151;
-	bh=FDsvSmIYjY7Wlu5xjH/XblAkB0TRMYrgy/Yq1eEWrDQ=;
+	s=k20260515; t=1790699145;
+	bh=28DySMoBykAbQU4o8+k5pV7Q2DHcOkjUAH3BYXyFqmY=;
 	h=From:Date:Subject:References:In-Reply-To:To:Cc;
-	b=T6qOf9cS1m3QYKzDLkO+yE9M1yE4okzFEsCnW9ZxmdTNTyhgW+WTIbbgMOyFDWbkf
-	 2NomCNw0Q5PN4n2w7oyNxstUvfJ+kOPCpWSYunwu9qyTDcQzJMIAV0pVL1sHrkq/vI
-	 5/SUozIZv4GW9Ql1a+/UZIF41MCXgJ/Y5kX7u2odPS9T2mGMxlDHHwnN/QSNSEHZOn
-	 pXr1mjS+uySi+wr4JF77nWG+Gz7ZjTPgyazZ/IF6J5smCsVt2KFwf0N22lrDQt7Lnu
-	 I3hQ8M9j6SYGtvPqg8rEWfzyDq/uhUdS15j/jXUuShlPDM21udtaRxYfDc/zyzHW3B
-	 U46GpymF6dIJA==
+	b=DI0wWFl957nWDUdU8vEQQfIs4mZzN27rHBct3ixhci7vHa8ROTRL3SUMygJ4SrNzC
+	 hLKXISYeybvl0Z5L4ZPOGnJesjQ3lBX3Kv1ek9uiNqzOerT/Km+0pangjg7tS2opAd
+	 y3UtRpwX9rUZ6P6V/cVfDsydOVL0EpbpT27nUxs7Zuhv53YjFqblVVR2KNfqZg3mGn
+	 59bNCi53VFDhcZKR1JRJpx0JABMYYe1vJZUv/rpV82daOTjDDrTPU0cuJPDSo8bNsL
+	 YC4tbT39DI92AA33my22CGKCZsRT/KXRFlZrjDgs0CwkDO399qAZx8btNTSWW2yfWA
+	 7xI0fXq8Z9o8w==
 From: Mark Brown <broonie@kernel.org>
-Date: Tue, 29 Sep 2026 17:16:54 +0100
-Subject: [PATCH v8 3/3] KVM: selftests: arm64: Make set_id_regs bitfield
- validity checks non-fatal
+Date: Tue, 29 Sep 2026 17:16:52 +0100
+Subject: [PATCH v8 1/3] KVM: selftests: arm64: Report set_id_reg reads of
+ test registers as tests
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20260929-kvm-arm64-set-id-regs-aarch64-v8-3-58aabe2c2fac@kernel.org>
+Message-Id: <20260929-kvm-arm64-set-id-regs-aarch64-v8-1-58aabe2c2fac@kernel.org>
 References: <20260929-kvm-arm64-set-id-regs-aarch64-v8-0-58aabe2c2fac@kernel.org>
 In-Reply-To: <20260929-kvm-arm64-set-id-regs-aarch64-v8-0-58aabe2c2fac@kernel.org>
 To: Marc Zyngier <maz@kernel.org>, Joey Gouly <joey.gouly@arm.com>, 
@@ -61,15 +61,15 @@ Cc: Ben Horgan <ben.horgan@arm.com>, linux-arm-kernel@lists.infradead.org,
  linux-kselftest@vger.kernel.org, linux-kernel@vger.kernel.org, 
  Mark Brown <broonie@kernel.org>, "Lorenzo Stoakes (ARM)" <ljs@kernel.org>
 X-Mailer: b4 0.17-dev
-X-Developer-Signature: v=1; a=openpgp-sha256; l=3917; i=broonie@kernel.org;
- h=from:subject:message-id; bh=Kwt7NK9oH5FmK5X09UqbhhtL97/yzBABChsZOu0XnUc=;
- b=owEBbQGS/pANAwAKASTWi3JdVIfQAcsmYgBqu+aBqXzx00nzUEuB2LfTbrWnbVSZTlb7CkI00
- lr3/p6auLyJATMEAAEKAB0WIQSt5miqZ1cYtZ/in+ok1otyXVSH0AUCarvmgQAKCRAk1otyXVSH
- 0FVSB/9oxGazFsvlXdHLhoAUYTxZ7MgTCm6AnNbR8S3Bo1cSBe98pqQklokTY94QfIQnBhqvGWr
- /3mWeQYDvkAfp+T3M+8q4TLwGx32vcdnuoi+erCxlvZJfqBWHejyH+OWgOOj14iY0FgIS0j1pPm
- UFzArso7o4QCiLfjUvGo/lCDIjHttYH5rW8Uo7O4ywvswSROtO6XBg48Kz3qt7eETZntI8fXVwd
- ErW4oQkcClL1DjiS/z8BTIeTacrXw0Ih6jfAuQ+HYDsTl+5KzgS6oVGuXdqxG0UphC5S78HhZqd
- +csfIxak8Vgw5PJltY57mZz9H5ez1FLywLN3q8pUBMPIEzSz
+X-Developer-Signature: v=1; a=openpgp-sha256; l=5698; i=broonie@kernel.org;
+ h=from:subject:message-id; bh=f+otOKWl+jicQt/HziuL2d0+mOnBsEfXRNs77efj6fs=;
+ b=owEBbQGS/pANAwAKASTWi3JdVIfQAcsmYgBqu+Z/rXte/jrV0wvKBFWPgh3DJyAV2cFzAo7YH
+ e6nP4BIWqeJATMEAAEKAB0WIQSt5miqZ1cYtZ/in+ok1otyXVSH0AUCarvmfwAKCRAk1otyXVSH
+ 0FSVB/4g9M9pgmPjcspBsqhHw80OPfaQDpH8MWuYfEWWdJ8RBDHNYScB3wtfCyWfPioavp49P3N
+ XmPsgmLoHo+m4QRQsC9AVkf2X/wNtawIo+b/8Gm/94pxyQ3xtuYmx8QIi35XuZOhkb5R4MjYhcg
+ OL6loe/Nb9bRdkm1drxIy1hSsHZAS07f4oFpspyXzTXcF0UR/nS6GTL66EXTeIb6IIVDdCm3UUD
+ 1x7tiGgaCBrKkYiMvlTDVGgd/AAW3XFBh13D0QLfzVAM/9cNMbA9hi/lulsVzPkr9RdlB+TGpgQ
+ 1O8vAvMnqOO2kpSltXtlbrYU351d+hcvXZX0xSgoh7Dj5WGj
 X-Developer-Key: i=broonie@kernel.org; a=openpgp;
  fpr=3F2568AAC26998F9E813A1C5C3F436CA30F5D8EB
 X-BeenThere: linux-arm-kernel@lists.infradead.org
@@ -86,109 +86,168 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Currently when set_id_regs encounters a problem checking validation of
-writes to feature registers it uses an immediately fatal assert to report
-the problem. This is not idiomatic for kselftest, and it is also not great
-for usability. The affected bitfield is not clearly reported and further
-tests do not have their results reported.
+Currently when we run guest code to validate that the values we wrote to
+the registers are seen by the guest we assert that these values match using
+a KVM selftests level assert, resulting in unclear diagnostics if the test
+fails. Replace this assert with reporting a kselftest test per register.
 
-Switch to using standard kselftest result reporting for the asserts we
-do, these are non-fatal asserts so allow the program to continue and the
-test names include the affected field.
+In order to support getting the names of the registers we repaint the array
+of ID_ registers to store the names and open code the rest.
 
 Reviewed-by: Ben Horgan <ben.horgan@arm.com>
 Reviewed-by: Lorenzo Stoakes (ARM) <ljs@kernel.org>
 Signed-off-by: Mark Brown <broonie@kernel.org>
 ---
- tools/testing/selftests/kvm/arm64/set_id_regs.c | 31 ++++++++++++++++++-------
- 1 file changed, 23 insertions(+), 8 deletions(-)
+ tools/testing/selftests/kvm/arm64/set_id_regs.c | 82 +++++++++++++++++++------
+ 1 file changed, 63 insertions(+), 19 deletions(-)
 
 diff --git a/tools/testing/selftests/kvm/arm64/set_id_regs.c b/tools/testing/selftests/kvm/arm64/set_id_regs.c
-index 3aa8886e8b70..43dd9506036c 100644
+index 7429a1055df5..db6414a93ad3 100644
 --- a/tools/testing/selftests/kvm/arm64/set_id_regs.c
 +++ b/tools/testing/selftests/kvm/arm64/set_id_regs.c
-@@ -422,6 +422,7 @@ static u64 test_reg_set_success(struct kvm_vcpu *vcpu, u64 reg,
- 	u8 shift = ftr_bits->shift;
- 	u64 mask = ftr_bits->mask;
- 	u64 val, new_val, ftr;
-+	bool match;
+@@ -43,6 +43,7 @@ struct reg_ftr_bits {
+ };
  
- 	val = vcpu_get_reg(vcpu, reg);
- 	ftr = (val & mask) >> shift;
-@@ -434,7 +435,10 @@ static u64 test_reg_set_success(struct kvm_vcpu *vcpu, u64 reg,
+ struct test_feature_reg {
++	const char *name;
+ 	u32 reg;
+ 	const struct reg_ftr_bits *ftr_bits;
+ };
+@@ -227,30 +228,32 @@ static const struct reg_ftr_bits ftr_id_aa64zfr0_el1[] = {
  
- 	vcpu_set_reg(vcpu, reg, val);
- 	new_val = vcpu_get_reg(vcpu, reg);
--	TEST_ASSERT_EQ(new_val, val);
-+	match = new_val == val;
-+	if (!match)
-+		ksft_print_msg("%lx != %lx\n", new_val, val);
-+	ksft_test_result(match, "%s valid write succeeded\n", ftr_bits->name);
- 
- 	return new_val;
- }
-@@ -446,6 +450,7 @@ static void test_reg_set_fail(struct kvm_vcpu *vcpu, u64 reg,
- 	u64 mask = ftr_bits->mask;
- 	u64 val, old_val, ftr;
- 	int r;
-+	bool match;
- 
- 	val = vcpu_get_reg(vcpu, reg);
- 	ftr = (val & mask) >> shift;
-@@ -458,11 +463,19 @@ static void test_reg_set_fail(struct kvm_vcpu *vcpu, u64 reg,
- 	val |= ftr;
- 
- 	r = __vcpu_set_reg(vcpu, reg, val);
--	TEST_ASSERT(r < 0 && errno == EINVAL,
--		    "Unexpected KVM_SET_ONE_REG error: r=%d, errno=%d", r, errno);
-+	if (r >= 0 || errno != EINVAL) {
-+		ksft_print_msg("Unexpected KVM_SET_ONE_REG error: r=%d, errno=%d (%s)\n",
-+			       r, errno, strerror(errno));
-+		ksft_test_result_fail("%s invalid write rejected\n",
-+				      ftr_bits->name);
-+		return;
-+	}
- 
- 	val = vcpu_get_reg(vcpu, reg);
--	TEST_ASSERT_EQ(val, old_val);
-+	match = val == old_val;
-+	if (!match)
-+		ksft_print_msg("%lx != %lx\n", val, old_val);
-+	ksft_test_result(match, "%s invalid write rejected\n", ftr_bits->name);
- }
- 
- static u64 test_reg_vals[KVM_ARM_FEATURE_ID_RANGE_SIZE];
-@@ -502,7 +515,11 @@ static void test_vm_ftr_id_regs(struct kvm_vcpu *vcpu, bool aarch64_only)
- 		for (int j = 0;  ftr_bits[j].type != FTR_END; j++) {
- 			/* Skip aarch32 reg on aarch64 only system, since they are RAZ/WI. */
- 			if (aarch64_only && sys_reg_CRm(reg_id) < 4) {
--				ksft_test_result_skip("%s on AARCH64 only system\n",
-+				ksft_print_msg("%s on AARCH64 only system\n",
-+					       ftr_bits[j].name);
-+				ksft_test_result_skip("%s invalid write rejected\n",
-+						      ftr_bits[j].name);
-+				ksft_test_result_skip("%s valid write succeeded\n",
- 						      ftr_bits[j].name);
- 				continue;
- 			}
-@@ -514,8 +531,6 @@ static void test_vm_ftr_id_regs(struct kvm_vcpu *vcpu, bool aarch64_only)
- 
- 			test_reg_vals[idx] = test_reg_set_success(vcpu, reg,
- 								  &ftr_bits[j]);
--
--			ksft_test_result_pass("%s\n", ftr_bits[j].name);
- 		}
+ #define TEST_REG(id, table)			\
+ 	{					\
+-		.reg = id,			\
++		.name = #id,			\
++		.reg = SYS_ ## id,		\
+ 		.ftr_bits = &((table)[0]),	\
  	}
+ 
+ static struct test_feature_reg test_regs[] = {
+-	TEST_REG(SYS_ID_AA64DFR0_EL1, ftr_id_aa64dfr0_el1),
+-	TEST_REG(SYS_ID_DFR0_EL1, ftr_id_dfr0_el1),
+-	TEST_REG(SYS_ID_AA64ISAR0_EL1, ftr_id_aa64isar0_el1),
+-	TEST_REG(SYS_ID_AA64ISAR1_EL1, ftr_id_aa64isar1_el1),
+-	TEST_REG(SYS_ID_AA64ISAR2_EL1, ftr_id_aa64isar2_el1),
+-	TEST_REG(SYS_ID_AA64ISAR3_EL1, ftr_id_aa64isar3_el1),
+-	TEST_REG(SYS_ID_AA64PFR0_EL1, ftr_id_aa64pfr0_el1),
+-	TEST_REG(SYS_ID_AA64PFR1_EL1, ftr_id_aa64pfr1_el1),
+-	TEST_REG(SYS_ID_AA64MMFR0_EL1, ftr_id_aa64mmfr0_el1),
+-	TEST_REG(SYS_ID_AA64MMFR1_EL1, ftr_id_aa64mmfr1_el1),
+-	TEST_REG(SYS_ID_AA64MMFR2_EL1, ftr_id_aa64mmfr2_el1),
+-	TEST_REG(SYS_ID_AA64MMFR3_EL1, ftr_id_aa64mmfr3_el1),
+-	TEST_REG(SYS_ID_AA64ZFR0_EL1, ftr_id_aa64zfr0_el1),
++	TEST_REG(ID_AA64DFR0_EL1, ftr_id_aa64dfr0_el1),
++	TEST_REG(ID_DFR0_EL1, ftr_id_dfr0_el1),
++	TEST_REG(ID_AA64ISAR0_EL1, ftr_id_aa64isar0_el1),
++	TEST_REG(ID_AA64ISAR1_EL1, ftr_id_aa64isar1_el1),
++	TEST_REG(ID_AA64ISAR2_EL1, ftr_id_aa64isar2_el1),
++	TEST_REG(ID_AA64ISAR3_EL1, ftr_id_aa64isar3_el1),
++	TEST_REG(ID_AA64PFR0_EL1, ftr_id_aa64pfr0_el1),
++	TEST_REG(ID_AA64PFR1_EL1, ftr_id_aa64pfr1_el1),
++	TEST_REG(ID_AA64MMFR0_EL1, ftr_id_aa64mmfr0_el1),
++	TEST_REG(ID_AA64MMFR1_EL1, ftr_id_aa64mmfr1_el1),
++	TEST_REG(ID_AA64MMFR2_EL1, ftr_id_aa64mmfr2_el1),
++	TEST_REG(ID_AA64MMFR3_EL1, ftr_id_aa64mmfr3_el1),
++	TEST_REG(ID_AA64ZFR0_EL1, ftr_id_aa64zfr0_el1),
+ };
+ 
+ #define GUEST_REG_SYNC(id) GUEST_SYNC_ARGS(0, id, read_sysreg_s(id), 0, 0);
+ 
+ static void guest_code(void)
+ {
++	/* Registers in test_regs array */
+ 	GUEST_REG_SYNC(SYS_ID_AA64DFR0_EL1);
+ 	GUEST_REG_SYNC(SYS_ID_DFR0_EL1);
+ 	GUEST_REG_SYNC(SYS_ID_AA64ISAR0_EL1);
+@@ -264,6 +267,8 @@ static void guest_code(void)
+ 	GUEST_REG_SYNC(SYS_ID_AA64MMFR2_EL1);
+ 	GUEST_REG_SYNC(SYS_ID_AA64MMFR3_EL1);
+ 	GUEST_REG_SYNC(SYS_ID_AA64ZFR0_EL1);
++
++	/* Additional registers counted in NUM_EXTRA_REGS */
+ 	GUEST_REG_SYNC(SYS_MPIDR_EL1);
+ 	GUEST_REG_SYNC(SYS_CLIDR_EL1);
+ 	GUEST_REG_SYNC(SYS_CTR_EL0);
+@@ -274,6 +279,35 @@ static void guest_code(void)
+ 	GUEST_DONE();
  }
-@@ -882,7 +897,7 @@ int main(void)
- 		ID_REG_RESET_UNCHANGED_TEST;
+ 
++#define NUM_EXTRA_REGS 6
++#define GUEST_READ_TEST (ARRAY_SIZE(test_regs) + NUM_EXTRA_REGS)
++
++static const char *get_reg_name(u64 id)
++{
++	int i;
++
++	for (i = 0; i < ARRAY_SIZE(test_regs); i++)
++		if (test_regs[i].reg == id)
++			return test_regs[i].name;
++
++	switch (id) {
++	case SYS_MPIDR_EL1:
++		return "MPIDR_EL1";
++	case SYS_CLIDR_EL1:
++		return "CLIDR_EL1";
++	case SYS_CTR_EL0:
++		return "CTR_EL0";
++	case SYS_MIDR_EL1:
++		return "MIDR_EL1";
++	case SYS_REVIDR_EL1:
++		return "REVIDR_EL1";
++	case SYS_AIDR_EL1:
++		return "AIDR_EL1";
++	default:
++		TEST_FAIL("Unknown register");
++	}
++}
++
+ /* Return a safe value to a given ftr_bits an ftr value */
+ u64 get_safe_value(const struct reg_ftr_bits *ftr_bits, u64 ftr)
+ {
+@@ -674,7 +708,8 @@ static void test_guest_reg_read(struct kvm_vcpu *vcpu)
+ 	struct ucall uc;
+ 
+ 	while (!done) {
+-		u64 val;
++		u64 reg_id, expected_val, guest_val;
++		bool match;
+ 
+ 		vcpu_run(vcpu);
+ 
+@@ -683,11 +718,20 @@ static void test_guest_reg_read(struct kvm_vcpu *vcpu)
+ 			REPORT_GUEST_ASSERT(uc);
+ 			break;
+ 		case UCALL_SYNC:
+-			val = test_reg_vals[encoding_to_range_idx(uc.args[2])];
+-			val = reset_mutable_bits(uc.args[2], val);
++			expected_val = test_reg_vals[encoding_to_range_idx(uc.args[2])];
++			expected_val = reset_mutable_bits(uc.args[2], expected_val);
+ 
+ 			/* Make sure the written values are seen by guest */
+-			TEST_ASSERT_EQ(val, reset_mutable_bits(uc.args[2], uc.args[3]));
++			reg_id = uc.args[2];
++			guest_val = reset_mutable_bits(uc.args[2], uc.args[3]);
++
++			match = expected_val == guest_val;
++			if (!match)
++				ksft_print_msg("%lx != %lx\n",
++					       expected_val, guest_val);
++			ksft_test_result(match,
++					 "%s value seen in guest\n",
++					 get_reg_name(reg_id));
+ 			break;
+ 		case UCALL_DONE:
+ 			done = true;
+@@ -828,7 +872,7 @@ int main(void)
+ 
+ 	ksft_print_header();
+ 
+-	test_cnt = 3 + MPAM_IDREG_TEST + MTE_IDREG_TEST;
++	test_cnt = 3 + MPAM_IDREG_TEST + MTE_IDREG_TEST + GUEST_READ_TEST;
  	for (i = 0; i < ARRAY_SIZE(test_regs); i++)
  		for (j = 0; test_regs[i].ftr_bits[j].type != FTR_END; j++)
--			test_cnt++;
-+			test_cnt += 2;
- 
- 	ksft_set_plan(test_cnt);
- 
+ 			test_cnt++;
 
 -- 
 2.47.3
