@@ -4,61 +4,61 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E52D2CA5FAD
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 29 Sep 2026 10:38:12 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D838ACA5FA5
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 29 Sep 2026 10:38:16 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
 	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
 	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ZJAd5Fzr/+97dvVwRiv6inP1iXx4xlncs5YPyHz47Yk=; b=cnq65yZ1/2My5b4olP8Q6gRxhx
-	EKGL12Nbjz18LgCEZ80ur+VZMr7oCct08GqFbvNd5dbsuuxuaSVqUa8x2gvJyw0IE/VEgQBQChfwu
-	Avka5UgHhNFnwEfLNiFthwW5J8BGWvVCrA5XrEmm082gQysWrIdGokixC7qq8hhc/PMSW4iK1/XJC
-	UiDPR2e8VmQjg86LldTC8xUT85cM+HWPFni/bUAT+px+rCyIznWa26/IGg3X7ic+y9jM1bwuy+1oE
-	k1URbSoBJ1U5Ug+EA/hFw/Lc4KIkYaT4qJqy7tqC8RVyOW7xpm5xek6+j7kYDuNJooJcOhjykIWXX
-	1VsObYwQ==;
+	bh=uSdBNVs4UefFpSGY9jG3xM3F4mLYxZd4t/C56DealMY=; b=Ibj78H+oljt0dAK9V9rAe34ZGH
+	c96PWI2KoY3hhCE69+spkgTjVg/78hPa4xeMA2SsX9kgM7xtoWovKVcgkjO0za04TcFLKviNui5EG
+	FXNiPBToLkkq7trQ5nJLwMtGIytQkD/ghz+01aKPAnFdoCIZUtDUBQS9P5TRMTd1+Owcp1vt2mDxW
+	CRiuX/J6baGdLAVrwHlppubj+ss8+YkhUQj+pOElEzXG03lKV+eriuZkfcNWUS2cPVUeffgeYVvGe
+	T4UBRTr0KSoqBw2AYw3GNGXzBC1EzGlpMUJysM5aJjdP8euhXVQRpTQ5JGNTzXADzPY8sI1ebY7mW
+	MREeKO9g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xBVDj-00000003Gww-1KxT;
+	id 1xBVDj-00000003Gxd-2xlP;
 	Tue, 29 Sep 2026 10:37:59 +0000
 Received: from casper.infradead.org ([2001:8b0:10b:1236::1])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xBVD6-00000003GfU-0ZZU
+	id 1xBVD9-00000003GiE-1drM
 	for linux-arm-kernel@bombadil.infradead.org;
-	Tue, 29 Sep 2026 10:37:20 +0000
+	Tue, 29 Sep 2026 10:37:23 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=infradead.org; s=casper.20170209; h=Content-Type:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:CC:To:From:Sender
 	:Reply-To:Content-ID:Content-Description;
-	bh=ZJAd5Fzr/+97dvVwRiv6inP1iXx4xlncs5YPyHz47Yk=; b=Vy+y1WeNzEgsuC6rZ3m0xYQ35B
-	wwnndKwreDhhMcEsM8IwVXx/mzYN5awfrUxg2Uj4PTwul+IkJCZNLxwOOcBlaaFc/WHRjoyv1ei12
-	4tmE20RJCO33Aze6ajY9MvRFtfxh9QCzgF2o2NXqx8mC0ZT4z59pOz5j0AxdhXNlS+vB9UKhUymqz
-	1TiWMR8pY/U2B3o3f4jBehuSVuCojIfesqoZRXtFdjH1zSqA2WeKddqngdMENJ2vc3ozr+nZczXLn
-	qGd/QC96xu+Q7/0STyauSXNTMzCtpEP5mx5mhP5hn7PPxzBw9EzmeT/b7LWzByvBOT9OZBPpbnLzO
-	bozVDvNA==;
-Received: from canpmsgout10.his.huawei.com ([113.46.200.225])
+	bh=uSdBNVs4UefFpSGY9jG3xM3F4mLYxZd4t/C56DealMY=; b=g6Khw0vW84S9jLEDmzv6EfJ9kB
+	pspH1Xz36sABYSvSAz3bOE0S7YArCxT+QT1lBzcJgtGJZyihdjP1v8qx1DEHVOYT04QusS+MUeBuk
+	XvnJfoulSnmFqJXwNOc4T6RDg41e/kNMPw3g44t6yfF8eNCX7mZQPGX8rZSc1PKQ/jaKOHK3hy0aK
+	B2B1FoQsYwj0u5uQ92ubIo3Eu1cGCt9PO05i8XxP99NRGT/YfiihvrG5GqF5zI8YGwg2Izh5en2zp
+	C+lIob4HebpibxNiu0Rf3koWfHstaG76BtZHeMGvPfy1c3YoYd7D9j0weqEdur9PJKYwrNbbFRl5y
+	/lCqQq4w==;
+Received: from canpmsgout02.his.huawei.com ([113.46.200.217])
 	by casper.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xBVD2-0000000CL9J-32N6
+	id 1xBVD3-0000000CL9V-1sz1
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 29 Sep 2026 10:37:19 +0000
+	Tue, 29 Sep 2026 10:37:22 +0000
 dkim-signature: v=1; a=rsa-sha256; d=huawei.com; s=dkim;
 	c=relaxed/relaxed; q=dns/txt;
 	h=From;
-	bh=ZJAd5Fzr/+97dvVwRiv6inP1iXx4xlncs5YPyHz47Yk=;
-	b=DjC2iA7jJ8wi304eZdQG3npFe8quE4JO6ISTERGuGDtYPaStoSDqJEpUdOWC19TIwG5K6jiDI
-	J+VCUy3ZoWOviqJNuKaX7eBrnRTslCCV2FfgHFu7F0F9rEmY2RMBrXtPxn6stnJPR8EYfi1dwNP
-	Sv/JqNUA99Zbx5pMtrTL8Zk=
-Received: from mail.maildlp.com (unknown [172.19.163.200])
-	by canpmsgout10.his.huawei.com (SkyGuard) with ESMTPS id 4hvDnj3YJBz1K9Ck;
-	Tue, 29 Sep 2026 18:24:57 +0800 (CST)
+	bh=uSdBNVs4UefFpSGY9jG3xM3F4mLYxZd4t/C56DealMY=;
+	b=A6Wu21241SK7i3HCYQ5++Le9OVxNG4e6TP5zR+W/m0dnIUiTneqw6/KFyqtR4tVWxg86uXJZ5
+	opfNqN39X2nUcepz8UK0oZPg5TetNGTNYl0Eb+fbKfRcKOKKThX/0YybKVVPLkEcqSdZw/V6cXe
+	+0Wr63O3iLFOkLiIo8f1KBA=
+Received: from mail.maildlp.com (unknown [172.19.162.197])
+	by canpmsgout02.his.huawei.com (SkyGuard) with ESMTPS id 4hvDpN1vlGzcb49;
+	Tue, 29 Sep 2026 18:25:32 +0800 (CST)
 Received: from kwepemr100010.china.huawei.com (unknown [7.202.195.125])
-	by mail.maildlp.com (Postfix) with ESMTPS id BE9064055B;
-	Tue, 29 Sep 2026 18:37:06 +0800 (CST)
+	by mail.maildlp.com (Postfix) with ESMTPS id 8FA1A4057D;
+	Tue, 29 Sep 2026 18:37:07 +0800 (CST)
 Received: from huawei.com (10.50.163.32) by kwepemr100010.china.huawei.com
  (7.202.195.125) with Microsoft SMTP Server (version=TLS1_2,
  cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.45; Tue, 29 Sep
- 2026 18:37:05 +0800
+ 2026 18:37:06 +0800
 From: Tian Zheng <zhengtian10@huawei.com>
 To: <maz@kernel.org>, <oupton@kernel.org>, <catalin.marinas@arm.com>,
 	<will@kernel.org>, <corbet@lwn.net>, <pbonzini@redhat.com>,
@@ -73,9 +73,9 @@ CC: <yuzenghui@huawei.com>, <wangzhou1@hisilicon.com>,
 	<mark.rutland@arm.com>, <seanjc@google.com>, <rdunlap@infradead.org>,
 	<linux-doc@vger.kernel.org>, <linux-kselftest@vger.kernel.org>,
 	<skhan@linuxfoundation.org>
-Subject: [PATCH v5 13/15] KVM: arm64: Add HDBSS buffer size ioctl for dirty-bitmap mode
-Date: Tue, 29 Sep 2026 18:36:53 +0800
-Message-ID: <20260929103655.85107-14-zhengtian10@huawei.com>
+Subject: [PATCH v5 14/15] KVM: arm64: Document HDBSS buffer size ioctl
+Date: Tue, 29 Sep 2026 18:36:54 +0800
+Message-ID: <20260929103655.85107-15-zhengtian10@huawei.com>
 X-Mailer: git-send-email 2.33.0
 In-Reply-To: <20260929103655.85107-1-zhengtian10@huawei.com>
 References: <20260929103655.85107-1-zhengtian10@huawei.com>
@@ -86,8 +86,9 @@ X-Originating-IP: [10.50.163.32]
 X-ClientProxiedBy: kwepems500002.china.huawei.com (7.221.188.17) To
  kwepemr100010.china.huawei.com (7.202.195.125)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260929_113717_344557_9CC051D4 
-X-CRM114-Status: GOOD (  13.06  )
+X-CRM114-CacheID: sfid-20260929_113718_065408_72E8AE0A 
+X-CRM114-Status: UNSURE (   9.48  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -102,100 +103,58 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-In dirty-bitmap mode, a larger HDBSS buffer lets the guest dirty more
-pages between VM exits, at the cost of memory. The default of one page
-per vCPU is a reasonable starting point, so allow userspace to opt
-into a larger buffer via KVM_CAP_ARM_HDBSS_BUFFER_SIZE.
+Document KVM_CAP_ARM_HDBSS_BUFFER_SIZE, which lets userspace
+configure the per-vCPU HDBSS buffer size for hardware-assisted
+dirty tracking during live migration.
 
-The size is specified in bytes through KVM_ENABLE_CAP and must be a
-power of two in [PAGE_SIZE, SZ_2M]: the upper bound is the largest
-HDBSSBR_EL2.SZ encoding, and the power-of-two requirement matches the
-buddy allocator. It must be set before any vCPU is created: -EINVAL
-after vCPUs exist, -EBUSY if already set.
-
-The capability is rejected in dirty-ring mode, where the size is
-pinned by kvm_arch_dirty_ring_size_updated().
-
-KVM_CHECK_EXTENSION returns the configured size for a VM, or SZ_2M
-when queried globally with a NULL kvm.
+The capability applies to dirty-bitmap mode only: it is rejected
+once the dirty ring is enabled, and enabling the ring after a size
+was configured resets it to the default.
 
 Signed-off-by: Tian Zheng <zhengtian10@huawei.com>
 ---
- arch/arm64/kvm/arm.c     | 34 ++++++++++++++++++++++++++++++++++
- include/uapi/linux/kvm.h |  1 +
- 2 files changed, 35 insertions(+)
+ Documentation/virt/kvm/api.rst | 28 ++++++++++++++++++++++++++++
+ 1 file changed, 28 insertions(+)
 
-diff --git a/arch/arm64/kvm/arm.c b/arch/arm64/kvm/arm.c
-index 5a7046acb62e..eadbf3a88d31 100644
---- a/arch/arm64/kvm/arm.c
-+++ b/arch/arm64/kvm/arm.c
-@@ -19,6 +19,7 @@
- #include <linux/kvm.h>
- #include <linux/kvm_irqfd.h>
- #include <linux/irqbypass.h>
-+#include <linux/log2.h>
- #include <linux/sched/stat.h>
- #include <linux/psci.h>
- #include <trace/events/kvm.h>
-@@ -203,6 +204,31 @@ int kvm_vm_ioctl_enable_cap(struct kvm *kvm,
- 		r = 0;
- 		set_bit(KVM_ARCH_FLAG_EXIT_SEA, &kvm->arch.flags);
- 		break;
-+	case KVM_CAP_ARM_HDBSS_BUFFER_SIZE: {
-+		u64 size = cap->args[0];
-+
-+		if (!system_supports_hdbss())
-+			break;
-+		if (kvm->dirty_ring_size)
-+			break;
-+		if (size < KVM_ARM_HDBSS_DEFAULT_SIZE ||
-+		    size > KVM_ARM_HDBSS_MAX_SIZE)
-+			break;
-+		if (!is_power_of_2(size))
-+			break;
-+
-+		mutex_lock(&kvm->lock);
-+		if (kvm->created_vcpus) {
-+			r = -EINVAL;
-+		} else if (kvm->arch.hdbss_buffer_size) {
-+			r = -EBUSY;
-+		} else {
-+			kvm->arch.hdbss_buffer_size = size;
-+			r = 0;
-+		}
-+		mutex_unlock(&kvm->lock);
-+		break;
-+	}
- 	default:
- 		break;
- 	}
-@@ -500,6 +526,14 @@ int kvm_vm_ioctl_check_extension(struct kvm *kvm, long ext)
- 		else
- 			r = KVM_ARM_EAGER_SPLIT_CHUNK_SIZE_DEFAULT;
- 		break;
-+	case KVM_CAP_ARM_HDBSS_BUFFER_SIZE:
-+		if (!system_supports_hdbss())
-+			r = 0;
-+		else if (kvm)
-+			r = kvm->arch.hdbss_buffer_size ?: KVM_ARM_HDBSS_DEFAULT_SIZE;
-+		else
-+			r = KVM_ARM_HDBSS_MAX_SIZE;
-+		break;
- 	case KVM_CAP_ARM_SUPPORTED_BLOCK_SIZES:
- 		r = kvm_supported_block_sizes();
- 		break;
-diff --git a/include/uapi/linux/kvm.h b/include/uapi/linux/kvm.h
-index ac2d77d14963..59eb211494e4 100644
---- a/include/uapi/linux/kvm.h
-+++ b/include/uapi/linux/kvm.h
-@@ -999,6 +999,7 @@ struct kvm_enable_cap {
- #define KVM_CAP_S390_HPAGE_2G 249
- #define KVM_CAP_PPC_COMPAT_CAPS 250
- #define KVM_CAP_ARM_PMU_V3_STRICT 251
-+#define KVM_CAP_ARM_HDBSS_BUFFER_SIZE 252
+diff --git a/Documentation/virt/kvm/api.rst b/Documentation/virt/kvm/api.rst
+index e0430cc750c9..3a3a14cae134 100644
+--- a/Documentation/virt/kvm/api.rst
++++ b/Documentation/virt/kvm/api.rst
+@@ -9056,6 +9056,34 @@ enabled, cmma can't be enabled anymore and pfmfi and the storage key
+ interpretation are disabled. If cmma has already been enabled or the
+ hpage_2g module parameter is not set to 1, -EINVAL is returned.
 
- struct kvm_irq_routing_irqchip {
- 	__u32 irqchip;
++7.48 KVM_CAP_ARM_HDBSS_BUFFER_SIZE
++-----------------------------------
++
++:Architectures: arm64
++:Target: VM
++:Parameters: args[0] is the per-vCPU HDBSS buffer size in bytes
++:Returns: 0 on success; -EINVAL if the size is invalid or vCPUs have already
++          been created; -EBUSY if the buffer size was already configured.
++
++This capability configures the per-vCPU HDBSS buffer size used for
++hardware-assisted dirty tracking during live migration.
++
++Userspace sets the size in bytes via KVM_ENABLE_CAP. KVM allocates
++per-vCPU HDBSS buffers of the requested size.
++
++KVM_CHECK_EXTENSION returns the maximum supported size (``SZ_2M``)
++when queried without a VM, or the configured per-VM size (default
++``PAGE_SIZE``) when queried with a VM.
++
++Constraints:
++
++- The size must be a power of two in [``PAGE_SIZE``, ``SZ_2M``].
++- Dirty-bitmap mode only: rejected with -EINVAL once the dirty ring
++  (``KVM_CAP_DIRTY_LOG_RING``) is enabled, and enabling the ring after
++  a size was set resets it to the default.
++- Must be set before any vCPU is created; a second setting is rejected
++  with -EBUSY.
++
+ 8. Other capabilities.
+ ======================
+
 --
 2.43.0
 
