@@ -4,87 +4,67 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 435EACA5FA5
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 29 Sep 2026 12:12:55 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id EF20CCA5FAC
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 29 Sep 2026 12:14:46 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=2En5DWtj0mcUp7i6S12h+QmA2BMOHaMRz5QlFR+/txA=; b=n16RyfwWA669PAIWqFg/XokjLq
-	A5F4ZObs/ehPuVVocXKe3KhRWDlDx1qqMNl0VRR5y5YEs0jRDGtKBy4L16egz6PPsv2Qae2hGxT/z
-	s9oRj+Bb2/3+dGKZZcZx8hnIsb7XvL/yfZr+urV3O5xHrh+woZMfbFQIfCpQomW6Ci7AQiI3uZK6C
-	Mm0it4NErwMyvXTYD3/DhTg2Flv9nfvTH8BZP34LXW506QMNN0v153s0DM1BP6ufxXgqpdVdfYvIq
-	aIlQ9j6irqkuC84oTzaMGAAe7xvSNJWPj+6q2EeLXbtyvLMDHZDk3xo/0xpJsqqFHVEKzwl5IsPaO
-	wOopnnqw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=+p5rGxZ5V5tQydlGXLxR0em4nDuY6g4ivG1QunNskUA=; b=T5qCtDEwO0x/mgey3gqC2W/Ak/
+	3EFCo56JcrixNo1/fp1dnU8Uxq4lH5/x6IFyfp0dMUXaC6CyYM2NSFWP2c8E40fNCdJthM+YLxJ8r
+	cthfjWsqUvk8sidq/34ufeHFMbWC1Kn55FK0LMFV1if1P4YddICCPSOPQ4eaCn+nPHnpmQjUIof/S
+	4g5F3N1+vkQHTrktN6zjvtVONmt7J/XzcC37qQPN2xlgDfttK6GlHsTEIhS2HJ5rtDUJ2bkyocWtD
+	nM4FmMUn3tmL7+rpxzK7S8KxbhAL88ZhGRZ5vxc8QR2EF/rOU2vWQppTrLXBVU6yGvCznv/ghARux
+	OfA1odSA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xBWhU-00000003Uez-0xqh;
-	Tue, 29 Sep 2026 12:12:48 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
-	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xBWhS-00000003Uen-2l33
-	for linux-arm-kernel@bombadil.infradead.org;
-	Tue, 29 Sep 2026 12:12:47 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=In-Reply-To:Content-Type:MIME-Version:
-	References:Message-ID:Subject:Cc:To:From:Date:Sender:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description;
-	bh=2En5DWtj0mcUp7i6S12h+QmA2BMOHaMRz5QlFR+/txA=; b=gBodDXBmCd/1mMIjdt2Va0iEy7
-	3T6j4Hb+HyEIh4/HcCg8ndsddMrjOi6h32o2Ns8y+GSSRCdQoxkutpfOaB5cbl7QkdlaFEcsFQ0Ny
-	+LHAw99fFbnG4J5qCpS2S38tkvWQs/Hh+kVQbJA59RnXNmMbA41mJPm6WaS2QRAR58B3hp9aWNRa1
-	JNvorcEnHTh3JTTF9VNM/A3AXY6Xs8lWWD8EQUUE8it1YYc5ySxCp2yus8jMflu3jy/RfIQ5fYUbW
-	qImUVNFrrPR2zAo1DUpIYQjUdRG3JN0SwgYOPHauhbLPJwyZqhQ/j+AUcJzmVZclZJy7d+t82IZYv
-	n8BHcQ4g==;
-Received: from perceval.ideasonboard.com ([213.167.242.64])
-	by desiato.infradead.org with esmtps (Exim 4.99.2 #2 (Red Hat Linux))
-	id 1xBWhM-00000002ar0-0MfJ
+	id 1xBWjI-00000003Uu3-2cuW;
+	Tue, 29 Sep 2026 12:14:40 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1xBWjG-00000003Uta-26HF
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 29 Sep 2026 12:12:43 +0000
-Received: from killaraus.ideasonboard.com (2001-14ba-70f3-e800--a06.rev.dnainternet.fi [IPv6:2001:14ba:70f3:e800::a06])
-	by perceval.ideasonboard.com (Postfix) with ESMTPSA id CB7A1C3D;
-	Tue, 29 Sep 2026 14:10:45 +0200 (CEST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=ideasonboard.com;
-	s=mail; t=1790683846;
-	bh=U/ZHELYrFaEQ3sMrE4JTj1Tft7dlNbybWNXd2onWZC4=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=TVoQZoOVXSlL3imsxqA+YRdzmqVNKSSBcyPWf0ItcyDgxMXTB+5QfgN1koH048ewZ
-	 LplOn4ENq5q8R/xUvbiMQT683fj65wqVWu1PG8ks6E8kXrtnFQ/ESYJU6wAof0ZnYk
-	 0pS8WNIHQuKJml/psm1hVLdZbz34gzwlgU0e3uOo=
-Date: Tue, 29 Sep 2026 15:12:35 +0300
-From: Laurent Pinchart <laurent.pinchart@ideasonboard.com>
-To: Quchaosheng <quchaosheng000406@163.com>
-Cc: Tomi Valkeinen <tomi.valkeinen@ideasonboard.com>,
-	Tony Lindgren <tony@atomide.com>,
-	Aaro Koskinen <aaro.koskinen@iki.fi>,
-	Andreas Kemnade <andreas@kemnade.info>,
-	Kevin Hilman <khilman@baylibre.com>,
-	Roger Quadros <rogerq@kernel.org>,
-	Andrzej Hajda <andrzej.hajda@intel.com>,
-	Neil Armstrong <neil.armstrong@linaro.org>,
-	Robert Foss <rfoss@kernel.org>, Jonas Karlman <jonas@kwiboo.se>,
-	Jernej Skrabec <jernej.skrabec@gmail.com>,
-	Luca Ceresoli <luca.ceresoli@bootlin.com>,
-	Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
-	Maxime Ripard <mripard@kernel.org>,
-	Thomas Zimmermann <tzimmermann@suse.de>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>, dri-devel@lists.freedesktop.org,
-	devicetree@vger.kernel.org, linux-omap@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH 1/2] dt-bindings: display: ti,tpd12s015: Convert to DT
- schema
-Message-ID: <20260929121235.GF171869@killaraus.ideasonboard.com>
-References: <20260915120327.47114-1-quchaosheng000406@163.com>
+	Tue, 29 Sep 2026 12:14:39 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id C140A1516;
+	Tue, 29 Sep 2026 05:14:32 -0700 (PDT)
+Received: from [10.57.12.116] (unknown [10.57.12.116])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 6C2F83F86F;
+	Tue, 29 Sep 2026 05:14:32 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
+	t=1790684076; bh=KpbRo5wvWYYEvhUJ8NixQglOE8FclIcuHa9+3zDEXSg=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=Gj3lVZyccDDRPlbotO7N9QaG7/lLlhFDj/O4VW4/SVs/zSipgDwsdhSfIr35e/TwW
+	 Kbm62sJwIYm+/mS3vWKQOXaPkD4vwsdzVO04Ch4k4woBd0+4Jj/v8rhORtdte4EgHn
+	 f4jELitrKpY8/XVi6KsgpNC4q2ErFwxb6jvKrq1c=
+Message-ID: <b9744fc2-ecc6-406b-ae33-62ba374a87fc@arm.com>
+Date: Tue, 29 Sep 2026 13:14:30 +0100
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-In-Reply-To: <20260915120327.47114-1-quchaosheng000406@163.com>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v19 0/7] firmware: arm_rmm: Add RMM v2.0 base RMI support
+Content-Language: en-GB
+To: Catalin Marinas <catalin.marinas@arm.com>
+Cc: kvm@vger.kernel.org, kvmarm@lists.linux.dev, maz@kernel.org,
+ will@kernel.org, linux-kernel@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, steven.price@arm.com,
+ aneesh.kumar@kernel.org, oupton@kernel.org, gshan@redhat.com,
+ joey.gouly@arm.com, tabba@google.com, yuzenghui@huawei.com,
+ linux-coco@lists.linux.dev, gankulkarni@os.amperecomputing.com,
+ sdonthineni@nvidia.com, alpergun@google.com, fj0570is@fujitsu.com,
+ WeiLin.Chang@arm.com, lpieralisi@kernel.org, enju.kohei@fujitsu.com,
+ sudeep.holla@arm.com, jonathan.cameron@oss.qualcomm.com
+References: <20260924135201.850038-1-suzuki.poulose@arm.com>
+ <aruWz-QkcdD9ETbC@arm.com>
+From: Suzuki K Poulose <suzuki.poulose@arm.com>
+In-Reply-To: <aruWz-QkcdD9ETbC@arm.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260929_131241_187854_90A5C690 
-X-CRM114-Status: GOOD (  26.44  )
+X-CRM114-CacheID: sfid-20260929_051438_667324_5C8C889B 
+X-CRM114-Status: UNSURE (   8.72  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -99,188 +79,24 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Sep 15, 2026 at 08:03:26PM +0800, Quchaosheng wrote:
-> Convert the TPD12S015 HDMI level shifter binding to DT schema.
+On 29/09/2026 11:50, Catalin Marinas wrote:
+> On Thu, Sep 24, 2026 at 02:51:54PM +0100, Suzuki K Poulose wrote:
+>>   arch/arm64/Kconfig                |    1 +
+>>   arch/arm64/kernel/cpufeature.c    |    1 +
+>>   drivers/firmware/Kconfig          |    1 +
+>>   drivers/firmware/Makefile         |    1 +
+>>   drivers/firmware/arm_rmm/Kconfig  |   25 +
+>>   drivers/firmware/arm_rmm/Makefile |    2 +
+>>   drivers/firmware/arm_rmm/rmi.c    | 1072 +++++++++++++++++++++++++++++
+>>   include/linux/arm-rmi-cmds.h      |  558 +++++++++++++++
+>>   include/linux/arm-smccc-rmi.h     |  505 ++++++++++++++
 > 
-> The TI TPD12S015 is an HDMI companion chip that combines a level shifter
-> and ESD protection circuitry. Document the two ports it exposes between
-> the HDMI transmitter and the connector.
-> 
-> The tpd12s016 is described as software compatible with the tpd12s015 and
-> is listed as a fallback compatible by am57xx-idk-common.dtsi, so accept
-> both orderings. Boards that also route the DDC lines through the chip
-> pass five GPIOs rather than three.
+> One more nit: patches 1 and 2 I think add new header files without a
+> MAINTAINERS entry. You can add them to arm64.
 
-Assisted-by tag missing.
+Ack, I have added them. Thanks
 
-This patch also seems to be missing understanding of what you're doing.
-Not only does it combine conversion to YAML and changes to the bindings
-in one patch, it also gives no rationale for the changes.
-
-Please don't waste maintainer's time with LLM-generated patches that you
-haven't tried to understand.
-
-> Signed-off-by: Quchaosheng <quchaosheng000406@163.com>
-> ---
->  .../bindings/display/ti/ti,tpd12s015.txt      | 44 ---------
->  .../bindings/display/ti/ti,tpd12s015.yaml     | 93 +++++++++++++++++++
->  2 files changed, 93 insertions(+), 44 deletions(-)
->  delete mode 100644 Documentation/devicetree/bindings/display/ti/ti,tpd12s015.txt
->  create mode 100644 Documentation/devicetree/bindings/display/ti/ti,tpd12s015.yaml
-> 
-> diff --git a/Documentation/devicetree/bindings/display/ti/ti,tpd12s015.txt b/Documentation/devicetree/bindings/display/ti/ti,tpd12s015.txt
-> deleted file mode 100644
-> index 26e6d32e3..000000000
-> --- a/Documentation/devicetree/bindings/display/ti/ti,tpd12s015.txt
-> +++ /dev/null
-> @@ -1,44 +0,0 @@
-> -TPD12S015 HDMI level shifter and ESD protection chip
-> -====================================================
-> -
-> -Required properties:
-> -- compatible: "ti,tpd12s015"
-> -
-> -Optional properties:
-> -- gpios: CT CP HPD, LS OE and HPD gpios
-> -
-> -Required nodes:
-> -- Video port 0 for HDMI input
-> -- Video port 1 for HDMI output
-> -
-> -Example
-> --------
-> -
-> -tpd12s015: encoder@1 {
-> -	compatible = "ti,tpd12s015";
-> -
-> -	gpios = <&gpio2 28 GPIO_ACTIVE_HIGH>,	/* 60, CT CP HPD */
-> -		<&gpio2 9 GPIO_ACTIVE_HIGH>,	/* 41, LS OE */
-> -		<&gpio2 31 GPIO_ACTIVE_HIGH>;	/* 63, HPD */
-> -
-> -	ports {
-> -		#address-cells = <1>;
-> -		#size-cells = <0>;
-> -
-> -		port@0 {
-> -			reg = <0>;
-> -
-> -			tpd12s015_in: endpoint@0 {
-> -				remote-endpoint = <&hdmi_out>;
-> -			};
-> -		};
-> -
-> -		port@1 {
-> -			reg = <1>;
-> -
-> -			tpd12s015_out: endpoint@0 {
-> -				remote-endpoint = <&hdmi_connector_in>;
-> -			};
-> -		};
-> -	};
-> -};
-> diff --git a/Documentation/devicetree/bindings/display/ti/ti,tpd12s015.yaml b/Documentation/devicetree/bindings/display/ti/ti,tpd12s015.yaml
-> new file mode 100644
-> index 000000000..b3351b601
-> --- /dev/null
-> +++ b/Documentation/devicetree/bindings/display/ti/ti,tpd12s015.yaml
-> @@ -0,0 +1,93 @@
-> +# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
-> +%YAML 1.2
-> +---
-> +$id: http://devicetree.org/schemas/display/ti/ti,tpd12s015.yaml#
-> +$schema: http://devicetree.org/meta-schemas/core.yaml#
-> +
-> +title: TI TPD12S015 HDMI level shifter and ESD protection chip
-> +
-> +maintainers:
-> +  - Tomi Valkeinen <tomi.valkeinen@ideasonboard.com>
-> +
-> +description: |
-> +  The TPD12S015 is an HDMI companion chip that combines a level shifter and
-> +  ESD protection circuitry. It sits between an HDMI transmitter and the HDMI
-> +  connector, and provides control over the level shifter enable and the
-> +  hot-plug detect signals.
-> +
-> +properties:
-> +  compatible:
-> +    oneOf:
-> +      - const: ti,tpd12s015
-> +      - items:
-> +          - const: ti,tpd12s016
-> +          - const: ti,tpd12s015
-> +
-> +  gpios:
-> +    description:
-> +      The CT CP HPD, LS OE and HPD GPIOs, in that order. The first GPIO
-> +      controls the level shifter, the second enables the level shifter
-> +      outputs and the third reads the hot-plug detect line. Boards that
-> +      also route the DDC lines through the chip use five entries, with
-> +      the SCL and SDA GPIOs appended.
-> +    minItems: 3
-> +    maxItems: 5
-> +
-> +  ports:
-> +    $ref: /schemas/graph.yaml#/properties/ports
-> +
-> +    properties:
-> +      port@0:
-> +        $ref: /schemas/graph.yaml#/$defs/port-base
-> +        unevaluatedProperties: false
-> +        description: HDMI input from the transmitter.
-> +
-> +      port@1:
-> +        $ref: /schemas/graph.yaml#/$defs/port-base
-> +        unevaluatedProperties: false
-> +        description: HDMI output to the connector.
-> +
-> +    required:
-> +      - port@0
-> +      - port@1
-> +
-> +required:
-> +  - compatible
-> +  - ports
-> +
-> +additionalProperties: false
-> +
-> +examples:
-> +  - |
-> +    #include <dt-bindings/gpio/gpio.h>
-> +
-> +    encoder1 {
-> +        compatible = "ti,tpd12s015";
-> +
-> +        gpios = <&gpio2 28 GPIO_ACTIVE_HIGH>,    /* 60, CT CP HPD */
-> +                <&gpio2 9 GPIO_ACTIVE_HIGH>,    /* 41, LS OE */
-> +                <&gpio2 31 GPIO_ACTIVE_HIGH>;    /* 63, HPD */
-> +
-> +        ports {
-> +            #address-cells = <1>;
-> +            #size-cells = <0>;
-> +
-> +            port@0 {
-> +                reg = <0>;
-> +
-> +                tpd12s015_in: endpoint {
-> +                    remote-endpoint = <&hdmi_out>;
-> +                };
-> +            };
-> +
-> +            port@1 {
-> +                reg = <1>;
-> +
-> +                tpd12s015_out: endpoint {
-> +                    remote-endpoint = <&hdmi_connector_in>;
-> +                };
-> +            };
-> +        };
-> +    };
-> +
-> +...
+Suzuki
 > 
 
--- 
-Regards,
-
-Laurent Pinchart
 
