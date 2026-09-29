@@ -4,41 +4,41 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 51728CA5FA5
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 29 Sep 2026 22:16:51 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D3F1DCA5FA7
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 29 Sep 2026 22:16:59 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=y6WIXaUsvcI1k2HRdi/2QlWD5df5I8ezCEFaXC6qpj8=; b=Et6AbxkImCJW8YCRUqE5gy8NBZ
-	YOIXcDwMKDUFfIcMq1SHrIhGIL/7umDi4nPsxTcO9c1GbVt7PEyCC4AiNdQkNnF6e2Cl0CqJGljUO
-	/sv/HZZR8v/Rf+86UkWT3HO8OGkRHDlkR3qSkHcvWqhf+HmyswWUO8Pp87sQkG0nyISWkL1BmPJHe
-	EjA8kdAlrTRHd9HMOCh8MsS2+KK0pq4AP9NglebJFzF3gi70kVlAuxmUMannWcXedTQfk6lErhRqT
-	k1jWVKti8dFphqLsWFjSBYoPNZRvQALuwIwX/b8ZCHzPmIvFjHDWwSA1ZLE3iPSNwkHgeMKtOsFOo
-	GZpGZcYg==;
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=vjAejgmz/NGSCHfDoGDOzsdJvfoJx5izYTAQv4FlTdU=; b=gUNX26WbnCqj01Wu5EQUvIhWNY
+	D6CoEhvfefMid+A8J3I9k6CQ8X6Rz2rJBznRlC1/HAeT8EKZf+XMy6mOaWPLqJ9Cen9w1FZnBlEfR
+	5mhOupoFzlRyQFCnOileA7bN6r3O0aS+kHYFSwF4eRNB6lpWiayH9uFApWmZAyZ7QLgyhoYpKL/Bv
+	B8TMDnCifqLKSx4oX313skUXLi7yPu3v+Mj2UvbjLWB30YRlJ+GLOTsQs4NCatTdK4LOmxnlaCPn7
+	M8oXdl3LFaA/Urv8eBA2XjiExY+gVJdIUnY2OdR59h9/XPmAYlrsCkNMRl0G/AikJ+zwfcHVUC8TM
+	mM346KNQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xBg7w-00000004g25-0lXL;
-	Tue, 29 Sep 2026 22:16:44 +0000
+	id 1xBg85-00000004g5s-1djf;
+	Tue, 29 Sep 2026 22:16:53 +0000
 Received: from foss.arm.com ([217.140.110.172])
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xBg7s-00000004g11-0IM0
+	id 1xBg7y-00000004g2x-3wdl
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 29 Sep 2026 22:16:42 +0000
+	Tue, 29 Sep 2026 22:16:48 +0000
 Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 61C831477;
-	Tue, 29 Sep 2026 15:16:34 -0700 (PDT)
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 4981C1477;
+	Tue, 29 Sep 2026 15:16:42 -0700 (PDT)
 Received: from ewhatever.cambridge.arm.com (ewhatever.cambridge.arm.com [10.2.197.99])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPA id 3C1C73F85F;
-	Tue, 29 Sep 2026 15:16:34 -0700 (PDT)
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPA id 2AE8A3FA32;
+	Tue, 29 Sep 2026 15:16:42 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1790720197; bh=1NT+wfwfNpVcFzjc6PeZ85Jz2K91YU1fR6/05gtWZGE=;
-	h=From:To:Cc:Subject:Date:From;
-	b=OGIHiMQisZDZhWt1prJPC3NgAe/eKDAcWfRt35iNiYlrAin18Z8p8K1LJ+SeJ3qDJ
-	 JqIhrGRO3ZbivEhd4G6zzhesGjOqbsK2amXJ5lko2N6gifeVRv8zxda2GkeR3abtkb
-	 gzmlP4Evd0gNCpJqPPQ3x9Ne7RTcYxjE+MjIXN3U=
+	t=1790720205; bh=eoOk6F11I1+XlyHkNJLW22Sd1Q9V/u1NRYHoI22Ft88=;
+	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
+	b=t4E6pcD3awDxjgzgiJ53ka5AM+G5YkFtGVe5FSCsudO0RY+o96Gamnh7K7O6BKDAP
+	 6zGFeaJDcRbG6KaGe/pqfpCygsZ26kZOUkGBc6cEwDAUcmuBOYoaE/QwDuzDMZBzT6
+	 CT0Im478aFpW2r3jGWKznsVr10PUxzqRiFK62ybo=
 From: Suzuki K Poulose <suzuki.poulose@arm.com>
 To: kvm@vger.kernel.org,
 	kvmarm@lists.linux.dev
@@ -65,15 +65,17 @@ Cc: maz@kernel.org,
 	sudeep.holla@arm.com,
 	jonathan.cameron@oss.qualcomm.com,
 	Suzuki K Poulose <suzuki.poulose@arm.com>
-Subject: [PATCH v20 0/9] firmware: arm_rmm: Add RMM v2.0 base RMI support
-Date: Tue, 29 Sep 2026 23:16:14 +0100
-Message-ID: <20260929221623.1342076-1-suzuki.poulose@arm.com>
+Subject: [PATCH v20 2/9] firmware: arm_rmm: Check for RMI support at init
+Date: Tue, 29 Sep 2026 23:16:16 +0100
+Message-ID: <20260929221623.1342076-3-suzuki.poulose@arm.com>
 X-Mailer: git-send-email 2.43.0
+In-Reply-To: <20260929221623.1342076-1-suzuki.poulose@arm.com>
+References: <20260929221623.1342076-1-suzuki.poulose@arm.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260929_151640_279705_FBF6A94B 
-X-CRM114-Status: GOOD (  32.20  )
+X-CRM114-CacheID: sfid-20260929_151647_080567_885900DC 
+X-CRM114-Status: GOOD (  30.71  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -88,204 +90,351 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-This series adds the generic firmware layer for talking to the Realm
-Management Monitor (RMM), as specified by the RMM v2.0-bet3
-specification[1]. It is the first part of the Arm CCA host support that
-was previously posted as part of the larger KVM series.
+From: Steven Price <steven.price@arm.com>
 
-The split allows this RMM support to be used as a base for other work,
-including Aneesh's PCI IDE support with Arm CCA RMM as the TSM,
- without depending on the KVM Realm support that will follow as separate
- series. (See more on that below)
+Query the RMI version number and check if it is a compatible version.
+The first two feature registers are read and exposed for future code to
+use.
 
-The series adds:
+We only support this for Little Endian kernels, the Big Endian kernel
+support is anyway marked BROKEN and is being removed.
 
- * The RMI SMC definitions and direct-call wrappers.
-
- * RMM discovery and version checks during firmware init.
-
- * RMM host configuration, including the host page size.
-
- * Stateful RMI Operation (SRO) infrastructure for commands which the RMM
-   can complete across multiple SMC calls while requesting or returning
-   memory to the host.
-
- * Verification that granule tracking is available at fine granularity.
-   Fine-grained tracking allows each granule in the system to be tracked
-   independently, which is required before individual granules can be
-   delegated. A future series will add support for dynamically supplying
-   memory to the RMM for this tracking.
-
- * Support for fully firmware-managed systems, where the Granule Protection
-   Tables for memory regions are allocated and managed by firmware. RMM v2.0
-   also allows dynamic GPT creation on demand; support for that will be added
-   in a later series.
-
- * Wrappers for the RMI commands that are used for managing the "Realm VM"
-   lifecycle. This is added in to make it easier for the on-going KVM support
-   to evolve in parallel pieces.
-
-If the platform firmware cannot manage the granule tracking or the GPTs, we
-bail out and deactivate the RMM, reclaiming any memory that we have donated.
-
-The RMM v2.0 spec introduces Stateful RMI Operations (SROs), which allow
-the RMM to complete an operation over several SMC calls while requesting
-or returning memory to the host. This allows interrupts to be handled in
-the middle of an operation and lets the RMM dynamically allocate memory
-for internal tracking purposes. For example, RMI_REC_CREATE no longer
-needs auxiliary granules to be provided up front, and can instead
-request memory during the operation.
-
-This series applies on v7.3-rc2 and a branch is available at [2]. The KVM
-CCA support that builds on this series is available at [3] as an integration
-branch. The KVM support depends on guest-memfd-in-place conversion support v13
-from Ackerley [4], we plan to split that into parts, which apply cleanly on
-v7.3-rcx without any dependency and is in progress. This will be made available
-as soon as it is ready. Until then [3] shows how this base series enables KVM
-CCA support. You may find the tf-RMM [5] and kvmtool support [6] below.
-The kvm integration branch has been tested with kvm-unit-tests [7] and Linux
-kernel booting with PCI device assigned as an untrusted device.
-
-[1] RMM spec : https://support.arm.com/documentation/den0137/2-0bet3/
-[2] This series: https://gitlab.arm.com/linux-arm/linux-cca.git cca/cca-host/fw_rmm/v20
-[3] KVM CCA v21 integration branch: https://gitlab.arm.com/linux-arm/linux-cca.git cca/cca/cca-host/kvm-v21/integration
-[4] Gmem inplace conversion https://github.com/googleprodkernel/linux-cc/tree/guest_memfd-inplace-conversion-v13
-[5] TF-RMM https://git.trustedfirmware.org/TF-RMM/tf-rmm.git main (commit: 134266ae)
-[6] kvmtool https://gitlab.arm.com/linux-arm/kvmtool-cca.git tag:cca-kvm-v20 (Also cca/kvm-v18)
-[7] kvm-unit-tests https://gitlab.arm.com/linux-arm/kvm-unit-tests-cca.git tag: cca-rmm-v2.0
-
-Known issues: RMMv2.0 spec.
-==========================
-Here are some of the known issues affecting the code here. I have included the
-ticket number associated with the issues, which will be available in the RMM
-spec, when a public release is available. (So that it is easier to see if the
-issues has been fixed in the spec and easily spot them)
-
- * RmiOpMemDonateReq:count (Uint14) is incompatible with RmiAddrRangeDesc4KB
-  (Uint10) and RmiAddrRangeDesc16KB (Uint12). i.e., a larger contiguous request
-  may not be satisfiable by the host. This is resolved in the RMM spec, by clamping
-  the upper limit on the number to match the RmiAddrRangeDesc* and will be published
-  in the next release. (FENIMORE-1744)
- * RMM to clarify the scenarios that triggers the RMI_BLOCKED and the
-   recommendations to limit the cases. (FENIMORE-1783)
- * RMM to clarify the "PE bound" SRO context pool to really mean global pool
-   (FENIMORE-1802)
- * Clarify RMI_RTT_DATA_UNMAP, output_count, output_range are only valid when
-   result is RMI_SUCCESS (FENIMORE-1746)
-
-Changes since v19:
- https://lore.kernel.org/all/0260924135201.850038-1-suzuki.poulose@arm.com
-
- ** Patch 1 - RMI SMCCC definitions
-  - Fold 'padding' only union in rec_exit to the previous group of fields
-  - Add static_assert to make sure the struct field offsets match the spec
-  - Rename 'padding' fields to 'sizer' which they really are
-  - Add MAINTAINERS entry for the new header file under ARM64
- ** Patch 2 - firmware: arm_rmm: Check for RMI support at init
-  - Fix comment : s/RmiFeatureRegister5/RmiFeatureRegister4/
-  - rmi_feat_reg() s/unsigned long/unsigned int for index
-  - linux/arm-rmi-cmds.h -> Mark the "#endif"
-  - Use += rmi.o in Makefile
-  - Mask the ID_AA64PFR0_EL1_RME field for KVM guests
-  - Add MAINTAINERS entry for header file and arm_rmm directory
- ** Patch 3 - firmware: arm_rmm: Configure the RMM with the host's page size
-  - Don't initialize 'ret' in rmi_configure, add explicit return 0/-EINVAL
- ** Patch 4 - firmware: arm_rmm: Add support for SRO
-  - Fix typos s/-ECANCELLED/ECANCELED/ rmi_sro_execute()
-  - Drop duplicate, incorrect assignment of sro_handle in rmi_sro_execute()
-  - Drop int i, redeclartion in for() for rmi_sro_donate_noncontig()
-  - Drop donated_granules for rmi_sro_donate_contig()
-  - Drop "inline" and be consistent with the rest of the code
-  - Avoid nesting if..else in rmi_*delegate_range by breaking out on error
-  - Consistent styling in comments, wrap to 80space, spelling corrections
-  - s/\*\*/\*/ for comment above functions
-  - Reorder the functions to appear as rmi_*_delegate* followed by rmi_*_undelegate*
-  - WARN_ON if the RMM MemDonateReq:count exceeds the RmiAddrRangeDesc:count
-  - Reject requests larger than MAX_PAGE_ORDER
-  - Reject "donate" requests with states other than DELEGATED or UNDELEGATED
- ** Patch 6 - firmware: arm_rmm: Ensure the RMM has GPT entries for memory
-  - Wrap comments to 80spaces.
-  - Add a comment on ALIGN_DOWN the end of memory range.
-  - Add is_rmm_active() to report if the RMM is in ACTIVE state
-  - Switch errors to -ENODEV from -ENOMEM when RMM doesn't manage the region
-  - Print error messages when RMI_GPT_INFO/RMI_GRANULE_TRACKIN_GET fails
- ** Patch 7 : arm64: Block hibernate and kexec while RMM is active
-  - New patch in v20.
- ** Patch 8 : firmware: arm_rmm: Add wrappers for Realm related RMI commands
-  - Use rmi_sro_memxfr_command() for rec_create - Catalin
- ** Patch 9 : firmware: arm_rmm: hotplug: Skip memory added to ZONE_MOVABLE
-  - New patch in v20, relax the memory hotplug checking
-
-Changes since v18:
- - Use _ULL version for masks spanning beyond 32bits
- - Add GENMASK, FIELD_* friends for RMI_ABI_VERSION_*
- - Consistent naming for masks and order the fields by MSB to LSB (missed out
-   ones.
- - Rename RMI_RETURN_ => RMI_RESULT, RMI_RETURN_INDEX => RMI_RESULT_DATA_LEVEL
-   and add relevant Rmi types for clear indication on what they represent.
- - Read and cache all implemented RmiFeatureRegisters (5), use ARRAY_SIZE()
-   droping the macro for the number of registers.
- - Fold sinlge caller rmi calls to the caller (rmi_features)
- - Drop "default y" from Kconfig
- - Don't loop forever with RMI_BLOCKED, instead retry once and return to the
-   caller.
- - Move rmi_config_set closer to rmi_configure.
- - Use __free() cleanup for rmm_config object
- - SRO: Clamp the mem donate request count to RMI_MAX_ADDR_LIST (the max we can
-   hold in the struct sro, to prevent overflows in handling non_contig requests
- - Donate gathered memory when sro list runs out of space for non_contig case
-   and donate the rest in the next iteration
- - Fix handling of buggy RMM for rmi_delegate_range()
- - Add comments for the exported interfaces rmi_delegate_range(), rmi_undelegate_range()
- - Move rmi_granule_{,un}delegate_range() closer to their callers
- - Clarify the requirements for rmi_granule_delegate_range()
- - Fix return result to -ENXIO if the MEM_OP is unknown
- - Handle unsupported RMI_OP_MEM_CONDITIONAL, bail out early
- - Rename "out" lable to mem_donate, where the actual donation happens
- - Switch to use readable loop construct in donate_noncontig, add comments
-   to explain what we do.
- - Add comment, make the code reader friendly for caching the entries not
-   consumed by RMM.
- - Add documentatoin for rmi_sro_execute()
- - Avoid mixing gotos with __free cleanups for arm64_init_rmi()
- - Convert the remaining nested if for results to early return based.
- - Pass out_top for RMI_ERROR_RTT in rmi_rtt_destroy() [ This boosts the
-   Realm tear down ]
-
-
-Steven Price (7):
-  firmware: arm_rmm: Add SMC definitions for calling the RMM
-  firmware: arm_rmm: Check for RMI support at init
-  firmware: arm_rmm: Configure the RMM with the host's page size
-  firmware: arm_rmm: Add support for SRO
-  firmware: arm_rmm: Activate the RMM
-  firmware: arm_rmm: Ensure the RMM has GPT entries for memory
-  firmware: arm_rmm: Add wrappers for Realm related RMI commands
-
-Suzuki K Poulose (2):
-  arm64: Block hibernate and kexec while RMM is active
-  firmware: arm_rmm: hotplug: Skip memory added to ZONE_MOVABLE
-
- MAINTAINERS                       |    3 +
- arch/arm64/Kconfig                |    1 +
- arch/arm64/kernel/cpufeature.c    |    1 +
- arch/arm64/kernel/hibernate.c     |    6 +
- arch/arm64/kernel/machine_kexec.c |   11 +
- arch/arm64/kvm/sys_regs.c         |    2 +
- drivers/firmware/Kconfig          |    1 +
- drivers/firmware/Makefile         |    1 +
- drivers/firmware/arm_rmm/Kconfig  |   25 +
- drivers/firmware/arm_rmm/Makefile |    1 +
- drivers/firmware/arm_rmm/rmi.c    | 1129 +++++++++++++++++++++++++++++
- include/linux/arm-rmi-cmds.h      |  567 +++++++++++++++
- include/linux/arm-smccc-rmi.h     |  516 +++++++++++++
- 13 files changed, 2264 insertions(+)
+Cc: Marc Zyngier <maz@kernel.org>
+Cc: Oliver Upton <oupton@kernel.org>
+Reviewed-by: Jonathan Cameron <jonathan.cameron@oss.qualcomm.com>
+Reviewed-by: Gavin Shan <gshan@redhat.com>
+Tested-by: Gavin Shan <gshan@redhat.com>
+Signed-off-by: Steven Price <steven.price@arm.com>
+Co-developed-by: Suzuki K Poulose <suzuki.poulose@arm.com>
+Signed-off-by: Suzuki K Poulose <suzuki.poulose@arm.com>
+---
+v20:
+ * Fix comment : s/RmiFeatureRegister5/RmiFeatureRegister4/
+ * rmi_feat_reg() s/unsigned long/unsigned int for index
+ * linux/arm-rmi-cmds.h -> Mark the "#endif"
+ * Use += rmi.o in Makefile
+ * Mask the ID_AA64PFR0_EL1_RME field for KVM guests
+ * Add MAINTAINERS entry for header file and arm_rmm directory
+   (Potential conflict with Aneesh's smccc series)
+v19:
+ * Read all implemented RmiFeatureRegisters - 5
+ * Use ARRAY_SIZE(rmi_feat_reg_cache) for the loop in rmi_read_features()
+ * Fold rmi_features() into rmi_read_features
+ * Fix comment for rmi_smccc_invoke()
+ * Drop default y
+ * Add retry for RMI_BLOCKED and return to caller
+v18:
+ * Always use arm_smccc_1_2_invoke() for all RMIs making sure the unsused
+   parameters are 0 - Sashiko
+ * Move rmi_features() calls away from the arm-rmi-cmds.h to rmi.c - Gavin
+v17:
+ * Rename ARM_RMM to ARM_RMM_RMI to make it easier to add Guest facing RSI
+   support, which is also in progress
+v16:
+ * Update Kconfig text to include PCIe TDISP.
+ * Export rmi_feat_reg() here rather than in a later commit.
+v15:
+ * The code is moved again, this time into the 'firmware' directory.
+v14:
+ * This moves the basic RMI setup into the 'kernel' directory. This is
+   because RMI will be used for some features outside of KVM so should
+   be available even if KVM isn't compiled in.
+---
+ MAINTAINERS                       |   2 +
+ arch/arm64/Kconfig                |   1 +
+ arch/arm64/kernel/cpufeature.c    |   1 +
+ arch/arm64/kvm/sys_regs.c         |   2 +
+ drivers/firmware/Kconfig          |   1 +
+ drivers/firmware/Makefile         |   1 +
+ drivers/firmware/arm_rmm/Kconfig  |  25 +++++++
+ drivers/firmware/arm_rmm/Makefile |   1 +
+ drivers/firmware/arm_rmm/rmi.c    | 109 ++++++++++++++++++++++++++++++
+ include/linux/arm-rmi-cmds.h      |  48 +++++++++++++
+ 10 files changed, 191 insertions(+)
  create mode 100644 drivers/firmware/arm_rmm/Kconfig
  create mode 100644 drivers/firmware/arm_rmm/Makefile
  create mode 100644 drivers/firmware/arm_rmm/rmi.c
  create mode 100644 include/linux/arm-rmi-cmds.h
- create mode 100644 include/linux/arm-smccc-rmi.h
 
+diff --git a/MAINTAINERS b/MAINTAINERS
+index ed82c55bf566f..1646012706823 100644
+--- a/MAINTAINERS
++++ b/MAINTAINERS
+@@ -3951,8 +3951,10 @@ S:	Maintained
+ T:	git git://git.kernel.org/pub/scm/linux/kernel/git/arm64/linux.git
+ F:	Documentation/arch/arm64/
+ F:	arch/arm64/
++F:	drivers/firmware/arm_rmm/
+ F:	drivers/virt/coco/arm-cca-guest/
+ F:	drivers/virt/coco/pkvm-guest/
++F:	include/linux/arm-rmi-cmds.h
+ F:	include/linux/arm-smccc-rmi.h
+ F:	tools/testing/selftests/arm64/
+ X:	arch/arm64/boot/dts/
+diff --git a/arch/arm64/Kconfig b/arch/arm64/Kconfig
+index b5a51b0ef9440..ff9565d3ffa59 100644
+--- a/arch/arm64/Kconfig
++++ b/arch/arm64/Kconfig
+@@ -38,6 +38,7 @@ config ARM64
+ 	select ARCH_HAS_MEMBARRIER_SYNC_CORE
+ 	select ARCH_HAS_MEM_ENCRYPT
+ 	select ARCH_SUPPORTS_MSEAL_SYSTEM_MAPPINGS
++	select ARCH_SUPPORTS_RMM
+ 	select ARCH_HAS_NMI_SAFE_THIS_CPU_OPS
+ 	select ARCH_HAS_NON_OVERLAPPING_ADDRESS_SPACE
+ 	select ARCH_HAS_NONLEAF_PMD_YOUNG if ARM64_HAFT
+diff --git a/arch/arm64/kernel/cpufeature.c b/arch/arm64/kernel/cpufeature.c
+index 32102c3912fa7..e8b29983b0021 100644
+--- a/arch/arm64/kernel/cpufeature.c
++++ b/arch/arm64/kernel/cpufeature.c
+@@ -293,6 +293,7 @@ static const struct arm64_ftr_bits ftr_id_aa64isar3[] = {
+ static const struct arm64_ftr_bits ftr_id_aa64pfr0[] = {
+ 	ARM64_FTR_BITS(FTR_HIDDEN, FTR_NONSTRICT, FTR_LOWER_SAFE, ID_AA64PFR0_EL1_CSV3_SHIFT, 4, 0),
+ 	ARM64_FTR_BITS(FTR_HIDDEN, FTR_NONSTRICT, FTR_LOWER_SAFE, ID_AA64PFR0_EL1_CSV2_SHIFT, 4, 0),
++	ARM64_FTR_BITS(FTR_HIDDEN, FTR_NONSTRICT, FTR_LOWER_SAFE, ID_AA64PFR0_EL1_RME_SHIFT, 4, 0),
+ 	ARM64_FTR_BITS(FTR_VISIBLE, FTR_STRICT, FTR_LOWER_SAFE, ID_AA64PFR0_EL1_DIT_SHIFT, 4, 0),
+ 	ARM64_FTR_BITS(FTR_HIDDEN, FTR_NONSTRICT, FTR_LOWER_SAFE, ID_AA64PFR0_EL1_AMU_SHIFT, 4, 0),
+ 	ARM64_FTR_BITS(FTR_HIDDEN, FTR_STRICT, FTR_LOWER_SAFE, ID_AA64PFR0_EL1_MPAM_SHIFT, 4, 0),
+diff --git a/arch/arm64/kvm/sys_regs.c b/arch/arm64/kvm/sys_regs.c
+index 44aae52c473d7..f0ef348f725b6 100644
+--- a/arch/arm64/kvm/sys_regs.c
++++ b/arch/arm64/kvm/sys_regs.c
+@@ -2163,6 +2163,8 @@ static u64 sanitise_id_aa64pfr0_el1(const struct kvm_vcpu *vcpu, u64 val)
+ 	 */
+ 	val &= ~ID_AA64PFR0_EL1_MPAM_MASK;
+ 
++	val &= ~ID_AA64PFR0_EL1_RME_MASK;
++
+ 	return val;
+ }
+ 
+diff --git a/drivers/firmware/Kconfig b/drivers/firmware/Kconfig
+index b7cc11e4fbfa6..62660bf520a8d 100644
+--- a/drivers/firmware/Kconfig
++++ b/drivers/firmware/Kconfig
+@@ -310,5 +310,6 @@ source "drivers/firmware/samsung/Kconfig"
+ source "drivers/firmware/smccc/Kconfig"
+ source "drivers/firmware/tegra/Kconfig"
+ source "drivers/firmware/xilinx/Kconfig"
++source "drivers/firmware/arm_rmm/Kconfig"
+ 
+ endmenu
+diff --git a/drivers/firmware/Makefile b/drivers/firmware/Makefile
+index be46f1e1dc77f..196a650ccf025 100644
+--- a/drivers/firmware/Makefile
++++ b/drivers/firmware/Makefile
+@@ -39,3 +39,4 @@ obj-y				+= samsung/
+ obj-y				+= smccc/
+ obj-y				+= tegra/
+ obj-y				+= xilinx/
++obj-y				+= arm_rmm/
+diff --git a/drivers/firmware/arm_rmm/Kconfig b/drivers/firmware/arm_rmm/Kconfig
+new file mode 100644
+index 0000000000000..a37cba6647360
+--- /dev/null
++++ b/drivers/firmware/arm_rmm/Kconfig
+@@ -0,0 +1,25 @@
++
++config ARCH_SUPPORTS_RMM
++	bool
++
++config ARM_RMM_RMI
++	bool "Realm Management Interface (RMI) Support"
++	depends on ARCH_SUPPORTS_RMM
++	help
++	  Support the Realm Management Monitor (RMM) on Arm systems that
++	  implement the Realm Management Extension (RME), as defined by the
++	  Arm Confidential Compute Architecture.
++
++	  The RMM runs at EL2 in the Realm world and provides the Realm
++	  Management Interface (RMI) used by a Normal World host to create,
++	  manage and run protected virtual machines called Realms. The RMM can
++	  also act as a TSM, as defined by the PCIe TDISP and can manage the
++	  PCI IDE setup for securing the PCIe links.
++
++	  This option builds the host-side RMI support used by KVM to detect a
++	  compatible RMM, configure it, manage delegated memory and enable
++	  Realm guests.
++
++	  Selecting this option does not by itself make Realm guests available:
++	  the system must also provide RME-capable hardware and firmware with a
++	  compatible RMM implementation.
+diff --git a/drivers/firmware/arm_rmm/Makefile b/drivers/firmware/arm_rmm/Makefile
+new file mode 100644
+index 0000000000000..25e6ad80d3a19
+--- /dev/null
++++ b/drivers/firmware/arm_rmm/Makefile
+@@ -0,0 +1 @@
++obj-$(CONFIG_ARM_RMM_RMI)	+= rmi.o
+diff --git a/drivers/firmware/arm_rmm/rmi.c b/drivers/firmware/arm_rmm/rmi.c
+new file mode 100644
+index 0000000000000..90706a16c8836
+--- /dev/null
++++ b/drivers/firmware/arm_rmm/rmi.c
+@@ -0,0 +1,109 @@
++// SPDX-License-Identifier: GPL-2.0
++/*
++ * Copyright (C) 2023-2026 ARM Ltd.
++ */
++
++#include <linux/arm-rmi-cmds.h>
++#include <linux/cpufeature.h>
++#include <linux/memblock.h>
++#include <linux/slab.h>
++
++#include <asm/memory.h>
++#include <asm/pgtable-hwdef.h>
++
++/* RMM v2.0 defines RmiFeatureRegister0 to RmiFeatureRegister4. */
++static unsigned long rmi_feat_reg_cache[5] __ro_after_init;
++
++static int rmi_check_version(void)
++{
++	unsigned short version_major, version_minor;
++	unsigned long host_version = RMI_ABI_VERSION(RMI_ABI_MAJOR_VERSION,
++						     RMI_ABI_MINOR_VERSION);
++	unsigned long aa64pfr0 = read_sanitised_ftr_reg(SYS_ID_AA64PFR0_EL1);
++	struct arm_smccc_1_2_regs res = {
++		SMC_RMI_VERSION, host_version,
++	};
++
++	/* If RME isn't supported, then RMI can't be */
++	if (cpuid_feature_extract_unsigned_field(aa64pfr0, ID_AA64PFR0_EL1_RME_SHIFT) == 0)
++		return -ENXIO;
++
++	rmi_smccc_invoke(&res);
++	if (res.a0 == SMCCC_RET_NOT_SUPPORTED)
++		return -ENXIO;
++
++	version_major = RMI_ABI_VERSION_GET_MAJOR(res.a1);
++	version_minor = RMI_ABI_VERSION_GET_MINOR(res.a1);
++
++	if (res.a0 != RMI_SUCCESS) {
++		unsigned short high_version_major, high_version_minor;
++
++		high_version_major = RMI_ABI_VERSION_GET_MAJOR(res.a2);
++		high_version_minor = RMI_ABI_VERSION_GET_MINOR(res.a2);
++
++		pr_err("Unsupported RMI ABI (v%d.%d - v%d.%d) we want v%d.%d\n",
++		       version_major, version_minor,
++		       high_version_major, high_version_minor,
++		       RMI_ABI_MAJOR_VERSION,
++		       RMI_ABI_MINOR_VERSION);
++		return -ENXIO;
++	}
++
++	pr_info("RMI ABI version %d.%d\n", version_major, version_minor);
++
++	return 0;
++}
++
++static int rmi_read_features(void)
++{
++	/*
++	 * Since we've negotiated a compatible version these feature registers
++	 * should always be available
++	 */
++	for (int i = 0; i < ARRAY_SIZE(rmi_feat_reg_cache); i++) {
++		struct arm_smccc_1_2_regs args = {
++			SMC_RMI_FEATURES, i,
++		};
++
++		rmi_smccc_invoke(&args);
++		if (WARN_ON(args.a0 != RMI_SUCCESS))
++			return -EINVAL;
++
++		rmi_feat_reg_cache[i] = args.a1;
++	}
++
++	return 0;
++}
++
++unsigned long rmi_feat_reg(unsigned int index)
++{
++	if (WARN_ON(index >= ARRAY_SIZE(rmi_feat_reg_cache)))
++		return 0;
++
++	return rmi_feat_reg_cache[index];
++}
++EXPORT_SYMBOL_GPL(rmi_feat_reg);
++
++
++static int __init arm64_init_rmi(void)
++{
++	int ret;
++
++	/* If we can't agree on the RMI ABI version, don't proceed further */
++	ret = rmi_check_version();
++	if (ret)
++		return ret;
++
++	ret = rmi_read_features();
++	if (ret)
++		return ret;
++
++	return 0;
++}
++
++/*
++ * Note arm64_init_rmi() must be called before kvm_init_rmi() otherwise KVM
++ * will not support realm guests. subsys_initcall() is called before
++ * module_init() (used for KVM) so this is OK.
++ */
++subsys_initcall(arm64_init_rmi);
+diff --git a/include/linux/arm-rmi-cmds.h b/include/linux/arm-rmi-cmds.h
+new file mode 100644
+index 0000000000000..911489b636522
+--- /dev/null
++++ b/include/linux/arm-rmi-cmds.h
+@@ -0,0 +1,48 @@
++/* SPDX-License-Identifier: GPL-2.0 */
++/*
++ * Copyright (C) 2026 ARM Ltd.
++ */
++
++#ifndef __LINUX_ARM_RMI_CMDS_H_
++#define __LINUX_ARM_RMI_CMDS_H_
++
++#include <linux/arm-smccc-rmi.h>
++#include <linux/bug.h>
++#include <linux/processor.h>
++#include <linux/types.h>
++
++#define RMM_BLOCKED_RETRY_COUNT		2
++/*
++ * rmi_smccc_invoke: Invoke the RMI call and return the results, retrying the
++ * command when status is RMI_BUSY. If we encounter RMI_BLOCKED, we retry
++ * it one more time before we give up. The caller is supposed to handle the
++ * result and reissue if required.
++ *
++ * We don't expect to see RMI_BLOCKED on a practical system, except when
++ * there are parallel requests that results in long standing operation,
++ * with one blocking the other.
++ *
++ * @regs: Input parameters filled in. Updated with the ouptput results
++ * after the call.
++ */
++static inline void rmi_smccc_invoke(struct arm_smccc_1_2_regs *regs)
++{
++	struct arm_smccc_1_2_regs args = *regs;
++	long status;
++	int i = 0;
++
++	while (i < RMM_BLOCKED_RETRY_COUNT) {
++		arm_smccc_1_2_invoke(&args, regs);
++
++		status = RMI_RESULT_STATUS(regs->a0);
++		if (status != RMI_BUSY && status != RMI_BLOCKED)
++			break;
++		if (status == RMI_BLOCKED)
++			i++;
++		cpu_relax();
++	}
++}
++
++unsigned long rmi_feat_reg(unsigned int index);
++
++#endif	/* __LINUX_ARM_RMI_CMDS_H_ */
 -- 
 2.43.0
 
