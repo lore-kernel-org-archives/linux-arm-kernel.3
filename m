@@ -4,99 +4,74 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 26C7BCA5FA5
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 29 Sep 2026 19:45:14 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9E6C0CA5FA7
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 29 Sep 2026 19:47:08 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=dlqSekmBIvaPzDfuozpOnY+MYgiQ1xGecmLC2it8BD0=; b=fZ1tsj4IwY54zthS3aOyPr4tmc
-	eFOpCgQXcVyPVCbpYgLG2yDURuiRVzhT4Q8rdivgyABtY21VuMK0RsnihfWY3fktvuicLtcZAzW5i
-	cG7agIRS4LFjcebfTYgzPw8yYmzefs2CSNuEUA56AkzFIbH6LAPwlH9jYR5xfFSNKrtwLf4KZ+y75
-	RxnFAXdRnv5tcHz6cXCt2urPFZzv/VHbZcZpHGGE5xNCGSucaDMTwltm5bVUeuCdtBbwC3qHQbmQU
-	Yc+L0dDAKSZkfURB5J1ZsKrRA7jySwlSu8GtzP4V/mCvVtvVylmBXMBHW/GTYRqy9FGESGZiDvOG3
-	jj5BNK7Q==;
+	bh=HiNTupmKwpfKkS3g9iNzLPQ0hs/1u+N8ruRyY8+XoYs=; b=FZD1pNbxFBOC+2gncJ3EdxGlNx
+	wKFL6wKqXw7KGfzuyl2/2T4P2oNnAA/Hhy3DV/HVRQghlbmXZ8V+fWljUHecoVTUBr7CU2uAA3Kye
+	Es2OgWi6HjX+P/eeQATSion0xKHt4nFczfFYCWPaPoiJnpl8YXrvqfjINlCLG46nXwyaRdz6XcSwa
+	ePLBi99juw1d6y4zVpJYZmq4ZhllpZNo3s3WrObTHe8k2U3V/ASE4SWTnW69bTfAO+F9P2DGm0CWY
+	8v4k+t0Q7FuA9r/IjG3/DRingYp9oSU/OHCiFVzZ/ufoITc55lySfpcFAQ4diZenCH9mb74+pyf9t
+	pHXZDF1g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xBdlD-00000004PuW-3k7I;
-	Tue, 29 Sep 2026 19:45:07 +0000
-Received: from mail-dy2-x0e.google.com ([2607:f8b0:4864:36::e])
+	id 1xBdn4-00000004QCX-2Kpx;
+	Tue, 29 Sep 2026 19:47:02 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xBdlB-00000004Pu6-2fLi
-	for linux-arm-kernel@lists.infradead.org;
-	Tue, 29 Sep 2026 19:45:06 +0000
-Received: by mail-dy2-x0e.google.com with SMTP id 5a478bee46e88-3411e0ace58so5898381eec.0
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 29 Sep 2026 12:45:04 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=ziepe.ca; s=google; t=1790711104; x=1791315904; darn=lists.infradead.org;
-        h=in-reply-to:content-transfer-encoding:content-disposition
-         :content-type:mime-version:references:message-id:subject:cc:to:from
-         :date:from:to:cc:subject:date:message-id:reply-to:content-type;
-        bh=dlqSekmBIvaPzDfuozpOnY+MYgiQ1xGecmLC2it8BD0=;
-        b=mu1KlSwEYuAzTJE9qWkC26aPyBZbY4mBp/BTwO8COrmtXAvNM76ZWU1z0uDrqMN6V6
-         CrIt6qDNklDT9flc4Ln857tUCfKFSiJpfSC97eiZoUn44/N0hvGPaawpe3Er7s0fabt6
-         Fj25LcOBHo5U8FJxWatZcDPMpygrdrDlWqkJBWyHe5NSG23p6hZpz7htWXSYG37bjybF
-         +kaCUZv67ttnLrSRnWkaJdZLn+r2Vq+/V1vkAy+RkV7AV9kD9L3cksTtrxzpZtAb6r/h
-         MvGEOF1EK0cI9xRKtFOFkDEwjlx4tWNu1ls8inokjMq5Y3VhX3u2MQ59L3C7lLXhkmFC
-         6XcQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1790711104; x=1791315904;
-        h=in-reply-to:content-transfer-encoding:content-disposition
-         :content-type:mime-version:references:message-id:subject:cc:to:from
-         :date:x-gm-gg:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to:content-type;
-        bh=dlqSekmBIvaPzDfuozpOnY+MYgiQ1xGecmLC2it8BD0=;
-        b=O2OBATYcxjKw4tVVTucpLRcjnWqvNlRG9JuRmCfJz22BhgpoDOYMdVdoiJs8Dv59WF
-         /JiyMH3NVq2JkxPn641R+ZHvt4N0OD+moB56kr1zM+7SRgz/MP1R0ECGtwLDtt8REnSh
-         nHxXAScTn0qAKNz2Biu+VEOlc560d7lm/GGNuML2MwXCZyZ33LdI/UQbt/40FM7TwmV5
-         8m8MorWTqZ5qI5fL+1GCmNjPMFRQ4elLwXczIpL0yk/15KoVxiSpck3Y3Th1DweJmj5A
-         lsPPninsRQjKVk8M2CsWLzSAfQRRJgdrCo30vbaSsk8/VEAjicMtim3PNh73+CtcJB4L
-         vpWw==
-X-Gm-Message-State: AFuF++k2yZUQHl42m6otUnnP3mdewV/JsMcRWKCh6gT74ZHI+20Wk3ir
-	1tvEExB9R4OeatBizc8USmeaRKyYk1DsnmiUsezV6WcnsuYVeViJFImVkq7y7or55ks=
-X-Gm-Gg: AYBFou09AhqJ2MmJHRg7qFRL4GkX2G9Sy+3xKyOviiS0pBiFuqrdhzHpXW/Vqrp4bJt
-	TllWodOSywa+QYy+XEdrh6XZroctUbLUUEGiSIGPoyyfSrFxidCB2DHxVwkZKfduYEyyBwx599q
-	aDOC50ea/JqTuN+Onj82MquRBP169qdza9fRAmNYEyUN5WcvNQRYoXnuyZOJNxiHtFPHmkRBpDH
-	ZnhjJt8AS0aTrvLflh0vcUmRWhM7ozzrTeegH2JnMLUpddnktFzDLebfm4O8imPEW3lfFpQhh1P
-	q08ITSu4UmZGiNPNLJPR6hn06ZoyXYygkf5pMiufIgmnUwQjvTludldoRTKdP6ELMMT6PVnOxEI
-	Mkxdte9M6pjIukHeQmAbqmkLR0fww/abEVbn1gY/Y67/9xk6nUtXaNTD/qNmZ+FUctZ0H+1rbKO
-	sutZi3v5scCi3masevEZLYvkvwpeuODz0FQeUHtMlg9XTb
-X-Received: by 2002:a05:7022:7f1b:b0:13b:2f26:6881 with SMTP id a92af1059eb24-14c9c46fbf0mr312799c88.4.1790711104075;
-        Tue, 29 Sep 2026 12:45:04 -0700 (PDT)
-Received: from ziepe.ca ([130.41.10.202])
-        by smtp.gmail.com with ESMTPSA id a92af1059eb24-14c63acab5esm1202011c88.10.2026.09.29.12.45.02
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 29 Sep 2026 12:45:03 -0700 (PDT)
-Received: from jgg by wakko with local (Exim 4.97)
-	(envelope-from <jgg@ziepe.ca>)
-	id 1xBdl7-00000009uUb-3ljP;
-	Tue, 29 Sep 2026 16:45:01 -0300
-Date: Tue, 29 Sep 2026 16:45:01 -0300
-From: Jason Gunthorpe <jgg@ziepe.ca>
-To: Yeoreum Yun <yeoreum.yun@arm.com>
-Cc: linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Will Deacon <will@kernel.org>,
-	Suzuki Poulose <suzuki.poulose@arm.com>,
-	Steven Price <steven.price@arm.com>,
-	Sami Mujawar <sami.mujawar@arm.com>, thuth@redhat.com,
-	Jiri Pirko <jiri@nvidia.com>
-Subject: Re: [PATCH v2 0/3] arm64/virt: Add Arm CCA measurement register
- support
-Message-ID: <20260929194501.GO163130@ziepe.ca>
-References: <20260929-arm_cca_mr-v2-0-1d98bba187fd@arm.com>
- <20260929192051.GN163130@ziepe.ca>
- <arwUrOYn0NVySdzm@e129823.arm.com>
+	id 1xBdn2-00000004QCB-0PTS;
+	Tue, 29 Sep 2026 19:47:00 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by sea.source.kernel.org (Postfix) with ESMTP id 7606543BD0;
+	Tue, 29 Sep 2026 19:46:59 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 5E7431F000FF;
+	Tue, 29 Sep 2026 19:46:54 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1790711219;
+	bh=HiNTupmKwpfKkS3g9iNzLPQ0hs/1u+N8ruRyY8+XoYs=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=UNvqdL2cKc38mjozqD7PUzdm+2vHKtkorsESKmgrgCEpz25D0NnjnQ6bRCSrxXhm6
+	 LX+QqFM1ozAqGgTyZRQmsKlvvbqD2arvR8UY5GETNP697pWIZBc/foOZv8Wu/7sz/o
+	 WFcw24KeL6Eukj2j04hm3LXLRvfq7aUadK5h69KZVbnnEAl3OrNeZzFopAZn/sPP7n
+	 Gw4JdWx2m3IF/Gik4j7cBl+5xSoTDmGDWf3Pdt9S4b+garshxpxESKaPhn827aWbm2
+	 cE1gDIiGtpIr77KaTgTdV1PAmUGyj3ygB/jvOKKfAQiYyb/rElCCW7/QDShNGOXr5W
+	 b9TgTVzGdUxOQ==
+Date: Tue, 29 Sep 2026 20:46:52 +0100
+From: Conor Dooley <conor@kernel.org>
+To: Jisheng Zhang <jszhang@kernel.org>
+Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>, Stephen Boyd <sboyd@kernel.org>,
+	Brian Masney <bmasney+clk@redhat.com>,
+	Jerome Brunet <jbrunet+clk@baylibre.com>,
+	Andi Shyti <andi.shyti@kernel.org>,
+	Alexandre Belloni <alexandre.belloni@bootlin.com>,
+	Frank Li <Frank.Li@nxp.com>, Lee Jones <lee@kernel.org>,
+	Linus Walleij <linusw@kernel.org>,
+	Liam Girdwood <lgirdwood@gmail.com>,
+	Mark Brown <broonie@kernel.org>,
+	Philipp Zabel <p.zabel@pengutronix.de>,
+	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+	Jiri Slaby <jirislaby@kernel.org>,
+	Sebastian Hesselbarth <sebastian.hesselbarth@gmail.com>,
+	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+	linux-clk@vger.kernel.org, linux-i2c@vger.kernel.org,
+	linux-i3c@lists.infradead.org, mfd@lists.linux.dev,
+	linux-gpio@vger.kernel.org, linux-serial@vger.kernel.org,
+	linux-spi@vger.kernel.org, linux-arm-kernel@lists.infradead.org
+Subject: Re: [PATCH 15/20] dt-bindings: clock: add Synaptics SL261X clock
+Message-ID: <20260929-triage-unpiloted-cf3734477487@spud>
+References: <20260929061417.20733-1-jszhang@kernel.org>
+ <20260929061417.20733-16-jszhang@kernel.org>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="8PUm9dCOOcXFVem5"
 Content-Disposition: inline
-Content-Transfer-Encoding: 8bit
-In-Reply-To: <arwUrOYn0NVySdzm@e129823.arm.com>
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260929_124505_675550_83FAF64C 
-X-CRM114-Status: GOOD (  20.31  )
+In-Reply-To: <20260929061417.20733-16-jszhang@kernel.org>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -111,29 +86,284 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Sep 29, 2026 at 08:42:36PM +0100, Yeoreum Yun wrote:
-> On Tue, Sep 29, 2026 at 04:20:51PM -0300, Jason Gunthorpe wrote:
-> > On Tue, Sep 29, 2026 at 05:57:46PM +0100, Yeoreum Yun wrote:
-> > > This series adds support for Arm Confidential Compute Architecture (CCA)
-> > > measurement registers in the Linux kernel, enabling guest Realms to
-> > > access, extend, and expose measurement values for attestation and runtime
-> > > integrity tracking.
-> > 
-> > I'd prefer not to add any more tsm_measurements users until we bottom
-> > out on the attestation subsystem.. Mainly because it establishes uAPI
-> > that doesn't really do everything people need from this stuff..
-> 
-> Tend to agree. However, I think this seems like an integration with
-> the attestation subsystem.
-> IOW, although the functionality and interface are currently scattered,
-> the functionality of the TSM MR doesn't change —
-> showing the current measurement register status and generating
-> a token with a challenge. Therefore, even if the subsystem is refactored,
-> I don't think this would be a burden for it, and personally,
-> I'd like to see this patch series emancipated from almost six months of waiting ;)
+--8PUm9dCOOcXFVem5
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
 
-Yeah, but it immediately establishes a sysfs uAPI that we don't want
-anyone to implement :( That's my main issue..
+On Tue, Sep 29, 2026 at 02:14:12PM +0800, Jisheng Zhang wrote:
+> Add support for clocks, plls in Synaptics SL261X SoCs.
+>=20
+> Signed-off-by: Jisheng Zhang <jszhang@kernel.org>
+> ---
+>  .../bindings/clock/syna,sl261x-clk.yaml       |  92 ++++++++++++
+>  include/dt-bindings/clock/syna,sl261x.h       | 131 ++++++++++++++++++
+>  2 files changed, 223 insertions(+)
+>  create mode 100644 Documentation/devicetree/bindings/clock/syna,sl261x-c=
+lk.yaml
+>  create mode 100644 include/dt-bindings/clock/syna,sl261x.h
+>=20
+> diff --git a/Documentation/devicetree/bindings/clock/syna,sl261x-clk.yaml=
+ b/Documentation/devicetree/bindings/clock/syna,sl261x-clk.yaml
+> new file mode 100755
+> index 000000000000..3fd380c1dd39
+> --- /dev/null
+> +++ b/Documentation/devicetree/bindings/clock/syna,sl261x-clk.yaml
+> @@ -0,0 +1,92 @@
+> +# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
+> +%YAML 1.2
+> +---
+> +$id: http://devicetree.org/schemas/clock/syna,sl261x-clk.yaml#
+> +$schema: http://devicetree.org/meta-schemas/core.yaml#
+> +
+> +title: Synaptics SL261x clock controllers
+> +
+> +maintainers:
+> +  - Jisheng Zhang <jszhang@kernel.org>
+> +
+> +description: |
+> +  The SL261x clock hardware is divided into SoC, CPU, AIO, and system
+> +  manager register blocks. Each clock controller is a child of the node
+> +  containing its register range. The CPU clock node has a phandle to the
+> +  global chip control syscon.
+> +
+> +properties:
+> +  compatible:
+> +    oneOf:
+> +      - enum:
+> +          - syna,sl261x-soc-clk
+> +          - syna,sl261x-cpu-clk
+> +          - syna,sl261x-aio-clk
+> +          - syna,sl261x-system-clk
+> +      - items:
+> +          - const: simple-mfd
+> +          - const: syscon
 
-Jason
+What's going on here? You're entirely missing specific compatibles for
+your syscon nodes (which aren't clock controllers and shouldn't be
+defined here.
+Similarly to the reset stuff, why can't these just be parts of their
+parent nodes?
+
+Thanks,
+Conor.
+
+> +
+> +  reg:
+> +    maxItems: 1
+> +
+> +  syna,gbl-syscon:
+> +    $ref: /schemas/types.yaml#/definitions/phandle
+> +    description: Phandle to the SL261x global chip control syscon.
+> +
+> +  '#clock-cells':
+> +    const: 1
+> +
+> +  clocks:
+> +    maxItems: 1
+> +    description: Reference clock used as the input to the PLLs.
+> +
+> +required:
+> +  - compatible
+> +
+> +allOf:
+> +  - if:
+> +      properties:
+> +        compatible:
+> +          contains:
+> +            const: syna,sl261x-cpu-clk
+> +    then:
+> +      required:
+> +        - syna,gbl-syscon
+> +    else:
+> +      properties:
+> +        syna,gbl-syscon: false
+> +
+> +additionalProperties: false
+> +
+> +examples:
+> +  - |
+> +    osc: clock-osc {
+> +        compatible =3D "fixed-clock";
+> +        #clock-cells =3D <0>;
+> +        clock-frequency =3D <25000000>;
+> +    };
+> +
+> +    chip: syscon@f7e10000 {
+> +        compatible =3D "syscon", "simple-mfd";
+> +        reg =3D <0xf7e10000 0x10000>;
+> +
+> +        clk: clock {
+> +            compatible =3D "syna,sl261x-soc-clk";
+> +            #clock-cells =3D <1>;
+> +            clocks =3D <&osc>;
+> +        };
+> +    };
+> +
+> +    cpu_wrap: cpu-wrap@f7e30000 {
+> +        compatible =3D "syscon", "simple-mfd";
+> +        reg =3D <0xf7e30000 0x4000>;
+> +
+> +        cpuclk: clock {
+> +            compatible =3D "syna,sl261x-cpu-clk";
+> +            #clock-cells =3D <1>;
+> +            clocks =3D <&osc>;
+> +            syna,gbl-syscon =3D <&chip>;
+> +        };
+> +    };
+> +...
+> diff --git a/include/dt-bindings/clock/syna,sl261x.h b/include/dt-binding=
+s/clock/syna,sl261x.h
+> new file mode 100644
+> index 000000000000..4649b233f08a
+> --- /dev/null
+> +++ b/include/dt-bindings/clock/syna,sl261x.h
+> @@ -0,0 +1,131 @@
+> +/* SPDX-License-Identifier: (GPL-2.0 OR MIT) */
+> +/*
+> + * Synaptics SL261X clock tree IDs
+> + *
+> + * Copyright (C) 2025 Synaptics Incorporated
+> + *
+> + * Author: Jisheng Zhang <jszhang@kernel.org>
+> + */
+> +
+> +/* SoC domain */
+> +
+> +/* GBL common clks */
+> +#define CLK_CPUFASTREF		0
+> +#define CLK_MEMFASTREF		1
+> +#define CLK_CFG			2
+> +#define CLK_SYS			3
+> +#define CLK_PERIFSYS		4
+> +#define CLK_APBCORE		5
+> +#define CLK_APBSER		6
+> +#define CLK_ATB			7
+> +#define CLK_HPC			8
+> +#define CLK_EMMC		9
+> +#define CLK_SD0			10
+> +#define CLK_SD1			11
+> +#define CLK_GETHRGMII		12
+> +#define CLK_GETHRGMII1		13
+> +#define CLK_GE0_PTP_REF		14
+> +#define CLK_GE1_PTP_REF		15
+> +#define CLK_USB2TEST		16
+> +#define CLK_USB2TEST480MG0	17
+> +#define CLK_USB2TEST480MG1	18
+> +#define CLK_USB2TEST480MG2	19
+> +#define CLK_USB2TEST100MG0	20
+> +#define CLK_USB2TEST100MG1	21
+> +#define CLK_USB2TEST100MG2	22
+> +#define CLK_USB2TEST100MG3	23
+> +#define CLK_PERIFTEST125MG0	24
+> +#define CLK_PERIFTEST200MG0	25
+> +#define CLK_PERIFTEST200MG1	26
+> +#define CLK_GPU			27
+> +#define CLK_NPU			28
+> +#define CLK_AVIOSYS		29
+> +#define CLK_AIOSYS		30
+> +#define CLK_AVIO_LCDC2SCAN	31
+> +#define CLK_AVIO_IPI		32
+> +#define CLK_AVIO_P		33
+> +#define CLK_AVIO_DPHYRXTXESC	34
+> +#define CLK_AVIOFPLL		35
+> +#define CLK_AVIO_RX_SCANBYTE	36
+> +#define CLK_AVIO_RX_SCANTEST	37
+> +
+> +/* GBL gate clks */
+> +#define CLK_USB0CORE		38
+> +#define CLK_SDIOSYS		39
+> +#define CLK_EMMCSYS		40
+> +#define CLK_GPUAXI		41
+> +#define CLK_GETHRGMIISYS	42
+> +#define CLK_SDIO1SYS		43
+> +#define CLK_USB1CORE		44
+> +#define CLK_GETHRGMII1SYS	45
+> +#define CLK_USB0PHYREF		46
+> +#define CLK_USB1PHYREF		47
+> +#define CLK_APBUART0		48
+> +#define CLK_APBUART1		49
+> +#define CLK_APBUART2		50
+> +#define CLK_APBUART3		51
+> +#define CLK_APBI2C0		52
+> +#define CLK_APBI2C1		53
+> +#define CLK_APBSPI0		54
+> +#define CLK_APBSPI1		55
+> +#define CLK_APBSPI2		56
+> +#define CLK_APBSPI3		57
+> +#define CLK_APBGPIO		58
+> +#define CLK_APBTIMERS		59
+> +#define CLK_APBSYSCNT		60
+> +#define CLK_APBWDT		61
+> +#define CLK_APBDMA		62
+> +#define SL261X_CLK_MAX		63
+> +
+> +/* cpuss */
+> +#define CLK_CPU0		0
+> +#define CLK_CPU1		1
+> +#define CLK_DSU			2
+> +#define SL261X_CPU_CLK_MAX	3
+> +
+> +
+> +/* sysmgr domain */
+> +
+> +#define CLK_CFG_UART0		0
+> +#define CLK_SER_UART0		1
+> +#define CLK_CFG_UART1		2
+> +#define CLK_CFG_UART2		3
+> +#define CLK_CFG_UART3		4
+> +#define CLK_CFG_GPIO		5
+> +#define CLK_CFG_I2CM0		6
+> +#define CLK_CFG_I2CM1		7
+> +#define CLK_CFG_SPIM		8
+> +#define CLK_CFG_SPIS		9
+> +#define CLK_CFG_I3C		10
+> +#define CLK_CFG_XSPI		11
+> +#define CLK_AXI_XSPI		12
+> +#define CLK_CFG_PVT		13
+> +#define CLK_CFG_ADC		14
+> +#define CLK_CFG_PWM		15
+> +#define CLK_BUS_CAN0		16
+> +#define CLK_BUS_CAN1		17
+> +#define CLK_CFG_PDM		18
+> +
+> +#define CLK_SER_UART1		19
+> +#define CLK_SER_UART2		20
+> +#define CLK_SER_UART3		21
+> +#define CLK_DEB_GPIO		22
+> +#define CLK_SER_I2CM0		23
+> +#define CLK_SER_I2CM1		24
+> +#define CLK_SER_SPIM		25
+> +#define CLK_SER_SPIS		26
+> +#define CLK_SER_I3C		27
+> +#define CLK_SER_XSPI		28
+> +#define CLK_HS_PVT		29
+> +#define CLK_CORE_ADC		30
+> +#define CLK_SER_PWM		31
+> +#define CLK_SER_CAN0		32
+> +#define CLK_SER_CAN1		33
+> +#define CLK_SER_PDM		34
+> +#define CLK_REF_CALIB		35
+> +
+> +#define CLK_MCU_REF		36
+> +#define CLK_MCU_PLL		37
+> +#define CLK_MCU_IO_PLL		38
+> +#define CLK_MCU_APB		39
+> +#define CLK_MCU_AXI		40
+> --=20
+> 2.53.0
+>=20
+
+--8PUm9dCOOcXFVem5
+Content-Type: application/pgp-signature; name=signature.asc
+
+-----BEGIN PGP SIGNATURE-----
+
+iHUEABYKAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCarwVrAAKCRB4tDGHoIJi
+0lBNAQDZMOYK+Svkt7bavpqwDnNzw0s9RrPE7ghr2xnd802PkwEAz6WsjFxD+d2k
+18PAB7WNfoQN2zckLdyXXfOvE+NmmQw=
+=A6nB
+-----END PGP SIGNATURE-----
+
+--8PUm9dCOOcXFVem5--
 
