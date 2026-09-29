@@ -4,41 +4,41 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 653ADCA5FA5
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 29 Sep 2026 09:01:14 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 54040CA5FA1
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 29 Sep 2026 09:01:21 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=GPD9vjA0nP5FBJHwtDiCWGoBl3NxhSu48tigs18r/Yo=; b=TO/XEVfJV/5zNhip/btkpt6Htw
-	TeM9ACAmTkkJdapFWB2FyJnc5TRhnuByuUphRHIYdQBiFYbI44DJkJ4DCouLc5p1M4xs1nZwWin+D
-	WDjnclpYQAXfeLibaMGzeXAIDWv4w/gShEWCtDpC3zqsqfdRyWyEZkPBBSqZdVDcgANdHPK2c0ex3
-	xH5F8C4Vn64yxxTzny7ioVHwxdU6sLv9aDskRzrhxRIZTkmM0WJcZo7inbF3IkKXxXLinSReoK2ZI
-	Gxc+DU0zU3Jo2/tSgrptWyIJOPsvH4yOnHzCyE3KoAR0SZwG/EEl4GbGnDyUsNnyb5LXk3KopUOoP
-	4psJDsYw==;
+	bh=aTD43tRM/DvylWfM2IitGBwCyUTkrat+FRY5hw0PbE8=; b=wG7VhnUveNv2mIvo95MmLCh8bC
+	GgGtNwapjTq4JXZzXxGiyHCYovTOyNq616vxbBkTpOapLTc/8chIkzYowin97AFmM0wOejrvsko+m
+	j1eTo4c8WfCyADLERyZJYxDPC41KrevSIm790WAlcKgFuymTCcSicU8BtKrELJRZ2DfAP8uP00XBh
+	ITr8itPMJ8O5BwfpCH6GSPiR6zxi3gDJoMyUO6FyyBJ7STmUsVGwOAlrA3pbEfrs/6+mDnbLQFzT+
+	KLIIs9mf1f8/YFsdFJjegQRfNdJyqr9iaxct7Z2l8wb0Q1ysa20Z8wHGbWaGPTkgQVQS0pLm0Noex
+	VRCoaV1Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xBThx-00000002uYQ-24YT;
-	Tue, 29 Sep 2026 09:01:05 +0000
-Received: from out-136.mta1.migadu.com ([95.215.58.136] helo=mta1.migadu.com)
+	id 1xBTi6-00000002ubW-2UNu;
+	Tue, 29 Sep 2026 09:01:14 +0000
+Received: from out-156.mta1.migadu.com ([95.215.58.156] helo=mta1.migadu.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xBThu-00000002uWV-1wI0
+	id 1xBTi4-00000002uaK-1NEM
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 29 Sep 2026 09:01:04 +0000
+	Tue, 29 Sep 2026 09:01:13 +0000
 X-Envelope-To: linux-arm-kernel@lists.infradead.org
-DKIM-Signature: a=rsa-sha256; bh=Xy7APjAm9vxgY3BoNnyG8EPgyVpnG+Ucz22DNIrqlo4=;
+DKIM-Signature: a=rsa-sha256; bh=1jHpaWMldBRFaEmddqMc+nJNDn5a3aVbF5D1CXCVMl8=;
  c=simple/simple; d=linux.dev;
  h=from:to:subject:date:message-id:mime-version:content-type; s=key1;
- t=1790672460; v=1; x=1791277260;
- b=eYW4OymuypD3EfH8n9Dph3mgF4IIc7BivWckm2/I2/tNTJND7/3WL8lBuXXr4LTsGLg32ZXE
- RQCEFzV40GJX3Z/vCyo2NMvjV/4dgVAjSHrFacvNapV+W+860mQMhYvg2CaJFqlH/7AtjfuuyEj
- kUtvNA2aT1K0o5mFlgaxxwVQ=
+ t=1790672470; v=1; x=1791277270;
+ b=Zcewy7N9EcOhv/O2UIHNnIGUA7cVd7bMvPAZlrCFx34EnUFPG7a9sZNg+Ku/UqSZb9NtHohw
+ xJ86HF2B7ed/dJNzrl2gWbV1QbSvDCzKNcsOATjFadTc90BuAxLqgl+2kaePJUJvamqfBlhqN4k
+ g2DAiFnlDrYXXXfF2eq1FSlM=
 X-Envelope-To: linux-arm-kernel@lists.infradead.org
-Received: by smtp.migadu.com with ESMTPS id 939f88d67d5e6d8b;
-	Tue, 29 Sep 2026 09:00:59 +0000
-X-Mizu-Trace-ID: 939f88d67d5e6d8b
+Received: by smtp.migadu.com with ESMTPS id 463a1dcb2450a2e0;
+	Tue, 29 Sep 2026 09:01:10 +0000
+X-Mizu-Trace-ID: 463a1dcb2450a2e0
 X-Migadu-Flow: FLOW_OUT
 From: Fuad Tabba <fuad.tabba@linux.dev>
 To: Marc Zyngier <maz@kernel.org>,
@@ -58,17 +58,17 @@ Cc: Joey Gouly <joey.gouly@arm.com>,
 	Venkata Rao Kakani <venkata.kakani@oss.qualcomm.com>,
 	Fuad Tabba <tabba@google.com>,
 	linux-kernel@vger.kernel.org
-Subject: [PATCH v3 1/4] KVM: arm64: Apply the fine-grained UNDEFs without FEAT_FGT
-Date: Tue, 29 Sep 2026 10:00:28 +0100
-Message-Id: <20260929090031.3829185-2-fuad.tabba@linux.dev>
+Subject: [PATCH v3 2/4] KVM: arm64: Clear HCR_EL2.RW for 32-bit non-protected vCPUs
+Date: Tue, 29 Sep 2026 10:00:29 +0100
+Message-Id: <20260929090031.3829185-3-fuad.tabba@linux.dev>
 X-Mailer: git-send-email 2.39.5
 In-Reply-To: <20260929090031.3829185-1-fuad.tabba@linux.dev>
 References: <20260929090031.3829185-1-fuad.tabba@linux.dev>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260929_020102_804698_2735E065 
-X-CRM114-Status: GOOD (  10.41  )
+X-CRM114-CacheID: sfid-20260929_020112_506798_BFD6D309 
+X-CRM114-Status: GOOD (  11.29  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -83,49 +83,43 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-triage_sysreg_trap() applies the FGU bits through the encoding's FGT
-entry in the trap xarray, and populate_nv_trap_config() only adds those
-entries on a CPU with FEAT_FGT. Without it, a hidden feature that still
-traps reaches its handler instead: a TLBI OS trapped through
-HCR_EL2.TTLBOS lands in handle_tlbi_el1(), which expects an EL1 TLBI
-only from vEL2 and WARNs before the guest gets its UNDEF. A VMM can
-trigger the WARN by hiding TLBI OS and having the guest execute one.
+pKVM keeps its own copy of each vCPU's HCR_EL2 at EL2, initialised with
+RW set unconditionally. Nothing stops userspace from creating a
+non-protected AArch32 VM, and with RW set, entering one of its vCPUs is
+an illegal exception return: KVM_RUN fails with KVM_EXIT_FAIL_ENTRY.
 
-kvm_calculate_traps() computes the FGU bits with or without FEAT_FGT,
-and the entries map an encoding to its FGT bit whatever the CPU
-implements. Add them unconditionally, so that a hidden feature that
-traps is UNDEFINED on any CPU.
+Clear RW for a vCPU that is AArch32 at EL1, when the CPU has AArch32
+EL1. On a CPU without it, RW stays set and the entry still fails, rather
+than EL2 switching *32_EL2 registers that are UNDEFINED there. The host
+already rejects such a vCPU, but EL2 takes the vCPU's features from the
+host and doesn't rely on that.
 
-Fixes: f5a5a406b4b8b ("KVM: arm64: Propagate and handle Fine-Grained UNDEF bits")
+Fixes: b56680de9c648 ("KVM: arm64: Initialize trap register values in hyp in pKVM")
 Cc: stable@vger.kernel.org
 Signed-off-by: Fuad Tabba <fuad.tabba@linux.dev>
 ---
+ arch/arm64/kvm/hyp/nvhe/pkvm.c | 9 +++++++++
+ 1 file changed, 9 insertions(+)
 
-Notes:
-    For a nested guest on a CPU without FGT, check_fgt_bit() now runs too,
-    but it forwards nothing: a guest without FEAT_FGT has its FGT registers
-    RES0.
-    
-    f5a5a406b4b8b added the FGU check to triage_sysreg_trap() behind an
-    ARM64_HAS_FGT gate that populate_nv_trap_config() already had, so the
-    check never fired without FGT.
-
- arch/arm64/kvm/emulate-nested.c | 3 ---
- 1 file changed, 3 deletions(-)
-
-diff --git a/arch/arm64/kvm/emulate-nested.c b/arch/arm64/kvm/emulate-nested.c
-index 625604019fb32..b8529532b6e78 100644
---- a/arch/arm64/kvm/emulate-nested.c
-+++ b/arch/arm64/kvm/emulate-nested.c
-@@ -2386,9 +2386,6 @@ int __init populate_nv_trap_config(void)
- 				print_nv_trap_error(fgt, "FGT bit is reserved", ret);
- 			}
+diff --git a/arch/arm64/kvm/hyp/nvhe/pkvm.c b/arch/arm64/kvm/hyp/nvhe/pkvm.c
+index 459bd9eb7e4bc..62d432144d44c 100644
+--- a/arch/arm64/kvm/hyp/nvhe/pkvm.c
++++ b/arch/arm64/kvm/hyp/nvhe/pkvm.c
+@@ -54,6 +54,15 @@ static void pkvm_vcpu_reset_hcr(struct kvm_vcpu *vcpu)
+ 	else
+ 		vcpu->arch.hcr_el2 |= HCR_TID2;
  
--			if (!cpus_have_final_cap(ARM64_HAS_FGT))
--				continue;
--
- 			prev = xa_store(&sr_forward_xa, enc,
- 					xa_mk_value(tc.val), GFP_KERNEL);
++	/*
++	 * Without AArch32 EL1, leave RW set and let the entry fail with an
++	 * illegal exception return: the *32_EL2 registers EL2 would otherwise
++	 * switch are UNDEFINED there.
++	 */
++	if (vcpu_has_feature(vcpu, KVM_ARM_VCPU_EL1_32BIT) &&
++	    cpus_have_final_cap(ARM64_HAS_32BIT_EL1))
++		vcpu->arch.hcr_el2 &= ~HCR_EL2_RW;
++
+ 	if (vcpu_has_ptrauth(vcpu))
+ 		vcpu->arch.hcr_el2 |= (HCR_API | HCR_APK);
  
 -- 
 2.39.5
