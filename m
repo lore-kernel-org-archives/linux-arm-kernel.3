@@ -4,82 +4,75 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 42E77CA5FA5
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 29 Sep 2026 10:37:15 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4D04BCA5FAD
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 29 Sep 2026 10:37:18 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ZZa+gk1xSU87E90vuNj8MWoKLXAGcf4HT7mqh7DTZvU=; b=Na4rTKGjvEb7JN1jLZ0FDRQClJ
-	HzoWyTovhIRtsgCF1DNAkr80gAqH21KmiDMjm4bRJqWSBbGFbWttmgmoC2bGQ/Bzj+gJdL89PvNFc
-	1Z94JSYGZxsIK2JT2Yy30n1A+d66s4mrA49KqlXUAvN2ts6YiEf9FwcBdG+o24Brvv8xzBfXV3PE/
-	zmDQJEECA9GfVTsBLQ17w4fqhMiTiAaEolt+Oi67MVGs/QaV2zeWACcGkRxRVsnHbjcv199BXDpqL
-	ksLk1Gi3KqK3EGRVx4hbzcq9aeDLLN5D4TH2AzNfFyO09ICtWNufQzsHBm31I17uD7BezAMns/GWA
-	GE6rCj1A==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
+	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=FG2fSrBLzTEi5cgZPg/wmj6p28Uf1X+o6OUro3L7LTw=; b=OwUrjGgJhCjkqnQVrQ6TQ7EEOZ
+	pWlIiKYtl7cm7pOtXRkuUAVRhzjwHzX6QceH5oS/WGN2GPTTtGOqcc+CR87kjMRBzXn+mscqGDAzK
+	R6V8JjQewTBIFYyHokLGqdxzR4W6yV6J+mVWlmoFWB377l8CQbSU86jJznnvcrEwjh8kJner7VSI3
+	nu/bMM0qVAJrYFYB4EG4XlhZs9c0o8iIjHyQRlvW3eedz/JMnFD/5N7mmleBHIh9nBmMrwx2AtLRZ
+	zkmRlvUJ2dfLVJEHpnBgrp10pYri08Eo1dVvjZ8g5vpFtrNQggNb68GYuYopLQgVTv9qSmv++kXqT
+	4Ui9isUg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xBVCu-00000003GU4-2M3F;
-	Tue, 29 Sep 2026 10:37:08 +0000
-Received: from smtpout-03.galae.net ([185.246.85.4])
+	id 1xBVCv-00000003GV6-0G6J;
+	Tue, 29 Sep 2026 10:37:09 +0000
+Received: from canpmsgout08.his.huawei.com ([113.46.200.223])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xBVCm-00000003GMu-0mvA
+	id 1xBVCr-00000003GQb-2E6J
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 29 Sep 2026 10:37:01 +0000
-Received: from smtpout-01.galae.net (smtpout-01.galae.net [212.83.139.233])
-	by smtpout-03.galae.net (Postfix) with ESMTPS id AFDE04E410B8;
-	Tue, 29 Sep 2026 10:36:58 +0000 (UTC)
-Received: from mail.galae.net (mail.galae.net [212.83.136.155])
-	by smtpout-01.galae.net (Postfix) with ESMTPS id 8237A601BD;
-	Tue, 29 Sep 2026 10:36:58 +0000 (UTC)
-Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 24A22103295E3;
-	Tue, 29 Sep 2026 12:36:51 +0200 (CEST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=dkim;
-	t=1790678216; h=from:subject:date:message-id:to:cc:mime-version:content-type:
-	 content-transfer-encoding:in-reply-to:references;
-	bh=ZZa+gk1xSU87E90vuNj8MWoKLXAGcf4HT7mqh7DTZvU=;
-	b=HcHZ/yEX0y7E/R4eLYri/8Prr889zeEqUolkRUUmUn5kGhl39HdVqBLC8bSIi62bnjYqz5
-	cp4EEJl6hzscdE4OdsoTyh6Pa7r/W72cj45aI0cu52TeRj04MKLubTjd3wh5rRYafMCQzk
-	COGUqU/I2TLpcSwwxhJuQySNiiUrqNdPYJNhMeuHgz10ioaAVJ70GkCRVigr4dCZZLosl6
-	8hLdBTh2O3YyDKlRYKIz1Pxmz6537VudIAhCU7D3FoGRkwuQBB/iMsWJ7Aw/t4Wb0CPYPW
-	qpct/PZ1nkwMBvJQtgC9oydIKlSChSGvj9gcHvzL3GIMwkdBJD3bm1S82l32Xg==
-From: Luca Ceresoli <luca.ceresoli@bootlin.com>
-Date: Tue, 29 Sep 2026 12:36:34 +0200
-Subject: [PATCH 2/7] drm: verisilicon: stop using deprecated
- devm_drm_of_get_bridge()
+	Tue, 29 Sep 2026 10:37:07 +0000
+dkim-signature: v=1; a=rsa-sha256; d=huawei.com; s=dkim;
+	c=relaxed/relaxed; q=dns/txt;
+	h=From;
+	bh=FG2fSrBLzTEi5cgZPg/wmj6p28Uf1X+o6OUro3L7LTw=;
+	b=ljGVRr9djyRE4Nc9scgYujgOAYfl8s9i1kh2EthogOwA4BFrUs6cZ6GZawsCn9OyBxbDJe1P+
+	Z0znAg+Rz4XKlsJ5d8Drw0f1+0hAkNZRjsplR4Ne6mu7GHDsLwEUC6zBhWPDo3iiHeXUD+LKDWQ
+	FxANwd2uTN7saIN91CWsX9w=
+Received: from mail.maildlp.com (unknown [172.19.163.200])
+	by canpmsgout08.his.huawei.com (SkyGuard) with ESMTPS id 4hvDnZ4yH4zmV8f;
+	Tue, 29 Sep 2026 18:24:50 +0800 (CST)
+Received: from kwepemr100010.china.huawei.com (unknown [7.202.195.125])
+	by mail.maildlp.com (Postfix) with ESMTPS id F20DA4055B;
+	Tue, 29 Sep 2026 18:36:58 +0800 (CST)
+Received: from huawei.com (10.50.163.32) by kwepemr100010.china.huawei.com
+ (7.202.195.125) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.45; Tue, 29 Sep
+ 2026 18:36:57 +0800
+From: Tian Zheng <zhengtian10@huawei.com>
+To: <maz@kernel.org>, <oupton@kernel.org>, <catalin.marinas@arm.com>,
+	<will@kernel.org>, <corbet@lwn.net>, <pbonzini@redhat.com>,
+	<zhengtian10@huawei.com>, <leo.bras@arm.com>
+CC: <yuzenghui@huawei.com>, <wangzhou1@hisilicon.com>,
+	<yangjinqian1@huawei.com>, <caijian11@h-partners.com>,
+	<liuyonglong@huawei.com>, <tangchengchang@huawei.com>,
+	<yezhenyu2@huawei.com>, <yubihong@huawei.com>, <linuxarm@huawei.com>,
+	<joey.gouly@arm.com>, <kvmarm@lists.linux.dev>, <kvm@vger.kernel.org>,
+	<linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>,
+	<seiden@linux.ibm.com>, <suzuki.poulose@arm.com>, <fuad.tabba@linux.dev>,
+	<mark.rutland@arm.com>, <seanjc@google.com>, <rdunlap@infradead.org>,
+	<linux-doc@vger.kernel.org>, <linux-kselftest@vger.kernel.org>,
+	<skhan@linuxfoundation.org>
+Subject: [PATCH v5 03/15] KVM: arm64: Introduce a dedicated walker for stage2 write-protect
+Date: Tue, 29 Sep 2026 18:36:43 +0800
+Message-ID: <20260929103655.85107-4-zhengtian10@huawei.com>
+X-Mailer: git-send-email 2.33.0
+In-Reply-To: <20260929103655.85107-1-zhengtian10@huawei.com>
+References: <20260929103655.85107-1-zhengtian10@huawei.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20260929-drm-fix-of_get_bridge-build-regression-v1-2-ccb7e602daad@bootlin.com>
-References: <20260929-drm-fix-of_get_bridge-build-regression-v1-0-ccb7e602daad@bootlin.com>
-In-Reply-To: <20260929-drm-fix-of_get_bridge-build-regression-v1-0-ccb7e602daad@bootlin.com>
-To: Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, 
- Maxime Ripard <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>, 
- David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>, 
- Frank Li <Frank.Li@nxp.com>, Sascha Hauer <s.hauer@pengutronix.de>, 
- Pengutronix Kernel Team <kernel@pengutronix.de>, 
- Fabio Estevam <festevam@gmail.com>, Icenowy Zheng <zhengxingda@iscas.ac.cn>, 
- Andrzej Hajda <andrzej.hajda@intel.com>, 
- Neil Armstrong <neil.armstrong@linaro.org>, Robert Foss <rfoss@kernel.org>, 
- Laurent Pinchart <Laurent.pinchart@ideasonboard.com>, 
- Jonas Karlman <jonas@kwiboo.se>, Jernej Skrabec <jernej.skrabec@gmail.com>, 
- Dave Stevenson <dave.stevenson@raspberrypi.com>, 
- =?utf-8?q?Ma=C3=ADra_Canal?= <mcanal@igalia.com>, 
- Raspberry Pi Kernel Maintenance <kernel-list@raspberrypi.com>, 
- Geert Uytterhoeven <geert+renesas@glider.be>
-Cc: Arnd Bergmann <arnd@kernel.org>, Doug Anderson <dianders@chromium.org>, 
- Hui Pu <Hui.Pu@gehealthcare.com>, Ian Ray <ian.ray@gehealthcare.com>, 
- Thomas Petazzoni <thomas.petazzoni@bootlin.com>, 
- dri-devel@lists.freedesktop.org, imx@lists.linux.dev, 
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
- linux-renesas-soc@vger.kernel.org, 
- Luca Ceresoli <luca.ceresoli@bootlin.com>
-X-Mailer: b4 0.16.0
-X-Last-TLS-Session-Version: TLSv1.3
+Content-Transfer-Encoding: 8bit
+Content-Type: text/plain
+X-Originating-IP: [10.50.163.32]
+X-ClientProxiedBy: kwepems500002.china.huawei.com (7.221.188.17) To
+ kwepemr100010.china.huawei.com (7.202.195.125)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260929_033700_421312_1242CDC0 
-X-CRM114-Status: GOOD (  12.59  )
+X-CRM114-CacheID: sfid-20260929_033705_917510_6FEEFEFA 
+X-CRM114-Status: GOOD (  14.16  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -94,67 +87,65 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-devm_drm_of_get_bridge() is deprecated, switch to
-of_drm_get_bridge_by_endpoint(). As of_drm_get_bridge_by_endpoint() returns
-a refcounted bridge, ensure it is put by using bridge.next_bridge.
+From: Leonardo Bras <leo.bras@arm.com>
 
-Fixes build failure when CONFIG_OF is disabled.
+The new walker cleans the dirty bit on leaf entries, as well as clean
+the DBM bit in blocks so it still faults for lazy hugepage splitting when
+we enable FEAT_HDBSS in future patches.
 
-Fixes: aa8a8c7e4641 ("drm/bridge: panel: move all code to drm_panel.c")
-Reported-by: Arnd Bergmann <arnd@kernel.org>
-Link: https://lore.kernel.org/r/20260928161605.2271412-1-arnd@kernel.org
-Signed-off-by: Luca Ceresoli <luca.ceresoli@bootlin.com>
+With disabled HDBSS, there should be no change in faulting behavior.
+
+Link: https://lore.kernel.org/all/20260901171558.2674031-4-leo.bras@arm.com/
+Signed-off-by: Leonardo Bras <leo.bras@arm.com>
+Signed-off-by: Tian Zheng <zhengtian10@huawei.com>
 ---
- drivers/gpu/drm/verisilicon/vs_bridge.c | 7 +++----
- drivers/gpu/drm/verisilicon/vs_bridge.h | 1 -
- 2 files changed, 3 insertions(+), 5 deletions(-)
+ arch/arm64/kvm/hyp/pgtable.c | 30 ++++++++++++++++++++++++++----
+ 1 file changed, 26 insertions(+), 4 deletions(-)
 
-diff --git a/drivers/gpu/drm/verisilicon/vs_bridge.c b/drivers/gpu/drm/verisilicon/vs_bridge.c
-index dc7c85b07fe3..f1e8112f0ed2 100644
---- a/drivers/gpu/drm/verisilicon/vs_bridge.c
-+++ b/drivers/gpu/drm/verisilicon/vs_bridge.c
-@@ -29,7 +29,7 @@ static int vs_bridge_attach(struct drm_bridge *bridge,
- {
- 	struct vs_bridge *vbridge = drm_bridge_to_vs_bridge(bridge);
- 
--	return drm_bridge_attach(encoder, vbridge->next_bridge,
-+	return drm_bridge_attach(encoder, vbridge->base.next_bridge,
- 				 bridge, flags);
+diff --git a/arch/arm64/kvm/hyp/pgtable.c b/arch/arm64/kvm/hyp/pgtable.c
+index 357b06648418..aa0448d3a6a4 100644
+--- a/arch/arm64/kvm/hyp/pgtable.c
++++ b/arch/arm64/kvm/hyp/pgtable.c
+@@ -1293,12 +1293,34 @@ static int stage2_update_leaf_attrs(struct kvm_pgtable *pgt, u64 addr,
+ 	return 0;
  }
- 
-@@ -303,8 +303,7 @@ struct vs_bridge *vs_bridge_init(struct drm_device *drm_dev,
- 		return NULL;
- 	}
- 
--	next = devm_drm_of_get_bridge(drm_dev->dev, drm_dev->dev->of_node,
--				      output, intf);
-+	next = of_drm_get_bridge_by_endpoint(drm_dev->dev->of_node, output, intf);
- 	if (IS_ERR(next)) {
- 		ret = PTR_ERR(next);
- 		if (ret != -EPROBE_DEFER)
-@@ -326,7 +325,7 @@ struct vs_bridge *vs_bridge_init(struct drm_device *drm_dev,
- 
- 	bridge->crtc = crtc;
- 	bridge->intf = intf;
--	bridge->next_bridge = next;
-+	bridge->base.next_bridge = next;
- 
- 	if (intf == VSDC_OUTPUT_INTERFACE_DPI)
- 		enctype = DRM_MODE_ENCODER_DPI;
-diff --git a/drivers/gpu/drm/verisilicon/vs_bridge.h b/drivers/gpu/drm/verisilicon/vs_bridge.h
-index 70fee1749699..2b0ed94e4520 100644
---- a/drivers/gpu/drm/verisilicon/vs_bridge.h
-+++ b/drivers/gpu/drm/verisilicon/vs_bridge.h
-@@ -25,7 +25,6 @@ struct vs_bridge {
- 	struct drm_connector *conn;
- 
- 	struct vs_crtc *crtc;
--	struct drm_bridge *next_bridge;
- 	enum vs_bridge_output_interface intf;
- };
- 
 
--- 
-2.55.0
++static int stage2_wrprotect_walker(const struct kvm_pgtable_visit_ctx *ctx,
++				   enum kvm_pgtable_walk_flags visit)
++{
++	kvm_pte_t new = ctx->old & ~KVM_PTE_LEAF_ATTR_LO_S2_S2AP_W;
++
++	/* We remove DBM on blocks so they can fault and get split */
++	if (ctx->level < KVM_PGTABLE_LAST_LEVEL)
++		new &= ~KVM_PTE_LEAF_ATTR_HI_S2_DBM;
++
++	/*
++	 * We may race with the CPU trying to set the access flag here,
++	 * but worst-case the access flag update gets lost and will be
++	 * set on the next access instead.
++	 */
++	if (kvm_pte_valid(ctx->old) && ctx->old != new)
++		WRITE_ONCE(*ctx->ptep, new);
++
++	return 0;
++}
++
+ int kvm_pgtable_stage2_wrprotect(struct kvm_pgtable *pgt, u64 addr, u64 size)
+ {
+-	return stage2_update_leaf_attrs(pgt, addr, size, 0,
+-					KVM_PTE_LEAF_ATTR_LO_S2_S2AP_W,
+-					NULL, NULL,
+-					KVM_PGTABLE_WALK_IGNORE_EAGAIN);
++	struct kvm_pgtable_walker walker = {
++		.cb	= stage2_wrprotect_walker,
++		.flags	= KVM_PGTABLE_WALK_LEAF,
++	};
++
++	return kvm_pgtable_walk(pgt, addr, size, &walker);
+ }
+
+ void kvm_pgtable_stage2_mkyoung(struct kvm_pgtable *pgt, u64 addr,
+--
+2.43.0
 
 
