@@ -4,71 +4,76 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 738A2CA5FA5
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 29 Sep 2026 14:47:33 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 53D3ECA5FA5
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 29 Sep 2026 14:49:17 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
-	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	References:In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=PaHoAXPcrpcqQeGw4Tb6R83pqd8LYLw0tH22EeiqQ8E=; b=i2Iv76URumh6EsFvo1iOxRN9ep
-	rnzy4Cctcr6IwzUoWS0ebz3z1+bwMUDF2Ii60niKRQXk9I5LaJY2m42OAIR39FGzXiwiz6+Hw9Tu1
-	fYY19Cl4Pc9opez0PEO9XgkCYPm8IyVP0OTl4o/Qd+BoykldUBofPcJwoBEnJM5TjwkiA5PFCGQlL
-	1xWf7jSQUByHNkzj62qVxvGD78Uann/6asBC7TKl5qExegz4PdOiwRdxHUOXjKUy/HrrbCVXaLxNA
-	P3WvMxDZ0VK0k08FpyXq5ixCpgj7gn04ahrerLEzT4t55V/AmKPXIOvLC/EuwFTDDUaaNBSrtpFB7
-	UgBs7sAQ==;
+	bh=Ao14L3b0qe3I8bK/v3FiUk1dVHY8NGcm6bNn7cmmaM4=; b=STWGg/Q+Y3G69jQfBeMRizkp2t
+	Y4Yu1XzrpYlkFymzub/HFW1i+WdC7hvdRR7I8mv75pZIGCF5H6LQTQneBHr8RlnuA5NTBd+1cRoHh
+	DvRrRaXH04/5/9Ltd8RluC5TtkCoz5Q8g7iz/FSN3wNzPSTsjP3G4Wvg3BSwnPSmfImpoD6Gr5JbP
+	7CU/KUEg+2UDcdMHDDH5rmqzfwKnLXriDhjp/eXA2opr4cYRrPd2YvKXDh/XMp99QHKsqWWeZBcBl
+	ZGQYQ5f+54O5Khqh7pWbrmtKowyE1jqTYIkxXU87Ge9IMQzF94drRhcM4tkltCGUwKnrBHZZjZex1
+	ZKXYXEkw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xBZ76-00000003pvM-18uH;
-	Tue, 29 Sep 2026 14:47:24 +0000
-Received: from out-249.mta1.migadu.com ([95.215.58.249] helo=mta1.migadu.com)
+	id 1xBZ8o-00000003qD7-20jp;
+	Tue, 29 Sep 2026 14:49:10 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xBZ70-00000003pt6-2CHi
+	id 1xBZ8m-00000003qCo-24Qr
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 29 Sep 2026 14:47:22 +0000
-X-Envelope-To: linux-arm-kernel@lists.infradead.org
-DKIM-Signature: a=rsa-sha256; bh=PaHoAXPcrpcqQeGw4Tb6R83pqd8LYLw0tH22EeiqQ8E=;
- c=simple/simple; d=linux.dev;
- h=from:to:subject:date:message-id:mime-version:content-type; s=key1;
- t=1790693236; v=1; x=1791298036;
- b=Nr9eG/tBnA6IIuORUPI+mgplgEfTQv47TqtFfyvbHUzoVzEPAJzpI2/7cS84HNhjbZbeuRlh
- FgxRfDxjd685WffdFRangeHIK5v4iX5U+z5wqILpi0wzrce3amN9Yv8rJFdBTYIwqNjt5xvU2PL
- FQZywHjWvOEXcVKn/e8uXOJ4=
-X-Envelope-To: linux-arm-kernel@lists.infradead.org
-Received: by smtp.migadu.com with ESMTPS id aed3d115a5819b02;
-	Tue, 29 Sep 2026 14:47:16 +0000
-X-Mizu-Trace-ID: aed3d115a5819b02
-X-Migadu-Flow: FLOW_OUT
-Received: by mail-lf1-f53.google.com with SMTP id 2adb3069b0e04-5b8ea0ca5baso8721e87.1
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 29 Sep 2026 07:47:11 -0700 (PDT)
-X-Forwarded-Encrypted: i=1; AKwUvByhiz2fs9fwvxC0uLzsGuF6ERnKPlfD8NnQRIhCqVIZ17IyW8v20BPuQ+ahTaXqMuf61hHan+osfY34ZyHd53Xt@lists.infradead.org
-X-Gm-Message-State: AFq9FYLurXxhF422fMV/qIzJxZ6RyZVK/4FbSWACcZfEyMaGDnicDfmN
-	pSEl9ce0KobRZgpn7RYtxZUdbuk+pkNP96mlNNyRHPXc2632p/sDsU4n/5h15njkaIwKIGXPCHt
-	VLXmzfFZlwn3/dfhJvhZLHncWCP3cwvFkZ9g0HJmD
-X-Received: by 2002:a05:6512:4015:b0:5ba:3797:2359 with SMTP id
- 2adb3069b0e04-5ba37972460mr33642e87.2.1790693229297; Tue, 29 Sep 2026
- 07:47:09 -0700 (PDT)
-MIME-Version: 1.0
-References: <20260929093548.3598547-1-maz@kernel.org> <20260929093548.3598547-2-maz@kernel.org>
- <CA+EHjTwZSFUZmavbB4tE-eFxHg9WF80CA230EwvynuNcZQ0prg@mail.gmail.com> <86a4p0403b.wl-maz@kernel.org>
-In-Reply-To: <86a4p0403b.wl-maz@kernel.org>
-From: Fuad Tabba <fuad.tabba@linux.dev>
-Date: Tue, 29 Sep 2026 15:46:33 +0100
-X-Gmail-Original-Message-ID: <CA+EHjTyuXSLw8kfRu4QB5+UdrTzc=LVQdWs+SHPvGA1NS-wySQ@mail.gmail.com>
-X-Gm-Features: AclHuK-PJma5Gz1v-jtnuLZMTzpONJmBik9WyxHWow9PmByLldd07rhmiNwGARY
-Message-ID: <CA+EHjTyuXSLw8kfRu4QB5+UdrTzc=LVQdWs+SHPvGA1NS-wySQ@mail.gmail.com>
-Subject: Re: [PATCH v2 1/7] KVM: arm64: Move OUTSIDE_GUEST_MODE publication
- past context being saved
-To: Marc Zyngier <maz@kernel.org>
-Cc: kvmarm@lists.linux.dev, linux-arm-kernel@lists.infradead.org, 
-	Steffen Eiden <seiden@linux.ibm.com>, Joey Gouly <joey.gouly@arm.com>, 
-	Suzuki K Poulose <suzuki.poulose@arm.com>, Oliver Upton <oupton@kernel.org>, 
-	Zenghui Yu <yuzenghui@huawei.com>, Yuchao Zhang <ndaugoing@gmail.com>, stable@vger.kernel.org
-Content-Type: text/plain; charset="UTF-8"
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260929_074719_067307_612C6192 
-X-CRM114-Status: GOOD (  18.08  )
+	Tue, 29 Sep 2026 14:49:08 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by sea.source.kernel.org (Postfix) with ESMTP id D5035403B5;
+	Tue, 29 Sep 2026 14:49:07 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id B68581F000FF;
+	Tue, 29 Sep 2026 14:49:07 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1790693347;
+	bh=Ao14L3b0qe3I8bK/v3FiUk1dVHY8NGcm6bNn7cmmaM4=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References;
+	b=GHu/IC86e3GcX4IejmW1WJKeWVTQq8P2fMKy8tJs7DukFag9qvOZxCK3UYwCSBy5l
+	 5LMo4L6jmVe2w0FV5KcYQT2yOVp41nNdnBztuPguBWJ7o9C/jhLv3tFifywPjgJmhG
+	 MFeQEnSshf/tGjPQ7wg9RF8r56zGsAKw0oQQ6eRd10U3w3mobFaSCJllyyhsCaqR+J
+	 SDJLLTeRYKR/uq1cWVSFSzkosvQi0l7UCzAYK1r6sBxOmSd1jTdgUz2QJctVIS3jYc
+	 h3sh/K+mADyWkERtQ0J59AMZTtUBG07XYzh3fQIEkDrMUK8RbXwZOW6DehvK8tBvCY
+	 kzZLhJpVgIrmQ==
+Received: from sofa.misterjones.org ([185.219.108.64] helo=goblin-girl.misterjones.org)
+	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.98.2)
+	(envelope-from <maz@kernel.org>)
+	id 1xBZ8j-0000000EttL-3Uds;
+	Tue, 29 Sep 2026 14:49:05 +0000
+Date: Tue, 29 Sep 2026 15:49:05 +0100
+Message-ID: <867bk43yfy.wl-maz@kernel.org>
+From: Marc Zyngier <maz@kernel.org>
+To: Will Deacon <will@kernel.org>
+Cc: linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Mark Rutland <mark.rutland@arm.com>,
+	Thomas Gleixner <tglx@kernel.org>,
+	Ben Horgan <ben.horgan@arm.com>
+Subject: Re: [PATCH v3 7/8] clocksource/drivers/arm_arch_timer: Expose a direct accessor for the virtual counter
+In-Reply-To: <arvMpP8Htq3dKu99@willie-the-truck>
+References: <20260802165327.385217-1-maz@kernel.org>
+	<20260802165327.385217-8-maz@kernel.org>
+	<aru1QvpaQ8A-OnQq@willie-the-truck>
+	<868q4k3zds.wl-maz@kernel.org>
+	<arvMpP8Htq3dKu99@willie-the-truck>
+User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
+ FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/30.1
+ (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
+MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
+Content-Type: text/plain; charset=US-ASCII
+X-SA-Exim-Connect-IP: 185.219.108.64
+X-SA-Exim-Rcpt-To: will@kernel.org, linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, catalin.marinas@arm.com, mark.rutland@arm.com, tglx@kernel.org, ben.horgan@arm.com
+X-SA-Exim-Mail-From: maz@kernel.org
+X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -83,39 +88,68 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Marc,
+On Tue, 29 Sep 2026 15:35:16 +0100,
+Will Deacon <will@kernel.org> wrote:
+> 
+> On Tue, Sep 29, 2026 at 03:28:47PM +0100, Marc Zyngier wrote:
+> > On Tue, 29 Sep 2026 13:55:30 +0100,
+> > Will Deacon <will@kernel.org> wrote:
+> > > 
+> > > On Sun, Aug 02, 2026 at 05:53:26PM +0100, Marc Zyngier wrote:
+> > > > We allow access to the architected counter via arch_timer_read_counter().
+> > > > However, this accessor can either be the virtual or the physical
+> > > > view of the counter, depending on how the kernel has been booted.
+> > > > 
+> > > > At the same time, we have some architectural features (such as WFIT,
+> > > > WFET) that rely on the virtual counter, and nothing else.
+> > > > 
+> > > > If implementations were perfect, we'd rely on reading CNTVCT_EL0,
+> > > > and be done with it. However, we have a bunch of broken implementations
+> > > > in the wild, which rely on preemption being disabled and other
+> > > > costly workarounds.
+> > > > 
+> > > > In order to provide decent performance on non-broken HW while still
+> > > > supporting the legacy horrors, expose arch_timer_read_vcounter() as
+> > > > a new helper that hides this complexity. Obviously, this is simply
+> > > > a global alias of arch_counter_get_cntvct().
+> > > > 
+> > > > Signed-off-by: Marc Zyngier <maz@kernel.org>
+> > > > ---
+> > > >  drivers/clocksource/arm_arch_timer.c | 2 ++
+> > > >  include/clocksource/arm_arch_timer.h | 1 +
+> > > >  2 files changed, 3 insertions(+)
+> > > > 
+> > > > diff --git a/drivers/clocksource/arm_arch_timer.c b/drivers/clocksource/arm_arch_timer.c
+> > > > index b3b31d4f4815f..9c7501ce57073 100644
+> > > > --- a/drivers/clocksource/arm_arch_timer.c
+> > > > +++ b/drivers/clocksource/arm_arch_timer.c
+> > > > @@ -128,6 +128,8 @@ static notrace u64 arch_counter_get_cntvct(void)
+> > > >  	return __arch_counter_get_cntvct();
+> > > >  }
+> > > >  
+> > > > +u64 arch_timer_read_vcounter(void) __attribute__((alias("arch_counter_get_cntvct")));
+> > > 
+> > > nit: compiler-attributes.h provides __alias to make this a tiny bit cleaner.
+> > > 
+> > > That said, why did you decide on the alias rather than just having this
+> > > as a wrapper function?
+> > 
+> > No idea. Laziness, probably.
+> > 
+> > But I've paged most of this stuff out, and I'm not sure it even serves
+> > a purpose, given that we've lived for about a decade with the problem
+> > it tries to solve.
+> > 
+> > Consider it an abandoned series.
+> 
+> Ok, but patch one is probably worth taking to fix the PMU issue, no?
 
-On Tue, 29 Sep 2026 15:13:28 +0100, Marc Zyngier <maz@kernel.org> wrote:
-[...]
-> However, there is a problem if cmpxchg() fails, as there is no
-> ordering in that case, and I'm not sure the smp_mb__before_atomic()
-> saves the bacon in that case. It feels we'd need an acquire
-> somewhere, a bit like this:
+Yes, I think it is still relevant.
 
-It doesn't save the bacon. I ran it through herd7 with the LKMM, the
-fold walk in vgic_v3_fold_lr_state() against the list_del() in
-vgic_flush_pending_lpis(): with smp_mb__before_atomic() and a failing
-cmpxchg(), the walk can see the list_del(). With your
-smp_load_acquire() it can't.
+Thanks,
 
-[...]
-> We need a release so that we know for sure that any state stored
-> before is visible by the time we can observe OUTSIDE_GUEST_MODE, and
-> WRITE_ONCE() doesn't provide that (it can be reordered).
->
-> I don't see what taking a lock changes to the ordering requirement.
+	M.
 
-The fold walk takes no lock, so the locks on the halt side don't order
-it against the list_del(). herd7 agrees: WRITE_ONCE() with your
-acquire can see the list_del() again.
-
-[...]
-> I don't understand what sashiko is trying to say, but this is clearly
-> missing from the patch, see below. Not sure how I missed that one.
-
-I don't understand Sashiko half of the time either :) That said, the
-diff looks right to me.
-
-Cheers,
-/fuad
+-- 
+Without deviation from the norm, progress is not possible.
 
