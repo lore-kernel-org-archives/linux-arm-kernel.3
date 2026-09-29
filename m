@@ -4,106 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 58A4DCA5FA5
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 29 Sep 2026 17:58:06 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1FCB1CA5FA5
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 29 Sep 2026 18:15:56 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:Message-Id:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:From:
-	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
-	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=3Q5DALqLK2poFGKjmNG6XI2SLB5UCPlonreW219u7mo=; b=fyqiPDYNkoMAEDV/e0+wpFDlU8
-	LbT60sC7Vba8+CEx4JNYsUdLOW6rj58kt6MOq4QyXhFVmn4X1x4dIgsqvQUop1JwGElhc7sIVuNv/
-	ymQ/y+DscCO6BZF84G7y2d89hfCHpYCouanOo5f75lU1x5eK8V/o/Tl3ti7CupQ5JlnGcpzjyiUc7
-	OmysywcB0GMa5Kr6u6At1IH0kXdzLLY8Kyi2W45ARmXpYo3bs+WVTyq1PhKD/o+atw4oXms61jS1A
-	2wDG1FD7112eQIcPYw6pV0TpDf0ozitvhsYqlKu6E3ooolFNHUzs78SvdQwKtfIxVwDm/WwJ/U+QV
-	k5HfjoHA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
+	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=lQJWVWk3onBDr0Grdd3BKv67WqnsifJhtWM7wbH9OiI=; b=TaY+8ePLHiFzA8YO58lkBKOACt
+	nLOkpKJ4RrJHXEe87KEWHFjVSEo22J5dGCbKUea3JHXi3lZKxityEdLNam3w9qd74tedw+gDTOGy9
+	UfuE7mXcOuh7fC5GqLegW5oIWje+AX9aCuG9WswGtNakBCNzEbbhSJWPKX443VYc0NyVwICkiP4r+
+	Uc+1R2/ezSewidezgs+bRCPr9vJlC6+edAcleluOkP7VOxk9oEsxWUrcZ1G+ideBpDkmEZJE/JL5M
+	DiJn9XAq1cK2fb44GuWD0Q9+gkDPEF1HLwAaN0MPspQvhsqxXjP5okvWkx+xdobx0z3opLSxvdZ7C
+	h0MG7CNQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xBc5X-00000004EwV-3DRm;
-	Tue, 29 Sep 2026 17:57:59 +0000
-Received: from mail-oo2-x0a.google.com ([2607:f8b0:4864:31::a])
+	id 1xBcMm-00000004GJK-0Fcv;
+	Tue, 29 Sep 2026 18:15:48 +0000
+Received: from out-155.mta1.migadu.com ([95.215.58.155] helo=mta1.migadu.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xBc5U-00000004EvY-4C8u
+	id 1xBcMj-00000004GIV-2V1G
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 29 Sep 2026 17:57:58 +0000
-Received: by mail-oo2-x0a.google.com with SMTP id 46e09a7af769-81a7ff792f6so1554307a34.0
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 29 Sep 2026 10:57:56 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1790704676; x=1791309476; darn=lists.infradead.org;
-        h=cc:to:message-id:content-transfer-encoding:content-type
-         :mime-version:subject:date:from:from:to:cc:subject:date:message-id
-         :reply-to:content-type;
-        bh=3Q5DALqLK2poFGKjmNG6XI2SLB5UCPlonreW219u7mo=;
-        b=StoM3zX8RtowvxCj1FY1gps7MGsetvhPXvsGA/UbNeu9+7Gd8+NS0qX+idKy7cbO04
-         V7+2y+Uah8HJPz92kJobG0S+cbML60wDMZL8MdM8DpaBLMgcfko/ugu8nkunK8R3fmlV
-         qULweWWMM6sOeVD2ePtNdQdiFvn+vtHacRKA2f/chpU51ksekL0hkBVttCANUZpq8JmA
-         Pc9JYEnFSQTpHp23SfUBEuH3x7eitmlOoRCzn/cpKPpq4AGEJ1mA8JuTEl1pY9tIb96B
-         EG/SJytC3h6dyH8vKSOYr1lAvuM/zD5Esk5upclXQE8DNg8+YSV2XiQ8I2CvhUfZf5aI
-         MGdQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1790704676; x=1791309476;
-        h=cc:to:message-id:content-transfer-encoding:content-type
-         :mime-version:subject:date:from:x-gm-gg:x-gm-message-state:from:to
-         :cc:subject:date:message-id:reply-to:content-type;
-        bh=3Q5DALqLK2poFGKjmNG6XI2SLB5UCPlonreW219u7mo=;
-        b=K+i4o8CrasZ6H6sROICIUYRByhD/I5AlK/w5knUQ114WqN3KYdb/6V1Ah0Y8nk0POF
-         YHGiQIysv1O5QoqhMedkFfk/8QOqyA4JGq0tdvREMTFt4IOW+x7iCuQaZGNi8JrahdBx
-         xj1TnU5it664zDBRMtl6RCf6PWHmJJtZ40EARqcE3KIiyWfatPCPhhyK0dWu7+j98WKj
-         RLKlNHyqb/sG4JaPGFTTrd7rsrtNDGMjQ0t6TDoQdF1jnSum9lsk8FDIG2f/xp+UvVqd
-         lS3eksAuJS7yUeyrQG4sjCApQiFKGUVTiJSZ74OY17YZeam832jdWqgZ1GWZOxphEeZ1
-         h0hg==
-X-Forwarded-Encrypted: i=1; AKwUvBwbnP9LFFh09JkK5lLVhtNIDkfuWKz91XC282jgvO2hKxf4AehqCScVGjqQTR1Z4gnD8bkNuVUZ2jqUQOiZw090@lists.infradead.org
-X-Gm-Message-State: AFuF++m4W2frKSerVi6sn6KoEwaMvdfhUVLtl9iICmCV6BQKGW/56umP
-	abLi6DEUAsbvSn8duHHMpFVZNzHo6X45NslCOmE9GSuonD/3+kZDDa1G
-X-Gm-Gg: AYBFou02MXLvyu/rpwXJFp9oeo0xUYEOotHt1iLRj1Th1QpQ39Ny/NNGA8JKobnFFB5
-	4PvKtEIRj6xgw9Jgalri2xftHA/BK8veq46vfIoeLkrhhMJNB5GmS6MekVptLyXAyLqRQ9yPpgN
-	na8TywphM3siR9HkvdyGzJ/+0Ntijy6SRVN56cpRpOT0OKHU2H1VIDoIbz5YDazGMskGk/mBE+4
-	LCnPTu7XstIF8HM6+RI2cmf/ivoKba/OVicEZFbTsp2eJ5UE766TrXw3Lv9jhbjvtk7uKXtvazE
-	lcNlY47Cx3C8VIVCcg+LR8klgSOyRBEl6rk+zRpTAD8IUkPArUizZYBhukvcm0y4gaR9cr1X6Xy
-	5U/xAYG8UVi2BgeCgaeTPROJEIumLNkWf5Xap2qHeXI1WP5yw8CgkWC6Ofd9BnP8wUhQg7558BL
-	Xh2RqVyiU5EseZ5CY69ee3KNMCRtFvT8MOC2xKz/GBxpHPEsJfbXSLS3gA2xlKxLHBbg==
-X-Received: by 2002:a05:6830:6f8b:b0:81c:ad41:f9a8 with SMTP id 46e09a7af769-81fd8d7e013mr96882a34.25.1790704675863;
-        Tue, 29 Sep 2026 10:57:55 -0700 (PDT)
-Received: from [192.168.18.164] ([2600:8804:5716:d800::2620])
-        by smtp.gmail.com with ESMTPSA id 46e09a7af769-81faf7eedd6sm691407a34.17.2026.09.29.10.57.54
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 29 Sep 2026 10:57:55 -0700 (PDT)
-From: Ryan Brue <ryanbrue.dev@gmail.com>
-Date: Tue, 29 Sep 2026 12:57:51 -0500
-Subject: [PATCH] pinctrl: mediatek: common-v1: Use a raw spinlock for the
- pinctrl regmap
+	Tue, 29 Sep 2026 18:15:46 +0000
+X-Envelope-To: linux-arm-kernel@lists.infradead.org
+DKIM-Signature: a=rsa-sha256; bh=PS53pggHQszgAXTyeJLWzhz2Iy6aaILaNoIH2bVSKrk=;
+ c=simple/simple; d=linux.dev;
+ h=from:to:subject:date:message-id:mime-version:content-type; s=key1;
+ t=1790705741; v=1; x=1791310541;
+ b=KvNCeOLtgYPaopkh17HGhrikC43/DgwuG5wf+LIuQKUDl5Fdiiz9+6PDhJCbS07/8z268iG1
+ I5qHIyo4RE64I7mlcSlYCtqVwSWvIqPAtfyVuqXjEqw92XnP/UihUxJZtP4lUjK539KgAA+LzBO
+ U4JxYnUn7yATWNyeeNAXANFs=
+X-Envelope-To: linux-arm-kernel@lists.infradead.org
+Received: by smtp.migadu.com with ESMTPS id 75b993313ddb705c;
+	Tue, 29 Sep 2026 18:15:29 +0000
+X-Mizu-Trace-ID: 75b993313ddb705c
+X-Migadu-Flow: FLOW_OUT
+Received: by mail-lf1-f43.google.com with SMTP id 2adb3069b0e04-5b8c42da963so964e87.0
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 29 Sep 2026 11:15:25 -0700 (PDT)
+X-Forwarded-Encrypted: i=1; AKwUvBzyxk/Va3PI/CtW0hNTD+U2xrpVrSJuqZaHg3skaBA619RWT+ffMYWE9b3URiQX4CKXjxmreTjbJfgOA22Xg3VX@lists.infradead.org
+X-Gm-Message-State: AFq9FYKVVgpu7aolV0JBA8z6e/FCp1nwn8EThNC8UZ0PGWjtPIKUisun
+	+td5RO+7BCzUYX6oCiKQ3YjJ8k9PSk/K0LDfmi96U7hjNgjbtc9bh1T2AFNyzlftalKw9ur9qe5
+	J1MSfin3c4syeUimrLTNCx2eZKeOallfQ2wzHQhhf
+X-Received: by 2002:a05:6512:3d04:b0:5b8:d830:be30 with SMTP id
+ 2adb3069b0e04-5ba2f9ac722mr166505e87.16.1790705724240; Tue, 29 Sep 2026
+ 11:15:24 -0700 (PDT)
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20260929-rbrue-suez-upstreaming-mtk-pinctrl-raw-regmap-v1-1-db92943f42cb@gmail.com>
-X-B4-Tracking: v=1; b=H4sIAAAAAAAC/x3NQQ6CMBBA0auQWTsJNBaCVzEuCgx1oq3NTKtGw
- t1tWL7N/xsoCZPCpdlA6M3Kr1jRnRqY7y56Ql6qwbSmb0djUSYphFrohyVpFnKBo8eQH5g4zlm
- eKO6DQj64hJ09L70xdhqHAWozCa38PX7X277/AZvetit/AAAA
-X-Change-ID: 20260925-rbrue-suez-upstreaming-mtk-pinctrl-raw-regmap-154d6225b977
-To: Sean Wang <sean.wang@kernel.org>, Linus Walleij <linusw@kernel.org>, 
- Matthias Brugger <matthias.bgg@gmail.com>, 
- AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, 
- Bartosz Golaszewski <brgl@kernel.org>, 
- Sebastian Andrzej Siewior <bigeasy@linutronix.de>, 
- Clark Williams <clrkwllms@kernel.org>, Steven Rostedt <rostedt@goodmis.org>, 
- Yingjoe Chen <yingjoe.chen@mediatek.com>, 
- Chaotian Jing <chaotian.jing@mediatek.com>, 
- Hongzhou Yang <hongzhou.yang@mediatek.com>
-Cc: linux-mediatek@lists.infradead.org, linux-gpio@vger.kernel.org, 
- linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
- linux-rt-devel@lists.linux.dev, Ryan Brue <ryanbrue.dev@gmail.com>
-X-Mailer: b4 0.16.0
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1790704674; l=5335;
- i=ryanbrue.dev@gmail.com; s=20260906; h=from:subject:message-id;
- bh=AhPKeNImrvlq1anzVY2fNb8qUrxOu5aYYSTJF3bI2YQ=;
- b=yQ5tCTTuq8nTIonA2166WPdB0ch3FpnbY3HeqZaxd1jIKsCOG9Ko0jSYkM8b1C/Fa3Ehnt1cj
- hLTiIbbRx6fCXdVy1YJTPmVo+15nwP4U/aNM9eWC7H3yhRtWEe8kDnL
-X-Developer-Key: i=ryanbrue.dev@gmail.com; a=ed25519;
- pk=KsUvVaP//v/2q+ZBuacc7cLbsyEYn+AD71Sn28oZWKo=
+References: <20260929093548.3598547-1-maz@kernel.org> <20260929093548.3598547-7-maz@kernel.org>
+In-Reply-To: <20260929093548.3598547-7-maz@kernel.org>
+From: Fuad Tabba <fuad.tabba@linux.dev>
+Date: Tue, 29 Sep 2026 19:14:48 +0100
+X-Gmail-Original-Message-ID: <CA+EHjTyRRJjhaud-OHyAWh0z4Pj=o-jmvN8tJ=3h+Qrb6Lzm5w@mail.gmail.com>
+X-Gm-Features: AclHuK9Zph6dxjBIAdQsEIxcU3zk8Se6Fy_owHYC72h8LnPnQU2hVuTRl5zAeJ8
+Message-ID: <CA+EHjTyRRJjhaud-OHyAWh0z4Pj=o-jmvN8tJ=3h+Qrb6Lzm5w@mail.gmail.com>
+Subject: Re: [PATCH v2 6/7] KVM: arm64: vgic-its: Fix MOVALL handling of
+ source redistributor
+To: Marc Zyngier <maz@kernel.org>
+Cc: kvmarm@lists.linux.dev, linux-arm-kernel@lists.infradead.org, 
+	Steffen Eiden <seiden@linux.ibm.com>, Joey Gouly <joey.gouly@arm.com>, 
+	Suzuki K Poulose <suzuki.poulose@arm.com>, Oliver Upton <oupton@kernel.org>, 
+	Zenghui Yu <yuzenghui@huawei.com>, Yuchao Zhang <ndaugoing@gmail.com>, stable@vger.kernel.org
+Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260929_105757_075043_0B03DFD0 
-X-CRM114-Status: GOOD (  19.23  )
+X-CRM114-CacheID: sfid-20260929_111545_843913_E2CEC528 
+X-CRM114-Status: GOOD (  23.02  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -118,149 +82,83 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The EINT irq_chip emulates both-edge interrupts by reading the pin's
-level through mtk_gpio_get() and the pinctrl regmap. It does so from its
-unmask and set_type callbacks, under the raw irq_desc lock, and from the
-chained handler, in hard interrupt context. The regmap comes from syscon
-and locks with a spinlock_t, which may sleep on PREEMPT_RT. With
-CONFIG_PROVE_LOCKING, the first request of a both-edge EINT prints
-"[ BUG: Invalid wait context ]" and turns lockdep off for the rest of
-the boot.
+On Tue, 29 Sept 2026 at 10:36, Marc Zyngier <maz@kernel.org> wrote:
+>
+> The MOVALL command moves the pending state of all LPIs targeting a given
+> redistributor to another one. However, we seem to have lost the
+> filtering on the source RD, which means we move all LPIs to the target.
+>
+> Not quite what the spec mandates.
+>
+> Hack update_affinity() to take an optional source vcpu that is used as a
+> filter when non-NULL, restoring the filtering that was performed by
+> vgic_copy_lpi_list() back in the days.
+>
+> Fixes: 11f4f8f3e6e06 ("KVM: arm64: vgic-its: Walk LPI xarray in vgic_its_cmd_handle_movall()")
+> Signed-off-by: Marc Zyngier <maz@kernel.org>
+> Cc: stable@vger.kernel.org
 
-Create the regmap for the "mediatek,pctl-regmap" nodes here instead,
-with use_raw_spinlock set, and register it with syscon so that other
-users of a node, such as the ethernet on MT2701 and MT7623, share its
-lock. If the node already has a syscon regmap, keep using it. Select
-REGMAP_MMIO, which the driver now uses directly.
+Reviewed-by: Fuad Tabba <fuad.tabba@linux.dev>
+Tested-by: Fuad Tabba < fuad.tabba@linux.dev>
 
-Fixes: 3221f40b7631 ("pinctrl: mediatek: emulate GPIO interrupt on both-edges")
-Assisted-by: LLM
-Signed-off-by: Ryan Brue <ryanbrue.dev@gmail.com>
----
-Found on the Amazon Fire HD 10 (2017), an MT8173 tablet that is not
-upstream yet, where usb_extcon_probe() requests the USB ID pin's
-both-edge EINT. With this patch lockdep stays on through boot, CPU
-hotplug, suspend to RAM, and lid open/close edges on the hall sensor's
-both-edge EINT. Only MT8173 was tested. Nothing else uses the node
-there, so the -EEXIST fallback was not exercised.
+Cheers,
+/fuad
 
-checkpatch warns that the regmap_config should be const. It is copied
-per node to set name and max_register, as syscon does.
----
- drivers/pinctrl/mediatek/Kconfig              |  1 +
- drivers/pinctrl/mediatek/pinctrl-mtk-common.c | 59 ++++++++++++++++++++++++++-
- 2 files changed, 58 insertions(+), 2 deletions(-)
 
-diff --git a/drivers/pinctrl/mediatek/Kconfig b/drivers/pinctrl/mediatek/Kconfig
-index 30ef3dc5dfb1..764256901d6a 100644
---- a/drivers/pinctrl/mediatek/Kconfig
-+++ b/drivers/pinctrl/mediatek/Kconfig
-@@ -17,6 +17,7 @@ config PINCTRL_MTK
- 	select GENERIC_PINCONF
- 	select GPIOLIB
- 	select EINT_MTK
-+	select REGMAP_MMIO
- 
- config PINCTRL_MTK_V2
- 	tristate
-diff --git a/drivers/pinctrl/mediatek/pinctrl-mtk-common.c b/drivers/pinctrl/mediatek/pinctrl-mtk-common.c
-index 1a977acd6883..65b1e3096183 100644
---- a/drivers/pinctrl/mediatek/pinctrl-mtk-common.c
-+++ b/drivers/pinctrl/mediatek/pinctrl-mtk-common.c
-@@ -9,6 +9,7 @@
- #include <linux/gpio/driver.h>
- #include <linux/module.h>
- #include <linux/of.h>
-+#include <linux/of_address.h>
- #include <linux/of_irq.h>
- #include <linux/pinctrl/consumer.h>
- #include <linux/pinctrl/machine.h>
-@@ -1057,6 +1058,60 @@ static int mtk_eint_init(struct mtk_pinctrl *pctl, struct platform_device *pdev)
- 	return mtk_eint_do_init(pctl->eint, NULL);
- }
- 
-+static const struct regmap_config mtk_pctrl_regmap_config = {
-+	.reg_bits = 32,
-+	.val_bits = 32,
-+	.reg_stride = 4,
-+	.use_raw_spinlock = true,
-+};
-+
-+/*
-+ * The EINT irq_chip reads a pin's level through this regmap from callbacks
-+ * that run under the raw irq_desc lock, so the regmap has to use a raw
-+ * spinlock too, which syscon's own does not. Register one with syscon for the
-+ * node instead, so that any other user of the node shares its lock.
-+ */
-+static struct regmap *mtk_pctrl_syscon_regmap(struct device_node *np)
-+{
-+	struct regmap_config config = mtk_pctrl_regmap_config;
-+	struct regmap *regmap;
-+	struct resource res;
-+	void __iomem *base;
-+	int ret;
-+
-+	ret = of_address_to_resource(np, 0, &res);
-+	if (ret)
-+		return ERR_PTR(ret);
-+
-+	base = ioremap(res.start, resource_size(&res));
-+	if (!base)
-+		return ERR_PTR(-ENOMEM);
-+
-+	config.name = kasprintf(GFP_KERNEL, "%pOFn@%pa", np, &res.start);
-+	if (!config.name) {
-+		iounmap(base);
-+		return ERR_PTR(-ENOMEM);
-+	}
-+
-+	config.max_register = resource_size(&res) - config.reg_stride;
-+	regmap = regmap_init_mmio(NULL, base, &config);
-+	kfree(config.name);
-+	if (IS_ERR(regmap)) {
-+		iounmap(base);
-+		return regmap;
-+	}
-+
-+	ret = of_syscon_register_regmap(np, regmap);
-+	if (ret) {
-+		regmap_exit(regmap);
-+		iounmap(base);
-+		/* An earlier probe, or another user of the node, got there first. */
-+		return ret == -EEXIST ? syscon_node_to_regmap(np) : ERR_PTR(ret);
-+	}
-+
-+	return regmap;
-+}
-+
- /* This is used as a common probe function */
- int mtk_pctrl_init(struct platform_device *pdev,
- 		const struct mtk_pinctrl_devdata *data,
-@@ -1076,7 +1131,7 @@ int mtk_pctrl_init(struct platform_device *pdev,
- 
- 	node = of_parse_phandle(np, "mediatek,pctl-regmap", 0);
- 	if (node) {
--		pctl->regmap1 = syscon_node_to_regmap(node);
-+		pctl->regmap1 = mtk_pctrl_syscon_regmap(node);
- 		of_node_put(node);
- 		if (IS_ERR(pctl->regmap1))
- 			return PTR_ERR(pctl->regmap1);
-@@ -1089,7 +1144,7 @@ int mtk_pctrl_init(struct platform_device *pdev,
- 	/* Only 8135 has two base addr, other SoCs have only one. */
- 	node = of_parse_phandle(np, "mediatek,pctl-regmap", 1);
- 	if (node) {
--		pctl->regmap2 = syscon_node_to_regmap(node);
-+		pctl->regmap2 = mtk_pctrl_syscon_regmap(node);
- 		of_node_put(node);
- 		if (IS_ERR(pctl->regmap2))
- 			return PTR_ERR(pctl->regmap2);
-
----
-base-commit: 72d3fcf802c45d00b300f25b848a93c3a2bd7c7e
-change-id: 20260925-rbrue-suez-upstreaming-mtk-pinctrl-raw-regmap-154d6225b977
-
-Best regards,
---  
-Ryan Brue <ryanbrue.dev@gmail.com>
-
+> ---
+>  arch/arm64/kvm/vgic/vgic-its.c | 12 ++++++++----
+>  1 file changed, 8 insertions(+), 4 deletions(-)
+>
+> diff --git a/arch/arm64/kvm/vgic/vgic-its.c b/arch/arm64/kvm/vgic/vgic-its.c
+> index 9e782a4fea7e5..cc02d9b62bd95 100644
+> --- a/arch/arm64/kvm/vgic/vgic-its.c
+> +++ b/arch/arm64/kvm/vgic/vgic-its.c
+> @@ -319,12 +319,16 @@ static int update_lpi_config(struct kvm *kvm, struct vgic_irq *irq,
+>         return ret;
+>  }
+>
+> -static int update_affinity(struct vgic_irq *irq, struct kvm_vcpu *vcpu)
+> +static int update_affinity(struct vgic_irq *irq,
+> +                          struct kvm_vcpu *from_vcpu, struct kvm_vcpu *vcpu)
+>  {
+>         struct its_vlpi_map map;
+>         int ret;
+>
+>         guard(raw_spinlock_irqsave)(&irq->irq_lock);
+> +       if (from_vcpu && irq->target_vcpu != from_vcpu)
+> +               return 0;
+> +
+>         irq->target_vcpu = vcpu;
+>
+>         if (!irq->hw)
+> @@ -362,7 +366,7 @@ static void update_affinity_ite(struct kvm *kvm, struct its_ite *ite)
+>                 return;
+>
+>         vcpu = collection_to_vcpu(kvm, ite->collection);
+> -       update_affinity(ite->irq, vcpu);
+> +       update_affinity(ite->irq, NULL, vcpu);
+>  }
+>
+>  /*
+> @@ -856,7 +860,7 @@ static int vgic_its_cmd_handle_movi(struct kvm *kvm, struct vgic_its *its,
+>
+>         vgic_its_invalidate_cache(its);
+>
+> -       return update_affinity(ite->irq, vcpu);
+> +       return update_affinity(ite->irq, NULL, vcpu);
+>  }
+>
+>  static bool __is_visible_gfn_locked(struct vgic_its *its, gpa_t gpa)
+> @@ -1383,7 +1387,7 @@ static int vgic_its_cmd_handle_movall(struct kvm *kvm, struct vgic_its *its,
+>                 if (!irq)
+>                         continue;
+>
+> -               update_affinity(irq, vcpu2);
+> +               update_affinity(irq, vcpu1, vcpu2);
+>
+>                 vgic_put_irq(kvm, irq);
+>         }
+> --
+> 2.47.3
+>
 
