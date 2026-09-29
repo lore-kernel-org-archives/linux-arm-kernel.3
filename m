@@ -4,66 +4,63 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B27E2CA5FAD
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 29 Sep 2026 03:49:33 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 80981CA5FA1
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 29 Sep 2026 03:52:41 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:References:In-Reply-To:Message-ID:Date
-	:Cc:To:From:Subject:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=NJxsvFFeTjN16SEabmoTPrNq8H4f01wfiVpkQzZkGDk=; b=hUHgfVckaWt9bMEWjbktnaqL+q
-	q2E3GVpv5kZaum3a2Sra9ujh5Rbez2+89Vm3kdq0uN7m/orzCfT7RK5y4e9b3PSOGQ/QGh0Jqz6tO
-	ILmovVfR/vlvPZTLR0zuFOsqjj7lBNg4nb99/ite2cF4Fzl8wYSxEt7QyuTmt/FGlkSsSE35kNXw/
-	41BIa8N1ygaT2cS8QR+j7mzrw1fPjMMygJmRpU5gCx6BRfV70XxJqYauGpCkmsm2Kx7RSb1KmbQh0
-	WMgSc0Dva51+q3ju7tmxEcGTmkobS7BzBa88ilqAqupyzRVtgAWibTH4TCAPMwNA/lSdr0fBJ2EMD
-	+grrgcHA==;
+	bh=wN+dPoLvjUdzOubg5yOWipnDclWmGuYXl68rAIhKrs4=; b=U5VMLT4aTqbmBWEa7SA6PTUugR
+	y/KQ0n5PdxDb9HEVn4F5SGhuaGgbAIxV5e7rSvlBH9CxyZfT+j7huZRw9ODRZ6Bpf26bqCFYd9/5m
+	bqivKToDxnX0X5OVTmgFGOnOhaMsZ8TMl+Q/OZIzGoAgY04mndQGAcRhBZVgMWoRM6FpRuF6xJSj5
+	hZOrTu782AsCLxemrNKQcv0QxsOeE1oKIAUr97NEypEj4wsPk1ZKrGu5VhmYesUhGGIRMX29sWDXD
+	M4+NIDHK+fADSpDweGm6pdgm7EkrL97ctddOgH7cECLnW5TTNgs8mj6q9OR1VXhZWYBS4zZWwHkFg
+	GqPHxIog==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xBOqL-00000002Hcc-2GxR;
-	Tue, 29 Sep 2026 03:49:25 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1xBO9m-00000002Ani-11Pv;
+	Tue, 29 Sep 2026 03:05:26 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xBOqB-00000002HZB-2AgI
-	for linux-arm-kernel@lists.infradead.org;
-	Tue, 29 Sep 2026 03:49:15 +0000
+	id 1xBO9l-00000002AnY-07k3;
+	Tue, 29 Sep 2026 03:05:25 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id EED8B60A59;
-	Tue, 29 Sep 2026 03:49:14 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 30D721F0089A;
-	Tue, 29 Sep 2026 03:49:13 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 4336B416F5;
+	Tue, 29 Sep 2026 03:05:24 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id F02801F000FF;
+	Tue, 29 Sep 2026 03:05:22 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1790653754;
-	bh=NJxsvFFeTjN16SEabmoTPrNq8H4f01wfiVpkQzZkGDk=;
-	h=Subject:From:To:Cc:Date:In-Reply-To:References;
-	b=G6J8FYL5faqwNyYDtStJi9kKiVCa2NFNNQvQDEZeKfaNI2cgqwMyxpfmcFWCd9XJB
-	 HqdcCZxQKGLQHaLnJ++7kvxtMqIJY/gZYOMIMmijWfzy6cU5JXF2d88cI3kqThLAxZ
-	 JLUXfrp+qu1K0MehnBwlNCam7D/JRtqvtS8mBoQHv8WeTsnKJLL+krCjif5I45QAnZ
-	 tHeR2fNCYl7dah1MyOYftFZi8Bb8EV1JZI1dSl6pJENZedCw0cgbN0fQc2YYPl0Exf
-	 y+6YB7rK05Iyk3GjhhXHEw7+BxP5v2s3Efl10UPD0Ou4i61mGYHURlBSxKIBK9mDl8
-	 bLO4JcsA8Gg1g==
-Subject: Re: [PATCH net-next v6 3/3] net: stmmac: sun8i: add support for
- Allwinner H616 EMAC1
-From: netdev-bot+sashiko@kernel.org
-To: james.hilliard1@gmail.com
-Cc: richard.genoud@bootlin.com, maxime.chevallier@bootlin.com,
- andrew+netdev@lunn.ch, davem@davemloft.net, edumazet@google.com,
- kuba@kernel.org, pabeni@redhat.com, wens@kernel.org, jernej.skrabec@gmail.com,
- samuel@sholland.org, mcoquelin.stm32@gmail.com, alexandre.torgue@foss.st.com,
- clabbe.montjoie@gmail.com, robh@kernel.org, krzk+dt@kernel.org,
- conor+dt@kernel.org, peppe.cavallaro@st.com, joabreu@synopsys.com,
- alastair@d-silva.org, mripard@kernel.org, netdev@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-sunxi@lists.linux.dev,
- linux-stm32@st-md-mailman.stormreply.com, linux-kernel@vger.kernel.org,
- devicetree@vger.kernel.org, andre.przywara@arm.com
-Date: Tue, 29 Sep 2026 03:49:12 +0000
-Message-ID: <179065375273.434549.1903316827628045110@kernel.org>
-In-Reply-To: <20260927-submit-h616-emac1-v1-v6-3-e64971f4e414@gmail.com>
-References: <20260927-submit-h616-emac1-v1-v6-3-e64971f4e414@gmail.com>
-X-sashiko-severity: Low
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 8bit
+	s=k20260515; t=1790651124;
+	bh=wN+dPoLvjUdzOubg5yOWipnDclWmGuYXl68rAIhKrs4=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=jst1H8Flgrq1+3nX9cUs/Aj2g5l1buTMNHfcFzX475/4uSQnhnpl8JYBuVziWVXE2
+	 THMV0ldE2MRJM/kyCwxqk+V/YJTo8ezuL2Rh9tmTwE1e49+r+/8ufM5VC2ZNhBxLEG
+	 Iev6mnmci3c4XW0dcsJLjkcPWRChoKLM4NO0Lo/ixQaGBHsro9ias5+eqTmHd4FlqF
+	 ejV0c5IJ4WMae+jxu/Z7leYRqEmNA0ewtlXfux6XcwX1Rou6PPhdvx+ilXmjXYK2o+
+	 4QEDHHScBOP0F94JGS5Tcnyb3TqhTRSTLgAGHWhCoMDwEDbHwby3oKnO/tkKI8GyR+
+	 rJ8zuNiPgPSDg==
+Date: Mon, 28 Sep 2026 22:05:20 -0500
+From: Bjorn Andersson <andersson@kernel.org>
+To: Shashank Maurya <shashank.maurya@oss.qualcomm.com>
+Cc: Konrad Dybcio <konradybcio@kernel.org>, Rob Herring <robh@kernel.org>, 
+	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
+	Florian Fainelli <florian.fainelli@broadcom.com>, 
+	Broadcom internal kernel review list <bcm-kernel-feedback-list@broadcom.com>, linux-arm-msm@vger.kernel.org, devicetree@vger.kernel.org, 
+	linux-kernel@vger.kernel.org, linux-rpi-kernel@lists.infradead.org, 
+	linux-arm-kernel@lists.infradead.org, venkata.valluru@oss.qualcomm.com, 
+	Jessica Zhang <jesszhan0024@gmail.com>
+Subject: Re: [PATCH v2 0/2] arm64: dts: qcom: Add RPi 7-inch DSI panel
+ overlays for Monaco/Lemans EVK
+Message-ID: <arsp-8KPqD_skD5D@zenbook>
+References: <20260907-rpi_dts_overlay-v2-0-a4989322ce00@oss.qualcomm.com>
+ <aqLGFfQ20mCGFkfl@baldur>
+ <aqt72zoSNVGrcY9t@hu-ssmaurya-hyd.qualcomm.com>
 MIME-Version: 1.0
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <aqt72zoSNVGrcY9t@hu-ssmaurya-hyd.qualcomm.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,102 +75,91 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Thank you for your contribution! Sashiko AI review found more severe
-issue(s) in other patches of this series. This mail is only an FYI, in case
-you want to address the nit picks below when you respin.
+On Thu, Sep 17, 2026 at 11:04:19AM +0530, Shashank Maurya wrote:
+> On Thu, Sep 10, 2026 at 02:35:41PM -0500, Bjorn Andersson wrote:
+> > On Mon, Sep 07, 2026 at 12:03:52PM +0530, Shashank Maurya wrote:
+> > > Add device tree overlays to enable support for the Raspberry Pi 7-inch
+> > > DSI touchscreen panel on Qualcomm Monaco and Lemans EVK platforms.
+> > > 
+> > > The overlays configure the panel on the primary DSI interface using
+> > > a 2-lane DSI connection and instantiate the panel MCU on the
+> > > corresponding touchscreen I2C bus for each platform. The changes
+> > > allow the Raspberry Pi 7-inch display to be used as an external
+> > > display option on both EVKs without affecting the default platform
+> > > configuration.
+> > > 
+> > > ---
+> > > To: Bjorn Andersson <andersson@kernel.org>
+> > > To: Konrad Dybcio <konradybcio@kernel.org>
+> > > To: Rob Herring <robh@kernel.org>
+> > > To: Krzysztof Kozlowski <krzk+dt@kernel.org>
+> > > To: Conor Dooley <conor+dt@kernel.org>
+> > > To: Florian Fainelli <florian.fainelli@broadcom.com>
+> > > To: Broadcom internal kernel review list <bcm-kernel-feedback-list@broadcom.com>
+> > > Cc: linux-arm-msm@vger.kernel.org
+> > > Cc: devicetree@vger.kernel.org
+> > > Cc: linux-kernel@vger.kernel.org
+> > > Cc: linux-rpi-kernel@lists.infradead.org
+> > > Cc: linux-arm-kernel@lists.infradead.org
+> > > 
+> > > ---
+> > > Shashank Maurya (2):
+> > >       arm64: dts: qcom: monaco-evk: Add Raspberry Pi 7-inch DSI panel overlay
+> > >       arm64: dts: qcom: lemans-evk: Add Raspberry Pi 7-inch DSI panel overlay
+> > > 
+> > >  arch/arm64/boot/dts/qcom/Makefile                  |  4 ++
+> > >  .../dts/qcom/lemans-evk-raspberrypi-dsi-7inch.dtso | 83 ++++++++++++++++++++++
+> > >  .../dts/qcom/monaco-evk-raspberrypi-dsi-7inch.dtso | 82 +++++++++++++++++++++
+> > >  3 files changed, 169 insertions(+)
+> > > ---
+> > > base-commit: ed2647532a225739e86c7f236a2ce82764ec2772
+> > > change-id: 20260907-rpi_dts_overlay-58088ffce047
+> > > prerequisite-message-id: <20260907-rpi_reg-v2-0-0c59aa60d31f@oss.qualcomm.com>
+> > 
+> > The two dts patches in this series clearly relates to those two
+> > regulator patches, which has received change requests.
+> > 
+> > I would have sent the 4 patches together in a series, but as you didn't
+> > you sent this series with unmet dependencies.
+> > 
+> > All I can do now is reject this series as well. Please send v2 once the
+> > driver changes has been merged and you have validated this again.
+> > 
+> > Regards,
+> > Bjorn
+> > 
+> > > prerequisite-patch-id: 5212bf185b35c36ed8857a67f29e60386d59ac60
+> > > prerequisite-patch-id: 056a90b913170106a6f8c1feb2366ee83c4375b9
+> > > 
+> > > Best regards,
+> > > --  
+> > > Shashank Maurya <shashank.maurya@oss.qualcomm.com>
+> > > 
+> 
+> Hi Bjorn,
+> 
+> Thanks for the review.
+> 
+> The regulator patches and DTS patches are targeting different maintainer trees 
+> and therefore were developed and submitted from separate workspaces. While the
+> DTS changes depend on the regulator updates, the two sets of patches cannot 
+> realistically be carried in a single series because they are reviewed and 
+> merged through different paths.
+> 
 
-Low priority / nit picks for your consideration:
+In reality, Mark has shown many times that he's able to pick individual
+patches from a series and the 4 patches are better reviewed together.
 
-- [Low] The new H616 EMAC1 variant (`emac_variant_h616_emac1` in
-  drivers/net/ethernet/stmicro/stmmac/dwmac-sun8i.c) is meant to be…
+> I submitted the DTS series separately to start the review process in parallel,
+> but I understand your concern about the unresolved dependency.
+> 
 
---
+Please send patches that are ready to be merged, and when you do make
+sure you send them in a way and at a time where they can be merged.
 
-net: stmmac: sun8i: add support for Allwinner H616 EMAC1
+Thanks,
+Bjorn
 
-This adds an emac_variant for the H616 secondary EMAC. The variant uses a
-dedicated syscon register at 0x34 and is described as RMII-only at 10/100
-Mbps. It is wired internally to the co-packaged AC200/AC300 EPHY.
-
-> diff --git a/drivers/net/ethernet/stmicro/stmmac/dwmac-sun8i.c b/drivers/net/ethernet/stmicro/stmmac/dwmac-sun8i.c
-> index 5691da796454d..47954537b29e4 100644
-> --- a/drivers/net/ethernet/stmicro/stmmac/dwmac-sun8i.c
-> +++ b/drivers/net/ethernet/stmicro/stmmac/dwmac-sun8i.c
-
-[ ... ]
-
-> @@ -143,6 +150,13 @@ static const struct emac_variant emac_variant_h6 = {
->  	.tx_delay_max = 7,
->  };
->  
-> +static const struct emac_variant emac_variant_h616_emac1 = {
-> +	.syscon_field = &sun8i_syscon_reg_field_emac1,
-> +	/* The co-packaged AC200/AC300 PHY does not use the H3 PHY controls. */
-> +	.soc_has_internal_phy = false,
-> +	.support_rmii = true,
-> +};
-
-[Severity: Low]
-Does anything actually restrict this variant to RMII?
-
-The only place support_mii, support_rmii and support_rgmii appear is in
-dwmac-sun8i.c: the kernel-doc, the struct emac_variant definition and the
-variant initializers. Nothing reads them.
-
-sun8i_dwmac_set_syscon() picks the register value from plat->phy_interface
-and does it the same way for every variant:
-
-drivers/net/ethernet/stmicro/stmmac/dwmac-sun8i.c:sun8i_dwmac_set_syscon() {
-    ...
-	switch (plat->phy_interface) {
-	case PHY_INTERFACE_MODE_MII:
-		/* default */
-		break;
-	case PHY_INTERFACE_MODE_RGMII:
-	case PHY_INTERFACE_MODE_RGMII_ID:
-	case PHY_INTERFACE_MODE_RGMII_RXID:
-	case PHY_INTERFACE_MODE_RGMII_TXID:
-		reg |= SYSCON_EPIT | SYSCON_ETCS_INT_GMII;
-		break;
-	case PHY_INTERFACE_MODE_RMII:
-		reg |= SYSCON_RMII_EN | SYSCON_ETCS_EXT_GMII;
-		break;
-    ...
-	regmap_field_write(gmac->regmap_field, reg);
-    ...
-}
-
-Suppose a DT node with "allwinner,sun50i-h616-emac1" sets phy-mode to "mii"
-or "rgmii*". Probe would still succeed, and a value without SYSCON_RMII_EN
-would be written to the new register at 0x34. This MAC has no external pins.
-
-dwmac-sun8i has no get_interfaces callback, so stmmac_phylink_setup() adds
-the DT-supplied mode to supported_interfaces as is:
-
-	if (phy_interface_empty(config->supported_interfaces))
-		__set_bit(priv->plat->phy_interface,
-			  config->supported_interfaces);
-
-sun8i_dwmac_setup() also always advertises MAC_10 | MAC_100 | MAC_1000 in
-mac->link.caps. With a non-RMII phy-mode, phylink could then allow gigabit
-on a 10/100-only MAC.
-
-The commit message says:
-
-    Add an EMAC1 variant using the dedicated register and enable only RMII.
-
-There is also no in-tree binding for "allwinner,sun50i-h616-emac1" yet. As
-far as I can tell, only a correct DT enforces the RMII-only restriction.
-
-Older variants such as emac_variant_v3s have the same unchecked flags, but
-this new variant's RMII-only behaviour depends on them. Would it make sense
-to reject unsupported phy_interface values in sun8i_dwmac_set_syscon() or at
-probe? Another option is a get_interfaces callback built from the support_*
-flags. If neither fits, the commit message could say the restriction comes
-only from the DT.
-
-[ ... ]
-
--- 
-Sashiko AI review · https://netdev-ai.bots.linux.dev/sashiko/#/patchset/20260927-submit-h616-emac1-v1-v6-0-e64971f4e414%40gmail.com
+> Regards,
+> Shashank
 
