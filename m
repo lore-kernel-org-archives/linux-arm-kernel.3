@@ -4,145 +4,76 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 67B86C9832A
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 29 Sep 2026 06:23:52 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id AF391C9832A
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 29 Sep 2026 06:25:37 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:Cc:To:
-	Subject:Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=QVItQ7EpBEcXIyxrf9jc1MiWuvsuSobhZRlgmLBJiBU=; b=ln1Y2xmtKLc/gAVER97e3MOyTA
-	UkBQwAEyKSux6sMdjWNeDTYubpei8wITQdO2Dypx6RBSwhUdDeLI1oqIrShY313RjzgBF+Y+wF6Fr
-	yWnwHcc93YKcDjgCwVIe0r9XKovem8XUrvgNr2eQ0mhh2pI0qDjbyTSEQ8wfPiq5gFLq3NCpsFgth
-	HwBC4IUBYOE439mCXf0f2sArEVnSCfcwg1E66X0Kv+aQP9rbm6hMQXZXyTd/ZS4sS9KPGwLFCSi8b
-	OS6w+GdAsieoF6z/e7dgVwZpC3PcVB8W8rewJJI7Hxu66iB1UpCb5BnGICJp1RRKuE41iVyBMRAll
-	0R9WzXFg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:CC:To:From:
+	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
+	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=4BBaoZ4uoulOab2Cr6EQ3iDBn+vLxKq+FxX0x0G4yZE=; b=QirIgj3fYh7jwmRzG2XR30RnU3
+	EHkFad7kmQ25gaLYIlM1Ve3IcGgjIc10Xl7pRTz04gtOu8vnIsUzBGfOty/ZOu8hHkAnapYzUpCt+
+	1UgLxWDABz3qYtaLbhFrMSiubC0oTs9wWWzbYCuTsM5ogbz02AkmzcBhhVRs8z2B/UI24Nlx0TO/u
+	ocJFrpXgdU8cGvqbhukubVLHCEicuCEI9q7pcKzxjn0YvAGGWIRe7pCfZyypPwUY6t/BnFCG3Ve0X
+	7j37ruoB4ujo+WjCguoeb9IERvHhReIxV2cQ3uuCdFgo6o47rXOONJ5wxu5rMNg4HX0m0E9eap4jM
+	aTLXNhNA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xBRFf-00000002Rac-42ZY;
-	Tue, 29 Sep 2026 06:23:43 +0000
-Received: from mail-japaneastazlp170120005.outbound.protection.outlook.com ([2a01:111:f403:c405::5] helo=TYPPR03CU001.outbound.protection.outlook.com)
+	id 1xBRHO-00000002RiV-0A73;
+	Tue, 29 Sep 2026 06:25:30 +0000
+Received: from [216.200.240.185] (helo=mailgw02.mediatek.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xBRFc-00000002RaD-1HIM;
-	Tue, 29 Sep 2026 06:23:41 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=sXZ/Njk4x+XUbQpeTRaSN7QHxwUTRoDUWqIjSxM4Jk8AOoghZqEAVWc+fI9bCotSTNgpbF/gG966iQ+Aw/3HNMJfuxwVbv7yeIw9aAoRq100b7Jf7JhOxJ/GY9rsh77b9uW5gD9slDdacZ++4XY1hybso4/uhmKu7ZOTdoDAL8kh67s8uqOInFXnevpnwq4QcSZgGQJyFAG0Vlmbl8vIOCKpdMDOhkx6JF3yLJU+tgKuDaIAE/u5B+3lI7bjxWCPya1xsh6qGzfYj3dWJJaKM9dqr483/B/jPmIFPfA6p0DrZhqnwIDo7hifkl6WVpp0znbdKKQclCTh8ONXFy45fg==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=QVItQ7EpBEcXIyxrf9jc1MiWuvsuSobhZRlgmLBJiBU=;
- b=P44GLdckxcVjVl42I+5gksAIeuHmsY7/VWJd51QvqZSg65TUwk/c2C/knJvg+RHHTHHzantSMN97sfv3CwZR1wpcVolSKy1kOm+cusB1s+hbg0VnNSiL0fYz/C287ZK3TVoFOw0iwNXgYunZbM19Fz8HMuaJBhTK6eq/1pr410lpJBpJ0cWvjxhGh4TQ8SJilKQNTVsx7lnWJD0SKZ5qWA7pAXEHXw6Gb0KPKYLDaib1g0buEu1cLdqEcoFmIF+/QrrGe+0WRLP6t0iTFp456Ua6fJkZDuIC2jUr2p/pDT+N2EOXz0crbkymNugXJx/gA4iVpp/lEwBNmW0HTlrnaQ==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=amlogic.com; dmarc=pass action=none header.from=amlogic.com;
- dkim=pass header.d=amlogic.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=amlogic.com;
- s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=QVItQ7EpBEcXIyxrf9jc1MiWuvsuSobhZRlgmLBJiBU=;
- b=ImkQsMJZ52hK6Hp4tok4PIkwOGux3NN4cBEVizk1duuF0i7GBKIW9RhVoMJMKUO8XUEcs8+FNF6+3/TuPXW9WYis2JRliH4w3Vfj6Gz+UrvNgtTeUGTmwOTicArP15Ceri++XrqZyLRBB4IZIjv6EbCvTvpdtyM1ggvskzyfjHNyGRWoOrOLu09wwozMs+viO9htMgzfR0DKi7x/lL4kA3JASIYPLLq6SOQs84tcTkNxFE1ZTjsVUEd9qmt3k2IBC03uoddRwxFsirKwpdnlsVHyrFnKGgKatbJhAct0NBMfXiKZBi8UdrDV6Y4jd+EQSuIfhypciOHtw87haZP8Gg==
-Authentication-Results: mx.microsoft.com 1; dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=amlogic.com;
-Received: from KL1PR03MB5521.apcprd03.prod.outlook.com (2603:1096:820:51::12)
- by TYZPR03MB7289.apcprd03.prod.outlook.com (2603:1096:400:41f::7) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.451.24; Tue, 29 Sep
- 2026 06:23:34 +0000
-Received: from KL1PR03MB5521.apcprd03.prod.outlook.com
- ([fe80::f12b:85e:f95c:191e]) by KL1PR03MB5521.apcprd03.prod.outlook.com
- ([fe80::f12b:85e:f95c:191e%3]) with mapi id 15.21.0451.022; Tue, 29 Sep 2026
- 06:23:34 +0000
-Message-ID: <ab0e83e6-c0a1-4c8d-847d-81628c49a436@amlogic.com>
-Date: Tue, 29 Sep 2026 14:23:30 +0800
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v10 3/6] media: dt-bindings: Add Amlogic V4L2 video
- decoder
-To: Krzysztof Kozlowski <krzk@kernel.org>
-Cc: Neil Armstrong <neil.armstrong@linaro.org>,
- Kevin Hilman <khilman@baylibre.com>, Jerome Brunet <jbrunet@baylibre.com>,
- Martin Blumenstingl <martin.blumenstingl@googlemail.com>,
- Mauro Carvalho Chehab <mchehab@kernel.org>, Rob Herring <robh@kernel.org>,
- Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
- <conor+dt@kernel.org>, linux-arm-kernel@lists.infradead.org,
- linux-amlogic@lists.infradead.org, linux-kernel@vger.kernel.org,
- linux-media@vger.kernel.org, devicetree@vger.kernel.org
-References: <20260924-b4-s4-vdec-upstream-v10-0-1289303a58a4@amlogic.com>
- <20260924-b4-s4-vdec-upstream-v10-3-1289303a58a4@amlogic.com>
- <20260928-efficient-secret-manatee-2fcca6@quoll>
- <7fe35ef7-e894-4137-975a-9a5f621a8156@amlogic.com>
- <33499600-5df7-48fb-a2ac-5a703df8dc2d@kernel.org>
- <59541a34-eba9-4699-ba19-69e7b5b1525a@amlogic.com>
- <3b1e23f0-76d5-489c-a5eb-0774a21b0f63@kernel.org>
-From: Zhentao Guo <zhentao.guo@amlogic.com>
-In-Reply-To: <3b1e23f0-76d5-489c-a5eb-0774a21b0f63@kernel.org>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
-X-ClientProxiedBy: SE2P216CA0019.KORP216.PROD.OUTLOOK.COM
- (2603:1096:101:114::15) To KL1PR03MB5521.apcprd03.prod.outlook.com
- (2603:1096:820:51::12)
+	id 1xBRHK-00000002RhO-2Rct;
+	Tue, 29 Sep 2026 06:25:27 +0000
+X-UUID: 8c37f1ccbbce11f1acbe4559397dec65-20260928
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=mediatek.com; s=dk;
+	h=Content-Type:Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:CC:To:From; bh=4BBaoZ4uoulOab2Cr6EQ3iDBn+vLxKq+FxX0x0G4yZE=;
+	b=u+sDz2lItx93DHdhddJWmflhLVux1w7e0VWYl38mvTjrLTqlQWdiFFFkU9yI09EjIpPtAD1H+dGl12lyr4WxFoD5dsnla3E7uxBws8/do5eDjm7Q6BbYsD3mYmOWpkWGvj+8YroZD0rJWU83mfWOiLE+VRccqVaypUCxn6I3tuQ=;
+X-CID-P-RULE: Release_Ham
+X-CID-O-INFO: VERSION:1.3.20,REQID:75ed19c0-1ef5-4ec5-a0b7-156e36b18a4c,IP:0,U
+	RL:0,TC:0,Content:-5,EDM:0,RT:0,SF:0,FILE:0,BULK:0,RULE:Release_Ham,ACTION
+	:release,TS:-5
+X-CID-META: VersionHash:291e20b,CLOUDID:f770a858-f207-4360-abb2-8a360f715574,B
+	ulkID:nil,BulkQuantity:0,SF:102|836|865|888|898,TC:-5,Content:0|15|50|99,E
+	DM:-3,IP:nil,URL:0,File:130,RT:0,Bulk:nil,QS:nil,BEC:-1,COL:0,OSI:0,OSA:0,
+	AV:0,LES:1,SPR:NO,DKR:0,DKP:0,BRR:0,BRE:0,ARC:0
+X-CID-BVR: 2,SSN|SDN
+X-CID-BAS: 2,SSN|SDN,0,_
+X-CID-FACTOR: TF_CID_SPAM_SNR
+X-CID-RHF: D41D8CD98F00B204E9800998ECF8427E
+X-UUID: 8c37f1ccbbce11f1acbe4559397dec65-20260928
+Received: from mtkmbs10n2.mediatek.inc [(172.21.101.183)] by mailgw02.mediatek.com
+	(envelope-from <tim.kuo@mediatek.com>)
+	(musrelay.mediatek.com ESMTP with TLSv1.2 ECDHE-RSA-AES256-GCM-SHA384 256/256)
+	with ESMTP id 626298306; Mon, 28 Sep 2026 23:25:21 -0700
+Received: from mtkmbs11n1.mediatek.inc (172.21.101.185) by
+ MTKMBS09N1.mediatek.inc (172.21.101.35) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.2562.29; Tue, 29 Sep 2026 14:25:19 +0800
+Received: from mtksitap99.mediatek.inc (10.233.130.16) by
+ mtkmbs11n1.mediatek.inc (172.21.101.73) with Microsoft SMTP Server id
+ 15.2.2562.29 via Frontend Transport; Tue, 29 Sep 2026 14:25:19 +0800
+From: Tim Kuo <Tim.Kuo@mediatek.com>
+To: Mark Brown <broonie@kernel.org>, Rob Herring <robh@kernel.org>, Krzysztof
+ Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, Matthias
+ Brugger <matthias.bgg@gmail.com>, AngeloGioacchino Del Regno
+	<angelogioacchino.delregno@collabora.com>
+CC: <linux-spi@vger.kernel.org>, <devicetree@vger.kernel.org>,
+	<linux-kernel@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
+	<linux-mediatek@lists.infradead.org>, Steven Liu <Steven.Liu@mediatek.com>,
+	Sky Huang <Skylake.Huang@mediatek.com>, Tim Kuo <Tim.Kuo@mediatek.com>
+Subject: [PATCH v2 1/2] spi: dt-bindings: add SPI IPM v59 compatible for mt7987 and mt7989
+Date: Tue, 29 Sep 2026 14:25:15 +0800
+Message-ID: <20260929062516.416368-1-Tim.Kuo@mediatek.com>
+X-Mailer: git-send-email 2.45.2
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: KL1PR03MB5521:EE_|TYZPR03MB7289:EE_
-X-MS-Office365-Filtering-Correlation-Id: 40ba645f-7b89-416f-68e7-08df1df23050
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|366016|376014|1800799024|7416014|23010399003|10067099003|56012099006|11063799006|4143699003|3023799007|22082099003|18002099003;
-X-Microsoft-Antispam-Message-Info: IW8IRDN2T9YhdvDzF25Uv+cjbesyGerLV20+7TgeUqvr0/WQfzXB+Uc4pzelCb1dW6JZy9Bdesmi+LMgbsajEhrjIjAbii8GTCTfqHScASHqxFuUmojUbeJPu1UqFzzPuxwb+S2DKAvWAVL/S9iWhVeR964KiEiRgRrnmOxHRkTs7tk/5C0wBel9W57q1dKibh6Z0p2n60Ij0i/iaBCZ+xvG8+j7oOXOiwBOY+QYEgBDYN+bWiGk+GeSZCSTtkZeLX0NQLoMr4zNYO8jYiy5JeRnv89lWnTq/xDmESqK3G66mdDlU8VMTvFiTcfgZGWpmc+UPhgWW24ItLzJXairHrsSiEhVR4wavasRWb80YSJXPNYxEOCIDsaNEzhiRSSIdWV3FIU1i9rjMKFITjibfJai50IHWW6v/oYc5hU1nbW4Mk4rFrc/gfMYp1vXOCyXIOB/xNBiSM++gRDxquzfoGbMaAHVY+I1XHAhwgnzlmNVHDbVF8aXLn837Ov3zGOkqFXZz5M1q6s94KQfTCHCO9ho+Y+WE1C/NYcaye4AgKvXIqTwZxhIGkwAfS8nosZg6Y6zUim+XEJJNdDymKAXuHRVGaCWYXzFZjDUNL296oc/nWqcX5+1uljHKOnLYgO0
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:KL1PR03MB5521.apcprd03.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(376014)(1800799024)(7416014)(23010399003)(10067099003)(56012099006)(11063799006)(4143699003)(3023799007)(22082099003)(18002099003);DIR:OUT;SFP:1102;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?aVBlVkdzNm5NdkwyVGNUZDkrTnVvMW0vaHlvMTNrVU5nbUkvMFQ1dDdSUkFa?=
- =?utf-8?B?WmVVbmNuOE9DOCsrV1ZGUjZGSGNYL2ZIaFQ5MjN4UW5ybU5iT1VKbUlmMEsx?=
- =?utf-8?B?T2kweFJ3ZzJwZmJPdklBcGh0ZlZpZWtBODNkSDh5ZDVaT25DUEQ4Zk82NDBU?=
- =?utf-8?B?bnM4UmRHZVdPK1RhMkNyTEp1Z1Vsb1FxM1EyVVNiek1DcXVPWGVTR2xQL1U1?=
- =?utf-8?B?L0dLMitDMkYzcGYzNWowdWZseklyelVReC9ibkxjbjNZazA1cWc3V3NIWGpR?=
- =?utf-8?B?TDE1Sjc0NlVqdnFESlhQQXVHdk9WZkFuSFpuVHpDR2xDblY5VGhqdWhmY0dO?=
- =?utf-8?B?VlgwL08vUFIwYW10cjNUeGN0WTUzWGdjb1dpVlZuZFFaUG8wYVV3SnNiTzZz?=
- =?utf-8?B?dG9ZbnlrZWU4QTg2WWxlSEVPZ05LMW5lbWFRQTJka2preTlIbitkcElJMFNP?=
- =?utf-8?B?UCs2TzJrZk93TjZ6cXovSVMvZm0ySnRkc1FVMHZTWWtLZHlIOEcrN0dSbTl4?=
- =?utf-8?B?eS9odTJNR3E3UUhjWWE3RkNZUjhySEVXSE9iLzlqV3ZTb3RwRURrUURtT2ha?=
- =?utf-8?B?QysyTFFISWd4azBhcW9yQWJyTjArTkppdVlrcFVwRW9LTUFnamZlZlhFa1ow?=
- =?utf-8?B?cjhBbnY3bW9COFRnUzBhOTA4cnY1eHRYeVVzaXVFQW8xNkRBR2ptUU9qRjkr?=
- =?utf-8?B?bGFIK1ZWQTJJSm1nTFZjckxXMVU4bnpoZWhXS0FRSi84VDJzdzFKa3kwVi9L?=
- =?utf-8?B?aUVCWm5vTDRrTzBjZkpzKzBnRUlQTHFQRDZ0ZWhscHpQUjl3bFM4VW1SZGZU?=
- =?utf-8?B?SFZURnZqRTMrb0M4bVgwS1I4blh2Y00wWUVlYi8vK1k2N1JUZnNibUkvTGlr?=
- =?utf-8?B?N3FUa0NobStMbVk1azd0NjNrWTdTYnlQUzU4QU5KMk1BY1R6aVNIcW9aOUdI?=
- =?utf-8?B?T2tPN0pBcHZLamxpWkV5WW5HVTlLbHFoVGU1SEw5NjMzNUFuV0FHRWNncDJL?=
- =?utf-8?B?WndnZW4yYUhSckl6dVBCOE92UERSaHV1aWVTS0ZOZ1kvRUdxRWhqMDJsQkVn?=
- =?utf-8?B?SkdlVFlDK3dnZUFXMHZJZVh1UkpwZzVVQ3ZnR3cyUm5TNDR1dHV5UWUyOERH?=
- =?utf-8?B?MHpWMzYyMG9YektMZ2lDbDlqZy9obzVJOGhoOUFDcGlvcTMzdDhHd082QjVi?=
- =?utf-8?B?V3A0Tmx4ajlzVUN2TWtBMmJuWVY2VkZON0FoSURZTFRMem16emNTcXdXWGJm?=
- =?utf-8?B?Mlc5TE9zaC9aRitpUktTckZJVDRYeTFnT3Vpc05aQjcyQmtoR3R0R0tNaW9k?=
- =?utf-8?B?TW5LSU1oWENoQnM0bjl5VW96TEJTZ2hKVFV3YnJRLzJxeHdxUm9hMUdPbERj?=
- =?utf-8?B?dFAvVDN5SnRrM2F4eS9GUFJURnFqRXZsYzd0bGQzQVhrUW5QbE83QUE0aVlB?=
- =?utf-8?B?aFFsL3p6NWdwcklPa1lJdWJsVytpYXI3NlA0c2VtNlZTK1cvT2Ruci9FbXJW?=
- =?utf-8?B?MDVtZHdid2V1bDJEL08xaVRNQlFtbW1ZWHdYVmdhR282aXZwVERuajE0WGN3?=
- =?utf-8?B?RGpMSnBLUDBzWkZ2Si9yOEUwRHk0MGs5OUpBTzJtZDNDZWFicUswR2hWdVNG?=
- =?utf-8?B?V3lLMDFtODJ6cEJqZUNVRi9XM1pOU0JQSHV3RStrL09mZCsvcE1mS2NtN0Ru?=
- =?utf-8?B?RkpESEF0OHdMZFVmMzhOOXZQUE1icTJJc05rRDh3emZmMVQyay8yR3dXOE9x?=
- =?utf-8?B?RE1QdjNlRTRqSWdza3daY2tKRFQvakF6SjZ6K1JFQ1lJT1BaS041c3JsbVBw?=
- =?utf-8?B?VFVjTGRackVjRWppQm50T255TG9Oa2dCOHJJaEZ4Zjcrd2RBRnVwMGhqQkJU?=
- =?utf-8?B?aGNjYVBualp3OXVJazd5QlVaMUc1clFaOCtHWUVtOGJmdURzNzdtVmk3cGZj?=
- =?utf-8?B?QkVxNjhJNzRqVC9FanltekNQaU1jN3ZPTWNJMzVLNEQxcGNKQ0hjeUp3T01y?=
- =?utf-8?B?VWJIVGw2M1IwcnN1ZC8zblhWcFJsMUlydUZEYnExcGlkK2FudVNTT1ZjQUtH?=
- =?utf-8?B?Sld6bktWZVFQUUs1eEQvUkdhZG5udjc2UEJlM01JbmFFWVBxQkNCTEc4UUZ6?=
- =?utf-8?B?cWZMVExTeG10eUdWZ3YxV3U4ZTNjQkVtMlh3bUNwVXhNNlI1aGttaDd3dkov?=
- =?utf-8?B?TndMVWMrb3VkYUFDMEZGTCt1TjYwVks5MFpzWnY4bkFvb3JkakNPMW1vcUg4?=
- =?utf-8?B?TDAzUkRudXFQYnY0dmhkRWt0c3EyMXdjTTVwSk1RTGdNL0J5ZHg3RkVYb0l0?=
- =?utf-8?B?eC9EaEdubmh4NzJab01WTXkrZTJVRk9VdHFLZnJlUDJiVmFkUENUUT09?=
-X-OriginatorOrg: amlogic.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 40ba645f-7b89-416f-68e7-08df1df23050
-X-MS-Exchange-CrossTenant-AuthSource: KL1PR03MB5521.apcprd03.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 29 Sep 2026 06:23:34.1282
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 0df2add9-25ca-4b3a-acb4-c99ddf0b1114
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: 4ywM6OHsZ7xJ2t/lWrRnDmCr2wYKE7eW38BYyLrhzEjgQWh7LmGSDUdpgW11Ehxfn9+Ic4fal1gzyFIqLCVRwg==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: TYZPR03MB7289
+Content-Transfer-Encoding: 8bit
+Content-Type: text/plain
+X-MTK: N
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260928_232340_382305_68BF5AF6 
-X-CRM114-Status: GOOD (  11.78  )
+X-CRM114-CacheID: sfid-20260928_232526_634013_33C7D391 
+X-CRM114-Status: GOOD (  10.20  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -157,67 +88,37 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+MTK mt7987 and mt7989 SPI hardware has been updated to IPM v59 SPI IP and
+it differs from earlier IPM designs, most visibly in the tick delay field
+of SPI_CMD_REG, so it needs its own fallback compatible rather than reusing
+"mediatek,spi-ipm".
 
-> On 29/09/2026 07:57, Zhentao Guo wrote:
->> Hi Krzysztof,
->>> On 29/09/2026 04:59, Zhentao Guo wrote:
->>>> Hi Krzysztof,
->>>>
->>>>> On Thu, Sep 24, 2026 at 03:55:10PM +0800, Zhentao Guo wrote:
->>>>>> Add bindings for Amlogic hardware decoder accelerator.
->>>>>>
->>>>>> Signed-off-by: Zhentao Guo <zhentao.guo@amlogic.com>
->>>>>> ---
->>>>>>     .../devicetree/bindings/media/amlogic,s4-vdec.yaml | 114 +++++++++++++++++++++
->>>>>>     1 file changed, 114 insertions(+)
->>>>>>
->>>>>> diff --git a/Documentation/devicetree/bindings/media/amlogic,s4-vdec.yaml b/Documentation/devicetree/bindings/media/amlogic,s4-vdec.yaml
->>>>>> new file mode 100644
->>>>>> index 000000000000..751043c3d9cc
->>>>>> --- /dev/null
->>>>>> +++ b/Documentation/devicetree/bindings/media/amlogic,s4-vdec.yaml
->>>>>> @@ -0,0 +1,114 @@
->>>>>> +# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
->>>>>> +# Copyright (C) 2025 Amlogic, Inc. All rights reserved
->>>>>> +%YAML 1.2
->>>>>> +---
->>>>>> +$id: http://devicetree.org/schemas/media/amlogic,s4-vdec.yaml#
->>>>>> +$schema: http://devicetree.org/meta-schemas/core.yaml#
->>>>>> +
->>>>>> +title: Amlogic Video Decode Accelerator
->>>>>> +
->>>>>> +maintainers:
->>>>>> +  - Zhentao Guo <zhentao.guo@amlogic.com>
->>>>>> +
->>>>>> +description:
->>>>>> +  The Video Decoder Accelerator present on Amlogic SOCs.
->>>>>> +  It supports stateless h264 decoding.
->>>>>> +
->>>>>> +properties:
->>>>>> +  compatible:
->>>>>> +    const: amlogic,s4-vdec
->>>>>> +
->>>>>> +  reg:
->>>>>> +    minItems: 2
->>>>> What is happening here? Previous version was different.
->>>> maxItems: 2 implies that a single items is also allowed,but the hardware actually requires at least two register regions (dos
->>> Since when?
->> It should have been minItems:2 ever since v1,I must admit that this is a
->> long-standing mistake.
-> No. Since when 1 item is allowed?
+Signed-off-by: Tim Kuo <Tim.Kuo@mediatek.com>
+---
+v2: Add mt7987 and mt7989 real device compatible
 
-A single item was never allowed. The hardware has always required both 
-the dos and dmc register regions to work (the same applies to the 
-power-domain and interrupts) . In the previous version of this patch, 
-allowing one entry was simply a mistake, not an option we ever supported.
+ .../devicetree/bindings/spi/mediatek,spi-mt65xx.yaml         | 5 +++++
+ 1 file changed, 5 insertions(+)
 
-No existing device tree relies on having only a single entry either.
+diff --git a/Documentation/devicetree/bindings/spi/mediatek,spi-mt65xx.yaml b/Documentation/devicetree/bindings/spi/mediatek,spi-mt65xx.yaml
+index 3bf3eb1f8728..d2c740572d85 100644
+--- a/Documentation/devicetree/bindings/spi/mediatek,spi-mt65xx.yaml
++++ b/Documentation/devicetree/bindings/spi/mediatek,spi-mt65xx.yaml
+@@ -39,6 +39,11 @@ properties:
+               - mediatek,mt7988-spi-single
+               - mediatek,mt8188-spi-ipm
+           - const: mediatek,spi-ipm
++      - items:
++          - enum:
++              - mediatek,mt7987-spi
++              - mediatek,mt7989-spi
++          - const: mediatek,spi-ipm-v59
+       - items:
+           - enum:
+               - mediatek,mt8196-spi
 
-> Best regards,
-> Krzysztof
-
-Best regards,
-
-Zhentao
+base-commit: 0d9d0dbf2fddcff5859d623e90ca73c4054276e1
+-- 
+2.45.2
 
 
