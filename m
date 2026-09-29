@@ -4,121 +4,91 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E51C8CA5FA7
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 29 Sep 2026 21:29:37 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0B073CA5FAC
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 29 Sep 2026 21:31:57 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=EyT+xHf5qLUoWCtLPqQerMtkJAwK/AAEHgHwEUT5UR4=; b=wPUVQsfvshXyosEFtK+TL1OGXm
-	7lOs4JVU/Im6W57OTW9JrYD2QLOKPrL9cm5oyYShwwrsQTrQoa7Pt1Qp89pGc/WcWRoSGrXO2f7Bl
-	0SJeOE/IXQMqOjrK83Cy/ii7010mvWCBV5lMXkiXEWkFiUF865WCq7orqB3du53UrGXRHF37OvvRO
-	BzvwyA4QKgTMET90to8CWbeW8k8pudSbt7/udiD1o2Z/EqBi7cuA/rbFZ6cY8Rb8kCMqWp7FC6bpQ
-	aGNPl4LCfB8f2qsdb3Q2vedmrnvuzTY7pSAsiiazTXRhZ4SFrelUR/xkL8m+H5HLK84VQ0JixKeG5
-	Ss14QAjw==;
+	bh=R5j+6LYMMJZY9MNPTlC5mVgKgI6GPvSLq1ObM+lpJGQ=; b=wkTJuZHyHmNdg/eUsPwRa5ixM3
+	xWPoVBi8L1MnD+9OH2xBmTsrtmY74cJZQ3bB4N4k7pTODt/97BbCJu0m+HAUm2D4mIBT9IVI6MQ6G
+	iUZKkymtqD3iRj6eGRFx9TlNrhP3QEeGkEL/hSa9RvzigaaZpKLRnwwR8egEPAecf8yavwAVksJh9
+	p8qWA+aijWkByf6f903rfy1I+NI3Lt+CACtIXPeMJ4XABKE/Dy4ObREjG0EAO4GquDEU4RQDIS1zK
+	wrFTbkhtqCYe2UTQ3ETvDr3g5GfBHkQnxbwAAXQXj+3o6cdPRJP1VEqBQEiaYB5ZaERsilEwZlV38
+	2kLmYk/A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xBfOE-00000004ayL-2Ifl;
-	Tue, 29 Sep 2026 21:29:30 +0000
-Received: from mail-pz2-x0f.google.com ([2607:f8b0:4864:3b::f])
+	id 1xBfQU-00000004bHa-48i4;
+	Tue, 29 Sep 2026 21:31:50 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xBfOB-00000004axm-38AM
-	for linux-arm-kernel@lists.infradead.org;
-	Tue, 29 Sep 2026 21:29:29 +0000
-Received: by mail-pz2-x0f.google.com with SMTP id d2e1a72fcca58-85469d249c6so2913314b3a.1
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 29 Sep 2026 14:29:27 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=dama-to.20251104.gappssmtp.com; s=20251104; t=1790717367; x=1791322167; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:content-type:mime-version
-         :references:mail-followup-to:message-id:subject:cc:to:from:date:from
-         :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=EyT+xHf5qLUoWCtLPqQerMtkJAwK/AAEHgHwEUT5UR4=;
-        b=u5wVk6+UtOT5OKAczLM+R5UkBmA8UpSqUvmYecJ69DTXVlLQOYBdwLnZUek0vJdnCo
-         eeQve+sxdFUhPbBps0jQYlD+1UVWzAc5YRvdRr7VZ22FD3uAOpS/7iwr7Tp8OY9g2HU3
-         KrDguf6Mq90oBRt+71PYQNPbXZq7vWiHd3brjyGd889NHHAmK1zjKuzxxlQXCrf6EJgz
-         bEjLS6W3rEp9KppYMF/y3zybyxDB19Ls+xQyTGDUSUOuHfF6gjaUdAdu6NL6cXYuN5X1
-         dYv0fgMkCxs8MgTXuUtGAuSViqHoXPvbQxrKQmK+ez5sQ9lgS8pcbhblLvuTlg4+hMrT
-         Ynbg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1790717367; x=1791322167;
-        h=in-reply-to:content-disposition:content-type:mime-version
-         :references:mail-followup-to:message-id:subject:cc:to:from:date
-         :x-gm-gg:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to:content-type;
-        bh=EyT+xHf5qLUoWCtLPqQerMtkJAwK/AAEHgHwEUT5UR4=;
-        b=U8pM+PnAu4/mdbTDB1Qt2t7Aav7atJfAJOPDHH7NxSReIcYizqgbi11zYvBLrU3voY
-         lxTE6qgXYM52DmDgsM+HQIysDTrY5G732wmLFzJKyn8YiSSoAqifG+eoNXeWtIDNaBmQ
-         h7FH5YMHra5qTU0pLsJgV8B8qldiQc8jmpq55N6syIWzYM5ArLrmnU8SDZA+NLLJhZ2s
-         QNKS/waZ+qadVzZ09G8n1uOkYnShI2Ca/GspJSe01yjjsU2EOnhGqw94Q3WWP+DvB0gI
-         9dcQ3PlItPGrlWsKBF3lDSyujASlA/bmnUZ8YKK888QZio7X9yNKA6rfEG89EjGJlOMk
-         JLMA==
-X-Forwarded-Encrypted: i=1; AKwUvBzEc0XeX36fpF5GzAI3TgIgIyPb9EYF4CBRbVlkJCrVoKJJr5xjgtQDS8UBIEXjQO2yvUPhJquSuCE3FA4cdm04@lists.infradead.org
-X-Gm-Message-State: AFuF++l+8swsbXbeXsbykg61d0CmjSn601gZhbrnj2/1u4mgfFAPoU/8
-	j6rX8U1kDCVTIoWvvDtii4zPQaGEnFChvvB7BNi26nucdPOq4sOavhf1D1FyVY6f+y8=
-X-Gm-Gg: AYBFou3XfEvb1/sU6aSatKCfEcspiP6z3RQuhQ3KXs19eA08eXcGp863TNorXTYsvbO
-	EI2/tLaZr8OLdDkW5fRmUYvjhlxsUmywZ/u3RlGhr1egD8qwNKsmaf03jon5w0hVfVtob40Y5i2
-	0qEzJ1ejjVR5UoJvu6VO5P8NMrHe7NSvdfMGMRelEsOtqRat6e90quaUvfU76uMLXHMoCEs2z26
-	5zvXZWu/QTfqeMitPZNYIBMb4QqXREXi+shr59YZq/S4ISRU+wYXoAhBNbRW9Y1m4GYZzcWK3EA
-	Xg47W0grE+Xik5iZEHgsYaikTjkMWPyblCXPZSUwx3TBkYY1RnwrbyXQHDx1TIYqE4Ec5/+vZ5x
-	g0FrqbOKAphUIk01PjAcmVhKc2ooWrQ5tedWN64SmSX5CGDVBWEbQLrGJ92DMUDuP1IkZ6bev08
-	U7zHc36w09dyKtEROcEzFFNK2X3Z64Jzaqxr6Pa/Bz9QvpRO0khdjC0J63avLdEh22zmLBceEp4
-	2COi4fxyALS
-X-Received: by 2002:a05:6a00:4186:b0:881:f5e1:6e7f with SMTP id d2e1a72fcca58-886c48b54bcmr338925b3a.31.1790717366754;
-        Tue, 29 Sep 2026 14:29:26 -0700 (PDT)
-Received: from localhost ([2a03:2880:2ff:57::])
-        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-8868866150bsm495163b3a.3.2026.09.29.14.29.25
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 29 Sep 2026 14:29:26 -0700 (PDT)
-Date: Tue, 29 Sep 2026 14:29:25 -0700
-From: Joe Damato <joe@dama.to>
-To: Frank.Li@oss.nxp.com
-Cc: Andrew Lunn <andrew+netdev@lunn.ch>,
-	"David S. Miller" <davem@davemloft.net>,
-	Eric Dumazet <edumazet@kernel.org>,
-	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
-	Chen-Yu Tsai <wens@kernel.org>,
+	id 1xBfQT-00000004bH1-1bBV;
+	Tue, 29 Sep 2026 21:31:49 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by sea.source.kernel.org (Postfix) with ESMTP id 69A1A40698;
+	Tue, 29 Sep 2026 21:31:48 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id F2BF31F000FF;
+	Tue, 29 Sep 2026 21:31:47 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1790717508;
+	bh=R5j+6LYMMJZY9MNPTlC5mVgKgI6GPvSLq1ObM+lpJGQ=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=ImbjBSkcOU61+57dg13SS0sVfvDjpN/rEWW7THOLCk6E6Nxs4VPjJHzZO2j5+fDkX
+	 TfTf75iO2Y6BdNjdUWXJWsbTiEqfWrlzQEGKOTe217sW/+R+PYhNrXc3Kcyn4uSv8L
+	 fs4E52O2mRmO7rHKLqwREziJnRIT1RPwlGs7AfcUSZgH69XyPAlnNTaBt1qBZu1sCG
+	 /E5HWQ6e7Sg5ocwxIL4R3qR7/vK5Y0ONLTtptiNdyacQ8N/KdUHTpQGL1naUUruJDc
+	 8eIS+HB1CMJOiH2ZJxaQWnvcn9gSjrWtmkQkis5JDRoappoAHcmdmWK6Pho0jj1uu1
+	 FYNlzkmofuYlw==
+Date: Tue, 29 Sep 2026 16:31:47 -0500
+From: Rob Herring <robh@kernel.org>
+To: Michal Wilczynski <m.wilczynski@samsung.com>
+Cc: Vinod Koul <vkoul@kernel.org>, Manivannan Sadhasivam <mani@kernel.org>,
+	Neil Armstrong <neil.armstrong@linaro.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Andrzej Hajda <andrzej.hajda@intel.com>,
+	Robert Foss <rfoss@kernel.org>,
+	Laurent Pinchart <Laurent.pinchart@ideasonboard.com>,
+	Jonas Karlman <jonas@kwiboo.se>,
 	Jernej Skrabec <jernej.skrabec@gmail.com>,
-	Samuel Holland <samuel@sholland.org>,
-	Bartosz Golaszewski <bartosz.golaszewski@oss.qualcomm.com>,
-	Andre Przywara <andre.przywara@arm.com>,
-	bui duc phuc <phucduc.bui@gmail.com>, Arnd Bergmann <arnd@arndb.de>,
-	Kees Cook <kees@kernel.org>, Li Youhong <liyouhong@kylinos.cn>,
-	Frank Li <Frank.Li@nxp.com>,
-	"open list:NETWORKING DRIVERS" <netdev@vger.kernel.org>,
-	"moderated list:ARM/Allwinner sunXi SoC support" <linux-arm-kernel@lists.infradead.org>,
-	"open list:ARM/Allwinner sunXi SoC support" <linux-sunxi@lists.linux.dev>,
-	open list <linux-kernel@vger.kernel.org>, vkoul@kernel.org,
-	imx@lists.linux.dev
-Subject: Re: [PATCH 1/1] net: allwinner: remove dmaengine_desc_free()
-Message-ID: <arwttakXqJndFXGe@devvm20253.cco0.facebook.com>
-Mail-Followup-To: Joe Damato <joe@dama.to>, Frank.Li@oss.nxp.com,
-	Andrew Lunn <andrew+netdev@lunn.ch>,
-	"David S. Miller" <davem@davemloft.net>,
-	Eric Dumazet <edumazet@kernel.org>,
-	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
-	Chen-Yu Tsai <wens@kernel.org>,
-	Jernej Skrabec <jernej.skrabec@gmail.com>,
-	Samuel Holland <samuel@sholland.org>,
-	Bartosz Golaszewski <bartosz.golaszewski@oss.qualcomm.com>,
-	Andre Przywara <andre.przywara@arm.com>,
-	bui duc phuc <phucduc.bui@gmail.com>, Arnd Bergmann <arnd@arndb.de>,
-	Kees Cook <kees@kernel.org>, Li Youhong <liyouhong@kylinos.cn>,
-	Frank Li <Frank.Li@nxp.com>,
-	"open list:NETWORKING DRIVERS" <netdev@vger.kernel.org>,
-	"moderated list:ARM/Allwinner sunXi SoC support" <linux-arm-kernel@lists.infradead.org>,
-	"open list:ARM/Allwinner sunXi SoC support" <linux-sunxi@lists.linux.dev>,
-	open list <linux-kernel@vger.kernel.org>, vkoul@kernel.org,
-	imx@lists.linux.dev
-References: <20260929190640.3516766-1-Frank.Li@oss.nxp.com>
+	Luca Ceresoli <luca.ceresoli@bootlin.com>,
+	Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
+	Maxime Ripard <mripard@kernel.org>,
+	Thomas Zimmermann <tzimmermann@suse.de>,
+	Andy Yan <andy.yan@rock-chips.com>,
+	Philipp Zabel <p.zabel@pengutronix.de>,
+	Emil Renner Berthing <kernel@esmil.dk>,
+	Hal Feng <hal.feng@starfivetech.com>,
+	Michael Turquette <mturquette@baylibre.com>,
+	Stephen Boyd <sboyd@kernel.org>, Heiko Stuebner <heiko@sntech.de>,
+	Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>,
+	Dominique Belhachemi <db@domibel.de>,
+	Brian Masney <bmasney+clk@redhat.com>,
+	Jerome Brunet <jbrunet+clk@baylibre.com>,
+	linux-phy@lists.infradead.org, devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org, dri-devel@lists.freedesktop.org,
+	linux-clk@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+	linux-rockchip@lists.infradead.org, linux-riscv@lists.infradead.org,
+	Marek Szyprowski <m.szyprowski@samsung.com>,
+	Maud Spierings <maud_spierings@murena.io>,
+	Graham Markall <hello@big-grey.co.uk>,
+	Icenowy Zheng <zhengxingda@iscas.ac.cn>,
+	Chaoyi Chen <chaoyi.chen@rock-chips.com>,
+	Joshua Peisach <jpeisach@ubuntu.com>,
+	Uwe =?iso-8859-1?Q?Kleine-K=F6nig?= <u.kleine-koenig@baylibre.com>
+Subject: Re: [PATCH v5 04/21] dt-bindings: soc: starfive: Add
+ starfive,jh7110-hdmi-subsystem
+Message-ID: <20260929213147.GA2831360-robh@kernel.org>
+References: <20260929-jh7110-clean-send-v5-0-82b4d8e3c6c7@samsung.com>
+ <CGME20260929103210eucas1p2d7e77f1147a03dac0536f6069505ea51@eucas1p2.samsung.com>
+ <20260929-jh7110-clean-send-v5-4-82b4d8e3c6c7@samsung.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20260929190640.3516766-1-Frank.Li@oss.nxp.com>
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260929_142927_931626_B84DA0FF 
-X-CRM114-Status: GOOD (  14.32  )
+In-Reply-To: <20260929-jh7110-clean-send-v5-4-82b4d8e3c6c7@samsung.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -133,22 +103,20 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Sep 29, 2026 at 03:06:36PM -0400, Frank.Li@oss.nxp.com wrote:
-> From: Frank Li <Frank.Li@nxp.com>
+On Tue, Sep 29, 2026 at 12:31:01PM +0200, Michal Wilczynski wrote:
+> Add the dt-binding for the StarFive JH7110 HDMI subsystem.
 > 
-> dmaengine_desc_free() is designed for DMA_CTRL_REUSE. If DMA_CTRL_REUSE
-> is not set, dmaengine_desc_free() will return -EPERM.
+> The JH7110 HDMI IP is a monolithic block containing both the digital
+> controller and analog PHY in a single register space. This binding
+> defines the parent device, which holds the shared register map and
+> populates its two children: the PHY and the controller. This is
+> necessary to resolve a circular clock dependency between the HDMI block
+> and the VOUT clock generator.
 > 
-> 	if (!dmaengine_desc_test_reuse(desc))
-> 		return -EPERM;
-> 
-> So calling dmaengine_desc_free() does nothing.
-> dmaengine_terminate_(a)sync() will free all already allocated descriptors.
-> 
-> Signed-off-by: Frank Li <Frank.Li@nxp.com>
+> Signed-off-by: Michal Wilczynski <m.wilczynski@samsung.com>
 > ---
->  drivers/net/ethernet/allwinner/sun4i-emac.c | 5 +----
->  1 file changed, 1 insertion(+), 4 deletions(-)
+>  .../starfive/starfive,jh7110-hdmi-subsystem.yaml   | 95 ++++++++++++++++++++++
+>  1 file changed, 95 insertions(+)
 
-Reviewed-by: Joe Damato <joe@dama.to>
+Reviewed-by: Rob Herring (Arm) <robh@kernel.org>
 
