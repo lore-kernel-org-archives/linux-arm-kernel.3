@@ -4,63 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9B781CA5FA1
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 29 Sep 2026 03:11:31 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A197DCA5FA1
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 29 Sep 2026 03:15:59 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:
+	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=imJPECTEW1WYjfEQp1PLxLltQkmvPlFR0gciF+CIjY8=; b=LlwYn2QP+DcoGNXmnMG/PKEgbw
-	RAYfE537EKiofNbEJl5XHE3cu8t/7hS3beD9W+GnoCVwKOI6BH7HXTZv3zk5DxcsWe9e/l4fuGtaZ
-	DR1aFSFASeGxyaEpwa9hDzWZH6wwCyDveB1daZdcl+tMcuLYdYqZubkVJ24LK1uzYnN7h3Oyw8w4D
-	AKlPpEsMcqsgQ6YtsnW5mOTYC3YonpqRf5AFymUPtJrbKWbTnOxqmDrFh1biQ0paxDhSlPiTuyp57
-	GE5RmGOWr84WISAKGi/dHHpFA8ea+gmVht0o2S9pOpgnOQZHlQCwPrHp1XUyV9Yh0hABnp7rQFJ5Z
-	YY7n+j0A==;
+	bh=hA8LUWW3PtjcaCrXtbh0vfqqPBEJbVf3BoVC5KmmLFM=; b=cOF47KINHu2+c8XIfLlPQ4btre
+	aqLtyQf8TunlsziiBYtK5eh0sEMIzloBldG3xozv50Zz5sCzMw5y9YkfKFWy7nfuWAevowo2fkDB6
+	KWdasoKQZeJCPScAvcNdtV9B6aruzU4Oj4392lYbbsx8LBBahktmmjNK7rG5dRgDAx9hTDuD7fOEo
+	trhzdhbpHs/RNA3UrTKx6AcCKOnmCnpPZSpKZN7RXTYxU1/y9y9Lv8KonOcunq2K0JMvYhs/f35jD
+	GmrRPf+VukHEmnvrV116oquTIC2UBEBRLvY3MkC4+AEhkhWPVy30CXeMtcm9bMYsUgyAvzfx7Oewu
+	grpBz1Ow==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xBOFV-00000002BFj-1EzY;
-	Tue, 29 Sep 2026 03:11:21 +0000
-Received: from zg8tmtyylji0my4xnjqumte4.icoremail.net ([162.243.164.118])
-	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xBOFR-00000002BD3-0ULe
+	id 1xBOJt-00000002Bff-1QaW;
+	Tue, 29 Sep 2026 03:15:53 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1xBOJr-00000002BfW-27L2
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 29 Sep 2026 03:11:20 +0000
-Received: from prodtpl.icoremail.net (unknown [10.12.1.20])
-	by hzbj-icmmx-6 (Coremail) with UTF8SMTP id AQAAfwDX3lpLLLtqmNcjAA--.20894S2;
-	Tue, 29 Sep 2026 11:11:07 +0800 (CST)
-Received: from WIN-B62RPRBL2BM.localdomain (unknown [218.76.62.144])
-	by mail (Coremail) with SMTP id AQAAf8DwGHJGLLtqWMLjAA--.52537S3;
-	Tue, 29 Sep 2026 11:11:02 +0800 (CST)
-From: Zhu Ling <zhuling2709@phytium.com.cn>
-To: maz@kernel.org,
-	tglx@kernel.org
-Cc: radu@rendec.net,
-	zenghui.yu@linux.dev,
+	Tue, 29 Sep 2026 03:15:51 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by tor.source.kernel.org (Postfix) with ESMTP id 7682B60136;
+	Tue, 29 Sep 2026 03:15:50 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id BD3D61F0089A;
+	Tue, 29 Sep 2026 03:15:48 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1790651750;
+	bh=hA8LUWW3PtjcaCrXtbh0vfqqPBEJbVf3BoVC5KmmLFM=;
+	h=From:To:Cc:Subject:Date:In-Reply-To:References;
+	b=kudCjqJPceZR1C78VsRk7LleDgpsvmIV24SIVD3dZ+wRgnFekpOwTu3Ur6hD3TZUd
+	 RiAxVuFsCVuuG19DT6Q/cSbsVBP3BP9gA3NyEk+b2/gOl2/FkUPg6Vgc/CoiML7v8o
+	 U/7wJWokF6KAHW/eKkthRCq1CD6g5tMcoVQhAZTHet3B6qTuK9BCQQhI0vMpFzTvWG
+	 3RSwc29tGg3KSVPJV+lyWFRg01s6iJerS4gBll85LACInhk62twOkIa9tlQRY6RoKJ
+	 VSaDNXjJaWz7CFyG7PCEqpFVxa23LFPNdqWqXeKOzVcrsix5gBWJsi0LXPu/Rn7Y1D
+	 YjG/clYMbBOVw==
+From: Bjorn Andersson <andersson@kernel.org>
+To: Michael Turquette <mturquette@baylibre.com>,
+	Stephen Boyd <sboyd@kernel.org>,
+	Brian Masney <bmasney@redhat.com>,
+	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
+	Alexandre Torgue <alexandre.torgue@foss.st.com>,
+	Konrad Dybcio <konrad.dybcio@oss.qualcomm.com>,
+	Taniya Das <taniya.das@oss.qualcomm.com>,
+	Vladimir Zapolskiy <vladimir.zapolskiy@linaro.org>,
+	Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>,
+	Bryan O'Donoghue <bryan.odonoghue@linaro.org>,
+	Jingyi Wang <jingyi.wang@oss.qualcomm.com>,
+	Jagadeesh Kona <jagadeesh.kona@oss.qualcomm.com>
+Cc: linux-arm-msm@vger.kernel.org,
+	linux-clk@vger.kernel.org,
+	linux-stm32@st-md-mailman.stormreply.com,
 	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	Zhu Ling <zhuling2709@phytium.com.cn>
-Subject: [PATCH v5] irqchip/gic: Fix UBSAN shift-out-of-bounds in GIC helpers
-Date: Tue, 29 Sep 2026 11:10:50 +0800
-Message-ID: <20260929031050.16988-1-zhuling2709@phytium.com.cn>
-X-Mailer: git-send-email 2.43.0
-In-Reply-To: <20260928013209.7242-1-zhuling2709@phytium.com.cn>
-References: <20260928013209.7242-1-zhuling2709@phytium.com.cn>
+	linux-kernel@vger.kernel.org
+Subject: Re: [PATCH] clk: qcom: Fix camera rivian PLL configuration settings
+Date: Mon, 28 Sep 2026 22:14:47 -0500
+Message-ID: <179065170918.2673486.12337942031233081331.b4-ty@b4>
+X-Mailer: git-send-email 2.55.0
+In-Reply-To: <20260801-cam-rivian-pll-config-fix-v1-1-6918d58cd823@oss.qualcomm.com>
+References: <20260801-cam-rivian-pll-config-fix-v1-1-6918d58cd823@oss.qualcomm.com>
 MIME-Version: 1.0
+Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit
-X-CM-TRANSID: AQAAf8DwGHJGLLtqWMLjAA--.52537S3
-X-CM-SenderInfo: x2kxzxlqjsliuz6sx5pwlxzhxfrphubq/1tbiAQALAWq4HUgBngAEsX
-Authentication-Results: hzbj-icmmx-6; spf=neutral smtp.mail=zhuling270
-	9@phytium.com.cn;
-X-Coremail-Antispam: 1Uk129KBjvJXoWxXrWxKw45Gr1kXrW8tr15twb_yoWrXw43pF
-	Z8J34Ivr4Iy3WjgF4DCF1UZFy5t3Z2krZrKrWxJasIvry5Gas5Aayavr9aq3WqqrZrAa4U
-	CwsIqF1Uu3WUAFDanT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUj1kv1TuYvTs0mT0YCTnIWj
-	DUYxn0WfASr-VFAU7a7-sFnT9fnUUIcSsGvfJ3UbIYCTnIWIevJa73UjIFyTuYvj4RJUUU
-	UUUUU
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260928_201117_299561_6C647409 
-X-CRM114-Status: GOOD (  16.09  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -75,109 +83,24 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-When running with UBSAN enabled, enabling a GPIO controller that uses a
-GIC interrupt as its parent triggers several shift-out-of-bounds warnings:
 
-  shift-out-of-bounds in drivers/irqchip/irq-gic-common.c:50:21
-  left shift of 2 by 30 places cannot be represented in type 'int'
+On Sat, 01 Aug 2026 01:15:07 +0530, Jagadeesh Kona wrote:
+> clk_alpha_pll_write_config() in the PLL configure function skips writes
+> to PLL registers when the configured value is 0. However, hardware
+> requires USER_CTL_U and CONFIG_CTL_U2 to be explicitly programmed to 0
+> for a few rivian PLLs.
+> 
+> Add a clk_regs_configure() callback to ensure these rivian PLL registers
+> are correctly initialized on Glymur, SM8750, and Kaanapali platforms.
+> 
+> [...]
 
-Similar reports are emitted from gic_poke_irq() and gic_peek_irq() in
-drivers/irqchip/irq-gic-v3.c. The corresponding GICv2 helpers use the
-same signed-shift pattern. These masks are generated by shifting signed
-integer constants, which invokes undefined behavior when bit 31 is
-selected.
+Applied, thanks!
 
-Use BIT() to generate the masks with an unsigned type and make their
-intent explicit.
+[1/1] clk: qcom: Fix camera rivian PLL configuration settings
+      commit: 3b651d946ebb756f922bed8a213919af17f58f43
 
-Fixes: f27ecacc54cc ("[ARM] Add support for ARM GIC")
-Fixes: 5c0c1f08abf0 ("ARM: 6150/1: gic: implement set_type")
-Fixes: 021f653791ad ("irqchip: gic-v3: Initial support for GICv3")
-Reviewed-by: Zenghui Yu (Huawei) <zenghui.yu@linux.dev>
-Acked-by: Marc Zyngier <maz@kernel.org>
-Signed-off-by: Zhu Ling <zhuling2709@phytium.com.cn>
----
-Changes in v5:
-- Correct the GICv2 and GICv3 helper Fixes tags to point to the commits
-  that originally introduced the signed shifts.
-- Add Zenghui's Reviewed-by and Marc's Acked-by tags.
-
-Changes in v4:
-- Add Fixes tags for the commits that introduced the affected masks.
-
-Changes in v3:
-- Fix the same issue in the GICv2 gic_poke_irq() and gic_peek_irq()
-  helpers, as pointed out by Zenghui.
-
-Changes in v2:
-- Use BIT() instead of explicit unsigned shifts, as suggested by Marc.
-- Drop the redundant introductory text from the email.
-- Update the author email address.
-
-Link: https://lore.kernel.org/r/2fJDwUUYdEf2_eaRa041L9xkT8RkSWFeo7euOnqMbbPhUatLlEaAvGfB6sOspDmXaxO87Eh7bQLV9UolyjbMtZBT1wB2UGypjPOo0Z-RC0Q=@proton.me
----
- drivers/irqchip/irq-gic-common.c | 2 +-
- drivers/irqchip/irq-gic-v3.c     | 4 ++--
- drivers/irqchip/irq-gic.c        | 4 ++--
- 3 files changed, 5 insertions(+), 5 deletions(-)
-
-diff --git a/drivers/irqchip/irq-gic-common.c b/drivers/irqchip/irq-gic-common.c
-index c776f9142610..8bd1eaa54295 100644
---- a/drivers/irqchip/irq-gic-common.c
-+++ b/drivers/irqchip/irq-gic-common.c
-@@ -48,7 +48,7 @@ void gic_enable_quirks(u32 iidr, const struct gic_quirk *quirks,
- int gic_configure_irq(unsigned int irq, unsigned int type,
- 		       void __iomem *base)
- {
--	u32 confmask = 0x2 << ((irq % 16) * 2);
-+	u32 confmask = BIT(((irq % 16) * 2) + 1);
- 	u32 confoff = (irq / 16) * 4;
- 	u32 val, oldval;
- 	int ret = 0;
-diff --git a/drivers/irqchip/irq-gic-v3.c b/drivers/irqchip/irq-gic-v3.c
-index 6e1fa5b247fc..15110d47ddb0 100644
---- a/drivers/irqchip/irq-gic-v3.c
-+++ b/drivers/irqchip/irq-gic-v3.c
-@@ -457,7 +457,7 @@ static int gic_peek_irq(struct irq_data *d, u32 offset)
- 	u32 index, mask;
- 
- 	offset = convert_offset_index(d, offset, &index);
--	mask = 1 << (index % 32);
-+	mask = BIT(index % 32);
- 
- 	if (gic_irq_in_rdist(d))
- 		base = gic_data_rdist_sgi_base();
-@@ -473,7 +473,7 @@ static void gic_poke_irq(struct irq_data *d, u32 offset)
- 	u32 index, mask;
- 
- 	offset = convert_offset_index(d, offset, &index);
--	mask = 1 << (index % 32);
-+	mask = BIT(index % 32);
- 
- 	if (gic_irq_in_rdist(d))
- 		base = gic_data_rdist_sgi_base();
-diff --git a/drivers/irqchip/irq-gic.c b/drivers/irqchip/irq-gic.c
-index f6bc29f515fb..fb7a55f5b394 100644
---- a/drivers/irqchip/irq-gic.c
-+++ b/drivers/irqchip/irq-gic.c
-@@ -178,14 +178,14 @@ static inline bool cascading_gic_irq(struct irq_data *d)
-  */
- static void gic_poke_irq(struct irq_data *d, u32 offset)
- {
--	u32 mask = 1 << (irqd_to_hwirq(d) % 32);
-+	u32 mask = BIT(irqd_to_hwirq(d) % 32);
- 
- 	writel_relaxed(mask, gic_dist_base(d) + offset + (irqd_to_hwirq(d) / 32) * 4);
- }
- 
- static int gic_peek_irq(struct irq_data *d, u32 offset)
- {
--	u32 mask = 1 << (irqd_to_hwirq(d) % 32);
-+	u32 mask = BIT(irqd_to_hwirq(d) % 32);
- 
- 	return !!(readl_relaxed(gic_dist_base(d) + offset + (irqd_to_hwirq(d) / 32) * 4) & mask);
- }
+Best regards,
 -- 
-2.43.0
-
+Bjorn Andersson <andersson@kernel.org>
 
