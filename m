@@ -4,60 +4,60 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 58C8BCA5FC4
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 30 Sep 2026 21:05:39 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 085C8CA5FC4
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 30 Sep 2026 21:05:59 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Cc:List-Subscribe:
 	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
 	Content-Transfer-Encoding:Content-Type:To:Subject:Message-ID:Date:From:
 	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=NnElHm8Q6l/bSL8TEHAw6Ax2AIHtYbElSbr4X4CfGgE=; b=V2lsjpRsU5YxnJ
-	eiA4i7qNafvh2JckeMb8TWzHzrEaVqADGfw+AJmYpDDD5d5wdFgLUfePGeI45hga4yiMFcuG3y3bN
-	3lJb/fS9HCGt0lBThpqKTdE0JUbv3gU8XUgHmx3utpNGh9yu0iM87NkqG5aQrVV8pP7QxWXp7pKmk
-	fONfR5OprEVj3l4xDqRINP6N4++nebMukPRhM4HwuTbc5D3XqI9CrYBDRIZ6+EuhudJdOW1fBdL98
-	MtrN7j/ebYNhI0/ghmqN1uPgvI2lCC5IzgoGjmiUsEIYXM7wOnn+AZHtxZNPDPUnWUabGRYu98r0y
-	9165+d1pl9p/WotkyCfQ==;
+	List-Owner; bh=ER+F3xEHsxIRSeDhr0LK2pONxqBKiVac5jIT+RvNPAk=; b=B58u1RG33Whs3l
+	zkOX0WJT81S7aD/P5XN5ZR6cyEVZVD9WZrTLsJg6NEBd54gqK84J2Uu5pOEoQ6Du8uHqeFo1kqfqd
+	7gx1WGtzh/+ouzAXaIB3FwCOSfHXJ/Yq7ZKTuguZZnqGx1/KN91rLdN7O+XmAeQODT5OrROcXM+Qr
+	Rqn9go9lvhb4ekMFAMheDlPGEvhbN04auGY+xqOd7oRWSyPspfkF4i441nh5monDPxgUKRQYYiDmW
+	moC9tZY5uypexlW9+FRsal93NStBBb3k7AJ+K8wsLLi7jSb+xz9BwoBihYJofMN5CkaH30Kqv7U25
+	MOzXklDomMKLcWg6XEUw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xC1Ua-00000007EBQ-1Bkk;
-	Wed, 30 Sep 2026 21:05:32 +0000
+	id 1xC1Uu-00000007EDo-1gWB;
+	Wed, 30 Sep 2026 21:05:52 +0000
 Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xC1UZ-00000007EBJ-2eRw
+	id 1xC1Uo-00000007EDF-04bj
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 30 Sep 2026 21:05:31 +0000
+	Wed, 30 Sep 2026 21:05:46 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 0B1A144247
-	for <linux-arm-kernel@lists.infradead.org>; Wed, 30 Sep 2026 21:05:31 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id DC1E61F008A2
-	for <linux-arm-kernel@lists.infradead.org>; Wed, 30 Sep 2026 21:05:30 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id C389543B82
+	for <linux-arm-kernel@lists.infradead.org>; Wed, 30 Sep 2026 21:05:45 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id A5E621F000FF
+	for <linux-arm-kernel@lists.infradead.org>; Wed, 30 Sep 2026 21:05:45 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1790802330;
-	bh=NnElHm8Q6l/bSL8TEHAw6Ax2AIHtYbElSbr4X4CfGgE=;
+	s=k20260515; t=1790802345;
+	bh=ER+F3xEHsxIRSeDhr0LK2pONxqBKiVac5jIT+RvNPAk=;
 	h=References:In-Reply-To:From:Date:Subject:To:Cc;
-	b=cbXsixIz22YnxWg62ghrtkjUOdJLcgXnVpmTb8z8xTtrRaGU0y8whehPZXe8vj6X+
-	 h2xrH3L5dnfvooQGig+P+kWLSYPD0JABXTcQePkc4P/DyMZdccK54iAC3blvx9yk/B
-	 4sogQcidA1KhHDlnvcw6Rk5jsUdiJGE9rTktUXcVl0Dx5DakSwF5oKNpIlayGT6kwL
-	 qPALo/Sj7rOktyRrSHneGTHi6meezj13osm4SX325c7HrNzHMWKZreVT9C5p52Qjw8
-	 QmHm5qo6ty2MnpuxxqVoi5T++9LUhjtnWEYwulsGO3mJXDVPf+AqK9ASPFlio3a92d
-	 EsBOvbRPRUAcw==
-Received: by mail-lf2-f12.google.com with SMTP id 2adb3069b0e04-5ba379d8804so1865675e87.3
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 30 Sep 2026 14:05:30 -0700 (PDT)
-X-Gm-Message-State: AFq9FYKOTWKQj2oaFq3byg9j7JFzJAi2FdwgSg1iVW/83EsWPkLQiyhg
-	MtdJM3UOaRXV6N16dG4vLwjj6JkM4PRT++QizrsHQGy3euOE/mds5lP0jqv7cDUJRVXp4MOU8yn
-	B95suxXQDetlQ6aaDKmhEDuxBkgYkL/U=
-X-Received: by 2002:a05:6512:244f:b0:5ba:4372:9250 with SMTP id
- 2adb3069b0e04-5ba4372938emr211234e87.4.1790802329621; Wed, 30 Sep 2026
- 14:05:29 -0700 (PDT)
+	b=nNAMFkfKSs18dBdBOKggDv3f8LGpv1riN+zyKRjgKs+/NhZ/yTkTCFyWj7B22ZKgZ
+	 zI+71q6eAXZaGZ084OInR4ibiW3ae1Dpi5SWyeFLE1wi+cqfJBO0/ITV6vhIkhSDfI
+	 gqV6rxdTBrW8K/AW6S9u1C8Yjvg9hPGUb7ANg4Vx5Qxw31Arv7Ujr0QZJzBA+8TCMH
+	 S2CNF1m8542qb0q555ADOxWVin6xEh46H/mXQsTBrbZxl3jL4QQUOFeWKTpFlMsRFZ
+	 2KtqPUFH8HAQvBSMaPImUHbqGLGJbhT34I69LAv3TFVHygpvHUggQJICH2qgm9NkCL
+	 xnKA3+tkcAfHw==
+Received: by mail-lf2-f13.google.com with SMTP id 2adb3069b0e04-5ba437ee7f7so144823e87.2
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 30 Sep 2026 14:05:45 -0700 (PDT)
+X-Gm-Message-State: AFq9FYJxg9LI22Xx+RGKNw2c8jUipJTQ+GY698ukF6aA0tiZA2QrajE1
+	Cpb/yXXKeTv04z4Fg7Dnxc4YO5YHJJ1fHywgF0IiXCFVVSgUZ4JUA10FmivA09AHCDeN8fVDVBV
+	WXFqSgyS8oHc3+tQyTgLKj7xTNFXTbgI=
+X-Received: by 2002:a05:6512:239f:b0:5ba:37b8:863b with SMTP id
+ 2adb3069b0e04-5ba405d871cmr1080051e87.24.1790802344493; Wed, 30 Sep 2026
+ 14:05:44 -0700 (PDT)
 MIME-Version: 1.0
 References: <20260918161407.2300-1-will@kernel.org> <20260918161407.2300-12-will@kernel.org>
 In-Reply-To: <20260918161407.2300-12-will@kernel.org>
 From: Linus Walleij <linusw@kernel.org>
-Date: Wed, 30 Sep 2026 23:05:17 +0200
-X-Gmail-Original-Message-ID: <CAD++jLn4Wr+WqQkRweiVa-w-P_U0pMUeQznDWy_h=62FhOJXag@mail.gmail.com>
-X-Gm-Features: AclHuK_03X4xHg6tnkdKzchIyjnd1uMf9JvGEWQecl5CNy_dFoxGynGup1si1S0
-Message-ID: <CAD++jLn4Wr+WqQkRweiVa-w-P_U0pMUeQznDWy_h=62FhOJXag@mail.gmail.com>
+Date: Wed, 30 Sep 2026 23:05:32 +0200
+X-Gmail-Original-Message-ID: <CAD++jLmt=anvUFgBiJ+_fCanJNDUjYBXTnzG+5RznVhSRPLssg@mail.gmail.com>
+X-Gm-Features: AclHuK8POyE_ScdYrWu5hccCf2RiateK4KazdH0tAmqAHtpYIkfp2xNzMS6U_C4
+Message-ID: <CAD++jLmt=anvUFgBiJ+_fCanJNDUjYBXTnzG+5RznVhSRPLssg@mail.gmail.com>
 Subject: Re: [PATCH v2 11/21] arm64: percpu: Annotate __kern_my_cpu_offset()
  as '__always_inline'
 To: Will Deacon <will@kernel.org>
@@ -86,4 +86,9 @@ On Fri, Sep 18, 2026 at 6:14=E2=80=AFPM Will Deacon <will@kernel.org> wrote=
 > upon to detect stack overflow of the overflow stack from noinstr C code.
 >
 > Signed-off-by: Will Deacon <will@kernel.org>
+
+Reviewed-by: Linus Walleij <linusw@kernel.org>
+
+Yours,
+Linus Walleij
 
