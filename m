@@ -4,51 +4,36 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A2775CA5FB5
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 30 Sep 2026 06:15:33 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3D335CA5FAB
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 30 Sep 2026 06:16:15 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:CC:To:In-Reply-To:References
 	:Message-ID:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=WlhMA+ZDlfAPFlDQJ8STO8ZyPTbu18NIbLTAtajN8kY=; b=Fe75LU9Tv5QPsNiZa31Cn1HZl2
-	cZ58RqdKB8Z8qVcr4xg6vfFZuAn8LQ7DOxB0jtKYMXCQRqCczkhvF6MsHHannWrKb3OstqHHvNdK/
-	Jjzxxds4yfhlj28UZwPNX7wXxTZBxEU2FD3YNF0pjLxKrzrqNT3YWsNQ8lZnK8fjhP1zGemSV6qbW
-	2m8KcoXYwJMJuGckLtkkMYvaROs6ht9RXoLB3o54UWKYk6vAQOt4gO7gRIsm9N9n6Tbvw8OycvsKr
-	s6R7NjalEHbxoXlk0zHedBnpjNSjGSy1p2xAocRKeliNCgV7GEToWmmwPbq+oby3uiWFHoU+naFVR
-	M7frfTFQ==;
+	bh=vZNz0bV+vZ3Qmp+o7qzAnxp/cmAReaBV/YQiK0wlxMA=; b=n/YsTCdWvSNs09JD3uYHsITB0s
+	Ym6akd6qmRTQ2WQAWdQKK2Fz9zGUSUd+pyiY9hByYb5mvios2WbhD/uHbfj4TRJUAykK7gnqX92s2
+	2cQG0o3teT3Vi2Zst3WpeVDntbFzSUXZYM+aP5SDFFOqCNx3T/Ap/f8OVm+fS99hqGM8GU7tfXqpe
+	Xf5UjcLSaLHIRvRhnFAHBoLkDBguqhMsFOP8228DZagPILasojO2L++ZgAXa12tNyqAjIisgCK/eB
+	6S/fYEbbzHFd5cbkqwr4BF1EgDsny8ClgqRSpAU5pW7xpm75qtpr5FlZdkbS8ebLBZurO0dYDQB5Z
+	dwMR/ZUA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xBnbC-000000057S4-110j;
-	Wed, 30 Sep 2026 06:15:26 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1xBnbs-000000057j3-35mT;
+	Wed, 30 Sep 2026 06:16:08 +0000
+Received: from mail-centralusazlp170100005.outbound.protection.outlook.com ([2a01:111:f403:c111::5] helo=DM1PR04CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xBnac-0000000578i-19Tn
-	for linux-arm-kernel@bombadil.infradead.org;
-	Wed, 30 Sep 2026 06:14:50 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=CC:To:In-Reply-To:References:
-	Message-ID:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Sender:Reply-To:Content-ID:Content-Description;
-	bh=WlhMA+ZDlfAPFlDQJ8STO8ZyPTbu18NIbLTAtajN8kY=; b=gN210+6QH0BGj2Pr7Nc8uj5UCj
-	1HBoKBQkamzSiXVdr7XXpIFTMafo+Mht+u7zocwAhfERkiKZvHGrx9jq7hgpVd0NPIgAUE+PKDr/Z
-	+YxOvcejgE9f+zv3YTFyc7suhnbbU5AWWkgV9/kqLnoA3NQEPHjDS/ZGRewruXdWO6aoRHR/c/aV+
-	TmqiFrqXMU9E1MnujvBzsM8NM69XnIbBxhXxeBCaYvbY/XxL8AK22oVT8+y/hy2oLmM7eUufu1QR0
-	kKSKuO0BiNnobSIUb9rW/3WnazRKN9lhoyci1q0AIDy0prQmLAipPuJh7D+QFUY9FPB+Ap6vfiUV3
-	rvRuRGiA==;
-Received: from mail-eastusazlp170120007.outbound.protection.outlook.com ([2a01:111:f403:c101::7] helo=BL0PR03CU003.outbound.protection.outlook.com)
-	by desiato.infradead.org with esmtps (Exim 4.99.2 #2 (Red Hat Linux))
-	id 1xBnaB-00000003P4J-3DUq
+	id 1xBnbp-000000057iK-3qzQ
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 30 Sep 2026 06:14:48 +0000
+	Wed, 30 Sep 2026 06:16:06 +0000
 ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=tllzgc80sywJ0ImJrKzw/nZJZ031Uq6EyCoSfTrCFg6WfsUAc6BPBNQGhsnumTakheAahpnwWW7YodksCg7Tlu80uvqFD7PvRecPUjof9FX/XOjXJ4LaR4h1N8c/hL5I2trJmKQMSPT+uC0zBVZwZhf+1Y6QD+oY4rwZwLEuzD3GSejEGSx+sa4s478aMnIHpZhqIlPng6cTiaHwYyYCp0sVlV5C/ILQIMKI3XhDXr0JR7qr74cnCyey6bhvSqXxCEY0z7clDoFwiAd2jQ+8ZKP45KnEwTgxlsmi4PExRfPT147FcBJn86zC23xy0L2Ry6Q/3CqVlicsN4YKsHiDZw==
+ b=BLh7ywNcYWt6bjAoG+DpJJRkCZ67r8X1g9vkMMBjPqctzx2L4F3B1EyQWyKXtdOlGzhvGAL2V4bcWSFsGDUXv7PXUVn8o9qoYpuq6d3mkR763wHph6e710+q8mr32h3Eu2QdWLbDOAd3eCAOyjDInzWcBDn5WFGLg8QhnA2aY8Zf4o4eu+FxwxaW7Y8wITEEBoNiuhhU0lS6Wcm1CGAhpxOIKmtejnq/fgIdjvgYRRt85RNA8QKS/h9qYje7QHQZyQsIlTG8V213apPFiNyAZhqmDOKjuHbMIe4lnXwrkC7SiwoP2gJ284ePjoXjnT4U+8L+BHM8JNFmt4kGGFTbvQ==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
  s=arcselector10001;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=WlhMA+ZDlfAPFlDQJ8STO8ZyPTbu18NIbLTAtajN8kY=;
- b=Z0A77np+ghremIIlHmpTkC7OUlmjJ2RQTEaOjgLjAN4uQjGoprjJ3teyEUp6dOhZnJ8aYjqzyHHPtZUT2cvyu5jEjKytqVG5XzhxBoZXNmV7XmHKNr0dHurhDIj5pXkLFxwmD3nZFgzyUsPpyZdo1MUiJTBbmozTcbzbxeKN+OzmASig3ZzBWerXVn0OoFKpWvTS88ne2xzEYL3YjymT5gbgu/wJO8aUrFx7ch2Cs5hZxHa9vPt6NkIYYjMAIcafXaPTaNGSxy9Wk+ahMNnlWR5H3wtE8WXy7/t7TW2OxADsa4tVl38lH2Ti67noD5hJK6iVyJ4Kxn4d75rEOu2K8g==
+ bh=vZNz0bV+vZ3Qmp+o7qzAnxp/cmAReaBV/YQiK0wlxMA=;
+ b=ijDeQNn8zfoqZ2Qw6PNFYaeV5rxA5CjD0gk1dqLwnJthIwmH5O29L5f+1nSdvXNlUnSKT73WJHeXGJuwLl2fbbJEr95w655l1jTXs7YJrk9y3/M/CQ93t0BKMuqv/XXvcV9Ks7mobe6t5iF7pdr9tIu+Qs7paTg+8CHSRGKoHIyaNiPfoJ2rzQjKsCC6vtM2ZzaQNPz4WdHaWHZNo/+ZTt0ALOB+FN+XS3v7ANxNwgFDpIXcN5zGaCDOqVCt3WGWUpz7RFPQG4gq569WwAwMzEXNpQUHM3QNoLI9H1dTrm/AVxqixzc9u7TQzvIm4s32Jco5fGZ81m+4ZXkGCGDBqg==
 ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=softfail (sender ip
  is 165.204.84.17) smtp.rcpttodomain=vger.kernel.org smtp.mailfrom=gmail.com;
  dmarc=fail (p=none sp=quarantine pct=100) action=none header.from=gmail.com;
@@ -56,42 +41,42 @@ ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=softfail (sender ip
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
  d=amdcloud.onmicrosoft.com; s=selector1-amdcloud-onmicrosoft-com;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=WlhMA+ZDlfAPFlDQJ8STO8ZyPTbu18NIbLTAtajN8kY=;
- b=d3eI2Cby8izOk2vzuIipsn2x4Mul6i4oOmiOe9PcbLjts4OB+blK26hdrxTbq2uE0UXwdxDd+e0BLGhBR1p1QmU5HRtPWAg+Lxf4f6utkRSg0kP/Wcf5/IZ9i5UkRGeFj5WMxOAnJL47qcvBViWoZojp0kZN1rBKwL3mPQG2lrFpZ8nu1+sKLmK4Odxc9ANvAYnVOHkdOMOexAcDz+Ib52YfYZltKDhAiR4oS5KwmDXJpCGdn+GsVoxK/pGF1BZor29UmAy40/PpYJ/gwFTCJlXG58jtnJudRrMHhqGIIQLl6QNemLP/JC7Q7c7t8SzTiTRmC6Q0SzbrkSomBB9Aww==
-Received: from BN0PR07CA0023.namprd07.prod.outlook.com (2603:10b6:408:141::6)
- by BN5PR12MB9509.namprd12.prod.outlook.com (2603:10b6:408:2a8::12) with
+ bh=vZNz0bV+vZ3Qmp+o7qzAnxp/cmAReaBV/YQiK0wlxMA=;
+ b=pyIiAzZhW6BvHFj+qYcSk21Ro09t2U7/AwDm6nfbzjivtXSKJtwNKDRrBADy6Q8vYXxp/zX1J24r0pfhCKTd3LdTI9YTvBDh6YmyhT3ACpU6XF2EGCRQspi/41msNk++UwIOdHgPj8nmC2ueA/4kkqTFm179VJQYDIzlqSjfHV1jAnf2a5ngMG7ncr2/8JYxCOuypXEy+gqp1zj9R7t3wb4v9xkvI0WMAT4E05AvXeyN4i7u0rI36DG/d8a6x6adx7Gz1C3Q2Cmj3/0/oBG3YoMlR3N/3p7cCZxrHabUzaNtCGVmJ0b1c8wmltLuWkLXJEkYb/RzI461zRoFMI88qA==
+Received: from BN0PR02CA0041.namprd02.prod.outlook.com (2603:10b6:408:e5::16)
+ by DS5PPF7B9F1F8E0.namprd12.prod.outlook.com (2603:10b6:f:fc00::656) with
  Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.451.24; Wed, 30 Sep
- 2026 06:14:15 +0000
-Received: from BL6PEPF0002256E.namprd02.prod.outlook.com
- (2603:10b6:408:141:cafe::30) by BN0PR07CA0023.outlook.office365.com
- (2603:10b6:408:141::6) with Microsoft SMTP Server (version=TLS1_3,
- cipher=TLS_AES_256_GCM_SHA384) id 15.21.472.14 via Frontend Transport; Wed,
- 30 Sep 2026 06:14:15 +0000
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.472.15; Wed, 30 Sep
+ 2026 06:14:21 +0000
+Received: from BL6PEPF00022572.namprd02.prod.outlook.com
+ (2603:10b6:408:e5:cafe::40) by BN0PR02CA0041.outlook.office365.com
+ (2603:10b6:408:e5::16) with Microsoft SMTP Server (version=TLS1_3,
+ cipher=TLS_AES_256_GCM_SHA384) id 15.21.472.15 via Frontend Transport; Wed,
+ 30 Sep 2026 06:14:21 +0000
 X-MS-Exchange-Authentication-Results: mx.microsoft.com 1; spf=softfail (sender
  IP is 165.204.84.17) smtp.mailfrom=gmail.com; dkim=none (message not signed)
  header.d=none;dmarc=fail action=none header.from=gmail.com;
 Received-SPF: SoftFail (protection.outlook.com: domain of transitioning
  gmail.com discourages use of 165.204.84.17 as permitted sender)
 Received: from satlexmb07.amd.com (165.204.84.17) by
- BL6PEPF0002256E.mail.protection.outlook.com (10.167.249.36) with Microsoft
+ BL6PEPF00022572.mail.protection.outlook.com (10.167.249.40) with Microsoft
  SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.21.472.14 via Frontend Transport; Wed, 30 Sep 2026 06:14:15 +0000
+ 15.21.451.8 via Frontend Transport; Wed, 30 Sep 2026 06:14:21 +0000
 Received: from satlexmb07.amd.com (10.181.42.216) by satlexmb07.amd.com
  (10.181.42.216) with Microsoft SMTP Server (version=TLS1_2,
  cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.49; Wed, 30 Sep
- 2026 01:14:14 -0500
+ 2026 01:14:20 -0500
 Received: from [127.0.1.1] (10.180.168.240) by satlexmb07.amd.com
  (10.181.42.216) with Microsoft SMTP Server id 15.2.2562.49 via Frontend
- Transport; Wed, 30 Sep 2026 01:14:11 -0500
+ Transport; Wed, 30 Sep 2026 01:14:17 -0500
 From: Colin Huang <u8813345@gmail.com>
-Date: Wed, 30 Sep 2026 14:10:20 +0800
-Subject: [PATCH v9 12/15] ARM: dts: aspeed: anacapa: Add NCT7363 fan
- controllers
+Date: Wed, 30 Sep 2026 14:10:22 +0800
+Subject: [PATCH v9 14/15] ARM: dts: aspeed: anacapa: Update EDSFF power
+ status signals
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-ID: <20260930-anacapa-devlop-phase-devicetree-v9-12-f08aa0d7182d@gmail.com>
+Message-ID: <20260930-anacapa-devlop-phase-devicetree-v9-14-f08aa0d7182d@gmail.com>
 References: <20260930-anacapa-devlop-phase-devicetree-v9-0-f08aa0d7182d@gmail.com>
 In-Reply-To: <20260930-anacapa-devlop-phase-devicetree-v9-0-f08aa0d7182d@gmail.com>
 To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
@@ -100,40 +85,40 @@ To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
 	Billy Tsai <billy_tsai@aspeedtech.com>
 CC: <devicetree@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
 	<linux-aspeed@lists.ozlabs.org>, <linux-kernel@vger.kernel.org>,
-	<colin.huang2@amd.com>, Colin Huang <u8813345@gmail.com>, Carl Lee
-	<carl.lee@amd.com>
+	<colin.huang2@amd.com>, Colin Huang <u8813345@gmail.com>, Rex Fu
+	<rex.fu.amd@gmail.com>
 X-Mailer: b4 0.14.3
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1790748641; l=3004;
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1790748641; l=2275;
  i=u8813345@gmail.com; s=20260202; h=from:subject:message-id;
- bh=EoPr1aSRvbTxwXKGNXjM5OoMC9gmzjxA/4Buu1Z8hh4=;
- b=ZgpTnRBKMVdCgrfP+d1Fhi4wEYlHPXXkWzHL9SOr0guA6oBVWqkhrla+OcPsGCK02yjpOC0Ho
- Bo/OAcZNgpCB6b1f5jHBouEsNWzKe3RA2uEM7EpAvQlQzsjLL+4r+4k
+ bh=d+gbUKigG+QOjzKWdxSqXUiSGxAxf7F3rrx3mar7v7E=;
+ b=dYZiads6ffHuNUzC6jU5MhSXVA28KaRbeWL0v5RMkXzYnxqKZmaD9+4GZMbRAxDNntHvXd9gk
+ 9s40f7zJnuiD8wy/qeBejQ5LTNEtsDzq0KDTwfl1FnnpQfZtUuYVxvv
 X-Developer-Key: i=u8813345@gmail.com; a=ed25519;
  pk=Zlg0WqpCw4qbswOqamTBTXIchwR/3SnYZpy7rjaGMdQ=
 X-EOPAttributedMessage: 0
 X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: BL6PEPF0002256E:EE_|BN5PR12MB9509:EE_
-X-MS-Office365-Filtering-Correlation-Id: e1d83bb4-8c4c-449c-9b08-08df1eba0dee
+X-MS-TrafficTypeDiagnostic: BL6PEPF00022572:EE_|DS5PPF7B9F1F8E0:EE_
+X-MS-Office365-Filtering-Correlation-Id: 3f3e0884-ffd4-4245-9538-08df1eba1173
 X-MS-Exchange-SenderADCheck: 2
 X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|82310400026|7093399015|48200799018|35950700016|61400799027|7416014|376014|10067099003|11063799006|56012099006|4128699003|22082099003|16102099003|18002099003;
-X-Microsoft-Antispam-Message-Info: HakXxpVQPGFj6mQnRyeTB5dl6mVkchx0SFmobIdac0jHS4ItENNsRRAv2Bb5V7rv14Ls1pTC0WtxJq0p9RBzpPpxemyzX4nSCb7ix4TmcRwvz9vszkQeC0QZLFyqUQu+3EnU85tbCRttpW2u44DqGwJrmX+auF3GIEzah3aNX8ymLCLFx+gSgui4XCkN9Ti5OdBEvty2gYt5fCYEbsC6OhrocF5K+FkiFt7bGCeWA6yxJlU+aT8tuEWHiCbBekX21bzuD3XQjVAs2F4Wgzs6K2EuGSVr5yTRe8wX3R/6g8uCA4zX5cNlIQoqETdtiJjvCBhG4qXQdk6MaumfJ0rrH234cRveuy5Az0prbSjPRJkBj80Yvmsi+Nmtd09pwYq6bWEAKgWude41MaE6dRduByIixVm9cclgxRHpop3mgwNfwIDJ1YiiIzToc7TgSbDVV6i9J47isZ0GSugI48nrlxuphgj6Hw3x8m/hCcQqOK5OwjyRgDSnrk4Wx9SZRTA/g4ZDintx2VzKRRHiQLyb7HWVyQbmpIxrJ+FylrllPApP8bbVrZWgN7RD6Vtw9aU9QsEI/FwxfdbFBBfHFWMwDaGs/RY08kazszi9jlpXKQNWUBwGfvxDQLI8LfdaKR56KLDgGXYGAm7lWgNseFAwR8nKDz9YqnbEbUk6M7ynBEYMQ2wDF0WpyqTwBtyGZ9obk08wdwt1dnNQFkcLIc4Oug==
-X-Forefront-Antispam-Report: CIP:165.204.84.17;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:satlexmb07.amd.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(82310400026)(7093399015)(48200799018)(35950700016)(61400799027)(7416014)(376014)(10067099003)(11063799006)(56012099006)(4128699003)(22082099003)(16102099003)(18002099003);DIR:OUT;SFP:1101;
+X-Microsoft-Antispam: BCL:0;ARA:13230040|35950700016|7416014|376014|61400799027|7093399015|82310400026|48200799018|18002099003|16102099003|22082099003|4128699003|10067099003|56012099006|11063799006;
+X-Microsoft-Antispam-Message-Info: cZdW5NO98DIJ1R6y5yMYRDcEhV8ZHkF5jky6iD7Dx/YwR95elKVIqcHZqyvkHFA5Sn3quD4gug2iH/CC+BWcW6JmN6z64NSMV6sfiKZ7Yl7nhbRQ5y8DE7yOHGS9g/ujL+ZpHpdYLlXRvgAzzWhnbnpTlcCiAZOnuxPfm01JoRsQz4XMljyp1mFUpkh20MZwCSMvYKM6nxNCijE3Wut+w40cX0n4zTBW1sos2n+rehwXnvLmqBcl5IMwkz4E17Gg1A75Nxv8+i0G1KtiTu54uXBlYZfkXu6QVw/SDWq0rJFod08fq0CFCAYKjT+CWi4j4dTEua3LpwPuegv9Rnmzf1x1Fqg6qlGXcgby/nMaNUFA4pl6o6UQ0SC1IVKUgrJhV6ysMyklynFtlY/XrvU2SSw9ekObH7dG9C9AQNvKKQUBDJb+AgaFMEOaGy1CaghRqF/FExg7wwKoTTM1pbvqm1ZTZwVutIhgPDNt6komY4LqZOUP9A75qkNrFldwaDZ/6cniNv+bh1etMG6yamRZkiJl81SJI2jDzIje45cJ6/fKT03+48TPMmX/FSiT4u9W+wqMzwLYKBFboTuY0JweCQcSJS+8hNNwNVvIIhosUKxGzGLmQy7zG+mwEENRSOoeGrzsb+nrE+ozygUkmAwh++7bktDnuS5z5sF1BsN++Po71r2HA+HQO4vCuIRzyJ0RkTeQNrS0bLmDOhRbY8hPWg==
+X-Forefront-Antispam-Report: CIP:165.204.84.17;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:satlexmb07.amd.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(35950700016)(7416014)(376014)(61400799027)(7093399015)(82310400026)(48200799018)(18002099003)(16102099003)(22082099003)(4128699003)(10067099003)(56012099006)(11063799006);DIR:OUT;SFP:1101;
 X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: bfeBWN0j03lkyYGT8W99TZvn+Ww9wD3GL9Vxx2z+/ratG/oh47I727bb1vASadJqeRE061PDQr2t55jbfCI906n9Qv3zHr6yhOKm23WcXk8M7DZAxy6rR9v/J6jCgLMHPIFPxFxEdLEeIhUhZ6utBxikjojGMbmhvJhPt6bOv/PGbuaN4PV3aXnvdx0eY+PEJHs4HM74yDTT53+1YBAKj7zVdRgIl91UIeq8mO3Th8PFtl2BUvUcj8ezim/UcmzeXGWe2Vh92tV13ZmPilSlhqyF9FcGouvKrrlB05RiHAfEwyANFT9evbvcjsdsp3C4d5Jp22+rzV+/Cu7lfjGRkI0uvn3+ZytTsyM6s/KIbLq09HwwB1DFbP+RQNyrJAj9LayS7ng7cBU6mk8rUlJZLxOEjgDoAUz2oTQ3GAjsis6eNsniwHYJuI/iDqrpJ61l
+X-MS-Exchange-AntiSpam-MessageData-0: X66szdslFrKaWv7M2HDqwyBZtuV/XblNte+UNrMh7FR45uX5UOiXIWmmdUxzNXSGrC5J1tG1n+yog8lIeeOuWZYFJwn1lF11dHjrIr6Jwep93TGulGJtksjbquCPvqkHZAMmfV4HCJs2H7/v3DS7ZW8yddNSdzawqVGylh1Z6AJSAIZJi82gojq9OKcHr41MHwwxtOotsvkI6AOL6GUhK+DrJUnWuY0QWpiOsY/aGj4+HPjpZC2SX1hg+PBmQwnUb7q3H08oSjRFdy6LB5rE2kY6jAlwJlFmBKfzUFCAZmtTVrXv52hD1RkFCkwJ24786ucQldCDExf/ZGxTFqVu/E0FOpzwuFBWDJDRx+7FacEOtz3Lp2GPXtIC6tdH/64X4qRT5CmxZYXNi10hhOA5L+uLNSLO7PqBZ80WM4nCsqWzkSX7ZInbZlD7ju0Cs/Ol
 X-OriginatorOrg: amdcloud.onmicrosoft.com
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 30 Sep 2026 06:14:15.5951
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 30 Sep 2026 06:14:21.4997
  (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: e1d83bb4-8c4c-449c-9b08-08df1eba0dee
+X-MS-Exchange-CrossTenant-Network-Message-Id: 3f3e0884-ffd4-4245-9538-08df1eba1173
 X-MS-Exchange-CrossTenant-Id: 3dd8961f-e488-4e60-8e11-a82d994e183d
 X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=3dd8961f-e488-4e60-8e11-a82d994e183d;Ip=[165.204.84.17];Helo=[satlexmb07.amd.com]
-X-MS-Exchange-CrossTenant-AuthSource: BL6PEPF0002256E.namprd02.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthSource: BL6PEPF00022572.namprd02.prod.outlook.com
 X-MS-Exchange-CrossTenant-AuthAs: Anonymous
 X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: BN5PR12MB9509
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: DS5PPF7B9F1F8E0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260930_071446_947132_B59C162E 
-X-CRM114-Status: GOOD (  11.97  )
+X-CRM114-CacheID: sfid-20260929_231605_962258_FAFD0AFB 
+X-CRM114-Status: GOOD (  10.65  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -148,139 +133,74 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Carl Lee <carl.lee@amd.com>
+From: Rex Fu <rex.fu.amd@gmail.com>
 
-Add two NCT7363 fan-controller nodes on Anacapa I2C mux
-channels and define their PWM/tach channel mappings.
+The CPLD definition for the EDSFF power status signals has changed
+from PG to FLT. Update the corresponding SGPIO line names to match
+the CPLD definition.
 
-This matches the fan-control hardware layout and allows the
-kernel to probe the correct fan-controller devices.
-
-Signed-off-by: Carl Lee <carl.lee@amd.com>
+Signed-off-by: Rex Fu <rex.fu.amd@gmail.com>
 ---
- .../aspeed/aspeed-bmc-facebook-anacapa-evt2.dtsi   | 102 +++++++++++++++++++++
- 1 file changed, 102 insertions(+)
+ arch/arm/boot/dts/aspeed/aspeed-bmc-facebook-anacapa-dvt.dtsi  | 10 +++++-----
+ arch/arm/boot/dts/aspeed/aspeed-bmc-facebook-anacapa-evt2.dtsi | 10 +++++-----
+ 2 files changed, 10 insertions(+), 10 deletions(-)
 
+diff --git a/arch/arm/boot/dts/aspeed/aspeed-bmc-facebook-anacapa-dvt.dtsi b/arch/arm/boot/dts/aspeed/aspeed-bmc-facebook-anacapa-dvt.dtsi
+index 3b3967b47980..698308049c38 100644
+--- a/arch/arm/boot/dts/aspeed/aspeed-bmc-facebook-anacapa-dvt.dtsi
++++ b/arch/arm/boot/dts/aspeed/aspeed-bmc-facebook-anacapa-dvt.dtsi
+@@ -162,7 +162,7 @@ &sgpiom0 {
+ 	"L_PRSNT_EDSFF1_N", "",
+ 	"R_PRSNT_EDSFF2_N", "",
+ 	"R_PRSNT_EDSFF3_N", "",
+-	"HPM_EDSFF_PG", "",
++	"EDSFF_BOOT_FLT", "",
+ 	"", "",
+ 	"P12V_PWR_CABLE_PRSNT_L_R", "FM_BMC_READY_PLD",
+ 	"PRSNT_NFC_BOARD_R", "",
+@@ -208,10 +208,10 @@ &sgpiom0 {
+ 	"PDB_ALERT_R_N", "",
+ 
+ 	/* L0-L7 line 176-191 */
+-	"L_EDSFF0_PG", "",
+-	"L_EDSFF1_PG", "",
+-	"R_EDSFF2_PG", "",
+-	"R_EDSFF3_PG", "",
++	"L_EDSFF0_FLT", "",
++	"L_EDSFF1_FLT", "",
++	"R_EDSFF2_FLT", "",
++	"R_EDSFF3_FLT", "",
+ 	"HPM_CPLD_HEART_BIT", "",
+ 	"RBB_CPLD_HEART_BIT", "",
+ 	"LBB_CPLD_HEART_BIT", "",
 diff --git a/arch/arm/boot/dts/aspeed/aspeed-bmc-facebook-anacapa-evt2.dtsi b/arch/arm/boot/dts/aspeed/aspeed-bmc-facebook-anacapa-evt2.dtsi
-index 5f849bd21fe0..f546a7b5786a 100644
+index 5c0d874fa24a..766aa26b6cea 100644
 --- a/arch/arm/boot/dts/aspeed/aspeed-bmc-facebook-anacapa-evt2.dtsi
 +++ b/arch/arm/boot/dts/aspeed/aspeed-bmc-facebook-anacapa-evt2.dtsi
-@@ -25,6 +25,52 @@
- &i2c8 {
- 	i2c-mux@72 {
- 		i2c@0 {
-+			fanctl1: fan-controller@21 {
-+				compatible = "nuvoton,nct7363";
-+				reg = <0x21>;
-+				#pwm-cells = <2>;
-+
-+				fan-0 {
-+					pwms = <&fanctl1 6 40000>;
-+					tach-ch = /bits/ 8 <0x00>;
-+				};
-+
-+				fan-2 {
-+					pwms = <&fanctl1 9 40000>;
-+					tach-ch = /bits/ 8 <0x02>;
-+				};
-+
-+				fan-3 {
-+					pwms = <&fanctl1 9 40000>;
-+					tach-ch = /bits/ 8 <0x03>;
-+				};
-+
-+				fan-5 {
-+					pwms = <&fanctl1 12 40000>;
-+					tach-ch = /bits/ 8 <0x05>;
-+				};
-+
-+				fan-6 {
-+					pwms = <&fanctl1 12 40000>;
-+					tach-ch = /bits/ 8 <0x06>;
-+				};
-+
-+				fan-9 {
-+					pwms = <&fanctl1 0 40000>;
-+					tach-ch = /bits/ 8 <0x09>;
-+				};
-+
-+				fan-10 {
-+					pwms = <&fanctl1 0 40000>;
-+					tach-ch = /bits/ 8 <0x0a>;
-+				};
-+
-+				fan-15 {
-+					pwms = <&fanctl1 6 40000>;
-+					tach-ch = /bits/ 8 <0x0f>;
-+				};
-+			};
-+
- 			gpio@24 {
- 				gpio-line-names =
- 					"RPDB_EAM2_PRSNT_MOS_N_R", "RPDB_EAM3_PRSNT_MOS_N_R",
-@@ -64,6 +110,62 @@ power-monitor@45 {
- 		};
+@@ -370,7 +370,7 @@ &sgpiom0 {
+ 	"L_PRSNT_EDSFF1_N", "",
+ 	"R_PRSNT_EDSFF2_N", "",
+ 	"R_PRSNT_EDSFF3_N", "",
+-	"HPM_EDSFF_PG", "",
++	"EDSFF_BOOT_FLT", "",
+ 	"", "",
+ 	"", "FM_BMC_READY_PLD",
+ 	"PRSNT_NFC_BOARD_R", "",
+@@ -416,10 +416,10 @@ &sgpiom0 {
+ 	"PDB_ALERT_R_N", "",
  
- 		i2c@1 {
-+			fanctl0: fan-controller@23 {
-+				compatible = "nuvoton,nct7363";
-+				reg = <0x23>;
-+				#pwm-cells = <2>;
-+
-+				fan-0 {
-+					pwms = <&fanctl0 6 40000>;
-+					tach-ch = /bits/ 8 <0x00>;
-+				};
-+
-+				fan-2 {
-+					pwms = <&fanctl0 9 40000>;
-+					tach-ch = /bits/ 8 <0x02>;
-+				};
-+
-+				fan-3 {
-+					pwms = <&fanctl0 9 40000>;
-+					tach-ch = /bits/ 8 <0x03>;
-+				};
-+
-+				fan-5 {
-+					pwms = <&fanctl0 12 40000>;
-+					tach-ch = /bits/ 8 <0x05>;
-+				};
-+
-+				fan-6 {
-+					pwms = <&fanctl0 12 40000>;
-+					tach-ch = /bits/ 8 <0x06>;
-+				};
-+
-+				fan-9 {
-+					pwms = <&fanctl0 0 40000>;
-+					tach-ch = /bits/ 8 <0x09>;
-+				};
-+
-+				fan-10 {
-+					pwms = <&fanctl0 0 40000>;
-+					tach-ch = /bits/ 8 <0x0a>;
-+				};
-+
-+				fan-12 {
-+					pwms = <&fanctl0 3 40000>;
-+					tach-ch = /bits/ 8 <0x0c>;
-+				};
-+
-+				fan-13 {
-+					pwms = <&fanctl0 3 40000>;
-+					tach-ch = /bits/ 8 <0x0d>;
-+				};
-+
-+				fan-15 {
-+					pwms = <&fanctl0 6 40000>;
-+					tach-ch = /bits/ 8 <0x0f>;
-+				};
-+			};
-+
- 			gpio@24 {
- 				gpio-line-names =
- 					"LPDB_P50V_FAN0_R2_PG","LPDB_P50V_FAN1_R2_PG",
+ 	/* L0-L7 line 176-191 */
+-	"L_EDSFF0_PG", "",
+-	"L_EDSFF1_PG", "",
+-	"R_EDSFF2_PG", "",
+-	"R_EDSFF3_PG", "",
++	"L_EDSFF0_FLT", "",
++	"L_EDSFF1_FLT", "",
++	"R_EDSFF2_FLT", "",
++	"R_EDSFF3_FLT", "",
+ 	"HPM_CPLD_HEART_BIT", "",
+ 	"RBB_CPLD_HEART_BIT", "",
+ 	"LBB_CPLD_HEART_BIT", "",
 
 -- 
 2.34.1
