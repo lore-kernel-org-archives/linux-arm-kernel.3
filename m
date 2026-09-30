@@ -4,67 +4,67 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 72BBACA5FC8
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 30 Sep 2026 13:21:10 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 08DCACA5FC5
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 30 Sep 2026 13:21:59 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
 	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=6IzQF+Q+mst0ME7ROJtfUb5Jcpg0Z1nzhB6w2uJrJos=; b=cQgQ6gs6IiZKXOOBRXeb9YltjF
-	DjPUEIuAZ8J8mXMI2oE7dcAz6DoxFL38NWUwqQJyXqkNWZYqBIpCDrYd43IItI+7js92l4Znwly1K
-	AnvhAUS4ypVyLNC7EmDKSn+PocKpfMpw8O3HzoET62WSHimyUu9o2327w9D4UhjI5lfnKuYdYk6lq
-	relkPqojtoNIKB3pLjnWSaamfTLmr7JyyrZpnC0PY5F2yD7RWJtXF/5jCpPbe1bFB1Ue4IrdoUJuC
-	N11f10XSMtu1fUO7keYG1k3PhgiUpcx7Bpu93ZH8ueOozaiwj97NN7HAClbpd6tPbKBR3uSxlKxQF
-	p39wuDYg==;
+	bh=wZJmLfEfCXYjoCzTqdd4D4IU51K1LeQ0vlEIkGanjNg=; b=n1fsJoOhtozpq0ZTP6EZw3LaYN
+	OJolVoUY3TG+uyQuTJO9EOihBTApixJnyr+5EP27lshsdGM61CxOgFhPkPxqAp3LF94WhOR+uJ0Og
+	vEL5+6ulmvpos56d4HpqKPTW5GyT0VC4xywdTpilePxl/8KYR9YRytzrmsZOTsys/B6qAKH7e5hoC
+	aNtsizRkXF5JPL/QFIwbPNyilHhpRMyWDBqOaoMfB46ru1P+OX1hg4xzvddAgrrIYm+QmSf3P9Zf4
+	CB7DG0C5Ump+7oqyTKEZwDASYgrG6S+MeXhkbNaTVdCCIlrMW3S7Yz4MP27DZMDBpgcpNHFumGIV4
+	/4zMMDmQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xBuF5-000000067GK-2Wei;
-	Wed, 30 Sep 2026 13:21:03 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1xBuFs-000000067Of-3LDk;
+	Wed, 30 Sep 2026 13:21:52 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xBuF1-000000067F9-1b8f
+	id 1xBuFq-000000067OC-3mVu
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 30 Sep 2026 13:21:02 +0000
+	Wed, 30 Sep 2026 13:21:50 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 2732E43255
-	for <linux-arm-kernel@lists.infradead.org>; Wed, 30 Sep 2026 13:20:59 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 0C2471F00898
-	for <linux-arm-kernel@lists.infradead.org>; Wed, 30 Sep 2026 13:20:59 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 71576438C4
+	for <linux-arm-kernel@lists.infradead.org>; Wed, 30 Sep 2026 13:21:50 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 562381F00898
+	for <linux-arm-kernel@lists.infradead.org>; Wed, 30 Sep 2026 13:21:50 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1790774459;
-	bh=6IzQF+Q+mst0ME7ROJtfUb5Jcpg0Z1nzhB6w2uJrJos=;
+	s=k20260515; t=1790774510;
+	bh=wZJmLfEfCXYjoCzTqdd4D4IU51K1LeQ0vlEIkGanjNg=;
 	h=References:In-Reply-To:From:Date:Subject:To:Cc;
-	b=i1QB5CNb0e4yAO69gGpeGDQ4+3cNF/GYGIwzLC+sZz6I9I5qUNqY+vCp3ouJ+Nodz
-	 NNkH0b3BWs6psnkxr2EAkO8Y50PaZwvRiQ/oT7/cisZflys68yXDAvp3O4KXyejhZm
-	 CH+TWTcGc0aqXK5hUciE4MvMi4+Xai6/r5lbAEcRxl94G1OFkbR7kX2mnIvVgkRCtR
-	 xfYAgKo4OHuG0XwKOA8IhTMhJGYDTJM4gInwf6w+oPCC6LloOnOQQXoeq9WX9kPX+I
-	 5ivLMv7eur5s+F+a2dY7Amur9JxTfXPH1+mQ0tvlciAK510abinNSr7QyCwV5qMQIe
-	 VPW9P+ZOCw7Bg==
-Received: by mail-lf2-f13.google.com with SMTP id 2adb3069b0e04-5ba37427a3aso1400195e87.2
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 30 Sep 2026 06:20:58 -0700 (PDT)
-X-Forwarded-Encrypted: i=1; AKwUvBynyPqouGTdEURVfjig7WvgJpE66Cup0RXiPMTQXhoKUjn5bSsuYoEYDLrpi3iUZgogfolRxQ42PC1qgJfzzWil@lists.infradead.org
-X-Gm-Message-State: AFq9FYLZMxZufRWXgifNhDeLNILQKZoyClRSvgO17FldRYDnNoJy9Si8
-	OlFO0+/i37VDaf088qiVS0v4mapjc/jxG509LtR1lfpA+UsQ+wCTylq4udLtuI9B5N8SXIrS8Me
-	h6R/zmadXQUvKXSQo3ZuN8Ci2fTF4Xko=
-X-Received: by 2002:a05:6512:67da:b0:5b8:d9ce:1d88 with SMTP id
- 2adb3069b0e04-5ba405f5e1bmr513623e87.29.1790774457839; Wed, 30 Sep 2026
- 06:20:57 -0700 (PDT)
+	b=ID78kKzRdVuD0vOY0tb9F6hE5AypyIV35VXl/0TB81aW0KHwIN5+n6sU+GTCqQo22
+	 zevVzKiTAGXxkdcZw20zUWzWjtqLRox6z2840aLqZUoaSzH8+vJJ2ysDYvvmCn6JBy
+	 3+wpaJAa+8FTC6nuJsYtylLcqW2drm8hpoq4e/V3zbdfyQnfw4A6woBxpcUz9btCfZ
+	 MbSn9Ny9SeR6GSEh4orWEwKXooBbUCTwbGuUr7O3nlu7y9Is1tfmeiKtkBfY/ldlNR
+	 TqoyyV4EVgBe6EQPT8zP8LvUX2ArIjyPlchgk90p6WBk17c5Gs4NEb7L4rJcv9SVox
+	 pxYV7GOmr67og==
+Received: by mail-lr2-f12.google.com with SMTP id 38308e7fff4ca-3a59bc470d6so51487201fa.0
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 30 Sep 2026 06:21:50 -0700 (PDT)
+X-Forwarded-Encrypted: i=1; AKwUvByRwSWOhfvxyWhKgcKXJiX4r11YFSqkD2vGQCLkudF4bAcKUpjGD+DKBT8f5v0XdypK04arMt572ah1ihEoyKAR@lists.infradead.org
+X-Gm-Message-State: AFq9FYKGoaTq1m8YUObDQ34g0mkSj1mX013FyGOu/QFYerj3Hf+glpTz
+	uXWtvDFQrOguPGSojDMlaIlXbpnSqjoi48MknYf2iCFM6ckhRWGVZJtcPJJTX409lwjvmPW5BsT
+	8H4ob68QqD9UvFAYqCUaDrzBnhmDcohs=
+X-Received: by 2002:a2e:a550:0:b0:3a5:b6af:2973 with SMTP id
+ 38308e7fff4ca-3a779170e26mr4566541fa.5.1790774509117; Wed, 30 Sep 2026
+ 06:21:49 -0700 (PDT)
 MIME-Version: 1.0
-References: <20260917211323.i.101-kees@kernel.org>
-In-Reply-To: <20260917211323.i.101-kees@kernel.org>
+References: <20260917211446.i.153-kees@kernel.org>
+In-Reply-To: <20260917211446.i.153-kees@kernel.org>
 From: Linus Walleij <linusw@kernel.org>
-Date: Wed, 30 Sep 2026 15:20:45 +0200
-X-Gmail-Original-Message-ID: <CAD++jL=sN7Pq9cyoNbv7-7WQgFzUUb7uPT99E7z4CvbkpfQuVQ@mail.gmail.com>
-X-Gm-Features: AclHuK_84YC7Bc4GJIIPmMM0TRscaoNjNwKwonpkM8TVCPVhw3xp987UXfg7Btw
-Message-ID: <CAD++jL=sN7Pq9cyoNbv7-7WQgFzUUb7uPT99E7z4CvbkpfQuVQ@mail.gmail.com>
-Subject: Re: [PATCH] pinctrl: mediatek: Fix eint->base allocation type
+Date: Wed, 30 Sep 2026 15:21:37 +0200
+X-Gmail-Original-Message-ID: <CAD++jL=TbxyEiZUhPYtqiXBJTekvE7g8uSqwLbuALj7Y1iso4A@mail.gmail.com>
+X-Gm-Features: AclHuK9we1Pkw_SnEX45VNI9ZkjWr3vMHJERGZiaBSgi6q9Y8UmCTh3tVaYbMI8
+Message-ID: <CAD++jL=TbxyEiZUhPYtqiXBJTekvE7g8uSqwLbuALj7Y1iso4A@mail.gmail.com>
+Subject: Re: [PATCH] pinctrl: imx: Remove const from group_names allocation type
 To: Kees Cook <kees@kernel.org>
-Cc: Sean Wang <sean.wang@kernel.org>, Kees Cook <kees+treewide@kernel.org>, 
-	Matthias Brugger <matthias.bgg@gmail.com>, 
-	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, 
-	linux-mediatek@lists.infradead.org, linux-gpio@vger.kernel.org, 
+Cc: Dong Aisheng <aisheng.dong@nxp.com>, Kees Cook <kees+treewide@kernel.org>, 
+	Fabio Estevam <festevam@gmail.com>, Frank Li <Frank.Li@nxp.com>, Jacky Bai <ping.bai@nxp.com>, 
+	Pengutronix Kernel Team <kernel@pengutronix.de>, NXP S32 Linux Team <s32@nxp.com>, 
+	Sascha Hauer <s.hauer@pengutronix.de>, linux-gpio@vger.kernel.org, imx@lists.linux.dev, 
 	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
 	linux-hardening@vger.kernel.org
 Content-Type: text/plain; charset="UTF-8"
@@ -83,7 +83,7 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Sep 17, 2026 at 11:13=E2=80=AFPM Kees Cook <kees@kernel.org> wrote:
+On Thu, Sep 17, 2026 at 11:14=E2=80=AFPM Kees Cook <kees@kernel.org> wrote:
 
 > From: Kees Cook <kees+treewide@kernel.org>
 >
@@ -93,15 +93,14 @@ On Thu, Sep 17, 2026 at 11:13=E2=80=AFPM Kees Cook <kees@kernel.org> wrote:
 > would always return "void *", which can be implicitly cast to any
 > pointer type.)
 >
-> This allocates the single-entry array that mtk-eint expects (nbase is
-> set to 1). The assigned type is "void __iomem **", but the converted
-> allocation type would be "void __iomem ***", as the size was taken from
-> "pctl->eint->base" itself rather than from what it points at. Luckily
-> "void __iomem **" and "void __iomem *" are the same size. Take the size
-> from the pointed-at type to match the assignment.
+> The assigned type is "const char **", but the converted allocation type
+> would be "const char * const *", as the size was taken from
+> "*func->groups", whose type "const char * const" is const qualified. As
+> there is no general way to remove const qualifiers, take the size from
+> the assignment target instead. No change in allocation size results.
 >
 > Build tested ARCH=3Dx86_64 allmodconfig with GCC 16.2.0:
-> drivers/pinctrl/mediatek/pinctrl-mtk-common.o
+> drivers/pinctrl/freescale/pinctrl-imx.o
 >
 > Assisted-by: LLM coccinelle
 > Signed-off-by: Kees Cook <kees+treewide@kernel.org>
