@@ -4,71 +4,72 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 95CFACA5FAC
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 30 Sep 2026 12:35:31 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 37A1ACA5FB1
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 30 Sep 2026 12:38:05 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
-	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=c0RmXNnXCxeVohZ66oOPYxcuOud2wa1FSlJwADS8egM=; b=je9x5j1gf13UuIcB0+Kuo1cA4U
-	kTonZkr36qvIEuHuasjTOd9t4vSLszf9LmxR9J+keEXebRuG1pjKEymWzOL6e50zpzG035MT7atD1
-	eCmDyxDknKuiANiCpFjWYlY6JaZ54oUNnh3v4akzgzEX0xxBE2ltbtQrhgXD1WnKNBgHRR6X9Hnvq
-	9R5dwcV0fzVp+pTwIL2aFBLmB6pEfLHlrRM2WxId6eAjxGoT8KtwYwelTUAbgfyzutUy8b11ZZLlp
-	3fRYLFU2eYuGp0KVk6I9WtJXEGK0yBkj7VJJf9u0Gqkhpur0pdaUXJ0xBazY/h1EqQjzFOoC1CzNj
-	U8m/+BZw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=Hlaiv+oT5Ce6LSMQaIVLOoOP+S+iI50Q6hkVwSrOAME=; b=etvuCafyiyW8h79PU99FQfDFvC
+	ygs6bqdQ50OrxaY+RIF8cotXpJNxLvUCG5mVHZvOG0gm7vTF6Fg7qRFfXxzgZ7y4v27QodxTAWHVr
+	dVLofy8IAcZsJciVFRl2Ge3SzuMIejHV3VPIrnOwuA1nIv5QMdEUIEwShgA8DGDMKrdo71MalizaF
+	NKh+yqfXb8kjhFHexiAOz+4Kxfm5EGEjo2cxM5KcyNCvSex0lEWkQlTgG49FMb3+s6YPr/4/UIaid
+	BbR0Rvn7ffrpkTo1lMeoLeqEtFzMD/Xcal7YvbAhCvXonZ4yGNgtow8ETDZ/DQjDtv79Qp2kETa/q
+	8Pme2EzA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xBtWr-000000060OX-1n1X;
-	Wed, 30 Sep 2026 12:35:21 +0000
-Received: from out-110.mta0.migadu.com ([2001:41d0:1004:224b::6e] helo=mta0.migadu.com)
+	id 1xBtZM-000000060cv-2Z1E;
+	Wed, 30 Sep 2026 12:37:56 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xBtWm-000000060NR-2Otj
+	id 1xBtZL-000000060cb-2CZy
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 30 Sep 2026 12:35:19 +0000
-X-Envelope-To: linux-arm-kernel@lists.infradead.org
-DKIM-Signature: a=rsa-sha256; bh=5jJpaYHmzwnaHuefeCeSgSHSsu0Ck7lHvt0zzvmE6Jk=;
- c=simple/simple; d=linux.dev;
- h=from:to:subject:date:message-id:mime-version:content-type; s=key1;
- t=1790771714; v=1; x=1791376514;
- b=cZ0omPbHlpq92s1zLPZNjNXOXK4Z3KLC4IzVooMwUS5qBvFEUGN4ER1VayEJ0rj2iSbF66RV
- xAXXm6hI6gKk62A2hTqdYvUybfstmjrW8tnckQwCr8Nt7D1cmc+HRRigCm6Frj230/Er/oCmtRi
- qVyIMC5BTDINjIbuSlGYly80=
-X-Envelope-To: linux-arm-kernel@lists.infradead.org
-Received: by smtp.migadu.com with ESMTPS id 5214a99a2885709c;
-	Wed, 30 Sep 2026 12:35:13 +0000
-X-Mizu-Trace-ID: 5214a99a2885709c
-X-Migadu-Flow: FLOW_OUT
-Received: by mail-lf1-f49.google.com with SMTP id 2adb3069b0e04-5b8f42bb8a9so527e87.1
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 30 Sep 2026 05:35:09 -0700 (PDT)
-X-Forwarded-Encrypted: i=1; AKwUvBxfPX9NiQbbkapausKRH6365yJaiv28apRtrRJ9+ox8DAh6NqRB7ArtsPWB1FGuc3dTB+tXR3iuPFIlgR4mRSTd@lists.infradead.org
-X-Gm-Message-State: AFq9FYIBz50Ok3mQ5DcO5X1bAyVA9Fft7GdibTPz+NkGlpgOVK2Ko4P/
-	Qnu9rDYiqdQEqSenJ+Roe/jkL/+oe+G84QE3w63iCVIumXDWoy6vAujHmumYi+8UIbqr874n7Qy
-	Yzm6anCWwXOJcdOxoCNhMw7OWnpo+NI9NIF9sVv+6
-X-Received: by 2002:ac2:4e14:0:b0:5b5:e890:1953 with SMTP id
- 2adb3069b0e04-5ba3d1a32bdmr110742e87.12.1790771708519; Wed, 30 Sep 2026
- 05:35:08 -0700 (PDT)
+	Wed, 30 Sep 2026 12:37:55 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by tor.source.kernel.org (Postfix) with ESMTP id 9332F601DE;
+	Wed, 30 Sep 2026 12:37:54 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 54A6B1F000FF;
+	Wed, 30 Sep 2026 12:37:50 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1790771874;
+	bh=Hlaiv+oT5Ce6LSMQaIVLOoOP+S+iI50Q6hkVwSrOAME=;
+	h=From:To:Cc:Subject:Date;
+	b=Kz6obxPX+CnD24dhp3bVEn9lsdjOlHBCWFVa+zmn3A7gTrCL/pRB/g0rA1Vuel2rX
+	 CHd6Ri0lYggpyjEaIKMyQrMblppb41M3bCmL4kX+shfgtU8IFMAzQTTpkFyZcLLgQe
+	 5upNhRqCQSWGmRzY2M/lholzsPsrdxSs20JeZIq+BTshRzhAgqO+g18Howop2zIaBm
+	 PAEuP7bnchd5PAq8DfLeTQodJ8Lbvb68JuE2mAiTOxZz6W/Rnj+y1jZlpd86Cxlwe7
+	 7jtwfj16MSmcQgeYzb6kCVpatv5qwJsI2tPWNmTGxW5mc0wisfuwbMxJYyqof4JgeN
+	 tlWzJwRSg/qkQ==
+From: "Masami Hiramatsu (Google)" <mhiramat@kernel.org>
+To: Josef Bacik <josef@toxicpanda.com>,
+	"Paul E . McKenney" <paulmck@kernel.org>,
+	Frederic Weisbecker <frederic@kernel.org>,
+	Alexei Starovoitov <ast@kernel.org>,
+	Steven Rostedt <rostedt@goodmis.org>
+Cc: Boqun Feng <boqun@kernel.org>,
+	Masami Hiramatsu <mhiramat@kernel.org>,
+	Mark Rutland <mark.rutland@arm.com>,
+	Peter Zijlstra <peterz@infradead.org>,
+	Thomas Gleixner <tglx@kernel.org>,
+	Daniel Borkmann <daniel@iogearbox.net>,
+	Andrii Nakryiko <andrii@kernel.org>,
+	Puranjay Mohan <puranjay@kernel.org>,
+	rcu@vger.kernel.org,
+	bpf@vger.kernel.org,
+	linux-trace-kernel@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	Andrea Parri <parri.andrea@gmail.com>
+Subject: [PATCH v3 0/1] kprobes: Make optprobe optimizer multi-generational and asynchronous
+Date: Wed, 30 Sep 2026 21:37:47 +0900
+Message-ID: <179077186716.424323.12884899073547396948.stgit@devnote2>
+X-Mailer: git-send-email 2.43.0
+User-Agent: StGit/0.19
 MIME-Version: 1.0
-References: <20260929093548.3598547-1-maz@kernel.org> <cover.1790708299.git.fuad.tabba@linux.dev>
- <e6bf4bc51a311df19866a0ee3e27970846257b70.1790708299.git.fuad.tabba@linux.dev>
- <861pab3p5s.wl-maz@kernel.org>
-In-Reply-To: <861pab3p5s.wl-maz@kernel.org>
-From: Fuad Tabba <fuad.tabba@linux.dev>
-Date: Wed, 30 Sep 2026 13:34:32 +0100
-X-Gmail-Original-Message-ID: <CA+EHjTzP01b4J+ppK9fq-=5Kh-kEfynk0YfDmg57H7NekWHD=Q@mail.gmail.com>
-X-Gm-Features: AclHuK-qXXX5RGymd7eG9Ryi-Ik6oairQlvSl5zFzxSRfF9xO6C1aISVYLK76aY
-Message-ID: <CA+EHjTzP01b4J+ppK9fq-=5Kh-kEfynk0YfDmg57H7NekWHD=Q@mail.gmail.com>
-Subject: Re: [PATCH v1 2/2] KVM: arm64: selftests: Add an ITS MOVALL test
-To: Marc Zyngier <maz@kernel.org>
-Cc: kvmarm@lists.linux.dev, linux-arm-kernel@lists.infradead.org, 
-	Steffen Eiden <seiden@linux.ibm.com>, Joey Gouly <joey.gouly@arm.com>, 
-	Suzuki K Poulose <suzuki.poulose@arm.com>, Oliver Upton <oupton@kernel.org>, 
-	Zenghui Yu <yuzenghui@huawei.com>, Yuchao Zhang <ndaugoing@gmail.com>
-Content-Type: text/plain; charset="UTF-8"
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260930_053517_296273_3768E613 
-X-CRM114-Status: GOOD (  16.23  )
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 8bit
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -83,44 +84,219 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Marc,
+Hi,
 
-On Wed, 30 Sept 2026 at 13:21, Marc Zyngier <maz@kernel.org> wrote:
->
-> On Tue, 29 Sep 2026 20:04:52 +0100,
-> Fuad Tabba <fuad.tabba@linux.dev> wrote:
-> >
-> > Map LPI A to vCPU0's collection and LPI B to vCPU1's, remap vCPU0's
-> > collection to vCPU2 and MOVALL vCPU0's LPIs there, then inject both. A
-> > must be taken on vCPU2 and B on vCPU1. KVM's MAPC handling already moves
-> > A to vCPU2, so only MOVALL handling can move B: without "KVM: arm64:
-> > vgic-its: Fix MOVALL handling of source redistributor", it moves B to
-> > vCPU2 as well.
->
-> MOVALL is about moving the pending bits (see 5.3.13 in the IHI0069H.b
-> spec).  Doing MOVALL first and only then injecting the interrupts
-> doesn't quite check the MOVALL requirement. That doesn't impact KVM
-> itself (we don't use pending tables at all), but you probably don't
-> want to hardcode implementation specific behaviours here.
+Here is the 3rd version of the patch for making the optprobe optimizer
+multi-generational and asynchronous.
 
-Ack.
+The previous version is here:
 
-[...]
->
-> There seem to be a lot of commonality with the existing
-> vgic_lpi_stress test.  I'd rather we make this test the container for
-> most ITS-related tests, instead of coming up with new individual
-> tests.
+  https://lore.kernel.org/all/179040876891.171579.9459626579461679924.stgit@devnote2/
 
-If you think this test is worth having, I'll respin v2 that way.
+In this version:
+- Avoid 100% CPU busy-loop livelock during flushes when a generation is
+  in flight (reported by Sashiko AI review[1]):
+  - Make optprobe_dispatch_generation() return a boolean indicating
+    whether a generation was actually dispatched.
+  - In kprobe_optimizer(), only increment optimizer_passes and wake
+    flushers if actual progress was made (a generation was finalized or
+    dispatched).
+  - In wait_for_kprobe_optimizer_locked(), only wake the optimizer kthread
+    if work can be dispatched or a generation is ready, avoiding wakeups
+    when a generation is merely in-flight waiting for Tasks RCU.
 
-Cheers,
-/fuad
+[1] https://lore.kernel.org/all/179072636063.409480.10967951178575355535.stgit@devnote2/
 
-> Thanks,
->
->         N,
->
-> --
-> Without deviation from the norm, progress is not possible.
+=== How the Asynchronous Multi-Generational Optimizer Works ===
+
+1. Background & Motivation
+--------------------------
+Previously, kprobe_optimizer() executed synchronously:
+- It acquired kprobe_mutex, text_mutex, and cpus_read_lock().
+- It then called synchronize_rcu_tasks() while holding all three locks.
+- Under PREEMPT_LAZY / PREEMPT kernels and CPU-heavy server workloads,
+  synchronize_rcu_tasks() can stall for seconds to minutes waiting for
+  voluntary context switches on all online CPUs.
+- Holding text_mutex and cpus_read_lock() throughout this wait blocked
+  CPU hotplug, module loading/unloading, static keys, and all subsequent
+  kprobe registrations, frequently triggering hung-task watchdogs.
+
+The actual instruction modification (text-patching) takes only
+microseconds. The new optimizer completely decouples instruction patching
+from the Tasks RCU grace period wait using call_rcu_tasks(), dropping all
+locks during the wait.
+
+2. Architecture: Fixed Generational Ring
+----------------------------------------
+To ensure jump optimization never fails with -ENOMEM during tracing,
+a fixed ring of generation slots is used:
+
+  static struct optprobe_generation optprobe_gens[OPTPROBE_GEN_MAX];
+  (OPTPROBE_GEN_MAX = 2)
+
+Each generation struct contains 4 probe lists and tracking state:
+- optimizing_list:
+    Probes waiting to be optimized (jump installed). Text-patching is
+    deferred until after the generation's Tasks RCU grace period.
+- unoptimizing_list:
+    Probes waiting to be unoptimized (jump replaced with breakpoint)
+    prior to entering the grace period.
+- cooling_list:
+    In-use probes whose jumps were unoptimized, cooling down during the
+    Tasks RCU grace period. Holding them on this list keeps
+    list_empty(&op->list) false, preventing concurrent unregister_kprobes()
+    from prematurely freeing the aggregator or detour buffer before
+    preempted tasks exit.
+- freeing_list:
+    Cleaned/unused aggregator probes whose detour slots and memory
+    will be reclaimed after the Tasks RCU grace period completes.
+- rcu:
+    The rcu_head passed to call_rcu_tasks().
+- in_flight / ready:
+    State flags indicating if the generation is currently waiting on
+    Tasks RCU, or if the callback has fired and finalization is pending.
+
+3. The "Waiting Room" Invariant
+-------------------------------
+optprobe_cur_gen points to the current active ingress generation.
+All new optimization, unoptimization, and forced-cleanup requests from
+register_kprobe(), unregister_kprobe(), and kill_optimized_kprobe() are
+queued into optprobe_gens[optprobe_cur_gen].
+
+To ensure an idle generation slot is always available to absorb incoming
+requests without dynamic allocation, the last available generation slot
+is never dispatched while an earlier generation is still in flight
+(optprobe_can_fire() checks active_gens < OPTPROBE_GEN_MAX - 1).
+It acts as a non-blocking "waiting room".
+
+4. Execution Flow of the Optimizer Thread
+-----------------------------------------
+The dedicated optimizer kthread sleeps on kprobe_optimizer_wait and wakes
+when kicked, when a flush is requested, or when an RCU callback completes.
+
+                [ Probes Queued in cur_gen ]
+                            |
+               kprobe_optimizer_thread()
+                            |
+            (batching delay: OPTIMIZE_DELAY)
+                            |
+             kprobe_optimizer() [holds kprobe_mutex]
+             +------------------------------+
+             |                              |
+             v                              v
+   [ Step 1: Finalize ]           [ Step 2: Dispatch ]
+   (for ready generations)        (for cur_gen if can_fire)
+             |                              |
+   - Hold text_mutex & cpus_lock  - Hold text_mutex & cpus_lock
+   - arch_optimize_kprobes()      - arch_unoptimize_kprobes()
+   - do_free_cleaned_kprobes()    - Move in-use to cooling_list
+   - Drain cooling_list           - Advance cur_gen
+   - Drop text_mutex & cpus_lock  - Drop text_mutex & cpus_lock
+   - gen->in_flight = false       - call_rcu_tasks(&gen->rcu)
+             +------------------------------+
+                            |
+                            v
+                  [ Step 3: Notify ]
+                  - If progress:
+                      optimizer_passes++
+                      wake_up_var_locked(optimizer_passes)
+                  - Self-kick if more probes queued
+
+Step 1: Finalize Ready Generations (optprobe_finalize_generation)
+  Runs for any generation where the Tasks RCU callback marked ready = true:
+  1. Briefly acquires text_mutex and cpus_read_lock().
+  2. Calls arch_optimize_kprobes(&gen->optimizing_list) to patch the
+     relative jump into target instructions.
+  3. Releases text_mutex and cpus_read_lock().
+  4. Calls do_free_cleaned_kprobes(&gen->freeing_list) to release detour
+     buffers and free unused aggregator probes.
+  5. Drains gen->cooling_list:
+     - Probes unregistered while in flight (kprobe_unused()) are moved
+       to cur_gen's freeing_list for the next pass.
+     - Probes still in use have their disarming finalized via
+       list_del_init(&op->list), and are queued for re-optimization if
+       still enabled.
+  6. Clears in_flight = false and ready = false, returning the slot to
+     the idle pool.
+
+Step 2: Dispatch the Waiting Room (optprobe_dispatch_generation)
+  If the waiting room has queued probes and active_gens < OPTPROBE_GEN_MAX - 1:
+  1. Briefly acquires text_mutex and cpus_read_lock().
+  2. Calls do_unoptimize_kprobes(): executes arch_unoptimize_kprobes() to
+     replace relative jumps with breakpoints.
+  3. Probes that are unused are moved to gen->freeing_list and removed
+     from the kprobe hash table (hlist_del_rcu).
+  4. Probes still in use are moved to gen->cooling_list.
+  5. Releases text_mutex and cpus_read_lock().
+  6. Advances optprobe_cur_gen to the next generation slot.
+  7. Marks gen->in_flight = true, gen->ready = false.
+  8. Calls call_rcu_tasks(&gen->rcu, optprobe_generation_rcu_cb) and
+     immediately returns. kprobe_mutex is completely released while
+     Tasks RCU runs asynchronously in the background.
+
+Step 3: Pass Completion & Flusher Notification
+  1. If any generation was finalized or dispatched (progress was made),
+     increments optimizer_passes and wakes waiters sleeping on
+     wait_for_kprobe_optimizer().
+  2. If the waiting room still has queued probes and another generation
+     can fire immediately (e.g. sibling probes retrying optimization),
+     it kicks itself for another pass.
+
+5. Concurrency & Preemption Safety (The cooling_list)
+-----------------------------------------------------
+Under CONFIG_PREEMPTION=y, a task can be preempted inside an optprobe detour
+buffer (or the detour template). When a probe is disabled, its jump is
+reverted to an int3 breakpoint, but the detour buffer cannot be freed until
+all preempted tasks have executed a voluntary context switch (Tasks RCU).
+
+Because kprobe_mutex is dropped during the grace period, concurrent
+unregister_kprobes() could run. Previously, unregister_kprobes() checked
+kprobe_disarmed(ap), which evaluates:
+  kprobe_disabled(p) && list_empty(&op->list)
+
+If unoptimized in-use probes were simply detached (list_del_init),
+kprobe_disarmed() would become true prematurely, allowing
+free_aggr_kprobe() to free the detour buffer and kfree(op) while a
+preempted task was still inside the detour buffer.
+
+By placing unoptimized in-use probes onto gen->cooling_list:
+- They are kept off unoptimizing_list so arch_unoptimize_kprobes() will
+  never be called twice on them.
+- list_empty(&op->list) remains false throughout the Tasks RCU grace period.
+- unregister_kprobes() sees !kprobe_disarmed() and defers deleting the
+  aggregator.
+- When optprobe_finalize_generation() runs after the grace period, it
+  safely reclaims or disarms them without any use-after-free window.
+
+6. Flush Synchronization (Andrea Parri's Wait Queue Fix)
+--------------------------------------------------------
+When wait_for_kprobe_optimizer() flushes the optimizer:
+- It checks optprobe_optimizer_busy():
+    optprobe_has_queued_probes() || (optprobe_active_gens_count() > 0)
+- Instead of using a completion (which suffered from concurrent-waiter
+  init_completion() clobber races), it monitors the monotonic counter
+  optimizer_passes.
+- If work can be dispatched or a generation is ready, it wakes the
+  optimizer thread. Otherwise, if a generation is merely in flight, it
+  avoids redundant wakeups.
+- It sleeps via wait_var_event_mutex(&optimizer_passes, ..., &kprobe_mutex).
+  This cleanly releases kprobe_mutex while sleeping and wakes only when
+  actual progress is made, preventing CPU-bound spinloops until all
+  in-flight and queued generations drain.
+
+
+Thank you,
+
+---
+base-commit: 72d3fcf802c45d00b300f25b848a93c3a2bd7c7e
+
+Masami Hiramatsu (Google) (1):
+      kprobes: Make optprobe optimizer multi-generational and asynchronous
+
+
+ kernel/kprobes.c |  420 +++++++++++++++++++++++++++++++++++++++++-------------
+ 1 file changed, 319 insertions(+), 101 deletions(-)
+
+--
+Masami Hiramatsu (Google) <mhiramat@kernel.org>
 
