@@ -4,72 +4,177 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 704D8CA5FCB
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 30 Sep 2026 16:41:47 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7BCCCCA5FC7
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 30 Sep 2026 16:41:52 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=F+z2iI/lisEYSX57g4k79ocQLn4gamyA8THj0rlWDI8=; b=J3jP0NidXtXl/9Vm2qIcBmemhK
-	iu5qK9qsCsBoA6G1iAtkonYDeTRrSKMM26Iy1LAVQCWdplXyUiDqC5IbHYr8ErrFAPjj1vpokRN/f
-	SU+xGP8b90D6bG9aPV+WKURhjzgKkLhdbz3cr9lwNQucbx3h4ku3lAhffQqCPy//aT6Gfd2+ATAbM
-	o+2YlKlepqfOhsjY3FVpojE0E9DZ0BBNq1/yiy1Ej5zdk59CCqlmHkjtgIAtVPFuYtn3ValhJhyLK
-	hJvzVTAolEm9r3x7GuUq9pSOtB24UdWgJt4HGmRxNVQ8M0+yby8BqydzieAmGACw4TGPKIaVNlkpz
-	zQQA+s0g==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
+	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=tR3FNCTnEELyokoaTcoD8mC8vFVY3sUUR1+17nscQeE=; b=Npr2qS5La/l7zBzmsPIpZNQ61+
+	EiBjiQ73E1kPCHtbBE3QIIth/RbbuleJEmyqkmU/jmIHK9Wvge8vrgtzsh4sxERSgpY8yQiAC+lap
+	vwoKwIqM6hKy5x4hRUMV6rVk9WOypPPchxqGStG3740RUiE3mLjPPXeOreaXxcdPc/54Bxj4M4q2w
+	HLbBGALRlvLyLhci81t5X6kHPEHbAQM9jeLPcXI1FOI4VVH1ZqYsBSz3vbdlKT2LFqSeOHHFEbYPV
+	BBO2mJNTQp4pHrNGR9//5rlWr5mB21+mzL1RYePKmDZ6j+iYq3m7sVgDbDKOeonSbmr4/A6nKZElF
+	igRSXMEw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xBxNC-00000006iuA-1faw;
-	Wed, 30 Sep 2026 16:41:38 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xBxN8-00000006itW-3F1z
+	id 1xBwrf-00000006eV1-0xCH;
+	Wed, 30 Sep 2026 16:09:03 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1xBwqV-00000006dvJ-3to2
+	for linux-arm-kernel@bombadil.infradead.org;
+	Wed, 30 Sep 2026 16:07:52 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=Content-Type:Content-Transfer-Encoding
+	:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:CC:To:From:
+	Sender:Reply-To:Content-ID:Content-Description;
+	bh=tR3FNCTnEELyokoaTcoD8mC8vFVY3sUUR1+17nscQeE=; b=Gg9sqAGjVli6Atrq5XXZjgRr8M
+	ZQL6vq2JMXGxYXApRpTuZigcz8oHUuJSM41Wn5htktf7VRdA/fZR3Ox0DKja9l7ZB8eeRYVF2R3bl
+	YZN/I5kzR9ak3OuSFGSjpEtXQCPxkje8yHPXdj8LMnQXWZvk4luqQC0si/zD8wq1Tq5PbMCyyyBrF
+	Y+n38NBp0wnkndUova4aN1+y9Nt+NFvw9xicarVCY8sgygx13Wx9pvFnxN9Cw6W6lDpJOi3B3mt9S
+	2cuxbzoMuQ9yyxtPXLPE/pXJ77hTJWTzKicZ5skL8MpPG802RASRf00UYbAIZge6J3XcG7fBgq7IU
+	FhEkDIWQ==;
+Received: from mx0b-0002e601.pphosted.com ([148.163.154.28])
+	by desiato.infradead.org with esmtps (Exim 4.99.2 #2 (Red Hat Linux))
+	id 1xBwqQ-000000043Cj-3Q7q
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 30 Sep 2026 16:41:36 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 68E8B497;
-	Wed, 30 Sep 2026 09:41:30 -0700 (PDT)
-Received: from [10.57.11.217] (unknown [10.57.11.217])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 521153F85F;
-	Wed, 30 Sep 2026 09:41:30 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1790786493; bh=zIybdkD3SEiIpHFkwMna4obYsUSyKvnYrWjR1/XxsAI=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=bywaKIpClqDxFUujRdn49tJkf6bDl2U1HXjFnnn27wkFTcXfLxpdQMvHoMyU5sH8p
-	 Pznv0wx7zx8UiQml44Jw7YmE0427PiAqVRhqQ8v4gFJEBFum9yURknlyixlaHgu0Z7
-	 PyfPpdgAoHXdlCH0nFjqGdcL3W4GlODRyVA1Fq/A=
-Message-ID: <0c1797bc-0325-44ad-b43f-83353edf81eb@arm.com>
-Date: Wed, 30 Sep 2026 18:41:28 +0200
+	Wed, 30 Sep 2026 16:07:50 +0000
+Received: from pps.filterd (m0374956.ppops.net [127.0.0.1])
+	by mx0b-0002e601.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 68UE1JNC3057439;
+	Wed, 30 Sep 2026 11:07:40 -0500
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com; h=cc
+	:content-transfer-encoding:content-type:date:from:in-reply-to
+	:message-id:mime-version:references:subject:to; s=
+	proofpoint-05-2026; bh=tR3FNCTnEELyokoaTcoD8mC8vFVY3sUUR1+17nscQ
+	eE=; b=iCpJ4RIbfaLubVHlcs2mL7vqJsw4389PPkFZv29K6rDP/xKIGWPzWO87T
+	QI8oyFk8ELSyc3yGX60/La/TWz0dNDuJY5ea7AZy8WgOn9CAD40yP19Ya21hmz+f
+	07WHmRFe+2nKfKGT1cGd7TsvCUz0CCuMNkUVvJA7w2OCDMHDo13jgJYAX6LZiueD
+	zauy138xat7uBrDEO5joYPpuLrI6E8mKIvs+G/Z6OVe0WDzo/s45vwLYe2YleUim
+	rbbdRVRZLwp1+Q9BPQkD80KkBtlTuJLez05OGrif4KSP1QwfczmpXIUTtU1WGMx9
+	p3dO7JanRfCX1ns+SBBnWNQIUBFyA==
+Received: from ch4pr04cu002.outbound.protection.outlook.com (mail-northcentralusazon11013017.outbound.protection.outlook.com [40.107.201.17])
+	by mx0b-0002e601.pphosted.com (PPS) with ESMTPS id 4h0m9fehxu-1
+	(version=TLSv1.3 cipher=TLS_AES_256_GCM_SHA384 bits=256 verify=NOT);
+	Wed, 30 Sep 2026 11:07:39 -0500 (CDT)
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=H7F1f5hWOifC/zGgDZKWcEAPmFDeI7wKWRvWr2/P9g8Cya5vncR7oAz+ca1rAxuT6WZfztWBkNGP94XgIuT3cK1e/5OZQruRaT+xDl3xJuJmwJc9yfBYXDwtNJHVNOkbo2QZsPIolqTayul/uJdNTBONdOmKPqvQ9tUMRZCE9CPbVIV/RoTPoBWGjBQVOcnJaxOhfNjb0rJCLUkSMP5QcfsAam643iOjZWLTwAtZ8oJfFuuauGh5PR5kGVUd5VAoR8EfNB1JoO06MU30S2W3GkdYrGUCidQhN3wU7EeLGHV3/moDDSicOR5oIaKiPUz8g7b4VR3mnwDFiVntfd0XEA==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=tR3FNCTnEELyokoaTcoD8mC8vFVY3sUUR1+17nscQeE=;
+ b=etG/OO2JDA5l2fVNQxd4p2J665cFJWpL/eYSm0FvXtPMZooXomOrml72tJOAIvn0+QX3aVR2FiPxvPrQgza95k1qOfo5CH7pGSq5mkqUYGGQFa1yM4VivJCwnJNTCOiaHQ7Twp0p1sEFM6E3XzutQDTMTO5NCG+bDbMP5MFHDMdq+BgTz0V2wy6QOp0VZH9rXR9eBekCejD3RzxIRVhgEy/bIImYwj/AGhuSr0AaG7RyQZXAQ9y5qz5WKsp2wFod8KyKw7DTAq60liqOzjYTFOcgnJPOoihHPl9RphYxJg0puf94rD2c3rh5HP8HcWzttqub5HXrK3s79cmURA+hBw==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
+ 198.47.21.194) smtp.rcpttodomain=lists.infradead.org smtp.mailfrom=ti.com;
+ dmarc=pass (p=quarantine sp=none pct=100) action=none header.from=ti.com;
+ dkim=none (message not signed); arc=none (0)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+ d=ticloud.onmicrosoft.com; s=selector1-ticloud-onmicrosoft-com;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=tR3FNCTnEELyokoaTcoD8mC8vFVY3sUUR1+17nscQeE=;
+ b=KYWMwlYBicZy4qBiT9WOr7zvmMfbGlPLTDysIgRNWOAjwktKYzlysSy2TXdxFAtHUNrDTMtqEHnSDYBRaif/gwy+yN2qN+8lIVe4HT7oYe5wz5XE2U0yYLbwxd7bpM2iyAwsUVTrCMbb9WDtp9/JlLQrFyUTw1Fktu1JYHU2x/s=
+Received: from BN9PR03CA0074.namprd03.prod.outlook.com (2603:10b6:408:fc::19)
+ by MW4PR10MB6393.namprd10.prod.outlook.com (2603:10b6:303:1ec::12) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.472.7; Wed, 30 Sep
+ 2026 16:07:20 +0000
+Received: from BN3PEPF0000B371.namprd21.prod.outlook.com
+ (2603:10b6:408:fc:cafe::4f) by BN9PR03CA0074.outlook.office365.com
+ (2603:10b6:408:fc::19) with Microsoft SMTP Server (version=TLS1_3,
+ cipher=TLS_AES_256_GCM_SHA384) id 15.21.451.14 via Frontend Transport; Wed,
+ 30 Sep 2026 16:07:11 +0000
+X-MS-Exchange-Authentication-Results: mx.microsoft.com 1; spf=pass (sender IP
+ is 198.47.21.194) smtp.mailfrom=ti.com; dkim=none (message not signed)
+ header.d=none;dmarc=pass action=none header.from=ti.com;
+Received-SPF: Pass (protection.outlook.com: domain of ti.com designates
+ 198.47.21.194 as permitted sender) receiver=protection.outlook.com;
+ client-ip=198.47.21.194; helo=flwvzet200.ext.ti.com; pr=C
+Received: from flwvzet200.ext.ti.com (198.47.21.194) by
+ BN3PEPF0000B371.mail.protection.outlook.com (10.167.243.168) with Microsoft
+ SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.21.496.3 via Frontend Transport; Wed, 30 Sep 2026 16:07:09 +0000
+Received: from DFLE202.ent.ti.com (10.64.6.60) by flwvzet200.ext.ti.com
+ (10.248.192.31) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.45; Wed, 30 Sep
+ 2026 11:06:20 -0500
+Received: from DFLE203.ent.ti.com (10.64.6.61) by DFLE202.ent.ti.com
+ (10.64.6.60) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.45; Wed, 30 Sep
+ 2026 11:06:20 -0500
+Received: from lelvem-mr06.itg.ti.com (10.180.75.8) by DFLE203.ent.ti.com
+ (10.64.6.61) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.45 via Frontend
+ Transport; Wed, 30 Sep 2026 11:06:20 -0500
+Received: from uda0510294.dhcp.ti.com (uda0510294.dhcp.ti.com [10.24.50.162])
+	by lelvem-mr06.itg.ti.com (8.18.1/8.18.1) with ESMTP id 68UG68W63425232;
+	Wed, 30 Sep 2026 11:06:18 -0500
+From: Beleswar Padhi <b-padhi@ti.com>
+To: <nm@ti.com>, <kristo@kernel.org>, <ssantosh@kernel.org>, <afd@ti.com>,
+        <vigneshr@ti.com>, <u-kumar1@ti.com>
+CC: <linux-kernel@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
+        <b-padhi@ti.com>
+Subject: [PATCH v2 03/22] firmware: ti_sci: Move check for ACK into ti_sci_do_xfer()
+Date: Wed, 30 Sep 2026 21:35:48 +0530
+Message-ID: <20260930160607.2674980-4-b-padhi@ti.com>
+X-Mailer: git-send-email 2.34.1
+In-Reply-To: <20260930160607.2674980-1-b-padhi@ti.com>
+References: <20260930160607.2674980-1-b-padhi@ti.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v11 13/13] arm_mpam: detect and enable MPAM-Fb PCC support
-To: Ben Horgan <ben.horgan@arm.com>, Lorenzo Pieralisi
- <lpieralisi@kernel.org>, Hanjun Guo <guohanjun@huawei.com>,
- Sudeep Holla <sudeep.holla@kernel.org>,
- Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
- "Rafael J . Wysocki" <rafael@kernel.org>, Len Brown <lenb@kernel.org>,
- James Morse <james.morse@arm.com>,
- Reinette Chatre <reinette.chatre@intel.com>, Fenghua Yu <fenghuay@nvidia.com>
-Cc: Jonathan Cameron <jic23@kernel.org>,
- Srivathsa L Rao <srivathsa.rao@oss.qualcomm.com>,
- Ganapatrao Kulkarni <ganapatrao.kulkarni@oss.qualcomm.com>,
- Trilok Soni <tsoni@quicinc.com>, Srinivas Ramana <sramana@qti.qualcomm.com>,
- Niyas Sait <niyas.sait@arm.com>, Lee Trager <lee@trager.us>,
- Ritwick Sharma <ritwick.sharma@arm.com>, Gavin Shan <gshan@redhat.com>,
- linux-acpi@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-kernel@vger.kernel.org
-References: <20260924152739.2865510-1-andre.przywara@arm.com>
- <20260924152739.2865510-14-andre.przywara@arm.com>
- <ca45592b-0b63-45ef-8afe-0a6f50eb73bf@arm.com>
-Content-Language: en-GB
-From: Andre Przywara <andre.przywara@arm.com>
-In-Reply-To: <ca45592b-0b63-45ef-8afe-0a6f50eb73bf@arm.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
+Content-Transfer-Encoding: 8bit
+Content-Type: text/plain
+X-EOPAttributedMessage: 0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: BN3PEPF0000B371:EE_|MW4PR10MB6393:EE_
+X-MS-Office365-Filtering-Correlation-Id: 576deacd-afb9-48c7-f3d3-08df1f0ce1e7
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|376014|23010399003|82310400026|36860700016|1800799024|10067099003|6133799003|18002099003|22082099003|56012099006;
+X-Microsoft-Antispam-Message-Info: RXNsz9PewesFakHgsql/fGHt9adodXOlBBR4L0noy+i6DeHVHwr9HHEaXHlU4Tdqi07gOxyawR3Dpq2GwSn5SOVIiUqj42hapaAHrsZZwiGHzIyZaZDwx6y4LAgbVr74R71z5XpbGWvSeieF2XodLsAFKVjiWPEtytLxMMfAwodLsd3XhbSbdD0qm8ZSCEFczzQI8Zx1ooDIx2BhNxmkXWsH+W/LEDkHXovTpisZ6t8YbUvsECP1AI4eJ0y7VOc9khq4J0aubjbEKfatb/ymVXMZBjL94GJbW0fVys/OXdgLF8xOt7LekT3QRDiQafzPcNqCs3mmfYH3WSfEd1UQrq+lHjwL4oEgP8a9fPwSTyfHSmdaX1v7MMlLCquHxleHw+vrkttHs3Vu5a8WLc3dcTyKpaTPHJOw6Om/OIZiwfCcNBagXH5CrOGf1ZXZoIy5tdSqyMF9wC7+AW4horj6yyoa7kCgRxIupF05BiOLh0eU5xIOgax8KXRVNDxb+wZRBKZDnCtpv7u2FerHbJkEXxgp2Ektdd/TV8W8aEOMNEdQpFnhk6Rcv348Rw2S5hsu+reItt8D0Q6A1JWrjbAq/cfxOIJUBHnay0b/Gu26mKv31Jn2Txq19Jgu6Bddnj8HWeL4+dbYYnn2JtqsyjwrqGe2TSmJDtu+7acIyDZJOa/oK+QLJuT9InotCQK+zfoqDdyf1NiZITubkapAidKQNQ==
+X-Forefront-Antispam-Report: CIP:198.47.21.194;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:flwvzet200.ext.ti.com;PTR:ErrorRetry;CAT:NONE;SFS:(13230040)(376014)(23010399003)(82310400026)(36860700016)(1800799024)(10067099003)(6133799003)(18002099003)(22082099003)(56012099006);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: BElnLdeXrbtbuKRgTarHYdhXtMfrF9q3SbNbP1ArWlUtwNawnvuSel74kUm0VmZ3P/B5E/ZhYqjDtCDfpW+0il0PHPcysJxqFsrElYXi/1hS5tYJYVya/4a2UmQ3IaG571RVKCUL4iVV7uI6cg9JcFKmxfTKIy3RmalZRxvMDklnurj4kUHRwdT40kXr+3GUp7I79rBUCoywp0HbMr5RmecXWTZVLzEruCdul5zKrwuxIcVEbIxqaqLhL8VSkTb80TSUL5N7W9u2J3SXOVHBo4JDt7F+42ZRHJU7MOW0O5dKsVRlg68BbkOHoTTq+vVo8o0QaHPSEZ2qzsFYahLjgrw84mpcFdTidAuwWwTGeN428S72R1jjkzgDbGlSnknvpOeEddH5sxmFKN0f8ASOGbufiUwlb3pMJoQtYWS4YPurLkFiUpPzpHrZltL0omNj
+X-Exchange-RoutingPolicyChecked: 3Svq6m6rnxZlKd8jROeMCHgCSf+0kWsUtqh1pcaTJ4tXRS/vKukADBpwom3d6SVNQxtKrRDdwGaVFN6Gycw+/p5EzOE5I83ncLpM1E8MUbiwXfkZFhAauqUXhf9W1tF1fqjMLNqsXO/FK64OzByS8ShWRpMfjwvmYmVsDkOXQ4wcCo5SbJRGjbAcuBkX4N1PfgAO7VvqP6JEXXdS9cp6qx5/ebLIpQQuy4NurM4I2zuUews0PGFU0DGNI6moqeAe9IjWCZww4Xxhl+XHDyVPDodPXZVvtsFHQceLr8I8nAxnGWfCEf6NH6WtcujLtWyCZbXwBc4cbRWk40LN/S+0GQ==
+X-OriginatorOrg: ti.com
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 30 Sep 2026 16:07:09.8750
+ (UTC)
+X-MS-Exchange-CrossTenant-Network-Message-Id: 576deacd-afb9-48c7-f3d3-08df1f0ce1e7
+X-MS-Exchange-CrossTenant-Id: e5b49634-450b-4709-8abb-1e2b19b982b7
+X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=e5b49634-450b-4709-8abb-1e2b19b982b7;Ip=[198.47.21.194];Helo=[flwvzet200.ext.ti.com]
+X-MS-Exchange-CrossTenant-AuthSource: BN3PEPF0000B371.namprd21.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Anonymous
+X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: MW4PR10MB6393
+X-Authority-Analysis: v=2.4 cv=VfRir1p9 c=1 sm=1 tr=0 ts=6abd33cb cx=c_pps
+ a=XX75RHJXRTy/mnnqXKIK7Q==:117 a=iwqwCZQqcuTv3JOpYdM7/Q==:17
+ a=6eWqkTHjU83fiwn7nKZWdM+Sl24=:19 a=VdqzKS8jKosA:10 a=AlMIdn_sM9wA:10
+ a=VkNPw1HP01LnGYTKEx00:22 a=Z8NIEmU8O1QQgoT56wFK:22 a=jwouBfj2j3NM8CExmVVE:22
+ a=VwQbUJbxAAAA:8 a=sozttTNsAAAA:8 a=C4LaqBg6sCNJR2sbnPEA:9
+X-Proofpoint-GUID: LTTFN2spns-YDXJBtkNHIZZL5EdN-pOT
+X-Proofpoint-ORIG-GUID: LTTFN2spns-YDXJBtkNHIZZL5EdN-pOT
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwOTMwMDA2NCBTYWx0ZWRfX+ndfnZYRQ9UG
+ W3lSv9y9A+xk2eq0HaM+UWdN8N6Ah6IWtidg6kFU6eBSLuR0gUmBZYrYGtCI/BMrKe2gYDnOdsF
+ ZSpCty5JNFnGJknyrhXThZfhEMMnKdtrZWSvW2EElRaJT2a371ea6noYKMvvPbGym5E4MM2P2A5
+ 9YjYcF8zzwV89z0ft1ElszCyiZYr7ogQzpQeWQHNTgrCAY1Zbo6YSGXmgxbgxM9lRV1w+yxevkl
+ YrWu6zkdMETzIXKSOuM0E9/g6KKAH59pK1eafsXI1L7WPO0e+xCekVPKZuTrInGGIA/lMD/ZmWk
+ xCJIml1gukyqZuTkxMbdmgTRTuhwys+iRpYflH/5VFJmS+PeZvILbsA+bG/Sodhsax5fEr0mp9C
+ KBjx5Rp4tp5jz4qt+66OHsS8wpZkzmG8VcaUsQre2jTqadMdzPuCwPG1ASW+as8/5GFDj7CXAc/
+ 4I0OhsUJe+slQCE0pcg==
+X-Proofpoint-Spam-Info: AW1haW4tMjYwOTMwMDA2NCBTYWx0ZWRfX2UBH9sberSts
+ UaahMbIhQ9wJJwvJlv3CXaiaIo4zN/EculyAliodjsCUpqSpOrp8GQGg4vF7wKkqNMMeI3uk96x
+ br2tacCbefEd+jlELddXwjdgb1ZgAxc=
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1176,Hydra:6.1.134,FMLib:17.12.100.49
+ definitions=2026-09-30_03,2026-09-21_02,2025-10-01_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
+ impostorscore=0 suspectscore=0 adultscore=0 phishscore=0 malwarescore=0
+ bulkscore=0 lowpriorityscore=0 priorityscore=1501 spamscore=0 clxscore=1015
+ classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
+ reason=mlx scancount=1 engine=8.22.0-2609040000 definitions=main-2609300064
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260930_094134_911189_8F1E440B 
-X-CRM114-Status: GOOD (  31.84  )
+X-CRM114-CacheID: sfid-20260930_170747_261250_6BE928A2 
+X-CRM114-Status: GOOD (  21.78  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -84,317 +189,546 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi,
+From: Andrew Davis <afd@ti.com>
 
-On 9/30/26 16:15, Ben Horgan wrote:
-> Hi Andre,
-> 
-> On 24/09/2026 16:27, Andre Przywara wrote:
->> The Arm MPAM-Fb specification [1] describes a protocol to access MSC
->> registers through a firmware interface. This requires a shared memory
->> region to hold the message, and a mailbox to trigger the access.
->> For ACPI this is wrapped as a PCC channel, described using existing
->> ACPI abstractions.
->>
->> Add code to parse those PCC table descriptions associated with an MSC,
->> and store the parsed information in the MSC struct.
->> There can be multiple PCC channels, and each channel can serve multiple
->> MSCs, so we need to keep track of the channel usage, using a list and
->> a refcount.
->>
->> This will be used by the MPAM-Fb access wrapper code.
->>
->> [1] https://developer.arm.com/documentation/den0144/latest
->>
->> Signed-off-by: Andre Przywara <andre.przywara@arm.com>
->> Tested-by: Ritwick Sharma <ritwick.sharma@arm.com> # on Arm AGI CPU
->> Reviewed-by: Jonathan Cameron <jonathan.cameron@oss.qualcomm.com>
->> Tested-by: Srivathsa L Rao <srivathsa.rao@oss.qualcomm.com>
->> Reviewed-by: Srivathsa L Rao <srivathsa.rao@oss.qualcomm.com>
->> Reviewed-by: Gavin Shan <gshan@redhat.com>
->> ---
->>   drivers/resctrl/Kconfig         |   1 +
->>   drivers/resctrl/mpam_devices.c  | 119 +++++++++++++++++++++++++++++++-
->>   drivers/resctrl/mpam_fb.c       |  41 +++++++++++
->>   drivers/resctrl/mpam_internal.h |   2 +
->>   4 files changed, 161 insertions(+), 2 deletions(-)
->>
->> diff --git a/drivers/resctrl/Kconfig b/drivers/resctrl/Kconfig
->> index 9591d792736e5..f5ff9b1f6c48e 100644
->> --- a/drivers/resctrl/Kconfig
->> +++ b/drivers/resctrl/Kconfig
->> @@ -2,6 +2,7 @@ menuconfig ARM64_MPAM_DRIVER
->>   	bool "MPAM driver"
->>   	depends on ARM64 && ARM64_MPAM
->>   	select ACPI_MPAM if ACPI
->> +	select PCC if ACPI
->>   	select MAILBOX
->>   	help
->>   	  Memory System Resource Partitioning and Monitoring (MPAM) driver for
->> diff --git a/drivers/resctrl/mpam_devices.c b/drivers/resctrl/mpam_devices.c
->> index ce20dc44d5d40..ca7e0fe75f24f 100644
->> --- a/drivers/resctrl/mpam_devices.c
->> +++ b/drivers/resctrl/mpam_devices.c
->> @@ -20,14 +20,19 @@
->>   #include <linux/irqdesc.h>
->>   #include <linux/list.h>
->>   #include <linux/lockdep.h>
->> +#include <linux/mailbox_client.h>
->>   #include <linux/mutex.h>
->>   #include <linux/platform_device.h>
->>   #include <linux/printk.h>
->> +#include <linux/property.h>
->>   #include <linux/srcu.h>
->>   #include <linux/spinlock.h>
->>   #include <linux/types.h>
->>   #include <linux/workqueue.h>
->>   
->> +#include <acpi/pcc.h>
->> +#include <acpi/acpi_io.h>
->> +
->>   #include "mpam_internal.h"
->>   
->>   /* Values for the T241 errata workaround */
->> @@ -50,6 +55,87 @@ static LIST_HEAD(mpam_all_msc);
->>   
->>   struct srcu_struct mpam_srcu;
->>   
->> +/* PCC channels might be serving multiple MSCs, so keep a refcounted list. */
->> +static DEFINE_MUTEX(pcc_chan_list_lock);
->> +static LIST_HEAD(pcc_chan_list);
->> +
->> +static void mpam_pcc_chan_release(struct kref *ref)
->> +{
->> +	struct mpam_pcc_chan *cur = container_of(ref, struct mpam_pcc_chan,
->> +						 refcount);
->> +
->> +	pcc_mbox_free_channel(cur->pcc_chan);
->> +	list_del(&cur->pcc_chans);
->> +	mutex_destroy(&cur->pcc_chan_lock);
->> +	kfree(cur);
->> +}
->> +
->> +static struct mpam_pcc_chan *mpam_pcc_chan_get(struct device *dev,
->> +					       int subspace_id)
->> +{
->> +	struct mpam_pcc_chan *cur;
->> +
->> +	guard(mutex)(&pcc_chan_list_lock);
->> +
->> +	list_for_each_entry(cur, &pcc_chan_list, pcc_chans) {
->> +		if (cur->subspace_id == subspace_id) {
->> +			kref_get(&cur->refcount);
->> +
->> +			return cur;
->> +		}
->> +	}
->> +
->> +	cur = kzalloc_obj(*cur);
->> +	if (!cur)
->> +		return ERR_PTR(-ENOMEM);
->> +
->> +	cur->pcc_cl.tx_block = true;
->> +
->> +	cur->pcc_chan = pcc_mbox_request_channel(&cur->pcc_cl, subspace_id);
->> +	if (IS_ERR(cur->pcc_chan)) {
->> +		long err = PTR_ERR(cur->pcc_chan);
->> +
->> +		kfree(cur);
->> +		return ERR_PTR(err);
->> +	}
->> +
->> +	/*
->> +	 * Timeout based on the "nominal latency" in us, from the
->> +	 * PCC ACPI table. tx_tout is in ms.
->> +	 * Add some margin here to be on the safe side.
->> +	 */
->> +	cur->pcc_cl.tx_tout = DIV_ROUND_UP(cur->pcc_chan->latency * 5, 1000);
->> +
->> +	mutex_init(&cur->pcc_chan_lock);
->> +
->> +	cur->subspace_id = subspace_id;
->> +	kref_init(&cur->refcount);
->> +
->> +	list_add_tail(&cur->pcc_chans, &pcc_chan_list);
->> +
->> +	return cur;
->> +}
->> +
->> +static int mpam_pcc_chan_put(struct mpam_pcc_chan *pcc_chan)
->> +{
->> +	struct mpam_pcc_chan *cur, *tmp;
->> +
->> +	if (!pcc_chan)
->> +		return 0;
->> +
->> +	guard(mutex)(&pcc_chan_list_lock);
->> +
->> +	list_for_each_entry_safe(cur, tmp, &pcc_chan_list, pcc_chans) {
->> +		if (cur == pcc_chan) {
->> +			kref_put(&cur->refcount, mpam_pcc_chan_release);
->> +
->> +			return 0;
->> +		}
->> +	}
->> +
->> +	return -ENOENT;
->> +}
->> +
->>   /*
->>    * Number of MSCs that have been probed. Once all MSCs have been probed MPAM
->>    * can be enabled.
->> @@ -2272,6 +2358,8 @@ static void mpam_msc_destroy(struct mpam_msc *msc)
->>   	list_for_each_entry_safe(ris, tmp, &msc->ris, msc_list)
->>   		mpam_ris_destroy(ris);
->>   
->> +	mpam_pcc_chan_put(msc->pcc_chan);
->> +
-> 
-> Last one from Sashiko [1] and I haven't spotted anything else either in the patches or from giving
-> it a go on the arm agi cpu. :)
-> 
-> Does the mpam_pcc_chan_put() need to go after the list_del_rcu() and wait for a srcu synchronization
-> to avioid a race between iterating through the list while acessing the msc and tearing down the channel.
+Move ti_sci_is_response_ack() function up so it can be used in
+ti_sci_do_xfer(). As we know if a response is expected we can
+check the response in one spot removing the need to check that
+at every call site.
 
-I wonder if we can really do any MPAM-Fb requests after mpam_disable() 
-has been called, because that function first thing clears the static branch.
+Note: This changes the error code returned on a NACK for the ring
+config, PSI-L pair/unpair, and UDMAP TX/RX channel and RX flow config
+helpers from -EINVAL to -ENODEV, making them consistent with all other
+TI-SCI message helpers. The users of these helpers (k3-ringacc and
+k3-udma) only check for a non-zero return and propagate it, so no
+functional change.
 
-But regardless, I swapped mpam_pcc_chan_put() and list_del_rcu(), and 
-also added a synchronize_rcu() call inbetween. Not sure how far we want 
-to go here, though, seems like a very pathological case to me?
+Signed-off-by: Andrew Davis <afd@ti.com>
+Co-developed-by: Beleswar Padhi <b-padhi@ti.com>
+Signed-off-by: Beleswar Padhi <b-padhi@ti.com>
+---
+v2: Changelog:
+1. None to this patch.
 
-Cheers,
-Andre
+Link to v1:
+https://lore.kernel.org/all/20260929201746.4078803-4-b-padhi@ti.com/
 
-> 
->>   	list_del_rcu(&msc->all_msc_list);
->>   	platform_set_drvdata(pdev, NULL);
->>   
->> @@ -2295,7 +2383,7 @@ static void mpam_msc_drv_remove(struct platform_device *pdev)
->>   static struct mpam_msc *do_mpam_msc_drv_probe(struct platform_device *pdev)
->>   {
->>   	int err;
->> -	u32 tmp;
->> +	u32 pcc_subspace_id;
->>   	struct mpam_msc *msc;
->>   	struct resource *msc_res;
->>   	struct device *dev = &pdev->dev;
->> @@ -2339,7 +2427,7 @@ static struct mpam_msc *do_mpam_msc_drv_probe(struct platform_device *pdev)
->>   	if (err)
->>   		return ERR_PTR(err);
->>   
->> -	if (device_property_read_u32(&pdev->dev, "pcc-channel", &tmp))
->> +	if (device_property_read_u32(dev, "pcc-channel", &pcc_subspace_id))
->>   		msc->iface = MPAM_IFACE_MMIO;
->>   	else
->>   		msc->iface = MPAM_IFACE_PCC;
->> @@ -2360,6 +2448,33 @@ static struct mpam_msc *do_mpam_msc_drv_probe(struct platform_device *pdev)
->>   		}
->>   		msc->mapped_hwpage_sz = msc_res->end - msc_res->start;
->>   		msc->mapped_hwpage = io;
->> +	} else if (msc->iface == MPAM_IFACE_PCC) {
->> +		u32 mpam_fb_msc_id;
->> +
->> +		msc->pcc_chan = mpam_pcc_chan_get(dev, pcc_subspace_id);
->> +		if (IS_ERR(msc->pcc_chan)) {
->> +			pr_err("Failed to request MSC PCC channel\n");
->> +			return ERR_CAST(msc->pcc_chan);
->> +		}
->> +
->> +		err = mpam_fb_check_shared_buffer_size(msc);
->> +		if (err) {
->> +			mpam_pcc_chan_put(msc->pcc_chan);
->> +
->> +			return ERR_PTR(err);
->> +		}
->> +
->> +		err = mpam_fb_check_protocol_version(msc);
->> +		if (err) {
->> +			mpam_pcc_chan_put(msc->pcc_chan);
->> +
->> +			return ERR_PTR(err);
->> +		}
->> +
->> +		if (device_property_read_u32(&pdev->dev, "mpam-fb-msc-id",
->> +					     &mpam_fb_msc_id))
->> +			mpam_fb_msc_id = msc->id;
->> +		msc->fb_id = mpam_fb_msc_id;
->>   	} else {
->>   		return ERR_PTR(-EINVAL);
->>   	}
->> diff --git a/drivers/resctrl/mpam_fb.c b/drivers/resctrl/mpam_fb.c
->> index 8298fcedd2be7..d90888944abbd 100644
->> --- a/drivers/resctrl/mpam_fb.c
->> +++ b/drivers/resctrl/mpam_fb.c
->> @@ -20,10 +20,15 @@
->>   #define MPAM_FB_PROTOCOL_ID		0x1a
->>   
->>   #define MPAM_PROTOCOL_VERSION_CMD	0x0
->> +#define MPAM_FB_VERSION_MAJOR_MASK		GENMASK_U32(31, 16)
->> +#define MPAM_FB_VERSION_MINOR_MASK		GENMASK_U32(15, 0)
->> +
->>   #define MPAM_MSC_READ_CMD		0x4
->>   #define MPAM_MSC_WRITE_CMD		0x5
->>   
->>   #define MPAM_FB_PROT_HEADER_LEN		sizeof(u32)
->> +/* The longest message is MPAM_MSC_WRITE, with 4 parameters. */
->> +#define MPAM_FB_MAX_MSG_SIZE		(4 * sizeof(u32))
->>   
->>   #define MPAM_FB_SUCCESS		 0
->>   #define MPAM_FB_ERR_NOT_SUPPORTED	-1
->> @@ -210,3 +215,39 @@ int mpam_fb_send_write_request(struct mpam_msc *msc, u16 reg, u32 value)
->>   	return mpam_fb_send_request(msc, msc->fb_id, reg, &value,
->>   				    MPAM_MSC_WRITE_CMD);
->>   }
->> +
->> +/* We only support MPAM-Fb protocol version 1.x */
->> +int mpam_fb_check_protocol_version(struct mpam_msc *msc)
->> +{
->> +	u32 version;
->> +	int ret;
->> +
->> +	ret = mpam_fb_send_request(msc, 0, 0, &version,
->> +				   MPAM_PROTOCOL_VERSION_CMD);
->> +	if (ret)
->> +		return ret;
->> +
->> +	if (FIELD_GET(MPAM_FB_VERSION_MAJOR_MASK, version) != 1) {
->> +		pr_err("Incompatible MPAM-Fb protocol version %d.%d\n",
->> +		       FIELD_GET(MPAM_FB_VERSION_MAJOR_MASK, version),
->> +		       FIELD_GET(MPAM_FB_VERSION_MINOR_MASK, version));
->> +
->> +		return -EINVAL;
->> +	}
->> +
->> +	return 0;
->> +}
->> +
->> +int mpam_fb_check_shared_buffer_size(struct mpam_msc *msc)
->> +{
->> +	int min_buffer_size = MPAM_FB_MAX_MSG_SIZE +
->> +			      sizeof(struct acpi_pcct_ext_pcc_shared_memory);
->> +
->> +	if (msc->pcc_chan->pcc_chan->shmem_size < min_buffer_size) {
->> +		pr_err("MPAM-Fb PCC channel size too small.\n");
->> +
->> +		return -ENOMEM;
->> +	}
->> +
->> +	return 0;
->> +}
->> diff --git a/drivers/resctrl/mpam_internal.h b/drivers/resctrl/mpam_internal.h
->> index 99057d6abee1e..ee7c3953a9b6c 100644
->> --- a/drivers/resctrl/mpam_internal.h
->> +++ b/drivers/resctrl/mpam_internal.h
->> @@ -538,6 +538,8 @@ static inline void mpam_resctrl_teardown_class(struct mpam_class *class) { }
->>   /* MPAM-Fb Firmware-backed protocol wrappers */
->>   int mpam_fb_send_read_request(struct mpam_msc *msc, u16 reg, u32 *result);
->>   int mpam_fb_send_write_request(struct mpam_msc *msc, u16 reg, u32 value);
->> +int mpam_fb_check_protocol_version(struct mpam_msc *msc);
->> +int mpam_fb_check_shared_buffer_size(struct mpam_msc *msc);
->>   
->>   /*
->>    * MPAM MSCs have the following register layout. See:
-> 
+ drivers/firmware/ti_sci.c | 239 ++++++++++----------------------------
+ 1 file changed, 60 insertions(+), 179 deletions(-)
+
+diff --git a/drivers/firmware/ti_sci.c b/drivers/firmware/ti_sci.c
+index 3b58fee07c257..6ec16fe57f132 100644
+--- a/drivers/firmware/ti_sci.c
++++ b/drivers/firmware/ti_sci.c
+@@ -410,14 +410,28 @@ static void ti_sci_put_one_xfer(struct ti_sci_xfers_info *minfo,
+ 	up(&minfo->sem_xfer_count);
+ }
+ 
++/**
++ * ti_sci_is_response_ack() - Generic ACK/NACK message checkup
++ * @r:	pointer to response buffer
++ *
++ * Return: true if the response was an ACK, else returns false.
++ */
++static inline bool ti_sci_is_response_ack(void *r)
++{
++	struct ti_sci_msg_hdr *hdr = r;
++
++	return hdr->flags & TI_SCI_FLAG_RESP_GENERIC_ACK ? true : false;
++}
++
+ /**
+  * ti_sci_do_xfer() - Do one transfer
+  * @info:	Pointer to SCI entity information
+  * @xfer:	Transfer to initiate and wait for response
+  *
+- * Return: -ETIMEDOUT in case of no response, if transmit error,
+- *	   return corresponding error, else if all goes well,
+- *	   return 0.
++ * Return: -ETIMEDOUT in case of no response, or
++ *         -ENODEV in case of a NACK response, or
++ *         corresponding error if transmit fails, or
++ *         return 0, if all goes well.
+  */
+ static inline int ti_sci_do_xfer(struct ti_sci_info *info,
+ 				 struct ti_sci_xfer *xfer)
+@@ -466,6 +480,18 @@ static inline int ti_sci_do_xfer(struct ti_sci_info *info,
+ 	 */
+ 	mbox_client_txdone(info->chan_tx, ret);
+ 
++	/*
++	 * If we expect a response and are not otherwise already in an error
++	 * state, then ensure that the response is an ACK
++	 */
++	if (response_expected && ret == 0) {
++		if (!ti_sci_is_response_ack(xfer->xfer_buf)) {
++			dev_warn(dev, "Message response not acknowledged (caller: %pS)\n",
++				 (void *)_RET_IP_);
++			ret = -ENODEV;
++		}
++	}
++
+ 	return ret;
+ }
+ 
+@@ -509,19 +535,6 @@ static int ti_sci_cmd_get_revision(struct ti_sci_info *info)
+ 	return ret;
+ }
+ 
+-/**
+- * ti_sci_is_response_ack() - Generic ACK/NACK message checkup
+- * @r:	pointer to response buffer
+- *
+- * Return: true if the response was an ACK, else returns false.
+- */
+-static inline bool ti_sci_is_response_ack(void *r)
+-{
+-	struct ti_sci_msg_hdr *hdr = r;
+-
+-	return hdr->flags & TI_SCI_FLAG_RESP_GENERIC_ACK ? true : false;
+-}
+-
+ /**
+  * ti_sci_set_device_state() - Set device state helper
+  * @handle:	pointer to TI SCI handle
+@@ -561,10 +574,6 @@ static int ti_sci_set_device_state(const struct ti_sci_handle *handle,
+ 	if (ret)
+ 		goto fail;
+ 
+-	resp = (struct ti_sci_msg_hdr *)xfer->xfer_buf;
+-
+-	ret = ti_sci_is_response_ack(resp) ? 0 : -ENODEV;
+-
+ fail:
+ 	ti_sci_put_one_xfer(&info->minfo, xfer);
+ 
+@@ -616,10 +625,6 @@ static int ti_sci_get_device_state(const struct ti_sci_handle *handle,
+ 		goto fail;
+ 
+ 	resp = (struct ti_sci_msg_resp_get_device_state *)xfer->xfer_buf;
+-	if (!ti_sci_is_response_ack(resp)) {
+-		ret = -ENODEV;
+-		goto fail;
+-	}
+ 
+ 	if (clcnt)
+ 		*clcnt = resp->context_loss_count;
+@@ -912,10 +917,6 @@ static int ti_sci_cmd_set_device_resets(const struct ti_sci_handle *handle,
+ 	if (ret)
+ 		goto fail;
+ 
+-	resp = (struct ti_sci_msg_hdr *)xfer->xfer_buf;
+-
+-	ret = ti_sci_is_response_ack(resp) ? 0 : -ENODEV;
+-
+ fail:
+ 	ti_sci_put_one_xfer(&info->minfo, xfer);
+ 
+@@ -987,10 +988,6 @@ static int ti_sci_set_clock_state(const struct ti_sci_handle *handle,
+ 	if (ret)
+ 		goto fail;
+ 
+-	resp = (struct ti_sci_msg_hdr *)xfer->xfer_buf;
+-
+-	ret = ti_sci_is_response_ack(resp) ? 0 : -ENODEV;
+-
+ fail:
+ 	ti_sci_put_one_xfer(&info->minfo, xfer);
+ 
+@@ -1050,11 +1047,6 @@ static int ti_sci_cmd_get_clock_state(const struct ti_sci_handle *handle,
+ 
+ 	resp = (struct ti_sci_msg_resp_get_clock_state *)xfer->xfer_buf;
+ 
+-	if (!ti_sci_is_response_ack(resp)) {
+-		ret = -ENODEV;
+-		goto fail;
+-	}
+-
+ 	if (programmed_state)
+ 		*programmed_state = resp->programmed_state;
+ 	if (current_state)
+@@ -1279,10 +1271,6 @@ static int ti_sci_cmd_clk_set_parent(const struct ti_sci_handle *handle,
+ 	if (ret)
+ 		goto fail;
+ 
+-	resp = (struct ti_sci_msg_hdr *)xfer->xfer_buf;
+-
+-	ret = ti_sci_is_response_ack(resp) ? 0 : -ENODEV;
+-
+ fail:
+ 	ti_sci_put_one_xfer(&info->minfo, xfer);
+ 
+@@ -1337,14 +1325,10 @@ static int ti_sci_cmd_clk_get_parent(const struct ti_sci_handle *handle,
+ 
+ 	resp = (struct ti_sci_msg_resp_get_clock_parent *)xfer->xfer_buf;
+ 
+-	if (!ti_sci_is_response_ack(resp)) {
+-		ret = -ENODEV;
+-	} else {
+-		if (resp->parent_id < 255)
+-			*parent_id = resp->parent_id;
+-		else
+-			*parent_id = resp->parent_id_32;
+-	}
++	if (resp->parent_id < 255)
++		*parent_id = resp->parent_id;
++	else
++		*parent_id = resp->parent_id_32;
+ 
+ fail:
+ 	ti_sci_put_one_xfer(&info->minfo, xfer);
+@@ -1401,14 +1385,10 @@ static int ti_sci_cmd_clk_get_num_parents(const struct ti_sci_handle *handle,
+ 
+ 	resp = (struct ti_sci_msg_resp_get_clock_num_parents *)xfer->xfer_buf;
+ 
+-	if (!ti_sci_is_response_ack(resp)) {
+-		ret = -ENODEV;
+-	} else {
+-		if (resp->num_parents < 255)
+-			*num_parents = resp->num_parents;
+-		else
+-			*num_parents = resp->num_parents_32;
+-	}
++	if (resp->num_parents < 255)
++		*num_parents = resp->num_parents;
++	else
++		*num_parents = resp->num_parents_32;
+ 
+ fail:
+ 	ti_sci_put_one_xfer(&info->minfo, xfer);
+@@ -1477,10 +1457,7 @@ static int ti_sci_cmd_clk_get_match_freq(const struct ti_sci_handle *handle,
+ 
+ 	resp = (struct ti_sci_msg_resp_query_clock_freq *)xfer->xfer_buf;
+ 
+-	if (!ti_sci_is_response_ack(resp))
+-		ret = -ENODEV;
+-	else
+-		*match_freq = resp->freq_hz;
++	*match_freq = resp->freq_hz;
+ 
+ fail:
+ 	ti_sci_put_one_xfer(&info->minfo, xfer);
+@@ -1545,10 +1522,6 @@ static int ti_sci_cmd_clk_set_freq(const struct ti_sci_handle *handle,
+ 	if (ret)
+ 		goto fail;
+ 
+-	resp = (struct ti_sci_msg_hdr *)xfer->xfer_buf;
+-
+-	ret = ti_sci_is_response_ack(resp) ? 0 : -ENODEV;
+-
+ fail:
+ 	ti_sci_put_one_xfer(&info->minfo, xfer);
+ 
+@@ -1603,10 +1576,7 @@ static int ti_sci_cmd_clk_get_freq(const struct ti_sci_handle *handle,
+ 
+ 	resp = (struct ti_sci_msg_resp_get_clock_freq *)xfer->xfer_buf;
+ 
+-	if (!ti_sci_is_response_ack(resp))
+-		ret = -ENODEV;
+-	else
+-		*freq = resp->freq_hz;
++	*freq = resp->freq_hz;
+ 
+ fail:
+ 	ti_sci_put_one_xfer(&info->minfo, xfer);
+@@ -1658,15 +1628,9 @@ static int ti_sci_cmd_prepare_sleep(const struct ti_sci_handle *handle, u8 mode,
+ 	req->debug_flags = debug_flags;
+ 
+ 	ret = ti_sci_do_xfer(info, xfer);
+-	if (ret)
++	if (ret) {
++		dev_err(dev, "Failed to prepare sleep\n");
+ 		goto fail;
+-
+-	if (msg_flags == TI_SCI_FLAG_REQ_ACK_ON_PROCESSED) {
+-		resp = (struct ti_sci_msg_hdr *)xfer->xfer_buf;
+-		if (!ti_sci_is_response_ack(resp)) {
+-			dev_err(dev, "Failed to prepare sleep\n");
+-			ret = -ENODEV;
+-		}
+ 	}
+ 
+ fail:
+@@ -1711,17 +1675,13 @@ static int ti_sci_msg_cmd_query_fw_caps(const struct ti_sci_handle *handle,
+ 		return PTR_ERR(xfer);
+ 
+ 	ret = ti_sci_do_xfer(info, xfer);
+-	if (ret)
+-		goto fail;
+-
+-	resp = (struct ti_sci_msg_resp_query_fw_caps *)xfer->xfer_buf;
+-
+-	if (!ti_sci_is_response_ack(resp)) {
++	if (ret) {
+ 		dev_err(dev, "Failed to get capabilities\n");
+-		ret = -ENODEV;
+ 		goto fail;
+ 	}
+ 
++	resp = (struct ti_sci_msg_resp_query_fw_caps *)xfer->xfer_buf;
++
+ 	if (fw_caps)
+ 		*fw_caps = resp->fw_caps;
+ 
+@@ -1766,14 +1726,9 @@ static int ti_sci_cmd_set_io_isolation(const struct ti_sci_handle *handle,
+ 	req->state = state;
+ 
+ 	ret = ti_sci_do_xfer(info, xfer);
+-	if (ret)
+-		goto fail;
+-
+-	resp = (struct ti_sci_msg_hdr *)xfer->xfer_buf;
+-
+-	if (!ti_sci_is_response_ack(resp)) {
++	if (ret) {
+ 		dev_err(dev, "Failed to set IO isolation\n");
+-		ret = -ENODEV;
++		goto fail;
+ 	}
+ 
+ fail:
+@@ -1817,17 +1772,13 @@ static int ti_sci_msg_cmd_lpm_wake_reason(const struct ti_sci_handle *handle,
+ 		return PTR_ERR(xfer);
+ 
+ 	ret = ti_sci_do_xfer(info, xfer);
+-	if (ret)
+-		goto fail;
+-
+-	resp = (struct ti_sci_msg_resp_lpm_wake_reason *)xfer->xfer_buf;
+-
+-	if (!ti_sci_is_response_ack(resp)) {
++	if (ret) {
+ 		dev_err(dev, "Failed to get wake reason\n");
+-		ret = -ENODEV;
+ 		goto fail;
+ 	}
+ 
++	resp = (struct ti_sci_msg_resp_lpm_wake_reason *)xfer->xfer_buf;
++
+ 	if (source)
+ 		*source = resp->wake_source;
+ 	if (timestamp)
+@@ -1880,14 +1831,9 @@ static int ti_sci_cmd_set_device_constraint(const struct ti_sci_handle *handle,
+ 	req->state = state;
+ 
+ 	ret = ti_sci_do_xfer(info, xfer);
+-	if (ret)
+-		goto fail;
+-
+-	resp = (struct ti_sci_msg_hdr *)xfer->xfer_buf;
+-
+-	if (!ti_sci_is_response_ack(resp)) {
++	if (ret) {
+ 		dev_err(dev, "Failed to set device constraint\n");
+-		ret = -ENODEV;
++		goto fail;
+ 	}
+ 
+ fail:
+@@ -1933,14 +1879,9 @@ static int ti_sci_cmd_set_latency_constraint(const struct ti_sci_handle *handle,
+ 	req->state = state;
+ 
+ 	ret = ti_sci_do_xfer(info, xfer);
+-	if (ret)
+-		goto fail;
+-
+-	resp = (struct ti_sci_msg_hdr *)xfer->xfer_buf;
+-
+-	if (!ti_sci_is_response_ack(resp)) {
++	if (ret) {
+ 		dev_err(dev, "Failed to set device constraint\n");
+-		ret = -ENODEV;
++		goto fail;
+ 	}
+ 
+ fail:
+@@ -1975,11 +1916,6 @@ static int ti_sci_cmd_lpm_abort(struct device *dev)
+ 	if (ret)
+ 		goto fail;
+ 
+-	resp = (struct ti_sci_msg_hdr *)xfer->xfer_buf;
+-
+-	if (!ti_sci_is_response_ack(resp))
+-		ret = -ENODEV;
+-
+ fail:
+ 	ti_sci_put_one_xfer(&info->minfo, xfer);
+ 
+@@ -2013,13 +1949,6 @@ static int ti_sci_cmd_core_reboot(const struct ti_sci_handle *handle)
+ 	if (ret)
+ 		goto fail;
+ 
+-	resp = (struct ti_sci_msg_hdr *)xfer->xfer_buf;
+-
+-	if (!ti_sci_is_response_ack(resp))
+-		ret = -ENODEV;
+-	else
+-		ret = 0;
+-
+ fail:
+ 	ti_sci_put_one_xfer(&info->minfo, xfer);
+ 
+@@ -2074,9 +2003,7 @@ static int ti_sci_get_resource_range(const struct ti_sci_handle *handle,
+ 
+ 	resp = (struct ti_sci_msg_resp_get_resource_range *)xfer->xfer_buf;
+ 
+-	if (!ti_sci_is_response_ack(resp)) {
+-		ret = -ENODEV;
+-	} else if (!resp->range_num && !resp->range_num_sec) {
++	if (!resp->range_num && !resp->range_num_sec) {
+ 		/* Neither of the two resource range is valid */
+ 		ret = -ENODEV;
+ 	} else {
+@@ -2193,10 +2120,6 @@ static int ti_sci_manage_irq(const struct ti_sci_handle *handle,
+ 	if (ret)
+ 		goto fail;
+ 
+-	resp = (struct ti_sci_msg_hdr *)xfer->xfer_buf;
+-
+-	ret = ti_sci_is_response_ack(resp) ? 0 : -ENODEV;
+-
+ fail:
+ 	ti_sci_put_one_xfer(&info->minfo, xfer);
+ 
+@@ -2514,9 +2437,6 @@ static int ti_sci_cmd_rm_ring_cfg(const struct ti_sci_handle *handle,
+ 	if (ret)
+ 		goto fail;
+ 
+-	resp = (struct ti_sci_msg_hdr *)xfer->xfer_buf;
+-	ret = ti_sci_is_response_ack(resp) ? 0 : -EINVAL;
+-
+ fail:
+ 	ti_sci_put_one_xfer(&info->minfo, xfer);
+ 	dev_dbg(dev, "RM_RA:config ring %u ret:%d\n", params->index, ret);
+@@ -2564,9 +2484,6 @@ static int ti_sci_cmd_rm_psil_pair(const struct ti_sci_handle *handle,
+ 	if (ret)
+ 		goto fail;
+ 
+-	resp = (struct ti_sci_msg_hdr *)xfer->xfer_buf;
+-	ret = ti_sci_is_response_ack(resp) ? 0 : -EINVAL;
+-
+ fail:
+ 	ti_sci_put_one_xfer(&info->minfo, xfer);
+ 
+@@ -2614,9 +2531,6 @@ static int ti_sci_cmd_rm_psil_unpair(const struct ti_sci_handle *handle,
+ 	if (ret)
+ 		goto fail;
+ 
+-	resp = (struct ti_sci_msg_hdr *)xfer->xfer_buf;
+-	ret = ti_sci_is_response_ack(resp) ? 0 : -EINVAL;
+-
+ fail:
+ 	ti_sci_put_one_xfer(&info->minfo, xfer);
+ 
+@@ -2682,9 +2596,6 @@ static int ti_sci_cmd_rm_udmap_tx_ch_cfg(const struct ti_sci_handle *handle,
+ 	if (ret)
+ 		goto fail;
+ 
+-	resp = (struct ti_sci_msg_hdr *)xfer->xfer_buf;
+-	ret = ti_sci_is_response_ack(resp) ? 0 : -EINVAL;
+-
+ fail:
+ 	ti_sci_put_one_xfer(&info->minfo, xfer);
+ 	dev_dbg(dev, "TX_CH_CFG: chn %u ret:%u\n", params->index, ret);
+@@ -2747,9 +2658,6 @@ static int ti_sci_cmd_rm_udmap_rx_ch_cfg(const struct ti_sci_handle *handle,
+ 	if (ret)
+ 		goto fail;
+ 
+-	resp = (struct ti_sci_msg_hdr *)xfer->xfer_buf;
+-	ret = ti_sci_is_response_ack(resp) ? 0 : -EINVAL;
+-
+ fail:
+ 	ti_sci_put_one_xfer(&info->minfo, xfer);
+ 	dev_dbg(dev, "RX_CH_CFG: chn %u ret:%d\n", params->index, ret);
+@@ -2815,9 +2723,6 @@ static int ti_sci_cmd_rm_udmap_rx_flow_cfg(const struct ti_sci_handle *handle,
+ 	if (ret)
+ 		goto fail;
+ 
+-	resp = (struct ti_sci_msg_hdr *)xfer->xfer_buf;
+-	ret = ti_sci_is_response_ack(resp) ? 0 : -EINVAL;
+-
+ fail:
+ 	ti_sci_put_one_xfer(&info->minfo, xfer);
+ 	dev_dbg(info->dev, "RX_FL_CFG: %u ret:%d\n", params->flow_index, ret);
+@@ -2860,10 +2765,6 @@ static int ti_sci_cmd_proc_request(const struct ti_sci_handle *handle,
+ 	if (ret)
+ 		goto fail;
+ 
+-	resp = (struct ti_sci_msg_hdr *)xfer->tx_message.buf;
+-
+-	ret = ti_sci_is_response_ack(resp) ? 0 : -ENODEV;
+-
+ fail:
+ 	ti_sci_put_one_xfer(&info->minfo, xfer);
+ 
+@@ -2906,10 +2807,6 @@ static int ti_sci_cmd_proc_release(const struct ti_sci_handle *handle,
+ 	if (ret)
+ 		goto fail;
+ 
+-	resp = (struct ti_sci_msg_hdr *)xfer->tx_message.buf;
+-
+-	ret = ti_sci_is_response_ack(resp) ? 0 : -ENODEV;
+-
+ fail:
+ 	ti_sci_put_one_xfer(&info->minfo, xfer);
+ 
+@@ -2956,10 +2853,6 @@ static int ti_sci_cmd_proc_handover(const struct ti_sci_handle *handle,
+ 	if (ret)
+ 		goto fail;
+ 
+-	resp = (struct ti_sci_msg_hdr *)xfer->tx_message.buf;
+-
+-	ret = ti_sci_is_response_ack(resp) ? 0 : -ENODEV;
+-
+ fail:
+ 	ti_sci_put_one_xfer(&info->minfo, xfer);
+ 
+@@ -3013,10 +2906,6 @@ static int ti_sci_cmd_proc_set_config(const struct ti_sci_handle *handle,
+ 	if (ret)
+ 		goto fail;
+ 
+-	resp = (struct ti_sci_msg_hdr *)xfer->tx_message.buf;
+-
+-	ret = ti_sci_is_response_ack(resp) ? 0 : -ENODEV;
+-
+ fail:
+ 	ti_sci_put_one_xfer(&info->minfo, xfer);
+ 
+@@ -3065,10 +2954,6 @@ static int ti_sci_cmd_proc_set_control(const struct ti_sci_handle *handle,
+ 	if (ret)
+ 		goto fail;
+ 
+-	resp = (struct ti_sci_msg_hdr *)xfer->tx_message.buf;
+-
+-	ret = ti_sci_is_response_ack(resp) ? 0 : -ENODEV;
+-
+ fail:
+ 	ti_sci_put_one_xfer(&info->minfo, xfer);
+ 
+@@ -3118,16 +3003,12 @@ static int ti_sci_cmd_proc_get_status(const struct ti_sci_handle *handle,
+ 
+ 	resp = (struct ti_sci_msg_resp_get_status *)xfer->tx_message.buf;
+ 
+-	if (!ti_sci_is_response_ack(resp)) {
+-		ret = -ENODEV;
+-	} else {
+-		*bv = (resp->bootvector_low & TI_SCI_ADDR_LOW_MASK) |
+-		      (((u64)resp->bootvector_high << TI_SCI_ADDR_HIGH_SHIFT) &
+-		       TI_SCI_ADDR_HIGH_MASK);
+-		*cfg_flags = resp->config_flags;
+-		*ctrl_flags = resp->control_flags;
+-		*sts_flags = resp->status_flags;
+-	}
++	*bv = (resp->bootvector_low & TI_SCI_ADDR_LOW_MASK) |
++	      (((u64)resp->bootvector_high << TI_SCI_ADDR_HIGH_SHIFT) &
++	       TI_SCI_ADDR_HIGH_MASK);
++	*cfg_flags = resp->config_flags;
++	*ctrl_flags = resp->control_flags;
++	*sts_flags = resp->status_flags;
+ 
+ fail:
+ 	ti_sci_put_one_xfer(&info->minfo, xfer);
+-- 
+2.34.1
 
 
