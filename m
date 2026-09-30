@@ -4,36 +4,36 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id F2BBBCA5FAB
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 30 Sep 2026 06:14:50 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id F0AB5CA5FB5
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 30 Sep 2026 06:14:51 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:CC:To:In-Reply-To:References
 	:Message-ID:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=EMgFVzONncenVzajSBplgoSS+5bazk53iesp/vegqe8=; b=gyNsTGsPzDlmn5yKHPKx2ttwd5
-	OxmwUHYgYH3q3bDdLXhtcXanVqQLFY7R6WETdMSre1CCMvBPtPUedSMVsQlTHzz7ttvPqLPMoSbqf
-	I/HAhDD5mugfegOOnjInnYRN2uMQkwX4fHEbGrF6X8IQqYwPSpdpOhisIZeSAnqrjZG8L2GldEtHR
-	/VXwJarmmN4Z6rBtI6O3Je0kvZHRvB4yAhjG3mjZodTnynRe05QGcDLFSqSMHyX5eKtvHPev5sOFU
-	T//JU4EZpWpGlaLHxwKP2U9pGIc+tKzHtnR4C90Fcc7M2WRvzX6Hz7nD6o4KUY+NHVQt0iW9AG1lS
-	Otgk3slw==;
+	bh=EZD1+yjCgidhuF5ukc+OaXEqTsgx+9T1dm+BqTBAVG4=; b=q4QtEW57Lkqt+irhSjtMl6QChU
+	TCEMxyzJGzIKOH0xm22EZqbJ7YgyKrL9HN6rhvo2EVbivsWBxwHjkKqC5MszoaTk/sE7T83B2yu0H
+	HYg/vuANOpV5jp+9X+A3eB+cQOHldXBjNY3xrjeU0uTinO4BcD3D7d9eK3emKfRYk9CUCbUHFUIX7
+	6w4CVM17fT2OlqSbKFjMoOeVjasup0MDydJv6NgdhcMxTZQzi/5fM2W3X0lOtY7M7l/SFEjRTAROz
+	jqE9acxGmdEnBst8L8yhkE5Ctm99yf6p6VZKGwDZz1sijpZoSZZTDn9D0gAPYZsU8H/dk+i9S1PnH
+	8di1AgQw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xBnaW-0000000571s-16ub;
+	id 1xBnaW-0000000572h-391M;
 	Wed, 30 Sep 2026 06:14:44 +0000
-Received: from mail-westus3azon11010047.outbound.protection.outlook.com ([52.101.201.47] helo=PH7PR06CU001.outbound.protection.outlook.com)
+Received: from mail-southcentralusazlp170120001.outbound.protection.outlook.com ([2a01:111:f403:c10d::1] helo=SN4PR2101CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xBna1-000000056oj-1w7J
+	id 1xBnaJ-000000056xr-32qC
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 30 Sep 2026 06:14:14 +0000
+	Wed, 30 Sep 2026 06:14:32 +0000
 ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=HPTsdtSb5QWvUXdIXW4pZ/JgHy7CH7VJ6yeVqBAESqgsOTF++qP9MB8r8dw1Sm6Bx+VIrWy+FkeirLSxFQdD55GM5Hx/oZFv7mlqokVxgmZMMwDjKMN7Wy67OglmwSMX5N+x5xOUCsl8M9/4opG4oH39zt3lXE0jDPfDootsZkSch0QIGIf1GscgR43g6bbyVlTOzQKKAyZgQ9VQebGnDu4z8F0OsuaOsxN/6r0jyjmJsgGYVzyJNijlpliLQS2rov8kbtgxNy2X0nZXU0QW+Y5bupcR4qnCxm6xiMVcB2gszcT+75h7PYaRAYm/IDDyZNVLyZ69o2nqE0iwChmW7Q==
+ b=xNqS/xa5QRiNQYBSbH+xjTIamsbL5TEpRP9CHMwKNofIXL7w3VUlmzRaaEyXnlWHJ1I/BDp/5fLV8K1B381GDpZLMpQGO6vE+JKKV8QRHurC1y3ivJFkoeOrTGg9MNCnPfnl5hW1vcrrhopCWG96TpCuL04QVrPLQrM4Y42umPCBAAtBgd5VELZNaXD0NfA//AuJe8tiLebVAqWLLn6mZ8HCCDlbyPOZiC9yXAd5Ge7f2a9Jbh68SuoPubCxBINA02WdMkbp3GQeAwC5KJximkK/JoLfYI/rE48oTKA05DYXVEBqDT0yx0EUhuWDCLAPlgbKym9LFORZYtSCDPKE0Q==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
  s=arcselector10001;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=EMgFVzONncenVzajSBplgoSS+5bazk53iesp/vegqe8=;
- b=rIf283EvfXVONJF3xkJTH9wHq3yW0cbj3sjwXFI3SSCgO0/P/N4WKtghh/LPalZFpn5dYywg1xaFNTGmn2RJhd1wklNMJ73im3fiLPGLB6e5ufR9MeefkikQg9cRppPDNT9JfXdDfOHrm/mpsaXW5471S3PvdDWSl9LwYLn5fUHfjoUdyvSV9AK0wybWXMMzBN//zeM3lr0k+yQJpeN7NMeRJaVkkxfDhU/3i5eTg3x0f1thlJn8h5qPJuemqzvTvSsOW7WfyAKpb0GuL3LYIJZu3SAvnQomFBwGyMMPK6OpaNuC3uv0e/y5nrpj4OKQxlvpYOBr3tj0RJdGgX9JOQ==
+ bh=EZD1+yjCgidhuF5ukc+OaXEqTsgx+9T1dm+BqTBAVG4=;
+ b=CAyAA0XYWyVzcooU9fWZ+TDm/ccwQY3DOIyWhQOxsc0mxJLY141iIcOuEQeQYuePWOnNdNMxPwLhqCYF6p+iTbAS4eRc/9IBuStO7lCIo7cRKyGX7cqsLWClahDPbZ3eqm3/VyZVs8r56x0rRMQ41HpiSyFAH1nLCRi+6UX1GTi5NYCleqOcge9yIuMbATqAL1DOFCevgZIaClARvOXTHtJo8wjy7pbWXZeCZHL9PSHvICqLjjuYzRB8XPEFCHmIGe3KYrDj5Gc4Cu6zKaFcUDcw9N/a/pZYDNAs8AC3pWxuat9w8Ilm3s0ohqIoVZh38meg9CUpdfIGgzaorYuc1w==
 ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=softfail (sender ip
  is 165.204.84.17) smtp.rcpttodomain=vger.kernel.org smtp.mailfrom=gmail.com;
  dmarc=fail (p=none sp=quarantine pct=100) action=none header.from=gmail.com;
@@ -41,42 +41,41 @@ ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=softfail (sender ip
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
  d=amdcloud.onmicrosoft.com; s=selector1-amdcloud-onmicrosoft-com;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=EMgFVzONncenVzajSBplgoSS+5bazk53iesp/vegqe8=;
- b=ASExM7VNT2FPi6fxhVAEcfC909O74ssxsnkZ17q4YlfRR8T4W/bFPNasAU9vJR1exbpa/fG1SaVg9eCQdLbwRwbcbTP8Gdgb385MdxQcYl4HtJM51Bv+OXBLmdZostNkzChYxHDyAR6Pwr4M4rr6ofuLollmFfv9qnCBhMzVbKNfprHKRujg97JmU6yxLzWelsFcXfjGIVHDSc2PwTVj00jzqz+NlhjTiZQbBEWEyMbeOvtI2ygcS9gY9uLEqkmvsP04r655yMPZH+XeLhDd7xjDpRf20+ocWVM4FNMBe3fJqaVPSrTZrdMMuKBXfsfKKpQBsaFoVkRpg6P/gI24Pg==
-Received: from CH0PR04CA0041.namprd04.prod.outlook.com (2603:10b6:610:77::16)
- by DS7PR12MB9551.namprd12.prod.outlook.com (2603:10b6:8:24f::13) with
+ bh=EZD1+yjCgidhuF5ukc+OaXEqTsgx+9T1dm+BqTBAVG4=;
+ b=vvcHmmhfQmpjXUDtVBb7/jdMCuxB00YAi8mzbTJc2UDbNT72EHC26ArIyqM2UDfqhVNMGZcfIcmOXPyLM/cMRTy5YB+CDscdSA3Gh6gIYmUA3l2pec+7badXuv88XGLjIfYc8r8mfH9keVFHhPCliC3stkqgWlCp8Ms+MRQBVpOWE5E6zsnCayn8UtqBOml+TbXMPn/aAOxPbDf3KliiE1HmLphFsLUH8iysPgN0ejy9SFhd4q2h7MhJsK0tVRobnK/wIoJPa8mgrabnn0bdz1jZAZPIeMcpFqUnLxmOYYaP89x5ZJk1Zfy3Dd9yA0EpXDb4NAQm4PuETf0DU0XCnA==
+Received: from PH7PR03CA0003.namprd03.prod.outlook.com (2603:10b6:510:339::8)
+ by LV8PR12MB9264.namprd12.prod.outlook.com (2603:10b6:408:1e8::8) with
  Microsoft SMTP Server (version=TLS1_2,
  cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.472.15; Wed, 30 Sep
- 2026 06:14:07 +0000
-Received: from BN2PEPF0000A7FF.namprd02.prod.outlook.com
- (2603:10b6:610:77:cafe::9e) by CH0PR04CA0041.outlook.office365.com
- (2603:10b6:610:77::16) with Microsoft SMTP Server (version=TLS1_3,
+ 2026 06:14:26 +0000
+Received: from BY1PEPF000264AF.namprd02.prod.outlook.com
+ (2603:10b6:510:339:cafe::99) by PH7PR03CA0003.outlook.office365.com
+ (2603:10b6:510:339::8) with Microsoft SMTP Server (version=TLS1_3,
  cipher=TLS_AES_256_GCM_SHA384) id 15.21.472.15 via Frontend Transport; Wed,
- 30 Sep 2026 06:14:06 +0000
+ 30 Sep 2026 06:14:25 +0000
 X-MS-Exchange-Authentication-Results: mx.microsoft.com 1; spf=softfail (sender
  IP is 165.204.84.17) smtp.mailfrom=gmail.com; dkim=none (message not signed)
  header.d=none;dmarc=fail action=none header.from=gmail.com;
 Received-SPF: SoftFail (protection.outlook.com: domain of transitioning
  gmail.com discourages use of 165.204.84.17 as permitted sender)
 Received: from satlexmb08.amd.com (165.204.84.17) by
- BN2PEPF0000A7FF.mail.protection.outlook.com (10.167.245.166) with Microsoft
+ BY1PEPF000264AF.mail.protection.outlook.com (10.167.242.116) with Microsoft
  SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.21.472.14 via Frontend Transport; Wed, 30 Sep 2026 06:14:06 +0000
+ 15.21.472.14 via Frontend Transport; Wed, 30 Sep 2026 06:14:25 +0000
 Received: from satlexmb07.amd.com (10.181.42.216) by satlexmb08.amd.com
  (10.181.42.217) with Microsoft SMTP Server (version=TLS1_2,
  cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.49; Wed, 30 Sep
- 2026 01:14:05 -0500
+ 2026 01:14:24 -0500
 Received: from [127.0.1.1] (10.180.168.240) by satlexmb07.amd.com
  (10.181.42.216) with Microsoft SMTP Server id 15.2.2562.49 via Frontend
- Transport; Wed, 30 Sep 2026 01:14:02 -0500
+ Transport; Wed, 30 Sep 2026 01:14:21 -0500
 From: Colin Huang <u8813345@gmail.com>
-Date: Wed, 30 Sep 2026 14:10:17 +0800
-Subject: [PATCH v9 09/15] ARM: dts: aspeed: anacapa: Add LPDB fuse monitor
- GPIO expander
+Date: Wed, 30 Sep 2026 14:10:23 +0800
+Subject: [PATCH v9 15/15] ARM: dts: aspeed: anacapa: Add E1.S FRU EEPROMs
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-ID: <20260930-anacapa-devlop-phase-devicetree-v9-9-f08aa0d7182d@gmail.com>
+Message-ID: <20260930-anacapa-devlop-phase-devicetree-v9-15-f08aa0d7182d@gmail.com>
 References: <20260930-anacapa-devlop-phase-devicetree-v9-0-f08aa0d7182d@gmail.com>
 In-Reply-To: <20260930-anacapa-devlop-phase-devicetree-v9-0-f08aa0d7182d@gmail.com>
 To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
@@ -85,40 +84,40 @@ To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
 	Billy Tsai <billy_tsai@aspeedtech.com>
 CC: <devicetree@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
 	<linux-aspeed@lists.ozlabs.org>, <linux-kernel@vger.kernel.org>,
-	<colin.huang2@amd.com>, Colin Huang <u8813345@gmail.com>, Rex Fu
-	<rex.fu.amd@gmail.com>
+	<colin.huang2@amd.com>, Colin Huang <u8813345@gmail.com>
 X-Mailer: b4 0.14.3
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1790748641; l=3698;
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1790748641; l=1800;
  i=u8813345@gmail.com; s=20260202; h=from:subject:message-id;
- bh=8kEAvGR4wHD+buKRoFqsooBUH7WFB3+NHrtadmWVUT0=;
- b=2c3HR+pBxx+/kYY9AEv5W7vieikGLEJmTk/SKV8LmxjSAyomf4zuqveWQhLtqF6IvGZFgdAce
- 7g408LhQ4SDB34VUseNQ6+Jve1ZH5TaTn802aoZOZ12W4zYZqJaR0R/
+ bh=d78BMhYQt42FSplZpdDdzfXMLMgsl8ESZiBbFRA0Nzk=;
+ b=nI8UaWz/Gn5sdoKs2TWH8egNFxUlW01Yk96zHIUYm7iXExLiAy4RaZO9Cn52Ea03JORLFEl+9
+ gSVbN898zCvAoeuxES/ogaJzoRxjmLj7C3J1y2iupGuQdGZCQGJ71BU
 X-Developer-Key: i=u8813345@gmail.com; a=ed25519;
  pk=Zlg0WqpCw4qbswOqamTBTXIchwR/3SnYZpy7rjaGMdQ=
 X-EOPAttributedMessage: 0
 X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: BN2PEPF0000A7FF:EE_|DS7PR12MB9551:EE_
-X-MS-Office365-Filtering-Correlation-Id: b43921ac-4022-4dd8-c0c5-08df1eba0837
+X-MS-TrafficTypeDiagnostic: BY1PEPF000264AF:EE_|LV8PR12MB9264:EE_
+X-MS-Office365-Filtering-Correlation-Id: d60e2106-571a-404d-0902-08df1eba13ff
 X-MS-Exchange-SenderADCheck: 2
 X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|7093399015|7416014|376014|61400799027|48200799018|82310400026|35950700016|10067099003|56012099006|11063799006|4128699003|22082099003|16102099003|18002099003;
-X-Microsoft-Antispam-Message-Info: qWvyVCBi8nuIPeYZMFxOSZYFW0EJQTSd7lGShYI5ZLAidcMdqpanXrty5fWOf+KBK2WfIhHMTf7ACNPHZdkHNu55OgzTMvsWTSPyRr6JkAleiHbC0sroyHetkJ84Ab4I4ckIPWMFppxXqmepk43jJo1zvBswMJ8Ooj8jShgDpgqHBE827/WBPsM5sc/aQGeLOwoIBjlLXQxJU8S24kIydghirbctO8KB3VRkPH/Z+df1VZkUFDq2c2rJ8WZCM86CIoASp0nwYZp4AfRjT60Yy8zW7s5BOu0kELBtI36vAwkvtip5uNOQxsDC04MttJv1PVS6TMqdowVjZN6xHCenTtuXcrvkaylektvcfXUGFEh9q5SV12Tgg6nTfKT9L0SdKSpAvmrfgvleD6LonA5WbpVmcwafkO7qvr5F9SmY0URSRA2skSXTVp4Y9EOLYB6qI6npcpC9gpntihuC5TkH5NMu81L8BH1sKd/Y4dsQNBiX1Mrkwsd3RGO18IlTWd6E9T/9QNju4hLlwGEjyBfov6jh2nOTdejeDW8/9FV92Z9i+ufQ08NJtYCPHph00rj3ygsE1Nyy3X/m4lXX2hdOXb8c+8RPaikjkoOSaU/RGREioFnj5ek2TqEX0LEofY+4PysPyCqjYTGv6KksMCV7D7uu+NTEdd7WtwZf0+E5//+HIPBtpWM2IfYRvJx4Eh7NUEzQ2L/VBgf4ZK1fkc/hwQ==
-X-Forefront-Antispam-Report: CIP:165.204.84.17;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:satlexmb08.amd.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(7093399015)(7416014)(376014)(61400799027)(48200799018)(82310400026)(35950700016)(10067099003)(56012099006)(11063799006)(4128699003)(22082099003)(16102099003)(18002099003);DIR:OUT;SFP:1101;
+X-Microsoft-Antispam: BCL:0;ARA:13230040|376014|7416014|7093399015|35950700016|61400799027|48200799018|82310400026|11063799006|4128699003|10067099003|56012099006|16102099003|18002099003|22082099003;
+X-Microsoft-Antispam-Message-Info: DAMHq/068iQ9eGLkZVxYd8UAs3qHn3ed3YfQmIfRecPEly6iMARhXXLBxtFALdK4L5MOX557GwIomvZGDb3VnX5gLlukblKNRtqvd0O7SaGZp/PHT9bbNmsCYgQPkcosVRzIoNieArmNnefr0oiQzUct2BXJMkoxFdQYkA1E7aJY5g+a5gDzcnktVk422KjPNcCaIVCA/IvbZgjAr08e4YTC+WcgR9iDoShWBv0skzE8vZMR8lBVyc8VjNRgzAxSPag4p0Q1+qsk4nkE3vHaByErlMedGvq+7UFx2VNc0gB/4YFteWDAk0q0K/b8p8DjZanXnUBueKJg701mWFr5lwfIdoZaaUXIRoELqWrLRkCSXMBThWSB8pRG80RPgW6RpTaYs6NZUuQm+RCQlP4CG+LCi5OQqlawDSd2uQcisuNCQ8pCVu18rztc9d0P68CqmLWGCcuta8DA5Y4Tm0Rqmfttv0kCeTaM5B+Rzs/Ny3Vyl37WPyK35trLMCm18nr23M4KL/7hcUHe2SHvJg7/5abkufjbPJq0N3w5h68L7GWoOi2IJCmYx6M2T6nR2gu/n00nzv780bdKZZESlPDu21L7Fm4itnaVVw6tSZHnPDQarTwktaAmUmCuIyJ1Map6dxltZq6RLkK3VR1GBbt4n3vtJQEBfSmp9tLgmDuiIKjSAhMsympo7bqsGGIJSLx9ktJZsPxvvs72/MqetC8v3Q==
+X-Forefront-Antispam-Report: CIP:165.204.84.17;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:satlexmb08.amd.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(376014)(7416014)(7093399015)(35950700016)(61400799027)(48200799018)(82310400026)(11063799006)(4128699003)(10067099003)(56012099006)(16102099003)(18002099003)(22082099003);DIR:OUT;SFP:1101;
 X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: P1Dnt3hNWewIwYyX5ALpoOXFaaFwnGBFj6BW6uxG3O8sTVrLenau1H+z/zPLUTW9IQzDAqxryWzHK8L0Dc7/5BWNSUnnEtHfMFhZRhdLsU4qxC6xXrLv1qiKhZ6ISrZSERL9SiMfGB+1KfhCeMHFnGhtXZYO9TNA4mKcL0uGd/NlQ8jHoWnooZY6hMPbVcXcb2wXw8q2w5cBPOndAnuO+ZZ5+GYvBCWITN9lDWrc4PX1mJ2Ll83qTBUuGPri/DBDHSFgxVhQSPLz3IJUx4sXx4ZOrY+nv+6/CU5f2kLt+sQa0t7+WzqSV6K+cjjWlcUfJ3g4WHF/Om/LDpbNpsWTY43Fd63825sjGjCMpuKFbv1QXpUGV11PGDWgnlMgGLuj0Cu2mAZtLhvtXL9BCR1M2sWLeIzAG6khN7cs86IIRKJj7zzZaeqCItlPgYWSo5ev
+X-MS-Exchange-AntiSpam-MessageData-0: oDizhW9Wvs2qvIO+riUsGSLcIjGeuBHP+8aYCxU/Bxn92h4E7SbS5HfQmXUWodoB2ENiK2iIZze7YrlpJDjUhCiqf5uoI0mOgonEk6tajl6LMDo4CNNrqlb+XhkEojTeahdrfjeaRp7qtpIMiAKEIlm5NV+oIHGph7yCo4RA4p09HHQ7TGjONRngoMuvDi3Ahy5gQ1BuztRp3lhECUoPd0Cvk60mak384qodCAXCeE+NwrlHLF7HtUYYVn36wb+f+Z2kxCnKuvLFczncv+6mrFu+U9zxUunEIjaGrcZDlDAWlRoE7adtkTaY5pEBlTSwb7yY8D/Pgy8iqbzxbeGwTfHz2YLErXx5ppetxRHSnhchAc/5T4TuEWzaUYKVv1AYPRhghjCsSECYeIGqwcQHv01vjkLwZ90ibN3h9L3i9CRFtnO43zzr9S73RA4xTEkG
 X-OriginatorOrg: amdcloud.onmicrosoft.com
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 30 Sep 2026 06:14:06.0126
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 30 Sep 2026 06:14:25.7455
  (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: b43921ac-4022-4dd8-c0c5-08df1eba0837
+X-MS-Exchange-CrossTenant-Network-Message-Id: d60e2106-571a-404d-0902-08df1eba13ff
 X-MS-Exchange-CrossTenant-Id: 3dd8961f-e488-4e60-8e11-a82d994e183d
 X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=3dd8961f-e488-4e60-8e11-a82d994e183d;Ip=[165.204.84.17];Helo=[satlexmb08.amd.com]
-X-MS-Exchange-CrossTenant-AuthSource: BN2PEPF0000A7FF.namprd02.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthSource: BY1PEPF000264AF.namprd02.prod.outlook.com
 X-MS-Exchange-CrossTenant-AuthAs: Anonymous
 X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: DS7PR12MB9551
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: LV8PR12MB9264
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260929_231413_515132_98AABE0C 
-X-CRM114-Status: GOOD (  10.42  )
+X-CRM114-CacheID: sfid-20260929_231431_777723_C19E50DF 
+X-CRM114-Status: UNSURE (   8.95  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -133,123 +132,84 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Rex Fu <rex.fu.amd@gmail.com>
+Add the FRU EEPROM definitions for the E1.S boot drive and the four
+E1.S NVMe slots on Anacapa EVT1/EVT2 and DVT.
 
-Add PCA9554 GPIO expanders for PDB fuse monitor signals on the
-Anacapa DVT board.
-
-The patch adds GPIO expander definitions for both the left and
-right PDBs under the i2c8 multiplexer and updates the associated
-gpio-line-names to reflect the final signal assignments.
-
-Signed-off-by: Rex Fu <rex.fu.amd@gmail.com>
+Signed-off-by: Colin Huang <u8813345@gmail.com>
 ---
- .../aspeed/aspeed-bmc-facebook-anacapa-dvt.dtsi    | 92 ++++++++++++++++++++++
- 1 file changed, 92 insertions(+)
+ .../aspeed/aspeed-bmc-facebook-anacapa-evt1.dtsi   | 35 ++++++++++++++++++++++
+ 1 file changed, 35 insertions(+)
 
-diff --git a/arch/arm/boot/dts/aspeed/aspeed-bmc-facebook-anacapa-dvt.dtsi b/arch/arm/boot/dts/aspeed/aspeed-bmc-facebook-anacapa-dvt.dtsi
-index 0509bc8bb9cd..2fd7e46daa63 100644
---- a/arch/arm/boot/dts/aspeed/aspeed-bmc-facebook-anacapa-dvt.dtsi
-+++ b/arch/arm/boot/dts/aspeed/aspeed-bmc-facebook-anacapa-dvt.dtsi
-@@ -2,6 +2,98 @@
+diff --git a/arch/arm/boot/dts/aspeed/aspeed-bmc-facebook-anacapa-evt1.dtsi b/arch/arm/boot/dts/aspeed/aspeed-bmc-facebook-anacapa-evt1.dtsi
+index e429f7be46db..cd87ca27e18c 100644
+--- a/arch/arm/boot/dts/aspeed/aspeed-bmc-facebook-anacapa-evt1.dtsi
++++ b/arch/arm/boot/dts/aspeed/aspeed-bmc-facebook-anacapa-evt1.dtsi
+@@ -404,30 +404,65 @@ i2c4mux0ch0: i2c@0 {
+ 			reg = <0>;
+ 			#address-cells = <1>;
+ 			#size-cells = <0>;
++
++			// E1S_Boot FRU
++			eeprom@53 {
++				compatible = "atmel,24c02";
++				reg = <0x53>;
++				pagesize = <16>;
++			};
+ 		};
  
- #include "aspeed-bmc-facebook-anacapa-evt2.dtsi"
+ 		i2c4mux0ch1: i2c@1 {
+ 			reg = <1>;
+ 			#address-cells = <1>;
+ 			#size-cells = <0>;
++
++			// E1S_0 FRU
++			eeprom@53 {
++				compatible = "atmel,24c02";
++				reg = <0x53>;
++				pagesize = <16>;
++			};
+ 		};
  
-+// MB - PDB
-+&i2c8 {
-+	i2c-mux@72 {
-+		i2c@0 {
-+			gpio@22 {
-+				gpio-line-names =
-+					"RPDB_FAN_FULL_SPEED_R_N", "RPDB_I2C_TMP432_U8_ALERT_R_N",
-+					"RPDB_I2C_TMP432_U29_ALERT_R_N", "RPDB_GLOBAL_WP",
-+					"RPDB_FAN_CT_FAN_FAIL_R_N", "RPDB_VERID_A0",
-+					"RPDB_VERID_A1", "RPDB_VERID_A2",
-+					"RPDB_ALERT_P50V_HSC2_R_N", "RPDB_ALERT_P50V_HSC3_R_N",
-+					"RPDB_ALERT_P50V_HSC4_R_N", "RPDB_ALERT_P50V_STBY_R_N",
-+					"RPDB_P12V_MB_VRM_ALERT_R_N",
-+					"RPDB_P12V_STBY_VRM_ALERT_R_N",
-+					"RPDB_PGD_P3V3_STBY_PWRGD_R",
-+					"RPDB_P12V_STBY_VRM_PWRGD_BUF_R";
+ 		i2c4mux0ch2: i2c@2 {
+ 			reg = <2>;
+ 			#address-cells = <1>;
+ 			#size-cells = <0>;
++
++			// E1S_1 FRU
++			eeprom@53 {
++				compatible = "atmel,24c02";
++				reg = <0x53>;
++				pagesize = <16>;
 +			};
+ 		};
+ 
+ 		i2c4mux0ch3: i2c@3 {
+ 			reg = <3>;
+ 			#address-cells = <1>;
+ 			#size-cells = <0>;
 +
-+			gpio@24 {
-+				gpio-line-names =
-+					"RPDB_EAM2_PRSNT_MOS_N_R", "RPDB_EAM3_PRSNT_MOS_N_R",
-+					"RPDB_PWRGD_P50V_HSC4_SYS_R",
-+					"RPDB_PWRGD_P50V_STBY_SYS_BUF_R",
-+					"RPDB_P50V_FAN5_R2_PG", "RPDB_P50V_FAN6_R2_PG",
-+					"RPDB_P50V_FAN7_R2_PG", "RPDB_P50V_FAN8_R2_PG",
-+					"RPDB_SKU_ID0", "RPDB_FAN5_PRSNT_N_R",
-+					"", "RPDB_FAN6_PRSNT_N_R",
-+					"RPDB_FAN7_PRSNT_N_R", "RPDB_FAN8_PRSNT_N_R",
-+					"", "";
++			// E1S_2 FRU
++			eeprom@53 {
++				compatible = "atmel,24c02";
++				reg = <0x53>;
++				pagesize = <16>;
 +			};
+ 		};
+ 
+ 		i2c4mux0ch4: i2c@4 {
+ 			reg = <4>;
+ 			#address-cells = <1>;
+ 			#size-cells = <0>;
 +
-+			gpio@38 {
-+				compatible = "nxp,pca9554";
-+				reg = <0x38>;
-+				#gpio-cells = <2>;
-+				gpio-controller;
-+
-+				gpio-line-names =
-+					"RPDB_P50V_FUSE2_TVS1", "RPDB_P50V_FUSE2_TVS2",
-+					"RPDB_P50V_FUSE3_TVS1", "RPDB_P50V_FUSE3_TVS2",
-+					"RPDB_P50V_FUSE4_TVS1", "",
-+					"", "";
-+
-+				interrupt-parent = <&sgpiom0>;
-+				interrupts = <174 IRQ_TYPE_LEVEL_LOW>;
++			// E1S_3 FRU
++			eeprom@53 {
++				compatible = "atmel,24c02";
++				reg = <0x53>;
++				pagesize = <16>;
 +			};
-+		};
-+
-+		i2c@1 {
-+			gpio@22 {
-+				gpio-line-names =
-+					"LPDB_FAN_FULL_SPEED_R_N", "LPDB_I2C_TEMP75_U8_ALERT_R_N",
-+					"LPDB_I2C_TMP432_U29_ALERT_R_N", "LPDB_GLOBAL_WP",
-+					"LPDB_FAN_CT_FAN_FAIL_R_N", "LPDB_VERID_A0",
-+					"LPDB_VERID_A1", "LPDB_VERID_A2",
-+					"LPDB_ALERT_P50V_HSC0_R_N", "LPDB_ALERT_P50V_HSC1_R_N",
-+					"LPDB_ALERT_P50V_HSC5_R_N", "LPDB_I2C_P12V_SW_VRM_ALERT_R_N",
-+					"LPDB_EAM0_PRSNT_MOS_N_R", "LPDB_EAM1_PRSNT_MOS_N_R",
-+					"LPDB_PWRGD_P50V_HSC5_SYS_R", "BARKLIP_PRSNT_N_R3";
-+			};
-+
-+			gpio@24 {
-+				gpio-line-names =
-+					"LPDB_P50V_FAN0_R2_PG", "LPDB_P50V_FAN1_R2_PG",
-+					"LPDB_P50V_FAN2_R2_PG", "LPDB_P50V_FAN3_R2_PG",
-+					"LPDB_P50V_FAN4_R2_PG", "LPDB_FAN0_PRSNT_N_R",
-+					"LPDB_FAN1_PRSNT_N_R", "LPDB_FAN2_PRSNT_N_R",
-+					"LPDB_FAN3_PRSNT_N_R", "LPDB_FAN4_PRSNT_N_R",
-+					"LPDB_SKU_ID0", "",
-+					"", "",
-+					"", "LPDB_PG_P3V3_R";
-+			};
-+
-+			gpio@38 {
-+				compatible = "nxp,pca9554";
-+				reg = <0x38>;
-+				#gpio-cells = <2>;
-+				gpio-controller;
-+
-+				gpio-line-names =
-+					"LPDB_P50V_FUSE0_TVS1", "LPDB_P50V_FUSE0_TVS2",
-+					"LPDB_P50V_FUSE1_TVS1", "LPDB_P50V_FUSE1_TVS2",
-+					"LPDB_P50V_FUSE5_TVS1", "",
-+					"", "";
-+
-+				interrupt-parent = <&sgpiom0>;
-+				interrupts = <174 IRQ_TYPE_LEVEL_LOW>;
-+			};
-+		};
-+	};
-+};
-+
- &sgpiom0 {
- 	gpio-line-names =
- 	/*in - out */
+ 		};
+ 
+ 		i2c4mux0ch5: i2c@5 {
 
 -- 
 2.34.1
