@@ -4,74 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4D43ECA5FC1
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 30 Sep 2026 08:06:39 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 54BCCCA5FC3
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 30 Sep 2026 08:17:16 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=UecwsZ20I3O30f5XLk1sV/Ve+pnFPjnLqcHVoMGHPzM=; b=4rP/85pEDRRxvMwDUT4uzL/2W7
-	5lDfENBuJtrITAylfMuRjYtQ3dXx7E66zkEjKtMtche7nTudYhtto+PmzGMRCVN+PdJf2wkWbbQs1
-	XZ4nFx8dYcXRptf4q6STrgtrcLgnb1t9fu0mq/R/pvmfhW/v49gCfL7muf1DxxL/Irrb5jf5L450x
-	tleKsoLvZX2SnYZizAP4goNDs6a2eWNkb9Jg9JDpvfgNKotvdED6TF5BruNfJL4TEe08uASrLxiFG
-	wQBTr7C9M8r+noqb1EjMVVZKIG2XLQ6VxVWBxJf5mQHglAo7D46NbhemSNYikeLbH0b5SXGFz8+qT
-	gbYQYnnA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=6NFbmBv4gX6DwCKpCQ6ZygoAz0yTdrXq4bO5uUeCkzI=; b=EV67GBjUotFuUm/HKAORigQLjk
+	aEqWxK/CKIjncrnDUghCoT9vcZDIRnAIV2X/mxHgfVCY9MfZioKfwLQzQvThdbeUdtSIli5o/l1+t
+	r2BFcoM5sgzprdviLzHZ40mUyX0O3iqil71XNQ+2kGZOKzMtlgXNPSLvqtXUrQH6AedUAbFop7VtO
+	NOHoz0zMTuRfejg3/BPnLYvOGSavopMLRwyXltCsPNLOFHe7RtbDB7o/d9LZ10/TWADegNVZZCsb0
+	oNuvxJvipsBkRuA7Etxo/HnFxt60L7WSobggLGa8DFxDgPtbXUSIM0/5xBFI+GRQ++/McoGNWUQqW
+	jFuiD4Zg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xBpKi-00000005NlH-0eUX;
-	Wed, 30 Sep 2026 08:06:32 +0000
-Received: from galois.linutronix.de ([2a0a:51c0:0:12e:550::1])
-	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xBpKf-00000005Nj9-1kI4;
-	Wed, 30 Sep 2026 08:06:30 +0000
-Date: Wed, 30 Sep 2026 10:06:09 +0200
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linutronix.de;
-	s=2020; t=1790755570;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 in-reply-to:in-reply-to:references:references;
-	bh=UecwsZ20I3O30f5XLk1sV/Ve+pnFPjnLqcHVoMGHPzM=;
-	b=FptX7Lt5BoYgw7PcLLJRCSzi7pBxC6jN8Nayud/BufCUUTkLz2M76fZ438lyT1nytPzwpS
-	AuiHJIUaNUjQKExIOzEFm7aSZgoEezLNXFxWqXeWB07semdmRR/nJS1LbYkOiCVdUiXgLE
-	pGuBE+3MeuUz92lFnjLeHIn9ebJYGKGahdBN64jwUeg2No2JFCPt7b5uBigjWR0YAjpEZI
-	N0QQav/JkfJjMMYyGtIc5t8Gqu/Ny5dSoWoK0SJHrJRpBE4JCi2pJmWWJfk59DsBlUWglD
-	n7s5DCDmK0HG8ca8eCM2cxHIHZu99oleofBuexW2tGrrQZb3RxVKEIJ3TaZz9w==
-DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=linutronix.de;
-	s=2020e; t=1790755570;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 in-reply-to:in-reply-to:references:references;
-	bh=UecwsZ20I3O30f5XLk1sV/Ve+pnFPjnLqcHVoMGHPzM=;
-	b=rFq1cy6yhPf0MDw2t1d8vHFY61wCZ5eoTKiQI8olkMeNbi+aZUIWaZmw5xd9kbjlcC3YyG
-	54LSeD9rQxa4BYDA==
-From: Sebastian Andrzej Siewior <bigeasy@linutronix.de>
-To: Ryan Brue <ryanbrue.dev@gmail.com>, Mark Brown <broonie@kernel.org>,
-	Lee Jones <lee@kernel.org>, Arnd Bergmann <arnd@arndb.de>
-Cc: Sean Wang <sean.wang@kernel.org>, Linus Walleij <linusw@kernel.org>,
-	Matthias Brugger <matthias.bgg@gmail.com>,
-	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
-	Bartosz Golaszewski <brgl@kernel.org>,
-	Clark Williams <clrkwllms@kernel.org>,
-	Steven Rostedt <rostedt@goodmis.org>,
-	Yingjoe Chen <yingjoe.chen@mediatek.com>,
-	Chaotian Jing <chaotian.jing@mediatek.com>,
-	Hongzhou Yang <hongzhou.yang@mediatek.com>,
-	linux-mediatek@lists.infradead.org, linux-gpio@vger.kernel.org,
-	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-	linux-rt-devel@lists.linux.dev, mfd@lists.linux.dev
-Subject: Re: [PATCH] pinctrl: mediatek: common-v1: Use a raw spinlock for the
- pinctrl regmap
-Message-ID: <20260930080609.dnK1-Uta@linutronix.de>
-References: <20260929-rbrue-suez-upstreaming-mtk-pinctrl-raw-regmap-v1-1-db92943f42cb@gmail.com>
+	id 1xBpUy-00000005OiM-1ZD6;
+	Wed, 30 Sep 2026 08:17:08 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1xBpUv-00000005Ohe-2vMm
+	for linux-arm-kernel@lists.infradead.org;
+	Wed, 30 Sep 2026 08:17:06 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 1AFC61477;
+	Wed, 30 Sep 2026 01:17:01 -0700 (PDT)
+Received: from [192.168.1.148] (usa-sjc-mx-foss1.foss.arm.com [172.31.20.19])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id CAA463F85F;
+	Wed, 30 Sep 2026 01:17:01 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
+	t=1790756224; bh=GNXZa7j1/VTmq7tnRy/t6ruvY0i6WuGqOi1nPlTRzL8=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=BKFn+Xi71PDm13PN8c8mgumEtRVu6FdNVGMRI1NxBTY3+SXllrtsQ3wOiOa9C9yGH
+	 50qcRfxA51AqF4pH++UxpnBh8vGYwXCVwWTAkE001/+beCOgzfLMxE2tz0ga5977lw
+	 wFuOCDVKLSU2T89a1BcDCSroJtJc5QdZ9Gr6OJe0=
+Message-ID: <af49e948-3120-401f-a00d-74c853ee17b9@arm.com>
+Date: Wed, 30 Sep 2026 09:17:00 +0100
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-In-Reply-To: <20260929-rbrue-suez-upstreaming-mtk-pinctrl-raw-regmap-v1-1-db92943f42cb@gmail.com>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v19 6/7] firmware: arm_rmm: Ensure the RMM has GPT entries
+ for memory
+Content-Language: en-GB
+To: Shanker Donthineni <sdonthineni@nvidia.com>, kvm@vger.kernel.org,
+ kvmarm@lists.linux.dev
+Cc: maz@kernel.org, will@kernel.org, catalin.marinas@arm.com,
+ linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ steven.price@arm.com, aneesh.kumar@kernel.org, oupton@kernel.org,
+ gshan@redhat.com, joey.gouly@arm.com, tabba@google.com,
+ yuzenghui@huawei.com, linux-coco@lists.linux.dev,
+ gankulkarni@os.amperecomputing.com, alpergun@google.com,
+ fj0570is@fujitsu.com, WeiLin.Chang@arm.com, lpieralisi@kernel.org,
+ enju.kohei@fujitsu.com, sudeep.holla@arm.com,
+ jonathan.cameron@oss.qualcomm.com
+References: <20260924135201.850038-1-suzuki.poulose@arm.com>
+ <20260924135201.850038-7-suzuki.poulose@arm.com>
+ <a27970c6-a7d2-4abc-84c3-7e50225f0a1a@nvidia.com>
+From: Suzuki K Poulose <suzuki.poulose@arm.com>
+In-Reply-To: <a27970c6-a7d2-4abc-84c3-7e50225f0a1a@nvidia.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260930_010629_619953_ABFA4394 
-X-CRM114-Status: GOOD (  34.22  )
+X-CRM114-CacheID: sfid-20260930_011705_824145_CD415454 
+X-CRM114-Status: GOOD (  18.25  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -86,164 +81,81 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 2026-09-29 12:57:51 [-0500], Ryan Brue wrote:
-> The EINT irq_chip emulates both-edge interrupts by reading the pin's
-> level through mtk_gpio_get() and the pinctrl regmap. It does so from its
-> unmask and set_type callbacks, under the raw irq_desc lock, and from the
-> chained handler, in hard interrupt context. The regmap comes from syscon
-> and locks with a spinlock_t, which may sleep on PREEMPT_RT. With
-> CONFIG_PROVE_LOCKING, the first request of a both-edge EINT prints
-> "[ BUG: Invalid wait context ]" and turns lockdep off for the rest of
-> the boot.
-
-This duplicates syscon node and creates a new one with the
-.use_raw_spinlock=true attribute. Now, syscon is always low-level access
-with MMIO access, right?
-
-I've been wondering if we could make drivers/mfd/syscon.c use the
-raw_spintlock_t instead making this sort of change for every driver that
-has this "requirement".
-
-If this is all MMIO reads/ writes then it should work. I'm not sure why
-we have the lock to begin with. Probably due to the cache/ async writes.
-Cache wise just the flat-cache works since the other (like rbtree)
-allocates memory on write under the lock. So this does not work.
-What I am bit worried about are the bulk_write and multi_reg_write where
-multiple writes happen under the lock.
-
-> Create the regmap for the "mediatek,pctl-regmap" nodes here instead,
-> with use_raw_spinlock set, and register it with syscon so that other
-> users of a node, such as the ethernet on MT2701 and MT7623, share its
-> lock. If the node already has a syscon regmap, keep using it. Select
-> REGMAP_MMIO, which the driver now uses directly.
+On 29/09/2026 23:29, Shanker Donthineni wrote:
+> Hi Suzuki,
 > 
-> Fixes: 3221f40b7631 ("pinctrl: mediatek: emulate GPIO interrupt on both-edges")
-> Assisted-by: LLM
-> Signed-off-by: Ryan Brue <ryanbrue.dev@gmail.com>
-> ---
-> Found on the Amazon Fire HD 10 (2017), an MT8173 tablet that is not
-> upstream yet, where usb_extcon_probe() requests the USB ID pin's
-> both-edge EINT. With this patch lockdep stays on through boot, CPU
-> hotplug, suspend to RAM, and lid open/close edges on the hall sensor's
-> both-edge EINT. Only MT8173 was tested. Nothing else uses the node
-> there, so the -EEXIST fallback was not exercised.
-> 
-> checkpatch warns that the regmap_config should be const. It is copied
-> per node to set name and max_register, as syscon does.
-> ---
->  drivers/pinctrl/mediatek/Kconfig              |  1 +
->  drivers/pinctrl/mediatek/pinctrl-mtk-common.c | 59 ++++++++++++++++++++++++++-
->  2 files changed, 58 insertions(+), 2 deletions(-)
-> 
-> diff --git a/drivers/pinctrl/mediatek/Kconfig b/drivers/pinctrl/mediatek/Kconfig
-> index 30ef3dc5dfb1..764256901d6a 100644
-> --- a/drivers/pinctrl/mediatek/Kconfig
-> +++ b/drivers/pinctrl/mediatek/Kconfig
-> @@ -17,6 +17,7 @@ config PINCTRL_MTK
->  	select GENERIC_PINCONF
->  	select GPIOLIB
->  	select EINT_MTK
-> +	select REGMAP_MMIO
->  
->  config PINCTRL_MTK_V2
->  	tristate
-> diff --git a/drivers/pinctrl/mediatek/pinctrl-mtk-common.c b/drivers/pinctrl/mediatek/pinctrl-mtk-common.c
-> index 1a977acd6883..65b1e3096183 100644
-> --- a/drivers/pinctrl/mediatek/pinctrl-mtk-common.c
-> +++ b/drivers/pinctrl/mediatek/pinctrl-mtk-common.c
-> @@ -9,6 +9,7 @@
->  #include <linux/gpio/driver.h>
->  #include <linux/module.h>
->  #include <linux/of.h>
-> +#include <linux/of_address.h>
->  #include <linux/of_irq.h>
->  #include <linux/pinctrl/consumer.h>
->  #include <linux/pinctrl/machine.h>
-> @@ -1057,6 +1058,60 @@ static int mtk_eint_init(struct mtk_pinctrl *pctl, struct platform_device *pdev)
->  	return mtk_eint_do_init(pctl->eint, NULL);
->  }
->  
-> +static const struct regmap_config mtk_pctrl_regmap_config = {
-> +	.reg_bits = 32,
-> +	.val_bits = 32,
-> +	.reg_stride = 4,
-> +	.use_raw_spinlock = true,
-> +};
-> +
-> +/*
-> + * The EINT irq_chip reads a pin's level through this regmap from callbacks
-> + * that run under the raw irq_desc lock, so the regmap has to use a raw
-> + * spinlock too, which syscon's own does not. Register one with syscon for the
-> + * node instead, so that any other user of the node shares its lock.
-> + */
-> +static struct regmap *mtk_pctrl_syscon_regmap(struct device_node *np)
-> +{
-> +	struct regmap_config config = mtk_pctrl_regmap_config;
-> +	struct regmap *regmap;
-> +	struct resource res;
-> +	void __iomem *base;
-> +	int ret;
-> +
-> +	ret = of_address_to_resource(np, 0, &res);
-> +	if (ret)
-> +		return ERR_PTR(ret);
-> +
-> +	base = ioremap(res.start, resource_size(&res));
-> +	if (!base)
-> +		return ERR_PTR(-ENOMEM);
-> +
-> +	config.name = kasprintf(GFP_KERNEL, "%pOFn@%pa", np, &res.start);
-> +	if (!config.name) {
-> +		iounmap(base);
-> +		return ERR_PTR(-ENOMEM);
-> +	}
-> +
-> +	config.max_register = resource_size(&res) - config.reg_stride;
-> +	regmap = regmap_init_mmio(NULL, base, &config);
-> +	kfree(config.name);
-> +	if (IS_ERR(regmap)) {
-> +		iounmap(base);
-> +		return regmap;
-> +	}
-> +
-> +	ret = of_syscon_register_regmap(np, regmap);
-> +	if (ret) {
-> +		regmap_exit(regmap);
-> +		iounmap(base);
-> +		/* An earlier probe, or another user of the node, got there first. */
-> +		return ret == -EEXIST ? syscon_node_to_regmap(np) : ERR_PTR(ret);
-> +	}
-> +
-> +	return regmap;
-> +}
-> +
->  /* This is used as a common probe function */
->  int mtk_pctrl_init(struct platform_device *pdev,
->  		const struct mtk_pinctrl_devdata *data,
-> @@ -1076,7 +1131,7 @@ int mtk_pctrl_init(struct platform_device *pdev,
->  
->  	node = of_parse_phandle(np, "mediatek,pctl-regmap", 0);
->  	if (node) {
-> -		pctl->regmap1 = syscon_node_to_regmap(node);
-> +		pctl->regmap1 = mtk_pctrl_syscon_regmap(node);
->  		of_node_put(node);
->  		if (IS_ERR(pctl->regmap1))
->  			return PTR_ERR(pctl->regmap1);
-> @@ -1089,7 +1144,7 @@ int mtk_pctrl_init(struct platform_device *pdev,
->  	/* Only 8135 has two base addr, other SoCs have only one. */
->  	node = of_parse_phandle(np, "mediatek,pctl-regmap", 1);
->  	if (node) {
-> -		pctl->regmap2 = syscon_node_to_regmap(node);
-> +		pctl->regmap2 = mtk_pctrl_syscon_regmap(node);
->  		of_node_put(node);
->  		if (IS_ERR(pctl->regmap2))
->  			return PTR_ERR(pctl->regmap2);
-> 
-> ---
-> base-commit: 72d3fcf802c45d00b300f25b848a93c3a2bd7c7e
-> change-id: 20260925-rbrue-suez-upstreaming-mtk-pinctrl-raw-regmap-154d6225b977
-> 
-> Best regards,
+> On 9/24/2026 8:52 AM, Suzuki K Poulose wrote:
+>> External email: Use caution opening links or attachments
+>>
+>>
+>> From: Steven Price <steven.price@arm.com>
+>>
+>> The RMM maintains the state of all the granules in the system to make
+>> sure that the host is abiding by the rules. This state can be maintained
+>> at different granularity, per page (TRACKING_FINE) or per region
+>> (TRACKING_COARSE or TRACKING_INTERMEDIATE). The region size depends on 
+>> the
+>> underlying "RMI_GRANULE_SIZE". For a "coarse"/"intermediate" region,
+>> all pages in the region must be of the same state, this implies we 
+>> need to
+>> have "fine" tracking for DRAM, so that we can delegate individual pages.
+>>
+>> For now we only support a statically carved out memory for tracking
+>> granules for the "fine" regions. This can be extended in the future to
+>> allow modifying the tracking granularity and remove the need for a
+>> static allocation by the firmware.
 
-Sebastian
+...
+
+>> +
+>> +/*
+>> + * We do not support creating L1 GPTs yet. So, make sure that
+>> + * all the regions are managed by the firmware.
+>> + */
+>> +static int rmi_verify_gpt_firmware_managed(phys_addr_t start, 
+>> phys_addr_t end)
+>> +{
+>> +       unsigned long l0gpt_sz;
+>> +       unsigned long next, par_state;
+>> +
+>> +       l0gpt_sz = 1UL << (30 + FIELD_GET(RMI_FEATURE_REGISTER_1_L0GPTSZ,
+>> +                                         rmi_feat_reg(1)));
+>> +       start = ALIGN_DOWN(start, l0gpt_sz);
+>> +       end = ALIGN(end, l0gpt_sz);
+>> +
+>> +       while (start < end) {
+>> +               long ret = rmi_gpt_info(start, end, &next, &par_state);
+>> +
+>> +               if (ret != RMI_SUCCESS)
+>> +                       return -ENOMEM;
+>> +
+>> +               if (WARN_ON(next <= start))
+>> +                       return -ENXIO;
+>> +
+>> +               if (par_state != RMI_GPT_PAR_PLAT) {
+>> +                       pr_err("GPT for the region is not managed by 
+>> firmware %llx-%lx\n",
+>> +                               start, next);
+>> +                       return -ENOMEM;
+> 
+> Accepting only RMI_GPT_PAR_PLAT rules out the host ever creating its own
+> L1 GPTs. On NVIDIA platforms the PARs backing system RAM come up as
+> RMI_GPT_PAR_HOST_NOT_CREATED, so this returns -ENOMEM and CCA cannot be
+> enabled at all.
+
+Like I mentioned in the previous response, this is staged upstreaming.
+The dynamic GPT/Tracking will follow after. This also calls for 
+on-demand activation which Catalin requested and can be combined together,
+as we dedicate quite a lot of memory for the metadata and L1GPTs.
+
+
+> 
+> With local changes to promote granule tracking via RMI_GRANULE_TRACKING_SET
+> and to create the host L1 GPTs, I was able to boot a Realm with multiple
+> vCPUs and exercise basic boot functionality on NVIDIA silicon.
+
+Thanks for the testing !
+
+Cheers
+Suzuki
 
