@@ -4,61 +4,61 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id EA7CACA5FC4
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 30 Sep 2026 20:59:16 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3B5EBCA5FC4
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 30 Sep 2026 20:59:37 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Cc:List-Subscribe:
 	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
 	Content-Transfer-Encoding:Content-Type:To:Subject:Message-ID:Date:From:
 	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=ETyIYD8SndBjLIiRXQ2bmUr53dhg26pl6CRuNTCklv4=; b=Q+aJJPfVWxFvES
-	hj+Gre403d1psjDuvxEvYFfb9Ve+VgQdk0+5QtU6xN3LrR6hEsf7LwuWUBQez2YEbi5bDJRfvzBWo
-	JcEkCmSgKkHIcMs98IcbTtpDYr/vKJFIIRImHFfrNC9wwMw5yXxEh6kftHVtQcz3AXpXlfB5epWmy
-	ssK4vt3kU67aTxEMPZ/+5SvI2GQLVXWdvMKnMxGRlS27uNei28juoVuLzEedJKd65tMxai6bdO8Hn
-	nrZC/3w6nQIyCYQ1Pdbtt3uIuYVQ5qtk7q4HA7NHwQ59RRenEfOA9ckGJFIFYVlICCVn7hS8nsFyQ
-	m15/L9QuxUkXaj2R0nVA==;
+	List-Owner; bh=x2xDoi432TpdS/q9V1G7eQayt3YVdg1enz2iU5BviuI=; b=hZjPI+H/q77gUJ
+	AhnxJoagwRRoK41EcpngB53HsqyfQglKqVjsZbwPNpVRFZyuuYSLC1yhGiHqrHDLc95slxRUDcsIl
+	HobNxqvMrM3qpvm9sXSu6/RQfoNVHjzhymxfgg0LnSwa1/p5R6QStYiwlpSHwwGbRijvDYX80jM8I
+	QCdezaPHTup2s9gCfID18FFRSmhB4pN/Z24FBBKuSsOUZzObnkyBE1u48UsHjWcxmjxm4cmuP9B2l
+	W9XLSZt04CA/9NW8kOQCZm6xTmhHBzGzG96brCWiM0GXbQwSfaqY8KUMe0W8WVEIou/KiiADYjoml
+	t+46N5AtH2Agmcq5omhw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xC1OQ-00000007DJR-2xFW;
-	Wed, 30 Sep 2026 20:59:10 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1xC1Ok-00000007DPI-3eD4;
+	Wed, 30 Sep 2026 20:59:30 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xC1OO-00000007DIl-3fYx
+	id 1xC1Ok-00000007DP9-1ftH
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 30 Sep 2026 20:59:08 +0000
+	Wed, 30 Sep 2026 20:59:30 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 5FF8543EFA
-	for <linux-arm-kernel@lists.infradead.org>; Wed, 30 Sep 2026 20:59:08 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 4069E1F0089D
-	for <linux-arm-kernel@lists.infradead.org>; Wed, 30 Sep 2026 20:59:08 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 00A33417E4
+	for <linux-arm-kernel@lists.infradead.org>; Wed, 30 Sep 2026 20:59:30 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 9AF7E1F008A1
+	for <linux-arm-kernel@lists.infradead.org>; Wed, 30 Sep 2026 20:59:29 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1790801948;
-	bh=ETyIYD8SndBjLIiRXQ2bmUr53dhg26pl6CRuNTCklv4=;
+	s=k20260515; t=1790801969;
+	bh=x2xDoi432TpdS/q9V1G7eQayt3YVdg1enz2iU5BviuI=;
 	h=References:In-Reply-To:From:Date:Subject:To:Cc;
-	b=P5pTMj8dRh1bjZCCsV+KLpb7Ixrbe8gBYrehXGvajrIv7Sj1q/VOWlMOsEecbyCuo
-	 QquiDe95zB0X98vqkxQOQ9spOjOjJsBvI30Il6XhK0ZB+rncHQ13ph0ZOUmQRaHhoM
-	 yw2q56Q1eUwMuuj+mq34mmPft9Gpy6CEryzdr/HRpK/+xrFrYn34sQ8xn8Rp0zUumW
-	 qmvrcQPw4yOFdHnKoQWNqbxxaIj0J6lOYvT3eYThLkSRsxoj0Pl+eFgOjx8fkaYqmT
-	 SdHr5E9DYUKlpmH3VqyxKpzIrz7QavkwsBTjf+rGN0f79cy+JgR+5H0xUu+rCCFYSR
-	 45ddGkvtE4Ozg==
-Received: by mail-lf2-f13.google.com with SMTP id 2adb3069b0e04-5ba40cb7246so815983e87.1
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 30 Sep 2026 13:59:08 -0700 (PDT)
-X-Gm-Message-State: AFq9FYIiaxf+RbIWK9KJkYaMWDZk737aq22sPAFXlmGaYU5ryzCCUqj1
-	RYv2brlC3ViYTny1T1jtLrGC75/QaA2Qz3UP1oF4g8TILQ9l6nuwAiY1rRVFrWzq3fnwjJuUfpe
-	dTEia30W8TaCM9VAMWxrwImJJTkMuIGQ=
-X-Received: by 2002:ac2:4307:0:b0:5b6:4ad:77b3 with SMTP id
- 2adb3069b0e04-5ba405febaamr906645e87.27.1790801947027; Wed, 30 Sep 2026
- 13:59:07 -0700 (PDT)
+	b=T81mUW/hw9yHMlbon3JBub2tX+pVw8QbZdtVbmDn0vR43Xjt2VemsTg4o1f5tW3Pm
+	 WEqH5dlsf4bfnQQZ0QvMkRjZbGSisiumU03R6WRWtxV1l8jhZFJHlMAnec8D3A/ody
+	 6MMVT7x8s0bfoBUDGPWDaUK9JH0Y54tJo+lae8y3NLu1IgvPJ6prveTXGQeFjp0K4U
+	 IHxh2K4p3ZInzKjnpi6wQ5BSWxrqVlOVL7ZYsKZ9ke0Udiet0x3OZM433+woNhGVnv
+	 uGdCMz51/L7v8BnzgCvEYPdIZc1IIo40olrp7U0vYk49pNDgeqwwd+N/T4dHC2vaRA
+	 BcqJhtJ2SiFpQ==
+Received: by mail-lr2-f33.google.com with SMTP id 38308e7fff4ca-3a7847d8aadso835191fa.2
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 30 Sep 2026 13:59:29 -0700 (PDT)
+X-Gm-Message-State: AFq9FYILNOc45TLhZWyt1aaXEqqM3x1qFtifgwbB23z0IdzhOIIEDEh+
+	7MAnVnBV2yALgTYkNvWAR7Uvlaele4wsJi6t1UI7ARvxziAUeq4JklLHNqZTRdmh0LXIC+GyljB
+	JX20FtkUOu+Jvbb9ZPVquaLVcpAr9BXo=
+X-Received: by 2002:a2e:be07:0:b0:3a6:3074:1213 with SMTP id
+ 38308e7fff4ca-3a7791f6853mr8204661fa.10.1790801968394; Wed, 30 Sep 2026
+ 13:59:28 -0700 (PDT)
 MIME-Version: 1.0
-References: <20260918161407.2300-1-will@kernel.org> <20260918161407.2300-8-will@kernel.org>
-In-Reply-To: <20260918161407.2300-8-will@kernel.org>
+References: <20260918161407.2300-1-will@kernel.org> <20260918161407.2300-9-will@kernel.org>
+In-Reply-To: <20260918161407.2300-9-will@kernel.org>
 From: Linus Walleij <linusw@kernel.org>
-Date: Wed, 30 Sep 2026 22:58:55 +0200
-X-Gmail-Original-Message-ID: <CAD++jLkBksuXRxajC0Lje452i2=xg-Qew1_eWQQ6CM094ErGMQ@mail.gmail.com>
-X-Gm-Features: AclHuK-A87jC1Nbt5gmaSaWdd9HGjM0ZwIwCU4mh03yPLkY78y4hcYrE9xtdyio
-Message-ID: <CAD++jLkBksuXRxajC0Lje452i2=xg-Qew1_eWQQ6CM094ErGMQ@mail.gmail.com>
-Subject: Re: [PATCH v2 07/21] selftests/bpf: arm64: Use TPIDRRO_EL0 instead of
+Date: Wed, 30 Sep 2026 22:59:16 +0200
+X-Gmail-Original-Message-ID: <CAD++jLmasCTjrOhoh2adbcJOoUp3tpyKRoW0sQ208Yu+gmASyA@mail.gmail.com>
+X-Gm-Features: AclHuK-WMilLduU0SJSUy6DYdYt0XQQZ-96_5ql4TiYDpBI59IN3Gx8NkrGan-w
+Message-ID: <CAD++jLmasCTjrOhoh2adbcJOoUp3tpyKRoW0sQ208Yu+gmASyA@mail.gmail.com>
+Subject: Re: [PATCH v2 08/21] scripts/gdb: arm64: Use TPIDRRO_EL0 instead of
  SP_EL0 for 'current'
 To: Will Deacon <will@kernel.org>
 Content-Type: text/plain; charset="UTF-8"
@@ -82,7 +82,7 @@ On Fri, Sep 18, 2026 at 6:14=E2=80=AFPM Will Deacon <will@kernel.org> wrote=
 :
 
 > The current task pointer now lives in TPIDRRO_EL0 instead of SP_EL0, so
-> update the bpf selftests with the new register allocation.
+> update the gdb 'cpus.py' helper script with the new register allocation.
 >
 > Cc: Mark Rutland <mark.rutland@arm.com>
 > Signed-off-by: Will Deacon <will@kernel.org>
