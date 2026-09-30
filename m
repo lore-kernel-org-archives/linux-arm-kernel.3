@@ -4,51 +4,51 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 51587CA5FC5
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 30 Sep 2026 18:45:58 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1D58BCA5FC4
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 30 Sep 2026 18:46:07 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
-	:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=sPUa1UDCepLgjEsxDYzNytI1H2lpA7WtjDbyVIjlxxw=; b=UjkUsgI1UuswV8dpE4lMCcJy8w
-	YKygndSr2wIKdFW+TT2UGQVmQx0AOxZno+2ftkXi/caIUquPhzXmhTBfBFvaiAWmLCbsn9qLYlG7Q
-	3GN+/Gs3oB0sjuGh2OYG5mnN5TS3gTQeHvsvPy4WtierY0xaKm8hHRHQ8MoOPVuKORt11AVlUI4jL
-	2T6kak+ZUmBr1HVz5BLqgYz/4mM+F6FHlvLAidgmLnYrEr2hN3MYAYJtAeJX4WE1R2oeoMoA8VyeI
-	5uIcRJJ9W0M4rCHibzk97noB1Aif+bb+Fbxcmc6O/7l/kfVkm56SxW6ZPOD51l8lwZxNPLKVaCS70
-	99RrvjVQ==;
+	Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
+	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=yQ2QwwI3avoP25dNRmxG7as4Pv+Y98K9wMxhJYOR9uI=; b=dnxAaK1hbTI2Jzmsq/XaTlE7oS
+	DNIGuWTwNPalgo/eo06j7rgZ8XRluhVQmUzgexV7mOr/nAGoJilcUAfoPo/YjBnoC3bXHUR5WoZHk
+	pNqAzFj0RlIPIPlXh12nlcDvZ88GQjPoY3M57FBBB21i6ti6puHRnMeOmz4fVU5WaqFSZ3+c0uW/v
+	gZ4v/L+a1rcy2C0ltM3Y/noYzKcwtTXqa7g7Ll9isQtA7MM8WWlJtWW9P1WaIVmX24rI4Z0BTwYdL
+	okIPU1u9OgwsSd/78kAycipzxFnejCLaK/Zq5q+9IQXQ6QbLCSnyrCz48BFE+lxn2xq/si9fZIqhj
+	iIBPzxxg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xBzJP-000000070ZH-3h0Z;
+	id 1xBzJP-000000070ZV-4ADz;
 	Wed, 30 Sep 2026 18:45:51 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xBzJF-000000070Uj-3iME
+	id 1xBzJN-000000070Xy-2h05
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 30 Sep 2026 18:45:41 +0000
+	Wed, 30 Sep 2026 18:45:49 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 9FDC0444F2;
-	Wed, 30 Sep 2026 18:45:41 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 0C88A1F00898;
-	Wed, 30 Sep 2026 18:45:35 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 210FE407C4;
+	Wed, 30 Sep 2026 18:45:49 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 226471F000FF;
+	Wed, 30 Sep 2026 18:45:43 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1790793941;
-	bh=sPUa1UDCepLgjEsxDYzNytI1H2lpA7WtjDbyVIjlxxw=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References;
-	b=nvAgqC7+qL/txwB6g/TswQeMlYhqV9aY8pC6/L455ocIF2QraBN9yB7ixoNUQzQIr
-	 AZAPONZ6gWyHGW+LUosU4Ts3onnbq40wLFrUX8c7cCSHYH4zzVUbRZJEqxjRAcrjPA
-	 9AQV4IbWrLJihN0wZ00K4jZ/nIhS0I8wz/cZoqbpKlcoz3D06Azuxd+oZUA2Hr39lY
-	 oLvpXENea7TXznnfd+XhNSaCzUrunYcm36OlagR3IJ1dNarLnGsIGsoq/7FG/FCetw
-	 j+HOMAH5/1q4RgX1yyjE2C9vH76CtofXW4PAT2wIWT8AjJrCHMudpX8MaWGWGGGKPa
-	 A01KTsF5lw4eg==
+	s=k20260515; t=1790793949;
+	bh=yQ2QwwI3avoP25dNRmxG7as4Pv+Y98K9wMxhJYOR9uI=;
+	h=From:To:Cc:Subject:Date;
+	b=PlULGXTZQ54c7Llau1cooqhd/TDJU5GWQRZHrW5/l1Xg+n1C0XNSmkHNDfqO2o6Pl
+	 ajbRmBp/1O1YIY5aYMAO1gc7BV+rXg8Dn68ELvIu+//u+iLRWJeG7z39CxfqONRG6H
+	 6P9gAL/Yy16eg1AEIcagBc0W8+XBzbKCvBYhCjCVChcbWlNMZ9vgScrvNY7U8m81rt
+	 eDFKSfanqNq7EXY5BpxWGuA9IiFkQ5Ywc+Y4gioXO/wVmrbhi4vvwavVUwqoQ5DE+a
+	 LB2lHmipNEju52t63YAemWJoZv9VBR9GyrV5O+Q5ln/0nApK2QoNit6BaiXFSBogE3
+	 HGROvZZmBLRcw==
 From: "Rafael J. Wysocki" <rafael@kernel.org>
-To: Linux ACPI <linux-acpi@vger.kernel.org>, linux-efi@vger.kernel.org
+To: Linux ACPI <linux-acpi@vger.kernel.org>
 Cc: LKML <linux-kernel@vger.kernel.org>,
  Andy Shevchenko <andriy.shevchenko@linux.intel.com>,
  Sudeep Holla <sudeep.holla@kernel.org>, linux-arm-kernel@lists.infradead.org,
  Ard Biesheuvel <ardb@kernel.org>,
- Ilias Apalodimas <ilias.apalodimas@linaro.org>,
+ Ilias Apalodimas <ilias.apalodimas@linaro.org>, linux-efi@vger.kernel.org,
  Will Deacon <will@kernel.org>, "Joerg Roedel (AMD)" <joro@8bytes.org>,
  Jaroslav Kysela <perex@perex.cz>, Takashi Iwai <tiwai@suse.com>,
  Robin Murphy <robin.murphy@arm.com>, iommu@lists.linux.dev,
@@ -57,13 +57,11 @@ Cc: LKML <linux-kernel@vger.kernel.org>,
  patches@opensource.cirrus.com, Shenghao Ding <shenghao-ding@ti.com>,
  Kevin Lu <kevin-lu@ti.com>, Baojun Xu <baojun.xu@ti.com>,
  Sen Wang <sen@ti.com>
-Subject: [PATCH v2 1/5] efi/dev-path-parser: Switch to use
+Subject: [PATCH v2 0/5] ACPI: Replace acpi_get_first_physical_node() with
  acpi_bus_get_primary_device()
-Date: Wed, 30 Sep 2026 20:41:40 +0200
-Message-ID: <3974502.kQq0lBPeGt@rafael.j.wysocki>
+Date: Wed, 30 Sep 2026 20:30:47 +0200
+Message-ID: <4766532.LvFx2qVVIh@rafael.j.wysocki>
 Organization: Linux Kernel Development - Intel
-In-Reply-To: <4766532.LvFx2qVVIh@rafael.j.wysocki>
-References: <4766532.LvFx2qVVIh@rafael.j.wysocki>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 7Bit
 Content-Type: text/plain; charset="utf-8"
@@ -81,55 +79,23 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: "Rafael J. Wysocki" <rafael.j.wysocki@intel.com>
+Hi All,
 
-Replace acpi_get_first_physical_node() that is slated for removal
-with acpi_bus_get_primary_device() that takes a reference to the
-device it is about to return.
+This is a partial resend of
 
-This addresses a potential use-after-free that may occur if the
-device returned by acpi_get_first_physical_node() is removed right
-after dropping its ACPI companion's physical_node_lock in that
-function.
+https://lore.kernel.org/linux-acpi/7995179.EvYhyI6sBW@rafael.j.wysocki/
 
-Signed-off-by: Rafael J. Wysocki <rafael.j.wysocki@intel.com>
----
+that only includes patches that have not been ACKed and the last one that
+depends on all of the others.  It is based on linux-next.
 
-This patch depends on new material in linux-next.
+This series replaces acpi_get_first_physical_node(), which is inherently racy
+and therefore generally unsafe to use, with acpi_bus_get_primary_device(), that
+doesn't have this problem, everywhere in the code.
 
-If you maintain the code updated by it, please consider ACKing it, so I can
-pick it up and remove the problematic API replaced by it during the 7.4
-merge window.
-
-In the absence of feedback, it will be resent again when 7.4-rc1 is out.
+I will appreciate ACKs from maintainers of the code updated by the patches, so
+I can pick them up and get rid of the problematic interface in one go.
 
 Thanks!
-
-v1 -> v2: No changes
-
----
- drivers/firmware/efi/dev-path-parser.c | 4 ++--
- 1 file changed, 2 insertions(+), 2 deletions(-)
-
-diff --git a/drivers/firmware/efi/dev-path-parser.c b/drivers/firmware/efi/dev-path-parser.c
-index 13ea141c0def..e0f864cbaa8c 100644
---- a/drivers/firmware/efi/dev-path-parser.c
-+++ b/drivers/firmware/efi/dev-path-parser.c
-@@ -37,9 +37,9 @@ static long __init parse_acpi_path(const struct efi_dev_path *node,
- 	if (!adev)
- 		return -ENODEV;
- 
--	phys_dev = acpi_get_first_physical_node(adev);
-+	phys_dev = acpi_bus_get_primary_device(adev);
- 	if (phys_dev) {
--		*child = get_device(phys_dev);
-+		*child = phys_dev;
- 		acpi_dev_put(adev);
- 	} else
- 		*child = &adev->dev;
--- 
-2.51.0
-
 
 
 
