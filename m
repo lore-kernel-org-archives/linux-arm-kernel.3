@@ -4,7 +4,7 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 10FB8CA5FC7
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D528ECA5FCC
 	for <linux-arm-kernel@archiver.kernel.org>; Wed, 30 Sep 2026 16:09:34 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
@@ -12,60 +12,45 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
 	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=3Jd3UL4cIMk+bmJXREikGqn9FObassGfIIDTLfVOIjw=; b=ckTMOQ/moEzj8+QAjoITbGkYuz
-	VF5b6KUe+Hlpd/MRyzBqMZh+Q5TffQZ9Pe/ednazs+l/FpDeYL9z0TfEa1m4lq6vtIB4mzdBAuRW4
-	SR8OhFLCqtaEGFEX9eM4B1bHORqBVkksJ7YvoaNktZPO+pFPUg22Xa5HFp3IyzQeatU7/SC3b8KGI
-	Dc1Z/hrwYZQME2HnF5W6P2MBeJK4ot0qGzfUkupiEitaq+qeFyFATzmasDsSIqd2tujX6iU1llFbL
-	PeO0swVdaXem8pUD9yhDq705wT4GnHmTIiCyT5uUDDNTMcAIpawXe7l/8oA3e4XnxBVq30EFFCgi/
-	Udw8KQEg==;
+	bh=HMMwjiIjDACCJN+qCDebN0HWDecWMTlxsz2zrf709O8=; b=oKn/1hyyCEAS9QuldHbmTNf2KO
+	wlCwuZhrkf45Y/ML6hKFuqAdHXYM6aXWitF72E6HHmb4pS8heSMKVJVRJgh3qf1GVDFB8Mws8oJhN
+	4YswSlUNo/NQKN0wmjLkAi7gPSEFllSD8Ce0hBqt/VpMoiLopQXcyMfaVZQkNpNNZIG07w+wJ7Buz
+	Va4TGv65gbz7ZFyjAPoTUnFaqbyEb5hJMWKVaYiJNjhYVMwsykw29jb9/fY/bvFE/xvtawG3Yn8RB
+	A9/yJMPYnLBGkirp+pa+ba309UTjM8KvG8UXM1QD0zrB02bixKOMXN0vJ+c+IxeQ+07eo8nhQIj7r
+	bGGt8SAg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xBwrj-00000006ebs-3oji;
+	id 1xBwrj-00000006eaN-1lN6;
 	Wed, 30 Sep 2026 16:09:07 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+Received: from mx0a-0002e601.pphosted.com ([148.163.150.75])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xBwqt-00000006eEj-3WYS
-	for linux-arm-kernel@bombadil.infradead.org;
-	Wed, 30 Sep 2026 16:08:16 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Content-Type:Content-Transfer-Encoding
-	:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:CC:To:From:
-	Sender:Reply-To:Content-ID:Content-Description;
-	bh=3Jd3UL4cIMk+bmJXREikGqn9FObassGfIIDTLfVOIjw=; b=E4f7dKpu8IcdCxz4owM+T1WbMR
-	UBhFAE7EptbRGNRIgLvvHZI8mlw10y9JExQsRZhPb7TFxWpvlm4QnYBblPD4+l8Fk0LuGtzFFaw8P
-	UxVcnf6/H5dvxiv+1dXT2kOjizFEncLRT7BgWw/U4k5gcVErYh8ZjCfqwU14xLeAGHYpDXFp2ru4Z
-	ZY5nSIayCWYutjgwttbeq/kXk0QDp5szWEqoiIKe3uvEWNsyWLheNcK4Mt2NIgHk6fzcBO0jfk76m
-	u0Mizk/NNRW3Gu9xOlm3y5RjJy76QRN5uB2ieqfArNwGWoR1bwNgrcmrkElirUudHCK8Kx1bs3F3Q
-	w/718NLw==;
-Received: from mx0b-0002e601.pphosted.com ([148.163.154.28])
-	by desiato.infradead.org with esmtps (Exim 4.99.2 #2 (Red Hat Linux))
-	id 1xBwqq-000000043Jp-1XnW
+	id 1xBwqr-00000006eDI-0Ap2
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 30 Sep 2026 16:08:14 +0000
-Received: from pps.filterd (m0374956.ppops.net [127.0.0.1])
-	by mx0b-0002e601.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 68UE1KlQ3057453;
-	Wed, 30 Sep 2026 11:08:09 -0500
+	Wed, 30 Sep 2026 16:08:15 +0000
+Received: from pps.filterd (m0380145.ppops.net [127.0.0.1])
+	by m0380145.ppops.net (8.18.1.11/8.18.1.11) with ESMTP id 68UE1GnG3333233;
+	Wed, 30 Sep 2026 11:08:11 -0500
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com; h=cc
 	:content-transfer-encoding:content-type:date:from:in-reply-to
 	:message-id:mime-version:references:subject:to; s=
-	proofpoint-05-2026; bh=3Jd3UL4cIMk+bmJXREikGqn9FObassGfIIDTLfVOI
-	jw=; b=Xe6M8sIfyZR5/hUkPWT++Q+vm07ARz+9s5ZivqyTISfjVdmP0cVG5N/Yr
-	4Dd6gJ4ZaTaKqF0K3buMNmkJOMmMDblRmTSxO6h5wjtAj8v2DQJ7N7T6UdtwZYmj
-	JlO0vum6YKEXYmTORzhfzFiYRCS+EuTOgVYnbUsbDejfEeX9OYz/dfkCHc2Mr3aD
-	dE4x0Jnxwoy0UK2WHvupMFuGM6fPQgpgW4JHBvsDCRwzF/I+5VYcy0Sh5ozHriRp
-	XVTDxcWgwpEt6iIE6mG2bvYR5XSixxaGugFbG5y5isO4T6W8Xbo6uGaBmp3DxjTO
-	YRC8SUuWmk7lqbNXXeq7un6zWoLUQ==
-Received: from ch5pr02cu005.outbound.protection.outlook.com (mail-northcentralusazon11012041.outbound.protection.outlook.com [40.107.200.41])
-	by mx0b-0002e601.pphosted.com (PPS) with ESMTPS id 4h0m9fej2h-1
+	proofpoint-05-2026; bh=HMMwjiIjDACCJN+qCDebN0HWDecWMTlxsz2zrf709
+	O8=; b=mKeQgx3KwFrWP8kF6qwDmfhha24ilx5Ho8voaoKxgnspZpoeH1VY38Bd7
+	1lnKKRtM/dZwpOyamzhW5UXjTdpyhWjhiGtsJSb4NbITQiWnoPTM7sZpKdildgpc
+	msSbkvvMNIyjEEM/fb+TGEoEC7eaSTM8CIJZmGRxUQQ4ZJDjh7getIODtWvtYaGq
+	UQz0kvJ0R8p4tH20xXVfFy2VolpATBvUcDIIEJ0Z4IRlnpnDmcyC7Q3MDOOI1zW0
+	b+Sa7Tdgt18b/fRBPqeDoUtjynQ5SLmTnLj2fUBNQWMpBun8sv4fNNu7C+bkXrlQ
+	2oLk99KXhNocZHZWZScJuyZ37D3Cg==
+Received: from cy3pr05cu001.outbound.protection.outlook.com (mail-westcentralusazon11013071.outbound.protection.outlook.com [40.93.201.71])
+	by m0380145.ppops.net (PPS) with ESMTPS id 4h10t1svxp-1
 	(version=TLSv1.3 cipher=TLS_AES_256_GCM_SHA384 bits=256 verify=NOT);
-	Wed, 30 Sep 2026 11:08:09 -0500 (CDT)
+	Wed, 30 Sep 2026 11:08:10 -0500 (CDT)
 ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=A9uNxn+PEoudzM82m5p1wADgnD+Y7oECoebCtO4KxkCpM82FnEbZ9x/0IdV22pw2ADeSHkaTbL7Bgse9FSMZAgoQvQaUYDXj2UvcJfKaAP/+KRHPURGrD01DCA10WxHQszHM4/PPu85sAuZWmUgvvkYivREezqplZ3CtQl99kt4tKqvi/YTWMzIUaHMxzVmH8tp605Zw3bRWp0muw0tNt/DiIhfjwcxB/z7GS3ILdUDmi+70Wwb0m0eBq/JvseWNEqWn9Oldefq7klY4FWZp6WTjQ+XK9VAU0mcCOrDYcFN6A9BQYoTHuNTiXX5lphcsDBTgasdwF7jRLK6lpQwrfw==
+ b=ndr40avrtmtdlL9ER9UF/49ANUDVoS3ez6ZhZ08NHyMGpgVcDNlEi87sk61KbZGzRlp/hb6iurUgPrDbTAYKOGqqACO58VbySq5+qAGbm/D+IPlfYI1felmU3Ma0NB1OOVXf9dAGwsnMiyHI8LzxFux4YodjDNwi1nlHwA5w7Lcvf2pcAFl5qjMVtYY7RJEdD8oOjfYUM7m2/r/s36dX7efvD17HXLjrxVFsui/pV8iQ3HGCf0MMgrQkxOsdqP+GnWPMnxXeB/TxyXrXVqwZZ5lhfBUw2FxGrSGgNszzepPjV1dLrEYsWhY8woIOgEdAQnRuGKr41c1PcpH7PLHpbQ==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
  s=arcselector10001;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=3Jd3UL4cIMk+bmJXREikGqn9FObassGfIIDTLfVOIjw=;
- b=WM+X7iuxVLWZsQUP/KjSBtnVUX9DYoqQR3aM7NMY6h+dhq44fKc6JdyGWgpWrGGU/tLDZTXPDy1VLzhyXUdFbYBkd1p5knGWUoxNnr8or6frA6L3hS5VR01Ih5ZKdIy1/eTN8JequOk62WyEHMtWIpdBXp9a919PsRZlVInF+cYYf4nWi8NcDU+80WVl6nEIJFCWj5drp+UZRhq9vvrsvDS+ktqUaBp05SLrIXkSo4zcjLaTFZ652AVXgeDIn7eUG20ae19AIboTTC0BJ0yq2FW9cqxML2n3R1P4/p/LYJUnWCzbdTA7x8yM73k9qpaBku2ZF1wDzCpM+XnDSjLbyg==
+ bh=HMMwjiIjDACCJN+qCDebN0HWDecWMTlxsz2zrf709O8=;
+ b=yq+pNG9Wwgzy+QMgz2zYiqqE0j4s8xEfy+MBYlucK5ON1piVQOAR4NIo2Z7IdekS0ZP6Myjyd4d4jNWUaEmfcbvfvpCMOZohKHXghUKj99p/5IOF47peXKmNFiwqGtHTy82uqGATkEGBh8Qw6q53ItoLz5RqAXr/QZrJXjatFccp1U8d4Rap4E6JmtCnbMFT39sMa3/Yi2QZgeOwsMu9HQBEw389Lsr9H3ay6ttf4OhUbHucRxLYbSrQr4M/jNv2EC3SIlocWNgTOLUxpnbWubofDRMAdXL+TNKRFyUWvMRj68M8fXytJM2OmykeRp+fATgNRKjmkwocJE32cxETTA==
 ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
  198.47.21.195) smtp.rcpttodomain=lists.infradead.org smtp.mailfrom=ti.com;
  dmarc=pass (p=quarantine sp=none pct=100) action=none header.from=ti.com;
@@ -73,18 +58,18 @@ ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
  d=ticloud.onmicrosoft.com; s=selector1-ticloud-onmicrosoft-com;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=3Jd3UL4cIMk+bmJXREikGqn9FObassGfIIDTLfVOIjw=;
- b=gfmpg6qk4jS41Eak1FHyXPQS0E3Q+ilmVnLmKbXMCQdVQ8y3qsvnVeAocehBfkLP+OcivAoZcwM7XZjXFK1KtwhBRWluEiOaECIbCDeYcRTloBucHXIJz0QmqbhJo/CfZAL3oipN1SnQWyXjmKM6Uot0kEexnU1rgsTjH1TEM7I=
-Received: from BL1PR13CA0362.namprd13.prod.outlook.com (2603:10b6:208:2c0::7)
- by SA1PR10MB5821.namprd10.prod.outlook.com (2603:10b6:806:232::19) with
+ bh=HMMwjiIjDACCJN+qCDebN0HWDecWMTlxsz2zrf709O8=;
+ b=fgK5xJHn6IDMBuHygZoc9hyC9B+56msByZDZCq38WW1HOehmOEJnkLyNZMiGqmIJI8A4fWG3H8fEuKEWu6hx+EDokhCMD0nqy256VEziNNl1SxYwKJoaLt54pcn8rokQ6/vDSIptLkrRq8lWAT4RV/G5mG2Q2KAgxyu/tlzC7Tk=
+Received: from BLAPR03CA0081.namprd03.prod.outlook.com (2603:10b6:208:329::26)
+ by SN4PR10MB5638.namprd10.prod.outlook.com (2603:10b6:806:209::7) with
  Microsoft SMTP Server (version=TLS1_2,
  cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.472.14; Wed, 30 Sep
- 2026 16:08:00 +0000
-Received: from BN1PEPF00018549.namprd05.prod.outlook.com
- (2603:10b6:208:2c0:cafe::99) by BL1PR13CA0362.outlook.office365.com
- (2603:10b6:208:2c0::7) with Microsoft SMTP Server (version=TLS1_3,
- cipher=TLS_AES_256_GCM_SHA384) id 15.21.428.8 via Frontend Transport; Wed, 30
- Sep 2026 16:07:59 +0000
+ 2026 16:08:02 +0000
+Received: from BN1PEPF00018546.namprd05.prod.outlook.com
+ (2603:10b6:208:329:cafe::3d) by BLAPR03CA0081.outlook.office365.com
+ (2603:10b6:208:329::26) with Microsoft SMTP Server (version=TLS1_3,
+ cipher=TLS_AES_256_GCM_SHA384) id 15.21.472.15 via Frontend Transport; Wed,
+ 30 Sep 2026 16:08:01 +0000
 X-MS-Exchange-Authentication-Results: mx.microsoft.com 1; spf=pass (sender IP
  is 198.47.21.195) smtp.mailfrom=ti.com; dkim=none (message not signed)
  header.d=none;dmarc=pass action=none header.from=ti.com;
@@ -92,32 +77,32 @@ Received-SPF: Pass (protection.outlook.com: domain of ti.com designates
  198.47.21.195 as permitted sender) receiver=protection.outlook.com;
  client-ip=198.47.21.195; helo=flwvzet201.ext.ti.com; pr=C
 Received: from flwvzet201.ext.ti.com (198.47.21.195) by
- BN1PEPF00018549.mail.protection.outlook.com (10.167.248.8) with Microsoft
+ BN1PEPF00018546.mail.protection.outlook.com (10.167.248.5) with Microsoft
  SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.21.472.14 via Frontend Transport; Wed, 30 Sep 2026 16:07:58 +0000
-Received: from DFLE212.ent.ti.com (10.64.6.70) by flwvzet201.ext.ti.com
+ 15.21.472.14 via Frontend Transport; Wed, 30 Sep 2026 16:08:01 +0000
+Received: from DFLE205.ent.ti.com (10.64.6.63) by flwvzet201.ext.ti.com
  (10.248.192.32) with Microsoft SMTP Server (version=TLS1_2,
  cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.45; Wed, 30 Sep
- 2026 11:07:01 -0500
-Received: from DFLE215.ent.ti.com (10.64.6.73) by DFLE212.ent.ti.com
- (10.64.6.70) with Microsoft SMTP Server (version=TLS1_2,
+ 2026 11:07:07 -0500
+Received: from DFLE211.ent.ti.com (10.64.6.69) by DFLE205.ent.ti.com
+ (10.64.6.63) with Microsoft SMTP Server (version=TLS1_2,
  cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.45; Wed, 30 Sep
- 2026 11:07:00 -0500
-Received: from lelvem-mr06.itg.ti.com (10.180.75.8) by DFLE215.ent.ti.com
- (10.64.6.73) with Microsoft SMTP Server (version=TLS1_2,
+ 2026 11:07:06 -0500
+Received: from lelvem-mr06.itg.ti.com (10.180.75.8) by DFLE211.ent.ti.com
+ (10.64.6.69) with Microsoft SMTP Server (version=TLS1_2,
  cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.45 via Frontend
- Transport; Wed, 30 Sep 2026 11:07:00 -0500
+ Transport; Wed, 30 Sep 2026 11:07:06 -0500
 Received: from uda0510294.dhcp.ti.com (uda0510294.dhcp.ti.com [10.24.50.162])
-	by lelvem-mr06.itg.ti.com (8.18.1/8.18.1) with ESMTP id 68UG68WJ3425232;
-	Wed, 30 Sep 2026 11:06:58 -0500
+	by lelvem-mr06.itg.ti.com (8.18.1/8.18.1) with ESMTP id 68UG68WL3425232;
+	Wed, 30 Sep 2026 11:07:04 -0500
 From: Beleswar Padhi <b-padhi@ti.com>
 To: <nm@ti.com>, <kristo@kernel.org>, <ssantosh@kernel.org>, <afd@ti.com>,
         <vigneshr@ti.com>, <u-kumar1@ti.com>
 CC: <linux-kernel@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
         <b-padhi@ti.com>
-Subject: [PATCH v2 16/22] firmware: ti_sci: Move the huge ti_sci file into its own directory
-Date: Wed, 30 Sep 2026 21:36:01 +0530
-Message-ID: <20260930160607.2674980-17-b-padhi@ti.com>
+Subject: [PATCH v2 18/22] firmware: ti: ti_sci_device: Move device ops into its own file
+Date: Wed, 30 Sep 2026 21:36:03 +0530
+Message-ID: <20260930160607.2674980-19-b-padhi@ti.com>
 X-Mailer: git-send-email 2.34.1
 In-Reply-To: <20260930160607.2674980-1-b-padhi@ti.com>
 References: <20260930160607.2674980-1-b-padhi@ti.com>
@@ -126,55 +111,55 @@ Content-Transfer-Encoding: 8bit
 Content-Type: text/plain
 X-EOPAttributedMessage: 0
 X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: BN1PEPF00018549:EE_|SA1PR10MB5821:EE_
-X-MS-Office365-Filtering-Correlation-Id: e2862271-c0c4-4500-cba9-08df1f0cfeeb
+X-MS-TrafficTypeDiagnostic: BN1PEPF00018546:EE_|SN4PR10MB5638:EE_
+X-MS-Office365-Filtering-Correlation-Id: 52e14655-4cb5-4703-2dad-08df1f0d0066
 X-MS-Exchange-SenderADCheck: 1
 X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|23010399003|82310400026|376014|36860700016|1800799024|30052699003|13003099007|18002099003|22082099003|3023799007|6133799003|10067099003|56012099006;
-X-Microsoft-Antispam-Message-Info: r/KVAtoFzd+iyh77MoiVUK+na/TxwQGVofxwbI69MxTatvB6vYWw3eKFPB5AvrPb7PJYfROylZDLjx9WCnEwuRe9IDX064XLZ3wDqKyUlawGxC/TFcFxYHhEbafxqSEN01/5oYj1KcShn1nPrlK89L1AKEyRBQPMGZ9z/be5fGMjfUKKBhkZ/Pr2m8dRuR5/Ue3n/Z58Zwm8ZlOE1kLPpHEt2X5yDyAk2Sgx4YW7b4BtMhHVhCQgKZMosbn1l6OcOYIunqM7Uecrf+QBycNhWwE48k2OzWPWfoQOgLlBTx7Sv5+EBeXhqI/VgT5tDagSTMoyic4miRcnadz8YE7qOWwusp/dgfThLGBEyXVTz629nS+MP/v2bs6o+7TqLWn5eU+D5WVVfiF+NfEuovN1jrjdDwoHYifFKFY2GkV3DLPh+J0HDNutXMW5QKQtr15gw9C2/0MFM+/88GTSSEzubUQsv5PQvhLZkNq8czBgJYJ6yOaWh8BWwyjudRv1A21msLnBYvQ/8tfBFXPOXzJKLHlauJrMBx66OliHSnHARwhJcItkgXFnO6yaFUNf+KsQA/eyyO9wQ016gcRg1UMTtituvb8vEEn7dBy37DBIbpI+OMos9SGOvKc79+UIomjBo4BykbS/qvOZ/Vb/BXqLGMNHMPSRDXp+tn20VuDIKRfG3PZoiISMTpJPqH90nFCqUJZzxXGrByvoPFkLkAV6Yg==
-X-Forefront-Antispam-Report: CIP:198.47.21.195;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:flwvzet201.ext.ti.com;PTR:ErrorRetry;CAT:NONE;SFS:(13230040)(23010399003)(82310400026)(376014)(36860700016)(1800799024)(30052699003)(13003099007)(18002099003)(22082099003)(3023799007)(6133799003)(10067099003)(56012099006);DIR:OUT;SFP:1101;
+X-Microsoft-Antispam: BCL:0;ARA:13230040|36860700016|23010399003|376014|1800799024|82310400026|18002099003|22082099003|13003099007|56012099006|6133799003|3023799007|10067099003;
+X-Microsoft-Antispam-Message-Info: vKqSOhlhpvhL7MTEXbI1O5NYHYqWUn/OiaXODjsPiIFAxAyyK+LeHaefC1HGxWnbx9q0S3VG6VtJaOvnG2qTE2/W0xzhmmqHcP5DdfkGy0+fgvHoTkr+2T5YREBTbWJq+TOFGj63l/jJJtLTpw80Cr4oGtK2eNXSceRt4FexKf48xDu9k0GVjYPyPDn//OdQt/W5vbEfCwkc0GI4tz5RNNkQwgIGP2f4OCHtQPVtal0iXYu9Prk2nGS7sw9Qfb8jSubyBaOxJRjkTz2ujUs+jy3S2qSwugu7lqbA0jqs1wveT6/pU5O5FSHfKsWCvJ6gythZsIj3ChkGlk71bELiR5HSZfLkdQNKLNklEUK12qdks7pk7ty38aCGPXdKeReXmZqX7NKea3VrqbGwfYmQeQ0V8ptijPtvChzjR+NjD0EJTFB9NOxlP4Q7/r4VYpyZwmSQnGv8/Q1jZzAfdhsTYtVZd7Y9+KPeKrANzTPEAQ+me+pyJ2rvmQmcP96PvaYmWO6q1FhF2xpyU/XReeqL+Gufu7yrnl7SEGozfKPk9lGrPK9lf+5j2L1qndlFF6cBxDZLkyP58lOQ+IahT/YzewptFTwXidp0SdjcIQvxEqWJZPveXtL1Y7uXEIUh5Q4PwMQcyWzHg9Kdx10404guJw==
+X-Forefront-Antispam-Report: CIP:198.47.21.195;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:flwvzet201.ext.ti.com;PTR:ErrorRetry;CAT:NONE;SFS:(13230040)(36860700016)(23010399003)(376014)(1800799024)(82310400026)(18002099003)(22082099003)(13003099007)(56012099006)(6133799003)(3023799007)(10067099003);DIR:OUT;SFP:1101;
 X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: 94+DiQHruDblvKt1UwLoOt62Ku6RIj2r9fpLDxiJD1DUrFDICA4BHVSnSM4EMRRkDSqeVUOpxahTGQ4EhQToNoql3WfmbkKz5DuKXTyuB9zENoA5sWVveUuwZVpK30zq2xlwbwffOZzPRD3R7dPQTE4EuNQPnkFys3K/vY5y77asgSh7CMDQt4Mk/IbnBj8emwOzMLXdGfDegvAawNUi5pACF4zFiNAEJcmsxgPvzlPW/9pGDNlgfz8bijxR1GGmuWB7hEtfHQ1U8+gtGFtKRkf2BlBt9LP7QWcoM+kQYiwAr4JnekCnYG0gYHeFj4Z+hUQ6DHHO6z0uTaKDcWReD6ImNQqrt/Je+sEmhjH9483DlgNR2Olfy5Strd1LC3/mbJXNPiTTpxZoJLFQqGbHrgUth+mmFCECMPyMFzrDeBf/nZ15XQIXCELAR47O246c
-X-Exchange-RoutingPolicyChecked: XDho2JafFJISpp2UMPXYxY2Y3GAr+2rszbh/ExyhHUaC9A5NM+mtpgaNooNxlUIrxW3dVqIACVT2iTripKaFKsbSNEE1YnHCnmCabiTH6z34u3W26YjCiDOljeySuTacr6ZSCgNrQs6DXQsvfJGXMAmnmGCMdvichGMKPXrM2UPDG69N3kQzB2rpjhCbNCXw6y6u8qTuFObp5iVSPBR6VVqnog637/Aqy0qBMtxhgeFWEeDpn8B+6EO/MoyMzeF73CeEd5iBq/wAeexXnhEaMwHpiEa9k4FTB+aOwADNkr+P/EdQsqQKP7bWo6tM+2acF2WcgqlErOOAryVVFNkp5Q==
+X-MS-Exchange-AntiSpam-MessageData-0: AXQiIXMiUsuoiCcLdE194H3TMb6VJdAKF+h7ONVkRMz/pS+KtDg2STmOXgaLH8WCwNjlRAr4GLHPek5GfS/N0wUWcxhVN2r1bPdCHbhvnYTecvz/BlwXn48wZMFQy57Vjkz85+HtOdUL4ccFkEFQ8o/BcmOYO6aFXUdKm5oKh1Fllao4mQ4TKU6+9bBOzj4nz8rmBBA9JefJwV/Oq7mqyVbfkFz2LBtH3MNqMqQXA/Flr+u68SZwRC837N6ooK3pTnv+Nv8DxAH6fggl/qUJoTtEWJPWgYGq04IKmwI8UrE1QHtjWpnMqEw3HbeCrb8qdQKANfkJa6dGm2M9pA2qeymglh6xBUtDFQdSpTabTQ7F/801RIKonwMOgMPY210JrGfvYyuNa0tZrKoWFueMUrvO347bHGOPgK4zlCn+TLsmmJgQoxZumchMCL1tESz6
+X-Exchange-RoutingPolicyChecked: MECZH+o2GCOxxgRUKw+Ad5Lw4svKOxB0rJ70hhsOPvmYI2l3CVTJYWriGW+vsy8JFYlFBz32hSVinSNs8mU0wVn1LMuCOcMVm+ZvPLFv4PpfSr1liE8H6mZzORQW+X05xhG1HO9qlDpGCfryLbCtF0bumYdInE9LHL3n0uXlJnh2TdJq2Xi/NidHTB0bMr4ieSvRKK8ta7cgj5BKkc7W4YLe0QhLpRUcLJuc9Ce/f1bW0rH/h3dKJxXj8TmkOJaRZAvBL6W2Us1MaCk79O/mH0Yuj99hXblmv6LSZW8sy7tfEljUbZQ6OVkhIT+ua8CFpJyYZzgOLXPCnzM+kdzUNw==
 X-OriginatorOrg: ti.com
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 30 Sep 2026 16:07:58.5587
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 30 Sep 2026 16:08:01.0516
  (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: e2862271-c0c4-4500-cba9-08df1f0cfeeb
+X-MS-Exchange-CrossTenant-Network-Message-Id: 52e14655-4cb5-4703-2dad-08df1f0d0066
 X-MS-Exchange-CrossTenant-Id: e5b49634-450b-4709-8abb-1e2b19b982b7
 X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=e5b49634-450b-4709-8abb-1e2b19b982b7;Ip=[198.47.21.195];Helo=[flwvzet201.ext.ti.com]
-X-MS-Exchange-CrossTenant-AuthSource: BN1PEPF00018549.namprd05.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthSource: BN1PEPF00018546.namprd05.prod.outlook.com
 X-MS-Exchange-CrossTenant-AuthAs: Anonymous
 X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: SA1PR10MB5821
-X-Authority-Analysis: v=2.4 cv=VfRir1p9 c=1 sm=1 tr=0 ts=6abd33e9 cx=c_pps
- a=kwEYnkRUmkAH8qI+i8sEWA==:117 a=tJyPKKxUohctrY4NYmUjkA==:17
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: SN4PR10MB5638
+X-Proofpoint-Spam-Info: AW1haW4tMjYwOTMwMDA2NCBTYWx0ZWRfX/B0oRqpGjLcV
+ lJl7DgA/C0YkdgK9Q1djLR4JUswanl/trZP7IIwODc171mbVXoUE6pZUeUBOQOEKKyFKRuYnUpe
+ ncDlDqPwDM8GHmH0/AYkV5nuJMejBeg=
+X-Proofpoint-ORIG-GUID: OWm_hffusOvphMcf30yzrOylss-nFo-Q
+X-Authority-Analysis: v=2.4 cv=C7R8WgP+ c=1 sm=1 tr=0 ts=6abd33ea cx=c_pps
+ a=J0RhwYao4za//xiv/28V8w==:117 a=tJyPKKxUohctrY4NYmUjkA==:17
  a=6eWqkTHjU83fiwn7nKZWdM+Sl24=:19 a=VdqzKS8jKosA:10 a=AlMIdn_sM9wA:10
- a=VkNPw1HP01LnGYTKEx00:22 a=Z8NIEmU8O1QQgoT56wFK:22 a=jwouBfj2j3NM8CExmVVE:22
- a=VwQbUJbxAAAA:8 a=sozttTNsAAAA:8 a=TvPnFieDHSlyjeEufecA:9
-X-Proofpoint-GUID: zJq4WWHPe8GakQTbtTPFglBrb7brINx3
-X-Proofpoint-ORIG-GUID: zJq4WWHPe8GakQTbtTPFglBrb7brINx3
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwOTMwMDA2NCBTYWx0ZWRfX/5dfMFM9Rod3
- ILu4DBsboGdaiSUAzQujSNcwx8/Sj8wEVbssyayeXMyftV0wpu2CZb1S04EOo9dh0aCRF/VpnpD
- L3QKgxKynX0Kvc16pVNbl/cNtxsVm/J+XOXDy5ryR2P1yqreNVKy453d0ilkMs2SSDEZQdtq283
- xVCBacmpbeyTl2YYw1A/nM1Quasm+uRNTJG4mOxzExgUrv48CQXsb0lrb9MFJUpNejVgSgWHn/4
- ekDJxQfSr4b2Lh1qFu+OowNxTCRLT0Zh9VGhuh4WnzOwyZTrtrcGr9r7ZeRdJ1p20DUt233eSiy
- JHNZOpksfaUHvmk4iZqmt69900N1nqgQF8B8AK5+2skYUf95K2vHFlPzvYeKVMibW9ywL0E2mji
- tYVWsn8AHkV9XfEJ0y1DVUO6hRuHdY86dqXRnh1zyw6U/BdR56/x4zWVaERYdN7nnqwTFm7HrOY
- oOsCzvf+Ri4Y+r+bz2w==
-X-Proofpoint-Spam-Info: AW1haW4tMjYwOTMwMDA2NCBTYWx0ZWRfXw1Ev89U3GV0D
- T9iC9DVo0bqFDj4xjkLIFSyufCTtBfehHAGcCLmkpw8Q6Da3zmmmk13lFS5WttGgeDhOPrbWt2c
- DAfRSoGzOl8RrH3LUiPO1u56lR1+cfw=
+ a=VkNPw1HP01LnGYTKEx00:22 a=Z8NIEmU8O1QQgoT56wFK:22 a=gO1vWkAQAl3rybz1DQOp:22
+ a=VwQbUJbxAAAA:8 a=sozttTNsAAAA:8 a=-OrfxRuxSJ2hv7tAG5wA:9
+X-Proofpoint-GUID: OWm_hffusOvphMcf30yzrOylss-nFo-Q
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwOTMwMDA2NCBTYWx0ZWRfX8SkJMevvmcE5
+ 6Li9GZDwd0iM7ZE72kU8HkG93Y49ybMsL9LyRQstGhxXjKrwbiWhKhC/4jocuYAjS6hRyX3h+Xa
+ CqYCxWYtlqVUpyjrj8+K7ZIcHdwmUvIxnO0j2KalNA+KmuunW/58/8aW3ahG+IeqYEpiFhtiv6k
+ t9HaFwfUDX6Ig8S4S4yS15v6MPoXmnQHyoixZ1GC4G34o9GTHImd4WFuDO3oHKT6veQ0LRUFXMP
+ DMiKIsV6YCaLMBdgcyK2V6dUGMZuLzfGdzvHrKHnao/gt8gmR8XmdVw9UWSSUn10Z0ZKlVvn70W
+ TyvPQ+2c1bnz9+gFSPLCASaWC5HuhN8Owye3SYFgbi84pajHASTFyyoyVKmfsPyuJiCSAuKzmUC
+ OZNnWZe8qmwmNmmC9Dowf+cEz5rM9/0JRv+0d99rBRd31iedUT3ou4VYeCfaiOO/fkv/bVXFoi/
+ ZrX+x75Kt3TqYJqQy/Q==
 X-Proofpoint-Virus-Version: vendor=baseguard
  engine=ICAP:2.0.293,Aquarius:18.0.1176,Hydra:6.1.134,FMLib:17.12.100.49
  definitions=2026-09-30_03,2026-09-21_02,2025-10-01_01
 X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- impostorscore=0 suspectscore=0 adultscore=0 phishscore=0 malwarescore=0
- bulkscore=0 lowpriorityscore=0 priorityscore=1501 spamscore=0 clxscore=1015
+ suspectscore=0 adultscore=0 lowpriorityscore=0 malwarescore=0 bulkscore=0
+ priorityscore=1501 impostorscore=0 spamscore=0 clxscore=1015 phishscore=0
  classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
  reason=mlx scancount=1 engine=8.22.0-2609040000 definitions=main-2609300064
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260930_170812_821526_641DD6D6 
-X-CRM114-Status: GOOD (  20.47  )
+X-CRM114-CacheID: sfid-20260930_090813_123679_F7ADC8C9 
+X-CRM114-Status: GOOD (  20.41  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -191,9 +176,14 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 
 From: Andrew Davis <afd@ti.com>
 
-Move the huge ti_sci.c file and its header into its own "ti"
-sub-directory. This allows for cleanups later where this file will be
-broken down into smaller files tied to operations.
+Extract the device operations related functions and services from
+ti_sci.c into its own file. This breaks down the single large file
+into smaller logical files for better readability and maintenance.
+
+As the module is now built from multiple objects, rename ti_sci.c to
+ti_sci_core.c so the resulting module keeps its ti_sci name. Also drop
+the static inline from ti_sci_do_xfer() and declare it in ti_sci.h so
+that it can be shared with the new file.
 
 Signed-off-by: Andrew Davis <afd@ti.com>
 Signed-off-by: Beleswar Padhi <b-padhi@ti.com>
@@ -202,128 +192,842 @@ v2: Changelog:
 1. None to this patch.
 
 Link to v1:
-https://lore.kernel.org/all/20260929201746.4078803-17-b-padhi@ti.com/
+https://lore.kernel.org/all/20260929201746.4078803-19-b-padhi@ti.com/
 
- MAINTAINERS                        |  2 +-
- drivers/firmware/Kconfig           | 17 +----------------
- drivers/firmware/Makefile          |  2 +-
- drivers/firmware/ti/Kconfig        | 17 +++++++++++++++++
- drivers/firmware/ti/Makefile       |  3 +++
- drivers/firmware/{ => ti}/ti_sci.c |  0
- drivers/firmware/{ => ti}/ti_sci.h |  0
- 7 files changed, 23 insertions(+), 18 deletions(-)
- create mode 100644 drivers/firmware/ti/Kconfig
- create mode 100644 drivers/firmware/ti/Makefile
- rename drivers/firmware/{ => ti}/ti_sci.c (100%)
- rename drivers/firmware/{ => ti}/ti_sci.h (100%)
+ drivers/firmware/ti/Makefile                  |   2 +
+ drivers/firmware/ti/ti_sci.h                  |   7 +
+ .../firmware/ti/{ti_sci.c => ti_sci_core.c}   | 378 +----------------
+ drivers/firmware/ti/ti_sci_device.c           | 388 ++++++++++++++++++
+ 4 files changed, 402 insertions(+), 373 deletions(-)
+ rename drivers/firmware/ti/{ti_sci.c => ti_sci_core.c} (89%)
+ create mode 100644 drivers/firmware/ti/ti_sci_device.c
 
-diff --git a/MAINTAINERS b/MAINTAINERS
-index 30c1cdd0fb385..fe53e152f2249 100644
---- a/MAINTAINERS
-+++ b/MAINTAINERS
-@@ -27517,7 +27517,7 @@ F:	Documentation/devicetree/bindings/interrupt-controller/ti,sci-intr.yaml
- F:	Documentation/devicetree/bindings/reset/ti,sci-reset.yaml
- F:	Documentation/devicetree/bindings/soc/ti/sci-pm-domain.yaml
- F:	drivers/clk/keystone/sci-clk.c
--F:	drivers/firmware/ti_sci*
-+F:	drivers/firmware/ti/*
- F:	drivers/irqchip/irq-ti-sci-inta.c
- F:	drivers/irqchip/irq-ti-sci-intr.c
- F:	drivers/reset/reset-ti-sci.c
-diff --git a/drivers/firmware/Kconfig b/drivers/firmware/Kconfig
-index c183d98c1e8f5..69cce12ae8651 100644
---- a/drivers/firmware/Kconfig
-+++ b/drivers/firmware/Kconfig
-@@ -233,22 +233,6 @@ config TH1520_AON_PROTOCOL
- 	  the kernel through the Always-On protocol, using hardware mailbox as a medium.
- 	  Say yes if you need such capabilities.
- 
--config TI_SCI_PROTOCOL
--	tristate "TI System Control Interface (TISCI) Message Protocol"
--	depends on TI_MESSAGE_MANAGER
--	default ARCH_K3
--	help
--	  TI System Control Interface (TISCI) Message Protocol is used to manage
--	  compute systems such as ARM, DSP etc with the system controller in
--	  complex System on Chip(SoC) such as those found on certain keystone
--	  generation SoC from TI.
--
--	  System controller provides various facilities including power
--	  management function support.
--
--	  This protocol library is used by client drivers to use the features
--	  provided by the system controller.
--
- config TRUSTED_FOUNDATIONS
- 	bool "Trusted Foundations secure monitor support"
- 	depends on ARM && CPU_V7
-@@ -309,6 +293,7 @@ source "drivers/firmware/qcom/Kconfig"
- source "drivers/firmware/samsung/Kconfig"
- source "drivers/firmware/smccc/Kconfig"
- source "drivers/firmware/tegra/Kconfig"
-+source "drivers/firmware/ti/Kconfig"
- source "drivers/firmware/xilinx/Kconfig"
- source "drivers/firmware/arm_rmm/Kconfig"
- 
-diff --git a/drivers/firmware/Makefile b/drivers/firmware/Makefile
-index a855d36961732..309145992ee5d 100644
---- a/drivers/firmware/Makefile
-+++ b/drivers/firmware/Makefile
-@@ -20,7 +20,6 @@ obj-$(CONFIG_FW_CFG_SYSFS)	+= qemu_fw_cfg.o
- obj-$(CONFIG_SYSFB)		+= sysfb.o
- obj-$(CONFIG_SYSFB_SIMPLEFB)	+= sysfb_simplefb.o
- obj-$(CONFIG_TH1520_AON_PROTOCOL) += thead,th1520-aon.o
--obj-$(CONFIG_TI_SCI_PROTOCOL)	+= ti_sci.o
- obj-$(CONFIG_TRUSTED_FOUNDATIONS) += trusted_foundations.o
- obj-$(CONFIG_TURRIS_MOX_RWTM)	+= turris-mox-rwtm.o
- 
-@@ -38,5 +37,6 @@ obj-y				+= qcom/
- obj-y				+= samsung/
- obj-y				+= smccc/
- obj-y				+= tegra/
-+obj-y				+= ti/
- obj-y				+= xilinx/
- obj-y				+= arm_rmm/
-diff --git a/drivers/firmware/ti/Kconfig b/drivers/firmware/ti/Kconfig
-new file mode 100644
-index 0000000000000..07d7968f9cc8f
---- /dev/null
-+++ b/drivers/firmware/ti/Kconfig
-@@ -0,0 +1,17 @@
-+# SPDX-License-Identifier: GPL-2.0-only
-+
-+config TI_SCI_PROTOCOL
-+	tristate "TI System Control Interface (TISCI) Message Protocol"
-+	depends on TI_MESSAGE_MANAGER
-+	default ARCH_K3
-+	help
-+	  TI System Control Interface (TISCI) Message Protocol is used to manage
-+	  compute systems such as ARM, DSP etc with the system controller in
-+	  complex System on Chip(SoC) such as those found on certain keystone
-+	  generation SoC from TI.
-+
-+	  System controller provides various facilities including power
-+	  management function support.
-+
-+	  This protocol library is used by client drivers to use the features
-+	  provided by the system controller.
 diff --git a/drivers/firmware/ti/Makefile b/drivers/firmware/ti/Makefile
-new file mode 100644
-index 0000000000000..433b108782fbe
---- /dev/null
+index 433b108782fbe..a3a056eedd9a5 100644
+--- a/drivers/firmware/ti/Makefile
 +++ b/drivers/firmware/ti/Makefile
-@@ -0,0 +1,3 @@
-+# SPDX-License-Identifier: GPL-2.0-only
+@@ -1,3 +1,5 @@
+ # SPDX-License-Identifier: GPL-2.0-only
+ 
++ti_sci-y			:= ti_sci_core.o
++ti_sci-y			+= ti_sci_device.o
+ obj-$(CONFIG_TI_SCI_PROTOCOL)	+= ti_sci.o
+diff --git a/drivers/firmware/ti/ti_sci.h b/drivers/firmware/ti/ti_sci.h
+index f2f17bcac39e4..79f56699faf29 100644
+--- a/drivers/firmware/ti/ti_sci.h
++++ b/drivers/firmware/ti/ti_sci.h
+@@ -1560,4 +1560,11 @@ struct ti_sci_msg_resp_get_status {
+ 	u32 status_flags;
+ } __packed;
+ 
++int ti_sci_do_xfer(const struct ti_sci_handle *handle,
++		   u16 msg_type, u32 msg_flags,
++		   void *tx_message, size_t tx_message_size,
++		   void *rx_message, size_t rx_message_size);
 +
-+obj-$(CONFIG_TI_SCI_PROTOCOL)	+= ti_sci.o
-diff --git a/drivers/firmware/ti_sci.c b/drivers/firmware/ti/ti_sci.c
-similarity index 100%
-rename from drivers/firmware/ti_sci.c
-rename to drivers/firmware/ti/ti_sci.c
-diff --git a/drivers/firmware/ti_sci.h b/drivers/firmware/ti/ti_sci.h
-similarity index 100%
-rename from drivers/firmware/ti_sci.h
-rename to drivers/firmware/ti/ti_sci.h
++void ti_sci_setup_device_ops(struct ti_sci_dev_ops *dops);
++
+ #endif /* __TI_SCI_H */
+diff --git a/drivers/firmware/ti/ti_sci.c b/drivers/firmware/ti/ti_sci_core.c
+similarity index 89%
+rename from drivers/firmware/ti/ti_sci.c
+rename to drivers/firmware/ti/ti_sci_core.c
+index 5d3151571ac33..e98bf3c5f9dc1 100644
+--- a/drivers/firmware/ti/ti_sci.c
++++ b/drivers/firmware/ti/ti_sci_core.c
+@@ -444,10 +444,10 @@ static inline bool ti_sci_is_response_ack(void *r)
+  *         corresponding error if transmit fails, or
+  *         return 0, if all goes well.
+  */
+-static inline int ti_sci_do_xfer(const struct ti_sci_handle *handle,
+-				 u16 msg_type, u32 msg_flags,
+-				 void *tx_message, size_t tx_message_size,
+-				 void *rx_message, size_t rx_message_size)
++int ti_sci_do_xfer(const struct ti_sci_handle *handle,
++		   u16 msg_type, u32 msg_flags,
++		   void *tx_message, size_t tx_message_size,
++		   void *rx_message, size_t rx_message_size)
+ {
+ 	struct ti_sci_info *info;
+ 	struct ti_sci_xfer *xfer;
+@@ -565,361 +565,6 @@ static int ti_sci_cmd_get_revision(struct ti_sci_info *info)
+ 	return 0;
+ }
+ 
+-/**
+- * ti_sci_set_device_state() - Set device state helper
+- * @handle:	pointer to TI SCI handle
+- * @id:		Device identifier
+- * @flags:	flags to setup for the device
+- * @state:	State to move the device to
+- *
+- * Return: 0 if all went well, else returns appropriate error value.
+- */
+-static int ti_sci_set_device_state(const struct ti_sci_handle *handle,
+-				   u32 id, u32 flags, u8 state)
+-{
+-	struct ti_sci_msg_req_set_device_state req;
+-	struct ti_sci_msg_hdr resp;
+-	int ret = 0;
+-
+-	req.id = id;
+-	req.state = state;
+-
+-	ret = ti_sci_do_xfer(handle, TI_SCI_MSG_SET_DEVICE_STATE,
+-			     flags | TI_SCI_FLAG_REQ_ACK_ON_PROCESSED,
+-			     &req, sizeof(req),
+-			     &resp, sizeof(resp));
+-	if (ret)
+-		return ret;
+-
+-	return 0;
+-}
+-
+-/**
+- * ti_sci_get_device_state() - Get device state helper
+- * @handle:	Handle to the device
+- * @id:		Device Identifier
+- * @clcnt:	Pointer to Context Loss Count
+- * @resets:	pointer to resets
+- * @p_state:	pointer to p_state
+- * @c_state:	pointer to c_state
+- *
+- * Return: 0 if all went fine, else return appropriate error.
+- */
+-static int ti_sci_get_device_state(const struct ti_sci_handle *handle,
+-				   u32 id,  u32 *clcnt,  u32 *resets,
+-				    u8 *p_state,  u8 *c_state)
+-{
+-	struct ti_sci_msg_req_get_device_state req;
+-	struct ti_sci_msg_resp_get_device_state resp;
+-	int ret = 0;
+-
+-	if (!clcnt && !resets && !p_state && !c_state)
+-		return -EINVAL;
+-
+-	req.id = id;
+-
+-	ret = ti_sci_do_xfer(handle, TI_SCI_MSG_GET_DEVICE_STATE,
+-			     TI_SCI_FLAG_REQ_ACK_ON_PROCESSED,
+-			     &req, sizeof(req),
+-			     &resp, sizeof(resp));
+-	if (ret)
+-		return ret;
+-
+-	if (clcnt)
+-		*clcnt = resp.context_loss_count;
+-	if (resets)
+-		*resets = resp.resets;
+-	if (p_state)
+-		*p_state = resp.programmed_state;
+-	if (c_state)
+-		*c_state = resp.current_state;
+-
+-	return 0;
+-}
+-
+-/**
+- * ti_sci_cmd_get_device() - command to request for device managed by TISCI
+- *			     that can be shared with other hosts.
+- * @handle:	Pointer to TISCI handle as retrieved by *ti_sci_get_handle
+- * @id:		Device Identifier
+- *
+- * Request for the device - NOTE: the client MUST maintain integrity of
+- * usage count by balancing get_device with put_device. No refcounting is
+- * managed by driver for that purpose.
+- *
+- * Return: 0 if all went fine, else return appropriate error.
+- */
+-static int ti_sci_cmd_get_device(const struct ti_sci_handle *handle, u32 id)
+-{
+-	return ti_sci_set_device_state(handle, id, 0,
+-				       MSG_DEVICE_SW_STATE_ON);
+-}
+-
+-/**
+- * ti_sci_cmd_get_device_exclusive() - command to request for device managed by
+- *				       TISCI that is exclusively owned by the
+- *				       requesting host.
+- * @handle:	Pointer to TISCI handle as retrieved by *ti_sci_get_handle
+- * @id:		Device Identifier
+- *
+- * Request for the device - NOTE: the client MUST maintain integrity of
+- * usage count by balancing get_device with put_device. No refcounting is
+- * managed by driver for that purpose.
+- *
+- * Return: 0 if all went fine, else return appropriate error.
+- */
+-static int ti_sci_cmd_get_device_exclusive(const struct ti_sci_handle *handle,
+-					   u32 id)
+-{
+-	return ti_sci_set_device_state(handle, id,
+-				       MSG_FLAG_DEVICE_EXCLUSIVE,
+-				       MSG_DEVICE_SW_STATE_ON);
+-}
+-
+-/**
+- * ti_sci_cmd_idle_device() - Command to idle a device managed by TISCI
+- * @handle:	Pointer to TISCI handle as retrieved by *ti_sci_get_handle
+- * @id:		Device Identifier
+- *
+- * Request for the device - NOTE: the client MUST maintain integrity of
+- * usage count by balancing get_device with put_device. No refcounting is
+- * managed by driver for that purpose.
+- *
+- * Return: 0 if all went fine, else return appropriate error.
+- */
+-static int ti_sci_cmd_idle_device(const struct ti_sci_handle *handle, u32 id)
+-{
+-	return ti_sci_set_device_state(handle, id, 0,
+-				       MSG_DEVICE_SW_STATE_RETENTION);
+-}
+-
+-/**
+- * ti_sci_cmd_idle_device_exclusive() - Command to idle a device managed by
+- *					TISCI that is exclusively owned by
+- *					requesting host.
+- * @handle:	Pointer to TISCI handle as retrieved by *ti_sci_get_handle
+- * @id:		Device Identifier
+- *
+- * Request for the device - NOTE: the client MUST maintain integrity of
+- * usage count by balancing get_device with put_device. No refcounting is
+- * managed by driver for that purpose.
+- *
+- * Return: 0 if all went fine, else return appropriate error.
+- */
+-static int ti_sci_cmd_idle_device_exclusive(const struct ti_sci_handle *handle,
+-					    u32 id)
+-{
+-	return ti_sci_set_device_state(handle, id,
+-				       MSG_FLAG_DEVICE_EXCLUSIVE,
+-				       MSG_DEVICE_SW_STATE_RETENTION);
+-}
+-
+-/**
+- * ti_sci_cmd_put_device() - command to release a device managed by TISCI
+- * @handle:	Pointer to TISCI handle as retrieved by *ti_sci_get_handle
+- * @id:		Device Identifier
+- *
+- * Request for the device - NOTE: the client MUST maintain integrity of
+- * usage count by balancing get_device with put_device. No refcounting is
+- * managed by driver for that purpose.
+- *
+- * Return: 0 if all went fine, else return appropriate error.
+- */
+-static int ti_sci_cmd_put_device(const struct ti_sci_handle *handle, u32 id)
+-{
+-	return ti_sci_set_device_state(handle, id,
+-				       0, MSG_DEVICE_SW_STATE_AUTO_OFF);
+-}
+-
+-/**
+- * ti_sci_cmd_dev_is_valid() - Is the device valid
+- * @handle:	Pointer to TISCI handle as retrieved by *ti_sci_get_handle
+- * @id:		Device Identifier
+- *
+- * Return: 0 if all went fine and the device ID is valid, else return
+- * appropriate error.
+- */
+-static int ti_sci_cmd_dev_is_valid(const struct ti_sci_handle *handle, u32 id)
+-{
+-	u8 unused;
+-
+-	/* check the device state which will also tell us if the ID is valid */
+-	return ti_sci_get_device_state(handle, id, NULL, NULL, NULL, &unused);
+-}
+-
+-/**
+- * ti_sci_cmd_dev_get_clcnt() - Get context loss counter
+- * @handle:	Pointer to TISCI handle
+- * @id:		Device Identifier
+- * @count:	Pointer to Context Loss counter to populate
+- *
+- * Return: 0 if all went fine, else return appropriate error.
+- */
+-static int ti_sci_cmd_dev_get_clcnt(const struct ti_sci_handle *handle, u32 id,
+-				    u32 *count)
+-{
+-	return ti_sci_get_device_state(handle, id, count, NULL, NULL, NULL);
+-}
+-
+-/**
+- * ti_sci_cmd_dev_is_idle() - Check if the device is requested to be idle
+- * @handle:	Pointer to TISCI handle
+- * @id:		Device Identifier
+- * @r_state:	true if requested to be idle
+- *
+- * Return: 0 if all went fine, else return appropriate error.
+- */
+-static int ti_sci_cmd_dev_is_idle(const struct ti_sci_handle *handle, u32 id,
+-				  bool *r_state)
+-{
+-	int ret;
+-	u8 state;
+-
+-	if (!r_state)
+-		return -EINVAL;
+-
+-	ret = ti_sci_get_device_state(handle, id, NULL, NULL, &state, NULL);
+-	if (ret)
+-		return ret;
+-
+-	*r_state = (state == MSG_DEVICE_SW_STATE_RETENTION);
+-
+-	return 0;
+-}
+-
+-/**
+- * ti_sci_cmd_dev_is_stop() - Check if the device is requested to be stopped
+- * @handle:	Pointer to TISCI handle
+- * @id:		Device Identifier
+- * @r_state:	true if requested to be stopped
+- * @curr_state:	true if currently stopped.
+- *
+- * Return: 0 if all went fine, else return appropriate error.
+- */
+-static int ti_sci_cmd_dev_is_stop(const struct ti_sci_handle *handle, u32 id,
+-				  bool *r_state,  bool *curr_state)
+-{
+-	int ret;
+-	u8 p_state, c_state;
+-
+-	if (!r_state && !curr_state)
+-		return -EINVAL;
+-
+-	ret =
+-	    ti_sci_get_device_state(handle, id, NULL, NULL, &p_state, &c_state);
+-	if (ret)
+-		return ret;
+-
+-	if (r_state)
+-		*r_state = (p_state == MSG_DEVICE_SW_STATE_AUTO_OFF);
+-	if (curr_state)
+-		*curr_state = (c_state == MSG_DEVICE_HW_STATE_OFF);
+-
+-	return 0;
+-}
+-
+-/**
+- * ti_sci_cmd_dev_is_on() - Check if the device is requested to be ON
+- * @handle:	Pointer to TISCI handle
+- * @id:		Device Identifier
+- * @r_state:	true if requested to be ON
+- * @curr_state:	true if currently ON and active
+- *
+- * Return: 0 if all went fine, else return appropriate error.
+- */
+-static int ti_sci_cmd_dev_is_on(const struct ti_sci_handle *handle, u32 id,
+-				bool *r_state,  bool *curr_state)
+-{
+-	int ret;
+-	u8 p_state, c_state;
+-
+-	if (!r_state && !curr_state)
+-		return -EINVAL;
+-
+-	ret =
+-	    ti_sci_get_device_state(handle, id, NULL, NULL, &p_state, &c_state);
+-	if (ret)
+-		return ret;
+-
+-	if (r_state)
+-		*r_state = (p_state == MSG_DEVICE_SW_STATE_ON);
+-	if (curr_state)
+-		*curr_state = (c_state == MSG_DEVICE_HW_STATE_ON);
+-
+-	return 0;
+-}
+-
+-/**
+- * ti_sci_cmd_dev_is_trans() - Check if the device is currently transitioning
+- * @handle:	Pointer to TISCI handle
+- * @id:		Device Identifier
+- * @curr_state:	true if currently transitioning.
+- *
+- * Return: 0 if all went fine, else return appropriate error.
+- */
+-static int ti_sci_cmd_dev_is_trans(const struct ti_sci_handle *handle, u32 id,
+-				   bool *curr_state)
+-{
+-	int ret;
+-	u8 state;
+-
+-	if (!curr_state)
+-		return -EINVAL;
+-
+-	ret = ti_sci_get_device_state(handle, id, NULL, NULL, NULL, &state);
+-	if (ret)
+-		return ret;
+-
+-	*curr_state = (state == MSG_DEVICE_HW_STATE_TRANS);
+-
+-	return 0;
+-}
+-
+-/**
+- * ti_sci_cmd_set_device_resets() - command to set resets for device managed
+- *				    by TISCI
+- * @handle:	Pointer to TISCI handle as retrieved by *ti_sci_get_handle
+- * @id:		Device Identifier
+- * @reset_state: Device specific reset bit field
+- *
+- * Return: 0 if all went fine, else return appropriate error.
+- */
+-static int ti_sci_cmd_set_device_resets(const struct ti_sci_handle *handle,
+-					u32 id, u32 reset_state)
+-{
+-	struct ti_sci_msg_req_set_device_resets req;
+-	struct ti_sci_msg_hdr resp;
+-	int ret = 0;
+-
+-	req.id = id;
+-	req.resets = reset_state;
+-
+-	ret = ti_sci_do_xfer(handle, TI_SCI_MSG_SET_DEVICE_RESETS,
+-			     TI_SCI_FLAG_REQ_ACK_ON_PROCESSED,
+-			     &req, sizeof(req),
+-			     &resp, sizeof(resp));
+-	if (ret)
+-		return ret;
+-
+-	return 0;
+-}
+-
+-/**
+- * ti_sci_cmd_get_device_resets() - Get reset state for device managed
+- *				    by TISCI
+- * @handle:		Pointer to TISCI handle
+- * @id:			Device Identifier
+- * @reset_state:	Pointer to reset state to populate
+- *
+- * Return: 0 if all went fine, else return appropriate error.
+- */
+-static int ti_sci_cmd_get_device_resets(const struct ti_sci_handle *handle,
+-					u32 id, u32 *reset_state)
+-{
+-	return ti_sci_get_device_state(handle, id, NULL, reset_state, NULL,
+-				       NULL);
+-}
+-
+ /**
+  * ti_sci_set_clock_state() - Set clock state helper
+  * @handle:	pointer to TI SCI handle
+@@ -2577,20 +2222,7 @@ static void ti_sci_setup_ops(struct ti_sci_info *info)
+ 	struct ti_sci_rm_udmap_ops *udmap_ops = &ops->rm_udmap_ops;
+ 	struct ti_sci_proc_ops *pops = &ops->proc_ops;
+ 
+-	dops->get_device = ti_sci_cmd_get_device;
+-	dops->get_device_exclusive = ti_sci_cmd_get_device_exclusive;
+-	dops->idle_device = ti_sci_cmd_idle_device;
+-	dops->idle_device_exclusive = ti_sci_cmd_idle_device_exclusive;
+-	dops->put_device = ti_sci_cmd_put_device;
+-
+-	dops->is_valid = ti_sci_cmd_dev_is_valid;
+-	dops->get_context_loss_count = ti_sci_cmd_dev_get_clcnt;
+-	dops->is_idle = ti_sci_cmd_dev_is_idle;
+-	dops->is_stop = ti_sci_cmd_dev_is_stop;
+-	dops->is_on = ti_sci_cmd_dev_is_on;
+-	dops->is_transitioning = ti_sci_cmd_dev_is_trans;
+-	dops->set_device_resets = ti_sci_cmd_set_device_resets;
+-	dops->get_device_resets = ti_sci_cmd_get_device_resets;
++	ti_sci_setup_device_ops(dops);
+ 
+ 	cops->get_clock = ti_sci_cmd_get_clock;
+ 	cops->idle_clock = ti_sci_cmd_idle_clock;
+diff --git a/drivers/firmware/ti/ti_sci_device.c b/drivers/firmware/ti/ti_sci_device.c
+new file mode 100644
+index 0000000000000..cb9888ca54a35
+--- /dev/null
++++ b/drivers/firmware/ti/ti_sci_device.c
+@@ -0,0 +1,388 @@
++// SPDX-License-Identifier: GPL-2.0
++/*
++ * Texas Instruments System Control Interface Protocol Driver
++ *
++ * Copyright (C) 2015-2026 Texas Instruments Incorporated - https://www.ti.com/
++ *	Nishanth Menon
++ */
++
++#include <linux/soc/ti/ti_sci_protocol.h>
++
++#include "ti_sci.h"
++
++/**
++ * ti_sci_set_device_state() - Set device state helper
++ * @handle:	pointer to TI SCI handle
++ * @id:		Device identifier
++ * @flags:	flags to setup for the device
++ * @state:	State to move the device to
++ *
++ * Return: 0 if all went well, else returns appropriate error value.
++ */
++static int ti_sci_set_device_state(const struct ti_sci_handle *handle,
++				   u32 id, u32 flags, u8 state)
++{
++	struct ti_sci_msg_req_set_device_state req;
++	struct ti_sci_msg_hdr resp;
++	int ret = 0;
++
++	req.id = id;
++	req.state = state;
++
++	ret = ti_sci_do_xfer(handle, TI_SCI_MSG_SET_DEVICE_STATE,
++			     flags | TI_SCI_FLAG_REQ_ACK_ON_PROCESSED,
++			     &req, sizeof(req),
++			     &resp, sizeof(resp));
++	if (ret)
++		return ret;
++
++	return 0;
++}
++
++/**
++ * ti_sci_get_device_state() - Get device state helper
++ * @handle:	Handle to the device
++ * @id:		Device Identifier
++ * @clcnt:	Pointer to Context Loss Count
++ * @resets:	pointer to resets
++ * @p_state:	pointer to p_state
++ * @c_state:	pointer to c_state
++ *
++ * Return: 0 if all went fine, else return appropriate error.
++ */
++static int ti_sci_get_device_state(const struct ti_sci_handle *handle,
++				   u32 id,  u32 *clcnt,  u32 *resets,
++				    u8 *p_state,  u8 *c_state)
++{
++	struct ti_sci_msg_req_get_device_state req;
++	struct ti_sci_msg_resp_get_device_state resp;
++	int ret = 0;
++
++	if (!clcnt && !resets && !p_state && !c_state)
++		return -EINVAL;
++
++	req.id = id;
++
++	ret = ti_sci_do_xfer(handle, TI_SCI_MSG_GET_DEVICE_STATE,
++			     TI_SCI_FLAG_REQ_ACK_ON_PROCESSED,
++			     &req, sizeof(req),
++			     &resp, sizeof(resp));
++	if (ret)
++		return ret;
++
++	if (clcnt)
++		*clcnt = resp.context_loss_count;
++	if (resets)
++		*resets = resp.resets;
++	if (p_state)
++		*p_state = resp.programmed_state;
++	if (c_state)
++		*c_state = resp.current_state;
++
++	return 0;
++}
++
++/**
++ * ti_sci_cmd_get_device() - command to request for device managed by TISCI
++ *			     that can be shared with other hosts.
++ * @handle:	Pointer to TISCI handle as retrieved by *ti_sci_get_handle
++ * @id:		Device Identifier
++ *
++ * Request for the device - NOTE: the client MUST maintain integrity of
++ * usage count by balancing get_device with put_device. No refcounting is
++ * managed by driver for that purpose.
++ *
++ * Return: 0 if all went fine, else return appropriate error.
++ */
++static int ti_sci_cmd_get_device(const struct ti_sci_handle *handle, u32 id)
++{
++	return ti_sci_set_device_state(handle, id, 0,
++				       MSG_DEVICE_SW_STATE_ON);
++}
++
++/**
++ * ti_sci_cmd_get_device_exclusive() - command to request for device managed by
++ *				       TISCI that is exclusively owned by the
++ *				       requesting host.
++ * @handle:	Pointer to TISCI handle as retrieved by *ti_sci_get_handle
++ * @id:		Device Identifier
++ *
++ * Request for the device - NOTE: the client MUST maintain integrity of
++ * usage count by balancing get_device with put_device. No refcounting is
++ * managed by driver for that purpose.
++ *
++ * Return: 0 if all went fine, else return appropriate error.
++ */
++static int ti_sci_cmd_get_device_exclusive(const struct ti_sci_handle *handle,
++					   u32 id)
++{
++	return ti_sci_set_device_state(handle, id,
++				       MSG_FLAG_DEVICE_EXCLUSIVE,
++				       MSG_DEVICE_SW_STATE_ON);
++}
++
++/**
++ * ti_sci_cmd_idle_device() - Command to idle a device managed by TISCI
++ * @handle:	Pointer to TISCI handle as retrieved by *ti_sci_get_handle
++ * @id:		Device Identifier
++ *
++ * Request for the device - NOTE: the client MUST maintain integrity of
++ * usage count by balancing get_device with put_device. No refcounting is
++ * managed by driver for that purpose.
++ *
++ * Return: 0 if all went fine, else return appropriate error.
++ */
++static int ti_sci_cmd_idle_device(const struct ti_sci_handle *handle, u32 id)
++{
++	return ti_sci_set_device_state(handle, id, 0,
++				       MSG_DEVICE_SW_STATE_RETENTION);
++}
++
++/**
++ * ti_sci_cmd_idle_device_exclusive() - Command to idle a device managed by
++ *					TISCI that is exclusively owned by
++ *					requesting host.
++ * @handle:	Pointer to TISCI handle as retrieved by *ti_sci_get_handle
++ * @id:		Device Identifier
++ *
++ * Request for the device - NOTE: the client MUST maintain integrity of
++ * usage count by balancing get_device with put_device. No refcounting is
++ * managed by driver for that purpose.
++ *
++ * Return: 0 if all went fine, else return appropriate error.
++ */
++static int ti_sci_cmd_idle_device_exclusive(const struct ti_sci_handle *handle,
++					    u32 id)
++{
++	return ti_sci_set_device_state(handle, id,
++				       MSG_FLAG_DEVICE_EXCLUSIVE,
++				       MSG_DEVICE_SW_STATE_RETENTION);
++}
++
++/**
++ * ti_sci_cmd_put_device() - command to release a device managed by TISCI
++ * @handle:	Pointer to TISCI handle as retrieved by *ti_sci_get_handle
++ * @id:		Device Identifier
++ *
++ * Request for the device - NOTE: the client MUST maintain integrity of
++ * usage count by balancing get_device with put_device. No refcounting is
++ * managed by driver for that purpose.
++ *
++ * Return: 0 if all went fine, else return appropriate error.
++ */
++static int ti_sci_cmd_put_device(const struct ti_sci_handle *handle, u32 id)
++{
++	return ti_sci_set_device_state(handle, id,
++				       0, MSG_DEVICE_SW_STATE_AUTO_OFF);
++}
++
++/**
++ * ti_sci_cmd_dev_is_valid() - Is the device valid
++ * @handle:	Pointer to TISCI handle as retrieved by *ti_sci_get_handle
++ * @id:		Device Identifier
++ *
++ * Return: 0 if all went fine and the device ID is valid, else return
++ * appropriate error.
++ */
++static int ti_sci_cmd_dev_is_valid(const struct ti_sci_handle *handle, u32 id)
++{
++	u8 unused;
++
++	/* check the device state which will also tell us if the ID is valid */
++	return ti_sci_get_device_state(handle, id, NULL, NULL, NULL, &unused);
++}
++
++/**
++ * ti_sci_cmd_dev_get_clcnt() - Get context loss counter
++ * @handle:	Pointer to TISCI handle
++ * @id:		Device Identifier
++ * @count:	Pointer to Context Loss counter to populate
++ *
++ * Return: 0 if all went fine, else return appropriate error.
++ */
++static int ti_sci_cmd_dev_get_clcnt(const struct ti_sci_handle *handle, u32 id,
++				    u32 *count)
++{
++	return ti_sci_get_device_state(handle, id, count, NULL, NULL, NULL);
++}
++
++/**
++ * ti_sci_cmd_dev_is_idle() - Check if the device is requested to be idle
++ * @handle:	Pointer to TISCI handle
++ * @id:		Device Identifier
++ * @r_state:	true if requested to be idle
++ *
++ * Return: 0 if all went fine, else return appropriate error.
++ */
++static int ti_sci_cmd_dev_is_idle(const struct ti_sci_handle *handle, u32 id,
++				  bool *r_state)
++{
++	int ret;
++	u8 state;
++
++	if (!r_state)
++		return -EINVAL;
++
++	ret = ti_sci_get_device_state(handle, id, NULL, NULL, &state, NULL);
++	if (ret)
++		return ret;
++
++	*r_state = (state == MSG_DEVICE_SW_STATE_RETENTION);
++
++	return 0;
++}
++
++/**
++ * ti_sci_cmd_dev_is_stop() - Check if the device is requested to be stopped
++ * @handle:	Pointer to TISCI handle
++ * @id:		Device Identifier
++ * @r_state:	true if requested to be stopped
++ * @curr_state:	true if currently stopped.
++ *
++ * Return: 0 if all went fine, else return appropriate error.
++ */
++static int ti_sci_cmd_dev_is_stop(const struct ti_sci_handle *handle, u32 id,
++				  bool *r_state,  bool *curr_state)
++{
++	int ret;
++	u8 p_state, c_state;
++
++	if (!r_state && !curr_state)
++		return -EINVAL;
++
++	ret =
++	    ti_sci_get_device_state(handle, id, NULL, NULL, &p_state, &c_state);
++	if (ret)
++		return ret;
++
++	if (r_state)
++		*r_state = (p_state == MSG_DEVICE_SW_STATE_AUTO_OFF);
++	if (curr_state)
++		*curr_state = (c_state == MSG_DEVICE_HW_STATE_OFF);
++
++	return 0;
++}
++
++/**
++ * ti_sci_cmd_dev_is_on() - Check if the device is requested to be ON
++ * @handle:	Pointer to TISCI handle
++ * @id:		Device Identifier
++ * @r_state:	true if requested to be ON
++ * @curr_state:	true if currently ON and active
++ *
++ * Return: 0 if all went fine, else return appropriate error.
++ */
++static int ti_sci_cmd_dev_is_on(const struct ti_sci_handle *handle, u32 id,
++				bool *r_state,  bool *curr_state)
++{
++	int ret;
++	u8 p_state, c_state;
++
++	if (!r_state && !curr_state)
++		return -EINVAL;
++
++	ret =
++	    ti_sci_get_device_state(handle, id, NULL, NULL, &p_state, &c_state);
++	if (ret)
++		return ret;
++
++	if (r_state)
++		*r_state = (p_state == MSG_DEVICE_SW_STATE_ON);
++	if (curr_state)
++		*curr_state = (c_state == MSG_DEVICE_HW_STATE_ON);
++
++	return 0;
++}
++
++/**
++ * ti_sci_cmd_dev_is_trans() - Check if the device is currently transitioning
++ * @handle:	Pointer to TISCI handle
++ * @id:		Device Identifier
++ * @curr_state:	true if currently transitioning.
++ *
++ * Return: 0 if all went fine, else return appropriate error.
++ */
++static int ti_sci_cmd_dev_is_trans(const struct ti_sci_handle *handle, u32 id,
++				   bool *curr_state)
++{
++	int ret;
++	u8 state;
++
++	if (!curr_state)
++		return -EINVAL;
++
++	ret = ti_sci_get_device_state(handle, id, NULL, NULL, NULL, &state);
++	if (ret)
++		return ret;
++
++	*curr_state = (state == MSG_DEVICE_HW_STATE_TRANS);
++
++	return 0;
++}
++
++/**
++ * ti_sci_cmd_set_device_resets() - command to set resets for device managed
++ *				    by TISCI
++ * @handle:	Pointer to TISCI handle as retrieved by *ti_sci_get_handle
++ * @id:		Device Identifier
++ * @reset_state: Device specific reset bit field
++ *
++ * Return: 0 if all went fine, else return appropriate error.
++ */
++static int ti_sci_cmd_set_device_resets(const struct ti_sci_handle *handle,
++					u32 id, u32 reset_state)
++{
++	struct ti_sci_msg_req_set_device_resets req;
++	struct ti_sci_msg_hdr resp;
++	int ret = 0;
++
++	req.id = id;
++	req.resets = reset_state;
++
++	ret = ti_sci_do_xfer(handle, TI_SCI_MSG_SET_DEVICE_RESETS,
++			     TI_SCI_FLAG_REQ_ACK_ON_PROCESSED,
++			     &req, sizeof(req),
++			     &resp, sizeof(resp));
++	if (ret)
++		return ret;
++
++	return 0;
++}
++
++/**
++ * ti_sci_cmd_get_device_resets() - Get reset state for device managed
++ *				    by TISCI
++ * @handle:		Pointer to TISCI handle
++ * @id:			Device Identifier
++ * @reset_state:	Pointer to reset state to populate
++ *
++ * Return: 0 if all went fine, else return appropriate error.
++ */
++static int ti_sci_cmd_get_device_resets(const struct ti_sci_handle *handle,
++					u32 id, u32 *reset_state)
++{
++	return ti_sci_get_device_state(handle, id, NULL, reset_state, NULL,
++				       NULL);
++}
++
++/*
++ * ti_sci_setup_device_ops() - Setup the device operations structures
++ * @dops:	pointer to TISCI device ops structure
++ */
++void ti_sci_setup_device_ops(struct ti_sci_dev_ops *dops)
++{
++	dops->get_device = ti_sci_cmd_get_device;
++	dops->get_device_exclusive = ti_sci_cmd_get_device_exclusive;
++	dops->idle_device = ti_sci_cmd_idle_device;
++	dops->idle_device_exclusive = ti_sci_cmd_idle_device_exclusive;
++	dops->put_device = ti_sci_cmd_put_device;
++
++	dops->is_valid = ti_sci_cmd_dev_is_valid;
++	dops->get_context_loss_count = ti_sci_cmd_dev_get_clcnt;
++	dops->is_idle = ti_sci_cmd_dev_is_idle;
++	dops->is_stop = ti_sci_cmd_dev_is_stop;
++	dops->is_on = ti_sci_cmd_dev_is_on;
++	dops->is_transitioning = ti_sci_cmd_dev_is_trans;
++	dops->set_device_resets = ti_sci_cmd_set_device_resets;
++	dops->get_device_resets = ti_sci_cmd_get_device_resets;
++}
 -- 
 2.34.1
 
