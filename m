@@ -4,52 +4,51 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9F5A9CA5FC4
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 30 Sep 2026 21:50:23 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DFD90CA5FD4
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 30 Sep 2026 21:50:24 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=h3lrCthLI1PC2iGCSfULUwv97R+6R+4yOlZN59Nt/3c=; b=ibxlZjfn9zY7WEMtu32SPdpEHb
-	3SPIPS+Fea5wdFaEJy46wk0IP1RtuiWBb/iUS8wd5VH+39KoJ0ZvEs98/t9+1wfn1oXSjJOaah/yD
-	nWtZU769ivV3piGqbP53r/p03wBBNG4+pUl8W1WxF4JaJHtWbQ/7ZGgWMGtNM0OnStBo2WlJ9Xw8o
-	WeIGerkOUYu+QQi78PgvE0jqFgXtY2i+g03hqzSBct4kLFDt603wACgfVrSQGMFa4I33gEHv5cplu
-	NB2/uxqPxUPeMo2HVo6woZM4s8wQiOt10sRZB+Y2y9hGIUr4wT0+PB1NxGCVqDgTWZejdcAQM0AHc
-	HY8pGZyA==;
+	bh=Xaz3/wrMiOTvQ7QsDHrniOTAXkJk6SVO21zvEdLnW0w=; b=Ul281wlLjvxHCZpie3pxlM3uDf
+	pE0y6kLflpcZ51wDsjKbAq4ezQ+tEAahbuDavXtM0UDg5+ANkZQW6ciTB4rgwMqOabPW7kUVUNn+z
+	QXxM2kFsPFMZbxRLgBhWp0ap3wRu8KVSO4RwVsR4+JdNPFn34+Xe6KJ4KzgB+9rUNa6FrpFB4yI2j
+	mlfUzSyCzDpN8naI8WkTa0uyCqs5Hdx+wlX+Odzyf4xKiPTc78z6eqVQWdyjxfpyai6cnIYm2zj9C
+	XEWZUArSBbbcWFZKmFHr8px9nDz5p5FCBA7ImCdTipoEDseCsdC1FfGxiUTKvR9zuctAzs0kNZIi6
+	xfudq1iw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xC2Bt-00000007J29-0xcl;
-	Wed, 30 Sep 2026 21:50:17 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1xC2Bs-00000007J0y-34S1;
+	Wed, 30 Sep 2026 21:50:16 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xC2BL-00000007IiG-00RI
+	id 1xC2B6-00000007IUR-2FAd
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 30 Sep 2026 21:49:43 +0000
+	Wed, 30 Sep 2026 21:49:28 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id BBC2D42DE5;
-	Wed, 30 Sep 2026 21:49:42 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 5D21C1F00898;
-	Wed, 30 Sep 2026 21:49:39 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id F0BC06053D;
+	Wed, 30 Sep 2026 21:49:27 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 682BE1F0089C;
+	Wed, 30 Sep 2026 21:49:24 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1790804982;
-	bh=h3lrCthLI1PC2iGCSfULUwv97R+6R+4yOlZN59Nt/3c=;
+	s=k20260515; t=1790804967;
+	bh=Xaz3/wrMiOTvQ7QsDHrniOTAXkJk6SVO21zvEdLnW0w=;
 	h=From:Date:Subject:References:In-Reply-To:To:Cc;
-	b=IXmbG6jJCbw7N0HXXWrLm91tO1wVlO/YgTjjksE//WqUgUk85PZeLOx56ZdgkhvZW
-	 kN38rytbTvvFhhACOaLkNIy+LnaK+ku7ED0MMt1Vl4wUtvJZR6ZY7Iw5Fj7DpcUKl5
-	 arm5DBOgjlgtPn91kOu3eXYeazZNau9NEYvznm75YJ/cgSeEs6GYlTRUFwe/qFp/3a
-	 j8km+JMykjbQnC39jJUZcNP8blqFbWwie+/AM07g5n+cfbmsysw88KcdbEUyG+osav
-	 cmHY0IMIy+bln5/RCSCXqPMZh5MShXQt8bxen/tZ+3vshUTN5DKgjrID6fGFrdFp5Q
-	 2DW5+jKmUpXCw==
+	b=Dx0DIGYHPOdAtusPWS4FBsCBp6nY9oJ88O/CumZSKDpPF6NEhxcvtyRyN3LKoGEii
+	 69myaNErotNg/Bm3bc0mVoosPIXtQb1nVlf09Y5dDceBbdAp4K6zm5pQ4MeQBezf7q
+	 KvWFjvP7xUbAZ6WrDYlKdz1toLMcAuIoee7dUi9mOXOriWeP1TdYQ2XoUeZsBn5MxD
+	 Qb1Qu+E87xD3yFg4or2Ttn8FeuWVCpXRDQrShhVZzmYgn6I/5KKd/T83dWqIUMKio9
+	 L3hhtHxztxbHnnFWUbp9gfuMKFsI71yGvvl6yl04OVNQyqSlas/Q1EgHqHFsDX2Bpe
+	 va8eYv6lmV4yg==
 From: Mark Brown <broonie@kernel.org>
-Date: Wed, 30 Sep 2026 22:48:23 +0100
-Subject: [PATCH v21 13/15] KVM: selftests: arm64: Only restore SPSR_EL1 and
- ELR_EL1 if they change
+Date: Wed, 30 Sep 2026 22:48:19 +0100
+Subject: [PATCH v21 09/15] KVM: arm64: Allow GCS to be enabled for guests
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20260930-arm64-gcs-v21-13-3556644cd927@kernel.org>
+Message-Id: <20260930-arm64-gcs-v21-9-3556644cd927@kernel.org>
 References: <20260930-arm64-gcs-v21-0-3556644cd927@kernel.org>
 In-Reply-To: <20260930-arm64-gcs-v21-0-3556644cd927@kernel.org>
 To: Catalin Marinas <catalin.marinas@arm.com>, 
@@ -64,15 +63,15 @@ Cc: Peter Maydell <peter.maydell@linaro.org>,
  linux-kselftest@vger.kernel.org, linux-kernel@vger.kernel.org, 
  Mark Brown <broonie@kernel.org>
 X-Mailer: b4 0.17-dev
-X-Developer-Signature: v=1; a=openpgp-sha256; l=1555; i=broonie@kernel.org;
- h=from:subject:message-id; bh=XOq2i2Akpnkmw/R7Jj1JMRk+55dESJrYh85L+sVQnck=;
- b=owEBbQGS/pANAwAKASTWi3JdVIfQAcsmYgBqvYO9JuUHyRVDEv1xhfnkijFI8FEvAQ0AbR/91
- YqKDLaXw32JATMEAAEKAB0WIQSt5miqZ1cYtZ/in+ok1otyXVSH0AUCar2DvQAKCRAk1otyXVSH
- 0Bm3B/0eoqlFUjRCKbK69n2bBkysp01U/eJf6B/+ofQ4MTse0MTyJPLrjZH5mp4lYvI6L6f0P+2
- DpDfyXhk+62t5VKZRXG0Swn1jB2wp836Nk1PgaeAiEa8WYrLgiSmM2cNzdamMl/AfrMb3YjeR5G
- 0PIo1cSr8MwraP7Yf8IKPX0AbUNFjkNErvOzBReB4mdbiE60MdVR87gHnzz5DCIFrm8N1uYCnXn
- QCO9hlGLYLkqb1cnG2W4bgj+ueD/RceHYVTkFTLWo43S80fbCKYIanRtks8oIPZAFa4U+tL+iG7
- ub9FCQrBG4UR5jMjN/eJQX9kqqM5IEOzeohlQh2nXCoyiP58
+X-Developer-Signature: v=1; a=openpgp-sha256; l=1994; i=broonie@kernel.org;
+ h=from:subject:message-id; bh=cxKp4O4LsyzanVWYD2N6RiRBPKov/JqWLVenhRBtLog=;
+ b=owEBbQGS/pANAwAKASTWi3JdVIfQAcsmYgBqvYO63IkXqiM/IhBYdRfO72ei7V5hYPpACCZEa
+ fR+7tMCUmuJATMEAAEKAB0WIQSt5miqZ1cYtZ/in+ok1otyXVSH0AUCar2DugAKCRAk1otyXVSH
+ 0CfMB/9rJWt2FEC2Wgl6uPd/R/OwAnUa9YAFAEzvxGfIpus/WSp7NVVDOIpRPLbxlYT3No3biSp
+ A7pbNnOkQ6EyOZkvkGWeDcG4LPsWobB8uIHQRNEllwcMqRHvwRczEPouhH0dv+VwRwf26XhBmj8
+ nn9+3wFsL5PyUqtTDhvji/YRAXCBEGfc7J18UC9m1mHdcBiLUbA/MQzr1EWu1rXDs1TfF7p+8HV
+ 5Rv1oqAsVnC06TzHg75xh0few7IZxo1+PaxoQXkx0+M0gPDnof1+/k8JTDHs5Hf8qRTrmruKgTJ
+ p9NXWzdxHSjPDkGrXoYkZlFxGo8gfWGUKJR6soO/iM3WKTvr
 X-Developer-Key: i=broonie@kernel.org; a=openpgp;
  fpr=3F2568AAC26998F9E813A1C5C3F436CA30F5D8EB
 X-BeenThere: linux-arm-kernel@lists.infradead.org
@@ -89,46 +88,59 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-When EXLOCK is enabled for ELx writes to SPSR_ELx and ELR_ELx generate
-GCS exceptions. Currently the selftest helpers unconditionally reload the
-saved values for these registers regardless of if the handler didn't change
-them. This gets in the way of EXLOCK testing, making it hard to generate
-contexts which will generate an invalid ERET since we never get as far as
-doing an exception return while EXLOCK is enabled.
-
-In order to facilitate testing of nested virtualisation emulation of EXLOCK
-change our reloads into read/modify/write cycles, suppressing the writes
-when they would not change the value in the register.
+Now that required functionality for GCS is in place expose
+ID_AA64PFR1_EL1.GCS, allowing guests to be given the feature.
 
 Reviewed-by: Leonardo Bras <leo.bras@arm.com>
 Signed-off-by: Mark Brown <broonie@kernel.org>
 ---
- tools/testing/selftests/kvm/lib/arm64/handlers.S | 10 ++++++++++
- 1 file changed, 10 insertions(+)
+ arch/arm64/kvm/nested.c   | 3 +--
+ arch/arm64/kvm/sys_regs.c | 5 +++--
+ 2 files changed, 4 insertions(+), 4 deletions(-)
 
-diff --git a/tools/testing/selftests/kvm/lib/arm64/handlers.S b/tools/testing/selftests/kvm/lib/arm64/handlers.S
-index 0e443eadfac6..367c22d61cba 100644
---- a/tools/testing/selftests/kvm/lib/arm64/handlers.S
-+++ b/tools/testing/selftests/kvm/lib/arm64/handlers.S
-@@ -33,8 +33,18 @@
+diff --git a/arch/arm64/kvm/nested.c b/arch/arm64/kvm/nested.c
+index 3c4fc566eafc..f62d9ab7f31c 100644
+--- a/arch/arm64/kvm/nested.c
++++ b/arch/arm64/kvm/nested.c
+@@ -1702,11 +1702,10 @@ u64 limit_nv_id_reg(struct kvm *kvm, u32 reg, u64 val)
+ 		break;
  
- .macro restore_registers
- 	ldp	x1, x2, [sp, #16 * 16] /* PC, PSTATE */
+ 	case SYS_ID_AA64PFR1_EL1:
+-		/* Only support BTI, SSBS, CSV2_frac */
++		/* Only support GCS, BTI, SSBS, CSV2_frac */
+ 		val &= ~(ID_AA64PFR1_EL1_PFAR		|
+ 			 ID_AA64PFR1_EL1_MTEX		|
+ 			 ID_AA64PFR1_EL1_THE		|
+-			 ID_AA64PFR1_EL1_GCS		|
+ 			 ID_AA64PFR1_EL1_MTE_frac	|
+ 			 ID_AA64PFR1_EL1_NMI		|
+ 			 ID_AA64PFR1_EL1_SME		|
+diff --git a/arch/arm64/kvm/sys_regs.c b/arch/arm64/kvm/sys_regs.c
+index faecf4657ec5..5de4ba1bef6b 100644
+--- a/arch/arm64/kvm/sys_regs.c
++++ b/arch/arm64/kvm/sys_regs.c
+@@ -2193,10 +2193,12 @@ static u64 sanitise_id_aa64pfr1_el1(const struct kvm_vcpu *vcpu, u64 val)
+ 	      SYS_FIELD_GET(ID_AA64PFR0_EL1, RAS, pfr0) == ID_AA64PFR0_EL1_RAS_IMP))
+ 		val &= ~ID_AA64PFR1_EL1_RAS_frac;
+ 
++	if (!system_supports_gcs())
++		val &= ~ID_AA64PFR1_EL1_GCS;
 +
-+	/* Suppress redundant writes to support GCS exception lock testing */
-+	mrs	x3, elr_el1
-+	cmp	x1, x3
-+	beq	.Lskip_elr_\@
- 	msr	elr_el1, x1
-+.Lskip_elr_\@:
-+	mrs	x3, spsr_el1
-+	cmp	x2, x3
-+	beq	.Lskip_spsr_\@
- 	msr	spsr_el1, x2
-+.Lskip_spsr_\@:
- 
- 	/* sp is not restored */
- 	ldp	x30, xzr, [sp, #16 * 15] /* x30, SP */
+ 	val &= ~ID_AA64PFR1_EL1_SME;
+ 	val &= ~ID_AA64PFR1_EL1_RNDR_trap;
+ 	val &= ~ID_AA64PFR1_EL1_NMI;
+-	val &= ~ID_AA64PFR1_EL1_GCS;
+ 	val &= ~ID_AA64PFR1_EL1_THE;
+ 	val &= ~ID_AA64PFR1_EL1_MTEX;
+ 	val &= ~ID_AA64PFR1_EL1_PFAR;
+@@ -3444,7 +3446,6 @@ static const struct sys_reg_desc sys_reg_descs[] = {
+ 				     ~(ID_AA64PFR1_EL1_PFAR |
+ 				       ID_AA64PFR1_EL1_MTEX |
+ 				       ID_AA64PFR1_EL1_THE |
+-				       ID_AA64PFR1_EL1_GCS |
+ 				       ID_AA64PFR1_EL1_MTE_frac |
+ 				       ID_AA64PFR1_EL1_NMI |
+ 				       ID_AA64PFR1_EL1_RNDR_trap |
 
 -- 
 2.47.3
