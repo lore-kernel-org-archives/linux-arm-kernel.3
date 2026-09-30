@@ -4,65 +4,74 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D13CACA5FC5
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 30 Sep 2026 13:30:00 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3BA5DCA5FC5
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 30 Sep 2026 13:31:10 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=nvaGfG5po310924tWdFlbGKV3vnFi2Daw5X+Y5l+SdE=; b=kw0ZJJXCweVFy01IvToAcE6Phm
-	ChmL6FS7n+/izVGHv1nt/Jo7l/hTbdsP2bGUDQRhzTJxP9IlcoS10G08HvI18XD+0/kQR3kra22+c
-	DnM4TeBy0zpMYzQiTmZ94DoUAD8yc0C7eD9eCaCN89cDCmRHokwDwRiL5u7a3Y75h/O2nTU0BhRGf
-	eAeilkx0MK87MGxhey3FMSDH7bDxolKt6SFFQgnBzZfAzJ5Wu2Se85Jr+W/0gW5PTw+Z5TTx5RicY
-	olxSpPKq4iS54GqFhbPZCA3pMQ0wczR4kF/k/LWGuDgB1mAiZBUZI/wn++00YnNv2gjfu8GPmjANB
-	XolTg8jw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=DgLNjcFeGNUMR6LneImuRXAc6L6Itov9WGhxY/Of5Fk=; b=sUP0mgmHTpkw9FWQUpU49ggigL
+	yEnYlpNCm/G+mtZq6zEH8psYlcfN2M9pXDJvX0VSdNK+VFvv2ZXSPBMrUDr598pmPkPSwGKQ8C9yG
+	ADpA5QaDlMICUFL+670i1u65CYyX49lLuuYcbHuLH8zD1ugBWrOPIAFWl6vtG+iT2HwicremkAQAV
+	0AO7Db9Mrdy7MtfI2OgtqiiAhFgO9ACEA11/Rx4nSgH+pJo/lX6P9lTyPhpwMBBglXwRvBqj65Q/2
+	HvP2zDzR9JJ+jL54sZzG+dJpy6caD6advBCQG9iRWPLh/wmp8sS2SVwTzCOgn2N01d8aWQS5h4mn5
+	XDfHjdlw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xBuNd-000000068Fs-496h;
-	Wed, 30 Sep 2026 13:29:53 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1xBuOl-000000068U7-0tNl;
+	Wed, 30 Sep 2026 13:31:03 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xBuNc-000000068F7-0iA1
+	id 1xBuOk-000000068Tc-22YO
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 30 Sep 2026 13:29:52 +0000
+	Wed, 30 Sep 2026 13:31:02 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 8F06B43A5C;
-	Wed, 30 Sep 2026 13:29:51 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id A35061F000FF;
-	Wed, 30 Sep 2026 13:29:49 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 2FA4D42CB8
+	for <linux-arm-kernel@lists.infradead.org>; Wed, 30 Sep 2026 13:31:02 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 0FFB21F0089D
+	for <linux-arm-kernel@lists.infradead.org>; Wed, 30 Sep 2026 13:31:02 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1790774991;
-	bh=nvaGfG5po310924tWdFlbGKV3vnFi2Daw5X+Y5l+SdE=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=BImizp0pcOo86qSBUaEKZtafbOxXv4ougbDwjERwnQ6CKlE/QwoMHh4eItftccdfP
-	 pHXj+IRllK8sWCWTmM9Hsrx7ZWITsOBfDCvBe0ArJGVR+8/VdYoYxXVljSS4v6HfTp
-	 RqU6zJwI7EJhiPZZD3qDdlbUqkuAIDVR67kNnkhceDYvdRSnVY5rbuLsfNm3j1BloA
-	 nc+WvnMpPlu+d3R00bvlMKqcQ5QkVFXY54hHWF8COxldFwQBj3HbVlLFeWhQiKGY/e
-	 2qi1HHOt7mxYT111BgykY6aHThWeIk9VfCUwfnLYgzE/ebSuWoteMpuMXK4Eh9Yt2b
-	 zJT3n4h1v/TMw==
-Date: Wed, 30 Sep 2026 14:29:46 +0100
-From: Will Deacon <will@kernel.org>
-To: =?iso-8859-1?Q?Andr=E9?= Almeida <andrealmeid@igalia.com>
-Cc: Catalin Marinas <catalin.marinas@arm.com>,
-	Billy Laws <blaws05@gmail.com>, Mark Rutland <mark.rutland@arm.com>,
-	Mark Brown <broonie@kernel.org>,
-	Ryan Houdek <sonicadvance1@gmail.com>,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
-	kernel-dev@igalia.com
-Subject: Re: [RFC PATCH v3 1/1] arch: arm64: Implement unaligned atomic
- emulation
-Message-ID: <ar0OyoPqGfmrkdH5@willie-the-truck>
-References: <20260930020138.2377090-1-andrealmeid@igalia.com>
- <20260930020138.2377090-2-andrealmeid@igalia.com>
- <ary-2rOs_b2IY6M1@willie-the-truck>
- <00227dc1-e01c-4de8-b3e3-3cd8de74cba9@igalia.com>
+	s=k20260515; t=1790775062;
+	bh=DgLNjcFeGNUMR6LneImuRXAc6L6Itov9WGhxY/Of5Fk=;
+	h=References:In-Reply-To:From:Date:Subject:To:Cc;
+	b=D7p2nkR3qhmiuEq08pq2mE0/Ks/nhYF2CFMiAxJX8nUQfMloqhbLZUVo2Bs9BtjN3
+	 iEoKbt2FAgpwwZKii4E+nfC9OdoP78DYhvgRKbKJLePgG+w4BQe5xz9DGSvOzwKu6B
+	 tpNqezunsZOBK+Y2GtOxMav0/zcICTJaM0eTmU7Yd9lSn5YxIL+pFhtGnG5byTNqI4
+	 qnsoffa39xDmZuDlvMp8qZU7b90+3mcNvEf2F1UA44ijKPgI6wo6HoxHOtr8xYbg02
+	 A7XZ9u+op/EC16t1oWpDHhEjd5futLwZ62eY9x0rBGTiy6wUO2RBaGUIDvfyCnbl+E
+	 qhySDJpEgc57w==
+Received: by mail-lr2-f35.google.com with SMTP id 38308e7fff4ca-3a77da28307so3776211fa.1
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 30 Sep 2026 06:31:01 -0700 (PDT)
+X-Forwarded-Encrypted: i=1; AKwUvBxf7BP2Gh9Lby83WMLYwpNKNh5wiOW/+IEnpCcGNdNaig5tSg00gtGdiDdVRchFyEV65ISBznToe7QKB+qJbSAt@lists.infradead.org
+X-Gm-Message-State: AFq9FYJvEn7hcaW8YonE0rtOOwKZhHMvCz2NC25BY/23GUPquRMNCxrh
+	dmO94GVfQ5A2GAlZbakc1ea0oDxIe3WsyKCnRH/P1TYYzTwLtmJFSr8PbgewM6OPo3Th2Sxdagg
+	GQHGPgefx60LgfP3Qe/vR8wx16hV4PPM=
+X-Received: by 2002:a05:651c:3241:b0:3a6:67d9:af17 with SMTP id
+ 38308e7fff4ca-3a779224357mr4581961fa.12.1790775060845; Wed, 30 Sep 2026
+ 06:31:00 -0700 (PDT)
 MIME-Version: 1.0
-Content-Type: text/plain; charset=iso-8859-1
-Content-Disposition: inline
-Content-Transfer-Encoding: 8bit
-In-Reply-To: <00227dc1-e01c-4de8-b3e3-3cd8de74cba9@igalia.com>
+References: <20260918143846.30458-1-linux@fw-web.de> <20260918143846.30458-3-linux@fw-web.de>
+In-Reply-To: <20260918143846.30458-3-linux@fw-web.de>
+From: Linus Walleij <linusw@kernel.org>
+Date: Wed, 30 Sep 2026 15:30:48 +0200
+X-Gmail-Original-Message-ID: <CAD++jLk3w5q=bb=nzQicBjRd6xJAxr9WsKvauF-_x4eue8owbw@mail.gmail.com>
+X-Gm-Features: AclHuK80elw9ImXmT4mImfPwVaF2TBSlxvLDtJVkK_HN16dU0cX72iILdS784_g
+Message-ID: <CAD++jLk3w5q=bb=nzQicBjRd6xJAxr9WsKvauF-_x4eue8owbw@mail.gmail.com>
+Subject: Re: [PATCH 2/2] arm64: dts: mediatek: mt7988a-bpi-r4pro: label gpio-hogs
+To: Frank Wunderlich <linux@fw-web.de>
+Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+	Conor Dooley <conor+dt@kernel.org>, Matthias Brugger <matthias.bgg@gmail.com>, 
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, 
+	Frank Wunderlich <frank-w@public-files.de>, 
+	Bartosz Golaszewski <bartosz.golaszewski@oss.qualcomm.com>, 
+	Mika Westerberg <mika.westerberg@linux.intel.com>, 
+	Andy Shevchenko <andriy.shevchenko@linux.intel.com>, devicetree@vger.kernel.org, 
+	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+	linux-mediatek@lists.infradead.org
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -77,51 +86,73 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Sep 30, 2026 at 07:29:22AM -0300, André Almeida wrote:
-> Em 30/09/2026 04:48, Will Deacon escreveu:
-> > On Tue, Sep 29, 2026 at 11:01:38PM -0300, André Almeida wrote:
-> > > Implement support for emulating unaligned atomic operations on arm64.
-> > > User applications that wish to enable support for this should use the
-> > > pctrl() flag `PR_ARM64_UNALIGN_ATOMIC_EMULATE`.
-> > > 
-> > > Signed-off-by: André Almeida <andrealmeid@igalia.com>
-> > > ---
-> > >   arch/arm64/Kconfig                   |   6 +
-> > >   arch/arm64/include/asm/exception.h   |   1 +
-> > >   arch/arm64/include/asm/processor.h   |   5 +
-> > >   arch/arm64/include/asm/rwonce.h      |  14 +-
-> > >   arch/arm64/include/asm/thread_info.h |   1 +
-> > >   arch/arm64/kernel/Makefile           |   3 +-
-> > >   arch/arm64/kernel/process.c          |  15 +
-> > >   arch/arm64/kernel/unaligned_atomic.c | 521 +++++++++++++++++++++++++++
-> > >   arch/arm64/mm/fault.c                |  10 +
-> > >   include/uapi/linux/prctl.h           |   5 +
-> > >   kernel/sys.c                         |   7 +-
-> > >   11 files changed, 579 insertions(+), 9 deletions(-)
-> > >   create mode 100644 arch/arm64/kernel/unaligned_atomic.c
-> > 
-> > No.
-> > 
-> > I already explained to you why this doesn't work:
-> > 
-> > https://lore.kernel.org/r/aV1YnOetDHhKe4hz@willie-the-truck
-> 
-> Indeed, last time you raised some points, and then Ryan replied them. Is
-> there any specific point that doesn't work? I couldn't find a reply for
-> Ryan's answers:
-> 
-> https://lore.kernel.org/all/CABnRqDf5EQUoXu=pJ6mj4-JfwAzEfcAE2cYrNzJANFycx7cMUA@mail.gmail.com/
+On Fri, Sep 18, 2026 at 4:39=E2=80=AFPM Frank Wunderlich <linux@fw-web.de> =
+wrote:
 
-So rather than get involved in the discussion, you did nothing for almost
-a year and then resent the exact same patch? Why?
+> From: Frank Wunderlich <frank-w@public-files.de>
+>
+> GPIO hogs were tagged with name "?" in recent kernel versions (7.1+) due =
+to
+> commit d1d564ec4992 ("gpio: move hogs into GPIO core").
+>
+> 7.0 showed the unit-name which behaviour is restored by patch [1], but
+> labeling the hog directly makes things easier.
+>
+> gpiochip0: 84 GPIOs, parent: platform/1001f000.pinctrl, pinctrl_moore:
+>  gpio-0   (                    |tx-disable          ) in  lo
+>  gpio-1   (                    |mod-def0            ) in  hi IRQ ACTIVE L=
+OW
+>  gpio-2   (                    |los                 ) in  hi IRQ
+>  gpio-12  (                    |cd                  ) in  lo IRQ ACTIVE L=
+OW
+>  gpio-13  (                    |reset               ) in  hi IRQ ACTIVE L=
+OW
+>  gpio-14  (                    |WPS                 ) in  hi IRQ ACTIVE L=
+OW
+>  gpio-21  (                    |tx-disable          ) in  lo
+>  gpio-63  (                    |?                   ) out hi
+>  gpio-69  (                    |mod-def0            ) in  hi IRQ ACTIVE L=
+OW
+>  gpio-70  (                    |los                 ) in  hi IRQ
+>  gpio-79  (                    |?                   ) out lo
+>  gpio-82  (                    |PHY reset           ) out hi ACTIVE LOW
+>  gpio-83  (                    |PHY reset           ) out hi ACTIVE LOW
+>
+> after the change:
+>
+> root@bpi-r4:~# cat /sys/kernel/debug/gpio
+> gpiochip0: 84 GPIOs, parent: platform/1001f000.pinctrl, pinctrl_moore:
+>  gpio-0   (                    |tx-disable          ) in  lo
+>  gpio-1   (                    |mod-def0            ) in  hi IRQ ACTIVE L=
+OW
+>  gpio-2   (                    |los                 ) in  hi IRQ
+>  gpio-12  (                    |cd                  ) in  lo IRQ ACTIVE L=
+OW
+>  gpio-13  (                    |reset               ) in  hi IRQ ACTIVE L=
+OW
+>  gpio-14  (                    |WPS                 ) in  hi IRQ ACTIVE L=
+OW
+>  gpio-21  (                    |tx-disable          ) in  lo
+>  gpio-63  (                    |pcie3-cn14-hog      ) out hi
+>  gpio-69  (                    |mod-def0            ) in  hi IRQ ACTIVE L=
+OW
+>  gpio-70  (                    |los                 ) in  hi IRQ
+>  gpio-79  (                    |pcie2-cn15-hog      ) out lo
+>  gpio-82  (                    |PHY reset           ) out hi ACTIVE LOW
+>  gpio-83  (                    |PHY reset           ) out hi ACTIVE LOW
+>
+> [1] https://git.kernel.org/pub/scm/linux/kernel/git/brgl/linux.git/commit=
+/?id=3Dd54a489c8c4b627775445d54a6cbd32f209bda8f
+> "gpiolib: use of_node_name if line-name is missing"
+>
+> Fixes: d1d564ec4992 ("gpio: move hogs into GPIO core")
+> Signed-off-by: Frank Wunderlich <frank-w@public-files.de>
 
-I don't think the implementation is correct and I don't think we should
-be emulating this either. I hope I made that clear last year. Ryan
-thinks it's "fine" due to the locking, but I don't see how that helps
-with the example I gave.
+It's always good to use line-names on boards for tinkering
+makerspaces prototyping etc.
 
-You are apparently the author of this code, so you need to get involved
-in the discussion if you want to move the needle.
+Reviewed-by: Linus Walleij <linusw@kernel.org>
 
-Will
+Yours,
+Linus Walleij
 
