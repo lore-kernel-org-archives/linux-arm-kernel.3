@@ -4,73 +4,94 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C9ED4CA5FB1
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 30 Sep 2026 10:39:43 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9B9ECCA5FB1
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 30 Sep 2026 10:44:00 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:MIME-Version:Date:Message-Id:Subject:References:In-Reply-To:Cc:
+	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=MljuINYsDSt6Mx+ws1xsI7mhRVCt9e9IkBdqLRkBIaA=; b=mEjJe8kEe0dD7qSfaM7kXVLJPZ
-	iTnm4753ZqG7BZBqdPCH18hRo9bv21Dz+YdeNLUk6/22P6Vr5fTWW9XnXuiU2uGOrQhMX+jZ1t5ut
-	mUS23ikKMxaGahQLaf07skgthQ6R4amkp+O6N10ve3jMmVRUy0zamUW1TSehwCAsD50Wk2AaWAsdy
-	84DWAgK8Q+E3vbHlplCjqgzYk8ttd4e6U7hsIg/UAjOoTmlndizep0F5tac5crcJd6CHU8At7mq5n
-	8W8bcyVbtiNfvhOcUaKB6Kzq0tIJ+IL+1T7QFGunbn3Biq4kzkhN7LQPb5CVzIs7pjsSfa12Tk15w
-	PbXOFrZQ==;
+	bh=SkK7nzvmdXccAthjxNIG0aZSr8ABcmG303myl+zYPu4=; b=OG071mMCxlkWcCGUr2iwgUNfPW
+	mEb0mlukieQwntwZptIrZER4xPw/ia97vaDkLU0TlVjtEjQnqNOpdIAGAM6JiFdUShZdLkKgUIQtR
+	8nwkakxj7hGD+NXLJjPsdmJ24OoZ7JYk+Z8yXuhvCHRmJ90+JIIvh3mE2xMrGU+0xXyTZLfm3R1/v
+	v5muBIKjiw8Bv5qNqbzVUeS19/uuOfFHT2pbybDQMzYItqaS5zAALKZRC+av3MUoX9y9carvJXrmn
+	8MFfnpwtQvEx19Jg+YEYJalEdbyDiqOBqL6UWIVAIRKT31CbkJap7+bvA8I4yMei9BbcS0UeiUEmE
+	W8yK/zcg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xBrir-00000005mIx-2XNb;
-	Wed, 30 Sep 2026 10:39:37 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1xBrmz-00000005mlh-179X;
+	Wed, 30 Sep 2026 10:43:53 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xBriq-00000005mIm-3uAp
+	id 1xBrmy-00000005mlP-0lzu
+	for linux-arm-kernel@bombadil.infradead.org;
+	Wed, 30 Sep 2026 10:43:52 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:Content-Type
+	:MIME-Version:Date:Message-Id:Subject:References:In-Reply-To:Cc:To:From:
+	Sender:Reply-To:Content-ID:Content-Description;
+	bh=SkK7nzvmdXccAthjxNIG0aZSr8ABcmG303myl+zYPu4=; b=lM2Kl4WIVHBZ7A7xkbS6Jy2ARp
+	NEIJcGjUV+HxSDvC5PXU+HqjTY9m1rzXuf8JCuk7bkyKW5hhFPlnMsy6Zc/gkqRN/cDP9Dw8p9sHs
+	nfFrjmhoopFmyLQ3prAT623mIa4ipccs8ySm2s14bBlgBSumpeNqLcGByRLoW/4p++HWT5QeVjgb9
+	aouDY7ypMPmuvFHH9io0hsJBmaFl95taIrLDx21g+huuc6wF5So3Yjs2tIoqMxsMUCZik4n3FiAvF
+	bG9gWWOghEs96qBf71ooNvYM1lRTGc/JmWb/0htUYIZBAQqgTEe19iV+GsN/ylM6yUmY6kKa0fGWj
+	Vm1CV3nA==;
+Received: from smtpout-03.galae.net ([185.246.85.4])
+	by desiato.infradead.org with esmtps (Exim 4.99.2 #2 (Red Hat Linux))
+	id 1xBrmu-00000003fbz-2HmI
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 30 Sep 2026 10:39:36 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id F294F602A8
-	for <linux-arm-kernel@lists.infradead.org>; Wed, 30 Sep 2026 10:39:35 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 9D5971F008A5
-	for <linux-arm-kernel@lists.infradead.org>; Wed, 30 Sep 2026 10:39:35 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1790764775;
-	bh=MljuINYsDSt6Mx+ws1xsI7mhRVCt9e9IkBdqLRkBIaA=;
-	h=References:In-Reply-To:From:Date:Subject:To:Cc;
-	b=kdgVkpsLTN9PPbjs/FjH2VDONRjypKtQS7nnwPHqxETnWJr/EIYoC0vWaOAom+X6Q
-	 q/zx7TavDdPeNeYWqJKLZFklyCeqbRF/FaACp9HQsP5uUz1EaSukQVe8Ykmph+J6r9
-	 INE4KIbUL8xxS+HpCOYkNXcFiQWa8xv2aIitnFk0E1Sh36ZsFaTh9O7kLuFogi2Uhw
-	 +Slc9ozKNkyEVuolDNZgpSbjVB0MpVVp0yYGAprl4+cohLWTbMr94e7A7QeWLhBdpa
-	 nKnMDMc0yjuINPA9O33kKCcKB8r6l6lo5mKCQiY5K7qf46sUWG9IpMqj52KRAepNww
-	 x6QzfqAMVZ38A==
-Received: by mail-lr2-f34.google.com with SMTP id 38308e7fff4ca-3a652e2149aso44750181fa.2
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 30 Sep 2026 03:39:35 -0700 (PDT)
-X-Forwarded-Encrypted: i=1; AKwUvBzk1kx5QQLyAd3ut7GTJRH4JMtSpVrDNASVV8mkpRff36WQmCB7FSsnrSufQKt8xobRkMcybZn4tV7GphrG37ts@lists.infradead.org
-X-Gm-Message-State: AFq9FYI/0q2ZuGaLjP7IXOuBXjiLzdNh4hQUe9V+WUvb0yZ9JMrNelyB
-	cUwcyLEoEsjwvsWYbRxQtml50zJRSszeQcsqYCcWpgMlPOmfL3f/SZLnlcZwVfuGNlobqhPZraT
-	zvUOsSYsfOPC19vwUfkZlF4osBwF8pX8=
-X-Received: by 2002:a05:651c:418d:b0:3a5:afec:9cf9 with SMTP id
- 38308e7fff4ca-3a7791923f5mr3833601fa.7.1790764774294; Wed, 30 Sep 2026
- 03:39:34 -0700 (PDT)
+	Wed, 30 Sep 2026 10:43:51 +0000
+Received: from smtpout-01.galae.net (smtpout-01.galae.net [212.83.139.233])
+	by smtpout-03.galae.net (Postfix) with ESMTPS id C2D294E410CA;
+	Wed, 30 Sep 2026 10:43:36 +0000 (UTC)
+Received: from mail.galae.net (mail.galae.net [212.83.136.155])
+	by smtpout-01.galae.net (Postfix) with ESMTPS id 79C9160749;
+	Wed, 30 Sep 2026 10:43:36 +0000 (UTC)
+Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 6EB92103282F2;
+	Wed, 30 Sep 2026 12:43:24 +0200 (CEST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=dkim;
+	t=1790765014; h=from:subject:date:message-id:to:cc:mime-version:content-type:
+	 content-transfer-encoding:in-reply-to:references;
+	bh=SkK7nzvmdXccAthjxNIG0aZSr8ABcmG303myl+zYPu4=;
+	b=uwMIm2ZgNp+9UTQoK8f6qN0jFJlsClA7TYMdrOhRR30NVVR+4ZdxQGjNgpKEgLZFZW8nIZ
+	SrNoCIqlXzss7mn1ttQ/Qxs9iwIOqGwaiIyHS7f8XJRsoU/PdS3L7SfsaglWWl5EzdiZS2
+	fKkGKYH+p5A7avdTSZ+Ksneuesud+ZDK58ji934XC/j2wQoha9yjpQq+D1sCwh7KV9K4cl
+	yWQ8zQiO6j8FZv5fMBwbnYrCNdB2ASYJVZK0k16+VvCMtx4suIiKP5ypE9nkNENHEehtFt
+	lpEE48vI9N0KOP0Tc4A9tCy5r4AU1j21Swd8J7sOxaEPlmJPQM9Rfk/zt+9VFg==
+From: Luca Ceresoli <luca.ceresoli@bootlin.com>
+To: Marek Vasut <marex@denx.de>, Stefan Agner <stefan@agner.ch>, 
+ Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, 
+ Maxime Ripard <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>, 
+ David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>, 
+ Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, Frank Li <Frank.Li@nxp.com>, 
+ Sascha Hauer <s.hauer@pengutronix.de>, 
+ Pengutronix Kernel Team <kernel@pengutronix.de>, 
+ Fabio Estevam <festevam@gmail.com>, 
+ Francesco Dolcini <francesco@dolcini.it>
+Cc: Francesco Dolcini <francesco.dolcini@toradex.com>, 
+ dri-devel@lists.freedesktop.org, devicetree@vger.kernel.org, 
+ linux-kernel@vger.kernel.org, imx@lists.linux.dev, 
+ linux-arm-kernel@lists.infradead.org, 
+ Laurent Pinchart <Laurent.pinchart@ideasonboard.com>, 
+ Jonas Karlman <jonas@kwiboo.se>, Jernej Skrabec <jernej.skrabec@gmail.com>, 
+ Andrzej Hajda <andrzej.hajda@intel.com>, 
+ Neil Armstrong <neil.armstrong@linaro.org>, Robert Foss <rfoss@kernel.org>
+In-Reply-To: <20260917140042.118181-1-francesco@dolcini.it>
+References: <20260917140042.118181-1-francesco@dolcini.it>
+Subject: Re: (subset) [PATCH v5 0/4] drm: mxsfb: Support LCDIF interface
+ bus width
+Message-Id: <179076500400.452568.15346989916115503276.b4-ty@b4>
+Date: Wed, 30 Sep 2026 12:43:24 +0200
 MIME-Version: 1.0
-References: <20260930-b4-cs75xx-v1-0-4617c4463529@gmail.com>
-In-Reply-To: <20260930-b4-cs75xx-v1-0-4617c4463529@gmail.com>
-From: Linus Walleij <linusw@kernel.org>
-Date: Wed, 30 Sep 2026 12:39:22 +0200
-X-Gmail-Original-Message-ID: <CAD++jL=0Zc939o7UaFgtx+04gLRmgmPVHTAeuW6OS9nPP5Xt8Q@mail.gmail.com>
-X-Gm-Features: AclHuK8pjnujBafapCpTqZDZIjiOhJbKtLdqSmgcu4GAW7cTFljMh260Y9sM-wQ
-Message-ID: <CAD++jL=0Zc939o7UaFgtx+04gLRmgmPVHTAeuW6OS9nPP5Xt8Q@mail.gmail.com>
-Subject: Re: [PATCH RFC 00/10] ARM: Add support for Cortina Systems CS75xx and
- Securifi Almond+
-To: filipp.dunsky@gmail.com
-Cc: Arnd Bergmann <arnd@arndb.de>, Krzysztof Kozlowski <krzk@kernel.org>, Rob Herring <robh@kernel.org>, 
-	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
-	Greg Kroah-Hartman <gregkh@linuxfoundation.org>, Jiri Slaby <jirislaby@kernel.org>, 
-	Russell King <linux@armlinux.org.uk>, Alexandre Belloni <alexandre.belloni@bootlin.com>, 
-	Drew Fustini <fustini@kernel.org>, Lorenzo Pieralisi <lpieralisi@kernel.org>, 
-	linux-arm-kernel@lists.infradead.org, devicetree@vger.kernel.org, 
-	linux-kernel@vger.kernel.org, linux-serial@vger.kernel.org
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+X-Mailer: b4 0.16.0
+X-Last-TLS-Session-Version: TLSv1.3
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260930_114349_126428_426D958E 
+X-CRM114-Status: GOOD (  11.85  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -85,27 +106,35 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Filipp,
 
-On Wed, Sep 30, 2026 at 9:00=E2=80=AFAM Fil Dunsky via B4 Relay
-<devnull+filipp.dunsky.gmail.com@kernel.org> wrote:
+On Thu, 17 Sep 2026 16:00:35 +0200, Francesco Dolcini wrote:
+> From: Francesco Dolcini <francesco.dolcini@toradex.com>
+> 
+> The width of the physical LCDIF output bus can differ from the input bus
+> format advertised by the downstream panel or bridge.
+> 
+> Such a distinction is required when the LCDIF bus width does not match the
+> width of the downstream display interface. For example, an 18-bit or
+> 16-bit LCDIF bus can drive a 24-bit display by wiring the available color
+> bits to the appropriate display inputs. Configuring LCDIF solely from the
+> display's 24-bit format in this case selects the wrong LCD_DATABUS_WIDTH
+> mode, changing the color-bit assignment on the LCD_DATA pins and resulting
+> in incorrect colors.
+> 
+> [...]
 
-> There is no public documentation for the SoC. The register information
-> comes from the GPL vendor kernels (Linux 2.6.36 for the Almond+, Linux
-> 4.9 for the Verizon FiOS G1100 which uses the same SoC) and from
-> disassembly of the stock U-Boot 2009.11. A full out-of-tree port
-> (clock, irqchip, GPIO, I2C, RTC, NAND, PCIe, MDIO and the packet engine)
-> runs on Linux 6.18 in OpenWrt
+Applied, thanks!
 
-Is this OpenWrt fork public?
+[1/4] dt-bindings: lcdif: Add endpoint bus-width property
+      commit: 54d28d79d91d85090814fadc39ee050920de84e1
+[2/4] drm: mxsfb: Add optional DPI output bus-width configuration
+      commit: aafd4205a75de54cb46458bbc70f35a0be1d7533
 
-Actually what I'm most curious about is the packet engine, which may or
-may not be related to drivers/net/ethernet/cortina/*
+Best regards,
+-- 
+Luca Ceresoli, Bootlin
+Embedded Linux and Kernel engineering
+https://bootlin.com
 
-On the Gemini that was the only part of the SoC that was actually made
-by StorLink (later acquired by Cortina) while the rest of Gemini was
-Faraday IP blocks.
 
-Yours,
-Linus Walleij
 
