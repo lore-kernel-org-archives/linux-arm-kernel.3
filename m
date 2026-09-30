@@ -4,7 +4,7 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3AA73CA5FC5
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A41F1CA5FCD
 	for <linux-arm-kernel@archiver.kernel.org>; Wed, 30 Sep 2026 17:26:54 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
@@ -12,46 +12,60 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=AbpkMZVsBdBOWRwxjTkLihKxr/UR5S6eo3rRMVyn4ks=; b=vNY8G/DXzG482JLyfYcX699Hqm
-	FuY5U9wDhUsOSuM8NDwhxdrTEBtrTRFYvmtvMFE0g3aPxNKw3E8PY/2UbOeDUbCQGZpwzTrYTewt0
-	KrIsI9qTanQgssKPkZw6cgsrTQPvOj4BmHDL29CL92lYUUebMl118Lh8qm5jjaioW8o5IRKtJzqt0
-	x6qlooYk9BbuwdPKb4OvENUhaf9z4eSiCBmK74RHr/8q4ORZAV61svraMm0xVEx+77Hk0j/0DmV0m
-	z/EBO9jvDfM2+eEXO34Xa7NfPH/Ew6U8QzUR/ahOrJulsy+VvdWVQfM3SmvUfqJHD3TCR4OtDORjl
-	W4XP2L7g==;
+	bh=pHX3FxLc35EBcXDgU8Mdx/URxIIN4Tfi71fuJNvMy00=; b=xxB1kfRBcD5EzvAGHu3fmji2Nl
+	g8sMG2ypgqbAA9MtRrEN00eSZw8YvJ1NL6U+tX9WBDI4KsdGOBKBPWrARuOKYE0BKAGQKN2pX3aqL
+	uerQpJ/Q+c+azIubckhmU5ZC87XWx7yttp4P/COosABdY1Q1y9CQNHqzbQKvuIpHEOU+Iy+3N0tT8
+	Jj/rQYbRbEyGMPp8sGMhVzQrR3Z2N5OrPeS0V9dPnL62AvXhhQzg/8EJ/tN+bnRI4PCUxJMM+GcaU
+	0hvp3ow5evsM7nvy5Pxtut6RD0OLePR1oTDH0FJmiyhw9YMfV9Arh2zTqpGD1cPjTWEz2d3t9YQs4
+	BC2N6N3Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xBy4q-00000006pDD-3DNG;
-	Wed, 30 Sep 2026 17:26:44 +0000
-Received: from smtpout-02.galae.net ([185.246.84.56])
+	id 1xBy4p-00000006pB4-0y9K;
+	Wed, 30 Sep 2026 17:26:43 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xBy4N-00000006p1S-3Juk
+	id 1xBy4H-00000006ozo-4AhK
+	for linux-arm-kernel@bombadil.infradead.org;
+	Wed, 30 Sep 2026 17:26:10 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=Cc:To:In-Reply-To:References:
+	Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
+	From:Sender:Reply-To:Content-ID:Content-Description;
+	bh=pHX3FxLc35EBcXDgU8Mdx/URxIIN4Tfi71fuJNvMy00=; b=Rbe7BvUaobLDayXpqkAVSgYCWR
+	kSajPeuDywibd5nBQqEbLciQzV6vEN3cK7qyM9TlchF10I+cECt/3BnjJuurh7DVd2vGIB9ZYJvel
+	BIJQTnnoQd/bU+x95eIM3fS4eljDwF/Uh7jbZIiDpJw7K+4gomGBhbEleZmjv1DtsQAMF447GNSWg
+	c1fnLNY+RmkIfl6VwSIFrsDiPQjr9HkkF67M7E7065tT63PjYk/d60Clm1L8c927vye627Wr9YkMl
+	T09BmIjsFD9+r+mRoGCgyuM5cAzL7vLmqDvsro1zQyFmZm/eHWPM8nzjPV7n2IzPvzV57V2drI68z
+	aLKOsP4Q==;
+Received: from smtpout-03.galae.net ([185.246.85.4])
+	by desiato.infradead.org with esmtps (Exim 4.99.2 #2 (Red Hat Linux))
+	id 1xBy4E-000000048Xu-3BvO
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 30 Sep 2026 17:26:19 +0000
+	Wed, 30 Sep 2026 17:26:08 +0000
 Received: from smtpout-01.galae.net (smtpout-01.galae.net [212.83.139.233])
-	by smtpout-02.galae.net (Postfix) with ESMTPS id 40EEF1A107A;
-	Wed, 30 Sep 2026 17:26:14 +0000 (UTC)
+	by smtpout-03.galae.net (Postfix) with ESMTPS id 1CE3B4E410D4;
+	Wed, 30 Sep 2026 17:26:06 +0000 (UTC)
 Received: from mail.galae.net (mail.galae.net [212.83.136.155])
-	by smtpout-01.galae.net (Postfix) with ESMTPS id 14F1260749;
-	Wed, 30 Sep 2026 17:26:14 +0000 (UTC)
-Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id A84421032942E;
-	Wed, 30 Sep 2026 19:26:08 +0200 (CEST)
+	by smtpout-01.galae.net (Postfix) with ESMTPS id E4DE760749;
+	Wed, 30 Sep 2026 17:26:05 +0000 (UTC)
+Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id AB6A0103291EA;
+	Wed, 30 Sep 2026 19:26:00 +0200 (CEST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=dkim;
-	t=1790789172; h=from:subject:date:message-id:to:cc:mime-version:content-type:
+	t=1790789164; h=from:subject:date:message-id:to:cc:mime-version:content-type:
 	 content-transfer-encoding:in-reply-to:references;
-	bh=AbpkMZVsBdBOWRwxjTkLihKxr/UR5S6eo3rRMVyn4ks=;
-	b=LR0GqmnOoJW1aSmhm3RXiefQ0ebjd+3xeaa8sqblORzg3ux6qGAgppd82PiaucDAdycHZM
-	mzqPNkWOtb7XcCN3QCd5Nvg7IbsjRQF2j9jUp/Im3nS5CuatJoMCCpaaRnjrVEDoSEveF8
-	X2tAoZeRtkSWZQ3IIrq5p2yweRaZbHKC8FTfmVtWvyrYklFrajG/YvdMu5sDuPHoZx0Xue
-	AYLuTL4IAL8CNYuAyGP1564+mg6QIWh1WioeakkdZvNU4zeMUWQX1VCbpS4oW160yEZTy7
-	Fqc6Zy6anUN97iLuxEmaOkgbnxy4VK5T7ei6NxOdYBsBemERW3STP+i1ArqwXQ==
+	bh=pHX3FxLc35EBcXDgU8Mdx/URxIIN4Tfi71fuJNvMy00=;
+	b=qFDgMJ/oG8VxVZ+30z+n9OIXk6YwD5PXCM58pPi1s8UaEV5wdFpxt3/47CT1xq6zIVRHIu
+	VFU6pyViiqeYaiJwYzqmCw3VGM64WW/ei6NqmNLrNDU18pQOykBdKpFRTRrJGclugn1x09
+	UOvCe/Dptw4ElC8C+by4wkGix2UZhVI/y2yAPQCWtzLqWVWNFrH7ae0pWS0vSKQZQZTPHB
+	0OjF8ybmBi79oOjTeMWIhRffBnnXFc5Qno8HI93Zn3FSpHFr1ehuEZZc+SMj+rcZ+q3Mmf
+	YcM0Xdu2u5TM6I/hG9CzNPXkzobiKKReN2qtAru7SYWycbgba2/+oXKysUo8HQ==
 From: Miquel Raynal <miquel.raynal@bootlin.com>
-Date: Wed, 30 Sep 2026 19:24:58 +0200
-Subject: [PATCH v6 12/12] arm64: dts: nuvoton: ma35d1: Add LXT crystal and
- clock-names
+Date: Wed, 30 Sep 2026 19:24:56 +0200
+Subject: [PATCH v6 10/12] clk: nuvoton: ma35d1: Reparent SYSPLL correctly
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20260930-perso-ma35d1-upstream-clk-v6-12-48937ee6c9bb@bootlin.com>
+Message-Id: <20260930-perso-ma35d1-upstream-clk-v6-10-48937ee6c9bb@bootlin.com>
 References: <20260930-perso-ma35d1-upstream-clk-v6-0-48937ee6c9bb@bootlin.com>
 In-Reply-To: <20260930-perso-ma35d1-upstream-clk-v6-0-48937ee6c9bb@bootlin.com>
 To: Jacky Huang <ychuang3@nuvoton.com>, Shan-Chun Hung <schung@nuvoton.com>, 
@@ -69,8 +83,8 @@ Cc: Thomas Petazzoni <thomas.petazzoni@bootlin.com>,
 X-Mailer: b4 0.14.3
 X-Last-TLS-Session-Version: TLSv1.3
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260930_102618_288932_19F87D41 
-X-CRM114-Status: GOOD (  10.09  )
+X-CRM114-CacheID: sfid-20260930_182607_360517_AE58318A 
+X-CRM114-Status: GOOD (  17.18  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -85,70 +99,82 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The clock controller takes its two crystal oscillator inputs from the
-board: HXT and LXT. The LXT crystal is not described at all: add the
-fixed clock node for it and reference both inputs from the clock
-controller node, with their respective clock-names.
+The clock tree is still incorrect. SYSPLL is derived from HXT, very much
+like CAPLL, DDRPLL, VPLL, APLL and EPLL. SYSPLL has a fixed frequency,
+but if HXT gets gated, SYSPLL stops running.
+
+Reparent SYSPLL under HXT_GATE to properly define the clock tree
+topology. After this change, the frequencies are identical, but the
+clock tree looks (again) much closer to the reality.
+
+Even though the TRM does not explicitly shows that HIRC and LIRC are
+internally sourced from HXT and LXT, respectively, there are high
+chances that these should be reparented as well. I will not do it but
+the discussion is open and in case it becomes relevant, the 'parent'
+field of the modified ma35d1_clk_fixed() helper can just be set
+accordingly.
 
 Fixes: 691521a367cf ("clk: nuvoton: Add clock driver for ma35d1 clock controller")
-Fixes: b69af0984732 ("arm64: dts: nuvoton: Add initial ma35d1 device tree")
 Cc: stable@vger.kernel.org
 Signed-off-by: Miquel Raynal <miquel.raynal@bootlin.com>
 ---
----
- arch/arm64/boot/dts/nuvoton/ma35d1-iot-512m.dts | 6 ++++++
- arch/arm64/boot/dts/nuvoton/ma35d1-som-256m.dts | 6 ++++++
- arch/arm64/boot/dts/nuvoton/ma35d1.dtsi         | 3 ++-
- 3 files changed, 14 insertions(+), 1 deletion(-)
+ drivers/clk/nuvoton/clk-ma35d1.c | 16 ++++++++--------
+ 1 file changed, 8 insertions(+), 8 deletions(-)
 
-diff --git a/arch/arm64/boot/dts/nuvoton/ma35d1-iot-512m.dts b/arch/arm64/boot/dts/nuvoton/ma35d1-iot-512m.dts
-index d7670afb0a63..7752e85734ac 100644
---- a/arch/arm64/boot/dts/nuvoton/ma35d1-iot-512m.dts
-+++ b/arch/arm64/boot/dts/nuvoton/ma35d1-iot-512m.dts
-@@ -36,6 +36,12 @@ clk_hxt: clock-hxt {
- 		#clock-cells = <0>;
- 		clock-frequency = <24000000>;
- 	};
-+
-+	clk_lxt: clock-lxt {
-+		compatible = "fixed-clock";
-+		#clock-cells = <0>;
-+		clock-frequency = <32768>;
-+	};
+diff --git a/drivers/clk/nuvoton/clk-ma35d1.c b/drivers/clk/nuvoton/clk-ma35d1.c
+index 384449d473c7..16cf2771e5ed 100644
+--- a/drivers/clk/nuvoton/clk-ma35d1.c
++++ b/drivers/clk/nuvoton/clk-ma35d1.c
+@@ -132,9 +132,9 @@ static const struct clk_div_table eadc_div_table[] = {
+ 	{13, 28}, {14, 30}, {15, 32}, {0, 0},
  };
  
- &clk {
-diff --git a/arch/arm64/boot/dts/nuvoton/ma35d1-som-256m.dts b/arch/arm64/boot/dts/nuvoton/ma35d1-som-256m.dts
-index 8f3cb18d39b6..5c65f1fe5da9 100644
---- a/arch/arm64/boot/dts/nuvoton/ma35d1-som-256m.dts
-+++ b/arch/arm64/boot/dts/nuvoton/ma35d1-som-256m.dts
-@@ -36,6 +36,12 @@ clk_hxt: clock-hxt {
- 		#clock-cells = <0>;
- 		clock-frequency = <24000000>;
- 	};
-+
-+	clk_lxt: clock-lxt {
-+		compatible = "fixed-clock";
-+		#clock-cells = <0>;
-+		clock-frequency = <32768>;
-+	};
- };
+-static struct clk_hw *ma35d1_clk_fixed(const char *name, int rate)
++static struct clk_hw *ma35d1_clk_fixed(const char *name, int rate, const char *parent)
+ {
+-	return clk_hw_register_fixed_rate(NULL, name, NULL, 0, rate);
++	return clk_hw_register_fixed_rate(NULL, name, parent, 0, rate);
+ }
  
- &clk {
-diff --git a/arch/arm64/boot/dts/nuvoton/ma35d1.dtsi b/arch/arm64/boot/dts/nuvoton/ma35d1.dtsi
-index 7228ad4735b5..9a341c2b1397 100644
---- a/arch/arm64/boot/dts/nuvoton/ma35d1.dtsi
-+++ b/arch/arm64/boot/dts/nuvoton/ma35d1.dtsi
-@@ -92,7 +92,8 @@ clk: clock-controller@40460200 {
- 			compatible = "nuvoton,ma35d1-clk";
- 			reg = <0x00000000 0x40460200 0x0 0x100>;
- 			#clock-cells = <1>;
--			clocks = <&clk_hxt>;
-+			clocks = <&clk_hxt>, <&clk_lxt>;
-+			clock-names = "hxt", "lxt";
- 		};
+ static struct clk_hw *ma35d1_clk_mux(struct device *dev, const char *name,
+@@ -279,22 +279,22 @@ static int ma35d1_clocks_probe(struct platform_device *pdev)
+ 		hws[LXT] = __clk_get_hw(clks[1].clk);
+ 	else
+ 		/* Old DTs do not describe the low-speed crystal */
+-		hws[LXT] = ma35d1_clk_fixed("lxt", 32768);
++		hws[LXT] = ma35d1_clk_fixed("lxt", 32768, NULL);
  
- 		pinctrl: pinctrl@40040000 {
+ 	hws[HXT_GATE] = ma35d1_clk_gate_parent(dev, "hxt_gate", hws[HXT],
+ 					       clk_base + REG_CLK_PWRCTL, 0);
+ 	hws[LXT_GATE] = ma35d1_clk_gate_parent(dev, "lxt_gate", hws[LXT],
+ 					       clk_base + REG_CLK_PWRCTL, 1);
+-	hws[HIRC] = ma35d1_clk_fixed("hirc", 12000000);
++	hws[HIRC] = ma35d1_clk_fixed("hirc", 12000000, NULL);
+ 	hws[HIRC_GATE] = ma35d1_clk_gate(dev, "hirc_gate", "hirc",
+ 					 clk_base + REG_CLK_PWRCTL, 2);
+-	hws[LIRC] = ma35d1_clk_fixed("lirc", 32000);
++	hws[LIRC] = ma35d1_clk_fixed("lirc", 32000, NULL);
+ 	hws[LIRC_GATE] = ma35d1_clk_gate(dev, "lirc_gate", "lirc",
+ 					 clk_base + REG_CLK_PWRCTL, 3);
+ 
+ 	hws[CAPLL] = ma35d1_reg_clk_pll(dev, CAPLL, pllmode[0], "capll",
+ 					hws[HXT_GATE], clk_base + REG_CLK_PLL0CTL0);
+-	hws[SYSPLL] = ma35d1_clk_fixed("syspll", 180000000);
++	hws[SYSPLL] = ma35d1_clk_fixed("syspll", 180000000, "hxt_gate");
+ 	hws[DDRPLL] = ma35d1_reg_clk_pll(dev, DDRPLL, pllmode[1], "ddrpll",
+ 					hws[HXT_GATE], clk_base + REG_CLK_PLL2CTL0);
+ 	hws[APLL] = ma35d1_reg_clk_pll(dev, APLL, pllmode[2], "apll",
+@@ -335,8 +335,8 @@ static int ma35d1_clocks_probe(struct platform_device *pdev)
+ 	hws[PCLK3_DIV4096] = ma35d1_clk_fixed_factor(dev, "pclk3_div4096", "pclk3", 1, 4096);
+ 	hws[PCLK4_DIV4096] = ma35d1_clk_fixed_factor(dev, "pclk4_div4096", "pclk4", 1, 4096);
+ 
+-	hws[USBPHY0] = ma35d1_clk_fixed("usbphy0", 480000000);
+-	hws[USBPHY1] = ma35d1_clk_fixed("usbphy1", 480000000);
++	hws[USBPHY0] = ma35d1_clk_fixed("usbphy0", 480000000, NULL);
++	hws[USBPHY1] = ma35d1_clk_fixed("usbphy1", 480000000, NULL);
+ 
+ 	/* DDR */
+ 	hws[DDR0_GATE] = ma35d1_clk_gate(dev, "ddr0_gate", "ddrpll",
 
 -- 
 2.55.0
