@@ -4,160 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id EC76CCA5FC7
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 30 Sep 2026 16:06:57 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B378ECA5FC5
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 30 Sep 2026 16:07:14 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:CC:To:From:
-	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
-	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=CB8wn6LMlFVlABvJF8l6Ros2gjDfoVtt7Nbokh7uXcc=; b=SEHuYUw4lBYK4JCYEyVtCILWpb
-	flmSX9BZhPaPg66EED5rtbSQgR6aMzam6ymMia22C/6YtIEe2ySw9I7OQSPk1TZv2euRzAI6s0cVX
-	8flWc3ZQ8LKi20YdDY/CLXDkZBX2DuQP/+E3o7GdvGMBIGMSUKkfrr/DBLZO40jmpB2U38RNAVfDi
-	NuRNnlTsPnA2XzMAEdEYfDjdhq/lCW5RVzj1DGLPJLWYc8Pflx2q83kLF0umKjiJraVYZTiV1WgnY
-	yJNvLwdYPTfph1yzeLG8/cPbiXkVmnfcK4FROMSkFJf4Rri6RZg9mLuFfhlbcPU5f5uoa3JtS8kIs
-	IcrHZNWA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=6XEh8TAHmyixoPUH+ecissl+tF/mzv7ZHGaRd0hfcmo=; b=FnmGR37T39GEkHjItVof+KLOxh
+	YsNvDpCzFRHc9c+dmxXAg5xrUR9ymdMEQc4Dq9NdqUvLwaYogf+yq/nD4bTMAbLxDXewDtCuYIhBb
+	pD4cAwf9GDKWXP/WkovHmfEVwUWbRcoLIF5+MvPewRu2WjrLWrAm/RHW6PwLGe5xlc4XAQj8IxUm/
+	w96+lgoWZsaXD3FMCHO8c+FpcoF36WOgf+euYGPX00GDAc8DND4nqevrkllgccDkpXUzFxp/l8+Xk
+	V4GEuVD+PqPT1pqglug2BVkRO3bII5Apk9NM6d4xarmkPatKxCKxNHbAosLKrGniQ53fxgWKzWZKG
+	/lq71u1Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xBwpX-00000006dLl-1DhG;
-	Wed, 30 Sep 2026 16:06:51 +0000
-Received: from mx0a-0002e601.pphosted.com ([148.163.150.75])
+	id 1xBwpo-00000006dQZ-2nnC;
+	Wed, 30 Sep 2026 16:07:08 +0000
+Received: from stravinsky.debian.org ([2001:41b8:202:deb::311:108])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xBwpU-00000006dKj-1wSg
+	id 1xBwpm-00000006dOi-1vof
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 30 Sep 2026 16:06:50 +0000
-Received: from pps.filterd (m0380145.ppops.net [127.0.0.1])
-	by m0380145.ppops.net (8.18.1.11/8.18.1.11) with ESMTP id 68UE1GgN3333242;
-	Wed, 30 Sep 2026 11:06:46 -0500
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com; h=cc
-	:content-transfer-encoding:content-type:date:from:message-id
-	:mime-version:subject:to; s=proofpoint-05-2026; bh=CB8wn6LMlFVlA
-	BvJF8l6Ros2gjDfoVtt7Nbokh7uXcc=; b=Ul33QQxl7mkQwbyMRyr+iCzcI8S2b
-	QXm5mPo5Sd4kkcgi3/00aGMqQ91HpYfPBy0fijEdArr+4/PNVQtggpV5RM+wUwzi
-	uO64XIh+eh5PEU5a892BTpDupB34y/QqwmDt0HxXJeVYcFv6mTNDhhrjrymmrKNr
-	Q298cRpMuHCIicLmoRqqw1v1xBdzZZmk5U5p3HfRBAmNIAwfC3WvI018s03Q5yqR
-	jVzQlYVNnmvDZSx2m2CrTitI7lmRq8eFwnmkGdM/srMM/VMEdbr39pWy2psDTnP8
-	gBa+5YP/y7mJhTpJxK5Pk/y7V7pIX3CUtlnfDM2/Wz5R9A84Zy0D8z85Q==
-Received: from cy3pr05cu001.outbound.protection.outlook.com (mail-westcentralusazon11013069.outbound.protection.outlook.com [40.93.201.69])
-	by m0380145.ppops.net (PPS) with ESMTPS id 4h10t1svm3-1
-	(version=TLSv1.3 cipher=TLS_AES_256_GCM_SHA384 bits=256 verify=NOT);
-	Wed, 30 Sep 2026 11:06:46 -0500 (CDT)
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=UpLM0OMh5X6iRRTb4vw3mTGICnvTWtwqpcdNOZMYBSofFm2ho2at2Oc6+JZQSQRF5A7rrjFDwJy0EqiMhdSObSAj3BJk84c6LfizEZ5fP9nIkFU3fsD+W+ujg22Mjq1T+m8buxgDBqrHf/V4gWeNtM3sbGo07Vk298cuJcEPm1FSdMr+xmO6o8FreDqJWpMgMk08cPFDYiJOq2v4PrhdSyZKThKc235qb5WZ897PpSpKsv9gsReufHnVitJesOs1t7HCR0l0UT6x4qvNesJrPBo+eus7lbY4vGlwqMh98lQt0v6hpQHDLhBVjHTozO82vAusTvojGxeFi8u+M00P1Q==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=CB8wn6LMlFVlABvJF8l6Ros2gjDfoVtt7Nbokh7uXcc=;
- b=LE9Xjx/KMeIjWivUEvogffxvxT1NHMxmdT0LZaAbjmY/GT99DCy12PiAquzukvuqE0AIL1Q+8H2xL2hGusA62wGxiF8eC9HEqAy8I17v3qL8srIDjqLMB3VJ0Jt8JBPVislSmsyfMcZUS/wG6xFoo/aAD3wZTJ6Akhb9webkBcSe/ISD0+TnK3tXWh/ToC3HIV1TEDk7KVkhaFqR72riRxg1G5kD8V8T/7vzDF1PfKohT4AOI2KhKa/uDea16cu0NltC8CPm3i9kodym/Sl6opeN/e6fffPfy8Qff9x9f0EHObae88GINnwAQYkBDPfThpjyLHGVEgIE8f4baiFiJw==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
- 198.47.23.195) smtp.rcpttodomain=lists.infradead.org smtp.mailfrom=ti.com;
- dmarc=pass (p=quarantine sp=none pct=100) action=none header.from=ti.com;
- dkim=none (message not signed); arc=none (0)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=ticloud.onmicrosoft.com; s=selector1-ticloud-onmicrosoft-com;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=CB8wn6LMlFVlABvJF8l6Ros2gjDfoVtt7Nbokh7uXcc=;
- b=Tc57lkhMRSk+9eCeNfzVU2E44wWLchICEerahnsPbw6AaN6kdxeof9gcGbPfBtD3tH3knnWUcSxrieINAjCPA3GXrOyUHVsaVm3qj8PM3ZbzFAfPU1qE6i/gkZE0OZ8B3Yl2/erHkPXOvna33GwtuKfsY4e5t42GxvednzO/YfU=
-Received: from BY1P220CA0013.NAMP220.PROD.OUTLOOK.COM (2603:10b6:a03:59d::17)
- by IA3PR10MB8639.namprd10.prod.outlook.com (2603:10b6:208:575::13) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.472.15; Wed, 30 Sep
- 2026 16:06:42 +0000
-Received: from CO1PEPF000066EA.namprd05.prod.outlook.com
- (2603:10b6:a03:59d:cafe::91) by BY1P220CA0013.outlook.office365.com
- (2603:10b6:a03:59d::17) with Microsoft SMTP Server (version=TLS1_3,
- cipher=TLS_AES_256_GCM_SHA384) id 15.21.472.15 via Frontend Transport; Wed,
- 30 Sep 2026 16:06:41 +0000
-X-MS-Exchange-Authentication-Results: mx.microsoft.com 1; spf=pass (sender IP
- is 198.47.23.195) smtp.mailfrom=ti.com; dkim=none (message not signed)
- header.d=none;dmarc=pass action=none header.from=ti.com;
-Received-SPF: Pass (protection.outlook.com: domain of ti.com designates
- 198.47.23.195 as permitted sender) receiver=protection.outlook.com;
- client-ip=198.47.23.195; helo=lewvzet201.ext.ti.com; pr=C
-Received: from lewvzet201.ext.ti.com (198.47.23.195) by
- CO1PEPF000066EA.mail.protection.outlook.com (10.167.249.5) with Microsoft
- SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.21.472.14 via Frontend Transport; Wed, 30 Sep 2026 16:06:41 +0000
-Received: from DLEE207.ent.ti.com (157.170.170.95) by lewvzet201.ext.ti.com
- (10.4.14.104) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.45; Wed, 30 Sep
- 2026 11:06:11 -0500
-Received: from DLEE203.ent.ti.com (157.170.170.78) by DLEE207.ent.ti.com
- (157.170.170.95) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.45; Wed, 30 Sep
- 2026 11:06:11 -0500
-Received: from lelvem-mr06.itg.ti.com (10.180.75.8) by DLEE203.ent.ti.com
- (157.170.170.78) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.45 via Frontend
- Transport; Wed, 30 Sep 2026 11:06:11 -0500
-Received: from uda0510294.dhcp.ti.com (uda0510294.dhcp.ti.com [10.24.50.162])
-	by lelvem-mr06.itg.ti.com (8.18.1/8.18.1) with ESMTP id 68UG68W33425232;
-	Wed, 30 Sep 2026 11:06:08 -0500
-From: Beleswar Padhi <b-padhi@ti.com>
-To: <nm@ti.com>, <kristo@kernel.org>, <ssantosh@kernel.org>, <afd@ti.com>,
-        <vigneshr@ti.com>, <u-kumar1@ti.com>
-CC: <linux-kernel@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
-        <b-padhi@ti.com>
-Subject: [PATCH v2 00/22] Cleanup and Refactor TI-SCI driver
-Date: Wed, 30 Sep 2026 21:35:45 +0530
-Message-ID: <20260930160607.2674980-1-b-padhi@ti.com>
-X-Mailer: git-send-email 2.34.1
+	Wed, 30 Sep 2026 16:07:07 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=debian.org;
+	s=smtpauto.stravinsky; h=X-Debian-User:Content-Transfer-Encoding:MIME-Version
+	:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:Reply-To:
+	Content-Type:Content-ID:Content-Description;
+	bh=6XEh8TAHmyixoPUH+ecissl+tF/mzv7ZHGaRd0hfcmo=; b=YrHlJLl4tZ4CAtAN/JRxMwt7a0
+	Xj3dblnVc194J2PvT9ATKgSvh/5bRJXxAYBDKZv60eAZJYjJERwRJ5rK2kYb7pT2CyGAYIX7u2PB1
+	ppNv+GiISh9lIDWgeplgWt3AqmZCOz9Yrljm+HNWfqopQX2jbiXesiygblR1X2VkKSzej/3GzSX/i
+	MUQcNOQUZmhUN7XV76ahKpEBmDulo1fqvN4w/dz/lKB6ND6/cwToR1+42VW3mxLfPXUR/sUzPay9y
+	klYi+hV9bPbneuNbmseMEtZcfPeQunVDxyvVhprr1Db03Pr/hML9YxeqWq074SLj4aIsMLamZwQrC
+	4DeUdrxg==;
+Received: from authenticated-user
+	by stravinsky.debian.org with esmtpsa (TLS1.3:ECDHE_X25519__RSA_PSS_RSAE_SHA256__AES_256_GCM:256)
+	(Exim 4.96)
+	(envelope-from <fourdollars@debian.org>)
+	id 1xBwpd-009IoV-23;
+	Wed, 30 Sep 2026 16:06:58 +0000
+From: Shih-Yuan Lee <fourdollars@debian.org>
+To: Mark Brown <broonie@kernel.org>
+Cc: Andy Shevchenko <andriy.shevchenko@linux.intel.com>,
+	Mika Westerberg <mika.westerberg@linux.intel.com>,
+	Lukas Wunner <lukas@wunner.de>,
+	Daniel Mack <daniel@zonque.org>,
+	Haojian Zhuang <haojian.zhuang@gmail.com>,
+	Robert Jarzmik <robert.jarzmik@free.fr>,
+	linux-spi@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	Shih-Yuan Lee <fourdollars@debian.org>
+Subject: [PATCH v17 3/6] spi: pxa2xx: acquire active PM runtime reference in interrupt handler
+Date: Thu,  1 Oct 2026 00:06:26 +0800
+Message-Id: <20260930160629.1822-4-fourdollars@debian.org>
+X-Mailer: git-send-email 2.39.5
+In-Reply-To: <20260930160629.1822-1-fourdollars@debian.org>
+References: <20260930160629.1822-1-fourdollars@debian.org>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
-Content-Type: text/plain
-X-EOPAttributedMessage: 0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: CO1PEPF000066EA:EE_|IA3PR10MB8639:EE_
-X-MS-Office365-Filtering-Correlation-Id: 45e8f13d-1ec7-443f-4ceb-08df1f0cd0b6
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|23010399003|376014|36860700016|82310400026|1800799024|56012099006|10067099003|6133799003|3023799007|18002099003;
-X-Microsoft-Antispam-Message-Info: uMRmH+uH12oBMZUvrbtwOCiVG8Cf//tlsGfdJBzW8tfXCZl7KWOIwRT0S6XdyWxefWiasMzdXueCnvuOP1QLvm+6AdS4p/v7c3oYMJDsZDyb9Mam8rSPjUTXSqoVlFwWX2deT9qPpSZo3Eg1IFMIs+4rTzROg4jZ/b/awxtKNgpgoicdiFYCUtUuJxZGrpJFrFDjFdIK+22mGdwgbc1NdwtDjw2kXbpEEFV+5KZayjhAq0oNkid/oALqB0VbXdwRSBJ8JCsMbjns4ire+yHWQMsU+b/JDyPZYWUKpNsF4ttsyIpnNz/4zJ0PdclVxP3b9xpoKuXtum+gSEnF1qJ2LEdlwOiolvt6biivXwYydP0qKfqqn/S17O9H0Ya63gJh/4wJEKOfIfY3Iis+mggceMzbWD88wAHfHV1KFzuqYExbmWe59Nz5IGKNUDsfHcmWKFqPOExrGBsN2njb60AguCVS4ranmP7PT2aunRl540YDYwAz0WiidddDEU7kHzzZQjzJTHdLdnCbQcrqsaPEg8YIvsOZAgSJuEF87l0djnDp34Hemx6PwEUHKsjIWf7g6zo7bINGT5hioA4EkiGHub9badn8yJxWmL9YdNhSmBV3rO1VPnxoiKF0SWz2CdPrmd2kAd2cQIFcTQsIm08lnbahKA5d/QImaoJAAGeahziLB5+l+llc9eylxBLMkip12/Ktam2a98m5oXXhGmni3g==
-X-Forefront-Antispam-Report: CIP:198.47.23.195;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:lewvzet201.ext.ti.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(23010399003)(376014)(36860700016)(82310400026)(1800799024)(56012099006)(10067099003)(6133799003)(3023799007)(18002099003);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: 20z022/HtXcOu35n59gMaPtZo9HpnLoix8/9xgzbTS4AJgMUPzjRIe82PfQM5dr3DlmQajzKLHcir5fQBKllymaeBlZmGpkd/npvz32or77M7L1tDI8G4aUKbomnjpWuwGNZwW1hOCJAVe7tQ9rcV6HYAmaPBiD9GP+JWrQdCR5Sg4KYk6yGWnYcjun5APuULegsqNE0+Q/VD59IiuiHXZz+V1TQrsTTttau/6wgtgv7j3UqS2i152W4Iwr7WP93B4BuxnOoHh5IeGMw/P94oCGtCLlD6+dWZi+CFlSgbRkYXLDsUMTwd1XkwnsFYLIqySSoN8os4w9S4FjdXOqNmW5Z8/enGMFmweLJ2dHy2nmUvP8RQ/sNQ/9E7aCErFpbpOSeju2KHS3yulQwI/q+qw0nb9PjNjTBJ1nuvl1P38b8mrRFZQg0pmWaq3UXjvZL
-X-Exchange-RoutingPolicyChecked: l8oeM5jpzlKRMYtMANsflSFswHXk7e7CoMib3j0yuOLeh0POZ8qt0v3c+g+uqAI/GDRhzLgF+TNBwjRU6QwuBBTKJ5ZU4FijLIC8FZYH/BP8otl0m2etu2EB9T1ffeGzjEctTAT4wj/j0mPX51uO427nusHb22Ym5sZo0t+opJG61Ty7971g1cKbC6WRWoS+ErC6bBVY5uoExAlyOQb+i4FJ76IFxPR4I7Qiafan6p8hqWYjXuHmHxMKoEo3qx/Sxw7W1xL2kViogALfJU4xBxRY6GH/edMmRjSpIXzyVSz8tQmFHapal2cJtSln6BvZT5idHzkB5zoiJ8jmeJqUsA==
-X-OriginatorOrg: ti.com
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 30 Sep 2026 16:06:41.0318
- (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: 45e8f13d-1ec7-443f-4ceb-08df1f0cd0b6
-X-MS-Exchange-CrossTenant-Id: e5b49634-450b-4709-8abb-1e2b19b982b7
-X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=e5b49634-450b-4709-8abb-1e2b19b982b7;Ip=[198.47.23.195];Helo=[lewvzet201.ext.ti.com]
-X-MS-Exchange-CrossTenant-AuthSource: CO1PEPF000066EA.namprd05.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Anonymous
-X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: IA3PR10MB8639
-X-Proofpoint-Spam-Info: AW1haW4tMjYwOTMwMDA2NCBTYWx0ZWRfXyfBfNeHVuf99
- meu2bwT6DnVmnv0TVZgrY7F69LDuVAbM8OAJN/AvSJ4Wn/BpZ/38h8r8fwwXn0k1AUN/XhnEo4e
- KoalnEZ5M/TAD4OB1XN/ZjtjhieYy5w=
-X-Proofpoint-ORIG-GUID: GcnRv9dgNkOK2jyjRvq1JOBKWIT0T1Lm
-X-Authority-Analysis: v=2.4 cv=C7R8WgP+ c=1 sm=1 tr=0 ts=6abd3396 cx=c_pps
- a=/NeaHkXls/iJsjBnUIdqww==:117 a=f+v6EHfkeJbVwR46tk4DMg==:17
- a=6eWqkTHjU83fiwn7nKZWdM+Sl24=:19 a=VdqzKS8jKosA:10 a=s63m1ICgrNkA:10
- a=AlMIdn_sM9wA:10 a=VkNPw1HP01LnGYTKEx00:22 a=Z8NIEmU8O1QQgoT56wFK:22
- a=gO1vWkAQAl3rybz1DQOp:22 a=VwQbUJbxAAAA:8 a=sozttTNsAAAA:8 a=NEAV23lmAAAA:8
- a=FQqB_tFWpP6lRHZUUu8A:9
-X-Proofpoint-GUID: GcnRv9dgNkOK2jyjRvq1JOBKWIT0T1Lm
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwOTMwMDA2NCBTYWx0ZWRfXxd8o5Pjuc3Sz
- UNMw5DQq8qgbbtffNTXGWR3qIApvzhF7ebgsiIB6EbAboL25Lzv6KqGMQs/hkMOVQnKmVgOPiJO
- azNT7sEkPlrVRQnXTO01XZ7JiJkTu728dgntUf0HH8UgQZpV9hhbEOSjWmsfNutYK5pk1Y7N5IH
- X07JmJ0vsfI9oZBH83TyF7VJagHxftn+x3Bs2CLdt4v+SpffyOiScoVSVx6BX7LchROVoReicDM
- 2e7BCgaT2cS9NjvHzuotWtldJ35o/zZ2cUVkc+eprm10uUIRK6fYgWo6gNdGnvVXwjmZR+VklBM
- 8ubbmn64WMXLCeogBfX1PRABapPZx2bw/bnHgmGsnzQ1GSJYGTUpgP6kK+lDB5jUseN1wO1SZtQ
- 0JbyfgtbCwjPJSi6IaQe8fMydqXiqh2V0rZKBpZ2FTFLRocr2r32LrYVvy2CfmZlubiAvSfdHcT
- DrAmMt+XUGr9T0A1OAQ==
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1176,Hydra:6.1.134,FMLib:17.12.100.49
- definitions=2026-09-30_03,2026-09-21_02,2025-10-01_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- suspectscore=0 adultscore=0 lowpriorityscore=0 malwarescore=0 bulkscore=0
- priorityscore=1501 impostorscore=0 spamscore=0 clxscore=1015 phishscore=0
- classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
- reason=mlx scancount=1 engine=8.22.0-2609040000 definitions=main-2609300064
+X-Debian-User: fourdollars
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260930_090648_514557_566FD7AA 
-X-CRM114-Status: GOOD (  18.11  )
+X-CRM114-CacheID: sfid-20260930_090706_665579_5EF8ECB9 
+X-CRM114-Status: GOOD (  24.63  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -172,105 +81,202 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-This series does a lot of cleanups and refactoring of the TI-SCI driver.
+On a shared interrupt line, ssp_int() can be invoked while the SPI
+controller is suspended or transitioning power states. In ssp_int(),
+evaluating device power state without acquiring a reference before
+accessing MMIO registers is not atomic: another thread executing
+pm_runtime_suspend() can drop the last reference and gate the clock
+immediately after the check passes. Accessing unclocked registers then
+leads to PCIe Completion Timeouts and system hangs.
 
-Patches 01-11:
-The first part of the series refactors a lot of common code from each of
-the TI-SCI message functions into a single place (get_one_xfer() and
-do_xfer()). Result is removal of net ~740 lines (~20% of the whole driver
-size) without changing functionality.
+In addition, request_irq() is called in pxa2xx_spi_probe() before the
+clock is enabled and the controller hardware is initialized, allowing
+shared interrupts to fire against partially configured hardware.
 
-Patches 12-15:
-The second part of the series does some preparatory work for being able
-to break down the single large TI-SCI file into smaller files.
+Ensure the interrupt handler runs only when the hardware is clocked and
+active:
+1. In ssp_int(), check READ_ONCE(drv_data->clk_enabled), immediately
+   returning IRQ_NONE if the clock is disabled. Update 'clk_enabled'
+   with WRITE_ONCE() in the clock helpers to pair with the lockless
+   reader.
+2. Call pm_runtime_get_if_active(dev) in ssp_int() to atomically check
+   if the device is active and acquire a PM runtime reference. If
+   runtime PM is enabled and the device is suspended (return value 0),
+   return IRQ_NONE without accessing MMIO registers. When runtime PM is
+   disabled (return value -EINVAL), the controller is permanently
+   active, so proceed with servicing the interrupt.
+3. On exit, if an active PM reference was acquired (> 0), release it
+   via pm_runtime_put_autosuspend() when an interrupt was handled
+   (IRQ_HANDLED) to preserve the autosuspend delay, or via
+   pm_runtime_put() on IRQ_NONE to avoid refreshing the autosuspend
+   timer on foreign interrupts.
+4. In pxa2xx_spi_probe(), move request_irq() after the clock is enabled
+   and hardware registers are fully initialized, right before
+   spi_register_controller(), ensuring no interrupt can run against
+   unconfigured hardware, and update error unwinding accordingly.
 
-Patches 16-22:
-The third and final part of the series breaks down the single large
-ti_sci.c file into smaller logical files: ti_sci core, device, clock,
-pm, rm, and proc. This allows for better readability and maintenance.
+Assisted-by: Antigravity:gemini-3.8-flash spin sparse
+Signed-off-by: Shih-Yuan Lee <fourdollars@debian.org>
+---
+ drivers/spi/spi-pxa2xx.c | 68 +++++++++++++++++++++++++++-------------
+ 1 file changed, 47 insertions(+), 21 deletions(-)
 
-Note:
-Since the [PATCH 10/22] (first part of the cleanup) now passes local
-stack values as part of request, the following[0] patch series
-in the underlying mbox layer is ideally needed. It is better for those
-patches to be picked to avoid any KASAN warnings and possible duplicate
-message resends.
-[0]: https://lore.kernel.org/all/20260930143810.2419010-1-b-padhi@ti.com
-
-v2: Changelog:
-1. Fix build for arm32 platforms like keystone by including appropriate
-headers in ti_sci_rm.c in [PATCH v2 21/22]. 
-
-Link to v1:
-https://lore.kernel.org/all/20260929201746.4078803-1-b-padhi@ti.com/
-
-Testing Done:
- - Boot tested on all TI K3 SoCs.
- - Boot tested on Keystone platforms like K2G-EVM, K2G-ICE, K2HK-EVM.
- - Tested some of the Core, Device, Clock, and Proc ops with remoteproc
- - Tested each patch for no new warnings or errors.
-
-Logs:
-https://gist.github.com/3V3RYONE/b8ef9d63eaa45db251dc84306b1451e0
-
-Thanks,
-Beleswar
-
-Andrew Davis (18):
-  firmware: ti_sci: Move error message handling into
-    ti_sci_get_one_xfer()
-  firmware: ti_sci: Move error message handling into ti_sci_do_xfer()
-  firmware: ti_sci: Move check for ACK into ti_sci_do_xfer()
-  firmware: ti_sci: Remove out of place RM debug messages
-  firmware: ti_sci: Name response variable resp for consistency
-  firmware: ti_sci: Handle xfer cleanup inside ti_sci_do_xfer()
-  firmware: ti_sci: Pass request struct into ti_sci_do_xfer()
-  firmware: ti_sci: Combine xfer allocation and transfer functions
-  firmware: ti_sci: Fetch info struct from handle inside
-    ti_sci_do_xfer()
-  firmware: ti_sci: Use tx_message as message buffer directly
-  firmware: ti_sci: Use rx_message as message receive buffer
-  firmware: ti_sci: Do not export reboot control
-  firmware: ti_sci: Move the huge ti_sci file into its own directory
-  firmware: ti: ti_sci: Add missing includes for self-contained headers
-  firmware: ti: ti_sci_device: Move device ops into its own file
-  firmware: ti: ti_sci_clock: Move clock ops into its own file
-  firmware: ti: ti_sci_pm: Move pm ops into its own file
-  firmware: ti: ti_sci_rm: Move rm ops into its own file
-
-Beleswar Padhi (4):
-  firmware: ti_sci: Fix some kernel-doc references in structs
-  soc: ti: ti_sci_protocol.h: Add missing documentation for structs
-  firmware: ti_sci: Use pmops fxn pointers in suspend/resume hooks
-  firmware: ti: ti_sci_proc: Move processor ops into its own file
-
- MAINTAINERS                            |    2 +-
- drivers/firmware/Kconfig               |   17 +-
- drivers/firmware/Makefile              |    2 +-
- drivers/firmware/ti/Kconfig            |   17 +
- drivers/firmware/ti/Makefile           |    9 +
- drivers/firmware/{ => ti}/ti_sci.h     |  258 +-
- drivers/firmware/ti/ti_sci_clock.c     |  553 +++
- drivers/firmware/ti/ti_sci_core.c      | 1320 ++++++++
- drivers/firmware/ti/ti_sci_device.c    |  388 +++
- drivers/firmware/ti/ti_sci_pm.c        |  145 +
- drivers/firmware/ti/ti_sci_proc.c      |  214 ++
- drivers/firmware/ti/ti_sci_rm.c        |  910 +++++
- drivers/firmware/ti_sci.c              | 4259 ------------------------
- include/linux/soc/ti/ti_sci_protocol.h |  389 ++-
- 14 files changed, 4121 insertions(+), 4362 deletions(-)
- create mode 100644 drivers/firmware/ti/Kconfig
- create mode 100644 drivers/firmware/ti/Makefile
- rename drivers/firmware/{ => ti}/ti_sci.h (89%)
- create mode 100644 drivers/firmware/ti/ti_sci_clock.c
- create mode 100644 drivers/firmware/ti/ti_sci_core.c
- create mode 100644 drivers/firmware/ti/ti_sci_device.c
- create mode 100644 drivers/firmware/ti/ti_sci_pm.c
- create mode 100644 drivers/firmware/ti/ti_sci_proc.c
- create mode 100644 drivers/firmware/ti/ti_sci_rm.c
- delete mode 100644 drivers/firmware/ti_sci.c
-
+diff --git a/drivers/spi/spi-pxa2xx.c b/drivers/spi/spi-pxa2xx.c
+index a9d19d9a5343..b091434977af 100644
+--- a/drivers/spi/spi-pxa2xx.c
++++ b/drivers/spi/spi-pxa2xx.c
+@@ -721,7 +721,7 @@ static int pxa2xx_spi_clk_enable(struct driver_data *drv_data)
+ 	if (!drv_data->clk_enabled) {
+ 		ret = clk_prepare_enable(drv_data->ssp->clk);
+ 		if (!ret)
+-			drv_data->clk_enabled = true;
++			WRITE_ONCE(drv_data->clk_enabled, true);
+ 	}
+ 	mutex_unlock(&drv_data->clk_lock);
+ 
+@@ -732,7 +732,7 @@ static void pxa2xx_spi_clk_disable(struct driver_data *drv_data)
+ {
+ 	mutex_lock(&drv_data->clk_lock);
+ 	if (drv_data->clk_enabled) {
+-		drv_data->clk_enabled = false;
++		WRITE_ONCE(drv_data->clk_enabled, false);
+ 		clk_disable_unprepare(drv_data->ssp->clk);
+ 	}
+ 	mutex_unlock(&drv_data->clk_lock);
+@@ -741,17 +741,25 @@ static void pxa2xx_spi_clk_disable(struct driver_data *drv_data)
+ static irqreturn_t ssp_int(int irq, void *dev_id)
+ {
+ 	struct driver_data *drv_data = dev_id;
++	struct device *dev = drv_data->ssp->dev;
+ 	u32 sccr1_reg;
+ 	u32 mask = drv_data->mask_sr;
+ 	u32 status;
++	irqreturn_t ret;
++	int active;
+ 
+ 	/*
+-	 * The IRQ might be shared with other peripherals so we must first
+-	 * check that are we RPM suspended or not. If we are we assume that
+-	 * the IRQ was not for us (we shouldn't be RPM suspended when the
+-	 * interrupt is enabled).
++	 * The IRQ might be shared with other peripherals or trigger during
++	 * power state transitions. Ensure the clock is active, and acquire
++	 * an active PM runtime reference while ssp_int() runs. If runtime
++	 * PM is enabled and the device is suspended (active == 0), return
++	 * IRQ_NONE immediately without touching MMIO registers.
+ 	 */
+-	if (pm_runtime_suspended(drv_data->ssp->dev))
++	if (!READ_ONCE(drv_data->clk_enabled))
++		return IRQ_NONE;
++
++	active = pm_runtime_get_if_active(dev);
++	if (active == 0)
+ 		return IRQ_NONE;
+ 
+ 	/*
+@@ -762,7 +770,7 @@ static irqreturn_t ssp_int(int irq, void *dev_id)
+ 	 */
+ 	status = pxa2xx_spi_read(drv_data, SSSR);
+ 	if (status == ~0)
+-		return IRQ_NONE;
++		goto out_put;
+ 
+ 	sccr1_reg = pxa2xx_spi_read(drv_data, SSCR1);
+ 
+@@ -775,18 +783,32 @@ static irqreturn_t ssp_int(int irq, void *dev_id)
+ 		mask &= ~SSSR_TINT;
+ 
+ 	if (!(status & mask))
+-		return IRQ_NONE;
++		goto out_put;
+ 
+ 	pxa2xx_spi_write(drv_data, SSCR1, sccr1_reg & ~drv_data->int_cr1);
+ 	pxa2xx_spi_write(drv_data, SSCR1, sccr1_reg);
+ 
+ 	if (!drv_data->controller->cur_msg) {
+ 		handle_bad_msg(drv_data);
+-		/* Never fail */
+-		return IRQ_HANDLED;
++		ret = IRQ_HANDLED;
++		goto out;
+ 	}
+ 
+-	return drv_data->transfer_handler(drv_data);
++	ret = drv_data->transfer_handler(drv_data);
++	goto out;
++
++out_put:
++	ret = IRQ_NONE;
++
++out:
++	if (active > 0) {
++		if (ret == IRQ_HANDLED)
++			pm_runtime_put_autosuspend(dev);
++		else
++			pm_runtime_put(dev);
++	}
++
++	return ret;
+ }
+ 
+ /*
+@@ -1356,11 +1378,6 @@ int pxa2xx_spi_probe(struct device *dev, struct ssp_device *ssp,
+ 						| SSSR_ROR | SSSR_TUR;
+ 	}
+ 
+-	ret = request_irq(ssp->irq, ssp_int, IRQF_SHARED, dev_name(dev),
+-			drv_data);
+-	if (ret < 0)
+-		return dev_err_probe(dev, ret, "cannot get IRQ %d\n", ssp->irq);
+-
+ 	/* Setup DMA if requested */
+ 	if (platform_info->enable_dma) {
+ 		ret = pxa2xx_spi_dma_setup(drv_data);
+@@ -1380,7 +1397,7 @@ int pxa2xx_spi_probe(struct device *dev, struct ssp_device *ssp,
+ 	/* Enable SOC clock */
+ 	ret = pxa2xx_spi_clk_enable(drv_data);
+ 	if (ret)
+-		goto out_error_dma_irq_alloc;
++		goto out_error_dma_alloc;
+ 
+ 	controller->max_speed_hz = clk_get_rate(ssp->clk);
+ 	/*
+@@ -1464,22 +1481,31 @@ int pxa2xx_spi_probe(struct device *dev, struct ssp_device *ssp,
+ 		}
+ 	}
+ 
++	ret = request_irq(ssp->irq, ssp_int, IRQF_SHARED, dev_name(dev),
++			drv_data);
++	if (ret < 0) {
++		ret = dev_err_probe(dev, ret, "cannot get IRQ %d\n", ssp->irq);
++		goto out_error_clock_enabled;
++	}
++
+ 	/* Register with the SPI framework */
+ 	dev_set_drvdata(dev, drv_data);
+ 	ret = spi_register_controller(controller);
+ 	if (ret) {
+ 		dev_err_probe(dev, ret, "problem registering SPI controller\n");
+-		goto out_error_clock_enabled;
++		goto out_error_irq_alloc;
+ 	}
+ 
+ 	return ret;
+ 
++out_error_irq_alloc:
++	free_irq(ssp->irq, drv_data);
++
+ out_error_clock_enabled:
+ 	pxa2xx_spi_clk_disable(drv_data);
+ 
+-out_error_dma_irq_alloc:
++out_error_dma_alloc:
+ 	pxa2xx_spi_dma_release(drv_data);
+-	free_irq(ssp->irq, drv_data);
+ 
+ 	return ret;
+ }
 -- 
-2.34.1
+2.39.5
 
 
