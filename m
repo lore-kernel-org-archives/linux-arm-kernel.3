@@ -4,151 +4,131 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 392EFCA5FC5
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 30 Sep 2026 14:02:35 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 28F8DCA5FC7
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 30 Sep 2026 14:03:24 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
-	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	Content-Transfer-Encoding:Content-Type:In-Reply-To:References:Cc:To:Subject:
-	From:MIME-Version:Date:Message-ID:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=qs9QTXyZYNRiUfQ+wZvKCopWk12AffrP+uIc+6uA/NY=; b=rB4elRKh/2u38NcBEY9mRk7Ki9
-	pGB34RF1FmTZeh6p0yZChZiyAWrWpnNJLvS0OeKorA4d31x5kABphueGN+Oy86FmGuxNrFmTuhMlu
-	eCyy+UAgmvYIbOznjFw3P21j0rLtP6O/wbXRnH2aJ/gOZdaiyx4YcHlAw/IJ3D3wRttk3w1GG7f5y
-	MG7t12MHuOKBs7ggaGeTDffAdBiJKYVeaiR48QEaretLp9bWkY9jiiNvq1B7AZMezGCps0A3Ii9AX
-	y23iKbFlonqzwvJE3CXQ4D+UXmdCa/HQttpw0M2DPVv1AQeYbsi6Je1CNKugjUDTVfj++NNiCBNKy
-	TOQJNOjA==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Content-Type:
+	Content-Transfer-Encoding:Message-ID:Date:Subject:Cc:To:From:Reply-To:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=1tqabshKn/2TTUfeeKFoMhEj238tIJRTeMERGIypjpo=; b=OtCHyGoEIMGmSEoN/K5ucLY2s6
+	gcNM0RCziSazIDmAhaWMqzHkanpwxU0cvId/iy9Hg5i78ZXPr+7WVK+EGSqqWyzQGiTPpJ8+9VQEx
+	0Jor5au7tlvVcjEdOYCXXaW9nXt/3R3L++90PD4+4WbT/Cce/ru4tZmfcRGEEQmzkBzhDawoj7AtS
+	DNujjQEeTxPQcmDFH4ECT8B+sF6BqT4KP22/UYLnflwafg6jNOmnpTO6X8CLyznO3MgetBzCfhQrA
+	M5WxmodrhTgQd717JhlkssFcpplKVoqIANUbPjXqNTQvXrRT6iw5mZ9IvG7u/HNelMHSxhnnOSGbX
+	3Gn9q8zQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xBut2-00000006DHE-0Ah7;
-	Wed, 30 Sep 2026 14:02:21 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1xButt-00000006DPd-0dwo;
+	Wed, 30 Sep 2026 14:03:13 +0000
+Received: from mail-northeuropeazon11012008.outbound.protection.outlook.com ([52.101.66.8] helo=DUZPR83CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xBuso-00000006DF4-30Rj
-	for linux-arm-kernel@bombadil.infradead.org;
-	Wed, 30 Sep 2026 14:02:06 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:Content-Type
-	:In-Reply-To:References:Cc:To:Subject:Reply-To:From:MIME-Version:Date:
-	Message-ID:Sender:Content-ID:Content-Description;
-	bh=qs9QTXyZYNRiUfQ+wZvKCopWk12AffrP+uIc+6uA/NY=; b=REP2XVrYMCdRTP4vDvT8X5ObOr
-	haBBj2DYlQEtcnPUMW8qfDkelHIhhjPZcSaGSjR3lj3Dw9654bMIffvqKuW/oJXfslXho9IKbBCp6
-	Sc5c3W/B6BlF/xSTfR9QrlGCXPWc7P+mTjqfg+Z0W/3ODHtlgWZ7scBs9QY6HcZYTiDDvcSz0Uj4U
-	NA4PmeJonyMfpRSVnAPav3Jf/Vg5WIi1D/Dl9zAvfBNVVVM6e43vZPv2DIHu6Cl5NPlo5RIjZxgPY
-	j6dSl2F1I1PXjpD3onYqVnNw6FNc3dsZU0RSO0aeMrQDj+GyfF3JxZCAIwRczEUaiKg4cpGtFuNxE
-	sYuIznyw==;
-Received: from mail-yx2-x11.google.com ([2607:f8b0:4864:41::11])
-	by desiato.infradead.org with esmtps (Exim 4.99.2 #2 (Red Hat Linux))
-	id 1xBusl-00000003sbQ-0qKy
+	id 1xButp-00000006DOZ-2gUX
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 30 Sep 2026 14:02:05 +0000
-Received: by mail-yx2-x11.google.com with SMTP id 956f58d0204a3-66e4aa8d881so5700591d50.1
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 30 Sep 2026 07:02:02 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1790776921; x=1791381721; darn=lists.infradead.org;
-        h=content-transfer-encoding:content-type:in-reply-to:organization
-         :autocrypt:content-language:references:cc:to:subject:reply-to:from
-         :user-agent:mime-version:date:message-id:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=qs9QTXyZYNRiUfQ+wZvKCopWk12AffrP+uIc+6uA/NY=;
-        b=LQvjck0L3BxVtZsLM3JxGxMauZmVFa0QSGA/qnUhL2WTOa8i53Cv8Z9OEJMrJNfwYi
-         iQgYbipyrh9gAppCs9alxBkrejElr9Oe3/0v8/EXYmCBLxg3gKH3anOo1OP2vWrAZ8PH
-         CrIgoePNa9w8DsXvQAnH+pgdRzzu66mG/6YekLMe0Be0Z08KUiu9JPRHhaD1fMC2mpTU
-         wHWa6KflH/OD/bPVFex+YsHHddvLm2ObFzzWoE9e00xE8Z9DGtzPx0j8zC2rjPb2yWhS
-         G5B3YCxX2bdSJJCvKD3QOZgBjBLSBGludIS8nGyxsFk9hTH/jr1IQa8ETIh3MbXchihH
-         jclA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1790776921; x=1791381721;
-        h=content-transfer-encoding:content-type:in-reply-to:organization
-         :autocrypt:content-language:references:cc:to:subject:reply-to:from
-         :user-agent:mime-version:date:message-id:x-gm-gg:x-gm-message-state
-         :from:to:cc:subject:date:message-id:reply-to:content-type;
-        bh=qs9QTXyZYNRiUfQ+wZvKCopWk12AffrP+uIc+6uA/NY=;
-        b=N+2xLiWPUqygfLDSm3u6OgMlrK895QQKuYecKtNwtua3EzJ0KfmdJTUmCKf4kHJv/5
-         cIZfzKOEchs6EEEyF5yju7y0usSiterAfOA8jfZA995cv8QlP7OdmRjMCsvrQWriZG1p
-         9hhU18EHl84UUsA+7YDapLFOvYwdhlqdvCd5V0Xtsex9WZUMbsmzQ8eoY0iSdYLHUmHs
-         S6EMbg3Aum5wTAkWibEA5URkWeotmwANJMJYNZOddecdVYnIYX+EEntp5NzLdPB1T+PO
-         rUzVrTwlvbLKBKtux7R+ZvXdIRerDGY4iLvrT1Fj3OBFBYXkVHnumqJMwB+e++ZVrkfX
-         LSHQ==
-X-Forwarded-Encrypted: i=1; AKwUvBzIh+tC0byG7q9ucfNxATNpyCkzQqzCnzbEnmLWIw05N5ujti5jtTueWKLuhfL8H+bK3roqyI6ZtrWzM2fZwoy3@lists.infradead.org
-X-Gm-Message-State: AFq9FYKoy6czjTJNttVYCIPqzfSFeX41urpeXRhCLmlbYJhomaUmkcbB
-	53qu2LnrM/8HX/DyFARph2fgkU9Lza1keKX6VXjXUUOyCvEpqAYhgvIpDQgGDr/T2eQ=
-X-Gm-Gg: AYBFou0pNVDQIE69lzrVrMNvAS7o2Bb3Hy506aojFzD4ROuszO9LP4LpUleoyB4PzK8
-	Qa8EzdY5K4fX71ltt8loCzMbLxgm9Tht6I97OqsHOPI/dQWdhH1lpJW95SvzIjSJ8FYV3n9t3sL
-	dyGUENwsqtZ6vyl6i1NE0h763RnJjG8ddhNhwJ4vDyHa0+fepf1Bs82+DMEMqlvHEQY9Xt0Q0I1
-	F11NgMu3zOu7RQbrg2g0t5L4YFRoJAlZGj0Rfx4CZHFkosG/c7Hv9YcXVwqj7RIgjc0S3ul6Gbd
-	mo+zy0FqrCvIrhV/kaxUwnYTe/9OSziTD9HUb0ILelljJKDe9cVq7qHV22CQ5s1R5Xv42hms9ie
-	6/yfEMIE9uR5rYTBiJ4AfHUA+J6Mh73xgG3oiVn4HPFsGlgiLfdZIfovTdvD4/Y01VLAk+AoJ1d
-	te4E/gbyLGiWfRv85wr4tQnDFIJ2bgmVFL4SX3hejXPp1NJeRp2F/dXfV73xPcyLORI8WN5EZK7
-	6JkZto2s+XG6bzSBV0CyftkQfcega3d8stIYMCHItqExO/txQWBhbUaPrh7CWXw6ZeyN4O5mZkK
-	3BgL19XYeaJB4mUdfQ==
-X-Received: by 2002:a05:690e:484d:b0:66f:c238:7657 with SMTP id 956f58d0204a3-67683530372mr445880d50.76.1790776917625;
-        Wed, 30 Sep 2026 07:01:57 -0700 (PDT)
-Received: from [10.21.51.184] (ipagstaticip-88fc351e-cb28-db3e-3f52-ad13c70f08da.sdsl.bell.ca. [142.127.77.63])
-        by smtp.gmail.com with ESMTPSA id 956f58d0204a3-67680ac3521sm764290d50.1.2026.09.30.07.01.53
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Wed, 30 Sep 2026 07:01:56 -0700 (PDT)
-Message-ID: <6c581ae0-2480-47a2-b46e-97afadbc7c1f@linaro.org>
-Date: Wed, 30 Sep 2026 16:01:52 +0200
+	Wed, 30 Sep 2026 14:03:12 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=voBE4/8hkoa+jiaO+HM5GMwVVT4pdm5wrJgxEvTGpuA7QNYu5QvMQI+SPkxWYCIlJkOP4RQrvFD7rSusnPUgIDaFYjCvQpRKwftd2ctcOBjKH2MlDpk9M5/ZaMG1OGUeYYfGXBPa0fWBI7AXRq2pcxwt09H0VXshoGuuk2Ehu/GKAXjK03v72x+uPBWO3agnWu2j7l+5Vk94v6LImp82qlxVzqIb9xmaR0syNoqcNr8PChz6CH/1KSPgkn0dF8dk3XOoZ3Ce+/h9oITtyUfF1ZvRMHCYaj3ClDOjqKCByrAYqlZ6vgeHjg1y1yrDoMLYX42nFa0Cyo6lkkuZEjnSsw==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=1tqabshKn/2TTUfeeKFoMhEj238tIJRTeMERGIypjpo=;
+ b=TBoqXYTaJxjJr1m+7QXb/j5KRvBd6IfyHMsD8RR2Oi2IJeBERW14p1eJr3tyAPGc0tlUXDUEmPIC8fWuMzZasbbM+v+G6BOC2uSYzR4e0mgJPOZPCwhFF7Q9HbKrGLIgY/tS88X3P3rAB34a1CDCcU8ez2krPYOpynYuNMsNM2kGy+pgg+84F018fvq8k4YeXJ3lnUL7d7vg/jMze8wsjUj8kfsyDVshj8Mg9WvBEbqYgCVOaOo7tkj+wQ0fNr1plMo/ga4GaExyr5bhO0dGHmabXY8Ns0MqdYY5FvYKIod7M5Ye+Cy6giq0FFKxqb6CEjbLdu8MuuNV3AF1mGvzQw==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
+ dkim=pass header.d=oss.nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
+ s=selector1-NXP1-onmicrosoft-com;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=1tqabshKn/2TTUfeeKFoMhEj238tIJRTeMERGIypjpo=;
+ b=jhcfHjrq2tqKw0glAdIAdTzZB/1s+M5+pL8jXxOUp3uFIvmkk1/zBzVgqdjyzFlCIvEnvzvLv2T0Uk62DnwliMA6jLQ4mmuyfNo63+F0Mha1TCSDZWjh5chVhi+ZTPlOM4mmlYet4facz9bRCT1xnDGjlBPpRDgTZh9G1o+BmZnX7eRGS3pN/SEC1dtYarzkfs79Wn2x5JMQQe1jA74ePYmwvYoTwVWh2nIjseAgDpfl/gmZzFdKRNimQVb9JZSSEF5D4gZgrU3PtsdHxNx9fo9UCsBnaD6N0WNn2JDocqXKZ4L5q9dhbwrh+KKIcxvtEKtNXJI86FIPk54VEEC5Ew==
+Authentication-Results: mx.microsoft.com 1; dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=oss.nxp.com;
+Received: from GV2PR04MB11799.eurprd04.prod.outlook.com (2603:10a6:150:2cf::9)
+ by MMZPR04MB319484.eurprd04.prod.outlook.com (2603:10a6:190:3c::13) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.451.24; Wed, 30 Sep
+ 2026 14:03:05 +0000
+Received: from GV2PR04MB11799.eurprd04.prod.outlook.com
+ ([fe80::2146:83a2:5329:b7c]) by GV2PR04MB11799.eurprd04.prod.outlook.com
+ ([fe80::2146:83a2:5329:b7c%7]) with mapi id 15.21.0451.022; Wed, 30 Sep 2026
+ 14:03:04 +0000
+From: Frank.Li@oss.nxp.com
+To: Radu Pirea <radu_nicolae.pirea@upb.ro>,
+	Mark Brown <broonie@kernel.org>,
+	Nicolas Ferre <nicolas.ferre@microchip.com>,
+	Alexandre Belloni <alexandre.belloni@bootlin.com>,
+	Claudiu Beznea <claudiu.beznea@tuxon.dev>,
+	Ryan Wanner <ryan.wanner@microchip.com>,
+	linux-spi@vger.kernel.org (open list:MICROCHIP AT91 USART SPI DRIVER),
+	linux-arm-kernel@lists.infradead.org (moderated list:ARM/Microchip (AT91) SoC support),
+	linux-kernel@vger.kernel.org (open list)
+Cc: vkoul@kernel.org,
+	imx@lists.linux.dev,
+	Frank Li <Frank.Li@nxp.com>
+Subject: [PATCH v2 1/2] spi: use dmaengine public API instead of raw ops
+Date: Wed, 30 Sep 2026 10:02:54 -0400
+Message-ID: <20260930140257.490019-1-Frank.Li@oss.nxp.com>
+X-Mailer: git-send-email 2.43.0
+Content-Transfer-Encoding: 8bit
+Content-Type: text/plain
+X-ClientProxiedBy: PH0PR07CA0099.namprd07.prod.outlook.com
+ (2603:10b6:510:4::14) To GV2PR04MB11799.eurprd04.prod.outlook.com
+ (2603:10a6:150:2cf::9)
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-From: Neil Armstrong <neil.armstrong@linaro.org>
-Subject: Re: [PATCH 0/6] drm/bridge: Add a BPF-based MIPI-DSI panel driver
-To: Jani Nikula <jani.nikula@linux.intel.com>,
- Maxime Ripard <mripard@kernel.org>, Jessica Zhang <jesszhan0024@gmail.com>,
- David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>,
- Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
- Thomas Zimmermann <tzimmermann@suse.de>, Rob Herring <robh@kernel.org>,
- Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
- <conor+dt@kernel.org>, Nathan Chancellor <nathan@kernel.org>,
- Nick Desaulniers <ndesaulniers@google.com>, Bill Wendling
- <morbo@google.com>, Justin Stitt <justinstitt@google.com>,
- Florian Fainelli <florian.fainelli@broadcom.com>,
- Broadcom internal kernel review list <bcm-kernel-feedback-list@broadcom.com>
-Cc: Andrzej Hajda <andrzej.hajda@intel.com>, Robert Foss <rfoss@kernel.org>,
- Laurent Pinchart <Laurent.pinchart@ideasonboard.com>,
- Jonas Karlman <jonas@kwiboo.se>, Jernej Skrabec <jernej.skrabec@gmail.com>,
- Luca Ceresoli <luca.ceresoli@bootlin.com>, Albert Esteve
- <aesteve@redhat.com>, Dave Stevenson <dave.stevenson@raspberrypi.com>,
- Javier Martinez Canillas <javierm@redhat.com>,
- dri-devel@lists.freedesktop.org, devicetree@vger.kernel.org,
- linux-kernel@vger.kernel.org, bpf@vger.kernel.org, llvm@lists.linux.dev,
- linux-rpi-kernel@lists.infradead.org, linux-arm-kernel@lists.infradead.org,
- Benjamin Tissoires <bentiss@kernel.org>
-References: <20260928-drm-mipi-dsi-panel-ebpf-v1-0-5244926aace4@kernel.org>
- <054ef52478fc93fc213a9dae23ea77f73094aaf2@intel.com>
-Content-Language: en-US, fr
-Autocrypt: addr=neil.armstrong@linaro.org; keydata=
- xsBNBE1ZBs8BCAD78xVLsXPwV/2qQx2FaO/7mhWL0Qodw8UcQJnkrWmgTFRobtTWxuRx8WWP
- GTjuhvbleoQ5Cxjr+v+1ARGCH46MxFP5DwauzPekwJUD5QKZlaw/bURTLmS2id5wWi3lqVH4
- BVF2WzvGyyeV1o4RTCYDnZ9VLLylJ9bneEaIs/7cjCEbipGGFlfIML3sfqnIvMAxIMZrvcl9
- qPV2k+KQ7q+aXavU5W+yLNn7QtXUB530Zlk/d2ETgzQ5FLYYnUDAaRl+8JUTjc0CNOTpCeik
- 80TZcE6f8M76Xa6yU8VcNko94Ck7iB4vj70q76P/J7kt98hklrr85/3NU3oti3nrIHmHABEB
- AAHNKk5laWwgQXJtc3Ryb25nIDxuZWlsLmFybXN0cm9uZ0BsaW5hcm8ub3JnPsLAkQQTAQoA
- OwIbIwULCQgHAwUVCgkICwUWAgMBAAIeAQIXgBYhBInsPQWERiF0UPIoSBaat7Gkz/iuBQJk
- Q5wSAhkBAAoJEBaat7Gkz/iuyhMIANiD94qDtUTJRfEW6GwXmtKWwl/mvqQtaTtZID2dos04
- YqBbshiJbejgVJjy+HODcNUIKBB3PSLaln4ltdsV73SBcwUNdzebfKspAQunCM22Mn6FBIxQ
- GizsMLcP/0FX4en9NaKGfK6ZdKK6kN1GR9YffMJd2P08EO8mHowmSRe/ExAODhAs9W7XXExw
- UNCY4pVJyRPpEhv373vvff60bHxc1k/FF9WaPscMt7hlkbFLUs85kHtQAmr8pV5Hy9ezsSRa
- GzJmiVclkPc2BY592IGBXRDQ38urXeM4nfhhvqA50b/nAEXc6FzqgXqDkEIwR66/Gbp0t3+r
- yQzpKRyQif3OwE0ETVkGzwEIALyKDN/OGURaHBVzwjgYq+ZtifvekdrSNl8TIDH8g1xicBYp
- QTbPn6bbSZbdvfeQPNCcD4/EhXZuhQXMcoJsQQQnO4vwVULmPGgtGf8PVc7dxKOeta+qUh6+
- SRh3vIcAUFHDT3f/Zdspz+e2E0hPV2hiSvICLk11qO6cyJE13zeNFoeY3ggrKY+IzbFomIZY
- 4yG6xI99NIPEVE9lNBXBKIlewIyVlkOaYvJWSV+p5gdJXOvScNN1epm5YHmf9aE2ZjnqZGoM
- Mtsyw18YoX9BqMFInxqYQQ3j/HpVgTSvmo5ea5qQDDUaCsaTf8UeDcwYOtgI8iL4oHcsGtUX
- oUk33HEAEQEAAcLAXwQYAQIACQUCTVkGzwIbDAAKCRAWmrexpM/4rrXiB/sGbkQ6itMrAIfn
- M7IbRuiSZS1unlySUVYu3SD6YBYnNi3G5EpbwfBNuT3H8//rVvtOFK4OD8cRYkxXRQmTvqa3
- 3eDIHu/zr1HMKErm+2SD6PO9umRef8V82o2oaCLvf4WeIssFjwB0b6a12opuRP7yo3E3gTCS
- KmbUuLv1CtxKQF+fUV1cVaTPMyT25Od+RC1K+iOR0F54oUJvJeq7fUzbn/KdlhA8XPGzwGRy
- 4zcsPWvwnXgfe5tk680fEKZVwOZKIEuJC3v+/yZpQzDvGYJvbyix0lHnrCzq43WefRHI5XTT
- QbM0WUIBIcGmq38+OgUsMYu4NzLu7uZFAcmp6h8g
-Organization: Linaro
-In-Reply-To: <054ef52478fc93fc213a9dae23ea77f73094aaf2@intel.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: GV2PR04MB11799:EE_|MMZPR04MB319484:EE_
+X-MS-Office365-Filtering-Correlation-Id: e775f8ea-9ee4-43b9-c1d9-08df1efb8bec
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|19092799006|366016|1800799024|7416014|376014|23010399003|18002099003|10067099003|56012099006|11063799006;
+X-Microsoft-Antispam-Message-Info: 9JVjECCsO+w2hppAZB9nhLPfW04HdJEM3pPeFMDi8N8Y+TZ0Fi2fgCVN9hGH23b6+Sduw/GivymUx1Ym59IvfD4asTaXa0Lpc68zjMSljDbVBFQaVkfOmyc9q6DfYhSx0mZYIAA7zyTvQGjTiCjZ8F+ZOEpBqNkmQE24Vi8k3xi+0z6pGnDU4DO6oqYMbgjDfGYvd1Q5r4YLhBXHOJvbS2hpsnjicgxn65YPf1q6YMWC/BSVf72eGdGCLRBLL1aq8E+QaLgElXAw1wvZk71vf3beME34qmDDIIfQoe74k3Hzeobv9fWG2qe/9SleMP3NopPwFi0o2720iAnadzIOKn6TNSr62vUccRgfcvDCwDZoir5Zh02Uoc8pbkiYSq3OkvlFx4EENSa0wadbg+c3DNatkqtuS+H3IJaqo2fAkv2yJ+qgBaxGpspg3mXnhNX1edYIPwpIutAM5VIp9GtRhYbt4YUcoyp7O3k1j3g5lcqqaA3JkpZt0PDWCMgiE29hR+Pu5Ckrt9e5DcLZchrM6/upVpkVCjraomF8Mf0AjsW9Qcw4kPevZx3odzD9XQ0T/kO3h7WJUDc/Gg54JDZ/dYunV0ZDjxcA6NOcmLv+S9nkzRHn8/1V+g4Kp53G5xkHOWPU+kX5fQ/Sq7qm38b1pEYA0ahtioELixg6xTQ0K28=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:GV2PR04MB11799.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(19092799006)(366016)(1800799024)(7416014)(376014)(23010399003)(18002099003)(10067099003)(56012099006)(11063799006);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?Bz/EvKesdqV/cNhWWKuL71NsR18nWfSf7enCWnSMZA2A/goHBIt1luvQry8/?=
+ =?us-ascii?Q?rj3kW5XMhVrtgw37FNJyrlx58HEQSnPQx6a7Jzvo3wzCglECFNJJTY4Ws914?=
+ =?us-ascii?Q?ySmJWFdPW3HUC1oBHuSjyM5hyocABpD1+ma4smJgcmGg8eBP6QE4RnI1pDom?=
+ =?us-ascii?Q?hFTSy2XoKexy1dzMYG2Enha8CLgYoYR3o14MPEuIyf5oi6NKfNS3y3hbf2aw?=
+ =?us-ascii?Q?8F0y/ijYewQS6MlEVRyIjUrClmGztPu15uYbbUyO6KBIJT3dG5QttTbyxsix?=
+ =?us-ascii?Q?Ps4ihM2B4avBl6UYMQuxpcZSjfo44BptW5vLQGCQ0Y2f5C2C1TA3CgZedIc7?=
+ =?us-ascii?Q?KJJ4HWAgoKd2CuhKJY3mjxUyhx0f1ZF1tpybh3w4b23UQHHr4x7OJ3GPzAuh?=
+ =?us-ascii?Q?7Dz8NWjvp7kom8/5f0JdUd0wQeY2KXdpwTJU1hhkMa3WPX7ZhmE078awtfKc?=
+ =?us-ascii?Q?9Y6PJXjKn0RC6raT7D+cPlFi7ps33Gz8/vOq6Kpa04iJou/qBePPIvrHkR7K?=
+ =?us-ascii?Q?0ZiEww4DHmaH2KMHfaDdz+TPKA74bB2ruU2MjoxDgwmbYqMPryJQBzoON4ZK?=
+ =?us-ascii?Q?HEF9sx9DaK+v//AcJU80yKrw0RTblE872OT08qwkH8NDQdnsVjnJw17RGHkv?=
+ =?us-ascii?Q?mPyc3NvvLZRPOJo3NYlE8kXwOEbsTGJtBAfpB7Je91hn51Oxud+dShpkH1mQ?=
+ =?us-ascii?Q?bwyJ3RSyq4TDsSevAplQ3cKO3ynIGFMWOPQgNhTBdOZdQktim7DGGJJT/otV?=
+ =?us-ascii?Q?VKFQ1+HDI8HKa7Vdc8cCle27QY4cgPmI45W7c4AszXdGz0sQ6pyjWT8ojKoA?=
+ =?us-ascii?Q?IwQh8cOCFN/cIGmk+LnNrCZT8HWtip0qpbBjZzaDsUZf5l+zN4Hm+5gZRW72?=
+ =?us-ascii?Q?HKu7zaJ49rODGheShEaWJIrh9EMMdQInyuotgTBqo4g2yHy/TbYSlJJ5cAcn?=
+ =?us-ascii?Q?szdVX4Yo5Q9aVJb7bdB2OJoBuZcqt8u9Qm0iN1tyhPpupHu6LuQzAf14RIpY?=
+ =?us-ascii?Q?BUG4pXEphh1YiuZNFBzF57DpFmrFDybcpC4ce8hbot5loZFs4Sld8BmaHxeA?=
+ =?us-ascii?Q?sWr7z8HQgGS9btHrhaofcnOJYHZUZIsP0qkNXktJoyF+Sp1G01gO7iGnB0AG?=
+ =?us-ascii?Q?6pDP5N6MT8ueIGokAVE4Ss3MQzeQLU3uNJxFPX8CZIbgQATRvgA+svlhl312?=
+ =?us-ascii?Q?HNnTYTnNg/r01K+anuiO9wRVqpxEUWpIK8nPZ342vOEA3XBJQlFlJxCON4/w?=
+ =?us-ascii?Q?r0p8nfreuwV4Ka+PsKUozZF/ZF2+J6fY1SjbvXJLMM94vT2dsWeV/PJ7PS7Y?=
+ =?us-ascii?Q?R05//HK+LgnuTVQqNWmBqSkVYxAhTexelGWNYnsG/ldg/H2BSHa5cCVCfco4?=
+ =?us-ascii?Q?UJQ9uDOZ/vWwMxmLO4P8KN3TlwZUNmv2+EVGiz0koyY8jw66i9PnyUZtm0n2?=
+ =?us-ascii?Q?VN2K1YrT338TFMW8YQ/fZ8FCEv0+6ADN1ihzalKb4PUFezfbTxtYmwh9xc7a?=
+ =?us-ascii?Q?42k8QowTg0xNJuDLcDhJc2RzBRZiDQHjDvZ+gjpkAQJPVKIFLmSr2gaVYwbH?=
+ =?us-ascii?Q?hwdO6cgjO4ueH25ELnO10qZ9HaPEsyGDASInhsssoWAF3Q+TII+Fd1sXrh4A?=
+ =?us-ascii?Q?tBs68jqfBmBXhqsLd6nx5c9VG6R83rtpws6643qgbXlvak+TAFl2J/Vh/9VU?=
+ =?us-ascii?Q?rai/QaHxEDixCHIjGsGLv1z0dl2wRUVjlMGnDCQmKPIqGuI1b4x5Ark5pzX4?=
+ =?us-ascii?Q?WEQjzRlp2SWTgAfrNDGoRMvzoP1HVMU=3D?=
+X-OriginatorOrg: oss.nxp.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: e775f8ea-9ee4-43b9-c1d9-08df1efb8bec
+X-MS-Exchange-CrossTenant-AuthSource: GV2PR04MB11799.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 30 Sep 2026 14:03:04.5972
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: ENrJ38R4lq8bNV/yMxzDaSO15BAKqlEUtgf0QZeeO74yBlOdkm4z5w/Vyzw47dWPOA08N6oXUSePHtDpQ4saBSU8LWKt7zFXYh+D5B73HU3KH4He1ACVZqPcwUdYfhYn
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: MMZPR04MB319484
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260930_150203_551667_1A4C42DB 
-X-CRM114-Status: GOOD (  29.31  )
+X-CRM114-CacheID: sfid-20260930_070309_712979_2BAF582F 
+X-CRM114-Status: GOOD (  11.94  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -160,77 +140,59 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
-Reply-To: Neil Armstrong <neil.armstrong@linaro.org>
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 9/29/26 11:03, Jani Nikula wrote:
-> On Mon, 28 Sep 2026, Maxime Ripard <mripard@kernel.org> wrote:
->> Panels in general, and MIPI-DSI panels in particular, are pretty
->> difficult to support and require pretty much a panel driver for each
->> panel produced. Most of them are pretty simple, and require an opaque
->> initialization sequence that is usually poorly documented.
->>
->> This creates a tension between OEMs and distros because OEMs will
->> typically get a new panel to react to a sourcing issue during
->> production, and thus need some swift turnaround between getting their
->> new panel and it being operational in the OS. Distributions on the other
->> hand can take years to ship a kernel with that new panel driver.
->>
->> To solve this, I followed the example of HID-BPF and wrote a panel
->> driver that will rely on BPF programs to perform the panel
->> initialization. That way, we can ship the programs separately from the
->> kernel, and with a different lifecycle. If this driver is accepted, the
->> plan is to have a userspace component started by udev to identify and
->> load the right BPF program for the panels found on the device.
-> 
-> I'd think for most panels it would suffice to have a declarative
-> language describing what to do at what points in time. For example, at
-> poweron, enable this GPIO, wait a little, write this set of DSI
-> commands, etc. You rarely need actual programming, or even ability to
-> read-modify-write something.
+From: Frank Li <Frank.Li@nxp.com>
 
-Yes we could have a similar panel-simple but with init tables, but
-in reality those panels offers much more features we don't handle because
-the DDIC vendors and panel integrators just don't care exposing those
-features, but they get handled by vendor implementation like for Phones.
+Replace direct calls to the internal DMA device ops
+device->device_issue_pending() with the proper public DMA engine wrappers:
+dma_async_issue_pending().
 
-> 
-> It could be, say, YAML converted to some binary representation. Maybe
-> that could be in the DT, or maybe you could override it with the
-> firmware loader. And obviously any vendor "blob" could be trivially
-> converted back to YAML and upstreamed.
+Drivers must not call device ops directly; the wrappers provide locking,
+debug checks, and a stable interface that hides internal implementation
+details of the DMA controller driver.
 
-I don't think we want this, downstream vendors does that and we don't want
-to go there.
+Signed-off-by: Frank Li <Frank.Li@nxp.com>
+---
+Change in v2
+- none
+---
+ drivers/spi/spi-at91-usart.c | 4 ++--
+ drivers/spi/spi-atmel.c      | 4 ++--
+ 2 files changed, 4 insertions(+), 4 deletions(-)
 
-> 
-> Where that falls short, you could always have a dedicated driver, or
-> extend the declarative stuff.
-> 
-> Now, the question is, how much more BPF solves over that, without
-> requiring a dedicated driver, and is the added complexity worth it?
-
-This is my global question, and this is what I'm evaluating here, and so
-far is created more problem that solutions.
-
-> 
-> FWIW, on the Intel platforms that support DSI, all of the
-> initialization, poweron/poweroff, backlight on/off etc. sequences like
-> that are stored in the BIOS, defined by the OEM. A plethora of DSI
-> panels, one driver. Don't look at it for examples how to implement it,
-> but I think the basic idea is workable.
-
-For _some_ panels, here, as a general solution no because we really
-want to have full support for panel features.
-
-Neil
-
-> 
-> 
-> BR,
-> Jani.
-> 
-> 
+diff --git a/drivers/spi/spi-at91-usart.c b/drivers/spi/spi-at91-usart.c
+index 804f6194c830f..cdc771350db93 100644
+--- a/drivers/spi/spi-at91-usart.c
++++ b/drivers/spi/spi-at91-usart.c
+@@ -239,8 +239,8 @@ static int at91_usart_spi_dma_transfer(struct spi_controller *ctlr,
+ 	if (dma_submit_error(cookie))
+ 		goto at91_usart_spi_err_dma;
+ 
+-	rxchan->device->device_issue_pending(rxchan);
+-	txchan->device->device_issue_pending(txchan);
++	dma_async_issue_pending(rxchan);
++	dma_async_issue_pending(txchan);
+ 
+ 	return 0;
+ 
+diff --git a/drivers/spi/spi-atmel.c b/drivers/spi/spi-atmel.c
+index c8012c82c3a78..c04113ce17f70 100644
+--- a/drivers/spi/spi-atmel.c
++++ b/drivers/spi/spi-atmel.c
+@@ -877,8 +877,8 @@ static int atmel_spi_next_xfer_dma_submit(struct spi_controller *host,
+ 	cookie = txdesc->tx_submit(txdesc);
+ 	if (dma_submit_error(cookie))
+ 		goto err_dma;
+-	rxchan->device->device_issue_pending(rxchan);
+-	txchan->device->device_issue_pending(txchan);
++	dma_async_issue_pending(rxchan);
++	dma_async_issue_pending(txchan);
+ 
+ 	return 0;
+ 
+-- 
+2.43.0
 
 
