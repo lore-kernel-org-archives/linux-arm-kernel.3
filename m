@@ -4,67 +4,109 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7A676CA5FC1
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 30 Sep 2026 17:44:36 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DA756CA5FC4
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 30 Sep 2026 17:53:30 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=qfsxJ44J91j2emyBCQAKF4tdn9hHzn0C18LtsrXKcnA=; b=IEhLwPyLXBo4s5Wda0EMWmSPtE
-	2jCs0LzRB8fY3RFNWQfCPslx62f5gIr864DFpA+jwMmLcMX9JaVfJAz/gr1LLXpucNcVhAaTzBFAd
-	sPHZj/lZgGHbmSUq5pAoMNj6Lk0u8JZ+9QzTMHDm+MwqxiOcm7zAOg8IU/FQIEsITAaeJVKOB9m7G
-	hp481xUsVSXYcIZIiMYtZ9+ursa1Ggp3lHBQpue/aqPLPM9xctgLAibsrtHO3X2/vFSdl7dTnRItq
-	3yxBlBBecdcv+nto18++57o5KH4AtNs6vBwtETwcknwRpPKdp9+JBk+k7AvHMWCkr8iE2vUSU3vxj
-	QqI2RznA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=kjuozAwciaOEQARJglehTP/0nPN82KmH5/o+wbMJJYM=; b=oIUW80jN6vhtIhkQm1RyTxbxNW
+	8V7BfIH2Lf7C49YXrkiua0nu8rh3j7OzYDgdaMw40q5+GjSmn61mLJac07jF/iXc6cMO7GidQIdjB
+	N5XPZI4l7hKvEXmDXlT166uI12Dk0IgX2z4SKM0PydU+mpQt67EKDb3j8D82jrVRgJOdbLnf1TMHU
+	/yroucwunEZw06EUTkFtKF7SLeWZ294zaCReFPb4Vfb5eY/CtrYwWm0oz3esRcxBMPk6RhJs/O2TK
+	37KTfj88PeIUCDqv42Awdpvwr6xX3Gdmbe23bQJ3NUZn+5Vh4DZN1VLGMhxg7kfkmUtuRNaK6Dt/F
+	qvKg8NZg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xByM0-00000006tv5-2Mbh;
-	Wed, 30 Sep 2026 17:44:28 +0000
-Received: from mail11.truemail.it ([2001:4b7e:0:8::81])
+	id 1xByUc-00000006un5-27HK;
+	Wed, 30 Sep 2026 17:53:22 +0000
+Received: from mail-pz2-x2b.google.com ([2607:f8b0:4864:3b::2b])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xByLx-00000006ttf-3kq5
+	id 1xByUa-00000006umY-0hbu
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 30 Sep 2026 17:44:27 +0000
-Received: from francesco-nb (93-49-2-63.ip317.fastwebnet.it [93.49.2.63])
-	by mail11.truemail.it (Postfix) with ESMTPA id 09C511FC00;
-	Wed, 30 Sep 2026 19:44:17 +0200 (CEST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=dolcini.it;
-	s=default; t=1790790257;
-	bh=qfsxJ44J91j2emyBCQAKF4tdn9hHzn0C18LtsrXKcnA=; h=From:To:Subject;
-	b=veOft339+be/R8+BPCsciswCSo6rkAYQ3nN0LW3Cs9JFkEs571BIjraUhyd27WeXF
-	 ZycFfsQcSronG7eSNBBmQE0rRLAvLGMBMJqxf54bxn5y8JW5A3FSzppAaiv7LwTODG
-	 xc2/UonI0PXBTShNRVjagAjc24GEuep0fhhDFKx7w6U7uRMXB9SqvtXE/fM4h98G++
-	 H+iJ0zI+onkDMKiiTH4qpSppSp5ULmEhZrO4B2DehzOw3sGjHLyR5ZefFCIrscuHzi
-	 NTykvpHeNtiDzZ+6H1GbMY0tWnbMmjvbr2zC1DDJHOUYRKgUkbiBD0m3kf73iagsta
-	 LC3pU0NtSx7nw==
-Date: Wed, 30 Sep 2026 19:44:13 +0200
-From: Francesco Dolcini <francesco@dolcini.it>
-To: Marek Vasut <marex@nabladev.com>
-Cc: Frank Li <Frank.li@oss.nxp.com>, linux-arm-kernel@lists.infradead.org,
-	Aswath Govindraju <a-govindraju@ti.com>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Fabio Estevam <festevam@gmail.com>, Frank Li <Frank.Li@nxp.com>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Marc Kleine-Budde <mkl@pengutronix.de>,
-	Rob Herring <robh@kernel.org>, devicetree@vger.kernel.org,
-	imx@lists.linux.dev, linux-can@vger.kernel.org,
-	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v5 3/3] arm64: dts: imx95: Add support for Data Modul
- i.MX95 eDM SBC
-Message-ID: <20260930174413.GA2463938@francesco-nb>
-References: <20260928204741.175754-1-marex@nabladev.com>
- <20260928204741.175754-3-marex@nabladev.com>
- <arvPDq8sjjv7na01@SMW015318>
- <49303872-5622-4e1d-8e1a-01394ec29367@nabladev.com>
+	Wed, 30 Sep 2026 17:53:21 +0000
+Received: by mail-pz2-x2b.google.com with SMTP id 41be03b00d2f7-cc7979d1dadso3021833a12.0
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 30 Sep 2026 10:53:19 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1790790799; cv=none;
+        d=google.com; s=arc-20260327;
+        b=MaAgGoghAb2uOv9kH89FPO8Xe3G7+iSna9jXqb00ajMLXPJvKiWWR3XaRFA700zgRu
+         9/bp6NhHEpMQ1ZTxG4U2DbllFfn/ysHpr4fUaTrMdmaOkuW1CbahuluShgWSdHrwWDRn
+         neoi3x2+9D0G2zmIlcriVt+Osa0NFK13zzPH/CAYdSGAoJsAjNkPMaXo5L+wSHcOcVwI
+         Oo8Moijo0JFov9WEfn6MHK5PJ4VPA5Y64cOeEEfgr8Hn64oyNLBsx36vwssMn/I8i3Pv
+         3OjzW9mxUOydgmmZB4wyhOYqZOOgkOkb6cAqtrNIiiofHTuGTV3DGaTGsCeGc1Y1OA6L
+         jjPQ==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:dkim-signature;
+        bh=kjuozAwciaOEQARJglehTP/0nPN82KmH5/o+wbMJJYM=;
+        fh=a3nSias68wucugg9EH2Z0Z42RWHjEywoCxrB1GP85PM=;
+        b=smQOHs/RFURuwoMaIBFzq4p2fw2sOjZPmseazXt9VA7L7Yk3qbtM3VlvP8V117FvvS
+         A7GA+6lvW05KBTk4vaCsRoau+3+lYab2NHmyrSUiAfJ5s4ThbN5k1vlaE7Qy7yxJlmH5
+         6FsB0KbrOuEepmxvqCpwN16JaMjuEkBxCwH/1elHgmStUy26raCgPzjtHXlCG20AQX/v
+         izBW02P+Hwxiq1AEfCa1GWdXUXrCVEIvhMGpVI/JR9HD5ILV4DJoKg3PpH8ZNxyB6fN5
+         q5QM8ANu/273ECK28A9N9Torbrra2+bLfa6lrGTjSH3M5vPoUok+m7a0BwntF45Fxu2C
+         b19A==;
+        darn=lists.infradead.org
+ARC-Authentication-Results: i=1; mx.google.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20251104; t=1790790799; x=1791395599; darn=lists.infradead.org;
+        h=content-transfer-encoding:content-type:cc:to:subject:message-id
+         :date:from:in-reply-to:references:mime-version:from:to:cc:subject
+         :date:message-id:reply-to:content-type;
+        bh=kjuozAwciaOEQARJglehTP/0nPN82KmH5/o+wbMJJYM=;
+        b=dI5XN9woS1IdKyeqbfXFrWpHyLtqnCzZXKB1jt8ZNsvB1tDC0xhHPOry0hfd22EoiS
+         aXkEJ22srmebuDvkQNk8tkwhtOrb+++3TlQVm+BUtWhHkLGI6hWi+fCNMbJhUfZ8Un5a
+         XHXoiQYMgKlepJ5wPxNMOl+4RUcO8azCigEIk7YSItc3E6PaqUjo2xo6Ee85lqbLrJLR
+         XXUMSXX5Rq5UCoR7eY9y08a7f5RvoPGv+oWAxBUmK1U9AlfnZKFL+d2nwf9/vGsicU7z
+         a4h0ZIjsNRcPPv4oFiuR1+7Tt8uTJHDj9ckrkhDJitxsDUxUFT6yglq7fQbY6NmtHE9L
+         sRhQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1790790799; x=1791395599;
+        h=content-transfer-encoding:content-type:cc:to:subject:message-id
+         :date:from:in-reply-to:references:mime-version:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=kjuozAwciaOEQARJglehTP/0nPN82KmH5/o+wbMJJYM=;
+        b=aCxfCPURAwJlecen6q0cGwxdrxfBThtD+QHhNcMUU+9CAy12o8hf+B2mtrj3Zst7c4
+         3eKy4Ceug2jxrFDd3ikp1ts79zdBlVUevhSVFyMAdSAXDmMojT/YmN4YygerjVyc9Xo2
+         aGYacn1nh6jGkLZKLbhW6JlQUHL3mp+va7wS+ZWTBb8FBmXEBsuUJPFBLI7qpsZ2XChw
+         s8sz7uOgTwYMWq2d2itHQw9APTateFZMmWbSPk51JP+EV2FpXiC73j+0QOzG7rbZOow7
+         dusnCLrH40R9eaBKuAuroqQ34H1U1pXkVldGN8AAS38j1akvhK4yPC3UIutcp0tcbmeC
+         zj5g==
+X-Forwarded-Encrypted: i=1; AKwUvBza1Prx92iofs31EMdMJ7yy83bWd9d0liZz14pMmNPBpgWLoBZIMFeUVNQp9o8LShk0Sm7Ri6ZS/Dj3pZWq2Ooq@lists.infradead.org
+X-Gm-Message-State: AFuF++lYt6SneTzTHEHn7X2xGzRW6UO4Q1GYhJc+oCgkxDN9Duz+eGTq
+	oigNR6nThrZPRdl1t9HF7zHHxyaGPhU7PkM4BdxeXsmg1gYKai7BqBDEZj56ZjyMOS2CopKnYcP
+	Tij45deeWAVuHp+iU+wEKCDmM1GxShpw=
+X-Gm-Gg: AYBFou2me+FTeHrYfCp255it8imuPrPP9P3AYbp3utSADSB9WihaNjC9zraRGxwjMYp
+	XzeZChVc1CT83U0HGRBHDlO9IPVFlIgSDig9yoHB2Jz86cBh0+Bu+4wBMNOua50awqysa32vzYE
+	eK78tBskESolEbBHq+7MvHekRceo+JvjoiAn+6D0etjq5GYrjmGVdhttzW8O8EEaKxT+H/T//Vj
+	V5mvFlVMIJXYXK+xr69s5jdcTxEG7vnlRlaJm+/tH8SZ0MR4FmFOB+EQ1CTPHV7Wi/0pACm139n
+	TppIGYMnm53i9pZJcZbX7SY2Hg5rneVqc9CnSxoAV5zE4qjFdmZrHeR7hix+xArryKtraN0=
+X-Received: by 2002:a05:6a21:6b0f:b0:3dd:a197:edf4 with SMTP id
+ adf61e73a8af0-3de9e946e0dmr2073080637.67.1790790798771; Wed, 30 Sep 2026
+ 10:53:18 -0700 (PDT)
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <49303872-5622-4e1d-8e1a-01394ec29367@nabladev.com>
+References: <20260927151016.186493-1-pmazzini@gmail.com> <20260927151016.186493-12-pmazzini@gmail.com>
+ <eb443e72-403c-40c1-8ff7-203e0d4c7a94@arm.com>
+In-Reply-To: <eb443e72-403c-40c1-8ff7-203e0d4c7a94@arm.com>
+From: Pablo Mazzini <pmazzini@gmail.com>
+Date: Wed, 30 Sep 2026 18:52:35 +0100
+X-Gm-Features: AclHuK-aUocNDJMiXcXVrKjqOQFBfal7ZTZCS2t9hXhvGkrxojTiCjV0ebQ1WqU
+Message-ID: <CAAxh=jvkQiFXJQWEVSj2KQorHPYTPOxviN+H7r8ONYoGU9ysiw@mail.gmail.com>
+Subject: Re: [PATCH v2 11/11] ARM: sunxi: add B288 and the PocketBook Verse board
+To: Andre Przywara <andre.przywara@arm.com>
+Cc: Chen-Yu Tsai <wens@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
+	Jernej Skrabec <jernej.skrabec@gmail.com>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+	Rob Herring <robh@kernel.org>, Samuel Holland <samuel@sholland.org>, devicetree@vger.kernel.org, 
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
+	linux-sunxi@lists.linux.dev
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260930_104426_542042_5F4B7BA3 
-X-CRM114-Status: GOOD (  14.14  )
+X-CRM114-CacheID: sfid-20260930_105320_248595_27FF99A2 
+X-CRM114-Status: GOOD (  55.02  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -79,31 +121,699 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Sep 29, 2026 at 05:20:27PM +0200, Marek Vasut wrote:
-> On 9/29/26 4:45 PM, Frank Li wrote:
-> 
-> Hello Frank,
-> 
-> > > +	backlight_lvds: backlight-lvds {
-> > > +		compatible = "pwm-backlight";
-> > > +		pinctrl-names = "default";
-> > > +		pinctrl-0 = <&pinctrl_panel_backlight_lvds>;
-> > > +		brightness-levels = <0 1 10 20 30 40 50 60 70 75 80 90 100>;
-> > > +		default-brightness-level = <7>;
-> > > +		enable-gpios = <&gpio2 27 GPIO_ACTIVE_HIGH>;
-> > > +		pwms = <&tpm3 3 5000000 0>;
-> > > +		/* Disabled by default, unless display board plugged in. */
-> > > +		status = "disabled";
-> > > +	};
-> > 
-> > The both backlight is not used in this dts, can you remove it and
-> > add these when it real use.
-> It's the same thing we do on the other boards, so I would prefer to keep
-> this consistent:
+Hi Andre,
 
-I agree with Marek, and I would not use the criteria about being used or
-not.
+thanks for the detailed review.
 
-Francesco
+> Are you planning on going ahead with just boot0 in the long run?
 
+No, I'll work on U-Boot, but it needs the DT upstream first.
+
+> And in general: how do you boot this device, then?
+
+Over FEL: SPL, U-Boot and the kernel are loaded over USB.
+
+> Can you please create a wiki page about the device
+
+Will do.
+
+> We typically don't hardcode memory nodes in the DT
+
+Dropped for v3, U-Boot fills it in.
+
+> please add the "disable-wp;" property.
+> [...] just reference them here.
+
+Done for v3.
+
+> And are you sure the vmmc-supply is dldo2?
+
+Yes: the vendor's board config maps the microSD vmmc to axp227_dldo2,
+which is off at power-on.
+
+> If this is a 1.8V eMMC, then please add the 1.8V properties
+
+Added; the eMMC runs in HS200.
+
+> Can you add a comment here that this is labelled as AXP227?
+> Do you really need the always-on here?
+
+Comment added. always-on dropped: the eMMC and the pin controller keep
+DLDO1 enabled.
+
+> What does "switched per card scan" mean?
+
+The MMC core switches DLDO2 on only while a card is present. Reworded.
+
+> I don't think we put the crystals in their own node anymore.
+> So how does SMP work here, exactly?
+
+Crystals moved out for v3. SMP will use PSCI from U-Boot.
+
+> Meh, as the comments in the binding say: please fix your firmware ;-)
+
+Dropped for v3, U-Boot sets CNTFRQ and CNTVOFF.
+
+> [comments, function names, watchdog compatible, sunxi.c entry]
+
+All done for v3: comments trimmed, mmc0/i2c0/mmc3 function names, a
+B288 watchdog compatible with the A31 fallback, and the sunxi.c entry
+dropped, as the generic machine works.
+
+Thanks,
+Pablo
+
+On Wed, Sep 30, 2026 at 1:01=E2=80=AFPM Andre Przywara <andre.przywara@arm.=
+com> wrote:
+>
+> Hi,
+>
+> many thanks for cobbling this together, I do understand that this is
+> tricky without schematics or even a manual.
+>
+> On 9/27/26 17:10, Pablo Mazzini wrote:
+> > arm,cpu-registers-not-fw-configured is required: Allwinner's boot0 sets
+> > neither CNTFRQ nor CNTVOFF, so the virtual timer storms. Same reason as
+> > commit 121b96cd9d7e ("ARM: sun6i: Enable ARM arch timers").
+>
+> Are you planning on going ahead with just boot0 in the long run? Given
+> the age of the platform, and it being close to the A64, I expect a
+> U-Boot port being pretty straight-forward. Chances are the DRAM
+> controller (the biggest hurdle here) is very similar to the H3/A64/R40
+> generation, for which we already have a unified driver.
+>
+> And in general: how do you boot this device, then? I guess you somehow
+> trick boot0 into booting a mainline kernel? Is there some documentation
+> about this?
+> Can you please create a wiki page about the device, and describe your
+> device-specific findings in there? There is
+> https://linux-sunxi.org/PocketBook_Basic_Lux_4_(PB618) already, which
+> you can use as inspiration. Or maybe, if they are very similar, use that
+> very page, even.
+>
+> > The watchdog interrupt was measured on hardware via GICD_ISPENDR.
+> >
+> > Signed-off-by: Pablo Mazzini <pmazzini@gmail.com>
+> > ---
+> >   arch/arm/boot/dts/allwinner/Makefile          |   1 +
+> >   .../allwinner/sun8i-b288-pocketbook-verse.dts | 122 +++++++
+> >   arch/arm/boot/dts/allwinner/sun8i-b288.dtsi   | 304 +++++++++++++++++=
++
+> >   arch/arm/mach-sunxi/sunxi.c                   |   1 +
+> >   4 files changed, 428 insertions(+)
+> >   create mode 100644 arch/arm/boot/dts/allwinner/sun8i-b288-pocketbook-=
+verse.dts
+> >   create mode 100644 arch/arm/boot/dts/allwinner/sun8i-b288.dtsi
+> >
+> > diff --git a/arch/arm/boot/dts/allwinner/Makefile b/arch/arm/boot/dts/a=
+llwinner/Makefile
+> > index 75b2b6a2f7a6..2dfdc01e4825 100644
+> > --- a/arch/arm/boot/dts/allwinner/Makefile
+> > +++ b/arch/arm/boot/dts/allwinner/Makefile
+> > @@ -227,6 +227,7 @@ dtb-$(CONFIG_MACH_SUN8I) +=3D \
+> >       sun8i-a83t-bananapi-m3.dtb \
+> >       sun8i-a83t-cubietruck-plus.dtb \
+> >       sun8i-a83t-tbs-a711.dtb \
+> > +     sun8i-b288-pocketbook-verse.dtb \
+> >       sun8i-h2-plus-bananapi-m2-zero.dtb \
+> >       sun8i-h2-plus-libretech-all-h3-cc.dtb \
+> >       sun8i-h2-plus-orangepi-r1.dtb \
+> > diff --git a/arch/arm/boot/dts/allwinner/sun8i-b288-pocketbook-verse.dt=
+s b/arch/arm/boot/dts/allwinner/sun8i-b288-pocketbook-verse.dts
+> > new file mode 100644
+> > index 000000000000..91c89d5a097e
+> > --- /dev/null
+> > +++ b/arch/arm/boot/dts/allwinner/sun8i-b288-pocketbook-verse.dts
+> > @@ -0,0 +1,122 @@
+> > +// SPDX-License-Identifier: (GPL-2.0+ OR MIT)
+> > +/*
+> > + * PocketBook Verse (PB629), an Allwinner B288 based e-reader.
+> > + */
+> > +
+> > +/dts-v1/;
+> > +#include "sun8i-b288.dtsi"
+> > +
+> > +#include <dt-bindings/gpio/gpio.h>
+> > +
+> > +/ {
+> > +     model =3D "PocketBook Verse";
+> > +     compatible =3D "pocketbook,verse", "allwinner,sun8i-b288";
+> > +
+> > +     aliases {
+> > +             serial0 =3D &uart0;
+> > +     };
+> > +
+> > +     chosen {
+> > +             stdout-path =3D "serial0:115200n8";
+> > +     };
+> > +
+> > +     memory@40000000 {
+>
+> We typically don't hardcode memory nodes in the DT, but leave this up to
+> the bootloader to populate, based on either detection or hard-coding
+> *there*.
+> I guess this eBook reader only comes in this one configuration?
+> Maybe we could allow this node in here, then, to increase compatiblity?
+> Depends a bit on how involved this boot0 setup is, I guess.
+>
+> > +             device_type =3D "memory";
+> > +             reg =3D <0x40000000 0x20000000>;
+> > +     };
+> > +};
+> > +
+> > +&uart0 {
+> > +     status =3D "okay";
+> > +};
+> > +
+> > +&mmc0 {
+> > +     vmmc-supply =3D <&reg_dldo2>;
+> > +     bus-width =3D <4>;
+> > +     cd-gpios =3D <&pio 5 6 GPIO_ACTIVE_LOW>;  /* PF6 */
+>
+> I guess this is microSD, so without a write-protection switch? Then
+> please add the "disable-wp;" property.
+> Also this is missing the pinctrl properties, to describe the pinmux
+> used. As you describe the PortB UART0 pins in the .dtsi, just reference
+> them here.
+>
+> And are you sure the vmmc-supply is dldo2? Does the VCC pin on the SD
+> card slot go to 0V when you turn that regulator off?
+> Just asking because on this generation of devices we most often see
+> DCDC1 supplying the SD card, as it needs to be powered at reset time, to
+> allow the BROM reading from the SD card.
+>
+> > +     status =3D "okay";
+> > +};
+> > +
+> > +&mmc3 {
+> > +     vmmc-supply =3D <&reg_dcdc1>;
+> > +     vqmmc-supply =3D <&reg_dldo1>;
+>
+> If this is a 1.8V eMMC, then please add the 1.8V properties:
+>          mmc-ddr-1_8v;
+>          mmc-hs200-1_8v;
+> (given that these modes work).
+> And again the pinctrl nodes are missing.
+>
+> > +     bus-width =3D <8>;
+> > +     non-removable;
+> > +     cap-mmc-hw-reset;
+> > +     status =3D "okay";
+> > +};
+> > +
+> > +&pio {
+> > +     vcc-pc-supply =3D <&reg_dldo1>;
+> > +     vcc-pd-supply =3D <&reg_dldo1>;
+> > +     /*
+> > +      * PC and PD are named in the vendor rail list; PF is not. It is =
+not
+> > +      * on dldo2: with that rail off, a pull-up on PF6 still reads car=
+d
+> > +      * detect correctly, so the bank has its own supply. dcdc1 is the
+> > +      * only remaining candidate, carrying vcc-io and vcc-card. Derive=
+d
+> > +      * from the rail naming plus that measurement, not from a schemat=
+ic.
+> > +      */
+> > +     vcc-pf-supply =3D <&reg_dcdc1>;
+>
+> Yes, on older SoCs PortF is internally powered by the VCC-IO pin, and is
+> fixed at 3.3V. Compare the datasheets from the A64 and H3, for instance.
+> And VCC-IO is traditionally powered by DCDC1, since it needs the most jui=
+ce.
+> In any case, I think we don't need the comment, since it's a common setup=
+.
+>
+> > +};
+> > +
+> > +&i2c0 {
+> > +     status =3D "okay";
+> > +
+> > +     axp22x: pmic@34 {
+>
+> Can you add a comment here that this is labelled as AXP227?
+>
+> > +             compatible =3D "x-powers,axp221";
+> > +             reg =3D <0x34>;
+> > +             interrupt-parent =3D <&nmi_intc>;
+> > +             interrupts =3D <0 IRQ_TYPE_LEVEL_LOW>;
+> > +     };
+> > +};
+> > +
+> > +#include "axp22x.dtsi"
+> > +
+> > +&reg_dcdc1 {
+> > +     regulator-always-on;
+> > +     regulator-min-microvolt =3D <3000000>;
+> > +     regulator-max-microvolt =3D <3000000>;
+> > +     regulator-name =3D "vcc-io";
+> > +};
+> > +
+> > +&reg_dcdc2 {
+> > +     regulator-always-on;
+> > +     regulator-min-microvolt =3D <1260000>;
+> > +     regulator-max-microvolt =3D <1260000>;
+> > +     regulator-name =3D "vdd-cpu";
+> > +};
+> > +
+> > +&reg_dcdc4 {
+> > +     regulator-always-on;
+> > +     regulator-min-microvolt =3D <1100000>;
+> > +     regulator-max-microvolt =3D <1100000>;
+> > +     regulator-name =3D "vdd-sys";
+> > +};
+> > +
+> > +&reg_dcdc5 {
+> > +     regulator-always-on;
+> > +     regulator-min-microvolt =3D <1350000>;
+> > +     regulator-max-microvolt =3D <1350000>;
+> > +     regulator-name =3D "vcc-dram";
+> > +};
+> > +
+> > +&reg_aldo3 {
+> > +     regulator-always-on;
+> > +     regulator-min-microvolt =3D <3000000>;
+> > +     regulator-max-microvolt =3D <3000000>;
+> > +     regulator-name =3D "avcc";
+> > +};
+> > +
+> > +&reg_dldo1 {
+> > +     regulator-always-on;
+>
+> Do you really need the always-on here?
+> Does it power more than the eMMC? Can you boot from SD card and use the
+> system with that property removed, and the kernel turning it off?
+>
+> > +     regulator-min-microvolt =3D <1800000>;
+> > +     regulator-max-microvolt =3D <1800000>;
+> > +     regulator-name =3D "vcc-pc";
+> > +};
+> > +
+> > +&reg_dldo2 {
+> > +     /* Powers the microSD slot (slot pin 4), switched per card scan. =
+*/
+>
+> What does "switched per card scan" mean?
+> And it's rather uncommon to see the SD card powered by a separate PMIC
+> line, since it needs to be on at reset, to allow the BROM to access it.
+> According to the AXP221 datasheet, dldo2 is off at reset, so can you
+> please somehow check this? It might be different on the AXP227, but
+> worth a try, I think.
+>
+> > +     regulator-min-microvolt =3D <3300000>;
+> > +     regulator-max-microvolt =3D <3300000>;
+> > +     regulator-name =3D "vcc-sdcv";
+> > +};
+> > diff --git a/arch/arm/boot/dts/allwinner/sun8i-b288.dtsi b/arch/arm/boo=
+t/dts/allwinner/sun8i-b288.dtsi
+> > new file mode 100644
+> > index 000000000000..f5feec87defc
+> > --- /dev/null
+> > +++ b/arch/arm/boot/dts/allwinner/sun8i-b288.dtsi
+> > @@ -0,0 +1,304 @@
+> > +// SPDX-License-Identifier: (GPL-2.0+ OR MIT)
+> > +/*
+> > + * Allwinner B288 (sun8iw10p1) SoC
+> > + *
+> > + * Addresses and interrupts come from the PocketBook Verse (PB629) ven=
+dor
+> > + * device tree, cross-checked against the BSP clk-sun8iw10.c.
+> > + */
+> > +
+> > +#include <dt-bindings/interrupt-controller/arm-gic.h>
+> > +#include <dt-bindings/clock/sun8i-b288-ccu.h>
+> > +#include <dt-bindings/reset/sun8i-b288-ccu.h>
+> > +
+> > +/ {
+> > +     #address-cells =3D <1>;
+> > +     #size-cells =3D <1>;
+> > +     interrupt-parent =3D <&gic>;
+> > +
+> > +     clocks {
+>
+> I don't think we put the crystals in their own node anymore. I see that
+> we did this for the 32-bit Allwinner SoCs, but it's pointless.
+>
+> > +             osc24M: osc24M-clk {
+> > +                     #clock-cells =3D <0>;
+> > +                     compatible =3D "fixed-clock";
+> > +                     clock-frequency =3D <24000000>;
+> > +                     clock-output-names =3D "osc24M";
+> > +             };
+> > +
+> > +             osc32k: osc32k-clk {
+> > +                     #clock-cells =3D <0>;
+> > +                     compatible =3D "fixed-clock";
+> > +                     clock-frequency =3D <32768>;
+> > +                     clock-output-names =3D "osc32k";
+> > +             };
+> > +     };
+> > +
+> > +     cpus {
+> > +             #address-cells =3D <1>;
+> > +             #size-cells =3D <0>;
+> > +
+> > +             cpu0: cpu@0 {
+> > +                     compatible =3D "arm,cortex-a7";
+> > +                     device_type =3D "cpu";
+> > +                     reg =3D <0>;
+> > +                     clocks =3D <&ccu CLK_CPUX>;
+> > +                     clock-names =3D "cpu";
+> > +             };
+> > +
+> > +             cpu1: cpu@1 {
+> > +                     compatible =3D "arm,cortex-a7";
+> > +                     device_type =3D "cpu";
+> > +                     reg =3D <1>;
+> > +                     clocks =3D <&ccu CLK_CPUX>;
+> > +                     clock-names =3D "cpu";
+> > +             };
+> > +     };
+>
+>
+> So how does SMP work here, exactly? For the later 32-bit SoCs, we rely
+> on a PSCI implmenetation in U-Boot, and I would strongly recommend doing
+> so here as well.
+>
+> > +
+> > +     timer {
+> > +             compatible =3D "arm,armv7-timer";
+> > +             interrupts =3D <GIC_PPI 13 (GIC_CPU_MASK_SIMPLE(2) | IRQ_=
+TYPE_LEVEL_LOW)>,
+> > +                          <GIC_PPI 14 (GIC_CPU_MASK_SIMPLE(2) | IRQ_TY=
+PE_LEVEL_LOW)>,
+> > +                          <GIC_PPI 11 (GIC_CPU_MASK_SIMPLE(2) | IRQ_TY=
+PE_LEVEL_LOW)>,
+> > +                          <GIC_PPI 10 (GIC_CPU_MASK_SIMPLE(2) | IRQ_TY=
+PE_LEVEL_LOW)>;
+> > +             clock-frequency =3D <24000000>;
+> > +             arm,cpu-registers-not-fw-configured;
+>
+> Meh, as the comments in the binding say: please fix your firmware ;-)
+> I am not completely against it if boot0 is the firmware to use for a
+> while, but if we go with U-Boot, it would be nicely fixed there.
+>
+> > +     };
+> > +
+> > +     soc {
+> > +             compatible =3D "simple-bus";
+> > +             #address-cells =3D <1>;
+> > +             #size-cells =3D <1>;
+> > +             ranges;
+> > +
+> > +             /*
+> > +              * mmc0 is a v4p1x controller, so it runs in the old timi=
+ng
+> > +              * mode and needs the sample and output phase clocks.
+>
+> I think the comment can end here.
+> But it would need to be moved below, above the actual mmc0 node.
+>
+> >               Do not
+> > +              * give it the sun50i-a64-mmc fallback: that selects the =
+new
+> > +              * timing mode, which this block does not implement.
+> > +              */
+> > +             nmi_intc: interrupt-controller@1c000d0 {
+> > +                     compatible =3D "allwinner,sun8i-b288-nmi",
+> > +                                  "allwinner,sun9i-a80-nmi";
+> > +                     interrupt-controller;
+> > +                     #interrupt-cells =3D <2>;
+> > +                     reg =3D <0x01c000d0 0x0c>;
+> > +                     interrupts =3D <GIC_SPI 32 IRQ_TYPE_LEVEL_HIGH>;
+> > +             };
+> > +
+> > +             mmc0: mmc@1c0f000 {
+> > +                     compatible =3D "allwinner,sun8i-b288-mmc",
+> > +                                  "allwinner,sun7i-a20-mmc";
+> > +                     reg =3D <0x01c0f000 0x1000>;
+> > +                     clocks =3D <&ccu CLK_BUS_SDMMC0_BUS>,
+> > +                              <&ccu CLK_MMC0>,
+> > +                              <&ccu CLK_MMC0_OUTPUT>,
+> > +                              <&ccu CLK_MMC0_SAMPLE>;
+> > +                     clock-names =3D "ahb", "mmc", "output", "sample";
+> > +                     resets =3D <&ccu RST_BUS_MMC0>;
+> > +                     reset-names =3D "ahb";
+> > +                     interrupts =3D <GIC_SPI 60 IRQ_TYPE_LEVEL_HIGH>;
+> > +                     pinctrl-names =3D "default";
+> > +                     pinctrl-0 =3D <&mmc0_pins>;
+> > +                     status =3D "disabled";
+> > +                     #address-cells =3D <1>;
+> > +                     #size-cells =3D <0>;
+> > +             };
+> > +
+> > +             /* SDXC v4.5. The soldered eMMC; shares the PC pads with =
+mmc2. */
+>
+> This comment should go. Pinmuxing is described separately, and "the
+> soldered eMMC" does not belong into a .dtsi file, since it's board specif=
+ic.
+> If you really want to document some of your findings, you can do so in
+> the commit message.
+>
+> > +             mmc3: mmc@1c12000 {
+> > +                     compatible =3D "allwinner,sun8i-b288-emmc",
+> > +                                  "allwinner,sun50i-a64-emmc";
+> > +                     reg =3D <0x01c12000 0x1000>;
+> > +                     clocks =3D <&ccu CLK_BUS_SDMMC3_BUS>, <&ccu CLK_M=
+MC3>;
+> > +                     clock-names =3D "ahb", "mmc";
+> > +                     resets =3D <&ccu RST_BUS_MMC3>;
+> > +                     reset-names =3D "ahb";
+> > +                     interrupts =3D <GIC_SPI 63 IRQ_TYPE_LEVEL_HIGH>;
+> > +                     pinctrl-names =3D "default";
+> > +                     pinctrl-0 =3D <&mmc3_pins>;
+> > +                     status =3D "disabled";
+> > +                     #address-cells =3D <1>;
+> > +                     #size-cells =3D <0>;
+> > +             };
+> > +
+> > +             /*
+> > +              * mmc2 (0x01c11000) is an SDHCI-style controller, not SD=
+XC, and
+> > +              * has no upstream binding. It loses the PC pad arbitrati=
+on to
+> > +              * mmc3 and is unused here, so it is left undescribed rat=
+her than
+> > +              * given a wrong compatible.
+> > +              */
+>
+> You can shorten the comment to:
+>         "mc2 @0x01c11000 is an unsupported SDHCI-style controller."
+>
+> > +
+> > +             ccu: clock-controller@1c20000 {
+> > +                     compatible =3D "allwinner,sun8i-b288-ccu";
+> > +                     reg =3D <0x01c20000 0x400>;
+> > +                     clocks =3D <&osc24M>, <&osc32k>;
+> > +                     clock-names =3D "hosc", "losc";
+> > +                     #clock-cells =3D <1>;
+> > +                     #reset-cells =3D <1>;
+> > +             };
+> > +
+> > +             rtc: rtc@1c20400 {
+> > +                     compatible =3D "allwinner,sun8i-b288-rtc";
+> > +                     reg =3D <0x01c20400 0x400>;
+> > +                     interrupts =3D <GIC_SPI 40 IRQ_TYPE_LEVEL_HIGH>;
+> > +                     clock-output-names =3D "osc32k";
+> > +                     clocks =3D <&osc32k>;
+> > +                     #clock-cells =3D <1>;
+> > +             };
+> > +
+> > +             pio: pinctrl@1c20800 {
+> > +                     compatible =3D "allwinner,sun8i-b288-pinctrl";
+> > +                     reg =3D <0x01c20800 0x400>;
+> > +                     interrupts =3D <GIC_SPI 15 IRQ_TYPE_LEVEL_HIGH>,
+> > +                                  <GIC_SPI 16 IRQ_TYPE_LEVEL_HIGH>,
+> > +                                  <GIC_SPI 21 IRQ_TYPE_LEVEL_HIGH>,
+> > +                                  <GIC_SPI 17 IRQ_TYPE_LEVEL_HIGH>;
+> > +                     clocks =3D <&ccu CLK_BUS_PIO>, <&osc24M>, <&osc32=
+k>;
+> > +                     clock-names =3D "apb", "hosc", "losc";
+> > +                     gpio-controller;
+> > +                     #gpio-cells =3D <3>;
+> > +                     interrupt-controller;
+> > +                     #interrupt-cells =3D <3>;
+> > +
+> > +                     mmc0_pins: mmc0-pins {
+> > +                             pins =3D "PF0", "PF1", "PF2",
+> > +                                    "PF3", "PF4", "PF5";
+> > +                             function =3D "sdc0";
+>
+> We do not use the BSP function naming, but "mmc0" instead.
+>
+> > +                             allwinner,pinmux =3D <2>;
+> > +                             drive-strength =3D <30>;
+> > +                             bias-pull-up;
+> > +                     };
+> > +
+> > +                     i2c0_pins: i2c0-pins {
+> > +                             pins =3D "PB6", "PB7";
+> > +                             function =3D "twi0";
+>
+> Same here, "i2c0" please.
+>
+> > +                             allwinner,pinmux =3D <2>;
+> > +                     };
+> > +
+> > +                     mmc3_pins: mmc3-pins {
+> > +                             pins =3D "PC1", "PC4", "PC5", "PC6",
+> > +                                    "PC7", "PC8", "PC9", "PC10",
+> > +                                    "PC11", "PC12", "PC13", "PC14";
+> > +                             function =3D "sdc3";
+>
+> function =3D "mmc3";
+>
+> > +                             allwinner,pinmux =3D <5>;
+> > +                             drive-strength =3D <40>;
+> > +                             bias-pull-up;
+> > +                     };
+> > +
+> > +                     uart0_pb_pins: uart0-pb-pins {
+> > +                             pins =3D "PB4", "PB5";
+> > +                             function =3D "uart0";
+> > +                             allwinner,pinmux =3D <2>;
+> > +                     };
+> > +             };
+> > +
+> > +             wdt: watchdog@1c20ca0 {
+> > +                     compatible =3D "allwinner,sun6i-a31-wdt";
+>
+> I think lately we used this as a fallback, paired with a SoC specific
+> compatible first.
+> In many aspects the more recent DTs under the arch/arm64 directory are
+> more modern and a better source to copy from.
+> > +                     reg =3D <0x01c20ca0 0x20>;
+> > +                     interrupts =3D <GIC_SPI 25 IRQ_TYPE_LEVEL_HIGH>;
+> > +                     clocks =3D <&osc24M>;
+> > +             };
+> > +
+> > +             uart0: serial@1c28000 {
+> > +                     compatible =3D "snps,dw-apb-uart";
+> > +                     reg =3D <0x01c28000 0x400>;
+> > +                     interrupts =3D <GIC_SPI 0 IRQ_TYPE_LEVEL_HIGH>;
+> > +                     reg-shift =3D <2>;
+> > +                     reg-io-width =3D <4>;
+> > +                     clocks =3D <&ccu CLK_BUS_UART0>;
+> > +                     resets =3D <&ccu RST_BUS_UART0>;
+> > +                     status =3D "disabled";
+> > +             };
+> > +
+> > +             uart1: serial@1c28400 {
+> > +                     compatible =3D "snps,dw-apb-uart";
+> > +                     reg =3D <0x01c28400 0x400>;
+> > +                     interrupts =3D <GIC_SPI 1 IRQ_TYPE_LEVEL_HIGH>;
+> > +                     reg-shift =3D <2>;
+> > +                     reg-io-width =3D <4>;
+> > +                     clocks =3D <&ccu CLK_BUS_UART1>;
+> > +                     resets =3D <&ccu RST_BUS_UART1>;
+> > +                     status =3D "disabled";
+> > +             };
+> > +
+> > +             uart2: serial@1c28800 {
+> > +                     compatible =3D "snps,dw-apb-uart";
+> > +                     reg =3D <0x01c28800 0x400>;
+> > +                     interrupts =3D <GIC_SPI 2 IRQ_TYPE_LEVEL_HIGH>;
+> > +                     reg-shift =3D <2>;
+> > +                     reg-io-width =3D <4>;
+> > +                     clocks =3D <&ccu CLK_BUS_UART2>;
+> > +                     resets =3D <&ccu RST_BUS_UART2>;
+> > +                     status =3D "disabled";
+> > +             };
+> > +
+> > +             uart3: serial@1c28c00 {
+> > +                     compatible =3D "snps,dw-apb-uart";
+> > +                     reg =3D <0x01c28c00 0x400>;
+> > +                     interrupts =3D <GIC_SPI 3 IRQ_TYPE_LEVEL_HIGH>;
+> > +                     reg-shift =3D <2>;
+> > +                     reg-io-width =3D <4>;
+> > +                     clocks =3D <&ccu CLK_BUS_UART3>;
+> > +                     resets =3D <&ccu RST_BUS_UART3>;
+> > +                     status =3D "disabled";
+> > +             };
+> > +
+> > +             uart4: serial@1c29000 {
+> > +                     compatible =3D "snps,dw-apb-uart";
+> > +                     reg =3D <0x01c29000 0x400>;
+> > +                     interrupts =3D <GIC_SPI 4 IRQ_TYPE_LEVEL_HIGH>;
+> > +                     reg-shift =3D <2>;
+> > +                     reg-io-width =3D <4>;
+> > +                     clocks =3D <&ccu CLK_BUS_UART4>;
+> > +                     resets =3D <&ccu RST_BUS_UART4>;
+> > +                     status =3D "disabled";
+> > +             };
+> > +
+> > +             i2c0: i2c@1c2ac00 {
+> > +                     compatible =3D "allwinner,sun8i-b288-i2c",
+> > +                                  "allwinner,sun6i-a31-i2c";
+> > +                     reg =3D <0x01c2ac00 0x400>;
+> > +                     interrupts =3D <GIC_SPI 6 IRQ_TYPE_LEVEL_HIGH>;
+> > +                     clocks =3D <&ccu CLK_BUS_TWI0>;
+> > +                     resets =3D <&ccu RST_BUS_I2C0>;
+> > +                     pinctrl-names =3D "default";
+> > +                     pinctrl-0 =3D <&i2c0_pins>;
+> > +                     status =3D "disabled";
+> > +                     #address-cells =3D <1>;
+> > +                     #size-cells =3D <0>;
+> > +             };
+> > +
+> > +             i2c1: i2c@1c2b000 {
+> > +                     compatible =3D "allwinner,sun8i-b288-i2c",
+> > +                                  "allwinner,sun6i-a31-i2c";
+> > +                     reg =3D <0x01c2b000 0x400>;
+> > +                     interrupts =3D <GIC_SPI 7 IRQ_TYPE_LEVEL_HIGH>;
+> > +                     clocks =3D <&ccu CLK_BUS_TWI1>;
+> > +                     resets =3D <&ccu RST_BUS_I2C1>;
+> > +                     status =3D "disabled";
+> > +                     #address-cells =3D <1>;
+> > +                     #size-cells =3D <0>;
+> > +             };
+> > +
+> > +             i2c2: i2c@1c2b400 {
+> > +                     compatible =3D "allwinner,sun8i-b288-i2c",
+> > +                                  "allwinner,sun6i-a31-i2c";
+> > +                     reg =3D <0x01c2b400 0x400>;
+> > +                     interrupts =3D <GIC_SPI 8 IRQ_TYPE_LEVEL_HIGH>;
+> > +                     clocks =3D <&ccu CLK_BUS_TWI2>;
+> > +                     resets =3D <&ccu RST_BUS_I2C2>;
+> > +                     status =3D "disabled";
+> > +                     #address-cells =3D <1>;
+> > +                     #size-cells =3D <0>;
+> > +             };
+> > +
+> > +             gic: interrupt-controller@1c81000 {
+> > +                     compatible =3D "arm,gic-400";
+> > +                     reg =3D <0x01c81000 0x1000>,
+> > +                           <0x01c82000 0x2000>,
+> > +                           <0x01c84000 0x2000>,
+> > +                           <0x01c86000 0x2000>;
+> > +                     interrupts =3D <GIC_PPI 9 (GIC_CPU_MASK_SIMPLE(2)=
+ | IRQ_TYPE_LEVEL_HIGH)>;
+> > +                     interrupt-controller;
+> > +                     #interrupt-cells =3D <3>;
+> > +             };
+> > +     };
+> > +};
+> > diff --git a/arch/arm/mach-sunxi/sunxi.c b/arch/arm/mach-sunxi/sunxi.c
+> > index e1b7945aac99..c5b19d0e63f9 100644
+> > --- a/arch/arm/mach-sunxi/sunxi.c
+> > +++ b/arch/arm/mach-sunxi/sunxi.c
+> > @@ -61,6 +61,7 @@ MACHINE_END
+> >   static const char * const sun8i_board_dt_compat[] =3D {
+> >       "allwinner,sun8i-a23",
+> >       "allwinner,sun8i-a33",
+> > +     "allwinner,sun8i-b288",
+>
+> Do we really need that entry? Or at least do we need the timer init part
+> of that?
+> And in any case it doesn't belong into the DT patch, as it's Linux code,
+> not DT or binding related.
+>
+> Cheers,
+> Andre
+>
+> >       "allwinner,sun8i-h2-plus",
+> >       "allwinner,sun8i-h3",
+> >       "allwinner,sun8i-r40",
+>
 
