@@ -4,61 +4,73 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 818E2CA5FBA
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 30 Sep 2026 10:38:58 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C9ED4CA5FB1
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 30 Sep 2026 10:39:43 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Q42sMmac7vKYGCVFrMdhSVkWOijsRMSMvzwOYZNiU4g=; b=TwLOEpHZu0Jxq+hvEI21yNM9rH
-	iZ6o5hhJlpsNTrgknLM8qOHof5AhdQAnqML1k+1fJ9zBWy/2VCl+pyeVYs/JnqCuL9AK63PL+w1FC
-	l70C9/dlX3RZv4RWcVSaJs7wZnPht8cW5znJaRbUzs3h1vmZbVYAN7aF+MWDKztgjL+8PCo7QLyXH
-	+pVfhk2AgyUXRAJaP/wjBpqNmWRNwnk+vdcuS1Xcn1hMmksDgNURidHLJqFrFXxZWgTii73luau+v
-	DaYVwhMFXmPxaMTI5SnTLcy824X1KvAf/CJqropM1f8RV2LbVeEZXhDsL7KXjkrzrI/aUx+ZOO/hO
-	E7XIsFOA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=MljuINYsDSt6Mx+ws1xsI7mhRVCt9e9IkBdqLRkBIaA=; b=mEjJe8kEe0dD7qSfaM7kXVLJPZ
+	iTnm4753ZqG7BZBqdPCH18hRo9bv21Dz+YdeNLUk6/22P6Vr5fTWW9XnXuiU2uGOrQhMX+jZ1t5ut
+	mUS23ikKMxaGahQLaf07skgthQ6R4amkp+O6N10ve3jMmVRUy0zamUW1TSehwCAsD50Wk2AaWAsdy
+	84DWAgK8Q+E3vbHlplCjqgzYk8ttd4e6U7hsIg/UAjOoTmlndizep0F5tac5crcJd6CHU8At7mq5n
+	8W8bcyVbtiNfvhOcUaKB6Kzq0tIJ+IL+1T7QFGunbn3Biq4kzkhN7LQPb5CVzIs7pjsSfa12Tk15w
+	PbXOFrZQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xBri8-00000005mB6-0x0L;
-	Wed, 30 Sep 2026 10:38:52 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1xBrir-00000005mIx-2XNb;
+	Wed, 30 Sep 2026 10:39:37 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xBri7-00000005mAw-1Mmc
+	id 1xBriq-00000005mIm-3uAp
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 30 Sep 2026 10:38:51 +0000
+	Wed, 30 Sep 2026 10:39:36 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 0DA2B40E19;
-	Wed, 30 Sep 2026 10:38:51 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 0B1551F000FF;
-	Wed, 30 Sep 2026 10:38:49 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id F294F602A8
+	for <linux-arm-kernel@lists.infradead.org>; Wed, 30 Sep 2026 10:39:35 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 9D5971F008A5
+	for <linux-arm-kernel@lists.infradead.org>; Wed, 30 Sep 2026 10:39:35 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1790764730;
-	bh=Q42sMmac7vKYGCVFrMdhSVkWOijsRMSMvzwOYZNiU4g=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=Iyj8/IOthcCiozVPuAmYxSU+qxe9W3l7Rnu2ibWzZySm0kt6WYVvXmGGRZJn/mxSk
-	 2Uj3+6OOvaA/FpyxtiBudhFjCbFkOuL5/2/7nVCaBFei/pJ553tE6EQ7tNX+xnr05f
-	 uwrzIkdTn4tvZHbrmM4k6bS1nJuvfNygSm7j5IMNdRYH2j8UMwj+Z6eOdaFTbJCgiy
-	 7fYP6qGK9og+2MXyk8PSjx2rvyergNkpOZ86+dPZ8FuCRfI+eXw9ns4JOw4a+fcrKN
-	 LyUtKtJR6ZFs/bOHMR9DuWiK77xEQKrLNahF87S4noE0xE7jFTJyHdlOjhVJs5H73O
-	 x1INh5aIyGlxg==
-Date: Wed, 30 Sep 2026 12:38:47 +0200
-From: Krzysztof Kozlowski <krzk@kernel.org>
-To: Sue Wang <suwangquanta@gmail.com>
-Cc: robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org, 
-	joel@jms.id.au, andrew@codeconstruct.com.au, ryan_chen@aspeedtech.com, 
-	billy_tsai@aspeedtech.com, devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
-	linux-aspeed@lists.ozlabs.org, linux-kernel@vger.kernel.org, patrick@stwcx.xyz, 
-	Steward.Shih@quantatw.com, Martin.Peng@quantatw.com, Fred.Zhang@quantatw.com, 
-	p.k.lee@quantatw.com
-Subject: Re: [PATCH v14 1/2] dt-bindings: arm: aspeed: add Meta Ventura board
-Message-ID: <20260930-curious-narwhal-of-calibration-62442d@quoll>
-References: <20260929075106.74731-1-suwangquanta@gmail.com>
- <20260929075106.74731-2-suwangquanta@gmail.com>
+	s=k20260515; t=1790764775;
+	bh=MljuINYsDSt6Mx+ws1xsI7mhRVCt9e9IkBdqLRkBIaA=;
+	h=References:In-Reply-To:From:Date:Subject:To:Cc;
+	b=kdgVkpsLTN9PPbjs/FjH2VDONRjypKtQS7nnwPHqxETnWJr/EIYoC0vWaOAom+X6Q
+	 q/zx7TavDdPeNeYWqJKLZFklyCeqbRF/FaACp9HQsP5uUz1EaSukQVe8Ykmph+J6r9
+	 INE4KIbUL8xxS+HpCOYkNXcFiQWa8xv2aIitnFk0E1Sh36ZsFaTh9O7kLuFogi2Uhw
+	 +Slc9ozKNkyEVuolDNZgpSbjVB0MpVVp0yYGAprl4+cohLWTbMr94e7A7QeWLhBdpa
+	 nKnMDMc0yjuINPA9O33kKCcKB8r6l6lo5mKCQiY5K7qf46sUWG9IpMqj52KRAepNww
+	 x6QzfqAMVZ38A==
+Received: by mail-lr2-f34.google.com with SMTP id 38308e7fff4ca-3a652e2149aso44750181fa.2
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 30 Sep 2026 03:39:35 -0700 (PDT)
+X-Forwarded-Encrypted: i=1; AKwUvBzk1kx5QQLyAd3ut7GTJRH4JMtSpVrDNASVV8mkpRff36WQmCB7FSsnrSufQKt8xobRkMcybZn4tV7GphrG37ts@lists.infradead.org
+X-Gm-Message-State: AFq9FYI/0q2ZuGaLjP7IXOuBXjiLzdNh4hQUe9V+WUvb0yZ9JMrNelyB
+	cUwcyLEoEsjwvsWYbRxQtml50zJRSszeQcsqYCcWpgMlPOmfL3f/SZLnlcZwVfuGNlobqhPZraT
+	zvUOsSYsfOPC19vwUfkZlF4osBwF8pX8=
+X-Received: by 2002:a05:651c:418d:b0:3a5:afec:9cf9 with SMTP id
+ 38308e7fff4ca-3a7791923f5mr3833601fa.7.1790764774294; Wed, 30 Sep 2026
+ 03:39:34 -0700 (PDT)
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-In-Reply-To: <20260929075106.74731-2-suwangquanta@gmail.com>
+References: <20260930-b4-cs75xx-v1-0-4617c4463529@gmail.com>
+In-Reply-To: <20260930-b4-cs75xx-v1-0-4617c4463529@gmail.com>
+From: Linus Walleij <linusw@kernel.org>
+Date: Wed, 30 Sep 2026 12:39:22 +0200
+X-Gmail-Original-Message-ID: <CAD++jL=0Zc939o7UaFgtx+04gLRmgmPVHTAeuW6OS9nPP5Xt8Q@mail.gmail.com>
+X-Gm-Features: AclHuK8pjnujBafapCpTqZDZIjiOhJbKtLdqSmgcu4GAW7cTFljMh260Y9sM-wQ
+Message-ID: <CAD++jL=0Zc939o7UaFgtx+04gLRmgmPVHTAeuW6OS9nPP5Xt8Q@mail.gmail.com>
+Subject: Re: [PATCH RFC 00/10] ARM: Add support for Cortina Systems CS75xx and
+ Securifi Almond+
+To: filipp.dunsky@gmail.com
+Cc: Arnd Bergmann <arnd@arndb.de>, Krzysztof Kozlowski <krzk@kernel.org>, Rob Herring <robh@kernel.org>, 
+	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
+	Greg Kroah-Hartman <gregkh@linuxfoundation.org>, Jiri Slaby <jirislaby@kernel.org>, 
+	Russell King <linux@armlinux.org.uk>, Alexandre Belloni <alexandre.belloni@bootlin.com>, 
+	Drew Fustini <fustini@kernel.org>, Lorenzo Pieralisi <lpieralisi@kernel.org>, 
+	linux-arm-kernel@lists.infradead.org, devicetree@vger.kernel.org, 
+	linux-kernel@vger.kernel.org, linux-serial@vger.kernel.org
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -73,35 +85,27 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Sep 29, 2026 at 03:51:05PM +0800, Sue Wang wrote:
-> Document the new compatibles used on Meta Ventura.
-> 
-> Signed-off-by: Sue Wang <suwangquanta@gmail.com>
+Hi Filipp,
 
-Please respect our time. Actually other contributors time as well.
+On Wed, Sep 30, 2026 at 9:00=E2=80=AFAM Fil Dunsky via B4 Relay
+<devnull+filipp.dunsky.gmail.com@kernel.org> wrote:
 
-<form letter>
-This is a friendly reminder during the review process.
+> There is no public documentation for the SoC. The register information
+> comes from the GPL vendor kernels (Linux 2.6.36 for the Almond+, Linux
+> 4.9 for the Verizon FiOS G1100 which uses the same SoC) and from
+> disassembly of the stock U-Boot 2009.11. A full out-of-tree port
+> (clock, irqchip, GPIO, I2C, RTC, NAND, PCIe, MDIO and the packet engine)
+> runs on Linux 6.18 in OpenWrt
 
-It looks like you received a tag and forgot to add it.
+Is this OpenWrt fork public?
 
-If you do not know the process, here is a short explanation:
-Please add Acked-by/Reviewed-by/Tested-by tags when posting new
-versions of patchset, under or above your Signed-off-by tag, unless
-patch changed significantly (e.g. new properties added to the DT
-bindings). Tag is "received", when provided in a message replied to you
-on the mailing list. Tools like b4 can help here. However, there's no
-need to repost patches *only* to add the tags. The upstream maintainer
-will do that for tags received on the version they apply.
+Actually what I'm most curious about is the packet engine, which may or
+may not be related to drivers/net/ethernet/cortina/*
 
-Please read:
-https://elixir.bootlin.com/linux/v6.12-rc3/source/Documentation/process/submitting-patches.rst#L577
+On the Gemini that was the only part of the SoC that was actually made
+by StorLink (later acquired by Cortina) while the rest of Gemini was
+Faraday IP blocks.
 
-If a tag was not added on purpose, please state in the patch changelog
-or cover letter why and what changed.
-</form letter>
-
-Best regards,
-Krzysztof
-
+Yours,
+Linus Walleij
 
