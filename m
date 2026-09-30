@@ -4,130 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A2DF1CA5FC1
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 30 Sep 2026 17:40:27 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2403ACA5FC1
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 30 Sep 2026 17:40:58 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=dpj1xdiSYmBVD2mZoG/uajyoZR60+eYA8soe6s9W9ZE=; b=dk6e5GmK3ltjdXZqJ2XWc8eZFC
-	3XZPY+RpiIdy3x8DYSUi/mEdxE1iVZhjei7wHK0AD9DSjS4qcSc2TV5oeMQ+k2pAAkz3BkXeOkvPK
-	h194ug5tiS4T2fWt3wH5G/Flxp+1wN2g9Ye6idMUwEW5GqSYcxVvXOlchHCqLTCUyxADZ8NnApz0w
-	rIWTKUdCGaseL1fXtx+kPL8AByjeVeyO0qSu2HYS+vqme04R3rcJMBIz0mYqlpZJ+UEw1PE52NVG3
-	iSGmxbVUG0IcCenLgI8LZn0wiEC4rG+0vgv7eVe42m/TcZHH1N3Gh70OBwdolyPg6L9Bm6w62MPqc
-	k/VmQ/JQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=pJxP02jgtsYKvx2G2NNGwZtK03ROopISrRswIgnOLg4=; b=M4i0YfAg1iCUriE4kvxsHY+3UT
+	kDZr+yqXJi9gJ1xLUwaZ15yAvLhkhmh2utkAfBY/SuVTgzAoVK3hg8xIv80P/iqrdUedD6nIcAUJs
+	uyB/su182UkLcX9Ohwd7Fti89611M5Y9CgnCwMea3KskWtrGYeaqVz2gk5y3xIss1mUYnqxYQVg+x
+	IyZ2dh0nc2uKfTrZ9Gwfm1ZQnp+DbZGNGCaU9Pl3jYRUWFbKbJYdQLoFe70iQvhHZpZiLAP2VqcxD
+	2qaY0z4KmzFB9hVJwZcN0x4kr+0Yp8hb8hUXQYJLh5/mmjy31KVYhcd9m4l88rM/g9vPJ3blde/oh
+	fyF+oi6g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xByHw-00000006tLs-3DE7;
-	Wed, 30 Sep 2026 17:40:17 +0000
-Received: from mx0a-001b2d01.pphosted.com ([148.163.156.1])
+	id 1xByIV-00000006tS7-0wKt;
+	Wed, 30 Sep 2026 17:40:51 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xByHr-00000006tKq-1kF4
+	id 1xByIT-00000006tRd-1r7j
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 30 Sep 2026 17:40:13 +0000
-Received: from pps.filterd (m0353729.ppops.net [127.0.0.1])
-	by mx0a-001b2d01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 68UE5aNs1335962;
-	Wed, 30 Sep 2026 17:34:52 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ibm.com; h=cc
-	:content-transfer-encoding:date:from:in-reply-to:message-id
-	:mime-version:references:subject:to; s=pp1; bh=dpj1xdiSYmBVD2mZo
-	G/uajyoZR60+eYA8soe6s9W9ZE=; b=dX8MeEt5tFMEd/dIfspLcRxIrn+fOXy1w
-	Tac3u2s3H4QeNzlw73iJBwGTCEptmaTPyipTpaeDrRV2LyQ3XVOuQVxj4XR5PzVr
-	TeFjSYklX5RMVHRiMmx+poUCKAWs9W7Nr4SvPnGIdDxkLqO/9Be/X1YQX1WHyqEI
-	dGmXhifcPL/l5831PtZgb3tZbVSpsSu/D5Rx1krm6/3dgYp2erOFT5BfWP2mCT+o
-	xnKnyKFnuPARjVR3cnkQh3c0krBosg2b/Xu9vNM3vumXmhf9jnLpee0rmwAoTWYs
-	Yv612u4unoGtoxDvh907QvoxtfPhzx2jHQ8JjweWkl3EY9fDrpXSQ==
-Received: from ppma12.dal12v.mail.ibm.com (dc.9e.1632.ip4.static.sl-reverse.com [50.22.158.220])
-	by mx0a-001b2d01.pphosted.com (PPS) with ESMTPS id 4gx5qrehbn-1
-	(version=TLSv1.3 cipher=TLS_AES_256_GCM_SHA384 bits=256 verify=NOT);
-	Wed, 30 Sep 2026 17:34:51 +0000 (GMT)
-Received: from pps.filterd (ppma12.dal12v.mail.ibm.com [127.0.0.1])
-	by ppma12.dal12v.mail.ibm.com (8.18.1.11/8.18.1.11) with ESMTP id 68UE35O03583597;
-	Wed, 30 Sep 2026 17:34:50 GMT
-Received: from smtprelay01.fra02v.mail.ibm.com ([9.218.2.227])
-	by ppma12.dal12v.mail.ibm.com (PPS) with ESMTPS id 4h0g8e59rk-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Wed, 30 Sep 2026 17:34:50 +0000 (GMT)
-Received: from smtpav06.fra02v.mail.ibm.com (smtpav06.fra02v.mail.ibm.com [10.20.54.105])
-	by smtprelay01.fra02v.mail.ibm.com (8.14.9/8.14.9/NCO v10.0) with ESMTP id 68UHYkXH35389744
-	(version=TLSv1/SSLv3 cipher=DHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
-	Wed, 30 Sep 2026 17:34:46 GMT
-Received: from smtpav06.fra02v.mail.ibm.com (unknown [127.0.0.1])
-	by IMSVA (Postfix) with ESMTP id B223E20049;
-	Wed, 30 Sep 2026 17:34:46 +0000 (GMT)
-Received: from smtpav06.fra02v.mail.ibm.com (unknown [127.0.0.1])
-	by IMSVA (Postfix) with ESMTP id 646B32004E;
-	Wed, 30 Sep 2026 17:34:46 +0000 (GMT)
-Received: from tuxmaker.boeblingen.de.ibm.com (unknown [9.87.85.9])
-	by smtpav06.fra02v.mail.ibm.com (Postfix) with ESMTP;
-	Wed, 30 Sep 2026 17:34:46 +0000 (GMT)
-From: Steffen Eiden <seiden@linux.ibm.com>
-To: kvm@vger.kernel.org, kvmarm@lists.linux.dev,
-        linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
-        linux-s390@vger.kernel.org
-Cc: Alexander Gordeev <agordeev@linux.ibm.com>,
-        Andreas Grapentin <gra@linux.ibm.com>, Arnd Bergmann <arnd@arndb.de>,
-        Catalin Marinas <catalin.marinas@arm.com>,
-        Christian Borntraeger <borntraeger@linux.ibm.com>,
-        Claudio Imbrenda <imbrenda@linux.ibm.com>,
-        David Hildenbrand <david@kernel.org>,
-        Friedrich Welter <fritz@linux.ibm.com>, Fuad Tabba <tabba@google.com>,
-        Gautam Gala <ggala@linux.ibm.com>,
-        Hariharan Mari <hari55@linux.ibm.com>,
-        Heiko Carstens <hca@linux.ibm.com>,
-        Hendrik Brueckner <brueckner@linux.ibm.com>,
-        Ilya Leoshkevich <iii@linux.ibm.com>,
-        Janosch Frank <frankja@linux.ibm.com>, Joey Gouly <joey.gouly@arm.com>,
-        Marc Zyngier <maz@kernel.org>, Nico Boehr <nrb@linux.ibm.com>,
-        Nina Schoetterl-Glausch <oss@nina.schoetterlglausch.eu>,
-        Oliver Upton <oupton@kernel.org>, Paolo Bonzini <pbonzini@redhat.com>,
-        Sean Christopherson <seanjc@google.com>,
-        Suzuki K Poulose <suzuki.poulose@arm.com>,
-        Sven Schnelle <svens@linux.ibm.com>,
-        Ulrich Weigand <Ulrich.Weigand@de.ibm.com>,
-        Vasily Gorbik <gor@linux.ibm.com>, Will Deacon <will@kernel.org>,
-        Zenghui Yu <yuzenghui@huawei.com>
-Subject: [PATCH v9 13/24] KVM: s390: Use dedicated function for migration mode
-Date: Wed, 30 Sep 2026 19:34:28 +0200
-Message-ID: <20260930173441.66762-14-seiden@linux.ibm.com>
-X-Mailer: git-send-email 2.53.0
-In-Reply-To: <20260930173441.66762-1-seiden@linux.ibm.com>
-References: <20260930173441.66762-1-seiden@linux.ibm.com>
+	Wed, 30 Sep 2026 17:40:49 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by tor.source.kernel.org (Postfix) with ESMTP id 9286160233;
+	Wed, 30 Sep 2026 17:40:48 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 405CD1F00899;
+	Wed, 30 Sep 2026 17:40:46 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1790790048;
+	bh=pJxP02jgtsYKvx2G2NNGwZtK03ROopISrRswIgnOLg4=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=mEt7auJdWJUg5J4oqGJ2f4A0mfumXKjZmabsGsBBUteaFnfqtPvpZKtBFwH9UyYp7
+	 bcPXNFOyJ3QRNegNFvBCKJcfsgTxBiMGMiUrDrv1ri9eZ6u79p4vMGP/x3zXaUR1qr
+	 Ff1JW3ph5GmwUZp3W/1BTDVm25dTpdKsBEBBshkAEu54gxLbXSC34+9BvI33WOKYWm
+	 2iRPuaIV9fUtUKU2RurSggm7CK0Mg1vxfQsSoj9RUBwvwOLZU/2OQdHAlXEtoNuXSg
+	 VtvyVweIeEVf0PGQIaSnXjS88RxMQMuNPACKeMNPPHLrc4stAurlwhnkddei1deHAd
+	 4MsXVgJD/5hoQ==
+Date: Wed, 30 Sep 2026 18:40:43 +0100
+From: Mark Brown <broonie@kernel.org>
+To: Shih-Yuan Lee <fourdollars@debian.org>
+Cc: Andy Shevchenko <andriy.shevchenko@linux.intel.com>,
+	Mika Westerberg <mika.westerberg@linux.intel.com>,
+	Lukas Wunner <lukas@wunner.de>, Daniel Mack <daniel@zonque.org>,
+	Haojian Zhuang <haojian.zhuang@gmail.com>,
+	Robert Jarzmik <robert.jarzmik@free.fr>, linux-spi@vger.kernel.org,
+	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org
+Subject: Re: [PATCH v17 3/6] spi: pxa2xx: acquire active PM runtime reference
+ in interrupt handler
+Message-ID: <2070ad49-b017-4caf-822d-0ad8ef520f79@sirena.org.uk>
+References: <20260930160629.1822-1-fourdollars@debian.org>
+ <20260930160629.1822-4-fourdollars@debian.org>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-X-TM-AS-GCONF: 00
-X-Proofpoint-Reinject: loops=2 maxloops=12
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwOTMwMDA2OCBTYWx0ZWRfX0mImgFHyodry
- IDe3DUMPYfLKyfY+VeOa//UHYXGX4r/X1dlW3/Z6upUb471cOmeiEvoCKUGl5YP9cB52hzLfm05
- 6pNxiG9Fj7SZySfR1QTEovcswrH/6o4P69QZcYMGDHxIgTyN/XEhcmYu572EbKYMY+AY7VQgBxD
- Zcm0HQLpepvyCdfpKQkGKk5/iuCkoChcYuU78MNaBYjlBtB4JIeUItbKfB//R9xfaxPI6GlVC6F
- Zr1G9nnwzaBRzayPUNqTCGnAmq8j1Y49peRrpu3rHVTcm5LThC7SqOe/t2OqxMQbqDkQNzxQ1u9
- UzNcx5lpbzMbCS3Es/avpdnwEBF3BkUVUlHqpboefwf4aa+i2iyREll6bezbo69OXIEiHoVbam6
- P7r0PFOBEH/mkRPsXW9tln9yQxqS+ab1iyaYDYMn/GwLXO0fxyPFTykYcI2WiE7rimlMOWnj2SR
- 1qrwg3H2MXcpJF7SiDw==
-X-Authority-Analysis: v=2.4 cv=SPbXx+vH c=1 sm=1 tr=0 ts=6abd483b cx=c_pps
- a=bLidbwmWQ0KltjZqbj+ezA==:117 a=bLidbwmWQ0KltjZqbj+ezA==:17
- a=VdqzKS8jKosA:10 a=VkNPw1HP01LnGYTKEx00:22 a=RnoormkPH1_aCDwRdu11:22
- a=uAbxVGIbfxUO_5tXvNgY:22 a=VnNF1IyMAAAA:8 a=BPKNEzTBeHxawKP70jYA:9
-X-Proofpoint-ORIG-GUID: yop6eIuiVu9cJ0vzWuHapJqy8J5Aeqgu
-X-Proofpoint-Spam-Info: AW1haW4tMjYwOTMwMDA2OCBTYWx0ZWRfX/sh2PPm24v6l
- 1Wz7yjPXqifXOQJbB0HibJFDnMZm+KQUTJsM9Ozkt1Bw9fgiIdOW0vvOmwaAcYaCKIcrI+w7QZc
- B9AKOKX2oJ6TSu7CNLFba++I6jtAi/w=
-X-Proofpoint-GUID: VcmRYXghQ6GAo9k1zQLMvtOBiORLwEvJ
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1176,Hydra:6.1.134,FMLib:17.12.100.49
- definitions=2026-09-30_03,2026-09-21_02,2025-10-01_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- priorityscore=1501 suspectscore=0 clxscore=1015 spamscore=0
- lowpriorityscore=0 malwarescore=0 adultscore=0 bulkscore=0 impostorscore=0
- phishscore=0 classifier=typeunknown authscore=0 authtc= authcc=
- route=outbound adjust=0 reason=mlx scancount=1 engine=8.22.0-2609040000
- definitions=main-2609300068
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260930_104011_653547_E4EBBB94 
-X-CRM114-Status: GOOD (  16.03  )
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="GTUHbOsFbl4ZReX2"
+Content-Disposition: inline
+In-Reply-To: <20260930160629.1822-4-fourdollars@debian.org>
+X-Cookie: (null cookie
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -142,29 +76,53 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Use kvm_s390_is_migration_mode() instead of kvm.arch->migration_mode.
-The function is independent of the actual kvm_arch implementation which
-is different for the second parallel KVM module..
 
-Signed-off-by: Steffen Eiden <seiden@linux.ibm.com>
----
- arch/s390/kvm/gmap/kvm_mmu.c | 2 +-
- 1 file changed, 1 insertion(+), 1 deletion(-)
+--GTUHbOsFbl4ZReX2
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
 
-diff --git a/arch/s390/kvm/gmap/kvm_mmu.c b/arch/s390/kvm/gmap/kvm_mmu.c
-index c2ffb5e59ec6..24e618f77be1 100644
---- a/arch/s390/kvm/gmap/kvm_mmu.c
-+++ b/arch/s390/kvm/gmap/kvm_mmu.c
-@@ -76,7 +76,7 @@ int s390_kvm_mmu_prepare_memory_region(struct kvm *kvm,
- 			return -EINVAL;
- 	}
- 
--	if (kvm->arch.migration_mode) {
-+	if (kvm_s390_is_migration_mode(kvm)) {
- 		/*
- 		 * Turn off migration mode when:
- 		 * - userspace creates a new memslot with dirty logging off,
--- 
-2.53.0
+On Thu, Oct 01, 2026 at 12:06:26AM +0800, Shih-Yuan Lee wrote:
+> On a shared interrupt line, ssp_int() can be invoked while the SPI
+> controller is suspended or transitioning power states. In ssp_int(),
+> evaluating device power state without acquiring a reference before
+> accessing MMIO registers is not atomic: another thread executing
+> pm_runtime_suspend() can drop the last reference and gate the clock
+> immediately after the check passes. Accessing unclocked registers then
+> leads to PCIe Completion Timeouts and system hangs.
 
+> @@ -1464,22 +1481,31 @@ int pxa2xx_spi_probe(struct device *dev, struct s=
+sp_device *ssp,
+>  		}
+>  	}
+> =20
+> +	ret =3D request_irq(ssp->irq, ssp_int, IRQF_SHARED, dev_name(dev),
+> +			drv_data);
+> +	if (ret < 0) {
+> +		ret =3D dev_err_probe(dev, ret, "cannot get IRQ %d\n", ssp->irq);
+> +		goto out_error_clock_enabled;
+> +	}
+> +
+>  	/* Register with the SPI framework */
+>  	dev_set_drvdata(dev, drv_data);
+
+We need the driver data before we request the interrupt, the interrupt
+handler does runtime PM and the runtime PM operations use driver data.
+
+--GTUHbOsFbl4ZReX2
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iQEzBAABCgAdFiEEreZoqmdXGLWf4p/qJNaLcl1Uh9AFAmq9SZoACgkQJNaLcl1U
+h9Cs3Af+LNc0+SJ5Y6YknMd3CLLOdUOalJr8UqvKUwpHVit5RsQkYbKXimsWEmFP
+k1lEO3dyX+h0QhqFL3txzMQimFFnnfHTZAhXhDEVl8999xlNFmW+1k0Bwk6xesxd
+StLhG6GcLi1zPl+8VAkYq5MJzxy8fxBwjO3umEzlcnLaw3c+t9Y/IVmTrY9SKaU3
+hpir4cMgqB9pmtC84uegwD4jzZmvjBGkIsV+NwkkEP6DI9TjJQvnEHY0cqkiyLZh
+kLww5lxAs5xzfeLshBt9WVgNJx3kn1AmRMmUyIjZ+BksvEr/IYkQDu6n4RkcBY17
+a6jYxCY3E6mrmrkqTvFfQrf8MG2sgA==
+=vbC9
+-----END PGP SIGNATURE-----
+
+--GTUHbOsFbl4ZReX2--
 
