@@ -4,116 +4,85 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4FBE7CA5FC4
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 30 Sep 2026 19:07:16 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E8E0ACA5FC4
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 30 Sep 2026 19:08:01 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=PCDOWVvvPjn4Zn7DxkNlW8KIDmqPC58h+Qgu1lcXnuQ=; b=IGD0hlqG2Omi1l2sPKw1CbZ05Q
-	2pRB8kYjF1a/iv4FumS/l5D3xz6kA5NqjrhpzFxAPKXgitIEW8Uwo9zRqC85luuvq8VhC2VGcwSKI
-	zjvzfe3ODYs+2ne27cIUoWDG3boRkRW6YaYGABbpX8mnBQVwpMzYsVMoZ+vgHBBW7yEsGZkT0hghj
-	Htjy4Bk0pQhzRxh8CThYoiQd0dVtkskUwEaooJF3xPATD9mAimpFZUsFvo0YqtbErteJElTiUD0cY
-	soDww33MgerFKHYhiDPx2MHM6VzimKsgLbOJ8hb39l+wMOgQcShc+XTvNii1DGjAqPi2kdibDfF00
-	geXXeF0A==;
+	bh=bxJY6r7hmtQQbaUp+jGo9ojcTYyECOaox7wsG7JzNr0=; b=nTqleOv3tD80UoOcSlUyohoUqt
+	9IzgX02hWI0lWtgX0LciKqtC486Qv3iz3Z1HTw3MMZcg5mVvMTdri7rcqj9xDqlkoNPuFtPzJJ6a+
+	tQeq43O34XgeWCWGFF66CexrF7hJ2evSxWMgfYbUt/OnibzVamIn2bcdqMvRUeGcaGMW22q087MHN
+	+mYuQ3+xFR1sxdQnQIB5wfy6l80lsk5fZqk7Prx4aPmRE2fgRmpDV1+7RwK4KHB8i5dA9tKBDzTSc
+	vFcmhMgCX6eKTTLzfThmN6P7sDPtfvOWqZYRt1dcC58ecCpRd3rTXQic8wGOsHHszA456AHVjLaBF
+	w8c0ynZA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xBze1-000000073Ls-3bOA;
-	Wed, 30 Sep 2026 19:07:09 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1xBzel-000000073Rs-0ZSe;
+	Wed, 30 Sep 2026 19:07:55 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xBze0-000000073Lb-0fDm
-	for linux-arm-kernel@bombadil.infradead.org;
-	Wed, 30 Sep 2026 19:07:08 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:Content-Type
-	:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:Message-ID:
-	Sender:Reply-To:Content-ID:Content-Description;
-	bh=PCDOWVvvPjn4Zn7DxkNlW8KIDmqPC58h+Qgu1lcXnuQ=; b=f7bcl1m1HAJsmtUke6oEaqAADo
-	o6B+YqtQrlllDMqgsJiQNr7XO0xBi6yzHcXPxhZOmgSDZJxB+Qgftg4atzKFTmq0336tEeMq/cprj
-	pboVF/HE74W2k0mDEKp/NeuJ99pcAmNwdAo7uu9U3xOWhUJypua9R2DaFgA/kMZ8NIL8p5/9TzPaH
-	vvDgTRch1DHg7bbUlUesnLgmZYEiOft+I+Y7JiXwcu66p2ZGNoAIQHLAnjOll3a2OOhvwA4vH23Ye
-	WcOBjbAV0W4DUxps4SB67Aaf783jZPSuwKLoVNw5UNDU1wWj5Z45ZSElG608uxVTUUotnkLzra6r3
-	5vURBufg==;
-Received: from mail-wm2-x10.google.com ([2a00:1450:4864:31::10])
-	by desiato.infradead.org with esmtps (Exim 4.99.2 #2 (Red Hat Linux))
-	id 1xBzdv-00000004ECh-2mRl
+	id 1xBzej-000000073Ra-2ntj
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 30 Sep 2026 19:07:06 +0000
-Received: by mail-wm2-x10.google.com with SMTP id 5b1f17b1804b1-4a003bd18e5so20937875e9.0
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 30 Sep 2026 12:07:03 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1790795222; x=1791400022; darn=lists.infradead.org;
-        h=content-transfer-encoding:content-type:in-reply-to:from
-         :content-language:references:cc:to:subject:user-agent:mime-version
-         :date:message-id:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=PCDOWVvvPjn4Zn7DxkNlW8KIDmqPC58h+Qgu1lcXnuQ=;
-        b=JQBoZCLzIcUhAcnuhDVCKnVAHDzo+Jp4h3/ONofGvqAHQiPVU2iN3+XUzqWKcrT6/4
-         WxkQa5rSSlleoKouIcNF2Z2Jbfkrrv7HhvVTJc7kPdzTWcoARivvpeA0tVPQqHteZA37
-         UJT1mxI9+EpRnEqZcZY7059MWbM/aEAKOZ1LvgGSqjmaH7LQEmbWtsXG6KotasoP5TPL
-         fXL62jgdHgOcBPH6WdDO+51p0yQ7eCYoNLS+kvjEsKm2ZETJbfTcx/imtvk2CI0/3FQ6
-         fFNnyupHDbFefXBRukQXs4CDYxZeX3L4UmQyqAnwgyuHkFMzCLCZ0uoQw0uLj5dJf9T1
-         KWKA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1790795222; x=1791400022;
-        h=content-transfer-encoding:content-type:in-reply-to:from
-         :content-language:references:cc:to:subject:user-agent:mime-version
-         :date:message-id:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=PCDOWVvvPjn4Zn7DxkNlW8KIDmqPC58h+Qgu1lcXnuQ=;
-        b=DaUYivdXl2USCcngr4AAtMv6y2+q/IfhwjSaWnphlBp9YHNYUYhNg6iACsGA2tG9Es
-         pLu0da+HdkryTQKAojslbWZ6IpLMRJ+VS4VAI1m6OuTAcinAZAendNeJuF6NDrBh9jxb
-         yaYl92ES00Vp9RMhaLLxGWCGzBQky7X3PxbXssuaAw+JGbnh+D90HUj0aBk+tBaB0oso
-         dwgCa3teFYG7KgIEszMAQE+tld+NKlrR4DbIq+5dYikNEHnTTgNdoK4FAcQ9elUct3gh
-         OqK08Mo6MESe8SacD+hrrnjyrPGAkgF3o1NevPqlCntz+9oikJURJX3CZs4O/8d6+BiH
-         DVUA==
-X-Forwarded-Encrypted: i=1; AKwUvBx/rykgPQKW2TONa6SW2Y3q3Lzsx6cGXLBCRmm7Gzuh5pSmC4QCcr2W0DYHt97/Vu6ojsqYnYOyraQQi0O3X/aC@lists.infradead.org
-X-Gm-Message-State: AFuF++lLY6CbNITeytEzBWjycaE3DobGpQ4BqCjD1OJsff/Cke5mZo0f
-	p5Pr/C4GBbC3G0y158Rux9ln/drxPltpNPQcsSwTP1LcGT4mNrTpCfED
-X-Gm-Gg: AYBFou3h2+9CxRbUFb4areZS54v/jKu+Ns1iXax4SeAHqpzw36eUOTjOn3XCeynGbKt
-	S/2oSj3ZbBGNz2k2kdXQBUHPmTgqblEt5XumquvULpqNuLec+pTAp6mtRxgXLVNTu88dgufQhcQ
-	FCI8tC+SBNmI32UM/34qT5GqGCSq7R1t00tfpr0Ac0D0OzJ3Qv4Pa1KXWEop+b4yS5kYrXMyAU7
-	telc17+g7B77PFyHlmwmscXpOEMPclDoIEqK08gFBLVFRJh8jCo0vjccyw9/7/0Qn5Sh/VHZb8i
-	eVJRRTkxiIQ14yZo8oM+Lwr6fMtkV48oGjTApdWtso0DKptS7tjT8wyA6ce6RO9NMCln5nwfQec
-	sZgppvKVc2gxniPaJGoAzIvtMkmQT4tW5ku/4zx2XNbAIqJa2wRYontl+rO31CpbHdESMv+RVVd
-	+j7kZPynC2PiG81d5+EeLFlHX2ULUq5tyIybFqsjuPrNAyYX6LfCCkA85R3PnuL53lzciUNDQbo
-	Vx28Id0yyTbI+DYiyqoB4XtZL5zHD0vMU5GdYiLCb8=
-X-Received: by 2002:a05:600c:a05:b0:4a0:6bb:237e with SMTP id 5b1f17b1804b1-4a01b01b407mr37229355e9.29.1790795221532;
-        Wed, 30 Sep 2026 12:07:01 -0700 (PDT)
-Received: from [192.168.0.40] (212.71.14.70.adsl.dyn.edpnet.net. [212.71.14.70])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4a01f957b83sm3700185e9.15.2026.09.30.12.07.01
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Wed, 30 Sep 2026 12:07:01 -0700 (PDT)
-Message-ID: <bd02376e-f42a-4251-8e7d-7c4e7579a845@gmail.com>
-Date: Wed, 30 Sep 2026 21:07:00 +0200
+	Wed, 30 Sep 2026 19:07:53 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by sea.source.kernel.org (Postfix) with ESMTP id 22DAF42CED
+	for <linux-arm-kernel@lists.infradead.org>; Wed, 30 Sep 2026 19:07:53 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 07D191F0089D
+	for <linux-arm-kernel@lists.infradead.org>; Wed, 30 Sep 2026 19:07:53 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1790795273;
+	bh=bxJY6r7hmtQQbaUp+jGo9ojcTYyECOaox7wsG7JzNr0=;
+	h=References:In-Reply-To:From:Date:Subject:To:Cc;
+	b=WGTKgsCU+/7tSbH0RgCXBxO0ozmDxYzlLDwec2n1uK5vKG2u+Di5y2WS6iaRioeHA
+	 2HQe+XnO1uJ4CYhwINzo8cjLvNqjNXCxbsf3+JY7DHNsj5meQBk7iK2fww7Th4TV6i
+	 kkU7y7Et3fGZqOvDiMtxgUEgFwaPoRwmgHaXCfNEC2tlCG2i5It8RQNIVw5uvFKrUC
+	 XChF332jlPqD8AXn0mXF0TdpqcDviisUqsmHyxFw/K52bPBpJEZyqZkDAJcx9W9Ctx
+	 wNhktvmN49L3hqx5qTmfX02sCiNCyjvFtFvqmwbcNor4vRdzJXOT4Q1zfnuuJSa4ri
+	 xPBPjhV5LjBFA==
+Received: by mail-ej2-f43.google.com with SMTP id a640c23a62f3a-c2e1432bc59so172459066b.3
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 30 Sep 2026 12:07:52 -0700 (PDT)
+X-Forwarded-Encrypted: i=1; AKwUvBxeNEJEPO7q5F/epdkY2IXvUS3AlpaEAqpEnP3jUxqVgT376aBsx8p8FxKGUe0zmtRRKeUyhbxwmbbTiokr6fLD@lists.infradead.org
+X-Gm-Message-State: AFuF++kNlYnPqAz6iQWxtV+jeGEWojOGNxVJhT0AZgoJeXHklVrf+VOT
+	d7L66i3xcdRLVoJ2H4g2aIwmSqorga91pS11mZhqh5/f8diCjhgbpAUlVkscebJC00ZTknv/mg3
+	zb/oAO0W59/dMyAmeD2Kdx94mGDdAhQ==
+X-Received: by 2002:a17:906:7308:b0:c29:566f:531c with SMTP id
+ a640c23a62f3a-c2e23d64e23mr209463766b.31.1790795271560; Wed, 30 Sep 2026
+ 12:07:51 -0700 (PDT)
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v8 2/2] rtc: Add Raspberry Pi 5 RTC driver
-To: Stefan Wahren <wahrenst@gmx.net>
-Cc: Alexandre Belloni <alexandre.belloni@bootlin.com>,
- Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
- Conor Dooley <conor+dt@kernel.org>,
- Florian Fainelli <florian.fainelli@broadcom.com>,
- Jonathan Bell <jonathan@raspberrypi.com>, linux-rtc@vger.kernel.org,
- devicetree@vger.kernel.org, linux-rpi-kernel@lists.infradead.org,
- linux-arm-kernel@lists.infradead.org, pbrobinson@gmail.com,
- Dom Cobley <popcornmix@gmail.com>
-References: <20260930095203.492949-1-sander.speetjens@gmail.com>
- <20260930095203.492949-3-sander.speetjens@gmail.com>
- <7441de5b-e9a6-4080-b312-d6c7123fdcde@gmx.net>
- <2872a37d-4f24-4429-aba5-34f020740821@gmail.com>
- <550045ab-fe74-4445-8f6c-4a031f5b436b@gmx.net>
-Content-Language: en-US
-From: Sander Speetjens <sander.speetjens@gmail.com>
-In-Reply-To: <550045ab-fe74-4445-8f6c-4a031f5b436b@gmx.net>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260930_200703_968346_DAF9413F 
-X-CRM114-Status: GOOD (  12.46  )
+References: <20260928-drm-mipi-dsi-panel-ebpf-v1-0-5244926aace4@kernel.org>
+ <20260928-drm-mipi-dsi-panel-ebpf-v1-1-5244926aace4@kernel.org>
+ <20260928204059.GA515872-robh@kernel.org> <artyl8fD3zzng8Uh@houat>
+ <20260929222822.GA2933878-robh@kernel.org> <ary8IdL9zVXfS2fA@houat>
+In-Reply-To: <ary8IdL9zVXfS2fA@houat>
+From: Rob Herring <robh@kernel.org>
+Date: Wed, 30 Sep 2026 14:07:39 -0500
+X-Gmail-Original-Message-ID: <CAL_JsqJCoWQmdBKEbekXb5LeLn1KcMiP2iG30r+npssJSZB5LA@mail.gmail.com>
+X-Gm-Features: AclHuK_KrCZYndoX88-SUyUMhWpLte5mG0GRB_AK8DozaFWQdrOZypWv12h1FtM
+Message-ID: <CAL_JsqJCoWQmdBKEbekXb5LeLn1KcMiP2iG30r+npssJSZB5LA@mail.gmail.com>
+Subject: Re: [PATCH 1/6] dt-bindings: display: Add panel-mipi-dsi-bpf generic
+ panel binding
+To: Maxime Ripard <mripard@kernel.org>
+Cc: Neil Armstrong <neil.armstrong@linaro.org>, Jessica Zhang <jesszhan0024@gmail.com>, 
+	David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>, 
+	Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, Thomas Zimmermann <tzimmermann@suse.de>, 
+	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
+	Nathan Chancellor <nathan@kernel.org>, Nick Desaulniers <ndesaulniers@google.com>, 
+	Bill Wendling <morbo@google.com>, Justin Stitt <justinstitt@google.com>, 
+	Florian Fainelli <florian.fainelli@broadcom.com>, 
+	Broadcom internal kernel review list <bcm-kernel-feedback-list@broadcom.com>, 
+	Andrzej Hajda <andrzej.hajda@intel.com>, Robert Foss <rfoss@kernel.org>, 
+	Laurent Pinchart <Laurent.pinchart@ideasonboard.com>, Jonas Karlman <jonas@kwiboo.se>, 
+	Jernej Skrabec <jernej.skrabec@gmail.com>, Luca Ceresoli <luca.ceresoli@bootlin.com>, 
+	Albert Esteve <aesteve@redhat.com>, Dave Stevenson <dave.stevenson@raspberrypi.com>, 
+	Javier Martinez Canillas <javierm@redhat.com>, dri-devel@lists.freedesktop.org, 
+	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, bpf@vger.kernel.org, 
+	llvm@lists.linux.dev, linux-rpi-kernel@lists.infradead.org, 
+	linux-arm-kernel@lists.infradead.org, Benjamin Tissoires <bentiss@kernel.org>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -128,15 +97,54 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
->>>> +MODULE_ALIAS("platform:raspberrypi-rtc");
->>> Is this really necessary for module autoloading?
->> I'm not sure, it was used in the previous versions when using the 
->> platform device register on the register_clk driver before it had a 
->> custom dt node.
-> You can test by removing the line and compile it as a module. In case 
-> the RTC driver is still automatically loaded, we can drop it.
-There is no DT node for the RTC. The firmware driver registers us as a 
-platform device at runtime (we deliberately avoid a child node per DT 
-maintainer guidance). Therefore the platform alias is still needed for 
-module auto-loading.
+On Wed, Sep 30, 2026 at 3:04=E2=80=AFAM Maxime Ripard <mripard@kernel.org> =
+wrote:
+>
+> On Tue, Sep 29, 2026 at 05:28:22PM -0500, Rob Herring wrote:
+> > On Tue, Sep 29, 2026 at 10:39:24AM +0200, Maxime Ripard wrote:
+> > > On Mon, Sep 28, 2026 at 03:40:59PM -0500, Rob Herring wrote:
+> > > > On Mon, Sep 28, 2026 at 06:22:01PM +0200, Maxime Ripard wrote:
+> > > > > Most MIPI-DSI panel drivers follow an identical pattern: acquire
+> > > > > regulators and GPIOs, perform a reset pulse with specific timing,
+> > > > > send a vendor-supplied sequence of DSI commands, then enable the
+> > > > > display. The only truly panel-specific part is the init sequence
+> > > > > and power-on/off timing.
+
+[snip a bunch of irrelevant shit]
+
+> > > So, let's phrase this differently: what's different about the
+> > > description than panel-mipi-dsi-spi, or any other binding already in
+> > > tree?
+> >
+> > There's all of 3 panels supported. Compared to all the other panels we
+> > have, hardly the rule over the exception. You can always fine "bad"
+> > examples or exceptions.
+> >
+> > That one defines a single supply. Any other MIPI SPI panel with
+> > different supplies or GPIO controls probably has its own binding. Tryin=
+g
+> > to parameterize that in DT doesn't work. We've rejected trying to do
+> > that in DT over and over. What's your story here for that?
+>
+> Sigh... Look, I really don't care about an argument DT maintainers use
+> at their discretion for this. We both know full well that it's been and
+> still is inconsistenly applied, and you also know that it's not like
+> I've been playing the DT game since pretty much the beginning (on ARM
+> anyway). So it's not like I don't want to make it work, I do. But what I
+> care about is enabling that driver to work.
+>
+> I reused exactly the same binding than the last major binding that was
+> merged for panels, and support about the same number of panels. I guess
+> that was a mistake, so sorry for that.
+>
+> I'm fine with reworking the binding any way you want as long as it still
+> allows for the same use-case, but I would have hoped for a better
+> feedback on how to do so than "oh what a huge pile of shit this is".
+
+When you can answer my question above rather than make up shit I
+didn't say, maybe I'll reply again on this thread. Otherwise I'm done
+here. I don't need this abuse for the thankless job of DT
+maintainership.
+
+Rob
 
