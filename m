@@ -4,65 +4,68 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 18BADCA5FAB
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 30 Sep 2026 05:13:52 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 11C77C9830E
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 30 Sep 2026 05:15:24 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=twlnFSBmxS58iPY+7hBgGUdCwGxZsKY3oWNgC2UQAC8=; b=Wp2wBSWZDhC16bXpqnB/sh8rrU
-	qpg82RTYrGKSmrLFuosj0ogBML3v6ko7hUsdXXvI8Uaj9Mzu/aePoBg1LssaRyIY0ovdXRbDTNqtf
-	DQncy56uL/NgiswhNHF2Gf/Oo8n+UC+lJ2Lghsy0N11yRU0UWTXLFEdcUgyIxZeEe2SuKXwlYOpxL
-	U2cv7gfh+QGKotTPmp1+rILJ+kB6BWTah67hAaAoQR/+v1uNPEkooUkH1HJAEzwEYBcOlz02GBBri
-	IsiLSEWwhyL4ul3VivbHcwJUSA0GwBzN+gXalVLeaoELYceK2+qQW7DTjaCScLkJnIrbX7uQg5Dsl
-	u6OAEfUg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:CC:To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-ID:Date:Subject:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=eCV8x99Y4s5JRUYegYrdguYjFZI6TLQkUsdUpUbbKdQ=; b=EmNfwx870DEOTc
+	r1W9wLL2fkqylc2waEnboIcNOJDzAodjVi/YYNNIIOTWIQzH1dZXWN6tqSJQt7uqlPLDDxjAsAY8Q
+	m6fe8bzGLwph0KoddjZJTkC/HpNqAeXPGpadzAD0+ImNuXOj5y7AkHFQoccUaMzxLHs8AECHgI37Y
+	ut7/7BX7VlPWWwVODAPQqY55pDZc22GTlO4tndLpTUkoOmqRxORz8C2hqbIOBoV3FpcfSe41Hr1be
+	1ZE5G5GzyYNkBvBymgKnyNkCWbAaArJC8xET2CvVeYkIBwXauxr7vers+sAFizvT7y+wry0AdeYnD
+	7NyxkCefMuSkahIh6ygA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xBmdV-000000051gx-1vbw;
-	Wed, 30 Sep 2026 05:13:45 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xBmdR-000000051gY-0YH8
+	id 1xBmev-000000051pO-43iZ;
+	Wed, 30 Sep 2026 05:15:14 +0000
+Received: from mail.aspeedtech.com ([211.20.114.72] helo=twmbx01.aspeedtech.com)
+	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1xBmes-000000051oP-3XRW
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 30 Sep 2026 05:13:44 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 5E3722F;
-	Tue, 29 Sep 2026 22:13:36 -0700 (PDT)
-Received: from e129823.arm.com (e129823.arm.com [10.2.213.3])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 187F13F763;
-	Tue, 29 Sep 2026 22:13:37 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1790745219; bh=0VwICtUH5NvpaDbe9DoXbn5Z54tn5XhVjnIRjhSAT0Y=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=IeRhwrK1zaH22wjoEotiIOUpFEMxZyWQlX52tsrT6FL1H/QwQRPryQEsdTqnvX7co
-	 SrpnS2UC/UlNm6EbfrT1OGXdy/NuhU1vKTzUv7t8sszsLIpPfIcYaKbZc2vGNJFXLJ
-	 kxouD00MyhpRltBN1P2HIeS9lSTfynnHOhipVptk=
-Date: Wed, 30 Sep 2026 06:13:35 +0100
-From: Yeoreum Yun <yeoreum.yun@arm.com>
-To: Kohei Enju <enju.kohei@fujitsu.com>
-Cc: Yeoreum Yun <yeoreum.yun@arm.com>, linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Will Deacon <will@kernel.org>, Jason Gunthorpe <jgg@ziepe.ca>,
-	Suzuki Poulose <suzuki.poulose@arm.com>,
-	Steven Price <steven.price@arm.com>,
-	Sami Mujawar <sami.mujawar@arm.com>, thuth@redhat.com
-Subject: Re: [PATCH v2 1/3] arm64: rsi: Add helpers for Arm CCA measurement
- register operations
-Message-ID: <aryafzI-M06aZ4bZ@e129823.arm.com>
-References: <20260929-arm_cca_mr-v2-0-1d98bba187fd@arm.com>
- <20260929-arm_cca_mr-v2-1-1d98bba187fd@arm.com>
- <arxrOt1HEYeG6GJx@FCCLS0092175.localdomain>
+	Wed, 30 Sep 2026 05:15:12 +0000
+Received: from TWMBX01.aspeed.com (192.168.0.62) by TWMBX01.aspeed.com
+ (192.168.0.62) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1748.10; Wed, 30 Sep
+ 2026 13:14:59 +0800
+Received: from [127.0.1.1] (192.168.10.13) by TWMBX01.aspeed.com
+ (192.168.0.62) with Microsoft SMTP Server id 15.2.1748.10 via Frontend
+ Transport; Wed, 30 Sep 2026 13:14:59 +0800
+From: Ryan Chen <ryan_chen@aspeedtech.com>
+Subject: [PATCH v4 0/9] Add Aspeed AST2700 SDRAM EDAC support
+Date: Wed, 30 Sep 2026 13:14:58 +0800
+Message-ID: <20260930-edac-v4-0-c2e526f3ed79@aspeedtech.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-Content-Transfer-Encoding: 8bit
-In-Reply-To: <arxrOt1HEYeG6GJx@FCCLS0092175.localdomain>
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+X-B4-Tracking: v=1; b=H4sIANKavGoC/23MTQ7CIBCG4asY1mLo0FJw5T2MCwqDZWHbQEM0T
+ e8u/Uk00eU3meedSMTgMZLzYSIBk4++7/IojwdiWt3dkXqbNwEGggmoKFptqEQlGDLA2tUkvw4
+ BnX+umest79bHsQ+vtZqK5boFZAFbIBWUUcaVArSoQdUXHQdEO6JpT6Z/kKWS4EtCuUvI0kgrm
+ 0YoXknxV/KPVIXYJc8SOCq04Brr1I+c5/kNMqHP6xEBAAA=
+X-Change-ID: 20260625-edac-8e960e02e7f7
+To: Stefan Schaeckeler <sschaeck@cisco.com>, Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>,
+	Joel Stanley <joel@jms.id.au>, Andrew Jeffery <andrew@codeconstruct.com.au>,
+	Borislav Petkov <bp@alien8.de>, Tony Luck <tony.luck@intel.com>
+CC: <devicetree@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
+	<linux-aspeed@lists.ozlabs.org>, <linux-kernel@vger.kernel.org>,
+	<linux-edac@vger.kernel.org>, Borislav Petkov <bp@suse.de>, Ryan Chen
+	<ryan_chen@aspeedtech.com>, Krzysztof Kozlowski
+	<krzysztof.kozlowski@oss.qualcomm.com>
+X-Mailer: b4 0.14.3
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1790745299; l=4479;
+ i=ryan_chen@aspeedtech.com; s=20251126; h=from:subject:message-id;
+ bh=pfBHQqwY0FRL/vJkTp/4D4cyjGIq75z45FRzsyOMCj4=;
+ b=NlbSINSUFdPmrseU4+qeJZJMs8z7w+3jpAyrHyDJXqrB0lPNiAsyFVEs5T6CThxJkuzNQK6nn
+ s3bBZ3S1aESD7cumxTunaBz8ruEGykldYe6PgIZ5YzSDIQsicDujohb
+X-Developer-Key: i=ryan_chen@aspeedtech.com; a=ed25519;
+ pk=Xe73xY6tcnkuRjjbVAB/oU30KdB3FvG4nuJuILj7ZVc=
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260929_221341_362932_39659F25 
-X-CRM114-Status: GOOD (  33.09  )
+X-CRM114-CacheID: sfid-20260929_221511_021721_F4F13232 
+X-CRM114-Status: GOOD (  19.52  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -77,142 +80,94 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-> On 09/29 17:57, Yeoreum Yun wrote:
-> > From: Sami Mujawar <sami.mujawar@arm.com>
-> > 
-> > Add static inline helper functions to support reading the Realm
-> > Initial Measurement (RIM) and reading/extending the Realm
-> > Extensible Measurement (REM) registers.
-> > 
-> > The indices of the Arm CCA measurement registers, as defined by
-> > the Realm Management Monitor specification, are as follows:
-> >     Index    Register
-> >     0        RIM
-> >     1 - 4    REM[0 - 3]
-> > 
-> > The rsi_measurement_extend() function allows extending REM[0–3]
-> > registers with a caller-provided digest (up to 64 bytes).
-> > Index 0 (RIM) is read-only and cannot be extended.
-> > 
-> > The rsi_measurement_read() function allows reading measurement
-> > values from RIM (index 0) or REM[0–3] (indices 1–4). The returned
-> > digest is expected to be 64 bytes.
-> > 
-> > Signed-off-by: Sami Mujawar <sami.mujawar@arm.com>
-> > ---
-> >  include/linux/arm-rsi-cmds.h | 105 ++++++++++++++++++++++++++++++++++++++++++-
-> >  1 file changed, 104 insertions(+), 1 deletion(-)
-> > 
-> > diff --git a/include/linux/arm-rsi-cmds.h b/include/linux/arm-rsi-cmds.h
-> > index 3f7a6a833993..608343266d81 100644
-> > --- a/include/linux/arm-rsi-cmds.h
-> > +++ b/include/linux/arm-rsi-cmds.h
-> > @@ -1,6 +1,6 @@
-> >  /* SPDX-License-Identifier: GPL-2.0-only */
-> >  /*
-> > - * Copyright (C) 2023 ARM Ltd.
-> > + * Copyright (C) 2023 - 2025 ARM Ltd.
-> >   */
-> >  
-> >  #ifndef __LINUX_ARM_RSI_CMDS_H_
-> > @@ -36,6 +36,26 @@ static inline bool is_realm_world(void) { return false; }
-> >  #define RSI_GRANULE_SHIFT		12
-> >  #define RSI_GRANULE_SIZE		(_AC(1, UL) << RSI_GRANULE_SHIFT)
-> >  
-> > +/*
-> > + * Maximum measurement data size in bytes.
-> > + * According to the RMM Specification, the width of the RmmRealmMeasurement type
-> > + * is 512 bits.
-> > + */
-> > +#define RSI_MAX_MEASUREMENT_DATA_SIZE_BYTES  64
-> > +
-> > +/*
-> > + * Indices for the Realm Initial Measurement register (RIM) and the Realm
-> > + * Extensible Measurement registers (REMs).
-> > + * According to the RMM Specification, Realm attributes of a Realm include
-> > + * an array of measurement values. The first entry in this array is a RIM.
-> > + * The remaining entries in this array are REMs.
-> > + */
-> > +#define RSI_INDEX_RIM		0
-> > +#define RSI_INDEX_REM0		1
-> > +#define RSI_INDEX_REM1		2
-> > +#define RSI_INDEX_REM2		3
-> > +#define RSI_INDEX_REM3		4
-> > +
-> >  enum ripas {
-> >  	RSI_RIPAS_EMPTY = 0,
-> >  	RSI_RIPAS_RAM = 1,
-> > @@ -236,4 +256,87 @@ static inline unsigned long rsi_attestation_token_continue(phys_addr_t granule,
-> >  	return res.a0;
-> >  }
-> >  
-> > +/**
-> > + * rsi_measurement_extend - Extend the measurement value to the Realm Extensible
-> > + * Measurement (REM).
-> > + *
-> > + * @idx:		Index of the REM register.
-> > + *				Where:
-> > + *				Index	Register
-> > + *				1 - 4	REM[0-3]
-> > + * @digest:		The digest data to be extended.
-> > + * @digest_size:	Size of the digest data in bytes.
-> > + *
-> > + * Returns:
-> > + *  On success, returns RSI_SUCCESS.
-> > + *  Otherwise, -EINVAL
-> > + */
-> > +static inline unsigned long rsi_measurement_extend(u32 idx,
-> > +						   const u8 *digest,
-> > +						   unsigned long digest_size)
-> > +{
-> > +	struct arm_smccc_1_2_regs regs = { 0 };
-> > +
-> > +	/*
-> > +	 * Index 0 is for RIM (which is Read Only), while
-> > +	 * REM[0-3] are indexed from 1 - 4.
-> > +	 * The digest size can be at the most 64 bytes.
-> > +	 */
-> > +	if (!digest || idx < RSI_INDEX_REM0 || idx > RSI_INDEX_REM3 ||
-> > +	    digest_size == 0 || digest_size > RSI_MAX_MEASUREMENT_DATA_SIZE_BYTES)
-> > +		return -EINVAL;
-> > +
-> > +	regs.a0 = SMC_RSI_MEASUREMENT_EXTEND;
-> > +	regs.a1 = idx;
-> > +	regs.a2 = digest_size;
-> > +	memcpy(&regs.a3, digest, digest_size);
-> 
-> With CONFIG_FORTIFY_SOURCE=y, FORTIFY reports the following warning for
-> this memcpy:
-> 
->   [  899.918673] ------------[ cut here ]------------
->   [  899.918806] memcpy: detected field-spanning write (size 32) of single field "&regs.a3" at ./include/linux/arm-rsi-cmds.h:292 (size 8)
->   [  899.919277] WARNING: ./include/linux/arm-rsi-cmds.h:292 at rsi_measurement_extend+0x104/0x118, CPU#0: dd/123
->   [  900.672180] Modules linked in:
->   [  900.769378] CPU: 0 UID: 0 PID: 123 Comm: dd Not tainted 7.3.0-rc4+ #6 PREEMPT(full)
->   [  901.034515] Hardware name: linux,dummy-virt (DT)
->   [  901.194939] pstate: 61402005 (nZCv daif +PAN -UAO -TCO +DIT -SSBS BTYPE=--)
->   [  901.390491] pc : rsi_measurement_extend+0x104/0x118
->   [  901.530657] lr : rsi_measurement_extend+0x104/0x118
->   [...]
->   [  903.770326] Call trace:
->   [  903.893102]  rsi_measurement_extend+0x104/0x118 (P)
->   [  904.056234]  arm_cca_mr_extend+0x40/0x58
->   [  904.270991]  tm_digest_write+0x90/0x1d8
->   [  904.439429]  sysfs_kf_bin_write+0x98/0xc8
->   [  904.596599]  kernfs_fop_write_iter+0x150/0x1e8
->   [  904.779881]  vfs_write+0x29c/0x450
->   [...]
-> 
-> Would it make sense to use a union to overlay the struct
-> arm_smccc_1_2_regs with an RSI-specific argument layout and copy the
-> digest into an explicit 64-byte array, as in commit 221049874b6a
-> ("arm64: RSI: fix field-spanning write warning in attestation token
-> init")?
+Add ECC error reporting for the Aspeed AST2700 SoC to the existing
+aspeed_edac driver.
 
-Thanks for reporting and suggestion. I'll fix at next-spin.
+The AST2700 memory controller keeps the same overall EDAC programming
+model as the earlier Aspeed BMC SoCs, but uses a different register
+layout, a split interrupt status/clear/mask scheme and DDR4/DDR5 memory.
+Rather than fork the driver, the existing code is first tidied and
+generalised, then the AST2700 is added as one more per-SoC variant.
 
+Patches 1-4 are bug fixes and cleanups to the existing driver. Patch 5
+documents the AST2700 binding, patches 6 and 7 rework the implementation
+to accommodate it, and patch 8 adds the AST2700 support itself. Patch 9 is
+Stefan's step-down patch, amended to leave the entry in place with me
+as its reviewer.
 
+Signed-off-by: Ryan Chen <ryan_chen@aspeedtech.com>
+---
+Changes in v4:
+- Put the bug fixes first: the two fixes are now patches 1 and 2, the
+  cleanups 3 and 4, and the bindings patch moves to 5 ahead of the
+  AST2700 work.
+- Explain in patch 1 where the grain value comes from, rather than the
+  warning it silences.
+- Drop the Cc: stable tags from the two fixes. Neither meets the bar in
+  Documentation/process/stable-kernel-rules.rst; the Fixes: tags stay.
+- Merge Stefan's step-down patch into patch 9, keeping the MAINTAINERS
+  entry alive with a reviewer instead of removing it.
+- Link to v3: https://lore.kernel.org/r/20260916-edac-v3-0-23e9ed2fbdf9@aspeedtech.com
+
+Changes in v3:
+- Establish the AST2700 interrupt mask in the driver rather than
+  deriving it from the register's contents: ast2700_set_irq() now
+  writes the mask outright, masking every source and unmasking only
+  the ECC ones, and the mask is established before the interrupt is
+  requested.
+- New patch: add myself as a reviewer for the driver in MAINTAINERS.
+- Tested on an AST2600 with CONFIG_PROVE_LOCKING=y; injected correctable
+  errors are reported from the interrupt handler with no lockdep reports.
+- Link to v2: https://lore.kernel.org/r/20260824-edac-v2-0-c8d8bb693586@aspeedtech.com
+
+Changes in v2:
+- New patch: free the ECC interrupt before the mem_ctl_info in
+  aspeed_remove(). The interrupt is requested with devm_request_irq() and
+  is only released after .remove() has returned, so edac_mc_free() could
+  free the handler's context while the handler was still running on
+  another CPU.
+- Acquire the register lock with the irqsave variant in init_csrows() and
+  in aspeed_probe(). The interrupt handler takes the same lock in hardirq
+  context.
+- Move the dev_dbg() of the interrupt status register out of the
+  raw_spinlock critical section in the interrupt handler.
+- Opt aspeed_edac.o into context analysis in drivers/edac/Makefile. The
+  check is opt-in per object, so without it the __guarded_by() annotation
+  added by the same patch was never actually verified.
+- Return IRQ_NONE from ast2700_dramc_isr() when no ECC interrupt status
+  bit is set; the handler clears only the ECC bits, so unconditionally
+  claiming the interrupt could livelock the level-triggered line.
+- Tested v2 on both AST2600 and AST2700 by injecting a correctable
+  error with the memory controller's ECC error injection; each is
+  reported as a CE with the expected failure address.
+- Link to v1: https://lore.kernel.org/r/20260812-edac-v1-0-03992edea297@aspeedtech.com
+
+---
+Ryan Chen (8):
+      EDAC/aspeed: Set the DIMM grain
+      EDAC/aspeed: Free the interrupt before the mem_ctl_info on remove
+      EDAC/aspeed: Clean up whitespace and include ordering
+      EDAC/aspeed: Free the mem_ctl_info unconditionally on remove
+      dt-bindings: edac: aspeed: Add AST2700 SDRAM EDAC
+      EDAC/aspeed: Replace regmap with direct register access
+      EDAC/aspeed: Abstract SoC differences behind chip data
+      EDAC/aspeed: Add AST2700 support
+
+Stefan M Schaeckeler (1):
+      MAINTAINERS: Step down as Aspeed AST2500 EDAC driver maintainer
+
+ CREDITS                                            |   8 +
+ .../bindings/edac/aspeed,ast2400-sdram-edac.yaml   |   6 +-
+ MAINTAINERS                                        |   2 +-
+ drivers/edac/Makefile                              |   1 +
+ drivers/edac/aspeed_edac.c                         | 426 ++++++++++++++-------
+ 5 files changed, 293 insertions(+), 150 deletions(-)
+---
+base-commit: 5464985e42c04e335fb30e38fbc409c997db9bec
+change-id: 20260625-edac-8e960e02e7f7
+
+Best regards,
 -- 
-Sincerely,
-Yeoreum Yun
+Ryan Chen <ryan_chen@aspeedtech.com>
+
 
