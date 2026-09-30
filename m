@@ -4,69 +4,54 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2587ECA5FCB
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 30 Sep 2026 17:25:54 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 75654CA5FCD
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 30 Sep 2026 17:25:55 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Bo30wP78bh+sDEn1sCbZk+nfv9Cu1zBtQsbKdC+QipU=; b=1pPj9nfQyE2JQWsAqHleevj+AP
-	y+Wg8tq0oF6C2C30jHewsIZQ9CFejGcsn6nFYwAfgWHU1RU22e5CKj+5/LwkbGjApsEgWy3PNy9Dq
-	wnG9BFIQS+R2g9N5KbHB9ybDyFgcqEur/KQmiDHlfDZ5Kqr+CjDJtHFITkC5d2zxkUFIQN6Nd1SVA
-	YIU17knUseVeN0psj4jI4AI0CSgZ+CKSFONIVs6rJv4UnnNcUn2BdI63bTP5OSffejbyODelolfX3
-	1uitNg2xV0ixl2+Yo10AF8YukWDDnqRXy+ofz34IaMDRZg5WvyzYdnCgSAAKp8OUZUiEQDpQlLM70
-	RFE/ea+g==;
+	bh=aZlwpIBPu1P89TNsqQjaQwwNOwTKaGY+iAnuCror2mA=; b=0DfdL6ce4LM7nAdR3yKR6JSvWB
+	MQBIskTT5imCMkVUIrfqrNEWyodtvZfTVYLWLrgE4zQcIXnRihmFrRNKrEQwnJVJxxeyI428KKW0R
+	gUfG3fLPN/7c7Awohb7c8xXm7wpvuJK2D9pPcOHgL9kG3V7IFswQGuEW+H96tP0wKkNZKa90iC1Yq
+	JlmLHFt58x03UH+HywH/jbUQoaxToWATjmQ2JlTzbGPBq+fc/LFw/nZVd0JMXmfj8w/lh0s883Dik
+	Af3tzZbLDZ2gX9yNKozxEj0HqIS8L0++meHUrku7dPPRGfkxluOFQnkROsWH46QR5i5vVsSdSy9fB
+	+/NMpE8w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xBy3r-00000006opV-3MQG;
+	id 1xBy3t-00000006oqS-39Y1;
 	Wed, 30 Sep 2026 17:25:45 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+Received: from smtpout-02.galae.net ([185.246.84.56])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xBy3l-00000006ony-3mYp
-	for linux-arm-kernel@bombadil.infradead.org;
-	Wed, 30 Sep 2026 17:25:38 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Cc:To:In-Reply-To:References:
-	Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Sender:Reply-To:Content-ID:Content-Description;
-	bh=Bo30wP78bh+sDEn1sCbZk+nfv9Cu1zBtQsbKdC+QipU=; b=HxLCffT1/arZ6xBxsrXK008gW3
-	zJX76HENRCUJiwFFE/8Rci/oEMCQvrW87yDnUu82fK5BIUHJMRROpHE+2i2+8s6XjnmwDMDrc+0QB
-	rrWDg/wJzhKkJo0JZ+Z7ayFVseb/3jS298xJylPwzLxVyk3Ez2wLmqY1/XaWISNv0xV+Bm59LfGOL
-	19t53S0rx2lMw/xLPkYAYYnhOTafTxM47Y5MmQvdHXZiv61jmoQ/+DW4INl82mE9jsfqpnGRN8DtZ
-	Eq16RcgbwkBk7R1xwZckbZQdeBr1TBONJM4pU6QrDyZM6HR5xG564WyrZckU0QYbAvbOUgFysL+8W
-	A0TY14pw==;
-Received: from smtpout-03.galae.net ([185.246.85.4])
-	by desiato.infradead.org with esmtps (Exim 4.99.2 #2 (Red Hat Linux))
-	id 1xBy3j-000000048UF-03dJ
+	id 1xBy3j-00000006omy-2V0U
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 30 Sep 2026 17:25:36 +0000
+	Wed, 30 Sep 2026 17:25:38 +0000
 Received: from smtpout-01.galae.net (smtpout-01.galae.net [212.83.139.233])
-	by smtpout-03.galae.net (Postfix) with ESMTPS id 5583C4E410D4;
-	Wed, 30 Sep 2026 17:25:34 +0000 (UTC)
+	by smtpout-02.galae.net (Postfix) with ESMTPS id 9CF651A107A;
+	Wed, 30 Sep 2026 17:25:29 +0000 (UTC)
 Received: from mail.galae.net (mail.galae.net [212.83.136.155])
-	by smtpout-01.galae.net (Postfix) with ESMTPS id 294D160749;
-	Wed, 30 Sep 2026 17:25:34 +0000 (UTC)
-Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 9F5F2103291EA;
-	Wed, 30 Sep 2026 19:25:28 +0200 (CEST)
+	by smtpout-01.galae.net (Postfix) with ESMTPS id 69E0E60749;
+	Wed, 30 Sep 2026 17:25:29 +0000 (UTC)
+Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id A400E103284B8;
+	Wed, 30 Sep 2026 19:25:20 +0200 (CEST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=dkim;
-	t=1790789132; h=from:subject:date:message-id:to:cc:mime-version:content-type:
+	t=1790789124; h=from:subject:date:message-id:to:cc:mime-version:content-type:
 	 content-transfer-encoding:in-reply-to:references;
-	bh=Bo30wP78bh+sDEn1sCbZk+nfv9Cu1zBtQsbKdC+QipU=;
-	b=XYWB+uYnke/3v/cjD6s9SPMSzlzFjX2k1qh2GqNOwJVBMf+mx2P3eCNAdQvIZeVKt+e+Jh
-	NjVpx/N6xAn7QnxLj5uNH8etN13N2WFvWoP628WvUKJCwTssLnvIYgKxtANdZKsoxKJAWo
-	RsfeyoZutwb/KAKvFedyO78iOGxOgNeTL/jMFCboaaLBh0dHKmgoSi2xCrFMMyma+2TLua
-	xoLVF3JKRNiG+jgafknuBddSTgg8U29kEV+bdYjCF7NKGsnHVK4q5eJv/ad8KNqOIacsbl
-	VrKnsBjalaEb/JHjRDornSsia6LBZqRKfS56FG5WPYlt1izVKoeWN23jqK3GXA==
+	bh=aZlwpIBPu1P89TNsqQjaQwwNOwTKaGY+iAnuCror2mA=;
+	b=LyIVVNDRQUXr8mLgN7U28+5YStHwyEJLjYFVd0//Zn2lvLRsqG8sYtgz7ELdqf6omS9XcW
+	hnm7yvndW5QrZc9eXjdI9CLs6cQsYW16F/NECp6nAyM8XvHZ08HcPLfRQow7tmMn5n6BPs
+	4Vb3fp4S3p0hAwI+CSzRnU0C+4YmbDnd35T/hQx0WLnyI5Duxx+gxaDhWMPoX7VmZtlZOk
+	BgUu9Ab4XkHpWkAjHbKjK17WtW+b0lF3VIvZG23Tk19cz79XbzSSPd1qrYPvI+iJDrrvRl
+	5CSFdRgRpsPs6vzWt0dr8Fi/OmOiJ9H43qJj9UvARcoOimvCosdBBSu0pdID+w==
 From: Miquel Raynal <miquel.raynal@bootlin.com>
-Date: Wed, 30 Sep 2026 19:24:48 +0200
-Subject: [PATCH v6 02/12] dt-bindings: clock: ma35d1: Document the missing
- crystal inputs
+Date: Wed, 30 Sep 2026 19:24:47 +0200
+Subject: [PATCH v6 01/12] clk: nuvoton: ma35d1: Keep the clock count in the
+ driver
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20260930-perso-ma35d1-upstream-clk-v6-2-48937ee6c9bb@bootlin.com>
+Message-Id: <20260930-perso-ma35d1-upstream-clk-v6-1-48937ee6c9bb@bootlin.com>
 References: <20260930-perso-ma35d1-upstream-clk-v6-0-48937ee6c9bb@bootlin.com>
 In-Reply-To: <20260930-perso-ma35d1-upstream-clk-v6-0-48937ee6c9bb@bootlin.com>
 To: Jacky Huang <ychuang3@nuvoton.com>, Shan-Chun Hung <schung@nuvoton.com>, 
@@ -80,13 +65,12 @@ Cc: Thomas Petazzoni <thomas.petazzoni@bootlin.com>,
  Steam Lin <STLin2@winbond.com>, linux-arm-kernel@lists.infradead.org, 
  linux-clk@vger.kernel.org, linux-kernel@vger.kernel.org, 
  Krzysztof Kozlowski <krzk@kernel.org>, devicetree@vger.kernel.org, 
- Miquel Raynal <miquel.raynal@bootlin.com>, stable@vger.kernel.org, 
- Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
+ Miquel Raynal <miquel.raynal@bootlin.com>
 X-Mailer: b4 0.14.3
 X-Last-TLS-Session-Version: TLSv1.3
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260930_182535_180309_5B27F374 
-X-CRM114-Status: GOOD (  13.39  )
+X-CRM114-CacheID: sfid-20260930_102536_669913_EAC7E673 
+X-CRM114-Status: GOOD (  13.46  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -101,61 +85,43 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The MA35D1 clock controller takes two crystal oscillator inputs from
-the board:
-- HXT, a high-speed 24 MHz crystal for most of the system
-- LXT, a low-speed 32.768 kHz crytal for the RTC and low power modes
+The number of clocks is not a binding since this is a value that can
+change. As such, in order to support the missing watchdog clocks and
+allow the deprecation and removal of CLK_MAX_IDX from the bindings, we
+need to switch to a local definition first.
 
-So far the binding was expecting a single crystal. The example named it
-HXT, but no real definition for it was given. LXT was not even
-described. In order to remain backward compatible, we will continue to
-allow either one (HXT) or two (HXT then LXT) input clocks. I propose to
-give those phandles a name to clarify what these entries expect, but I'm
-not listing the clock-names property in the required block, for backward
-compatibility. The rates are fixed by the TRM, so even if the second
-oscillator is not described, the OS can make an educated guess.
-
-Fixes: 2f8b5eb589cb ("dt-bindings: clock: nuvoton: add binding for ma35d1 clock controller")
-Cc: stable@vger.kernel.org
-Reviewed-by: Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
 Signed-off-by: Miquel Raynal <miquel.raynal@bootlin.com>
 ---
- .../devicetree/bindings/clock/nuvoton,ma35d1-clk.yaml    | 16 ++++++++++++++--
- 1 file changed, 14 insertions(+), 2 deletions(-)
+ drivers/clk/nuvoton/clk-ma35d1.c | 5 +++--
+ 1 file changed, 3 insertions(+), 2 deletions(-)
 
-diff --git a/Documentation/devicetree/bindings/clock/nuvoton,ma35d1-clk.yaml b/Documentation/devicetree/bindings/clock/nuvoton,ma35d1-clk.yaml
-index 8f0c43683729..9649feda8d7a 100644
---- a/Documentation/devicetree/bindings/clock/nuvoton,ma35d1-clk.yaml
-+++ b/Documentation/devicetree/bindings/clock/nuvoton,ma35d1-clk.yaml
-@@ -29,7 +29,18 @@ properties:
-     const: 1
+diff --git a/drivers/clk/nuvoton/clk-ma35d1.c b/drivers/clk/nuvoton/clk-ma35d1.c
+index 9f65d0623517..6aa42a3e1be3 100644
+--- a/drivers/clk/nuvoton/clk-ma35d1.c
++++ b/drivers/clk/nuvoton/clk-ma35d1.c
+@@ -17,6 +17,7 @@
+ static DEFINE_SPINLOCK(ma35d1_lock);
  
-   clocks:
--    maxItems: 1
-+    minItems: 1
-+    maxItems: 2
-+    description:
-+      The controller takes 2 crystal oscillator inputs from the board.
-+      HXT is a 24 MHz crystal feeding the internal PLLs. LXT is a 32.768
-+      kHz crystal, for RTC and low power operations.
-+
-+  clock-names:
-+    minItems: 1
-+    items:
-+      - const: hxt
-+      - const: lxt
+ #define PLL_MAX_NUM		5
++#define	MA35D1_CLK_COUNT	236
  
-   nuvoton,pll-mode:
-     description:
-@@ -58,6 +69,7 @@ examples:
-         compatible = "nuvoton,ma35d1-clk";
-         reg = <0x40460200 0x100>;
-         #clock-cells = <1>;
--        clocks = <&clk_hxt>;
-+        clocks = <&clk_hxt>, <&clk_lxt>;
-+        clock-names = "hxt", "lxt";
-     };
- ...
+ /* Clock Control Registers Offset */
+ #define REG_CLK_PWRCTL		0x00
+@@ -467,12 +468,12 @@ static int ma35d1_clocks_probe(struct platform_device *pdev)
+ 	int ret;
+ 
+ 	ma35d1_hw_data = devm_kzalloc(dev,
+-				      struct_size(ma35d1_hw_data, hws, CLK_MAX_IDX),
++				      struct_size(ma35d1_hw_data, hws, MA35D1_CLK_COUNT),
+ 				      GFP_KERNEL);
+ 	if (!ma35d1_hw_data)
+ 		return -ENOMEM;
+ 
+-	ma35d1_hw_data->num = CLK_MAX_IDX;
++	ma35d1_hw_data->num = MA35D1_CLK_COUNT;
+ 	hws = ma35d1_hw_data->hws;
+ 
+ 	clk_base = devm_platform_ioremap_resource(pdev, 0);
 
 -- 
 2.55.0
