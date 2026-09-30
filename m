@@ -4,96 +4,95 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7B011CA5FC7
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 30 Sep 2026 14:20:47 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9AD31CA5FC5
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 30 Sep 2026 14:21:22 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:CC:To:In-Reply-To:References
 	:Message-ID:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=AAE1GuU97+6bxe9iXtFIqCAC1vZBHlYiI40pmMJ5IgM=; b=lS6d+c81BNhiB1K70SmIpex0pZ
-	J2naeDOFsjdqSQ0x8me2JKCFXkzZcGkfPedDXOxu/sAKARhVVMhm6L8wXvlSAAION8PVdYbd3gUXx
-	g/ivPrO9QEmr3eoVkoy4Sz7tLwFEX0XIDeSkxOXFT6uAYW3A6wz2zTJCru9C9sw3vQB1pVRuZmEoc
-	7nT1a8M+Ep2JVuTIUaM2W335V1WAVEi3jMMI8PDy4Xd9purauPGYUpai+8KhKmpRNCRn+DYOPa9QA
-	axqYmAdC6h9d+gyN7FM+5seDiq7pdyG0FD+QcV7iLJngkdoxvVT7BLwYlYDqVU4D7F3jrg11znkG3
-	Z4kh1aMw==;
+	bh=JC0j4KsPoXNTrrB7vTz9aBAf6IBXfpdmbLfYSzdnlQQ=; b=xCiIfpybV2AshuAQGp61CVXfv1
+	ep7IjVE3EJmwnAahfk3y4RhdRm3WTCrjbytSmXs8NNMjqV/oWQiawN70dnLV2R4LHzJoFwxSyhqlR
+	EpatFwPNzzXn9xop+9QHcNNxTeRYKoUSjNkf4VzxcV05TQ1i1P6ZspqZzbhHqbfWxP4DcWpRPvh/I
+	GE3I2Kud9tdsh0V9UVN7nSTQg0VfyjOKdRlsR3Dh2wmClE6nKv4vSA76wSKi3i6s2yC09KZWmmfoK
+	AcrKcfcOvpAAHdWMuL6ewECVDUY0z6EVPzh9ArnPd6Esmr+cCHDRAol1aud+e1QSQrHjBpyqMaEnY
+	tQAQjTNQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xBvAe-00000006I8k-3Z2O;
-	Wed, 30 Sep 2026 14:20:33 +0000
+	id 1xBvBG-00000006IPp-0T7a;
+	Wed, 30 Sep 2026 14:21:12 +0000
 Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xBv9f-00000006HWa-2q9m
+	id 1xBv9h-00000006HY4-1jsg
 	for linux-arm-kernel@bombadil.infradead.org;
-	Wed, 30 Sep 2026 14:19:31 +0000
+	Wed, 30 Sep 2026 14:19:34 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=infradead.org; s=desiato.20200630; h=CC:To:In-Reply-To:References:
 	Message-ID:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Sender:Reply-To:Content-ID:Content-Description;
-	bh=AAE1GuU97+6bxe9iXtFIqCAC1vZBHlYiI40pmMJ5IgM=; b=h0XEFDQLi0Ka+84ShRW/2mHloX
-	6w9zRcoLJbT6T4WG0KoN5p256j7nGuVTswnVcQ+L3b2Psrv+IvIknrLD4Q44jRYYhbubVdlLvMRgP
-	eHeI1Xk1OVnyPWciTdQz1dAT2PEVKp8YKdRioZCl6JBHtaizwi7p12E+EhB2IfQLoHVIT24LIDBtb
-	5LJVwn72E5nPOjrBCJ9gZ/RVtqsx2eTSmoa+fiO3+hol8Hz1JAUnBgnYEaf99uHozXLNclQmIYwij
-	mz9cbfn/UgV6pU/IDmsToKW6zDOJ/DD/ax5VLF5IBEvSS5PisBqdpG7r2rZm8szqeEp8P4PLgNkGm
-	cB8H73hw==;
-Received: from mail-northeuropeazon11010042.outbound.protection.outlook.com ([52.101.84.42] helo=DB3PR0202CU003.outbound.protection.outlook.com)
+	bh=JC0j4KsPoXNTrrB7vTz9aBAf6IBXfpdmbLfYSzdnlQQ=; b=jrow8/+gTlbIV4XNyQaT7I6CZ/
+	BVduKDA97uVfS/8QBm5izx73VC0I3YZKIhPTURv0EeLqZGdJiL7mIN1rn8DJWrdvEWQHB9SUyy6Ul
+	9zk9DtM8ADGX/6RYGxgGy3slbi/PiPqdbEDY5LrGVdVRP3GWNvLdUTmZ93uaMG8ktrlB1aN9jyxGr
+	4ZDVLKaGK1fRhANcA7Exw6TDU5PoI6ztufLmE3WPdOk6+H9F++EhrYoNgrOlaLjfwsEieQu5LiWtJ
+	dlpct38b+yC/AIe1d84F3hh9k3K4EzMnhgTSVyO4IspCr9S765u0a1gXclCKkEGKTjOHvMPc1815I
+	EHtWliPA==;
+Received: from mail-northeuropeazlp170120005.outbound.protection.outlook.com ([2a01:111:f403:c200::5] helo=DUZPR83CU001.outbound.protection.outlook.com)
 	by desiato.infradead.org with esmtps (Exim 4.99.2 #2 (Red Hat Linux))
-	id 1xBv9c-00000003ubv-2qx8
+	id 1xBv9d-00000003ubx-0qeT
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 30 Sep 2026 14:19:30 +0000
+	Wed, 30 Sep 2026 14:19:32 +0000
 ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=i1j1bT3K/x0ZEET/OzwQ3kVAN0qpISFjsDkz7XvqogPsndBD25upmt7yjXRmsyc8rook7C4R7YIIJTva8jqAMdVrYloh07HdQzTC7PCeMcNg02k+yXQwz/QagOKY1fglTkofeXvwEHw2Vf34uAU5YMV+v/8iJkLZGW6SZGyz6YaUgusmiFFhMyGf+bOk6yN9jUxI1r2iWxfb38dlaDabRSI5Vg6VLhVriMyLSwmsKbJP1RQSbKgz4wZaqll06cubvOjx+k7BPpXxiMlLBkToN4Zm8rg+Nyzvo4uhAVoCpS0vBJCBJLqIxJu308Nhu71nAGJkWCkJuXepBvVuYpyWuw==
+ b=D6rPmstuXZpB17BPdav9mtzBSvKwaji+ihoB527j19tjPb+OnRfTN7DOhRgT9cDam5jYQxsyqX0FicnDdAaau2W4hW7TjFOoqn6NZUTCqGzF2uyoNstUyULCr+GlMGR/InK0KGbx6WEYktRp2AVq21TAv0KFxSlm6HCtTDa7PQv2uE8/6Wb8O/5F7Ntlqluwy+tEoTtdv+NCIhLUjLN3unJ9vsecBBfqMHT9IBuDWc5XwWHiyqts7wc2Zd+hnRMzSKF8YKhq/FaMm6TKXyY2HeRJ484Thi2LHL0moieM8XXImZw0OwWV+WgE3dj2zwrNwxASPBU9ren5ySCR0To+SA==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
  s=arcselector10001;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=AAE1GuU97+6bxe9iXtFIqCAC1vZBHlYiI40pmMJ5IgM=;
- b=cYA2zjmVEAGuD7+inn5TyRPuq0hZNcqRGLUI79BFfNOj4g5ZSrJe4rQ1zbJ54iKkIxN896C81TtYtfSPVg7FK0d3Vx2oz9Yl75hH1vDmkuWG6lulbO4bkPOe1SZuj+1wPSwbN7KnWxLehb83yApOSv7ZM17+Dh2G1E7LPn1RtRaAJaMg+sSzUb9XKnWdVXKi6QZQj0b0l1CQV03Ou6kZPpEnQ2Em7Dho4+I2LYvlK8LBZ3v33TkRUR5Ic/ks+fDrPMvOBD3lWyw9APqq7DozE+Zy7KTWyhZOz5SSoKcP5Jn1cwrEkHO7NsC2Z/p5+JBNG9RC8t65Q+oYPtnnnJDlFQ==
+ bh=JC0j4KsPoXNTrrB7vTz9aBAf6IBXfpdmbLfYSzdnlQQ=;
+ b=HV2jvk+ajE4z636vp0AUomMnTrOyyj1knoqhHlDtdcz9x5EaAIwBoz8qsJfeaeTRtGxrVPE9192hwrmhI4tEeVihI5wwu0ZmrDRhUZH67P2Zrxg0RkTG784IHf4+4rkbsF4sWxMYPqPlHh4kGs7JbTlNOg/F9JP+puCMHNbO7ZXI46Ox4bX5lW0SPT8zVMxDVkSKL3trGPpWzHGQS9Ys9Ftt3vx/eeeYytpMSX2emrE/VGnh97/z2Twl+BGQC5NW8cjOfXEHI9Ordvb2YR/JlYw/NxjNG0Tr//Yp7g93t0pmdIaEG3fK0yzz4+rQNmsUBluCUnFiskP8hmXNtJbBzg==
 ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=fail (sender ip is
- 164.130.1.59) smtp.rcpttodomain=baylibre.com smtp.mailfrom=foss.st.com;
+ 164.130.1.60) smtp.rcpttodomain=baylibre.com smtp.mailfrom=foss.st.com;
  dmarc=fail (p=none sp=none pct=100) action=none header.from=foss.st.com;
  dkim=none (message not signed); arc=none (0)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=foss.st.com;
  s=selector2;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=AAE1GuU97+6bxe9iXtFIqCAC1vZBHlYiI40pmMJ5IgM=;
- b=Xbm+doNipKgDlRdVQzDNW8fzwrd51cu5cVtWaaKc4cePDUHi/DCPhknJVVckZa0YO0AC8IEus9z6BUOc+l9TVqCijuaVgL7pPOBvGBoC0+9Rq1ZwYOz8jjOiGBNPdl0Wm5ZQUY/5DYFcgMJ+zrNhqWUFtvkefg7Mm96ftH4ULyzS/zZwsw2Oq34VJTCq0oW3KhiTJh9DHfsiH63ZClg87ZO+EuaZdI7EDmgcvNNeG7Vaj3lvMklAYIQl+vVGRlUp3ZRPRMi8A81W6zKC6XFeykpYBGs1K1/7+uDtaJPLs4gsy1sircMjk4O9UvXGPWfJiR9es4WRc/iHa43SecAVcg==
-Received: from DUZP191CA0040.EURP191.PROD.OUTLOOK.COM (2603:10a6:10:4f8::18)
- by AMDPR10MB992172.EURPRD10.PROD.OUTLOOK.COM (2603:10a6:20b:70d::8) with
+ bh=JC0j4KsPoXNTrrB7vTz9aBAf6IBXfpdmbLfYSzdnlQQ=;
+ b=Hwev7fp3HedxvciErXEarMoz1nZzZdhE2XzUxYPlmBh6TbDuEDlXpSGnR9jYfgd9bOgRkzgnes8Los5ME4e31b0QQ78Dd0jGyrRqFmYHTjIuGBLgJTEwCrKVXfFHd1lcXwUDogRxkGDls6FKiNsE2PnO6Xhcc9gfWKsijMM/vx6JkftI1JaJ1vjaAty27DNcAkli9LxovvDoDkPVOpHLvQppLKWMThGHa56b3KM4iGIM0Wrt7gyWACCLKmy9Eb5ivLUzkUZd62dBM4U2oVd4zErOPXySS/iT3DjBa0iY8HCjEt1g/BBmUGSJ/wgfIDzbEcRNGYQNcHLCFggFG5nJkA==
+Received: from AS4P192CA0023.EURP192.PROD.OUTLOOK.COM (2603:10a6:20b:5e1::9)
+ by PA4PR10MB5636.EURPRD10.PROD.OUTLOOK.COM (2603:10a6:102:265::21) with
  Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.472.15; Wed, 30 Sep
- 2026 14:19:24 +0000
-Received: from DU6PEPF0000A7E3.eurprd02.prod.outlook.com
- (2603:10a6:10:4f8:cafe::8d) by DUZP191CA0040.outlook.office365.com
- (2603:10a6:10:4f8::18) with Microsoft SMTP Server (version=TLS1_3,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.451.26; Wed, 30 Sep
+ 2026 14:19:19 +0000
+Received: from AMS1EPF0000008D.eurprd05.prod.outlook.com
+ (2603:10a6:20b:5e1:cafe::15) by AS4P192CA0023.outlook.office365.com
+ (2603:10a6:20b:5e1::9) with Microsoft SMTP Server (version=TLS1_3,
  cipher=TLS_AES_256_GCM_SHA384) id 15.21.472.16 via Frontend Transport; Wed,
- 30 Sep 2026 14:19:23 +0000
+ 30 Sep 2026 14:19:19 +0000
 X-MS-Exchange-Authentication-Results: mx.microsoft.com 1; spf=fail (sender IP
- is 164.130.1.59) smtp.mailfrom=foss.st.com; dkim=none (message not signed)
+ is 164.130.1.60) smtp.mailfrom=foss.st.com; dkim=none (message not signed)
  header.d=none;dmarc=fail action=none header.from=foss.st.com;
 Received-SPF: Fail (protection.outlook.com: domain of foss.st.com does not
- designate 164.130.1.59 as permitted sender) receiver=protection.outlook.com;
- client-ip=164.130.1.59; helo=smtpO365.st.com;
-Received: from smtpO365.st.com (164.130.1.59) by
- DU6PEPF0000A7E3.mail.protection.outlook.com (10.167.8.41) with Microsoft SMTP
- Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.21.472.14 via Frontend Transport; Wed, 30 Sep 2026 14:19:23 +0000
-Received: from STKDAG1NODE2.st.com (10.75.128.133) by smtpo365.st.com
- (10.250.44.71) with Microsoft SMTP Server (version=TLS1_2,
+ designate 164.130.1.60 as permitted sender) receiver=protection.outlook.com;
+ client-ip=164.130.1.60; helo=smtpO365.st.com;
+Received: from smtpO365.st.com (164.130.1.60) by
+ AMS1EPF0000008D.mail.protection.outlook.com (10.167.242.84) with Microsoft
+ SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.21.472.14 via Frontend Transport; Wed, 30 Sep 2026 14:19:19 +0000
+Received: from STKDAG1NODE2.st.com (10.75.128.133) by smtpO365.st.com
+ (10.250.44.72) with Microsoft SMTP Server (version=TLS1_2,
  cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.43; Wed, 30 Sep
- 2026 16:25:55 +0200
+ 2026 16:25:10 +0200
 Received: from localhost (10.252.17.140) by STKDAG1NODE2.st.com
  (10.75.128.133) with Microsoft SMTP Server (version=TLS1_2,
  cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.43; Wed, 30 Sep
- 2026 16:19:22 +0200
+ 2026 16:19:16 +0200
 From: Fabrice Gasnier <fabrice.gasnier@foss.st.com>
-Date: Wed, 30 Sep 2026 16:18:36 +0200
-Subject: [PATCH v3 15/15] arm64: dts: st: add ADC support on
- stm32mp257f-ev1 board
+Date: Wed, 30 Sep 2026 16:18:29 +0200
+Subject: [PATCH v3 08/15] iio: adc: stm32-adc: add support for stm32mp25
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-ID: <20260930-adc-stm32mp25-v1-v3-15-406834430d72@foss.st.com>
+Message-ID: <20260930-adc-stm32mp25-v1-v3-8-406834430d72@foss.st.com>
 References: <20260930-adc-stm32mp25-v1-v3-0-406834430d72@foss.st.com>
 In-Reply-To: <20260930-adc-stm32mp25-v1-v3-0-406834430d72@foss.st.com>
 To: Jonathan Cameron <jic23@kernel.org>, David Lechner
@@ -105,35 +104,36 @@ To: Jonathan Cameron <jic23@kernel.org>, David Lechner
 CC: Marek Vasut <marex@nabladev.com>, <linux-iio@vger.kernel.org>,
 	<devicetree@vger.kernel.org>, <linux-stm32@st-md-mailman.stormreply.com>,
 	<linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>,
-	Fabrice Gasnier <fabrice.gasnier@foss.st.com>
+	Fabrice Gasnier <fabrice.gasnier@foss.st.com>, Cheick Traore
+	<cheick.traore-ext@st.com>, Olivier Moysan <olivier.moysan@foss.st.com>
 X-Mailer: b4 0.16.0
 X-Originating-IP: [10.252.17.140]
 X-ClientProxiedBy: STKCAS1NODE1.st.com (10.75.128.134) To STKDAG1NODE2.st.com
  (10.75.128.133)
 X-EOPAttributedMessage: 0
 X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: DU6PEPF0000A7E3:EE_|AMDPR10MB992172:EE_
-X-MS-Office365-Filtering-Correlation-Id: 19933a72-27ba-41c1-9db1-08df1efdd3dc
+X-MS-TrafficTypeDiagnostic: AMS1EPF0000008D:EE_|PA4PR10MB5636:EE_
+X-MS-Office365-Filtering-Correlation-Id: 9042bf17-15d7-4a1e-3e1a-08df1efdd11f
 X-MS-Exchange-SenderADCheck: 1
 X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|23010399003|36860700016|7416014|1800799024|82310400026|376014|10067099003|56012099006|6133799003|3023799007|11063799006|18002099003|22082099003;
-X-Microsoft-Antispam-Message-Info: S17R87cFtgr+xKCbvIKeni9Y8Huzt6LDmrronV+XLq8rdpCiTYXrM67HSIurNrWIm46GnNEN7SRvs/bBbuykvrWmWcytOII0K/5kVh5vT97bMAHpPcvNzg9WxOOZ4/ihSqZGE3XwajxYHeE5gS+mlY2/zGfdLCf7FSvl2Rke0AraaXZ4Ky1eLZK4z6GswxdLTzD4FxOgGvzTxySEDyed1RdRnrPEXY+aEdczZZA6IJSrQo7B0j5WxYNDMzj8NtkeOo1kOjbZA0DvX6jlpdlDtzsbw7B5k9WoRVFeLGD0HGaKet1do1q7FFV10WBKbfD2gmxZVfCK1rV3KSQ1tuCFUKdfEkSkBc9LfkNg70n+zQNCejOEVkRVeQKWff52YrXnDMAEwfwastCTp4YrCX5+Ak7R5Wcm+UdiuYY4a9iMGSo2YAXN5hl0ViB4SxwVObA/Hl4ixLeleZi0/G1/8GwSFMe6SkCbm97PuWBv/Y4m1iNlMAQDJwzbCqapWLyS9iMtKzgDxKgpEKQ+GIi7d4oyWvnM/q2/NzBlbrgijQJXQ1tj6DlqDFca2WuFBYpiOEDt9rp74SaNFEp/Sv4SGfS3aGU/zM36u5swfoVvb4qqIRj+RfPZjxIfvZIKLfjglbc2HfWt2FX5DW7ov99DsRQt4x1brja0Q15PDVd2XqkIvjlTSfr50PUhmpdxohYQwSCOLNbAyneRVmzKTLzNV8eESw==
-X-Forefront-Antispam-Report: CIP:164.130.1.59;CTRY:IT;LANG:en;SCL:1;SRV:;IPV:CAL;SFV:NSPM;H:smtpO365.st.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(23010399003)(36860700016)(7416014)(1800799024)(82310400026)(376014)(10067099003)(56012099006)(6133799003)(3023799007)(11063799006)(18002099003)(22082099003);DIR:OUT;SFP:1101;
+X-Microsoft-Antispam: BCL:0;ARA:13230040|36860700016|23010399003|82310400026|1800799024|376014|7416014|10067099003|5023799004|11063799006|56012099006|6133799003|22082099003|18002099003;
+X-Microsoft-Antispam-Message-Info: ZF7TfqdRCMh74kjW7YbNN08DUYJ1+azyJO1B1I4Q1epMKXMi/eLIUB6PFJa8g3zGc3m143pnDofMgQDaJ9ILzfuNNCa8VQOz/Am6EpOg6K7KsWYZNWA+Aj9Nd3i2RF4cenQsFYyfwluhKm3XMllxLJsGaH73sE7HGWBueaL7IB9wTueeyH4t9DkHVPiz3zSckrENDopkedt1PtnKnt/Mr5T9YOLGMm7G4WSjOTAnbzH9BjNkrheMbujjqA1yA40UxYRiVcpkXbIDQVF0oRAuM85w0PyCKUtiimtvq//5O2bWlB6Pf6cibD4HY26Rh9NRuT41T8L9HLXBv8mZoZ0SUroNMkOurZuaRGnOt1wp2h68EYWcibFMuu7nqgA/lCgIyHvFtjLefI4XRvTOyeZDQiqkoZqQpG1JKA1XdVGdd7RWOy9pLvTBq7FEhDcqGxXm+MndsTVLTHrh9k3Yf+owG2UFRW/R04E14SdrPbq6ypDAG9Ong25neVaU68WU/uVJhwxI7nCga2ATwehYGE8zn9Bm72e3jz35JyugUp2c/EhklQlRnJQL7BQCKgnUM6nDZLSIjwcdtzMynvNO8SMpSeyFgYrzgaLHoWNqkdAewKqysmESjgn1osvIYgy7vO+0+7IrXKo/xAgs3PGkZs6Hmz23uLmd77GVKnQiKMyL/SYqUPOv+RONWaIU3poV1D4TZ7Lp2zbQ+t/KwzakbcJENg==
+X-Forefront-Antispam-Report: CIP:164.130.1.60;CTRY:IT;LANG:en;SCL:1;SRV:;IPV:CAL;SFV:NSPM;H:smtpO365.st.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(36860700016)(23010399003)(82310400026)(1800799024)(376014)(7416014)(10067099003)(5023799004)(11063799006)(56012099006)(6133799003)(22082099003)(18002099003);DIR:OUT;SFP:1101;
 X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: +CvupByN/t4iCZa3R2/FpD+fdZQyH1udsabZBACgSUNBCFNGQwPfM0nXj1NQTR+hgmWd3p3mt7gs4xlea38tFfib7PLy8X4KlCmLbvchF0QlwDHBZfDxhzm2Rq2uHUTq/6M64PuwgRfEYPIFRKUBJq+6uxQngQBVZpOcCVsj2/ATXLPTA4Can3m0UhCr4hnW51jGwHATrc8xIxkMEzCyCcXYTPlVbvDI6Trhp5ySnomQBvsE4xuX6v9vYcIjOOY2h5ZCpLgaR1gyOME6Wp4Blpf+RBXkXQJb2sg9E3VMAR0DrDZAW8oUytQ+9aebgOAyVFZcq6Y3iLZ5Jz42D8jH8TxfWkEanyDXm1Ut2Z+NoydQULGRxQPutA42Yvjjr83D3U1vfgeGmH8EtVpEM265sPzL2KdO1Z5EcHkQEqIrzJS0DRE5s62CtqAbWMOYgSQm
+X-MS-Exchange-AntiSpam-MessageData-0: Ha5z3fYxFnzcLhueyB1qCuU1eApKpEUBpzbKlxcUUJp7xAIWeffo4tUwJi340d1jpRC7xRB4YnVcuMX4Abho1CECYe26+BfTPSaEC2H+Ol6/+e+VWnaAInCAxhvzy7lNMA5S3sh9qoVwoybeRNRLiNfpfzlamgbEll85ocxp/jS2Ys4aT0Pixdrfq9A6Tkdu/3uMWfeU+5eQO/+lTzG2oxLg3WZf5x4mzuMVWHH7pgy4shLdpvaBMAaJ/mZN3uLGZY9TnWNGIy/P02HS/ysk10XOPUWvQVPXF+sVGNQpPvGm8EurjJrfOLqarcRnxUODoYAUJcwrAgg4v1E4oh4t6g2E8X5F1GvYp7nnHcEBkMPytxO24ei+H30KtXDBkVf4RPoT/v9lDDGWMHK12mVyJ73xXtfqvPfbwC/9T7EhjG0LQZShxXEvC8kUlchJ6UIW
 X-OriginatorOrg: foss.st.com
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 30 Sep 2026 14:19:23.8763
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 30 Sep 2026 14:19:19.3068
  (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: 19933a72-27ba-41c1-9db1-08df1efdd3dc
+X-MS-Exchange-CrossTenant-Network-Message-Id: 9042bf17-15d7-4a1e-3e1a-08df1efdd11f
 X-MS-Exchange-CrossTenant-Id: 75e027c9-20d5-47d5-b82f-77d7cd041e8f
-X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=75e027c9-20d5-47d5-b82f-77d7cd041e8f;Ip=[164.130.1.59];Helo=[smtpO365.st.com]
-X-MS-Exchange-CrossTenant-AuthSource: DU6PEPF0000A7E3.eurprd02.prod.outlook.com
+X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=75e027c9-20d5-47d5-b82f-77d7cd041e8f;Ip=[164.130.1.60];Helo=[smtpO365.st.com]
+X-MS-Exchange-CrossTenant-AuthSource: AMS1EPF0000008D.eurprd05.prod.outlook.com
 X-MS-Exchange-CrossTenant-AuthAs: Anonymous
 X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: AMDPR10MB992172
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: PA4PR10MB5636
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260930_151928_925290_5D3347F8 
-X-CRM114-Status: GOOD (  12.81  )
+X-CRM114-CacheID: sfid-20260930_151929_472372_B7938528 
+X-CRM114-Status: GOOD (  24.75  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -148,58 +148,625 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add ADC support on stm32mp257f-ev1 board. ANA0 dedicated pin is wired on
-mikroBUS connector, through a resistor divided and operational amplifier.
-Configure adc1 channel0, and voltage divider in the DT. Keep it disabled
-by default, to allow ADC to be used freely for other purpose.
+Add support for ADC on STM32MP25 SoC. It has 3 ADCs, split into two blocks:
+- ADC1 & ADC2 are tightly coupled.
+- ADC3 is managed independently.
 
---> | 470K | -+-- > | OpAmp (gain = 1) | --> ANA0 (to ADC1, ADC2 or ADC3)
-              |
-              v
-           | 560K |
-              |
-              v
-             ---
-             GND
+Trigger list slightly changes between these blocks (ADC1 & ADC2). Other
+differences are found on channels interconnects (similar between ADC2
+and ADC3):
+- ADC1 is connected to 18 external channels + 2 internal channels
+- ADC2 is connected to 14 external channels + 6 internal channels
+- ADC3 is connected to 14 external channels + 6 internal channels
 
+Each ADC is a 12-bits successive approximation analog-to-digital converter,
+with up to 20 multiplexed channels that can be configured as single ended
+or differential. ADC resolution ranges from 6 to 12 bits.
+
+It introduces diversity regarding IRQs, clocks, software calibration
+procedure, internal voltage channels, sampling time (prescaler) and
+trigger list. Most of the architecture, and the driver engine remains
+similar. So, handle the differences w.r.t. other STM32 ADCs family with
+a dedicated compatible and compatible data.
+
+Co-developed-by: Cheick Traore <cheick.traore-ext@st.com>
+Signed-off-by: Cheick Traore <cheick.traore-ext@st.com>
+Co-developed-by: Olivier Moysan <olivier.moysan@foss.st.com>
+Signed-off-by: Olivier Moysan <olivier.moysan@foss.st.com>
 Signed-off-by: Fabrice Gasnier <fabrice.gasnier@foss.st.com>
 ---
- arch/arm64/boot/dts/st/stm32mp257f-ev1.dts | 22 ++++++++++++++++++++++
- 1 file changed, 22 insertions(+)
+Changes in v3:
+- Andy review comments: Refactor the calibration routine, to get rid of
+  retry labels. So add a dedicated differential calibration routine. Each
+  routine becomes more linear. Adopt positive conditional checks.
+- Fix style (trailing commas).
 
-diff --git a/arch/arm64/boot/dts/st/stm32mp257f-ev1.dts b/arch/arm64/boot/dts/st/stm32mp257f-ev1.dts
-index b5db62a0a550..ed61ff70c0de 100644
---- a/arch/arm64/boot/dts/st/stm32mp257f-ev1.dts
-+++ b/arch/arm64/boot/dts/st/stm32mp257f-ev1.dts
-@@ -160,6 +160,28 @@ mm_ospi1: mm-ospi@60000000 {
- 			no-map;
- 		};
- 	};
+Changes in v2:
+- Split as advised by Jonathan and Andy. Added precursor patches to
+  prepare all the infrastructure. Keep only the new hardware support.
+- Adopt separate compatible for ADC1, ADC2 and ADC3 to better describe
+  internal channels (split regs descriptions) and trigger list. Drop
+  "st,adc-trigger-sel".
+- Cosmetic updates whilst at it: remove trailing comma
+- Refactor calibration routine, to avoid twisted goto chain, as advised
+  by Andy
+- One patch per new SoC
+---
+ drivers/iio/adc/stm32-adc-core.c |  38 ++++
+ drivers/iio/adc/stm32-adc-core.h |  20 ++
+ drivers/iio/adc/stm32-adc.c      | 397 +++++++++++++++++++++++++++++++++++++++
+ 3 files changed, 455 insertions(+)
+
+diff --git a/drivers/iio/adc/stm32-adc-core.c b/drivers/iio/adc/stm32-adc-core.c
+index dcaf305edec2..bb8b53f52914 100644
+--- a/drivers/iio/adc/stm32-adc-core.c
++++ b/drivers/iio/adc/stm32-adc-core.c
+@@ -136,6 +136,9 @@ static struct stm32_adc_priv *to_stm32_adc_priv(struct stm32_adc_common *com)
+ /* STM32F4 ADC internal common clock prescaler division ratios */
+ static unsigned int stm32f4_pclk_div[] = { 2, 4, 6, 8 };
+ 
++/* STM32MP25 ADC internal common clock prescaler division ratios */
++static unsigned int stm32mp25_presc_div[] = { 1, 2, 4, 6, 8, 10, 12, 16, 32, 64, 128, 256 };
 +
-+	vdiv_ana0: voltage-divider-ana0 {
-+		compatible = "voltage-divider";
-+		io-channels = <&adc1 0>;
-+		output-ohms = <560000>;
-+		full-ohms = <1030000>;
-+		status = "disabled";
-+	};
-+};
-+
-+&adc_12 {
-+	/* Don't need a pinctrl for ANA0 dedicated pin e.g. Channel@0 */
-+	vdda-supply = <&scmi_vdda18adc>;
-+	vref-supply = <&scmi_v1v8>;
-+	status = "disabled";
-+	adc1: adc@0 {
-+		status = "okay";
-+		channel@0 {
-+			reg = <0>;
-+			st,min-sample-time-ns = <400>;
-+		};
-+	};
+ /**
+  * stm32_adc_clk_sel() - Select stm32f4 ADC common clock prescaler
+  * @pdev: platform device
+@@ -345,6 +348,17 @@ static const struct stm32_adc_common_regs stm32mp13_adc_common_regs = {
+ 	.eocie_msk = STM32H7_EOCIE,
  };
  
- &arm_wdt {
++/* STM32MP25 common registers definitions */
++static const struct stm32_adc_common_regs stm32mp25_adc_common_regs = {
++	.csr = STM32H7_ADC_CSR,
++	.ccr = STM32H7_ADC_CCR,
++	.eoc_msk = { STM32H7_EOC_MST, STM32H7_EOC_SLV},
++	.ovr_msk = { STM32H7_OVR_MST, STM32H7_OVR_SLV},
++	.ier = STM32H7_ADC_IER,
++	.eocie_msk = STM32H7_EOCIE,
++	.presc_msk = STM32H7_PRESC_MASK,
++};
++
+ static const unsigned int stm32_adc_offset[STM32_ADC_MAX_ADCS] = {
+ 	0, STM32_ADC_OFFSET, STM32_ADC_OFFSET * 2,
+ };
+@@ -422,6 +436,8 @@ static int stm32_adc_irq_probe(struct platform_device *pdev,
+ 	 * Interrupt(s) must be provided, depending on the compatible:
+ 	 * - stm32f4/h7 shares a common interrupt line.
+ 	 * - stm32mp1, has one line per ADC
++	 * - stm32mp25, has a dual ADC1/ADC2 and standalone ADC3. Each ADC has an IRQ
++	 *   (two for ADC1/ADC2, one for ADC3)
+ 	 */
+ 	for (i = 0; i < priv->nb_irqs; i++) {
+ 		priv->irq[i] = platform_get_irq(pdev, i);
+@@ -702,6 +718,17 @@ static int stm32_adc_probe_identification(struct platform_device *pdev,
+ 		return -EINVAL;
+ 	}
+ 
++	if (priv->cfg->ipid == STM32MP25_IPIDR_NUMBER) {
++		/*
++		 * ADC diversity on STM32MP25 is handled here. There may be:
++		 * - 2 IRQs for ADC1/ADC2 block
++		 * - 1 IRQ for ADC3 block.
++		 * There cannot be more IRQs than the actual number of ADCs.
++		 */
++		if (priv->nb_irqs > priv->nb_adc_max)
++			priv->nb_irqs = priv->nb_adc_max;
++	}
++
+ 	val = readl_relaxed(priv->common.base + STM32MP1_ADC_VERR);
+ 	dev_dbg(&pdev->dev, "ADC version: %lu.%lu\n",
+ 		FIELD_GET(STM32MP1_MAJREV_MASK, val),
+@@ -894,11 +921,22 @@ static const struct stm32_adc_priv_cfg stm32mp13_adc_priv_cfg = {
+ 	.num_irqs = 1,
+ };
+ 
++static const struct stm32_adc_priv_cfg stm32mp25_adc_priv_cfg = {
++	.regs = &stm32mp25_adc_common_regs,
++	.clk_sel = stm32_adc_clk_sel,
++	.presc = stm32mp25_presc_div,
++	.num_presc = ARRAY_SIZE(stm32mp25_presc_div),
++	.max_clk_rate_hz = 70000000,
++	.ipid = STM32MP25_IPIDR_NUMBER,
++	.num_irqs = 2, /* 2 IRQs for ADC1/ADC2, 1 irq for ADC3 */
++};
++
+ static const struct of_device_id stm32_adc_of_match[] = {
+ 	{ .compatible = "st,stm32f4-adc-core", .data = (void *)&stm32f4_adc_priv_cfg },
+ 	{ .compatible = "st,stm32h7-adc-core", .data = (void *)&stm32h7_adc_priv_cfg },
+ 	{ .compatible = "st,stm32mp1-adc-core",	.data = (void *)&stm32mp1_adc_priv_cfg },
+ 	{ .compatible = "st,stm32mp13-adc-core", .data = (void *)&stm32mp13_adc_priv_cfg },
++	{ .compatible = "st,stm32mp25-adc-core", .data = (void *)&stm32mp25_adc_priv_cfg },
+ 	{ }
+ };
+ MODULE_DEVICE_TABLE(of, stm32_adc_of_match);
+diff --git a/drivers/iio/adc/stm32-adc-core.h b/drivers/iio/adc/stm32-adc-core.h
+index db50a9f3b922..68b937e3819f 100644
+--- a/drivers/iio/adc/stm32-adc-core.h
++++ b/drivers/iio/adc/stm32-adc-core.h
+@@ -121,6 +121,9 @@
+ #define STM32MP13_ADC_CALFACT		0xB4
+ #define STM32MP13_ADC2_OR		0xC8
+ 
++/* STM32MP25 - ADC2 and ADC3 option register */
++#define STM32MP25_ADC23_OR		0xD0
++
+ /* STM32H7 - common registers for all ADC instances */
+ #define STM32H7_ADC_CSR			(STM32_ADCX_COMN_OFFSET + 0x00)
+ #define STM32H7_ADC_CCR			(STM32_ADCX_COMN_OFFSET + 0x08)
+@@ -257,8 +260,25 @@ enum stm32h7_adc_dmngt {
+ #define STM32MP13_OP1			BIT(1)
+ #define STM32MP13_OP0			BIT(0)
+ 
++/* STM32MP25 - Registers for each ADC instance */
++#define STM32MP25_ADC_CALFACT		0xC4
++
++/* STM32MP25_ADC_CALFACT - bit fields */
++#define STM32MP25_CALFACT_CALADDOS	BIT(31)
++#define STM32MP25_CALFACT_D_MASK	GENMASK(24, 16)
++#define STM32MP25_CALFACT_S_MASK	GENMASK(8, 0)
++
++/* STM32MP25_ADC_CFGR specific bit fields */
++#define STM32MP25_RES_SHIFT		2
++#define STM32MP25_RES_MASK		GENMASK(3, 2)
++
++/* STM32MP25_ADC23_OR - specific bit fields */
++#define STM32MP25_VDDCPUEN		BIT(3)
++#define STM32MP25_VDDCOREEN		BIT(2)
++
+ #define STM32MP15_IPIDR_NUMBER		0x00110005
+ #define STM32MP13_IPIDR_NUMBER		0x00110006
++#define STM32MP25_IPIDR_NUMBER		0x00110008
+ 
+ /**
+  * struct stm32_adc_common - stm32 ADC driver common data (for all instances)
+diff --git a/drivers/iio/adc/stm32-adc.c b/drivers/iio/adc/stm32-adc.c
+index c1979f1f1738..33e41505b2e9 100644
+--- a/drivers/iio/adc/stm32-adc.c
++++ b/drivers/iio/adc/stm32-adc.c
+@@ -33,6 +33,9 @@
+ /* Number of linear calibration shadow registers / LINCALRDYW control bits */
+ #define STM32H7_LINCALFACT_NUM		6
+ 
++/* Number of loops in the calibration procedure to average data on STM32MP25 */
++#define STM32MP25_CALIB_LOOP		8
++
+ /* BOOST bit must be set on STM32H7 when ADC clock is above 20MHz */
+ #define STM32H7_BOOST_CLKRATE		20000000UL
+ 
+@@ -77,6 +80,14 @@ enum stm32_adc_extsel {
+ 	STM32_EXT18,
+ 	STM32_EXT19,
+ 	STM32_EXT20,
++	STM32_EXT21,
++	STM32_EXT22,
++	STM32_EXT23,
++	STM32_EXT24,
++	STM32_EXT25,
++	STM32_EXT26,
++	STM32_EXT27,
++	STM32_EXT28,
+ };
+ 
+ enum stm32_adc_int_ch {
+@@ -348,6 +359,20 @@ static const struct stm32_adc_info stm32mp13_adc_info = {
+ 	.num_ovs = ARRAY_SIZE(stm32mp13_adc_oversampling_avail),
+ };
+ 
++/*
++ * stm32mp25 can have up to 20 channels.
++ * Keep channel 19 (VREF+) hidden on STM32MP25: it is the ADC reference
++ * supply itself, so exposing it as a regular input is meaningless.
++ * Reference voltage must be derived from VREFINT with calibration data.
++ */
++static const struct stm32_adc_info stm32mp25_adc_info = {
++	.max_channels = STM32_ADC_CH_MAX - 1,
++	.resolutions = stm32f4_adc_resolutions,
++	.oversampling = stm32h7_adc_oversampling_avail,
++	.num_res = ARRAY_SIZE(stm32f4_adc_resolutions),
++	.num_ovs = ARRAY_SIZE(stm32h7_adc_oversampling_avail),
++};
++
+ /*
+  * stm32f4_sq - describe regular sequence registers
+  * - L: sequence len (register & bit field)
+@@ -538,6 +563,114 @@ static const struct stm32_adc_regspec stm32h7_adc_regspec = {
+ 	.smp_bits = stm32h7_smp_bits,
+ };
+ 
++/* STM32MP25 external trigger sources for ADC1 and ADC2 */
++static struct stm32_adc_trig_info stm32mp25_adc1_adc2_trigs[] = {
++	{ TIM1_TRGO, STM32_EXT0 },
++	{ TIM1_TRGO2, STM32_EXT1 },
++	{ TIM8_TRGO, STM32_EXT2 },
++	{ TIM8_TRGO2, STM32_EXT3 },
++	{ TIM20_TRGO, STM32_EXT4 },
++	{ TIM20_TRGO2, STM32_EXT5 },
++	{ TIM2_TRGO, STM32_EXT6 },
++	{ TIM3_TRGO, STM32_EXT7 },
++	{ TIM4_TRGO, STM32_EXT8 },
++	{ TIM5_TRGO, STM32_EXT9 },
++	{ TIM6_TRGO, STM32_EXT10 },
++	{ TIM15_TRGO, STM32_EXT11 },
++	{ TIM1_CH1, STM32_EXT12 },
++	{ TIM1_CH2, STM32_EXT13 },
++	{ TIM1_CH3, STM32_EXT14 },
++	{ TIM20_OC1, STM32_EXT15 },
++	{ TIM20_OC2, STM32_EXT16 },
++	{ TIM20_OC3, STM32_EXT17 },
++	{ TIM2_CH2, STM32_EXT18 },
++	{ TIM3_CH4, STM32_EXT19 },
++	{ TIM4_CH4, STM32_EXT20 },
++	{ TIM5_CH1, STM32_EXT21 },
++	{ TIM12_CH1, STM32_EXT22 },
++	{ LPTIM1_CH1, STM32_EXT24 },
++	{ LPTIM2_CH1, STM32_EXT25 },
++	{ LPTIM3_CH1, STM32_EXT26 },
++	{ LPTIM4_CH1, STM32_EXT27 },
++	{ LPTIM5_OUT, STM32_EXT28 },
++	{ }
++};
++
++/* STM32MP25 external trigger sources for ADC3 */
++static struct stm32_adc_trig_info stm32mp25_adc3_trigs[] = {
++	{ TIM1_TRGO, STM32_EXT0 },
++	{ TIM1_TRGO2, STM32_EXT1 },
++	{ TIM8_TRGO, STM32_EXT2 },
++	{ TIM8_TRGO2, STM32_EXT3 },
++	{ TIM20_TRGO, STM32_EXT4 },
++	{ TIM20_TRGO2, STM32_EXT5 },
++	{ TIM2_TRGO, STM32_EXT6 },
++	{ TIM3_TRGO, STM32_EXT7 },
++	{ TIM4_TRGO, STM32_EXT8 },
++	{ TIM5_TRGO, STM32_EXT9 },
++	{ TIM6_TRGO, STM32_EXT10 },
++	{ TIM7_TRGO, STM32_EXT11 },
++	{ TIM15_TRGO, STM32_EXT12 },
++	{ TIM17_OC1, STM32_EXT13 },
++	{ TIM1_CH3, STM32_EXT14 },
++	{ TIM8_CH1, STM32_EXT15 },
++	{ TIM20_OC1, STM32_EXT16 },
++	{ TIM2_CH1, STM32_EXT17 },
++	{ TIM2_CH3, STM32_EXT18 },
++	{ TIM3_CH1, STM32_EXT19 },
++	{ TIM4_CH1, STM32_EXT20 },
++	{ TIM5_CH3, STM32_EXT21 },
++	{ TIM12_CH1, STM32_EXT22 },
++	{ LPTIM1_CH1, STM32_EXT24 },
++	{ LPTIM2_CH1, STM32_EXT25 },
++	{ LPTIM3_CH1, STM32_EXT26 },
++	{ LPTIM4_CH1, STM32_EXT27 },
++	{ LPTIM5_OUT, STM32_EXT28 },
++	{ }
++};
++
++/* STM32MP25 programmable sampling time (ADC clock cycles, rounded down) */
++static const unsigned int stm32mp25_adc_smp_cycles[STM32_ADC_MAX_SMP + 1] = {
++	2, 3, 7, 12, 24, 47, 247, 1501,
++};
++
++static const struct stm32_adc_regspec stm32mp25_adc1_regspec = {
++	.dr = STM32H7_ADC_DR,
++	.ier_eoc = { STM32H7_ADC_IER, STM32H7_EOCIE },
++	.ier_ovr = { STM32H7_ADC_IER, STM32H7_OVRIE },
++	.isr_eoc = { STM32H7_ADC_ISR, STM32H7_EOC },
++	.isr_ovr = { STM32H7_ADC_ISR, STM32H7_OVR },
++	.sqr = stm32h7_sq,
++	.exten = { STM32H7_ADC_CFGR, STM32H7_EXTEN_MASK, STM32H7_EXTEN_SHIFT },
++	.extsel = { STM32H7_ADC_CFGR, STM32H7_EXTSEL_MASK,
++		    STM32H7_EXTSEL_SHIFT },
++	.res = { STM32H7_ADC_CFGR, STM32MP25_RES_MASK, STM32MP25_RES_SHIFT },
++	.difsel = { STM32H7_ADC_DIFSEL, STM32H7_DIFSEL_MASK},
++	.smpr = { STM32H7_ADC_SMPR1, STM32H7_ADC_SMPR2 },
++	.smp_bits = stm32h7_smp_bits,
++	.ccr_vref = { STM32H7_ADC_CCR, STM32H7_VREFEN },
++};
++
++static const struct stm32_adc_regspec stm32mp25_adc2_adc3_regspec = {
++	.dr = STM32H7_ADC_DR,
++	.ier_eoc = { STM32H7_ADC_IER, STM32H7_EOCIE },
++	.ier_ovr = { STM32H7_ADC_IER, STM32H7_OVRIE },
++	.isr_eoc = { STM32H7_ADC_ISR, STM32H7_EOC },
++	.isr_ovr = { STM32H7_ADC_ISR, STM32H7_OVR },
++	.sqr = stm32h7_sq,
++	.exten = { STM32H7_ADC_CFGR, STM32H7_EXTEN_MASK, STM32H7_EXTEN_SHIFT },
++	.extsel = { STM32H7_ADC_CFGR, STM32H7_EXTSEL_MASK,
++		    STM32H7_EXTSEL_SHIFT },
++	.res = { STM32H7_ADC_CFGR, STM32MP25_RES_MASK, STM32MP25_RES_SHIFT },
++	.difsel = { STM32H7_ADC_DIFSEL, STM32H7_DIFSEL_MASK},
++	.smpr = { STM32H7_ADC_SMPR1, STM32H7_ADC_SMPR2 },
++	.smp_bits = stm32h7_smp_bits,
++	.or_vddcore = { STM32MP25_ADC23_OR, STM32MP25_VDDCOREEN },
++	.or_vddcpu = { STM32MP25_ADC23_OR, STM32MP25_VDDCPUEN },
++	.ccr_vbat = { STM32H7_ADC_CCR, STM32H7_VBATEN },
++	.ccr_vref = { STM32H7_ADC_CCR, STM32H7_VREFEN },
++};
++
+ /* STM32MP13 programmable sampling time (ADC clock cycles, rounded down) */
+ static const unsigned int stm32mp13_adc_smp_cycles[STM32_ADC_MAX_SMP + 1] = {
+ 	2, 6, 12, 24, 47, 92, 247, 640,
+@@ -1304,6 +1437,209 @@ static void stm32h7_adc_unprepare(struct iio_dev *indio_dev)
+ 	stm32h7_adc_enter_pwr_down(adc);
+ }
+ 
++/*
++ * STM32MP25 offset calibration software procedure. Basically the calibration routine is
++ * expected to average (for example) 8 samples in calibration mode, for single-ended  and
++ * differential channels, to calibrate the zero offset. In case offset is "negative", an
++ * additional offset can be added, to determine calibration factor. It must be kept later
++ * for all conversions.
++ */
++static int stm32mp25_adc_calib_get_average_data(struct iio_dev *indio_dev, u32 *average)
++{
++	struct stm32_adc *adc = iio_priv(indio_dev);
++	u32 avg = 0;
++
++	/* Repeat several conversions in calibration mode, average the results */
++	for (unsigned int i = 0; i < STM32MP25_CALIB_LOOP; i++) {
++		int ret;
++		u32 val;
++
++		stm32_adc_set_bits(adc, STM32H7_ADC_CR, STM32H7_ADSTART);
++		ret = stm32_adc_readl_poll_timeout(STM32H7_ADC_CR, val,
++						   !(val & (STM32H7_ADSTART)),
++						   100, STM32_ADC_TIMEOUT_US);
++		if (ret) {
++			dev_err(&indio_dev->dev, "calibration average error %d\n", ret);
++			return ret;
++		}
++
++		val = stm32_adc_readl(adc, adc->cfg->regs->dr);
++		dev_vdbg(&indio_dev->dev, "dr[%d]=0x%08x\n", i, val);
++		avg += val;
++	}
++
++	*average = DIV_ROUND_CLOSEST(avg, STM32MP25_CALIB_LOOP);
++	dev_vdbg(&indio_dev->dev, "average=0x%08x\n", *average);
++
++	return 0;
++}
++
++static int stm32mp25_adc_calib_single_ended(struct iio_dev *indio_dev, u32 *calfact)
++{
++	bool additional_offset = FIELD_GET(STM32MP25_CALFACT_CALADDOS, *calfact);
++	struct stm32_adc *adc = iio_priv(indio_dev);
++	u32 average;
++	int ret;
++
++	/* Select single ended input calibration */
++	stm32_adc_clr_bits(adc, STM32H7_ADC_CR, STM32H7_ADCALDIF);
++	ret = stm32mp25_adc_calib_get_average_data(indio_dev, &average);
++	if (ret)
++		return ret;
++
++	/* Add offset and re-run single-ended calibration if the averaged data is zero */
++	if (!average && !additional_offset) {
++		additional_offset = true;
++		*calfact = STM32MP25_CALFACT_CALADDOS;
++		stm32_adc_writel(adc, STM32MP25_ADC_CALFACT, *calfact);
++
++		ret = stm32mp25_adc_calib_get_average_data(indio_dev, &average);
++		if (ret)
++			return ret;
++	}
++
++	if (average) {
++		*calfact |= FIELD_PREP(STM32MP25_CALFACT_S_MASK, average);
++		stm32_adc_writel(adc, STM32MP25_ADC_CALFACT, *calfact);
++	} else if (additional_offset) {
++		/* If average data is still zero with additional offset, just warn about it */
++		dev_warn(&indio_dev->dev, "Single-ended calibration average: 0\n");
++	}
++
++	return 0;
++}
++
++static int stm32mp25_adc_calib_differential(struct iio_dev *indio_dev, u32 *calfact)
++{
++	bool additional_offset = FIELD_GET(STM32MP25_CALFACT_CALADDOS, *calfact);
++	struct stm32_adc *adc = iio_priv(indio_dev);
++	bool diff_below_zero;
++	u32 average;
++	int ret;
++
++	/* Select differential input calibration (keep previous CALADDOS value) */
++	stm32_adc_set_bits(adc, STM32H7_ADC_CR, STM32H7_ADCALDIF);
++	ret = stm32mp25_adc_calib_get_average_data(indio_dev, &average);
++	if (ret)
++		return ret;
++
++	/*
++	 * If averaged differential data is negative (below 0x800, half value in 12-bits mode)
++	 * and an offset can be added, re-run single-ended and differential calibration with an
++	 * additional offset.
++	 */
++	diff_below_zero = average < BIT(adc->cfg->adc_info->resolutions[0] - 1);
++	if (diff_below_zero && !additional_offset) {
++		/* Clear previous calibration result and add an offset */
++		*calfact = STM32MP25_CALFACT_CALADDOS;
++		stm32_adc_writel(adc, STM32MP25_ADC_CALFACT, *calfact);
++
++		ret = stm32mp25_adc_calib_single_ended(indio_dev, calfact);
++		if (ret)
++			return ret;
++
++		stm32_adc_set_bits(adc, STM32H7_ADC_CR, STM32H7_ADCALDIF);
++		ret = stm32mp25_adc_calib_get_average_data(indio_dev, &average);
++		if (ret)
++			return ret;
++
++		diff_below_zero = average < BIT(adc->cfg->adc_info->resolutions[0] - 1);
++	}
++
++	if (!diff_below_zero) {
++		*calfact |= FIELD_PREP(STM32MP25_CALFACT_D_MASK, average);
++		stm32_adc_writel(adc, STM32MP25_ADC_CALFACT, *calfact);
++	} else {
++		/* Clamp differential data to zero (don't use the result), warn about it. */
++		dev_warn(&indio_dev->dev, "Differential calibration clamped(0): 0x%x\n", average);
++	}
++
++	return 0;
++}
++
++static int stm32mp25_adc_calib(struct iio_dev *indio_dev)
++{
++	struct stm32_adc *adc = iio_priv(indio_dev);
++	u32 calfact = 0;
++	int ret;
++
++	stm32_adc_set_bits(adc, STM32H7_ADC_CR, STM32H7_ADCAL);
++	/* Use default resolution (e.g. 12 bits) */
++	stm32_adc_clr_bits(adc, STM32H7_ADC_CFGR, STM32MP25_RES_MASK);
++	/* Clear calfact (additional offset and old calibration data if any) */
++	stm32_adc_writel(adc, STM32MP25_ADC_CALFACT, calfact);
++
++	ret = stm32mp25_adc_calib_single_ended(indio_dev, &calfact);
++	if (ret) {
++		stm32_adc_clr_bits(adc, STM32H7_ADC_CR, STM32H7_ADCAL);
++		return ret;
++	}
++
++	ret = stm32mp25_adc_calib_differential(indio_dev, &calfact);
++	if (ret) {
++		stm32_adc_clr_bits(adc, STM32H7_ADC_CR, STM32H7_ADCAL);
++		return ret;
++	}
++
++	dev_dbg(&indio_dev->dev, "set calfact_s=0x%03lx, calfact_d=0x%03lx, caladdos=%ld\n",
++		FIELD_GET(STM32MP25_CALFACT_S_MASK, calfact),
++		FIELD_GET(STM32MP25_CALFACT_D_MASK, calfact),
++		FIELD_GET(STM32MP25_CALFACT_CALADDOS, calfact));
++
++	stm32_adc_clr_bits(adc, STM32H7_ADC_CR, STM32H7_ADCAL);
++	stm32_adc_set_res(adc);
++
++	return 0;
++}
++
++static int stm32mp25_adc_prepare(struct iio_dev *indio_dev)
++{
++	struct stm32_adc *adc = iio_priv(indio_dev);
++	int ret;
++
++	ret = stm32h7_adc_exit_pwr_down(indio_dev);
++	if (ret)
++		return ret;
++
++	/* Must enable the ADC before running software-assisted calibration */
++	ret = stm32h7_adc_enable(indio_dev);
++	if (ret)
++		goto pwr_dwn;
++
++	/* Always run offset calibration */
++	ret = stm32mp25_adc_calib(indio_dev);
++	if (ret)
++		goto adc_dis;
++
++	stm32_adc_int_ch_enable(indio_dev);
++
++	stm32_adc_writel(adc, adc->cfg->regs->difsel.reg, adc->difsel);
++
++	if (adc->cfg->has_presel)
++		stm32_adc_writel(adc, STM32H7_ADC_PCSEL, adc->pcsel);
++
++	return 0;
++
++adc_dis:
++	stm32h7_adc_disable(indio_dev);
++pwr_dwn:
++	stm32h7_adc_enter_pwr_down(adc);
++
++	return ret;
++}
++
++static void stm32mp25_adc_unprepare(struct iio_dev *indio_dev)
++{
++	struct stm32_adc *adc = iio_priv(indio_dev);
++
++	/* Undo things in the reverse order */
++	if (adc->cfg->has_presel)
++		stm32_adc_writel(adc, STM32H7_ADC_PCSEL, 0);
++	stm32_adc_int_ch_disable(adc);
++	stm32h7_adc_disable(indio_dev);
++	stm32h7_adc_enter_pwr_down(adc);
++}
++
+ /**
+  * stm32_adc_conf_scan_seq() - Build regular channels scan sequence
+  * @indio_dev: IIO device
+@@ -2788,11 +3124,72 @@ static const struct stm32_adc_cfg stm32mp13_adc_cfg = {
+ 	.vref_charac_mv = 3300,
+ };
+ 
++static const unsigned int stm32_adc_min_ts_mp25[STM32_ADC_INT_CH_NB] = {
++	[STM32_ADC_INT_CH_VDDCORE] = 34,
++	[STM32_ADC_INT_CH_VDDCPU] = 34,
++	[STM32_ADC_INT_CH_VREFINT] = 34,
++	[STM32_ADC_INT_CH_VBAT] = 34,
++};
++
++static const struct stm32_adc_cfg stm32mp25_adc1_cfg = {
++	.regs = &stm32mp25_adc1_regspec,
++	.adc_info = &stm32mp25_adc_info,
++	.trigs = stm32mp25_adc1_adc2_trigs,
++	.has_oversampling = true,
++	.has_presel = true,
++	.start_conv = stm32h7_adc_start_conv,
++	.stop_conv = stm32h7_adc_stop_conv,
++	.prepare = stm32mp25_adc_prepare,
++	.unprepare = stm32mp25_adc_unprepare,
++	.smp_cycles = stm32mp25_adc_smp_cycles,
++	.irq_clear = stm32h7_adc_irq_clear,
++	.set_ovs = stm32h7_adc_set_ovs,
++	.ts_int_ch = stm32_adc_min_ts_mp25,
++	.vref_charac_mv = 1800,
++};
++
++static const struct stm32_adc_cfg stm32mp25_adc2_cfg = {
++	.regs = &stm32mp25_adc2_adc3_regspec,
++	.adc_info = &stm32mp25_adc_info,
++	.trigs = stm32mp25_adc1_adc2_trigs,
++	.has_oversampling = true,
++	.has_presel = true,
++	.start_conv = stm32h7_adc_start_conv,
++	.stop_conv = stm32h7_adc_stop_conv,
++	.prepare = stm32mp25_adc_prepare,
++	.unprepare = stm32mp25_adc_unprepare,
++	.smp_cycles = stm32mp25_adc_smp_cycles,
++	.irq_clear = stm32h7_adc_irq_clear,
++	.set_ovs = stm32h7_adc_set_ovs,
++	.ts_int_ch = stm32_adc_min_ts_mp25,
++	.vref_charac_mv = 1800,
++};
++
++static const struct stm32_adc_cfg stm32mp25_adc3_cfg = {
++	.regs = &stm32mp25_adc2_adc3_regspec,
++	.adc_info = &stm32mp25_adc_info,
++	.trigs = stm32mp25_adc3_trigs,
++	.has_oversampling = true,
++	.has_presel = true,
++	.start_conv = stm32h7_adc_start_conv,
++	.stop_conv = stm32h7_adc_stop_conv,
++	.prepare = stm32mp25_adc_prepare,
++	.unprepare = stm32mp25_adc_unprepare,
++	.smp_cycles = stm32mp25_adc_smp_cycles,
++	.irq_clear = stm32h7_adc_irq_clear,
++	.set_ovs = stm32h7_adc_set_ovs,
++	.ts_int_ch = stm32_adc_min_ts_mp25,
++	.vref_charac_mv = 1800,
++};
++
+ static const struct of_device_id stm32_adc_of_match[] = {
+ 	{ .compatible = "st,stm32f4-adc", .data = (void *)&stm32f4_adc_cfg },
+ 	{ .compatible = "st,stm32h7-adc", .data = (void *)&stm32h7_adc_cfg },
+ 	{ .compatible = "st,stm32mp1-adc", .data = (void *)&stm32mp1_adc_cfg },
+ 	{ .compatible = "st,stm32mp13-adc", .data = (void *)&stm32mp13_adc_cfg },
++	{ .compatible = "st,stm32mp25-adc1", .data = (void *)&stm32mp25_adc1_cfg },
++	{ .compatible = "st,stm32mp25-adc2", .data = (void *)&stm32mp25_adc2_cfg },
++	{ .compatible = "st,stm32mp25-adc3", .data = (void *)&stm32mp25_adc3_cfg },
+ 	{ }
+ };
+ MODULE_DEVICE_TABLE(of, stm32_adc_of_match);
 
 -- 
 2.43.0
