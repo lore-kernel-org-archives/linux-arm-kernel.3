@@ -4,65 +4,62 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 723B5CA5FC5
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 30 Sep 2026 20:47:21 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8B768CA5FC5
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 30 Sep 2026 20:49:12 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Cc:List-Subscribe:
-	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	Content-Transfer-Encoding:Content-Type:To:Subject:Message-ID:Date:From:
-	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=oA1Wp5l/4pd5OBAEkVMacf5GMMfFrP8amVpkQqU9f7w=; b=JkO2N+2K3FNcXZ
-	DB0y2eFqcRG+wYa7usROADmRKtnae+U9TrrDpHJxJku8UNgDluKJebJL+9DBVHK2sODUzDEskrcAZ
-	6Wia6+kXBfF2vtD45lQ8UE8XRn2kpP7TlHnUDuDCCQiQkyYDpw3SnYBhORGwzChSpXiWgceNTJYwO
-	iuKePY82t7LmOJKb63aeCVj3Wvr3yZ17AkOCRTMrDs9ztw/cbfr9rK4yoNVTS2Ga2ELv3TEP+VFiT
-	8baVpr+Cyq2hhABFH3HKkDDssZI/vEeEOXnntfwCNb+ue8oo8vY2EW4wWGzgNmof2je5s3rZNY25I
-	QhB322sPMFCGN/E7J29A==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
+	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=HkELDc4NESnRGBNUzyYEKc06oG3nPHsRKGEhMIz7kp8=; b=17K9TYuNtF0DkVpAFya0Cm1pT8
+	wuZaVDL/gtN2dE7ZuG/YeH15TrHJDmMQlFog/Am8nxvexdILBLTV59GsTEMkNjnUVc8OV2l2/1DpX
+	esvucsr6SrpOIKv+5nFzM/JvFwkVNIZpejFFGxrCw95E9MvJ7AhL3UvVHqceZPHcIFQjen3pfaeK5
+	c6DhQTGv5EzsQUEJgDNtyd9y3s10SkI/oLxQAaox+Muo1fvC9KXQJH4+6oq4cSlzGSusoI5owbada
+	03oeSPs8muVcF3PfaWRNFoHq3LLdSwftRb3+AakedXZaBynhASc+Gxe/ebCEZ7t7lRuHAX+7JVzVK
+	rfwMBBtA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xC1Ct-00000007Bu9-1ZxO;
-	Wed, 30 Sep 2026 20:47:15 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
-	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xC1Cs-00000007Bu2-27ea
+	id 1xC1Ef-00000007C8M-2qtH;
+	Wed, 30 Sep 2026 20:49:05 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1xC1Ec-00000007C7W-1yg7
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 30 Sep 2026 20:47:14 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 024ED43E9A
-	for <linux-arm-kernel@lists.infradead.org>; Wed, 30 Sep 2026 20:47:14 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id D71411F0089E
-	for <linux-arm-kernel@lists.infradead.org>; Wed, 30 Sep 2026 20:47:13 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1790801233;
-	bh=oA1Wp5l/4pd5OBAEkVMacf5GMMfFrP8amVpkQqU9f7w=;
-	h=References:In-Reply-To:From:Date:Subject:To:Cc;
-	b=JzOi+wBOJtDfK8od4CtYUyQkR9gufb/sROMOflfTNYH+NHkUKCNOduI9aS+v4uIZ1
-	 t25YSIiLp+Ba6lJxh+n5HJ0U/gqRdnF3MlySrZ5XVEixPM+1s3RZ3VnssAB1om1kh2
-	 DkHj31BqWnwFUhMNMft6Rwe1DrQYzSCpI3pEztTjC+Gg0l+dMNPnA1TEfQ2rAN4KtC
-	 Fe9VX/BRbmHVfEkF6SBrtwLWlsQ46PA6jezo301PcUkH64Go+jbkMMRm5OyhT4Ig7x
-	 zitNiSMPXfs1Ah8fBjER2Lv44cRLKxnI7VPDx4DSnS5ztZz6kmRWOfpnaG654wVC/a
-	 +GQ+r3JeTzIEA==
-Received: by mail-lf2-f12.google.com with SMTP id 2adb3069b0e04-5b8eacb7c8fso5146199e87.3
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 30 Sep 2026 13:47:13 -0700 (PDT)
-X-Gm-Message-State: AFq9FYLFYtMS99uGrQFvaTyGecJpf7Ilf4smM5DFN7iL9oJ6m0y4o5Ql
-	hXeQPgRki2vemd2WIjV6oWnHjQcMWq6Bdwg74hkOkvXthwv4kaeyH0zDVg2zfDeKl7TUBmuhxJd
-	E5STfwDc4Q4PR3mxd0Ow8H4TnkYlF5cg=
-X-Received: by 2002:a05:6512:3050:b0:5b5:edd1:471f with SMTP id
- 2adb3069b0e04-5ba405e14cemr1100142e87.11.1790801232600; Wed, 30 Sep 2026
- 13:47:12 -0700 (PDT)
+	Wed, 30 Sep 2026 20:49:04 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 852DC497
+	for <linux-arm-kernel@lists.infradead.org>; Wed, 30 Sep 2026 13:48:55 -0700 (PDT)
+Received: from [10.2.11.34] (usa-sjc-imap-foss1.foss.arm.com [10.121.207.14])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPA id B2C753F85F
+	for <linux-arm-kernel@lists.infradead.org>; Wed, 30 Sep 2026 13:48:58 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
+	t=1790801338; bh=7cw+2uirxLu0HD1zySTwhFF6oAhV9dULExV1Z7f8/aQ=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=KG7km24EHa7spw+uDrZxdwaeP6w3q+bQZyDooKXaR93a0Q+ChkoFb4K0W8wOqBC4N
+	 oDBLcQTLVPjz34+l4iNC63WQp9IwlYDpi5UTx61DyXir8q3mf26JDkhbvvSYIwz+pP
+	 NsDfNJyWofzbQAtV8Id0THMVW7rLfB8deo0ndokc=
+Date: Wed, 30 Sep 2026 21:48:51 +0100
+From: Liviu Dudau <liviu.dudau@arm.com>
+To: Weigang He <geoffreyhe2@gmail.com>
+Cc: Sudeep Holla <sudeep.holla@kernel.org>,
+	Lorenzo Pieralisi <lpieralisi@kernel.org>,
+	Linus Walleij <linusw@kernel.org>,
+	Russell King <linux@armlinux.org.uk>, Lee Jones <lee@kernel.org>,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH 1/2] ARM: vexpress: fix device_node refcount leak in
+ vexpress_flags_set()
+Message-ID: <ar11s6PaXaXhiswh@e142607>
+References: <20260925173252.933705-1-geoffreyhe2@gmail.com>
+ <20260925173252.933705-2-geoffreyhe2@gmail.com>
 MIME-Version: 1.0
-References: <20260918161407.2300-1-will@kernel.org> <20260918161407.2300-2-will@kernel.org>
-In-Reply-To: <20260918161407.2300-2-will@kernel.org>
-From: Linus Walleij <linusw@kernel.org>
-Date: Wed, 30 Sep 2026 22:47:00 +0200
-X-Gmail-Original-Message-ID: <CAD++jL=XkQuYGjDx7cGbyAbA3PZxASF=gUJtjF6rMaiWgt+dYQ@mail.gmail.com>
-X-Gm-Features: AclHuK8OBD0wnlj_zeKgr2mdF8meUFnoNCcPdtioxRKpQrlc9trGZVWgmVL-ruo
-Message-ID: <CAD++jL=XkQuYGjDx7cGbyAbA3PZxASF=gUJtjF6rMaiWgt+dYQ@mail.gmail.com>
-Subject: Re: [PATCH v2 01/21] arm64: entry: Defer setting of TPIDRRO_EL0 until
- exit to userspace
-To: Will Deacon <will@kernel.org>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+Content-Transfer-Encoding: 8bit
+In-Reply-To: <20260925173252.933705-2-geoffreyhe2@gmail.com>
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260930_134902_548882_F043F113 
+X-CRM114-Status: GOOD (  25.18  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -74,48 +71,75 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
-Cc: Mark Rutland <mark.rutland@arm.com>, Vladimir Murzin <vladimir.murzin@arm.com>, Arnd Bergmann <arnd@arndb.de>, Catalin Marinas <catalin.marinas@arm.com>, Jinjie Ruan <ruanjinjie@huawei.com>, linux-kernel@vger.kernel.org, Mostafa Saleh <smostafa@google.com>, Marc Zyngier <maz@kernel.org>, David Hildenbrand <david@kernel.org>, Lorenzo Stoakes <ljs@kernel.org>, Oliver Upton <oupton@kernel.org>, Ard Biesheuvel <ardb@kernel.org>, linux-arm-kernel@lists.infradead.org
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Will,
+On Sat, Sep 26, 2026 at 03:32:51AM +1000, Weigang He wrote:
+> vexpress_flags_set() obtains a reference to the "arm,vexpress-sysreg"
+> device node via of_find_compatible_node() and passes it to of_iomap(),
+> but never calls of_node_put() on it. of_iomap() only reads the node's
+> reg property to create the mapping and does not take ownership, so the
+> node reference is leaked. The function runs from the __init SMP prepare
+> path and caches the mapping in a static, so this is a one-shot leak of a
+> single refcount during boot, with no functional impact.
+> 
+> The lookup was added to drivers/mfd/vexpress-sysreg.c by the commit
+> below and later moved here by commit 9b06fc39084e ("ARM: vexpress: Move
+> vexpress_flags_set() into arch code").
+> 
+> Annotate node with the __free(device_node) cleanup attribute so the
+> reference is released when it goes out of scope.
+> 
+> Found by static analysis tool CodeQL.
+> 
+> Fixes: 974cc7b93441 ("mfd: vexpress: Define the device as MFD cells")
+> Assisted-by: LLM codeql
+> Signed-off-by: Weigang He <geoffreyhe2@gmail.com>
 
-long time before I had a chance to look at this.
+Reviewed-by: Liviu Dudau <liviu.dudau@arm.com>
 
-I wrote a similar patch at one time so I like the concept.
+Best regards,
+Liviu
 
-On Fri, Sep 18, 2026 at 6:14=E2=80=AFPM Will Deacon <will@kernel.org> wrote=
-:
+> ---
+> 
+> Notes:
+>     Compile-tested only (ARCH=arm multi_v7_defconfig, W=1). Not tested on
+>     hardware; I have no Versatile Express board.
+>     
+>     The CodeQL query behind this report was synthesized with LLM assistance,
+>     and the fix and changelog were drafted with LLM assistance; I have
+>     reviewed them.
+> 
+>  arch/arm/mach-versatile/v2m.c | 4 ++--
+>  1 file changed, 2 insertions(+), 2 deletions(-)
+> 
+> diff --git a/arch/arm/mach-versatile/v2m.c b/arch/arm/mach-versatile/v2m.c
+> index 79afdf2a90b6f..c86b38386cf7c 100644
+> --- a/arch/arm/mach-versatile/v2m.c
+> +++ b/arch/arm/mach-versatile/v2m.c
+> @@ -13,8 +13,8 @@ void vexpress_flags_set(u32 data)
+>  	static void __iomem *base;
+>  
+>  	if (!base) {
+> -		struct device_node *node = of_find_compatible_node(NULL, NULL,
+> -				"arm,vexpress-sysreg");
+> +		struct device_node *node __free(device_node) =
+> +			of_find_compatible_node(NULL, NULL, "arm,vexpress-sysreg");
+>  
+>  		base = of_iomap(node, 0);
+>  	}
+> -- 
+> 2.43.0
+> 
 
-> In preparation for using TPIDRRO_EL0 to point at 'current' while running
-> inside the kernel, defer its userspace initialisation from the
-> context-switch patch to exception return. This has the added benefit of
-> not having to worry about keeping the in-memory value and the register
-> value in-sync during preemptible sections.
->
-> Cc: Mark Rutland <mark.rutland@arm.com>
-> Reviewed-by: Jinjie Ruan <ruanjinjie@huawei.com>
-> Signed-off-by: Will Deacon <will@kernel.org>
-
-I would add some elaboration to the commit message as to what is going
-on in the patch, and  correct me if I got it wrong!
-
-- Userspace sees 0 in the TPIDRRO_EL0 when running native tasks
-  so we just zero it when exiting to userspace for those.
-
-- For compat mode, TPIDRRO_EL0 should contain
-  current->thread.uw.tp_value, so in that case we just write that
-  before exiting to userspace.
-
-- Userspace can't modify the register so we don't care about
-  saving it on entry.
-
-These three seems to be what the patch is exploiting.
-
-If this is correct, with the above description added:
-
-Reviewed-by: Linus Walleij <linusw@kernel.org>
-
-Yours,
-Linus Walleij
+-- 
+====================
+| I would like to |
+| fix the world,  |
+| but they're not |
+| giving me the   |
+ \ source code!  /
+  ---------------
+    ¯\_(ツ)_/¯
 
