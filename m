@@ -4,112 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 22CDECA5FB1
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 30 Sep 2026 12:23:01 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 95CFACA5FAC
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 30 Sep 2026 12:35:31 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=e940AjQ0jQQWP5rvA/K+cI8JuO4iBqCxD/BwdAtAYs4=; b=UUx3QOhNrP4+xxa9Smfzlm/hxH
-	kND1LShFWMaj+QuGGmyfbXg3NEKM4COmHjWoHToKqdmZIVE0VQGEyQSVinTi/iIx+VOyn1hUeiu2v
-	hwIzkUFyJJkg4Vsl8subpG31++S66b92/NIkq22y5aimWrewz/b83saI4PQsQWAdY0x6mrh7aqBS/
-	rO2KUHpvQS4ogXJRrXEbuX0NyofS9nINJZLmKcVYeNS+XOaUCIltSD96P+m1aXkUtD/N5QDbMOf8b
-	pK9cVMXRVStETh5Qdvt+9sDcwVXYVIOwv0ranVYlYoHJn1qVfSUh03KLePZ/deqN+M9q8hP8dhXPD
-	FP+W2tmA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
+	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=c0RmXNnXCxeVohZ66oOPYxcuOud2wa1FSlJwADS8egM=; b=je9x5j1gf13UuIcB0+Kuo1cA4U
+	kTonZkr36qvIEuHuasjTOd9t4vSLszf9LmxR9J+keEXebRuG1pjKEymWzOL6e50zpzG035MT7atD1
+	eCmDyxDknKuiANiCpFjWYlY6JaZ54oUNnh3v4akzgzEX0xxBE2ltbtQrhgXD1WnKNBgHRR6X9Hnvq
+	9R5dwcV0fzVp+pTwIL2aFBLmB6pEfLHlrRM2WxId6eAjxGoT8KtwYwelTUAbgfyzutUy8b11ZZLlp
+	3fRYLFU2eYuGp0KVk6I9WtJXEGK0yBkj7VJJf9u0Gqkhpur0pdaUXJ0xBazY/h1EqQjzFOoC1CzNj
+	U8m/+BZw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xBtKo-00000005zY3-3cY7;
-	Wed, 30 Sep 2026 12:22:54 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1xBtWr-000000060OX-1n1X;
+	Wed, 30 Sep 2026 12:35:21 +0000
+Received: from out-110.mta0.migadu.com ([2001:41d0:1004:224b::6e] helo=mta0.migadu.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xBtKn-00000005zXj-0mh1
+	id 1xBtWm-000000060NR-2Otj
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 30 Sep 2026 12:22:53 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id DEC9743CF4;
-	Wed, 30 Sep 2026 12:22:52 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 5DCF61F000FF;
-	Wed, 30 Sep 2026 12:22:46 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1790770972;
-	bh=e940AjQ0jQQWP5rvA/K+cI8JuO4iBqCxD/BwdAtAYs4=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To;
-	b=F0oRsWWXI7cbEARvdQkabseN2gp44WIpQVNuE/0AkzSDAGAgCZXFPcsVXdXOr+geq
-	 GGYwyMqQ9suXrzuHRYoXQTn4NOKC+ohlTrADPmXyMS2HtJ1Ht0XVvJbBu7+aquz7z5
-	 cJzQu3XiOuJ+WN2nw/do4NQ17GWT0wnMy6nOjV87y3B1xVeaaYaKfQodMmx8qk9D//
-	 FBRbTLog09XQEzFfg63eT4h0npUi6RNaa9/M1uFzmZxO9SaBSkbXB+bcWPEZPGjCbE
-	 G8X4ej00Dsb/LGM7V82i3+ND78qecMiGc/J69Ru1VYwi2GlxFAOo/wcULsj3Ok8u3B
-	 zhhITKCmiPxSQ==
-Message-ID: <4d3be415-6d51-46f7-81ca-ab2dcf0f0f74@kernel.org>
-Date: Wed, 30 Sep 2026 14:22:43 +0200
+	Wed, 30 Sep 2026 12:35:19 +0000
+X-Envelope-To: linux-arm-kernel@lists.infradead.org
+DKIM-Signature: a=rsa-sha256; bh=5jJpaYHmzwnaHuefeCeSgSHSsu0Ck7lHvt0zzvmE6Jk=;
+ c=simple/simple; d=linux.dev;
+ h=from:to:subject:date:message-id:mime-version:content-type; s=key1;
+ t=1790771714; v=1; x=1791376514;
+ b=cZ0omPbHlpq92s1zLPZNjNXOXK4Z3KLC4IzVooMwUS5qBvFEUGN4ER1VayEJ0rj2iSbF66RV
+ xAXXm6hI6gKk62A2hTqdYvUybfstmjrW8tnckQwCr8Nt7D1cmc+HRRigCm6Frj230/Er/oCmtRi
+ qVyIMC5BTDINjIbuSlGYly80=
+X-Envelope-To: linux-arm-kernel@lists.infradead.org
+Received: by smtp.migadu.com with ESMTPS id 5214a99a2885709c;
+	Wed, 30 Sep 2026 12:35:13 +0000
+X-Mizu-Trace-ID: 5214a99a2885709c
+X-Migadu-Flow: FLOW_OUT
+Received: by mail-lf1-f49.google.com with SMTP id 2adb3069b0e04-5b8f42bb8a9so527e87.1
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 30 Sep 2026 05:35:09 -0700 (PDT)
+X-Forwarded-Encrypted: i=1; AKwUvBxfPX9NiQbbkapausKRH6365yJaiv28apRtrRJ9+ox8DAh6NqRB7ArtsPWB1FGuc3dTB+tXR3iuPFIlgR4mRSTd@lists.infradead.org
+X-Gm-Message-State: AFq9FYIBz50Ok3mQ5DcO5X1bAyVA9Fft7GdibTPz+NkGlpgOVK2Ko4P/
+	Qnu9rDYiqdQEqSenJ+Roe/jkL/+oe+G84QE3w63iCVIumXDWoy6vAujHmumYi+8UIbqr874n7Qy
+	Yzm6anCWwXOJcdOxoCNhMw7OWnpo+NI9NIF9sVv+6
+X-Received: by 2002:ac2:4e14:0:b0:5b5:e890:1953 with SMTP id
+ 2adb3069b0e04-5ba3d1a32bdmr110742e87.12.1790771708519; Wed, 30 Sep 2026
+ 05:35:08 -0700 (PDT)
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v20 9/9] firmware: arm_rmm: hotplug: Skip memory added to
- ZONE_MOVABLE
-To: Suzuki K Poulose <suzuki.poulose@arm.com>, kvm@vger.kernel.org,
- kvmarm@lists.linux.dev
-Cc: maz@kernel.org, will@kernel.org, catalin.marinas@arm.com,
- linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- steven.price@arm.com, aneesh.kumar@kernel.org, oupton@kernel.org,
- gshan@redhat.com, joey.gouly@arm.com, tabba@google.com,
- yuzenghui@huawei.com, linux-coco@lists.linux.dev,
- gankulkarni@os.amperecomputing.com, sdonthineni@nvidia.com,
- alpergun@google.com, fj0570is@fujitsu.com, WeiLin.Chang@arm.com,
- lpieralisi@kernel.org, enju.kohei@fujitsu.com, sudeep.holla@arm.com,
- jonathan.cameron@oss.qualcomm.com
-References: <20260929221623.1342076-1-suzuki.poulose@arm.com>
- <20260929221623.1342076-10-suzuki.poulose@arm.com>
-From: "David Hildenbrand (Arm)" <david@kernel.org>
-Content-Language: en-US
-Autocrypt: addr=david@kernel.org; keydata=
- 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
- qIws/H2t
-In-Reply-To: <20260929221623.1342076-10-suzuki.poulose@arm.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+References: <20260929093548.3598547-1-maz@kernel.org> <cover.1790708299.git.fuad.tabba@linux.dev>
+ <e6bf4bc51a311df19866a0ee3e27970846257b70.1790708299.git.fuad.tabba@linux.dev>
+ <861pab3p5s.wl-maz@kernel.org>
+In-Reply-To: <861pab3p5s.wl-maz@kernel.org>
+From: Fuad Tabba <fuad.tabba@linux.dev>
+Date: Wed, 30 Sep 2026 13:34:32 +0100
+X-Gmail-Original-Message-ID: <CA+EHjTzP01b4J+ppK9fq-=5Kh-kEfynk0YfDmg57H7NekWHD=Q@mail.gmail.com>
+X-Gm-Features: AclHuK-qXXX5RGymd7eG9Ryi-Ik6oairQlvSl5zFzxSRfF9xO6C1aISVYLK76aY
+Message-ID: <CA+EHjTzP01b4J+ppK9fq-=5Kh-kEfynk0YfDmg57H7NekWHD=Q@mail.gmail.com>
+Subject: Re: [PATCH v1 2/2] KVM: arm64: selftests: Add an ITS MOVALL test
+To: Marc Zyngier <maz@kernel.org>
+Cc: kvmarm@lists.linux.dev, linux-arm-kernel@lists.infradead.org, 
+	Steffen Eiden <seiden@linux.ibm.com>, Joey Gouly <joey.gouly@arm.com>, 
+	Suzuki K Poulose <suzuki.poulose@arm.com>, Oliver Upton <oupton@kernel.org>, 
+	Zenghui Yu <yuzenghui@huawei.com>, Yuchao Zhang <ndaugoing@gmail.com>
+Content-Type: text/plain; charset="UTF-8"
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260930_053517_296273_3768E613 
+X-CRM114-Status: GOOD (  16.23  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -124,50 +83,44 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 9/30/26 00:16, Suzuki K Poulose wrote:
-> If the hotadded memory is in ZONE_MOVABLE, we could allow that to proceed
-> without the RMM having fine grained tracking, as we won't allocate pages
-> from there for guest-memfd or kernel allocation
-> 
-> Cc: Catalin Marinas <catalin.marinas@arm.com>
-> Cc: David Hildenbrand (Arm) <david@kernel.org>
-> Signed-off-by: Suzuki K Poulose <suzuki.poulose@arm.com>
-> ---
-> Changes since v19:
->  - New patch in v20, keeping this at the tail to allow for the rest of the
->    series to proceed, while this patch gets discussed.
-> ---
->  drivers/firmware/arm_rmm/rmi.c | 12 ++++++++++++
->  1 file changed, 12 insertions(+)
-> 
-> diff --git a/drivers/firmware/arm_rmm/rmi.c b/drivers/firmware/arm_rmm/rmi.c
-> index d4d098448e46e..ef0a171ba9677 100644
-> --- a/drivers/firmware/arm_rmm/rmi.c
-> +++ b/drivers/firmware/arm_rmm/rmi.c
-> @@ -1043,6 +1043,18 @@ static int rmi_memory_notifier(struct notifier_block *nb,
->  	start = PFN_PHYS(arg->start_pfn);
->  	end = PFN_PHYS(arg->start_pfn + arg->nr_pages);
->  
-> +	/*
-> +	 * If the hotplugged memory region is in ZONE_MOVABLE, neither the
-> +	 * guest-memfd nor the kernel allocations can come from there. So we are
-> +	 * fine to skip this.
-> +	 * For boot time memory, we don't allow this discount, as the
-> +	 * decision to move boot memory pages to ZONE_MOVABLE is purely
-> +	 * a kernel choice and the firmware must have decided what it covers.
-> +	 */
-> +	if (page_zonenum(pfn_to_page(arg->start_pfn)) == ZONE_MOVABLE &&
-> +	    page_zonenum(pfn_to_page(arg->start_pfn + arg->nr_pages - 1)) == ZONE_MOVABLE)
-> +		return NOTIFY_DONE;
-> +
+Hi Marc,
 
-is_zone_movable_page(pfn_to_page(start_pfn)
+On Wed, 30 Sept 2026 at 13:21, Marc Zyngier <maz@kernel.org> wrote:
+>
+> On Tue, 29 Sep 2026 20:04:52 +0100,
+> Fuad Tabba <fuad.tabba@linux.dev> wrote:
+> >
+> > Map LPI A to vCPU0's collection and LPI B to vCPU1's, remap vCPU0's
+> > collection to vCPU2 and MOVALL vCPU0's LPIs there, then inject both. A
+> > must be taken on vCPU2 and B on vCPU1. KVM's MAPC handling already moves
+> > A to vCPU2, so only MOVALL handling can move B: without "KVM: arm64:
+> > vgic-its: Fix MOVALL handling of source redistributor", it moves B to
+> > vCPU2 as well.
+>
+> MOVALL is about moving the pending bits (see 5.3.13 in the IHI0069H.b
+> spec).  Doing MOVALL first and only then injecting the interrupts
+> doesn't quite check the MOVALL requirement. That doesn't impact KVM
+> itself (we don't use pending tables at all), but you probably don't
+> want to hardcode implementation specific behaviours here.
 
-as used by virtio-mem should be sufficient. Checking only the start pfn is
-sufficient.
+Ack.
 
--- 
+[...]
+>
+> There seem to be a lot of commonality with the existing
+> vgic_lpi_stress test.  I'd rather we make this test the container for
+> most ITS-related tests, instead of coming up with new individual
+> tests.
+
+If you think this test is worth having, I'll respin v2 that way.
+
 Cheers,
+/fuad
 
-David
+> Thanks,
+>
+>         N,
+>
+> --
+> Without deviation from the norm, progress is not possible.
 
