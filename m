@@ -4,94 +4,123 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3DD06CA5FBB
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 30 Sep 2026 07:15:53 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 66A06CA5FBB
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 30 Sep 2026 07:17:34 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=F/SbVhMvqYrGxK11cD/q4PA+nXETskb6eXmSE0ztKU4=; b=zpiStgzYzfZaejLBjeFMdBAzvG
-	OVqU7HX3kFHe4L5DRkV6zLMmUS/AQKye4zWot/CuyDR753I/m3ax2vJHl0nZzhPow80ZkCiJAc7Iq
-	FCeNyRuhG5zc7q93yUmOJQEgPtalrzVRl+2S3ya/PRWD7dLKCLGHI2mmzyRpglHzPp1K9hkJ0MEyT
-	Ih/0Bezo/OwHPw5HcBiNI0dNP9eLe+ZA59vd1Ohz+e7c5jpt76/gUOHZvBsqMOR0BHEHitZPIC4ck
-	yEPTiEC/9+nm+hd2qymFJDrjYHPnr05sWnkVyVkd8k9QJmWzJZ6Y2bOxLQKZ5Y7edg8rLck6WFfLJ
-	bt2nzu5Q==;
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=Ea8nXYm0xabYrwi/85CAYe7b5DVLlU9SgUWviAoGpxY=; b=XlrXxBRSGoT85sgBihoAVdV0DR
+	9demZROrp1WAAPcS8w6fg7bB9n0BRy/GrAf930MmTNmjn31+mrd49IJ0PpGREgB29ZB6h2PW1KbWS
+	D0pnWQG9pIg753/19q6+YKToAI40W7rLPq3HmMcbansQx1V+y66odk3ZBPqkJNqfQ0aFh53B9RyLg
+	nQDw/0TnR5ivUEVKVpZp2YLMj25msVd3gAe4xCYTuUN02U/fmegIZ7WzmwATVpPs8o+7wsKqTZra5
+	lJTgeqmYwsrcM6rAES76JeScTuGPTnyN+celehUYIg9s5QbJlxMT75dnPXGfxHRLJ1zDg3vGguzwu
+	DBxzZOMw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xBoXb-00000005FOq-02oy;
-	Wed, 30 Sep 2026 07:15:47 +0000
-Received: from mail-wr2-x0e.google.com ([2a00:1450:4864:30::e])
+	id 1xBoZE-00000005FZv-1SVi;
+	Wed, 30 Sep 2026 07:17:28 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xBoXX-00000005FNV-2Urm
+	id 1xBoZC-00000005FZp-114X
+	for linux-arm-kernel@bombadil.infradead.org;
+	Wed, 30 Sep 2026 07:17:26 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:Content-Type
+	:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:MIME-Version:
+	Sender:Reply-To:Content-ID:Content-Description;
+	bh=Ea8nXYm0xabYrwi/85CAYe7b5DVLlU9SgUWviAoGpxY=; b=HgRkJd4qAUjHCppfCs6gp4kRFH
+	1i+gqgF8xXYm/pspW5HiivIJm1rmgqUz086u6SFcH0OUIG4v1k+PW7P9s5QW19unPFroOy5tq8Bj5
+	jFw3o8w/JoANwtwgNBgccdwkQFgqDtAreGlhwI2c5cVI24rYDeLPXE7iSxXKvQfIzQ4t61KApv73d
+	Oo8QCtFBh81gt0vlQUuSC6fJS/vN/TKkgslItUdSLNUDNStqRRy6Qf0f9GZT27xxbGEbnO6tJA5t9
+	gV/SIp7IcWQjODczQBOuadbMHpUDoom5d4xcNNl+05QBlh2evoWZ/DYrnnpDUyjbCmLjtInb9hPH5
+	EyBhkJGQ==;
+Received: from mail-lr2-x0f.google.com ([2a00:1450:4864:38::f])
+	by desiato.infradead.org with esmtps (Exim 4.99.2 #2 (Red Hat Linux))
+	id 1xBoZ8-00000003Sbi-3xfZ
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 30 Sep 2026 07:15:44 +0000
-Received: by mail-wr2-x0e.google.com with SMTP id ffacd0b85a97d-48af929e59dso852249f8f.3
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 30 Sep 2026 00:15:42 -0700 (PDT)
+	Wed, 30 Sep 2026 07:17:25 +0000
+Received: by mail-lr2-x0f.google.com with SMTP id 38308e7fff4ca-3a7756096e7so3038631fa.2
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 30 Sep 2026 00:17:21 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1790752640; cv=none;
+        d=google.com; s=arc-20260327;
+        b=IIdsHUIW2DktunKXpGbjPS91B1Mn1a6Ke1Vstf6fg6/b4rtw3IPV5Y7CIKE5QUZpYm
+         U7epkuPcI4IokSH74IvNwscF8edCWuIwqcXg6OfZJkuVW/8oMtPFPkO+nnfGOGlUReSI
+         vMkwWbKe6uHt9eMQQfyeyTxpicI5WNCETkYPEfMkb+Fq6OnLwbKCa2jNwPtnp9MNllcw
+         KdjfrertNKB97Za05IWjz44BnpoQoF/o9z3mMWHoHGqo7OeN5Wpy57v6AWxpoYhCd2F9
+         RvR0X2FXa9JLy5fHVlBF/zZpz9NgLH8JBmltwDPLkPsYXBbLFn3U5YqEVM7onWleE9TG
+         BgRw==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:dkim-signature;
+        bh=Ea8nXYm0xabYrwi/85CAYe7b5DVLlU9SgUWviAoGpxY=;
+        fh=jlIMkDHnQk640aNFavfC1FmjObgjMgKstoD8JTqYN1U=;
+        b=ARAgAdiCyl6n4kXYDkSze67iBfUuxrYNtQU4Fl3+91AkxWwHYTeYlevpXln963k2tI
+         GGpehZ4f3NgUn0/G3anI6TM2imDuhJAd4Xg6MSq8RZdkTnm6A32io8eflDxTH50W4Hc9
+         WrNqpncijWwZJDCp646vk2adf2aaobBXhp2Gv/5ht5j+dE5pa0AuujVznpQ0C29PCIe9
+         GdqWs40z1O0MGBeegiWHtLRaFHwybk3M7/sNtYe+hxTjhr7dlSQrmxjrlgVXMEKvXv+7
+         05suB3RLdW5sG5kAwzS4zjeNJVzzH12TPGqK5vsqI7nGSYypT9n7n7o+khMygAz42Vmr
+         weqA==;
+        darn=lists.infradead.org
+ARC-Authentication-Results: i=1; mx.google.com; arc=none
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1790752541; x=1791357341; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
-        bh=F/SbVhMvqYrGxK11cD/q4PA+nXETskb6eXmSE0ztKU4=;
-        b=eYck/GXBbMWckTXXhlAeD1VCmYQzUqgJnmrSEEnmV3TqO+PIheldf3938vqS9het75
-         vHQIgEV6IpfTEx724pibpgJE0Rw5opLWzmLVrVuVktkHz056n3C+PvL5ephSpnY4jvKh
-         mTY2Dy4NVogIbNTUMvKCygOHPIgW8qu8eFMVYHocOe9LaOaQLiNK0XJELrb2TjFdf2VD
-         5HCEuPQIkd5exyvx8lGxK5MNhVmdqWJDYv3xWrnMtK7rA4Ws0+ZIhLPbtIe1hmd8n+RZ
-         Upe0P+5/UYkanC4mb3/9wQqKt9//t9kTS4aXoELXXkj+9EJs15SKAxhQj7fV3dkme0uT
-         1fhg==
+        d=gmail.com; s=20251104; t=1790752640; x=1791357440; darn=lists.infradead.org;
+        h=content-transfer-encoding:content-type:cc:to:subject:message-id
+         :date:from:in-reply-to:references:mime-version:from:to:cc:subject
+         :date:message-id:reply-to:content-type;
+        bh=Ea8nXYm0xabYrwi/85CAYe7b5DVLlU9SgUWviAoGpxY=;
+        b=dBibujaPrTWQk8OAN7tEg42/x++cHZtBHkDkNoklOcxDoeLHnNBc7nrbDeHq68sbQd
+         PG+yTdhRdLiHj/DtF0MnaFm/HiTHEOOE3miSmzLryWTWAJTyTOqNbMVokrfv0S9vAVhE
+         Jn4rs8SeLox5DTIK2lc8XB2hGcYQ2hLU9D68Bu+0wO52aX3pGihN1n1yguO9j53XxYcb
+         vfg6AvLeouRvsj0UF0fW0mUstU9sZfthLyjLSrTRotNjcSzploVS6zaFur4jLeY2bTpc
+         t61O0Iq8HNQR71wG+xMRb+j45rAu0WhmIVtQ3ANPJWzNQAZV+ZgM7pdxBZ8QO97w6kcB
+         T06w==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1790752541; x=1791357341;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=F/SbVhMvqYrGxK11cD/q4PA+nXETskb6eXmSE0ztKU4=;
-        b=Fb4SgvpTMf+5nyo5xKNrm6kHgC2QpcjgsiJSp2Y2VX09UeuHxnxfX1qg6JnCUkzGjw
-         wZgRSvtxP8EhT3qbo//PZ82TmA4tblYxlrHGnpJ1Qu5lkJ5n7RVlPEXrYpCDrex7U0HQ
-         5FqFygBiTjK3U3XOx2xF2bRaZ11bX0MITlL3zq72b0vzB/WOlB2F8PPtyiKFDdcQo+yM
-         sSFAd4qXS4Z3bG+Q+AG3beH7hRvuBTvCHSjnjeMxWNUPmhl4etfustY5Z9z3hdwIInOy
-         bEGAB7Us7kPbmMT6YwIaylTEspYhDLe/vQtGK3+mqkxsdgGYv5vw+gJueZ8W3/8ziYaR
-         KUPQ==
-X-Forwarded-Encrypted: i=1; AKwUvBy92xnw3Gg+YV9IyPN/BWvWEd4IJtZBqGmA1DJsow7fEedVgEI5AffpCwNZzBOlBdlJHFo78HJEG3fXZDSKpfl2@lists.infradead.org
-X-Gm-Message-State: AFq9FYIoNRPBBBKR/JnPz9fBdr2ECgfVFXsg9pLylcdFA9U62HWgI/FB
-	LnO3nwjq3MykE13jbcjICAcMrzLk5J5p4md956436z1/cCVqD+Laxoat
-X-Gm-Gg: AYBFou2pBkxYMx2RrkL2SdOh75v1kHMBcRTD450uJGVFgxx5pjAmW7DdyMihBP8ZHu1
-	ZebrV30JCqTmQqb8SR+M9e3bhMRI6ekgoSV5j6whjAbpBVgIHtLKlBRLzlhytWzgmsI3+LKnZzT
-	tbVcUotxDmvdnvT26eH2CtLpBk9d1/hHpfdLY9jWWffdfy20AtUzfxXaaxf+Ze9s4Z5fgBhxlhr
-	B1HnjXwRy8CqDghrDR5DELNdWxdj48tPrZrXZ3U5TE6lC9LrA+4lu5qV8lYOTEVJpvyixcNiKUA
-	nJorgZvCShmFxkMEf8Mx0oagRadULBIzKa/vGcESFcUi3BRSnJNElfwFKRdMjylCTsP098zK4Ln
-	nkyyR3vtArc3kvyDVL/e5dUqadwKOElhCUoDa+vD9BAFMtyLqHMELd5aQWxFw2E0YZyVmq/gcYH
-	KkHyrixi1Ju4jDzXFLdp91xPOQIuPwbt74KzTV7z1sVP7HrCkzhcqDB6epEBPbay3zGFdGJiHH8
-	01ZTazpjfVK+l9ANauMwfjAv9p923OOT4ZafCyT
-X-Received: by 2002:a5d:6f1c:0:b0:487:489:7af0 with SMTP id ffacd0b85a97d-48b024bd025mr1059857f8f.17.1790752540836;
-        Wed, 30 Sep 2026 00:15:40 -0700 (PDT)
-Received: from fedora-tap.advaoptical.com ([82.166.23.19])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-48b02e7b0d0sm735890f8f.14.2026.09.30.00.15.39
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 30 Sep 2026 00:15:40 -0700 (PDT)
-From: Sagi Maimon <maimon.sagi@gmail.com>
-To: netdev@vger.kernel.org
-Cc: pabeni@redhat.com,
-	radhey.shyam.pandey@amd.com,
-	michal.simek@amd.com,
-	andrew+netdev@lunn.ch,
-	davem@davemloft.net,
-	edumazet@google.com,
-	kuba@kernel.org,
-	robert.hancock@calian.com,
-	sean.anderson@linux.dev,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	Sagi Maimon <maimon.sagi@gmail.com>
-Subject: [PATCH net v4] net: axienet: cap the TX poll return value at the NAPI budget
-Date: Wed, 30 Sep 2026 10:15:36 +0300
-Message-ID: <20260930071536.627964-1-maimon.sagi@gmail.com>
-X-Mailer: git-send-email 2.47.0
+        d=1e100.net; s=20260707; t=1790752640; x=1791357440;
+        h=content-transfer-encoding:content-type:cc:to:subject:message-id
+         :date:from:in-reply-to:references:mime-version:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=Ea8nXYm0xabYrwi/85CAYe7b5DVLlU9SgUWviAoGpxY=;
+        b=1tHrgXKtH8OUFUoZNJ/k96pF3N1hu6W3sH++wSoDcVCY1/WVR8GYB8oQoVC1gwmc0T
+         qJ52jTIfLoJFRa0iG+9f7pDyzOxeZPB1LrP42KUObQqfRlXRPElDzLv3lVZ+FBR2hqid
+         B3Br5KBIWzexo32xWYgGYEr8mrrz66/evFOdJW/gPGfF3mAWvvJAbQxotslCU74EhW//
+         xNcN1hRPhc8AP3RmXNlhh2itdGBapZFTCfzFTbFBe4YujUTXoxYPj+xnVK+qUe8WCZcA
+         s6KNcpZcWyB8JJJTfbz03KZGdk0QCQxGj3UCfGay5y20aE5IZlfGq0yV6eB07dbzr1J/
+         X6qA==
+X-Forwarded-Encrypted: i=1; AKwUvBzcKIWhTEL9c7pGUXMQ+EXqCg6bma9g7Qtq1Gz863GBjkOnedBhTNqZ5mjuyjwUGAr107rgPCXUww8ijZALKwMA@lists.infradead.org
+X-Gm-Message-State: AFq9FYKE/xyaNemQSefVmphDCjk34BmR55SXqgYuzgUgarCHkl/RpX2e
+	E7DBdAdgslec9yeQ44PNw0nQ+HqOAlzM/KI+t3J1K2vU9jb+QfQ/KS6B0sF8gmTy5Z2ILNcLm3h
+	JW+VKorLX39V1TJdDzQxqGxCm8UjUANA=
+X-Gm-Gg: AYBFou14I3OKWP318eWJD5lmTfoNLg6GPh9f9WDg72+E0VZwbkY71zjtcJS2jPVtnGB
+	ZGj1S3t1wK4rJZ2tQNFtMKbTJnMz+Q9DVM4UHfHWL86cGifux2mi4K2dk53qvkZk6AcRa2caPtt
+	b9JJ0o75MIiLz6cyAbIR8/v3r5OnsvMdK552s5E25/tI0YmSTJiqawyxPLSMDLqdJHm64is0w2x
+	+OuoF+sH7r0ruQjYJDTsmeZ9KXcC1p0fyXXtXtF7b1xHhUBpc+XX7y5NStkwlFOm4VQTng9P170
+	HgpB2pHpNxtMP/2PVfV7fIyf/BFh4j8SfD4qdOYahdhw/mBIo5ulNA==
+X-Received: by 2002:a05:651c:1547:b0:3a5:ba1e:8b05 with SMTP id
+ 38308e7fff4ca-3a77913af41mr1881391fa.1.1790752639889; Wed, 30 Sep 2026
+ 00:17:19 -0700 (PDT)
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+References: <20260924135052.185129-1-maimon.sagi@gmail.com> <a3275288-1eae-463e-ba9f-dbb2d715d1b4@redhat.com>
+In-Reply-To: <a3275288-1eae-463e-ba9f-dbb2d715d1b4@redhat.com>
+From: Sagi Maimon <maimon.sagi@gmail.com>
+Date: Wed, 30 Sep 2026 10:16:52 +0300
+X-Gm-Features: AclHuK-kag_H1kMGoxdUxezLS-VrTRKTJfJccb_2uUMkHaUSNrTcAhEimC6uRNY
+Message-ID: <CAMuE1bHcd7LGW2VOa15hhWwc7otgtw30FmtcBsujwcoJvpQFvQ@mail.gmail.com>
+Subject: Re: [PATCH net v3] net: axienet: bound TX completion cleanup by the
+ NAPI budget
+To: Paolo Abeni <pabeni@redhat.com>
+Cc: netdev@vger.kernel.org, radhey.shyam.pandey@amd.com, michal.simek@amd.com, 
+	andrew+netdev@lunn.ch, davem@davemloft.net, edumazet@google.com, 
+	kuba@kernel.org, robert.hancock@calian.com, 
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260930_001543_666728_64DFE14A 
-X-CRM114-Status: GOOD (  17.85  )
+X-CRM114-CacheID: sfid-20260930_081723_262168_C79B0A0C 
+X-CRM114-Status: GOOD (  21.01  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -106,99 +135,54 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-axienet_tx_poll() reclaims every completed TX descriptor in one pass:
-it passes lp->tx_bd_num to axienet_free_tx_chain() as the descriptor
-limit, and @budget is only used as the napi_consume_skb() bulk-free
-hint.  It then returns the number of packets reclaimed, which is bounded
-by the ring size rather than by the budget, so the poll can report more
-work than it was given.  This was seen after TX completion interrupts
-had not been taken for a while and a full ring was reclaimed at once:
+On Tue, Sep 29, 2026 at 4:22=E2=80=AFPM Paolo Abeni <pabeni@redhat.com> wro=
+te:
+>
+> On 9/24/26 15:50, Sagi Maimon wrote:
+> > axienet_tx_poll() passes lp->tx_bd_num to axienet_free_tx_chain() as
+> > @nr_bds, and @budget is only forwarded to napi_consume_skb() as its
+> > bulk-free hint.  Nothing limits the cleanup loop to the NAPI budget, so
+> > the number of packets returned is bounded by the TX ring size rather
+> > than by the budget, and the poll can report more work than it was
+> > given:
+> >
+> >    eth0: NAPI poll function axienet_tx_poll+0x0/0x180 [xilinx_emac]
+> >          returned 96, exceeding its budget of 64.
+> >
+> > Returning more than the budget breaks the NAPI contract.  It also makes
+> > the "packets < budget" test in axienet_tx_poll() false, so
+> > napi_complete_done() is skipped and TX completion interrupts are not
+> > re-enabled on that pass.  NAPI reschedules the poll, so this recovers,
+> > but the accounting is wrong either way.
+> >
+> > In steady state fewer descriptors complete per poll than the budget
+> > allows, which is why this is rarely observed.  Triggering it needs more
+> > than @budget completions outstanding at once - for example when TX
+> > completion interrupts have not been taken for a while and a full ring i=
+s
+> > reclaimed in one go.
+> >
+> > Stop the loop once the budget is spent.
+>
+> Napi can process as much TX descriptor as available, even above `budget`
+> see:
+>
+> https://elixir.bootlin.com/linux/v7.2.8/source/Documentation/networking/n=
+api.rst#L68
+>
+> The solution would be capping axienet_tx_poll() return value to `budget`.
 
-  eth0: NAPI poll function axienet_tx_poll+0x0/0x180 [xilinx_emac]
-        returned 96, exceeding its budget of 64.
+Agreed, and v4 does exactly that: the ring is still reclaimed in full,
+and axienet_tx_poll() returns min(packets, budget), which also gives 0
+for netpoll's budget of 0.  It is posted as "net: axienet: cap the TX
+poll return value at the NAPI budget".
 
-netpoll is affected as well.  poll_one_napi() polls with a budget of 0
-to reclaim the TX path only, and warns once if any work is reported.
+Thanks,
+Sagi
 
-Keep reclaiming the whole ring and cap only the value returned.
-Documentation/networking/napi.rst allows a poll to process any number
-of TX completions; it is the reported work that must stay within the
-budget.  Stopping the reclaim at the budget instead would also leave
-completed descriptors for a later poll, which does not come when
-napi_disable() is pending.  When more than @budget packets were
-reclaimed, returning @budget keeps the poll scheduled, and the next poll
-completes NAPI and re-enables the interrupt as before.  A budget of 0
-now yields 0.
+pw-bot: cr
 
-Suggested-by: Paolo Abeni <pabeni@redhat.com>
-Fixes: 5a6caa2cfabb ("net: xilinx: axienet: Fix packet counting")
-Assisted-by: LLM sparse
-Signed-off-by: Sagi Maimon <maimon.sagi@gmail.com>
----
-
-Notes:
-    Changes in v4:
-    - Different approach, as Paolo Abeni and the review of v3 suggested:
-      keep reclaiming the whole ring and cap only the value returned,
-      instead of stopping the reclaim at the budget.  napi.rst allows any
-      number of TX completions per poll, and stopping early could leave
-      completed descriptors behind while napi_disable() is pending.
-    - Subject changed to match; v1-v3 were "net: axienet: bound TX
-      completion cleanup by the NAPI budget".
-    - Fixes: now names 5a6caa2cfabb, which made the return value unbounded
-      (review of v3).
-    - Only axienet_tx_poll() and its kernel-doc change now.
-    - Suggested-by: Paolo Abeni.
-    - Build-tested only so far; v3 was tested on hardware, v4 not yet.
-    - v3: https://lore.kernel.org/netdev/20260924135052.185129-1-maimon.sagi@gmail.com/
-    
-    Changes in v3:
-    - Report no work for a budget of 0, so netpoll cannot trip the
-      WARN_ONCE() in poll_one_napi().
-    - Add the Assisted-by: tag that v1 and v2 omitted.
-    - v2: https://lore.kernel.org/netdev/20260917115657.20697-1-maimon.sagi@gmail.com/
-    
-    Changes in v2:
-    - Treat a budget of 0 as no limit, so that netpoll still drains the TX
-      ring.
-    - v1: https://lore.kernel.org/netdev/20260914114821.55503-1-maimon.sagi@gmail.com/
-
- drivers/net/ethernet/xilinx/xilinx_axienet_main.c | 11 ++++++++---
- 1 file changed, 8 insertions(+), 3 deletions(-)
-
-diff --git a/drivers/net/ethernet/xilinx/xilinx_axienet_main.c b/drivers/net/ethernet/xilinx/xilinx_axienet_main.c
-index 1722b7038f34..243b07fd5be8 100644
---- a/drivers/net/ethernet/xilinx/xilinx_axienet_main.c
-+++ b/drivers/net/ethernet/xilinx/xilinx_axienet_main.c
-@@ -984,9 +984,9 @@ axienet_start_xmit_dmaengine(struct sk_buff *skb, struct net_device *ndev)
-  * axienet_tx_poll - Invoked once a transmit is completed by the
-  * Axi DMA Tx channel.
-  * @napi:	Pointer to NAPI structure.
-- * @budget:	Max number of TX packets to process.
-+ * @budget:	NAPI budget, or 0 when polled by netpoll.
-  *
-- * Return: Number of TX packets processed.
-+ * Return: Number of TX packets processed, capped at @budget.
-  *
-  * This function is invoked from the NAPI processing to notify the completion
-  * of transmit operation. It clears fields in the corresponding Tx BDs and
-@@ -1027,7 +1027,12 @@ static int axienet_tx_poll(struct napi_struct *napi, int budget)
- 		axienet_dma_out32(lp, XAXIDMA_TX_CR_OFFSET, lp->tx_dma_cr);
- 		spin_unlock_irq(&lp->tx_cr_lock);
- 	}
--	return packets;
-+
-+	/* The whole ring was reclaimed above, which may be more than the
-+	 * budget, but a poll must not report more work than it was given.
-+	 * netpoll polls with a budget of 0 and expects no work reported.
-+	 */
-+	return min(packets, budget);
- }
- 
- /**
-
-base-commit: a7bfaba4823e3c165bb2004c74eff7c096672bc7
--- 
-2.47.0
-
+>
+> /P
+>
 
