@@ -4,65 +4,80 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 98CF5CA5FC1
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 30 Sep 2026 17:35:22 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B1899CA5FC5
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 30 Sep 2026 17:35:26 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Lq0jJbjqlz8yv7BMbnwnq02yCBV0qj0aPWFwc4cyJMk=; b=a7K6aaG4wEirgHLGlJs38TOemu
-	skPnuFSsC719nPSHHSruLWlJI5qetsIf4DAvztiGV/YiQXTsZkU0YBsN1n2BJjorqFRw8TMPUQ4Gn
-	UAYh3iPF+QVun/2J984cu6QDYQLvLuQGk0PPD+yk0uiwQ54UzaLavxmaIoYEWlGOONuLvA0ZGI1VZ
-	BcazJThKbpJh8VPryiNrSqBIggx+By+cRNMPUPp2WiC8uimlP0nytLXFoILGhlRcklT1baOg866/a
-	qFYW6F6+/+q+rCPWg+pRGSmD8ZM1xiMpujdRx7Tunap/xvtZs2cvGeJKxY1Oiv66OjsKJVBjEy1eg
-	O2XtVMcQ==;
+	bh=P3Rrdv9vojepOq/T7NqUv54Q3n22kGW/AeeDox5tK0c=; b=t3vvUAlNGVsyegf7Q8BMMbWQKk
+	8M+b7h76Q2FjnakpM9sDM1WgLOKZ5iEgDHAx2x/M77eylSCVc85r+5fnXisloomYMVpUDPvatCaUK
+	QXBG+XSy/bSUuzfT8u2V7CVBoxSlEup6If5KMWjBesVpfiEK4ZuopC9jOJhd1Nedp5nR2oY/iiDUu
+	ZIiWtiPQALjsDYewppYB7YJgKAQnWYdaGV+oRrj5hTLPgpNsckkKS4WkOu4Fl7oO8CR2MqqD7xN2S
+	irkZMCdsQL5MCBEstbV4aLDzZF+DWzE68gLPS/UIFILhEnRa2v4/kGUtEAqHY5LjnoXJ4xr9JHaMY
+	uHcCz+aQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xByD4-00000006r2j-1P2y;
-	Wed, 30 Sep 2026 17:35:14 +0000
-Received: from mx0a-001b2d01.pphosted.com ([148.163.156.1])
+	id 1xByD8-00000006r90-1JiK;
+	Wed, 30 Sep 2026 17:35:18 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xByCs-00000006qv8-48gl
+	id 1xByD1-00000006r04-2IJ2
+	for linux-arm-kernel@bombadil.infradead.org;
+	Wed, 30 Sep 2026 17:35:11 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:MIME-Version
+	:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Sender:Reply-To:
+	Content-Type:Content-ID:Content-Description;
+	bh=P3Rrdv9vojepOq/T7NqUv54Q3n22kGW/AeeDox5tK0c=; b=SoTHtxbQ36NoUyx3CefWH0Q8NR
+	pgI1bNglyElSP3HnZNHjeWlpaUd5FJoMqB8qpkc221PIEb55HCEv2jM+Pww7d/QFqdiBkOoWy7FLc
+	R5LiOIDfkgsMU1BVRYYDtPdB83VAwNKPYyNpJax4ICUXm8wmFwz6SRkMk1FsJvhJB2t1DYiWyKQBw
+	N6QgrGHqGJMJBFOth4he5jjE42HFk9keI3rUKDURES2CIwtNL3YMvwjIU+rjdkzDiZoxy3O1Tr+A3
+	uIkwjFN5Xn+69l5WjEDr5AWdTOtM4emcJBGQC89waBljQ+UgZ7V6q4E6aNHMpjvfO3ra9XsKWX0rR
+	wbTc/Ahg==;
+Received: from mx0a-001b2d01.pphosted.com ([148.163.156.1])
+	by desiato.infradead.org with esmtps (Exim 4.99.2 #2 (Red Hat Linux))
+	id 1xByCx-000000049Ap-2o7g
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 30 Sep 2026 17:35:04 +0000
+	Wed, 30 Sep 2026 17:35:10 +0000
 Received: from pps.filterd (m0353729.ppops.net [127.0.0.1])
-	by mx0a-001b2d01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 68UE5Uar1335866;
+	by mx0a-001b2d01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 68UE66Bq1337475;
 	Wed, 30 Sep 2026 17:34:52 GMT
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ibm.com; h=cc
 	:content-transfer-encoding:date:from:in-reply-to:message-id
-	:mime-version:references:subject:to; s=pp1; bh=Lq0jJbjqlz8yv7BMb
-	nwnq02yCBV0qj0aPWFwc4cyJMk=; b=MzeEPtK6dpjIM99yF5oD6fZ80z4nNx4Wk
-	SnehiXzE1P1EW+nbc36uSgQTdpNDq8oNy4XcCKsXKYHUJ54HTH5GS5iuXH4U+s6J
-	PXSPTjqJQoKw602+BNd9Y5SyFfxFJnsdk4ZbkgGiQwjB7R1DHCyoRlM5LBLc5yzM
-	z1uL4ytpUSngWkGIRYLnJpLPcDVbuMe8Ut9Q7kXGH3YgaVRbVmyj2pS1+d+TEsE7
-	Y8gIHFt704vg70HrbwOkSGpk/8vhJJPBKbMhUBW5B2H3fmX9AJj1MY699jysSem2
-	LzI+bItN2iOUG/JJqyuLu0EFNblx8jqP+OiVIsqjGGXiIYYrQ8ruw==
-Received: from ppma21.wdc07v.mail.ibm.com (5b.69.3da9.ip4.static.sl-reverse.com [169.61.105.91])
-	by mx0a-001b2d01.pphosted.com (PPS) with ESMTPS id 4gx5qrehbj-1
+	:mime-version:references:subject:to; s=pp1; bh=P3Rrdv9vojepOq/T7
+	NqUv54Q3n22kGW/AeeDox5tK0c=; b=I8NZMsFI3rN6ACpRSg41Zm3CgrrCDXFpq
+	9uKooseVeHdk8YharssZ6+8r/da8KsN51V33wk4TUQ6ub/552IkCviqqw9rekyg4
+	bir7XG51z1hXVqmEXyBCLKxb0oYsvIhECUcdDV/7fuVw8OJY/sErK67Aj0FL8qeM
+	a7acRjOnqbd0rdHIya/OTwrA/PgkaBAA2Ka9cJ5F2topHeXLGjUqXwm+CN1PALGm
+	NWJAIo6EltEtQ4SIaCcXokZvIlwmfBV7aeEzuS6BDAZ+0ZGfV19UOA8Yoyw5VSqL
+	dsdEuuFowes+BjFY/fVkyYhXsKQcjo6A/d0V3GDn6BAKlT8TJrT8g==
+Received: from ppma22.wdc07v.mail.ibm.com (5c.69.3da9.ip4.static.sl-reverse.com [169.61.105.92])
+	by mx0a-001b2d01.pphosted.com (PPS) with ESMTPS id 4gx5qrehbk-1
 	(version=TLSv1.3 cipher=TLS_AES_256_GCM_SHA384 bits=256 verify=NOT);
 	Wed, 30 Sep 2026 17:34:51 +0000 (GMT)
-Received: from pps.filterd (ppma21.wdc07v.mail.ibm.com [127.0.0.1])
-	by ppma21.wdc07v.mail.ibm.com (8.18.1.11/8.18.1.11) with ESMTP id 68UHXllK3541454;
+Received: from pps.filterd (ppma22.wdc07v.mail.ibm.com [127.0.0.1])
+	by ppma22.wdc07v.mail.ibm.com (8.18.1.11/8.18.1.11) with ESMTP id 68UEI2J83569550;
 	Wed, 30 Sep 2026 17:34:50 GMT
-Received: from smtprelay01.fra02v.mail.ibm.com ([9.218.2.227])
-	by ppma21.wdc07v.mail.ibm.com (PPS) with ESMTPS id 4h0hfpcyv4-1
+Received: from smtprelay03.fra02v.mail.ibm.com ([9.218.2.224])
+	by ppma22.wdc07v.mail.ibm.com (PPS) with ESMTPS id 4h0xcsa66h-1
 	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
 	Wed, 30 Sep 2026 17:34:50 +0000 (GMT)
 Received: from smtpav06.fra02v.mail.ibm.com (smtpav06.fra02v.mail.ibm.com [10.20.54.105])
-	by smtprelay01.fra02v.mail.ibm.com (8.14.9/8.14.9/NCO v10.0) with ESMTP id 68UHYkBa31523258
+	by smtprelay03.fra02v.mail.ibm.com (8.14.9/8.14.9/NCO v10.0) with ESMTP id 68UHYhHP43254194
 	(version=TLSv1/SSLv3 cipher=DHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
-	Wed, 30 Sep 2026 17:34:46 GMT
+	Wed, 30 Sep 2026 17:34:44 GMT
 Received: from smtpav06.fra02v.mail.ibm.com (unknown [127.0.0.1])
-	by IMSVA (Postfix) with ESMTP id 0D11F20049;
-	Wed, 30 Sep 2026 17:34:46 +0000 (GMT)
+	by IMSVA (Postfix) with ESMTP id 7F1892004D;
+	Wed, 30 Sep 2026 17:34:43 +0000 (GMT)
 Received: from smtpav06.fra02v.mail.ibm.com (unknown [127.0.0.1])
-	by IMSVA (Postfix) with ESMTP id B3A6A2005A;
-	Wed, 30 Sep 2026 17:34:45 +0000 (GMT)
+	by IMSVA (Postfix) with ESMTP id 31F4E20063;
+	Wed, 30 Sep 2026 17:34:43 +0000 (GMT)
 Received: from tuxmaker.boeblingen.de.ibm.com (unknown [9.87.85.9])
 	by smtpav06.fra02v.mail.ibm.com (Postfix) with ESMTP;
-	Wed, 30 Sep 2026 17:34:45 +0000 (GMT)
+	Wed, 30 Sep 2026 17:34:43 +0000 (GMT)
 From: Steffen Eiden <seiden@linux.ibm.com>
 To: kvm@vger.kernel.org, kvmarm@lists.linux.dev,
         linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
@@ -89,9 +104,9 @@ Cc: Alexander Gordeev <agordeev@linux.ibm.com>,
         Ulrich Weigand <Ulrich.Weigand@de.ibm.com>,
         Vasily Gorbik <gor@linux.ibm.com>, Will Deacon <will@kernel.org>,
         Zenghui Yu <yuzenghui@huawei.com>
-Subject: [PATCH v9 11/24] KVM: arm64: Share arm64 code with s390
-Date: Wed, 30 Sep 2026 19:34:26 +0200
-Message-ID: <20260930173441.66762-12-seiden@linux.ibm.com>
+Subject: [PATCH v9 04/24] arm64: Use proper include variant
+Date: Wed, 30 Sep 2026 19:34:19 +0200
+Message-ID: <20260930173441.66762-5-seiden@linux.ibm.com>
 X-Mailer: git-send-email 2.53.0
 In-Reply-To: <20260930173441.66762-1-seiden@linux.ibm.com>
 References: <20260930173441.66762-1-seiden@linux.ibm.com>
@@ -99,23 +114,24 @@ MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-TM-AS-GCONF: 00
 X-Proofpoint-Reinject: loops=2 maxloops=12
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwOTMwMDA2OCBTYWx0ZWRfXzzhL4OhpQIXY
- CBqTqZ4l3AsdOR5djuxwo2T5GirjukVReXo+55k21X1POj+G5r7LpWe/Kuuqn+r/4XMGte0OxRf
- zPnh6NmOoBomMaNYpUoXkDXsgUIwEqBySmatpwBDrY5K/otC9WlTiGkCJZ2HK5uuGzHtS8V8afJ
- 7lLQAiUYOBM/xm+xsDA3p/cKhvMM3DNtqRFyqah3CPAIU90xctJLckpy3DeeiAkWwDi83f24H3s
- aO4Zfjf0on7JoE/CrjfT5ohmtCg1kxpTsB2SjbPmlukEBUK+g6x41z/vBvF6Us6NZZpvX7OMd2G
- XXWt5bEPtfE8PToKHcdpGxCqyL47UKPXf0bbQIdEvH/ijmQK6/iglskgSlyzIBN6GkJ+E54FxCr
- K7tPpQ1UmGSO2XsZUgFjHuoXIWZdbdgok9QDd9eufz5dM0bRiA2NBO6tS7MKYqtJQXexiL5yYj2
- fsdHWKq0JHXn+GaBk3w==
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwOTMwMDA2OCBTYWx0ZWRfX1zHk9XyMGpTR
+ w9AMAy5FsNYaJ7AkUwm9afAfJfoDku1U+Vtund8h+jBxV5+xdlmYtFBgjbRzj8enIPZg1G3kgOI
+ 0oOkOC+HmkGez1ss7Z8HOfrzqkCPCgSNiJJmLyEV4asJFzf0kzs08Zi2VPrPSYBU6HESTVN6X6C
+ iB8SpoiWzo3eO8Dc6AtJGYvtYRfJaT8AQ+AjL+1sDMAV0VqAjVU+X4iypNSSlxm0qISLKobKkWS
+ V6BTbfRoOqeGHDS/NXCpuEZ/BQT/awWbpEP4zDJSYZVHuaWgDQCvyWjVgecKMTXcSwINfvSf7Ad
+ BXXX81VWeT2t7rmymGuCpMnkRa1Mdh+/qi1Cb2tHBwq6HZeaLbwsd6sDfyI51ubIpNCk2Nk4kof
+ X9F0TIcMs4XMiTkkf0JizuHlyJm+AcgEgSZMr2fn/eedCzlPAxcN3W00TH20oZWySgaUHmm6qsV
+ KLvkIc7MxL9cUs3CkBQ==
 X-Authority-Analysis: v=2.4 cv=SPbXx+vH c=1 sm=1 tr=0 ts=6abd483b cx=c_pps
- a=GFwsV6G8L6GxiO2Y/PsHdQ==:117 a=GFwsV6G8L6GxiO2Y/PsHdQ==:17
+ a=5BHTudwdYE3Te8bg5FgnPg==:117 a=5BHTudwdYE3Te8bg5FgnPg==:17
  a=VdqzKS8jKosA:10 a=VkNPw1HP01LnGYTKEx00:22 a=RnoormkPH1_aCDwRdu11:22
- a=uAbxVGIbfxUO_5tXvNgY:22 a=VnNF1IyMAAAA:8 a=3a0hE5hcTyqzKRjSqTQA:9
-X-Proofpoint-ORIG-GUID: Xd_ZakBeel19n2HFe3Iovl7L9xptfE_O
-X-Proofpoint-Spam-Info: AW1haW4tMjYwOTMwMDA2OCBTYWx0ZWRfX2XuRMXv7TS4u
- CrRODW7SdNToDOTiaXqf+6bofPl0EkL0Di+BrJUI/qS1tRWX3NaKy+7RRoRpcm62FY6Cc0eEdTT
- UYInS2XxWoHfQuWr1mdvy22o1bzUafY=
-X-Proofpoint-GUID: dXNoOwlDZr3NevnscUkD_yU_rdrcEn8c
+ a=uAbxVGIbfxUO_5tXvNgY:22 a=VwQbUJbxAAAA:8 a=7CQSdrXTAAAA:8 a=VnNF1IyMAAAA:8
+ a=d3WjOe2bLlXSZPWdUOEA:9 a=a-qgeE7W1pNrGK8U0ZQC:22
+X-Proofpoint-ORIG-GUID: YzyEjD5xZCSCENweMMgLC2e4ZMTmi1Q6
+X-Proofpoint-Spam-Info: AW1haW4tMjYwOTMwMDA2OCBTYWx0ZWRfX7Ydgm9XURzpt
+ tMfhkcApjc06zPmlltSmIpUP6m6rO0mHtbCPy5539XR5GX41tgnzeCqA4RB9GOCWVkHAJnn3eMM
+ Bg2MXXGZzJ88qYbVyP14SbEQnqr4Xrc=
+X-Proofpoint-GUID: BaDAwfUB648X-ClFdhGmc30W2YmFpa52
 X-Proofpoint-Virus-Version: vendor=baseguard
  engine=ICAP:2.0.293,Aquarius:18.0.1176,Hydra:6.1.134,FMLib:17.12.100.49
  definitions=2026-09-30_03,2026-09-21_02,2025-10-01_01
@@ -126,8 +142,8 @@ X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
  route=outbound adjust=0 reason=mlx scancount=1 engine=8.22.0-2609040000
  definitions=main-2609300068
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260930_103503_054748_69CBEC9A 
-X-CRM114-Status: GOOD (  16.19  )
+X-CRM114-CacheID: sfid-20260930_183508_042066_424127C5 
+X-CRM114-Status: GOOD (  17.88  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -142,94 +158,30 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Mark functions that s390 can use to implement arm on s390 as shared
-functions.
+Use <> for including the sysreg header as it is not discoverable from
+the current directory.
 
-No functional change.
-
+Acked-by: Marc Zyngier <maz@kernel.org>
+Acked-by: Mark Rutland <mark.rutland@arm.com>
+Acked-by: Catalin Marinas <catalin.marinas@arm.com>
 Signed-off-by: Steffen Eiden <seiden@linux.ibm.com>
 ---
- arch/arm64/kvm/arm.c   | 3 +++
- arch/arm64/kvm/guest.c | 6 ++++++
- arch/arm64/kvm/mmio.c  | 2 ++
- 3 files changed, 11 insertions(+)
+ arch/arm64/include/asm/sysreg.h | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
 
-diff --git a/arch/arm64/kvm/arm.c b/arch/arm64/kvm/arm.c
-index 0576c2022ef5..b94879a0b409 100644
---- a/arch/arm64/kvm/arm.c
-+++ b/arch/arm64/kvm/arm.c
-@@ -1607,6 +1607,7 @@ static unsigned long system_supported_vcpu_features(void)
- 	return features;
- }
+diff --git a/arch/arm64/include/asm/sysreg.h b/arch/arm64/include/asm/sysreg.h
+index 7aa08d59d494..4bfdac9401bd 100644
+--- a/arch/arm64/include/asm/sysreg.h
++++ b/arch/arm64/include/asm/sysreg.h
+@@ -173,7 +173,7 @@
+  * come from here. The header relies on the definition of sys_reg()
+  * earlier in this file.
+  */
+-#include "asm/sysreg-defs.h"
++#include <asm/sysreg-defs.h>
  
-+#if ARM64_S390_COMMON == 1
- static int kvm_vcpu_init_check_features(struct kvm_vcpu *vcpu,
- 					const struct kvm_vcpu_init *init)
- {
-@@ -1660,6 +1661,8 @@ static bool kvm_vcpu_init_changed(struct kvm_vcpu *vcpu,
- 			     KVM_VCPU_MAX_FEATURES);
- }
- 
-+#endif /* ARM64_S390_COMMON == 1 */
-+
- static int kvm_setup_vcpu(struct kvm_vcpu *vcpu)
- {
- 	struct kvm *kvm = vcpu->kvm;
-diff --git a/arch/arm64/kvm/guest.c b/arch/arm64/kvm/guest.c
-index 773f6c8e5026..0259c515997b 100644
---- a/arch/arm64/kvm/guest.c
-+++ b/arch/arm64/kvm/guest.c
-@@ -62,6 +62,7 @@ const struct kvm_stats_header kvm_vcpu_stats_header = {
- 		       sizeof(kvm_vcpu_stats_desc),
- };
- 
-+#if ARM64_S390_COMMON == 1
- static bool core_reg_offset_is_vreg(u64 off)
- {
- 	return off >= KVM_REG_ARM_CORE_REG(fp_regs.vregs) &&
-@@ -306,6 +307,8 @@ static int set_core_reg(struct kvm_vcpu *vcpu, const struct kvm_one_reg *reg)
- 	return err;
- }
- 
-+#endif /* ARM64_S390_COMMON == 1 */
-+
- #define vq_word(vq) (((vq) - SVE_VQ_MIN) / 64)
- #define vq_mask(vq) ((u64)1 << ((vq) - SVE_VQ_MIN) % 64)
- #define vq_present(vqs, vq) (!!((vqs)[vq_word(vq)] & vq_mask(vq)))
-@@ -543,6 +546,7 @@ int kvm_arch_vcpu_ioctl_set_regs(struct kvm_vcpu *vcpu, struct kvm_regs *regs)
- 	return -EINVAL;
- }
- 
-+#if ARM64_S390_COMMON == 1
- static int copy_core_reg_indices(const struct kvm_vcpu *vcpu,
- 				 u64 __user *uindices)
- {
-@@ -591,6 +595,8 @@ static unsigned long num_core_regs(const struct kvm_vcpu *vcpu)
- 	return copy_core_reg_indices(vcpu, NULL);
- }
- 
-+#endif /* ARM64_S390_COMMON == 1 */
-+
- static unsigned long num_sve_regs(const struct kvm_vcpu *vcpu)
- {
- 	const unsigned int slices = vcpu_sve_slices(vcpu);
-diff --git a/arch/arm64/kvm/mmio.c b/arch/arm64/kvm/mmio.c
-index d1c3a352d5a2..3eaf687eae07 100644
---- a/arch/arm64/kvm/mmio.c
-+++ b/arch/arm64/kvm/mmio.c
-@@ -10,6 +10,7 @@
- 
- #include "trace.h"
- 
-+#if ARM64_S390_COMMON == 1
- void kvm_mmio_write_buf(void *buf, unsigned int len, unsigned long data)
- {
- 	void *datap = NULL;
-@@ -258,3 +259,4 @@ int io_mem_abort(struct kvm_vcpu *vcpu, phys_addr_t fault_ipa)
- 	run->exit_reason	= KVM_EXIT_MMIO;
- 	return 0;
- }
-+#endif /* ARM64_S390_COMMON == 1 */
+ /*
+  * System registers, organised loosely by encoding but grouped together
 -- 
 2.53.0
 
