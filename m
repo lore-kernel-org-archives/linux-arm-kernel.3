@@ -4,81 +4,152 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CA6BCCA5FAC
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 30 Sep 2026 13:44:42 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C85EACA5FC5
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 30 Sep 2026 13:46:34 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Tg0j7rPmfmDTUU7vlDxMSeJZMiwrM5/Js7CPqPmYIAM=; b=iLjS/CZ8mvySGyE7FpuzUdqT+a
-	fE2CjHKMTwkcWwNN1lNW+LONYMQJJ28pNj1TaCQAMHKFJX3dAk4PWSM3/F10k30sYv/Q7rPbYBpCz
-	sT87a75oJx6LQZkEMlbYJV9YECDxfh4nCg6UYFXZ3VF4HBSsvLImwNuayBbKRjfHkL8kTERZyDELj
-	N7B62BTe65T2BMtImeXeBwWcw3fjWi5zwduGkUaeC3bvCW6Q/FPL8+p+IqH19FdFIcDOZxV90mhfx
-	FG9brWBJbRMnhyIrjP/rewe/zRhnSDPOnYXhQOdBn+TgBEyqcyuH0iLN9ERUjWnbWseB3tJWUGTuI
-	S6kOpWsw==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
+	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
+	Content-Transfer-Encoding:Content-Type:In-Reply-To:References:Cc:To:Subject:
+	From:MIME-Version:Date:Message-ID:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=CHcqKszk+BLOaoNOEO2+3FAWySZdw8cPx3mMZwkgNqk=; b=mrUKTRmmaVwYj8r6G6CF4CmrD6
+	oOcXi9pObEIVQnGp7bMz8o546RBCfV3Dpn5qvMMsSXna79J8tHYAgGhE+WgJd5IA7Wdm4ZDFl7wJC
+	2AWI0+g6ueuZSIj5QvIt1NqrXv2D0qF4sKi/XN68WATwFAb3PfNT+kciJyOs7Gq6c3ghM+SaAh+R/
+	AabBMpWGEc28VP9AThllRjZgOfaueydmhSFz/zh191UKaBEdokNBjaJBF8DG38X6k5yrkcVfCp1uG
+	MWHByegy8piSSbIGyT0Acd0cF17LZ/DJ/mJ+/IiiP/fw94re4d7RHvUJdezs1k1sVinyzfs/ty+PH
+	XHBgyV+w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xBubp-00000006AUC-1HoP;
-	Wed, 30 Sep 2026 13:44:33 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xBubl-00000006ASa-08rn
+	id 1xBudW-00000006Aqu-49Jc;
+	Wed, 30 Sep 2026 13:46:19 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1xBudU-00000006AqM-1ib4
+	for linux-arm-kernel@bombadil.infradead.org;
+	Wed, 30 Sep 2026 13:46:16 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:Content-Type
+	:In-Reply-To:References:Cc:To:Subject:Reply-To:From:MIME-Version:Date:
+	Message-ID:Sender:Content-ID:Content-Description;
+	bh=CHcqKszk+BLOaoNOEO2+3FAWySZdw8cPx3mMZwkgNqk=; b=fkGf+5HiFcZPV0ZQq+6p78x70v
+	URDT8bAca+5tM1vG2zm5NAzXI24SgvARLIe6TOpgBsZ/k+NPWiKC24Og2z42U//WrsPULNSLLXhsL
+	S6hxoI8nxyD65CtQk5lL1Oth3gCLydcYwsQjyaItWkbXsCYmJzNy4QYep4NMLETbYoal7W4/38CoT
+	u4HA4N1Js0iTk/yPGZhhSuSXNxEu35bm+25QeGlxPbVpkUUyEwqVulcimtSikSGoJSRTFSuVjt0LD
+	jd/BRmfyrJycKjiuofwrO1vtyOn3GhqsJkCTaliiYYlC4DybFekCCgwEyI5C3dSo7oJjmoy81jPg6
+	F8K9ucrg==;
+Received: from mail-wr2-x0f.google.com ([2a00:1450:4864:30::f])
+	by desiato.infradead.org with esmtps (Exim 4.99.2 #2 (Red Hat Linux))
+	id 1xBudR-00000003rma-2HYJ
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 30 Sep 2026 13:44:30 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 727E6168F;
-	Wed, 30 Sep 2026 06:44:24 -0700 (PDT)
-Received: from e129823.arm.com (e129823.arm.com [10.2.213.3])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id F02EC3F86F;
-	Wed, 30 Sep 2026 06:44:24 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1790775867; bh=d6nZ0CYHV1j5DDfKelAp5NeZoMJ0Ig7FSoRuiZJx2Ko=;
-	h=From:Date:Subject:References:In-Reply-To:To:Cc:From;
-	b=Bd7o93Qa4PFjgVXK07gWvwXZrDcfEFGQIs/QAkCVds9/yksQ8KmpaTwp+ibtmen4s
-	 L5sXkl6iJ/NBAzd3gKZNrOuHAV9O0MhB7/oDYEuE5+BXCuJ1EV+KWOpbXPsSA5afbx
-	 OKmQYx0RaWyYXk1k31UnALGaqId4G3C0jLf1Tnhw=
-From: Yeoreum Yun <yeoreum.yun@arm.com>
-Date: Wed, 30 Sep 2026 14:44:01 +0100
-Subject: [PATCH RFC 3/3] security: IMA: use TSM measurement registers
+	Wed, 30 Sep 2026 13:46:15 +0000
+Received: by mail-wr2-x0f.google.com with SMTP id ffacd0b85a97d-488811c9ebaso2739252f8f.2
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 30 Sep 2026 06:46:13 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=linaro.org; s=google; t=1790775972; x=1791380772; darn=lists.infradead.org;
+        h=content-transfer-encoding:content-type:in-reply-to:organization
+         :autocrypt:content-language:references:cc:to:subject:reply-to:from
+         :user-agent:mime-version:date:message-id:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=CHcqKszk+BLOaoNOEO2+3FAWySZdw8cPx3mMZwkgNqk=;
+        b=enAXSGA/fOyAMcVCnrrQubgHxpNtcRBApPNzDd47rBMWFzo4a0o3tdPwnEDjsp/VF4
+         5H5znipJhrcQ2VLmflPvZ7UesE/5Z4Xf4ntN5j6WyqKHcJkWeq0a7jE2lwC4L6eeuvp6
+         VkJYyvEMmTX5KDEPQ9hEZ4TcmNFac3d/psDr3qCFNJ2qXP87FPnMB9Lokh/CakpCfoMl
+         6iGJoJzoFtsQXrbl1O8vLUlgm9l7E8TcmtAjkOuGf8ETWjhdkXoWkYPSdpJIOkqCAo7v
+         aRWNFxeefad4E8RyLDWJqUnRqqmtW2u3+LtV0LKMFctGDbb12Fz6LcHBoNGl27FwOSFi
+         nIPQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1790775972; x=1791380772;
+        h=content-transfer-encoding:content-type:in-reply-to:organization
+         :autocrypt:content-language:references:cc:to:subject:reply-to:from
+         :user-agent:mime-version:date:message-id:x-gm-gg:x-gm-message-state
+         :from:to:cc:subject:date:message-id:reply-to:content-type;
+        bh=CHcqKszk+BLOaoNOEO2+3FAWySZdw8cPx3mMZwkgNqk=;
+        b=ifQ5DhOsJB3hDYQaeMnBYViuZCEsAFodwlwuI21NwD1CudTQZjkrLZXduElfu4MrfH
+         jq4/wbrEqVtpZZwYbz+gBJxfB2fzfNmFy5uSoJklKrGMAuP79d+d+YIVlzcfJVZqzbQl
+         nkTu339axppUlYxCoefgwcxjhZDIpzRLK0fDQULoCOgn5fupDWuJz7u946WXaB0lVTeI
+         Nsh3OTKLL9k7TrDQNacDDLZr2FEmaj/dVokXoFjrJMOK0rabytzVh8WgDum6gjh6rhr9
+         qKKT5VoUcRERrZuonOvbDtHGSGgOohGqiL2eU6r7l5eJtJZRezUAgJ5JEEqrGX0534Jg
+         uVUA==
+X-Forwarded-Encrypted: i=1; AKwUvByFxMpPoMgMb4tBEB6KDSarOBdCyUJKuRsoGo1ewBizCeHkwmTuMQv5z/rvg4ihulS8pyLeOY8u4wQaIqtgvIlW@lists.infradead.org
+X-Gm-Message-State: AFq9FYKDY0n+kI1idu75iky76mSaCNDvojPfQnUZCcApEHTYHPIibyRi
+	JAzC7bGDGSk1YB9+il6DHzukHZ07EUi4Aq4kwYuguQQjBifdu47c3EgciPgJ8XHTDlM=
+X-Gm-Gg: AYBFou32qdtWLlynKdLrc8OfaSFz8SWLsf31xiGXQDRsY9B1re2rrTNUB6UDkPvoBNV
+	AGQ6DhXxc48j6g/uJUIUwYlfUdU27e0cRZ1Pdh9EXXCa27NekSmR2gX1Y6IykNWSFDm0X0AicPr
+	Yt/DVAxOpT/VNs9wwiHo3kKxOoJe+jVI65yUBQCcRU45Ihit7aZ4tUSnpKVF0ya8AOUIH45+DrI
+	CKMiawYisdIru9BUmhXmJZh9unkSIajHqEt0w3mSr5/aTUthqCyVqBgq5S3B2KZnJ1smHeUNW1K
+	CoE/Upj3ShLwYc5Bk/vJSTrOD4zEnE7GSEsKC8LR9IrruBOINkvVJneNvbtwETufCrtX2pHbB2T
+	j0gGL3cQV67kPkkufjTJeDEfW2juzykXEr7/KQwcr4A57wqIQdx3QJWTYF0N/4PRfbeK7ICXRf3
+	/W/HDZ7jW1AzyhfVuIGMdrmaWiX+8FcZKKRDat7kJ2cbdKpYvelTWKc+PXZwwNHYOpwdyW/Y2iH
+	Lsxx0aOzKb75kE0/GSsaaW8qjQ0Gbv7Dyal604kSYKZZwDGYG9mvyeA/e65WV+jwO578Vv6LaUd
+	QDtELKk=
+X-Received: by 2002:a5d:5f81:0:b0:488:84e2:cb0b with SMTP id ffacd0b85a97d-48b02549be8mr3355158f8f.51.1790775971655;
+        Wed, 30 Sep 2026 06:46:11 -0700 (PDT)
+Received: from [10.21.51.184] (ipagstaticip-88fc351e-cb28-db3e-3f52-ad13c70f08da.sdsl.bell.ca. [142.127.77.63])
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-48b029e51b8sm3780276f8f.20.2026.09.30.06.46.06
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Wed, 30 Sep 2026 06:46:10 -0700 (PDT)
+Message-ID: <c75feb5d-055d-403a-8dba-3c187cdb8e7d@linaro.org>
+Date: Wed, 30 Sep 2026 15:46:04 +0200
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
+User-Agent: Mozilla Thunderbird
+From: Neil Armstrong <neil.armstrong@linaro.org>
+Subject: Re: [PATCH 0/6] drm/bridge: Add a BPF-based MIPI-DSI panel driver
+To: Maxime Ripard <mripard@kernel.org>
+Cc: Jessica Zhang <jesszhan0024@gmail.com>, David Airlie <airlied@gmail.com>,
+ Simona Vetter <simona@ffwll.ch>,
+ Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
+ Thomas Zimmermann <tzimmermann@suse.de>, Rob Herring <robh@kernel.org>,
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
+ <conor+dt@kernel.org>, Nathan Chancellor <nathan@kernel.org>,
+ Nick Desaulniers <ndesaulniers@google.com>, Bill Wendling
+ <morbo@google.com>, Justin Stitt <justinstitt@google.com>,
+ Florian Fainelli <florian.fainelli@broadcom.com>,
+ Broadcom internal kernel review list
+ <bcm-kernel-feedback-list@broadcom.com>,
+ Andrzej Hajda <andrzej.hajda@intel.com>, Robert Foss <rfoss@kernel.org>,
+ Laurent Pinchart <Laurent.pinchart@ideasonboard.com>,
+ Jonas Karlman <jonas@kwiboo.se>, Jernej Skrabec <jernej.skrabec@gmail.com>,
+ Luca Ceresoli <luca.ceresoli@bootlin.com>, Albert Esteve
+ <aesteve@redhat.com>, Dave Stevenson <dave.stevenson@raspberrypi.com>,
+ Javier Martinez Canillas <javierm@redhat.com>,
+ dri-devel@lists.freedesktop.org, devicetree@vger.kernel.org,
+ linux-kernel@vger.kernel.org, bpf@vger.kernel.org, llvm@lists.linux.dev,
+ linux-rpi-kernel@lists.infradead.org, linux-arm-kernel@lists.infradead.org,
+ Benjamin Tissoires <bentiss@kernel.org>
+References: <20260928-drm-mipi-dsi-panel-ebpf-v1-0-5244926aace4@kernel.org>
+ <6b80cb97-6706-412a-b013-9423f6f75153@linaro.org> <artgrTe6wvKxnUOG@houat>
+Content-Language: en-US, fr
+Autocrypt: addr=neil.armstrong@linaro.org; keydata=
+ xsBNBE1ZBs8BCAD78xVLsXPwV/2qQx2FaO/7mhWL0Qodw8UcQJnkrWmgTFRobtTWxuRx8WWP
+ GTjuhvbleoQ5Cxjr+v+1ARGCH46MxFP5DwauzPekwJUD5QKZlaw/bURTLmS2id5wWi3lqVH4
+ BVF2WzvGyyeV1o4RTCYDnZ9VLLylJ9bneEaIs/7cjCEbipGGFlfIML3sfqnIvMAxIMZrvcl9
+ qPV2k+KQ7q+aXavU5W+yLNn7QtXUB530Zlk/d2ETgzQ5FLYYnUDAaRl+8JUTjc0CNOTpCeik
+ 80TZcE6f8M76Xa6yU8VcNko94Ck7iB4vj70q76P/J7kt98hklrr85/3NU3oti3nrIHmHABEB
+ AAHNKk5laWwgQXJtc3Ryb25nIDxuZWlsLmFybXN0cm9uZ0BsaW5hcm8ub3JnPsLAkQQTAQoA
+ OwIbIwULCQgHAwUVCgkICwUWAgMBAAIeAQIXgBYhBInsPQWERiF0UPIoSBaat7Gkz/iuBQJk
+ Q5wSAhkBAAoJEBaat7Gkz/iuyhMIANiD94qDtUTJRfEW6GwXmtKWwl/mvqQtaTtZID2dos04
+ YqBbshiJbejgVJjy+HODcNUIKBB3PSLaln4ltdsV73SBcwUNdzebfKspAQunCM22Mn6FBIxQ
+ GizsMLcP/0FX4en9NaKGfK6ZdKK6kN1GR9YffMJd2P08EO8mHowmSRe/ExAODhAs9W7XXExw
+ UNCY4pVJyRPpEhv373vvff60bHxc1k/FF9WaPscMt7hlkbFLUs85kHtQAmr8pV5Hy9ezsSRa
+ GzJmiVclkPc2BY592IGBXRDQ38urXeM4nfhhvqA50b/nAEXc6FzqgXqDkEIwR66/Gbp0t3+r
+ yQzpKRyQif3OwE0ETVkGzwEIALyKDN/OGURaHBVzwjgYq+ZtifvekdrSNl8TIDH8g1xicBYp
+ QTbPn6bbSZbdvfeQPNCcD4/EhXZuhQXMcoJsQQQnO4vwVULmPGgtGf8PVc7dxKOeta+qUh6+
+ SRh3vIcAUFHDT3f/Zdspz+e2E0hPV2hiSvICLk11qO6cyJE13zeNFoeY3ggrKY+IzbFomIZY
+ 4yG6xI99NIPEVE9lNBXBKIlewIyVlkOaYvJWSV+p5gdJXOvScNN1epm5YHmf9aE2ZjnqZGoM
+ Mtsyw18YoX9BqMFInxqYQQ3j/HpVgTSvmo5ea5qQDDUaCsaTf8UeDcwYOtgI8iL4oHcsGtUX
+ oUk33HEAEQEAAcLAXwQYAQIACQUCTVkGzwIbDAAKCRAWmrexpM/4rrXiB/sGbkQ6itMrAIfn
+ M7IbRuiSZS1unlySUVYu3SD6YBYnNi3G5EpbwfBNuT3H8//rVvtOFK4OD8cRYkxXRQmTvqa3
+ 3eDIHu/zr1HMKErm+2SD6PO9umRef8V82o2oaCLvf4WeIssFjwB0b6a12opuRP7yo3E3gTCS
+ KmbUuLv1CtxKQF+fUV1cVaTPMyT25Od+RC1K+iOR0F54oUJvJeq7fUzbn/KdlhA8XPGzwGRy
+ 4zcsPWvwnXgfe5tk680fEKZVwOZKIEuJC3v+/yZpQzDvGYJvbyix0lHnrCzq43WefRHI5XTT
+ QbM0WUIBIcGmq38+OgUsMYu4NzLu7uZFAcmp6h8g
+Organization: Linaro
+In-Reply-To: <artgrTe6wvKxnUOG@houat>
+Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 7bit
-Message-Id: <20260930-ima_tgx_integration_v2-v1-3-722c35370548@arm.com>
-References: <20260930-ima_tgx_integration_v2-v1-0-722c35370548@arm.com>
-In-Reply-To: <20260930-ima_tgx_integration_v2-v1-0-722c35370548@arm.com>
-To: linux-coco@lists.linux.dev, linux-kernel@vger.kernel.org, 
- linux-arm-kernel@lists.infradead.org, 
- Eric Snowberg <eric.snowberg@oracle.com>, linux-integrity@vger.kernel.org, 
- linux-security-module@vger.kernel.org
-Cc: Dan Williams <djbw@kernel.org>, Mimi Zohar <zohar@linux.ibm.com>, 
- Roberto Sassu <roberto.sassu@huawei.com>, 
- Dmitry Kasatkin <dmitry.kasatkin@gmail.com>, 
- Paul Moore <paul@paul-moore.com>, James Morris <jmorris@namei.org>, 
- "Serge E. Hallyn" <serge@hallyn.com>, 
- Catalin Marinas <catalin.marinas@arm.com>, Jason Gunthorpe <jgg@ziepe.ca>, 
- Suzuki Poulose <suzuki.poulose@arm.com>, 
- Steven Price <steven.price@arm.com>, Sami Mujawar <sami.mujawar@arm.com>, 
- "Aneesh Kumar K.V" <aneesh.kumar@kernel.org>, Jiri Pirko <jiri@resnulli.us>, 
- Yeoreum Yun <yeoreum.yun@arm.com>
-X-Mailer: b4 0.13.0
-X-Developer-Signature: v=1; a=openpgp-sha256; l=10095; i=yeoreum.yun@arm.com;
- h=from:subject:message-id; bh=d6nZ0CYHV1j5DDfKelAp5NeZoMJ0Ig7FSoRuiZJx2Ko=;
- b=owEB7QES/pANAwAKAW3Vw9FaxTEzAcsmYgBqvRIuDp0ses8uekRGMZSlJEtTE++PzOEzQHBGj
- J1jf6ABkYSJAbMEAAEKAB0WIQQtg+CS3QUzuFh1pJ1t1cPRWsUxMwUCar0SLgAKCRBt1cPRWsUx
- M3VGDACbmjMwaE1TpUBn0d2fNZbF815kR7BpsXO/j/OxUlJ4cnrthT3T9Ly1HKCEtGT5+RHbiiV
- of2LubVbNpcs42/U9M4oS8fj1swjbbjV0svdny+5QKYsHKBELl4RzlcHEMH7or2iha7a9E/rhRu
- cOgmsPBLCKli0bCn3nE0IXCyWJSu/IaroIE6su2u2Zg4cPhvLJiQNP2Yyp86AzkkYn19d1vHIcz
- 6AZm/wz1J6icZe6L48Rj9Ynacif9cKpt1xi12pcViilXMnvPx7vFnwmRa+P0F7+i0XBM8mqSfld
- 7ppHaQDx7dMdMhe/Q53YN37fQdsoH+Yud6qbSLEaKDoA/HQjxpjlIRdsy1cxF6DN0XJkU6A9CUc
- Ljrb/EZBLULov+/VWiLHGzOjvp4JGLyHdQ7XNYPiQiD9B7tbyMklcc64OlzsImvdNSwsUqqtEtt
- uJ+Keg0hGSpFU9WtMf3VGeNPyx8aOh5DWkLOoB31Zlsy+YISvCvErSbGyPCWGVjtYum6Q=
-X-Developer-Key: i=yeoreum.yun@arm.com; a=openpgp;
- fpr=2D83E092DD0533B85875A49D6DD5C3D15AC53133
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260930_064429_211579_45E25AFF 
-X-CRM114-Status: GOOD (  23.94  )
+X-CRM114-CacheID: sfid-20260930_144613_762209_5D2184B2 
+X-CRM114-Status: GOOD (  46.83  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -90,371 +161,131 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
+Reply-To: Neil Armstrong <neil.armstrong@linaro.org>
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-IMA uses TPM PCRs to record measurement digests. When no TPM device is
-available, TSM measurement registers can serve as an alternative for guest.
+On 9/29/26 09:13, Maxime Ripard wrote:
+> Hi Neil,
+> 
+> On Mon, Sep 28, 2026 at 06:39:58PM +0200, Neil Armstrong wrote:
+>> On 9/28/26 18:22, Maxime Ripard wrote:
+>>> Panels in general, and MIPI-DSI panels in particular, are pretty
+>>> difficult to support and require pretty much a panel driver for each
+>>> panel produced. Most of them are pretty simple, and require an opaque
+>>> initialization sequence that is usually poorly documented.
+>>>
+>>> This creates a tension between OEMs and distros because OEMs will
+>>> typically get a new panel to react to a sourcing issue during
+>>> production, and thus need some swift turnaround between getting their
+>>> new panel and it being operational in the OS. Distributions on the other
+>>> hand can take years to ship a kernel with that new panel driver.
+>>>
+>>> To solve this, I followed the example of HID-BPF and wrote a panel
+>>> driver that will rely on BPF programs to perform the panel
+>>> initialization. That way, we can ship the programs separately from the
+>>> kernel, and with a different lifecycle. If this driver is accepted, the
+>>> plan is to have a userspace component started by udev to identify and
+>>> load the right BPF program for the panels found on the device.
+>>
+>> This is kind of late for serious applications except if we manage to
+>> solve the bootloader to Linux display engine transition.
+> 
+> Virtually all "generic" distributions are shipping the panel as modules
+> today anyway, because anything else is nothing but impractical. But
+> maybe you don't consider them serious enough. Also, applications live in
+> userspace already, so can be ran after this driver would be initialized
+> anyway.
 
-The following mappings are defined for Intel TDX [0] and proposed for
-Arm CCA [1]:
+So what would this exactly solve ? keeping out-of-tree BPF driver + bindings
+driver forever and never upstreaming then ? Is this what we really want ?
 
-  TPM PCR index | Intel TDX register | Arm CCA register
-  --------------+--------------------+-----------------
-  0             | MRTD               | RIM
-  1, 7          | RTMR[0]            | REM[0]
-  2-6           | RTMR[1]            | REM[1]
-  8-15          | RTMR[2]            | REM[2]
+> 
+>>> This driver is fully functional and works with both 5" and 7" Touch
+>>> Display 2 panels for the RaspberryPi. However, it breaks away from the
+>>> typical panel driver in multiple ways:
+>>>
+>>> - BPF programs can only be loaded by userspace. This leaves us with two
+>>>     choices:
+>>>
+>>>     * We prevent the driver from loading until the script itself is
+>>>       loaded. This has the side effect of preventing any other output to
+>>>       be used until the initramfs is ran at the earliest, and possibly
+>>>       ever if the loader isn't installed for example.
+>>
+>> This adds a dependency on user-space behavior and if somehow the
+>> initramfs doesn't load for a reason we won't have a way to display
+>> an error.
+> 
+> Yes, if an error happens before the DRM driver loads, it won't be shown
+> on the screen. This is already the case for any panel driver today on
+> any major !embedded distribution. And with built-in drivers, this can
+> also happen before or while the DRM driver loads.
+> 
+> The solution is always the same though: load simpledrm first, move to
+> the proper DRM device once it's functional. It still works with this
+> solution.
 
-Add support for extending IMA measurement digests into the corresponding
-TSM measurement register when no TPM device is available.
+Module != bpf programs, maybe one day it will change.
 
-Link: [0] https://uefi.org/specs/UEFI/2.11/38_Confidential_Computing.html#intel-trust-domain-extension
-Link: [1] https://github.com/tianocore/edk2/issues/11383
-Signed-off-by: Yeoreum Yun <yeoreum.yun@arm.com>
----
- security/integrity/ima/Makefile     |   3 +-
- security/integrity/ima/ima_mr.c     |   1 +
- security/integrity/ima/ima_mr.h     |   1 +
- security/integrity/ima/ima_mr_tsm.c | 290 ++++++++++++++++++++++++++++++++++++
- 4 files changed, 294 insertions(+), 1 deletion(-)
+> 
+>>>
+>>>     * Or we probe the driver all the time, but only report it as connected
+>>>       once a program has been registered. This is somewhat unconventional,
+>>>       but allows the other outputs to be functional, *and* allows the user
+>>>       to force the output if their panel doesn't require any
+>>>       initialization or during debugging. I chose this solution.
+>>
+>> Both options are not really great...
+> 
+> Feel free to make any suggestions
+> 
+>>>
+>>> - It's not a panel driver, but a bridge one, which is also pretty
+>>>     unconventional. This is required because panel drivers don't have
+>>>     access to a detect callback that is required for the above, but I also
+>>>     think that the recent work from Luca blurs the line from panels and
+>>>     bridges and we'll end up going that road anyway.
+>>
+>> On this point, DDIC _are_ bridges,
+> 
+> I have no idea what a DDIC mean.
 
-diff --git a/security/integrity/ima/Makefile b/security/integrity/ima/Makefile
-index f2c46b405a00..f0a22e3a5320 100644
---- a/security/integrity/ima/Makefile
-+++ b/security/integrity/ima/Makefile
-@@ -7,7 +7,8 @@
- obj-$(CONFIG_IMA) += ima.o ima_iint.o
- 
- ima-y := ima_fs.o ima_queue.o ima_init.o ima_main.o ima_crypto.o ima_api.o \
--	 ima_policy.o ima_template.o ima_template_lib.o ima_mr.o ima_mr_tpm.o
-+	 ima_policy.o ima_template.o ima_template_lib.o ima_mr.o ima_mr_tpm.o \
-+	 ima_mr_tsm.o
- ima-$(CONFIG_IMA_APPRAISE) += ima_appraise.o
- ima-$(CONFIG_IMA_APPRAISE_MODSIG) += ima_modsig.o
- ima-$(CONFIG_HAVE_IMA_KEXEC) += ima_kexec.o
-diff --git a/security/integrity/ima/ima_mr.c b/security/integrity/ima/ima_mr.c
-index fe58eb968954..85a66e616f64 100644
---- a/security/integrity/ima/ima_mr.c
-+++ b/security/integrity/ima/ima_mr.c
-@@ -15,6 +15,7 @@ struct ima_mr *ima_mr;
- 
- static struct ima_mr_operations *ima_mr_ops[] = {
- 	&ima_mr_tpm_operations,
-+	&ima_mr_tsm_operations,
- };
- 
- void __init ima_init_mr(void)
-diff --git a/security/integrity/ima/ima_mr.h b/security/integrity/ima/ima_mr.h
-index 23b85522da34..bc7b06c3adcd 100644
---- a/security/integrity/ima/ima_mr.h
-+++ b/security/integrity/ima/ima_mr.h
-@@ -51,6 +51,7 @@ struct ima_mr_operations {
- 
- extern struct ima_mr *ima_mr;
- extern struct ima_mr_operations ima_mr_tpm_operations;
-+extern struct ima_mr_operations ima_mr_tsm_operations;
- 
- void __init ima_init_mr(void);
- 
-diff --git a/security/integrity/ima/ima_mr_tsm.c b/security/integrity/ima/ima_mr_tsm.c
-new file mode 100644
-index 000000000000..3f88edfb8511
---- /dev/null
-+++ b/security/integrity/ima/ima_mr_tsm.c
-@@ -0,0 +1,290 @@
-+// SPDX-License-Identifier: GPL-2.0-only
-+/*
-+ * Copyright (C) 2026 Arm Ltd
-+ *
-+ * Author:
-+ * Yeoreum Yun <yeoreum.yun@arm.com>
-+ */
-+
-+#include <linux/kernel.h>
-+#include <linux/tsm-mr.h>
-+
-+#include "ima.h"
-+
-+#define INVALID_MR_IDX		(-1)
-+
-+struct tsm_context {
-+	const struct tsm_measurements *tm;
-+	int pcr_map[TPM2_PLATFORM_PCR];
-+};
-+
-+static struct tsm_context tsm_ctx;
-+
-+static int tsm_mr_idx_by_name(const struct tsm_measurements *tm,
-+			      const char *mr_name)
-+{
-+	int i;
-+	const struct tsm_measurement_register *mr;
-+
-+	for (i = 0; i < tm->nr_mrs; i++) {
-+		mr = &tm->mrs[i];
-+		if (!strcmp(mr->mr_name, mr_name))
-+			return i;
-+	}
-+
-+	return INVALID_MR_IDX;
-+}
-+
-+static __always_inline
-+int tsm_mr_idx(const struct tsm_measurements *tm,
-+	       const struct tsm_measurement_register *tmr)
-+{
-+	return tmr - tm->mrs;
-+}
-+
-+static __always_inline
-+void __create_tsm_pcr_map(struct tsm_context *ctx,
-+			  int mr0, int mr1, int mr2, int mr3)
-+{
-+	int i;
-+
-+	ctx->pcr_map[TPM_PCR0] = mr0;
-+	ctx->pcr_map[TPM_PCR1] = ctx->pcr_map[TPM_PCR7] = mr1;
-+
-+	for (i = TPM_PCR2; i < TPM_PCR7; i++) {
-+		ctx->pcr_map[i] = mr2;
-+	}
-+
-+	for (i = TPM_PCR8; i < TPM_PCR16; i++) {
-+		ctx->pcr_map[i] = mr3;
-+	}
-+
-+	for (i = TPM_PCR16; i < TPM2_PLATFORM_PCR; i++) {
-+		ctx->pcr_map[i] = INVALID_MR_IDX;
-+	}
-+}
-+
-+static int create_tsm_arm_cca_pcr_map(struct tsm_context *ctx)
-+{
-+	int rim_idx, rem0_idx, rem1_idx, rem2_idx;
-+
-+	rim_idx = tsm_mr_idx_by_name(ctx->tm, "rim");
-+	rem0_idx = tsm_mr_idx_by_name(ctx->tm, "rem0");
-+	rem1_idx = tsm_mr_idx_by_name(ctx->tm, "rem1");
-+	rem2_idx = tsm_mr_idx_by_name(ctx->tm, "rem2");
-+
-+	if ((rim_idx == INVALID_MR_IDX) || (rem0_idx == INVALID_MR_IDX) ||
-+	    (rem1_idx == INVALID_MR_IDX) || (rem2_idx == INVALID_MR_IDX))
-+		return -ENODEV;
-+
-+	__create_tsm_pcr_map(ctx, rim_idx, rem0_idx, rem1_idx, rem2_idx);
-+
-+	return 0;
-+}
-+
-+static int create_tsm_tgx_pcr_map(struct tsm_context *ctx)
-+{
-+	int mrtd_idx, rtmr0_idx, rtmr1_idx, rtmr2_idx;
-+
-+	mrtd_idx = tsm_mr_idx_by_name(ctx->tm, "mrtd");
-+	rtmr0_idx = tsm_mr_idx_by_name(ctx->tm, "rtmr0");
-+	rtmr1_idx = tsm_mr_idx_by_name(ctx->tm, "rtmr1");
-+	rtmr2_idx = tsm_mr_idx_by_name(ctx->tm, "rtmr2");
-+
-+	if ((mrtd_idx == INVALID_MR_IDX) || (rtmr0_idx == INVALID_MR_IDX) ||
-+	    (rtmr1_idx == INVALID_MR_IDX) || (rtmr2_idx == INVALID_MR_IDX))
-+		return -ENODEV;
-+
-+	__create_tsm_pcr_map(ctx, mrtd_idx, rtmr0_idx, rtmr1_idx, rtmr2_idx);
-+
-+	return 0;
-+}
-+
-+static const struct tsm_measurement_register *
-+tsm_mr_get(struct tsm_context *ctx, int pcr_idx)
-+{
-+	int idx;
-+
-+	if (pcr_idx < 0 || pcr_idx >= ARRAY_SIZE(ctx->pcr_map))
-+		return NULL;
-+
-+	idx = ctx->pcr_map[pcr_idx];
-+	if (idx == INVALID_MR_IDX)
-+		return NULL;
-+
-+	return &ctx->tm->mrs[idx];
-+}
-+
-+static int tsm_mr_init(struct ima_mr *mr)
-+{
-+	int rc;
-+	const struct tsm_measurements *tm;
-+
-+	if (!mr)
-+		return -EINVAL;
-+
-+	tm = tsm_default_tm();
-+	if (!tm) {
-+		pr_info("No TSM measurement registers found!\n");
-+		return -ENODEV;
-+	}
-+
-+	tsm_ctx.tm = tm;
-+
-+	if (IS_BUILTIN(CONFIG_ARM_CCA_GUEST))
-+		rc = create_tsm_arm_cca_pcr_map(&tsm_ctx);
-+	else
-+		rc = create_tsm_tgx_pcr_map(&tsm_ctx);
-+
-+	if (rc) {
-+		tsm_ctx.tm = NULL;
-+		return rc;
-+	}
-+
-+	mr->data = &tsm_ctx;
-+	mr->nr_banks = 1;
-+	mr->ops = &ima_mr_tsm_operations;
-+
-+	return 0;
-+}
-+
-+static int tsm_mr_get_bank_info(struct ima_mr *mr, int bank,
-+				mr_bank_info_t *info)
-+{
-+	struct tsm_context *ctx;
-+	const struct tsm_measurement_register *tsm_mr;
-+
-+	if (!mr || !mr->data || !info || (bank >= mr->nr_banks))
-+		return -EINVAL;
-+
-+	ctx = mr->data;
-+	tsm_mr = tsm_mr_get(ctx, TPM_PCR0);
-+	if (!tsm_mr)
-+		return -ENODEV;
-+
-+	info->crypto_id = tsm_mr->mr_hash;
-+	info->digest_size = tsm_mr->mr_size;
-+	info->alg_id = hash_to_alg(info->crypto_id);
-+
-+	if (info->alg_id == TPM_ALG_ERROR)
-+		return -ENODEV;
-+
-+	return 0;
-+}
-+
-+static int tsm_mr_calc_boot_aggregate(struct ima_mr *mr, int bank,
-+				      char *digest, struct crypto_shash *tfm)
-+{
-+	int rc;
-+	struct tsm_context *ctx;
-+	const struct tsm_measurement_register *tsm_mr;
-+	mr_digest_t d = { .digest = {0} };
-+	SHASH_DESC_ON_STACK(shash, tfm);
-+	int mr_idx, pcr_idx;
-+
-+	if (!mr || !mr->data || !tfm || (bank >= mr->nr_banks))
-+		return -EINVAL;
-+
-+	ctx = mr->data;
-+	tsm_mr = tsm_mr_get(ctx, TPM_PCR0);
-+	if (!tsm_mr)
-+		return -ENODEV;
-+
-+	d.alg_id = hash_to_alg(tsm_mr->mr_hash);
-+	if (d.alg_id == TPM_ALG_ERROR)
-+		return -ENODEV;
-+
-+	shash->tfm = tfm;
-+
-+	pr_devel("calculating the boot-aggregate based on TSM bank: %04x\n",
-+		 d.alg_id);
-+
-+	rc = crypto_shash_init(shash);
-+	if (rc)
-+		return rc;
-+
-+	/*
-+	 * In TSM, PCR 0 mapped into MR 0, PCR 1,7 into MR 1 and
-+	 * PCR 2-6 into MR 2. Therefore, accumulate with  MR 0-2.
-+	 */
-+	for (pcr_idx = TPM_PCR0; pcr_idx <= TPM_PCR2; pcr_idx++) {
-+		tsm_mr = tsm_mr_get(ctx, pcr_idx);
-+		if (!tsm_mr)
-+			return -ENODEV;
-+
-+		mr_idx = tsm_mr_idx(ctx->tm, tsm_mr);
-+		rc = tsm_mr_read(ctx->tm, mr_idx, d.digest, tsm_mr->mr_size);
-+		if (rc) {
-+			pr_err("Error Communicating to TSM(%d)\n", rc);
-+			return rc;
-+		}
-+
-+		/* now accumulate with current aggregate */
-+		rc = crypto_shash_update(shash, d.digest,
-+					 crypto_shash_digestsize(tfm));
-+		if (rc)
-+			return rc;
-+	}
-+
-+	/*
-+	 * Extend cumulative digest over MR 3 which corespondant to
-+	 * TPM registers 8-9, which contain measurement for
-+	 * the kernel command line (TPM_PCR8) and image (TPM_PCR9)
-+	 * in a typical PCR allocation. MR 3 is only included in
-+	 * non-SHA1 boot_aggregate digests to avoid ambiguity.
-+	 */
-+	if (d.alg_id != TPM_ALG_SHA1) {
-+		tsm_mr = tsm_mr_get(ctx, TPM_PCR8);
-+		if (!tsm_mr)
-+			return -ENODEV;
-+
-+		mr_idx = tsm_mr_idx(ctx->tm, tsm_mr);
-+		rc = tsm_mr_read(ctx->tm, mr_idx, d.digest, tsm_mr->mr_size);
-+		if (rc) {
-+			pr_err("Error Communicating to TSM(%d)\n", rc);
-+			return rc;
-+		}
-+
-+		rc = crypto_shash_update(shash, d.digest,
-+					crypto_shash_digestsize(tfm));
-+	}
-+
-+	if (!rc)
-+		rc = crypto_shash_final(shash, digest);
-+	return rc;
-+}
-+
-+static int tsm_mr_extend(struct ima_mr *mr, u32 pcr_idx,
-+			 mr_digest_t *digests)
-+{
-+	int rc, mr_idx;
-+	struct tsm_context *ctx;
-+	const struct tsm_measurement_register *tsm_mr;
-+
-+	if (!mr || !mr->data)
-+		return -EINVAL;
-+
-+	ctx = mr->data;
-+	tsm_mr = tsm_mr_get(ctx, pcr_idx);
-+	if (!tsm_mr)
-+		return -ENODEV;
-+
-+	mr_idx = tsm_mr_idx(ctx->tm, tsm_mr);
-+
-+	/* TSM has only one bank. */
-+	rc = tsm_mr_write(ctx->tm, mr_idx, digests[0].digest, tsm_mr->mr_size);
-+	if (rc)
-+		pr_err("Error Communicating to TSM, result: %d\n", rc);
-+
-+	return rc;
-+}
-+
-+struct ima_mr_operations ima_mr_tsm_operations = {
-+	.name                    = "TSM",
-+	.supported               = (IS_BUILTIN(CONFIG_ARM_CCA_GUEST) ||
-+				    IS_BUILTIN(CONFIG_TDX_GUEST_DRIVER)),
-+	.mr_init                 = tsm_mr_init,
-+	.mr_get_bank_info        = tsm_mr_get_bank_info,
-+	.mr_calc_boot_aggregate  = tsm_mr_calc_boot_aggregate,
-+	.mr_extend               = tsm_mr_extend,
-+};
+The DDIC is the Display Driver Interface Controller, basically the
+IC which received DSI packets and physically drives the display.
 
--- 
-2.43.0
+It's basically a bridge to the panel, and this is mainly what we program.
+
+> 
+>> but in the current panel API we blur the line between the panel and
+>> the DDIC. So being a bridge is fine, but in a general way we lack a
+>> proper way to describe the display/panel/monitor independently of the
+>> DDIC.
+>>
+>> At first glance it's a nice driver, but moving the timings into a blob
+> 
+> Let's not kid ourselves, it's *already* a blob. We just sugar-coated it
+> enough that we can be happy and call it GPL.
+
+It's the case for most drivers, but since we don't get proper
+documentation we're stuck using registers list and can't
+implement advanced features. And moving this to a bpf won't solve
+but enhance the problem by a large factor.
+
+> 
+>> moves something into possible proprietary binaries with possible
+>> closed licence and distribution restriction so it's a downgrade for
+>> the same of bringing up a panel faster.
+> 
+> We can already make a proprietary, out-of-tree, panel driver today. That
+> being said, the only license we allow for BPF programs here is GPL, so
+> if anything it would be less of a concern for this than it would be for
+> regular panels.
+
+So you're on to facilitate keeping panel driver out-of-tree and never
+upstream them ? this is awkward TBH.
+
+> 
+> Maxime
 
 
