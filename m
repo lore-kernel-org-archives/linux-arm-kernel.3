@@ -4,68 +4,110 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 575D9CA5FC1
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 30 Sep 2026 10:46:30 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2CE61CA5FB1
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 30 Sep 2026 10:47:59 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
 	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=z3BNd3t5QI0iZuIsQagNY7Y2xxs7h9n+zoA/0fsn5lI=; b=UXHhyLnHxxv0Q5jPvvwR+BaNT0
-	3YA6r+7HDCQgCAp4h9CYZEpJXZqbG1KT5d3Fhyk5kmMpRwv383OV+Mfrv7hwlbCbnqj6BUl02gu7R
-	pkmwCbgwq/C9SDVUfJdSZTlz3IdmOzEudzpNX3C3OAyLkNXptEDqZ3MPpOh6P8fQ18VKFnSP7t/6n
-	PWi2TbqpEFiucOxhRpeolvMxehZ20skqMtdK8hDVPfDNAt5y4YrgDr/3wJmUW7ML20XaFyGbsc0BF
-	6EDJVRKhUUcn/CICXjZJpiBqJlgcGS4m1PsW4kHgGLY11HHzvwK7c+iIe5V2W6XaL4IB7EPLreSnj
-	Sr4SFqPg==;
+	bh=frNDlYzQ/8uu7EJKdkeWFduTnVj3NcJs9Yyw7Sysjok=; b=FO9qDuqwa4UHvD3mdJ5F2RAdIl
+	glQBunckPz/CyvJzzgLiDCr0LeK2zxUFzuVh3Njx5WScFJKGrQoOa89Q3fXjeXbZjvWk7lDxvAcmg
+	1w9RofHtMsxAS+64oMlmLBay9f7g4rDL0yfOYXwwqVeioaoiviV9JgOMMJTklO1wzdh2EonasDMvh
+	YZi//2KUa1upRk1YB2RtRsG3O3jIkZcMQOdYRQZZIDPZNU9Rgogw9rfsNxm6D9PuxE3MGcD92MRAW
+	qrS7p1ydYHCnqPmSI/wtdyslwO024Hn2hdOd6jCDPLtybC1Rp+VJt4Gk50xiBojS+si9kLWklxanI
+	D2ZGKUlg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xBrpO-00000005myk-2EsS;
-	Wed, 30 Sep 2026 10:46:22 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1xBrqp-00000005nAW-3BIT;
+	Wed, 30 Sep 2026 10:47:51 +0000
+Received: from mail-pz2-x0c.google.com ([2607:f8b0:4864:3b::c])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xBrpM-00000005myX-2CH7
+	id 1xBrqm-00000005n9v-4C54
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 30 Sep 2026 10:46:20 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id E1FF143D24
-	for <linux-arm-kernel@lists.infradead.org>; Wed, 30 Sep 2026 10:46:19 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id C6B7E1F0089A
-	for <linux-arm-kernel@lists.infradead.org>; Wed, 30 Sep 2026 10:46:19 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1790765179;
-	bh=z3BNd3t5QI0iZuIsQagNY7Y2xxs7h9n+zoA/0fsn5lI=;
-	h=References:In-Reply-To:From:Date:Subject:To:Cc;
-	b=IBgP2REIcEx+w+IJM3M7B78p8wLDKNpqHBl3GWaVQWbmSSQgxcx8xWJscOl1vl3Qb
-	 KFPzKiBSFaQ9I3s/Yy/jDXHsFVk77iaj7MpA0KK1CiNm5nFZggYhs4KsfWPvw3sp2I
-	 uRPFhvrkSziUf3ydJujWOlTDggp/D769/ZQ0EWefwgEUk1oDn41HcsgJI53rhhQT0N
-	 W5xk4jYpBjtTtIr3LvhXyi3NVxwXWvCMkjt+gaXcfLW+7ggkwZEaAoNmNxaatb126n
-	 nc9OLCdYSYHRYSQ2ufeXychtAuNisu5sWRgWZopwixyjEzkszw+vy+ig6HzOot8lmH
-	 JpR8Ujoo92GHA==
-Received: by mail-lf2-f13.google.com with SMTP id 2adb3069b0e04-5ba34653aefso1363179e87.3
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 30 Sep 2026 03:46:19 -0700 (PDT)
-X-Forwarded-Encrypted: i=1; AKwUvBy923llSbXP9mQ4OzGFwytK9WE8o5/a/LFsCqrsjYWrdNofkmQjzt47rFtpd+illwVnQ13PZoTAi65hR63vGZ1y@lists.infradead.org
-X-Gm-Message-State: AFq9FYLldPZ19BL79YvxzUWLD+aPDeZxE6xzTt39d2ccEmarMQZZ4GHR
-	RlQqaUnqXNWUrbhja7AX2SzgK9x5Ug839BVWtxwIo8gN5WTd/L1YpgZcu0K8UsmeNLZrsjxFdCc
-	Qoq+3yEo/LO3jhTLiShbe6mWzyBeKus4=
-X-Received: by 2002:ac2:5962:0:b0:5b6:1a7c:fd8a with SMTP id
- 2adb3069b0e04-5ba40609bbfmr334357e87.48.1790765178551; Wed, 30 Sep 2026
- 03:46:18 -0700 (PDT)
+	Wed, 30 Sep 2026 10:47:50 +0000
+Received: by mail-pz2-x0c.google.com with SMTP id d2e1a72fcca58-87fd84c0bfeso2099581b3a.3
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 30 Sep 2026 03:47:48 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1790765268; cv=none;
+        d=google.com; s=arc-20260327;
+        b=EtKh6wTiS6ZbezxqVcJHSMvV+GuetBJ0hU5pF98Yj6kDHSWnTNYosxIwrfXdtQHk/P
+         tLa3ee7TQEYMgFWNz9zylKA7Wr8B4zj8bAV0hE343yL7tC3Cfln/WgpK7viT7jGwJuEQ
+         KH/jzok8A8b/TuYHl8/3YtxM6kaq6CEbgNFNT5vsSxuvyXr5jgIq0UhOQqpXG+dw4HS+
+         9DrDq48Hv/BTU92QJD5mnC9Kx+miRcyvqbiFky89MoqdSF+pgKadjVFuYgqLL2eZrbO+
+         SOudDG3YIehxBq3qEMex7x3KFt18IMSRpf0cb2MstEu+TSS0t2UZTyLcqEZ6wU0nnJyM
+         b1+A==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:dkim-signature;
+        bh=frNDlYzQ/8uu7EJKdkeWFduTnVj3NcJs9Yyw7Sysjok=;
+        fh=HARFO1MYKXJ4CRcjXnsym0MZZCnYhhiuFBQCMiGJcq4=;
+        b=DqAB1vhHHl8un1d2pyYxUzpBqkLzc+jGUsNVFIBH3cTTfX8AfTVuS0Ut/TtbZErQA5
+         dwgT7N38MDs5jCQmvsW84vM7BUFKK5Mawtsl9Dzvqe6CAfhnAvvcMV1Qe3VwQESoHXAS
+         29gQldj6iaASSAk0IoChfj0qBcEXni2Zr27u+ge5nUzVwV/FDQCPTg2hINbHDpI3PRVk
+         rS+FmVfwbj4sAYJY0k4FXlwDQSuwUNow/FVSv7mHq5cVbnajCNBdB9bNIo4fOluFw3xR
+         l99DiNEtFJe9CHkgwRvRNLKc0q2HROEhZEqlVOxY8wqMN1rM86ip8TUkbMN6VkIwcD++
+         n6mQ==;
+        darn=lists.infradead.org
+ARC-Authentication-Results: i=1; mx.google.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20251104; t=1790765268; x=1791370068; darn=lists.infradead.org;
+        h=content-transfer-encoding:content-type:cc:to:subject:message-id
+         :date:from:in-reply-to:references:mime-version:from:to:cc:subject
+         :date:message-id:reply-to:content-type;
+        bh=frNDlYzQ/8uu7EJKdkeWFduTnVj3NcJs9Yyw7Sysjok=;
+        b=WNM9UO7B3AHQHd5FqDNk9JMBB8SC2sidl7l78fEKJ+e/q2iHmOPz+GAnFcvaA+Bh8g
+         0JpRkzNJq3hjgSl1ielgygTo7UlQS2/iQXC+1Jgf7ILQt1VsbiPWHuu0LghGu6VgwhaI
+         upy5P5/ASFMNSleSs4g9TVQ0Sx5MaPYJdJnjXMRlIGKmP0E0Xs5IhpsF/UReq3H4XaWa
+         +KLlPP+gJRVre91cUr172/n5HLjUXV0U6KMADtSquWxcFrQcIAjk38LZaEO60krm7MS6
+         kZYBhq6+UWRIJVacBZTudqABDJiyxB+FJsBAyk0dbdz19cV++pVyvFJhCiA5nDgPIsix
+         WeNw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1790765268; x=1791370068;
+        h=content-transfer-encoding:content-type:cc:to:subject:message-id
+         :date:from:in-reply-to:references:mime-version:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=frNDlYzQ/8uu7EJKdkeWFduTnVj3NcJs9Yyw7Sysjok=;
+        b=wbG3q53hIE3/iw6gv35hESoT0wX3nC39ndj44t4uPK79ujE7GvPPWtgg1HvqRt6FYm
+         gZL5tiJO8PLgr200MLVJRBuOcfJadziNe/G5ghDaCsNmt01X0zjoRQLP7GRup/aP2uhE
+         +ho03S1BnmFsvUsO6J/gWHe6CjMw6hGx9HJhVh0e+pHEDwFrUO5X3SWjTq9gZqGVURC1
+         Lao1uT4uShGSGHRuKlAj4tEsbjroOB+VGmF1gjgS8wwrxBmeKzo6XwAeFxEk0rU8PPXL
+         ETddYGvZ1WG11C/lmMxdMnCJlHDyLxhamUSLrNQzlz4+MbkUeIdh5/LXG4PHRpbXR8Y9
+         KkEg==
+X-Forwarded-Encrypted: i=1; AKwUvBz61UXtMF/Qwn7bgm7DpZ2vNwg0ybifL/sBCYEw2WVxTp+ExYP0aDU2v2AEn9/22ZQZ9CdsDSqD0Y+BC5IsSAoN@lists.infradead.org
+X-Gm-Message-State: AFuF++kyk9wMZwmxOQbzQcBqwWuTbVUVZP7nkMnYD+rxgElEXHVI8Zii
+	qI8T+3wHwfLzw018a3I97u2Q8/om3BVmTr/cI35KJ154ii/yX57edThpjgYDr9tf/ck/+D0bLxj
+	RmdNQe9bwZhTjTPq9bTedCu4+TnpCRl0=
+X-Gm-Gg: AYBFou2B4vHV+zDmx4TuLiDSUvjDYHjR+B6gCK7xbNJgGnMP9bAm/Zwmt0Jiw7Ii8yU
+	LkxaVOaygvMrI+/2oM0dARw9wkQEZ3B5l/EOBscZX4rPyG82+pyKSTUrx3uZ8zOPuCoO7NzrjCv
+	z2k/eYkDkyHQA0HDpkBQuELlh2DczlC3ZErS3HTxNtBEDYM+uc3gubcchnlI8bmJ4h29Uq8HODe
+	zmtrZko8zzD5YKTXJ7TMUUGzvb6mWMAsl3CfmsTFWrGvtSUCfpC3BMx+RJFx5n31RVh3tnvsbO9
+	fp8N02t2gNA3waqR2YmdPbksznWi50wQY977AP0N7fMq50hWw5uvRH5LgGYtV92yZv98ifs=
+X-Received: by 2002:a05:6a00:6c8d:b0:880:3b31:a4bb with SMTP id
+ d2e1a72fcca58-8874a89ae36mr654876b3a.20.1790765268145; Wed, 30 Sep 2026
+ 03:47:48 -0700 (PDT)
 MIME-Version: 1.0
-References: <20260930-hibernate-tlb-flush-v1-1-a0143c144c19@amlogic.com>
-In-Reply-To: <20260930-hibernate-tlb-flush-v1-1-a0143c144c19@amlogic.com>
-From: Linus Walleij <linusw@kernel.org>
-Date: Wed, 30 Sep 2026 12:46:05 +0200
-X-Gmail-Original-Message-ID: <CAD++jLkB9KE_XEcHDHj576oUzXUyAN3KX2DxjENDwzSNpu1ohQ@mail.gmail.com>
-X-Gm-Features: AclHuK-mQu3SqsQZujhGStlMhedJD3jinzee-CBwOj6U-mdqpZr3J1pXDQy3c2o
-Message-ID: <CAD++jLkB9KE_XEcHDHj576oUzXUyAN3KX2DxjENDwzSNpu1ohQ@mail.gmail.com>
-Subject: Re: [PATCH] ARM: hibernate: flush TLB after switching to idmap
-To: Chongchong Ding <chongchong.ding@amlogic.com>
-Cc: Russell King <linux@armlinux.org.uk>, linux-arm-kernel@lists.infradead.org, 
-	linux-kernel@vger.kernel.org, linux-pm@vger.kernel.org, 
-	Florian Fainelli <f.fainelli@gmail.com>
+References: <20260927151016.186493-1-pmazzini@gmail.com> <20260927151016.186493-6-pmazzini@gmail.com>
+ <20260930-camouflaged-koel-of-resistance-7b09f5@quoll>
+In-Reply-To: <20260930-camouflaged-koel-of-resistance-7b09f5@quoll>
+From: Pablo Mazzini <pmazzini@gmail.com>
+Date: Wed, 30 Sep 2026 11:47:05 +0100
+X-Gm-Features: AclHuK8o0ZcgRpk54PvKUPvKEFYR13nUvSknbUcihyLHytfHbaM-Aa-FPmvKY64
+Message-ID: <CAAxh=jsr1M-RHfqPF-hgQnM+RmH_D82=YX==Vn5-r2=1AB9eMA@mail.gmail.com>
+Subject: Re: [PATCH v2 05/11] dt-bindings: rtc: sun6i-a31: add Allwinner B288
+To: Krzysztof Kozlowski <krzk@kernel.org>
+Cc: Alexandre Belloni <alexandre.belloni@bootlin.com>, Chen-Yu Tsai <wens@kernel.org>, 
+	Conor Dooley <conor+dt@kernel.org>, Jernej Skrabec <jernej.skrabec@gmail.com>, 
+	Krzysztof Kozlowski <krzk+dt@kernel.org>, Maxime Ripard <mripard@kernel.org>, Rob Herring <robh@kernel.org>, 
+	Samuel Holland <samuel@sholland.org>, devicetree@vger.kernel.org, 
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
+	linux-rtc@vger.kernel.org, linux-sunxi@lists.linux.dev
 Content-Type: text/plain; charset="UTF-8"
 Content-Transfer-Encoding: quoted-printable
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260930_034749_063272_3FF7FF1D 
+X-CRM114-Status: GOOD (  14.54  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -80,28 +122,31 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Sep 30, 2026 at 8:14=E2=80=AFAM Chongchong Ding
-<chongchong.ding@amlogic.com> wrote:
+Hi Krzysztof,
 
-> On 32-bit ARM, hibernate switches to the identity mapping to copy pages.
-> The idmap keeps an early RW snapshot of kernel mappings, so
-> STRICT_KERNEL_RWX text/rodata can be written during restore.
+Thanks, will fix in v3.
+
+Regards,
+Pablo
+
+
+
+On Wed, Sep 30, 2026 at 11:10=E2=80=AFAM Krzysztof Kozlowski <krzk@kernel.o=
+rg> wrote:
 >
-> cpu_switch_mm() does not drop the global TLB entries from swapper.
-> copy_page() can therefore still hit the old RO translations and fail to
-> restore kernel RO sections.
+> On Sun, Sep 27, 2026 at 04:10:10PM +0100, Pablo Mazzini wrote:
+> > The B288 RTC wires one alarm interrupt, not two.
+> >
+> > Signed-off-by: Pablo Mazzini <pmazzini@gmail.com>
+> > ---
+> >  .../devicetree/bindings/rtc/allwinner,sun6i-a31-rtc.yaml        | 2 ++
+> >  1 file changed, 2 insertions(+)
+> >
 >
-> Flush the local BTB and TLB after installing the idmap, matching
-> setup_mm_for_reboot() and the cpu_suspend() resume path.
+> Seems like valid and unaddressed comment from Sashiko, so dropping from
+> DT Patchwork.
 >
-> Signed-off-by: Chongchong Ding <chongchong.ding@amlogic.com>
-
-Ooops yes this does look like a real bug, albeit rarely exercised.
-Reviewed-by: Linus Walleij <linusw@kernel.org>
-
-Please put this into Russell's patch tracker:
-https://www.arm.linux.org.uk/developer/patches/
-
-Yours,
-Linus Walleij
+> Best regards,
+> Krzysztof
+>
 
