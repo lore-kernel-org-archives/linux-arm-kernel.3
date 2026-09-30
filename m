@@ -4,63 +4,77 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 13992CA5FAC
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 30 Sep 2026 12:12:29 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DE752CA5FB1
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 30 Sep 2026 12:22:02 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=rrydI9pf9cK+AJl39+/vvALQk2OmJjdV6B6P+JVL0u8=; b=pR9mq1gfjsm3GwYyz5as+GXgwn
-	a2WnRQDy1pLYq/LGxNRk+CNk31jFu8hDoIVOZQC1ksD8LynjRL0Z9uojX52g3b0/P3wM+o3cwKb1D
-	cmEIIB7GNWtRK5QGMJR6A/JjwkWbN1bRU8Z6g6C12FJ97XM9TXvwvSjVHeBxZY/kakDR8+VHkd8sL
-	6izmyEyrZv5BhPOAMKn5jIdMDmgAN/RxHPD8d9CC6CF+3CcXihkK4iS+XeKCkn3BJ7sroHo3k1CM7
-	pTwmvK27Y5JGxnLi73GqkP0bfx1JKHj3CnYzV1tAVEJcb8yKBS6QH0+c3Zaf9AUYDDRPbz5WQxSMK
-	fmaXGuwA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	References:In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=wbnq+E++cImxNLsHc1xBt+/AJpyKloWUAjUGIfft+Uw=; b=zENdgFOCOMSpDTRPaOg6j4eC4E
+	U7WTPEB7Ya6ruAHAmFvh1eOAWCv7ppKicMucR/nCiiFNKyLet5NpBBe6SX0MtccclrgJdpI3KyQ4a
+	lWPZYMAPVsnXvSw9z6BpjLMLwMCpGBL1B7K2AE+VlaMPsXkyYIQ5phIarxwvOVH+fe1htf4efzggF
+	f4ML5vrtFRshaBjlau3ScMnxB1oqbirx2vSt3txgMS3rPOw1ij5CO138zj271s+HFhcx7EbuQ68Tm
+	GOLBCnZb7wrvroa/JpUdWGzyR6YR7iGZiL+59nopNOHdkx3mnq9WIBt+3oNX4Jaa5xpJFHKthhdPj
+	aguzt9HQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xBtAc-00000005yfd-2FgA;
-	Wed, 30 Sep 2026 12:12:22 +0000
-Received: from out-244.mta1.migadu.com ([95.215.58.244] helo=mta1.migadu.com)
+	id 1xBtJr-00000005zQD-2yiF;
+	Wed, 30 Sep 2026 12:21:55 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xBtAZ-00000005yeq-2Nn5
+	id 1xBtJq-00000005zQ0-2COl
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 30 Sep 2026 12:12:21 +0000
-X-Envelope-To: linux-arm-kernel@lists.infradead.org
-DKIM-Signature: a=rsa-sha256; bh=giJ5+atcfObBREk4HV3phD5/1wpIpixiJ0GDdg7jwGk=;
- c=simple/simple; d=linux.dev;
- h=from:to:subject:date:message-id:mime-version:content-type; s=key1;
- t=1790770337; v=1; x=1791375137;
- b=bWfF7enjh709eVOEO0twdRO5xBSdVFalHnZFTFCjH6yKkFytlel+AONjao6kqtgKdJdNrw6D
- sHBj8MyLo6+vOoGbSagTBMsOvX8zGMms5D2/BZqKfJ6Dk4aY2O0m/rd6oL5yprLzBtN7iOL8jTW
- Hq8EQ+RDdQ3hDBv0ol7Ga6Tk=
-X-Envelope-To: linux-arm-kernel@lists.infradead.org
-Received: by smtp.migadu.com with ESMTPS id e8ef16dae118072c;
-	Wed, 30 Sep 2026 12:12:17 +0000
-X-Mizu-Trace-ID: e8ef16dae118072c
-X-Migadu-Flow: FLOW_OUT
-From: Fuad Tabba <fuad.tabba@linux.dev>
-To: Catalin Marinas <catalin.marinas@arm.com>,
-	Will Deacon <will@kernel.org>
-Cc: Mark Rutland <mark.rutland@arm.com>,
-	Marc Zyngier <maz@kernel.org>,
-	Oliver Upton <oupton@kernel.org>,
-	Anshuman Khandual <anshuman.khandual@arm.com>,
-	"Rob Herring (Arm)" <robh@kernel.org>,
-	Fuad Tabba <tabba@google.com>,
+	Wed, 30 Sep 2026 12:21:54 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by sea.source.kernel.org (Postfix) with ESMTP id D27BA40246;
+	Wed, 30 Sep 2026 12:21:53 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id B1F871F00893;
+	Wed, 30 Sep 2026 12:21:53 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1790770913;
+	bh=wbnq+E++cImxNLsHc1xBt+/AJpyKloWUAjUGIfft+Uw=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References;
+	b=RUL/62yVZtFdGN5Ebnz10BC0cO9q87LtOYTXztxig2qcgS2rV7uKQnP89B731dDPl
+	 /iC5MiDm69ELaZlIzZqN/BKEeGAEN+KWsHwOFq02yfczZ2Y+mxa8WbI8oXZprwqz89
+	 rEGt3HndQEAc8mhEVz8DGZFbPAjE0fFbTA9pZ9LVTSTZP/PWFA9nV1pfU+tm3DZxXc
+	 9DK0nFeRyc6FGCxZxqSApSWMeBPtew6ZCDh99zcJiMJlk2I/6rq2wZOPYUnNlaqNUK
+	 yJcVCWyTAPm+o5XlcIiElMC75I982yBdqgtpjgwF542o58RY41ksy4miknPoihdFa5
+	 9c9M71Jklsk6g==
+Received: from sofa.misterjones.org ([185.219.108.64] helo=goblin-girl.misterjones.org)
+	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.98.2)
+	(envelope-from <maz@kernel.org>)
+	id 1xBtJn-0000000FJ5O-2v6B;
+	Wed, 30 Sep 2026 12:21:51 +0000
+Date: Wed, 30 Sep 2026 13:21:51 +0100
+Message-ID: <861pab3p5s.wl-maz@kernel.org>
+From: Marc Zyngier <maz@kernel.org>
+To: Fuad Tabba <fuad.tabba@linux.dev>
+Cc: kvmarm@lists.linux.dev,
 	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org
-Subject: [PATCH] arm64/boot: Don't set PMUv3p9 FGT2 bits without PMUv3
-Date: Wed, 30 Sep 2026 13:12:12 +0100
-Message-Id: <20260930121212.3101361-1-fuad.tabba@linux.dev>
-X-Mailer: git-send-email 2.39.5
-MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260930_051219_885501_D1009C1E 
-X-CRM114-Status: UNSURE (   8.88  )
-X-CRM114-Notice: Please train this message.
+	Steffen Eiden <seiden@linux.ibm.com>,
+	Joey Gouly <joey.gouly@arm.com>,
+	Suzuki K Poulose <suzuki.poulose@arm.com>,
+	Oliver Upton <oupton@kernel.org>,
+	Zenghui Yu <yuzenghui@huawei.com>,
+	Yuchao Zhang <ndaugoing@gmail.com>,
+	Fuad Tabba <tabba@google.com>
+Subject: Re: [PATCH v1 2/2] KVM: arm64: selftests: Add an ITS MOVALL test
+In-Reply-To: <e6bf4bc51a311df19866a0ee3e27970846257b70.1790708299.git.fuad.tabba@linux.dev>
+References: <20260929093548.3598547-1-maz@kernel.org>
+	<cover.1790708299.git.fuad.tabba@linux.dev>
+	<e6bf4bc51a311df19866a0ee3e27970846257b70.1790708299.git.fuad.tabba@linux.dev>
+User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
+ FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/30.1
+ (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
+MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
+Content-Type: text/plain; charset=US-ASCII
+X-SA-Exim-Connect-IP: 185.219.108.64
+X-SA-Exim-Rcpt-To: fuad.tabba@linux.dev, kvmarm@lists.linux.dev, linux-arm-kernel@lists.infradead.org, seiden@linux.ibm.com, joey.gouly@arm.com, suzuki.poulose@arm.com, oupton@kernel.org, yuzenghui@huawei.com, ndaugoing@gmail.com, tabba@google.com
+X-SA-Exim-Mail-From: maz@kernel.org
+X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -75,38 +89,119 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On a CPU with FGT2 and an IMPLEMENTATION DEFINED PMU (PMUVer 0b1111),
-__init_el2_fgt2 sets the PMUv3p9 bits in HDFGRTR2_EL2 and HDFGWTR2_EL2,
-which are RES0 there. The macro only checks that PMUVer is at least
-PMUv3p9, and 0b1111 passes.
+On Tue, 29 Sep 2026 20:04:52 +0100,
+Fuad Tabba <fuad.tabba@linux.dev> wrote:
+> 
+> Map LPI A to vCPU0's collection and LPI B to vCPU1's, remap vCPU0's
+> collection to vCPU2 and MOVALL vCPU0's LPIs there, then inject both. A
+> must be taken on vCPU2 and B on vCPU1. KVM's MAPC handling already moves
+> A to vCPU2, so only MOVALL handling can move B: without "KVM: arm64:
+> vgic-its: Fix MOVALL handling of source redistributor", it moves B to
+> vCPU2 as well.
 
-Exclude 0b1111 before the compare, as __init_el2_debug does.
+MOVALL is about moving the pending bits (see 5.3.13 in the IHI0069H.b
+spec).  Doing MOVALL first and only then injecting the interrupts
+doesn't quite check the MOVALL requirement. That doesn't impact KVM
+itself (we don't use pending tables at all), but you probably don't
+want to hardcode implementation specific behaviours here.
 
-Fixes: 858c7bfcb35e1 ("arm64/boot: Enable EL2 requirements for FEAT_PMUv3p9")
-Signed-off-by: Fuad Tabba <fuad.tabba@linux.dev>
----
- arch/arm64/include/asm/el2_setup.h | 5 +++--
- 1 file changed, 3 insertions(+), 2 deletions(-)
+> 
+> Assisted-by: LLM
+> Signed-off-by: Fuad Tabba <fuad.tabba@linux.dev>
+> ---
+>  tools/testing/selftests/kvm/Makefile.kvm      |   1 +
+>  .../selftests/kvm/arm64/vgic_its_movall.c     | 341 ++++++++++++++++++
+>  2 files changed, 342 insertions(+)
+>  create mode 100644 tools/testing/selftests/kvm/arm64/vgic_its_movall.c
+> 
+> diff --git a/tools/testing/selftests/kvm/Makefile.kvm b/tools/testing/selftests/kvm/Makefile.kvm
+> index 908bdc7cf4f58..fb0bc99242975 100644
+> --- a/tools/testing/selftests/kvm/Makefile.kvm
+> +++ b/tools/testing/selftests/kvm/Makefile.kvm
+> @@ -190,6 +190,7 @@ TEST_GEN_PROGS_arm64 += arm64/stage2_block_transitions
+>  TEST_GEN_PROGS_arm64 += arm64/vcpu_width_config
+>  TEST_GEN_PROGS_arm64 += arm64/vgic_init
+>  TEST_GEN_PROGS_arm64 += arm64/vgic_irq
+> +TEST_GEN_PROGS_arm64 += arm64/vgic_its_movall
+>  TEST_GEN_PROGS_arm64 += arm64/vgic_its_save
+>  TEST_GEN_PROGS_arm64 += arm64/vgic_lpi_stress
+>  TEST_GEN_PROGS_arm64 += arm64/vgic_v5
+> diff --git a/tools/testing/selftests/kvm/arm64/vgic_its_movall.c b/tools/testing/selftests/kvm/arm64/vgic_its_movall.c
+> new file mode 100644
+> index 0000000000000..41918576bdf63
+> --- /dev/null
+> +++ b/tools/testing/selftests/kvm/arm64/vgic_its_movall.c
+> @@ -0,0 +1,341 @@
+> +// SPDX-License-Identifier: GPL-2.0-only
+> +/*
+> + * vgic_its_movall - MOVALL does not move the LPIs of other redistributors.
+> + *
+> + * Two LPIs, A and B, target two different redistributors. A's collection is
+> + * remapped to a third redistributor with MAPC, followed by MOVALL from the
+> + * first redistributor to the third. Both LPIs are then injected. A must be
+> + * taken on the third redistributor, and B must stay on its own, which is not
+> + * MOVALL's source.
+> + *
+> + * Copyright (c) 2026 Google LLC
+> + * Author: Fuad Tabba <fuad.tabba@linux.dev>
+> + */
+> +
+> +#include <linux/sizes.h>
+> +#include <pthread.h>
+> +#include <stdatomic.h>
+> +
+> +#include "kvm_util.h"
+> +#include "gic.h"
+> +#include "gic_v3.h"
+> +#include "gic_v3_its.h"
+> +#include "processor.h"
+> +#include "ucall.h"
+> +#include "vgic.h"
+> +
+> +#define TEST_MEMSLOT_INDEX	1
+> +
+> +#define GIC_LPI_OFFSET		8192
+> +#define NR_VCPUS		3
+> +#define NR_LPIS			2
+> +#define DEVICE_ID		0
+> +
+> +/* LPI A (event 0) starts on vCPU0 and moves to vCPU2; B (event 1) stays on vCPU1 */
+> +#define LPI_A_COLL		0
+> +#define LPI_B_COLL		1
+> +#define MOVALL_FROM		0
+> +#define MOVALL_TO		2
+> +#define LPI_B_VCPU		1
+> +
+> +#define LPI_PROP_DEFAULT_PRIO	0xa0
+> +
+> +static gpa_t gpa_base;
+> +
+> +static struct kvm_vm *vm;
+> +static struct kvm_vcpu *vcpus[NR_VCPUS];
+> +static int its_fd;
+> +
+> +static struct test_data {
+> +	bool		request_vcpus_stop;
+> +
+> +	gpa_t		device_table;
+> +	gpa_t		collection_table;
+> +	gpa_t		cmdq_base;
+> +	void		*cmdq_base_va;
+> +	gpa_t		itt_table;
+> +
+> +	gpa_t		lpi_prop_table;
+> +	gpa_t		lpi_pend_tables;
+> +} test_data;
 
-diff --git a/arch/arm64/include/asm/el2_setup.h b/arch/arm64/include/asm/el2_setup.h
-index 87560d8b254e6..1da277baacf78 100644
---- a/arch/arm64/include/asm/el2_setup.h
-+++ b/arch/arm64/include/asm/el2_setup.h
-@@ -421,8 +421,9 @@
- 	mov	x2, xzr
- 	mrs	x1, id_aa64dfr0_el1
- 	ubfx	x1, x1, #ID_AA64DFR0_EL1_PMUVer_SHIFT, #4
--	cmp	x1, #ID_AA64DFR0_EL1_PMUVer_V3P9
--	b.lt	.Lskip_pmuv3p9_\@
-+	cmp	x1, #ID_AA64DFR0_EL1_PMUVer_IMP_DEF
-+	ccmp	x1, #ID_AA64DFR0_EL1_PMUVer_V3P9, #8, ne
-+	b.lt	.Lskip_pmuv3p9_\@		// Skip if < PMUv3p9 or IMP_DEF
- 
- 	orr	x0, x0, #HDFGRTR2_EL2_nPMICNTR_EL0
- 	orr	x0, x0, #HDFGRTR2_EL2_nPMICFILTR_EL0
+There seem to be a lot of commonality with the existing
+vgic_lpi_stress test.  I'd rather we make this test the container for
+most ITS-related tests, instead of coming up with new individual
+tests.
 
-base-commit: 72d3fcf802c45d00b300f25b848a93c3a2bd7c7e
+Thanks,
+
+	N,
+
 -- 
-2.39.5
-
+Without deviation from the norm, progress is not possible.
 
