@@ -4,177 +4,177 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 65C6CCA5FC5
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 30 Sep 2026 16:52:49 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D495ECA5FC4
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 30 Sep 2026 16:55:31 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
-	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=vqCO9a+phMbJlv3arPz3rVFd/y5CzZStPZhGWmK6hOM=; b=U2MSeB5Itah37rK1YI79DkA6K2
-	td1SgYE2ftSqxfS8z5l28iyiINcmcqSWfKv3BijR5d6A9dpRkGp6y9apeLe0GtkzzRVNQBmMn7RLP
-	e7q4bbroqUEiW0QfdFgNO930+4lt4t5hs3K+O8MhGcRv2JDkl4tLWnU1TueOl+47dUOJo9YkyB2XW
-	u4ZFqjUx31uaCqZXjSkDBIvYKld1BcKdrXvJi0mrfn4mU1Tm/sxpQyEhbvAF/z9T2kocRH/M+V9iJ
-	9GU5QEFqzBlmxxVje2a/SoV5hsnWCU9R6328ilLXjIqTGSqO0+itD0VyEmqP3DhZTPHFStE6kECCX
-	LmJyeHIg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Cc:To:
+	Content-Transfer-Encoding:Content-Type:Message-Id:Date:Subject:From:Reply-To:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=Yc/4rx/shdZLDUyui4f3LZNqRXnW+Yyu5/nmVcpXHq4=; b=br0r04jUIeXDLooxR4OR9xi7TW
+	2/aS/7b4XVfWf3JYu9oAVT8+NoTk26tdZtoD5yd0bc2W4KVplI8y/4BWRDyLGLLYPpjTky3ir2unv
+	rAJUkqcddjlNEaMUk4GBP5tyYE/WPkD4NqngBjfTRYqXcm/iEndIloRSjC/+VVraceL92ByAWe76K
+	X+LmPhkhTp5O2l7MWj7EKAvExlEFCwwFrwQHsUHtTkezS8CHaQF9CswQmh72FRXJ9zLEp4ucxN/7S
+	a8bGcH4wMfse77ebObOauJUA3rmR5G/0+qQDs/+gEtDK1gl24zfLshT3O63Kl3I/DllUFhwoZOML6
+	M+1LRnEQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xBwrh-00000006eXU-0os5;
-	Wed, 30 Sep 2026 16:09:05 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1xBxaX-00000006l7b-0kKx;
+	Wed, 30 Sep 2026 16:55:25 +0000
+Received: from mail-northeuropeazon11021134.outbound.protection.outlook.com ([52.101.65.134] helo=DU2PR03CU002.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xBwqb-00000006e12-0C43
-	for linux-arm-kernel@bombadil.infradead.org;
-	Wed, 30 Sep 2026 16:07:57 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Content-Type:Content-Transfer-Encoding
-	:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:CC:To:From:
-	Sender:Reply-To:Content-ID:Content-Description;
-	bh=vqCO9a+phMbJlv3arPz3rVFd/y5CzZStPZhGWmK6hOM=; b=dnQ5J9IQfomQ0gDT4nqQnJZt6G
-	MYzV2pjOtSY6wv3mLnHcSjF2ZoAXO4lH9MLbrP03JQgWUlkHuSVvqVx9NbqRk5nOFRrDjcXaO++ST
-	InnRDRf0vt/g1Ge0C4I77pxGxDQpthUt0bJRZ94ojgTd6ni9qnZZNxuMiByT6OYxO3aPjIeLFR79+
-	m/Q42lAKulFYqxMUL+CyQxmn1Kz5cVHa1ygk09YbEQZQ2bZdfVvQCskCWf0c9tu2Xr4e/mHOCGzt2
-	zw16wSJ7RC0u6ABHwO1CMnAEC9ZLg/pSom066D2Pqc+fz0Sfez/kZRWq7Tb2rCdnpsjZK1W6AURU2
-	0uXEPTBA==;
-Received: from mx0a-0002e601.pphosted.com ([148.163.150.75])
-	by desiato.infradead.org with esmtps (Exim 4.99.2 #2 (Red Hat Linux))
-	id 1xBwqW-000000043EP-2FUY
+	id 1xBxaU-00000006l6l-2wIx
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 30 Sep 2026 16:07:56 +0000
-Received: from pps.filterd (m0380145.ppops.net [127.0.0.1])
-	by m0380145.ppops.net (8.18.1.11/8.18.1.11) with ESMTP id 68UE1HRU3333348;
-	Wed, 30 Sep 2026 11:07:47 -0500
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com; h=cc
-	:content-transfer-encoding:content-type:date:from:in-reply-to
-	:message-id:mime-version:references:subject:to; s=
-	proofpoint-05-2026; bh=vqCO9a+phMbJlv3arPz3rVFd/y5CzZStPZhGWmK6h
-	OM=; b=lfx1yW3Au/VFcu6Ydylzcdk3CBSoCnVATEg8PGqOmtfRTccqO8PTamADf
-	VMLJYB4XCWZCIQ7243a7y1Y5pzsEsZ9sCQRgYVA/vUbsG0wtZ3QB5nAt47Mr9uq6
-	Dr3pFeBGY5lVPYJfyRnJERyaWbGtXBLlQsr28mG8g1JsJze0Encg37SOanLLbzO4
-	ehjPbxCr+A1XGi/pf6VhRgTOQv1HhjLGktdc6L9LAkg7gGJo907HVPMe1wTnJQfw
-	yZ3M3e+Pj7LmXjhdF8fScK9BGQRpdSMjLgyz1CvaeRreORgfK3bl3+CJBTQttCIv
-	M2ZGWFvIUyzo6vJJNSwjS4YhrDTHg==
-Received: from ph8pr06cu001.outbound.protection.outlook.com (mail-westus3azon11012055.outbound.protection.outlook.com [40.107.209.55])
-	by m0380145.ppops.net (PPS) with ESMTPS id 4h10t1svvg-1
-	(version=TLSv1.3 cipher=TLS_AES_256_GCM_SHA384 bits=256 verify=NOT);
-	Wed, 30 Sep 2026 11:07:46 -0500 (CDT)
+	Wed, 30 Sep 2026 16:55:24 +0000
+ARC-Seal: i=3; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=pass;
+ b=ed8VRjQQ1+5+pNMhUE9Yhpw8CGX4ixEB7tfeyJNZuZJC41NWsd3BMP72+dtFpB1ehQ/AIAlLtq+uy06deA9Ni/S+nrk5bhYvM06WE9XtIU48V/XPPn054ky3BkJ6qzMadQ2H9OEgbQAATLwH3g8dMm01Cp2hkBd+kZeXeWHlTQyxkrNuU4pAsU457GeJ7Y/0NxrKCLw2qDevzw2HviTyFOUEVpW2b/7NPsqQCsvIHx+rcP/1DKckpOfBH01zLZ1BBTEdS+ZAAkpk28IoVdyIKHKcmJu5nBmnMGd49M3Ssowj8bihcgQhtee+1DMVUkV6xU699XKymxtTrpWxhTqQPQ==
+ARC-Message-Signature: i=3; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=Yc/4rx/shdZLDUyui4f3LZNqRXnW+Yyu5/nmVcpXHq4=;
+ b=IVYjegOLGz++TpiAZPd3j+BidGOMYTPKGhQ20sUodshUohI0Uoa4qkBp7ryNidksrL6HkLjLlswh++NP90idztAuock2xtQWzGxcgG+zwbbgxf6Z0pfsGd2DKmfkKpxH+rZgz6JzWITEU0XtAZ0Q39DJ0PCDDC9nw5SbGUwYOb3P/qWNZ6IVnxdtRiXFxaldcVZ0AEv1HmC67r2PTfH194GffKySMUfMqZbP5qnriVCc0TrNL8w07j0ILhJeCSHgDDBHFri8SUgnx25QsfnIAOP4BZ0ytaIUic114oWdpZ6/FOvXgqyERAQfYrDTU3SbBzHZ21W+DzOO8cYCWZxs/w==
+ARC-Authentication-Results: i=3; mx.microsoft.com 1; spf=fail (sender ip is
+ 52.17.62.50) smtp.rcpttodomain=davemloft.net smtp.mailfrom=solid-run.com;
+ dmarc=pass (p=reject sp=reject pct=100) action=none
+ header.from=solid-run.com; dkim=pass (signature was verified)
+ header.d=solid-run.com; arc=pass (0 oda=1 ltdi=1
+ spf=[1,1,smtp.mailfrom=solid-run.com] dkim=[1,2,header.d=solid-run.com]
+ dmarc=[1,1,header.from=solid-run.com])
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=solid-run.com;
+ s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=Yc/4rx/shdZLDUyui4f3LZNqRXnW+Yyu5/nmVcpXHq4=;
+ b=fZMoT0bq6VvfFHULZHJ1BAGV/framCD1Pt5nw7/aqlwkxsr8JjgQLz9dzH99U55EeiWEsorcAZw1zP0FyKB2sI0793HlWuGWgXC0Pjnaq6A5Uq03RrVVnADUHOp3eqsVFDK6gt92iT3sWQAVGekF5n6JCB2waJ4FuaWU+dPE4WmexmDsvTLeuaFj5pexjHuo2DDcYibifes6GBNdoc0xdXITv+wveWd1K3+HpqMjdVehQCj2yxQZ0SL4Hx6X1QJMkxGXw19La7H0FmcD/cMbqqyZA1HOQuLkV3Hq+yg2EE3TZ8NMNkICEX0tDCvbrYhmnX+ykj1jQHB4n2VPs2XiOQ==
+Received: from CPBP307CA0017.DNKP307.PROD.OUTLOOK.COM (2603:10a6:380:2::13) by
+ PA4PR04MB9709.eurprd04.prod.outlook.com (2603:10a6:102:26b::10) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.472.15; Wed, 30 Sep
+ 2026 16:55:14 +0000
+Received: from CPH1EPF00000530.eurprd05.prod.outlook.com
+ (2603:10a6:380:2:cafe::47) by CPBP307CA0017.outlook.office365.com
+ (2603:10a6:380:2::13) with Microsoft SMTP Server (version=TLS1_3,
+ cipher=TLS_AES_256_GCM_SHA384) id 15.21.428.13 via Frontend Transport; Wed,
+ 30 Sep 2026 16:55:14 +0000
+X-MS-Exchange-Authentication-Results: mx.microsoft.com 1; spf=fail (sender IP
+ is 52.17.62.50) smtp.mailfrom=solid-run.com; dkim=pass (signature was
+ verified) header.d=solid-run.com;dmarc=pass action=none
+ header.from=solid-run.com;
+Received-SPF: Fail (protection.outlook.com: domain of solid-run.com does not
+ designate 52.17.62.50 as permitted sender) receiver=protection.outlook.com;
+ client-ip=52.17.62.50; helo=eu-dlp.cloud-sec-av.com;
+Received: from eu-dlp.cloud-sec-av.com (52.17.62.50) by
+ CPH1EPF00000530.mail.protection.outlook.com (10.167.241.171) with Microsoft
+ SMTP Server (version=TLS1_3, cipher=TLS_AES_256_GCM_SHA384) id 15.21.472.14
+ via Frontend Transport; Wed, 30 Sep 2026 16:55:13 +0000
+Received: from emails-5762875-12-mt-prod-cp-eu-2.checkpointcloudsec.com (ip-10-20-5-37.eu-west-1.compute.internal [10.20.5.37])
+	by mta-outgoing-dlp-272-mt-prod-cp-eu-2.checkpointcloudsec.com (Postfix) with ESMTPS id CC32780F54;
+	Wed, 30 Sep 2026 16:55:12 +0000 (UTC)
+ARC-Seal: i=2; cv=pass; a=rsa-sha256; d=checkpointcloudsec.com;
+ s=arcselector01; t=1790787312;
+ b=OKRFwIxpYgxSSUm8T/WPf+z6sVzQWmEvX9SsQbud6V7a8F6TIE22AdxBK7nV/fRGajhMf
+ oCIOcX/YfMVAAQc5iFdcu2vgjc7Mt1b4TIY5eahD3ze1hmnd/cSftVPlC/xLrIEO6QTfSK+
+ gHfCHoix4RpZeszwTqe+RcI8QD85mFo=
+ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed;
+ d=checkpointcloudsec.com; s=arcselector01; t=1790787312; h=from : to :
+ subject : date : message-id : content-type : mime-version;
+ bh=Yc/4rx/shdZLDUyui4f3LZNqRXnW+Yyu5/nmVcpXHq4=;
+ b=Mf/9l8vCJFP+M+bnbUAdcHOAp7Kd4rF3IB9U9tarognZdIy6R7TjqowSmZOvsshU+Codq
+ 8BfaaWxccPYnCzjB1jzng1GwnL1Yp7veqDbfJYjgp0bXtjWU4p58dr9fPR87ASFMrLUX5kI
+ pc2EToyN9QNCddyyosoGwFLKFd+vYN4=
+ARC-Authentication-Results: i=2; mx.checkpointcloudsec.com;
+ arc=pass;
+ dkim=pass header.d=solid-run.com
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=solid-run.com;
+ s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=Yc/4rx/shdZLDUyui4f3LZNqRXnW+Yyu5/nmVcpXHq4=;
+ b=fZMoT0bq6VvfFHULZHJ1BAGV/framCD1Pt5nw7/aqlwkxsr8JjgQLz9dzH99U55EeiWEsorcAZw1zP0FyKB2sI0793HlWuGWgXC0Pjnaq6A5Uq03RrVVnADUHOp3eqsVFDK6gt92iT3sWQAVGekF5n6JCB2waJ4FuaWU+dPE4WmexmDsvTLeuaFj5pexjHuo2DDcYibifes6GBNdoc0xdXITv+wveWd1K3+HpqMjdVehQCj2yxQZ0SL4Hx6X1QJMkxGXw19La7H0FmcD/cMbqqyZA1HOQuLkV3Hq+yg2EE3TZ8NMNkICEX0tDCvbrYhmnX+ykj1jQHB4n2VPs2XiOQ==
+Authentication-Results-Original: mx.checkpointcloudsec.com; arc=pass;
+ dkim=pass header.d=solid-run.com
+Received: from MMZPR04MB400504.eurprd04.prod.outlook.com (2603:10a6:190:28::8)
+ by DBBPR04MB7499.eurprd04.prod.outlook.com (2603:10a6:10:203::15) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.472.15; Wed, 30 Sep
+ 2026 16:55:03 +0000
+Received: from MMZPR04MB400504.eurprd04.prod.outlook.com
+ ([fe80::2f52:2d22:c7b3:4292]) by MMZPR04MB400504.eurprd04.prod.outlook.com
+ ([fe80::2f52:2d22:c7b3:4292%5]) with mapi id 15.21.0451.022; Wed, 30 Sep 2026
+ 16:55:03 +0000
+From: Josua Mayer <josua@solid-run.com>
+Subject: [PATCH RFC net-next 0/3] dpaa2: avoid scheduling dpio interrupts
+ on isolated CPUs
+Date: Wed, 30 Sep 2026 18:54:57 +0200
+Message-Id: <20260930-dpaa2-isolcpus-v1-0-66c13f4fd75b@solid-run.com>
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+X-B4-Tracking: v=1; b=H4sIAOE+vWoC/6tWKk4tykwtVrJSqFYqSi3LLM7MzwNyDHUUlJIzE
+ vPSU3UzU4B8JSMDIzMDS2MD3ZSCxEQj3czi/JzkgtJi3dTkJHND0zQjAwOTFCWgpoKi1LTMCrC
+ B0UpBbs4KeaklunmpFSVKsbW1AAprIxVuAAAA
+X-Change-ID: 20260930-dpaa2-isolcpus-ecb715f2004d
+To: Ioana Ciornei <ioana.ciornei@nxp.com>, 
+ "Christophe Leroy (CS GROUP)" <chleroy@kernel.org>, 
+ Andrew Lunn <andrew+netdev@lunn.ch>, 
+ "David S. Miller" <davem@davemloft.net>, Eric Dumazet <edumazet@google.com>, 
+ Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>, 
+ =?utf-8?q?Horia_Geant=C4=83?= <horia.geanta@nxp.com>, 
+ Pankaj Gupta <pankaj.gupta@nxp.com>, Gaurav Jain <gaurav.jain@nxp.com>, 
+ Herbert Xu <herbert@gondor.apana.org.au>
+Cc: Yazan Shhady <yazan.shhady@solid-run.com>, 
+ Jon Nettleton <jon@solid-run.com>, linux-kernel@vger.kernel.org, 
+ linuxppc-dev@lists.ozlabs.org, linux-arm-kernel@lists.infradead.org, 
+ netdev@vger.kernel.org, linux-crypto@vger.kernel.org, 
+ Josua Mayer <josua@solid-run.com>
+X-Mailer: b4 0.14.3
+X-ClientProxiedBy: FR4P281CA0174.DEUP281.PROD.OUTLOOK.COM
+ (2603:10a6:d10:b7::20) To MMZPR04MB400504.eurprd04.prod.outlook.com
+ (2603:10a6:190:28::8)
+MIME-Version: 1.0
+X-MS-TrafficTypeDiagnostic: MMZPR04MB400504:EE_|DBBPR04MB7499:EE_|CPH1EPF00000530:EE_|PA4PR04MB9709:EE_
+X-MS-Office365-Filtering-Correlation-Id: f20ec116-c696-4faf-60b6-08df1f139885
+X-CLOUD-SEC-AV-Info: solidrun,office365_emails,sent,inline
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam-Untrusted: BCL:0;ARA:13230040|366016|23010399003|10070799003|1800799024|376014|7416014|52116014|18002099003|921020|10067099003|260925022911599003|260925021311599003|260925021911599003|56012099006;
+X-Microsoft-Antispam-Message-Info-Original: ijiXv0iasWMP8tCMUaXwPs0S5pwj0NHIQ1jQNMvt3T3/o9ZpqxvGWFV7S3Gjxt787XoBuMxalo1bGAgNgTqFdTVjAvSEtXHSSLzHuk+V6ieeE3nsXj+48N22vptqnZpvdR7DUDehCl98Wb6v3EcfTJL3wJolwYB1E39YXkouqmZ9UJmr7WIOschfOjI9BTDTB2PYFHcGKH1CYwRqnpnmo9RsgciOkB0hssHYIRASFnBVo7M8JRs0r/lmWJZ7MR7DWhrFOcQmjo62Wf44Kx4ID4z+Vt8SCK7U2C3QvbSRByPcgDTqcbETEyol4KG23FzeAFyt7tD+yOAnd+Ik+uSGaU75umwC225TrrQNHpooPEmcjJ9yNZTKZNwf2CDA8CNHopfqVndJcPIPRp6ziVqfVR4MXawLRuU7/N7wEGJiJGzN3pdqzw2V+qHtQxdtz+61e4MqP2VWVfvHVEb5qjIabYY5YEQwVfBOKPwA+gwaRKN3OMQ1JXQ/x8yzXganljdJd+6pGWjTAPrmXv2BThySdxO1TAfBVqULD0RqbqLV7WrQpNRf0JJVKBGBLCEmkOHa8N7uKpNYgW/zA0jFIRh8d85RNPuaghi1L73JgO2K6Jmf7b1Dv8R+rwkoYV8FaquIhse6N35Qp43qVG3J0J4Xj07nceP6t0yW/fraoVFemMQWYOncg2w4M8S6H6zCchcJaqjZu9Wc3Dh+UyXn2wazBA==
+X-Forefront-Antispam-Report-Untrusted: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:MMZPR04MB400504.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(23010399003)(10070799003)(1800799024)(376014)(7416014)(52116014)(18002099003)(921020)(10067099003)(260925022911599003)(260925021311599003)(260925021911599003)(56012099006);DIR:OUT;SFP:1102;
+X-Exchange-RoutingPolicyChecked: HlF+HIMiP1NLccFRF/ZJHcKwWKlkpoPNqVLsxZnQwapUPbGdH7259vueHALtdCS69ugoHdrLk/Fl7aXV+aACltu16KAV3WDWw1AvQFF73R2ZHBuyZw97CmA2hCA/NNvgVgs1W04xKcKDOq2QxgKUlxrSL5lj2EoAf1DBDSzp1aydYpzCSDFT8sAoLtbJgcWT6wgcRZWrzBjYpLO8Hx+bQDm6c+JjDGgKjNvZyAbhF4bfiljWwsWYVnSTlTynMBRBemEaPp+3dPlOgxmiRg4+Lws0w1+9TezObXTNfzj2kWiI3HhnyyfpRNDEI37bGJckfG1R0tNJfMm69nM133x1Hw==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: DBBPR04MB7499
+X-CLOUD-SEC-AV-INT-Relay: sent<mta-outgoing-dlp-mt-prod-cp-eu-2.checkpointcloudsec.com>
+X-CLOUD-SEC-AV-UUID: 713ae4c4c25a4e5a933b2bd299afe363:solidrun,office365_emails,sent,inline:776544cf20a4f6cb347dc8a29c053d94
 ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=QSIHItblpqWb93L9XFlXFbBKwezo7NRhMhdTUHhqpKtPZj2h8g+E9wc5G0jYhApsi5Dp82NU28KhVPKwGdzbk4Xb6qrUKl+dSR2WQ80q1bWH2iJYGGEqHwkiy+6M8OmEM9EBXVrgcGkTVRoP7VZPQ1fM4bloQHKZfkEDNs0txL6KEqrdgW5ftTOZBXflhX070dX8bNI2nZQAkxCCpc/SOyPKAvJF/MaQmIOh9wCTEUKTOqO0rN29+ZFbbd7mjwmnil3bSm6WLGpDgr2NNC1A+XesBLdQRTVj4jut8MzpQ2R6sjOXmD57kWIK8fIaQoWWArW1fbGGgxbhyQo+5X61yA==
+ b=HbJExt4n3pOXm/kAZMGJM9EpCva11MpibC0o0TaR9w+W/y0Cspkudf6r7eYQM529yMWQkhhZt1KYn/fOJRcOSCtJAUruO4HKrDi46bYnR7jLNwakZ1pgMI/M4RmhVbq9i0HcV5dgy10EYracZFMJUudYkr2PbAFelQzpJ6Apoqmuj7OToSBc/QqzKAZ40CK3AQKdJypqdoBMX2jQDVBf7yumbQzEBWBk/Tubn9kRDFwFkc0gEYskWDRylAdv2uug1YiAxHtm02ixDQNwrDdNP2OgsVxr2eh3/H026q8Oopj83u2dH7XXKqGJgIgOCkJfuyriNIdWp10VxPQm7IKCQg==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
  s=arcselector10001;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=vqCO9a+phMbJlv3arPz3rVFd/y5CzZStPZhGWmK6hOM=;
- b=fwoS91UE4tD3QWNVz5Og28FdzNxYyToPu3dFwJMCIXCj4+UcrYlomwVOkTYyS2ls9d1JLpEmUU8DBFUsxE4w1QCsBvAW6EVkDO+pMALTcKBBimyvDOGod9tnKZPV0JTbri80wmPmUzc/PTOaGhSo1UURw6BMu3NBcRh5GqIRJCT4qWG3y9Tmrh2EuHrmVf+6VQFEaHDghTMGLtaxfaFi7p8il9oDmUH24+5UPrQMPa2zv6zzxZ6+l2ZLHqPYvWId2PSRQWVYjte18arVSvc+OU9Z2Soxwz0ka0Re04aV6YAzOhBFWApUHLmZT89XMkl9TOx2YV0/yOXOkX6JcjiN0w==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
- 198.47.21.195) smtp.rcpttodomain=lists.infradead.org smtp.mailfrom=ti.com;
- dmarc=pass (p=quarantine sp=none pct=100) action=none header.from=ti.com;
- dkim=none (message not signed); arc=none (0)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=ticloud.onmicrosoft.com; s=selector1-ticloud-onmicrosoft-com;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=vqCO9a+phMbJlv3arPz3rVFd/y5CzZStPZhGWmK6hOM=;
- b=SuGqB846zfhk119ak0NYaiD8/9OnZ7Dd0Tqxq1KxJyWz3wqOvLZk4j6YbtwKlhr1s4krpCjlwdzVIHRlNG/nPhWELccOaolzAytMRRpKYz62CLpod4SykKipt19y87Hr5KRCR/dGQpZw9t11MHFnDq17j1nwEK1zQRhUlgbDZhk=
-Received: from BL1PR13CA0388.namprd13.prod.outlook.com (2603:10b6:208:2c0::33)
- by SJ2PR10MB7109.namprd10.prod.outlook.com (2603:10b6:a03:4cd::9) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.472.14; Wed, 30 Sep
- 2026 16:07:43 +0000
-Received: from BN1PEPF00018549.namprd05.prod.outlook.com
- (2603:10b6:208:2c0:cafe::8) by BL1PR13CA0388.outlook.office365.com
- (2603:10b6:208:2c0::33) with Microsoft SMTP Server (version=TLS1_3,
- cipher=TLS_AES_256_GCM_SHA384) id 15.21.382.9 via Frontend Transport; Wed, 30
- Sep 2026 16:07:42 +0000
-X-MS-Exchange-Authentication-Results: mx.microsoft.com 1; spf=pass (sender IP
- is 198.47.21.195) smtp.mailfrom=ti.com; dkim=none (message not signed)
- header.d=none;dmarc=pass action=none header.from=ti.com;
-Received-SPF: Pass (protection.outlook.com: domain of ti.com designates
- 198.47.21.195 as permitted sender) receiver=protection.outlook.com;
- client-ip=198.47.21.195; helo=flwvzet201.ext.ti.com; pr=C
-Received: from flwvzet201.ext.ti.com (198.47.21.195) by
- BN1PEPF00018549.mail.protection.outlook.com (10.167.248.8) with Microsoft
- SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.21.472.14 via Frontend Transport; Wed, 30 Sep 2026 16:07:41 +0000
-Received: from DFLE214.ent.ti.com (10.64.6.72) by flwvzet201.ext.ti.com
- (10.248.192.32) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.45; Wed, 30 Sep
- 2026 11:06:48 -0500
-Received: from DFLE203.ent.ti.com (10.64.6.61) by DFLE214.ent.ti.com
- (10.64.6.72) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.45; Wed, 30 Sep
- 2026 11:06:48 -0500
-Received: from lelvem-mr06.itg.ti.com (10.180.75.8) by DFLE203.ent.ti.com
- (10.64.6.61) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.45 via Frontend
- Transport; Wed, 30 Sep 2026 11:06:48 -0500
-Received: from uda0510294.dhcp.ti.com (uda0510294.dhcp.ti.com [10.24.50.162])
-	by lelvem-mr06.itg.ti.com (8.18.1/8.18.1) with ESMTP id 68UG68WF3425232;
-	Wed, 30 Sep 2026 11:06:45 -0500
-From: Beleswar Padhi <b-padhi@ti.com>
-To: <nm@ti.com>, <kristo@kernel.org>, <ssantosh@kernel.org>, <afd@ti.com>,
-        <vigneshr@ti.com>, <u-kumar1@ti.com>
-CC: <linux-kernel@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
-        <b-padhi@ti.com>
-Subject: [PATCH v2 12/22] firmware: ti_sci: Fix some kernel-doc references in structs
-Date: Wed, 30 Sep 2026 21:35:57 +0530
-Message-ID: <20260930160607.2674980-13-b-padhi@ti.com>
-X-Mailer: git-send-email 2.34.1
-In-Reply-To: <20260930160607.2674980-1-b-padhi@ti.com>
-References: <20260930160607.2674980-1-b-padhi@ti.com>
-MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-Content-Type: text/plain
+ bh=Yc/4rx/shdZLDUyui4f3LZNqRXnW+Yyu5/nmVcpXHq4=;
+ b=LP0147VjuNtRTmSvakYhZM+U70BGDBXzKfl7Sy8Td6W/dpBqARqRHLJJBOe3GVkZTzNYz8yQ6B42+mXyOfNzFLqocpMNvltabgcWYnWGhVjC0pNRV5o+1CtS3xvIRg/FTCluNrmmfyeDRS8Y5Nvi0653CE6iB5GqfjHk+mUkn71v/X4UEkjTcBSTz63JmgvUVU9i7UHUV9SUCZiJMyBxxsLDtoj/dB5p9alYuCsOgoizIcIo6lEf9//LJWfEZGT+yNAuA1VqlGPYuNIefs6xv5dBZ//Q9Ds8cYg5nLi4FuCqd2lhn6n9ocu/RPZRvlVWkar2a1y5mNBdo8L57eoTRA==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=solid-run.com; dmarc=pass action=none
+ header.from=solid-run.com; dkim=pass header.d=solid-run.com; arc=none
 X-EOPAttributedMessage: 0
+X-MS-Exchange-Transport-CrossTenantHeadersStripped: CPH1EPF00000530.eurprd05.prod.outlook.com
 X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: BN1PEPF00018549:EE_|SJ2PR10MB7109:EE_
-X-MS-Office365-Filtering-Correlation-Id: 0f32a26d-593c-4bdc-501b-08df1f0cf4ee
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|23010399003|1800799024|36860700016|82310400026|376014|10067099003|6133799003|56012099006|22082099003|18002099003|3023799007;
-X-Microsoft-Antispam-Message-Info: 1TLtZ5cp+MPefLPCaqBniNG0IoxxDqtqPUyqwiHNPPIycvYY1sSPCkPKjrECBF22IVtw33I8dm9DyhywhYSN6DxATrNIduyzLGsevGYSTa/jPN+P8CyN3ptNaZob4EH67OxNQWzbYrgQsxmht0+23ylJR6RnqcaOaWkbF+2hBilUqNy5rrfoEKbO+1QpH9qIaE1vVWqFaL9IN9J4a0kV05V4hnya+JJY2E5VhamBpBuw1zI30OjvenkvNfQfLXgqFEmCbEa+RFCfFu5lW03vBD0w8ID2OpV9GbzJHudKsakDV9dJ8mVpVOtrIxBQC5UDmuvyrH0aJYY8NHi3n4QL0CzLWOHRf2GgMFESJm4ddwoOsjwR8GNAOhoRh59I2dW1qSEXrgHryRtyr/Y4LJFlEGi7XuCqVmSXyU6Dv8Zp36LAedZpYifhrHvwX77t3p6xs6fxO3PEimS2vkYoj+E/4Eobn8nFUnICx4jWiaPKuDBorySS59+8dCSa4gnSybeEsMRJW6vVcx5EqPZofIlQowgOnggs66DlkNK1NdWVW0l/9G0ZQKFYxOzhhU3Q9KN9JBKQ/NPSXRZML7rC9nZLYYfqrfTUNa6kCqe/Sl9dF11skgOO2ZQpO0owYkya1z8WtwpsJJhnMahk9lTLRjtvu1CZbs+NdRs6xFwyd5LiEgAQyvhjthHaRwbxxVZNjAkFkqTxTElfXPa4xRtrX5UgWQ==
-X-Forefront-Antispam-Report: CIP:198.47.21.195;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:flwvzet201.ext.ti.com;PTR:ErrorRetry;CAT:NONE;SFS:(13230040)(23010399003)(1800799024)(36860700016)(82310400026)(376014)(10067099003)(6133799003)(56012099006)(22082099003)(18002099003)(3023799007);DIR:OUT;SFP:1101;
+X-MS-Office365-Filtering-Correlation-Id-Prvs: 477fe3d5-398c-48b4-fcd5-08df1f1392b4
+X-Microsoft-Antispam: BCL:0;ARA:13230040|82310400026|376014|7416014|1800799024|14060799003|35042699022|36860700016|23010399003|10067099003|56012099006|260925021911599003|260925021311599003|260925022911599003|921020|18002099003;
+X-Microsoft-Antispam-Message-Info: xASxTJsP48cu/pk6H4hmbMcxqu63kz6oQ5cB+8Bl2pbgV4Pu/uT7njLQyP3WAvgxa0NaejNYiegCMJ9a62NAjJB2iOnOfKjIE8TmaZY2XcnXfUXUKAYSGZ2lZneGfDYLp69u7zKksDW4D+IOHdWsgj95ZQoeVjm49E8VDZypG38MZ9Jme8CI9SISCZj7kNgPuOyR77BdgkKIkhs7wwPsH+/qSvCoagqOlN+JWSPbFyzf3Bz7+CqiiUqiHzsfZwK8cMNBh7n0H16EtBnRjAIUfhOxEP6K/ns6sAPH2+Pux1ebSkAICXjV67Mk7YCN1lgjui97zliFNstRKSEbFCGam5u0fPnEwHSCk/GXqdeog6KPgVyLr9JD/ZuIX7QU7MyybCwFB0F/7Gn3JlnP4TWyjvmOEZpRsOKzcb3ZnZn89d4bFNELgklA/E1k+6K57vH0QHxh9MNsr2JCRo+SqhZzONi/lBXe7JapOldRXKH0/D3S+gPOspIn8Ve1SO5djNMkw3DCzyYr4vqhCo1Np0swLAHmUM6gCjk65RQtjTTCstkDY5RBLTzW+l0WHS+8K5JOV1ElYMi7XjMznN02PudCmmtL6mI+omTvNXim0Sm8YlGri3UR4VbkcAaftDZxG0Y7b69PDkrvYhxVKNggKQyH0pbNGXvbwf7mozKXuGXzbCDixFj7bl+7xpyqA2A85U8U0pkGAxeCTKAwnPGORqeZMwHi7VmHmoDSyh1M2NBs3qE5a+jHUodHUZviSj0e0w16
+X-Forefront-Antispam-Report: CIP:52.17.62.50;CTRY:IE;LANG:en;SCL:1;SRV:;IPV:CAL;SFV:NSPM;H:eu-dlp.cloud-sec-av.com;PTR:eu-dlp.cloud-sec-av.com;CAT:NONE;SFS:(13230040)(82310400026)(376014)(7416014)(1800799024)(14060799003)(35042699022)(36860700016)(23010399003)(10067099003)(56012099006)(260925021911599003)(260925021311599003)(260925022911599003)(921020)(18002099003);DIR:OUT;SFP:1102;
 X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: hr3/3itaSjBN3ExYs+zSjfnlJ4abvBm1/KTxp5L/odXPnKNAqNa5HpbP727Q3MVIOwnnoxnBrYxmTi2x+iMJxjxmv5Es3zuPF/96L5agtIEKONK/LX/l0qR63rtCjgZKc8L7/O/wDLF+b7UOD17DC7GbFl8C5JuDSb6dAs2sUXuFrG4KgiIQfiKzj/fOglZ9YBBX5rniFEKOHchwqUh0pXFEcE5bu7GqkWvFbdvJsolfojYmUC3Klo04DdgdoqvcNx60S3XjRWA5pfDdl1W/f5s6GRw14HM8no+7bmyUu0LVxnZQsTq+wK3hvXg3yerpEk/wWhm6oAGZVni7Wr3XVhri5Ldc43Go2dgDOfJaGmz9qcSkeXIY9l4SWhE/Eli5tbTNGUqDrqQvNn5uanPssDSoqzoEMxSUb2bGo87i/9rEUEYe8pOMRg/BbpOFkbZU
-X-Exchange-RoutingPolicyChecked: tWTmJL+ge1fjVxzSK5FdMjPWGxR05uYh85X8bDzWqcD0r5qj9NMFtbeMEcAhsjBJFJY68tSNqn4q0OIscrmiwjJeGM0zWrMmIZd56eknqRdeDg/npGwBJJLis5Qp1kF1DxZ8RLcDKxjgbSZ6r9flA3kPRhR1QIgzZpMGtwCr/q9rffFdSckPTw7Y2u+hsv9amKy82L9bvhb1o7Wv/g6lOGC5co4eH+N8HkxOglYmz2QOH8BangLtHo2Uh2yNu9AaKsA63/CJdrXB3GKatwyefgbPI9D/Fi+EJFGXtAYhndjS+0/vNRzDAPEY41HS7zngRxEHi1b+tY3HJQeko1LWXA==
-X-OriginatorOrg: ti.com
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 30 Sep 2026 16:07:41.7984
+X-MS-Exchange-AntiSpam-MessageData-0: DHVKV05ZxjjWGwSem2T10aOr7MGXkKbLbtPPbjPNqrpl1gVK8RIQoYdjz+xFTnV8iBLhUicwGEp1SfkvAT6mArErkks83xo5rnrZ4XoKFNqiFGKZBMXZ0KnWDPHm84ZROKC1ASyfZG9cncXzR7kvV95+EARn8ow3AdhTC7flhx1RTxIa9g2RlyDW0HYSP3e5nOJCu+8/baIbU3WtxWCcgUjLGRWZMZfwfQjCZNv6+NIaaRYljKbLsBbFmZHIlUd9iWdC6lxcLAISwiy7wahuNjL00qdAQjiHaWP73RC/0MLs4I0MXx/Bg9mnAT+n/hQaNoIk0bBF4YUSShItdgk1afBiuJ78HwpGi0VYl1yD6+SKthkiggpD9kHFGGYjQeD130gmk4qGH+tFAYatYS1rI96UDsIhKDvTynOoqIBzjqfhQzG5GtwvEj7Gnl4NMwdL
+X-OriginatorOrg: solid-run.com
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 30 Sep 2026 16:55:13.2276
  (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: 0f32a26d-593c-4bdc-501b-08df1f0cf4ee
-X-MS-Exchange-CrossTenant-Id: e5b49634-450b-4709-8abb-1e2b19b982b7
-X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=e5b49634-450b-4709-8abb-1e2b19b982b7;Ip=[198.47.21.195];Helo=[flwvzet201.ext.ti.com]
-X-MS-Exchange-CrossTenant-AuthSource: BN1PEPF00018549.namprd05.prod.outlook.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: f20ec116-c696-4faf-60b6-08df1f139885
+X-MS-Exchange-CrossTenant-Id: a4a8aaf3-fd27-4e27-add2-604707ce5b82
+X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=a4a8aaf3-fd27-4e27-add2-604707ce5b82;Ip=[52.17.62.50];Helo=[eu-dlp.cloud-sec-av.com]
+X-MS-Exchange-CrossTenant-AuthSource: CPH1EPF00000530.eurprd05.prod.outlook.com
 X-MS-Exchange-CrossTenant-AuthAs: Anonymous
 X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: SJ2PR10MB7109
-X-Proofpoint-Spam-Info: AW1haW4tMjYwOTMwMDA2NCBTYWx0ZWRfX47aZTy3ryBSJ
- V5nu8CF+nBHSQ2tm7NIhh/TL00JgLkT2F8fMuin0nDNLIP0wXwF7B5yyQbpMtMWeBpnDv4Pi3na
- hJOcQSxgC9GLZ+JSExtFDJZHH6Mmp/g=
-X-Proofpoint-ORIG-GUID: x6gjmheGX3nDqxB5S7S0Zf5FqbLATgMQ
-X-Authority-Analysis: v=2.4 cv=C7R8WgP+ c=1 sm=1 tr=0 ts=6abd33d2 cx=c_pps
- a=E7iPWXAsOYqR18yzHj3E3w==:117 a=tJyPKKxUohctrY4NYmUjkA==:17
- a=6eWqkTHjU83fiwn7nKZWdM+Sl24=:19 a=VdqzKS8jKosA:10 a=AlMIdn_sM9wA:10
- a=VkNPw1HP01LnGYTKEx00:22 a=Z8NIEmU8O1QQgoT56wFK:22 a=gO1vWkAQAl3rybz1DQOp:22
- a=VwQbUJbxAAAA:8 a=sozttTNsAAAA:8 a=GOjBpkPxkVgeuWNzjYAA:9
-X-Proofpoint-GUID: x6gjmheGX3nDqxB5S7S0Zf5FqbLATgMQ
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwOTMwMDA2NCBTYWx0ZWRfX5EWN/daPzqna
- fItHLg4irKsw/rK2bwayrNfNujK8ibesUoz19ioV5KENRyS1yTwVQO9kIW5zyEvZcyEE8fP0XdB
- NFQoo68NsmIOGzx1ECojSXkdunxxKdcYsPhOrBUg+SRs2ORvz67rRQLQlZxN+ViOjhFDisz03Rl
- KNbuvLGrSVF40wWPaz1PFStVixtie0BVOLbzGh29UsOw93FsKuPRAHcEyVUGfQxNmKaajryx+EY
- 8IeqKm1RpOlB2JdRFhAUE/Htonv8q2rfOMKv9Ps0jxI6csBnAveFex21dy9Fv77OMORdlZ3JCIU
- rcXxO+neVKO3npNIH9PB2OPRHM3HIAJOiMAxeHawfHatVr+g/tvSkKvPd08iXeAJSYso/qrkayZ
- peklukvKaRr7Ok48VIZKdf9hcAy0m6PLpxf+f45wiL6utB4C4fye2sTljSRHFwBHVlmN9cvrdU9
- 6YZiQSt1u2oqwZWEQDQ==
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1176,Hydra:6.1.134,FMLib:17.12.100.49
- definitions=2026-09-30_03,2026-09-21_02,2025-10-01_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- suspectscore=0 adultscore=0 lowpriorityscore=0 malwarescore=0 bulkscore=0
- priorityscore=1501 impostorscore=0 spamscore=0 clxscore=1015 phishscore=0
- classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
- reason=mlx scancount=1 engine=8.22.0-2609040000 definitions=main-2609300064
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: PA4PR04MB9709
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260930_170752_904843_02E2BD6E 
-X-CRM114-Status: GOOD (  15.64  )
+X-CRM114-CacheID: sfid-20260930_095522_934763_0DC7A475 
+X-CRM114-Status: UNSURE (   9.83  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -189,206 +189,52 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The valid_params descriptions of the RM ring and UDMAP tx/rx channel
-and rx flow config messages refer to struct members through structs
-that do not exist, the wrong struct, or syntax that kernel-doc does not
-understand. Refer to the members of the struct being documented directly
-instead.
+Sent as RFC due to very superficial testing, and confusion wrt. which
+list/tree to target. Suggest net-next. Last patch is logical first, but
+must be applied last.
 
-Signed-off-by: Beleswar Padhi <b-padhi@ti.com>
+Each DPAA2 software portal (DPIO) is bound to one CPU. The dpaa2-eth and
+caam qi2 drivers allocate channels and queues for each online CPU.
+Notifications, and NAPI polling are processed on each DPIO's affine CPU.
+This balances I/O load nicely across all available CPU cores while
+keeping data on the hot path.
+
+When isolcpus=managed_irq is used to reserve CPUs for latency-sensitive
+applications, those CPUs are expected to be free of routine device
+interrupts. However, DPIO interrupts currently continue to arrive on
+isolated CPUs, interrupting any application running there.
+
+This series assigns DPIOs only to CPUs in the HK_TYPE_MANAGED_IRQ
+housekeeping mask, and changes dpaa2-eth and caam qi2 to set up their
+per-CPU channels and queue pairs only on those CPUs. Without the driver
+changes, both would defer probe indefinitely, waiting for a DPIO on an
+isolated CPU.
+
+Isolated CPUs can still transmit frames and enqueue crypto requests;
+the resulting ingress, Tx confirmation and response processing runs on
+housekeeping CPUs. Systems without isolcpus=managed_irq are unaffected.
+
+Note: This series is submitted in reverse, to ease bisecting.
+Otherwise caam/dpaa2-eth would defer probe iondefinitely when booted
+with one or more isolated CPUs.
+
+Signed-off-by: Josua Mayer <josua@solid-run.com>
 ---
-v2: Changelog:
-1. None to this patch.
+Josua Mayer (3):
+      dpaa2-eth: skip isolated CPUs when allocating channels
+      crypto: caam/qi2 - skip isolated CPUs when setting up queue pairs
+      soc: fsl: dpio: skip isolated CPUs when assigning portals
 
-Link to v1:
-https://lore.kernel.org/all/20260929201746.4078803-13-b-padhi@ti.com/
+ drivers/crypto/caam/caamalg_qi2.c                | 26 +++++++++++++++---------
+ drivers/net/ethernet/freescale/dpaa2/dpaa2-eth.c | 10 +++++++--
+ drivers/soc/fsl/dpio/dpio-driver.c               |  7 +++++--
+ 3 files changed, 29 insertions(+), 14 deletions(-)
+---
+base-commit: 47a1446725732cd3996edf607e8739334bbf4d78
+change-id: 20260930-dpaa2-isolcpus-ecb715f2004d
 
- drivers/firmware/ti_sci.h | 126 +++++++++++++++++++-------------------
- 1 file changed, 63 insertions(+), 63 deletions(-)
-
-diff --git a/drivers/firmware/ti_sci.h b/drivers/firmware/ti_sci.h
-index 8fccbcd1c9a2c..34f7848073a0e 100644
---- a/drivers/firmware/ti_sci.h
-+++ b/drivers/firmware/ti_sci.h
-@@ -813,14 +813,14 @@ struct ti_sci_msg_req_manage_irq {
-  *	The ring configuration fields are not valid, and will not be used for
-  *	ring configuration, if their corresponding valid bit is zero.
-  *	Valid bit usage:
-- *	0 - Valid bit for @tisci_msg_rm_ring_cfg_req addr_lo
-- *	1 - Valid bit for @tisci_msg_rm_ring_cfg_req addr_hi
-- *	2 - Valid bit for @tisci_msg_rm_ring_cfg_req count
-- *	3 - Valid bit for @tisci_msg_rm_ring_cfg_req mode
-- *	4 - Valid bit for @tisci_msg_rm_ring_cfg_req size
-- *	5 - Valid bit for @tisci_msg_rm_ring_cfg_req order_id
-- *	6 - Valid bit for @tisci_msg_rm_ring_cfg_req virtid
-- *	7 - Valid bit for @tisci_msg_rm_ring_cfg_req ASEL
-+ *	0 - Valid bit for @addr_lo
-+ *	1 - Valid bit for @addr_hi
-+ *	2 - Valid bit for @count
-+ *	3 - Valid bit for @mode
-+ *	4 - Valid bit for @size
-+ *	5 - Valid bit for @order_id
-+ *	6 - Valid bit for @virtid
-+ *	7 - Valid bit for @asel
-  * @nav_id: Device ID of Navigator Subsystem from which the ring is allocated
-  * @index: ring index to be configured.
-  * @addr_lo: 32 LSBs of ring base address to be programmed into the ring's
-@@ -1023,23 +1023,23 @@ struct rm_ti_sci_msg_udmap_rx_flow_opt_cfg {
-  * parameters. The tx channel configuration fields are not valid, and will not
-  * be used for ch configuration, if their corresponding valid bit is zero.
-  * Valid bit usage:
-- *    0 - Valid bit for @ref ti_sci_msg_rm_udmap_tx_ch_cfg::tx_pause_on_err
-- *    1 - Valid bit for @ref ti_sci_msg_rm_udmap_tx_ch_cfg::tx_atype
-- *    2 - Valid bit for @ref ti_sci_msg_rm_udmap_tx_ch_cfg::tx_chan_type
-- *    3 - Valid bit for @ref ti_sci_msg_rm_udmap_tx_ch_cfg::tx_fetch_size
-- *    4 - Valid bit for @ref ti_sci_msg_rm_udmap_tx_ch_cfg::txcq_qnum
-- *    5 - Valid bit for @ref ti_sci_msg_rm_udmap_tx_ch_cfg::tx_priority
-- *    6 - Valid bit for @ref ti_sci_msg_rm_udmap_tx_ch_cfg::tx_qos
-- *    7 - Valid bit for @ref ti_sci_msg_rm_udmap_tx_ch_cfg::tx_orderid
-- *    8 - Valid bit for @ref ti_sci_msg_rm_udmap_tx_ch_cfg::tx_sched_priority
-- *    9 - Valid bit for @ref ti_sci_msg_rm_udmap_tx_ch_cfg::tx_filt_einfo
-- *   10 - Valid bit for @ref ti_sci_msg_rm_udmap_tx_ch_cfg::tx_filt_pswords
-- *   11 - Valid bit for @ref ti_sci_msg_rm_udmap_tx_ch_cfg::tx_supr_tdpkt
-- *   12 - Valid bit for @ref ti_sci_msg_rm_udmap_tx_ch_cfg::tx_credit_count
-- *   13 - Valid bit for @ref ti_sci_msg_rm_udmap_tx_ch_cfg::fdepth
-- *   14 - Valid bit for @ref ti_sci_msg_rm_udmap_tx_ch_cfg::tx_burst_size
-- *   15 - Valid bit for @ref ti_sci_msg_rm_udmap_tx_ch_cfg::tx_tdtype
-- *   16 - Valid bit for @ref ti_sci_msg_rm_udmap_tx_ch_cfg::extended_ch_type
-+ *    0 - Valid bit for @tx_pause_on_err
-+ *    1 - Valid bit for @tx_atype
-+ *    2 - Valid bit for @tx_chan_type
-+ *    3 - Valid bit for @tx_fetch_size
-+ *    4 - Valid bit for @txcq_qnum
-+ *    5 - Valid bit for @tx_priority
-+ *    6 - Valid bit for @tx_qos
-+ *    7 - Valid bit for @tx_orderid
-+ *    8 - Valid bit for @tx_sched_priority
-+ *    9 - Valid bit for @tx_filt_einfo
-+ *   10 - Valid bit for @tx_filt_pswords
-+ *   11 - Valid bit for @tx_supr_tdpkt
-+ *   12 - Valid bit for @tx_credit_count
-+ *   13 - Valid bit for @fdepth
-+ *   14 - Valid bit for @tx_burst_size
-+ *   15 - Valid bit for @tx_tdtype
-+ *   16 - Valid bit for @extended_ch_type
-  *
-  * @nav_id: SoC device ID of Navigator Subsystem where tx channel is located
-  *
-@@ -1153,20 +1153,20 @@ struct ti_sci_msg_rm_udmap_tx_ch_cfg_req {
-  * The rx channel configuration fields are not valid, and will not be used for
-  * ch configuration, if their corresponding valid bit is zero.
-  * Valid bit usage:
-- *    0 - Valid bit for @ti_sci_msg_rm_udmap_rx_ch_cfg_req::rx_pause_on_err
-- *    1 - Valid bit for @ti_sci_msg_rm_udmap_rx_ch_cfg_req::rx_atype
-- *    2 - Valid bit for @ti_sci_msg_rm_udmap_rx_ch_cfg_req::rx_chan_type
-- *    3 - Valid bit for @ti_sci_msg_rm_udmap_rx_ch_cfg_req::rx_fetch_size
-- *    4 - Valid bit for @ti_sci_msg_rm_udmap_rx_ch_cfg_req::rxcq_qnum
-- *    5 - Valid bit for @ti_sci_msg_rm_udmap_rx_ch_cfg_req::rx_priority
-- *    6 - Valid bit for @ti_sci_msg_rm_udmap_rx_ch_cfg_req::rx_qos
-- *    7 - Valid bit for @ti_sci_msg_rm_udmap_rx_ch_cfg_req::rx_orderid
-- *    8 - Valid bit for @ti_sci_msg_rm_udmap_rx_ch_cfg_req::rx_sched_priority
-- *    9 - Valid bit for @ti_sci_msg_rm_udmap_rx_ch_cfg_req::flowid_start
-- *   10 - Valid bit for @ti_sci_msg_rm_udmap_rx_ch_cfg_req::flowid_cnt
-- *   11 - Valid bit for @ti_sci_msg_rm_udmap_rx_ch_cfg_req::rx_ignore_short
-- *   12 - Valid bit for @ti_sci_msg_rm_udmap_rx_ch_cfg_req::rx_ignore_long
-- *   14 - Valid bit for @ti_sci_msg_rm_udmap_rx_ch_cfg_req::rx_burst_size
-+ *    0 - Valid bit for @rx_pause_on_err
-+ *    1 - Valid bit for @rx_atype
-+ *    2 - Valid bit for @rx_chan_type
-+ *    3 - Valid bit for @rx_fetch_size
-+ *    4 - Valid bit for @rxcq_qnum
-+ *    5 - Valid bit for @rx_priority
-+ *    6 - Valid bit for @rx_qos
-+ *    7 - Valid bit for @rx_orderid
-+ *    8 - Valid bit for @rx_sched_priority
-+ *    9 - Valid bit for @flowid_start
-+ *   10 - Valid bit for @flowid_cnt
-+ *   11 - Valid bit for @rx_ignore_short
-+ *   12 - Valid bit for @rx_ignore_long
-+ *   14 - Valid bit for @rx_burst_size
-  *
-  * @nav_id: SoC device ID of Navigator Subsystem where rx channel is located
-  *
-@@ -1197,9 +1197,9 @@ struct ti_sci_msg_rm_udmap_tx_ch_cfg_req {
-  * @flowid_start: UDMAP receive channel additional flows starting index
-  * configuration to program into the flow_start field of the RCHAN_RFLOW_RNG
-  * register. Specifies the starting index for flow IDs the receive channel is to
-- * make use of beyond the default flow. flowid_start and @ref flowid_cnt must be
-+ * make use of beyond the default flow. flowid_start and @flowid_cnt must be
-  * set as valid and configured together. The starting flow ID set by
-- * @ref flowid_cnt must be a flow index within the Navigator Subsystem's subset
-+ * @flowid_start must be a flow index within the Navigator Subsystem's subset
-  * of flows beyond the default flows statically mapped to receive channels.
-  * The additional flows must be assigned to the host, or a subordinate of the
-  * host, requesting configuration of the receive channel.
-@@ -1207,10 +1207,10 @@ struct ti_sci_msg_rm_udmap_tx_ch_cfg_req {
-  * @flowid_cnt: UDMAP receive channel additional flows count configuration to
-  * program into the flowid_cnt field of the RCHAN_RFLOW_RNG register.
-  * This field specifies how many flow IDs are in the additional contiguous range
-- * of legal flow IDs for the channel.  @ref flowid_start and flowid_cnt must be
-+ * of legal flow IDs for the channel.  @flowid_start and flowid_cnt must be
-  * set as valid and configured together. Disabling the valid_params field bit
-  * for flowid_cnt indicates no flow IDs other than the default are to be
-- * allocated and used by the receive channel. @ref flowid_start plus flowid_cnt
-+ * allocated and used by the receive channel. @flowid_start plus flowid_cnt
-  * cannot be greater than the number of receive flows in the receive channel's
-  * Navigator Subsystem.  The additional flows must be assigned to the host, or a
-  * subordinate of the host, requesting configuration of the receive channel.
-@@ -1274,25 +1274,25 @@ struct ti_sci_msg_rm_udmap_rx_ch_cfg_req {
-  * Bitfield defining validity of rx flow configuration parameters.  The
-  * rx flow configuration fields are not valid, and will not be used for flow
-  * configuration, if their corresponding valid bit is zero.  Valid bit usage:
-- *     0 - Valid bit for @tisci_msg_rm_udmap_flow_cfg_req::rx_einfo_present
-- *     1 - Valid bit for @tisci_msg_rm_udmap_flow_cfg_req::rx_psinfo_present
-- *     2 - Valid bit for @tisci_msg_rm_udmap_flow_cfg_req::rx_error_handling
-- *     3 - Valid bit for @tisci_msg_rm_udmap_flow_cfg_req::rx_desc_type
-- *     4 - Valid bit for @tisci_msg_rm_udmap_flow_cfg_req::rx_sop_offset
-- *     5 - Valid bit for @tisci_msg_rm_udmap_flow_cfg_req::rx_dest_qnum
-- *     6 - Valid bit for @tisci_msg_rm_udmap_flow_cfg_req::rx_src_tag_hi
-- *     7 - Valid bit for @tisci_msg_rm_udmap_flow_cfg_req::rx_src_tag_lo
-- *     8 - Valid bit for @tisci_msg_rm_udmap_flow_cfg_req::rx_dest_tag_hi
-- *     9 - Valid bit for @tisci_msg_rm_udmap_flow_cfg_req::rx_dest_tag_lo
-- *    10 - Valid bit for @tisci_msg_rm_udmap_flow_cfg_req::rx_src_tag_hi_sel
-- *    11 - Valid bit for @tisci_msg_rm_udmap_flow_cfg_req::rx_src_tag_lo_sel
-- *    12 - Valid bit for @tisci_msg_rm_udmap_flow_cfg_req::rx_dest_tag_hi_sel
-- *    13 - Valid bit for @tisci_msg_rm_udmap_flow_cfg_req::rx_dest_tag_lo_sel
-- *    14 - Valid bit for @tisci_msg_rm_udmap_flow_cfg_req::rx_fdq0_sz0_qnum
-- *    15 - Valid bit for @tisci_msg_rm_udmap_flow_cfg_req::rx_fdq1_sz0_qnum
-- *    16 - Valid bit for @tisci_msg_rm_udmap_flow_cfg_req::rx_fdq2_sz0_qnum
-- *    17 - Valid bit for @tisci_msg_rm_udmap_flow_cfg_req::rx_fdq3_sz0_qnum
-- *    18 - Valid bit for @tisci_msg_rm_udmap_flow_cfg_req::rx_ps_location
-+ *     0 - Valid bit for @rx_einfo_present
-+ *     1 - Valid bit for @rx_psinfo_present
-+ *     2 - Valid bit for @rx_error_handling
-+ *     3 - Valid bit for @rx_desc_type
-+ *     4 - Valid bit for @rx_sop_offset
-+ *     5 - Valid bit for @rx_dest_qnum
-+ *     6 - Valid bit for @rx_src_tag_hi
-+ *     7 - Valid bit for @rx_src_tag_lo
-+ *     8 - Valid bit for @rx_dest_tag_hi
-+ *     9 - Valid bit for @rx_dest_tag_lo
-+ *    10 - Valid bit for @rx_src_tag_hi_sel
-+ *    11 - Valid bit for @rx_src_tag_lo_sel
-+ *    12 - Valid bit for @rx_dest_tag_hi_sel
-+ *    13 - Valid bit for @rx_dest_tag_lo_sel
-+ *    14 - Valid bit for @rx_fdq0_sz0_qnum
-+ *    15 - Valid bit for @rx_fdq1_qnum
-+ *    16 - Valid bit for @rx_fdq2_qnum
-+ *    17 - Valid bit for @rx_fdq3_qnum
-+ *    18 - Valid bit for @rx_ps_location
-  *
-  * @nav_id: SoC device ID of Navigator Subsystem from which the receive flow is
-  * allocated
-@@ -1313,7 +1313,7 @@ struct ti_sci_msg_rm_udmap_rx_ch_cfg_req {
-  *
-  * @rx_desc_type:
-  * UDMAP receive flow descriptor type configuration to be programmed into the
-- * rx_desc_type field field of the flow's RFLOW_RFA register.
-+ * rx_desc_type field of the flow's RFLOW_RFA register.
-  *
-  * @rx_sop_offset:
-  * UDMAP receive flow start of packet offset configuration to be programmed
+Best regards,
 -- 
-2.34.1
+Josua Mayer <josua@solid-run.com>
 
 
