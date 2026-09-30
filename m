@@ -4,86 +4,91 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DDC89CA5FC7
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 30 Sep 2026 14:50:57 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 104A2CA5FC5
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 30 Sep 2026 14:51:11 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=pLddcdeVhe5dBvuz28Kf0fu3WIAs8MgosfUWOghTQPI=; b=ZWQNVufS1MAswWG1W01ft0tF4Z
-	uPt2zDpfB6if9kSJbFyN0CyF43jlx5Y0qfWj73a0t/EcqvAtQb0u/pZoITJIVN++g14EyaqynjYYo
-	kGsEXWSW8vO+38Uaxp6oa586ciBrnrPQfct1d+3rkPH7SG+J4D0PFt6n9oOFk+vxhqUdb7ofECIPc
-	S2Rj7DfXTYbrIWPE7KloeNcoORmBtQinY6d4tOYaTV9yBz8cWtVziPL93BLYGj2uj0BVmuvPWfb3v
-	xikuwGiMmbjIsR+wz+jzG0eGW04DkrZiMNlwcpNO5rZ/T0AruO4QygU8J51RfKTNRqjuvuhIb/ui+
-	Z5ZwwuqA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=ugl/kEsibxaOMxwiAB8ohvG+dBs5XjVCSnq2cxUbe8c=; b=rPg671H85fDGc3h0bgFHADtjQX
+	Rjp/FE+st5UNHJ4oyf2a8g2fZ7HqpEUEK8bOfXjyZkwfiziG6ZSrPxNs74TcE/BJF7RlWbLs5Pmt4
+	fz2RadDRNUt1ctt3cppauy02pQYYQQOLuq/RuyW4G+nK7RuDemImhXfEIgPZVneihwDAVfIrSGBKQ
+	AsG/rpX7f95QbPOvJfqvwNS3+FbXWkGx2G96ngeLey6ptvd+bbuzSFgeEjpxDkn20XREVAdxzmmE9
+	VnF8/UcLWKn5Uf2A506BUt949QwYwdE1KB0WyL1H0V/LoYyF+dpcruO1H48WRN3Pg/M3XrATzUz3x
+	oe2vSSQQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xBvdw-00000006NKF-1tMo;
-	Wed, 30 Sep 2026 14:50:51 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1xBve6-00000006NQL-0wN3;
+	Wed, 30 Sep 2026 14:50:58 +0000
+Received: from mail-wm2-x11.google.com ([2a00:1450:4864:31::11])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xBvdn-00000006NEQ-0gyj;
-	Wed, 30 Sep 2026 14:50:39 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id BB66843DEA;
-	Wed, 30 Sep 2026 14:50:38 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id D02721F00898;
-	Wed, 30 Sep 2026 14:50:32 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1790779838;
-	bh=pLddcdeVhe5dBvuz28Kf0fu3WIAs8MgosfUWOghTQPI=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References;
-	b=gk5ij4ujsCezLMd8CRsnjZtyu6WtHMKifO3zWhhWbyCcuZb1xH6plVtyyKB5xEfU2
-	 czjGmI+kF7/iR51RMqdllhlUhnl15DOWTHTg5d4d+ktjJD1R6iPiauNf0yNnfyfOuG
-	 nYzDjnWbEsc/vmy4DIHJWEIoHvNpW1POLHvx6Cmzr50A1HyIMCGMJac34fbjMxhdY0
-	 B84UqzmA7lAfozDdGgoO3tFygGfbjQ2RDkAmgEd8xdKWIaUqOmQ/pbjQYhosj4Bd7Y
-	 xDAO46+5NuN9i0Kt3/SU7AQcMBSVbxga3GpYyDySZqEuH56JqX2xA4oj3YiXu0RFqw
-	 FCqcoX5bXRlKw==
-From: Niklas Cassel <cassel@kernel.org>
-To: Bjorn Helgaas <bhelgaas@google.com>,
-	Bjorn Helgaas <helgaas@kernel.org>,
-	Lorenzo Pieralisi <lpieralisi@kernel.org>,
-	=?UTF-8?q?Krzysztof=20Wilczy=C5=84ski?= <kwilczynski@kernel.org>,
-	Manivannan Sadhasivam <mani@kernel.org>,
-	Heiko Stuebner <heiko@sntech.de>,
-	Yue Wang <yue.wang@Amlogic.com>,
-	Hans Zhang <18255117159@163.com>,
-	Manivannan Sadhasivam <manivannan.sadhasivam@oss.qualcomm.com>,
-	Frank Li <Frank.Li@nxp.com>
-Cc: Keith Busch <kbusch@kernel.org>,
-	mx2pg@pm.me,
-	dlemoal@kernel.org,
-	Niklas Cassel <cassel@kernel.org>,
-	Lukas Wunner <lukas@wunner.de>,
-	Mahesh Vaidya <mahesh.vaidya@altera.com>,
-	Ricardo Pardini <ricardo@pardini.net>,
-	Shawn Lin <shawn.lin@rock-chips.com>,
-	=?UTF-8?q?Pali=20Roh=C3=A1r?= <pali@kernel.org>,
-	Neil Armstrong <neil.armstrong@linaro.org>,
-	Rob Herring <robh@kernel.org>,
-	Jingoo Han <jingoohan1@gmail.com>,
-	Kevin Hilman <khilman@baylibre.com>,
-	Jerome Brunet <jbrunet@baylibre.com>,
-	Martin Blumenstingl <martin.blumenstingl@googlemail.com>,
-	Myron Stowe <myron.stowe@redhat.com>,
-	Jon Mason <jdmason@kudzu.us>,
-	linux-pci@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-amlogic@lists.infradead.org,
-	linux-rockchip@lists.infradead.org
-Subject: [RFC PATCH 1/4] PCI: Update saved Max Payload Size in pcie_set_mps()
-Date: Wed, 30 Sep 2026 16:50:18 +0200
-Message-ID: <20260930145017.1356088-7-cassel@kernel.org>
-X-Mailer: git-send-email 2.55.0
-In-Reply-To: <20260930145017.1356088-6-cassel@kernel.org>
-References: <20260930145017.1356088-6-cassel@kernel.org>
+	id 1xBvdo-00000006NE7-2vfl
+	for linux-arm-kernel@lists.infradead.org;
+	Wed, 30 Sep 2026 14:50:42 +0000
+Received: by mail-wm2-x11.google.com with SMTP id 5b1f17b1804b1-49e7d2bb404so8751965e9.1
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 30 Sep 2026 07:50:38 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=google.com; s=20251104; t=1790779837; x=1791384637; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:content-type:mime-version
+         :references:message-id:subject:cc:to:from:date:from:to:cc:subject
+         :date:message-id:reply-to:content-type;
+        bh=ugl/kEsibxaOMxwiAB8ohvG+dBs5XjVCSnq2cxUbe8c=;
+        b=iKX1ibnHsEl93lYKBquhYuoomZ4ZaGdz/On2MxY3lv2KKuEyE2umo5uOGBM3WdZzMZ
+         RG4zKdaUcS3J5EeabgBTh3enhXqoIsS1dSP6RlzSGth4F+L1AKuTbUfP3j17h81J5wRz
+         U0hzjcK9sctRNx4LyixDhk1G9CZZElkahvKjspZGPgPmNE7mpWjkFZQDmT65YHPV4ffC
+         Ti4yga/KROgR7y4girPl7h3j+bmu1A+L9E/zIf/x7nyX/lGdhxqqNh1DsOFt6vWYnn2I
+         uoOn1UhQffusV8icthl9s7hC4zYm0MhdSS5M/1JRvn6gM4IMuQL7yrNZ31E58FiCubQ7
+         vUbw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1790779837; x=1791384637;
+        h=in-reply-to:content-disposition:content-type:mime-version
+         :references:message-id:subject:cc:to:from:date:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=ugl/kEsibxaOMxwiAB8ohvG+dBs5XjVCSnq2cxUbe8c=;
+        b=ZjG+5/ATl7jkuvCpdIlqyELbLMYSzN/edP+koC+B6zBTNB3U0mpsxnvARQxoETyqik
+         85PLj48pW3e1MlKegN466P9ZO8t/3VPwuedmjGckYF8goAX3/1RTErlRHfGYgyOipCq4
+         JbTFQXZfrpYqqty+6fMeNH7zKleasKhgThNAgWSU6G4q63dT4vkDzSpu4j+w1QE/4g7G
+         xEQPvHzd1TF+ETYknqklx0zPYCwWWMtBJjnQef9VT9hPz1LNLfnYDfE0nK8QAKCtHz+w
+         daOmHhaZfVrLCo1YBj17GnnPQbc/6JAG8+inA+haivPsZX7XbwqVYguj9AwcJZPQcSEL
+         V2gw==
+X-Forwarded-Encrypted: i=1; AKwUvBydub3RwTQyNANQZBCtxxMb6kSDIKMbmiN6asS1JUNZCNCvtI+RtIXeLdwim2pJxmr4Iw56ChiXXBm1hQ7NBYD8@lists.infradead.org
+X-Gm-Message-State: AFuF++mHLmnZcxFaHiF9PaAKl5hretmMQBRkJnTDnJDiWpv9il7rIklO
+	1e9/Urlk/4Mw1E/SNxKxUBsDHPIS3uTszz9+wg5aFBqW90YpvqueQO4MrVDBbVJLOg==
+X-Gm-Gg: AYBFou0bzIvbeZ9PdqHi6dTU5mTQsj9Z2cc+STXFlfAm4mH6vnQWxderTpzojhhwqHK
+	GYRMRuFwxXXwrpIFPfTc3pAgdKR+WwcVYpG3+2rBu7+p1fS53FvDrG9CgABjv9c4B9G/pdJr5TJ
+	vyVY8L+7VycCbnbN2x7bMiKJ6ifxw1hZnOJQYWMVRHMCf/M6BXHRiMqNXZDg344NAF+7e+cRbDO
+	wDHU2JPHTzb/Y4zNh19GaTjqnqbgf7MpBJAalh3n8bX8/jwWYJ+6P0EKffaQaS7UE+F8wcEPe2E
+	8VpE1AWPBvIgGZFEdqnZrz+JGNFpVQe3wlPTzAUXjhRcxgR1WXjb00+VVC8ZMZYH1Kp44Gi1jOz
+	YRpcCgfSrOWStW2sSuGnroLa+T028+mMsmNSfQC7qS+wm+ZssFoAVVyYFMpglANvj7nxJmZ/t5y
+	zq8VdpIpTsyHM0Fh4WWJC7qjRNCadGU6ZZv5erOfBvu0+9LvE8aA9oO8M1lLcHm68i/Ioz8SWIp
+	XhzDfnkYkorbGAsuDyf79wU3yV1Pn32CzLe4Y704Rw=
+X-Received: by 2002:a05:600c:1f95:b0:49f:c5aa:9ef4 with SMTP id 5b1f17b1804b1-4a01b1a1138mr26323985e9.8.1790779836298;
+        Wed, 30 Sep 2026 07:50:36 -0700 (PDT)
+Received: from google.com (197.183.140.34.bc.googleusercontent.com. [34.140.183.197])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4a01e67e01esm3856325e9.13.2026.09.30.07.50.33
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Wed, 30 Sep 2026 07:50:33 -0700 (PDT)
+Date: Wed, 30 Sep 2026 15:50:29 +0100
+From: Vincent Donnefort <vdonnefort@google.com>
+To: maz@kernel.org, oupton@kernel.org, kvmarm@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org
+Cc: joey.gouly@arm.com, seiden@linux.ibm.com, suzuki.poulose@arm.com,
+	yuzenghui@huawei.com, catalin.marinas@arm.com, will@kernel.org,
+	kernel-team@android.com, fuad.tabba@linux.dev, qperret@google.com
+Subject: Re: [PATCH v5 00/18] KVM: arm64: Introduce pKVM hypervisor heap
+ allocator
+Message-ID: <ar0htZydVZdB9zVk@google.com>
+References: <20260901080941.997769-1-vdonnefort@google.com>
 MIME-Version: 1.0
-X-Developer-Signature: v=1; a=openpgp-sha256; l=2978; i=cassel@kernel.org; h=from:subject; bh=rlNDwOLzu7ttLsyeROV+rK+yucTFtmlzkPThqRA5V+Q=; b=owGbwMvMwCV2MsVw8cxjvkWMp9WSGLL2Kq48tTfu/UbLknfnnk+PVxez+Tfn/E3Tlcd6TH1E4 rfH9W+f11HKwiDGxSArpsji+8Nlf3G3+5TjindsYOawMoEMYeDiFICJJHkyMtxY37952cWwRSpv ouRPL9nM/tK0IXbCyUbzI8Yc782TFwcwMuyf/ziqUM25YJvDnq1p32Rz16XOrq2WePze0yayadK hg5wA
-X-Developer-Key: i=cassel@kernel.org; a=openpgp; fpr=5ADE635C0E631CBBD5BE065A352FE6582ED9B5DA
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20260901080941.997769-1-vdonnefort@google.com>
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260930_075040_812211_788EA9AC 
+X-CRM114-Status: GOOD (  29.11  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -98,81 +103,165 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-pcie_set_mps() changes the Max Payload Size (MPS) in the Device Control
-register but leaves the copy saved by pci_save_state() alone, so the next
-pci_restore_state() puts back the old value.
+Gentle ping for this series, 
 
-The PCI core does change the MPS of devices whose state has already been
-saved: pci_configure_mps() reduces a Root Port's MPS when a device with a
-smaller MPS Supported is hot-added directly below it (commit 9f0e89359775
-("PCI: Match Root Port's MPS to endpoint's MPSS as necessary")), and with
-"pci=pcie_bus_safe", pcie_bus_configure_settings() can do the same when
-pciehp calls it after a hot-add.  The Root Port's state was saved when it
-was added and again when portdrv probed it.
+It's been fully reviewed by Fuad and is already based on 7.3-rc1.
 
-Since commit 3fc686d550f6 ("PCI/ERR: Add support for resetting the Root
-Ports in a platform-specific way"), pcibios_reset_secondary_bus() restores
-that saved state, without saving it first, after host->reset_root_port()
-has reset the Root Port, e.g. during AER recovery or on Link Down with the
-qcom and Rockchip DWC drivers.  The Root Port then goes back to the old,
-larger MPS while the device below it is restored to the smaller one, so
-the Root Port may send TLPs that the device treats as Malformed.
-
-Update the saved copy of Device Control when pcie_set_mps() changes the
-MPS, like commit 909f7bf9b080 ("PCI: Update saved_config_space upon
-resource assignment") does for BARs.
-
-Fixes: 3fc686d550f6 ("PCI/ERR: Add support for resetting the Root Ports in a platform-specific way")
-Assisted-by: LLM
-Signed-off-by: Niklas Cassel <cassel@kernel.org>
----
- drivers/pci/pci.c | 24 +++++++++++++++++++++++-
- 1 file changed, 23 insertions(+), 1 deletion(-)
-
-diff --git a/drivers/pci/pci.c b/drivers/pci/pci.c
-index b2879a6be5f8..5b126cd342ca 100644
---- a/drivers/pci/pci.c
-+++ b/drivers/pci/pci.c
-@@ -1736,6 +1736,24 @@ static void pci_restore_pcie_state(struct pci_dev *dev)
- 	pcie_capability_write_word(dev, PCI_EXP_SLTCTL2, cap[i++]);
- }
- 
-+/*
-+ * Update the saved copy of the Device Control register after changing it, so
-+ * that pci_restore_state() doesn't put back a stale value.  Device Control is
-+ * the first register saved by pci_save_pcie_state().
-+ */
-+static void pcie_update_saved_devctl(struct pci_dev *dev, u16 clear, u16 set)
-+{
-+	struct pci_cap_saved_state *save_state;
-+	u16 *devctl;
-+
-+	save_state = pci_find_saved_cap(dev, PCI_CAP_ID_EXP);
-+	if (!save_state)
-+		return;
-+
-+	devctl = (u16 *)&save_state->cap.data[0];
-+	*devctl = (*devctl & ~clear) | set;
-+}
-+
- static int pci_save_pcix_state(struct pci_dev *dev)
- {
- 	int pos;
-@@ -5970,8 +5988,12 @@ int pcie_set_mps(struct pci_dev *dev, int mps)
- 
- 	ret = pcie_capability_clear_and_set_word(dev, PCI_EXP_DEVCTL,
- 						  PCI_EXP_DEVCTL_PAYLOAD, v);
-+	if (ret)
-+		return pcibios_err_to_errno(ret);
- 
--	return pcibios_err_to_errno(ret);
-+	pcie_update_saved_devctl(dev, PCI_EXP_DEVCTL_PAYLOAD, v);
-+
-+	return 0;
- }
- EXPORT_SYMBOL(pcie_set_mps);
- 
 -- 
-2.55.0
+Vincent
 
+On Tue, Sep 01, 2026 at 09:09:23AM +0100, Vincent Donnefort wrote:
+> pKVM historically lacked a dynamic memory allocator: all hypervisor-side
+> VM and VCPU structures had to be sized on the host, allocated as
+> contiguous pages and donated to the hypervisor.
+> 
+> This design tightly coupled the hypervisor's memory footprint to
+> host-side constraints, complicated memory reclaim, and severely
+> restricted VM scalability.
+> 
+> This patch series introduces a dynamically-mapped custom heap allocator
+> (hyp_allocator) to the pKVM hypervisor. The initial users are the
+> pkvm_hyp_vm and pkvm_hyp_vcpu structs, and the hypervisor tracing
+> metadata.
+> 
+> In the near future, this heap allocator is expected to be leveraged to
+> support SVE in protected VMs and in the distant future, it will also
+> support dynamic device assignment.
+> 
+> By moving to a hypervisor-managed dynamic allocator, we also allow
+> deduplicating the donation/reclaim path of EL2-private structures.
+> 
+> The main building blocks for this series are:
+> 
+> 1. pkvm_hyp_req:
+> ----------------
+> When the hypervisor heap allocator goes out of memory (-ENOMEM), it
+> suspends the hypercall, embeds a PKVM_HYP_REQ_HYP_ALLOC top-up request
+> into the SMCCC HVC return registers, and exits back to the host.
+> 
+> This building block will also be useful for the future huge-mapping
+> support in protected guests, allowing EL2 to raise requests such as
+> block splitting back to the host.
+> 
+> 2. hyp_allocator:
+> ----------------
+> This heap allocator manages a reserved VA space range, dynamically
+> mapping and unmapping physical pages on-demand to minimise the pKVM
+> hypervisor footprint. As memory is reclaimed and relinquished to the
+> host, unmapped holes are introduced within the VA space. To prevent
+> orphan mapped regions, neighboring unused chunks cannot be merged if
+> they are separated by an unmapped region.
+> 
+> The allocator chunk metadata is stored directly into the VA space range.
+> To minimize metadata overhead, chunks only link to each other via a
+> relative 32-bit offset.
+> 
+> A simple hardening of the metadata is added via a simple 32-bit hash.
+> 
+> 3. shrinker:
+> ------------
+> As the heap allocator isn't reclaimed actively on VM or tracing
+> teardown, a shrinker is added to allow the host to reclaim unused memory
+> from the hypervisor when the host is under heavy memory pressure.
+> 
+> Changelog
+> ---------
+> 
+> v5:
+> 
+>   - Remove unreachable !prev checks in hyp_allocator_destroy_chunk() (Fuad)
+>   - Add kerneldoc to pkvm_call_hyp_req() (Fuad)
+>   - Avoid duplicate handle___pkvm_hyp_alloc_selftest() definitions when !CONFIG_NVHE_EL2_DEBUG
+>   - Chunk pkvm_hyp_reclaim() with cond_resched() to avoid blocking in EL2
+>   - Allow shrinker to scan across all runtime topup IDs
+>   - Reclaim chunks before draining allocator->mc in hyp_allocator_reclaim() (Fuad)
+>   - Make is_ttbr1_addr() check in __kern_hyp_va() conditional to pKVM (Fuad)
+>   - Rename pkvm_memcache to stage2_mc
+>   - Rebased on 7.3-rc1
+> 
+> v4: https://lore.kernel.org/all/20260731143541.956291-1-vdonnefort@google.com/
+> 
+>   - Add kerneldoc to pkvm_remove_mappings
+>   - Allow pkvm_private_va_range_pa() to work with block-level mappings (Sashiko)
+>   - Add rollback and harden pkvm_map_private_va_range input (Sashiko)
+>   - Add missing mc count into reclaimable memory
+>   - Differentiate -ENOMEM from hyp_alloc in errno_to_smccc() (Sashiko)
+>   - Collect Fuad's Tested-by
+> 
+> v3: https://lore.kernel.org/all/20260720171513.1415357-1-vdonnefort@google.com/
+> 
+>   - Remove unsafe WARN_ON(hyp_spin_is_locked(&pkvm_pgd_lock)) check in hyp_allocator_alloc() (Sashiko)
+>   - Modify MIN_ALLOC_SIZE to 16-bytes to comply with FPSIMD alignment requirements (Sashiko)
+>   - Allow hyp topup/reclaim HVCs pre-deprivilege
+>   - Add enum symbols to pkvm_hyp_req_handle event (Fuad)
+>   - Various clarification in commit descriptions (Fuad)
+>   - Restore unmap_donated_memory() for PGD on error path (Fuad)
+>   - Renamed __hyp_allocator_map -> pkvm_map_private_va_range (Fuad)
+>   - Collected Fuad's Reviewed-by tags
+>   - Rebased on 7.2-rc4
+> 
+> v2: https://lore.kernel.org/all/20260706175415.2604046-1-vdonnefort@google.com/
+> 
+>   - Rebased series on 7.2-rc2.
+>   - Use scope-based hyp_spinlock.
+>   - Fix best_missing/best_data_size priority in hyp_allocator_find_efficient_chunk() (Sashiko)
+>   - Fix missing free_hyp_memcache() in pkvm_hyp_topup() (Sashiko)
+>   - Fix unused selftest_init() warning when !CONFIG_NVHE_EL2_DEBUG (Sashiko)
+>   - Fix missing shrinker_free() in teardown_hyp_mode() (Sashiko)
+> 
+> v1: https://lore.kernel.org/r/20260520152650.4107895-1-vdonnefort@google.com
+> 
+> Vincent Donnefort (18):
+>   KVM: arm64: Add pkvm_private_va_range_pa
+>   KVM: arm64: Add pkvm_remove_mappings
+>   KVM: arm64: Add pkvm_map_private_va_range
+>   KVM: arm64: Add a heap allocator for the pKVM hyp
+>   KVM: arm64: Allow kvm_hyp_memcache usage outside of stage-2
+>   KVM: arm64: Add pkvm_hyp_req infrastructure
+>   KVM: arm64: Add PKVM_HYP_REQ_HYP_ALLOC request
+>   KVM: arm64: Add reclaim interface for the pKVM heap alloc
+>   KVM: arm64: Add selftests for the pKVM heap allocator
+>   KVM: arm64: Add a shrinker for pKVM
+>   KVM: arm64: Filter out non-kernel addresses in kern_hyp_va
+>   KVM: arm64: Move hyp_vm refcount into the structure
+>   KVM: arm64: Alloc pkvm_hyp_vm using pKVM heap allocator
+>   KVM: arm64: Alloc pkvm_hyp_vcpu using pKVM heap allocator
+>   KVM: arm64: Rename vCPU pkvm_memcache to stage2_mc
+>   KVM: arm64: Reject hyp trace descriptors with fewer CPUs than
+>     hyp_nr_cpus
+>   KVM: arm64: Reject hyp trace descriptors with fewer than 3 pages
+>   KVM: arm64: Alloc simple_buffer_page using pKVM hyp allocator
+> 
+>  arch/arm64/include/asm/kvm_asm.h           |    4 +
+>  arch/arm64/include/asm/kvm_host.h          |   16 +-
+>  arch/arm64/include/asm/kvm_mmu.h           |    3 +
+>  arch/arm64/include/asm/kvm_pkvm.h          |  117 ++
+>  arch/arm64/kvm/arm.c                       |    4 +-
+>  arch/arm64/kvm/hyp/hyp-constants.c         |    2 -
+>  arch/arm64/kvm/hyp/include/nvhe/alloc.h    |   28 +
+>  arch/arm64/kvm/hyp/include/nvhe/mm.h       |    3 +
+>  arch/arm64/kvm/hyp/include/nvhe/pkvm.h     |   19 +-
+>  arch/arm64/kvm/hyp/include/nvhe/spinlock.h |    4 +
+>  arch/arm64/kvm/hyp/nvhe/Makefile           |    2 +-
+>  arch/arm64/kvm/hyp/nvhe/alloc.c            | 1211 ++++++++++++++++++++
+>  arch/arm64/kvm/hyp/nvhe/hyp-main.c         |  125 +-
+>  arch/arm64/kvm/hyp/nvhe/mem_protect.c      |   10 +-
+>  arch/arm64/kvm/hyp/nvhe/mm.c               |   79 ++
+>  arch/arm64/kvm/hyp/nvhe/pkvm.c             |  104 +-
+>  arch/arm64/kvm/hyp/nvhe/setup.c            |    6 +
+>  arch/arm64/kvm/hyp/nvhe/trace.c            |   70 +-
+>  arch/arm64/kvm/hyp_trace.c                 |   15 +-
+>  arch/arm64/kvm/mmu.c                       |    6 +-
+>  arch/arm64/kvm/pkvm.c                      |  200 +++-
+>  arch/arm64/kvm/trace_pkvm.h                |   45 +
+>  22 files changed, 1915 insertions(+), 158 deletions(-)
+>  create mode 100644 arch/arm64/kvm/hyp/include/nvhe/alloc.h
+>  create mode 100644 arch/arm64/kvm/hyp/nvhe/alloc.c
+>  create mode 100644 arch/arm64/kvm/trace_pkvm.h
+> 
+> 
+> base-commit: cee9395acd8043be0644b25c34bfa86623f2b935
+> -- 
+> 2.55.0.897.gb25b4bd76c-goog
+> 
 
