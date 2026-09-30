@@ -4,80 +4,62 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6108ACA5FC1
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 30 Sep 2026 08:00:41 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1EE7ECA5FB1
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 30 Sep 2026 08:01:29 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
-	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:
-	References:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:
-	Subject:Date:From:Content-ID:Content-Description:Resent-Date:Resent-From:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:References:Cc:To:Subject:From:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Aw3PB1cASzqxZG3rj2OkZzQzyWd2jZNNHHzzORJCH3w=; b=fW8pMYTxDmF9Qr87RZYJRb6R+M
-	7nspSW6fYBweDRctN07/BzSueiqGUl7VtwrOTOEO6LOBE5zIzyoa1Egq38Vz3KNG1Tyyd1juK1VWE
-	yNBmSD9w2C8S6ch0bQZE8ebMDZ+/lASujJQBzh9EFK8fRypuYImqxpykl2o9KLi7+eyj681ZLEaat
-	Ujlq98+TxXtORxJkEhwSHpcaIQYFfLt8Z0tFY5OzJ3w0iYPpU62QP9/SJjUwSlYQiaUe33wjNT3aE
-	731RFML1cUhbJisZ0kwmJGD8/X5p7Ce+Dfp/mdT0qKcitxqpF6CugsTjfAbkUCEqPKtqEwCLY4g8/
-	mhr8WcEg==;
+	bh=kP8/xgXorWxZkfAWc5lJ+mhCSmVoL9S8Y8qJCHw6Jac=; b=RBnBuhBDfgn16cVLH+N29DRngS
+	x1LLiTtuQpMD6VSHGOTaWO8e+j0D9I/NiOHdHW62FM6ZFv6nFHK4wsXBZ8Xl8nzygeg7j5V6ueNhA
+	Zoqkl91p32DZ4d1+MbCIWZIbyjnFKGbjKLNmXSb9OJUwduBg4rcfW3I1hPOZMvnd4vZmIqjhZpqxK
+	dY/tOe1TizBQeWr11NiU3JCeoA28AoI6LT987CnFy4sb+cwQrstq+vFs4ftVIVbYAB04MHpChD/Ww
+	Q62Sdl5p+UUf5TucO8+aiwjpO3Rpr2p/1zpi3QB1PQwtKmhFmcnZxhTdBXqbF4luVmWcHZ1ZflprQ
+	S4b3jUuQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xBoIQ-00000005D7B-0aeI;
-	Wed, 30 Sep 2026 07:00:06 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1xBpFe-00000005N0n-3vRv;
+	Wed, 30 Sep 2026 08:01:18 +0000
+Received: from sendmail.purelymail.com ([34.202.193.197])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xBoIO-00000005D65-2FXi
+	id 1xBpFb-00000005N0E-4AyM
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 30 Sep 2026 07:00:04 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id C340743EBD;
-	Wed, 30 Sep 2026 07:00:03 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPS id D0F0CC4AF14;
-	Wed, 30 Sep 2026 07:00:02 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1790751603;
-	bh=me0/GaYRhRGsLTRt0o/xOAdYgAPd8saMs5gs1pazfMw=;
-	h=From:Date:Subject:References:In-Reply-To:To:Cc:Reply-To:From;
-	b=eBiiYx1iUpFLgCs3jPyyLsZR9BoZkOENFXPvq3ecvlkQNGSeSI9XWjINwi7BrTAdp
-	 55IgCDowjZJjY3pPgWvzwrMoPILR41AIfffMjNYCVZVQ0YGTx8CgoQY5K1V0vg9iPp
-	 g6Hop6zLVODjowEapVFM/1RPcp8KB6P7hmWdVSRLC/ZjZa3EPF++b0Gf0k9cyXZ/Od
-	 WdmT7LsPkYoKNkWvx4PWQ4Ak/qtwR9oXmOXRx4gn+kyc0eszAwRvc6t7wyMtqaHbD3
-	 naZqyen/S57ZYy/PFrRus7h/YKQEPSquC72/73x9JAztVR+ayXQeY8HFAfHLhkryGa
-	 Qfh2XOeslNuwQ==
-Received: from aws-us-west-2-korg-lkml-1.web.codeaurora.org (localhost.localdomain [127.0.0.1])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id AC888CA5FC2;
-	Wed, 30 Sep 2026 07:00:02 +0000 (UTC)
-From: Fil Dunsky via B4 Relay <devnull+filipp.dunsky.gmail.com@kernel.org>
-Date: Wed, 30 Sep 2026 10:00:02 +0300
-Subject: [PATCH RFC 03/10] dt-bindings: arm: cpus: Add Cortina Systems
- CS7542 enable method
+	Wed, 30 Sep 2026 08:01:17 +0000
+DKIM-Signature: a=rsa-sha256; b=a444FESxs9a3t4Te4rw0LAWZ8KpDvKWCU8k0SiyFi01YsZi1paZ5DI19G1eSUwKLA7VILMOM3AiGWyUhPjMpibN9QPDOjvh4D41ZKnGXdVFdKSCeaEZIaXnOhh/T2gVkv88UFzehgqDgDyVcRX3e4zH+FBgr6YjcnBSqweRDChh6EEy4JNLe2GOkc185BksFqalSADo+PZwFp6pZJne8lkpH+DI7dxuZy2+BGaFlMjrQEmAmWRuK5kFTFClw+nxYkJoD5n7F6DpXw3J2AFfrffudhFa2fpyDDd+K5TDNoeZehO8/izlYkByrp8Kplb5lP3MTl2n6hujSyBgqzbjKhQ==; s=purelymail3; d=q-lab.dev; v=1; bh=8VvSOkc6y3rlTIlWLwAwwqIGp6vCW6cQopRx43uhKyE=; h=Received:Date:From:Subject:To;
+DKIM-Signature: a=rsa-sha256; b=cAI5tOWHSWMdhNh1KYmkPHnuNpvrEAUs1dOw9uXE4BL8wmuDj48J1cm3hM9kmyAZHQVBTQB0d9KGZk+IXbX+c/lduRGGZcfRXGkjyvVlXOufTilUnyZcTxipOXK/92YK3ch+ZYT+3VaN5nyCSk4cPFvx1V5JuFvuWQor//88Iwwjf3YXGq5QO9xhH2tXy6LUJRdVboSyi80mwpA3NDNMNhVr0N/Iuv0cawJWHRQnHl/XeSlw+A7lAhswu34brPtrb9FUIV7Y+MW9qmtvJw6qYmpZmVqHIIC8NwrQFd81m0T9DziUVaEOE5cw1499yiw9rjezd5vZ0ds0IMjKBHrCdw==; s=purelymail3; d=purelymail.com; v=1; bh=8VvSOkc6y3rlTIlWLwAwwqIGp6vCW6cQopRx43uhKyE=; h=Feedback-ID:Received:Date:From:Subject:To;
+Feedback-ID: 284201:25281:null:purelymail
+X-Pm-Original-To: linux-arm-kernel@lists.infradead.org
+Authentication-Results: purelymail.com; auth=pass
+Received: by smtp.purelymail.com (Purelymail SMTP) with ESMTPSA id 2023428983;
+          (version=TLSv1.3 cipher=TLS_AES_256_GCM_SHA384);
+          Wed, 30 Sep 2026 08:00:44 +0000 (UTC)
+Message-ID: <2fe4a450-f176-463b-9799-5a03f6448c38@q-lab.dev>
+Date: Wed, 30 Sep 2026 01:00:42 -0700
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
+User-Agent: Mozilla Thunderbird
+From: Quentin Freimanis <quentin@q-lab.dev>
+Subject: Re: [PATCH net] net: sparx5: make ports inherit the switch base mac
+ address type
+To: Jakub Kicinski <kuba@kernel.org>
+Cc: netdev@vger.kernel.org, Andrew Lunn <andrew+netdev@lunn.ch>,
+ "David S. Miller" <davem@davemloft.net>, Eric Dumazet <edumazet@kernel.org>,
+ Paolo Abeni <pabeni@redhat.com>,
+ Steen Hegelund <Steen.Hegelund@microchip.com>,
+ Daniel Machon <daniel.machon@microchip.com>, UNGLinuxDriver@microchip.com,
+ Lars Povlsen <lars.povlsen@microchip.com>,
+ Bjarni Jonasson <bjarni.jonasson@microchip.com>,
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+References: <20260928045012.30178-1-quentin@q-lab.dev>
+ <20260929185936.687250f9@kernel.org>
+Content-Language: en-US
+In-Reply-To: <20260929185936.687250f9@kernel.org>
+Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 7bit
-Message-Id: <20260930-b4-cs75xx-v1-3-4617c4463529@gmail.com>
-References: <20260930-b4-cs75xx-v1-0-4617c4463529@gmail.com>
-In-Reply-To: <20260930-b4-cs75xx-v1-0-4617c4463529@gmail.com>
-To: Arnd Bergmann <arnd@arndb.de>, Linus Walleij <linusw@kernel.org>, 
- Krzysztof Kozlowski <krzk@kernel.org>
-Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>, 
- Greg Kroah-Hartman <gregkh@linuxfoundation.org>, 
- Jiri Slaby <jirislaby@kernel.org>, Russell King <linux@armlinux.org.uk>, 
- Alexandre Belloni <alexandre.belloni@bootlin.com>, 
- Drew Fustini <fustini@kernel.org>, 
- Lorenzo Pieralisi <lpieralisi@kernel.org>, 
- linux-arm-kernel@lists.infradead.org, devicetree@vger.kernel.org, 
- linux-kernel@vger.kernel.org, linux-serial@vger.kernel.org, 
- Fil Dunsky <filipp.dunsky@gmail.com>
-X-Mailer: b4 0.16.0
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1790751600; l=1236;
- i=filipp.dunsky@gmail.com; s=20260930; h=from:subject:message-id;
- bh=zHs4d0oCr/fkCjW2IncoLpYzn3PsYpvSJVPGzM+249Y=;
- b=5NGp1Z9mv2h2Aiqk1msw4SDQyLOh8bIopneUpk9z2/71v/F+jOsc6UszjLI5N6VAxuYLJ8g2j
- aJRpOJj1wZlB3JO04HulAycLiCjFcGXIKZCahBcJ84HQ+Wlbe5HNL3d
-X-Developer-Key: i=filipp.dunsky@gmail.com; a=ed25519;
- pk=JAYP8e2rJ54DHOmhNtXud8rl1igAaAXoOHxtJmVXI1g=
-X-Endpoint-Received: by B4 Relay for filipp.dunsky@gmail.com/20260930 with
- auth_id=1085
-X-Original-From: Fil Dunsky <filipp.dunsky@gmail.com>
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260930_010116_130739_DF9239ED 
+X-CRM114-Status: GOOD (  12.97  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -89,46 +71,41 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
-Reply-To: filipp.dunsky@gmail.com
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Fil Dunsky <filipp.dunsky@gmail.com>
+Hi Jakub,
 
-On the CS7542 the bootloader parks the secondary Cortex-A9 core in a loop
-that waits for an event and then jumps to the address found in a global
-software register. Add the "cortina,cs7542-smp" enable method for it and,
-as with the other release-address based methods, require cpu-release-addr
-to point at that register.
+On 9/29/26 6:59 PM, Jakub Kicinski wrote:
+> On Sun, 27 Sep 2026 21:50:12 -0700 Quentin Freimanis wrote:
+>> 0 is NET_ADDR_PERM, so userspace thinks this is a stable address.
+> 
+> Could you please explain the end-user impact of this?
+> Unclear to me from the commit msg if this is something that broke
+> your deployment / scripts or maybe you simply noticed it from code
+> inspection / LLM scan.
+> 
+> No need to repost, just explain, I'll add it when applying.
+> 
 
-Signed-off-by: Fil Dunsky <filipp.dunsky@gmail.com>
----
- Documentation/devicetree/bindings/arm/cpus.yaml | 2 ++
- 1 file changed, 2 insertions(+)
+With a random MAC reported as NET_ADDR_PERM, systemd's 
+MACAddressPolicy=persistent [1] leaves it unchanged, so a DHCP client 
+gets a new IP address every boot and a static reservation can't be used. 
+Reporting it as NET_ADDR_RANDOM makes systemd replace it with a stable 
+address derived from the interface name and machine-id.
 
-diff --git a/Documentation/devicetree/bindings/arm/cpus.yaml b/Documentation/devicetree/bindings/arm/cpus.yaml
-index 96136b70dac..7a394c500d6 100644
---- a/Documentation/devicetree/bindings/arm/cpus.yaml
-+++ b/Documentation/devicetree/bindings/arm/cpus.yaml
-@@ -269,6 +269,7 @@ properties:
-           - brcm,bcm63138
-           - brcm,bcm-nsp-smp
-           - brcm,brahma-b15
-+          - cortina,cs7542-smp
-           - marvell,armada-375-smp
-           - marvell,armada-380-smp
-           - marvell,armada-390-smp
-@@ -484,6 +485,7 @@ allOf:
-         enable-method:
-           enum:
-             - spin-table
-+            - cortina,cs7542-smp
-             - renesas,r9a06g032-smp
-       required:
-         - enable-method
+(this is my use case, and how I found the bug)
 
--- 
-2.53.0
+>> Fix by tracking the base MAC address assign type in the sparx5 struct
+>> and applying it to each port's netdev.
+> 
+> Generally no need to repeat what an average reader can easily grok
+> from the diff.
 
+Ack.
 
+- Quentin
+
+[1] 
+https://www.freedesktop.org/software/systemd/man/latest/systemd.link.html#MACAddressPolicy=
 
