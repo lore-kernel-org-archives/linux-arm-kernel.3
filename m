@@ -4,66 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5BEFACA5FBA
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 30 Sep 2026 11:20:58 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8BB10CA5FB1
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 30 Sep 2026 11:21:07 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Cc:To:
-	Content-Transfer-Encoding:Content-Type:Message-Id:Date:Subject:From:Reply-To:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=afsFMTDDywZ7QJoZlOGSH951C/2sp4EAtyqY2uB/vEo=; b=vzCC31GU2LtZN3C6DxRRjLNIIb
-	fT7Flva+Cx21J0Xz+YxjQPdruQqvWK3tAXSZ0o3HRxkQKg5d3v6XJGXeKiSwU38RNm+TGCOwGhfaH
-	E7SGglN9BFieyuQZrZ2PtIWuxXxMspze5JvAMVzTMaeXXe2k7Azo/psfFSQdEzSLTz+fJLsh9Xrrc
-	IiKDN7/8lVuh+mcCaqqTOdnRyhgnZOUGc0l8EXMCUEPSNN5msu+lz1G4EkaN7uPPq5Moi/t+hFynN
-	THY3HT4VFt2dHi6bU6t4cgA9nVZtnira2Z70Qj/Hi79iPnqBEQE48WU29rYM5OuZv5vkj5GwQ5Cs9
-	wZNHeTnA==;
+	In-Reply-To:References:Message-Id:Content-Transfer-Encoding:Content-Type:
+	Subject:Date:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=5znLLj0KgbPdtP6f/8skDWaHTnVI++23cs/oxDMVxGs=; b=vFct5ODqMVFbT5oFwLo/gYMHC5
+	D3NBAkYr7XO4dpUNzgSRwvFSCN4z6sTSUwSAGBU+aeg2oLdjU2pujjeIjkdDbU1rCBx7ZCPyMf8E0
+	Xv9GPVgqfRmV2Ils4b0zOaKaNQErff6ucZ0uCXWISKUtCJ9doG04cAeaDmzvpx6VRVB5rqubJcKe8
+	iS+du/bR7a/YBlecqjMQbXYYGn77e/+WkBmZ9nIA3BrZv99aePzHo2v2KxOOPISKyJIOS1GCt+iJS
+	1ItCnJIIVl/gaK4WduBeynr2tLpxZymP7FFsUJG0CqQAdgjgEsZ/yHJUzmM9lgQglWadNUg4c/1xR
+	mCEm4Odg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xBsMl-00000005r1u-2V8c;
-	Wed, 30 Sep 2026 11:20:51 +0000
-Received: from mail-westeuropeazon11013053.outbound.protection.outlook.com ([52.101.72.53] helo=AM0PR02CU008.outbound.protection.outlook.com)
+	id 1xBsMv-00000005r4u-242D;
+	Wed, 30 Sep 2026 11:21:01 +0000
+Received: from mail-northeuropeazon11012021.outbound.protection.outlook.com ([52.101.66.21] helo=DUZPR83CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xBsMi-00000005r0y-1sEV
+	id 1xBsMr-00000005r3O-0P8j
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 30 Sep 2026 11:20:51 +0000
+	Wed, 30 Sep 2026 11:20:58 +0000
 ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=Cn0XGz/C+1vE7NqXddgLaWwM9LIMwnAcm8kqIPzQe4ZWv2WGAg/pSR58LFZeWWwLOW9fFdn7cbCs7AvtWtfbTx2taQMPFYS8EN7LMPKvjovee6Qmrtcc8ksaARgdlit7lf/+HUJWcB0k/s+F7ZVUqlrHPMBbiBhPYEsb9mAOINMzQky40AIp4CCZqRF+eZwjo+Dhm4HEUSog7ruXa7KFd+zGfEZoI+haz2JVGo5bbXdUNHqqGHfkAautcg+I3TkOhEGk6rH/S8PiRsW/IrEyHMXCX6WetbA/zQOGP93tYQlpPra/DnSd/dktp3DofN6TAqHABTR64uwEVa0jOHAoUA==
+ b=citwJuLsnCUhZI1W0uk9X2bdj8DkJKP8Dj1pKcnM8wDM+vCNod6Oq9yxvQEKQB2/NTeyALTnluU3jLjSkQ9ZeX+s1ciR+P5lmehKwcNwDHPMEChugHEI/y+NzNK+FH36FmsY9yy9YTP8j6JqG9LbL4iAIj5TzuxFGFnGGkmx54gDw5nM76xE8UzApgbIDGU5AAUJrI0k5M888cS5jcDNB9FbGSNe9pscmcYpGSqbg47OMDNgzKUFhYf/UVuE3yhkrlP43RjHSxw1eYHQ4iJME2nvrvptlK45aF0mPNPLiZXjzT3O8rj8oiDmz+kp55/1MJYmYDlH052WPqcmdfVXlQ==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
  s=arcselector10001;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=afsFMTDDywZ7QJoZlOGSH951C/2sp4EAtyqY2uB/vEo=;
- b=qyC+RqNQX1Sgj7NOW7VIMEoFvdMSjaOHjcTOhngWmpEoZ9h16+gbBW/1tEdGCN0cxrJyDC5toU/xqOt0arOXIxYmsWPhTqyRLOsi9P4T4FhFtZ2z0qdNJmFKrH6sxR8aBOPGvRQPMd6MN63UV0OOw1jP9KBh3U5LcEWQkKzlSJbQ1+saK8Aja5upawEna3plaP5A7vfbe8J6XJA9/73vlQp2a9u0c8BrDvYRaF2GPKQiVWjibuW42cJOskI7pioCuwiiQ/kn8n8sYkClH+Tux4mX4B3LNR/+UoL6FD71N9FQefP9xBCyj33Zjup6FzkBM2U/E4fTcCZSiXIyAr7wuw==
+ bh=5znLLj0KgbPdtP6f/8skDWaHTnVI++23cs/oxDMVxGs=;
+ b=VmOmV5w6XjYQT6iY6VOPXiV3UQusmb7iIx6ByNO6gO8XAny7kJUhn2IS32nMKJw5PitNWRPWpM4zFHIM6o1O/EUnP/ikA0XZm2M0SqdY0PObp2R8xdc6wfKw+pnC7MXlJcmNY+26x19QbH99SDzmbkJ2A6ygc/9gb+sUyO2NuzJAyUimukIPO7LuwBx1ISSc0x5i9dQJi8pwpUO9XnWhqbPhtq58WTU79nUBfuOOEtWgDITqJswrF9wjcLQASI8PguDCQOTNph/JX5diD14pPeOm4KFH7DW2khAZqnfryM4OOxXuKLw4P83HbLpZ5dLhP7T2D7nXS7vJQsIJPvvCYg==
 ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
  smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
  dkim=pass header.d=oss.nxp.com; arc=none
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
  s=selector1-NXP1-onmicrosoft-com;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=afsFMTDDywZ7QJoZlOGSH951C/2sp4EAtyqY2uB/vEo=;
- b=NjX2ksHJURbwXdykahcd3Kwx2RNEqhArgMRLYyptPIX2S8zzCQgAYw2ZPZrOir8sGR3mhG65nDLfjhzBi2t8mNvH51blSZiTAnUtnG+6l9xN6CO1XK2dnQc26zVAbxRdpalCduXgrT26uwX/tteM1VlCzNym6xmwOARSauxY84xfiDsyvZGArHKdFcbk+Siowgj/cP8Gp+QIlJ8t9PBiyh+Bmb/hGal2LhAd6W5SaCN69HzGVaq13ZwnzCk+PeEQfXf0xjc+TUUJ8byti/8qa0vIQG8dDqM5kcH1iH38wrCpWYIKWCobBe2m1v9yqFTZggQTmSUwVeTOPpXi5eyVDw==
+ bh=5znLLj0KgbPdtP6f/8skDWaHTnVI++23cs/oxDMVxGs=;
+ b=HhjlGt8A2TPRLrc5n3f2/cmD8kw+84X5nKdSBzR13MtsGRqBSdfi3QBv6BFvPKNeo9MvqBhQMsxGX/tDGfm7WZQwWkDWkfCa8UYhMXIdfIzMeVMmL0HY4idQIJPF8TubOyheEVSyhPzfUKc8ncGUHdE9PMkBnbdLL4IpFKFDWAYrUYqAMpRVCqrBXWyzvDP4b5SrdBdtXseDYRwthShs0JOsRDOCZG7zxj6s6EKkHVP8HZfDN6OyPzimyvNsbaOvE+wn5hgLvwdevJUKIAL1uqbS6/AaZJOBqstTkbfUbYykbLl/Ma2FQVmXYhZocW0I9MAYKvIhMl59s5Pa5dAj8A==
 Authentication-Results: mx.microsoft.com 1; dkim=none (message not signed)
  header.d=none;dmarc=none action=none header.from=oss.nxp.com;
 Received: from AM8PR04MB7874.eurprd04.prod.outlook.com (2603:10a6:20b:24d::9)
  by AS8PR04MB7800.eurprd04.prod.outlook.com (2603:10a6:20b:2a6::14) with
  Microsoft SMTP Server (version=TLS1_2,
  cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.472.15; Wed, 30 Sep
- 2026 11:20:42 +0000
+ 2026 11:20:53 +0000
 Received: from AM8PR04MB7874.eurprd04.prod.outlook.com
  ([fe80::ac38:1699:6f18:c5d9]) by AM8PR04MB7874.eurprd04.prod.outlook.com
  ([fe80::ac38:1699:6f18:c5d9%6]) with mapi id 15.21.0451.022; Wed, 30 Sep 2026
- 11:20:42 +0000
+ 11:20:53 +0000
 From: "Peng Fan (OSS)" <peng.fan@oss.nxp.com>
-Subject: [PATCH RFC v3 0/3] iommu/arm-smmu-v3: Support shared Stream IDs
-Date: Wed, 30 Sep 2026 19:25:00 +0800
-Message-Id: <20260930-smmu-shared-sid-v3-0-8abe6c1b4c20@nxp.com>
+Date: Wed, 30 Sep 2026 19:25:02 +0800
+Subject: [PATCH RFC v3 2/3] iommu/arm-smmu-v3: Group aliasing devices into
+ the same IOMMU group
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-X-B4-Tracking: v=1; b=H4sIAIzxvGoC/3WNSw6CQBBEr0J6bZsZGBBdmZh4ALeGBc400iR8M
- g0EQ7i7gGuXVXn1agYhzyRwCWbwNLJw26whOgRgy7x5E7JbM4QqTNRZJyh1PaCUuSeHwg7JpGm
- RWONMoWBddZ4KnnbjEx73G2S/UoZXRbbfXBtWsvSt/+y/o97hvxejRoWxPkWpiZXJia7N1B1tW
- 0O2LMsXkX3IJsMAAAA=
-X-Change-ID: 20260916-smmu-shared-sid-e488f6c4d4f0
+Message-Id: <20260930-smmu-shared-sid-v3-2-8abe6c1b4c20@nxp.com>
+References: <20260930-smmu-shared-sid-v3-0-8abe6c1b4c20@nxp.com>
+In-Reply-To: <20260930-smmu-shared-sid-v3-0-8abe6c1b4c20@nxp.com>
 To: Will Deacon <will@kernel.org>, Robin Murphy <robin.murphy@arm.com>, 
  "Joerg Roedel (AMD)" <joro@8bytes.org>, 
  Jean-Philippe Brucker <jpb@kernel.org>, Nicolin Chen <nicolinc@nvidia.com>, 
@@ -71,73 +69,73 @@ To: Will Deacon <will@kernel.org>, Robin Murphy <robin.murphy@arm.com>,
 Cc: linux-arm-kernel@lists.infradead.org, iommu@lists.linux.dev, 
  linux-kernel@vger.kernel.org, Peng Fan <peng.fan@nxp.com>
 X-Mailer: b4 0.16-dev-7bc12
-X-ClientProxiedBy: SG2P153CA0009.APCP153.PROD.OUTLOOK.COM (2603:1096::19) To
- AM8PR04MB7874.eurprd04.prod.outlook.com (2603:10a6:20b:24d::9)
+X-ClientProxiedBy: SI3PR02CA0006.apcprd02.prod.outlook.com
+ (2603:1096:4:295::13) To AM8PR04MB7874.eurprd04.prod.outlook.com
+ (2603:10a6:20b:24d::9)
 MIME-Version: 1.0
 X-MS-PublicTrafficType: Email
 X-MS-TrafficTypeDiagnostic: AM8PR04MB7874:EE_|AS8PR04MB7800:EE_
-X-MS-Office365-Filtering-Correlation-Id: abd9bbdc-970e-47b3-8865-08df1ee4dd4c
+X-MS-Office365-Filtering-Correlation-Id: d41d0339-c7ec-4232-c308-08df1ee4e3e6
 X-MS-Exchange-SenderADCheck: 1
 X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|23010399003|19092799006|1800799024|376014|366016|10067099003|56012099006|11063799006|18002099003;
-X-Microsoft-Antispam-Message-Info: TpYvmnsB/dmTpQFa7ON5K0V70soqj7z99kQud5sUl/0k/tGqCju2EGe4AjoIDOf+JaBTmpx99YqTaHgkPkdyYO9w8WcZHTRHPIbQ5RjCMm+99d65W/RspCcrdrYGMVtU7sB7vCdfXep0VDHRyllzZRnWre4ikRQcqdHqp3a8ZJuPP922pNG+1aVkJ0nLM65z/W0GaTJYOlmykc0NbfWnpDbYbmGFknMG+u+NBte5z1ybbqncIzmdXzdyuwAIou+lfo1gdamCXs4OXr9kralF96fosbLkcOfH+yswz8qNjeGzBEuAe3AXS8t/5xQauJcGYyrLy8DtOhMRITppsxTTTpX+HLcaSr+Z+043qw86VyChk4Y33w6X3y6R2JZvY6Xf2pYyPZ0Fkrlg8JlZmF+BBG7SFDDj930pvrYzUUaqj1u18vLp6AAkSFj8yfwYuzUK1GmkRaz1QMm17rvz58M1okPuV5/AESald8T8meMu3lbLv4Pbsw6383QL18KEGFx0Q8XE3swR6x4OlMZgTwIzC0Sei33W5Hce5QGp1SMaCNCYVAGAcrpfwzJldNt4HmbIR6dlyKguyzuyy+QPGfp+F02dUKBXGfConKZ/EiZ/LLk=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:AM8PR04MB7874.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(23010399003)(19092799006)(1800799024)(376014)(366016)(10067099003)(56012099006)(11063799006)(18002099003);DIR:OUT;SFP:1101;
+X-Microsoft-Antispam: BCL:0;ARA:13230040|23010399003|19092799006|1800799024|376014|366016|10067099003|56012099006|11063799006|22082099003|18002099003;
+X-Microsoft-Antispam-Message-Info: cbVt4Qu7IK9lIpp9mqdOtUMKt9K2Lgt48HQFJRqKzLD/SxMiXmHMLXlnG5pkqnQXz9W0bQk99+9HE1i2qSJBwfa8z9DLi1vNiyKeBpLTRZ6ZfwpPLEPofLL7h/muSbMZKpUPYcM6DM9yxT0xU5b2PcMHCHtjP3WeZF9HtMooDdGwSu1EAI7tH8Kjy2dGPhzqsrcD9gODemgYkqcTKsJwjWxVcn9IKTWiyxfW2zDUGMix3tVD2igiko+FbK8mRnkFjl+UeZC+9Y9ikZuXpRwFSbmAIrbHVtMUqWs0wNj8vyPT0tmF3zLPcZYQPszzo/yrol/5PfjDMEmmAF+qeEe+N8L6Uu+bMbWgrRbBDNRSHpgeLz3d5ANFwMlsAUVIVmmvW71LYoNwmqgAuze30RmNOx8lNV/SlVfJnvIQu3aCZsYa2HHjPquWmZ00SiEfKYdh+ZdWGlct3TZRyt4/tdb7OTuWEBkPl81s7cGnOWAqeM7tCB9eQLgsa3CxcEEkxxipLPsj5GBqfV8F2A1G8C/ggT0lUzOmNdCcvo+iXIeNTt4obkhnxXsXxJneVBshOMm0GZy8+hU3ZUN+qaZpe8cl6j64oiKqmZ6+D1UvMAKETlDrqqJ3Ib8yDIufThnWsm4kx9HjRCf2LixH2hoEVHA5a6L7Teha4/eyA6Agms2TDWY=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:AM8PR04MB7874.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(23010399003)(19092799006)(1800799024)(376014)(366016)(10067099003)(56012099006)(11063799006)(22082099003)(18002099003);DIR:OUT;SFP:1101;
 X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?a295cUdCZ1lyckZzN2YyNzZtV3ZZT1JJTXpCM3FWRTV1Rmp1blFzNk9qS3lz?=
- =?utf-8?B?SFVZS2poOWlVMXdPbEJCaEt4NzVpN2dxK1lXNXZSME8wM0cyekNOZDhVYXov?=
- =?utf-8?B?a1lvVUxubnI0dDlNWkxEMW5GekEyNE14UWM2eXVFbkZib1B3R1VqaVUwVHgx?=
- =?utf-8?B?QmdheUhWT3B3aVRjdStXUEtBeDdMVm1zeFI1VjZlQTZSd0ZWK2RwUENGQ01F?=
- =?utf-8?B?dWhHeTlnNjNyMHJRb241NWxBbEdPbDlrUy80TGd6bkp1TkhsVENzdHFnZEpw?=
- =?utf-8?B?N2xrSHFMK2dxUmp4Yi9Rd056U01GQ0pjbzA2b05PQmtpRk1rQmlWbGsreENo?=
- =?utf-8?B?TmFRMWZRSlhrb2hFa3lIbld3N3hlUXJlRjBJTVhtd29SYUpoMU1wdE80alZ4?=
- =?utf-8?B?ek5zdDE4VTBmdDNmenVQN2hSSlk2N0pNMHF6NEpaa2Q3b1R4TFJ6amhkMVND?=
- =?utf-8?B?YjJLNW42VW15bUFUS05hODh3L2NDR21YdUx1VGFmSkhPK2dCTjg5RHVtNTBz?=
- =?utf-8?B?czBSZVBWZ2x1TnVRek9nMXFaQkF5VzJyQmxZV3ZKMUFYTmZZQ0tTZ2xxaWhR?=
- =?utf-8?B?ZGZITkJyRE5JNXNRK0dpMUNXL25oQ1RZdzFleUt6OUV5eFhKclprVVhGYkRG?=
- =?utf-8?B?b1dIeWg2akVWWk5yOFBEVS9EQnlpc3pXaklZSjZZTWtGeWtRbWIzSDYyRnRH?=
- =?utf-8?B?RmVtd0NqNjg2K0U0K1hnUUlkQUdoZ3FNOHQ2ZTVsT3M2M2FxcGY0SmdCdHZP?=
- =?utf-8?B?Q0JkTXNvVUw1MHJKSlRZTENJS2ppZjVmRkQyeXl4ckxvbFZ1Wnc3Tkh3RjNX?=
- =?utf-8?B?WkhXRG9XVHVqdzN0VlBkaGNyaW41QTdiT0piR2JSSjRodDNhSmRaRHRzVjNC?=
- =?utf-8?B?VUlJdjhYZWs4M1lOKzZRT0U0TVN1MzI2RXNJNkwyUDIzWlhCOGI4ZnpFT2hF?=
- =?utf-8?B?NG1iWkNFdnN1YkpHb2VSa2NhMzhJeUNxL09nVzBDVTA5YXFka2NGZTMvMU9F?=
- =?utf-8?B?SmVhR2pmdTJBRlRMY3UyclR4K05VZTBuNXpOM1RsaDJWYmM2aTg3WFFkelNa?=
- =?utf-8?B?N0JDTndQeC9YelNFTkdlenVPdnRVS1RncmJ1SW16a3o3a1htai92Wks5WGF0?=
- =?utf-8?B?cjh1NzdlL2pia1dXNUtGa0pNMUtCZGtmWlB3d1grRVpkZGJUcXVWR0xnZ0o5?=
- =?utf-8?B?SmZ5K3JWTXJoN1dyeFBnenVFam0vME90UXVZMmJUaHVYTk5nZEpFMVhPVDFn?=
- =?utf-8?B?bHFMZEt6dml6WWhXd2N0TjNMc3ZxditiektHYnd6d25vUTNFOFU2N3BWTmRu?=
- =?utf-8?B?VHZTclV6cXBqWVlkWTFpQklRRzgxamhlSitNTldNbXNpZFdxWDRYNTVwU29j?=
- =?utf-8?B?a3BhOCtQWjdKZUZCM1I4TG9qeThKbUE0d1dlVkVjNzRyVEluVCthaERHNEdz?=
- =?utf-8?B?M29KYUI1WVVmeS95emF4UmwrV1cwZitjdlQrc3E1ZE45NTdSOW5EeHBpWTZM?=
- =?utf-8?B?Nmg4amtIK3laRG5vcFhZcThmRzVhT2J4Y1E2dDg4cW5mV3RUWjliMWtlWFZl?=
- =?utf-8?B?M1hJZ0x1eWZGMkFETmZOQkxwMnc0ZnZUSXBSL0p3M3FwaVpML09VNUQwcFNV?=
- =?utf-8?B?VCtKV3VucG55R0J4N1JpUGpLUzd5Qy9zRGdFaldhSUNITk5yUjE0ZXd3SjlK?=
- =?utf-8?B?YllENWwvV2JONUEvOFArYU9YT1QwaVVsSWw5SjBzT1FlMmdQc1I2TmJzN2hH?=
- =?utf-8?B?bVlsTzU0bTExU3ZjRHFLLzNEaTZ3bE1Mei9JS3pUdTFnWFdDUGpxK04zNTEz?=
- =?utf-8?B?NlUrTjlPRmdIRHg0cG1HZzJGdG1YRjlUUnYwRUZaM2RZVzk1QWVwek41bnE2?=
- =?utf-8?B?bDN3Y3FMaXg3VW1iUnkyMXZtby82SlpBRXNvd1lrZXRhSXBIT3FybS8zYVcz?=
- =?utf-8?B?dkZ4MUFyaitDaXNoRUZXV1FaYithQUE3c2xkRFF1TVRjNTVBUUtUeDhSSFIw?=
- =?utf-8?B?aFRmdTd5N2NUQ3lndjdxbUQxNFZiUjUzNGFCTEJlMEVybkt3dFJKenpNN2F4?=
- =?utf-8?B?SGY4NnZzU1JRdUFRVXVPdWlscWFwNzhzamViUkhDR2plS28zQ3dHakJ4WlQ3?=
- =?utf-8?B?Y3FUYUdpZ3Irakx2cVltNWlOV3FBL2lraStheDRQa0M4Vkw3amhRSnhmWU92?=
- =?utf-8?B?LzNQSVFXbC85aDJjVUdVNVdRYzVkNVNwTTRiTTNyMmpqZ0ZKdVF3RlBHcGU2?=
- =?utf-8?B?TWVxZXhRV3hiUEVyY2tSdHBjWkp1cE1RTzNtUmpQNzhUak54RVd3cG0vbHgw?=
- =?utf-8?B?U1U0UzN1RVo4V0tId0RuRXBBVVhEZGJQTU5USVZOcDNoTDAyTGcxa1BOb3lU?=
- =?utf-8?Q?yH6942rwnsaOorkuzEPnBJ1U9nwWW/+4d7/nc?=
+X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?S3B6cTFKMTZEbGp0Y1VGcWxkQ0FZbUR5UElrczQ3bGlBVXBNNjNpeDNERnZ1?=
+ =?utf-8?B?cDR2M1MyVXJRalpjWDloYXNTZUViVGE5TkxOVUx1Z0Q5K3RFU21qVkRTR0ww?=
+ =?utf-8?B?N1FONU9VMk9tQ1JFbWx0cnFnY3JocU5mS3NaT0VWdythaVVLQkNjdmZad05x?=
+ =?utf-8?B?MTFRSUJYSGNPcHBwUngya3ZjbTQ3TDMvK0hYdWtHSGNzc1cyRXB3Um9OdCtt?=
+ =?utf-8?B?M3ZaQ2VZRGxPSHkzWUExbnJMZERqMzBFZytRNjVlS2JjSjgxak11RFZEdC9H?=
+ =?utf-8?B?ZHFwNDFKNmF2a3BmcU5zNmk3dGJNMnIwaHEvb0pScDJITUtYUHJjSkhIWkEz?=
+ =?utf-8?B?YU5LMDlDTVA1a2paODJqSUdEZjdrKzkrdHdOWjNlRExHdWlacy9MYU9kaVor?=
+ =?utf-8?B?TW5sQ2I2UWxCeXFaa2FDNmgxWGtiL3pUUFFCakxlY0hBUDRhUnBrb2xReFp4?=
+ =?utf-8?B?elZ4ckNkVHFJTEcwRWcvVXFpa3lRT01SOTNFYU1NRGVoRUVpZ0pIVk9lem9y?=
+ =?utf-8?B?K2xid3MzSEh4Vit2cmxUS3p1OHl5TXczVTd4SE8wTjRGZWVXaUNSejJmZ1ph?=
+ =?utf-8?B?KzF5NFRGQ2hIam1QKzZ4UnN6c1ZRNWV0a1d2c1VTeVMydTd5akFPYUIwckJD?=
+ =?utf-8?B?KzYwWFRpUGs2VU9xdUMydkgrY29NYWZ4ZmJCQ1lWY2swTERzenRDZVMydXAw?=
+ =?utf-8?B?Q29tQTRGaTEvWnN2K0dXNUQ0T2IzSk1sVmluT0pnemxmLzZjMDQ3SnlTMHoy?=
+ =?utf-8?B?SVBtcTJBd2ZmVldTTC93TWQ4SktadlhWMlNmQTVpUGg5d0YyclJvYXZtaGxE?=
+ =?utf-8?B?bmhra2ZOZzR1UTBlaU52ZElKY2ZzcUw5eXc1Y3NpQTQ4TDFBY21Sb2VMT3p2?=
+ =?utf-8?B?OGZKYUdFdTd0S2tRTU5ESW91M1dZY3JaQVlmQ2NETHA0U25RWWNPdTRtV25L?=
+ =?utf-8?B?bHFLcWlIL2oxZlhzQnhJVUNtSk56WGIwZEJPaldBQ2N0cE5BUENxSjUzN0FI?=
+ =?utf-8?B?eFBJZUEzZUl4aG5mcC9IcUdDdm5zUzNEa1R3Y1d3b1RJZ3c2WjBIb21teVJv?=
+ =?utf-8?B?M2hDcFlmekxWbU92MjQ3R2R1UTgvOGprYjNXL2cwNXhsU3E5bDZaZC9RT3Rp?=
+ =?utf-8?B?SWdjaVE4MkRMN1J2VnJKOFpheWZnOUxDcDdXZXhtWkQwVTlFTklsaUNIL0Vn?=
+ =?utf-8?B?bno2Yk1xZndxQXdyRjlnRkU3NkJ2SnhXZGNBRHRzeVUrL1MrMVNsNHVaQXdu?=
+ =?utf-8?B?N0xBSHhMY0I4eGMxelJGSDFKMTluV1NEV05xT1l0MkVveUs4YXpReEpoOXpS?=
+ =?utf-8?B?c2FtbUtmQ3Z2VXc1dU13SEN6dlAxY1dvT3YxODQ3VENTMXorcWQ4cmtQcnlJ?=
+ =?utf-8?B?LzhpOS9QR1pCR3F1Ykx6bXVqdmFEYmRnb0YydEhEbHZ0d1BxYXVpSVRzeTAw?=
+ =?utf-8?B?L1RQam41YjVqSGJJTno1bnd5T3ZCL2p6SFV0TXpvK0FVclQzTVhTNUsrSmwx?=
+ =?utf-8?B?ajQ0YXBXSlg4TEtuWVBTS0xYNDZrNUJOK215TVd5dFc1NDZFV25HV0MzUEVw?=
+ =?utf-8?B?YkdhczBPaFJNUjZUTW1meFVlLzdhZjl5UWoxWkNpeEpLQzJST2hlYzlsR3hD?=
+ =?utf-8?B?ZTFvTkQ1Vk1HejdodDBiN014cGE5aytEcVQ3UERrQjNId2dneCtDeHI3Q3NJ?=
+ =?utf-8?B?SXVDWjlVYkxOVC9sZEg0aDFucWNDcDFBT0dVWi9yeVliOHZyby9DN20xcGJP?=
+ =?utf-8?B?YmttWEN1U0ZTamdwTXJ4Sk9pOWs3T3UvcjR3SDFldnRocDZWTk1qdnBGMHg1?=
+ =?utf-8?B?NU1wS2g4WCtlejlnbHZCOEpId2hvaGxKSVk4UWdDaEtVYXV6a0YyNjViR1BN?=
+ =?utf-8?B?ZGU1Qkw1MkFEZGJaNzIxREI0dVMrdXNoSGxMR1BjeWdoMzJoOWxiZUZITVhx?=
+ =?utf-8?B?aXh4MkJUd0RLeGlYN3ZRbmpKWTVmNzVXa1VTVHJVdGUwNS9KSGNwUFFsaHF1?=
+ =?utf-8?B?WFdENkFNNW9la2JQaE05S1h5bWdyTGU0VWVUVTdrU2NrV2E3NUFBblRxRGJi?=
+ =?utf-8?B?ekY4WnFzZ2xGVnB3Sk1LdmpBdzV4aVBrRFN2UWRVaW9nRnlJbllmMG5MY00w?=
+ =?utf-8?B?elhBOXg5VUg5dDFGV0tsZ3NsemtQUTk1YmVVNXpFMUc2ZEdSTmRBZ1VSeVFJ?=
+ =?utf-8?B?R1RmbWNXcFV1MW91YzFkL2ovT0NjTTllL1Q3c1dZcUg2M0phc1R1OTNOZU1t?=
+ =?utf-8?B?MnNUUGxjU0FsdzZma3R0T3owckZIRG1LdFZiaEs5WWNuYUtmcUtXVUFsYW1U?=
+ =?utf-8?B?cXR4ZVhOOWQ0NzJlZ3AzUXpPNnpQdHFxRjV0NDhBbWovcUVPVmdmMndpUnBN?=
+ =?utf-8?Q?3U4IMW6sLbqJ7BQA8e9/Z1jS+zchYQXU6yQIS?=
 X-OriginatorOrg: oss.nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: abd9bbdc-970e-47b3-8865-08df1ee4dd4c
+X-MS-Exchange-CrossTenant-Network-Message-Id: d41d0339-c7ec-4232-c308-08df1ee4e3e6
 X-MS-Exchange-CrossTenant-AuthSource: AM8PR04MB7874.eurprd04.prod.outlook.com
 X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 30 Sep 2026 11:20:42.5877
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 30 Sep 2026 11:20:53.5987
  (UTC)
 X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
 X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
 X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: ZtrB5r+dI4rURbtCoB05JDnTm1G8BVRYyeLZhGDsT4OnMNpmTzGx81umZ1DraOm4O7nPGubgKTvghzRSIY6RChoIhj5CXkagMDFk/YdYU0XgB7wEIUIya4DlR0OnzO+L
+X-MS-Exchange-CrossTenant-UserPrincipalName: ylPtltL2snbHS8uB8B2BqnUsYlb8/TCBWxhXodN5tcSRTv/E8LL/5Eec9duvasuqyigIJsOKsQ0/E+FgCTxbtpB0aVdWSlPkphznzi29/lx6L1pAh0b4oCg8AZ3E3uyz
 X-MS-Exchange-Transport-CrossTenantHeadersStamped: AS8PR04MB7800
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260930_042048_502973_9644CE59 
-X-CRM114-Status: UNSURE (   8.52  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260930_042057_156892_3EDB7D76 
+X-CRM114-Status: GOOD (  14.35  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -152,51 +150,71 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Some SoCs have a limited number of IOMMU Stream IDs (SIDs) and
-hardware that inherently shares them. For example, the NXP i.MX95
-only has 64 SIDs, only 6 bits for SID in the system chip bus.
-However there are many device IPs, such as SDHC, PCIE, NETC, GPU,
-NPU, Display, VPU, ISP, ISI, JPEG, SATA, DMA and etc. Each Kind IP has
-mutilple instances inside the SoC. So I introudce this patchset to
-support shared SID.
+From: Peng Fan <peng.fan@nxp.com>
 
-The current ARM SMMUv3 driver rejects this with:
-  "Aliasing StreamID unsupported, expect DMA to be broken"
+Devices sharing a SID must share a single IOMMU domain (and
+therefore a single cd_table) because the STE can only point to one
+cd_table at a time.
 
-I took comments in [1] and implement this patchset and only want to
-support a very simple case that multiple platform devices share one SID.
-
-[1] https://lore.kernel.org/linux-iommu/DU0PR04MB94172CB3F138AD39E9B6DEEF887F9@DU0PR04MB9417.eurprd04.prod.outlook.com/
+Detect SID aliasing at group-assignment time by looking up the RB
+tree for existing owners.  arm_smmu_device_group() is called before
+arm_smmu_insert_master(), so any RB tree hit belongs to a
+different, already-probed master.
 
 Signed-off-by: Peng Fan <peng.fan@nxp.com>
 ---
-Changes in v3:
-- Drop the conversion to use xarray
-- Only SID-sharing for single SID device
-- Follow Nicolin's suggestion https://lore.kernel.org/linux-iommu/arG6hmng3NddGEHm@nvidia.com/
-- Link to v2: https://lore.kernel.org/linux-iommu/20260921-smmu-shared-sid-v2-0-4b656ce68178@nxp.com/
-Changes in v2:
-- Only update cover-letter to make it clear about why introducing shared
-  SID
-- Link to v1: https://patch.msgid.link/20260916-smmu-shared-sid-v1-0-517384504aee@nxp.com
+ drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c | 33 ++++++++++++++++++++---------
+ 1 file changed, 23 insertions(+), 10 deletions(-)
 
----
-Peng Fan (3):
-      iommu/arm-smmu-v3: Support shared SIDs in insert/remove_master
-      iommu/arm-smmu-v3: Group aliasing devices into the same IOMMU group
-      iommu/arm-smmu-v3: Wire up shared-SID STE ordering and feature gating
+diff --git a/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c b/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c
+index 940f34465c0fa..2e13cf0cb8882 100644
+--- a/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c
++++ b/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c
+@@ -4363,19 +4363,32 @@ static int arm_smmu_set_dirty_tracking(struct iommu_domain *domain,
+ 
+ static struct iommu_group *arm_smmu_device_group(struct device *dev)
+ {
+-	struct iommu_group *group;
++	struct arm_smmu_master *master = dev_iommu_priv_get(dev);
++	struct arm_smmu_device *smmu = master->smmu;
++	struct iommu_fwspec *fwspec = dev_iommu_fwspec_get(dev);
++	struct iommu_group *group = NULL;
++	int i;
++
++	mutex_lock(&smmu->streams_mutex);
++	for (i = 0; i < fwspec->num_ids; i++) {
++		struct arm_smmu_stream *stream;
++
++		stream = arm_smmu_find_stream(smmu, fwspec->ids[i]);
++		if (!stream)
++			continue;
++
++		group = iommu_group_get(stream->master->dev);
++		break;
++	}
++	mutex_unlock(&smmu->streams_mutex);
++
++	if (group)
++		return group;
+ 
+-	/*
+-	 * We don't support devices sharing stream IDs other than PCI RID
+-	 * aliases, since the necessary ID-to-device lookup becomes rather
+-	 * impractical given a potential sparse 32-bit stream ID space.
+-	 */
+ 	if (dev_is_pci(dev))
+-		group = pci_device_group(dev);
+-	else
+-		group = generic_device_group(dev);
++		return pci_device_group(dev);
+ 
+-	return group;
++	return generic_device_group(dev);
+ }
+ 
+ static int arm_smmu_of_xlate(struct device *dev,
 
- .../iommu/arm/arm-smmu-v3/arm-smmu-v3-iommufd.c    |   2 +-
- drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3-sva.c    |   3 +
- drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c        | 153 +++++++++++++++++----
- drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.h        |   9 ++
- 4 files changed, 137 insertions(+), 30 deletions(-)
----
-base-commit: 86fb14622b7ccaac8916e5541bebc4d70f64331b
-change-id: 20260916-smmu-shared-sid-e488f6c4d4f0
-
-Best regards,
---  
-Peng Fan <peng.fan@nxp.com>
+-- 
+2.34.1
 
 
