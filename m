@@ -4,81 +4,138 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 985E9CA5FC4
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 30 Sep 2026 21:18:54 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 21F8ACA5FC5
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 30 Sep 2026 21:21:59 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:From:
-	Subject:Message-ID:References:Mime-Version:In-Reply-To:Date:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
+	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=IvNQ4tIxSouECNeVr4s6zto6hS9KDqxG0yViEXlduVY=; b=tqNe8VHFMT6BU9t8cTug9h5Iqz
-	+P+RC5FNayf6ty+41VC9wNW4DeQLpXY/2WhDPHWgPF4O12McHI2Be21YDLiOKS/5pITTXSkQ9dU28
-	2Ivgj+PerXRhn7WcGiP/DLuSJMC3J2zHrIqoMRybDd+VUiwzBrtaO4kzujagHlDegrNqTTBJsNh5n
-	rlwl3hCqkDtv45B1VhQgU76nS+mZppbM0ufi/4fCVqvqhG6l37c8GJ+5p+pUnijpmcl3Mz5SEdsMW
-	1ogKxsjRQ5zrynbazi1gnpVkw8Hp8HLwVKHljMYAwbt40PuDpZVvXvksGQ+9PuhOA2NtnKzQ9oMng
-	iufz+utw==;
+	bh=g0Pm+HDVARpjESyI7l/vxhqJmaeDd3/9JOwo7s6JK1c=; b=Lw1UGue96yiTBaaYyyMwAJANIa
+	QDoYCn9We50PVb9TMzywyJbMq2+T7zcgD2sq6N8doia3bm9M7Xu32+vefUwEnWScj3VAp+mtBJ/Jt
+	rovgpUcYHOX03TVRFGWjQHRyGbxgZVoOiOQPMFatNQE0DY6Mz2vZlzkXPpzJt8OjM/no3BwwlsY4H
+	yC8ERWiUkNHw+rvDtWKepMc8GqSMvgNZPFbAhq6ptr1KNj/v5qc53kmQH5zvoyMI4dRDsuEayMif8
+	Ehl5AZiATXLFvhu8lM9SgcZ3YdJgXeRrIYUEBJICnNsftI76ShDmQ6LbyvU6rZGXzUXyT8pfpvUT7
+	VU3r3Lqw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xC1hQ-00000007Ess-15vO;
-	Wed, 30 Sep 2026 21:18:48 +0000
-Received: from mail-oi1-x248.google.com ([2607:f8b0:4864:20::248])
+	id 1xC1kL-00000007FBJ-3UB5;
+	Wed, 30 Sep 2026 21:21:49 +0000
+Received: from mail-northeuropeazlp170110003.outbound.protection.outlook.com ([2a01:111:f403:c200::3] helo=DU2PR03CU002.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xC1hG-00000007EpD-0VFP
+	id 1xC1kK-00000007FAw-0EyM
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 30 Sep 2026 21:18:39 +0000
-Received: by mail-oi1-x248.google.com with SMTP id 5614622812f47-4b2d1eb484aso9108236b6e.2
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 30 Sep 2026 14:18:36 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20251104; t=1790803116; x=1791407916; darn=lists.infradead.org;
-        h=content-type:cc:to:from:subject:message-id:references:mime-version
-         :in-reply-to:date:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=IvNQ4tIxSouECNeVr4s6zto6hS9KDqxG0yViEXlduVY=;
-        b=M8s3VshXJxfFdilHZqePhnucbgG6yUxB/dgfEVTJIZkX0ItrRmKfeczZkoL9+lB9I5
-         je1CL/oSP5W3M++w0D42HURpBRjjQtVS6w78ReFptDdQ8TAK9rb4jStHr4pT/Kbxk3bV
-         iLBZcydUOhHBarIgBEqbsl4o93inaWpciotgnD7XnqQ6D6HsN/XAi9YIHT1+2hhUay+U
-         T1QwFX9ivDKUZbugWC8XalxrN9mFj+v8hQ3icModF7kYH18lIqKN6NZRJGMvrdPtJvTC
-         qPNB1xrUK+mm6O1ZlYMkkiKMSl7zCzn1dl9QbfeHPIik2txdxBmKlPfdUSnIXSA3utom
-         SUQQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1790803116; x=1791407916;
-        h=content-type:cc:to:from:subject:message-id:references:mime-version
-         :in-reply-to:date:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=IvNQ4tIxSouECNeVr4s6zto6hS9KDqxG0yViEXlduVY=;
-        b=S29sRXz57RGasdLw04z9wXPxv0q87L5Su84W+lHegtZR41NDhpqEiv6eQqUX7VNwoK
-         8QwS3E6cW/8wYlOxoxYKsqEtSBZ77ds/V9t34LTww9KBzEvw5mFokD11LfaaouTjjhgZ
-         IQup1k6pI49TXiLBnDC5ao1LzOD9ZCcGXkkTaueq+Zgp+B/5YukwcKlIRQ9D7pwe3nQy
-         Xq7ztWe6vKNvr7uBh4629uCsaYAjhIEhX7Hwk18h4QXp3cfRSRZ+8qwMj9zejsmF/PyG
-         /Vileiom3VbLvF7FZDUSz3vCN1vcUBiFjPqNEzB61gx+YDLpea5XFeu7CrfVEGWq/ZXb
-         XG1A==
-X-Forwarded-Encrypted: i=1; AKwUvBzh211UVdbmxEmYargmnZyrIpoViKv3PeiRft1ZAPq2JLp4ygCXQyWlLNPxYMGuuscD4KsKjMRwd69iQGQ+npxY@lists.infradead.org
-X-Gm-Message-State: AFuF++lH+zCUhP2c1g7BWyqlQE8Ru72L31AhNGa30Jtq8a3xQQN0T3xQ
-	74GRvuKbQn5kWCVwFAa0GGm2M+30mxU5gAB0dAhpOG2FQuXJ/xczbaFOtyMoclI1z8QWOTblWdX
-	KcT3vKqK7UQD7Ju6tjqmFIP6URA==
-X-Received: from iljm9.prod.google.com ([2002:a05:6e02:de9:b0:50d:b61e:e6c3])
- (user=coltonlewis job=prod-delivery.src-stubby-dispatcher) by
- 2002:a05:6808:1190:b0:4d6:9153:295e with SMTP id 5614622812f47-4f1ba4fc340mr2480554b6e.47.1790803115577;
- Wed, 30 Sep 2026 14:18:35 -0700 (PDT)
-Date: Wed, 30 Sep 2026 21:18:33 +0000
-In-Reply-To: <20260930211834.2773546-1-coltonlewis@google.com>
-Mime-Version: 1.0
-References: <20260930211834.2773546-1-coltonlewis@google.com>
-X-Mailer: git-send-email 2.56.0.rc1.315.gc6ed9934b7-goog
-Message-ID: <20260930211834.2773546-2-coltonlewis@google.com>
-Subject: [PATCH v2 1/2] KVM: arm64: Handle ID_AA64DFR0_EL1.PMUVer == NI in __kvm_pmu_event_mask()
-From: Colton Lewis <coltonlewis@google.com>
-To: kvmarm@lists.linux.dev
-Cc: maz@kernel.org, oupton@kernel.org, joey.gouly@arm.com, 
-	suzuki.poulose@arm.com, yuzenghui@huawei.com, catalin.marinas@arm.com, 
-	will@kernel.org, pbonzini@redhat.com, linux-arm-kernel@lists.infradead.org, 
-	kvm@vger.kernel.org, linux-kernel@vger.kernel.org, 
-	Colton Lewis <coltonlewis@google.com>
-Content-Type: text/plain; charset="UTF-8"
+	Wed, 30 Sep 2026 21:21:49 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=yCSNysgf48GqIo8z4iaTtWl8Mf/8JuzFL+kJhJZP4iNtpEA9oG5OZ0KDigANbTYw68Q1kSMc3GlKEncQcNH1fbaf6LtgiqD4RKozN6ZmzRS6Us7YZzwt0JTtTwEIAmSMJtjwxh6DSeViGdRiSdsMxhxCHWKcb2FHP9sc1E7lu4M2RJzCaPfs/2beS212i/8ucGXLuOE6q7YEWvpcyaNVZKOSDpyKcsef9Wj4SSENeH6TnEg5bhXfmrdB3MY9TtLo++33GyMa3muCbQmBvJp825LkwtJuYFC4zpGl8XdXMLgbv2DTgmyW3zuJ2QZf+q2XL4A4pKQ3RXmenDzEBHnR5w==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=g0Pm+HDVARpjESyI7l/vxhqJmaeDd3/9JOwo7s6JK1c=;
+ b=xz+6p6jiSmcMeavtXZc0YqitusjaIIqJ62jl8fl0BhjTS6osHnIYPzwX+vKac+4DXwq5XJxQCLrwrbbnbB0qTYYimf0B4tVN0eS8Mx7Ql/pEDzfxgNhzhASmLj02qwtSLca9mwMSjRNjqsCQNzfxT3ksg7DmDJrGUvlkM9azFHKszoCZVirYMGW/vRng85xp44lfRpJUY/9FS5n+xb235KuPKyxbHzuTEz/5dcLxs51PZxeKCcARwDLJ0M2jr9WX0g6zs90w++OjZL1OqyoP2yrEKtDI41lkw+tmx7xzsGp49k1+QTSccEQy0xosj4rVnId8ymga3mLm4MDxZbX8UQ==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
+ dkim=pass header.d=oss.nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
+ s=selector1-NXP1-onmicrosoft-com;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=g0Pm+HDVARpjESyI7l/vxhqJmaeDd3/9JOwo7s6JK1c=;
+ b=f178iBn67D+X7anQZMnnl1vCU1kf6wbDuwxrC5KXO3lAkZGqbuoyhNqvqJ7ocVkhQu55AmGyhtVgIJku3qwHzUOJoA00o4UADWXxNvkUNxUPgbSyI2/79CFigVbQC69RLvwVAccFrGGcq3q8izRpiRc7lbj0omG0EEuDEqgFIOAldRlyMzUvyJuqqYqM5dvARpzCudgsdob21On4Csq/0ffTqTo0oe53A0mqsQ5qczd81Oq5qfJRDBoOTc2s6Va9YW9EbJlw1gtwE6+Gy3XC/sv/m8X0qhh7A90pZYDnkB+L3O6vcIT+4Lh03v7/Le22dcXtRBmZniWyjKI4SxEOyw==
+Authentication-Results: mx.microsoft.com 1; dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=oss.nxp.com;
+Received: from GV2PR04MB11799.eurprd04.prod.outlook.com (2603:10a6:150:2cf::9)
+ by GVXPR04MB704257.eurprd04.prod.outlook.com (2603:10a6:150:39e::9) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.451.24; Wed, 30 Sep
+ 2026 21:21:40 +0000
+Received: from GV2PR04MB11799.eurprd04.prod.outlook.com
+ ([fe80::2146:83a2:5329:b7c]) by GV2PR04MB11799.eurprd04.prod.outlook.com
+ ([fe80::2146:83a2:5329:b7c%7]) with mapi id 15.21.0451.022; Wed, 30 Sep 2026
+ 21:21:40 +0000
+Date: Wed, 30 Sep 2026 17:21:31 -0400
+From: Frank Li <Frank.li@oss.nxp.com>
+To: Marek Vasut <marex@nabladev.com>
+Cc: Francesco Dolcini <francesco@dolcini.it>,
+	linux-arm-kernel@lists.infradead.org,
+	Aswath Govindraju <a-govindraju@ti.com>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Fabio Estevam <festevam@gmail.com>, Frank Li <Frank.Li@nxp.com>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Marc Kleine-Budde <mkl@pengutronix.de>,
+	Rob Herring <robh@kernel.org>, devicetree@vger.kernel.org,
+	imx@lists.linux.dev, linux-can@vger.kernel.org,
+	linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v5 3/3] arm64: dts: imx95: Add support for Data Modul
+ i.MX95 eDM SBC
+Message-ID: <ar19W4wX07p8u3_5@lizhi-Precision-Tower-5810>
+References: <20260928204741.175754-1-marex@nabladev.com>
+ <20260928204741.175754-3-marex@nabladev.com>
+ <arvPDq8sjjv7na01@SMW015318>
+ <49303872-5622-4e1d-8e1a-01394ec29367@nabladev.com>
+ <20260930174413.GA2463938@francesco-nb>
+ <ar1bhpji35CbArtY@SMW015318>
+ <17f240e5-9c65-4562-ba51-535b0c69c5fd@nabladev.com>
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <17f240e5-9c65-4562-ba51-535b0c69c5fd@nabladev.com>
+X-ClientProxiedBy: PH8P220CA0030.NAMP220.PROD.OUTLOOK.COM
+ (2603:10b6:510:348::15) To GV2PR04MB11799.eurprd04.prod.outlook.com
+ (2603:10a6:150:2cf::9)
+MIME-Version: 1.0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: GV2PR04MB11799:EE_|GVXPR04MB704257:EE_
+X-MS-Office365-Filtering-Correlation-Id: 22eefc60-23e5-439b-084b-08df1f38d13f
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|366016|1800799024|19092799006|23010399003|376014|7416014|18002099003|22082099003|11063799006|4143699003|10067099003|56012099006;
+X-Microsoft-Antispam-Message-Info: 7gAndaDrnXOkKSK+D4HqpD10DCwVtQmqGRZhgPjZNVrRypD5B1CTde/Tg+APnztn1xNIZRNL2FjTNz79tbij9dpWdr8EwVvxh9WttKZQR64+olKYnXFeCgK3Z1QRAgQ7GO6SB6Atnc4/kGDWFoKgoMcdSjv8l2KMV/blrs8ny8VRC2DY/LTVSBWEbvbAiIhG9xLyDQ7JL326KByvAKH5HkO3XnjKFOsMW8kdPPdsv8zQnns4kw/oa1oODXvbqmqOPPzjOKQKBRuqh7Qu0dAa8dcQP8uk+2AsAD2Y9PXqZBxzH3Ugv3Hxr/BrenLD4vYSO1HyN83ECS1AqHJ6iDqIohapFbb3aHG6DNl08MCTdLPrfnbLhfOtol4BVTavtmXeu1Zt5SXoqp8d+Jd0ji9Us1zdJlwapGUymJEshvlP2L45lTl0TAfa9zFsK3MTuKuwI3oWpOvbk3I37fWxQNVgXFygN/HhcVOAvlirmulZOZGapE448+eW3N/sbpzyHPk0jeN5ql+SsRz58ceDZ64KPRQFK5xQf+zwsZTXdWgBWDVqJY2mTm0XDFtZ0tdNDgsEIUFugA4eJ5DzyHupqy1uBfo+kVJz7LNmOtXpKV/ZKxSJHVkJishAuvNZYgWsO0ge
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:GV2PR04MB11799.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(1800799024)(19092799006)(23010399003)(376014)(7416014)(18002099003)(22082099003)(11063799006)(4143699003)(10067099003)(56012099006);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?dDUG4lENvuB3qtMC5NlFvo+ovL/Wvq3CdzuZgAZsX87KjRjTZsR3wxuD9qVE?=
+ =?us-ascii?Q?w7MySBTKYJXESBxjjnMY/EBgDljKZmkgU5813RKPibV+ule5YWTeKk55MLUU?=
+ =?us-ascii?Q?PBzjUv3YBEc4A/7K31+QebuWtSxbDpOHImRZ0LbWeak7q3zEAUrdIIDFelwI?=
+ =?us-ascii?Q?YaVCSSqOGviZS1txgiMd39V+z/c4gxrlsDTi4hy+awmcqNgZ1DYytqRGxsXF?=
+ =?us-ascii?Q?xZ503v29gfPtSNmumlfDrMX1XMq9vSx5byDKS3ZRwp7mLhza8j2itE+2ZOaW?=
+ =?us-ascii?Q?lqVyavyHP3sjdiV/UOH54mVQB0pENoltjifCmSSYKsbJ5ceAJVWJq+wyE8BR?=
+ =?us-ascii?Q?EGt0MgMlAsPfutKB0q0O34WCH3afsL1mLFa73B/XUcl0ZdswrfZEekbuF49F?=
+ =?us-ascii?Q?9Xv9ccJe9mdY0jU4+yUJ8nq6TT62YBP2sunw1pMfXYX8gkIYQ68JYvIg5IRs?=
+ =?us-ascii?Q?76csF36WrQcXREu1U8oVOmblfgVMaUC5P8bB7I7ybSpCif596vYmxJyW6wPN?=
+ =?us-ascii?Q?BNF+ePRqTmfyMzQy4x2CA17UPZvTAHWd9md9Ki2Qatzxvn5DJqS61T3M6HRG?=
+ =?us-ascii?Q?/9Dhx5hIFkPlHrX95fPG8G945hN1SxGEMHayWJlaTXAY71lqlsZaoSLUGaEI?=
+ =?us-ascii?Q?FtvpCdYVJE7eGl4yqlz+d47VdeuQjGP4oStcjBSA/QHth7Qb0biI1uJdx7n8?=
+ =?us-ascii?Q?5FUReuVnvO0d2FhBvPH8eXOvbIv0/j4nZtqpgx8icvg3SJiwO8ICq3wbq2bk?=
+ =?us-ascii?Q?l3zB/NiuQ6v3yB0V2moI7I/vEmdSNajbpCXowU0JBpweLgOOYhBf9AzI6ERq?=
+ =?us-ascii?Q?NmKi/vwnLnCp2+gnB1ARE7m9Ec0/DfiHbw1laVheCjlj5icRzVFvEl49RDSo?=
+ =?us-ascii?Q?kkqNyk92KJVhNCwj7bW45RFgCiuatt+svFhvIaekdefUul5vEeo5W3Gk6Qgz?=
+ =?us-ascii?Q?9zi7NS1n93S6ZnVrqca9W8CT5Fz4vUWBRhjKQ7CwFsmY67qLpOJ12XvFzIVD?=
+ =?us-ascii?Q?0B2tKm+JtueYwgB17LU9iQufCDCjFXhUcIPMQ6zO51GNnhGLsmYT0F8I4H8A?=
+ =?us-ascii?Q?4dG/rNYI0vKuh6RX156tYOB3sLCZFeI9u6Kdi8ZyUVNTswnX2BjVr6pj5Qvu?=
+ =?us-ascii?Q?w4jMR/DRr7nOQu/whvgxlE5JxY13NepZ7pA/kqR+BHMDgKc78a3cFPvgow1Q?=
+ =?us-ascii?Q?kOmQv2O/J8BBPc3dlBtfCSSnhryavDU2p5VT+NWZyKcsRDt6MSj+7Sy+YrSU?=
+ =?us-ascii?Q?Z1kx4YxzWvlIqRgbdmcQslwDBFG3Wj0xOlQwvk3ESH9wncnsnM9UziKi5Ok5?=
+ =?us-ascii?Q?4bUSpLZsQXOKNeNm2GSKAZulgXeivBioc+ciWsUHOpsDzfXIL1+QveQAFyC4?=
+ =?us-ascii?Q?p9uWVo32snhGMb75gE/B2de34QU3sUYUftIKNLawPFAO9fACSAXv2CKcuf90?=
+ =?us-ascii?Q?tp6ks5pIDqSP6RgDMHTnlgq03jWkvty96TYs0u7Cm7MdSvNkjaDf3Tnwh+t3?=
+ =?us-ascii?Q?Cuu/iSIOpGrxQ8YCLFT1E8QYlsiYjb5LpwERB6blywedG0VNE+x7j78NjIq6?=
+ =?us-ascii?Q?RoCQpuOxCVZEfPRgdxh5EtQZka5CoK6pi4C1t2o9JHDY4FaBtb1hGbmmqnWb?=
+ =?us-ascii?Q?xiVHm/HwV0HLlvsRxfes6O2gdyvDtn309z7Bi9LN8824NTwSgxXI5tTBlvR6?=
+ =?us-ascii?Q?trUYsb7bN1xEdFmgS6Lh8j4EsTFDVe3rh2hHyidmN+mKdmTWiYuOE8VnkLiH?=
+ =?us-ascii?Q?AK+jZ44lZoat1zxTEPvWSncSqGMGgYByoG2zbiTQNFIK2feSpB0f?=
+X-OriginatorOrg: oss.nxp.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 22eefc60-23e5-439b-084b-08df1f38d13f
+X-MS-Exchange-CrossTenant-AuthSource: GV2PR04MB11799.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 30 Sep 2026 21:21:40.0937
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: FRdCdPgOXIeWY1lyicWWVSWJvGsM7UsypVbugpepZQ17enNRLYjd4o07tiis3n6bQ4aL7Lj3ugTd6bNheYuIg4ImBhE3V1FeQdPe4khqu0PNWZvh+B8nY8wwg84Kq5aT
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: GVXPR04MB704257
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260930_141838_196298_3C61BF1A 
-X-CRM114-Status: GOOD (  12.55  )
+X-CRM114-CacheID: sfid-20260930_142148_101079_D9F34F1E 
+X-CRM114-Status: GOOD (  26.90  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -93,59 +150,59 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-When userspace initializes a vCPU with KVM_ARM_VCPU_PMU_V3 but sets
-ID_AA64DFR0_EL1.PMUVer to NI (0) or IMP_DEF (0xf, which is sanitized to
-NI), resetting the vCPU invokes reset_pmevtyper() and calls
-kvm_pmu_evtyper_mask(). Because __kvm_pmu_event_mask() does not handle
-ID_AA64DFR0_EL1_PMUVer_NI, it triggers a WARN_ONCE("Unknown PMU version
-0").
+On Wed, Sep 30, 2026 at 09:29:34PM +0200, Marek Vasut wrote:
+> On 9/30/26 8:57 PM, Frank Li wrote:
+> > On Wed, Sep 30, 2026 at 07:44:13PM +0200, Francesco Dolcini wrote:
+> > > On Tue, Sep 29, 2026 at 05:20:27PM +0200, Marek Vasut wrote:
+> > > > On 9/29/26 4:45 PM, Frank Li wrote:
+> > > >
+> > > > Hello Frank,
+> > > >
+> > > > > > +	backlight_lvds: backlight-lvds {
+> > > > > > +		compatible = "pwm-backlight";
+> > > > > > +		pinctrl-names = "default";
+> > > > > > +		pinctrl-0 = <&pinctrl_panel_backlight_lvds>;
+> > > > > > +		brightness-levels = <0 1 10 20 30 40 50 60 70 75 80 90 100>;
+> > > > > > +		default-brightness-level = <7>;
+> > > > > > +		enable-gpios = <&gpio2 27 GPIO_ACTIVE_HIGH>;
+> > > > > > +		pwms = <&tpm3 3 5000000 0>;
+> > > > > > +		/* Disabled by default, unless display board plugged in. */
+> > > > > > +		status = "disabled";
+> > > > > > +	};
+> > > > >
+> > > > > The both backlight is not used in this dts, can you remove it and
+> > > > > add these when it real use.
+> > > > It's the same thing we do on the other boards, so I would prefer to keep
+> > > > this consistent:
+> > >
+> > > I agree with Marek, and I would not use the criteria about being used or
+> > > not.
+> >
+> >
+> > Others boards: some has dtso, which use it. And krzy have some concern for
+> > similar case although he have not reply alex's answer.
+> >
+> > https://lore.kernel.org/imx/30599533-91de-41fd-9420-3f8693ec92ac@kernel.org/
+> >
+> > And it is most likely go through nexus connector node to support display
+> > panel in future.
+>
+> I do not think nexus node will apply to this connector, no.
+>
+> > So I suggest remove it now and add it when need.
+> Can we please go with consistency between these boards from one vendor ?
 
-Explicitly handle ID_AA64DFR0_EL1_PMUVer_NI in __kvm_pmu_event_mask() by
-returning an event mask of 0, and drop the redundant kvm_vcpu_has_pmu()
-check in reset_pmevtyper().
+Yes, I am keeping consistency, then ask remove it. I applied alex's v2
+version. I put v1 link to show krzy's concern.
 
-Fixes: bc512d6a9b92 ("KVM: arm64: Make PMEVTYPER<n>_EL0.NSH RES0 if EL2 isn't advertised")
-Suggested-by: Oliver Upton <oupton@kernel.org>
-Assisted-by: LLM
-Signed-off-by: Colton Lewis <coltonlewis@google.com>
----
- arch/arm64/kvm/pmu-emul.c | 5 ++++-
- arch/arm64/kvm/sys_regs.c | 4 ----
- 2 files changed, 4 insertions(+), 5 deletions(-)
+https://lore.kernel.org/imx/20260319125013.2421621-3-alexander.stein@ew.tq-group.com/
 
-diff --git a/arch/arm64/kvm/pmu-emul.c b/arch/arm64/kvm/pmu-emul.c
-index 5b1af7e2176fa..e2b28dbc0451b 100644
---- a/arch/arm64/kvm/pmu-emul.c
-+++ b/arch/arm64/kvm/pmu-emul.c
-@@ -50,8 +50,11 @@ static u32 __kvm_pmu_event_mask(unsigned int pmuver)
- 	case ID_AA64DFR0_EL1_PMUVer_V3P5:
- 	case ID_AA64DFR0_EL1_PMUVer_V3P7:
- 		return GENMASK(15, 0);
--	default:		/* Shouldn't be here, just for sanity */
-+	default:
-+		/* Shouldn't be here, just for sanity */
- 		WARN_ONCE(1, "Unknown PMU version %d\n", pmuver);
-+		fallthrough;
-+	case ID_AA64DFR0_EL1_PMUVer_NI:
- 		return 0;
- 	}
- }
-diff --git a/arch/arm64/kvm/sys_regs.c b/arch/arm64/kvm/sys_regs.c
-index a2f4e769a4282..e4ad9c171c7ca 100644
---- a/arch/arm64/kvm/sys_regs.c
-+++ b/arch/arm64/kvm/sys_regs.c
-@@ -1059,10 +1059,6 @@ static u64 reset_pmevcntr(struct kvm_vcpu *vcpu, const struct sys_reg_desc *r)
- 
- static u64 reset_pmevtyper(struct kvm_vcpu *vcpu, const struct sys_reg_desc *r)
- {
--	/* This thing will UNDEF, who cares about the reset value? */
--	if (!kvm_vcpu_has_pmu(vcpu))
--		return 0;
--
- 	reset_unknown(vcpu, r);
- 	__vcpu_rmw_sys_reg(vcpu, r->reg, &=, kvm_pmu_evtyper_mask(vcpu->kvm));
- 
--- 
-2.56.0.rc1.315.gc6ed9934b7-goog
+Changes in v2:
+* Changed commit message to imperative form
+* Remove (currently unused) display and backlight nodes
 
+Frnak
+
+>
+> Thank you.
 
