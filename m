@@ -4,65 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 803C1CA5FCF
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 30 Sep 2026 18:50:53 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7C47ECA5FC4
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 30 Sep 2026 18:52:52 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=/PMQbnd1Umh/ykCtK7pbq7KnudwFRJAJCgrnFGdJK4c=; b=JPeur3saRBcPV4cNFkNf2Ktl2s
-	ng40u40TLyKeeaMMX7AX0FxplIHcTP69n0sSurdWXQVUI2F2N509Gb2XoDWWuJcKvzKj5qQVhP8ry
-	8sOYeZu+T/B6jDwYfnO4LM31I3PkMvnqdAw3L5VBNHg1iJCuaa4cXOsuAgsFF+judOGFjVHxN15cs
-	qkZK6zqcVturo4vpjkI3UKujnXR7rrt+8kWl2NDoRbbSEiII3j7TxJcjR+Hzs9lX6qw18sMl3OSKn
-	gaEQxXKPzcfOOwybdUIrJJsGh4ARAiVOkdS8pklpB1lME9RKeXqYF/h77SK4yThaQVSZkYlT6WBEM
-	mkP8JZbA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	References:In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=VfwG5sLbZddowBxjGebus9Qy9UHZyGseIJ7a0UZDNek=; b=oie9GppYpwfgLuSXFXKEl5n6AK
+	yh7YrPqU+dYoquzhZVnabnmm0cAf/RhW8CgTv7/GJrg++A/pV0VS7qViPuaalyaKzNrOOclEZcQU3
+	W5zintXMlneqpWpaIqwLr4fVe0iLUNULr0yBT6efzY3x+XcaYgCiCjVvxiAxlHdeMmAK3O1cY4Nke
+	iFeIB19ieIRj/7X8nrlumuCbmDuqadbQ85af8Wkuan+A/J9yRunoQ0yXoPdcX5Peq45Snp1W+X2Ei
+	i179oF0UxeYgS9YpZjEo/J8GVISCWoFia/Rtv7Db1JYcLzSfsDOQhD1FNFOJK0Iyfh0L2Dxp+zQG4
+	IJw5odeQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xBzOA-000000071Zl-0rq8;
-	Wed, 30 Sep 2026 18:50:46 +0000
-Received: from gloria.sntech.de ([185.11.138.130])
+	id 1xBzQ6-0000000720q-1CEF;
+	Wed, 30 Sep 2026 18:52:46 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xBzMp-000000071Co-3W5a;
-	Wed, 30 Sep 2026 18:49:25 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=sntech.de;
-	s=gloria202408; h=Content-Transfer-Encoding:Content-Type:MIME-Version:
-	References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Reply-To;
-	bh=/PMQbnd1Umh/ykCtK7pbq7KnudwFRJAJCgrnFGdJK4c=; b=XLcAH7VESRih5oS83IYVQYVRRH
-	GCyd4Pjd0IxFhdFF60HppLUJ68Ji9QZJLfHogmSrBHmFSBXyCdJAQdKTDkr7AW0rWJ7hphvFkCxHw
-	LcDQ4WFXHGlOQ1j14TRyDCrroekkRmI+CS6FEzGRvFgc2Did2pn2voIuSaNnBuv0P2mBRaz2mWmx3
-	66XHpB7YQoifucsdxA1z+VI4CM2QD7/zJyOAQo9f99Dme9BYieaIMqLwuufgu0wzQKntbhjkRSxSw
-	77460R7t80RemoIBEQjQ7xq11ljvYU5ujYqr3pIkLxZS43BV70ql6TZnKTaZzm0av02AOO6DLz9mq
-	KXiJmxHQ==;
-From: Heiko Stuebner <heiko@sntech.de>
-To: Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	=?UTF-8?q?=E5=AE=89=E5=AE=B9?= <HystericalDragons@proton.me>
-Cc: Heiko Stuebner <heiko@sntech.de>,
-	devicetree@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-rockchip@lists.infradead.org,
+	id 1xBzPp-000000071zA-3XiU
+	for linux-arm-kernel@lists.infradead.org;
+	Wed, 30 Sep 2026 18:52:29 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by sea.source.kernel.org (Postfix) with ESMTP id 69D5340909;
+	Wed, 30 Sep 2026 18:52:29 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 4DB6B1F000FF;
+	Wed, 30 Sep 2026 18:52:29 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1790794349;
+	bh=VfwG5sLbZddowBxjGebus9Qy9UHZyGseIJ7a0UZDNek=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References;
+	b=JZZx3WrVr4L/jqJSSUj1g7jDQLEBOgS1AMYJy00HR+fUffRzs5Xcl54cqCKpQHtT0
+	 e549Sh1XPb3oPAJYdtpQFuRxSkFalv0WZDqF+l0GUG3yqTx4IMqjC47UO4D8ZNqKNt
+	 Y0FIwCXy8PvCsLmVk96uGZ5g0bc3ycgj/MqoBBN/0hx0Xcjoi0YviFcFKjObbfAYDV
+	 eHnGVLlfu08yS5Q01n+fiqiR9o8CUf9mc3tKZTpqmDuRT3aNgCkaLh6coF0hYipdKi
+	 AaI05ieeF81VgWkSek5ddO89F/+OKvODqLMKSG8Hz3uZ03/yRDnXNd/WOXpLocq4hG
+	 FFsIIzHh1UdOg==
+Received: from sofa.misterjones.org ([185.219.108.64] helo=lobster-girl.misterjones.org)
+	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.98.2)
+	(envelope-from <maz@kernel.org>)
+	id 1xBzPm-0000000FSQB-3Oz1;
+	Wed, 30 Sep 2026 18:52:26 +0000
+Date: Wed, 30 Sep 2026 19:55:35 +0100
+Message-ID: <87o6de36xk.wl-maz@kernel.org>
+From: Marc Zyngier <maz@kernel.org>
+To: Vladimir Murzin <vladimir.murzin@arm.com>
+Cc: linux-arm-kernel@lists.infradead.org,
 	linux-kernel@vger.kernel.org,
-	Chukun Pan <amadeus@jmu.edu.cn>,
-	Jonas Karlman <jonas@kwiboo.se>,
-	jensen <jensenhuang@friendlyarm.com>,
-	Andrey Korshunov <razor1702@gmail.com>,
-	Diederik de Haas <diederik@cknow-tech.com>,
-	Conor Dooley <conor.dooley@microchip.com>
-Subject: Re: [PATCH v7 0/3] arm64: dts: rockchip: Add FriendlyElec NanoPi R28S
-Date: Wed, 30 Sep 2026 20:49:12 +0200
-Message-ID: <179079409731.2398180.11671143856080790218.b4-ty@sntech.de>
-X-Mailer: git-send-email 2.47.3
-In-Reply-To: <20260919-r28s-upstream-v7-0-e80a6f8ef521@proton.me>
-References: <20260919-r28s-upstream-v7-0-e80a6f8ef521@proton.me>
-MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 8bit
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260930_114923_907953_1ABB2428 
-X-CRM114-Status: GOOD (  12.59  )
+	tglx@kernel.org,
+	radu@rendec.net
+Subject: Re: [PATCH] irqchip/gic-v3: Ensure change to DS is visible
+In-Reply-To: <20260930161123.46368-1-vladimir.murzin@arm.com>
+References: <20260930161123.46368-1-vladimir.murzin@arm.com>
+User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
+ FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/30.1
+ (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
+MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
+Content-Type: text/plain; charset=US-ASCII
+X-SA-Exim-Connect-IP: 185.219.108.64
+X-SA-Exim-Rcpt-To: vladimir.murzin@arm.com, linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, tglx@kernel.org, radu@rendec.net
+X-SA-Exim-Mail-From: maz@kernel.org
+X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -77,33 +82,49 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-
-On Sat, 19 Sep 2026 18:28:16 +0800, 安容 wrote:
-> The NanoPi R28S is a dual gigabit Ethernet router board based on the
-> Rockchip RK3528 SoC:
+On Wed, 30 Sep 2026 17:11:23 +0100,
+Vladimir Murzin <vladimir.murzin@arm.com> wrote:
 > 
->   https://wiki.friendlyelec.com/wiki/index.php/NanoPi_R28S
+> Sashiko reported missing GIC synchronization when the
+> FLAGS_WORKAROUND_INSECURE path modifies DS. Specifically, an immediate
+> read of the DS state after the write might not observe the effect of
+> that write, which can lead to misreporting the DS state.
 > 
-> It is closely related to the already supported NanoPi Zero2, sharing
-> most of its power tree and peripheral routing. Patch 2 therefore moves
-> the common parts into rk3528-nanopi.dtsi, and patch 3 adds the board on
-> top of it. The split leaves the NanoPi Zero2 hardware description
-> unchanged; I verified this by comparing the node and property sets of
-> the dtb before and after the split, which differ only in node order,
-> phandle numbering and the two renamed LED pin configuration nodes.
+> Updates to the DS bit are tracked by RWP, so poll it after the write
+> before proceeding to read back the DS state.
 > 
-> [...]
+> Signed-off-by: Vladimir Murzin <vladimir.murzin@arm.com>
+> ---
+>  drivers/irqchip/irq-gic-v3.c | 2 ++
+>  1 file changed, 2 insertions(+)
+> 
+> diff --git a/drivers/irqchip/irq-gic-v3.c b/drivers/irqchip/irq-gic-v3.c
+> index 6e1fa5b247fc..181f6eb11732 100644
+> --- a/drivers/irqchip/irq-gic-v3.c
+> +++ b/drivers/irqchip/irq-gic-v3.c
+> @@ -164,6 +164,7 @@ static inline bool gic_dist_security_disabled(void)
+>  
+>  static bool cpus_have_security_disabled __ro_after_init;
+>  static bool cpus_have_group0 __ro_after_init;
+> +static void gic_dist_wait_for_rwp(void);
+>  
+>  static void __init gic_prio_init(void)
+>  {
+> @@ -179,6 +180,7 @@ static void __init gic_prio_init(void)
+>  			val = readl_relaxed(gic_data.dist_base + GICD_CTLR);
+>  			val |= GICD_CTLR_DS;
+>  			writel_relaxed(val, gic_data.dist_base + GICD_CTLR);
+> +			gic_dist_wait_for_rwp();
+>  
+>  			ds = gic_dist_security_disabled();
+>  			if (ds)
 
-Applied, thanks!
+Ah, well spotted. FWIW:
 
-[1/3] dt-bindings: arm: rockchip: Add FriendlyElec NanoPi R28S
-      commit: bdcf29a379afecc02c3e99c0d1745363ad7a7407
-[2/3] arm64: dts: rockchip: Split out the common NanoPi RK3528 parts
-      commit: fdb087806e808ccc4963e2e5225fe16581ecb421
-[3/3] arm64: dts: rockchip: Add devicetree for the FriendlyElec NanoPi R28S
-      commit: c1e23f3425c49fe22e9598f8eea2fcf693950d50
+Reviewed-by: Marc Zyngier <maz@kernel.org>
 
-Best regards,
+	M.
+
 -- 
-Heiko Stuebner <heiko@sntech.de>
+Jazz isn't dead. It just smells funny.
 
