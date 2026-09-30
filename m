@@ -4,77 +4,179 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 70D21CA5FC1
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 30 Sep 2026 09:21:45 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3F352CA5FC1
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 30 Sep 2026 09:21:56 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=UEh1z6iFfkfw88Q/QLYxESHyV/trjs0UV60z1XIOOyY=; b=cd68cB8k9PcBiOK2R3AHdUe4Rv
-	OynFqIHJYSdCqED3LXw3VxTjNfcUtqvHtC2P8uU5oY2k0mt6B0zRhJjokW6NGBaAjlgdMzXrJhhB/
-	n0QIC8GW2B/eO6voqiB7Hk7GQI9X7Dy99xPcsHm2VMGmjEbO33hcnKBbiPVSCJgE76e3bqE2fbvOQ
-	AbWzJOIsqpqZb3A857ylObVoMrPq9cY+MjD2NuNx2pjIFVkM/FveAFO4B3fmRBVo3Vs3TKlqmHSHj
-	MRaRP86OQ9V/g4IsuXttx7hzCHEaI5McWcd02wCfJyMzk5v8C6GZDihOBrvH+wqGrQcWf4dVtylop
-	0i/B4qEw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
+	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=tb9LeoiTH1JIZh9lDlNxdmGROBuXWq5KtBVTkvYMN/c=; b=nYXU2Vb2lXlT2i2DqNGum1J7w6
+	z41IEwBEipmsNxWG1k72JIrQ9TiPJG1bCawWs+iCJSY1V687nMdWSrMTkfSDYMgeN3UkC/M/pi/Up
+	s6zMiGQWsu1Z2+xOmnR60Gkyy5DMWzsMQ5pfp+yCGI9q0G2rTizmukGdOBx6Jer/ts592qXY3xIHG
+	j36ccnRFF0eYHK9vLk9o4KCFOdWaTwuN3EVX64x7OGPcTYbIqU8uU7wRb5HNHGl9awDibIxpQwlE0
+	AN6SqsxvdS4S/AW2wnWO/YDiDR667J024Yzv6sbvCU+ExwHeIcKs56VsiA/Le7o60jp3uU5slG0pi
+	8epkxPkg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xBqVP-00000005XzO-1Ze3;
-	Wed, 30 Sep 2026 09:21:39 +0000
+	id 1xBqVX-00000005Y2a-269y;
+	Wed, 30 Sep 2026 09:21:47 +0000
 Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xBqVO-00000005XyM-1EMG
+	id 1xBqVU-00000005Y1F-1LeE
 	for linux-arm-kernel@bombadil.infradead.org;
-	Wed, 30 Sep 2026 09:21:38 +0000
+	Wed, 30 Sep 2026 09:21:44 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:Content-Type
-	:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:Message-ID:
+	d=infradead.org; s=desiato.20200630; h=Content-Type:Content-Transfer-Encoding
+	:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:CC:To:From:
 	Sender:Reply-To:Content-ID:Content-Description;
-	bh=UEh1z6iFfkfw88Q/QLYxESHyV/trjs0UV60z1XIOOyY=; b=juF2l5Mc/4UIgcR4Ua36l/BU/f
-	jyT5SU8YurFrPdwoy9VTNqLcAHgy1+wzcSog65dPYYwbbMSwRektOrUy85TEjrEU+/2ky516qhQkB
-	faSvg3vH8FeRC/H3QuEXNaVAV3ge9M+RzwveTxFe7X6xFQs86aRwWQ0yVNc1KzLiTRSZxCcmPeL5g
-	DLz2GyDMpj8s799R8BkctTBDfBy1t0nuoIg5KNf7KukA1ZopI7fbcx8JY0hFf2Gsv0sbXoi90bnE8
-	sntYmrij0btDhjquYyUCfRXT5tYZZtNZ8uR3zIoZJ21VTbkSmQ1dYJQUjUh6KQTNHHUQBtoLbnscg
-	8jDGOkDA==;
-Received: from foss.arm.com ([217.140.110.172])
-	by desiato.infradead.org with esmtp (Exim 4.99.2 #2 (Red Hat Linux))
-	id 1xBqVK-00000003Zcp-2i3v
+	bh=tb9LeoiTH1JIZh9lDlNxdmGROBuXWq5KtBVTkvYMN/c=; b=TZOlOqiMRB5oRBb5AGVSRs762k
+	tsKja5RGz2UU9Ng3R5af2Y2tyAXd4PBeOFCL0pTQgWj4ecjV+21wjN3xnC7vd9iSMDt/B3Q3niNaf
+	4Ulz7W6U5MtPCZF7pZZxNsPNdJgYMpvpgJRbdBd9vGH757YVbP6V6WUYxUoVlNGLxEdGjR+yytwyl
+	xCF2wtTistwlhTHYb9VuzHSqv4hrpbOILiOoODiF1mjf/pa/Aw0MOhvWg+cE9ObpnToj8gta9wgto
+	f/r682BWT40fMUp+9xeVNZm1iC35hpUlQ2ih7VV5AvjkVUi/a/Ja3JGG3R0CgiZYVTA+etCnZxHrU
+	TgCTBtPQ==;
+Received: from mx0a-0002e601.pphosted.com ([148.163.150.75])
+	by desiato.infradead.org with esmtps (Exim 4.99.2 #2 (Red Hat Linux))
+	id 1xBqVP-00000003ZdW-1PD4
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 30 Sep 2026 09:21:36 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id C3E71497;
-	Wed, 30 Sep 2026 02:21:28 -0700 (PDT)
-Received: from [10.0.153.43] (e121487-lin.cambridge.arm.com [10.0.153.43])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 5616B3F86F;
-	Wed, 30 Sep 2026 02:21:30 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1790760092; bh=d6yTqXDZhOEz9we6cNXyP24VemZKfMv7POyGBNQlwcU=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=h+8QFzM4w9gi3u5t96OSpY/61lM5sCrDK/0CqPPDpsloZD1GtWO3wWQqUXQy6GZ5r
-	 AAABp5Dyd8JeAVyNAfiBU+2CRKL0Gg8f+yygzdQZu8lVwQ6TQMMlLmo4VSQ605dGVk
-	 Ii2Pte+7c23bDahQcInPeIbJ3JkxB7LKj6BTzC/M=
-Message-ID: <0dc8a173-2d8f-4a05-9624-6d95c2fdb622@arm.com>
-Date: Wed, 30 Sep 2026 10:21:28 +0100
+	Wed, 30 Sep 2026 09:21:43 +0000
+Received: from pps.filterd (m0384305.ppops.net [127.0.0.1])
+	by m0384305.ppops.net (8.18.1.11/8.18.1.11) with ESMTP id 68U7bV4K3158895;
+	Wed, 30 Sep 2026 04:21:36 -0500
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com; h=cc
+	:content-transfer-encoding:content-type:date:from:in-reply-to
+	:message-id:mime-version:references:subject:to; s=
+	proofpoint-05-2026; bh=tb9LeoiTH1JIZh9lDlNxdmGROBuXWq5KtBVTkvYMN
+	/c=; b=krvbaoN6gUUR66kpB9Yjw8HF7f9vbCwrECyiJGRzLOklG/khLLDJxsG7e
+	Un/WJ9RANIqLZqQg0tcUABCdLNT6mS7OVnubmlzpulNbFQ/gpMA5Qs+bOVFYA/9w
+	g4xDNmvKIOz/9goCnJUzYJdRqA8NsN4rfU67KIgcLBVI7yqaQVQF1ISRMW3Z4SkB
+	8Wa6ZYaOScdqCRqtfc88eq2K/lMI5t9qVaRXGz/opL3+7b5TBcLUtzEPX1B1ptLK
+	BwefobXgDaZp81dMZ3GJWLssv2jz+8BLV045rKErywsW3DTKnyFSkU1uc1yERTML
+	qO7JTjCbB3oxcyQ2ZnjoU4AsDxxbw==
+Received: from sj2pr03cu001.outbound.protection.outlook.com (mail-westusazon11012029.outbound.protection.outlook.com [52.101.43.29])
+	by m0384305.ppops.net (PPS) with ESMTPS id 4h0srrtbr1-1
+	(version=TLSv1.3 cipher=TLS_AES_256_GCM_SHA384 bits=256 verify=NOT);
+	Wed, 30 Sep 2026 04:21:36 -0500 (CDT)
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=xIWsXR2u0s4Usp98F9cB6ivbNcRp83ERj51n6eo7JD1sgo1gXJBicJFXaKHIc2+Icec59c9DD63qmlgddVA0DrKzgSJIxTA5qRcKTGbg3EQEXq4lhrgYU4R1LXCGrdcN6fnJCKQpoxPjAwrGeTJnWayTAyiK/CkJw/iTdVKdlWS5q/GubPaTYowZ2Tm0V76bsvUAriyMtqsvalq/dEb3Bq/+GfcuT+e3OhBmdZpPOyvoPORlHt5AXp7dVYDkanNQxdutqiBkO2693gtK9hBIFDTDNF1VWrsHr5TR7ufYn99xBr332qyERB986/vrKOU8tjzA+c8IgAwlspZSKTxqzg==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=tb9LeoiTH1JIZh9lDlNxdmGROBuXWq5KtBVTkvYMN/c=;
+ b=TG/1JsYCrXIJwfz+FBa2itZZ7Tmaw1brmhxZeURvaPbbxD0dTK5YfheR567QlZotnMTdYJU2uI+TmnMfYZ5EoTMlni0X7bLh+lr3H1LajgJONeZkEf/ec/XU1727AtL3d5f6o4p27sMyYOIAEtHHyo2ibp9mCgwC+EbZQ3CsSpqP4D7UYNQq2DecMEw2b1Rnrs+W06QPM7Wl575M1KI8BolzEp1O35rkIJjtJkc+x4K3uaglHnjaav5zMeiIQFz6xdpR+qF/Z38Y6DavYPqXCiuygSUxw8FeDVNNi0iu4+n6n3uNB6KL27FUvyVIkS6DgbDuEoKxKArDIVhcRKURxg==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
+ 198.47.21.195) smtp.rcpttodomain=vger.kernel.org smtp.mailfrom=ti.com;
+ dmarc=pass (p=quarantine sp=none pct=100) action=none header.from=ti.com;
+ dkim=none (message not signed); arc=none (0)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+ d=ticloud.onmicrosoft.com; s=selector1-ticloud-onmicrosoft-com;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=tb9LeoiTH1JIZh9lDlNxdmGROBuXWq5KtBVTkvYMN/c=;
+ b=J2wuAzvKHOBpwJ13Giv3STfZIgGhhVirjHjz9cSV7nJ2+uoFv2c17IRwy5OwxFmKy72+5bo4sv7wrLIAD+cBC5c9g9wjpXlQDU9wfsVHEB3GIqQyQ3yLFKMGfmb7Zh8F2LfOYrJbjluGZGB7oIUz7uG9AqrhD6d+zv9bis+fBBA=
+Received: from BN1PR14CA0008.namprd14.prod.outlook.com (2603:10b6:408:e3::13)
+ by BL3PR10MB6236.namprd10.prod.outlook.com (2603:10b6:208:38f::6) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.496.9; Wed, 30 Sep
+ 2026 09:21:31 +0000
+Received: from BN7PEPF00000096.namprd03.prod.outlook.com
+ (2603:10b6:408:e3:cafe::a0) by BN1PR14CA0008.outlook.office365.com
+ (2603:10b6:408:e3::13) with Microsoft SMTP Server (version=TLS1_3,
+ cipher=TLS_AES_256_GCM_SHA384) id 15.21.472.15 via Frontend Transport; Wed,
+ 30 Sep 2026 09:21:31 +0000
+X-MS-Exchange-Authentication-Results: mx.microsoft.com 1; spf=pass (sender IP
+ is 198.47.21.195) smtp.mailfrom=ti.com; dkim=none (message not signed)
+ header.d=none;dmarc=pass action=none header.from=ti.com;
+Received-SPF: Pass (protection.outlook.com: domain of ti.com designates
+ 198.47.21.195 as permitted sender) receiver=protection.outlook.com;
+ client-ip=198.47.21.195; helo=flwvzet201.ext.ti.com; pr=C
+Received: from flwvzet201.ext.ti.com (198.47.21.195) by
+ BN7PEPF00000096.mail.protection.outlook.com (10.167.245.74) with Microsoft
+ SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.21.472.14 via Frontend Transport; Wed, 30 Sep 2026 09:21:29 +0000
+Received: from DFLE200.ent.ti.com (10.64.6.58) by flwvzet201.ext.ti.com
+ (10.248.192.32) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.45; Wed, 30 Sep
+ 2026 04:20:50 -0500
+Received: from DFLE212.ent.ti.com (10.64.6.70) by DFLE200.ent.ti.com
+ (10.64.6.58) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.45; Wed, 30 Sep
+ 2026 04:20:50 -0500
+Received: from lelvem-mr06.itg.ti.com (10.180.75.8) by DFLE212.ent.ti.com
+ (10.64.6.70) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.45 via Frontend
+ Transport; Wed, 30 Sep 2026 04:20:50 -0500
+Received: from abhilash-HP.dhcp.ti.com (abhilash-hp.dhcp.ti.com [10.24.51.219])
+	by lelvem-mr06.itg.ti.com (8.18.1/8.18.1) with ESMTP id 68U9KQL12847827;
+	Wed, 30 Sep 2026 04:20:46 -0500
+From: Yemike Abhilash Chandra <y-abhilashchandra@ti.com>
+To: <linusw@kernel.org>, <robh@kernel.org>, <krzk+dt@kernel.org>,
+        <conor+dt@kernel.org>, <nm@ti.com>, <vigneshr@ti.com>,
+        <kristo@kernel.org>, <brgl@kernel.org>
+CC: <linux-gpio@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
+        <devicetree@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
+        <y-abhilashchandra@ti.com>, <afd@ti.com>, <u-kumar1@ti.com>
+Subject: [PATCH 3/3] arm64: dts: ti: Add TDA54 pinctrl header
+Date: Wed, 30 Sep 2026 14:50:20 +0530
+Message-ID: <20260930092020.1047221-4-y-abhilashchandra@ti.com>
+X-Mailer: git-send-email 2.34.1
+In-Reply-To: <20260930092020.1047221-1-y-abhilashchandra@ti.com>
+References: <20260930092020.1047221-1-y-abhilashchandra@ti.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v3 1/2] arm64: errata: Factor out broken AMU const counter
- cap
-To: Beata Michalska <beata.michalska@arm.com>,
- linux-arm-kernel@lists.infradead.org
-Cc: catalin.marinas@arm.com, will@kernel.org, suzuki.poulose@arm.com,
- James.Morse@arm.com, xuewen.yan94@gmail.com, seanwang1@lenovo.com,
- linux-kernel@vger.kernel.org
-References: <20260929154325.3416271-1-beata.michalska@arm.com>
- <20260929154325.3416271-2-beata.michalska@arm.com>
-Content-Language: en-GB
-From: Vladimir Murzin <vladimir.murzin@arm.com>
-In-Reply-To: <20260929154325.3416271-2-beata.michalska@arm.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+Content-Transfer-Encoding: 8bit
+Content-Type: text/plain
+X-EOPAttributedMessage: 0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: BN7PEPF00000096:EE_|BL3PR10MB6236:EE_
+X-MS-Office365-Filtering-Correlation-Id: 35b2534d-7ec3-45e7-8224-08df1ed435dc
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|23010399003|36860700016|7416014|1800799024|376014|82310400026|10067099003|56012099006|3023799007|22082099003|18002099003|13003099007;
+X-Microsoft-Antispam-Message-Info: 6InrC9FUFanUJTbl9ipTk8c0tc9qYrCHvczowMNs99ede5JHIvS7fu+IMZBxWK9DLzxN/KEoLXPNV44LGmO65VB27XnsrkEXjuVzHveyaKofd9g5SsYPRmO/mxXkj8w5mZI9oyVqfSUQ0Dyd4YBgPou6tCWpNKioOmV6//QgKb4XkUl9/PCuWo1QV49TpjJTqoPIZtopywgeHfskkfAYsJJgOcCHk9bppA4VrMQi3wN1s98izZvQy8bMDXPP3YQSvn79E+qyrjfACuvAfY449Qb6C4WXmkLPBMzMdOrPwLyUQk8uUBg109VVxK8YHp0R4JJrutDlff4TwsZEpkQTtfOY6DG/WKwb4/5IJf1Q/yMX1TCR7wjnXh0cMg9OL+SSM+235j5BTD7itK5KJrEfwuxRKo+hUc7MUTZwlvi9TLrcCMOb5pDAdBj68uEr9XTMYhHRike3rIRz33QDuurmfo+wyxa2uRTrKwSRW7IFK+QXLV1M8rzcEmrp8QQekSw34UITr8K9iO4cH+ONkJ3qhmDUDB7XbKoLJAC4cBwFn1c3wRqXhBvcDALo1vtfb0VTD0+pB7ckJhUgYq7NlFc4al20nTXG0XL10+FAtef6jvnYpMPAa3M9H6ToqIwf4AsLfJWFJeyQZ3CdstzTVJeWfA==
+X-Forefront-Antispam-Report: CIP:198.47.21.195;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:flwvzet201.ext.ti.com;PTR:ErrorRetry;CAT:NONE;SFS:(13230040)(23010399003)(36860700016)(7416014)(1800799024)(376014)(82310400026)(10067099003)(56012099006)(3023799007)(22082099003)(18002099003)(13003099007);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: 6SnFdos0fbMHqWRIVaBQ1aw5iMr6p9fjiKwr+dmfsntBSVE9GnNWVg6GGx1PMFcawD0EgLgwS2bTcyzd/vZbRjlbnyrONI8RtLMXoQbWb4dm2Zdx/GMHtu9hiVzr2Yi/lyr72hl3gI/8xEF1qurFV3cWy6xqGNCF2HslBShuBOfPgWKJrHfAv40LdTFZSjWmweuY4q1FbWKY8M2naaD2ZSiNNavjzAgRmHmOkZ//VAsY55yaekJ855XDEwvo1qoksXAyqkt0HUzkzuDroVhC0d0zZkxc01ssN+BlF+AK8k3MpZxBmrLG1dXmv2DkmhKClQRNKV+/zkc67EXbCppxYGpIZdettbBxhbZypiyGbBeyoBw/dEs3UvTE+JQmg5g7xNuAzwMVndoyJrcBSrM6ZHbiVSerppZF0U533ktKcKt5S8OxQut79UWEJWTGaGrP
+X-Exchange-RoutingPolicyChecked: QvfwyFVNaqMtLFWBzgEJh4lV/t+kYSQ3+m+fJw2G2FJZ6gnjSF80J3qUl5f0E4BoDWcoki5zSts09ca4IVL4qeBXrYNv9w+2w9DgRdYFykm2FPwlHAPFoBy8L8CdBRiL5KTADnQ9w6XuWs0S/GBGYljAV5yG9dnWly/BD6xtT94HY5ml9W2q5wZIXxQuq/tWFvi4KbJHgvucBcRw4FnwmpBQs2F+f8dqSGxVxPXC3BaMQy/8+C07R9JMrKv31t30EsMTpaNo2bP2BrxpG6gdCY/y4Yfi7I05XylDhwkUdVpeTkz/u8C/cwIpxWviwamu+iKnY1QLqERAyvMw6zBleg==
+X-OriginatorOrg: ti.com
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 30 Sep 2026 09:21:29.4231
+ (UTC)
+X-MS-Exchange-CrossTenant-Network-Message-Id: 35b2534d-7ec3-45e7-8224-08df1ed435dc
+X-MS-Exchange-CrossTenant-Id: e5b49634-450b-4709-8abb-1e2b19b982b7
+X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=e5b49634-450b-4709-8abb-1e2b19b982b7;Ip=[198.47.21.195];Helo=[flwvzet201.ext.ti.com]
+X-MS-Exchange-CrossTenant-AuthSource: BN7PEPF00000096.namprd03.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Anonymous
+X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: BL3PR10MB6236
+X-Proofpoint-ORIG-GUID: xltPM_2puQEdEzLd7D9weX2AF02fewiQ
+X-Proofpoint-Spam-Info: AW1haW4tMjYwOTMwMDAzNyBTYWx0ZWRfX9iZWZhcS4uO8
+ UjyQF0qhVvvq6ZuHd75+oC7bZ8i0jwUa46xnfOI5SnLFVqsm1PI2yc3rEFdSx2BG4w8aIHxf0Od
+ o+/GbgoJamkWjElv8JwAPM9tbO/q8b4=
+X-Authority-Analysis: v=2.4 cv=Q79HcI2a c=1 sm=1 tr=0 ts=6abcd4a0 cx=c_pps
+ a=ZKvdAGA7hMB+bqOj1cvlrg==:117 a=tJyPKKxUohctrY4NYmUjkA==:17
+ a=6eWqkTHjU83fiwn7nKZWdM+Sl24=:19 a=VdqzKS8jKosA:10 a=AlMIdn_sM9wA:10
+ a=VkNPw1HP01LnGYTKEx00:22 a=Z8NIEmU8O1QQgoT56wFK:22 a=taLDd7a_hP9WKsMzeGRc:22
+ a=sozttTNsAAAA:8 a=TcpxRHR5wTggSj2QoxUA:9
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwOTMwMDAzNyBTYWx0ZWRfX/CmB5/ozl2Ct
+ Rn185Dne2v/HVF2l08tm+m4RcmadPJLZSmAyHLTLYoTMNEsjlW2svDs548smSYBIa0yPTkGbm4o
+ C5HNuEXwG4+1fvBPLJI6EY9Ek2pKjeyIobBIz95yYkMiufeTuGP5w/nNJep6heQ5CZE2veeVnIS
+ WgMoHvJ8RyQFGAh0lC33BLhBxedqPLU0/74NnFMHCKQqwXR7bsvBDkwFzpDlv+YlP4SSbwGZc7h
+ 1JPcJaA5lgzFMpCIIAaiSf1msMZXOTxYkPgDL/jLI0S4j4/3znk4V2d+S7at2dVuBoAwy6gTcMB
+ e23Y9RUvXTpWw3pMGcPY23Z6w0zI+U1XR8YZddzsd4OnWK7tu61WQmkoEvb21RJtlMB9QRAp/xu
+ 5QxrBC7HIBstzOrkvciA6kcIMhDmSe0I1k1Zzg0Xx6HJIHpBsVCv3JAY+sTm4zQijfuKfHKPzt9
+ Lt5J3xjpcVltNB3cxmA==
+X-Proofpoint-GUID: xltPM_2puQEdEzLd7D9weX2AF02fewiQ
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1176,Hydra:6.1.134,FMLib:17.12.100.49
+ definitions=2026-09-30_01,2026-09-21_02,2025-10-01_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
+ impostorscore=0 clxscore=1015 bulkscore=0 malwarescore=0 phishscore=0
+ spamscore=0 adultscore=0 priorityscore=1501 lowpriorityscore=0 suspectscore=0
+ classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
+ reason=mlx scancount=1 engine=8.22.0-2609040000 definitions=main-2609300037
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260930_102135_222935_2A1F34C9 
-X-CRM114-Status: GOOD (  24.48  )
+X-CRM114-CacheID: sfid-20260930_102141_177055_2C081E48 
+X-CRM114-Status: GOOD (  16.66  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -89,111 +191,54 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Beata,
+Add TDA54_PINMUX() and the mux mode defines for use by TDA54 device tree
+sources to build pinmux values.
 
-On 9/29/26 16:42, Beata Michalska wrote:
-> Move the workaround from the erratum 2457168-specific cpucap to a generic
-> broken AMU constant-counter one. This keeps the existing Cortex-A510
-> handling unchanged while allowing other errata with similar AMU constant
-> counter issue to share the capability bit and call sites.
-> 
-> Cc: <stable@vger.kernel.org>
-> Signed-off-by: Beata Michalska <beata.michalska@arm.com>
-> ---
->  arch/arm64/Kconfig             |  8 ++++++++
->  arch/arm64/kernel/cpu_errata.c | 23 +++++++++++++++++------
->  arch/arm64/kernel/cpufeature.c |  2 +-
->  arch/arm64/kernel/topology.c   |  7 ++++---
->  arch/arm64/tools/cpucaps       |  2 +-
->  5 files changed, 31 insertions(+), 11 deletions(-)
-> 
-> diff --git a/arch/arm64/Kconfig b/arch/arm64/Kconfig
-> index b5a51b0ef9440..3b6c052d46a18 100644
-> --- a/arch/arm64/Kconfig
-> +++ b/arch/arm64/Kconfig
-> @@ -1040,9 +1040,17 @@ config ARM64_ERRATUM_1902691
->  
->  	  If unsure, say Y.
->  
-> +config ARM64_WORKAROUND_BROKEN_AMU_CONSTCNT
-> +	bool
-> +	# Targeting errata affecting AMEVCNTR01, the AMU constant counter.
-> +	# On affected CPUs the counter may not increment at the expected rate,
-> +	# making it unreliable. As a result, AMU users should treat it as
-> +	# unavailable rather than relying on misleading counter values.
-> +
->  config ARM64_ERRATUM_2457168
->  	bool "Cortex-A510: 2457168: workaround for AMEVCNTR01 incrementing incorrectly"
->  	depends on ARM64_AMU_EXTN
-> +	select ARM64_WORKAROUND_BROKEN_AMU_CONSTCNT
->  	default y
->  	help
->  	  This option adds the workaround for ARM Cortex-A510 erratum 2457168.
-> diff --git a/arch/arm64/kernel/cpu_errata.c b/arch/arm64/kernel/cpu_errata.c
-> index 5db8f0619e4bc..f18683e56184b 100644
-> --- a/arch/arm64/kernel/cpu_errata.c
-> +++ b/arch/arm64/kernel/cpu_errata.c
-> @@ -381,6 +381,18 @@ static const struct arm64_cpu_capabilities arm64_repeat_tlbi_list[] = {
->  };
->  #endif
->  
-> +#ifdef CONFIG_ARM64_WORKAROUND_BROKEN_AMU_CONSTCNT
-> +static const struct arm64_cpu_capabilities arm64_repeat_amu_constcnt_list[] = {
-                                                    ^^^^^^
-                                           There is nothing to repeat :)
+Signed-off-by: Yemike Abhilash Chandra <y-abhilashchandra@ti.com>
+---
+Note: I understand that this patch goes through the SoC tree, but is
+included here to give reviewers the full context.
 
-> +#ifdef CONFIG_ARM64_ERRATUM_2457168
-> +	{
-> +		/* Cortex-A510 r0p0-r1p1 */
-> +		CAP_MIDR_RANGE(MIDR_CORTEX_A510, 0, 0, 1, 1)
-> +	},
-> +#endif
-> +	{}
-> +};
-> +#endif /* CONFIG_ARM64_WORKAROUND_BROKEN_AMU_CONSTCNT */
-> +
->  #ifdef CONFIG_CAVIUM_ERRATUM_23154
->  static const struct midr_range cavium_erratum_23154_cpus[] = {
->  	MIDR_ALL_VERSIONS(MIDR_THUNDERX),
-> @@ -916,14 +928,13 @@ const struct arm64_cpu_capabilities arm64_errata[] = {
->  		ERRATA_MIDR_REV_RANGE(MIDR_CORTEX_A510, 0, 0, 2)
->  	},
->  #endif
-> -#ifdef CONFIG_ARM64_ERRATUM_2457168
-> +#ifdef CONFIG_ARM64_WORKAROUND_BROKEN_AMU_CONSTCNT
->  	{
-> -		.desc = "ARM erratum 2457168",
-> -		.capability = ARM64_WORKAROUND_2457168,
-> +		.desc = "Broken AMU AMEVCNTR01 (const counter)",
-> +		.capability = ARM64_WORKAROUND_BROKEN_AMU_CONSTCNT,
->  		.type = ARM64_CPUCAP_WEAK_LOCAL_CPU_FEATURE,
-> -
-> -		/* Cortex-A510 r0p0-r1p1 */
-> -		CAP_MIDR_RANGE(MIDR_CORTEX_A510, 0, 0, 1, 1)
+ arch/arm64/boot/dts/ti/k3-tda54-pinctrl.h | 29 +++++++++++++++++++++++
+ 1 file changed, 29 insertions(+)
+ create mode 100644 arch/arm64/boot/dts/ti/k3-tda54-pinctrl.h
 
-I think it should be
-
-                CAP_MIDR_RANGE_LIST(amu_broken_constcnt_cpus)
-
-where amu_broken_constcnt_cpus is
-
-static const struct midr_range amu_broken_constcnt_cpus[] = {
-#ifdef CONFIG_ARM64_ERRATUM_2457168
-       /* Cortex-A510 r0p0-r1p1 */
-       MIDR_RANGE(MIDR_CORTEX_A510, 0, 0, 1, 1),
-#endif
-       {}
-};
-
-so in the next patch you would add new entry
-
-#ifdef CONFIG_ARM64_ERRATUM_3821522
-       /* Cortex-A725 r0p0 - r0p2 */
-       MIDR_RANGE(MIDR_CORTEX_A725, 0, 0, 0, 2),
-#endif
-
-
-Cheers
-Vladimir
+diff --git a/arch/arm64/boot/dts/ti/k3-tda54-pinctrl.h b/arch/arm64/boot/dts/ti/k3-tda54-pinctrl.h
+new file mode 100644
+index 000000000000..a3e730e103ae
+--- /dev/null
++++ b/arch/arm64/boot/dts/ti/k3-tda54-pinctrl.h
+@@ -0,0 +1,29 @@
++/* SPDX-License-Identifier: GPL-2.0-only OR MIT */
++/*
++ * This header provides constants for TI's TDA54 SoC device tree sources.
++ *
++ * Copyright (C) 2026 Texas Instruments Incorporated - https://www.ti.com/
++ */
++#ifndef DTS_ARM64_TI_K3_TDA54_PINCTRL_H
++#define DTS_ARM64_TI_K3_TDA54_PINCTRL_H
++
++#define TDA54_PINMUX(pad, mux)		(((pad) << 8) | ((mux) & 0xf))
++
++#define TDA54_MUX_MODE0		0
++#define TDA54_MUX_MODE1		1
++#define TDA54_MUX_MODE2		2
++#define TDA54_MUX_MODE3		3
++#define TDA54_MUX_MODE4		4
++#define TDA54_MUX_MODE5		5
++#define TDA54_MUX_MODE6		6
++#define TDA54_MUX_MODE7		7
++#define TDA54_MUX_MODE8		8
++#define TDA54_MUX_MODE9		9
++#define TDA54_MUX_MODE10		10
++#define TDA54_MUX_MODE11		11
++#define TDA54_MUX_MODE12		12
++#define TDA54_MUX_MODE13		13
++#define TDA54_MUX_MODE14		14
++#define TDA54_MUX_MODE15		15
++
++#endif
+-- 
+2.34.1
 
 
