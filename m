@@ -4,63 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C05F9CA5FCC
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 30 Sep 2026 21:43:21 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id AF7AACA5FC5
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 30 Sep 2026 21:44:47 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Cc:List-Subscribe:
-	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	Content-Transfer-Encoding:Content-Type:To:Subject:Message-ID:Date:From:
-	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=kP2Hc0xVxHp38/pOSmhAb4V3iGOUVb5jZAxSa8LNMDo=; b=hzDxIzaJV3VyI9
-	JHE0xsIvTnYxLx1TarkDufoTIX4NVMEk8jtLtcBkAhGVQvnsFwZSclGJcuJgGsRQgvlRjUHzMv6H4
-	SN/gNejl860PmMgikwkyC6eMXJ/h6CDq6xjnnysX+zcJmbLt0fOx7XtGJ1V+grM92S+koUVKh6+Px
-	gnxQi++Hl82Z1Mo5dyciedauagVFvpRIFTO05vv6KZzTGaoLhG753as+Uf3hp9TapN4gLHtKubGua
-	GWCS2jZX3/XHF4GQEUqC5P5rSkX4hap2anOAai9DsSR6vXjEcePT7keUb7w3mxUpzT1Vdppd/Rw87
-	XQXgZf0myOzInGuSVUrw==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=x75/A4gCqzcZrGvIrjJ+sqJbv94Ey0wVQQ18KutMg1I=; b=4YtkXMDNo3M+3V1l2xLQCMNjp2
+	/63bxekZLoPTnGyD726W8wjtH76tiMFJSGuXcdf78mLr9MXYVkrxGWK93822y42t44UPxLm9vHmp6
+	iizp7gMb6903cZCKZrhW+/0n9I6qOTUlamYrb0WK9U15oWhw/h+t7UUYcVLDlJpZ792wCUo5I3mBA
+	Q2mbcoDc9Jl8Q/8OD3l+UxvGltEsAnwTMe0TEOT09EWDodc/z76IvoWq14P0zsoTZ3ToYHMMuqihh
+	WPRQkz/CDyeR9Bhmf5zPIGEZH3B7s52fIo6HMgNjO+wfjfolQc9+84nlJOw60kB1uR5wcvjJbBNCB
+	Ij67Jjsw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xC255-00000007H9F-1T0S;
-	Wed, 30 Sep 2026 21:43:15 +0000
+	id 1xC26S-00000007HQA-2Yqa;
+	Wed, 30 Sep 2026 21:44:40 +0000
 Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xC24v-00000007H7Q-30Ac
+	id 1xC26S-00000007HQ4-0yK8
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 30 Sep 2026 21:43:06 +0000
+	Wed, 30 Sep 2026 21:44:40 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id D4AE36021A
-	for <linux-arm-kernel@lists.infradead.org>; Wed, 30 Sep 2026 21:43:04 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 87F441F0089F
-	for <linux-arm-kernel@lists.infradead.org>; Wed, 30 Sep 2026 21:43:04 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id AC67F60A57
+	for <linux-arm-kernel@lists.infradead.org>; Wed, 30 Sep 2026 21:44:39 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 5CB931F0089E
+	for <linux-arm-kernel@lists.infradead.org>; Wed, 30 Sep 2026 21:44:39 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1790804584;
-	bh=kP2Hc0xVxHp38/pOSmhAb4V3iGOUVb5jZAxSa8LNMDo=;
+	s=k20260515; t=1790804679;
+	bh=x75/A4gCqzcZrGvIrjJ+sqJbv94Ey0wVQQ18KutMg1I=;
 	h=References:In-Reply-To:From:Date:Subject:To:Cc;
-	b=jFHGvzW0d5XOYcFhKadHZWWVSm7jpwI0YuWUXBX2LbXTQsdwPiqKRpWeymsacUxbJ
-	 Nl55Hak93RxBiw3IXEJ9rPlTeL6H58yK0yToOzdkOWt69KyqgeBd8+hxiiuMLojQdS
-	 kpFPaPCZKPQIgc8r8ymxA4jdXOjNMNKLycFX1U7INUJgy48alP5+yIcmDhxO0CVgXe
-	 wJdbrOkRJPA6Sjn7D9mgsIuBWy25l7E31gEr5S0u6hAU1SZLZCcMusieCA0wY39i/q
-	 kaW6DhB4SV3Nmy9ONOEH1vmjhXk2wPRJqjVz5NoBmWt1FtMDYCAxTnJVWMDCBrbQJl
-	 0Zo6XnDSIkM1Q==
-Received: by mail-lr2-f35.google.com with SMTP id 38308e7fff4ca-3a779b23f05so8948461fa.1
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 30 Sep 2026 14:43:04 -0700 (PDT)
-X-Gm-Message-State: AFq9FYJB51L2A+0koXdUh/8k7dyJp2XgOYY2CRex04Wbk8u5mHmZ2liS
-	5+FLbvW9sYcH+/P7kPTYLGBCNG1cDpePmpzaHHNhfHaRjsOIyRsv7yO8d8UZIz5ZxHv0sIQrBsC
-	uOyfYS2s54ozKy6RCSLWJXZWsaJ3JYyE=
-X-Received: by 2002:a2e:b8d2:0:b0:3a5:b524:e28c with SMTP id
- 38308e7fff4ca-3a7791af9a8mr9222391fa.11.1790804583296; Wed, 30 Sep 2026
- 14:43:03 -0700 (PDT)
+	b=MABWld2wIzPLvtaI5dmjY6APKTlFRidOZdEFdKyrd8ZtXE5pUM46eY9a8s0c4yDOr
+	 ov6KOwIYvxpwGb2i5+DN3bV5vXfuugYtilfrc79ZZG5DoWo0ji7nCaVoHayGlaOukM
+	 i55YgFzDi3G4eDaoCxpxoKU5FjuGpmRyr8oyOeErck0yM7+gmUjypzWnPqor9BagWN
+	 16QTnwYcI0px3ytzs67ROrJvjVSwWaF3dt7x+XPWQUsZxYIn+h84FDcOb3djn+vZBg
+	 0c2QPNHkcY+jvQVVGeasvlXib/pibESD/Q3Ikr2CLTcQPiSCVzVTjjE9sKklCKwSFi
+	 v+KjKMnKaZf6A==
+Received: by mail-lf2-f13.google.com with SMTP id 2adb3069b0e04-5ba330dbd67so1982838e87.0
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 30 Sep 2026 14:44:39 -0700 (PDT)
+X-Forwarded-Encrypted: i=1; AKwUvBxffWWRysNxz5uo5GDsOuLUFpRXju6v8Oz+G70jb82K3BhcKq66/xobjVdJ73khQbta8mOnO2K1XPguof74FAB4@lists.infradead.org
+X-Gm-Message-State: AFq9FYIO4sc1QZUhQM7keJOgt4FTnp0FZgxZpAu1CFomCX2DLFgCVH8o
+	7p3nFQUh5VirDt1KPnTSO8DsjBA3z4KfIXJYtszEUOSb/PfA3L65quSSrX4Ww4avOqnYgETNl1R
+	MCIo+Tss8zekOrAYvNJY95SrYV2GDlcs=
+X-Received: by 2002:a05:6512:3e0d:b0:5ad:5c4a:8221 with SMTP id
+ 2adb3069b0e04-5ba4026960amr1187056e87.0.1790804678165; Wed, 30 Sep 2026
+ 14:44:38 -0700 (PDT)
 MIME-Version: 1.0
-References: <20260918161407.2300-1-will@kernel.org>
-In-Reply-To: <20260918161407.2300-1-will@kernel.org>
+References: <20260922031954.320895-1-phucduc.bui@gmail.com> <20260922031954.320895-4-phucduc.bui@gmail.com>
+In-Reply-To: <20260922031954.320895-4-phucduc.bui@gmail.com>
 From: Linus Walleij <linusw@kernel.org>
-Date: Wed, 30 Sep 2026 23:42:51 +0200
-X-Gmail-Original-Message-ID: <CAD++jL=O30YiraMzpe=wd-s-ZHoiMWkXcr3B_qb_dp3TUk2A7g@mail.gmail.com>
-X-Gm-Features: AclHuK_u2Nc1iLerOHkQ6hvbUCBpiEkacWiDJM0sMa6PBj21Y5wcS7mqWJaIpQs
-Message-ID: <CAD++jL=O30YiraMzpe=wd-s-ZHoiMWkXcr3B_qb_dp3TUk2A7g@mail.gmail.com>
-Subject: Re: [PATCH v2 00/21] arm64: Move overflow sp into SP_EL1 and kernel
- sp into SP_EL0
-To: Will Deacon <will@kernel.org>, Usama Anjum <usama.anjum@arm.com>
+Date: Wed, 30 Sep 2026 23:44:25 +0200
+X-Gmail-Original-Message-ID: <CAD++jLmE+Hjiv7UahoPXTXHD1KdYmeHLMhSybTt=3rHxSjC2LA@mail.gmail.com>
+X-Gm-Features: AclHuK_ndMT7hGc647CUvfJALH_COJ36nJJO_gqn7uNKeHTlIiNYpO8FKvA5GLg
+Message-ID: <CAD++jLmE+Hjiv7UahoPXTXHD1KdYmeHLMhSybTt=3rHxSjC2LA@mail.gmail.com>
+Subject: Re: [PATCH 3/3] crypto: sl3516 - Use pm_runtime_resume_and_get()
+To: phucduc.bui@gmail.com
+Cc: Corentin Labbe <clabbe.montjoie@gmail.com>, Herbert Xu <herbert@gondor.apana.org.au>, 
+	davem@davemloft.net, Chen-Yu Tsai <wens@kernel.org>, 
+	Jernej Skrabec <jernej.skrabec@gmail.com>, Samuel Holland <samuel@sholland.org>, 
+	Gilad Ben-Yossef <gilad@benyossef.com>, Hans Ulli Kroll <ulli.kroll@googlemail.com>, 
+	linux-crypto@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+	linux-sunxi@lists.linux.dev, linux-kernel@vger.kernel.org
 Content-Type: text/plain; charset="UTF-8"
 Content-Transfer-Encoding: quoted-printable
 X-BeenThere: linux-arm-kernel@lists.infradead.org
@@ -74,31 +80,24 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
-Cc: Mark Rutland <mark.rutland@arm.com>, Vladimir Murzin <vladimir.murzin@arm.com>, Arnd Bergmann <arnd@arndb.de>, Catalin Marinas <catalin.marinas@arm.com>, linux-kernel@vger.kernel.org, Mostafa Saleh <smostafa@google.com>, Marc Zyngier <maz@kernel.org>, David Hildenbrand <david@kernel.org>, Lorenzo Stoakes <ljs@kernel.org>, Oliver Upton <oupton@kernel.org>, Ard Biesheuvel <ardb@kernel.org>, linux-arm-kernel@lists.infradead.org
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, Sep 18, 2026 at 6:14=E2=80=AFPM Will Deacon <will@kernel.org> wrote=
-:
+On Tue, Sep 22, 2026 at 5:20=E2=80=AFAM <phucduc.bui@gmail.com> wrote:
 
-> This is version two of the kernel stack juggling patches I previously
-> posted here:
+> From: bui duc phuc <phucduc.bui@gmail.com>
 >
->   https://lore.kernel.org/r/20260907164247.17223-1-will@kernel.org
+> Replace the open-coded pm_runtime_get_sync() + pm_runtime_put_noidle()
+> error handling pattern with pm_runtime_resume_and_get(), which already
+> does this internally.
 >
-> Changes since v1 include:
->   * Fixed suspend/resume paths to handle the stack pointers properly
->   * Fixed restoration of ptrauth keys on resume
->   * Added tags
+> No functional change.
+>
+> Found by manual code inspection.
+>
+> Signed-off-by: bui duc phuc <phucduc.bui@gmail.com>
 
-Overall I like what I see, but can we split it in two... like first the pat=
-ches
-up to fixing the overflow handling using SP_EL0 and finalize that?
-
-Hopefully Usama can test just that part and see if it has a lesser
-performance impact as well.
-
-Then we can think about the rest once that is merged and works.
+Reviewed-by: Linus Walleij <linusw@kernel.org>
 
 Yours,
 Linus Walleij
