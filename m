@@ -4,66 +4,87 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B8A79CA5FB1
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 30 Sep 2026 11:13:01 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5E4F6CA5FB1
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 30 Sep 2026 11:13:28 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=isq8rOZax6Djh2WHNvJ2hQkIRUd+kfag9hth6ihZyKc=; b=yzweDEhQ8VvYBjUCbe9/zUBXP1
-	WWY2pVQbMZeFN4gSO9B9Mm3H6Vx4JWbGrHCvHV98e0GQVQ4685rjn4rr8OBiFkW01TrOua2kMOIcU
-	8ra6ieVtZ3LlVYXM4ejXysXwbtvnnLgU8Dvute5a5Q2DdL+IeHMqTX+g3WcLQBmIJ8nppKJ4kmr4v
-	ydePmIkS3rm+JQTxpZw8gutv43OB+QhUgi68akfx+PiAxd2lp1ZupZxPbnyuwAPvsMecgFFR2PM92
-	AUEsBp1FaWfbglQ7JfW5IkkP7tryHuB8dEjb93dtIe3FCxrkNdRTzgNkQnqYWUIWF1GKsTMdtA/Sb
-	FT98XmrA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
+	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=sZSpbO9IcTEwUC97Fm4qSyjltlS7ssuPpR01THv8ukQ=; b=gm+ps/go3VZ2DV3bx3zHRQF5JP
+	b5KBqMjfGGGiCbgUD3xROZUxKa3FhyBud2WF2iH+oH6nWNt9y4EIHANXGMI4NuKn2rkC/m6E/pzGU
+	5hDalmK/HjdozavbAeNJ3p3IRv+Nv9dzXIz8E2JjEFROch9TUPkT1Mhg3Cw37FK3AtsqZ1uwJfo3k
+	0RvbvbUkoEfjg8+AwjK4of9HMccrK53e57BlZtwKJ/2suZOV2aLJSGyUKCZGtDM1yj8Agtgq3P9gI
+	VUG/1HJqkDlLnbOG0IZ63G226gSGHx8OgQ2GAnfi8yXRdDZDvVJlJXaHMZWdx+oUC0Wx6hx5kp5kY
+	oImI4HlQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xBsF5-00000005pot-2SAJ;
-	Wed, 30 Sep 2026 11:12:55 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xBsF3-00000005poC-2IHo
+	id 1xBrNN-00000005iRz-0tsn;
+	Wed, 30 Sep 2026 10:17:25 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1xBrN9-00000005iLk-0WG5
+	for linux-arm-kernel@bombadil.infradead.org;
+	Wed, 30 Sep 2026 10:17:11 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=Content-Type:Content-Transfer-Encoding
+	:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:CC:To:From:
+	Sender:Reply-To:Content-ID:Content-Description;
+	bh=sZSpbO9IcTEwUC97Fm4qSyjltlS7ssuPpR01THv8ukQ=; b=D3CAUqUsHJ6IXWjVX1LeeXG+96
+	cGBFxnmLhkE5bXr6woGwyRN9F+Hole1zfWfFOU94VcqSuNS3lLiWbjAAex534Qq6mx02kTpSvqv4O
+	0da655fRmjmSH/PSfbD/zTxzTInZLSVKH4dM3q866rVgTjsT9GjLq7r2qSdq+DWLoe3hyw0OYyybR
+	Lwexg+f9nxy/INR5CLTNX+i/PIrOIhWvHkuhLxORiO5/vnflAaggaRRP9aZWOJY3MHOAvCDkzpK96
+	c6ok2ku50Kvj941TEXs24cg28uhWNWDjQWobZXremh4MQ3SWvzXqK9oG037VgEXt5q1uVUf0K2wPm
+	p2OhmPIg==;
+Received: from canpmsgout05.his.huawei.com ([113.46.200.220])
+	by desiato.infradead.org with esmtps (Exim 4.99.2 #2 (Red Hat Linux))
+	id 1xBrN2-00000003dT1-3p0f
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 30 Sep 2026 11:12:54 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id A506E497;
-	Wed, 30 Sep 2026 04:12:47 -0700 (PDT)
-Received: from [10.57.9.178] (unknown [10.57.9.178])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 94F263F86F;
-	Wed, 30 Sep 2026 04:12:49 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1790766771; bh=mGVGsgI+LoKKOBBSuTeiqQ/U4Wa7b7v4sQLVV1j3RUg=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=JKNynVOwYWLWdlva3F5wvNG6YjN8ks30JQEHIlFc4eTde+VcWvns2RKVRyMpiZ6mN
-	 OB+6TqoTqR6q07OZyAwYdKbTaAcvNZnXC2PM4TsMV/6D9h5mLSmWvxqsODPaPxfJfk
-	 DV0ZRcH0K7if5MLGJczbgRRPIVYrWQTee0kNPo7I=
-Message-ID: <d012e283-b7d8-439b-9b09-a88b07dc5d2b@arm.com>
-Date: Wed, 30 Sep 2026 12:12:48 +0100
+	Wed, 30 Sep 2026 10:17:09 +0000
+dkim-signature: v=1; a=rsa-sha256; d=huawei.com; s=dkim;
+	c=relaxed/relaxed; q=dns/txt;
+	h=From;
+	bh=sZSpbO9IcTEwUC97Fm4qSyjltlS7ssuPpR01THv8ukQ=;
+	b=fDoZGbnV45YDNiTR6zCUOF2t6mzSJS0uWp1qBlqF+4Soik/WqcPB32qWWOHSPtfzJgCfAHXiR
+	gQTXDcp1mG8RS95tchNiModcsQvJqxCjPWRd9z4wnkkQNmE8Zl+qXWHWW2BgZfoAhYdmihEdGed
+	vGZ5JBVBiYB3iDbIAW+Jcrk=
+Received: from mail.maildlp.com (unknown [172.19.162.144])
+	by canpmsgout05.his.huawei.com (SkyGuard) with ESMTPS id 4hvrJC2pclz12LHk;
+	Wed, 30 Sep 2026 18:04:59 +0800 (CST)
+Received: from kwepemk200008.china.huawei.com (unknown [7.202.194.74])
+	by mail.maildlp.com (Postfix) with ESMTPS id 7EA2640538;
+	Wed, 30 Sep 2026 18:17:01 +0800 (CST)
+Received: from huawei.com (10.90.53.73) by kwepemk200008.china.huawei.com
+ (7.202.194.74) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.45; Wed, 30 Sep
+ 2026 18:17:00 +0800
+From: Jinjie Ruan <ruanjinjie@huawei.com>
+To: <catalin.marinas@arm.com>, <will@kernel.org>, <mark.rutland@arm.com>,
+	<oleg@redhat.com>, <shuah@kernel.org>, <kees@kernel.org>,
+	<luto@amacapital.net>, <wad@chromium.org>, <peterz@infradead.org>,
+	<ada.coupriediaz@arm.com>, <linusw@kernel.org>, <kevin.brodsky@arm.com>,
+	<yeoreum.yun@arm.com>, <james.morse@arm.com>, <thuth@redhat.com>,
+	<tglx@kernel.org>, <vladimir.murzin@arm.com>, <broonie@kernel.org>,
+	<ryan.roberts@arm.com>, <liqiang01@kylinos.cn>,
+	<linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>,
+	<linux-kselftest@vger.kernel.org>
+CC: <ruanjinjie@huawei.com>
+Subject: [PATCH v20 08/15] arm64: ptrace: Extract arm64_syscall_exit_to_user_mode_work() helper
+Date: Wed, 30 Sep 2026 18:17:58 +0800
+Message-ID: <20260930101805.1770358-9-ruanjinjie@huawei.com>
+X-Mailer: git-send-email 2.34.1
+In-Reply-To: <20260930101805.1770358-1-ruanjinjie@huawei.com>
+References: <20260930101805.1770358-1-ruanjinjie@huawei.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v20 8/9] firmware: arm_rmm: Add wrappers for Realm related
- RMI commands
-Content-Language: en-GB
-To: sashiko-reviews@lists.linux.dev
-Cc: kvm@vger.kernel.org, Marc Zyngier <maz@kernel.org>,
- Oliver Upton <oupton@kernel.org>, kvmarm@lists.linux.dev,
- Catalin Marinas <catalin.marinas@arm.com>,
- Steven Price <steven.price@arm.com>,
- "Aneesh Kumar K . V" <aneesh.kumar@kernel.org>, Gavin Shan
- <gshan@redhat.com>, Jonathan Cameron <jonathan.cameron@oss.qualcomm.com>,
- "linux-arm-kernel@lists.infradead.org" <linux-arm-kernel@lists.infradead.org>
-References: <20260929221623.1342076-1-suzuki.poulose@arm.com>
- <20260929221623.1342076-9-suzuki.poulose@arm.com>
- <20260929222936.8344F1F000FF@smtp.kernel.org>
-From: Suzuki K Poulose <suzuki.poulose@arm.com>
-In-Reply-To: <20260929222936.8344F1F000FF@smtp.kernel.org>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
+Content-Transfer-Encoding: 8bit
+Content-Type: text/plain
+X-Originating-IP: [10.90.53.73]
+X-ClientProxiedBy: kwepems100001.china.huawei.com (7.221.188.238) To
+ kwepemk200008.china.huawei.com (7.202.194.74)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260930_041253_682694_169BD2B9 
-X-CRM114-Status: GOOD (  21.82  )
+X-CRM114-CacheID: sfid-20260930_111706_258546_E9C0CC7E 
+X-CRM114-Status: GOOD (  13.57  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,129 +99,71 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 29/09/2026 23:29, sashiko-bot@kernel.org wrote:
-> Thank you for your contribution! Sashiko AI review found 2 potential issue(s) to consider:
-> - [Critical] arm_rmm: Range-based RMI wrappers drop progress indicator on error, risking GPF
-> - [High] arm_rmm: SRO cancellation flow aborts prematurely, leaving SRO dangling
-> --
-> 
-> commit 206f9f5530d9fa5eb129cd6fc6e598e72857683a
-> Author: Steven Price <steven.price@arm.com>
-> 
-> firmware: arm_rmm: Add wrappers for Realm related RMI commands
-> 
-> This commit introduces static inline wrappers for executing Realm
-> Management Interface (RMI) commands. These wrappers call into lower-level
-> SMC execution functions to manage Realm guests.
-> 
->> diff --git a/include/linux/arm-rmi-cmds.h b/include/linux/arm-rmi-cmds.h
->> index 5d005054f3c6c..4f0d6a8006a4a 100644
->> --- a/include/linux/arm-rmi-cmds.h
->> +++ b/include/linux/arm-rmi-cmds.h
->> @@ -104,4 +104,464 @@ static inline bool is_rmi_available(void)
->>   }
->>   #endif	/* CONFIG_ARM_RMM_RMI */
->>   
->> +
->> +/**
->> + * rmi_rtt_data_map_init() - Create a mapping at protected IPA, copying contents
->> + *			     from a given non-secure source granule.
->> + * @rd: PA of the RD
->> + * @data: PA of the target granule mapped in the guest
->> + * @ipa: IPA at which the granule @data will be mapped in the guest
->> + * @src: PA of the source granule with contents
->> + * @flags: RMI_MEASURE_CONTENT if the contents should be measured
->> + *
->> + * Create a mapping from Protected IPA space to conventional memory, copying
->> + * contents from a Non-secure Granule provided by the caller.
->> + *
->> + * Return: 0 on success, positive RMI result code or negative Linux error code
->> + */
->> +static inline long rmi_rtt_data_map_init(unsigned long rd, unsigned long data,
->> +					 unsigned long ipa, unsigned long src,
->> +					 unsigned long flags)
->> +{
->> +	struct arm_smccc_1_2_regs regs = {
->> +		SMC_RMI_RTT_DATA_MAP_INIT, rd, data, ipa, src, flags
->> +	};
->> +
->> +	return rmi_sro_execute(&regs);
-> 
-> [Severity: High]
-> Does the SRO cancellation flow in the underlying rmi_sro_execute() and
-> rmi_sro_memxfer_execute() abort prematurely when returning to these wrappers?
-> 
-> In rmi_sro_execute(), the cancellation path does this:
-> 
-> 	rmi_op_cancel(sro_handle, regs);
-> 	cancelled = true;
-> 
-> According to the RMM specification, SMC_RMI_OP_CANCEL returns RMI_SUCCESS when
-> accepted. Since RMI_SUCCESS is 0, the loop condition in rmi_sro_execute():
+Introduce a helper arm64_syscall_exit_to_user_mode_work() that
+encapsulates the re-reading of thread flags and the call to
+syscall_trace_exit(). Use it in el0_svc_common() to replace
+the open-coded instances, removing the duplicated flags read
+and making the control flow simpler.
 
-RMI_OP_CANCEL never returns RMI_SUCCESS. It returns RMI_INCOMPLETE to 
-trigger any memory reclaim paths. See R-RVLNV and R-GGSTJ
+This aligns the arm64 exit path with the pattern expected by the
+generic entry infrastructure, which uses a similar
+syscall_exit_to_user_mode_work() callback.
 
-> 
-> 	while (RMI_RESULT_STATUS(regs->a0) == RMI_INCOMPLETE)
-> 
-> evaluates to false. This breaks out of the loop and skips the mandatory
-> RMI_OP_CONTINUE calls needed to fully unwind the SRO.
+No functional changes intended; this is a preparation step for converting
+arm64 to the generic entry infrastructure.
 
-As above.
+Cc: Mark Rutland <mark.rutland@arm.com>
+Cc: Will Deacon <will@kernel.org>
+Cc: Catalin Marinas <catalin.marinas@arm.com>
+Cc: Ada Couprie Diaz <ada.coupriediaz@arm.com>
+Reviewed-by: Linus Walleij <linusw@kernel.org>
+Signed-off-by: Jinjie Ruan <ruanjinjie@huawei.com>
+---
+ arch/arm64/include/asm/syscall.h | 7 +++++++
+ arch/arm64/kernel/syscall.c      | 9 +++------
+ 2 files changed, 10 insertions(+), 6 deletions(-)
 
-> 
-> Similarly, in rmi_sro_memxfer_execute(), there is an explicit assertion:
-> 
-> 	if (WARN_ON_ONCE(RMI_RESULT_STATUS(regs->a0) != RMI_INCOMPLETE))
-> 		return ret;
-> 
-> which immediately aborts when rmi_op_cancel() correctly returns RMI_SUCCESS.
-> 
-> Can this leave SRO operations permanently in the CANCELLING state within the
-> RMM, leading to resource leaks and preventing realms from being properly
-> destroyed?
-> 
-> [ ... ]
-> 
->> +static inline long rmi_rtt_data_unmap(unsigned long rd,
->> +				      unsigned long base,
->> +				      unsigned long top,
->> +				      unsigned long flags,
->> +				      unsigned long oaddr,
->> +				      unsigned long *out_top,
->> +				      unsigned long *out_range,
->> +				      unsigned long *out_count)
->> +{
->> +	struct arm_smccc_1_2_regs regs = {
->> +		SMC_RMI_RTT_DATA_UNMAP, rd, base, top, flags, oaddr
->> +	};
->> +	long ret;
->> +
->> +	ret = rmi_sro_execute(&regs);
->> +
->> +	if (ret != RMI_SUCCESS)
->> +		return ret;
->> +
->> +	if (out_top)
->> +		*out_top = regs.a1;
-> 
-> [Severity: Critical]
-> If a range-based RMI SRO executes partially and returns an error (such as
-> RMI_ERROR_INPUT), the architecture specifies that the address of the first
-> unprocessed granule is returned in regs.a1.
-> 
-> Does this wrapper drop the Top progress marker on failure?
-
-This is wrong. If the RMM encounters a failure after partial progress,
-RMI_SUCCESS with partial response is returned. The next call would
-encounter the RMI_ERROR_INPUT. Also see the following known issue in the
-cover-letter:
-
-* Clarify RMI_RTT_DATA_UNMAP, output_count, output_range are only valid 
-when result is RMI_SUCCESS (FENIMORE-1746)
-
-Suzuki
-
+diff --git a/arch/arm64/include/asm/syscall.h b/arch/arm64/include/asm/syscall.h
+index 696739f5a250..3e4672ab4a4f 100644
+--- a/arch/arm64/include/asm/syscall.h
++++ b/arch/arm64/include/asm/syscall.h
+@@ -123,4 +123,11 @@ static inline int syscall_get_arch(struct task_struct *task)
+ int arm64_syscall_trace_enter(struct pt_regs *regs, unsigned long flags);
+ void syscall_trace_exit(struct pt_regs *regs, unsigned long flags);
+ 
++static __always_inline void arm64_syscall_exit_to_user_mode_work(struct pt_regs *regs)
++{
++	unsigned long flags = read_thread_flags();
++
++	syscall_trace_exit(regs, flags);
++}
++
+ #endif	/* __ASM_SYSCALL_H */
+diff --git a/arch/arm64/kernel/syscall.c b/arch/arm64/kernel/syscall.c
+index e778aac6fab9..0061fc63e7ba 100644
+--- a/arch/arm64/kernel/syscall.c
++++ b/arch/arm64/kernel/syscall.c
+@@ -127,16 +127,13 @@ static void el0_svc_common(struct pt_regs *regs, int scno, int sc_nr,
+ 	 */
+ 	if (!has_syscall_work(flags) && !IS_ENABLED(CONFIG_DEBUG_RSEQ)) {
+ 		flags = read_thread_flags();
+-		if (has_syscall_work(flags) || flags & _TIF_SINGLESTEP) {
+-			flags = read_thread_flags();
+-			syscall_trace_exit(regs, flags);
+-		}
++		if (has_syscall_work(flags) || flags & _TIF_SINGLESTEP)
++			arm64_syscall_exit_to_user_mode_work(regs);
+ 		return;
+ 	}
+ 
+ trace_exit:
+-	flags = read_thread_flags();
+-	syscall_trace_exit(regs, flags);
++	arm64_syscall_exit_to_user_mode_work(regs);
+ }
+ 
+ void do_el0_svc(struct pt_regs *regs)
+-- 
+2.34.1
 
 
