@@ -4,65 +4,94 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B4D94CA5FBB
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 30 Sep 2026 07:14:48 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3DD06CA5FBB
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 30 Sep 2026 07:15:53 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=EJOsZWaC6IUUaRjuGy9rJJn3SnTd88gtdaj+lansgUA=; b=zzXwz666UxA2ovWDAupi5stCQ8
-	t7NNFxEweOEpfEhojCnbpnYXO99aoHzd1WrbwBpX6dEXHdws4Vv6LeC2sVn7iFt4DqPpAsXxHwqim
-	b4LsdnGSwClRIcG6qtkYTswqxerdwaszB5KzwsW4cEi2wfN0AjwTL7hPOfDmnJ3uwVw1OV+JRvuBc
-	bQ54QYY7aJTzInLV2TxVgYHRYFKvyx2vYsJtXwQ4amdbtRaT3NlJx7kea58R1lEs7EQQPWnj1/0xq
-	DyamNUJfxLBRqKmisWvcSZBW/L8L52pv5OGTGKKX9Ch1Ss2HPjLnoxReeajBm8O967Vi+C8em4Wm+
-	liJxoMYg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=F/SbVhMvqYrGxK11cD/q4PA+nXETskb6eXmSE0ztKU4=; b=zpiStgzYzfZaejLBjeFMdBAzvG
+	OVqU7HX3kFHe4L5DRkV6zLMmUS/AQKye4zWot/CuyDR753I/m3ax2vJHl0nZzhPow80ZkCiJAc7Iq
+	FCeNyRuhG5zc7q93yUmOJQEgPtalrzVRl+2S3ya/PRWD7dLKCLGHI2mmzyRpglHzPp1K9hkJ0MEyT
+	Ih/0Bezo/OwHPw5HcBiNI0dNP9eLe+ZA59vd1Ohz+e7c5jpt76/gUOHZvBsqMOR0BHEHitZPIC4ck
+	yEPTiEC/9+nm+hd2qymFJDrjYHPnr05sWnkVyVkd8k9QJmWzJZ6Y2bOxLQKZ5Y7edg8rLck6WFfLJ
+	bt2nzu5Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xBoWW-00000005FDR-3Txj;
-	Wed, 30 Sep 2026 07:14:40 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1xBoXb-00000005FOq-02oy;
+	Wed, 30 Sep 2026 07:15:47 +0000
+Received: from mail-wr2-x0e.google.com ([2a00:1450:4864:30::e])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xBoWV-00000005FCk-1734
+	id 1xBoXX-00000005FNV-2Urm
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 30 Sep 2026 07:14:39 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id 4FBDE60239;
-	Wed, 30 Sep 2026 07:14:38 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 73BCD1F000FF;
-	Wed, 30 Sep 2026 07:14:37 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linuxfoundation.org;
-	s=korg; t=1790752478;
-	bh=EJOsZWaC6IUUaRjuGy9rJJn3SnTd88gtdaj+lansgUA=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=mh9GniNNzA4AYmkAFA/0hRVpMGXcCAexTkHrmE7Ga4vzzd9NMyM5vUKSHmY7ww16j
-	 GpPAfHIU4ixt35UegPzfO1oQ0ThXVsYxuoAJuUDy1W7CVOaUzNrCSvY/Tq4HLPd6qf
-	 sl4fSuxUYyTHKvBXNzT6Yi7Ul7wtWiroo9HJBXOI=
-Date: Wed, 30 Sep 2026 09:14:34 +0200
-From: Greg Kroah-Hartman <gregkh@linuxfoundation.org>
-To: filipp.dunsky@gmail.com
-Cc: Arnd Bergmann <arnd@arndb.de>, Linus Walleij <linusw@kernel.org>,
-	Krzysztof Kozlowski <krzk@kernel.org>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Jiri Slaby <jirislaby@kernel.org>,
-	Russell King <linux@armlinux.org.uk>,
-	Alexandre Belloni <alexandre.belloni@bootlin.com>,
-	Drew Fustini <fustini@kernel.org>,
-	Lorenzo Pieralisi <lpieralisi@kernel.org>,
-	linux-arm-kernel@lists.infradead.org, devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org, linux-serial@vger.kernel.org
-Subject: Re: [PATCH RFC 07/10] tty: serial: Add Cortina Systems CS75xx UART
- driver
-Message-ID: <2026093046-scheme-fastball-59c4@gregkh>
-References: <20260930-b4-cs75xx-v1-0-4617c4463529@gmail.com>
- <20260930-b4-cs75xx-v1-7-4617c4463529@gmail.com>
+	Wed, 30 Sep 2026 07:15:44 +0000
+Received: by mail-wr2-x0e.google.com with SMTP id ffacd0b85a97d-48af929e59dso852249f8f.3
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 30 Sep 2026 00:15:42 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20251104; t=1790752541; x=1791357341; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
+        bh=F/SbVhMvqYrGxK11cD/q4PA+nXETskb6eXmSE0ztKU4=;
+        b=eYck/GXBbMWckTXXhlAeD1VCmYQzUqgJnmrSEEnmV3TqO+PIheldf3938vqS9het75
+         vHQIgEV6IpfTEx724pibpgJE0Rw5opLWzmLVrVuVktkHz056n3C+PvL5ephSpnY4jvKh
+         mTY2Dy4NVogIbNTUMvKCygOHPIgW8qu8eFMVYHocOe9LaOaQLiNK0XJELrb2TjFdf2VD
+         5HCEuPQIkd5exyvx8lGxK5MNhVmdqWJDYv3xWrnMtK7rA4Ws0+ZIhLPbtIe1hmd8n+RZ
+         Upe0P+5/UYkanC4mb3/9wQqKt9//t9kTS4aXoELXXkj+9EJs15SKAxhQj7fV3dkme0uT
+         1fhg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1790752541; x=1791357341;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=F/SbVhMvqYrGxK11cD/q4PA+nXETskb6eXmSE0ztKU4=;
+        b=Fb4SgvpTMf+5nyo5xKNrm6kHgC2QpcjgsiJSp2Y2VX09UeuHxnxfX1qg6JnCUkzGjw
+         wZgRSvtxP8EhT3qbo//PZ82TmA4tblYxlrHGnpJ1Qu5lkJ5n7RVlPEXrYpCDrex7U0HQ
+         5FqFygBiTjK3U3XOx2xF2bRaZ11bX0MITlL3zq72b0vzB/WOlB2F8PPtyiKFDdcQo+yM
+         sSFAd4qXS4Z3bG+Q+AG3beH7hRvuBTvCHSjnjeMxWNUPmhl4etfustY5Z9z3hdwIInOy
+         bEGAB7Us7kPbmMT6YwIaylTEspYhDLe/vQtGK3+mqkxsdgGYv5vw+gJueZ8W3/8ziYaR
+         KUPQ==
+X-Forwarded-Encrypted: i=1; AKwUvBy92xnw3Gg+YV9IyPN/BWvWEd4IJtZBqGmA1DJsow7fEedVgEI5AffpCwNZzBOlBdlJHFo78HJEG3fXZDSKpfl2@lists.infradead.org
+X-Gm-Message-State: AFq9FYIoNRPBBBKR/JnPz9fBdr2ECgfVFXsg9pLylcdFA9U62HWgI/FB
+	LnO3nwjq3MykE13jbcjICAcMrzLk5J5p4md956436z1/cCVqD+Laxoat
+X-Gm-Gg: AYBFou2pBkxYMx2RrkL2SdOh75v1kHMBcRTD450uJGVFgxx5pjAmW7DdyMihBP8ZHu1
+	ZebrV30JCqTmQqb8SR+M9e3bhMRI6ekgoSV5j6whjAbpBVgIHtLKlBRLzlhytWzgmsI3+LKnZzT
+	tbVcUotxDmvdnvT26eH2CtLpBk9d1/hHpfdLY9jWWffdfy20AtUzfxXaaxf+Ze9s4Z5fgBhxlhr
+	B1HnjXwRy8CqDghrDR5DELNdWxdj48tPrZrXZ3U5TE6lC9LrA+4lu5qV8lYOTEVJpvyixcNiKUA
+	nJorgZvCShmFxkMEf8Mx0oagRadULBIzKa/vGcESFcUi3BRSnJNElfwFKRdMjylCTsP098zK4Ln
+	nkyyR3vtArc3kvyDVL/e5dUqadwKOElhCUoDa+vD9BAFMtyLqHMELd5aQWxFw2E0YZyVmq/gcYH
+	KkHyrixi1Ju4jDzXFLdp91xPOQIuPwbt74KzTV7z1sVP7HrCkzhcqDB6epEBPbay3zGFdGJiHH8
+	01ZTazpjfVK+l9ANauMwfjAv9p923OOT4ZafCyT
+X-Received: by 2002:a5d:6f1c:0:b0:487:489:7af0 with SMTP id ffacd0b85a97d-48b024bd025mr1059857f8f.17.1790752540836;
+        Wed, 30 Sep 2026 00:15:40 -0700 (PDT)
+Received: from fedora-tap.advaoptical.com ([82.166.23.19])
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-48b02e7b0d0sm735890f8f.14.2026.09.30.00.15.39
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Wed, 30 Sep 2026 00:15:40 -0700 (PDT)
+From: Sagi Maimon <maimon.sagi@gmail.com>
+To: netdev@vger.kernel.org
+Cc: pabeni@redhat.com,
+	radhey.shyam.pandey@amd.com,
+	michal.simek@amd.com,
+	andrew+netdev@lunn.ch,
+	davem@davemloft.net,
+	edumazet@google.com,
+	kuba@kernel.org,
+	robert.hancock@calian.com,
+	sean.anderson@linux.dev,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	Sagi Maimon <maimon.sagi@gmail.com>
+Subject: [PATCH net v4] net: axienet: cap the TX poll return value at the NAPI budget
+Date: Wed, 30 Sep 2026 10:15:36 +0300
+Message-ID: <20260930071536.627964-1-maimon.sagi@gmail.com>
+X-Mailer: git-send-email 2.47.0
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20260930-b4-cs75xx-v1-7-4617c4463529@gmail.com>
+Content-Transfer-Encoding: 8bit
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260930_001543_666728_64DFE14A 
+X-CRM114-Status: GOOD (  17.85  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -77,126 +106,99 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Sep 30, 2026 at 10:00:06AM +0300, Fil Dunsky via B4 Relay wrote:
-> From: Fil Dunsky <filipp.dunsky@gmail.com>
-> 
-> Add a driver for the UARTs of the Cortina Systems CS75xx (Goldengate G2)
-> SoCs. The block has transmit and receive FIFOs with full/empty status,
-> a 24-bit baud rate divider clocked from the peripheral (APB) clock, a
-> receive sampling point register and one interrupt line per port with
-> per-cause enable and write-one-to-clear status registers.
-> 
-> The driver is a rewrite of the vendor driver shipped with the Linux
-> 2.6.36 and 4.9 based vendor kernels, using the current serial core API
-> (uart_port_tx(), port lock helpers, deferred sysrq handling) and devm
-> resource management. It supports the system console and earlycon.
-> Hardware flow control is not supported.
-> 
-> The ports are named ttyCS so that the driver can coexist with the 8250
-> driver in multiplatform kernels, and PORT_GENERIC is used rather than
-> allocating a new port type.
+axienet_tx_poll() reclaims every completed TX descriptor in one pass:
+it passes lp->tx_bd_num to axienet_free_tx_chain() as the descriptor
+limit, and @budget is only used as the napi_consume_skb() bulk-free
+hint.  It then returns the number of packets reclaimed, which is bounded
+by the ring size rather than by the budget, so the poll can report more
+work than it was given.  This was seen after TX completion interrupts
+had not been taken for a while and a full ring was reclaimed at once:
 
-But even if you build a multi-platform kernel, only one of the uarts is
-going to be on the system, so why have a new name for it?  Can't you
-just use the "default" name instead?  If you do that, what happens?
+  eth0: NAPI poll function axienet_tx_poll+0x0/0x180 [xilinx_emac]
+        returned 96, exceeding its budget of 64.
 
+netpoll is affected as well.  poll_one_napi() polls with a budget of 0
+to reclaim the TX path only, and warns once if any work is reported.
 
-> 
-> Signed-off-by: Fil Dunsky <filipp.dunsky@gmail.com>
-> ---
->  drivers/tty/serial/Kconfig       |  24 ++
->  drivers/tty/serial/Makefile      |   1 +
->  drivers/tty/serial/cs75xx-uart.c | 546 +++++++++++++++++++++++++++++++++++++++
->  3 files changed, 571 insertions(+)
-> 
-> diff --git a/drivers/tty/serial/Kconfig b/drivers/tty/serial/Kconfig
-> index bf680d22199..c4239c42190 100644
-> --- a/drivers/tty/serial/Kconfig
-> +++ b/drivers/tty/serial/Kconfig
-> @@ -1359,6 +1359,30 @@ config SERIAL_CONEXANT_DIGICOLOR_CONSOLE
->  	  If you have enabled the USART serial port on Conexant Digicolor
->  	  SoCs, you can make it the console by answering Y to this option.
->  
-> +config SERIAL_CS75XX
-> +	tristate "Cortina Systems CS75xx UART support"
-> +	depends on ARCH_CORTINA_CS75XX || COMPILE_TEST
-> +	depends on OF
-> +	select SERIAL_CORE
-> +	help
-> +	  Support for the on-chip UARTs of the Cortina Systems CS75xx
-> +	  (Goldengate G2) SoCs, such as the CS7542. The ports are named
-> +	  ttyCS0 to ttyCS3.
-> +
-> +	  To compile this driver as a module, choose M here: the module
-> +	  will be called cs75xx-uart.
-> +
-> +config SERIAL_CS75XX_CONSOLE
-> +	bool "Console on Cortina Systems CS75xx UART"
-> +	depends on SERIAL_CS75XX=y
-> +	select SERIAL_CORE_CONSOLE
-> +	select SERIAL_EARLYCON
-> +	help
-> +	  Say Y here to use a Cortina Systems CS75xx UART as the system
-> +	  console. This also enables the early console, which can be
-> +	  selected with "earlycon" on the kernel command line when the
-> +	  device tree chosen node has a stdout-path pointing at the UART.
-> +
->  config SERIAL_ST_ASC
->  	tristate "ST ASC serial port support"
->  	select SERIAL_CORE
-> diff --git a/drivers/tty/serial/Makefile b/drivers/tty/serial/Makefile
-> index bba7b21a4a1..81bb5e39aa2 100644
-> --- a/drivers/tty/serial/Makefile
-> +++ b/drivers/tty/serial/Makefile
-> @@ -36,6 +36,7 @@ obj-$(CONFIG_SERIAL_BCM63XX)		+= bcm63xx_uart.o
->  obj-$(CONFIG_SERIAL_CLPS711X)		+= clps711x.o
->  obj-$(CONFIG_SERIAL_CPM)		+= cpm_uart.o
->  obj-$(CONFIG_SERIAL_CONEXANT_DIGICOLOR)	+= digicolor-usart.o
-> +obj-$(CONFIG_SERIAL_CS75XX)		+= cs75xx-uart.o
->  obj-$(CONFIG_SERIAL_DZ)			+= dz.o
->  obj-$(CONFIG_SERIAL_FSL_LINFLEXUART)	+= fsl_linflexuart.o
->  obj-$(CONFIG_SERIAL_FSL_LPUART)		+= fsl_lpuart.o
-> diff --git a/drivers/tty/serial/cs75xx-uart.c b/drivers/tty/serial/cs75xx-uart.c
-> new file mode 100644
-> index 00000000000..c15e2227b97
-> --- /dev/null
-> +++ b/drivers/tty/serial/cs75xx-uart.c
-> @@ -0,0 +1,546 @@
-> +// SPDX-License-Identifier: GPL-2.0
-> +/*
-> + * UART driver for the Cortina Systems CS75xx (Goldengate G2) SoCs
-> + *
-> + * Based on the Cortina Systems vendor driver.
-> + */
+Keep reclaiming the whole ring and cap only the value returned.
+Documentation/networking/napi.rst allows a poll to process any number
+of TX completions; it is the reported work that must stay within the
+budget.  Stopping the reclaim at the budget instead would also leave
+completed descriptors for a later poll, which does not come when
+napi_disable() is pending.  When more than @budget packets were
+reclaimed, returning @budget keeps the poll scheduled, and the next poll
+completes NAPI and re-enables the interrupt as before.  A budget of 0
+now yields 0.
 
-No copyright info?
+Suggested-by: Paolo Abeni <pabeni@redhat.com>
+Fixes: 5a6caa2cfabb ("net: xilinx: axienet: Fix packet counting")
+Assisted-by: LLM sparse
+Signed-off-by: Sagi Maimon <maimon.sagi@gmail.com>
+---
 
-> +static void cs75xx_uart_set_mctrl(struct uart_port *port, unsigned int mctrl)
-> +{
-> +}
+Notes:
+    Changes in v4:
+    - Different approach, as Paolo Abeni and the review of v3 suggested:
+      keep reclaiming the whole ring and cap only the value returned,
+      instead of stopping the reclaim at the budget.  napi.rst allows any
+      number of TX completions per poll, and stopping early could leave
+      completed descriptors behind while napi_disable() is pending.
+    - Subject changed to match; v1-v3 were "net: axienet: bound TX
+      completion cleanup by the NAPI budget".
+    - Fixes: now names 5a6caa2cfabb, which made the return value unbounded
+      (review of v3).
+    - Only axienet_tx_poll() and its kernel-doc change now.
+    - Suggested-by: Paolo Abeni.
+    - Build-tested only so far; v3 was tested on hardware, v4 not yet.
+    - v3: https://lore.kernel.org/netdev/20260924135052.185129-1-maimon.sagi@gmail.com/
+    
+    Changes in v3:
+    - Report no work for a budget of 0, so netpoll cannot trip the
+      WARN_ONCE() in poll_one_napi().
+    - Add the Assisted-by: tag that v1 and v2 omitted.
+    - v2: https://lore.kernel.org/netdev/20260917115657.20697-1-maimon.sagi@gmail.com/
+    
+    Changes in v2:
+    - Treat a budget of 0 as no limit, so that netpoll still drains the TX
+      ring.
+    - v1: https://lore.kernel.org/netdev/20260914114821.55503-1-maimon.sagi@gmail.com/
 
-Why an empty function?  Can't you just leave it out?
+ drivers/net/ethernet/xilinx/xilinx_axienet_main.c | 11 ++++++++---
+ 1 file changed, 8 insertions(+), 3 deletions(-)
 
-> +static void cs75xx_uart_break_ctl(struct uart_port *port, int break_state)
-> +{
-> +}
+diff --git a/drivers/net/ethernet/xilinx/xilinx_axienet_main.c b/drivers/net/ethernet/xilinx/xilinx_axienet_main.c
+index 1722b7038f34..243b07fd5be8 100644
+--- a/drivers/net/ethernet/xilinx/xilinx_axienet_main.c
++++ b/drivers/net/ethernet/xilinx/xilinx_axienet_main.c
+@@ -984,9 +984,9 @@ axienet_start_xmit_dmaengine(struct sk_buff *skb, struct net_device *ndev)
+  * axienet_tx_poll - Invoked once a transmit is completed by the
+  * Axi DMA Tx channel.
+  * @napi:	Pointer to NAPI structure.
+- * @budget:	Max number of TX packets to process.
++ * @budget:	NAPI budget, or 0 when polled by netpoll.
+  *
+- * Return: Number of TX packets processed.
++ * Return: Number of TX packets processed, capped at @budget.
+  *
+  * This function is invoked from the NAPI processing to notify the completion
+  * of transmit operation. It clears fields in the corresponding Tx BDs and
+@@ -1027,7 +1027,12 @@ static int axienet_tx_poll(struct napi_struct *napi, int budget)
+ 		axienet_dma_out32(lp, XAXIDMA_TX_CR_OFFSET, lp->tx_dma_cr);
+ 		spin_unlock_irq(&lp->tx_cr_lock);
+ 	}
+-	return packets;
++
++	/* The whole ring was reclaimed above, which may be more than the
++	 * budget, but a poll must not report more work than it was given.
++	 * netpoll polls with a budget of 0 and expects no work reported.
++	 */
++	return min(packets, budget);
+ }
+ 
+ /**
 
-Same here.
+base-commit: a7bfaba4823e3c165bb2004c74eff7c096672bc7
+-- 
+2.47.0
 
-> +static void cs75xx_uart_release_port(struct uart_port *port)
-> +{
-> +}
-
-This feels wrong.
-
-> +static int cs75xx_uart_request_port(struct uart_port *port)
-> +{
-> +	return 0;
-> +}
-
-As does this.
-
-thanks,
-
-greg k-h
 
