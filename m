@@ -4,112 +4,104 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 46D21CA5FB1
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 30 Sep 2026 12:03:33 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B5538CA5FB1
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 30 Sep 2026 12:05:55 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Subject:References:In-Reply-To:Message-Id:Cc:To:From:Date:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=N1oaB41rnPMap/G96Eqbi5g5rusO6BlEVyBratQDjgE=; b=OxPA/duOCi2NQb6mwqQSY1I5mS
-	M+5eEqjnJXhi+8pnlUfOuQmUcJsSW5RrNoGx6YxgGnlIBMWAkLxmGn5+W2DxJ1uROwNYYECRgkr1M
-	DMo6wHWlTYJg0sEwHT+8TbrfiN5+Z3x2APZJ7+48Qpbv0RxW2iPlIqV+ETUADch5nzZgE6xSRrP3M
-	mCz32Y8naVxkg8+hmMtJk/+4QZAy0thDNU41/JyGoEsX3ZTRLcVk68871SYnVRvp7KTvuR09G1WB/
-	JNthFIsu0TGTiJk0ovDvSOkl+UJ6/LpRS1XUa/RP8RKn5OEjXhBPLwgkUvvypROJNMIMiPsOTNyWf
-	5FGBsndA==;
+	bh=dGuKAEru6bWFEwsiF8HeArrHIBNsrhm3dC3Z0nm8srY=; b=e7RlyrpGq27uAKq+EKzoOAgAXx
+	S3UHdpns9yOFHfhJiVwzFMgrnYHTvX9TCjP4RD1CvRQll4DrU3v0mMMg5+WJHXXwCmDUdqJBADDf2
+	KLNDFr9SsVQWOzwhP7+3WvE8x8a/bEb3dF7xnmHQ24blzV3/zm0tftoTLJT5eVA6BNl3T2RiVlnwR
+	+02D9uB4xAvCIwOiK41umsYSlY1b3Tkpswz5QSZWbAJ7BDAFvv0Exz2MwJ1Uws0cul6l4lDrgHpx5
+	1romvs8JkMtAeZwXU6635P8TLawCFyYSFGAkJAiaA7AUV3Ys5bOflYKWnGHygqjGFSivcargQnv3n
+	KQSeEP2A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xBt1q-00000005xar-11j5;
-	Wed, 30 Sep 2026 12:03:18 +0000
-Received: from fout-a1-smtp.messagingengine.com ([103.168.172.144])
+	id 1xBt4G-00000005xsa-3GII;
+	Wed, 30 Sep 2026 12:05:48 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xBt1k-00000005xaA-3avN
+	id 1xBt4F-00000005xsO-1bOr
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 30 Sep 2026 12:03:15 +0000
-Received: from ams-compute-02.internal (ams-compute-02.internal [10.64.2.62])
-	by mailfout.phl.internal (Postfix) with ESMTP id 0B1D7EC02ED;
-	Wed, 30 Sep 2026 08:03:09 -0400 (EDT)
-Received: from ams-imap-03 ([10.64.2.23])
-  by ams-compute-02.internal (MEProxy); Wed, 30 Sep 2026 08:03:11 -0400
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=arndb.de; h=cc
-	:cc:content-transfer-encoding:content-type:content-type:date
-	:date:from:from:in-reply-to:in-reply-to:message-id:mime-version
-	:references:reply-to:subject:subject:to:to; s=fm1; t=1790769789;
-	 x=1790856189; bh=N1oaB41rnPMap/G96Eqbi5g5rusO6BlEVyBratQDjgE=; b=
-	EJgmnN4gOHBoK5qPAzbzB6eBWPgj/fo64z2JsMgG7XZV9xYb+eLVsHB2By0MEi62
-	BSYCBip7kCoNEown5VZ56wDIrYaaNGMJ9h/GeXZCoMhwSQgoLLGQAavUFH4xciro
-	yu23DA+n5RP+puEB0mNwVmUaE5mFgehdLh5dglgQMW84fOAJkd1eZiZA1hb0N+TE
-	pIFjwa/ce7hRgMKRlkgwwsurFYXjOtzrww8UW4gxdWwHGQXfIfmcGI89s7qjBhLT
-	R9K1wMWn9SYvybsXdCA9thYMSrA7Na0SEPOYpej0uSY71zLbyg3l06w5vup0xAni
-	4iTYXgVefe/mzpLyuNxMIw==
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
-	messagingengine.com; h=cc:cc:content-transfer-encoding
-	:content-type:content-type:date:date:feedback-id:feedback-id
-	:from:from:in-reply-to:in-reply-to:message-id:mime-version
-	:references:reply-to:subject:subject:to:to:x-me-proxy
-	:x-me-sender:x-me-sender:x-sasl-enc; s=fm1; t=1790769789; x=
-	1790856189; bh=N1oaB41rnPMap/G96Eqbi5g5rusO6BlEVyBratQDjgE=; b=d
-	wqMoVk9wPS5dQgQ8UcgHafoH5C6vxXHIA012gxb4EtN2/unWlfBXMFJwxSgSMkR9
-	wyNRFUI4UsHl4+7Np3jdYXCA9DqnL+cdWUv0Wxk6+zxe64bxL5koHCAWYbhTtTX4
-	7jtIprAM3rn9zARqlTIt8WZ6jZZeDJ21RfBa17SdAPBms8Qg7ywXNE5+GV/s7s3O
-	vV4OZmvWu/Gq4bXzpdjN8nmDrabwTb1XFh/SH9hqvV1oLOlRToVM7Q6iZJNBab1P
-	f933uAY1ZFelqTaskGwOLU5kpWc4sZyaX6hSuPp78r2HZBJduTRwF8uyYQ8gGf1Z
-	uTv5hjNlF1ggnrNqvI/TQ==
-X-ME-Sender: <xms:ePq8aqOFNh2h9t5DQRk5x7tvrJGCiQkdgQG_HF3jme67g3UtaOhB7Q>
-    <xme:ePq8ajwsGtQRGA2o6ifwTcfnWBYUGNcOFNYd5Z_vTQ09x3PQKkcL7z7xyv3VpcXZa
-    zuXxxeo-mSJGG242VP3UHh9ulEwD8RmRE6rDstzelZe9ME4a1c1C3BL>
-X-ME-Proxy-Cause: dmFkZTEAygohlf/ZA/9BOczOk2E0ZPKkMLfxJWRH0hIDtg7XhCUmhFpB6fka6NiYIKNK9s
-    tty8oPX3qWQwE6ASc9LC2XBE/3udub2rs9Ocq4gPBsUk5VLdTNdQdl6dJEstl5Auv5Ptol
-    OmkhD71d38pRuLOiOj7uJMyh8dRldLMTLoUpS+CbIvbRsa90jTfSozXpoXfNwSkKExGZnq
-    Igg72SuJ0syfdIHKuoW4KQIkpfyDtFEVmg4OT/lAhk1g9bS2paMbLJ+B4z6I2iQiO0GY/R
-    JzKpdLjaWJ7aLyWf5YKSYRNCfauAHsV5Yt8IAaVc4IkXHfjpgstk/ehb09k7edgGQ5jAd3
-    nGs9GsG+RpDa8Eqcl8gBn/c9DYGfL8AlydA8UCOf4TSlNI/FcLV0qnOV48Ag0VqUxljbCm
-    NrIiv/3DJBc5c76ABIphVLt41amxxaAprtooEBOCZEs7PWpzLoarlHNRoQGl1WVY3NYZ5j
-    dlfCiB/R+xWemYgfePyA5VfMjiCfyJ4hsMlGow2eo1WCarelWLZZYNOZLGCeNhtBHOXeHU
-    1zDW9FIwH9DEFcgTNwG0EOPeIh1Dq6Aw17eaiQdipFozOVFK+7d0HE5ejMf7i87mEp+8Vj
-    v1GyIE1NeUPyP5+bvKO6hpdCQ5kMIttkzS+rmV3ikvyGZvsI7vn6OwOAafeQ
-X-ME-Proxy: <xmx:evq8ajHkuxiQjpVBvRvxyhTzklaZOcacDCCAP5wnIJBX0MZrF6WWeQ>
-    <xmx:evq8arAH1lSaGAXEPfBjCst87l58Y9uv-YZpA6MVEyVayntoeu_gfg>
-    <xmx:evq8arwYCS2itwtQk-88hvcrwwhA_A7P94iiKfj0e57CGNwLTkVsLQ>
-    <xmx:evq8asALkcucEhEoBE1wjTjqDKdLqG0zTnyApMJsMu8ZWvq-f5qiwA>
-    <xmx:ffq8atNf5voebHgY48NrFDdFZ-QqW46kjI-R3iPZqYzHfO1SUdaeN4rM>
-Feedback-ID: i56a14606:Fastmail
-Received: by mailuser.ams.internal (Postfix, from userid 501)
-	id 2669532A008A; Wed, 30 Sep 2026 08:03:04 -0400 (EDT)
-X-Mailer: MessagingEngine.com Webmail Interface
+	Wed, 30 Sep 2026 12:05:47 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by sea.source.kernel.org (Postfix) with ESMTP id DA98E40340;
+	Wed, 30 Sep 2026 12:05:46 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 4FCA21F000FF;
+	Wed, 30 Sep 2026 12:05:43 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1790769946;
+	bh=dGuKAEru6bWFEwsiF8HeArrHIBNsrhm3dC3Z0nm8srY=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To;
+	b=hkglaJKcz3cfEj5mYRc7Ve0LKQqmo3+6JdkYjeP0raD598+xmmOUus5Q5WpviDzz7
+	 TX1n9he/IbL83QuYD4d5c/Nx1svU49b8psDkE8kb5jKXSx+pIO9ox8R6efnHBlVQPC
+	 I7p4pdTFrCzVz2OvrfERq/fwINR192WbCRTHkGycGEVU5+frdwg1uyAg1l7e/aAvje
+	 eHw9p/GeJRSO96t1/MV4L+7gnzQGZaWzeAcFhp8Owz2B3m8zaG/oaRUkH+feO3Ygdt
+	 3EXOtFzX92KW7jMYSTRJuq74vd004TOmba1HkOmQISq266L+Tu5S8X+s6xa2UqTjup
+	 KnvBvmhcsjN/w==
+Message-ID: <d5b4602c-e95f-461f-843c-7a86d8582a32@kernel.org>
+Date: Wed, 30 Sep 2026 14:05:41 +0200
 MIME-Version: 1.0
-X-ThreadId: AAFgH-j8k6Zg
-Date: Wed, 30 Sep 2026 14:02:43 +0200
-From: "Arnd Bergmann" <arnd@arndb.de>
-To: "Fil Dunsky" <filipp.dunsky@gmail.com>
-Cc: "Linus Walleij" <linusw@kernel.org>,
- "Krzysztof Kozlowski" <krzk@kernel.org>, "Rob Herring" <robh@kernel.org>,
- "Krzysztof Kozlowski" <krzk+dt@kernel.org>,
- "Conor Dooley" <conor+dt@kernel.org>,
- "Greg Kroah-Hartman" <gregkh@linuxfoundation.org>,
- "Jiri Slaby" <jirislaby@kernel.org>, "Russell King" <linux@armlinux.org.uk>,
- "Alexandre Belloni" <alexandre.belloni@bootlin.com>,
- "Drew Fustini" <fustini@kernel.org>,
- "Lorenzo Pieralisi" <lpieralisi@kernel.org>,
- linux-arm-kernel@lists.infradead.org, devicetree@vger.kernel.org,
- linux-kernel@vger.kernel.org, linux-serial@vger.kernel.org,
- "Jason Li" <jason.li@cortina-access.com>
-Message-Id: <f6d0478a-3438-4903-a9e2-5d314f5948c4@app.fastmail.com>
-In-Reply-To: <179076863241.3327419.16233537387530771884@gmail.com>
-References: <20260930-b4-cs75xx-v1-0-4617c4463529@gmail.com>
- <20260930-b4-cs75xx-v1-4-4617c4463529@gmail.com>
- <65c87e07-1722-44c2-9a08-ed9e18902058@kernel.org>
- <179076583795.3054628.14443934429806440798@gmail.com>
- <CAD++jLnZBpoF3H3-sqzmrtwzxLGombFMdSYMVo59jiGFYcyCFA@mail.gmail.com>
- <d97a806f-a5a3-476e-8910-30027a6f568d@app.fastmail.com>
- <179076863241.3327419.16233537387530771884@gmail.com>
-Subject: Re: [PATCH RFC 04/10] ARM: cortina: Add support for the CS75xx SoC family
-Content-Type: text/plain
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH] media: exynos4-is: Fix runtime PM usage counter leak in
+ fimc-isp
+To: fengchenguang@kylinos.cn, s.nawrocki@samsung.com, mchehab@kernel.org
+Cc: peter.griffin@linaro.org, alim.akhtar@samsung.com,
+ linux-media@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-samsung-soc@vger.kernel.org, linux-kernel@vger.kernel.org,
+ stable@vger.kernel.org
+References: <20260930113849.278562-1-fengchenguang@kylinos.cn>
+From: Krzysztof Kozlowski <krzk@kernel.org>
+Content-Language: en-US
+Autocrypt: addr=krzk@kernel.org; keydata=
+ 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
+In-Reply-To: <20260930113849.278562-1-fengchenguang@kylinos.cn>
+Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260930_050314_436090_91DA6DAF 
-X-CRM114-Status: GOOD (  22.62  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -124,40 +116,27 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Sep 30, 2026, at 13:43, Fil Dunsky wrote:
-> On Wed, Sep 30, 2026 at 01:36:32PM +0200, Arnd Bergmann wrote:
->> How about making this one ARCH_CORTINA_ACCESS to match the 64-bit port
->> (saturn, venus) that Jason posted at
->> https://lore.kernel.org/linux-arm-kernel/20260610112821.3030099-5-jason.li@cortina-access.com/
->>
->> I think this would be consistent with how we deal with other
->> acquisitions (storm->cortina, freescale->nxp, ...). I would
->> leave Gemini as-is because changing the name only causes problems,
->> but for the new platform I would use the current name of the company
->> that last sold them.
->
-> Thanks for digging out the history, that makes sense. I will use
-> ARCH_CORTINA_ACCESS for v2 and keep arch/arm/mach-goldengate as the
-> directory name, as Linus suggested.
+On 30/09/2026 13:38, fengchenguang@kylinos.cn wrote:
+> From: Chenguang Feng <fengchenguang@kylinos.cn>
+> 
+> fimc_isp_subdev_s_power() increments the usage counter with
+> pm_runtime_resume_and_get() and releases it if fimc_is_start_firmware()
+> fails, but not when fimc_is_hw_initialize() fails further down: the
+> function then returns with the counter still held, and the device can
+> never runtime-suspend afterwards.
+> 
+> Call pm_runtime_put() on the fimc_is_hw_initialize() error path as
+> well, like the fimc_is_start_firmware() path already does.
+> 
+> Fixes: 9a761e436843f ("[media] exynos4-is: Add Exynos4x12 FIMC-IS driver")
+> Cc: stable@vger.kernel.org
+> Signed-off-by: Chenguang Feng <fengchenguang@kylinos.cn>
+> ---
 
-I think I would go with mach-cortina here. Or even better would be
-to find a way not to need any code. If you control the boot loader,
-you could just implement the psci ops there and actually bring
-up the CPU from EL3. If that doesn't work, maybe it is time to
-actually have a generic spin-table implementation on arm32 the
-way we do on arm64. As far as I can tell, your code is just
-a copy of that anyway, though we have so far never added this to
-common arm32 code in order to encourage SoC vendors to use psci.
 
-> Should the DT side follow as well? That would mean a "cortina-access,"
-> vendor prefix (added by this series, as Jason's has not landed yet),
-> "cortina-access,cs7542" and "cortina-access,cs7542-uart" instead of
-> "cortina,...", and arch/arm/boot/dts/cortina-access/ for the dts. I
-> have no preference, I would just like to change it only once.
+How many separate patches are you planning to send? Why this cannot be a
+patchset? Are we repeating now the recent half-spam of AI created "fixes"?
 
-I don't have a strong preference either. If nobody else has a clear
-guidance, changing to "cortina-access,..." would seems the most consistent
-to me.
-
-    Arnd
+Best regards,
+Krzysztof
 
