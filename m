@@ -4,125 +4,109 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 50BBFCA5FAC
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 30 Sep 2026 12:06:18 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E8BBFCA5FB1
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 30 Sep 2026 12:06:28 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Subject:References:In-Reply-To:Message-Id:Cc:To:From:Date:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=xqxep6GiVLDWPq1CLLWzDYroRTT63dZ5HsotDLVOpmg=; b=H3zsgAhxX8w+zlPY7spwioXWab
-	5qc9aRXxNmi4SfIRk0U6DYIZQ5uQ5HqCgXshfL/H0phILycFXHpr77Wv6nTrEh9ZBEK0LmkIaPWzq
-	GTTEYL0SgOpZY/Pr4OR306G405G8iUKG1GLRysEVr3zo82GyJmEO5tZh3LBfNkSdDSTa5sXwAJ0UY
-	gbBnrIEifVhSW0XCT5/VNS7/GMAsY57lf/IlXSNOY7XtZ95yXOFZ14qhIXsJHT0D+N8Z92WQLKNVa
-	kAlXsGIjuJU3EihpnGnGZNdv/Us3L8Nbu/N2COSCsd/tD9oS4AbWaBbInNluBaSJosh3ff6Uql0Gx
-	LqUAaB5g==;
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=jNaKwS3H0FTb6G3uXAp4oWpgGMYYjT9MmVEzrS7Q8MI=; b=Iu9uHyBhSHerZfloWnj4PxKETB
+	qt5nS8bVYKspNINgIsu5BCGl2nd9X/Fp5pc7nXRoiV+OOthVrS9HM3ZG49pDom7mCvxnSUP+gcaKS
+	fufXNH6+R5lQVTd6Tl7Neij3F5ZKhF2CQstfs6Z0Ng0xb9gmNhTKaEzRe44KdIt0z31lxba7ErZVa
+	NenJDKb9Hi+zUwGRBsNNOCFIULMiO6HDbXV8QwHTZa/IymFTuCeDTl3MCZbg5Lek+xYWruGB8DuGa
+	H1hmHRq0C2nSuzm9IIR6pD4oK3ysq410JC/i3a3Ysfb9xQRmbfmJv0RYnayeBef/1VwsiEDbHaiX8
+	ip0UvotA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xBt4c-00000005xxO-14kJ;
-	Wed, 30 Sep 2026 12:06:10 +0000
+	id 1xBt4o-00000005y0Z-2xHM;
+	Wed, 30 Sep 2026 12:06:22 +0000
 Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xBt4Z-00000005xwa-395K
+	id 1xBt4m-00000005xzx-3uo7
 	for linux-arm-kernel@bombadil.infradead.org;
-	Wed, 30 Sep 2026 12:06:07 +0000
+	Wed, 30 Sep 2026 12:06:21 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:Content-Type
-	:Subject:References:In-Reply-To:Message-Id:Cc:To:From:Date:MIME-Version:
-	Sender:Reply-To:Content-ID:Content-Description;
-	bh=xqxep6GiVLDWPq1CLLWzDYroRTT63dZ5HsotDLVOpmg=; b=F48TVfo44ytU+20I41Pq5/Utbz
-	YByAApg+W5ER3y0UV2e9JH2BrxT/M9g8PV2Q2vNuwc3EZy49yIS/ChcSM8G9oGH4aikCV+73oLgVX
-	NH+D4TSrT9zK65C3tqGi1hLOavIujP3So8nLUYLF0wpcGy13Tvsg6POLNUxHL2eeLNUA89Q3BPf6D
-	TNIyJPzizn2d4MsXODO60Ur7KienJcrkHkp0rz9//LGvmL/i1jm1hX1IVrUz00f2p6AKhhjE8LNPg
-	4gRo59JRPWogTMeYFlUMTe06pUzl6CXRvDUVRAFBzCyAr6FBJWXhlMQXoX/LmkP1NA9DG1oD3tYSv
-	Up8yCtRQ==;
-Received: from fhigh-a8-smtp.messagingengine.com ([103.168.172.159])
+	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:MIME-Version
+	:Message-ID:Date:Subject:Cc:To:From:Sender:Reply-To:Content-Type:Content-ID:
+	Content-Description:In-Reply-To:References;
+	bh=jNaKwS3H0FTb6G3uXAp4oWpgGMYYjT9MmVEzrS7Q8MI=; b=azZKV6Uw69igTCJb09c/97UaSE
+	Zfdwob9zIFAKh94sty8K/YiSdpcpJdm946iBlm5LQgW9zCHShiIP2rBgU6szRD1pPAXN4bRddDkVQ
+	5Kwij6q6eJhUh509Q4Gr40iMLGuNkC8WDkM7yCphAJz5RtMRfxu1ltzn81VtU1OgmZXof54duI4s9
+	q3a4Nc2G4didhQ8pl6FgxTcKAeWZ30et9G1AebPbKDZyApTXPGsfI4Tt8cf0eMmwotuypL/CCZd+i
+	tLZs52LkNBwZdYx4JhUwWIm5+PbG6lA5KZWCmNjkXCkQFyTXSWd0jKmcpYJU1+d8uI/lmr/NSPW/t
+	OuWB+drA==;
+Received: from mail-dy2-x0f.google.com ([2607:f8b0:4864:36::f])
 	by desiato.infradead.org with esmtps (Exim 4.99.2 #2 (Red Hat Linux))
-	id 1xBt4W-00000003lAu-2J51
+	id 1xBt4k-00000003lCA-0RNR
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 30 Sep 2026 12:06:06 +0000
-Received: from ams-compute-02.internal (ams-compute-02.internal [10.64.2.62])
-	by mailfhigh.phl.internal (Postfix) with ESMTP id 4CF1F14001FD;
-	Wed, 30 Sep 2026 08:05:58 -0400 (EDT)
-Received: from ams-imap-03 ([10.64.2.23])
-  by ams-compute-02.internal (MEProxy); Wed, 30 Sep 2026 08:05:59 -0400
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=arndb.de; h=cc
-	:cc:content-transfer-encoding:content-type:content-type:date
-	:date:from:from:in-reply-to:in-reply-to:message-id:mime-version
-	:references:reply-to:subject:subject:to:to; s=fm1; t=1790769957;
-	 x=1790856357; bh=xqxep6GiVLDWPq1CLLWzDYroRTT63dZ5HsotDLVOpmg=; b=
-	USxB9Tk9cR6GQT0+rKubXXVkloXK1fOTrGP0S/wBRsvrQAIDteaj6uDNPHAEz1OD
-	SkBxHDxgQsiLj/HMibFbsezGbevR4UL5drOOljnhBa93gxfiKV4y1Um6ufWpshsa
-	45gsjD0rkw5TQore01MIliSyJoV51GsOaAcTpmzqJ/fjFPHkv+7EjXKl3BaaA/Q3
-	IdO1fVnzXiODZp1DkomAwdN6IUacEJDslJP/6yn8WlGpY2L0XfGa/B+dgk66y83s
-	+gvF5yONZ+XT9VneApIxyJmjExPP3c86ZRKlISLI0eBYpVG5FhpXsZ+DoqHQbfdD
-	YDW9nwl4X/+fj5eX4ES3Ig==
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
-	messagingengine.com; h=cc:cc:content-transfer-encoding
-	:content-type:content-type:date:date:feedback-id:feedback-id
-	:from:from:in-reply-to:in-reply-to:message-id:mime-version
-	:references:reply-to:subject:subject:to:to:x-me-proxy
-	:x-me-sender:x-me-sender:x-sasl-enc; s=fm1; t=1790769957; x=
-	1790856357; bh=xqxep6GiVLDWPq1CLLWzDYroRTT63dZ5HsotDLVOpmg=; b=N
-	7m/4FinXgpayGXYcyxLKGjstS8mg08NIicqGdoO3BvH0RwSObEG6Db6vcpkZ59EC
-	/Tu2Vy/D1dLL6wDtcaUJyzTe/+xJebuCPuCblreTQGajC2XnWS2N8N5owFiMWZeG
-	pAOP5Q1U2VRiw5lRt7X80+VntsbRpCCAHTSKnsCM03snG7o5Nx2pxOjdMT16esvP
-	qsajj38/aRZeSscjoCsJWHnZKL2w/IixgGswVquVMH45NwGsiL/swnUZvaopeWek
-	DpNy2gekLHgSaohSEyyCMe8nzaDq8tDEwc8ujgpJ9AdtwTWONLLRjWTOfRgGVHXv
-	D/lxDeZVLHA9mfS0IvdTA==
-X-ME-Sender: <xms:Ifu8aoQ2uJrb2llCEAwAZiZm8eF18WigQcqDln29S6c08-QEnXz4Aw>
-    <xme:Ifu8agmiqPbva4_rfP73yrJ-8zTc6yr2gAdk1TwTiJadPT8DOOkuMt3SIu3HXI3T0
-    WoxJ49duB9gQp5cC1UKbM5-aP82UP_7ns1fORu0Azv3zzVXRn8MhyY>
-X-ME-Proxy-Cause: dmFkZTELJ1wCFX7WFVpQk3imcnAa+TxAckaOriG6Ug6bxw1z7o1tOcu7rbEhcFIc0tbI2A
-    PLepz8lcuJFN9pwXkLefg27Lm4nIoURdsMl09sL3CZEJ9XmJhsxBZD6qitLh99+70RwWcp
-    2N+EII2nD/ZmIjd2o3KhpjnqnuYxaR9/7I3D59/sxIZMNVkODMMhUafZhe2o4a7COvekP6
-    0HagR5EX1WfwemJu0QmApt1smf0RXm5ZzYP4DKZxVoQs5mdyU9YnQKRuCqasoXaHnlg0Gj
-    rJj6CtSE4BHw0NWgEATUY9w4hRlPg4jdP6M8v95GZqTdErp7VtKZzXZ6QftFUrE/L1quPI
-    megOIY+VQmheEEiutS3mFMiwHvksm65tCxXV/nwylXlLQY+0WqXXcPrJ/MoLSTpUDKlBsU
-    cpS/uNETjdKLx0cfWXMFRc1vSwIE1Q4eeytP6yJDYTLudZcSFVsV6GLfv6aZAfPDakICur
-    e40JgV4oIc40YWXrg86z9BuEu6x61XZu/qWgatkS4ufXgHVph52RT2odRiPsZwahxSFmUN
-    tedG+89Na6Eg+ZKsB0yVsA6ai0G6YkdOjc44seV+Gp+ssFpK9OO2/L7linhjD4GWroXIcA
-    lKF7QT5+1sm2U1sESEUs2J4bCuGCsxnNUfiJlt/HEDzWiVawZf5rJc2NAv0Q
-X-ME-Proxy: <xmx:I_u8ajoIzuuX4TQXGIzBYYxwLPvLJtBS_fzqjwEuRSyFp3llqRO9uA>
-    <xmx:I_u8aoV1O4YCNSVDusxuu7DWZavgt4-zbqQtK2L8jKIIbzV3-2qYIg>
-    <xmx:I_u8am06Qkx7G8ghx0oUQKBKyE7wIsf8__2aNmj7xS0vzGPHqKXXzQ>
-    <xmx:I_u8ah1qVfjMcaRsNnGRUGjZNW-aUHKsl1YN9uXdW5N8iApB-bwQJw>
-    <xmx:Jfu8atqH_LiHKUtwEcJP9Ko_7j38Mn8mlntqsLvAYkQzEUrAuwx7V6lT>
-Feedback-ID: i56a14606:Fastmail
-Received: by mailuser.ams.internal (Postfix, from userid 501)
-	id 7FF3B32A008A; Wed, 30 Sep 2026 08:05:53 -0400 (EDT)
-X-Mailer: MessagingEngine.com Webmail Interface
+	Wed, 30 Sep 2026 12:06:19 +0000
+Received: by mail-dy2-x0f.google.com with SMTP id 5a478bee46e88-33bfb26865fso5216265eec.2
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 30 Sep 2026 05:06:17 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20251104; t=1790769976; x=1791374776; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
+        bh=jNaKwS3H0FTb6G3uXAp4oWpgGMYYjT9MmVEzrS7Q8MI=;
+        b=Z0OsZbqsAermAKgznw+low8H2vNjnVjm07e4cNFXgN4rR5y2gjFOh5vhi6k/5e1Mon
+         CTzqbr81cq0e1pSF4LWOy6eAtiCB1fmt0fXtLDiEWZxTUlb/q7BIVzIla/P8Q2MJKQGk
+         7Q6PomE7UEb+EL0C/FZ1YcejXpIlRjpbzX5LSlr8iEszHG1gRihDJJMGu0lX0DIP5Esi
+         w4cfVzK6rZPgg5zU+QvI/GUxagU/HDd1ZtIpHbVxhNfdGziwmyd31VmH48gKccVtjLgz
+         dbNOeCRhxyFykFWrF1IT57+3kIp+EZEQahBd+AblsQUxpsV8iyG1MWzn4uxZy9saUiEN
+         ontQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1790769976; x=1791374776;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=jNaKwS3H0FTb6G3uXAp4oWpgGMYYjT9MmVEzrS7Q8MI=;
+        b=u9zO44x/BaySLRl9a/eo4O48V0hA3xq7COgB1MbumrFPmzC2fw8JRhRMVkRi7Cag2u
+         FYoSfHeI1kRhbrhyQfrWZdoKzTKWotKc9Kmo8RCZsLbu6McSUYSYzQYBN0numDps51xK
+         6R7vWH+FWrMz6YOD8v5J4WA0Vx2PcHwLDJQ4mT2fyE2VMoelK+nmCD/MOW3gkhFxPpV6
+         UWGBvj4G7ZafiZBk7bu0xoh5fq4zQelVnm9esLzncTP9Or+HHde9t92SR1kMlD0sUU7T
+         ksmjwPABGMA22vY4cBnON2VqyGsCaNL7/W9JCRXJZTjOQuYZV9tMvMJ6qKYQCRbG1Qql
+         L14w==
+X-Forwarded-Encrypted: i=1; AKwUvByHLzrHBhlWQ4LSkGNHY+i5CRVfMN7R7AJcVUOv27YvNww3VNDO9j5ZgqDfX+r2lfyAfDSG1tJDYzR3BR8KvTKJ@lists.infradead.org
+X-Gm-Message-State: AFq9FYIBK/rSVzn94BzhpSnXDuB0/RkKrHbXWVyhP+j208aLOwp313EN
+	QYSuaYJlF8B2303Se6pgWjcFp5UN5WujqG3JTz1aO2USkNUDs5PG9AbpdonCc1Uy
+X-Gm-Gg: AYBFou2lWlUCumOBlL3dh1L2EtgiU0N4VBzcOx3e3MBe3KTS+WLC1j0PzxvrNMUGUs9
+	0GBxb2pUHHgvHVyDL66hRRUxSRLNg0GJ2m6MzsXGByRzNF62DCHbLV6Jg4LnauyxGfPoPq+R41y
+	5GGz57rkS17f4QrMS7D/nLyAmjSUciTnl7BZtOT7jOpqyFxgCx0XRlAxVNT0wrIFA7eqETNQLzp
+	sECRfFLm1tU1hRfmLCppVPWqOi00RIS9kTEVW+YAjm1R/KRhYa/q0R2Axt1JUYtQc8Cjg5MZzG/
+	czoNDeO71BzyQvCyB9jqDY4l2DwGcQtSujJWvybWuBrirtpR4SoEJWE2s/UPTLrysJx7JpZ0bZh
+	8oHqmfZLsiA4NXBhs9M+yhdYyFewd/RDD8GUN0Rxm7SNAwmdMXunP4RmHO6J9m3hTL8hD4lHAW+
+	swYfqgEm4LfSA34qzXW7+2i2MaD+n4Y2fdnb8/iQh5ISvFrvN3o7IKBjmq0zIm3uyoITeq6xzyf
+	fD2rag14wjkn+8CbjLy
+X-Received: by 2002:a05:693c:20cc:20b0:34c:df85:8e3e with SMTP id 5a478bee46e88-34cdf859b93mr1452972eec.4.1790769975550;
+        Wed, 30 Sep 2026 05:06:15 -0700 (PDT)
+Received: from localhost.localdomain ([103.178.205.97])
+        by smtp.gmail.com with ESMTPSA id 5a478bee46e88-34cef75459csm4692705eec.0.2026.09.30.05.06.10
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Wed, 30 Sep 2026 05:06:14 -0700 (PDT)
+From: Sreeraj S Kurup <sreekuttan2156239@gmail.com>
+To: Ryder Lee <ryder.lee@mediatek.com>,
+	Lorenzo Pieralisi <lpieralisi@kernel.org>,
+	=?UTF-8?q?Krzysztof=20Wilczy=C3=85=E2=80=9Eski?= <kwilczynski@kernel.org>,
+	Manivannan Sadhasivam <mani@kernel.org>,
+	Rob Herring <robh@kernel.org>,
+	Bjorn Helgaas <bhelgaas@google.com>,
+	Matthias Brugger <matthias.bgg@gmail.com>,
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
+Cc: linux-pci@vger.kernel.org,
+	linux-mediatek@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	Sreeraj S Kurup <sreekuttan2156239@gmail.com>
+Subject: [PATCH v4] PCI: mediatek: Fix integer truncation and handle oversized resources
+Date: Wed, 30 Sep 2026 12:05:39 +0000
+Message-ID: <20260930120539.4967-1-sreekuttan2156239@gmail.com>
+X-Mailer: git-send-email 2.55.0
 MIME-Version: 1.0
-X-ThreadId: AxcX56erMFXV
-Date: Wed, 30 Sep 2026 14:05:33 +0200
-From: "Arnd Bergmann" <arnd@arndb.de>
-To: "Fil Dunsky" <filipp.dunsky@gmail.com>
-Cc: "Linus Walleij" <linusw@kernel.org>,
- "Krzysztof Kozlowski" <krzk@kernel.org>, "Rob Herring" <robh@kernel.org>,
- "Krzysztof Kozlowski" <krzk+dt@kernel.org>,
- "Conor Dooley" <conor+dt@kernel.org>,
- "Greg Kroah-Hartman" <gregkh@linuxfoundation.org>,
- "Jiri Slaby" <jirislaby@kernel.org>, "Russell King" <linux@armlinux.org.uk>,
- "Alexandre Belloni" <alexandre.belloni@bootlin.com>,
- "Drew Fustini" <fustini@kernel.org>,
- "Lorenzo Pieralisi" <lpieralisi@kernel.org>,
- linux-arm-kernel@lists.infradead.org, devicetree@vger.kernel.org,
- linux-kernel@vger.kernel.org, linux-serial@vger.kernel.org,
- "Jason Li" <jason.li@cortina-access.com>
-Message-Id: <9ad7be0e-6a60-4e7a-b94b-fd79ad0fc91c@app.fastmail.com>
-In-Reply-To: <179076749140.3134070.3869742286743401078@gmail.com>
-References: <20260930-b4-cs75xx-v1-0-4617c4463529@gmail.com>
- <20260930-b4-cs75xx-v1-7-4617c4463529@gmail.com>
- <CAD++jLkzcf7gJB82XT3-xb4jLujtWSNz1kT2r1-4N54rRfRNMA@mail.gmail.com>
- <1d81c2ef-7a5b-4306-83d2-ff96b0eb6a06@app.fastmail.com>
- <179076749140.3134070.3869742286743401078@gmail.com>
-Subject: Re: [PATCH RFC 07/10] tty: serial: Add Cortina Systems CS75xx UART driver
-Content-Type: text/plain
-Content-Transfer-Encoding: 7bit
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260930_130604_823333_E629F8A6 
-X-CRM114-Status: GOOD (  19.18  )
+X-CRM114-CacheID: sfid-20260930_130618_286146_493F0720 
+X-CRM114-Status: GOOD (  17.05  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -137,43 +121,97 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Sep 30, 2026, at 13:24, Fil Dunsky wrote:
-> On Wed, Sep 30, 2026 at 01:08:07PM +0200, Arnd Bergmann wrote:
->> On Wed, Sep 30, 2026, at 12:57, Linus Walleij wrote:
->>> Look at this in your Linux tree:
->>> git log -p b61c8bf4694b5115766849378dcb8787ff54e65e
->>>
->>> This is essentially a resurrection of that driver.
->>
->> Jason actually came back this summer to try again, see
->> https://lore.kernel.org/linux-arm-kernel/20260610112821.3030099-1-jason.li@cortina-access.com/
->
-> Thanks, I was not aware of either. Comparing the two, it is the same
-> IP: the offsets of CFG, RX_SAMPLE, TX_DAT, RX_DAT, INFO, IE and INT
-> and the bit layout of CFG, INFO and the interrupt registers are
-> identical. The Cortina Access version additionally has a flow control
-> register at 0x04, RT_TUNE at 0x0c, STATUS at 0x2c and three more
-> interrupt causes (break, RX underrun, TX overrun).
+resource_size() returns a resource_size_t, which is 64-bit on 64-bit
+architectures or 32-bit systems with LPAE/PAE enabled. Passing this
+directly to fls(), which accepts an unsigned int, implicitly
+truncates the upper 32 bits.
 
-Ok, thanks for checking.
+Furthermore, AHB2PCIE_SIZE() uses a 5-bit mask GENMASK(4, 0). If a
+resource size exceeds 2 GiB (order > 31), the log2 size order
+overflows the 5-bit mask. Clamping the value silently truncates the
+hardware window while leaving the OS resource intact, causing bus
+errors when accessing BARs in the unmapped upper region.
 
->>> Anyways, clearly this driver is not just for CS75xx so name it
->>> cortina-uart.c simply, and update symbols accordingly. Kconfig
->>> should be SERIAL_CORTINA etc.
->>
->> I think we clearly want a driver that works for both the Cortina
->> Systems CS75xx and the Cortina Access CA82xx, hopefully that
->> would also support the ones inbetween (CS80xx, CA81xx).
->
-> Agreed. For v2 I will rename it to drivers/tty/serial/cortina-uart.c
-> with SERIAL_CORTINA and SERIAL_CORTINA_CONSOLE, and name the binding
-> so that it can take the other parts. I would keep SoC specific
-> compatibles ("cortina,cs7542-uart", later e.g.
-> "cortina-access,ca8289-uart"), so that the flow control and the extra
-> interrupt causes can be enabled per compatible.
+Fix this by using fls64(size - 1) to accurately calculate log2 size
+orders without off-by-one errors and returning -EINVAL if the resource
+size exceeds the maximum supported 31-bit window order.
 
-Sounds good. The important bit here is to ensure the structure can
-work with both variants.
+Signed-off-by: Sreeraj S Kurup <sreekuttan2156239@gmail.com>
+---
+ drivers/pci/controller/pcie-mediatek.c | 29 ++++++++++++++++++++++++--
+ 1 file changed, 27 insertions(+), 2 deletions(-)
 
-    Arnd
+diff --git a/drivers/pci/controller/pcie-mediatek.c b/drivers/pci/controller/pcie-mediatek.c
+index a60d1ae076f8..639884b22ad7 100644
+--- a/drivers/pci/controller/pcie-mediatek.c
++++ b/drivers/pci/controller/pcie-mediatek.c
+@@ -8,6 +8,7 @@
+  */
+ 
+ #include <linux/bitfield.h>
++#include <linux/bitops.h>
+ #include <linux/clk.h>
+ #include <linux/delay.h>
+ #include <linux/errno.h>
+@@ -686,6 +687,8 @@ static int mtk_pcie_startup_port_v2(struct mtk_pcie_port *port)
+ 	const struct mtk_pcie_soc *soc = port->pcie->soc;
+ 	u32 val;
+ 	int err;
++	resource_size_t size;
++	int size_order;
+ 
+ 	entry = resource_list_first_type(&host->windows, IORESOURCE_MEM);
+ 	if (entry)
+@@ -753,8 +756,18 @@ static int mtk_pcie_startup_port_v2(struct mtk_pcie_port *port)
+ 		mtk_pcie_enable_msi(port);
+ 
+ 	/* Set AHB to PCIe translation windows */
++	size = resource_size(mem);
++	if (!size)
++		return -EINVAL;
++
++	size_order = fls64(size - 1);
++	if (size_order > 31) {
++		dev_err(pcie->dev, "Memory resource size too large: %pa\n", &size);
++		return -EINVAL;
++	}
++
+ 	val = lower_32_bits(mem->start) |
+-	      AHB2PCIE_SIZE(fls(resource_size(mem)));
++	      AHB2PCIE_SIZE(size_order);
+ 	writel(val, port->base + PCIE_AHB_TRANS_BASE0_L);
+ 
+ 	val = upper_32_bits(mem->start);
+@@ -775,6 +788,8 @@ static int mtk_pcie_startup_port_en7528(struct mtk_pcie_port *port)
+ 	struct resource_entry *entry;
+ 	u32 val, link_mask;
+ 	int err;
++	resource_size_t size;
++	int size_order;
+ 
+ 	entry = resource_list_first_type(&host->windows, IORESOURCE_MEM);
+ 	if (entry)
+@@ -829,8 +844,18 @@ static int mtk_pcie_startup_port_en7528(struct mtk_pcie_port *port)
+ 		mtk_pcie_enable_msi(port);
+ 
+ 	/* Set AHB to PCIe translation windows */
++	size = resource_size(mem);
++	if (!size)
++		return -EINVAL;
++
++	size_order = fls64(size - 1);
++	if (size_order > 31) {
++		dev_err(pcie->dev, "Memory resource size too large: %pa\n", &size);
++		return -EINVAL;
++	}
++
+ 	val = lower_32_bits(mem->start) |
+-	      AHB2PCIE_SIZE(fls(resource_size(mem)));
++	      AHB2PCIE_SIZE(size_order);
+ 	writel(val, port->base + PCIE_AHB_TRANS_BASE0_L);
+ 
+ 	val = upper_32_bits(mem->start);
+-- 
+2.55.0
+
 
