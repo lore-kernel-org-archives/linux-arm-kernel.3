@@ -4,73 +4,102 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0AC3BCA5FCD
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 30 Sep 2026 14:53:04 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 65D8CCA5FC5
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 30 Sep 2026 14:55:01 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=HsDhMDVuh4cc6ye7ymG8hoMTg53LQnEshrzl/YQU85I=; b=NlV8fvSOvw95KN7oF73s62JdlP
-	yDNwgRg8ZBY4Ji9/zsGMtdy5LsHw8H6R69PytEzI/CMYXZZyjNpkcSi9Lk8q0piSxZU4JFdaus1F5
-	jDwlGRB2Sytu952u8qtUICQgRjOxXQnUw1PAlyJ/b3QQPLQlVT4wrwMk1ZuXyICIatlrfu+/F+CFq
-	sqYAKFjR/qr3DQZpqnQi6rUrnUfsqXGlGzJxc/2wMteGK33TTxf1wahyMcDa0JBhqtxy+eyy1TQqo
-	oFedgEk0thatxcDWyC8s8S/CqaEP2apeor0+ONRu2Tx+dsWR9KUHRslSitxkJkZDauPiEBPUENR+f
-	HF7A5GXA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:To:
+	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=fX+GMtVZvZFwpjXU+kCF5PX/DfKN7b04TfWCfb65nWU=; b=t40M2t0Jq7+WsqDocl6WNZ7xPQ
+	dWAPpJQcqxUX4RFyB/B0gU3DeeJS4nmi04xHEV2WBFV1aq053vwrvEoRE1I+S4kX9MTL6Tn/v2bqu
+	BWMSR306VC1bxbMpaSrBdoRZxzWMkepWuLViHxh90T4Sbwsr52JdwsaklwKQiggVaA3HwFFS8YaD+
+	Y+fe89vzAF58bDxKl0gdliIQILSGiDJ4pOoJb7N0ZDeyGCRXoSRyi7GA+itEDiB95m+rdlT4JCH+Q
+	FyugL24uTUAs2pe1l0ZwkYi0r94HiyMFqB6rcphXpVU/9UTxQdaZIGqQuDRFUCi6JtrHOy95F8mn+
+	2m2hKLEA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xBvg1-00000006O8a-0VYh;
-	Wed, 30 Sep 2026 14:52:57 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1xBvhu-00000006OUc-3k8Y;
+	Wed, 30 Sep 2026 14:54:54 +0000
+Received: from mail-wm2-x11.google.com ([2a00:1450:4864:31::11])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xBvfS-00000006O2b-2yEC;
-	Wed, 30 Sep 2026 14:52:22 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id 2C40460258;
-	Wed, 30 Sep 2026 14:52:22 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 957AA1F00893;
-	Wed, 30 Sep 2026 14:52:14 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1790779941;
-	bh=HsDhMDVuh4cc6ye7ymG8hoMTg53LQnEshrzl/YQU85I=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=a/6hwOnY67kNI4nlzC/x1riFYpZ7PeyzDWmXi6WXlJTgR+sZi7Hsl7pNS6FNVmsv5
-	 NH7/5TEHK/HIAN0MYtMhJWB+nNyFH4hwIXvksH9eAlwM8dAoTfkCmoNgLBceRm7V3U
-	 sfUhqFpafZ+SnoR5JJCSDUzaNIB+LGVxVhyR0oA6+2VS4l/er2Vy5w6o2Vn1SZ5X+V
-	 x5l9ygNECiNiUgl9VZqjSW8X7ejj0gdM1HsOfnwHD05WX5hMy6wom1geor9g7sObxU
-	 mXf6YLv+uvSEQaz44WQFFkusmi+iARVTDm2N4rL8hYI4vKwW3bvGYvjEdGxDc6QXmQ
-	 rKb9WWzqU5j4Q==
-Date: Wed, 30 Sep 2026 22:32:11 +0800
-From: Jisheng Zhang <jszhang@kernel.org>
-To: Conor Dooley <conor@kernel.org>
-Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>, Stephen Boyd <sboyd@kernel.org>,
-	Brian Masney <bmasney+clk@redhat.com>,
-	Jerome Brunet <jbrunet+clk@baylibre.com>,
-	Andi Shyti <andi.shyti@kernel.org>,
-	Alexandre Belloni <alexandre.belloni@bootlin.com>,
-	Frank Li <Frank.Li@nxp.com>, Lee Jones <lee@kernel.org>,
-	Linus Walleij <linusw@kernel.org>,
-	Liam Girdwood <lgirdwood@gmail.com>,
-	Mark Brown <broonie@kernel.org>,
-	Philipp Zabel <p.zabel@pengutronix.de>,
-	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
-	Jiri Slaby <jirislaby@kernel.org>,
-	Sebastian Hesselbarth <sebastian.hesselbarth@gmail.com>,
-	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
-	linux-clk@vger.kernel.org, linux-i2c@vger.kernel.org,
-	linux-i3c@lists.infradead.org, mfd@lists.linux.dev,
-	linux-gpio@vger.kernel.org, linux-serial@vger.kernel.org,
-	linux-spi@vger.kernel.org, linux-arm-kernel@lists.infradead.org
-Subject: Re: [PATCH 00/20] arm64: add Synaptics SL261X SoCs and RDK boards
-Message-ID: <ar0da71zOeeYxURQ@xhacker>
-References: <20260929061417.20733-1-jszhang@kernel.org>
- <20260929-smoked-laurel-087d5a3523a3@spud>
+	id 1xBvhr-00000006OTo-2077
+	for linux-arm-kernel@lists.infradead.org;
+	Wed, 30 Sep 2026 14:54:52 +0000
+Received: by mail-wm2-x11.google.com with SMTP id 5b1f17b1804b1-49cd5462b69so30921735e9.1
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 30 Sep 2026 07:54:50 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20251104; t=1790780089; x=1791384889; darn=lists.infradead.org;
+        h=content-transfer-encoding:content-type:mime-version:references
+         :in-reply-to:message-id:subject:cc:to:from:date:from:to:cc:subject
+         :date:message-id:reply-to:content-type;
+        bh=fX+GMtVZvZFwpjXU+kCF5PX/DfKN7b04TfWCfb65nWU=;
+        b=ONrf0kJMgRKZd2eWzkAE+vd5nPqGlDCcQE9Owa9J5RI6zssUtioayPUZl1x9jTRuC9
+         +s2hBhu0pVR0nWgU89eiQVE59oWUIbw1WUpgijKhHpRydW4/WcmEfv6jLyN9odDpTvmV
+         AeUPIYm/Pp5xDeEtmqD3SUwgAw2NaWQkZKnaogV49cs6r6MplhGVwbuO5JK0iyWU2IVA
+         TJXtuLaPJ5BSlHlTkdN8BmvvZ4h0VSITDL2w1OesdXdarzAgLGrPjGppidPU+tRrsQ8o
+         mWXURzG/BLzbmNQj8gZXU4oQ/6DuRfBImmWshYC5ydavOwCb/c+86W3mWmkyXfTJ9505
+         CiPQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1790780089; x=1791384889;
+        h=content-transfer-encoding:content-type:mime-version:references
+         :in-reply-to:message-id:subject:cc:to:from:date:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=fX+GMtVZvZFwpjXU+kCF5PX/DfKN7b04TfWCfb65nWU=;
+        b=r5/+pZpK2jLF11ptqj0KJcO6ZpRR8xLrGcK9TU1zzAKSMctGt8PRBlG6ubmzX0TVM4
+         F/HUESZNllwrK2IpKWXkr6Cp0oOM7mESqndj0t1IRzkBrpMMD5j0O3hNeKqLTN4AvBTx
+         AGmxrBR4AGP0nk1+dPngQ4Z5obPncDvKBvAw22bwg8eEe+6U92GS4AJcKA07WOERjVHC
+         Ekded1UXuw8nsHlvWrjRZ6yOxcGSNYSwLPXauNPI4uvAFEikpvELQCYLGaEJPuhh6v+x
+         4EQ/jKq6nRLOWhmZCqU2KeIZBM9G3jq3fzkyMcReZo28tN9DBZ7/VwPLohFA6X5AfGIH
+         woxQ==
+X-Forwarded-Encrypted: i=1; AKwUvBxVr85j/bnCZgrMijCZ3XOzfAMyJGU61vXc7XE9Q4W4qLbm3uW39/CstVMCinGDtNDHOMagtpxXEXjre7BHzA+c@lists.infradead.org
+X-Gm-Message-State: AFuF++kZjxLtpzIVW9pTJzNUdTka40AbGzs2BeW6OMBhqLVdeaODz9h4
+	36yOC/s3HkMumIstayB6sro3pj9v5Nns9zvzDQZNnNG2xwZ/7Mmc27dT
+X-Gm-Gg: AYBFou1ysRzcIR4QogS6ve+avkqyaVkJBHWAkhZNtS5Qfq7ujrmPIiG9rZarsEWDjyW
+	XTAh++mpZYIIdt7f0B3r2JSXHwIeH/t+hk3HZxyrv9M2zrn/7go9/a4whNySz8bdqCNJp3/SWH/
+	kjre3iLdwEzU6k7LrDu+vZKww4krlkMGuonroCmKFqApV2+gAxgBc9MLs9lvjDG0q5hL7AYlaew
+	THucGwv6JEu3sKRtp9Gt9Qcp9tI11avR1emng/BwvGRjR5o2DOp14S3kcOZep1OYhahfenE/skc
+	yOLemFC9IKTywYIGRdH5Mn2w+FOaPuMd8B6KV2XKBt28o0oiPSSJ9QNyFPDtf6evMBcPEZrbwq6
+	PFr+thLLKoriP3nT4cmn9SXyF9Zl/CNd/XzltKiuaVPVAFXPkWk5N+ljfh6aQibm8yQDinl7SF1
+	EMc1zWhhOQnmnAHqFYFF9rHToP7mLFZWu3oXEVwCfVDKdqarw7i6QoHKQ/yppGV1q1qMKpjxNRE
+	PcuS3BqCzkC4BlT4tUz+kzz0mXakQ/4yptHMCZJ9/RGNuHezXDMfDMeFIPkMB8AK4DPH21zaCQf
+	uYZayPf9hS5Yg2Iu4AQEjkyTCzrwW5ekK7RNl+tVV+RC1HTmeSIceYdTO3qaISsL/UIrp7Tw4dk
+	WCJ9wbVn/sN1SWPDe5STbzu0LljMQFYB1oWosBFGunI7XIxMQ7eE1wR1Coz1f5VxqTego+CmqSZ
+	1GsRc1
+X-Received: by 2002:a05:600c:a00b:b0:4a0:1c69:f607 with SMTP id 5b1f17b1804b1-4a01c69f64dmr14101255e9.29.1790780088847;
+        Wed, 30 Sep 2026 07:54:48 -0700 (PDT)
+Received: from localhost (90-182-112-124.rcp.o2.cz. [90.182.112.124])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4a01e6622e1sm4236005e9.3.2026.09.30.07.54.47
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Wed, 30 Sep 2026 07:54:48 -0700 (PDT)
+Date: Wed, 30 Sep 2026 16:54:47 +0200
+From: Joshua Crofts <joshua.crofts1@gmail.com>
+To: Fabrice Gasnier <fabrice.gasnier@foss.st.com>
+Cc: Jonathan Cameron <jic23@kernel.org>, David Lechner
+ <dlechner@baylibre.com>, Nuno =?ISO-8859-1?Q?S=E1?= <nuno.sa@analog.com>,
+ "Andy Shevchenko" <andy@kernel.org>, Rob Herring <robh@kernel.org>,
+ "Krzysztof Kozlowski" <krzk+dt@kernel.org>, Conor Dooley
+ <conor+dt@kernel.org>, "Maxime Coquelin" <mcoquelin.stm32@gmail.com>,
+ Alexandre Torgue <alexandre.torgue@foss.st.com>, Marek Vasut
+ <marex@nabladev.com>, <linux-iio@vger.kernel.org>,
+ <devicetree@vger.kernel.org>, <linux-stm32@st-md-mailman.stormreply.com>,
+ <linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>,
+ Olivier Moysan <olivier.moysan@foss.st.com>
+Subject: Re: [PATCH v3 04/15] iio: adc: stm32-adc: manage characterization
+ voltage diversity
+Message-ID: <20260930165447.000046e4@gmail.com>
+In-Reply-To: <20260930-adc-stm32mp25-v1-v3-4-406834430d72@foss.st.com>
+References: <20260930-adc-stm32mp25-v1-v3-0-406834430d72@foss.st.com>
+	<20260930-adc-stm32mp25-v1-v3-4-406834430d72@foss.st.com>
+X-Mailer: Claws Mail 4.4.0 (GTK 3.24.51; x86_64-w64-mingw32)
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-In-Reply-To: <20260929-smoked-laurel-087d5a3523a3@spud>
+Content-Type: text/plain; charset=US-ASCII
+Content-Transfer-Encoding: 7bit
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260930_075451_847846_AC83DBAE 
+X-CRM114-Status: GOOD (  19.24  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -85,141 +114,56 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Sep 29, 2026 at 08:38:52PM +0100, Conor Dooley wrote:
-> On Tue, Sep 29, 2026 at 02:13:57PM +0800, Jisheng Zhang wrote:
-> > Add initial support for the Synaptics SL261X SoCs and corresponding
-> > RDK boards.
-> > 
-> > The SL261X SoCs include five pin-to-pin compatible SoCs: SL2611, SL2613,
-> > SL2615, SL2617, and SL2619.
-> > 
-> > Only reset, pinctrl, clk/pll, uart, gpio, i2c, spi, i3c are included in
-> > this series. The support for Ethernet, USB, SDHCI, CAN, DMAC, XSPI will
-> > be submitted after this series is merged.
+On Wed, 30 Sep 2026 16:18:25 +0200
+Fabrice Gasnier <fabrice.gasnier@foss.st.com> wrote:
+
+> From: Olivier Moysan <olivier.moysan@foss.st.com>
 > 
-> This series is filled with wildcard compatibles, which we don't permit
-> typically. The only case for SoCs that I've seen them accepted is when
-> the devices covered are actually just different binnings of the same
-> device. I took a look at the docs for this device, but it wasn't clear
-> to me if these are actually binnings or if there are different
-> integrations here. If they're binnings, I'd rather you used 0 as the
-> final digit, rather than x, since that matches the synaptics
-> documentation for the family. If they're not binnings, there's no
-> guarantee that they share the same errata etc, and must have different
-> compatibles.
-
-BTW: May I query a qustion?
-After searching the maillist archieves, it seems now maintainers prefer
-spiliting this kind of SoC initial support series into separate patches
-for different subsystems, e.g uart, i2c, i3c, spi and so on, then the
-SoC pinctrl, clk, reset and dtsi/dts files, but AIUI, there will be
-dtb check failures with the SoC dts(i) files patch(es), what's
-the normal solution then?
-
+> The characterization voltage used to calibrate vrefint depends
+> on SoC family. Add vref_charac_mv field in stm32_adc_cfg structure
+> to store the characterization voltage for each SoC, and use it
+> in Vref computation formula.
 > 
-> Cheers,
-> Conor.
+> Signed-off-by: Olivier Moysan <olivier.moysan@foss.st.com>
+> Signed-off-by: Fabrice Gasnier <fabrice.gasnier@foss.st.com>
+> ---
+> Changes in v2:
+> - Andy's review comments: rename variable to vref_charac_mv (unit suffix).
+>   Drop the const attribute.
+> ---
+>  drivers/iio/adc/stm32-adc.c | 9 +++++++--
+>  1 file changed, 7 insertions(+), 2 deletions(-)
 > 
-> > 
-> > 
-> > Jisheng Zhang (20):
-> >   dt-bindings: serial: snps-dw-apb-uart: Add Synaptics sl261x uart
-> >   dt-bindings: i2c: dw: Add Synaptics sl261x i2c
-> >   spi: dt-bindings: snps,dw-apb-ssi: Add Synaptics sl261x spi
-> >   dt-bindings: i3c: dw: support up to two reset lines
-> >   i3c: dw: switch to array-based exclusive reset control
-> >   dt-bindings: i3c: Add Synaptics sl261x i3c
-> >   arm64: kconfig: let ARCH_BERLIN cover Synaptics arm64 SoCs
-> >   dt-bindings: reset: add Synaptics SL261X SoCs
-> >   reset: add Synaptics SL261x reset support
-> >   pinctrl: berlin: use u16 instead of u8 for the offset
-> >   pinctrl: berlin: enable module build support
-> >   pinctrl: berlin: add optional pinconf support
-> >   dt-bindings: pinctrl: berlin: Support Synaptics SL261X SoCs
-> >   pinctrl: berlin: support Synaptics SL261X SoCs
-> >   dt-bindings: clock: add Synaptics SL261X clock
-> >   clk: berlin: add Synaptics SL261X SoC clocks and plls
-> >   dt-bindings: mfd: Add Synaptics SL261x global block binding
-> >   regulator: dt-bindings: sy8827n: support standard properties
-> >   dt-bindings: arm: berlin: Add Synaptics SL261X SoC and RDK board
-> >   arm64: dts: synaptics: Add Synaptics SL261X SoC and RDK board
-> > 
-> >  .../bindings/arm/marvell,berlin.yaml          |  20 +
-> >  .../bindings/clock/syna,sl261x-clk.yaml       |  92 +++
-> >  .../bindings/i2c/snps,designware-i2c.yaml     |   1 +
-> >  .../bindings/i3c/snps,dw-i3c-master.yaml      |   6 +-
-> >  .../bindings/mfd/syna,sl261x-gbl.yaml         | 208 +++++
-> >  .../pinctrl/marvell,berlin2-soc-pinctrl.yaml  |  10 +-
-> >  .../bindings/regulator/silergy,sy8827n.yaml   |   5 +-
-> >  .../bindings/reset/syna,sl261x-reset.yaml     |  40 +
-> >  .../bindings/serial/snps-dw-apb-uart.yaml     |  12 +-
-> >  .../bindings/spi/snps,dw-apb-ssi.yaml         |   1 +
-> >  arch/arm64/Kconfig.platforms                  |   4 +-
-> >  arch/arm64/boot/dts/synaptics/Makefile        |   5 +
-> >  arch/arm64/boot/dts/synaptics/sl2611-rdk.dts  |  16 +
-> >  arch/arm64/boot/dts/synaptics/sl2611.dtsi     | 490 ++++++++++++
-> >  arch/arm64/boot/dts/synaptics/sl2613-rdk.dts  |  16 +
-> >  arch/arm64/boot/dts/synaptics/sl2613.dtsi     |  12 +
-> >  arch/arm64/boot/dts/synaptics/sl2615-rdk.dts  |  16 +
-> >  arch/arm64/boot/dts/synaptics/sl2615.dtsi     |  46 ++
-> >  arch/arm64/boot/dts/synaptics/sl2617-rdk.dts  |  16 +
-> >  arch/arm64/boot/dts/synaptics/sl2617.dtsi     |  46 ++
-> >  arch/arm64/boot/dts/synaptics/sl2619-rdk.dts  |  16 +
-> >  arch/arm64/boot/dts/synaptics/sl2619.dtsi     |  44 ++
-> >  .../boot/dts/synaptics/sl261x-rdk-common.dtsi | 135 ++++
-> >  drivers/clk/Kconfig                           |   1 +
-> >  drivers/clk/berlin/Kconfig                    |  25 +
-> >  drivers/clk/berlin/Makefile                   |   4 +
-> >  drivers/clk/berlin/sl-clk.c                   | 279 +++++++
-> >  drivers/clk/berlin/sl-clk.h                   |  31 +
-> >  drivers/clk/berlin/sl-sysmgr-clk.c            | 250 ++++++
-> >  drivers/clk/berlin/sl-sysmgr-clk.h            |  44 ++
-> >  drivers/clk/berlin/sl261x-clks.c              | 385 +++++++++
-> >  drivers/clk/berlin/sl261x-pll.c               | 145 ++++
-> >  drivers/clk/berlin/sl261x-pll.h               |  14 +
-> >  drivers/i3c/master/dw-i3c-master.c            |  24 +-
-> >  drivers/i3c/master/dw-i3c-master.h            |   2 +-
-> >  drivers/pinctrl/berlin/Kconfig                |   7 +
-> >  drivers/pinctrl/berlin/Makefile               |   1 +
-> >  drivers/pinctrl/berlin/berlin.c               | 259 +++++-
-> >  drivers/pinctrl/berlin/berlin.h               |  17 +-
-> >  drivers/pinctrl/berlin/pinctrl-sl261x.c       | 745 ++++++++++++++++++
-> >  drivers/reset/Kconfig                         |   6 +
-> >  drivers/reset/Makefile                        |   1 +
-> >  drivers/reset/reset-sl261x.c                  | 224 ++++++
-> >  include/dt-bindings/clock/syna,sl261x.h       | 131 +++
-> >  include/dt-bindings/reset/syna,sl261x-reset.h |  80 ++
-> >  45 files changed, 3899 insertions(+), 33 deletions(-)
-> >  create mode 100755 Documentation/devicetree/bindings/clock/syna,sl261x-clk.yaml
-> >  create mode 100644 Documentation/devicetree/bindings/mfd/syna,sl261x-gbl.yaml
-> >  create mode 100644 Documentation/devicetree/bindings/reset/syna,sl261x-reset.yaml
-> >  create mode 100644 arch/arm64/boot/dts/synaptics/sl2611-rdk.dts
-> >  create mode 100644 arch/arm64/boot/dts/synaptics/sl2611.dtsi
-> >  create mode 100644 arch/arm64/boot/dts/synaptics/sl2613-rdk.dts
-> >  create mode 100644 arch/arm64/boot/dts/synaptics/sl2613.dtsi
-> >  create mode 100644 arch/arm64/boot/dts/synaptics/sl2615-rdk.dts
-> >  create mode 100644 arch/arm64/boot/dts/synaptics/sl2615.dtsi
-> >  create mode 100644 arch/arm64/boot/dts/synaptics/sl2617-rdk.dts
-> >  create mode 100644 arch/arm64/boot/dts/synaptics/sl2617.dtsi
-> >  create mode 100644 arch/arm64/boot/dts/synaptics/sl2619-rdk.dts
-> >  create mode 100644 arch/arm64/boot/dts/synaptics/sl2619.dtsi
-> >  create mode 100644 arch/arm64/boot/dts/synaptics/sl261x-rdk-common.dtsi
-> >  create mode 100644 drivers/clk/berlin/Kconfig
-> >  create mode 100644 drivers/clk/berlin/sl-clk.c
-> >  create mode 100644 drivers/clk/berlin/sl-clk.h
-> >  create mode 100644 drivers/clk/berlin/sl-sysmgr-clk.c
-> >  create mode 100644 drivers/clk/berlin/sl-sysmgr-clk.h
-> >  create mode 100644 drivers/clk/berlin/sl261x-clks.c
-> >  create mode 100644 drivers/clk/berlin/sl261x-pll.c
-> >  create mode 100644 drivers/clk/berlin/sl261x-pll.h
-> >  create mode 100644 drivers/pinctrl/berlin/pinctrl-sl261x.c
-> >  create mode 100644 drivers/reset/reset-sl261x.c
-> >  create mode 100644 include/dt-bindings/clock/syna,sl261x.h
-> >  create mode 100644 include/dt-bindings/reset/syna,sl261x-reset.h
-> > 
-> > -- 
-> > 2.53.0
-> > 
+> diff --git a/drivers/iio/adc/stm32-adc.c b/drivers/iio/adc/stm32-adc.c
+> index 600f975f1d7b..fa46803d54be 100644
+> --- a/drivers/iio/adc/stm32-adc.c
+> +++ b/drivers/iio/adc/stm32-adc.c
+> @@ -43,7 +43,6 @@
+>  #define STM32_ADC_TIMEOUT_US		100000
+>  #define STM32_ADC_TIMEOUT	(msecs_to_jiffies(STM32_ADC_TIMEOUT_US / 1000))
+>  #define STM32_ADC_HW_STOP_DELAY_MS	100
+> -#define STM32_ADC_VREFINT_VOLTAGE	3300
+>  
+>  #define STM32_DMA_BUFFER_SIZE		PAGE_SIZE
+>  
+> @@ -211,6 +210,7 @@ struct stm32_adc;
+>   * @set_ovs:		routine to set oversampling configuration
+>   * @smp_cycles:		programmable sampling time (ADC clock cycles)
+>   * @ts_int_ch:		pointer to array of internal channels minimum sampling time in ns
+> + * @vref_charac_mv:	Vref characterization voltage used to measure vrefint calibration value
+>   */
+>  struct stm32_adc_cfg {
+>  	const struct stm32_adc_regspec	*regs;
+> @@ -230,6 +230,7 @@ struct stm32_adc_cfg {
+>  	void (*set_ovs)(struct iio_dev *indio_dev, u32 ovs_idx);
+>  	const unsigned int *smp_cycles;
+>  	const unsigned int *ts_int_ch;
+> +	int vref_charac_mv;
 
+Case-sensitive units if it's SI is preferred in IIO, therefore *_mV.
+(checkpatch warns against this, but just ignore it).
 
+-- 
+Kind regards,
+Joshua Crofts
 
