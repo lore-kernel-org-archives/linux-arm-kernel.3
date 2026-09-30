@@ -4,127 +4,80 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4B8F4CA5FC3
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 30 Sep 2026 08:44:38 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D534BCA5FC1
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 30 Sep 2026 08:45:23 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=gQ9hptiZBGfXNR1HP8iVMghmS/PiOTs+/PvxakrVW2U=; b=1UhNNV0mZtrF0QcVoZPDi1TLfv
-	US0r0T6FPnnz3fhgfBJu3lKE7QMlNZq1OvGV1830wEllAAPMejuoFpAu+dkc4Mfupf0hyfD8jysSC
-	zP/Fn+1uTjVIBz8xJoFZF/zxQMRl9iCuNqNHCX2j1JnMBBx9QkG1SSmom38DLZHvRzR/N51bzP9P4
-	RGdRMFh9uz4pP0Zo56NJt56VacIso2foAg4j+TQ+eVVyjrhZJ4LHtnOR2eTGb07BA82TmaShEJMkK
-	wNWufiSuOT2iyp84gTUKO/QMRmteCiJPcq55VuV7Hn7hD4uKuqfEgQXdF6xzQhC1HockQcBPQh1fA
-	0DMJVcAg==;
+	bh=k+2YE3/D0TMMc1GDR8Xa69ENbBbITfMmMCm6CARPooE=; b=Ldv/pEdBHlq5x7yhDusRQDin0I
+	c/k3CQjWT/EIt6Ec27f8nV4AX4t1JfDBSY661V8kuDc7hHyORr6nRKTpKVwAxc+z75hy8Luljw5Ww
+	gbtqHzVj/FRkmkP1iVGbNH81o9dJ5MxQowmhOXNBjS6W5qfFjsDu6PNJI1YYVCGMvb+d5SgEmvDLz
+	w2NQJUQTCyCIhUps7SIQqTEnZU2wSlx4GAaT4DFEJ23h7zAwk6pN64WYWWXF5iq7r/Kae/UD/FNBu
+	0RS/xWlaMO44UxLSfmtmOWjsDoRVRPjWYxQcmUe9agbw3Yq7JNoVt+rl3nIhXybhJ639OxciSgeHD
+	SxlMFCGw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xBpvP-00000005TEO-3rr7;
-	Wed, 30 Sep 2026 08:44:28 +0000
-Received: from mail-westeuropeazlp170110003.outbound.protection.outlook.com ([2a01:111:f403:c201::3] helo=AS8PR04CU009.outbound.protection.outlook.com)
+	id 1xBpwC-00000005TNd-1pQL;
+	Wed, 30 Sep 2026 08:45:16 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xBpvM-00000005TDX-49We
+	id 1xBpwA-00000005TMn-1fO4
+	for linux-arm-kernel@bombadil.infradead.org;
+	Wed, 30 Sep 2026 08:45:14 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:Content-Type
+	:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:Message-ID:
+	Sender:Reply-To:Content-ID:Content-Description;
+	bh=k+2YE3/D0TMMc1GDR8Xa69ENbBbITfMmMCm6CARPooE=; b=IGLVMLSrkabPpFGxUKtNMMlinl
+	Fi9YAhysMn196NLKkuDTZVyz3RUMAamnifuJU6yDThs412yD0+i1CMJ2X+KDWVU/lE62orjta51Dk
+	ieI5uHIJf43/l/6Bt8zdhXhryUTWmTDVzvdY8hbjiFYdjv1y9kSWiRO5oOyIxPKnJJ5496TahM7OZ
+	vK0Tj27wShsG2f6MBNHliofXQT0KhQy4fj0KArkyXKV12djzW3AXJ9d+1+fCc/iPp8G+++3+by5qF
+	Hx0Aax4UV3i2K9En+ssDSbINida8WyfD4wrnVrlrqI7Mc4PKmtEovZE0VQxZcynpfSFfta5mhyXtQ
+	zAdgCYnQ==;
+Received: from foss.arm.com ([217.140.110.172])
+	by desiato.infradead.org with esmtp (Exim 4.99.2 #2 (Red Hat Linux))
+	id 1xBpw4-00000003XX6-0PEu
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 30 Sep 2026 08:44:26 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=WgXu4RB8RUxAraKzwVsx1Wr6olaM8S2Us9o7lyKgBMOgzx7dGjpainZRbTSGZeYWuNELZUAZQwQvWI92ZFU+3iZc6H8dRzvrdHwO+9UQ6G3lQI9bA6Q/J2tjzPqDSAA1pG1wUIUVoVjmNY0BKEDbcE0HTJbccrRvvUMJv2+9as4ST89qqDZH8Qu1tdMxpctHEkYSbdh3gFsWkecXG5XZ6+cVXaHYrG5O2Ws+YcOydI5kMwMfBHXfqg1r81Bcukvy8rfsiVASOXpeomGSHgMP8w/GfJmSn7jhpHWWtPm+YE52FKhDo0e5zcCeGpnrSGTNK9E2AWtzWRKiZPB+rB0z4g==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=gQ9hptiZBGfXNR1HP8iVMghmS/PiOTs+/PvxakrVW2U=;
- b=rf2WVZZxL8xymcLZc4gZnbJGM66AaD9hzicyxjehCKRbaW0TgebRVMwmc9TDzmqT1JfU40aTa4o7aQY6vFNE13kA2C1aTisPgfQgpC+QHeWmms1FKdnedmRAU3nVDk9VY/xW1py3LCHbBuZQQY/lOgoONVi5q8yWdilx6nJ5Ip1jH01UbHDl7vq35Nv7yJTrVizLaSshAwadRNTxS0cKTskZCXSDefZ26qJlUdnsycsrS1RHXti2UwUkpGLfuyx6AQ39jX72XaXAYfakblk01qKnN5As6JbsnzHChPHfboHxmzfdZeUdt3nZrbpKxApgXBqm3sYsJqUB2EI6FgH//g==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=fail (sender ip is
- 164.130.1.60) smtp.rcpttodomain=intel.com smtp.mailfrom=foss.st.com;
- dmarc=fail (p=none sp=none pct=100) action=none header.from=foss.st.com;
- dkim=none (message not signed); arc=none (0)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=foss.st.com;
- s=selector2;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=gQ9hptiZBGfXNR1HP8iVMghmS/PiOTs+/PvxakrVW2U=;
- b=FmtwUqlscAUu6gw3uDFo1zccC9YAcGvXJItwvBa8jin4PT6xmyWeIiBSWg27OwUYWuByP9zytjM4xWa0ak4E+3zhMIFzLH3G7b9Cc4NNZCu7BPPAyqO6lyNpyP4It3SX5feHt0aLKG7ulEGAIg0/Ie3JbjQ7Z/iLt+GQIFgJiv1E3hbRgvzo/qs1ALkLjQYi+4PoxjdRF2k5z+Q3iXIIpdwabS6Le9LnxcaoOkFa+C8E4kd7GGUjVlxhKtuTr2W28tb7Mw4k4JLSfPSSzw3oTSxHzmv+HeCgDl+thnJIK5erYLxnesZf0RzRMjMN428vKFHszzjanE+CEUEzHMWyxw==
-Received: from AS4P189CA0012.EURP189.PROD.OUTLOOK.COM (2603:10a6:20b:5d7::15)
- by PA2PR10MB8580.EURPRD10.PROD.OUTLOOK.COM (2603:10a6:102:41e::20) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.451.24; Wed, 30 Sep
- 2026 08:44:17 +0000
-Received: from DB3PEPF0000885C.eurprd02.prod.outlook.com
- (2603:10a6:20b:5d7:cafe::79) by AS4P189CA0012.outlook.office365.com
- (2603:10a6:20b:5d7::15) with Microsoft SMTP Server (version=TLS1_3,
- cipher=TLS_AES_256_GCM_SHA384) id 15.21.472.16 via Frontend Transport; Wed,
- 30 Sep 2026 08:44:16 +0000
-X-MS-Exchange-Authentication-Results: mx.microsoft.com 1; spf=fail (sender IP
- is 164.130.1.60) smtp.mailfrom=foss.st.com; dkim=none (message not signed)
- header.d=none;dmarc=fail action=none header.from=foss.st.com;
-Received-SPF: Fail (protection.outlook.com: domain of foss.st.com does not
- designate 164.130.1.60 as permitted sender) receiver=protection.outlook.com;
- client-ip=164.130.1.60; helo=smtpO365.st.com;
-Received: from smtpO365.st.com (164.130.1.60) by
- DB3PEPF0000885C.mail.protection.outlook.com (10.167.242.7) with Microsoft
- SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.21.472.14 via Frontend Transport; Wed, 30 Sep 2026 08:44:15 +0000
-Received: from STKDAG1NODE2.st.com (10.75.128.133) by smtpO365.st.com
- (10.250.44.72) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.43; Wed, 30 Sep
- 2026 10:50:09 +0200
-Received: from [10.252.17.140] (10.252.17.140) by STKDAG1NODE2.st.com
- (10.75.128.133) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.43; Wed, 30 Sep
- 2026 10:44:14 +0200
-Message-ID: <d83e2c8e-452a-4dfd-823a-624fe211837f@foss.st.com>
-Date: Wed, 30 Sep 2026 10:44:12 +0200
+	Wed, 30 Sep 2026 08:45:12 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 6BC55143D;
+	Wed, 30 Sep 2026 01:45:02 -0700 (PDT)
+Received: from [10.57.9.178] (unknown [10.57.9.178])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 7877D3F85F;
+	Wed, 30 Sep 2026 01:45:04 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
+	t=1790757905; bh=LlMfh49OrB202DnvA3FcBRcY8l4AnsgG8bcahu0coJM=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=WQXyV1lKlTfAuVQ/7PtouFRJbl6QFhh4roDvpHBFTRl3fY0l91NduM3AJa5rng0Hj
+	 S09u5UgbkNijosE/+5DmPbt6Ybdc5JLXmVj0sQEGRJNOZW71JSJDQJXkNUPs5AZPL4
+	 +fV4DEgrv8LL8lkRfynpk7n5h174mniSCXLbAXa8=
+Message-ID: <e12fb220-505a-44cc-bc43-4bd4ec0e9f7a@arm.com>
+Date: Wed, 30 Sep 2026 09:45:03 +0100
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2 07/14] iio: adc: stm32-adc: add support for stm32mp25
-To: Andy Shevchenko <andriy.shevchenko@intel.com>
-CC: Jonathan Cameron <jic23@kernel.org>, David Lechner
-	<dlechner@baylibre.com>, =?UTF-8?Q?Nuno_S=C3=A1?= <nuno.sa@analog.com>, "Andy
- Shevchenko" <andy@kernel.org>, Rob Herring <robh@kernel.org>, "Krzysztof
- Kozlowski" <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, "Maxime
- Coquelin" <mcoquelin.stm32@gmail.com>, Alexandre Torgue
-	<alexandre.torgue@foss.st.com>, Marek Vasut <marex@nabladev.com>,
-	<linux-iio@vger.kernel.org>, <devicetree@vger.kernel.org>,
-	<linux-stm32@st-md-mailman.stormreply.com>,
-	<linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>,
-	Cheick Traore <cheick.traore-ext@st.com>, Olivier Moysan
-	<olivier.moysan@foss.st.com>
-References: <20260923-adc-stm32mp25-v1-v2-0-46bc019537c6@foss.st.com>
- <20260923-adc-stm32mp25-v1-v2-7-46bc019537c6@foss.st.com>
- <arWPjx-JKt1IZCZl@ashevche-desk.local>
- <8fd19ab1-6ec4-49d7-aadc-accec6e71410@foss.st.com>
- <arzJYg3cg73vYCOE@ashevche-desk.local>
-Content-Language: en-US
-From: Fabrice Gasnier <fabrice.gasnier@foss.st.com>
-In-Reply-To: <arzJYg3cg73vYCOE@ashevche-desk.local>
-Content-Type: text/plain; charset="UTF-8"
+Subject: Re: [PATCH v20 4/9] firmware: arm_rmm: Add support for SRO
+Content-Language: en-GB
+To: sashiko-reviews@lists.linux.dev
+Cc: Oliver Upton <oupton@kernel.org>, kvmarm@lists.linux.dev,
+ kvm@vger.kernel.org, Marc Zyngier <maz@kernel.org>,
+ Catalin Marinas <catalin.marinas@arm.com>,
+ "linux-arm-kernel@lists.infradead.org"
+ <linux-arm-kernel@lists.infradead.org>, Gavin Shan <gshan@redhat.com>,
+ Jonathan Cameron <jonathan.cameron@oss.qualcomm.com>,
+ Steven Price <steven.price@arm.com>
+References: <20260929221623.1342076-1-suzuki.poulose@arm.com>
+ <20260929221623.1342076-5-suzuki.poulose@arm.com>
+ <20260929223042.681D61F000FF@smtp.kernel.org>
+From: Suzuki K Poulose <suzuki.poulose@arm.com>
+In-Reply-To: <20260929223042.681D61F000FF@smtp.kernel.org>
+Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 7bit
-X-Originating-IP: [10.252.17.140]
-X-ClientProxiedBy: STKCAS1NODE1.st.com (10.75.128.134) To STKDAG1NODE2.st.com
- (10.75.128.133)
-X-EOPAttributedMessage: 0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: DB3PEPF0000885C:EE_|PA2PR10MB8580:EE_
-X-MS-Office365-Filtering-Correlation-Id: 9fc362fb-f33b-44d4-b613-08df1ecf0290
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|23010399003|7416014|376014|1800799024|36860700016|82310400026|22082099003|18002099003|10067099003|11063799006|56012099006|4143699003;
-X-Microsoft-Antispam-Message-Info: ay78VrPWfi6fDeuIFtfgLhheSgs7rtQgMZPm18tI7pLw149L523/utPPolzUEFVg2oBR3l6P5GYqjdvLib7mdNXj+GKJttcdO8W0hDI7em+Liby2W6Ny+sv6TovLcFS18xeDirQNcjBfKzrAwc/zl9qaoQOqAaEzOfM80viCNsPl5hJyz+N5SBAn6kQEbOc/ILa015mIi4g1GrGpRBOrJpaS934YA5Gf6zzu6jbXWAc8zYYb6phftJQGGzdRUyVCvUMVPBj7rwK/zW66Bh02IObgHXDjeR/qbsvX2JHkmh6Xqk+JrNuNd5gRYC3ZR8CuuNtdM3SQYB3nr/BozAQ36iTzVWO8RyUhCsbljeQwsYcBtbCU2+lxHSPKWJZ5NBMtBWW6+dDWp8HmLBqMnxU0PLtmK+s5pSQo4czbj34IZ7z9uM9EF9Iac+B/TTvDTSZ6RtpjX/SE+4Oxk1/D6XI+4ee9mxSoYnDZhxtK/GHHd6Ef343ivuj7yU3UKgZQQJB3oLXGu2XSB8CfJImNVkrU5e4bYnL2uTquPxlfdRysiGacAnMmM9IN15PmriRXd8tJ5VVkBrJZD/vDuJYabK+rFrQDJKMwABw8y4NELL5FuIwBzmkwsaDU5F/+1Ejsai9KfXRDIS7OY+ryB0dd6zN0q3ubP+x9+l375grigZry+cxuVE97HIA4MYH6D1wLPzOtS6JDST6mM+dMJ+HcnOytAQ==
-X-Forefront-Antispam-Report: CIP:164.130.1.60;CTRY:IT;LANG:en;SCL:1;SRV:;IPV:CAL;SFV:NSPM;H:smtpO365.st.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(23010399003)(7416014)(376014)(1800799024)(36860700016)(82310400026)(22082099003)(18002099003)(10067099003)(11063799006)(56012099006)(4143699003);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: yMkkGOdcIyKE6ixXhHLo5QsIRVsx84P+8gtf2e9fCOl9zN8xdZ7PML76Dpcc/tu1+1WC097JZZ9LRZholzvZXD9sT6VA3IXoBdGRm2OC3uHfAjXDKUwQI58yrwflYIU7qj1aaIrm6kFxWsk6/z5R5TBUB7ES1IWSKDutERqk0XrlEeownZny6DnJXdLNzbvOXQtIRlsae+IjH5Y1JWRQQ1GXV8t2OcycHIC/AnbYZsguP25HnvqHqOnZ1Eel2egZeYrYCGptVfpyKbchSPn2bO6BX8uF7G6Z6ZMbNSN3y3zHEdKTmK8uVJeGiyRdNX7I375yYxZcHrf6qkrKX+cOCqlmmzXcNdzL0/n9rqwYCBUwtOlxgb0kbUYs5QMLeUsFAYhEy0kO5YUJbdenfW42Yf8z4vvJAN+CqOCL+mIZ/QFBR4lcB2yKObQ59sp/vi85
-X-OriginatorOrg: foss.st.com
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 30 Sep 2026 08:44:15.8851
- (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: 9fc362fb-f33b-44d4-b613-08df1ecf0290
-X-MS-Exchange-CrossTenant-Id: 75e027c9-20d5-47d5-b82f-77d7cd041e8f
-X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=75e027c9-20d5-47d5-b82f-77d7cd041e8f;Ip=[164.130.1.60];Helo=[smtpO365.st.com]
-X-MS-Exchange-CrossTenant-AuthSource: DB3PEPF0000885C.eurprd02.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Anonymous
-X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: PA2PR10MB8580
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260930_014425_299820_A341C604 
-X-CRM114-Status: GOOD (  17.02  )
+X-CRM114-CacheID: sfid-20260930_094509_258482_AE2F99CC 
+X-CRM114-Status: GOOD (  28.97  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -139,66 +92,155 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 9/30/26 10:33, Andy Shevchenko wrote:
-> On Tue, Sep 29, 2026 at 06:48:28PM +0200, Fabrice Gasnier wrote:
->> On 9/24/26 23:01, Andy Shevchenko wrote:
->>> On Wed, Sep 23, 2026 at 05:39:10PM +0200, Fabrice Gasnier wrote:
-> 
-> ...
-> 
->>>>  		.compatible = "st,stm32mp13-adc-core",
->>>>  		.data = (void *)&stm32mp13_adc_priv_cfg
->>>>  	}, {
->>>> -	},
->>>> +		.compatible = "st,stm32mp25-adc-core",
->>>> +		.data = (void *)&stm32mp25_adc_priv_cfg
->>>> +	}, {
->>>> +	}
->>>
->>> Same issue and now it's a regression from maintenance perspective: you added an
->>> unnedeed churn that has to be handled from now on... TL;DR: do add trailing
->>> commas to the non-terminator entries and remove trailing commas in the
->>> terminator entries.
-> 
->> Do you wish I add a separate cleanup patch for existing match table ?
->> This can also fit into 100 chars line now:
-> 
-> This is, of course, is up to you, but my comment was solely against the
-> trailing comma removal.
-> 
->> static const struct of_device_id stm32_adc_of_match[] = {
->> 	{ .compatible = "st,stm32f4-adc-core", .data = (void
->> *)&stm32f4_adc_priv_cfg, },
-> 
-> Here is actually the opposite, no inner trailing comma should be added as it's
-> a one-line entry.
+Hi,
 
-Hi Andy,
+Responses inline.
 
-Sorry if I'm a bit confused :-), just to be sure, the preferred style should be as below ?
-
-static const struct of_device_id stm32_adc_of_match[] = {
-	{ .compatible = "st,stm32f4-adc-core", .data = (void *)&stm32f4_adc_priv_cfg },
-	{ .compatible = "st,stm32h7-adc-core", .data = (void *)&stm32h7_adc_priv_cfg },
-	{ .compatible = "st,stm32mp1-adc-core",	.data = (void *)&stm32mp1_adc_priv_cfg },
-	{ .compatible = "st,stm32mp13-adc-core", .data = (void *)&stm32mp13_adc_priv_cfg },
-	{ }
-};
-
-Thanks,
-Best Regards,
-Fabrice
+On 29/09/2026 23:30, sashiko-bot@kernel.org wrote:
+> Thank you for your contribution! Sashiko AI review found 3 potential issue(s) to consider:
+> - [Medium] arm_rmm: SRO cancellation discards partial progress limit leading to memory corruption
+> - [Medium] arm_rmm: integer overflow in granule clamp bypasses RMM protection
+> - [Medium] arm_rmm: missing validation of block_size_fld leads to division by zero
+> --
 > 
->> 	{ .compatible = "st,stm32h7-adc-core", .data = (void
->> *)&stm32h7_adc_priv_cfg, },
->> 	{ .compatible = "st,stm32mp1-adc-core",	.data = (void
->> *)&stm32mp1_adc_priv_cfg, },
->> 	{ .compatible = "st,stm32mp13-adc-core", .data = (void
->> *)&stm32mp13_adc_priv_cfg, },
->> 	{ }
->> };
+> commit 44837285c82689401d14180cb932077aa7982b67
+> Author: Steven Price <steven.price@arm.com>
 > 
->>>>  };
+> firmware: arm_rmm: Add support for SRO
+> 
+> This commit introduces support for Stateful RMI Operations (SRO), allowing RMI
+> commands to return incomplete and be resumed. It adds SRO state tracking,
+> memory donation and reclaim handling, and wrappers for SRO commands.
+> 
+>> --- a/drivers/firmware/arm_rmm/rmi.c
+>> +++ b/drivers/firmware/arm_rmm/rmi.c
+>> @@ -14,6 +15,687 @@
+>> +static long rmi_granule_range_delegate(unsigned long base,
+>> +				       unsigned long top,
+>> +				       unsigned long *out_top)
+>> +{
+>> +	struct arm_smccc_1_2_regs regs = {
+>> +		SMC_RMI_GRANULE_RANGE_DELEGATE, base, top
+>> +	};
+>> +	long ret = rmi_sro_execute(&regs);
+>> +
+>> +	if (ret == RMI_SUCCESS && out_top)
+>> +		*out_top = regs.a1;
+>> +
+>> +	return ret;
+>> +}
+> [ ... ]
+>> +static int rmi_sro_donate_contig(struct rmi_sro_state *sro,
+>> +				 unsigned long sro_handle,
+>> +				 unsigned long donatereq,
+>> +				 struct arm_smccc_1_2_regs *out_regs,
+>> +				 gfp_t gfp)
+>> +{
+> [ ... ]
+>> +mem_donate:
+>> +	rmi_op_mem_donate(sro_handle,
+>> +			  virt_to_phys(&sro->addr_list[sro->addr_count]), 1,
+>> +			  0, out_regs);
+>> +	donated_size = out_regs->a1 << PAGE_SHIFT;
+>> +
+>> +	if (WARN_ON(donated_size > size))
+>> +		donated_size = size;
+> 
+> [Severity: Medium]
+> Is there a risk of an integer overflow here before the bounds check?
+> 
+> If a buggy or compromised RMM returns a maliciously large value for
+> out_regs->a1, the left shift by PAGE_SHIFT could overflow the 64-bit
+> donated_size variable. This would result in a small value that bypasses
+> the WARN_ON() check.
+
+Fair point, this was due to the removal of donated_granules. I will
+rectify this.
+
+> 
+> The host kernel might then erroneously believe the RMM consumed fewer
+> granules than it actually did, freeing the remaining memory back to the
+> allocator while the RMM is actively using it. This could result in memory
+> corruption.
+> 
+> [ ... ]
+>> +static int rmi_sro_donate_noncontig(struct rmi_sro_state *sro,
+>> +				    unsigned long sro_handle,
+>> +				    unsigned long donatereq,
+>> +				    struct arm_smccc_1_2_regs *out_regs,
+>> +				    gfp_t gfp)
+>> +{
+>> +	unsigned long block_size_fld = RMI_DONATE_BLOCK_SIZE(donatereq);
+>> +	unsigned long block_size = rmi_addr_block_size_to_bytes(block_size_fld);
+>> +	unsigned long count = RMI_DONATE_COUNT(donatereq);
+>> +	unsigned long state = RMI_DONATE_STATE(donatereq);
+>> +	unsigned long found = 0;
+>> +	unsigned long donated_granules;
+>> +	unsigned long granules_per_block = block_size >> PAGE_SHIFT;
+>> +	unsigned long consumed_blocks;
+> [ ... ]
+>> +	donated_granules = out_regs->a1;
+> [ ... ]
+>> +	consumed_blocks = donated_granules / granules_per_block;
+> 
+> [Severity: Medium]
+> Could an unvalidated block_size_fld lead to a division by zero panic here?
+> 
+> While count and state are explicitly validated against anomalies,
+> block_size_fld from the firmware appears to be blindly trusted. If the
+> firmware returns an out-of-bounds value (e.g., 6), the shift amount in
+> rmi_addr_block_size_to_bytes() can evaluate modulo 64, yielding a block_size
+> smaller than PAGE_SIZE.
+
+This is not possible. The field is a 2bit field and cannot be greater
+than 3. See the RMI_DONATE_BLOCK_SIZE()
+
+
+> 
+> This would cause granules_per_block to evaluate to 0, triggering a kernel
+> panic when donated_granules is divided by granules_per_block.
+> 
+> [ ... ]
+>> +long rmi_sro_execute(struct arm_smccc_1_2_regs *regs)
+>> +{
+>> +	bool cancelled = false;
+>> +	unsigned long sro_handle;
+> [ ... ]
+>> +	if (cancelled)
+>> +		return -ECANCELED;
+>> +
+>> +	return regs->a0;
+>> +}
+> 
+> [Severity: Medium]
+> When an operation is cancelled, does this unconditionally discard the
+> output registers containing the partial progress limit?
+> 
+> If a buggy or compromised RMM returns an unexpected MEMREQ during a non-memory
+> SRO like SMC_RMI_GRANULE_RANGE_DELEGATE, rmi_sro_execute() issues an
+> RMI_OP_CANCEL and unconditionally returns -ECANCELED. This drops the final
+> state in the a1 register.
+
+We already WARN_ON_ONCE(1), when we get a memreq in a non-memory 
+transferring SRO operation. There is nothing we could do in this case
+from the generic helper, than to inform the caller that we had to
+cancel it.
+
+This is a fundamental misbehavior from an RMM implementation. There are
+other ways the RMM could crash the host. e.g., Don't really undelegate
+while reporting success. So, I wouldn't care about such pathological
+cases.
+
+Cheers
+Suzuki
+
+
+> 
+> As a result, callers like rmi_granule_range_delegate() fail to capture
+> the progress limit. The kernel would then undelegate fewer granules
+> than the RMM successfully processed before returning them to the normal
+> allocator, which can lead to fatal Granule Protection Faults when the host
+> later accesses them.
 > 
 
 
