@@ -4,7 +4,7 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3E18BCA5FD2
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3AC49CA5FCC
 	for <linux-arm-kernel@archiver.kernel.org>; Wed, 30 Sep 2026 21:50:24 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
@@ -12,43 +12,44 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Wy0+k1InAjyE26lqhC7MpFZWdvI+C7jRsbn8a+z/FAQ=; b=AH3pPcBEwqmuanysZqPnKrPLJr
-	tWL0qBddksbbPbHr9fo4QhHQd5FBppWchWh8PC/0FIxnRKktLCv5N7m2J/jEZbEhT6utlXuZC15mS
-	MvnXS8LUsJ2HgWw0hjyk4aoOlSCNLx2KB/tn6ZW33Hr9M/HLgaib+dw8MOYmrVeaWfrbkfr4lR+ux
-	sTydenNJBpBKjLfdrvampAU50OimArwGhDa4TdrojvXd47Wsxb0Fw3Yd59O8QfR467FViuKYg4XmQ
-	kfWGOqAHi0MygVhVlNwDgdoZJgfBtKe1I91ZNsWU+HwCEeRe1D775+oiYiKxhMJf23RiDW/HeVOCJ
-	x18BRovA==;
+	bh=gbRjCKyJEsfaoYs0uz6FNo90W1JB3dsyqZL+XpcN78I=; b=lbtvvMWj3yYo3o9jn/PC07ZugG
+	oJ3SoBM/20izb6RhBqF1xuis24t22/4TuM57udSXUBx060S37RFZ9hokD93KPL4/lzYSN2b524rnk
+	qkeNT6FByEVh1obltQwKPq0R8u91Uq/9ljZ/Q30fvYKf+vvWPkzzpHrP27eYA9N8BqYCPrG9jgTy8
+	HQ4qsI5Bd8piduOC4TiQZeGo9e3q0Nr8V1OE/+PBSBq5c7j7uQz3QhbO/usvxurt1rIHBtusPyAE6
+	+HVp0IxUcoI+Kodx2k68tpk0xT0Bbq99aMRarR240eGc6rYwszOQHxOzzCqtR7vV62L2mJDLAPsVc
+	RNrD4GUQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xC2Bt-00000007J1i-0TpG;
+	id 1xC2Bt-00000007J3F-2j6J;
 	Wed, 30 Sep 2026 21:50:17 +0000
 Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xC2BH-00000007If1-19ij
+	id 1xC2BS-00000007IoF-1exc
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 30 Sep 2026 21:49:39 +0000
+	Wed, 30 Sep 2026 21:49:50 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 0C1C542A44;
-	Wed, 30 Sep 2026 21:49:39 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id A5E491F000FF;
-	Wed, 30 Sep 2026 21:49:35 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 28331419A6;
+	Wed, 30 Sep 2026 21:49:50 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id BEF691F00898;
+	Wed, 30 Sep 2026 21:49:46 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1790804978;
-	bh=Wy0+k1InAjyE26lqhC7MpFZWdvI+C7jRsbn8a+z/FAQ=;
+	s=k20260515; t=1790804990;
+	bh=gbRjCKyJEsfaoYs0uz6FNo90W1JB3dsyqZL+XpcN78I=;
 	h=From:Date:Subject:References:In-Reply-To:To:Cc;
-	b=hdJfM4QhYbEs4brp34H1ssEHtyAj+BaeyqPWhk1zU+UMRak1YVElJXBGViX1yVEij
-	 6vl+a/SuEC47wcnrxV/sE3AeT92FiFZunGWVBUJYZxolTzbsqhKyVPeLqgLWGhaolr
-	 rijx3XZ67wI4Fm0hWlT5nJ6XJKAG84QX4pEv/hGxKmz6FVdHIp//yCr2LGQpRbWw0b
-	 zrzQmJ3A64rhHIrNbbEabYttriptehg2NxQCRj0ZK4Hd1wZBOCmcK2mHwJ8sED8kLF
-	 PvRYIh+44QPRnBCCg2dPaf4c76RTU0bBpEAHdRrlFkzKqZwDGeiaAsllmpEZgBaGo/
-	 /dFzcuUTuDShA==
+	b=OwGs2+Qte/WJVkJC7eXFmL3seluTWGH9nBh5a9LwiH5jB0L6/5phQIHqvo8Bpb+82
+	 AXE4zlkxy8GLprGm0rF7mKD38zv9G2T90yn12m6pIRAP5wd7COEEuZLuOJWgFSiKtw
+	 dyuBTnGbEJ2nIidwJYnfyt4YGbS+UmO86TsepFPkOKfZzRabgodN/R/zYUbHnY4y4u
+	 8SGhQHp2VfCJuyALo0cBMT/LF1sANXa3yvOz0n15RFOKsemD8CYPnW3bURv3da5IaX
+	 fGog4zVAlx5x0D9nbqL81KTrx9bXrTjmzUDUeil/UA1sbsPraUAJV9m+6kG/OPZifM
+	 M/ZzIUWybsvow==
 From: Mark Brown <broonie@kernel.org>
-Date: Wed, 30 Sep 2026 22:48:22 +0100
-Subject: [PATCH v21 12/15] KVM: selftests: arm64: Add GCS to set_id_regs
+Date: Wed, 30 Sep 2026 22:48:25 +0100
+Subject: [PATCH v21 15/15] KVM: selftests: arm64: Add GCS EXLOCK exception
+ emulation test
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20260930-arm64-gcs-v21-12-3556644cd927@kernel.org>
+Message-Id: <20260930-arm64-gcs-v21-15-3556644cd927@kernel.org>
 References: <20260930-arm64-gcs-v21-0-3556644cd927@kernel.org>
 In-Reply-To: <20260930-arm64-gcs-v21-0-3556644cd927@kernel.org>
 To: Catalin Marinas <catalin.marinas@arm.com>, 
@@ -63,15 +64,15 @@ Cc: Peter Maydell <peter.maydell@linaro.org>,
  linux-kselftest@vger.kernel.org, linux-kernel@vger.kernel.org, 
  Mark Brown <broonie@kernel.org>
 X-Mailer: b4 0.17-dev
-X-Developer-Signature: v=1; a=openpgp-sha256; l=1732; i=broonie@kernel.org;
- h=from:subject:message-id; bh=Tfjwe96+Pus/NcQqd0MtFJGHAujN/0M7VQnvCDfTPfo=;
- b=owEBbQGS/pANAwAKASTWi3JdVIfQAcsmYgBqvYO89S6s1s3YTYvEi7Pe2YG5B+wlge3CrvcBq
- G8G8N0HucyJATMEAAEKAB0WIQSt5miqZ1cYtZ/in+ok1otyXVSH0AUCar2DvAAKCRAk1otyXVSH
- 0AoAB/9GISjeiauUt6+C48J60uI4rxisvx5a6uEGeIbh3HehLpPkwEqujVDEk7TtxMtRTR0+REF
- LuAD3f9u9Kxujl0hWnkk3ezyvSfE8WHAh+1htRmFRkIEOXcc305kIA0NGko3ICGJj2Ih/UlSJU5
- XutnQeCpTwy43JlqFbVJ3KQ0vqoxcTeIaY2WfdolxBJUL2IZkXJmw4srDog2tW/RLE1T5BDNo69
- rYnIdR8DgaQKHl5FLdsVmRQsUTFsd14z5LYEWPI5p7n9t/OifwTNxCmWgzf9PGbgUZWE5KakCqh
- M7gKuWU98E5VW4zMbuQBCVQ7eDYx/3/1BWJdKp0aXRiVT98Q
+X-Developer-Signature: v=1; a=openpgp-sha256; l=11623; i=broonie@kernel.org;
+ h=from:subject:message-id; bh=Ap5WYMP/jFZxgMJJY0WLriB9g9iNEKwHzXZCFBgXX8g=;
+ b=owEBbQGS/pANAwAKASTWi3JdVIfQAcsmYgBqvYO/DYTBT/N2pQqG7Bv+IyjaOkfEiUG/sCG5L
+ 7fcU9ofqfeJATMEAAEKAB0WIQSt5miqZ1cYtZ/in+ok1otyXVSH0AUCar2DvwAKCRAk1otyXVSH
+ 0JsXCACFAaYDC8+8EAqUWrRXksRRQB75PpQu1oB5tCF0YP5tiZQ/ba7op4SbpKXQLXuwUDt8dE4
+ hckx9kLXtI2gM9d6Pd1z09PL3QpogQixNANCGXJDcHRdgdX6zr2aZPtYoZs1ueNYwOW8k3b6d86
+ hlCQ6qwAqGdMU1hxWy/+yfGZsNWArzHU8ce29zej5938WR8FWR6Nop0C3Qn1NAN3YLk3U4GR0YO
+ hRIfmOewl63cPW373CJRv4Lg+dA7hVlFyVP5MmZ1in+hXrzqnpIm2EfBbOGcYXNzwZQFTJb2YV6
+ vPRSLAG7qyyXiENYkZD8/tLL5VeML75QEq7At1rX3nyyuBfc
 X-Developer-Key: i=broonie@kernel.org; a=openpgp;
  fpr=3F2568AAC26998F9E813A1C5C3F436CA30F5D8EB
 X-BeenThere: linux-arm-kernel@lists.infradead.org
@@ -88,47 +89,390 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Now that GCS is configurable via the ID registers update set_id_regs to
-cover ID_AA64PFR1_EL1.GCS.
+When running in vEL2 ERET is emulated, this means that we must emulate
+the behaviour of GCSCR_EL2.EXLOCKEN. Add a test that validates the
+behaviour.
+
+As per DDI0487 R_WTXBY PSTATE.EXLOCK is set to the value of
+GCSCR_ELx.EXLOCKEN when taking an exception to the same exception level.
+As per DDI0487 R_TYTWB if on exception return to the same EL
+GCSCR_ELx.EXLOCKEN is 1 and PSTATE.EXLOCK is not 1 then the exception
+return is illegal.
+
+We nest handling of two UDFs to allow us to both observe and modify
+PSTATE.EXLOCK, checking that expected exceptions are generated for ERET.
+We also repeat the UDF tests having enabled fine grained traps for ERET
+to try to ensure that the slow paths are taken.
+
+We also attempt to write to both SPSR_ELx and ELR_ELx, again using a UDF
+handler to control PSTATE.EXLOCK. We do all this both with and without
+having enabled EXLOCKEN, though only for code running at EL2 due to
+framework limitations.
+
+For completeness we also inject a data abort from EL0 to EL2 with
+GCSCR_EL2.EXLOCKEN set, ensuring that PSTATE.EXLOCK is not set.
 
 Signed-off-by: Mark Brown <broonie@kernel.org>
+Reviewed-by: Leonardo Bras <leo.bras@arm.com>
 ---
- tools/testing/selftests/kvm/arm64/set_id_regs.c | 8 ++++++++
- 1 file changed, 8 insertions(+)
+ tools/testing/selftests/kvm/Makefile.kvm           |   1 +
+ tools/testing/selftests/kvm/arm64/gcs_exceptions.c | 336 +++++++++++++++++++++
+ 2 files changed, 337 insertions(+)
 
-diff --git a/tools/testing/selftests/kvm/arm64/set_id_regs.c b/tools/testing/selftests/kvm/arm64/set_id_regs.c
-index cb5e6358c59c..9db8516748cc 100644
---- a/tools/testing/selftests/kvm/arm64/set_id_regs.c
-+++ b/tools/testing/selftests/kvm/arm64/set_id_regs.c
-@@ -154,6 +154,7 @@ static const struct reg_ftr_bits ftr_id_aa64pfr0_el1[] = {
- 
- static const struct reg_ftr_bits ftr_id_aa64pfr1_el1[] = {
- 	REG_FTR_BITS(FTR_LOWER_SAFE, ID_AA64PFR1_EL1, DF2, 0),
-+	REG_FTR_BITS(FTR_LOWER_SAFE, ID_AA64PFR1_EL1, GCS, 0),
- 	REG_FTR_BITS(FTR_LOWER_SAFE, ID_AA64PFR1_EL1, CSV2_frac, 0),
- 	REG_FTR_BITS(FTR_LOWER_SAFE, ID_AA64PFR1_EL1, SSBS, ID_AA64PFR1_EL1_SSBS_NI),
- 	REG_FTR_BITS(FTR_LOWER_SAFE, ID_AA64PFR1_EL1, BT, 0),
-@@ -818,6 +819,12 @@ struct reg_ftr_val {
- 	  .mask = r ## _ ## f ## _MASK,				\
- 	  .val = (r ## _ ## f ## _ ## v  << r ## _ ## f ## _SHIFT) }
- 
-+static const struct reg_ftr_val gcs_no_s1pie[] = {
-+	REG_FTR_VAL(ID_AA64PFR1_EL1, GCS, IMP),
-+	REG_FTR_VAL(ID_AA64MMFR3_EL1, S1PIE, NI),
-+	{ }
-+};
+diff --git a/tools/testing/selftests/kvm/Makefile.kvm b/tools/testing/selftests/kvm/Makefile.kvm
+index 96bab7002d39..0286453ab223 100644
+--- a/tools/testing/selftests/kvm/Makefile.kvm
++++ b/tools/testing/selftests/kvm/Makefile.kvm
+@@ -179,6 +179,7 @@ TEST_GEN_PROGS_arm64 += arm64/hello_el2
+ TEST_GEN_PROGS_arm64 += arm64/host_sve
+ TEST_GEN_PROGS_arm64 += arm64/hypercalls
+ TEST_GEN_PROGS_arm64 += arm64/external_aborts
++TEST_GEN_PROGS_arm64 += arm64/gcs_exceptions
+ TEST_GEN_PROGS_arm64 += arm64/mmio_sign_ext
+ TEST_GEN_PROGS_arm64 += arm64/page_fault_test
+ TEST_GEN_PROGS_arm64 += arm64/psci_test
+diff --git a/tools/testing/selftests/kvm/arm64/gcs_exceptions.c b/tools/testing/selftests/kvm/arm64/gcs_exceptions.c
+new file mode 100644
+index 000000000000..c127904108e1
+--- /dev/null
++++ b/tools/testing/selftests/kvm/arm64/gcs_exceptions.c
+@@ -0,0 +1,336 @@
++// SPDX-License-Identifier: GPL-2.0-only
++/*
++ * Test KVM's handling of Guarded Control Stack exception state.
++ */
 +
- static const struct reg_ftr_val s1pie_no_tcr2[] = {
- 	REG_FTR_VAL(ID_AA64MMFR3_EL1, TCRX, NI),
- 	REG_FTR_VAL(ID_AA64MMFR3_EL1, S1PIE, IMP),
-@@ -836,6 +843,7 @@ struct ftr_config {
- };
- 
- static const struct ftr_config invalid_configs[] = {
-+	{ .name = "GCS without S1PIE", .regs = gcs_no_s1pie },
- 	{ .name = "S1PIE without TCRX", .regs = s1pie_no_tcr2 },
- 	{ .name = "S1POE without TCRX", .regs = s1poe_no_tcr2 },
- };
++#include "kvm_util.h"
++#include "processor.h"
++#include "test_util.h"
++#include "ucall.h"
++
++#include <asm/ptrace.h>
++#include <asm/sysreg.h>
++
++#define PSTATE_IL_BIT	BIT(20)
++
++static void require_guest_gcs(struct kvm_vcpu *vcpu)
++{
++	u64 pfr1 = vcpu_get_reg(vcpu,
++				KVM_ARM64_SYS_REG(SYS_ID_AA64PFR1_EL1));
++
++	TEST_REQUIRE(SYS_FIELD_GET(ID_AA64PFR1_EL1, GCS, pfr1) >=
++		     ID_AA64PFR1_EL1_GCS_IMP);
++}
++
++static bool expect_exlock;
++static unsigned int undef_count;
++static unsigned int illegal_count;
++static unsigned int gcs_count;
++static u64 handler_pstate;
++static u64 illegal_pstate;
++
++static u64 expected_illegal_pc;
++static enum udf_mode {
++	UDF_COLLECT,	/* Initial UDF we collect PSTATE from */
++	UDF_VALIDATE,	/* Secondary UDF that collects and validates */
++	UDF_REPAIR,	/* UDF to clear EXLOCK */
++	UDF_ELR_EL1,	/* Write to ELR_EL1 with EXLOCK */
++	UDF_ELR_EL2,	/* Write to ELR_EL2 with EXLOCK */
++	UDF_SPSR_EL1,	/* Write to SPSR_EL1 with EXLOCK */
++	UDF_SPSR_EL2,	/* Write to SPSR_EL2 with EXLOCK */
++} udf_mode;
++
++static void guest_undef_handler(struct ex_regs *regs)
++{
++	u64 esr = read_sysreg(esr_el2);
++	u64 val;
++
++	undef_count++;
++
++	/* Just skip the instruction either way. */
++	GUEST_ASSERT_EQ(esr, ESR_ELx_IL);
++	regs->pc += 4;
++
++	switch (udf_mode) {
++	case UDF_COLLECT:
++		GUEST_ASSERT_EQ(read_sysreg_s(SYS_GCSCR_EL2) & GCSCR_ELx_EXLOCKEN,
++				expect_exlock ? GCSCR_ELx_EXLOCKEN : 0);
++
++		/*
++		 * If we want the nested exception handler to change
++		 * PSTATE it can't have EXLOCK set.
++		 */
++		write_sysreg_s(0, SYS_GCSCR_EL2);
++		isb();
++
++		/*
++		 * Take another exception without returning so we can
++		 * collect the EXLOCK state we're seeing here and make
++		 * our return illegal.
++		 */
++		expected_illegal_pc = regs->pc;
++		udf_mode = UDF_VALIDATE;
++		asm volatile("udf #0" ::: "memory");
++
++		/* Reenable so PSTATE.EXLOCK is checked */
++		write_sysreg_s(expect_exlock ? GCSCR_ELx_EXLOCKEN : 0,
++			       SYS_GCSCR_EL2);
++		isb();
++		break;
++
++	case UDF_VALIDATE:
++		GUEST_ASSERT_EQ(read_sysreg_s(SYS_GCSCR_EL2) & GCSCR_ELx_EXLOCKEN,
++				0);
++
++		/* Validate the EXLOCK of the original exception. */
++		handler_pstate = regs->pstate;
++		GUEST_ASSERT_EQ(!!(regs->pstate & PSR_EXLOCK_BIT),
++				expect_exlock);
++
++		/* Clearing PSTATE.EXLOCK triggers an illegal ERET. */
++		regs->pstate &= ~PSR_EXLOCK_BIT;
++		break;
++
++	case UDF_REPAIR:
++		GUEST_ASSERT_EQ(read_sysreg_s(SYS_GCSCR_EL2) & GCSCR_ELx_EXLOCKEN,
++				0);
++
++		/* Disable EXLOCK for the requesting context */
++		regs->pstate &= ~PSR_EXLOCK_BIT;
++		break;
++
++	case UDF_ELR_EL1:
++		GUEST_ASSERT_EQ(read_sysreg_s(SYS_GCSCR_EL2) & GCSCR_ELx_EXLOCKEN,
++				expect_exlock ? GCSCR_ELx_EXLOCKEN : 0);
++
++		asm volatile("mrs %0, elr_el1   \n\
++	                      msr elr_el1, %0"
++			     : "=r"(val) :: "memory");
++		break;
++
++	case UDF_ELR_EL2:
++		GUEST_ASSERT_EQ(read_sysreg_s(SYS_GCSCR_EL2) & GCSCR_ELx_EXLOCKEN,
++				expect_exlock ? GCSCR_ELx_EXLOCKEN : 0);
++
++		asm volatile("mrs %0, elr_el2   \n\
++	                      msr elr_el2, %0"
++			     : "=r"(val) :: "memory");
++		break;
++
++	case UDF_SPSR_EL1:
++		GUEST_ASSERT_EQ(read_sysreg_s(SYS_GCSCR_EL2) & GCSCR_ELx_EXLOCKEN,
++				expect_exlock ? GCSCR_ELx_EXLOCKEN : 0);
++
++		asm volatile("mrs %0, spsr_el1   \n\
++			      msr spsr_el1, %0"
++			     : "=r"(val) :: "memory");
++		break;
++
++	case UDF_SPSR_EL2:
++		GUEST_ASSERT_EQ(read_sysreg_s(SYS_GCSCR_EL2) & GCSCR_ELx_EXLOCKEN,
++				expect_exlock ? GCSCR_ELx_EXLOCKEN : 0);
++
++		asm volatile("mrs %0, spsr_el2   \n\
++			      msr spsr_el2, %0"
++			     : "=r"(val) :: "memory");
++		break;
++
++	default:
++		GUEST_FAIL("Invalid udf_mode");
++	}
++}
++
++static void guest_illegal_handler(struct ex_regs *regs)
++{
++	u64 esr = read_sysreg(esr_el2);
++
++	illegal_count++;
++	illegal_pstate = regs->pstate;
++
++	GUEST_ASSERT_EQ(ESR_ELx_EC(esr), ESR_ELx_EC_ILL);
++	GUEST_ASSERT(esr & ESR_ELx_IL);
++	GUEST_ASSERT(regs->pstate & PSTATE_IL_BIT);
++	GUEST_ASSERT(!(regs->pstate & PSR_EXLOCK_BIT));
++	GUEST_ASSERT_EQ(regs->pc, expected_illegal_pc);
++
++	/* Disable exception locking so we can repair the return state. */
++	write_sysreg_s(0, SYS_GCSCR_EL2);
++	isb();
++
++	/* We need our own EXLOCK clearing so we can repair the original */
++	udf_mode = UDF_REPAIR;
++	asm volatile("udf #0" ::: "memory");
++
++	/* Disable EXLOCK for the generating context, making things legal */
++	regs->pstate &= ~(PSTATE_IL_BIT | PSR_EXLOCK_BIT);
++}
++
++static void guest_gcs_handler(struct ex_regs *regs)
++{
++	u64 esr = read_sysreg(esr_el2);
++
++	gcs_count++;
++
++	GUEST_ASSERT_EQ(ESR_ELx_EC(esr), ESR_ELx_EC_GCS);
++	GUEST_ASSERT_EQ(FIELD_GET(ESR_ELx_ExType_MASK, esr),
++			ESR_ELx_ExType_EXLOCK);
++
++	/* Disabling EXLOCKEN makes sysreg writes legal. */
++	write_sysreg_s(0, SYS_GCSCR_EL2);
++	isb();
++}
++
++static noinline void test_udf_exception(bool enable_exlock)
++{
++	unsigned int initial_undef = undef_count;
++	unsigned int initial_illegal = illegal_count;
++	unsigned int initial_gcs = gcs_count;
++
++	expect_exlock = enable_exlock;
++	write_sysreg_s(enable_exlock ? GCSCR_ELx_EXLOCKEN : 0,
++		       SYS_GCSCR_EL2);
++	isb();
++
++	udf_mode = UDF_COLLECT;
++	asm volatile("udf #0" ::: "memory");
++
++	/* Leave GCS disabled even if a broken ERET skipped the ILL handler. */
++	write_sysreg_s(0, SYS_GCSCR_EL2);
++	isb();
++
++	GUEST_ASSERT_EQ(undef_count, initial_undef + 2 + enable_exlock);
++	GUEST_ASSERT_EQ(illegal_count, initial_illegal + enable_exlock);
++	GUEST_ASSERT_EQ(!!(handler_pstate & PSR_EXLOCK_BIT), enable_exlock);
++	if (enable_exlock)
++		GUEST_ASSERT(illegal_pstate & PSTATE_IL_BIT);
++	GUEST_ASSERT_EQ(initial_gcs, gcs_count);
++}
++
++static noinline void test_sysreg(enum udf_mode reg, bool enable_exlock)
++{
++	unsigned int initial_undef = undef_count;
++	unsigned int initial_gcs = gcs_count;
++
++	expect_exlock = enable_exlock;
++
++	write_sysreg_s(enable_exlock ? GCSCR_ELx_EXLOCKEN : 0,
++		       SYS_GCSCR_EL2);
++	isb();
++
++	udf_mode = reg;
++	asm volatile("udf #0" ::: "memory");
++
++	/* Ensure EXLOCK is disabled */
++	write_sysreg_s(0, SYS_GCSCR_EL2);
++	isb();
++
++	GUEST_ASSERT_EQ(gcs_count, initial_gcs + expect_exlock);
++	GUEST_ASSERT_EQ(undef_count, initial_undef + 1);
++}
++
++static void guest_code(void)
++{
++	GUEST_ASSERT_EQ(get_current_el(), 2);
++
++	/*
++	 * Try straightforwardly generating an exception without and
++	 * with EXLOCK.
++	 */
++	test_udf_exception(false);
++	test_sysreg(UDF_ELR_EL1, false);
++	test_sysreg(UDF_ELR_EL2, false);
++	test_sysreg(UDF_SPSR_EL1, false);
++	test_sysreg(UDF_SPSR_EL2, false);
++
++	test_udf_exception(true);
++	test_sysreg(UDF_ELR_EL1, true);
++	test_sysreg(UDF_ELR_EL2, true);
++	test_sysreg(UDF_SPSR_EL1, true);
++	test_sysreg(UDF_SPSR_EL2, true);
++
++	GUEST_DONE();
++}
++
++static void test_exception_from_same_el(void)
++{
++	struct kvm_vcpu_init init;
++	struct kvm_vcpu *vcpu;
++	struct kvm_vm *vm;
++	struct ucall uc;
++
++	vm = vm_create(1);
++	kvm_get_default_vcpu_target(vm, &init);
++	init.features[0] |= BIT(KVM_ARM_VCPU_HAS_EL2);
++	vcpu = aarch64_vcpu_add(vm, 0, &init, guest_code);
++	require_guest_gcs(vcpu);
++
++	vm_init_descriptor_tables(vm);
++	vcpu_init_descriptor_tables(vcpu);
++	vm_install_sync_handler(vm, VECTOR_SYNC_CURRENT,
++				ESR_ELx_EC_UNKNOWN, guest_undef_handler);
++	vm_install_sync_handler(vm, VECTOR_SYNC_CURRENT,
++				ESR_ELx_EC_ILL, guest_illegal_handler);
++	vm_install_sync_handler(vm, VECTOR_SYNC_CURRENT,
++				ESR_ELx_EC_GCS, guest_gcs_handler);
++	kvm_arch_vm_finalize_vcpus(vm);
++
++	vcpu_run(vcpu);
++	switch (get_ucall(vcpu, &uc)) {
++	case UCALL_DONE:
++		break;
++	case UCALL_ABORT:
++		REPORT_GUEST_ASSERT(uc);
++		break;
++	default:
++		TEST_FAIL("Unhandled ucall: %ld", uc.cmd);
++	}
++
++	kvm_vm_free(vm);
++}
++
++static void test_exception_from_lower_el(void)
++{
++	struct kvm_vcpu_events events = {};
++	struct kvm_vcpu_init init;
++	struct kvm_vcpu *vcpu;
++	struct kvm_vm *vm;
++	u64 pstate;
++
++	vm = vm_create(1);
++	kvm_get_default_vcpu_target(vm, &init);
++	init.features[0] |= BIT(KVM_ARM_VCPU_HAS_EL2);
++	vcpu = aarch64_vcpu_add(vm, 0, &init, NULL);
++	require_guest_gcs(vcpu);
++	kvm_arch_vm_finalize_vcpus(vm);
++
++	/*
++	 * Inject an EL0 data abort to vEL2 with EXLOCK enabled for
++	 * vEL2.
++	 */
++	vcpu_set_reg(vcpu, KVM_ARM64_SYS_REG(SYS_HCR_EL2),
++		     vcpu_get_reg(vcpu, KVM_ARM64_SYS_REG(SYS_HCR_EL2)) |
++		     HCR_EL2_TGE);
++	vcpu_set_reg(vcpu, KVM_ARM64_SYS_REG(SYS_GCSCR_EL2),
++		     GCSCR_ELx_EXLOCKEN);
++	vcpu_set_reg(vcpu, ARM64_CORE_REG(regs.pstate),
++		     PSR_MODE_EL0t | PSR_EXLOCK_BIT);
++
++	events.exception.ext_dabt_pending = true;
++	vcpu_events_set(vcpu, &events);
++
++	pstate = vcpu_get_reg(vcpu, ARM64_CORE_REG(regs.pstate));
++	TEST_ASSERT_EQ(pstate & PSR_MODE_MASK, PSR_MODE_EL2h);
++	TEST_ASSERT(!(pstate & PSR_EXLOCK_BIT),
++		    "EXLOCK set on exception from a lower EL");
++
++	kvm_vm_free(vm);
++}
++
++int main(void)
++{
++	TEST_REQUIRE(kvm_check_cap(KVM_CAP_ARM_EL2));
++	test_exception_from_same_el();
++	test_exception_from_lower_el();
++
++	return 0;
++}
 
 -- 
 2.47.3
