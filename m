@@ -4,92 +4,58 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 782ECCA5FC5
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 30 Sep 2026 19:18:42 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 03F33CA5FD2
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 30 Sep 2026 19:19:14 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
-	Message-ID:Date:References:In-Reply-To:Subject:Cc:To:From:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=K3uaRl/Ti7bLDJ7dnfINDgvy8C+r51xSLwadSiE7s3w=; b=X9PQ0S1YqRUbzgk6JyO9BuGmA1
-	Yb517+CWTlhRRRf1OWuj4F+dBsZmPy/P0noLUA+B4SCDNxr9MaebOO3+cwJYaSVg9wKHBxKyTUxna
-	JBWkeLCXTz81wr1M9OTfiWnfRQ0X0COxhan/3UD+tfOBuK0YhK+AFG29pBxfRtZ9VbPqA0efOH4mw
-	Cx6VteDS0lGuH6uOHDFPydzVvFsSHiW/yZM2YBMPykrFQJ0lZT8Tu8R3+5Bn/NrxMOZIasE/UGaVq
-	vCdeQnvfCdhetU9gg/P366jOrTRg1GnfsjHhnU3ZGSoiFI6hzgGStrC+O1BKXgODOeFtVrqHA0QQ1
-	t0WdhE+g==;
+	bh=XoUDkMKF7L1Z9q3nwhGq3tIuxBl8dHtlGRc13BPjNPo=; b=psi4d6kDC83tff6BHy8dyedExv
+	aM/PieHKzJuJhFzDe7szK637oZetvtr14jCOTmIZ5N5XOARIi/9NDXlzGBfk88sLT7I05cF27IxWR
+	zswwYWcNYcxPdFbZDby0l5Gt/dDkt+VBs1xJnvl6fx0PL/fXpxOUJ4ueFfXyaMFRLQwvA1pOZ0R7u
+	iiTQP8mGx+TkNE267eXiO+d8C7s8799XrJTfo/ejOkD2c8MsUKzKQvzPIg/6KWwNEwYaIsw2g0l1f
+	zhuKgYWAmU5Muv0+YoIo61GSAO7GtmOcZWVzeC62Qmd1BsxD7Z1TCFo+VI3GlsDcdonzuFfpvKrCf
+	M38rX+wQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xBzp4-000000073uo-0x4f;
-	Wed, 30 Sep 2026 19:18:34 +0000
-Received: from mgamail.intel.com ([192.198.163.9])
+	id 1xBzpc-000000073yx-1lKU;
+	Wed, 30 Sep 2026 19:19:08 +0000
+Received: from vps0.lunn.ch ([156.67.10.101])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xBzp2-000000073uB-066b;
-	Wed, 30 Sep 2026 19:18:33 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1790795912; x=1822331912;
-  h=from:to:cc:subject:in-reply-to:references:date:
-   message-id:mime-version;
-  bh=CyGtyCPmNZniFcfDSReMKCTj4N1SwBDzJ2xIa3sj7uI=;
-  b=C8hjNpLd6d810/Fis7Z1RjIYHWKirg7FQ5inN55qYa8vdNdtuFRkOSmi
-   yHH9YgHine2bwuSrN549AIh+YVhjwnd3/dy9Lv2e8TvyHlolxYR9TOx8C
-   nBF6FQ3jiFTwvvcX7NOr8uKBM7lAsbAeWMOzK1yZ/j67xiXsKnx7jCbYr
-   MwgzszSeZGoifO2Y2jIm07W7ghYwmNvvWocuEFQkCACnWHbLSG1kQDorL
-   regOJ9Ojgx/iS/tG9Lm2RaA5zFRQBWswDc9jHYR646L4U3AjZPqpKUc4o
-   nft/7Owt/2MrU7ZY86aDSnpl2uMgkVUO0FG/45/JuT+Tby4ODRTGT0EAi
-   w==;
-X-CSE-ConnectionGUID: DrM37d2ET7i7QkmHlxcI0A==
-X-CSE-MsgGUID: ODEWA5BZToSuwKaHhZHc/Q==
-X-IronPort-AV: E=McAfee;i="6800,10657,11921"; a="102218498"
-X-IronPort-AV: E=Sophos;i="6.27,133,1787036400"; 
-   d="scan'208";a="102218498"
-Received: from fmviesa007.fm.intel.com ([10.60.135.147])
-  by fmvoesa103.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 30 Sep 2026 12:18:30 -0700
-X-CSE-ConnectionGUID: BLsley0fRryRnafxe2muKg==
-X-CSE-MsgGUID: 955Bc4nlQZCMiHe1JN9npQ==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.27,133,1787036400"; 
-   d="scan'208";a="275320575"
-Received: from pgcooper-mobl3.ger.corp.intel.com (HELO localhost) ([10.245.245.107])
-  by fmviesa007-auth.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 30 Sep 2026 12:18:23 -0700
-From: Jani Nikula <jani.nikula@linux.intel.com>
-To: Neil Armstrong <neil.armstrong@linaro.org>, Maxime Ripard
- <mripard@kernel.org>, Jessica Zhang <jesszhan0024@gmail.com>, David Airlie
- <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>, Maarten Lankhorst
- <maarten.lankhorst@linux.intel.com>, Thomas Zimmermann
- <tzimmermann@suse.de>, Rob Herring <robh@kernel.org>, Krzysztof Kozlowski
- <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, Nathan
- Chancellor <nathan@kernel.org>, Nick Desaulniers
- <ndesaulniers@google.com>, Bill Wendling <morbo@google.com>, Justin Stitt
- <justinstitt@google.com>, Florian Fainelli
- <florian.fainelli@broadcom.com>, Broadcom internal kernel review list
- <bcm-kernel-feedback-list@broadcom.com>
-Cc: Andrzej Hajda <andrzej.hajda@intel.com>, Robert Foss <rfoss@kernel.org>,
- Laurent Pinchart <Laurent.pinchart@ideasonboard.com>, Jonas Karlman
- <jonas@kwiboo.se>, Jernej Skrabec <jernej.skrabec@gmail.com>, Luca
- Ceresoli <luca.ceresoli@bootlin.com>, Albert Esteve <aesteve@redhat.com>,
- Dave Stevenson <dave.stevenson@raspberrypi.com>, Javier Martinez Canillas
- <javierm@redhat.com>, dri-devel@lists.freedesktop.org,
- devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
- bpf@vger.kernel.org, llvm@lists.linux.dev,
- linux-rpi-kernel@lists.infradead.org,
- linux-arm-kernel@lists.infradead.org, Benjamin Tissoires
- <bentiss@kernel.org>
-Subject: Re: [PATCH 0/6] drm/bridge: Add a BPF-based MIPI-DSI panel driver
-In-Reply-To: <6c581ae0-2480-47a2-b46e-97afadbc7c1f@linaro.org>
-Organization: Intel Finland Oy - BIC 0357606-4 - c/o Alberga Business Park,
- 6 krs Bertel Jungin Aukio 5, 02600 Espoo, Finland
-References: <20260928-drm-mipi-dsi-panel-ebpf-v1-0-5244926aace4@kernel.org>
- <054ef52478fc93fc213a9dae23ea77f73094aaf2@intel.com>
- <6c581ae0-2480-47a2-b46e-97afadbc7c1f@linaro.org>
-Date: Wed, 30 Sep 2026 22:18:21 +0300
-Message-ID: <5617389e496cf14a48efb9026b6d19a0fa37e568@intel.com>
+	id 1xBzpa-000000073yH-00zR;
+	Wed, 30 Sep 2026 19:19:07 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=lunn.ch;
+	s=20171124; h=In-Reply-To:Content-Disposition:Content-Type:MIME-Version:
+	References:Message-ID:Subject:Cc:To:From:Date:From:Sender:Reply-To:Subject:
+	Date:Message-ID:To:Cc:MIME-Version:Content-Type:Content-Transfer-Encoding:
+	Content-ID:Content-Description:Content-Disposition:In-Reply-To:References;
+	bh=XoUDkMKF7L1Z9q3nwhGq3tIuxBl8dHtlGRc13BPjNPo=; b=CVzhuWnti4+kryn8IEFwItWWNM
+	9IlhVS2Pj0dduA+RR0QTDF9yL8Bjwkk5n5VFdv4kgxf5lfuUUmooxWKBBv/Kdvviqym+UgrMV6V5P
+	y22BiSzrOl2nHPvkHn3+o+b85ypMo9T6kMW1eMgOvJt5NCDvJsfsu+Bi9qZKqbV7Lx3g=;
+Received: from andrew by vps0.lunn.ch with local (Exim 4.94.2)
+	(envelope-from <andrew@lunn.ch>)
+	id 1xBzpV-008E5Z-AF; Wed, 30 Sep 2026 21:19:01 +0200
+Date: Wed, 30 Sep 2026 21:19:01 +0200
+From: Andrew Lunn <andrew@lunn.ch>
+To: Dmitry Yashin <dmt.yashin@gmail.com>
+Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Heiko Stuebner <heiko@sntech.de>, devicetree@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-rockchip@lists.infradead.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH 3/4] arm64: dts: rockchip: add Forlinx OK3568-C
+Message-ID: <b81186ad-1da0-4c20-8b4a-aabdb7abb396@lunn.ch>
+References: <20260930-ok3568-c-v1-0-a0ffd55f5c95@gmail.com>
+ <20260930-ok3568-c-v1-3-a0ffd55f5c95@gmail.com>
 MIME-Version: 1.0
-Content-Type: text/plain
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20260930-ok3568-c-v1-3-a0ffd55f5c95@gmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260930_121832_102306_B5818B31 
-X-CRM114-Status: UNSURE (   9.54  )
+X-CRM114-CacheID: sfid-20260930_121906_084863_593197B7 
+X-CRM114-Status: UNSURE (   7.84  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -105,23 +71,32 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, 30 Sep 2026, Neil Armstrong <neil.armstrong@linaro.org> wrote:
-> Yes we could have a similar panel-simple but with init tables, but
-> in reality those panels offers much more features we don't handle because
-> the DDIC vendors and panel integrators just don't care exposing those
-> features, but they get handled by vendor implementation like for Phones.
+> +&gmac0 {
+> +	clock_in_out = "output";
+> +	phy-handle = <&rgmii_phy0>;
+> +	/* Use rgmii-rxid mode to disable rx delay inside Soc */
+> +	phy-mode = "rgmii-rxid";
+> +	pinctrl-names = "default";
+> +	pinctrl-0 = <&gmac0_miim
+> +		     &gmac0_tx_bus2
+> +		     &gmac0_rx_bus2
+> +		     &gmac0_rgmii_clk
+> +		     &gmac0_rgmii_bus
+> +		     &gmac0_clkinout
+> +		     &eth0_pins>;
+> +	tx_delay = <0x36>;
+> +	status = "okay";
+> +};
+> +
+> +&gmac1 {
+> +	clock_in_out = "output";
+> +	phy-handle = <&rgmii_phy1>;
+> +	/* Use rgmii-rxid mode to disable rx delay inside Soc */
+> +	phy-mode = "rgmii-rxid";
 
-...
+Yet another rockchip board which gets RGMII delays wrong.
 
-> I don't think we want this, downstream vendors does that and we don't want
-> to go there.
+https://elixir.bootlin.com/linux/v6.15/source/Documentation/devicetree/bindings/net/ethernet-controller.yaml#L287
 
-I think those are fair points.
-
-BR,
-Jani.
-
-
--- 
-Jani Nikula, Intel
+	Andrew
 
