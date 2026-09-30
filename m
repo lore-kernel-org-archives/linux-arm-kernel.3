@@ -4,63 +4,143 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 62098CA5FAB
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 30 Sep 2026 06:19:22 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 50BA2CA5FB1
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 30 Sep 2026 06:29:01 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:CC:To:Message-ID:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:From:
-	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
-	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=/NeYmdJ9DLWi0nB5q4MMl7kogj1vleZPCWQmaUkAF54=; b=wlzH9Cppk05iZ8MMNAYIOp09Hp
-	TgApOEnPPr8HKDnnsARA5KgpvV2DiUAT18YODeYMTqEWbj6lNcLHu5wd2PNrlqf/FWvLFBhNmkuOs
-	+TKnlg0uPvXIfoeWKwHcZCWFxrmgUE0memAFCopJckK7RwAM2AwhzfJxu/UQklDTDLVBCw6dthxUD
-	yIyUyyLGS9q9KZb/bSFeZv9EvEX2SK6xkr5AkxkvkNOz5+vERfzYKbbs6khQvhRE1uhLRhepDg60Y
-	ZTzkHtuiIys1EKuyNS2sh5V6IZVTiHJG4Tnv/EKifrgNpVuSv7mcL/ScMhKESMIHYAmfzJa4axSDR
-	kQ+rVcaQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Cc:To:
+	Content-Transfer-Encoding:Content-Type:Message-Id:Date:Subject:From:Reply-To:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=L2KtjaJjiOHZ0oCymObNG9F/eAOnZxHqDaA1RRQARbc=; b=aXpOGGytnLW/2bp3+XEGTErDq6
+	r2rLKKcTpW3Ody/gDSjW2bjWfy6tRcWwwtFAP9ubSlMIciwZomQPVvOIJ2CEkZP2MC1TTlvIssaMf
+	aPJ6Bj/iPpxqKVVn9hOi7DT1kId+xln2YLkucHLPKB6kXj8CHeGOJh95c2lXHKA8xtCZOCSwcWQm6
+	fHtMzjT9PYrsfLyKrjbZe8VvzY2p27di3boh8ydxDME+ly9oobi7P9RacHlw5NwYqZ3Yg2ChHmYtu
+	wi5xQZG5oaRDqrVeR54HjCxl6UqJkv8hBlIQHXwufgW8plg47l1TdMzRlIfO+kN7aN2E3qavFOvpl
+	owbHnPXA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xBnet-0000000586X-3yKC;
-	Wed, 30 Sep 2026 06:19:16 +0000
-Received: from [64.106.246.77] (helo=mailsc.amlogic.com)
+	id 1xBnoE-000000058kN-2Xuv;
+	Wed, 30 Sep 2026 06:28:54 +0000
+Received: from mail-francesouthazlp170110003.outbound.protection.outlook.com ([2a01:111:f403:c207::3] helo=MRWPR03CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xBner-0000000585h-24eZ
+	id 1xBnoB-000000058ja-3jM1
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 30 Sep 2026 06:19:14 +0000
-Received: from [127.0.1.1] (10.18.11.116) by mailsc.amlogic.com (10.8.11.35)
- with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.35; Tue, 29 Sep
- 2026 23:14:06 -0700
-From: Chongchong Ding <chongchong.ding@amlogic.com>
-Date: Wed, 30 Sep 2026 14:13:49 +0800
-Subject: [PATCH] ARM: hibernate: flush TLB after switching to idmap
-MIME-Version: 1.0
+	Wed, 30 Sep 2026 06:28:53 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=Tw9qwXd1zditU6N388m5Wqov3RLZ3DoV3YWCFIUZBd+rsF8km4cwT2V4QIcQp4wIUQr/9pehL8e9vDuWIA+1vDrVS+qdOTyvgu5Px+80itlrubowt3gji89ZGljT/nRcQ/2SmSrQ56pnP95rsS9onpuTugyi6IrTrO9BtqdUvZCAZ5tgiYtZ+Pjb2ltn3/+zAMiyKAlety/wPIHfN9BzMS7VgtD2D/fphUZpQAeFcvxKuC9ALKYc/hh6RL2PId8RuZCgnf1wjkk9sCg6HMocscQfCI9lXBN5vOKZPrYJatfii5Ye+ojzzkgAJFbCwNpC8XoHfUSwEzxhGvyy2NGjQA==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=L2KtjaJjiOHZ0oCymObNG9F/eAOnZxHqDaA1RRQARbc=;
+ b=OKsrCMpOvSdoVD37ApoBfb4uFqf9KrQIdQ9QyrmFFvmRO1Z9iSvfu1ARA2xEjmnjl+9G8un9BwOt5dWgRKh3b7NY+Jpd0mrjmYxS1oIVVJ0rzgrgYFyuj6Cb8Us08pJc44cq2MdrxgrFGswlGAaypzLRMyyCrBcMSgSvBCjYmbCcNBihkb3ptMoXK90Pd4HiZH4Q3JqmKplQjrvzb+POK8C9kDrK38xA68GA5gTPizWnnqyjueUTqQ2BJmcNu1/6HwJFDgrkMKldVdHNPz7NCYzKprTR5+lX3ATXh8wSvquimS5UTgC/F4iYQSNDrhxoPD1alKycM+rXcOjyLKCYgA==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
+ dkim=pass header.d=oss.nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
+ s=selector1-NXP1-onmicrosoft-com;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=L2KtjaJjiOHZ0oCymObNG9F/eAOnZxHqDaA1RRQARbc=;
+ b=G9d3iJ0R2TRX1sW2mnHqTs7qCegi6eKG1zgI1J1GExK8aX/j/0xWqfO8zJXN3FMFdDjPYlRVOcuKWHOU+XVyp9S6dDriFbLC6b0gThYNw8565vAxwZHwhefuADKSQhARoJBjRbsglXGMgAf3dBhBOwfu+CEMUdHn/r3gCx9LnmwIjdpUFi8zk+ZIBPVOTmEMJULCYq0Zv3kyWOrrDDzwgvrBEeEfdDa8T0kdjH89RH1MYWMaoJqV3yp2tPIJIOXInax23erkM3Uh43UUmJESm+IjeAu5joFOxZELQqgScmcKGQB1wMMMjy11OO8v/MjZwto4uqRZRu976t4JhxRwxg==
+Authentication-Results: mx.microsoft.com 1; dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=oss.nxp.com;
+Received: from AM8PR04MB7874.eurprd04.prod.outlook.com (2603:10a6:20b:24d::9)
+ by DU2PR04MB9081.eurprd04.prod.outlook.com (2603:10a6:10:2f0::13) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.472.15; Wed, 30 Sep
+ 2026 06:28:43 +0000
+Received: from AM8PR04MB7874.eurprd04.prod.outlook.com
+ ([fe80::ac38:1699:6f18:c5d9]) by AM8PR04MB7874.eurprd04.prod.outlook.com
+ ([fe80::ac38:1699:6f18:c5d9%6]) with mapi id 15.21.0451.022; Wed, 30 Sep 2026
+ 06:28:43 +0000
+From: "Peng Fan (OSS)" <peng.fan@oss.nxp.com>
+Subject: [PATCH v2 0/3] dmaengine: fsl-edma: per-channel IOMMU support via
+ DT child nodes
+Date: Wed, 30 Sep 2026 14:26:08 +0800
+Message-Id: <20260930-edma-iommu-v2-0-72a62bf44c74@nxp.com>
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-ID: <20260930-hibernate-tlb-flush-v1-1-a0143c144c19@amlogic.com>
-X-B4-Tracking: v=1; b=H4sIAJyovGoC/yXMQQqDMBBA0avIrDtgpkTaXkW6MHFipkgqmVgK4
- t2b6vIt/t9AOQsrPJoNMn9E5Z0qzKUBH4c0McpYDdRS197phlEc5zQUxjI7DPOqEQN54+3V2I4
- s1HLJHOR7XPvnaV3di335r2DffwloWe93AAAA
-X-Change-ID: 20260928-hibernate-tlb-flush-f2c1c5315625
-To: Russell King <linux@armlinux.org.uk>
-CC: <linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>,
-	<linux-pm@vger.kernel.org>, Linus Walleij <linusw@kernel.org>, "Florian
- Fainelli" <f.fainelli@gmail.com>, Chongchong Ding
-	<chongchong.ding@amlogic.com>
+X-B4-Tracking: v=1; b=H4sIAICrvGoC/yXMQQ5AMBBA0avIrDVpJkHqKmKBGYykrbSIRNxds
+ XyL/y+IHIQj1NkFgQ+J4l0C5hkMc+cmVkLJgBpLbbBUTLZT4q3d1ViQJlOhKQghBWvgUc5v1rS
+ /494vPGzvAe77ARYulNduAAAA
+X-Change-ID: 20260926-edma-iommu-f5d0d97295d2
+To: Frank Li <Frank.Li@nxp.com>, Vinod Koul <vkoul@kernel.org>, 
+ Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, Sascha Hauer <s.hauer@pengutronix.de>, 
+ Pengutronix Kernel Team <kernel@pengutronix.de>, 
+ Fabio Estevam <festevam@gmail.com>
+Cc: Frank Li <Frank.Li@kernel.org>, Joy Zou <joy.zou@nxp.com>, 
+ imx@lists.linux.dev, dmaengine@vger.kernel.org, devicetree@vger.kernel.org, 
+ linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+ Peng Fan <peng.fan@nxp.com>
 X-Mailer: b4 0.15.2
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1790748845; l=2140;
- i=chongchong.ding@amlogic.com; s=20260930; h=from:subject:message-id;
- bh=xRm3gEACpNR+yLo44YiEitOwVR6sFn5jhprGz3gHx2w=;
- b=mVY4hSIXxmwZwPg1yYsJdj/VEZwtR3MM2B3k+7Jzwm7JwFJD3phlpkbnh86VDwpuXiaeDS50v
- T0h+6xd+Eb5D0l9QU25+thhxHo+V9YPBWgZ+2HLVOF7qkFU8pVLibIJ
-X-Developer-Key: i=chongchong.ding@amlogic.com; a=ed25519;
- pk=x1D2PG3lUVeB9gT9LLK2qTEJMxyeSY7/nexaR/wvK6o=
-X-Originating-IP: [10.18.11.116]
-X-ClientProxiedBy: mailsh.amlogic.com (10.18.11.5) To mailsc.amlogic.com
- (10.8.11.35)
+X-ClientProxiedBy: SI2PR02CA0047.apcprd02.prod.outlook.com
+ (2603:1096:4:196::14) To AM8PR04MB7874.eurprd04.prod.outlook.com
+ (2603:10a6:20b:24d::9)
+MIME-Version: 1.0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: AM8PR04MB7874:EE_|DU2PR04MB9081:EE_
+X-MS-Office365-Filtering-Correlation-Id: 02b3a2dc-1b4b-4de4-62c7-08df1ebc12fc
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|19092799006|366016|7416014|376014|1800799024|23010399003|11063799006|56012099006|10067099003|260925022911599003|260925021911599003|260925021311599003|18002099003;
+X-Microsoft-Antispam-Message-Info: azdJ55KWXnebyExVo56goak7c5w6KWbjtbldPUVqd116PTupZEMGnbW5hjwMhvT8g6JicE8J9bBmg3InICiPuZW3gYGXWK6qas/IUn7/oisQdPOZHYr8fQa7I5L1DIQ0+YnTvEvPYsvfKdsddQ4ZRheEpOuKzRP8HHaZAuplcnUZ3k6adlFijlazXA9sSU0/ObQrO2Au+DcCiD2GwB009/VxXI1qm3FRPmNem6i7x8hsLt9ZLFuWJ9JISelmje2ypcT0bGllz8O2VIJAXf+4HMUACRCo23qBctYtm5wujO06ba6EcVkLtJatr+MwEfcNfUheGRxSRU4hZdZqPI0wXOIPy/vJFiU+enlSoYeWNvlNyxHAc5x/gUgTXluhzadQYE6mKiCMfJ/MTkzGMkSpvdi4R+wourFmREoMv1p0Ftq22tr5yK1W8VoM1Yf1lJxYyqKyprf2gK6rlXjO5i9YlBTYwbNSur+v2w7x9STEuUntz0JnkN+rY124Ao8XuQYinvj3gGr/JwDWws7mwCNWTokEv2CRhng+ef+aqtioTs3AY911Suvu+baCH1QaXvc/N9OlLi2FU6CPAzdzqYQt7sLDmoYxafWUu4ZjSekJ+CdziesqGE9P+u7cC1f1+s4j
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:AM8PR04MB7874.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(19092799006)(366016)(7416014)(376014)(1800799024)(23010399003)(11063799006)(56012099006)(10067099003)(260925022911599003)(260925021911599003)(260925021311599003)(18002099003);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?WSsvNUZGZnFiSWg1VXcvUTdCMXg1ZGVyNkdZTXRWVnllNWRhYisvYnFoY3lY?=
+ =?utf-8?B?VFJMMVJOWHBLa0pwaE4vSExWRVFZSWxCelBnYmc3cmNoeVZMcmJsNThyZE9y?=
+ =?utf-8?B?WTI4U1k2cHBERmo5SVBrQ2d1ZURqK0kveFllZGRxSFVkZGFYY0Y1K2JOMi9O?=
+ =?utf-8?B?cGYrMDdHSVBVZzlVa2ovaE90djd0T0kxTm13Z1U5N3FvZ3ZJWGx2VEUxaHhK?=
+ =?utf-8?B?RXUvUEZJcUVMSW5NMGMrUm1VdGloL0dNTkp1eWxoQ2JQd2xWKzl0QlRhZjdk?=
+ =?utf-8?B?RlBKVlVldzltWndWNTZwcjJISlppVzNkVFhTSFBrUUg1eGpFZDFOM0owS3k1?=
+ =?utf-8?B?UkVqdEJ1enFCTkNucE9XYVdqRnBPU2ROSjBvZUdmeGR1WFppdjFTZWxnczRi?=
+ =?utf-8?B?LzM1UEE5OGNDbnArT3lNRTZEL3NKU291bGJNaEJoUUE3c2xSN3JaR0ZNdUxO?=
+ =?utf-8?B?MmtrLzdHaitRcGNyZHhoUC81YWFzZ2JqUEl0ZnBTUTBHUk94VVZ1a1ZtTDk2?=
+ =?utf-8?B?Tkd0NjJpWklvOUdFbWsyUmFsZjBMQUFtd1MxTWhQOGV3NUpOWENyWDIwODF4?=
+ =?utf-8?B?YlVZdmQ4NzVvYnJDcFlBa0pXUkFEMVJuMTNOTG1pMUExOUNSeXdHa1kwY3B2?=
+ =?utf-8?B?K05xbElsT0hlWjR6ZXY3bHduMlRkVG5XSVFPTVpOaDgvUmhHZXlZVTZxakhR?=
+ =?utf-8?B?Y3ZMWnFrOER1L1VYbTE0c1Zoek0rQjFjalhGOVBrLyt3N216WVJBVzZUdE12?=
+ =?utf-8?B?TC9tSkhvZUNIZGlCRjdRSzcyVkJkdG1nL2FmSWZwWEY3Tit1VmF1ZmFkRjYr?=
+ =?utf-8?B?TUk3MDFLbzRBQ2N4dVZCRThWbEQvd1pHMlJsa2tnZGpnNDF3YncvVWswQWVD?=
+ =?utf-8?B?WGlhM0I1VHlPcEFwNzBwWUN6NlJsS0QxZWNLUVFHcjM4a3JwOHQxcXBWR0Yv?=
+ =?utf-8?B?Z0ovSktnN3pnOFBrbDRPM1N5aERTd09KNEUzMmhwUmpiamdUZFRLOXFHWVdi?=
+ =?utf-8?B?RGxJYlBYUEU4Wis3Z2F6WTVHOW5FbmVVanJoTnhmZlNjZW85b1hxMVdZMmVF?=
+ =?utf-8?B?U1Z3b1MxSmFPeE9ydURzTi9Td1JJd2RMK093UmJ6QzJHWmY0Vy8zeDl3bjhR?=
+ =?utf-8?B?bkIrUVk3cG5oMk1YenFVRUVRWW4waVZmSDY3Um9yS1B4SE91dWhORm9DdGVj?=
+ =?utf-8?B?cllyN2FwNW83RzI2VmxpekJvWjZ4WWRLellFK0wxTkdQb0xVbGJmSFhoaTJH?=
+ =?utf-8?B?RTAxUEQvNjdEVEFrQ1REVkxYek0vYnVHK1lnZVkvZGg4V0IyYThZNFh0SXNq?=
+ =?utf-8?B?U1dOS3hYY09sZE5GaVREbTRBajNRbXNnbGJ3VnFJYTBHazJaTElDNnladlNW?=
+ =?utf-8?B?Y1d1NmgzNEVPTEJWTG9nTHR0QVpZZUtoVTduRWZNMFhoanN5STZYcDRpWTRK?=
+ =?utf-8?B?cUFFN0NiL25YM3MzRllSVTVZMis3eTQ3Q0RxSGdzQmNmenpmaDJaQ3VMckxw?=
+ =?utf-8?B?eWdpNHowR1U2VmxtMm1OcnJIMUV6dWJuVzh0a0lLNmd5MHVvWFh5NVpzTHo2?=
+ =?utf-8?B?RWtoQm9VdXJvNFpFWk9wM0FHbFF6S0IrdzVmc2poVytLZStHc283bU4yeXZB?=
+ =?utf-8?B?R2Vvd2ErNlhHNThCaVEvQk0zNGxHbkMwZGtwelRHUEx1K0swSzZPZUErajdp?=
+ =?utf-8?B?YmhGWDJFN0JHMUVKeGlPMzRkcGZ3MHpXOGNUVWJ0aWw4ZVliVXhCUkVYOEZy?=
+ =?utf-8?B?c2Fac3M2Q25rYTVwUEpPbko1czZxeGY5NVpRN3BzM29BYUZ4c20ybnAybVZG?=
+ =?utf-8?B?K3pqMlBRSmpuVC9EMVZuSGtVMDlZN2lHMy9UZUhNaWZZS1FtRjA0M2VLL2kx?=
+ =?utf-8?B?TFNST3ZzOXorS0lQQ0twNStFU0wvb3dpdTk5QlNHU1ZYeUR1UnBBL2txZFE0?=
+ =?utf-8?B?MjVqUEc3VW1VQ0g5RkhsNCtqVUhQTDRWd3FhZ2VENWlaYjFWRk9lOTdpajB1?=
+ =?utf-8?B?RW8ycDYyWlAydmo3SlB0SW4zTHJYeGdQRUt3TDlZSkd5TUd0VnJZY1p2L2ZY?=
+ =?utf-8?B?THhwaFZXWUFuZGxKcGhER1dLSHl1YUlZemdieHVyUUZyaENLY20veHFEOEYw?=
+ =?utf-8?B?SU9WcGFlMFdQbmdqUGt5ZmxlOGhUQWtPcThaVVBxd1NFQy9sam5RZEhaT0pO?=
+ =?utf-8?B?ajZGNmN5OVNwSzU3blVCdkFzTkdqY2l4dEJDSTVMcFBSVjZRVm1TOXNJdC9M?=
+ =?utf-8?B?RzRjUE1CM21HTm12Z3p5YWVySWlPK24wQlNiNGpOaWJ0UmR0Rll0ZHZuejNT?=
+ =?utf-8?B?MEExNGoydGkwNXdRUytaS1JkRTdLSWo3ZlQzR2tjSnVqRkdOTGRPWEMyL1hB?=
+ =?utf-8?Q?nMnA4qK3PpcDQV55vTGtlOxPB85JfrzSbso7P?=
+X-OriginatorOrg: oss.nxp.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 02b3a2dc-1b4b-4de4-62c7-08df1ebc12fc
+X-MS-Exchange-CrossTenant-AuthSource: AM8PR04MB7874.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 30 Sep 2026 06:28:43.4505
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: PzL+/phKDfIUMYcBy1BfuTNddeL3oVzwelcGUu7wZL1Ninua7Dfc0hZvQVReTHwB3f/rqktmSwlWpHYsMkj+gZ02UNL+oNNWUNpqYpVP6DgtboCm7yYqCfyY9Cs3AeAR
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: DU2PR04MB9081
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260929_231913_527380_2B50C0D9 
-X-CRM114-Status: GOOD (  13.35  )
+X-CRM114-CacheID: sfid-20260929_232851_936888_2FFEF8BD 
+X-CRM114-Status: GOOD (  14.92  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -75,64 +155,76 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 32-bit ARM, hibernate switches to the identity mapping to copy pages.
-The idmap keeps an early RW snapshot of kernel mappings, so
-STRICT_KERNEL_RWX text/rodata can be written during restore.
+I used iommu-map for eDMA, but iommu experts rejected it:
+"Using iommu-map to describe synthetic dma_chan_dev devices that the
+kernel creates is the same kind of DT abuse from over here:"
+More info: https://lore.kernel.org/all/20260917144804.GI3196566@ziepe.ca/
 
-cpu_switch_mm() does not drop the global TLB entries from swapper.
-copy_page() can therefore still hit the old RO translations and fail to
-restore kernel RO sections.
+So I followed here [2] as Krzysztof wrote for QCOM VPU:
+"Thanks Jason for context and detailed arguments. Robin did not chime in
+yet, but from what I understood the DT-child-node approach will be the
+way we should go here.
 
-Flush the local BTB and TLB after installing the idmap, matching
-setup_mm_for_reboot() and the cpu_suspend() resume path.
+I accept above point of view and I am fine with this, thus Vishnu and
+Vikash - please go ahead with DT-child-node solution we had some time ago."
+[2] https://lore.kernel.org/linux-iommu/c7b956a9-d3e8-4e18-b780-5d08f5cd2ca1@kernel.org/
 
-Signed-off-by: Chongchong Ding <chongchong.ding@amlogic.com>
+The fsl,edma controller on i.MX95 has per-channel SMMU stream IDs,
+where paired TX/RX channels share the same stream ID. The previous
+approach used iommu-map at the controller node, but this is
+architecturally wrong for platform devices - platform_dma_configure()
+passes id=NULL to of_dma_configure_id(), so the iommu-map property is
+never consulted by the kernel.
+
+This series adds per-channel child nodes to the eDMA binding and
+driver. Each child node (dma-channel@<addr>) describes a real
+per-channel MMIO region and can carry its own interrupts, iommus, and
+power-domains properties. This approach:
+
+ - Uses the standard iommus property for per-channel stream ID
+   assignment, which works through the existing of_dma_configure() ->
+   of_iommu_configure() -> iommu_probe_device() path.
+
+ - Provides real MMIO addresses in child reg properties, enabling
+   Xen dom0less device passthrough where the hypervisor needs physical
+   address information for channel-level granularity.
+
+ - Maintains full backward compatibility - existing DTS without child
+   nodes works unchanged.
+
+The driver configures per-channel IOMMU following the same pattern as
+tegra186-gpc-dma: set bus type on the dma_chan_dev, coerce the DMA
+mask, call of_dma_configure() with the child node, and set
+chan_dma_dev=true so dmaengine_get_dma_device() returns the per-channel
+device for DMA API calls.
+
+Tested on i.MX95 EVK with SMMUv3 enabled for edma2 channels 2-19
+(stream IDs 0x30-0x38, paired). Channels without iommus (used by SPI,
+I2C, etc.) continue to work in bypass mode.
+
+Signed-off-by: Peng Fan <peng.fan@nxp.com>
 ---
-arch/arm/kernel/hibernate.c is only compiled when CONFIG_HIBERNATION is
-enabled, and none of the 32-bit ARM defconfigs enable it, so the ARM
-hibernation code has never been covered by the regular build tests.  This
-bug was found while enabling the option for build coverage.
----
- arch/arm/kernel/hibernate.c | 12 ++++++++++++
- 1 file changed, 12 insertions(+)
-
-diff --git a/arch/arm/kernel/hibernate.c b/arch/arm/kernel/hibernate.c
-index 231a76af09a0..1c7c1cb6dade 100644
---- a/arch/arm/kernel/hibernate.c
-+++ b/arch/arm/kernel/hibernate.c
-@@ -21,6 +21,7 @@
- #include <asm/suspend.h>
- #include <asm/page.h>
- #include <asm/sections.h>
-+#include <asm/tlbflush.h>
- #include <asm/uaccess.h>
- #include "reboot.h"
- 
-@@ -93,6 +94,17 @@ static void notrace arch_restore_image(void *unused)
- 	if (IS_ENABLED(CONFIG_CPU_TTBR0_PAN))
- 		uaccess_save_and_enable();
- 	cpu_switch_mm(idmap_pgd, &init_mm);
-+	local_flush_bp_all();
-+
-+#ifdef CONFIG_CPU_HAS_ASID
-+	/*
-+	 * The identity mapping has no clean ASID and may clash with entries
-+	 * left behind by the previous page tables.  Without this flush,
-+	 * copy_page() can translate through the stale read-only kernel
-+	 * mappings instead of the writable aliases in the idmap.
-+	 */
-+	local_flush_tlb_all();
-+#endif
- 	for (pbe = restore_pblist; pbe; pbe = pbe->next)
- 		copy_page(pbe->orig_address, pbe->address);
- 
+Changes in V2:
+- Switch to add child node for dma channel.
+- Link to V1: https://lore.kernel.org/dmaengine/20260916-edma-iommu-v1-0-e1731968081e@nxp.com/
 
 ---
-base-commit: 551c722f40809618230001baccf219193e22fc5a
-change-id: 20260928-hibernate-tlb-flush-f2c1c5315625
+Peng Fan (3):
+      dt-bindings: dma: fsl,edma: add per-channel child node support
+      dmaengine: fsl-edma: support per-channel DT child nodes
+      arm64: dts: imx95: convert eDMA to per-channel child nodes
+
+ .../devicetree/bindings/dma/fsl,edma.yaml          |  70 +-
+ arch/arm64/boot/dts/freescale/imx95.dtsi           | 774 +++++++++++++++++----
+ drivers/dma/fsl-edma-common.c                      |  10 +-
+ drivers/dma/fsl-edma-main.c                        | 149 +++-
+ 4 files changed, 864 insertions(+), 139 deletions(-)
+---
+base-commit: 38cc189d30504989ed32704c9b87992de304d0fc
+change-id: 20260926-edma-iommu-f5d0d97295d2
 
 Best regards,
 --  
-Chongchong Ding <chongchong.ding@amlogic.com>
+Peng Fan <peng.fan@nxp.com>
 
 
