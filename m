@@ -4,72 +4,87 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BE8B3CA5FC7
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 30 Sep 2026 13:58:18 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 37F2ECA5FC7
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 30 Sep 2026 14:02:13 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:References:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
-	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:List-Owner;
-	bh=d5uhQBfMA9Bzna2lrXnXP49LmGR65Hwnuf+fvI59R6I=; b=LwPJA1h5iI65qGympxzpgQSyw6
-	n/taJ9M/nX51n2QYvQJbTeTTnruT1wPFnCgwhL3vH5rjg+Is31qutplKPxEV2XTwiTHZtboDgea9R
-	H9MQVsScxbLTu5C06rdp5Ju8QGa4LL9EiZWVABZovLgHQe+RkJr+m/sdbJKfQsXYw3gxC9Y39duJ7
-	FaQdI2VPsLo2Wm3Li1JoDmSo4uEh/N+IpOBHsBaim5CEyjC2ZYTOp1hAnQ8vgg/K6gr2k8Jeam/P/
-	v2PtngnMkVA1QXYdZZ1flxfFAhvpL2qQG1OfLxnNPM2jFpX1L1qmcunsFQBZyrPCRSDv2dwIdt3zX
-	uZa8wIHA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=z2kFb8rk+1oV2Y/XIcdXcHaA9DwjdUvpd4f0C2A52gQ=; b=dkwZTYz725Vt2zMoHt2actq1YZ
+	0X3NrHEONndOBb6dOIHZQhPyQI3LuHE8O8QnhfmgusEXNdCl/q0mmOYzfloXK8pkb6+dzyr3P1h9p
+	VSgVX6EHtu/xp0Y561dsYb3A+LDJKaAm5amwmC0MYXSx5I6vwFJ22+6rXt6E73BivBHrL66Jo+WW4
+	ILZDim+w5cziBxDKBZ/3I0MakbH6pMZ0BiAyBg96a4b5jffpwNPHXh+R5tz9Qz2Krdl/SRLW4RLxj
+	FvCGEBUjONuznaJhwaL81tb6KrhfGP7fh39mkwoQ+qzzN6JgAbbrGwcWn0EgQNf6EVVEaU1nBKNzu
+	dz11hSXg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xBuoy-00000006CmE-1BKl;
-	Wed, 30 Sep 2026 13:58:08 +0000
-Received: from mailout1.w1.samsung.com ([210.118.77.11])
+	id 1xBusi-00000006DDh-38Qr;
+	Wed, 30 Sep 2026 14:02:00 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xBuom-00000006Cfe-3Ngp
+	id 1xBusg-00000006DD4-39dB
+	for linux-arm-kernel@bombadil.infradead.org;
+	Wed, 30 Sep 2026 14:01:59 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:Content-Type
+	:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:Message-ID:
+	Sender:Reply-To:Content-ID:Content-Description;
+	bh=z2kFb8rk+1oV2Y/XIcdXcHaA9DwjdUvpd4f0C2A52gQ=; b=npK/VNz5yWBkE8nVG0QBW8N4Ko
+	FU5I/LKtMOo/IGypUNXA7DTsrGqTS2j7sGdlWpp9GQCUMDpyni4YZU/+dKeFMPmXVxjMcBwMsWOkm
+	T5AcaC1wLTe3MeirauMmX8/6F5ZhU8WAbbYd8rUuwMXKxLIoX9yhpXprcwb4P763niFUDhseMEiid
+	h/wN2iUcZt8XlePVfbK56XskkeZIhbxU2KXjF25nQB/ufsodTV3YuWQpi/b05eQvbnU0IH5MjpUqD
+	nuURKW/cIU8SpeKDpL3r+fZuO40Grbp+TZYzzMCOELBf7dMQwgCMyTPoYHaJi/G2Nk5/b3bFnPhKI
+	WiXd0X8g==;
+Received: from foss.arm.com ([217.140.110.172])
+	by desiato.infradead.org with esmtp (Exim 4.99.2 #2 (Red Hat Linux))
+	id 1xBusd-00000003sax-0gkn
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 30 Sep 2026 13:58:05 +0000
-Received: from eucas1p2.samsung.com (unknown [182.198.249.207])
-	by mailout1.w1.samsung.com (KnoxPortal) with ESMTP id 20260930135751euoutp0191a566717bd36910ffcda056f7649627~aHeUN9sen2678326783euoutp01D
-	for <linux-arm-kernel@lists.infradead.org>; Wed, 30 Sep 2026 13:57:51 +0000 (GMT)
-DKIM-Filter: OpenDKIM Filter v2.11.0 mailout1.w1.samsung.com 20260930135751euoutp0191a566717bd36910ffcda056f7649627~aHeUN9sen2678326783euoutp01D
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=samsung.com;
-	s=mail20170921; t=1790776671;
-	bh=d5uhQBfMA9Bzna2lrXnXP49LmGR65Hwnuf+fvI59R6I=;
-	h=From:To:Cc:Subject:Date:References:From;
-	b=RYn0wow4k+GSnYkmQCsYEXlyTUhg7UQOTv8JtUMd+qJifKSJ8G5Fs636vRmxanzgS
-	 gql6GS829w9bQ1pnaZq1n+Vqz9GTqx9aw7PXynk7nAkbgtktq1lJOJWPAxNGazyIRH
-	 a2NCFQiL69OheRnqS31kchts8KdsS6jWpJPhnkHQ=
-Received: from eusmtip2.samsung.com (unknown [203.254.199.222]) by
-	eucas1p1.samsung.com (KnoxPortal) with ESMTPA id
-	20260930135751eucas1p1c3b8b79ed87c3bf6f473d26e4663e7e4~aHeUAc8mI1283412834eucas1p1t;
-	Wed, 30 Sep 2026 13:57:51 +0000 (GMT)
-Received: from AMDC4653.digital.local (unknown [106.120.51.32]) by
-	eusmtip2.samsung.com (KnoxPortal) with ESMTPA id
-	20260930135750eusmtip2515e5cd38c347fe5f4bced4f58a9f9df~aHeTk2AOZ0736807368eusmtip27;
-	Wed, 30 Sep 2026 13:57:50 +0000 (GMT)
-From: Marek Szyprowski <m.szyprowski@samsung.com>
-To: iommu@lists.linux.dev, linux-kernel@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org
-Cc: Marek Szyprowski <m.szyprowski@samsung.com>, Robin Murphy
-	<robin.murphy@arm.com>, Christoph Hellwig <hch@lst.de>, "Aneesh Kumar K . V"
-	<aneesh.kumar@kernel.org>, Russell King <linux@armlinux.org.uk>, "Claude
- Opus 5 . 5" <noreply@anthropic.com>
-Subject: [PATCH] dma-direct: Restore arch_dma_alloc() for the
- DMA_ATTR_NO_KERNEL_MAPPING case
-Date: Wed, 30 Sep 2026 15:57:32 +0200
-Message-ID: <20260930135734.1013905-1-m.szyprowski@samsung.com>
-X-Mailer: git-send-email 2.43.0
+	Wed, 30 Sep 2026 14:01:57 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id AB117497;
+	Wed, 30 Sep 2026 07:01:47 -0700 (PDT)
+Received: from [10.2.212.8] (e134344.arm.com [10.2.212.8])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 4D9203F86F;
+	Wed, 30 Sep 2026 07:01:48 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
+	t=1790776911; bh=EZ89Fm9plmALyyCq9f/yNwwTgbNrl+9IoYkTg1Ivj78=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=U3KPkqtjupeYAimDJeyZphk2u3aAye/K2ii9jOV93izfEWqQMwCygB4V500l/jmvV
+	 ZK6AzF8PxCidMSv7V2CFW9zT0QTzCX8O/WLrn6KeDNCqoDzbS2vatSrL1p0cUC8wps
+	 HCwViFRog+leL8VSHFTE5GmUb6HinbKCB7Uc5gT8=
+Message-ID: <4cc35ee7-c4d3-40c0-b1f9-24ef5a2f5844@arm.com>
+Date: Wed, 30 Sep 2026 15:01:46 +0100
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-X-CMS-MailID: 20260930135751eucas1p1c3b8b79ed87c3bf6f473d26e4663e7e4
-X-Msg-Generator: CA
-Content-Type: text/plain; charset="utf-8"
-X-RootMTR: 20260930135751eucas1p1c3b8b79ed87c3bf6f473d26e4663e7e4
-X-EPHeader: CA
-X-CMS-RootMailID: 20260930135751eucas1p1c3b8b79ed87c3bf6f473d26e4663e7e4
-References: <CGME20260930135751eucas1p1c3b8b79ed87c3bf6f473d26e4663e7e4@eucas1p1.samsung.com>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v11 02/13] arm_mpam: propagate MSC access errors for
+ hw_probe functions
+To: Andre Przywara <andre.przywara@arm.com>,
+ Lorenzo Pieralisi <lpieralisi@kernel.org>, Hanjun Guo
+ <guohanjun@huawei.com>, Sudeep Holla <sudeep.holla@kernel.org>,
+ Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
+ "Rafael J . Wysocki" <rafael@kernel.org>, Len Brown <lenb@kernel.org>,
+ James Morse <james.morse@arm.com>,
+ Reinette Chatre <reinette.chatre@intel.com>, Fenghua Yu <fenghuay@nvidia.com>
+Cc: Jonathan Cameron <jic23@kernel.org>,
+ Srivathsa L Rao <srivathsa.rao@oss.qualcomm.com>,
+ Ganapatrao Kulkarni <ganapatrao.kulkarni@oss.qualcomm.com>,
+ Trilok Soni <tsoni@quicinc.com>, Srinivas Ramana <sramana@qti.qualcomm.com>,
+ Niyas Sait <niyas.sait@arm.com>, Lee Trager <lee@trager.us>,
+ Ritwick Sharma <ritwick.sharma@arm.com>, Gavin Shan <gshan@redhat.com>,
+ linux-acpi@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-kernel@vger.kernel.org
+References: <20260924152739.2865510-1-andre.przywara@arm.com>
+ <20260924152739.2865510-3-andre.przywara@arm.com>
+Content-Language: en-US
+From: Ben Horgan <ben.horgan@arm.com>
+In-Reply-To: <20260924152739.2865510-3-andre.przywara@arm.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260930_065759_153204_2B3C2FD7 
-X-CRM114-Status: GOOD (  16.49  )
+X-CRM114-CacheID: sfid-20260930_150155_615322_7CBAB00A 
+X-CRM114-Status: GOOD (  30.88  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -84,76 +99,310 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Commit 849facea92fa ("dma-direct: simplify the DMA_ATTR_NO_KERNEL_MAPPING
-handling") moved the DMA_ATTR_NO_KERNEL_MAPPING shortcut in
-dma_direct_alloc() in front of the arch_dma_alloc() call. Architectures
-providing their own DMA coherent allocator (CONFIG_ARCH_HAS_DMA_ALLOC)
-therefore no longer see such requests. ARM 32bit is one of such. Lack of
-the call to arch_dma_alloc() results in the lack of proper cache
-management on HighMem pages.
+Hi Andre,
 
-Take the dma-direct shortcut only for coherent devices or when the
-architecture doesn't provide arch_dma_alloc(). While touching this,
-move that check into separate function to avoid duplication in alloc
-and free paths.
+On 24/09/2026 16:27, Andre Przywara wrote:
+> Allow the functions probing for MSC hardware and features to return an
+> error, and propagate read and write errors from the lower level up.
+> This uses some "scoped cleanup" functions like scoped_guard() and
+> ACQUIRE() to avoid the complexity of error handling when a lock has been
+> taken. Since the mon_sel_lock is a bit special (even more so in an
+> upcoming patch), we define a new GUARD type for it.
+> 
+> Signed-off-by: Andre Przywara <andre.przywara@arm.com>
+> Reviewed-by: Jonathan Cameron <jonathan.cameron@oss.qualcomm.com>
+> Reviewed-by: Ben Horgan <ben.horgan@arm.com>
+> Reviewed-by: Gavin Shan <gshan@redhat.com>
+> Tested-by: Gavin Shan <gshan@redhat.com> # on NVIDIA Grace Hopper
+> ---
+>  drivers/resctrl/mpam_devices.c  | 126 +++++++++++++++++++++-----------
+>  drivers/resctrl/mpam_internal.h |   4 +
+>  2 files changed, 87 insertions(+), 43 deletions(-)
+> 
+> diff --git a/drivers/resctrl/mpam_devices.c b/drivers/resctrl/mpam_devices.c
+> index c7686d3799653..22069e7f7bb05 100644
+> --- a/drivers/resctrl/mpam_devices.c
+> +++ b/drivers/resctrl/mpam_devices.c
+> @@ -798,38 +798,46 @@ static bool mpam_ris_hw_probe_csu_nrdy(struct mpam_msc_ris *ris)
+>  	bool can_set, can_clear;
+>  	struct mpam_msc *msc = ris->vmsc->msc;
+>  
+> -	if (WARN_ON_ONCE(!mpam_mon_sel_lock(msc)))
+> +	ACQUIRE(mon_sel_lock, guard)(msc);
+> +	if (ACQUIRE_ERR(mon_sel_lock, &guard))
+>  		return false;
+>  
+>  	mon_sel = FIELD_PREP(MSMON_CFG_MON_SEL_MON_SEL, 0) |
+>  		  FIELD_PREP(MSMON_CFG_MON_SEL_RIS, ris->ris_idx);
+> -	mpam_write_monsel_reg(msc, CFG_MON_SEL, mon_sel);
+> +	if (mpam_write_monsel_reg(msc, CFG_MON_SEL, mon_sel))
+> +		return false;
+>  
+>  	/* Hardware might ignore nrdy if it's not enabled */
+>  	ctl_val = MSMON_CFG_CSU_CTL_TYPE_CSU;
+>  	ctl_val |= MSMON_CFG_x_CTL_MATCH_PARTID;
+>  	ctl_val |= MSMON_CFG_x_CTL_MATCH_PMG;
+>  	ctl_val |= MSMON_CFG_x_CTL_EN;
+> -	mpam_write_monsel_reg(msc, CFG_CSU_FLT, 0);
+> -	mpam_write_monsel_reg(msc, CFG_CSU_CTL, ctl_val);
+> +	if (mpam_write_monsel_reg(msc, CFG_CSU_FLT, 0))
+> +		return false;
+> +	if (mpam_write_monsel_reg(msc, CFG_CSU_CTL, ctl_val))
+> +		return false;
+>  
+> -	_mpam_write_monsel_reg(msc, MSMON_CSU, MSMON___NRDY);
+> -	_mpam_read_monsel_reg(msc, MSMON_CSU, &now);
+> +	if (_mpam_write_monsel_reg(msc, MSMON_CSU, MSMON___NRDY))
+> +		return false;
+> +	if (_mpam_read_monsel_reg(msc, MSMON_CSU, &now))
+> +		return false;
+>  	can_set = now & MSMON___NRDY;
+>  
+> -	_mpam_write_monsel_reg(msc, MSMON_CSU, 0);
+> +	if (_mpam_write_monsel_reg(msc, MSMON_CSU, 0))
+> +		return false;
+>  	/* Configuration change to try and coax hardware into setting nrdy */
+> -	mpam_write_monsel_reg(msc, CFG_CSU_FLT, 0x1);
+> -	_mpam_read_monsel_reg(msc, MSMON_CSU, &now);
+> +	if (mpam_write_monsel_reg(msc, CFG_CSU_FLT, 0x1))
+> +		return false;
+> +	if (_mpam_read_monsel_reg(msc, MSMON_CSU, &now))
+> +		return false;
+>  	can_clear = !(now & MSMON___NRDY);
+> -	mpam_mon_sel_unlock(msc);
+>  
+>  	return (!can_set || !can_clear);
+>  }
 
-Fixes: 849facea92fa ("dma-direct: simplify the DMA_ATTR_NO_KERNEL_MAPPING handling")
-Reported-by: Aneesh Kumar K.V <aneesh.kumar@kernel.org>
-Closes: https://lore.kernel.org/all/yq5ams2akznl.fsf@kernel.org/
-Assisted-by: Claude Opus 5.5 <noreply@anthropic.com>
-Signed-off-by: Marek Szyprowski <m.szyprowski@samsung.com>
----
- kernel/dma/direct.c | 22 ++++++++++++++++++----
- 1 file changed, 18 insertions(+), 4 deletions(-)
+I've had a look at the Sashiko reports [1] for these patches. I'll call out the things that I feel
+need answering.
 
-diff --git a/kernel/dma/direct.c b/kernel/dma/direct.c
-index da665ca22d5c..a31bd3129f3f 100644
---- a/kernel/dma/direct.c
-+++ b/kernel/dma/direct.c
-@@ -179,6 +179,22 @@ static struct page *dma_direct_alloc_from_pool(struct device *dev, size_t size,
- 	return page;
- }
- 
-+/*
-+ * Check if the allocation can skip the kernel mapping and return the page
-+ * pointer as the cookie.
-+ */
-+static bool dma_direct_use_no_mapping(struct device *dev, unsigned long attrs)
-+{
-+	if ((attrs & (DMA_ATTR_NO_KERNEL_MAPPING | __DMA_ATTR_ALLOC_CC_SHARED)) !=
-+	    DMA_ATTR_NO_KERNEL_MAPPING)
-+		return false;
-+	if (is_swiotlb_for_alloc(dev))
-+		return false;
-+	if (IS_ENABLED(CONFIG_ARCH_HAS_DMA_ALLOC) && !dev_is_dma_coherent(dev))
-+		return false;
-+	return true;
-+}
-+
- static void *dma_direct_alloc_no_mapping(struct device *dev, size_t size,
- 		dma_addr_t *dma_handle, gfp_t gfp)
- {
-@@ -226,8 +242,7 @@ void *dma_direct_alloc(struct device *dev, size_t size,
- 	if (attrs & DMA_ATTR_NO_WARN)
- 		gfp |= __GFP_NOWARN;
- 
--	if (((attrs & (DMA_ATTR_NO_KERNEL_MAPPING | __DMA_ATTR_ALLOC_CC_SHARED)) ==
--	     DMA_ATTR_NO_KERNEL_MAPPING) && !is_swiotlb_for_alloc(dev))
-+	if (dma_direct_use_no_mapping(dev, attrs))
- 		return dma_direct_alloc_no_mapping(dev, size, dma_handle, gfp);
- 
- 	if (!dev_is_dma_coherent(dev)) {
-@@ -374,8 +389,7 @@ void dma_direct_free(struct device *dev, size_t size,
- 	if (attrs & __DMA_ATTR_ALLOC_CC_SHARED)
- 		mark_mem_encrypted = true;
- 
--	if (((attrs & (DMA_ATTR_NO_KERNEL_MAPPING | __DMA_ATTR_ALLOC_CC_SHARED)) ==
--	     DMA_ATTR_NO_KERNEL_MAPPING) && !is_swiotlb_for_alloc(dev)) {
-+	if (dma_direct_use_no_mapping(dev, attrs)) {
- 		/* cpu_addr is a struct page cookie, not a kernel address */
- 		dma_free_contiguous(dev, cpu_addr, size);
- 		return;
--- 
-2.43.0
+As sashiko says, mpam_ris_hw_probe_csu_nrdy(), this swallows the error rather than propagating. It
+would be better if this returned success/error and the answer to whether or not the h/w supports
+nrdy separately. As we make other accesses to the msc later it is unlikely this will ever cause a
+failing probe to report success though.
+
+Thanks,
+
+Ben
+
+[1] https://sashiko.dev/#/patchset/20260924152739.2865510-1-andre.przywara%40arm.com
+
+>  
+> -static void mpam_ris_hw_probe(struct mpam_msc_ris *ris)
+> +static int mpam_ris_hw_probe(struct mpam_msc_ris *ris)
+>  {
+> -	int err;
+> +	int fw_has_nrdy_err, err;
+>  	struct mpam_msc *msc = ris->vmsc->msc;
+>  	struct device *dev = &msc->pdev->dev;
+>  	struct mpam_props *props = &ris->props;
+> @@ -842,7 +850,9 @@ static void mpam_ris_hw_probe(struct mpam_msc_ris *ris)
+>  	if (FIELD_GET(MPAMF_IDR_HAS_CCAP_PART, ris->idr)) {
+>  		u32 ccap_features;
+>  
+> -		mpam_read_partsel_reg(msc, CCAP_IDR, &ccap_features);
+> +		err = mpam_read_partsel_reg(msc, CCAP_IDR, &ccap_features);
+> +		if (err)
+> +			return err;
+>  
+>  		props->cmax_wd = FIELD_GET(MPAMF_CCAP_IDR_CMAX_WD, ccap_features);
+>  		if (props->cmax_wd &&
+> @@ -867,7 +877,9 @@ static void mpam_ris_hw_probe(struct mpam_msc_ris *ris)
+>  	if (FIELD_GET(MPAMF_IDR_HAS_CPOR_PART, ris->idr)) {
+>  		u32 cpor_features;
+>  
+> -		mpam_read_partsel_reg(msc, CPOR_IDR, &cpor_features);
+> +		err = mpam_read_partsel_reg(msc, CPOR_IDR, &cpor_features);
+> +		if (err)
+> +			return err;
+>  
+>  		props->cpbm_wd = FIELD_GET(MPAMF_CPOR_IDR_CPBM_WD, cpor_features);
+>  		if (props->cpbm_wd)
+> @@ -877,8 +889,9 @@ static void mpam_ris_hw_probe(struct mpam_msc_ris *ris)
+>  	/* Memory bandwidth partitioning */
+>  	if (FIELD_GET(MPAMF_IDR_HAS_MBW_PART, ris->idr)) {
+>  		u32 mbw_features;
+> -
+> -		mpam_read_partsel_reg(msc, MBW_IDR, &mbw_features);
+> +		err = mpam_read_partsel_reg(msc, MBW_IDR, &mbw_features);
+> +		if (err)
+> +			return err;
+>  
+>  		/* portion bitmap resolution */
+>  		props->mbw_pbm_bits = FIELD_GET(MPAMF_MBW_IDR_BWPBM_WD, mbw_features);
+> @@ -907,8 +920,9 @@ static void mpam_ris_hw_probe(struct mpam_msc_ris *ris)
+>  	/* Priority partitioning */
+>  	if (FIELD_GET(MPAMF_IDR_HAS_PRI_PART, ris->idr)) {
+>  		u32 pri_features;
+> -
+> -		mpam_read_partsel_reg(msc, PRI_IDR, &pri_features);
+> +		err = mpam_read_partsel_reg(msc, PRI_IDR, &pri_features);
+> +		if (err)
+> +			return err;
+>  
+>  		props->intpri_wd = FIELD_GET(MPAMF_PRI_IDR_INTPRI_WD, pri_features);
+>  		if (props->intpri_wd && FIELD_GET(MPAMF_PRI_IDR_HAS_INTPRI, pri_features)) {
+> @@ -929,20 +943,24 @@ static void mpam_ris_hw_probe(struct mpam_msc_ris *ris)
+>  	if (FIELD_GET(MPAMF_IDR_HAS_MSMON, ris->idr)) {
+>  		u32 msmon_features;
+>  
+> -		mpam_read_partsel_reg(msc, MSMON_IDR, &msmon_features);
+> +		err = mpam_read_partsel_reg(msc, MSMON_IDR, &msmon_features);
+> +		if (err)
+> +			return err;
+>  
+>  		/*
+>  		 * If the firmware max-nrdy-us property is missing, the
+>  		 * CSU counters can't be used. Should we wait forever?
+>  		 */
+> -		err = device_property_read_u32(&msc->pdev->dev,
+> -					       "arm,not-ready-us",
+> -					       &msc->nrdy_usec);
+> +		fw_has_nrdy_err = device_property_read_u32(&msc->pdev->dev,
+> +							   "arm,not-ready-us",
+> +							   &msc->nrdy_usec);
+>  
+>  		if (FIELD_GET(MPAMF_MSMON_IDR_MSMON_CSU, msmon_features)) {
+>  			u32 csumonidr;
+>  
+> -			mpam_read_partsel_reg(msc, CSUMON_IDR, &csumonidr);
+> +			err = mpam_read_partsel_reg(msc, CSUMON_IDR, &csumonidr);
+> +			if (err)
+> +				return err;
+>  
+>  			props->num_csu_mon = FIELD_GET(MPAMF_CSUMON_IDR_NUM_MON, csumonidr);
+>  			if (props->num_csu_mon) {
+> @@ -960,7 +978,7 @@ static void mpam_ris_hw_probe(struct mpam_msc_ris *ris)
+>  				 * Accept the missing firmware property if NRDY appears
+>  				 * un-implemented.
+>  				 */
+> -				if (err && hw_managed)
+> +				if (fw_has_nrdy_err && hw_managed)
+>  					dev_err_once(dev, "Counters are not usable because not-ready timeout was not provided by firmware.");
+>  			}
+>  		}
+> @@ -968,7 +986,9 @@ static void mpam_ris_hw_probe(struct mpam_msc_ris *ris)
+>  			bool has_long;
+>  			u32 mbwumon_idr;
+>  
+> -			mpam_read_partsel_reg(msc, MBWUMON_IDR, &mbwumon_idr);
+> +			err = mpam_read_partsel_reg(msc, MBWUMON_IDR, &mbwumon_idr);
+> +			if (err)
+> +				return err;
+>  
+>  			props->num_mbwu_mon = FIELD_GET(MPAMF_MBWUMON_IDR_NUM_MON, mbwumon_idr);
+>  			if (props->num_mbwu_mon) {
+> @@ -1001,16 +1021,22 @@ static void mpam_ris_hw_probe(struct mpam_msc_ris *ris)
+>  		u16 partid_max;
+>  		u32 nrwidr;
+>  
+> -		mpam_read_partsel_reg(msc, PARTID_NRW_IDR, &nrwidr);
+> +		err = mpam_read_partsel_reg(msc, PARTID_NRW_IDR, &nrwidr);
+> +		if (err)
+> +			return err;
+> +
+>  		partid_max = FIELD_GET(MPAMF_PARTID_NRW_IDR_INTPARTID_MAX, nrwidr);
+>  
+>  		mpam_set_feature(mpam_feat_partid_nrw, props);
+>  		msc->partid_max = min(msc->partid_max, partid_max);
+>  	}
+> +
+> +	return 0;
+>  }
+>  
+>  static int mpam_msc_hw_probe(struct mpam_msc *msc)
+>  {
+> +	int ret;
+>  	u64 idr;
+>  	u16 partid_max;
+>  	u8 ris_idx, pmg_max;
+> @@ -1025,11 +1051,15 @@ static int mpam_msc_hw_probe(struct mpam_msc *msc)
+>  	}
+>  
+>  	/* Grab an IDR value to find out how many RIS there are */
+> -	mutex_lock(&msc->part_sel_lock);
+> -	mpam_msc_read_idr(msc, &idr);
+> -	mpam_read_partsel_reg(msc, IIDR, &msc->iidr);
+> +	scoped_guard(mutex, &msc->part_sel_lock) {
+> +		ret = mpam_msc_read_idr(msc, &idr);
+> +		if (ret)
+> +			return ret;
+>  
+> -	mutex_unlock(&msc->part_sel_lock);
+> +		ret = mpam_read_partsel_reg(msc, IIDR, &msc->iidr);
+> +		if (ret)
+> +			return ret;
+> +	}
+>  
+>  	mpam_enable_quirks(msc);
+>  
+> @@ -1040,10 +1070,15 @@ static int mpam_msc_hw_probe(struct mpam_msc *msc)
+>  	msc->pmg_max = FIELD_GET(MPAMF_IDR_PMG_MAX, idr);
+>  
+>  	for (ris_idx = 0; ris_idx <= msc->ris_max; ris_idx++) {
+> -		mutex_lock(&msc->part_sel_lock);
+> -		__mpam_part_sel(ris_idx, 0, msc);
+> -		mpam_msc_read_idr(msc, &idr);
+> -		mutex_unlock(&msc->part_sel_lock);
+> +		scoped_guard(mutex, &msc->part_sel_lock) {
+> +			ret = __mpam_part_sel(ris_idx, 0, msc);
+> +			if (ret)
+> +				return ret;
+> +
+> +			ret = mpam_msc_read_idr(msc, &idr);
+> +			if (ret)
+> +				return ret;
+> +		}
+>  
+>  		partid_max = FIELD_GET(MPAMF_IDR_PARTID_MAX, idr);
+>  		pmg_max = FIELD_GET(MPAMF_IDR_PMG_MAX, idr);
+> @@ -1051,17 +1086,22 @@ static int mpam_msc_hw_probe(struct mpam_msc *msc)
+>  		msc->pmg_max = min(msc->pmg_max, pmg_max);
+>  		msc->has_extd_esr = FIELD_GET(MPAMF_IDR_HAS_EXTD_ESR, idr);
+>  
+> -		mutex_lock(&mpam_list_lock);
+> -		ris = mpam_get_or_create_ris(msc, ris_idx);
+> -		mutex_unlock(&mpam_list_lock);
+> -		if (IS_ERR(ris))
+> -			return PTR_ERR(ris);
+> +		scoped_guard(mutex, &mpam_list_lock) {
+> +			ris = mpam_get_or_create_ris(msc, ris_idx);
+> +			if (IS_ERR(ris))
+> +				return PTR_ERR(ris);
+> +		}
+>  		ris->idr = idr;
+>  
+> -		mutex_lock(&msc->part_sel_lock);
+> -		__mpam_part_sel(ris_idx, 0, msc);
+> -		mpam_ris_hw_probe(ris);
+> -		mutex_unlock(&msc->part_sel_lock);
+> +		scoped_guard(mutex, &msc->part_sel_lock) {
+> +			ret = __mpam_part_sel(ris_idx, 0, msc);
+> +			if (ret)
+> +				return ret;
+> +
+> +			ret = mpam_ris_hw_probe(ris);
+> +			if (ret)
+> +				return ret;
+> +		}
+>  	}
+>  
+>  	/* Clear any stale errors */
+> diff --git a/drivers/resctrl/mpam_internal.h b/drivers/resctrl/mpam_internal.h
+> index def0e3a65c230..68a6cf2b9cc73 100644
+> --- a/drivers/resctrl/mpam_internal.h
+> +++ b/drivers/resctrl/mpam_internal.h
+> @@ -162,6 +162,10 @@ static inline void mpam_mon_sel_lock_init(struct mpam_msc *msc)
+>  	raw_spin_lock_init(&msc->_mon_sel_lock);
+>  }
+>  
+> +DEFINE_GUARD(mon_sel, struct mpam_msc *,
+> +	     mpam_mon_sel_lock(_T), mpam_mon_sel_unlock(_T));
+> +DEFINE_GUARD_COND(mon_sel, _lock, mpam_mon_sel_lock(_T), _RET);
+> +
+>  /* Bits for mpam features bitmaps */
+>  enum mpam_device_features {
+>  	mpam_feat_cpor_part,
 
 
