@@ -4,139 +4,91 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0EC02CA5FC4
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 30 Sep 2026 18:35:30 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E7B91CA5FC4
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 30 Sep 2026 18:40:36 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:CC:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=SlRd1Bcy9vxTTkb5QgIwUNkzFq17T19uqVQCG9qaZYU=; b=qoUkVXlc0WGLZeffBa12zds9Jc
-	AJKVQNsSni8Ts39QrdeWRaOivYJ1eAMhGlgyqrQqkVhxSYHW2kloDTTB+Jt/ceUMhItzeFfKAcGlK
-	LtUkIm7ljUUtZb/YmM1oE6RMRTUnjf0KVpzH8JZRcsVPZw3nIWJsIqMPpk4+u8DJqyssnCF29iQKp
-	t9u0g7UjQW8e/nJJr5XfeScwv3k96C6kb5bXXE+ThFBpAFTGpeGirY6wAjLr43GFjMepVj5Po6xg/
-	fcq/OXQ/+oFNhgCuZH744LbABoFjcrH/m373Hp7xh8kgtbHO2BQK5NfCrm8vU/Wb+gQ9TlqpKrwmr
-	LXuHhWRg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Transfer-Encoding:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=Sudsrgh6olVvguill/NXjWeyuYPJdT70+yOGXWlPI0g=; b=dsFEhhSIDeP8C4EEvmpBpF4COZ
+	t8J/xX6QimK+gFi44VdR6ms72+MgmFMkaHY1j2GT/B6wuTU/Q0ZVibodC2kAdjO1lNddiYv6gWU6N
+	RrtAQX4dRjnDuhgnN6qsrCPCwTMlhUz+rOW5nBSka561W3lrxr02xcTasi3bZyicny4yYhcpWHkYR
+	Nw5rwciOGgz+pYiabzj7pZ3hq89ubztu8UO5i9w4JR8/RnN6B+zMjcgBnGhFRBW9WIeTASEnH1/l2
+	idq/Ccx90THZkT0YLRf//Aq+Zf8RqysI+1ZhMoMkRm3pF7HOj5KoXM6t2vo6duDlmXeYpL9ZmFwUU
+	KR6uPNtw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xBz9F-00000006zAZ-2iqZ;
-	Wed, 30 Sep 2026 18:35:21 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1xBzED-00000006zkv-16qg;
+	Wed, 30 Sep 2026 18:40:29 +0000
+Received: from mail-wr2-x0e.google.com ([2a00:1450:4864:30::e])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xBz9E-00000006zAJ-3T2r
-	for linux-arm-kernel@bombadil.infradead.org;
-	Wed, 30 Sep 2026 18:35:20 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=In-Reply-To:Content-Type:MIME-Version:
-	References:Message-ID:Subject:CC:To:From:Date:Sender:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description;
-	bh=SlRd1Bcy9vxTTkb5QgIwUNkzFq17T19uqVQCG9qaZYU=; b=Z8HLi9xLIo4CA5Eh9HCZsX1GVv
-	NcFNfxJccGYwI/rmOkvlGV1ORqpCOTI77LS3/4SubCB9/Ye0+yMWulUEMrqOv3TpVUL3BvQXUBUUb
-	I7PBOX6sxXTZS2CHFVkqgOSXkDZh5SPvdcWYbfsDt7uxyxwo84ojBgHdkG/jmz8EMutH1Q6Vo4NSX
-	BNIw+yv0vhyIsGDYn1e88kSfQfufCtEH/5LNR1V+cm8lteybKcLjwjDXDf6iKqm1PzjHmOx8QKCJy
-	6fmOn7IABOwbr28OtjkTdNqd8OgLFFZlXXTHoHiC3lWBZFwBT2vLBQzbkTpvXblL0ou+6W+nOkuiN
-	vvVZXa+w==;
-Received: from mail-westusazlp170120002.outbound.protection.outlook.com ([2a01:111:f403:c001::2] helo=SJ2PR03CU001.outbound.protection.outlook.com)
-	by desiato.infradead.org with esmtps (Exim 4.99.2 #2 (Red Hat Linux))
-	id 1xBz99-00000004Coj-3XcV
+	id 1xBzEB-00000006zju-0Peb
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 30 Sep 2026 18:35:19 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=Tn7PxAo1Wlno+9w+dRsQRCGPbiIcPvEmcWRDGddg+yQdz3ksm4CUbZkiR5tCBqnSM6dBO4CLCnHV82XJQFZI6O5v/1LEZJUKBa1YTniZ0iOJq7XIJ7kMhP78wRyUKzlsuGDLNj8AZmUS7iM9F81zJT8NCxGv45GYHHwYH1NaqegcnyXpLsT0O0bHIY48yBoo/Fh9UxT63eSPyktYUyrKkt7EY1nAtrua7PixjR5bKyzzqSjg0tvCBYMh2vkNdYKtBgpcpmjGUTovkTcCkudLWtqYf6sEuXBP1ELTBR7F8LhduMjohkzVJuDhEOjidPQvhTcPW4NYVqdeXouCJ5d7Rg==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=SlRd1Bcy9vxTTkb5QgIwUNkzFq17T19uqVQCG9qaZYU=;
- b=WBXBtsW+1XTi+JMi/Ln0nMhtgUI1y6g85GUyzOb7qsAwxkpoJDfbgJ2RCW0Y5UeRPJ2CKYscGkawXKjsWZmygeZPGHhjoz7qTX0E60iyrI6KjiqdV7yQGX0TkWU3Gh52dbg4nT5l4n9e2vqWJxu1am/FKxh9gYJHT18rQ3T7/WEw6KDgzoNCmzqbkMUPjtLbolJQb/6lVgnqWYo5BNicqscnHpOSM/SOW7EEkklitRvFPFDwjWKp0qXswmo29gY5nAph7DLV3JIm6ziA+n1lyggDAXeJoun6UWbOwb36Bz/CSX6Jp4VfAndml9bIZdvIwlgRJey64lAnAMy8GiPTdA==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
- 216.228.118.232) smtp.rcpttodomain=google.com smtp.mailfrom=nvidia.com;
- dmarc=pass (p=reject sp=reject pct=100) action=none header.from=nvidia.com;
- dkim=none (message not signed); arc=none (0)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
- s=selector2;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=SlRd1Bcy9vxTTkb5QgIwUNkzFq17T19uqVQCG9qaZYU=;
- b=IJSsegQ/ESrp8WGVq0aU78n89n4TAIsybZMkEa6igvuiXUtKq4rRU5Qqsmt67ugpiW7d+7ldlLO48teuXzOrt5N2tMy9zGkHDopHzZaiqI1WrzGQ1Sz0MpZ5yHclgMSmbT84G3nDB2QA+ZUBsyZ+mZL1vT3IzBQGBrYicfGX+oi1/cS7p/Uyq7v6/HBImZ5Kgxm7mxXzpSfSgrzbTbwrR8MsrSvNvVrC3aM999y5IOgP0ANyAG2KqGUacYfntFpUUndalj+KvCSQu8twEKC8HhpjkEKjs+iNCV9r+dWQ3mXNkkWu48SdFc7YHTTmMKVDR+COPjJM2NoZja83R9GwGA==
-Received: from SA9P223CA0011.NAMP223.PROD.OUTLOOK.COM (2603:10b6:806:26::16)
- by PH0PR12MB5646.namprd12.prod.outlook.com (2603:10b6:510:143::6) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.451.24; Wed, 30 Sep
- 2026 18:35:06 +0000
-Received: from SA2PEPF00003F62.namprd04.prod.outlook.com
- (2603:10b6:806:26:cafe::32) by SA9P223CA0011.outlook.office365.com
- (2603:10b6:806:26::16) with Microsoft SMTP Server (version=TLS1_3,
- cipher=TLS_AES_256_GCM_SHA384) id 15.21.472.14 via Frontend Transport; Wed,
- 30 Sep 2026 18:35:06 +0000
-X-MS-Exchange-Authentication-Results: mx.microsoft.com 1; spf=pass (sender IP
- is 216.228.118.232) smtp.mailfrom=nvidia.com; dkim=none (message not signed)
- header.d=none;dmarc=pass action=none header.from=nvidia.com;
-Received-SPF: Pass (protection.outlook.com: domain of nvidia.com designates
- 216.228.118.232 as permitted sender) receiver=protection.outlook.com;
- client-ip=216.228.118.232; helo=mail.nvidia.com; pr=C
-Received: from mail.nvidia.com (216.228.118.232) by
- SA2PEPF00003F62.mail.protection.outlook.com (10.167.248.37) with Microsoft
- SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.21.472.14 via Frontend Transport; Wed, 30 Sep 2026 18:35:06 +0000
-Received: from drhqmail201.nvidia.com (10.126.190.180) by mail.nvidia.com
- (10.127.129.5) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.49; Wed, 30 Sep
- 2026 11:34:45 -0700
-Received: from drhqmail203.nvidia.com (10.126.190.182) by
- drhqmail201.nvidia.com (10.126.190.180) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.2562.49; Wed, 30 Sep 2026 11:34:45 -0700
-Received: from nvidia.com (10.127.8.11) by mail.nvidia.com (10.126.190.182)
- with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.49 via Frontend
- Transport; Wed, 30 Sep 2026 11:34:43 -0700
-Date: Wed, 30 Sep 2026 11:34:40 -0700
-From: Nicolin Chen <nicolinc@nvidia.com>
-To: Pranjal Shrivastava <praan@google.com>
-CC: <iommu@lists.linux.dev>, Will Deacon <will@kernel.org>, Joerg Roedel
-	<joro@8bytes.org>, Robin Murphy <robin.murphy@arm.com>, Jason Gunthorpe
-	<jgg@ziepe.ca>, Mostafa Saleh <smostafa@google.com>, Daniel Mentz
-	<danielmentz@google.com>, Ashish Mhetre <amhetre@nvidia.com>,
-	<linux-arm-kernel@lists.infradead.org>, Thomas Gleixner <tglx@kernel.org>,
-	Radu Rendec <radu@rendec.net>, Bjorn Helgaas <bhelgaas@google.com>,
-	<linux-pci@vger.kernel.org>, <linux-kernel@vger.kernel.org>, "Greg
- Kroah-Hartman" <gregkh@linuxfoundation.org>, <rafael@kernel.org>, "Danilo
- Krummrich" <dakr@kernel.org>, <driver-core@lists.linux.dev>, Jason Gunthorpe
-	<jgg@nvidia.com>
-Subject: Re: [PATCH v11 10/16] iommu/arm-smmu-v3: Factor out
- arm_smmu_handle_gerror()
-Message-ID: <ar1WQCud+B3nAWX6@nvidia.com>
-References: <20260929034510.2023173-1-praan@google.com>
- <20260929034510.2023173-11-praan@google.com>
+	Wed, 30 Sep 2026 18:40:28 +0000
+Received: by mail-wr2-x0e.google.com with SMTP id ffacd0b85a97d-48aff58e6abso699987f8f.3
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 30 Sep 2026 11:40:26 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20251104; t=1790793625; x=1791398425; darn=lists.infradead.org;
+        h=content-type:mime-version:message-id:date:subject:cc:to:from:from
+         :to:cc:subject:date:message-id:reply-to:content-type;
+        bh=Sudsrgh6olVvguill/NXjWeyuYPJdT70+yOGXWlPI0g=;
+        b=EMkfO5zb3xJcgX98bWilRkV1RB5ekLd7oZ88XkjDXkiL21HxzJYDPUCGNRxl9ztUrk
+         tFApiVeokdaY07pyjQ4c4ijjP3smYxdGEiI/C1eEqSd7/0fqoRfK80Cx99h8nvjkSX06
+         RmSyEzf/mBedMr4J4K70UmWkcrhcM8khU21SQ341FlI+tQ6HO0olJAv7AUH+q5HHGXqL
+         lc75+jDkfo7IR4CFARN8x1DoB5isz8UonxVd/YXJJKGcrANgeTpoC7ugP12KnjvMfp/q
+         gejgPxyCOR00ZnafO/21XFSLo/4hTgElGhe0iEITWF3cwWFLPfPWk3IK5hQAGp4oks+D
+         rPYg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1790793625; x=1791398425;
+        h=content-type:mime-version:message-id:date:subject:cc:to:from
+         :x-gm-gg:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to:content-type;
+        bh=Sudsrgh6olVvguill/NXjWeyuYPJdT70+yOGXWlPI0g=;
+        b=vLM6P/zsjoyoXSTpjh/IWUmUCAWxdKsqb2XNyVrZWztcy1mpOQNCzV0sPV+6wR2pld
+         cv7TE0KjSsO48wh9eMdRdPfd3DH3pRRg0PZVBmKFumYnCCysAqp4HQaCCYcFCE0d/u+j
+         n7mDl7RjcJDqWLLFcq4qPlHqDzazCp8ATAcMQf9hd/Ui23p8/8r92tXf6jEF2mDVJuo2
+         V3Sa2sP0Pf7lRhnOpfVO9Ju3k5cvTEMIVgqH2XYL1kXztugOzv38Ox4bIOQH1LRDnfRp
+         tyWWeoJ73Fp8/YTgxMVrD0WSnlAGAZVy7lhYmWUVfaUzHrn5W6brbtVxLzTTfWCzjk+r
+         W3CQ==
+X-Forwarded-Encrypted: i=1; AKwUvBzS7VVBqJWiVcAew3Q5IuQQ5ELeieQBiVh1SGKSYE3xgZfvowWqHXUyJxnratnGeGJEcF5PbTaBJxP4FiG67rdi@lists.infradead.org
+X-Gm-Message-State: AFq9FYKUsdtAQWNMpBKDfXhPH1o3L4IxrGOdy9pYt/N5DbmUfP9EqZT8
+	incqeGDI4sx79ZiBhiWiBOw+mmmLyvsUk35XnezAx3bt+BCwxe1YxPn9
+X-Gm-Gg: AYBFou2gwVg6gTbqAnYc7UK24+O7T/qPKh3cWtbA2oN+94bgi29ya8c+wo4R88nMqft
+	lkKx3hry+iNZhMmXdAaafzBPmzitBO/SEvvj2ODVJgtzk7qW8/eorGmzSGEZ9BptzUsSGCkKE67
+	B40n5DfmvYHwPFpw9bhcflBdxcnaHmVg1fFp9wBkeIs1W3nkDqMUQk3oufR/nJ/tqAyv+rMUq0F
+	S60LsMly0+8jWzh8+EqFgdtAfuZjmjl6iqEwDog+k9/UwpC4RYfLIkV8aCMpNIImcQ0/MDOlOuV
+	iYyma465lJJPF5cIySHMDJqWjQZ5f8GLv76sGDHbLGL54lZW0MC+c3mMRvK/4+dN/Fa3cQZOSBd
+	ebLQK2mSA03GRYIYgIp0yUpJVVnDivyQQgIsPF8hs7f88TBF8Ojf06w5P6jiOCkCCisDOIO4wc/
+	SUyqe8jyPt8P6C66E+LeFkQH8zlDtoNGbvcFyN5Su0iHc03acrtyP68CbabKSW+oxZHYmSrMhyF
+	/FmE3S4NmU=
+X-Received: by 2002:a5d:5d0c:0:b0:488:8132:143d with SMTP id ffacd0b85a97d-48b024df747mr4886436f8f.19.1790793624363;
+        Wed, 30 Sep 2026 11:40:24 -0700 (PDT)
+Received: from strix.localnet ([197.250.96.176])
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-48b068ff6c1sm1063999f8f.13.2026.09.30.11.40.20
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Wed, 30 Sep 2026 11:40:23 -0700 (PDT)
+From: Stefan =?UTF-8?B?RMO2c2luZ2Vy?= <stefandoesinger@gmail.com>
+To: linux-clk@vger.kernel.org
+Cc: Brian Masney <bmasney+clk@redhat.com>, Conor Dooley <conor+dt@kernel.org>,
+ devicetree@vger.kernel.org, Jerome Brunet <jbrunet+clk@baylibre.com>,
+ Krzysztof Kozlowski <krzk+dt@kernel.org>,
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+ linux-phy@lists.infradead.org, Manivannan Sadhasivam <mani@kernel.org>,
+ Neil Armstrong <neil.armstrong@linaro.org>,
+ Philipp Zabel <p.zabel@pengutronix.de>, Rob Herring <robh@kernel.org>,
+ Stephen Boyd <sboyd@kernel.org>, Vinod Koul <vkoul@kernel.org>,
+ mturquette@baylibre.com
+Subject: [GIT PULL] clk: zte: zx297520v3 clock bindings and driver
+Date: Wed, 30 Sep 2026 21:40:12 +0300
+Message-ID: <LTD3_tELRsyCnoeF8FU_TQ@gmail.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="us-ascii"
-Content-Disposition: inline
-In-Reply-To: <20260929034510.2023173-11-praan@google.com>
-X-NV-OnPremToCloud: ExternallySecured
-X-EOPAttributedMessage: 0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: SA2PEPF00003F62:EE_|PH0PR12MB5646:EE_
-X-MS-Office365-Filtering-Correlation-Id: e3fd57bb-6391-4b26-3000-08df1f218ccc
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|376014|23010399003|82310400026|7416014|36860700016|22082099003|56012099006|6133799003|10067099003|4143699003|5023799004|11063799006|260925021911599003|260925022911599003|260925021311599003|18002099003;
-X-Microsoft-Antispam-Message-Info: fMfsAwTidc4ri2g30F2yb/pn1osjVuwj2HZMhcjdI6Fxs+z143u8rT7JE55GjC/QwTkIVE6KpQGlP9cTcuHn9sszj2/6kiUvYMGugOSE+RmVC3xIzgS+VhBSXNb0SGigap/tlP784yAog3JGqJGE8Aqn1dJMJNNczlEZatd50GaHkAxLtWUX5sXRDkvGDnW4nCY8Rlr7688Om2Faqh2knwcayLW0g95TC2KS2MctWFNAbzb9NIWJe1mPMp71fYIYvRrU33x46+QVRArSjO+NUX9OOtxHondbJbg/zU5uNjCQmGdjhhAMdsbKS6wvLRikjRVvpyEXpW5Z8nRUqiGPzPnrfNEC1T3IbEJvuooWCooFZQvxrrAFNpooYpK+KTfBhQQ1+5+meU3inmispeGqx756xka/VUxFLtBp8EEF8UeqkBHdiXqrOS3e1FCzQr3CDh7oeFQZCJxU9rnurlEMKUYVEjyYehAn6ItdWC/YIWNTJr9ZgCyJ/yeStuxjgGbZwnEAwfvwvj1/edPIhfrJxubrAOnUVkHC1pdACgmywB8Ngn1fB/UfFlphl+nFMb8Tp7bhga22l/6RjaoGrqEFXda+lr+T9/VAaHoH0aBsTA9Sm7ZWOXfbQG+dj43MRRw566kg5Q3G7AoQwQI2OmDZM5HRxNdeNBqgSibIvgfZi2xImN1z/Lq9URhKSi0ZaW3wg/DgMC57AdPnC3XNMX4WuQ==
-X-Forefront-Antispam-Report: CIP:216.228.118.232;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:mail.nvidia.com;PTR:dc7edge1.nvidia.com;CAT:NONE;SFS:(13230040)(1800799024)(376014)(23010399003)(82310400026)(7416014)(36860700016)(22082099003)(56012099006)(6133799003)(10067099003)(4143699003)(5023799004)(11063799006)(260925021911599003)(260925022911599003)(260925021311599003)(18002099003);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: Tzlcnke9GIpEFY+P46rE/H1JhJClGmvbOCrClNDfdbT+Z2+LabV7PtV6s1hXuqcZbi2uk30Fs9xyD7OaDa1qaJZz4njd6kzPCcMTZ2yGpmd0C3fFdItskicZTM3tpDvYQpzlGX04QKyii1Z3edLl/KJXBEkUzcbrsy4/WavAgw8nzh9W8ksFkqGW9yr1o0S/8bazpJDcOmF91o1PPymNHnRQ4N1uWBugZyNhBYbgke7t7rxBNZVLW29tMXjNqyDC8zJUCNcsZZwB8EkztDm3tFxlGxQE9FcrvxDdOiBIPehbYYUIDxbbdfmB2nujo4c+aOisLcECoa28cj3I8p/DsfGzWPNmy5Cyho7JbD4KzPepuEXtcNfbj0TbaAaeMF0iTcyPK3Ss/0GKuTxCD/VVpIvnWo7Myy0JbwBn2LSaTf5D2hol9M+KIPkjwt3RDI+3
-X-OriginatorOrg: Nvidia.com
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 30 Sep 2026 18:35:06.5044
- (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: e3fd57bb-6391-4b26-3000-08df1f218ccc
-X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
-X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=43083d15-7273-40c1-b7db-39efd9ccc17a;Ip=[216.228.118.232];Helo=[mail.nvidia.com]
-X-MS-Exchange-CrossTenant-AuthSource: SA2PEPF00003F62.namprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Anonymous
-X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: PH0PR12MB5646
+Content-Type: multipart/signed; boundary="nextPartulVVFYPFRfOzbNRxaXxRQA";
+ micalg="pgp-sha256"; protocol="application/pgp-signature"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260930_193516_012364_C32102D8 
-X-CRM114-Status: GOOD (  13.82  )
+X-CRM114-CacheID: sfid-20260930_114027_180119_DCD59E5B 
+X-CRM114-Status: GOOD (  14.74  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -151,22 +103,146 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Sep 29, 2026 at 03:45:04AM +0000, Pranjal Shrivastava wrote:
-> The GERROR register's state might be lost when the SMMU is powered down
-> during runtime suspend, requiring the suspend sequence to handle any
-> pending errors before the hardware state is lost.
-> 
-> Refactor the gerror handling logic into a helper function. Subsequent
-> patches will invoke it from the runtime suspend callback after disabling
-> the SMMU, ensuring that any late-breaking gerrors are logged and ack'ed
-> before the hardware state is lost.
+--nextPartulVVFYPFRfOzbNRxaXxRQA
+Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset="utf-8"; protected-headers="v1"
+From: Stefan =?UTF-8?B?RMO2c2luZ2Vy?= <stefandoesinger@gmail.com>
+To: linux-clk@vger.kernel.org
+Subject: [GIT PULL] clk: zte: zx297520v3 clock bindings and driver
+Date: Wed, 30 Sep 2026 21:40:12 +0300
+Message-ID: <LTD3_tELRsyCnoeF8FU_TQ@gmail.com>
+MIME-Version: 1.0
 
-CMDQV has a separate IRQ, so I think it likely needs a counterpart.
+Hi,
 
-I have a similar patch in one of my series:
-https://lore.kernel.org/linux-iommu/16ae24cc2a002802b990afa1a69fe4ceab1e0da2.1790188510.git.nicolinc@nvidia.com/
+This pull request contains the device tree bindings and clock driver for ZTE
+zx297520v3 boards. It contains the next step in adding support for
+zx297520v3 boards: Documenting clock and reset manager hardware and
+adding drivers for its PLLs and clock tree.
 
-Mine only handles CMDQ error though..
+The patches have been reviewed and carry appropriate R-B tags by Krzysztof =
+Kozlowski (bindings) and Conor Dooley (clk driver).
 
-Nicolin
+The PR does not contain the MFD, reset and device tree patches. They
+will be submitted to the MFD, reset and soc trees respectively. The
+clock driver compiles without them, but won't be instantiated without
+the MFD parent.
+
+The following changes since commit b1470947e92aeedd522ddb7363369c956e55d6b6:
+
+  Merge branch 'clk-pile' into clk-next (2026-09-29 14:14:32 -0400)
+
+are available in the Git repository at:
+
+  https://gitlab.com/stefandoesinger/zx297520-kernel.git tags/zx29-clk-for-=
+7.4
+
+for you to fetch changes up to 89e2c0fa481f6a0da23ad5c4dc98bcd940f09fd2:
+
+  clk: zte: Introduce a driver for zx297520v3 LSP clocks (2026-09-30 20:03:=
+29 +0300)
+
+=2D---------------------------------------------------------------
+clk: zte: Add clock drivers for zx297520v3 SoC
+
+This tag contains the device tree bindings and clock driver for ZTE
+zx297520v3 boards. It contains the next step in adding support for
+zx297520v3 boards: Documenting clock and reset manager hardware and
+adding drivers for its PLLs and clock tree.
+
+The PR does not contain the MFD, reset and device tree patches. They
+will be submitted to the MFD, reset and soc trees respectively. The
+clock driver compiles without them, but won't be instantiated without
+the MFD parent.
+
+=2D---------------------------------------------------------------
+Stefan D=C3=B6singer (9):
+      dt-bindings: clk: zte: Add zx297520v3 top clock and reset controller
+      dt-bindings: clk: zte: Add zx297520v3 matrix clock and reset controll=
+er
+      dt-bindings: clk: zte: Add zx297520v3 LSP clock and reset controller
+      clk: zte: Add Clock registration infrastructure
+      clk: zte: Add regmap-based clocks
+      clk: zte: Add zx PLL support infrastructure
+      clk: zte: Introduce a driver for zx297520v3 top clocks
+      clk: zte: Introduce a driver for zx297520v3 matrix clocks
+      clk: zte: Introduce a driver for zx297520v3 LSP clocks
+
+ Documentation/devicetree/bindings/clock/zte,zx297520v3-lspcrm.yaml    |  1=
+01 ++
+ Documentation/devicetree/bindings/clock/zte,zx297520v3-matrixcrm.yaml |   =
+98 ++
+ Documentation/devicetree/bindings/clock/zte,zx297520v3-topcrm.yaml    |  1=
+22 +++
+ MAINTAINERS                                                           |   =
+ 7 +
+ drivers/clk/Kconfig                                                   |   =
+ 1 +
+ drivers/clk/Makefile                                                  |   =
+ 1 +
+ drivers/clk/zte/Kconfig                                               |   =
+28 +
+ drivers/clk/zte/Makefile                                              |   =
+ 6 +
+ drivers/clk/zte/clk-regmap.c                                          |  2=
+37 +++++
+ drivers/clk/zte/clk-zx.c                                              |  1=
+92 ++++
+ drivers/clk/zte/clk-zx.h                                              |  1=
+37 +++
+ drivers/clk/zte/clk-zx297520v3.c                                      | 16=
+57 +++++++++++++++++++++++++++++++++
+ drivers/clk/zte/pll-zx.c                                              |  5=
+76 ++++++++++++
+ include/dt-bindings/clock/zte,zx297520v3-clk.h                        |  1=
+54 +++
+ include/dt-bindings/phy/zte,zx297520v3-topcrm.h                       |   =
+12 +
+ include/dt-bindings/reset/zte,zx297520v3-reset.h                      |   =
+62 ++
+ 16 files changed, 3391 insertions(+)
+ create mode 100644 Documentation/devicetree/bindings/clock/zte,zx297520v3-=
+lspcrm.yaml
+ create mode 100644 Documentation/devicetree/bindings/clock/zte,zx297520v3-=
+matrixcrm.yaml
+ create mode 100644 Documentation/devicetree/bindings/clock/zte,zx297520v3-=
+topcrm.yaml
+ create mode 100644 drivers/clk/zte/Kconfig
+ create mode 100644 drivers/clk/zte/Makefile
+ create mode 100644 drivers/clk/zte/clk-regmap.c
+ create mode 100644 drivers/clk/zte/clk-zx.c
+ create mode 100644 drivers/clk/zte/clk-zx.h
+ create mode 100644 drivers/clk/zte/clk-zx297520v3.c
+ create mode 100644 drivers/clk/zte/pll-zx.c
+ create mode 100644 include/dt-bindings/clock/zte,zx297520v3-clk.h
+ create mode 100644 include/dt-bindings/phy/zte,zx297520v3-topcrm.h
+ create mode 100644 include/dt-bindings/reset/zte,zx297520v3-reset.h
+
+--nextPartulVVFYPFRfOzbNRxaXxRQA
+Content-Type: application/pgp-signature; name="signature.asc"
+Content-Description: This is a digitally signed message part.
+Content-Transfer-Encoding: 7Bit
+
+-----BEGIN PGP SIGNATURE-----
+
+iQJPBAABCAA5FiEEQxb0tqoFWyeVMl1sPRO8yFRPGiIFAmq9V4wbFIAAAAAABAAO
+bWFudTIsMi41KzEuMTIsMiwyAAoJED0TvMhUTxois3cQAKOqW1nSvwLMITtTcza2
+Vdp9CeR6iivrtbKOMsiIk4809MI5SPaDrZFTRhGptF1lkghAVFzE4/C142dNneqi
+WS1IWjBaka+M4nOj8ytObhnAw4aDfykrhsTbf728cm5NREgu40tbKntocyBAVZ/9
+lhmCkEYxNdFf9XmkdccrWzFzz0frS76WMl49qqGtKx4wMHLyy5if01smKb/s7++d
+N64P2US67mjeHpEARXF59w57dsyBJeBOO52m/WvN2SnBE6RDdczhOSyhxVHj/TMQ
+UdhoCB/8qBLeHgiMXlc0E6Z8/JepjhF0COQ2N47RQ68hwl3u1jFQdOxuGVvhUKOG
+WYqKt43r4MLjBv9IInWAhT+C0hUrNeJ+sM1nnVQcnLW4liwjl4x2FOxGRjqnvKdq
+b5tIcljluruQuR59Zm0v0EjPxEAcWCZdC635QIkSpkTaLdQAS2jJ5vkmghy6v8Bx
+Hjn8zxLFFeqoyhUOtK3d8JXvAWh/OkA+TgC7l5pbPqe8utUYyoT157nsTu8cVMHj
+hZbZpr9dUpG5SH8kg10o9QPqIXPAhaqJtPSNFKEu04mhtaCcrbMOlo0c9gJBjefW
+UN/hh2zY88uedgd0O+QAdSe+DAJQ5iZ7ZRGcP6Yx9i88QNepx5BZFGueC9v1aWls
+MmfTH79WEXLfNxj7sch8COSO
+=tmC8
+-----END PGP SIGNATURE-----
+
+--nextPartulVVFYPFRfOzbNRxaXxRQA--
+
+
+
 
