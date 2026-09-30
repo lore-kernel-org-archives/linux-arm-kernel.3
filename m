@@ -4,7 +4,7 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 06BFECA5FCF
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 12FD0CA5FD1
 	for <linux-arm-kernel@archiver.kernel.org>; Wed, 30 Sep 2026 17:35:36 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
@@ -12,72 +12,72 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=MJeAt7Wf9A4rJLEAnEmxekFG9jjQvpCupEDV689AutQ=; b=FSwsBweazXcNofEUCVVr5aUNeE
-	pRi2K79mYLPJ4uwkfvJtlv9rLCrsaxRmSXxv6LKnYLO43IeIk89JHfNlYlQpNK0Su7DnE68ebAaPb
-	9Qkd0MD1mlJXJr5elpD3PuSgWfu7jGrhOk03bLcByU1H1ilLXbDcaAh4u2QS08yiglsmcZy4KUCi7
-	A/hxMJvenlBbWMY2yx4Tta2I6+GL47JgJF4T2Ig4KzhIKAE0eflYg6AG+QI9JTUFHcaKKGXRFzSBY
-	idJsPZu75lvpdUVC5QjSXu1xnF2+NgvMLOb5kLDEn5EwfxlKDnDbcxSgZZBpUprOv1PBxgPANWFmS
-	GJhGcH7Q==;
+	bh=9eo41M0OGWINv912n8F8el4zJ67a1d/ef0RqO8tHY7Y=; b=QgaV9Yf2TNnbVaG20A863ApZdN
+	aV6EqAyw6BmHUH8QPZsDNLKB/Ew+yLuMOFionR8JunGN0H9FUbNIUhSQDWDHGFw+P07hnSG2MKgap
+	vppFhUjAHJqEofluki8Pztb+ekWm1hR1jpZTVOHd2jsI/3tbp37DboVxCUJibCn7gXFQAYGMRsmY8
+	ZTbygik5xmczozfF/vmkPwJUTBUpB6Hq68ZlVQXhope33c0odiDsuKvmUKcD4d5qzS6s6iZgUQl2q
+	QNZJu52eeen1Jb8eVKVKuyuIkcA60EnZcOiQ+/oKgWcR8inH9TpCy38eO2PjucKKwK5qvUUN31j2P
+	UQSCOLdw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xByDE-00000006rGr-3Vtl;
-	Wed, 30 Sep 2026 17:35:24 +0000
+	id 1xByDD-00000006rFM-3FFo;
+	Wed, 30 Sep 2026 17:35:23 +0000
 Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xByD1-00000006r06-2WPX
+	id 1xByD1-00000006r05-2VlI
 	for linux-arm-kernel@bombadil.infradead.org;
 	Wed, 30 Sep 2026 17:35:11 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:MIME-Version
 	:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Sender:Reply-To:
 	Content-Type:Content-ID:Content-Description;
-	bh=MJeAt7Wf9A4rJLEAnEmxekFG9jjQvpCupEDV689AutQ=; b=MDn9eegitgls0aIpzZee9OYobf
-	kT8chltF0h3q8ex5zGnV7AfmKlqqa860yy83cM6izqhQDoxXyYaqvGDsneKypOadevdZ9dL85EWYC
-	Jo1f2itLVuvotx1SwYQbbcpsyGpSqhJA/qiufhPoqxhXj66yW1/aRHeIG4Ye1sGVMHcE5pKuwujJB
-	J1/YfaIzwzcxpR+vpEp7ywetpT0+SxL90K5RrPYCX7q8N0tE2i3N5A0dubo0LtW6+PtJMLTvSmUoy
-	MM3WGwee/FUFMYK+p+4lqm+NcJMGsDhaGFs1RZS7DEk69rJtPLfjBpnYQnWaag7+4wl4YbHR7GKpz
-	YznRUv6w==;
-Received: from mx0a-001b2d01.pphosted.com ([148.163.156.1])
+	bh=9eo41M0OGWINv912n8F8el4zJ67a1d/ef0RqO8tHY7Y=; b=jTrWsrPDtFCjF4M6vTPQ1jZ/JA
+	2N36KU545Bc0CX1/pYkIB3vYBQGoL2vAcfeSMVxaBHl3Jur4705rT+zCUiwUCeg7Wpapsu+AmjnLB
+	m7fGnwcemx0Kotlfr/E3PjSYRvlxeH50XiikU9/LWe4ErxT5sqR47rQXGtxy0g0LiRAxQqibDb3JG
+	Al9yiGDT0T0Efew6inloXI2Ry2LbJAkEyJYg3uspnFh7EJLCC+kDsvuP9tfWt43njaEbnmTd0Lay/
+	b9s0RgHKttJOjEghvx6VKpn3WLN6CLPm5Lj+i186MRIGwiv20bTtoqyVvCXINZOXf/YbQ2O6wuwOr
+	Ut1D+YAw==;
+Received: from mx0b-001b2d01.pphosted.com ([148.163.158.5])
 	by desiato.infradead.org with esmtps (Exim 4.99.2 #2 (Red Hat Linux))
-	id 1xByCx-000000049At-3itS
+	id 1xByCx-000000049Aq-2yuW
 	for linux-arm-kernel@lists.infradead.org;
 	Wed, 30 Sep 2026 17:35:10 +0000
-Received: from pps.filterd (m0360083.ppops.net [127.0.0.1])
-	by mx0a-001b2d01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 68UE5Tdo3203204;
-	Wed, 30 Sep 2026 17:34:51 GMT
+Received: from pps.filterd (m0356516.ppops.net [127.0.0.1])
+	by mx0a-001b2d01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 68UE5bI22986541;
+	Wed, 30 Sep 2026 17:34:52 GMT
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ibm.com; h=cc
 	:content-transfer-encoding:date:from:in-reply-to:message-id
-	:mime-version:references:subject:to; s=pp1; bh=MJeAt7Wf9A4rJLEAn
-	EmxekFG9jjQvpCupEDV689AutQ=; b=QlND1U6FCdF43RqeSKZzPy54gHyWHzGQ2
-	69BSY6EMR1j+NxKOs8elfn/jcTP3D6t61scj7nrN2J0WXOhBGpybLOzTKVs1R4b8
-	+/sDmf2ioI0DaiMZ1lfR1W+CVVKRsLNHeKNeOkOKeYJ5FawSgxPKy6qtDowrW2S7
-	0amVfbqzUAgLGTrBVG/ApqPGdVkvFTkoxVhOXXRT0JhyWBs6qGEi51vmBCFhG5lk
-	mJEl+wv+wX7nl6TfTlQhXBssdmaWRhWFesR298mW11XaLgA//9QOPPGVgoR49VrE
-	jFDVr2X6SMSdjWB0D17zUTATvzVcYASZkwHFLoQN6eH11o9rKPrpg==
-Received: from ppma13.dal12v.mail.ibm.com (dd.9e.1632.ip4.static.sl-reverse.com [50.22.158.221])
-	by mx0a-001b2d01.pphosted.com (PPS) with ESMTPS id 4gx5j5ep7y-1
+	:mime-version:references:subject:to; s=pp1; bh=9eo41M0OGWINv912n
+	8F8el4zJ67a1d/ef0RqO8tHY7Y=; b=gI6Iyqj/qOUBPaNbF5X6Tucf1uFW9sGNY
+	GQqVxDHQrgGuLW7TiZRR3n++i2kNEpAr4pFR8I0l35QpR+6VOzLiqA5XvhUc4oHV
+	w3U+Ff2B99LNDYNnZ2gmQPthUlwdeLQ3y9zlhiBw//VWXNxsdCuTDdYAIIlg/Bkp
+	TblMPcWVfLe/W9mX7busD7Glq1w3VB3QjeiRhOPz/20PHCz5bnn15iYBAGy4wDVP
+	KWin8eR22M7uLLzkrpDVqBk0GeXNzb7fZCMnlsDfudSvH25iZCvurB/HMSmIt4ZT
+	i7LURTmvnxNdvd5ennWtKEsKZQIsplx6tuvB8XDpOxdqTZ8fcP+hQ==
+Received: from ppma12.dal12v.mail.ibm.com (dc.9e.1632.ip4.static.sl-reverse.com [50.22.158.220])
+	by mx0a-001b2d01.pphosted.com (PPS) with ESMTPS id 4gx3fkdx6t-1
 	(version=TLSv1.3 cipher=TLS_AES_256_GCM_SHA384 bits=256 verify=NOT);
-	Wed, 30 Sep 2026 17:34:50 +0000 (GMT)
-Received: from pps.filterd (ppma13.dal12v.mail.ibm.com [127.0.0.1])
-	by ppma13.dal12v.mail.ibm.com (8.18.1.11/8.18.1.11) with ESMTP id 68UE38lE2287793;
-	Wed, 30 Sep 2026 17:34:49 GMT
-Received: from smtprelay07.fra02v.mail.ibm.com ([9.218.2.229])
-	by ppma13.dal12v.mail.ibm.com (PPS) with ESMTPS id 4h0q4pbmk4-1
+	Wed, 30 Sep 2026 17:34:51 +0000 (GMT)
+Received: from pps.filterd (ppma12.dal12v.mail.ibm.com [127.0.0.1])
+	by ppma12.dal12v.mail.ibm.com (8.18.1.11/8.18.1.11) with ESMTP id 68UE34DF3583561;
+	Wed, 30 Sep 2026 17:34:50 GMT
+Received: from smtprelay01.fra02v.mail.ibm.com ([9.218.2.227])
+	by ppma12.dal12v.mail.ibm.com (PPS) with ESMTPS id 4h0g8e59rg-1
 	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Wed, 30 Sep 2026 17:34:49 +0000 (GMT)
+	Wed, 30 Sep 2026 17:34:50 +0000 (GMT)
 Received: from smtpav06.fra02v.mail.ibm.com (smtpav06.fra02v.mail.ibm.com [10.20.54.105])
-	by smtprelay07.fra02v.mail.ibm.com (8.14.9/8.14.9/NCO v10.0) with ESMTP id 68UHYjUA51380588
+	by smtprelay01.fra02v.mail.ibm.com (8.14.9/8.14.9/NCO v10.0) with ESMTP id 68UHYkpa31523260
 	(version=TLSv1/SSLv3 cipher=DHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
-	Wed, 30 Sep 2026 17:34:45 GMT
+	Wed, 30 Sep 2026 17:34:46 GMT
 Received: from smtpav06.fra02v.mail.ibm.com (unknown [127.0.0.1])
-	by IMSVA (Postfix) with ESMTP id AE80C2004E;
-	Wed, 30 Sep 2026 17:34:45 +0000 (GMT)
+	by IMSVA (Postfix) with ESMTP id 5F33020049;
+	Wed, 30 Sep 2026 17:34:46 +0000 (GMT)
 Received: from smtpav06.fra02v.mail.ibm.com (unknown [127.0.0.1])
-	by IMSVA (Postfix) with ESMTP id 56AF02004D;
-	Wed, 30 Sep 2026 17:34:45 +0000 (GMT)
+	by IMSVA (Postfix) with ESMTP id 120892004D;
+	Wed, 30 Sep 2026 17:34:46 +0000 (GMT)
 Received: from tuxmaker.boeblingen.de.ibm.com (unknown [9.87.85.9])
 	by smtpav06.fra02v.mail.ibm.com (Postfix) with ESMTP;
-	Wed, 30 Sep 2026 17:34:45 +0000 (GMT)
+	Wed, 30 Sep 2026 17:34:46 +0000 (GMT)
 From: Steffen Eiden <seiden@linux.ibm.com>
 To: kvm@vger.kernel.org, kvmarm@lists.linux.dev,
         linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
@@ -104,9 +104,9 @@ Cc: Alexander Gordeev <agordeev@linux.ibm.com>,
         Ulrich Weigand <Ulrich.Weigand@de.ibm.com>,
         Vasily Gorbik <gor@linux.ibm.com>, Will Deacon <will@kernel.org>,
         Zenghui Yu <yuzenghui@huawei.com>
-Subject: [PATCH v9 10/24] arm64: Share arm64 headers with s390
-Date: Wed, 30 Sep 2026 19:34:25 +0200
-Message-ID: <20260930173441.66762-11-seiden@linux.ibm.com>
+Subject: [PATCH v9 12/24] s390/Kconfig: remove PCI dependency from HAS_IOMEM
+Date: Wed, 30 Sep 2026 19:34:27 +0200
+Message-ID: <20260930173441.66762-13-seiden@linux.ibm.com>
 X-Mailer: git-send-email 2.53.0
 In-Reply-To: <20260930173441.66762-1-seiden@linux.ibm.com>
 References: <20260930173441.66762-1-seiden@linux.ibm.com>
@@ -114,35 +114,35 @@ MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-TM-AS-GCONF: 00
 X-Proofpoint-Reinject: loops=2 maxloops=12
-X-Proofpoint-Spam-Info: AW1haW4tMjYwOTMwMDA2OCBTYWx0ZWRfX81myDJCsHk+R
- VC1u0tMr6X44p6XGhK4CzUHVeiHCYmje+sGl3BawDbEThtiwhCK1/62KfBD/9OkB1azGbihJENd
- OOjpauIv2F8UGxRD1PoNEWysnomkKP8=
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwOTMwMDA2OCBTYWx0ZWRfX3GLbP6hRae4i
- nwojdmicrMng+8+GEfter2tlxmnt/HXdgpXMhUgtw1NFFxdj8NvDgJbAi0iyeD3e85xG0oHp1B/
- vbD3pWf3oR+PR+EkaojxXWg6j3ppEA3CwAuXuZ7DcVi6JvtNRow5zqd3Vcgbays/NRJYmHIeflN
- swR32TxVtl9gmi6BvYphFEGWxVcBkPAs28rQafbi57JkcFzfpI8rOk5M95YA1IufbSSp1UZrFL+
- H+UsGGbvsvN4IIZTfoziIfiZY6C4DP81vGQh9x03eJKivVtW+HFC4nxFUSuoOA9JPmYHziwhrmr
- UoQqT9PZuQrto67aWGZM3EsnCczzPwngetOtA7PFcKfxGV1MneIvYkEAPLO23qDag6Jlj1awWZU
- wS16r3FcF85G60P9LEsZtC9ED0Yum1bfdcdDqxsRpJN9sVpFIeIAREqFxP1l9YVFj0xbKeAKEDw
- TDKJEVnH82uTpb+ElGg==
-X-Proofpoint-GUID: ql-hDzixXkf-SKS6ogJiqNcAr-48Hgrz
-X-Authority-Analysis: v=2.4 cv=RKcmjIi+ c=1 sm=1 tr=0 ts=6abd483b cx=c_pps
- a=AfN7/Ok6k8XGzOShvHwTGQ==:117 a=AfN7/Ok6k8XGzOShvHwTGQ==:17
+X-Proofpoint-ORIG-GUID: WqMZL_ewua6yYDQFkj1r3LrZT0vmgz-o
+X-Proofpoint-GUID: lfozc8ptU2Qw5eR1GQlFIfUtd9tSX2IO
+X-Proofpoint-Spam-Info: AW1haW4tMjYwOTMwMDA2OCBTYWx0ZWRfXzGT7paS0XBVZ
+ pDHNgkFiD5BIDCiHQvIJ5R6FViWyOtbIUSic0ZrPLwHfPraidfmWsYf6kCVnIikHN5O40X1NqIe
+ IqxCLMRqh+MQl3m+bd8fO6ZvR6WY30E=
+X-Authority-Analysis: v=2.4 cv=Vv62kO2n c=1 sm=1 tr=0 ts=6abd483c cx=c_pps
+ a=bLidbwmWQ0KltjZqbj+ezA==:117 a=bLidbwmWQ0KltjZqbj+ezA==:17
  a=VdqzKS8jKosA:10 a=VkNPw1HP01LnGYTKEx00:22 a=RnoormkPH1_aCDwRdu11:22
- a=iQ6ETzBq9ecOQQE5vZCe:22 a=VnNF1IyMAAAA:8 a=7CQSdrXTAAAA:8
- a=Em0hk0uDlT0e9a-ftI0A:9 a=a-qgeE7W1pNrGK8U0ZQC:22
-X-Proofpoint-ORIG-GUID: LgzQ_XuAbGW7ynZRLBm80FXU20S-jDuL
+ a=Y2IxJ9c9Rs8Kov3niI8_:22 a=VnNF1IyMAAAA:8 a=gheBiaLQa-rhSO1pLzwA:9
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwOTMwMDA2OCBTYWx0ZWRfX5wSaikf4lZAp
+ r1r6vWcAxV/woEeCuUE9qoCE32o+yTxdqOQkOy5RKPVxM+9GqUqL13LuzWYLgtpkL6D6Io7H3ps
+ rH+060B2juryzmOLP6O7k1H5ISF6CHK9skHzXJYxWjtpb2rqdVBo6gODxF66dLmgRNqqjIidBaa
+ AajZsWT3hsad7bcJcV1KZnS4cRtPP5ggtCzAqG0hCQwuEMNjXoxFlGG/5anRhuHThWfF3yiytRS
+ mvkbl+LUuf07tlhgs2Vfx+FFVavC4nyIGAEQ10Svne46kQC0HHaUZn8ah3mZ0mT1QqbBO+6G3PA
+ 9Wk7CI6tZ94glwbdVrDRNNooyo1Kn3Fr1fc7fIaJTo4V7s0z+Y6dLx0U6MWY2aI2+Knj+26drua
+ iDKE+6FfCKMhBj8rCp7o5F3cU4aQFz07hYmlV60XaRh+HVdq+DuiT3G8NX2KJ+Wg6FRS1FOwyX4
+ z03seaj2HPZPzjKGfXw==
 X-Proofpoint-Virus-Version: vendor=baseguard
  engine=ICAP:2.0.293,Aquarius:18.0.1176,Hydra:6.1.134,FMLib:17.12.100.49
  definitions=2026-09-30_03,2026-09-21_02,2025-10-01_01
 X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- clxscore=1015 priorityscore=1501 spamscore=0 bulkscore=0 impostorscore=0
- adultscore=0 lowpriorityscore=0 suspectscore=0 malwarescore=0 phishscore=0
- classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
- reason=mlx scancount=1 engine=8.22.0-2609040000 definitions=main-2609300068
+ suspectscore=0 spamscore=0 phishscore=0 bulkscore=0 adultscore=0
+ priorityscore=1501 malwarescore=0 clxscore=1015 lowpriorityscore=0
+ impostorscore=0 classifier=typeunknown authscore=0 authtc= authcc=
+ route=outbound adjust=0 reason=mlx scancount=1 engine=8.22.0-2609040000
+ definitions=main-2609300068
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260930_183508_301527_9F9B9B14 
-X-CRM114-Status: GOOD (  23.77  )
+X-CRM114-CacheID: sfid-20260930_183508_033333_8B5A8DAC 
+X-CRM114-Status: GOOD (  17.73  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -157,359 +157,88 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Allow sharing of arm64 headers with s390 by marking the shared regions
-or by adding a comment that the whole file is shared.
+HAS_IOMEM was defined as def_bool PCI on s390, making it false on kernels
+built without PCI support. This made sense until now as the IOMEM code
+was only required if PCI was enabled. This will change as KVM will
+require IOMEM in the future. To simplify the config space, turn
+HAS_IOMEM on unconditionally by default.
 
-The shared regions are marked with:
+All other architectures either do not override HAS_IOMEM or set it
+unconditionally. s390 was the only architecture where HAS_IOMEM could be
+false on a real system.
 
- #if ARM64_S390_COMMON == 1
+Since HAS_IOMEM=y now causes kernel/iomem.o and lib/devres.o to be built
+unconditionally, ioremap()/iounmap() must always be available.
+Select GENERIC_IOREMAP unconditionally to provide the generic
+implementations for the PCI=n case.
 
- /* insert shared definitions here */
+Previously GENERIC_IOREMAP was conditioned on CONFIG_PCI in lockstep
+with HAS_IOMEM, so mm/ioremap.c was never built without PCI. Therefore,
+guard the PCI override macros ioremap_prot, iounmap, and ioremap_wc with
+CONFIG_PCI.
 
- #endif /* ARM64_S390_COMMON == 1 */
-
-The preprocessor symbol ARM64_S390_COMMON is always defined to 1 for any
-arm64 build. s390 later will generate its own view of arm64 headers
-based on the content inside the #if/#endif block.
-
-No functional change.
-
+Reviewed-by: Ilya Leoshkevich <iii@linux.ibm.com>
 Signed-off-by: Steffen Eiden <seiden@linux.ibm.com>
 ---
- arch/arm64/Makefile                  |  3 +++
- arch/arm64/include/asm/brk-imm.h     |  1 +
- arch/arm64/include/asm/esr.h         |  1 +
- arch/arm64/include/asm/kvm_arm.h     |  1 +
- arch/arm64/include/asm/kvm_emulate.h | 18 ++++++++++++++++++
- arch/arm64/include/asm/kvm_host.h    | 13 +++++++++++++
- arch/arm64/include/asm/ptrace.h      |  4 ++++
- arch/arm64/include/asm/sysreg.h      | 15 +++++++++++++++
- 8 files changed, 56 insertions(+)
+ arch/s390/Kconfig          |  5 +----
+ arch/s390/include/asm/io.h | 12 ++++++------
+ 2 files changed, 7 insertions(+), 10 deletions(-)
 
-diff --git a/arch/arm64/Makefile b/arch/arm64/Makefile
-index 6b005c8fef70..a2ed76cfdc0a 100644
---- a/arch/arm64/Makefile
-+++ b/arch/arm64/Makefile
-@@ -45,6 +45,9 @@ KBUILD_CFLAGS	+= $(CC_FLAGS_NO_FPU) \
- KBUILD_CFLAGS	+= $(call cc-disable-warning, psabi)
- KBUILD_AFLAGS	+= $(compat_vdso)
+diff --git a/arch/s390/Kconfig b/arch/s390/Kconfig
+index 4b51bc6e8948..5a01fbd8e32b 100644
+--- a/arch/s390/Kconfig
++++ b/arch/s390/Kconfig
+@@ -181,7 +181,7 @@ config S390
+ 	select GENERIC_ENTRY
+ 	select GENERIC_GETTIMEOFDAY
+ 	select GENERIC_SMP_IDLE_THREAD
+-	select GENERIC_IOREMAP if PCI
++	select GENERIC_IOREMAP
+ 	select GLOB
+ 	select HAVE_ALIGNED_STRUCT_PAGE
+ 	select HAVE_ARCH_AUDITSYSCALL
+@@ -768,9 +768,6 @@ config PCI_NR_FUNCTIONS
  
-+# Enable all code shared to s390
-+KBUILD_CPPFLAGS	+= -DARM64_S390_COMMON=1
-+
- ifeq ($(call rustc-min-version, 108500),y)
- KBUILD_RUSTFLAGS += --target=aarch64-unknown-none-softfloat
- else
-diff --git a/arch/arm64/include/asm/brk-imm.h b/arch/arm64/include/asm/brk-imm.h
-index beb42c62b6ac..dd2d153dc0d8 100644
---- a/arch/arm64/include/asm/brk-imm.h
-+++ b/arch/arm64/include/asm/brk-imm.h
-@@ -2,6 +2,7 @@
+ endif # PCI
+ 
+-config HAS_IOMEM
+-	def_bool PCI
+-
+ config CHSC_SCH
+ 	def_tristate m
+ 	prompt "Support for CHSC subchannels"
+diff --git a/arch/s390/include/asm/io.h b/arch/s390/include/asm/io.h
+index faddb9aef3b8..ef0490edeccd 100644
+--- a/arch/s390/include/asm/io.h
++++ b/arch/s390/include/asm/io.h
+@@ -27,14 +27,8 @@ void unxlate_dev_mem_ptr(phys_addr_t phys, void *addr);
  /*
-  * Copyright (C) 2012 ARM Ltd.
+  * I/O memory mapping functions.
   */
-+/* Whole file is shared with s390 */
+-#define ioremap_prot ioremap_prot
+-#define iounmap iounmap
+-
+ #define _PAGE_IOREMAP pgprot_val(PAGE_KERNEL)
  
- #ifndef __ASM_BRK_IMM_H
- #define __ASM_BRK_IMM_H
-diff --git a/arch/arm64/include/asm/esr.h b/arch/arm64/include/asm/esr.h
-index da085c83b57e..2cb73bde7346 100644
---- a/arch/arm64/include/asm/esr.h
-+++ b/arch/arm64/include/asm/esr.h
-@@ -3,6 +3,7 @@
-  * Copyright (C) 2013 - ARM Ltd
-  * Author: Marc Zyngier <marc.zyngier@arm.com>
-  */
-+/* Whole file is shared with s390 */
+-#define ioremap_wc(addr, size)  \
+-	ioremap_prot((addr), (size), pgprot_writecombine(PAGE_KERNEL))
+-
+ static inline void __iomem *ioport_map(unsigned long port, unsigned int nr)
+ {
+ 	return NULL;
+@@ -46,6 +40,12 @@ static inline void ioport_unmap(void __iomem *p)
  
- #ifndef __ASM_ESR_H
- #define __ASM_ESR_H
-diff --git a/arch/arm64/include/asm/kvm_arm.h b/arch/arm64/include/asm/kvm_arm.h
-index 57edd8437200..678f0daed445 100644
---- a/arch/arm64/include/asm/kvm_arm.h
-+++ b/arch/arm64/include/asm/kvm_arm.h
-@@ -3,6 +3,7 @@
-  * Copyright (C) 2012,2013 - ARM Ltd
-  * Author: Marc Zyngier <marc.zyngier@arm.com>
-  */
-+/* Whole file is shared with s390 */
+ #ifdef CONFIG_PCI
  
- #ifndef __ARM64_KVM_ARM_H__
- #define __ARM64_KVM_ARM_H__
-diff --git a/arch/arm64/include/asm/kvm_emulate.h b/arch/arm64/include/asm/kvm_emulate.h
-index b31d50bdf59e..e19d61f5ccd8 100644
---- a/arch/arm64/include/asm/kvm_emulate.h
-+++ b/arch/arm64/include/asm/kvm_emulate.h
-@@ -44,6 +44,7 @@ enum exception_type {
- bool kvm_condition_valid32(const struct kvm_vcpu *vcpu);
- void kvm_skip_instr32(struct kvm_vcpu *vcpu);
- 
-+#if ARM64_S390_COMMON == 1
- void kvm_inject_undefined(struct kvm_vcpu *vcpu);
- void kvm_inject_sync(struct kvm_vcpu *vcpu, u64 esr);
- int kvm_inject_serror_esr(struct kvm_vcpu *vcpu, u64 esr);
-@@ -75,6 +76,8 @@ static inline int kvm_inject_serror(struct kvm_vcpu *vcpu)
- 
- void kvm_vcpu_wfi(struct kvm_vcpu *vcpu);
- 
-+#endif /* ARM64_S390_COMMON == 1 */
++#define ioremap_prot ioremap_prot
++#define iounmap iounmap
 +
- void kvm_emulate_nested_eret(struct kvm_vcpu *vcpu);
- int kvm_inject_nested_sync(struct kvm_vcpu *vcpu, u64 esr_el2);
- int kvm_inject_nested_irq(struct kvm_vcpu *vcpu);
-@@ -184,6 +187,7 @@ static inline void vcpu_set_thumb(struct kvm_vcpu *vcpu)
- 	*vcpu_cpsr(vcpu) |= PSR_AA32_T_BIT;
- }
- 
-+#if ARM64_S390_COMMON == 1
- /*
-  * vcpu_get_reg and vcpu_set_reg should always be passed a register number
-  * coming from a read of ESR_EL2. Otherwise, it may give the wrong result on
-@@ -202,6 +206,8 @@ static __always_inline void vcpu_set_reg(struct kvm_vcpu *vcpu, u8 reg_num,
- 		vcpu_gp_regs(vcpu)[reg_num] = val;
- }
- 
-+#endif /* ARM64_S390_COMMON == 1 */
-+
- static inline bool vcpu_is_el2_ctxt(const struct kvm_cpu_context *ctxt)
- {
- 	switch (ctxt->regs.pstate & (PSR_MODE32_BIT | PSR_MODE_MASK)) {
-@@ -404,6 +410,7 @@ static inline u64 kvm_vcpu_get_disr(const struct kvm_vcpu *vcpu)
- 	return vcpu->arch.fault.disr_el1;
- }
- 
-+#if ARM64_S390_COMMON == 1
- static inline u32 kvm_vcpu_hvc_get_imm(const struct kvm_vcpu *vcpu)
- {
- 	return kvm_vcpu_get_esr(vcpu) & ESR_ELx_xVC_IMM_MASK;
-@@ -481,6 +488,8 @@ static __always_inline u8 kvm_vcpu_trap_get_fault(const struct kvm_vcpu *vcpu)
- 	return kvm_vcpu_get_esr(vcpu) & ESR_ELx_FSC;
- }
- 
-+#endif /* ARM64_S390_COMMON == 1 */
-+
- static inline
- bool kvm_vcpu_trap_is_permission_fault(const struct kvm_vcpu *vcpu)
- {
-@@ -521,6 +530,7 @@ static __always_inline int kvm_vcpu_sys_get_rt(struct kvm_vcpu *vcpu)
- 	return ESR_ELx_SYS64_ISS_RT(esr);
- }
- 
-+#if ARM64_S390_COMMON == 1
- static inline bool kvm_is_write_fault(struct kvm_vcpu *vcpu)
- {
- 	if (kvm_vcpu_abt_iss1tw(vcpu)) {
-@@ -545,6 +555,8 @@ static inline bool kvm_is_write_fault(struct kvm_vcpu *vcpu)
- 	return kvm_vcpu_dabt_iswrite(vcpu);
- }
- 
-+#endif /* ARM64_S390_COMMON == 1 */
-+
- static inline unsigned long kvm_vcpu_get_mpidr_aff(struct kvm_vcpu *vcpu)
- {
- 	return __vcpu_sys_reg(vcpu, MPIDR_EL1) & MPIDR_HWID_BITMASK;
-@@ -586,6 +598,7 @@ static inline bool kvm_vcpu_is_be(struct kvm_vcpu *vcpu)
- 	return vcpu_read_sys_reg(vcpu, r) & bit;
- }
- 
-+#if ARM64_S390_COMMON == 1
- static inline unsigned long vcpu_data_guest_to_host(struct kvm_vcpu *vcpu,
- 						    unsigned long data,
- 						    unsigned int len)
-@@ -661,6 +674,8 @@ static __always_inline void kvm_incr_pc(struct kvm_vcpu *vcpu)
- 		vcpu_set_flag((v), e);					\
- 	} while (0)
- 
-+#endif /* ARM64_S390_COMMON == 1 */
++#define ioremap_wc(addr, size)  \
++	ioremap_prot((addr), (size), pgprot_writecombine(PAGE_KERNEL))
 +
  /*
-  * Returns a 'sanitised' view of CPTR_EL2, translating from nVHE to the VHE
-  * format if E2H isn't set.
-@@ -767,6 +782,7 @@ static inline void kvm_reset_fpsimd(struct kvm_vcpu *vcpu)
- 	memset(&vcpu->arch.ctxt.fp_regs, 0, sizeof(vcpu->arch.ctxt.fp_regs));
- }
- 
-+#if ARM64_S390_COMMON == 1
- /* Reset a vcpu's core registers. */
- static inline void kvm_reset_vcpu_core(struct kvm_vcpu *vcpu)
- {
-@@ -791,6 +807,8 @@ static inline void kvm_reset_vcpu_core(struct kvm_vcpu *vcpu)
- 	*vcpu_cpsr(vcpu) = pstate;
- }
- 
-+#endif /* ARM64_S390_COMMON == 1 */
-+
- /* PSCI reset handling for a vcpu. */
- static inline void kvm_reset_vcpu_psci(struct kvm_vcpu *vcpu,
- 				       struct vcpu_reset_state *reset_state)
-diff --git a/arch/arm64/include/asm/kvm_host.h b/arch/arm64/include/asm/kvm_host.h
-index 55966decfeb6..b61d92c8c0ca 100644
---- a/arch/arm64/include/asm/kvm_host.h
-+++ b/arch/arm64/include/asm/kvm_host.h
-@@ -42,6 +42,7 @@
- 
- #define KVM_MAX_VCPUS VGIC_V3_MAX_CPUS
- 
-+#if ARM64_S390_COMMON == 1
- #define KVM_VCPU_MAX_FEATURES 10
- #define KVM_VCPU_VALID_FEATURES	(BIT(KVM_VCPU_MAX_FEATURES) - 1)
- 
-@@ -99,6 +100,8 @@ struct vcpu_reset_state {
- 	bool		reset;
- };
- 
-+#endif /* ARM64_S390_COMMON == 1 */
-+
- #define KVM_DIRTY_LOG_MANUAL_CAPS   (KVM_DIRTY_LOG_MANUAL_PROTECT_ENABLE | \
- 				     KVM_DIRTY_LOG_INITIALLY_SET)
- 
-@@ -958,6 +961,7 @@ struct kvm_vcpu_arch {
- 	pid_t pid;
- };
- 
-+#if ARM64_S390_COMMON == 1
- /*
-  * Each 'flag' is composed of a comma-separated triplet:
-  *
-@@ -1116,6 +1120,8 @@ bool kvm_arm_vcpu_is_finalized(struct kvm_vcpu *vcpu);
- /* KVM is currently emulating an L2 to L1 exception */
- #define IN_NESTED_EXCEPTION	__vcpu_single_flag(sflags, BIT(9))
- 
-+#endif /* ARM64_S390_COMMON == 1 */
-+
- #define vcpu_sve_max_vq(vcpu)	sve_vq_from_vl((vcpu)->arch.sve_max_vl)
- 
- #define vcpu_sve_zcr_elx(vcpu)						\
-@@ -1329,6 +1335,7 @@ int __init populate_nv_trap_config(void);
- 
- void kvm_calculate_traps(struct kvm_vcpu *vcpu);
- 
-+#if ARM64_S390_COMMON == 1
- unsigned long kvm_arm_num_regs(struct kvm_vcpu *vcpu);
- int kvm_arm_copy_reg_indices(struct kvm_vcpu *vcpu, u64 __user *indices);
- int kvm_arm_get_reg(struct kvm_vcpu *vcpu, const struct kvm_one_reg *reg);
-@@ -1344,6 +1351,8 @@ unsigned long kvm_mmio_read_buf(const void *buf, unsigned int len);
- int kvm_handle_mmio_return(struct kvm_vcpu *vcpu);
- int io_mem_abort(struct kvm_vcpu *vcpu, phys_addr_t fault_ipa);
- 
-+#endif /* ARM64_S390_COMMON == 1 */
-+
- /*
-  * Returns true if a Performance Monitoring Interrupt (PMI), a.k.a. perf event,
-  * arrived in guest context.  For arm64, any event that arrives while a vCPU is
-@@ -1536,11 +1545,15 @@ static inline bool __vcpu_has_feature(const struct kvm_arch *ka, int feature)
- 	return test_bit(feature, ka->vcpu_features);
- }
- 
-+#if ARM64_S390_COMMON == 1
-+
- #define kvm_vcpu_has_feature(k, f)	__vcpu_has_feature(&(k)->arch, (f))
- #define vcpu_has_feature(v, f)	__vcpu_has_feature(&(v)->kvm->arch, (f))
- 
- #define kvm_vcpu_initialized(v) vcpu_get_flag(v, VCPU_INITIALIZED)
- 
-+#endif /* ARM64_S390_COMMON == 1 */
-+
- int kvm_trng_call(struct kvm_vcpu *vcpu);
- #ifdef CONFIG_KVM
- extern phys_addr_t hyp_mem_base;
-diff --git a/arch/arm64/include/asm/ptrace.h b/arch/arm64/include/asm/ptrace.h
-index 49a83a0636b9..4d88ed5cc425 100644
---- a/arch/arm64/include/asm/ptrace.h
-+++ b/arch/arm64/include/asm/ptrace.h
-@@ -26,6 +26,8 @@
- 
- #define GIC_PRIO_PSR_I_SET	GICV3_PRIO_PSR_I_SET
- 
-+#if ARM64_S390_COMMON == 1
-+
- /* Additional SPSR bits not exposed in the UABI */
- #define PSR_MODE_THREAD_BIT	(1 << 0)
- #define PSR_IL_BIT		(1 << 20)
-@@ -66,6 +68,8 @@
- #define PSR_AA32_IT_MASK	0x0600fc00	/* If-Then execution state mask */
- #define PSR_AA32_GE_MASK	0x000f0000
- 
-+#endif /* ARM64_S390_COMMON == 1 */
-+
- #ifdef CONFIG_CPU_BIG_ENDIAN
- #define PSR_AA32_ENDSTATE	PSR_AA32_E_BIT
- #else
-diff --git a/arch/arm64/include/asm/sysreg.h b/arch/arm64/include/asm/sysreg.h
-index ab205f9db94a..779e6587ed0f 100644
---- a/arch/arm64/include/asm/sysreg.h
-+++ b/arch/arm64/include/asm/sysreg.h
-@@ -16,6 +16,8 @@
- 
- #include <asm/gpr-num.h>
- 
-+#if ARM64_S390_COMMON == 1
-+
- /*
-  * ARMv8 ARM reserves the following encoding for system registers:
-  * (Ref: ARMv8 ARM, Section: "System instruction class encoding overview",
-@@ -50,6 +52,8 @@
- #define sys_reg_CRm(id)	(((id) >> CRm_shift) & CRm_mask)
- #define sys_reg_Op2(id)	(((id) >> Op2_shift) & Op2_mask)
- 
-+#endif /* ARM64_S390_COMMON == 1 */
-+
- #ifndef CONFIG_BROKEN_GAS_INST
- 
- #ifdef __ASSEMBLER__
-@@ -123,6 +127,8 @@
- #define GSB_SYS_BARRIER_INSN		__SYS_BARRIER_INSN(1, 0, 12, 0, 0, 31)
- #define GSB_ACK_BARRIER_INSN		__SYS_BARRIER_INSN(1, 0, 12, 0, 1, 31)
- 
-+#if ARM64_S390_COMMON == 1
-+
- /* Data cache zero operations */
- #define SYS_DC_ISW			sys_insn(1, 0, 7, 6, 2)
- #define SYS_DC_IGSW			sys_insn(1, 0, 7, 6, 4)
-@@ -832,6 +838,8 @@
- #define SCTLR_ELx_A	 (BIT(1))
- #define SCTLR_ELx_M	 (BIT(0))
- 
-+#endif /* ARM64_S390_COMMON == 1 */
-+
- #ifdef CONFIG_CPU_BIG_ENDIAN
- #define ENDIAN_SET_EL2		SCTLR_ELx_EE
- #else
-@@ -866,6 +874,7 @@
- 	 SCTLR_EL1_LSMAOE | SCTLR_EL1_nTLSMD | SCTLR_EL1_EIS   | \
- 	 SCTLR_EL1_TSCXT  | SCTLR_EL1_EOS)
- 
-+#if ARM64_S390_COMMON == 1
- /* MAIR_ELx memory attributes (used by Linux) */
- #define MAIR_ATTR_DEVICE_nGnRnE		UL(0x00)
- #define MAIR_ATTR_DEVICE_nGnRE		UL(0x04)
-@@ -1102,6 +1111,8 @@
- #define GICV5_GICR_CDNMIA_TYPE_MASK	GENMASK_ULL(31, 29)
- #define GICV5_GICR_CDNMIA_ID_MASK	GENMASK_ULL(23, 0)
- 
-+#endif /* ARM64_S390_COMMON == 1 */
-+
- #define gicr_insn(insn)			read_sysreg_s(GICV5_OP_GICR_##insn)
- #define gic_insn(v, insn)		write_sysreg_s(v, GICV5_OP_GIC_##insn)
- 
-@@ -1251,6 +1262,8 @@
- 	par;								\
- })
- 
-+#if ARM64_S390_COMMON == 1
-+
- #define SYS_FIELD_VALUE(reg, field, val)	reg##_##field##_##val
- 
- #define SYS_FIELD_GET(reg, field, val)		\
-@@ -1263,6 +1276,8 @@
- 		 FIELD_PREP(reg##_##field##_MASK,	\
- 			    SYS_FIELD_VALUE(reg, field, val))
- 
-+#endif /* ARM64_S390_COMMON == 1 */
-+
- #endif /* __ASSEMBLER__ */
- 
- #endif	/* __ASM_SYSREG_H */
+  * s390 needs a private implementation of pci_iomap since ioremap with its
+  * offset parameter isn't sufficient. That's because BAR spaces are not
 -- 
 2.53.0
 
