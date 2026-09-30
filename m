@@ -4,102 +4,112 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 034ABCA5FBB
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 30 Sep 2026 13:54:24 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0A9C7CA5FC5
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 30 Sep 2026 13:56:44 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=kSNUtQVp5d6e8feP+/xEzUsoy/t/hdu097Eyzo7g4ug=; b=lL8Pv32uy4mHogGCcjz2F55V3L
-	VwxiGxE/ECkWObD/9hCbvTQK1qAlEFuC+SGgwy32DdRVfOl2NNP+L938wpGOpcC9fv4avJV4cCTzj
-	umeXupG0zp61YsiEO9Y8a4yYmQPstjtvS+vVAPCsju+VfcUPPNEFRvD90SHf6EM/ZJMny4PSCeNxA
-	+b3sklJDnel74oRSeABc4F+QW28ZBHGQQcuWvRdr7b3rhYpO4hfSXhs6aUuzjOG3n9oaMPSryYzbv
-	aHwrLEOFF7PIiT7Ye9T5nQUSCwLs3ICsp6JouuY+ys4/f+iWw/zJ0CnuaS7t4Y3NKvyl4U4+/xMpX
-	KrPGDDlw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=5SwTqNdqJfRK/IUxZeFy/sI9epuc4z6THWr/paPSz7A=; b=WzRyc/YWE6Zx7XZQ6QcB/5274h
+	dnp7+w+1KpcAllBTHRedEOiCuuq14iLxTh5dUPsVA8FinWDQl4PetLov2VnLGHSLvEP1vZe3Au4PA
+	NFIvbfxHjnPXy1XJR+jXWHXidGkNXjTHLfTwrPn8eyioXzMABYDO0zmFCW7KVzKsqdDfT4d2wt2Hw
+	bEiH7SCCm9tT7efTcMhx656z08fJCqW6LHKVF5Z8jCCn8DMwRizjZybvIIQECyaQ5/1TB1Ai6kpTx
+	eRTA5xCRidcOu+CBqvx7HmVpjoADBsxr5CttG2485bzGsrm7oz4pX6JhOM5VmUO9D8jyuTOF7v5z3
+	ss2HHQxA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xBulD-00000006Bkj-3rkB;
-	Wed, 30 Sep 2026 13:54:16 +0000
-Received: from mail-dy2-x0f.google.com ([2607:f8b0:4864:36::f])
+	id 1xBunL-00000006C3o-32iE;
+	Wed, 30 Sep 2026 13:56:27 +0000
+Received: from mail-ej2-x10.google.com ([2a00:1450:4864:34::10])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xBulA-00000006Bk6-3dJQ
+	id 1xBunD-00000006C2A-3SII
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 30 Sep 2026 13:54:14 +0000
-Received: by mail-dy2-x0f.google.com with SMTP id 5a478bee46e88-33e630052ebso6025430eec.0
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 30 Sep 2026 06:54:12 -0700 (PDT)
+	Wed, 30 Sep 2026 13:56:22 +0000
+Received: by mail-ej2-x10.google.com with SMTP id a640c23a62f3a-c2940ef15d3so708448966b.2
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 30 Sep 2026 06:56:19 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1790776578; cv=none;
+        d=google.com; s=arc-20260327;
+        b=qiEFoi4ezLN9Rt9z/e8mmdMKRI+AhYqfdCt8DeFke/NiG1aTfCQ0CkwnrdGPE1R4u1
+         +yRc/LvtiZ7ocGmWylFonzFioSCZb0sLP0nfIUEs5ozsMNgHdfqGuG3jqR9cX81gibrO
+         /FjTceooH2G73Qvs9WhJ6Dvhls6LeckL7VTqzzmBY+SDTjxOfFyzLqkEylu3U9yhtOxZ
+         McUqQmY5QEjZSBlR080JYwmhNHeqMr3BCDn/n/VgUwkoPkcKIe5enqnS/g++tF5b6im0
+         Yft4ya7N4Wf7V2QyLyOkn6V0aWW4ml9Gd7PqBFYJslgq9n0XPYd+PgR48U/gd6wlSVEo
+         5VTg==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:dkim-signature;
+        bh=5SwTqNdqJfRK/IUxZeFy/sI9epuc4z6THWr/paPSz7A=;
+        fh=NNZ6G0I1SeWRh1blNxQ2eSMgNAXaG9VVf6s+T9zrB+k=;
+        b=E5W/9yY5Pyld3wmnV+8SgCx1QTy5g8Qd+Feh6Mx+dqT6hRZmUBmP6DQJ/RNJnuRuGD
+         grT7W9jmMC8O8HgmUFM1DAnG3d2zvsf43Ozjss9tQ70u9xyDGC5/TZcOsV2Ysq+guMxV
+         ka1FbFE+8zYkcp8xzGPEn2tiSZ9iGljsfAtG2524MfbPVU0twNpZNiT07chCBA95BH+J
+         CLopaHFmNRE6T7pVXHLqZWlCZirIxYUEEqg6nymetQTkZEOkelYV72hy76EhKIJWaTSc
+         3GUyps3dDNoMRQNYXeCpNCGZY12fl/MzBjryOiFteNQgfFtRV3tUdQmpoIyGHefFP2Np
+         svNA==;
+        darn=lists.infradead.org
+ARC-Authentication-Results: i=1; mx.google.com; arc=none
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=ziepe.ca; s=google; t=1790776452; x=1791381252; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:content-type:mime-version
-         :references:message-id:subject:cc:to:from:date:from:to:cc:subject
+        d=flipper.net; s=google; t=1790776578; x=1791381378; darn=lists.infradead.org;
+        h=content-transfer-encoding:content-type:cc:to:subject:message-id
+         :date:from:in-reply-to:references:mime-version:from:to:cc:subject
          :date:message-id:reply-to:content-type;
-        bh=kSNUtQVp5d6e8feP+/xEzUsoy/t/hdu097Eyzo7g4ug=;
-        b=IOazKUTHy68+3LZxIrECBy9kT2TZx0sv9pWJ3DlHUo/yC4mjKYxk4E3XeJG6mWoBrd
-         6SabpvHjsYbgeF4GV05HJ539+0UnIBcrnHKu3PEzXsrVC0tTDgklm9pZKMy31wE398aH
-         HBKRfLfY0CjVJL+KIIdMKAHZiSYm2ZKoCxbKx//6SIGnK6wtN1jNZKgf1RyU0PIqDqWG
-         b5O/1VKhw4lHepKUlty0KwnYjnhujRgACacl+Jlc+pkXkn9StPCZkLUAFZ9nJ9VkeXYG
-         6GnPilS8c5E7P8cRzvimlosGvHWNv8gP56bPYGq/rmcqCM2MYsxez2KhOqn/YFal9E8a
-         sksQ==
+        bh=5SwTqNdqJfRK/IUxZeFy/sI9epuc4z6THWr/paPSz7A=;
+        b=CjUYf3ufMTH0YFi4Mn/05TtaQ4oQq1grKJjDHpW1HPnvL6RkUwU8A1Y5aSsUYisd9/
+         +lieUCSdUPmWxcCFdCbukXYDWvwePu9HovLaFuaERDQLug8t+ZBOF26PTo2htit8R68R
+         znZnlR2ls6VKumgJeT0xCXB4jpx6t/XtYEEjWgQ7ZOUbU17c+/E8UdICxbH8akW4uNwF
+         nb4uAvgMGH9TXw6FNTnWL9MEDu5FGS5Kh3oCi/Sm5GZxEZGbQJ/exPYe4krCeUJUixG7
+         S53gubEcfO1j9r13cZnG1f2OQ4C+Br1HRR0oIm2OiYFZIRp37CBiWIAahhCNHQXOFDfR
+         AFUQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1790776452; x=1791381252;
-        h=in-reply-to:content-disposition:content-type:mime-version
-         :references:message-id:subject:cc:to:from:date:x-gm-gg
+        d=1e100.net; s=20260707; t=1790776578; x=1791381378;
+        h=content-transfer-encoding:content-type:cc:to:subject:message-id
+         :date:from:in-reply-to:references:mime-version:x-gm-gg
          :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
          :content-type;
-        bh=kSNUtQVp5d6e8feP+/xEzUsoy/t/hdu097Eyzo7g4ug=;
-        b=pTlz7ZmIh/WVp6Uywmo516Qf34bfk6DEah3YNg8Hsq12wGysF35OlK7o1eRlCWPV6z
-         HC+z1xn+moBI8rMhLhNPGlYLcpA+uPj0GE1SJdZMOJqtT/gzkGGDLr2cx/Nb/NiO44TZ
-         LAytFePxDzAo8z6TDe/OaNguoyPIpFa2nmr3v/Ubv1DRs25UFtT1UrrkdfWqEHToMhfR
-         iNd2GmnCP2UU4hneyU0e3qnOojtZLtOn+1YYfHDJ0YX1VVtIx7EX2DQH71qA4UFY3a3R
-         XkKKipNgFxY+Ivzo4t+sG5xwVT/Bq3ZMGdp+emLdK2/snzvTfDgnCPMWqUyZCh5pUc2c
-         lgow==
-X-Forwarded-Encrypted: i=1; AKwUvBxU1LtsbpcJZZTZW37Zq4+LEU/1rRaffAk2sRi9T55JZubFLcE0bpe0PfZstfscIeiOlVJCCrS44kdA3b6OzBEg@lists.infradead.org
-X-Gm-Message-State: AFq9FYISDdsZnJx8iFRSZj/8MKCnpwnjdNSu8ZhzFhXQ0QkvMlfrn7tJ
-	LtUg58EnFkbEH97ecWCrg8MriM4nGRugFqIW8HMIySMlMVtnAfcTEW60suSt974AICU=
-X-Gm-Gg: AYBFou12FhA8QxVwiSEYR/EXfL5WwFGqqa+bRe4RIGGvjl+4gxvmC051B5X0HKIGdgD
-	9Q570mB1XaVEIL9t37npKdvTGjPxvOJbyT6IFd+j/iZuvwa79PdKWu002aRi+3DenzNGgGB82BL
-	sfvGWSpFTOVbNrtMEN95UoPYPVaGf/3doDnVpsfFhWrEUQkY3WQww/spqsJ3Jz+RUksbtYrwvJH
-	DuJORzjk98uQZxRrHdoMsHuoAN4MlqrC+EqJkfzfcYMzqUEu0lg7R9bgCYNM7Mk1dFuuEb8XEaz
-	5gnrDzRz0jS9A7lN4w0lmE9if28WB/8SJq0PKJTNEvg5+bIyEHoPkOq91H0A81FD0bUNEj3DvwW
-	kNCx9uXgksjizn4bbrXa3Rt75dqFYlfIs6Sdgu/5rhP4NiGHeyPSLmafUr5qww5epJNBCPUY38m
-	f0d8ndFOwG+v6R/TVJnVChJEh8arKCutk1fwrVrmN20ihcUA==
-X-Received: by 2002:a05:7300:2143:b0:340:e422:fd3d with SMTP id 5a478bee46e88-34cdbad6906mr2918204eec.17.1790776451659;
-        Wed, 30 Sep 2026 06:54:11 -0700 (PDT)
-Received: from ziepe.ca ([130.41.10.202])
-        by smtp.gmail.com with ESMTPSA id 5a478bee46e88-34cf514b783sm4165034eec.13.2026.09.30.06.54.09
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 30 Sep 2026 06:54:09 -0700 (PDT)
-Received: from jgg by wakko with local (Exim 4.97)
-	(envelope-from <jgg@ziepe.ca>)
-	id 1xBul6-0000000Bmsz-2FAs;
-	Wed, 30 Sep 2026 10:54:08 -0300
-Date: Wed, 30 Sep 2026 10:54:08 -0300
-From: Jason Gunthorpe <jgg@ziepe.ca>
-To: Yeoreum Yun <yeoreum.yun@arm.com>
-Cc: Kohei Enju <enju.kohei@fujitsu.com>,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Will Deacon <will@kernel.org>,
-	Suzuki Poulose <suzuki.poulose@arm.com>,
-	Steven Price <steven.price@arm.com>,
-	Sami Mujawar <sami.mujawar@arm.com>, thuth@redhat.com
-Subject: Re: [PATCH v2 3/3] virt: arm-cca-guest: Add support for measurement
- registers
-Message-ID: <20260930135408.GP163130@ziepe.ca>
-References: <20260929-arm_cca_mr-v2-0-1d98bba187fd@arm.com>
- <20260929-arm_cca_mr-v2-3-1d98bba187fd@arm.com>
- <arx2hnTv3QaFqMn-@FCCLS0092175.localdomain>
- <aryZnqqBAjKw5xaP@e129823.arm.com>
- <arygMte5C5lJDdoi@FCCLS0092175.localdomain>
- <aryuwukTRtmd2Lft@e129823.arm.com>
+        bh=5SwTqNdqJfRK/IUxZeFy/sI9epuc4z6THWr/paPSz7A=;
+        b=nbEPTh5t2rlrdAxLaeZp7oKCalnV0cXq39XplS1BfEW76xIubDq/24A0Ld3X6ricsL
+         qF/56sd2QrVpt9zqcOW4JnmAHmlXXtX3Oyo3DEQX8Wa9Ntiy5+/yZTv5BgDaxYPLx5Sa
+         K0E3BdNCEdbqRUIVtRCKJT7HaVY0WAIIgb4F449KmJFPrqF2FsVA3UTkKZPddQc2JlQw
+         WClVxGHnUtCmFjcrCgd08O9hFpVuy79PvDdXfZsetdoxvb4g5RIYFPge/QX0fjZnEihi
+         pFTWk4olPksUFo2Pxehq7XHEj87eW4+3gidUCQ/vfJ2ufhQJ2TaHUgidGTEZod9waSBS
+         xsVw==
+X-Forwarded-Encrypted: i=1; AKwUvBys+TjJYgZIQqA9tv6t7Ia7undJQ0ZJhrf7c639nA4JPlhaJtjX+lTJjmX5BBgcZLbrsZsQNEOXZk3YFIxHbHbC@lists.infradead.org
+X-Gm-Message-State: AFuF++lzddjvmEKoHc+G4G6xXx5mqKjlBDJnrmK2NxjhcEgeEoqLlSMO
+	qrVzwhI2HAZCaX5AYLa6j0pAmsw+j2t2wT1XVegVrYQvCyGXjhC86ZnI5mB1KZjBbK8Dgkp0ifq
+	TNGyiYPvMuHSMc897Qo8mZk2iMs5Qb9eMszBSDz302A==
+X-Gm-Gg: AYBFou11QR1TGe97NPEYwUCyhV4FgGQuA4FmG27iNC9ldoixz0tRtiI63zMOeuL7BZW
+	AUuZaW9sIrKdidRcoWzVn/MTBV4KA3Z6lqt0YI7WlRaX4Vz9y6fZYfvfw1Ewn8QBtohadRdoK0Q
+	on2LtPphn0xRD76oi4eNxh0WLdyOUFRYZBP8pdLiiZf6NM5Bxwd+xUNYg4Qv35tPlTHYNlqoANY
+	m5Kkzs4Hdn9Jo7Kb3oyPJoo5YUJuHouL5xxodYQoiSDkgahbwxugE6DwfT0isFQLGk7Oimkzr49
+	GSCSm0sUrbIcc5Pbtac2PzQ0/ncnpoPttPQKT1k21r7qE3dawQNFsQWrqagBcGQ/TppEFcS0ysv
+	BMympsXzmea9PuG+XjmsSftI=
+X-Received: by 2002:a17:907:1c9e:b0:c25:c67d:53cc with SMTP id
+ a640c23a62f3a-c2e23cad0fdmr124499966b.8.1790776577897; Wed, 30 Sep 2026
+ 06:56:17 -0700 (PDT)
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <aryuwukTRtmd2Lft@e129823.arm.com>
+References: <20260929-b4-rk3576-reboot-mode-v2-0-5a34ca72065a@flipper.net>
+ <20260929-b4-rk3576-reboot-mode-v2-1-5a34ca72065a@flipper.net> <20260930-hulking-swan-of-enterprise-94e2ae@quoll>
+In-Reply-To: <20260930-hulking-swan-of-enterprise-94e2ae@quoll>
+From: Alexey Charkov <alchark@flipper.net>
+Date: Wed, 30 Sep 2026 17:56:06 +0400
+X-Gm-Features: AclHuK_LS1pgpfgwaTzGiwreXcQZqQphizrD9-WsvYxGfaJqBGmravJ6aAw_W_w
+Message-ID: <CAKTNdwG0NBZUez1Yy=jk3rYrD9W97oRMwvpX1qMXwQsP=_LvNw@mail.gmail.com>
+Subject: Re: [PATCH v2 1/5] dt-bindings: soc: rockchip: add boot ROM download
+ boot mode
+To: Krzysztof Kozlowski <krzk@kernel.org>
+Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+	Conor Dooley <conor+dt@kernel.org>, Heiko Stuebner <heiko@sntech.de>, 
+	Sebastian Reichel <sre@kernel.org>, devicetree@vger.kernel.org, 
+	linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org, 
+	linux-kernel@vger.kernel.org, linux-pm@vger.kernel.org, 
+	Shawn Lin <shawn.lin@rock-chips.com>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260930_065413_050843_F4C38C1F 
-X-CRM114-Status: GOOD (  19.79  )
+X-CRM114-CacheID: sfid-20260930_065619_908896_41AFD7DC 
+X-CRM114-Status: GOOD (  16.09  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -114,33 +124,29 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Sep 30, 2026 at 07:40:02AM +0100, Yeoreum Yun wrote:
-> > My remaining concern is that since sysfs_kf_bin_write() truncates
-> > oversized writes to the binary attribute size before invoking the
-> > callback, tm_digest_write() sees an exact-sized write and extends the
-> > MR. The following validation is useless in this case.
-> > 
-> >   static ssize_t tm_digest_write(struct file *filp, struct kobject *kobj,
-> >   			       const struct bin_attribute *attr, char *buffer,
-> >   			       loff_t off, size_t count)
-> >   {
-> >     [...]
-> >   	/* partial writes are not supported */
-> >   	if (off != 0 || count != attr->size)
-> >   		return -EINVAL;
-> > 
-> > IMO this is not specific to Arm CCA, but do you have any thoughts on
-> > this?
-> 
-> I think this is ultimately a limitation of sysfs. At this layer,
-> simply knowing that userspace supplied a larger buffer does not allow us to
-> determine whether all of the data in that buffer is valid.
+On Wed, Sep 30, 2026 at 3:46=E2=80=AFPM Krzysztof Kozlowski <krzk@kernel.or=
+g> wrote:
+>
+> On Tue, Sep 29, 2026 at 02:28:18PM +0400, Alexey Charkov wrote:
+> > Rockchip boot ROMs enter USB download mode, commonly known as maskrom,
+> > when they find 0xef08a53c in the register they take the boot mode from.
+> > Add the magic under the name U-Boot already uses for it, so that boards
+> > able to request it can do so symbolically.
+> >
+> > Tested-by: Shawn Lin <shawn.lin@rock-chips.com>
+>
+> Drop, you cannot test it.
+>
+> What is the point of such blanket tags which are not even applicable to
+> 50% of patches here?
 
-sysfs is a bad choice for this interface, it always was, this is one
-more example why.
+I'd argue for 40% :-D
 
-We should have learned that from TPM's mistakes, not copied its bad
-ideas into tsm_mr.
+Anyway, I get your point. I'll drop the tag from the bindings patches,
+because Shawn tested a driver implementing the binding and a DTS
+implementing the binding, but it's perhaps far fetched to imply that
+the test covered the binding change itself.
 
-Jason
+Best regards,
+Alexey
 
