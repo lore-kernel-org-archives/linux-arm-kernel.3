@@ -4,61 +4,61 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6BEEBCA5FBA
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 30 Sep 2026 10:36:35 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 818E2CA5FBA
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 30 Sep 2026 10:38:58 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=5j0oeCmIiSAFwr9DL/KvkPyFQd1vbYiwHlWOIRKgumQ=; b=Kq2Rc4WtJ7JvvJjmEHlhLaOXWB
-	gEAxr/pgcQ+JIqlQz3AMGKiDbTdrcQm0XDScX1tqMeTSbMNLt73Yl9kf0wqmgxO8/Ox4Vp2zA2Rcw
-	1H/qSmk3uPNBMqOp1w1dhzTVd7jPOTWXnVlJUJ4flXTbSQL1ECvveXxkloEnyX8NXTTgAru5Gnkba
-	7IfZPr23pNqaOnAOH1yNHW7s3D/CZFm+rS5TjE8Nj3FI96C/XiDNQGt/+eN+RRs6MJVojMR2TYcXF
-	v+52S0Dxhx0SOw/zc/mRd/9qlqn3p/3m5PW+lq1ytdWSI3xVlb1/AqaXk4pnmEBibrZZ3trvDtRz/
-	Ad9OkH1Q==;
+	bh=Q42sMmac7vKYGCVFrMdhSVkWOijsRMSMvzwOYZNiU4g=; b=TwLOEpHZu0Jxq+hvEI21yNM9rH
+	iZ6o5hhJlpsNTrgknLM8qOHof5AhdQAnqML1k+1fJ9zBWy/2VCl+pyeVYs/JnqCuL9AK63PL+w1FC
+	l70C9/dlX3RZv4RWcVSaJs7wZnPht8cW5znJaRbUzs3h1vmZbVYAN7aF+MWDKztgjL+8PCo7QLyXH
+	+pVfhk2AgyUXRAJaP/wjBpqNmWRNwnk+vdcuS1Xcn1hMmksDgNURidHLJqFrFXxZWgTii73luau+v
+	DaYVwhMFXmPxaMTI5SnTLcy824X1KvAf/CJqropM1f8RV2LbVeEZXhDsL7KXjkrzrI/aUx+ZOO/hO
+	E7XIsFOA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xBrfo-00000005lwe-3MX0;
-	Wed, 30 Sep 2026 10:36:28 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1xBri8-00000005mB6-0x0L;
+	Wed, 30 Sep 2026 10:38:52 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xBrfm-00000005lwG-2zcv;
-	Wed, 30 Sep 2026 10:36:26 +0000
+	id 1xBri7-00000005mAw-1Mmc
+	for linux-arm-kernel@lists.infradead.org;
+	Wed, 30 Sep 2026 10:38:51 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 2D7F240777;
-	Wed, 30 Sep 2026 10:36:26 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id E90B81F000FF;
-	Wed, 30 Sep 2026 10:36:24 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 0DA2B40E19;
+	Wed, 30 Sep 2026 10:38:51 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 0B1551F000FF;
+	Wed, 30 Sep 2026 10:38:49 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1790764586;
-	bh=5j0oeCmIiSAFwr9DL/KvkPyFQd1vbYiwHlWOIRKgumQ=;
+	s=k20260515; t=1790764730;
+	bh=Q42sMmac7vKYGCVFrMdhSVkWOijsRMSMvzwOYZNiU4g=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=n03GEu4bOIgD2UGI/ubYv4FxvTAXp0uBEGM8XQl7E0SET+txuGqCVkbUUC1eWkn6J
-	 /UZfSCYsrS4/mIayFcVFnE/YhLHGaGNk+4/hBUWaH4+EMiesGQzp4ehJAlMlBV0e6y
-	 Y2WzNIDIjQyP1J/5ILOXeuFB4iofDm/DIgH7NW6SGf1nuLHzQAO8SImjXDHyVv/J5E
-	 Ax8UQ5mKS/mVsr1HCjyeV05kr9Gx0a+k8r3z6qRn/0BqchOeMTMn/q8hZAJJXkD+jQ
-	 ncauGOX/8/P0WOxIgf9HzZARkZq459NnEKU5S4qws359NDvcD4P2SHVF4jnjLRZUk0
-	 FNaDpdzNaalRQ==
-Date: Wed, 30 Sep 2026 12:36:21 +0200
+	b=Iyj8/IOthcCiozVPuAmYxSU+qxe9W3l7Rnu2ibWzZySm0kt6WYVvXmGGRZJn/mxSk
+	 2Uj3+6OOvaA/FpyxtiBudhFjCbFkOuL5/2/7nVCaBFei/pJ553tE6EQ7tNX+xnr05f
+	 uwrzIkdTn4tvZHbrmM4k6bS1nJuvfNygSm7j5IMNdRYH2j8UMwj+Z6eOdaFTbJCgiy
+	 7fYP6qGK9og+2MXyk8PSjx2rvyergNkpOZ86+dPZ8FuCRfI+eXw9ns4JOw4a+fcrKN
+	 LyUtKtJR6ZFs/bOHMR9DuWiK77xEQKrLNahF87S4noE0xE7jFTJyHdlOjhVJs5H73O
+	 x1INh5aIyGlxg==
+Date: Wed, 30 Sep 2026 12:38:47 +0200
 From: Krzysztof Kozlowski <krzk@kernel.org>
-To: Tim Kuo <Tim.Kuo@mediatek.com>
-Cc: Mark Brown <broonie@kernel.org>, Rob Herring <robh@kernel.org>, 
-	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
-	Matthias Brugger <matthias.bgg@gmail.com>, 
-	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, linux-spi@vger.kernel.org, devicetree@vger.kernel.org, 
-	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
-	linux-mediatek@lists.infradead.org, Steven Liu <Steven.Liu@mediatek.com>, 
-	Sky Huang <Skylake.Huang@mediatek.com>
-Subject: Re: [PATCH v2 1/2] spi: dt-bindings: add SPI IPM v59 compatible for
- mt7987 and mt7989
-Message-ID: <20260930-enchanted-phenomenal-cassowary-80cdfb@quoll>
-References: <20260929062516.416368-1-Tim.Kuo@mediatek.com>
+To: Sue Wang <suwangquanta@gmail.com>
+Cc: robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org, 
+	joel@jms.id.au, andrew@codeconstruct.com.au, ryan_chen@aspeedtech.com, 
+	billy_tsai@aspeedtech.com, devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+	linux-aspeed@lists.ozlabs.org, linux-kernel@vger.kernel.org, patrick@stwcx.xyz, 
+	Steward.Shih@quantatw.com, Martin.Peng@quantatw.com, Fred.Zhang@quantatw.com, 
+	p.k.lee@quantatw.com
+Subject: Re: [PATCH v14 1/2] dt-bindings: arm: aspeed: add Meta Ventura board
+Message-ID: <20260930-curious-narwhal-of-calibration-62442d@quoll>
+References: <20260929075106.74731-1-suwangquanta@gmail.com>
+ <20260929075106.74731-2-suwangquanta@gmail.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=utf-8
 Content-Disposition: inline
-In-Reply-To: <20260929062516.416368-1-Tim.Kuo@mediatek.com>
+In-Reply-To: <20260929075106.74731-2-suwangquanta@gmail.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -73,35 +73,33 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Sep 29, 2026 at 02:25:15PM +0800, Tim Kuo wrote:
-> MTK mt7987 and mt7989 SPI hardware has been updated to IPM v59 SPI IP and
-> it differs from earlier IPM designs, most visibly in the tick delay field
-> of SPI_CMD_REG, so it needs its own fallback compatible rather than reusing
-> "mediatek,spi-ipm".
+On Tue, Sep 29, 2026 at 03:51:05PM +0800, Sue Wang wrote:
+> Document the new compatibles used on Meta Ventura.
 > 
-> Signed-off-by: Tim Kuo <Tim.Kuo@mediatek.com>
-> ---
-> v2: Add mt7987 and mt7989 real device compatible
-> 
->  .../devicetree/bindings/spi/mediatek,spi-mt65xx.yaml         | 5 +++++
->  1 file changed, 5 insertions(+)
-> 
-> diff --git a/Documentation/devicetree/bindings/spi/mediatek,spi-mt65xx.yaml b/Documentation/devicetree/bindings/spi/mediatek,spi-mt65xx.yaml
-> index 3bf3eb1f8728..d2c740572d85 100644
-> --- a/Documentation/devicetree/bindings/spi/mediatek,spi-mt65xx.yaml
-> +++ b/Documentation/devicetree/bindings/spi/mediatek,spi-mt65xx.yaml
-> @@ -39,6 +39,11 @@ properties:
->                - mediatek,mt7988-spi-single
->                - mediatek,mt8188-spi-ipm
->            - const: mediatek,spi-ipm
-> +      - items:
-> +          - enum:
-> +              - mediatek,mt7987-spi
-> +              - mediatek,mt7989-spi
-> +          - const: mediatek,spi-ipm-v59
+> Signed-off-by: Sue Wang <suwangquanta@gmail.com>
 
-No, look at the binding and recent commits. This should be a specific
-compatible. Git history easily tells you that.
+Please respect our time. Actually other contributors time as well.
+
+<form letter>
+This is a friendly reminder during the review process.
+
+It looks like you received a tag and forgot to add it.
+
+If you do not know the process, here is a short explanation:
+Please add Acked-by/Reviewed-by/Tested-by tags when posting new
+versions of patchset, under or above your Signed-off-by tag, unless
+patch changed significantly (e.g. new properties added to the DT
+bindings). Tag is "received", when provided in a message replied to you
+on the mailing list. Tools like b4 can help here. However, there's no
+need to repost patches *only* to add the tags. The upstream maintainer
+will do that for tags received on the version they apply.
+
+Please read:
+https://elixir.bootlin.com/linux/v6.12-rc3/source/Documentation/process/submitting-patches.rst#L577
+
+If a tag was not added on purpose, please state in the patch changelog
+or cover letter why and what changed.
+</form letter>
 
 Best regards,
 Krzysztof
