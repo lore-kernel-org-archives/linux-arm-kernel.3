@@ -4,83 +4,144 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8D7DBCA5FC7
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 30 Sep 2026 14:13:35 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5902BCA5FC7
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 30 Sep 2026 14:15:46 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:References:In-Reply-To:Message-ID:Date
+	:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=TGmzl4ZBgt+a/NX3f8+5yKV69hc+HoNAJkowxE1wKzs=; b=BgyJmJTBh7T1VKm5XbzGVM6kfM
-	qZ/ykBeHyCc1wudGcNlbKMsvQH8Fv3ke/1JDF4NP//EZkqQB55n6AzqmuK1VLN3vAYdGTcxg+LvfB
-	dGWPvWLF5RBJCIxXckre73YiWtdvlxufLlFF1oSyVoY+4OBmHrGVbSB02wF/DdBOVeKyraBbKL0Ul
-	uDJPxtgTr2CK93cenojncntbHbX/VbLS0jeBqwfDummBVLo+j7x1ANQHUhEG0dMfKXo9B5DCgGECR
-	PdLxkG+AoHbxrXZJVl8REDC0ufSzu34DmW200Sf6yMcCLf5/SKvix7vX1t+2QevP+9DD3OdW/hyY6
-	hBiaJ3nw==;
+	bh=wy61ah+UjtvAvUHmaH0Sa87y1xDztN1VNUhi1UjxiW0=; b=YrbjIIdom+WTBoRhRpVb02L2GM
+	H5KrH6V573Qc3fimASyOemivZLUhgOwZKV2SAdBFRURP8OkqvaTUiVy4nZrwY3IsYKune2jOUBNBx
+	+AAQ4yxKB0OI09Fdkcf82jgRyX69YdWAr2+1AZdx61yXOKEnj8F1Syb37K+F83aqnEmf99ujR8q/F
+	h++oKd2cUnfPaoI1Fow85xXjmwwOyZvg+IPj71GKSYifcmQWCP9BP0UB1WrnqdwhUHrrer68BAjeD
+	Ou5IHS/dHKJnMAU8fECXM5SURnY+bWKdiBZ7v5IdDWc/7X3CwXCw5gehr5EK3JFJBsOTukp/l9m3l
+	0O6GKrGw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xBv3j-00000006GGo-2UKa;
-	Wed, 30 Sep 2026 14:13:24 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1xBv5t-00000006GdN-1v4T;
+	Wed, 30 Sep 2026 14:15:37 +0000
+Received: from mail-northeuropeazon11010002.outbound.protection.outlook.com ([52.101.84.2] helo=DB3PR0202CU003.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xBv37-00000006GAW-0QPK
-	for linux-arm-kernel@bombadil.infradead.org;
-	Wed, 30 Sep 2026 14:12:45 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=In-Reply-To:Content-Type:MIME-Version:
-	References:Message-ID:Subject:Cc:To:From:Date:Sender:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description;
-	bh=TGmzl4ZBgt+a/NX3f8+5yKV69hc+HoNAJkowxE1wKzs=; b=RkTlqCH5DQwnvDmfuoedCtak1U
-	QZYgd11KBF1rpQ5f9FifGUJnrhQA6P2V8RupOPOav6JkBdZM290TTZZ3mLYklSUAJf65BSfPuUxy4
-	owl609wh86nYSm9u98rHUGp5V18EpNHT3Fn+Fx1dwP5x+bxcl3C9k+DyawF+EjHpuUXGs5eios6/S
-	dDVasM0LS2CRUXjj2kMTdjHzbwN3GSGT0wyUoCdJTj7Nu7On47wEzVfIXGYI2UmYmL5vIl1NdYoRc
-	Dwc8S+DP0caaoPl5HmAwuQkdzE56Z6hdH8rJmQPqwEWTuID99yjVF7AhriP1R/4PsJE1F6FC76vAq
-	YBu6e8ug==;
-Received: from foss.arm.com ([217.140.110.172])
-	by desiato.infradead.org with esmtp (Exim 4.99.2 #2 (Red Hat Linux))
-	id 1xBv32-00000003u9h-48tm
+	id 1xBv5q-00000006Gae-3piL
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 30 Sep 2026 14:12:43 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 07193497;
-	Wed, 30 Sep 2026 07:12:35 -0700 (PDT)
-Received: from e129823.arm.com (e129823.arm.com [10.2.213.3])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 0076E3F85F;
-	Wed, 30 Sep 2026 07:12:36 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1790777558; bh=6+XFhO3Qp73z2z2yEqj749ONIdCc8STL6SPnIAdhy28=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=YBEqbiPqHIV3PjNK4fnmysbqZ0s3o2rjqRTpV+7ZOQrSy43ORf5HmdjAkvYSla0Rc
-	 0P6nS3vDTzjvPw/pjriI4xZfLh26M5cqoKPy3lgyau3O5kGSQMD4dXIVH3fyjDPS/N
-	 N/F+rhcINWuQ8dKR5pUwiv7v3ryTB180DvNl/dQQ=
-Date: Wed, 30 Sep 2026 15:12:34 +0100
-From: Yeoreum Yun <yeoreum.yun@arm.com>
-To: Jason Gunthorpe <jgg@ziepe.ca>
-Cc: Yeoreum Yun <yeoreum.yun@arm.com>, Kohei Enju <enju.kohei@fujitsu.com>,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Will Deacon <will@kernel.org>,
-	Suzuki Poulose <suzuki.poulose@arm.com>,
-	Steven Price <steven.price@arm.com>,
-	Sami Mujawar <sami.mujawar@arm.com>, thuth@redhat.com
-Subject: Re: [PATCH v2 3/3] virt: arm-cca-guest: Add support for measurement
- registers
-Message-ID: <ar0Y0vsOpu3WKTMM@e129823.arm.com>
-References: <20260929-arm_cca_mr-v2-0-1d98bba187fd@arm.com>
- <20260929-arm_cca_mr-v2-3-1d98bba187fd@arm.com>
- <arx2hnTv3QaFqMn-@FCCLS0092175.localdomain>
- <aryZnqqBAjKw5xaP@e129823.arm.com>
- <arygMte5C5lJDdoi@FCCLS0092175.localdomain>
- <aryuwukTRtmd2Lft@e129823.arm.com>
- <20260930135408.GP163130@ziepe.ca>
+	Wed, 30 Sep 2026 14:15:36 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=FtGP6EWK9D5IGkK/4B93v/BTZqgMDJuQZWgEkjYPUwXXe08AF4LlYmByKKLYJR08peIvHX0fPeRiEjBuxlPRI+hZixvVCtZxCIXn9a0ofcSmtQKONQhf63CFtYDf3M5dasIJF1gsfeqmtZhlnI7LMR9/RuAgSrgdLd8ua/ezuxvlQZOFz0jRwlQqaTags7uU0vpwM2t13e9YyzEMC1w8GFEoQk/wMnabA+bqZDhohzziGq5bLscdzuVREal+w1sCIDKBdJrQbuE66KY6wZfekcrq3wH9FWM03hBBMn8HXZX1kjYAMeW7o932FkoivQwVwJsh9dx2xIvbwoh/tJD6Rw==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=wy61ah+UjtvAvUHmaH0Sa87y1xDztN1VNUhi1UjxiW0=;
+ b=u1dNzSEgtPn8eJIqNG/vTK4YemPA+8rL+rSBgL6svaMz5RyhmX+cI46c5njzbJ+hMcEh9rHkxZxQHhYH4lujPPv7+7EEIFQi8WsVU2VuhhyFs3XLEAhM8SBmDDW9iXDMT23P6qtUaPbHOtjZu6IbSIDKH3z8loKvti6QdlYBkoSjNTDyC6aKQotrMUjCkbT/MSZyXaimAWskR45dKLJFtUEDIeaaKy+uMt2qBmvhsONsgD6ssTWR4xsrEzZYjwlagHUP9viaZKhomKfzTFkGUFfrRLS1IoWalUOox3nkx6A2kiTBBYHwiimad7e7n5AkQOBmIVqpKY32NodD7vYXkA==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
+ dkim=pass header.d=oss.nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
+ s=selector1-NXP1-onmicrosoft-com;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=wy61ah+UjtvAvUHmaH0Sa87y1xDztN1VNUhi1UjxiW0=;
+ b=gOA1P6f9K27VJHhZMqUgEvPinviNZPusxMaZ4BENPZbL6xbloh5qPObc62uwkpmWX0VI8YcoO1tiXeQ/Rr9clxT8Kvzvf4nd6PIBWPl4g3SJ8b5ngxb0pxwDfaMY/JvUM+mTvfi3VuYNUKOKl00sYBFkbZNnt0KjUZI0NWj/QvhIIWcMliWAY5UH9/iC1Xn5TJPYBYC44YPW8K8bHSP174QI9RxEjCVwdgT7l8mfaX0fnYY+Xe2qzJhds4ZBld6wvwSDUtnIO7ecAbGDcwq/6PP2D1tH2CcsNejNfvv1uG6psh6M4X0GtU78cUIagmaBOhjJI5ZAz3QrUFs5Blb/Gg==
+Authentication-Results: mx.microsoft.com 1; dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=oss.nxp.com;
+Received: from GV2PR04MB11799.eurprd04.prod.outlook.com (2603:10a6:150:2cf::9)
+ by GVXPR04MB10660.eurprd04.prod.outlook.com (2603:10a6:150:221::12) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.472.15; Wed, 30 Sep
+ 2026 14:15:28 +0000
+Received: from GV2PR04MB11799.eurprd04.prod.outlook.com
+ ([fe80::2146:83a2:5329:b7c]) by GV2PR04MB11799.eurprd04.prod.outlook.com
+ ([fe80::2146:83a2:5329:b7c%7]) with mapi id 15.21.0451.022; Wed, 30 Sep 2026
+ 14:15:27 +0000
+From: Frank.Li@oss.nxp.com
+To: Sascha Hauer <s.hauer@pengutronix.de>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Fabio Estevam <festevam@gmail.com>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Vincent Jardin <vjardin@free.fr>
+Cc: Frank Li <Frank.Li@nxp.com>,
+	imx@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org,
+	devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v2] arm64: dts: lx2160a: set #pinctrl-cells on the pinmux node
+Date: Wed, 30 Sep 2026 10:15:19 -0400
+Message-ID: <179077770479.503530.16353886299339547562.b4-ty@b4>
+X-Mailer: git-send-email 2.43.0
+In-Reply-To: <20260928-for-upstream-lx2160a-pinctrl-cells-v2-1-1227b2e897d3@free.fr>
+References: <20260928-for-upstream-lx2160a-pinctrl-cells-v2-1-1227b2e897d3@free.fr>
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 8bit
+X-ClientProxiedBy: PH7P222CA0002.NAMP222.PROD.OUTLOOK.COM
+ (2603:10b6:510:33a::21) To GV2PR04MB11799.eurprd04.prod.outlook.com
+ (2603:10a6:150:2cf::9)
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20260930135408.GP163130@ziepe.ca>
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: GV2PR04MB11799:EE_|GVXPR04MB10660:EE_
+X-MS-Office365-Filtering-Correlation-Id: 0fef916b-4e6b-412d-e84d-08df1efd46ce
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|23010399003|19092799006|1800799024|366016|376014|7416014|10067099003|56012099006|11063799006|18002099003|22082099003|41080700001;
+X-Microsoft-Antispam-Message-Info: 0vD9xoQPtnCVRCV3YdTw8JL3h8tcVIa46Est7TLHBe+2Wv3pR2TelAU6EMgUWQqmkFd4KYV0EBvLi4urXNq1BEaQctzMu0xXRV5gR9WYosEIZq9FPnyCO/gDZZaKJsHZTpM+dO+IQqZajqm+JreC7pqxZEFjdrKbSN0BwXq+zBSiPrdfjduTd4VQozj6/aktaVoA7yk/BPC26cE6b7gh15guwUI/BXbVdgcor9GeZItot/0E7EdS8F7Z4ugdYUQi+VIlXaUOJT5Ot9Ea7SBN6ur7Sqks6jxW0DBle9op4AKWIHruiDyvbe87qSS9tkb1asSiXedZW/ND62lxllJWLPub8tMAaqDVd5tRoT88j8938NZJRGs5xJ0YNL+Weat3hSNmZsBbFvHPCehvhlIcCE1tzFEqjrVv0ghX2NjNKkJJ595tJTp77BsVdo4PlJqukOb0MO9k/yCbEqvfHzA3AcAgJOyNDJQX3IyPDtxIS+SlkRYxEia39Cm7q6GoBY8SuItdSaElrohqbCPW2LlITBsArzPBTK8BNl54RYEgM3X8k8Lx+AyLE2yPNfLtTTupwjfiYNqD4cmeublXZW2LnFzlz2teLMZECsJqGVcxd45gTV2LVODkX6MNGRgq+dDTyDr+H01M7V5SFo0dG709OwaaPrsfS0qiQliKnUWoGp11VlBwZacfePpCytHD9NgiB43bM8LzuG/mfqY2PCxc1EFXcrYrlQRTeFrXkVdvtks=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:GV2PR04MB11799.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(23010399003)(19092799006)(1800799024)(366016)(376014)(7416014)(10067099003)(56012099006)(11063799006)(18002099003)(22082099003)(41080700001);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?NldzSXVWejFRVXl2bjgxU0Jsb3djRWFTYUdwekJSVVB0N0lZRUgxUTQ5Ymd3?=
+ =?utf-8?B?OTJTdnpnTXpSTFVoeFNlMGREVVFkWmsrMDF3SmJlLzk5ODBiRWRtWWNITjVa?=
+ =?utf-8?B?UmNBS3FFWURoeTlndWlNMnJPZ0twWklQdDlVa21saytZYnNGY1E3aEJnc3Vq?=
+ =?utf-8?B?dlhSSXh0QUtQVEovN0ZJaFhXblBnUndyTHVwcnJDQndSZ2FCWS9ROGsxcHI5?=
+ =?utf-8?B?Z2lPRFo2ZWN4UkJXZTVDSCtwQW5RcE9YZDJ1blVNWnhUMUtPV3FvTVlVZXhx?=
+ =?utf-8?B?cW5tdkcvaUUxUlhBRWdtTm9XTXZoTk4yaFZNK0d5Tldmbk81ZEltcUFKRjUw?=
+ =?utf-8?B?bXNlKzdWK0tzRTFwVWt6NjVsdEswTE84NUxQMmNoUUZCVG9FalM3Tkl1YjNn?=
+ =?utf-8?B?TFAzcE5qY3BJQVdCdk5QeWg4WWZSQVRLcHk2a0lTUWVYa05jRFhkMVZaMi9j?=
+ =?utf-8?B?Ri9CWUpVQzc2cDRFV0JuSWx4WVNDelZQYWl4ckVSWllrUGtNa21wSzVQQzln?=
+ =?utf-8?B?dDNXS1JnemRUMmpCQk1renhtdm5EcDFUWk5jdmdZaFYwQVE4RllNYlJBUnF6?=
+ =?utf-8?B?Z1BqUVcvMXNSdFhXTUQ4ZHVjeFhidHJjN3EyMnZKWjZ0bGxiWEhOWGhEU1Ew?=
+ =?utf-8?B?a2tkTXY4SlQrN1h2Zm1jTFdDbUgzQ3NHR3Q0TmJydDdqeVdwZFliTDg2VHl1?=
+ =?utf-8?B?VllBVWw0ZHVxMnl6TWZCWGZpcERIU05Zc3g2WFRaNnN1Wkp5dFNxUUJ0cHlL?=
+ =?utf-8?B?T3NVRWJDc0pUWEUwTnJMVkhKUVJtM2tGaW9XVTJacTFZUU0zMUE2OVhrVTln?=
+ =?utf-8?B?RG1NQ2RtT0srKzd5NlI0dHoyaHlHaC9JYmdEQm1XWW1NSTAyaW91T1V3Q1Ex?=
+ =?utf-8?B?UkZwT2EzUDBQMGsrY1FWck9ONGlNQXVxVHhCcUhNVzNRbjBjbDV5R2ZpaGhl?=
+ =?utf-8?B?bUpwR1V2WlUzZE9iT2pGbHF3YW9VTE1NV3FDMlEwV0JnQU93N2twMzFiU05o?=
+ =?utf-8?B?bkw3Z0RETHo0czc3b05Kd2tiVnNMUVVHMVdLMkgwL05TMkpZOGMvRll0eHpR?=
+ =?utf-8?B?S2FITFFGWGdYMWEvUlFxYnp6ZEdGbmpEcmhGdDRwaW0rUTdpdUUzT3M4TkVS?=
+ =?utf-8?B?TUUrWHA3NTdpLzFEeWJ4UnJCVnZ2bEFsZmN3TWJ2TXlUc1NyYzdRY2xSWE1i?=
+ =?utf-8?B?QzhFWU0xMEZCTWdoOTRJMDhlSkFUT3BEeFB4RXhOaXNzK0RHMmdSQ2xXNDJ3?=
+ =?utf-8?B?d05xUU5PSXRFS1h5WEVCL1Y3NjRodG16UjErMDA3cXZLWWhTQkpGemRIZy9L?=
+ =?utf-8?B?V0QvV2RKMEVzL3BqT1BmVFBCM1dXcTNSWE1LRUtOYkFDRS9FbkpYNnZzVURH?=
+ =?utf-8?B?SkcxK00xSnNDMmpSeERIZDZpRy9LUURXV1poM3cvSFFPRzRPMEltUmpRWmIy?=
+ =?utf-8?B?NUYxMS9mOVNOUFR3VXFJbi9DWUFRcTAvZmRrZitXYk9lYWQyY2l0bEYzM2Vs?=
+ =?utf-8?B?YUFHYUJqNjgxRmJ5OGNrNjZ4RU9USUoybXI3MDVubTBPT2o0azBLeG4zcHpl?=
+ =?utf-8?B?cWJSdlc4SDlzOU1Ba2d1b21ac1JGd3c0SGJPdHBBT3dkV2tYbm9qeXY0L0dH?=
+ =?utf-8?B?YVFNWHN1WFV1elQrclI1blFseDRqandLZU1UWGVBakFTMlNoWnMzUkgwQzU0?=
+ =?utf-8?B?cTJaWEk0bEYvZU1RYU1GaG1WUW1DV0MzVGpQRkpGSWp0TWh2ZFZxcDBGWXBw?=
+ =?utf-8?B?alNxdDA1WUQ0dTFZT1pQbVNoZ09OS0trRnJobDQzUm91eWJmNEdHdjl6YjJp?=
+ =?utf-8?B?UmZkM1FXR3dXVjF5MDNEaU9TSFdFNHNwWG12ZFRJeFlxcFFQclR1NERwTVBM?=
+ =?utf-8?B?QnppSmppaDlSQXRneHZWSmJ5ZzFyc1h2OEdiMnpNdG9Rd1pYZTN0cHB2MS83?=
+ =?utf-8?B?RmZRSCtjT29mc255NkNHMmVSYmpMTVNoNGt5VnJBamVzSGpvcVgvNmVkaWhx?=
+ =?utf-8?B?dlBlMit2akFMVUI4NEdjZlZjWWpOVXkyTXArUXByUllFVm8wSGlqUnFZRDVP?=
+ =?utf-8?B?U1hBRDVnd1UyTm1JSExhUjFxZS9ySjJaWnVhUXFqQitKSk9TQXlnTkV5aXUy?=
+ =?utf-8?B?RjZIenFNMThseUhwNm8rYUMvaHdjd25oMXhRMmJ1Y3d4bEtUd29CSFcxRWZt?=
+ =?utf-8?B?ektoWnRzZlFTdUQvbkFQSkxUSzZXNW94UHc1Sk1EeXRuUDFJaXRJUUtEUWZP?=
+ =?utf-8?B?ZDBpRUloNXFKeThWUkZKYUhzMXdhQXQwYjdid0t0TVNUdmlzMkZMa1VjQVpM?=
+ =?utf-8?B?REtxMDZRN3lRRDJnZFRsSWlvK255N1IweEVNb3lvRDUrVmF6UGhNZlJzMHVP?=
+ =?utf-8?Q?7uguB8b555b2QUBc=3D?=
+X-OriginatorOrg: oss.nxp.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 0fef916b-4e6b-412d-e84d-08df1efd46ce
+X-MS-Exchange-CrossTenant-AuthSource: GV2PR04MB11799.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 30 Sep 2026 14:15:27.5486
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: U2SJa8XVRYyvyT+t4GG+S0KGjernN3RK29WYHhVrAdxBxVtPGkb6UyuJV4KKzr0PQ6ymPIfYQ/VgZx3HuvmCE0mkkUR99TFCh5g2eh/b3Z+JvEBZMz/yROTvAylwvm4P
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: GVXPR04MB10660
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260930_151241_234612_B579924B 
-X-CRM114-Status: GOOD (  23.38  )
+X-CRM114-CacheID: sfid-20260930_071534_988084_6616239E 
+X-CRM114-Status: UNSURE (   8.52  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -95,40 +156,21 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-> On Wed, Sep 30, 2026 at 07:40:02AM +0100, Yeoreum Yun wrote:
-> > > My remaining concern is that since sysfs_kf_bin_write() truncates
-> > > oversized writes to the binary attribute size before invoking the
-> > > callback, tm_digest_write() sees an exact-sized write and extends the
-> > > MR. The following validation is useless in this case.
-> > > 
-> > >   static ssize_t tm_digest_write(struct file *filp, struct kobject *kobj,
-> > >   			       const struct bin_attribute *attr, char *buffer,
-> > >   			       loff_t off, size_t count)
-> > >   {
-> > >     [...]
-> > >   	/* partial writes are not supported */
-> > >   	if (off != 0 || count != attr->size)
-> > >   		return -EINVAL;
-> > > 
-> > > IMO this is not specific to Arm CCA, but do you have any thoughts on
-> > > this?
-> > 
-> > I think this is ultimately a limitation of sysfs. At this layer,
-> > simply knowing that userspace supplied a larger buffer does not allow us to
-> > determine whether all of the data in that buffer is valid.
+From: Frank Li <Frank.Li@nxp.com>
+
+
+On Mon, 28 Sep 2026 23:08:28 +0200, Vincent Jardin wrote:
+> The below message shows at boot time:
+>   pinctrl-single 70010012c.pinmux: please update dts to use #pinctrl-cells = <2>
 > 
-> sysfs is a bad choice for this interface, it always was, this is one
-> more example why.
-> 
-> We should have learned that from TPM's mistakes, not copied its bad
-> ideas into tsm_mr.
+> Add missing #pinctrl-cells = <2> to fix it.
 
-This sounds you plan to make a dedicate fs (whatever via configfs or
-other) for attestation subsystem which you mention in [0].
+Applied, thanks!
 
-Link: [0] https://lore.kernel.org/all/arwNEWUEEk7jdGir@e129823.arm.com/
+[1/1] arm64: dts: lx2160a: set #pinctrl-cells on the pinmux node
+      commit: 4b09c93679eea12cfef87ed7b4a75056e8e9428e
 
+Best regards,
 -- 
-Sincerely,
-Yeoreum Yun
+Frank Li <Frank.Li@nxp.com>
 
