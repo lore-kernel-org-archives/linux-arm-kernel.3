@@ -4,177 +4,142 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7BCCCCA5FC7
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 30 Sep 2026 16:41:52 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 582F7CA5FC4
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 30 Sep 2026 16:42:03 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
-	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
+	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=tR3FNCTnEELyokoaTcoD8mC8vFVY3sUUR1+17nscQeE=; b=Npr2qS5La/l7zBzmsPIpZNQ61+
-	EiBjiQ73E1kPCHtbBE3QIIth/RbbuleJEmyqkmU/jmIHK9Wvge8vrgtzsh4sxERSgpY8yQiAC+lap
-	vwoKwIqM6hKy5x4hRUMV6rVk9WOypPPchxqGStG3740RUiE3mLjPPXeOreaXxcdPc/54Bxj4M4q2w
-	HLbBGALRlvLyLhci81t5X6kHPEHbAQM9jeLPcXI1FOI4VVH1ZqYsBSz3vbdlKT2LFqSeOHHFEbYPV
-	BBO2mJNTQp4pHrNGR9//5rlWr5mB21+mzL1RYePKmDZ6j+iYq3m7sVgDbDKOeonSbmr4/A6nKZElF
-	igRSXMEw==;
+	bh=34BUEuaQYUZ84U5Tu3lHI2XVLvNBSZd+6FjRG7uCRH8=; b=X/RNhfXqMOFjuhywKBzABes5H6
+	hxfJgBZpi0mz7XAQkBF2uUj+MezRtt2HZwYI2GZFfJcKbA9hWGmKHTPgZ8FlYvcLRf/k6rGUEfjMi
+	WdfQyKpFsCAbRsfbk0mNOKCYKKBUSR7SWScSvPLm+oJAbhdTPVPnvmviDxsyWCz3lo0kUUd8m4Hka
+	XVZsAeVTF8+TUBSg1bNixLFBXSruOCCR/Zw4xjlDhUAO958sGkcDj0djFog2DqIRnPBMHJ4etu0kw
+	+te+va8PAut1ZbF5sJsZUAyLImsn97Xpkkim1NaPRJ4rOu5zHJOeCCqdguiz1L6q6xIIEn4cLeZhJ
+	vRtPXJAA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xBwrf-00000006eV1-0xCH;
-	Wed, 30 Sep 2026 16:09:03 +0000
+	id 1xBxNU-00000006iyQ-2Qqp;
+	Wed, 30 Sep 2026 16:41:56 +0000
 Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xBwqV-00000006dvJ-3to2
+	id 1xBxNN-00000006iwr-2Vk3
 	for linux-arm-kernel@bombadil.infradead.org;
-	Wed, 30 Sep 2026 16:07:52 +0000
+	Wed, 30 Sep 2026 16:41:49 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Content-Type:Content-Transfer-Encoding
-	:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:CC:To:From:
-	Sender:Reply-To:Content-ID:Content-Description;
-	bh=tR3FNCTnEELyokoaTcoD8mC8vFVY3sUUR1+17nscQeE=; b=Gg9sqAGjVli6Atrq5XXZjgRr8M
-	ZQL6vq2JMXGxYXApRpTuZigcz8oHUuJSM41Wn5htktf7VRdA/fZR3Ox0DKja9l7ZB8eeRYVF2R3bl
-	YZN/I5kzR9ak3OuSFGSjpEtXQCPxkje8yHPXdj8LMnQXWZvk4luqQC0si/zD8wq1Tq5PbMCyyyBrF
-	Y+n38NBp0wnkndUova4aN1+y9Nt+NFvw9xicarVCY8sgygx13Wx9pvFnxN9Cw6W6lDpJOi3B3mt9S
-	2cuxbzoMuQ9yyxtPXLPE/pXJ77hTJWTzKicZ5skL8MpPG802RASRf00UYbAIZge6J3XcG7fBgq7IU
-	FhEkDIWQ==;
-Received: from mx0b-0002e601.pphosted.com ([148.163.154.28])
+	d=infradead.org; s=desiato.20200630; h=MIME-Version:In-Reply-To:Content-Type:
+	References:Message-ID:Subject:Cc:To:From:Date:Sender:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description;
+	bh=34BUEuaQYUZ84U5Tu3lHI2XVLvNBSZd+6FjRG7uCRH8=; b=Oe2aov6JG+iAAbNaNbGIuPrA4g
+	16672ShvG9BgIn+9dByg9l9lx4cm9wLZgqTBf2GTAdxWb81pA4Q1ALnFT3SxjjTbfSgH/R8hZCQ4D
+	/Z80X9U6FycUooK2XQQ/H+H6ZTzFuaHeDxQFlRV5+LmnDgRygyIcXrRlzxCYAlWXsQGjUNKYAPgtC
+	v+J1Ilm34nh3blMqHYGFMh26QgMY2xLcfcys0w4A2hEiW+LHWAY8WyYYsfYEHxsmoeJAgT1BL0duz
+	ILTplWwIQIbF7udXTkMqmraeSV3fKE2qEyJl2upWLFgT9x61/awPshNIi1ZHJglPKo7WQvBlhO6CA
+	rwuUW1UQ==;
+Received: from mail-swedencentralazon11013045.outbound.protection.outlook.com ([52.101.83.45] helo=GVXPR05CU001.outbound.protection.outlook.com)
 	by desiato.infradead.org with esmtps (Exim 4.99.2 #2 (Red Hat Linux))
-	id 1xBwqQ-000000043Cj-3Q7q
+	id 1xBxNK-000000045be-1D8R
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 30 Sep 2026 16:07:50 +0000
-Received: from pps.filterd (m0374956.ppops.net [127.0.0.1])
-	by mx0b-0002e601.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 68UE1JNC3057439;
-	Wed, 30 Sep 2026 11:07:40 -0500
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com; h=cc
-	:content-transfer-encoding:content-type:date:from:in-reply-to
-	:message-id:mime-version:references:subject:to; s=
-	proofpoint-05-2026; bh=tR3FNCTnEELyokoaTcoD8mC8vFVY3sUUR1+17nscQ
-	eE=; b=iCpJ4RIbfaLubVHlcs2mL7vqJsw4389PPkFZv29K6rDP/xKIGWPzWO87T
-	QI8oyFk8ELSyc3yGX60/La/TWz0dNDuJY5ea7AZy8WgOn9CAD40yP19Ya21hmz+f
-	07WHmRFe+2nKfKGT1cGd7TsvCUz0CCuMNkUVvJA7w2OCDMHDo13jgJYAX6LZiueD
-	zauy138xat7uBrDEO5joYPpuLrI6E8mKIvs+G/Z6OVe0WDzo/s45vwLYe2YleUim
-	rbbdRVRZLwp1+Q9BPQkD80KkBtlTuJLez05OGrif4KSP1QwfczmpXIUTtU1WGMx9
-	p3dO7JanRfCX1ns+SBBnWNQIUBFyA==
-Received: from ch4pr04cu002.outbound.protection.outlook.com (mail-northcentralusazon11013017.outbound.protection.outlook.com [40.107.201.17])
-	by mx0b-0002e601.pphosted.com (PPS) with ESMTPS id 4h0m9fehxu-1
-	(version=TLSv1.3 cipher=TLS_AES_256_GCM_SHA384 bits=256 verify=NOT);
-	Wed, 30 Sep 2026 11:07:39 -0500 (CDT)
+	Wed, 30 Sep 2026 16:41:48 +0000
 ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=H7F1f5hWOifC/zGgDZKWcEAPmFDeI7wKWRvWr2/P9g8Cya5vncR7oAz+ca1rAxuT6WZfztWBkNGP94XgIuT3cK1e/5OZQruRaT+xDl3xJuJmwJc9yfBYXDwtNJHVNOkbo2QZsPIolqTayul/uJdNTBONdOmKPqvQ9tUMRZCE9CPbVIV/RoTPoBWGjBQVOcnJaxOhfNjb0rJCLUkSMP5QcfsAam643iOjZWLTwAtZ8oJfFuuauGh5PR5kGVUd5VAoR8EfNB1JoO06MU30S2W3GkdYrGUCidQhN3wU7EeLGHV3/moDDSicOR5oIaKiPUz8g7b4VR3mnwDFiVntfd0XEA==
+ b=Sov2T8O93NsrTkb2xND+twoOQk0DGR9AE53KzPxIYk/OhudzVGAOFtigWPs90DBDGE7naPCiGU7atxiJwlITZecoRcZ0o/esKzZnDkKbHgJP7L1H8JAksRfAGiBazXp0eYlEgYR653Dn8CCM1oj7qVQ1ATN1Z/rM26E6kNwgHexH/OgfOkKccFnOg4gAeIrBUft1lX56WXNX9sOpUkNPy5WR/UxDP3fSDELBzhpqnvL0k9I2iUFo4TsJo/GovgpDgxm3Z4qjnkIJezt5ub0+pD87NFxRgT1uzoOCBy2uqmFcTImhE4Yc3iB9Dm24QWZFJSNOuxtAzbv81ycv8b1ytQ==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
  s=arcselector10001;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=tR3FNCTnEELyokoaTcoD8mC8vFVY3sUUR1+17nscQeE=;
- b=etG/OO2JDA5l2fVNQxd4p2J665cFJWpL/eYSm0FvXtPMZooXomOrml72tJOAIvn0+QX3aVR2FiPxvPrQgza95k1qOfo5CH7pGSq5mkqUYGGQFa1yM4VivJCwnJNTCOiaHQ7Twp0p1sEFM6E3XzutQDTMTO5NCG+bDbMP5MFHDMdq+BgTz0V2wy6QOp0VZH9rXR9eBekCejD3RzxIRVhgEy/bIImYwj/AGhuSr0AaG7RyQZXAQ9y5qz5WKsp2wFod8KyKw7DTAq60liqOzjYTFOcgnJPOoihHPl9RphYxJg0puf94rD2c3rh5HP8HcWzttqub5HXrK3s79cmURA+hBw==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
- 198.47.21.194) smtp.rcpttodomain=lists.infradead.org smtp.mailfrom=ti.com;
- dmarc=pass (p=quarantine sp=none pct=100) action=none header.from=ti.com;
- dkim=none (message not signed); arc=none (0)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=ticloud.onmicrosoft.com; s=selector1-ticloud-onmicrosoft-com;
+ bh=34BUEuaQYUZ84U5Tu3lHI2XVLvNBSZd+6FjRG7uCRH8=;
+ b=VWXsW3PiYKpFkI5ehM53dMSw+ca1g302zNTr1eyB3bwOcwS/2VoEtP58lIFS3+kVJchzdg9Yvpbj9cCN40K0DoFfUuctqTZNLNE2HQD8s9e3LzA6s92KA9HODLskZoPrkLAOa8ADArO5JSRLBV/rWr/NrubGTjaxNg73rxVSWNGsL9dBrwrFKitSfuOCk1x2Dj0BLMeVYfmNy+r65pP7+mFjzfzVIXECzTXb6OR7QQaYaJVuacJC34Nv+ODjF13dOdiBSWsQATjwgbtVX3X8QVnxbV2cSUfqhDNh2F7wjypRVgM4E9/8GAiTvarAhbIFmYW+4r6yynpH/G/ZqII7Cw==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
+ dkim=pass header.d=oss.nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
+ s=selector1-NXP1-onmicrosoft-com;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=tR3FNCTnEELyokoaTcoD8mC8vFVY3sUUR1+17nscQeE=;
- b=KYWMwlYBicZy4qBiT9WOr7zvmMfbGlPLTDysIgRNWOAjwktKYzlysSy2TXdxFAtHUNrDTMtqEHnSDYBRaif/gwy+yN2qN+8lIVe4HT7oYe5wz5XE2U0yYLbwxd7bpM2iyAwsUVTrCMbb9WDtp9/JlLQrFyUTw1Fktu1JYHU2x/s=
-Received: from BN9PR03CA0074.namprd03.prod.outlook.com (2603:10b6:408:fc::19)
- by MW4PR10MB6393.namprd10.prod.outlook.com (2603:10b6:303:1ec::12) with
+ bh=34BUEuaQYUZ84U5Tu3lHI2XVLvNBSZd+6FjRG7uCRH8=;
+ b=BMIO9Fl1zCKglS7dPiXzLTCfRbjOTQfmqjDZqqAPRbb6x5GIaAVMBic+Ma1Bnjnl+rFAyg2zwMmJEW90s03JRDyxK2ByyPVVaDuiw4Oh2S3upO7hu4JPrVThvcuzeVY+p1AZ+NCxR8AojGs/2UmYyeArToVloG2MYQUsdnWFa1QnxLCt/gZHcBTOEAQdZhbG+JFnwoYts3tYn5j3pMh6tLsWmpgdBquLtDeyoi2OYu3FPh4fZ8K04KbZkWg6N/zPZtPyN7JRfmBRtP+u5P+TvptEI13tbPN6lIbmWbKs8y/7qFPMsuRqZGLqijphd4l5w8Ovwqrj/mNCzB2H0OvKsg==
+Authentication-Results: mx.microsoft.com 1; dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=oss.nxp.com;
+Received: from GV2PR04MB11799.eurprd04.prod.outlook.com (2603:10a6:150:2cf::9)
+ by PA1PR04MB11529.eurprd04.prod.outlook.com (2603:10a6:102:4e2::20) with
  Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.472.7; Wed, 30 Sep
- 2026 16:07:20 +0000
-Received: from BN3PEPF0000B371.namprd21.prod.outlook.com
- (2603:10b6:408:fc:cafe::4f) by BN9PR03CA0074.outlook.office365.com
- (2603:10b6:408:fc::19) with Microsoft SMTP Server (version=TLS1_3,
- cipher=TLS_AES_256_GCM_SHA384) id 15.21.451.14 via Frontend Transport; Wed,
- 30 Sep 2026 16:07:11 +0000
-X-MS-Exchange-Authentication-Results: mx.microsoft.com 1; spf=pass (sender IP
- is 198.47.21.194) smtp.mailfrom=ti.com; dkim=none (message not signed)
- header.d=none;dmarc=pass action=none header.from=ti.com;
-Received-SPF: Pass (protection.outlook.com: domain of ti.com designates
- 198.47.21.194 as permitted sender) receiver=protection.outlook.com;
- client-ip=198.47.21.194; helo=flwvzet200.ext.ti.com; pr=C
-Received: from flwvzet200.ext.ti.com (198.47.21.194) by
- BN3PEPF0000B371.mail.protection.outlook.com (10.167.243.168) with Microsoft
- SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.21.496.3 via Frontend Transport; Wed, 30 Sep 2026 16:07:09 +0000
-Received: from DFLE202.ent.ti.com (10.64.6.60) by flwvzet200.ext.ti.com
- (10.248.192.31) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.45; Wed, 30 Sep
- 2026 11:06:20 -0500
-Received: from DFLE203.ent.ti.com (10.64.6.61) by DFLE202.ent.ti.com
- (10.64.6.60) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.45; Wed, 30 Sep
- 2026 11:06:20 -0500
-Received: from lelvem-mr06.itg.ti.com (10.180.75.8) by DFLE203.ent.ti.com
- (10.64.6.61) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.45 via Frontend
- Transport; Wed, 30 Sep 2026 11:06:20 -0500
-Received: from uda0510294.dhcp.ti.com (uda0510294.dhcp.ti.com [10.24.50.162])
-	by lelvem-mr06.itg.ti.com (8.18.1/8.18.1) with ESMTP id 68UG68W63425232;
-	Wed, 30 Sep 2026 11:06:18 -0500
-From: Beleswar Padhi <b-padhi@ti.com>
-To: <nm@ti.com>, <kristo@kernel.org>, <ssantosh@kernel.org>, <afd@ti.com>,
-        <vigneshr@ti.com>, <u-kumar1@ti.com>
-CC: <linux-kernel@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
-        <b-padhi@ti.com>
-Subject: [PATCH v2 03/22] firmware: ti_sci: Move check for ACK into ti_sci_do_xfer()
-Date: Wed, 30 Sep 2026 21:35:48 +0530
-Message-ID: <20260930160607.2674980-4-b-padhi@ti.com>
-X-Mailer: git-send-email 2.34.1
-In-Reply-To: <20260930160607.2674980-1-b-padhi@ti.com>
-References: <20260930160607.2674980-1-b-padhi@ti.com>
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.451.24; Wed, 30 Sep
+ 2026 16:41:40 +0000
+Received: from GV2PR04MB11799.eurprd04.prod.outlook.com
+ ([fe80::2146:83a2:5329:b7c]) by GV2PR04MB11799.eurprd04.prod.outlook.com
+ ([fe80::2146:83a2:5329:b7c%7]) with mapi id 15.21.0451.022; Wed, 30 Sep 2026
+ 16:41:40 +0000
+Date: Wed, 30 Sep 2026 11:41:29 -0500
+From: Frank Li <Frank.li@oss.nxp.com>
+To: jeffbarnes@linux.microsoft.com
+Cc: linux-pci@vger.kernel.org, minghuan.Lian@nxp.com, mingkai.hu@nxp.com,
+	roy.zang@nxp.com, lpieralisi@kernel.org, kwilczynski@kernel.org,
+	mani@kernel.org, robh@kernel.org, bhelgaas@google.com,
+	Zhiqiang.Hou@nxp.com, linuxppc-dev@lists.ozlabs.org,
+	linux-arm-kernel@lists.infradead.org, imx@lists.linux.dev,
+	linux-kernel@vger.kernel.org, stable@vger.kernel.org
+Subject: Re: [PATCH] PCI: layerscape: use default error response behavior
+Message-ID: <ar07ubdYLk-Tje1q@SMW015318>
+References: <20260929194339.233271-1-jeffbarnes@linux.microsoft.com>
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20260929194339.233271-1-jeffbarnes@linux.microsoft.com>
+X-ClientProxiedBy: PH0PR07CA0104.namprd07.prod.outlook.com
+ (2603:10b6:510:4::19) To GV2PR04MB11799.eurprd04.prod.outlook.com
+ (2603:10a6:150:2cf::9)
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-Content-Type: text/plain
-X-EOPAttributedMessage: 0
 X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: BN3PEPF0000B371:EE_|MW4PR10MB6393:EE_
-X-MS-Office365-Filtering-Correlation-Id: 576deacd-afb9-48c7-f3d3-08df1f0ce1e7
+X-MS-TrafficTypeDiagnostic: GV2PR04MB11799:EE_|PA1PR04MB11529:EE_
+X-MS-Office365-Filtering-Correlation-Id: 7c68e4ed-0f28-4817-25db-08df1f11b3af
 X-MS-Exchange-SenderADCheck: 1
 X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|376014|23010399003|82310400026|36860700016|1800799024|10067099003|6133799003|18002099003|22082099003|56012099006;
-X-Microsoft-Antispam-Message-Info: RXNsz9PewesFakHgsql/fGHt9adodXOlBBR4L0noy+i6DeHVHwr9HHEaXHlU4Tdqi07gOxyawR3Dpq2GwSn5SOVIiUqj42hapaAHrsZZwiGHzIyZaZDwx6y4LAgbVr74R71z5XpbGWvSeieF2XodLsAFKVjiWPEtytLxMMfAwodLsd3XhbSbdD0qm8ZSCEFczzQI8Zx1ooDIx2BhNxmkXWsH+W/LEDkHXovTpisZ6t8YbUvsECP1AI4eJ0y7VOc9khq4J0aubjbEKfatb/ymVXMZBjL94GJbW0fVys/OXdgLF8xOt7LekT3QRDiQafzPcNqCs3mmfYH3WSfEd1UQrq+lHjwL4oEgP8a9fPwSTyfHSmdaX1v7MMlLCquHxleHw+vrkttHs3Vu5a8WLc3dcTyKpaTPHJOw6Om/OIZiwfCcNBagXH5CrOGf1ZXZoIy5tdSqyMF9wC7+AW4horj6yyoa7kCgRxIupF05BiOLh0eU5xIOgax8KXRVNDxb+wZRBKZDnCtpv7u2FerHbJkEXxgp2Ektdd/TV8W8aEOMNEdQpFnhk6Rcv348Rw2S5hsu+reItt8D0Q6A1JWrjbAq/cfxOIJUBHnay0b/Gu26mKv31Jn2Txq19Jgu6Bddnj8HWeL4+dbYYnn2JtqsyjwrqGe2TSmJDtu+7acIyDZJOa/oK+QLJuT9InotCQK+zfoqDdyf1NiZITubkapAidKQNQ==
-X-Forefront-Antispam-Report: CIP:198.47.21.194;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:flwvzet200.ext.ti.com;PTR:ErrorRetry;CAT:NONE;SFS:(13230040)(376014)(23010399003)(82310400026)(36860700016)(1800799024)(10067099003)(6133799003)(18002099003)(22082099003)(56012099006);DIR:OUT;SFP:1101;
+X-Microsoft-Antispam: BCL:0;ARA:13230040|23010399003|376014|366016|7416014|1800799024|19092799006|22082099003|18002099003|6133799003|10067099003|56012099006|11063799006;
+X-Microsoft-Antispam-Message-Info: VixQH2WRvFYTgTmM54j3R7/RJzxTzo6J72LF1dthBhRqFybIz7H3bJx1a4n27wiu2jbsa7RL3o6nOwTvxFFTl/kAsYejVH6Ppbh2I8iNZ/iIVfx8nh4dfQSV30KvmOFlJ3TpvOAdQhUbcAIvyRX52W8lxprUyWGiigjA6SynhdFcGmQgGfKdIr5aAaqPZAyjitAAp9op43nejHK7fzxA8MwqKD8XldJFAnkrX0H/4WWXxSEhW71yDXddFL9xBHGqpQtAWt6ZqDvoN8iLs2d9X7UrgrBi1pYCW/F/UXPtSU4CYoyllfOJ3FBWa0zWSE8eXwquFCsMKbF1I7weFT7ywN6lsrPy/Oif44CPUUkL3ApcZVIWe5KJFuEpJtSJGb86OlllZf9gLhT346Wo33LLtXzrqNMCcpRryOasHkwlL3SDpceGpMLrDvIxGJ+L30Q0wMalkSSNRIgL5iDKvUfZXE3TsBnWXYM2UgefLjAg8vKkpFSLVOOhmDPNldJOQJG4t2LoNfn/V3dZMdFsgAwDc2eFbRl4FJ6myh4AihEAygXlW5iQDvopbILb8HJgl6LyC5kvnAnI8mjt59J8s+2xKx5MwXu4kXLrtxN6BV8vDvkl7sMHYx1SC1335k0jyJQ13QP7mpPRaKmVBAwxTnyqs0PzbvkxmVDZyGkGSrHV1io=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:GV2PR04MB11799.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(23010399003)(376014)(366016)(7416014)(1800799024)(19092799006)(22082099003)(18002099003)(6133799003)(10067099003)(56012099006)(11063799006);DIR:OUT;SFP:1101;
 X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: BElnLdeXrbtbuKRgTarHYdhXtMfrF9q3SbNbP1ArWlUtwNawnvuSel74kUm0VmZ3P/B5E/ZhYqjDtCDfpW+0il0PHPcysJxqFsrElYXi/1hS5tYJYVya/4a2UmQ3IaG571RVKCUL4iVV7uI6cg9JcFKmxfTKIy3RmalZRxvMDklnurj4kUHRwdT40kXr+3GUp7I79rBUCoywp0HbMr5RmecXWTZVLzEruCdul5zKrwuxIcVEbIxqaqLhL8VSkTb80TSUL5N7W9u2J3SXOVHBo4JDt7F+42ZRHJU7MOW0O5dKsVRlg68BbkOHoTTq+vVo8o0QaHPSEZ2qzsFYahLjgrw84mpcFdTidAuwWwTGeN428S72R1jjkzgDbGlSnknvpOeEddH5sxmFKN0f8ASOGbufiUwlb3pMJoQtYWS4YPurLkFiUpPzpHrZltL0omNj
-X-Exchange-RoutingPolicyChecked: 3Svq6m6rnxZlKd8jROeMCHgCSf+0kWsUtqh1pcaTJ4tXRS/vKukADBpwom3d6SVNQxtKrRDdwGaVFN6Gycw+/p5EzOE5I83ncLpM1E8MUbiwXfkZFhAauqUXhf9W1tF1fqjMLNqsXO/FK64OzByS8ShWRpMfjwvmYmVsDkOXQ4wcCo5SbJRGjbAcuBkX4N1PfgAO7VvqP6JEXXdS9cp6qx5/ebLIpQQuy4NurM4I2zuUews0PGFU0DGNI6moqeAe9IjWCZww4Xxhl+XHDyVPDodPXZVvtsFHQceLr8I8nAxnGWfCEf6NH6WtcujLtWyCZbXwBc4cbRWk40LN/S+0GQ==
-X-OriginatorOrg: ti.com
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 30 Sep 2026 16:07:09.8750
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?BUuxcvPEQiY3GJ7yH81EpQngfRFHZJeAnbnvje7PX5bRy/caPfU+t1amYI6U?=
+ =?us-ascii?Q?UeDL6UbuPlZunWped6mo4Hj3+oUl0YBnOS39VFEp/F4BavXPXbMsmLi4Ivjh?=
+ =?us-ascii?Q?2IcjgaSWVMMzipI/yLZFOCUEZIqyxNT732bDs2jNxybHHLqfPopV9X7rVYzd?=
+ =?us-ascii?Q?0YIbnDggjbAa8B9JtO7gzxtlAIkb+s4ei4J/xPgflMoVD911nJQ4DljgcD4v?=
+ =?us-ascii?Q?uPeNN1ZEJkRbTe9UxgW8K6g+3CakpOMtMqvqwBk4OVxGiKOlnO/l9Tfwl9ij?=
+ =?us-ascii?Q?dhjeDQ5ok5dCpQU01pk3p8BTPnzMHD12UHxsUxvmPmSj8r0U1/5mJJqRqqyL?=
+ =?us-ascii?Q?ZNmh+kFerZrCerW7PfECS5jEuYbZNDYNhmo5a1KmZBWz4LjFAtVg8gjY/ttv?=
+ =?us-ascii?Q?jIDSFDMJsxUK5OdDo4qu2H3uUKLWvFVMptaLsqfk5GCPD4q7zdn2xppOQdYo?=
+ =?us-ascii?Q?SMvUpekZrTJCgVZzWP+D6dGsKKABLPtkWv/EdjfNvm6z2UgHr/kdIZsLjdxS?=
+ =?us-ascii?Q?1u9W7rHsD/Zvp0+eqBFR2LXPHLOLf5j6vm8i7deBMxAR4u9k/krhUcj7Wf9B?=
+ =?us-ascii?Q?/z0fK5uBKJlZF3feSDPsbAB30iDzyQr68bvCy1QWEa0vHUW3trVNsG4i1Yau?=
+ =?us-ascii?Q?ixXQCCdP1DwYxlvDmKlXK+TqFBM3yyM3FgDmcdtx7HdiwZ83yRpslmHa58LD?=
+ =?us-ascii?Q?OLJVGlG/oygTOTi87JjXHHX0RHUXVoo4ASdCzXJJLd/W7311ajjXMNsZevTN?=
+ =?us-ascii?Q?NtyjZ5etoYJYSNx7Id2hMX3FkPPg5qbIjsbAwg6QPl2P/UMFPPaxwbYoPEqm?=
+ =?us-ascii?Q?7mfCzHxI5aIHIQxiFmrtwbbHy5uYbfWQjFW9zsrsb+7Y8btN41/NCaapVSSe?=
+ =?us-ascii?Q?FH7RF7FVkd82tbHhZEB6ePfb/YPbhPdN/Iq1KjA7gy2NFQCprNhdmzpG2hED?=
+ =?us-ascii?Q?z1dAPNZ9esUyegKNiZmXtLPykGdPDX1moDSpMdJbpKcv0XMig51BGcnQ4YDY?=
+ =?us-ascii?Q?TjwGxELQB2bBwIwc8EbrdG9iEAnZvuXHDPa/uhIIIHpu7Qt8QzxvlJcfbbAh?=
+ =?us-ascii?Q?PoYgpK8iDxHRTAw+6YB/5REirtumKHsA+Ipd2HId+amIgBsEwchI9KjhceQy?=
+ =?us-ascii?Q?6J6U4UhMU1UAZZLoI+gbPmEmdxf3nynMp5Wwpova7j29Bw6i6y4LQWI9qHaw?=
+ =?us-ascii?Q?CZTuxCD5qwCqX6r7qP95x1CDO6CUA+Yw0AtK4dLt9vyAZAXrcAUoXgG1anfz?=
+ =?us-ascii?Q?VoPy8E7iE6tlDnO+7l1bM6Qt5xTdabEVLmP/tBfwRfPku2lk1d3m73rYR2zX?=
+ =?us-ascii?Q?hf7kfUULoSB6csQYFIgatdbnNupF9ZHqRw8SzTu5YJKjx9vZy+WwlmedBCty?=
+ =?us-ascii?Q?qKa5fqdUQEQQddB78J3jqbMgDKuHVsoeC1DuQnVJhviuNycGDRMdTTUS+LtM?=
+ =?us-ascii?Q?DvJTDckYCRNqM0eMJcJ8xDao6BtRGq1v1vhmnIElm7Rg+tbfMrdZmkzEN06y?=
+ =?us-ascii?Q?voLeLodGlXslo+mlvVC4jNfULW0Lh8patbKXvtYg4gGH8+pZT5zt9hKkKwME?=
+ =?us-ascii?Q?uliIUFi17LjFUUv9DvqDHSYc7bvPyLnF8ytChjPkcFE6B8qWjqi2sQHbRO7J?=
+ =?us-ascii?Q?3EnduCX96/dPtTJFfY3MCVEA+My75AytHsH0/KqBFJbNaT0OVVWxZdEZc99u?=
+ =?us-ascii?Q?aYh3Ksy22ssv/yCTUx/STrp7Swwr2wuuuiG2bhm+6b9W6E5c2Rv6mZ0G34iT?=
+ =?us-ascii?Q?Bf5WUGodPxdTyEJHzG1mfmjewTYE2hCp13k8/1AgqvjxdJLdc4Ha?=
+X-OriginatorOrg: oss.nxp.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 7c68e4ed-0f28-4817-25db-08df1f11b3af
+X-MS-Exchange-CrossTenant-AuthSource: GV2PR04MB11799.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 30 Sep 2026 16:41:40.2966
  (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: 576deacd-afb9-48c7-f3d3-08df1f0ce1e7
-X-MS-Exchange-CrossTenant-Id: e5b49634-450b-4709-8abb-1e2b19b982b7
-X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=e5b49634-450b-4709-8abb-1e2b19b982b7;Ip=[198.47.21.194];Helo=[flwvzet200.ext.ti.com]
-X-MS-Exchange-CrossTenant-AuthSource: BN3PEPF0000B371.namprd21.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Anonymous
-X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: MW4PR10MB6393
-X-Authority-Analysis: v=2.4 cv=VfRir1p9 c=1 sm=1 tr=0 ts=6abd33cb cx=c_pps
- a=XX75RHJXRTy/mnnqXKIK7Q==:117 a=iwqwCZQqcuTv3JOpYdM7/Q==:17
- a=6eWqkTHjU83fiwn7nKZWdM+Sl24=:19 a=VdqzKS8jKosA:10 a=AlMIdn_sM9wA:10
- a=VkNPw1HP01LnGYTKEx00:22 a=Z8NIEmU8O1QQgoT56wFK:22 a=jwouBfj2j3NM8CExmVVE:22
- a=VwQbUJbxAAAA:8 a=sozttTNsAAAA:8 a=C4LaqBg6sCNJR2sbnPEA:9
-X-Proofpoint-GUID: LTTFN2spns-YDXJBtkNHIZZL5EdN-pOT
-X-Proofpoint-ORIG-GUID: LTTFN2spns-YDXJBtkNHIZZL5EdN-pOT
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwOTMwMDA2NCBTYWx0ZWRfX+ndfnZYRQ9UG
- W3lSv9y9A+xk2eq0HaM+UWdN8N6Ah6IWtidg6kFU6eBSLuR0gUmBZYrYGtCI/BMrKe2gYDnOdsF
- ZSpCty5JNFnGJknyrhXThZfhEMMnKdtrZWSvW2EElRaJT2a371ea6noYKMvvPbGym5E4MM2P2A5
- 9YjYcF8zzwV89z0ft1ElszCyiZYr7ogQzpQeWQHNTgrCAY1Zbo6YSGXmgxbgxM9lRV1w+yxevkl
- YrWu6zkdMETzIXKSOuM0E9/g6KKAH59pK1eafsXI1L7WPO0e+xCekVPKZuTrInGGIA/lMD/ZmWk
- xCJIml1gukyqZuTkxMbdmgTRTuhwys+iRpYflH/5VFJmS+PeZvILbsA+bG/Sodhsax5fEr0mp9C
- KBjx5Rp4tp5jz4qt+66OHsS8wpZkzmG8VcaUsQre2jTqadMdzPuCwPG1ASW+as8/5GFDj7CXAc/
- 4I0OhsUJe+slQCE0pcg==
-X-Proofpoint-Spam-Info: AW1haW4tMjYwOTMwMDA2NCBTYWx0ZWRfX2UBH9sberSts
- UaahMbIhQ9wJJwvJlv3CXaiaIo4zN/EculyAliodjsCUpqSpOrp8GQGg4vF7wKkqNMMeI3uk96x
- br2tacCbefEd+jlELddXwjdgb1ZgAxc=
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1176,Hydra:6.1.134,FMLib:17.12.100.49
- definitions=2026-09-30_03,2026-09-21_02,2025-10-01_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- impostorscore=0 suspectscore=0 adultscore=0 phishscore=0 malwarescore=0
- bulkscore=0 lowpriorityscore=0 priorityscore=1501 spamscore=0 clxscore=1015
- classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
- reason=mlx scancount=1 engine=8.22.0-2609040000 definitions=main-2609300064
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: mlyl3iGwVClp/U6xmhu2Oqgxb+n9fkGk9rff4OQ5Tidhn3AFzMT3O2BYj9MQTJGF7B38oV7YEnisOCDKAd/FUiI5hmc+tHEu17iGtJYHkh//zy4Z7OkxCABPdzjuImnx
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: PA1PR04MB11529
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260930_170747_261250_6BE928A2 
-X-CRM114-Status: GOOD (  21.78  )
+X-CRM114-CacheID: sfid-20260930_174146_422473_8905B534 
+X-CRM114-Status: GOOD (  28.66  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -189,546 +154,110 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Andrew Davis <afd@ti.com>
+On Tue, Sep 29, 2026 at 03:43:39PM -0400, jeffbarnes@linux.microsoft.com wrote:
+> [You don't often get email from jeffbarnes@linux.microsoft.com. Learn why this is important at https://aka.ms/LearnAboutSenderIdentification ]
+>
+> From: Jeff Barnes <jeffbarnes@linux.microsoft.com>
+>
+> The Layerscape PCIe driver programs PCIE_ABSERR to forward errors from
+> outbound non-posted requests to the internal AXI interface.
+>
+> A PCI configuration access can race with the link going down after
+> dw_pcie_other_conf_map_bus() checks the link but before the MMIO access
+> is performed. When the resulting Completion Timeout is forwarded to
+> AXI, it causes an asynchronous SError and kernel panic.
+>
+> For example:
+>
+>   Kernel panic - not syncing: Asynchronous SError Interrupt
+>   ...
+>   Call trace:
+>    arm64_serror_panic+0x78/0x90
+>    do_serror+0x84/0x90
+>    el1h_64_error_handler+0x30/0x40
+>    el1h_64_error+0x68/0x70
+>    pci_generic_config_read+0x64/0xb0
+>    dw_pcie_rd_other_conf+0x1c/0x68
+>    pci_bus_read_config_word+0x68/0x118
+>    pcie_capability_read_word+0xa8/0xd8
+>    find_device_iter+0x8c/0x160
+>    pci_walk_bus+0x60/0xb8
+>    find_source_device+0x78/0xb0
+>    aer_isr+0x1dc/0x230
+>
+> Restore the controller's default error response behavior instead of
+> forwarding these errors to AXI.
+>
+> Reproduce the race by instrumenting dw_pcie_rd_other_conf() to call
+> map_bus() while the link is up, then schedule a worker on another CPU
+> to set PCI_EXP_LNKCTL_LD. Synchronize the CPUs immediately before the
+> Link Disable DBI write, then perform readl() using the address returned
+> by map_bus() concurrently with the link transition.
+>
+> Without this change, the overlapping configuration read results in an
+> asynchronous SError and kernel panic. With this change, the same test
+> returns 0xffffffff from the configuration read. In this test, AER
+> reports a non-fatal Completion Timeout, and no SError or kernel panic
+> occurs.
+>
+> This effectively reverts the error response behavior introduced by
+> commit 84d897d69938
+> ("PCI: layerscape: Change default error response behavior").
 
-Move ti_sci_is_response_ack() function up so it can be used in
-ti_sci_do_xfer(). As we know if a response is expected we can
-check the response in one spot removing the need to check that
-at every call site.
+Subject should be revert ...
 
-Note: This changes the error code returned on a NACK for the ring
-config, PSI-L pair/unpair, and UDMAP TX/RX channel and RX flow config
-helpers from -EINVAL to -ENODEV, making them consistent with all other
-TI-SCI message helpers. The users of these helpers (k3-ringacc and
-k3-udma) only check for a non-zero return and propagate it, so no
-functional change.
+I am not sure what's expect behavior by other dwc PCI controller. returns
+0xfffffffff or report bus error.
 
-Signed-off-by: Andrew Davis <afd@ti.com>
-Co-developed-by: Beleswar Padhi <b-padhi@ti.com>
-Signed-off-by: Beleswar Padhi <b-padhi@ti.com>
----
-v2: Changelog:
-1. None to this patch.
+Frank
 
-Link to v1:
-https://lore.kernel.org/all/20260929201746.4078803-4-b-padhi@ti.com/
-
- drivers/firmware/ti_sci.c | 239 ++++++++++----------------------------
- 1 file changed, 60 insertions(+), 179 deletions(-)
-
-diff --git a/drivers/firmware/ti_sci.c b/drivers/firmware/ti_sci.c
-index 3b58fee07c257..6ec16fe57f132 100644
---- a/drivers/firmware/ti_sci.c
-+++ b/drivers/firmware/ti_sci.c
-@@ -410,14 +410,28 @@ static void ti_sci_put_one_xfer(struct ti_sci_xfers_info *minfo,
- 	up(&minfo->sem_xfer_count);
- }
- 
-+/**
-+ * ti_sci_is_response_ack() - Generic ACK/NACK message checkup
-+ * @r:	pointer to response buffer
-+ *
-+ * Return: true if the response was an ACK, else returns false.
-+ */
-+static inline bool ti_sci_is_response_ack(void *r)
-+{
-+	struct ti_sci_msg_hdr *hdr = r;
-+
-+	return hdr->flags & TI_SCI_FLAG_RESP_GENERIC_ACK ? true : false;
-+}
-+
- /**
-  * ti_sci_do_xfer() - Do one transfer
-  * @info:	Pointer to SCI entity information
-  * @xfer:	Transfer to initiate and wait for response
-  *
-- * Return: -ETIMEDOUT in case of no response, if transmit error,
-- *	   return corresponding error, else if all goes well,
-- *	   return 0.
-+ * Return: -ETIMEDOUT in case of no response, or
-+ *         -ENODEV in case of a NACK response, or
-+ *         corresponding error if transmit fails, or
-+ *         return 0, if all goes well.
-  */
- static inline int ti_sci_do_xfer(struct ti_sci_info *info,
- 				 struct ti_sci_xfer *xfer)
-@@ -466,6 +480,18 @@ static inline int ti_sci_do_xfer(struct ti_sci_info *info,
- 	 */
- 	mbox_client_txdone(info->chan_tx, ret);
- 
-+	/*
-+	 * If we expect a response and are not otherwise already in an error
-+	 * state, then ensure that the response is an ACK
-+	 */
-+	if (response_expected && ret == 0) {
-+		if (!ti_sci_is_response_ack(xfer->xfer_buf)) {
-+			dev_warn(dev, "Message response not acknowledged (caller: %pS)\n",
-+				 (void *)_RET_IP_);
-+			ret = -ENODEV;
-+		}
-+	}
-+
- 	return ret;
- }
- 
-@@ -509,19 +535,6 @@ static int ti_sci_cmd_get_revision(struct ti_sci_info *info)
- 	return ret;
- }
- 
--/**
-- * ti_sci_is_response_ack() - Generic ACK/NACK message checkup
-- * @r:	pointer to response buffer
-- *
-- * Return: true if the response was an ACK, else returns false.
-- */
--static inline bool ti_sci_is_response_ack(void *r)
--{
--	struct ti_sci_msg_hdr *hdr = r;
--
--	return hdr->flags & TI_SCI_FLAG_RESP_GENERIC_ACK ? true : false;
--}
--
- /**
-  * ti_sci_set_device_state() - Set device state helper
-  * @handle:	pointer to TI SCI handle
-@@ -561,10 +574,6 @@ static int ti_sci_set_device_state(const struct ti_sci_handle *handle,
- 	if (ret)
- 		goto fail;
- 
--	resp = (struct ti_sci_msg_hdr *)xfer->xfer_buf;
--
--	ret = ti_sci_is_response_ack(resp) ? 0 : -ENODEV;
--
- fail:
- 	ti_sci_put_one_xfer(&info->minfo, xfer);
- 
-@@ -616,10 +625,6 @@ static int ti_sci_get_device_state(const struct ti_sci_handle *handle,
- 		goto fail;
- 
- 	resp = (struct ti_sci_msg_resp_get_device_state *)xfer->xfer_buf;
--	if (!ti_sci_is_response_ack(resp)) {
--		ret = -ENODEV;
--		goto fail;
--	}
- 
- 	if (clcnt)
- 		*clcnt = resp->context_loss_count;
-@@ -912,10 +917,6 @@ static int ti_sci_cmd_set_device_resets(const struct ti_sci_handle *handle,
- 	if (ret)
- 		goto fail;
- 
--	resp = (struct ti_sci_msg_hdr *)xfer->xfer_buf;
--
--	ret = ti_sci_is_response_ack(resp) ? 0 : -ENODEV;
--
- fail:
- 	ti_sci_put_one_xfer(&info->minfo, xfer);
- 
-@@ -987,10 +988,6 @@ static int ti_sci_set_clock_state(const struct ti_sci_handle *handle,
- 	if (ret)
- 		goto fail;
- 
--	resp = (struct ti_sci_msg_hdr *)xfer->xfer_buf;
--
--	ret = ti_sci_is_response_ack(resp) ? 0 : -ENODEV;
--
- fail:
- 	ti_sci_put_one_xfer(&info->minfo, xfer);
- 
-@@ -1050,11 +1047,6 @@ static int ti_sci_cmd_get_clock_state(const struct ti_sci_handle *handle,
- 
- 	resp = (struct ti_sci_msg_resp_get_clock_state *)xfer->xfer_buf;
- 
--	if (!ti_sci_is_response_ack(resp)) {
--		ret = -ENODEV;
--		goto fail;
--	}
--
- 	if (programmed_state)
- 		*programmed_state = resp->programmed_state;
- 	if (current_state)
-@@ -1279,10 +1271,6 @@ static int ti_sci_cmd_clk_set_parent(const struct ti_sci_handle *handle,
- 	if (ret)
- 		goto fail;
- 
--	resp = (struct ti_sci_msg_hdr *)xfer->xfer_buf;
--
--	ret = ti_sci_is_response_ack(resp) ? 0 : -ENODEV;
--
- fail:
- 	ti_sci_put_one_xfer(&info->minfo, xfer);
- 
-@@ -1337,14 +1325,10 @@ static int ti_sci_cmd_clk_get_parent(const struct ti_sci_handle *handle,
- 
- 	resp = (struct ti_sci_msg_resp_get_clock_parent *)xfer->xfer_buf;
- 
--	if (!ti_sci_is_response_ack(resp)) {
--		ret = -ENODEV;
--	} else {
--		if (resp->parent_id < 255)
--			*parent_id = resp->parent_id;
--		else
--			*parent_id = resp->parent_id_32;
--	}
-+	if (resp->parent_id < 255)
-+		*parent_id = resp->parent_id;
-+	else
-+		*parent_id = resp->parent_id_32;
- 
- fail:
- 	ti_sci_put_one_xfer(&info->minfo, xfer);
-@@ -1401,14 +1385,10 @@ static int ti_sci_cmd_clk_get_num_parents(const struct ti_sci_handle *handle,
- 
- 	resp = (struct ti_sci_msg_resp_get_clock_num_parents *)xfer->xfer_buf;
- 
--	if (!ti_sci_is_response_ack(resp)) {
--		ret = -ENODEV;
--	} else {
--		if (resp->num_parents < 255)
--			*num_parents = resp->num_parents;
--		else
--			*num_parents = resp->num_parents_32;
--	}
-+	if (resp->num_parents < 255)
-+		*num_parents = resp->num_parents;
-+	else
-+		*num_parents = resp->num_parents_32;
- 
- fail:
- 	ti_sci_put_one_xfer(&info->minfo, xfer);
-@@ -1477,10 +1457,7 @@ static int ti_sci_cmd_clk_get_match_freq(const struct ti_sci_handle *handle,
- 
- 	resp = (struct ti_sci_msg_resp_query_clock_freq *)xfer->xfer_buf;
- 
--	if (!ti_sci_is_response_ack(resp))
--		ret = -ENODEV;
--	else
--		*match_freq = resp->freq_hz;
-+	*match_freq = resp->freq_hz;
- 
- fail:
- 	ti_sci_put_one_xfer(&info->minfo, xfer);
-@@ -1545,10 +1522,6 @@ static int ti_sci_cmd_clk_set_freq(const struct ti_sci_handle *handle,
- 	if (ret)
- 		goto fail;
- 
--	resp = (struct ti_sci_msg_hdr *)xfer->xfer_buf;
--
--	ret = ti_sci_is_response_ack(resp) ? 0 : -ENODEV;
--
- fail:
- 	ti_sci_put_one_xfer(&info->minfo, xfer);
- 
-@@ -1603,10 +1576,7 @@ static int ti_sci_cmd_clk_get_freq(const struct ti_sci_handle *handle,
- 
- 	resp = (struct ti_sci_msg_resp_get_clock_freq *)xfer->xfer_buf;
- 
--	if (!ti_sci_is_response_ack(resp))
--		ret = -ENODEV;
--	else
--		*freq = resp->freq_hz;
-+	*freq = resp->freq_hz;
- 
- fail:
- 	ti_sci_put_one_xfer(&info->minfo, xfer);
-@@ -1658,15 +1628,9 @@ static int ti_sci_cmd_prepare_sleep(const struct ti_sci_handle *handle, u8 mode,
- 	req->debug_flags = debug_flags;
- 
- 	ret = ti_sci_do_xfer(info, xfer);
--	if (ret)
-+	if (ret) {
-+		dev_err(dev, "Failed to prepare sleep\n");
- 		goto fail;
--
--	if (msg_flags == TI_SCI_FLAG_REQ_ACK_ON_PROCESSED) {
--		resp = (struct ti_sci_msg_hdr *)xfer->xfer_buf;
--		if (!ti_sci_is_response_ack(resp)) {
--			dev_err(dev, "Failed to prepare sleep\n");
--			ret = -ENODEV;
--		}
- 	}
- 
- fail:
-@@ -1711,17 +1675,13 @@ static int ti_sci_msg_cmd_query_fw_caps(const struct ti_sci_handle *handle,
- 		return PTR_ERR(xfer);
- 
- 	ret = ti_sci_do_xfer(info, xfer);
--	if (ret)
--		goto fail;
--
--	resp = (struct ti_sci_msg_resp_query_fw_caps *)xfer->xfer_buf;
--
--	if (!ti_sci_is_response_ack(resp)) {
-+	if (ret) {
- 		dev_err(dev, "Failed to get capabilities\n");
--		ret = -ENODEV;
- 		goto fail;
- 	}
- 
-+	resp = (struct ti_sci_msg_resp_query_fw_caps *)xfer->xfer_buf;
-+
- 	if (fw_caps)
- 		*fw_caps = resp->fw_caps;
- 
-@@ -1766,14 +1726,9 @@ static int ti_sci_cmd_set_io_isolation(const struct ti_sci_handle *handle,
- 	req->state = state;
- 
- 	ret = ti_sci_do_xfer(info, xfer);
--	if (ret)
--		goto fail;
--
--	resp = (struct ti_sci_msg_hdr *)xfer->xfer_buf;
--
--	if (!ti_sci_is_response_ack(resp)) {
-+	if (ret) {
- 		dev_err(dev, "Failed to set IO isolation\n");
--		ret = -ENODEV;
-+		goto fail;
- 	}
- 
- fail:
-@@ -1817,17 +1772,13 @@ static int ti_sci_msg_cmd_lpm_wake_reason(const struct ti_sci_handle *handle,
- 		return PTR_ERR(xfer);
- 
- 	ret = ti_sci_do_xfer(info, xfer);
--	if (ret)
--		goto fail;
--
--	resp = (struct ti_sci_msg_resp_lpm_wake_reason *)xfer->xfer_buf;
--
--	if (!ti_sci_is_response_ack(resp)) {
-+	if (ret) {
- 		dev_err(dev, "Failed to get wake reason\n");
--		ret = -ENODEV;
- 		goto fail;
- 	}
- 
-+	resp = (struct ti_sci_msg_resp_lpm_wake_reason *)xfer->xfer_buf;
-+
- 	if (source)
- 		*source = resp->wake_source;
- 	if (timestamp)
-@@ -1880,14 +1831,9 @@ static int ti_sci_cmd_set_device_constraint(const struct ti_sci_handle *handle,
- 	req->state = state;
- 
- 	ret = ti_sci_do_xfer(info, xfer);
--	if (ret)
--		goto fail;
--
--	resp = (struct ti_sci_msg_hdr *)xfer->xfer_buf;
--
--	if (!ti_sci_is_response_ack(resp)) {
-+	if (ret) {
- 		dev_err(dev, "Failed to set device constraint\n");
--		ret = -ENODEV;
-+		goto fail;
- 	}
- 
- fail:
-@@ -1933,14 +1879,9 @@ static int ti_sci_cmd_set_latency_constraint(const struct ti_sci_handle *handle,
- 	req->state = state;
- 
- 	ret = ti_sci_do_xfer(info, xfer);
--	if (ret)
--		goto fail;
--
--	resp = (struct ti_sci_msg_hdr *)xfer->xfer_buf;
--
--	if (!ti_sci_is_response_ack(resp)) {
-+	if (ret) {
- 		dev_err(dev, "Failed to set device constraint\n");
--		ret = -ENODEV;
-+		goto fail;
- 	}
- 
- fail:
-@@ -1975,11 +1916,6 @@ static int ti_sci_cmd_lpm_abort(struct device *dev)
- 	if (ret)
- 		goto fail;
- 
--	resp = (struct ti_sci_msg_hdr *)xfer->xfer_buf;
--
--	if (!ti_sci_is_response_ack(resp))
--		ret = -ENODEV;
--
- fail:
- 	ti_sci_put_one_xfer(&info->minfo, xfer);
- 
-@@ -2013,13 +1949,6 @@ static int ti_sci_cmd_core_reboot(const struct ti_sci_handle *handle)
- 	if (ret)
- 		goto fail;
- 
--	resp = (struct ti_sci_msg_hdr *)xfer->xfer_buf;
--
--	if (!ti_sci_is_response_ack(resp))
--		ret = -ENODEV;
--	else
--		ret = 0;
--
- fail:
- 	ti_sci_put_one_xfer(&info->minfo, xfer);
- 
-@@ -2074,9 +2003,7 @@ static int ti_sci_get_resource_range(const struct ti_sci_handle *handle,
- 
- 	resp = (struct ti_sci_msg_resp_get_resource_range *)xfer->xfer_buf;
- 
--	if (!ti_sci_is_response_ack(resp)) {
--		ret = -ENODEV;
--	} else if (!resp->range_num && !resp->range_num_sec) {
-+	if (!resp->range_num && !resp->range_num_sec) {
- 		/* Neither of the two resource range is valid */
- 		ret = -ENODEV;
- 	} else {
-@@ -2193,10 +2120,6 @@ static int ti_sci_manage_irq(const struct ti_sci_handle *handle,
- 	if (ret)
- 		goto fail;
- 
--	resp = (struct ti_sci_msg_hdr *)xfer->xfer_buf;
--
--	ret = ti_sci_is_response_ack(resp) ? 0 : -ENODEV;
--
- fail:
- 	ti_sci_put_one_xfer(&info->minfo, xfer);
- 
-@@ -2514,9 +2437,6 @@ static int ti_sci_cmd_rm_ring_cfg(const struct ti_sci_handle *handle,
- 	if (ret)
- 		goto fail;
- 
--	resp = (struct ti_sci_msg_hdr *)xfer->xfer_buf;
--	ret = ti_sci_is_response_ack(resp) ? 0 : -EINVAL;
--
- fail:
- 	ti_sci_put_one_xfer(&info->minfo, xfer);
- 	dev_dbg(dev, "RM_RA:config ring %u ret:%d\n", params->index, ret);
-@@ -2564,9 +2484,6 @@ static int ti_sci_cmd_rm_psil_pair(const struct ti_sci_handle *handle,
- 	if (ret)
- 		goto fail;
- 
--	resp = (struct ti_sci_msg_hdr *)xfer->xfer_buf;
--	ret = ti_sci_is_response_ack(resp) ? 0 : -EINVAL;
--
- fail:
- 	ti_sci_put_one_xfer(&info->minfo, xfer);
- 
-@@ -2614,9 +2531,6 @@ static int ti_sci_cmd_rm_psil_unpair(const struct ti_sci_handle *handle,
- 	if (ret)
- 		goto fail;
- 
--	resp = (struct ti_sci_msg_hdr *)xfer->xfer_buf;
--	ret = ti_sci_is_response_ack(resp) ? 0 : -EINVAL;
--
- fail:
- 	ti_sci_put_one_xfer(&info->minfo, xfer);
- 
-@@ -2682,9 +2596,6 @@ static int ti_sci_cmd_rm_udmap_tx_ch_cfg(const struct ti_sci_handle *handle,
- 	if (ret)
- 		goto fail;
- 
--	resp = (struct ti_sci_msg_hdr *)xfer->xfer_buf;
--	ret = ti_sci_is_response_ack(resp) ? 0 : -EINVAL;
--
- fail:
- 	ti_sci_put_one_xfer(&info->minfo, xfer);
- 	dev_dbg(dev, "TX_CH_CFG: chn %u ret:%u\n", params->index, ret);
-@@ -2747,9 +2658,6 @@ static int ti_sci_cmd_rm_udmap_rx_ch_cfg(const struct ti_sci_handle *handle,
- 	if (ret)
- 		goto fail;
- 
--	resp = (struct ti_sci_msg_hdr *)xfer->xfer_buf;
--	ret = ti_sci_is_response_ack(resp) ? 0 : -EINVAL;
--
- fail:
- 	ti_sci_put_one_xfer(&info->minfo, xfer);
- 	dev_dbg(dev, "RX_CH_CFG: chn %u ret:%d\n", params->index, ret);
-@@ -2815,9 +2723,6 @@ static int ti_sci_cmd_rm_udmap_rx_flow_cfg(const struct ti_sci_handle *handle,
- 	if (ret)
- 		goto fail;
- 
--	resp = (struct ti_sci_msg_hdr *)xfer->xfer_buf;
--	ret = ti_sci_is_response_ack(resp) ? 0 : -EINVAL;
--
- fail:
- 	ti_sci_put_one_xfer(&info->minfo, xfer);
- 	dev_dbg(info->dev, "RX_FL_CFG: %u ret:%d\n", params->flow_index, ret);
-@@ -2860,10 +2765,6 @@ static int ti_sci_cmd_proc_request(const struct ti_sci_handle *handle,
- 	if (ret)
- 		goto fail;
- 
--	resp = (struct ti_sci_msg_hdr *)xfer->tx_message.buf;
--
--	ret = ti_sci_is_response_ack(resp) ? 0 : -ENODEV;
--
- fail:
- 	ti_sci_put_one_xfer(&info->minfo, xfer);
- 
-@@ -2906,10 +2807,6 @@ static int ti_sci_cmd_proc_release(const struct ti_sci_handle *handle,
- 	if (ret)
- 		goto fail;
- 
--	resp = (struct ti_sci_msg_hdr *)xfer->tx_message.buf;
--
--	ret = ti_sci_is_response_ack(resp) ? 0 : -ENODEV;
--
- fail:
- 	ti_sci_put_one_xfer(&info->minfo, xfer);
- 
-@@ -2956,10 +2853,6 @@ static int ti_sci_cmd_proc_handover(const struct ti_sci_handle *handle,
- 	if (ret)
- 		goto fail;
- 
--	resp = (struct ti_sci_msg_hdr *)xfer->tx_message.buf;
--
--	ret = ti_sci_is_response_ack(resp) ? 0 : -ENODEV;
--
- fail:
- 	ti_sci_put_one_xfer(&info->minfo, xfer);
- 
-@@ -3013,10 +2906,6 @@ static int ti_sci_cmd_proc_set_config(const struct ti_sci_handle *handle,
- 	if (ret)
- 		goto fail;
- 
--	resp = (struct ti_sci_msg_hdr *)xfer->tx_message.buf;
--
--	ret = ti_sci_is_response_ack(resp) ? 0 : -ENODEV;
--
- fail:
- 	ti_sci_put_one_xfer(&info->minfo, xfer);
- 
-@@ -3065,10 +2954,6 @@ static int ti_sci_cmd_proc_set_control(const struct ti_sci_handle *handle,
- 	if (ret)
- 		goto fail;
- 
--	resp = (struct ti_sci_msg_hdr *)xfer->tx_message.buf;
--
--	ret = ti_sci_is_response_ack(resp) ? 0 : -ENODEV;
--
- fail:
- 	ti_sci_put_one_xfer(&info->minfo, xfer);
- 
-@@ -3118,16 +3003,12 @@ static int ti_sci_cmd_proc_get_status(const struct ti_sci_handle *handle,
- 
- 	resp = (struct ti_sci_msg_resp_get_status *)xfer->tx_message.buf;
- 
--	if (!ti_sci_is_response_ack(resp)) {
--		ret = -ENODEV;
--	} else {
--		*bv = (resp->bootvector_low & TI_SCI_ADDR_LOW_MASK) |
--		      (((u64)resp->bootvector_high << TI_SCI_ADDR_HIGH_SHIFT) &
--		       TI_SCI_ADDR_HIGH_MASK);
--		*cfg_flags = resp->config_flags;
--		*ctrl_flags = resp->control_flags;
--		*sts_flags = resp->status_flags;
--	}
-+	*bv = (resp->bootvector_low & TI_SCI_ADDR_LOW_MASK) |
-+	      (((u64)resp->bootvector_high << TI_SCI_ADDR_HIGH_SHIFT) &
-+	       TI_SCI_ADDR_HIGH_MASK);
-+	*cfg_flags = resp->config_flags;
-+	*ctrl_flags = resp->control_flags;
-+	*sts_flags = resp->status_flags;
- 
- fail:
- 	ti_sci_put_one_xfer(&info->minfo, xfer);
--- 
-2.34.1
-
+>
+> Fixes: 84d897d69938 ("PCI: layerscape: Change default error response behavior")
+> Cc: stable@vger.kernel.org
+> Signed-off-by: Jeff Barnes <jeffbarnes@linux.microsoft.com>
+> ---
+>  drivers/pci/controller/dwc/pci-layerscape.c | 12 ------------
+>  1 file changed, 12 deletions(-)
+>
+> diff --git a/drivers/pci/controller/dwc/pci-layerscape.c b/drivers/pci/controller/dwc/pci-layerscape.c
+> index 14d6ac4fc53f..d333f1ae8a41 100644
+> --- a/drivers/pci/controller/dwc/pci-layerscape.c
+> +++ b/drivers/pci/controller/dwc/pci-layerscape.c
+> @@ -28,8 +28,6 @@
+>
+>  /* PEX Internal Configuration Registers */
+>  #define PCIE_STRFMR1           0x71c /* Symbol Timer & Filter Mask Register1 */
+> -#define PCIE_ABSERR            0x8d0 /* Bridge Slave Error Response Register */
+> -#define PCIE_ABSERR_SETTING    0x9401 /* Forward error of non-posted request */
+>
+>  /* PF Message Command Register */
+>  #define LS_PCIE_PF_MCR         0x2c
+> @@ -103,14 +101,6 @@ static void ls_pcie_drop_msg_tlp(struct ls_pcie *pcie)
+>         iowrite32(val, pci->dbi_base + PCIE_STRFMR1);
+>  }
+>
+> -/* Forward error response of outbound non-posted requests */
+> -static void ls_pcie_fix_error_response(struct ls_pcie *pcie)
+> -{
+> -       struct dw_pcie *pci = pcie->pci;
+> -
+> -       iowrite32(PCIE_ABSERR_SETTING, pci->dbi_base + PCIE_ABSERR);
+> -}
+> -
+>  static u32 ls_pcie_pf_lut_readl(struct ls_pcie *pcie, u32 off)
+>  {
+>         if (pcie->big_endian)
+> @@ -180,8 +170,6 @@ static int ls_pcie_host_init(struct dw_pcie_rp *pp)
+>         struct dw_pcie *pci = to_dw_pcie_from_pp(pp);
+>         struct ls_pcie *pcie = to_ls_pcie(pci);
+>
+> -       ls_pcie_fix_error_response(pcie);
+> -
+>         dw_pcie_dbi_ro_wr_en(pci);
+>         ls_pcie_clear_multifunction(pcie);
+>         dw_pcie_dbi_ro_wr_dis(pci);
+> --
+> 2.43.0
+>
+>
 
