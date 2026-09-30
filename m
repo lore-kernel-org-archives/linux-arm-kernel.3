@@ -4,64 +4,82 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6A371CA5FC5
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 30 Sep 2026 23:20:16 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 005DDCA5FC5
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 30 Sep 2026 23:32:30 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Date:Message-Id:From:Subject:Content-Transfer-Encoding:MIME-Version:
-	Content-Type:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:To:
+	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=4DgZxlDzZ/OisfGA71vu7g2dsC1OBMa3nR+gsYol/NU=; b=Az1MdCVm2Ka9F7Wm164PH/Aigs
-	ze2THV6NRZkcorrk20VWWabG5ipovPX3RlPINhLQP1fSkjPENrFDr6V25n1Zb7nTFNzRDQF7IAtVp
-	IJ8O9p9H/EREsDF0OhUX1IiHLIObO6qyBIFnPQSeeoOe7S2Emh15EA+9JuqlP2EawFYC2KlQGiOyt
-	Iq/f2QfT5OKm/qNvoBrKyIbrBE8srb6kv0AWtxKTbWoorm9TfoXFZCs40ZmDnQrGozElKIe0Zd9Go
-	JhzqOrjM/MAHfa0unHZSIMfZBlkWjBEIOqEopaeSoZQx6eR2ieFm1VqHamy9lgcWuyHMkymvCKbz9
-	2VSimAmg==;
+	bh=ng115hWZ2LMwKhDc1Httr+OsIIIboQhXGl5/aPDAQoQ=; b=wMuRLkoWUR9jz1nx5SctnsSgqF
+	5arDUBGsw91qvC8GUe2ZO407cOUue39bBaBOq34gCkoLJhr87XWfibN17cZBziB5Mp3/ziu7s41zB
+	UYyItus77PjhmiMUCFGrUpc/XUO4E6v8y90Av8eNWL2sUS6Rkh3iHxOGsu0ACtveW1/s7nnIrX4Ud
+	Ckxx7ay2XREOfcO25RksEX7oMJdJwVF1AViM7urVfw+flT2GGSlIZUlfAfSugIWfVxFViWYGyxJ5n
+	a2cXCVvQoY/B0TRkxdDecFV2MdL+GWx/P5IiY+8DbDxtrXfjBX9DSVT4OSCeAgm2CAtKg6jNTkpNy
+	6F257CSg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xC3as-00000007RTJ-1eU1;
-	Wed, 30 Sep 2026 23:20:10 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1xC3mf-00000007S42-1jij;
+	Wed, 30 Sep 2026 23:32:21 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xC3aq-00000007RT9-1ARw
-	for linux-arm-kernel@lists.infradead.org;
-	Wed, 30 Sep 2026 23:20:08 +0000
+	id 1xC3md-00000007S3V-3yUo;
+	Wed, 30 Sep 2026 23:32:19 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id 530FE6021A;
-	Wed, 30 Sep 2026 23:20:07 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 071011F000FF;
-	Wed, 30 Sep 2026 23:20:07 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 4AF8440D96;
+	Wed, 30 Sep 2026 23:32:19 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id B4C3C1F000FF;
+	Wed, 30 Sep 2026 23:32:17 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1790810407;
-	bh=4DgZxlDzZ/OisfGA71vu7g2dsC1OBMa3nR+gsYol/NU=;
-	h=Subject:From:Date:References:In-Reply-To:To:Cc;
-	b=fkEzbIqFcbDoagTWp8AWr0jVC85j8olUHANZ703VvEDZGBGEQoXI7q/PwSlR5jTua
-	 7AuuPeJ1nF4ebXpqfq4kA1jpVjTnCNtRnYbIlVEa7H9AwNlPGf3V4YdYMqVOvExX77
-	 o+dLGH+a4/BD4ClDTk00tOJW97b1uRxD7Z/IU+AtvyZSDYJd+BJrdkv7wyjImb0sFa
-	 eCWFea8XyyR+rxAV7ngWYnpbVHlliSeVPUdSJlQKIhUnEjYeDOIFZbZ7uBMR5Ctjfh
-	 5Zm925J9BJNUuwbov2jEOzufh1aGY3xZqOgJwrbP1KEPa8kerhRC0H4dF/z60zmNSm
-	 CL9401WqJE3mg==
-Received: from [10.30.226.235] (localhost [IPv6:::1])
-	by aws-us-west-2-korg-oddjob-rhel9-1.codeaurora.org (Postfix) with ESMTP id F147C39EAF51;
-	Wed, 30 Sep 2026 23:20:06 +0000 (UTC)
-Content-Type: text/plain; charset="utf-8"
+	s=k20260515; t=1790811139;
+	bh=ng115hWZ2LMwKhDc1Httr+OsIIIboQhXGl5/aPDAQoQ=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References;
+	b=YKzKQScVQVhjWvsISsBvvd+RZk8usvWcSOdVDF+hEZmkCSypcdgnfyxLAOWFWnGUi
+	 QQEtlC7xApH7XqyAoqUafqECurZATIh9SGxK2FQ0WsjPQgbReJZlKuzNRlqWqi4EPw
+	 8SPR0Dl+eXnngN0zEKgnmlMMy3a9TkzwfiLB0VmPHYpMR3k8e0iCbwYDWCIiRllFh5
+	 vOckl23hCF9F09n+LN0KGaC+Y1drrkXrkVoBItWgbdX7P/CqiN3H9WihVWBbDes6E5
+	 hmQ9VdXbGtwO/GBtB/pNrkR78Ld9LQx9p6P8JW2bgZbSZTLc3hZldUygvFbZw/h2IT
+	 rp0CwiCFJHtvw==
+Date: Wed, 30 Sep 2026 16:32:17 -0700
+From: Jakub Kicinski <kuba@kernel.org>
+To: Bartosz Golaszewski <bartosz.golaszewski@oss.qualcomm.com>
+Cc: Bjorn Andersson <andersson@kernel.org>, Konrad Dybcio
+ <konradybcio@kernel.org>, Rob Herring <robh@kernel.org>, Krzysztof
+ Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, Andrew
+ Lunn <andrew+netdev@lunn.ch>, "David S. Miller" <davem@davemloft.net>, Eric
+ Dumazet <edumazet@google.com>, Paolo Abeni <pabeni@redhat.com>, Maxime
+ Coquelin <mcoquelin.stm32@gmail.com>, Alexandre Torgue
+ <alexandre.torgue@foss.st.com>, Vinod Koul <vkoul@kernel.org>, Giuseppe
+ Cavallaro <peppe.cavallaro@st.com>, Chen-Yu Tsai <wens@kernel.org>, Jernej
+ Skrabec <jernej.skrabec@gmail.com>, Neil Armstrong
+ <neil.armstrong@linaro.org>, Kevin Hilman <khilman@baylibre.com>, Jerome
+ Brunet <jbrunet@baylibre.com>, Shawn Guo <shawnguo@kernel.org>, Fabio
+ Estevam <festevam@gmail.com>, Jan Petrous <jan.petrous@oss.nxp.com>,
+ s32@nxp.com, Mohd Ayaan Anwar <mohd.anwar@oss.qualcomm.com>, Romain Gantois
+ <romain.gantois@bootlin.com>, Geert Uytterhoeven <geert+renesas@glider.be>,
+ Magnus Damm <magnus.damm@gmail.com>, Maxime Ripard <mripard@kernel.org>,
+ Christophe Roullier <christophe.roullier@foss.st.com>, Bartosz Golaszewski
+ <brgl@kernel.org>, Radu Rendec <radu@rendec.net>,
+ linux-arm-msm@vger.kernel.org, devicetree@vger.kernel.org,
+ linux-kernel@vger.kernel.org, netdev@vger.kernel.org,
+ linux-stm32@st-md-mailman.stormreply.com,
+ linux-arm-kernel@lists.infradead.org, Drew Fustini
+ <dfustini@tenstorrent.com>, linux-sunxi@lists.linux.dev,
+ linux-amlogic@lists.infradead.org, linux-mips@vger.kernel.org,
+ imx@lists.linux.dev, linux-renesas-soc@vger.kernel.org,
+ linux-rockchip@lists.infradead.org, sophgo@lists.linux.dev,
+ linux-riscv@lists.infradead.org, Bartosz Golaszewski
+ <bartosz.golaszewski@linaro.org>
+Subject: Re: [PATCH net-next v15 3/9] phy: qcom: add the SGMII SerDes PHY
+ driver for SCMI systems
+Message-ID: <20260930163217.4003d232@kernel.org>
+In-Reply-To: <20260923-qcom-sa8255p-emac-v15-3-e82f33720737@oss.qualcomm.com>
+References: <20260923-qcom-sa8255p-emac-v15-0-e82f33720737@oss.qualcomm.com>
+	<20260923-qcom-sa8255p-emac-v15-3-e82f33720737@oss.qualcomm.com>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-Subject: Re: [PATCH net] net: sparx5: make ports inherit the switch base mac
- address type
-From: patchwork-bot+netdevbpf@kernel.org
-Message-Id: <179081040578.2169244.17245869964651407465.git-patchwork-notify@kernel.org>
-Date: Wed, 30 Sep 2026 23:20:05 +0000
-References: <20260928045012.30178-1-quentin@q-lab.dev>
-In-Reply-To: <20260928045012.30178-1-quentin@q-lab.dev>
-To: Quentin Freimanis <quentin@q-lab.dev>
-Cc: netdev@vger.kernel.org, andrew+netdev@lunn.ch, davem@davemloft.net,
- edumazet@kernel.org, kuba@kernel.org, pabeni@redhat.com,
- Steen.Hegelund@microchip.com, daniel.machon@microchip.com,
- UNGLinuxDriver@microchip.com, lars.povlsen@microchip.com,
- bjarni.jonasson@microchip.com, linux-arm-kernel@lists.infradead.org,
- linux-kernel@vger.kernel.org
+Content-Type: text/plain; charset=US-ASCII
+Content-Transfer-Encoding: 7bit
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -76,30 +94,19 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hello:
-
-This patch was applied to netdev/net.git (main)
-by Jakub Kicinski <kuba@kernel.org>:
-
-On Sun, 27 Sep 2026 21:50:12 -0700 you wrote:
-> When the switch uses a random base MAC address it does not mark each
-> port's address as random:
+On Wed, 23 Sep 2026 17:14:37 +0200 Bartosz Golaszewski wrote:
+> Implement support for the firmware-managed SGMII/SerDes PHY present on
+> Qualcomm platforms. Do this as a separate driver from the HLOS-managed
+> variant as they don't share almost any code.
 > 
->   $ dmesg | grep "MAC addr"
->   sparx5-switch e00c0000.switch: MAC addr was not set, use random MAC
->   $ cat /sys/class/net/eth0/addr_assign_type
->   0
-> 
-> [...]
+> Signed-off-by: Bartosz Golaszewski <bartosz.golaszewski@oss.qualcomm.com>
+> ---
+>  drivers/phy/qualcomm/Kconfig                   |  10 +++
+>  drivers/phy/qualcomm/Makefile                  |   1 +
+>  drivers/phy/qualcomm/phy-qcom-sgmii-eth-scmi.c | 117 +++++++++++++++++++++++++
+>  3 files changed, 128 insertions(+)
 
-Here is the summary with links:
-  - [net] net: sparx5: make ports inherit the switch base mac address type
-    https://git.kernel.org/netdev/net/c/5642b1648d5c
-
-You are awesome, thank you!
--- 
-Deet-doot-dot, I am a bot.
-https://korg.docs.kernel.org/patchwork/pwbot.html
-
-
+Hmm, why is this here? is there a hard dependency?
+Otherwise it'd be better to send it separately out to Vinod,
+this is drivers/phy after all.
 
