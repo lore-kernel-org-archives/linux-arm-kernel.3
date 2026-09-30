@@ -4,100 +4,127 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C8A1DCA5FB1
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 30 Sep 2026 08:43:55 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4B8F4CA5FC3
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 30 Sep 2026 08:44:38 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=jQnxbzB0rX2uzsTz5BeJSh2mtO9nvpvZzzcrUYm1zTA=; b=cZ0cJ2JErrhoVCFWWSeqptHd94
-	k2YqTfCIvYkkXSm8KM1lXWL1tBO9x/ja4Ke9ZCXupZk9UuropEPhnnu1vKlS2oCBktaHPV4f+ymgm
-	AAhDSFySGQAQuGXYK/AWKQ4k8sgFCEbpljcoCeEz43I3PyqamlDELgpAnZr01rBC/QJ1XH0tsRCNQ
-	DIbuALCMqrTxdM+MRHVgZNtW99qZhWMukxUBiysh9rYi1yzAw18P+mcadcjjYIFwhjt1tR2hUcp5y
-	O6QWfmiA4T5kFLbz351rVDWaT0vrYvMKb6canc6cK47rrDzHg5Eyd+0Dz6D3ZkiVV4vswrw1EHft1
-	4vjzpqFA==;
+	bh=gQ9hptiZBGfXNR1HP8iVMghmS/PiOTs+/PvxakrVW2U=; b=1UhNNV0mZtrF0QcVoZPDi1TLfv
+	US0r0T6FPnnz3fhgfBJu3lKE7QMlNZq1OvGV1830wEllAAPMejuoFpAu+dkc4Mfupf0hyfD8jysSC
+	zP/Fn+1uTjVIBz8xJoFZF/zxQMRl9iCuNqNHCX2j1JnMBBx9QkG1SSmom38DLZHvRzR/N51bzP9P4
+	RGdRMFh9uz4pP0Zo56NJt56VacIso2foAg4j+TQ+eVVyjrhZJ4LHtnOR2eTGb07BA82TmaShEJMkK
+	wNWufiSuOT2iyp84gTUKO/QMRmteCiJPcq55VuV7Hn7hD4uKuqfEgQXdF6xzQhC1HockQcBPQh1fA
+	0DMJVcAg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xBpum-00000005T5a-3BjJ;
-	Wed, 30 Sep 2026 08:43:48 +0000
-Received: from mail-wr2-x08.google.com ([2a00:1450:4864:30::8])
+	id 1xBpvP-00000005TEO-3rr7;
+	Wed, 30 Sep 2026 08:44:28 +0000
+Received: from mail-westeuropeazlp170110003.outbound.protection.outlook.com ([2a01:111:f403:c201::3] helo=AS8PR04CU009.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xBpuk-00000005T4l-18V3
+	id 1xBpvM-00000005TDX-49We
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 30 Sep 2026 08:43:47 +0000
-Received: by mail-wr2-x08.google.com with SMTP id ffacd0b85a97d-488795b6f69so2244515f8f.1
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 30 Sep 2026 01:43:45 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=opnsrc.net; s=google; t=1790757824; x=1791362624; darn=lists.infradead.org;
-        h=content-transfer-encoding:content-type:mime-version:references
-         :in-reply-to:message-id:date:subject:cc:to:from:from:to:cc:subject
-         :date:message-id:reply-to:content-type;
-        bh=jQnxbzB0rX2uzsTz5BeJSh2mtO9nvpvZzzcrUYm1zTA=;
-        b=G9YzRt3XXWis1S74fcUoUG4A4nxSnEbLYh5mX/P584XEKH/fobt5SiXSgrDbpqVBEs
-         oxajNZp3V8Z9keKQ0j5d89kCMGZtTq/l8uXRdQM44S1SAAUpy6orRlEiOLMmti4rpCot
-         YtAOPG22kcnnW8XTzWvSmcHQ+jCD7yKW19zv/Nun8zclZtxd3RT3q+Kelm4q+b7564Yk
-         EQirfSUX/ZlpdOvkmW+sSshbQ4ILbdbHKyRYUR2C+OFVsh8Yt9eiObqYG1ikjEYPdBqg
-         Ly/ItCBOLmtbCqmP0T8qRZCVV4iH8P12YW6mBRdnzm1nIvkEXpz8Z3md9/16NxEKCoKR
-         eOUQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1790757824; x=1791362624;
-        h=content-transfer-encoding:content-type:mime-version:references
-         :in-reply-to:message-id:date:subject:cc:to:from:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=jQnxbzB0rX2uzsTz5BeJSh2mtO9nvpvZzzcrUYm1zTA=;
-        b=yHUkbqqCnb9k4f6mPZujt0rkxFykCXrrE9ugYIoirbb66ot8sDPUsqHy4QL95sAJp5
-         eVFjDSvuUgWqkhYt6Q1htn6hdSkVblABoKzjIdLJWL4+t3p1t4RHQsQzeOUbQOngobja
-         G/wUFrCcXeS2Hue/GeP88UTOqe0ifnhMMPfOEA1TjjrIDz2Kp3uyFb+Fd/g1Z10DDwVq
-         u81vxYUDz8RwDf8VKYT6Xm7cWPF7snJvaU9x5ZV7nhAVHBvhG3NbK9/+fOEt9bwbMGNl
-         t2w2YT8eLf1lVR87QNu410L7ZO3t3DlWyCEfT4DmhRpmkIVlpeh79z9zCRwI0lPrNK8t
-         u1ag==
-X-Forwarded-Encrypted: i=1; AKwUvBzgySHUa9LVd/+97GZ42L5ic1UTR07Pjy92fhzANk08r6o8vd3rdxaeO//qyPbicAAKqAriXEVk9nP7Blkt/Yxv@lists.infradead.org
-X-Gm-Message-State: AFq9FYItNwC3LLYmymJ6yj1RySi7q8bzB1mgGVqtHjiFLU89met0axo3
-	1yodB4FrhBv4WTn/FkzDYjRFIiF+YnO/zSSoj+ZwO9EHH5sDtxTJ1aEPHoyMrV8sjts=
-X-Gm-Gg: AYBFou2EotH3Kx5UAAes3JE2R/d0qFvhggC8WajrFCJFVBi5fWvfUpQvTwByk0DYFU2
-	ECDKGICmXbaRQ4uEJ6vIZNJk70KhTNEqgUbKXdC63D+Vn4zdh4xbuliXnTlqP/8lViGMZpKDxGf
-	4iJ3pSeKRIthGKKCb/wV5BARpK3wuz4srAJ2p0Yum5uqGPOFzZ+Z1aLdQaidMvy1QKMRp3HMT+2
-	OHL2UG3j3ZnX6iBM3WCy+A5Qddx+B5Oy/o1dE1MuZzWZ2zPC7phbA7IGCSrxZNEX7LR5Q9oGRAR
-	gr7YQVUk6w2XXSFHEO04q7WLOn4n8qO3doA5dHryQZHo61sSUn+kTnMSg3Ivip/j06PNH8XQhN/
-	NLxEgIWwDHorwmSbGtA4eZWb7XIJ542Hk/niw8v65d+tC9QH4frrhb1ikYcsjjjcCtl79ZQ0t4y
-	/pRrhBmjjtGBwoKqpoisIu7+qefiYmkDIDlzYiEC4j/424XIICFO6GOYpO/G5ENm1Xlb6q/zPjM
-	zCge00G119FBPdmwRCNi7rnkzdvuuKiq+WrNfAjAaY9Ec4nrTGf1So3XOV4IRo5btFEVZ8=
-X-Received: by 2002:a05:6000:25c3:b0:487:10a9:57cb with SMTP id ffacd0b85a97d-48b0253e9eemr1543524f8f.49.1790757824401;
-        Wed, 30 Sep 2026 01:43:44 -0700 (PDT)
-Received: from localhost.localdomain ([217.146.93.153])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-48b029f2b0dsm1702201f8f.25.2026.09.30.01.43.40
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 30 Sep 2026 01:43:43 -0700 (PDT)
-From: Salil Mehta <salil.mehta@opnsrc.net>
-To: Bradley Morgan <brads@mainlining.org>
-Cc: catalin.marinas@arm.com,
-	corbet@lwn.net,
-	gshan@redhat.com,
-	james.morse@arm.com,
-	jic23@kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-doc@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	mark.rutland@arm.com,
-	peterz@infradead.org,
-	ruanjinjie@huawei.com,
-	tglx@kernel.org,
-	will@kernel.org
-Subject: Re: [RFC PATCH 1/2] cpu/hotplug: Skip disabled CPUs in cpuhp_smt_enable
-Date: Wed, 30 Sep 2026 08:42:46 +0000
-Message-Id: <20260930084246.3238477-1-salil.mehta@opnsrc.net>
-X-Mailer: git-send-email 2.34.1
-In-Reply-To: <133D63B7-B1DF-4DEB-92F6-B6D785D43457@mainlining.org>
-References: <133D63B7-B1DF-4DEB-92F6-B6D785D43457@mainlining.org>
+	Wed, 30 Sep 2026 08:44:26 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=WgXu4RB8RUxAraKzwVsx1Wr6olaM8S2Us9o7lyKgBMOgzx7dGjpainZRbTSGZeYWuNELZUAZQwQvWI92ZFU+3iZc6H8dRzvrdHwO+9UQ6G3lQI9bA6Q/J2tjzPqDSAA1pG1wUIUVoVjmNY0BKEDbcE0HTJbccrRvvUMJv2+9as4ST89qqDZH8Qu1tdMxpctHEkYSbdh3gFsWkecXG5XZ6+cVXaHYrG5O2Ws+YcOydI5kMwMfBHXfqg1r81Bcukvy8rfsiVASOXpeomGSHgMP8w/GfJmSn7jhpHWWtPm+YE52FKhDo0e5zcCeGpnrSGTNK9E2AWtzWRKiZPB+rB0z4g==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=gQ9hptiZBGfXNR1HP8iVMghmS/PiOTs+/PvxakrVW2U=;
+ b=rf2WVZZxL8xymcLZc4gZnbJGM66AaD9hzicyxjehCKRbaW0TgebRVMwmc9TDzmqT1JfU40aTa4o7aQY6vFNE13kA2C1aTisPgfQgpC+QHeWmms1FKdnedmRAU3nVDk9VY/xW1py3LCHbBuZQQY/lOgoONVi5q8yWdilx6nJ5Ip1jH01UbHDl7vq35Nv7yJTrVizLaSshAwadRNTxS0cKTskZCXSDefZ26qJlUdnsycsrS1RHXti2UwUkpGLfuyx6AQ39jX72XaXAYfakblk01qKnN5As6JbsnzHChPHfboHxmzfdZeUdt3nZrbpKxApgXBqm3sYsJqUB2EI6FgH//g==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=fail (sender ip is
+ 164.130.1.60) smtp.rcpttodomain=intel.com smtp.mailfrom=foss.st.com;
+ dmarc=fail (p=none sp=none pct=100) action=none header.from=foss.st.com;
+ dkim=none (message not signed); arc=none (0)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=foss.st.com;
+ s=selector2;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=gQ9hptiZBGfXNR1HP8iVMghmS/PiOTs+/PvxakrVW2U=;
+ b=FmtwUqlscAUu6gw3uDFo1zccC9YAcGvXJItwvBa8jin4PT6xmyWeIiBSWg27OwUYWuByP9zytjM4xWa0ak4E+3zhMIFzLH3G7b9Cc4NNZCu7BPPAyqO6lyNpyP4It3SX5feHt0aLKG7ulEGAIg0/Ie3JbjQ7Z/iLt+GQIFgJiv1E3hbRgvzo/qs1ALkLjQYi+4PoxjdRF2k5z+Q3iXIIpdwabS6Le9LnxcaoOkFa+C8E4kd7GGUjVlxhKtuTr2W28tb7Mw4k4JLSfPSSzw3oTSxHzmv+HeCgDl+thnJIK5erYLxnesZf0RzRMjMN428vKFHszzjanE+CEUEzHMWyxw==
+Received: from AS4P189CA0012.EURP189.PROD.OUTLOOK.COM (2603:10a6:20b:5d7::15)
+ by PA2PR10MB8580.EURPRD10.PROD.OUTLOOK.COM (2603:10a6:102:41e::20) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.451.24; Wed, 30 Sep
+ 2026 08:44:17 +0000
+Received: from DB3PEPF0000885C.eurprd02.prod.outlook.com
+ (2603:10a6:20b:5d7:cafe::79) by AS4P189CA0012.outlook.office365.com
+ (2603:10a6:20b:5d7::15) with Microsoft SMTP Server (version=TLS1_3,
+ cipher=TLS_AES_256_GCM_SHA384) id 15.21.472.16 via Frontend Transport; Wed,
+ 30 Sep 2026 08:44:16 +0000
+X-MS-Exchange-Authentication-Results: mx.microsoft.com 1; spf=fail (sender IP
+ is 164.130.1.60) smtp.mailfrom=foss.st.com; dkim=none (message not signed)
+ header.d=none;dmarc=fail action=none header.from=foss.st.com;
+Received-SPF: Fail (protection.outlook.com: domain of foss.st.com does not
+ designate 164.130.1.60 as permitted sender) receiver=protection.outlook.com;
+ client-ip=164.130.1.60; helo=smtpO365.st.com;
+Received: from smtpO365.st.com (164.130.1.60) by
+ DB3PEPF0000885C.mail.protection.outlook.com (10.167.242.7) with Microsoft
+ SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.21.472.14 via Frontend Transport; Wed, 30 Sep 2026 08:44:15 +0000
+Received: from STKDAG1NODE2.st.com (10.75.128.133) by smtpO365.st.com
+ (10.250.44.72) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.43; Wed, 30 Sep
+ 2026 10:50:09 +0200
+Received: from [10.252.17.140] (10.252.17.140) by STKDAG1NODE2.st.com
+ (10.75.128.133) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.43; Wed, 30 Sep
+ 2026 10:44:14 +0200
+Message-ID: <d83e2c8e-452a-4dfd-823a-624fe211837f@foss.st.com>
+Date: Wed, 30 Sep 2026 10:44:12 +0200
 MIME-Version: 1.0
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 8bit
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v2 07/14] iio: adc: stm32-adc: add support for stm32mp25
+To: Andy Shevchenko <andriy.shevchenko@intel.com>
+CC: Jonathan Cameron <jic23@kernel.org>, David Lechner
+	<dlechner@baylibre.com>, =?UTF-8?Q?Nuno_S=C3=A1?= <nuno.sa@analog.com>, "Andy
+ Shevchenko" <andy@kernel.org>, Rob Herring <robh@kernel.org>, "Krzysztof
+ Kozlowski" <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, "Maxime
+ Coquelin" <mcoquelin.stm32@gmail.com>, Alexandre Torgue
+	<alexandre.torgue@foss.st.com>, Marek Vasut <marex@nabladev.com>,
+	<linux-iio@vger.kernel.org>, <devicetree@vger.kernel.org>,
+	<linux-stm32@st-md-mailman.stormreply.com>,
+	<linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>,
+	Cheick Traore <cheick.traore-ext@st.com>, Olivier Moysan
+	<olivier.moysan@foss.st.com>
+References: <20260923-adc-stm32mp25-v1-v2-0-46bc019537c6@foss.st.com>
+ <20260923-adc-stm32mp25-v1-v2-7-46bc019537c6@foss.st.com>
+ <arWPjx-JKt1IZCZl@ashevche-desk.local>
+ <8fd19ab1-6ec4-49d7-aadc-accec6e71410@foss.st.com>
+ <arzJYg3cg73vYCOE@ashevche-desk.local>
+Content-Language: en-US
+From: Fabrice Gasnier <fabrice.gasnier@foss.st.com>
+In-Reply-To: <arzJYg3cg73vYCOE@ashevche-desk.local>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: 7bit
+X-Originating-IP: [10.252.17.140]
+X-ClientProxiedBy: STKCAS1NODE1.st.com (10.75.128.134) To STKDAG1NODE2.st.com
+ (10.75.128.133)
+X-EOPAttributedMessage: 0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: DB3PEPF0000885C:EE_|PA2PR10MB8580:EE_
+X-MS-Office365-Filtering-Correlation-Id: 9fc362fb-f33b-44d4-b613-08df1ecf0290
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|23010399003|7416014|376014|1800799024|36860700016|82310400026|22082099003|18002099003|10067099003|11063799006|56012099006|4143699003;
+X-Microsoft-Antispam-Message-Info: ay78VrPWfi6fDeuIFtfgLhheSgs7rtQgMZPm18tI7pLw149L523/utPPolzUEFVg2oBR3l6P5GYqjdvLib7mdNXj+GKJttcdO8W0hDI7em+Liby2W6Ny+sv6TovLcFS18xeDirQNcjBfKzrAwc/zl9qaoQOqAaEzOfM80viCNsPl5hJyz+N5SBAn6kQEbOc/ILa015mIi4g1GrGpRBOrJpaS934YA5Gf6zzu6jbXWAc8zYYb6phftJQGGzdRUyVCvUMVPBj7rwK/zW66Bh02IObgHXDjeR/qbsvX2JHkmh6Xqk+JrNuNd5gRYC3ZR8CuuNtdM3SQYB3nr/BozAQ36iTzVWO8RyUhCsbljeQwsYcBtbCU2+lxHSPKWJZ5NBMtBWW6+dDWp8HmLBqMnxU0PLtmK+s5pSQo4czbj34IZ7z9uM9EF9Iac+B/TTvDTSZ6RtpjX/SE+4Oxk1/D6XI+4ee9mxSoYnDZhxtK/GHHd6Ef343ivuj7yU3UKgZQQJB3oLXGu2XSB8CfJImNVkrU5e4bYnL2uTquPxlfdRysiGacAnMmM9IN15PmriRXd8tJ5VVkBrJZD/vDuJYabK+rFrQDJKMwABw8y4NELL5FuIwBzmkwsaDU5F/+1Ejsai9KfXRDIS7OY+ryB0dd6zN0q3ubP+x9+l375grigZry+cxuVE97HIA4MYH6D1wLPzOtS6JDST6mM+dMJ+HcnOytAQ==
+X-Forefront-Antispam-Report: CIP:164.130.1.60;CTRY:IT;LANG:en;SCL:1;SRV:;IPV:CAL;SFV:NSPM;H:smtpO365.st.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(23010399003)(7416014)(376014)(1800799024)(36860700016)(82310400026)(22082099003)(18002099003)(10067099003)(11063799006)(56012099006)(4143699003);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: yMkkGOdcIyKE6ixXhHLo5QsIRVsx84P+8gtf2e9fCOl9zN8xdZ7PML76Dpcc/tu1+1WC097JZZ9LRZholzvZXD9sT6VA3IXoBdGRm2OC3uHfAjXDKUwQI58yrwflYIU7qj1aaIrm6kFxWsk6/z5R5TBUB7ES1IWSKDutERqk0XrlEeownZny6DnJXdLNzbvOXQtIRlsae+IjH5Y1JWRQQ1GXV8t2OcycHIC/AnbYZsguP25HnvqHqOnZ1Eel2egZeYrYCGptVfpyKbchSPn2bO6BX8uF7G6Z6ZMbNSN3y3zHEdKTmK8uVJeGiyRdNX7I375yYxZcHrf6qkrKX+cOCqlmmzXcNdzL0/n9rqwYCBUwtOlxgb0kbUYs5QMLeUsFAYhEy0kO5YUJbdenfW42Yf8z4vvJAN+CqOCL+mIZ/QFBR4lcB2yKObQ59sp/vi85
+X-OriginatorOrg: foss.st.com
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 30 Sep 2026 08:44:15.8851
+ (UTC)
+X-MS-Exchange-CrossTenant-Network-Message-Id: 9fc362fb-f33b-44d4-b613-08df1ecf0290
+X-MS-Exchange-CrossTenant-Id: 75e027c9-20d5-47d5-b82f-77d7cd041e8f
+X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=75e027c9-20d5-47d5-b82f-77d7cd041e8f;Ip=[164.130.1.60];Helo=[smtpO365.st.com]
+X-MS-Exchange-CrossTenant-AuthSource: DB3PEPF0000885C.eurprd02.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Anonymous
+X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: PA2PR10MB8580
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260930_014346_359011_84BFBEB6 
-X-CRM114-Status: GOOD (  29.79  )
+X-CRM114-CacheID: sfid-20260930_014425_299820_A341C604 
+X-CRM114-Status: GOOD (  17.02  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -112,111 +139,66 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-[Sincere Apologies, sending it again as Plain Text; earlier reply got
-filtered perhaps due to HTML content]
+On 9/30/26 10:33, Andy Shevchenko wrote:
+> On Tue, Sep 29, 2026 at 06:48:28PM +0200, Fabrice Gasnier wrote:
+>> On 9/24/26 23:01, Andy Shevchenko wrote:
+>>> On Wed, Sep 23, 2026 at 05:39:10PM +0200, Fabrice Gasnier wrote:
+> 
+> ...
+> 
+>>>>  		.compatible = "st,stm32mp13-adc-core",
+>>>>  		.data = (void *)&stm32mp13_adc_priv_cfg
+>>>>  	}, {
+>>>> -	},
+>>>> +		.compatible = "st,stm32mp25-adc-core",
+>>>> +		.data = (void *)&stm32mp25_adc_priv_cfg
+>>>> +	}, {
+>>>> +	}
+>>>
+>>> Same issue and now it's a regression from maintenance perspective: you added an
+>>> unnedeed churn that has to be handled from now on... TL;DR: do add trailing
+>>> commas to the non-terminator entries and remove trailing commas in the
+>>> terminator entries.
+> 
+>> Do you wish I add a separate cleanup patch for existing match table ?
+>> This can also fit into 100 chars line now:
+> 
+> This is, of course, is up to you, but my comment was solely against the
+> trailing comma removal.
+> 
+>> static const struct of_device_id stm32_adc_of_match[] = {
+>> 	{ .compatible = "st,stm32f4-adc-core", .data = (void
+>> *)&stm32f4_adc_priv_cfg, },
+> 
+> Here is actually the opposite, no inner trailing comma should be added as it's
+> a one-line entry.
 
-Hi Bradley,
+Hi Andy,
 
-Many thanks for taking a look.
+Sorry if I'm a bit confused :-), just to be sure, the preferred style should be as below ?
 
+static const struct of_device_id stm32_adc_of_match[] = {
+	{ .compatible = "st,stm32f4-adc-core", .data = (void *)&stm32f4_adc_priv_cfg },
+	{ .compatible = "st,stm32h7-adc-core", .data = (void *)&stm32h7_adc_priv_cfg },
+	{ .compatible = "st,stm32mp1-adc-core",	.data = (void *)&stm32mp1_adc_priv_cfg },
+	{ .compatible = "st,stm32mp13-adc-core", .data = (void *)&stm32mp13_adc_priv_cfg },
+	{ }
+};
 
-On Tue, Sep 29, 2026 at 9:16 PM Bradley Morgan <brads@mainlining.org> wrote:
->
-> On 29 September 2026 20:41:29 BST, salil.mehta@opnsrc.net wrote:
-> >From: Salil Mehta <salil.mehta@opnsrc.net>
-> >
-> >The CPU enabled mask describes whether a present CPU may currently be
-> >brought online. cpuhp_smt_enable() is an online operation, but currently
-> >walks all present CPUs and only filters CPUs that are already online or
-> >belong to offline NUMA nodes.
-> >
-> >This can make it attempt _cpu_up() for a present CPU which firmware has
-> >not enabled and which has not yet been registered as a CPU device.
-> >
-> >Use the enabled mask for the policy decision it was introduced to
-> >represent. This keeps present-but-disabled CPUs out of the SMT bring-up
-> >path while still allowing registered offline SMT threads to be brought
-> >back online.
-> >
-> >Present and enabled are separate generic CPU states, so callers which
-> >intend to bring CPUs online should not assume that every present CPU is
-> >enabled.
->
-> Ok.
->
-> >
-> >Signed-off-by: Salil Mehta <salil.mehta@opnsrc.net>
-> >---
-> > kernel/cpu.c | 5 +++--
-> > 1 file changed, 3 insertions(+), 2 deletions(-)
-> >
-> >diff --git a/kernel/cpu.c b/kernel/cpu.c
-> >index b3c8553d7bd6..988b7a1e8298 100644
-> >--- a/kernel/cpu.c
-> >+++ b/kernel/cpu.c
-> >@@ -2706,8 +2706,9 @@ int cpuhp_smt_enable(void)
-> >       cpu_maps_update_begin();
-> >       cpu_smt_control = CPU_SMT_ENABLED;
-> >       for_each_present_cpu(cpu) {
-> >-              /* Skip online CPUs and CPUs on offline nodes */
-> >-              if (cpu_online(cpu) || !node_online(cpu_to_node(cpu)))
-> >+              /* Skip online/disabled CPUs and CPUs on offline nodes */
-> >+              if (cpu_online(cpu) || !cpu_enabled(cpu) ||
-> >+                  !node_online(cpu_to_node(cpu)))
->
-> Ehh, have you had a issue with this code? Like something e.g: a splat.
+Thanks,
+Best Regards,
+Fabrice
+> 
+>> 	{ .compatible = "st,stm32h7-adc-core", .data = (void
+>> *)&stm32h7_adc_priv_cfg, },
+>> 	{ .compatible = "st,stm32mp1-adc-core",	.data = (void
+>> *)&stm32mp1_adc_priv_cfg, },
+>> 	{ .compatible = "st,stm32mp13-adc-core", .data = (void
+>> *)&stm32mp13_adc_priv_cfg, },
+>> 	{ }
+>> };
+> 
+>>>>  };
+> 
 
-No, I am not reporting a new splat or crash on current upstream. This RFC
-is a proactive polite enquiry about the design choice, together with a
-proposed alternative. If you check the the cover letter it provides the
-context, including reproduction of the original warning with the earlier
-present-mask semantics restored and the results with the proposed fix.
-
-Just for the context, there is also an outstanding QEMU Arm vCPU hotplug
-series awaiting upstream acceptance. The distinction between a CPU being
-present and being enabled has been an important part of the model we have
-been explaining to the QEMU community. Changing those semantics now could
-complicate that work by changing the assumptions on which the interface
-and its explanation have been based.
-
-The underlying CPU architectural requirement remains that all resources
-associated with the possible vCPUs are described at boot; virtual CPU
-hotplug does not dynamically add or remove those resources. The patch in
-contention is not changing that assumption even now but are we changing
-the contract between the ACPI and the kernel or misrepresenting what has
-been discovered already?
-
-My understanding from the earlier design discussions related to support
-of the vCPU Hotplug on ARM was that toggling the present mask to represent
-firmware enablement was considered and ultimately rejected. The intention
-was to keep the kernel’s representation consistent with the ACPI/firmware
-model: a CPU can remain present while firmware controls whether it is
-enabled. The separate cpu_enabled_mask was introduced to represent that
-distinction.
-
-My concern is therefore about the compatibility implications of changing
-this established, userspace-visible meaning. I cannot currently point to
-a specific upper-layer consumer that breaks, but neither is it
-straightforward to establish that no consumers depend on it.
-
-Catalin also initially raised the possibility of breaking other things by
-no longer marking these CPUs present in the discussion of Jinjie’s
-original patch, although he subsequently proposed a present-mask change
-himself:
-
-https://lore.kernel.org/lkml/aeNxKpHzTQX4_kId@arm.com/
-
-What I would like to understand is why changing the present-mask semantics
-is preferable to using the existing enabled mask in cpuhp_smt_enable().
-To me, checking eligibility at this caller appears to address the original
-warning more directly while preserving the present/enabled distinction.
-
-However, I may be missing a deeper constraint or a trade-off discussed
-while I was away from this work. That is why I posted this as an RFC, and
-I would appreciate understanding the reasoning.
-
-Hope this explanation helps.
-
-Many thanks,
-Salil.
 
