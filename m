@@ -4,73 +4,102 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 618B3CA5FC5
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 30 Sep 2026 15:09:54 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D46FCCA5FC7
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 30 Sep 2026 15:12:59 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:To:
+	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ayTRk1JhEunPvWDrBwj11vPcTRrUCWH59N2CF+6iwT8=; b=asPd+T1pK8arW18OiHDKPBFC+0
-	A2mZ2pqoMUD9uoWKlDFs1VmWKPfe8jmXlwb6Y4n1Kp/PvKBggVV7iatnguUrhGZrrTwXdTFe6sxxI
-	YBRzgXcBDJmL+6oTahjqYBGz8En8pHk84FdbsAdcgXZyEH4aD/s5Sw1TOcLzCMGrheCYkq5bqNZ5M
-	SHrzFqse4O1iZwuyPrqvEAPv+uHmkuPhadW7Gx0j5oyYfSFHUREZgDinKdZIhL9xsvhsoELV1V3Vl
-	WAhwC/gOcpLDBEYIxDYq9Y6no/F+cPCm5TAx3DcyUHL6Mi6KIjQJTLXaYSK9DXDe2b0YTqp3Zjw6Y
-	SsaHQMcA==;
+	bh=OSdmhz6QeIhKCNCrOk2rawQmJp3h2Ms8iDYvSFt+tko=; b=M1IXfZosHrxsZz1SyfEGgIcsIX
+	NageqhIKByMC0AJDW+tT2yRRpTG/ev+zK8aemFveNMrta/MxEkWugAfMBYPdBK0T/YNj0UMqCy85D
+	yA0Tal9hMu+zRhelMggN+2y4O4y+jD589v86IubDvg6lomhG7XwBLzT847KvhTeMM+ixGDURLE+Id
+	FbRb1AfIh/Z8Cbs01Aull5t/Cm1ksChUraHE3Lsa+VPPYJNTtNHWie14dy8fUaz0TSi0u4Vb+zGrj
+	LLbzsfQRWBNK6Xb0S5bGXScgfhJ94YuvnfnnT+VS9wuLnmapWTzNap3i+dJsUesqX9nK950/n186i
+	6PL6K6hQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xBvwJ-00000006QzM-0GPV;
-	Wed, 30 Sep 2026 15:09:47 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xBvwG-00000006Qyk-2DlF
+	id 1xBvzJ-00000006Rlx-3Bls;
+	Wed, 30 Sep 2026 15:12:53 +0000
+Received: from mail-wm2-x11.google.com ([2a00:1450:4864:31::11])
+	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1xBvzI-00000006Rk0-09IK
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 30 Sep 2026 15:09:46 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id EC497497;
-	Wed, 30 Sep 2026 08:09:38 -0700 (PDT)
-Received: from [192.168.178.24] (usa-sjc-mx-foss1.foss.arm.com [172.31.20.19])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 25C1A3F86F;
-	Wed, 30 Sep 2026 08:09:37 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1790780982; bh=X9Wggfp6s/VHkkqnKWsYpWVgdWwe41uU12nP2YILcb4=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=qS5X4EWST3Z3Wy/ViEQVlVO49AqXGuXIov2t/Okeeh05bJfFU5jlsg/TWm08SodaM
-	 VpRaYol3DWA3+ISVSic03rbloOGjL0vFAKRuWjT/9ZT6NDPwRxy0+SjZHjNALjzzGT
-	 4/uhfcbUNt1CBqX4zpE6yHDDhfggYAK3qz2tAqvQ=
-Message-ID: <d976977f-c692-4119-a6c7-ae46443a3d11@arm.com>
-Date: Wed, 30 Sep 2026 17:09:37 +0200
+	Wed, 30 Sep 2026 15:12:53 +0000
+Received: by mail-wm2-x11.google.com with SMTP id 5b1f17b1804b1-49ff9642c57so9768075e9.0
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 30 Sep 2026 08:12:51 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20251104; t=1790781170; x=1791385970; darn=lists.infradead.org;
+        h=content-transfer-encoding:content-type:mime-version:references
+         :in-reply-to:message-id:subject:cc:to:from:date:from:to:cc:subject
+         :date:message-id:reply-to:content-type;
+        bh=OSdmhz6QeIhKCNCrOk2rawQmJp3h2Ms8iDYvSFt+tko=;
+        b=fIm654Z05HmkKK3qgzAtMPNhMHSFlPZnfWFMZoL+bLPt14vdbf2gtp3WH04KYrSyxE
+         h2htyoJxOaLsfKewxOg8AWA6XGehDtPhck6isiM41Tm9MrHR/EXhZKFdJgiSIesap9oW
+         3YyUQA237zvtPKhIv0qF0BuuL2Fuhvubk1lEbsUlk4qvk3sQrPTSR91VDgpiH4+GPyuI
+         uHcA6kzw4U1LYucVtRBVOVD1uEtNFmFMy0LKqxPDIRE8VagC8SSOSJK6xshTSL88bW4/
+         7xTjubpG3piLrfd9Mr1fHvOAZtvQReRNPecK1NbmQ7V0uCzRYgOecsNvjvq4VKZrWN2C
+         nFqQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1790781170; x=1791385970;
+        h=content-transfer-encoding:content-type:mime-version:references
+         :in-reply-to:message-id:subject:cc:to:from:date:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=OSdmhz6QeIhKCNCrOk2rawQmJp3h2Ms8iDYvSFt+tko=;
+        b=MCOALxM50QhIuHsyKLwIr+GKnc0ZD+dThBN16rZDJkEAscjX/xyicgtnhMMKWtUcWv
+         qAsrtOVK0usBuAaGmDuV0QTD5NajtxUcgtBRDQUAJ1sUMx6S6qncxof2l0TJc8C1OUZ+
+         7LFCKgYaTo6lMwFf4v2rHxtG7y0ehBB9hNOYQF8l47zjc7ma2438chQvSdtjw/YGSUJt
+         lGeb57GxQBHvkUsSGyPjd7LRtJQmTujDNE0VEffGP1hoD/0asLFBwU5f5WwyyqawToQG
+         NfY+mebdf2jBGqk7OVEumkcdaMNMJ1AKySZJCIKy8x10Wk9Lyf2KjUBXTZ5o/SBpw3WY
+         r1aA==
+X-Forwarded-Encrypted: i=1; AKwUvBxWgoYPpE+k/xcxs3E3uuxdB8IUfZLKfWOPRk0m388C1thNyxpavEKBibXWl7ehSqVTC5X5UfihEmUCzQSJwFm0@lists.infradead.org
+X-Gm-Message-State: AFuF++kniRtqJRuJBBAcNqx/JwP5TUfkCGbky77JjWbSS+jdSG535nj2
+	MC2pS4oB70mZEQJfacxKBbD3qVa+dvUQkCRwoQgtdfbUJXAFUkQT0WTP
+X-Gm-Gg: AYBFou2zUojfndEka6QqQOeo6XZvtBMuN4edQpEevo8v6qyjjU4WKYTHCaqrrriatJS
+	1vtNgPFcaYwr3FKZ2rq578vf3xFT9EV19BcP0SxwXJDoWq5pL26XWTFmeDDWcZLIesJTeNUkFuX
+	lLp4/vev6xNFVa7/cXtQdtBC9XI7P3X6iPGrtdWL+HxkDvkLzoAi4QYUWQ1egNV4QcY7Bf4Lc3p
+	dKYdlRVv5K3KbI4XswjoWqOGMOO1fKquQUJ/hzGLvEK8cdyz9eO66UfFPweEJ1Jx+tKVCLGiLCG
+	hp0Rzbk37160Vp9yFX/gG27uWWRaaJc82RUS5LhuH7//IAwJ+VDT++PcUUxallaNSouYCA4UTtu
+	I65baKSe01OD1nd1rGNJrqomlDOjXIasHcjxywKBMAqbBwX776uZ10++V2MKVDHbJt4FKNb+rHO
+	InP01TkkIrqJRl+V/2JsT97Hq4DA4kDKJxgKgFI/9yo2GLlosFYg3xqplyhuBtJjDeHKMGGT+3U
+	UIgbkUenZb+BefvYeYbWJ7LY1KA04+cLynicnxOz47BGoq/YeVAju1qkKqrhfg16rGz8LO59l4Q
+	mJYMHqy4GmFOA2tSWPMTWj3jkfVMWqEofxD8u1z1E+ROZOGV+p7mb17WzxwIYBGPYwvSdGfvKQO
+	p0wLOhqVouHRbgd+8wXcEb5EZOXG0KRh3qQziVVl2QkuhsCENR1FcrcB5tLAEasI9OiOTclwvpy
+	F3V+La
+X-Received: by 2002:a05:600c:5391:b0:4a0:34a:588c with SMTP id 5b1f17b1804b1-4a01b1ba781mr26714605e9.14.1790781169765;
+        Wed, 30 Sep 2026 08:12:49 -0700 (PDT)
+Received: from localhost (90-182-112-124.rcp.o2.cz. [90.182.112.124])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4a01ccd1566sm18147705e9.2.2026.09.30.08.12.48
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Wed, 30 Sep 2026 08:12:49 -0700 (PDT)
+Date: Wed, 30 Sep 2026 17:12:48 +0200
+From: Joshua Crofts <joshua.crofts1@gmail.com>
+To: Fabrice Gasnier <fabrice.gasnier@foss.st.com>
+Cc: Jonathan Cameron <jic23@kernel.org>, David Lechner
+ <dlechner@baylibre.com>, Nuno =?ISO-8859-1?Q?S=E1?= <nuno.sa@analog.com>,
+ "Andy Shevchenko" <andy@kernel.org>, Rob Herring <robh@kernel.org>,
+ "Krzysztof Kozlowski" <krzk+dt@kernel.org>, Conor Dooley
+ <conor+dt@kernel.org>, "Maxime Coquelin" <mcoquelin.stm32@gmail.com>,
+ Alexandre Torgue <alexandre.torgue@foss.st.com>, Marek Vasut
+ <marex@nabladev.com>, <linux-iio@vger.kernel.org>,
+ <devicetree@vger.kernel.org>, <linux-stm32@st-md-mailman.stormreply.com>,
+ <linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>,
+ Cheick Traore <cheick.traore-ext@st.com>, Olivier Moysan
+ <olivier.moysan@foss.st.com>
+Subject: Re: [PATCH v3 09/15] iio: adc: stm32-adc: add support for stm32mp23
+Message-ID: <20260930171248.00004562@gmail.com>
+In-Reply-To: <20260930-adc-stm32mp25-v1-v3-9-406834430d72@foss.st.com>
+References: <20260930-adc-stm32mp25-v1-v3-0-406834430d72@foss.st.com>
+	<20260930-adc-stm32mp25-v1-v3-9-406834430d72@foss.st.com>
+X-Mailer: Claws Mail 4.4.0 (GTK 3.24.51; x86_64-w64-mingw32)
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v11 11/13] arm_mpam: add MPAM-Fb MSC firmware access
- support
-To: Ben Horgan <ben.horgan@arm.com>, Lorenzo Pieralisi
- <lpieralisi@kernel.org>, Hanjun Guo <guohanjun@huawei.com>,
- Sudeep Holla <sudeep.holla@kernel.org>,
- Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
- "Rafael J . Wysocki" <rafael@kernel.org>, Len Brown <lenb@kernel.org>,
- James Morse <james.morse@arm.com>,
- Reinette Chatre <reinette.chatre@intel.com>, Fenghua Yu <fenghuay@nvidia.com>
-Cc: Jonathan Cameron <jic23@kernel.org>,
- Srivathsa L Rao <srivathsa.rao@oss.qualcomm.com>,
- Ganapatrao Kulkarni <ganapatrao.kulkarni@oss.qualcomm.com>,
- Trilok Soni <tsoni@quicinc.com>, Srinivas Ramana <sramana@qti.qualcomm.com>,
- Niyas Sait <niyas.sait@arm.com>, Lee Trager <lee@trager.us>,
- Ritwick Sharma <ritwick.sharma@arm.com>, Gavin Shan <gshan@redhat.com>,
- linux-acpi@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-kernel@vger.kernel.org
-References: <20260924152739.2865510-1-andre.przywara@arm.com>
- <20260924152739.2865510-12-andre.przywara@arm.com>
- <be0c6a08-b16f-4870-9b8c-02f315f2b18e@arm.com>
-Content-Language: en-GB
-From: Andre Przywara <andre.przywara@arm.com>
-In-Reply-To: <be0c6a08-b16f-4870-9b8c-02f315f2b18e@arm.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Type: text/plain; charset=US-ASCII
 Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260930_080944_677402_B2C97019 
-X-CRM114-Status: GOOD (  27.24  )
+X-CRM114-CacheID: sfid-20260930_081252_107282_573E44C7 
+X-CRM114-Status: GOOD (  22.39  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -85,535 +114,90 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Ben,
+On Wed, 30 Sep 2026 16:18:30 +0200
+Fabrice Gasnier <fabrice.gasnier@foss.st.com> wrote:
 
-On 9/30/26 16:07, Ben Horgan wrote:
-> Hi Andre,
+> Add support for ADC on STM32MP23 SoC. It has 3 ADCs, split into two blocks:
+> - ADC1 & ADC2 are tightly coupled.
+> - ADC3 is managed independently.
 > 
-> On 24/09/2026 16:27, Andre Przywara wrote:
->> The Arm MPAM Firmware-backed (Fb) Profile document[1] describes an
->> alternative way of accessing the "Memory System Components" (MSC) in an
->> MPAM enabled system.
->>
->> Normally the MSCs are MMIO mapped, but in some implementations this
->> might not be possible (MSC located outside of the local socket, MSC
->> mapped secure-only) or desirable (direct MMIO access too slow or needs
->> to be mediated through a control processor). MPAM-fb standardises a
->> protocol to abstract MSC accesses, building on the SCMI protocol.
->>
->> Add functions that do an MSC read or write access by redirecting the
->> request through a firmware interface. For now this done via an ACPI
->> PCC shared memory and mailbox combination.
->>
->> Since the protocol used is only a small subset of the full SCMI spec,
->> and the SCMI protocol has no full ACPI support anyway, open-code the
->> (simple) SCMI message generation, for just the fields we need.
->>
->> [1] https://developer.arm.com/documentation/den0144/latest
->>
->> Signed-off-by: Andre Przywara <andre.przywara@arm.com>
->> Reviewed-by: Jonathan Cameron <jonathan.cameron@oss.qualcomm.com>
->> Tested-by: Ritwick Sharma <ritwick.sharma@arm.com> # on Arm AGI CPU
->> Reviewed-by: Gavin Shan <gshan@redhat.com>
->> Reviewed-by: Srivathsa L Rao <srivathsa.rao@oss.qualcomm.com>
->> ---
->>   drivers/acpi/arm64/mpam.c       |   6 +-
->>   drivers/resctrl/Kconfig         |   1 +
->>   drivers/resctrl/Makefile        |   2 +-
->>   drivers/resctrl/mpam_devices.c  |  65 ++++++++--
->>   drivers/resctrl/mpam_fb.c       | 212 ++++++++++++++++++++++++++++++++
->>   drivers/resctrl/mpam_internal.h |  19 +++
->>   include/linux/arm_mpam.h        |   2 +-
->>   7 files changed, 291 insertions(+), 16 deletions(-)
->>   create mode 100644 drivers/resctrl/mpam_fb.c
->>
->> diff --git a/drivers/acpi/arm64/mpam.c b/drivers/acpi/arm64/mpam.c
->> index 84963a20c3e78..c57bd367922b7 100644
->> --- a/drivers/acpi/arm64/mpam.c
->> +++ b/drivers/acpi/arm64/mpam.c
->> @@ -220,8 +220,8 @@ static struct platform_device * __init acpi_mpam_parse_msc(struct acpi_mpam_msc_
->>   	struct platform_device *pdev __free(platform_device_put) =
->>   		platform_device_alloc("mpam_msc", tbl_msc->identifier);
->>   	int next_res = 0, next_prop = 0, err;
->> -	/* pcc, nrdy, affinity and a sentinel */
->> -	struct property_entry props[4] = { 0 };
->> +	/* pcc, msc-id, nrdy, affinity and a sentinel */
->> +	struct property_entry props[5] = { 0 };
->>   	/* mmio, 2xirq, no sentinel. */
->>   	struct resource res[3] = { 0 };
->>   	struct acpi_device *companion;
->> @@ -256,6 +256,8 @@ static struct platform_device * __init acpi_mpam_parse_msc(struct acpi_mpam_msc_
->>   	} else if (iface == MPAM_IFACE_PCC) {
->>   		props[next_prop++] = PROPERTY_ENTRY_U32("pcc-channel",
->>   							tbl_msc->base_address);
->> +		props[next_prop++] = PROPERTY_ENTRY_U32("mpam-fb-msc-id",
->> +							tbl_msc->identifier);
->>   	}
->>   
->>   	acpi_mpam_parse_irqs(pdev, tbl_msc, res, &next_res);
->> diff --git a/drivers/resctrl/Kconfig b/drivers/resctrl/Kconfig
->> index 672abea3b03cc..9591d792736e5 100644
->> --- a/drivers/resctrl/Kconfig
->> +++ b/drivers/resctrl/Kconfig
->> @@ -2,6 +2,7 @@ menuconfig ARM64_MPAM_DRIVER
->>   	bool "MPAM driver"
->>   	depends on ARM64 && ARM64_MPAM
->>   	select ACPI_MPAM if ACPI
->> +	select MAILBOX
->>   	help
->>   	  Memory System Resource Partitioning and Monitoring (MPAM) driver for
->>   	  System IP, e.g. caches and memory controllers.
->> diff --git a/drivers/resctrl/Makefile b/drivers/resctrl/Makefile
->> index 4f6d0e81f9b8f..097c036724e97 100644
->> --- a/drivers/resctrl/Makefile
->> +++ b/drivers/resctrl/Makefile
->> @@ -1,5 +1,5 @@
->>   obj-$(CONFIG_ARM64_MPAM_DRIVER)			+= mpam.o
->> -mpam-y						+= mpam_devices.o
->> +mpam-y						+= mpam_devices.o mpam_fb.o
->>   mpam-$(CONFIG_ARM64_MPAM_RESCTRL_FS)		+= mpam_resctrl.o
->>   
->>   ccflags-$(CONFIG_ARM64_MPAM_DRIVER_DEBUG)	+= -DDEBUG
->> diff --git a/drivers/resctrl/mpam_devices.c b/drivers/resctrl/mpam_devices.c
->> index 4c548ec1bd7be..90161696aada0 100644
->> --- a/drivers/resctrl/mpam_devices.c
->> +++ b/drivers/resctrl/mpam_devices.c
->> @@ -12,6 +12,7 @@
->>   #include <linux/cpu.h>
->>   #include <linux/cpumask.h>
->>   #include <linux/device.h>
->> +#include <linux/errname.h>
->>   #include <linux/errno.h>
->>   #include <linux/gfp.h>
->>   #include <linux/interrupt.h>
->> @@ -82,6 +83,21 @@ static DECLARE_WORK(mpam_broken_work, &mpam_disable);
->>   
->>   /* When mpam is disabled, the printed reason to aid debugging */
->>   static char *mpam_disable_reason;
->> +static int mpam_disable_errno;
->> +static int mpam_disable_mpam_fb_err;
->> +
->> +void mpam_fb_disable_mpam(int err, int mpam_fb_err)
->> +{
->> +	/* Prevent repeated calls when mpam_disable() does MSC accesses. */
->> +	if (!mpam_is_enabled())
->> +		return;
->> +
->> +	mpam_disable_errno = err;
->> +	mpam_disable_mpam_fb_err = mpam_fb_err;
->> +
->> +	mpam_disable_reason = "MPAM-Fb error";
->> +	schedule_work(&mpam_broken_work);
->> +}
->>   
->>   /*
->>    * Whether resctrl has been setup. Used by cpuhp in preference to
->> @@ -179,8 +195,11 @@ static void mpam_assert_partid_sizes_fixed(void)
->>   
->>   static int __mpam_read_reg(struct mpam_msc *msc, u16 reg, u32 *res)
->>   {
->> -	WARN_ON_ONCE(!cpumask_test_cpu(smp_processor_id(), &msc->accessibility));
->>   
->> +	if (msc->iface == MPAM_IFACE_PCC)
->> +		return mpam_fb_send_read_request(msc, reg, res);
->> +
->> +	WARN_ON_ONCE(!cpumask_test_cpu(smp_processor_id(), &msc->accessibility));
->>   	*res = readl_relaxed(msc->mapped_hwpage + reg);
->>   
->>   	return 0;
->> @@ -197,9 +216,12 @@ static inline int _mpam_read_partsel_reg(struct mpam_msc *msc, u16 reg,
->>   
->>   static int __mpam_write_reg(struct mpam_msc *msc, u16 reg, u32 val)
->>   {
->> -	WARN_ON_ONCE(reg + sizeof(u32) > msc->mapped_hwpage_sz);
->> -	WARN_ON_ONCE(!cpumask_test_cpu(smp_processor_id(), &msc->accessibility));
->>   
->> +	if (msc->iface == MPAM_IFACE_PCC)
->> +		return mpam_fb_send_write_request(msc, reg, val);
->> +
->> +	WARN_ON_ONCE(!cpumask_test_cpu(smp_processor_id(), &msc->accessibility));
->> +	WARN_ON_ONCE(reg + sizeof(u32) > msc->mapped_hwpage_sz);
->>   	writel_relaxed(val, msc->mapped_hwpage + reg);
->>   
->>   	return 0;
->> @@ -1143,8 +1165,11 @@ static int mpam_msc_read_mbwu_l(struct mpam_msc *msc, u64 *res)
->>   
->>   	mpam_mon_sel_lock_held(msc);
->>   
->> -	WARN_ON_ONCE((MSMON_MBWU_L + sizeof(u64)) > msc->mapped_hwpage_sz);
->> -	WARN_ON_ONCE(!cpumask_test_cpu(smp_processor_id(), &msc->accessibility));
->> +	if (msc->iface == MPAM_IFACE_MMIO) {
->> +		WARN_ON_ONCE((MSMON_MBWU_L + sizeof(u64)) > msc->mapped_hwpage_sz);
->> +		WARN_ON_ONCE(!cpumask_test_cpu(smp_processor_id(),
->> +					       &msc->accessibility));
->> +	}
->>   
->>   	ret = __mpam_read_reg(msc, MSMON_MBWU_L + 4, &mbwu_l_high2);
->>   	if (ret)
->> @@ -1178,8 +1203,11 @@ static int mpam_msc_zero_mbwu_l(struct mpam_msc *msc)
->>   
->>   	mpam_mon_sel_lock_held(msc);
->>   
->> -	WARN_ON_ONCE((MSMON_MBWU_L + sizeof(u64)) > msc->mapped_hwpage_sz);
->> -	WARN_ON_ONCE(!cpumask_test_cpu(smp_processor_id(), &msc->accessibility));
->> +	if (msc->iface == MPAM_IFACE_MMIO) {
->> +		WARN_ON_ONCE((MSMON_MBWU_L + sizeof(u64)) > msc->mapped_hwpage_sz);
->> +		WARN_ON_ONCE(!cpumask_test_cpu(smp_processor_id(),
->> +					       &msc->accessibility));
->> +	}
->>   
->>   	ret = __mpam_write_reg(msc, MSMON_MBWU_L, 0);
->>   	if (ret)
->> @@ -1490,11 +1518,16 @@ static int _msmon_read(struct mpam_component *comp, struct mon_read *arg)
->>   					 srcu_read_lock_held(&mpam_srcu)) {
->>   			arg->ris = ris;
->>   
->> -			err = smp_call_function_any(&msc->accessibility,
->> -						    __ris_msmon_read, arg,
->> -						    true);
->> -			if (!err && arg->err)
->> +			if (msc->iface == MPAM_IFACE_MMIO) {
->> +				err = smp_call_function_any(&msc->accessibility,
->> +							    __ris_msmon_read,
->> +							    arg, true);
->> +				if (!err)
->> +					err = arg->err;
->> +			} else {
->> +				__ris_msmon_read(arg);
->>   				err = arg->err;
->> +			}
->>   
->>   			/*
->>   			 * Save one error to be returned to the caller, but
->> @@ -1977,6 +2010,9 @@ static int mpam_get_msc_preferred_cpu(struct mpam_msc *msc)
->>   
->>   static int mpam_touch_msc(struct mpam_msc *msc, int (*fn)(void *a), void *arg)
->>   {
->> +	if (msc->iface != MPAM_IFACE_MMIO)
->> +		return fn(arg);
->> +
->>   	lockdep_assert_irqs_enabled();
->>   	lockdep_assert_cpus_held();
->>   	WARN_ON_ONCE(!srcu_read_lock_held((&mpam_srcu)));
->> @@ -3102,7 +3138,12 @@ void mpam_disable(struct work_struct *ignored)
->>   	mutex_unlock(&mpam_list_lock);
->>   	mpam_free_garbage();
->>   
->> -	pr_err_once("MPAM disabled due to %s\n", mpam_disable_reason);
->> +	if (mpam_disable_errno || mpam_disable_mpam_fb_err)
->> +		pr_err_once("MPAM disabled due to %s: %s, MPAM-Fb error %d\n",
->> +			    mpam_disable_reason, errname(mpam_disable_errno),
->> +			    mpam_disable_mpam_fb_err);
->> +	else
->> +		pr_err_once("MPAM disabled due to %s\n", mpam_disable_reason);
->>   }
->>   
->>   /*
->> diff --git a/drivers/resctrl/mpam_fb.c b/drivers/resctrl/mpam_fb.c
->> new file mode 100644
->> index 0000000000000..8298fcedd2be7
->> --- /dev/null
->> +++ b/drivers/resctrl/mpam_fb.c
->> @@ -0,0 +1,212 @@
->> +// SPDX-License-Identifier: GPL-2.0
->> +// Copyright (C) 2024-2026 Arm Ltd.
->> +
->> +#include <linux/arm_mpam.h>
->> +#include <linux/cleanup.h>
->> +#include <linux/errno.h>
->> +#include <linux/mailbox_client.h>
->> +#include <linux/mutex.h>
->> +#include <linux/platform_device.h>
->> +#include <linux/types.h>
->> +
->> +#include <acpi/pcc.h>
->> +#include <asm/mpam.h>
->> +
->> +#include "mpam_internal.h"
->> +
->> +#define MPAM_MSC_TOKEN_MASK		GENMASK_U32(27, 18)
->> +#define MPAM_MSC_PROT_ID_MASK		GENMASK_U32(17, 10)
->> +
->> +#define MPAM_FB_PROTOCOL_ID		0x1a
->> +
->> +#define MPAM_PROTOCOL_VERSION_CMD	0x0
->> +#define MPAM_MSC_READ_CMD		0x4
->> +#define MPAM_MSC_WRITE_CMD		0x5
->> +
->> +#define MPAM_FB_PROT_HEADER_LEN		sizeof(u32)
->> +
->> +#define MPAM_FB_SUCCESS		 0
->> +#define MPAM_FB_ERR_NOT_SUPPORTED	-1
->> +#define MPAM_FB_ERR_INVALID_PARAMETERS	-2
->> +#define MPAM_FB_ERR_DENIED		-3
->> +#define MPAM_FB_ERR_NOT_FOUND		-4
->> +#define MPAM_FB_ERR_OUT_OF_RANGE	-5
->> +#define MPAM_FB_ERR_BUSY		-6
->> +#define MPAM_FB_ERR_COMMS_ERROR		-7
->> +#define MPAM_FB_ERR_GENERIC_ERROR	-8
->> +#define MPAM_FB_ERR_HW_ERROR		-9
->> +#define MPAM_FB_ERR_PROTOCOL_ERROR	-10
->> +#define MPAM_FB_ERR_IN_USE		-11
->> +
->> +static atomic_t mpam_fb_token = ATOMIC_INIT(0);
->> +
->> +static int mpam_fb_to_linux_errno(int mpam_fb_code)
->> +{
->> +	switch (mpam_fb_code) {
->> +	case MPAM_FB_ERR_NOT_SUPPORTED:
->> +		return -EOPNOTSUPP;
->> +	case MPAM_FB_ERR_INVALID_PARAMETERS:
->> +		return -EINVAL;
->> +	case MPAM_FB_ERR_NOT_FOUND:
->> +		return -ENOENT;
->> +	case MPAM_FB_ERR_OUT_OF_RANGE:
->> +		return -ERANGE;
->> +	case MPAM_FB_ERR_BUSY:
->> +		return -EBUSY;
->> +	default:
->> +		return -EINVAL;
->> +	}
->> +}
->> +
->> +static void mpam_fb_build_version_message(unsigned int token,
->> +					  void __iomem *msg_buf)
->> +{
->> +	struct acpi_pcct_ext_pcc_shared_memory __iomem *pcc_shmem = msg_buf;
->> +
->> +	/* .signature is filled by the platform */
->> +	writel_relaxed(PCC_CMD_COMPLETION_NOTIFY, &pcc_shmem->flags);
->> +	writel_relaxed(MPAM_FB_PROT_HEADER_LEN, &pcc_shmem->length);
->> +	writel_relaxed(MPAM_PROTOCOL_VERSION_CMD |
->> +		       FIELD_PREP(MPAM_MSC_TOKEN_MASK, token) |
->> +		       FIELD_PREP(MPAM_MSC_PROT_ID_MASK, MPAM_FB_PROTOCOL_ID),
->> +		       &pcc_shmem->command);
->> +}
->> +
->> +static void mpam_fb_build_read_message(int msc_fb_id, int reg,
->> +				       unsigned int token,
->> +				       void __iomem *msg_buf)
->> +{
->> +	struct acpi_pcct_ext_pcc_shared_memory __iomem *pcc_shmem = msg_buf;
->> +	struct mpam_fb_read_payload {
->> +		u32 msc_fb_id;
->> +		u32 flags;
->> +		u32 reg_offset;
->> +	} __packed __iomem *payload = msg_buf + sizeof(*pcc_shmem);
->> +	int msg_size = MPAM_FB_PROT_HEADER_LEN + sizeof(*payload);
->> +
->> +	/* .signature is filled by the platform */
->> +	writel_relaxed(PCC_CMD_COMPLETION_NOTIFY, &pcc_shmem->flags);
->> +	writel_relaxed(msg_size, &pcc_shmem->length);
->> +	writel_relaxed(MPAM_MSC_READ_CMD |
->> +		       FIELD_PREP(MPAM_MSC_TOKEN_MASK, token) |
->> +		       FIELD_PREP(MPAM_MSC_PROT_ID_MASK, MPAM_FB_PROTOCOL_ID),
->> +		       &pcc_shmem->command);
->> +
->> +	writel_relaxed(msc_fb_id, &payload->msc_fb_id);
->> +	writel_relaxed(0, &payload->flags);
->> +	writel_relaxed(reg, &payload->reg_offset);
->> +}> +
->> +static void mpam_fb_build_write_message(int msc_fb_id, int reg, u32 val,
->> +					unsigned int token,
->> +					void __iomem *msg_buf)
->> +{
->> +	struct acpi_pcct_ext_pcc_shared_memory __iomem *pcc_shmem = msg_buf;
->> +	struct mpam_fb_write_payload {
->> +		u32 msc_fb_id;
->> +		u32 flags;
->> +		u32 reg_offset;
->> +		u32 value;
->> +	} __packed __iomem *payload = msg_buf + sizeof(*pcc_shmem);
->> +	int msg_size = MPAM_FB_PROT_HEADER_LEN + sizeof(*payload);
->> +
->> +	/* .signature is filled by the platform */
->> +	writel_relaxed(PCC_CMD_COMPLETION_NOTIFY, &pcc_shmem->flags);
->> +	writel_relaxed(msg_size, &pcc_shmem->length);
->> +	writel_relaxed(MPAM_MSC_WRITE_CMD |
->> +		       FIELD_PREP(MPAM_MSC_TOKEN_MASK, token) |
->> +		       FIELD_PREP(MPAM_MSC_PROT_ID_MASK, MPAM_FB_PROTOCOL_ID),
->> +		       &pcc_shmem->command);
->> +
->> +	writel_relaxed(msc_fb_id, &payload->msc_fb_id);
->> +	writel_relaxed(0, &payload->flags);
->> +	writel_relaxed(reg, &payload->reg_offset);
->> +	writel_relaxed(val, &payload->value);
->> +}
->> +
->> +static int mpam_fb_send_request(struct mpam_msc *msc, u32 msc_fb_id,
->> +				u16 reg, u32 *result, int mpam_fb_command)
->> +{
->> +	unsigned int token = atomic_inc_return(&mpam_fb_token);
->> +	struct acpi_pcct_ext_pcc_shared_memory __iomem *pcc_shmem;
->> +	struct mpam_pcc_chan *pcc_chan;
->> +	struct pcc_mbox_chan *chan;
->> +	void __iomem *payload_ofs;
->> +	int mpam_fb_err = 0;
->> +	u32 status;
->> +	int ret;
->> +
->> +	pcc_chan = msc->pcc_chan;
->> +	if (!pcc_chan)
->> +		return -ENODEV;
->> +
->> +	chan = pcc_chan->pcc_chan;
->> +
->> +	/* prune token to fit into the 10 bits inside the command register */
->> +	token = FIELD_GET(MPAM_MSC_TOKEN_MASK,
->> +			  FIELD_PREP(MPAM_MSC_TOKEN_MASK, token));
->> +
->> +	mutex_lock(&pcc_chan->pcc_chan_lock);
->> +
->> +	switch (mpam_fb_command) {
->> +	case MPAM_PROTOCOL_VERSION_CMD:
->> +		mpam_fb_build_version_message(token, chan->shmem);
->> +		break;
->> +	case MPAM_MSC_READ_CMD:
->> +		mpam_fb_build_read_message(msc_fb_id, reg, token, chan->shmem);
->> +		break;
->> +	case MPAM_MSC_WRITE_CMD:
->> +		mpam_fb_build_write_message(msc_fb_id, reg, *result,
->> +					    token, chan->shmem);
->> +		break;
->> +	default:
->> +		dev_err(&msc->pdev->dev, "unsupported MPAM-Fb command %d\n",
->> +			mpam_fb_command);
->> +		ret = -EINVAL;
->> +		goto out_err;
->> +	}
->> +
+> It is quite similar to STM32MP25 ADC, except for the trigger list. TIM20
+> triggers have been removed. So, handle the differences with a dedicated
+> compatible and compatible data.
 > 
-> Forwarding another message from sashiko, [1]. Do we need a dmb_wb() here to make sure the buffer is
-> fully written before we send it?
+> Co-developed-by: Cheick Traore <cheick.traore-ext@st.com>
+> Signed-off-by: Cheick Traore <cheick.traore-ext@st.com>
+> Co-developed-by: Olivier Moysan <olivier.moysan@foss.st.com>
+> Signed-off-by: Olivier Moysan <olivier.moysan@foss.st.com>
+> Signed-off-by: Fabrice Gasnier <fabrice.gasnier@foss.st.com>
+> ---
+> Changes in v3:
+> - Style: Wrap core ID table to 100 chars.
+> 
+> Changes in v2:
+> - New patch, split as advised by Andy: one patch for this new SoC
+> ---
+>  drivers/iio/adc/stm32-adc-core.c |   1 +
+>  drivers/iio/adc/stm32-adc.c      | 112 +++++++++++++++++++++++++++++++++++++++
+>  2 files changed, 113 insertions(+)
+> 
+> diff --git a/drivers/iio/adc/stm32-adc-core.c b/drivers/iio/adc/stm32-adc-core.c
+> index bb8b53f52914..f94cc6fe4c02 100644
+> --- a/drivers/iio/adc/stm32-adc-core.c
+> +++ b/drivers/iio/adc/stm32-adc-core.c
+> @@ -936,6 +936,7 @@ static const struct of_device_id stm32_adc_of_match[] = {
+>  	{ .compatible = "st,stm32h7-adc-core", .data = (void *)&stm32h7_adc_priv_cfg },
+>  	{ .compatible = "st,stm32mp1-adc-core",	.data = (void *)&stm32mp1_adc_priv_cfg },
+>  	{ .compatible = "st,stm32mp13-adc-core", .data = (void *)&stm32mp13_adc_priv_cfg },
+> +	{ .compatible = "st,stm32mp23-adc-core", .data = (void *)&stm32mp25_adc_priv_cfg },
+>  	{ .compatible = "st,stm32mp25-adc-core", .data = (void *)&stm32mp25_adc_priv_cfg },
+>  	{ }
+>  };
+> diff --git a/drivers/iio/adc/stm32-adc.c b/drivers/iio/adc/stm32-adc.c
+> index 33e41505b2e9..210b76b21d13 100644
+> --- a/drivers/iio/adc/stm32-adc.c
+> +++ b/drivers/iio/adc/stm32-adc.c
+> @@ -563,6 +563,64 @@ static const struct stm32_adc_regspec stm32h7_adc_regspec = {
+>  	.smp_bits = stm32h7_smp_bits,
+>  };
+>  
+> +/* STM32MP23 external trigger sources for ADC1 and ADC2 */
+> +static struct stm32_adc_trig_info stm32mp23_adc1_adc2_trigs[] = {
 
-Ah yes. I originally dismissed this comment because I thought we already 
-use MMIO accessors, so ordering is of no concern for us, but indeed I 
-used the _relaxed variant.
-I added a "dma_wmb();" here now, I think that should be the right 
-barrier, because it's a DMA style operation, and we only care about the 
-sync-after-write part here.
+This should be const, the trigs field is marked const in stm32_adc_cfg.
 
-Cheers,
-Andre
+> +	{ TIM1_TRGO, STM32_EXT0 },
+> +	{ TIM1_TRGO2, STM32_EXT1 },
+> +	{ TIM8_TRGO, STM32_EXT2 },
+> +	{ TIM8_TRGO2, STM32_EXT3 },
+> +	{ TIM2_TRGO, STM32_EXT6 },
+> +	{ TIM3_TRGO, STM32_EXT7 },
+> +	{ TIM4_TRGO, STM32_EXT8 },
+> +	{ TIM5_TRGO, STM32_EXT9 },
+> +	{ TIM6_TRGO, STM32_EXT10 },
+> +	{ TIM15_TRGO, STM32_EXT11 },
+> +	{ TIM1_CH1, STM32_EXT12 },
+> +	{ TIM1_CH2, STM32_EXT13 },
+> +	{ TIM1_CH3, STM32_EXT14 },
+> +	{ TIM2_CH2, STM32_EXT18 },
+> +	{ TIM3_CH4, STM32_EXT19 },
+> +	{ TIM4_CH4, STM32_EXT20 },
+> +	{ TIM5_CH1, STM32_EXT21 },
+> +	{ TIM12_CH1, STM32_EXT22 },
+> +	{ LPTIM1_CH1, STM32_EXT24 },
+> +	{ LPTIM2_CH1, STM32_EXT25 },
+> +	{ LPTIM3_CH1, STM32_EXT26 },
+> +	{ LPTIM4_CH1, STM32_EXT27 },
+> +	{ LPTIM5_OUT, STM32_EXT28 },
+> +	{ }
+> +};
+> +
+> +/* STM32MP23 external trigger sources for ADC3 */
+> +static struct stm32_adc_trig_info stm32mp23_adc3_trigs[] = {
 
-> 
-> [1] https://sashiko.dev/#/patchset/20260924152739.2865510-1-andre.przywara%40arm.com
-> 
->> +	ret = mbox_send_message(chan->mchan, NULL);
->> +	if (ret < 0)
->> +		goto out_err;
->> +
->> +	pcc_shmem = chan->shmem;
->> +	payload_ofs = chan->shmem + sizeof(*pcc_shmem);
->> +	status = readl(&pcc_shmem->command);
->> +	if (FIELD_GET(MPAM_MSC_TOKEN_MASK, status) != token) {
->> +		ret = -ETIMEDOUT;
->> +		goto out_err;
->> +	}
->> +
->> +	mpam_fb_err = readl(payload_ofs + 0x0);
->> +	if (mpam_fb_err < 0) {
->> +		ret = mpam_fb_to_linux_errno(mpam_fb_err);
->> +		goto out_err;
->> +	}
->> +
->> +	if (mpam_fb_command != MPAM_MSC_WRITE_CMD)
->> +		*result = readl(payload_ofs + 0x4);
->> +
->> +	mutex_unlock(&pcc_chan->pcc_chan_lock);
->> +
->> +	return 0;
->> +
->> +out_err:
->> +	mutex_unlock(&pcc_chan->pcc_chan_lock);
->> +
->> +	mpam_fb_disable_mpam(ret, mpam_fb_err);
->> +
->> +	return ret;
->> +}
->> +
->> +int mpam_fb_send_read_request(struct mpam_msc *msc, u16 reg, u32 *result)
->> +{
->> +	return mpam_fb_send_request(msc, msc->fb_id, reg, result,
->> +				    MPAM_MSC_READ_CMD);
->> +}
->> +
->> +int mpam_fb_send_write_request(struct mpam_msc *msc, u16 reg, u32 value)
->> +{
->> +	return mpam_fb_send_request(msc, msc->fb_id, reg, &value,
->> +				    MPAM_MSC_WRITE_CMD);
->> +}
->> diff --git a/drivers/resctrl/mpam_internal.h b/drivers/resctrl/mpam_internal.h
->> index 58f7523bc087b..99057d6abee1e 100644
->> --- a/drivers/resctrl/mpam_internal.h
->> +++ b/drivers/resctrl/mpam_internal.h
->> @@ -11,6 +11,7 @@
->>   #include <linux/io.h>
->>   #include <linux/jump_label.h>
->>   #include <linux/llist.h>
->> +#include <linux/mailbox_client.h>
->>   #include <linux/mutex.h>
->>   #include <linux/resctrl.h>
->>   #include <linux/spinlock.h>
->> @@ -57,6 +58,15 @@ struct mpam_garbage {
->>   	struct platform_device	*pdev;
->>   };
->>   
->> +struct mpam_pcc_chan {
->> +	struct list_head	pcc_chans;
->> +	struct mbox_client	pcc_cl;
->> +	struct pcc_mbox_chan	*pcc_chan;
->> +	struct mutex		pcc_chan_lock; /* only one message at a time */
->> +	struct kref		refcount;
->> +	int			subspace_id;
->> +};
->> +
->>   struct mpam_msc {
->>   	/* member of mpam_all_msc */
->>   	struct list_head	all_msc_list;
->> @@ -66,6 +76,8 @@ struct mpam_msc {
->>   
->>   	/* Not modified after mpam_is_enabled() becomes true */
->>   	enum mpam_msc_iface	iface;
->> +	struct mpam_pcc_chan	*pcc_chan;
->> +	int			fb_id;
->>   	u32			nrdy_usec;
->>   	cpumask_t		accessibility;
->>   	bool			has_extd_esr;
->> @@ -493,6 +505,9 @@ extern u8 mpam_pmg_max;
->>   void mpam_enable(struct work_struct *work);
->>   void mpam_disable(struct work_struct *work);
->>   
->> +/* helper function to call from outside mpam_devices.c */
->> +void mpam_fb_disable_mpam(int err, int mpam_fb_err);
->> +
->>   /* Reset all the RIS in a class under cpus_read_lock() */
->>   int mpam_reset_class_locked(struct mpam_class *class);
->>   
->> @@ -520,6 +535,10 @@ static inline void mpam_resctrl_offline_cpu(unsigned int cpu) { }
->>   static inline void mpam_resctrl_teardown_class(struct mpam_class *class) { }
->>   #endif /* CONFIG_RESCTRL_FS */
->>   
->> +/* MPAM-Fb Firmware-backed protocol wrappers */
->> +int mpam_fb_send_read_request(struct mpam_msc *msc, u16 reg, u32 *result);
->> +int mpam_fb_send_write_request(struct mpam_msc *msc, u16 reg, u32 value);
->> +
->>   /*
->>    * MPAM MSCs have the following register layout. See:
->>    * Arm Memory System Resource Partitioning and Monitoring (MPAM) System
->> diff --git a/include/linux/arm_mpam.h b/include/linux/arm_mpam.h
->> index f92a36187a527..002f56e153626 100644
->> --- a/include/linux/arm_mpam.h
->> +++ b/include/linux/arm_mpam.h
->> @@ -12,7 +12,7 @@ struct mpam_msc;
->>   
->>   enum mpam_msc_iface {
->>   	MPAM_IFACE_MMIO,	/* a real MPAM MSC */
->> -	MPAM_IFACE_PCC,		/* a fake MPAM MSC */
->> +	MPAM_IFACE_PCC,		/* using the MPAM-Fb firmware redirection */
->>   };
->>   
->>   enum mpam_class_types {
-> 
+Same here.
 
+-- 
+Kind regards,
+Joshua Crofts
 
