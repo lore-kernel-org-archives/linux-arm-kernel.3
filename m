@@ -4,53 +4,54 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B8E0ECA5FB1
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 30 Sep 2026 10:14:55 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4B469CA5FB1
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 30 Sep 2026 10:14:58 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
 	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:
 	References:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:
 	Subject:Date:From:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=qrff3cv5D8/15+8lFyuQWxEAP20Quywboqf+aBje2zQ=; b=by4eCaW4BbeFWLD3nlXxJwJ75F
-	xVVdtdM4FwQAPICaK20xnr72jfLOd9h68HsEYcJ90IfQ5y/CCAlzd8aEzBnwbkFL55xwVrlDBGpxs
-	enDTCQSsczSjsaI/unNbYN54A4ClhM1mLWB7Lb2sCIF2MFoGgTbV2XteAwRdQU53jh4sUuiHEvv/B
-	M0iLdnkOTvO4hWf3TTzHWob0Mlb6j1yJ0/38o6EDJOEqnN6I26LBNud9u36iTTViKkXtpcE7StrF2
-	FESQ5vugYzGgJzY/wCTj4yJiDmWk9p0tDz92NmcqhCVOxCbF3XnzG/6y8Xzp4Iq4lAzi0xLepUkIP
-	Mx642JuQ==;
+	bh=u2o7YK7nL39OOEo1FByNdZwcEbXFW/jHzb3v51U7b7o=; b=gBwkKWLqhhfDOX61/92CUWkFcp
+	dvZg8cBBN0TU1i9EbkxYJ+cjq2FY3zbFg8mTAbV6+6X6o34L38uqJ3ZAmiFAQYIm/mUaJPXDPrBSV
+	c90AQ/+ySlxxx1cv/CPZa6TratCayCMDlElDSsJAmsOwS4heFCw36KUgmqLXSjIu2g94/t8krVZT1
+	oqbs4sooGYFWwhHlogFU/jrauvvQh4fx/alR9vgYwKtihICNVwRrRrYEgzgOcRZucpQb89jxLqlgw
+	6Ndjq51J52o65TzgihXvcPWhv9jlXYNyC8CqZjPIvMXWZiQQF03KMvp2OH0zUp2XSOPDlTmJiWIwv
+	ilXBk/5Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xBrKq-00000005hCp-07xL;
-	Wed, 30 Sep 2026 10:14:48 +0000
+	id 1xBrKp-00000005hCc-3tIl;
+	Wed, 30 Sep 2026 10:14:47 +0000
 Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xBrKp-00000005hB8-09ox;
+	id 1xBrKp-00000005hB7-08pq;
 	Wed, 30 Sep 2026 10:14:47 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 8B2DB43F25;
+	by sea.source.kernel.org (Postfix) with ESMTP id 80AD843D7A;
 	Wed, 30 Sep 2026 10:14:46 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPS id 64CE7C4AF19;
+Received: by smtp.kernel.org (Postfix) with ESMTPS id 593CEC4AF0B;
 	Wed, 30 Sep 2026 10:14:46 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
 	s=k20201202; t=1790763286;
-	bh=YcXMWOwQsCLes1AVO1FME2ariUbRxFXlWwKj5WgwNiE=;
+	bh=dVWdIA6jcIe0iWHDTwaO7naqquNUBOM3dPKEaK1Eh+U=;
 	h=From:Date:Subject:References:In-Reply-To:To:Cc:Reply-To:From;
-	b=YJKwk+UrlkCk1+lruLc44Vdn9YqqelIS0jnt5qLUfZ/xh3VKojAfAzffnohp9AyMV
-	 Asuc6wH/Gp7XV+oNx9zSWjoEccRpL02DLwcuRB6DsKxDys/+4vGp5oS9r6j9/btAdQ
-	 QsAoFinUO0FnKgCT0YqPzCk2Z7NjTu6pRt/8cCoQeNLo5d17R5kKHxjJoz/aE5f0cQ
-	 rQnF+bQxXtMtQQtnypj+16b8tLrUySUIWOcoGbCLAPIlixt6dNu62y47vJSKLKZRiZ
-	 i9308js/F/W1/Sse4AvhjOf5mreN6fj6ZkQFYBw9yy6NZttGSbA0D3OakTl68wquds
-	 moLTBCqIpzmRQ==
+	b=PeWrlWFFxGICZ1rcgyViGjA6yI4epNGq+ncfjNQ8sn3ZYEUM00qhAPLOMf3n+19Im
+	 cfnOaiHhdEpFx9CAwtvyC+JbwF4udXsCqc8xickd+94awzi64BKsJICl32CSg/iniA
+	 yk7d86dmLLgLAenBhzgQkvfYo4dlIvnib56FlwT100bznZ9fupMnRue0yZt5qqHJnA
+	 9Pta4QGxjHDp0/PJZ+06nw4c3E+RoU1JqFSvNTEAGLNkkP47m0DU5W7a4+MzCAM+pU
+	 SabBoNj6TtD5XMK3hoS5VP9EyDp094vGn0Q+Yw7du89Dn1YOl86eDvG2ONcunbl0jM
+	 IK9xkWdKsKseQ==
 Received: from aws-us-west-2-korg-lkml-1.web.codeaurora.org (localhost.localdomain [127.0.0.1])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 48B42CA5FBE;
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 39806CA5FC4;
 	Wed, 30 Sep 2026 10:14:46 +0000 (UTC)
 From: Roman Vivchar via B4 Relay <devnull+rva333.protonmail.com@kernel.org>
-Date: Wed, 30 Sep 2026 13:14:29 +0300
-Subject: [PATCH v5 3/4] nvmem: mtk-efuse: add CPU speedbin post-processing
+Date: Wed, 30 Sep 2026 13:14:28 +0300
+Subject: [PATCH v5 2/4] nvmem: mtk-efuse: add support for 32-bit aligned
+ reads
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20260930-6572-nvmem-v5-3-384d2a3a1770@protonmail.com>
+Message-Id: <20260930-6572-nvmem-v5-2-384d2a3a1770@protonmail.com>
 References: <20260930-6572-nvmem-v5-0-384d2a3a1770@protonmail.com>
 In-Reply-To: <20260930-6572-nvmem-v5-0-384d2a3a1770@protonmail.com>
 To: Srinivas Kandagatla <srini@kernel.org>, Rob Herring <robh@kernel.org>, 
@@ -64,11 +65,11 @@ Cc: devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
  linux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org, 
  Roman Vivchar <rva333@protonmail.com>
 X-Mailer: b4 0.15.2
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1790763284; l=1737;
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1790763284; l=2576;
  i=rva333@protonmail.com; s=20260510; h=from:subject:message-id;
- bh=obcdDbJPC+bJJB8ejmXjnP6/QmD/06/XozyzFUcNY2c=;
- b=5GShSUHPJqiXvrqHRiSZTcESxZC/UG33Tn9SrBVmHk6NKDWSNpSL7fN2RH+escj9ogsV9oqRy
- D6v3trKnWGYDiKD6tLp28Pl4bnfDCjc+XuZwZ15pENMehY6uHxmfM/l
+ bh=PlUtOStRK66yTGiZ19W5bDjNAyxn6+b3O2rJne7Jc/o=;
+ b=arZOYtmwl2YfTtOmznupil67FCGDWj9KE0w3xmB/mGaqqdt5ZxwDNaTnV8fK5Z4LkT6piWm3T
+ wdlB41O6P3SBz63nOz5jiXHVmTSwLu8JZHqNYGv3BmhvnV7vK9thByF
 X-Developer-Key: i=rva333@protonmail.com; a=ed25519;
  pk=zww/nWjBGoQ4POXCG0BV6fx2iuXK6jx77rsKPA5YK5Y=
 X-Endpoint-Received: by B4 Relay for rva333@protonmail.com/20260510 with
@@ -91,55 +92,96 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 
 From: Roman Vivchar <rva333@protonmail.com>
 
-MediaTek SoCs are often released under the same marketing name, but with
-different suffix for the speedbin. For example, mt6572m has 1 GHz limit,
-mt6572a - 1.2 GHz, mt6572w - 1.4 GHz.
+Some MediaTek SoCs, such as mt6572, don't support 8-bit reads, leading
+to zeroes or garbage data. 32-bit aligned reads must be used instead.
 
-Since the speedbin is stored as a number in the efuse, add support for
-converting it to the bitmask for opp-supported-hw usage in the DT.
+Introduce a 'mtk_reg_read_aligned' helper to enforce 32-bit aligned
+register access. All reads will be performed by reading 4-byte words
+and masking them.
 
+Reviewed-by: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
 Signed-off-by: Roman Vivchar <rva333@protonmail.com>
 ---
- drivers/nvmem/mtk-efuse.c | 19 +++++++++++++++++++
- 1 file changed, 19 insertions(+)
+ drivers/nvmem/mtk-efuse.c | 35 ++++++++++++++++++++++++++++++++++-
+ 1 file changed, 34 insertions(+), 1 deletion(-)
 
 diff --git a/drivers/nvmem/mtk-efuse.c b/drivers/nvmem/mtk-efuse.c
-index 980c29d01337..d2e5c69c580e 100644
+index 00a84ea963a8..980c29d01337 100644
 --- a/drivers/nvmem/mtk-efuse.c
 +++ b/drivers/nvmem/mtk-efuse.c
-@@ -70,6 +70,18 @@ static int mtk_efuse_gpu_speedbin_pp(void *context, const char *id, int index,
- 	return 0;
- }
+@@ -4,6 +4,7 @@
+  * Author: Andrew-CT Chen <andrew-ct.chen@mediatek.com>
+  */
  
-+static int mtk_efuse_cpu_speedbin_pp(void *context, const char *id, int index,
-+				     unsigned int offset, void *data, size_t bytes)
++#include <linux/align.h>
+ #include <linux/device.h>
+ #include <linux/module.h>
+ #include <linux/io.h>
+@@ -13,12 +14,37 @@
+ 
+ struct mtk_efuse_pdata {
+ 	bool uses_post_processing;
++	bool needs_aligned_read;
+ };
+ 
+ struct mtk_efuse_priv {
+ 	void __iomem *base;
+ };
+ 
++static int mtk_reg_read_aligned(void *context,
++				unsigned int reg, void *_val, size_t bytes)
 +{
-+	u8 *val = data;
++	struct mtk_efuse_priv *priv = context;
++	u8 *val = _val;
++	u32 i, pos, shift, val32;
 +
-+	if (val[0] >= 8)
-+		return -EINVAL;
++	for (i = 0; i < bytes; i++, val++) {
++		pos = reg + i;
 +
-+	val[0] = BIT(val[0]);
++		/*
++		 * Read on 32-bit word boundary or if it's the first
++		 * iteration
++		 */
++		if (i == 0 || IS_ALIGNED(pos, 4))
++			val32 = readl(priv->base + (pos & ~3));
++
++		shift = (pos & 3) * 8;
++		*val = (val32 >> shift) & 0xff;
++	}
++
 +	return 0;
 +}
 +
- static void mtk_efuse_fixup_dt_cell_info(struct nvmem_device *nvmem,
- 					 struct nvmem_cell_info *cell)
+ static int mtk_reg_read(void *context,
+ 			unsigned int reg, void *_val, size_t bytes)
  {
-@@ -83,6 +95,13 @@ static void mtk_efuse_fixup_dt_cell_info(struct nvmem_device *nvmem,
- 	if (cell->nbits <= 3 &&
- 	    strncmp(cell->name, "gpu-speedbin", min(sz, strlen("gpu-speedbin"))) == 0)
- 		cell->read_post_process = mtk_efuse_gpu_speedbin_pp;
+@@ -81,7 +107,12 @@ static int mtk_efuse_probe(struct platform_device *pdev)
+ 	econfig.add_legacy_fixed_of_cells = true;
+ 	econfig.stride = 1;
+ 	econfig.word_size = 1;
+-	econfig.reg_read = mtk_reg_read;
 +
-+	/*
-+	 * On mobile SoCs, the CPU speedbin is a number. Convert it to
-+	 * a bitmask for supported-hw usage.
-+	 */
-+	if (strncmp(cell->name, "cpu-speedbin", min(sz, strlen("cpu-speedbin"))) == 0)
-+		cell->read_post_process = mtk_efuse_cpu_speedbin_pp;
- }
++	if (pdata->needs_aligned_read)
++		econfig.reg_read = mtk_reg_read_aligned;
++	else
++		econfig.reg_read = mtk_reg_read;
++
+ 	econfig.size = resource_size(res);
+ 	econfig.priv = priv;
+ 	econfig.dev = dev;
+@@ -102,10 +133,12 @@ static int mtk_efuse_probe(struct platform_device *pdev)
  
- static int mtk_efuse_probe(struct platform_device *pdev)
+ static const struct mtk_efuse_pdata mtk_mt8186_efuse_pdata = {
+ 	.uses_post_processing = true,
++	.needs_aligned_read = false,
+ };
+ 
+ static const struct mtk_efuse_pdata mtk_efuse_pdata = {
+ 	.uses_post_processing = false,
++	.needs_aligned_read = false,
+ };
+ 
+ static const struct of_device_id mtk_efuse_of_match[] = {
 
 -- 
 2.55.0
