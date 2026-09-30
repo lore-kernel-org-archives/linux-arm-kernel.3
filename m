@@ -4,44 +4,44 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 37A1ACA5FB1
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 30 Sep 2026 12:38:05 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 947CBCA5FAC
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 30 Sep 2026 12:39:20 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:
 	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
 	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=Hlaiv+oT5Ce6LSMQaIVLOoOP+S+iI50Q6hkVwSrOAME=; b=etvuCafyiyW8h79PU99FQfDFvC
-	ygs6bqdQ50OrxaY+RIF8cotXpJNxLvUCG5mVHZvOG0gm7vTF6Fg7qRFfXxzgZ7y4v27QodxTAWHVr
-	dVLofy8IAcZsJciVFRl2Ge3SzuMIejHV3VPIrnOwuA1nIv5QMdEUIEwShgA8DGDMKrdo71MalizaF
-	NKh+yqfXb8kjhFHexiAOz+4Kxfm5EGEjo2cxM5KcyNCvSex0lEWkQlTgG49FMb3+s6YPr/4/UIaid
-	BbR0Rvn7ffrpkTo1lMeoLeqEtFzMD/Xcal7YvbAhCvXonZ4yGNgtow8ETDZ/DQjDtv79Qp2kETa/q
-	8Pme2EzA==;
+	bh=Hlaiv+oT5Ce6LSMQaIVLOoOP+S+iI50Q6hkVwSrOAME=; b=JNZu8//GTjVKPFaNv729Rz0gse
+	SyqRdRNP99Np6bnUEo4dy8Sp3SLIYKKCJrrhORt8ZCnCF9vCLCq/8Dsu73kWusZjHJcXEHLCbhswY
+	xWR0dNShChcHzvPoneEVe91z5qosyTUreqpnsOnlfSQzWpk2l1VOC4a8bRtSyUwp2tYIgd92nXW0g
+	IIJ2Vvlot7NRpS3IYVwWZzJ3e8R4c2A5/aevP9YoOBmo7XJt4WURry0aQdBVMJIlh8v3P5Okw+x5p
+	ufhXZVHj50jECfkhNk+qMmOLlwv9Nby/MztXn+GeZKrpOblGJyn88vBTVYHBrKUee5KDfIqnHEz5i
+	6YkmyniQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xBtZM-000000060cv-2Z1E;
-	Wed, 30 Sep 2026 12:37:56 +0000
+	id 1xBtaa-000000060n2-2TgA;
+	Wed, 30 Sep 2026 12:39:12 +0000
 Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xBtZL-000000060cb-2CZy
+	id 1xBtaZ-000000060mo-0uz5
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 30 Sep 2026 12:37:55 +0000
+	Wed, 30 Sep 2026 12:39:11 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id 9332F601DE;
-	Wed, 30 Sep 2026 12:37:54 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 54A6B1F000FF;
-	Wed, 30 Sep 2026 12:37:50 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id A71FA60239;
+	Wed, 30 Sep 2026 12:39:10 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 693961F000FF;
+	Wed, 30 Sep 2026 12:39:06 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1790771874;
+	s=k20260515; t=1790771950;
 	bh=Hlaiv+oT5Ce6LSMQaIVLOoOP+S+iI50Q6hkVwSrOAME=;
 	h=From:To:Cc:Subject:Date;
-	b=Kz6obxPX+CnD24dhp3bVEn9lsdjOlHBCWFVa+zmn3A7gTrCL/pRB/g0rA1Vuel2rX
-	 CHd6Ri0lYggpyjEaIKMyQrMblppb41M3bCmL4kX+shfgtU8IFMAzQTTpkFyZcLLgQe
-	 5upNhRqCQSWGmRzY2M/lholzsPsrdxSs20JeZIq+BTshRzhAgqO+g18Howop2zIaBm
-	 PAEuP7bnchd5PAq8DfLeTQodJ8Lbvb68JuE2mAiTOxZz6W/Rnj+y1jZlpd86Cxlwe7
-	 7jtwfj16MSmcQgeYzb6kCVpatv5qwJsI2tPWNmTGxW5mc0wisfuwbMxJYyqof4JgeN
-	 tlWzJwRSg/qkQ==
+	b=gF1oTeP67VmGmSvt8J/YNDJmpFie7zIJlc5psFdYc1JhvwvwNVma5YEmWt8ZBoO8R
+	 wtXPaN6F+heCr6YLefoJgzdAD4139ZOfjagfX4ncua5/9J/SP5wjVeBISnsb6OZY/l
+	 xi+e9emrNeSNaXvjjDN6S5ZT+lbNrOvKHeuzQhQkw8kqH9DMlfh9DL9BkqK5QGlpV6
+	 SWZTuEw6TxUdaswy4dZKk+Eah1HmFkWdaF2uPzVUvu9VHYMNB9F+U8yBHQmzt8zWLC
+	 FNc9wfjkcvm8Xj3Wy/lEP3G20BvKK4zbRkszeOpUlZhkflq8xDMw+TNgCbqu+8w0f1
+	 rP0rBFuefSnOw==
 From: "Masami Hiramatsu (Google)" <mhiramat@kernel.org>
 To: Josef Bacik <josef@toxicpanda.com>,
 	"Paul E . McKenney" <paulmck@kernel.org>,
@@ -63,8 +63,8 @@ Cc: Boqun Feng <boqun@kernel.org>,
 	linux-kernel@vger.kernel.org,
 	Andrea Parri <parri.andrea@gmail.com>
 Subject: [PATCH v3 0/1] kprobes: Make optprobe optimizer multi-generational and asynchronous
-Date: Wed, 30 Sep 2026 21:37:47 +0900
-Message-ID: <179077186716.424323.12884899073547396948.stgit@devnote2>
+Date: Wed, 30 Sep 2026 21:39:04 +0900
+Message-ID: <179077194409.424772.11709189894572687187.stgit@devnote2>
 X-Mailer: git-send-email 2.43.0
 User-Agent: StGit/0.19
 MIME-Version: 1.0
