@@ -4,44 +4,44 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 37E0ACA5FAC
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 30 Sep 2026 11:46:10 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5DFC6CA5FAC
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 30 Sep 2026 11:47:26 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=aV5u5aRXaQQEnAiaHkz7ZngY6X+rGsMshxH6ocvG3KE=; b=3KvYcfGF9r5O2NBT8eTGKVJkW0
-	oKt42r/JD7jANd8d+mknDIPQkrMSWelq5DE5lmOoduG/4XpYPEpgELpHiAVi13+b0tlkr1gdiQdEq
-	iLLhheanpSQgkn6yDvqgzCbOdmr11IboB75jWDGAy5MIRAuN1zf0zT5TSgfMbjIPnMqqUsCjTjI8s
-	KlLgD4Itn0bpL9v8Wfr900N9DSLW9fN/g/rJLntA/e51x055qvKv1dasoyCeSo/CnWb0XZNFgwDyt
-	seSpiSeUHANfooaLop3bSGwnps9rF7vB7mZNUTsyZAx2617hKL73jqZ5vv+vT903dP0MIfU1wQIpJ
-	sR0IZH0Q==;
+	bh=f+H8Kg68nVhx6dtUfaMKJGO0vp0CyK/Fr5IyBgo7Aro=; b=mOASjqe7MU9wBhk0B3WrXlNIjE
+	kUmK1srN7BbjgICb1cciqsNAUu+HQcJ6yxpuoXv9cTOLvFDHOK0sJ8GMPeuQ5NhsiRSv+VHOahePq
+	yTbuGReNneIJgFjIYWLYHXy5lSbY27VzDOGEVn2euvvJw3zmlVZo65bo3DYxgffCaSUxnJZmQ3cQQ
+	ITbdQwSU4UTm9kgyQo43todrkXAA/oppqNSRXCdS9Q6ysF5703Na/xvq6EPlIzKoKh9mvbQhLQ20o
+	KAoZRZnjPOPlzKezg0YYGwbaKgzOxt8alTnqdWhPzJRphSKrdV1DWQHT/HHkyE2KhPqVvStjpsnOd
+	gpHra+Fg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xBsl9-00000005uph-0kp5;
-	Wed, 30 Sep 2026 11:46:03 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1xBsmO-00000005v4h-0QQF;
+	Wed, 30 Sep 2026 11:47:20 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xBsl7-00000005up6-46Sf;
-	Wed, 30 Sep 2026 11:46:02 +0000
+	id 1xBsmM-00000005v4V-0vTp;
+	Wed, 30 Sep 2026 11:47:18 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id 1BA1D60008;
-	Wed, 30 Sep 2026 11:46:01 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id CB4341F000FF;
-	Wed, 30 Sep 2026 11:45:59 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id B11304386C;
+	Wed, 30 Sep 2026 11:47:17 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 6C0201F00898;
+	Wed, 30 Sep 2026 11:47:16 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1790768760;
-	bh=aV5u5aRXaQQEnAiaHkz7ZngY6X+rGsMshxH6ocvG3KE=;
+	s=k20260515; t=1790768837;
+	bh=f+H8Kg68nVhx6dtUfaMKJGO0vp0CyK/Fr5IyBgo7Aro=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=g3Vsz0H8mwII3DRDHpY3v0HtfF6aMnGdMINM26M0BU7TgEV1lyjKWmRQWG3q5qkXz
-	 PwENhNkTSrkE5XAwQKm23HXc1ed+Uu3M9wZNMqDD2jlmrrh7P/L96oMZ3eC3tDldSF
-	 EmusUQ8391HZqv/diQPsZJcomagC3BvIMEpg7l4ni6atPdBaR2QPKlExBeLurjlAcU
-	 y1Ro+RxRYDPbFYNic/Xf6JCd2kHbGmPHcu380Zg+EW+4mroUAz+yilMw11UosS0NYU
-	 2JAAznQYDBsH8tzmqNqWQNNfog20B52ElmqGcugTSBpN67hjGiAy5n5wUV5kAwbyGz
-	 dZE2e1aF6c+xg==
-Date: Wed, 30 Sep 2026 13:45:57 +0200
+	b=Q07wbSjEcLzVhHACNVpAkohD2c9bZOiBMrtMMpiQbRbxQW7DSWJhgnfKsT/M8aNtw
+	 2ESLDoVIu1vC4boi7Yv32mgcN5LT4aqPCL3gsTvUUD0NE2nlsbV7Z371LVVjHlB2Jy
+	 x87MQ8x67YHtq5Up1116zQMZnnewgS69K616Al7HWUq2gOVfSbRjobOA7E9ox2LPY/
+	 uB0tDdUhLvPdPkISFfuOUwaMhcsZvMG2SOViNIJr9HmmUAgIhtyndIr/lxRlF8nP0O
+	 xLbZwPl9X7PT00v1E5UutbwrQBWHKYhhCzKjFZhJ5oy1duXeMkq9FBi8NrXctBNZLs
+	 ANXmrv/Mxu26A==
+Date: Wed, 30 Sep 2026 13:47:13 +0200
 From: Krzysztof Kozlowski <krzk@kernel.org>
 To: Alexey Charkov <alchark@flipper.net>
 Cc: Rob Herring <robh@kernel.org>, 
@@ -49,15 +49,15 @@ Cc: Rob Herring <robh@kernel.org>,
 	Heiko Stuebner <heiko@sntech.de>, Sebastian Reichel <sre@kernel.org>, devicetree@vger.kernel.org, 
 	linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org, linux-kernel@vger.kernel.org, 
 	linux-pm@vger.kernel.org, Shawn Lin <shawn.lin@rock-chips.com>
-Subject: Re: [PATCH v2 1/5] dt-bindings: soc: rockchip: add boot ROM download
- boot mode
-Message-ID: <20260930-hulking-swan-of-enterprise-94e2ae@quoll>
+Subject: Re: [PATCH v2 2/5] dt-bindings: power: reset: syscon-reboot-mode:
+ allow supplies
+Message-ID: <20260930-fascinating-cheetah-of-speed-7cccd0@quoll>
 References: <20260929-b4-rk3576-reboot-mode-v2-0-5a34ca72065a@flipper.net>
- <20260929-b4-rk3576-reboot-mode-v2-1-5a34ca72065a@flipper.net>
+ <20260929-b4-rk3576-reboot-mode-v2-2-5a34ca72065a@flipper.net>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=utf-8
 Content-Disposition: inline
-In-Reply-To: <20260929-b4-rk3576-reboot-mode-v2-1-5a34ca72065a@flipper.net>
+In-Reply-To: <20260929-b4-rk3576-reboot-mode-v2-2-5a34ca72065a@flipper.net>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -72,18 +72,42 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Sep 29, 2026 at 02:28:18PM +0400, Alexey Charkov wrote:
-> Rockchip boot ROMs enter USB download mode, commonly known as maskrom,
-> when they find 0xef08a53c in the register they take the boot mode from.
-> Add the magic under the name U-Boot already uses for it, so that boards
-> able to request it can do so symbolically.
+On Tue, Sep 29, 2026 at 02:28:19PM +0400, Alexey Charkov wrote:
+> Whatever program that acts on a reboot mode runs before a full OS, so it
+> may lack the capability to enable the regulators it depends on, and a
+> reset that preserves the mode register generally leaves the regulators as
+> the previously running system left them.
+> 
+> Allow a reboot mode node to name such supplies, so that they can be
+> turned on while the mode is being requested.
 > 
 > Tested-by: Shawn Lin <shawn.lin@rock-chips.com>
 
-Drop, you cannot test it.
+Again fake tag.
 
-What is the point of such blanket tags which are not even applicable to
-50% of patches here?
+> Signed-off-by: Alexey Charkov <alchark@flipper.net>
+> ---
+>  .../devicetree/bindings/power/reset/syscon-reboot-mode.yaml       | 8 ++++++++
+>  1 file changed, 8 insertions(+)
+> 
+> diff --git a/Documentation/devicetree/bindings/power/reset/syscon-reboot-mode.yaml b/Documentation/devicetree/bindings/power/reset/syscon-reboot-mode.yaml
+> index 79ffc78b23ea..5ed70c87269e 100644
+> --- a/Documentation/devicetree/bindings/power/reset/syscon-reboot-mode.yaml
+> +++ b/Documentation/devicetree/bindings/power/reset/syscon-reboot-mode.yaml
+> @@ -36,6 +36,14 @@ patternProperties:
+>    "^mode-.*$":
+>      maxItems: 1
+>  
+> +  "^[a-z0-9]+(-[a-z0-9]+)*-supply$":
+> +    description:
+> +      Supply that has to be powered for whatever program acts on the mode.
+> +      That could be a boot ROM with no access to regulators, and a warm reset
+> +      leaves them as the previously running system left them and not necessarily
+> +      what their expected out-of-reboot state is. Any supply described here is
+> +      enabled when a mode is requested, and stays enabled.
+
+This looks like workaround for missing supply handling in actual
+consumers. Fix your devices instead.
 
 Best regards,
 Krzysztof
