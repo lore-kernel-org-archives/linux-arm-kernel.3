@@ -4,62 +4,62 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B9765CA5FC5
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 30 Sep 2026 21:01:35 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C55AECA5FC5
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 30 Sep 2026 21:03:09 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Cc:List-Subscribe:
 	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
 	Content-Transfer-Encoding:Content-Type:To:Subject:Message-ID:Date:From:
 	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=h8mTmxiMa6j0BDVpqQQE8qTtnaK2gCeJkwytdDxRrLg=; b=hQB0jaZ7Mkfmh4
-	QwZN5ADaqLz4T2zhjlZliN+HS3AmkqqcEJCpKhWSADZqI7ziFYU95T21IooQaei4tfbZVykOiX8xz
-	+WOMhCAg7imQpOOhLxva8y0SZm2CMp+0QmK6jzYwaIG46Adh8sKzcQURlsbCJBom0Sr4pPxEr5K+k
-	Mubsbn1T39GBpv9byh2v1Onhui03Mb1qRtAStuj9nO8RGPmdyGy4QxCW/LiE34M0cVmwCGu98HVWH
-	V+BEiJwHw2b1frgjVBupjwZ5Hkm5yJkgThkykPtz2I7zmRGk7AaEa+xBxvHFwTqw1QIcHAE3h9AvE
-	+7HHIaY4oO0TmfYcNGjg==;
+	List-Owner; bh=VXcmhxRFPyDo7G0VXnE8mGBcLQuaaxOtjql+bmbJJmM=; b=nEtjngPw+7s0cG
+	KJLf30FP10FNVfXQHTDyU4XtLSdEgsMCWKT9nzTGMyc4KrCv8rns9k8w0vulUfKsWzm1kX9um2Fvm
+	JTf8t1iwmWAcTGB3BxLhDvN2Ftj4x88hE4FA2fhi9ZTA2Z0fu6e1TC4w6Sxa5kEUypl3XfgVxqd2a
+	gZfsktGHgSk5RfwAUaVf/W5NSc2wERYZ8bqwIYcdwGOMwPSeVoKkydUrT0oxvtgZyJrTDVJ7USyh1
+	F67xsh7KSEzm7/liikWmod+y1RfgSgoJ57er2TWXngHDIqRksQWxAjE4u2vr4bTaQ2WuIHYSpvax1
+	skCaWU/J9u2CeJKsshvA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xC1Qf-00000007Dsc-2VHY;
-	Wed, 30 Sep 2026 21:01:29 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1xC1SB-00000007E38-3hhI;
+	Wed, 30 Sep 2026 21:03:03 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xC1Qd-00000007DsS-2aGr
+	id 1xC1S9-00000007E31-3AG6
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 30 Sep 2026 21:01:27 +0000
+	Wed, 30 Sep 2026 21:03:01 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id 01F65601F1
-	for <linux-arm-kernel@lists.infradead.org>; Wed, 30 Sep 2026 21:01:27 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id AC0A71F00899
-	for <linux-arm-kernel@lists.infradead.org>; Wed, 30 Sep 2026 21:01:26 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 0ABA6601FF
+	for <linux-arm-kernel@lists.infradead.org>; Wed, 30 Sep 2026 21:03:01 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id B28BD1F008A2
+	for <linux-arm-kernel@lists.infradead.org>; Wed, 30 Sep 2026 21:03:00 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1790802086;
-	bh=h8mTmxiMa6j0BDVpqQQE8qTtnaK2gCeJkwytdDxRrLg=;
+	s=k20260515; t=1790802180;
+	bh=VXcmhxRFPyDo7G0VXnE8mGBcLQuaaxOtjql+bmbJJmM=;
 	h=References:In-Reply-To:From:Date:Subject:To:Cc;
-	b=CHTE7awBingCn6+CYnIDvtmoEtX5CC/dNbrjVt90/jJs4T/nAh0ycXq+HTgAmXx5c
-	 t32uij/TWCWTFhDdgmmNkFHysE+ad6PFrM1iQrjzQ1Zhi+sqosXIaoFGtZGx5DtZg9
-	 6Hlu8rmsFQQZo4venEv792b/0RfwRTH8ebSgvwJc2eb3L4tsanemFe6TTlmJRVSr5E
-	 oiBejPZorDHIHs/8e/6s14WuD/hiNNyNqQVGdqQ0lJtScqzUHhngi6XXHD6GJY+W5x
-	 GDX/9yZ8LB78g+ZyGwq23ha/NUy8cosSj43RgPEUQmSx7kqRvDx44EMzm0YPA3xb+0
-	 95PWH9GmgKNmA==
-Received: by mail-lr2-f34.google.com with SMTP id 38308e7fff4ca-3a652e2149aso51449421fa.2
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 30 Sep 2026 14:01:26 -0700 (PDT)
-X-Gm-Message-State: AFq9FYKmQRPKKY2VAIxvc0cR3BZ3mAwEhVnC3nBduHzoLMB1+CBCgR7a
-	Ek262Xl8ZMWavygs2fQ0CZSws4UnmDwxDXad0se04c2x35DcVMvP7mOrMLzjzpkzI7GzbycpjLz
-	z86ZJUG6YZOIRZHs/fuSO22sk2eyV6zo=
-X-Received: by 2002:a05:651c:418d:b0:3a6:10d4:61c4 with SMTP id
- 38308e7fff4ca-3a779211d2bmr8529901fa.28.1790802085503; Wed, 30 Sep 2026
- 14:01:25 -0700 (PDT)
+	b=iXdsSByDSKVDFBcxz6x99Ctyn1fwlU+AQesbyfbti47+pCthiWG9wLdIykTBlCKOE
+	 SaoHwAQn1sg/ERmXOtxcTH26DgafFnr7cUmQgP0hNniXwDuXzvFmTo8Wg7s/csnqWd
+	 OjL3fDG2vyQTcZbF4sOks3cZtRuvQ3Ht+u74Sk5aXaXYuDzY7WzrW/cP2keoOQMgG1
+	 IZlXkqc5tcgGNEj8zgBXGF5cIECh5E1aCH8hBSZRaTh81JxeDRfyg/Y4GPrDn1LsVB
+	 G6xkV8LjnWJioy29uuFh9WNMh8PT9NFFHH3tgD+QW4r3O0YNw1U0HSwePH5pCx428M
+	 g8r3/p8TlF3jw==
+Received: by mail-lr2-f12.google.com with SMTP id 38308e7fff4ca-3a3156692c6so47094201fa.3
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 30 Sep 2026 14:03:00 -0700 (PDT)
+X-Gm-Message-State: AFq9FYLV3pnx2D2qbqb9BAA3UJfPIuyjgw+wthFz8u6UDPT6PVJKEgAQ
+	Q2t8S5IbtD3DnvL/L5pG0WeIdyouv92MscexccnuSnbsR1ByonaGy/S8YEt8EQiHfgz8Rp5eMQZ
+	mlRKgxL4tibbqZZ3P7hHygFDRM8irD0M=
+X-Received: by 2002:a05:651c:1991:b0:3a6:6ecf:77fc with SMTP id
+ 38308e7fff4ca-3a779239069mr7881541fa.20.1790802179476; Wed, 30 Sep 2026
+ 14:02:59 -0700 (PDT)
 MIME-Version: 1.0
-References: <20260918161407.2300-1-will@kernel.org> <20260918161407.2300-4-will@kernel.org>
-In-Reply-To: <20260918161407.2300-4-will@kernel.org>
+References: <20260918161407.2300-1-will@kernel.org> <20260918161407.2300-11-will@kernel.org>
+In-Reply-To: <20260918161407.2300-11-will@kernel.org>
 From: Linus Walleij <linusw@kernel.org>
-Date: Wed, 30 Sep 2026 23:01:13 +0200
-X-Gmail-Original-Message-ID: <CAD++jL=Z01dxFg-+9MhNot2ibMoRnQwRQH--7JQLhFDFOPYzew@mail.gmail.com>
-X-Gm-Features: AclHuK-CpLbmzPeMGgGn2WiiLWja7WmeJfZTnIg6LGM9G8yhcOxSzBBWyakJIfg
-Message-ID: <CAD++jL=Z01dxFg-+9MhNot2ibMoRnQwRQH--7JQLhFDFOPYzew@mail.gmail.com>
-Subject: Re: [PATCH v2 03/21] arm64: stackprotector: Temporarily disable
- per-task stackprotector
+Date: Wed, 30 Sep 2026 23:02:46 +0200
+X-Gmail-Original-Message-ID: <CAD++jLnraiZ_=3sBxCRZZRO4sYNukggksvzGMrJwVmLw5Q-bmQ@mail.gmail.com>
+X-Gm-Features: AclHuK8lqw0xClayS2juku6qh8ThyYVtjid64ZdANDn9WV2EDJehSkAIocbI1Oo
+Message-ID: <CAD++jLnraiZ_=3sBxCRZZRO4sYNukggksvzGMrJwVmLw5Q-bmQ@mail.gmail.com>
+Subject: Re: [PATCH v2 10/21] arm64: percpu: Specialise set_my_cpu_offset()
+ for the primary CPU
 To: Will Deacon <will@kernel.org>
 Content-Type: text/plain; charset="UTF-8"
 Content-Transfer-Encoding: quoted-printable
@@ -81,16 +81,15 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 On Fri, Sep 18, 2026 at 6:14=E2=80=AFPM Will Deacon <will@kernel.org> wrote=
 :
 
-> Per-task stackprotector relies on telling the compiler about the system
-> register used to hold a pointer to the current task. As we're about to
-> change that around, temporarily disable per-task stackprotector for now.
+> set_my_cpu_offset() is only called from smp_prepare_boot_cpu() which
+> runs once on the primary CPU and before alternatives have been applied.
 >
-> Cc: Mark Rutland <mark.rutland@arm.com>
+> Rework the function so that it operates only on the boot CPU offset,
+> drop the unused alternative code sequence and internalise it into smp.c
+> alongside its only caller.
+>
 > Signed-off-by: Will Deacon <will@kernel.org>
 
-That's not the only thing that breaks in the patches between here
-and re-enabling it, but what is the alternative other than to just
-squash all the patches into one :/
 Reviewed-by: Linus Walleij <linusw@kernel.org>
 
 Yours,
