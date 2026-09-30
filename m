@@ -4,57 +4,42 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2F7DBC9830E
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 30 Sep 2026 05:11:08 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 18BADCA5FAB
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 30 Sep 2026 05:13:52 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
+	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=/sAVigVgDhL1JSY5chQ12s3pJ0ZlvIEA62gvASI+X+Q=; b=lXkCscTJ1JZ0l9mM6NwNRd5L3d
-	1zHZEOABHL3ZEep6zAy/zvEfqk+rzxhlnzCJW5+Vk4GxAQUewbXCtIHkNn/hGdMKx2TsDFsTVJYMx
-	+vR3HcoP+M+Ig9zm6KmYA3y9aOc76vFNuHU0IrMtwo7ai5AyQM4rwEszyVWJuv6IEGCcc4qomB9HS
-	zMAtuuaw+9PNN2lOLY7KPeBaSKq2YJ85yYdgmj5yFz9MiP5vnmeeUDaTAVqOZWJOuFYSO4uBJRT+L
-	Z+UbyqA5QFrV5m6RG9VWaTHR8gFWSTrjMNyGxwre4r+kPIkuDMVGcQTRgpz6gPI7ZNJjvV3R8WFZf
-	yU+4mbKw==;
+	bh=twlnFSBmxS58iPY+7hBgGUdCwGxZsKY3oWNgC2UQAC8=; b=Wp2wBSWZDhC16bXpqnB/sh8rrU
+	qpg82RTYrGKSmrLFuosj0ogBML3v6ko7hUsdXXvI8Uaj9Mzu/aePoBg1LssaRyIY0ovdXRbDTNqtf
+	DQncy56uL/NgiswhNHF2Gf/Oo8n+UC+lJ2Lghsy0N11yRU0UWTXLFEdcUgyIxZeEe2SuKXwlYOpxL
+	U2cv7gfh+QGKotTPmp1+rILJ+kB6BWTah67hAaAoQR/+v1uNPEkooUkH1HJAEzwEYBcOlz02GBBri
+	IsiLSEWwhyL4ul3VivbHcwJUSA0GwBzN+gXalVLeaoELYceK2+qQW7DTjaCScLkJnIrbX7uQg5Dsl
+	u6OAEfUg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xBmap-000000051WM-3EZh;
-	Wed, 30 Sep 2026 05:10:59 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
-	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xBman-000000051W5-3nki
-	for linux-arm-kernel@bombadil.infradead.org;
-	Wed, 30 Sep 2026 05:10:58 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=In-Reply-To:Content-Type:MIME-Version:
-	References:Message-ID:Subject:Cc:To:From:Date:Sender:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description;
-	bh=/sAVigVgDhL1JSY5chQ12s3pJ0ZlvIEA62gvASI+X+Q=; b=kC4XLiv3WlGABmQHoWdAaLDekg
-	fWoxVIBBghnnP5K2w7KRcDdvQr6zMAKOXwP4o6hVdpMdKrwQfOJCusW68paxGqwNWJtNN6R/1RVE+
-	Ui+3FGQVSCIh1GONXeLnqYCVHnE25mwCb86hcEqiqiBnxD2rxvxLMMUWGLzfyNYRTKEaQRaFCeW0u
-	qK0t5vOWNtdml43egBE+FM/11YeO9il0oIdUh6oXaEJrCN2WkNRN95qZd/g/A7ttO30o8EUh0EgEW
-	br4PqBec0HqxaZMaqiVXp47Dz7zSh/zSom0HGd+wSZMZYZjcs+J9LYLWm+PCxUk+ZDRYozon6sm42
-	iShZSr7w==;
+	id 1xBmdV-000000051gx-1vbw;
+	Wed, 30 Sep 2026 05:13:45 +0000
 Received: from foss.arm.com ([217.140.110.172])
-	by desiato.infradead.org with esmtp (Exim 4.99.2 #2 (Red Hat Linux))
-	id 1xBmak-00000003Mu4-2Zmn
+	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1xBmdR-000000051gY-0YH8
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 30 Sep 2026 05:10:56 +0000
+	Wed, 30 Sep 2026 05:13:44 +0000
 Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 963E71477;
-	Tue, 29 Sep 2026 22:10:46 -0700 (PDT)
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 5E3722F;
+	Tue, 29 Sep 2026 22:13:36 -0700 (PDT)
 Received: from e129823.arm.com (e129823.arm.com [10.2.213.3])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 98D6F3F763;
-	Tue, 29 Sep 2026 22:10:48 -0700 (PDT)
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 187F13F763;
+	Tue, 29 Sep 2026 22:13:37 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1790745050; bh=XNgz6d/OZjziPvSkUOUSXbumTXkkojRGtXQXxfoLR5o=;
+	t=1790745219; bh=0VwICtUH5NvpaDbe9DoXbn5Z54tn5XhVjnIRjhSAT0Y=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=Qj3iOJpBJSgE1UgTtkfspHIrPqJXBq3eMgxYVBo8phSDlGxBx08q9zHfcQem6c5o/
-	 CymR7GfymTQKKLxSO7tbMnMliPVLUpoTN6HoOSdA0DkzggSf3AuxzXu80fr9ERid8e
-	 dHyKwn9FOUbhHKUQrFpIlscNlyN828VqueuMANWI=
-Date: Wed, 30 Sep 2026 06:10:46 +0100
+	b=IeRhwrK1zaH22wjoEotiIOUpFEMxZyWQlX52tsrT6FL1H/QwQRPryQEsdTqnvX7co
+	 SrpnS2UC/UlNm6EbfrT1OGXdy/NuhU1vKTzUv7t8sszsLIpPfIcYaKbZc2vGNJFXLJ
+	 kxouD00MyhpRltBN1P2HIeS9lSTfynnHOhipVptk=
+Date: Wed, 30 Sep 2026 06:13:35 +0100
 From: Yeoreum Yun <yeoreum.yun@arm.com>
 To: Kohei Enju <enju.kohei@fujitsu.com>
 Cc: Yeoreum Yun <yeoreum.yun@arm.com>, linux-arm-kernel@lists.infradead.org,
@@ -64,18 +49,20 @@ Cc: Yeoreum Yun <yeoreum.yun@arm.com>, linux-arm-kernel@lists.infradead.org,
 	Suzuki Poulose <suzuki.poulose@arm.com>,
 	Steven Price <steven.price@arm.com>,
 	Sami Mujawar <sami.mujawar@arm.com>, thuth@redhat.com
-Subject: Re: [PATCH v2 2/3] arm64: rsi: Add realm hash algorithm defines
-Message-ID: <aryZ1lODdPGgKT2w@e129823.arm.com>
+Subject: Re: [PATCH v2 1/3] arm64: rsi: Add helpers for Arm CCA measurement
+ register operations
+Message-ID: <aryafzI-M06aZ4bZ@e129823.arm.com>
 References: <20260929-arm_cca_mr-v2-0-1d98bba187fd@arm.com>
- <20260929-arm_cca_mr-v2-2-1d98bba187fd@arm.com>
- <arxxqJnhY83Q4g2z@FCCLS0092175.localdomain>
+ <20260929-arm_cca_mr-v2-1-1d98bba187fd@arm.com>
+ <arxrOt1HEYeG6GJx@FCCLS0092175.localdomain>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
+Content-Type: text/plain; charset=utf-8
 Content-Disposition: inline
-In-Reply-To: <arxxqJnhY83Q4g2z@FCCLS0092175.localdomain>
+Content-Transfer-Encoding: 8bit
+In-Reply-To: <arxrOt1HEYeG6GJx@FCCLS0092175.localdomain>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260930_061055_006393_EC0438EA 
-X-CRM114-Status: GOOD (  22.08  )
+X-CRM114-CacheID: sfid-20260929_221341_362932_39659F25 
+X-CRM114-Status: GOOD (  33.09  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -90,40 +77,141 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Sep 30, 2026 at 11:39:36AM +0900, Kohei Enju wrote:
 > On 09/29 17:57, Yeoreum Yun wrote:
 > > From: Sami Mujawar <sami.mujawar@arm.com>
 > > 
-> > Add macro definitions for the hash algorithm identifiers, as
-> > specified in the Realm Management Monitor (RMM) specification.
+> > Add static inline helper functions to support reading the Realm
+> > Initial Measurement (RIM) and reading/extending the Realm
+> > Extensible Measurement (REM) registers.
+> > 
+> > The indices of the Arm CCA measurement registers, as defined by
+> > the Realm Management Monitor specification, are as follows:
+> >     Index    Register
+> >     0        RIM
+> >     1 - 4    REM[0 - 3]
+> > 
+> > The rsi_measurement_extend() function allows extending REM[0–3]
+> > registers with a caller-provided digest (up to 64 bytes).
+> > Index 0 (RIM) is read-only and cannot be extended.
+> > 
+> > The rsi_measurement_read() function allows reading measurement
+> > values from RIM (index 0) or REM[0–3] (indices 1–4). The returned
+> > digest is expected to be 64 bytes.
 > > 
 > > Signed-off-by: Sami Mujawar <sami.mujawar@arm.com>
 > > ---
-> >  include/linux/arm-smccc-rsi.h | 7 +++++++
-> >  1 file changed, 7 insertions(+)
+> >  include/linux/arm-rsi-cmds.h | 105 ++++++++++++++++++++++++++++++++++++++++++-
+> >  1 file changed, 104 insertions(+), 1 deletion(-)
 > > 
-> > diff --git a/include/linux/arm-smccc-rsi.h b/include/linux/arm-smccc-rsi.h
-> > index fddb77986f70..a83df2655808 100644
-> > --- a/include/linux/arm-smccc-rsi.h
-> > +++ b/include/linux/arm-smccc-rsi.h
-> > @@ -144,6 +144,13 @@ struct realm_config {
+> > diff --git a/include/linux/arm-rsi-cmds.h b/include/linux/arm-rsi-cmds.h
+> > index 3f7a6a833993..608343266d81 100644
+> > --- a/include/linux/arm-rsi-cmds.h
+> > +++ b/include/linux/arm-rsi-cmds.h
+> > @@ -1,6 +1,6 @@
+> >  /* SPDX-License-Identifier: GPL-2.0-only */
+> >  /*
+> > - * Copyright (C) 2023 ARM Ltd.
+> > + * Copyright (C) 2023 - 2025 ARM Ltd.
+> >   */
 > >  
-> >  #endif /* __ASSEMBLER__ */
+> >  #ifndef __LINUX_ARM_RSI_CMDS_H_
+> > @@ -36,6 +36,26 @@ static inline bool is_realm_world(void) { return false; }
+> >  #define RSI_GRANULE_SHIFT		12
+> >  #define RSI_GRANULE_SIZE		(_AC(1, UL) << RSI_GRANULE_SHIFT)
 > >  
 > > +/*
-> > + * The RSI definition of the Hash Algorithm (as specified by the Secure
-> > + * Hash Standard) returned in the realm_config data structure.
+> > + * Maximum measurement data size in bytes.
+> > + * According to the RMM Specification, the width of the RmmRealmMeasurement type
+> > + * is 512 bits.
 > > + */
-> > +#define RSI_HASH_SHA_256	0
-> > +#define RSI_HASH_SHA_512	1
+> > +#define RSI_MAX_MEASUREMENT_DATA_SIZE_BYTES  64
+> > +
+> > +/*
+> > + * Indices for the Realm Initial Measurement register (RIM) and the Realm
+> > + * Extensible Measurement registers (REMs).
+> > + * According to the RMM Specification, Realm attributes of a Realm include
+> > + * an array of measurement values. The first entry in this array is a RIM.
+> > + * The remaining entries in this array are REMs.
+> > + */
+> > +#define RSI_INDEX_RIM		0
+> > +#define RSI_INDEX_REM0		1
+> > +#define RSI_INDEX_REM1		2
+> > +#define RSI_INDEX_REM2		3
+> > +#define RSI_INDEX_REM3		4
+> > +
+> >  enum ripas {
+> >  	RSI_RIPAS_EMPTY = 0,
+> >  	RSI_RIPAS_RAM = 1,
+> > @@ -236,4 +256,87 @@ static inline unsigned long rsi_attestation_token_continue(phys_addr_t granule,
+> >  	return res.a0;
+> >  }
+> >  
+> > +/**
+> > + * rsi_measurement_extend - Extend the measurement value to the Realm Extensible
+> > + * Measurement (REM).
+> > + *
+> > + * @idx:		Index of the REM register.
+> > + *				Where:
+> > + *				Index	Register
+> > + *				1 - 4	REM[0-3]
+> > + * @digest:		The digest data to be extended.
+> > + * @digest_size:	Size of the digest data in bytes.
+> > + *
+> > + * Returns:
+> > + *  On success, returns RSI_SUCCESS.
+> > + *  Otherwise, -EINVAL
+> > + */
+> > +static inline unsigned long rsi_measurement_extend(u32 idx,
+> > +						   const u8 *digest,
+> > +						   unsigned long digest_size)
+> > +{
+> > +	struct arm_smccc_1_2_regs regs = { 0 };
+> > +
+> > +	/*
+> > +	 * Index 0 is for RIM (which is Read Only), while
+> > +	 * REM[0-3] are indexed from 1 - 4.
+> > +	 * The digest size can be at the most 64 bytes.
+> > +	 */
+> > +	if (!digest || idx < RSI_INDEX_REM0 || idx > RSI_INDEX_REM3 ||
+> > +	    digest_size == 0 || digest_size > RSI_MAX_MEASUREMENT_DATA_SIZE_BYTES)
+> > +		return -EINVAL;
+> > +
+> > +	regs.a0 = SMC_RSI_MEASUREMENT_EXTEND;
+> > +	regs.a1 = idx;
+> > +	regs.a2 = digest_size;
+> > +	memcpy(&regs.a3, digest, digest_size);
 > 
-> Is it intentional to omit RSI_HASH_SHA_384 here? I realize it might not
-> be implemented in RMM yet, but would it be worth adding the constant now
-> for future support?
+> With CONFIG_FORTIFY_SOURCE=y, FORTIFY reports the following warning for
+> this memcpy:
+> 
+>   [  899.918673] ------------[ cut here ]------------
+>   [  899.918806] memcpy: detected field-spanning write (size 32) of single field "&regs.a3" at ./include/linux/arm-rsi-cmds.h:292 (size 8)
+>   [  899.919277] WARNING: ./include/linux/arm-rsi-cmds.h:292 at rsi_measurement_extend+0x104/0x118, CPU#0: dd/123
+>   [  900.672180] Modules linked in:
+>   [  900.769378] CPU: 0 UID: 0 PID: 123 Comm: dd Not tainted 7.3.0-rc4+ #6 PREEMPT(full)
+>   [  901.034515] Hardware name: linux,dummy-virt (DT)
+>   [  901.194939] pstate: 61402005 (nZCv daif +PAN -UAO -TCO +DIT -SSBS BTYPE=--)
+>   [  901.390491] pc : rsi_measurement_extend+0x104/0x118
+>   [  901.530657] lr : rsi_measurement_extend+0x104/0x118
+>   [...]
+>   [  903.770326] Call trace:
+>   [  903.893102]  rsi_measurement_extend+0x104/0x118 (P)
+>   [  904.056234]  arm_cca_mr_extend+0x40/0x58
+>   [  904.270991]  tm_digest_write+0x90/0x1d8
+>   [  904.439429]  sysfs_kf_bin_write+0x98/0xc8
+>   [  904.596599]  kernfs_fop_write_iter+0x150/0x1e8
+>   [  904.779881]  vfs_write+0x29c/0x450
+>   [...]
+> 
+> Would it make sense to use a union to overlay the struct
+> arm_smccc_1_2_regs with an RSI-specific argument layout and copy the
+> digest into an explicit 64-byte array, as in commit 221049874b6a
+> ("arm64: RSI: fix field-spanning write warning in attestation token
+> init")?
 
-Acked. Thanks!
+Thanks for reporting and suggestion. I'll fix at next-spin.
 
-[...]
+
 -- 
 Sincerely,
 Yeoreum Yun
