@@ -4,73 +4,65 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 957F1CA5FD2
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 30 Sep 2026 18:50:54 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 803C1CA5FCF
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 30 Sep 2026 18:50:53 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:
 	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=rWFsHNuhE9NhgYR6RUPz4/Fgti25tsUK/Ak2q3CpV2E=; b=Mi8Y27BZJfDWV6hxleQRnzA3RH
-	KmuweTyDzBK8r9eNs0ud29o8rrtZTbx1cgR39GTBVNDe2qwNf0nx7rZ7DZBjLh6NVXAn82ME9Ob+P
-	dljVP//l68elr2AC9fAoZsIwDGD2gwYkTwQQ+ZU7C8Jp1ide0PQACkSYxEhVbd4vVHd4aVkrawe50
-	kJWnNCRaqEbs+D8htt/Nf+BDMAX5Eg68SzlJsoX95O0Cb8N00XCM/y7MYPtGONwzwXiOt1bSC7UTv
-	muCixYtcxKRE3ukh9+W2o0291VX+E9GDIYnTeJMpdRj1zHNDo5ZQYFgEvb9UIu6+nldPlXILiT8o5
-	YSR+Pmkg==;
+	bh=/PMQbnd1Umh/ykCtK7pbq7KnudwFRJAJCgrnFGdJK4c=; b=JPeur3saRBcPV4cNFkNf2Ktl2s
+	ng40u40TLyKeeaMMX7AX0FxplIHcTP69n0sSurdWXQVUI2F2N509Gb2XoDWWuJcKvzKj5qQVhP8ry
+	8sOYeZu+T/B6jDwYfnO4LM31I3PkMvnqdAw3L5VBNHg1iJCuaa4cXOsuAgsFF+judOGFjVHxN15cs
+	qkZK6zqcVturo4vpjkI3UKujnXR7rrt+8kWl2NDoRbbSEiII3j7TxJcjR+Hzs9lX6qw18sMl3OSKn
+	gaEQxXKPzcfOOwybdUIrJJsGh4ARAiVOkdS8pklpB1lME9RKeXqYF/h77SK4yThaQVSZkYlT6WBEM
+	mkP8JZbA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xBzOB-000000071aM-0yZs;
-	Wed, 30 Sep 2026 18:50:47 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
-	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xBzMs-000000071Ea-1pyp;
-	Wed, 30 Sep 2026 18:49:27 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:Content-Type
-	:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Sender:Reply-To:Content-ID:Content-Description;
-	bh=rWFsHNuhE9NhgYR6RUPz4/Fgti25tsUK/Ak2q3CpV2E=; b=Cho7aUsPO1xdadgKrU+iRLALwO
-	l+nQAYlXoyeSkf/p982fPLnsbGQEWP4o0VhbqU/rVVaF/X7VHVMHLTwo3clRtqJtjyZqQSQpBV521
-	OPR7vmTyYmAwOc9BAWJLMvOjAQBDUmbEhxe2VehYro8iQT4JrdoMNn9JqW1cYAaHGZWddCc4P9YdI
-	+9Uiulsp4cCQbTMYHXTGtgBOEe8nPhD9UWo3urKLn5JcDXAevss8nz00wvzy+BF5+0lWQVU2995gR
-	3TI92QFwbKUW/E0oCwQtNGjSZlC44ydbIBC1Ah4IleYbyV+9O1Cuxry9KQGn14u1rKxZkHLK9tjO4
-	QxeUj8QA==;
+	id 1xBzOA-000000071Zl-0rq8;
+	Wed, 30 Sep 2026 18:50:46 +0000
 Received: from gloria.sntech.de ([185.11.138.130])
-	by desiato.infradead.org with esmtps (Exim 4.99.2 #2 (Red Hat Linux))
-	id 1xBzMp-00000004DRB-2mZZ;
+	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1xBzMp-000000071Co-3W5a;
 	Wed, 30 Sep 2026 18:49:25 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=sntech.de;
 	s=gloria202408; h=Content-Transfer-Encoding:Content-Type:MIME-Version:
 	References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Reply-To;
-	bh=rWFsHNuhE9NhgYR6RUPz4/Fgti25tsUK/Ak2q3CpV2E=; b=TOQVQl1iibkQm7QeEjJoVP8Kao
-	d5ZjY6dJEAwXYFoR/e2IU5DBvvv0K6dw4fZZg7nbamcAjeg2j9oX3acED6Kd9+JNCj50TQhwFKGZ0
-	UmmR0M1X8WpoGF5S1LLQ83QAzj0jFtOhfN2YPHhkBLWGljdaLHIPBzhZuILlEluM6kd1y0SfB69dD
-	OCDFzCFzF3B1FszDpskIiqCKWf2mYcR+002UyFdm0cuUIfFU+SSKKyUw6bE5rabQK4q9hDQrle6Jf
-	FtsEM56SEtOZ/t1Ykk3TOPc19fo5l7Pbw4INabk/l/vrTExnQ9g8zYLQQDd+jITSY3wUnDIDSYrmp
-	Sn1TZOpA==;
+	bh=/PMQbnd1Umh/ykCtK7pbq7KnudwFRJAJCgrnFGdJK4c=; b=XLcAH7VESRih5oS83IYVQYVRRH
+	GCyd4Pjd0IxFhdFF60HppLUJ68Ji9QZJLfHogmSrBHmFSBXyCdJAQdKTDkr7AW0rWJ7hphvFkCxHw
+	LcDQ4WFXHGlOQ1j14TRyDCrroekkRmI+CS6FEzGRvFgc2Did2pn2voIuSaNnBuv0P2mBRaz2mWmx3
+	66XHpB7YQoifucsdxA1z+VI4CM2QD7/zJyOAQo9f99Dme9BYieaIMqLwuufgu0wzQKntbhjkRSxSw
+	77460R7t80RemoIBEQjQ7xq11ljvYU5ujYqr3pIkLxZS43BV70ql6TZnKTaZzm0av02AOO6DLz9mq
+	KXiJmxHQ==;
 From: Heiko Stuebner <heiko@sntech.de>
 To: Rob Herring <robh@kernel.org>,
 	Krzysztof Kozlowski <krzk+dt@kernel.org>,
 	Conor Dooley <conor+dt@kernel.org>,
-	Dragan Simic <dsimic@manjaro.org>,
+	=?UTF-8?q?=E5=AE=89=E5=AE=B9?= <HystericalDragons@proton.me>
+Cc: Heiko Stuebner <heiko@sntech.de>,
 	devicetree@vger.kernel.org,
 	linux-arm-kernel@lists.infradead.org,
 	linux-rockchip@lists.infradead.org,
-	Peter Robinson <pbrobinson@gmail.com>
-Cc: Heiko Stuebner <heiko@sntech.de>
-Subject: Re: [PATCH] arm64: dts: rockchip: Add missing audio codec supplies to Pinebook Pro
-Date: Wed, 30 Sep 2026 20:49:13 +0200
-Message-ID: <179079409721.2398180.7039996510410106789.b4-ty@sntech.de>
+	linux-kernel@vger.kernel.org,
+	Chukun Pan <amadeus@jmu.edu.cn>,
+	Jonas Karlman <jonas@kwiboo.se>,
+	jensen <jensenhuang@friendlyarm.com>,
+	Andrey Korshunov <razor1702@gmail.com>,
+	Diederik de Haas <diederik@cknow-tech.com>,
+	Conor Dooley <conor.dooley@microchip.com>
+Subject: Re: [PATCH v7 0/3] arm64: dts: rockchip: Add FriendlyElec NanoPi R28S
+Date: Wed, 30 Sep 2026 20:49:12 +0200
+Message-ID: <179079409731.2398180.11671143856080790218.b4-ty@sntech.de>
 X-Mailer: git-send-email 2.47.3
-In-Reply-To: <20260928133122.45765-1-pbrobinson@gmail.com>
-References: <20260928133122.45765-1-pbrobinson@gmail.com>
+In-Reply-To: <20260919-r28s-upstream-v7-0-e80a6f8ef521@proton.me>
+References: <20260919-r28s-upstream-v7-0-e80a6f8ef521@proton.me>
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260930_194923_950069_0CD7D469 
-X-CRM114-Status: GOOD (  12.69  )
+X-CRM114-CacheID: sfid-20260930_114923_907953_1ABB2428 
+X-CRM114-Status: GOOD (  12.59  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -86,20 +78,30 @@ Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
 
-On Mon, 28 Sep 2026 14:31:15 +0100, Peter Robinson wrote:
-> The DT binding for the es8316 got 4 power supplies added in commit
-> e9966d450b46 ("ASoC: dt-bindings: es8316: Add regulator supplies")
+On Sat, 19 Sep 2026 18:28:16 +0800, 安容 wrote:
+> The NanoPi R28S is a dual gigabit Ethernet router board based on the
+> Rockchip RK3528 SoC:
 > 
-> Page 16 of the schematic for the Pinebook Pro describes these
-> supplies so update the dts.
+>   https://wiki.friendlyelec.com/wiki/index.php/NanoPi_R28S
 > 
+> It is closely related to the already supported NanoPi Zero2, sharing
+> most of its power tree and peripheral routing. Patch 2 therefore moves
+> the common parts into rk3528-nanopi.dtsi, and patch 3 adds the board on
+> top of it. The split leaves the NanoPi Zero2 hardware description
+> unchanged; I verified this by comparing the node and property sets of
+> the dtb before and after the split, which differ only in node order,
+> phandle numbering and the two renamed LED pin configuration nodes.
 > 
 > [...]
 
 Applied, thanks!
 
-[1/1] arm64: dts: rockchip: Add missing audio codec supplies to Pinebook Pro
-      commit: dd0c1c534957a1e297460edd1428b251e78b4fc5
+[1/3] dt-bindings: arm: rockchip: Add FriendlyElec NanoPi R28S
+      commit: bdcf29a379afecc02c3e99c0d1745363ad7a7407
+[2/3] arm64: dts: rockchip: Split out the common NanoPi RK3528 parts
+      commit: fdb087806e808ccc4963e2e5225fe16581ecb421
+[3/3] arm64: dts: rockchip: Add devicetree for the FriendlyElec NanoPi R28S
+      commit: c1e23f3425c49fe22e9598f8eea2fcf693950d50
 
 Best regards,
 -- 
