@@ -4,59 +4,160 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 77B3DCA5FC5
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 30 Sep 2026 15:43:27 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 51253CA5FC7
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 30 Sep 2026 15:46:12 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:Message-ID:References:In-Reply-To:Subject:CC:To:
-	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Ei5Q230346vUwWTiN4fWOcnaeUb6nzJj/5JNjB4VksQ=; b=dsrzde8j4/b9C4EKxD2XHIlV2d
-	qvxLD8xsbmOrRL3fmGDFaEVMkq11RIzAArLESAcr3R3ejPfEYMqJ1ZL3bAvv/1LPyjwYV3ekPjbHm
-	j0Kr+pRiwKQ/rVafyJuZHIjb+Rg1kgo4uK/dYgQszmMVRWfqhdsD6ehb4UlhI/8Tv8NBZVJ9s/XkF
-	3aex2Dqv4U07gMjMtmQKjz1ypU7jf71iotXtHonpoQmPCiCQz+cupUcfYsvyLEw4rVtduwKLVvGnv
-	V0Gt2YGEpiSofiF61dAmsYTseTx5ArYV4y9fl4ot+7h94SiYwJGcU82pdlS0cfouvGhWqwMx1gQKR
-	EGzEN4dg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:References:In-Reply-To:Message-ID:Date
+	:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=9gpCAGup6Nz06OzvBIAYkaGYuNmKaB3JdvYXrCJt2w0=; b=BfHOsjhyYyA/nIWyxIeu/TFTeX
+	S2HM/FpyI8rGfdVEzvZOUVf0cmUS2tqC6HMHL3KHu65I48GHTgpsT1LDQ9Y0R7RHsnkkT5tMFpPIP
+	7gPphsB0mS9FujzX8sv3xFs63hsPeEdskzwf189U4xh06cZtDGLLVUCCIe1caFRBnnqLoaenfCiyA
+	/mxmPsO4A/Y1SkK3fyRHBpaEbmSWEQMoO7CThN7eaPKqCkxI8EBfqPoXLRiBPvc3W1sZM5Ua+5P3t
+	5jvKwFPUIQ2jJxUT99quw93JypqBgXyvHqd2RjF+TmQKwqQPIA57XZIfE8x9YXAJ08ltTeoNsk4pv
+	xH6Lo1vQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xBwSk-00000006Yio-35bD;
-	Wed, 30 Sep 2026 15:43:20 +0000
-Received: from mail.mainlining.org ([5.75.144.95])
+	id 1xBwVR-00000006Z6C-2ezh;
+	Wed, 30 Sep 2026 15:46:05 +0000
+Received: from mail-westeuropeazlp170130006.outbound.protection.outlook.com ([2a01:111:f403:c201::6] helo=AM0PR02CU008.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xBwSg-00000006Yi6-33tw
+	id 1xBwVN-00000006Z58-2UdC
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 30 Sep 2026 15:43:16 +0000
-DKIM-Signature: v=1; a=rsa-sha256; s=202507r; d=mainlining.org; c=relaxed/relaxed;
-	h=Message-ID:Subject:To:From:Date; t=1790782989; bh=Ei5Q230346vUwWTiN4fWOcn
-	aeUb6nzJj/5JNjB4VksQ=; b=M3nojXhOyXdhflHUbphcVw97PMgFgP3fpH8GJMG5nJNlH9SVgV
-	iOkC4IfyWv556AnbBFJ1jxoZutOu3o0o/87tOcN4m9ZoTHXyafL3MvTYDic0ru2ghVgFM11kf8s
-	uMpgtLxZM1Vqz1McJpq7+ol8GpfDVgK3plQ3F7wDkjCMt8NN+AbRt3iKokDNUfuWpPaQQCtCFla
-	fneLojM+g0kqWqoQY5VT+EVuMQmk+KoxmX7yBuJMttU7o7cdx6icQlYABKZwQqXwBh2aXphqCXw
-	ztnng2amaja6ehrpjNq2Gw21kTBT3vMXQvpexJOdLHDFy7ECaGfttSeCa5zKnBptqKQ==;
-DKIM-Signature: v=1; a=ed25519-sha256; s=202507e; d=mainlining.org; c=relaxed/relaxed;
-	h=Message-ID:Subject:To:From:Date; t=1790782989; bh=Ei5Q230346vUwWTiN4fWOcn
-	aeUb6nzJj/5JNjB4VksQ=; b=kMuk4J7C6a0IBsLbC40lyXD3RmXoFmf71W/qwdGBjbtV7CPQPD
-	vT2rEEG6mcEQDcn5ozx91zOejq50nSjkHvBQ==;
-Date: Wed, 30 Sep 2026 16:43:09 +0100
-From: Bradley Morgan <brads@mainlining.org>
-To: Will Deacon <will@kernel.org>
-CC: Catalin Marinas <catalin.marinas@arm.com>,
- Mark Rutland <mark.rutland@arm.com>, Mark Brown <broonie@kernel.org>,
- Vladimir Murzin <vladimir.murzin@arm.com>, Ard Biesheuvel <ardb@kernel.org>,
- Kees Cook <kees@kernel.org>, linux-arm-kernel@lists.infradead.org,
- linux-kernel@vger.kernel.org
-Subject: Re: [PATCH] arm64: scrub vector and pointer auth state on task death
-In-Reply-To: <arzB_AJIohqhvoiu@willie-the-truck>
-References: <20260930063647.1356613-1-brads@mainlining.org> <arzB_AJIohqhvoiu@willie-the-truck>
-Message-ID: <F37080C2-29E6-40A7-8784-0236C5700646@mainlining.org>
-MIME-Version: 1.0
-Content-Type: text/plain;
- charset=utf-8
+	Wed, 30 Sep 2026 15:46:04 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=XXVRVYnXnt6/mEvX8Wciyo9HYpo8qTyoNTz/3mSZXV7etTzvBaWJ5i16a+hmzMVJQwQM9cZcGiBXqWLXROB0XIdVrX4SmtnyaBeJKavKyaOyq/l5RH9m9IwFhQUZDd4x2bP9HMb0BYIBk3Jwj63n0LmCRMiM7bO7vQ/6ZOeklNHPByTBwqQa0RaWF9IU/FonuZuQ1jtHZludKkRXdBE6VJvTKSA9SPr8e0Iydfhf2tz7yQDBC/ZRaekpiBbWF/pq3/HqGbu5tvzNOPId3PD2gl0GoDhvtko6Sjo6rLok9g0FFgnupZiRj6fHCCArPli21qM++KLUREgkrba+E8OG3w==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=9gpCAGup6Nz06OzvBIAYkaGYuNmKaB3JdvYXrCJt2w0=;
+ b=MmFKQi8wd2s6iuQ+fbSJQdtBqSjuRGU5z5DkhpJ3PjYfnomfKX/RIXdeiAmjJA0yvpm98fqX5DR9idNrygMXWVLwNeJ1/QBUibkZNunTb2PLoREHHTzt05MbutUvQZYP1Iy58GKcaWiJtcUYYIQ+IaTpGEFfXchrutoo2mD/N8IAx15WbOLmtGJefbCw8+TOqC5R4cyiXflglzjAiHmqgTM6XSHg3ANJ0oC45mc+XnXRnMGvzPSdH8nQeZ1T+H5+QNjvPF3SwKhfWYPfGH7MRN+cV11bVeivNyJLGtvaxvx2QUreeQ4GUbMR35/t1sZWTVOL51ZkZkEzXg3k/J7c3w==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
+ dkim=pass header.d=oss.nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
+ s=selector1-NXP1-onmicrosoft-com;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=9gpCAGup6Nz06OzvBIAYkaGYuNmKaB3JdvYXrCJt2w0=;
+ b=vpG8BtUH4L2KNjG+5gILzDp9z+6rETDU3CFOrrb38qPKoEDe5da+DNVcOzWe3Vllr6yITniivj9bWqpLVsgGuDSHSIy/si6ALF3IPmwFdE9Yqwsy+CwMV2qOCooq0Cb57FMhzCrlnnMVNFgNChb1B3PpX4P2v0c6WMMa2lIYKoXUfVxCJ5LtzElJj0uczhq9vE/6pL6f0IlvoLmAQmd/tfAK7kAynf+88Yegx1gPt57OwbjeqEptP+O3wPD+Pe9zF8TZXK5HDFTLjyKBEZmCpzqualXz9laKXgA1rrDaxlmvp0V3IySK4v7CXYi/HGhS03nk4UxOCbTxI9VQdh96iQ==
+Authentication-Results: mx.microsoft.com 1; dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=oss.nxp.com;
+Received: from GV2PR04MB11799.eurprd04.prod.outlook.com (2603:10a6:150:2cf::9)
+ by GV1PR04MB10848.eurprd04.prod.outlook.com (2603:10a6:150:20f::11) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.472.15; Wed, 30 Sep
+ 2026 15:45:54 +0000
+Received: from GV2PR04MB11799.eurprd04.prod.outlook.com
+ ([fe80::2146:83a2:5329:b7c]) by GV2PR04MB11799.eurprd04.prod.outlook.com
+ ([fe80::2146:83a2:5329:b7c%7]) with mapi id 15.21.0451.022; Wed, 30 Sep 2026
+ 15:45:54 +0000
+From: Frank.Li@oss.nxp.com
+To: Marek Vasut <marex@denx.de>,
+	Stefan Agner <stefan@agner.ch>,
+	Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
+	Maxime Ripard <mripard@kernel.org>,
+	Thomas Zimmermann <tzimmermann@suse.de>,
+	David Airlie <airlied@gmail.com>,
+	Simona Vetter <simona@ffwll.ch>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Sascha Hauer <s.hauer@pengutronix.de>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Fabio Estevam <festevam@gmail.com>,
+	Francesco Dolcini <francesco@dolcini.it>
+Cc: Frank Li <Frank.Li@nxp.com>,
+	Francesco Dolcini <francesco.dolcini@toradex.com>,
+	dri-devel@lists.freedesktop.org,
+	devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	imx@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org,
+	Laurent Pinchart <Laurent.pinchart@ideasonboard.com>,
+	Jonas Karlman <jonas@kwiboo.se>,
+	Jernej Skrabec <jernej.skrabec@gmail.com>,
+	Luca Ceresoli <luca.ceresoli@bootlin.com>,
+	Andrzej Hajda <andrzej.hajda@intel.com>,
+	Neil Armstrong <neil.armstrong@linaro.org>,
+	Robert Foss <rfoss@kernel.org>
+Subject: Re: (subset) [PATCH v5 0/4] drm: mxsfb: Support LCDIF interface bus width
+Date: Wed, 30 Sep 2026 11:45:46 -0400
+Message-ID: <179078313436.598059.17936202871523895836.b4-ty@b4>
+X-Mailer: git-send-email 2.43.0
+In-Reply-To: <20260917140042.118181-1-francesco@dolcini.it>
+References: <20260917140042.118181-1-francesco@dolcini.it>
+Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit
+X-ClientProxiedBy: PH7P220CA0101.NAMP220.PROD.OUTLOOK.COM
+ (2603:10b6:510:32d::17) To GV2PR04MB11799.eurprd04.prod.outlook.com
+ (2603:10a6:150:2cf::9)
+MIME-Version: 1.0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: GV2PR04MB11799:EE_|GV1PR04MB10848:EE_
+X-MS-Office365-Filtering-Correlation-Id: fa17baf4-a925-41c7-dc21-08df1f09e96e
+X-LD-Processed: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635,ExtAddr
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|366016|23010399003|1800799024|19092799006|376014|7416014|22082099003|18002099003|921020|3023799007|10067099003|56012099006|11063799006;
+X-Microsoft-Antispam-Message-Info: WuCPeGkcPrBOxbqRbm31TZ2KSfiOiRfStn5jSsYAJU9d9r0i4a+JZEz+8rgAGOg7j5i719yxPvsC07si7xnsJPQDTInyIKmh32SjtBehp/I5omjBkowkq/mbxa0/NN+3yQAPic9uhrLn0X6vjclebR93Uk85JtgU8u3iiOACVxk7dyKkwo3Wpt3/Rw6D0jKD2x0+wzoVNOtxmmiFLGAXA81pCxj7ZTiWwHkYar1FPJkHyXA46zl94TUSgZavGS6qJUsLufbZZroeuC24Pro1MPoLbjysOXsOziEUem2rxgai3wRregfybjOkxZpKpIbeuKnWgvSM7dxwqn5fono8XZN3EV1tfRHB5MmKhqmHFXh5atbU3SyzmRYxLXdwE+5RBuLJdbFPieKoBmEzrdbdZsP0Tw/Ngrxv5qU5U7ao7YsDx35L5Z68E+yYCCwfCbIeFlV0KS5PLhChdkRJ/rZDZ0JBkxTTor9oSmM/6rMQT2soJzU6/k+Og2di2lIlWFSLQ6HU1EEnPn9gBg8WvDnxLX8a8zkxp93HmDO1Q0V85XbJtXF9UuCOggBONcH8EPQFkk/Nu4JJllUyAWWwzcBbTnW3gRFf2FFeId1MnMYSCD/ntz5x4fNO+aZTw49BaXCEMrDaHMpCdwBtgr1XSGqmTVmLZ0Dtblu6XHDITpXKxlJPqGqn5NjIMYx9zo/MocQRtmN9wOUtKDYiPNg6EJqCpw==
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:GV2PR04MB11799.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(23010399003)(1800799024)(19092799006)(376014)(7416014)(22082099003)(18002099003)(921020)(3023799007)(10067099003)(56012099006)(11063799006);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?QlZ5ODFBZFBMRVVVMHM1czR3alFlVlVoTEUvRGxIWVVMTGxrbWVxZFAzc1ZD?=
+ =?utf-8?B?R1VMV0NGcFdvemNaOUJSR0VaS1IreXBNWURnWHp2T0tUZ2JrVHJaSVdkOExm?=
+ =?utf-8?B?R0dKL3hNclFSdGdPUExiVUZxbExYTy85cnUxSmZKRHZVdXpIdGJqdWNJS1hx?=
+ =?utf-8?B?M3J5TVYwUzJmckYzWXV2RTdSVk9USTZ4M3JBRk9qUmhsWVdrRmZld3pmMzIy?=
+ =?utf-8?B?T1V3Y3lVMFZBanVreWV2RWtkWkNCWEZtZ3dCZXpsZEw2UlZwTzZSemY5KzlJ?=
+ =?utf-8?B?eVhzM2VxVklXWFcxQ0htUndTTE5YRXdoQi9rM1gwdm1wRnc4YWwyTVdyQ0Jk?=
+ =?utf-8?B?WlRoa1plZ000TVFqeUg0TWl4NUtpV01ob2hCd3VoMGhHZFBneVBIZWhDLzdl?=
+ =?utf-8?B?YzYyTFE1QWMrZ3A0K1ExdHoyZXV1S3VrWUdMT1g4b25naE9vTG5jMStUdVFU?=
+ =?utf-8?B?T0xyR2Y5amZkWU1rU2M5a0NDRFZ5WE9Bb2ZudkhSNDRTTWhSdFg3MG41T2gr?=
+ =?utf-8?B?OXNpbHJidDhBVHY5ZW81VXlvaWlBOEhpQTJ3MVZ0cjY2S1lCdUwyTVIvK2pL?=
+ =?utf-8?B?bnh1WGg4RlF5bnFwS1JCWTEyUXVIbFR3ek4xV1p3aUxRY2NJU0xLYm9iOXlw?=
+ =?utf-8?B?SWVaYzMzUTdTbnhianp1VFRRK0dra1pmZ0FCWHJGbS9aK0t3MlJtMzdRR0FO?=
+ =?utf-8?B?R0dKdkxsQWw4aTBBMHc1dEVVSXpFTnAzdnlNV1F3MExEZ0JWeFhuKzNKL1U0?=
+ =?utf-8?B?MG1PaXIzL0c0SVV1RGlEenBLUjd3dW1nRDkyNWl0eUxhUWhiWWVIU2xlZWxG?=
+ =?utf-8?B?UWo1VXFVOFE3Q2diUUJrOStZZUxkME5zeEd3cmdsRXlJdExWRDZCNk5rWEJz?=
+ =?utf-8?B?cFJ1LzIrNDR6dXloek1RMngvSnBhR2wrYnBQZUx2bktGRFZZNVpKR204MzVL?=
+ =?utf-8?B?cld4TUNkeUJVZmJVZG1YOG5rU3htNjdReGdzTWc1UWkzMzNkNWpTQ25ZeFpM?=
+ =?utf-8?B?UXVpL09HTG0zK2RIQjhNNkgvUEN0WVY0VHJRZnRiV2xXOU41eE9mY3Z3U3BW?=
+ =?utf-8?B?Z0JqZG1lZ0R3amk2WFZoTnN4d0lRWnNGNHBndXAyVWthc3JIT3RvSHZQU0s1?=
+ =?utf-8?B?VENSbWhOTGgzUUtjcXpkM2xmbCs4RkVUMHVqb3BwakNEMWFJT29hb3cvWS9I?=
+ =?utf-8?B?SUhXL1drZjIrREtzRW10b0NRZHFWc2h2WWp2dWl0MDdwSWNBbURnSWR0Sjk4?=
+ =?utf-8?B?MTFVcWJ2alpXcW93Rk1OUGp1eEdPQmttTjhhRFQwU1htdldObXBra25WWDJ0?=
+ =?utf-8?B?cklKSkJXbitkcVR3VlJJakNzaTZpUXRpeTgyWitUTjgzVS9OR3EwbjBycWdR?=
+ =?utf-8?B?aU5lZW0rSyswYXg4d0x1bFk3UnNxOEY3cEFCR3BsT3dMMmMrSnJGSU1QZkNk?=
+ =?utf-8?B?WE1YdVNnV09EZkVJU0pHRGhlbVVyZ1ZNOW1UODdwdVN3TjZlWFcvWnErSS84?=
+ =?utf-8?B?U3lYNm9Idy9vRjc0cWVGWmVEaU95ZG13WmRnSzAxbUZPN3pNWnJ6VFllYjM1?=
+ =?utf-8?B?b2NKUy9VdlRmVldPTkg3eThuallaMHlPTENKTTVMNlVGSm5COFdkTzJvNXhH?=
+ =?utf-8?B?aTBONmwxaW9qSW5oamNzNFZOeWM1VVBVb1Z0UVFENjhZVTlVSmlwTk5KdXNX?=
+ =?utf-8?B?WnRXZDhyNWg3MkJ6MkM4Q3lvN1E2L1BSa09pdmhqcmZ1cmQ2T3FmRHBPUEFR?=
+ =?utf-8?B?T2ZUdEhiUVR2SEVaSmRVc2RacVlKdkpFNXRTYzl6aVJDaEIzRFBUREZCL1dR?=
+ =?utf-8?B?KzZEYlZlbUMxNXdCa2dnWU9oZGpub1hINnBGR1Q1YzRPMVgvVVlsdlVybDJH?=
+ =?utf-8?B?c2k3LzlqTEtLajkzUFpEYzc1T2h1OXN0L1liYzN3YVZKN3g0ZkxhOWwzQUNK?=
+ =?utf-8?B?di9sZG9uQ3dwTFdRMC82OGQ0VmNXN1dxaDNiczl2elVuR3h2c1lkc2FtTUJp?=
+ =?utf-8?B?WmpBU1g2QVcrTGJDd3BUdDRCT08zcXRuYzdwaEJxZkFrWGNac0JsZG4xTXd3?=
+ =?utf-8?B?aitGWjM5c3Z4Wk0zdmF6MVoya2M3R2FRZDRKbm45R2FVR1Q4ZSsxU1RKaTV2?=
+ =?utf-8?B?VFcyK3dBNklsdEc1OTk2M3RGcklQUms4R1BoSm55MmJCZHkzVXR4N3JlaTJQ?=
+ =?utf-8?B?N3RnaEsyeHFHVFEyMzJHQ21nNVVSaEdrVFFpcHAxY3V2QTN6emVpaDJ3djNR?=
+ =?utf-8?B?KzJVZ2J3bkRvU25ORnozeWF0dkZHWi92bHorVVBZNndEMDZURDJEMlE4SjVn?=
+ =?utf-8?B?T2t4TkR1cGVRdExYdThaODM1bWh5OHlvdWVjTFN0dkZzTnhCRmEwa2NLMmdI?=
+ =?utf-8?Q?VaHehtBh16j/bI1aGonXnuageNJ3KKWhPMi+Y?=
+X-OriginatorOrg: oss.nxp.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: fa17baf4-a925-41c7-dc21-08df1f09e96e
+X-MS-Exchange-CrossTenant-AuthSource: GV2PR04MB11799.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 30 Sep 2026 15:45:54.4396
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: U4ids3Z3nrGP/sZ5xTyy1nvEr0ZZIAijBqNIo7HZXFsJj5OffbbboDlJ4vd1R0gzvurJzA377aq7i8z90E77kNicl1zJBQ/u8vEBLkD11eDRwG81JYtwZn7aZvO/VpAC
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: GV1PR04MB10848
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260930_084314_918912_3208C5E6 
-X-CRM114-Status: GOOD (  19.69  )
+X-CRM114-CacheID: sfid-20260930_084603_429962_B4E9B358 
+X-CRM114-Status: GOOD (  11.79  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -71,84 +172,33 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 30 September 2026 09:02:04 BST, Will Deacon <will@kernel.org> wrote:
->On Wed, Sep 30, 2026 at 06:36:47AM +0000, Bradley Morgan wrote:
->> When a task dies its SVE, SME and FPSIMD register state, and its
->> pointer auth keys, stay in freed slab pages until the allocator hands
->> them out again. init_on_free=1 users get this wiped for the whole heap
->> but the option is expensive, so it is off in most builds.
->> 
->> The vector registers are not idle memory: userspace crypto runs
->> AES-GCM and Argon2 through SVE, so key material ends up in
->> sve_state, sme_state and thread_struct. On task exit and on the
->> exec and vector length reallocation paths those buffers are
->> dropped with a plain kfree(), and on task death the register file
->> copy embedded in thread_struct is not wiped at all. Anything that
->> reads the freed slab back (slab bugs, cold boot, a leaked page)
->> gets the dead task's keys.
->> 
->> Scrub it. kfree_sensitive() already exists for this exact job,
->> so the freeing sites just switch to it. The register file copy
->> and the pointer auth keys embedded in thread_struct cannot go
->> through kfree_sensitive(), so arch_release_task_struct() zeroes
->> them directly with memzero_explicit().
->
->I don't really find this very compelling, tbh. Presumably this data can
->end up all over the place: on the stack, in a vCPU structure, in a GPR
->so it really just feels like doing something for the sake of feeling like
->we're making the kernel more secure rather than actually adding any
->tangible benefits. There are also lots of things you're not covering,
->so it's not clear why this is either necessary or sufficient.
->
->What prompted you to do this?
->
-
-Hi Will,
-
-I may be completely wrong here, but the "it ends up all over the place
-anyway" argument applies to the keys subsystem too, and we still scrub
-there. big_key, dh and friends use kfree_sensitive() on free, with the
-same acknowledgment that the key material passed through other memory
-on the way. iirc nobody argued those were pointless because the key
-also touched a stack or a GPR.
-
-The buffers here are not spill corners either:
-
-- sve_state is the task's whole vector register file, up to ~8KB, and
-  it holds whatever userspace crypto left there. OpenSSL has SVE2 AES
-  GCM assembly these days, so keys do end up in exactly this buffer
-- uw.fpsimd_state is 528 bytes of register file embedded in every
-  task_struct, one slab bug in that file away from being read
-
-And init_on_free, KSTACK_ERASE and kfree_sensitive itself are all the
-same idea, memory that held crypto state should not outlive its task.
-This is just the scoped version, a few KB of memset on task death and
-nothing anywhere else. Still true on today's next btw, sve_free() and
-friends are plain kfree() there.
+From: Frank Li <Frank.Li@nxp.com>
 
 
-Honestly what prompted me to do this is, an audit of where a dead task's
-secrets
-stay.
-sve_state and
-sme_state free with plain kfree() on a path every exiting task takes,
-that was the whole trigger.
+On Thu, 17 Sep 2026 16:00:35 +0200, Francesco Dolcini wrote:
+> From: Francesco Dolcini <francesco.dolcini@toradex.com>
+> 
+> The width of the physical LCDIF output bus can differ from the input bus
+> format advertised by the downstream panel or bridge.
+> 
+> Such a distinction is required when the LCDIF bus width does not match the
+> width of the downstream display interface. For example, an 18-bit or
+> 16-bit LCDIF bus can drive a 24-bit display by wiring the available color
+> bits to the appropriate display inputs. Configuring LCDIF solely from the
+> display's 24-bit format in this case selects the wrong LCD_DATABUS_WIDTH
+> mode, changing the color-bit assignment on the LCD_DATA pins and resulting
+> in incorrect colors.
+> 
+> [...]
 
-But if "not necessary and not sufficient" is the bar, it bounces the
-keys precedent too, and I don't think you want to argue that. If the
-bar for arm64 is different from the one keys lives with, that's fine,
-I'll drop it, I'd just like to know where it is.
+Applied, thanks!
 
+[3/4] ARM: dts: imx6ull-colibri: Set LCDIF bus width
+      commit: b1818c5bc05407c6c0ce39898e76f609b4c94199
+[4/4] ARM: dts: imx7-colibri: Set LCDIF bus width
+      commit: bc7c81213293966faaef1e41a624a9092ae89429
 
->Will
->
->P.S. This ended up in my spam for some reason.
-
-Maybe this ended up on spam too?
-
-https://lore.kernel.org/all/20260919121044.13883-1-brads@mainlining.org/
-
-
---- Thanks!
-"I'm not a very positive person" - Linus torvalds
+Best regards,
+-- 
+Frank Li <Frank.Li@nxp.com>
 
