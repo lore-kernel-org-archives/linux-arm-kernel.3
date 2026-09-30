@@ -4,91 +4,87 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E7B91CA5FC4
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 30 Sep 2026 18:40:36 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B9A80CA5FC4
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 30 Sep 2026 18:44:46 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
-	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Transfer-Encoding:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=Sudsrgh6olVvguill/NXjWeyuYPJdT70+yOGXWlPI0g=; b=dsFEhhSIDeP8C4EEvmpBpF4COZ
-	t8J/xX6QimK+gFi44VdR6ms72+MgmFMkaHY1j2GT/B6wuTU/Q0ZVibodC2kAdjO1lNddiYv6gWU6N
-	RrtAQX4dRjnDuhgnN6qsrCPCwTMlhUz+rOW5nBSka561W3lrxr02xcTasi3bZyicny4yYhcpWHkYR
-	Nw5rwciOGgz+pYiabzj7pZ3hq89ubztu8UO5i9w4JR8/RnN6B+zMjcgBnGhFRBW9WIeTASEnH1/l2
-	idq/Ccx90THZkT0YLRf//Aq+Zf8RqysI+1ZhMoMkRm3pF7HOj5KoXM6t2vo6duDlmXeYpL9ZmFwUU
-	KR6uPNtw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=61Gs06PWtL2TyJGkjV26Z9Jo7iWrYxYHYfMErUQ3O8U=; b=z6033KETkYFowEAnouVIyl3umn
+	qdvtKCxgDgExbxNXWlGq+9QlcoC8nY87RC1xVett3rBvzF0p83PhWyW7G2YLKrSC3SkLIBAMPB9kd
+	YJvyKsLvW9mYZDnTTIcKQbPwk13L0EIZ3dMnKvyn8YwaM2Ot0jcKIzkduZpwySAxRYFzf0leemDqE
+	jD0XTujEyTvF043erXv1fIgcg7dAXYl5OprDWTJYqhd347kMWpe2r1yooYN44d5EhjyP9eLI8cvUR
+	e8Uw4V0UnpZbltb54IZZL+gK6mpYI6BtmaG44S9QPZsh/PjGlimL7nKZFnqv2QD1ekLq38Py0RMmU
+	hPEbP4uw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xBzED-00000006zkv-16qg;
-	Wed, 30 Sep 2026 18:40:29 +0000
-Received: from mail-wr2-x0e.google.com ([2a00:1450:4864:30::e])
+	id 1xBzIE-000000070Ai-35H2;
+	Wed, 30 Sep 2026 18:44:38 +0000
+Received: from mout.gmx.net ([212.227.15.15])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xBzEB-00000006zju-0Peb
-	for linux-arm-kernel@lists.infradead.org;
-	Wed, 30 Sep 2026 18:40:28 +0000
-Received: by mail-wr2-x0e.google.com with SMTP id ffacd0b85a97d-48aff58e6abso699987f8f.3
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 30 Sep 2026 11:40:26 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1790793625; x=1791398425; darn=lists.infradead.org;
-        h=content-type:mime-version:message-id:date:subject:cc:to:from:from
-         :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=Sudsrgh6olVvguill/NXjWeyuYPJdT70+yOGXWlPI0g=;
-        b=EMkfO5zb3xJcgX98bWilRkV1RB5ekLd7oZ88XkjDXkiL21HxzJYDPUCGNRxl9ztUrk
-         tFApiVeokdaY07pyjQ4c4ijjP3smYxdGEiI/C1eEqSd7/0fqoRfK80Cx99h8nvjkSX06
-         RmSyEzf/mBedMr4J4K70UmWkcrhcM8khU21SQ341FlI+tQ6HO0olJAv7AUH+q5HHGXqL
-         lc75+jDkfo7IR4CFARN8x1DoB5isz8UonxVd/YXJJKGcrANgeTpoC7ugP12KnjvMfp/q
-         gejgPxyCOR00ZnafO/21XFSLo/4hTgElGhe0iEITWF3cwWFLPfPWk3IK5hQAGp4oks+D
-         rPYg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1790793625; x=1791398425;
-        h=content-type:mime-version:message-id:date:subject:cc:to:from
-         :x-gm-gg:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to:content-type;
-        bh=Sudsrgh6olVvguill/NXjWeyuYPJdT70+yOGXWlPI0g=;
-        b=vLM6P/zsjoyoXSTpjh/IWUmUCAWxdKsqb2XNyVrZWztcy1mpOQNCzV0sPV+6wR2pld
-         cv7TE0KjSsO48wh9eMdRdPfd3DH3pRRg0PZVBmKFumYnCCysAqp4HQaCCYcFCE0d/u+j
-         n7mDl7RjcJDqWLLFcq4qPlHqDzazCp8ATAcMQf9hd/Ui23p8/8r92tXf6jEF2mDVJuo2
-         V3Sa2sP0Pf7lRhnOpfVO9Ju3k5cvTEMIVgqH2XYL1kXztugOzv38Ox4bIOQH1LRDnfRp
-         tyWWeoJ73Fp8/YTgxMVrD0WSnlAGAZVy7lhYmWUVfaUzHrn5W6brbtVxLzTTfWCzjk+r
-         W3CQ==
-X-Forwarded-Encrypted: i=1; AKwUvBzS7VVBqJWiVcAew3Q5IuQQ5ELeieQBiVh1SGKSYE3xgZfvowWqHXUyJxnratnGeGJEcF5PbTaBJxP4FiG67rdi@lists.infradead.org
-X-Gm-Message-State: AFq9FYKUsdtAQWNMpBKDfXhPH1o3L4IxrGOdy9pYt/N5DbmUfP9EqZT8
-	incqeGDI4sx79ZiBhiWiBOw+mmmLyvsUk35XnezAx3bt+BCwxe1YxPn9
-X-Gm-Gg: AYBFou2gwVg6gTbqAnYc7UK24+O7T/qPKh3cWtbA2oN+94bgi29ya8c+wo4R88nMqft
-	lkKx3hry+iNZhMmXdAaafzBPmzitBO/SEvvj2ODVJgtzk7qW8/eorGmzSGEZ9BptzUsSGCkKE67
-	B40n5DfmvYHwPFpw9bhcflBdxcnaHmVg1fFp9wBkeIs1W3nkDqMUQk3oufR/nJ/tqAyv+rMUq0F
-	S60LsMly0+8jWzh8+EqFgdtAfuZjmjl6iqEwDog+k9/UwpC4RYfLIkV8aCMpNIImcQ0/MDOlOuV
-	iYyma465lJJPF5cIySHMDJqWjQZ5f8GLv76sGDHbLGL54lZW0MC+c3mMRvK/4+dN/Fa3cQZOSBd
-	ebLQK2mSA03GRYIYgIp0yUpJVVnDivyQQgIsPF8hs7f88TBF8Ojf06w5P6jiOCkCCisDOIO4wc/
-	SUyqe8jyPt8P6C66E+LeFkQH8zlDtoNGbvcFyN5Su0iHc03acrtyP68CbabKSW+oxZHYmSrMhyF
-	/FmE3S4NmU=
-X-Received: by 2002:a5d:5d0c:0:b0:488:8132:143d with SMTP id ffacd0b85a97d-48b024df747mr4886436f8f.19.1790793624363;
-        Wed, 30 Sep 2026 11:40:24 -0700 (PDT)
-Received: from strix.localnet ([197.250.96.176])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-48b068ff6c1sm1063999f8f.13.2026.09.30.11.40.20
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 30 Sep 2026 11:40:23 -0700 (PDT)
-From: Stefan =?UTF-8?B?RMO2c2luZ2Vy?= <stefandoesinger@gmail.com>
-To: linux-clk@vger.kernel.org
-Cc: Brian Masney <bmasney+clk@redhat.com>, Conor Dooley <conor+dt@kernel.org>,
- devicetree@vger.kernel.org, Jerome Brunet <jbrunet+clk@baylibre.com>,
- Krzysztof Kozlowski <krzk+dt@kernel.org>,
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
- linux-phy@lists.infradead.org, Manivannan Sadhasivam <mani@kernel.org>,
- Neil Armstrong <neil.armstrong@linaro.org>,
- Philipp Zabel <p.zabel@pengutronix.de>, Rob Herring <robh@kernel.org>,
- Stephen Boyd <sboyd@kernel.org>, Vinod Koul <vkoul@kernel.org>,
- mturquette@baylibre.com
-Subject: [GIT PULL] clk: zte: zx297520v3 clock bindings and driver
-Date: Wed, 30 Sep 2026 21:40:12 +0300
-Message-ID: <LTD3_tELRsyCnoeF8FU_TQ@gmail.com>
+	id 1xBzIA-0000000709t-3JZD;
+	Wed, 30 Sep 2026 18:44:37 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=gmx.net;
+	s=s31663417; t=1790793868; x=1791398668; i=wahrenst@gmx.net;
+	bh=61Gs06PWtL2TyJGkjV26Z9Jo7iWrYxYHYfMErUQ3O8U=;
+	h=X-UI-Sender-Class:Message-ID:Date:MIME-Version:Subject:To:Cc:
+	 References:From:In-Reply-To:Content-Type:
+	 Content-Transfer-Encoding:cc:content-transfer-encoding:
+	 content-type:date:from:message-id:mime-version:reply-to:subject:
+	 to;
+	b=AC0iUQ696uyBHGTZVMJ4B4SPigpPPshR+yUBB/fg6yn3GiEXAevcgHlM63p5oDzY
+	 haknseycJJXOgFfM1eHTwFmsdpQ+SkxDJgRRi/y6zot8U0Jj1Bq0yzKFQhy+UhR4p
+	 0RePxHJTMlUigWSq8UleBKBUYqbyLnv0hBjVdkCLrrc1DMo/yXFbOQ9qrG2kmWvgK
+	 s7U/J6Px7xCmgM4cWwlVSJ68RNVRtZWNC11l3+E/jsJj0ndLKDZ8LVwenBnw4p7k9
+	 mVLUoegqX0HjLa8KoZhJKMJHDIP20chDroKJl0QV6HSWQehel9ZvRYRuDLmRzr4FX
+	 YiQSR+LT0195T5YDPw==
+X-UI-Sender-Class: 724b4f7f-cbec-4199-ad4e-598c01a50d3a
+Received: from client.hidden.invalid by mail.gmx.net (mrgmx004
+ [212.227.17.190]) with ESMTPSA (Nemesis) id 1M89Kr-1x7qhD1KiZ-0064yz; Wed, 30
+ Sep 2026 20:44:28 +0200
+Message-ID: <550045ab-fe74-4445-8f6c-4a031f5b436b@gmx.net>
+Date: Wed, 30 Sep 2026 20:44:26 +0200
 MIME-Version: 1.0
-Content-Type: multipart/signed; boundary="nextPartulVVFYPFRfOzbNRxaXxRQA";
- micalg="pgp-sha256"; protocol="application/pgp-signature"
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v8 2/2] rtc: Add Raspberry Pi 5 RTC driver
+To: Sander Speetjens <sander.speetjens@gmail.com>
+Cc: Alexandre Belloni <alexandre.belloni@bootlin.com>,
+ Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+ Conor Dooley <conor+dt@kernel.org>,
+ Florian Fainelli <florian.fainelli@broadcom.com>,
+ Jonathan Bell <jonathan@raspberrypi.com>, linux-rtc@vger.kernel.org,
+ devicetree@vger.kernel.org, linux-rpi-kernel@lists.infradead.org,
+ linux-arm-kernel@lists.infradead.org, pbrobinson@gmail.com,
+ Dom Cobley <popcornmix@gmail.com>
+References: <20260930095203.492949-1-sander.speetjens@gmail.com>
+ <20260930095203.492949-3-sander.speetjens@gmail.com>
+ <7441de5b-e9a6-4080-b312-d6c7123fdcde@gmx.net>
+ <2872a37d-4f24-4429-aba5-34f020740821@gmail.com>
+Content-Language: en-US
+From: Stefan Wahren <wahrenst@gmx.net>
+Autocrypt: addr=wahrenst@gmx.net; keydata=
+ xjMEZ1dOJBYJKwYBBAHaRw8BAQdA7H2MMG3q8FV7kAPko5vOAeaa4UA1I0hMgga1j5iYTTvN
+ IFN0ZWZhbiBXYWhyZW4gPHdhaHJlbnN0QGdteC5uZXQ+wo8EExYIADcWIQT3FXg+ApsOhPDN
+ NNFuwvLLwiAwigUCZ1dOJAUJB4TOAAIbAwQLCQgHBRUICQoLBRYCAwEAAAoJEG7C8svCIDCK
+ JQ4BAP4Y9uuHAxbAhHSQf6UZ+hl5BDznsZVBJvH8cZe2dSZ6AQCNgoc1Lxw1tvPscuC1Jd1C
+ TZomrGfQI47OiiJ3vGktBc44BGdXTiQSCisGAQQBl1UBBQEBB0B5M0B2E2XxySUQhU6emMYx
+ f5QR/BrEK0hs3bLT6Hb9WgMBCAfCfgQYFggAJhYhBPcVeD4Cmw6E8M000W7C8svCIDCKBQJn
+ V04kBQkHhM4AAhsMAAoJEG7C8svCIDCKJxoA/i+kqD5bphZEucrJHw77ujnOQbiKY2rLb0pE
+ aHMQoiECAQDVbj827W1Yai/0XEABIr8Ci6a+/qZ8Vz6MZzL5GJosAA==
+In-Reply-To: <2872a37d-4f24-4429-aba5-34f020740821@gmail.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: quoted-printable
+X-Provags-ID: V03:K1:SXHOOm8lNy1EusNCGXiNQ/icdsKa4sPXpM7gBXfOFQ2Usqwf97J
+ RXzaeXRK3jU8cBAXh8xJll2n7WV8R8FsivlRhdw0vGf8elttTuZOHcpPY3W+K+O+2Liurxc
+ EE++J/wHx4ifHN7aAtrMK178v/OTzklA1L6s5Tm8I/yMbyabYriBqoZkqOWdDksJesbQtf0
+ S9GnvsKiaFggmfPYdv2NQ==
+UI-OutboundReport: notjunk:1;M01:P0:LB5Xoeesj0U=;XQFKMqzrKefoRKWqXWNwJHgXdU8 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 Z5txmkInBId2n
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260930_114027_180119_DCD59E5B 
-X-CRM114-Status: GOOD (  14.74  )
+X-CRM114-CacheID: sfid-20260930_114435_478937_98B30246 
+X-CRM114-Status: GOOD (  24.41  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -103,146 +99,78 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
---nextPartulVVFYPFRfOzbNRxaXxRQA
-Content-Transfer-Encoding: quoted-printable
-Content-Type: text/plain; charset="utf-8"; protected-headers="v1"
-From: Stefan =?UTF-8?B?RMO2c2luZ2Vy?= <stefandoesinger@gmail.com>
-To: linux-clk@vger.kernel.org
-Subject: [GIT PULL] clk: zte: zx297520v3 clock bindings and driver
-Date: Wed, 30 Sep 2026 21:40:12 +0300
-Message-ID: <LTD3_tELRsyCnoeF8FU_TQ@gmail.com>
-MIME-Version: 1.0
+Am 30.09.26 um 19:29 schrieb Sander Speetjens:
+> Hi Stefan,
+>
+>>> +=C2=A0=C2=A0=C2=A0 // Check if our model is a Raspberry Pi 5, as the =
+RTC is only=20
+>>> present on that model.
+>>> +=C2=A0=C2=A0=C2=A0 if (!of_machine_is_compatible("brcm,bcm2712"))
+>>> +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 return;
+>> I don't like the comment, because it doesn't check for Raspberry Pi=20
+>> 5, the code checks for a BCM2712 SoC which could also be on a CM5 or=20
+>> a Raspberry Pi 500+=20
+> I changed it to BCM2712, but isn't RPi 5 the generation/platform name=20
+> and RPi 5b the specific board?
+The specific model name for the Raspberry Pi 5 board is "Raspberry Pi 5"=
+=20
+and it's devicetree compatible is "raspberrypi,5-model-b". Both doesn't=20
+have anything to do with the generation. "brcm,bcm2712" is the used=20
+System on chip (SoC), which is common for all board of the 5th generation.
 
-Hi,
-
-This pull request contains the device tree bindings and clock driver for ZTE
-zx297520v3 boards. It contains the next step in adding support for
-zx297520v3 boards: Documenting clock and reset manager hardware and
-adding drivers for its PLLs and clock tree.
-
-The patches have been reviewed and carry appropriate R-B tags by Krzysztof =
-Kozlowski (bindings) and Conor Dooley (clk driver).
-
-The PR does not contain the MFD, reset and device tree patches. They
-will be submitted to the MFD, reset and soc trees respectively. The
-clock driver compiles without them, but won't be instantiated without
-the MFD parent.
-
-The following changes since commit b1470947e92aeedd522ddb7363369c956e55d6b6:
-
-  Merge branch 'clk-pile' into clk-next (2026-09-29 14:14:32 -0400)
-
-are available in the Git repository at:
-
-  https://gitlab.com/stefandoesinger/zx297520-kernel.git tags/zx29-clk-for-=
-7.4
-
-for you to fetch changes up to 89e2c0fa481f6a0da23ad5c4dc98bcd940f09fd2:
-
-  clk: zte: Introduce a driver for zx297520v3 LSP clocks (2026-09-30 20:03:=
-29 +0300)
-
-=2D---------------------------------------------------------------
-clk: zte: Add clock drivers for zx297520v3 SoC
-
-This tag contains the device tree bindings and clock driver for ZTE
-zx297520v3 boards. It contains the next step in adding support for
-zx297520v3 boards: Documenting clock and reset manager hardware and
-adding drivers for its PLLs and clock tree.
-
-The PR does not contain the MFD, reset and device tree patches. They
-will be submitted to the MFD, reset and soc trees respectively. The
-clock driver compiles without them, but won't be instantiated without
-the MFD parent.
-
-=2D---------------------------------------------------------------
-Stefan D=C3=B6singer (9):
-      dt-bindings: clk: zte: Add zx297520v3 top clock and reset controller
-      dt-bindings: clk: zte: Add zx297520v3 matrix clock and reset controll=
-er
-      dt-bindings: clk: zte: Add zx297520v3 LSP clock and reset controller
-      clk: zte: Add Clock registration infrastructure
-      clk: zte: Add regmap-based clocks
-      clk: zte: Add zx PLL support infrastructure
-      clk: zte: Introduce a driver for zx297520v3 top clocks
-      clk: zte: Introduce a driver for zx297520v3 matrix clocks
-      clk: zte: Introduce a driver for zx297520v3 LSP clocks
-
- Documentation/devicetree/bindings/clock/zte,zx297520v3-lspcrm.yaml    |  1=
-01 ++
- Documentation/devicetree/bindings/clock/zte,zx297520v3-matrixcrm.yaml |   =
-98 ++
- Documentation/devicetree/bindings/clock/zte,zx297520v3-topcrm.yaml    |  1=
-22 +++
- MAINTAINERS                                                           |   =
- 7 +
- drivers/clk/Kconfig                                                   |   =
- 1 +
- drivers/clk/Makefile                                                  |   =
- 1 +
- drivers/clk/zte/Kconfig                                               |   =
-28 +
- drivers/clk/zte/Makefile                                              |   =
- 6 +
- drivers/clk/zte/clk-regmap.c                                          |  2=
-37 +++++
- drivers/clk/zte/clk-zx.c                                              |  1=
-92 ++++
- drivers/clk/zte/clk-zx.h                                              |  1=
-37 +++
- drivers/clk/zte/clk-zx297520v3.c                                      | 16=
-57 +++++++++++++++++++++++++++++++++
- drivers/clk/zte/pll-zx.c                                              |  5=
-76 ++++++++++++
- include/dt-bindings/clock/zte,zx297520v3-clk.h                        |  1=
-54 +++
- include/dt-bindings/phy/zte,zx297520v3-topcrm.h                       |   =
-12 +
- include/dt-bindings/reset/zte,zx297520v3-reset.h                      |   =
-62 ++
- 16 files changed, 3391 insertions(+)
- create mode 100644 Documentation/devicetree/bindings/clock/zte,zx297520v3-=
-lspcrm.yaml
- create mode 100644 Documentation/devicetree/bindings/clock/zte,zx297520v3-=
-matrixcrm.yaml
- create mode 100644 Documentation/devicetree/bindings/clock/zte,zx297520v3-=
-topcrm.yaml
- create mode 100644 drivers/clk/zte/Kconfig
- create mode 100644 drivers/clk/zte/Makefile
- create mode 100644 drivers/clk/zte/clk-regmap.c
- create mode 100644 drivers/clk/zte/clk-zx.c
- create mode 100644 drivers/clk/zte/clk-zx.h
- create mode 100644 drivers/clk/zte/clk-zx297520v3.c
- create mode 100644 drivers/clk/zte/pll-zx.c
- create mode 100644 include/dt-bindings/clock/zte,zx297520v3-clk.h
- create mode 100644 include/dt-bindings/phy/zte,zx297520v3-topcrm.h
- create mode 100644 include/dt-bindings/reset/zte,zx297520v3-reset.h
-
---nextPartulVVFYPFRfOzbNRxaXxRQA
-Content-Type: application/pgp-signature; name="signature.asc"
-Content-Description: This is a digitally signed message part.
-Content-Transfer-Encoding: 7Bit
-
------BEGIN PGP SIGNATURE-----
-
-iQJPBAABCAA5FiEEQxb0tqoFWyeVMl1sPRO8yFRPGiIFAmq9V4wbFIAAAAAABAAO
-bWFudTIsMi41KzEuMTIsMiwyAAoJED0TvMhUTxois3cQAKOqW1nSvwLMITtTcza2
-Vdp9CeR6iivrtbKOMsiIk4809MI5SPaDrZFTRhGptF1lkghAVFzE4/C142dNneqi
-WS1IWjBaka+M4nOj8ytObhnAw4aDfykrhsTbf728cm5NREgu40tbKntocyBAVZ/9
-lhmCkEYxNdFf9XmkdccrWzFzz0frS76WMl49qqGtKx4wMHLyy5if01smKb/s7++d
-N64P2US67mjeHpEARXF59w57dsyBJeBOO52m/WvN2SnBE6RDdczhOSyhxVHj/TMQ
-UdhoCB/8qBLeHgiMXlc0E6Z8/JepjhF0COQ2N47RQ68hwl3u1jFQdOxuGVvhUKOG
-WYqKt43r4MLjBv9IInWAhT+C0hUrNeJ+sM1nnVQcnLW4liwjl4x2FOxGRjqnvKdq
-b5tIcljluruQuR59Zm0v0EjPxEAcWCZdC635QIkSpkTaLdQAS2jJ5vkmghy6v8Bx
-Hjn8zxLFFeqoyhUOtK3d8JXvAWh/OkA+TgC7l5pbPqe8utUYyoT157nsTu8cVMHj
-hZbZpr9dUpG5SH8kg10o9QPqIXPAhaqJtPSNFKEu04mhtaCcrbMOlo0c9gJBjefW
-UN/hh2zY88uedgd0O+QAdSe+DAJQ5iZ7ZRGcP6Yx9i88QNepx5BZFGueC9v1aWls
-MmfTH79WEXLfNxj7sch8COSO
-=tmC8
------END PGP SIGNATURE-----
-
---nextPartulVVFYPFRfOzbNRxaXxRQA--
-
-
+So you can write something like
+// Check if our Raspberry Pi board is from the 5th gen ...
+>
+>>> +#define RPI_FIRMWARE_GET_RTC_REG 0x00030087
+>>> +#define RPI_FIRMWARE_SET_RTC_REG 0x00038087
+>> Was there a specific reason to not include these defines to=20
+>> include/soc/bcm2835/raspberry-pi-firmware.h as all the others=20
+>> firmware tags?=20
+> No specific reason, this is how Raspberry Pi originally did it, I=20
+> moved them to raspberrypi-firmware.h
+>
+>>> +
+>>> +enum {
+>>> +=C2=A0=C2=A0=C2=A0 RTC_TIME,
+>>> +=C2=A0=C2=A0=C2=A0 RTC_ALARM,
+>>> +=C2=A0=C2=A0=C2=A0 RTC_ALARM_PENDING,
+>>> +=C2=A0=C2=A0=C2=A0 RTC_ALARM_ENABLE,
+>>> +=C2=A0=C2=A0=C2=A0 RTC_BBAT_CHG_VOLTS,
+>>> +=C2=A0=C2=A0=C2=A0 RTC_BBAT_CHG_VOLTS_MIN,
+>>> +=C2=A0=C2=A0=C2=A0 RTC_BBAT_CHG_VOLTS_MAX,
+>>> +=C2=A0=C2=A0=C2=A0 RTC_BBAT_VOLTS
+>>> +};
+>> Hm, an enum suggests that we simply can add / remove items, but=20
+>> that's not the case. The Raspberry Pi firmware defines the values.
+> Should I also move those to raspberrypi-firmware.h or is this not what=
+=20
+> you imply?
+No this wasn't my implication. One way to make this ABI more explicit=20
+would be to use #define. I think there is no need to move to=20
+raspberrypi-firmware.
+>
+>> In case rpi_rtc_set_limits() fails, both limit would be initialized=20
+>> with 0 and this always fail. Maybe we should dev_warn to=20
+>> rpi_rtc_set_limits()?
+>
+> I added a warning for failing to set the min and max values.
+>
+>> Just to be sure, both calls are optional and not critical for the=20
+>> drivers function?
+>> Why does rpi_rtc_set_charge_voltage have a return value at all?
+> I removed the return value
+>
+>>> +MODULE_ALIAS("platform:raspberrypi-rtc");
+>> Is this really necessary for module autoloading?
+> I'm not sure, it was used in the previous versions when using the=20
+> platform device register on the register_clk driver before it had a=20
+> custom dt node.
+You can test by removing the line and compile it as a module. In case=20
+the RTC driver is still automatically loaded, we can drop it.
+>
+>
+> Kind regards,
+>
+> Sander Speetjens
 
 
