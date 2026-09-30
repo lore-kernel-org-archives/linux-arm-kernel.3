@@ -4,70 +4,65 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DB14ECA5FA5
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 30 Sep 2026 00:49:57 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 427F2CA5FAD
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 30 Sep 2026 01:09:41 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Message-ID:Subject:Cc:To:
-	From:Date:Reply-To:MIME-Version:Content-Type:Content-Transfer-Encoding:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=eBv61ubj2emRkvPP3z2FQUUFpl5Duaa1ehfWKovlraw=; b=4boYEMroq8Dxvfagq1QR1uhVHr
-	R04robkmadKlSa761M/Jsq1cDrSxtbLAcUjn31HWFJlebpHFMI39WSpcCNrPje8zC50/4J3KtpCsl
-	qmRNQjWN/GixOCU3LGTL7d2O8jvmofCCE7iOEhWsLmYz9lj8wh1nJR0P3xdKfz8o8mDmeHT+ZrmuK
-	0r0sOPoJencPoYIQQ5fnLkMDNBk74auVorU7TLzKmWU6L2PJDbgKN1nguNS0T0ICCfRzt3SuHqs7s
-	uWCEWt2AuGFcoBYwGNWAJ/Pbkl/NnpsqT/uNWdoTEgkiV3qyD6WkDeWpofw4/xxRUUb8RBPykMN1o
-	Ejsr215A==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:To:
+	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=u4G3sKWZIlCfo2hjBMDIfRgFkOo3aOxVZX09z7zcj3o=; b=bGYDCTCWxUFLTg3UM7EynuLaX0
+	v+2nEEz3NEc7PK/cneyyN7Me3RH6qv+3FN4h7Fd93bG3WK2TjFkHiTLbIu6dWKXU+U6fPdZenJMV/
+	JUw3mwzLDp1tPjIuP4BfY/qmUxnTy95Q3s7KdHUoJsC+oGz7gYI/sbxYCUlxzbEKcFLkQs4igJ4yC
+	dfTeD63aezYu37tK4xNGfMWY61aDLxAiL+yNxx7cNR8ZGQe4hSmwNlfY3T+kZgZAXSKzPuz3KYJ3O
+	ch8dH86cy02H86Qc2d1YGavpKwLHrEkle9m7UZAM2lOwJmE4uPdXgCajUl4sVX+4HewE9xvISZWyl
+	z8w5TubA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xBiW6-00000004qEs-1gIS;
-	Wed, 30 Sep 2026 00:49:50 +0000
-Received: from mgamail.intel.com ([198.175.65.17])
+	id 1xBipA-00000004qvj-17Mv;
+	Wed, 30 Sep 2026 01:09:32 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xBiW3-00000004qEW-48k0
+	id 1xBip8-00000004qvV-2V1W
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 30 Sep 2026 00:49:49 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1790729388; x=1822265388;
-  h=date:from:to:cc:subject:message-id;
-  bh=RqY47s1tER4u4T6dyOHTy778kipnXbCce72DTFocvzU=;
-  b=dr0oARKlWapPE1V3Rv1dYZnkldbTulgEAv9RzW9FwKCN4URzwbN9YuUC
-   f78ug0yoBijzVupxueCaUB5wiOJ39FLDtcfQXp51OhA2G4W+lZFfn9SuZ
-   ZwEr30xuHAdzmLs0gnNF9kwkEhlt/1uvpCJVEJzRdpuOPVeEKK9Gt4V1r
-   WyCXyR1Wlz+o/YrMhd05FiNuJ3cjvpYmpj4OD+SQqdoojdA5o8ScBKfVP
-   dDo6/3E5+z0wpRMr+0ACf1XEO9+JdrcdAlGsR8eBvHYdzAObUCotGPewP
-   WXo1NmeC6CZV4nhT0cW0P8tRgjK/oh4ImULRKiHy2rKfODTnKo25xcuhJ
-   Q==;
-X-CSE-ConnectionGUID: ij7WRkjJQVmJqeoLuUTWzw==
-X-CSE-MsgGUID: +Fk2CDr+QD2NBu6fZvBAYw==
-X-IronPort-AV: E=McAfee;i="6800,10657,11920"; a="90502780"
-X-IronPort-AV: E=Sophos;i="6.27,130,1787036400"; 
-   d="scan'208";a="90502780"
-Received: from orviesa006.jf.intel.com ([10.64.159.146])
-  by orvoesa109.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 29 Sep 2026 17:49:47 -0700
-X-CSE-ConnectionGUID: N1ou1Gj7RVKSPY0I1u/RMQ==
-X-CSE-MsgGUID: Z7e1b9YPR9GjKK1JyrOG4w==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.27,130,1787036400"; 
-   d="scan'208";a="273302261"
-Received: from igk-lkp-server01.igk.intel.com (HELO 04362d00df5a) ([10.211.93.152])
-  by orviesa006.jf.intel.com with ESMTP; 29 Sep 2026 17:49:45 -0700
-Received: from kbuild by 04362d00df5a with local (Exim 4.98.2)
-	(envelope-from <lkp@intel.com>)
-	id 1xBiVz-000000001eR-1v7M;
-	Wed, 30 Sep 2026 00:49:43 +0000
-Date: Wed, 30 Sep 2026 02:49:00 +0200
-From: kernel test robot <lkp@intel.com>
-To: Marc Zyngier <maz@kernel.org>
-Cc: oe-kbuild-all@lists.linux.dev, linux-arm-kernel@lists.infradead.org
-Subject: [arm-platforms:kvm-arm64/vgic-last_lr_irq-fixes 1/8]
- include/linux/kvm_host.h:571:83: error: expected ')'
-Message-ID: <202609300250.DJh814mB-lkp@intel.com>
-User-Agent: s-nail v14.9.25
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260929_174948_131835_169C528E 
-X-CRM114-Status: GOOD (  10.21  )
+	Wed, 30 Sep 2026 01:09:30 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by sea.source.kernel.org (Postfix) with ESMTP id 0243842A1E;
+	Wed, 30 Sep 2026 01:09:30 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 4BAFC1F000FF;
+	Wed, 30 Sep 2026 01:09:29 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1790730569;
+	bh=u4G3sKWZIlCfo2hjBMDIfRgFkOo3aOxVZX09z7zcj3o=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References;
+	b=fSOCQkQ8n6pZPkXZDoHF8wcQke84pv6gMjBzBCiLHDy/HlPQ2W+vniU8herUwFNWw
+	 CHhSK0y28CdCLm4ik3KSQ4mNZcUQ0RY4hFihRosnnttXsJ6MNXm6fY3tSdcP7r5rmK
+	 +2YzxFo0IwJFNYSQfsSMeEOpekooL5wY6D/5moaPR3voISvDqPDVL3UUWXUlj72OLE
+	 9xlO7SF0SOhGcuEgROBaipK4VF3Wi2Id3nh4597MEpT9rYEYl7TF4twvm/8dFtpR7W
+	 H8DETQggxKwciqIqAcjE9yPQ0W1LbP9H338mwHIhzeZPncnQWblTD5dj6rXq0xTwRj
+	 0aQYnQbomFf1Q==
+Date: Tue, 29 Sep 2026 18:09:28 -0700
+From: Jakub Kicinski <kuba@kernel.org>
+To: Maxime Chevallier <maxime.chevallier@bootlin.com>
+Cc: netdev-bot+sashiko@kernel.org, andrew+netdev@lunn.ch,
+ davem@davemloft.net, edumazet@google.com, pabeni@redhat.com,
+ horms@kernel.org, mcoquelin.stm32@gmail.com, alexandre.torgue@foss.st.com,
+ linux@armlinux.org.uk, nb@tipi-net.de, jitendra.vegiraju@broadcom.com,
+ thomas.petazzoni@bootlin.com, alexis.lothore@bootlin.com,
+ netdev@vger.kernel.org, linux-kernel@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org,
+ linux-stm32@st-md-mailman.stormreply.com, pbrobinson@gmail.com
+Subject: Re: [PATCH net-next v2 2/2] net: stmmac: Don't set or get RSS
+ parameters when not supported
+Message-ID: <20260929180928.546f23af@kernel.org>
+In-Reply-To: <71adb267-2dd9-4225-91e5-19848a87eb49@bootlin.com>
+References: <20260928145043.1228968-3-maxime.chevallier@bootlin.com>
+	<179067171307.434549.1093187286398187440@kernel.org>
+	<71adb267-2dd9-4225-91e5-19848a87eb49@bootlin.com>
+MIME-Version: 1.0
+Content-Type: text/plain; charset=US-ASCII
+Content-Transfer-Encoding: 7bit
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -82,60 +77,28 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-tree:   https://git.kernel.org/pub/scm/linux/kernel/git/maz/arm-platforms.git kvm-arm64/vgic-last_lr_irq-fixes
-head:   df9d6ca852c63334018676675870385055271f5a
-commit: 863b2c5b18c975f73dd3008fac1a97b9168687a3 [1/8] KVM: Guarantee acquire semantics to kvm_vcpu_exiting_guest_mode()
-config: powerpc-allyesconfig (https://download.01.org/0day-ci/archive/20260930/202609300250.DJh814mB-lkp@intel.com/config)
-compiler: clang version 24.0.0git (https://github.com/llvm/llvm-project 7615da10b75c57286a4032eac8bb43c1b8d2ba46)
-reproduce (this is a W=1 build): (https://download.01.org/0day-ci/archive/20260930/202609300250.DJh814mB-lkp@intel.com/reproduce)
+On Tue, 29 Sep 2026 10:57:10 +0200 Maxime Chevallier wrote:
+> >> @@ -943,6 +949,9 @@ static int stmmac_get_rxfh(struct net_device *dev,
+> >>  	struct stmmac_priv *priv = netdev_priv(dev);
+> >>  	int i;
+> >>  
+> >> +	if (!stmmac_rss_is_supported(priv))
+> >> +		return -EOPNOTSUPP;
+> >> +  
+> > 
+> > [Severity: Medium]
+> > Does this -EOPNOTSUPP break namespace-wide ETHTOOL_MSG_RSS_GET dumps?  
+> 
+> This was reported by Nicolai already, and other drivers report -EOPNOTSUPP
+> here.
+> 
+> If we address that, I'd say we do that in the RSS ethnl code.
 
-If you fix the issue in a separate patch/commit (i.e. not just a new version of
-the same patch/commit), kindly add following tags
-| Reported-by: kernel test robot <lkp@intel.com>
-| Closes: https://lore.kernel.org/oe-kbuild-all/202609300250.DJh814mB-lkp@intel.com/
-
-All errors (new ones prefixed by >>):
-
-   In file included from arch/powerpc/kernel/asm-offsets.c:37:
-   In file included from arch/powerpc/include/asm/dbell.h:17:
-   In file included from arch/powerpc/include/asm/kvm_ppc.h:19:
->> include/linux/kvm_host.h:571:83: error: expected ')'
-     571 |         return (cmpxchg(&vcpu->mode, IN_GUEST_MODE, EXITING_GUEST_MODE) == IN_GUEST_MODE :
-         |                                                                                          ^
-   include/linux/kvm_host.h:571:9: note: to match this '('
-     571 |         return (cmpxchg(&vcpu->mode, IN_GUEST_MODE, EXITING_GUEST_MODE) == IN_GUEST_MODE :
-         |                ^
-   1 error generated.
-   make[3]: *** [scripts/Makefile.build:185: arch/powerpc/kernel/asm-offsets.s] Error 1
-   make[3]: Target 'prepare' not remade because of errors.
-   make[2]: *** [Makefile:1425: prepare0] Error 2
-   make[2]: Target 'prepare' not remade because of errors.
-   make[1]: *** [Makefile:248: __sub-make] Error 2
-   make[1]: Target 'prepare' not remade because of errors.
-   make: *** [Makefile:248: __sub-make] Error 2
-   make: Target 'prepare' not remade because of errors.
-
-
-vim +571 include/linux/kvm_host.h
-
-   559	
-   560	static inline int kvm_vcpu_exiting_guest_mode(struct kvm_vcpu *vcpu)
-   561	{
-   562		/*
-   563		 * The memory barrier ensures a previous write to vcpu->requests cannot
-   564		 * be reordered with the read of vcpu->mode.  It pairs with the general
-   565		 * memory barrier following the write of vcpu->mode in VCPU RUN.
-   566		 *
-   567		 * cmpxchg() is not ordered when failing, so make sure we perform an
-   568		 * acquire in that case.
-   569		 */
-   570		smp_mb__before_atomic();
- > 571		return (cmpxchg(&vcpu->mode, IN_GUEST_MODE, EXITING_GUEST_MODE) == IN_GUEST_MODE :
-   572			IN_GUEST_MODE : smp_load_acquire(&vcpu->mode));
-   573	}
-   574	
-
---
-0-DAY CI Kernel Test Service
-https://github.com/intel/lkp-tests/wiki
+Let's get this in the same series, cause I'm not 100% convinced.
+My instinct is that returning 0 size for indir table and key
+would be correct and less hairy for the core to handle.
+All pieces of RSS are optional so returning 0 size for everything
+should be equivalent to having no RSS.
+-- 
+pw-bot: cr
 
