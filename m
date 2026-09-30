@@ -4,149 +4,113 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7BF28CA5FC7
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 30 Sep 2026 15:05:10 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3EDE1CA5FC5
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 30 Sep 2026 15:05:39 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:References:In-Reply-To:Message-ID:Date
-	:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
+	Subject:Cc:To:Date:From:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=EDEVZLinhUt1WrQBvsDyYVHwMFSgDX2XjmBMxTgGJek=; b=2Jc4zAsvj/8cpdFCzDuLfiNF8y
-	g3PqzDqxBNczKYxrM9JSeivOB4Zi19/vc+tw7xVHzySJbFHw8a1Q47O1fJp1oKMlNPHT+BpkHpxSD
-	leB/RGz8JaancMFfv/6KjnyZGr/VbqQwMgZFsqKamxMmepKfIZNIbozQCe7jW7EKv+LDNVEbYbY3m
-	N8rWOzz1G3atPkpHL4Xox78xkftYXfTqLNN9OJX1bJofIeUoUx4NkuSkfjedRdFX0+PTMUTV7cShP
-	AkkrI5BMowv65t8QgcdapQThBY29Sqjg2k4dC7zIRB00ct7J81yB3C4AVuhnmtgbqXYYpzwKMxbui
-	aByChgBw==;
+	bh=jfRtojeauzUhQb4SePcX378h8gySuQTk235TQqLiiHA=; b=TLlaxyvBKNetkNQB02vNat0+BN
+	Q34HUNyenPcQBO+7nt1DRWQUhfM0lp7CM/Er50Yo7j/JkQfN81kJPLqhf1rfDn8tcNA6l3bcTOpJ9
+	Lr2elGl/1I3xUmwuoBgQxs3X3Ultv4PDkjgo8VzkyP+1gU5I6R5OJfv73KEnRp8x5nLn8ACWbZnP9
+	zAtN7R6vChb8/lL1BkFXJgiAbMxjNc31++l2Zda2+KeNhyBQO35A6AatN9dri3VIMPYAwN7HTPcx3
+	L8u27bTUlEzpO/7RmvpHnAc4V6L3TKsbUQqE4rAhFrxkx67fQYJFktcpqBHHIb7qawbmkFMB4W+5y
+	Mq/vmxhQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xBvrf-00000006QCM-2jpb;
-	Wed, 30 Sep 2026 15:04:59 +0000
-Received: from mail-francesouthazon11011033.outbound.protection.outlook.com ([40.107.130.33] helo=MRWPR03CU001.outbound.protection.outlook.com)
+	id 1xBvsC-00000006QIV-0Hri;
+	Wed, 30 Sep 2026 15:05:32 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xBvrd-00000006QBi-24aw
+	id 1xBvsA-00000006QIB-3Y34
+	for linux-arm-kernel@bombadil.infradead.org;
+	Wed, 30 Sep 2026 15:05:31 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=In-Reply-To:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:References:Message-ID:Subject:Cc:To:Date:From:
+	Sender:Reply-To:Content-ID:Content-Description;
+	bh=jfRtojeauzUhQb4SePcX378h8gySuQTk235TQqLiiHA=; b=HuSyy8n2hq/b0w+CrGwCiwv3gS
+	ANsVIP5t6iREJjftg4d14YSiFWFw4u5/CA9n0dSyh30vTX0Xv1C8eYUn0upRktmh2Lj7IHxLzMpqI
+	A5L5sN4vAWF5TJXiX/6AYhXq6YSFuofvrF7ijHLDF6N64LYy1EP1yd6WprnnjNov8bz1c50xoXE4N
+	AUCI9laXV+X+U1+REKDvju7hfsMWRvyuZEAI1YA82ux+gv3N5+GLVqcrDOXAOwsOkcREJ8mlftK6C
+	Sp6RK6bYwP5ZJ/PHSc2XBiBAEnW80f0w1E8VgGereQzRAFiLfmzBbso2fH9NfIXjRkH3/gzQ5E+kn
+	913BuW7A==;
+Received: from mail-ej2-x0f.google.com ([2a00:1450:4864:34::f])
+	by desiato.infradead.org with esmtps (Exim 4.99.2 #2 (Red Hat Linux))
+	id 1xBvs7-00000003xrM-2rq8
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 30 Sep 2026 15:04:58 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=O3FwoYO+D5pgZjruhwfAJdXcGwuTTu5zdiJD4q+uTxB/jpiWAx+sBheY7OaEobmElAVfwyT1RaPrs2CickYJECfTl9gZLtdUz2ILcioc/oBZ6R5qzKphRwuZrPzrMF7dgjS9r3Y2DdjaFAF/Mo2QvGUHGE3o/RujrzJUJY5/9n/jHyaTPcGkIkiY6EAzedu1LiJJ7wtCcJl250G/5Og0teV9A7BXf9zDRxbz/jEf4mr/fwDuv0p1lUrNakeooTnLneEaQZ0I60KNOYvJFuYRQ4iDvu3ZBEKk9yNyRDtw8FSMrXGgjaYt9qQWVXOgXrMYfwQmYBuoYZxhfctfSi3LPA==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=EDEVZLinhUt1WrQBvsDyYVHwMFSgDX2XjmBMxTgGJek=;
- b=PbfHwZ5feRrHL+I1zlptHvuxLk6cq4hKRqrxq2cBn4uZcZ4wgkykHZaPa3++Xs75lxuBc/NrKjws8UM2E1XWLe/m9RKL6pLihWnhTY/EkC9+eGMd5F2Dm54qr+XB1ueTeGeRUvNaurNQtP20YohIIyFb5nH8Y0hIxJT6eXran3pY2Q+5D1LYZkMQsYwkXsdH8mAFU5C4JA5gcmbjujJ4fDaYgw3MKWspDfNaVfcv/ST9Z7DU3ZowLwASFi+koP98t5kC+uEV9pZhaQhcMnd4vbsByVSu6JoDpugH0jsFbULMZfMR75vaudEpFZ5cVEK3f8KLQvP9q8c5mNCXe7iOpg==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
- dkim=pass header.d=oss.nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
- s=selector1-NXP1-onmicrosoft-com;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=EDEVZLinhUt1WrQBvsDyYVHwMFSgDX2XjmBMxTgGJek=;
- b=YEUSLeG88XkVQfV+GdpVoZ0pIZ/6vydR47UzYmZEIt3Hd9oFpvGgRS3Ooo8+QQaenRP0pHh/g4w3TBWhEalrygRG9GKxX2ZwmqbGLd9/shubWxXAqRfrc/oLjHgtzBRSlwue2vTl6Kox43XhFYU9ZS08XuPOIXrTGPFTsR4yq/cjbZpiTn2XiUkmcfCwaFIV+m5yAUpdS3KdEU12Azxb8EAzRubNVeu229GsUYJrVSfrFl+vBU+uQcpklxuGsVgwUtmIRmBuwHPkPDHnsfbd/H6Kz+qcu8YM7yGgb0v5HEdT9GRassTVtrdRcijegLLgb4Hx2yaPbFRHAsnpQikjlg==
-Authentication-Results: mx.microsoft.com 1; dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=oss.nxp.com;
-Received: from GV2PR04MB11799.eurprd04.prod.outlook.com (2603:10a6:150:2cf::9)
- by PA4PR04MB7872.eurprd04.prod.outlook.com (2603:10a6:102:ce::6) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.472.16; Wed, 30 Sep
- 2026 15:04:49 +0000
-Received: from GV2PR04MB11799.eurprd04.prod.outlook.com
- ([fe80::2146:83a2:5329:b7c]) by GV2PR04MB11799.eurprd04.prod.outlook.com
- ([fe80::2146:83a2:5329:b7c%7]) with mapi id 15.21.0451.022; Wed, 30 Sep 2026
- 15:04:49 +0000
-From: Frank.Li@oss.nxp.com
-To: Lee Jones <lee@kernel.org>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
-	Alexandre Torgue <alexandre.torgue@foss.st.com>,
-	Linus Walleij <linusw@kernel.org>,
-	Sascha Hauer <s.hauer@pengutronix.de>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Fabio Estevam <festevam@gmail.com>,
-	Frank.Li@oss.nxp.com
-Cc: Frank Li <Frank.Li@nxp.com>,
-	devicetree@vger.kernel.org,
-	linux-stm32@st-md-mailman.stormreply.com,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	imx@lists.linux.dev
-Subject: Re: [PATCH v2 0/3] ARM: dts: imx: cleanup st,stmpe touch screen related CHECK_DTB warings
-Date: Wed, 30 Sep 2026 11:04:41 -0400
-Message-ID: <179078059675.554251.15674488334332958827.b4-ty@b4>
-X-Mailer: git-send-email 2.43.0
-In-Reply-To: <20260831-dts-stmpe-v2-0-f93d5f080443@nxp.com>
-References: <20260831-dts-stmpe-v2-0-f93d5f080443@nxp.com>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 8bit
-X-ClientProxiedBy: CY8PR12CA0044.namprd12.prod.outlook.com
- (2603:10b6:930:49::10) To GV2PR04MB11799.eurprd04.prod.outlook.com
- (2603:10a6:150:2cf::9)
+	Wed, 30 Sep 2026 15:05:29 +0000
+Received: by mail-ej2-x0f.google.com with SMTP id a640c23a62f3a-c2af7721e4aso819263766b.1
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 30 Sep 2026 08:05:27 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20251104; t=1790780726; x=1791385526; darn=lists.infradead.org;
+        h=in-reply-to:content-transfer-encoding:content-disposition
+         :content-type:mime-version:references:message-id:subject:cc:to:date
+         :from:from:to:cc:subject:date:message-id:reply-to:content-type;
+        bh=jfRtojeauzUhQb4SePcX378h8gySuQTk235TQqLiiHA=;
+        b=rZ0Ct96KUYE7apgLwQYN0fCIZdCFYPN+h4nXLFlLPHLPJaKL//+jCRtkqMmiAW78+1
+         yA6v5oywpmYwDdUKdjizOhuN7zPw4D1ngSSq3/sg13d6aatvOGhGohJYGeHeaUm+0R0K
+         D6PF7oO3GT/iKpH1HwjwjP4LpKnT2rCnrDw6oZmu1C30MnihzlSelphCrJoU+tKkNlsH
+         yUUFaQHsrkblyDYLjqhQ14X/oIV8UrCaH0gv7ET31zgUn3nea8n8uIoFgb0Njklf1K21
+         PA0DCuBOfUJ6yeyRo+sjWhfYo6vEZf3YlF27dFS6qnrfmor2n+MFfdCMV4Wov70yQ7uY
+         Vd3g==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1790780726; x=1791385526;
+        h=in-reply-to:content-transfer-encoding:content-disposition
+         :content-type:mime-version:references:message-id:subject:cc:to:date
+         :from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to:content-type;
+        bh=jfRtojeauzUhQb4SePcX378h8gySuQTk235TQqLiiHA=;
+        b=OtbwRl+NHsaKlJjVAGMWePdlvuTS2tPhhHUy320hdrXIdG2QZd8AaT2NwhkQWH6ug9
+         odbg0EhypbW9ZhBtdQ9e0fh1wRlZswFU0gckMY8ViqvVC03NZkap2AK65DWBeCDeGdj3
+         Dus3MhGCY6M5ZiGM5pGsP/LLmBPiT62ChjNlsDSIMMKhWYMa8o5OD3AVjamvMxi3LStQ
+         KLaorEmtxS8vWPzfnotaHyjHNU6UXueN0b+WL5AoSBq76bvIfPoZfRJE6ZdnK0inxcA3
+         DAGi48Ku40LvrG88c7nEkVgVJ5ROsz47KXU/hUB/N9LXVcySrdZKzgaG9a0X0VWN3SaN
+         GefQ==
+X-Forwarded-Encrypted: i=1; AKwUvBy4bmF2f91Ir0QlXn/x2eRffTvOJjZvaU+LsRfW/17jHoMGcYl10VTjdnJb1w6FQ8gvULc0vFYr2dYz60u10P4d@lists.infradead.org
+X-Gm-Message-State: AFq9FYITx/KRSbzHEi/saXk80KvhAQlsgMH9qMmgstoNY2fuiJGYehhC
+	vj+yClerrXVs0cJ2Lb+MfQV6kpkJINudVa5G8q4KBTzswxfRunDnqLBO
+X-Gm-Gg: AYBFou2FkNiniYfDhQHE7vZHumBt34jDrjfC9JeNhZ18EBa289U2V3bGFAD1VDgH1BD
+	sJzNCswbOesIampcp1HNoUoa6749/9SFMj7kSwQj4/eU1gLYfwF7Wcjv36lWcqPWu+x4c+1+n96
+	4plkfzcsfKikCDCcx164kaCroPm4BuKEBUg1BLVsihpwTfS6raE97MLOJgC3AFNOvt09oi6zpbU
+	gmKStuO8/Eq+vSB6mZ18Uo0+VUGhwYajzgANyA8jZFb4Gq1tvJn4pbfR+6F0ZVt1JnuSR8Tjq+j
+	MXWYjNOXcPwvudjaeFySpnOW3dEvmSUO6lOydE89UGY368j21JeUYjQziaxRjVQ/H843c022HUp
+	vxMTs1e3l4VfP0UWD7crrzpEthEznFRmE7U4xuBN2RPlU9AX+8LJyn9S1w2S4P/7J0Vh3i1AVlP
+	exgYo0JLOukzz2/LLMyymb
+X-Received: by 2002:a17:906:ba89:b0:c2d:a4ef:64ca with SMTP id a640c23a62f3a-c2e23e39566mr171362866b.42.1790780725514;
+        Wed, 30 Sep 2026 08:05:25 -0700 (PDT)
+Received: from milan ([2001:9b1:d5a0:a500::24b])
+        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-c2e31a3cc87sm20827866b.6.2026.09.30.08.05.23
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Wed, 30 Sep 2026 08:05:24 -0700 (PDT)
+From: Uladzislau Rezki <urezki@gmail.com>
+X-Google-Original-From: Uladzislau Rezki <urezki@milan>
+Date: Wed, 30 Sep 2026 17:05:22 +0200
+To: Wen Jiang <jiangwenxiaomi@gmail.com>
+Cc: akpm@linux-foundation.org, catalin.marinas@arm.com, linux-mm@kvack.org,
+	urezki@gmail.com, will@kernel.org, Xueyuan.chen21@gmail.com,
+	ajd@linux.ibm.com, anshuman.khandual@arm.com, baohua@kernel.org,
+	chleroy@kernel.org, david@kernel.org, dev.jain@arm.com,
+	jiangwen6@xiaomi.com, leo.yan@arm.com,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+	linuxppc-dev@lists.ozlabs.org, maddy@linux.ibm.com,
+	mpe@ellerman.id.au, npiggin@gmail.com, rppt@kernel.org,
+	ryan.roberts@arm.com
+Subject: Re: [PATCH v9 09/10] mm/vmalloc: map contiguous pages in batches for
+ vmap() if possible
+Message-ID: <ar0lMkKxugZV7xyw@milan>
+References: <20260923062832.479455-1-jiangwen6@xiaomi.com>
+ <20260923062832.479455-10-jiangwen6@xiaomi.com>
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: GV2PR04MB11799:EE_|PA4PR04MB7872:EE_
-X-MS-Office365-Filtering-Correlation-Id: 19b06174-e100-4d48-87b1-08df1f042bd9
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|366016|1800799024|376014|7416014|19092799006|23010399003|22082099003|18002099003|921020|10067099003|56012099006|11063799006;
-X-Microsoft-Antispam-Message-Info: 6kFn33w5YgMyv6Ydi64JJcPpkFwSXVspDtLoCNPFrzbYAmsZiJ00V+WGhQn5mGEBjm+uSZ4jUM84vvKEsJwEIUvYm9PxMmUIKp+S1QwkKv/xzvANs7MfaUxRqYzxvRfsJaKPhxrVLhjb0Lz7AAp7KWsOsXpJz/l6pFJ/gqFhXCnklispJOzv+N/X7c1gWo3sEN0gMehGIuKczzK9ZWEUHK/ohS49kw/Hoz88LyNtO3TdI3ZC0n4pmJ1QpsnD12SHXcXAHQzHKYEWugL5LW/oBozjXleQWZDkRIai5YJ41ivmEu4Ly077gDKuNPDOWP7R3zD+fYLCa18nz+EVT+xnyIDz+n9w+zX49xvdNxEr0pGh6MrsHicZ92gGod74Re1UkCoue9Ue4WihYBQmbYoMQ8K2D4JGZz+lmtUI5pPYN9I2DjbcKC0WoJ7OeENWuWoINGE1GZO0I0SYOw/4kg3O6XUhLujLXA7vQDCt2WFFTnqRrXn1WD1xYvwaF58oQ7vSMIcfpr8YFNkB+dlQ5TnJdxEwth6UjtWfeAs66NE85eK6XCDAHkfd0nWtgZC1Zb1QigWjx0knbHFBCBZ9l6QUuj+0/Y1K87bFE6qY57ARPFoCAu4+L1ijS1IaKBehqU1Bvj1tHP04sGxHQEF2FNdztgJckpKYN7cyBFl2r+kXgSxfZU1GwA8VM7c1p0H84Tf7jbNm4PnL6i0x3hH6A/GHvA==
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:GV2PR04MB11799.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(1800799024)(376014)(7416014)(19092799006)(23010399003)(22082099003)(18002099003)(921020)(10067099003)(56012099006)(11063799006);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?SVBwa1BaN04xUGRJaVdTeVYyMnZneGM2ZlpIdE13SVB1Z0ZjVHl0dU5IRDBZ?=
- =?utf-8?B?bmFmcWlOWUdkNEMvNGh1ak5KUmJlWGJaZlA0bXpNVFFCak5Zemx4VXdueEhr?=
- =?utf-8?B?WW9PMXBGSWN3VGZwZ0lYTWtGMDNmTWNPQTVFWmF4MTRYRXFOTHJsakorOXJs?=
- =?utf-8?B?c0gzREY5ZzhOZVI4NytjMzlVdXFkbDFxU1RrbnZ1VU0rRjlLalQyaVUzd2tM?=
- =?utf-8?B?ZFkwUmpidTZoc3I0WnkwOEhuSGwxZlNFY1BGNjBIekdhMWxITTc0WU5YRGR3?=
- =?utf-8?B?UTNDMEhlQXphWnB6cWYzZ0c5NWJZVjU4dG91dEo0dTdUaGJsa2t3SUNOR05z?=
- =?utf-8?B?b05mNWl5NFoyM2dPVGg1MEdkWVBscWwzWlBpNHM5SElDbjh1TnV2UndSajYz?=
- =?utf-8?B?dm85RExBVm5DSkt4Q3RDWXZuQ3hyeUFVK0Z5L0Q3dHFsZGNXQWN2MjRxOEtZ?=
- =?utf-8?B?SEVtZ1FJZzlBY1FFWG1JWWtmMXJFQzhENnZFZEpBQXIwVTFqTHltQkx3aGlU?=
- =?utf-8?B?WlJHNFl3ek5IeVRTelBXMXduOVRtNjh2WlhWTm5remdVM1NuOXV4Z2E0T2du?=
- =?utf-8?B?L3B1THVGQW9LbklQS2I3T04rMFlDOFhIdFpGdFpWbnY5L0tyT2N2ZURzaUR1?=
- =?utf-8?B?VkN1dG0xV3lwcy9WMDBURGZMOWlZRzkxeVpXY1V6UFVFT3BXMXIyM1RTVUpQ?=
- =?utf-8?B?QWpVZnYwNVBiSGFUQTV3TEwwMkZ1WUdKWTlQdmJUVjVuTUQrWTAwZmVKRzYr?=
- =?utf-8?B?dHdjV2FQYzh2ang3VkNPMnF3dUpVcU0xSmN4Skx6ZVg2RHBWK3hIdU1UN3Vm?=
- =?utf-8?B?SzFUTGVTRExJQy90VzY0TSt2MmlCdVB1RU04VUhSdWZyb2d0YjQ0SVM2aTRt?=
- =?utf-8?B?VHJCWUJ0QkpETmxmZGIrTG4rTVRaSU94ZGlMdGt1QjFzUlhtMU5KQVR5WHph?=
- =?utf-8?B?bmlJcUljZVZxdUFJZ2VySlJLengyazZzM2xQb1hCQjY4bW5TRVJuMXFmR2tF?=
- =?utf-8?B?OTljd2hZaG56QzA0VEpEN3dVK0x1dXEyNFBZejhwMmZjeXcvK1MybXZqYkd0?=
- =?utf-8?B?b1dkS3hyMTN6dEN4UVlmL0RmSVJObnVwYi9JZkk4Wm9hdnpTbGp0cU9yTDU4?=
- =?utf-8?B?a1ZVa2tJYlpWd1JEejI1T0pIWFd5WUxiam44bTFsdzhhT3ZQUGVqTDJUOUpm?=
- =?utf-8?B?NXV5Wjg4Z2FiZVcxVzZBZU9yYWpueThLU2hPbWo3eHhXR0Y4RUVyTEZYWVdo?=
- =?utf-8?B?bGRBc05UTGc1STEzYUtjTkV4aGNUbmNwa1lGSi8xUjFVNnJuTGxDZFd3VEZE?=
- =?utf-8?B?TEtPcERtb1ZjS0NYS3RQWDFFSytrYlVOM1hmUGJmQXlFYk5EUW1zc3o0YXNM?=
- =?utf-8?B?cVg1ZnJHZW0rNzJGVnRSd3Y4WmhkVWlweCtMU3FIdkFRUGh6MkcrZDBoUnlZ?=
- =?utf-8?B?RGQyS29xU29aUmt3T0dxeXo1cnFCUFBKWnJMTTFFSzFONXJMQytuT21kcFI1?=
- =?utf-8?B?OEhRRUFiOXp0MWtkc0NHUW9QWm5qNUFTUVFQb0ZHNmVUeXVubVA3UURQeFJD?=
- =?utf-8?B?c05QQWZITHJ4aHliNDU5UnByZVZ5NFY4UGdEUHlETHE1bVpQUFYrdzVTN3VS?=
- =?utf-8?B?RWpIS3RaVk50cTZLRFovZ0oraG9FRVhrYzdJUHJJbGhlcU42VDVYQmpwMWp3?=
- =?utf-8?B?bXl3RVZxd3VMdEZBbkxSalNIU1hvc0JOK0RKSTBzV3BYRzIwbEFRcC9oZW5l?=
- =?utf-8?B?NzJjYlBlVWJyS0tDSzl1NEFSaTRXVU1wRWFYQklBTmF1NVlMWDJ6SnczMnlz?=
- =?utf-8?B?RW9rcmNSZnVra2lnNjVnNENKVEE1eXFqUFA4UjFTMDQ1c0gyMWx4Z2c3ZTZZ?=
- =?utf-8?B?KzlQRk9pTTd5QzlQMmJRY2ZKUmFoMzFpRWNiVkt0WE02Y1VCTGtHZ2hTTXZL?=
- =?utf-8?B?cVBNVllSeGZuT0tyRno1cElCdG9zUU9odU9yNmgrWlo5YTRiZUR2VjlrQjV5?=
- =?utf-8?B?VUFGOWRoUUFORjV4Qm1ydm50NXNaMjFNVGJJSVYwOXNSUmRUV2ZpSzF1LzJ0?=
- =?utf-8?B?dmF6Y0ZmV1EzYklmTEtiNVZVQ3F4dDhSRGVXZGtkMC9IdXdBWGdycWhiUmc3?=
- =?utf-8?B?VjY3NnhvT2JkeDNDN1hUdkNCbktlR3JrYWNTNGtwSW1sUHk1NHMrdCt5TFZs?=
- =?utf-8?B?ZUo3SWo3UkZkaDFodytsUmxKMlNadTFlNlUyeXdjTEJoVjlMbXl4L3prQyth?=
- =?utf-8?B?M0ljY2VyUHVpYzl0Q05jQXo0QzN1K0FZZldFTlFkTElIKzZVL0JiOUdtcVNS?=
- =?utf-8?B?VS9vWlRha3hFclpnZUpTNmRaZXo5TE1sQTArMFZZZDFIdy9CNENSdUZENGhP?=
- =?utf-8?Q?iyCv4Pa/QLGuWD6E=3D?=
-X-OriginatorOrg: oss.nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 19b06174-e100-4d48-87b1-08df1f042bd9
-X-MS-Exchange-CrossTenant-AuthSource: GV2PR04MB11799.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 30 Sep 2026 15:04:48.9300
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: mZ9GqTQLDOVXk5TmrDtaSwkYe7596B9naJXPeSDniygTqgXC5g+1D1vpbuXGGw/qaTnNXex7hVQWcky/lCakTT4Eisgx3hn532Z1YqHdTV0pUiEaV7EdCPmycVFUuLei
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: PA4PR04MB7872
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+Content-Transfer-Encoding: 8bit
+In-Reply-To: <20260923062832.479455-10-jiangwen6@xiaomi.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260930_080457_548718_1D70F079 
-X-CRM114-Status: UNSURE (   7.31  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260930_160527_996203_0A65B1FA 
+X-CRM114-Status: GOOD (  31.22  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -161,28 +125,150 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Frank Li <Frank.Li@nxp.com>
+On Wed, Sep 23, 2026 at 02:28:31PM +0800, Wen Jiang wrote:
+> From: "Barry Song (Xiaomi)" <baohua@kernel.org>
+> 
+> In many cases, the pages passed to vmap() may include high-order
+> pages. For example, the systemheap often allocates pages in descending
+> order: order 8, then 4, then 0. Currently, vmap() iterates over every
+> page individually—even pages inside a high-order block are handled
+> one by one.
+> 
+> This patch detects physically contiguous pages (regardless of whether
+> they are compound or non-compound) by scanning with
+> num_pages_contiguous(), and maps them as a single contiguous block
+> whenever possible. The mapping order is determined by taking the
+> minimum of the contiguous page count and the pfn alignment, allowing
+> graceful degradation when pfn alignment is less than the contiguous
+> range.
+> 
+> Pages with the same page_shift are coalesced and mapped via
+> vmap_pages_range_noflush_walk() to avoid page table rewalk.
+> 
+> As users typically allocate memory in descending orders (e.g.
+> 8 → 4 → 0), once an order-0 page is encountered, we stop scanning
+> for contiguous pages since subsequent pages are likely order-0 as well.
+> 
+> Signed-off-by: Barry Song (Xiaomi) <baohua@kernel.org>
+> Co-developed-by: Dev Jain <dev.jain@arm.com>
+> Signed-off-by: Dev Jain <dev.jain@arm.com>
+> Signed-off-by: Wen Jiang <jiangwen6@xiaomi.com>
+> Tested-by: Xueyuan Chen <xueyuan.chen21@gmail.com>
+> Tested-by: Leo Yan <leo.yan@arm.com>
+> ---
+>  mm/vmalloc.c | 82 ++++++++++++++++++++++++++++++++++++++++++++++++++--
+>  1 file changed, 80 insertions(+), 2 deletions(-)
+> 
+> diff --git a/mm/vmalloc.c b/mm/vmalloc.c
+> index a43965016eb4d..37cddb7f45a4f 100644
+> --- a/mm/vmalloc.c
+> +++ b/mm/vmalloc.c
+> @@ -3576,6 +3576,85 @@ static inline unsigned int vm_shift(pgprot_t prot, unsigned long size)
+>  	return arch_vmap_pte_supported_shift(size);
+>  }
+>  
+> +static inline int get_vmap_batch_order(struct page **pages,
+> +		pgprot_t prot, unsigned int nr_pages)
+>
+get_vmap_mapping_order()?
 
+> +{
+> +	unsigned long pfn;
+> +	unsigned int nr_contig;
+> +	int order;
+> +
+> +	if (!IS_ENABLED(CONFIG_HAVE_ARCH_HUGE_VMAP))
+> +		return 0;
+> +
+> +	/* Limit nr_pages by pfn alignment */
+> +	pfn = page_to_pfn(*pages);
+> +	if (pfn > 0)
+> +		nr_pages = min_t(size_t, nr_pages, 1UL << __ffs(pfn));
+> +
+> +	nr_contig = num_pages_contiguous(pages, nr_pages);
+> +	if (nr_contig < 2)
+> +		return 0;
+> +
+> +	order = ilog2(nr_contig);
+> +
+> +	if (vm_shift(prot, PAGE_SIZE << order) == PAGE_SHIFT)
+> +		return 0;
+> +
+> +	return order;
+> +}
+> +
+> +static int vmap_pages_range_batched(unsigned long addr, unsigned long end,
+> +		pgprot_t prot, struct page **pages)
+> +{
+> +	const unsigned int nr_pages = (end - addr) >> PAGE_SHIFT;
+> +	unsigned int prev_shift = 0, batch_idx = 0;
+> +	unsigned long batch_start = addr, batch_end = addr;
+> +	int err;
+> +
+> +	err = kmsan_vmap_pages_range_noflush(addr, end, prot, pages,
+> +					     PAGE_SHIFT, GFP_KERNEL);
+> +
+> +	if (err)
+> +		goto out;
+> +
+> +	for (unsigned int i = 0; i < nr_pages; ) {
+> +		unsigned int shift = PAGE_SHIFT +
+> +			get_vmap_batch_order(pages + i, prot, nr_pages - i);
+> +
+> +		if (!i)
+> +			prev_shift = shift;
+> +
+> +		if (shift != prev_shift) {
+> +			err = vmap_pages_range_noflush_walk(batch_start, batch_end,
+> +					prot, pages + batch_idx, prev_shift);
+> +			if (err)
+> +				goto out;
+> +			prev_shift = shift;
+> +			batch_start = batch_end;
+> +			batch_idx = i;
+> +		}
+> +
+> +		/*
+> +		 * Once we fail to batch pages, we expect to fail batching
+> +		 * for all remaining pages, so just give up.
+> +		 */
+> +		if (shift == PAGE_SHIFT)
+> +			break;
+> +
+> +		batch_end += 1UL << shift;
+> +		i += 1U << (shift - PAGE_SHIFT);
+> +	}
+> +
+> +	/* Remaining */
+> +	if (batch_start < end)
+> +		err = vmap_pages_range_noflush_walk(batch_start, end, prot,
+> +				pages + batch_idx, prev_shift);
+> +
+> +out:
+> +	flush_cache_vmap(addr, end);
+> +	return err;
+>
+On error, if kmsan_vmap_pages_range_noflush() succeed you do not do a
+proper cleanup?
 
-On Mon, 31 Aug 2026 14:50:17 -0400, Frank.Li@oss.nxp.com wrote:
-> cleanup st,stmpe touch screen related CHECK_DTB warings.
+i.e. to cleanup KMSAN metadata: kmsan_vunmap_range_noflush(addr, end);
 
-Applied, thanks!
-
-[1/3] dt-bindings: mfd: st,stmpe: add deprecated properties
-      commit: 0d120c9ab1ec657da76d7446fa9b91ff3ec46b88
-[2/3] dt-bindings: mfd: st,stmpe: let interrupt property optional
-      commit: 0e9d73e4fe6f61c1a741633b102886467b1ed388
-
-Above two patches missed at v7.3. I picked up.
-
-Lee Jones:
-	If you have concern, let me know.
-
-[3/3] ARM: dts: imx: remove undocument properties of st,stmpe*
-      commit: f05cb3d259d3fb9f811cb9b14591ab08e9e7a182
-
-Best regards,
---
-Frank Li <Frank.Li@nxp.com>
+> +}
+> +
+>  /**
+>   * vmap - map an array of pages into virtually contiguous space
+>   * @pages: array of page pointers
+> @@ -3619,8 +3698,7 @@ void *vmap(struct page **pages, unsigned int count,
+>  		return NULL;
+>  
+>  	addr = (unsigned long)area->addr;
+> -	if (vmap_pages_range(addr, addr + size, pgprot_nx(prot),
+> -				pages, PAGE_SHIFT) < 0) {
+> +	if (vmap_pages_range_batched(addr, addr + size, pgprot_nx(prot), pages) < 0) {
+>  		vunmap(area->addr);
+>  		return NULL;
+>  	}
+> -- 
+> 2.34.1
+> 
 
