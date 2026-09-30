@@ -4,59 +4,134 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id AEC80CA5FC5
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 30 Sep 2026 15:58:25 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1C8EACA5FC5
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 30 Sep 2026 16:01:22 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:Message-ID:References:In-Reply-To:Subject:CC:To:
-	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=15bf+Q65UcpCS3QKUeXU2XhqWi+bE0+ceFmn77tnDF4=; b=K2rJDydFKhcL51ZyLIDGFNGqSM
-	MM0KesK94F5wb55c4O2VJQKgJsvC3uDcVhjmOjEJyJ7ONB+PYUs5sWtW5+l54cI7wnAjxTRZlpcl8
-	/aKB+5xk2lGqUgEy9JB7DEhIyn1br2e78PW8ItpX6CFj+ZCxMDTanBPbAgMEen6R//Ku2fNHTam2k
-	AkScX+j1gcRHit1gMdMtfKQzVwAaQhNgfUQ7HfDuTRr4ZM6QCD4HQ7/v7byCj4jwG9pO4FeLPEIK8
-	KasLodCGKnBP7wCnYAgIFWx/R76sXLWLOczbMSJbDZKEyjk5I1xhGeDjs79hbcRWTeWqMEuO+nSZT
-	X5rSALlA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
+	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=70rgODf39Wi7oXlL0Mj/v+OYU6yPl4YYch7vedm8QSE=; b=My5dSQWtW+5yL++3z7rGVybPxB
+	QyZy6dH///M2TkFckzluWGKySRCg4IppTAfFL2spzKL/Y3iNzPyE9tU1lLsa22cu3O0kLP6YYT92T
+	8qyfCQz9X3W6qQCNjICFrMhoS7NrAW9alb7lMoqNjzADtB01XrfxjThBQyHNCOaB3pT6tik9/DO9z
+	uOdLOvspXljUKebm7c31zY9IKwIgqguruDK8TmR8R78uUEuWhadJ601TlAMY9ayTP3FPgHkTNwoPK
+	4iMWnvr4ZK80g8ECk+KOfbyXWk94mwG1ODPDHQzFlcioBXk8yep6Xr+wym/muuG38Mnd+myzVOCat
+	pllYvNYw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xBwhH-00000006bnJ-1JUz;
-	Wed, 30 Sep 2026 15:58:19 +0000
-Received: from mail.mainlining.org ([5.75.144.95])
+	id 1xBwk4-00000006cLB-01IJ;
+	Wed, 30 Sep 2026 16:01:12 +0000
+Received: from mail-northeuropeazon11011026.outbound.protection.outlook.com ([52.101.65.26] helo=DU2PR03CU002.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xBwh2-00000006bjK-1IXM
+	id 1xBwk0-00000006cKE-3eM0
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 30 Sep 2026 15:58:07 +0000
-DKIM-Signature: v=1; a=rsa-sha256; s=202507r; d=mainlining.org; c=relaxed/relaxed;
-	h=Message-ID:Subject:To:From:Date; t=1790783881; bh=15bf+Q65UcpCS3QKUeXU2Xh
-	qWi+bE0+ceFmn77tnDF4=; b=QQOAxyqy2TCJX1Zx5PYna+utEOdOrM1Z43Ri8OBCm2rb3zSUdS
-	FnFxFHKB6u4d5jGTFNX4J3M5xuTXoKByvn9PhYwXrRfWPMXTZBEHSmtm8uDdGY4baKKmMuh6NTf
-	gOOrp7P6jYKaIOZ3YWotvZbh1XqVwoulhrrhgPBEJDUWw8F9fozvSzKiHXJ90iZFnShifIjV+YW
-	Y7n1/3SYFEOqCx7QzHD8VvdTmPfu9GuhWb5NTUdIrZb+WITe6tYH7wZvUHnQCAyTuw2REa1nhGQ
-	CiECQvCgJ7FWRX5PK+C95SNX4oxS0icOrRKP0VokW40RHsYFAaNYZ53Tuofti+MQpbQ==;
-DKIM-Signature: v=1; a=ed25519-sha256; s=202507e; d=mainlining.org; c=relaxed/relaxed;
-	h=Message-ID:Subject:To:From:Date; t=1790783881; bh=15bf+Q65UcpCS3QKUeXU2Xh
-	qWi+bE0+ceFmn77tnDF4=; b=+iSQwtFhaxb8quEcrF6KgCExeQ0NTJ6kcbLbL3ZdUoS1jHarFw
-	YY/f+MKi1wXk/C1sch63LFcwsRfStKf6fNDg==;
-Date: Wed, 30 Sep 2026 16:57:17 +0100
-From: Bradley Morgan <brads@mainlining.org>
-To: Will Deacon <will@kernel.org>
-CC: Catalin Marinas <catalin.marinas@arm.com>,
- Mark Rutland <mark.rutland@arm.com>, Mark Brown <broonie@kernel.org>,
- Vladimir Murzin <vladimir.murzin@arm.com>, Ard Biesheuvel <ardb@kernel.org>,
- Kees Cook <kees@kernel.org>, linux-arm-kernel@lists.infradead.org,
- linux-kernel@vger.kernel.org
-Subject: Re: [PATCH] arm64: scrub vector and pointer auth state on task death
-In-Reply-To: <F37080C2-29E6-40A7-8784-0236C5700646@mainlining.org>
-References: <20260930063647.1356613-1-brads@mainlining.org> <arzB_AJIohqhvoiu@willie-the-truck> <F37080C2-29E6-40A7-8784-0236C5700646@mainlining.org>
-Message-ID: <075D5E61-2ACC-4C23-950A-77989A65D8F8@mainlining.org>
+	Wed, 30 Sep 2026 16:01:10 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=wI8THOCSbVc13wggPWE+hTvFTUwcnrGMbuwKIj9M6lQSJzCWgjlnOdsr/3mG1ewmhvmA1QTYRVKusgnp0vLguXXGbweLfMlXmL404lk7DrCBwgw3BB4s5IOF7pBt7ljpTn4IXFfqpsU4MtaDZbMQmVOF+IxPMy12ubJ1K9kttNurYN/adCxyuPVrVGjD94VG614pKYxiDnwu/JpxR7Zg+HaZd/6cYIYEmZNsXAHJM8b9qZH2b7UPN7yKP1jdOcn+w/u/gQBsb6gN82xggTg4qTfqso1xEDUm5YhR7WFzl0RtQ/C6Gi0K4kXdx4WOlE4rRtaaYakgizt86qaxNGZyEw==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=70rgODf39Wi7oXlL0Mj/v+OYU6yPl4YYch7vedm8QSE=;
+ b=sc2ZNrpchMFK0jY2kSX44/YiO+7/9paTMCHY77HCtX01EVW9lSs7DyobLuNzm2qnYlgSEj3wbvm+PbM4E+bYn7LWRNI8c7RZbxnrIIdfCgzVuJ2joH1+Udy2vc4tdYwo+HEBwRjjaCp/jAKi+vE7LumFJRV5apwyA9EodWxXewr71cRMru6h2Sj0GQceTMTw+wSqAA3rgefWOmqKqrnguscofYrVnoZTB7md9Ukxkj5OmUWWRNIMlUpAxxiqQgFrRUlA8I3sHI8Nw0vGGdiuEPk9wp5W0Z0+J/+2+lWcqy3egCTh2dqL85aPck+5FOeegXDH95/duspbmmcYsFZ/9w==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
+ dkim=pass header.d=oss.nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
+ s=selector1-NXP1-onmicrosoft-com;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=70rgODf39Wi7oXlL0Mj/v+OYU6yPl4YYch7vedm8QSE=;
+ b=gxPuaO9xlvrMh1Trd/rQl29a35trqU0e8J9oCo7NT/IqGeg1VFOcknPNjbScG0heIa81mtMYHanvMqrBOF4pxY9oRT199ULMjXePCZ2XgGcsyBMo10hIsvYe5bSN0WoEwFtpLh1oxnrRqCK/gpkfZ6UEBxns7jxzpVd/nELn5uT5xS6ZmC5OhQll7DBBOSTLdswZDD4zS5m4J/aYEj3Og1iIm8334PycpeWiWD0RwI2T4q6e7/SuGFRkfP8zH15EJPuA74EISdMHOvtP5Mma0lasY+9QGcgZdN+Kui5t/HRqc0PMHdMpMjKfZqbTpNl+IHpEJCXlugabNBCHpzVZAQ==
+Authentication-Results: mx.microsoft.com 1; dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=oss.nxp.com;
+Received: from GV2PR04MB11799.eurprd04.prod.outlook.com (2603:10a6:150:2cf::9)
+ by AM8PR04MB7459.eurprd04.prod.outlook.com (2603:10a6:20b:1dc::11) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.472.15; Wed, 30 Sep
+ 2026 16:01:01 +0000
+Received: from GV2PR04MB11799.eurprd04.prod.outlook.com
+ ([fe80::2146:83a2:5329:b7c]) by GV2PR04MB11799.eurprd04.prod.outlook.com
+ ([fe80::2146:83a2:5329:b7c%7]) with mapi id 15.21.0451.022; Wed, 30 Sep 2026
+ 16:01:00 +0000
+Date: Wed, 30 Sep 2026 11:00:48 -0500
+From: Frank Li <Frank.li@oss.nxp.com>
+To: "Peng Fan (OSS)" <peng.fan@oss.nxp.com>
+Cc: Frank Li <Frank.Li@nxp.com>, Vinod Koul <vkoul@kernel.org>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Sascha Hauer <s.hauer@pengutronix.de>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Fabio Estevam <festevam@gmail.com>, Frank Li <Frank.Li@kernel.org>,
+	Joy Zou <joy.zou@nxp.com>, imx@lists.linux.dev,
+	dmaengine@vger.kernel.org, devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+	Peng Fan <peng.fan@nxp.com>
+Subject: Re: [PATCH v2 1/3] dt-bindings: dma: fsl,edma: add per-channel child
+ node support
+Message-ID: <ar0yME7JglvgP8Z4@SMW015318>
+References: <20260930-edma-iommu-v2-0-72a62bf44c74@nxp.com>
+ <20260930-edma-iommu-v2-1-72a62bf44c74@nxp.com>
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20260930-edma-iommu-v2-1-72a62bf44c74@nxp.com>
+X-ClientProxiedBy: PH7PR13CA0004.namprd13.prod.outlook.com
+ (2603:10b6:510:174::25) To GV2PR04MB11799.eurprd04.prod.outlook.com
+ (2603:10a6:150:2cf::9)
 MIME-Version: 1.0
-Content-Type: text/plain;
- charset=utf-8
-Content-Transfer-Encoding: 8bit
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: GV2PR04MB11799:EE_|AM8PR04MB7459:EE_
+X-MS-Office365-Filtering-Correlation-Id: 013612a5-aab5-4356-b8b0-08df1f0c05a3
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|23010399003|19092799006|7416014|1800799024|366016|376014|10067099003|56012099006|4143699003|11063799006|18002099003|22082099003;
+X-Microsoft-Antispam-Message-Info: iZMzl4ZP5UnnIusyjpDYnGxqHb4hNktsm2+hapF+IMsKEllMz3n7PLYV3fuAvtYfdyjzQohHN4j54HkJp9I5B6tmEX+aRRHyE+2aqMsPCUcd6nwOOy/mkLHnAOCpEp1Cwu9WM/X909iTFtEIe5rB++HBHB11QrYeKin91YkHfls+SUZJerKmPehDGtkvTP5TrQ2lRonvepkjsxNcbYhcHsRpVT9Z99+/oZ9U6ckv/X96f65muf+1NM6OSH3atE72Fo6yFSIOKd1DNkdK+a+WG3zJuxkvEHvmSQ0k4wgaFiWdGbNNw3jS2lYk+U9PM3+84bis9+qVKu3MTbQ035GDhKxx/hAGe5MU2/6ZwPt4dsvCPp3sys5fDehQIdeAAeQeKkK8bx4zsz6GEKHw1JYeBbe5x+7CfeT4/CvFUxhNiLFW4SSNGW3jaFkPED8QdSI15HbSzQRsFOSOsi6IsIF7xrcFLiYnACPqQtCZI6opyY+YCEyM/bqZ1DiCE9gphZza1VXfbmhxFKMzf3wQUB5n/LdJTZ4GHW5mtgo6OoNHo/hdzcZQAqxPBpetA9DjTAV0auP9dlnlBvVaNqjuM2zAn5NDoe+xaZFTBxrVjbdWvSyGlTJTk1f82fxRnmJa6dMw7HVo2GHeO7raYiMUNMqFy1zAbVqF0QKNWv9vxQixSLg=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:GV2PR04MB11799.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(23010399003)(19092799006)(7416014)(1800799024)(366016)(376014)(10067099003)(56012099006)(4143699003)(11063799006)(18002099003)(22082099003);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?ZOoITvTpY7PioZvdqYJxU2p5YcI1Vkdwuy9E3EvYpaq75K1db8C+KFvtBm1B?=
+ =?us-ascii?Q?ZP5bLq4y+oYxVRPsaATcHIrKG8mIYWeU5AINs3fEADHj5xYCToHfHQvxAf/r?=
+ =?us-ascii?Q?m2KwVBX1cnUFX1qc0FRV5UGr+GXaoJmMigUGhJmB/xQSOEXrmVfzC3G1evP3?=
+ =?us-ascii?Q?0qPPwMXXTXLEHm6ZwzpoeCCYziMwAcVy2jepFr7JcDGV3mdrzdbBftYPo7Pc?=
+ =?us-ascii?Q?xTZZ47vdtLBsc0eAhtGuQsP2lVr4R0ZDgc8dMt0kV5bDCT95fghjROjpN0mX?=
+ =?us-ascii?Q?LZ6BoUaW0znFiXsTa7XR0D6hTlINy/oLuERg5Y7KzrR8pVjb3ez95vvAj1Aq?=
+ =?us-ascii?Q?B6FD6Urw98etHwtA7SSEuSf0EzLJN3S01LVLGiP3bGjI201gEQuHWMfaYred?=
+ =?us-ascii?Q?jCEAN4VCfbI8kUE2xldWiEMkQ8h7dNXoSra8gaA/Hp13Fdrwh/Kfuc9evnM9?=
+ =?us-ascii?Q?pYnW4PcMCA73+mJ/S8NIS9DHCSe7+UvSgbCk/IhKbi9wRsZd2eig9U2fUaul?=
+ =?us-ascii?Q?mVEhjhbFtsNjiXffNCB3K99m6stInR1bMkPzvwVaMyLPhDRHavQJK33nT1Ep?=
+ =?us-ascii?Q?wGmDPidKm9nqpJlvWrq8f1GM/qL29FgYm7GZVwFeIimd8c5k3P8E5MmGS+Kk?=
+ =?us-ascii?Q?drrDbkj8Gg1CMD28v5uQ2OiGn6oVD6+A5vd2QitP1Le3Q9nJhlu82BQiMEcl?=
+ =?us-ascii?Q?XvUfpXmk5GMfo6D+6443WM6ZWnYcm2V3i5RrrE2XeXsgRtJDihzfLL4qj8lQ?=
+ =?us-ascii?Q?H4IcKmACnQZJ4vdaF8yDpc2d1XdUShNNVfq3awcOEBvjbnwoE9b2rXCZW1ih?=
+ =?us-ascii?Q?BZN3ETgpIeFbyUQ9t0V0Zk3j3jnxuZDjz4kcRRDqqFStNhXwffW0zPAdaGAj?=
+ =?us-ascii?Q?CL/3kDQdjygdwi1erLp8gZZeyfzpt0raCCuZLEg4uUuK3R63OXMuNeggiAEo?=
+ =?us-ascii?Q?UR/U9pM0gNYrE8VsxKcx+h7zEXFKly99CNc7h+U4XHkNRy0QEVdTn5dFGCLs?=
+ =?us-ascii?Q?GJ2OlwkP1MrUhsBIeempz9RipE20G811IX6EQJrTsofwW4+cY+z67YhnDB5z?=
+ =?us-ascii?Q?dDeeX5I6dUWdnIHV7ryR9vgoUXfeCFjrDZFfrX1pbV82KQ/HaUrx1jfDnl/G?=
+ =?us-ascii?Q?5jmhuzFb92YfS8eo0FLpp+OLK63AlbHoTFDS+NM5jkmryOme7mjS6C8aQkgW?=
+ =?us-ascii?Q?d9KL9CfbmeLqefJWm+IcVfvt209rkW30Eg88NtXcgCQgGTFFB7+5kCYfYfOJ?=
+ =?us-ascii?Q?AGD7Qe84zch6lsunk+NCXAnwSRRiQaOA15owMT4izU2PkxXPNIya8889o6q7?=
+ =?us-ascii?Q?R//q4GvLMFEba2YX4y6PnEwp8IG8o/htD+YS5dhBNSqSTvVrA2DwHivf8MSi?=
+ =?us-ascii?Q?P+YfF8DNO1dkjRk6fNg4mgkQmH9RECCphcHeH4WtQx6d1a4a8e7JS5RJTWCm?=
+ =?us-ascii?Q?b7FMLAMpoTIPnX0M31hSVcnTHtC0HmgN1E1cMEt3ahiMqY0RAdV8xkQ7KiUD?=
+ =?us-ascii?Q?jF8E6gxil1j2tpKPbm/QNjyDwkdnuhjC3D7SnvqpWGfOFF4928mSoZ41SXfk?=
+ =?us-ascii?Q?BXCEWRo94Y0JMGgw9lwcOVy5xd0fNv0ibO195ZmD0ywVbq+9aAz9VNc4cCE6?=
+ =?us-ascii?Q?Xkkg4arw5/gPc4FxOZq4urrpVo8NRU979Xgrm+qSrkoxjViJOL4FLIA9Idax?=
+ =?us-ascii?Q?zJdKgJSwE/TcrLjt/Lgw8r3c34nAY5vcF6EYNnyAj8xTxXdouYvnW3FEYXz6?=
+ =?us-ascii?Q?oSybP2KlhBPDSbLDrx1M8Es9zyzhugLFAY3CokmhZxQbrRx1vgJH?=
+X-OriginatorOrg: oss.nxp.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 013612a5-aab5-4356-b8b0-08df1f0c05a3
+X-MS-Exchange-CrossTenant-AuthSource: GV2PR04MB11799.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 30 Sep 2026 16:01:00.8079
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: lcmVY+ewjy1YFdwat9jP7wpt3BldI/he6k8LUNO0Lj2zzta4MfaBqcShAZ4fstgB5RUdcINAedieRB8nqSr/vLPwOmCNLx5XAGS4Z4nzU+1bY2WWs9RkH7fovvb7yPeC
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: AM8PR04MB7459
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260930_085804_520396_3B4E6DFF 
-X-CRM114-Status: GOOD (  22.23  )
+X-CRM114-CacheID: sfid-20260930_090108_940873_86A3E8B7 
+X-CRM114-Status: GOOD (  18.04  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -71,90 +146,123 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 30 September 2026 16:43:09 BST, Bradley Morgan <brads@mainlining.org>
-wrote:
->On 30 September 2026 09:02:04 BST, Will Deacon <will@kernel.org> wrote:
->>On Wed, Sep 30, 2026 at 06:36:47AM +0000, Bradley Morgan wrote:
->>> When a task dies its SVE, SME and FPSIMD register state, and its
->>> pointer auth keys, stay in freed slab pages until the allocator hands
->>> them out again. init_on_free=1 users get this wiped for the whole heap
->>> but the option is expensive, so it is off in most builds.
->>> 
->>> The vector registers are not idle memory: userspace crypto runs
->>> AES-GCM and Argon2 through SVE, so key material ends up in
->>> sve_state, sme_state and thread_struct. On task exit and on the
->>> exec and vector length reallocation paths those buffers are
->>> dropped with a plain kfree(), and on task death the register file
->>> copy embedded in thread_struct is not wiped at all. Anything that
->>> reads the freed slab back (slab bugs, cold boot, a leaked page)
->>> gets the dead task's keys.
->>> 
->>> Scrub it. kfree_sensitive() already exists for this exact job,
->>> so the freeing sites just switch to it. The register file copy
->>> and the pointer auth keys embedded in thread_struct cannot go
->>> through kfree_sensitive(), so arch_release_task_struct() zeroes
->>> them directly with memzero_explicit().
->>
->>I don't really find this very compelling, tbh. Presumably this data can
->>end up all over the place: on the stack, in a vCPU structure, in a GPR
->>so it really just feels like doing something for the sake of feeling like
->>we're making the kernel more secure rather than actually adding any
->>tangible benefits. There are also lots of things you're not covering,
->>so it's not clear why this is either necessary or sufficient.
->>
->>What prompted you to do this?
->>
+On Wed, Sep 30, 2026 at 02:26:09PM +0800, Peng Fan (OSS) wrote:
+> From: Peng Fan <peng.fan@nxp.com>
 >
->Hi Will,
+> Add support for optional per-channel child nodes (dma-channel@<addr>)
+> to the fsl,edma binding. Each child node can carry its own reg,
+> interrupts, iommus, and power-domains properties, describing a real
+> per-channel MMIO region.
 >
->I may be completely wrong here, but the "it ends up all over the place
->anyway" argument applies to the keys subsystem too, and we still scrub
->there. big_key, dh and friends use kfree_sensitive() on free, with the
->same acknowledgment that the key material passed through other memory
->on the way. iirc nobody argued those were pointless because the key
->also touched a stack or a GPR.
+> Enables per-channel IOMMU stream ID assignment via the standard
+> iommus property on each child.
 >
->The buffers here are not spill corners either:
+> The interrupts property is removed from the required list since
+> channels with child nodes carry their own interrupts. Existing DTS
+> without child nodes remains valid.
 >
->- sve_state is the task's whole vector register file, up to ~8KB, and
->  it holds whatever userspace crypto left there. OpenSSL has SVE2 AES
->  GCM assembly these days, so keys do end up in exactly this buffer
->- uw.fpsimd_state is 528 bytes of register file embedded in every
->  task_struct, one slab bug in that file away from being read
+> Assisted-by: LLM
+> Signed-off-by: Peng Fan <peng.fan@nxp.com>
+> ---
+>  .../devicetree/bindings/dma/fsl,edma.yaml          | 70 +++++++++++++++++++++-
+>  1 file changed, 69 insertions(+), 1 deletion(-)
 >
->And init_on_free, KSTACK_ERASE and kfree_sensitive itself are all the
->same idea, memory that held crypto state should not outlive its task.
->This is just the scoped version, a few KB of memset on task death and
->nothing anywhere else. Still true on today's next btw, sve_free() and
->friends are plain kfree() there.
+> diff --git a/Documentation/devicetree/bindings/dma/fsl,edma.yaml b/Documentation/devicetree/bindings/dma/fsl,edma.yaml
+> index f609038e35ae..19a103baccaf 100644
+> --- a/Documentation/devicetree/bindings/dma/fsl,edma.yaml
+> +++ b/Documentation/devicetree/bindings/dma/fsl,edma.yaml
+> @@ -104,11 +104,40 @@ properties:
+>        Bit semantics: 0 means channel available, 1 means channel unavailable
+>      default: 0
 >
+> +  "#address-cells":
+> +    const: 1
+> +
+> +  "#size-cells":
+> +    const: 1
+> +
+> +  ranges: true
+> +
+> +patternProperties:
+> +  "^dma-channel@[0-9a-f]+$":
+> +    type: object
+> +    additionalProperties: false
+> +
+> +    properties:
+> +      reg:
+> +        maxItems: 1
+> +        description: Per-channel register region within the eDMA block.
+> +
+> +      interrupts:
+> +        maxItems: 1
+> +
+> +      iommus:
+> +        maxItems: 1
+> +
+> +      power-domains:
+> +        maxItems: 1
+> +
+> +    required:
+> +      - reg
+> +
+>  required:
+>    - "#dma-cells"
+>    - compatible
+>    - reg
+> -  - interrupts
+>    - dma-channels
 >
->Honestly what prompted me to do this is, an audit of where a dead task's
->secrets
->stay.
->sve_state and
->sme_state free with plain kfree() on a path every exiting task takes,
->that was the whole trigger.
+>  allOf:
+> @@ -351,3 +380,42 @@ examples:
+>                        <&pd IMX_SC_R_DMA_3_CH6>,
+>                        <&pd IMX_SC_R_DMA_3_CH7>;
+>      };
+> +
+> +  - |
+> +    #include <dt-bindings/interrupt-controller/arm-gic.h>
+> +
+> +    dma-controller@42000000 {
+> +      compatible = "fsl,imx95-edma5";
+> +      reg = <0x42000000 0x210000>;
+> +      #dma-cells = <3>;
+> +      #address-cells = <1>;
+> +      #size-cells = <1>;
+> +      ranges;
+> +      dma-channels = <64>;
+> +      clocks = <&clk 0>;
+> +      clock-names = "dma";
+> +
+> +      dma-channel@42020000 {
+> +        reg = <0x42020000 0x8000>;
+> +        interrupts = <GIC_SPI 129 IRQ_TYPE_LEVEL_HIGH>;
+> +        iommus = <&smmu 0x30>;
+> +      };
+> +
+> +      dma-channel@42028000 {
+> +        reg = <0x42028000 0x8000>;
+> +        interrupts = <GIC_SPI 129 IRQ_TYPE_LEVEL_HIGH>;
+> +        iommus = <&smmu 0x30>;
+> +      };
+> +
+> +      dma-channel@42030000 {
+> +        reg = <0x42030000 0x8000>;
+> +        interrupts = <GIC_SPI 130 IRQ_TYPE_LEVEL_HIGH>;
+> +        iommus = <&smmu 0x31>;
+> +      };
+> +
+> +      dma-channel@42038000 {
+> +        reg = <0x42038000 0x8000>;
+> +        interrupts = <GIC_SPI 130 IRQ_TYPE_LEVEL_HIGH>;
+> +        iommus = <&smmu 0x31>;
+> +      };
+
+Nit: kept 2 dma-channel should be enough.
+
+Reviewed-by: Frank Li <Frank.Li@nxp.com>
+
+> +    };
 >
->But if "not necessary and not sufficient" is the bar, it bounces the
->keys precedent too, and I don't think you want to argue that. If the
->bar for arm64 is different from the one keys lives with, that's fine,
->I'll drop it, I'd just like to know where it is.
+> --
+> 2.51.0
 >
->
->>Will
->>
->>P.S. This ended up in my spam for some reason.
->
->Maybe this ended up on spam too?
->
->https://lore.kernel.org/all/20260919121044.13883-1-brads@mainlining.org/
->
->
->--- Thanks!
->"I'm not a very positive person" - Linus torvalds
-Oh and if it helps, my mentality for these, is for like someone really
-paranoid. Imagine that, if you don't like this, what would you suggest?
---- Thanks!
-"I'm not a very positive person" - Linus torvalds
 
