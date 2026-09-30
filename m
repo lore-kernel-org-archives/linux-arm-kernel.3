@@ -4,120 +4,120 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 78DDBCA5FC7
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 30 Sep 2026 16:09:21 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2AF2FCA5FCB
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 30 Sep 2026 16:09:32 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
 	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
 	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=XLGGOoP7JqtCfK89bBq2EHdANMphSOan7bL/LHC3lN4=; b=h+slb8Q0GTk7gt/9Dj+Lr0wlrk
-	fMs2HAxcxbvhKd1tUhCuMiKEP9R1lnZN3gNcjvM0uHcqytXi4vZ3zAjWVfBZlE5RTI2BXEpi232kZ
-	wrRS8gXisVo5tmjJrgJ0QFqxY9gTQBBa1A419mOWttfM0B5N/jtXQrh8cSw0tcdXu6dqpNhx+nOpU
-	VODzLhxcb4u+HzDFns6ZQZq/A/JSVwIfqpEu14LeQi31c8J8HbSnPVJLLEwKOcR+G9FPdzArRy8i9
-	JRRnzMGB1i6xe8Pl2Hf/rFP28YGZOAjir/TQYkKVx3ZFXO3m0gsxR0PzHQLeUQM8+3naN2m1M//3G
-	ETBTuJIA==;
+	bh=4Z6ChbJC5q1Kq++Ue8oSKabm0pkrfzMutOeMKcyR8jI=; b=Vo60cwxaSSFDzFs54zGphaNMFH
+	SMISt3YK38uE+qasoqp3acvjGTXz5Od2kxyksGZZTsp10rKPRTei5ncMVDKa9owiTRO3SpcYAhJXZ
+	XIlsCFFyklJXuUixmhgVmCj8HaR2OfIUFX2FYaWvB9jrS1q7dtNjJ7XSuuvODMmAKcGtpkNbqdrTM
+	XTrgV5EpZaMbh8bil4+z6rR5JZBQDqrClvB2XXqX7hkVMBM2biMY7tfYvIdvXI0/9fIPwMuY70+wG
+	8U/y0vObQqMr5dckidTiNZt2Lk9xi5w1pA8j+n/bPje/3pGqRG76tq2alB76n65ojPyHpFW6eCfSV
+	+yXtZuwA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xBwrj-00000006ea4-1A3C;
-	Wed, 30 Sep 2026 16:09:07 +0000
-Received: from casper.infradead.org ([2001:8b0:10b:1236::1])
+	id 1xBwrh-00000006eYW-3ZxY;
+	Wed, 30 Sep 2026 16:09:06 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xBwql-00000006e90-2gAS
+	id 1xBwqc-00000006e2c-3k5P
 	for linux-arm-kernel@bombadil.infradead.org;
-	Wed, 30 Sep 2026 16:08:07 +0000
+	Wed, 30 Sep 2026 16:08:00 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=casper.20170209; h=Content-Type:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:CC:To:From:Sender
-	:Reply-To:Content-ID:Content-Description;
-	bh=XLGGOoP7JqtCfK89bBq2EHdANMphSOan7bL/LHC3lN4=; b=vbHLmsujO5euH2uyEVcLeQ3nva
-	iaoQt0fhOPiLLuUY+QAyVyewpYdk4hba0+IfL1Dt+XjRyGkI+HGt82hw28BWBKnwHa6U41NEFpGBq
-	sHKhSnM5Ml1e65ccIYb+AL0LtTpla73XnNwPYY5lbx321HQ7Iz3UG5Q8cRe+/lxDx3pGCQsN5A9dV
-	kX3gDtMLjZlzjrgxYCIqRk2QkglWkbde0LsWPGcFnZVJY5l6rLsKLhl4pJ6APZifhlBFkeujL3sq1
-	fktmQC64ucNKpKO+4dDQhwW7HpHHgKfWzHnSUcOrhbSRFah5Ku89t3qHHxBdr2Ulq1xDEA4uDbNMy
-	DPhjJkyw==;
+	d=infradead.org; s=desiato.20200630; h=Content-Type:Content-Transfer-Encoding
+	:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:CC:To:From:
+	Sender:Reply-To:Content-ID:Content-Description;
+	bh=4Z6ChbJC5q1Kq++Ue8oSKabm0pkrfzMutOeMKcyR8jI=; b=e0T89q6JGca5+WSkHjh4A+gB0f
+	DXfYUx+nTgNe1fXKeNujh2Py4IqqmwBRJNCH+Og9A9CACWz7g7lQ5K1broRTB17gFbVNRX90uX7QK
+	80PkjtnCRqFl/vTYe2Qi8x0/RCOIHOU/xuTNVZaocfefue1Ht6s3r8rso2IhVc+tvQaUGKdpuZDbX
+	CIQiYUhDXG9z3I9+xXYFx3h8eABxd/VnqXnLbGFBHF5GXieFbtFsn6QhA1BdxM2k1uIONXaYp3DE3
+	yr/bRPC70TqfmrrHZ8EulCwFMtmJdBNbwC5jK4/2716ACt75I8x8sGkZMR+kzRujjgO2jVFtZmKiS
+	bqcAu5ww==;
 Received: from mx0a-0002e601.pphosted.com ([148.163.150.75])
-	by casper.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xBwqi-0000000E6ur-11h7
+	by desiato.infradead.org with esmtps (Exim 4.99.2 #2 (Red Hat Linux))
+	id 1xBwqW-000000043ER-3c8V
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 30 Sep 2026 16:08:06 +0000
-Received: from pps.filterd (m0380145.ppops.net [127.0.0.1])
-	by m0380145.ppops.net (8.18.1.11/8.18.1.11) with ESMTP id 68UE1HJR3333344;
-	Wed, 30 Sep 2026 11:08:01 -0500
+	Wed, 30 Sep 2026 16:07:56 +0000
+Received: from pps.filterd (m0384305.ppops.net [127.0.0.1])
+	by m0384305.ppops.net (8.18.1.11/8.18.1.11) with ESMTP id 68UE1VdL3890161;
+	Wed, 30 Sep 2026 11:07:47 -0500
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com; h=cc
 	:content-transfer-encoding:content-type:date:from:in-reply-to
 	:message-id:mime-version:references:subject:to; s=
-	proofpoint-05-2026; bh=XLGGOoP7JqtCfK89bBq2EHdANMphSOan7bL/LHC3l
-	N4=; b=o23BW9sZ9KtOfiIuoQMx28dslVhUv/rq38XaAZu+2Rwy5xYJpQ218KEmA
-	JOpLxeG9ZZE/EbncZ335LK9RlJGYRp11UXYovWJvwlbzSiatDfm/DuXa6lewE2dX
-	cjhpln9Em3WWmkG2Zt1kktJ6RtvxWaS2PzZKuoLMrcXJsiDsBQxy4Qkzokuv089R
-	XL5T2oA7+kcJZQ6wXD5K3Si9KduP+OUuo2skL2nt87g4vJSqCkfV+PsHqUtQoGJX
-	eKsvD6WoyL0O2NJgIcNf/G1UdNloYmD+pDnMDYSjokEKBxEAl+ufejKnksuo2rPz
-	3Gbk9bXIbE9arOh8yUcYngrh5QG8Q==
-Received: from ph0pr06cu001.outbound.protection.outlook.com (mail-westus3azon11011030.outbound.protection.outlook.com [40.107.208.30])
-	by m0380145.ppops.net (PPS) with ESMTPS id 4h10t1svwv-1
+	proofpoint-05-2026; bh=4Z6ChbJC5q1Kq++Ue8oSKabm0pkrfzMutOeMKcyR8
+	jI=; b=m8MAfk7/QqHZcY58eb38BDd9kx0vimP08//abEtuGHn+3DzM1w+CL3YQV
+	VuZOi5edjFfdmDHoK1FCoAGKyoLT+7gDn6UFMX9yf1OhxdAfH/CIwaoP0VG3uXa2
+	ttK89wfEdIp78rVfSl9BEzPztFjT3iKWIchBaLNsWMJUEMtrHc8ugxdieHbPwWfh
+	ANNJe2v75QLo+jn9AA2zQ47uHpZ0t8IRdHVXwDgqouRSvR5Cwd4vNAfikteGbj71
+	w0MoWWItHjfNN5vh37vAsE2nla0DaJUR88wtDoXi9SbV1ukj9tFowWcNIatmbm89
+	DayNIcSwEia3UJV4c1PmsDMlCmSjQ==
+Received: from ch4pr04cu002.outbound.protection.outlook.com (mail-northcentralusazon11013013.outbound.protection.outlook.com [40.107.201.13])
+	by m0384305.ppops.net (PPS) with ESMTPS id 4h10s21y62-1
 	(version=TLSv1.3 cipher=TLS_AES_256_GCM_SHA384 bits=256 verify=NOT);
-	Wed, 30 Sep 2026 11:08:01 -0500 (CDT)
+	Wed, 30 Sep 2026 11:07:47 -0500 (CDT)
 ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=O9ZKD52IU+8id4mdxuANFT47RXlAV9KSBv+9yau4IHLCIfkYcZaQDUl5VvdvAZa9kuto4GfUno1r1tkI+E5M2IoEj3Grg7S47ZXQN4F1+hdVSBgmw0VqwsZGZlrYUoPec3x88kuiE6kv149EvUal+uMtYEjxUhRMuD9TQOmbTbOkd8vr3iK02vFv6L2/7TWoJabZN+ueyFD5nKqoOUs3Wy/pkDJLb/VgCxIirA8ZxAt0q+L99zlqP3wiX7LM/X1yiYFTEbG2QzHDZmtHzgTkLS2u5sb+gYEU2AQriGHRQKbArzrNzyUVqfaWk1LRu7X9JPUFlGUPAsspWL+KyyKjLg==
+ b=EpkSnF7ROnYCIDTO2agc7oTkCte/IvgOAZYHr70IvTGjgP7Wtocxkvmq+BE3BXFmUAXtseMZz0DkrlEq9Sb8WaJrk36tEoI9lOWjQ6RZOL1dsm8jrlBQg6kSn2kFJ75rCioRgU1zg+Q85OGnDTxH2X0+vNd1l/GSmi2KjIxLwGMcBLvL/ImjdSmoV5eyiwV1KN5p26lTZCcH82U1HvkdgneR4oJih0/5gz3dO3Nh+TVt9kcITRPMQG/jtZZAvJO1H0pOPGydRKstK72xyMUOZ82BGyhOEVMtTyOh72aWrNTtgii6lo2usdBwRJIx6wIGXAOm3qBSnRTDoCw+APSErg==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
  s=arcselector10001;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=XLGGOoP7JqtCfK89bBq2EHdANMphSOan7bL/LHC3lN4=;
- b=GqZL8Q/HzXx+b0+h3C7tXaN1q1mDlDklm9wzhPvO2F/9cpfNkfjKvDMIePDWYtiZr/Rq8jWaIPv1qsAxD8uzWSxvj2C9dyCOPl6d4yuen5EHxzblSeWakmfh7f4vg9EMPzfArD1UpKBNAgRDteYX8FFvkKL1gcPOgo8fdbPik9IMdbBlbWNS5KJRsLj0e6tAhJQxlLWytUtPhAuAiiY7CZUTHtHsTsoErlsmQOWnjYP7ElHUVsk65uSH/atfWZWDf5mpnq5JrlvwnMdPvC95/s0KO5gFHTpqP2yf/nH/1Xdh1ckJquPhMZsFZidMqXG7F0HKzG00OPn6VWVYuK/TMg==
+ bh=4Z6ChbJC5q1Kq++Ue8oSKabm0pkrfzMutOeMKcyR8jI=;
+ b=OMwk7+e0b+LwP9nR7HBdfcs/M08TbbGf+CSG1OEIjbhr5jCLb969vILdlK7Qz8ZSOMXE/7Dsdr6FDMgicX08A2Ls8XE/NQblMYWmFeCeed19fad8qS/sXiQNy7KYRLCAk5HQep3pd2/CF6h5TKv99p4HZNVJbMDGAwaF2Q5OGikQsIpjXfnJPKdl7q9gILW+G1aOeX1Bk9dtMa2bKbYiPSJXDsiCLxjGmKEF97xwAY32DP+Vex2D9E/M14OW3qeCgUZaTbCDK8i604KQqklvfXBAmKFd5JzsNz2L/IXr1HMS1GLQfYWnxm5sz1oSDUIs34BlAYZGNXqNsY7rZyzltA==
 ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
- 198.47.21.194) smtp.rcpttodomain=lists.infradead.org smtp.mailfrom=ti.com;
+ 198.47.23.195) smtp.rcpttodomain=lists.infradead.org smtp.mailfrom=ti.com;
  dmarc=pass (p=quarantine sp=none pct=100) action=none header.from=ti.com;
  dkim=none (message not signed); arc=none (0)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
  d=ticloud.onmicrosoft.com; s=selector1-ticloud-onmicrosoft-com;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=XLGGOoP7JqtCfK89bBq2EHdANMphSOan7bL/LHC3lN4=;
- b=pS5Ya9DVALOZ/EY44mAPSBLwoyTUnknpp7DESdOAKsVly45kz5rQ08pmLosWImDrt/IOfEaEeGwf01PCy234dVZVgWsaAIB6vgEsGSRnSt3+XrX5rp2oxvO57NQ4r/KTqY897UCES7zElwAWSiXHrhCg5Us1Zh/HrSNBoeJpmZw=
-Received: from MN2PR14CA0015.namprd14.prod.outlook.com (2603:10b6:208:23e::20)
- by CH4PR10MB8195.namprd10.prod.outlook.com (2603:10b6:610:243::12) with
+ bh=4Z6ChbJC5q1Kq++Ue8oSKabm0pkrfzMutOeMKcyR8jI=;
+ b=PvFJFGviEpPo63bpjBTX3vobM4PYUsxS7tLUNLzdS5fmSEzVJZKwTyNFMrXDMUwjL3OAdpDo7TgoeLeA8OF9Bu/EW6hIao5LyDBFCWcmr7YqW8JmYQzSD/fLe9+0VTiB5AngLfrFSmCSeT8wkG4ycRUuW3ZUC/RSKQyMO1LlI00=
+Received: from MW3PR06CA0020.namprd06.prod.outlook.com (2603:10b6:303:2a::25)
+ by IA6PR10MB997658.namprd10.prod.outlook.com (2603:10b6:208:5dc::13) with
  Microsoft SMTP Server (version=TLS1_2,
  cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.472.14; Wed, 30 Sep
- 2026 16:07:56 +0000
-Received: from BN3PEPF0000B36F.namprd21.prod.outlook.com
- (2603:10b6:208:23e:cafe::2) by MN2PR14CA0015.outlook.office365.com
- (2603:10b6:208:23e::20) with Microsoft SMTP Server (version=TLS1_3,
+ 2026 16:07:45 +0000
+Received: from CO1PEPF000066EC.namprd05.prod.outlook.com
+ (2603:10b6:303:2a:cafe::2f) by MW3PR06CA0020.outlook.office365.com
+ (2603:10b6:303:2a::25) with Microsoft SMTP Server (version=TLS1_3,
  cipher=TLS_AES_256_GCM_SHA384) id 15.21.472.15 via Frontend Transport; Wed,
- 30 Sep 2026 16:07:56 +0000
+ 30 Sep 2026 16:07:44 +0000
 X-MS-Exchange-Authentication-Results: mx.microsoft.com 1; spf=pass (sender IP
- is 198.47.21.194) smtp.mailfrom=ti.com; dkim=none (message not signed)
+ is 198.47.23.195) smtp.mailfrom=ti.com; dkim=none (message not signed)
  header.d=none;dmarc=pass action=none header.from=ti.com;
 Received-SPF: Pass (protection.outlook.com: domain of ti.com designates
- 198.47.21.194 as permitted sender) receiver=protection.outlook.com;
- client-ip=198.47.21.194; helo=flwvzet200.ext.ti.com; pr=C
-Received: from flwvzet200.ext.ti.com (198.47.21.194) by
- BN3PEPF0000B36F.mail.protection.outlook.com (10.167.243.166) with Microsoft
+ 198.47.23.195 as permitted sender) receiver=protection.outlook.com;
+ client-ip=198.47.23.195; helo=lewvzet201.ext.ti.com; pr=C
+Received: from lewvzet201.ext.ti.com (198.47.23.195) by
+ CO1PEPF000066EC.mail.protection.outlook.com (10.167.249.8) with Microsoft
  SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.21.496.3 via Frontend Transport; Wed, 30 Sep 2026 16:07:55 +0000
-Received: from DFLE215.ent.ti.com (10.64.6.73) by flwvzet200.ext.ti.com
- (10.248.192.31) with Microsoft SMTP Server (version=TLS1_2,
+ 15.21.472.14 via Frontend Transport; Wed, 30 Sep 2026 16:07:44 +0000
+Received: from DLEE200.ent.ti.com (157.170.170.75) by lewvzet201.ext.ti.com
+ (10.4.14.104) with Microsoft SMTP Server (version=TLS1_2,
  cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.45; Wed, 30 Sep
- 2026 11:06:54 -0500
-Received: from DFLE211.ent.ti.com (10.64.6.69) by DFLE215.ent.ti.com
- (10.64.6.73) with Microsoft SMTP Server (version=TLS1_2,
+ 2026 11:07:13 -0500
+Received: from DLEE214.ent.ti.com (157.170.170.117) by DLEE200.ent.ti.com
+ (157.170.170.75) with Microsoft SMTP Server (version=TLS1_2,
  cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.45; Wed, 30 Sep
- 2026 11:06:54 -0500
-Received: from lelvem-mr06.itg.ti.com (10.180.75.8) by DFLE211.ent.ti.com
- (10.64.6.69) with Microsoft SMTP Server (version=TLS1_2,
+ 2026 11:07:13 -0500
+Received: from lelvem-mr06.itg.ti.com (10.180.75.8) by DLEE214.ent.ti.com
+ (157.170.170.117) with Microsoft SMTP Server (version=TLS1_2,
  cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.45 via Frontend
- Transport; Wed, 30 Sep 2026 11:06:54 -0500
+ Transport; Wed, 30 Sep 2026 11:07:13 -0500
 Received: from uda0510294.dhcp.ti.com (uda0510294.dhcp.ti.com [10.24.50.162])
-	by lelvem-mr06.itg.ti.com (8.18.1/8.18.1) with ESMTP id 68UG68WH3425232;
-	Wed, 30 Sep 2026 11:06:52 -0500
+	by lelvem-mr06.itg.ti.com (8.18.1/8.18.1) with ESMTP id 68UG68WN3425232;
+	Wed, 30 Sep 2026 11:07:10 -0500
 From: Beleswar Padhi <b-padhi@ti.com>
 To: <nm@ti.com>, <kristo@kernel.org>, <ssantosh@kernel.org>, <afd@ti.com>,
         <vigneshr@ti.com>, <u-kumar1@ti.com>
 CC: <linux-kernel@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
         <b-padhi@ti.com>
-Subject: [PATCH v2 14/22] firmware: ti_sci: Do not export reboot control
-Date: Wed, 30 Sep 2026 21:35:59 +0530
-Message-ID: <20260930160607.2674980-15-b-padhi@ti.com>
+Subject: [PATCH v2 20/22] firmware: ti: ti_sci_pm: Move pm ops into its own file
+Date: Wed, 30 Sep 2026 21:36:05 +0530
+Message-ID: <20260930160607.2674980-21-b-padhi@ti.com>
 X-Mailer: git-send-email 2.34.1
 In-Reply-To: <20260930160607.2674980-1-b-padhi@ti.com>
 References: <20260930160607.2674980-1-b-padhi@ti.com>
@@ -126,55 +126,56 @@ Content-Transfer-Encoding: 8bit
 Content-Type: text/plain
 X-EOPAttributedMessage: 0
 X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: BN3PEPF0000B36F:EE_|CH4PR10MB8195:EE_
-X-MS-Office365-Filtering-Correlation-Id: eedc7dc9-f37a-4604-eac5-08df1f0cfcdd
+X-MS-TrafficTypeDiagnostic: CO1PEPF000066EC:EE_|IA6PR10MB997658:EE_
+X-MS-Office365-Filtering-Correlation-Id: 645adc24-3051-444a-60df-08df1f0cf694
 X-MS-Exchange-SenderADCheck: 1
 X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|82310400026|23010399003|1800799024|36860700016|376014|13003099007|3023799007|10067099003|56012099006|18002099003|22082099003;
-X-Microsoft-Antispam-Message-Info: bUT3MtP5pDN4lQcjxHbcm+jWlQ2beeO/liIfKcwVI+badY5EZNqDOz+3YB0S1ZcK1LKOo2+A5F2i7fSv/jrNpBYu1m+4fPEezzUKGHB7/VO4vn4TPFKdEImHSmTmGLGJ0KZrfDH59Qwtec65ojMyxlC0JcrBetbyjux7qig6mZBdN0RxarMX+eoXpY81Aa6LNH6FyzlcCYkjhsOTUGnnAF/F0QB2Cuo57yl40iaDklrdYYpaJLpCYKxWNtZxAANUfqOFc+wMZhUi6GF/LBmAYpIo7RtJAUCoAlpOVkNxJVHhuFdiuIu/kXrka/96vMIoJIeiP5iimEs9YGIOZvJ5S/CJimg8IXf1PeYDeqjtE7TWIA2gQ76dwpoImFnY+WiEYZkhnxmwfQ29UtbF90iJarg+Nqkj/gJTl3mZXUG07raVx/wBTe9FuNGI82m3h3N4IN7pudUwPrDin5jUIuSl8p4f3SPhj8RhiJbA3cISVV1jq31MniG0riRMpwBLwaPlEcFQxMh7Ju9DmxaFgLXMJSuQ0g/KmUuuC8VQx4QljnzviRHD6StdDBvetMsqBzl3UPgBnbJCnoCvmSSFygAWZJrKcvTEkDe54WnSG+lVs3e3Yb6x3GRJyfDuDjKVfr5XQ+qCAsA4GYGWe/4eEJQ5BzohfigB+aQUqUGlKL+8450lqGO/m1R/mO0Bbf9pE4JpfGDA47Kze6kAJLJxaHGG7w==
-X-Forefront-Antispam-Report: CIP:198.47.21.194;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:flwvzet200.ext.ti.com;PTR:ErrorRetry;CAT:NONE;SFS:(13230040)(82310400026)(23010399003)(1800799024)(36860700016)(376014)(13003099007)(3023799007)(10067099003)(56012099006)(18002099003)(22082099003);DIR:OUT;SFP:1101;
+X-Microsoft-Antispam: BCL:0;ARA:13230040|36860700016|82310400026|1800799024|376014|23010399003|56012099006|10067099003|3023799007|18002099003|6133799003|22082099003;
+X-Microsoft-Antispam-Message-Info: YOcLCThxKcNvw8RYOqY34xFfyNfLTmIYqd0OVLse4hphljpTkfrcKq3WlwJ2mSq3D7CafatcufAiIXxDQV7J17payLgGpa6XmH7T6bpbRh5mtf/eqjrghQVot/elWv1TePn5tW4eW049RnXG74EHKduWJZBu7AynAjEvcb8Ga5NVs6Dzy6FdjdRn3qu0vvDY65fgcJBKr2J/44ZSObMkAeS0fDxh7NuUqiYeyMUkgWmkLFQnwQtOFP3zxeVIjZ8lVeoS5VQmeom6tdo51sGLpoLjhynEMXWrGTnNz3PtRvK+LYiTHxztECYUZFLc/pSGJCK8lwjczEepmJ3LMI42SI5wZ8+MU8I5inBeHbSdNXhAU8Ne2LipeLKDQXPv3bGjDSSPDgW1DvShZiRHfiDkn20HnGtYv17BbSKqCw2gHYvSnOLcZHJHm7iqeS+JCyyR7dpmxYtB86mnrt+kiobrf2hrf8hxYd71E3UoA3Ov44Lb52VeHeope1RaYuJgdYa9ZNXewEh18tKO5DL2Mc6AcBYnigsKbq9GfOcYs9hreiYbXGZxl7J2TgUWIRIetVB6f6SuipT7HKRzkOdtfi89Ndr1PsJe/1jVEdJ7rZkYpPfRjAS+eL0ATca8d3njKXVxytZgzWMqljEAP7C30bhWng==
+X-Forefront-Antispam-Report: CIP:198.47.23.195;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:lewvzet201.ext.ti.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(36860700016)(82310400026)(1800799024)(376014)(23010399003)(56012099006)(10067099003)(3023799007)(18002099003)(6133799003)(22082099003);DIR:OUT;SFP:1101;
 X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: y2SrKbjnr5GWK8i/vs0oeHI9wMLHLB5rzPXf7L5MhKyHEqcCidVUualrSqX0Byu7wLCpvj4ex+etnffKmEddPR19N2dAf883OE4Qdu8rcRbTfpYWSUSIPt7Nar7nC1azd/UnOMu5Ob/Wgezdd3FBgHI3uaAjAAIcaxdXmLM29DQQlVBddwYCc5kCE/4nqmJ0RaRr0dGcc36jS2yzLmKbSObQOix7O+PFyImWfuLeOPeZJ0cMcj51H5mtnsqiOH/ga8y6yajRqAe6mLfBOiAmF4JBoQm5PCJ4V6AZ7wPD7ke0z09ynuqupqsdLckFs5BbHM9IIoVfeabyrru0RVypv9qItOD7SGQgUEViM6SMjZTxGiSJVmMFWSa30sV9dmjlRrm9kjOW7sURcONoUFRfY5vL2kgeOFLQume3JC82NspsHRqR77ksczOWRaYn4UK0
-X-Exchange-RoutingPolicyChecked: ZUY2vkDwuxMhaNKlIYABGbusEnpVwah+8hSLrUhOxJMsQ+PcdAQoBM/JqoMAkiovivWblEsFgwiVzl8eWKw8SCbZ6rAiaYe1E1+eFJovV2H14YjR8wknTa6s3hwmRr51Qtb1lwXa0KBZIfSv2ePaC6iNY/yoCnI+YW6BPXd07hRcaObRYaP3z/QjpAhqO0PbiAeo0u5hEC5dUFLvs1eNlFrUpCVbSSdmefyoptQ8/ZFdAIgkMs5y9hH5Jrthyoc0VdJK1LIV8vIlbozkUK4nHgBdUPxtJQrwLJG2GkfdUBHyWZUiB3SWfnzAbO0QX63wwYtEDU1dJ/BgCzFecWZdAw==
+X-MS-Exchange-AntiSpam-MessageData-0: 2ls4+mmZYDkazVJq6U+L4QBFHm+UVd+uRMWycfZAHh7REO96BCUOTql/vhK5OOJivDhGXVN1ecRFBQ79NW5EMBdn0x5ZWCMUXhxpxKYj6j7vb2PH/sCPBTLbOie/Ybpsw26CrOBmenzG0T8EF47th65cTKpwyQy/kHbC9NpH71tmmitj0Sdz6UVszf1UfIU3rJ2pa3jLwfLNZsni7W8Z4WvKzNvWnp5Ur7ebjknvoej0ulR28taY3sLqv26zvjZSliXrVi4epYv3mWAWQ4j1Fm8NiAUWdkIEs8NdQfGte1EfKq5czKjiXFyA+kj7k6x6/3qHrdbrAKdv2B3fC0X13C0mUQ74fObeyWlMfKDMx677FfargJvH7bIDO6UOI0HUNbFOSIqfxfavZTgRCt5Ci36aRgnBA3pIWaB4TkC3IKQhV/QkX26u3s5c0Tz2negL
+X-Exchange-RoutingPolicyChecked: C3mhJT4Ady6RnMl1Nd6ZhVxteMOJe8ctlurSuW890tUxSFaGKduT0qhwqlN2kgOOFm7ALKDeRKJAZuGI58Pf6Jp3rVOD9YPmQP/3kBGsACTpjhc03z9ockfC3KvW1DHfBnLcipLIV6GjWJEZ62eZSDXXom3ngC0piTIEB9zSgrSD/d7PoR9EByvIDc6bvQwAR3usj0Hk5Cz19E/mgPVP6z1VJ3cRZwgxUOyRW724v8Sx8wPqyaRAhLpZ5pIQu8/dcSR7VgG6jrsMu08zD0LiSQiigXzRLltelTB+m3gfTNHzBLLW/1ZxmNYQ9O4/8AI9WiiadMNbt0OG5mi9yLfhuQ==
 X-OriginatorOrg: ti.com
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 30 Sep 2026 16:07:55.1260
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 30 Sep 2026 16:07:44.5641
  (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: eedc7dc9-f37a-4604-eac5-08df1f0cfcdd
+X-MS-Exchange-CrossTenant-Network-Message-Id: 645adc24-3051-444a-60df-08df1f0cf694
 X-MS-Exchange-CrossTenant-Id: e5b49634-450b-4709-8abb-1e2b19b982b7
-X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=e5b49634-450b-4709-8abb-1e2b19b982b7;Ip=[198.47.21.194];Helo=[flwvzet200.ext.ti.com]
-X-MS-Exchange-CrossTenant-AuthSource: BN3PEPF0000B36F.namprd21.prod.outlook.com
+X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=e5b49634-450b-4709-8abb-1e2b19b982b7;Ip=[198.47.23.195];Helo=[lewvzet201.ext.ti.com]
+X-MS-Exchange-CrossTenant-AuthSource: CO1PEPF000066EC.namprd05.prod.outlook.com
 X-MS-Exchange-CrossTenant-AuthAs: Anonymous
 X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: CH4PR10MB8195
-X-Proofpoint-Spam-Info: AW1haW4tMjYwOTMwMDA2NCBTYWx0ZWRfXwMuaP9qIlidS
- APZXehu79zs/bAhwg9mqKeyPImZqTy7NzNGraGC0dsUKAEjJ1+NT9GJi2qBOeq+8unxw3Jf6d3e
- L0WRUnjOB5nMfMTKs/fR9QlkM0OVMMg=
-X-Proofpoint-ORIG-GUID: xO00TWaFUffOtGP7vRVwYF3SKCwsnpUC
-X-Authority-Analysis: v=2.4 cv=C7R8WgP+ c=1 sm=1 tr=0 ts=6abd33e1 cx=c_pps
- a=ysgzExocFkmHQmNOaQPFvQ==:117 a=iwqwCZQqcuTv3JOpYdM7/Q==:17
- a=6eWqkTHjU83fiwn7nKZWdM+Sl24=:19 a=VdqzKS8jKosA:10 a=AlMIdn_sM9wA:10
- a=VkNPw1HP01LnGYTKEx00:22 a=Z8NIEmU8O1QQgoT56wFK:22 a=gO1vWkAQAl3rybz1DQOp:22
- a=VwQbUJbxAAAA:8 a=sozttTNsAAAA:8 a=4y9GCjRDMv2ZYqE5liQA:9
-X-Proofpoint-GUID: xO00TWaFUffOtGP7vRVwYF3SKCwsnpUC
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwOTMwMDA2NCBTYWx0ZWRfX4LvdHGyF6CXg
- 7qH3ygfpHvyCE1RbLYIR+xVIJ3W54KKZ8/lp1j6vGqCfpphL9FRyU32eqCSpcEc+7mBGH7Usz9h
- 5C7oJZZWYP3WQdGIvs04E6F2f0mr3lkcQ7spvHZMtDqjT6Z8ss/nfJDwDgmwdnlQyQTXCpjGN2a
- dJkerG5U6oeutwZN49XWpYZf7ikmQkmTyt6x5wm08Av14I3rMQMlwj83ivk8F6CpcPWfdp32yrv
- IwuOa6g0H6HNntLaCq9aRYrFuX3+ZcTBBsT/qI+/BrpxozCKeBKSFTAZULLprBGfGeTZqvhrvTd
- VZ5n/Al9Dmr/zi1nmeSc0Y3eP6Lola0Xo6gNdPgqgJOBHJQGdOnfRBrg9yDLwBGT2YMcrF/Kg2+
- btCqFyVgyPj/2Pq2ljWDQmXraVk7973s9Dgltucy8EzHSpVATpC14VHad7C0eha4coUmxQhtjNN
- raY765HNgn1MSho/Pjg==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: IA6PR10MB997658
+X-Proofpoint-GUID: I06QgSckD4hPGGmXlt9KeIa1zCREu7jT
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwOTMwMDA2NCBTYWx0ZWRfXwE0WR9HcMy2E
+ 2SddZ2fReBcEnwiSWCY40wHsJM+D8V011Jz5Md9JBaVH9Hj1PHtn/hvjBwqF2+PzzyP4DrpqS01
+ BIRqfJ7UAfWdVIE0LOcWjbtBS2mCxieF2hGkv2R9ewWMcoy5Z7TKAE+XQewSozI5ccZoDPxbh06
+ u9QN4Etor4T4rV/dXzdl/8nD9/lozSC5V5ryc9Sy3Sfs8hJ8BIzUZv0kx8KAeCB29ES4dHYKWTo
+ YvWOwzLwWdTk4Xl57IjrNeeWXMowcj1rb9ghkoGIqNhB2Y71Cd+Ixkvc/WcdXzQYzkGR+5kIFTb
+ S6uOagac3Inb57Ho/gURyC1YiuVazGj3AADBY14VBdQF7waYIT/8RCw3FYHjY8hbV8Q7S4roDa5
+ tS8OUt8HdlZ52F4XSXmQp9nSMmBmv/NtYMDYyxHOXEHdnfNTsCo98lpbjQxeHGPa2TgC/fVXV6J
+ blhOp1Ybx5cCPQiNIDA==
+X-Proofpoint-ORIG-GUID: I06QgSckD4hPGGmXlt9KeIa1zCREu7jT
+X-Authority-Analysis: v=2.4 cv=G6aJgNk5 c=1 sm=1 tr=0 ts=6abd33d3 cx=c_pps
+ a=WlOtikQjNqa04qC7x4SRFg==:117 a=f+v6EHfkeJbVwR46tk4DMg==:17
+ a=6eWqkTHjU83fiwn7nKZWdM+Sl24=:19 a=VdqzKS8jKosA:10 a=s63m1ICgrNkA:10
+ a=AlMIdn_sM9wA:10 a=VkNPw1HP01LnGYTKEx00:22 a=Z8NIEmU8O1QQgoT56wFK:22
+ a=taLDd7a_hP9WKsMzeGRc:22 a=VwQbUJbxAAAA:8 a=sozttTNsAAAA:8
+ a=jiaZLWohtit7zQGSWZAA:9
+X-Proofpoint-Spam-Info: AW1haW4tMjYwOTMwMDA2NCBTYWx0ZWRfXwLH6ioLF6ohZ
+ wm9xTkR7qCFUipS0qMmvTYRO7ja3m+CXCGEQFVoRLsuOBTvXdngFGyQEvwCYZEY2wjhltEacWuF
+ 255QVKuOAsuyvDji0xXdOGMgSMuQO9g=
 X-Proofpoint-Virus-Version: vendor=baseguard
  engine=ICAP:2.0.293,Aquarius:18.0.1176,Hydra:6.1.134,FMLib:17.12.100.49
  definitions=2026-09-30_03,2026-09-21_02,2025-10-01_01
 X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- suspectscore=0 adultscore=0 lowpriorityscore=0 malwarescore=0 bulkscore=0
- priorityscore=1501 impostorscore=0 spamscore=0 clxscore=1015 phishscore=0
+ clxscore=1015 adultscore=0 bulkscore=0 priorityscore=1501 impostorscore=0
+ malwarescore=0 phishscore=0 lowpriorityscore=0 suspectscore=0 spamscore=0
  classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
  reason=mlx scancount=1 engine=8.22.0-2609040000 definitions=main-2609300064
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260930_170804_593138_B91550B2 
-X-CRM114-Status: GOOD (  12.81  )
+X-CRM114-CacheID: sfid-20260930_170753_266942_4DAFF922 
+X-CRM114-Status: GOOD (  20.81  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -191,81 +192,586 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 
 From: Andrew Davis <afd@ti.com>
 
-This function is only to be used by the TI-SCI driver itself through
-its registered restart handler, exporting this control to any TI-SCI
-consumer is not needed nor probably a good idea.
+Extract the power management operations related functions and services
+from ti_sci_core.c into its own file. This breaks down the single
+large file into smaller logical files for better readability and
+maintenance.
+
+The pm ops need access to the TI SCI instance to get the device used for
+error reporting. Move struct ti_sci_xfer, struct ti_sci_xfers_info,
+struct ti_sci_desc, struct ti_sci_info and handle_to_ti_sci_info() from
+ti_sci_core.c into ti_sci.h, along with the includes they need, so that
+they can be shared with the split files. Upcoming splits also need
+access to the instance state, so this is done once here.
 
 Signed-off-by: Andrew Davis <afd@ti.com>
+Co-developed-by: Beleswar Padhi <b-padhi@ti.com>
 Signed-off-by: Beleswar Padhi <b-padhi@ti.com>
 ---
 v2: Changelog:
 1. None to this patch.
 
 Link to v1:
-https://lore.kernel.org/all/20260929201746.4078803-15-b-padhi@ti.com/
+https://lore.kernel.org/all/20260929201746.4078803-21-b-padhi@ti.com/
 
- drivers/firmware/ti_sci.c              |  3 ---
- include/linux/soc/ti/ti_sci_protocol.h | 12 ------------
- 2 files changed, 15 deletions(-)
+ drivers/firmware/ti/Makefile      |   1 +
+ drivers/firmware/ti/ti_sci.h      | 100 ++++++++++++++
+ drivers/firmware/ti/ti_sci_core.c | 220 +-----------------------------
+ drivers/firmware/ti/ti_sci_pm.c   | 145 ++++++++++++++++++++
+ 4 files changed, 247 insertions(+), 219 deletions(-)
+ create mode 100644 drivers/firmware/ti/ti_sci_pm.c
 
-diff --git a/drivers/firmware/ti_sci.c b/drivers/firmware/ti_sci.c
-index fef7028d40e39..d22686f9346ea 100644
---- a/drivers/firmware/ti_sci.c
-+++ b/drivers/firmware/ti_sci.c
-@@ -2567,7 +2567,6 @@ static int ti_sci_cmd_proc_get_status(const struct ti_sci_handle *handle,
- static void ti_sci_setup_ops(struct ti_sci_info *info)
- {
- 	struct ti_sci_ops *ops = &info->handle.ops;
--	struct ti_sci_core_ops *core_ops = &ops->core_ops;
- 	struct ti_sci_dev_ops *dops = &ops->dev_ops;
- 	struct ti_sci_clk_ops *cops = &ops->clk_ops;
- 	struct ti_sci_pm_ops *pmops = &ops->pm_ops;
-@@ -2578,8 +2577,6 @@ static void ti_sci_setup_ops(struct ti_sci_info *info)
- 	struct ti_sci_rm_udmap_ops *udmap_ops = &ops->rm_udmap_ops;
- 	struct ti_sci_proc_ops *pops = &ops->proc_ops;
+diff --git a/drivers/firmware/ti/Makefile b/drivers/firmware/ti/Makefile
+index c4233542ad57d..bbfe73587a3c7 100644
+--- a/drivers/firmware/ti/Makefile
++++ b/drivers/firmware/ti/Makefile
+@@ -3,4 +3,5 @@
+ ti_sci-y			:= ti_sci_core.o
+ ti_sci-y			+= ti_sci_clock.o
+ ti_sci-y			+= ti_sci_device.o
++ti_sci-y			+= ti_sci_pm.o
+ obj-$(CONFIG_TI_SCI_PROTOCOL)	+= ti_sci.o
+diff --git a/drivers/firmware/ti/ti_sci.h b/drivers/firmware/ti/ti_sci.h
+index cce59cac35ed6..7a707c632276e 100644
+--- a/drivers/firmware/ti/ti_sci.h
++++ b/drivers/firmware/ti/ti_sci.h
+@@ -13,8 +13,107 @@
+ #define __TI_SCI_H
  
--	core_ops->reboot_device = ti_sci_cmd_core_reboot;
--
- 	dops->get_device = ti_sci_cmd_get_device;
- 	dops->get_device_exclusive = ti_sci_cmd_get_device_exclusive;
- 	dops->idle_device = ti_sci_cmd_idle_device;
-diff --git a/include/linux/soc/ti/ti_sci_protocol.h b/include/linux/soc/ti/ti_sci_protocol.h
-index 471f5580787cf..d8efddc1d4ca4 100644
---- a/include/linux/soc/ti/ti_sci_protocol.h
-+++ b/include/linux/soc/ti/ti_sci_protocol.h
-@@ -27,16 +27,6 @@ struct ti_sci_version_info {
+ #include <linux/compiler_types.h>
++#include <linux/completion.h>
++#include <linux/container_of.h>
++#include <linux/hashtable.h>
++#include <linux/mailbox_client.h>
++#include <linux/mutex.h>
++#include <linux/semaphore.h>
++#include <linux/soc/ti/ti-msgmgr.h>
++#include <linux/soc/ti/ti_sci_protocol.h>
++#include <linux/spinlock.h>
+ #include <linux/types.h>
  
- struct ti_sci_handle;
++/**
++ * struct ti_sci_xfer - Structure representing a message flow
++ * @tx_message:	Transmit message
++ * @rx_buf:	Pointer to store received message
++ * @rx_len:	Receive message length
++ * @done:	completion event
++ */
++struct ti_sci_xfer {
++	struct ti_msgmgr_message tx_message;
++	void *rx_buf;
++	u8 rx_len;
++	struct completion done;
++};
++
++/**
++ * struct ti_sci_xfers_info - Structure to manage transfer information
++ * @sem_xfer_count:	Counting Semaphore for managing max simultaneous
++ *			Messages.
++ * @xfer_block:		Preallocated Message array
++ * @xfer_alloc_table:	Bitmap table for allocated messages.
++ *			Index of this bitmap table is also used for message
++ *			sequence identifier.
++ * @xfer_lock:		Protection for message allocation
++ */
++struct ti_sci_xfers_info {
++	struct semaphore sem_xfer_count;
++	struct ti_sci_xfer *xfer_block;
++	unsigned long *xfer_alloc_table;
++	/* protect transfer allocation */
++	spinlock_t xfer_lock;
++};
++
++/**
++ * struct ti_sci_desc - Description of SoC integration
++ * @default_host_id:	Host identifier representing the compute entity
++ * @max_rx_timeout_ms:	Timeout for communication with SoC (in Milliseconds)
++ * @max_msgs: Maximum number of messages that can be pending
++ *		  simultaneously in the system
++ * @max_msg_size: Maximum size of data per message that can be handled.
++ */
++struct ti_sci_desc {
++	u8 default_host_id;
++	int max_rx_timeout_ms;
++	int max_msgs;
++	int max_msg_size;
++};
++
++/**
++ * struct ti_sci_info - Structure representing a TI SCI instance
++ * @dev:	Device pointer
++ * @desc:	SoC description for this instance
++ * @d:		Debugfs file entry
++ * @debug_region: Memory region where the debug message are available
++ * @debug_region_size: Debug region size
++ * @debug_buffer: Buffer allocated to copy debug messages.
++ * @handle:	Instance of TI SCI handle to send to clients.
++ * @cl:		Mailbox Client
++ * @chan_tx:	Transmit mailbox channel
++ * @chan_rx:	Receive mailbox channel
++ * @minfo:	Message info
++ * @node:	list head
++ * @irqs:	List of allocated irqs
++ * @irq_lock:	Protection for irq hash list
++ * @host_id:	Host ID
++ * @fw_caps:	FW/SoC low power capabilities
++ * @users:	Number of users of this instance
++ */
++struct ti_sci_info {
++	struct device *dev;
++	const struct ti_sci_desc *desc;
++	struct dentry *d;
++	void __iomem *debug_region;
++	char *debug_buffer;
++	size_t debug_region_size;
++	struct ti_sci_handle handle;
++	struct mbox_client cl;
++	struct mbox_chan *chan_tx;
++	struct mbox_chan *chan_rx;
++	struct ti_sci_xfers_info minfo;
++	struct list_head node;
++	DECLARE_HASHTABLE(irqs, 8);
++	struct mutex irq_lock;
++	u8 host_id;
++	u64 fw_caps;
++	/* protected by ti_sci_list_mutex */
++	int users;
++};
++
++#define handle_to_ti_sci_info(h) container_of(h, struct ti_sci_info, handle)
++
+ /* Generic Messages */
+ #define TI_SCI_MSG_ENABLE_WDT	0x0000
+ #define TI_SCI_MSG_WAKE_RESET	0x0001
+@@ -1567,5 +1666,6 @@ int ti_sci_do_xfer(const struct ti_sci_handle *handle,
+ 
+ void ti_sci_setup_device_ops(struct ti_sci_dev_ops *dops);
+ void ti_sci_setup_clock_ops(struct ti_sci_clk_ops *cops);
++void ti_sci_setup_pm_ops(struct ti_sci_pm_ops *pmops);
+ 
+ #endif /* __TI_SCI_H */
+diff --git a/drivers/firmware/ti/ti_sci_core.c b/drivers/firmware/ti/ti_sci_core.c
+index 848c040f598e0..60d0d64ac4ae8 100644
+--- a/drivers/firmware/ti/ti_sci_core.c
++++ b/drivers/firmware/ti/ti_sci_core.c
+@@ -13,11 +13,9 @@
+ #include <linux/cpu.h>
+ #include <linux/debugfs.h>
+ #include <linux/export.h>
+-#include <linux/hashtable.h>
+ #include <linux/io.h>
+ #include <linux/iopoll.h>
+ #include <linux/kernel.h>
+-#include <linux/mailbox_client.h>
+ #include <linux/module.h>
+ #include <linux/mutex.h>
+ #include <linux/of.h>
+@@ -25,10 +23,7 @@
+ #include <linux/platform_device.h>
+ #include <linux/pm_qos.h>
+ #include <linux/property.h>
+-#include <linux/semaphore.h>
+ #include <linux/slab.h>
+-#include <linux/soc/ti/ti-msgmgr.h>
+-#include <linux/soc/ti/ti_sci_protocol.h>
+ #include <linux/suspend.h>
+ #include <linux/sys_soc.h>
+ #include <linux/reboot.h>
+@@ -40,53 +35,6 @@ static LIST_HEAD(ti_sci_list);
+ /* Protection for the entire list */
+ static DEFINE_MUTEX(ti_sci_list_mutex);
  
 -/**
-- * struct ti_sci_core_ops - SoC Core Operations
-- * @reboot_device: Reboot the SoC
-- *		Returns 0 for successful request(ideally should never return),
-- *		else returns corresponding error value.
+- * struct ti_sci_xfer - Structure representing a message flow
+- * @tx_message:	Transmit message
+- * @rx_buf:	Pointer to store received message
+- * @rx_len:	Receive message length
+- * @done:	completion event
 - */
--struct ti_sci_core_ops {
--	int (*reboot_device)(const struct ti_sci_handle *handle);
+-struct ti_sci_xfer {
+-	struct ti_msgmgr_message tx_message;
+-	void *rx_buf;
+-	u8 rx_len;
+-	struct completion done;
+-};
+-
+-/**
+- * struct ti_sci_xfers_info - Structure to manage transfer information
+- * @sem_xfer_count:	Counting Semaphore for managing max simultaneous
+- *			Messages.
+- * @xfer_block:		Preallocated Message array
+- * @xfer_alloc_table:	Bitmap table for allocated messages.
+- *			Index of this bitmap table is also used for message
+- *			sequence identifier.
+- * @xfer_lock:		Protection for message allocation
+- */
+-struct ti_sci_xfers_info {
+-	struct semaphore sem_xfer_count;
+-	struct ti_sci_xfer *xfer_block;
+-	unsigned long *xfer_alloc_table;
+-	/* protect transfer allocation */
+-	spinlock_t xfer_lock;
+-};
+-
+-/**
+- * struct ti_sci_desc - Description of SoC integration
+- * @default_host_id:	Host identifier representing the compute entity
+- * @max_rx_timeout_ms:	Timeout for communication with SoC (in Milliseconds)
+- * @max_msgs: Maximum number of messages that can be pending
+- *		  simultaneously in the system
+- * @max_msg_size: Maximum size of data per message that can be handled.
+- */
+-struct ti_sci_desc {
+-	u8 default_host_id;
+-	int max_rx_timeout_ms;
+-	int max_msgs;
+-	int max_msg_size;
 -};
 -
  /**
-  * struct ti_sci_dev_ops - Device control operations
-  * @get_device: Command to request for device managed by TISCI
-@@ -905,7 +895,6 @@ struct ti_sci_proc_ops {
+  * struct ti_sci_irq - Description of allocated irqs
+  * @node: Link to hash table
+@@ -97,49 +45,7 @@ struct ti_sci_irq {
+ 	struct ti_sci_msg_req_manage_irq desc;
+ };
  
+-/**
+- * struct ti_sci_info - Structure representing a TI SCI instance
+- * @dev:	Device pointer
+- * @desc:	SoC description for this instance
+- * @d:		Debugfs file entry
+- * @debug_region: Memory region where the debug message are available
+- * @debug_region_size: Debug region size
+- * @debug_buffer: Buffer allocated to copy debug messages.
+- * @handle:	Instance of TI SCI handle to send to clients.
+- * @cl:		Mailbox Client
+- * @chan_tx:	Transmit mailbox channel
+- * @chan_rx:	Receive mailbox channel
+- * @minfo:	Message info
+- * @node:	list head
+- * @irqs:	List of allocated irqs
+- * @irq_lock:	Protection for irq hash list
+- * @host_id:	Host ID
+- * @fw_caps:	FW/SoC low power capabilities
+- * @users:	Number of users of this instance
+- */
+-struct ti_sci_info {
+-	struct device *dev;
+-	const struct ti_sci_desc *desc;
+-	struct dentry *d;
+-	void __iomem *debug_region;
+-	char *debug_buffer;
+-	size_t debug_region_size;
+-	struct ti_sci_handle handle;
+-	struct mbox_client cl;
+-	struct mbox_chan *chan_tx;
+-	struct mbox_chan *chan_rx;
+-	struct ti_sci_xfers_info minfo;
+-	struct list_head node;
+-	DECLARE_HASHTABLE(irqs, 8);
+-	struct mutex irq_lock;
+-	u8 host_id;
+-	u64 fw_caps;
+-	/* protected by ti_sci_list_mutex */
+-	int users;
+-};
+-
+ #define cl_to_ti_sci_info(c)	container_of(c, struct ti_sci_info, cl)
+-#define handle_to_ti_sci_info(h) container_of(h, struct ti_sci_info, handle)
+ 
+ #ifdef CONFIG_DEBUG_FS
+ 
+@@ -687,128 +593,6 @@ static int ti_sci_cmd_set_io_isolation(const struct ti_sci_handle *handle,
+ 	return 0;
+ }
+ 
+-/**
+- * ti_sci_msg_cmd_lpm_wake_reason() - Get the wakeup source from LPM
+- * @handle:		Pointer to TI SCI handle
+- * @source:		The wakeup source that woke the SoC from LPM
+- * @timestamp:		Timestamp of the wakeup event
+- * @pin:		The pin that has triggered wake up
+- * @mode:		The last entered low power mode
+- *
+- * Return: 0 if all went well, else returns appropriate error value.
+- */
+-static int ti_sci_msg_cmd_lpm_wake_reason(const struct ti_sci_handle *handle,
+-					  u32 *source, u64 *timestamp, u8 *pin, u8 *mode)
+-{
+-	struct ti_sci_msg_hdr req;
+-	struct ti_sci_msg_resp_lpm_wake_reason resp;
+-	struct device *dev;
+-	int ret = 0;
+-
+-	if (IS_ERR(handle))
+-		return PTR_ERR(handle);
+-	if (!handle)
+-		return -EINVAL;
+-
+-	dev = handle_to_ti_sci_info(handle)->dev;
+-
+-	ret = ti_sci_do_xfer(handle, TI_SCI_MSG_LPM_WAKE_REASON,
+-			     TI_SCI_FLAG_REQ_ACK_ON_PROCESSED,
+-			     &req, sizeof(req),
+-			     &resp, sizeof(resp));
+-	if (ret) {
+-		dev_err(dev, "Failed to get wake reason\n");
+-		return ret;
+-	}
+-
+-	if (source)
+-		*source = resp.wake_source;
+-	if (timestamp)
+-		*timestamp = resp.wake_timestamp;
+-	if (pin)
+-		*pin = resp.wake_pin;
+-	if (mode)
+-		*mode = resp.mode;
+-
+-	return 0;
+-}
+-
+-/**
+- * ti_sci_cmd_set_device_constraint() - Set LPM constraint on behalf of a device
+- * @handle:	pointer to TI SCI handle
+- * @id:	Device identifier
+- * @state:	The desired state of device constraint: set or clear
+- *
+- * Return: 0 if all went well, else returns appropriate error value.
+- */
+-static int ti_sci_cmd_set_device_constraint(const struct ti_sci_handle *handle,
+-					    u32 id, u8 state)
+-{
+-	struct ti_sci_msg_req_lpm_set_device_constraint req;
+-	struct ti_sci_msg_hdr resp;
+-	struct device *dev;
+-	int ret = 0;
+-
+-	if (IS_ERR(handle))
+-		return PTR_ERR(handle);
+-	if (!handle)
+-		return -EINVAL;
+-
+-	dev = handle_to_ti_sci_info(handle)->dev;
+-
+-	req.id = id;
+-	req.state = state;
+-
+-	ret = ti_sci_do_xfer(handle, TI_SCI_MSG_LPM_SET_DEVICE_CONSTRAINT,
+-			     TI_SCI_FLAG_REQ_ACK_ON_PROCESSED,
+-			     &req, sizeof(req),
+-			     &resp, sizeof(resp));
+-	if (ret) {
+-		dev_err(dev, "Failed to set device constraint\n");
+-		return ret;
+-	}
+-
+-	return 0;
+-}
+-
+-/**
+- * ti_sci_cmd_set_latency_constraint() - Set LPM resume latency constraint
+- * @handle:	pointer to TI SCI handle
+- * @latency:	maximum acceptable latency (in ms) to wake up from LPM
+- * @state:	The desired state of latency constraint: set or clear
+- *
+- * Return: 0 if all went well, else returns appropriate error value.
+- */
+-static int ti_sci_cmd_set_latency_constraint(const struct ti_sci_handle *handle,
+-					     u16 latency, u8 state)
+-{
+-	struct ti_sci_msg_req_lpm_set_latency_constraint req;
+-	struct ti_sci_msg_hdr resp;
+-	struct device *dev;
+-	int ret = 0;
+-
+-	if (IS_ERR(handle))
+-		return PTR_ERR(handle);
+-	if (!handle)
+-		return -EINVAL;
+-
+-	dev = handle_to_ti_sci_info(handle)->dev;
+-
+-	req.latency = latency;
+-	req.state = state;
+-
+-	ret = ti_sci_do_xfer(handle, TI_SCI_MSG_LPM_SET_LATENCY_CONSTRAINT,
+-			     TI_SCI_FLAG_REQ_ACK_ON_PROCESSED,
+-			     &req, sizeof(req),
+-			     &resp, sizeof(resp));
+-	if (ret) {
+-		dev_err(dev, "Failed to set device constraint\n");
+-		return ret;
+-	}
+-
+-	return 0;
+-}
+-
  /**
-  * struct ti_sci_ops - Function support for TI SCI
-- * @core_ops:	SoC core operations
-  * @dev_ops:	Device specific operations
-  * @clk_ops:	Clock specific operations
-  * @pm_ops:	Low Power Mode (LPM) control operations
-@@ -917,7 +906,6 @@ struct ti_sci_proc_ops {
-  * @proc_ops:	Processor Control specific operations
-  */
- struct ti_sci_ops {
--	struct ti_sci_core_ops core_ops;
- 	struct ti_sci_dev_ops dev_ops;
- 	struct ti_sci_clk_ops clk_ops;
- 	struct ti_sci_pm_ops pm_ops;
+  * ti_sci_cmd_lpm_abort() - Abort entry to LPM by clearing selection of LPM to enter
+  * @dev:	Device pointer corresponding to the SCI entity
+@@ -1708,9 +1492,7 @@ static void ti_sci_setup_ops(struct ti_sci_info *info)
+ 
+ 	if (info->fw_caps & MSG_FLAG_CAPS_LPM_DM_MANAGED) {
+ 		pr_debug("detected DM managed LPM in fw_caps\n");
+-		pmops->lpm_wake_reason = ti_sci_msg_cmd_lpm_wake_reason;
+-		pmops->set_device_constraint = ti_sci_cmd_set_device_constraint;
+-		pmops->set_latency_constraint = ti_sci_cmd_set_latency_constraint;
++		ti_sci_setup_pm_ops(pmops);
+ 	}
+ 
+ 	rm_core_ops->get_range = ti_sci_cmd_get_resource_range;
+diff --git a/drivers/firmware/ti/ti_sci_pm.c b/drivers/firmware/ti/ti_sci_pm.c
+new file mode 100644
+index 0000000000000..6ea09a7e342e7
+--- /dev/null
++++ b/drivers/firmware/ti/ti_sci_pm.c
+@@ -0,0 +1,145 @@
++// SPDX-License-Identifier: GPL-2.0
++/*
++ * Texas Instruments System Control Interface Protocol Driver
++ *
++ * Copyright (C) 2015-2026 Texas Instruments Incorporated - https://www.ti.com/
++ *	Nishanth Menon
++ */
++
++#include <linux/errno.h>
++#include <linux/soc/ti/ti_sci_protocol.h>
++
++#include "ti_sci.h"
++
++/**
++ * ti_sci_msg_cmd_lpm_wake_reason() - Get the wakeup source from LPM
++ * @handle:		Pointer to TI SCI handle
++ * @source:		The wakeup source that woke the SoC from LPM
++ * @timestamp:		Timestamp of the wakeup event
++ * @pin:		The pin that has triggered wake up
++ * @mode:		The last entered low power mode
++ *
++ * Return: 0 if all went well, else returns appropriate error value.
++ */
++static int ti_sci_msg_cmd_lpm_wake_reason(const struct ti_sci_handle *handle,
++					  u32 *source, u64 *timestamp, u8 *pin, u8 *mode)
++{
++	struct ti_sci_msg_hdr req;
++	struct ti_sci_msg_resp_lpm_wake_reason resp;
++	struct device *dev;
++	int ret = 0;
++
++	if (IS_ERR(handle))
++		return PTR_ERR(handle);
++	if (!handle)
++		return -EINVAL;
++
++	dev = handle_to_ti_sci_info(handle)->dev;
++
++	ret = ti_sci_do_xfer(handle, TI_SCI_MSG_LPM_WAKE_REASON,
++			     TI_SCI_FLAG_REQ_ACK_ON_PROCESSED,
++			     &req, sizeof(req),
++			     &resp, sizeof(resp));
++	if (ret) {
++		dev_err(dev, "Failed to get wake reason\n");
++		return ret;
++	}
++
++	if (source)
++		*source = resp.wake_source;
++	if (timestamp)
++		*timestamp = resp.wake_timestamp;
++	if (pin)
++		*pin = resp.wake_pin;
++	if (mode)
++		*mode = resp.mode;
++
++	return 0;
++}
++
++/**
++ * ti_sci_cmd_set_device_constraint() - Set LPM constraint on behalf of a device
++ * @handle:	pointer to TI SCI handle
++ * @id:	Device identifier
++ * @state:	The desired state of device constraint: set or clear
++ *
++ * Return: 0 if all went well, else returns appropriate error value.
++ */
++static int ti_sci_cmd_set_device_constraint(const struct ti_sci_handle *handle,
++					    u32 id, u8 state)
++{
++	struct ti_sci_msg_req_lpm_set_device_constraint req;
++	struct ti_sci_msg_hdr resp;
++	struct device *dev;
++	int ret = 0;
++
++	if (IS_ERR(handle))
++		return PTR_ERR(handle);
++	if (!handle)
++		return -EINVAL;
++
++	dev = handle_to_ti_sci_info(handle)->dev;
++
++	req.id = id;
++	req.state = state;
++
++	ret = ti_sci_do_xfer(handle, TI_SCI_MSG_LPM_SET_DEVICE_CONSTRAINT,
++			     TI_SCI_FLAG_REQ_ACK_ON_PROCESSED,
++			     &req, sizeof(req),
++			     &resp, sizeof(resp));
++	if (ret) {
++		dev_err(dev, "Failed to set device constraint\n");
++		return ret;
++	}
++
++	return 0;
++}
++
++/**
++ * ti_sci_cmd_set_latency_constraint() - Set LPM resume latency constraint
++ * @handle:	pointer to TI SCI handle
++ * @latency:	maximum acceptable latency (in ms) to wake up from LPM
++ * @state:	The desired state of latency constraint: set or clear
++ *
++ * Return: 0 if all went well, else returns appropriate error value.
++ */
++static int ti_sci_cmd_set_latency_constraint(const struct ti_sci_handle *handle,
++					     u16 latency, u8 state)
++{
++	struct ti_sci_msg_req_lpm_set_latency_constraint req;
++	struct ti_sci_msg_hdr resp;
++	struct device *dev;
++	int ret = 0;
++
++	if (IS_ERR(handle))
++		return PTR_ERR(handle);
++	if (!handle)
++		return -EINVAL;
++
++	dev = handle_to_ti_sci_info(handle)->dev;
++
++	req.latency = latency;
++	req.state = state;
++
++	ret = ti_sci_do_xfer(handle, TI_SCI_MSG_LPM_SET_LATENCY_CONSTRAINT,
++			     TI_SCI_FLAG_REQ_ACK_ON_PROCESSED,
++			     &req, sizeof(req),
++			     &resp, sizeof(resp));
++	if (ret) {
++		dev_err(dev, "Failed to set device constraint\n");
++		return ret;
++	}
++
++	return 0;
++}
++
++/*
++ * ti_sci_setup_pm_ops() - Setup the pm operations structures
++ * @pmops:	pointer to TISCI pm ops structure
++ */
++void ti_sci_setup_pm_ops(struct ti_sci_pm_ops *pmops)
++{
++	pmops->lpm_wake_reason = ti_sci_msg_cmd_lpm_wake_reason;
++	pmops->set_device_constraint = ti_sci_cmd_set_device_constraint;
++	pmops->set_latency_constraint = ti_sci_cmd_set_latency_constraint;
++}
 -- 
 2.34.1
 
