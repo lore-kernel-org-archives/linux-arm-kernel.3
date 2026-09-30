@@ -4,81 +4,67 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5425BCA5FAB
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 30 Sep 2026 06:42:25 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 09758CA5FB1
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 30 Sep 2026 06:49:27 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=/f72Z+MEWNGWysprS0ii85w3IitLDtyI12UnQpvPMAI=; b=iwVn5gJ/SgiJ5TkBTPJhrSIzeo
-	FeUIXbiigm1Gvk4atNJ2Y324HJMgFjAlVv4hE0e+jRTwFcnJW2HeDY7cNVwcNb4fVomFJidcUadYV
-	PvPzdFld4Qw9XeyTbKr2CmL2+rp7CYoMhgqw3ZuHmffMz9OM27jgnTMrzHh5smxAV/iCLwX2FIw6B
-	LzYI9Or9xdS60xcUKoucPYrZB7417yOJTfsXgkHDV0xoDL2BBUwTN6Mw2aao7JHTNyzqzIe8DESbY
-	GnSY+eJN3nAGlBTlcPnUenWMAMTJmFtaAz4NG+2Ks5Pfx8LWjDoE1sYgg5I+jLbU0QdQOMfqlRCVr
-	AVMq1+MA==;
+	Content-Type:MIME-Version:Message-ID:Date:References:In-Reply-To:Subject:Cc:
+	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=Jv49F2PUt5yh/jWsy0Oc4tt54+a1s+q3HYskLUQDwiE=; b=dgnHyV1xaXdwkIkAxCh5tG+x7r
+	j8p1CQ3kfMxfNU6bbLAgrextY9rP5zz7fw5hgqL7HzMiELsW4t5NdVp7D1Dx75agDPG/KywoMpNQK
+	dM17TyOydwyssqwx0pd7rkgDh7/2rafhcSChJzVXShSSDhU4oHDFa1IY3rJLC/DkjBS6N1jAcFCUZ
+	d2aoz2t3z+/SngLySHzZ6d/oyU+9CmzwP+tPR78PQbXl53lLrPB9I0wMUZMD9H6PbCquKyjSNOAqt
+	Yj8Zcj8jTGjumb9CYxozIecflv1BgsgEQ40l0IVfDwUPjhvw4fNqW4tuXfG6cIZqgzwGFzXWC59Xy
+	KXFYE8cw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xBo1C-00000005Av9-35oY;
-	Wed, 30 Sep 2026 06:42:18 +0000
-Received: from smtp1.osuosl.org ([140.211.166.138])
+	id 1xBo80-00000005C9B-21Zp;
+	Wed, 30 Sep 2026 06:49:20 +0000
+Received: from smtpout-03.galae.net ([185.246.85.4])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xBo1A-00000005AsO-01Sj
+	id 1xBo7x-00000005C8a-2HjA
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 30 Sep 2026 06:42:17 +0000
-Received: from localhost (localhost [127.0.0.1])
-	by smtp1.osuosl.org (Postfix) with ESMTP id 8D9E481022;
-	Wed, 30 Sep 2026 06:36:48 +0000 (UTC)
-X-Virus-Scanned: amavis at osuosl.org
-Received: from smtp1.osuosl.org ([127.0.0.1])
- by localhost (smtp1.osuosl.org [127.0.0.1]) (amavis, port 10024) with ESMTP
- id tm6BMWKRjpYP; Wed, 30 Sep 2026 06:36:48 +0000 (UTC)
-ARC-Filter: OpenARC Filter v1.3.0 smtp1.osuosl.org EEC7780AFE
-Authentication-Results: smtp1.osuosl.org; arc=none smtp.remote-ip=140.211.9.71
-ARC-Seal: i=1; d=osuosl.org; s=arc; a=rsa-sha256; cv=none; t=1790750208;
-	b=HMetY7rxg6E0y5e43V4/0+556gxqbr8q2z4A4mo5Zho2UbCFJApPIoq3RCn9k18/NNfl
-	 5GcKFnc8yahBQbLk+W/6/IgynHM6sJN1XWvIqzyrGQ7QEeZHYi0/4ffY90vJ2kBBuIANu
-	 mIgg4IvPNcN7XFF+zZf8DAyYddJSH/gU6cN8lXxEcOz3TercKE7Kutj440V1wwxTDxTEe
-	 E0zxsTArANGheBwRpQzj+4IJQiXxhqgASIKBhANElWG/bfz3/MyWKArobd8PiIhadIGXd
-	 vmVEdWxHh0cbHr4FO39bOnLK1myP47kS1K99zc2evTEa9znb2TBtOPSNYG1d980ChGw==
-ARC-Message-Signature: i=1; d=osuosl.org; s=arc; a=rsa-sha256;
-	c=relaxed/relaxed; t=1790750208;
-	h=X-Comment:Received:From:To:Cc:Subject:Date:Message-ID:X-Mailer:
-	 MIME-Version:Content-Transfer-Encoding;
-	bh=/f72Z+MEWNGWysprS0ii85w3IitLDtyI12UnQpvPMAI=;
-	b=qzpVxkOdZW7x+zOiAt8kqKUhHV4Jn86ppzwPm4J0LLbNCfcBUP5ddpveFMIKyx8B6f5I
-	 41Q2lQW6JpgiZ+e4bC4IUiyUA8u+2XnaKtjC2dQcqJMKllAXeTvMNcCCjdIg+uqOdapiO
-	 AMUwPF7coBAINFkwrHvjDnD/KTK1BS2LRKohn/7Q77uwSCQ2zeoyykkGkfCNBjdsaDM3N
-	 KAK6xm77UKvwqUeq2EjqCvAjUiH5ERQOOF6K1y0bbgwRJ6bJ/neMR2dZKO2c/4bDUwXZh
-	 1SxZyq2IMa2pZfiJsvvEe4JgkJcFL/6yVUMe+FCmU2i/+hOQnhcoPowHVY62anKEmTw==
-ARC-Authentication-Results: i=1; smtp1.osuosl.org; arc=none smtp.remote-ip=140.211.9.71
-X-Comment: SPF check N/A for local connections - client-ip=140.211.9.71; helo=p10-linux-brads.localdomain; envelope-from=root@p10-linux-brads.localdomain; receiver=<UNKNOWN> 
-Received: from p10-linux-brads.localdomain (p10-linux-brads.osuosl.org [140.211.9.71])
-	by smtp1.osuosl.org (Postfix) with ESMTPS id EEC7780AFE;
-	Wed, 30 Sep 2026 06:36:47 +0000 (UTC)
-Received: by p10-linux-brads.localdomain (Postfix, from userid 0)
-	id D59A04407F3; Wed, 30 Sep 2026 06:36:47 +0000 (UTC)
-From: Bradley Morgan <brads@mainlining.org>
-To: Catalin Marinas <catalin.marinas@arm.com>,
-	Will Deacon <will@kernel.org>
-Cc: Mark Rutland <mark.rutland@arm.com>,
-	Mark Brown <broonie@kernel.org>,
-	Vladimir Murzin <vladimir.murzin@arm.com>,
-	Ard Biesheuvel <ardb@kernel.org>,
-	Kees Cook <kees@kernel.org>,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	Bradley Morgan <brads@mainlining.org>
-Subject: [PATCH] arm64: scrub vector and pointer auth state on task death
-Date: Wed, 30 Sep 2026 06:36:47 +0000
-Message-ID: <20260930063647.1356613-1-brads@mainlining.org>
-X-Mailer: git-send-email 2.53.0
+	Wed, 30 Sep 2026 06:49:19 +0000
+Received: from smtpout-01.galae.net (smtpout-01.galae.net [212.83.139.233])
+	by smtpout-03.galae.net (Postfix) with ESMTPS id C82994E410C9;
+	Wed, 30 Sep 2026 06:49:14 +0000 (UTC)
+Received: from mail.galae.net (mail.galae.net [212.83.136.155])
+	by smtpout-01.galae.net (Postfix) with ESMTPS id 93E6A60749;
+	Wed, 30 Sep 2026 06:49:14 +0000 (UTC)
+Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 71176103295D5;
+	Wed, 30 Sep 2026 08:49:11 +0200 (CEST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=dkim;
+	t=1790750953; h=from:subject:date:message-id:to:cc:mime-version:content-type:
+	 content-transfer-encoding:in-reply-to:references;
+	bh=Jv49F2PUt5yh/jWsy0Oc4tt54+a1s+q3HYskLUQDwiE=;
+	b=GURO+yMMIfSa5LwCdzuwM2Fy1yxfvWXa3oihCCLl2WeczkqmQC9VhCpae5duc1fEPxBYYu
+	4y21VXIrV3oN5jeHXaOhmFBEnmqtKniaLYyhev2h/dhtIqk0YIQ074eafqxhxTJJjv2BL8
+	fCSqROd8H2c3c4sJDsvmPCMe5tGV0Rtv3Bvc0HAGib8OEj5WSvaoDYGsavoQt+QgFcwT7I
+	6G+40NTLKOrOpSA+fEV+4u69xoKXogDnu9vksnIQw5VtnYAv6Hvm/58fZY6Uey1zoJR5oi
+	GWliNkwL83f4wCLaG21Q1TeanF+ntIROp0zyq5t3cMf8yMZgOw0Iz44sfWIyQQ==
+From: Gregory CLEMENT <gregory.clement@bootlin.com>
+To: Rosen Penev <rosenp@gmail.com>, devicetree@vger.kernel.org
+Cc: Russell King <linux@armlinux.org.uk>, Andrew Lunn <andrew@lunn.ch>,
+ Sebastian Hesselbarth <sebastian.hesselbarth@gmail.com>, Rob Herring
+ <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
+ <conor+dt@kernel.org>, "moderated list:ARM/Marvell Kirkwood and Armada
+ 370, 375, 38x,..." <linux-arm-kernel@lists.infradead.org>, open list
+ <linux-kernel@vger.kernel.org>
+Subject: Re: [PATCHv2] ARM: dts: marvell: armada-388: use onnn,pca9655
+ compatible
+In-Reply-To: <20260908060438.43338-1-rosenp@gmail.com>
+References: <20260908060438.43338-1-rosenp@gmail.com>
+Date: Wed, 30 Sep 2026 08:49:10 +0200
+Message-ID: <87a4oz8c9l.fsf@BLaptop.bootlin.com>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset=utf-8
+Content-Transfer-Encoding: quoted-printable
+X-Last-TLS-Session-Version: TLSv1.3
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260929_234216_073923_97ECEF5B 
-X-CRM114-Status: GOOD (  16.24  )
+X-CRM114-CacheID: sfid-20260929_234917_721870_B2561026 
+X-CRM114-Status: GOOD (  18.33  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -93,126 +79,79 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-When a task dies its SVE, SME and FPSIMD register state, and its
-pointer auth keys, stay in freed slab pages until the allocator hands
-them out again. init_on_free=1 users get this wiped for the whole heap
-but the option is expensive, so it is off in most builds.
+Rosen Penev <rosenp@gmail.com> writes:
 
-The vector registers are not idle memory: userspace crypto runs
-AES-GCM and Argon2 through SVE, so key material ends up in
-sve_state, sme_state and thread_struct. On task exit and on the
-exec and vector length reallocation paths those buffers are
-dropped with a plain kfree(), and on task death the register file
-copy embedded in thread_struct is not wiped at all. Anything that
-reads the freed slab back (slab bugs, cold boot, a leaked page)
-gets the dead task's keys.
+> The PCA9655s on the ClearFog and Helios4 boards are
+> register-compatible with the pca9555, and the gpio-pca953x driver has
+> matched "onnn,pca9655" in its OF match table since
+> commit 6d49b3a0f351 ("gpio: pca953x: Add support for the On Semi
+> pca9655").  OF matching is tried before the legacy I2C ID-table
+> matching that the old comment alluded to, so the restriction no longer
+> applies.  List the real part and drop the stale comment.
+>
+> The I2C client is now named "pca9655" instead of "pca9555", but the
+> expander is otherwise identical.
+>
+> Assisted-by: opencode:big-pickle
+> Signed-off-by: Rosen Penev <rosenp@gmail.com>
 
-Scrub it. kfree_sensitive() already exists for this exact job,
-so the freeing sites just switch to it. The register file copy
-and the pointer auth keys embedded in thread_struct cannot go
-through kfree_sensitive(), so arch_release_task_struct() zeroes
-them directly with memzero_explicit().
+Applied on mvebu/dt
 
-Scrubbed state:
-  - sve_state, sme_state allocations, freed on task death, exec
-    flush and vector length change
-  - the uw.fpsimd_state register file copy embedded in
-    thread_struct
-  - pointer auth user and kernel keys embedded in thread_struct
+Thanks,
 
-This is a cold path. The cost is one memset of at most a few KB
-plus the register file per dying task.
+Gregory
+> ---
+>  v2: rebase.
+>  arch/arm/boot/dts/marvell/armada-388-clearfog.dtsi | 7 +------
+>  arch/arm/boot/dts/marvell/armada-388-helios4.dts   | 9 +--------
+>  2 files changed, 2 insertions(+), 14 deletions(-)
+>
+> diff --git a/arch/arm/boot/dts/marvell/armada-388-clearfog.dtsi b/arch/ar=
+m/boot/dts/marvell/armada-388-clearfog.dtsi
+> index f8a06ae4a3c9..4a61e9d1a2c0 100644
+> --- a/arch/arm/boot/dts/marvell/armada-388-clearfog.dtsi
+> +++ b/arch/arm/boot/dts/marvell/armada-388-clearfog.dtsi
+> @@ -131,12 +131,7 @@ &i2c0 {
+>  	 * 15-SFP_MOD_DEF0
+>  	 */
+>  	expander0: gpio-expander@20 {
+> -		/*
+> -		 * This is how it should be:
+> -		 * compatible =3D "onnn,pca9655", "nxp,pca9555";
+> -		 * but you can't do this because of the way I2C works.
+> -		 */
+> -		compatible =3D "nxp,pca9555";
+> +		compatible =3D "onnn,pca9655";
+>  		gpio-controller;
+>  		#gpio-cells =3D <2>;
+>  		reg =3D <0x20>;
+> diff --git a/arch/arm/boot/dts/marvell/armada-388-helios4.dts b/arch/arm/=
+boot/dts/marvell/armada-388-helios4.dts
+> index 39b2d4fa742c..bf6d70e2078b 100644
+> --- a/arch/arm/boot/dts/marvell/armada-388-helios4.dts
+> +++ b/arch/arm/boot/dts/marvell/armada-388-helios4.dts
+> @@ -160,14 +160,7 @@ i2c@11000 {
+>  				 *  6-USB3 power
+>  				 */
+>  				expander0: gpio-expander@20 {
+> -					/*
+> -					 * This is how it should be:
+> -					 * compatible =3D "onnn,pca9655",
+> -					 *	 "nxp,pca9555";
+> -					 * but you can't do this because of
+> -					 * the way I2C works.
+> -					 */
+> -					compatible =3D "nxp,pca9555";
+> +					compatible =3D "onnn,pca9655";
+>  					gpio-controller;
+>  					#gpio-cells =3D <2>;
+>  					reg =3D <0x20>;
+> --=20
+> 2.55.0
+>
 
-Signed-off-by: Bradley Morgan <brads@mainlining.org>
----
- arch/arm64/kernel/fpsimd.c  | 12 ++++++------
- arch/arm64/kernel/process.c | 16 +++++++++++++++-
- 2 files changed, 21 insertions(+), 7 deletions(-)
-
-diff --git a/arch/arm64/kernel/fpsimd.c b/arch/arm64/kernel/fpsimd.c
-index e7f1682a3059..c149c12ba9f9 100644
---- a/arch/arm64/kernel/fpsimd.c
-+++ b/arch/arm64/kernel/fpsimd.c
-@@ -737,7 +737,7 @@ void cpu_enable_fpmr(const struct arm64_cpu_capabilities *__always_unused p)
- #ifdef CONFIG_ARM64_SVE
- static void sve_free(struct task_struct *task)
- {
--	kfree(task->thread.sve_state);
-+	kfree_sensitive(task->thread.sve_state);
- 	task->thread.sve_state = NULL;
- }
- 
-@@ -846,13 +846,13 @@ static int change_live_vector_length(struct task_struct *task,
- 	 */
- 	fpsimd_sync_from_effective_state(task);
- 	task_set_vl(task, type, vl);
--	kfree(task->thread.sve_state);
-+	kfree_sensitive(task->thread.sve_state);
- 	task->thread.sve_state = sve_state;
- 	fpsimd_sync_to_effective_state_zeropad(task);
- 
- 	if (type == ARM64_VEC_SME) {
- 		task->thread.svcr &= ~SVCR_ZA_MASK;
--		kfree(task->thread.sme_state);
-+		kfree_sensitive(task->thread.sme_state);
- 		task->thread.sme_state = sme_state;
- 	}
- 
-@@ -1195,7 +1195,7 @@ void sme_alloc(struct task_struct *task, bool flush)
- 
- static void sme_free(struct task_struct *task)
- {
--	kfree(task->thread.sme_state);
-+	kfree_sensitive(task->thread.sme_state);
- 	task->thread.sme_state = NULL;
- }
- 
-@@ -1687,8 +1687,8 @@ void fpsimd_flush_thread(void)
- 	current->thread.fp_type = FP_STATE_FPSIMD;
- 
- 	put_cpu_fpsimd_context();
--	kfree(sve_state);
--	kfree(sme_state);
-+	kfree_sensitive(sve_state);
-+	kfree_sensitive(sme_state);
- }
- 
- /*
-diff --git a/arch/arm64/kernel/process.c b/arch/arm64/kernel/process.c
-index 581f80e9b9b7..c1d5d7c0fd3f 100644
---- a/arch/arm64/kernel/process.c
-+++ b/arch/arm64/kernel/process.c
-@@ -344,6 +344,20 @@ void flush_thread(void)
- void arch_release_task_struct(struct task_struct *tsk)
- {
- 	fpsimd_release_task(tsk);
-+
-+	/*
-+	 * Wipe the register file copy and the pointer auth keys, they
-+	 * can hold key material the dead task used.
-+	 */
-+	memzero_explicit(&tsk->thread.uw.fpsimd_state,
-+			 sizeof(tsk->thread.uw.fpsimd_state));
-+#ifdef CONFIG_ARM64_PTR_AUTH
-+	memzero_explicit(&tsk->thread.keys_user, sizeof(tsk->thread.keys_user));
-+#ifdef CONFIG_ARM64_PTR_AUTH_KERNEL
-+	memzero_explicit(&tsk->thread.keys_kernel,
-+			 sizeof(tsk->thread.keys_kernel));
-+#endif
-+#endif
- }
- 
- int arch_dup_task_struct(struct task_struct *dst, struct task_struct *src)
-@@ -397,7 +411,7 @@ static int copy_thread_za(struct task_struct *dst, struct task_struct *src)
- 					sme_state_size(src),
- 					GFP_KERNEL);
- 	if (!dst->thread.sme_state) {
--		kfree(dst->thread.sve_state);
-+		kfree_sensitive(dst->thread.sve_state);
- 		dst->thread.sve_state = NULL;
- 		return -ENOMEM;
- 	}
--- 
-2.53.0
-
+--=20
+Gr=C3=A9gory CLEMENT, Bootlin
+Embedded Linux and Kernel engineering
+https://bootlin.com
 
