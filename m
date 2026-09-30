@@ -4,74 +4,103 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C15BCCA5FBA
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 30 Sep 2026 11:02:41 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7C23CCA5FBA
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 30 Sep 2026 11:03:50 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:MIME-Version:Date:Message-Id:Subject:References:In-Reply-To:Cc:
+	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=wM8W3udRuQDxIq2R1VNl0FNo7Tqwd3aCD0aaYmlp5nI=; b=5EvpEUFFpNzqBjxjsVfBUvTG07
-	TZRjZi9GAv7qTrA3nZ6uhQv/Ce5MJs3QrFdg/xgMVckiyHLClWyBFtfk9Jl1sOK2GttDNc/lh6E90
-	0srN31eObeq5vh6mVzBWscMkpY7cLnfrpfay/uU3pLa2pCDT7GhlIW+P4Q0vboGnLSRNPJet8XelP
-	vhp4xbR4tnyUqPmnlhA7ol3n8s8DGviYFLG1CBBAfamXetc/miKPW3Xf5KHgn3SBkesoID0h/sXcv
-	zw1AXU+jp0S8OZATNub63EQGpL5K79QzjGdiYtpBNgSeCc75fPgiiL717DHgyQutTewB4aKdGglAg
-	5yjp6WSw==;
+	bh=ijJfwiKLlTSy9rxP4IMNmmV3iD9aU2IeJcZz/YO1yr0=; b=ZsCWR3d44D9U1qK46NpNqvvAEZ
+	3JZ2tnRpI7Irr2tJ3mAIGXx/nfSo1SNxp8gxVPGU47LQGlPZX8kyPAsFDOB7yA2gMB9Ap+Th5kq6B
+	tfkA5YmH2h1LhFa4tJqB7rKAAtXPUmsjyFtlFwZajU+nPEYpK8zFH7s4PJTqumhE4a1jIFyKD09Ef
+	EJHWb9SlKrb9CPMOOcMuXONr2uAH1ZnzTH0q2wHZih5LjRRgNkaNghP3sVYpwT09IymoXw1SAYsI7
+	flsPEplgx4UvrWaRwdYAKYGZnfW9MSR+5KnR6JvUO/szJOBAo4hRqIQ02oqdDsvJx+BkBs5Vbj5YN
+	YANzBTKA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xBs52-00000005ofD-2Mvv;
-	Wed, 30 Sep 2026 11:02:32 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1xBs6C-00000005ovB-00vV;
+	Wed, 30 Sep 2026 11:03:44 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xBs4X-00000005oYr-0wOe
+	id 1xBs6A-00000005oue-2QiY
+	for linux-arm-kernel@bombadil.infradead.org;
+	Wed, 30 Sep 2026 11:03:42 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:Content-Type
+	:MIME-Version:Date:Message-Id:Subject:References:In-Reply-To:Cc:To:From:
+	Sender:Reply-To:Content-ID:Content-Description;
+	bh=ijJfwiKLlTSy9rxP4IMNmmV3iD9aU2IeJcZz/YO1yr0=; b=P1a637SsAXEsW87SYcofa72ujk
+	+DJut9T4PWOJ4SzCQyEEPUj/UjFtnb5pq/GAH934E8J6s8JO08P1qQBo2YIFoBPqN8cE6Y6g0e5rG
+	3vBgZRJgINeAgakzMoPsbd31kunjHYJ6c6OLKVEshYz/U03B+RxXMILmqRipc5R2m3IvimJp+trUE
+	O137ic4iwAbllI+aLGZ4yv6J3+dXFGAUQClJVOFAplSjrgqIyf4chqTSRryxG8VG8CqaEslnzike6
+	C7VumVLYEaBde/Wa4AjCBbvrAZX+5eV127zRCisv0Y2vdgqFhcby16gD9fj0q4P6QwdDWYqhk/T5g
+	3i1JmgFQ==;
+Received: from smtpout-02.galae.net ([185.246.84.56])
+	by desiato.infradead.org with esmtps (Exim 4.99.2 #2 (Red Hat Linux))
+	id 1xBs67-00000003h52-1B3I
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 30 Sep 2026 11:02:01 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id DF55143DF0
-	for <linux-arm-kernel@lists.infradead.org>; Wed, 30 Sep 2026 11:02:00 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id C79E71F0089D
-	for <linux-arm-kernel@lists.infradead.org>; Wed, 30 Sep 2026 11:02:00 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1790766120;
-	bh=wM8W3udRuQDxIq2R1VNl0FNo7Tqwd3aCD0aaYmlp5nI=;
-	h=References:In-Reply-To:From:Date:Subject:To:Cc;
-	b=SxsQmaiE8bMHn80+76krI/+rDRJyVNbtXQvfjM8bKzgFUZzlX8uZWyJUc1HGVHcpk
-	 NKXNYqek4ZfoD2ATyhnwJgnqBmBObWZtv0DX7FenDkiKI+zGfYChfikKOgZf4RowE6
-	 PIopWY/km4MUSmATa4fC4Yvmz4EacBI8bFo0fyQPB82w15Ow6VD8uJmD+pv9GQYHvF
-	 JkEMu916tk7toLxZtX1LKi+5/BZI9rClR6aFohbRoSshTQ10gZO1/0SCJ2GQiQgRkE
-	 TrDtuYSmlfo6TSiac620irkQYyOxLCm0erLfuqEdDXz41VhDH3SuuJCpkRjawnRWug
-	 Cs0P5wmKM7Xrg==
-Received: by mail-lr2-f13.google.com with SMTP id 38308e7fff4ca-3a302c06eceso45757611fa.0
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 30 Sep 2026 04:02:00 -0700 (PDT)
-X-Forwarded-Encrypted: i=1; AKwUvBx++ctL3VbhJsGjvtKdRqMpolDnkV18qsYPQ06YByPsJrR3zhfUlLRa1eDO1cutEpGsUrWpdwtzsRAMhrQvFU7B@lists.infradead.org
-X-Gm-Message-State: AFq9FYL93sutLFKOcyx+3ZBaAdexVcNi/HMio81SUp2Hx5m0pZktPQYd
-	gZ4it+J7ZYBuPS5R9mt+J/0TJttG2wTjtza0YGo/gvtn2F5MJL9qmz3Q56xUmX7aA4aUIrhhfcK
-	OR5xCqcXLqTTgFO24H/Dcdty2ENs1BFc=
-X-Received: by 2002:a2e:be86:0:b0:3a6:772c:2763 with SMTP id
- 38308e7fff4ca-3a777d41008mr3400901fa.0.1790766119222; Wed, 30 Sep 2026
- 04:01:59 -0700 (PDT)
+	Wed, 30 Sep 2026 11:03:41 +0000
+Received: from smtpout-01.galae.net (smtpout-01.galae.net [212.83.139.233])
+	by smtpout-02.galae.net (Postfix) with ESMTPS id 3F0B91A107A;
+	Wed, 30 Sep 2026 11:03:36 +0000 (UTC)
+Received: from mail.galae.net (mail.galae.net [212.83.136.155])
+	by smtpout-01.galae.net (Postfix) with ESMTPS id 09A8C60749;
+	Wed, 30 Sep 2026 11:03:36 +0000 (UTC)
+Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id D8F3810328F7B;
+	Wed, 30 Sep 2026 13:03:19 +0200 (CEST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=dkim;
+	t=1790766213; h=from:subject:date:message-id:to:cc:mime-version:content-type:
+	 content-transfer-encoding:in-reply-to:references;
+	bh=ijJfwiKLlTSy9rxP4IMNmmV3iD9aU2IeJcZz/YO1yr0=;
+	b=pr6gP+dMr69oYimKPOIdbp5KMj8d5ltUTNrztyVmewFeK+Il/fJwZkQVcY1nvsumKPbiFp
+	H+ixPwd120YzUC2kNP+ksnghILPnhKRL92J8mbAFq2TrnUc3B16wIb7KsEtjPtsVQxw8Q9
+	4/upitHqXbTfcvdntbX4OARxD27oUI9GIPuzJtCGPaoTj+zXGWoJdplv5vS9pAsh6yNJ1z
+	KE3KLIVbSwaW4bGLL1nl7D/0JciPTA0k/hGlQf6fe88M1BXOItrDU0obTgAzs/Ba+Ixhz6
+	CL4CHf+Nsc6ONlTiDttt0XVoOG9hX6Q0d3ROfYoslREjggy+K5FSmP7xNjL8nA==
+From: Luca Ceresoli <luca.ceresoli@bootlin.com>
+To: Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, 
+ Maxime Ripard <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>, 
+ David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>, 
+ Dave Stevenson <dave.stevenson@raspberrypi.com>, 
+ Dmitry Baryshkov <lumag@kernel.org>, 
+ Andrzej Hajda <andrzej.hajda@intel.com>, 
+ Neil Armstrong <neil.armstrong@linaro.org>, Robert Foss <rfoss@kernel.org>, 
+ Laurent Pinchart <Laurent.pinchart@ideasonboard.com>, 
+ Jonas Karlman <jonas@kwiboo.se>, Jernej Skrabec <jernej.skrabec@gmail.com>, 
+ Chen-Yu Tsai <wens@kernel.org>, Samuel Holland <samuel@sholland.org>, 
+ =?utf-8?q?Ma=C3=ADra_Canal?= <mcanal@igalia.com>, 
+ Raspberry Pi Kernel Maintenance <kernel-list@raspberrypi.com>, 
+ Raphael Gallais-Pou <rgallaispou@gmail.com>, 
+ Sandy Huang <hjc@rock-chips.com>, 
+ =?utf-8?q?Heiko_St=C3=BCbner?= <heiko@sntech.de>, 
+ Andy Yan <andy.yan@rock-chips.com>, Algea Cao <algea.cao@rock-chips.com>, 
+ Daniel Stone <daniels@collabora.com>, Liu Ying <victor.liu@nxp.com>, 
+ Phong LE <ple@baylibre.com>, Helge Deller <deller@gmx.de>, 
+ Cristian Ciocaltea <cristian.ciocaltea@collabora.com>
+Cc: kernel@collabora.com, linux-kernel@vger.kernel.org, 
+ dri-devel@lists.freedesktop.org, linux-arm-kernel@lists.infradead.org, 
+ linux-sunxi@lists.linux.dev, linux-rockchip@lists.infradead.org, 
+ linux-fbdev@vger.kernel.org, 
+ Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>, 
+ Sashiko <sashiko-bot@kernel.org>, 
+ Diederik de Haas <diederik@cknow-tech.com>, 
+ Maud Spierings <maud_spierings@hotmail.com>
+In-Reply-To: <20260901-dw-hdmi-qp-scramb-v11-0-bc12954a0688@collabora.com>
+References: <20260901-dw-hdmi-qp-scramb-v11-0-bc12954a0688@collabora.com>
+Subject: Re: (subset) [PATCH v11 00/74] Add HDMI 2.0 support to DW HDMI QP
+ TX
+Message-Id: <179076619955.542608.8005316063997157342.b4-ty@b4>
+Date: Wed, 30 Sep 2026 13:03:19 +0200
 MIME-Version: 1.0
-References: <20260930-b4-cs75xx-v1-0-4617c4463529@gmail.com>
- <20260930-b4-cs75xx-v1-4-4617c4463529@gmail.com> <65c87e07-1722-44c2-9a08-ed9e18902058@kernel.org>
- <179076583795.3054628.14443934429806440798@gmail.com>
-In-Reply-To: <179076583795.3054628.14443934429806440798@gmail.com>
-From: Linus Walleij <linusw@kernel.org>
-Date: Wed, 30 Sep 2026 13:01:46 +0200
-X-Gmail-Original-Message-ID: <CAD++jLnZBpoF3H3-sqzmrtwzxLGombFMdSYMVo59jiGFYcyCFA@mail.gmail.com>
-X-Gm-Features: AclHuK_ChPvqXpZcBtgi1ur23GoXeg-9LEYM9g162V4LxDv3fyrrqjh1iIDXE7U
-Message-ID: <CAD++jLnZBpoF3H3-sqzmrtwzxLGombFMdSYMVo59jiGFYcyCFA@mail.gmail.com>
-Subject: Re: [PATCH RFC 04/10] ARM: cortina: Add support for the CS75xx SoC family
-To: Fil Dunsky <filipp.dunsky@gmail.com>
-Cc: Krzysztof Kozlowski <krzk@kernel.org>, Arnd Bergmann <arnd@arndb.de>, Rob Herring <robh@kernel.org>, 
-	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
-	Greg Kroah-Hartman <gregkh@linuxfoundation.org>, Jiri Slaby <jirislaby@kernel.org>, 
-	Russell King <linux@armlinux.org.uk>, Alexandre Belloni <alexandre.belloni@bootlin.com>, 
-	Drew Fustini <fustini@kernel.org>, Lorenzo Pieralisi <lpieralisi@kernel.org>, 
-	linux-arm-kernel@lists.infradead.org, devicetree@vger.kernel.org, 
-	linux-kernel@vger.kernel.org, linux-serial@vger.kernel.org
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+X-Mailer: b4 0.16.0
+X-Last-TLS-Session-Version: TLSv1.3
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260930_120339_620071_1AB5AEFB 
+X-CRM114-Status: GOOD (  13.36  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -86,32 +115,40 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Sep 30, 2026 at 12:57=E2=80=AFPM Fil Dunsky <filipp.dunsky@gmail.co=
-m> wrote:
-> On 30/09/2026 12:20, Krzysztof Kozlowski wrote:
 
-> > How is it different from Cortina Gemini?
->
-> Apart from the vendor, they have little in common. Gemini (SL3516/
-> CS3516) is a single ARMv4 FA526 with Faraday peripherals (FTINTC010,
-> FTTMR010, FTGPIO010, a 16550 UART) and builds for ARCH_MULTI_V4. The
-> CS75xx ("Goldengate G2") is an ARMv7 dual Cortex-A9 MPCore with GIC,
-> SCU, TWD/global timer and a PL310, and its UART, GPIO, interrupt
-> controller and NAND controller are different blocks from the Gemini
-> ones. So it cannot share mach-gemini or its drivers.
->
-> >> +machine-$(CONFIG_ARCH_CORTINA_CS75XX)       +=3D cortina
-> >
-> > Arch should be rather per entire family, not one SoC.
->
-> CS75xx is meant as the family (the vendor kernel covers the CS7522 and
-> CS7542 with one ARCH_GOLDENGATE), but I see the name reads like a
-> single part. Following Linus' suggestion of mach-goldengate, v2 will
-> use ARCH_GOLDENGATE and arch/arm/mach-goldengate for the whole family.
+On Tue, 01 Sep 2026 21:50:24 +0300, Cristian Ciocaltea wrote:
+> Enable HDMI 2.0 display modes (e.g. 4K@60Hz) on the Synopsys DW HDMI QP
+> TX controller, as found in Rockchip RK3576 & RK3588 SoCs, by adding SCDC
+> management for high TMDS clock ratio and scrambling.  Since SCDC state
+> is lost on sink disconnects, the bridge driver needs to trigger a CRTC
+> reset during connector detection.
+> 
+> To support this at the DRM infrastructure level, the series first
+> introduces the HDMI version enum, then prepares for changing the
+> signature of drmm_connector_hdmi_init(), i.e. dropping the vendor,
+> product, supported_formats and max_bpc arguments, which are being moved
+> into struct drm_connector_hdmi_funcs, by temporarily renaming the helper
+> to drmm_connector_hdmi_ini2().  This lets the new signature be
+> introduced under the original name while callers are converted
+> incrementally.  Note the transitional name matches the original's length
+> so continuation-line arguments stay aligned to the opening parenthesis,
+> keeping the diff to the identifier itself and avoiding re-alignment
+> churn.
+> 
+> [...]
 
-Put the rationale into the commit message, that's exactly what we want to
-see in there.
+Applied, thanks!
 
-Thanks!
-Linus Walleij
+[12/74] drm/bridge: Fix unlocked list_del in drm_bridge_add()
+        commit: b62e3db8cdc1680e1c3390591e872f485148541a
+[14/74] drm/bridge: Fix unlocked list access in drm_bridge_attach()
+        commit: 57889076afd1be890150c32ffde3b691fe5707c8
+
+Best regards,
+-- 
+Luca Ceresoli, Bootlin
+Embedded Linux and Kernel engineering
+https://bootlin.com
+
+
 
