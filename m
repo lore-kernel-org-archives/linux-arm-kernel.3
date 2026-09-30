@@ -4,44 +4,44 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9CC68CA5FBE
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 30 Sep 2026 05:15:34 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9FFDEC9830E
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 30 Sep 2026 05:16:22 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:CC:To:In-Reply-To:References
 	:Message-ID:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Bv42BCq0VbJx83T3QQNyUqvHP1MGmtolrNTMYYRob5Y=; b=rCD2qjJNI/BH5FX0zxlMIrlkWU
-	nMeqjSzkHknrRYgAztskuljAcuCeANezZd/VXqp7OBUxyEpQxdr0WynFXNUtbGG7ii2hYZ7SCgx/d
-	mKTFa/3zw3LZrB/C7NntDifmbEHJbfrKLnz3VG2qwCOAxeP/dPazme9wf7+bxaTqBltCOcU+s0ykE
-	ExTuHGtWY9CWW/WHFsRH+YsuivlDjUmCHaLHLDQIcktOIvkZ0irKGJ8sOk36QCx9wmqfbiHP79T00
-	RK28GFUuBFvFBDPwbhnpX1IITyZspYFHvW6wZ0BuWMW41ujiq983wC2Qd5n1gcehGQF5lgDHs3Oig
-	1UVu8aeg==;
+	bh=/X2m62a78v/3gjrOVXpAmQisanBIpSXgnWT0Pnie/eA=; b=fyoyBRmZB9qkAsn17I2VY1feNR
+	2/gXh133UvPwbZ/irfrGwvX2VnQRSTRmqOLYSZ8+EgrTpc1tgW5zGAzgA5f9ADvEsCCtlO4Ema+wk
+	nnWNPRwwXbbxZBn1+wV2TNYip66fwF9TX8fmEP9WOEjRmhEkqDXm8ezFBFR2hQkVuMw0rDICdU2Mp
+	bav3sqvYxqpnYXtsQuDVXM/XC/8cLWisBDqOftIJQ1mGXpENF/PABrFBL4w75H/IU1OISkiuOI+ot
+	SDALou0oBDlyJ6mgRgC17d0qzpZeqU4uJug+Ucg1GLnp8hSgWng8KVTTvPuGH88WIRhtyZ1yXK9rk
+	nc+bwzJQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xBmf5-000000051tS-1dwz;
-	Wed, 30 Sep 2026 05:15:23 +0000
+	id 1xBmft-000000052Gm-2bMb;
+	Wed, 30 Sep 2026 05:16:13 +0000
 Received: from mail.aspeedtech.com ([211.20.114.72] helo=twmbx01.aspeedtech.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xBmey-000000051oP-1V4j
+	id 1xBmf8-000000051oP-01uw
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 30 Sep 2026 05:15:17 +0000
+	Wed, 30 Sep 2026 05:15:27 +0000
 Received: from TWMBX01.aspeed.com (192.168.0.62) by TWMBX01.aspeed.com
  (192.168.0.62) with Microsoft SMTP Server (version=TLS1_2,
  cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1748.10; Wed, 30 Sep
- 2026 13:15:00 +0800
+ 2026 13:15:01 +0800
 Received: from [127.0.1.1] (192.168.10.13) by TWMBX01.aspeed.com
  (192.168.0.62) with Microsoft SMTP Server id 15.2.1748.10 via Frontend
  Transport; Wed, 30 Sep 2026 13:15:00 +0800
 From: Ryan Chen <ryan_chen@aspeedtech.com>
-Date: Wed, 30 Sep 2026 13:15:01 +0800
-Subject: [PATCH v4 3/9] EDAC/aspeed: Clean up whitespace and include
- ordering
+Date: Wed, 30 Sep 2026 13:15:07 +0800
+Subject: [PATCH v4 9/9] MAINTAINERS: Step down as Aspeed AST2500 EDAC
+ driver maintainer
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-ID: <20260930-edac-v4-3-c2e526f3ed79@aspeedtech.com>
+Message-ID: <20260930-edac-v4-9-c2e526f3ed79@aspeedtech.com>
 References: <20260930-edac-v4-0-c2e526f3ed79@aspeedtech.com>
 In-Reply-To: <20260930-edac-v4-0-c2e526f3ed79@aspeedtech.com>
 To: Stefan Schaeckeler <sschaeck@cisco.com>, Rob Herring <robh@kernel.org>,
@@ -53,16 +53,16 @@ CC: <devicetree@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
 	<linux-edac@vger.kernel.org>, Borislav Petkov <bp@suse.de>, Ryan Chen
 	<ryan_chen@aspeedtech.com>
 X-Mailer: b4 0.14.3
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1790745299; l=4626;
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1790745299; l=1860;
  i=ryan_chen@aspeedtech.com; s=20251126; h=from:subject:message-id;
- bh=FhGqCgC1qcv7kHcNVhXGaiiu15ASlL/TX82CfVZ7NtU=;
- b=Zvr+kHcjG7woXBqcYLP/j2ul7EPBjCUbPtpcq3WtmxWAcrsM9r2jMsEjL7ZueNzb6OYSpZhx4
- yOJdyGb7+9EA0UuKqWeS90lzOKdCVi4JOCIVBgEhUY1mNbEZjsvosvl
+ bh=0JAwcCSCddvZK+VJy0ySr5E6GGqKRb6s6URpXuDAV2s=;
+ b=SRW3DY/LBt8IbrnG7P+7riWOpQaGuOT3/0PIom3r5pFRAH36Lisy/enbx/1uc4QeqgS2+fxuF
+ VPnGrKlRwU9APVSN+LrUJdyuOv+cZpfndUasx6xHg26KZ5cHDL9CVtF
 X-Developer-Key: i=ryan_chen@aspeedtech.com; a=ed25519;
  pk=Xe73xY6tcnkuRjjbVAB/oU30KdB3FvG4nuJuILj7ZVc=
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260929_221516_420118_B2C90369 
-X-CRM114-Status: GOOD (  15.61  )
+X-CRM114-CacheID: sfid-20260929_221526_069688_ED3DB614 
+X-CRM114-Status: GOOD (  11.67  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -77,151 +77,65 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The driver separates functions and definition groups with two blank
-lines where the kernel style uses one, its headers are not sorted, and it
-includes linux/stop_machine.h without using it. Collapse the double blank
-lines, drop the unused include and sort the rest alphabetically so the
-following changes start from a consistent style.
+From: Stefan M Schaeckeler <sschaeck@cisco.com>
 
+I am stepping down as a maintainer for drivers/edac/aspeed_edac.c and
+Documentation/devicetree/bindings/edac/aspeed,ast2400-sdram-edac.yaml
+
+Move my entry from the MAINTAINERS file to CREDITS to reflect my past
+contributions.
+
+[ ryan: keep the EDAC-AST2500 entry and list myself as its reviewer
+  rather than removing it ]
+
+Signed-off-by: Stefan M Schaeckeler <sschaeck@cisco.com>
 Signed-off-by: Ryan Chen <ryan_chen@aspeedtech.com>
----
- drivers/edac/aspeed_edac.c | 34 +++++++++-------------------------
- 1 file changed, 9 insertions(+), 25 deletions(-)
+Link: https://lore.kernel.org/r/20260920225846.4039017-1-sschaeck@cisco.com
 
-diff --git a/drivers/edac/aspeed_edac.c b/drivers/edac/aspeed_edac.c
-index e05ebed5c2f2..cd2a6fcca355 100644
---- a/drivers/edac/aspeed_edac.c
-+++ b/drivers/edac/aspeed_edac.c
-@@ -4,20 +4,17 @@
-  */
+---
+Changes in v4:
+- Merge Stefan's step-down patch into this one, keeping the MAINTAINERS
+  entry alive with a reviewer instead of removing it.
+
+Changes in v3:
+- New patch.
+---
+ CREDITS     | 8 ++++++++
+ MAINTAINERS | 2 +-
+ 2 files changed, 9 insertions(+), 1 deletion(-)
+
+diff --git a/CREDITS b/CREDITS
+index 091412875a66..28e5b274bc28 100644
+--- a/CREDITS
++++ b/CREDITS
+@@ -3655,6 +3655,14 @@ D: I2O kernel layer (config, block, core, pci, net). I2O disk support for LILO
+ D: XScale (IOP, IXP) porting and other random ARM bits
+ S: Portland, OR
  
- #include <linux/edac.h>
--#include <linux/module.h>
- #include <linux/init.h>
- #include <linux/interrupt.h>
--#include <linux/platform_device.h>
--#include <linux/stop_machine.h>
- #include <linux/io.h>
-+#include <linux/module.h>
- #include <linux/of_address.h>
-+#include <linux/platform_device.h>
- #include <linux/regmap.h>
- #include "edac_module.h"
++N: Stefan Schaeckeler
++E: sschaeck@cisco.com
++E: schaecsn@gmx.net
++D: Author and initial maintainer of the Aspeed AST2500 EDAC driver
++S: 2253 Anna Dr.
++S: Santa Clara, CA 95050
++S: USA
++
+ N: Eric Schenk
+ E: Eric.Schenk@dna.lth.se
+ D: Random kernel debugging.
+diff --git a/MAINTAINERS b/MAINTAINERS
+index d413dac5c8b3..2001466fd6da 100644
+--- a/MAINTAINERS
++++ b/MAINTAINERS
+@@ -9283,7 +9283,7 @@ F:	Documentation/devicetree/bindings/memory-controllers/marvell,mvebu-sdram-cont
+ F:	drivers/edac/armada_xp_*
  
--
- #define DRV_NAME "aspeed-edac"
- 
--
- #define ASPEED_MCR_PROT        0x00 /* protection key register */
- #define ASPEED_MCR_CONF        0x04 /* configuration register */
- #define ASPEED_MCR_INTR_CTRL   0x50 /* interrupt control/status register */
-@@ -25,19 +22,16 @@
- #define ASPEED_MCR_ADDR_REC    0x5c /* address of last recoverable error */
- #define ASPEED_MCR_LAST        ASPEED_MCR_ADDR_REC
- 
--
--#define ASPEED_MCR_PROT_PASSWD	            0xfc600309
--#define ASPEED_MCR_CONF_DRAM_TYPE               BIT(4)
--#define ASPEED_MCR_CONF_ECC                     BIT(7)
--#define ASPEED_MCR_INTR_CTRL_CLEAR             BIT(31)
--#define ASPEED_MCR_INTR_CTRL_CNT_REC   GENMASK(23, 16)
--#define ASPEED_MCR_INTR_CTRL_CNT_UNREC GENMASK(15, 12)
--#define ASPEED_MCR_INTR_CTRL_ENABLE  (BIT(0) | BIT(1))
--
-+#define ASPEED_MCR_PROT_PASSWD          0xfc600309
-+#define ASPEED_MCR_CONF_DRAM_TYPE       BIT(4)
-+#define ASPEED_MCR_CONF_ECC             BIT(7)
-+#define ASPEED_MCR_INTR_CTRL_CLEAR      BIT(31)
-+#define ASPEED_MCR_INTR_CTRL_CNT_REC    GENMASK(23, 16)
-+#define ASPEED_MCR_INTR_CTRL_CNT_UNREC  GENMASK(15, 12)
-+#define ASPEED_MCR_INTR_CTRL_ENABLE     (BIT(0) | BIT(1))
- 
- static struct regmap *aspeed_regmap;
- 
--
- static int regmap_reg_write(void *context, unsigned int reg, unsigned int val)
- {
- 	void __iomem *regs = (void __iomem *)context;
-@@ -53,7 +47,6 @@ static int regmap_reg_write(void *context, unsigned int reg, unsigned int val)
- 	return 0;
- }
- 
--
- static int regmap_reg_read(void *context, unsigned int reg, unsigned int *val)
- {
- 	void __iomem *regs = (void __iomem *)context;
-@@ -76,7 +69,6 @@ static bool regmap_is_volatile(struct device *dev, unsigned int reg)
- 	}
- }
- 
--
- static const struct regmap_config aspeed_regmap_config = {
- 	.reg_bits = 32,
- 	.val_bits = 32,
-@@ -88,7 +80,6 @@ static const struct regmap_config aspeed_regmap_config = {
- 	.fast_io = true,
- };
- 
--
- static void count_rec(struct mem_ctl_info *mci, u8 rec_cnt, u32 rec_addr)
- {
- 	struct csrow_info *csrow = mci->csrows[0];
-@@ -120,7 +111,6 @@ static void count_rec(struct mem_ctl_info *mci, u8 rec_cnt, u32 rec_addr)
- 			     0, 0, -1, "", "");
- }
- 
--
- static void count_un_rec(struct mem_ctl_info *mci, u8 un_rec_cnt,
- 			 u32 un_rec_addr)
- {
-@@ -153,7 +143,6 @@ static void count_un_rec(struct mem_ctl_info *mci, u8 un_rec_cnt,
- 	}
- }
- 
--
- static irqreturn_t mcr_isr(int irq, void *arg)
- {
- 	struct mem_ctl_info *mci = arg;
-@@ -200,7 +189,6 @@ static irqreturn_t mcr_isr(int irq, void *arg)
- 	return IRQ_HANDLED;
- }
- 
--
- static int config_irq(void *ctx, struct platform_device *pdev)
- {
- 	int irq;
-@@ -225,7 +213,6 @@ static int config_irq(void *ctx, struct platform_device *pdev)
- 	return 0;
- }
- 
--
- static int init_csrows(struct mem_ctl_info *mci)
- {
- 	struct csrow_info *csrow = mci->csrows[0];
-@@ -274,7 +261,6 @@ static int init_csrows(struct mem_ctl_info *mci)
- 	return 0;
- }
- 
--
- static int aspeed_probe(struct platform_device *pdev)
- {
- 	struct device *dev = &pdev->dev;
-@@ -355,7 +341,6 @@ static int aspeed_probe(struct platform_device *pdev)
- 	return rc;
- }
- 
--
- static void aspeed_remove(struct platform_device *pdev)
- {
- 	struct mem_ctl_info *mci;
-@@ -375,7 +360,6 @@ static void aspeed_remove(struct platform_device *pdev)
- 		edac_mc_free(mci);
- }
- 
--
- static const struct of_device_id aspeed_of_match[] = {
- 	{ .compatible = "aspeed,ast2400-sdram-edac" },
- 	{ .compatible = "aspeed,ast2500-sdram-edac" },
+ EDAC-AST2500
+-M:	Stefan Schaeckeler <sschaeck@cisco.com>
++R:	Ryan Chen <ryan_chen@aspeedtech.com>
+ S:	Supported
+ F:	Documentation/devicetree/bindings/edac/aspeed,ast2400-sdram-edac.yaml
+ F:	drivers/edac/aspeed_edac.c
 
 -- 
 2.34.1
