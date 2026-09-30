@@ -4,85 +4,94 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 110EFCA5FCC
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 30 Sep 2026 17:24:17 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 17DF6CA5FCB
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 30 Sep 2026 17:25:44 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=IUG0dDHj/Zm5K5qiyoTo+dRTmDhIG43OjUhDi38YRoU=; b=jw7DxLCn6MbfG6e8c/JEkPK/a2
-	VKpZn6GRSWcNeHNQOXZXNeUOwsLqzunim9NfPgFq068cdybJlsnYHIpK32PjmzsbGKMESvW9LlBmA
-	2DQr08Cu52htvv3btnINN5uX17DscUy13vaCeFASh/GjVcZPTNY4hI85mGfJNqcUxRr6M1dQs8poq
-	1oAEC8gj7nez99jGx2SXFa2Y8ZZUhmaS/ky8xkPnMsw/sr0YW+p7+kcwJ5HjSdGdFm+owmW5e4sWW
-	+SwNLJMoTn9NUwNbzl/JehGkh7HAkNya3vXkbrZCxUQrT9fjsBCFkF3BN4W7yctkOKPcb/VpcAKIq
-	ZYUXKQhQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=L8/OODqwok8+iyAtj/XZzViXaiQxHsPKEsXS6DG3Xq8=; b=UTTteGmKKcqX0g
+	JSnAa6v27Q2q9V7B4mBLxTJTrTAqs0OitvaPrRKIDTsvPZktX3yyXg4TDOc5Ah6/XuYEwz8OXzfZI
+	QtZI3fJ0i4V1Rq3JVFvRRhhH3cguktCU7xej8X0Tkh6dA9uMcx/AXFj3dD9n/oSbGcyJTuRePYus4
+	iSAoe/K6fda6DqOQEjKwt2W7YUXQGTQMaD5qDTnETIvwGOyzF/pLgeColM8faE2yTckNdsftWi+aq
+	xgq9Azm8mSs3AFf0FUMpm43m33DM5vIge9Auf0UE3Oo0dcourl7/al0U6t9DJCo1hCJJ20qzNeP+h
+	K9nwIvyyX4ysMaWJuCUQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xBy2I-00000006oWC-1OVf;
-	Wed, 30 Sep 2026 17:24:06 +0000
+	id 1xBy3h-00000006on8-2WYy;
+	Wed, 30 Sep 2026 17:25:36 +0000
 Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xBy21-00000006oPN-23ZF
+	id 1xBy3d-00000006omn-0aBc
 	for linux-arm-kernel@bombadil.infradead.org;
-	Wed, 30 Sep 2026 17:23:49 +0000
+	Wed, 30 Sep 2026 17:25:29 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:MIME-Version
-	:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Sender:Reply-To:
-	Content-Type:Content-ID:Content-Description;
-	bh=IUG0dDHj/Zm5K5qiyoTo+dRTmDhIG43OjUhDi38YRoU=; b=ckS49AciGZE7H3V2WQ2RMLLYBL
-	c/qG7a9ee9v4g8bSe/132Pe/8knvt8h2hvVG+FpdzQvECxxi9FcUoIludLAwMjTuBIoSk7qzxEael
-	yU5rBvuWTCzsmPSXYJ4P+CGrWSaUnpr9zp6WzSF0Vi3RoLltbW4mr5vUoKRLiAiAH98OjUTajvfFm
-	iee+LtbRIY7aPA6RepRj2eh3CTxnBauq+99ekUMNdMneBSThg19mg/n359Q7TBFRiOlevcWkLQT7I
-	Zbiec5/6osMxPD2AeSDnNPdx57xtC1z9NXxfqWMHn55kj3b0NulRQXvJduTIfWp/BZzPWr9B78oVc
-	2rUK3YdQ==;
-Received: from foss.arm.com ([217.140.110.172])
-	by desiato.infradead.org with esmtp (Exim 4.99.2 #2 (Red Hat Linux))
-	id 1xBy1y-000000048N6-2fI1
+	d=infradead.org; s=desiato.20200630; h=Cc:To:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:Message-Id:Date:Subject:From:Sender:Reply-To:
+	Content-ID:Content-Description:In-Reply-To:References;
+	bh=L8/OODqwok8+iyAtj/XZzViXaiQxHsPKEsXS6DG3Xq8=; b=qsyIYylfYlsbSUeAjjIKDDW207
+	AkNpqz/8uGvBtsBz4RemK8r9o2INZJMfMoRV/W0LY8nqDNR3GvdysbH1bJRwUpsh3z9iZ0Tb1NzrL
+	XXC4fqFjj1oNbUQRumltjwMeyfV1OrPQYrqNX/xc8UxPAxwmBVdgZsD8RjdS+yPkrVh90Ig9HsJsR
+	Gka0WDKas9vcDQyM5xTl0zszDwGkpdYFgUF5/f5vyqAzJ7ch1vELFmbMb7Z6DJa3h+yWEhUTZQYD6
+	Wl6qYBwvIy19QAP9FuSV7nZxsD+LfEs0TC6HdxRkj0xFjxu+1PwZUVEA3Q38bFbPx/vOlfDVzhT4I
+	m81qRkjA==;
+Received: from smtpout-03.galae.net ([185.246.85.4])
+	by desiato.infradead.org with esmtps (Exim 4.99.2 #2 (Red Hat Linux))
+	id 1xBy3Z-000000048TW-322g
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 30 Sep 2026 17:23:48 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 904551596;
-	Wed, 30 Sep 2026 10:23:40 -0700 (PDT)
-Received: from LeoBrasDK.cambridge.arm.com (LeoBrasDK.cambridge.arm.com [10.2.212.21])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 1C33C3F86F;
-	Wed, 30 Sep 2026 10:23:42 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1790789024; bh=Hl+8S3N2mqoCQjLHJajTSd+0DIMoIu1+UBhREoQ7E5E=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=A0J2Ev4zxOvmeICuM6sr2SP/MNQJJAzkgT+mHgYrRrAM0xjPkd/j3G4KgK+8CWqOL
-	 jpODEMDtc4lxLc1kvAIUYNLR3OGi4d7rwN1p2r+Qr2dVIF5v0+ygyVo/a2HtTKGmgY
-	 yWVbrXH4eclnM6BEJE9zo36al3QFL8HSr2j7YRmU=
-From: Leonardo Bras <leo.bras@arm.com>
-To: Marc Zyngier <maz@kernel.org>,
-	Oliver Upton <oupton@kernel.org>,
-	Fuad Tabba <fuad.tabba@linux.dev>,
-	Joey Gouly <joey.gouly@arm.com>,
-	Steffen Eiden <seiden@linux.ibm.com>,
-	Suzuki K Poulose <suzuki.poulose@arm.com>,
-	Zenghui Yu <yuzenghui@huawei.com>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Will Deacon <will@kernel.org>,
-	Mark Rutland <mark.rutland@arm.com>,
-	Leonardo Bras <leo.bras@arm.com>,
-	Raghavendra Rao Ananta <rananta@google.com>
-Cc: linux-arm-kernel@lists.infradead.org,
-	kvmarm@lists.linux.dev,
-	linux-kernel@vger.kernel.org
-Subject: [PATCH v4 3/3] KVM: arm64: Make stage2_split_walker() skip unnecessary walks
-Date: Wed, 30 Sep 2026 18:22:23 +0100
-Message-ID: <20260930172226.2459423-5-leo.bras@arm.com>
-X-Mailer: git-send-email 2.55.0
-In-Reply-To: <20260930172226.2459423-2-leo.bras@arm.com>
-References: <20260930172226.2459423-2-leo.bras@arm.com>
+	Wed, 30 Sep 2026 17:25:27 +0000
+Received: from smtpout-01.galae.net (smtpout-01.galae.net [212.83.139.233])
+	by smtpout-03.galae.net (Postfix) with ESMTPS id 7A6674E410D4;
+	Wed, 30 Sep 2026 17:25:22 +0000 (UTC)
+Received: from mail.galae.net (mail.galae.net [212.83.136.155])
+	by smtpout-01.galae.net (Postfix) with ESMTPS id 3B71C60749;
+	Wed, 30 Sep 2026 17:25:22 +0000 (UTC)
+Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id B43F110328A02;
+	Wed, 30 Sep 2026 19:25:01 +0200 (CEST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=dkim;
+	t=1790789116; h=from:subject:date:message-id:to:cc:mime-version:content-type:
+	 content-transfer-encoding; bh=L8/OODqwok8+iyAtj/XZzViXaiQxHsPKEsXS6DG3Xq8=;
+	b=GSGgLhE2bvk/588d85GTM9KlFlwOVg9/UtzISuHcLNPVHxT30hdlFGR+secNCLrkgczG5M
+	IWORn8JTp879B1BNEaOPMOLbj6A4V5+bdfPMNgo8u73sUCdyKRP6pKXnYEL9+r/vNd4Ix9
+	kuvPxm7zqurl/NTx1xWPKklHVlvVMbKUTfSrfgPxYDVopgqBNTICmOi043Wy1ix/nGa0I+
+	qJ/Dqmr9fSNEZZBOY3E6KaeqSPouSG9AVQnqAc6Asg+AHVLuv+nANqZ78ySHpHpr0qRK2e
+	QOagn8NAmp3mS38JV5stOcnUgullb9r0n5t61WpoZMXHMpC9Z9/8YIWKZPJMNg==
+From: Miquel Raynal <miquel.raynal@bootlin.com>
+Subject: [PATCH v6 00/12] clk: nuvoton: ma35d1: Fix mux parenting and
+ peripheral clock rates
+Date: Wed, 30 Sep 2026 19:24:46 +0200
+Message-Id: <20260930-perso-ma35d1-upstream-clk-v6-0-48937ee6c9bb@bootlin.com>
 MIME-Version: 1.0
-X-Developer-Signature: v=1; a=openpgp-sha256; l=1489; i=leo.bras@arm.com; h=from:subject; bh=Hl+8S3N2mqoCQjLHJajTSd+0DIMoIu1+UBhREoQ7E5E=; b=owGbwMvMwCX2pizjszvTwvWMp9WSGLL2uvqpX3YSb36wrWWSz+clXRLKsrEP3wU7Vp60fr4oN ehKaY5KRykLgxgXg6yYIovso/mreL5PyThy5ccCmDmsTCBDGLg4BWAi9QWMDEctfK7M+Mjfahge ps2/a0Vk0fw5flv3/InYPGdS4+e+5ysY/gcrXC6PvXsqKeCtstDvLUc0y5/Mr1S+1/jl+wwh5d0 PN/IBAA==
-X-Developer-Key: i=leo.bras@arm.com; a=openpgp; fpr=36E6C95AE0F111CC5B6F4D2E688C33F8A0C5B0C5
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+X-B4-Tracking: v=1; b=H4sIAAAAAAAC/43QTWrDMBAF4KsErTNFP5YsddV7lC5keZSIxJaRX
+ NESfPfK6aIpBpPlG5hvHnMjGVPATF4PN5KwhBziWIM6Hog72/GEEPqaCadcUc0ETJhyhMEK2TP
+ 4nPKc0A7grhdQ0lnnHbNadaTuTwl9+Lrb7x81n0OeY/q+nypynf6qhpsdtUigoLQUAo2QiM1bF
+ +N8DeOLiwNZ3cL+rP2GhQEDbDVKVKzlaLcWf+zF9ixee3FqfC+41R2lW0s8WnLPEtXyvrPYIuX
+ U6q3VPG01qyWUaWX9mWH+v7Usyw8cTqic9AEAAA==
+X-Change-ID: 20260813-perso-ma35d1-upstream-clk-65cacfc1a86b
+To: Jacky Huang <ychuang3@nuvoton.com>, Shan-Chun Hung <schung@nuvoton.com>, 
+ Michael Turquette <mturquette@baylibre.com>, 
+ Stephen Boyd <sboyd@kernel.org>, Richard Cochran <richardcochran@gmail.com>, 
+ Arnd Bergmann <arnd@arndb.de>, Brian Masney <bmasney+clk@redhat.com>, 
+ Jerome Brunet <jbrunet+clk@baylibre.com>, Rob Herring <robh@kernel.org>, 
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>
+Cc: Thomas Petazzoni <thomas.petazzoni@bootlin.com>, 
+ Steam Lin <STLin2@winbond.com>, linux-arm-kernel@lists.infradead.org, 
+ linux-clk@vger.kernel.org, linux-kernel@vger.kernel.org, 
+ Krzysztof Kozlowski <krzk@kernel.org>, devicetree@vger.kernel.org, 
+ Miquel Raynal <miquel.raynal@bootlin.com>, stable@vger.kernel.org, 
+ Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>, 
+ Conor Dooley <conor.dooley@microchip.com>, 
+ Jacky Huang <ychuang570808@gmail.com>, Jerome Brunet <jbrunet@baylibre.com>
+X-Mailer: b4 0.14.3
+X-Last-TLS-Session-Version: TLSv1.3
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260930_182346_893550_1A500AD7 
-X-CRM114-Status: GOOD (  14.47  )
+X-CRM114-CacheID: sfid-20260930_182526_126080_236E0AC7 
+X-CRM114-Status: GOOD (  20.54  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -97,49 +106,96 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Currently, when splitting, all the child nodes will be walked, with the
-walker just returning earlier if there is nothing to do. This means all
-pagetable entries in the splitting range get a callback from the walker
-function, even if it was a level-3 entry.
+I am in possession of an MA35D1 NuMaker board. The SPI controller has
+been contributed, but at this stage it does not work with the current
+clock driver.
 
-Optimize splitting by skipping all level-3 entries, as they are already the
-smallest block size and can't be split any further.
-(i.e. set flag KVM_PGTABLE_WALK_SKIP_LEVEL3)
+The clock controller registers its muxes with .fw_name parent data,
+which requires every internal clock name to be declared in the DT. As
+the DT does not declare them, all parent lookups fail: muxes end up
+registered as root clocks and most peripherals read a zero rate.
 
-Signed-off-by: Leonardo Bras <leo.bras@arm.com>
+This conversion exposed a first issue with the WDT/WWDT parents which
+were actually missing in the clock driver. I am not using these clocks
+myself but it is worth fixing.
+
+The second round of reviews raised another problem with the
+crystals. HXT and LXT are external crystal oscillators wired on the
+board, while HIRC and LIRC are on-chip RC oscillators. HXT was described
+whereas LXT was not. The series now also takes the two crystal inputs
+from the DT: they get documented in the bindings, described in the
+boards and looked up by the driver (with a fallback for backward
+compatibility).
+
+Finally, I was still unsatisfied by the clock tree because there were
+too many root clocks. Many "gates" were wrongly set aside from the
+downstream clocks they would gate, and SYSPLL was simply not parented at
+all (?).
+
+The clock tree now looks much more accurate.
+
+Signed-off-by: Miquel Raynal <miquel.raynal@bootlin.com>
 ---
- arch/arm64/kvm/hyp/pgtable.c | 3 ++-
- 1 file changed, 2 insertions(+), 1 deletion(-)
+Changes in v6:
+- Drop the clock output names entirely, they are not relevant.
+- Error out when the crystal providers defer probing.
+- Make sure gates are correctly parented.
+- Make sure SYSPLL is parented.
+- Link to v5: https://lore.kernel.org/r/20260929-perso-ma35d1-upstream-clk-v5-0-68533e935ee4@bootlin.com
 
-diff --git a/arch/arm64/kvm/hyp/pgtable.c b/arch/arm64/kvm/hyp/pgtable.c
-index 80744478c810..f75cb666a103 100644
---- a/arch/arm64/kvm/hyp/pgtable.c
-+++ b/arch/arm64/kvm/hyp/pgtable.c
-@@ -1565,21 +1565,22 @@ static int stage2_split_walker(const struct kvm_pgtable_visit_ctx *ctx,
- 	new = kvm_init_table_pte(childp, mm_ops);
- 	stage2_make_pte(ctx, new);
- 	return 0;
- }
- 
- int kvm_pgtable_stage2_split(struct kvm_pgtable *pgt, u64 addr, u64 size,
- 			     struct kvm_mmu_memory_cache *mc)
- {
- 	struct kvm_pgtable_walker walker = {
- 		.cb	= stage2_split_walker,
--		.flags	= KVM_PGTABLE_WALK_LEAF,
-+		.flags	= KVM_PGTABLE_WALK_LEAF |
-+			  KVM_PGTABLE_WALK_SKIP_LEVEL3,
- 		.arg	= mc,
- 	};
- 	int ret;
- 
- 	ret = kvm_pgtable_walk(pgt, addr, size, &walker);
- 	dsb(ishst);
- 	return ret;
- }
- 
- int __kvm_pgtable_stage2_init(struct kvm_pgtable *pgt, struct kvm_s2_mmu *mmu,
+Changes in v5:
+- Fix the bindings wrt HXT and LXT.
+- Fix the DT descriptions of HXT and LXT.
+- Collect tags.
+- Link to v4: https://lore.kernel.org/r/20260925-perso-ma35d1-upstream-clk-v4-0-f3697553391f@bootlin.com
+
+Changes in v4:
+- I forgot to bump the clock counter in the driver after adding the two
+  new clocks in the bindings. Sashiko will keep complaining about the
+  incoherency though. Since binding and driver changes should be kept
+  separated, I cannot do both at the same time.
+- Link to v3: https://lore.kernel.org/r/20260925-perso-ma35d1-upstream-clk-v3-0-ffbae7e020a8@bootlin.com
+
+Changes in v3:
+- Drop the number of clocks from the binding, set it in the driver only
+- Split the binding/driver patches completely
+- Link to v2: https://lore.kernel.org/r/20260921-perso-ma35d1-upstream-clk-v2-0-209fd32a8b00@bootlin.com
+
+Changes in v2:
+- New patch 1/3: register the missing WDT/WWDT parent clocks
+- New patch 3/3: harden the code
+- Link to v1: https://lore.kernel.org/r/20260813-perso-ma35d1-upstream-clk-v1-1-e78e5e6172ea@bootlin.com
+
+---
+Miquel Raynal (12):
+      clk: nuvoton: ma35d1: Keep the clock count in the driver
+      dt-bindings: clock: ma35d1: Document the missing crystal inputs
+      dt-bindings: clock: ma35d1: Drop CLK_MAX_IDX define
+      dt-bindings: clock: ma35d1: Add missing WDT/WWDT parent clocks
+      clk: nuvoton: ma35d1: Add missing WDT/WWDT parent clocks
+      clk: nuvoton: ma35d1: Use clk_hw pointers as mux parents
+      clk: nuvoton: ma35d1: Avoid possible error pointer dereferencing
+      clk: nuvoton: ma35d1: Retrieve HXT/LXT from DT
+      clk: nuvoton: ma35d1: Reparent the gates correctly
+      clk: nuvoton: ma35d1: Reparent SYSPLL correctly
+      arm64: dts: nuvoton: ma35d1: Drop HXT clock output name
+      arm64: dts: nuvoton: ma35d1: Add LXT crystal and clock-names
+
+ .../bindings/clock/nuvoton,ma35d1-clk.yaml         |  16 +-
+ arch/arm64/boot/dts/nuvoton/ma35d1-iot-512m.dts    |   7 +-
+ arch/arm64/boot/dts/nuvoton/ma35d1-som-256m.dts    |   7 +-
+ arch/arm64/boot/dts/nuvoton/ma35d1.dtsi            |   3 +-
+ drivers/clk/nuvoton/clk-ma35d1-divider.c           |   3 +
+ drivers/clk/nuvoton/clk-ma35d1-pll.c               |   3 +
+ drivers/clk/nuvoton/clk-ma35d1.c                   | 723 +++++++--------------
+ include/dt-bindings/clock/nuvoton,ma35d1-clk.h     |   3 +-
+ 8 files changed, 287 insertions(+), 478 deletions(-)
+---
+base-commit: c5137d373338693fc18f03824782c7d383bfd57a
+change-id: 20260813-perso-ma35d1-upstream-clk-65cacfc1a86b
+
+Best regards,
 -- 
-2.55.0
+Miquel Raynal <miquel.raynal@bootlin.com>
 
 
