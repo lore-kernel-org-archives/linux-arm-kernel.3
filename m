@@ -4,84 +4,163 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B91A4CA5FC7
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 30 Sep 2026 16:07:40 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id F1A71CA5FCB
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 30 Sep 2026 16:07:41 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=S8jLYSQ+fGf5DtGXjU2wWRzq8Y6nl25gGAKxq/Rq4tU=; b=w6yQ2HcQnvN646FD0RVLPNEsy3
-	1Oza9b2VUWbfD1WIoSnCoCeAdRCJOinYKOehBj2ETjprqrg9JOBtot97QXTUGlNq3GqgtNk1E5fUs
-	9Qx5D+QlbIkfAekH2Dw+kjI9HoTy0qs7FIYqmyL1JejI0PY75sZHqCL+CLDzELt9igJ8+Q1UMASsV
-	e1JtZWwIwqjICh10PI0nxWwC12LnGquftCcm4gk6vxzp0+0Z7pyQBGynFGY/qqUrxvbVJF1cD14qo
-	6PL1NE3/EDNyIIYiet1CFtZAtYvejxXMWQ+mchjZfkCFVZ9s67gnTuKrZhM+J9utEyhUp7puw84rZ
-	iAwIrc+A==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
+	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=FxxKICpxB3Pk7/kHBjMKbGIqOqh7KNrvQZENapq9JK8=; b=oGQGBZ9WY3zz99DLw0JSXGmTxz
+	0Y0BAyjnrW/3k0qVgIgqQ1Y64hZ83baK2A1gE+Cc9Ak4O7kJ5DAPLkpo5yMv7aouOfln12D3yWHQV
+	mSDAqW9KKOwa0i5lhB58DcWy1v5y5ORRREYgE/+MmEP+0nlFqc/ByPl/5ykTiMphqE9HTHvuk7VBw
+	7wdz/6dPUOIR4blSxHWDzdmXzfTZvTG/b9hz7AyI2uw2OiGuVt/jHCjDCfT2T3rc+6XkhNHjcvYpu
+	UlYzl+P9OHNpQsZyQrp+6yL01WMWeBNeumcqsPzKBmgqfkY92rPeagxxTmZtj7lyp7y6uXoxfE6Dt
+	6ysAr7vw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xBwqB-00000006dbj-2iuf;
-	Wed, 30 Sep 2026 16:07:33 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1xBwqA-00000006daf-1iH4;
+	Wed, 30 Sep 2026 16:07:30 +0000
+Received: from mx0b-0002e601.pphosted.com ([148.163.154.28])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xBwpt-00000006dTK-2yeK
-	for linux-arm-kernel@bombadil.infradead.org;
-	Wed, 30 Sep 2026 16:07:13 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:MIME-Version
-	:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:Sender:Reply-To:
-	Content-Type:Content-ID:Content-Description;
-	bh=S8jLYSQ+fGf5DtGXjU2wWRzq8Y6nl25gGAKxq/Rq4tU=; b=LYi+F0yeRRbHLvmf8ztQTUSyMJ
-	k/gymlBzcS21JfN+B+O9pnsYh3i2rCZGjdjIJWcn8uzkGDujguX3keVF1HoQQLWppeRWvlk1d4oy1
-	8fDsxky/P0vLeDirCDUDeUYfrOrcm4YxYvUHu3+efQ7OJgWgnK7UwXkij/NI4KgyEuKq/7qrxWFYJ
-	DpQgS1etM5Ui5ONZ6/QwN1p+PBTddryO4mY3czkRkQnZz7/ZngGT+Xly/33nQCcPh6fH9Kfz3IGH7
-	nZWKYn/6y5z+PI85mf3AMAGrBeXFKgAWRN7vT19ubcTcspx7d30l32DnTEpSoCcxPz93FQnBqBdZa
-	yv0SMMAA==;
-Received: from stravinsky.debian.org ([2001:41b8:202:deb::311:108])
-	by desiato.infradead.org with esmtps (Exim 4.99.2 #2 (Red Hat Linux))
-	id 1xBwpq-0000000436W-0Vzy
+	id 1xBwpo-00000006dQA-2iFZ
 	for linux-arm-kernel@lists.infradead.org;
 	Wed, 30 Sep 2026 16:07:12 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=debian.org;
-	s=smtpauto.stravinsky; h=X-Debian-User:Content-Transfer-Encoding:MIME-Version
-	:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:Reply-To:
-	Content-Type:Content-ID:Content-Description;
-	bh=S8jLYSQ+fGf5DtGXjU2wWRzq8Y6nl25gGAKxq/Rq4tU=; b=E0LLOzBOOZuUrX2ECuXXnUXFDS
-	dOgkh3Kq4vF3Tn++1m5UgurND3KdewqeaBoasSkGMpPYurLxHqiAj88YvtbOj5SRk4bKzBUVrZpfu
-	b+ZxRmiGbHImKr6G6Gys3+njLn0NfpN7dXRRBHaC0nXjHE0WRy5CIdASe2dipc5sUjTAWIJ6IK5cf
-	FI41Ap2W9m2Sd36eTaKhWQ+rhKCs6WlecGcg2+iS+Q8/IKJBZ6J0/z3dZDT6aq2iBg37dxkCXhcVd
-	7Br3ZVkFyMkAkO33zMpRNvWWXL1hajnT7pmN8dK0rtwWpo4Ywk6iiifG5l0p8sUvkIW5Lki6pBsZ0
-	qf7zCNLA==;
-Received: from authenticated-user
-	by stravinsky.debian.org with esmtpsa (TLS1.3:ECDHE_X25519__RSA_PSS_RSAE_SHA256__AES_256_GCM:256)
-	(Exim 4.96)
-	(envelope-from <fourdollars@debian.org>)
-	id 1xBwpW-009IoV-26;
-	Wed, 30 Sep 2026 16:06:51 +0000
-From: Shih-Yuan Lee <fourdollars@debian.org>
-To: Mark Brown <broonie@kernel.org>
-Cc: Andy Shevchenko <andriy.shevchenko@linux.intel.com>,
-	Mika Westerberg <mika.westerberg@linux.intel.com>,
-	Lukas Wunner <lukas@wunner.de>,
-	Daniel Mack <daniel@zonque.org>,
-	Haojian Zhuang <haojian.zhuang@gmail.com>,
-	Robert Jarzmik <robert.jarzmik@free.fr>,
-	linux-spi@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	Shih-Yuan Lee <fourdollars@debian.org>
-Subject: [PATCH v17 1/6] spi: pxa2xx: rename local status variable to ret
-Date: Thu,  1 Oct 2026 00:06:24 +0800
-Message-Id: <20260930160629.1822-2-fourdollars@debian.org>
-X-Mailer: git-send-email 2.39.5
-In-Reply-To: <20260930160629.1822-1-fourdollars@debian.org>
-References: <20260930160629.1822-1-fourdollars@debian.org>
+Received: from pps.filterd (m0374955.ppops.net [127.0.0.1])
+	by mx0b-0002e601.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 68UE1XXO3555902;
+	Wed, 30 Sep 2026 11:07:06 -0500
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com; h=cc
+	:content-transfer-encoding:content-type:date:from:in-reply-to
+	:message-id:mime-version:references:subject:to; s=
+	proofpoint-05-2026; bh=FxxKICpxB3Pk7/kHBjMKbGIqOqh7KNrvQZENapq9J
+	K8=; b=EUH9a1/Izxl+s8ZwnRY3bqgCHOnxs6wRaBq21Ihp4LJ+zaIW2C8wTY6vv
+	/NNxGGBV1MHjjL8L/fEzpHMNfFX7cvaH9B9cw0gt+k5EC/4mgbfs1g3/vZoUmZ7K
+	2Vqh1+7CIF4klwFAdduTH85jJ+4vaIy9DYucoPY8Gu11d3dB4BXpHbAJ29IvUCfU
+	n83G/Kj0N7R2fQDGcJHmvLxBA0CCtGx/mY/BAN0GWiDrY4dEM3QBrjmOnKYK7pPr
+	wyzjqSvAbl0bpcIwdahIU/KfLwGBcEs/tpP/Wdp9WVoQtvIrPBrH6P5wTeYWlrL8
+	+Ybr35xdknQPFsmM6QjD00iWkPKEA==
+Received: from byapr05cu005.outbound.protection.outlook.com (mail-westusazon11010010.outbound.protection.outlook.com [52.101.85.10])
+	by mx0b-0002e601.pphosted.com (PPS) with ESMTPS id 4h0ydvacja-1
+	(version=TLSv1.3 cipher=TLS_AES_256_GCM_SHA384 bits=256 verify=NOT);
+	Wed, 30 Sep 2026 11:07:05 -0500 (CDT)
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=J3EJNfbPuM8/HJefsbtm3XgKsjq7UkNVRMuK8W7lGBorzc1wYEJd4PQV207RnYXmLIRxj7AtN9zUSJ97Iw4mPEPoex5+0K+kKIX6vZK9pHjndddKtvGWuV/MxacpN8+H/bP3/iOFnqxTUdugkTxCkoV0FRbxY+0GSCZazMg5vZWRhjxJpXW630WRMggpPh6FCVINz21Cp0zVIfy3PfZt8fK/lw5wGK3/mgXbWZpxOELpZ+Zqq57cLIpCW04qMEuMOvKeHNcuk6fMzC/v7hGe2TJ0oshGHYfeMw5sGV0UhrwUbCg52rm3bqL5EVEyrkQLEXzKlrJ+/q8jHWR3OVDrrg==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=FxxKICpxB3Pk7/kHBjMKbGIqOqh7KNrvQZENapq9JK8=;
+ b=MOcgGc6M/baRebElVql6fmzg+wnsAPLR/lTbZ/N2oR5IuToYjz7BeK4eQ2Oxh90t6QBuWsJQ0pFgzzdTyHyt1np1awOf2Qj/k21h84n/ohi7S4BaM5XvrxmGNtYRl1HJcpmvuScnKbni/jvfX5PJ2+XuavmEOFITZHHPphQW6B8R8BfAObyoCps9cNjvgRmxI9NvmZnsX8VAFaq+aPjdtpmZmgujYJIbg1ZVlrP+D9kVWY9IxggEPUNRQdi24rHcO6tBmscsvRX+bj6PyXh9fcoOtGSCTfX9dIEzk/ClTQFK+QhrNo8Gq10Av+Ic+RSr2R5sZ66INvK2fRTy4CkIQg==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
+ 198.47.23.195) smtp.rcpttodomain=lists.infradead.org smtp.mailfrom=ti.com;
+ dmarc=pass (p=quarantine sp=none pct=100) action=none header.from=ti.com;
+ dkim=none (message not signed); arc=none (0)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+ d=ticloud.onmicrosoft.com; s=selector1-ticloud-onmicrosoft-com;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=FxxKICpxB3Pk7/kHBjMKbGIqOqh7KNrvQZENapq9JK8=;
+ b=hIGrzBHk/Zx/OIDgtxAlUam0CQGfHsBFdCSlYyc9toQw8UHcKY43K/Ej1sxamIi3tTyHTgaLGBlJ7v6yi+oQroeW0GHG2sZI3GOK6IxVWfMI6b5NT4R2HCvD1VjqdKoufUTRR3y0PL5p1YjsZivhbbhMGBa1+SdR+4EPbr116XE=
+Received: from MW4PR04CA0215.namprd04.prod.outlook.com (2603:10b6:303:87::10)
+ by IA3PR10MB478310.namprd10.prod.outlook.com (2603:10b6:208:70b::16) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.496.9; Wed, 30 Sep
+ 2026 16:07:02 +0000
+Received: from CO1PEPF000066E6.namprd05.prod.outlook.com
+ (2603:10b6:303:87:cafe::6a) by MW4PR04CA0215.outlook.office365.com
+ (2603:10b6:303:87::10) with Microsoft SMTP Server (version=TLS1_3,
+ cipher=TLS_AES_256_GCM_SHA384) id 15.21.472.15 via Frontend Transport; Wed,
+ 30 Sep 2026 16:07:01 +0000
+X-MS-Exchange-Authentication-Results: mx.microsoft.com 1; spf=pass (sender IP
+ is 198.47.23.195) smtp.mailfrom=ti.com; dkim=none (message not signed)
+ header.d=none;dmarc=pass action=none header.from=ti.com;
+Received-SPF: Pass (protection.outlook.com: domain of ti.com designates
+ 198.47.23.195 as permitted sender) receiver=protection.outlook.com;
+ client-ip=198.47.23.195; helo=lewvzet201.ext.ti.com; pr=C
+Received: from lewvzet201.ext.ti.com (198.47.23.195) by
+ CO1PEPF000066E6.mail.protection.outlook.com (10.167.249.4) with Microsoft
+ SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.21.472.14 via Frontend Transport; Wed, 30 Sep 2026 16:07:01 +0000
+Received: from DLEE202.ent.ti.com (157.170.170.77) by lewvzet201.ext.ti.com
+ (10.4.14.104) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.45; Wed, 30 Sep
+ 2026 11:06:27 -0500
+Received: from DLEE202.ent.ti.com (157.170.170.77) by DLEE202.ent.ti.com
+ (157.170.170.77) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.45; Wed, 30 Sep
+ 2026 11:06:26 -0500
+Received: from lelvem-mr06.itg.ti.com (10.180.75.8) by DLEE202.ent.ti.com
+ (157.170.170.77) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.45 via Frontend
+ Transport; Wed, 30 Sep 2026 11:06:26 -0500
+Received: from uda0510294.dhcp.ti.com (uda0510294.dhcp.ti.com [10.24.50.162])
+	by lelvem-mr06.itg.ti.com (8.18.1/8.18.1) with ESMTP id 68UG68W83425232;
+	Wed, 30 Sep 2026 11:06:24 -0500
+From: Beleswar Padhi <b-padhi@ti.com>
+To: <nm@ti.com>, <kristo@kernel.org>, <ssantosh@kernel.org>, <afd@ti.com>,
+        <vigneshr@ti.com>, <u-kumar1@ti.com>
+CC: <linux-kernel@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
+        <b-padhi@ti.com>
+Subject: [PATCH v2 05/22] firmware: ti_sci: Name response variable resp for consistency
+Date: Wed, 30 Sep 2026 21:35:50 +0530
+Message-ID: <20260930160607.2674980-6-b-padhi@ti.com>
+X-Mailer: git-send-email 2.34.1
+In-Reply-To: <20260930160607.2674980-1-b-padhi@ti.com>
+References: <20260930160607.2674980-1-b-padhi@ti.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
-X-Debian-User: fourdollars
+Content-Type: text/plain
+X-EOPAttributedMessage: 0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: CO1PEPF000066E6:EE_|IA3PR10MB478310:EE_
+X-MS-Office365-Filtering-Correlation-Id: 63b41777-3187-4af5-95ad-08df1f0cdcf8
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|23010399003|376014|1800799024|82310400026|36860700016|56012099006|10067099003|6133799003|18002099003|22082099003;
+X-Microsoft-Antispam-Message-Info: q4Kghry+tyYohFeaStIVgkrVXHXurJ9JzmETAYvMl2ghOvB+d9VmEg2iaEvNdGLUNOmV1vVq6XGJtb1OZK5TtC2RdjMcC13EYJMiTOKaHzr9jlddZrcO0++nPVL6BBJEN/aDNAb9OSBKCHVTDdvlof/Pv+s/Ztn1SWuUFWTb3ABtJQF1kjbbpwmLab2HFq40mbTXKb/KEdaZlLpSsJ6i/o+q0tF8HlCivBkMzaIR58xuhdI35VtJlsodTBJRzGBBosjptsNfSd7sNGAnkUGmiN3+Lpw+uzFkk0VlL2+KZ/QL5sszLzLBrorMnWJRNq9huUF31kiRGd0a97G5xeo6hj1mW0hgN7Qz/HiuZ4C19IolWFILDCmAc9xnH0RFL8UsnRwNDzogW1z/+On/lagdmmSSKrA0qryUxkPeNc598QHGLBHLB+3tMJ2HWt3og+oHjRTxovpzb+kyf0lhYUYul5jt90zOVVcQKwHS3H14dtDKNsyUr1wsatXAn6G1suayeUkSyyWi2AYta4+/7OZFbmE/FImRDPIjxi+d2bTtLffASg3e8uvztPO/3jxs3yl/8iy/MDasFhWhbJsvyZBtBsGol/1h+9WsGpVIJLSncd9l3GNNuMpvvu8PcO99SepjhZS6DxtqsvGIqjih1SdKIPQkdUkBkcWDRoGusU6XMavCZfS94tVWD+1FdIFwuQwLO1DW0mxEW/IMID2rZ+Yg3A==
+X-Forefront-Antispam-Report: CIP:198.47.23.195;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:lewvzet201.ext.ti.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(23010399003)(376014)(1800799024)(82310400026)(36860700016)(56012099006)(10067099003)(6133799003)(18002099003)(22082099003);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: OO6SwMYXkLuV+vfXoD9MBKarEW5/Gjdw6/aMXRqL9A3VGhBcXuVfLkY5Lj3f6yNMWAUOq375gJQQZA+ZRpsbymfWt4kXD3DUiyqZ9KB/z4oxcWaU7bSas2ABUhToGNjFlZoSwCMcpkSjSz4eDCclF5gXGEQuWGwCoU1ALmLfGATTPXX7W+PvL9SKsbPBqTxTs7vHoAZhvvOco30qZEtPKMA2NZbbM6Vg01TekgpE2SkOU9bAWFwLg+cd9mJ4m7vRF+op3zSxucG3gxximTJubJXOv/d97Q2bTsraRqQjiNOLjqu/hMiZ/loY8CEWi3/9txD9Qkyw7UMK2WAFtmQDNgbozYcVU9pV75I8dLkLydSJf3zx79FHP86JQrpl9JeAfnWtV6udFzAp9029YCtRVmZZ3Gmo3b1Wi23a+SPd8TeE1IGxNU32Y/xhoXcZ50uJ
+X-Exchange-RoutingPolicyChecked: 0+b38tN29mtQT61HJxZzmgvCz15qse/M7GcT7LJXcUOMGAKRqp3AJ89CkQ6t1pfGmWiedCZxRMmJIPMBGRW2NtZrHEuLPAG+Gno/U458Ag1cgnWqlH1Puu1RK5zRe2ysUpxlF+Gu6knzL5u7aV45PkxeieR8FwofiyOzPOs/IGceEhDOCvkNjLWWSwSo9IH7HpZen+/gxiI5+HJ3lbj7kd+CCoHoYV4LWegkkCb3ir+8brU46Ew3b5v4en/1BsnUpEF0qanqR8VHZl5tj0F7Ve+8L5ii7YUIPDQttXppbgyyWEioB/h9Yop7jUgXzPJJdakmoh/uX5Vy9/aAQGpbNA==
+X-OriginatorOrg: ti.com
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 30 Sep 2026 16:07:01.5883
+ (UTC)
+X-MS-Exchange-CrossTenant-Network-Message-Id: 63b41777-3187-4af5-95ad-08df1f0cdcf8
+X-MS-Exchange-CrossTenant-Id: e5b49634-450b-4709-8abb-1e2b19b982b7
+X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=e5b49634-450b-4709-8abb-1e2b19b982b7;Ip=[198.47.23.195];Helo=[lewvzet201.ext.ti.com]
+X-MS-Exchange-CrossTenant-AuthSource: CO1PEPF000066E6.namprd05.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Anonymous
+X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: IA3PR10MB478310
+X-Proofpoint-Spam-Info: AW1haW4tMjYwOTMwMDA2NCBTYWx0ZWRfX4eViJXw0N6du
+ ArC5PRK9bJBeFc/fvTBffEDAKpfsiFzdytKHZA4rbIKuljGlRlUpiESOCsGWbluGMMfvwXRrNhD
+ /ntocxBYZ053qxNZmXbJnVmROUKmoQU=
+X-Proofpoint-GUID: H-WsUQfvPZS2a48Sl5C1gSmZ-X2WRx1P
+X-Authority-Analysis: v=2.4 cv=TegDJhQh c=1 sm=1 tr=0 ts=6abd33a9 cx=c_pps
+ a=wodMs23R9wL6gmOfRTd43Q==:117 a=f+v6EHfkeJbVwR46tk4DMg==:17
+ a=6eWqkTHjU83fiwn7nKZWdM+Sl24=:19 a=VdqzKS8jKosA:10 a=s63m1ICgrNkA:10
+ a=AlMIdn_sM9wA:10 a=VkNPw1HP01LnGYTKEx00:22 a=Z8NIEmU8O1QQgoT56wFK:22
+ a=fPAWb5peG099m5CrUpKH:22 a=VwQbUJbxAAAA:8 a=sozttTNsAAAA:8
+ a=j3GZ-1RxCUTCYdul9d8A:9
+X-Proofpoint-ORIG-GUID: H-WsUQfvPZS2a48Sl5C1gSmZ-X2WRx1P
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwOTMwMDA2NCBTYWx0ZWRfX6F7TUmD/Kc9q
+ z3/cJU6weTQfZWeDdSF4pPd1xEejXsXP7IfnxptTSYczdsgtESF6ORL4U5kuGF6WYKt6XeYMifU
+ afSpplCPUVkrjeAQXpZpJVkBP6LNPjOmKpFR1pu+6h+ENnvobEPxMXH0efKLTwRjfzBmKNLtti6
+ pbWRBEkKigr9a2UAaKi6P4sqa4BDhRhKWRpXatUFHmeOimSlYEd2kgbXZ2/pBYCAdr/P1KYckji
+ wJiEw/1fP1tT/Dm/5dWdzGcPjT21cyquK+Sv0WvaD1jBCxWlW0Dq7AZSOyGq1wycEcEN6sXNxHQ
+ yjyE5uAeWJ1rIuYUGLNNhfHeh6xwsoLdykFQPLVO/Efb2+/eF9mAIshvoOuNN7M/9c3QFWqP+Pd
+ teViCsHnGqeXEhmxRGRtIM2aINlMVFxqGxI/UBKTOMhloxcCueKUz+VVf6OHHQkqsyKcJ88MpEp
+ Oo7oMFyO1PcZcgYsMtg==
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1176,Hydra:6.1.134,FMLib:17.12.100.49
+ definitions=2026-09-30_03,2026-09-21_02,2025-10-01_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
+ spamscore=0 lowpriorityscore=0 malwarescore=0 phishscore=0 bulkscore=0
+ clxscore=1015 priorityscore=1501 adultscore=0 suspectscore=0 impostorscore=0
+ classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
+ reason=mlx scancount=1 engine=8.22.0-2609040000 definitions=main-2609300064
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260930_170710_218914_455BCCC9 
-X-CRM114-Status: GOOD (  17.08  )
+X-CRM114-CacheID: sfid-20260930_090711_253578_E4788CC6 
+X-CRM114-Status: GOOD (  14.67  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -96,131 +175,66 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Rename the return value variable name from 'status' to 'ret' in the
-pxa2xx_spi_probe(), pxa2xx_spi_suspend(), and pxa2xx_spi_resume()
-functions to conform to standard Linux kernel coding conventions.
+From: Andrew Davis <afd@ti.com>
 
-Assisted-by: Antigravity:gemini-3.8-flash sparse
-Signed-off-by: Shih-Yuan Lee <fourdollars@debian.org>
+All other TI-SCI call functions call the response variable "resp" except
+ti_sci_cmd_get_revision(), fix this here. Also get assign the response
+variable pointer after the transfer, again for consistency. No functional
+change but does make later cleanups easier.
+
+Signed-off-by: Andrew Davis <afd@ti.com>
+Signed-off-by: Beleswar Padhi <b-padhi@ti.com>
 ---
- drivers/spi/spi-pxa2xx.c | 44 ++++++++++++++++++++--------------------
- 1 file changed, 22 insertions(+), 22 deletions(-)
+v2: Changelog:
+1. None to this patch.
 
-diff --git a/drivers/spi/spi-pxa2xx.c b/drivers/spi/spi-pxa2xx.c
-index 6291d7c2e06f..b11e30589074 100644
---- a/drivers/spi/spi-pxa2xx.c
-+++ b/drivers/spi/spi-pxa2xx.c
-@@ -1274,7 +1274,7 @@ int pxa2xx_spi_probe(struct device *dev, struct ssp_device *ssp,
- 	struct spi_controller *controller;
- 	struct driver_data *drv_data;
- 	const struct lpss_config *config;
--	int status;
-+	int ret;
- 	u32 tmp;
- 
- 	if (platform_info->is_target)
-@@ -1330,15 +1330,15 @@ int pxa2xx_spi_probe(struct device *dev, struct ssp_device *ssp,
- 						| SSSR_ROR | SSSR_TUR;
- 	}
- 
--	status = request_irq(ssp->irq, ssp_int, IRQF_SHARED, dev_name(dev),
-+	ret = request_irq(ssp->irq, ssp_int, IRQF_SHARED, dev_name(dev),
- 			drv_data);
--	if (status < 0)
--		return dev_err_probe(dev, status, "cannot get IRQ %d\n", ssp->irq);
-+	if (ret < 0)
-+		return dev_err_probe(dev, ret, "cannot get IRQ %d\n", ssp->irq);
- 
- 	/* Setup DMA if requested */
- 	if (platform_info->enable_dma) {
--		status = pxa2xx_spi_dma_setup(drv_data);
--		if (status) {
-+		ret = pxa2xx_spi_dma_setup(drv_data);
-+		if (ret) {
- 			dev_warn(dev, "no DMA channels available, using PIO\n");
- 			platform_info->enable_dma = false;
- 		} else {
-@@ -1352,8 +1352,8 @@ int pxa2xx_spi_probe(struct device *dev, struct ssp_device *ssp,
- 	}
- 
- 	/* Enable SOC clock */
--	status = clk_prepare_enable(ssp->clk);
--	if (status)
-+	ret = clk_prepare_enable(ssp->clk);
-+	if (ret)
- 		goto out_error_dma_irq_alloc;
- 
- 	controller->max_speed_hz = clk_get_rate(ssp->clk);
-@@ -1433,20 +1433,20 @@ int pxa2xx_spi_probe(struct device *dev, struct ssp_device *ssp,
- 		drv_data->gpiod_ready = devm_gpiod_get_optional(dev,
- 						"ready", GPIOD_OUT_LOW);
- 		if (IS_ERR(drv_data->gpiod_ready)) {
--			status = PTR_ERR(drv_data->gpiod_ready);
-+			ret = PTR_ERR(drv_data->gpiod_ready);
- 			goto out_error_clock_enabled;
- 		}
- 	}
- 
- 	/* Register with the SPI framework */
- 	dev_set_drvdata(dev, drv_data);
--	status = spi_register_controller(controller);
--	if (status) {
--		dev_err_probe(dev, status, "problem registering SPI controller\n");
-+	ret = spi_register_controller(controller);
-+	if (ret) {
-+		dev_err_probe(dev, ret, "problem registering SPI controller\n");
- 		goto out_error_clock_enabled;
- 	}
- 
--	return status;
-+	return ret;
- 
- out_error_clock_enabled:
- 	clk_disable_unprepare(ssp->clk);
-@@ -1455,7 +1455,7 @@ int pxa2xx_spi_probe(struct device *dev, struct ssp_device *ssp,
- 	pxa2xx_spi_dma_release(drv_data);
- 	free_irq(ssp->irq, drv_data);
- 
--	return status;
-+	return ret;
- }
- EXPORT_SYMBOL_NS_GPL(pxa2xx_spi_probe, "SPI_PXA2xx");
- 
-@@ -1483,11 +1483,11 @@ static int pxa2xx_spi_suspend(struct device *dev)
+Link to v1:
+https://lore.kernel.org/all/20260929201746.4078803-6-b-padhi@ti.com/
+
+ drivers/firmware/ti_sci.c | 16 ++++++++--------
+ 1 file changed, 8 insertions(+), 8 deletions(-)
+
+diff --git a/drivers/firmware/ti_sci.c b/drivers/firmware/ti_sci.c
+index a91db923c8939..9081288bd133c 100644
+--- a/drivers/firmware/ti_sci.c
++++ b/drivers/firmware/ti_sci.c
+@@ -507,27 +507,27 @@ static int ti_sci_cmd_get_revision(struct ti_sci_info *info)
  {
- 	struct driver_data *drv_data = dev_get_drvdata(dev);
- 	struct ssp_device *ssp = drv_data->ssp;
--	int status;
-+	int ret;
+ 	struct ti_sci_handle *handle = &info->handle;
+ 	struct ti_sci_version_info *ver = &handle->version;
+-	struct ti_sci_msg_resp_version *rev_info;
++	struct ti_sci_msg_resp_version *resp;
+ 	struct ti_sci_xfer *xfer;
+ 	int ret;
  
--	status = spi_controller_suspend(drv_data->controller);
--	if (status)
--		return status;
-+	ret = spi_controller_suspend(drv_data->controller);
-+	if (ret)
-+		return ret;
+ 	xfer = ti_sci_get_one_xfer(info, TI_SCI_MSG_VERSION,
+ 				   TI_SCI_FLAG_REQ_ACK_ON_PROCESSED,
+ 				   sizeof(struct ti_sci_msg_hdr),
+-				   sizeof(*rev_info));
++				   sizeof(*resp));
+ 	if (IS_ERR(xfer))
+ 		return PTR_ERR(xfer);
  
- 	pxa_ssp_disable(ssp);
+-	rev_info = (struct ti_sci_msg_resp_version *)xfer->xfer_buf;
+-
+ 	ret = ti_sci_do_xfer(info, xfer);
+ 	if (ret)
+ 		goto fail;
  
-@@ -1501,13 +1501,13 @@ static int pxa2xx_spi_resume(struct device *dev)
- {
- 	struct driver_data *drv_data = dev_get_drvdata(dev);
- 	struct ssp_device *ssp = drv_data->ssp;
--	int status;
-+	int ret;
+-	ver->abi_major = rev_info->abi_major;
+-	ver->abi_minor = rev_info->abi_minor;
+-	ver->firmware_revision = rev_info->firmware_revision;
+-	strscpy(ver->firmware_description, rev_info->firmware_description,
++	resp = (struct ti_sci_msg_resp_version *)xfer->xfer_buf;
++
++	ver->abi_major = resp->abi_major;
++	ver->abi_minor = resp->abi_minor;
++	ver->firmware_revision = resp->firmware_revision;
++	strscpy(ver->firmware_description, resp->firmware_description,
+ 		sizeof(ver->firmware_description));
  
- 	/* Enable the SSP clock */
- 	if (!pm_runtime_suspended(dev)) {
--		status = clk_prepare_enable(ssp->clk);
--		if (status)
--			return status;
-+		ret = clk_prepare_enable(ssp->clk);
-+		if (ret)
-+			return ret;
- 	}
- 
- 	/* Start the queue running */
+ fail:
 -- 
-2.39.5
+2.34.1
 
 
