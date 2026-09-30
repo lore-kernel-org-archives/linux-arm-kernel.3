@@ -4,63 +4,61 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7DC12CA5FB1
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 30 Sep 2026 10:09:05 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9592CCA5FBE
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 30 Sep 2026 10:10:46 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=pBwNF67IVGVLonh6bLp06bYjXyfvFFbgj27kTxohZtg=; b=zWbAExpNamQw46LUrKGcxNbRY4
-	OCoqfp5xtaulCGSO40LhXsEP3pqcHzxtvdsfvY1f2M29uI78chFK5JQCwT3/gnvOzX0a13uOl3HKN
-	kabnQ36w863nwNiRa61PA5gebbLl5bNNvu6pZwi2LDwPvJLjnXHrfpSqW7RRF1ua9dpaAZKrKoW+i
-	bOdj+2BGSrh7rmGa93h/hlqyVcuUUTQSk6UPp8vHSwlW8or77wIhWgjhrSLz/z1wOcue3MEpYaY9C
-	xsIKfSRP4OAncg20GmcOcZNhWyhe13Qy0mP9iF431NYb6RxwfKHfY7J2t09QDGTUMQVoEfTmKliCY
-	48roRVHw==;
+	bh=vHfIlpHAKIFPPGeTX2D09og3//FoLgPKp4mRy4VEQkU=; b=2rDoWqHmANp7/SpZLjJVzCd+bH
+	vGpQ2ELWOMFDfyoYJZfXvx28V4RfEp2wCiDpZ/Bf0+houXLQXEYmLNM3kGTNUQYrx8/sRrYQVrsEx
+	oONS6PT7B338Etm70+TcvE9VlVPCMNvpLe4uR8o0w+o/hYzSEOPF5e4LhnWRKxm8TzqkFfU3tnelM
+	+dcb0Fi97nycdhRw6YEAxynSB2lXPbhNiQmQjf09URFJU4LuZCACr9dt2ANWmFQzJbA1concCs8nw
+	eNcNaHCBYfPb6TD4VhUpbY1tneqjLIw+/fXOqfCvuFt3VxCYGMJ6T8EXQeAUIRKtbEV3oWSTNZVGD
+	xzZyi+8w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xBrFC-00000005gCZ-43hf;
-	Wed, 30 Sep 2026 10:08:58 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1xBrGq-00000005gT5-186O;
+	Wed, 30 Sep 2026 10:10:40 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xBrFC-00000005gCB-2NmH
+	id 1xBrGo-00000005gSu-3V1O
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 30 Sep 2026 10:08:58 +0000
+	Wed, 30 Sep 2026 10:10:38 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id 8E95C600D4;
-	Wed, 30 Sep 2026 10:08:57 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 741F51F000FF;
-	Wed, 30 Sep 2026 10:08:56 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 57309408BF;
+	Wed, 30 Sep 2026 10:10:38 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 42C2A1F000FF;
+	Wed, 30 Sep 2026 10:10:36 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1790762937;
-	bh=pBwNF67IVGVLonh6bLp06bYjXyfvFFbgj27kTxohZtg=;
+	s=k20260515; t=1790763038;
+	bh=vHfIlpHAKIFPPGeTX2D09og3//FoLgPKp4mRy4VEQkU=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=hZxfu/o6KtJngutnETKwZaEKPZvZmscsFdJ0RqI679tuJ3B3JqqutWA4FvU2opCri
-	 ZeSGAuIgyYddWDwHdsD3E727rSlm5ZZ5rbzhUN70iDvNT387n+gi6hsSVvmmUy1fCM
-	 fVUg9Fv+acBsdK5TWlZTJ5Lx4thvPUA5gKLSoLgce6XbhCff2y9LSnXiDBo/8RoMnD
-	 07rlqnYShBDGMS1nIsyqnES7HC6WPp1MeE528xYhlsMPKofGxH3Obr0/2vc35Vgvjg
-	 TovKlNY7qT/bVUXZE+Zv/l6qzmtHs5ahAIsBONBgPK1DYFR47ftKfexxIcTemWOqMM
-	 Jp9sHmwHhEW2A==
-Date: Wed, 30 Sep 2026 12:08:53 +0200
+	b=mgEkZ1SyRI8K37jdaZ0dnzHrhi0Z4YkrL7rpHe1/qvh5qnww2L/4cGvKrG3fIgaPh
+	 sHq1rdElmDjtY478yz461FFYX9i8EQin91eBehPi4WpGiUML69OB1/Urk9ZNQ+C+4l
+	 rYhzUqYgozRhik33xsAPMhTubLycjkvwgaHWzn6IrABHP0hCFH+iD2w7KFAMTOGjHE
+	 dWmgwsTARIRVkFhBxoW3baqzV3oaM2oHOSEJMIo7yF8rv1vjAVpr1Qh+2K+s3U8acZ
+	 fdfD05lIscrAE4aFgN7Plo3XddfeRgYneuncnujFREihuFURjvEEgz2fSSbIo+ReMP
+	 nibLEDiMIalww==
+Date: Wed, 30 Sep 2026 12:10:34 +0200
 From: Krzysztof Kozlowski <krzk@kernel.org>
 To: Pablo Mazzini <pmazzini@gmail.com>
-Cc: Brian Masney <bmasney+clk@redhat.com>, Chen-Yu Tsai <wens@kernel.org>, 
-	Conor Dooley <conor+dt@kernel.org>, Jernej Skrabec <jernej.skrabec@gmail.com>, 
-	Jerome Brunet <jbrunet+clk@baylibre.com>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
-	Maxime Ripard <mripard@kernel.org>, Philipp Zabel <p.zabel@pengutronix.de>, 
-	Rob Herring <robh@kernel.org>, Samuel Holland <samuel@sholland.org>, 
-	Stephen Boyd <sboyd@kernel.org>, devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
-	linux-clk@vger.kernel.org, linux-kernel@vger.kernel.org, linux-sunxi@lists.linux.dev
-Subject: Re: [PATCH v2 01/11] dt-bindings: clock: sun4i-a10-ccu: add
- Allwinner B288
-Message-ID: <20260930-controversial-pastoral-raven-dd05fc@quoll>
+Cc: Alexandre Belloni <alexandre.belloni@bootlin.com>, 
+	Chen-Yu Tsai <wens@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
+	Jernej Skrabec <jernej.skrabec@gmail.com>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+	Maxime Ripard <mripard@kernel.org>, Rob Herring <robh@kernel.org>, 
+	Samuel Holland <samuel@sholland.org>, devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+	linux-kernel@vger.kernel.org, linux-rtc@vger.kernel.org, linux-sunxi@lists.linux.dev
+Subject: Re: [PATCH v2 05/11] dt-bindings: rtc: sun6i-a31: add Allwinner B288
+Message-ID: <20260930-camouflaged-koel-of-resistance-7b09f5@quoll>
 References: <20260927151016.186493-1-pmazzini@gmail.com>
- <20260927151016.186493-2-pmazzini@gmail.com>
+ <20260927151016.186493-6-pmazzini@gmail.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=utf-8
 Content-Disposition: inline
-In-Reply-To: <20260927151016.186493-2-pmazzini@gmail.com>
+In-Reply-To: <20260927151016.186493-6-pmazzini@gmail.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -75,14 +73,17 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Sun, Sep 27, 2026 at 04:10:06PM +0100, Pablo Mazzini wrote:
-> The B288 (sun8iw10p1) is a dual Cortex-A7 SoC used in e-book readers.
-> Its CCU needs only the two oscillator inputs, so it fits the existing
-> schema without changes.
+On Sun, Sep 27, 2026 at 04:10:10PM +0100, Pablo Mazzini wrote:
+> The B288 RTC wires one alarm interrupt, not two.
 > 
 > Signed-off-by: Pablo Mazzini <pmazzini@gmail.com>
+> ---
+>  .../devicetree/bindings/rtc/allwinner,sun6i-a31-rtc.yaml        | 2 ++
+>  1 file changed, 2 insertions(+)
+> 
 
-Acked-by: Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
+Seems like valid and unaddressed comment from Sashiko, so dropping from
+DT Patchwork.
 
 Best regards,
 Krzysztof
