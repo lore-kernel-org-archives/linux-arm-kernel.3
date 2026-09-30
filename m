@@ -4,95 +4,61 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7EA77CA5FB1
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 30 Sep 2026 11:55:06 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C912DCA5FAC
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 30 Sep 2026 11:55:38 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:References:From:
-	Subject:Cc:To:Message-Id:Date:Content-Type:Content-Transfer-Encoding:
-	Mime-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=aVzuXE/DlhAkuriCQToRPrh16XzvOjKZo5qCvzwYsCc=; b=kadoZQi3NH1dCh22heEFVJ2JI2
-	VdBwA7Is4ApgfAJwfKnHTmjNehu3giyy9CP88xXNaqIdxXkQuoCq9rvdP5kYQfuwZkuSmJfeVLQ8q
-	W9MYxe/hgcj/R0Mft7lADrg264UOK1bwQopW0Cl6pK+f52xDxNMuNfKWZYcS3SIJIymISxLuSgRL0
-	gbSQYYtgYYfo6TUpaezXF8aiNOARY8V0bsnpIoUcBi7k8EtSpIImFlw69WEmFJQHr4ymrfetvBvEL
-	0rWIRgt04mVpBQhA8ZANRytC8cLzeg5YhE/qNJweg01LGCLztU/Y9BqGd9AezubyUIpK9BCV17Dz/
-	V+/txoxw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:References:In-Reply-To:Date:Cc:To:From
+	:Subject:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=DOZsR/ac7GbUoOWLmXgbXKPZIPwkoKZ1eUqerXVBB9U=; b=ZsUJwv49ju1Rp6u5OfhkHoUbPV
+	DM/wy5Cm1Krg/sPh24xiFxSYS6rKXCdzwxgtIEzBAQNo7h+C6NmTMIaajef0l8rQPpCtWs9ei3W2Q
+	vKFP6I1NtbugRVlAJCo4obFaJPgprQjVbTdrU7BaVQe6azN+s9sPDJUfWJa8UtvBeV7evn/c2F5a+
+	sLWXB79XFRDxOzAQwLL8e1rEEZK+TjiQQiylnP36Z8KWsbLjbFP0YN257Jd4F7OV1/AXSoAwnNVzV
+	oXL4Fm2QEov13ynQ5ndZ9DMcnA9AFoiNV2s5hPYhjDujRBxCNWdG6z6cyBiWsBaIwCUZ2x1p1lP3k
+	XJoevhjw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xBstn-00000005wD5-2oJv;
-	Wed, 30 Sep 2026 11:54:59 +0000
-Received: from mail-ej2-x0d.google.com ([2a00:1450:4864:34::d])
+	id 1xBsuI-00000005wJo-3aDX;
+	Wed, 30 Sep 2026 11:55:31 +0000
+Received: from xs1.mindbit.ro ([80.86.107.70] helo=mail.mindbit.ro)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xBstk-00000005wCP-2vOr
+	id 1xBsuE-00000005wHr-2ktg
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 30 Sep 2026 11:54:58 +0000
-Received: by mail-ej2-x0d.google.com with SMTP id a640c23a62f3a-c2dd363f57aso416407466b.2
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 30 Sep 2026 04:54:56 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1790769295; x=1791374095; darn=lists.infradead.org;
-        h=in-reply-to:references:from:subject:cc:to:message-id:date
-         :content-type:content-transfer-encoding:mime-version:from:to:cc
-         :subject:date:message-id:reply-to:content-type;
-        bh=aVzuXE/DlhAkuriCQToRPrh16XzvOjKZo5qCvzwYsCc=;
-        b=i0Aw9lxlxu23d+0MxAFFAFSAqEgsiAiHIRUTHrSfxVdYFGFZfWMmKlXcwwqxNFQI8d
-         02adYWJCLifD8HFzhSGMvc55xSS0I5jKB3mHefL2B7v+y18bc9g8VMAS9gKkEehNTBTl
-         CI8EzX1dc+XNom66s9IeXrmUSy1LVGY7uxe8g16OcpvIM7bVcAK376FNBjnKQ8HWALM9
-         lzR6dYsXvNmiM5DFuVgnp2ai6sB71IPqjZgEfX2+6hwm3V+3om/pRbGgP+KKfNTulZEl
-         5hDQs9mB2AizFq2tAfIfkHNzxXvonSfdZqfS4Ug16FXCkCqGDqh0KcVBK5P2lRmoJZvF
-         OZUA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1790769295; x=1791374095;
-        h=in-reply-to:references:from:subject:cc:to:message-id:date
-         :content-type:content-transfer-encoding:mime-version:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=aVzuXE/DlhAkuriCQToRPrh16XzvOjKZo5qCvzwYsCc=;
-        b=dq2KnUHiADVFv5bLPiO9tjy89JQso5JYQAvfSFkNg9BfTu8PcSDeE8uHXpdd35+A5l
-         UE0ItJm5hLWzq3Q5B6Ye2PV0vmkC4mWz1NbsAPtEq5EIr8c9CRtXirOPWl7Q1lVzF+Yt
-         AkqZSH9Vx1L0QX62YmQClBaVp1OJTFHPY7hmo5v4hn9nSObCUPWiZMZkfPncLsHRF0qO
-         Cv/cSGhpU5GgHZz6Hz428wnk8IRVy/YtfAMZQG/NG9N9wysAlmvms04+smPUYL1g/vSG
-         n1JfSy810fVkmDExZ/UUj7KXvIMu21G8Vpm71AJ9fsuCloFC9u+/qdEEeuG5qHm67TS4
-         1FIQ==
-X-Forwarded-Encrypted: i=1; AKwUvBwq+vrxl5pjV0UbuxxIfFoPsUzv7re00zrYajVTHk8DaDMI5kZexa0x2ZiH5kvX9PI95bVn8BNFMNBpnZ6NbiYH@lists.infradead.org
-X-Gm-Message-State: AFq9FYIoyI8ZQynz/fXnjjGSB2+zF71RlQ+r/NlzZaiBKTWzIvih2760
-	L4hhcS8BCHEPQFPrw+nAs6JMH0KXbkZa7o5l+JgwMZXKBGdrco0BXU2xQLhmjTLkdDk=
-X-Gm-Gg: AYBFou2hB31kO5HYUD9LcqHkls9iquzh7eQr9MgsaWZ+2s8PgV28+sMuTObmz+KEgav
-	ocM5gBVLwIHNel/vjDo17lwcItYkTPCH4r+6eZsgvsvgemwhq+eh4saK5HCGiRxUwUyi7m3VTaq
-	lwzHWoyMazZW8SsXH+a6M7G20UwIW738K03crjYVULMwEUlQJezm96l/RrCfw+i/rzQCYvm2+EY
-	HBI3DyeyHlpbvKi42IqhYYkwd6fjtTzMF7c7VaFiYIWj2e2oCB7SE3ckrZ8yF0GUxMgAP2tzqmJ
-	0skHJPz3ojEkRQ9h/0ZQMHsA06fAdZ79kSHjw1gwdc/qu7d3mm4AOTF+5XQMoo1WL5MrJv0UeeT
-	TvZP7WKlIhPPXL7zaAqBthW4nBQQwqPdIJMpcqZ6/N2d0riX5oKkDzMXqgj8wXE92ax4mTl9PCt
-	BuepsssjNcVUV8UHVosiy/OS/O58ays8jgJ5sr8Ki9xxZlattbbi316jZgZhgBuq1DfK8IdV9m/
-	v7NSgLctY8DQG2as5jnE+WiU2/1q6jGwrP3CVY4SVSfgqCYH3G4OiD9dlOZ+vDW
-X-Received: by 2002:a17:907:2d8e:b0:c29:3c97:c994 with SMTP id a640c23a62f3a-c2e23d94b26mr97396666b.35.1790769294780;
-        Wed, 30 Sep 2026 04:54:54 -0700 (PDT)
-Received: from localhost ([2a00:2381:fd67:101:2655:b567:7e10:e7eb])
-        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-c2e22e16137sm55259666b.9.2026.09.30.04.54.53
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Wed, 30 Sep 2026 04:54:54 -0700 (PDT)
-Mime-Version: 1.0
+	Wed, 30 Sep 2026 11:55:29 +0000
+Received: from dog.kanata.rendec.net (pool-174-112-193-187.cpe.net.cable.rogers.com [174.112.193.187])
+	by mail.mindbit.ro (Postfix) with ESMTPSA id EE180D09CC;
+	Wed, 30 Sep 2026 14:55:18 +0300 (EEST)
+DKIM-Filter: OpenDKIM Filter v2.11.0 mail.mindbit.ro EE180D09CC
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=rendec.net;
+	s=default; t=1790769320;
+	bh=DOZsR/ac7GbUoOWLmXgbXKPZIPwkoKZ1eUqerXVBB9U=;
+	h=Subject:From:To:Cc:Date:In-Reply-To:References:From;
+	b=nSerLCyr1/edPv0lOSG8NY0WAiOGlubgWbYKYDzQkqp2ZTQByndWc4KTIJrKSqC5z
+	 iB8S4PmUaan0R2vcUuCtzH10cmAiwD3yiNrPGsLFS7X7ZLDHEA/nJGBV77t6Dc/I6b
+	 I4lWxZ6kkgr7Sw+sBZldG6djotXJ4eN4D/1N5Kt+IQhkrzfJ/rjQSU4e45l8fHgiDc
+	 Ry4FPDO1rlkKaVFyLzqRx63vpbbSOW74zIUbNOVHyDPuPZYg8U1xl9Gx7dK1bNs7Fw
+	 vpzPa0S7AanAVDUDij/vDd/5WQXqjIAUm9DFZk0KRsLuAcTQvglUf7szYFuq7a+Qhu
+	 tw36X4301Gc2w==
+Message-ID: <5114dccecac18da35a9c502d04b1ca296a2cbcaf.camel@rendec.net>
+Subject: Re: [PATCH v5] irqchip/gic: Fix UBSAN shift-out-of-bounds in GIC
+ helpers
+From: Radu Rendec <radu@rendec.net>
+To: Zhu Ling <zhuling2709@phytium.com.cn>, maz@kernel.org, tglx@kernel.org
+Cc: zenghui.yu@linux.dev, linux-arm-kernel@lists.infradead.org, 
+	linux-kernel@vger.kernel.org
+Date: Wed, 30 Sep 2026 07:55:17 -0400
+In-Reply-To: <20260929031050.16988-1-zhuling2709@phytium.com.cn>
+References: <20260928013209.7242-1-zhuling2709@phytium.com.cn>
+	 <20260929031050.16988-1-zhuling2709@phytium.com.cn>
+Content-Type: text/plain; charset="UTF-8"
 Content-Transfer-Encoding: quoted-printable
-Content-Type: text/plain; charset=UTF-8
-Date: Wed, 30 Sep 2026 12:54:53 +0100
-Message-Id: <DLSMQGCHNINR.ZPYVN1SR0GM2@linaro.org>
-To: "Tudor Ambarus" <tudor.ambarus@linaro.org>, "Sam Protsenko"
- <semen.protsenko@linaro.org>, "Rob Herring" <robh@kernel.org>, "Krzysztof
- Kozlowski" <krzk+dt@kernel.org>, "Conor Dooley" <conor+dt@kernel.org>,
- "Peter Griffin" <peter.griffin@linaro.org>, "Alim Akhtar"
- <alim.akhtar@samsung.com>
-Cc: "Thomas Turner" <tturner@lineageos.org>,
- <linux-samsung-soc@vger.kernel.org>,
- <linux-arm-kernel@lists.infradead.org>, <devicetree@vger.kernel.org>,
- <linux-kernel@vger.kernel.org>
-Subject: Re: [PATCH 1/2] arm64: dts: exynos850: Add ACPM firmware node
-From: "Alexey Klimov" <alexey.klimov@linaro.org>
-X-Mailer: aerc 0.20.0
-References: <20260929-exynos850-acpm-node-cpufreq-v1-0-5a86c1d404b8@linaro.org> <20260929-exynos850-acpm-node-cpufreq-v1-1-5a86c1d404b8@linaro.org> <7b5dded4-c475-40dd-b5c4-5086bab4162e@linaro.org>
-In-Reply-To: <7b5dded4-c475-40dd-b5c4-5086bab4162e@linaro.org>
+User-Agent: Evolution 3.58.3 (3.58.3-1.fc43) 
+MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260930_045456_763280_E921898A 
-X-CRM114-Status: GOOD (  14.29  )
+X-CRM114-CacheID: sfid-20260930_045527_208117_90B1323B 
+X-CRM114-Status: GOOD (  22.50  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -107,75 +73,124 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Tudor,
+On Tue, 2026-09-29 at 11:10 +0800, Zhu Ling wrote:
+> When running with UBSAN enabled, enabling a GPIO controller that uses a
+> GIC interrupt as its parent triggers several shift-out-of-bounds warnings=
+:
+>=20
+> =C2=A0 shift-out-of-bounds in drivers/irqchip/irq-gic-common.c:50:21
+> =C2=A0 left shift of 2 by 30 places cannot be represented in type 'int'
+>=20
+> Similar reports are emitted from gic_poke_irq() and gic_peek_irq() in
+> drivers/irqchip/irq-gic-v3.c. The corresponding GICv2 helpers use the
+> same signed-shift pattern. These masks are generated by shifting signed
+> integer constants, which invokes undefined behavior when bit 31 is
+> selected.
+>=20
+> Use BIT() to generate the masks with an unsigned type and make their
+> intent explicit.
+>=20
+> Fixes: f27ecacc54cc ("[ARM] Add support for ARM GIC")
+> Fixes: 5c0c1f08abf0 ("ARM: 6150/1: gic: implement set_type")
+> Fixes: 021f653791ad ("irqchip: gic-v3: Initial support for GICv3")
+> Reviewed-by: Zenghui Yu (Huawei) <zenghui.yu@linux.dev>
+> Acked-by: Marc Zyngier <maz@kernel.org>
+> Signed-off-by: Zhu Ling <zhuling2709@phytium.com.cn>
 
-On Tue Sep 29, 2026 at 10:02 AM BST, Tudor Ambarus wrote:
-> Hi, Alexey,
-> On 9/29/26 6:10 AM, Alexey Klimov wrote:
->> Add the ACPM firmware node with cpucl0 and cpucl1 clocks. ACPM firmware
->> protocol provides interface for all client drivers to actually use
->> features exposed by the APM co-processor.
->>=20
->> Signed-off-by: Alexey Klimov <alexey.klimov@linaro.org>
->> ---
->>  arch/arm64/boot/dts/exynos/exynos850.dtsi | 13 +++++++++++++
->>  1 file changed, 13 insertions(+)
->>=20
->> diff --git a/arch/arm64/boot/dts/exynos/exynos850.dtsi b/arch/arm64/boot=
-/dts/exynos/exynos850.dtsi
->> index 8a4771899a8e..91c6cee8f483 100644
->> --- a/arch/arm64/boot/dts/exynos/exynos850.dtsi
->> +++ b/arch/arm64/boot/dts/exynos/exynos850.dtsi
->> @@ -11,6 +11,7 @@
->>   */
->> =20
->>  #include <dt-bindings/clock/exynos850.h>
->> +#include <dt-bindings/clock/samsung,exynos850-acpm.h>
->>  #include <dt-bindings/interrupt-controller/arm-gic.h>
->>  #include <dt-bindings/soc/samsung,exynos-usi.h>
->> =20
->> @@ -170,6 +171,18 @@ timer: timer {
->>  		     <GIC_PPI 10 (GIC_CPU_MASK_SIMPLE(8) | IRQ_TYPE_LEVEL_LOW)>;
->>  	};
->> =20
->> +	firmware {
->> +		acpm_ipc: power-management {
->> +			compatible =3D "samsung,exynos850-acpm-ipc";
->> +			mboxes =3D <&ap2apm_mailbox>;
->> +			shmem =3D <&apm_sram>;
->> +			clocks =3D <&cmu_cpucl0 CLK_FOUT_CPUCL0_PLL>,
->> +				 <&cmu_cpucl1 CLK_FOUT_CPUCL1_PLL>;
->
-> Why do you describe these clocks?
+Reviewed-by: Radu Rendec <radu@rendec.net>
 
->> +			clock-names =3D "cpucl0", "cpucl1";
+> ---
+> Changes in v5:
+> - Correct the GICv2 and GICv3 helper Fixes tags to point to the commits
+> =C2=A0 that originally introduced the signed shifts.
 
-To link these clocks with ACPM clocks from this list:
-(file drivers/clk/samsung/clk-acpm.c)
+Thanks!
 
-static const struct acpm_clk_variant exynos850_acpm_clks[] =3D {
-	ACPM_CLK("mif"),
-	ACPM_CLK("int"),
-	ACPM_CLK("cpucl0"),
-	ACPM_CLK("cpucl1"),
-	ACPM_CLK("g3d"),
-	ACPM_CLK("aud"),
-	ACPM_CLK("cam"),
-	ACPM_CLK("disp"),
-	ACPM_CLK("cp"),
-};
-
-Eventually to have some sensible/working ->recalc_rate() for ACPM
-cpucl{0,1} clocks.
-
-Which is needed, for instance, for cpufreq_dt because it registers with:
-
-static struct cpufreq_driver dt_cpufreq_driver =3D {
-        .flags =3D CPUFREQ_NEED_INITIAL_FREQ_CHECK |
-                 CPUFREQ_IS_COOLING_DEV,
-
-Don't know if it answers the question (if I understood it correctly)?
-
-Best regards,
-Alexey
+> - Add Zenghui's Reviewed-by and Marc's Acked-by tags.
+>=20
+> Changes in v4:
+> - Add Fixes tags for the commits that introduced the affected masks.
+>=20
+> Changes in v3:
+> - Fix the same issue in the GICv2 gic_poke_irq() and gic_peek_irq()
+> =C2=A0 helpers, as pointed out by Zenghui.
+>=20
+> Changes in v2:
+> - Use BIT() instead of explicit unsigned shifts, as suggested by Marc.
+> - Drop the redundant introductory text from the email.
+> - Update the author email address.
+>=20
+> Link: https://lore.kernel.org/r/2fJDwUUYdEf2_eaRa041L9xkT8RkSWFeo7euOnqMb=
+bPhUatLlEaAvGfB6sOspDmXaxO87Eh7bQLV9UolyjbMtZBT1wB2UGypjPOo0Z-RC0Q=3D@proto=
+n.me
+> ---
+> =C2=A0drivers/irqchip/irq-gic-common.c | 2 +-
+> =C2=A0drivers/irqchip/irq-gic-v3.c=C2=A0=C2=A0=C2=A0=C2=A0 | 4 ++--
+> =C2=A0drivers/irqchip/irq-gic.c=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=
+ | 4 ++--
+> =C2=A03 files changed, 5 insertions(+), 5 deletions(-)
+>=20
+> diff --git a/drivers/irqchip/irq-gic-common.c b/drivers/irqchip/irq-gic-c=
+ommon.c
+> index c776f9142610..8bd1eaa54295 100644
+> --- a/drivers/irqchip/irq-gic-common.c
+> +++ b/drivers/irqchip/irq-gic-common.c
+> @@ -48,7 +48,7 @@ void gic_enable_quirks(u32 iidr, const struct gic_quirk=
+ *quirks,
+> =C2=A0int gic_configure_irq(unsigned int irq, unsigned int type,
+> =C2=A0		=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 void __iomem *base)
+> =C2=A0{
+> -	u32 confmask =3D 0x2 << ((irq % 16) * 2);
+> +	u32 confmask =3D BIT(((irq % 16) * 2) + 1);
+> =C2=A0	u32 confoff =3D (irq / 16) * 4;
+> =C2=A0	u32 val, oldval;
+> =C2=A0	int ret =3D 0;
+> diff --git a/drivers/irqchip/irq-gic-v3.c b/drivers/irqchip/irq-gic-v3.c
+> index 6e1fa5b247fc..15110d47ddb0 100644
+> --- a/drivers/irqchip/irq-gic-v3.c
+> +++ b/drivers/irqchip/irq-gic-v3.c
+> @@ -457,7 +457,7 @@ static int gic_peek_irq(struct irq_data *d, u32 offse=
+t)
+> =C2=A0	u32 index, mask;
+> =C2=A0
+> =C2=A0	offset =3D convert_offset_index(d, offset, &index);
+> -	mask =3D 1 << (index % 32);
+> +	mask =3D BIT(index % 32);
+> =C2=A0
+> =C2=A0	if (gic_irq_in_rdist(d))
+> =C2=A0		base =3D gic_data_rdist_sgi_base();
+> @@ -473,7 +473,7 @@ static void gic_poke_irq(struct irq_data *d, u32 offs=
+et)
+> =C2=A0	u32 index, mask;
+> =C2=A0
+> =C2=A0	offset =3D convert_offset_index(d, offset, &index);
+> -	mask =3D 1 << (index % 32);
+> +	mask =3D BIT(index % 32);
+> =C2=A0
+> =C2=A0	if (gic_irq_in_rdist(d))
+> =C2=A0		base =3D gic_data_rdist_sgi_base();
+> diff --git a/drivers/irqchip/irq-gic.c b/drivers/irqchip/irq-gic.c
+> index f6bc29f515fb..fb7a55f5b394 100644
+> --- a/drivers/irqchip/irq-gic.c
+> +++ b/drivers/irqchip/irq-gic.c
+> @@ -178,14 +178,14 @@ static inline bool cascading_gic_irq(struct irq_dat=
+a *d)
+> =C2=A0 */
+> =C2=A0static void gic_poke_irq(struct irq_data *d, u32 offset)
+> =C2=A0{
+> -	u32 mask =3D 1 << (irqd_to_hwirq(d) % 32);
+> +	u32 mask =3D BIT(irqd_to_hwirq(d) % 32);
+> =C2=A0
+> =C2=A0	writel_relaxed(mask, gic_dist_base(d) + offset + (irqd_to_hwirq(d)=
+ / 32) * 4);
+> =C2=A0}
+> =C2=A0
+> =C2=A0static int gic_peek_irq(struct irq_data *d, u32 offset)
+> =C2=A0{
+> -	u32 mask =3D 1 << (irqd_to_hwirq(d) % 32);
+> +	u32 mask =3D BIT(irqd_to_hwirq(d) % 32);
+> =C2=A0
+> =C2=A0	return !!(readl_relaxed(gic_dist_base(d) + offset + (irqd_to_hwirq=
+(d) / 32) * 4) & mask);
+> =C2=A0}
 
