@@ -4,84 +4,163 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8CD84CA5FC7
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 30 Sep 2026 16:07:45 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5C2D3CA5FC7
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 30 Sep 2026 16:07:48 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=VgFvgtep6pV4jOhS6T6V7f+YjEM/TwU2OLrH6PudRcE=; b=wzn3Clh5Dq5ArqXcdxFqz5O1Y6
-	1X2vtbm4xG+oNQueoC43E1sBJbn7O461D3Kn/BV4LUg6APKjccI1M+epzqXQFj3mIKYhhFKnXu88z
-	6QWiYvrPVkDEK9JsMW1k9OIGOVEGkKTNMWxWVrI1iescEWAIGojX8WouiI8fBCVHUWLYrP1AKyPuN
-	QOMetG90+Wn9C528GA1ErWWh+QDpG4zTjR1AjikR+X+n/pfL0o3Fy3Ti2PZy+K0e87Tqy1t39/Fj6
-	z+k3rWWZPHB1jXr5+iWdzBCxt+4ikGxPb6oTkfcW8BuYqyvZCsjMh0c5TfRWFuXQtw9N8BMBSLhII
-	luhzQuFA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
+	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=JJOdpxYr2YSSpwbRyNbCPXqlvQLx4LYRXHJ/gTiLzsE=; b=rCeqBqqwXZGybfw1V1apHBEC58
+	ZX8kW3ZqGksx85458OrFRKeJiOqZZoEGjn8+bWxfueaXUCiUL2XRQuwvRz75VUWlysgmGzVma6hak
+	k1PgGLo7FkAZxOgjPUSANDioESRfBTGPrPiIDFpLzwdz3sYX4LUr4p4y3gSmTmrD/+35YLOxke9wy
+	W0FlrNE/A/5vVMmA49dAcqyi+umRsuUltWxZzxDLRCJ4lUs0W8YW62kQVetnFQvAZ1Kb4EDPIs5T3
+	4VrBzcvXU4W95Lv+TfML5I31n275ef4keJ0TX2PAcoYN2MLPwl8ri5ruoZW+IgbSfg7vWuf1o29ao
+	+Ecn0sLA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xBwqE-00000006ddn-0vyh;
-	Wed, 30 Sep 2026 16:07:35 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1xBwqK-00000006dkr-2Xcr;
+	Wed, 30 Sep 2026 16:07:40 +0000
+Received: from mx0a-0002e601.pphosted.com ([148.163.150.75])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xBwpt-00000006dTQ-3soH
-	for linux-arm-kernel@bombadil.infradead.org;
-	Wed, 30 Sep 2026 16:07:14 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:MIME-Version
-	:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:Sender:Reply-To:
-	Content-Type:Content-ID:Content-Description;
-	bh=VgFvgtep6pV4jOhS6T6V7f+YjEM/TwU2OLrH6PudRcE=; b=QciMKdA6TgczdVUEavyi8MSlyX
-	pZ634NYFu8gL6a6XwJtG5buX4IUai2EcIxJq2/0CtipTXc/SbpGeEL+rtIBKrtWBRESGFPK8koJi2
-	AQREozqY8t3f0K4OpjBSn4288IZuP9etu7Cq0+Z927c87KB6bOlE3RcD9qtAfMaDSBCoAPlGbdqkg
-	yRGHdSCc4ENHGk3KKQ0ateLUlqXW4n2d2vEhXVBJ4klgRhX82qPPa6qxScxUhDo8to2MIvJITkLQK
-	odnbHSb6799JLcCtLk9MRi4Ie8rSHV/NhK2zWfJlr7suHFwuUXeZKnNACL1lmu0HCYoWhRJXBNsOp
-	ABLz7CFw==;
-Received: from stravinsky.debian.org ([2001:41b8:202:deb::311:108])
-	by desiato.infradead.org with esmtps (Exim 4.99.2 #2 (Red Hat Linux))
-	id 1xBwpq-0000000436o-48lx
+	id 1xBwq0-00000006dVV-0z8B
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 30 Sep 2026 16:07:12 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=debian.org;
-	s=smtpauto.stravinsky; h=X-Debian-User:Content-Transfer-Encoding:MIME-Version
-	:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:Reply-To:
-	Content-Type:Content-ID:Content-Description;
-	bh=VgFvgtep6pV4jOhS6T6V7f+YjEM/TwU2OLrH6PudRcE=; b=QRy4gjYAIyPebTmoSJz/DoEG3z
-	LWc/cfhYZ/dU0421ek7DlJaHZ7F+Iyld33tYrU7Y12D+i0Ilh7BQB0CD8zDpwFiKaGHR9qQMkNe9O
-	IhyNlYjCTeyl836jH7NCGo2eMzEJrlEmFvwq8Zvp7NZzsd3U8DVJh+FekH6NUTTWXAaKM1btSt+sE
-	8AaQzSC/R3a8F/OL+pcrfecJb2PHmFPdmXbIVEJDmz1NMWYwZH1Bq6Lyc+lZDReBM/lvKO4N4uk5s
-	yJMJ4xXAo/V7pDAXxDTUMLi2lDUkWL9jbvuZsnCq8yZAAv2vBQ8Tz8SPrdjETkJFCHavFPETlzBci
-	UfCB0PMg==;
-Received: from authenticated-user
-	by stravinsky.debian.org with esmtpsa (TLS1.3:ECDHE_X25519__RSA_PSS_RSAE_SHA256__AES_256_GCM:256)
-	(Exim 4.96)
-	(envelope-from <fourdollars@debian.org>)
-	id 1xBwpk-009IoV-1o;
-	Wed, 30 Sep 2026 16:07:05 +0000
-From: Shih-Yuan Lee <fourdollars@debian.org>
-To: Mark Brown <broonie@kernel.org>
-Cc: Andy Shevchenko <andriy.shevchenko@linux.intel.com>,
-	Mika Westerberg <mika.westerberg@linux.intel.com>,
-	Lukas Wunner <lukas@wunner.de>,
-	Daniel Mack <daniel@zonque.org>,
-	Haojian Zhuang <haojian.zhuang@gmail.com>,
-	Robert Jarzmik <robert.jarzmik@free.fr>,
-	linux-spi@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	Shih-Yuan Lee <fourdollars@debian.org>
-Subject: [PATCH v17 5/6] spi: pxa2xx-pci: restore LPSS private register state across S3 resume
-Date: Thu,  1 Oct 2026 00:06:28 +0800
-Message-Id: <20260930160629.1822-6-fourdollars@debian.org>
-X-Mailer: git-send-email 2.39.5
-In-Reply-To: <20260930160629.1822-1-fourdollars@debian.org>
-References: <20260930160629.1822-1-fourdollars@debian.org>
+	Wed, 30 Sep 2026 16:07:21 +0000
+Received: from pps.filterd (m0384305.ppops.net [127.0.0.1])
+	by m0384305.ppops.net (8.18.1.11/8.18.1.11) with ESMTP id 68UE1VdC3890161;
+	Wed, 30 Sep 2026 11:07:17 -0500
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com; h=cc
+	:content-transfer-encoding:content-type:date:from:in-reply-to
+	:message-id:mime-version:references:subject:to; s=
+	proofpoint-05-2026; bh=JJOdpxYr2YSSpwbRyNbCPXqlvQLx4LYRXHJ/gTiLz
+	sE=; b=Gguv7usKl6qF+BaujrjjoahpWy7fHn4YXkqRIWGJQjKXvaAAVTEuX1Pzw
+	uoZBeYxYwvQSuoa0VXFsCEeoSOazGuMF2MfApcx0aTr4qszQn4rDvfGHDU/VV3oS
+	DMN5zwljnd+2FQs2kvs6eRjviQTZtm1SSZP9Vok3aOfulX+azTSITLTb/JxfAHSG
+	ybNObywUDRmtNtp0hDmLJStDuWFXrKXzUbJK9ou0QPHwscylAKrILEUXKPz6y32r
+	7ljS2GYQnVKAb6kvKZlZdktLw90SFoylm+1nchaRVz8GH+5xoTKhsHgA3GaDKfmH
+	6J1pIBQI1D7CCgti1YwsTV9ZcFrhw==
+Received: from sj2pr03cu001.outbound.protection.outlook.com (mail-westusazon11012070.outbound.protection.outlook.com [52.101.43.70])
+	by m0384305.ppops.net (PPS) with ESMTPS id 4h10s21y1r-1
+	(version=TLSv1.3 cipher=TLS_AES_256_GCM_SHA384 bits=256 verify=NOT);
+	Wed, 30 Sep 2026 11:07:17 -0500 (CDT)
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=BAo2vMQtHgEcTn1KZPYHSnpS34VcjsoFM0ATil79Izh5tAZEKhZtOYpd6HxqlGx6+IwFArDzZsdBrGs6VzWHVaB7nVx4KjNBpDxg96IZ5HrJk6Jyr8SzkqAen0EVaoKfDb/fIaKOIPyWKdvAhlsnDUvt+rEVn0vKBB3W6VrUb+KLe8h2VXKXwRyiPx0HNFJY65Pgn1l9YhAOzeliTi0FOaeTWWAeg0ZmHdfm+rNumPceiC/2YyuvqM3KeL1DEkhTFynGkVFKg2TKgzGtcg7tlLzd4+k38Q8flkxR/XpyF8GgwDiktUmRZyMxDBEcAcYXRXKKDyyqAlFC8Tme667hxA==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=JJOdpxYr2YSSpwbRyNbCPXqlvQLx4LYRXHJ/gTiLzsE=;
+ b=RhZW1GPRCIswOwlN6rsgoFOjMVx7czE9tO14tknU4GF+abUSRNfNY501+DvZ4rsMtFrRBXj4Tulc2UASxriBOFtNhf7XsGXf0xIKDBTL+R0XzxuQlFhFe3H0dwTXHW9P0AnssTpSeLXVtsQltQEXXUNEv4SKn4v1S3TLyZTmpT44phbVsoVsKj3FHUucRYc4cF0uZDX/Z7sEvOIYSJ69mY6hUnTFcdykLirFkXoTc4fvn0Q9IH7JrOlBBEzp65HWV97oJe1qHk5NMYYm2oxu2w39VYVRoQOi4MBWyNRXnF5KM6zOyDzZQ1nfYIPIgC2TBMlv9p19hecvnSys3ruqYw==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
+ 198.47.23.195) smtp.rcpttodomain=lists.infradead.org smtp.mailfrom=ti.com;
+ dmarc=pass (p=quarantine sp=none pct=100) action=none header.from=ti.com;
+ dkim=none (message not signed); arc=none (0)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+ d=ticloud.onmicrosoft.com; s=selector1-ticloud-onmicrosoft-com;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=JJOdpxYr2YSSpwbRyNbCPXqlvQLx4LYRXHJ/gTiLzsE=;
+ b=loq+j5bhKDPIqHxWS3VLmWkCjDS8XFFRrXep9mF0HV4bAWt22sXfEd+SkbA9bfavqFg8SguXFl2cFHK8jp4UYby3Aag9SYa2uZsTMTI2BbWtC+IvA8tdAJmJitq41rFrFKU0SnTRg+skInS4DZ6eoOD6My1r7ObyfZxH0cmBgUE=
+Received: from SJ0PR03CA0142.namprd03.prod.outlook.com (2603:10b6:a03:33c::27)
+ by SJ5PPF912A858AF.namprd10.prod.outlook.com (2603:10b6:a0f:fc02::7b9) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.472.14; Wed, 30 Sep
+ 2026 16:07:14 +0000
+Received: from CO1PEPF000066E8.namprd05.prod.outlook.com
+ (2603:10b6:a03:33c:cafe::72) by SJ0PR03CA0142.outlook.office365.com
+ (2603:10b6:a03:33c::27) with Microsoft SMTP Server (version=TLS1_3,
+ cipher=TLS_AES_256_GCM_SHA384) id 15.21.382.11 via Frontend Transport; Wed,
+ 30 Sep 2026 16:07:14 +0000
+X-MS-Exchange-Authentication-Results: mx.microsoft.com 1; spf=pass (sender IP
+ is 198.47.23.195) smtp.mailfrom=ti.com; dkim=none (message not signed)
+ header.d=none;dmarc=pass action=none header.from=ti.com;
+Received-SPF: Pass (protection.outlook.com: domain of ti.com designates
+ 198.47.23.195 as permitted sender) receiver=protection.outlook.com;
+ client-ip=198.47.23.195; helo=lewvzet201.ext.ti.com; pr=C
+Received: from lewvzet201.ext.ti.com (198.47.23.195) by
+ CO1PEPF000066E8.mail.protection.outlook.com (10.167.249.6) with Microsoft
+ SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.21.472.14 via Frontend Transport; Wed, 30 Sep 2026 16:07:14 +0000
+Received: from DLEE200.ent.ti.com (157.170.170.75) by lewvzet201.ext.ti.com
+ (10.4.14.104) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.45; Wed, 30 Sep
+ 2026 11:06:42 -0500
+Received: from DLEE215.ent.ti.com (157.170.170.118) by DLEE200.ent.ti.com
+ (157.170.170.75) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.45; Wed, 30 Sep
+ 2026 11:06:42 -0500
+Received: from lelvem-mr06.itg.ti.com (10.180.75.8) by DLEE215.ent.ti.com
+ (157.170.170.118) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.45 via Frontend
+ Transport; Wed, 30 Sep 2026 11:06:42 -0500
+Received: from uda0510294.dhcp.ti.com (uda0510294.dhcp.ti.com [10.24.50.162])
+	by lelvem-mr06.itg.ti.com (8.18.1/8.18.1) with ESMTP id 68UG68WD3425232;
+	Wed, 30 Sep 2026 11:06:39 -0500
+From: Beleswar Padhi <b-padhi@ti.com>
+To: <nm@ti.com>, <kristo@kernel.org>, <ssantosh@kernel.org>, <afd@ti.com>,
+        <vigneshr@ti.com>, <u-kumar1@ti.com>
+CC: <linux-kernel@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
+        <b-padhi@ti.com>
+Subject: [PATCH v2 10/22] firmware: ti_sci: Use tx_message as message buffer directly
+Date: Wed, 30 Sep 2026 21:35:55 +0530
+Message-ID: <20260930160607.2674980-11-b-padhi@ti.com>
+X-Mailer: git-send-email 2.34.1
+In-Reply-To: <20260930160607.2674980-1-b-padhi@ti.com>
+References: <20260930160607.2674980-1-b-padhi@ti.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
-X-Debian-User: fourdollars
+Content-Type: text/plain
+X-EOPAttributedMessage: 0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: CO1PEPF000066E8:EE_|SJ5PPF912A858AF:EE_
+X-MS-Office365-Filtering-Correlation-Id: 9e8a84bc-3bea-4854-4e1b-08df1f0ce477
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|36860700016|23010399003|376014|1800799024|82310400026|22082099003|18002099003|3023799007|10067099003|5023799004|56012099006;
+X-Microsoft-Antispam-Message-Info: 5DPznbfc+0KFkP1pdAKspXe0RW0v8ApLnGVRw2WJeT1Qxag8cq5vkT+H9mrLLObTXg4PopMtR/pyuzbDyxhWfL/BfIjjeevNEMjqqLpbZvZ6rcOCStzGvvYQd6ebjC6AHZ8RK3QeAZdX1yInUQMMBl0XYfFPM7mD2vdxDvFngZrokTEqSEJGUHjynDRFnHaRrw465t03SIJhksZkI9v+gSN3PECJVrgiPcmPTJNik5tbR3maZ8gTdc0JH8u0W48Jw0/8ORFCLlUijohB3FSyAyN2LuBOD/Qx+Xf+fq7oPZFWlx7MaTIj351r8/fwqqMWWeqRY5egisa0Zdds7LD+D/rZ+Hq8U4I5jHKEuaTktAoj1zP34g6/pJ3z0NIxMakf71gJC6y5qgYiqlvzJs4PdNE/zsLyxXWpyGvnWwPRcz2zqm+tcy7vQFMQrrWLkau7emRAVmeOY3dltB1b1VqIdDiby7/Bd55URtEvvSPm2oCt5TVnaxOP9Ydt/w8CLybP5GZpS8adVPXQApX6RbgztTtmkSEGIXb+fW7j9RTnhk6knT2M0+G7VxMCAYKUZO5rjH3v38NtDntxICuYHnCg8HVEKVRhFJ6UA1ZSQRsLuro3xGO0L390i41PPS9kbOwxhl7+x3iAj2ns2CaJXxc9+Kb0EY1NFVAjG73FVDQG3haJXDcBuXofyt8woq174+QgWu1McNRjLfPaQVbrHfj/aQ==
+X-Forefront-Antispam-Report: CIP:198.47.23.195;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:lewvzet201.ext.ti.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(36860700016)(23010399003)(376014)(1800799024)(82310400026)(22082099003)(18002099003)(3023799007)(10067099003)(5023799004)(56012099006);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: 6bje4TS6qoEjJM+5LJVJuKwSvYuGcWqBxo6pPb14mzEoXtGqIo08Id5bZMgyKdFQ5qQlnvozxHvw1OCYz3o2iw6eb86NiqVxDZ426iuqS+JDqFqqbavwPzyne+E9/TN3BnFvVPIO+q6lL1J2WreXFZFUzhiPSWfOI1QvwJd1ts12u9sIDuVaOLzcXxQD7j5Hus7poU/od1YjtfOHv+PrLoSQnFrzuMIOP3xcJajm/8uj5JMdOjMuRISAn4VKBRG/RjfU5oK7Ekl1E1gghIwYRfI8X9ys7c5c0cjlnBINc/aHnaEbWy8s6ii3r1JJo6vGZII9OWCLHAWrz48iRf1D14F+CbC3h/BTEDcvDW6aOPWmXgQGAGOxeOlqnAUWm95wV6AHDx9HgQjCVHajrGhLNrC2ps04AgAUHxDNYCePsv4eLVxxaeD6vDkxpoM2SL0n
+X-Exchange-RoutingPolicyChecked: sPlfihG1obQWXdVEGagDM6nCV7C23J2vqSt0PR2RluyzNYhctSeMC5HaKr0SpFpvrfg5a6rNThC2ncJev+W4fKD97CskZhEjuvADVP+YFDtzGuw01WjLLcd3iKDwSjQTj9FUcAtzMVJcojxW1JNO729CSxP76ZOJWQM6++pcC3jbCVu/kYlo8hiY3hlZYq1NytoJdonKAhSO8wGDnSKimbMll7CGe1i28V0DfKH89YwC9MDFPks79N06UrWQw69XOvckUezGUlyw5Nz3QmsWNxUd4qMNbyRYda9peDI4rowK02BZnxU+nwfeBagwE1CFzKFxp9xAknhHF9dUe849Ng==
+X-OriginatorOrg: ti.com
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 30 Sep 2026 16:07:14.1584
+ (UTC)
+X-MS-Exchange-CrossTenant-Network-Message-Id: 9e8a84bc-3bea-4854-4e1b-08df1f0ce477
+X-MS-Exchange-CrossTenant-Id: e5b49634-450b-4709-8abb-1e2b19b982b7
+X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=e5b49634-450b-4709-8abb-1e2b19b982b7;Ip=[198.47.23.195];Helo=[lewvzet201.ext.ti.com]
+X-MS-Exchange-CrossTenant-AuthSource: CO1PEPF000066E8.namprd05.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Anonymous
+X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: SJ5PPF912A858AF
+X-Proofpoint-GUID: rtAyUb4ADsR8MAjC_ab3EVC-92rhJHQm
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwOTMwMDA2NCBTYWx0ZWRfX6aS9FFN1vFD7
+ aP4SVvrdW1InfoU94SV9N/nN1aKzmazG1z9hjRY+LFyuUrNV2JOakKcGTQ804RCzmmRv5AtGV3+
+ 70AVpx7SQfTQKIEZ6AWbLAcYZEfh8qmpFpN/ewO/+mF81TzVJlf9f9vV1UTV9F7aqQu4n5zzx0C
+ gunGs3jL6IVHvbWcY1d6AU6nSKxJ9YG2JlFSActf8FkklqjxeqknZ1wXsQ56xf22GwQkcWnirlN
+ l5pKXRClJv35lUktTf6mK2kS4PRPBW8w0TgdkBHMrH4gosh4GBbb1pmawRlN4t/ahgmteqLZF1Q
+ xGQgDB60ulaVgE+YphcVNbxLAhK4Bvz4fnVqq/QpdJaiYAJbRV/msptWHzeRnuKqtT6OTgRAuhM
+ pzHJGEzD3Wra6UE9vpe6s1TZMZ4QolmGeqYjkI+YvbW3Wy0p11hLwV4/RhF6okxKsZ/3+MkoxQL
+ vgYQ6sTpVo0tta4B5Dw==
+X-Proofpoint-ORIG-GUID: rtAyUb4ADsR8MAjC_ab3EVC-92rhJHQm
+X-Authority-Analysis: v=2.4 cv=G6aJgNk5 c=1 sm=1 tr=0 ts=6abd33b5 cx=c_pps
+ a=ZSURWCn5gGbtcgq6UapGWQ==:117 a=f+v6EHfkeJbVwR46tk4DMg==:17
+ a=6eWqkTHjU83fiwn7nKZWdM+Sl24=:19 a=VdqzKS8jKosA:10 a=s63m1ICgrNkA:10
+ a=AlMIdn_sM9wA:10 a=VkNPw1HP01LnGYTKEx00:22 a=Z8NIEmU8O1QQgoT56wFK:22
+ a=taLDd7a_hP9WKsMzeGRc:22 a=VwQbUJbxAAAA:8 a=sozttTNsAAAA:8
+ a=JzeuRgn41EPwZvIwv6EA:9
+X-Proofpoint-Spam-Info: AW1haW4tMjYwOTMwMDA2NCBTYWx0ZWRfX0XuA3AdCuY6r
+ PHd58uUeQEP/5OafYc5sYpOhoMuYzmkQnKQ0K3Rrlw1EpWDs30hrQTaLwn2r+nwBQBjL7tfM70R
+ 81LvxkcpoKCy1Rlk7tJftjsO8SiitDk=
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1176,Hydra:6.1.134,FMLib:17.12.100.49
+ definitions=2026-09-30_03,2026-09-21_02,2025-10-01_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
+ clxscore=1015 adultscore=0 bulkscore=0 priorityscore=1501 impostorscore=0
+ malwarescore=0 phishscore=0 lowpriorityscore=0 suspectscore=0 spamscore=0
+ classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
+ reason=mlx scancount=1 engine=8.22.0-2609040000 definitions=main-2609300064
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260930_170711_220497_49822F45 
-X-CRM114-Status: GOOD (  29.16  )
+X-CRM114-CacheID: sfid-20260930_090720_288709_104632EE 
+X-CRM114-Status: GOOD (  17.89  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -96,347 +175,94 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On platforms where Intel LPSS SPI is enumerated as a bare PCI device
-(such as the Apple MacBook8,1 on Lynxpoint-LP), the LPSS power island
-loses power during system sleep and powers up with the controller held
-in reset. Because the device lacks ACPI companion objects or MFD
-binding, neither drivers/acpi/x86/lpss.c nor drivers/mfd/intel-lpss.c
-restore the private register context across S3 resume.
+From: Andrew Davis <afd@ti.com>
 
-This causes memory-mapped I/O reads on resume to return ~0, resulting
-in PCIe Completion Timeouts, missing interrupts, and dead
-keyboard/touchpad.
+As we now have the tx_message during the whole xfer process we can use
+that as our message buffer to be sent. This removes an extra copy.
 
-Restore LPSS private registers and deassert functional, APB, and iDMA
-resets in the PCI glue layer:
-1. In suspend, quiesce the controller queue via spi_controller_suspend()
-   so no transfers remain in flight and chip select is deasserted.
-   Then save the LPSS private registers (LPSS_PRIV_REG_COUNT 9 covering
-   up to offset 0x20 including reg_cs_ctrl at 0x18). Ensure the clock is
-   active for reading MMIO registers using pm_runtime_resume_and_get(),
-   balanced by pm_runtime_put_noidle(), before calling
-   pm_runtime_force_suspend().
-2. In resume, restore LPSS private registers and deassert functional,
-   APB, and iDMA resets via pxa2xx_spi_pci_lpss_restore_ctx() before
-   calling pm_runtime_force_resume(). Because the controller clock
-   remains gated (clk_enabled is false) during this restoration, any
-   interrupt arriving on a shared line bails out early in ssp_int()
-   without accessing registers on a controller held in reset. Once
-   resets are deasserted and private registers are restored, call
-   pm_runtime_force_resume() to enable the clock and mark the device
-   active, and restart the queue with spi_controller_resume().
-3. In probe, call pci_d3cold_disable() for Lynxpoint-LP (is_lpt) to
-   ensure the PCI device cannot enter D3cold during runtime PM,
-   guaranteeing that LPSS private registers are retained during S0 idle
-   periods and only require restoration across S3 system sleep. Set
-   DPM_FLAG_NO_DIRECT_COMPLETE to prevent PCI subsystem direct-complete
-   bypassing system sleep callbacks.
-4. Scope LPSS context restoration specifically to Lynxpoint-LP
-   (PCI_DEVICE_ID_INTEL_LPT*) devices to avoid perturbing other LPSS
-   PCI platforms (BYT, BSW) or non-LPSS platforms.
+Note: the mailbox framework keeps only a pointer to tx_message and may
+submit it after ti_sci_do_xfer() returns if it was queued behind
+other messages. But, this cannot happen in practice: messages expecting
+a response are always submitted before their callers return, and the
+only no-response message (PREPARE_SLEEP for Partial-IO) is sent from the
+power-off handler with other CPUs stopped, after which nothing else uses
+the TX channel.
 
-Export lpss_ssp_setup() and core runtime PM ops so the PCI glue layer
-can invoke them around private register restoration.
-
-Assisted-by: Antigravity:gemini-3.8-flash sparse
-Signed-off-by: Shih-Yuan Lee <fourdollars@debian.org>
+Signed-off-by: Andrew Davis <afd@ti.com>
+Co-developed-by: Beleswar Padhi <b-padhi@ti.com>
+Signed-off-by: Beleswar Padhi <b-padhi@ti.com>
 ---
- drivers/spi/spi-pxa2xx-pci.c | 151 ++++++++++++++++++++++++++++++++++-
- drivers/spi/spi-pxa2xx.c     |   9 ++-
- drivers/spi/spi-pxa2xx.h     |   4 +
- 3 files changed, 157 insertions(+), 7 deletions(-)
+v2: Changelog:
+1. None to this patch.
 
-diff --git a/drivers/spi/spi-pxa2xx-pci.c b/drivers/spi/spi-pxa2xx-pci.c
-index cae77ac18520..f8d71362e840 100644
---- a/drivers/spi/spi-pxa2xx-pci.c
-+++ b/drivers/spi/spi-pxa2xx-pci.c
-@@ -12,6 +12,7 @@
- #include <linux/pci.h>
- #include <linux/pm.h>
- #include <linux/pm_runtime.h>
-+#include <linux/spi/spi.h>
- #include <linux/sprintf.h>
- #include <linux/string.h>
- #include <linux/types.h>
-@@ -33,10 +34,22 @@
- #define PCI_DEVICE_ID_INTEL_LPT1_0		0x9ce5
- #define PCI_DEVICE_ID_INTEL_LPT1_1		0x9ce6
- 
-+#define LPSS_PRIV_RESETS			0x04
-+#define LPSS_PRIV_RESETS_FUNC			BIT(0)
-+#define LPSS_PRIV_RESETS_APB			BIT(1)
-+#define LPSS_PRIV_RESETS_IDMA			BIT(2)
-+#define LPSS_PRIV_REG_COUNT			9
-+
- struct pxa_spi_info {
- 	int (*setup)(struct pci_dev *pdev, struct pxa2xx_spi_controller *c);
- };
- 
-+struct pxa2xx_spi_pci_config {
-+	struct pxa2xx_spi_controller pdata;
-+	u32 lpss_priv_ctx[LPSS_PRIV_REG_COUNT];
-+	bool is_lpt;
-+};
-+
- static struct dw_dma_slave byt_tx_param = { .dst_id = 0 };
- static struct dw_dma_slave byt_rx_param = { .src_id = 1 };
- 
-@@ -95,6 +108,7 @@ static void lpss_dma_put_device(void *dma_dev)
- 
- static int lpss_spi_setup(struct pci_dev *dev, struct pxa2xx_spi_controller *c)
- {
-+	struct pxa2xx_spi_pci_config *cfg = container_of(c, struct pxa2xx_spi_pci_config, pdata);
- 	struct ssp_device *ssp = &c->ssp;
- 	struct dw_dma_slave *tx, *rx;
- 	struct pci_dev *dma_dev;
-@@ -131,6 +145,7 @@ static int lpss_spi_setup(struct pci_dev *dev, struct pxa2xx_spi_controller *c)
- 		ssp->port_id = 0;
- 		c->tx_param = &lpt0_tx_param;
- 		c->rx_param = &lpt0_rx_param;
-+		cfg->is_lpt = true;
- 		break;
- 	case PCI_DEVICE_ID_INTEL_LPT0_1:
- 	case PCI_DEVICE_ID_INTEL_LPT1_1:
-@@ -138,6 +153,7 @@ static int lpss_spi_setup(struct pci_dev *dev, struct pxa2xx_spi_controller *c)
- 		ssp->port_id = 1;
- 		c->tx_param = &lpt1_tx_param;
- 		c->rx_param = &lpt1_rx_param;
-+		cfg->is_lpt = true;
- 		break;
- 	default:
- 		return -ENODEV;
-@@ -261,22 +277,143 @@ static const struct pxa_spi_info qrk_info_config = {
- 	.setup = qrk_spi_setup,
- };
- 
-+static void pxa2xx_spi_pci_lpss_save_ctx(struct device *dev)
-+{
-+	struct driver_data *drv_data = dev_get_drvdata(dev);
-+	struct pxa2xx_spi_pci_config *cfg;
-+	unsigned int i;
-+
-+	if (!drv_data || !drv_data->controller_info)
-+		return;
-+
-+	cfg = container_of(drv_data->controller_info,
-+			   struct pxa2xx_spi_pci_config, pdata);
-+
-+	if (cfg->is_lpt && drv_data->lpss_base) {
-+		for (i = 0; i < LPSS_PRIV_REG_COUNT; i++)
-+			cfg->lpss_priv_ctx[i] = readl(drv_data->lpss_base + i * 4);
-+	}
-+}
-+
-+static void pxa2xx_spi_pci_lpss_restore_ctx(struct device *dev)
-+{
-+	struct driver_data *drv_data = dev_get_drvdata(dev);
-+	struct pxa2xx_spi_pci_config *cfg;
-+	unsigned int i;
-+	u32 resets;
-+
-+	if (!drv_data || !drv_data->controller_info)
-+		return;
-+
-+	cfg = container_of(drv_data->controller_info,
-+			   struct pxa2xx_spi_pci_config, pdata);
-+
-+	if (cfg->is_lpt && drv_data->lpss_base) {
-+		/*
-+		 * Deassert functional, APB, and iDMA resets, preserving any
-+		 * platform-specific bits in LPSS_PRIV_RESETS.
-+		 */
-+		resets = cfg->lpss_priv_ctx[LPSS_PRIV_RESETS / 4] |
-+			 LPSS_PRIV_RESETS_FUNC | LPSS_PRIV_RESETS_APB |
-+			 LPSS_PRIV_RESETS_IDMA;
-+		writel(resets, drv_data->lpss_base + LPSS_PRIV_RESETS);
-+
-+		for (i = 0; i < LPSS_PRIV_REG_COUNT; i++) {
-+			if (i == LPSS_PRIV_RESETS / 4)
-+				continue;
-+			writel(cfg->lpss_priv_ctx[i], drv_data->lpss_base + i * 4);
-+		}
-+
-+		/*
-+		 * Program chip select to deasserted state before resuming the
-+		 * controller queue, preventing races with the message pump kthread.
-+		 */
-+		lpss_ssp_setup(drv_data);
-+	}
-+}
-+
-+static int pxa2xx_spi_pci_suspend(struct device *dev)
-+{
-+	struct driver_data *drv_data = dev_get_drvdata(dev);
-+	struct pxa2xx_spi_pci_config *cfg;
-+	int ret;
-+
-+	if (!drv_data || !drv_data->controller_info)
-+		return 0;
-+
-+	cfg = container_of(drv_data->controller_info,
-+			   struct pxa2xx_spi_pci_config, pdata);
-+
-+	ret = spi_controller_suspend(drv_data->controller);
-+	if (ret)
-+		return ret;
-+
-+	if (cfg->is_lpt) {
-+		ret = pm_runtime_resume_and_get(dev);
-+		if (ret < 0) {
-+			spi_controller_resume(drv_data->controller);
-+			return ret;
-+		}
-+
-+		pxa2xx_spi_pci_lpss_save_ctx(dev);
-+		pm_runtime_put_noidle(dev);
-+	}
-+
-+	ret = pm_runtime_force_suspend(dev);
-+	if (ret) {
-+		spi_controller_resume(drv_data->controller);
-+		return ret;
-+	}
-+
-+	return 0;
-+}
-+
-+static int pxa2xx_spi_pci_resume(struct device *dev)
-+{
-+	struct driver_data *drv_data = dev_get_drvdata(dev);
-+	struct pxa2xx_spi_pci_config *cfg;
-+	int ret;
-+
-+	if (!drv_data || !drv_data->controller_info)
-+		return 0;
-+
-+	cfg = container_of(drv_data->controller_info,
-+			   struct pxa2xx_spi_pci_config, pdata);
-+
-+	if (cfg->is_lpt)
-+		pxa2xx_spi_pci_lpss_restore_ctx(dev);
-+
-+	ret = pm_runtime_force_resume(dev);
-+	if (ret)
-+		return ret;
-+
-+	return spi_controller_resume(drv_data->controller);
-+}
-+
-+static const struct dev_pm_ops pxa2xx_spi_pci_pm_ops = {
-+	SYSTEM_SLEEP_PM_OPS(pxa2xx_spi_pci_suspend, pxa2xx_spi_pci_resume)
-+	RUNTIME_PM_OPS(pxa2xx_spi_runtime_suspend, pxa2xx_spi_runtime_resume, NULL)
-+};
-+
- static int pxa2xx_spi_pci_probe(struct pci_dev *dev,
- 		const struct pci_device_id *ent)
- {
- 	const struct pxa_spi_info *info;
--	int ret;
-+	struct pxa2xx_spi_pci_config *cfg;
- 	struct pxa2xx_spi_controller *pdata;
- 	struct ssp_device *ssp;
-+	int ret;
- 
- 	ret = pcim_enable_device(dev);
- 	if (ret)
- 		return ret;
- 
--	pdata = devm_kzalloc(&dev->dev, sizeof(*pdata), GFP_KERNEL);
--	if (!pdata)
-+	cfg = devm_kzalloc(&dev->dev, sizeof(*cfg), GFP_KERNEL);
-+	if (!cfg)
- 		return -ENOMEM;
- 
-+	pdata = &cfg->pdata;
-+
- 	ssp = &pdata->ssp;
- 	ssp->dev = &dev->dev;
- 	ssp->phys_base = pci_resource_start(dev, 0);
-@@ -300,6 +437,12 @@ static int pxa2xx_spi_pci_probe(struct pci_dev *dev,
- 	if (ret)
- 		return ret;
- 
-+	if (cfg->is_lpt) {
-+		pci_d3cold_disable(dev);
-+		dev_pm_set_driver_flags(&dev->dev, DPM_FLAG_NO_DIRECT_COMPLETE);
-+		pxa2xx_spi_pci_lpss_save_ctx(&dev->dev);
-+	}
-+
- 	pm_runtime_set_autosuspend_delay(&dev->dev, 50);
- 	pm_runtime_use_autosuspend(&dev->dev);
- 	pm_runtime_put_autosuspend(&dev->dev);
-@@ -336,7 +479,7 @@ static struct pci_driver pxa2xx_spi_pci_driver = {
- 	.name           = "pxa2xx_spi_pci",
- 	.id_table       = pxa2xx_spi_pci_devices,
- 	.driver = {
--		.pm	= pm_ptr(&pxa2xx_spi_pm_ops),
-+		.pm	= pm_ptr(&pxa2xx_spi_pci_pm_ops),
- 	},
- 	.probe          = pxa2xx_spi_pci_probe,
- 	.remove         = pxa2xx_spi_pci_remove,
-diff --git a/drivers/spi/spi-pxa2xx.c b/drivers/spi/spi-pxa2xx.c
-index 2a3fa9ca7213..56ddfa67708e 100644
---- a/drivers/spi/spi-pxa2xx.c
-+++ b/drivers/spi/spi-pxa2xx.c
-@@ -343,7 +343,7 @@ static bool __lpss_ssp_update_priv(struct driver_data *drv_data, unsigned int of
-  * Perform LPSS SSP specific setup. This function must be called first if
-  * one is going to use LPSS SSP private registers.
+Link to v1:
+https://lore.kernel.org/all/20260929201746.4078803-11-b-padhi@ti.com/
+
+ drivers/firmware/ti_sci.c | 14 ++------------
+ 1 file changed, 2 insertions(+), 12 deletions(-)
+
+diff --git a/drivers/firmware/ti_sci.c b/drivers/firmware/ti_sci.c
+index dbe192142bf17..6ed67160c6a7f 100644
+--- a/drivers/firmware/ti_sci.c
++++ b/drivers/firmware/ti_sci.c
+@@ -43,18 +43,13 @@ static DEFINE_MUTEX(ti_sci_list_mutex);
+ /**
+  * struct ti_sci_xfer - Structure representing a message flow
+  * @tx_message:	Transmit message
+- * @tx_buf:	Pointer to the message to send
+  * @rx_buf:	Pointer to store received message
+  * @rx_len:	Receive message length
+  * @xfer_buf:	Preallocated buffer to store receive message
+- *		Since we work with request-ACK protocol, we can
+- *		reuse the same buffer for the rx path as we
+- *		use for the tx path.
+  * @done:	completion event
   */
--static void lpss_ssp_setup(struct driver_data *drv_data)
-+void lpss_ssp_setup(struct driver_data *drv_data)
- {
- 	const struct lpss_config *config;
- 	u32 value;
-@@ -365,6 +365,7 @@ static void lpss_ssp_setup(struct driver_data *drv_data)
- 		}
+ struct ti_sci_xfer {
+ 	struct ti_msgmgr_message tx_message;
+-	void *tx_buf;
+ 	void *rx_buf;
+ 	u8 rx_len;
+ 	u8 *xfer_buf;
+@@ -372,16 +367,16 @@ static struct ti_sci_xfer *ti_sci_get_one_xfer(struct ti_sci_info *info,
+ 
+ 	xfer = &minfo->xfer_block[xfer_id];
+ 
+-	hdr = (struct ti_sci_msg_hdr *)xfer->tx_message.buf;
+ 	xfer->tx_message.len = tx_message_size;
+ 	xfer->tx_message.chan_rx = info->chan_rx;
+ 	xfer->tx_message.timeout_rx_ms = info->desc->max_rx_timeout_ms;
+-	xfer->tx_buf = tx_message;
++	xfer->tx_message.buf = tx_message;
+ 	xfer->rx_buf = rx_message;
+ 	xfer->rx_len = (u8)rx_message_size;
+ 
+ 	reinit_completion(&xfer->done);
+ 
++	hdr = (struct ti_sci_msg_hdr *)tx_message;
+ 	hdr->seq = xfer_id;
+ 	hdr->type = msg_type;
+ 	hdr->host = info->host_id;
+@@ -487,10 +482,6 @@ static inline int ti_sci_do_xfer(const struct ti_sci_handle *handle,
+ 	if (IS_ERR(xfer))
+ 		return PTR_ERR(xfer);
+ 
+-	memcpy(xfer->xfer_buf + sizeof(struct ti_sci_msg_hdr),
+-	       xfer->tx_buf + sizeof(struct ti_sci_msg_hdr),
+-	       xfer->tx_message.len - sizeof(struct ti_sci_msg_hdr));
+-
+ 	ret = mbox_send_message(info->chan_tx, &xfer->tx_message);
+ 	if (ret < 0) {
+ 		dev_err(dev, "Mbox send fail %d (caller: %pS)\n", ret, caller);
+@@ -3396,7 +3387,6 @@ static int ti_sci_probe(struct platform_device *pdev)
+ 		if (!xfer->xfer_buf)
+ 			return -ENOMEM;
+ 
+-		xfer->tx_message.buf = xfer->xfer_buf;
+ 		init_completion(&xfer->done);
  	}
- }
-+EXPORT_SYMBOL_NS_GPL(lpss_ssp_setup, "SPI_PXA2xx");
  
- static void lpss_ssp_select_cs(struct spi_device *spi,
- 			       const struct lpss_config *config)
-@@ -1563,7 +1564,7 @@ static int pxa2xx_spi_resume(struct device *dev)
- 	return spi_controller_resume(drv_data->controller);
- }
- 
--static int pxa2xx_spi_runtime_suspend(struct device *dev)
-+int pxa2xx_spi_runtime_suspend(struct device *dev)
- {
- 	struct driver_data *drv_data = dev_get_drvdata(dev);
- 
-@@ -1579,13 +1580,15 @@ static int pxa2xx_spi_runtime_suspend(struct device *dev)
- 	}
- 	return 0;
- }
-+EXPORT_SYMBOL_NS_GPL(pxa2xx_spi_runtime_suspend, "SPI_PXA2xx");
- 
--static int pxa2xx_spi_runtime_resume(struct device *dev)
-+int pxa2xx_spi_runtime_resume(struct device *dev)
- {
- 	struct driver_data *drv_data = dev_get_drvdata(dev);
- 
- 	return pxa2xx_spi_clk_enable(drv_data);
- }
-+EXPORT_SYMBOL_NS_GPL(pxa2xx_spi_runtime_resume, "SPI_PXA2xx");
- 
- EXPORT_NS_GPL_DEV_PM_OPS(pxa2xx_spi_pm_ops, SPI_PXA2xx) = {
- 	SYSTEM_SLEEP_PM_OPS(pxa2xx_spi_suspend, pxa2xx_spi_resume)
-diff --git a/drivers/spi/spi-pxa2xx.h b/drivers/spi/spi-pxa2xx.h
-index 3352239f74a0..a31022256202 100644
---- a/drivers/spi/spi-pxa2xx.h
-+++ b/drivers/spi/spi-pxa2xx.h
-@@ -138,6 +138,10 @@ int pxa2xx_spi_probe(struct device *dev, struct ssp_device *ssp,
- 		     struct pxa2xx_spi_controller *platform_info);
- void pxa2xx_spi_remove(struct device *dev);
- 
-+void lpss_ssp_setup(struct driver_data *drv_data);
-+int pxa2xx_spi_runtime_suspend(struct device *dev);
-+int pxa2xx_spi_runtime_resume(struct device *dev);
-+
- extern const struct dev_pm_ops pxa2xx_spi_pm_ops;
- 
- #endif /* SPI_PXA2XX_H */
 -- 
-2.39.5
+2.34.1
 
 
