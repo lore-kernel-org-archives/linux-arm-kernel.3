@@ -4,74 +4,110 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1024CCA5FC7
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 30 Sep 2026 16:17:07 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D44CFCA5FCB
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 30 Sep 2026 16:19:57 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=dTYn9ewbKinlV09JcwZDQrYC2v/g8efbOnpi4oNK/YQ=; b=J34lDNMabu7DbPDls0iISZSj/B
-	ww2XabC8pOvvtbhW90IYN9y5ZaYATvdJQ6MiaIaDHPjJe+oSCWyD1Ku0CPfQ7SFzWJCY5HVh7tgpb
-	/tarByniOp6dwrZczlj9tVOIOZdFNoGxBruAUKVjSVECjZifkjFPW9lpvAKLuyevvuE/XDsx1Uf4i
-	W/HIsesY6jHc3cYyMkArb9Xo2drwTBbD+bUMsxDreAvdImq0bdU8KP49W8y2nLLscSuWj3KxCM8xb
-	ZExwCS0/ZiV5dMZ5ZI/5lDUAevQXyyuyJ99rbiD4ZdiEk5CtJpCzEIzKL9ed2A9Iez8+sp6J7syfz
-	LLNA4mDA==;
+	bh=nG2T2Alp7V7AR4zEW4H2cF7/r2rfzmYJ1/XwqhpbHio=; b=N4leikVWq/FD13KQoTrVYyImTM
+	EJYRZfj9RjRpFuQWaJELG5Ei8FM5d/e2q86UdQ2hNEdc/eO8cCd20bpAA9tnSsfWFfKRLSqUOeoBC
+	KpPv+j1bRyl8iD6E0uRfcpesaevTpSg6Zs5aeDAjuz6eLy/7YtjEASmSm9j1VD3b1gLLKj0LZAFXd
+	zh9sZcad6Nij/Mrjn6Y0+xCSvqNl2TrAK6h7W4fU30kr6ePfAsPx8wNVOvGGLVW8XxTSWad9o+oL+
+	PitepjpHaGcxVLlgG4EgFY3iRgFuE/5V00rTXZE1uvDU7OxqjHvnlwQRLDFNZqZvUxJxXsNy2HqQm
+	fZelH9NQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xBwzJ-00000006gHx-2Vqt;
-	Wed, 30 Sep 2026 16:16:58 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xBwzE-00000006gH9-475v
+	id 1xBx27-00000006gbU-2edT;
+	Wed, 30 Sep 2026 16:19:51 +0000
+Received: from mail-ed2-x0c.google.com ([2a00:1450:4864:33::c])
+	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1xBx22-00000006gac-46RT
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 30 Sep 2026 16:16:54 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 1E13B497;
-	Wed, 30 Sep 2026 09:16:48 -0700 (PDT)
-Received: from [10.2.212.8] (e134344.arm.com [10.2.212.8])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 367863F85F;
-	Wed, 30 Sep 2026 09:16:48 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1790785011; bh=c1zFLvnLeIOrucGSxy1ltv6Ki8RNm3MYCve3HLgIkoA=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=Vv+u42gMo0Ktdf4sGUo9KEhyjFudPIiq6W8FcR1Njqc/ZN4JLmgvcd6nmmqXKTyWa
-	 y4BuFc5rPnnZ1FlJpu745eMutqfQ+L0KEhMZQY6YMP4y185zGANDt6arKTQ/dQGiuZ
-	 oe3V8AUYcMsau0QUsO+sqqF7tf/kIZ9rfjAAckok=
-Message-ID: <b4759068-99bc-4b43-94bb-15f48e935438@arm.com>
-Date: Wed, 30 Sep 2026 17:16:46 +0100
+	Wed, 30 Sep 2026 16:19:50 +0000
+Received: by mail-ed2-x0c.google.com with SMTP id 4fb4d7f45d1cf-6acaec6a74aso3160194a12.2
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 30 Sep 2026 09:19:45 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1790785184; cv=none;
+        d=google.com; s=arc-20260327;
+        b=jWdfij88sp2KiQjUQG+eS/2NAD9N8zxN38XUMzfTiFivh7ZhpICQwR9YyDC075QYEf
+         RPtUa6sXJekXVnQzIB0MqZssnhnhRRNvwJlrzZvUpg7Nfu94pfcp1TeZ2xd0bz6Brw1i
+         6T16FK1Mf8kc+kOqsm/DlQB6yonwDLev6iKmy4SlVzXchpLOBimmf3OUfoztNmfnHqRa
+         SkSPhQRLi4vnNE8NzJMkJjvoYUSLbEHOjSqF0w5EpBS6Mn893/3TnTHv00704QuwfhmS
+         mphxa0EyDjoblPAd55Z6004k1F0UsqYhCxERHiac+L/HLC+P5+WtsG3T7IOJbxfKM8GI
+         5MhA==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:dkim-signature;
+        bh=nG2T2Alp7V7AR4zEW4H2cF7/r2rfzmYJ1/XwqhpbHio=;
+        fh=flws9L7GtdLSC/21f08Ro2YaVyWt470XgFabsKGKbyQ=;
+        b=SFteqe20ubSme5vUmbERCw3GKDAKKDC0E4065w1BILbnJhImAotsX1IK21KzfxxC2f
+         ckn0VjpiKvfD4UVFbjxIg50T7k6F6naEMSthtCPBt3CLqczrLABWQ5H4nz1lH5a+ns95
+         G6UXQbMprHXX+SLRANB6y7+E8iKMdbpu4oUfCp6zW2Q+sH/0j8/s8QsBCCIG/a62CSj1
+         csRpJzUwsAEJXETHzL4wXL02zfrZCdNpcrWgvOuxzFrXtlfNA6K4NDUU4/8POFQmt5CI
+         qxkzIpu51lN7UdrO/c7Dr3/gjX9I3kiT/zNoJREsWTK22saV0doenlq2i0wYMTwZlJQL
+         vTRQ==;
+        darn=lists.infradead.org
+ARC-Authentication-Results: i=1; mx.google.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20251104; t=1790785184; x=1791389984; darn=lists.infradead.org;
+        h=content-transfer-encoding:content-type:cc:to:subject:message-id
+         :date:from:in-reply-to:references:mime-version:from:to:cc:subject
+         :date:message-id:reply-to:content-type;
+        bh=nG2T2Alp7V7AR4zEW4H2cF7/r2rfzmYJ1/XwqhpbHio=;
+        b=mjFjjcUNjm4q+UH0Umur/LSdzlHDaoGgeoOx/rNi7pKHlPqXl3rD9wm6OGWdrVnmCN
+         3UwkTzz/R6AGu3FIBViE7tl/fpTws7zMfnKadSJgMP9xORi1RK7lY3QW0m3EAxkE3Xcg
+         7ooShHZf8ULYYWk8aOVU6Ug1ISv24BJXgIzcTwminypC4JNfHxECKSS0Duc6h3UZUNFe
+         WPQ801L8OZ/p3rGJX/3fTZg/FH+b+4kHSSX2uzNfZ45aDOSuf/qNm2boHTuDP2DNBaBd
+         sWH3u5Fu1to0zoLeHxRLz5KtD6rHxwsw4qskb/Q3pzT4qwRr4Cv4rXM84uj8ZPzFfxLr
+         dpKQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1790785184; x=1791389984;
+        h=content-transfer-encoding:content-type:cc:to:subject:message-id
+         :date:from:in-reply-to:references:mime-version:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=nG2T2Alp7V7AR4zEW4H2cF7/r2rfzmYJ1/XwqhpbHio=;
+        b=EstxWCxj547Cv2JKmhGJOeLPTTvyHw6PmcW9XcMX2d+LLVaNuf4aKribMnu6HzXPKI
+         cnDpPKVV/DJ3c8eNMijuBBsaHcs2V0qJN58ZzojI8FhgU2Uqr+nYeMvCYIcKdrRqBEO2
+         PmeYwtdxjLTQyOe0Kg7/KK2gMpdMDWDQZLtVjxKtYVQMNKk99LVJbO2ZQsaJVq5U9X5h
+         netTO9y3P+uzXK9BVLczyFM8t+80XuCVfSVWRiZ5vStPwMRmp8et5vzGPh3eSyHtsLe0
+         470eMj+rp3uV4Kd4MfT5a16m2ZXnePeAKvgfSAJTnAOZHZLeaEjb6NSaoj85e+AfbwOX
+         8kGA==
+X-Forwarded-Encrypted: i=1; AKwUvBz3hip9m5EDcKR/1x+7S935UTsft2gxvfQv7bbvxQ4Q2R2DYjUfqpc1hbAfW15PclyfQUZNKFmgUPpieRR0fqI3@lists.infradead.org
+X-Gm-Message-State: AFq9FYJ4J0h3Vtvak4XFYVNZM9hwuLFnNiqj3O0V8k/Avr7a1lJ+1CA5
+	5Cz1QRY5PFNalMWGJPJnzp+mbgcB1mo5bkB1xfDq/30bbvRXDZuS6rX/XCERvPF/Ln3B8fN99Xp
+	P+z7Dx3tUESYJzdLAT6n+ob3hIvz8Fhg=
+X-Gm-Gg: AYBFou1tYTT7s/Bo3icqYdmGAzVlprMoq9Z4JVe7P+GOX+JQfbf4/5GnTT7jdXL4Fdq
+	1HbpniApBGXmpZG2WNl4gI0zk6pUwF1tasMkmLXOupgerBk6TrXyGBkyrierVfKshLJHdCQUo6c
+	lVADkqDhA8KYUQ83P1AuSUQD5bbWLnsr1gASxAmHPRKwQrOFOn8LAwAqKLoDyCuirixsuiG0hiD
+	4nf5XntGHITud7lcPtfxhnV1Qy2hA4uh3lOai+SpUKQ7hXyDpuTu83g/cmrmpKOpHcpCvSPmpzp
+	gApiLCoGwfBN0DMaDsxl13Nwh0T4lJD14ZNfxIgLK89KXMOU9EBij3QIKV1iUpR4meBour1XblU
+	0loW8lX5xzBuaYUIinj3sQ4timKerRJ5K8QryA5lSVw==
+X-Received: by 2002:a17:906:478d:b0:c2b:ca9c:1379 with SMTP id
+ a640c23a62f3a-c2e23d80235mr174035666b.28.1790785184054; Wed, 30 Sep 2026
+ 09:19:44 -0700 (PDT)
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v11 02/13] arm_mpam: propagate MSC access errors for
- hw_probe functions
-To: Andre Przywara <andre.przywara@arm.com>,
- Lorenzo Pieralisi <lpieralisi@kernel.org>, Hanjun Guo
- <guohanjun@huawei.com>, Sudeep Holla <sudeep.holla@kernel.org>,
- Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
- "Rafael J . Wysocki" <rafael@kernel.org>, Len Brown <lenb@kernel.org>,
- James Morse <james.morse@arm.com>,
- Reinette Chatre <reinette.chatre@intel.com>, Fenghua Yu <fenghuay@nvidia.com>
-Cc: Jonathan Cameron <jic23@kernel.org>,
- Srivathsa L Rao <srivathsa.rao@oss.qualcomm.com>,
- Ganapatrao Kulkarni <ganapatrao.kulkarni@oss.qualcomm.com>,
- Trilok Soni <tsoni@quicinc.com>, Srinivas Ramana <sramana@qti.qualcomm.com>,
- Niyas Sait <niyas.sait@arm.com>, Lee Trager <lee@trager.us>,
- Ritwick Sharma <ritwick.sharma@arm.com>, Gavin Shan <gshan@redhat.com>,
- linux-acpi@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-kernel@vger.kernel.org
-References: <20260924152739.2865510-1-andre.przywara@arm.com>
- <20260924152739.2865510-3-andre.przywara@arm.com>
- <4cc35ee7-c4d3-40c0-b1f9-24ef5a2f5844@arm.com>
- <c094216a-cef8-437f-90ba-a1c60384e1ce@arm.com>
-Content-Language: en-US
-From: Ben Horgan <ben.horgan@arm.com>
-In-Reply-To: <c094216a-cef8-437f-90ba-a1c60384e1ce@arm.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 8bit
+References: <20260820085941.380401-1-pawlik.dan@gmail.com> <20260820085941.380401-2-pawlik.dan@gmail.com>
+In-Reply-To: <20260820085941.380401-2-pawlik.dan@gmail.com>
+From: Daniel Pawlik <pawlik.dan@gmail.com>
+Date: Wed, 30 Sep 2026 18:19:31 +0200
+X-Gm-Features: AclHuK9VCY3Sjvtv8H3qKyzm85-MwnmIxc92I19Mmm-MRvCk9MqeBH9bmWUgmek
+Message-ID: <CALC2AphzQ=dHOk2Yjtaw=i2euCLxo+Lk0kO50ixtYydO0yzBHA@mail.gmail.com>
+Subject: Re: [PATCH v10 2/2] net: airoha: npu: use cacheline-sized buffers for
+ mailbox DMA
+To: netdev@vger.kernel.org
+Cc: linux-mediatek@lists.infradead.org, linux-arm-kernel@lists.infradead.org, 
+	kuba@kernel.org, lorenzo@kernel.org, nbd@nbd.name, sean.wang@mediatek.com, 
+	Mark-MC.Lee@mediatek.com, davem@davemloft.net, edumazet@google.com, 
+	pabeni@redhat.com, andrew+netdev@lunn.ch, yangshiji66@outlook.com, 
+	upstream@airoha.com, szymon.datko@gmail.com
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260930_091653_200175_A7FE8DFD 
-X-CRM114-Status: GOOD (  24.02  )
+X-CRM114-CacheID: sfid-20260930_091947_160436_7A4F4496 
+X-CRM114-Status: GOOD (  26.73  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -86,306 +122,223 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Andre,
+Hi Kuba, Lorenzo, Airoha team,
 
-On 30/09/2026 16:57, Andre Przywara wrote:
-> Hi Ben,
-> 
-> On 9/30/26 16:01, Ben Horgan wrote:
->> Hi Andre,
->>
->> On 24/09/2026 16:27, Andre Przywara wrote:
->>> Allow the functions probing for MSC hardware and features to return an
->>> error, and propagate read and write errors from the lower level up.
->>> This uses some "scoped cleanup" functions like scoped_guard() and
->>> ACQUIRE() to avoid the complexity of error handling when a lock has been
->>> taken. Since the mon_sel_lock is a bit special (even more so in an
->>> upcoming patch), we define a new GUARD type for it.
->>>
->>> Signed-off-by: Andre Przywara <andre.przywara@arm.com>
->>> Reviewed-by: Jonathan Cameron <jonathan.cameron@oss.qualcomm.com>
->>> Reviewed-by: Ben Horgan <ben.horgan@arm.com>
->>> Reviewed-by: Gavin Shan <gshan@redhat.com>
->>> Tested-by: Gavin Shan <gshan@redhat.com> # on NVIDIA Grace Hopper
->>> ---
->>>   drivers/resctrl/mpam_devices.c  | 126 +++++++++++++++++++++-----------
->>>   drivers/resctrl/mpam_internal.h |   4 +
->>>   2 files changed, 87 insertions(+), 43 deletions(-)
->>>
->>> diff --git a/drivers/resctrl/mpam_devices.c b/drivers/resctrl/mpam_devices.c
->>> index c7686d3799653..22069e7f7bb05 100644
->>> --- a/drivers/resctrl/mpam_devices.c
->>> +++ b/drivers/resctrl/mpam_devices.c
->>> @@ -798,38 +798,46 @@ static bool mpam_ris_hw_probe_csu_nrdy(struct mpam_msc_ris *ris)
->>>       bool can_set, can_clear;
->>>       struct mpam_msc *msc = ris->vmsc->msc;
->>>   -    if (WARN_ON_ONCE(!mpam_mon_sel_lock(msc)))
->>> +    ACQUIRE(mon_sel_lock, guard)(msc);
->>> +    if (ACQUIRE_ERR(mon_sel_lock, &guard))
->>>           return false;
->>>         mon_sel = FIELD_PREP(MSMON_CFG_MON_SEL_MON_SEL, 0) |
->>>             FIELD_PREP(MSMON_CFG_MON_SEL_RIS, ris->ris_idx);
->>> -    mpam_write_monsel_reg(msc, CFG_MON_SEL, mon_sel);
->>> +    if (mpam_write_monsel_reg(msc, CFG_MON_SEL, mon_sel))
->>> +        return false;
->>>         /* Hardware might ignore nrdy if it's not enabled */
->>>       ctl_val = MSMON_CFG_CSU_CTL_TYPE_CSU;
->>>       ctl_val |= MSMON_CFG_x_CTL_MATCH_PARTID;
->>>       ctl_val |= MSMON_CFG_x_CTL_MATCH_PMG;
->>>       ctl_val |= MSMON_CFG_x_CTL_EN;
->>> -    mpam_write_monsel_reg(msc, CFG_CSU_FLT, 0);
->>> -    mpam_write_monsel_reg(msc, CFG_CSU_CTL, ctl_val);
->>> +    if (mpam_write_monsel_reg(msc, CFG_CSU_FLT, 0))
->>> +        return false;
->>> +    if (mpam_write_monsel_reg(msc, CFG_CSU_CTL, ctl_val))
->>> +        return false;
->>>   -    _mpam_write_monsel_reg(msc, MSMON_CSU, MSMON___NRDY);
->>> -    _mpam_read_monsel_reg(msc, MSMON_CSU, &now);
->>> +    if (_mpam_write_monsel_reg(msc, MSMON_CSU, MSMON___NRDY))
->>> +        return false;
->>> +    if (_mpam_read_monsel_reg(msc, MSMON_CSU, &now))
->>> +        return false;
->>>       can_set = now & MSMON___NRDY;
->>>   -    _mpam_write_monsel_reg(msc, MSMON_CSU, 0);
->>> +    if (_mpam_write_monsel_reg(msc, MSMON_CSU, 0))
->>> +        return false;
->>>       /* Configuration change to try and coax hardware into setting nrdy */
->>> -    mpam_write_monsel_reg(msc, CFG_CSU_FLT, 0x1);
->>> -    _mpam_read_monsel_reg(msc, MSMON_CSU, &now);
->>> +    if (mpam_write_monsel_reg(msc, CFG_CSU_FLT, 0x1))
->>> +        return false;
->>> +    if (_mpam_read_monsel_reg(msc, MSMON_CSU, &now))
->>> +        return false;
->>>       can_clear = !(now & MSMON___NRDY);
->>> -    mpam_mon_sel_unlock(msc);
->>>         return (!can_set || !can_clear);
->>>   }
->>
->> I've had a look at the Sashiko reports [1] for these patches. I'll call out the things that I feel
->> need answering.
->>
->> As sashiko says, mpam_ris_hw_probe_csu_nrdy(), this swallows the error rather than propagating. It
->> would be better if this returned success/error and the answer to whether or not the h/w supports
->> nrdy separately. As we make other accesses to the msc later it is unlikely this will ever cause a
->> failing probe to report success though.
-> 
-> Well, what I could offer is to make mpam_ris_hw_probe_csu_nrdy() return an int, with negative values
-> meaning an error, 0 meaning false, and 1 being true.
-> Then, in the caller, do:
->     err = mpam_ris_hw_probe_csu_nrdy(ris);
->     if (err < 0)
->         return err;
->     hw_managed = err;
-> 
-> I think a fairly straight-forward change, does this sound OK?
+I found a concrete lead for the unresolved cacheline patch in the vendor
+firmware. The installed en7581_MT7996_npu_rv32.bin matches the blob in
+linux-firmware commit 1043c0303910 by SHA-256.
 
-Yep, ok with me.
+At file offset 0x3a9c, the Wi-Fi mailbox handler converts the supplied
+buffer address before reading the command:
+
+  lui   a5,0x40000
+  addi  a4,a5,-1
+  and   a4,a4,a0
+  or    a4,a4,a5
+  lw    a1,0(a4)
+
+This implements (address & 0x3fffffff) | 0x40000000. Both 0xbf6cf000
+and 0xff6cf000 produce 0x7f6cf000. W1700K has 2 GiB of RAM starting
+at 0x80000000; its current SWIOTLB pool starts at 0xff6cf000.
+
+The handler also returns 1 (success) for an unsupported operation type
+at file offset 0x3b4a. My earlier claim that mailbox success proved a
+correct command read was therefore unjustified. The traces do not
+establish a read-succeeds/write-fails limitation.
+
+This suggests an address-window problem, but the NPU-side bus mapping
+still needs confirmation. The cacheline patch avoids the observed bounce
+path without constraining the address of future direct allocations.
+
+Can Airoha confirm which host DRAM range this alias covers, and whether
+mailbox buffers above 0xbfffffff are supported?
+
+I have prepared, but not yet run, a test retaining all 2 GiB of RAM and
+the 12-byte DMA_BIDIRECTIONAL mapping, with the SWIOTLB boot pool below
+0xc0000000. A successful version response through a verified bounced
+mapping there would help distinguish the address limitation from a
+SWIOTLB copy/cache issue.
 
 Thanks,
+Dan
 
-Ben
+czw., 20 sie 2026 o 11:00 Daniel Pawlik <pawlik.dan@gmail.com> napisa=C5=82=
+(a):
+>
+> On non-coherent ARM64 (EN7581), the kernel's dma_direct_map_page()
+> forces swiotlb bounce buffering when:
+>
+>   !IS_ALIGNED(phys | size, dma_get_cache_alignment())
+>
+> The NPU mailbox buffers are 12-24 bytes, well below the 64-byte cache
+> line size, so this check always fails regardless of physical address
+> alignment. The swiotlb sync path itself works correctly, but the
+> EN7581 NPU cannot DMA-write to the swiotlb bounce buffer address
+> range =E2=80=94 it reads commands fine (mbox_status=3D0x7 success) but ne=
+ver
+> writes responses back, leaving response fields as zeros.
+>
+> This was confirmed through five boot traces on a Gemtek W1700K:
+>
+>   - Boots 1-4: all streaming DMA through swiotlb (is_swiotlb=3D1),
+>     bounce buffer byte-identical to pre-map after NPU completion,
+>     even after explicit CPU cache invalidation (dcache_inval_poc).
+>     NPU version reads 0.0.
+>
+>   - Boot 5: kmalloc'd cache-line-aligned buffer bypasses swiotlb
+>     (is_swiotlb=3D0 on all 169 mappings), NPU writes response data
+>     directly, version reads 0.1111, WiFi fully functional.
+>
+> Fix by rounding mailbox buffer allocations up to
+> dma_get_cache_alignment() and mapping the rounded length. The original
+> payload size is still programmed into the mailbox length register.
+> kmalloc returns cache-line-aligned pointers on ARM64 for allocations
+> >=3D ARCH_KMALLOC_MINALIGN, so the IS_ALIGNED check passes and swiotlb
+> is not triggered.
+>
+> Fixes: 6f884eb87a79 ("net: airoha: Fix DMA direction for NPU mailbox buff=
+er")
+> Link: https://patchwork.kernel.org/project/linux-mediatek/patch/202608141=
+10017.2795022-1-pawlik.dan@gmail.com/
+> Link: https://patchwork.kernel.org/project/linux-mediatek/patch/202608091=
+52813.585797-1-pawlik.dan@gmail.com/
+> Link: https://patchwork.kernel.org/project/linux-mediatek/patch/202608050=
+70851.2885888-1-pawlik.dan@gmail.com/
+> Assisted-by: Claude:claude-opus-4-6
+> Signed-off-by: Daniel Pawlik <pawlik.dan@gmail.com>
+> ---
+>  drivers/net/ethernet/airoha/airoha_npu.c | 25 +++++++++++++++---------
+>  1 file changed, 16 insertions(+), 9 deletions(-)
+>
+> diff --git a/drivers/net/ethernet/airoha/airoha_npu.c b/drivers/net/ether=
+net/airoha/airoha_npu.c
+> index 4045d1eb93ea..3416f921f961 100644
+> --- a/drivers/net/ethernet/airoha/airoha_npu.c
+> +++ b/drivers/net/ethernet/airoha/airoha_npu.c
+> @@ -5,6 +5,7 @@
+>   */
+>
+>  #include <linux/devcoredump.h>
+> +#include <linux/dma-mapping.h>
+>  #include <linux/firmware.h>
+>  #include <linux/platform_device.h>
+>  #include <linux/of_net.h>
+> @@ -160,15 +161,21 @@ struct wlan_mbox_data {
+>         DECLARE_FLEX_ARRAY(u8, d);
+>  };
+>
+> +static size_t airoha_npu_mbox_size(size_t len)
+> +{
+> +       return ALIGN(len, dma_get_cache_alignment());
+> +}
+> +
+>  static int airoha_npu_send_msg(struct airoha_npu *npu, int func_id,
+>                                void *p, int size)
+>  {
+>         u16 core =3D 0; /* FIXME */
+>         u32 val, offset =3D core << 4;
+>         dma_addr_t dma_addr;
+> +       size_t map_len =3D airoha_npu_mbox_size(size);
+>         int ret;
+>
+> -       dma_addr =3D dma_map_single(npu->dev, p, size, DMA_BIDIRECTIONAL)=
+;
+> +       dma_addr =3D dma_map_single(npu->dev, p, map_len, DMA_BIDIRECTION=
+AL);
+>         ret =3D dma_mapping_error(npu->dev, dma_addr);
+>         if (ret)
+>                 return ret;
+> @@ -191,7 +198,7 @@ static int airoha_npu_send_msg(struct airoha_npu *npu=
+, int func_id,
+>
+>         spin_unlock_bh(&npu->cores[core].lock);
+>
+> -       dma_unmap_single(npu->dev, dma_addr, size, DMA_BIDIRECTIONAL);
+> +       dma_unmap_single(npu->dev, dma_addr, map_len, DMA_BIDIRECTIONAL);
+>
+>         return ret;
+>  }
+> @@ -333,7 +340,7 @@ static int airoha_npu_ppe_init(struct airoha_npu *npu=
+)
+>         struct ppe_mbox_data *ppe_data;
+>         int err;
+>
+> -       ppe_data =3D kzalloc_obj(*ppe_data);
+> +       ppe_data =3D kzalloc(airoha_npu_mbox_size(sizeof(*ppe_data)), GFP=
+_KERNEL);
+>         if (!ppe_data)
+>                 return -ENOMEM;
+>
+> @@ -354,7 +361,7 @@ static int airoha_npu_ppe_deinit(struct airoha_npu *n=
+pu)
+>         struct ppe_mbox_data *ppe_data;
+>         int err;
+>
+> -       ppe_data =3D kzalloc_obj(*ppe_data);
+> +       ppe_data =3D kzalloc(airoha_npu_mbox_size(sizeof(*ppe_data)), GFP=
+_KERNEL);
+>         if (!ppe_data)
+>                 return -ENOMEM;
+>
+> @@ -375,7 +382,7 @@ static int airoha_npu_ppe_flush_sram_entries(struct a=
+iroha_npu *npu,
+>         struct ppe_mbox_data *ppe_data;
+>         int err;
+>
+> -       ppe_data =3D kzalloc_obj(*ppe_data);
+> +       ppe_data =3D kzalloc(airoha_npu_mbox_size(sizeof(*ppe_data)), GFP=
+_KERNEL);
+>         if (!ppe_data)
+>                 return -ENOMEM;
+>
+> @@ -399,7 +406,7 @@ static int airoha_npu_foe_commit_entry(struct airoha_=
+npu *npu,
+>         struct ppe_mbox_data *ppe_data;
+>         int err;
+>
+> -       ppe_data =3D kzalloc_obj(*ppe_data, GFP_ATOMIC);
+> +       ppe_data =3D kzalloc(airoha_npu_mbox_size(sizeof(*ppe_data)), GFP=
+_ATOMIC);
+>         if (!ppe_data)
+>                 return -ENOMEM;
+>
+> @@ -434,7 +441,7 @@ static int airoha_npu_ppe_stats_setup(struct airoha_n=
+pu *npu,
+>         int err, size =3D num_stats_entries * sizeof(*npu->stats);
+>         struct ppe_mbox_data *ppe_data;
+>
+> -       ppe_data =3D kzalloc_obj(*ppe_data, GFP_ATOMIC);
+> +       ppe_data =3D kzalloc(airoha_npu_mbox_size(sizeof(*ppe_data)), GFP=
+_ATOMIC);
+>         if (!ppe_data)
+>                 return -ENOMEM;
+>
+> @@ -466,7 +473,7 @@ static int airoha_npu_wlan_msg_send(struct airoha_npu=
+ *npu, int ifindex,
+>         int err, len;
+>
+>         len =3D sizeof(*wlan_data) + data_len;
+> -       wlan_data =3D kzalloc(len, gfp);
+> +       wlan_data =3D kzalloc(airoha_npu_mbox_size(len), gfp);
+>         if (!wlan_data)
+>                 return -ENOMEM;
+>
+> @@ -489,7 +496,7 @@ static int airoha_npu_wlan_msg_get(struct airoha_npu =
+*npu, int ifindex,
+>         int err, len;
+>
+>         len =3D sizeof(*wlan_data) + data_len;
+> -       wlan_data =3D kzalloc(len, gfp);
+> +       wlan_data =3D kzalloc(airoha_npu_mbox_size(len), gfp);
+>         if (!wlan_data)
+>                 return -ENOMEM;
+>
+> --
+> 2.55.0
+>
 
-> 
-> Cheers,
-> Andre
->>
->> Thanks,
->>
->> Ben
->>
->> [1] https://sashiko.dev/#/patchset/20260924152739.2865510-1-andre.przywara%40arm.com
->>
->>>   -static void mpam_ris_hw_probe(struct mpam_msc_ris *ris)
->>> +static int mpam_ris_hw_probe(struct mpam_msc_ris *ris)
->>>   {
->>> -    int err;
->>> +    int fw_has_nrdy_err, err;
->>>       struct mpam_msc *msc = ris->vmsc->msc;
->>>       struct device *dev = &msc->pdev->dev;
->>>       struct mpam_props *props = &ris->props;
->>> @@ -842,7 +850,9 @@ static void mpam_ris_hw_probe(struct mpam_msc_ris *ris)
->>>       if (FIELD_GET(MPAMF_IDR_HAS_CCAP_PART, ris->idr)) {
->>>           u32 ccap_features;
->>>   -        mpam_read_partsel_reg(msc, CCAP_IDR, &ccap_features);
->>> +        err = mpam_read_partsel_reg(msc, CCAP_IDR, &ccap_features);
->>> +        if (err)
->>> +            return err;
->>>             props->cmax_wd = FIELD_GET(MPAMF_CCAP_IDR_CMAX_WD, ccap_features);
->>>           if (props->cmax_wd &&
->>> @@ -867,7 +877,9 @@ static void mpam_ris_hw_probe(struct mpam_msc_ris *ris)
->>>       if (FIELD_GET(MPAMF_IDR_HAS_CPOR_PART, ris->idr)) {
->>>           u32 cpor_features;
->>>   -        mpam_read_partsel_reg(msc, CPOR_IDR, &cpor_features);
->>> +        err = mpam_read_partsel_reg(msc, CPOR_IDR, &cpor_features);
->>> +        if (err)
->>> +            return err;
->>>             props->cpbm_wd = FIELD_GET(MPAMF_CPOR_IDR_CPBM_WD, cpor_features);
->>>           if (props->cpbm_wd)
->>> @@ -877,8 +889,9 @@ static void mpam_ris_hw_probe(struct mpam_msc_ris *ris)
->>>       /* Memory bandwidth partitioning */
->>>       if (FIELD_GET(MPAMF_IDR_HAS_MBW_PART, ris->idr)) {
->>>           u32 mbw_features;
->>> -
->>> -        mpam_read_partsel_reg(msc, MBW_IDR, &mbw_features);
->>> +        err = mpam_read_partsel_reg(msc, MBW_IDR, &mbw_features);
->>> +        if (err)
->>> +            return err;
->>>             /* portion bitmap resolution */
->>>           props->mbw_pbm_bits = FIELD_GET(MPAMF_MBW_IDR_BWPBM_WD, mbw_features);
->>> @@ -907,8 +920,9 @@ static void mpam_ris_hw_probe(struct mpam_msc_ris *ris)
->>>       /* Priority partitioning */
->>>       if (FIELD_GET(MPAMF_IDR_HAS_PRI_PART, ris->idr)) {
->>>           u32 pri_features;
->>> -
->>> -        mpam_read_partsel_reg(msc, PRI_IDR, &pri_features);
->>> +        err = mpam_read_partsel_reg(msc, PRI_IDR, &pri_features);
->>> +        if (err)
->>> +            return err;
->>>             props->intpri_wd = FIELD_GET(MPAMF_PRI_IDR_INTPRI_WD, pri_features);
->>>           if (props->intpri_wd && FIELD_GET(MPAMF_PRI_IDR_HAS_INTPRI, pri_features)) {
->>> @@ -929,20 +943,24 @@ static void mpam_ris_hw_probe(struct mpam_msc_ris *ris)
->>>       if (FIELD_GET(MPAMF_IDR_HAS_MSMON, ris->idr)) {
->>>           u32 msmon_features;
->>>   -        mpam_read_partsel_reg(msc, MSMON_IDR, &msmon_features);
->>> +        err = mpam_read_partsel_reg(msc, MSMON_IDR, &msmon_features);
->>> +        if (err)
->>> +            return err;
->>>             /*
->>>            * If the firmware max-nrdy-us property is missing, the
->>>            * CSU counters can't be used. Should we wait forever?
->>>            */
->>> -        err = device_property_read_u32(&msc->pdev->dev,
->>> -                           "arm,not-ready-us",
->>> -                           &msc->nrdy_usec);
->>> +        fw_has_nrdy_err = device_property_read_u32(&msc->pdev->dev,
->>> +                               "arm,not-ready-us",
->>> +                               &msc->nrdy_usec);
->>>             if (FIELD_GET(MPAMF_MSMON_IDR_MSMON_CSU, msmon_features)) {
->>>               u32 csumonidr;
->>>   -            mpam_read_partsel_reg(msc, CSUMON_IDR, &csumonidr);
->>> +            err = mpam_read_partsel_reg(msc, CSUMON_IDR, &csumonidr);
->>> +            if (err)
->>> +                return err;
->>>                 props->num_csu_mon = FIELD_GET(MPAMF_CSUMON_IDR_NUM_MON, csumonidr);
->>>               if (props->num_csu_mon) {
->>> @@ -960,7 +978,7 @@ static void mpam_ris_hw_probe(struct mpam_msc_ris *ris)
->>>                    * Accept the missing firmware property if NRDY appears
->>>                    * un-implemented.
->>>                    */
->>> -                if (err && hw_managed)
->>> +                if (fw_has_nrdy_err && hw_managed)
->>>                       dev_err_once(dev, "Counters are not usable because not-ready timeout was
->>> not provided by firmware.");
->>>               }
->>>           }
->>> @@ -968,7 +986,9 @@ static void mpam_ris_hw_probe(struct mpam_msc_ris *ris)
->>>               bool has_long;
->>>               u32 mbwumon_idr;
->>>   -            mpam_read_partsel_reg(msc, MBWUMON_IDR, &mbwumon_idr);
->>> +            err = mpam_read_partsel_reg(msc, MBWUMON_IDR, &mbwumon_idr);
->>> +            if (err)
->>> +                return err;
->>>                 props->num_mbwu_mon = FIELD_GET(MPAMF_MBWUMON_IDR_NUM_MON, mbwumon_idr);
->>>               if (props->num_mbwu_mon) {
->>> @@ -1001,16 +1021,22 @@ static void mpam_ris_hw_probe(struct mpam_msc_ris *ris)
->>>           u16 partid_max;
->>>           u32 nrwidr;
->>>   -        mpam_read_partsel_reg(msc, PARTID_NRW_IDR, &nrwidr);
->>> +        err = mpam_read_partsel_reg(msc, PARTID_NRW_IDR, &nrwidr);
->>> +        if (err)
->>> +            return err;
->>> +
->>>           partid_max = FIELD_GET(MPAMF_PARTID_NRW_IDR_INTPARTID_MAX, nrwidr);
->>>             mpam_set_feature(mpam_feat_partid_nrw, props);
->>>           msc->partid_max = min(msc->partid_max, partid_max);
->>>       }
->>> +
->>> +    return 0;
->>>   }
->>>     static int mpam_msc_hw_probe(struct mpam_msc *msc)
->>>   {
->>> +    int ret;
->>>       u64 idr;
->>>       u16 partid_max;
->>>       u8 ris_idx, pmg_max;
->>> @@ -1025,11 +1051,15 @@ static int mpam_msc_hw_probe(struct mpam_msc *msc)
->>>       }
->>>         /* Grab an IDR value to find out how many RIS there are */
->>> -    mutex_lock(&msc->part_sel_lock);
->>> -    mpam_msc_read_idr(msc, &idr);
->>> -    mpam_read_partsel_reg(msc, IIDR, &msc->iidr);
->>> +    scoped_guard(mutex, &msc->part_sel_lock) {
->>> +        ret = mpam_msc_read_idr(msc, &idr);
->>> +        if (ret)
->>> +            return ret;
->>>   -    mutex_unlock(&msc->part_sel_lock);
->>> +        ret = mpam_read_partsel_reg(msc, IIDR, &msc->iidr);
->>> +        if (ret)
->>> +            return ret;
->>> +    }
->>>         mpam_enable_quirks(msc);
->>>   @@ -1040,10 +1070,15 @@ static int mpam_msc_hw_probe(struct mpam_msc *msc)
->>>       msc->pmg_max = FIELD_GET(MPAMF_IDR_PMG_MAX, idr);
->>>         for (ris_idx = 0; ris_idx <= msc->ris_max; ris_idx++) {
->>> -        mutex_lock(&msc->part_sel_lock);
->>> -        __mpam_part_sel(ris_idx, 0, msc);
->>> -        mpam_msc_read_idr(msc, &idr);
->>> -        mutex_unlock(&msc->part_sel_lock);
->>> +        scoped_guard(mutex, &msc->part_sel_lock) {
->>> +            ret = __mpam_part_sel(ris_idx, 0, msc);
->>> +            if (ret)
->>> +                return ret;
->>> +
->>> +            ret = mpam_msc_read_idr(msc, &idr);
->>> +            if (ret)
->>> +                return ret;
->>> +        }
->>>             partid_max = FIELD_GET(MPAMF_IDR_PARTID_MAX, idr);
->>>           pmg_max = FIELD_GET(MPAMF_IDR_PMG_MAX, idr);
->>> @@ -1051,17 +1086,22 @@ static int mpam_msc_hw_probe(struct mpam_msc *msc)
->>>           msc->pmg_max = min(msc->pmg_max, pmg_max);
->>>           msc->has_extd_esr = FIELD_GET(MPAMF_IDR_HAS_EXTD_ESR, idr);
->>>   -        mutex_lock(&mpam_list_lock);
->>> -        ris = mpam_get_or_create_ris(msc, ris_idx);
->>> -        mutex_unlock(&mpam_list_lock);
->>> -        if (IS_ERR(ris))
->>> -            return PTR_ERR(ris);
->>> +        scoped_guard(mutex, &mpam_list_lock) {
->>> +            ris = mpam_get_or_create_ris(msc, ris_idx);
->>> +            if (IS_ERR(ris))
->>> +                return PTR_ERR(ris);
->>> +        }
->>>           ris->idr = idr;
->>>   -        mutex_lock(&msc->part_sel_lock);
->>> -        __mpam_part_sel(ris_idx, 0, msc);
->>> -        mpam_ris_hw_probe(ris);
->>> -        mutex_unlock(&msc->part_sel_lock);
->>> +        scoped_guard(mutex, &msc->part_sel_lock) {
->>> +            ret = __mpam_part_sel(ris_idx, 0, msc);
->>> +            if (ret)
->>> +                return ret;
->>> +
->>> +            ret = mpam_ris_hw_probe(ris);
->>> +            if (ret)
->>> +                return ret;
->>> +        }
->>>       }
->>>         /* Clear any stale errors */
->>> diff --git a/drivers/resctrl/mpam_internal.h b/drivers/resctrl/mpam_internal.h
->>> index def0e3a65c230..68a6cf2b9cc73 100644
->>> --- a/drivers/resctrl/mpam_internal.h
->>> +++ b/drivers/resctrl/mpam_internal.h
->>> @@ -162,6 +162,10 @@ static inline void mpam_mon_sel_lock_init(struct mpam_msc *msc)
->>>       raw_spin_lock_init(&msc->_mon_sel_lock);
->>>   }
->>>   +DEFINE_GUARD(mon_sel, struct mpam_msc *,
->>> +         mpam_mon_sel_lock(_T), mpam_mon_sel_unlock(_T));
->>> +DEFINE_GUARD_COND(mon_sel, _lock, mpam_mon_sel_lock(_T), _RET);
->>> +
->>>   /* Bits for mpam features bitmaps */
->>>   enum mpam_device_features {
->>>       mpam_feat_cpor_part,
->>
-> 
 
+--=20
+Z powa=C5=BCaniem,
+Daniel Pawlik
 
