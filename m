@@ -4,137 +4,119 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9E249CA5FC4
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 30 Sep 2026 18:06:24 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BE0B0CA5FC1
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 30 Sep 2026 18:12:50 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:Cc:To:
-	Subject:Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:CC:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=A2tljZQe1pJVyMmhp6RKg8fyz5hw8tyc6Lb4ejZycFM=; b=0WbXfzL4gR6YbX9oaK9l51OBNR
-	PH2m7CFCpI8HV0vRqQtF6psOZ0TZeuyRXETLesBWfMB5tLhtQZbn5CJAqu1mrr4OZYlTWEOv3CN5R
-	vFBxzYNTdtP4m9B7aLXkY2UT1FY9xgkmBbaS/8tsulAJFggLxWEbgpJm/j5BnBypjVMtLvIXRZqm2
-	Li7AtD2qwsyye6iF7cpdZq+B8/MAkw79qO/ly15QCDpY3g3B3suCnBJhXZpQxKBrblmvbDIEVKLM/
-	MfSnMFH0T0HvdigR/uv/n4ZlT6loHJ9Xry9UbRNGDLHo7LnDGKcvaQQ5GYc71z+sWIvMiOvvhVl+2
-	oYR+OM5w==;
+	bh=MlVNtksnZMNArGISGJluDS8pd/34+GDyaZ64wnMYQmQ=; b=LLitAZSoywOGQ906YvltrQ7ag7
+	JmJ6/FXe6nJ544ZYeTCdx6fummCCsIxnBxRCX8KzyHUSFrylnrdo2dsP/EoPHZ1BiRTF7Ic2emzsJ
+	9DEJYDbGddxPkqsUA+2hRSJ5b5PTtKy/44yMP0cvMOspHfUSRcxq0THnL16YPJ4jyvp+x9BShplKb
+	5bbftVxaQbN4viQhmsGbTnDI/lwuyfv91h9KToB+Xe2PMOJftM5yzHOfVV+53I3wPcmo4o+LES60m
+	m8fkfxu5ao7EZegKHQjeaVekg9peqkkcl6GuTVKdBIXAxMObNF8Gslscs69X/sJoB9K0IuTJHpL7v
+	g76musxw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xByh2-00000006w2S-1HZY;
-	Wed, 30 Sep 2026 18:06:13 +0000
-Received: from mail-westeuropeazon11013044.outbound.protection.outlook.com ([52.101.72.44] helo=AM0PR02CU008.outbound.protection.outlook.com)
+	id 1xBynL-00000006wc1-0TZs;
+	Wed, 30 Sep 2026 18:12:43 +0000
+Received: from mail-westus3azon11010020.outbound.protection.outlook.com ([52.101.201.20] helo=PH7PR06CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xBygy-00000006w1F-1UiM;
-	Wed, 30 Sep 2026 18:06:10 +0000
+	id 1xBynH-00000006wbB-1HPj
+	for linux-arm-kernel@lists.infradead.org;
+	Wed, 30 Sep 2026 18:12:41 +0000
 ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=e6qPbukoFHOzOK2JpkC8s/jnllU205YWnk7FGGs6aIIaNqem87pH9pLXI5IroN/1C87c3C967V6IZnhuLHR/e81bwkd9L8yht3u/BqGnmZtLTwnf/S48O2LBWQ5m1Dbuhqtu1ojtmw+NkGN21QchY8fZckpyVaewHoVLTbufycVcFQJ6oNTFB+DQVfpIGocwQUZIOpWS4ri/udKe39B26/0zbY0xSGo0rf7sht1FAXBNmN2hAREqpQvR4MUm7q2jIKi6UfLfOXtkvIPgf3V/IZm/S8N7oXMO9YOxYt5IR8A+lf9jEGwf6IWaUMerwIuU7FNP1Pgz6Q9JiMgfUnKYeg==
+ b=wt050UO68/gnObmRp0lKIjMrFTFugswaOczqNP9HhZZ6R6xdb9vZ/4huCAOdvhjTZTOkMHZ2siK2XkhF3iUZ7SdKzyL7XgGIMPm7scHUzkba6Get32JP8jOojyo1YP7HFjjY1OaX8QurSj1XimvlZcW5ytJVmjEIxQ4RPQhvcin8SRqJW9xJTeGcpWqWkRLtbmpRHASdOL7zJEEbIb8oJZH8hM/1zNlfjJyoy+iGMKxt4Y0GYuTPDYeuWpLmkvx4uNl8yoNc7/K/wgo5EXkne4M+l9rxkqNvK5uDKHhHC6v0XFEuwlvau+7Y7ypQuNQb0GnKADjEQcCxnG0BjsNLmw==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
  s=arcselector10001;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=A2tljZQe1pJVyMmhp6RKg8fyz5hw8tyc6Lb4ejZycFM=;
- b=UVX1MFdgGofUC2QuwcjHwkVxu++9ukR677+7NZuA5WhRcKVootDsKqlqrlRmrgNtp+iePLyGxxlTLjEpzlr1yFO4JgATF87vepQ0RdCTkDCY/WHinaCiJVD6oDIjsNQUmX6pDnKJ++1zfJbBfusWnfap4Gb/uukE40N0zy+hGqdiKwF3Ecvg3jGOHR2djGRChtY0Llhb2Tv8ccpmPFVi//bBCB8i6qIpXl6hujG0WsJgowijM4CvEao1t0E0PzcofdvjCmBvZP5xzSBx6WJ/FNmaw29e3DEKgyqbhHgJPdOCcnp55v3MENdA41bYi42sBXIsiwEopFq6/Edxafq03A==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=cherry.de; dmarc=pass action=none header.from=cherry.de;
- dkim=pass header.d=cherry.de; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=cherry.de;
- s=selector1;
+ bh=MlVNtksnZMNArGISGJluDS8pd/34+GDyaZ64wnMYQmQ=;
+ b=iY/R5TABeiw5wDF/ILP7ezavocuQdL4RKN13L8/u2CaZfNY4Iwzo39JbNPuHbIbmX89QgSftrbh8fSDUhhK28wqZGNJDFrYMa8vWsdMsrVqo6r/kFfw80wYLilI2a1KQ1sOIDDFF+d1pZJ9d2VXZrgqOZnr9oGXiO6UMQ7qOHY7ZSC3ZWeAOOIyx4nMfD1uTlGUPx4TTSpH7wOOXSea8sfqUhIoxZdUxX8NmnqoEpi+ZAzNiXZtF5ykDw99u1wdcUGAVYAypMb4kcs3ilUNmVY5MJASZyIswABLSTwBHxMC3DSIk2E0PQy+eFRXJjDmfUZxuI37K9QSk55PaKauHYA==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
+ 216.228.117.161) smtp.rcpttodomain=oss.nxp.com smtp.mailfrom=nvidia.com;
+ dmarc=pass (p=reject sp=reject pct=100) action=none header.from=nvidia.com;
+ dkim=none (message not signed); arc=none (0)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
+ s=selector2;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=A2tljZQe1pJVyMmhp6RKg8fyz5hw8tyc6Lb4ejZycFM=;
- b=LGdLEsdUbU9fjbUj+vM7+dBoUZ1wYC7/Wm+XleBN6Q24mHOAMJlZIbdlmY6Ou3PhtUS4kshMVb8+zp4jw/q6FDzouExGHuyDp5tag+b/WHuDV7w+syS4SIt8hGaEALTyJhDSVtYxi4nD/WI09GaQVO+47nsOQqt9MyTrCkyY2ac=
-Authentication-Results: mx.microsoft.com 1; dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=cherry.de;
-Received: from PA3PR04MB11153.eurprd04.prod.outlook.com (2603:10a6:102:4ab::7)
- by GVXPR04MB10111.eurprd04.prod.outlook.com (2603:10a6:150:1b1::19) with
+ bh=MlVNtksnZMNArGISGJluDS8pd/34+GDyaZ64wnMYQmQ=;
+ b=DDe2ahDRuh/aWnAPVhoYefHVM8hj8/HoO+SAwVAlU9AL76hRA+8t1Cu8FusGmW3au2MplpC60VqvbZ2nqvETVECufOC1Fqntt/46+FgU5OqPyGEEU85L81i1YpIVykBu8Nq8WZd2WfdjZPYEoQTRVmTW4z6FNE/2xqTjs7mFBGy0jvd+2gXkPx/wyPYoAEZE+qcHZmxkSddAyT5aJ83y8SVouw41xHXLDyyF2Pr19kF2GrfeRQF3sHtmqNGDe6bSY1JLwN+J5hND04XI0h6JhXUbs+faXqGCl0gkAXpCq41Zx00c055iHwFH/wParYEt0498sn53k8IwafskakasWA==
+Received: from CH2PR19CA0001.namprd19.prod.outlook.com (2603:10b6:610:4d::11)
+ by IA1PR12MB8357.namprd12.prod.outlook.com (2603:10b6:208:3ff::13) with
  Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.472.15; Wed, 30 Sep
- 2026 18:05:57 +0000
-Received: from PA3PR04MB11153.eurprd04.prod.outlook.com
- ([fe80::6b02:c0eb:95a4:3c3d]) by PA3PR04MB11153.eurprd04.prod.outlook.com
- ([fe80::6b02:c0eb:95a4:3c3d%5]) with mapi id 15.21.0451.022; Wed, 30 Sep 2026
- 18:05:55 +0000
-Message-ID: <8ade7dc5-1292-4bad-8148-0bb48963b045@cherry.de>
-Date: Wed, 30 Sep 2026 20:05:54 +0200
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v5 2/2] arm64: dts: rockchip: add RK3588 DP carrier from
- Theobroma Systems
-To: Heiko Stuebner <heiko@sntech.de>
-Cc: robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org,
- devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-rockchip@lists.infradead.org, linux-kernel@vger.kernel.org,
- damon.ding@rock-chips.com, Heiko Stuebner <heiko.stuebner@cherry.de>
-References: <20260930162545.2357505-1-heiko@sntech.de>
- <20260930162545.2357505-3-heiko@sntech.de>
-Content-Language: en-US
-From: Quentin Schulz <quentin.schulz@cherry.de>
-In-Reply-To: <20260930162545.2357505-3-heiko@sntech.de>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
-X-ClientProxiedBy: VI1PR09CA0157.eurprd09.prod.outlook.com
- (2603:10a6:800:120::11) To PA3PR04MB11153.eurprd04.prod.outlook.com
- (2603:10a6:102:4ab::7)
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.472.16; Wed, 30 Sep
+ 2026 18:12:24 +0000
+Received: from CH3PEPF00000009.namprd04.prod.outlook.com
+ (2603:10b6:610:4d:cafe::66) by CH2PR19CA0001.outlook.office365.com
+ (2603:10b6:610:4d::11) with Microsoft SMTP Server (version=TLS1_3,
+ cipher=TLS_AES_256_GCM_SHA384) id 15.21.472.16 via Frontend Transport; Wed,
+ 30 Sep 2026 18:12:24 +0000
+X-MS-Exchange-Authentication-Results: mx.microsoft.com 1; spf=pass (sender IP
+ is 216.228.117.161) smtp.mailfrom=nvidia.com; dkim=none (message not signed)
+ header.d=none;dmarc=pass action=none header.from=nvidia.com;
+Received-SPF: Pass (protection.outlook.com: domain of nvidia.com designates
+ 216.228.117.161 as permitted sender) receiver=protection.outlook.com;
+ client-ip=216.228.117.161; helo=mail.nvidia.com; pr=C
+Received: from mail.nvidia.com (216.228.117.161) by
+ CH3PEPF00000009.mail.protection.outlook.com (10.167.244.36) with Microsoft
+ SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.21.472.14 via Frontend Transport; Wed, 30 Sep 2026 18:12:24 +0000
+Received: from rnnvmail201.nvidia.com (10.129.68.8) by mail.nvidia.com
+ (10.129.200.67) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.49; Wed, 30 Sep
+ 2026 11:11:56 -0700
+Received: from rnnvmail204.nvidia.com (10.129.68.6) by rnnvmail201.nvidia.com
+ (10.129.68.8) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.49; Wed, 30 Sep
+ 2026 11:11:56 -0700
+Received: from nvidia.com (10.127.8.11) by mail.nvidia.com (10.129.68.6) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.49 via Frontend
+ Transport; Wed, 30 Sep 2026 11:11:54 -0700
+Date: Wed, 30 Sep 2026 11:11:51 -0700
+From: Nicolin Chen <nicolinc@nvidia.com>
+To: "Peng Fan (OSS)" <peng.fan@oss.nxp.com>
+CC: Will Deacon <will@kernel.org>, Robin Murphy <robin.murphy@arm.com>, "Joerg
+ Roedel (AMD)" <joro@8bytes.org>, Jean-Philippe Brucker <jpb@kernel.org>,
+	Jason Gunthorpe <jgg@ziepe.ca>, <linux-arm-kernel@lists.infradead.org>,
+	<iommu@lists.linux.dev>, <linux-kernel@vger.kernel.org>, Peng Fan
+	<peng.fan@nxp.com>
+Subject: Re: [PATCH RFC v3 1/3] iommu/arm-smmu-v3: Support shared SIDs in
+ insert/remove_master
+Message-ID: <ar1Q5y/xoa+Fcex7@nvidia.com>
+References: <20260930-smmu-shared-sid-v3-0-8abe6c1b4c20@nxp.com>
+ <20260930-smmu-shared-sid-v3-1-8abe6c1b4c20@nxp.com>
 MIME-Version: 1.0
+Content-Type: text/plain; charset="us-ascii"
+Content-Disposition: inline
+In-Reply-To: <20260930-smmu-shared-sid-v3-1-8abe6c1b4c20@nxp.com>
+X-NV-OnPremToCloud: ExternallySecured
+X-EOPAttributedMessage: 0
 X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: PA3PR04MB11153:EE_|GVXPR04MB10111:EE_
-X-MS-Office365-Filtering-Correlation-Id: 79abae8c-e0f8-415b-cd53-08df1f1d790a
+X-MS-TrafficTypeDiagnostic: CH3PEPF00000009:EE_|IA1PR12MB8357:EE_
+X-MS-Office365-Filtering-Correlation-Id: 1d3355d9-241c-4d3d-891c-08df1f1e60b5
 X-MS-Exchange-SenderADCheck: 1
 X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|23010399003|1800799024|366016|376014|56012099006|4143699003|11063799006|10067099003|22082099003|18002099003|3023799007;
-X-Microsoft-Antispam-Message-Info: BB8KZOTOd/WqvV9I1yGEtkaFs0RaFkH/oj3M7uEcaYCbDt/NOmAKMKyQ9iVCLJuIBqyR/5N7/0Nf7uumWSNSOukENebkRbhKm4HIgH285K7j47wfVtJbfamu6aibJaL1edD8HCIT7xMpFMC5tTVe6DJLpuJeMRqkgpQ4nr7VPorg7vtfmlDzt7+X5SmpmSKPweMXKauHKWvViQlMbU/groVEqMW0xUhfkuwwCRYcQYI5J+47ESWpeR/3lR1ScIIjAlrEeGTIj6l7az0b3Ds7afF9Cx8/yoR0MqxEanTB2x5alZWozxx4B5x1ah+kUHdSwGKgXTm30CKgmlFrBcW/+GMBw9THEWg9z5d/l21ePO6W57UpuwCjJBjt48XjsCrW/8YE3SZrxMzrkbaV8zAwq0kn7S2LKHzFerdsMTaCZJxSdzNyi6gHI9utfFgry8I45RdPbkJQx3tqg7giCrPd2EyGDpymSSnsMv7+EdUpjbdXpesCUoFfs6HgZ3LDZBm/VoMjFFFGzo80vtfyNc8fKvZciuCKVrJMEJQm7/VaRSjPJnl3VTPx2j5CItEtNi5oyUKZ+VSJmdVrLygxjDYd8LgtCWozfqvXMC+YeNwRYPOCgzKLCQwhSJIJ2C4ht1noPQxtQoBPxgdlVGeeAEVHsGMqJ8rmFPCrQpCc11Xr1TM=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PA3PR04MB11153.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(23010399003)(1800799024)(366016)(376014)(56012099006)(4143699003)(11063799006)(10067099003)(22082099003)(18002099003)(3023799007);DIR:OUT;SFP:1101;
+X-Microsoft-Antispam: BCL:0;ARA:13230040|36860700016|23010399003|82310400026|1800799024|376014|7416014|20046099003|22082099003|18002099003|13003099007|4143699003|11063799006|10067099003|56012099006;
+X-Microsoft-Antispam-Message-Info: aeyoFC8LSfb2vB38aEDOac5dzJUU8yM+nPgJBiQZdqq4GmYVllbNhUO60wZpSNPNc3nNvBkEr1R72DhdPqeBi9fY5bJHkpDLZXJB0tFEOeW1/uPlaFH18B+FhC1uYkAZPlvS/hqB2HZGT0feu7BVjizt/z2ful5aX309Z8mz/8cYqqFK5+D+d1OTGfC+M17ZeYOijk+6jSASyS0irF9p+JlXsR+kAmsgoFNGFgSzEgnC2CuxlOLDK19cBd2BPh8Js5hBigA8n89ERha/0gnzaVO2c5hIGr+16ScrbcjsCSKQW928AGJyJoEaPIOLXYHcH2Fmr5cDbrAo/U+CaPUFe3/Rlfk4KLZI2FSUL1zMo/owdJuLhVFozK9KshvEkkINcOIM/iIKi6E/6gowoNpm1NfBJkH7fGC+++CLbBN9oV0bqTin9aKWXIAeCAkzoZsjGsr3KpfPmqF3xmxh0mXDGgEh99zYuUWupbwI8MpXqlOG0TriV5GF+64jCdFnzT8CBuI+mvfBNtFBRy36IHWPiIpdfR+Qr7fHsQOLw4RzmCqh+9PAQk3zakPme8FyXn7QH9zQHg3w4Rpix23907L7Ew5a/xzoYAm6OvztNPD08X+Mz2vDF27qrsiwjO4UKqdFbp96wCoKgBu5m4dVXRYNhiHCWT9D2QWOMohpXboc49EIPqfLqQUpmp0RYgtU+wdLg97l8+HSBgN3s0iKH/EVmQ==
+X-Forefront-Antispam-Report: CIP:216.228.117.161;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:mail.nvidia.com;PTR:dc6edge2.nvidia.com;CAT:NONE;SFS:(13230040)(36860700016)(23010399003)(82310400026)(1800799024)(376014)(7416014)(20046099003)(22082099003)(18002099003)(13003099007)(4143699003)(11063799006)(10067099003)(56012099006);DIR:OUT;SFP:1101;
 X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?eDVIbk1sZFZIV2p2eVQxU1U4c2xPd2k4RC8zTEZ4eE5NSVV5am9RaXpXOVlM?=
- =?utf-8?B?Z1ljbFFyMmFyWGhYOHVWczRRYVRVSGI0NFI5dFUra3JyWjRoVmlDNnp5Ykdp?=
- =?utf-8?B?MVZnaW5uRXZwZkJhakpjb0FIbG1URFRuRDR4aVJZRzVGMGlHYkxUSnNPemV2?=
- =?utf-8?B?TGNsSktYcHpkL3F2K3B1cFpBbjc2cnZEUkdkd1dJZEpZN21peTVrSEdNTkR2?=
- =?utf-8?B?cTJrMmJFK3ZydzJEMjlOOWV2TzIxZGdwSUk4K01jZ21vaEU1REdmN2g2TVdx?=
- =?utf-8?B?cllRbUM4cjBTVVlGcnRkTkF5Z1hFREd4MjRTS0Fzak9EQkU4Nkt1dzN3a1Iv?=
- =?utf-8?B?YnZlZ0RzQkh6Y3BiTmZuaGhrblVTRFhBMDI3OVBlK3AwQjl3T2R6aHpScnJz?=
- =?utf-8?B?QmNEcFl0K2tmbEd2dU8rN2tHRlQ4TURneGsrejc2MmdLMHJoYnlDTlFCcmtY?=
- =?utf-8?B?QnNVME5UMWxkQ3NzMW5XZzI3Tld5RkdZN3IzVFgreE1vRy9HQlVmeTk1cElD?=
- =?utf-8?B?QnJvL3hZN1d6ZmsxUjJLWmpZQ0NaRTUxWklVUDBOSGZJN29jSjU5bVVZL2lM?=
- =?utf-8?B?aG5jallPQ29MZjlpRVUyMXlFQzVZTjZxb00zVG1ibW5lVk5DNy84TzQxT29C?=
- =?utf-8?B?cFhxd01STXo3b3dCNy9oN2JCSXFyaHMxZWRRSE02UFZEdUFUSVI3aTFVb3Nv?=
- =?utf-8?B?dXpvcG9YMTJ1TXpsZ3BQZWhkMDFYUk9rc3lZOXRkcTlTYW1ZbkcxNCtzRnda?=
- =?utf-8?B?aUZtbkFuMFF5c3FNaDJrRUR1WHBaWjBPaFlKbEx2eVd2SEhtZG10N3BrZ1BQ?=
- =?utf-8?B?YlhzSFE1enQwYWlJWTZMYjQra0ZxdkJ6SURwVTFsUVRPRi9xa3FSZVR6dkRa?=
- =?utf-8?B?UnNVUFpCZFl1ckUxcXptam13TEtXcXpkZDRpajZxK1dtRFhxUHpidnovMTA3?=
- =?utf-8?B?b3ZNOUpXaFgvQ21SNzJ6YWZTOGF1KzduV1dOeEhSbnRBaTBpeE05VXNSNjZa?=
- =?utf-8?B?SWt3dVZJcE1wd1gxUDBDeE0yakFGdTN5TW4zZGhUUDhYcjM4a1ZieTdlVDd0?=
- =?utf-8?B?Zm9JOFJ4QVZ4cCtjN0I1OVNiYTFGSUZyMHZ3c0xuazdiMjRMd2twaU93Yzd4?=
- =?utf-8?B?bmhFTEN4NE05T3YrS3lJMERreUM4aXQ0a3h2bTJJU1g0aFBFcUpQUE5mMGt4?=
- =?utf-8?B?TkFVbDBUUVpIMDFLUDB4Q1FyK2VhdTVFT0xNbG1VQ3dLdjV3YXkyVEdVb2xT?=
- =?utf-8?B?dDhVOXppaVFRNFF2bWI5MzQrSnVJY2QzSTFUZENXT1M4S0lIN0FxUzdmQXNi?=
- =?utf-8?B?S1d0YXp0T1VWdTNydmk4T21HOUJLMTFOZURxVzRhUVZRNHUwSXNQRWhCWm5J?=
- =?utf-8?B?OElzUlVZblNaZHNycU5xTWhkdGlQcWFwSERicE5YZWEzc2loOU1BRUcveGRp?=
- =?utf-8?B?dzdNcmRzdkJuVUJrLzlScGFCUU5pOCtkSEZOQXBBb3ptTUM4NE9kaElzbHJ3?=
- =?utf-8?B?cllQa3QzaDZZMkk2MU85Kzg1WWRQS2R1ck40TGZ1dkY4THo2aStyRDVrR2NR?=
- =?utf-8?B?NTNod2NzaEtLeUoyc0RuK0xRdWV3c1Vjd0s4SHdJT25lUGdhbEN0bXl0Z0sx?=
- =?utf-8?B?aVJjbFk0VThJbVNGRU93WlhKNUdIU2g2dzlGTndmempidHdISUNXcy9CR0VG?=
- =?utf-8?B?bjk5VEVJa0FpL3FlTmRTbS9oTjczYVdweU5VMTJ1UHlzV3FpVXBaNFNDb1FV?=
- =?utf-8?B?YWxjK3NKQnNmWlZ3b0NzNEFMRHV6aHVadzBFdENxSGVKdEtVcEpXZTlzbHVD?=
- =?utf-8?B?dTBvL1dSSjc5WnlDczhTSG9BT1pJWG1hOGVSM04vZ3g2ek1DMVg4N1liT0Jp?=
- =?utf-8?B?eDdFZ2J4UFBzYkYyUXdBNVpOek9VNkJHT3hNNUxKVEVUUUtOUTVjM2NpMnU3?=
- =?utf-8?B?VzRUOE1mU0trb0tLb3JQZE82ditPSlZ0c2FGTVRkQklBbWlqcnJRMUdTWUdx?=
- =?utf-8?B?SHRaemdkRHFSWEhIWlB4TWVVV2ZXOVBKbmxaaHlHd2hMOU1rNk8rUjBudEtO?=
- =?utf-8?B?RGtTNHpNSXpkVFRUcDdBa04yRGsrdWhKWG1VekdwenFmNWtBd1Z3VTlzalB6?=
- =?utf-8?B?RmR0N3pKMUh3VG9pamJ3UjFxUlJ2WW5NQTZEMjZGeER4bGN5M1JLcC9uWEdO?=
- =?utf-8?B?RFNGeE5nMGxjbjdJNWVPLzQrbzBUb3pqQ2NINmRxWmJYZnI4RmpvOUhVUGtv?=
- =?utf-8?B?YjBnS2hLbEN4RXRTUDd3T1FYaE0vWTYrTThLaXNSRjJsTHJkUHZlZnhQVVJI?=
- =?utf-8?B?NG1aSnJpNjZXcGM4OGpYQm8yeVI4VTBxOWdVL2ZSaTFkSE9iclRGdz09?=
-X-OriginatorOrg: cherry.de
-X-MS-Exchange-CrossTenant-Network-Message-Id: 79abae8c-e0f8-415b-cd53-08df1f1d790a
-X-MS-Exchange-CrossTenant-AuthSource: PA3PR04MB11153.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 30 Sep 2026 18:05:55.6632
+X-MS-Exchange-AntiSpam-MessageData-0: Zk4Trw0nlEichuXutExvHrHqogIA160jyyfVRj+kfVW51xRRsAQPn5ZrukT6OyOELhR5Ag4/Is/YTDBRWxhiO+PiaAEpCRGmvN+dsb0bmyDvyvYLShq5Jpfr3YOhg8VNg9xrwPCjT6HMUTBoacmidMq1J7yGMyNMHFELc7BgYyDXsUJycnGS4nTAlGkyi1ZYO0bFZJKswWNj5IZmtooacJM0fzUhAfxJ2wyBrnfsw1eGiLTeoArpBJCmL6v78/4pxXbhCb6nwm1ByWCofrALTuU23vGZkiF0OH0YWEXUCCQUXm3dP14yyAq8NE3cx3um6IeLhAsbnoOdgxFnQJlXz6qVQLCM3N6nnxW5aRwEI75PIycRXXypjKhw/Li0HbZkxWngXDBEvK7FD+Wqkmles1qtmV1kxNj6eBvZVh1WfXwCVkM1kxXbo+X3jqO0Q16R
+X-OriginatorOrg: Nvidia.com
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 30 Sep 2026 18:12:24.0236
  (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 5e0e1b52-21b5-4e7b-83bb-514ec460677e
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: WzJNjS4pCwPXPNYuwJ462Q6ud2yxgvwQZuFA6uD1K53+a7hvPc4uj3BLnM0O7FwDHGaUGmSbnwnn7dE10uEkIWzoljU6xVxPjT+u6Xr+eOQ=
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: GVXPR04MB10111
+X-MS-Exchange-CrossTenant-Network-Message-Id: 1d3355d9-241c-4d3d-891c-08df1f1e60b5
+X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
+X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=43083d15-7273-40c1-b7db-39efd9ccc17a;Ip=[216.228.117.161];Helo=[mail.nvidia.com]
+X-MS-Exchange-CrossTenant-AuthSource: CH3PEPF00000009.namprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Anonymous
+X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: IA1PR12MB8357
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260930_110608_504107_BE54C5AB 
-X-CRM114-Status: GOOD (  23.88  )
+X-CRM114-CacheID: sfid-20260930_111239_351998_1EFCF16E 
+X-CRM114-Status: GOOD (  20.45  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -149,161 +131,137 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Heiko,
+On Wed, Sep 30, 2026 at 07:25:01PM +0800, Peng Fan (OSS) wrote:
+> @@ -4115,7 +4128,10 @@ static int arm_smmu_insert_master(struct arm_smmu_device *smmu,
+>  
+>  		new_stream->id = fwspec->ids[i];
+>  		new_stream->master = master;
+> +		new_stream->ste_installed = false;
 
-On 9/30/26 6:25 PM, Heiko Stuebner wrote:
-> From: Heiko Stuebner <heiko.stuebner@cherry.de>
-> 
-> The DisplayPort carrier is a very simple baseboard only providing serial,
-> ethernet and a displayport output.
-> 
-> But its main functionality is that it routes the Analogix eDP controller
-> to this DisplayPort output, which allows to test that controller simply
-> by hooking it up to a suitable monitor.
-> 
-> The Analogix-DP controller supports eDP 1.3 and DP 1.2, so can drive
-> both eDP displays as well as full DP monitors. It does not support DP+
-> so passive DP-to-HDMI adapters won't work.
-> 
-> Signed-off-by: Heiko Stuebner <heiko.stuebner@cherry.de>
-> ---
->   arch/arm64/boot/dts/rockchip/Makefile         |   1 +
->   .../rk3588-tiger-displayport-carrier.dts      | 113 ++++++++++++++++++
->   2 files changed, 114 insertions(+)
->   create mode 100644 arch/arm64/boot/dts/rockchip/rk3588-tiger-displayport-carrier.dts
-> 
-> diff --git a/arch/arm64/boot/dts/rockchip/Makefile b/arch/arm64/boot/dts/rockchip/Makefile
-> index 2edc9c0aceb5..bf80afba2351 100644
-> --- a/arch/arm64/boot/dts/rockchip/Makefile
-> +++ b/arch/arm64/boot/dts/rockchip/Makefile
-> @@ -217,6 +217,7 @@ dtb-$(CONFIG_ARCH_ROCKCHIP) += rk3588-rock-5b-plus.dtb
->   dtb-$(CONFIG_ARCH_ROCKCHIP) += rk3588-rock-5b-plus-radxa-cam4k-cam0.dtbo
->   dtb-$(CONFIG_ARCH_ROCKCHIP) += rk3588-rock-5b-plus-radxa-cam4k-cam1.dtbo
->   dtb-$(CONFIG_ARCH_ROCKCHIP) += rk3588-rock-5t.dtb
-> +dtb-$(CONFIG_ARCH_ROCKCHIP) += rk3588-tiger-displayport-carrier.dtb
->   dtb-$(CONFIG_ARCH_ROCKCHIP) += rk3588-tiger-haikou.dtb
->   dtb-$(CONFIG_ARCH_ROCKCHIP) += rk3588-tiger-haikou-video-demo.dtbo
->   dtb-$(CONFIG_ARCH_ROCKCHIP) += rk3588-toybrick-x0.dtb
-> diff --git a/arch/arm64/boot/dts/rockchip/rk3588-tiger-displayport-carrier.dts b/arch/arm64/boot/dts/rockchip/rk3588-tiger-displayport-carrier.dts
-> new file mode 100644
-> index 000000000000..f6e95047fd5f
-> --- /dev/null
-> +++ b/arch/arm64/boot/dts/rockchip/rk3588-tiger-displayport-carrier.dts
-> @@ -0,0 +1,113 @@
-> +// SPDX-License-Identifier: (GPL-2.0+ OR MIT)
-> +/*
-> + * Copyright (c) 2024 Cherry Embedded Solutions GmbH
-> + */
-> +
-> +/dts-v1/;
-> +#include <dt-bindings/soc/rockchip,vop2.h>
-> +#include "rk3588-tiger.dtsi"
-> +
-> +/ {
-> +	model = "Theobroma Systems RK3588-Q7 SoM on Tiger Displayport Carrier v1";
-> +	compatible = "tsd,rk3588-tiger-displayport-carrier", "tsd,rk3588-tiger", "rockchip,rk3588";
-> +
-> +	aliases {
-> +		ethernet0 = &gmac0;
-> +	};
-> +
-> +	chosen {
-> +		stdout-path = "serial2:115200n8";
-> +	};
-> +
-> +	dp-connector {
-> +		compatible = "dp-connector";
-> +		dp-pwr-supply = <&vcc3v3_baseboard>;
-> +		/* Q7_DP_HPD# but Q7_HDMI_HPD# could be used too */
+ste_installed is zero-ed.
 
-Yes, but I believe the signal would then be active high instead 
-(Q7_HDMI_HPD# as seen on Q7 golden fingers is inverted before reaching 
-the SoC pin while Q7_DP_HPD# is directly routed to the SoC pin).
+> @@ -4136,23 +4152,29 @@ static int arm_smmu_insert_master(struct arm_smmu_device *smmu,
+>  		existing = rb_find_add(&new_stream->node, &smmu->streams,
+>  				       arm_smmu_streams_cmp_node);
+>  		if (existing) {
+> -			struct arm_smmu_master *existing_master =
+> -				rb_entry(existing, struct arm_smmu_stream, node)
+> -					->master;
+> +			struct arm_smmu_stream *existing_stream =
+> +				rb_entry(existing, struct arm_smmu_stream, node);
+>  
+>  			/* Bridged PCI devices may end up with duplicated IDs */
+> -			if (existing_master == master)
+> +			if (existing_stream->master == master)
+>  				continue;
+>  
+> -			dev_warn(master->dev,
+> -				 "Aliasing StreamID 0x%x (from %s) unsupported, expect DMA to be broken\n",
+> -				 sid, dev_name(existing_master->dev));
+> -			ret = -ENODEV;
+> -			break;
+> +			if (master->num_streams != 1) {
+> +				dev_warn(master->dev,
+> +					 "Shared StreamID 0x%x not supported for multi-SID masters\n",
+> +					 sid);
+> +				ret = -ENODEV;
+> +				break;
+> +			}
+> +
+> +			list_add_tail(&master->shared_masters_elm,
+> +				      &existing_stream->shared_masters);
 
-> +		hpd-gpios = <&gpio4 RK_PB5 GPIO_ACTIVE_LOW>;
-> +		label = "dp0";
+This version still uses the duplicated stream structures, not the
+shared stream structure that I pointed out here:
+https://lore.kernel.org/linux-iommu/arG6hmng3NddGEHm@nvidia.com/
+?
 
-Is this required? (Not according to my reading of the DT binding) 
-Because I don't see DP0 (or dp0) written on the board (nor in the 
-schematics where it's marked (on board and schematics) as P2). Not a 
-biggie in any case.
+This will have problems.
 
-> +		pinctrl-0 = <&edp0_hpd_l>;
-> +		pinctrl-names = "default";
-> +		type = "full-size";
-> +
-> +		port {
-> +			dp_con_in: endpoint {
-> +				remote-endpoint = <&edp0_out_con>;
-> +			};
-> +		};
-> +	};
-> +
-> +	vcc3v3_baseboard: regulator-vcc3v3-baseboard {
-> +		compatible = "regulator-fixed";
-> +		regulator-name = "vcc3v3_baseboard";
-> +		regulator-always-on;
-> +		regulator-boot-on;
-> +		regulator-min-microvolt = <3300000>;
-> +		regulator-max-microvolt = <3300000>;
-> +		vin-supply = <&vcc5v0_baseboard>;
-> +	};
-> +
-> +	vcc5v0_baseboard: regulator-vcc5v0-baseboard {
-> +		compatible = "regulator-fixed";
-> +		regulator-name = "vcc5v0_baseboard";
-> +		regulator-always-on;
-> +		regulator-boot-on;
-> +		regulator-min-microvolt = <5000000>;
-> +		regulator-max-microvolt = <5000000>;
-> +	};
-> +};
-> +
-> +&edp0 {
-> +	status = "okay";
-> +};
-> +
-> +&edp0_in {
-> +	edp0_in_vp2: endpoint {
-> +		remote-endpoint = <&vp2_out_edp0>;
-> +	};
-> +};
-> +
-> +&edp0_out {
-> +	edp0_out_con: endpoint {
-> +		remote-endpoint = <&dp_con_in>;
-> +	};
-> +};
-> +
-> +&gmac0 {
-> +	status = "okay";
-> +};
-> +
-> +&hdptxphy0 {
-> +	status = "okay";
-> +};
-> +
-> +&mmu600_pcie {
-> +	status = "disabled";
-> +};
-> +
-> +&pinctrl {
-> +	edp0 {
-> +		edp0_hpd_l: edp0-hpd-l-pin {
-> +			rockchip,pins = <4 RK_PB5 RK_FUNC_GPIO &pcfg_pull_up>;
+  master_b->stream[0] --> new shared stream (SID=X) {shared_masters}
+           |
+           ---------------- shared_masters_elm ----------|
+                                                         v
+  master_a->stream[0] --> existing stream (SID=X) {shared_masters}
+           |
+           ---------------- shared_masters_elm -----> {NULL}
 
-I believe we could also use pcfg_pull_none as we have an external 
-pull-up on the carrierboard with R15 but it doesn't matter much I think :)
+First, the owner (master_a) doesn't add its shared_masters_elm to
+any shared_masters list. This would fail the test on the owner:
+    !list_empty(&master->shared_masters_elm)
 
-> +		};
-> +	};
-> +};
+Then, ...
+
+> @@ -4167,14 +4189,38 @@ static void arm_smmu_remove_master(struct arm_smmu_master *master)
+>  {
+>  	int i;
+>  	struct arm_smmu_device *smmu = master->smmu;
+> -	struct iommu_fwspec *fwspec = dev_iommu_fwspec_get(master->dev);
+>  
+>  	if (!smmu || !master->streams)
+>  		return;
+>  
+>  	mutex_lock(&smmu->streams_mutex);
+> -	for (i = 0; i < fwspec->num_ids; i++)
+> -		rb_erase(&master->streams[i].node, &smmu->streams);
+> +	list_del_init(&master->shared_masters_elm);
+> +	for (i = 0; i < master->num_streams; i++) {
+> +		u32 sid = master->streams[i].id;
+> +		struct arm_smmu_stream *stream;
 > +
-> +&uart2 {
-> +	pinctrl-0 = <&uart2m2_xfer>;
+> +		if (i > 0 && master->streams[i - 1].id == sid)
+> +			continue;
+> +
+> +		stream = arm_smmu_find_stream(smmu, sid);
+> +		if (!stream)
+> +			continue;
+> +
+> +		if (stream->master != master)
+> +			continue;
+> +
+> +		if (list_empty(&stream->shared_masters)) {
+> +			rb_erase(&stream->node, &smmu->streams);
+> +		} else {
+> +			struct arm_smmu_master *next;
+> +
+> +			next = list_first_entry(&stream->shared_masters,
+> +					struct arm_smmu_master,
+> +					shared_masters_elm);
+> +			list_del_init(&next->shared_masters_elm);
+> +			stream->master = next;
+> +		}
+> +	}
+>  	mutex_unlock(&smmu->streams_mutex);
+>  
+>  	kfree(master->streams);
 
-This property is already in rk3588-tiger.dtsi so you can remove it here.
+.. when the owner stream gets freed with the master_a, the shared
+stream would UAF:
 
-Cheers,
-Quentin
+  master_b->stream[0] --> new shared stream (SID=X) {shared_masters}
+           |
+           ---------------- shared_masters_elm ----------|
+                                                         v
+                                                      {freed}
+
+This should be changed to the model that I suggested in v2:
+
+      |---------------------------------------------------------|
+      |                                                         |
+      |     |----------- shared_masters_elm --------|           |
+      v     |                                       |           |
+  master_a->stream[0] --|                           v           |
+                        |--> stream (SID=X) {shared_masters; master;}
+  master_b->stream[0] --|                           ^
+            |                                       |
+            |----------- shared_masters_elm --------|
+
+When any master is removed:
+ * Delink its shared_masters_elm
+ * Free the shared stream when its shared_masters is empty
+
+If shared_masters isn't empty but the owner is removed:
+ * Give the ownership (stream->master pointer) to the next master
+
+Nicolin
 
