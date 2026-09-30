@@ -4,85 +4,73 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 55EB7CA5FC5
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 30 Sep 2026 14:53:03 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0AC3BCA5FCD
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 30 Sep 2026 14:53:04 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=UhAtJfHaHtYaOU+oIY0SPZU9mOxMhuThiOOTuvPUlOE=; b=0+pXTQbkMvz/lv5eCPtDJvYfoE
-	0LY6Js5EVomelMzr2gkjSqiy6M5iUAmJWGKXq7F/5Nx/AizSm8c/RczkKGDbC+57opIKBxLGglqmx
-	CB1pG3Yebu9CKmpcTGrU7mrB9HySIYXN4almwFtwLZ6vggwMjkdtpnAASeTwua/GyNwifaiZoLfQ/
-	sjdcsxHJXLXkuXtwRRwQNoUodAsdEEUAO8fR6C1faQAjauSyCQjp2mbUxLx+txlF+IUAab11+BkX6
-	GiF06JA/6j58BUdwrH4gBcO6oTFOXwA2qCZHhs3f6yTUeo56vakFyE0Q8NY71nz2zIuRPs13xskEr
-	3QBMzM0w==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=HsDhMDVuh4cc6ye7ymG8hoMTg53LQnEshrzl/YQU85I=; b=NlV8fvSOvw95KN7oF73s62JdlP
+	yDNwgRg8ZBY4Ji9/zsGMtdy5LsHw8H6R69PytEzI/CMYXZZyjNpkcSi9Lk8q0piSxZU4JFdaus1F5
+	jDwlGRB2Sytu952u8qtUICQgRjOxXQnUw1PAlyJ/b3QQPLQlVT4wrwMk1ZuXyICIatlrfu+/F+CFq
+	sqYAKFjR/qr3DQZpqnQi6rUrnUfsqXGlGzJxc/2wMteGK33TTxf1wahyMcDa0JBhqtxy+eyy1TQqo
+	oFedgEk0thatxcDWyC8s8S/CqaEP2apeor0+ONRu2Tx+dsWR9KUHRslSitxkJkZDauPiEBPUENR+f
+	HF7A5GXA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xBvg0-00000006O7s-09B3;
-	Wed, 30 Sep 2026 14:52:56 +0000
+	id 1xBvg1-00000006O8a-0VYh;
+	Wed, 30 Sep 2026 14:52:57 +0000
 Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xBve6-00000006NQQ-3Hoe;
-	Wed, 30 Sep 2026 14:50:59 +0000
+	id 1xBvfS-00000006O2b-2yEC;
+	Wed, 30 Sep 2026 14:52:22 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id 3C47960252;
-	Wed, 30 Sep 2026 14:50:58 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 4ED5B1F00899;
-	Wed, 30 Sep 2026 14:50:52 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 2C40460258;
+	Wed, 30 Sep 2026 14:52:22 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 957AA1F00893;
+	Wed, 30 Sep 2026 14:52:14 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1790779857;
-	bh=UhAtJfHaHtYaOU+oIY0SPZU9mOxMhuThiOOTuvPUlOE=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References;
-	b=h/+yFH0UqJye/HKFYFIOIYanYzLGyduTYbHX9yle3VN6ug1cnA5uw/pt6/39uXw7F
-	 ZBx0lyGu4R6Ms0k/qOg+WLSPZbHdZUKjPJvA8fSyoHUEy4iA7L+fyAQadSiv5Np7NX
-	 8A02kNR3Ul+KeOuAxTQTrsZJe5K50jYiptw8fojOgtya0bHQC+b3p6yEvCwFGlnG73
-	 oFcN+prPmt6yIejEky6kPe3dF8fdiPDdr28Qir3U5+nx81ylZMzooSvSoLcqcCEqcc
-	 F2n1GIBhJVZDTOAaNETCvfsQhQf7ZdaEjY/fmW5pmpOXldPgewuJPe5ZXs0++59UA+
-	 rCuBVAiuwoqzw==
-From: Niklas Cassel <cassel@kernel.org>
-To: Bjorn Helgaas <bhelgaas@google.com>,
-	Bjorn Helgaas <helgaas@kernel.org>,
-	Lorenzo Pieralisi <lpieralisi@kernel.org>,
-	=?UTF-8?q?Krzysztof=20Wilczy=C5=84ski?= <kwilczynski@kernel.org>,
-	Manivannan Sadhasivam <mani@kernel.org>,
-	Heiko Stuebner <heiko@sntech.de>,
-	Yue Wang <yue.wang@Amlogic.com>,
-	Hans Zhang <18255117159@163.com>,
-	Rob Herring <robh@kernel.org>,
-	Neil Armstrong <neil.armstrong@linaro.org>,
-	Kevin Hilman <khilman@baylibre.com>,
-	Jerome Brunet <jbrunet@baylibre.com>,
-	Martin Blumenstingl <martin.blumenstingl@googlemail.com>
-Cc: Keith Busch <kbusch@kernel.org>,
-	mx2pg@pm.me,
-	dlemoal@kernel.org,
-	Lukas Wunner <lukas@wunner.de>,
-	Frank Li <Frank.Li@nxp.com>,
-	Mahesh Vaidya <mahesh.vaidya@altera.com>,
-	Ricardo Pardini <ricardo@pardini.net>,
-	Shawn Lin <shawn.lin@rock-chips.com>,
-	=?UTF-8?q?Pali=20Roh=C3=A1r?= <pali@kernel.org>,
-	Jingoo Han <jingoohan1@gmail.com>,
-	Myron Stowe <myron.stowe@redhat.com>,
-	Jon Mason <jdmason@kudzu.us>,
-	linux-pci@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-amlogic@lists.infradead.org,
-	linux-rockchip@lists.infradead.org,
-	Niklas Cassel <cassel@kernel.org>
-Subject: [RFC PATCH 4/4] PCI: meson: Remove redundant MPS configuration
-Date: Wed, 30 Sep 2026 16:50:21 +0200
-Message-ID: <20260930145017.1356088-10-cassel@kernel.org>
-X-Mailer: git-send-email 2.55.0
-In-Reply-To: <20260930145017.1356088-6-cassel@kernel.org>
-References: <20260930145017.1356088-6-cassel@kernel.org>
+	s=k20260515; t=1790779941;
+	bh=HsDhMDVuh4cc6ye7ymG8hoMTg53LQnEshrzl/YQU85I=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=a/6hwOnY67kNI4nlzC/x1riFYpZ7PeyzDWmXi6WXlJTgR+sZi7Hsl7pNS6FNVmsv5
+	 NH7/5TEHK/HIAN0MYtMhJWB+nNyFH4hwIXvksH9eAlwM8dAoTfkCmoNgLBceRm7V3U
+	 sfUhqFpafZ+SnoR5JJCSDUzaNIB+LGVxVhyR0oA6+2VS4l/er2Vy5w6o2Vn1SZ5X+V
+	 x5l9ygNECiNiUgl9VZqjSW8X7ejj0gdM1HsOfnwHD05WX5hMy6wom1geor9g7sObxU
+	 mXf6YLv+uvSEQaz44WQFFkusmi+iARVTDm2N4rL8hYI4vKwW3bvGYvjEdGxDc6QXmQ
+	 rKb9WWzqU5j4Q==
+Date: Wed, 30 Sep 2026 22:32:11 +0800
+From: Jisheng Zhang <jszhang@kernel.org>
+To: Conor Dooley <conor@kernel.org>
+Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>, Stephen Boyd <sboyd@kernel.org>,
+	Brian Masney <bmasney+clk@redhat.com>,
+	Jerome Brunet <jbrunet+clk@baylibre.com>,
+	Andi Shyti <andi.shyti@kernel.org>,
+	Alexandre Belloni <alexandre.belloni@bootlin.com>,
+	Frank Li <Frank.Li@nxp.com>, Lee Jones <lee@kernel.org>,
+	Linus Walleij <linusw@kernel.org>,
+	Liam Girdwood <lgirdwood@gmail.com>,
+	Mark Brown <broonie@kernel.org>,
+	Philipp Zabel <p.zabel@pengutronix.de>,
+	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+	Jiri Slaby <jirislaby@kernel.org>,
+	Sebastian Hesselbarth <sebastian.hesselbarth@gmail.com>,
+	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+	linux-clk@vger.kernel.org, linux-i2c@vger.kernel.org,
+	linux-i3c@lists.infradead.org, mfd@lists.linux.dev,
+	linux-gpio@vger.kernel.org, linux-serial@vger.kernel.org,
+	linux-spi@vger.kernel.org, linux-arm-kernel@lists.infradead.org
+Subject: Re: [PATCH 00/20] arm64: add Synaptics SL261X SoCs and RDK boards
+Message-ID: <ar0da71zOeeYxURQ@xhacker>
+References: <20260929061417.20733-1-jszhang@kernel.org>
+ <20260929-smoked-laurel-087d5a3523a3@spud>
 MIME-Version: 1.0
-X-Developer-Signature: v=1; a=openpgp-sha256; l=3435; i=cassel@kernel.org; h=from:subject; bh=DlAMD3ZfDs7mvVlNQPCYHQnXtzUhkG7b37ikG/cbBaY=; b=owGbwMvMwCV2MsVw8cxjvkWMp9WSGLL2Kq7+0f6vu3LZwbeNU9Y7Sc48Wbvj1RzJuc90lrzUE xD5ovXyW0cpC4MYF4OsmCKL7w+X/cXd7lOOK96xgZnDygQyhIGLUwAm0hDI8M8qgmO5voxt29dj PEH5F7Qb89tyhc2rhJXLnqyyT960Xorhv9OW+jjHWb+ZfrKtl1K6teLQN/12hQcvOz0OT4jM1+f lYgMA
-X-Developer-Key: i=cassel@kernel.org; a=openpgp; fpr=5ADE635C0E631CBBD5BE065A352FE6582ED9B5DA
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+In-Reply-To: <20260929-smoked-laurel-087d5a3523a3@spud>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -97,102 +85,141 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Hans Zhang <18255117159@163.com>
+On Tue, Sep 29, 2026 at 08:38:52PM +0100, Conor Dooley wrote:
+> On Tue, Sep 29, 2026 at 02:13:57PM +0800, Jisheng Zhang wrote:
+> > Add initial support for the Synaptics SL261X SoCs and corresponding
+> > RDK boards.
+> > 
+> > The SL261X SoCs include five pin-to-pin compatible SoCs: SL2611, SL2613,
+> > SL2615, SL2617, and SL2619.
+> > 
+> > Only reset, pinctrl, clk/pll, uart, gpio, i2c, spi, i3c are included in
+> > this series. The support for Ethernet, USB, SDHCI, CAN, DMAC, XSPI will
+> > be submitted after this series is merged.
+> 
+> This series is filled with wildcard compatibles, which we don't permit
+> typically. The only case for SoCs that I've seen them accepted is when
+> the devices covered are actually just different binnings of the same
+> device. I took a look at the docs for this device, but it wasn't clear
+> to me if these are actually binnings or if there are different
+> integrations here. If they're binnings, I'd rather you used 0 as the
+> final digit, rather than x, since that matches the synaptics
+> documentation for the family. If they're not binnings, there's no
+> guarantee that they share the same errata etc, and must have different
+> compatibles.
 
-The Meson PCIe controller driver manually configures maximum payload
-size (MPS) through meson_set_max_payload, duplicating functionality now
-centralized in the PCI core.  Deprecating redundant code simplifies the
-driver and aligns it with the consolidated MPS management strategy,
-improving long-term maintainability.
+BTW: May I query a qustion?
+After searching the maillist archieves, it seems now maintainers prefer
+spiliting this kind of SoC initial support series into separate patches
+for different subsystems, e.g uart, i2c, i3c, spi and so on, then the
+SoC pinctrl, clk, reset and dtsi/dts files, but AIUI, there will be
+dtb check failures with the SoC dts(i) files patch(es), what's
+the normal solution then?
 
-With meson_set_max_payload() gone, meson_size_to_payload() is only used
-for MRRS.  Rename it to meson_size_to_mrrs(), update the warning message,
-and drop the now-unused PCIE_CAP_MAX_PAYLOAD_SIZE and MAX_PAYLOAD_SIZE
-macros.
+> 
+> Cheers,
+> Conor.
+> 
+> > 
+> > 
+> > Jisheng Zhang (20):
+> >   dt-bindings: serial: snps-dw-apb-uart: Add Synaptics sl261x uart
+> >   dt-bindings: i2c: dw: Add Synaptics sl261x i2c
+> >   spi: dt-bindings: snps,dw-apb-ssi: Add Synaptics sl261x spi
+> >   dt-bindings: i3c: dw: support up to two reset lines
+> >   i3c: dw: switch to array-based exclusive reset control
+> >   dt-bindings: i3c: Add Synaptics sl261x i3c
+> >   arm64: kconfig: let ARCH_BERLIN cover Synaptics arm64 SoCs
+> >   dt-bindings: reset: add Synaptics SL261X SoCs
+> >   reset: add Synaptics SL261x reset support
+> >   pinctrl: berlin: use u16 instead of u8 for the offset
+> >   pinctrl: berlin: enable module build support
+> >   pinctrl: berlin: add optional pinconf support
+> >   dt-bindings: pinctrl: berlin: Support Synaptics SL261X SoCs
+> >   pinctrl: berlin: support Synaptics SL261X SoCs
+> >   dt-bindings: clock: add Synaptics SL261X clock
+> >   clk: berlin: add Synaptics SL261X SoC clocks and plls
+> >   dt-bindings: mfd: Add Synaptics SL261x global block binding
+> >   regulator: dt-bindings: sy8827n: support standard properties
+> >   dt-bindings: arm: berlin: Add Synaptics SL261X SoC and RDK board
+> >   arm64: dts: synaptics: Add Synaptics SL261X SoC and RDK board
+> > 
+> >  .../bindings/arm/marvell,berlin.yaml          |  20 +
+> >  .../bindings/clock/syna,sl261x-clk.yaml       |  92 +++
+> >  .../bindings/i2c/snps,designware-i2c.yaml     |   1 +
+> >  .../bindings/i3c/snps,dw-i3c-master.yaml      |   6 +-
+> >  .../bindings/mfd/syna,sl261x-gbl.yaml         | 208 +++++
+> >  .../pinctrl/marvell,berlin2-soc-pinctrl.yaml  |  10 +-
+> >  .../bindings/regulator/silergy,sy8827n.yaml   |   5 +-
+> >  .../bindings/reset/syna,sl261x-reset.yaml     |  40 +
+> >  .../bindings/serial/snps-dw-apb-uart.yaml     |  12 +-
+> >  .../bindings/spi/snps,dw-apb-ssi.yaml         |   1 +
+> >  arch/arm64/Kconfig.platforms                  |   4 +-
+> >  arch/arm64/boot/dts/synaptics/Makefile        |   5 +
+> >  arch/arm64/boot/dts/synaptics/sl2611-rdk.dts  |  16 +
+> >  arch/arm64/boot/dts/synaptics/sl2611.dtsi     | 490 ++++++++++++
+> >  arch/arm64/boot/dts/synaptics/sl2613-rdk.dts  |  16 +
+> >  arch/arm64/boot/dts/synaptics/sl2613.dtsi     |  12 +
+> >  arch/arm64/boot/dts/synaptics/sl2615-rdk.dts  |  16 +
+> >  arch/arm64/boot/dts/synaptics/sl2615.dtsi     |  46 ++
+> >  arch/arm64/boot/dts/synaptics/sl2617-rdk.dts  |  16 +
+> >  arch/arm64/boot/dts/synaptics/sl2617.dtsi     |  46 ++
+> >  arch/arm64/boot/dts/synaptics/sl2619-rdk.dts  |  16 +
+> >  arch/arm64/boot/dts/synaptics/sl2619.dtsi     |  44 ++
+> >  .../boot/dts/synaptics/sl261x-rdk-common.dtsi | 135 ++++
+> >  drivers/clk/Kconfig                           |   1 +
+> >  drivers/clk/berlin/Kconfig                    |  25 +
+> >  drivers/clk/berlin/Makefile                   |   4 +
+> >  drivers/clk/berlin/sl-clk.c                   | 279 +++++++
+> >  drivers/clk/berlin/sl-clk.h                   |  31 +
+> >  drivers/clk/berlin/sl-sysmgr-clk.c            | 250 ++++++
+> >  drivers/clk/berlin/sl-sysmgr-clk.h            |  44 ++
+> >  drivers/clk/berlin/sl261x-clks.c              | 385 +++++++++
+> >  drivers/clk/berlin/sl261x-pll.c               | 145 ++++
+> >  drivers/clk/berlin/sl261x-pll.h               |  14 +
+> >  drivers/i3c/master/dw-i3c-master.c            |  24 +-
+> >  drivers/i3c/master/dw-i3c-master.h            |   2 +-
+> >  drivers/pinctrl/berlin/Kconfig                |   7 +
+> >  drivers/pinctrl/berlin/Makefile               |   1 +
+> >  drivers/pinctrl/berlin/berlin.c               | 259 +++++-
+> >  drivers/pinctrl/berlin/berlin.h               |  17 +-
+> >  drivers/pinctrl/berlin/pinctrl-sl261x.c       | 745 ++++++++++++++++++
+> >  drivers/reset/Kconfig                         |   6 +
+> >  drivers/reset/Makefile                        |   1 +
+> >  drivers/reset/reset-sl261x.c                  | 224 ++++++
+> >  include/dt-bindings/clock/syna,sl261x.h       | 131 +++
+> >  include/dt-bindings/reset/syna,sl261x-reset.h |  80 ++
+> >  45 files changed, 3899 insertions(+), 33 deletions(-)
+> >  create mode 100755 Documentation/devicetree/bindings/clock/syna,sl261x-clk.yaml
+> >  create mode 100644 Documentation/devicetree/bindings/mfd/syna,sl261x-gbl.yaml
+> >  create mode 100644 Documentation/devicetree/bindings/reset/syna,sl261x-reset.yaml
+> >  create mode 100644 arch/arm64/boot/dts/synaptics/sl2611-rdk.dts
+> >  create mode 100644 arch/arm64/boot/dts/synaptics/sl2611.dtsi
+> >  create mode 100644 arch/arm64/boot/dts/synaptics/sl2613-rdk.dts
+> >  create mode 100644 arch/arm64/boot/dts/synaptics/sl2613.dtsi
+> >  create mode 100644 arch/arm64/boot/dts/synaptics/sl2615-rdk.dts
+> >  create mode 100644 arch/arm64/boot/dts/synaptics/sl2615.dtsi
+> >  create mode 100644 arch/arm64/boot/dts/synaptics/sl2617-rdk.dts
+> >  create mode 100644 arch/arm64/boot/dts/synaptics/sl2617.dtsi
+> >  create mode 100644 arch/arm64/boot/dts/synaptics/sl2619-rdk.dts
+> >  create mode 100644 arch/arm64/boot/dts/synaptics/sl2619.dtsi
+> >  create mode 100644 arch/arm64/boot/dts/synaptics/sl261x-rdk-common.dtsi
+> >  create mode 100644 drivers/clk/berlin/Kconfig
+> >  create mode 100644 drivers/clk/berlin/sl-clk.c
+> >  create mode 100644 drivers/clk/berlin/sl-clk.h
+> >  create mode 100644 drivers/clk/berlin/sl-sysmgr-clk.c
+> >  create mode 100644 drivers/clk/berlin/sl-sysmgr-clk.h
+> >  create mode 100644 drivers/clk/berlin/sl261x-clks.c
+> >  create mode 100644 drivers/clk/berlin/sl261x-pll.c
+> >  create mode 100644 drivers/clk/berlin/sl261x-pll.h
+> >  create mode 100644 drivers/pinctrl/berlin/pinctrl-sl261x.c
+> >  create mode 100644 drivers/reset/reset-sl261x.c
+> >  create mode 100644 include/dt-bindings/clock/syna,sl261x.h
+> >  create mode 100644 include/dt-bindings/reset/syna,sl261x-reset.h
+> > 
+> > -- 
+> > 2.53.0
+> > 
 
-Reviewed-by: Manivannan Sadhasivam <mani@kernel.org>
-Signed-off-by: Hans Zhang <18255117159@163.com>
-Signed-off-by: Niklas Cassel <cassel@kernel.org>
----
- drivers/pci/controller/dwc/pci-meson.c | 25 +++----------------------
- 1 file changed, 3 insertions(+), 22 deletions(-)
-
-diff --git a/drivers/pci/controller/dwc/pci-meson.c b/drivers/pci/controller/dwc/pci-meson.c
-index 8559d132dcde..1d3687566dda 100644
---- a/drivers/pci/controller/dwc/pci-meson.c
-+++ b/drivers/pci/controller/dwc/pci-meson.c
-@@ -21,7 +21,6 @@
- 
- #define to_meson_pcie(x) dev_get_drvdata((x)->dev)
- 
--#define PCIE_CAP_MAX_PAYLOAD_SIZE(x)	((x) << 5)
- #define PCIE_CAP_MAX_READ_REQ_SIZE(x)	((x) << 12)
- 
- /* PCIe specific config registers */
-@@ -37,7 +36,6 @@
- #define PM_CURRENT_STATE(x)		(((x) >> 7) & 0x1)
- 
- #define PORT_CLK_RATE			100000000UL
--#define MAX_PAYLOAD_SIZE		256
- #define MAX_READ_REQ_SIZE		256
- #define PCIE_RESET_DELAY		500
- #define PCIE_SHARED_RESET		1
-@@ -256,7 +254,7 @@ static void meson_pcie_ltssm_enable(struct meson_pcie *mp)
- 	meson_cfg_writel(mp, val, PCIE_CFG0);
- }
- 
--static int meson_size_to_payload(struct meson_pcie *mp, int size)
-+static int meson_size_to_mrrs(struct meson_pcie *mp, int size)
- {
- 	struct device *dev = mp->pci.dev;
- 
-@@ -266,35 +264,19 @@ static int meson_size_to_payload(struct meson_pcie *mp, int size)
- 	 * than 2^12, just set to default size 2^(1+7).
- 	 */
- 	if (!is_power_of_2(size) || size < 128 || size > 4096) {
--		dev_warn(dev, "payload size %d, set to default 256\n", size);
-+		dev_warn(dev, "MRRS %d, set to default 256\n", size);
- 		return 1;
- 	}
- 
- 	return fls(size) - 8;
- }
- 
--static void meson_set_max_payload(struct meson_pcie *mp, int size)
--{
--	struct dw_pcie *pci = &mp->pci;
--	u32 val;
--	u16 offset = dw_pcie_find_capability(pci, PCI_CAP_ID_EXP);
--	int max_payload_size = meson_size_to_payload(mp, size);
--
--	val = dw_pcie_readl_dbi(pci, offset + PCI_EXP_DEVCTL);
--	val &= ~PCI_EXP_DEVCTL_PAYLOAD;
--	dw_pcie_writel_dbi(pci, offset + PCI_EXP_DEVCTL, val);
--
--	val = dw_pcie_readl_dbi(pci, offset + PCI_EXP_DEVCTL);
--	val |= PCIE_CAP_MAX_PAYLOAD_SIZE(max_payload_size);
--	dw_pcie_writel_dbi(pci, offset + PCI_EXP_DEVCTL, val);
--}
--
- static void meson_set_max_rd_req_size(struct meson_pcie *mp, int size)
- {
- 	struct dw_pcie *pci = &mp->pci;
- 	u32 val;
- 	u16 offset = dw_pcie_find_capability(pci, PCI_CAP_ID_EXP);
--	int max_rd_req_size = meson_size_to_payload(mp, size);
-+	int max_rd_req_size = meson_size_to_mrrs(mp, size);
- 
- 	val = dw_pcie_readl_dbi(pci, offset + PCI_EXP_DEVCTL);
- 	val &= ~PCI_EXP_DEVCTL_READRQ;
-@@ -363,7 +345,6 @@ static int meson_pcie_host_init(struct dw_pcie_rp *pp)
- 
- 	pp->bridge->ops = &meson_pci_ops;
- 
--	meson_set_max_payload(mp, MAX_PAYLOAD_SIZE);
- 	meson_set_max_rd_req_size(mp, MAX_READ_REQ_SIZE);
- 
- 	return 0;
--- 
-2.55.0
 
 
