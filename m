@@ -4,65 +4,68 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4DBF6CA5FC5
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 30 Sep 2026 13:17:05 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5821ECA5FBE
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 30 Sep 2026 13:17:59 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
 	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=IvxNpbDZSTuVJu5n94z7iJrbofTyan2ItN/2vmT2AiM=; b=pBRFbyDWtpd97Dk3ClluH2qhOW
-	wbNJ0UzVUF7Nv7ZyZIBtZMBfqUKwUcOU4V0jr5yzg0FxmLxEOdGcayBHl0xXqVFCjG7Zu8RCONE7g
-	FIuBYCP6YE6NmYXkEQvCuyxowzk2iuZbAYtwrUg1be7/quVLNkacUmIhpXbE0rCM6uz6HHISq5LiB
-	rG6bUe6sQNsFrPeoU8bT21Q305INwgSqBQ7H3mqShYcnIKiVUPbTBnF6g7Ap3tpaJLlPXTIM8JRpE
-	3gRHYXtCcU3ZCDXp6r19V3AmgB51zaPjAAmlIXmEfMTDxm400PJ6DDtZ8FW1zN/RPWYm8AucEe5Kv
-	zdo5zQ3Q==;
+	bh=FxyrFbIDAO99GJasIdJ7Sp1XctD4pjs7yD0DQzyO4ww=; b=BDEBSZSknlxFfkkqXdexU1Y9eJ
+	SOyqfabbqT4MKiJMsx/24NktVP3JmvoW8moEEW7D0EUlw6F26ut4/U0ADEnMkCzbVrRFEOIgXb1o6
+	C0db/Br+mUkkz5GN5rvzbEKGRKXxzGc2sZO8KcFRAavV83UuhHDvL82EEt6Ibnf/Q2y42LF+ngdVz
+	Nkdjs6PemSH0ShBBmQTqWxxQfh5OBVsHY4lKn8UCL4YnZA3CGQDAuR3BSNGu38RpB0p73rZx497pb
+	KzI7eGT6aY64/TuvM92fhH62W0CTYDgaKrOCJiR3usSBpbvaNsOzKvo7XOK18tDVKIE1yah2zPV0o
+	kBHff1bA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xBuB8-000000066mJ-46sE;
-	Wed, 30 Sep 2026 13:16:59 +0000
+	id 1xBuC1-000000066yC-0HoF;
+	Wed, 30 Sep 2026 13:17:53 +0000
 Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xBuAu-000000066iq-3xok
+	id 1xBuBz-000000066xf-3LWl
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 30 Sep 2026 13:16:45 +0000
+	Wed, 30 Sep 2026 13:17:52 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id 3B17060252
-	for <linux-arm-kernel@lists.infradead.org>; Wed, 30 Sep 2026 13:16:44 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id E55D51F000FF
-	for <linux-arm-kernel@lists.infradead.org>; Wed, 30 Sep 2026 13:16:43 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 409D3602C2
+	for <linux-arm-kernel@lists.infradead.org>; Wed, 30 Sep 2026 13:17:51 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id EC0291F0089D
+	for <linux-arm-kernel@lists.infradead.org>; Wed, 30 Sep 2026 13:17:50 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1790774203;
-	bh=IvxNpbDZSTuVJu5n94z7iJrbofTyan2ItN/2vmT2AiM=;
+	s=k20260515; t=1790774271;
+	bh=FxyrFbIDAO99GJasIdJ7Sp1XctD4pjs7yD0DQzyO4ww=;
 	h=References:In-Reply-To:From:Date:Subject:To:Cc;
-	b=RentgNfCP5OC7+X/eUcuFMOjk00Jb3jhuw/iuAqcGJrp2778CNe9iia7cs5FBxA4l
-	 r9U2RvTQxDbn9FfzbqRAZWLAZem9D9aVeqUqjU4AEatzSnTCmvdpO/x73E9OgUzoha
-	 w5b2MJ+NS0ImR+++v6P5G2+Gd6GNScfrB6JSvXxAiCAjbMhySCSofMofXJYMuUPqFv
-	 45eKjpiHxTYWLdsVQ2rAu0hRxwi7U6ySuxxYdkCim+pQuidX2VJht7DPt3YvDeS/5C
-	 5cQl369bvhdk9CLHSf6xE8tYQcJ9jloyHpXp2zJAVIV5V5fmJncjR6JjvEssTo/LoQ
-	 lp4Jlp0vsMHBw==
-Received: by mail-lf2-f12.google.com with SMTP id 2adb3069b0e04-5ba3d84150dso590328e87.2
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 30 Sep 2026 06:16:43 -0700 (PDT)
-X-Gm-Message-State: AFq9FYJO5TuqtThzdZpj62hlP1WWJ1txWUKxioKbx2RlxOUCCkf18ksm
-	ERyXToLAIrGADLSC/Irav8Uzgef3V5k62JySgtd83cPrhb4FvcXH8s88lZ/7JnzbkryShfth50P
-	O0BHXhM7Ez8F67Q8dQ+/27NX8GKLpG/A=
-X-Received: by 2002:ac2:554a:0:b0:5ba:3d18:39da with SMTP id
- 2adb3069b0e04-5ba405e3180mr400071e87.45.1790774202749; Wed, 30 Sep 2026
- 06:16:42 -0700 (PDT)
+	b=eV7MA2nQFaDZ+nUKTDYhD6UrNycTMuA+dAh369a44Y7VyM3dizHWQfndOzDbfz6Yy
+	 W7GrUVTlnaoIimzd4T2tf+6zVAcgJ4PCBBDYFNyeTjqvvVskjVAp2BR4t29Oi4fKYm
+	 FI6wAMqcCZWSwdPbdj/Ee8klej9AU62Bx4XWR0r6+dWgZVcHXH95VwPUfR5P7dlQsK
+	 csVjWM8xsdSGwYcL7SbY3DWnTa5Xk9a1d7wP9F3ZZMO8aM/lHUhkBK7Y+lrV5nvXoH
+	 gbsuLw1TU1rAWGOM1XOEBoa2PDcCEQWs35LSysqmPU7+jo7AE08hNcOnI6CYo4pkvS
+	 IWqXsee/f9rCw==
+Received: by mail-oo1-f51.google.com with SMTP id 006d021491bc7-6c8f6a53fabso1453865eaf.1
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 30 Sep 2026 06:17:50 -0700 (PDT)
+X-Forwarded-Encrypted: i=1; AKwUvByrGL4OSTCuKIVH+ZRKIxNpU64cuu4p4X5Je2Poot3J3EXd+1ZktdWtUEUEtOHzO/4y4Cg9v0ym8DiMlsjqKogx@lists.infradead.org
+X-Gm-Message-State: AFuF++lw7jvOo0bzDllgXNsc3BRD+Vr6yu0JV0sJHOhnkIKJi9Rwslqm
+	nQGRd5p8/h+sURmf3fO2tvuoO90z5rAXyquWNNFrWb7obfdyFxZRyvz+qzd1zw/bYEFT6lLOq4z
+	+xz59jTjOlMKZpr21QUkwqgJwTtBXKh4=
+X-Received: by 2002:a05:6820:4c11:b0:6d3:abd1:9b97 with SMTP id
+ 006d021491bc7-6dcf6525a6emr1100268eaf.61.1790774270280; Wed, 30 Sep 2026
+ 06:17:50 -0700 (PDT)
 MIME-Version: 1.0
-References: <20260917134811.2153902-1-vulab@iscas.ac.cn>
-In-Reply-To: <20260917134811.2153902-1-vulab@iscas.ac.cn>
+References: <20260917135056.2153959-1-vulab@iscas.ac.cn>
+In-Reply-To: <20260917135056.2153959-1-vulab@iscas.ac.cn>
 From: Linus Walleij <linusw@kernel.org>
-Date: Wed, 30 Sep 2026 15:16:30 +0200
-X-Gmail-Original-Message-ID: <CAD++jLnpPgLS0ctWL6n7_293mmE0gzZbxGTE9y8A=O19-JVMhA@mail.gmail.com>
-X-Gm-Features: AclHuK_4EsGObMTSoIffXJHHoNHOljACQDjIXC-QnuqdASt6KV0myUbfgssO338
-Message-ID: <CAD++jLnpPgLS0ctWL6n7_293mmE0gzZbxGTE9y8A=O19-JVMhA@mail.gmail.com>
-Subject: Re: [PATCH] pinctrl: nuvoton: Fix clock reference leak in ma35_get_bank_data()
+Date: Wed, 30 Sep 2026 15:17:33 +0200
+X-Gmail-Original-Message-ID: <CAD++jL=6bofu+5U8FG-PPqdjL_VYYh5oNRJtY-ZT3Zp8B282Eg@mail.gmail.com>
+X-Gm-Features: AclHuK-roK4N3HZhE9WekVRJ8H5Cio2_Fu_cQePi4YQjQ0SNOogyINHDJvz-3Yg
+Message-ID: <CAD++jL=6bofu+5U8FG-PPqdjL_VYYh5oNRJtY-ZT3Zp8B282Eg@mail.gmail.com>
+Subject: Re: [PATCH] pinctrl: stm32: Fix clock reference leak in stm32_pctl_probe()
 To: Wentao Liang <vulab@iscas.ac.cn>
-Cc: linux-arm-kernel@lists.infradead.org, linux-gpio@vger.kernel.org, 
-	linux-kernel@vger.kernel.org, schung@nuvoton.com, ychuang3@nuvoton.com, 
-	stable@vger.kernel.org
+Cc: alexandre.torgue@foss.st.com, antonio.borneo@foss.st.com, 
+	jiashengjiangcool@gmail.com, linux-arm-kernel@lists.infradead.org, 
+	linux-gpio@vger.kernel.org, linux-kernel@vger.kernel.org, 
+	linux-stm32@st-md-mailman.stormreply.com, mcoquelin.stm32@gmail.com, 
+	zmw12306@gmail.com, stable@vger.kernel.org
 Content-Type: text/plain; charset="UTF-8"
 Content-Transfer-Encoding: quoted-printable
 X-BeenThere: linux-arm-kernel@lists.infradead.org
@@ -79,22 +82,24 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Sep 17, 2026 at 3:48=E2=80=AFPM Wentao Liang <vulab@iscas.ac.cn> wr=
+On Thu, Sep 17, 2026 at 3:50=E2=80=AFPM Wentao Liang <vulab@iscas.ac.cn> wr=
 ote:
 
-> ma35_get_bank_data() obtains the bank clock with of_clk_get() and
-> stores it in bank->clk, but returns clk_prepare_enable() directly.  If
-> that call fails, the reference taken by of_clk_get() is never dropped,
-> and the driver has no other clk_put() for it.
+> stm32_pctl_probe() obtains one clock per bank with
+> of_clk_get_by_name(), but none of the error paths drop those
+> references: the loop returns directly when a later clock lookup fails,
+> and both the clk_bulk_prepare_enable() failure and the err_register
+> path return without calling clk_bulk_put().  clk_bulk_disable_unprepare()
+> only disables the clocks, it does not release them.
 >
-> Drop the reference when clk_prepare_enable() fails.
+> Release the references on these paths; the success path keeps them as
+> the driver needs them for suspend/resume.
 >
-> Fixes: f805e356313b ("pinctrl: nuvoton: Add ma35d1 pinctrl and GPIO drive=
-r")
+> Fixes: 451bc9aea9a1 ("pinctrl: stm32: Add check for clk_enable()")
 > Cc: stable@vger.kernel.org
 > Signed-off-by: Wentao Liang <vulab@iscas.ac.cn>
 
-Patch applied. I dropped stable because it's not that serious.
+Patch applied w/o stale tag.
 
 Yours,
 Linus Walleij
