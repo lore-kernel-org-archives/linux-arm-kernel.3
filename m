@@ -4,74 +4,74 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7F879CA5FC1
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 30 Sep 2026 08:04:54 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4D43ECA5FC1
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 30 Sep 2026 08:06:39 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=lAhm/IRtE5TnsstmivWqwHlXEeHp6zXLoKL6Dpf/08M=; b=0M0KMJBCXEiFjFaE1zw0ZgixHQ
-	YF5VcKgKInn9FUVJ6x+ONGU1Fh8DdQ8ewqajdeaPXuOZzcgzVNVKEWU1JS2cp6gxh3SDO5Ib2TCra
-	j+PIFAv1W847WlDno10OM/ZLlsS9wEdtFWvWXE1h3+tR+pH/uPF9W/IWD4eqafbW6xViFoGYu9jAx
-	JJNPE2urePDg5cI2zcv1+csDfYsV06i4XsoQOI/suUbojGjXizby2JVs0XJmRXgwJMF9PkHYVdNr/
-	/j9/uuTH1TF30NjraDtTk8NbrZ+kk9AAgAzTVLvhxLI5nNV6yVAXvblu2ISmPl1PgjEzVL/TFsdQ5
-	q5TXIMrQ==;
+	bh=UecwsZ20I3O30f5XLk1sV/Ve+pnFPjnLqcHVoMGHPzM=; b=4rP/85pEDRRxvMwDUT4uzL/2W7
+	5lDfENBuJtrITAylfMuRjYtQ3dXx7E66zkEjKtMtche7nTudYhtto+PmzGMRCVN+PdJf2wkWbbQs1
+	XZ4nFx8dYcXRptf4q6STrgtrcLgnb1t9fu0mq/R/pvmfhW/v49gCfL7muf1DxxL/Irrb5jf5L450x
+	tleKsoLvZX2SnYZizAP4goNDs6a2eWNkb9Jg9JDpvfgNKotvdED6TF5BruNfJL4TEe08uASrLxiFG
+	wQBTr7C9M8r+noqb1EjMVVZKIG2XLQ6VxVWBxJf5mQHglAo7D46NbhemSNYikeLbH0b5SXGFz8+qT
+	gbYQYnnA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xBpJ0-00000005NP2-2GSc;
-	Wed, 30 Sep 2026 08:04:46 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1xBpKi-00000005NlH-0eUX;
+	Wed, 30 Sep 2026 08:06:32 +0000
+Received: from galois.linutronix.de ([2a0a:51c0:0:12e:550::1])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xBpIy-00000005NOm-36vL;
-	Wed, 30 Sep 2026 08:04:44 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id 00C5360258;
-	Wed, 30 Sep 2026 08:04:44 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 29A8A1F000FF;
-	Wed, 30 Sep 2026 08:04:43 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1790755483;
-	bh=lAhm/IRtE5TnsstmivWqwHlXEeHp6zXLoKL6Dpf/08M=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=QJ1Jkh88NS099T5XThWkiHUyHFMuaUi05aDIb0DuSfK6cbpnRq28RDtuRmH0kFGSv
-	 NZBn9sJRMspdyRlciqW7jBwuSJhhmVl+ihgUSFAiPw2uKl7PbI1UZnfLJPikMcnOyU
-	 ovoPJtoyeUD0pBgYjEK81upp+9g5hXAzTVbnwNByddsnhUHGbTh4oyjWwPnTpHoiyE
-	 W+veZ7MG2gdJLu5Tu2tBbHeKkaorg36xo5setYHOfmWCoJ7iQrrSg5BXX6WjPsfC16
-	 p8iXs5bEn9clABquAKOv4qGbKnFg2BCrgrFqzkP/nj5meGWrDZhxZks/v9wThWHD3f
-	 jOxH1OsmTZDig==
-Date: Wed, 30 Sep 2026 10:04:39 +0200
-From: Maxime Ripard <mripard@kernel.org>
-To: Rob Herring <robh@kernel.org>
-Cc: Neil Armstrong <neil.armstrong@linaro.org>, 
-	Jessica Zhang <jesszhan0024@gmail.com>, David Airlie <airlied@gmail.com>, 
-	Simona Vetter <simona@ffwll.ch>, Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, 
-	Thomas Zimmermann <tzimmermann@suse.de>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
-	Conor Dooley <conor+dt@kernel.org>, Nathan Chancellor <nathan@kernel.org>, 
-	Nick Desaulniers <ndesaulniers@google.com>, Bill Wendling <morbo@google.com>, 
-	Justin Stitt <justinstitt@google.com>, Florian Fainelli <florian.fainelli@broadcom.com>, 
-	Broadcom internal kernel review list <bcm-kernel-feedback-list@broadcom.com>, Andrzej Hajda <andrzej.hajda@intel.com>, 
-	Robert Foss <rfoss@kernel.org>, Laurent Pinchart <Laurent.pinchart@ideasonboard.com>, 
-	Jonas Karlman <jonas@kwiboo.se>, Jernej Skrabec <jernej.skrabec@gmail.com>, 
-	Luca Ceresoli <luca.ceresoli@bootlin.com>, Albert Esteve <aesteve@redhat.com>, 
-	Dave Stevenson <dave.stevenson@raspberrypi.com>, Javier Martinez Canillas <javierm@redhat.com>, 
-	dri-devel@lists.freedesktop.org, devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
-	bpf@vger.kernel.org, llvm@lists.linux.dev, linux-rpi-kernel@lists.infradead.org, 
-	linux-arm-kernel@lists.infradead.org, Benjamin Tissoires <bentiss@kernel.org>
-Subject: Re: [PATCH 1/6] dt-bindings: display: Add panel-mipi-dsi-bpf generic
- panel binding
-Message-ID: <ary8IdL9zVXfS2fA@houat>
-References: <20260928-drm-mipi-dsi-panel-ebpf-v1-0-5244926aace4@kernel.org>
- <20260928-drm-mipi-dsi-panel-ebpf-v1-1-5244926aace4@kernel.org>
- <20260928204059.GA515872-robh@kernel.org>
- <artyl8fD3zzng8Uh@houat>
- <20260929222822.GA2933878-robh@kernel.org>
+	id 1xBpKf-00000005Nj9-1kI4;
+	Wed, 30 Sep 2026 08:06:30 +0000
+Date: Wed, 30 Sep 2026 10:06:09 +0200
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linutronix.de;
+	s=2020; t=1790755570;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 in-reply-to:in-reply-to:references:references;
+	bh=UecwsZ20I3O30f5XLk1sV/Ve+pnFPjnLqcHVoMGHPzM=;
+	b=FptX7Lt5BoYgw7PcLLJRCSzi7pBxC6jN8Nayud/BufCUUTkLz2M76fZ438lyT1nytPzwpS
+	AuiHJIUaNUjQKExIOzEFm7aSZgoEezLNXFxWqXeWB07semdmRR/nJS1LbYkOiCVdUiXgLE
+	pGuBE+3MeuUz92lFnjLeHIn9ebJYGKGahdBN64jwUeg2No2JFCPt7b5uBigjWR0YAjpEZI
+	N0QQav/JkfJjMMYyGtIc5t8Gqu/Ny5dSoWoK0SJHrJRpBE4JCi2pJmWWJfk59DsBlUWglD
+	n7s5DCDmK0HG8ca8eCM2cxHIHZu99oleofBuexW2tGrrQZb3RxVKEIJ3TaZz9w==
+DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=linutronix.de;
+	s=2020e; t=1790755570;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 in-reply-to:in-reply-to:references:references;
+	bh=UecwsZ20I3O30f5XLk1sV/Ve+pnFPjnLqcHVoMGHPzM=;
+	b=rFq1cy6yhPf0MDw2t1d8vHFY61wCZ5eoTKiQI8olkMeNbi+aZUIWaZmw5xd9kbjlcC3YyG
+	54LSeD9rQxa4BYDA==
+From: Sebastian Andrzej Siewior <bigeasy@linutronix.de>
+To: Ryan Brue <ryanbrue.dev@gmail.com>, Mark Brown <broonie@kernel.org>,
+	Lee Jones <lee@kernel.org>, Arnd Bergmann <arnd@arndb.de>
+Cc: Sean Wang <sean.wang@kernel.org>, Linus Walleij <linusw@kernel.org>,
+	Matthias Brugger <matthias.bgg@gmail.com>,
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
+	Bartosz Golaszewski <brgl@kernel.org>,
+	Clark Williams <clrkwllms@kernel.org>,
+	Steven Rostedt <rostedt@goodmis.org>,
+	Yingjoe Chen <yingjoe.chen@mediatek.com>,
+	Chaotian Jing <chaotian.jing@mediatek.com>,
+	Hongzhou Yang <hongzhou.yang@mediatek.com>,
+	linux-mediatek@lists.infradead.org, linux-gpio@vger.kernel.org,
+	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+	linux-rt-devel@lists.linux.dev, mfd@lists.linux.dev
+Subject: Re: [PATCH] pinctrl: mediatek: common-v1: Use a raw spinlock for the
+ pinctrl regmap
+Message-ID: <20260930080609.dnK1-Uta@linutronix.de>
+References: <20260929-rbrue-suez-upstreaming-mtk-pinctrl-raw-regmap-v1-1-db92943f42cb@gmail.com>
 MIME-Version: 1.0
-Content-Type: multipart/signed; micalg=pgp-sha384;
-	protocol="application/pgp-signature"; boundary="k3ccvqemgn4avxba"
+Content-Type: text/plain; charset=utf-8
 Content-Disposition: inline
-In-Reply-To: <20260929222822.GA2933878-robh@kernel.org>
+In-Reply-To: <20260929-rbrue-suez-upstreaming-mtk-pinctrl-raw-regmap-v1-1-db92943f42cb@gmail.com>
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260930_010629_619953_ABFA4394 
+X-CRM114-Status: GOOD (  34.22  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -86,183 +86,164 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+On 2026-09-29 12:57:51 [-0500], Ryan Brue wrote:
+> The EINT irq_chip emulates both-edge interrupts by reading the pin's
+> level through mtk_gpio_get() and the pinctrl regmap. It does so from its
+> unmask and set_type callbacks, under the raw irq_desc lock, and from the
+> chained handler, in hard interrupt context. The regmap comes from syscon
+> and locks with a spinlock_t, which may sleep on PREEMPT_RT. With
+> CONFIG_PROVE_LOCKING, the first request of a both-edge EINT prints
+> "[ BUG: Invalid wait context ]" and turns lockdep off for the rest of
+> the boot.
 
---k3ccvqemgn4avxba
-Content-Type: text/plain; protected-headers=v1; charset=us-ascii
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
-Subject: Re: [PATCH 1/6] dt-bindings: display: Add panel-mipi-dsi-bpf generic
- panel binding
-MIME-Version: 1.0
+This duplicates syscon node and creates a new one with the
+.use_raw_spinlock=true attribute. Now, syscon is always low-level access
+with MMIO access, right?
 
-On Tue, Sep 29, 2026 at 05:28:22PM -0500, Rob Herring wrote:
-> On Tue, Sep 29, 2026 at 10:39:24AM +0200, Maxime Ripard wrote:
-> > On Mon, Sep 28, 2026 at 03:40:59PM -0500, Rob Herring wrote:
-> > > On Mon, Sep 28, 2026 at 06:22:01PM +0200, Maxime Ripard wrote:
-> > > > Most MIPI-DSI panel drivers follow an identical pattern: acquire
-> > > > regulators and GPIOs, perform a reset pulse with specific timing,
-> > > > send a vendor-supplied sequence of DSI commands, then enable the
-> > > > display. The only truly panel-specific part is the init sequence
-> > > > and power-on/off timing.
-> > > >=20
-> > > > The panel-mipi-dsi-bpf driver replaces per-panel kernel modules
-> > > > with a single generic driver whose panel-specific behavior is
-> > > > provided by BPF programs loaded from userspace at runtime,
-> > > > following the HID-BPF model. This enables new panel support
-> > > > without kernel patches.
-> > > >=20
-> > > > Panel DT nodes use a two-entry compatible with the panel-specific
-> > > > string first and "panel-mipi-dsi-bpf" as fallback. The generic
-> > > > driver matches on the fallback, while the first compatible is used
-> > > > to identify which BPF program to load.
-> > >=20
-> > > If you need the 1st compatible anyways, what is the point of the
-> > > second one?
-> >=20
-> > The whole point of this driver is that you don't need to modify the
-> > kernel when you add support for a new panel.
->=20
-> What reads the most specific compatible?
+I've been wondering if we could make drivers/mfd/syscon.c use the
+raw_spintlock_t instead making this sort of change for every driver that
+has this "requirement".
 
-The BPF loader, so either in kernel loader or userspace loader through
-uevents, depending on how the driver discussions are going.
+If this is all MMIO reads/ writes then it should work. I'm not sure why
+we have the lock to begin with. Probably due to the cache/ async writes.
+Cache wise just the flat-cache works since the other (like rbtree)
+allocates memory on write under the lock. So this does not work.
+What I am bit worried about are the bulk_write and multi_reg_write where
+multiple writes happen under the lock.
 
-> > > Also, I assume there is at least some panel supported in the kernel
-> > > you might want to convert to this. That panel would not have the
-> > > fallback (and the DT is fixed).
-> >=20
-> > Yeah, that's true. I'd still need to identify the parts though. I guess
-> > using a generic compatible but a specific model would work?
->=20
-> What? You can't add a generic compatible in these cases.
+> Create the regmap for the "mediatek,pctl-regmap" nodes here instead,
+> with use_raw_spinlock set, and register it with syscon so that other
+> users of a node, such as the ethernet on MT2701 and MT7623, share its
+> lock. If the node already has a syscon regmap, keep using it. Select
+> REGMAP_MMIO, which the driver now uses directly.
+> 
+> Fixes: 3221f40b7631 ("pinctrl: mediatek: emulate GPIO interrupt on both-edges")
+> Assisted-by: LLM
+> Signed-off-by: Ryan Brue <ryanbrue.dev@gmail.com>
+> ---
+> Found on the Amazon Fire HD 10 (2017), an MT8173 tablet that is not
+> upstream yet, where usb_extcon_probe() requests the USB ID pin's
+> both-edge EINT. With this patch lockdep stays on through boot, CPU
+> hotplug, suspend to RAM, and lid open/close edges on the hall sensor's
+> both-edge EINT. Only MT8173 was tested. Nothing else uses the node
+> there, so the -EEXIST fallback was not exercised.
+> 
+> checkpatch warns that the regmap_config should be const. It is copied
+> per node to set name and max_register, as syscon does.
+> ---
+>  drivers/pinctrl/mediatek/Kconfig              |  1 +
+>  drivers/pinctrl/mediatek/pinctrl-mtk-common.c | 59 ++++++++++++++++++++++++++-
+>  2 files changed, 58 insertions(+), 2 deletions(-)
+> 
+> diff --git a/drivers/pinctrl/mediatek/Kconfig b/drivers/pinctrl/mediatek/Kconfig
+> index 30ef3dc5dfb1..764256901d6a 100644
+> --- a/drivers/pinctrl/mediatek/Kconfig
+> +++ b/drivers/pinctrl/mediatek/Kconfig
+> @@ -17,6 +17,7 @@ config PINCTRL_MTK
+>  	select GENERIC_PINCONF
+>  	select GPIOLIB
+>  	select EINT_MTK
+> +	select REGMAP_MMIO
+>  
+>  config PINCTRL_MTK_V2
+>  	tristate
+> diff --git a/drivers/pinctrl/mediatek/pinctrl-mtk-common.c b/drivers/pinctrl/mediatek/pinctrl-mtk-common.c
+> index 1a977acd6883..65b1e3096183 100644
+> --- a/drivers/pinctrl/mediatek/pinctrl-mtk-common.c
+> +++ b/drivers/pinctrl/mediatek/pinctrl-mtk-common.c
+> @@ -9,6 +9,7 @@
+>  #include <linux/gpio/driver.h>
+>  #include <linux/module.h>
+>  #include <linux/of.h>
+> +#include <linux/of_address.h>
+>  #include <linux/of_irq.h>
+>  #include <linux/pinctrl/consumer.h>
+>  #include <linux/pinctrl/machine.h>
+> @@ -1057,6 +1058,60 @@ static int mtk_eint_init(struct mtk_pinctrl *pctl, struct platform_device *pdev)
+>  	return mtk_eint_do_init(pctl->eint, NULL);
+>  }
+>  
+> +static const struct regmap_config mtk_pctrl_regmap_config = {
+> +	.reg_bits = 32,
+> +	.val_bits = 32,
+> +	.reg_stride = 4,
+> +	.use_raw_spinlock = true,
+> +};
+> +
+> +/*
+> + * The EINT irq_chip reads a pin's level through this regmap from callbacks
+> + * that run under the raw irq_desc lock, so the regmap has to use a raw
+> + * spinlock too, which syscon's own does not. Register one with syscon for the
+> + * node instead, so that any other user of the node shares its lock.
+> + */
+> +static struct regmap *mtk_pctrl_syscon_regmap(struct device_node *np)
+> +{
+> +	struct regmap_config config = mtk_pctrl_regmap_config;
+> +	struct regmap *regmap;
+> +	struct resource res;
+> +	void __iomem *base;
+> +	int ret;
+> +
+> +	ret = of_address_to_resource(np, 0, &res);
+> +	if (ret)
+> +		return ERR_PTR(ret);
+> +
+> +	base = ioremap(res.start, resource_size(&res));
+> +	if (!base)
+> +		return ERR_PTR(-ENOMEM);
+> +
+> +	config.name = kasprintf(GFP_KERNEL, "%pOFn@%pa", np, &res.start);
+> +	if (!config.name) {
+> +		iounmap(base);
+> +		return ERR_PTR(-ENOMEM);
+> +	}
+> +
+> +	config.max_register = resource_size(&res) - config.reg_stride;
+> +	regmap = regmap_init_mmio(NULL, base, &config);
+> +	kfree(config.name);
+> +	if (IS_ERR(regmap)) {
+> +		iounmap(base);
+> +		return regmap;
+> +	}
+> +
+> +	ret = of_syscon_register_regmap(np, regmap);
+> +	if (ret) {
+> +		regmap_exit(regmap);
+> +		iounmap(base);
+> +		/* An earlier probe, or another user of the node, got there first. */
+> +		return ret == -EEXIST ? syscon_node_to_regmap(np) : ERR_PTR(ret);
+> +	}
+> +
+> +	return regmap;
+> +}
+> +
+>  /* This is used as a common probe function */
+>  int mtk_pctrl_init(struct platform_device *pdev,
+>  		const struct mtk_pinctrl_devdata *data,
+> @@ -1076,7 +1131,7 @@ int mtk_pctrl_init(struct platform_device *pdev,
+>  
+>  	node = of_parse_phandle(np, "mediatek,pctl-regmap", 0);
+>  	if (node) {
+> -		pctl->regmap1 = syscon_node_to_regmap(node);
+> +		pctl->regmap1 = mtk_pctrl_syscon_regmap(node);
+>  		of_node_put(node);
+>  		if (IS_ERR(pctl->regmap1))
+>  			return PTR_ERR(pctl->regmap1);
+> @@ -1089,7 +1144,7 @@ int mtk_pctrl_init(struct platform_device *pdev,
+>  	/* Only 8135 has two base addr, other SoCs have only one. */
+>  	node = of_parse_phandle(np, "mediatek,pctl-regmap", 1);
+>  	if (node) {
+> -		pctl->regmap2 = syscon_node_to_regmap(node);
+> +		pctl->regmap2 = mtk_pctrl_syscon_regmap(node);
+>  		of_node_put(node);
+>  		if (IS_ERR(pctl->regmap2))
+>  			return PTR_ERR(pctl->regmap2);
+> 
+> ---
+> base-commit: 72d3fcf802c45d00b300f25b848a93c3a2bd7c7e
+> change-id: 20260925-rbrue-suez-upstreaming-mtk-pinctrl-raw-regmap-154d6225b977
+> 
+> Best regards,
 
-generic-*hci all have a generic component *and* a platform specific part
-for quirks, and yet none of them require a platform specific compatible
-to be added to work. PCI has that too.
-
-This driver has a generic part and a platform specific part for quirks.
-
-> > > And I agree with Neil's comment. At least until we start embedding BPF
-> > > into DT directly. ;)
-> >=20
-> > And from Neil:
-> >=20
-> > > I don't see how this can be a valid hardware description, bfp is a
-> > > software implementation and has nothing to do in the bindings.
-> >=20
-> > I'm quite a bit surprised by that argument though.
-> >=20
-> > We have in the main dt-schema repos bindings like:
-> >=20
-> > https://github.com/devicetree-org/dt-schema/blob/main/dtschema/schemas/=
-options/u-boot.yaml
->=20
-> Self contained in a node that's specifically not h/w.
->=20
-> > https://github.com/devicetree-org/dt-schema/blob/main/dtschema/schemas/=
-bootph.yaml
-> > https://github.com/devicetree-org/dt-schema/blob/main/dtschema/schemas/=
-post-init-providers.yaml
->=20
-> Extra hints that are safe to ignore.
->=20
-> >=20
-> > Or, in Linux:
-> > https://web.git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/=
-tree/Documentation/devicetree/bindings/display/panel/panel-mipi-dbi-spi.yaml
-> > https://web.git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/=
-tree/Documentation/devicetree/bindings/misc/google,android-pipe.yaml
->=20
-> Virtual h/w which tends to have special needs.
-
-How is that not a description of the binding we're discussing?
-
-> > https://web.git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/=
-tree/Documentation/devicetree/bindings/misc/qcom,fastrpc.yaml
->=20
-> Shrug. Weird Qcom shit...
-
-Cool. What can I do to add this binding to the list of "weird Maxime
-shit" or is this kind of exception only for Qualcomm?
-
-Or should we do it the other way and ship the binding anyway, and in two
-years, when it will have been in device tree in the wild and
-we-cannot-change-it-we-swear, we will be able to upstream it?
-
-And in the process reward the ones *not* playing the upstream game.
-
-> > https://web.git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/=
-tree/Documentation/devicetree/bindings/sound/simple-card.yaml
->=20
-> Just a container... Though I can't say I really like any of the audio=20
-> bindings.
->=20
-> All really irrelevant to this discussion other than the panel binding...
-
-Not really. The discussion was "but you're describing something that
-isn't hardware". And none of the above are. And were acked. Some
-recently.
-
-> > All of them have been reviewed or acked by you, and yet none of them
-> > relate to any hardware description.
->=20
-> There are things which aren't h/w, but this is h/w and we've already=20
-> made decisions about how panels in particular are represented. We of=20
-> course have some remanents of how we don't want to do things.
->=20
-> > panel-mipi-dsi-spi is a generic panel that will load a firmware, and
-> > quite similar to this one. google,android-pipe and qcom,fastrpc don't
-> > attach to anything and will just open a tunnel to userspace, which is
-> > somewhat equivalent but more dramatic than what this driver is doing.
-> > simple-card or its variations will just instantiate a kernel driver from
-> > the DT and is used pretty much everywhere.
-> >=20
-> > I reused the binding from panel-mipi-dsi-spi for this. It was reviewed
-> > by rob, and acked by a panel maintainer, and 4 years ago, so we're way
-> > past the "oh but we didn't know what we were doing back then" argument.
-> >=20
-> > So, let's phrase this differently: what's different about the
-> > description than panel-mipi-dsi-spi, or any other binding already in
-> > tree?
->=20
-> There's all of 3 panels supported. Compared to all the other panels we=20
-> have, hardly the rule over the exception. You can always fine "bad"=20
-> examples or exceptions.
->=20
-> That one defines a single supply. Any other MIPI SPI panel with=20
-> different supplies or GPIO controls probably has its own binding. Trying=
-=20
-> to parameterize that in DT doesn't work. We've rejected trying to do=20
-> that in DT over and over. What's your story here for that?
-
-Sigh... Look, I really don't care about an argument DT maintainers use
-at their discretion for this. We both know full well that it's been and
-still is inconsistenly applied, and you also know that it's not like
-I've been playing the DT game since pretty much the beginning (on ARM
-anyway). So it's not like I don't want to make it work, I do. But what I
-care about is enabling that driver to work.
-
-I reused exactly the same binding than the last major binding that was
-merged for panels, and support about the same number of panels. I guess
-that was a mistake, so sorry for that.
-
-I'm fine with reworking the binding any way you want as long as it still
-allows for the same use-case, but I would have hoped for a better
-feedback on how to do so than "oh what a huge pile of shit this is".
-
-Maxime
-
---k3ccvqemgn4avxba
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iJUEABMJAB0WIQTkHFbLp4ejekA/qfgnX84Zoj2+dgUCarzCkwAKCRAnX84Zoj2+
-dpc3AYDOB9XdH/2zapSanqxE4H56ffYrbVAeb+qx5XxwVM0vnMt7lzv9vg5HaAOo
-S/xSzu0Bfi/5SfsSXC39fs4ZPIdQyMs+eNZexW71Ze0mJnl6LF6ImBE4OXEw7pa4
-QGknAZNTfg==
-=jVxm
------END PGP SIGNATURE-----
-
---k3ccvqemgn4avxba--
+Sebastian
 
