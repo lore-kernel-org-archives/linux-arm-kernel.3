@@ -4,70 +4,65 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A3408CA5FC5
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 30 Sep 2026 13:28:21 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D13CACA5FC5
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 30 Sep 2026 13:30:00 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=GmzZfGHoDgoAyrR9m4mtLd61BdqL6boC1QSPlsKB1BU=; b=X9xBJeqOs1J+BAVr2iCMpwE6bR
-	kaNtT0DvYTgRuWurvSOxwOxBZhyXKe6PXo4cyfg8yjo/Xc5qja+2UOiq3lMnWo2x2JeVwkGY/lv1I
-	Y12MicuTDA5FAuhqiawPC3p//3td2SoVOJrAK3pYyb75qT+q8r2k0/M2IJ5V3/9vBtJoZ9rd5qOnK
-	EwaQWu4T8WyY4oWrXi3Z5JvGe4aOETONqxrKh1rTylnAkSq9/LA6iRYK8FNiSxXYNiyc4D0rTAaHr
-	YQRx0H3PaB9tS2Yg4ZxdPOwthJRZTxxBqLBfHwUM9TCl3RPCp6ZiteyZIs/MM3rSbrb1RtZqJFuy8
-	+osqVkVA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
+	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=nvaGfG5po310924tWdFlbGKV3vnFi2Daw5X+Y5l+SdE=; b=kw0ZJJXCweVFy01IvToAcE6Phm
+	ChmL6FS7n+/izVGHv1nt/Jo7l/hTbdsP2bGUDQRhzTJxP9IlcoS10G08HvI18XD+0/kQR3kra22+c
+	DnM4TeBy0zpMYzQiTmZ94DoUAD8yc0C7eD9eCaCN89cDCmRHokwDwRiL5u7a3Y75h/O2nTU0BhRGf
+	eAeilkx0MK87MGxhey3FMSDH7bDxolKt6SFFQgnBzZfAzJ5Wu2Se85Jr+W/0gW5PTw+Z5TTx5RicY
+	olxSpPKq4iS54GqFhbPZCA3pMQ0wczR4kF/k/LWGuDgB1mAiZBUZI/wn++00YnNv2gjfu8GPmjANB
+	XolTg8jw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xBuM2-0000000683e-3lyE;
-	Wed, 30 Sep 2026 13:28:14 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1xBuNd-000000068Fs-496h;
+	Wed, 30 Sep 2026 13:29:53 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xBuM1-0000000682d-3eTL
+	id 1xBuNc-000000068F7-0iA1
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 30 Sep 2026 13:28:13 +0000
+	Wed, 30 Sep 2026 13:29:52 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 9EEC743C0D
-	for <linux-arm-kernel@lists.infradead.org>; Wed, 30 Sep 2026 13:28:13 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 8404B1F00898
-	for <linux-arm-kernel@lists.infradead.org>; Wed, 30 Sep 2026 13:28:13 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 8F06B43A5C;
+	Wed, 30 Sep 2026 13:29:51 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id A35061F000FF;
+	Wed, 30 Sep 2026 13:29:49 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1790774893;
-	bh=GmzZfGHoDgoAyrR9m4mtLd61BdqL6boC1QSPlsKB1BU=;
-	h=References:In-Reply-To:From:Date:Subject:To:Cc;
-	b=IzH1PSXY8/0oM/wtjLZqOcgTL5usqsaiUZN3/ApGwSaS2xyj5OEg85DPdwqtTlSje
-	 iEDeyyTR+NF2EZw/9pcdPRliTndfjUlqeUuDggGVYxFnpWCDLm5lhUFVCan0cZNhFa
-	 4mIQToGL6gbqb5FGv/CGzxerjo3+isn382/UdV+Zc7Sz2DeH4Fij+FcR9TIDawfPo9
-	 FsKMW+4z0FE3NJpZFGECYY/22XVSEn3JRQX5vRZKeppzLlpDuJvAdZELvdML6ua42L
-	 /U239Zz4jeq4Vx4yzGsFKsHh0PBwc202MdH7PVegzc35K6xBpti0lWToDn87daHRDy
-	 pCPQjuqGgyqxQ==
-Received: by mail-lf2-f13.google.com with SMTP id 2adb3069b0e04-5b8ede3ab7aso1735244e87.1
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 30 Sep 2026 06:28:13 -0700 (PDT)
-X-Forwarded-Encrypted: i=1; AKwUvByVmIE0fHJwGe6Re5mDwuzZOH+EIqdEgujRZDK68c1U7bAeKWiE869VrRsvX1bZSLu+hCAeZ3InjMiYdXxLmSY9@lists.infradead.org
-X-Gm-Message-State: AFq9FYIZCC3hzsO0q4J7bRcofDnAp6n5vlCYwdLga+7sMDFznsSmey9e
-	+yq24YXIwhm+rujTHfBVEDO/+J5Rpma+LEiCknAAmbTXzxZXdwFPrB44LfBwCKFzVkb4+VTKBmr
-	EAlJq6Kk4Ay+yRKVS8mHpzpFg3waW+tQ=
-X-Received: by 2002:a05:6512:3b9c:b0:5b8:bc5e:b574 with SMTP id
- 2adb3069b0e04-5ba40612645mr526612e87.44.1790774892330; Wed, 30 Sep 2026
- 06:28:12 -0700 (PDT)
+	s=k20260515; t=1790774991;
+	bh=nvaGfG5po310924tWdFlbGKV3vnFi2Daw5X+Y5l+SdE=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=BImizp0pcOo86qSBUaEKZtafbOxXv4ougbDwjERwnQ6CKlE/QwoMHh4eItftccdfP
+	 pHXj+IRllK8sWCWTmM9Hsrx7ZWITsOBfDCvBe0ArJGVR+8/VdYoYxXVljSS4v6HfTp
+	 RqU6zJwI7EJhiPZZD3qDdlbUqkuAIDVR67kNnkhceDYvdRSnVY5rbuLsfNm3j1BloA
+	 nc+WvnMpPlu+d3R00bvlMKqcQ5QkVFXY54hHWF8COxldFwQBj3HbVlLFeWhQiKGY/e
+	 2qi1HHOt7mxYT111BgykY6aHThWeIk9VfCUwfnLYgzE/ebSuWoteMpuMXK4Eh9Yt2b
+	 zJT3n4h1v/TMw==
+Date: Wed, 30 Sep 2026 14:29:46 +0100
+From: Will Deacon <will@kernel.org>
+To: =?iso-8859-1?Q?Andr=E9?= Almeida <andrealmeid@igalia.com>
+Cc: Catalin Marinas <catalin.marinas@arm.com>,
+	Billy Laws <blaws05@gmail.com>, Mark Rutland <mark.rutland@arm.com>,
+	Mark Brown <broonie@kernel.org>,
+	Ryan Houdek <sonicadvance1@gmail.com>,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+	kernel-dev@igalia.com
+Subject: Re: [RFC PATCH v3 1/1] arch: arm64: Implement unaligned atomic
+ emulation
+Message-ID: <ar0OyoPqGfmrkdH5@willie-the-truck>
+References: <20260930020138.2377090-1-andrealmeid@igalia.com>
+ <20260930020138.2377090-2-andrealmeid@igalia.com>
+ <ary-2rOs_b2IY6M1@willie-the-truck>
+ <00227dc1-e01c-4de8-b3e3-3cd8de74cba9@igalia.com>
 MIME-Version: 1.0
-References: <20260918095853.1348694-1-congnt264@gmail.com>
-In-Reply-To: <20260918095853.1348694-1-congnt264@gmail.com>
-From: Linus Walleij <linusw@kernel.org>
-Date: Wed, 30 Sep 2026 15:27:59 +0200
-X-Gmail-Original-Message-ID: <CAD++jLmc6GJP07DJQxH3OGJ1i-6+ksMu=1gEeWkr4JR4xvh29Q@mail.gmail.com>
-X-Gm-Features: AclHuK_-hjzb_iqjk__PsBqyNlJIrjqhdhCusnJbaUiZ1mRhmBrwCTww1yq5FOo
-Message-ID: <CAD++jLmc6GJP07DJQxH3OGJ1i-6+ksMu=1gEeWkr4JR4xvh29Q@mail.gmail.com>
-Subject: Re: [PATCH v2] rtc: stm32: fix clock leak on pinctrl probe failure
-To: Cong Nguyen <congnt264@gmail.com>
-Cc: Alexandre Belloni <alexandre.belloni@bootlin.com>, 
-	Maxime Coquelin <mcoquelin.stm32@gmail.com>, Alexandre Torgue <alexandre.torgue@foss.st.com>, 
-	Valentin Caron <valentin.caron@foss.st.com>, Antonio Borneo <antonio.borneo@foss.st.com>, 
-	linux-rtc@vger.kernel.org, linux-stm32@st-md-mailman.stormreply.com, 
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset=iso-8859-1
+Content-Disposition: inline
+Content-Transfer-Encoding: 8bit
+In-Reply-To: <00227dc1-e01c-4de8-b3e3-3cd8de74cba9@igalia.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -82,27 +77,51 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, Sep 18, 2026 at 11:59=E2=80=AFAM Cong Nguyen <congnt264@gmail.com> =
-wrote:
+On Wed, Sep 30, 2026 at 07:29:22AM -0300, André Almeida wrote:
+> Em 30/09/2026 04:48, Will Deacon escreveu:
+> > On Tue, Sep 29, 2026 at 11:01:38PM -0300, André Almeida wrote:
+> > > Implement support for emulating unaligned atomic operations on arm64.
+> > > User applications that wish to enable support for this should use the
+> > > pctrl() flag `PR_ARM64_UNALIGN_ATOMIC_EMULATE`.
+> > > 
+> > > Signed-off-by: André Almeida <andrealmeid@igalia.com>
+> > > ---
+> > >   arch/arm64/Kconfig                   |   6 +
+> > >   arch/arm64/include/asm/exception.h   |   1 +
+> > >   arch/arm64/include/asm/processor.h   |   5 +
+> > >   arch/arm64/include/asm/rwonce.h      |  14 +-
+> > >   arch/arm64/include/asm/thread_info.h |   1 +
+> > >   arch/arm64/kernel/Makefile           |   3 +-
+> > >   arch/arm64/kernel/process.c          |  15 +
+> > >   arch/arm64/kernel/unaligned_atomic.c | 521 +++++++++++++++++++++++++++
+> > >   arch/arm64/mm/fault.c                |  10 +
+> > >   include/uapi/linux/prctl.h           |   5 +
+> > >   kernel/sys.c                         |   7 +-
+> > >   11 files changed, 579 insertions(+), 9 deletions(-)
+> > >   create mode 100644 arch/arm64/kernel/unaligned_atomic.c
+> > 
+> > No.
+> > 
+> > I already explained to you why this doesn't work:
+> > 
+> > https://lore.kernel.org/r/aV1YnOetDHhKe4hz@willie-the-truck
+> 
+> Indeed, last time you raised some points, and then Ryan replied them. Is
+> there any specific point that doesn't work? I couldn't find a reply for
+> Ryan's answers:
+> 
+> https://lore.kernel.org/all/CABnRqDf5EQUoXu=pJ6mj4-JfwAzEfcAE2cYrNzJANFycx7cMUA@mail.gmail.com/
 
-> A failing devm_pinctrl_register_and_init() or pinctrl_enable() in
-> stm32_rtc_probe() returns directly instead of going through err:,
-> leaking rtc_ck/pclk -- and since -EPROBE_DEFER is routine here, each
-> deferred retry leaks another.
->
-> Route both through err:, and move the pinctrl setup earlier (right
-> after stm32_rtc_init(), before the RTC device/IRQ are registered) so
-> disabling the clocks there doesn't race a still-live IRQ.
->
-> Fixes: 16ad2bc09efb ("rtc: stm32: add pinctrl and pinmux interfaces")
-> Reported-by: Sashiko AI review <sashiko-bot@kernel.org>
-> Link: https://lore.kernel.org/r/20260914135401.373D91F000FF@smtp.kernel.o=
-rg
-> Assisted-by: LLM
-> Signed-off-by: Cong Nguyen <congnt264@gmail.com>
+So rather than get involved in the discussion, you did nothing for almost
+a year and then resent the exact same patch? Why?
 
-Reviewed-by: Linus Walleij <linusw@kernel.org>
+I don't think the implementation is correct and I don't think we should
+be emulating this either. I hope I made that clear last year. Ryan
+thinks it's "fine" due to the locking, but I don't see how that helps
+with the example I gave.
 
-Yours,
-Linus Walleij
+You are apparently the author of this code, so you need to get involved
+in the discussion if you want to move the needle.
+
+Will
 
