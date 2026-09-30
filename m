@@ -4,93 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 16A0BCA5FC7
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 30 Sep 2026 14:23:21 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id EF77FCA5FC5
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 30 Sep 2026 14:28:30 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=zcThwgFUB4BfR5xfqdh6THtQYRaz9GGWFb0MJecCduw=; b=4uegl/8d+9TzYDQUupHwZQCnkd
-	Li5nlXsgs/D0KzQcRW4qlT8ZZpwIvSe9Pe+pLTXmTAl2vfcnYaByjcU1lhROUj+04I8XLIMcrd9vs
-	cdVoJpIPwbGaWoh3MlflHf0z452TpPf+K3exNE/naORyvP3R2XMmGsFj+VreOC+DNFT1AFO7fJ2gJ
-	3B8O8UDhbEbBNQBSIvocD7HWU+sNb4hCxMEvgdvBVRvhTsimUe4Bcuaz5UZOklDg8t6hz0Okb4ic8
-	siyWTUIpyGjSrTFmdpSgUxsKCf65HnVl4/XrVwiKw1onn7uwWa1uiUYvMHuD4uIBxPAab4Qs/mNS1
-	P8cwt11Q==;
+	bh=qM7b8Zvd/r3gp0uDmEIp+6sMf0MTar/zR11vt/xURYc=; b=AIjvU0z+c26Mja7iO+HRcWDL7A
+	rJOJs4o6VkTo5TDrAjMA5r8coiRtv42Kb+7jSAH6Mx0ZQMt2KNPy+rjmm68JqEAoDS4z6IDGnPvvh
+	2Pc313n8gyGirohZ1lilNy/ywPd9An8btIaQdWbiLeZddCY/+BhCbI8railKc0D2tCF25yT9A/LeH
+	4UG9WrEfMA7XWZPPvhiVuDuu+D6VHeZ11UVt9gfAhamV779Vo74PZ7Yqtc64WROyrIboq02RjbD7F
+	PI3ZesMnfjzHiJOyyqiDaq/A1mdv0ouCft5sUi/F5FqxfNxJbBp6n8IMkQm37B0E/ZzdS0Dx5WnIJ
+	x0ECVMfg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xBvDF-00000006J2a-0MBB;
-	Wed, 30 Sep 2026 14:23:13 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
-	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xBvBc-00000006Id3-3cj1;
-	Wed, 30 Sep 2026 14:21:37 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 521ED40C3F;
-	Wed, 30 Sep 2026 14:21:32 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id E2F7A1F00893;
-	Wed, 30 Sep 2026 14:21:28 +0000 (UTC)
-Authentication-Results: smtp.kernel.org;
-	dkim=pass (1024-bit key, unprotected) header.d=zx2c4.com header.i=@zx2c4.com header.a=rsa-sha256 header.s=20210105 header.b=kkRK91cQ
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=zx2c4.com; s=20210105;
-	t=1790778087;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 in-reply-to:in-reply-to:references:references;
-	bh=zcThwgFUB4BfR5xfqdh6THtQYRaz9GGWFb0MJecCduw=;
-	b=kkRK91cQzj+9vwUYtmGxpP6XHVefTkbHAXdd3nIiFVR+tOEuf0OaDl9hKkY9dgnZA+uIja
-	kvvsMMlW1aun0HmpF4USkn2HKIB/ExvhSKaoIDBa5/FJ8DgYeE/zmuK/55JeWGBQCXPp3h
-	CRPitXuJosLH57qy20oRmbXytVm4JwY=
-Received: by mail.zx2c4.com (OpenSMTPD) with ESMTPSA id de3a0bd1 (TLSv1.3:TLS_AES_256_GCM_SHA384:256:NO);
-	Wed, 30 Sep 2026 14:21:26 +0000 (UTC)
-Date: Wed, 30 Sep 2026 16:21:21 +0200
-From: "Jason A. Donenfeld" <Jason@zx2c4.com>
-To: Nathan Chancellor <nathan@kernel.org>
-Cc: Nick Desaulniers <ndesaulniers@google.com>,
-	"Christophe Leroy (CS GROUP)" <chleroy@kernel.org>,
-	Andy Lutomirski <luto@kernel.org>,
-	Thomas Gleixner <tglx@kernel.org>, Theodore Ts'o <tytso@mit.edu>,
-	Vincenzo Frascino <vincenzo.frascino@arm.com>,
-	Bill Wendling <morbo@google.com>,
-	Justin Stitt <justinstitt@google.com>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Will Deacon <will@kernel.org>, Mark Rutland <mark.rutland@arm.com>,
-	Huacai Chen <chenhuacai@kernel.org>,
-	WANG Xuerui <kernel@xen0n.name>,
-	Madhavan Srinivasan <maddy@linux.ibm.com>,
-	Michael Ellerman <mpe@ellerman.id.au>,
-	Nicholas Piggin <npiggin@gmail.com>, Paul Walmsley <pjw@kernel.org>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>,
-	Heiko Carstens <hca@linux.ibm.com>,
-	Vasily Gorbik <gor@linux.ibm.com>,
-	Alexander Gordeev <agordeev@linux.ibm.com>,
-	Christian Borntraeger <borntraeger@linux.ibm.com>,
-	Sven Schnelle <svens@linux.ibm.com>, Ingo Molnar <mingo@redhat.com>,
-	Borislav Petkov <bp@alien8.de>,
-	Dave Hansen <dave.hansen@linux.intel.com>,
-	"H. Peter Anvin" <hpa@zytor.com>, x86@kernel.org,
+	id 1xBvIF-00000006JeB-1SGk;
+	Wed, 30 Sep 2026 14:28:23 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1xBvIC-00000006Jdb-2xkW
+	for linux-arm-kernel@lists.infradead.org;
+	Wed, 30 Sep 2026 14:28:22 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 68FE3497;
+	Wed, 30 Sep 2026 07:28:15 -0700 (PDT)
+Received: from e129823.arm.com (e129823.arm.com [10.2.213.3])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 64CD03F85F;
+	Wed, 30 Sep 2026 07:28:17 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
+	t=1790778498; bh=FV8I/dO57eVkHuIV6LTmsqycHhPtn1208/7F0F6Lebc=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=ivjiqceDxB2SzDGrovUsYtnai9OlBdpj/MesfTrM//H/VSlGIF/qkIVOhgV0yGT0q
+	 YoxBlmbZNQdc+dl9Qm5ympLo9DjRyivFoJjZCei8/cm0YCB+78YCd+oeHEuLYgDK+R
+	 UZftOjsVhZup6GsllDBRNTVEyJ37ZsSRvJs7QrRw=
+Date: Wed, 30 Sep 2026 15:28:15 +0100
+From: Yeoreum Yun <yeoreum.yun@arm.com>
+To: Jason Gunthorpe <jgg@ziepe.ca>
+Cc: Yeoreum Yun <yeoreum.yun@arm.com>, Kohei Enju <enju.kohei@fujitsu.com>,
 	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
-	loongarch@lists.linux.dev, linuxppc-dev@lists.ozlabs.org,
-	linux-riscv@lists.infradead.org, linux-s390@vger.kernel.org,
-	llvm@lists.linux.dev
-Subject: Re: [PATCH v2] random: vDSO: Avoid call to memset() when zeroing
- reserved in __cvdso_getrandom_data()
-Message-ID: <ar0a4b9CjL2YHCkY@zx2c4.com>
-References: <20260925-vdso-getrandom-avoid-memset-llvm-24-v2-1-ce640f872393@kernel.org>
- <CAKwvOdmuvn0LZkYEsH84hnOGTYhTtzuWs3wMARtWdTeL6dD9sA@mail.gmail.com>
- <CAKwvOdnxKVpn=nAFaqP+9PTx4PqgHsUVWv6e60Pcr29W_eZrpQ@mail.gmail.com>
- <CAKwvOdmNZL3eFvV3v77GXDzL+XLgz+BT9TA=my0yTnbsHqVeSg@mail.gmail.com>
- <areYMjNcaqe86ds4@zx2c4.com>
- <9d1c338b-368f-4ea2-a12e-c28d49adff5e@kernel.org>
- <are6s5e6On3hpD3M@zx2c4.com>
- <CAKwvOd=BrMfFT88jsvBPhh383qqk5G+J07CsofNu0MVkziyhCg@mail.gmail.com>
- <20260930133813.GA3142230@ax162>
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Will Deacon <will@kernel.org>,
+	Suzuki Poulose <suzuki.poulose@arm.com>,
+	Steven Price <steven.price@arm.com>,
+	Sami Mujawar <sami.mujawar@arm.com>, thuth@redhat.com
+Subject: Re: [PATCH v2 3/3] virt: arm-cca-guest: Add support for measurement
+ registers
+Message-ID: <ar0cfxgUCtdYW-EX@e129823.arm.com>
+References: <20260929-arm_cca_mr-v2-0-1d98bba187fd@arm.com>
+ <20260929-arm_cca_mr-v2-3-1d98bba187fd@arm.com>
+ <arx2hnTv3QaFqMn-@FCCLS0092175.localdomain>
+ <aryZnqqBAjKw5xaP@e129823.arm.com>
+ <arygMte5C5lJDdoi@FCCLS0092175.localdomain>
+ <aryuwukTRtmd2Lft@e129823.arm.com>
+ <20260930135408.GP163130@ziepe.ca>
+ <ar0Y0vsOpu3WKTMM@e129823.arm.com>
+ <20260930141708.GQ163130@ziepe.ca>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
+Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20260930133813.GA3142230@ax162>
+In-Reply-To: <20260930141708.GQ163130@ziepe.ca>
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260930_072820_870940_CA341B6A 
+X-CRM114-Status: GOOD (  24.93  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -105,57 +82,47 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Sep 30, 2026 at 03:38:13PM +0200, Nathan Chancellor wrote:
-> On Tue, Sep 29, 2026 at 11:24:11AM -0700, Nick Desaulniers wrote:
-> > arch/arm64/kvm/hyp/nvhe/Makefile has this pattern for exactly the same
-> > problem I suspect.  Maybe that's the right tool in the toolbox?
+On Wed, Sep 30, 2026 at 11:17:08AM -0300, Jason Gunthorpe wrote:
+> On Wed, Sep 30, 2026 at 03:12:34PM +0100, Yeoreum Yun wrote:
+> > > On Wed, Sep 30, 2026 at 07:40:02AM +0100, Yeoreum Yun wrote:
+> > > > > My remaining concern is that since sysfs_kf_bin_write() truncates
+> > > > > oversized writes to the binary attribute size before invoking the
+> > > > > callback, tm_digest_write() sees an exact-sized write and extends the
+> > > > > MR. The following validation is useless in this case.
+> > > > > 
+> > > > >   static ssize_t tm_digest_write(struct file *filp, struct kobject *kobj,
+> > > > >   			       const struct bin_attribute *attr, char *buffer,
+> > > > >   			       loff_t off, size_t count)
+> > > > >   {
+> > > > >     [...]
+> > > > >   	/* partial writes are not supported */
+> > > > >   	if (off != 0 || count != attr->size)
+> > > > >   		return -EINVAL;
+> > > > > 
+> > > > > IMO this is not specific to Arm CCA, but do you have any thoughts on
+> > > > > this?
+> > > > 
+> > > > I think this is ultimately a limitation of sysfs. At this layer,
+> > > > simply knowing that userspace supplied a larger buffer does not allow us to
+> > > > determine whether all of the data in that buffer is valid.
+> > > 
+> > > sysfs is a bad choice for this interface, it always was, this is one
+> > > more example why.
+> > > 
+> > > We should have learned that from TPM's mistakes, not copied its bad
+> > > ideas into tsm_mr.
 > > 
-> > ```
-> > diff --git a/arch/riscv/kernel/vdso/Makefile b/arch/riscv/kernel/vdso/Makefile
-> > index 8dbf2532a573..27fa72d8fb86 100644
-> > --- a/arch/riscv/kernel/vdso/Makefile
-> > +++ b/arch/riscv/kernel/vdso/Makefile
-> > @@ -27,7 +27,7 @@ asflags-y += -DVDSO_CFI=1
-> >  endif
+> > This sounds you plan to make a dedicate fs (whatever via configfs or
+> > other) for attestation subsystem which you mention in [0].
 > > 
-> >  # Files to link into the vdso
-> > -obj-vdso = $(patsubst %, %.o, $(vdso-syms)) note.o
-> > +obj-vdso = $(patsubst %, %.o, $(vdso-syms)) note.o ../../lib/memset.o
-> > 
-> >  ifdef CONFIG_VDSO_GETRANDOM
-> >  obj-vdso += vgetrandom-chacha.o
-> > ```
-> > Fixes `make -skj"$(nproc)" ARCH=riscv LLVM=1 mrproper allmodconfig
-> > vdso_prepare` for me, as per
+> > Link: [0] https://lore.kernel.org/all/arwNEWUEEk7jdGir@e129823.arm.com/
 > 
-> For the record, this also happens with the 32-bit PowerPC vDSO, as I
-> noted in the commit message of v2. I should update the issue too, I only
-> realized this after wider testing. So if this is the route we want to
-> go, we would need a memset() for that vDSO as well.
-> 
-> > https://github.com/ClangBuiltLinux/linux/issues/2183
-> > (Nathan, don't forget to link to that in the commit message)
-> 
-> Yes, thanks, I have added it for v3.
-> 
-> > I'm surprised I didn't need -fno-semantic-interposition (or one of the
-> > related flags... -fvisibility=hidden)
-> > 
-> > If we want to get better, (if performance matters here and we want to
-> > trade source+build system complexity for absolute code perf) I would
-> > start with that, then worry about clawing back performance via things
-> > like:
-> > - __builtin_memset_inline
-> > - -finline-stringops=memset
-> > - -ffunction-sections+-Wl,--gc-sections to dead code eliminate the out
-> > of line copy of memset, though IIRC there's potential for wasted space
-> > due to alignment requirements (maybe the out of line copy of memset is
-> > smaller...idk)
-> 
-> Yeah, I guess it is ultimately up to the maintainers what route they
-> prefer.
+> Jiri's working proposal is to move it to a char dev, like the sane
+> TPM interface ..
 
-I think linking in an out-of-line memset.o is not appealing. This isn't
-a general library or something. So let's just go with your v2 approach,
-fixed up in the ways we mentioned.
+Ah. makes sense. Thanks.
+
+-- 
+Sincerely,
+Yeoreum Yun
 
