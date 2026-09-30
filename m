@@ -4,77 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 33656CA5FCC
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 30 Sep 2026 21:49:30 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 85FC9CA5FC5
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 30 Sep 2026 21:49:31 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=0RFak+FihnONiTiEOAUxLCIOKirVYlhzx9YeUDFVJDk=; b=AyuSvpT+V9DWYuDh3cgjz2feOI
-	GdETeo42G/B/HWffq9QR8VdgXLGm1EGuTnf1Jep3FDNN0dR7uSPie746HNVLW2iBZZPimxdOsjZsJ
-	I1UIPNFGb2yWPSqlhd4kH8gRP2fIeSguBdZHtnqKZpvNU4tQMvll44Od+Zx+6XHtGXgQ9JlTLZOjf
-	lCGCxYicprGHet7Hfy8Sf8Bu0M6KbipRi0KYrVj9lXW4eRK+IMhNoHlFElyvU7XV3HOsdxgEwP8/r
-	MJSnmKsoWI/ftiH37spkONG086kvj0dDzwVFOeh4gOTFgB09AA5Pvv2AzsxegBuxCcTBjIzOfslRw
-	Pq2BIwQA==;
+	bh=nGkVLFh4t1/duKSh5UdjNw/Yth278XKTFrmEUlELumM=; b=tiHDsiHauz7SB9wqXjWqmrMaI2
+	CgXbR3cxMd6zrLfDjFbgTOSJ0vr8ugL0z6n7m5Fz1iDfb0CGDHEGLMTZMdn0fnjDhT+LktUhpWBTT
+	CPYXDD9DTpxBgiKzF2xcDEaFCN+wfLsbvpa74JHDppXmlbCVEAG6U1TiSW9RNiHlPH/HFVIA1znkg
+	X4BeRl7FBZ6mau1cOH+CtnZ0F9a4Ca0LtH6krGavpP8rLv5A3Hv6SlSdOgmNlf9BnArjVI1bE+ZBK
+	cwWK/2VQI6QDlsjGEQZ44EFIdDZNkJFFvfiZzK64CKG1hE/jLqC5K3dBVjt3Dw2qkvXmqz8XQR9QA
+	W4jVAIwA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xC2B0-00000007IMf-02t6;
-	Wed, 30 Sep 2026 21:49:22 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1xC2Az-00000007IM3-37wp;
+	Wed, 30 Sep 2026 21:49:21 +0000
+Received: from mx.nabladev.com ([178.251.229.89])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xC2Au-00000007IJ9-409y
+	id 1xC2Ao-00000007IEv-37Yg
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 30 Sep 2026 21:49:16 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id B309041A13;
-	Wed, 30 Sep 2026 21:49:16 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 58BE31F00898;
-	Wed, 30 Sep 2026 21:49:13 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1790804956;
-	bh=0RFak+FihnONiTiEOAUxLCIOKirVYlhzx9YeUDFVJDk=;
-	h=From:Date:Subject:References:In-Reply-To:To:Cc;
-	b=ZD/bGzTdv6v1PNnNdFQSLCKIKGjX3DYJnaE9iFCxT2nnwmPFcTrxwTqCxtegvIr5e
-	 A04E6WWP8DAOKxGRBHsz664uDYFutOcb/b6Al2KCfaVxKY9PPUmlscFx04XPmwMpQw
-	 EG0yXIGgg9x4LB++okGpiYzpJ0oGCtwszIOJyp8m+PRyb0nBUWbcQ6dbtbdgYZJU4l
-	 ZrVRYTnaRQlXANish8rhMRRj40Hiczq6pt9Fa7Bte4kwNvXNcxLESOSFxYWCaSxp/C
-	 0FXgSMN/FWcPObu5DTxbZWZe7C3hNNDF4u7mSSI9oZiqgQMC1/QekyEbph55z6g9Wk
-	 p+9Q9NXoIPVdA==
-From: Mark Brown <broonie@kernel.org>
-Date: Wed, 30 Sep 2026 22:48:16 +0100
-Subject: [PATCH v21 06/15] KVM: arm64: Validate GCS exception lock when
- emulating ERET
+	Wed, 30 Sep 2026 21:49:12 +0000
+Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 5BD7110709D;
+	Wed, 30 Sep 2026 23:49:03 +0200 (CEST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nabladev.com;
+	s=dkim; t=1790804944;
+	h=from:subject:date:message-id:to:cc:mime-version:content-type:
+	 content-transfer-encoding:content-language:in-reply-to:references;
+	bh=nGkVLFh4t1/duKSh5UdjNw/Yth278XKTFrmEUlELumM=;
+	b=EosciR1gI97ZJNuK6lrn0GImUmlmIuHdU8v5TNXFFsOGPPBDf74Wx3PvUrE2V7b1W0yfat
+	7QbAILUNAKBddNzuiLY8Ztq2Dr71Y6hontqdji74WqPB4ucP3AMEYnWNN7cV5QoWhFZaWE
+	gU+PjUoXMvcCUDmR75c9OtqI5ruT+S68m4xgd0XfPyMiVog0dw4BVehfwY5R8eOdzmps2j
+	+4nT4VWT04iFVDS83fof/X+tn9Q0eQ70vh16sh5FfOSC48G5ySpuKXXT5kIVwT46AtYyZ/
+	/O4ttEd8fuHGh/jY4nyvK2L5hhftjaptATMz2X2M9P9r+hwgMkrejGhSOY9Qew==
+Message-ID: <4efdcea6-a099-46a6-8d07-dd5c583b962a@nabladev.com>
+Date: Wed, 30 Sep 2026 23:49:02 +0200
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v5 3/3] arm64: dts: imx95: Add support for Data Modul
+ i.MX95 eDM SBC
+To: Frank Li <Frank.li@oss.nxp.com>
+Cc: Francesco Dolcini <francesco@dolcini.it>,
+ linux-arm-kernel@lists.infradead.org, Aswath Govindraju
+ <a-govindraju@ti.com>, Conor Dooley <conor+dt@kernel.org>,
+ Fabio Estevam <festevam@gmail.com>, Frank Li <Frank.Li@nxp.com>,
+ Krzysztof Kozlowski <krzk+dt@kernel.org>,
+ Marc Kleine-Budde <mkl@pengutronix.de>, Rob Herring <robh@kernel.org>,
+ devicetree@vger.kernel.org, imx@lists.linux.dev, linux-can@vger.kernel.org,
+ linux-kernel@vger.kernel.org
+References: <20260928204741.175754-1-marex@nabladev.com>
+ <20260928204741.175754-3-marex@nabladev.com> <arvPDq8sjjv7na01@SMW015318>
+ <49303872-5622-4e1d-8e1a-01394ec29367@nabladev.com>
+ <20260930174413.GA2463938@francesco-nb> <ar1bhpji35CbArtY@SMW015318>
+ <17f240e5-9c65-4562-ba51-535b0c69c5fd@nabladev.com>
+ <ar19W4wX07p8u3_5@lizhi-Precision-Tower-5810>
+Content-Language: en-US
+From: Marek Vasut <marex@nabladev.com>
+In-Reply-To: <ar19W4wX07p8u3_5@lizhi-Precision-Tower-5810>
+Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 7bit
-Message-Id: <20260930-arm64-gcs-v21-6-3556644cd927@kernel.org>
-References: <20260930-arm64-gcs-v21-0-3556644cd927@kernel.org>
-In-Reply-To: <20260930-arm64-gcs-v21-0-3556644cd927@kernel.org>
-To: Catalin Marinas <catalin.marinas@arm.com>, 
- Will Deacon <will@kernel.org>, Marc Zyngier <maz@kernel.org>, 
- Joey Gouly <joey.gouly@arm.com>, Suzuki K Poulose <suzuki.poulose@arm.com>, 
- Shuah Khan <shuah@kernel.org>, Oliver Upton <oupton@kernel.org>, 
- Fuad Tabba <fuad.tabba@linux.dev>
-Cc: Peter Maydell <peter.maydell@linaro.org>, 
- Leonardo Bras <leo.bras@arm.com>, Wei-Lin Chang <weilin.chang@arm.com>, 
- Yao Yuan <yaoyuan@linux.alibaba.com>, linux-arm-kernel@lists.infradead.org, 
- linux-doc@vger.kernel.org, kvmarm@lists.linux.dev, 
- linux-kselftest@vger.kernel.org, linux-kernel@vger.kernel.org, 
- Mark Brown <broonie@kernel.org>
-X-Mailer: b4 0.17-dev
-X-Developer-Signature: v=1; a=openpgp-sha256; l=3854; i=broonie@kernel.org;
- h=from:subject:message-id; bh=bBnQDLmdMm1YnC+rDRboHwuSsLquBFG/4uNykMXfTLU=;
- b=owEBbQGS/pANAwAKASTWi3JdVIfQAcsmYgBqvYO4BhrNor4NfGVDZghSRfCcwZSvFZk+reGqp
- fL8NgZ41iSJATMEAAEKAB0WIQSt5miqZ1cYtZ/in+ok1otyXVSH0AUCar2DuAAKCRAk1otyXVSH
- 0AF/B/0TgqsSBrk0vQJPq3g1ZMqss1vydZqimIRNMTu3o5sZFfy+KdQVwHVja5gnDplQX6cSw6y
- QawHZwWv21+fBfbw3khP02m4eirPe/IZ7q0SpZpXG5PmwORLdlxbsbb2TWVdfo2LfWjxg33fJ9d
- sbTskoGsl2nbKk5OzgUzxth/2FZfZOGEaqz1H9c4oUqGfW40WCPmIcUoIIh41gLUtFhUA1xKnxi
- k12APuqVzfX0Kf6XGu0aWQTsJgf0Zmffuubfdp/SYsfQocwqBaywj0to8rVLnaavMn0KFUskFDI
- T+QWTD0SOxsZiM10z3ncs6mTb8G2SkCStJ2v2Szmf2L5hi7o
-X-Developer-Key: i=broonie@kernel.org; a=openpgp;
- fpr=3F2568AAC26998F9E813A1C5C3F436CA30F5D8EB
+X-Last-TLS-Session-Version: TLSv1.3
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260930_144910_935907_5A6AB1F0 
+X-CRM114-Status: GOOD (  17.59  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -89,112 +83,56 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-As per DDI0487 R_TYTWB GCS adds an additional case where an illegal
-exception return can be generated. If all of:
-
- - PSTATE.EXLOCK is 0.
- - The EL is not being changed by the ERET.
- - GCSCR_ELx.EXLOCKEN is 1.
-
-are true then the return is illegal. Emulate this behaviour when
-emulating ERET for nested guests, while we're at it using the symbolic
-definition for EXLOCK in SPSR.
-
-Reviewed-by: Leonardo Bras <leo.bras@arm.com>
-Signed-off-by: Mark Brown <broonie@kernel.org>
----
- arch/arm64/include/asm/kvm_nested.h | 32 ++++++++++++++++++++++++++++++++
- arch/arm64/kvm/emulate-nested.c     |  5 ++++-
- arch/arm64/kvm/hyp/vhe/switch.c     |  4 ++++
- 3 files changed, 40 insertions(+), 1 deletion(-)
-
-diff --git a/arch/arm64/include/asm/kvm_nested.h b/arch/arm64/include/asm/kvm_nested.h
-index 1ed708335809..9e595e8e7642 100644
---- a/arch/arm64/include/asm/kvm_nested.h
-+++ b/arch/arm64/include/asm/kvm_nested.h
-@@ -240,6 +240,38 @@ static inline bool kvm_auth_eretax(struct kvm_vcpu *vcpu, u64 *elr)
- }
- #endif
- 
-+#ifdef CONFIG_ARM64_GCS
-+/* See IllegalExceptionReturn() pseudocode */
-+static inline bool kvm_check_illegal_exlock_return(struct kvm_vcpu *vcpu,
-+						   u64 spsr)
-+{
-+	u64 pstate, cur_mode, target_mode;
-+
-+	if (!kvm_has_gcs(vcpu->kvm))
-+		return false;
-+
-+	if (vcpu->arch.ctxt.regs.pstate & PSR_EXLOCK_BIT)
-+		return false;
-+
-+	/* Check the EL only, ignore thread mode */
-+	pstate = vcpu->arch.ctxt.regs.pstate;
-+	cur_mode = (pstate & PSR_MODE_MASK) | PSR_MODE_THREAD_BIT;
-+	target_mode = (spsr & PSR_MODE_MASK) | PSR_MODE_THREAD_BIT;
-+
-+	if (cur_mode != target_mode)
-+		return false;
-+
-+	return vcpu_read_sys_reg(vcpu, GCSCR_EL2) & GCSCR_ELx_EXLOCKEN;
-+}
-+
-+#else
-+static inline bool kvm_check_illegal_exlock_return(struct kvm_vcpu *vcpu,
-+						   u64 spsr)
-+{
-+	return false;
-+}
-+#endif
-+
- #define KVM_NV_GUEST_MAP_SZ	(KVM_PGTABLE_PROT_SW1 | KVM_PGTABLE_PROT_SW0)
- 
- static inline u64 kvm_encode_nested_level(struct kvm_s2_trans *trans)
-diff --git a/arch/arm64/kvm/emulate-nested.c b/arch/arm64/kvm/emulate-nested.c
-index 625604019fb3..5aa26384720a 100644
---- a/arch/arm64/kvm/emulate-nested.c
-+++ b/arch/arm64/kvm/emulate-nested.c
-@@ -2748,10 +2748,13 @@ static u64 kvm_check_illegal_exception_return(struct kvm_vcpu *vcpu, u64 spsr)
- 	 * - trying to return to an illegal M value
- 	 * - trying to return to a 32bit EL
- 	 * - trying to return to EL1 with HCR_EL2.TGE set
-+	 * - GCSCR_ELx.EXLOCKEN is 1 and PSTATE.EXLOCK is 0 when attempting
-+	 *   to return from ELx the same EL.
- 	 */
- 	if (mode == PSR_MODE_EL3t   || mode == PSR_MODE_EL3h ||
- 	    mode == 0b00001         || (mode & BIT(1))       ||
- 	    (spsr & PSR_MODE32_BIT) ||
-+	    kvm_check_illegal_exlock_return(vcpu, spsr) ||
- 	    (vcpu_el2_tge_is_set(vcpu) && (mode == PSR_MODE_EL1t ||
- 					   mode == PSR_MODE_EL1h))) {
- 		u64 mask;
-@@ -2778,7 +2781,7 @@ static u64 kvm_check_illegal_exception_return(struct kvm_vcpu *vcpu, u64 spsr)
- 
- 		mask = PSR_MODE_MASK | PSR_MODE32_BIT;
- 		if (kvm_has_feat(vcpu->kvm, ID_AA64PFR1_EL1, GCS, IMP))
--			mask |= BIT_ULL(34);	/* PSTATE.EXLOCK */
-+			mask |= PSR_EXLOCK_BIT;
- 
- 		spsr |= *vcpu_cpsr(vcpu) & mask;
- 		spsr |= PSR_IL_BIT;
-diff --git a/arch/arm64/kvm/hyp/vhe/switch.c b/arch/arm64/kvm/hyp/vhe/switch.c
-index 7875911c0506..af59d1bf51ad 100644
---- a/arch/arm64/kvm/hyp/vhe/switch.c
-+++ b/arch/arm64/kvm/hyp/vhe/switch.c
-@@ -383,6 +383,10 @@ static bool kvm_hyp_handle_eret(struct kvm_vcpu *vcpu, u64 *exit_code)
- 		return false;
- 	}
- 
-+	/* Push GCS exception lock failures into the slow path */
-+	if (kvm_check_illegal_exlock_return(vcpu, spsr))
-+		return false;
-+
- 	/* If ERETAx fails, take the slow path */
- 	if (esr_iss_is_eretax(esr)) {
- 		if (!(vcpu_has_ptrauth(vcpu) && kvm_auth_eretax(vcpu, &elr)))
-
--- 
-2.47.3
-
+On 9/30/26 11:21 PM, Frank Li wrote:
+> On Wed, Sep 30, 2026 at 09:29:34PM +0200, Marek Vasut wrote:
+>> On 9/30/26 8:57 PM, Frank Li wrote:
+>>> On Wed, Sep 30, 2026 at 07:44:13PM +0200, Francesco Dolcini wrote:
+>>>> On Tue, Sep 29, 2026 at 05:20:27PM +0200, Marek Vasut wrote:
+>>>>> On 9/29/26 4:45 PM, Frank Li wrote:
+>>>>>
+>>>>> Hello Frank,
+>>>>>
+>>>>>>> +	backlight_lvds: backlight-lvds {
+>>>>>>> +		compatible = "pwm-backlight";
+>>>>>>> +		pinctrl-names = "default";
+>>>>>>> +		pinctrl-0 = <&pinctrl_panel_backlight_lvds>;
+>>>>>>> +		brightness-levels = <0 1 10 20 30 40 50 60 70 75 80 90 100>;
+>>>>>>> +		default-brightness-level = <7>;
+>>>>>>> +		enable-gpios = <&gpio2 27 GPIO_ACTIVE_HIGH>;
+>>>>>>> +		pwms = <&tpm3 3 5000000 0>;
+>>>>>>> +		/* Disabled by default, unless display board plugged in. */
+>>>>>>> +		status = "disabled";
+>>>>>>> +	};
+>>>>>>
+>>>>>> The both backlight is not used in this dts, can you remove it and
+>>>>>> add these when it real use.
+>>>>> It's the same thing we do on the other boards, so I would prefer to keep
+>>>>> this consistent:
+>>>>
+>>>> I agree with Marek, and I would not use the criteria about being used or
+>>>> not.
+>>>
+>>>
+>>> Others boards: some has dtso, which use it. And krzy have some concern for
+>>> similar case although he have not reply alex's answer.
+>>>
+>>> https://lore.kernel.org/imx/30599533-91de-41fd-9420-3f8693ec92ac@kernel.org/
+>>>
+>>> And it is most likely go through nexus connector node to support display
+>>> panel in future.
+>>
+>> I do not think nexus node will apply to this connector, no.
+>>
+>>> So I suggest remove it now and add it when need.
+>> Can we please go with consistency between these boards from one vendor ?
+> 
+> Yes, I am keeping consistency, then ask remove it. I applied alex's v2
+> version. I put v1 link to show krzy's concern.
+> 
+> https://lore.kernel.org/imx/20260319125013.2421621-3-alexander.stein@ew.tq-group.com/
+> 
+> Changes in v2:
+> * Changed commit message to imperative form
+> * Remove (currently unused) display and backlight nodes
+I sent you a V6 with those nodes removed.
 
