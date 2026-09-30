@@ -4,60 +4,73 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 60154CA5FC5
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 30 Sep 2026 18:50:53 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 957F1CA5FD2
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 30 Sep 2026 18:50:54 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:
 	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ns09Eizq9gM2NnPJw5DNGALzDeb2i0DrDbvIrjDIWdQ=; b=AD0HtGmRO2A+t11K+EwgeOdG2f
-	QQrvEdcq3ouPb2tKv8ct4Ognmg84meYa24+IS1ygfFDrJ2JB49p9DbL8lFXmAbMKVb9xqvgDMwNId
-	WZKfY7SvmSfjQYZqD0/1l2i2XL9D4g25RRbvH08ylB7kVDQa3VrGph7tJ4aAjoKfxSdGaCyAYhyJ1
-	awcXO+cLrcXMOVBYwKNaSwU+cAETpFE9j8xDveJggaivzHYKKjAgYt7Uv8HqIi1sNPipZOzMRdDNg
-	TMkYUaaiTbs4/kz0F/MUwCXQ13FO8wsKL1wQE3/YxTOQuDlcjCLCAA0jtkl+pRY/IkYyuzDdqP6wE
-	ZZZ4qo/g==;
+	bh=rWFsHNuhE9NhgYR6RUPz4/Fgti25tsUK/Ak2q3CpV2E=; b=Mi8Y27BZJfDWV6hxleQRnzA3RH
+	KmuweTyDzBK8r9eNs0ud29o8rrtZTbx1cgR39GTBVNDe2qwNf0nx7rZ7DZBjLh6NVXAn82ME9Ob+P
+	dljVP//l68elr2AC9fAoZsIwDGD2gwYkTwQQ+ZU7C8Jp1ide0PQACkSYxEhVbd4vVHd4aVkrawe50
+	kJWnNCRaqEbs+D8htt/Nf+BDMAX5Eg68SzlJsoX95O0Cb8N00XCM/y7MYPtGONwzwXiOt1bSC7UTv
+	muCixYtcxKRE3ukh9+W2o0291VX+E9GDIYnTeJMpdRj1zHNDo5ZQYFgEvb9UIu6+nldPlXILiT8o5
+	YSR+Pmkg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xBzO8-000000071ZL-28Yf;
-	Wed, 30 Sep 2026 18:50:45 +0000
-Received: from gloria.sntech.de ([185.11.138.130])
+	id 1xBzOB-000000071aM-0yZs;
+	Wed, 30 Sep 2026 18:50:47 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xBzMp-000000071Cm-0pPU;
+	id 1xBzMs-000000071Ea-1pyp;
+	Wed, 30 Sep 2026 18:49:27 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:Content-Type
+	:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Sender:Reply-To:Content-ID:Content-Description;
+	bh=rWFsHNuhE9NhgYR6RUPz4/Fgti25tsUK/Ak2q3CpV2E=; b=Cho7aUsPO1xdadgKrU+iRLALwO
+	l+nQAYlXoyeSkf/p982fPLnsbGQEWP4o0VhbqU/rVVaF/X7VHVMHLTwo3clRtqJtjyZqQSQpBV521
+	OPR7vmTyYmAwOc9BAWJLMvOjAQBDUmbEhxe2VehYro8iQT4JrdoMNn9JqW1cYAaHGZWddCc4P9YdI
+	+9Uiulsp4cCQbTMYHXTGtgBOEe8nPhD9UWo3urKLn5JcDXAevss8nz00wvzy+BF5+0lWQVU2995gR
+	3TI92QFwbKUW/E0oCwQtNGjSZlC44ydbIBC1Ah4IleYbyV+9O1Cuxry9KQGn14u1rKxZkHLK9tjO4
+	QxeUj8QA==;
+Received: from gloria.sntech.de ([185.11.138.130])
+	by desiato.infradead.org with esmtps (Exim 4.99.2 #2 (Red Hat Linux))
+	id 1xBzMp-00000004DRB-2mZZ;
 	Wed, 30 Sep 2026 18:49:25 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=sntech.de;
 	s=gloria202408; h=Content-Transfer-Encoding:Content-Type:MIME-Version:
 	References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Reply-To;
-	bh=ns09Eizq9gM2NnPJw5DNGALzDeb2i0DrDbvIrjDIWdQ=; b=uDZ7k2T3nH12rjcCI6OGpnDxkI
-	dF5BOvVgtoKzSK8HGsNy5x+K25IAkUINHrBX2PGDFmT7d92X7nMwiZTwVOFsqu1YAROMxIHMLFIRc
-	0+HQhHeerEAfcSx5gVww5fUzHSVyALJ4jJmBrScGC/nnpvG6gzbC0UK6c+GsJq6GFdJVfY4dVSCT7
-	XH1zzciEv/zzkqw9/P0nHlD5teNlzWu2vNNVno+g/+bkssyYS8UAc1H0JZxHgouvWpLAmMaUm+uXG
-	+nT3I8/3VN+StF5KqLNjHq17AzNX0LyWOMYKfgFgfapKkKeho0aayLBB3cfb4XQypBgFNhrMOy9yE
-	ccnu7Jvg==;
+	bh=rWFsHNuhE9NhgYR6RUPz4/Fgti25tsUK/Ak2q3CpV2E=; b=TOQVQl1iibkQm7QeEjJoVP8Kao
+	d5ZjY6dJEAwXYFoR/e2IU5DBvvv0K6dw4fZZg7nbamcAjeg2j9oX3acED6Kd9+JNCj50TQhwFKGZ0
+	UmmR0M1X8WpoGF5S1LLQ83QAzj0jFtOhfN2YPHhkBLWGljdaLHIPBzhZuILlEluM6kd1y0SfB69dD
+	OCDFzCFzF3B1FszDpskIiqCKWf2mYcR+002UyFdm0cuUIfFU+SSKKyUw6bE5rabQK4q9hDQrle6Jf
+	FtsEM56SEtOZ/t1Ykk3TOPc19fo5l7Pbw4INabk/l/vrTExnQ9g8zYLQQDd+jITSY3wUnDIDSYrmp
+	Sn1TZOpA==;
 From: Heiko Stuebner <heiko@sntech.de>
-To: Adam Wermuth <adam@wermuth.pl>
-Cc: Heiko Stuebner <heiko@sntech.de>,
-	Jonas Karlman <jonas@kwiboo.se>,
-	Rob Herring <robh@kernel.org>,
+To: Rob Herring <robh@kernel.org>,
 	Krzysztof Kozlowski <krzk+dt@kernel.org>,
 	Conor Dooley <conor+dt@kernel.org>,
+	Dragan Simic <dsimic@manjaro.org>,
 	devicetree@vger.kernel.org,
 	linux-arm-kernel@lists.infradead.org,
 	linux-rockchip@lists.infradead.org,
-	linux-kernel@vger.kernel.org
-Subject: Re: (subset) [PATCH v2 0/2] arm64: dts: rockchip: Add PWM fan and WWAN overlay for Radxa ROCK 3B
-Date: Wed, 30 Sep 2026 20:49:09 +0200
-Message-ID: <179079409724.2398180.1900201056909150214.b4-ty@sntech.de>
+	Peter Robinson <pbrobinson@gmail.com>
+Cc: Heiko Stuebner <heiko@sntech.de>
+Subject: Re: [PATCH] arm64: dts: rockchip: Add missing audio codec supplies to Pinebook Pro
+Date: Wed, 30 Sep 2026 20:49:13 +0200
+Message-ID: <179079409721.2398180.7039996510410106789.b4-ty@sntech.de>
 X-Mailer: git-send-email 2.47.3
-In-Reply-To: <20260925080258.46489-1-adam@wermuth.pl>
-References: <20260925080258.46489-1-adam@wermuth.pl>
+In-Reply-To: <20260928133122.45765-1-pbrobinson@gmail.com>
+References: <20260928133122.45765-1-pbrobinson@gmail.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260930_114923_439113_77CE0EC5 
-X-CRM114-Status: GOOD (  13.41  )
+X-CRM114-CacheID: sfid-20260930_194923_950069_0CD7D469 
+X-CRM114-Status: GOOD (  12.69  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -73,26 +86,20 @@ Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
 
-On Fri, 25 Sep 2026 10:02:56 +0200, Adam Wermuth wrote:
-> The Radxa ROCK 3B has a 2-pin fan header and an M.2 B-key slot
-> intended for 4G/5G modules, neither of which is currently described
-> in the mainline device tree.
+On Mon, 28 Sep 2026 14:31:15 +0100, Peter Robinson wrote:
+> The DT binding for the es8316 got 4 power supplies added in commit
+> e9966d450b46 ("ASoC: dt-bindings: es8316: Add regulator supplies")
 > 
-> Patch 1 adds the PWM fan and ties it to the CPU thermal zone. Patch 2
-> adds a device tree overlay for the B-key slot, enabling the USB 2.0
-> host controller serving the slot as well as its power, RESET# and
-> W_DISABLE1# controls.
+> Page 16 of the schematic for the Pinebook Pro describes these
+> supplies so update the dts.
+> 
 > 
 > [...]
 
 Applied, thanks!
 
-[1/2] arm64: dts: rockchip: Add PWM fan to Radxa ROCK 3B
-      commit: afcfb6982a13fb4b3e0045f96c7aa6d64063a034
-
-Only took patch1 as the discussion in v2 did not seem finished
-and doing it correctly trumps intermediate solutions, especially
-adding overlays we might have trouble removing in the future.
+[1/1] arm64: dts: rockchip: Add missing audio codec supplies to Pinebook Pro
+      commit: dd0c1c534957a1e297460edd1428b251e78b4fc5
 
 Best regards,
 -- 
