@@ -4,65 +4,62 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0D9B9CA5FC4
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 30 Sep 2026 20:50:58 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2854BCA5FC4
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 30 Sep 2026 20:51:14 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Cc:List-Subscribe:
-	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	Content-Transfer-Encoding:Content-Type:To:Subject:Message-ID:Date:From:
-	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=M+/OyhH3Msg6tLgpwLBJhE4kGp7BkelrRjhrjnMBWTw=; b=pgK3OTUIcPgqQr
-	roH3KdOrG72tj7NTtjuQKvBcWp4BCsQw7ALfaF9AweMipV6nrNg5tmm3xWoRXtdqRg7tTcCD/5VTJ
-	sP3mVjv1S49XVH8Sky0dTvN03u2JJBGOsTK5wuIGzvFzmOhTXHRVKb9+GYkxSi+jPY8JUw64E5GpR
-	viXBxOnS7xWphlk8l4rn+7/8m+5SPCUqLdbT2i7WyXMfACF+p45PHmvPughBv1qqLFh4Cf+Ej+V+H
-	JzIAydp6GzRR+TaPpljjaCADQlVdHWHsCyPu3KRntDnweBR9WskssImIU7shPrP6dvaP89Be/pW89
-	pb/0NpHH3NaRa/ymptgw==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
+	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=dPDK1RjqVTTBwaQmns3VDkFuMdVJQ9yvuvr1V4jsZtU=; b=iPdKnJymn0hfUZit8mDVgBbYq+
+	nd8R3qp8addB6pTS7Bsmo9vNWOWfzru0A3K1JtSJqpdkFUZAvGmECEhK0AhAA8CyQzo9aLRtrVFQ/
+	Ek2vcOiBkSsfrlnxVsUSfirDbc1hBLiyvOfjYazNny1K4RDChuC4aqX54Yn4moj0BO7QEL1CUv4Za
+	zXFq6a1aUYQHG9qPwsNyx0ASTHqAxayxI/NEWEVIx/Une6r/1cmoWTKshaqut1QEHrp2SIHzN77LO
+	CkxENd4VXZvD0OQANR7VUzYAJqCJfO9McMX8qkZYV2LPBSrQnRV0lwP5dLbaFqEJ11EjRPJ7PtJ3/
+	/zC+SpJQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xC1GN-00000007CKJ-0JIV;
-	Wed, 30 Sep 2026 20:50:51 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
-	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xC1GL-00000007CKA-2gk7
+	id 1xC1Ge-00000007COU-0mYC;
+	Wed, 30 Sep 2026 20:51:08 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1xC1GX-00000007CMx-2gU9
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 30 Sep 2026 20:50:49 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 1E6F7403AB
-	for <linux-arm-kernel@lists.infradead.org>; Wed, 30 Sep 2026 20:50:49 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 020B41F0089A
-	for <linux-arm-kernel@lists.infradead.org>; Wed, 30 Sep 2026 20:50:48 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1790801449;
-	bh=M+/OyhH3Msg6tLgpwLBJhE4kGp7BkelrRjhrjnMBWTw=;
-	h=References:In-Reply-To:From:Date:Subject:To:Cc;
-	b=EZcQ2S60TURDf6RFzJiWhjm+o8/pmGx8wukMMT1q4m3AHbpqyJ3kMHVS96VN6+gff
-	 18fNggtgil4NYvRcbOSQviZraYzceFnV6sl5gLCSmaLuDwBUH/sHemD2dTPF1zRy/I
-	 ckHufBDhqtRt/Kt/56GL0AVJC4Yn5Jw6b8b9AsSKVJnqp+ZC/DmVSf4jqfcw57cUE6
-	 HWV+l2ZztouEzfqiUzYrvr99snV/FLahPucf1N2LrvLDx8Mfvu+m+Zbb2eGdyv747b
-	 OEIvbdF72Qu1SGqLVw21QS+NmoJ4LVHKQiXUxAljHVMUfD7Go99NykZnQgqgenXcmM
-	 y86tL3LQlcr3A==
-Received: by mail-lf2-f13.google.com with SMTP id 2adb3069b0e04-5ba3fc22439so934533e87.1
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 30 Sep 2026 13:50:48 -0700 (PDT)
-X-Gm-Message-State: AFq9FYKkA/nnqjU+SiYEg/ZkYg2OSTmwIyV+oxpTXA4a7K7eEoPwTp+w
-	xD30wzK9KxN9SZ6X0DNzL48/LLRUOuvfE6/FTZ+XTHDDsCt9hwIzN003lgoF02A36LGu88ZfVUh
-	07644wHy8RlCzZ3wZa0VXReqGlJl6xWI=
-X-Received: by 2002:a05:6512:3195:b0:5b8:f494:da93 with SMTP id
- 2adb3069b0e04-5ba405d9c1cmr1310761e87.33.1790801447761; Wed, 30 Sep 2026
- 13:50:47 -0700 (PDT)
+	Wed, 30 Sep 2026 20:51:02 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 1C20E143D
+	for <linux-arm-kernel@lists.infradead.org>; Wed, 30 Sep 2026 13:50:56 -0700 (PDT)
+Received: from [10.2.11.34] (usa-sjc-imap-foss1.foss.arm.com [10.121.207.14])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPA id 45CF33F85F
+	for <linux-arm-kernel@lists.infradead.org>; Wed, 30 Sep 2026 13:50:59 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
+	t=1790801459; bh=o6JsEQle2TgBGXyra/fkAAW50pTRLJXiPJdy1imZk68=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=di2qgt1+E0o5tFCdR9GyLVt19Eyo1cbUiJV/sElqoiBz33UMZrpxqirTsZ6AtXW3g
+	 BNHdCs9rPgrgTosipiK4/G8FlHd8tG4CcH45jpIg5R7AXG8blb3F6+huAGgtlkReBy
+	 8tf2RSnfVryFaCtZGlwiYYQr81EcyV7min1j48kg=
+Date: Wed, 30 Sep 2026 21:50:51 +0100
+From: Liviu Dudau <liviu.dudau@arm.com>
+To: Weigang He <geoffreyhe2@gmail.com>
+Cc: Sudeep Holla <sudeep.holla@kernel.org>,
+	Lorenzo Pieralisi <lpieralisi@kernel.org>,
+	Linus Walleij <linusw@kernel.org>,
+	Russell King <linux@armlinux.org.uk>, Lee Jones <lee@kernel.org>,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH 2/2] ARM: vexpress: fix device_node refcount leak in
+ vexpress_smp_dt_prepare_cpus()
+Message-ID: <ar12K0NGkuO9_XK_@e142607>
+References: <20260925173252.933705-1-geoffreyhe2@gmail.com>
+ <20260925173252.933705-3-geoffreyhe2@gmail.com>
 MIME-Version: 1.0
-References: <20260918161407.2300-1-will@kernel.org> <20260918161407.2300-3-will@kernel.org>
-In-Reply-To: <20260918161407.2300-3-will@kernel.org>
-From: Linus Walleij <linusw@kernel.org>
-Date: Wed, 30 Sep 2026 22:50:35 +0200
-X-Gmail-Original-Message-ID: <CAD++jLkyS-ZOkpEXeEDzhfe7t4sn8NbzEeNO4a8WKsk_OfRLmQ@mail.gmail.com>
-X-Gm-Features: AclHuK9k9Dqon_4_7OCW1CMCtBrEiAX2BH_LGhxILnxAEFTHu__0YdC-t83XsPc
-Message-ID: <CAD++jLkyS-ZOkpEXeEDzhfe7t4sn8NbzEeNO4a8WKsk_OfRLmQ@mail.gmail.com>
-Subject: Re: [PATCH v2 02/21] arm64: entry: Only check for stack overflow on
- exceptions from EL1
-To: Will Deacon <will@kernel.org>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+Content-Transfer-Encoding: 8bit
+In-Reply-To: <20260925173252.933705-3-geoffreyhe2@gmail.com>
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260930_135101_727532_D1A999D0 
+X-CRM114-Status: GOOD (  24.07  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -74,29 +71,72 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
-Cc: Mark Rutland <mark.rutland@arm.com>, Vladimir Murzin <vladimir.murzin@arm.com>, Arnd Bergmann <arnd@arndb.de>, Catalin Marinas <catalin.marinas@arm.com>, linux-kernel@vger.kernel.org, Mostafa Saleh <smostafa@google.com>, Marc Zyngier <maz@kernel.org>, David Hildenbrand <david@kernel.org>, Lorenzo Stoakes <ljs@kernel.org>, Oliver Upton <oupton@kernel.org>, Ard Biesheuvel <ardb@kernel.org>, linux-arm-kernel@lists.infradead.org
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, Sep 18, 2026 at 6:14=E2=80=AFPM Will Deacon <will@kernel.org> wrote=
-:
+On Sat, Sep 26, 2026 at 03:32:52AM +1000, Weigang He wrote:
+> vexpress_smp_dt_prepare_cpus() obtains a reference to the SCU device
+> node via of_find_matching_node() and passes it to of_iomap(), but never
+> calls of_node_put() on it. of_iomap() does not take ownership of the
+> node, so the reference is leaked. The function is the .smp_prepare_cpus
+> hook invoked once from the __init SMP bring-up path, so this is a
+> one-shot leak of a single refcount during boot, with no functional
+> impact.
+> 
+> Annotate scu with the __free(device_node) cleanup attribute so the
+> reference is released when the function returns.
+> 
+> Found while reviewing a CodeQL report for vexpress_flags_set() on the
+> same SMP bring-up path.
+> 
+> Fixes: d2606f81d563 ("ARM: vexpress: Simplify SMP operations for DT-powered system")
+> Assisted-by: LLM codeql
+> Signed-off-by: Weigang He <geoffreyhe2@gmail.com>
 
-> Checking for kernel stack overflow on entry from EL0 is largely
-> pointless and gets in the way of using SPSel to switch to the overflow
-> stack. If the kernel stack overflows on entry from userspace, that
-> implies that it was unbalanced on the last exception return which means
-> we can't sensibly reason about the state of the system given that we
-> could've returned to an arbitrary virtual address in an arbitrary mode.
->
-> Remove the stack overflow check from the EL0 exception entry path.
->
-> Cc: Mark Rutland <mark.rutland@arm.com>
-> Signed-off-by: Will Deacon <will@kernel.org>
+Reviewed-by: Liviu Dudau <liviu.dudau@arm.com>
 
-I agree with this reasoning, and it confirms my own understanding
-of the futility of checking this at entry from EL0.
-Reviewed-by: Linus Walleij <linusw@kernel.org>
+Best regards,
+Liviu
 
-Yours,
-Linus Walleij
+> ---
+> 
+> Notes:
+>     Compile-tested only (ARCH=arm multi_v7_defconfig, W=1). Not tested on
+>     hardware; I have no Versatile Express board.
+>     
+>     The CodeQL query behind this report was synthesized with LLM assistance,
+>     and the fix and changelog were drafted with LLM assistance; I have
+>     reviewed them.
+> 
+>  arch/arm/mach-versatile/platsmp-vexpress.c | 4 ++--
+>  1 file changed, 2 insertions(+), 2 deletions(-)
+> 
+> diff --git a/arch/arm/mach-versatile/platsmp-vexpress.c b/arch/arm/mach-versatile/platsmp-vexpress.c
+> index 1ee3c45e71c99..b810ad50b98ce 100644
+> --- a/arch/arm/mach-versatile/platsmp-vexpress.c
+> +++ b/arch/arm/mach-versatile/platsmp-vexpress.c
+> @@ -61,8 +61,8 @@ static const struct of_device_id vexpress_smp_dt_scu_match[] __initconst = {
+>  
+>  static void __init vexpress_smp_dt_prepare_cpus(unsigned int max_cpus)
+>  {
+> -	struct device_node *scu = of_find_matching_node(NULL,
+> -			vexpress_smp_dt_scu_match);
+> +	struct device_node *scu __free(device_node) =
+> +		of_find_matching_node(NULL, vexpress_smp_dt_scu_match);
+>  
+>  	if (scu)
+>  		scu_enable(of_iomap(scu, 0));
+> -- 
+> 2.43.0
+> 
+
+-- 
+====================
+| I would like to |
+| fix the world,  |
+| but they're not |
+| giving me the   |
+ \ source code!  /
+  ---------------
+    ¯\_(ツ)_/¯
 
