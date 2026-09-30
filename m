@@ -4,76 +4,80 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8FE20CA5FB1
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 30 Sep 2026 07:56:45 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6108ACA5FC1
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 30 Sep 2026 08:00:41 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=xL6M0dr5FX7bEZLB4pEnUkdcIL4YjSX8nLQPwIT5Zzo=; b=bGWHjTZvnPzDmVBkrh0AoBgc7n
-	cJ62v6QQVPbg0aSh4K6cUdNafhcMirVZd/vVYxUqKGJagHtA0T9gXdknizqfwMv5//ulc+J+ih6vR
-	QY1G0rmRJ6M+md0NtIwhvQ4NGtNrUgkPjVNWDJq5DLy8kBhsrdaW4mpbLUq4pJHxrZRKSmgvXPSgF
-	mawGc7eWPvpKW7K6o3u2ECuIXoMZDCBAQtQxPAheJzTD6GhPhFXWsS8oLuRWmqFiZv3XOfRn9tQx7
-	jwtLAj2S6jxwxJNYg1R1gxHk2rDNCYP/ABxfJy8yL5oFvXnTOE0I8KqBP6bQKRhktcoQHOImGzrrX
-	hfa/Nx7g==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
+	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:
+	References:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:
+	Subject:Date:From:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=Aw3PB1cASzqxZG3rj2OkZzQzyWd2jZNNHHzzORJCH3w=; b=fW8pMYTxDmF9Qr87RZYJRb6R+M
+	7nspSW6fYBweDRctN07/BzSueiqGUl7VtwrOTOEO6LOBE5zIzyoa1Egq38Vz3KNG1Tyyd1juK1VWE
+	yNBmSD9w2C8S6ch0bQZE8ebMDZ+/lASujJQBzh9EFK8fRypuYImqxpykl2o9KLi7+eyj681ZLEaat
+	Ujlq98+TxXtORxJkEhwSHpcaIQYFfLt8Z0tFY5OzJ3w0iYPpU62QP9/SJjUwSlYQiaUe33wjNT3aE
+	731RFML1cUhbJisZ0kwmJGD8/X5p7Ce+Dfp/mdT0qKcitxqpF6CugsTjfAbkUCEqPKtqEwCLY4g8/
+	mhr8WcEg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xBpB5-00000005MG2-0i7l;
-	Wed, 30 Sep 2026 07:56:35 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1xBoIQ-00000005D7B-0aeI;
+	Wed, 30 Sep 2026 07:00:06 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xBpB3-00000005MFi-23nd
+	id 1xBoIO-00000005D65-2FXi
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 30 Sep 2026 07:56:33 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id B3347602BE;
-	Wed, 30 Sep 2026 07:56:32 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 4728B1F000FF;
-	Wed, 30 Sep 2026 07:56:27 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1790754992;
-	bh=xL6M0dr5FX7bEZLB4pEnUkdcIL4YjSX8nLQPwIT5Zzo=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=i89SYrP8uoUOW63arVdATXVuZH9y+kHuAUwU2N0UGVY94DWwNd2K7x/EKMapEQVv2
-	 IS3kZU8IQdtUbPMdMBwhZM6iXY4jKf0Fjfr+CLnKACgkbMqTegribBZxPXuGqW37SI
-	 V7Dy6PcWs6l1EKldjWnXwAcyB2uHLXgdmhUpIZDmeZ6RDMNVivQTbewanLOKGj0/Nw
-	 YZTyMxUhi5R0AW5hS+q9NUt6pU5Y9GQYUthgafm93QVh4LLtAMf0aoQJcmj+Qh7TKt
-	 A4xvaRF2ROzvt2xapbNlc1Xwjz+inDZ42dlbHzdFa5OS8rzLPfLvFJZ4lflr1SMC2F
-	 LPpBIT4uCLTBQ==
-Date: Wed, 30 Sep 2026 09:56:24 +0200
-From: Lorenzo Pieralisi <lpieralisi@kernel.org>
-To: Andy Shevchenko <andriy.shevchenko@linux.intel.com>
-Cc: Ashok Raj <ashok.raj@oss.qualcomm.com>,
-	"Rafael J. Wysocki" <rafael@kernel.org>,
-	Mark Rutland <mark.rutland@arm.com>, Marc Zyngier <maz@kernel.org>,
-	Daniel Lezcano <daniel.lezcano@kernel.org>,
-	Thomas Gleixner <tglx@kernel.org>,
-	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
-	Danilo Krummrich <dakr@kernel.org>,
-	Hanjun Guo <guohanjun@huawei.com>,
-	Sudeep Holla <sudeep.holla@kernel.org>,
-	Wim Van Sebroeck <wim@linux-watchdog.org>,
-	Guenter Roeck <linux@roeck-us.net>,
-	Robin Murphy <robin.murphy@arm.com>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Will Deacon <will@kernel.org>,
-	Bartosz Golaszewski <brgl@kernel.org>, linux-acpi@vger.kernel.org,
-	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-	driver-core@lists.linux.dev, linux-watchdog@vger.kernel.org
-Subject: Re: [PATCH RFC 02/11] ACPI: Introduce irq_get() for static fwnodes
-Message-ID: <arzAqMOmSVl_PzH5@red-moon>
-References: <20260925-acpi-static-table-irq-probe-defer-v1-0-2c62125d0085@kernel.org>
- <20260925-acpi-static-table-irq-probe-defer-v1-2-2c62125d0085@kernel.org>
- <arr3IhF0bwN4uzUP@hu-ashoraj-lv.qualcomm.com>
- <art5m5QPXAOAvkvW@red-moon>
- <arxZ7BAya5ntRi6t@hu-ashoraj-lv.qualcomm.com>
- <ary9AGmVWDuez7Ax@ashevche-desk.local>
+	Wed, 30 Sep 2026 07:00:04 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id C340743EBD;
+	Wed, 30 Sep 2026 07:00:03 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPS id D0F0CC4AF14;
+	Wed, 30 Sep 2026 07:00:02 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1790751603;
+	bh=me0/GaYRhRGsLTRt0o/xOAdYgAPd8saMs5gs1pazfMw=;
+	h=From:Date:Subject:References:In-Reply-To:To:Cc:Reply-To:From;
+	b=eBiiYx1iUpFLgCs3jPyyLsZR9BoZkOENFXPvq3ecvlkQNGSeSI9XWjINwi7BrTAdp
+	 55IgCDowjZJjY3pPgWvzwrMoPILR41AIfffMjNYCVZVQ0YGTx8CgoQY5K1V0vg9iPp
+	 g6Hop6zLVODjowEapVFM/1RPcp8KB6P7hmWdVSRLC/ZjZa3EPF++b0Gf0k9cyXZ/Od
+	 WdmT7LsPkYoKNkWvx4PWQ4Ak/qtwR9oXmOXRx4gn+kyc0eszAwRvc6t7wyMtqaHbD3
+	 naZqyen/S57ZYy/PFrRus7h/YKQEPSquC72/73x9JAztVR+ayXQeY8HFAfHLhkryGa
+	 Qfh2XOeslNuwQ==
+Received: from aws-us-west-2-korg-lkml-1.web.codeaurora.org (localhost.localdomain [127.0.0.1])
+	by smtp.lore.kernel.org (Postfix) with ESMTP id AC888CA5FC2;
+	Wed, 30 Sep 2026 07:00:02 +0000 (UTC)
+From: Fil Dunsky via B4 Relay <devnull+filipp.dunsky.gmail.com@kernel.org>
+Date: Wed, 30 Sep 2026 10:00:02 +0300
+Subject: [PATCH RFC 03/10] dt-bindings: arm: cpus: Add Cortina Systems
+ CS7542 enable method
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <ary9AGmVWDuez7Ax@ashevche-desk.local>
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+Message-Id: <20260930-b4-cs75xx-v1-3-4617c4463529@gmail.com>
+References: <20260930-b4-cs75xx-v1-0-4617c4463529@gmail.com>
+In-Reply-To: <20260930-b4-cs75xx-v1-0-4617c4463529@gmail.com>
+To: Arnd Bergmann <arnd@arndb.de>, Linus Walleij <linusw@kernel.org>, 
+ Krzysztof Kozlowski <krzk@kernel.org>
+Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, 
+ Greg Kroah-Hartman <gregkh@linuxfoundation.org>, 
+ Jiri Slaby <jirislaby@kernel.org>, Russell King <linux@armlinux.org.uk>, 
+ Alexandre Belloni <alexandre.belloni@bootlin.com>, 
+ Drew Fustini <fustini@kernel.org>, 
+ Lorenzo Pieralisi <lpieralisi@kernel.org>, 
+ linux-arm-kernel@lists.infradead.org, devicetree@vger.kernel.org, 
+ linux-kernel@vger.kernel.org, linux-serial@vger.kernel.org, 
+ Fil Dunsky <filipp.dunsky@gmail.com>
+X-Mailer: b4 0.16.0
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1790751600; l=1236;
+ i=filipp.dunsky@gmail.com; s=20260930; h=from:subject:message-id;
+ bh=zHs4d0oCr/fkCjW2IncoLpYzn3PsYpvSJVPGzM+249Y=;
+ b=5NGp1Z9mv2h2Aiqk1msw4SDQyLOh8bIopneUpk9z2/71v/F+jOsc6UszjLI5N6VAxuYLJ8g2j
+ aJRpOJj1wZlB3JO04HulAycLiCjFcGXIKZCahBcJ84HQ+Wlbe5HNL3d
+X-Developer-Key: i=filipp.dunsky@gmail.com; a=ed25519;
+ pk=JAYP8e2rJ54DHOmhNtXud8rl1igAaAXoOHxtJmVXI1g=
+X-Endpoint-Received: by B4 Relay for filipp.dunsky@gmail.com/20260930 with
+ auth_id=1085
+X-Original-From: Fil Dunsky <filipp.dunsky@gmail.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -85,34 +89,46 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
+Reply-To: filipp.dunsky@gmail.com
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Sep 30, 2026 at 10:40:48AM +0300, Andy Shevchenko wrote:
-> On Tue, Sep 29, 2026 at 05:38:04PM -0700, Ashok Raj wrote:
-> > On Tue, Sep 29, 2026 at 10:40:59AM +0200, Lorenzo Pieralisi wrote:
-> > > On Mon, Sep 28, 2026 at 04:24:18PM -0700, Ashok Raj wrote:
-> > > > On Fri, Sep 25, 2026 at 09:48:01AM +0200, Lorenzo Pieralisi wrote:
-> 
-> ...
-> 
-> > > > > +	ret = acpi_static_fwnode_read_u32_prop_index(fwnode, ACPI_IRQ_PROP_GSI_POLARITY,
-> > > > > +						index, &polarity);
-> > 
-> > For each of the above calls for read_u32_prop_index() the allocation,
-> > copy a value and does free it. 
-> > 
-> > Instead you could read the whole array, and just get each value and
-> > discard it once? 
-> 
-> This was my question as well. But I formulated it differently.
+From: Fil Dunsky <filipp.dunsky@gmail.com>
 
-Same answer (and actually two properties are enough), yes that should
-be done, if using software nodes is the way to go, which does not
-look like, that's the whole reason behind this series, understanding
-where to stash GSI numbers, flags and names. It is a working proof
-of concept to get this debated and resolved, hopefully next week at LPC.
+On the CS7542 the bootloader parks the secondary Cortex-A9 core in a loop
+that waits for an event and then jumps to the address found in a global
+software register. Add the "cortina,cs7542-smp" enable method for it and,
+as with the other release-address based methods, require cpu-release-addr
+to point at that register.
 
-Thanks,
-Lorenzo
+Signed-off-by: Fil Dunsky <filipp.dunsky@gmail.com>
+---
+ Documentation/devicetree/bindings/arm/cpus.yaml | 2 ++
+ 1 file changed, 2 insertions(+)
+
+diff --git a/Documentation/devicetree/bindings/arm/cpus.yaml b/Documentation/devicetree/bindings/arm/cpus.yaml
+index 96136b70dac..7a394c500d6 100644
+--- a/Documentation/devicetree/bindings/arm/cpus.yaml
++++ b/Documentation/devicetree/bindings/arm/cpus.yaml
+@@ -269,6 +269,7 @@ properties:
+           - brcm,bcm63138
+           - brcm,bcm-nsp-smp
+           - brcm,brahma-b15
++          - cortina,cs7542-smp
+           - marvell,armada-375-smp
+           - marvell,armada-380-smp
+           - marvell,armada-390-smp
+@@ -484,6 +485,7 @@ allOf:
+         enable-method:
+           enum:
+             - spin-table
++            - cortina,cs7542-smp
+             - renesas,r9a06g032-smp
+       required:
+         - enable-method
+
+-- 
+2.53.0
+
+
 
