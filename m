@@ -4,64 +4,62 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 99D06CA5FAD
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 30 Sep 2026 01:31:04 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E791ACA5FA5
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 30 Sep 2026 01:33:16 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:To:
+	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=y4LgJcxG58FFth/hB4/i7KbJf2H3darIqdWGj6YwQ/s=; b=D70MwHDgH3Bu3Q/73bjGji7qjk
-	fUOpyjAmk8NhuSBrmPC9SBuyTIKxNLP2XOBJcxqpl/kWfLd37d1doFpDwxrt1rV/XYjkksa/Yi9e9
-	OOTHWDwHMoQdsHYpiFpMnhy6G6YaqOlD6udSGlaIwWuhg0C9JQYJviXCOCCX1VkonFgZJ47ZJSWcL
-	4sV7OEuY0iOw/1WBRUkfDuDc7M8CUMJKzM4dyBku6gha/3wWmGJnRJ7qCEzNcfzZIucl7nI81z7ng
-	OOco3SfUrliYq3Wv440RjHkdbqwBdpw68Od4iLDPiOv7ak0jlwVSBTH6LKQFtpdW5QPWfe+fQiH5g
-	bj6P8ofw==;
+	bh=E9LFBu3yJsDQ69TLBDzRvOENcK1uacHJ+6beUmMVpe8=; b=IjHNCtThjleVMdiZbEwk5vRbxU
+	OSI70/9hWvxXdDF2lSuRbyWXwFPouxTHnsTbFZg0e45/0DY7SH+aIBVDHFX83gJKVKq2pUIz4d5PC
+	w16+4PSpyHm4KJJkLx9VP9SmlbcDhGRvpzvss2WCNjDjQOJf/R45VnXpTIg/BvgkfaVtJBuSUQB9y
+	BU4r2cSYdccAobBa6U/PBXr8U0CdNkq1C3Z7+Kk0tb69wF0cWwqQ0uOg5/HzNP/PyhspzUsjcaiVq
+	RaUcJWI2XC4gKuTVsygtgaJwqD93eDs+vyLJxJ8GTCL5aLva2f1PfMVH1Dj96SezMZO6acjJ1Ho4M
+	DSADGwpA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xBj7M-00000004reC-2ulV;
-	Wed, 30 Sep 2026 01:28:20 +0000
-Received: from m16.mail.163.com ([117.135.210.3])
+	id 1xBjC1-00000004s01-1b7K;
+	Wed, 30 Sep 2026 01:33:09 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xBj7J-00000004rde-3R2A;
-	Wed, 30 Sep 2026 01:28:19 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=163.com;
-	s=s110527; h=Message-ID:Date:MIME-Version:Subject:To:From:
-	Content-Type; bh=y4LgJcxG58FFth/hB4/i7KbJf2H3darIqdWGj6YwQ/s=;
-	b=jjxRzqGTAYcYRKiHAHIVCbgcrTAW/dqGYAbEjBqLST5e81bz9cyk0EZOljUVwv
-	YiJa/Qmillt5urd1n7wlLmwWLeZsQ1fa4RAfaXMcwGZ/bPW/TLSwG1u5fDjNQeps
-	hUs5bBmyQ9VD2y8ZPgKQuBMw6abZAk8KFv2VpQlN1AmQw=
-Message-ID: <e8a9863f-d4ea-4796-8dfe-c59f5e379687@163.com>
-Date: Wed, 30 Sep 2026 09:27:31 +0800
+	id 1xBjC0-00000004rzu-1k3J
+	for linux-arm-kernel@lists.infradead.org;
+	Wed, 30 Sep 2026 01:33:08 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by sea.source.kernel.org (Postfix) with ESMTP id D245343CED;
+	Wed, 30 Sep 2026 01:33:07 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 3C9C71F000FF;
+	Wed, 30 Sep 2026 01:33:07 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1790731987;
+	bh=E9LFBu3yJsDQ69TLBDzRvOENcK1uacHJ+6beUmMVpe8=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References;
+	b=JM+sYz85EuQ1Pc/ToqHwjyyrWQ5qhidcHK9+vHBv+X7ngHQWkQZRKjoh+Wr8soW/w
+	 NTuJWuYafs2kVosOh4Y7o39wnniNajmM8M74eKQQHwVLyCPiFGZj+O88KRg8n0Qd4L
+	 LZM3KNyJcsj772lBhwVM54vOk1DJZtO46jwJQhnHNApkEQY6PtqjiphyIkaGpcibbE
+	 3193lTulW2YDMNQfbygaldH06RuZOju+p92y7soxpbWLHiI+u+/ePHRVnThchZuYm4
+	 lD4kvzzptU1HIMytqiANY1luTHfm0qLMV0qI2KH5aLz4Vb2ueJIFwny9NW18+N0TdH
+	 mZoHF4G4UzYxA==
+Date: Tue, 29 Sep 2026 18:33:06 -0700
+From: Jakub Kicinski <kuba@kernel.org>
+To: Demian Shulhan <demyansh@gmail.com>
+Cc: Catalin Marinas <catalin.marinas@arm.com>, Will Deacon
+ <will@kernel.org>, Mark Rutland <mark.rutland@arm.com>, Eric Biggers
+ <ebiggers@kernel.org>, Andrew Morton <akpm@linux-foundation.org>, Marco
+ Elver <elver@google.com>, Ard Biesheuvel <ardb@kernel.org>, Robin Murphy
+ <robin.murphy@arm.com>, David Gow <davidgow@google.com>, Brendan Higgins
+ <brendan.higgins@linux.dev>, Nathan Chancellor <nathan@kernel.org>,
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+ kunit-dev@googlegroups.com, netdev@vger.kernel.org, llvm@lists.linux.dev
+Subject: Re: [PATCH 0/2] arm64: csum: Add fused copy and Internet checksum
+Message-ID: <20260929183306.24a26c74@kernel.org>
+In-Reply-To: <20260927131838.6774-1-demyansh@gmail.com>
+References: <20260927131838.6774-1-demyansh@gmail.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 1/2] PCI: dwc: Align register macros with Synopsys
- documentation
-To: Bjorn Helgaas <helgaas@kernel.org>
-Cc: lpieralisi@kernel.org, kwilczynski@kernel.org, bhelgaas@google.com,
- heiko@sntech.de, mani@kernel.org, yue.wang@amlogic.com, pali@kernel.org,
- neil.armstrong@linaro.org, robh@kernel.org, jingoohan1@gmail.com,
- khilman@baylibre.com, jbrunet@baylibre.com,
- martin.blumenstingl@googlemail.com, cassel@kernel.org,
- linux-pci@vger.kernel.org, linux-kernel@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-amlogic@lists.infradead.org,
- linux-rockchip@lists.infradead.org, Feizhou Yu <yufeizhou201@163.com>
-References: <20260928215110.GA2266447@bhelgaas>
-Content-Language: en-US
-From: Hans Zhang <18255117159@163.com>
-In-Reply-To: <20260928215110.GA2266447@bhelgaas>
-Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Type: text/plain; charset=US-ASCII
 Content-Transfer-Encoding: 7bit
-X-CM-TRANSID: _____wD3B4aDZbxq7D5eBg--.58103S2
-X-Coremail-Antispam: 1Uf129KBjvJXoW7ZFWkWw1fJFy3Ary3Wr17Jrb_yoW8urWxpa
-	1xJF4rtw4DXF4aqw4Ig3WrX3W7Xrn3JrZ8X3yvqw18tan5Xr93Gr40grWjkFWkZrn3Kr1j
-	qr4jq3yxWry3Aa7anT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
-	9KBjDUYxBIdaVFxhVjvjDU0xZFpf9x07UC2NNUUUUU=
-X-CM-SenderInfo: rpryjkyvrrlimvzbiqqrwthudrp/xtbCwwRE52q8ZYQf4QAA3t
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260929_182818_287426_0AF53BF5 
-X-CRM114-Status: GOOD (  11.46  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -76,60 +74,65 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-
-
-On 9/29/26 05:51, Bjorn Helgaas wrote:
-> On Mon, Sep 28, 2026 at 04:50:09PM -0500, Bjorn Helgaas wrote:
->> On Sat, Sep 12, 2026 at 12:25:36AM +0800, Hans Zhang wrote:
->>> The DWC PCIe register and field macros are inconsistently named and
->>> often do not match the Synopsys DesignWare PCIe Controller Reference
->>> Manual.  This makes it harder to cross-reference the code with the
->>> documentation when debugging or maintaining the driver.
->>
->>> +#define  PORT_AFAC_L0S_ELS		24		/* L0s Entrance Latency shift */
->>> +#define  PORT_AFAC_L0S_ELM		GENMASK(26, 24)	/* L0s Entrance Latency mask */
->>> +#define  PORT_AFAC_L1_ELS		27		/* L1 Entrance Latency shift */
->>> +#define  PORT_AFAC_L1_ELM		GENMASK(29, 27)	/* L1 Entrance Latency mask */
->>
->> Surely we don't need both the shift and the mask?  Maybe a separate
->> patch convert to FIELD_PREP()?
+On Sun, 27 Sep 2026 15:17:56 +0200 Demian Shulhan wrote:
+> arm64 currently uses the generic csum_partial_copy_nocheck(), which
+> performs memcpy() followed by a second pass for csum_partial(). This
+> double pass exerts unnecessary pressure on the L1 cache.
 > 
-> Oops, sorry, didn't notice that Mani had already applied these.  This
-> could be material for follow-on patches.
-
-Hi Bjorn,
-
-I will send a patch separately based on the branch controller/dwc.
-
-
-Best regards,
-Hans
-
-
+> Replace it with a single-pass implementation. The new implementation
+> provides a general-purpose register path for short buffers and atomic
+> contexts, and a kernel-mode NEON path for lengths >= 1024 bytes.
 > 
->>> +#define  GEN3_CTRL_RATE_SHADOW_SEL_SHIFT 24		/* Rate Shadow Select shift */
->>> +#define  GEN3_CTRL_RATE_SHADOW_SEL_MASK	GENMASK(25, 24)	/* Rate Shadow Select mask */
->>
->> Ditto.
->>
->>> +#define MSIX_DOORBELL			0x948
->>> +#define  MSIX_DOORBELL_PF_SHIFT		24
->>
->> Probably would be better to define a mask so we have the position
->> *and* the width.
->>
->>> @@ -621,15 +621,15 @@ static inline u32 event_counter_prog(struct tegra_pcie_dw *pcie, u32 event)
->>>   	u32 val;
->>>   
->>>   	val = dw_pcie_readl_dbi(&pcie->pci, pcie->ras_des_cap +
->>> -				PCIE_RAS_DES_EVENT_COUNTER_CONTROL);
->>> +				RAS_DES_EVENT_COUNTER_CONTROL);
->>>   	val &= ~(EVENT_COUNTER_EVENT_SEL_MASK << EVENT_COUNTER_EVENT_SEL_SHIFT);
->>>   	val |= EVENT_COUNTER_GROUP_5 << EVENT_COUNTER_GROUP_SEL_SHIFT;
->>>   	val |= event << EVENT_COUNTER_EVENT_SEL_SHIFT;
->>>   	val |= EVENT_COUNTER_ENABLE_ALL << EVENT_COUNTER_ENABLE_SHIFT;
->>
->> Probably a good chance to convert these to FIELD_PREP() etc. as well,
->> maybe in a separate patch.
+> Measured in-kernel on an Ampere Altra (Neoverse-N1):
+> - Scalar path: 1.2x-1.6x faster for lengths < 1024 bytes.
+> - NEON path: 1.2x faster at 1024 bytes, scaling up to 1.6x-1.8x at
+>   4096 bytes.
+> On Apple M-series cores, gains are 1.3-1.7x below 1024 bytes and
+> 1.6-2.4x above. No length or alignment regresses on either
+> microarchitecture.
+> 
+> Patch 1 implements the fused routines and the dispatcher.
+> Patch 2 adds KUnit test coverage for the new API and internal paths.
+> 
+> Tested: in-kernel benchmark module on Neoverse-N1 with both
+> implementations cross-checked (0 mismatches); KUnit suite under QEMU
+> (with/without KASAN, with PREEMPT_RT), exhaustive and random userspace
+> testing of both routines against a naive reference with PROT_NONE guard
+> pages, gcc 13 and clang 18 W=1 builds, checkpatch --strict.
+> 
+NIPA CI flagged a regression from this patch: the new "checksum" KUnit
+suite fails on the x86-64 test kernel (ARCH=x86_64, qemu). Specifically:
 
+  test_csum_copy_small_all_alignments  (len=0, src_off=0, dst_off=0)
+  test_csum_copy_patterns              (len=1, src_off=0, dst_off=0)
+  test_csum_copy_zero_len
+
+All three failures involve a zero-length (or very short) copy. Digging
+into it, x86-64's csum_partial_copy_generic() (arch/x86/lib/csum-copy_64.S)
+seeds its accumulator with -1 (0xffffffff) rather than 0:
+
+    movl  $-1, %eax
+    ...
+    cmpl  $8, %ecx
+    jb    .Lshort
+
+For len == 0 (and other very short lengths that never execute an
+add/adc against the seed) it returns that -1 unmodified, which folds to
+0. The naive reference used by the new tests, and csum_partial()'s own
+convention for an empty input, instead treat the "empty checksum" as raw
+sum 0, which folds to 0xffff. So the new tests' expectations don't match
+the pre-existing x86-64 assembly implementation for these edge cases.
+
+It looks like the tests were validated against the new arm64
+implementation and against memcpy()+csum_partial() under QEMU on arm64,
+but not run against x86-64's existing csum_partial_copy_nocheck()
+implementation, which is what our CI kunit runner builds by default.
+
+Could you take a look at either:
+  - adjusting the zero/short-length expectations in the new test to
+    match the existing (documented?) x86-64 behavior, or
+  - treating this as a real x86-64 bug and fixing
+    csum_partial_copy_generic()'s handling of very short lengths,
+
+whichever is judged correct? Happy to share the full kunit log if useful.
 
