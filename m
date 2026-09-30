@@ -4,55 +4,62 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DB8F9CA5FC5
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 30 Sep 2026 15:32:21 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E28B0CA5FC7
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 30 Sep 2026 15:32:22 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=DaVe63ljG5kZuILIywsAkaB4MezJYtSBdRUA2OCmMxY=; b=cFgmUmhDR3pMQX5FyYh6V+p3cV
-	F9nONjaUlLMiwbQZLfEL6lUH3J+diEGSXUKJJE5mRdu8VDEeClCIwaoZDlaCiaOg/3MwyNa8QlqTl
-	fSoIbNaFTUtN6Dn4T9v1JzT3DzqTMjqvr8HQvSIxuUa9PehZsOJU9lqfqYiCBDi59cTbklWMcACDA
-	uN54uXUse9djANGyYyHKg8e0J4mn3cBm/toyWchCkYhOl6BkIBRPxmr3v+7vCEakB7Szv3zJaIoVY
-	V9PgMyDVYHZVvOZsz7PCjLPPGQ72tz8LLtLNL/6bUN6gCufOL9guFgkMTJzrQdAKhKOUW24Xvl4CD
-	YerCQehQ==;
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=JrKEQOI8K9h0wgTSg2/tv+7ZUAJ+2oioRu0rgh2iemo=; b=HZoq3mMinL8avk
+	gd+TkWLEpoz5n8CQCiNM98uiw2dPSe7mjcJM3/iPojxNJDLbtDcx3tVtB2aH7oQ3sqjHgDnCAF35K
+	NnEdmheF8cANq35dbsXzT68k1N/QPw5KeJWxcBrSqtcI+7Ll5jHNZ2nqdehOTpZTQoW9/Bxpj9+r2
+	6oFCJWPsNP8RWRWlZmi0HHb4EnU4BYySm7NUcaZrmcjpRNijFrOKpcYtPXEa0GKp+7RVMgZebP3rm
+	FbDEGkoy2FUC/EP3ZZZhQ+EA8u23a8HsYMNWQGngbWTAoL/Ud4GXyG3zABkkQSaULy5ihGZnw5NLX
+	F1KRcG+UG9Som2xa610w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xBwI3-00000006WPJ-1rKu;
+	id 1xBwI3-00000006WPc-2y0h;
 	Wed, 30 Sep 2026 15:32:15 +0000
 Received: from mout02.posteo.de ([185.67.36.66])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xBwHi-00000006WIG-1ofQ
+	id 1xBwHh-00000006WHe-3t82
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 30 Sep 2026 15:31:57 +0000
+	Wed, 30 Sep 2026 15:31:58 +0000
 Received: from submission (posteo.de [185.67.36.169]) 
-	by mout02.posteo.de (Postfix) with ESMTPS id B14DB240105
-	for <linux-arm-kernel@lists.infradead.org>; Wed, 30 Sep 2026 17:31:52 +0200 (CEST)
+	by mout02.posteo.de (Postfix) with ESMTPS id 920B924010B
+	for <linux-arm-kernel@lists.infradead.org>; Wed, 30 Sep 2026 17:31:46 +0200 (CEST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=posteo.de;
-	s=1984.8680eb; t=1790782312;
-	bh=DaVe63ljG5kZuILIywsAkaB4MezJYtSBdRUA2OCmMxY=;
-	h=From:Date:Subject:MIME-Version:Content-Type:
-	 Content-Transfer-Encoding:Message-Id:To:Cc:Autocrypt:OpenPGP:From;
-	b=KjUIWU1+Glmm4JxNLGMoSxs6UaU3D4tfLBhDOTDUFA3A0zpCY8AlZtVg0AxjFdtAt
-	 I6JutAJYncsW8BTKnvDS0k34osaD30ALV8sbn1KE7Ahr3magxrBAuJa1jw/sPQESPo
-	 acn5XSD1A84qLl6z7kheT8qQEJy2frcOeHDHVSpIfvjr6GB5RZ1FykOmWf41vpP457
-	 UR/upLGQCdaC2K3ssytdpGdHaxIm0ZB+ZpOjugJN4ZJX08Ufh00ZZcKPKA0CgHLh2I
-	 05WAgb3xqUds9trbUJgPKUN/MhRCYbEsdNZvv9+mo3JJwQkRz08ochQN7cIelOgz6l
-	 c51BCsitMDCKQ==
+	s=1984.8680eb; t=1790782306;
+	bh=JrKEQOI8K9h0wgTSg2/tv+7ZUAJ+2oioRu0rgh2iemo=;
+	h=From:Subject:Date:Message-Id:MIME-Version:Content-Type:
+	 Content-Transfer-Encoding:To:Cc:Autocrypt:OpenPGP:From;
+	b=S+zncQ5dckQcXbh2Xl9tev5w20BxBNS8lLzrhG2OjUD2tbaug1qGUJoLatdbjH6bY
+	 D1lHlwJFh73dw/Fft8xNHaF276FRQCYXXsZNCIVryP8gqQB0Z+GtTPxCx2PFEpCze7
+	 xACYoBz3nz/oG07DeWSEnUhUr2siwB8IRfxiRUs2Ro4j+n+3cB+KhQeN31uvhumRYe
+	 RfsillM+aq9SqiU3u5KQmJLY6jpZUmvgEEX5hBiGxiTSmL69xCmc6P3HPio6l+a/nX
+	 R59DXQT928vdtpXec9UR26HucxIAJa1s0Fnm5dHfTohCaPNqQDZESPkihe4wNFKri6
+	 qIpn9ZTjPvv5Q==
 Received: from customer (localhost [127.0.0.1])
-	by submission (posteo.de) with ESMTPSA id 4hvzYK1THLz9rxB;
-	Wed, 30 Sep 2026 17:31:49 +0200 (CEST)
+	by submission (posteo.de) with ESMTPSA id 4hvzYC4KyFz9rxG;
+	Wed, 30 Sep 2026 17:31:43 +0200 (CEST)
 From: Markus Probst <markus.probst@posteo.de>
-Date: Wed, 30 Sep 2026 15:31:50 +0000
-Subject: [PATCH v10 4/6] rtc: s35390a: Read 24-hour mode on access
+Subject: [PATCH v10 0/6] rtc: s35390a: Allow use of output pin for
+ interrupt signal 1 for wakealarm
+Date: Wed, 30 Sep 2026 15:31:45 +0000
+Message-Id: <20260930-rtc_s35390a_int1-v10-0-e7b1cbc50a7b@posteo.de>
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20260930-rtc_s35390a_int1-v10-4-e7b1cbc50a7b@posteo.de>
-References: <20260930-rtc_s35390a_int1-v10-0-e7b1cbc50a7b@posteo.de>
-In-Reply-To: <20260930-rtc_s35390a_int1-v10-0-e7b1cbc50a7b@posteo.de>
+X-B4-Tracking: v=1; b=H4sIAAAAAAAC/3XR207DMAwG4FeZck2nOG7SZle8B0JTDg4LEutou
+ go07d1JO6SVLlw6sr9Yvy8sUR8psd3mwnoaY4rdMRfAnzbMHczxjaro8wMTXCiukFf94PYJJWp
+ u9vE4QCWlcs4ibz0GlsdOPYX4NZsvr7c6ne07uWFyfjt6+jznz4ZbG7MmUeW6j4847DZjs8Wqd
+ 5JN04eYhq7/nhccYW7+f5URKl6BFQI1gbIknk9dGqjbepqxUdyBlkMBEBkIwJ3WxoNXbg3gEpA
+ FADNALapgrEEScg3UCwBKQJ0BBETk2qGSYQ3IBSBKGcgMSLI1hVY6ZfQaUEugLgAqAz5oJZUmr
+ OEhxGYJ6ALQTABZ5xGgRkNroF0AWLpCOwHGgXetcgQPGeg7oEEVAJ0BK6Rq8g1qLf9kcL1efwD
+ bEHib9wIAAA==
+X-Change-ID: 20260630-rtc_s35390a_int1-556ccb308d3f
 To: Alexandre Belloni <alexandre.belloni@bootlin.com>, 
  Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
  Conor Dooley <conor+dt@kernel.org>, 
@@ -65,21 +72,21 @@ To: Alexandre Belloni <alexandre.belloni@bootlin.com>,
 Cc: linux-arm-kernel@lists.infradead.org, linux-rtc@vger.kernel.org, 
  devicetree@vger.kernel.org, linux-gpio@vger.kernel.org, 
  linux-kernel@vger.kernel.org, Markus Probst <markus.probst@posteo.de>
-X-Developer-Signature: v=1; a=openpgp-sha256; l=8692;
+X-Developer-Signature: v=1; a=openpgp-sha256; l=5846;
  i=markus.probst@posteo.de; h=from:subject:message-id;
- bh=OU0NdFDUjbJfIufQ3mrj2OLqBXCffXKuAH9iUeuCQGk=;
- b=owEBiQJ2/ZANAwAIATR2H/jnrUPSAcsmYgBqvStfNbbw35PHZsFrmt44mj5HiPINYDyac7uLD
- mYXPjt6W8OJAk8EAAEIADkWIQSCdBjE9KxY53IwxHM0dh/4561D0gUCar0rXxsUgAAAAAAEAA5t
- YW51MiwyLjUrMS4xMiwyLDIACgkQNHYf+OetQ9I3mQ//T05fTVvwLyawgkw0qG65EtGN17nF4q0
- uxVIj9qCa9hF8yIhHwzkb7XrVLkIcAw91N4RKpAGmctjcePNhaq2PhhGpLZkCK0VHjwV2Gbt5Bk
- 2rV0RQHWWGuvWcUnkRRsf54Hx8TCF9bygsll4/3p3TaeaNbky9D4zbFhEmg26xKbJGQes+wuWu+
- UmCa8vi9Eu/5xyw4cXH22BxuOlhd53+NHLeHFZnnGcICN8oQwFD24Tlc4/dBP02AYTd0RvcRTkA
- GI1DE1sBx/bRE7SH4bEcPCumm48pz21bmJfVvD5Zw1yP/y00FuqbmDQJiiAgx3MsolZ843rlc8u
- Lew1mGevXCRbb+6AqHp+bPpxk/aviE/vXhskd3dSwdKDfqOMFcBrNAzPDdNkCheMPmE8XsryKzp
- uupvOvGRuJP3Bfd8Vp6cjJihobmMRuJJuKftOl6jgkIereq4tJaApR/BLTtiGxIMRlSOfEIZypx
- caHTYFn+fbvjqcp2mhxFRFLCe6yPmS6T+I2DEgf0sBnx/x4tEgUvMbqtksmjuBaikkGoiGRtu6D
- PJhOSHWtCDjV9FCJXVdnm7jjIuTu2NFXLeVgc+rQjz0QMFm8vzlK9GxcWcn42pyvwDo1G3BtnHS
- jMyBSvePPTbgI6SfteG0xZcLVgC41+Abj5ftoK79+F0PxnVwnjiM=
+ bh=6bD3PfnqyU0NTP6XvypjfAMTwFrD43+9GKv+BV5TJgU=;
+ b=owEBiQJ2/ZANAwAIATR2H/jnrUPSAcsmYgBqvSte9LaeNPXIzryCOHNjlbyLOQba3t+hbbZp5
+ c2h8jlJcveJAk8EAAEIADkWIQSCdBjE9KxY53IwxHM0dh/4561D0gUCar0rXhsUgAAAAAAEAA5t
+ YW51MiwyLjUrMS4xMiwyLDIACgkQNHYf+OetQ9Lt7g//flExMbDyVoUYFAK5W1JMfqa++mb0n86
+ VBxscJFp0LsqAuwg9v5H/+p76tYIVQh5IR1k8KdKjI4fq7SVO6vZSCOPVRmjyVX8xhYYRmt0DtN
+ 4RqJEW2wKTl2stR5qbbh8WheMRu+bmt619WRvY8SFPDvj8K1RhGC6sVKfcm3los/gUceKZUntoZ
+ fVetdtVxEN9kU1E+HhRKLjO8l60rW9/vxc+feNlsYgMOeOEBKRfl1rWWPwxdD9vGUfGoebzPsXF
+ 2nKFr1VPVPsO7VC543wzQ1Gb9wJFkOkMpfYMR6u75ig3FbqACSI8YHnsy79tPfDwhFNhB5t+LEE
+ P0vSxsEi88RYrafTXhR47UTHdY5Ed636YnnvW6gKimQaTovsaSiLSTxnxXcxL1SrztViT71WtX9
+ YITlnt7ObK1ln6V+oI4leg9mTPffGYK9nZBCEGEA5pTdVdlGr/oHFaHKScxGTDoL1BlRM/t9dx6
+ FBMO2VoGW6ZTXI5NzOrCFgN+DTPUtWQV/J5kPfiN8OZ1nJG1gexx7F6EnjNUOc48Dt9juZY4vLi
+ rfoGCPp1Eg7jWXk+bIihglEsJPQaXFlHSuUTWBtIzu2M3JUJoT1Db2rIUkoUse/oE1BR5UfIUIa
+ +srMqO6SENkikGi+Nk+p/mkKIFG4e3dyNjjerSE1Ka8VW2voN4kI=
 X-Developer-Key: i=markus.probst@posteo.de; a=openpgp;
  fpr=827418C4F4AC58E77230C47334761FF8E7AD43D2
 Autocrypt: addr=markus.probst@posteo.de; prefer-encrypt=mutual;
@@ -125,8 +132,8 @@ Autocrypt: addr=markus.probst@posteo.de; prefer-encrypt=mutual;
   aBeNN4ijKZchBXHPgVx+YtWRHfcm4l8=
 OpenPGP: url=https://posteo.de/keys/markus.probst@posteo.de.asc; preference=encrypt
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260930_083154_804030_C24091FE 
-X-CRM114-Status: GOOD (  20.68  )
+X-CRM114-CacheID: sfid-20260930_083154_293932_33D041EA 
+X-CRM114-Status: GOOD (  20.93  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -141,247 +148,144 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Instead of reading if the 24-hour mode is used on probe once, read it on
-access. This makes it impossible for the mode to be out of sync and fixes
-time corruption if resetting the chip while in 12-hour mode, as
-`s35390a_init` did not update the cached value.
+Add pinctrl to allow the use of output pin for interrupt signal 1
+for wakealarm. This is needed for wakealarms to work on Synology NAS
+devices.
 
-Fixes: 16486d0c1c65 ("rtc: s35390a: handle invalid RTC time")
+I could only partially test the pinctrl patch. My testing system runs
+ACPI, which makes it impossible for me to configure pinctrl there. I did
+however verify that with missing pinctrl configuration in the devicetree,
+the register were correctly set. So there should be no regressions.
+Every other function than ignore, disable and wakeup should also be
+considered untested.
+
+Also If I am not mistaken, wake alarms on these systems are currently broken:
+(not tested, judged by looking at the devicetrees).
+
+- arch/arm/boot/dts/marvell/armada-370-synology-ds213j.dts
+- arch/arm/boot/dts/marvell/armada-xp-synology-ds414.dts
+- arch/arm/boot/dts/marvell/kirkwood-synology.dtsi
+- arch/arm/boot/dts/marvell/kirkwood-ds110jv10.dts
+- arch/arm/boot/dts/marvell/kirkwood-ds111.dts
+- arch/arm/boot/dts/marvell/kirkwood-ds112.dts
+- arch/arm/boot/dts/marvell/kirkwood-ds210.dts
+- arch/arm/boot/dts/marvell/kirkwood-ds212.dts
+- arch/arm/boot/dts/marvell/kirkwood-ds212j.dts
+- arch/arm/boot/dts/marvell/kirkwood-ds411.dts
+- arch/arm/boot/dts/marvell/kirkwood-ds411j.dts
+- arch/arm/boot/dts/marvell/kirkwood-ds411slim.dts
+- arch/arm/boot/dts/marvell/kirkwood-rs212.dts
+- arch/arm/boot/dts/marvell/kirkwood-rs411.dts
+
+If thats the case it can be fixed by using this patch series and adding
+the example in the devicetree to the s35390a devicetree.
+
+If somebody still runs one of these systems, please test.
+
+Thanks
+- Markus Probst
+
 Signed-off-by: Markus Probst <markus.probst@posteo.de>
 ---
- drivers/rtc/rtc-s35390a.c | 78 +++++++++++++++++++++++++----------------------
- 1 file changed, 42 insertions(+), 36 deletions(-)
+Changes in v10:
+- minor dt bindings style changes (Rob)
+- Link to v9: https://patch.msgid.link/20260916-rtc_s35390a_int1-v9-0-b2567a3e4959@posteo.de
 
-diff --git a/drivers/rtc/rtc-s35390a.c b/drivers/rtc/rtc-s35390a.c
-index 575bb256eb25..12ed504db94d 100644
---- a/drivers/rtc/rtc-s35390a.c
-+++ b/drivers/rtc/rtc-s35390a.c
-@@ -64,7 +64,6 @@ MODULE_DEVICE_TABLE(of, s35390a_of_match);
- 
- struct s35390a {
- 	struct i2c_client *client[8];
--	int twentyfourhour;
- };
- 
- static int s35390a_set_reg(struct s35390a *s35390a, int reg, u8  *buf, int len)
-@@ -102,9 +101,8 @@ static int s35390a_get_reg(struct s35390a *s35390a, int reg, u8 *buf, int len)
- 	return 0;
- }
- 
--static int s35390a_init(struct s35390a *s35390a)
-+static int s35390a_init(struct s35390a *s35390a, u8 *sts)
- {
--	u8 buf;
- 	int ret;
- 	unsigned initcount = 0;
- 
-@@ -117,17 +115,17 @@ static int s35390a_init(struct s35390a *s35390a)
- 	 * The 24H bit is kept over reset, so set it already here.
- 	 */
- initialize:
--	buf = S35390A_FLAG_RESET | S35390A_FLAG_24H;
--	ret = s35390a_set_reg(s35390a, S35390A_CMD_STATUS1, &buf, 1);
-+	*sts = S35390A_FLAG_RESET | S35390A_FLAG_24H;
-+	ret = s35390a_set_reg(s35390a, S35390A_CMD_STATUS1, sts, 1);
- 
- 	if (ret < 0)
- 		return ret;
- 
--	ret = s35390a_get_reg(s35390a, S35390A_CMD_STATUS1, &buf, 1);
-+	ret = s35390a_get_reg(s35390a, S35390A_CMD_STATUS1, sts, 1);
- 	if (ret < 0)
- 		return ret;
- 
--	if (buf & (S35390A_FLAG_POC | S35390A_FLAG_BLD)) {
-+	if (*sts & (S35390A_FLAG_POC | S35390A_FLAG_BLD)) {
- 		/* Try up to five times to reset the chip */
- 		if (initcount < 5) {
- 			++initcount;
-@@ -181,9 +179,9 @@ static int s35390a_disable_test_mode(struct s35390a *s35390a)
- 	return s35390a_set_reg(s35390a, S35390A_CMD_STATUS2, buf, sizeof(buf));
- }
- 
--static char s35390a_hr2reg(struct s35390a *s35390a, int hour)
-+static char s35390a_hr2reg(int hour, bool twentyfourhour)
- {
--	if (s35390a->twentyfourhour)
-+	if (twentyfourhour)
- 		return bin2bcd(hour);
- 
- 	if (hour < 12)
-@@ -192,11 +190,11 @@ static char s35390a_hr2reg(struct s35390a *s35390a, int hour)
- 	return 0x40 | bin2bcd(hour - 12);
- }
- 
--static int s35390a_reg2hr(struct s35390a *s35390a, char reg)
-+static int s35390a_reg2hr(char reg, bool twentyfourhour)
- {
- 	unsigned hour;
- 
--	if (s35390a->twentyfourhour)
-+	if (twentyfourhour)
- 		return bcd2bin(reg & 0x3f);
- 
- 	hour = bcd2bin(reg & 0x3f);
-@@ -210,7 +208,7 @@ static int s35390a_rtc_set_time(struct device *dev, struct rtc_time *tm)
- {
- 	struct i2c_client *client = to_i2c_client(dev);
- 	struct s35390a	*s35390a = i2c_get_clientdata(client);
--	int i;
-+	int i, err;
- 	u8 buf[7], status;
- 
- 	dev_dbg(&client->dev, "%s: tm is secs=%d, mins=%d, hours=%d mday=%d, "
-@@ -218,14 +216,18 @@ static int s35390a_rtc_set_time(struct device *dev, struct rtc_time *tm)
- 		tm->tm_min, tm->tm_hour, tm->tm_mday, tm->tm_mon, tm->tm_year,
- 		tm->tm_wday);
- 
--	if (s35390a_read_status(s35390a, &status) == 1)
--		s35390a_init(s35390a);
-+	err = s35390a_read_status(s35390a, &status);
-+	if (err == 1)
-+		err = s35390a_init(s35390a, &status);
-+
-+	if (err < 0)
-+		return err;
- 
- 	buf[S35390A_BYTE_YEAR] = bin2bcd(tm->tm_year - 100);
- 	buf[S35390A_BYTE_MONTH] = bin2bcd(tm->tm_mon + 1);
- 	buf[S35390A_BYTE_DAY] = bin2bcd(tm->tm_mday);
- 	buf[S35390A_BYTE_WDAY] = bin2bcd(tm->tm_wday);
--	buf[S35390A_BYTE_HOURS] = s35390a_hr2reg(s35390a, tm->tm_hour);
-+	buf[S35390A_BYTE_HOURS] = s35390a_hr2reg(tm->tm_hour, status & S35390A_FLAG_24H);
- 	buf[S35390A_BYTE_MINS] = bin2bcd(tm->tm_min);
- 	buf[S35390A_BYTE_SECS] = bin2bcd(tm->tm_sec);
- 
-@@ -243,8 +245,11 @@ static int s35390a_rtc_read_time(struct device *dev, struct rtc_time *tm)
- 	u8 buf[7], status;
- 	int i, err;
- 
--	if (s35390a_read_status(s35390a, &status) == 1)
-+	err = s35390a_read_status(s35390a, &status);
-+	if (err == 1)
- 		return -EINVAL;
-+	if (err < 0)
-+		return err;
- 
- 	err = s35390a_get_reg(s35390a, S35390A_CMD_TIME1, buf, sizeof(buf));
- 	if (err < 0)
-@@ -256,7 +261,7 @@ static int s35390a_rtc_read_time(struct device *dev, struct rtc_time *tm)
- 
- 	tm->tm_sec = bcd2bin(buf[S35390A_BYTE_SECS]);
- 	tm->tm_min = bcd2bin(buf[S35390A_BYTE_MINS]);
--	tm->tm_hour = s35390a_reg2hr(s35390a, buf[S35390A_BYTE_HOURS]);
-+	tm->tm_hour = s35390a_reg2hr(buf[S35390A_BYTE_HOURS], status & S35390A_FLAG_24H);
- 	tm->tm_wday = bcd2bin(buf[S35390A_BYTE_WDAY]);
- 	tm->tm_mday = bcd2bin(buf[S35390A_BYTE_DAY]);
- 	tm->tm_mon = bcd2bin(buf[S35390A_BYTE_MONTH]) - 1;
-@@ -292,7 +297,7 @@ static int s35390a_rtc_set_alarm(struct device *dev, struct rtc_wkalrm *alm)
- {
- 	struct i2c_client *client = to_i2c_client(dev);
- 	struct s35390a *s35390a = i2c_get_clientdata(client);
--	u8 buf[3], sts = 0;
-+	u8 buf[3], status1, status2 = 0;
- 	int err, i;
- 
- 	dev_dbg(&client->dev, "%s: alm is secs=%d, mins=%d, hours=%d mday=%d, "\
-@@ -301,22 +306,22 @@ static int s35390a_rtc_set_alarm(struct device *dev, struct rtc_wkalrm *alm)
- 		alm->time.tm_mon, alm->time.tm_year, alm->time.tm_wday);
- 
- 	/* disable interrupt (which deasserts the irq line) */
--	err = s35390a_set_reg(s35390a, S35390A_CMD_STATUS2, &sts, sizeof(sts));
-+	err = s35390a_set_reg(s35390a, S35390A_CMD_STATUS2, &status2, sizeof(status2));
- 	if (err < 0)
- 		return err;
- 
- 	/* clear pending interrupt (in STATUS1 only), if any */
--	err = s35390a_get_reg(s35390a, S35390A_CMD_STATUS1, &sts, sizeof(sts));
-+	err = s35390a_get_reg(s35390a, S35390A_CMD_STATUS1, &status1, sizeof(status1));
- 	if (err < 0)
- 		return err;
- 
- 	if (alm->enabled)
--		sts = S35390A_INT2_MODE_ALARM;
-+		status2 = S35390A_INT2_MODE_ALARM;
- 	else
--		sts = S35390A_INT2_MODE_NOINTR;
-+		status2 = S35390A_INT2_MODE_NOINTR;
- 
- 	/* set interrupt mode*/
--	err = s35390a_set_reg(s35390a, S35390A_CMD_STATUS2, &sts, sizeof(sts));
-+	err = s35390a_set_reg(s35390a, S35390A_CMD_STATUS2, &status2, sizeof(status2));
- 	if (err < 0)
- 		return err;
- 
-@@ -325,8 +330,8 @@ static int s35390a_rtc_set_alarm(struct device *dev, struct rtc_wkalrm *alm)
- 	else
- 		buf[S35390A_ALRM_BYTE_WDAY] = 0;
- 
--	buf[S35390A_ALRM_BYTE_HOURS] = s35390a_hr2reg(s35390a,
--			alm->time.tm_hour) | 0x80;
-+	buf[S35390A_ALRM_BYTE_HOURS] = s35390a_hr2reg(alm->time.tm_hour,
-+						      status1 & S35390A_FLAG_24H) | 0x80;
- 	buf[S35390A_ALRM_BYTE_MINS] = bin2bcd(alm->time.tm_min) | 0x80;
- 
- 	if (alm->time.tm_hour >= 12)
-@@ -345,14 +350,20 @@ static int s35390a_rtc_read_alarm(struct device *dev, struct rtc_wkalrm *alm)
- {
- 	struct i2c_client *client = to_i2c_client(dev);
- 	struct s35390a *s35390a = i2c_get_clientdata(client);
--	u8 buf[3], sts;
-+	u8 buf[3], status1, status2;
- 	int i, err;
- 
--	err = s35390a_get_reg(s35390a, S35390A_CMD_STATUS2, &sts, sizeof(sts));
-+	err = s35390a_read_status(s35390a, &status1);
-+	if (err == 1)
-+		return -EINVAL;
-+	if (err < 0)
-+		return err;
-+
-+	err = s35390a_get_reg(s35390a, S35390A_CMD_STATUS2, &status2, sizeof(status2));
- 	if (err < 0)
- 		return err;
- 
--	if ((sts & S35390A_INT2_MODE_MASK) != S35390A_INT2_MODE_ALARM) {
-+	if ((status2 & S35390A_INT2_MODE_MASK) != S35390A_INT2_MODE_ALARM) {
- 		/*
- 		 * When the alarm isn't enabled, the register to configure
- 		 * the alarm time isn't accessible.
-@@ -381,8 +392,8 @@ static int s35390a_rtc_read_alarm(struct device *dev, struct rtc_wkalrm *alm)
- 
- 	if (buf[S35390A_ALRM_BYTE_HOURS] & 0x80)
- 		alm->time.tm_hour =
--			s35390a_reg2hr(s35390a,
--				       buf[S35390A_ALRM_BYTE_HOURS] & ~0x80);
-+			s35390a_reg2hr(buf[S35390A_ALRM_BYTE_HOURS] & ~0x80,
-+				       status1 & S35390A_FLAG_24H);
- 
- 	if (buf[S35390A_ALRM_BYTE_MINS] & 0x80)
- 		alm->time.tm_min = bcd2bin(buf[S35390A_ALRM_BYTE_MINS] & ~0x80);
-@@ -416,7 +427,7 @@ static int s35390a_rtc_ioctl(struct device *dev, unsigned int cmd,
- 		break;
- 	case RTC_VL_CLR:
- 		/* update flag and clear register */
--		err = s35390a_init(s35390a);
-+		err = s35390a_init(s35390a, &sts);
- 		if (err < 0)
- 			return err;
- 		break;
-@@ -503,11 +514,6 @@ static int s35390a_probe(struct i2c_client *client)
- 		return err_read;
- 	}
- 
--	if (status1 & S35390A_FLAG_24H)
--		s35390a->twentyfourhour = 1;
--	else
--		s35390a->twentyfourhour = 0;
--
- 	if (status1 & S35390A_FLAG_INT2) {
- 		/* disable alarm (and maybe test mode) */
- 		buf = 0;
+Changes in v9:
+- fix issues reported by Sashiko
+  - fix interrupt-names in dt
+- use interrupts in dt example (there is a known dts in the kernel that has
+  one)
+- add Reviewed-By trailer from Linus Walleij
+- Link to v8: https://patch.msgid.link/20260831-rtc_s35390a_int1-v8-0-dac1dc86ce1f@posteo.de
 
--- 
-2.55.0
+Changes in v8:
+- fix issues reported by Sashiko
+  - avoid usage of cleanup helper and goto in one function
+- replace dt binding maintainer with self
+- use allOf instead of manually referencing the properties in
+  pinmux-node.yaml in dt binding
+- move additionalProperties up for readability
+- Link to v7: https://patch.msgid.link/20260829-rtc_s35390a_int1-v7-0-debcd31143ae@posteo.de
+
+Changes in v7:
+- fix issues reported by Sashiko
+  - check return value of `s35390a_read_status` for errors
+  - select PINCTRL instead of depend to avoid silently dropping the
+    driver on platforms without PINCTRL
+- Link to v6: https://patch.msgid.link/20260824-rtc_s35390a_int1-v6-0-df96569e3412@posteo.de
+
+Changes in v6:
+- instead of forcing 24-hour mode, check on rtc access
+- Link to v5: https://patch.msgid.link/20260820-rtc_s35390a_int1-v5-0-5eb4ef85c6a9@posteo.de
+
+Changes in v5:
+- fix issues reported by Sashiko
+  - fix time corruption on setting 24-hour mode
+  - fix setting 24-hour even if uninitialized
+- Link to v4: https://patch.msgid.link/20260815-rtc_s35390a_int1-v4-0-3133309c365f@posteo.de
+
+Changes in v4:
+- fix issues reported by Sashiko
+  - require "pins" property in dt
+  - remove maintainers entry for include/dt-bindings/rtc (which only
+    existed in previous iterations)
+  - fix multiple reads to status1, which clears interrupt flags
+  - fix not waiting for Power-On Circuit check
+  - fix missing pinctrl dt callbacks
+- enforce minimum length of "pins" property in dt
+- fix pmin2 on int2 affecting int1
+- force use of 24-hour mode
+- Link to v3: https://patch.msgid.link/20260805-rtc_s35390a_int1-v3-0-e836faba3e25@posteo.de
+
+Changes in v3:
+- fix issues reported by Sashiko
+  - fix use of uninitialized time data
+  - remove dependence on `CONFIG_OF`
+  - add missing `pinctrl_enable` call
+  - fix wrong index used in `s35390a_pinconf_set`
+  - fix interrupt not cleared
+  - fix `device_set_wakeup_capable` called to late in probe
+  - fix mode caching even on failure
+  - fix failure on synology quirk mode update ignored
+- only set irq in alarm_irq_enable callback
+- fix alarm time not set if set_alarm is called with alarm disabled
+- use pinmux instead of pinconf
+- move patternProperties below properties in dt
+- remove dt-bindings header
+- add '#clock-cells' dt property
+- merge 32768khz and user frequency mode into "clock"
+- remove alarm mode
+- refer to mode now as function in the code, to match phrasing in pinmux
+- resolve checkpatches --strict warnings
+- remove mode_init bool and instead set initial function to -1
+- remove err_read probe variable and reuse err
+- rebase onto v6.2-rc6
+- Link to v2: https://patch.msgid.link/20260801-rtc_s35390a_int1-v2-0-f10c99ad1d6c@posteo.de
+
+Changes in v2:
+- remove sii,wakealarm-output-pin property
+- add pinctrl
+- add fix to allow disabling of wake alarms
+- add synology quirk
+- Link to v1: https://patch.msgid.link/20260630-rtc_s35390a_int1-v1-0-1b2239e16be2@posteo.de
+
+---
+Markus Probst (6):
+      dt-bindings: rtc: Add pinctrl for S35390A
+      rtc: s35390a: Add missing newline to dev_err
+      rtc: s35390a: Fix alarm not disabling
+      rtc: s35390a: Read 24-hour mode on access
+      rtc: s35390a: Add pinctrl
+      rtc: s35390a: Add synology quirk
+
+ .../devicetree/bindings/rtc/sii,s35390a.yaml       | 118 +++++
+ .../devicetree/bindings/rtc/trivial-rtc.yaml       |   2 -
+ drivers/rtc/Kconfig                                |   2 +
+ drivers/rtc/rtc-s35390a.c                          | 473 ++++++++++++++++-----
+ 4 files changed, 498 insertions(+), 97 deletions(-)
+---
+base-commit: 5a956dde5526a634dca7ccad27c051ebcc306089
+change-id: 20260630-rtc_s35390a_int1-556ccb308d3f
 
 
