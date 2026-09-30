@@ -4,46 +4,46 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3BB97CA5FBE
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 30 Sep 2026 10:26:29 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4D3E1CA5FBA
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 30 Sep 2026 10:26:30 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=XU8HIZpe1oO3y7TtlBE8Jw6wJiFXsm+bmC+ZhFp7YSg=; b=GkKrE17fTxAqik3ycwqWqCri/4
-	k18dhQDnTyJ++4C5zVwHrFmE4vtyYAFUsoneRRKhjwIBy/emijnKwVSio0WPN1ijY9rqbR2w492rp
-	QZT66SqUxVdulWv9R97q21jNbIEaWL/ib+fpT5uyuGCd/32a23/mpvDEPMDdQTUTwdo0CtOU90/bH
-	txXCLaY+gPH8B/rQsOBGQNLK2d2Zln2tamDRB7DjuAoIREksVFyc5lQw4Q/D+zGVgO4xl/Yq2fzvZ
-	dJqY2LfLN37X3wDvxX7zNGMK7utuyjsfiIxnKaei97TbKuna7e/Iz/sanRy5F+LRi7bdfOacVYDPp
-	wVbto4Ww==;
+	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=bMp4aGjtzMotrnNNRsA9Kf3RK8gVan/o3dMTlpzOrv4=; b=qxDbk4IiaophLrpsQajvBkfSXo
+	DOLoAv+yyECtpoCeIFgkvZkQbewrIovHosYlCZoon7V/vP0HNMnftYxhx/ZlfNVnTCtp8tdD9Ls6l
+	wY6+Zyof+4fUFSWYo2NY/wuLfWutq+pv+D964GHh66iusq647QuTYrLSy3q8ytQzJ4fYKh6phXj3c
+	fJ+a/wniUFlEHGhBXFJ1Tv5kI1sM+I+CeUGBvNku3EzTQ7CErGgVpD9IGrsjdmpAeP76rVUSwaczB
+	VOLc7m+HHvDUiQ9XsDkqA4QZzMABsCJXkfOXpuFcrQrX4jwiL6f6Bysoi2ER9+u81GT3OX/4DWjkI
+	c3vhOtAw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xBrW2-00000005kju-1fPR;
+	id 1xBrW3-00000005kkD-0dKC;
 	Wed, 30 Sep 2026 10:26:23 +0000
 Received: from cp2.siel.si ([46.19.12.180])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xBrVy-00000005ke0-2jn5
+	id 1xBrVy-00000005ke1-2kDj
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 30 Sep 2026 10:26:20 +0000
+	Wed, 30 Sep 2026 10:26:21 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=norik.com;
-	s=default; h=Content-Transfer-Encoding:MIME-Version:Message-Id:Date:Subject:
-	Cc:To:From:Sender:Reply-To:Content-Type:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	In-Reply-To:References:List-Id:List-Help:List-Unsubscribe:
-	List-Unsubscribe-Post:List-Subscribe:List-Post:List-Owner:List-Archive;
-	bh=XU8HIZpe1oO3y7TtlBE8Jw6wJiFXsm+bmC+ZhFp7YSg=; b=KM5TxsoFwFCXK6I69LZ1GeAFeP
-	JW3UrKPurS2NtH0yspyP+Si/+5qDPJPNnDZJxkgPhL5xegr3mlCbKqy3B/0PGq28s6x4Yia7WwWvt
-	nV3PJW+cmHGsqJ7knW2ry6mOHfPwZUoHgjg/5ZukepnrKX+CyM0U3uH68uczvwX/lgZfMmxCNqpT5
-	AUgUS4EDfYKX7kHkPQzf+gi0JzWCoTxJlQuoN118GEuilp0N1I1JFoxjtZatz5dAAPdrLBD3xQ5p0
-	VZKcZvuWoE4LGm+kr9QuKXw85q8pAhKn+X8UsesEq8dLBPJKObKKbGjbB5mcGBwWsXLdLsXgY4dqp
-	hmG0fdgg==;
+	s=default; h=Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:
+	Message-Id:Date:Subject:Cc:To:From:Sender:Reply-To:Content-Type:Content-ID:
+	Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
+	:Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:List-Unsubscribe-Post:
+	List-Subscribe:List-Post:List-Owner:List-Archive;
+	bh=bMp4aGjtzMotrnNNRsA9Kf3RK8gVan/o3dMTlpzOrv4=; b=Zp1tXLbEUuy5SFEaukag1jTfJT
+	rugtdnjEZhjAiyM9pwKPbx3XuSyM3BelvXe81o67QgAyvBBFEMp4yy2fEuseZQSFABksTAFvRcPH5
+	Tj1fn18/LgBE37BXNseiljMQmNXaU6lIzYP5D2lKjgxkOcj+zyMU3IOp4/1laAGNSWQ9tkI7Fxgdj
+	QcYPTArJoXUH1r5kaMLez+hdZVi60OMYhBt3XdUHpUUpR9sOjfTqpWP0NcY1o4uKzzxwci1eLfO8P
+	9S/Oj541VkpIxbZVi4zAdg8+jhRpUgygh7SQqwHdEptAaZVB9endm+dy4mkQrZK84y0AT2Eh3F9Zv
+	oQvoByYg==;
 Received: from 89-212-21-243.static.t-2.net ([89.212.21.243]:37230 helo=localhost.localdomain)
 	by cp2.siel.si with esmtpsa  (TLS1.3) tls TLS_AES_256_GCM_SHA384
 	(Exim 4.100.1)
 	(envelope-from <primoz.fiser@norik.com>)
-	id 1xBrVI-00000000YWu-28ga;
+	id 1xBrVI-00000000YWu-2a7e;
 	Wed, 30 Sep 2026 12:25:34 +0200
 From: Primoz Fiser <primoz.fiser@norik.com>
 To: Rob Herring <robh@kernel.org>,
@@ -58,10 +58,12 @@ Cc: devicetree@vger.kernel.org,
 	linux-arm-kernel@lists.infradead.org,
 	linux-kernel@vger.kernel.org,
 	upstream@lists.phytec.de
-Subject: [PATCH 0/4] ARM: dts: imx6: phycore-som: PMIC and PHY fixes
-Date: Wed, 30 Sep 2026 12:25:28 +0200
-Message-Id: <20260930102532.2262700-1-primoz.fiser@norik.com>
+Subject: [PATCH 1/4] ARM: dts: imx6: phycore-som: Set PMIC watchdog alias as default
+Date: Wed, 30 Sep 2026 12:25:29 +0200
+Message-Id: <20260930102532.2262700-2-primoz.fiser@norik.com>
 X-Mailer: git-send-email 2.34.1
+In-Reply-To: <20260930102532.2262700-1-primoz.fiser@norik.com>
+References: <20260930102532.2262700-1-primoz.fiser@norik.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-AntiAbuse: This header was added to track abuse, please include it with any abuse report
@@ -75,8 +77,8 @@ X-Source:
 X-Source-Args: 
 X-Source-Dir: 
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260930_032619_152929_5DD4306F 
-X-CRM114-Status: UNSURE (   5.00  )
+X-CRM114-CacheID: sfid-20260930_032619_154688_722A32B0 
+X-CRM114-Status: UNSURE (   8.08  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -92,27 +94,38 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-A few small fixes for the PHYTEC phyCORE-i.MX6 SOM:
+Pin the da9062 PMIC watchdog to /dev/watchdog0 via a DT alias, instead
+of leaving it to be assigned dynamically by probe order. This SOM
+already relies on the PMIC for reset (see commit aa4f48a4e06c ("ARM:
+dts: imx6: phycore: Rely on PMIC reboot/reset handler")), so this
+makes that the predictable, fixed watchdog device node.
 
-- Pin the DA9062 PMIC watchdog to /dev/watchdog0 (1/4).
-- Raise the PMIC's SOC/ARM buck ceiling to 1.5V, needed once the
-  1.2GHz OPP tier ([1]] requests 1.3V for VDD_ARM and the anatop
-  LDO's 125mV dropout is added on top (2/4).
-- Migrate the Ethernet PHY reset off the deprecated fsl,fec.yaml
-  phy-reset-gpios property onto the generic ethernet-phy.yaml
-  reset-gpios/reset-assert-us binding (3/4, 4/4).
+Signed-off-by: Primoz Fiser <primoz.fiser@norik.com>
+---
+ arch/arm/boot/dts/nxp/imx/imx6qdl-phytec-phycore-som.dtsi | 3 ++-
+ 1 file changed, 2 insertions(+), 1 deletion(-)
 
-[1] https://lore.kernel.org/all/20260923070505.494949-1-primoz.fiser@norik.com/
-
-Primoz Fiser (4):
-  ARM: dts: imx6: phycore-som: Set PMIC watchdog alias as default
-  ARM: dts: imx6: phycore-som: Increase PMIC max SOC and ARM voltage
-  ARM: dts: imx6: phycore-som: Convert to generic PHY reset binding
-  ARM: dts: imx6: phycore-som: Add reset-assert-us for PHY reset
-
- .../boot/dts/nxp/imx/imx6qdl-phytec-phycore-som.dtsi   | 10 ++++++----
- 1 file changed, 6 insertions(+), 4 deletions(-)
-
+diff --git a/arch/arm/boot/dts/nxp/imx/imx6qdl-phytec-phycore-som.dtsi b/arch/arm/boot/dts/nxp/imx/imx6qdl-phytec-phycore-som.dtsi
+index ddbfecd591f5..205467fd223e 100644
+--- a/arch/arm/boot/dts/nxp/imx/imx6qdl-phytec-phycore-som.dtsi
++++ b/arch/arm/boot/dts/nxp/imx/imx6qdl-phytec-phycore-som.dtsi
+@@ -11,6 +11,7 @@ / {
+ 	aliases {
+ 		rtc1 = &da9062_rtc;
+ 		rtc2 = &snvs_rtc;
++		watchdog0 = &da9062_wdog;
+ 	};
+ 
+ 	/*
+@@ -112,7 +113,7 @@ da9062_onkey: onkey {
+ 			compatible = "dlg,da9062-onkey";
+ 		};
+ 
+-		watchdog {
++		da9062_wdog: watchdog {
+ 			compatible = "dlg,da9062-watchdog";
+ 			dlg,use-sw-pm;
+ 			dlg,wdt-sd = <1>;
 -- 
 2.34.1
 
