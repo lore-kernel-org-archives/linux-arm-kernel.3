@@ -4,52 +4,52 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A7F72CA5FC4
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 30 Sep 2026 21:49:18 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8EAE0CA5FC4
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 30 Sep 2026 21:49:28 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=OmI43dNjbW9ipLj+uvJbJhfjBFlJUEORAc9xQbdzhRk=; b=3pfoKpw3giqAKNvsB46whmiExu
-	CU+9UBQrFJ5XGdhhdrUO+uV76fjE5tCrVHFx8N/OZKMDjd8qElbLmjAdhT1pG82PsjX9l3+kqumo/
-	OvVAfdnMU14r1jx+s8no1EFZxqaV/wfxV8uYUT884EBdfhzOmSJWd9pkuP8tzIERgKZn+KZnG4i6X
-	rgqur8F2byYfFQbV+5NKZFnmaWYicSwgm0RlwsVumkDex7qnApJ6oOv5iTg65NLdyDr+psEC8QWcW
-	MxZ3M5i6kh2KusZNGpTCaoCWdbeDbQa7PfZteG2YfujxMfVdMeSAPSU6QPcsZUPqIyNOEqofhmAIS
-	CP8G/aIw==;
+	bh=ETO//ZHEIrAWcvZFpQcrmAKGm+pliNn3pzbd4bW/wbA=; b=eCkQBuBWfvJ05c3ISCjkNOsI6U
+	DzkzWE/m5Sg0iX8nQd3TCAxNbIcjdvw7wvs3pDUF+9WNZGerCnTbyMdL2ohftGxkHaDxt87suqt7Z
+	n8ofB8qJB6iuOSjWktgKWIolT/Ur8JCsrVID63AaRZLAjGyvd6w0f/4IEr6fPZVPoIVKJxoht/nu5
+	FQPs8bOBwUzEcnjUuzRans/595TyIPo9LBvZ+J3olC5h8htIdXq+JqWgJU3UJZ8/Foh/fYPb9zOJn
+	V6bqGa6Nmr4UTAvaVdGdo8Qqq51vREiyKpvMeclbz+tjJ6IpqKFTHMiuGBovbe8OfuadWWaHHNG6u
+	zla6K85A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xC2Ai-00000007ICE-1mnd;
-	Wed, 30 Sep 2026 21:49:04 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1xC2B0-00000007IN2-0X4K;
+	Wed, 30 Sep 2026 21:49:22 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xC2Ag-00000007IBJ-39OW
+	id 1xC2Ay-00000007IL1-2i4m
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 30 Sep 2026 21:49:02 +0000
+	Wed, 30 Sep 2026 21:49:20 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id E4A446053E;
-	Wed, 30 Sep 2026 21:49:01 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 27CB11F000FF;
-	Wed, 30 Sep 2026 21:48:57 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 67DA941A13;
+	Wed, 30 Sep 2026 21:49:20 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 0C94C1F000FF;
+	Wed, 30 Sep 2026 21:49:16 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1790804941;
-	bh=OmI43dNjbW9ipLj+uvJbJhfjBFlJUEORAc9xQbdzhRk=;
+	s=k20260515; t=1790804960;
+	bh=ETO//ZHEIrAWcvZFpQcrmAKGm+pliNn3pzbd4bW/wbA=;
 	h=From:Date:Subject:References:In-Reply-To:To:Cc;
-	b=KHDNb2F21R1I7bXqmNAaWpXeQK9EChJqU9dgmuyRYicKt+bU8w88DAkJodincfhKo
-	 BhvuBd4C2JLEEfBM7ZtIqgVtWY3vda9VqSGoQaP6/J/DzUVtmcrxVhmCtnSKdcyQmr
-	 oAfhT0yZdeBUba2gyrT0OrDSBd43d30Tna3bo9boYT6qqYAhW9cj2KodZHPtf5UrYw
-	 ssU8VcREWum3Lvd5ZW0zfk4gTxRGOIVF+9LTP7iwPYZJhf4HCuHD68bfl6PyixnbmM
-	 VulLoPou/Vd90vkJln6yqTYCnL/PLyGkNdZCwSz6iklV6ckhbJgggTIqXiqPJF+doW
-	 J6X6oYtTYPl3w==
+	b=Ts8bHGm29D1eMA1ta/GX1aqLyyVAi8ruqECban51kmGbRcRgDMsWBcCDAl0t2f3Jh
+	 Q/jLdqjBnV+OEHiSbInjqDYJW3odZYvT11P1QpbunBu4HFg50GGd3PsnO/OJfHwjv1
+	 cyr+X5i7pYq83Sj6UiV09wpQGnCKVhSv/jpvOH2KXXxkPqugXlyJtbHWmiA1YUapYd
+	 C2EPaZNy7XsHTcCZ3Oox0e1+FjyzInMk0f1opkKPGNIiXuqHaBK2Tqu1IibKtTBVaX
+	 9XAlCbwpAzGbtk85ULfPQlGSBOguDVYMq/Be6o9croqMZ800dQpGmf9w//yIU3XOy9
+	 3b9kjxhA7fITg==
 From: Mark Brown <broonie@kernel.org>
-Date: Wed, 30 Sep 2026 22:48:12 +0100
-Subject: [PATCH v21 02/15] KVM: arm64: Refuse to start a guest with S1PIE
- or S1POE but not TCR2
+Date: Wed, 30 Sep 2026 22:48:17 +0100
+Subject: [PATCH v21 07/15] KVM: arm64: Forward GCS exceptions to nested
+ guests
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20260930-arm64-gcs-v21-2-3556644cd927@kernel.org>
+Message-Id: <20260930-arm64-gcs-v21-7-3556644cd927@kernel.org>
 References: <20260930-arm64-gcs-v21-0-3556644cd927@kernel.org>
 In-Reply-To: <20260930-arm64-gcs-v21-0-3556644cd927@kernel.org>
 To: Catalin Marinas <catalin.marinas@arm.com>, 
@@ -64,15 +64,15 @@ Cc: Peter Maydell <peter.maydell@linaro.org>,
  linux-kselftest@vger.kernel.org, linux-kernel@vger.kernel.org, 
  Mark Brown <broonie@kernel.org>
 X-Mailer: b4 0.17-dev
-X-Developer-Signature: v=1; a=openpgp-sha256; l=2332; i=broonie@kernel.org;
- h=from:subject:message-id; bh=DwBoYQFaczmEOWbnV9xSdDgF3MgqEmjOd72qq7R27xE=;
- b=owEBbQGS/pANAwAKASTWi3JdVIfQAcsmYgBqvYO1hbtlerL9S2qZZZLtlBkEy8ZCDKCCOwfKK
- CCEvCtnPHqJATMEAAEKAB0WIQSt5miqZ1cYtZ/in+ok1otyXVSH0AUCar2DtQAKCRAk1otyXVSH
- 0IdcB/9X5ZZqHN11AV843Dho/QJXH3M8htRierETr6LGsfAgsUbLAaCXasBSRLg5jWHlN1MovSI
- sLP1OcVZAifIMlKimYLc4cCOfcbBEnV+s5hp59y6+tpr69dTeKFsHf7WOr/Ya4Eux7yVeU/Lum4
- q+8MSU4D2RaW/QgDSzv8byA/ntbYKtT5CttovlDl5yyIsPiGPMdCPhBAXuCqZkxBJBIWUwiL0EN
- JCY+7jtbPqzw1xEwzRy2+RTizp2VjO3rrOYnKGaQQvaSb1FkLMFWWa4QbOeewctPziXA7WKW/2+
- TeYk+aoHFvXDS6opSBe7JpxqvQxGFBF1ZEKsylTiITrJsDRe
+X-Developer-Signature: v=1; a=openpgp-sha256; l=1333; i=broonie@kernel.org;
+ h=from:subject:message-id; bh=kVbReCZrKoi+cVaC6OJWcE+twh1TXQHikn7eWoOdtvk=;
+ b=owEBbQGS/pANAwAKASTWi3JdVIfQAcsmYgBqvYO4QbfvLeVqTJpjsPJjc0EbJR8LurVnuvWMa
+ bAxPXZiG5WJATMEAAEKAB0WIQSt5miqZ1cYtZ/in+ok1otyXVSH0AUCar2DuAAKCRAk1otyXVSH
+ 0EzLB/0X4o5J+Ob3x2kpC8lQ8ERNBXCpJ05jLcfpiazZPwXlKoGWfNoYBN6W1t/+QdQX/pWmMvF
+ 4/9rpQcNiHT8J3tHlFJ0/BsGvEmP3SdsYdVt12wgekEypSAgwPZ72VrzfW/nJlE+yhMTP2xP0o8
+ oXzZxyDkTKHz7fihVqNfygtcv1cRcJvyq8c68xHosJaj+3rBUjswzk1DzJ4NHXa6MxNq8PhySPa
+ UAJx7D4ehMg6Rbwgp723DbbbjdIBKGqwnkv6JtNYCGl5oyDvLaBUEWRM83zap9K9hxNsmoTc48p
+ 0/+lkUNYaRVU7dj9yWoo1LGKSQPHFWoTouPxFugwWMtXMgZm
 X-Developer-Key: i=broonie@kernel.org; a=openpgp;
  fpr=3F2568AAC26998F9E813A1C5C3F436CA30F5D8EB
 X-BeenThere: linux-arm-kernel@lists.infradead.org
@@ -89,68 +89,48 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Since there is an architectural dependency between the features as an
-optimisation we only context switch guest registers for FEAT_S1PIE and
-FEAT_S1POE if the guest also has FEAT_TCR2. We do not, however, enforce
-this as a requirement when starting a guest and only configure the traps
-for accessing the registers based on their individual features. This means
-that a VMM can configure a guest which can read and write the system
-registers for FEAT_S1PIE and FEAT_S1POE without the hypervisor updating the
-values of these registers for the guest.
+For nested guests where HFGITR_EL2.nGCSSTR_EL1 is clear or when there are
+L2 GCS data check exceptions we need to forward the exception to the guest.
+Add handling to do so.
 
-Avoid this by refusing to create a guest with an affected configuration.
-
-Rather than doing something data driven we open code the checks, I started
-doing something data driven but it was very clear that such code should be
-shared with the host kernel cpufeature code. Refactoring for that seemed
-like disproportionate effort and invasiveness for the context so is
-deferred for followup work.
-
-Fixes: 663abf04ee4d ("KVM: arm64: Make PIR{,E0}_EL1 save/restore conditional on FEAT_TCRX")
+Reviewed-by: Leonardo Bras <leo.bras@arm.com>
 Signed-off-by: Mark Brown <broonie@kernel.org>
 ---
- arch/arm64/kvm/sys_regs.c | 21 +++++++++++++++++++++
- 1 file changed, 21 insertions(+)
+ arch/arm64/kvm/handle_exit.c | 18 +++++++++++++++---
+ 1 file changed, 15 insertions(+), 3 deletions(-)
 
-diff --git a/arch/arm64/kvm/sys_regs.c b/arch/arm64/kvm/sys_regs.c
-index 44aae52c473d..3ae293798b27 100644
---- a/arch/arm64/kvm/sys_regs.c
-+++ b/arch/arm64/kvm/sys_regs.c
-@@ -5860,6 +5860,24 @@ void kvm_calculate_traps(struct kvm_vcpu *vcpu)
- 	mutex_unlock(&kvm->arch.config_lock);
+diff --git a/arch/arm64/kvm/handle_exit.c b/arch/arm64/kvm/handle_exit.c
+index db37678dcb05..a8198e96fcb4 100644
+--- a/arch/arm64/kvm/handle_exit.c
++++ b/arch/arm64/kvm/handle_exit.c
+@@ -304,12 +304,24 @@ static int handle_svc(struct kvm_vcpu *vcpu)
+ 	return 1;
  }
  
 +/*
-+ * Some optimisations in fast paths would be broken by architecturally
-+ * invalid feature combinations, reject those.
-+ *
-+ * This should share code with the host kernel cpufeature code, and
-+ * make use of the MRS to generate dependencies.
++ * We might get GCS exceptions that need to be forwarded to the
++ * hypervisor when a nested guest has HFGITR_EL2.nGCSSTR_EL1 clear, or
++ * for a GCS data check exception for a L2 guest.
 + */
-+static bool kvm_validate_id_regs(struct kvm *kvm)
-+{
-+	if (kvm_has_s1pie(kvm) && !kvm_has_tcr2(kvm))
-+		return false;
-+
-+	if (kvm_has_s1poe(kvm) && !kvm_has_tcr2(kvm))
-+		return false;
-+
-+	return true;
-+}
-+
- /*
-  * Perform last adjustments to the ID registers that are implied by the
-  * configuration outside of the ID regs themselves, as well as any
-@@ -5928,6 +5946,9 @@ int kvm_finalize_sys_regs(struct kvm_vcpu *vcpu)
- 		kvm_vgic_finalize_idregs(kvm);
- 	}
+ static int kvm_handle_gcs(struct kvm_vcpu *vcpu)
+ {
+-	/* We don't expect GCS, so treat it with contempt */
+-	if (kvm_has_feat(vcpu->kvm, ID_AA64PFR1_EL1, GCS, IMP))
+-		WARN_ON_ONCE(1);
++	if (!kvm_has_gcs(vcpu->kvm)) {
++		kvm_inject_undefined(vcpu);
++		return 1;
++	}
  
-+	if (!kvm_validate_id_regs(vcpu->kvm))
-+		return -EINVAL;
++	if (vcpu_has_nv(vcpu)) {
++		kvm_inject_nested_sync(vcpu, kvm_vcpu_get_esr(vcpu));
++		return 1;
++	}
 +
- 	return 0;
++	WARN_ON_ONCE(1);
+ 	kvm_inject_undefined(vcpu);
+ 	return 1;
  }
- 
 
 -- 
 2.47.3
