@@ -4,80 +4,95 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D95FACA5FC7
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 30 Sep 2026 15:28:08 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8F5E8CA5FC5
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 30 Sep 2026 15:28:51 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=m8/ka+J/ZNQmE2G5JtUp2jlHYt7CIUXWsqK/1+vFYBc=; b=ubwkYFpQ0oAfLkXrRBlouLOMic
-	pLFyFUuiyU/2XmJHREjgQFsV0Cnxfp0N6IuAz4qAWCyspoS/xnJBnEWH1+ksN+wYlE3ym7Bfr7wJc
-	ejIDPZ3k0f2zgZQHTWo2IAFSF3hzAeoKFe+IFu7UF6oHNTbWXIeCalqr6BRQLmdJUbGzcffDoKx0n
-	UaS1NTvVNN4mslt0g7v0fKDBrE+U7OAOYqR74tUJFHJAR6AsPwk8XKJTDKOE2rCQ6Fxal09atFGiE
-	kmbtUrZc54bBgRmUmXMpT/3VAN7QLT9keKmq8dwg+idSS5icQnCdo+LkBNC4LxpYVQxaATQKuaMWb
-	fuOUypWg==;
+	bh=GQ41yj00/XNv9YnqFd8MxyPQ2Or7W/eiTKmLpRiCxws=; b=48z46d08ELb58NKbGotf5x5qGH
+	zM2QmUOB62wlwEuSToFdfQUOX2HNUE3HwW4wJbLLc3zeDI8FjoSfncwOi1EMM3l3GsfkG1mIfH6dH
+	Ly4zmX+3i6SrlD8Wzzo5UMbOLTd0Bq0xNTuDNeJLax2w+4ViNopgGNF6NZ/2/VYg9qzEArv9pv1JO
+	wvT327tbQu8PcunNBNwdVfMLas7VggScDoJCjK1JGHgQL1r+H00osI5yatbXPLGQ5yWx+Uoczc5NP
+	srVq1BSuRHIRq6yYinnuip5tfwrH77LcOpvNdE9f+VktSSLPp1y43uOE+XOHwEXUpJpOfbUh49OgM
+	Hbl8YBLw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xBwDv-00000006VTG-1Fte;
-	Wed, 30 Sep 2026 15:27:59 +0000
-Received: from mail-ej2-x0d.google.com ([2a00:1450:4864:34::d])
+	id 1xBwEe-00000006ViK-3lO7;
+	Wed, 30 Sep 2026 15:28:44 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xBwDT-00000006VNn-3srz
+	id 1xBwEd-00000006Vhu-3ucg
+	for linux-arm-kernel@bombadil.infradead.org;
+	Wed, 30 Sep 2026 15:28:44 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:Content-Type
+	:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:Message-ID:
+	Sender:Reply-To:Content-ID:Content-Description;
+	bh=GQ41yj00/XNv9YnqFd8MxyPQ2Or7W/eiTKmLpRiCxws=; b=aBBd4iw+suAOM5Vg/7DMTg9lSY
+	0GaImtN40o01hFMg6McoR6ZisdHOtPOvf8Fxn98j5YkPPeqo31kxmNsaUdvDP5dh9AFKwscLuUx47
+	I4n1l4BVDXYPNCuAaEA3OfDxchA1DyKvKiKnCFqCxviNeQpjsqlmka2gVy+sRoEb3E2nMwYmrzPyj
+	94D391a2W0BcFKd8QFkm8gHpJduzfjYzBRW0XddheN7cC4dWo+8Q4XB70ljk1DgHEHtQ8cQ2cisdr
+	qBZZE5OO6q8nohdCpMD2Ukcn/nIQN+wzGXQiYkQUGE3E0qaI8P+7AMtWsfHLMz6nBWEv6obzzWZoq
+	c/SsPJhw==;
+Received: from mail-ed2-x20.google.com ([2a00:1450:4864:33::20])
+	by desiato.infradead.org with esmtps (Exim 4.99.2 #2 (Red Hat Linux))
+	id 1xBwEb-00000003zxm-09hH
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 30 Sep 2026 15:27:33 +0000
-Received: by mail-ej2-x0d.google.com with SMTP id a640c23a62f3a-c2e028ed54dso240089066b.1
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 30 Sep 2026 08:27:31 -0700 (PDT)
+	Wed, 30 Sep 2026 15:28:42 +0000
+Received: by mail-ed2-x20.google.com with SMTP id 4fb4d7f45d1cf-6abc27842b6so6760153a12.3
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 30 Sep 2026 08:28:40 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1790782050; x=1791386850; darn=lists.infradead.org;
+        d=linaro.org; s=google; t=1790782119; x=1791386919; darn=lists.infradead.org;
         h=content-transfer-encoding:content-type:in-reply-to:from
          :content-language:references:cc:to:subject:user-agent:mime-version
          :date:message-id:from:to:cc:subject:date:message-id:reply-to
          :content-type;
-        bh=m8/ka+J/ZNQmE2G5JtUp2jlHYt7CIUXWsqK/1+vFYBc=;
-        b=DMXZo64nqd3+IxTWkuv2moO4fio9Td5QsX3T6wYGoi+sssQUQRAlbbmDAkQ56zIYEW
-         plPZNFacm8a7usjiWE3uM3+nV5niQFfPoSp0p1muL23IXShxUeQ6CcjHmDjynUdBIQbt
-         HUgER0Wao41D/Tk61/NPFDOAe7K646nsHaky2OPt2qo3ptEQaBnX/0N9ecG2Z8/AhCGs
-         GWvTtqr5wBgU8cD7oA0qeFJ1k93E/2tBsVz0372kkHGhJZ5XAqqYjkTFvvY+RfoSFTzR
-         cvky1Yx+x86vnLpmG/X2pGGHo7aEw2/ne4w1UOPz2MhNzPXM4uq0J2QFVxsyCXgW2A0V
-         +y8w==
+        bh=GQ41yj00/XNv9YnqFd8MxyPQ2Or7W/eiTKmLpRiCxws=;
+        b=hz7b9THS1lS69ojcuhOS1RTtdwCuGGiYdLTNAJDE+kXKk5UOHePjU8aqWi75CdKcC2
+         I9kOl/BB7+8XjQQVihvjbTAXaokqmmJXcL0ybtfaRyzZE3/Ae4XcwjeIqo2mCVILylaW
+         vzbPBxJKJQMtqI8fFD5aRnJVnHyk5VcE6qs9kCE9AFS8XXJ8fJmF2EVvVjxZoFayVzyQ
+         vcLKQvF14782ib9QImUxAFPnJWe00W46ua9ijr+hsNnAZkgAHGoT2F37/PLchGTiYi5P
+         wLcTTCQGcZei1qUW4TiEilIHyzbg5rOxvMVVgDm9lLFIfbpwZ0+VX4TgocGWmpBUHFz0
+         EVhA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1790782050; x=1791386850;
+        d=1e100.net; s=20260707; t=1790782119; x=1791386919;
         h=content-transfer-encoding:content-type:in-reply-to:from
          :content-language:references:cc:to:subject:user-agent:mime-version
          :date:message-id:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
          :message-id:reply-to:content-type;
-        bh=m8/ka+J/ZNQmE2G5JtUp2jlHYt7CIUXWsqK/1+vFYBc=;
-        b=SoAMSRmsPR31dlhnm/P/wegEXzTo4j6Ra8x1WVzXt6r6TBnak/HFLi55ZIBlQRmcfZ
-         cYQcAYdknLdiyYzBTkhGhzMRyT1wyguyrX6vs7KxhYsH2419rU5cRhov74303uysBkc0
-         6jQlLQH7PtRItzY6aL9zBaqK2eIMbrPxjrHhOvKGgqeFpcI6YvRAXRwM/xc0WQ+XPqJO
-         9iHOX83Z3hgDVM8uN/kMGARWquusMCGZHyl1sZzYwJ3VshA6WS9pSSFZSVNFa0FQIpqv
-         b/nRZ4Yv17SeYk9d/LE0fMBu7pHlVffXucXQOHRNciYQY0FxXpshsfj27/4xhPL5rm1o
-         0NsQ==
-X-Forwarded-Encrypted: i=1; AKwUvBwQZEGuIUPIV/QF3Lxmb8I2U1Lb2MCzpj9fAArUtG/TPJQVmpsdp6wayOF+3SZPdp/jbEvK/ePRiu0Yu6TJSnSH@lists.infradead.org
-X-Gm-Message-State: AFuF++mH/KcchlRIkeHcQwMgJU3fkz3YXNJWnvxMNNfXdsHfPgAEO+ur
-	YZcbe611hA5TDOWiapOPy6/mTrvmziAr/QQhz+wRS1uQILzUZEeDVa63Pprp45OvNwI=
-X-Gm-Gg: AYBFou0JoyU46jzpAGpDvmNrgWeZhrgj+OY1wp12v37q2z2mFqD0qDMqwV0LhtsaP3J
-	7p8qBGuKYu8rX3oovQPl5Oqi88D6cOLM7FIJpQjdj3MYN5lnujIbN0jIWunm1h8hBo2X+2pcigB
-	A1DxudNyGpYkSFUsalHINMvgzP5Z53UnzQTuhuCwC3ErCPu2fPYHJVzUWYoeENwXHRvGHLvmBbz
-	lkLbgYSFMl779OGTKwRwVzXBc1RSOhiUuAVuyruIZRqL+CniR8/VtechaPoGYLIOgmsTTwfalXg
-	2FeQ0mVinG3WK7hhDbS/v/k8E7u9N54f5iYSCRqAlzGbX8wZJq5Yhwr+9I662+LRAYBBXPRGycl
-	LRjUvA9aVX+8wXB2DMzZzSJ3AIeFQso3eLvmyonI+jJxe97JwEowaYnCINOzd1vjm1CeAOJApOQ
-	ifuEhEztE4HCWaZvdIlyPbtX+dLhMIEWcwN0LxnZri0ggx2wZB5yHIHCLoyQEEP0PqcHWvXuJo0
-	SQ=
-X-Received: by 2002:a17:907:e002:20b0:c2d:ca32:2176 with SMTP id a640c23a62f3a-c2e23be61f9mr114745266b.8.1790782049863;
-        Wed, 30 Sep 2026 08:27:29 -0700 (PDT)
+        bh=GQ41yj00/XNv9YnqFd8MxyPQ2Or7W/eiTKmLpRiCxws=;
+        b=WnLt5aCVrFqUUAB1U9CiI1Ebs6JOoUV5L/mpkWthB3bJmt7M2HdSSgw8E9a8LRqCn0
+         unVEGnpkhG66cJbFx24IfAgkLqoytYMbb0+TAAErjMc2eEwm3Gi3KPn4L0U6NVXEc7IL
+         2U3Qdxcxo6fFc924SBi3GFETV71L6QlyRESV12Tn3RXjlwB1crq5q1w6uNq07BcIfd6H
+         Jv5wHA+T1GLdTeKFGAb1yKiyffGBafSWVoEZEkvfR4RT+rizrokHC4oxW7dfeq1faMXT
+         ptfhdYldtTr9EQ+TA5GF9FhnwAnW4gG0PKdTVi/Of1YxS+lcwQ0zzTOS878Hv/ujTZCW
+         QJHg==
+X-Forwarded-Encrypted: i=1; AKwUvBymEDz5IiA6ojHoFEgfBwFIcPJoDTI/8OkrYGyn7rQEzdL5+11ouF7IDsGPaQiwkjX+eBq8V9NCVFh72tWw6SLO@lists.infradead.org
+X-Gm-Message-State: AFq9FYJXnZKWMdWwrFlLzy9VmAqoQgHP5CscZs42fET370HgY0sy+Osi
+	l7iyvFSkYcYR/pOr5LefHwT2fZ+eSFM/46hZV9aK1LAYXdHKwL+n8zW3Pzfm7+pgDu8=
+X-Gm-Gg: AYBFou1rhHTdYZTNu+GG2EBq14byP/WCCat6vI2s639GlL/Hkit57Q7vZ9I4yBUWxwK
+	91bRJKjyGJYn9Z+guwr/YYaVIZHuSfclLnTXSPNzI/f2BPj/i6cBqAhlXp1Kvj2O9e9cs3spciS
+	gefj+1+Ooppv7Wa+fepheea0APe1ArPs9e40kMyayq29jPZrjCyIKmwWbyaiJGYZCB9B3ykrQQF
+	uEULBpUU1OCbJWK1uDJKBgDnrKlQkLRFidfsiT5WhL/kpV4dpoxWHSKQIfpA4Enskm468PVZ9jy
+	ceX3PPveGBTKXiISdUVtojQ6fKFgpWAgKiKng4Fa3eBezz/myHe0w2Lmo7OB1iI7k+RL39Zmxvk
+	R84PVJ+nr8xICp33yTWdaneQv6u875HUeFDW5GCzE6LJiUvjUoA6zzsTpSdopy9gLLaTvfHJkBc
+	pfGqdMUXDlUZNO1UG3pw3KUT8qPCCOTcXzoOY7+sTt53GpJMAUaHlYX+GTWlEde5kAtcwoMdSTb
+	WM=
+X-Received: by 2002:a05:6402:4543:b0:6ab:bafd:260e with SMTP id 4fb4d7f45d1cf-6ae199672d1mr1029959a12.44.1790782119271;
+        Wed, 30 Sep 2026 08:28:39 -0700 (PDT)
 Received: from [192.168.1.3] ([37.18.141.193])
-        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-c2e31a3eb32sm28640766b.3.2026.09.30.08.27.28
+        by smtp.gmail.com with ESMTPSA id 4fb4d7f45d1cf-6ae156a2082sm1010321a12.30.2026.09.30.08.28.37
         (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Wed, 30 Sep 2026 08:27:29 -0700 (PDT)
-Message-ID: <56d86280-fcea-4d2d-b6b9-b47449f3408d@linaro.org>
-Date: Wed, 30 Sep 2026 16:27:27 +0100
+        Wed, 30 Sep 2026 08:28:38 -0700 (PDT)
+Message-ID: <f54b9ea6-48b1-4f6c-92cc-b0a9249c2fb0@linaro.org>
+Date: Wed, 30 Sep 2026 16:28:37 +0100
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v9 20/22] KVM: arm64: Add vCPU device attr to partition
- the PMU
+Subject: Re: [PATCH v9 16/22] KVM: arm64: Apply dynamic guest counter
+ reservations
 To: Colton Lewis <coltonlewis@google.com>
 Cc: Marc Zyngier <maz@kernel.org>, Oliver Upton <oupton@kernel.org>,
  Oliver Upton <oliver.upton@linux.dev>, Joey Gouly <joey.gouly@arm.com>,
@@ -98,15 +113,15 @@ Cc: Marc Zyngier <maz@kernel.org>, Oliver Upton <oupton@kernel.org>,
  kvm@vger.kernel.org, kvmarm@lists.linux.dev,
  linux-arm-kernel@lists.infradead.org
 References: <20260924172928.2110956-1-coltonlewis@google.com>
- <20260924172928.2110956-21-coltonlewis@google.com>
+ <20260924172928.2110956-17-coltonlewis@google.com>
 Content-Language: en-US
 From: James Clark <james.clark@linaro.org>
-In-Reply-To: <20260924172928.2110956-21-coltonlewis@google.com>
+In-Reply-To: <20260924172928.2110956-17-coltonlewis@google.com>
 Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260930_082732_039500_77163580 
-X-CRM114-Status: GOOD (  23.73  )
+X-CRM114-CacheID: sfid-20260930_162841_176417_950643A3 
+X-CRM114-Status: GOOD (  35.30  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -124,54 +139,179 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 
 
 On 24/09/2026 18:29, Colton Lewis wrote:
-> Add the KVM_ARM_VCPU_PMU_V3_ENABLE_PARTITION vCPU device attribute to
-> enable a Partitioned PMU for a VM where PMUv3 and VHE are supported.
+> Reserve and release guest PMU counters dynamically during vCPU load and
+> put rather than statically at VM creation.
 > 
-> When partitioning is enabled (tracked via
-> KVM_ARCH_FLAG_PARTITION_PMU_ENABLED), userspace must explicitly
-> configure the number of guest event counters via
-> KVM_ARM_VCPU_PMU_V3_SET_NR_COUNTERS with a value strictly less than the
-> maximum number of general-purpose counters implemented by the PMU (or
-> 0 only when FEAT_HPMN0 is supported), leaving at least one
-> general-purpose counter reserved for host profiling prior to calling
-> KVM_ARM_VCPU_PMU_V3_INIT.
+> Add kvm_pmu_set_guest_counters() in arch/arm64/kvm/pmu-direct.c, called
+> from kvm_pmu_load() and kvm_pmu_put(). When the requested guest counter
+> mask collides with active host events in cpuc->used_mask (or when
+> releasing counters after squeezing a host event), invoke
+> perf_pmu_resched_update() with kvm_pmu_update_mask() to update the
+> per-CPU cpuc->cntr_mask between scheduling host events out and back in;
+> otherwise update cpuc->cntr_mask directly with interrupts disabled.
 > 
 > Signed-off-by: Colton Lewis <coltonlewis@google.com>
 > ---
->   Documentation/virt/kvm/devices/vcpu.rst | 42 ++++++++++++++-
->   arch/arm64/include/asm/kvm_host.h       |  1 +
->   arch/arm64/include/uapi/asm/kvm.h       |  2 +
->   arch/arm64/kvm/pmu.c                    | 71 ++++++++++++++++++++++++-
->   arch/arm64/kvm/sys_regs.c               |  5 +-
->   5 files changed, 118 insertions(+), 3 deletions(-)
+>   arch/arm64/kvm/pmu-direct.c  | 77 ++++++++++++++++++++++++++++++++++++
+>   include/linux/perf/arm_pmu.h |  1 +
+>   2 files changed, 78 insertions(+)
 > 
-> diff --git a/Documentation/virt/kvm/devices/vcpu.rst b/Documentation/virt/kvm/devices/vcpu.rst
-> index deb5c51bc00c8..fb5921ed9dea2 100644
-> --- a/Documentation/virt/kvm/devices/vcpu.rst
-> +++ b/Documentation/virt/kvm/devices/vcpu.rst
-> @@ -57,6 +57,9 @@ Returns:
->                     hardware PMU, or interrupt number not set (non-GICv5
->                     guests, only)
->   	 -EBUSY   PMUv3 already initialized
-> +	 -EINVAL  Partitioning enabled without explicitly configuring
-> +		  fewer than max_counters via
-> +		  KVM_ARM_VCPU_PMU_V3_SET_NR_COUNTERS
->   	 =======  ======================================================
+> diff --git a/arch/arm64/kvm/pmu-direct.c b/arch/arm64/kvm/pmu-direct.c
+> index a22c9258c2452..31d5afc44f36e 100644
+> --- a/arch/arm64/kvm/pmu-direct.c
+> +++ b/arch/arm64/kvm/pmu-direct.c
+> @@ -115,6 +115,77 @@ u64 kvm_pmu_direct_pmcr_read(struct kvm_vcpu *vcpu)
+>   		ARMV8_PMU_PMCR_N);
+>   }
 >   
->   Request the initialization of the PMUv3.  If using the PMUv3 with an in-kernel
-> @@ -162,7 +165,8 @@ the cpu field to the processor id.
->   	 -EFAULT  Error accessing the value pointed to by addr
->   	 -ENODEV  PMUv3 not supported or GIC not initialized
->   	 -EINVAL  No PMUv3 explicitly selected, or value of N out of
-> -	 	  range
-> +	 	  range (or N >= max_counters when partitioning is
-> +		  enabled)
+> +/* Callback to update counter mask between perf scheduling */
+> +static void kvm_pmu_update_mask(struct pmu *pmu, void *data)
+> +{
+> +	struct arm_pmu *arm_pmu = to_arm_pmu(pmu);
+> +	struct pmu_hw_events *cpuc = this_cpu_ptr(arm_pmu->hw_events);
+> +	unsigned long *new_mask = data;
+> +
+> +	bitmap_copy(cpuc->cntr_mask, new_mask, ARMPMU_MAX_HWEVENTS);
+> +}
+> +
+> +/**
+> + * kvm_pmu_set_guest_counters() - Handle dynamic counter reservations
+> + * @cpu_pmu: struct arm_pmu to potentially modify
+> + * @guest_mask: new guest mask for the pmu
+> + *
+> + * Check if guest counters will interfere with current host events and
+> + * call into perf_pmu_resched_update if a reschedule is required.
+> + */
+> +static void kvm_pmu_set_guest_counters(struct arm_pmu *cpu_pmu, u64 guest_mask)
+> +{
+> +	struct pmu_hw_events *cpuc = this_cpu_ptr(cpu_pmu->hw_events);
+> +	DECLARE_BITMAP(guest_bitmap, ARMPMU_MAX_HWEVENTS);
+> +	DECLARE_BITMAP(new_mask, ARMPMU_MAX_HWEVENTS);
+> +	unsigned long flags;
+> +	bool need_resched = false;
+> +
+> +	bitmap_from_arr64(guest_bitmap, &guest_mask, ARMPMU_MAX_HWEVENTS);
+> +	bitmap_copy(new_mask, cpu_pmu->cntr_mask, ARMPMU_MAX_HWEVENTS);
+> +
+> +	local_irq_save(flags);
+> +	if (guest_mask) {
+> +		/* Subtract guest counters from available host mask */
+> +		bitmap_andnot(new_mask, new_mask, guest_bitmap, ARMPMU_MAX_HWEVENTS);
+> +
+> +		/* Did we collide with an active host event? */
+> +		if (bitmap_intersects(cpuc->used_mask, guest_bitmap, ARMPMU_MAX_HWEVENTS)) {
+> +			int idx;
+> +
+> +			need_resched = true;
+> +			cpuc->host_squeezed = true;
+> +
+> +			/* Look for pinned events that are about to be preempted */
+> +			for_each_set_bit(idx, guest_bitmap, ARMPMU_MAX_HWEVENTS) {
+> +				if (test_bit(idx, cpuc->used_mask) && cpuc->events[idx] &&
+> +				    cpuc->events[idx]->attr.pinned) {
+> +					pr_warn_once("perf: Pinned host event squeezed out by KVM guest PMU partition\n");
 
-"No PMUv3 explicitly selected, or value of N > max_counters, or N > 
-max_counters - 1 when partitioning is enabled".
+If you enable pseudo-NMIs, watchdog_hardlockup_enable() installs the 
+watchdog using a pinned PMU event. If host userspace also has a pinned 
+event on the mandatory 1 PMU counter assigned to the host, then a guest 
+could potentially squeeze out the watchdog.
 
-That might be clearer, otherwise it seems like max_counters being 
-relevant to "out of range" only applies to when partitioning is enabled, 
-not that it's max_counters all the time but one is -1.
+I'm wondering if we need to prioritise kernel owned events? Or we just 
+treat them the same as any other event, and with PMU partitioning assume 
+they can't be guaranteed to be running? I feel like you would expect a 
+watchdog to be a bit more than best effort though, especially if there 
+was always a guaranteed counter available to put it on.
+
+I didn't follow it through completely, but it also looks like if the 
+event gets squeezed it would enter an error state and then never be 
+re-enabled, even after the guest stops running.
+
+Note, that I think the current ordering means that the watchdog won't 
+actually get squeezed out because it's created first. But I don't think 
+we can rely on the ordering as a strong guarantee, and it might get 
+broken by refactoring in the future.
+
+
+> +					break;
+> +				}
+> +			}
+> +		}
+> +	} else {
+> +		/*
+> +		 * Restoring to full mask.
+> +		 * Only resched if we previously squeezed an event.
+> +		 */
+> +		if (cpuc->host_squeezed) {
+> +			need_resched = true;
+> +			cpuc->host_squeezed = false;
+> +		}
+> +	}
+> +	if (!need_resched)
+> +		/* Host was never using guest counters anyway */
+> +		bitmap_copy(cpuc->cntr_mask, new_mask, ARMPMU_MAX_HWEVENTS);
+> +	local_irq_restore(flags);
+> +
+> +	if (need_resched) {
+> +		/* Collision: run full perf reschedule */
+> +		perf_pmu_resched_update(&cpu_pmu->pmu, kvm_pmu_update_mask, new_mask);
+> +	}
+> +}
+> +
+>   /**
+>    * kvm_pmu_host_counter_mask() - Compute bitmask of host-reserved counters
+>    *
+> @@ -255,6 +326,7 @@ static void kvm_pmu_apply_event_filter(struct kvm_vcpu *vcpu)
+>    */
+>   void kvm_pmu_load(struct kvm_vcpu *vcpu)
+>   {
+> +	struct arm_pmu *pmu;
+>   	unsigned long guest_counters;
+>   	u64 mask;
+>   	u8 i;
+> @@ -269,7 +341,9 @@ void kvm_pmu_load(struct kvm_vcpu *vcpu)
+>   
+>   	preempt_disable();
+>   
+> +	pmu = vcpu->kvm->arch.arm_pmu;
+>   	guest_counters = kvm_vcpu_pmu_guest_counter_mask(vcpu);
+> +	kvm_pmu_set_guest_counters(pmu, guest_counters);
+>   	kvm_pmu_apply_event_filter(vcpu);
+>   
+>   	for_each_set_bit(i, &guest_counters, ARMPMU_MAX_HWEVENTS) {
+> @@ -329,6 +403,7 @@ void kvm_pmu_load(struct kvm_vcpu *vcpu)
+>    */
+>   void kvm_pmu_put(struct kvm_vcpu *vcpu)
+>   {
+> +	struct arm_pmu *pmu;
+>   	unsigned long guest_counters;
+>   	unsigned long flags;
+>   	u64 mask;
+> @@ -345,6 +420,7 @@ void kvm_pmu_put(struct kvm_vcpu *vcpu)
+>   
+>   	preempt_disable();
+>   
+> +	pmu = vcpu->kvm->arch.arm_pmu;
+>   	guest_counters = kvm_vcpu_pmu_guest_counter_mask(vcpu);
+>   	mask = guest_counters;
+>   
+> @@ -395,5 +471,6 @@ void kvm_pmu_put(struct kvm_vcpu *vcpu)
+>   	write_sysreg(val & mask, pmovsclr_el0);
+>   	local_irq_restore(flags);
+>   
+> +	kvm_pmu_set_guest_counters(pmu, 0);
+>   	preempt_enable();
+>   }
+> diff --git a/include/linux/perf/arm_pmu.h b/include/linux/perf/arm_pmu.h
+> index be1e345e99a77..45658273ffa86 100644
+> --- a/include/linux/perf/arm_pmu.h
+> +++ b/include/linux/perf/arm_pmu.h
+> @@ -76,6 +76,7 @@ struct pmu_hw_events {
+>   
+>   	/* Active events requesting branch records */
+>   	unsigned int		branch_users;
+> +	bool host_squeezed;
+>   };
+>   
+>   enum armpmu_attr_groups {
 
 
