@@ -4,100 +4,82 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 20D2ACA5FBA
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 30 Sep 2026 11:25:06 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 316E1CA5FB1
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 30 Sep 2026 11:30:16 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:Content-Type:MIME-Version
-	:Content-Transfer-Encoding:Message-ID:Date:References:In-Reply-To:Subject:To:
-	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=poceB6zKoYQu2FsWNzDmrgG3238OZ8RROO5Gpc1RH5Y=; b=e6f8yYA069oxyY/+vzX4oJ2593
-	krabqnN1qK9U+eZW8Xh4rMJpHUaXQ0h1b3Svym+bTE5tT72igVo1VMQ+w3HVUYI7sGjPtMSkPoRVV
-	X1lZsaELjtDTIi1FvFjS2xIUu69oAqpj9h5zORdlvaOA+cpc+gU0lnkBY3GtfGsjQe97CzBUR0IUd
-	vSrwm8ySPmd3qHvDyfC+SNER7Pyr+Q7QMUECLsfB2GWrLXyQuhHyp6u4tkEf6jHG2LkDTuGY48h1+
-	jQ2CwjkC/lJulqq2YBhklT/Cu948lKe/L9/+HMhisg3j2dwoSe6nkFx1zbKTU9YTgdm/aGXZDRK4N
-	e0BxWhyQ==;
+	bh=y/vJTXDa5JGao0fg+y7rTxeWlsSvg14wPGOzusE7qgQ=; b=WoS++3DSup4XOW8WDXqrW7p4be
+	7E8EYAXTTft4MtjHdV5MRt0pYiEGGkSMQiVdxWarNmgUhc6EtYz+qYTkBH6qEmSj0ETOb6+ux14Y5
+	WR5RJc8LvGth6+39xIcnJ9objqm6+EEmna0vBDazGnMKjX54nf82ZaSmYi004sQydJuVF2CVHtY3n
+	DdAwLGONoxVrHd144FEepyef1z0TU7rs+ewc8ztq/RmFk3zIYOqHzokwOKD5OKbKOSNreYg7tEawe
+	0Tc+QPnH8hudiYTTHRGf3id+I29lPaT0xon8cfO4VV1/eknFn0jXfT0uC7N/FxLAosFikRQPOPLIG
+	GqHGsLaw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xBsQl-00000005rgB-2R6e;
-	Wed, 30 Sep 2026 11:24:59 +0000
-Received: from mail-wm2-x11.google.com ([2a00:1450:4864:31::11])
+	id 1xBsVl-00000005sG4-2Ydh;
+	Wed, 30 Sep 2026 11:30:09 +0000
+Received: from cp2.siel.si ([46.19.12.180])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xBsQi-00000005rfe-1Rm4
+	id 1xBsVi-00000005sEt-1dl7
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 30 Sep 2026 11:24:58 +0000
-Received: by mail-wm2-x11.google.com with SMTP id 5b1f17b1804b1-49e6c0fce17so28260455e9.1
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 30 Sep 2026 04:24:55 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1790767494; x=1791372294; darn=lists.infradead.org;
-        h=cc:content-type:mime-version:content-transfer-encoding:message-id
-         :date:references:in-reply-to:subject:to:from:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=poceB6zKoYQu2FsWNzDmrgG3238OZ8RROO5Gpc1RH5Y=;
-        b=gqo3fZm37mUgW15qi+wfnzypYNl2kZ0zmy6uYR7qvGS0WxCJQ5T0QhPecCcdAsIcqy
-         RoATXsYNzsyB/jh/tKzKx0VHqAn3GbwjuOJ9SaD0RY+HuShCyfAtrs6cSGmdBfTYNXLo
-         N2JNxmh3mapr67t5hHBAHdfK8R4+zWjF1ZG/eSDjFNzZC/jgwy/XFSsM7ySqLpDqbX4M
-         vpRdiB22FbnVAB+EG/LvEzsExVjK1SbL7cth5gSgqMJmGph1QbG7/Q0ymbEsNe0BOco8
-         h9uL3LoAuMpzzIYNykcGP+pfJ98/GHfZQXYiFx0TzoYjAKjZsG7hVAelZ8Zfb0PIJI76
-         15SQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1790767494; x=1791372294;
-        h=cc:content-type:mime-version:content-transfer-encoding:message-id
-         :date:references:in-reply-to:subject:to:from:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=poceB6zKoYQu2FsWNzDmrgG3238OZ8RROO5Gpc1RH5Y=;
-        b=t5Cbt3OsW+a1OP7/xmbDe1cUHNkWIyrhe1IZqCKQ7rR3ZuusUJCWqAjRFt/a62/a6k
-         z8nyIkpJ6Ewt/mEIVy4HSD4noAIGigMaTTIsg46FW8QGFyukbRescMPmd/02/HW/or4p
-         Nl1wILKpbR8252tUJ9Gzvhzd/p1B/bSGWKjy5gslNZb4u2tLbLyjbW7mShLAQEfZaAto
-         YuVlc0haVJWex9dxKJpQE9l02a7Y9pUU7VLmOWLOZbhQpFErijZOgYKy1kn0Lyyq4HZ7
-         yhrQa9/4/mYsTGlACXR7kmxazoCUwt+YmwwaxzsVp5A9kg3WejRcsXbwCViPhCnzFNuy
-         RfxA==
-X-Forwarded-Encrypted: i=1; AKwUvBwq61JtNLuoj+o9190bsliZof8ayyxtrD9M5h65vliyLkLpOs3pWf7gnFvQ2WIv0mSkQ5cmLfO3pf6FrspT/DQo@lists.infradead.org
-X-Gm-Message-State: AFuF++mCCqDWYt6ZBUDPRb0PLKqg2pJjaDnyiDLkQTVyH7CzyvrO554W
-	eecNYPU/btvNL/feKhd5mgdi/vOwI9t6C4yrxb2ubHFCeUu5bbsqyBq5
-X-Gm-Gg: AYBFou2xc9HkwgQTYHCwEP9bj1NYsW5EwJperT4czdxWUZlJHLIsCMk2aIbEmacFZ6Y
-	LZv8Q02vAuZLVNy/1BjVkQEqMMDgw0iNXaODooYTUjzSG5y0IEqh5gFRRJRphyjiBVxTt2RauQd
-	1pXhEjc7H6jdY9DeYrOLY0TmcdGq1TrWYp9j1LOxT9TM2Hduhc1kDlRDyisp3KNpdklpyRH59T8
-	+bnKyOadLuF6ub41i7EvIV7t31Ec7+CtA5lroLKJYQWXQ54eb/H1FKcdE+euGdOPjNbp+Y9bmu0
-	tVK4cwJiN9Gi888T/63sEECHnX0VpKW1re2wVnw/Hc0CZBv8zF9kClXWUrlRBmh0QAGsMY4ZETa
-	2NJa3pxefdYBz8Erk/pu4vjdTNKuVJfvEYYOx/+AeAjHoGmMH2fiXoBbbTsLw8Nfvx0dAiu3Bp6
-	5ehjYqrZgmIZjiybySniyL7eqqEZ6KkhoEEYzZ6dB9jE6dGeMkSqFPQV95ckE5+TOHbGiPYS8Xs
-	Y1oeWQtjTHztwlctVL/U6OS5HQ/ZDfl
-X-Received: by 2002:a05:600c:3b0c:b0:49c:fc6e:a3dc with SMTP id 5b1f17b1804b1-4a01aff4fb5mr16519855e9.27.1790767494156;
-        Wed, 30 Sep 2026 04:24:54 -0700 (PDT)
-Received: from [127.0.1.1] ([92.241.26.38])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4a01cd002bcsm3626105e9.4.2026.09.30.04.24.52
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 30 Sep 2026 04:24:53 -0700 (PDT)
-From: Fil Dunsky <filipp.dunsky@gmail.com>
-To: Arnd Bergmann <arnd@arndb.de>
-Subject: Re: [PATCH RFC 07/10] tty: serial: Add Cortina Systems CS75xx UART driver
-In-Reply-To: <1d81c2ef-7a5b-4306-83d2-ff96b0eb6a06@app.fastmail.com>
-References: <20260930-b4-cs75xx-v1-0-4617c4463529@gmail.com>
- <20260930-b4-cs75xx-v1-7-4617c4463529@gmail.com>
- <CAD++jLkzcf7gJB82XT3-xb4jLujtWSNz1kT2r1-4N54rRfRNMA@mail.gmail.com>
- <1d81c2ef-7a5b-4306-83d2-ff96b0eb6a06@app.fastmail.com>
-Date: Wed, 30 Sep 2026 14:24:51 +0300
-Message-ID: <179076749140.3134070.3869742286743401078@gmail.com>
-Content-Transfer-Encoding: 8bit
+	Wed, 30 Sep 2026 11:30:08 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=norik.com;
+	s=default; h=Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:
+	Message-Id:Date:Subject:Cc:To:From:Sender:Reply-To:Content-Type:Content-ID:
+	Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
+	:Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:List-Unsubscribe-Post:
+	List-Subscribe:List-Post:List-Owner:List-Archive;
+	bh=y/vJTXDa5JGao0fg+y7rTxeWlsSvg14wPGOzusE7qgQ=; b=VpbFpqPetZwtqDwMta7zsePbBB
+	GMhMPYS6d0aMRz0XlQH3iGAwN68BIsM9J0Lp/9XCVnJEVE6jykDyswuxY3IlmMA1O4vsagjFKuAPr
+	4WtVehGuO7fT+B9+9wX8231g4a3GOtoO3V9rdZKjx2wsl9srEHGReeIZiJ9olm1rBHnFDWIHsbtuU
+	kp402tzd7xFzZv+zMtEJh4peZxgrKr2LET//+XL+wsYgypqVrThLYxY5T+7lpYnFFgsl3WYoYDTXx
+	lPf9jUHGt9ZBUp+E7f43mcRMn1oUBuX9fmXLF4Tui+zaEjZ02b7t3x4Iv+s68mFyqwv5/ht5DiDHO
+	9VzgNctg==;
+Received: from 89-212-21-243.static.t-2.net ([89.212.21.243]:37230 helo=localhost.localdomain)
+	by cp2.siel.si with esmtpsa  (TLS1.3) tls TLS_AES_256_GCM_SHA384
+	(Exim 4.100.1)
+	(envelope-from <primoz.fiser@norik.com>)
+	id 1xBrVI-00000000YWu-41oi;
+	Wed, 30 Sep 2026 12:25:34 +0200
+From: Primoz Fiser <primoz.fiser@norik.com>
+To: Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Frank Li <Frank.Li@nxp.com>,
+	Sascha Hauer <s.hauer@pengutronix.de>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Fabio Estevam <festevam@gmail.com>
+Cc: devicetree@vger.kernel.org,
+	imx@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	upstream@lists.phytec.de
+Subject: [PATCH 4/4] ARM: dts: imx6: phycore-som: Add reset-assert-us for PHY reset
+Date: Wed, 30 Sep 2026 12:25:32 +0200
+Message-Id: <20260930102532.2262700-5-primoz.fiser@norik.com>
+X-Mailer: git-send-email 2.34.1
+In-Reply-To: <20260930102532.2262700-1-primoz.fiser@norik.com>
+References: <20260930102532.2262700-1-primoz.fiser@norik.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"; format="fixed"
-Cc: Linus Walleij <linusw@kernel.org>, Krzysztof Kozlowski <krzk@kernel.org>,
- Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
- Conor Dooley <conor+dt@kernel.org>,
- Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
- Jiri Slaby <jirislaby@kernel.org>, Russell King <linux@armlinux.org.uk>,
- Alexandre Belloni <alexandre.belloni@bootlin.com>,
- Drew Fustini <fustini@kernel.org>, Lorenzo Pieralisi <lpieralisi@kernel.org>,
- linux-arm-kernel@lists.infradead.org, devicetree@vger.kernel.org,
- linux-kernel@vger.kernel.org, linux-serial@vger.kernel.org,
- Jason Li <jason.li@cortina-access.com>,
- Jason Li <jason.li@cortina-access.com>
+Content-Transfer-Encoding: 8bit
+X-AntiAbuse: This header was added to track abuse, please include it with any abuse report
+X-AntiAbuse: Primary Hostname - cp2.siel.si
+X-AntiAbuse: Original Domain - lists.infradead.org
+X-AntiAbuse: Originator/Caller UID/GID - [47 12] / [47 12]
+X-AntiAbuse: Sender Address Domain - norik.com
+X-Get-Message-Sender-Via: cp2.siel.si: authenticated_id: primoz.fiser@norik.com
+X-Authenticated-Sender: cp2.siel.si: primoz.fiser@norik.com
+X-Source: 
+X-Source-Args: 
+X-Source-Dir: 
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260930_042456_826841_B0776043 
-X-CRM114-Status: GOOD (  19.02  )
+X-CRM114-CacheID: sfid-20260930_043006_959473_FA8E0C4A 
+X-CRM114-Status: UNSURE (   5.85  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -112,43 +94,27 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Sep 30, 2026 at 01:08:07PM +0200, Arnd Bergmann wrote:
-> On Wed, Sep 30, 2026, at 12:57, Linus Walleij wrote:
->> Look at this in your Linux tree:
->> git log -p b61c8bf4694b5115766849378dcb8787ff54e65e
->>
->> This is essentially a resurrection of that driver.
->
-> Jason actually came back this summer to try again, see
-> https://lore.kernel.org/linux-arm-kernel/20260610112821.3030099-1-jason.li@cortina-access.com/
+Without an explicit reset-assert-us, Ethernet PHY probing occasionally
+fails. Set it to a 10 ms for a more robust PHY reset pulse.
 
-Thanks, I was not aware of either. Comparing the two, it is the same
-IP: the offsets of CFG, RX_SAMPLE, TX_DAT, RX_DAT, INFO, IE and INT
-and the bit layout of CFG, INFO and the interrupt registers are
-identical. The Cortina Access version additionally has a flow control
-register at 0x04, RT_TUNE at 0x0c, STATUS at 0x2c and three more
-interrupt causes (break, RX underrun, TX overrun).
+Signed-off-by: Primoz Fiser <primoz.fiser@norik.com>
+---
+ arch/arm/boot/dts/nxp/imx/imx6qdl-phytec-phycore-som.dtsi | 1 +
+ 1 file changed, 1 insertion(+)
 
->> Anyways, clearly this driver is not just for CS75xx so name it
->> cortina-uart.c simply, and update symbols accordingly. Kconfig
->> should be SERIAL_CORTINA etc.
->
-> I think we clearly want a driver that works for both the Cortina
-> Systems CS75xx and the Cortina Access CA82xx, hopefully that
-> would also support the ones inbetween (CS80xx, CA81xx).
-
-Agreed. For v2 I will rename it to drivers/tty/serial/cortina-uart.c
-with SERIAL_CORTINA and SERIAL_CORTINA_CONSOLE, and name the binding
-so that it can take the other parts. I would keep SoC specific
-compatibles ("cortina,cs7542-uart", later e.g.
-"cortina-access,ca8289-uart"), so that the flow control and the extra
-interrupt causes can be enabled per compatible.
-
-I can only test on the CS7542. Jason, would you be fine with adding
-the CA82xx on top of this driver instead of a separate one? I am happy
-to add the compatible and the bits you need if you can test them.
-
-Thanks,
-Fil
+diff --git a/arch/arm/boot/dts/nxp/imx/imx6qdl-phytec-phycore-som.dtsi b/arch/arm/boot/dts/nxp/imx/imx6qdl-phytec-phycore-som.dtsi
+index 88eabc7af6b7..16e00375f474 100644
+--- a/arch/arm/boot/dts/nxp/imx/imx6qdl-phytec-phycore-som.dtsi
++++ b/arch/arm/boot/dts/nxp/imx/imx6qdl-phytec-phycore-som.dtsi
+@@ -65,6 +65,7 @@ mdio {
+ 		ethphy: ethernet-phy@3 {
+ 			reg = <3>;
+ 			reset-gpios = <&gpio1 14 GPIO_ACTIVE_LOW>;
++			reset-assert-us = <10000>;
+ 			txc-skew-ps = <1680>;
+ 			rxc-skew-ps = <1860>;
+ 		};
+-- 
+2.34.1
 
 
