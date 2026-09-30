@@ -4,72 +4,133 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8DE8CCA5FB1
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 30 Sep 2026 10:58:19 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 906A6CA5FB1
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 30 Sep 2026 11:01:58 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=HeKGdzLU69O+ht9kbtWpEwDIRN8ghLkwCH+cdsIjxI4=; b=e5Md3I5tRpMqeQUohcOusdjcLj
-	ETD4vEoo06LQb+LsFRPqRlPVapmqLa8qIMXQLhLOV+cCY3mzsvmMUWNOQ+D6fEwbJjgXx62XVsR4d
-	mTk511gSdokHp0fSSOkj1LFvkMT7yQhK5NfRol+dYkOxY2HkCRPKHhjHyBPp8NO78Y5gtywAuK7eg
-	9jnkGH2rQq+rURTGd+3p3NGhFjolEr4cT+avmeF8VIGT/1W5gvFVI/NnVSoVjxPzxaPcFjmsS9AHT
-	p9Ig7h/ja/m3sRfIbr/Qk/d3ok4jwQiTFxDTT7o6FO1ZmI7mynCX2uj+y1g+cNhCk9u2X+6o53OMG
-	XpD+WIKg==;
+	bh=9bi/i2/aWze1bEGDde8mb4HVoivi8jt5RnjoRegpme8=; b=usFuyWjxipj69J8THvQuJG2e5M
+	NjOkTdw+3wCnFWIsyvTqdLlVgD7Vn5y6lJYP5vF0iwsThQWgINOAmW5GyCRo4AY0plnTJN09fGuq9
+	NWoD0IU5aFPVKKG9lpNtvVpmw10hNzZDfyZc0ZasSaKkfqPbfOA7q2EEfgowa+Y2AK83oD46J8lQ4
+	Sc1vOOsE5YPHC2Ze5ArWkEDGsP1J/5FjZjfo6v0tf+6vKsoRwhVos/k0a2T1zARmNpDGbLiv1fUNh
+	IHjvMMev67MFE1xhSZjonANBMpvd7NgRJOzSRLq1WZHMdZLIxiIWaY6RpY/tiMoKkopHotItBUVqJ
+	Hm3yo9ug==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xBs0r-00000005oBH-1QCk;
-	Wed, 30 Sep 2026 10:58:13 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1xBs4N-00000005oUl-3Y0t;
+	Wed, 30 Sep 2026 11:01:51 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xBs0q-00000005oAz-1pYr
-	for linux-arm-kernel@lists.infradead.org;
-	Wed, 30 Sep 2026 10:58:12 +0000
+	id 1xBs4M-00000005oU3-2Iub;
+	Wed, 30 Sep 2026 11:01:50 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id DD98440922
-	for <linux-arm-kernel@lists.infradead.org>; Wed, 30 Sep 2026 10:58:11 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id C1D521F00893
-	for <linux-arm-kernel@lists.infradead.org>; Wed, 30 Sep 2026 10:58:11 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 721A660008;
+	Wed, 30 Sep 2026 11:01:49 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id A6BFF1F000FF;
+	Wed, 30 Sep 2026 11:01:33 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1790765891;
-	bh=HeKGdzLU69O+ht9kbtWpEwDIRN8ghLkwCH+cdsIjxI4=;
-	h=References:In-Reply-To:From:Date:Subject:To:Cc;
-	b=aHHWv3/e178Jqr0rII6QPV0nGBLTsgtyaBUunqajL5gZ701UOmTost9HSZ1zPVgHK
-	 ss9UxAoBdmnNCjo+57n4x2ebsj7fFvxlFrZvLyGd7YeePDT6L8sdfA6SJQu7kMkI6g
-	 5z1UVduBF9bHnoa4qclG2DpQNGikwFtdVNXSzlut0QZBtUofnPk4wtt/vy5TB6JHGJ
-	 guAKSblDm4O1kmdgYDR2p9kN44ivlt4S1fiCykde9jD5ds7Az4UCwfQysxUExzfChV
-	 2uB+E1JBbryZPPnrWuykoEB0KKJZdfPst+nuZ0V1UkM1Du9lLQ8hRM5aGFLD5VKQjR
-	 mFD7H5hFpsjmw==
-Received: by mail-lr2-f35.google.com with SMTP id 38308e7fff4ca-3a64b06fc66so36431411fa.1
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 30 Sep 2026 03:58:11 -0700 (PDT)
-X-Forwarded-Encrypted: i=1; AKwUvBzfFJYKD8zZORZHRqEdOgurcXwMuG0jXh4g0VWi2zL8pnz70aLkSrgnqspokk9ndRp8Lu0M6+U7Ti2SiLQ0vGHx@lists.infradead.org
-X-Gm-Message-State: AFq9FYIf3Jx4boDO+Wou1sk3/FYlEWdk8YCVH5liNLCaPoWnsH1K9KKE
-	l/Z9gqIpE7y0oYdfhXL7k5s1va775St8Ya6jYZHrDBexlgus5tmlJmMIiDq7rSkJQ1mzNEZA8Bw
-	Df7n/mKqr/w+DbpKxYMhh/N7Emv6JO0U=
-X-Received: by 2002:a05:651c:a383:10b0:3a3:74b7:fc03 with SMTP id
- 38308e7fff4ca-3a77920847emr2626851fa.15.1790765890554; Wed, 30 Sep 2026
- 03:58:10 -0700 (PDT)
+	s=k20260515; t=1790766109;
+	bh=9bi/i2/aWze1bEGDde8mb4HVoivi8jt5RnjoRegpme8=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To;
+	b=kwqcvJqG1zng3JAdzZvvRl3xl1DseZ3TkRS3norZFgdnNiGjQ99aHK63nTWAW0LE+
+	 tj9QX+qvUi0Accx8sb2cHH5/p9/xlSCHc5fxa5schyZsasHCMdUg0VqHNkTUIVXG/k
+	 XGQu7lKCzB4d2zN1fjEWnaKg9ex9JIdVqlTLGWeWwoWiX8FXV/FeZ9+/s/4p8E88QL
+	 jmiN+T6isod3NKrstQORYbPJZCgqmYYngmP4Clg7mKDdKAcYf+vNsiXz8aJYlJVgLQ
+	 hH2+xV26luJZ29/dVp29GQUrnE2KuzIk+0cpyKoJAZXA+Jo8Pptui+LdRHGs+6ZhLn
+	 jFCQWevto44/w==
+Message-ID: <6cf9e611-bfc5-407b-8132-bd328f8b61fc@kernel.org>
+Date: Wed, 30 Sep 2026 13:01:30 +0200
 MIME-Version: 1.0
-References: <20260930-b4-cs75xx-v1-0-4617c4463529@gmail.com> <20260930-b4-cs75xx-v1-7-4617c4463529@gmail.com>
-In-Reply-To: <20260930-b4-cs75xx-v1-7-4617c4463529@gmail.com>
-From: Linus Walleij <linusw@kernel.org>
-Date: Wed, 30 Sep 2026 12:57:58 +0200
-X-Gmail-Original-Message-ID: <CAD++jLkzcf7gJB82XT3-xb4jLujtWSNz1kT2r1-4N54rRfRNMA@mail.gmail.com>
-X-Gm-Features: AclHuK-sa81U-5SW9SmnkIIIMk800EhJv2_agNorbcDVKJfOoCfwnayZ96qbERY
-Message-ID: <CAD++jLkzcf7gJB82XT3-xb4jLujtWSNz1kT2r1-4N54rRfRNMA@mail.gmail.com>
-Subject: Re: [PATCH RFC 07/10] tty: serial: Add Cortina Systems CS75xx UART driver
-To: filipp.dunsky@gmail.com
-Cc: Arnd Bergmann <arnd@arndb.de>, Krzysztof Kozlowski <krzk@kernel.org>, Rob Herring <robh@kernel.org>, 
-	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
-	Greg Kroah-Hartman <gregkh@linuxfoundation.org>, Jiri Slaby <jirislaby@kernel.org>, 
-	Russell King <linux@armlinux.org.uk>, Alexandre Belloni <alexandre.belloni@bootlin.com>, 
-	Drew Fustini <fustini@kernel.org>, Lorenzo Pieralisi <lpieralisi@kernel.org>, 
-	linux-arm-kernel@lists.infradead.org, devicetree@vger.kernel.org, 
-	linux-kernel@vger.kernel.org, linux-serial@vger.kernel.org
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v4 01/20] dt-bindings: phy: Add
+ starfive,jh7110-inno-hdmi-phy
+To: Michal Wilczynski <m.wilczynski@samsung.com>
+Cc: Vinod Koul <vkoul@kernel.org>, Neil Armstrong
+ <neil.armstrong@linaro.org>, Rob Herring <robh@kernel.org>,
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
+ <conor+dt@kernel.org>, Andrzej Hajda <andrzej.hajda@intel.com>,
+ Robert Foss <rfoss@kernel.org>,
+ Laurent Pinchart <Laurent.pinchart@ideasonboard.com>,
+ Jonas Karlman <jonas@kwiboo.se>, Jernej Skrabec <jernej.skrabec@gmail.com>,
+ Luca Ceresoli <luca.ceresoli@bootlin.com>,
+ Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
+ Maxime Ripard <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>,
+ Lee Jones <lee@kernel.org>, Andy Yan <andy.yan@rock-chips.com>,
+ Philipp Zabel <p.zabel@pengutronix.de>,
+ Emil Renner Berthing <kernel@esmil.dk>, Hal Feng
+ <hal.feng@starfivetech.com>, Michael Turquette <mturquette@baylibre.com>,
+ Stephen Boyd <sboyd@kernel.org>, Heiko Stuebner <heiko@sntech.de>,
+ Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>,
+ Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>,
+ Dominique Belhachemi <db@domibel.de>, Brian Masney <bmasney+clk@redhat.com>,
+ Jerome Brunet <jbrunet+clk@baylibre.com>, linux-phy@lists.infradead.org,
+ devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+ dri-devel@lists.freedesktop.org, mfd@lists.linux.dev,
+ linux-clk@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-rockchip@lists.infradead.org, linux-riscv@lists.infradead.org,
+ Marek Szyprowski <m.szyprowski@samsung.com>,
+ Maud Spierings <maud_spierings@murena.io>,
+ Graham Markall <hello@big-grey.co.uk>,
+ Icenowy Zheng <zhengxingda@iscas.ac.cn>,
+ Chaoyi Chen <chaoyi.chen@rock-chips.com>,
+ Joshua Peisach <jpeisach@ubuntu.com>,
+ =?UTF-8?Q?Uwe_Kleine-K=C3=B6nig?= <u.kleine-koenig@baylibre.com>
+References: <20260915-jh7110-clean-send-v4-0-f0e4fd6f2cc8@samsung.com>
+ <CGME20260915153214eucas1p2b548f3236ef98fb0cbf320e397420125@eucas1p2.samsung.com>
+ <20260915-jh7110-clean-send-v4-1-f0e4fd6f2cc8@samsung.com>
+ <20260917-mutant-chamois-of-competence-46ca77@quoll>
+ <1a1a9b49-430b-4218-b27d-e133d488e8d9@samsung.com>
+From: Krzysztof Kozlowski <krzk@kernel.org>
+Content-Language: en-US
+Autocrypt: addr=krzk@kernel.org; keydata=
+ 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
+In-Reply-To: <1a1a9b49-430b-4218-b27d-e133d488e8d9@samsung.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -84,47 +145,49 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Filipp,
+On 25/09/2026 23:05, Michal Wilczynski wrote:
+>>> +  clocks:
+>>> +    maxItems: 1
+>>> +    description: Reference oscillator.
+>>
+>> This barely counts as a resource, so usual question: no resources here?
+>> no MMIO? Even the user of this phy is the block itself.
+>>
+>> This makes me wonder if this should be a device node in the first place
+>> (instead folded into the parent).
+> 
+> The PHY has no reg because the reg is shared with the controller and
+> owned by the parent - patch 9 lets the bridge take its regmap from
+> there.
+> 
+> The user of the PHY is not only the block itself. It is the pixel clock
+> provider for the whole display subsystem, voutcrg takes hdmitx0_pixelclk
+> as the parent of its DC8200 pixel MUXes, and while HDMI output is active
+> it is the only intended source for that clock. The parent has to be
+> assigned explicitly so the general PLL does not end up driving the pixel
+> clock, and so a DSI user does not reach the HDMI PHY clock generator.
+> 
+> So it has to be its own node. The HDMI block has two independent
 
-thanks for your patch!
+I do not see the logic which lead to this conclusion. Pixel clock
+provider, so a clock controller, cannot be a user of a phy. Clock
+controller does not have a physical layer.
 
-On Wed, Sep 30, 2026 at 9:00=E2=80=AFAM Fil Dunsky via B4 Relay
-<devnull+filipp.dunsky.gmail.com@kernel.org> wrote:
+And really, I have no clue what hdmitx0_pixelclk and voutcrg are. I
+could probably study the patches a lot to figure that out, but my review
+queue has still 200 more, so I'll skip.
 
-> From: Fil Dunsky <filipp.dunsky@gmail.com>
->
-> Add a driver for the UARTs of the Cortina Systems CS75xx (Goldengate G2)
-> SoCs. The block has transmit and receive FIFOs with full/empty status,
-> a 24-bit baud rate divider clocked from the peripheral (APB) clock, a
-> receive sampling point register and one interrupt line per port with
-> per-cause enable and write-one-to-clear status registers.
->
-> The driver is a rewrite of the vendor driver shipped with the Linux
-> 2.6.36 and 4.9 based vendor kernels, using the current serial core API
-> (uart_port_tx(), port lock helpers, deferred sysrq handling) and devm
-> resource management. It supports the system console and earlycon.
-> Hardware flow control is not supported.
->
-> The ports are named ttyCS so that the driver can coexist with the 8250
-> driver in multiplatform kernels, and PORT_GENERIC is used rather than
-> allocating a new port type.
->
-> Signed-off-by: Fil Dunsky <filipp.dunsky@gmail.com>
+But nevertheless assigning clock parent of HDMI clock to PHY is
+standard, most of the platforms have it, thus it is not a justification
+for odd design.
 
-Look at this in your Linux tree:
-git log -p b61c8bf4694b5115766849378dcb8787ff54e65e
+> functions with different clock inputs and one of them feeds back into
+> the SoC clock tree. The PHY generates hdmitx0_pixelclk which voutcrg
+> consumes the controller consumes pclk/mclk/bclk from voutcrg. Folded
+> into one node that node is both a provider to and a consumer of
+> voutcrg which is a cycle in the hardware description, not just in Linux.
 
-This is essentially a resurrection of that driver. It was deleted again
-because it was merged prematurely. Cortina never came back to revise
-the driver. (People run out of steam. Such things happen.)
 
-Anyways, clearly this driver is not just for CS75xx so name it
-cortina-uart.c simply, and update symbols accordingly. Kconfig
-should be SERIAL_CORTINA etc.
-
-Maybe
-even the DT compatible should be something more generic.
-
-Yours,
-Linus Walleij
+Best regards,
+Krzysztof
 
