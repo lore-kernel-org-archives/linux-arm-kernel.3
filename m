@@ -4,189 +4,177 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id ADB9FCA5FC5
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 30 Sep 2026 16:55:48 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3C0A8CA5FC5
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 30 Sep 2026 17:02:20 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Cc:To:
-	In-Reply-To:References:Message-Id:Content-Transfer-Encoding:Content-Type:
-	Subject:Date:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
+	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=+dloxuTDLJqdnj+JbQ3wteTr2VciS6EA6P7oYSHkW88=; b=O24Q7I20cNSlIplvRWxXICzHi2
-	uz4c5+V5/Db/ro2mttlDUC0LaxAnPC6ms911QYKuJ2c8QVMTtUu1EPmMYZKltiH1yOsDlJ4H8GsxS
-	yHXSKAnjngqJzH5vRLDc5kLqIAwT/GE3CIMCQPjNMwB/24KPfKsZ63GHSH9DA9Zu+T9EZBZVq8kvZ
-	J0s14tvAWeqvqsU6ax1x9d0Ki2BBcbc4lz93mNJx0FEr5S3bPcTlyS8oQorm7FBxEjMiqyzcK6Ccy
-	7lx+7LkpjcKAtImd3WsrmFvGfHac9P2ntFPf9WNxWbz2GaIuLbx3c0qed2DRJps+Gj5pUcnH6mPZp
-	qx74n3pA==;
+	bh=XcmgLe5h/BnrO8Ze3hsBORjDb6U/AyBhfaeejx1pwvs=; b=En9Gw7Wg+ht/Avuak2oKo2jSUv
+	Z+DH7iRUXu/LVXg0BTl/afaM/PjQZzTtGP75yBr42+rvnycHmD6BPK7XT9N2S7dNxKcH3CB7V+QLB
+	tk4wYdrs1frKPEI+wWcEI3BoZ5ifqRuVd03GhoqiUfkAnhi09Jmaj0RhnXTOX0tn0VJF6kpQGAG7y
+	IHBPmEwrFaedq4U9F5dXdI8dQ38azx+NDPxH1XWY52GUTXSYzohg+WQa8i18PpKWpUjGX0tGvybgG
+	ZYSmAH5SJKRJ/WKEfBiorxBHHwzrULOS8YM/sf2NYZLoyf4++X5KGWVpV0+qOvnOi8VkrK/+UFgDH
+	wRK9M6tw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xBxai-00000006lBf-2Vno;
-	Wed, 30 Sep 2026 16:55:36 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1xBwrj-00000006eZW-0BPy;
+	Wed, 30 Sep 2026 16:09:07 +0000
+Received: from casper.infradead.org ([2001:8b0:10b:1236::1])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xBxaa-00000006l8w-1M6x
+	id 1xBwql-00000006e8J-08Az
 	for linux-arm-kernel@bombadil.infradead.org;
-	Wed, 30 Sep 2026 16:55:28 +0000
+	Wed, 30 Sep 2026 16:08:07 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=MIME-Version:Cc:To:In-Reply-To:
-	References:Message-Id:Content-Transfer-Encoding:Content-Type:Subject:Date:
-	From:Sender:Reply-To:Content-ID:Content-Description;
-	bh=+dloxuTDLJqdnj+JbQ3wteTr2VciS6EA6P7oYSHkW88=; b=h1rgEp0vklq102v8NP5G4UM+2u
-	BJ0FDyC8aD1wOIm4m9Gu4EPCO1E54vCEzy38HEkTbR/IUguV/WHgUv0fPyRKVFCiEOwJ12XF+7+v6
-	Km9fOtHLxN818KNYyixgzonmcutIpGXzbZzTX9KY4vnx8pw9bGKAhXSlE6USM44C6wYEhDXY04TL+
-	PyetzM0T1bt6TcMuAKWYMak5Q/wF88dvBN5rW4V0WbJBDaRpv/BNCPikSbHQBcYTatz2yh7uH5HSb
-	UhOg0lYQ04qPo4y+cI8M7bP2/cIOkoiDB0Sp1/gNnxkaseNkE/ssw/wls1f6A9kD4yG62MIq+S5PM
-	ELRkL4Mg==;
-Received: from mail-westeuropeazlp170110003.outbound.protection.outlook.com ([2a01:111:f403:c201::3] helo=AS8PR04CU009.outbound.protection.outlook.com)
-	by desiato.infradead.org with esmtps (Exim 4.99.2 #2 (Red Hat Linux))
-	id 1xBxaX-000000046i4-1R99
+	d=infradead.org; s=casper.20170209; h=Content-Type:Content-Transfer-Encoding:
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:CC:To:From:Sender
+	:Reply-To:Content-ID:Content-Description;
+	bh=XcmgLe5h/BnrO8Ze3hsBORjDb6U/AyBhfaeejx1pwvs=; b=RoCcPKXI3q8YTwNB2/sFSTKJfM
+	lsozFzKpS4KXejjAUVB2r4o4FPjD1+xNYCxmbK64cQHHEwVY8Tfi0KJd7HrV44ewzpicbV2Rq7x9f
+	oror+DyytaM/zi9cnXCnNoeO7Elz4OG9f/lZ2TvSNuuy3Q6f6kYhSCRJR7/tLPaeauc83tz95szLT
+	PrUOnAgSEt6zj+nylmCUJQUFY9RxXjOby3rAA6DjLivZZaQnlAy+iFhvum7QxlRhPkZwc4Qeptahr
+	pcMJYR/Z/kkixkCgBTY+3ZHwMl4Cj2COnmC34H35nqvpNZX675niQO6LI4Qp9SxSRCo6KbwCJq+vJ
+	OxeL3S0g==;
+Received: from mx0a-0002e601.pphosted.com ([148.163.150.75])
+	by casper.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1xBwqg-0000000E6tV-1AMU
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 30 Sep 2026 16:55:27 +0000
-ARC-Seal: i=3; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=pass;
- b=n+lrUIuR58FzIe+XoIhkTOjTKItFxplKlMjvDYiUpnEW056K11Fz1b5YfMzHpIWwb4ereaBuNxDUUgLDoYbS2wEIk3WAM99sSo/IGFD6hdfcCb+d1deYWcrjocv9onwrigdZ0o8BTjf1CEpQ50WdSxSQGCNPHJjPpOV/EIUlDsd4LtqZfjYwmz6f0hBPZHSmoAAfZSYj2kZ5cD/o+BOCunINrcr7+VAR3Fb9HHJfucC879ruiurPAqK5lo92gb7aB7vI/XJVi+NYx0UqQLnYfXmIw02DBKXbICyCpot5q5EMiYlz04xQikjoDtAMpnx1C3TqjUgOHUDhZ1SPaiZb5w==
-ARC-Message-Signature: i=3; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=+dloxuTDLJqdnj+JbQ3wteTr2VciS6EA6P7oYSHkW88=;
- b=pfIiBa68AX8gIroMec+7lY4M+WTrnzus5Q/E7nKxYSxVqC48xqqM+5+IJQ3Z+1mcCXr9z5WWkUF9W9xlwL8Wj3HHCI7VN5gsE20A1xWA1y5SwCbbBIWX3jESrOIxcFTpdIHzQXYQBIF2WJFp+ZlZvCEjMlGxMtQip14SmSfq3dcxo/vsD4TrSALuycYuShy/rt+DLRYj6b1b3YbRhM27fjKOoa4KQrLfbcLraR4GmPtBdsLOOlEwNxaYA1xF9MK3dT52rtVSbyljJxE1R2JZjlZvrDxDNIyX5kBkohiKzEvhl2qDnTWAkZDGCAORmw8gH3PyKylCGj5NwqALT+yyuw==
-ARC-Authentication-Results: i=3; mx.microsoft.com 1; spf=fail (sender ip is
- 52.17.62.50) smtp.rcpttodomain=davemloft.net smtp.mailfrom=solid-run.com;
- dmarc=pass (p=reject sp=reject pct=100) action=none
- header.from=solid-run.com; dkim=pass (signature was verified)
- header.d=solid-run.com; arc=pass (0 oda=1 ltdi=1
- spf=[1,1,smtp.mailfrom=solid-run.com] dkim=[1,2,header.d=solid-run.com]
- dmarc=[1,1,header.from=solid-run.com])
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=solid-run.com;
- s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=+dloxuTDLJqdnj+JbQ3wteTr2VciS6EA6P7oYSHkW88=;
- b=lttcV72Ti3nLiRx1KLFyNxJ9y2kMZrRqXwZwrRSzfDz2IqKHyT/nT/oVN2ZEFr+FKa3pdYndRUc5lls7+wZ33FwezZadNTH6HCTZnYBv3TToDK/+qoC+wH3l55bKWdXy9Ie+qeaZe7t7m9lTh//G5q19Q+hhCdzbwucR7mKYpFq/M2UKmeNOlGP+i3VRn1S6IQxxBk9ZB52jvbQrXEeoZK/xv2QmXSpF9705ufi4GSMg8pLEAjyzPjBSzO0mIofknQh+lO+pOmjzLGJWNbFDTcNQ3ZfmlixMsRbGjERpUREZ8Yyu1oM18DZVht22AlWeP+l1kWX3vJFdLNPRGZJUjg==
-Received: from DUZPR01CA0221.eurprd01.prod.exchangelabs.com
- (2603:10a6:10:4b4::28) by VI2PR04MB10785.eurprd04.prod.outlook.com
- (2603:10a6:800:26e::18) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.451.24; Wed, 30 Sep
- 2026 16:55:13 +0000
-Received: from DB1PEPF000509EC.eurprd03.prod.outlook.com
- (2603:10a6:10:4b4:cafe::a0) by DUZPR01CA0221.outlook.office365.com
- (2603:10a6:10:4b4::28) with Microsoft SMTP Server (version=TLS1_3,
- cipher=TLS_AES_256_GCM_SHA384) id 15.21.472.16 via Frontend Transport; Wed,
- 30 Sep 2026 16:55:13 +0000
-X-MS-Exchange-Authentication-Results: mx.microsoft.com 1; spf=fail (sender IP
- is 52.17.62.50) smtp.mailfrom=solid-run.com; dkim=pass (signature was
- verified) header.d=solid-run.com;dmarc=pass action=none
- header.from=solid-run.com;
-Received-SPF: Fail (protection.outlook.com: domain of solid-run.com does not
- designate 52.17.62.50 as permitted sender) receiver=protection.outlook.com;
- client-ip=52.17.62.50; helo=eu-dlp.cloud-sec-av.com;
-Received: from eu-dlp.cloud-sec-av.com (52.17.62.50) by
- DB1PEPF000509EC.mail.protection.outlook.com (10.167.242.70) with Microsoft
- SMTP Server (version=TLS1_3, cipher=TLS_AES_256_GCM_SHA384) id 15.21.472.14
- via Frontend Transport; Wed, 30 Sep 2026 16:55:12 +0000
-Received: from emails-91475-12-mt-prod-cp-eu-2.checkpointcloudsec.com (ip-10-20-6-124.eu-west-1.compute.internal [10.20.6.124])
-	by mta-outgoing-dlp-942-mt-prod-cp-eu-2.checkpointcloudsec.com (Postfix) with ESMTPS id AF1647EE67;
-	Wed, 30 Sep 2026 16:55:12 +0000 (UTC)
-ARC-Seal: i=2; cv=pass; a=rsa-sha256; d=checkpointcloudsec.com;
- s=arcselector01; t=1790787312;
- b=Uxwl0/aw2lwWLpelRbqlOoXviBKQ/yY/3dtqMn/5qVV4JgcuMFSt3lOlKi1rAZOmU9rNu
- tQwsazRrgTL7Hf6x2n18lGeJNJBGw/7x3yqvLXaUbP+jPgaDKVWiI/5Y7szuwhT0i+XXeF+
- PuZGrYEBGavTEq5NtUrj7wqg7XMu3gU=
-ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed;
- d=checkpointcloudsec.com; s=arcselector01; t=1790787312; h=from : to :
- subject : date : message-id : content-type : mime-version;
- bh=+dloxuTDLJqdnj+JbQ3wteTr2VciS6EA6P7oYSHkW88=;
- b=aOOEzho4Wn7rJOeLG0HgnIZSq3ZUOoUxkmuTgNgaowHy3vzc2Ft4AmFrCKz9LrHtd9oZF
- bayLjDxo4+pHmVOerccI+CtbMsL+9v5JlBwWUGPPbKdTXlPMkjlnQqJ+nzzOldu4ZA5BB3c
- qCNa9Lys5I9+NBzySoA9aBFp7pSn6Xk=
-ARC-Authentication-Results: i=2; mx.checkpointcloudsec.com;
- arc=pass;
- dkim=pass header.d=solid-run.com
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=solid-run.com;
- s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=+dloxuTDLJqdnj+JbQ3wteTr2VciS6EA6P7oYSHkW88=;
- b=lttcV72Ti3nLiRx1KLFyNxJ9y2kMZrRqXwZwrRSzfDz2IqKHyT/nT/oVN2ZEFr+FKa3pdYndRUc5lls7+wZ33FwezZadNTH6HCTZnYBv3TToDK/+qoC+wH3l55bKWdXy9Ie+qeaZe7t7m9lTh//G5q19Q+hhCdzbwucR7mKYpFq/M2UKmeNOlGP+i3VRn1S6IQxxBk9ZB52jvbQrXEeoZK/xv2QmXSpF9705ufi4GSMg8pLEAjyzPjBSzO0mIofknQh+lO+pOmjzLGJWNbFDTcNQ3ZfmlixMsRbGjERpUREZ8Yyu1oM18DZVht22AlWeP+l1kWX3vJFdLNPRGZJUjg==
-Authentication-Results-Original: mx.checkpointcloudsec.com; arc=pass;
- dkim=pass header.d=solid-run.com
-Received: from MMZPR04MB400504.eurprd04.prod.outlook.com (2603:10a6:190:28::8)
- by DBBPR04MB7499.eurprd04.prod.outlook.com (2603:10a6:10:203::15) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.472.15; Wed, 30 Sep
- 2026 16:55:04 +0000
-Received: from MMZPR04MB400504.eurprd04.prod.outlook.com
- ([fe80::2f52:2d22:c7b3:4292]) by MMZPR04MB400504.eurprd04.prod.outlook.com
- ([fe80::2f52:2d22:c7b3:4292%5]) with mapi id 15.21.0451.022; Wed, 30 Sep 2026
- 16:55:04 +0000
-From: Josua Mayer <josua@solid-run.com>
-Date: Wed, 30 Sep 2026 18:54:58 +0200
-Subject: [PATCH RFC net-next 1/3] dpaa2-eth: skip isolated CPUs when
- allocating channels
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20260930-dpaa2-isolcpus-v1-1-66c13f4fd75b@solid-run.com>
-References: <20260930-dpaa2-isolcpus-v1-0-66c13f4fd75b@solid-run.com>
-In-Reply-To: <20260930-dpaa2-isolcpus-v1-0-66c13f4fd75b@solid-run.com>
-To: Ioana Ciornei <ioana.ciornei@nxp.com>, 
- "Christophe Leroy (CS GROUP)" <chleroy@kernel.org>, 
- Andrew Lunn <andrew+netdev@lunn.ch>, 
- "David S. Miller" <davem@davemloft.net>, Eric Dumazet <edumazet@google.com>, 
- Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>, 
- =?utf-8?q?Horia_Geant=C4=83?= <horia.geanta@nxp.com>, 
- Pankaj Gupta <pankaj.gupta@nxp.com>, Gaurav Jain <gaurav.jain@nxp.com>, 
- Herbert Xu <herbert@gondor.apana.org.au>
-Cc: Yazan Shhady <yazan.shhady@solid-run.com>, 
- Jon Nettleton <jon@solid-run.com>, linux-kernel@vger.kernel.org, 
- linuxppc-dev@lists.ozlabs.org, linux-arm-kernel@lists.infradead.org, 
- netdev@vger.kernel.org, linux-crypto@vger.kernel.org, 
- Josua Mayer <josua@solid-run.com>
-X-Mailer: b4 0.14.3
-X-ClientProxiedBy: FR4P281CA0174.DEUP281.PROD.OUTLOOK.COM
- (2603:10a6:d10:b7::20) To MMZPR04MB400504.eurprd04.prod.outlook.com
- (2603:10a6:190:28::8)
-MIME-Version: 1.0
-X-MS-TrafficTypeDiagnostic: MMZPR04MB400504:EE_|DBBPR04MB7499:EE_|DB1PEPF000509EC:EE_|VI2PR04MB10785:EE_
-X-MS-Office365-Filtering-Correlation-Id: 844b1b50-bb90-4a4a-49f6-08df1f139839
-X-CLOUD-SEC-AV-Info: solidrun,office365_emails,sent,inline
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam-Untrusted: BCL:0;ARA:13230040|366016|23010399003|10070799003|1800799024|376014|7416014|52116014|22082099003|18002099003|921020|10067099003|56012099006;
-X-Microsoft-Antispam-Message-Info-Original: x0xq99jd3CdGj/fwcIEJR2w8Id0uTevCzl98KjL2VnIo7sVOrQXEJNSsMZxChysqdBoEbcA3lRkmuufLSNpa6F389K4ImUG+gNjul0E6U7t4MVbhDMUuxtW9vtx5JEgbUVfmII5ZLDFxqTn/u9JiPToV68dSMLipX+YD1nQHVBmiGoyd5CGuTdkOp4L+iiYAlumQYCATBA5zcX6/ZWzwyqvCXS3OcJUKZVHNQSH+W9WwYbLUzsxX/GruFv0rmjUUFUR5F/z6DmFT6j5zgJSSzQ3SZMMMkCw6SR48QMgRxxXNFT+mEF4GPcBvAuz6jmNsZj8OUjuff1O4HSCrRyB24Qo3PYqhvwZ7SDMc7Re46yTrdVHyXzdNn2BFLyyXo9VHIY/LH6ZD9FuZ84XdMcgvsPTAS8xzSVQjDFHWAqDemqDz7Ic+s1zafyBCd7RCaZPfxngL6hn8x/kIbkEyMOX9KPq6S9HammqFkBBI7BDUX3TAF1WmlMi6TCpE0S8zo7bCgYn+hRmWXzx2b8MXufpnz0Bbo4Q/aFIwQ4iZ4h49YMsG5PhSEHk2yACc1kYq3qBCKezSZ+teRyr8n8NSUGGSPqUawK6sbVzZ1VC4z548G9QZrB0JNVeg88XwKuDkF+qsFePyytibL+DVqpXryoDcyqOPuFowGCzK4nZo8SGO/pTxUyUjLxudzzjfpY+xVNj1HH/MH1WMZspP50n3e60ycw==
-X-Forefront-Antispam-Report-Untrusted: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:MMZPR04MB400504.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(23010399003)(10070799003)(1800799024)(376014)(7416014)(52116014)(22082099003)(18002099003)(921020)(10067099003)(56012099006);DIR:OUT;SFP:1102;
-X-Exchange-RoutingPolicyChecked: MkE9RWboo+w031aXX4ZtgIHR02PNP/gprlb9inOGFKrCiebM0F2VRNk8A0IMz24jYc8JzuaDpB50Pc7G2r41GqMiMFOHbcAkwmlf6eaJK1o6rGIS77LvOfvefManrNuvTbe3UusYpO1iyqw0Fc+EDWUQv+f5fYC1PXYEKAAKK8LMoszS3CSPrg5wzvTwhXf6EV0D/d6NBNHaqDmR4RqTLd7wdAbqcpS/3/l7JhyZWH7AR+aM/8dV4I9SkPfLfDt2b7Jl/i+5NxY4fhcisssHVnsbXjK9D17DlDkeBSKifgQ1xquI0lQYdApYzbiTvahG7d6KzjfEKMEg0vu4diqp2g==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: DBBPR04MB7499
-X-CLOUD-SEC-AV-INT-Relay: sent<mta-outgoing-dlp-mt-prod-cp-eu-2.checkpointcloudsec.com>
-X-CLOUD-SEC-AV-UUID: a7f110e0d0994bedae12d910dd091f26:solidrun,office365_emails,sent,inline:776544cf20a4f6cb347dc8a29c053d94
+	Wed, 30 Sep 2026 16:08:05 +0000
+Received: from pps.filterd (m0380145.ppops.net [127.0.0.1])
+	by m0380145.ppops.net (8.18.1.11/8.18.1.11) with ESMTP id 68UE1F0N3333225;
+	Wed, 30 Sep 2026 11:07:55 -0500
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com; h=cc
+	:content-transfer-encoding:content-type:date:from:in-reply-to
+	:message-id:mime-version:references:subject:to; s=
+	proofpoint-05-2026; bh=XcmgLe5h/BnrO8Ze3hsBORjDb6U/AyBhfaeejx1pw
+	vs=; b=Q+26YbK8WuZ2IPRmEPuNiJwJbzcMh2Ck91TLc9hTeDMWhCXrXnn6Q4l5H
+	I6D1We/WY8/zWmGhUgxFwlmGDtnYUrv0zoIMpoSW7rUMEXgPRLfvh7y1MiNpBf5h
+	kh3mm0DJhOAwjJzmIqfncP4hv3gIKKizvuVKLGqKqmGMAzx4ZyPJEyBCwzRywA1A
+	1T8fU0G+SSHzBzelL/IUro1I1vuv4s/ygxjrSB4RAIn6++4S6g9JSG1vRo2KCChn
+	X6+/bdErgqb+J4LqGVB64BLeN1syhIPQD7lOQafzat1HbM4XgWD5HS0cRor5n0Ai
+	xmXAM1rKGqtOXNAmUodAYaasgaBsw==
+Received: from sn4pr2101cu001.outbound.protection.outlook.com (mail-southcentralusazon11012061.outbound.protection.outlook.com [40.93.195.61])
+	by m0380145.ppops.net (PPS) with ESMTPS id 4h10t1svwc-1
+	(version=TLSv1.3 cipher=TLS_AES_256_GCM_SHA384 bits=256 verify=NOT);
+	Wed, 30 Sep 2026 11:07:55 -0500 (CDT)
 ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=j4IBhgqeQ4zWR7uvKXRVv5XUdoV70pZ2Dm/IB2KqR+GGPFI2ZPfWeextPwejr6gPs9ySMgSJt4odEZtvREXGxKpy7InVsPVzdQ7D0P5TUBI+9rhL2kbvPBhNLdNGM7qTWLFrelVcz1QTuLgZ70tyfRvNMfXj3fejPHPmQzu9GDxd+eXPCQWrcta3nLYE/MPiLfQHvisHcyWXHdOiDXo6RUPFjPELrIOfMvVMDNoe+Z7vsNzWLK1jKxrU0MS4qmwAZ8TBh78bMOb5zVyTVkkAIphwCMf8E7Lrmyi5n9g3KPmYyRcILs2mbL+pJbAFHZq7L3a0C799NhnNpcKzrHow0Q==
+ b=QnvwqCTkq6V3X+9MOcHRTSC4MdjK6+/t8WR5zfsLgfRfl8n92vVyOL0JcOxYq8qPdtMO2vc6wdH9eCGxr7bjZ+zUfqiILMdG0Fi9mqa3SwLKOj7hpKzN9t+s0qlZzI46OU+3y6wMvI2t8tE6uxC7WifNTpcCcUc5YmxqgF3R8Lf+7tTlpVfcxseZBtpIi7gEn4DF01dYlQwLA4Cyanf2z+t5sM28Ob0uU1k70L3MUTZgqMAyC6QJ39XRwZyG5RkpDch620XpUxfLs+g4V9wsdXq3e6lhG5YifnIj8Is96V7qRgfIKe6fYlHRyXW2pwCaPBvY+XqUNTUjnJqmdXxKiA==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
  s=arcselector10001;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=+dloxuTDLJqdnj+JbQ3wteTr2VciS6EA6P7oYSHkW88=;
- b=ioUEsABOizBBoPRSXgbMBrf9OhziUzSxopf+oZtRmplf6qFZOGfjxd0kiS2RgagxFNkY0EbAu8ssfY2wvTYieRDtiNsB7OT2vEaN63QcvS7pY79cxPR9hj9aVWy8DHCeVlw4q4V3L+0MfjE/GSGGTZsldTzVXiDpn2Bbfmgh2mcYlv0N67msXB2GOP+XV5sIGDQCDIU/hKbyPHsW11mmWYugBlbz1AMD1J8GvmbL8KRSfluJVNb5uvQaEAbsUgmcxZGH6iUVnvzcZJ+jEQ4x+Wo+OkkxZAQikrASymg7+WruDjRHbqunV1FIn/bqWIUKTdIFBXhqG2ohhTMpFOjBUw==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=solid-run.com; dmarc=pass action=none
- header.from=solid-run.com; dkim=pass header.d=solid-run.com; arc=none
+ bh=XcmgLe5h/BnrO8Ze3hsBORjDb6U/AyBhfaeejx1pwvs=;
+ b=HF34YMSOOl0Bn1i6gBaVcS8g3USJtH2lUwi+0Naioe931yzgfN+qyrP5aZx9KKgE8mXd5DEeOupFkUtz0op8qvChXhYmQh785zQKRqX90mo++rnS9eu8jQkeMKa6NRcrWNYe83k04LmPYh/Urct6wn+o3105MGPd1ouP2MCIAUL1QsomRKlrhWKiKiE2Cl0RqTuSALfUUxiFrAe9hZ+xXtpoR3IKDa+0rUBTd3LjGrgwlqGKCIzDpX+FucdlVQ7j/j9sX+eAg/L3lSPusBDq5IIBlNgsWgo7Ppskz7+ATnt3o5qh9jOAtOMazq3X8C6TFQMnSBXOR2/YNC61ch+JSw==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
+ 198.47.21.194) smtp.rcpttodomain=lists.infradead.org smtp.mailfrom=ti.com;
+ dmarc=pass (p=quarantine sp=none pct=100) action=none header.from=ti.com;
+ dkim=none (message not signed); arc=none (0)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+ d=ticloud.onmicrosoft.com; s=selector1-ticloud-onmicrosoft-com;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=XcmgLe5h/BnrO8Ze3hsBORjDb6U/AyBhfaeejx1pwvs=;
+ b=fqCupHKi0E3XRKetoqAd1dQMH5pNrr7c5fA4sgMEgwF/PQSxMkG9rjyLTatCD37tEl9Dw/8yt+uU0YVLiADodWeGkFaCvyuUm/96t79kDr20i2pe5u5IrUOQYT7M1iZVFuP1K5T/aL4aPTlRl6yNH8XNuWBNRBZDDVX5vZqM3rM=
+Received: from MN0P221CA0021.NAMP221.PROD.OUTLOOK.COM (2603:10b6:208:52a::25)
+ by CO1PR10MB4721.namprd10.prod.outlook.com (2603:10b6:303:9b::7) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.496.9; Wed, 30 Sep
+ 2026 16:07:52 +0000
+Received: from BN3PEPF0000B372.namprd21.prod.outlook.com
+ (2603:10b6:208:52a:cafe::7c) by MN0P221CA0021.outlook.office365.com
+ (2603:10b6:208:52a::25) with Microsoft SMTP Server (version=TLS1_3,
+ cipher=TLS_AES_256_GCM_SHA384) id 15.21.472.15 via Frontend Transport; Wed,
+ 30 Sep 2026 16:07:52 +0000
+X-MS-Exchange-Authentication-Results: mx.microsoft.com 1; spf=pass (sender IP
+ is 198.47.21.194) smtp.mailfrom=ti.com; dkim=none (message not signed)
+ header.d=none;dmarc=pass action=none header.from=ti.com;
+Received-SPF: Pass (protection.outlook.com: domain of ti.com designates
+ 198.47.21.194 as permitted sender) receiver=protection.outlook.com;
+ client-ip=198.47.21.194; helo=flwvzet200.ext.ti.com; pr=C
+Received: from flwvzet200.ext.ti.com (198.47.21.194) by
+ BN3PEPF0000B372.mail.protection.outlook.com (10.167.243.169) with Microsoft
+ SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.21.496.3 via Frontend Transport; Wed, 30 Sep 2026 16:07:50 +0000
+Received: from DFLE200.ent.ti.com (10.64.6.58) by flwvzet200.ext.ti.com
+ (10.248.192.31) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.45; Wed, 30 Sep
+ 2026 11:06:51 -0500
+Received: from DFLE207.ent.ti.com (10.64.6.65) by DFLE200.ent.ti.com
+ (10.64.6.58) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.45; Wed, 30 Sep
+ 2026 11:06:51 -0500
+Received: from lelvem-mr06.itg.ti.com (10.180.75.8) by DFLE207.ent.ti.com
+ (10.64.6.65) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.45 via Frontend
+ Transport; Wed, 30 Sep 2026 11:06:51 -0500
+Received: from uda0510294.dhcp.ti.com (uda0510294.dhcp.ti.com [10.24.50.162])
+	by lelvem-mr06.itg.ti.com (8.18.1/8.18.1) with ESMTP id 68UG68WG3425232;
+	Wed, 30 Sep 2026 11:06:49 -0500
+From: Beleswar Padhi <b-padhi@ti.com>
+To: <nm@ti.com>, <kristo@kernel.org>, <ssantosh@kernel.org>, <afd@ti.com>,
+        <vigneshr@ti.com>, <u-kumar1@ti.com>
+CC: <linux-kernel@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
+        <b-padhi@ti.com>
+Subject: [PATCH v2 13/22] soc: ti: ti_sci_protocol.h: Add missing documentation for structs
+Date: Wed, 30 Sep 2026 21:35:58 +0530
+Message-ID: <20260930160607.2674980-14-b-padhi@ti.com>
+X-Mailer: git-send-email 2.34.1
+In-Reply-To: <20260930160607.2674980-1-b-padhi@ti.com>
+References: <20260930160607.2674980-1-b-padhi@ti.com>
+MIME-Version: 1.0
+Content-Transfer-Encoding: 8bit
+Content-Type: text/plain
 X-EOPAttributedMessage: 0
-X-MS-Exchange-Transport-CrossTenantHeadersStripped: DB1PEPF000509EC.eurprd03.prod.outlook.com
 X-MS-PublicTrafficType: Email
-X-MS-Office365-Filtering-Correlation-Id-Prvs: 2215630e-ba62-4ddf-1b32-08df1f139309
-X-Microsoft-Antispam: BCL:0;ARA:13230040|36860700016|23010399003|376014|7416014|1800799024|14060799003|82310400026|35042699022|22082099003|18002099003|921020|10067099003|56012099006;
-X-Microsoft-Antispam-Message-Info: 8tWo461aq4nYfTPoy9iq3W+56yEa2uMLNNu3jCnhtWi7El+lni42j0kE0rXVet1oqqmczdFz/sM3/nFNmZkB2laoWR37DiKqqKlbS4NWUOVM28wfwq8JzSttKd5e3XxFjuWT5c2UZniBaHRmV9VI4cMGPBSf8lonceLfXpGYMo7Gpp7OTvtx/KrUSSHX4xdmmxsoL6WLOKBNY6mhs2AzjzGEoQnVX4cMG7p1De0Us+HlZYU+dOqZqJarvbVUrVm7bhuEl1hsRdiyMziVD7/ro3j5SRnLuxP5Cf8SKXCMSk/2bgqsHIzsk2rzJ53uxidZn5ksPClBxfWH/Y9e7wXMmBgrnyI8EX7WoCpysIRr1oLZrJVAScW5I/pNEPs++ruq66QNsXKKAk2vF1KFesWXK0wocOyGEaVRPGokWlnZuIQmd+ewHTB6bgcx75nCHr+LFH6Le6e+kJVJhKOcPY5RBpwdHBgb1fkf76HsmeD4iHBAAX1lC0BC2bykJUNkttpnKUpgoQldM3xbM2bXbD8KEApvihVWlB/819o+3C1p3cB1x56Tw/CZ4G4gCUyWIttTyUH0/sFhzdAJshrAqIJ6957IJahE+TotrlF2G6qb6927Fgb9vT9TcllkA+6pa0bQVTjmZb+m6driQ/6h7utEG6tNHOPN05Mp3e6Rl04VbpID78LY0P4hPB3eHbH/VZldMq8teYhkkwJY24tJMn/Fog8fHEQZ2/yICWSIdz2vhhcKlurvS5OqTdA22/68G2+x
-X-Forefront-Antispam-Report: CIP:52.17.62.50;CTRY:IE;LANG:en;SCL:1;SRV:;IPV:CAL;SFV:NSPM;H:eu-dlp.cloud-sec-av.com;PTR:eu-dlp.cloud-sec-av.com;CAT:NONE;SFS:(13230040)(36860700016)(23010399003)(376014)(7416014)(1800799024)(14060799003)(82310400026)(35042699022)(22082099003)(18002099003)(921020)(10067099003)(56012099006);DIR:OUT;SFP:1102;
+X-MS-TrafficTypeDiagnostic: BN3PEPF0000B372:EE_|CO1PR10MB4721:EE_
+X-MS-Office365-Filtering-Correlation-Id: 820aeb43-e5eb-41f0-1639-08df1f0cfa40
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|36860700016|376014|23010399003|82310400026|1800799024|22082099003|18002099003|6133799003|3023799007|10067099003|56012099006;
+X-Microsoft-Antispam-Message-Info: JszA06X073Q9A2RF7fvycTJO79OjJ+bHHIuwf14WUNtGvzktmCGTDEesXORx6R6QFivU26iSZnOlVobt/B1xm22xwRacqZeXprQwiu9+jqQgXTmy8pLqP0A7weBdCEGVZtZZ+s1wJGndpqeMPuIFobk/mTO0QWS0nONyrAyDqk5prRiSOfIj5OQDYnTge1db3BHbI0RafSDWJl+BqUuJTfQdwOsOukePJicA3sbZnIZtqahfq0uoqaHR0Dl4OzUTaW9S+EAeXrz1UYoXAfNLckSTj+GqO0yuG2IloHXk7J58bYb+/5lTugG76nDu1WQ+Q0PAot1nCGeMCGrbb4qoHjv7d70hTZtNalTgq+Bh6rh2UFxD19zYIo1suucQw+5AzjkfhIufK14/ndf0edrmPAjRA7NafCuf/4EUG3eqU0OT2q9Mgx5sjtizHYKHv+G5CI+uRB3tLuS2aIYISSnOKXFzxLiAET81/QYueMlNIUEtZzYhepT7/BeIKBjgETSl+VEZ6tTIyeSU1qvA5BEEXEL6LxAvI9el1K/6KVQaskS/bESnpaS1ZjlLdcHCoz5yd6T8qwnBmmAMBTgXpY5DKpgORPRslNF7nWyl6OeoCDRLnv+rHa3zozEnamjqzE/pViNY9/nzI5eG3IAVdrhPahBchDK11gJQeqwylpWxVMBjqJ0QN2SmgGM3iTESqVY2DmEEwyVipvDOmqQlaJZnOA==
+X-Forefront-Antispam-Report: CIP:198.47.21.194;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:flwvzet200.ext.ti.com;PTR:ErrorRetry;CAT:NONE;SFS:(13230040)(36860700016)(376014)(23010399003)(82310400026)(1800799024)(22082099003)(18002099003)(6133799003)(3023799007)(10067099003)(56012099006);DIR:OUT;SFP:1101;
 X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: RGRPDA4PuCAVMF/WQmbtktpcG7wjt/wRg7t34ynTIw8/zs0jsLciomERYM/9Br0ZacUv6xX3uLtYVqCOr7HyTA/r27XZT4EucdAntX+t6OZcP7O7+zR6UKX5/rgNQ5KZ1Ojnt4vd3/VHsVw6QhdVIl2RBFo4y/ucTY5r93ItDMXUvtrz6yZNOzpCiFRGrTytWN0DW4j8k3x1YDc+1N4SveKO3K5wBcZCgYJiW0Qmwwo9ZyuQXt8p1gtDGV57n8nTRcDAjJTPwTVMY1O3YpWTBsTMCelpRcwhoOKO1SzIl53RiidLy/xXgNVhjrjbupxZVzUcozEcrV2xTwq5INsIImcgUqcUL7/9zGlr0Iu+BO5HpVEumvbMlrfLPG07IHQYJa2G8aRlYlxsSVcaNWXOnXGMGfhaIFxpeLdjfK4wFYsqROl6AkCfm7yRXcrMF+sc
-X-OriginatorOrg: solid-run.com
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 30 Sep 2026 16:55:12.8217
+X-MS-Exchange-AntiSpam-MessageData-0: fsH8SObAs/XggkQhKxEvC4C18PovGLJ0IMr/U35ZtDACwYmoxYoyK3zgssMTtXLCSD9ez3xvUI3URAUgw6DHXPu12qm9/rEyIodtFGgpORspI10WJ2OlqVjoFHjBCMWjBALKBhhLGjA8nFYNQJ3u1g/1kWL0nMxbsYDqd/iTYEM6/bmJr4oxr8jheb8WqO/7k1KVSSr295H7ZjdXy45zZCgkenqlHM7g1SV3jjoOg+xpEY9mQspyUmzrSTMqRoltgQW6rY/9503ixAifEli0dSTJomyjT/k5MAlELu4XBgladX/7GrS697Ir/cAl8VgE5xo73emjy4TTqNDJwRWHfgrJiBclpCrJTpw5Jid93rB+UVlZDiztISlERfCKTrqspXl6eKujiB4z7oIJdA9DPHnZUwkzYXPGFUGxOiTauXaCa8TTUTHUaWzYVdvQHtQ5
+X-Exchange-RoutingPolicyChecked: 4esebBsYdKbFrhVI0medFUZYpmFat97137ho/jOrcuPR3/92PabqOJvzp78sxko9ZPuRbLTWug4iD8OmvZIO6VoWG9g/3Xe29XCKB08UV1WEbMJA30n84Yaj5hhQMpjtuNGCpzouFzqubOwcGRbmw1Xl5bfVGXrjvHKdYe3HoAWN6nETl1l9b9CspOsPxBtcTNTZNWAYV8obXBudtnfnP400/v9DzgZy6g7WZese4tzbKE1yaeeoxiGugLMBv7rWxtkRs1SHwnD3DNg2ZdKt3+JDmwafGMrTvME/9Oh16OOaHwgiJD2kC5cWYs+Ea2Bj1QAEWYvh7JYyNfay8XP1kg==
+X-OriginatorOrg: ti.com
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 30 Sep 2026 16:07:50.7341
  (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: 844b1b50-bb90-4a4a-49f6-08df1f139839
-X-MS-Exchange-CrossTenant-Id: a4a8aaf3-fd27-4e27-add2-604707ce5b82
-X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=a4a8aaf3-fd27-4e27-add2-604707ce5b82;Ip=[52.17.62.50];Helo=[eu-dlp.cloud-sec-av.com]
-X-MS-Exchange-CrossTenant-AuthSource: DB1PEPF000509EC.eurprd03.prod.outlook.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 820aeb43-e5eb-41f0-1639-08df1f0cfa40
+X-MS-Exchange-CrossTenant-Id: e5b49634-450b-4709-8abb-1e2b19b982b7
+X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=e5b49634-450b-4709-8abb-1e2b19b982b7;Ip=[198.47.21.194];Helo=[flwvzet200.ext.ti.com]
+X-MS-Exchange-CrossTenant-AuthSource: BN3PEPF0000B372.namprd21.prod.outlook.com
 X-MS-Exchange-CrossTenant-AuthAs: Anonymous
 X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: VI2PR04MB10785
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: CO1PR10MB4721
+X-Proofpoint-Spam-Info: AW1haW4tMjYwOTMwMDA2NCBTYWx0ZWRfX85jfGsMReSox
+ Hr2uhwvmHKvj78eWKcfjsogH5rpI2tQnra+boCh3y+Q3VAebgfsrre6qVC8xtjZBgASVGe1qZqz
+ q41+RJ7Ch/Wv41hinA2lNkHQZz+kls0=
+X-Proofpoint-ORIG-GUID: s1cUdbQ1Bf7eqwzhEpnO0qUj5VvD_Oy2
+X-Authority-Analysis: v=2.4 cv=C7R8WgP+ c=1 sm=1 tr=0 ts=6abd33db cx=c_pps
+ a=N7UEZcGu6nKKiVkixTDHSg==:117 a=iwqwCZQqcuTv3JOpYdM7/Q==:17
+ a=6eWqkTHjU83fiwn7nKZWdM+Sl24=:19 a=VdqzKS8jKosA:10 a=AlMIdn_sM9wA:10
+ a=VkNPw1HP01LnGYTKEx00:22 a=Z8NIEmU8O1QQgoT56wFK:22 a=gO1vWkAQAl3rybz1DQOp:22
+ a=VwQbUJbxAAAA:8 a=sozttTNsAAAA:8 a=OrHHYe0rJBWiAmqXVPgA:9
+X-Proofpoint-GUID: s1cUdbQ1Bf7eqwzhEpnO0qUj5VvD_Oy2
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwOTMwMDA2NCBTYWx0ZWRfX/GuwfisHdrrK
+ 2glYIFxRQZMDt8OZPuEdLeBVF2btKJcUaeCKnhUoqgkpmM9ULf6mtgdwQIRhGaxejLZZiuCUvRZ
+ IYVF/SUIBYCVRnuujU+R94pBqkEx08F7NzW46OVx+okvEIFemqZ65aKtQ+mpzqaJ6JddLN58wIN
+ pr8VtIfRg1UiTpFbKIi9JAM3MLMxAHcBWt/I9QCVHdz3E4+6Z4PYhaGthcJ1PNtRnHENp/GClWI
+ WVtoQKqnk9Qpo32IclaESzZPhZ+QN1UGmLC1HdXmvpw119qtRC/Hvdebm9WfU9iRWp7Z2lk/wKc
+ S+XiIclyIZny3hmfOflEP2R8EOBKrZyuYogffGkTqPlXIPORoqnI85o7wjk2+kUMC9BztW8zcwo
+ bgmKIoVa63JtAizJFEALRZzGlTVFVCKI3+2BZjv9dVg/7KBZNrO+TYF6y/hnHtq4akARVdAiwh3
+ FeaTiVSNDUD+IMV6RiA==
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1176,Hydra:6.1.134,FMLib:17.12.100.49
+ definitions=2026-09-30_03,2026-09-21_02,2025-10-01_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
+ suspectscore=0 adultscore=0 lowpriorityscore=0 malwarescore=0 bulkscore=0
+ priorityscore=1501 impostorscore=0 spamscore=0 clxscore=1015 phishscore=0
+ classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
+ reason=mlx scancount=1 engine=8.22.0-2609040000 definitions=main-2609300064
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260930_175525_684974_959C8C86 
-X-CRM114-Status: GOOD (  17.19  )
+X-CRM114-CacheID: sfid-20260930_170802_613468_CC23A3C4 
+X-CRM114-Status: GOOD (  14.91  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -201,73 +189,466 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The driver allocates one channel per online CPU and registers it with
-that CPU's affine DPIO.
+Some of the structs defined in ti_sci_protocol.h were missing
+documentation and some were not in correct style. Clean these up to
+resolve static warnings.
 
-When isolcpus=managed_irq is used to reserve CPUs for latency-sensitive
-applications, those CPUs are expected to be free of routine device
-interrupts.
-
-The DPIO driver assigns affine CPUs only from the HK_TYPE_MANAGED_IRQ
-housekeeping mask, leaving isolated CPUs without an affine DPIO. This
-defers dpaa2-eth probe indefinitely once channel setup reaches an
-isolated CPU.
-
-Restrict channel setup to the online CPUs in the HK_TYPE_MANAGED_IRQ
-housekeeping mask, so that isolated CPUs are skipped and don't defer
-probe.
-
-Signed-off-by: Josua Mayer <josua@solid-run.com>
+Signed-off-by: Beleswar Padhi <b-padhi@ti.com>
 ---
- drivers/net/ethernet/freescale/dpaa2/dpaa2-eth.c | 10 ++++++++--
- 1 file changed, 8 insertions(+), 2 deletions(-)
+v2: Changelog:
+1. None to this patch.
 
-diff --git a/drivers/net/ethernet/freescale/dpaa2/dpaa2-eth.c b/drivers/net/ethernet/freescale/dpaa2/dpaa2-eth.c
-index 6f1046c9cc515..850834388790a 100644
---- a/drivers/net/ethernet/freescale/dpaa2/dpaa2-eth.c
-+++ b/drivers/net/ethernet/freescale/dpaa2/dpaa2-eth.c
-@@ -15,6 +15,7 @@
- #include <linux/bpf_trace.h>
- #include <linux/fsl/ptp_qoriq.h>
- #include <linux/ptp_classify.h>
-+#include <linux/sched/isolation.h>
- #include <net/pkt_cls.h>
- #include <net/sock.h>
- #include <net/tso.h>
-@@ -3173,6 +3174,7 @@ static int dpaa2_eth_setup_dpio(struct dpaa2_eth_priv *priv)
- 	struct dpaa2_eth_channel *channel;
- 	struct dpcon_notification_cfg dpcon_notif_cfg;
- 	struct device *dev = priv->net_dev->dev.parent;
-+	const struct cpumask *hk_mask = housekeeping_cpumask(HK_TYPE_MANAGED_IRQ);
- 	int i, err;
- 
- 	/* We want the ability to spread ingress traffic (RX, TX conf) to as
-@@ -3182,10 +3184,11 @@ static int dpaa2_eth_setup_dpio(struct dpaa2_eth_priv *priv)
- 	 * Allocate one channel per core and register it to the core's
- 	 * affine DPIO. If not enough channels are available for all cores
- 	 * or if some cores don't have an affine DPIO, there will be no
--	 * ingress frame processing on those cores.
-+	 * ingress frame processing on those cores. Isolated cores
-+	 * (isolcpus=managed_irq) have no affine DPIO.
- 	 */
- 	cpumask_clear(&priv->dpio_cpumask);
--	for_each_online_cpu(i) {
-+	for_each_cpu_and(i, cpu_online_mask, hk_mask) {
- 		/* Try to allocate a channel */
- 		channel = dpaa2_eth_alloc_channel(priv);
- 		if (IS_ERR_OR_NULL(channel)) {
-@@ -3245,6 +3248,9 @@ static int dpaa2_eth_setup_dpio(struct dpaa2_eth_priv *priv)
- 			break;
- 	}
- 
-+	if (cpumask_empty(&priv->dpio_cpumask))
-+		goto err_alloc_ch;
-+
- 	return 0;
- 
- err_set_cdan:
+Link to v1:
+https://lore.kernel.org/all/20260929201746.4078803-14-b-padhi@ti.com/
 
+ include/linux/soc/ti/ti_sci_protocol.h | 374 ++++++++++++++++++++++++-
+ 1 file changed, 363 insertions(+), 11 deletions(-)
+
+diff --git a/include/linux/soc/ti/ti_sci_protocol.h b/include/linux/soc/ti/ti_sci_protocol.h
+index fd104b6668364..471f5580787cf 100644
+--- a/include/linux/soc/ti/ti_sci_protocol.h
++++ b/include/linux/soc/ti/ti_sci_protocol.h
+@@ -42,9 +42,17 @@ struct ti_sci_core_ops {
+  * @get_device: Command to request for device managed by TISCI
+  *		Returns 0 for successful exclusive request, else returns
+  *		corresponding error message.
++ * @get_device_exclusive: Command to request for device managed by TISCI that is
++ *		exclusively owned by the requesting host.
++ *		Returns 0 for successful exclusive request, else returns
++ *		corresponding error message.
+  * @idle_device: Command to idle a device managed by TISCI
+  *		Returns 0 for successful exclusive request, else returns
+  *		corresponding error message.
++ * @idle_device_exclusive: Command to idle a device managed by TISCI that is
++ *		exclusively owned by requesting host.
++ *		Returns 0 for successful exclusive request, else returns
++ *		corresponding error message.
+  * @put_device:	Command to release a device managed by TISCI
+  *		Returns 0 for successful release, else returns corresponding
+  *		error message.
+@@ -243,7 +251,7 @@ struct ti_sci_resource_desc {
+ /**
+  * struct ti_sci_rm_core_ops - Resource management core operations
+  * @get_range:		Get a range of resources belonging to ti sci host.
+- * @get_rage_from_shost:	Get a range of resources belonging to
++ * @get_range_from_shost:	Get a range of resources belonging to
+  *				specified host id.
+  *			- s_host: Host processing entity to which the
+  *				  resources are allocated
+@@ -322,6 +330,35 @@ struct ti_sci_rm_irq_ops {
+  *
+  * Parameters for Navigator Subsystem ring configuration
+  * See @ti_sci_msg_rm_ring_cfg_req
++ *
++ * @valid_params: Bitfield defining validity of ring configuration parameters.
++ *	The ring configuration fields are not valid, and will not be used for
++ *	ring configuration, if their corresponding valid bit is zero.
++ *	Valid bit usage:
++ *	0 - Valid bit for @addr_lo
++ *	1 - Valid bit for @addr_hi
++ *	2 - Valid bit for @count
++ *	3 - Valid bit for @mode
++ *	4 - Valid bit for @size
++ *	5 - Valid bit for @order_id
++ *	6 - Valid bit for @virtid
++ *	7 - Valid bit for @asel
++ * @nav_id: Device ID of Navigator Subsystem from which the ring is allocated
++ * @index: ring index to be configured.
++ * @addr_lo: 32 LSBs of ring base address to be programmed into the ring's
++ *	RING_BA_LO register
++ * @addr_hi: 16 MSBs of ring base address to be programmed into the ring's
++ *	RING_BA_HI register.
++ * @count: Number of ring elements. Must be even if mode is CREDENTIALS or QM
++ *	modes.
++ * @mode: Specifies the mode the ring is to be configured.
++ * @size: Specifies encoded ring element size. To calculate the encoded size use
++ *	the formula (log2(size_bytes) - 2), where size_bytes cannot be
++ *	greater than 256.
++ * @order_id: Specifies the ring's bus order ID.
++ * @virtid: Ring virt ID value
++ * @asel: Ring ASEL (address select) value to be set into the ASEL field of the
++ *	ring's RING_BA_HI register.
+  */
+ struct ti_sci_msg_rm_ring_cfg {
+ 	u32 valid_params;
+@@ -397,10 +434,102 @@ struct ti_sci_rm_psil_ops {
+ #define TI_SCI_MSG_VALUE_RM_UDMAP_CH_BURST_SIZE_VALID		BIT(14)
+ 
+ /**
+- * Configures a Navigator Subsystem UDMAP transmit channel
++ * struct ti_sci_msg_rm_udmap_tx_ch_cfg - Configures a Navigator Subsystem UDMAP
++ *					  transmit channel
++ *
++ * @valid_params: Bitfield defining validity of tx channel configuration
++ * parameters. The tx channel configuration fields are not valid, and will not
++ * be used for ch configuration, if their corresponding valid bit is zero.
++ * Valid bit usage:
++ *    0 - Valid bit for @tx_pause_on_err
++ *    1 - Valid bit for @tx_atype
++ *    2 - Valid bit for @tx_chan_type
++ *    3 - Valid bit for @tx_fetch_size
++ *    4 - Valid bit for @txcq_qnum
++ *    5 - Valid bit for @tx_priority
++ *    6 - Valid bit for @tx_qos
++ *    7 - Valid bit for @tx_orderid
++ *    8 - Valid bit for @tx_sched_priority
++ *    9 - Valid bit for @tx_filt_einfo
++ *   10 - Valid bit for @tx_filt_pswords
++ *   11 - Valid bit for @tx_supr_tdpkt
++ *   12 - Valid bit for @tx_credit_count
++ *   13 - Valid bit for @fdepth
++ *   14 - Valid bit for @tx_burst_size
++ *   15 - Valid bit for @tx_tdtype
++ *   16 - Valid bit for @extended_ch_type
++ *
++ * @nav_id: SoC device ID of Navigator Subsystem where tx channel is located
++ *
++ * @index: UDMAP transmit channel index.
++ *
++ * @tx_pause_on_err: UDMAP transmit channel pause on error configuration to
++ * be programmed into the tx_pause_on_err field of the channel's TCHAN_TCFG
++ * register.
++ *
++ * @tx_filt_einfo: UDMAP transmit channel extended packet information passing
++ * configuration to be programmed into the tx_filt_einfo field of the
++ * channel's TCHAN_TCFG register.
++ *
++ * @tx_filt_pswords: UDMAP transmit channel protocol specific word passing
++ * configuration to be programmed into the tx_filt_pswords field of the
++ * channel's TCHAN_TCFG register.
++ *
++ * @tx_atype: UDMAP transmit channel non Ring Accelerator access pointer
++ * interpretation configuration to be programmed into the tx_atype field of
++ * the channel's TCHAN_TCFG register.
++ *
++ * @tx_chan_type: UDMAP transmit channel functional channel type and work
++ * passing mechanism configuration to be programmed into the tx_chan_type
++ * field of the channel's TCHAN_TCFG register.
++ *
++ * @tx_supr_tdpkt: UDMAP transmit channel teardown packet generation suppression
++ * configuration to be programmed into the tx_supr_tdpkt field of the channel's
++ * TCHAN_TCFG register.
++ *
++ * @tx_fetch_size: UDMAP transmit channel number of 32-bit descriptor words to
++ * fetch configuration to be programmed into the tx_fetch_size field of the
++ * channel's TCHAN_TCFG register.  The user must make sure to set the maximum
++ * word count that can pass through the channel for any allowed descriptor type.
++ *
++ * @tx_credit_count: UDMAP transmit channel transfer request credit count
++ * configuration to be programmed into the count field of the TCHAN_TCREDIT
++ * register.  Specifies how many credits for complete TRs are available.
+  *
+- * Configures a Navigator Subsystem UDMAP transmit channel registers.
+- * See @ti_sci_msg_rm_udmap_tx_ch_cfg_req
++ * @txcq_qnum: UDMAP transmit channel completion queue configuration to be
++ * programmed into the txcq_qnum field of the TCHAN_TCQ register. The specified
++ * completion queue must be assigned to the host, or a subordinate of the host,
++ * requesting configuration of the transmit channel.
++ *
++ * @tx_priority: UDMAP transmit channel transmit priority value to be programmed
++ * into the priority field of the channel's TCHAN_TPRI_CTRL register.
++ *
++ * @tx_qos: UDMAP transmit channel transmit qos value to be programmed into the
++ * qos field of the channel's TCHAN_TPRI_CTRL register.
++ *
++ * @tx_orderid: UDMAP transmit channel bus order id value to be programmed into
++ * the orderid field of the channel's TCHAN_TPRI_CTRL register.
++ *
++ * @fdepth: UDMAP transmit channel FIFO depth configuration to be programmed
++ * into the fdepth field of the TCHAN_TFIFO_DEPTH register. Sets the number of
++ * Tx FIFO bytes which are allowed to be stored for the channel. Check the UDMAP
++ * section of the TRM for restrictions regarding this parameter.
++ *
++ * @tx_sched_priority: UDMAP transmit channel tx scheduling priority
++ * configuration to be programmed into the priority field of the channel's
++ * TCHAN_TST_SCHED register.
++ *
++ * @tx_burst_size: UDMAP transmit channel burst size configuration to be
++ * programmed into the tx_burst_size field of the TCHAN_TCFG register.
++ *
++ * @tx_tdtype: UDMAP transmit channel teardown type configuration to be
++ * programmed into the tdtype field of the TCHAN_TCFG register:
++ * 0 - Return immediately
++ * 1 - Wait for completion message from remote peer
++ *
++ * @extended_ch_type: Valid for BCDMA.
++ * 0 - the channel is split tx channel (tchan)
++ * 1 - the channel is block copy channel (bchan)
+  */
+ struct ti_sci_msg_rm_udmap_tx_ch_cfg {
+ 	u32 valid_params;
+@@ -433,10 +562,96 @@ struct ti_sci_msg_rm_udmap_tx_ch_cfg {
+ };
+ 
+ /**
+- * Configures a Navigator Subsystem UDMAP receive channel
++ * struct ti_sci_msg_rm_udmap_rx_ch_cfg - Configures a Navigator Subsystem UDMAP
++ *					  receive channel
++ *
++ * @valid_params: Bitfield defining validity of rx channel configuration
++ * parameters.
++ * The rx channel configuration fields are not valid, and will not be used for
++ * ch configuration, if their corresponding valid bit is zero.
++ * Valid bit usage:
++ *    0 - Valid bit for @rx_pause_on_err
++ *    1 - Valid bit for @rx_atype
++ *    2 - Valid bit for @rx_chan_type
++ *    3 - Valid bit for @rx_fetch_size
++ *    4 - Valid bit for @rxcq_qnum
++ *    5 - Valid bit for @rx_priority
++ *    6 - Valid bit for @rx_qos
++ *    7 - Valid bit for @rx_orderid
++ *    8 - Valid bit for @rx_sched_priority
++ *    9 - Valid bit for @flowid_start
++ *   10 - Valid bit for @flowid_cnt
++ *   11 - Valid bit for @rx_ignore_short
++ *   12 - Valid bit for @rx_ignore_long
++ *   14 - Valid bit for @rx_burst_size
++ *
++ * @nav_id: SoC device ID of Navigator Subsystem where rx channel is located
++ *
++ * @index: UDMAP receive channel index.
++ *
++ * @rx_fetch_size: UDMAP receive channel number of 32-bit descriptor words to
++ * fetch configuration to be programmed into the rx_fetch_size field of the
++ * channel's RCHAN_RCFG register.
++ *
++ * @rxcq_qnum: UDMAP receive channel completion queue configuration to be
++ * programmed into the rxcq_qnum field of the RCHAN_RCQ register.
++ * The specified completion queue must be assigned to the host, or a subordinate
++ * of the host, requesting configuration of the receive channel.
++ *
++ * @rx_priority: UDMAP receive channel receive priority value to be programmed
++ * into the priority field of the channel's RCHAN_RPRI_CTRL register.
++ *
++ * @rx_qos: UDMAP receive channel receive qos value to be programmed into the
++ * qos field of the channel's RCHAN_RPRI_CTRL register.
+  *
+- * Configures a Navigator Subsystem UDMAP receive channel registers.
+- * See @ti_sci_msg_rm_udmap_rx_ch_cfg_req
++ * @rx_orderid: UDMAP receive channel bus order id value to be programmed into
++ * the orderid field of the channel's RCHAN_RPRI_CTRL register.
++ *
++ * @rx_sched_priority: UDMAP receive channel rx scheduling priority
++ * configuration to be programmed into the priority field of the channel's
++ * RCHAN_RST_SCHED register.
++ *
++ * @flowid_start: UDMAP receive channel additional flows starting index
++ * configuration to program into the flow_start field of the RCHAN_RFLOW_RNG
++ * register. Specifies the starting index for flow IDs the receive channel is to
++ * make use of beyond the default flow. flowid_start and @flowid_cnt must be
++ * set as valid and configured together. The starting flow ID set by
++ * @flowid_start must be a flow index within the Navigator Subsystem's subset
++ * of flows beyond the default flows statically mapped to receive channels.
++ * The additional flows must be assigned to the host, or a subordinate of the
++ * host, requesting configuration of the receive channel.
++ *
++ * @flowid_cnt: UDMAP receive channel additional flows count configuration to
++ * program into the flowid_cnt field of the RCHAN_RFLOW_RNG register.
++ * This field specifies how many flow IDs are in the additional contiguous range
++ * of legal flow IDs for the channel.  @flowid_start and flowid_cnt must be
++ * set as valid and configured together. Disabling the valid_params field bit
++ * for flowid_cnt indicates no flow IDs other than the default are to be
++ * allocated and used by the receive channel. @flowid_start plus flowid_cnt
++ * cannot be greater than the number of receive flows in the receive channel's
++ * Navigator Subsystem.  The additional flows must be assigned to the host, or a
++ * subordinate of the host, requesting configuration of the receive channel.
++ *
++ * @rx_pause_on_err: UDMAP receive channel pause on error configuration to be
++ * programmed into the rx_pause_on_err field of the channel's RCHAN_RCFG
++ * register.
++ *
++ * @rx_atype: UDMAP receive channel non Ring Accelerator access pointer
++ * interpretation configuration to be programmed into the rx_atype field of the
++ * channel's RCHAN_RCFG register.
++ *
++ * @rx_chan_type: UDMAP receive channel functional channel type and work passing
++ * mechanism configuration to be programmed into the rx_chan_type field of the
++ * channel's RCHAN_RCFG register.
++ *
++ * @rx_ignore_short: UDMAP receive channel short packet treatment configuration
++ * to be programmed into the rx_ignore_short field of the RCHAN_RCFG register.
++ *
++ * @rx_ignore_long: UDMAP receive channel long packet treatment configuration to
++ * be programmed into the rx_ignore_long field of the RCHAN_RCFG register.
++ *
++ * @rx_burst_size: UDMAP receive channel burst size configuration to be
++ * programmed into the rx_burst_size field of the RCHAN_RCFG register.
+  */
+ struct ti_sci_msg_rm_udmap_rx_ch_cfg {
+ 	u32 valid_params;
+@@ -463,10 +678,142 @@ struct ti_sci_msg_rm_udmap_rx_ch_cfg {
+ };
+ 
+ /**
+- * Configures a Navigator Subsystem UDMAP receive flow
++ * struct ti_sci_msg_rm_udmap_flow_cfg - Configures a Navigator Subsystem UDMAP
++ *					 receive flow
++ *
++ * @valid_params:
++ * Bitfield defining validity of rx flow configuration parameters.  The
++ * rx flow configuration fields are not valid, and will not be used for flow
++ * configuration, if their corresponding valid bit is zero.  Valid bit usage:
++ *     0 - Valid bit for @rx_einfo_present
++ *     1 - Valid bit for @rx_psinfo_present
++ *     2 - Valid bit for @rx_error_handling
++ *     3 - Valid bit for @rx_desc_type
++ *     4 - Valid bit for @rx_sop_offset
++ *     5 - Valid bit for @rx_dest_qnum
++ *     6 - Valid bit for @rx_src_tag_hi
++ *     7 - Valid bit for @rx_src_tag_lo
++ *     8 - Valid bit for @rx_dest_tag_hi
++ *     9 - Valid bit for @rx_dest_tag_lo
++ *    10 - Valid bit for @rx_src_tag_hi_sel
++ *    11 - Valid bit for @rx_src_tag_lo_sel
++ *    12 - Valid bit for @rx_dest_tag_hi_sel
++ *    13 - Valid bit for @rx_dest_tag_lo_sel
++ *    14 - Valid bit for @rx_fdq0_sz0_qnum
++ *    15 - Valid bit for @rx_fdq1_qnum
++ *    16 - Valid bit for @rx_fdq2_qnum
++ *    17 - Valid bit for @rx_fdq3_qnum
++ *    18 - Valid bit for @rx_ps_location
++ *
++ * @nav_id: SoC device ID of Navigator Subsystem from which the receive flow is
++ * allocated
++ *
++ * @flow_index: UDMAP receive flow index for non-optional configuration.
++ *
++ * @rx_einfo_present:
++ * UDMAP receive flow extended packet info present configuration to be
++ * programmed into the rx_einfo_present field of the flow's RFLOW_RFA register.
++ *
++ * @rx_psinfo_present:
++ * UDMAP receive flow PS words present configuration to be programmed into the
++ * rx_psinfo_present field of the flow's RFLOW_RFA register.
++ *
++ * @rx_error_handling:
++ * UDMAP receive flow error handling configuration to be programmed into the
++ * rx_error_handling field of the flow's RFLOW_RFA register.
++ *
++ * @rx_desc_type:
++ * UDMAP receive flow descriptor type configuration to be programmed into the
++ * rx_desc_type field of the flow's RFLOW_RFA register.
++ *
++ * @rx_sop_offset:
++ * UDMAP receive flow start of packet offset configuration to be programmed
++ * into the rx_sop_offset field of the RFLOW_RFA register.  See the UDMAP
++ * section of the TRM for more information on this setting.  Valid values for
++ * this field are 0-255 bytes.
++ *
++ * @rx_dest_qnum:
++ * UDMAP receive flow destination queue configuration to be programmed into the
++ * rx_dest_qnum field of the flow's RFLOW_RFA register.  The specified
++ * destination queue must be valid within the Navigator Subsystem and must be
++ * owned by the host, or a subordinate of the host, requesting allocation and
++ * configuration of the receive flow.
++ *
++ * @rx_src_tag_hi:
++ * UDMAP receive flow source tag high byte constant configuration to be
++ * programmed into the rx_src_tag_hi field of the flow's RFLOW_RFB register.
++ * See the UDMAP section of the TRM for more information on this setting.
++ *
++ * @rx_src_tag_lo:
++ * UDMAP receive flow source tag low byte constant configuration to be
++ * programmed into the rx_src_tag_lo field of the flow's RFLOW_RFB register.
++ * See the UDMAP section of the TRM for more information on this setting.
++ *
++ * @rx_dest_tag_hi:
++ * UDMAP receive flow destination tag high byte constant configuration to be
++ * programmed into the rx_dest_tag_hi field of the flow's RFLOW_RFB register.
++ * See the UDMAP section of the TRM for more information on this setting.
++ *
++ * @rx_dest_tag_lo:
++ * UDMAP receive flow destination tag low byte constant configuration to be
++ * programmed into the rx_dest_tag_lo field of the flow's RFLOW_RFB register.
++ * See the UDMAP section of the TRM for more information on this setting.
++ *
++ * @rx_src_tag_hi_sel:
++ * UDMAP receive flow source tag high byte selector configuration to be
++ * programmed into the rx_src_tag_hi_sel field of the RFLOW_RFC register.  See
++ * the UDMAP section of the TRM for more information on this setting.
++ *
++ * @rx_src_tag_lo_sel:
++ * UDMAP receive flow source tag low byte selector configuration to be
++ * programmed into the rx_src_tag_lo_sel field of the RFLOW_RFC register.  See
++ * the UDMAP section of the TRM for more information on this setting.
++ *
++ * @rx_dest_tag_hi_sel:
++ * UDMAP receive flow destination tag high byte selector configuration to be
++ * programmed into the rx_dest_tag_hi_sel field of the RFLOW_RFC register.  See
++ * the UDMAP section of the TRM for more information on this setting.
++ *
++ * @rx_dest_tag_lo_sel:
++ * UDMAP receive flow destination tag low byte selector configuration to be
++ * programmed into the rx_dest_tag_lo_sel field of the RFLOW_RFC register.  See
++ * the UDMAP section of the TRM for more information on this setting.
++ *
++ * @rx_fdq0_sz0_qnum:
++ * UDMAP receive flow free descriptor queue 0 configuration to be programmed
++ * into the rx_fdq0_sz0_qnum field of the flow's RFLOW_RFD register.  See the
++ * UDMAP section of the TRM for more information on this setting. The specified
++ * free queue must be valid within the Navigator Subsystem and must be owned
++ * by the host, or a subordinate of the host, requesting allocation and
++ * configuration of the receive flow.
++ *
++ * @rx_fdq1_qnum:
++ * UDMAP receive flow free descriptor queue 1 configuration to be programmed
++ * into the rx_fdq1_qnum field of the flow's RFLOW_RFD register.  See the
++ * UDMAP section of the TRM for more information on this setting.  The specified
++ * free queue must be valid within the Navigator Subsystem and must be owned
++ * by the host, or a subordinate of the host, requesting allocation and
++ * configuration of the receive flow.
++ *
++ * @rx_fdq2_qnum:
++ * UDMAP receive flow free descriptor queue 2 configuration to be programmed
++ * into the rx_fdq2_qnum field of the flow's RFLOW_RFE register.  See the
++ * UDMAP section of the TRM for more information on this setting.  The specified
++ * free queue must be valid within the Navigator Subsystem and must be owned
++ * by the host, or a subordinate of the host, requesting allocation and
++ * configuration of the receive flow.
++ *
++ * @rx_fdq3_qnum:
++ * UDMAP receive flow free descriptor queue 3 configuration to be programmed
++ * into the rx_fdq3_qnum field of the flow's RFLOW_RFE register.  See the
++ * UDMAP section of the TRM for more information on this setting.  The specified
++ * free queue must be valid within the Navigator Subsystem and must be owned
++ * by the host, or a subordinate of the host, requesting allocation and
++ * configuration of the receive flow.
+  *
+- * Configures a Navigator Subsystem UDMAP receive flow's registers.
+- * See @tis_ci_msg_rm_udmap_flow_cfg_req
++ * @rx_ps_location:
++ * UDMAP receive flow PS words location configuration to be programmed into the
++ * rx_ps_location field of the flow's RFLOW_RFA register.
+  */
+ struct ti_sci_msg_rm_udmap_flow_cfg {
+ 	u32 valid_params;
+@@ -516,7 +863,7 @@ struct ti_sci_msg_rm_udmap_flow_cfg {
+  * struct ti_sci_rm_udmap_ops - UDMA Management operations
+  * @tx_ch_cfg: configure SoC Navigator Subsystem UDMA transmit channel.
+  * @rx_ch_cfg: configure SoC Navigator Subsystem UDMA receive channel.
+- * @rx_flow_cfg1: configure SoC Navigator Subsystem UDMA receive flow.
++ * @rx_flow_cfg: configure SoC Navigator Subsystem UDMA receive flow.
+  */
+ struct ti_sci_rm_udmap_ops {
+ 	int (*tx_ch_cfg)(const struct ti_sci_handle *handle,
+@@ -558,10 +905,15 @@ struct ti_sci_proc_ops {
+ 
+ /**
+  * struct ti_sci_ops - Function support for TI SCI
++ * @core_ops:	SoC core operations
+  * @dev_ops:	Device specific operations
+  * @clk_ops:	Clock specific operations
++ * @pm_ops:	Low Power Mode (LPM) control operations
+  * @rm_core_ops:	Resource management core operations.
+  * @rm_irq_ops:		IRQ management specific operations
++ * @rm_ring_ops:	Ring Accelerator Management operations
++ * @rm_psil_ops:	PSI-L thread operations
++ * @rm_udmap_ops:	UDMA Management operations
+  * @proc_ops:	Processor Control specific operations
+  */
+ struct ti_sci_ops {
 -- 
-2.51.0
+2.34.1
 
 
