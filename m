@@ -4,166 +4,80 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 990F7CA5FC5
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 30 Sep 2026 19:19:38 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 79108CA5FC5
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 30 Sep 2026 19:28:27 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=eqDP8NaQnXTdNW1L3v4DkPlzRMhAfQCEHjcalZOQWeA=; b=OAgkvaQ8VZg4E+uiVHQps0TRkH
-	NH2KkUIRdgTXuDKJnHYZ8RAmP/ZvwEohwlXj7ehfXmeYI6wWGeQZr8GHr0KhCMHK+MmiCgWbLr4E5
-	zEUEM00lLADGvSFgRvwdIpA6vG1C4sj36yNz6CzghJhOLJpQVDRG3dR9CodsKUdunHagDDFtUh1D6
-	g3eRT0+fap257/HIQbQsu0ETGCWDBsD1Ayh2Cyop67oWH57L68HYo4RjvafKeQV26X9Bjm7qz9OrT
-	JTefLyHnsa67ZaXqDtCjgu4V/jLhOD03P/C/bv8ZUwAEHYRxhqMzae0QG5TWbjlJ0xPVLqfSiJOLX
-	Br/Z8r1g==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
+	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:Message-Id:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:From:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=DzbQDwi9RbZoob0zYWFQ5/ASNBPHf1VoGppigp5aNlM=; b=zcfIYvgOTCDWFPnXbi/hWyy0oq
+	SnBu/ExyCpXnGA2rt5JRPAQazOyhgPog2pe61mJrey+iDSdovpm7rMxmg0dNP7uOpBgiLHA3DUOq+
+	y4mwYPBOA/BtB0gvCM5Rwr29hqRG8hrcevGhbYAOEafYRIPm7zGH8V5VrX9K6LcbcnqnwcrKEuAJv
+	3r8HnU051YB4Hfd1i7iE2WEJKrgC+wWbUVJVfnOvGB0F6J0Tjhnvyhrr+OnmCNtF3P7EYpOcUiy6/
+	EZqiYCHE5+FO+iz02V19R6fwwVTFHiNvRALr2JKFMUb15S/KAGPos4ByfwqtrLs+x9QQJmqsNiCa8
+	vpIDORZA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xBzpz-0000000745J-31TX;
-	Wed, 30 Sep 2026 19:19:31 +0000
-Received: from mx0a-0002e601.pphosted.com ([148.163.150.75])
+	id 1xBzyU-000000074Zn-2iOJ;
+	Wed, 30 Sep 2026 19:28:18 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xBzpw-0000000744T-1j3F
+	id 1xBzyT-000000074Zd-18Z5
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 30 Sep 2026 19:19:30 +0000
-Received: from pps.filterd (m0384305.ppops.net [127.0.0.1])
-	by m0384305.ppops.net (8.18.1.11/8.18.1.11) with ESMTP id 68UHewEM104565;
-	Wed, 30 Sep 2026 14:19:25 -0500
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com; h=cc
-	:content-transfer-encoding:content-type:date:from:in-reply-to
-	:message-id:mime-version:references:subject:to; s=
-	proofpoint-05-2026; bh=eqDP8NaQnXTdNW1L3v4DkPlzRMhAfQCEHjcalZOQW
-	eA=; b=bZ67gmdWomTX1DTDS48grnWGruRpjL/rOlPd/NURNhTfIEhlClImAfiVA
-	ITTzdOoSdZZw/apuEd8Xt95YXg3LZOhqhPIwCsRCBXtpMMuxtbFWPqeRurplN31J
-	gidpJV5/AzTKQeACugXpoqvvowv2QC3y5G4BPZX1zl8P36wUb9UDv8AcC80wQEKz
-	Ov0tJf4JrH88VSAFvnrLUZ2zQtPEUkwAYoMctObxAwkB+EPEFsK6QtuKHkZFgbgV
-	RBCIwM0RsnbUVCInrhQKD/B2OEwNBsASQBHjc22F7Z6C5zJURGeZQ4IaA1zeR0Ot
-	m6LjuF0hIgrJDUPwuBfv/uY1U2vkQ==
-Received: from co1pr03cu002.outbound.protection.outlook.com (mail-westus2azon11010057.outbound.protection.outlook.com [52.101.46.57])
-	by m0384305.ppops.net (PPS) with ESMTPS id 4h10s23133-1
-	(version=TLSv1.3 cipher=TLS_AES_256_GCM_SHA384 bits=256 verify=NOT);
-	Wed, 30 Sep 2026 14:19:24 -0500 (CDT)
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=PO45J/SfVdnExyc01mzobdU1n5JmqEgfnrqvR3sV0JS9QkLrmwKwSfKnfdSAyt+KyZu0BkNFm7BruCfCuRQ4xaxW0qnQy6VMidi00hPEh0PqeHx/zsezWHCWTW1oKVJm++QaJ9CHy7oqe491stClT0m+Dp5RNEerfyojb4U4GhGbYuNa1fGEsC/JSEZu3DyIOHZQ/gy7rhLJkrqqt/LW2bDoNrxmXLwZ1HJCGSgcXbpPzwQ3ywKvom7oOc1/fLFpQBT/jzQdsEf+7IU2QRH1ssXW/Q2zSMGfAIyn2l4hVhHG3chIQB7iyNJNUHs9HMJWdI7YPM89Nv4twXIe51VXeQ==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=eqDP8NaQnXTdNW1L3v4DkPlzRMhAfQCEHjcalZOQWeA=;
- b=oXHVBftvLFwdsmMYw3NyyHJxUUUaancYX7Czu3pyPywciUeWtfkwGFJvCxHbafbxIWS4NWG7JGMnBscJGsm7wpDE31Cjxodg4bk1cx9VB1IgxpYJNwO8o4MT49MFk0CF2X6+19nvTdZxk64a5pgzTIKiVtqMAn0Xpmjha7fcqnN8KDQtBMoDHJlN6fI9luxxoMKSUGs9FonjZNsp1845WRuvtrUT993P3OUpXdTAk5WxMGxEXuOrFX3fd/vcX+L58YsRAPCY0XeOhNVj+OgIdWoZIh7uffdTbXZ1mYI76vtgX6ZMsPIIa9RK2yMWXmZ2fAa/v1hkZAlzDmDGxLO99Q==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
- 198.47.23.195) smtp.rcpttodomain=vger.kernel.org smtp.mailfrom=ti.com;
- dmarc=pass (p=quarantine sp=none pct=100) action=none header.from=ti.com;
- dkim=none (message not signed); arc=none (0)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=ticloud.onmicrosoft.com; s=selector1-ticloud-onmicrosoft-com;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=eqDP8NaQnXTdNW1L3v4DkPlzRMhAfQCEHjcalZOQWeA=;
- b=SLcT/0ds70gzG9Y65HKkzWPQUB3Y68ohjUi6niALP5H2ySI0MJJeZwnHyFRBZhSKSy8spAvz0b60+2tnxDWx6wfcr7myZBXtujuEF/nCpUpLcQ9rBvZPbfieWEYvsTWac4jjWF7J1kqZkUMCOU/Htl9j157ZaDdgqMU7a/faLec=
-Received: from CH5P222CA0007.NAMP222.PROD.OUTLOOK.COM (2603:10b6:610:1ee::19)
- by SJ2PR10MB6989.namprd10.prod.outlook.com (2603:10b6:a03:4cf::5) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.472.14; Wed, 30 Sep
- 2026 19:19:21 +0000
-Received: from CH2PEPF0000013E.namprd02.prod.outlook.com
- (2603:10b6:610:1ee:cafe::33) by CH5P222CA0007.outlook.office365.com
- (2603:10b6:610:1ee::19) with Microsoft SMTP Server (version=TLS1_3,
- cipher=TLS_AES_256_GCM_SHA384) id 15.21.472.16 via Frontend Transport; Wed,
- 30 Sep 2026 19:19:20 +0000
-X-MS-Exchange-Authentication-Results: mx.microsoft.com 1; spf=pass (sender IP
- is 198.47.23.195) smtp.mailfrom=ti.com; dkim=none (message not signed)
- header.d=none;dmarc=pass action=none header.from=ti.com;
-Received-SPF: Pass (protection.outlook.com: domain of ti.com designates
- 198.47.23.195 as permitted sender) receiver=protection.outlook.com;
- client-ip=198.47.23.195; helo=lewvzet201.ext.ti.com; pr=C
-Received: from lewvzet201.ext.ti.com (198.47.23.195) by
- CH2PEPF0000013E.mail.protection.outlook.com (10.167.244.70) with Microsoft
- SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.21.472.14 via Frontend Transport; Wed, 30 Sep 2026 19:19:20 +0000
-Received: from DLEE204.ent.ti.com (157.170.170.84) by lewvzet201.ext.ti.com
- (10.4.14.104) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.45; Wed, 30 Sep
- 2026 14:19:15 -0500
-Received: from DLEE212.ent.ti.com (157.170.170.114) by DLEE204.ent.ti.com
- (157.170.170.84) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.45; Wed, 30 Sep
- 2026 14:19:15 -0500
-Received: from lelvem-mr06.itg.ti.com (10.180.75.8) by DLEE212.ent.ti.com
- (157.170.170.114) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.45 via Frontend
- Transport; Wed, 30 Sep 2026 14:19:15 -0500
-Received: from [10.249.33.42] ([10.249.33.42])
-	by lelvem-mr06.itg.ti.com (8.18.1/8.18.1) with ESMTP id 68UJJE3V3706461;
-	Wed, 30 Sep 2026 14:19:14 -0500
-Message-ID: <99ed72fd-bda7-42db-a974-42f01324563f@ti.com>
-Date: Wed, 30 Sep 2026 14:19:14 -0500
+	Wed, 30 Sep 2026 19:28:17 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id 61A2F601EF;
+	Wed, 30 Sep 2026 19:28:16 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPS id 0E16AC4AF0B;
+	Wed, 30 Sep 2026 19:28:16 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1790796496;
+	bh=TaTFv31TFr0nH5ITR1YGC5q118oXyreNuRrfQm31xwM=;
+	h=From:Date:Subject:To:Cc:Reply-To:From;
+	b=LeW3ygNbY+duylUfcQanrxY2IJvmixBqTIMWEwRYLZSSb8IcimOt6tEoRp+sKE260
+	 UTxtWxO8lGavYhIEz4Bp8XzcZnmAQJPpsKE+/Yi5QeH0VcyjsUAvfOmpVroMnkn1RA
+	 TH1eYkKR39fEbFMQ+V0OsaIECOL8qF4gkfy0UJhNndkmpA8CQoXAQkeLM4+ncVbK1P
+	 fvrU9ZW+MbzoW+U1dgrkz/lWHyV3fops2GhukVcXIe3HROwEilVHquCQxxjCS25TnF
+	 y5bZTbpKedWtoLUb4DmuzDb60rXh6qjqPLzEF/QN8TBdi1NJ5XByepcHmm+qMN58MD
+	 w+gau6r9MrjsA==
+Received: from aws-us-west-2-korg-lkml-1.web.codeaurora.org (localhost.localdomain [127.0.0.1])
+	by smtp.lore.kernel.org (Postfix) with ESMTP id EEE94CA5FC1;
+	Wed, 30 Sep 2026 19:28:15 +0000 (UTC)
+From: Igor Velkov via B4 Relay <devnull+iav.iav.lv@kernel.org>
+Date: Wed, 30 Sep 2026 19:28:13 +0000
+Subject: [PATCH net-next] net: stmmac: mask the MAC interrupt while resume
+ resets the MAC
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH] clk: keystone: sci-clk: Handle missing get_num_parents
- operation
-To: Beleswar Padhi <b-padhi@ti.com>, <nm@ti.com>, <kristo@kernel.org>,
-        <ssantosh@kernel.org>, <sboyd@kernel.org>, <bmasney+clk@redhat.com>,
-        <jbrunet+clk@baylibre.com>
-CC: <linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>,
-        <linux-clk@vger.kernel.org>, <u-kumar1@ti.com>, <vigneshr@ti.com>
-References: <20260930190348.11720-1-b-padhi@ti.com>
-Content-Language: en-US
-From: Andrew Davis <afd@ti.com>
-In-Reply-To: <20260930190348.11720-1-b-padhi@ti.com>
-Content-Type: text/plain; charset="UTF-8"; format=flowed
+Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-X-EOPAttributedMessage: 0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: CH2PEPF0000013E:EE_|SJ2PR10MB6989:EE_
-X-MS-Office365-Filtering-Correlation-Id: 754bd00c-7e42-4001-4213-08df1f27bac5
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|82310400026|376014|1800799024|23010399003|36860700016|22082099003|18002099003|13003099007|6133799003|10067099003|5023799004|56012099006;
-X-Microsoft-Antispam-Message-Info: KXrBAvlmpmtmo/4672CAHvnAWA93uB25GPXCZXHPsBfaDEmiZKgABDdwWz9vTsdO759s3/M+GThv0NUE7vHUpsMs15YWHbej1XbaDMGKz/JDYnMfZKJGC8pJxkkZQwWRzMbrIlfMSk9E2vEQqFjl1wPtxxYDM0zAGYLDbZdM/iRw2dXobYGN7rpC53xc3TWuaCXoW7j0aWKDJ5oPzb5CqseTzvaNGGAf//B44jYRNGnDUNs0qqEcOFsxzrpBU3A9JwPSGFDq5LdBbLj5RTPPmO8SQVg4YavRhYPKUHivYrZO2Tt99IegPAS/NSWfQL+VvJgV+BrOnlIin34+y00PNKndosGAmFQRgrgRlhgLrTeedpfakv5RasyLboHX2QI9IZiNj1ayMBn0/VViqCML5E8ZEga3MyHhFxvn3stDE5hAfcgBmnMGzzC2Of4Et+VKLl9nu43cDZxhfa9mSJlOGcwzbC4Xec05RfGtGxiFA3dqyUwRzbHROIMPnLWnuP+N0wdrq88vJKC2C5ac3WzaGnk9Qiy7wmh7d+1OKyyj+EP8AXGs3iNjGFERK0hmN8EO1eFgrHWrnTP9p9mtxuR0yiVAXR2Hq76hHq2K/jtG9YY4nmNlDzezBQpa7hwGWJycldwCsRksbKTOe5EVskQ9zpLFxUHuIp8mGT6k9jYTzzVdVtHd3ze+OS8gFidMFQPXjcmmRjRYrFsqTBfGLcYQ0A==
-X-Forefront-Antispam-Report: CIP:198.47.23.195;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:lewvzet201.ext.ti.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(82310400026)(376014)(1800799024)(23010399003)(36860700016)(22082099003)(18002099003)(13003099007)(6133799003)(10067099003)(5023799004)(56012099006);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: ZtF56hzk2bVJSL1YNe5xjzR/e1eLsssc3V/+nPKPke+yktkoCPNCNSnwWEyqcvr4buc72yp3vfdlRzU9lnTW7fxwGthYzj3daB9mwumr3XS1IbRkQWhX7iqvlm3DWGADsBtvxMLuZso2DN1ESixF9saZm/eXCBPBMxS1NHcAxwuJaTSSyepDjL13Q0MeAgv/mbKflaaDp1a9ZNmJUL6/U/G58//bHvHD3KYHi3F1GdnugnL2VninId9Lm4Q+A1uNdlyYApXfNATCcr39fznWRhi1vltGzwe7YK/vqkO/TwnDJatuFlvlHC/jUoWXlO123qnjv6TU7gzeFUKAmpE/Iwr0My1AU6Kvu5J4ZTKxiR3nF9sPupZPx0JVPs00elw/fhXBKHgsmqzRhKUwSl1uk3WWWtBSkkDT86CkgViG3m8Khc96W8XxIDX7jYKUfL/T
-X-Exchange-RoutingPolicyChecked: K40+WM5MwAa0tA1Hn+4I9QNptj8ZKOsl4xrdymCB35i2o4VoVpfy9i7sUtzTLO25pzJlGNH36OBSRRnD04kPV6Bl5BMmZ/l+IhS0Zs6SdzcEZxxuC+gjLg8aj79u96+07jeRHBCx8YrFlD19vRyBhHTc/sO7xhFMbZp6fxO7wSGbjbtHn831E/J5T87y/zpZ5IDXGJPUzmEQGbrxfq24TyP1TyS1XUlY+aGnTg2/UKkVC/C6HmQ41UVWh13X7/B5QgOsbQhNy1JH9aLKGREhjSCHis2rqD/eIAXQ5GpELpFfTCncOQg54D5mndEBP7hsmMfGVAudn5GlDv9yLNqlwg==
-X-OriginatorOrg: ti.com
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 30 Sep 2026 19:19:20.6638
- (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: 754bd00c-7e42-4001-4213-08df1f27bac5
-X-MS-Exchange-CrossTenant-Id: e5b49634-450b-4709-8abb-1e2b19b982b7
-X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=e5b49634-450b-4709-8abb-1e2b19b982b7;Ip=[198.47.23.195];Helo=[lewvzet201.ext.ti.com]
-X-MS-Exchange-CrossTenant-AuthSource: CH2PEPF0000013E.namprd02.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Anonymous
-X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: SJ2PR10MB6989
-X-Proofpoint-GUID: VZaBuAfgxYkX2Dx_QGmSeOrTXTnVqonV
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwOTMwMDA3OCBTYWx0ZWRfX+xM3JX2EkGdP
- zF18e0lmrshwvCiQfSbYqTrfM1KGTwUPJGa1cekexQLAcdRP8/uQ77KECM75cC+t09WNo4XK+7a
- Up51r+7cykk+xbkFauG0Af7rxl0sk+Vdpb9UmbUIo3GdayBVsPK4D5SgBMq9IZULcPgrVQfWpM/
- 0eozUT0RAilEZ+oM5ek5xuoUM+tIGjBpUDe+4144/QxrWXdRfY5886gofAuSzfnKn4yPjjfiALi
- QRUrY/zY40OocxOz7zxtFpERUtwkWr6ZDnImhifrdCZvvJfdXIITO3xlcQPxFOKNKMycK7A/VLx
- buSGDxfPZRe2s9hPhpfLkYckswMBzzhq6f7X1GZ20CzUbzq/fbieXTQZIRrwwkgAmhCXC1Wf5eO
- JmvHk6C41rKo9BhD8mp3lUrBI67LkX4x/8vdJ22dx5GBUcYR8g+7EIefXu4hpq/B3Q2pMF1Cc+q
- wZmNtfcDxfc4/C8Symw==
-X-Proofpoint-ORIG-GUID: VZaBuAfgxYkX2Dx_QGmSeOrTXTnVqonV
-X-Authority-Analysis: v=2.4 cv=G6aJgNk5 c=1 sm=1 tr=0 ts=6abd60bc cx=c_pps
- a=GxUr472PnxEa6H6od3s2nA==:117 a=f+v6EHfkeJbVwR46tk4DMg==:17
- a=6eWqkTHjU83fiwn7nKZWdM+Sl24=:19 a=IkcTkHD0fZMA:10 a=VdqzKS8jKosA:10
- a=s63m1ICgrNkA:10 a=AlMIdn_sM9wA:10 a=VkNPw1HP01LnGYTKEx00:22
- a=Z8NIEmU8O1QQgoT56wFK:22 a=taLDd7a_hP9WKsMzeGRc:22 a=NEAV23lmAAAA:8
- a=sozttTNsAAAA:8 a=-1wFsR_Ux2lMD7Y6Gz0A:9 a=QEXdDO2ut3YA:10
-X-Proofpoint-Spam-Info: AW1haW4tMjYwOTMwMDA3OCBTYWx0ZWRfXyBAkTaZ1syjY
- k32nFpKoi+VWE4cmAzQY+eGhbPQsvaKVVRVnhzCadE4RNEbE3B8rH0rTQ7SpQ3jU3+kOj3lQ8W9
- W84a1Z7iC/lXwaLPQPfIFuTfSv8mVkA=
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1176,Hydra:6.1.134,FMLib:17.12.100.49
- definitions=2026-09-30_04,2026-09-21_02,2025-10-01_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- clxscore=1011 adultscore=0 bulkscore=0 priorityscore=1501 impostorscore=0
- malwarescore=0 phishscore=0 lowpriorityscore=0 suspectscore=0 spamscore=0
- classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
- reason=mlx scancount=1 engine=8.22.0-2609040000 definitions=main-2609300078
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260930_121928_474042_D18DEC2C 
-X-CRM114-Status: GOOD (  29.29  )
+Message-Id: <20260930-stmmac-irq-shut-v1-1-104d1a1dcb28@iav.lv>
+X-B4-Tracking: v=1; b=H4sIAMxivWoC/x3MQQqEMAxA0atI1gYyFkf0KuKirXHMwjo2VQTx7
+ haXb/H/BcpRWKErLoh8iMoaMj5lAX624ccoYzZUVH2pNYSalsV6lLihzntCMs76urFMzkGu/pE
+ nOd9jD4ETBj4TDPf9AOnjI59rAAAA
+To: Maxime Chevallier <maxime.chevallier@bootlin.com>, 
+ Andrew Lunn <andrew+netdev@lunn.ch>, 
+ "David S. Miller" <davem@davemloft.net>, Eric Dumazet <edumazet@google.com>, 
+ Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>
+Cc: Russell King <linux@armlinux.org.uk>, 
+ Maxime Coquelin <mcoquelin.stm32@gmail.com>, 
+ Alexandre Torgue <alexandre.torgue@foss.st.com>, netdev@vger.kernel.org, 
+ linux-stm32@st-md-mailman.stormreply.com, 
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
+ Igor Velkov <iav@iav.lv>
+X-Mailer: b4 0.13.0
+X-Developer-Signature: v=1; a=openpgp-sha256; l=3397; i=iav@iav.lv;
+ h=from:subject:message-id;
+ bh=SA1F6OtzfhBrFw1324lwOQ8HhPxeVaEiK1QpSXhngao=;
+ b=owGbwMvMwCVmNH1q96v4SmbG02pJDFl7k849vZl5NLE0Q+mFXo3h9+WRRaGN8nOlfxrqrdCtm
+ PWyXMWvo5SFQYyLQVZMkWXCIY1bGUuu/vX3MH8AM4eVCWQIAxenAExEVYHhr7xEkcHDOV/viFfM
+ Pmo8dWlLooxw7szz+rNWp/QKHHEIjmBkeKsQ3GyfbRS3zyvFst5+suVGnrP/Dk+81JzKppkzf1U
+ zHwA=
+X-Developer-Key: i=iav@iav.lv; a=openpgp;
+ fpr=90C228DA68A4D5FD4F4837E03297958BEA5F7903
+X-Endpoint-Received: by B4 Relay for iav@iav.lv/default with auth_id=1060
+X-Original-From: Igor Velkov <iav@iav.lv>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -175,88 +89,117 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
+Reply-To: iav@iav.lv
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 9/30/26 2:03 PM, Beleswar Padhi wrote:
-> The sci-clk driver unconditionally calls the get_num_parents TI-SCI
-> operation while scanning clocks, both from DT and from firmware. This
-> works for all cases today, but with future support for some System
-> Controllers (e.g. PDM on TDA54), this may not be always right.
-> 
-> The PDM system controller on TI TDA54 SoC manages clock parents
-> internally and does not support the clock parent related ops. Therefore,
-> when scanning clocks from DT, treat the clock as having a single parent
-> if get_num_parents is not provided. Such a clock is registered without
-> parents, so the get_parent and set_parent operations are never invoked
-> for it.
-> 
-> Scanning clocks from firmware relies on get_num_parents to discover the
-> valid clock IDs, so return -EOPNOTSUPP in that case instead.
-> 
-> Signed-off-by: Beleswar Padhi <b-padhi@ti.com>
-> ---
-> Testing Done:
->   - Boot test on all keystone and K3 platforms.
->   - Verified that the patch does not result in any warnings or errors
-> 
-> Logs:
-> https://gist.github.com/3V3RYONE/d821cea46f5dc1e70a759c97878fa487
-> 
-> Note:
-> This patch is independent and can be applied directly.
-> 
->   drivers/clk/keystone/sci-clk.c | 23 +++++++++++++++++++----
->   1 file changed, 19 insertions(+), 4 deletions(-)
-> 
-> diff --git a/drivers/clk/keystone/sci-clk.c b/drivers/clk/keystone/sci-clk.c
-> index 9d2094bd48e3b..5bf615893a8c0 100644
-> --- a/drivers/clk/keystone/sci-clk.c
-> +++ b/drivers/clk/keystone/sci-clk.c
-> @@ -468,6 +468,13 @@ static int ti_sci_scan_clocks_from_fw(struct sci_clk_provider *provider)
->   	int gap_size = 0;
->   	struct device *dev = provider->dev;
->   
-> +	/*
-> +	 * Clocks are discovered by probing the firmware with get_num_parents,
-> +	 * which is not available with every system firmware (e.g. ABI5.0 PDM).
-> +	 */
-> +	if (!provider->ops->get_num_parents)
-> +		return -EOPNOTSUPP;
-> +
->   	while (1) {
->   		ret = provider->ops->get_num_parents(provider->sci, dev_id,
->   						     clk_id,
-> @@ -589,10 +596,18 @@ static int ti_sci_scan_clocks_from_dt(struct sci_clk_provider *provider)
->   				sci_clk->dev_id = args.args[0];
->   				sci_clk->clk_id = args.args[1];
->   				sci_clk->provider = provider;
-> -				provider->ops->get_num_parents(provider->sci,
-> -							       sci_clk->dev_id,
-> -							       sci_clk->clk_id,
-> -							       (void *)&sci_clk->num_parents);
-> +				/*
-> +				 * Firmware without get_num_parents (e.g. ABI5.0
-> +				 * PDM) manages clock parents internally, so
-> +				 * treat the clock as having a single parent.
-> +				 */
-> +				if (provider->ops->get_num_parents)
-> +					provider->ops->get_num_parents(provider->sci,
-> +								       sci_clk->dev_id,
-> +								       sci_clk->clk_id,
-> +								       &sci_clk->num_parents);
-> +				else
-> +					sci_clk->num_parents = 1;
+From: Igor Velkov <iav@iav.lv>
 
-Why 1 and not 0? Also, why not keep `get_num_parents` defined, but just have it
-return num_parents as 0? Haven't checked but if that works the same, but if it
-does then it saves us from having to make changes here and we can isolate
-firmware differences to only the firmware driver.
+stmmac_resume() resets the MAC in stmmac_hw_setup(). On dwmac1000 the
+reset clears the interrupt mask, and all core interrupts stay unmasked
+until dwmac1000_core_init() writes it again. A link change in that
+window raises an RGMII interrupt, and no handler clears it since
+commit 2e2c878a3141 ("net: stmmac: remove SGMII/RGMII/SMII interrupt handling").
+The line storms:
 
-Andrew
+  dwmac_dma_interrupt: unexpected status 04000000
 
->   				list_add_tail(&sci_clk->node, &clks);
->   
->   				num_clks++;
+The message repeats every few milliseconds and the network stays down
+until a power cycle or a watchdog reset. A register dump at the first
+message on ODROID-HC4 showed the pending link change with a zero mask:
+
+  core int_status 00000001 int_mask 00000000 pmt 00000000 rgsmiiis 0000000d
+
+Disable the interrupt line for the whole resume and enable it again on
+every exit path. The line is IRQF_SHARED, so leave it enabled during
+suspend, where another user of the line may wake the system.
+
+Wake-on-LAN resume on two boards:
+- ODROID-HC4 (dwmac-meson8b, 7.2): the storm on resume, none in 5
+  resumes with this patch.
+- Helios64 (dwmac-rk, 7.3-rc5): the storm in 2 of 3 resumes, none in
+  26 resumes with this patch.
+
+Assisted-by: LLM
+Signed-off-by: Igor Velkov <iav@iav.lv>
+---
+Ported to net-next, where stmmac_resume() gained error labels. Tested
+on hardware with 7.2 and 7.3-rc5; build-tested on net-next.
+---
+ drivers/net/ethernet/stmicro/stmmac/stmmac_main.c | 24 ++++++++++++++++++-----
+ 1 file changed, 19 insertions(+), 5 deletions(-)
+
+diff --git a/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c b/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
+index 3ad9252bf6ae..6e0415538327 100644
+--- a/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
++++ b/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
+@@ -8356,16 +8356,26 @@ int stmmac_resume(struct device *dev)
+ {
+ 	struct net_device *ndev = dev_get_drvdata(dev);
+ 	struct stmmac_priv *priv = netdev_priv(ndev);
++	bool irq_off;
+ 	int ret;
+ 
++	/* Resume resets the MAC, leaving every core interrupt unmasked until
++	 * the mask is written again: a link change in that window would storm.
++	 */
++	irq_off = netif_running(ndev);
++	if (irq_off)
++		disable_irq(ndev->irq);
++
+ 	if (priv->plat->resume) {
+ 		ret = priv->plat->resume(dev, priv->plat->bsp_priv);
+ 		if (ret)
+-			return ret;
++			goto out;
+ 	}
+ 
+-	if (!netif_running(ndev))
+-		return 0;
++	if (!netif_running(ndev)) {
++		ret = 0;
++		goto out;
++	}
+ 
+ 	/* Power Down bit, into the PM register, is cleared
+ 	 * automatically as soon as a magic packet or a Wake-up frame
+@@ -8388,7 +8398,7 @@ int stmmac_resume(struct device *dev)
+ 	if (!(priv->plat->flags & STMMAC_FLAG_SERDES_UP_AFTER_PHY_LINKUP)) {
+ 		ret = stmmac_legacy_serdes_power_up(priv);
+ 		if (ret < 0)
+-			return ret;
++			goto out;
+ 	}
+ 
+ 	rtnl_lock();
+@@ -8442,7 +8452,8 @@ int stmmac_resume(struct device *dev)
+ 
+ 	netif_device_attach(ndev);
+ 
+-	return 0;
++	ret = 0;
++	goto out;
+ 
+ error_stop_dma:
+ 	stmmac_stop_all_dma(priv);
+@@ -8451,6 +8462,9 @@ int stmmac_resume(struct device *dev)
+ 	stmmac_legacy_serdes_power_down(priv);
+ 	mutex_unlock(&priv->lock);
+ 	rtnl_unlock();
++out:
++	if (irq_off)
++		enable_irq(ndev->irq);
+ 
+ 	return ret;
+ }
+
+---
+base-commit: 47a1446725732cd3996edf607e8739334bbf4d78
+change-id: 20260930-stmmac-irq-shut-03bac57ae0bb
+
+Best regards,
+-- 
+Igor Velkov <iav@iav.lv>
+
 
 
