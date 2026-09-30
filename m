@@ -4,70 +4,76 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9D084CA5FAC
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 30 Sep 2026 11:39:08 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 99BF0CA5FB1
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 30 Sep 2026 11:42:30 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=KDdjvcTpRsLD90jC1uVj/aDQQjGujDFuQojU2aIvCEc=; b=iTGvf8Yn/70S9f/0r/+Oco121M
-	7iWEtcWpeiwkcVs0GQnsaBnOBJ4GJEpJ7WwDGh4Pdjbx6AElIQGmSpC+kDMcW+SPMrc0sYRq/X/Xa
-	cFGa8XT7lXlVniZ+ywScLJEJP9AhyPGLGkzU4tVV/1Wjlns7wmir4YT2gcWD2IF6ltxLDf+ZXVFzn
-	biLnQ6gTfNaRo2XlwS68QwM6wUjw5I7ufaHMAtxStgJN60Q5kskHMweYPm43N40Kw2k/HlenH+WLG
-	asbEDCro/o/phqZVFdZwQqVfOwp5P11ze9DdAVEcIeIfTHYkfq5F54I2ttLTV8beVlQLCq5O9Gixk
-	FlstelwA==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
+	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:
+	References:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:
+	Subject:Date:From:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=vVxRNDo1IMK0Bqg7/rvkhr4xozZfX/hYR9RlF98THk8=; b=dbXFo2gfEj6gl0VHVXhuqP+2fT
+	SBdi5HEfS6iCSPJcrAQzTLT9TJVqA/d9Lw6YLOSOSJC7YmEgPvN52NVqxUKoH6mxi2eszVV4Mw5iJ
+	SXqjHxhYib3QvjCPseueyCI1jaeGgY9BB/UZxc3gUn7YPjhFiOEyzptaeYv2x29yIhC/A/yMczvKV
+	qLOnGtHUbXKv1XZ305hUmkS61PwGc17SjdSHQqjNwvdqDDUkltWt4XXshp/pSUAho8To0YvHpZORm
+	hVG6ORsHJ8xJT5uujlOhJylcNt5rsXfHrbXXSg9kCR1Tnr4aOpmcnysTlxJkEgA7gSY580KTgZX+S
+	/EC+AyKQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xBseM-00000005tm4-1vT2;
-	Wed, 30 Sep 2026 11:39:02 +0000
-Received: from mailgw.kylinos.cn ([124.126.103.232])
+	id 1xBrKp-00000005hBu-2h9n;
+	Wed, 30 Sep 2026 10:14:47 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xBseJ-00000005tkw-0foP
-	for linux-arm-kernel@lists.infradead.org;
-	Wed, 30 Sep 2026 11:39:00 +0000
-X-UUID: 839f7742bcc311f19a56ed5b684f684d-20260930
-X-CID-P-RULE: Release_Ham
-X-CID-O-INFO: VERSION:1.3.19,REQID:280b0e8d-6cfc-47f6-afc8-4b5b180206af,IP:0,U
-	RL:0,TC:0,Content:-25,EDM:0,RT:0,SF:0,FILE:0,BULK:0,RULE:Release_Ham,ACTIO
-	N:release,TS:-25
-X-CID-META: VersionHash:7db8b62,CLOUDID:c46ceab0234235c5706ee733755f32d0,BulkI
-	D:nil,BulkQuantity:0,SF:102|123|850|865|898,TC:nil,Content:0|15|50|99,EDM:
-	-3,IP:nil,URL:0,File:nil,RT:nil,Bulk:nil,QS:nil,BEC:nil,COL:0,OSI:0,OSA:0,
-	AV:0,LES:1,SPR:NO,DKR:0,DKP:0,BRR:0,BRE:0,ARC:0
-X-CID-BVR: 2,SSN|SDN
-X-CID-BAS: 2,SSN|SDN,0,_
-X-CID-FACTOR: TF_CID_SPAM_SNR
-X-CID-RHF: D41D8CD98F00B204E9800998ECF8427E
-X-UUID: 839f7742bcc311f19a56ed5b684f684d-20260930
-X-User: fengchenguang@kylinos.cn
-Received: from localhost.localdomain [(10.44.16.150)] by mailgw.kylinos.cn
-	(envelope-from <fengchenguang@kylinos.cn>)
-	(Generic MTA with TLSv1.3 TLS_AES_256_GCM_SHA384 256/256)
-	with ESMTP id 126679322; Wed, 30 Sep 2026 19:38:53 +0800
-From: fengchenguang@kylinos.cn
-To: s.nawrocki@samsung.com,
-	mchehab@kernel.org
-Cc: krzk@kernel.org,
-	peter.griffin@linaro.org,
-	alim.akhtar@samsung.com,
-	linux-media@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-samsung-soc@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	Chenguang Feng <fengchenguang@kylinos.cn>,
-	stable@vger.kernel.org
-Subject: [PATCH] media: exynos4-is: Fix runtime PM usage counter leak in fimc-isp
-Date: Wed, 30 Sep 2026 19:38:49 +0800
-Message-Id: <20260930113849.278562-1-fengchenguang@kylinos.cn>
-X-Mailer: git-send-email 2.25.1
+	id 1xBrKo-00000005hB9-3KCX;
+	Wed, 30 Sep 2026 10:14:46 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id 8B25743F1E;
+	Wed, 30 Sep 2026 10:14:46 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPS id 6A306C4AF48;
+	Wed, 30 Sep 2026 10:14:46 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1790763286;
+	bh=Be0+OCNIl6c1x8Jwv+CoKPfEQ8WLlBBw5ctmf3yZWlk=;
+	h=From:Date:Subject:References:In-Reply-To:To:Cc:Reply-To:From;
+	b=b5qrffn2EMyCt73uq2hao7cUhJER8zSy/QzDpulJk/gJckY+QIa9ZIV1BHTMi6DJc
+	 f0yN42S5WwMzNJLoL5AG+9c0fGiKXelyp/1NvRkfQWKZRmhCMq3+awtXdaiZThwcoJ
+	 xz+4LH7F4rE9N/oR9XKmjjZ55YLoWHAlDvDW8iTmuicoa9sQIzAw+uyR69VOhm6j3V
+	 S7mrl1KUF7VXbWHtUYMCpyPgsIc9LApy1BiKqxm5tvJcLwTrfJhHEEfCjHh9DwLyKu
+	 3Mmq2LSO0hW5JQdfm7thLzldFErF7E1u+aJc22YYwUvIiQG8gJ1GmHNSaVHdo+H3Ie
+	 XdwYJoKVgHOMg==
+Received: from aws-us-west-2-korg-lkml-1.web.codeaurora.org (localhost.localdomain [127.0.0.1])
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 583DECA5FC6;
+	Wed, 30 Sep 2026 10:14:46 +0000 (UTC)
+From: Roman Vivchar via B4 Relay <devnull+rva333.protonmail.com@kernel.org>
+Date: Wed, 30 Sep 2026 13:14:30 +0300
+Subject: [PATCH v5 4/4] nvmem: mtk-efuse: add mt6572 support
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260930_043859_512634_DE22389B 
-X-CRM114-Status: UNSURE (   9.82  )
-X-CRM114-Notice: Please train this message.
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+Message-Id: <20260930-6572-nvmem-v5-4-384d2a3a1770@protonmail.com>
+References: <20260930-6572-nvmem-v5-0-384d2a3a1770@protonmail.com>
+In-Reply-To: <20260930-6572-nvmem-v5-0-384d2a3a1770@protonmail.com>
+To: Srinivas Kandagatla <srini@kernel.org>, Rob Herring <robh@kernel.org>, 
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, 
+ Matthias Brugger <matthias.bgg@gmail.com>, 
+ AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, 
+ Andrew-CT Chen <andrew-ct.chen@mediatek.com>, 
+ Lala Lin <lala.lin@mediatek.com>
+Cc: devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
+ linux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org, 
+ Roman Vivchar <rva333@protonmail.com>
+X-Mailer: b4 0.15.2
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1790763284; l=1186;
+ i=rva333@protonmail.com; s=20260510; h=from:subject:message-id;
+ bh=BLO02wNqFKS1dVneAe1BJFH56sutKZjWvs0KKjgRQ34=;
+ b=L0qyOqmqCZmDGJhG809E2bv0npQJLXGEFnqQ74W50W9pGBhzXn7ZOL7uwojtTCmXsBsT/jcd1
+ nCAjMxdZ4mOC7lpPhW/fhamdY5VorAYR/QoZHwHfoCdHwZ9S+sQWhGf
+X-Developer-Key: i=rva333@protonmail.com; a=ed25519;
+ pk=zww/nWjBGoQ4POXCG0BV6fx2iuXK6jx77rsKPA5YK5Y=
+X-Endpoint-Received: by B4 Relay for rva333@protonmail.com/20260510 with
+ auth_id=777
+X-Original-From: Roman Vivchar <rva333@protonmail.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -79,44 +85,46 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
+Reply-To: rva333@protonmail.com
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Chenguang Feng <fengchenguang@kylinos.cn>
+From: Roman Vivchar <rva333@protonmail.com>
 
-fimc_isp_subdev_s_power() increments the usage counter with
-pm_runtime_resume_and_get() and releases it if fimc_is_start_firmware()
-fails, but not when fimc_is_hw_initialize() fails further down: the
-function then returns with the counter still held, and the device can
-never runtime-suspend afterwards.
+Add a platform data struct for the efuse controller.
 
-Call pm_runtime_put() on the fimc_is_hw_initialize() error path as
-well, like the fimc_is_start_firmware() path already does.
-
-Fixes: 9a761e436843f ("[media] exynos4-is: Add Exynos4x12 FIMC-IS driver")
-Cc: stable@vger.kernel.org
-Signed-off-by: Chenguang Feng <fengchenguang@kylinos.cn>
+Signed-off-by: Roman Vivchar <rva333@protonmail.com>
 ---
- drivers/media/platform/samsung/exynos4-is/fimc-isp.c | 5 +++++
- 1 file changed, 5 insertions(+)
+ drivers/nvmem/mtk-efuse.c | 6 ++++++
+ 1 file changed, 6 insertions(+)
 
-diff --git a/drivers/media/platform/samsung/exynos4-is/fimc-isp.c b/drivers/media/platform/samsung/exynos4-is/fimc-isp.c
-index 896a1b0952ad..8d4efb552424 100644
---- a/drivers/media/platform/samsung/exynos4-is/fimc-isp.c
-+++ b/drivers/media/platform/samsung/exynos4-is/fimc-isp.c
-@@ -322,6 +322,11 @@ static int fimc_isp_subdev_s_power(struct v4l2_subdev *sd, int on)
- 		set_bit(IS_ST_PWR_SUBIP_ON, &is->state);
+diff --git a/drivers/nvmem/mtk-efuse.c b/drivers/nvmem/mtk-efuse.c
+index d2e5c69c580e..24d302a15528 100644
+--- a/drivers/nvmem/mtk-efuse.c
++++ b/drivers/nvmem/mtk-efuse.c
+@@ -150,6 +150,11 @@ static int mtk_efuse_probe(struct platform_device *pdev)
+ 	return 0;
+ }
  
- 		ret = fimc_is_hw_initialize(is);
-+		if (ret < 0) {
-+			v4l2_err(sd, "hardware initialization failed\n");
-+			pm_runtime_put(&is->pdev->dev);
-+			return ret;
-+		}
- 	} else {
- 		/* Close sensor */
- 		if (!test_bit(IS_ST_PWR_ON, &is->state)) {
++static const struct mtk_efuse_pdata mtk_mt6572_efuse_pdata = {
++	.uses_post_processing = true,
++	.needs_aligned_read = true,
++};
++
+ static const struct mtk_efuse_pdata mtk_mt8186_efuse_pdata = {
+ 	.uses_post_processing = true,
+ 	.needs_aligned_read = false,
+@@ -161,6 +166,7 @@ static const struct mtk_efuse_pdata mtk_efuse_pdata = {
+ };
+ 
+ static const struct of_device_id mtk_efuse_of_match[] = {
++	{ .compatible = "mediatek,mt6572-efuse", .data = &mtk_mt6572_efuse_pdata },
+ 	{ .compatible = "mediatek,mt8173-efuse", .data = &mtk_efuse_pdata },
+ 	{ .compatible = "mediatek,mt8186-efuse", .data = &mtk_mt8186_efuse_pdata },
+ 	{ .compatible = "mediatek,efuse", .data = &mtk_efuse_pdata },
+
 -- 
-2.25.1
+2.55.0
+
 
 
