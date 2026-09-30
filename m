@@ -4,112 +4,72 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0A9C7CA5FC5
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 30 Sep 2026 13:56:44 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BE8B3CA5FC7
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 30 Sep 2026 13:58:18 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=5SwTqNdqJfRK/IUxZeFy/sI9epuc4z6THWr/paPSz7A=; b=WzRyc/YWE6Zx7XZQ6QcB/5274h
-	dnp7+w+1KpcAllBTHRedEOiCuuq14iLxTh5dUPsVA8FinWDQl4PetLov2VnLGHSLvEP1vZe3Au4PA
-	NFIvbfxHjnPXy1XJR+jXWHXidGkNXjTHLfTwrPn8eyioXzMABYDO0zmFCW7KVzKsqdDfT4d2wt2Hw
-	bEiH7SCCm9tT7efTcMhx656z08fJCqW6LHKVF5Z8jCCn8DMwRizjZybvIIQECyaQ5/1TB1Ai6kpTx
-	eRTA5xCRidcOu+CBqvx7HmVpjoADBsxr5CttG2485bzGsrm7oz4pX6JhOM5VmUO9D8jyuTOF7v5z3
-	ss2HHQxA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:References:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
+	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:List-Owner;
+	bh=d5uhQBfMA9Bzna2lrXnXP49LmGR65Hwnuf+fvI59R6I=; b=LwPJA1h5iI65qGympxzpgQSyw6
+	n/taJ9M/nX51n2QYvQJbTeTTnruT1wPFnCgwhL3vH5rjg+Is31qutplKPxEV2XTwiTHZtboDgea9R
+	H9MQVsScxbLTu5C06rdp5Ju8QGa4LL9EiZWVABZovLgHQe+RkJr+m/sdbJKfQsXYw3gxC9Y39duJ7
+	FaQdI2VPsLo2Wm3Li1JoDmSo4uEh/N+IpOBHsBaim5CEyjC2ZYTOp1hAnQ8vgg/K6gr2k8Jeam/P/
+	v2PtngnMkVA1QXYdZZ1flxfFAhvpL2qQG1OfLxnNPM2jFpX1L1qmcunsFQBZyrPCRSDv2dwIdt3zX
+	uZa8wIHA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xBunL-00000006C3o-32iE;
-	Wed, 30 Sep 2026 13:56:27 +0000
-Received: from mail-ej2-x10.google.com ([2a00:1450:4864:34::10])
+	id 1xBuoy-00000006CmE-1BKl;
+	Wed, 30 Sep 2026 13:58:08 +0000
+Received: from mailout1.w1.samsung.com ([210.118.77.11])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xBunD-00000006C2A-3SII
+	id 1xBuom-00000006Cfe-3Ngp
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 30 Sep 2026 13:56:22 +0000
-Received: by mail-ej2-x10.google.com with SMTP id a640c23a62f3a-c2940ef15d3so708448966b.2
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 30 Sep 2026 06:56:19 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1790776578; cv=none;
-        d=google.com; s=arc-20260327;
-        b=qiEFoi4ezLN9Rt9z/e8mmdMKRI+AhYqfdCt8DeFke/NiG1aTfCQ0CkwnrdGPE1R4u1
-         +yRc/LvtiZ7ocGmWylFonzFioSCZb0sLP0nfIUEs5ozsMNgHdfqGuG3jqR9cX81gibrO
-         /FjTceooH2G73Qvs9WhJ6Dvhls6LeckL7VTqzzmBY+SDTjxOfFyzLqkEylu3U9yhtOxZ
-         McUqQmY5QEjZSBlR080JYwmhNHeqMr3BCDn/n/VgUwkoPkcKIe5enqnS/g++tF5b6im0
-         Yft4ya7N4Wf7V2QyLyOkn6V0aWW4ml9Gd7PqBFYJslgq9n0XPYd+PgR48U/gd6wlSVEo
-         5VTg==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:dkim-signature;
-        bh=5SwTqNdqJfRK/IUxZeFy/sI9epuc4z6THWr/paPSz7A=;
-        fh=NNZ6G0I1SeWRh1blNxQ2eSMgNAXaG9VVf6s+T9zrB+k=;
-        b=E5W/9yY5Pyld3wmnV+8SgCx1QTy5g8Qd+Feh6Mx+dqT6hRZmUBmP6DQJ/RNJnuRuGD
-         grT7W9jmMC8O8HgmUFM1DAnG3d2zvsf43Ozjss9tQ70u9xyDGC5/TZcOsV2Ysq+guMxV
-         ka1FbFE+8zYkcp8xzGPEn2tiSZ9iGljsfAtG2524MfbPVU0twNpZNiT07chCBA95BH+J
-         CLopaHFmNRE6T7pVXHLqZWlCZirIxYUEEqg6nymetQTkZEOkelYV72hy76EhKIJWaTSc
-         3GUyps3dDNoMRQNYXeCpNCGZY12fl/MzBjryOiFteNQgfFtRV3tUdQmpoIyGHefFP2Np
-         svNA==;
-        darn=lists.infradead.org
-ARC-Authentication-Results: i=1; mx.google.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=flipper.net; s=google; t=1790776578; x=1791381378; darn=lists.infradead.org;
-        h=content-transfer-encoding:content-type:cc:to:subject:message-id
-         :date:from:in-reply-to:references:mime-version:from:to:cc:subject
-         :date:message-id:reply-to:content-type;
-        bh=5SwTqNdqJfRK/IUxZeFy/sI9epuc4z6THWr/paPSz7A=;
-        b=CjUYf3ufMTH0YFi4Mn/05TtaQ4oQq1grKJjDHpW1HPnvL6RkUwU8A1Y5aSsUYisd9/
-         +lieUCSdUPmWxcCFdCbukXYDWvwePu9HovLaFuaERDQLug8t+ZBOF26PTo2htit8R68R
-         znZnlR2ls6VKumgJeT0xCXB4jpx6t/XtYEEjWgQ7ZOUbU17c+/E8UdICxbH8akW4uNwF
-         nb4uAvgMGH9TXw6FNTnWL9MEDu5FGS5Kh3oCi/Sm5GZxEZGbQJ/exPYe4krCeUJUixG7
-         S53gubEcfO1j9r13cZnG1f2OQ4C+Br1HRR0oIm2OiYFZIRp37CBiWIAahhCNHQXOFDfR
-         AFUQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1790776578; x=1791381378;
-        h=content-transfer-encoding:content-type:cc:to:subject:message-id
-         :date:from:in-reply-to:references:mime-version:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=5SwTqNdqJfRK/IUxZeFy/sI9epuc4z6THWr/paPSz7A=;
-        b=nbEPTh5t2rlrdAxLaeZp7oKCalnV0cXq39XplS1BfEW76xIubDq/24A0Ld3X6ricsL
-         qF/56sd2QrVpt9zqcOW4JnmAHmlXXtX3Oyo3DEQX8Wa9Ntiy5+/yZTv5BgDaxYPLx5Sa
-         K0E3BdNCEdbqRUIVtRCKJT7HaVY0WAIIgb4F449KmJFPrqF2FsVA3UTkKZPddQc2JlQw
-         WClVxGHnUtCmFjcrCgd08O9hFpVuy79PvDdXfZsetdoxvb4g5RIYFPge/QX0fjZnEihi
-         pFTWk4olPksUFo2Pxehq7XHEj87eW4+3gidUCQ/vfJ2ufhQJ2TaHUgidGTEZod9waSBS
-         xsVw==
-X-Forwarded-Encrypted: i=1; AKwUvBys+TjJYgZIQqA9tv6t7Ia7undJQ0ZJhrf7c639nA4JPlhaJtjX+lTJjmX5BBgcZLbrsZsQNEOXZk3YFIxHbHbC@lists.infradead.org
-X-Gm-Message-State: AFuF++lzddjvmEKoHc+G4G6xXx5mqKjlBDJnrmK2NxjhcEgeEoqLlSMO
-	qrVzwhI2HAZCaX5AYLa6j0pAmsw+j2t2wT1XVegVrYQvCyGXjhC86ZnI5mB1KZjBbK8Dgkp0ifq
-	TNGyiYPvMuHSMc897Qo8mZk2iMs5Qb9eMszBSDz302A==
-X-Gm-Gg: AYBFou11QR1TGe97NPEYwUCyhV4FgGQuA4FmG27iNC9ldoixz0tRtiI63zMOeuL7BZW
-	AUuZaW9sIrKdidRcoWzVn/MTBV4KA3Z6lqt0YI7WlRaX4Vz9y6fZYfvfw1Ewn8QBtohadRdoK0Q
-	on2LtPphn0xRD76oi4eNxh0WLdyOUFRYZBP8pdLiiZf6NM5Bxwd+xUNYg4Qv35tPlTHYNlqoANY
-	m5Kkzs4Hdn9Jo7Kb3oyPJoo5YUJuHouL5xxodYQoiSDkgahbwxugE6DwfT0isFQLGk7Oimkzr49
-	GSCSm0sUrbIcc5Pbtac2PzQ0/ncnpoPttPQKT1k21r7qE3dawQNFsQWrqagBcGQ/TppEFcS0ysv
-	BMympsXzmea9PuG+XjmsSftI=
-X-Received: by 2002:a17:907:1c9e:b0:c25:c67d:53cc with SMTP id
- a640c23a62f3a-c2e23cad0fdmr124499966b.8.1790776577897; Wed, 30 Sep 2026
- 06:56:17 -0700 (PDT)
+	Wed, 30 Sep 2026 13:58:05 +0000
+Received: from eucas1p2.samsung.com (unknown [182.198.249.207])
+	by mailout1.w1.samsung.com (KnoxPortal) with ESMTP id 20260930135751euoutp0191a566717bd36910ffcda056f7649627~aHeUN9sen2678326783euoutp01D
+	for <linux-arm-kernel@lists.infradead.org>; Wed, 30 Sep 2026 13:57:51 +0000 (GMT)
+DKIM-Filter: OpenDKIM Filter v2.11.0 mailout1.w1.samsung.com 20260930135751euoutp0191a566717bd36910ffcda056f7649627~aHeUN9sen2678326783euoutp01D
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=samsung.com;
+	s=mail20170921; t=1790776671;
+	bh=d5uhQBfMA9Bzna2lrXnXP49LmGR65Hwnuf+fvI59R6I=;
+	h=From:To:Cc:Subject:Date:References:From;
+	b=RYn0wow4k+GSnYkmQCsYEXlyTUhg7UQOTv8JtUMd+qJifKSJ8G5Fs636vRmxanzgS
+	 gql6GS829w9bQ1pnaZq1n+Vqz9GTqx9aw7PXynk7nAkbgtktq1lJOJWPAxNGazyIRH
+	 a2NCFQiL69OheRnqS31kchts8KdsS6jWpJPhnkHQ=
+Received: from eusmtip2.samsung.com (unknown [203.254.199.222]) by
+	eucas1p1.samsung.com (KnoxPortal) with ESMTPA id
+	20260930135751eucas1p1c3b8b79ed87c3bf6f473d26e4663e7e4~aHeUAc8mI1283412834eucas1p1t;
+	Wed, 30 Sep 2026 13:57:51 +0000 (GMT)
+Received: from AMDC4653.digital.local (unknown [106.120.51.32]) by
+	eusmtip2.samsung.com (KnoxPortal) with ESMTPA id
+	20260930135750eusmtip2515e5cd38c347fe5f4bced4f58a9f9df~aHeTk2AOZ0736807368eusmtip27;
+	Wed, 30 Sep 2026 13:57:50 +0000 (GMT)
+From: Marek Szyprowski <m.szyprowski@samsung.com>
+To: iommu@lists.linux.dev, linux-kernel@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org
+Cc: Marek Szyprowski <m.szyprowski@samsung.com>, Robin Murphy
+	<robin.murphy@arm.com>, Christoph Hellwig <hch@lst.de>, "Aneesh Kumar K . V"
+	<aneesh.kumar@kernel.org>, Russell King <linux@armlinux.org.uk>, "Claude
+ Opus 5 . 5" <noreply@anthropic.com>
+Subject: [PATCH] dma-direct: Restore arch_dma_alloc() for the
+ DMA_ATTR_NO_KERNEL_MAPPING case
+Date: Wed, 30 Sep 2026 15:57:32 +0200
+Message-ID: <20260930135734.1013905-1-m.szyprowski@samsung.com>
+X-Mailer: git-send-email 2.43.0
 MIME-Version: 1.0
-References: <20260929-b4-rk3576-reboot-mode-v2-0-5a34ca72065a@flipper.net>
- <20260929-b4-rk3576-reboot-mode-v2-1-5a34ca72065a@flipper.net> <20260930-hulking-swan-of-enterprise-94e2ae@quoll>
-In-Reply-To: <20260930-hulking-swan-of-enterprise-94e2ae@quoll>
-From: Alexey Charkov <alchark@flipper.net>
-Date: Wed, 30 Sep 2026 17:56:06 +0400
-X-Gm-Features: AclHuK_LS1pgpfgwaTzGiwreXcQZqQphizrD9-WsvYxGfaJqBGmravJ6aAw_W_w
-Message-ID: <CAKTNdwG0NBZUez1Yy=jk3rYrD9W97oRMwvpX1qMXwQsP=_LvNw@mail.gmail.com>
-Subject: Re: [PATCH v2 1/5] dt-bindings: soc: rockchip: add boot ROM download
- boot mode
-To: Krzysztof Kozlowski <krzk@kernel.org>
-Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
-	Conor Dooley <conor+dt@kernel.org>, Heiko Stuebner <heiko@sntech.de>, 
-	Sebastian Reichel <sre@kernel.org>, devicetree@vger.kernel.org, 
-	linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org, 
-	linux-kernel@vger.kernel.org, linux-pm@vger.kernel.org, 
-	Shawn Lin <shawn.lin@rock-chips.com>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+Content-Transfer-Encoding: 8bit
+X-CMS-MailID: 20260930135751eucas1p1c3b8b79ed87c3bf6f473d26e4663e7e4
+X-Msg-Generator: CA
+Content-Type: text/plain; charset="utf-8"
+X-RootMTR: 20260930135751eucas1p1c3b8b79ed87c3bf6f473d26e4663e7e4
+X-EPHeader: CA
+X-CMS-RootMailID: 20260930135751eucas1p1c3b8b79ed87c3bf6f473d26e4663e7e4
+References: <CGME20260930135751eucas1p1c3b8b79ed87c3bf6f473d26e4663e7e4@eucas1p1.samsung.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260930_065619_908896_41AFD7DC 
-X-CRM114-Status: GOOD (  16.09  )
+X-CRM114-CacheID: sfid-20260930_065759_153204_2B3C2FD7 
+X-CRM114-Status: GOOD (  16.49  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -124,29 +84,76 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Sep 30, 2026 at 3:46=E2=80=AFPM Krzysztof Kozlowski <krzk@kernel.or=
-g> wrote:
->
-> On Tue, Sep 29, 2026 at 02:28:18PM +0400, Alexey Charkov wrote:
-> > Rockchip boot ROMs enter USB download mode, commonly known as maskrom,
-> > when they find 0xef08a53c in the register they take the boot mode from.
-> > Add the magic under the name U-Boot already uses for it, so that boards
-> > able to request it can do so symbolically.
-> >
-> > Tested-by: Shawn Lin <shawn.lin@rock-chips.com>
->
-> Drop, you cannot test it.
->
-> What is the point of such blanket tags which are not even applicable to
-> 50% of patches here?
+Commit 849facea92fa ("dma-direct: simplify the DMA_ATTR_NO_KERNEL_MAPPING
+handling") moved the DMA_ATTR_NO_KERNEL_MAPPING shortcut in
+dma_direct_alloc() in front of the arch_dma_alloc() call. Architectures
+providing their own DMA coherent allocator (CONFIG_ARCH_HAS_DMA_ALLOC)
+therefore no longer see such requests. ARM 32bit is one of such. Lack of
+the call to arch_dma_alloc() results in the lack of proper cache
+management on HighMem pages.
 
-I'd argue for 40% :-D
+Take the dma-direct shortcut only for coherent devices or when the
+architecture doesn't provide arch_dma_alloc(). While touching this,
+move that check into separate function to avoid duplication in alloc
+and free paths.
 
-Anyway, I get your point. I'll drop the tag from the bindings patches,
-because Shawn tested a driver implementing the binding and a DTS
-implementing the binding, but it's perhaps far fetched to imply that
-the test covered the binding change itself.
+Fixes: 849facea92fa ("dma-direct: simplify the DMA_ATTR_NO_KERNEL_MAPPING handling")
+Reported-by: Aneesh Kumar K.V <aneesh.kumar@kernel.org>
+Closes: https://lore.kernel.org/all/yq5ams2akznl.fsf@kernel.org/
+Assisted-by: Claude Opus 5.5 <noreply@anthropic.com>
+Signed-off-by: Marek Szyprowski <m.szyprowski@samsung.com>
+---
+ kernel/dma/direct.c | 22 ++++++++++++++++++----
+ 1 file changed, 18 insertions(+), 4 deletions(-)
 
-Best regards,
-Alexey
+diff --git a/kernel/dma/direct.c b/kernel/dma/direct.c
+index da665ca22d5c..a31bd3129f3f 100644
+--- a/kernel/dma/direct.c
++++ b/kernel/dma/direct.c
+@@ -179,6 +179,22 @@ static struct page *dma_direct_alloc_from_pool(struct device *dev, size_t size,
+ 	return page;
+ }
+ 
++/*
++ * Check if the allocation can skip the kernel mapping and return the page
++ * pointer as the cookie.
++ */
++static bool dma_direct_use_no_mapping(struct device *dev, unsigned long attrs)
++{
++	if ((attrs & (DMA_ATTR_NO_KERNEL_MAPPING | __DMA_ATTR_ALLOC_CC_SHARED)) !=
++	    DMA_ATTR_NO_KERNEL_MAPPING)
++		return false;
++	if (is_swiotlb_for_alloc(dev))
++		return false;
++	if (IS_ENABLED(CONFIG_ARCH_HAS_DMA_ALLOC) && !dev_is_dma_coherent(dev))
++		return false;
++	return true;
++}
++
+ static void *dma_direct_alloc_no_mapping(struct device *dev, size_t size,
+ 		dma_addr_t *dma_handle, gfp_t gfp)
+ {
+@@ -226,8 +242,7 @@ void *dma_direct_alloc(struct device *dev, size_t size,
+ 	if (attrs & DMA_ATTR_NO_WARN)
+ 		gfp |= __GFP_NOWARN;
+ 
+-	if (((attrs & (DMA_ATTR_NO_KERNEL_MAPPING | __DMA_ATTR_ALLOC_CC_SHARED)) ==
+-	     DMA_ATTR_NO_KERNEL_MAPPING) && !is_swiotlb_for_alloc(dev))
++	if (dma_direct_use_no_mapping(dev, attrs))
+ 		return dma_direct_alloc_no_mapping(dev, size, dma_handle, gfp);
+ 
+ 	if (!dev_is_dma_coherent(dev)) {
+@@ -374,8 +389,7 @@ void dma_direct_free(struct device *dev, size_t size,
+ 	if (attrs & __DMA_ATTR_ALLOC_CC_SHARED)
+ 		mark_mem_encrypted = true;
+ 
+-	if (((attrs & (DMA_ATTR_NO_KERNEL_MAPPING | __DMA_ATTR_ALLOC_CC_SHARED)) ==
+-	     DMA_ATTR_NO_KERNEL_MAPPING) && !is_swiotlb_for_alloc(dev)) {
++	if (dma_direct_use_no_mapping(dev, attrs)) {
+ 		/* cpu_addr is a struct page cookie, not a kernel address */
+ 		dma_free_contiguous(dev, cpu_addr, size);
+ 		return;
+-- 
+2.43.0
+
 
