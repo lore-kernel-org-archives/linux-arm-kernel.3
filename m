@@ -4,60 +4,80 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B2CA5CA5FC3
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 30 Sep 2026 08:02:21 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CD4A3CA5FB1
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 30 Sep 2026 08:02:59 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=xwx6m2ZQp1le7cNOkqQqNCbD12qIRwdpYKQvV6oZXDs=; b=pLvSbTk7sjDYdXeMW5tfr4cMzQ
-	QXtx3kYl5zZBahoLsiAC/g+KHTUMtVPnTwxLHfUqQH76Bqu+w3fEJuBoCcnwD9izB8p/HKKvamWN1
-	1UTRjaz/ERMpapzMzmcVj6h2Tqjn4LEzNU+qhayN3IzNLHwQM90ZArA+mHm9NHHHWh3gQ5WKS1CZC
-	ts6IAClMEnWmskYBWiDIU7dCBJnxEkmkWVKebUgCnQu4LHOkM0UVNma6Gu+/dn/TS45+0+QF1n6Yi
-	QvbE+vhVax13siXvY+ANAqEKUfXhSBxJoegadzj9n5QUfP0mAx8caCRgSUcmr1dfhS5j1qfyDJkY8
-	Nuh+O2nw==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
+	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:
+	References:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:
+	Subject:Date:From:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=Vjx0XhKYbDLEkapKvz/dJ+DC7P88qbE8nOeoV8VFn9o=; b=K7nW1hXrVMiR5oia0WUjTVI5kT
+	zjxzknHzPlka5VgSR/iOPPKrYY0idf0oDBFOoyKCcXFeAIAGxH3+dtQKseSDvtzzAOICj6fs/cYhs
+	ZjUGknc6FTlDlh/8COTrzo+LQebn1+SuHS23hEvtcvJ2+FSaZytqsZE8Hq3cnyBJ1hrc0QhEc0fKY
+	1FsG2f57ChQF8A4TnPFyAWju5DoFCO+wPsy0RxhkZxyrrhAMOlQCsd4EpbeFnbMrLEfyJFjM24UlJ
+	NMdvdwj2AOsZ94+wUYCh9gIxHKSd5XpGZz0h0UO6obGMfM2kb+Rk9KsUCsE1iM6+dSBnFpldRuHko
+	p+Qq8niA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xBpGX-00000005N89-0LMw;
-	Wed, 30 Sep 2026 08:02:13 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1xBoIR-00000005D9V-46A1;
+	Wed, 30 Sep 2026 07:00:07 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xBpGV-00000005N7W-0pam
+	id 1xBoIP-00000005D64-0u3N
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 30 Sep 2026 08:02:11 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id 509DD6024D;
-	Wed, 30 Sep 2026 08:02:10 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 35BE71F000FF;
-	Wed, 30 Sep 2026 08:02:08 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1790755330;
-	bh=xwx6m2ZQp1le7cNOkqQqNCbD12qIRwdpYKQvV6oZXDs=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=nC5Bj5aA31/9/ysocwO/rUmDrrKRqi23kp87LQiXzOH0odQmkGCyE/9/QRFHM/K1n
-	 KGM1COe7P7iJQ3DgoD5YixNY1MK9eYOedHhA8/Nkop1ayExffo7BVwcjuhXtgedTVm
-	 4lIRa1EFEg4VBshglItYIDt6NUDg4BJPS6DdiJuBanNEYw6VxVhZgybXg/yzbKr4D+
-	 SlZH17jVuktoua0mlulBOIWWkaBSvD3MZgrdRH90CLTZ8rBFTYqL2kh3tYzO0AJu3n
-	 xoDF9yz4bKyk/R18j27r+N0kAP0SgDft/LuG4CuPzxg6ktxte7NHlTRSf9dk/lv4eM
-	 pSpxjWXXZYzDA==
-Date: Wed, 30 Sep 2026 09:02:04 +0100
-From: Will Deacon <will@kernel.org>
-To: Bradley Morgan <brads@mainlining.org>
-Cc: Catalin Marinas <catalin.marinas@arm.com>,
-	Mark Rutland <mark.rutland@arm.com>,
-	Mark Brown <broonie@kernel.org>,
-	Vladimir Murzin <vladimir.murzin@arm.com>,
-	Ard Biesheuvel <ardb@kernel.org>, Kees Cook <kees@kernel.org>,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH] arm64: scrub vector and pointer auth state on task death
-Message-ID: <arzB_AJIohqhvoiu@willie-the-truck>
-References: <20260930063647.1356613-1-brads@mainlining.org>
+	Wed, 30 Sep 2026 07:00:05 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id C344F44518;
+	Wed, 30 Sep 2026 07:00:03 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPS id E695FC4AF16;
+	Wed, 30 Sep 2026 07:00:02 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1790751603;
+	bh=2y1q+iJmnahWGIXI35BGpqmCNPDlGoxi7MbuYI02yjk=;
+	h=From:Date:Subject:References:In-Reply-To:To:Cc:Reply-To:From;
+	b=Mimv9vVFjKPqdkCE36BaSEhfse9KrBQalHwfyaZ7QyL8vyw0/lYy0r4Pfa9CwBN30
+	 tV0PIwSs12RaoOxBZTsBhvwqY6WTdIFrdMSK9hg8WyCRRFFtQX6DH4Qrl6g3Yicfx4
+	 WG6HdG1SaRmwc/0G9gBc/FhTh/2jUhF0Ghk4SSNCd240iADjZnp+bUflXuwSBak0x2
+	 MFRqnVFPytRpFUZPz09YEbomdE4YO1YJe3xdQvubaK0NQi9ixtkxvPsKicFwB9MEVa
+	 gV3Yd9w43DxxFZbLufRnU1HGNdfZucjnEEEc752rqN6/wmQB1VnpgvSFxaRMvdmxpw
+	 wxAPscvN++Ujw==
+Received: from aws-us-west-2-korg-lkml-1.web.codeaurora.org (localhost.localdomain [127.0.0.1])
+	by smtp.lore.kernel.org (Postfix) with ESMTP id C56BDCA5FC1;
+	Wed, 30 Sep 2026 07:00:02 +0000 (UTC)
+From: Fil Dunsky via B4 Relay <devnull+filipp.dunsky.gmail.com@kernel.org>
+Date: Wed, 30 Sep 2026 10:00:03 +0300
+Subject: [PATCH RFC 04/10] ARM: cortina: Add support for the CS75xx SoC
+ family
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20260930063647.1356613-1-brads@mainlining.org>
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+Message-Id: <20260930-b4-cs75xx-v1-4-4617c4463529@gmail.com>
+References: <20260930-b4-cs75xx-v1-0-4617c4463529@gmail.com>
+In-Reply-To: <20260930-b4-cs75xx-v1-0-4617c4463529@gmail.com>
+To: Arnd Bergmann <arnd@arndb.de>, Linus Walleij <linusw@kernel.org>, 
+ Krzysztof Kozlowski <krzk@kernel.org>
+Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, 
+ Greg Kroah-Hartman <gregkh@linuxfoundation.org>, 
+ Jiri Slaby <jirislaby@kernel.org>, Russell King <linux@armlinux.org.uk>, 
+ Alexandre Belloni <alexandre.belloni@bootlin.com>, 
+ Drew Fustini <fustini@kernel.org>, 
+ Lorenzo Pieralisi <lpieralisi@kernel.org>, 
+ linux-arm-kernel@lists.infradead.org, devicetree@vger.kernel.org, 
+ linux-kernel@vger.kernel.org, linux-serial@vger.kernel.org, 
+ Fil Dunsky <filipp.dunsky@gmail.com>
+X-Mailer: b4 0.16.0
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1790751600; l=5238;
+ i=filipp.dunsky@gmail.com; s=20260930; h=from:subject:message-id;
+ bh=2VKUQEfBSc+0ahjwi/i92F1YaqSibK36VZSvj1DRK5w=;
+ b=fup57a2yUyKiuVJxQkaFzO0ILGqYuoWnst3gwfo+XeiwrFgtntFbeePEiIHnjxdMBiyi+dOLW
+ AQc9iQY2ncEB/nKwU42xpwYMIOrMwzAvWNxp8CYz9HoYUfgbLIrhyMR
+X-Developer-Key: i=filipp.dunsky@gmail.com; a=ed25519;
+ pk=JAYP8e2rJ54DHOmhNtXud8rl1igAaAXoOHxtJmVXI1g=
+X-Endpoint-Received: by B4 Relay for filipp.dunsky@gmail.com/20260930 with
+ auth_id=1085
+X-Original-From: Fil Dunsky <filipp.dunsky@gmail.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -69,40 +89,173 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
+Reply-To: filipp.dunsky@gmail.com
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Sep 30, 2026 at 06:36:47AM +0000, Bradley Morgan wrote:
-> When a task dies its SVE, SME and FPSIMD register state, and its
-> pointer auth keys, stay in freed slab pages until the allocator hands
-> them out again. init_on_free=1 users get this wiped for the whole heap
-> but the option is expensive, so it is off in most builds.
-> 
-> The vector registers are not idle memory: userspace crypto runs
-> AES-GCM and Argon2 through SVE, so key material ends up in
-> sve_state, sme_state and thread_struct. On task exit and on the
-> exec and vector length reallocation paths those buffers are
-> dropped with a plain kfree(), and on task death the register file
-> copy embedded in thread_struct is not wiped at all. Anything that
-> reads the freed slab back (slab bugs, cold boot, a leaked page)
-> gets the dead task's keys.
-> 
-> Scrub it. kfree_sensitive() already exists for this exact job,
-> so the freeing sites just switch to it. The register file copy
-> and the pointer auth keys embedded in thread_struct cannot go
-> through kfree_sensitive(), so arch_release_task_struct() zeroes
-> them directly with memzero_explicit().
+From: Fil Dunsky <filipp.dunsky@gmail.com>
 
-I don't really find this very compelling, tbh. Presumably this data can
-end up all over the place: on the stack, in a vCPU structure, in a GPR
-so it really just feels like doing something for the sake of feeling like
-we're making the kernel more secure rather than actually adding any
-tangible benefits. There are also lots of things you're not covering,
-so it's not clear why this is either necessary or sufficient.
+The Cortina Systems CS75xx ("Goldengate G2") are network processors
+with two Cortex-A9 cores, an SCU, GIC, the Cortex-A9 global and private
+timers and a PL310 L2 cache controller. The CS7542 is used, among others,
+in the Securifi Almond+ router.
 
-What prompted you to do this?
+The generic DT machine is sufficient for the platform, so only the SMP
+bring-up needs code: the bootloader parks the secondary core in a WFE
+loop that polls a global software register, so boot it by writing the
+physical address of secondary_startup to the register named by the
+cpu-release-addr property and issuing SEV.
 
-Will
+The CPU is a Cortex-A9 r2p1, so select the errata workarounds that apply
+to that revision and can be enabled on a multiplatform kernel. The PL310
+is r3p2 and needs none of the PL310 workarounds.
 
-P.S. This ended up in my spam for some reason.
+Signed-off-by: Fil Dunsky <filipp.dunsky@gmail.com>
+---
+ arch/arm/Kconfig                |  2 ++
+ arch/arm/Makefile               |  1 +
+ arch/arm/mach-cortina/Kconfig   | 18 +++++++++++
+ arch/arm/mach-cortina/Makefile  |  2 ++
+ arch/arm/mach-cortina/platsmp.c | 71 +++++++++++++++++++++++++++++++++++++++++
+ 5 files changed, 94 insertions(+)
+
+diff --git a/arch/arm/Kconfig b/arch/arm/Kconfig
+index 0cc289a7184..c4bfdc115ec 100644
+--- a/arch/arm/Kconfig
++++ b/arch/arm/Kconfig
+@@ -377,6 +377,8 @@ source "arch/arm/mach-berlin/Kconfig"
+ 
+ source "arch/arm/mach-clps711x/Kconfig"
+ 
++source "arch/arm/mach-cortina/Kconfig"
++
+ source "arch/arm/mach-davinci/Kconfig"
+ 
+ source "arch/arm/mach-digicolor/Kconfig"
+diff --git a/arch/arm/Makefile b/arch/arm/Makefile
+index 573813ef5e7..f8a7090d047 100644
+--- a/arch/arm/Makefile
++++ b/arch/arm/Makefile
+@@ -181,6 +181,7 @@ machine-$(CONFIG_ARCH_AXXIA)		+= axxia
+ machine-$(CONFIG_ARCH_BCM)		+= bcm
+ machine-$(CONFIG_ARCH_BERLIN)		+= berlin
+ machine-$(CONFIG_ARCH_CLPS711X)		+= clps711x
++machine-$(CONFIG_ARCH_CORTINA_CS75XX)	+= cortina
+ machine-$(CONFIG_ARCH_DAVINCI)		+= davinci
+ machine-$(CONFIG_ARCH_DIGICOLOR)	+= digicolor
+ machine-$(CONFIG_ARCH_DOVE)		+= dove
+diff --git a/arch/arm/mach-cortina/Kconfig b/arch/arm/mach-cortina/Kconfig
+new file mode 100644
+index 00000000000..9d2fc0e3de1
+--- /dev/null
++++ b/arch/arm/mach-cortina/Kconfig
+@@ -0,0 +1,18 @@
++# SPDX-License-Identifier: GPL-2.0-only
++config ARCH_CORTINA_CS75XX
++	bool "Cortina Systems CS75xx (Goldengate G2)"
++	depends on ARCH_MULTI_V7
++	select ARM_ERRATA_754322
++	select ARM_ERRATA_764369 if SMP
++	select ARM_GIC
++	select ARM_GLOBAL_TIMER
++	select CACHE_L2X0
++	select CLKSRC_ARM_GLOBAL_TIMER_SCHED_CLOCK
++	select HAVE_ARM_SCU if SMP
++	select HAVE_ARM_TWD if SMP
++	help
++	  Support for the Cortina Systems CS75xx (Goldengate G2) family of
++	  network processors, such as the CS7542 used in the Securifi
++	  Almond+ router. These SoCs have two Cortex-A9 cores with a PL310
++	  L2 cache controller, a packet processing engine, PCIe, NAND and
++	  the usual low speed peripherals.
+diff --git a/arch/arm/mach-cortina/Makefile b/arch/arm/mach-cortina/Makefile
+new file mode 100644
+index 00000000000..b839201c980
+--- /dev/null
++++ b/arch/arm/mach-cortina/Makefile
+@@ -0,0 +1,2 @@
++# SPDX-License-Identifier: GPL-2.0-only
++obj-$(CONFIG_SMP)	+= platsmp.o
+diff --git a/arch/arm/mach-cortina/platsmp.c b/arch/arm/mach-cortina/platsmp.c
+new file mode 100644
+index 00000000000..7cd23ee56be
+--- /dev/null
++++ b/arch/arm/mach-cortina/platsmp.c
+@@ -0,0 +1,71 @@
++// SPDX-License-Identifier: GPL-2.0-only
++/*
++ * SMP support for the Cortina Systems CS75xx SoCs
++ *
++ * The bootloader parks the secondary core in a WFE loop that polls a
++ * global software register and jumps to the address found there once it
++ * becomes non-zero. The register is described by the cpu-release-addr
++ * property of the secondary CPU node.
++ */
++
++#include <linux/io.h>
++#include <linux/of.h>
++#include <linux/of_address.h>
++#include <linux/smp.h>
++#include <asm/smp_plat.h>
++#include <asm/smp_scu.h>
++
++static int cs75xx_boot_secondary(unsigned int cpu, struct task_struct *idle)
++{
++	struct device_node *np;
++	void __iomem *release;
++	u64 addr;
++	int ret;
++
++	np = of_get_cpu_node(cpu, NULL);
++	if (!np)
++		return -ENODEV;
++
++	ret = of_property_read_u64(np, "cpu-release-addr", &addr);
++	of_node_put(np);
++	if (ret) {
++		pr_err("CPU%u: missing cpu-release-addr\n", cpu);
++		return ret;
++	}
++
++	release = ioremap(addr, sizeof(u32));
++	if (!release)
++		return -ENOMEM;
++
++	writel(__pa_symbol(secondary_startup), release);
++	iounmap(release);
++
++	/* The secondary core waits in WFE, wake it up */
++	dsb_sev();
++
++	return 0;
++}
++
++static void __init cs75xx_smp_prepare_cpus(unsigned int max_cpus)
++{
++	struct device_node *np;
++	void __iomem *scu_base;
++
++	np = of_find_compatible_node(NULL, NULL, "arm,cortex-a9-scu");
++	scu_base = of_iomap(np, 0);
++	of_node_put(np);
++	if (!scu_base) {
++		pr_err("failed to map SCU\n");
++		return;
++	}
++
++	scu_enable(scu_base);
++	iounmap(scu_base);
++}
++
++static const struct smp_operations cs75xx_smp_ops __initconst = {
++	.smp_prepare_cpus	= cs75xx_smp_prepare_cpus,
++	.smp_boot_secondary	= cs75xx_boot_secondary,
++};
++
++CPU_METHOD_OF_DECLARE(cs7542_smp, "cortina,cs7542-smp", &cs75xx_smp_ops);
+
+-- 
+2.53.0
+
+
 
