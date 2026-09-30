@@ -4,107 +4,75 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B262DCA5FC7
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 30 Sep 2026 15:26:36 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B87EACA5FC7
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 30 Sep 2026 15:27:12 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=jTz7JFysavVzx+3a8DoDd2wDpfretAnN3j2Hpag3BAM=; b=HLuwsCPbkfMZ1mr7TKRS/9Qd3d
-	BCBDrY17QYpSFCXnvDv5LxrSTKrAlmf+9l87Sn4i1ja/zBt5mHlwYA6DOd1gzjjOb/+Zj2YysjESk
-	cq1PhHm/xOdORoUgfOqMZag3ifozOjLVyJ/tYoGnv+OPOWKEUCW+s5zUIfrWfnKHe/U48eVB4OyOM
-	A66e2K00ltYlYI7zKbWhsdPnfAilbPjXjwER+0ZRa7md4ZKRTpYay22CF6YNZxijpuMWqeVyyWTBh
-	DMJExT5O6uiTuu2FX/maCJjFpIAeReOBUVbHIcMYaAbwrC0EdBTVhyn8P7P4mtm0FlqPgenP88W2a
-	J+/4pdTg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=WKdkz1BYvLrQk/8aMA/M0VzHCoi8lQfFBU94QLV8ZrY=; b=y3s6vWN0A8gm7TZUfTMLNJCeEJ
+	rCMLQe3bbbFG3dBczLZ0mkcBcq2uZIlTuGhXhllWx3gXKa+JIUtt87AAlv63PXMTC6SCREzqnsKco
+	HBYwpFJIoF9aLvnyY77E2XYD4sZJCNuzW1E8vS5rO72CwgvIuDyAuWr4Q1qHqj4DXi6fAzaE0OXQg
+	MhXB0xCVEKh4vRvtZKyS9Fpxts09xmxcjSdTYfl39ypx4CESDXCxn5gvs7dgYWicwHsIXdfuD8pCa
+	j0nIJI9vmvRg6Zlj0irWLoqMDUOAn7IK+9RSQMC7Ev51NsdLN+oy2zRnpicmlmOkGxoG+hLqa1oUn
+	vARwGV2g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xBwCU-00000006V9W-2C8u;
-	Wed, 30 Sep 2026 15:26:30 +0000
-Received: from mail-ed2-x0c.google.com ([2a00:1450:4864:33::c])
+	id 1xBwCz-00000006VFF-3lDP;
+	Wed, 30 Sep 2026 15:27:01 +0000
+Received: from smtpout-03.galae.net ([185.246.85.4])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xBwCR-00000006V8w-3pGh
+	id 1xBwCw-00000006VDm-2kcG
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 30 Sep 2026 15:26:29 +0000
-Received: by mail-ed2-x0c.google.com with SMTP id 4fb4d7f45d1cf-6acaec6a74aso3049748a12.2
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 30 Sep 2026 08:26:27 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1790781986; x=1791386786; darn=lists.infradead.org;
-        h=content-transfer-encoding:content-type:in-reply-to:from
-         :content-language:references:cc:to:subject:user-agent:mime-version
-         :date:message-id:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=jTz7JFysavVzx+3a8DoDd2wDpfretAnN3j2Hpag3BAM=;
-        b=ShGb3KzyIRe0iC4RYv4RvHoSIZIGOKUHZZcYqj+l19UpQe8cMBiJShRTxMFS9fML+x
-         tYzfA1qDEAhLQvKNQ6L7NWynqj1DsTpZMUdeGImnHm9EekQaLHyPv8VwAaXHONPt27mk
-         j7pCmFqBhNP244d/+UheqILJxR0s1P955cM2FRjxWQZ4FMNTdNOrCvCUc8l59SJEK2Kg
-         +hhexNDXBpqNAVgvlUtMVAtDOv+42wTJHe1T6+OHUo6MNHzpRQX1JGPe4b0V1RkUzb11
-         k00HgFu6jTGOyIH0oeyEWVi5Mym65ybVzBLA7r6TgyqezITn3oxRVcWapjlE5xATZ7sY
-         wQqQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1790781986; x=1791386786;
-        h=content-transfer-encoding:content-type:in-reply-to:from
-         :content-language:references:cc:to:subject:user-agent:mime-version
-         :date:message-id:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=jTz7JFysavVzx+3a8DoDd2wDpfretAnN3j2Hpag3BAM=;
-        b=MWU9sLDP4EW/ATh+n0sDsHi+C8CwMI7Z7PIFhlr4dkREneEcCVrGsVvC8yqlKCcxbx
-         Y0Rpymba8SMBQ7gEzxGHhuGyCUH9kF1P4MtGtv0Dx/Z954dzr48otKeNx+5tm7gSpRpl
-         ydyGqB5xmoLsxp16Fr9K/uYpqIAZh35I2npKn+ESW2O65XgvrJvxMXi6pMWYPCfOUzMJ
-         SgzOtJVNLL0OxXeG03PErZgC65FcqK2qOs5lkU2mHW6HWpdPzdAFQF3OwfV1nIrPW1Sy
-         OOKOOhuPDKrFrWCg+Nsr8cjMiKFMVx0knWTerysxEH7r6kdR83TG/xExtNajvxwmHPrT
-         3mSg==
-X-Forwarded-Encrypted: i=1; AKwUvBwosJ0l69SqCTFX/hACsAksNxmE/GIXkzafz3M+moBDnNHD3S0Naelm+KwWmZbLHdgceqiRCDTse8KCa9vaPlcQ@lists.infradead.org
-X-Gm-Message-State: AFq9FYKhDFKi2LpEL85ZaCiCjDVyP3lBdmf/DN9qCknmo5IEz5zwa1SX
-	1aAVwHUCWQfZ+aZjj3RUfcR/c1dgfz+JxpKR41zznJudCe6KyuKBdHQgEVDmUcxEV50=
-X-Gm-Gg: AYBFou0cBv/izPFSbRut05wVUSYvjPuV+Smaj4ISdmghBcEgfhEG4i8UfYkYSoGUyuu
-	BK711n0zOCUeB+L0Kz5gZiHuk4CDmDs/PureCYz4RoioDNg2sYXC/prc7jNXo3HFaGADPhyReaI
-	fiu9Fj5vjZJ8bM10a7zdnGuWnFxgdA+j182pjvX6oNHa7aEiR53c2N5G8zIyAacX+/0Gj2sy+Dm
-	Bmt41HEine2+l3KMQWxNgoaK46fTUCph3IrdxQl/HhmcvrB7I4JETP9sjOwB5xfGu6Z21e4SxHC
-	tUo5ArNeMMx1VeP1Eqeo+dCVxQXsw0YT5uSl/++gl7zf0SjN8WkvagD5JylY6AeoAF5PozH1QRT
-	3F7VrUksFrQ0jT7Gkx8dSxNhsq1UhAJGMQZ+ZkjMpWEnCLdRVvOGotG0wIq6YW5/W/mFL7uuNnc
-	lZlZ+OGLdNbEnzahr5ZiP/M4iwsPI/E30BNyK4CYf2Kd2JfPfHIWnLLJohZoTfl2mwIpNDw56BK
-	xs=
-X-Received: by 2002:a05:6402:46d0:b0:6aa:f187:26b8 with SMTP id 4fb4d7f45d1cf-6ae1994fe10mr1077601a12.37.1790781985959;
-        Wed, 30 Sep 2026 08:26:25 -0700 (PDT)
-Received: from [192.168.1.3] ([37.18.141.193])
-        by smtp.gmail.com with ESMTPSA id 4fb4d7f45d1cf-6ae1568e8b2sm954439a12.19.2026.09.30.08.26.24
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Wed, 30 Sep 2026 08:26:25 -0700 (PDT)
-Message-ID: <5750151d-cb99-4f9d-b469-12a7b7796985@linaro.org>
-Date: Wed, 30 Sep 2026 16:26:23 +0100
+	Wed, 30 Sep 2026 15:27:00 +0000
+Received: from smtpout-01.galae.net (smtpout-01.galae.net [212.83.139.233])
+	by smtpout-03.galae.net (Postfix) with ESMTPS id 6B3D24E410D7;
+	Wed, 30 Sep 2026 15:26:55 +0000 (UTC)
+Received: from mail.galae.net (mail.galae.net [212.83.136.155])
+	by smtpout-01.galae.net (Postfix) with ESMTPS id 3B8C860749;
+	Wed, 30 Sep 2026 15:26:55 +0000 (UTC)
+Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id B2917103281E9;
+	Wed, 30 Sep 2026 17:26:47 +0200 (CEST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=dkim;
+	t=1790782013; h=from:subject:date:message-id:to:cc:mime-version:content-type:
+	 in-reply-to:references; bh=WKdkz1BYvLrQk/8aMA/M0VzHCoi8lQfFBU94QLV8ZrY=;
+	b=YCigCSQ/jqKVGvnheb3+DGcKvvYgGY5QvVbgPml2ZqdCs1fe0uap+hqMvnedjqX5RbmJo/
+	0+wacTSCNn+VDU+AanMmOpoloFY86p0C8dQd8Y0XKYpmiIvRdm0V2L3jOlWOFgWJUl6ocx
+	U9n4cEtex4QKLKEXj7ItBIF0T7hKcE6RynSirU5B/lclASfld4seim4lyBTYwguZ+SDnB6
+	VLpiUKoHPhqDbqsCNkPK+/ogSn6TbkC/4pitlJe+zVLBV1AQTgv6Nfo1yzdrsDBd8zcT/Z
+	ZYwSGoAaqEW+n/RnuMbDmHmK/kt7Lge14ZjxcZ+r+KzyCYnH0eQuWGI7PqkFgA==
+Date: Wed, 30 Sep 2026 17:26:46 +0200
+From: Alexandre Belloni <alexandre.belloni@bootlin.com>
+To: Billy Tsai <billy_tsai@aspeedtech.com>
+Cc: Krzysztof Kozlowski <krzk@kernel.org>, Frank Li <Frank.Li@nxp.com>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>, Joel Stanley <joel@jms.id.au>,
+	Andrew Jeffery <andrew@codeconstruct.com.au>,
+	Philipp Zabel <p.zabel@pengutronix.de>,
+	"linux-i3c@lists.infradead.org" <linux-i3c@lists.infradead.org>,
+	"devicetree@vger.kernel.org" <devicetree@vger.kernel.org>,
+	"linux-arm-kernel@lists.infradead.org" <linux-arm-kernel@lists.infradead.org>,
+	"linux-aspeed@lists.ozlabs.org" <linux-aspeed@lists.ozlabs.org>,
+	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>
+Subject: Re: =?utf-8?B?5Zue6KaGOiBbUEFUQw==?= =?utf-8?Q?H?= 1/8] dt-bindings:
+ i3c: Document the AST2700 I3C controller
+Message-ID: <2026093015264653e04d9e@mail.local>
+References: <20260901-b4-i3c-hci-ast2700-v1-0-19909e7cbd7e@aspeedtech.com>
+ <20260901-b4-i3c-hci-ast2700-v1-1-19909e7cbd7e@aspeedtech.com>
+ <20260907-imaginary-economic-oyster-57cdd6@quoll>
+ <20260917154754dd1eefbe@mail.local>
+ <SEZPR06MB7237179374D186C39384D9808B812@SEZPR06MB7237.apcprd06.prod.outlook.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v9 00/22] ARM64 PMU Partitioning
-To: Colton Lewis <coltonlewis@google.com>
-Cc: Marc Zyngier <maz@kernel.org>, Oliver Upton <oupton@kernel.org>,
- Oliver Upton <oliver.upton@linux.dev>, Joey Gouly <joey.gouly@arm.com>,
- Suzuki K Poulose <suzuki.poulose@arm.com>, Zenghui Yu
- <yuzenghui@huawei.com>, Fuad Tabba <fuad.tabba@linux.dev>,
- Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
- Mark Rutland <mark.rutland@arm.com>, Paolo Bonzini <pbonzini@redhat.com>,
- Peter Zijlstra <peterz@infradead.org>, Ingo Molnar <mingo@redhat.com>,
- Arnaldo Carvalho de Melo <acme@kernel.org>,
- Namhyung Kim <namhyung@kernel.org>, Robin Murphy <robin.murphy@arm.com>,
- Zide Chen <zide.chen@intel.com>, Alexandru Elisei
- <alexandru.elisei@arm.com>,
- Ganapatrao Kulkarni <gankulkarni@os.amperecomputing.com>,
- Mingwei Zhang <mizhang@google.com>, Jonathan Corbet <corbet@lwn.net>,
- Russell King <linux@armlinux.org.uk>, Shuah Khan <shuah@kernel.org>,
- linux-perf-users@vger.kernel.org, linux-kselftest@vger.kernel.org,
- linux-doc@vger.kernel.org, linux-kernel@vger.kernel.org,
- kvm@vger.kernel.org, kvmarm@lists.linux.dev,
- linux-arm-kernel@lists.infradead.org
-References: <20260924172928.2110956-1-coltonlewis@google.com>
-Content-Language: en-US
-From: James Clark <james.clark@linaro.org>
-In-Reply-To: <20260924172928.2110956-1-coltonlewis@google.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <SEZPR06MB7237179374D186C39384D9808B812@SEZPR06MB7237.apcprd06.prod.outlook.com>
+X-Last-TLS-Session-Version: TLSv1.3
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260930_082627_975399_3C309AE5 
-X-CRM114-Status: GOOD (  14.18  )
+X-CRM114-CacheID: sfid-20260930_082658_834518_FB83C0FC 
+X-CRM114-Status: GOOD (  18.37  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -119,25 +87,46 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-
-
-On 24/09/2026 18:29, Colton Lewis wrote:
-> This series creates a new PMU scheme on ARM, a partitioned PMU that
-> allows reserving a subset of counters for more direct guest access,
-> significantly reducing overhead. More details, including performance
-> benchmarks, can be read in the v1 cover letter linked below.
+On 24/09/2026 05:39:47+0000, Billy Tsai wrote:
+> > I guess we need to make them generic. Probably nobody needed them yet
+> > and not all the controllers will have support anyway.
+> > However, I would like to make sure we get enough commonality between
+> > controllers that support setting the timings individually, can you
+> > check?
 > 
-> There is no longer a kernel command line parameter
-> (`arm_pmuv3.reserved_host_counters`); PMU partitioning is now completely
-> controlled via the KVM API using `KVM_ARM_VCPU_PMU_V3_ENABLE_PARTITION`
-> and `KVM_ARM_VCPU_PMU_V3_SET_NR_COUNTERS` vCPU device attributes. When
+> I went through dw-i3c-master, i3c-master-cdns, and the AMD/Xilinx AXI
+> I3C driver. Every property in this set has a direct counterpart in at
+> least one of them:
+> 
+> - Open-drain and push-pull SCL high/low: dw-i3c-master has
+>   SCL_I3C_OD_TIMING/SCL_I3C_PP_TIMING (high/low count each); the
+>   AMD/Xilinx driver has separate SCL high/low and OD SCL high/low
+>   registers.
+> - SDA/data hold time: the AMD/Xilinx driver has its own hold-time
+>   register computed as a percentage of the low period; cdns has a
+>   data hold delay explicitly there to meet the MIPI I3C tHD_PP
+>   minimum "regardless of PCB balancing", their words for the same
+>   board-variance concern we have.
+> - tCAS: dw-i3c-master's own comment says its MST_FREE register
+>   represents tCAS in pure I3C mode; the AMD/Xilinx driver computes an
+>   explicit tCAS minimum from the spec value.
+> 
+> None of the three expose any of this through a DT property today.
+> They either derive it purely from the bus rate, or hardcode one fixed
+> value per compatible (cdns's data hold delay is a flat 10ns baked
+> into its per-SoC match data, the same default we picked
+> independently). So there's no existing naming convention to be
+> consistent with, but the underlying quantities are clearly common
+> across implementations, not something specific to our controller.
+> 
 
-As far as I know there isn't a straightforward way to get the number of 
-hw counters from userspace. You have to either parse dmesg or attempt to 
-open incrementally more counters in a group until it fails.
+Thanks for the investigation, then let's have them in i3c.yaml.
 
-This makes doing things like "use all counters for guest" or "reserve 
-two for the host" difficult. Maybe it's time to add a file to the PMU 
-that userspace can use query this.
+> Thanks
+> Billy
 
+-- 
+Alexandre Belloni, co-owner and COO, Bootlin
+Embedded Linux and Kernel engineering
+https://bootlin.com
 
