@@ -4,72 +4,103 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 16288CA5FC3
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 30 Sep 2026 08:55:07 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 002B7CA5FB1
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 30 Sep 2026 08:56:17 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=MoD0PrDElAlD4IwvU+5GWGb4LA+Swj7aV9yCNWkC5I8=; b=UFS0bMxfW2VwtgJse+KTd5/DSP
-	vt1ZxCXmseVuwGO5I/1XM5ARhxjpZ6ZDWK81kTWKI85Ubcb+uuCbORqTJ9obFg2dcjVhf6GwAtcV5
-	WvSyOQrXDXZgFgJSLoT4a864J2jv65cjig+a4he3Gv4EkIyufkmrQA/8VqbTRcKDDNCNYX8wbq3V6
-	GvHWio1SY8onXYgR9uBBghtSJGvLTvyYrQ/kbTA5xK9BSk0aW0KlnNcFBKVM7vsCynw1RBOQ5dEhH
-	dOfW6cbhhO6NBeHTJj+KU6zreO01evA2ZA+9oZ6hACLvioiLSjd+kEW7jkJIo/mojLOgv8ywgpKVx
-	hccKnlDQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=g9YHXExGUZGI5Tmw7RHZeACIGs+op9SFfTPuLvCCako=; b=yBajuldGaZSEEB1oC+5Z4n6xs4
+	rMyumcyf14LF21vRY+pkgLSuawIFnanDg6HOrelgyVf1xMLS4paklssusQ0dLueMBmn6EvrWrKNwZ
+	NsqJOT2d3DhHNO2H66LR4RdJnsEsye5itO4/0wPsXTOi9nnh9vtNWr5MX1C9irrxD5H1+luvGR+s+
+	h8oQJWTrd/oIwlLptXICAwLvdz1msUB5pID6trWnaYGJ2x4pjQgQPx0mwQQZ3GS3im0kil4ELdI+E
+	WMaOQJKeE3xwcBsx3khHrCcyRno/Rg7ImNPg2z743MD+Tyxb0PTj06gMrZ4diRT73qDL4hTCuspG7
+	ruPlgKJw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xBq5Y-00000005V2T-1bw1;
-	Wed, 30 Sep 2026 08:54:56 +0000
-Received: from mailgw.kylinos.cn ([124.126.103.232])
+	id 1xBq6k-00000005VFz-36HU;
+	Wed, 30 Sep 2026 08:56:10 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xBq5U-00000005Uyy-3KQQ;
-	Wed, 30 Sep 2026 08:54:54 +0000
-X-UUID: 917919d4bcac11f19a56ed5b684f684d-20260930
-X-CID-P-RULE: Release_Ham
-X-CID-O-INFO: VERSION:1.3.19,REQID:b9dc0e18-bb7e-43dc-bed4-7510b1a8573a,IP:0,U
-	RL:0,TC:0,Content:-25,EDM:0,RT:0,SF:0,FILE:0,BULK:0,RULE:Release_Ham,ACTIO
-	N:release,TS:-25
-X-CID-META: VersionHash:7db8b62,CLOUDID:acc1827f390bad74e3718c2a3d337230,BulkI
-	D:nil,BulkQuantity:0,SF:102|850|865|898,TC:nil,Content:0|15|50|99,EDM:-3,I
-	P:nil,URL:0,File:nil,RT:nil,Bulk:nil,QS:nil,BEC:nil,COL:0,OSI:0,OSA:0,AV:0
-	,LES:1,SPR:NO,DKR:0,DKP:0,BRR:0,BRE:0,ARC:0
-X-CID-BVR: 2,SSN|SDN
-X-CID-BAS: 2,SSN|SDN,0,_
-X-CID-FACTOR: TF_CID_SPAM_SNR
-X-CID-RHF: D41D8CD98F00B204E9800998ECF8427E
-X-UUID: 917919d4bcac11f19a56ed5b684f684d-20260930
-X-User: huanglu@kylinos.cn
-Received: from localhost.localdomain [(10.44.16.150)] by mailgw.kylinos.cn
-	(envelope-from <huanglu@kylinos.cn>)
-	(Generic MTA with TLSv1.3 TLS_AES_256_GCM_SHA384 256/256)
-	with ESMTP id 1129873126; Wed, 30 Sep 2026 16:54:38 +0800
-From: Lu Huang <huanglu@kylinos.cn>
-To: nbd@nbd.name,
-	lorenzo@kernel.org,
-	ryder.lee@mediatek.com,
-	linux-wireless@vger.kernel.org
-Cc: shayne.chen@mediatek.com,
-	sean.wang@mediatek.com,
-	matthias.bgg@gmail.com,
-	angelogioacchino.delregno@collabora.com,
-	chui-hao.chiu@mediatek.com,
-	StanleyYP.Wang@mediatek.com,
-	jtornosm@redhat.com,
-	linux-mediatek@lists.infradead.org,
-	linux-arm-kernel@lists.infradead.org,
-	Lu Huang <huanglu@kylinos.cn>,
-	stable@vger.kernel.org
-Subject: [PATCH] wifi: mt76: mt7996: fix uninitialized buf read in mt7996_variant_fem_init()
-Date: Wed, 30 Sep 2026 16:54:35 +0800
-Message-Id: <20260930085435.1424493-1-huanglu@kylinos.cn>
-X-Mailer: git-send-email 2.25.1
+	id 1xBq6j-00000005VFk-2KLv
+	for linux-arm-kernel@bombadil.infradead.org;
+	Wed, 30 Sep 2026 08:56:09 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=In-Reply-To:Content-Type:MIME-Version:
+	References:Message-ID:Subject:Cc:To:From:Date:Sender:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description;
+	bh=g9YHXExGUZGI5Tmw7RHZeACIGs+op9SFfTPuLvCCako=; b=lNu8OEtUkjMjpXePKDiwrcsrxV
+	6+irsaniuwqRE11yCXOjex+zJVhslwWTkqbN2b3Wbyx4uxveIunkDoEuSsQpFSXNyrXLrB+m41yYw
+	Favb9mrCTpx5FbEXkwWTq/iqLzaItbV8Ya+KcZHqv+a++MXNIKZfbHekjT1Q7t18nS66528NtgKn0
+	HHkQjkk+mWT3yYZTEeR+1dbmFcLnjFmh/1Rv9LNeQEw7GKFLbKml23zSjU2h41QOhx9VeQtwpadkn
+	WxC34BZpBtH0mf3rlpyCA2BzBk7zB2aGnc6W7fQGOvZjR4OUnQIral1zijHQ9VsVPFG0WJ6p9+w5w
+	8V5JFjlg==;
+Received: from mgamail.intel.com ([198.175.65.11])
+	by desiato.infradead.org with esmtps (Exim 4.99.2 #2 (Red Hat Linux))
+	id 1xBq6d-00000003YHN-14pC
+	for linux-arm-kernel@lists.infradead.org;
+	Wed, 30 Sep 2026 08:56:08 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1790758563; x=1822294563;
+  h=date:from:to:cc:subject:message-id:references:
+   mime-version:in-reply-to;
+  bh=N8NsL8xAHAPT4V/vU/YLBwC3KZGQnQwHOH/YRxi5FD0=;
+  b=bEPDYSkLFf4zZKWpuF9LSF+BIzdEL8vDpzGsCtuzpWleJCXRj1KXUuqf
+   ZUUCHg0oA+i+RPNbyinVCQ33QqDWZRG4mGbRMFNu79WRjHXWTBegk9X4E
+   dJE6dYXE8yL6lYC2uyJhQC6c9kKbodLQKHeLTdQ+296xSA9FS0edjKjVI
+   778RRc63ArHBAT3DHeWrim6nwzopPt6pqMRNDsine+7gScQZeMI825bOz
+   5LyRBMZpPwpo+8VCKSwuG9BMYtpavGUSfzwB3ZN1GN8j8U0T1Qhah4wMF
+   JbR7CbIsVOR6+8xBzHIvxavtmTVa0sbPjHLS8Z+JseEmSWbZuJJLWlpTI
+   g==;
+X-CSE-ConnectionGUID: 2aJw3hMBSIG5mAV7ix1yAQ==
+X-CSE-MsgGUID: X0OzuVM8QLmTyClHnBd0bA==
+X-IronPort-AV: E=McAfee;i="6800,10657,11920"; a="100821302"
+X-IronPort-AV: E=Sophos;i="6.27,132,1787036400"; 
+   d="scan'208";a="100821302"
+Received: from fmviesa003.fm.intel.com ([10.60.135.143])
+  by orvoesa103.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 30 Sep 2026 01:55:58 -0700
+X-CSE-ConnectionGUID: XJq7Q+H9Q+W2I+MxFuJnMw==
+X-CSE-MsgGUID: J068ASCjQj6XHEzHq4hWEQ==
+X-ExtLoop1: 1
+Received: from spandruv-desk1.amr.corp.intel.com (HELO localhost) ([10.245.245.137])
+  by fmviesa003-auth.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 30 Sep 2026 01:55:54 -0700
+Date: Wed, 30 Sep 2026 11:55:52 +0300
+From: Andy Shevchenko <andriy.shevchenko@intel.com>
+To: Fabrice Gasnier <fabrice.gasnier@foss.st.com>
+Cc: Jonathan Cameron <jic23@kernel.org>,
+	David Lechner <dlechner@baylibre.com>,
+	Nuno =?iso-8859-1?Q?S=E1?= <nuno.sa@analog.com>,
+	Andy Shevchenko <andy@kernel.org>, Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
+	Alexandre Torgue <alexandre.torgue@foss.st.com>,
+	Marek Vasut <marex@nabladev.com>, linux-iio@vger.kernel.org,
+	devicetree@vger.kernel.org,
+	linux-stm32@st-md-mailman.stormreply.com,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+	Cheick Traore <cheick.traore-ext@st.com>,
+	Olivier Moysan <olivier.moysan@foss.st.com>
+Subject: Re: [PATCH v2 07/14] iio: adc: stm32-adc: add support for stm32mp25
+Message-ID: <arzOmLhyaqSdcKqW@ashevche-desk.local>
+References: <20260923-adc-stm32mp25-v1-v2-0-46bc019537c6@foss.st.com>
+ <20260923-adc-stm32mp25-v1-v2-7-46bc019537c6@foss.st.com>
+ <arWPjx-JKt1IZCZl@ashevche-desk.local>
+ <8fd19ab1-6ec4-49d7-aadc-accec6e71410@foss.st.com>
+ <arzJYg3cg73vYCOE@ashevche-desk.local>
+ <d83e2c8e-452a-4dfd-823a-624fe211837f@foss.st.com>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <d83e2c8e-452a-4dfd-823a-624fe211837f@foss.st.com>
+Organization: Intel Finland Oy - BIC 0357606-4 - c/o Alberga Business Park, 6
+ krs, Bertel Jungin Aukio 5, 02600 Espoo
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260930_015453_203838_CFD4FE7B 
-X-CRM114-Status: GOOD (  10.01  )
+X-CRM114-CacheID: sfid-20260930_095605_249437_C5DBE53F 
+X-CRM114-Status: GOOD (  15.56  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -84,36 +115,31 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-When the eFuse block covering MT7976C_EFUSE_OFFSET is invalid,
-mt7996_mcu_get_eeprom() returns -EINVAL without writing buf, but
-mt7996_variant_fem_init() tolerates -EINVAL and keeps running, so
-buf[idx] == 0xc reads uninitialized stack memory.  A stale 0x0c byte
-misclassifies a 0x7976 aDie as 7976C, selects MT7996_FEM_INT and the
-wrong default EEPROM, overriding valid calibration data.  Only consult
-the eFuse byte when the read succeeded; with an invalid eFuse, fall
-back to the three explicit aDie version checks.
+On Wed, Sep 30, 2026 at 10:44:12AM +0200, Fabrice Gasnier wrote:
+> On 9/30/26 10:33, Andy Shevchenko wrote:
 
-Fixes: e8cb33ad546a ("wifi: mt76: mt7996: add support for more variants")
-Cc: stable@vger.kernel.org
-Signed-off-by: Lu Huang <huanglu@kylinos.cn>
----
- drivers/net/wireless/mediatek/mt76/mt7996/init.c | 2 +-
- 1 file changed, 1 insertion(+), 1 deletion(-)
+...
 
-diff --git a/drivers/net/wireless/mediatek/mt76/mt7996/init.c b/drivers/net/wireless/mediatek/mt76/mt7996/init.c
-index fb635a092584..a42a47c0d285 100644
---- a/drivers/net/wireless/mediatek/mt76/mt7996/init.c
-+++ b/drivers/net/wireless/mediatek/mt76/mt7996/init.c
-@@ -1247,7 +1247,7 @@ static int mt7996_variant_fem_init(struct mt7996_dev *dev)
- 	adie_ver = u32_get_bits(regval, MT_ADIE_VERSION_MASK);
- 	idx = MT7976C_EFUSE_OFFSET % MT7996_EEPROM_BLOCK_SIZE;
- 	is_7976c = adie_ver == 0x8a10 || adie_ver == 0x8b00 ||
--		   adie_ver == 0x8c10 || buf[idx] == 0xc;
-+		   adie_ver == 0x8c10 || (!ret && buf[idx] == 0xc);
- 
- 	adie_id = u32_get_bits(regval, MT_ADIE_CHIP_ID_MASK);
- 	if (adie_id == 0x7975 || adie_id == 0x7979 ||
+> Sorry if I'm a bit confused :-), just to be sure, the preferred style should be as below ?
+
+Yes, in case if you want to update the whole ID table.
+
+> static const struct of_device_id stm32_adc_of_match[] = {
+> 	{ .compatible = "st,stm32f4-adc-core", .data = (void *)&stm32f4_adc_priv_cfg },
+> 	{ .compatible = "st,stm32h7-adc-core", .data = (void *)&stm32h7_adc_priv_cfg },
+> 	{ .compatible = "st,stm32mp1-adc-core",	.data = (void *)&stm32mp1_adc_priv_cfg },
+> 	{ .compatible = "st,stm32mp13-adc-core", .data = (void *)&stm32mp13_adc_priv_cfg },
+> 	{ }
+> };
+
+The rationale for the trailing comma is:
+1) no need (doesn't make sense) to have it on a terminator entry;
+2) do add it for non-terminator entry to avoid a churn in the future;
+3) do not add it for any case when the whole array is located on a single line.
+
 -- 
-2.25.1
+With Best Regards,
+Andy Shevchenko
+
 
 
