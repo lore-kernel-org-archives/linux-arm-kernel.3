@@ -4,142 +4,84 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 582F7CA5FC4
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 30 Sep 2026 16:42:03 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4901FCA5FC4
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 30 Sep 2026 16:43:28 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
-	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=34BUEuaQYUZ84U5Tu3lHI2XVLvNBSZd+6FjRG7uCRH8=; b=X/RNhfXqMOFjuhywKBzABes5H6
-	hxfJgBZpi0mz7XAQkBF2uUj+MezRtt2HZwYI2GZFfJcKbA9hWGmKHTPgZ8FlYvcLRf/k6rGUEfjMi
-	WdfQyKpFsCAbRsfbk0mNOKCYKKBUSR7SWScSvPLm+oJAbhdTPVPnvmviDxsyWCz3lo0kUUd8m4Hka
-	XVZsAeVTF8+TUBSg1bNixLFBXSruOCCR/Zw4xjlDhUAO958sGkcDj0djFog2DqIRnPBMHJ4etu0kw
-	+te+va8PAut1ZbF5sJsZUAyLImsn97Xpkkim1NaPRJ4rOu5zHJOeCCqdguiz1L6q6xIIEn4cLeZhJ
-	vRtPXJAA==;
+	bh=YVsWBRzr0YBWZtrqQA7SF1KLLkepFTJlHQ8uP4wNhL8=; b=wB8gNTA2bvF4hMKqxkGhKg5am2
+	UDJsn9PpMjCjQVFK4Z8MG3qAl6IooRiFfKMol7qcYGFxCJ65pIFcyAFiwRUOOHaZCNbKgujjLKety
+	+XJUPQrStmrHxNKEiFAE52G/gH8HaBZiSPu92Qb7tC1oYu6V+b3KymzucPXZqySyyZcdom8e9wWGa
+	X3JO95DGUjZXnlMzvO1E9mn/WJxvWjPN5U2qH/nYqQvexnmKMXYs+/lVOEJbqQKgM6C74TLy79QNm
+	WG0LljPnco8WoCLrKyjoR2MXKx2wUt3rfnlnZfLjTTyNgyPgEMSOlwQK34WsbeGZKxCpq4qtIb9Jq
+	4ChAcAyQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xBxNU-00000006iyQ-2Qqp;
-	Wed, 30 Sep 2026 16:41:56 +0000
+	id 1xBxOr-00000006jFc-3sB5;
+	Wed, 30 Sep 2026 16:43:22 +0000
 Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xBxNN-00000006iwr-2Vk3
+	id 1xBxOq-00000006jFJ-0HE8
 	for linux-arm-kernel@bombadil.infradead.org;
-	Wed, 30 Sep 2026 16:41:49 +0000
+	Wed, 30 Sep 2026 16:43:20 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=MIME-Version:In-Reply-To:Content-Type:
+	d=infradead.org; s=desiato.20200630; h=In-Reply-To:Content-Type:MIME-Version:
 	References:Message-ID:Subject:Cc:To:From:Date:Sender:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description;
-	bh=34BUEuaQYUZ84U5Tu3lHI2XVLvNBSZd+6FjRG7uCRH8=; b=Oe2aov6JG+iAAbNaNbGIuPrA4g
-	16672ShvG9BgIn+9dByg9l9lx4cm9wLZgqTBf2GTAdxWb81pA4Q1ALnFT3SxjjTbfSgH/R8hZCQ4D
-	/Z80X9U6FycUooK2XQQ/H+H6ZTzFuaHeDxQFlRV5+LmnDgRygyIcXrRlzxCYAlWXsQGjUNKYAPgtC
-	v+J1Ilm34nh3blMqHYGFMh26QgMY2xLcfcys0w4A2hEiW+LHWAY8WyYYsfYEHxsmoeJAgT1BL0duz
-	ILTplWwIQIbF7udXTkMqmraeSV3fKE2qEyJl2upWLFgT9x61/awPshNIi1ZHJglPKo7WQvBlhO6CA
-	rwuUW1UQ==;
-Received: from mail-swedencentralazon11013045.outbound.protection.outlook.com ([52.101.83.45] helo=GVXPR05CU001.outbound.protection.outlook.com)
-	by desiato.infradead.org with esmtps (Exim 4.99.2 #2 (Red Hat Linux))
-	id 1xBxNK-000000045be-1D8R
+	bh=YVsWBRzr0YBWZtrqQA7SF1KLLkepFTJlHQ8uP4wNhL8=; b=IObKYvhoEDGUbCi6wvwTfoA+fX
+	LRCwClOQhiWz07ZNppefdjA0o1Fn+4ZCJVnbba5DWxHF9fyaYq2N6k7XpxLhD0gRh+86k/iOrlnTe
+	Ak7rRjd8JajVIJGUZYnO1cJc5jBO2BvL7A+0ICpbDDN1Ul3DSzYLx2w1/bMfRWjguA/GlXgBkP79+
+	s7HkMRZGSbISIin739DA50Ee2cosA+r1B9HtyMA3kdg8F2NyWTwf/soK53Un6ln3NrzUJPGtUv1Dt
+	b9hPikBsQzJ55dis/vTtcFnxeo5LW6xkT7Xkd4s5iyrelqpg1tDAoZ+fFbvQD1h0CAFW8952+dso4
+	9VyJUUlg==;
+Received: from foss.arm.com ([217.140.110.172])
+	by desiato.infradead.org with esmtp (Exim 4.99.2 #2 (Red Hat Linux))
+	id 1xBxOm-000000045ik-3cir
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 30 Sep 2026 16:41:48 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=Sov2T8O93NsrTkb2xND+twoOQk0DGR9AE53KzPxIYk/OhudzVGAOFtigWPs90DBDGE7naPCiGU7atxiJwlITZecoRcZ0o/esKzZnDkKbHgJP7L1H8JAksRfAGiBazXp0eYlEgYR653Dn8CCM1oj7qVQ1ATN1Z/rM26E6kNwgHexH/OgfOkKccFnOg4gAeIrBUft1lX56WXNX9sOpUkNPy5WR/UxDP3fSDELBzhpqnvL0k9I2iUFo4TsJo/GovgpDgxm3Z4qjnkIJezt5ub0+pD87NFxRgT1uzoOCBy2uqmFcTImhE4Yc3iB9Dm24QWZFJSNOuxtAzbv81ycv8b1ytQ==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=34BUEuaQYUZ84U5Tu3lHI2XVLvNBSZd+6FjRG7uCRH8=;
- b=VWXsW3PiYKpFkI5ehM53dMSw+ca1g302zNTr1eyB3bwOcwS/2VoEtP58lIFS3+kVJchzdg9Yvpbj9cCN40K0DoFfUuctqTZNLNE2HQD8s9e3LzA6s92KA9HODLskZoPrkLAOa8ADArO5JSRLBV/rWr/NrubGTjaxNg73rxVSWNGsL9dBrwrFKitSfuOCk1x2Dj0BLMeVYfmNy+r65pP7+mFjzfzVIXECzTXb6OR7QQaYaJVuacJC34Nv+ODjF13dOdiBSWsQATjwgbtVX3X8QVnxbV2cSUfqhDNh2F7wjypRVgM4E9/8GAiTvarAhbIFmYW+4r6yynpH/G/ZqII7Cw==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
- dkim=pass header.d=oss.nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
- s=selector1-NXP1-onmicrosoft-com;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=34BUEuaQYUZ84U5Tu3lHI2XVLvNBSZd+6FjRG7uCRH8=;
- b=BMIO9Fl1zCKglS7dPiXzLTCfRbjOTQfmqjDZqqAPRbb6x5GIaAVMBic+Ma1Bnjnl+rFAyg2zwMmJEW90s03JRDyxK2ByyPVVaDuiw4Oh2S3upO7hu4JPrVThvcuzeVY+p1AZ+NCxR8AojGs/2UmYyeArToVloG2MYQUsdnWFa1QnxLCt/gZHcBTOEAQdZhbG+JFnwoYts3tYn5j3pMh6tLsWmpgdBquLtDeyoi2OYu3FPh4fZ8K04KbZkWg6N/zPZtPyN7JRfmBRtP+u5P+TvptEI13tbPN6lIbmWbKs8y/7qFPMsuRqZGLqijphd4l5w8Ovwqrj/mNCzB2H0OvKsg==
-Authentication-Results: mx.microsoft.com 1; dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=oss.nxp.com;
-Received: from GV2PR04MB11799.eurprd04.prod.outlook.com (2603:10a6:150:2cf::9)
- by PA1PR04MB11529.eurprd04.prod.outlook.com (2603:10a6:102:4e2::20) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.451.24; Wed, 30 Sep
- 2026 16:41:40 +0000
-Received: from GV2PR04MB11799.eurprd04.prod.outlook.com
- ([fe80::2146:83a2:5329:b7c]) by GV2PR04MB11799.eurprd04.prod.outlook.com
- ([fe80::2146:83a2:5329:b7c%7]) with mapi id 15.21.0451.022; Wed, 30 Sep 2026
- 16:41:40 +0000
-Date: Wed, 30 Sep 2026 11:41:29 -0500
-From: Frank Li <Frank.li@oss.nxp.com>
-To: jeffbarnes@linux.microsoft.com
-Cc: linux-pci@vger.kernel.org, minghuan.Lian@nxp.com, mingkai.hu@nxp.com,
-	roy.zang@nxp.com, lpieralisi@kernel.org, kwilczynski@kernel.org,
-	mani@kernel.org, robh@kernel.org, bhelgaas@google.com,
-	Zhiqiang.Hou@nxp.com, linuxppc-dev@lists.ozlabs.org,
-	linux-arm-kernel@lists.infradead.org, imx@lists.linux.dev,
-	linux-kernel@vger.kernel.org, stable@vger.kernel.org
-Subject: Re: [PATCH] PCI: layerscape: use default error response behavior
-Message-ID: <ar07ubdYLk-Tje1q@SMW015318>
-References: <20260929194339.233271-1-jeffbarnes@linux.microsoft.com>
+	Wed, 30 Sep 2026 16:43:18 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 118EC497;
+	Wed, 30 Sep 2026 09:43:11 -0700 (PDT)
+Received: from localhost (unknown [10.2.196.114])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 0F3713F85F;
+	Wed, 30 Sep 2026 09:43:13 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
+	t=1790786594; bh=+ZQQF2h9wliOPrMz684FyPaCAEQVKIU22UOLcW8B9DU=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=nt7xGr1XngY7AXps+0QzGOhk/AqApXQZu9RwBkbxHcHmRvMiGAhwX/+OYrgmbQt2g
+	 C8ax0Sr59DyL7okecWYUwf70W2O7KmCQBqw0XbJOAel9byN122uEuH89YRvsy2pJfe
+	 a5u3N0avZIxgHNvUDykVknZ8vLnz1jVyNJrE6QHQ=
+Date: Wed, 30 Sep 2026 17:43:11 +0100
+From: Leo Yan <leo.yan@arm.com>
+To: Will Deacon <will@kernel.org>
+Cc: Suzuki K Poulose <suzuki.poulose@arm.com>,
+	Peter Zijlstra <peterz@infradead.org>,
+	Mike Leach <mike.leach@arm.com>,
+	James Clark <james.clark@linaro.org>,
+	Anshuman Khandual <anshuman.khandual@arm.com>,
+	Mark Rutland <mark.rutland@arm.com>,
+	Tamas Petz <tamas.petz@arm.com>,
+	Tamas Zsoldos <tamas.zsoldos@arm.com>,
+	Michiel van Tol <michiel.vantol@arm.com>,
+	Dev Jain <dev.jain@arm.com>, David Hildenbrand <david@kernel.org>,
+	Yabin Cui <yabinc@google.com>, James Morse <james.morse@arm.com>,
+	coresight@lists.linaro.org, linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org, linux-perf-users@vger.kernel.org
+Subject: Re: [PATCH 2/2] perf: arm_spe: Prefer large AUX mappings
+Message-ID: <20260930164311.GK14479@e132581.arm.com>
+References: <20260810-perf_aux_trace_large_granule-v1-0-03306c9339e3@arm.com>
+ <20260810-perf_aux_trace_large_granule-v1-2-03306c9339e3@arm.com>
+ <annp-BdTviQoH6vy@willie-the-truck>
+MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20260929194339.233271-1-jeffbarnes@linux.microsoft.com>
-X-ClientProxiedBy: PH0PR07CA0104.namprd07.prod.outlook.com
- (2603:10b6:510:4::19) To GV2PR04MB11799.eurprd04.prod.outlook.com
- (2603:10a6:150:2cf::9)
-MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: GV2PR04MB11799:EE_|PA1PR04MB11529:EE_
-X-MS-Office365-Filtering-Correlation-Id: 7c68e4ed-0f28-4817-25db-08df1f11b3af
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|23010399003|376014|366016|7416014|1800799024|19092799006|22082099003|18002099003|6133799003|10067099003|56012099006|11063799006;
-X-Microsoft-Antispam-Message-Info: VixQH2WRvFYTgTmM54j3R7/RJzxTzo6J72LF1dthBhRqFybIz7H3bJx1a4n27wiu2jbsa7RL3o6nOwTvxFFTl/kAsYejVH6Ppbh2I8iNZ/iIVfx8nh4dfQSV30KvmOFlJ3TpvOAdQhUbcAIvyRX52W8lxprUyWGiigjA6SynhdFcGmQgGfKdIr5aAaqPZAyjitAAp9op43nejHK7fzxA8MwqKD8XldJFAnkrX0H/4WWXxSEhW71yDXddFL9xBHGqpQtAWt6ZqDvoN8iLs2d9X7UrgrBi1pYCW/F/UXPtSU4CYoyllfOJ3FBWa0zWSE8eXwquFCsMKbF1I7weFT7ywN6lsrPy/Oif44CPUUkL3ApcZVIWe5KJFuEpJtSJGb86OlllZf9gLhT346Wo33LLtXzrqNMCcpRryOasHkwlL3SDpceGpMLrDvIxGJ+L30Q0wMalkSSNRIgL5iDKvUfZXE3TsBnWXYM2UgefLjAg8vKkpFSLVOOhmDPNldJOQJG4t2LoNfn/V3dZMdFsgAwDc2eFbRl4FJ6myh4AihEAygXlW5iQDvopbILb8HJgl6LyC5kvnAnI8mjt59J8s+2xKx5MwXu4kXLrtxN6BV8vDvkl7sMHYx1SC1335k0jyJQ13QP7mpPRaKmVBAwxTnyqs0PzbvkxmVDZyGkGSrHV1io=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:GV2PR04MB11799.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(23010399003)(376014)(366016)(7416014)(1800799024)(19092799006)(22082099003)(18002099003)(6133799003)(10067099003)(56012099006)(11063799006);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?BUuxcvPEQiY3GJ7yH81EpQngfRFHZJeAnbnvje7PX5bRy/caPfU+t1amYI6U?=
- =?us-ascii?Q?UeDL6UbuPlZunWped6mo4Hj3+oUl0YBnOS39VFEp/F4BavXPXbMsmLi4Ivjh?=
- =?us-ascii?Q?2IcjgaSWVMMzipI/yLZFOCUEZIqyxNT732bDs2jNxybHHLqfPopV9X7rVYzd?=
- =?us-ascii?Q?0YIbnDggjbAa8B9JtO7gzxtlAIkb+s4ei4J/xPgflMoVD911nJQ4DljgcD4v?=
- =?us-ascii?Q?uPeNN1ZEJkRbTe9UxgW8K6g+3CakpOMtMqvqwBk4OVxGiKOlnO/l9Tfwl9ij?=
- =?us-ascii?Q?dhjeDQ5ok5dCpQU01pk3p8BTPnzMHD12UHxsUxvmPmSj8r0U1/5mJJqRqqyL?=
- =?us-ascii?Q?ZNmh+kFerZrCerW7PfECS5jEuYbZNDYNhmo5a1KmZBWz4LjFAtVg8gjY/ttv?=
- =?us-ascii?Q?jIDSFDMJsxUK5OdDo4qu2H3uUKLWvFVMptaLsqfk5GCPD4q7zdn2xppOQdYo?=
- =?us-ascii?Q?SMvUpekZrTJCgVZzWP+D6dGsKKABLPtkWv/EdjfNvm6z2UgHr/kdIZsLjdxS?=
- =?us-ascii?Q?1u9W7rHsD/Zvp0+eqBFR2LXPHLOLf5j6vm8i7deBMxAR4u9k/krhUcj7Wf9B?=
- =?us-ascii?Q?/z0fK5uBKJlZF3feSDPsbAB30iDzyQr68bvCy1QWEa0vHUW3trVNsG4i1Yau?=
- =?us-ascii?Q?ixXQCCdP1DwYxlvDmKlXK+TqFBM3yyM3FgDmcdtx7HdiwZ83yRpslmHa58LD?=
- =?us-ascii?Q?OLJVGlG/oygTOTi87JjXHHX0RHUXVoo4ASdCzXJJLd/W7311ajjXMNsZevTN?=
- =?us-ascii?Q?NtyjZ5etoYJYSNx7Id2hMX3FkPPg5qbIjsbAwg6QPl2P/UMFPPaxwbYoPEqm?=
- =?us-ascii?Q?7mfCzHxI5aIHIQxiFmrtwbbHy5uYbfWQjFW9zsrsb+7Y8btN41/NCaapVSSe?=
- =?us-ascii?Q?FH7RF7FVkd82tbHhZEB6ePfb/YPbhPdN/Iq1KjA7gy2NFQCprNhdmzpG2hED?=
- =?us-ascii?Q?z1dAPNZ9esUyegKNiZmXtLPykGdPDX1moDSpMdJbpKcv0XMig51BGcnQ4YDY?=
- =?us-ascii?Q?TjwGxELQB2bBwIwc8EbrdG9iEAnZvuXHDPa/uhIIIHpu7Qt8QzxvlJcfbbAh?=
- =?us-ascii?Q?PoYgpK8iDxHRTAw+6YB/5REirtumKHsA+Ipd2HId+amIgBsEwchI9KjhceQy?=
- =?us-ascii?Q?6J6U4UhMU1UAZZLoI+gbPmEmdxf3nynMp5Wwpova7j29Bw6i6y4LQWI9qHaw?=
- =?us-ascii?Q?CZTuxCD5qwCqX6r7qP95x1CDO6CUA+Yw0AtK4dLt9vyAZAXrcAUoXgG1anfz?=
- =?us-ascii?Q?VoPy8E7iE6tlDnO+7l1bM6Qt5xTdabEVLmP/tBfwRfPku2lk1d3m73rYR2zX?=
- =?us-ascii?Q?hf7kfUULoSB6csQYFIgatdbnNupF9ZHqRw8SzTu5YJKjx9vZy+WwlmedBCty?=
- =?us-ascii?Q?qKa5fqdUQEQQddB78J3jqbMgDKuHVsoeC1DuQnVJhviuNycGDRMdTTUS+LtM?=
- =?us-ascii?Q?DvJTDckYCRNqM0eMJcJ8xDao6BtRGq1v1vhmnIElm7Rg+tbfMrdZmkzEN06y?=
- =?us-ascii?Q?voLeLodGlXslo+mlvVC4jNfULW0Lh8patbKXvtYg4gGH8+pZT5zt9hKkKwME?=
- =?us-ascii?Q?uliIUFi17LjFUUv9DvqDHSYc7bvPyLnF8ytChjPkcFE6B8qWjqi2sQHbRO7J?=
- =?us-ascii?Q?3EnduCX96/dPtTJFfY3MCVEA+My75AytHsH0/KqBFJbNaT0OVVWxZdEZc99u?=
- =?us-ascii?Q?aYh3Ksy22ssv/yCTUx/STrp7Swwr2wuuuiG2bhm+6b9W6E5c2Rv6mZ0G34iT?=
- =?us-ascii?Q?Bf5WUGodPxdTyEJHzG1mfmjewTYE2hCp13k8/1AgqvjxdJLdc4Ha?=
-X-OriginatorOrg: oss.nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 7c68e4ed-0f28-4817-25db-08df1f11b3af
-X-MS-Exchange-CrossTenant-AuthSource: GV2PR04MB11799.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 30 Sep 2026 16:41:40.2966
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: mlyl3iGwVClp/U6xmhu2Oqgxb+n9fkGk9rff4OQ5Tidhn3AFzMT3O2BYj9MQTJGF7B38oV7YEnisOCDKAd/FUiI5hmc+tHEu17iGtJYHkh//zy4Z7OkxCABPdzjuImnx
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: PA1PR04MB11529
+In-Reply-To: <annp-BdTviQoH6vy@willie-the-truck>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260930_174146_422473_8905B534 
-X-CRM114-Status: GOOD (  28.66  )
+X-CRM114-CacheID: sfid-20260930_174317_160240_A66258D9 
+X-CRM114-Status: GOOD (  17.01  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -154,110 +96,46 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Sep 29, 2026 at 03:43:39PM -0400, jeffbarnes@linux.microsoft.com wrote:
-> [You don't often get email from jeffbarnes@linux.microsoft.com. Learn why this is important at https://aka.ms/LearnAboutSenderIdentification ]
->
-> From: Jeff Barnes <jeffbarnes@linux.microsoft.com>
->
-> The Layerscape PCIe driver programs PCIE_ABSERR to forward errors from
-> outbound non-posted requests to the internal AXI interface.
->
-> A PCI configuration access can race with the link going down after
-> dw_pcie_other_conf_map_bus() checks the link but before the MMIO access
-> is performed. When the resulting Completion Timeout is forwarded to
-> AXI, it causes an asynchronous SError and kernel panic.
->
-> For example:
->
->   Kernel panic - not syncing: Asynchronous SError Interrupt
->   ...
->   Call trace:
->    arm64_serror_panic+0x78/0x90
->    do_serror+0x84/0x90
->    el1h_64_error_handler+0x30/0x40
->    el1h_64_error+0x68/0x70
->    pci_generic_config_read+0x64/0xb0
->    dw_pcie_rd_other_conf+0x1c/0x68
->    pci_bus_read_config_word+0x68/0x118
->    pcie_capability_read_word+0xa8/0xd8
->    find_device_iter+0x8c/0x160
->    pci_walk_bus+0x60/0xb8
->    find_source_device+0x78/0xb0
->    aer_isr+0x1dc/0x230
->
-> Restore the controller's default error response behavior instead of
-> forwarding these errors to AXI.
->
-> Reproduce the race by instrumenting dw_pcie_rd_other_conf() to call
-> map_bus() while the link is up, then schedule a worker on another CPU
-> to set PCI_EXP_LNKCTL_LD. Synchronize the CPUs immediately before the
-> Link Disable DBI write, then perform readl() using the address returned
-> by map_bus() concurrently with the link transition.
->
-> Without this change, the overlapping configuration read results in an
-> asynchronous SError and kernel panic. With this change, the same test
-> returns 0xffffffff from the configuration read. In this test, AER
-> reports a non-fatal Completion Timeout, and no SError or kernel panic
-> occurs.
->
-> This effectively reverts the error response behavior introduced by
-> commit 84d897d69938
-> ("PCI: layerscape: Change default error response behavior").
+Hi Will,
 
-Subject should be revert ...
+On Mon, Aug 10, 2026 at 04:10:48PM +0100, Will Deacon wrote:
+> On Mon, Aug 10, 2026 at 03:44:42PM +0100, Leo Yan wrote:
+> > Commit 18049c8cff9c ("perf/aux: Allocate non-contiguous AUX pages by
+> > default") made the AUX allocator use order-0 pages by default unless a
+> > PMU explicitly asks for contiguous allocations.
+> 
+> But that commit specifically calls out SPE as benefitting from
+> non-contiguous pages:
+> 
+>   "For instance, ARM SPE and TRBE operate with virtual pages, and
+>    Coresight ETR allocates a separate buffer. For these PMUs,
+>    allocating contiguous AUX pages unnecessarily exacerbates memory
+>    fragmentation. This fragmentation can prevent their use on
+>    long-running devices."
+> 
+> so why doesn't passing PERF_PMU_CAP_AUX_PREFER_LARGE reintroduce the
+> problems that 18049c8cff9c was trying to solve?
 
-I am not sure what's expect behavior by other dwc PCI controller. returns
-0xfffffffff or report bus error.
+How about adding a field to struct pmu to specify a preferred maximum
+page order for the AUX buffer? The perf core could try that order first
+and fall back to smaller orders if the allocation fails.
 
-Frank
+For example, the Neoverse V2 TRM documents:
 
->
-> Fixes: 84d897d69938 ("PCI: layerscape: Change default error response behavior")
-> Cc: stable@vger.kernel.org
-> Signed-off-by: Jeff Barnes <jeffbarnes@linux.microsoft.com>
-> ---
->  drivers/pci/controller/dwc/pci-layerscape.c | 12 ------------
->  1 file changed, 12 deletions(-)
->
-> diff --git a/drivers/pci/controller/dwc/pci-layerscape.c b/drivers/pci/controller/dwc/pci-layerscape.c
-> index 14d6ac4fc53f..d333f1ae8a41 100644
-> --- a/drivers/pci/controller/dwc/pci-layerscape.c
-> +++ b/drivers/pci/controller/dwc/pci-layerscape.c
-> @@ -28,8 +28,6 @@
->
->  /* PEX Internal Configuration Registers */
->  #define PCIE_STRFMR1           0x71c /* Symbol Timer & Filter Mask Register1 */
-> -#define PCIE_ABSERR            0x8d0 /* Bridge Slave Error Response Register */
-> -#define PCIE_ABSERR_SETTING    0x9401 /* Forward error of non-posted request */
->
->  /* PF Message Command Register */
->  #define LS_PCIE_PF_MCR         0x2c
-> @@ -103,14 +101,6 @@ static void ls_pcie_drop_msg_tlp(struct ls_pcie *pcie)
->         iowrite32(val, pci->dbi_base + PCIE_STRFMR1);
->  }
->
-> -/* Forward error response of outbound non-posted requests */
-> -static void ls_pcie_fix_error_response(struct ls_pcie *pcie)
-> -{
-> -       struct dw_pcie *pci = pcie->pci;
-> -
-> -       iowrite32(PCIE_ABSERR_SETTING, pci->dbi_base + PCIE_ABSERR);
-> -}
-> -
->  static u32 ls_pcie_pf_lut_readl(struct ls_pcie *pcie, u32 off)
->  {
->         if (pcie->big_endian)
-> @@ -180,8 +170,6 @@ static int ls_pcie_host_init(struct dw_pcie_rp *pp)
->         struct dw_pcie *pci = to_dw_pcie_from_pp(pp);
->         struct ls_pcie *pcie = to_ls_pcie(pci);
->
-> -       ls_pcie_fix_error_response(pcie);
-> -
->         dw_pcie_dbi_ro_wr_en(pci);
->         ls_pcie_clear_multifunction(pcie);
->         dw_pcie_dbi_ro_wr_dis(pci);
-> --
-> 2.43.0
->
->
+  L1 Trace Buffer Extension (TRBE) TLB: 1 entry
+
+Given the single L1 TRBE TLB entry, the TRBE driver could prefer
+PMD_ORDER (2 MiB with 4 KiB pages) to reduce TLB pressure. This reflects
+the hardware characteristic.
+
+This could be a trade-off instead of using PERF_PMU_CAP_AUX_PREFER_LARGE,
+avoiding large contiguous allocations that could reintroduce the Android
+OOM issue. I did a quick test with this approach and the results look
+positive.
+
+Does this sound like a reasonable direction? I might also need Yabin's
+judgement from Android side.
+
+Thanks,
+Leo
 
