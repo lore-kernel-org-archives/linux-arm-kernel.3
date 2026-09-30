@@ -4,70 +4,68 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 356BCCA5FAC
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 30 Sep 2026 13:27:12 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A3408CA5FC5
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 30 Sep 2026 13:28:21 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
 	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=OpSmVL4hqTjWvE1WR/oUH8A/JGaoOj3L6zfCJwDU9FQ=; b=F+yXkH+RIgcBGLAfKCQ6PS0LVE
-	/W6GmisldE+MKV7gPzIhJKTpSFRlDlbKGGF4f5/60zEuPcte+GeAOXYNr0hdPITTGVU44cuVY2gct
-	qbjnt0hksFjT4glh3qtuCtCDEJrquu5P1exaWSIZ1GsJusqIhm+Xd50tEfNNzyhliqn1+oaOSSEaY
-	izpTwHYZkj1DHrmETEuflz4agdRWkuBxqWi2snlKplrfA2+U5YAL5jJDjeldpSWxAan8Hh4D0PtgE
-	AVWyVvdUcp7Qs2j/GbnYivupw5eE2eQ+RqiPiIr5tpWKFnzmWZqHX2gjBANqqY/v3zIl4an0FwP2H
-	30ekrwEQ==;
+	bh=GmzZfGHoDgoAyrR9m4mtLd61BdqL6boC1QSPlsKB1BU=; b=X9xBJeqOs1J+BAVr2iCMpwE6bR
+	kaNtT0DvYTgRuWurvSOxwOxBZhyXKe6PXo4cyfg8yjo/Xc5qja+2UOiq3lMnWo2x2JeVwkGY/lv1I
+	Y12MicuTDA5FAuhqiawPC3p//3td2SoVOJrAK3pYyb75qT+q8r2k0/M2IJ5V3/9vBtJoZ9rd5qOnK
+	EwaQWu4T8WyY4oWrXi3Z5JvGe4aOETONqxrKh1rTylnAkSq9/LA6iRYK8FNiSxXYNiyc4D0rTAaHr
+	YQRx0H3PaB9tS2Yg4ZxdPOwthJRZTxxBqLBfHwUM9TCl3RPCp6ZiteyZIs/MM3rSbrb1RtZqJFuy8
+	+osqVkVA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xBuKv-000000067qe-0bRu;
-	Wed, 30 Sep 2026 13:27:05 +0000
+	id 1xBuM2-0000000683e-3lyE;
+	Wed, 30 Sep 2026 13:28:14 +0000
 Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xBuKt-000000067qB-204R
+	id 1xBuM1-0000000682d-3eTL
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 30 Sep 2026 13:27:03 +0000
+	Wed, 30 Sep 2026 13:28:13 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id E40C943F57
-	for <linux-arm-kernel@lists.infradead.org>; Wed, 30 Sep 2026 13:27:02 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id C53EE1F008A2
-	for <linux-arm-kernel@lists.infradead.org>; Wed, 30 Sep 2026 13:27:02 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 9EEC743C0D
+	for <linux-arm-kernel@lists.infradead.org>; Wed, 30 Sep 2026 13:28:13 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 8404B1F00898
+	for <linux-arm-kernel@lists.infradead.org>; Wed, 30 Sep 2026 13:28:13 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1790774822;
-	bh=OpSmVL4hqTjWvE1WR/oUH8A/JGaoOj3L6zfCJwDU9FQ=;
+	s=k20260515; t=1790774893;
+	bh=GmzZfGHoDgoAyrR9m4mtLd61BdqL6boC1QSPlsKB1BU=;
 	h=References:In-Reply-To:From:Date:Subject:To:Cc;
-	b=He0p0C2GEmvWcs3QascPblvBjga4iuGgh4pATvGNfHJPBwXoZSz5+rXqm1bNcaurk
-	 jcIjD1SyLBjDKGPKdNFupFTAyobxtJ1EAWb2GHBrWexPkB56ZymrVpu1cd4m1O99Eq
-	 zpK2vVJRlrhk9QKePv7sYZ5pWg1Wsd/MjD5VUryPztPWjE1xViUCmtDFViUhcBKI4d
-	 JGPCyhndt1THNfsOJh4a/rteMDVrCWaWlaauLWUBKhSQacYHaRuG9cxGUxBwA61//a
-	 t9nJk4bTk+OlpGxp4AykifQhcHs3nEtC6HDj+poWtdfMuPtgDvB2RDpheI0SLu/jKq
-	 2w01hRV4BvDag==
-Received: by mail-lf2-f13.google.com with SMTP id 2adb3069b0e04-5b8eacb7c8fso4678567e87.3
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 30 Sep 2026 06:27:02 -0700 (PDT)
-X-Forwarded-Encrypted: i=1; AKwUvBxaY4L6Fww/c5qBKD1JgJxihKXoMn/doNT7Mv9J9eV7xgJdxlf9WTspgcVDhYSBbEd9mS5dLKrmuYJYp+DMqrOe@lists.infradead.org
-X-Gm-Message-State: AFq9FYI2thRLJAFPzLfqiiqpgwCiYh0UAZvaTsB96VnuyyS6g0ytALTl
-	3gKg9m6pFmF0sv2eI7QnmdYvwncBhDkZJ9WaUc5szk12qj7xv14nEn6cJQEB771OWYYR0rBqqHM
-	GmAletJ6jxHTFDcDF2xNJNy51iSVPT34=
-X-Received: by 2002:a05:6512:3a8a:b0:5ba:36c4:c953 with SMTP id
- 2adb3069b0e04-5ba402b8597mr589624e87.8.1790774821501; Wed, 30 Sep 2026
- 06:27:01 -0700 (PDT)
+	b=IzH1PSXY8/0oM/wtjLZqOcgTL5usqsaiUZN3/ApGwSaS2xyj5OEg85DPdwqtTlSje
+	 iEDeyyTR+NF2EZw/9pcdPRliTndfjUlqeUuDggGVYxFnpWCDLm5lhUFVCan0cZNhFa
+	 4mIQToGL6gbqb5FGv/CGzxerjo3+isn382/UdV+Zc7Sz2DeH4Fij+FcR9TIDawfPo9
+	 FsKMW+4z0FE3NJpZFGECYY/22XVSEn3JRQX5vRZKeppzLlpDuJvAdZELvdML6ua42L
+	 /U239Zz4jeq4Vx4yzGsFKsHh0PBwc202MdH7PVegzc35K6xBpti0lWToDn87daHRDy
+	 pCPQjuqGgyqxQ==
+Received: by mail-lf2-f13.google.com with SMTP id 2adb3069b0e04-5b8ede3ab7aso1735244e87.1
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 30 Sep 2026 06:28:13 -0700 (PDT)
+X-Forwarded-Encrypted: i=1; AKwUvByVmIE0fHJwGe6Re5mDwuzZOH+EIqdEgujRZDK68c1U7bAeKWiE869VrRsvX1bZSLu+hCAeZ3InjMiYdXxLmSY9@lists.infradead.org
+X-Gm-Message-State: AFq9FYIZCC3hzsO0q4J7bRcofDnAp6n5vlCYwdLga+7sMDFznsSmey9e
+	+yq24YXIwhm+rujTHfBVEDO/+J5Rpma+LEiCknAAmbTXzxZXdwFPrB44LfBwCKFzVkb4+VTKBmr
+	EAlJq6Kk4Ay+yRKVS8mHpzpFg3waW+tQ=
+X-Received: by 2002:a05:6512:3b9c:b0:5b8:bc5e:b574 with SMTP id
+ 2adb3069b0e04-5ba40612645mr526612e87.44.1790774892330; Wed, 30 Sep 2026
+ 06:28:12 -0700 (PDT)
 MIME-Version: 1.0
-References: <20260918072852.501420-1-wei.fang@oss.nxp.com> <20260918072852.501420-2-wei.fang@oss.nxp.com>
-In-Reply-To: <20260918072852.501420-2-wei.fang@oss.nxp.com>
+References: <20260918095853.1348694-1-congnt264@gmail.com>
+In-Reply-To: <20260918095853.1348694-1-congnt264@gmail.com>
 From: Linus Walleij <linusw@kernel.org>
-Date: Wed, 30 Sep 2026 15:26:48 +0200
-X-Gmail-Original-Message-ID: <CAD++jLnFo1yd2AXyu8XdZ5VV4RooXGP1xEXS9vtAsoSfwPKY=Q@mail.gmail.com>
-X-Gm-Features: AclHuK-Cq3rn8OBffcZs3OkTTOIAYyYq7qYSn2XcIAzlvfiwp3W9Cp7NWkyTaAU
-Message-ID: <CAD++jLnFo1yd2AXyu8XdZ5VV4RooXGP1xEXS9vtAsoSfwPKY=Q@mail.gmail.com>
-Subject: Re: [PATCH v4 net-next 1/8] ptp: netc: use ioread64_lo_hi/iowrite64_lo_hi
- for 64-bit register access
-To: wei.fang@oss.nxp.com
-Cc: xiaoning.wang@nxp.com, andrew@lunn.ch, olteanv@gmail.com, 
-	andrew+netdev@lunn.ch, davem@davemloft.net, edumazet@google.com, 
-	kuba@kernel.org, pabeni@redhat.com, horms@kernel.org, 
-	richardcochran@gmail.com, linux@armlinux.org.uk, wei.fang@nxp.com, 
-	imx@lists.linux.dev, netdev@vger.kernel.org, linux-kernel@vger.kernel.org, 
-	linuxppc-dev@lists.ozlabs.org, linux-arm-kernel@lists.infradead.org
+Date: Wed, 30 Sep 2026 15:27:59 +0200
+X-Gmail-Original-Message-ID: <CAD++jLmc6GJP07DJQxH3OGJ1i-6+ksMu=1gEeWkr4JR4xvh29Q@mail.gmail.com>
+X-Gm-Features: AclHuK_-hjzb_iqjk__PsBqyNlJIrjqhdhCusnJbaUiZ1mRhmBrwCTww1yq5FOo
+Message-ID: <CAD++jLmc6GJP07DJQxH3OGJ1i-6+ksMu=1gEeWkr4JR4xvh29Q@mail.gmail.com>
+Subject: Re: [PATCH v2] rtc: stm32: fix clock leak on pinctrl probe failure
+To: Cong Nguyen <congnt264@gmail.com>
+Cc: Alexandre Belloni <alexandre.belloni@bootlin.com>, 
+	Maxime Coquelin <mcoquelin.stm32@gmail.com>, Alexandre Torgue <alexandre.torgue@foss.st.com>, 
+	Valentin Caron <valentin.caron@foss.st.com>, Antonio Borneo <antonio.borneo@foss.st.com>, 
+	linux-rtc@vger.kernel.org, linux-stm32@st-md-mailman.stormreply.com, 
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
 Content-Type: text/plain; charset="UTF-8"
 Content-Transfer-Encoding: quoted-printable
 X-BeenThere: linux-arm-kernel@lists.infradead.org
@@ -84,24 +82,25 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, Sep 18, 2026 at 9:24=E2=80=AFAM <wei.fang@oss.nxp.com> wrote:
+On Fri, Sep 18, 2026 at 11:59=E2=80=AFAM Cong Nguyen <congnt264@gmail.com> =
+wrote:
 
-> From: Wei Fang <wei.fang@nxp.com>
+> A failing devm_pinctrl_register_and_init() or pinctrl_enable() in
+> stm32_rtc_probe() returns directly instead of going through err:,
+> leaking rtc_ck/pclk -- and since -EPROBE_DEFER is routine here, each
+> deferred retry leaks another.
 >
-> Replace the open-coded 64-bit register read/write sequences with
-> ioread64_lo_hi() and iowrite64_lo_hi() helpers. Introduce two new macros
-> netc_timer_rd64() and netc_timer_wr64() that wrap these helpers and use
-> them throughout the driver. This reduces boilerplate and makes the intent
-> of each operation clearer.
+> Route both through err:, and move the pinctrl setup earlier (right
+> after stm32_rtc_init(), before the RTC device/IRQ are registered) so
+> disabling the clocks there doesn't race a still-live IRQ.
 >
-> The high-half register defines (NETC_TMR_*_H) are kept to document the
-> register map; they are not used directly since netc_timer_rd/wr64()
-> address the 64-bit register pair via the low-half offset, relying on the
-> hardware layout where H is always at L + 4.
->
-> Signed-off-by: Wei Fang <wei.fang@nxp.com>
+> Fixes: 16ad2bc09efb ("rtc: stm32: add pinctrl and pinmux interfaces")
+> Reported-by: Sashiko AI review <sashiko-bot@kernel.org>
+> Link: https://lore.kernel.org/r/20260914135401.373D91F000FF@smtp.kernel.o=
+rg
+> Assisted-by: LLM
+> Signed-off-by: Cong Nguyen <congnt264@gmail.com>
 
-That's neat.
 Reviewed-by: Linus Walleij <linusw@kernel.org>
 
 Yours,
