@@ -4,65 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B3D62CA5FC5
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 30 Sep 2026 21:18:01 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id AE473CA5FC4
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 30 Sep 2026 21:18:22 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Cc:List-Subscribe:
-	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	Content-Transfer-Encoding:Content-Type:To:Subject:Message-ID:Date:From:
-	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=fl5I1QV2eV1xWfYcij/eLCiR69UEs6OwINAi4wPHZ40=; b=Xa174ZWCDlSGuw
-	tgMAUpAeHYlkIeZHE0A36BKljTAoSyRYf4yKE4yeAl/Gp2YhpONBucrjv93wtFFXaG379x6E+T6k4
-	aFZCEG5lJbSTXyWL8K7XwePrNhgj7+tVSYAmmhH4CVLCliOk1CRUyQXPJg0cVDpwxzrCe5hXbKe5S
-	rzt0uDAFYICESXeTAd13DHzH/Us1q1ijWK+7fRWMgcfr/wrt5eq6TmcgQiw8KqyUXdy8ONx4tfqie
-	R75p3qwZQ2V0bTRTewuqyGhwgtSYlGeWkVe8ofzgrsaZrFxepruVNXKaGZrJxjgDyJGvdTbg6kIKa
-	5F1YUnbhXKAPSbML7vkQ==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=Asdm0TpB8u5zy0lzy5pt0MvWertRtCXOd6lENqyikxs=; b=BCxGbMVonc+IvpBvwMSKW0MfmO
+	VKA+hiZuRJHmhXUqeGkR9Ts3FNqc7sOSC50PagVca3SAK7vUU9KGx8RbWi4jP8WKO1yzjnwxEDqgA
+	Txv4u8erFR8E/VlYIA7tmFtlQIfNF1pxu3OXsWMWtG+3OaNzOl/2NRHeDBmw/ghSasmk2NMe7I+a3
+	4CIu/Bz0Dk1praF89b3+NzwLjfg3DtFX57FbXGi1/DtKrsUgbFnm6f4f0KqaagBhSmkd6rlRBjUVj
+	LGRjMmNvliNBu2WmZQvn11QLF0TQIDIJdZ5YjqqLsQ0p8seNTSvKOjARxTZxEcx5HqBEZTcoyDVHX
+	LVTogdaw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xC1gY-00000007Ehc-1T96;
-	Wed, 30 Sep 2026 21:17:54 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1xC1gu-00000007EkV-20tW;
+	Wed, 30 Sep 2026 21:18:16 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xC1gX-00000007EhV-1Fe6
+	id 1xC1gt-00000007EkE-0uZj
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 30 Sep 2026 21:17:53 +0000
+	Wed, 30 Sep 2026 21:18:15 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id 6F28960219
-	for <linux-arm-kernel@lists.infradead.org>; Wed, 30 Sep 2026 21:17:52 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 216231F0089E
-	for <linux-arm-kernel@lists.infradead.org>; Wed, 30 Sep 2026 21:17:52 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 4EBCF6021C;
+	Wed, 30 Sep 2026 21:18:14 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id B3D531F000FF;
+	Wed, 30 Sep 2026 21:18:10 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1790803072;
-	bh=fl5I1QV2eV1xWfYcij/eLCiR69UEs6OwINAi4wPHZ40=;
-	h=References:In-Reply-To:From:Date:Subject:To:Cc;
-	b=MMXfO6BWn8bUWVdo0p3wi5ktdVKnFBqkJG/xMETceD1Ee58UNPFbHOodgJQo0JdQ7
-	 i02bUnW/+FTf9s05fgxGwILL8QJtDwZmiCwAGkmzi9b/iZ+5kQPJxBsVGMYdHvHdOj
-	 9fqG50EUA/44HThnQy6BX2F+xNsV0igLE+P6gbhIDxP56pTFptPqHmCp5wvOkqykoq
-	 Emq+wP3ATXstsoayyVNjFZwAJEy1pCRBe9gzIFIZOio7LffvLhQXw4Ke4itdTzp/Fq
-	 LZdGocmzEqYa1D/KEWZe0SchgBLyS2gL8+4X8whKrvj02n62N7vF0uXSIkRdsLHmDe
-	 ApeXqVqVPo+qg==
-Received: by mail-lf2-f12.google.com with SMTP id 2adb3069b0e04-5b8ea203e5bso4980989e87.1
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 30 Sep 2026 14:17:52 -0700 (PDT)
-X-Gm-Message-State: AFq9FYI0+47LJXHwwBHPEo0A0dXwvQPd7mseagEBACrPDc7VcwpnFElg
-	ROiLBH3jXYMXxZlSNCHbX8uS87qJfW2warfhOwwYxJmiEnuslaBzAkqyDTBfL/TQ1w4VzNoW3g8
-	g0S8z49kcXHefLXC2vc0UqGnlUy7oiKM=
-X-Received: by 2002:a05:6512:2553:b0:5ba:3339:6f6b with SMTP id
- 2adb3069b0e04-5ba405ea599mr830481e87.20.1790803070880; Wed, 30 Sep 2026
- 14:17:50 -0700 (PDT)
+	s=k20260515; t=1790803094;
+	bh=Asdm0TpB8u5zy0lzy5pt0MvWertRtCXOd6lENqyikxs=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=l15rZbWiW/tSQiObx6mwp+9gGKh9XCppH7zEZjV4/ws0N0fhhL935fgxY8T/b9ryq
+	 scgrbCydtbaS9kU0dxFiENiEic8kWwHrDvgrlsQlvuMOK5MtRkasgICmtoCwsDFpec
+	 g1JnkEsBFNCOisjA7nDuJPTofbwDarZmGApQoWfT3O7J1v/UYjpJ5z8s0ZTURjkSkq
+	 Ywil6TqsOkRzj2rX+mR0kGfZEycli/3RPDCiIhczFzNmkk5OD7Hlk+6smZD2mdqbn5
+	 6NMqF51tZttN2pdFPcSNA4UlpmDwNKAqPY4Kyzdb95j7m4x0cGaXJkPbpYvMy6F+jF
+	 U0wyl9hTDnUqA==
+Date: Wed, 30 Sep 2026 22:18:08 +0100
+From: Conor Dooley <conor@kernel.org>
+To: Fabrice Gasnier <fabrice.gasnier@foss.st.com>
+Cc: Jonathan Cameron <jic23@kernel.org>,
+	David Lechner <dlechner@baylibre.com>,
+	Nuno =?iso-8859-1?Q?S=E1?= <nuno.sa@analog.com>,
+	Andy Shevchenko <andy@kernel.org>, Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
+	Alexandre Torgue <alexandre.torgue@foss.st.com>,
+	Marek Vasut <marex@nabladev.com>, linux-iio@vger.kernel.org,
+	devicetree@vger.kernel.org,
+	linux-stm32@st-md-mailman.stormreply.com,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+	Cheick Traore <cheick.traore-ext@st.com>,
+	Olivier Moysan <olivier.moysan@foss.st.com>
+Subject: Re: [PATCH v3 01/15] dt-bindings: iio: adc: stm32-adc: add support
+ for stm32mp23 and stm32mp25
+Message-ID: <20260930-blip-hacker-c0eb3c978fb8@spud>
+References: <20260930-adc-stm32mp25-v1-v3-0-406834430d72@foss.st.com>
+ <20260930-adc-stm32mp25-v1-v3-1-406834430d72@foss.st.com>
 MIME-Version: 1.0
-References: <20260918161407.2300-1-will@kernel.org> <20260918161407.2300-17-will@kernel.org>
-In-Reply-To: <20260918161407.2300-17-will@kernel.org>
-From: Linus Walleij <linusw@kernel.org>
-Date: Wed, 30 Sep 2026 23:17:38 +0200
-X-Gmail-Original-Message-ID: <CAD++jLmyeK_ofduD6fTqSDxBMn6Uw4RcqLzWrVAxHBFfrNi89A@mail.gmail.com>
-X-Gm-Features: AclHuK-Ykzjqcpqr2_CBUXShzMhAuD7nlzJPuK2IKAyiJBm7WI7lbLkuW_lz0QA
-Message-ID: <CAD++jLmyeK_ofduD6fTqSDxBMn6Uw4RcqLzWrVAxHBFfrNi89A@mail.gmail.com>
-Subject: Re: [PATCH v2 16/21] arm64: entry: Implement EL1t exception handlers
- for overflow stack
-To: Will Deacon <will@kernel.org>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="H5isfrlAMKPo+WOT"
+Content-Disposition: inline
+In-Reply-To: <20260930-adc-stm32mp25-v1-v3-1-406834430d72@foss.st.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -74,31 +80,26 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
-Cc: Mark Rutland <mark.rutland@arm.com>, Vladimir Murzin <vladimir.murzin@arm.com>, Arnd Bergmann <arnd@arndb.de>, Catalin Marinas <catalin.marinas@arm.com>, linux-kernel@vger.kernel.org, Mostafa Saleh <smostafa@google.com>, Marc Zyngier <maz@kernel.org>, David Hildenbrand <david@kernel.org>, Lorenzo Stoakes <ljs@kernel.org>, Oliver Upton <oupton@kernel.org>, Ard Biesheuvel <ardb@kernel.org>, linux-arm-kernel@lists.infradead.org
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, Sep 18, 2026 at 6:15=E2=80=AFPM Will Deacon <will@kernel.org> wrote=
-:
+--H5isfrlAMKPo+WOT
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
 
-> In preparation for using EL1t to handle exceptions taken whilst running
-> on the overflow stack, implement some simple wrappers around the EL1h
-> handlers which perform a best-effort stack overflow check before
-> proceeding.
->
-> Cc: Mark Rutland <mark.rutland@arm.com>
-> Signed-off-by: Will Deacon <will@kernel.org>
+Acked-by: Conor Dooley <conor.dooley@microchip.com>
+pw-bot: not-applicable
 
-In the commit message, say something about the fact that EL1t handlers
-architecturally use the stack pointer from SP_EL0 which we
-have now started to repurpose for the kernel-internal overflow stack
-and not EL0 (as the name says) at all, and handlers here will
-by definition be running on the kernel overflow stack, so people
-understand what is going on here.
+--H5isfrlAMKPo+WOT
+Content-Type: application/pgp-signature; name=signature.asc
 
-If I understood it right:
-Reviewed-by: Linus Walleij <linusw@kernel.org>
+-----BEGIN PGP SIGNATURE-----
 
-Yours,
-Linus Walleij
+iHUEABYKAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCar18kAAKCRB4tDGHoIJi
+0pgAAQCk8EVeiVU7bhrDnX9SGs0jNb+botmOIZKyWqLMT6HyVQD8CSU3PsZX2Dlz
+pRsbaiCvl7wPH8G7uJ99rxHJL+MOcQI=
+=tsxz
+-----END PGP SIGNATURE-----
+
+--H5isfrlAMKPo+WOT--
 
