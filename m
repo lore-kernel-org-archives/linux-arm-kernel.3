@@ -4,54 +4,130 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 92B99CA5FC1
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 30 Sep 2026 17:31:54 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id AFC4ACA5FC4
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 30 Sep 2026 17:35:13 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=NekGYTMsQoN6Q698XRZubdgz89ZkfcStE+gd4rWz4JY=; b=iziKt8yA3BUznVgGtXobyldjo1
-	0fr6XP3w9eHQ2eu/OJVqT1lbn1+skUVFEAZa959bkYpjX85EgVnLoNocUNWI27Rr2FeqPfYenohjV
-	K0NEPADfK/q5M87gmfSNEzMOHhXZzIDgTyZ6hsStfGrSTEoPqxH4veaJG7KTqcseVZaKMi7M0CMzC
-	YArC+jvwvJ0izcS9YCcImc93bnRNt+eI0D9EUVNF78ALTLYI5tjoBGwWJdrWGFjjizBpZ7FrtlN66
-	L7RMM6ToiUzlMwKa+dLDmUIxUKM2srQ19OW684r3j9i4v9gh2dRNTDu3tIj75+GIZh2V0YWbbqu/z
-	DgvXwbaw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=ihC3cLkRFCy3VMN0YOVT+1xOka210qaHcOn3v4ow/tc=; b=DpWLPoAskioaa0EcMckg5CCSeT
+	SYe63QLcZd8yh1ci/RSE0zIklSF1NMD8nUxhWl/XhUUx3AAOwNMuoDBShAyrccOqMh3aSx2ADilVa
+	/xOzaZn/ZdGsSCo2MmdF6uVUUI/feYC9iRbgAjCenzEzxxeyBSI9T0AHmzHImmOz4qEyuBVKUu2+o
+	ZBHi0av1yDBxIOFXfJddsPyWvXizhT66OYdP9w8DhYm7zoqAQxl7hry9DYYrLME9xVgo65kdxMtmn
+	iaQTPgf4utg/nvpi7i0HI/uA1NwOmnufkx8Ma1tLgTpGmqrl0b2K6kKwkDkXwEtrU7Lc42/v/dsH8
+	sCGdKRGA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xBy9i-00000006qR0-1QMl;
-	Wed, 30 Sep 2026 17:31:47 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1xByCt-00000006qvf-3AIW;
+	Wed, 30 Sep 2026 17:35:03 +0000
+Received: from mx0b-001b2d01.pphosted.com ([148.163.158.5])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xBy9h-00000006qQb-0UvV
+	id 1xByCr-00000006quA-21ny
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 30 Sep 2026 17:31:45 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id 3CE16601DE;
-	Wed, 30 Sep 2026 17:31:44 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 130CB1F00899;
-	Wed, 30 Sep 2026 17:31:41 +0000 (UTC)
-Date: Wed, 30 Sep 2026 18:31:39 +0100
-From: Mark Brown <broonie@debian.org>
-To: Shih-Yuan Lee <fourdollars@debian.org>
-Cc: Andy Shevchenko <andriy.shevchenko@linux.intel.com>,
-	Mika Westerberg <mika.westerberg@linux.intel.com>,
-	Lukas Wunner <lukas@wunner.de>, Daniel Mack <daniel@zonque.org>,
-	Haojian Zhuang <haojian.zhuang@gmail.com>,
-	Robert Jarzmik <robert.jarzmik@free.fr>, linux-spi@vger.kernel.org,
-	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org
-Subject: Re: [PATCH v17 2/6] spi: pxa2xx: introduce clock enable and disable
- helper functions
-Message-ID: <4fafe6fd-b97d-4887-8788-b925cf7167eb@sirena.org.uk>
-References: <20260930160629.1822-1-fourdollars@debian.org>
- <20260930160629.1822-3-fourdollars@debian.org>
+	Wed, 30 Sep 2026 17:35:02 +0000
+Received: from pps.filterd (m0360072.ppops.net [127.0.0.1])
+	by mx0a-001b2d01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 68UE5vIw3167177;
+	Wed, 30 Sep 2026 17:34:49 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ibm.com; h=cc
+	:content-transfer-encoding:date:from:in-reply-to:message-id
+	:mime-version:references:subject:to; s=pp1; bh=ihC3cLkRFCy3VMN0Y
+	OVT+1xOka210qaHcOn3v4ow/tc=; b=ICHO1pKjJC7gEdxraLGcR14qNoGmbs5oA
+	DwluL+z/wFUJa3QkOnAFA4f6sVAHOBmz3Tcpw4Nuzh+4j5NVzJ25MwllZI4OyXJe
+	692nc4/LQNy3HZGWZOChsKIIkw9CN/2bC9qAY0gNvWC7ZYEmz/ThR28Bj2CZveAO
+	/69n7uJKEzJ7+eGvgZmIUGBugJcaURea01R8Shqy/kns4Frkp9rDjP6MsaMlCeFn
+	d1s1jfnfZzW9EJ81SgsFowwJkgBXntIFw63z64uwtUIqPSnepJOaM0Tyq5aRnRv6
+	3mr/J5BYG/A6ldkUoPItEh4kC78HoWIM7FmeyqIOxaUsEDeJ5ZIYw==
+Received: from ppma22.wdc07v.mail.ibm.com (5c.69.3da9.ip4.static.sl-reverse.com [169.61.105.92])
+	by mx0a-001b2d01.pphosted.com (PPS) with ESMTPS id 4gx5ptdj60-1
+	(version=TLSv1.3 cipher=TLS_AES_256_GCM_SHA384 bits=256 verify=NOT);
+	Wed, 30 Sep 2026 17:34:48 +0000 (GMT)
+Received: from pps.filterd (ppma22.wdc07v.mail.ibm.com [127.0.0.1])
+	by ppma22.wdc07v.mail.ibm.com (8.18.1.11/8.18.1.11) with ESMTP id 68UEHwJ73569222;
+	Wed, 30 Sep 2026 17:34:48 GMT
+Received: from smtprelay04.fra02v.mail.ibm.com ([9.218.2.228])
+	by ppma22.wdc07v.mail.ibm.com (PPS) with ESMTPS id 4h0xcsa66e-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Wed, 30 Sep 2026 17:34:48 +0000 (GMT)
+Received: from smtpav06.fra02v.mail.ibm.com (smtpav06.fra02v.mail.ibm.com [10.20.54.105])
+	by smtprelay04.fra02v.mail.ibm.com (8.14.9/8.14.9/NCO v10.0) with ESMTP id 68UHYiFq15991178
+	(version=TLSv1/SSLv3 cipher=DHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
+	Wed, 30 Sep 2026 17:34:44 GMT
+Received: from smtpav06.fra02v.mail.ibm.com (unknown [127.0.0.1])
+	by IMSVA (Postfix) with ESMTP id 3869A20049;
+	Wed, 30 Sep 2026 17:34:44 +0000 (GMT)
+Received: from smtpav06.fra02v.mail.ibm.com (unknown [127.0.0.1])
+	by IMSVA (Postfix) with ESMTP id D8A492005A;
+	Wed, 30 Sep 2026 17:34:43 +0000 (GMT)
+Received: from tuxmaker.boeblingen.de.ibm.com (unknown [9.87.85.9])
+	by smtpav06.fra02v.mail.ibm.com (Postfix) with ESMTP;
+	Wed, 30 Sep 2026 17:34:43 +0000 (GMT)
+From: Steffen Eiden <seiden@linux.ibm.com>
+To: kvm@vger.kernel.org, kvmarm@lists.linux.dev,
+        linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+        linux-s390@vger.kernel.org
+Cc: Alexander Gordeev <agordeev@linux.ibm.com>,
+        Andreas Grapentin <gra@linux.ibm.com>, Arnd Bergmann <arnd@arndb.de>,
+        Catalin Marinas <catalin.marinas@arm.com>,
+        Christian Borntraeger <borntraeger@linux.ibm.com>,
+        Claudio Imbrenda <imbrenda@linux.ibm.com>,
+        David Hildenbrand <david@kernel.org>,
+        Friedrich Welter <fritz@linux.ibm.com>, Fuad Tabba <tabba@google.com>,
+        Gautam Gala <ggala@linux.ibm.com>,
+        Hariharan Mari <hari55@linux.ibm.com>,
+        Heiko Carstens <hca@linux.ibm.com>,
+        Hendrik Brueckner <brueckner@linux.ibm.com>,
+        Ilya Leoshkevich <iii@linux.ibm.com>,
+        Janosch Frank <frankja@linux.ibm.com>, Joey Gouly <joey.gouly@arm.com>,
+        Marc Zyngier <maz@kernel.org>, Nico Boehr <nrb@linux.ibm.com>,
+        Nina Schoetterl-Glausch <oss@nina.schoetterlglausch.eu>,
+        Oliver Upton <oupton@kernel.org>, Paolo Bonzini <pbonzini@redhat.com>,
+        Sean Christopherson <seanjc@google.com>,
+        Suzuki K Poulose <suzuki.poulose@arm.com>,
+        Sven Schnelle <svens@linux.ibm.com>,
+        Ulrich Weigand <Ulrich.Weigand@de.ibm.com>,
+        Vasily Gorbik <gor@linux.ibm.com>, Will Deacon <will@kernel.org>,
+        Zenghui Yu <yuzenghui@huawei.com>
+Subject: [PATCH v9 06/24] arm64: sysreg: Convert SPSR_ELx to automatic register generation
+Date: Wed, 30 Sep 2026 19:34:21 +0200
+Message-ID: <20260930173441.66762-7-seiden@linux.ibm.com>
+X-Mailer: git-send-email 2.53.0
+In-Reply-To: <20260930173441.66762-1-seiden@linux.ibm.com>
+References: <20260930173441.66762-1-seiden@linux.ibm.com>
 MIME-Version: 1.0
-Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="kKefU3zr1yzK+k5m"
-Content-Disposition: inline
-In-Reply-To: <20260930160629.1822-3-fourdollars@debian.org>
-X-Cookie: (null cookie
+Content-Transfer-Encoding: 8bit
+X-TM-AS-GCONF: 00
+X-Proofpoint-Reinject: loops=2 maxloops=12
+X-Proofpoint-ORIG-GUID: k9F2T8FcywoYCR2wRgMveNwcjR4TRNJ-
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwOTMwMDA2OCBTYWx0ZWRfXzIgZteHUORgK
+ b1DldQwfDAYANapQ1Jtvp3MYKSZaoyzORBVlvxbkBuXNNzYoJgROvc1Cr+HKtub/JXjcZq7brbG
+ r36LaD92sLuE7p5z9pGN83KBI7P4yTjKyspy3K7DM7N04uwc1c6LRFCxPnhX4myq1XynYiXqOPF
+ b2tTffBB1un3q/Pt+EXMB96yxJWl/YhuWvoMmwS7y9ioZ8n/XU7dMmexP3qdascGDJJTpbbaNOn
+ eZtNcQNsynS7eoKDDaE5o/vMgQn4/QsciFLfCTuPWcX8YY5G1GMSnid2FboFc9tMvazPSDqUmNI
+ IW6VAYgi4RPq1mrJZXWALqOezgGwOTu595DSLAfXYs+tEJO/Q9Vm36uuAqmg4UJxIThE0+vTmb4
+ h0kma3gclBmtpe5TGZKcRlweObFAEjAB058rt7uJjUIWmYmzs3CLQmFUULMWklWnDDIBJQZdMsO
+ QRQzZoR+rga8pLhLnjw==
+X-Proofpoint-Spam-Info: AW1haW4tMjYwOTMwMDA2OCBTYWx0ZWRfX+BHDjJirDX3X
+ j63YcmboUMzt2lMnSfv2XwZVR/EiJQHGXtat5Q3/qsuMzZv7sBbKwcM12/YpXsSMrnJ+soivHgS
+ BiDSFTwee4yBEUgdsSc+IelH6mtClQY=
+X-Authority-Analysis: v=2.4 cv=EY5d0/mC c=1 sm=1 tr=0 ts=6abd4839 cx=c_pps
+ a=5BHTudwdYE3Te8bg5FgnPg==:117 a=5BHTudwdYE3Te8bg5FgnPg==:17
+ a=VdqzKS8jKosA:10 a=VkNPw1HP01LnGYTKEx00:22 a=RnoormkPH1_aCDwRdu11:22
+ a=RzCfie-kr_QcCd8fBx8p:22 a=7CQSdrXTAAAA:8 a=VnNF1IyMAAAA:8
+ a=qAnUzrOnmDNqMeXR4cMA:9 a=a-qgeE7W1pNrGK8U0ZQC:22
+X-Proofpoint-GUID: B5fYK2fGV5ZYFD3BwqrcJpPxiHE4avfw
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1176,Hydra:6.1.134,FMLib:17.12.100.49
+ definitions=2026-09-30_03,2026-09-21_02,2025-10-01_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
+ phishscore=0 priorityscore=1501 suspectscore=0 adultscore=0 clxscore=1015
+ malwarescore=0 impostorscore=0 spamscore=0 lowpriorityscore=0 bulkscore=0
+ classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
+ reason=mlx scancount=1 engine=8.22.0-2609040000 definitions=main-2609300068
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260930_103501_657547_2F537CA8 
+X-CRM114-Status: GOOD (  13.10  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -66,49 +142,109 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+Convert SPSR_EL{1, 2, 12} to automatic register generation as per
+DDI0601.
 
---kKefU3zr1yzK+k5m
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
+No functional change.
 
-On Thu, Oct 01, 2026 at 12:06:25AM +0800, Shih-Yuan Lee wrote:
-> The driver enables and disables the SOC clock during probe, teardown,
-> and power management callbacks. Directly calling clk_disable_unprepare()
-> when the clock is already disabled=E2=80=94such as when removing a device=
- that
-> is runtime-suspended=E2=80=94causes an unbalanced clock disable warning f=
-rom the
-> Common Clock Framework.
+Acked-by: Catalin Marinas <catalin.marinas@arm.com>
+Signed-off-by: Steffen Eiden <seiden@linux.ibm.com>
+---
+ arch/arm64/include/asm/sysreg.h |  3 --
+ arch/arm64/tools/sysreg         | 51 +++++++++++++++++++++++++++++++++
+ 2 files changed, 51 insertions(+), 3 deletions(-)
 
-> Introduce pxa2xx_spi_clk_enable() and pxa2xx_spi_clk_disable() helper
-> functions that track the clock state with a 'clk_enabled' boolean flag
-> protected by a 'clk_lock' mutex in struct driver_data. These helpers
-> make clock toggling idempotent: repeated enable or disable invocations
-> are safe no-ops serialized by clk_lock.
+diff --git a/arch/arm64/include/asm/sysreg.h b/arch/arm64/include/asm/sysreg.h
+index 4bfdac9401bd..1aa601c95188 100644
+--- a/arch/arm64/include/asm/sysreg.h
++++ b/arch/arm64/include/asm/sysreg.h
+@@ -295,7 +295,6 @@
+ #define SYS_APGAKEYLO_EL1		sys_reg(3, 0, 2, 3, 0)
+ #define SYS_APGAKEYHI_EL1		sys_reg(3, 0, 2, 3, 1)
+ 
+-#define SYS_SPSR_EL1			sys_reg(3, 0, 4, 0, 0)
+ #define SYS_ELR_EL1			sys_reg(3, 0, 4, 0, 1)
+ 
+ #define SYS_ICC_PMR_EL1			sys_reg(3, 0, 4, 6, 0)
+@@ -518,7 +517,6 @@
+ #define SYS_VTTBR_EL2			sys_reg(3, 4, 2, 1, 0)
+ 
+ #define SYS_HAFGRTR_EL2			sys_reg(3, 4, 3, 1, 6)
+-#define SYS_SPSR_EL2			sys_reg(3, 4, 4, 0, 0)
+ #define SYS_ELR_EL2			sys_reg(3, 4, 4, 0, 1)
+ #define SYS_SP_EL1			sys_reg(3, 4, 4, 1, 0)
+ #define SYS_SPSR_irq			sys_reg(3, 4, 4, 3, 0)
+@@ -604,7 +602,6 @@
+ #define SYS_BRBCR_EL12			sys_reg(2, 5, 9, 0, 0)
+ #define SYS_TTBR0_EL12			sys_reg(3, 5, 2, 0, 0)
+ #define SYS_TTBR1_EL12			sys_reg(3, 5, 2, 0, 1)
+-#define SYS_SPSR_EL12			sys_reg(3, 5, 4, 0, 0)
+ #define SYS_ELR_EL12			sys_reg(3, 5, 4, 0, 1)
+ #define SYS_AFSR0_EL12			sys_reg(3, 5, 5, 1, 0)
+ #define SYS_AFSR1_EL12			sys_reg(3, 5, 5, 1, 1)
+diff --git a/arch/arm64/tools/sysreg b/arch/arm64/tools/sysreg
+index e2d37ee221b8..893b5f9df575 100644
+--- a/arch/arm64/tools/sysreg
++++ b/arch/arm64/tools/sysreg
+@@ -401,6 +401,57 @@ Res0	3:1
+ Field	0	SO
+ EndSysreg
+ 
++SysregFields	SPSR_ELx
++Res0	63:37
++Field	36	UINJ
++Field	35	PACM
++Field	34	EXLOCK
++Res0	33
++Field	32	PM
++Field	31	N
++Field	30	Z
++Field	29	C
++Field	28	V
++Res0	27:26
++Field	25	TCO
++Field	24	DIT
++Field	23	UAO
++Field	22	PAN
++Field	21	SS
++Field	20	IL
++Res0	19:14
++Field	13	ALLINT
++Field	12	SSBS
++Field	11:10	BTYPE
++Field	9	D
++Field	8	A
++Field	7	I
++Field	6	F
++Res0	5
++Field	4	M4
++Enum	3:0	M
++	0b0000	EL0
++	0b0100	EL1t
++	0b0101	EL1h
++	0b1000	EL2t
++	0b1001	EL2h
++	0b1100	EL3t
++	0b1101	EL3h
++EndEnum
++EndSysregFields
++
++Sysreg	SPSR_EL1	3	0	4	0	0
++Fields	SPSR_ELx
++EndSysreg
++
++Sysreg	SPSR_EL2	3	4	4	0	0
++Fields	SPSR_ELx
++EndSysreg
++
++Sysreg	SPSR_EL12	3	5	4	0	0
++Mapping	SPSR_EL1
++EndSysreg
++
+ Sysreg ID_PFR0_EL1	3	0	0	1	0
+ Res0	63:32
+ UnsignedEnum	31:28	RAS
+-- 
+2.53.0
 
-What problem is this solving?  Usually if something is dropping a
-reference to a shared resource like a clock without knowing if it took
-it then whatever else might have been using the resource is going to be
-broken when the clock suddenly vanishes underneath it.  If we are
-coordinating properly we shouldn't need the flag, the refcount should be
-good enough.
-
-
---kKefU3zr1yzK+k5m
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iQEzBAABCgAdFiEEreZoqmdXGLWf4p/qJNaLcl1Uh9AFAmq9R3oACgkQJNaLcl1U
-h9BgaQf9GKUrZjBxMYFeduDpMZivWsKGhWAQfS09vbG6cAlOgj6pHjVr39I8Rar4
-ujG/YQSqeMlV84iVKuASSZrDXCShHolBrCI2gqXlWXhdUx4E/r01bmj6N6dbUY4H
-3d5PJAGhPmOGMy2ZtoHbH+hkK4nq4ojlLI8wnAD6m8yHJXZHOWKimYlunYjC3SnQ
-jOng8rJY1Y8z1f70hs3thctQrG0SDB7sTNEZDlE9XG6uzK4VVz+AIOT4AVEnsyu9
-iJVBj1PxW3vKvw4HvcqJQUlshwimBZYkMJcbGoEv8BhjWj3FONc47TTdMB47lu92
-0AvsySe5Pdk7TIXSFZa3W0tG6N4Whw==
-=eMDF
------END PGP SIGNATURE-----
-
---kKefU3zr1yzK+k5m--
 
