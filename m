@@ -4,87 +4,72 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B9B8CCA5FB1
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 30 Sep 2026 11:19:23 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7B26DCA5FBA
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 30 Sep 2026 11:19:25 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=rCnLVLhWtVLLmpN3x9fjuaEAEUhiKYtsxACEAQQZJ0o=; b=rsHJ0QyCq0QnAa5lfrNF1h7rKa
-	Kg4zZuKnlbxCXb0bOUa81QsTExrhNGE2mDvcEZrHiK/VMkd9Zf0moegYhogCZ5kZ2JV+4xTHE22iN
-	X1+poVnMlQFB/ijpk3r1iqZvoOOSkYqyji3pNVTnQlTD8Gi/XgIy/r+nbPLA8AQKGIBjU66KwAMO1
-	SP3OmctKZ0cLlP3wBBrqUh5W8YHqJRAfu05HqrJMTsZVzTlufOyuWVdFQ4eAdCAkZSlwylrWvqc27
-	LQaZBgc7bqAfdmxdN04jQoTApV3zdSN2GvmgybyKM7DJiRHfw8dqcuUL6Izo5/UjTIx+/7T/LWKco
-	x6bqj4gg==;
+	bh=qvu+NvcyVJHEn3ev6yli5NPbBHtkoDtdYJwktOVlhhA=; b=3kqWx3QlmpmIbKb38ricU4u3kD
+	BqqyoTfsEmO52asmGwS07DtO390TL+3qd/Tt+Kg8WQk+l863BDvYr08YqBYYT0ehqp7OEXfe9oJtj
+	nLRlcp2xr0pKBkPTQbUyek9b9nfyduZy6HMknS/3yGL8XjViv3Z+HnfWgoO+jHNSez115a6N969Gj
+	Wvxxb07q+HcUIRZjygoWxuQ4kZ+H06UFcaMwsb1RwTWYm74vSmOF+bcY6wo2HHl9zeoogoG0Y3I8X
+	DptiGO3Aa950hGKX9RZrugYzrNvH0y6A4WP1C+MXy0689c2+y28EXHCZXSyqt/GHiOF6mmiYd1JEz
+	FXUWUZmQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xBsLC-00000005qSn-3pfB;
-	Wed, 30 Sep 2026 11:19:14 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1xBsLG-00000005qV9-3OeV;
+	Wed, 30 Sep 2026 11:19:18 +0000
+Received: from mail-pz2-x0c.google.com ([2607:f8b0:4864:3b::c])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xBsL7-00000005qQz-2N9G
-	for linux-arm-kernel@bombadil.infradead.org;
-	Wed, 30 Sep 2026 11:19:09 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:MIME-Version
-	:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Sender:Reply-To:
-	Content-Type:Content-ID:Content-Description;
-	bh=rCnLVLhWtVLLmpN3x9fjuaEAEUhiKYtsxACEAQQZJ0o=; b=nsRBUW4IMy0+ir+1mqLnsrSNR+
-	wkkxckGqXIuix/8zXnX4jKNnRMcPZ+HcNlSpmXABQrRH07NEXwp+0YbHrCF5CRxCKYOit7QLAWjui
-	9+9J7aY1d2hziaNoflU2DHiiwIbnt3o0Fe+AOqqnE0v0sWEtnovfZtfke29erAO6bdb6vLEnqAj82
-	9QYVZvc1igb4BJwNOt1dNc9vI5JT+D9k66UEggPjU5I5txI1aUjMFgplaQSSWA6vxc7ibTuHwe/F9
-	FOOY0TiStqTYQwOyWP2H+k9VsHEi3F2HuhlQzbK0FbMRo4C6xY2XC84bIxSJrLsSFTvXqpTPv97Kz
-	KZQksKlw==;
-Received: from mail-pz2-x29.google.com ([2607:f8b0:4864:3b::29])
-	by desiato.infradead.org with esmtps (Exim 4.99.2 #2 (Red Hat Linux))
-	id 1xBsL4-00000003hsT-179Z
+	id 1xBsL9-00000005qRq-2Tkw
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 30 Sep 2026 11:19:08 +0000
-Received: by mail-pz2-x29.google.com with SMTP id d2e1a72fcca58-88732460a36so265860b3a.2
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 30 Sep 2026 04:19:05 -0700 (PDT)
+	Wed, 30 Sep 2026 11:19:13 +0000
+Received: by mail-pz2-x0c.google.com with SMTP id d2e1a72fcca58-8804c1728f9so4038763b3a.3
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 30 Sep 2026 04:19:11 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1790767144; x=1791371944; darn=lists.infradead.org;
+        d=gmail.com; s=20251104; t=1790767151; x=1791371951; darn=lists.infradead.org;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to:content-type;
-        bh=rCnLVLhWtVLLmpN3x9fjuaEAEUhiKYtsxACEAQQZJ0o=;
-        b=qVz8lpDxWsSZgrulTT9nnZQ7jcDS0TC+IBVOMMypYFV2n3gwgSfdVreyF5liVFPeCK
-         lyf48ogvb8k4k8NzhtdDiK4I7VfjtuWsYFndoGA1emSKhFac/zdA376N50fFDHtD0b1v
-         GFjGfmIV5TCgabyAnbPW/oMwRN0O1DSHHIqeGn9blUj0dQVaR2Oun6YkUb2ocmK7fNMD
-         NpD0Cr1BLou1VgU7eyqRq4I7SKt+CZOwzt0hd33+vfkXjV/2ehgpZ4aiVSCpSdTlChB6
-         3g28ErCZ6InCtXlkrEoKC2DhvfI5GbPAFLUzpLSLUU4x+TYFEQ3tkHjFZPKgPrl+Yjk5
-         UeHg==
+        bh=qvu+NvcyVJHEn3ev6yli5NPbBHtkoDtdYJwktOVlhhA=;
+        b=gViTTwV81BlH6o0cOdVnLh0fC6Lf4HTHwBR/WNaWwr52VQm2UV5BqVLteEbDB/0ser
+         Re5mqcqxq4jN5jK+r/DT7LiuFZMq1k/OOQrk7VEHvGl8zEJUE60otNGKD2hCgGel7cCc
+         XeAuktU18RBfXRavYYaZNdXBRFRmv7+MBSNmdffMTMloJhJ1vwA4vY5tcN0h3ywRy2/5
+         2j/UW+c0jbx7a50EYpTPbOGo/B0Q5OWGdI8QEk64Y6cKi5x6d1bsJiFd/JAH+c15X1Tx
+         vIL9sa4yTmTgnbMMGmsiDoTOi3MC5SuEv5WxCx7YGfRTbB5BCHcp1/lWAzNssa24Nk4S
+         FIzg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1790767144; x=1791371944;
+        d=1e100.net; s=20260707; t=1790767151; x=1791371951;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
          :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=rCnLVLhWtVLLmpN3x9fjuaEAEUhiKYtsxACEAQQZJ0o=;
-        b=TERIaoDXkQQqutyRUQRpcjbo9kbwnuPTjcjH/jEqalXDfixnHjS5FrK1RRkE9r8WbV
-         t2Tij+i1YBWGS+dz08fLQKRZIcaWyUGxHVGDTkQodJLPGsO7hryYSMl/QwLHVYzz5x0l
-         43+eP5LTXqzhCpvLM9Lxk0y739+WgOOTbTLmWh0kim7qgmKb200VzIRyDLMgQyQSFmh3
-         lKDGsrVus+4xMCtoMEAY2shp7nJ+zhNYEf8XbTOCUxK10/8z6jD0N8ZRv9xqpXdvoCVq
-         Gbwn6vBmIxBgg4YfW5EOHvvTNIk2eo2E12l6FpjIM/iF0x1X7SR8wX+tcoTF0+rLZGDv
-         19Sg==
-X-Forwarded-Encrypted: i=1; AKwUvBxGwOtk+NYzgEYKhcgZI3xk635nY6uvpotp2wu01pADxmTXRuYlCVjcBmG62paH6ijYoiAFGIQXUSCPCravr0ZZ@lists.infradead.org
-X-Gm-Message-State: AFuF++lH6F9svqJ8Vx0zQc8UebmbP5SoBhBFw3+THsK4ZGTvjeiJixjU
-	t1ZidnqZ8uSrAgRmcf2wBMXBeCYgu0E3KXtZmFqWjyTH7a9CASMfegq/
-X-Gm-Gg: AYBFou136adbt/UHWqhA7Tqm6sAVjIkP048dNrsyys1f6coplBEOv85YraVGKzyVpeJ
-	fzkY9XB3HL66PCeRSb9Y9Q4s47fWxYJ8acP/edc34demmAIGRdL5/R1XVuE/gpo/04vCxY6SPvk
-	zwcjaAz3qq/zHJuSH2ALStbcdESkpB48/n2IO2Vlv2lsaPUDXWHq4g2WcOkrgwiw5kdYPCfyxjz
-	UitWQVtHqMa7bSwLadLNc7YumBamtw6z09tawwdCXm0Ft40iHs9X+EdCqPwg5ny91dCL2h6hXk4
-	2zHrvlQNXUcJ433WJgrwyPX8MKHipumae7baGdljGMylZE9tuPTpfQV+Qyfm2TSAlac5Jex1Zdd
-	omY1dapMVY8I0bXtOQo6/fKPJ13DrywQPKg+tBjiffxFeQKfJ96Wz/tNmCf4UZtU72DEOrgjaMs
-	EEnjUOi3S9A50/XZezmLjvVpT9xCDDyaYzMp1ZIB3OhYwpTtb2mxcrHzZISD48j11Cajv9/MUgV
-	ZifGmrPxeb+qmblCdkAI1Bq6G7l8nQf5cz8GtLDGf6EpMhiWgFLUqw=
-X-Received: by 2002:a05:6a00:4390:b0:880:fe7b:bc56 with SMTP id d2e1a72fcca58-8874e53ec84mr760256b3a.50.1790767143558;
-        Wed, 30 Sep 2026 04:19:03 -0700 (PDT)
+        bh=qvu+NvcyVJHEn3ev6yli5NPbBHtkoDtdYJwktOVlhhA=;
+        b=R0WhDl7APywVG3kF+ldUj1bhIJYO+AOsIMahL/TEbfABI/7okz5YFA8AQ4j9Y69JOd
+         8KB8gcPXASjoaJVV42kv5rMbOHQmuSQjamlhknNDxlNBmRYUB5a5FKXzNxqvxpzd5qIC
+         gwxU8yV67TlKnRG7ybKJpU9hZnmQzoDijB96cT1eqwAYuMst8IKsE2KxXCnyt1RFIOv2
+         HqTRFiKNFOXDqESNvumMhjf0+JCybyvjeGFIEw21p6J0NjiZpTLjTuq9wgBHsLsgVi53
+         fUPKqeavLEkpOyQ0uV9i5AmUNzPY1Hv8PpSP2cvYKUiqegozc4v7o6Q4/fxqSnRNE7oH
+         eYpg==
+X-Forwarded-Encrypted: i=1; AKwUvByrQp2Eap5oCdIUaHFv2b+VG2LcFRgRZh4I22N7ha4KF4VR8hxMbVc2PwY/HmKca+V6XtbTni4ZggSmQOtUYE8+@lists.infradead.org
+X-Gm-Message-State: AFuF++nVmBOdwBjPPr7UyhN20FdB0KvhoS4wMYmcM/+SPx134owlAjwf
+	ugO3GvrdQztsXpqYk11R3aOwzfgbGOzxn7B+CqlTzfxKIRyDa/AhCtpf
+X-Gm-Gg: AYBFou2CqYjj7JQtzlKQ5H7L0SKkZlY61UkjQhOTPKZXoEyfghnAZDgucOsmnEzQubL
+	msLaDwcuzVLrEXFNVBt7TT/2f/Iwwd/uFWGziwBtDZ5TB7uWcvrnMmZndnsb9bFJ0d3Z4u/GQ1B
+	R+o38SllFEzJxytoiiS7EI6vdnYYbUhqyWGNSHR9n82mW2EEoWTBjecTjnrQA4NWnK2i+SL7Gjl
+	xpTvY2eT/J4xqw+fN4r+gdZLalaxACLrXV3SQrR64koCI9uCx0CsjirwvVSidDJr9WZFWS+ZbXF
+	+bp1oq9GM2MhIkdzBf8Uj3luSR9pvNk5jdke3amweivO6Pj+bc9hBH6hpPKPZ0110OX6AI9AlEl
+	+pWmiQAaSecc2zh5FSdCkrPputMsRuYLiy8SJhe/4HLTfWtqDc0UgCDYJQRzNCzkpMxm4gETGpL
+	z2+BG9+SFk6wwrlvmzZE/9Kdrb3uzhDPXMXLvJydaiMo77aku5kPVtkqeWZq0gRWEaGbLsPQRPN
+	FdTNpFuc2hB6Drx1mrvf+76qnxNuZhG9P90yfwyRQw4
+X-Received: by 2002:a05:6a00:124c:b0:874:706d:8572 with SMTP id d2e1a72fcca58-8874d979000mr800957b3a.35.1790767150679;
+        Wed, 30 Sep 2026 04:19:10 -0700 (PDT)
 Received: from cosmo-ubuntu-2404.. (61-220-246-151.hinet-ip.hinet.net. [61.220.246.151])
-        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-887253992a9sm650257b3a.17.2026.09.30.04.19.01
+        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-887253992a9sm650257b3a.17.2026.09.30.04.19.08
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 30 Sep 2026 04:19:03 -0700 (PDT)
+        Wed, 30 Sep 2026 04:19:10 -0700 (PDT)
 From: Cosmo Chou <chou.cosmo@gmail.com>
 To: robh@kernel.org,
 	krzk+dt@kernel.org,
@@ -97,17 +82,17 @@ Cc: devicetree@vger.kernel.org,
 	linux-kernel@vger.kernel.org,
 	cosmo.chou@quantatw.com,
 	Cosmo Chou <chou.cosmo@gmail.com>
-Subject: [PATCH v3 1/4] ARM: dts: aspeed: bletchley: Sort i2c device nodes by address
-Date: Wed, 30 Sep 2026 19:18:10 +0800
-Message-ID: <20260930111813.52396-2-chou.cosmo@gmail.com>
+Subject: [PATCH v3 4/4] ARM: dts: aspeed: bletchley: Add second source ISL1208 RTC
+Date: Wed, 30 Sep 2026 19:18:13 +0800
+Message-ID: <20260930111813.52396-5-chou.cosmo@gmail.com>
 X-Mailer: git-send-email 2.43.0
 In-Reply-To: <20260930111813.52396-1-chou.cosmo@gmail.com>
 References: <20260930111813.52396-1-chou.cosmo@gmail.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260930_121906_918215_4562DD4C 
-X-CRM114-Status: GOOD (  12.95  )
+X-CRM114-CacheID: sfid-20260930_041911_635832_4B1DE21A 
+X-CRM114-Status: GOOD (  10.01  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -122,669 +107,26 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Reorder child nodes in i2c0-i2c6 to follow ascending unit address
-ordering as required by scripts/dtc/dt-check-style. No functional
-changes.
+Add alternative ISL1208 RTC at address 0x6f to support boards populated
+with the ISL1208 instead of the primary PCF85263 at 0x51.
 
 Signed-off-by: Cosmo Chou <chou.cosmo@gmail.com>
 ---
- .../aspeed/aspeed-bmc-facebook-bletchley.dts  | 430 +++++++++---------
- 1 file changed, 218 insertions(+), 212 deletions(-)
+ arch/arm/boot/dts/aspeed/aspeed-bmc-facebook-bletchley.dts | 5 +++++
+ 1 file changed, 5 insertions(+)
 
 diff --git a/arch/arm/boot/dts/aspeed/aspeed-bmc-facebook-bletchley.dts b/arch/arm/boot/dts/aspeed/aspeed-bmc-facebook-bletchley.dts
-index d1a04b63df9e..b022bdd02c1e 100644
+index 1883bfb850fb..76b7117344de 100644
 --- a/arch/arm/boot/dts/aspeed/aspeed-bmc-facebook-bletchley.dts
 +++ b/arch/arm/boot/dts/aspeed/aspeed-bmc-facebook-bletchley.dts
-@@ -343,10 +343,25 @@ flash@0 {
- 
- &i2c0 {
- 	status = "okay";
--	ina230@45 {
--		compatible = "ti,ina230";
--		reg = <0x45>;
--		shunt-resistor = <2000>;
-+
-+	sled1_fusb302: typec-portc@22 {
-+		compatible = "fcs,fusb302";
-+		reg = <0x22>;
-+
-+		interrupt-parent = <&gpio0>;
-+		interrupts = <ASPEED_GPIO(B, 0) IRQ_TYPE_LEVEL_LOW>;
-+		vbus-supply = <&vbus_sled1>;
-+
-+		connector {
-+			compatible = "usb-c-connector";
-+			label = "USB-C";
-+			pd-revision = /bits/ 8 <0x2 0x0 0x1 0x20>;
-+			power-role = "dual";
-+			data-role = "dual";
-+			source-pdos = <PDO_FIXED(5000, 3000, PDO_FIXED_USB_COMM)>;
-+			sink-pdos = <PDO_FIXED(5000, 3000, PDO_FIXED_USB_COMM)>;
-+			op-sink-microwatt = <10000000>;
-+		};
- 	};
- 
- 	mp5023@40 {
-@@ -354,11 +369,6 @@ mp5023@40 {
- 		reg = <0x40>;
- 	};
- 
--	tmp421@4f {
--		compatible = "ti,tmp421";
--		reg = <0x4f>;
--	};
--
- 	sled1_ioexp41: pca9536@41 {
- 		compatible = "nxp,pca9536";
- 		reg = <0x41>;
-@@ -370,20 +380,20 @@ sled1_ioexp41: pca9536@41 {
- 		"SLED1_CLKREQ_N", "SLED1_PCIE_PWR_EN";
- 	};
- 
--	sled1_ioexp: pca9539@76 {
--		compatible = "nxp,pca9539";
--		reg = <0x76>;
--		gpio-controller;
--		#gpio-cells = <2>;
-+	ina230@45 {
-+		compatible = "ti,ina230";
-+		reg = <0x45>;
-+		shunt-resistor = <2000>;
-+	};
- 
--		interrupt-parent = <&gpio0>;
--		interrupts = <ASPEED_GPIO(M, 0) IRQ_TYPE_LEVEL_LOW>;
-+	tmp421@4f {
-+		compatible = "ti,tmp421";
-+		reg = <0x4f>;
-+	};
- 
--		gpio-line-names =
--		"SLED1_MS_DETECT1","SLED1_VBUS_BMC_EN","SLED1_INA230_ALERT","SLED1_P12V_STBY_ALERT",
--		"SLED1_SSD_ALERT","SLED1_MS_DETECT0","SLED1_RST_CCG5","SLED1_FUSB302_INT",
--		"SLED1_MD_STBY_RESET","SLED1_MD_IOEXP_EN_FAULT","SLED1_MD_DIR","SLED1_MD_DECAY",
--		"SLED1_MD_MODE1","SLED1_MD_MODE2","SLED1_MD_MODE3","power-host1";
-+	eeprom@54 {
-+		compatible = "atmel,24c64";
-+		reg = <0x54>;
- 	};
- 
- 	sled1_leds: pca9552@67 {
-@@ -401,13 +411,33 @@ sled1_leds: pca9552@67 {
- 		"","","","";
- 	};
- 
--	sled1_fusb302: typec-portc@22 {
-+	sled1_ioexp: pca9539@76 {
-+		compatible = "nxp,pca9539";
-+		reg = <0x76>;
-+		gpio-controller;
-+		#gpio-cells = <2>;
-+
-+		interrupt-parent = <&gpio0>;
-+		interrupts = <ASPEED_GPIO(M, 0) IRQ_TYPE_LEVEL_LOW>;
-+
-+		gpio-line-names =
-+		"SLED1_MS_DETECT1","SLED1_VBUS_BMC_EN","SLED1_INA230_ALERT","SLED1_P12V_STBY_ALERT",
-+		"SLED1_SSD_ALERT","SLED1_MS_DETECT0","SLED1_RST_CCG5","SLED1_FUSB302_INT",
-+		"SLED1_MD_STBY_RESET","SLED1_MD_IOEXP_EN_FAULT","SLED1_MD_DIR","SLED1_MD_DECAY",
-+		"SLED1_MD_MODE1","SLED1_MD_MODE2","SLED1_MD_MODE3","power-host1";
-+	};
-+};
-+
-+&i2c1 {
-+	status = "okay";
-+
-+	sled2_fusb302: typec-portc@22 {
- 		compatible = "fcs,fusb302";
- 		reg = <0x22>;
- 
- 		interrupt-parent = <&gpio0>;
--		interrupts = <ASPEED_GPIO(B, 0) IRQ_TYPE_LEVEL_LOW>;
--		vbus-supply = <&vbus_sled1>;
-+		interrupts = <ASPEED_GPIO(B, 1) IRQ_TYPE_LEVEL_LOW>;
-+		vbus-supply = <&vbus_sled2>;
- 
- 		connector {
- 			compatible = "usb-c-connector";
-@@ -421,39 +451,51 @@ connector {
- 		};
- 	};
- 
--	eeprom@54 {
--		compatible = "atmel,24c64";
--		reg = <0x54>;
-+	mp5023@40 {
-+		compatible = "mps,mp5023";
-+		reg = <0x40>;
-+	};
-+
-+	sled2_ioexp41: pca9536@41 {
-+		compatible = "nxp,pca9536";
-+		reg = <0x41>;
-+		gpio-controller;
-+		#gpio-cells = <2>;
-+
-+		gpio-line-names =
-+		"SLED2_SWD_MUX", "SLED2_XRES_SWD_N",
-+		"SLED2_CLKREQ_N", "SLED2_PCIE_PWR_EN";
- 	};
--};
- 
--&i2c1 {
--	status = "okay";
- 	ina230@45 {
- 		compatible = "ti,ina230";
- 		reg = <0x45>;
- 		shunt-resistor = <2000>;
- 	};
- 
--	mp5023@40 {
--		compatible = "mps,mp5023";
--		reg = <0x40>;
--	};
--
- 	tmp421@4f {
- 		compatible = "ti,tmp421";
- 		reg = <0x4f>;
- 	};
- 
--	sled2_ioexp41: pca9536@41 {
--		compatible = "nxp,pca9536";
--		reg = <0x41>;
-+	eeprom@54 {
-+		compatible = "atmel,24c64";
-+		reg = <0x54>;
-+	};
-+
-+	sled2_leds: pca9552@67 {
-+		compatible = "nxp,pca9552";
-+		reg = <0x67>;
-+		#address-cells = <1>;
-+		#size-cells = <0>;
- 		gpio-controller;
- 		#gpio-cells = <2>;
- 
- 		gpio-line-names =
--		"SLED2_SWD_MUX", "SLED2_XRES_SWD_N",
--		"SLED2_CLKREQ_N", "SLED2_PCIE_PWR_EN";
-+		"led-sled2-amber","led-sled2-blue","SLED2_RST_IOEXP","SLED2_MD_REF_PWM",
-+		"","","","",
-+		"","","","",
-+		"","","","";
- 	};
- 
- 	sled2_ioexp: pca9539@76 {
-@@ -471,29 +513,18 @@ sled2_ioexp: pca9539@76 {
- 		"SLED2_MD_STBY_RESET","SLED2_MD_IOEXP_EN_FAULT","SLED2_MD_DIR","SLED2_MD_DECAY",
- 		"SLED2_MD_MODE1","SLED2_MD_MODE2","SLED2_MD_MODE3","power-host2";
- 	};
-+};
- 
--	sled2_leds: pca9552@67 {
--		compatible = "nxp,pca9552";
--		reg = <0x67>;
--		#address-cells = <1>;
--		#size-cells = <0>;
--		gpio-controller;
--		#gpio-cells = <2>;
--
--		gpio-line-names =
--		"led-sled2-amber","led-sled2-blue","SLED2_RST_IOEXP","SLED2_MD_REF_PWM",
--		"","","","",
--		"","","","",
--		"","","","";
--	};
-+&i2c2 {
-+	status = "okay";
- 
--	sled2_fusb302: typec-portc@22 {
-+	sled3_fusb302: typec-portc@22 {
- 		compatible = "fcs,fusb302";
- 		reg = <0x22>;
- 
- 		interrupt-parent = <&gpio0>;
--		interrupts = <ASPEED_GPIO(B, 1) IRQ_TYPE_LEVEL_LOW>;
--		vbus-supply = <&vbus_sled2>;
-+		interrupts = <ASPEED_GPIO(B, 7) IRQ_TYPE_LEVEL_LOW>;
-+		vbus-supply = <&vbus_sled3>;
- 
- 		connector {
- 			compatible = "usb-c-connector";
-@@ -507,39 +538,51 @@ connector {
- 		};
- 	};
- 
--	eeprom@54 {
--		compatible = "atmel,24c64";
--		reg = <0x54>;
-+	mp5023@40 {
-+		compatible = "mps,mp5023";
-+		reg = <0x40>;
-+	};
-+
-+	sled3_ioexp41: pca9536@41 {
-+		compatible = "nxp,pca9536";
-+		reg = <0x41>;
-+		gpio-controller;
-+		#gpio-cells = <2>;
-+
-+		gpio-line-names =
-+		"SLED3_SWD_MUX", "SLED3_XRES_SWD_N",
-+		"SLED3_CLKREQ_N", "SLED3_PCIE_PWR_EN";
- 	};
--};
- 
--&i2c2 {
--	status = "okay";
- 	ina230@45 {
- 		compatible = "ti,ina230";
- 		reg = <0x45>;
- 		shunt-resistor = <2000>;
- 	};
- 
--	mp5023@40 {
--		compatible = "mps,mp5023";
--		reg = <0x40>;
--	};
--
- 	tmp421@4f {
- 		compatible = "ti,tmp421";
- 		reg = <0x4f>;
- 	};
- 
--	sled3_ioexp41: pca9536@41 {
--		compatible = "nxp,pca9536";
--		reg = <0x41>;
-+	eeprom@54 {
-+		compatible = "atmel,24c64";
-+		reg = <0x54>;
-+	};
-+
-+	sled3_leds: pca9552@67 {
-+		compatible = "nxp,pca9552";
-+		reg = <0x67>;
-+		#address-cells = <1>;
-+		#size-cells = <0>;
- 		gpio-controller;
- 		#gpio-cells = <2>;
- 
- 		gpio-line-names =
--		"SLED3_SWD_MUX", "SLED3_XRES_SWD_N",
--		"SLED3_CLKREQ_N", "SLED3_PCIE_PWR_EN";
-+		"led-sled3-amber","led-sled3-blue","SLED3_RST_IOEXP","SLED3_MD_REF_PWM",
-+		"","","","",
-+		"","","","",
-+		"","","","";
- 	};
- 
- 	sled3_ioexp: pca9539@76 {
-@@ -557,29 +600,18 @@ sled3_ioexp: pca9539@76 {
- 		"SLED3_MD_STBY_RESET","SLED3_MD_IOEXP_EN_FAULT","SLED3_MD_DIR","SLED3_MD_DECAY",
- 		"SLED3_MD_MODE1","SLED3_MD_MODE2","SLED3_MD_MODE3","power-host3";
- 	};
-+};
- 
--	sled3_leds: pca9552@67 {
--		compatible = "nxp,pca9552";
--		reg = <0x67>;
--		#address-cells = <1>;
--		#size-cells = <0>;
--		gpio-controller;
--		#gpio-cells = <2>;
--
--		gpio-line-names =
--		"led-sled3-amber","led-sled3-blue","SLED3_RST_IOEXP","SLED3_MD_REF_PWM",
--		"","","","",
--		"","","","",
--		"","","","";
--	};
-+&i2c3 {
-+	status = "okay";
- 
--	sled3_fusb302: typec-portc@22 {
-+	sled4_fusb302: typec-portc@22 {
- 		compatible = "fcs,fusb302";
- 		reg = <0x22>;
- 
- 		interrupt-parent = <&gpio0>;
--		interrupts = <ASPEED_GPIO(B, 7) IRQ_TYPE_LEVEL_LOW>;
--		vbus-supply = <&vbus_sled3>;
-+		interrupts = <ASPEED_GPIO(S, 7) IRQ_TYPE_LEVEL_LOW>;
-+		vbus-supply = <&vbus_sled4>;
- 
- 		connector {
- 			compatible = "usb-c-connector";
-@@ -593,39 +625,51 @@ connector {
- 		};
- 	};
- 
--	eeprom@54 {
--		compatible = "atmel,24c64";
--		reg = <0x54>;
-+	mp5023@40 {
-+		compatible = "mps,mp5023";
-+		reg = <0x40>;
-+	};
-+
-+	sled4_ioexp41: pca9536@41 {
-+		compatible = "nxp,pca9536";
-+		reg = <0x41>;
-+		gpio-controller;
-+		#gpio-cells = <2>;
-+
-+		gpio-line-names =
-+		"SLED4_SWD_MUX", "SLED4_XRES_SWD_N",
-+		"SLED4_CLKREQ_N", "SLED4_PCIE_PWR_EN";
- 	};
--};
- 
--&i2c3 {
--	status = "okay";
- 	ina230@45 {
- 		compatible = "ti,ina230";
- 		reg = <0x45>;
- 		shunt-resistor = <2000>;
- 	};
- 
--	mp5023@40 {
--		compatible = "mps,mp5023";
--		reg = <0x40>;
--	};
--
- 	tmp421@4f {
- 		compatible = "ti,tmp421";
- 		reg = <0x4f>;
- 	};
- 
--	sled4_ioexp41: pca9536@41 {
--		compatible = "nxp,pca9536";
--		reg = <0x41>;
-+	eeprom@54 {
-+		compatible = "atmel,24c64";
-+		reg = <0x54>;
-+	};
-+
-+	sled4_leds: pca9552@67 {
-+		compatible = "nxp,pca9552";
-+		reg = <0x67>;
-+		#address-cells = <1>;
-+		#size-cells = <0>;
- 		gpio-controller;
- 		#gpio-cells = <2>;
- 
- 		gpio-line-names =
--		"SLED4_SWD_MUX", "SLED4_XRES_SWD_N",
--		"SLED4_CLKREQ_N", "SLED4_PCIE_PWR_EN";
-+		"led-sled4-amber","led-sled4-blue","SLED4_RST_IOEXP","SLED4_MD_REF_PWM",
-+		"","","","",
-+		"","","","",
-+		"","","","";
- 	};
- 
- 	sled4_ioexp: pca9539@76 {
-@@ -643,29 +687,18 @@ sled4_ioexp: pca9539@76 {
- 		"SLED4_MD_STBY_RESET","SLED4_MD_IOEXP_EN_FAULT","SLED4_MD_DIR","SLED4_MD_DECAY",
- 		"SLED4_MD_MODE1","SLED4_MD_MODE2","SLED4_MD_MODE3","power-host4";
- 	};
-+};
- 
--	sled4_leds: pca9552@67 {
--		compatible = "nxp,pca9552";
--		reg = <0x67>;
--		#address-cells = <1>;
--		#size-cells = <0>;
--		gpio-controller;
--		#gpio-cells = <2>;
--
--		gpio-line-names =
--		"led-sled4-amber","led-sled4-blue","SLED4_RST_IOEXP","SLED4_MD_REF_PWM",
--		"","","","",
--		"","","","",
--		"","","","";
--	};
-+&i2c4 {
-+	status = "okay";
- 
--	sled4_fusb302: typec-portc@22 {
-+	sled5_fusb302: typec-portc@22 {
- 		compatible = "fcs,fusb302";
- 		reg = <0x22>;
- 
- 		interrupt-parent = <&gpio0>;
--		interrupts = <ASPEED_GPIO(S, 7) IRQ_TYPE_LEVEL_LOW>;
--		vbus-supply = <&vbus_sled4>;
-+		interrupts = <ASPEED_GPIO(Y, 3) IRQ_TYPE_LEVEL_LOW>;
-+		vbus-supply = <&vbus_sled5>;
- 
- 		connector {
- 			compatible = "usb-c-connector";
-@@ -679,39 +712,51 @@ connector {
- 		};
- 	};
- 
--	eeprom@54 {
--		compatible = "atmel,24c64";
--		reg = <0x54>;
-+	mp5023@40 {
-+		compatible = "mps,mp5023";
-+		reg = <0x40>;
-+	};
-+
-+	sled5_ioexp41: pca9536@41 {
-+		compatible = "nxp,pca9536";
-+		reg = <0x41>;
-+		gpio-controller;
-+		#gpio-cells = <2>;
-+
-+		gpio-line-names =
-+		"SLED5_SWD_MUX", "SLED5_XRES_SWD_N",
-+		"SLED5_CLKREQ_N", "SLED5_PCIE_PWR_EN";
- 	};
--};
- 
--&i2c4 {
--	status = "okay";
- 	ina230@45 {
- 		compatible = "ti,ina230";
- 		reg = <0x45>;
- 		shunt-resistor = <2000>;
- 	};
- 
--	mp5023@40 {
--		compatible = "mps,mp5023";
--		reg = <0x40>;
--	};
--
- 	tmp421@4f {
- 		compatible = "ti,tmp421";
- 		reg = <0x4f>;
- 	};
- 
--	sled5_ioexp41: pca9536@41 {
--		compatible = "nxp,pca9536";
--		reg = <0x41>;
-+	eeprom@54 {
-+		compatible = "atmel,24c64";
-+		reg = <0x54>;
-+	};
-+
-+	sled5_leds: pca9552@67 {
-+		compatible = "nxp,pca9552";
-+		reg = <0x67>;
-+		#address-cells = <1>;
-+		#size-cells = <0>;
- 		gpio-controller;
- 		#gpio-cells = <2>;
- 
- 		gpio-line-names =
--		"SLED5_SWD_MUX", "SLED5_XRES_SWD_N",
--		"SLED5_CLKREQ_N", "SLED5_PCIE_PWR_EN";
-+		"led-sled5-amber","led-sled5-blue","SLED5_RST_IOEXP","SLED5_MD_REF_PWM",
-+		"","","","",
-+		"","","","",
-+		"","","","";
- 	};
- 
- 	sled5_ioexp: pca9539@76 {
-@@ -729,29 +774,18 @@ sled5_ioexp: pca9539@76 {
- 		"SLED5_MD_STBY_RESET","SLED5_MD_IOEXP_EN_FAULT","SLED5_MD_DIR","SLED5_MD_DECAY",
- 		"SLED5_MD_MODE1","SLED5_MD_MODE2","SLED5_MD_MODE3","power-host5";
- 	};
-+};
- 
--	sled5_leds: pca9552@67 {
--		compatible = "nxp,pca9552";
--		reg = <0x67>;
--		#address-cells = <1>;
--		#size-cells = <0>;
--		gpio-controller;
--		#gpio-cells = <2>;
--
--		gpio-line-names =
--		"led-sled5-amber","led-sled5-blue","SLED5_RST_IOEXP","SLED5_MD_REF_PWM",
--		"","","","",
--		"","","","",
--		"","","","";
--	};
-+&i2c5 {
-+	status = "okay";
- 
--	sled5_fusb302: typec-portc@22 {
-+	sled6_fusb302: typec-portc@22 {
- 		compatible = "fcs,fusb302";
- 		reg = <0x22>;
- 
- 		interrupt-parent = <&gpio0>;
--		interrupts = <ASPEED_GPIO(Y, 3) IRQ_TYPE_LEVEL_LOW>;
--		vbus-supply = <&vbus_sled5>;
-+		interrupts = <ASPEED_GPIO(I, 7) IRQ_TYPE_LEVEL_LOW>;
-+		vbus-supply = <&vbus_sled6>;
- 
- 		connector {
- 			compatible = "usb-c-connector";
-@@ -765,30 +799,11 @@ connector {
- 		};
- 	};
- 
--	eeprom@54 {
--		compatible = "atmel,24c64";
--		reg = <0x54>;
--	};
--};
--
--&i2c5 {
--	status = "okay";
--	ina230@45 {
--		compatible = "ti,ina230";
--		reg = <0x45>;
--		shunt-resistor = <2000>;
--	};
--
- 	mp5023@40 {
- 		compatible = "mps,mp5023";
- 		reg = <0x40>;
- 	};
- 
--	tmp421@4f {
--		compatible = "ti,tmp421";
--		reg = <0x4f>;
--	};
--
- 	sled6_ioexp41: pca9536@41 {
- 		compatible = "nxp,pca9536";
- 		reg = <0x41>;
-@@ -800,20 +815,20 @@ sled6_ioexp41: pca9536@41 {
- 		"SLED6_CLKREQ_N", "SLED6_PCIE_PWR_EN";
- 	};
- 
--	sled6_ioexp: pca9539@76 {
--		compatible = "nxp,pca9539";
--		reg = <0x76>;
--		gpio-controller;
--		#gpio-cells = <2>;
-+	ina230@45 {
-+		compatible = "ti,ina230";
-+		reg = <0x45>;
-+		shunt-resistor = <2000>;
-+	};
- 
--		interrupt-parent = <&gpio0>;
--		interrupts = <ASPEED_GPIO(M, 5) IRQ_TYPE_LEVEL_LOW>;
-+	tmp421@4f {
-+		compatible = "ti,tmp421";
-+		reg = <0x4f>;
-+	};
- 
--		gpio-line-names =
--		"SLED6_MS_DETECT1","SLED6_VBUS_BMC_EN","SLED6_INA230_ALERT","SLED6_P12V_STBY_ALERT",
--		"SLED6_SSD_ALERT","SLED6_MS_DETECT0","SLED6_RST_CCG5","SLED6_FUSB302_INT",
--		"SLED6_MD_STBY_RESET","SLED6_MD_IOEXP_EN_FAULT","SLED6_MD_DIR","SLED6_MD_DECAY",
--		"SLED6_MD_MODE1","SLED6_MD_MODE2","SLED6_MD_MODE3","power-host6";
-+	eeprom@54 {
-+		compatible = "atmel,24c64";
-+		reg = <0x54>;
- 	};
- 
- 	sled6_leds: pca9552@67 {
-@@ -831,45 +846,36 @@ sled6_leds: pca9552@67 {
- 		"","","","";
- 	};
- 
--	sled6_fusb302: typec-portc@22 {
--		compatible = "fcs,fusb302";
--		reg = <0x22>;
-+	sled6_ioexp: pca9539@76 {
-+		compatible = "nxp,pca9539";
-+		reg = <0x76>;
-+		gpio-controller;
-+		#gpio-cells = <2>;
- 
- 		interrupt-parent = <&gpio0>;
--		interrupts = <ASPEED_GPIO(I, 7) IRQ_TYPE_LEVEL_LOW>;
--		vbus-supply = <&vbus_sled6>;
--
--		connector {
--			compatible = "usb-c-connector";
--			label = "USB-C";
--			pd-revision = /bits/ 8 <0x2 0x0 0x1 0x20>;
--			power-role = "dual";
--			data-role = "dual";
--			source-pdos = <PDO_FIXED(5000, 3000, PDO_FIXED_USB_COMM)>;
--			sink-pdos = <PDO_FIXED(5000, 3000, PDO_FIXED_USB_COMM)>;
--			op-sink-microwatt = <10000000>;
--		};
--	};
-+		interrupts = <ASPEED_GPIO(M, 5) IRQ_TYPE_LEVEL_LOW>;
- 
--	eeprom@54 {
--		compatible = "atmel,24c64";
--		reg = <0x54>;
-+		gpio-line-names =
-+		"SLED6_MS_DETECT1","SLED6_VBUS_BMC_EN","SLED6_INA230_ALERT","SLED6_P12V_STBY_ALERT",
-+		"SLED6_SSD_ALERT","SLED6_MS_DETECT0","SLED6_RST_CCG5","SLED6_FUSB302_INT",
-+		"SLED6_MD_STBY_RESET","SLED6_MD_IOEXP_EN_FAULT","SLED6_MD_DIR","SLED6_MD_DECAY",
-+		"SLED6_MD_MODE1","SLED6_MD_MODE2","SLED6_MD_MODE3","power-host6";
- 	};
- };
- 
- &i2c6 {
- 	status = "okay";
- 
--	eeprom@56 {
--		compatible = "atmel,24c64";
--		reg = <0x56>;
--	};
--
- 	rtc@51 {
- 		/* in-chip rtc disabled, use external rtc (battery-backed) */
- 		compatible = "nxp,pcf85263";
- 		reg = <0x51>;
+@@ -1269,6 +1269,11 @@ eeprom@56 {
+ 		compatible = "atmel,24c64";
+ 		reg = <0x56>;
  	};
 +
-+	eeprom@56 {
-+		compatible = "atmel,24c64";
-+		reg = <0x56>;
++	rtc@6f {
++		compatible = "isil,isl1208";
++		reg = <0x6f>;
 +	};
  };
  
