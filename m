@@ -4,103 +4,76 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 03075CA5FC3
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 30 Sep 2026 07:56:04 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8FE20CA5FB1
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 30 Sep 2026 07:56:45 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
-	References:In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=3A83WqLQprn5b6H5t3n4CWTPEwg+k48YSwSUTlBs4Ec=; b=kyIlzz9EqDxlAyy49BPsl9w2L0
-	jyc6sggcCKNYfLbS+gGHyXAf8B8XK3ZYH6WnqDi0zHewSDScfBKfW8VpvVeKFM3rM1nJJmgKly9iS
-	KbCC99Ipy4TIqUK2geDpVrYRQtHGyW1H04Iq2g9GXKlXXarEhPo0wxNS2Vl6776Oqa/nF0B7mo7Gh
-	kiKzp8Gam14aWAuwXxvWoxTPPyY7WrKXTktii7xmlAvHUyCYjNp4zaALU77l7IjX4wwH8noWRugnc
-	9zKKB6zoxzPx++TkmALGm3KvowVnM3iVd5rxyBZJJe0LgHmy/hYHl764FCw99EkgBfEIcHIBc7F2V
-	xP9hYSAA==;
+	bh=xL6M0dr5FX7bEZLB4pEnUkdcIL4YjSX8nLQPwIT5Zzo=; b=bGWHjTZvnPzDmVBkrh0AoBgc7n
+	cJ62v6QQVPbg0aSh4K6cUdNafhcMirVZd/vVYxUqKGJagHtA0T9gXdknizqfwMv5//ulc+J+ih6vR
+	QY1G0rmRJ6M+md0NtIwhvQ4NGtNrUgkPjVNWDJq5DLy8kBhsrdaW4mpbLUq4pJHxrZRKSmgvXPSgF
+	mawGc7eWPvpKW7K6o3u2ECuIXoMZDCBAQtQxPAheJzTD6GhPhFXWsS8oLuRWmqFiZv3XOfRn9tQx7
+	jwtLAj2S6jxwxJNYg1R1gxHk2rDNCYP/ABxfJy8yL5oFvXnTOE0I8KqBP6bQKRhktcoQHOImGzrrX
+	hfa/Nx7g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xBpAR-00000005M8H-2yMo;
-	Wed, 30 Sep 2026 07:55:56 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1xBpB5-00000005MG2-0i7l;
+	Wed, 30 Sep 2026 07:56:35 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xBpAO-00000005M7w-3K6Q
+	id 1xBpB3-00000005MFi-23nd
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 30 Sep 2026 07:55:52 +0000
+	Wed, 30 Sep 2026 07:56:33 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 4A19643F26;
-	Wed, 30 Sep 2026 07:55:52 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 279831F000FF;
-	Wed, 30 Sep 2026 07:55:52 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id B3347602BE;
+	Wed, 30 Sep 2026 07:56:32 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 4728B1F000FF;
+	Wed, 30 Sep 2026 07:56:27 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1790754952;
-	bh=3A83WqLQprn5b6H5t3n4CWTPEwg+k48YSwSUTlBs4Ec=;
-	h=Date:From:To:Cc:Subject:In-Reply-To:References;
-	b=PEXWQbhT9MYlJFyvmHMFKYk2atOL8sNTEfJVIz2DUHK/o59vz9qV+cVeNPEyAr5jM
-	 sHK6QTFInakN3Kigofd7hCp9LtzUQxEIA4H3wpdQmb1jlIwRnH/c0PZenVCk8AZHYF
-	 8IIaxypwOmLqaNQ0PZvNoGjVF53cxrXJgVpRz/zbEEc8B5vwallDuPUjvoQ6dI+/pa
-	 WmztZ4eprdfMWauBWD+BKP9vzZqOuRJW775RPtmNOHYRfpkK6AK1OJuj69SJvfiVvA
-	 VeCT//NBjj/ZzGvEyvF7cEMQtJZoE7+ruI2gEPwIlgcTGL//PanIV2uFjLoPuUQosn
-	 NWVeov1TIcMkw==
-Received: from sofa.misterjones.org ([185.219.108.64] helo=goblin-girl.misterjones.org)
-	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.98.2)
-	(envelope-from <maz@kernel.org>)
-	id 1xBpAL-0000000FCJl-38EW;
-	Wed, 30 Sep 2026 07:55:49 +0000
-Date: Wed, 30 Sep 2026 08:55:49 +0100
-Message-ID: <865wzn41h6.wl-maz@kernel.org>
-From: Marc Zyngier <maz@kernel.org>
-To: Steffen Eiden <seiden@linux.ibm.com>
-Cc: Catalin Marinas <catalin.marinas@arm.com>,
-	Andreas Grapentin <gra@linux.ibm.com>,
-	kvm@vger.kernel.org,
-	kvmarm@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	linux-s390@vger.kernel.org,
-	Alexander Gordeev <agordeev@linux.ibm.com>,
-	Arnd Bergmann <arnd@arndb.de>,
-	Christian Borntraeger <borntraeger@linux.ibm.com>,
-	Claudio Imbrenda <imbrenda@linux.ibm.com>,
-	David Hildenbrand <david@kernel.org>,
-	Friedrich Welter <fritz@linux.ibm.com>,
-	Fuad Tabba <tabba@google.com>,
-	Gautam Gala <ggala@linux.ibm.com>,
-	Hariharan Mari <hari55@linux.ibm.com>,
-	Heiko Carstens <hca@linux.ibm.com>,
-	Hendrik Brueckner <brueckner@linux.ibm.com>,
-	Ilya Leoshkevich <iii@linux.ibm.com>,
-	Janosch Frank <frankja@linux.ibm.com>,
-	Joey Gouly <joey.gouly@arm.com>,
-	Nico Boehr <nrb@linux.ibm.com>,
-	Nina Schoetterl-Glausch <oss@nina.schoetterlglausch.eu>,
-	Oliver Upton <oupton@kernel.org>,
-	Paolo Bonzini <pbonzini@redhat.com>,
-	Suzuki K Poulose <suzuki.poulose@arm.com>,
-	Sven Schnelle <svens@linux.ibm.com>,
-	Ulrich Weigand <Ulrich.Weigand@de.ibm.com>,
-	Vasily Gorbik <gor@linux.ibm.com>,
+	s=k20260515; t=1790754992;
+	bh=xL6M0dr5FX7bEZLB4pEnUkdcIL4YjSX8nLQPwIT5Zzo=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=i89SYrP8uoUOW63arVdATXVuZH9y+kHuAUwU2N0UGVY94DWwNd2K7x/EKMapEQVv2
+	 IS3kZU8IQdtUbPMdMBwhZM6iXY4jKf0Fjfr+CLnKACgkbMqTegribBZxPXuGqW37SI
+	 V7Dy6PcWs6l1EKldjWnXwAcyB2uHLXgdmhUpIZDmeZ6RDMNVivQTbewanLOKGj0/Nw
+	 YZTyMxUhi5R0AW5hS+q9NUt6pU5Y9GQYUthgafm93QVh4LLtAMf0aoQJcmj+Qh7TKt
+	 A4xvaRF2ROzvt2xapbNlc1Xwjz+inDZ42dlbHzdFa5OS8rzLPfLvFJZ4lflr1SMC2F
+	 LPpBIT4uCLTBQ==
+Date: Wed, 30 Sep 2026 09:56:24 +0200
+From: Lorenzo Pieralisi <lpieralisi@kernel.org>
+To: Andy Shevchenko <andriy.shevchenko@linux.intel.com>
+Cc: Ashok Raj <ashok.raj@oss.qualcomm.com>,
+	"Rafael J. Wysocki" <rafael@kernel.org>,
+	Mark Rutland <mark.rutland@arm.com>, Marc Zyngier <maz@kernel.org>,
+	Daniel Lezcano <daniel.lezcano@kernel.org>,
+	Thomas Gleixner <tglx@kernel.org>,
+	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+	Danilo Krummrich <dakr@kernel.org>,
+	Hanjun Guo <guohanjun@huawei.com>,
+	Sudeep Holla <sudeep.holla@kernel.org>,
+	Wim Van Sebroeck <wim@linux-watchdog.org>,
+	Guenter Roeck <linux@roeck-us.net>,
+	Robin Murphy <robin.murphy@arm.com>,
+	Catalin Marinas <catalin.marinas@arm.com>,
 	Will Deacon <will@kernel.org>,
-	Zenghui Yu <yuzenghui@huawei.com>
-Subject: Re: [PATCH v8 16/29] arm64: Share arm64 headers with s390
-In-Reply-To: <20260930072803.664031-A-seiden@linux.ibm.com>
-References: <20260918133107.1042730-1-seiden@linux.ibm.com>
-	<20260918133107.1042730-17-seiden@linux.ibm.com>
-	<arqQ2Eat4VUBbl49@arm.com>
-	<20260928162345.428362-C-seiden@linux.ibm.com>
-	<ars6Jh5DiendDT7G@li-d8547bcc-2d90-11b2-a85c-a70f2a37009a.ibm.com>
-	<arvunF8epgpWh1YT@arm.com>
-	<20260930072803.664031-A-seiden@linux.ibm.com>
-User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
- FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/30.1
- (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
-MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
-Content-Type: text/plain; charset=US-ASCII
-X-SA-Exim-Connect-IP: 185.219.108.64
-X-SA-Exim-Rcpt-To: seiden@linux.ibm.com, catalin.marinas@arm.com, gra@linux.ibm.com, kvm@vger.kernel.org, kvmarm@lists.linux.dev, linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, linux-s390@vger.kernel.org, agordeev@linux.ibm.com, arnd@arndb.de, borntraeger@linux.ibm.com, imbrenda@linux.ibm.com, david@kernel.org, fritz@linux.ibm.com, tabba@google.com, ggala@linux.ibm.com, hari55@linux.ibm.com, hca@linux.ibm.com, brueckner@linux.ibm.com, iii@linux.ibm.com, frankja@linux.ibm.com, joey.gouly@arm.com, nrb@linux.ibm.com, oss@nina.schoetterlglausch.eu, oupton@kernel.org, pbonzini@redhat.com, suzuki.poulose@arm.com, svens@linux.ibm.com, Ulrich.Weigand@de.ibm.com, gor@linux.ibm.com, will@kernel.org, yuzenghui@huawei.com
-X-SA-Exim-Mail-From: maz@kernel.org
-X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
+	Bartosz Golaszewski <brgl@kernel.org>, linux-acpi@vger.kernel.org,
+	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+	driver-core@lists.linux.dev, linux-watchdog@vger.kernel.org
+Subject: Re: [PATCH RFC 02/11] ACPI: Introduce irq_get() for static fwnodes
+Message-ID: <arzAqMOmSVl_PzH5@red-moon>
+References: <20260925-acpi-static-table-irq-probe-defer-v1-0-2c62125d0085@kernel.org>
+ <20260925-acpi-static-table-irq-probe-defer-v1-2-2c62125d0085@kernel.org>
+ <arr3IhF0bwN4uzUP@hu-ashoraj-lv.qualcomm.com>
+ <art5m5QPXAOAvkvW@red-moon>
+ <arxZ7BAya5ntRi6t@hu-ashoraj-lv.qualcomm.com>
+ <ary9AGmVWDuez7Ax@ashevche-desk.local>
+MIME-Version: 1.0
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <ary9AGmVWDuez7Ax@ashevche-desk.local>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -115,76 +88,31 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, 30 Sep 2026 08:28:03 +0100,
-Steffen Eiden <seiden@linux.ibm.com> wrote:
+On Wed, Sep 30, 2026 at 10:40:48AM +0300, Andy Shevchenko wrote:
+> On Tue, Sep 29, 2026 at 05:38:04PM -0700, Ashok Raj wrote:
+> > On Tue, Sep 29, 2026 at 10:40:59AM +0200, Lorenzo Pieralisi wrote:
+> > > On Mon, Sep 28, 2026 at 04:24:18PM -0700, Ashok Raj wrote:
+> > > > On Fri, Sep 25, 2026 at 09:48:01AM +0200, Lorenzo Pieralisi wrote:
 > 
-> On Tue, Sep 29, 2026 at 06:00:12PM +0100, Catalin Marinas wrote:
-> > On Tue, Sep 29, 2026 at 06:19:20AM +0200, Andreas Grapentin wrote:
-> > > On Sep 28 26, Steffen Eiden wrote:
-> > > > On Mon, Sep 28, 2026 at 05:07:52PM +0100, Catalin Marinas wrote:
-> > > > > On Fri, Sep 18, 2026 at 03:30:53PM +0200, Steffen Eiden wrote:
-> > > > > > +# Enable all code shared to s390
-> > > > > > +KBUILD_CFLAGS	+= -DARM64_S390_COMMON
-> > > > > > +KBUILD_AFLAGS	+= -DARM64_S390_COMMON
-> > > > > > +KBUILD_CPPFLAGS	+= -DARM64_S390_COMMON
-> > > > > 
-> > > > > Do we actually need these defines? They seem only to be used as markers
-> > > > > for the awk scripts to extract the definitions. Why do we need the C
-> > > > > preprocessor involved at all? Could we not just have comment markers:
-> > > > > 
-> > > > > /* ARM64_S390_COMMON_BEGIN */
-> > > > > ...
-> > > > > /* ARM64_S390_COMMON_END */
-> > > > >
-> > > > No technically we do not need those. They could be useful if we find out
-> > > > that AWK is the wrong tool and move to a C Preprocessor + diff based
-> > > > approach. 
-> > > > 
-> > > > if the ifdev is not closed the compiler will complain, but an 'arm did
-> > > > not destroy us' verifiaction tool ( I will send one soonish) could do
-> > > > the same.
-> > > 
-> > > iirc the last time we discussed this we didn't think that load-bearing
-> > > comments were the right tool here. We also briefly floated the idea of
-> > > using a #pragma region based approach, but in the end we went with the
-> > > #ifdef preprocessor directives instead, as the least invasive
-> > > non-comment marker that was available.
+> ...
+> 
+> > > > > +	ret = acpi_static_fwnode_read_u32_prop_index(fwnode, ACPI_IRQ_PROP_GSI_POLARITY,
+> > > > > +						index, &polarity);
 > > 
-> > The downside is that the macro affects the preprocessed code. We need to
-> > ensure they don't leak in uapi headers for example. Not a fan of this
-> > approach but I don't have a better suggestion either. At least we could
-> > write them as:
+> > For each of the above calls for read_u32_prop_index() the allocation,
+> > copy a value and does free it. 
 > > 
-> > #if ARM64_S390_COMMON == 1
+> > Instead you could read the whole array, and just get each value and
+> > discard it once? 
 > 
-> This is a great idea and an improvement. Thanks.
-> 
-> @Marc: Shall I sent a v9 of this series or do you want to pick v8 and I
-> send this as an improvement once picked?
+> This was my question as well. But I formulated it differently.
 
-Please send a v9. That's invasive enough that it warrants it.
-
-> > It would also be useful for the awk scripts look for the paired #endif
-> > rather than relying on the comment at the end of the line. Otherwise
-> > it's not really different from just sticking to comments.
-> > 
-> 
-> Are you suggesting that the AWK scripts should track the #if% and #endif
-> in the code and warn or reject if the marked endif for the shared code
-> does not match pairing with the starting #if? That makes sense yes. I'll
-> investigate and would add this as an improvement later on.
-
-I think the suggestion is to teach the script about the #if/#endif
-nesting, and therefore to not require the trailing comment on #endif
-(i.e. the script acts as a normal cpp).
-
-It should only be a matter of counting the #{if,ifdef}s and #endif
-past the ARM64_S390_COMMON guard.
+Same answer (and actually two properties are enough), yes that should
+be done, if using software nodes is the way to go, which does not
+look like, that's the whole reason behind this series, understanding
+where to stash GSI numbers, flags and names. It is a working proof
+of concept to get this debated and resolved, hopefully next week at LPC.
 
 Thanks,
-
-	M.
-
--- 
-Without deviation from the norm, progress is not possible.
+Lorenzo
 
