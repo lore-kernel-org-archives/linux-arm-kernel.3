@@ -4,91 +4,85 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 104A2CA5FC5
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4451FCA5FCD
 	for <linux-arm-kernel@archiver.kernel.org>; Wed, 30 Sep 2026 14:51:11 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ugl/kEsibxaOMxwiAB8ohvG+dBs5XjVCSnq2cxUbe8c=; b=rPg671H85fDGc3h0bgFHADtjQX
-	Rjp/FE+st5UNHJ4oyf2a8g2fZ7HqpEUEK8bOfXjyZkwfiziG6ZSrPxNs74TcE/BJF7RlWbLs5Pmt4
-	fz2RadDRNUt1ctt3cppauy02pQYYQQOLuq/RuyW4G+nK7RuDemImhXfEIgPZVneihwDAVfIrSGBKQ
-	AsG/rpX7f95QbPOvJfqvwNS3+FbXWkGx2G96ngeLey6ptvd+bbuzSFgeEjpxDkn20XREVAdxzmmE9
-	VnF8/UcLWKn5Uf2A506BUt949QwYwdE1KB0WyL1H0V/LoYyF+dpcruO1H48WRN3Pg/M3XrATzUz3x
-	oe2vSSQQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=TSwgvDJ8bCkdzK3KRzsQi4XHuw+AgxkAx3ktEHZzz7A=; b=honz+JVIUuA/78OdNDlhQNPuH4
+	ZLCr1/G55GzuyvFPDCVaz0TNFdyDeh9VisaQYzEGgVlxpdTZR2Wrmn5v7UrYxDpr1vx4wejSvlSnK
+	TAQr9goCwemwwSa36cRy74lNoMQX78lSLfZsGHxPKaeGRwazx6knrsFF+DWBHGns7er2Ifl1xg0Fy
+	XDCL7SXKRZyOA30TWPO/K9Jl4B+s4NVB2A0ZM2i02RvfzDEsXmFomw9A3QavK2C8dWVfe9OtLCsl2
+	Uy7CxcyBMaNL8K8DPBzafR3arL4bYmZYIDhXK54949TUqfHYUz9tnNkGVo92n/k+EHkgToxkYIYAt
+	h2T2BZSw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xBve6-00000006NQL-0wN3;
-	Wed, 30 Sep 2026 14:50:58 +0000
-Received: from mail-wm2-x11.google.com ([2a00:1450:4864:31::11])
+	id 1xBve9-00000006NSP-22P6;
+	Wed, 30 Sep 2026 14:51:01 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xBvdo-00000006NE7-2vfl
-	for linux-arm-kernel@lists.infradead.org;
-	Wed, 30 Sep 2026 14:50:42 +0000
-Received: by mail-wm2-x11.google.com with SMTP id 5b1f17b1804b1-49e7d2bb404so8751965e9.1
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 30 Sep 2026 07:50:38 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20251104; t=1790779837; x=1791384637; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:content-type:mime-version
-         :references:message-id:subject:cc:to:from:date:from:to:cc:subject
-         :date:message-id:reply-to:content-type;
-        bh=ugl/kEsibxaOMxwiAB8ohvG+dBs5XjVCSnq2cxUbe8c=;
-        b=iKX1ibnHsEl93lYKBquhYuoomZ4ZaGdz/On2MxY3lv2KKuEyE2umo5uOGBM3WdZzMZ
-         RG4zKdaUcS3J5EeabgBTh3enhXqoIsS1dSP6RlzSGth4F+L1AKuTbUfP3j17h81J5wRz
-         U0hzjcK9sctRNx4LyixDhk1G9CZZElkahvKjspZGPgPmNE7mpWjkFZQDmT65YHPV4ffC
-         Ti4yga/KROgR7y4girPl7h3j+bmu1A+L9E/zIf/x7nyX/lGdhxqqNh1DsOFt6vWYnn2I
-         uoOn1UhQffusV8icthl9s7hC4zYm0MhdSS5M/1JRvn6gM4IMuQL7yrNZ31E58FiCubQ7
-         vUbw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1790779837; x=1791384637;
-        h=in-reply-to:content-disposition:content-type:mime-version
-         :references:message-id:subject:cc:to:from:date:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=ugl/kEsibxaOMxwiAB8ohvG+dBs5XjVCSnq2cxUbe8c=;
-        b=ZjG+5/ATl7jkuvCpdIlqyELbLMYSzN/edP+koC+B6zBTNB3U0mpsxnvARQxoETyqik
-         85PLj48pW3e1MlKegN466P9ZO8t/3VPwuedmjGckYF8goAX3/1RTErlRHfGYgyOipCq4
-         JbTFQXZfrpYqqty+6fMeNH7zKleasKhgThNAgWSU6G4q63dT4vkDzSpu4j+w1QE/4g7G
-         xEQPvHzd1TF+ETYknqklx0zPYCwWWMtBJjnQef9VT9hPz1LNLfnYDfE0nK8QAKCtHz+w
-         daOmHhaZfVrLCo1YBj17GnnPQbc/6JAG8+inA+haivPsZX7XbwqVYguj9AwcJZPQcSEL
-         V2gw==
-X-Forwarded-Encrypted: i=1; AKwUvBydub3RwTQyNANQZBCtxxMb6kSDIKMbmiN6asS1JUNZCNCvtI+RtIXeLdwim2pJxmr4Iw56ChiXXBm1hQ7NBYD8@lists.infradead.org
-X-Gm-Message-State: AFuF++mHLmnZcxFaHiF9PaAKl5hretmMQBRkJnTDnJDiWpv9il7rIklO
-	1e9/Urlk/4Mw1E/SNxKxUBsDHPIS3uTszz9+wg5aFBqW90YpvqueQO4MrVDBbVJLOg==
-X-Gm-Gg: AYBFou0bzIvbeZ9PdqHi6dTU5mTQsj9Z2cc+STXFlfAm4mH6vnQWxderTpzojhhwqHK
-	GYRMRuFwxXXwrpIFPfTc3pAgdKR+WwcVYpG3+2rBu7+p1fS53FvDrG9CgABjv9c4B9G/pdJr5TJ
-	vyVY8L+7VycCbnbN2x7bMiKJ6ifxw1hZnOJQYWMVRHMCf/M6BXHRiMqNXZDg344NAF+7e+cRbDO
-	wDHU2JPHTzb/Y4zNh19GaTjqnqbgf7MpBJAalh3n8bX8/jwWYJ+6P0EKffaQaS7UE+F8wcEPe2E
-	8VpE1AWPBvIgGZFEdqnZrz+JGNFpVQe3wlPTzAUXjhRcxgR1WXjb00+VVC8ZMZYH1Kp44Gi1jOz
-	YRpcCgfSrOWStW2sSuGnroLa+T028+mMsmNSfQC7qS+wm+ZssFoAVVyYFMpglANvj7nxJmZ/t5y
-	zq8VdpIpTsyHM0Fh4WWJC7qjRNCadGU6ZZv5erOfBvu0+9LvE8aA9oO8M1lLcHm68i/Ioz8SWIp
-	XhzDfnkYkorbGAsuDyf79wU3yV1Pn32CzLe4Y704Rw=
-X-Received: by 2002:a05:600c:1f95:b0:49f:c5aa:9ef4 with SMTP id 5b1f17b1804b1-4a01b1a1138mr26323985e9.8.1790779836298;
-        Wed, 30 Sep 2026 07:50:36 -0700 (PDT)
-Received: from google.com (197.183.140.34.bc.googleusercontent.com. [34.140.183.197])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4a01e67e01esm3856325e9.13.2026.09.30.07.50.33
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 30 Sep 2026 07:50:33 -0700 (PDT)
-Date: Wed, 30 Sep 2026 15:50:29 +0100
-From: Vincent Donnefort <vdonnefort@google.com>
-To: maz@kernel.org, oupton@kernel.org, kvmarm@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org
-Cc: joey.gouly@arm.com, seiden@linux.ibm.com, suzuki.poulose@arm.com,
-	yuzenghui@huawei.com, catalin.marinas@arm.com, will@kernel.org,
-	kernel-team@android.com, fuad.tabba@linux.dev, qperret@google.com
-Subject: Re: [PATCH v5 00/18] KVM: arm64: Introduce pKVM hypervisor heap
- allocator
-Message-ID: <ar0htZydVZdB9zVk@google.com>
-References: <20260901080941.997769-1-vdonnefort@google.com>
+	id 1xBvdv-00000006NIT-20gz;
+	Wed, 30 Sep 2026 14:50:47 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by tor.source.kernel.org (Postfix) with ESMTP id 5AAA7601DE;
+	Wed, 30 Sep 2026 14:50:45 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 6D76D1F0089B;
+	Wed, 30 Sep 2026 14:50:39 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1790779845;
+	bh=TSwgvDJ8bCkdzK3KRzsQi4XHuw+AgxkAx3ktEHZzz7A=;
+	h=From:To:Cc:Subject:Date:In-Reply-To:References;
+	b=UF03NQeeQFakrobM0QKdTXcDNv/0m37rMtVFftS14c7N/Iz9vdXCdLy3k1wzBufA/
+	 4cwrlObdOz/8fAOCtop9P+R1hPV5Krr0NmQqrZtbReTPhGNQeXHV2hLRpZ9osCgT21
+	 WfNDEAWsfA/nGinp0bmHQ7TZldMoAoj1b/xOT6u2Ziode0StIC5SbFj7Pd5tqzPglD
+	 2//t26pkX5Pi8BZtjWwmNAviV1bR8bAQmKOwytLtKgj3tj/OD6ioRtBLw/ZM/LaPBe
+	 dbKg+AnOGhBTmFWoMifEeLSKpS1gAiN6iIiD/c9ZBhW81s56nMGc/gvzJtRgc/AOBx
+	 /9I6LCo0E/FVw==
+From: Niklas Cassel <cassel@kernel.org>
+To: Bjorn Helgaas <bhelgaas@google.com>,
+	Bjorn Helgaas <helgaas@kernel.org>,
+	Lorenzo Pieralisi <lpieralisi@kernel.org>,
+	=?UTF-8?q?Krzysztof=20Wilczy=C5=84ski?= <kwilczynski@kernel.org>,
+	Manivannan Sadhasivam <mani@kernel.org>,
+	Heiko Stuebner <heiko@sntech.de>,
+	Yue Wang <yue.wang@Amlogic.com>,
+	Hans Zhang <18255117159@163.com>,
+	Myron Stowe <myron.stowe@redhat.com>,
+	Jon Mason <jdmason@kudzu.us>
+Cc: Keith Busch <kbusch@kernel.org>,
+	mx2pg@pm.me,
+	dlemoal@kernel.org,
+	Lukas Wunner <lukas@wunner.de>,
+	Frank Li <Frank.Li@nxp.com>,
+	Mahesh Vaidya <mahesh.vaidya@altera.com>,
+	Ricardo Pardini <ricardo@pardini.net>,
+	Shawn Lin <shawn.lin@rock-chips.com>,
+	=?UTF-8?q?Pali=20Roh=C3=A1r?= <pali@kernel.org>,
+	Neil Armstrong <neil.armstrong@linaro.org>,
+	Rob Herring <robh@kernel.org>,
+	Jingoo Han <jingoohan1@gmail.com>,
+	Kevin Hilman <khilman@baylibre.com>,
+	Jerome Brunet <jbrunet@baylibre.com>,
+	Martin Blumenstingl <martin.blumenstingl@googlemail.com>,
+	linux-pci@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-amlogic@lists.infradead.org,
+	linux-rockchip@lists.infradead.org,
+	Niklas Cassel <cassel@kernel.org>
+Subject: [RFC PATCH 2/4] PCI: Match the hierarchy's MPS to a device's MPSS as necessary
+Date: Wed, 30 Sep 2026 16:50:19 +0200
+Message-ID: <20260930145017.1356088-8-cassel@kernel.org>
+X-Mailer: git-send-email 2.55.0
+In-Reply-To: <20260930145017.1356088-6-cassel@kernel.org>
+References: <20260930145017.1356088-6-cassel@kernel.org>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20260901080941.997769-1-vdonnefort@google.com>
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260930_075040_812211_788EA9AC 
-X-CRM114-Status: GOOD (  29.11  )
+X-Developer-Signature: v=1; a=openpgp-sha256; l=5641; i=cassel@kernel.org; h=from:subject; bh=BT88USuGeykL9B1sorUB9b03FNnb7Rs3jMpDLquVOTo=; b=owGbwMvMwCV2MsVw8cxjvkWMp9WSGLL2Kq66Uhy8PPC02t7wDNP/+w0sozSl5rziN/lYU6n+Y a2upMy2jlIWBjEuBlkxRRbfHy77i7vdpxxXvGMDM4eVCWQIAxenAExkWSfD/5xLLDPfl0bL7rwR f/BnPOdDnhbh9Wz8VVuXX97o+tHLy4iR4X3kRDelhOb7+85veLHOQKWmvyJn0uabbAUchs9XWjG sYAcA
+X-Developer-Key: i=cassel@kernel.org; a=openpgp; fpr=5ADE635C0E631CBBD5BE065A352FE6582ED9B5DA
+Content-Transfer-Encoding: 8bit
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -103,165 +97,145 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Gentle ping for this series, 
+From: Hans Zhang <18255117159@163.com>
 
-It's been fully reviewed by Fuad and is already based on 7.3-rc1.
+pci_configure_mps() enumerates top-down and programs each device's Maximum
+Payload Size (MPS) to match its upstream bridge.  When a device's MPS
+Supported (MPSS) is too small to match, commit 9f0e89359775 ("PCI: Match
+Root Port's MPS to endpoint's MPSS as necessary") reduces the upstream
+bridge instead, but only when that bridge is a Root Port.
 
+That covers an endpoint directly below a Root Port and nothing else.  With
+a Switch in between, the Switch ports have already inherited the Root
+Port's larger MPS, the reduction is skipped because the upstream bridge is
+a Switch Downstream Port, and pcie_set_mps() then fails with -EINVAL for
+the endpoint.  The endpoint is left below a port programmed for a larger
+MPS, so any larger TLP it receives is treated as Malformed.
+
+Multi-function devices hit the same hole from the other direction:
+reducing the Root Port for a function with a small MPSS leaves the sibling
+functions already programmed to the larger value.
+
+Walk the hierarchy from the Root Port down and reduce every device that is
+above the new value.  Reducing only the ports between the device and the
+Root Port is not sufficient, because a Switch does not split TLPs: an
+already programmed sibling left at the larger MPS could emit a TLP too
+large for its egress port.  As a result, a single device with a small MPSS
+now lowers the MPS of every device below its Root Port.
+
+Only do this while no device below the Root Port has been added or made
+available for driver binding, i.e., during the initial scan, or when
+devices are hot-added or rescanned into an empty hierarchy such as a slot
+directly below the Root Port.  Such devices may have drivers bound and DMA
+in flight, so their MPS can't be changed safely.  This is the same
+constraint that makes PCIE_BUS_SAFE limit fabrics with hotplug bridges
+below a Root Port to 128 bytes in pcie_find_smpss().  A device
+added next to devices that are already in use is left at its current MPS
+and pci_configure_mps() warns and suggests "pci=pcie_bus_safe", which is
+what already happens below a Switch today.
+
+This only affects PCIE_BUS_DEFAULT.  PCIE_BUS_SAFE, PCIE_BUS_PERFORMANCE
+and PCIE_BUS_PEER2PEER program MPS in pcie_bus_configure_settings() and
+PCIE_BUS_TUNE_OFF doesn't touch it, so all of them return before this
+point.
+
+Fixes: 9f0e89359775 ("PCI: Match Root Port's MPS to endpoint's MPSS as necessary")
+Signed-off-by: Hans Zhang <18255117159@163.com>
+Assisted-by: LLM
+Co-developed-by: Niklas Cassel <cassel@kernel.org>
+Signed-off-by: Niklas Cassel <cassel@kernel.org>
+---
+ drivers/pci/probe.c | 66 ++++++++++++++++++++++++++++++++++++++++++---
+ 1 file changed, 62 insertions(+), 4 deletions(-)
+
+diff --git a/drivers/pci/probe.c b/drivers/pci/probe.c
+index 27008e2ea5af..d8e58e5ef730 100644
+--- a/drivers/pci/probe.c
++++ b/drivers/pci/probe.c
+@@ -2200,9 +2200,49 @@ int pci_setup_device(struct pci_dev *dev)
+ 	return 0;
+ }
+ 
++static int pcie_reduce_mps(struct pci_dev *dev, void *data)
++{
++	int mps = *(int *)data;
++	int ret;
++
++	/* MPS is of type 'RsvdP' for VFs */
++	if (!pci_is_pcie(dev) || dev->is_virtfn)
++		return 0;
++
++	if (pcie_get_mps(dev) > mps) {
++		ret = pcie_set_mps(dev, mps);
++		if (ret)
++			pci_warn(dev, "can't set Max Payload Size to %d; if necessary, use \"pci=pcie_bus_safe\" and report a bug\n",
++				 mps);
++	}
++
++	return 0;
++}
++
++static int pci_dev_check_in_use(struct pci_dev *dev, void *data)
++{
++	bool *in_use = data;
++
++	*in_use = pci_dev_is_added(dev) || !pci_dev_binding_disallowed(dev);
++	return *in_use;
++}
++
++/*
++ * Return true if any device on or below @bus has been added or made available
++ * for driver binding, i.e., may have a driver bound and DMA in flight.
++ */
++static bool pci_bus_in_use(struct pci_bus *bus)
++{
++	bool in_use = false;
++
++	pci_walk_bus(bus, pci_dev_check_in_use, &in_use);
++	return in_use;
++}
++
+ static void pci_configure_mps(struct pci_dev *dev)
+ {
+ 	struct pci_dev *bridge = pci_upstream_bridge(dev);
++	struct pci_dev *rp;
+ 	int mps, mpss, p_mps, rc;
+ 
+ 	if (!pci_is_pcie(dev))
+@@ -2252,10 +2292,28 @@ static void pci_configure_mps(struct pci_dev *dev)
+ 		return;
+ 
+ 	mpss = 128 << dev->pcie_mpss;
+-	if (mpss < p_mps && pci_pcie_type(bridge) == PCI_EXP_TYPE_ROOT_PORT) {
+-		pcie_set_mps(bridge, mpss);
+-		pci_info(dev, "Upstream bridge's Max Payload Size set to %d (was %d, max %d)\n",
+-			 mpss, p_mps, 128 << bridge->pcie_mpss);
++	rp = pcie_find_root_port(bridge);
++	if (mpss < p_mps && rp && !pci_bus_in_use(rp->subordinate)) {
++		/*
++		 * dev cannot be programmed to the MPS already in use above
++		 * it, so reduce the hierarchy to what dev supports.  A Switch
++		 * does not split TLPs, so reducing only the upstream bridge
++		 * is not enough: every port up to the Root Port has to come
++		 * down as well, and so do the devices already programmed
++		 * below that Root Port, which would otherwise be left sending
++		 * TLPs too large for their egress port.
++		 *
++		 * Only do this while no device below the Root Port has been
++		 * added or made available for driver binding, e.g., during
++		 * the initial scan or when hot-adding into a slot directly
++		 * below the Root Port.  Such devices may have drivers bound
++		 * and DMA in flight, so their MPS can't be changed safely
++		 * (see pcie_find_smpss()).
++		 */
++		pcie_reduce_mps(rp, &mpss);
++		pci_walk_bus(rp->subordinate, pcie_reduce_mps, &mpss);
++		pci_info(dev, "Max Payload Size of %s hierarchy set to %d (was %d)\n",
++			 pci_name(rp), mpss, p_mps);
+ 		p_mps = pcie_get_mps(bridge);
+ 	}
+ 
 -- 
-Vincent
+2.55.0
 
-On Tue, Sep 01, 2026 at 09:09:23AM +0100, Vincent Donnefort wrote:
-> pKVM historically lacked a dynamic memory allocator: all hypervisor-side
-> VM and VCPU structures had to be sized on the host, allocated as
-> contiguous pages and donated to the hypervisor.
-> 
-> This design tightly coupled the hypervisor's memory footprint to
-> host-side constraints, complicated memory reclaim, and severely
-> restricted VM scalability.
-> 
-> This patch series introduces a dynamically-mapped custom heap allocator
-> (hyp_allocator) to the pKVM hypervisor. The initial users are the
-> pkvm_hyp_vm and pkvm_hyp_vcpu structs, and the hypervisor tracing
-> metadata.
-> 
-> In the near future, this heap allocator is expected to be leveraged to
-> support SVE in protected VMs and in the distant future, it will also
-> support dynamic device assignment.
-> 
-> By moving to a hypervisor-managed dynamic allocator, we also allow
-> deduplicating the donation/reclaim path of EL2-private structures.
-> 
-> The main building blocks for this series are:
-> 
-> 1. pkvm_hyp_req:
-> ----------------
-> When the hypervisor heap allocator goes out of memory (-ENOMEM), it
-> suspends the hypercall, embeds a PKVM_HYP_REQ_HYP_ALLOC top-up request
-> into the SMCCC HVC return registers, and exits back to the host.
-> 
-> This building block will also be useful for the future huge-mapping
-> support in protected guests, allowing EL2 to raise requests such as
-> block splitting back to the host.
-> 
-> 2. hyp_allocator:
-> ----------------
-> This heap allocator manages a reserved VA space range, dynamically
-> mapping and unmapping physical pages on-demand to minimise the pKVM
-> hypervisor footprint. As memory is reclaimed and relinquished to the
-> host, unmapped holes are introduced within the VA space. To prevent
-> orphan mapped regions, neighboring unused chunks cannot be merged if
-> they are separated by an unmapped region.
-> 
-> The allocator chunk metadata is stored directly into the VA space range.
-> To minimize metadata overhead, chunks only link to each other via a
-> relative 32-bit offset.
-> 
-> A simple hardening of the metadata is added via a simple 32-bit hash.
-> 
-> 3. shrinker:
-> ------------
-> As the heap allocator isn't reclaimed actively on VM or tracing
-> teardown, a shrinker is added to allow the host to reclaim unused memory
-> from the hypervisor when the host is under heavy memory pressure.
-> 
-> Changelog
-> ---------
-> 
-> v5:
-> 
->   - Remove unreachable !prev checks in hyp_allocator_destroy_chunk() (Fuad)
->   - Add kerneldoc to pkvm_call_hyp_req() (Fuad)
->   - Avoid duplicate handle___pkvm_hyp_alloc_selftest() definitions when !CONFIG_NVHE_EL2_DEBUG
->   - Chunk pkvm_hyp_reclaim() with cond_resched() to avoid blocking in EL2
->   - Allow shrinker to scan across all runtime topup IDs
->   - Reclaim chunks before draining allocator->mc in hyp_allocator_reclaim() (Fuad)
->   - Make is_ttbr1_addr() check in __kern_hyp_va() conditional to pKVM (Fuad)
->   - Rename pkvm_memcache to stage2_mc
->   - Rebased on 7.3-rc1
-> 
-> v4: https://lore.kernel.org/all/20260731143541.956291-1-vdonnefort@google.com/
-> 
->   - Add kerneldoc to pkvm_remove_mappings
->   - Allow pkvm_private_va_range_pa() to work with block-level mappings (Sashiko)
->   - Add rollback and harden pkvm_map_private_va_range input (Sashiko)
->   - Add missing mc count into reclaimable memory
->   - Differentiate -ENOMEM from hyp_alloc in errno_to_smccc() (Sashiko)
->   - Collect Fuad's Tested-by
-> 
-> v3: https://lore.kernel.org/all/20260720171513.1415357-1-vdonnefort@google.com/
-> 
->   - Remove unsafe WARN_ON(hyp_spin_is_locked(&pkvm_pgd_lock)) check in hyp_allocator_alloc() (Sashiko)
->   - Modify MIN_ALLOC_SIZE to 16-bytes to comply with FPSIMD alignment requirements (Sashiko)
->   - Allow hyp topup/reclaim HVCs pre-deprivilege
->   - Add enum symbols to pkvm_hyp_req_handle event (Fuad)
->   - Various clarification in commit descriptions (Fuad)
->   - Restore unmap_donated_memory() for PGD on error path (Fuad)
->   - Renamed __hyp_allocator_map -> pkvm_map_private_va_range (Fuad)
->   - Collected Fuad's Reviewed-by tags
->   - Rebased on 7.2-rc4
-> 
-> v2: https://lore.kernel.org/all/20260706175415.2604046-1-vdonnefort@google.com/
-> 
->   - Rebased series on 7.2-rc2.
->   - Use scope-based hyp_spinlock.
->   - Fix best_missing/best_data_size priority in hyp_allocator_find_efficient_chunk() (Sashiko)
->   - Fix missing free_hyp_memcache() in pkvm_hyp_topup() (Sashiko)
->   - Fix unused selftest_init() warning when !CONFIG_NVHE_EL2_DEBUG (Sashiko)
->   - Fix missing shrinker_free() in teardown_hyp_mode() (Sashiko)
-> 
-> v1: https://lore.kernel.org/r/20260520152650.4107895-1-vdonnefort@google.com
-> 
-> Vincent Donnefort (18):
->   KVM: arm64: Add pkvm_private_va_range_pa
->   KVM: arm64: Add pkvm_remove_mappings
->   KVM: arm64: Add pkvm_map_private_va_range
->   KVM: arm64: Add a heap allocator for the pKVM hyp
->   KVM: arm64: Allow kvm_hyp_memcache usage outside of stage-2
->   KVM: arm64: Add pkvm_hyp_req infrastructure
->   KVM: arm64: Add PKVM_HYP_REQ_HYP_ALLOC request
->   KVM: arm64: Add reclaim interface for the pKVM heap alloc
->   KVM: arm64: Add selftests for the pKVM heap allocator
->   KVM: arm64: Add a shrinker for pKVM
->   KVM: arm64: Filter out non-kernel addresses in kern_hyp_va
->   KVM: arm64: Move hyp_vm refcount into the structure
->   KVM: arm64: Alloc pkvm_hyp_vm using pKVM heap allocator
->   KVM: arm64: Alloc pkvm_hyp_vcpu using pKVM heap allocator
->   KVM: arm64: Rename vCPU pkvm_memcache to stage2_mc
->   KVM: arm64: Reject hyp trace descriptors with fewer CPUs than
->     hyp_nr_cpus
->   KVM: arm64: Reject hyp trace descriptors with fewer than 3 pages
->   KVM: arm64: Alloc simple_buffer_page using pKVM hyp allocator
-> 
->  arch/arm64/include/asm/kvm_asm.h           |    4 +
->  arch/arm64/include/asm/kvm_host.h          |   16 +-
->  arch/arm64/include/asm/kvm_mmu.h           |    3 +
->  arch/arm64/include/asm/kvm_pkvm.h          |  117 ++
->  arch/arm64/kvm/arm.c                       |    4 +-
->  arch/arm64/kvm/hyp/hyp-constants.c         |    2 -
->  arch/arm64/kvm/hyp/include/nvhe/alloc.h    |   28 +
->  arch/arm64/kvm/hyp/include/nvhe/mm.h       |    3 +
->  arch/arm64/kvm/hyp/include/nvhe/pkvm.h     |   19 +-
->  arch/arm64/kvm/hyp/include/nvhe/spinlock.h |    4 +
->  arch/arm64/kvm/hyp/nvhe/Makefile           |    2 +-
->  arch/arm64/kvm/hyp/nvhe/alloc.c            | 1211 ++++++++++++++++++++
->  arch/arm64/kvm/hyp/nvhe/hyp-main.c         |  125 +-
->  arch/arm64/kvm/hyp/nvhe/mem_protect.c      |   10 +-
->  arch/arm64/kvm/hyp/nvhe/mm.c               |   79 ++
->  arch/arm64/kvm/hyp/nvhe/pkvm.c             |  104 +-
->  arch/arm64/kvm/hyp/nvhe/setup.c            |    6 +
->  arch/arm64/kvm/hyp/nvhe/trace.c            |   70 +-
->  arch/arm64/kvm/hyp_trace.c                 |   15 +-
->  arch/arm64/kvm/mmu.c                       |    6 +-
->  arch/arm64/kvm/pkvm.c                      |  200 +++-
->  arch/arm64/kvm/trace_pkvm.h                |   45 +
->  22 files changed, 1915 insertions(+), 158 deletions(-)
->  create mode 100644 arch/arm64/kvm/hyp/include/nvhe/alloc.h
->  create mode 100644 arch/arm64/kvm/hyp/nvhe/alloc.c
->  create mode 100644 arch/arm64/kvm/trace_pkvm.h
-> 
-> 
-> base-commit: cee9395acd8043be0644b25c34bfa86623f2b935
-> -- 
-> 2.55.0.897.gb25b4bd76c-goog
-> 
 
