@@ -4,89 +4,82 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 193B0CA5FAB
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 30 Sep 2026 06:37:04 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 45C44CA5FB1
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 30 Sep 2026 06:40:25 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=HnLrnE2E9FO9+UqnM3NeSfp70iXGjx3RGYGrxWY+pU0=; b=HbfJg6fr2USWJscWegY6smimN3
-	EkyEQ5yx7nYI377hdyBp12nLQf+naYKNqHGImaCI2Jb0Y8y7D3w9oiB8RkoK6+Px/MQqBUjGFWUFb
-	5xFUfWUGp0H16nH7QSra/CcrrUgUBxGtFFn2wcdbXwvF0s/ARJCQZp+Xyh9IGFX0MIAdrtJ2c4yz9
-	0mvpVpWiFGU/bkJtbBQQKQ0qEU5AtuD7vu/4RcmT/QYSXqB2SRSN6moKNJmdN2GNwE9nlXqee/qQV
-	ihzNUwcRwe2FZT/nJCKS61NA1G0dDhnObIMkkT+fDcoqVdnG1+oiUsrhkexkuwo/JvEc3aryk78UY
-	MT06ztDg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
+	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=0chXSNSUQANvt19Ucp6Cjs6uWCtlIT5dvvXZ3YF8FcE=; b=pMqifvjTLUbiYw5fB3feRpuGkC
+	XfC+tV1HgaM+sQXRXZmNpIcPvsh2KxOxhtCnCQc8aivDFtoqsJijneHkhAUz4GPdhmTAo9Ywn5BjE
+	c4rniQUE5J11K3XXSPtZC65joM8gcRhBNjOxlnPf8EOLoXUMh57foaEvb3zORtN0ezJLzNI7Rlpou
+	8UsxCkT7VP1lc9c5bCHli1fLgbZr1C5RIt7STf8t7+HAOJfxoKVl156DE7hCn3M2Li7yzfF6YfVMZ
+	G6ZlwIMMe44xlPNiagcZqCHHf1OPNoETShBqRNIpO1zrhvYdRJQlUVCqfvQx7Gj1bpExxPeU3l1qs
+	Z+2b3xbw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xBnw1-000000059pT-2P4q;
-	Wed, 30 Sep 2026 06:36:57 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1xBnzG-00000005ALH-2axy;
+	Wed, 30 Sep 2026 06:40:18 +0000
+Received: from casper.infradead.org ([2001:8b0:10b:1236::1])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xBnw0-000000059pH-12QM
+	id 1xBnzD-00000005AIr-3wWP
 	for linux-arm-kernel@bombadil.infradead.org;
-	Wed, 30 Sep 2026 06:36:56 +0000
+	Wed, 30 Sep 2026 06:40:16 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:Content-Type
-	:MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
+	d=infradead.org; s=casper.20170209; h=In-Reply-To:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
 	Sender:Reply-To:Content-ID:Content-Description;
-	bh=HnLrnE2E9FO9+UqnM3NeSfp70iXGjx3RGYGrxWY+pU0=; b=RHaxuDzasIUsOp4WY9+NjDet3V
-	gxFOW46aPcLoM3xdBi6YR+VrjqP/+LBw5NQFlio7KfI/bepUZgPeIcfmPox5pVuU2CdIv6LIOOzno
-	AjCXRYdetAV8zUytbWqhtYQQik90tUohphfQEy2OGs+VmSxNGx8rq3DZ0grgugs8cBTeRWixOhAXB
-	ZfK0QMsTnELV7n9dp9LRh9VnO/dR4CvtFYsE9yBpOZGIIUvvwfHzuvAfg25cH5DdE4ZIdn1RMO24e
-	4XnuHrNrCsYxNp3viCbxMYoOS99txTJgDCBu3a7fLBDktoC8IJtLZZUpUbGZsHaS6Y1Jusk0CsDrF
-	2VeO8hcw==;
-Received: from m16.mail.163.com ([220.197.31.4])
-	by desiato.infradead.org with esmtps (Exim 4.99.2 #2 (Red Hat Linux))
-	id 1xBnvv-00000003QAm-48wU
+	bh=0chXSNSUQANvt19Ucp6Cjs6uWCtlIT5dvvXZ3YF8FcE=; b=ZjCDuFG/aOWo2rloOBoVqym9xG
+	Do0wIbT81b5kFKb+DruQ9hYXpCgQMJ1tTtqeUHGZYM+EVmnrVLa7vQAsqgzEJ2rFjHBkJnqhsJBFA
+	bpZFWZgqcwnyRI/JkhO1mbJ080qHuKsrB6BVtVD1Lsdy5BMb7nAexnWtxAyDdpVdVzEyA7L0z9Hw6
+	mVPa7nG6z6uc2Imq33yQ1Q8oqMQ7Mqgpwt+bE70IxZTnElWpNKu6Be6uiz5qCqeqhJpaESBaFDO7c
+	DhiiJjZ8fb73eDlP6THMYU6MQkrGW5/CINIca/rtvlE9r3TuI6gzVjD4rbofef32lOetsT2qncsIH
+	EhI6pc3g==;
+Received: from foss.arm.com ([217.140.110.172])
+	by casper.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1xBnz8-00000008KYd-1Cl6
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 30 Sep 2026 06:36:55 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=163.com;
-	s=s110527; h=From:To:Subject:Date:Message-Id:MIME-Version:
-	Content-Type; bh=HnLrnE2E9FO9+UqnM3NeSfp70iXGjx3RGYGrxWY+pU0=;
-	b=maN1rGuc/nyO1ggJn9hNiTK3IH7n9/puV5xndW2ljr7DDhpKrxfkGalVrUbZVE
-	cB8tBd0wORQ1+vS7wIfuOHNB3sv/sBp8+NHwfXXFBP02hmVwpix1wE7L9c6Y78MZ
-	OJs5RGKo68j1YLV1HmX0RnYwQJHdxaM5/dHoN0fdRUrQk=
-Received: from 4CV529F122.company.local (unknown [])
-	by gzsmtp1 (Coremail) with SMTP id PCgvCgC3gxS+rbxqEShrBw--.64819S2;
-	Wed, 30 Sep 2026 14:35:52 +0800 (CST)
-From: Ding Hui <dinghui1111@163.com>
-To: netdev-bot+sashiko@kernel.org
-Cc: alexandre.torgue@foss.st.com,
-	andrew+netdev@lunn.ch,
-	davem@davemloft.net,
-	dinghui1111@163.com,
-	dinghui@lixiang.com,
-	edumazet@google.com,
-	kuba@kernel.org,
-	linux-arm-kernel@lists.infradead.org,
+	Wed, 30 Sep 2026 06:40:14 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id C81CF1477;
+	Tue, 29 Sep 2026 23:40:02 -0700 (PDT)
+Received: from e129823.arm.com (e129823.arm.com [10.2.213.3])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id C75E13F85F;
+	Tue, 29 Sep 2026 23:40:04 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
+	t=1790750406; bh=Tom5HPgFNGW+Gz0V3CEeiacaeP07JK6k7q5nctrI3tg=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=ZTEMzkjl4QBfT4/cLas8o/PMyGiyqZ3c67lKmrfZWFnpv/Un9GLtNbpCqKI/OvcXi
+	 Abf7XobAEC5f/oM8uOKLcSDs8owI93UJ2NGBTWJ64TNTcfmWCt2izSR8qrl9shWeJe
+	 Wywn5Snh409KEeZO5dxXdNUa4pbygGfIb5x2mcXI=
+Date: Wed, 30 Sep 2026 07:40:02 +0100
+From: Yeoreum Yun <yeoreum.yun@arm.com>
+To: Kohei Enju <enju.kohei@fujitsu.com>
+Cc: Yeoreum Yun <yeoreum.yun@arm.com>, linux-arm-kernel@lists.infradead.org,
 	linux-kernel@vger.kernel.org,
-	linux-stm32@st-md-mailman.stormreply.com,
-	liuxuanjun@lixiang.com,
-	lorenzo.bianconi@oss.qualcomm.com,
-	maxime.chevallier@bootlin.com,
-	mcoquelin.stm32@gmail.com,
-	netdev@vger.kernel.org,
-	pabeni@redhat.com,
-	xiasanbo@lixiang.com,
-	yangchen11@lixiang.com
-Subject: Re:Re: [PATCH net-next v3] net: stmmac: fix error path cleanup in DMA descriptor ring allocation
-Date: Wed, 30 Sep 2026 14:35:42 +0800
-Message-Id: <20260930063542.2078609-1-dinghui1111@163.com>
-X-Mailer: git-send-email 2.34.1
-In-Reply-To: <179007928254.2160803.9473310468138142059@kernel.org>
-References: <179007928254.2160803.9473310468138142059@kernel.org>
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Will Deacon <will@kernel.org>, Jason Gunthorpe <jgg@ziepe.ca>,
+	Suzuki Poulose <suzuki.poulose@arm.com>,
+	Steven Price <steven.price@arm.com>,
+	Sami Mujawar <sami.mujawar@arm.com>, thuth@redhat.com
+Subject: Re: [PATCH v2 3/3] virt: arm-cca-guest: Add support for measurement
+ registers
+Message-ID: <aryuwukTRtmd2Lft@e129823.arm.com>
+References: <20260929-arm_cca_mr-v2-0-1d98bba187fd@arm.com>
+ <20260929-arm_cca_mr-v2-3-1d98bba187fd@arm.com>
+ <arx2hnTv3QaFqMn-@FCCLS0092175.localdomain>
+ <aryZnqqBAjKw5xaP@e129823.arm.com>
+ <arygMte5C5lJDdoi@FCCLS0092175.localdomain>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=y
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
 Content-Transfer-Encoding: 8bit
-X-CM-TRANSID: PCgvCgC3gxS+rbxqEShrBw--.64819S2
-X-Coremail-Antispam: 1Uf129KBjDUn29KB7ZKAUJUUUUU529EdanIXcx71UUUUU7v73
-	VFW2AGmfu7bjvjm3AaLaJ3UbIYCTnIWIevJa73UjIFyTuYvjTRpv31UUUUU
-X-CM-SenderInfo: pglqwx1xlriiqr6rljoofrz/xtbC0ghnk2q8rcgf1gAA3U
+In-Reply-To: <arygMte5C5lJDdoi@FCCLS0092175.localdomain>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260930_073652_510068_227A6981 
-X-CRM114-Status: GOOD (  38.56  )
+X-CRM114-CacheID: sfid-20260930_074010_612919_0FF0F0C4 
+X-CRM114-Status: GOOD (  60.75  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -101,328 +94,441 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-At 2026-09-22 20:14:42, netdev-bot+sashiko@kernel.org wrote:
+> On 09/30 06:09, Yeoreum Yun wrote:
+> > On Wed, Sep 30, 2026 at 12:24:08PM +0900, Kohei Enju wrote:
+> > > Hi Yeoreum, Sami,
+> > > 
+> > > On 09/29 17:57, Yeoreum Yun wrote:
+> > > > From: Sami Mujawar <sami.mujawar@arm.com>
+> > > > 
+> > > > Add support for Arm CCA measurement registers (MRs), enabling attestation
+> > > > and runtime integrity tracking from guest Realms.
+> > > > 
+> > > > This implementation registers a measurement configuration with the TSM
+> > > > framework and exposes measurement register values via sysfs using a
+> > > > misc device. The supported registers include the Realm Initial
+> > > > Measurement (RIM) and four Runtime Extensible Measurement Registers
+> > > > (REM0–REM3), each using SHA-256 or SHA-512 depending on Realm
+> > > 
+> > > Is SHA-384 intentionally out of scope for this series?
+> > > 
+> > > Although TF-RMM does not support it yet, the RMM specification defines
+> > > RSI_HASH_SHA_384. A platform using a custom RMM implementation could
+> > > therefore launch a Realm configured to use SHA-384. I think the Realm
+> > > guest driver should support it rather than fail initialization.
+> > 
+> > Fair enough. Let's change in next-spin.
+> > 
+> > > 
+> > > > configuration.
+> > > > 
+> > > > The measurement registers are located under the following sysfs node:
+> > > >     /sys/devices/virtual/misc/arm_cca_guest/measurements/
+> > > >        -rw-r--r-- 1 0 0 64 Jul 21 11:46 rem0:sha512
+> > > >        -rw-r--r-- 1 0 0 64 Jul 21 11:46 rem1:sha512
+> > > >        -rw-r--r-- 1 0 0 64 Jul 21 11:46 rem2:sha512
+> > > >        -rw-r--r-- 1 0 0 64 Jul 21 11:46 rem3:sha512
+> > > >        -r--r--r-- 1 0 0 64 Jul 21 11:46 rim:sha512
+> > > > 
+> > > > As seen above the attributes for the REMs are 'rw' indicating they can
+> > > > be read or extended. While the attributes for RIM is 'r' indicating
+> > > > that it can only be read and not extended.
+> > > > 
+> > > > The sysfs node suffix for the measurement register (i.e. ':sha512')
+> > > > indicates the hash algorithm used is sha512. This also reflects
+> > > > that the Realm was launched with SHA512 as the measurement algorithm.
+> > > > 
+> > > > Signed-off-by: Sami Mujawar <sami.mujawar@arm.com>
+> > > > ---
+> > > >  .../sysfs-devices-virtual-misc-arm_cca_guest       |  38 +++
+> > > >  drivers/virt/coco/arm-cca-guest/Kconfig            |   1 +
+> > > >  drivers/virt/coco/arm-cca-guest/main.c             | 282 ++++++++++++++++++++-
+> > > >  3 files changed, 319 insertions(+), 2 deletions(-)
+> > > > 
+> > > > diff --git a/Documentation/ABI/testing/sysfs-devices-virtual-misc-arm_cca_guest b/Documentation/ABI/testing/sysfs-devices-virtual-misc-arm_cca_guest
+> > > > new file mode 100644
+> > > > index 000000000000..878dc54e48f8
+> > > > --- /dev/null
+> > > > +++ b/Documentation/ABI/testing/sysfs-devices-virtual-misc-arm_cca_guest
+> > > > @@ -0,0 +1,38 @@
+> > > > +What:		/sys/devices/virtual/misc/arm_cca_guest/measurements/MRNAME[:HASH]
+> > > > +Date:		July, 2025
+> > > > +KernelVersion:	v6.16
+> > > 
+> > > I think this Date and KernelVersion are stale and they should be
+> > > updated.
+> > 
+> > Oh. I missed it. I'll update in next-spin.
+> > 
+> > > 
+> > > > +Contact:	linux-coco@lists.linux.dev
+> > > > +Description:
+> > > > +		Value of a Arm CCA Realm measurement register (MR). The optional
+> > > 
+> > > If the :HASH suffix actually optional for Arm CCA?
+> > > It appears that the driver always associates a hash algorithm with each
+> > > register.
+> > > 
+> > > > +		suffix :HASH is to represent the hash algorithms associated with
+> > > > +		the MRs. See below for a complete list of Arm CCA Realm MRs exposed
+> > > > +		via sysfs. Refer to the Arm Realm Management Monitor (RMM)
+> > > > +		Specification for more information on the Realm Measurement registers.
+> > > > +
+> > > > +		The Arm Realm Management Monitor Specification can be found at:
+> > > > +		https://developer.arm.com/documentation/den0137/latest/
+> > > > +
+> > > > +		See also:
+> > > > +		https://docs.kernel.org/driver-api/coco/measurement-registers.html
+> > > > +
+> > > > +What:		/sys/devices/virtual/misc/arm_cca_guest/measurements/rim:[sha256|sha512]
+> > > > +Date:		July, 2025
+> > > > +KernelVersion:	v6.16
+> > > > +Contact:	linux-coco@lists.linux.dev
+> > > > +Description:
+> > > > +		(RO) RIM - [32|64]-byte immutable storage typically used to represent
+> > > > +		the Realm Initial Measurement (RIM) which is the measurement of
+> > > > +		the configuration and contents of a Realm at the time of activation.
+> > > > +
+> > > > +What:		/sys/devices/virtual/misc/arm_cca_guest/measurements/rem[0123]:[sha256|sha512]
+> > > > +Date:		July, 2025
+> > > > +KernelVersion:	v6.16
+> > > > +Contact:	linux-coco@lists.linux.dev
+> > > > +Description:
+> > > > +		(RW) REM[0123] - 4 Run-Time extendable Measurement Registers that
+> > > > +		represent the Realm Extensible Measurement (REM) registers which
+> > > > +		can be extended during the lifetime of a Realm.
+> > > > +		Read from any of these returns the current value of the corresponding
+> > > > +		REM. Write extends the written buffer to the REM. All writes must start
+> > > > +		at offset 0 and be maximum 64 bytes in size. Attempting to write more
+> > > > +		than 64 bytes will result in EINVAL returned by the write() syscall.
+> > > > diff --git a/drivers/virt/coco/arm-cca-guest/Kconfig b/drivers/virt/coco/arm-cca-guest/Kconfig
+> > > > index 0d4ce72e2d86..3693d3bc90c6 100644
+> > > > --- a/drivers/virt/coco/arm-cca-guest/Kconfig
+> > > > +++ b/drivers/virt/coco/arm-cca-guest/Kconfig
+> > > > @@ -3,6 +3,7 @@ config ARM_CCA_GUEST
+> > > >  	depends on ARM_RMM_RSI
+> > > >  	depends on HAVE_ARM_SMCCC_DISCOVERY
+> > > >  	select TSM_REPORTS
+> > > > +	select TSM_MEASUREMENTS
+> > > >  	help
+> > > >  	  The driver provides userspace interface to request and
+> > > >  	  attestation report from the Realm Management Monitor(RMM).
+> > > > diff --git a/drivers/virt/coco/arm-cca-guest/main.c b/drivers/virt/coco/arm-cca-guest/main.c
+> > > > index f97f593da6e3..9bbad43c4669 100644
+> > > > --- a/drivers/virt/coco/arm-cca-guest/main.c
+> > > > +++ b/drivers/virt/coco/arm-cca-guest/main.c
+> > > > @@ -1,6 +1,6 @@
+> > > >  // SPDX-License-Identifier: GPL-2.0-only
+> > > >  /*
+> > > > - * Copyright (C) 2023 ARM Ltd.
+> > > > + * Copyright (C) 2023 - 2025 ARM Ltd.
+> > > >   */
+> > > >  
+> > > >  #include <linux/arm-rsi-cmds.h>
+> > > > @@ -9,11 +9,280 @@
+> > > >  #include <linux/cc_platform.h>
+> > > >  #include <linux/kernel.h>
+> > > >  #include <linux/device-id/platform.h>
+> > > > +#include <linux/miscdevice.h>
+> > > >  #include <linux/module.h>
+> > > >  #include <linux/smp.h>
+> > > >  #include <linux/tsm.h>
+> > > > +#include <linux/tsm-mr.h>
+> > > >  #include <linux/types.h>
+> > > >  
+> > > > +#include <crypto/hash.h>
+> > > > +
+> > > > +/* MR buffer */
+> > > > +static u8 *arm_cca_mr_buf;
+> > > > +
+> > > > +/**
+> > > > + * arm_cca_mrs - ARM CCA measurement register set.
+> > > > + *
+> > > > + * Defines a static array of measurement registers used by the ARM
+> > > > + * Confidential Compute Architecture (CCA). These registers are used
+> > > > + * for attestation and runtime integrity tracking.
+> > > > + *
+> > > > + * Register types:
+> > > > + *   - rim: Realm initial measurement register (RIM)
+> > > > + *   - rem0–rem3: Runtime extensible measurement registers (REMs)
+> > > > + */
+> > > > +static struct tsm_measurement_register arm_cca_mrs[] = {
+> > > > +	{ TSM_MR_(rim, SHA256)  | TSM_MR_F_READABLE },
+> > > > +	{ TSM_MR_(rem0, SHA256) | TSM_MR_F_RTMR },
+> > > > +	{ TSM_MR_(rem1, SHA256) | TSM_MR_F_RTMR },
+> > > > +	{ TSM_MR_(rem2, SHA256) | TSM_MR_F_RTMR },
+> > > > +	{ TSM_MR_(rem3, SHA256) | TSM_MR_F_RTMR }
+> > > > +};
+> > > > +
+> > > > +/**
+> > > > + * arm_cca_mr_refresh - Refresh measurement registers for ARM CCA.
+> > > > + *
+> > > > + * @tm: Pointer to a struct tsm_measurements containing measurement registers.
+> > > > + *
+> > > > + * Iterates through all measurement registers in @tm and refreshes those
+> > > > + * marked with TSM_MR_F_LIVE or TSM_MR_F_READABLE by invoking
+> > > > + * rsi_measurement_read() for each.
+> > > > + *
+> > > > + * Return: 0 on success, or -EINVAL if @tm is NULL or a read operation fails.
+> > > > + */
+> > > > +static int arm_cca_mr_refresh(const struct tsm_measurements *tm)
+> > > > +{
+> > > > +	int retval;
+> > > > +	int index = 0;
+> > > > +	const struct tsm_measurement_register *mr;
+> > > > +
+> > > > +	if (!tm)
+> > > > +		return -EINVAL;
+> > > > +
+> > > > +	while (index < tm->nr_mrs) {
+> > > > +		mr = &tm->mrs[index];
+> > > > +
+> > > > +		/* Skip if the MR is not Live or Readable. */
+> > > > +		if ((mr->mr_flags & (TSM_MR_F_LIVE | TSM_MR_F_READABLE)) != 0) {
+> > > > +			retval = rsi_measurement_read(index,
+> > > > +						      mr->mr_value,
+> > > > +						      mr->mr_size);
+> > > > +			if (retval != 0)
+> > > > +				return -EINVAL;
+> > > > +		}
+> > > > +
+> > > > +		index++;
+> > > > +	}
+> > > > +
+> > > > +	return 0;
+> > > > +}
+> > > > +
+> > > > +/**
+> > > > + * arm_cca_mr_extend - Extend a measurement register with new data.
+> > > > + *
+> > > > + * @tm:   Pointer to the tsm_measurements structure containing measurement
+> > > > + *        registers.
+> > > > + * @mr:   Pointer to the specific measurement register to extend.
+> > > > + * @data: Pointer to the data to be used for extension.
+> > > > + *
+> > > > + * This function extends a measurement register with new input data.
+> > > > + *
+> > > > + * Return: 0 on success, or a negative error code (e.g., -EINVAL for invalid
+> > > > + * arguments).
+> > > > + */
+> > > > +static int arm_cca_mr_extend(const struct tsm_measurements *tm,
+> > > > +			     const struct tsm_measurement_register *mr,
+> > > > +			     const u8 *data)
+> > > > +{
+> > > > +	if (!tm || !mr || !data)
+> > > > +		return -EINVAL;
+> > > > +
+> > > > +	return rsi_measurement_extend((mr - tm->mrs), data, mr->mr_size);
+> > > > +}
+> > > > +
+> > > > +/**
+> > > > + * arm_cca_measurements - ARM CCA measurement configuration instance.
+> > > > + *
+> > > > + * This defines the measurement set and behavior for the ARM
+> > > > + * Confidential Compute Architecture, enabling measurements
+> > > > + * for attestation and runtime validation.
+> > > > + */
+> > > > +static struct tsm_measurements arm_cca_measurements = {
+> > > > +	.mrs = arm_cca_mrs,
+> > > > +	.nr_mrs = ARRAY_SIZE(arm_cca_mrs),
+> > > > +	.refresh = arm_cca_mr_refresh,
+> > > > +	.write = arm_cca_mr_extend,
+> > > 
+> > > From the RMM specification and the commit message, I understand that a
+> > > REM can be extended with a measurement value of up to 64 bytes,
+> > > regardless of the selected hash algorithm (for example, SHA-256 or
+> > > SHA-512).
+> > > 
+> > > However, when SHA-256 is selected, this interface does not allow a REM
+> > > to be extended with a 64-byte value. The write partially succeeds: the
+> > > REM is extended with the first 32 bytes, and then the write of the
+> > > remaining 32 bytes fails with -EFBIG.
+> > > 
+> > > As far as I can tell, the write is truncated to the sysfs binary
+> > > attribute size, which is set to the SHA-256 digest size (32 bytes). The
+> > > subsequent write at offset 32 is then rejected by sysfs_kf_bin_write()
+> > > with -EFBIG.
+> > > 
+> > > I do not see a straightforward fix because the TSM measurement register
+> > > interface currently uses mr_size both as the readable digest size and as
+> > > the required write size.
+> > > 
+> > > [Realm VM]
+> > >   ~ # export REM3=/sys/devices/virtual/misc/arm_cca_guest/measurements/rem3:sha256
+> > >   ~ # dd if=/dev/urandom bs=64 count=1 of=$REM3
+> > >   dd: error writing '/sys/devices/virtual/misc/arm_cca_guest/measurements/rem3:sha256': File too large
+> > >   1+0 records in
+> > >   0+0 records out
+> > > 
+> > > [RMM]
+> > >   SMC_RSI_MEASUREMENT_EXTEND        4 20 3cfcaa635bca042d c148121346b6e1b5 7342800b438d20d7 3dc7a25048cbbad8 0 0 0 0 > RSI_SUCCESS
+> > > 
+> > > Do you have any thoughts on how the TSM interface should represent the
+> > > maximum extend input size separately from the digest size?
+> > 
+> > I don't think we need to represent the maximum extend input size separately.
+> > 
+> > The TSM measurement register interface is intended to expose PCR-like
+> > semantics, where the value being extended is a measurement digest whose size
+> > is determined by the selected hash algorithm.
+> > 
+> > In other words, the extend operation is conceptually:
+> > 
+> > new_digest = Hash(old_digest || measurement_digest)
+> > 
+> > Therefore, for a SHA-256 measurement register, the extend value should be
+> > 32 bytes, and rejecting a value larger than 32 bytes with -EFBIG seems
+> > correct to me and intended. A 64-byte extend value would only be valid for
+> > a register using a 64-byte digest, such as SHA-512.
+> > 
+> > Although the RMM interface may allow a measurement value of up to 64 bytes
+> > independently of the REM hash algorithm, I don't think that capability
+> > needs to be exposed through the generic TSM measurement register interface
+> > in point of viewt to preserve PCR-like semantics.
+> 
+> Thanks for the clarification. That makes sense to me.
+> 
+> In that case, could the ABI documentation be updated? It currently
+> states:
+>   All writes must start at offset 0 and be maximum 64 bytes in size.
+>   Attempting to write more than 64 bytes will result in EINVAL returned
+>   by the write() syscall.
 
->- [Medium] alloc_dma_desc_resources() still returns a TX allocation
->  failure without undoing the RX allocations it made immediately before,…
->- [Medium] The patch newly publishes NULL into rx_q->dma_erx/rx_q->dma_rx
->  and tx_q->dma_etx/dma_entx/dma_tx of the long-lived priv->dma_conf,…
->- [Low] The patch fixes crash-class bugs (NULL dereference on the
->  allocation-failure unwind path, and a double-free/use-after-free of…
->
->Pre-existing issues:
->- [High] stmmac_enable_rx_queue() and stmmac_enable_tx_queue() are void
->  and only netdev_err() when __alloc_dma_{rx,tx}_desc_resources() fails,…
->- [High] __free_dma_tx_desc_resources() now clears tx_q->tx_skbuff_dma,
->  tx_q->tx_skbuff/xdpf, tx_q->dma_tx/dma_etx/dma_entx and…
->
->--
->
->net: stmmac: fix error path cleanup in DMA descriptor ring allocation
->
->This makes __alloc_dma_rx_desc_resources() and
->__alloc_dma_tx_desc_resources() unwind their own allocations on failure
->instead of leaving partially-initialized queues for the outer free
->helpers, adds NULL guards in dma_free_rx_skbufs(), dma_free_rx_xskbufs(),
->dma_free_tx_skbufs() and stmmac_free_tx_buffer(), and clears the freed
->pointers in __free_dma_rx_desc_resources() and
->__free_dma_tx_desc_resources().
->
->Link: https://lore.kernel.org/netdev/20260905154654.1725313-1-dinghui1111@163.com/
->Link: https://lore.kernel.org/netdev/20260830040610.1156008-1-dinghui1111@163.com/
->
->> Signed-off-by: Ding Hui <dinghui@lixiang.com>
->
->[Severity: Low]
->The trailers only carry Signed-off-by.  Should this have a Fixes: tag?
->
->The bugs being fixed are crash-class: the NULL dereference reached from
->alloc_dma_rx_desc_resources() -> err_dma -> free_dma_rx_desc_resources(),
->which iterates every queue including the one whose kzalloc_objs() just
->failed, and the stale buf_pool/page_pool reuse across XDP open/release.
->
->Two introducing commits look identifiable: the union xdpf/tx_skbuff
->dereference in stmmac_free_tx_buffer() came in with the XDP_TX support,
->and the per-queue buf_pool/page_pool teardown with the refactor that
->introduced __alloc_dma_{rx,tx}_desc_resources() and
->__free_dma_{rx,tx}_desc_resources().
->
-The patch targets net-next, as agreed with the maintainers during the
-review of v1: the failure path is only reachable under memory
-allocation failure during driver initialization, so it is not
-suitable for stable routing. A Fixes: tag is intentionally omitted.
+Yeap. I'll update accordingly. Thanks.
 
->> diff --git a/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c b/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
->> index bf9e7e4cb1c3..32394a5a83fc 100644
->> --- a/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
->> +++ b/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
->
->[ ... ]
->
->> @@ -2185,13 +2197,20 @@ static void __free_dma_rx_desc_resources(struct stmmac_priv *priv,
->>  	size = stmmac_get_rx_desc_size(priv) * dma_conf->dma_rx_size;
->>  
->>  	dma_free_coherent(priv->device, size, addr, rx_q->dma_rx_phy);
->> +	rx_q->dma_erx = NULL;
->> +	rx_q->dma_rx = NULL;
->> +	rx_q->dma_rx_phy = 0;
->
->[Severity: Medium]
->Does publishing NULL into the long-lived priv->dma_conf ring pointers need
->a matching check in the debugfs reader?
->
->stmmac_rings_status_show() only bails out on the interface being down:
->
->	if ((dev->flags & IFF_UP) == 0)
->		return 0;
->
->and then hands rx_q->dma_rx / rx_q->dma_erx (and the TX equivalents)
->straight to sysfs_display_ring(), which dereferences the descriptors in a
->loop with no head check:
->
->	for (i = 0; i < size; i++) {
->		dma_addr = dma_phy_addr + i * desc_size;
->		seq_printf(seq, "%d [%pad]: 0x%x 0x%x 0x%x 0x%x\n",
->				i, &dma_addr,
->				le32_to_cpu(p->des0), le32_to_cpu(p->des1),
->
->dma_rx_size / dma_tx_size are not cleared, so the loop still runs.
->
->The free helpers run with the interface up: stmmac_xdp_enable_pool() does
->napi_disable() then stmmac_disable_rx_queue()/stmmac_disable_tx_queue()
->while netif_running() is true, and IFF_UP is never cleared.  If the
->following stmmac_enable_rx_queue() allocation then fails, the NULL stays
->there indefinitely.
->
->Reading descriptors_status in that window looks like it faults now, where
->before the patch it read freed coherent memory.
->
-Right. Before this patch the reader would touch freed coherent
-memory in that window; after it, it would deref NULL. Will add a
-skip for queues whose descriptor rings are not allocated in
-stmmac_rings_status_show() in v4.
+> 
+> However, the TSM interface requires the write size to exactly match
+> mr_size. Therefore, this would be 32 bytes for SHA-256, 48 bytes for
+> SHA-384, and 64 bytes for SHA-512.
+> 
+> My remaining concern is that since sysfs_kf_bin_write() truncates
+> oversized writes to the binary attribute size before invoking the
+> callback, tm_digest_write() sees an exact-sized write and extends the
+> MR. The following validation is useless in this case.
+> 
+>   static ssize_t tm_digest_write(struct file *filp, struct kobject *kobj,
+>   			       const struct bin_attribute *attr, char *buffer,
+>   			       loff_t off, size_t count)
+>   {
+>     [...]
+>   	/* partial writes are not supported */
+>   	if (off != 0 || count != attr->size)
+>   		return -EINVAL;
+> 
+> IMO this is not specific to Arm CCA, but do you have any thoughts on
+> this?
 
->>  
->>  	if (xdp_rxq_info_is_reg(&rx_q->xdp_rxq))
->>  		xdp_rxq_info_unreg(&rx_q->xdp_rxq);
->>  
->>  	kfree(rx_q->buf_pool);
->> -	if (rx_q->page_pool)
->> +	rx_q->buf_pool = NULL;
->> +
->> +	if (rx_q->page_pool) {
->>  		page_pool_destroy(rx_q->page_pool);
->> +		rx_q->page_pool = NULL;
->> +	}
->>  }
->>  
->>  static void free_dma_rx_desc_resources(struct stmmac_priv *priv,
->> @@ -2233,9 +2252,16 @@ static void __free_dma_tx_desc_resources(struct stmmac_priv *priv,
->>  	size = stmmac_get_tx_desc_size(priv, tx_q) * dma_conf->dma_tx_size;
->>  
->>  	dma_free_coherent(priv->device, size, addr, tx_q->dma_tx_phy);
->> +	tx_q->dma_etx = NULL;
->> +	tx_q->dma_entx = NULL;
->> +	tx_q->dma_tx = NULL;
->> +	tx_q->dma_tx_phy = 0;
->>  
->>  	kfree(tx_q->tx_skbuff_dma);
->> +	tx_q->tx_skbuff_dma = NULL;
->> +
->>  	kfree(tx_q->tx_skbuff);
->> +	tx_q->tx_skbuff = NULL;
->>  }
->
->[Severity: High]
->This isn't a bug introduced by this patch, but are these stores
->synchronized against a concurrent transmit?
->
->One caller, stmmac_disable_tx_queue() (AF_XDP pool enable/disable), takes
->&ch->lock only around stmmac_disable_dma_irq(), drops it, then:
->
->	stmmac_stop_tx_dma(priv, queue);
->	__free_dma_tx_desc_resources(priv, &priv->dma_conf, queue);
->
->There is no netif_tx_stop_queue() and no __netif_tx_lock.  Its caller only
->quiesces NAPI:
->
->	need_update = netif_running(priv->dev) && stmmac_xdp_is_enabled(priv);
->
->	if (need_update) {
->		napi_disable(&ch->rx_napi);
->		napi_disable(&ch->tx_napi);
->		stmmac_disable_rx_queue(priv, queue);
->		stmmac_disable_tx_queue(priv, queue);
->
->stmmac_xmit()/stmmac_xdp_xmit()/stmmac_tx_clean() read tx_skbuff_dma,
->tx_skbuff/xdpf and dma_tx/dma_etx/dma_entx under __netif_tx_lock only, and
->stmmac_set_tx_dma_entry() writes tx_q->tx_skbuff_dma[entry] with no NULL
->test.  The locksets do not intersect and napi_disable() does not stop
->ndo_start_xmit.
->
->The driver's own convention elsewhere stops the queue first:
->
->	netif_tx_stop_queue(netdev_get_tx_queue(priv->dev, chan));
->
->	stmmac_stop_tx_dma(priv, chan);
->	dma_free_tx_skbufs(priv, &priv->dma_conf, chan);
->
->Would the new NULL stores turn the existing dangling-pointer window into a
->deterministic NULL dereference, and should transmit be fenced before
->publishing them?
->
-Agreed. This issue is pre-existing: napi_disable() does not stop
-ndo_start_xmit, and regular traffic still goes through stmmac_xmit()
-with an XDP program loaded (XDP only applies to RX). What the patch
-changes is turning a silent use-after-free write into an immediate,
-easy-to-diagnose NULL dereference in that window. I plan to fence
-transmit properly with netif_tx_stop_queue()/netif_tx_start_queue() in
-stmmac_disable_tx_queue()/stmmac_enable_tx_queue() in a follow-up
-patch, as the driver already does elsewhere.
+I think this is ultimately a limitation of sysfs. At this layer,
+simply knowing that userspace supplied a larger buffer does not allow us to
+determine whether all of the data in that buffer is valid.
 
->>  
->>  static void free_dma_tx_desc_resources(struct stmmac_priv *priv,
->
->[ ... ]
->
->> @@ -2327,10 +2357,22 @@ static int __alloc_dma_rx_desc_resources(struct stmmac_priv *priv,
->>  	ret = xdp_rxq_info_reg(&rx_q->xdp_rxq, priv->dev, queue, napi_id);
->>  	if (ret) {
->>  		netdev_err(priv->dev, "Failed to register xdp rxq info\n");
->> -		return -EINVAL;
->> +		goto err_free_dma;
->>  	}
->>  
->>  	return 0;
->> +
->> +err_free_dma:
->> +	dma_free_coherent(priv->device, size, addr, rx_q->dma_rx_phy);
->> +	rx_q->dma_erx = NULL;
->> +	rx_q->dma_rx = NULL;
->> +err_free_buf_pool:
->> +	kfree(rx_q->buf_pool);
->> +	rx_q->buf_pool = NULL;
->> +err_destroy_pool:
->> +	page_pool_destroy(rx_q->page_pool);
->> +	rx_q->page_pool = NULL;
->> +	return ret;
->>  }
->
->[Severity: High]
->This isn't a bug introduced by this patch, but with the queue now
->guaranteed to be all-NULL after a failure, what protects the fast path
->when stmmac_enable_rx_queue()/stmmac_enable_tx_queue() swallow the error?
->
->Both helpers are void and just log:
->
->	ret = __alloc_dma_rx_desc_resources(priv, &priv->dma_conf, queue);
->	if (ret) {
->		netdev_err(priv->dev, "Failed to alloc RX desc.\n");
->		return;
->	}
->
->	ret = __alloc_dma_tx_desc_resources(priv, &priv->dma_conf, queue);
->	if (ret) {
->		netdev_err(priv->dev, "Failed to alloc TX desc.\n");
->		return;
->	}
->
->stmmac_xdp_enable_pool() and stmmac_xdp_disable_pool() cannot see that, so
->they continue:
->
->		stmmac_enable_rx_queue(priv, queue);
->		stmmac_enable_tx_queue(priv, queue);
->		napi_enable(&ch->rxtx_napi);
->
->		err = stmmac_xsk_wakeup(priv->dev, queue, XDP_WAKEUP_RX);
->
->and return 0 with the netdev TX queue never stopped.  Since the peer
->queue's init did set an xsk_pool, stmmac_xsk_wakeup()'s
->
->	if (!rx_q->xsk_pool && !tx_q->xsk_pool)
->		return -EINVAL;
->
->check passes and a poll is scheduled on the half-initialized channel.
->
->stmmac_set_tx_dma_entry() then writes into a NULL tx_skbuff_dma:
->
->	tx_q->tx_skbuff_dma[entry].buf = addr;
->	tx_q->tx_skbuff_dma[entry].len = len;
->	tx_q->tx_skbuff_dma[entry].buf_type = type;
->
->and stmmac_rx_zc()/stmmac_tx_clean() hit the same pattern on the RX side.
->
->Should the enable helpers propagate the allocation error and keep the
->queue stopped until it is successfully re-armed?
->
-Correct, this is also pre-existing issue. the enable helpers return void and
-drop the allocation error, so stmmac_xdp_enable_pool() cannot know the queue
-failed to re-arm and continues with napi_enable() and the xsk wakeup. Making
-the enable helpers propagate the error and keep the queue stopped touches
-stmmac_xdp.c and the xsk wakeup semantics. I prefer a separate follow-up patch
-to fix it as well.
+For example, a userspace program could allocate a 64-byte buffer,
+place only a 32-byte SHA-256 digest in it, and still pass the full buffer
+size to write(). From the kernel's point of view, there is no reliable way
+to distinguish that from a valid 64-byte input.
 
->> @@ -2400,6 +2442,14 @@ static int __alloc_dma_tx_desc_resources(struct stmmac_priv *priv,
->>  		tx_q->dma_tx = addr;
->>  
->>  	return 0;
->> +
->> +err_free_skbuff:
->> +	kfree(tx_q->tx_skbuff);
->> +	tx_q->tx_skbuff = NULL;
->> +err_free_skbuff_dma:
->> +	kfree(tx_q->tx_skbuff_dma);
->> +	tx_q->tx_skbuff_dma = NULL;
->> +	return -ENOMEM;
->>  }
->
->[Severity: Medium]
->The commit message states the fix is "making each allocation function
->responsible for undoing its own allocations on error".  Does
->alloc_dma_desc_resources() still miss that rule?
->
->	/* RX Allocation */
->	int ret = alloc_dma_rx_desc_resources(priv, dma_conf);
->
->	if (ret)
->		return ret;
->
->	ret = alloc_dma_tx_desc_resources(priv, dma_conf);
->
->	return ret;
->
->On TX failure the RX side it just allocated is not undone, and the caller
->skips the free:
->
->stmmac_setup_dma_desc():
->	init_error:
->		free_dma_desc_resources(priv, dma_conf);
->	alloc_error:
->		kfree(dma_conf);
->		return ERR_PTR(ret);
->
->The allocation failure lands on alloc_error, so every RX queue's
->page_pool, buf_pool, registered xdp_rxq_info and dma_alloc_coherent()
->ring is leaked with the only pointers to them inside the kfree()d
->dma_conf.
->
->stmmac_xdp_open() has the same shape:
->
->	init_error:
->		free_dma_desc_resources(priv, &priv->dma_conf);
->	dma_desc_error:
->		return ret;
->
->Here the RX half of the long-lived priv->dma_conf stays populated and a
->later open overwrites those pointers.  Should the RX resources be freed
->when alloc_dma_tx_desc_resources() fails?
->
-It's right. alloc_dma_desc_resources() still leaked every RX queue's
-page_pool, buf_pool and coherent ring when the TX allocation failed,
-since the caller only frees dma_conf itself on that path. Fixed in v4
-by calling free_dma_rx_desc_resources() when alloc_dma_tx_desc_resources()
-fails.
+Therefore, I think userspace needs to check the size of the binary attribute,
+e.g. remX256 in this case, and write exactly that amount of valid data.
 
-pw-bot: cr
+Given the current sysfs interface, I think requiring userspace to check
+the bin_attr size and provide valid data of exactly that size is the best
+we can do.
 
+IOW, above sanity check is to catch-up what you worried about as comment
+say, Its purpose to prohibit the *partial write*.
+
+> 
+> 
+> > 
+> > > 
+> > > > +};
+> > > > +
+> > > > +/**
+> > > > + * arm_cca_attr_groups - Attribute groups for the arm_cca_misc_dev miscellaneous
+> > > > + * device.
+> > > > + *
+> > > > + */
+> > > > +static const struct attribute_group *arm_cca_attr_groups[] = {
+> > > > +	NULL, /* measurements */
+> > > > +	NULL
+> > > > +};
+> > > > +
+> > > > +/**
+> > > > + * arm_cca_misc_dev - Miscellaneous device for ARM CCA functionality.
+> > > > + *
+> > > > + */
+> > > > +static struct miscdevice arm_cca_misc_dev = {
+> > > > +	.name = KBUILD_MODNAME,
+> > > > +	.minor = MISC_DYNAMIC_MINOR,
+> > > > +	.groups = arm_cca_attr_groups,
+> > > > +};
+> > > > +
+> > > > +/**
+> > > > + * arm_cca_get_hash_algorithm - Get the hash algorithm and digest size for
+> > > > + * a Realm.
+> > > > + *
+> > > > + * @hash_algo:   Pointer to an int to receive the internal hash algorithm ID
+> > > > + *               (e.g., HASH_ALGO_SHA256 or HASH_ALGO_SHA512).
+> > > > + * @digest_size: Pointer to an int to receive the digest size in bytes
+> > > > + *               (e.g., SHA256_DIGEST_SIZE or SHA512_DIGEST_SIZE).
+> > > > + *
+> > > > + * This function retrieves the hash algorithm used in a Realm's configuration
+> > > > + * by invoking the `rsi_get_realm_config()` interface.
+> > > > + *
+> > > > + * Return:
+> > > > + * * %0        - Success. The hash algorithm and digest size are returned.
+> > > > + * * %-ENOMEM  - Memory allocation failed.
+> > > > + * * %-EINVAL  - Configuration fetch failed or algorithm is unsupported.
+> > > > + *
+> > > > + */
+> > > > +static int arm_cca_get_hash_algorithm(int *hash_algo, int *digest_size)
+> > > > +{
+> > > > +	int ret = 0;
+> > > > +	unsigned long result;
+> > > > +	struct realm_config *cfg = NULL;
+> > > > +
+> > > > +	cfg = alloc_pages_exact(sizeof(*cfg), GFP_KERNEL);
+> > > > +	if (!cfg)
+> > > > +		return -ENOMEM;
+> > > > +
+> > > > +	result = rsi_get_realm_config(cfg);
+> > > > +	if (result != RSI_SUCCESS) {
+> > > > +		ret = -EINVAL;
+> > > > +		goto exit_free_realm_config;
+> > > > +	}
+> > > > +
+> > > > +	switch (cfg->hash_algo) {
+> > > > +	case RSI_HASH_SHA_512:
+> > > > +		*hash_algo = HASH_ALGO_SHA512;
+> > > > +		*digest_size = SHA512_DIGEST_SIZE;
+> > > > +		break;
+> > > > +	case RSI_HASH_SHA_256:
+> > > > +		*hash_algo = HASH_ALGO_SHA256;
+> > > > +		*digest_size = SHA256_DIGEST_SIZE;
+> > > > +		break;
+> > > > +	default:
+> > > > +		/* Unknown/unsupported algorithm. */
+> > > > +		ret = -EINVAL;
+> > > 
+> > > Would it make sense to add an error message here? For example:
+> > >   pr_err("Unknown/unsupported Realm hash algorithm: %u\n", cfg->hash_algo);
+> > > 
+> > > For context, I tested your v1 series in the past and found that this function
+> > > sometimes failed due to wrong definition of realm_config::hash_algo [0].
+> > > Therefore, I think a diagnostic message including the returned value
+> > > would be useful.
+> > > 
+> > > [0] https://lore.kernel.org/all/20260929-cca-b4-rsi-fix-hash_algo-type-rebase-v1-1-6932cf0aa605@fujitsu.com/
+> > 
+> > Fair enough. I'll add the error log.
+> > 
+> > Thanks!
+> > 
+> > -- 
+> > Sincerely,
+> > Yeoreum Yun
+
+-- 
+Sincerely,
+Yeoreum Yun
 
