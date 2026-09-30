@@ -4,62 +4,61 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 677A8CA5FC4
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 30 Sep 2026 21:27:07 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CC176CA5FC5
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 30 Sep 2026 21:36:59 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Cc:List-Subscribe:
 	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
 	Content-Transfer-Encoding:Content-Type:To:Subject:Message-ID:Date:From:
 	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=VMKZt394y8sP1XgH0k84NUhUZKk8kLGCbV/208seKvk=; b=Qtqsg8zqTF1AWf
-	uIQo8oPESK9JVT6x9Cys7wiyRvW6/dS1zgvrxGdYJLERCK+epKpiu3ZVsIrLKmKpmqGEa2owDqsx/
-	ZvDI6PkxR3Hv8bZos2SesDeuKfbpA/Fgfy0sXatGG9ZboXcwtSl6D3l+6DvSbPqEdD6031nf71tkl
-	fKKYRUG/RkLuK58R9Taxgt8X57htv+aZfp5EaTB9jn42NHQZzPBWRALveuU88J3f4MxOxewGnElEt
-	apAvvzW9xlQ0xrRM67pVZLVoqw7sihibl7qTXBo/K6HWvv3UxI0JZ+bildKLmtr91dZi4WAJq0A1K
-	PPj9KlUUxduQBoHBILfQ==;
+	List-Owner; bh=PSD0JDbSe65kbMBHP4WI7zokG3zTVf+6YgzPX1qNXS0=; b=COafzZMTIP9zHr
+	bv8kpKsLWQJAVaFrdcOtGjovxjWbjTHhH9cgYOg3DzpmcV2Lm7zzPcVMSYYXk4kyag6Ge36C/nyob
+	6GJ/3/ahNxHV0SECubu85FkzNNidA6ByjCb/19eFaNLUd+jyKrXSiF/0A5pWM1MmjbtCMmLPYHwPK
+	mCyjCTQZ9JC7eVp/NgLT7ID8IsjXbilwswpLIGstSTzL1PdX84EpYxIRD1bWXr5nkfT/CK+MOB45V
+	s2LnUG8Mp87TA/jouHloSueKFw2SBl7s0CXjk6vts7ewZ3BRZlYQcOBBXPv4obuSlsC4DJo63qtpG
+	ilfJecRAg3xW9u5GwAAQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xC1pM-00000007Fdx-2mSI;
-	Wed, 30 Sep 2026 21:27:00 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1xC1yt-00000007GXM-22c7;
+	Wed, 30 Sep 2026 21:36:51 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xC1pL-00000007Fdq-2bh3
+	id 1xC1ys-00000007GX4-0mr8
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 30 Sep 2026 21:26:59 +0000
+	Wed, 30 Sep 2026 21:36:50 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id B35086021A
-	for <linux-arm-kernel@lists.infradead.org>; Wed, 30 Sep 2026 21:26:58 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 6A4491F008A0
-	for <linux-arm-kernel@lists.infradead.org>; Wed, 30 Sep 2026 21:26:58 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 5D7B860229
+	for <linux-arm-kernel@lists.infradead.org>; Wed, 30 Sep 2026 21:36:49 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 07EFC1F0089E
+	for <linux-arm-kernel@lists.infradead.org>; Wed, 30 Sep 2026 21:36:48 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1790803618;
-	bh=VMKZt394y8sP1XgH0k84NUhUZKk8kLGCbV/208seKvk=;
+	s=k20260515; t=1790804209;
+	bh=PSD0JDbSe65kbMBHP4WI7zokG3zTVf+6YgzPX1qNXS0=;
 	h=References:In-Reply-To:From:Date:Subject:To:Cc;
-	b=EfO4pXsSxl5zQ3uCou04oyizWVBuJikn3CALCL/Sj5ocpFMiFJg7PqM+IYZV25ceA
-	 UiCCvJ7kghaZWUNN5iuFI9cyXK4znmZk1nOWkFN0cK5HdbwO9qpzY2ERggSAO88cnm
-	 vhI/lhlLsUcFgxXTePMOwE8LHGs1jDIG1WEYbv8UfRciFlpBlR+vPE4awQ0ZJk4mPS
-	 gREIXc4X8pwCy0Pf2Cz+eE+cLUgYJOcfpWUk+ypYssumVoiWEOStgp2xSwldBOsWWt
-	 z3H/T0MxOicHsueFLTWwk7p5vqNPxJRvldLqpSLHACvsBudRZlzvm5nYywgWAVoscA
-	 oEpGAA19Q/fNg==
-Received: by mail-lr2-f34.google.com with SMTP id 38308e7fff4ca-3a76cedd9baso18503411fa.2
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 30 Sep 2026 14:26:58 -0700 (PDT)
-X-Gm-Message-State: AFq9FYJB98VLxzqTUljc798o18EPF8nh4zLAX1IzvHmpQHJQo4NNv8in
-	qOrQ1JTt61wxgyZOEyEbKflB6dzUgKDBaPPACKF7CZ2sreVpvZDATiktPE/gyZ8vhgjRsG4Ek1Y
-	HIfpLw2emWmj+S5pzZpxhdeMKozMfkrI=
-X-Received: by 2002:a2e:be8c:0:b0:3a4:9e40:d7fb with SMTP id
- 38308e7fff4ca-3a7791db80emr8128511fa.7.1790803617088; Wed, 30 Sep 2026
- 14:26:57 -0700 (PDT)
+	b=iBrjeaei2MWVVb7CKMMdB2JCZNq25FyXEAiT7Jb/BYoqSRaFx3LLe+8LiUJ2PPhIx
+	 /Xw65DRGUcGLptw5RaF7pR3ViZJ6UB8Y+CcHxgQB/VeWXrGOsxkMkiLOwL97hF/Hil
+	 ke3zdgc5zc6U9gYGXZRD3H4o+k09Jl61bgNChy6I9PbzK5orQxEXwMUhOOfIO9gp69
+	 GUdwv7INlw9lAGN66K925EBds6B+r56kTrM/YLrLeZHJjTbHkaeH/0K/LMhBeY7Cn7
+	 UPcyubQ1ccOxoO14U+bSgh0qKSFeefT1pgER3TuZ2IP4kltVJ/sXgl5+rHVwdt5K/g
+	 O5XpzqLNUTJTQ==
+Received: by mail-lf2-f13.google.com with SMTP id 2adb3069b0e04-5b8cbb7b9cfso4712334e87.0
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 30 Sep 2026 14:36:48 -0700 (PDT)
+X-Gm-Message-State: AFq9FYISozkbAZQXdd9vwiAGARBCH9nzOsO+SSxbRQgY7HBpCPQUknNT
+	n/1jP83MI1OnDxNoZWNLO9UnmmYPhpDqrFNGnTeFbcEYbMa8jwzg0GaT6q56HIuXdQ/Zqj4Pi2T
+	f6WaOVpIXRMrYIjOG7WfYhhCP8ap5W+s=
+X-Received: by 2002:a05:6512:a95:b0:5b8:99b1:fa26 with SMTP id
+ 2adb3069b0e04-5ba405da0f1mr993519e87.30.1790804207753; Wed, 30 Sep 2026
+ 14:36:47 -0700 (PDT)
 MIME-Version: 1.0
-References: <20260918161407.2300-1-will@kernel.org> <20260918161407.2300-19-will@kernel.org>
-In-Reply-To: <20260918161407.2300-19-will@kernel.org>
+References: <20260918161407.2300-1-will@kernel.org> <20260918161407.2300-20-will@kernel.org>
+In-Reply-To: <20260918161407.2300-20-will@kernel.org>
 From: Linus Walleij <linusw@kernel.org>
-Date: Wed, 30 Sep 2026 23:26:45 +0200
-X-Gmail-Original-Message-ID: <CAD++jL=fFuH9dihJemKbD3b3ePbskAzMOjveAXvU-+F76hG35A@mail.gmail.com>
-X-Gm-Features: AclHuK_U3gm46pGm8iBpRhWkJLq4kh7lrH5qaZAMF8hLT7PfyguaNDEGWOLAB7I
-Message-ID: <CAD++jL=fFuH9dihJemKbD3b3ePbskAzMOjveAXvU-+F76hG35A@mail.gmail.com>
-Subject: Re: [PATCH v2 18/21] arm64: entry: Split up kernel_ventry macro into
- separate helper macros
+Date: Wed, 30 Sep 2026 23:36:35 +0200
+X-Gmail-Original-Message-ID: <CAD++jLm=9RyVXf+hqFCMir2dBFbwysR5g8Tp2_14H48xtLx8Uw@mail.gmail.com>
+X-Gm-Features: AclHuK95Ga1PONm8R6FdZOOAiA_epDhcCasI5XpLPF99hoZQWlEpKbpbSmAWYJs
+Message-ID: <CAD++jLm=9RyVXf+hqFCMir2dBFbwysR5g8Tp2_14H48xtLx8Uw@mail.gmail.com>
+Subject: Re: [PATCH v2 19/21] arm64: entry: The great stack switcheroo
 To: Will Deacon <will@kernel.org>
 Content-Type: text/plain; charset="UTF-8"
 Content-Transfer-Encoding: quoted-printable
@@ -81,17 +80,29 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 On Fri, Sep 18, 2026 at 6:15=E2=80=AFPM Will Deacon <will@kernel.org> wrote=
 :
 
-> Handling entry from EL0, EL1h and EL1t in the 'kernel_ventry' assembly
-> macro is getting a bit unwieldy as the control flow becomes increasingly
-> dependent on the macro arguments.
+> With the kernel stack pointer in SP_EL1 and the overflow stack pointer
+> in SP_EL0, it is now straightforward to switch between the two on
+> exception entry from EL1 by writing to SPSel. However, since exception
+> entry sets PSTATE.SP to 1 (selecting SP_EL1 as the stack pointer),
+> repurposing the overflow stack as a more general kernel exception stack
+> would require writing to SPSel on every exception entry from the kernel.
 >
-> Split 'kernel_ventry' into three leaf helper macros for EL0, EL1h and
-> EL1t, which are then dispatched by simple wrappers.
+> Switch things around so that the overflow stack resides in SP_EL1, with
+> the kernel stack residing in SP_EL0.
 >
 > Signed-off-by: Will Deacon <will@kernel.org>
 
-I agree with this change, this is easier to read and understand.
-Reviewed-by: Linus Walleij <linusw@kernel.org>
+This patch gives me panic, and as can be seen from the review
+comments need some love...
+
+I think maybe we can merge the initial part of the patch series
+first (up until the overflow stack gets worthy of its name at least)
+for one kernel release and continue from there after we hashed
+out that part?
+
+That said I see no direct problem with this approach, other than
+it may have side effects on some expected behaviours we cannot
+foresee.
 
 Yours,
 Linus Walleij
