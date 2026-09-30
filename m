@@ -4,62 +4,94 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 01837CA5FC1
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 30 Sep 2026 09:36:50 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 96508CA5FB1
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 30 Sep 2026 09:50:45 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=n9B3SR19oJ4S3wTqH54qXg87P04aoYoMU+dhTQW4GQY=; b=2E3Q4AWbrHeVvQvXmzGOGIuITC
-	fX+MeuB0RuDepw02qBfaJ6hWNZROGDNmLlMjEyB7U7EexMC1VR3zTFE3xC4nQMgXTLwGT0jJybTQt
-	5+38HOBh3+i/5DRIucyVe7s4yw4jH4L4qfcOcfbcj/WdxilLRj3fhK+127r3auA8CwvSL2O5ZU21G
-	WGWBxL26iv8dGVCD/vr0Z0XVo/l8nmP7A/Nmd3z6I+8OT+BXjHC7yrJ0JC5rPGvad22xR2d6wneon
-	uGGeNOYS6STsVfY+nP+v3KFvReOtfwvZEy7ZKRhAIDIvGXXOvit4WDlfBSIX+ONUP80URoGwsgIep
-	sGO1m5PQ==;
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=LLtGDvHzD6CrNoA94RNqXZ25K72u4Lfc7xmaaJ1VbZc=; b=iooLh5zb7T0UtK/SQLGGx7W1Xn
+	8wF7VrA2dIZ1v7NFAiJv5OpHUxlz932t5/SFsPxk9QqBCJDd2q02USHHmogGIWPPa1O7OE4EYMEWn
+	cMaUc1INOh7ZgRSEJXuMg1972L4t6/0vvyZJd7Ti2V0GQydRofbcDSc/36meynksdRePLv8mVYMUG
+	EyUFuOA8zdtwFlwA7ZZx5J6fbPNISHPHOcGQAHwXMrSLhAjtDgrmzEwog7Dfw77R0tpRXOblhsnsE
+	mufzR1cFfebJsTlF8ZinmU+1E9C00ZHsIX8/A7F/ZrDOqesg1pA1KLPQTnJdnpAUmKb397o2QSUMB
+	VnK0e+0w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xBqjz-00000005aoB-2hwy;
-	Wed, 30 Sep 2026 09:36:43 +0000
-Received: from mail-m1602365254.xmail.ntesmail.com ([160.236.52.54])
+	id 1xBqxR-00000005cDy-23J1;
+	Wed, 30 Sep 2026 09:50:37 +0000
+Received: from mail-dy2-x0f.google.com ([2607:f8b0:4864:36::f])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xBqjm-00000005al8-0BFD
+	id 1xBqxP-00000005cD4-0i4R
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 30 Sep 2026 09:36:34 +0000
-Received: from [172.16.12.11] (gy-adaptive-ssl-proxy-1-entmail-virt204.gy.ntes [61.154.14.86])
-	by smtp.qiye.163.com (Hmail) with ESMTP id 4fa2030e0;
-	Wed, 30 Sep 2026 17:36:17 +0800 (GMT+08:00)
-Message-ID: <6fa1e90e-49e9-495b-8b17-6ac54f441313@rock-chips.com>
-Date: Wed, 30 Sep 2026 17:36:17 +0800
+	Wed, 30 Sep 2026 09:50:36 +0000
+Received: by mail-dy2-x0f.google.com with SMTP id 5a478bee46e88-33e46a15703so4918715eec.0
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 30 Sep 2026 02:50:34 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20251104; t=1790761834; x=1791366634; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
+        bh=LLtGDvHzD6CrNoA94RNqXZ25K72u4Lfc7xmaaJ1VbZc=;
+        b=KBa2t1+YU6ypLbcj0+u6n2ZHHNs4td4xj90hc+41QBIRg3AgwlLQFB776vXXvGUWO6
+         R0tqmK3kKRK9u8plRkm3qOENnIZMXu+JetAjlM9vMD8xFSNKEowkmhpHC8ChkYjeKs6M
+         jQDErIZSYlWHNoGVcnh5n7oQ3thQMSEhHiwVUYN1OX7shI7ghyIDPU8ntFj77+OGWD8c
+         oNSXFb9eJzDkn0QxgEzRTRWawk9ilPBWD8+H7vY6SNom9R7MVvjvy//TWkURXD1GUkJO
+         IFyI/+ulKd5bfrz6AgJRX+rLOABcHgkCwfYg7zoSKhaogKYcDtwnOPJ33VGudJLlfBVs
+         UgWQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1790761834; x=1791366634;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=LLtGDvHzD6CrNoA94RNqXZ25K72u4Lfc7xmaaJ1VbZc=;
+        b=qA5u3cewSAirqGNN3884GslGPiav3eH8rjbQY1UHiHMWwd0hf67D7lrQiCn4u/Br+M
+         a2AHB4yZbZ00/gN7iyChGe+K2LV84YlQBDLZVP56/DOrdeIpfocxs+/usDxHtgiaJnI1
+         sghs0DwsccPa2Ubyob+aVsjVeT1FqiFeVhwxKXwOVuXoA+9baAWBI0qblTTfcf5i/KAQ
+         HeCs20lA5cHPm56nXfKxEXrbMKhDYbk0Twzt9N2nXFQxi8hrCTCrpiTEHCZDUi3J3PEZ
+         psVOJvNLBih94+yzGbtn4i0lNFPVvoshvXO2yEG9lVJHYVFIapkktAJ0tY/pGzzSUQP2
+         Mgrw==
+X-Forwarded-Encrypted: i=1; AKwUvBw9K0FSgc5wP5MBVkuJikypAfylRiXCRFyXkuDCKOs+LgqgBCgmW/EzBCgQBQ4wQ1bgh9TTS87qbWqkf+OZd2VY@lists.infradead.org
+X-Gm-Message-State: AFq9FYJLdpztn5aUB76bW1gpB+GsSxL87yEAN0TOtwDHV9nSbIHtcLuR
+	Q6Kbe7z+kEx7vs4SPYTdObHGAcWE7CkxdApx942SIVMvhyOl2BE3JsBe
+X-Gm-Gg: AYBFou2h4fDAyZDcuHdmv3D6dac4x1O6RKzhbKtB4ya4y+1x0B5ZfLdQiPLbH8naXQ/
+	L/FOg5A4vlx5E6RTtAcx9EwjgCkMxE1R7fD9FFATlKedbzdXxEeyksIENVnvkdDB1qI/X4VW3ZQ
+	YAsx2E92Bq5l8XTQbmFHWp+s7Z2KrWLKm6hIcmYMp3WDZdRvaMwDPnxzbFAd3jKj7k2gW8sGqgv
+	SwIpHoN4mY9oqihvZMYOgyhatnOD8lBvOhzGWw2ITtakrN+l6SdmIBoIhJtPFDv9RpdDOjZXC7U
+	+6LZhrPsi9uFpxGbPk5INTt1ZOso3PQvecEnAzr9XGo7f7yCSn47dbkVeBcgENL0k5po4wfckwV
+	onJ7CEZMFRuwnyijV7NG9/9c43ue9b4qewxxsOmEGDU+9ZY7qSEOkF9C3TPcEQMV/eUl1M8LsVz
+	fhFnnB8VqVUdTgNj4Y/L5BEQdIJ3NBt6JEC/1bOT1PQI5XPpFuyuZ4VXy0ybccGJeL3PkYSaY8r
+	sjAQhsZamWoSegHhv8s
+X-Received: by 2002:a05:7300:fa07:b0:33c:3134:f45 with SMTP id 5a478bee46e88-34cd907665bmr1266990eec.5.1790761833122;
+        Wed, 30 Sep 2026 02:50:33 -0700 (PDT)
+Received: from localhost.localdomain ([103.178.205.97])
+        by smtp.gmail.com with ESMTPSA id 5a478bee46e88-34cf50553f8sm4934658eec.14.2026.09.30.02.50.20
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Wed, 30 Sep 2026 02:50:32 -0700 (PDT)
+From: Sreeraj S Kurup <sreekuttan2156239@gmail.com>
+To: Ryder Lee <ryder.lee@mediatek.com>,
+	Lorenzo Pieralisi <lpieralisi@kernel.org>,
+	=?UTF-8?q?Krzysztof=20Wilczy=C3=85=E2=80=9Eski?= <kwilczynski@kernel.org>,
+	Manivannan Sadhasivam <mani@kernel.org>,
+	Rob Herring <robh@kernel.org>,
+	Bjorn Helgaas <bhelgaas@google.com>,
+	Matthias Brugger <matthias.bgg@gmail.com>,
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
+Cc: linux-pci@vger.kernel.org,
+	linux-mediatek@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	Sreeraj S Kurup <sreekuttan2156239@gmail.com>
+Subject: [PATCH] PCI: mediatek: Fix integer truncation in fls() for resource size
+Date: Wed, 30 Sep 2026 09:49:12 +0000
+Message-ID: <20260930094912.3069-1-sreekuttan2156239@gmail.com>
+X-Mailer: git-send-email 2.55.0
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [RFC PATCH v1 1/1] mailbox: arm_mhuv3: Keep the combined IRQ
- enabled during system suspend
-To: Sudeep Holla <sudeep.holla@kernel.org>
-Cc: Cristian Marussi <cristian.marussi@arm.com>,
- Jassi Brar <jassisinghbrar@gmail.com>, linux-arm-kernel@lists.infradead.org,
- linux-kernel@vger.kernel.org
-References: <20260930033657.312266-1-finley.xiao@rock-chips.com>
- <20260930033657.312266-2-finley.xiao@rock-chips.com>
- <20260930-excellent-hallowed-cheetah-bfcde2@sudeepholla>
-From: Finley Xiao <finley.xiao@rock-chips.com>
-In-Reply-To: <20260930-excellent-hallowed-cheetah-bfcde2@sudeepholla>
-Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 8bit
-X-HM-Tid: 0aa0f1ac052403a8kunma654f6034a9696
-X-HM-MType: 1
-X-HM-Spam-Status: e1kfGhgUHx5ZQUpXWQgPGg8OCBgUHx5ZQUlOS1dZFg8aDwILHllBWSg2Ly
-	tZV1koWUFITzdXWRgWCB1ZQUpXWS1ZQUlXWQ8JGhUIEh9ZQVlCGRpDVh1LH0pNQ0xDSxpNTFYVFA
-	kWGhdVEwETFhoSFyQUDg9ZV1kYEgtZQVlNSlVKTk9VSk9VQ01ZV1kWGg8SFR0UWUFZT0tIVUJCSU
-	5LVUpLS1VKQktCWQY+
-DKIM-Signature: a=rsa-sha256;
-	b=UCx+q7fRLDQVKoSoSo69UcDEYNN+b6D8WvTCx7ZyOUnsq5EdR/tgyg1Ek8/IkINWvlXbx8uVYhJTvrXfgt0MS5PLGtY4yfbYEveJm62UnNSPBG8gbuQz9XSf72plzNjyeIKfJL/av0ywhcTMt6EHV7b+dwjyMm13bFWe2PaoWk0=; s=default; c=relaxed/relaxed; d=rock-chips.com; v=1;
-	bh=n9B3SR19oJ4S3wTqH54qXg87P04aoYoMU+dhTQW4GQY=;
-	h=date:mime-version:subject:message-id:from;
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260930_023633_083357_E0302B92 
-X-CRM114-Status: GOOD (  16.02  )
+X-CRM114-CacheID: sfid-20260930_025035_264496_3212DBB0 
+X-CRM114-Status: GOOD (  13.74  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -74,61 +106,53 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+resource_size() returns a resource_size_t, which is 64-bit on 64-bit
+architectures or 32-bit systems with LPAE/PAE enabled. Passing this
+directly to fls(), which accepts an unsigned int, implicitly truncates
+the upper 32 bits.
 
-在 2026/9/30 16:50, Sudeep Holla 写道:
-> On Wed, Sep 30, 2026 at 11:36:57AM +0800, Finley Xiao wrote:
->> When MHUv3 is used as the SCMI mailbox transport (arm,scmi-mailbox),
->> SCMI clock and power-domain operations still need to work in the noirq
->> phase of system suspend: genpd may power off a device's parent domain
->> from genpd_suspend_noirq(), which issues scmi_clock_config_set() /
->> scmi_power_state_set() and waits for the firmware reply via the mailbox
->> RX IRQ.
->>
->> However, dpm_suspend_noirq() calls suspend_device_irqs() before running
->> the suspend_noirq callbacks, so the combined interrupts are already
->> masked at that point and the SCMI transfer times out while waiting for
->> the reply.
->>
->> Both the PBX and MBX combined interrupts are requested as threaded
->> IRQs with only IRQF_ONESHOT. The MBX combined IRQ must stay enabled so
->> that firmware replies are delivered, and the PBX combined IRQ, used
->> for txdone by IRQ when not in polling mode, needs the same treatment.
->>
->> IRQ threads are not frozen during system suspend, so with
->> IRQF_NO_SUSPEND the threaded combined-IRQ handlers still run in the
->> noirq phase.
->>
->> Add IRQF_NO_SUSPEND to the MHUv3 combined IRQ registrations so that
->> SCMI remains functional throughout the suspend/resume cycle.
->>
-> Looks good to me. Just to confirm, the expectation is to just have the
-> IRQs functional during suspend/resume cycle only and *not to wake up* the
-> system right ? If you need wakeup, you need to do more work.
+If a memory resource window of 4 GiB or larger is passed, the size
+truncates to 0, resulting in invalid AHB-to-PCIe translation window
+sizes.
 
-Yes, exactly. We just need the IRQs functional during the suspend/resume
-cycle (for SCMI traffic in the noirq phase), not to wake up the system.
+Fix this by using fls64() to safely handle 64-bit resource sizes.
 
-Thanks for the review.
+Signed-off-by: Sreeraj S Kurup <sreekuttan2156239@gmail.com>
+---
+ drivers/pci/controller/pcie-mediatek.c | 5 +++--
+ 1 file changed, 3 insertions(+), 2 deletions(-)
 
->
-> For this change,
->
-> Reviewed-by: Sudeep Holla <sudeep.holla@kernel.org>
->
-> Jassi,
->
-> Please pick this up for next cycle when you are at it. Thanks!
->
+diff --git a/drivers/pci/controller/pcie-mediatek.c b/drivers/pci/controller/pcie-mediatek.c
+index a60d1ae076f8..61591d0176bc 100644
+--- a/drivers/pci/controller/pcie-mediatek.c
++++ b/drivers/pci/controller/pcie-mediatek.c
+@@ -8,6 +8,7 @@
+  */
+ 
+ #include <linux/bitfield.h>
++#include <linux/bitops.h>
+ #include <linux/clk.h>
+ #include <linux/delay.h>
+ #include <linux/errno.h>
+@@ -754,7 +755,7 @@ static int mtk_pcie_startup_port_v2(struct mtk_pcie_port *port)
+ 
+ 	/* Set AHB to PCIe translation windows */
+ 	val = lower_32_bits(mem->start) |
+-	      AHB2PCIE_SIZE(fls(resource_size(mem)));
++	      AHB2PCIE_SIZE(fls64(resource_size(mem)));
+ 	writel(val, port->base + PCIE_AHB_TRANS_BASE0_L);
+ 
+ 	val = upper_32_bits(mem->start);
+@@ -830,7 +831,7 @@ static int mtk_pcie_startup_port_en7528(struct mtk_pcie_port *port)
+ 
+ 	/* Set AHB to PCIe translation windows */
+ 	val = lower_32_bits(mem->start) |
+-	      AHB2PCIE_SIZE(fls(resource_size(mem)));
++	      AHB2PCIE_SIZE(fls64(resource_size(mem)));
+ 	writel(val, port->base + PCIE_AHB_TRANS_BASE0_L);
+ 
+ 	val = upper_32_bits(mem->start);
 -- 
-Best regards,
-
-底层平台中心 肖锋（Finley Xiao）
-************************************************************************************
-瑞芯微电子股份有限公司
-Rockchip Electronics Co., Ltd.
-福建省福州市铜盘路软件大道89号软件园A区21号楼 350003
-No.21 Building, A District, Fuzhou Software Park, Fuzhou, Fujian 350003, P.R. China
-Tel: 0591-83991906-8602 Mobile: 18506057603
-************************************************************************************
+2.55.0
 
 
