@@ -4,46 +4,46 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id EAAD6CA5FAB
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 30 Sep 2026 06:35:04 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D5248CA5FB1
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 30 Sep 2026 06:35:37 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:MIME-Version:Message-ID:Date:References:In-Reply-To:Subject:Cc:
 	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=FJJ9SrQwpuXWcRwz3yjNOMuLRuftyz1Ef6SkpejQHYo=; b=g2hOkeUU2suM/Lic3VRoT5DhTV
-	FT8VkTwYX7cy1ei/InrD+nnRVL3+hvuxb4YYjU14FMIviGg6CKY/vk5kDumghpxm23LJxxvXLOF7C
-	ksT1wOfl3kSBihjkSjGNJd0crPGnrjzVq2n+Nv1/if7lSNBwdGRYrtIQNyT1JvpLsn2jJ7NVmcbkF
-	5oGL4nnsvC/yNdROjoCCcn9RxjyjqGRCdlmB3oDOJ6vN26r/UcKo6caoCH01leAjwLJxa3Ds3973z
-	ivc/9coe0xJbX6pKyZ5jZVKBcGZkguF/zRW1vm8OrBII7IqHZbr5+a5CQbRPRSuvedtTTggwR+gJk
-	SjMRilMg==;
+	bh=vYGXsQAb2CSsGFfXHxA+1+PGfASQDHqZzJGFLVn2lCY=; b=0qSHyJasrVKawX1uUSATfc8/sK
+	r15r4cdGPYQIRIKkxoEPx3aWNYwl8VFgciMXaOhycNfY9M8H+X6+F5JUtjZwuD3V83pT188ztJfIJ
+	5Y59v7yl+FVPQ/gj+p/p5XpAR4zqwSsV09D9HeZXuMrYZ6r6sGNnduRZRpyInTaaxZmGP8lfm9pkS
+	FNVEkv9VCybbyoBqgqCcCpPRMb3NaaJd3xyY0PDQtihVn/B5oGKALrk0bWa3pbkCu2zC0gR+nkyUk
+	1Yd6N5S7ST7KRswgzH9ynvLZ2G8BgUwilv228ai0uw7DPZm/wxAd8bbhzPC+mzni59c+om4IhgVPM
+	MVL77skg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xBnu5-000000059X5-0PwK;
-	Wed, 30 Sep 2026 06:34:57 +0000
-Received: from smtpout-02.galae.net ([185.246.84.56])
+	id 1xBnub-000000059cy-1bFt;
+	Wed, 30 Sep 2026 06:35:29 +0000
+Received: from smtpout-03.galae.net ([185.246.85.4])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xBnu0-000000059WL-3dzi
+	id 1xBnuY-000000059cC-2Bdf
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 30 Sep 2026 06:34:55 +0000
+	Wed, 30 Sep 2026 06:35:27 +0000
 Received: from smtpout-01.galae.net (smtpout-01.galae.net [212.83.139.233])
-	by smtpout-02.galae.net (Postfix) with ESMTPS id DEBBD1A104B;
-	Wed, 30 Sep 2026 06:34:47 +0000 (UTC)
+	by smtpout-03.galae.net (Postfix) with ESMTPS id 21BE64E410D2;
+	Wed, 30 Sep 2026 06:35:24 +0000 (UTC)
 Received: from mail.galae.net (mail.galae.net [212.83.136.155])
-	by smtpout-01.galae.net (Postfix) with ESMTPS id B244760749;
-	Wed, 30 Sep 2026 06:34:47 +0000 (UTC)
-Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 6E6BD103297F7;
-	Wed, 30 Sep 2026 08:34:43 +0200 (CEST)
+	by smtpout-01.galae.net (Postfix) with ESMTPS id EAA6B60749;
+	Wed, 30 Sep 2026 06:35:23 +0000 (UTC)
+Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 3520A103297F7;
+	Wed, 30 Sep 2026 08:35:20 +0200 (CEST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=dkim;
-	t=1790750086; h=from:subject:date:message-id:to:cc:mime-version:content-type:
+	t=1790750123; h=from:subject:date:message-id:to:cc:mime-version:content-type:
 	 content-transfer-encoding:in-reply-to:references;
-	bh=FJJ9SrQwpuXWcRwz3yjNOMuLRuftyz1Ef6SkpejQHYo=;
-	b=zJbJ7M+XPdz6b7Q7TAOCZC9GbFLS9/imghm00KF1PCVoCubPo+DEBfw3ezU0ca5eOHkciT
-	XSDs8z1Zu24yj4uxh9Iw5iCCgKl4k8U6GdsHQKC9o0PaAOVPPERAHKA6wmJ7robeIDayGX
-	Rh+Vs6QzyxVFm4fPvoUYbb6lRC0afGzo/qcuay2WkeYqVZ+tt1qArjIgcsiq9N0P3z+nhg
-	qKurDL+yiZZrSvVvlDjlPUZsMYxlxwJBrMcVhZR+zbGwyE80eoou8SXKjOT4uhfMIO5zDg
-	v//WLqffHFHtx3JEBsm3Tixw1lb3KVsIDw7SZOIawCUJxQqSQ+BOytlkKYx5JA==
+	bh=vYGXsQAb2CSsGFfXHxA+1+PGfASQDHqZzJGFLVn2lCY=;
+	b=0AC3zil6hrxy9fwTlBlblTWbA2nfDWy5d6a03+jUcpqXKHqyvTz30Ep+k6QPSBdLyxGNvD
+	iHotmlJQ1jMQLPAkO0CdANJ73jwW/8i5+Atwg7FKvTLCEZ+XdPyfigq4iDL7PWMxkZJMon
+	KD3hGyQnGFMZpKCRhQBpC0gQgi1u5OkeWBfPXYOAxB+LGTUIuadFclCL8mw2s87j6eTEvQ
+	X6F9kiCpcPSGPY2eLdiRv3AjmnnSFFxrCanVPS8PbsTABgCe7nvPvEM38oKfRLnw5itC95
+	/sXbuFVK+1yCinycoeBBc5YxE5C5ghPpjkVxdCLzSTooyZg3vfa/J0dRf3Lgbw==
 From: Gregory CLEMENT <gregory.clement@bootlin.com>
 To: Rosen Penev <rosenp@gmail.com>, devicetree@vger.kernel.org
 Cc: Andrew Lunn <andrew@lunn.ch>, Sebastian Hesselbarth
@@ -52,18 +52,18 @@ Cc: Andrew Lunn <andrew@lunn.ch>, Sebastian Hesselbarth
  <conor+dt@kernel.org>, "moderated list:ARM/Marvell Kirkwood and Armada
  370, 375, 38x,..." <linux-arm-kernel@lists.infradead.org>, open list
  <linux-kernel@vger.kernel.org>
-Subject: Re: [PATCH] ARM: dts: helios4: use national,lm75 compatible
-In-Reply-To: <20260831233607.13729-1-rosenp@gmail.com>
-References: <20260831233607.13729-1-rosenp@gmail.com>
-Date: Wed, 30 Sep 2026 08:34:42 +0200
-Message-ID: <87ik3n8cxp.fsf@BLaptop.bootlin.com>
+Subject: Re: [PATCH] ARM: dts: helios4: add #phy-cells to USB nop phys
+In-Reply-To: <20260831233626.13947-1-rosenp@gmail.com>
+References: <20260831233626.13947-1-rosenp@gmail.com>
+Date: Wed, 30 Sep 2026 08:35:20 +0200
+Message-ID: <87fqyr8cwn.fsf@BLaptop.bootlin.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=utf-8
 Content-Transfer-Encoding: quoted-printable
 X-Last-TLS-Session-Version: TLSv1.3
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260929_233453_210507_9D528C54 
-X-CRM114-Status: GOOD (  14.26  )
+X-CRM114-CacheID: sfid-20260929_233526_700765_A5B8F776 
+X-CRM114-Status: GOOD (  10.11  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -80,15 +80,13 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 
 Rosen Penev <rosenp@gmail.com> writes:
 
-> The temp@4c node uses "ti,lm75", which no binding covers and which
-> dtbs_check rejects:
+> The usb-nop-xceiv binding requires a #phy-cells property; without it
+> dtbs_check reports:
 >
->   temp@4c: failed to match any schema with compatible: ['ti,lm75']
+>   usb2-phy: '#phy-cells' is a required property (usb-nop-xceiv)
+>   usb3-phy: '#phy-cells' is a required property (usb-nop-xceiv)
 >
-> The LM75 was originally a National Semiconductor part (now owned by
-> TI) and the lm75 driver binds it via the matching "national,lm75"
-> entry. Use the documented compatible; no functional change. The i2c name
-> fallback ends up binding it.
+> Add #phy-cells =3D <0> to both nodes. No functional change.
 >
 > Assisted-by: opencode:big-pickle
 > Signed-off-by: Rosen Penev <rosenp@gmail.com>
@@ -99,23 +97,27 @@ Thanks,
 
 Gregory
 > ---
->  arch/arm/boot/dts/marvell/armada-388-helios4.dts | 2 +-
->  1 file changed, 1 insertion(+), 1 deletion(-)
+>  arch/arm/boot/dts/marvell/armada-388-helios4.dts | 2 ++
+>  1 file changed, 2 insertions(+)
 >
 > diff --git a/arch/arm/boot/dts/marvell/armada-388-helios4.dts b/arch/arm/=
 boot/dts/marvell/armada-388-helios4.dts
-> index 548fb92ca811..39b2d4fa742c 100644
+> index e63b8b5e632d..548fb92ca811 100644
 > --- a/arch/arm/boot/dts/marvell/armada-388-helios4.dts
 > +++ b/arch/arm/boot/dts/marvell/armada-388-helios4.dts
-> @@ -200,7 +200,7 @@ usb3-ilimit-hog {
->  				};
+> @@ -141,10 +141,12 @@ fan2: j17-pwm {
+>  	usb2_phy: usb2-phy {
+>  		compatible =3D "usb-nop-xceiv";
+>  		vbus-supply =3D <&reg_5p0v_usb>;
+> +		#phy-cells =3D <0>;
+>  	};
 >=20=20
->  				temp_sensor: temp@4c {
-> -					compatible =3D "ti,lm75";
-> +					compatible =3D "national,lm75";
->  					reg =3D <0x4c>;
->  					vs-supply =3D <&reg_3p3v>;
->  				};
+>  	usb3_phy: usb3-phy {
+>  		compatible =3D "usb-nop-xceiv";
+> +		#phy-cells =3D <0>;
+>  	};
+>=20=20
+>  	soc {
 > --=20
 > 2.55.0
 >
