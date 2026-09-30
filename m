@@ -4,68 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7E520CA5FC1
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 30 Sep 2026 09:29:18 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 969B2CA5FC1
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 30 Sep 2026 09:30:14 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=baX6O9uvy24kAKoq/5AiBsj43+HZszE5zQlIhk+MUm4=; b=q3kZYNyUQkDmwuswNaiSI5wUX0
-	+QvHYR2ufBZ7l2ePCtdPvdZutOtq95JRn3kJU0FP48e40h5WUQzvgclu5KkamZ/o0XmS4O+c85sao
-	OxEkuqbHUIAT6DvaHM3EpDu0weLq95NFFaWSS22dkJ+T81bnZ+9ej/ThI4xmetKVO1hlHL4oLOZUR
-	9yWlGr8J/qUBKrFgSqVDNedT7C1FaGbsIIBjJjVquzYbO+YGVbYV8F29W3/BLDs8tZV+ygDDW620V
-	+aPKEpYmOqy3jTLoNpsSNjQVcDnqZY8Mnc/mGiWH43kQa0loQnyjFrXfhR6NEuZ6pOKXru0cHVoFS
-	C+efJMew==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
+	:Date:Message-Id:From:Subject:Content-Transfer-Encoding:MIME-Version:
+	Content-Type:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=sjcvPJp7qyZH0h3JFK+CWWKeG5u1wLGWfMiMgytCi04=; b=o01kOyRKymtUNZh0iJ4AAyoM0f
+	uLezV69ztzbdczANiPwVmOCE9nAFsf6oKBkARHepuj4pncfxRjNPTxRLBSRCloJU/XNa2VhXpQ2Mp
+	DVDLJX/Kg2tRYg6Yao1hw26mydWAefhkTlo2e32XNw8PZo0Dfxkis/AzhwANYPDVT9tTWzetns4Lk
+	ISZqgA3A9UhXb1vV16eDdybzrXtkKBRW0PBqSdXKSeShEd709rc/t3gIDl1GnMAfkT6wsD2lyztBm
+	MdAFHYAc3+RThCoQ5wTZ/TyxGxQ2qkg2xHT9Lu0qXMU/I/JMrqZsPVUkwD2QwvQ+1xqYh2ASNMg1f
+	Nlqy3AgA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xBqcg-00000005Z1B-3OVS;
-	Wed, 30 Sep 2026 09:29:10 +0000
-Received: from smtpout-03.galae.net ([185.246.85.4])
+	id 1xBqdc-00000005ZEU-1qlT;
+	Wed, 30 Sep 2026 09:30:08 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xBqcc-00000005Yzc-24b2
+	id 1xBqda-00000005ZE5-2m8B
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 30 Sep 2026 09:29:09 +0000
-Received: from smtpout-01.galae.net (smtpout-01.galae.net [212.83.139.233])
-	by smtpout-03.galae.net (Postfix) with ESMTPS id 0D9F84E410D4;
-	Wed, 30 Sep 2026 09:29:02 +0000 (UTC)
-Received: from mail.galae.net (mail.galae.net [212.83.136.155])
-	by smtpout-01.galae.net (Postfix) with ESMTPS id BFE826074B;
-	Wed, 30 Sep 2026 09:29:01 +0000 (UTC)
-Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id E1CAD103292FD;
-	Wed, 30 Sep 2026 11:28:56 +0200 (CEST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=dkim;
-	t=1790760540; h=from:subject:date:message-id:to:cc:mime-version:content-type:
-	 in-reply-to:references; bh=baX6O9uvy24kAKoq/5AiBsj43+HZszE5zQlIhk+MUm4=;
-	b=lmLrnyTsJOl6QuHs6U3FqmeSbuTqsXfzHW/bjtFOj2zyN3wUvFsNCn2JiJSK6+X8n5maIY
-	9tWw5NOIvqa3/5ufDSQDvDqVLHQzBdEuw6hkZYR6LK8QTwMsYmrbRpj/2AoDltupLnAeTA
-	n7p8rsEwF6Rn31Zzr/xGcL2yhWAjFv23HJcdBwm2bSmmOcf2SJRLIpNXCOsBzx6WiBIm2b
-	D0T6UKZpdIaeq/VTc85ueuXLhLhv3JsUZkG4iiWZ2ZOfHyQdvV+/HjTi4HyekDBJiIu/8q
-	VfEYpcU/hHPyNAMO+k5A3ZPDtzZFdvDc8zPmfNbCnrQJfsKrNuiYHwc6R/VGzw==
-Date: Wed, 30 Sep 2026 11:28:56 +0200
-From: Alexandre Belloni <alexandre.belloni@bootlin.com>
-To: Sander Speetjens <sander.speetjens@gmail.com>
-Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Florian Fainelli <florian.fainelli@broadcom.com>,
-	Jonathan Bell <jonathan@raspberrypi.com>,
-	Stefan Wahren <wahrenst@gmx.net>, linux-rtc@vger.kernel.org,
-	devicetree@vger.kernel.org, linux-rpi-kernel@lists.infradead.org,
-	linux-arm-kernel@lists.infradead.org, pbrobinson@gmail.com,
-	Dom Cobley <popcornmix@gmail.com>
-Subject: Re: [PATCH v7 2/2] rtc: Add Raspberry Pi 5 RTC driver
-Message-ID: <2026093009285640969916@mail.local>
-References: <20260930083922.484885-1-sander.speetjens@gmail.com>
- <20260930083922.484885-3-sander.speetjens@gmail.com>
+	Wed, 30 Sep 2026 09:30:06 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by sea.source.kernel.org (Postfix) with ESMTP id 2931243587;
+	Wed, 30 Sep 2026 09:30:06 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 093EC1F000FF;
+	Wed, 30 Sep 2026 09:30:06 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1790760606;
+	bh=sjcvPJp7qyZH0h3JFK+CWWKeG5u1wLGWfMiMgytCi04=;
+	h=Subject:From:Date:References:In-Reply-To:To:Cc;
+	b=MfiuQkLMXkOGZdjhSEbkKgTPxjYzwXeHltydpcOEmEDR4aAIMnmP85nbzuzRzzIg/
+	 JxNuVOmHcOz1c1szwrKa7SaqVYhnX/eR6etlI1O+kdK5ZoHN4mVv8ZjUrWbg/XpPKa
+	 RtnVIftgurHWBkaciOqj2MPLhjbW03y5UZnQMgGHPmrThlOWbGv9MG4fqhfIzsYEVy
+	 ZRdXRG1W+LlO6LIQE+bQ4u9IoSZFafd2fBB2aVst5Qf7zFwrlktIrCOiwqB1RjMqUB
+	 V7sdRYb4kn/Plj3kd6RmXQBzkKeo5rCgMvq3LD7/ppUR/hVXTGa6X1ROw+4wdu8/OE
+	 uTprwJW2Fv1Og==
+Received: from [10.30.226.235] (localhost [IPv6:::1])
+	by aws-us-west-2-korg-oddjob-rhel9-1.codeaurora.org (Postfix) with ESMTP id F154A39E8A7B;
+	Wed, 30 Sep 2026 09:30:05 +0000 (UTC)
+Content-Type: text/plain; charset="utf-8"
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20260930083922.484885-3-sander.speetjens@gmail.com>
-X-Last-TLS-Session-Version: TLSv1.3
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260930_022906_817068_093D8105 
-X-CRM114-Status: GOOD (  48.98  )
+Content-Transfer-Encoding: 8bit
+Subject: Re: [PATCH] net: microchip: vcap: stop scanning after deleting key
+ field
+From: patchwork-bot+netdevbpf@kernel.org
+Message-Id: <179076060478.1357769.13599525229018760574.git-patchwork-notify@kernel.org>
+Date: Wed, 30 Sep 2026 09:30:04 +0000
+References: <20260925063937.963430-1-harshit.m.mogalapalli@oracle.com>
+In-Reply-To: <20260925063937.963430-1-harshit.m.mogalapalli@oracle.com>
+To: Harshit Mogalapalli <harshit.m.mogalapalli@oracle.com>
+Cc: Steen.Hegelund@microchip.com, daniel.machon@microchip.com,
+ UNGLinuxDriver@microchip.com, andrew+netdev@lunn.ch, davem@davemloft.net,
+ edumazet@google.com, kuba@kernel.org, pabeni@redhat.com,
+ linux-arm-kernel@lists.infradead.org, netdev@vger.kernel.org,
+ linux-kernel@vger.kernel.org, kernel-janitors@vger.kernel.org,
+ error27@gmail.com
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -80,450 +76,33 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hello,
+Hello:
 
-On 30/09/2026 10:39:22+0200, Sander Speetjens wrote:
-> Upstreaming the downstream Raspberry Pi 5 RTC driver.
-> This driver supports the custom DA9091,
-> which is accessed through the firmware mailbox.
-> 
-> Signed-off-by: Jonathan Bell <jonathan@raspberrypi.com>
-> Signed-off-by: Dom Cobley <popcornmix@gmail.com>
-> Signed-off-by: Sander Speetjens <sander.speetjens@gmail.com>
-> ---
-> V6 -> V7:
-> - Move from u32 array to struct
-> - Fix encapsulation as mentioned by sashiko-bot
-> 
-> V5 -> V6:
-> - Add MODULE_ALIAS, as mentioned by sashiko-bot
-> - Encapsulate the mailbox data in le32_to_cpu or cpu_to_le32, as
->   mentioned by sashiko-bot. For good practice
-> 
-> V4 -> V5: No changes
-> 
-> V3 -> V4:
-> - Fix Kconfig depends that disallows having Raspberrypi
-> firmware built as a module while the rtc driver is built in
-> - Remove sysfs
-> - Add limits from firmware properties and check in rpi_rtc_set_charge_voltage
-> 
-> V2 -> V3:
-> - Move platform check to firmware and abort before registering
-> a platform device if on another platform
-> - Add a dependency on the Raspberry Pi firmware to Kconfig
-> - Check return value of devm_device_init_wakeup
-> - Fix property name
-> 
-> V1 -> V2:
-> Instead of the original driver, which was directly bound to the device tree.
-> This driver is bound to the Raspberry Pi firmware device by creating
-> a child device in the firmware driver probe function.
-> The child device is then bound to this driver,
-> which uses the firmware mailbox to access the RTC.
-> 
-> A couple of minor changes have been made to the driver since it was originally written, including:
-> - Checking if the model is a Raspberry Pi 5, as the RTC is only present on that model.
-> - Using the new devm_rpi_firmware_get() and devm_init_wakeup() helper to get the firmware device and avoid leaking memory.
-> - Using millivolts instead of microvolts for the trickle charge voltage, to match the RTC standard.
-> - Instead of setting the trickle charge voltage to 0 to disable trickle charging, the property is now optional. If the property is not present, trickle charging is disabled, per the RTC standard.
-> - Renaming the driver dt match compatible to "raspberrypi,firmware-rtc" to match the other firmware bindings.
-> - Renaming the driver name to "raspberrypi-rtc" to match the other firmware drivers.
-> 
->  drivers/firmware/raspberrypi.c |  25 +++
->  drivers/rtc/Kconfig            |  12 ++
->  drivers/rtc/Makefile           |   1 +
->  drivers/rtc/rtc-raspberrypi.c  | 279 +++++++++++++++++++++++++++++++++
->  4 files changed, 317 insertions(+)
->  create mode 100644 drivers/rtc/rtc-raspberrypi.c
-> 
-> diff --git a/drivers/firmware/raspberrypi.c b/drivers/firmware/raspberrypi.c
-> index 0aa322e9a2e7..a35f00c6fb2c 100644
-> --- a/drivers/firmware/raspberrypi.c
-> +++ b/drivers/firmware/raspberrypi.c
-> @@ -24,6 +24,7 @@
->  
->  static struct platform_device *rpi_hwmon;
->  static struct platform_device *rpi_clk;
-> +static struct platform_device *rpi_rtc;
->  
->  struct rpi_firmware {
->  	struct mbox_client cl;
-> @@ -231,6 +232,27 @@ static void rpi_register_clk_driver(struct device *dev)
->  						-1, NULL, 0);
->  }
->  
-> +static void rpi_register_rtc_driver(struct device *dev)
-> +{
-> +	struct device_node *firmware;
-> +
-> +	// Check if our model is a Raspberry Pi 5, as the RTC is only present on that model.
-> +	const char *model = of_get_property(of_root, "model", NULL);
-> +
-> +	if (!model || strncmp(model, "Raspberry Pi 5", 14) != 0)
-> +		return;
-> +
-> +	firmware = of_get_compatible_child(dev->of_node,
-> +					   "raspberrypi,firmware-rtc");
-> +	if (firmware) {
-> +		of_node_put(firmware);
-> +		return;
-> +	}
-> +
-> +	rpi_rtc = platform_device_register_data(dev, "raspberrypi-rtc",
-> +						-1, NULL, 0);
-> +}
-> +
->  unsigned int rpi_firmware_clk_get_max_rate(struct rpi_firmware *fw, unsigned int id)
->  {
->  	struct rpi_firmware_clk_rate_request msg =
-> @@ -305,6 +327,7 @@ static int rpi_firmware_probe(struct platform_device *pdev)
->  	rpi_firmware_print_firmware_revision(fw);
->  	rpi_register_hwmon_driver(dev, fw);
->  	rpi_register_clk_driver(dev);
-> +	rpi_register_rtc_driver(dev);
->  
->  	return 0;
->  }
-> @@ -327,6 +350,8 @@ static void rpi_firmware_remove(struct platform_device *pdev)
->  	rpi_hwmon = NULL;
->  	platform_device_unregister(rpi_clk);
->  	rpi_clk = NULL;
-> +	platform_device_unregister(rpi_rtc);
-> +	rpi_rtc = NULL;
->  
->  	rpi_firmware_put(fw);
->  }
-> diff --git a/drivers/rtc/Kconfig b/drivers/rtc/Kconfig
-> index 05b9233b9418..4dbe20bcace8 100644
-> --- a/drivers/rtc/Kconfig
-> +++ b/drivers/rtc/Kconfig
-> @@ -1999,6 +1999,18 @@ config RTC_DRV_R7301
->  	   This driver can also be built as a module. If so, the module
->  	   will be called rtc-r7301.
->  
-> +config RTC_DRV_RPI
-> +        tristate "Raspberry Pi RTC"
-> +	depends on RASPBERRYPI_FIRMWARE || (COMPILE_TEST && !RASPBERRYPI_FIRMWARE)
-> +        depends on ARCH_BRCMSTB || COMPILE_TEST
-> +        default ARCH_BRCMSTB
-> +        help
-> +          If you say yes here you get support for the RTC found on
-> +          Raspberry Pi devices.
-> +
-> +          This driver can also be built as a module. If so, the module
-> +          will be called rtc-raspberrypi.
-> +
->  config RTC_DRV_STM32
->  	tristate "STM32 RTC"
->  	select REGMAP_MMIO
-> diff --git a/drivers/rtc/Makefile b/drivers/rtc/Makefile
-> index 0347645b021f..46f1a0fc2416 100644
-> --- a/drivers/rtc/Makefile
-> +++ b/drivers/rtc/Makefile
-> @@ -144,6 +144,7 @@ obj-$(CONFIG_RTC_DRV_PS3)	+= rtc-ps3.o
->  obj-$(CONFIG_RTC_DRV_PXA)	+= rtc-pxa.o
->  obj-$(CONFIG_RTC_DRV_R7301)	+= rtc-r7301.o
->  obj-$(CONFIG_RTC_DRV_R9701)	+= rtc-r9701.o
-> +obj-$(CONFIG_RTC_DRV_RPI)	+= rtc-raspberrypi.o
->  obj-$(CONFIG_RTC_DRV_RC5T583)	+= rtc-rc5t583.o
->  obj-$(CONFIG_RTC_DRV_RC5T619)	+= rtc-rc5t619.o
->  obj-$(CONFIG_RTC_DRV_RK808)	+= rtc-rk808.o
-> diff --git a/drivers/rtc/rtc-raspberrypi.c b/drivers/rtc/rtc-raspberrypi.c
-> new file mode 100644
-> index 000000000000..9f3f5d7683be
-> --- /dev/null
-> +++ b/drivers/rtc/rtc-raspberrypi.c
-> @@ -0,0 +1,279 @@
-> +// SPDX-License-Identifier: GPL-2.0 OR BSD-3-Clause
-> +/**
-> + * rtc-raspberrypi.c
-> + *
-> + * RTC driver using firmware mailbox
-> + * Supports battery backed RTC and wake alarms
-> + *
-> + * Based on rtc-meson-vrtc by Neil Armstrong
-> + *
-> + * Copyright (c) 2023, Raspberry Pi Ltd.
-> + */
-> +
-> +#include <linux/module.h>
-> +#include <linux/platform_device.h>
-> +#include <linux/rtc.h>
-> +#include <linux/of.h>
-> +#include <soc/bcm2835/raspberrypi-firmware.h>
-> +
-> +#define RPI_FIRMWARE_GET_RTC_REG 0x00030087
-> +#define RPI_FIRMWARE_SET_RTC_REG 0x00038087
-> +
-> +enum {
-> +	RTC_TIME,
-> +	RTC_ALARM,
-> +	RTC_ALARM_PENDING,
-> +	RTC_ALARM_ENABLE,
-> +	RTC_BBAT_CHG_VOLTS,
-> +	RTC_BBAT_CHG_VOLTS_MIN,
-> +	RTC_BBAT_CHG_VOLTS_MAX,
-> +	RTC_BBAT_VOLTS
-> +};
-> +
-> +struct rpi_rtc_data {
-> +	struct rtc_device *rtc;
-> +	struct rpi_firmware *fw;
-> +	u32 bbat_vchg_millivolts;
-> +	u32 bbat_vchg_min_millivolts;
-> +	u32 bbat_vchg_max_millivolts;
-> +};
-> +
-> +struct rpi_rtc_reg {
-> +	__le32 reg;
-> +	__le32 val;
-> +} __packed;
-> +
-> +static int rpi_rtc_read_time(struct device *dev, struct rtc_time *tm)
-> +{
-> +	struct rpi_rtc_data *vrtc = dev_get_drvdata(dev);
-> +	struct rpi_rtc_reg data = {
-> +		.reg = cpu_to_le32(RTC_TIME)
-> +	};
-> +	int err;
-> +
-> +	err = rpi_firmware_property(vrtc->fw, RPI_FIRMWARE_GET_RTC_REG,
-> +				    &data, sizeof(data));
-> +	rtc_time64_to_tm(le32_to_cpu(data.val), tm);
-> +	return err;
-> +}
-> +
-> +static int rpi_rtc_set_time(struct device *dev, struct rtc_time *tm)
-> +{
-> +	struct rpi_rtc_data *vrtc = dev_get_drvdata(dev);
-> +	struct rpi_rtc_reg data = {
-> +		.reg = cpu_to_le32(RTC_TIME),
-> +		.val = cpu_to_le32(rtc_tm_to_time64(tm))
-> +	};
-> +
-> +	return rpi_firmware_property(vrtc->fw, RPI_FIRMWARE_SET_RTC_REG,
-> +				     &data, sizeof(data));
-> +}
-> +
-> +static int rpi_rtc_alarm_irq_is_enabled(struct device *dev, unsigned char *enabled)
-> +{
-> +	struct rpi_rtc_data *vrtc = dev_get_drvdata(dev);
-> +	struct rpi_rtc_reg data = {
-> +		.reg = cpu_to_le32(RTC_ALARM_ENABLE)
-> +        };
-> +	s32 err = 0;
-> +
-> +	err = rpi_firmware_property(vrtc->fw, RPI_FIRMWARE_GET_RTC_REG,
-> +				    &data, sizeof(data));
-> +	*enabled = le32_to_cpu(data.val) & 0x1;
-> +	return err;
-> +}
-> +
-> +static int rpi_rtc_alarm_irq_enable(struct device *dev, unsigned int enabled)
-> +{
-> +	struct rpi_rtc_data *vrtc = dev_get_drvdata(dev);
-> +	struct rpi_rtc_reg data = {
-> +		.reg = cpu_to_le32(RTC_ALARM_ENABLE),
-> +		.val = cpu_to_le32(enabled)
-> +       	};
+This patch was applied to netdev/net.git (main)
+by David S. Miller <davem@davemloft.net>:
 
-checkpatch complains about whitespaces in multiple locations, please use
-checkpatch.pl --strict and fix.
-
-> +
-> +	return rpi_firmware_property(vrtc->fw, RPI_FIRMWARE_SET_RTC_REG,
-> +				     &data, sizeof(data));
-> +}
-> +
-> +static int rpi_rtc_alarm_clear_pending(struct device *dev)
-> +{
-> +	struct rpi_rtc_data *vrtc = dev_get_drvdata(dev);
-> +	struct rpi_rtc_reg data = {
-> +		.reg = cpu_to_le32(RTC_ALARM_PENDING),
-> +		.val = cpu_to_le32(1)
-> +	};
-> +
-> +	return rpi_firmware_property(vrtc->fw, RPI_FIRMWARE_SET_RTC_REG,
-> +				     &data, sizeof(data));
-> +}
-> +
-> +static int rpi_rtc_read_alarm(struct device *dev, struct rtc_wkalrm *alarm)
-> +{
-> +	struct rpi_rtc_data *vrtc = dev_get_drvdata(dev);
-> +	struct rpi_rtc_reg data = {
-> +		.reg = cpu_to_le32(RTC_ALARM)
-> +       	};
-> +	s32 err = 0;
-> +
-> +	err = rpi_rtc_alarm_irq_is_enabled(dev, &alarm->enabled);
-> +	if (!err)
-> +		err = rpi_firmware_property(vrtc->fw, RPI_FIRMWARE_GET_RTC_REG,
-> +					    &data, sizeof(data));
-> +	rtc_time64_to_tm(le32_to_cpu(data.val), &alarm->time);
-> +
-> +	return err;
-> +}
-> +
-> +static int rpi_rtc_set_alarm(struct device *dev, struct rtc_wkalrm *alarm)
-> +{
-> +	struct rpi_rtc_data *vrtc = dev_get_drvdata(dev);
-> +	struct rpi_rtc_reg data = {
-> +		.reg = cpu_to_le32(RTC_ALARM),
-> +	       	.val = cpu_to_le32(rtc_tm_to_time64(&alarm->time))
-> +	};
-> +	int err;
-> +
-> +	err = rpi_firmware_property(vrtc->fw, RPI_FIRMWARE_SET_RTC_REG,
-> +				    &data, sizeof(data));
-> +
-> +	if (err == 0)
-> +		err = rpi_rtc_alarm_irq_enable(dev, alarm->enabled);
-> +
-> +	return err;
-> +}
-> +
-> +static const struct rtc_class_ops rpi_rtc_ops = {
-> +	.read_time = rpi_rtc_read_time,
-> +	.set_time = rpi_rtc_set_time,
-> +	.read_alarm = rpi_rtc_read_alarm,
-> +	.set_alarm = rpi_rtc_set_alarm,
-> +	.alarm_irq_enable = rpi_rtc_alarm_irq_enable,
-> +};
-> +
-> +static void rpi_rtc_set_limits(struct device *dev)
-> +{
-> +	struct rpi_rtc_data *vrtc = dev_get_drvdata(dev);
-> +	struct rpi_rtc_reg data = {
-> +		.reg = cpu_to_le32(RTC_BBAT_CHG_VOLTS_MIN)
-> +	};
-> +
-> +	int err = rpi_firmware_property(vrtc->fw, RPI_FIRMWARE_GET_RTC_REG,
-> +					&data, sizeof(data));
-> +	if (err == 0)
-> +		vrtc->bbat_vchg_min_millivolts = le32_to_cpu(data.val) / 1000U;
-> +
-> +	data.reg = cpu_to_le32(RTC_BBAT_CHG_VOLTS_MAX);
-> +	data.val = cpu_to_le32(0);
-> +	err = rpi_firmware_property(vrtc->fw, RPI_FIRMWARE_GET_RTC_REG,
-> +				    &data, sizeof(data));
-> +	if (err == 0)
-> +		vrtc->bbat_vchg_max_millivolts = le32_to_cpu(data.val) / 1000U;
-> +}
-> +
-> +static int rpi_rtc_set_charge_voltage(struct device *dev)
-> +{
-> +	struct rpi_rtc_data *vrtc = dev_get_drvdata(dev);
-> +	struct rpi_rtc_reg data = {
-> +		.reg = cpu_to_le32(RTC_BBAT_CHG_VOLTS),
-> +		.val = cpu_to_le32(vrtc->bbat_vchg_millivolts * 1000U)
-> +	};
-> +	int err;
-> +
-> +	if (vrtc->bbat_vchg_millivolts != 0 &&
-> +	    (vrtc->bbat_vchg_millivolts < vrtc->bbat_vchg_min_millivolts ||
-> +	    vrtc->bbat_vchg_millivolts > vrtc->bbat_vchg_max_millivolts)) {
-> +		dev_warn(dev, "trickle charge voltage %umV is outside of the supported range (%umV - %umV)\n",
-> +			 vrtc->bbat_vchg_millivolts,
-> +			 vrtc->bbat_vchg_min_millivolts,
-> +			 vrtc->bbat_vchg_max_millivolts);
-> +		return -EINVAL;
-> +	}
-> +
-> +	err = rpi_firmware_property(vrtc->fw, RPI_FIRMWARE_SET_RTC_REG,
-> +				    &data, sizeof(data));
-> +
-> +	if (err)
-> +		dev_err(dev, "failed to set trickle charge voltage to %umV: %d\n",
-> +			vrtc->bbat_vchg_millivolts, err);
-> +	else if (vrtc->bbat_vchg_millivolts)
-> +		dev_info(dev, "trickle charging enabled at %umV\n",
-> +			 vrtc->bbat_vchg_millivolts);
-> +
-> +	return err;
-> +}
-> +
-> +static int rpi_rtc_probe(struct platform_device *pdev)
-> +{
-> +	struct rpi_rtc_data *vrtc;
-> +	struct device *dev = &pdev->dev;
-> +	struct rpi_firmware *firmware;
-> +	int ret;
-> +
-> +	// Get the firmware device from the parent device
-> +	firmware = devm_rpi_firmware_get(dev, dev->parent->of_node);
-> +
-> +	if (!firmware)
-> +		return -EPROBE_DEFER;
-> +
-> +	vrtc = devm_kzalloc(dev, sizeof(*vrtc), GFP_KERNEL);
-> +	if (!vrtc)
-> +		return -ENOMEM;
-> +
-> +	vrtc->fw = firmware;
-> +
-> +	ret = devm_device_init_wakeup(dev);
-> +	if (ret)
-> +		return ret;
-> +
-> +	platform_set_drvdata(pdev, vrtc);
-> +
-> +	vrtc->rtc = devm_rtc_allocate_device(dev);
-> +	if (IS_ERR(vrtc->rtc))
-> +		return PTR_ERR(vrtc->rtc);
-> +
-> +	vrtc->rtc->range_max = U32_MAX;           /* 2106-02-07 */
-> +
-> +	set_bit(RTC_FEATURE_ALARM_WAKEUP_ONLY, vrtc->rtc->features);
-> +	clear_bit(RTC_FEATURE_UPDATE_INTERRUPT, vrtc->rtc->features);
-> +
-> +	vrtc->rtc->ops = &rpi_rtc_ops;
-> +
-> +	rpi_rtc_alarm_clear_pending(dev);
-> +
-> +	/*
-> +	 * The trickle-voltage property lives on the parent firmware node
-> +	 * because we deliberately do not create a DT child node just to
-> +	 * instantiate this driver (see DT maintainer guidance).
-> +	 * The firmware driver registers us as a platform device at runtime.
-> +	 */
-> +	vrtc->bbat_vchg_millivolts = 0;
-> +	of_property_read_u32(dev->parent->of_node, "trickle-voltage-millivolt",
-> +			     &vrtc->bbat_vchg_millivolts);
-> +
-> +	rpi_rtc_set_limits(dev);
-> +	rpi_rtc_set_charge_voltage(dev);
-> +
-> +	return devm_rtc_register_device(vrtc->rtc);
-> +}
-> +
-> +static const struct of_device_id rpi_rtc_dt_match[] = {
-> +	{ .compatible = "raspberrypi,firmware-rtc" },
-> +	{ }
-> +};
-> +MODULE_DEVICE_TABLE(of, rpi_rtc_dt_match);
-> +
-> +static struct platform_driver rpi_rtc_driver = {
-> +	.driver = {
-> +		.name = "raspberrypi-rtc",
-> +		.of_match_table = of_match_ptr(rpi_rtc_dt_match),
-> +	},
-> +	.probe = rpi_rtc_probe
-> +};
-> +
-> +module_platform_driver(rpi_rtc_driver);
-> +
-> +MODULE_AUTHOR("Jonathan Bell <jonathan@raspberrypi.com>");
-> +MODULE_AUTHOR("Sander Speetjens <sander.speetjens@gmail.com>");
-> +MODULE_DESCRIPTION("Raspberry Pi RTC driver");
-> +MODULE_LICENSE("GPL");
-> +MODULE_ALIAS("platform:raspberrypi-rtc");
-> -- 
-> 2.55.0
+On Thu, 24 Sep 2026 23:39:36 -0700 you wrote:
+> The only call outside the KUnit tests is in
+> sparx5_tc_add_rule_copy(), which passes a fixed key list with no
+> duplicate entries. Therefore, the potential double-free is not
+> currently reachable in tree.
 > 
+> However, vcap_filter_rule_keys() is exported and does not require its
+> key list entries to be unique. If a future or external caller supplies
+> the same key at another position that the inner loop visits, it calls
+> list_del() and kfree() a second time on the freed field, leading to a
+> potential double-free.
+> 
+> [...]
 
+Here is the summary with links:
+  - net: microchip: vcap: stop scanning after deleting key field
+    https://git.kernel.org/netdev/net/c/99b43ede9e35
+
+You are awesome, thank you!
 -- 
-Alexandre Belloni, co-owner and COO, Bootlin
-Embedded Linux and Kernel engineering
-https://bootlin.com
+Deet-doot-dot, I am a bot.
+https://korg.docs.kernel.org/patchwork/pwbot.html
+
+
 
