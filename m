@@ -4,60 +4,63 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0CF9FCA5FB1
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 30 Sep 2026 08:51:11 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DCF29CA5FB1
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 30 Sep 2026 08:51:38 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=vNLolCCSprjS9gDFysHmR4iYUAVzMebm4KKYm3+MJFU=; b=USyOrr5NEsV36iC3LVC/yC3q0s
-	OOnkJ1owYvurk6gqUuUOf9s1g/q5ApOM93N9ondcH/ZkmfV92RrKw9d56iaJhBu7F9bk//PU/zEK+
-	2FiMTFCx2M7Uz6j6LwJSeET2CZKnS2fhjhF0tH3y8IPFtMMnYc/GqnuhzT5hVIK0tFuNif4iV6Jhk
-	uGN1Jce22FxQS08N7RKzAnjfWifEQEU2mct8mnrWIQ6EeXvPPTfojcx+dsWQd9fQYirWTGjck6Cmg
-	o875ViYW+xMLd/TVEJpOxSztHYKo6lKYnC0/NA5QQfp+ZDRbFY0mVRyt/Es/kHhoXwfiJca5b4Vcd
-	TYSWk6Gg==;
+	bh=Jou4Kt+sia0lz+yCieUvpuLa6vFXzVEGmGHpLPFzDwI=; b=KWIUehli3h/cw9a0px3D+WQloT
+	VifMgtu+HAjguW0c8I1MrQggcUx/gasxzwTymiRHrKFXswXosEhciAcppJMkncYbS/bRNPxXhOF1p
+	U1udVtVbjbSg2eNHoWBNPAsKsLL6AZvPEdDGaV+bJDDNiPF+TKxrf2tUye0Tnss7i56MSg9Zv6an4
+	vb3doT+3dc+Y+Lz/14B4YJmm3jXK9xTKEkXsZau0I2ZVv5cRqF+cwFG6gzLtSk2DoYW0ly3PGIq2B
+	Cy99WSEbMaesuRbsr2lT+GB1TB02kzzHBmwd91RFU8qrG7vE0tVMOlTR7sqo8qUKpCMqjcuYW37vo
+	OWTcRh2Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xBq1o-00000005UI0-2aEi;
-	Wed, 30 Sep 2026 08:51:04 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
-	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xBq1n-00000005UHc-0zPd
+	id 1xBq2F-00000005UPV-3A8Q;
+	Wed, 30 Sep 2026 08:51:31 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1xBq2D-00000005UOp-16ns
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 30 Sep 2026 08:51:03 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id 682E5600D4;
-	Wed, 30 Sep 2026 08:51:02 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id ED16A1F000FF;
-	Wed, 30 Sep 2026 08:51:00 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1790758262;
-	bh=vNLolCCSprjS9gDFysHmR4iYUAVzMebm4KKYm3+MJFU=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=gGC6QK0STaiFiNQXPAxH+ZqdSjcVchiBvSUAD8WlEpL9rg7ILudOYTJl3G97KXhrB
-	 JuZfGgTeNpXIfelVXlrRVxGiv36A35caWFBHfbRDpYKm691r462r8Aws14vQam3h69
-	 YlD5UDeS+0PhjEmrjmSzZxo/pd0Dr1CerJBlULyQcvnKxiQmwjoXeocPQNYLZeZyPz
-	 RVDAxc+v9K3nTwc+FS3AVLS9t1G/SYt5HhRk/CUgCnIsbupYyu0gRrGOUkbPsBkEoO
-	 jO27YsHrQbwa6/cXGNa4NzZ8PqFaMryvcGBvh22BZldUecSEpr4W1gS7m8yuREdjvT
-	 ssH78JMe/v1BQ==
-Date: Wed, 30 Sep 2026 09:50:58 +0100
-From: Sudeep Holla <sudeep.holla@kernel.org>
-To: Finley Xiao <finley.xiao@rock-chips.com>
-Cc: Cristian Marussi <cristian.marussi@arm.com>,
-	Sudeep Holla <sudeep.holla@kernel.org>,
-	Jassi Brar <jassisinghbrar@gmail.com>,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-Subject: Re: [RFC PATCH v1 1/1] mailbox: arm_mhuv3: Keep the combined IRQ
- enabled during system suspend
-Message-ID: <20260930-excellent-hallowed-cheetah-bfcde2@sudeepholla>
-References: <20260930033657.312266-1-finley.xiao@rock-chips.com>
- <20260930033657.312266-2-finley.xiao@rock-chips.com>
+	Wed, 30 Sep 2026 08:51:30 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 57DBB143D;
+	Wed, 30 Sep 2026 01:51:24 -0700 (PDT)
+Received: from J2N7QTR9R3.cambridge.arm.com (usa-sjc-imap-foss1.foss.arm.com [10.121.207.14])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 364523F85F;
+	Wed, 30 Sep 2026 01:51:26 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
+	t=1790758287; bh=MZWTqZGizf2e4awlEik6xcTG3aUNk25jrVwdTTqUtAw=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=JVZXWF9xXQVk47nJJSaN6p+8Fx2fMXbO+4U8Qi17EeMFjFgx3/NeFEBN7ngYuVCiQ
+	 hMpKiQeTtxY9JH+kfuWM5KCtGZtk2ZJRqF8Chhjo3LBcKavdBv93ov1Bon1ayAvCba
+	 LIoeW37n7jkrQo01Y5Gs3B8lhR+sonKW3vnSMNV8=
+Date: Wed, 30 Sep 2026 09:51:15 +0100
+From: Mark Rutland <mark.rutland@arm.com>
+To: Mark Brown <broonie@kernel.org>
+Cc: Catalin Marinas <catalin.marinas@arm.com>,
+	Will Deacon <will@kernel.org>, Shuah Khan <shuah@kernel.org>,
+	Marc Zyngier <maz@kernel.org>, Oliver Upton <oupton@kernel.org>,
+	Fuad Tabba <fuad.tabba@linux.dev>, linux-kernel@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kselftest@vger.kernel.org
+Subject: Re: [PATCH 03/11] kselftest/arm64: Move exit calls out of fp-stress
+ loads
+Message-ID: <arzNg0jxDmbEMrJm@J2N7QTR9R3.cambridge.arm.com>
+References: <20260901-arm64-fp-stress-kvm-v1-0-31bce995b49b@kernel.org>
+ <20260901-arm64-fp-stress-kvm-v1-3-31bce995b49b@kernel.org>
+ <arvm8O6kL1I9Plrw@J2N7QTR9R3.cambridge.arm.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20260930033657.312266-2-finley.xiao@rock-chips.com>
+In-Reply-To: <arvm8O6kL1I9Plrw@J2N7QTR9R3.cambridge.arm.com>
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260930_015129_345890_3991F263 
+X-CRM114-Status: GOOD (  20.78  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -72,45 +75,53 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Sep 30, 2026 at 11:36:57AM +0800, Finley Xiao wrote:
-> When MHUv3 is used as the SCMI mailbox transport (arm,scmi-mailbox),
-> SCMI clock and power-domain operations still need to work in the noirq
-> phase of system suspend: genpd may power off a device's parent domain
-> from genpd_suspend_noirq(), which issues scmi_clock_config_set() /
-> scmi_power_state_set() and waits for the firmware reply via the mailbox
-> RX IRQ.
+On Tue, Sep 29, 2026 at 05:27:28PM +0100, Mark Rutland wrote:
+> On Tue, Sep 01, 2026 at 06:06:43PM +0100, Mark Brown wrote:
+> > When they detect corruption the fp-stress test loads print load specific
+> > diagnostics and exits with a failure status.  In preparation for
+> > building versions intended to run as KVM guests factor the exits into
+> > asm-utils-linux.S.
+> > 
+> > No functional change.
 > 
-> However, dpm_suspend_noirq() calls suspend_device_irqs() before running
-> the suspend_noirq callbacks, so the combined interrupts are already
-> masked at that point and the SCMI transfer times out while waiting for
-> the reply.
+> This is a good cleanup, but I do think it'd be worth noting that some of
+> the existing asm was wrong and worked by coincidence.
 > 
-> Both the PBX and MBX combined interrupts are requested as threaded
-> IRQs with only IRQF_ONESHOT. The MBX combined IRQ must stay enabled so
-> that firmware replies are delivered, and the PBX combined IRQ, used
-> for txdone by IRQ when not in polling mode, needs the same treatment.
+> I did mention that in the patches I linked you to a while back:
 > 
-> IRQ threads are not frozen during system suspend, so with
-> IRQF_NO_SUSPEND the threaded combined-IRQ handlers still run in the
-> noirq phase.
-> 
-> Add IRQF_NO_SUSPEND to the MHUv3 combined IRQ registrations so that
-> SCMI remains functional throughout the suspend/resume cycle.
->
+>   https://git.kernel.org/pub/scm/linux/kernel/git/mark/linux.git/commit/?id=922d15ef46cb486a79f168949e103f6df26f4fba
 
-Looks good to me. Just to confirm, the expectation is to just have the
-IRQs functional during suspend/resume cycle only and *not to wake up* the
-system right ? If you need wakeup, you need to do more work.
+Sorry, that was the wrong link; I meant to share:
 
-For this change,
+  https://git.kernel.org/pub/scm/linux/kernel/git/mark/linux.git/commit/?id=2db277185f5c252decdf49b25cd461782e890cd1
 
-Reviewed-by: Sudeep Holla <sudeep.holla@kernel.org>
+... which was another patch from that cleanup series:
 
-Jassi,
+  https://git.kernel.org/pub/scm/linux/kernel/git/mark/linux.git/log/?h=arm64/selftests/cleanup
 
-Please pick this up for next cycle when you are at it. Thanks!
+The description of the problem from the commit message was:
 
--- 
-Regards,
-Sudeep
+| The barf functions in the fp-stress sub-tests erroneously place the
+| status value into x1 (rather than x0) when invoking the exit syscall,
+| potentially returning a different status than expected.
+| 
+| By coincidence, the low 8 bits of x0 happen to be non-zero for all of
+| these cases, and the exit will be treated as a failure by the fp-stress
+| harness, which is the desired behaviour. Hence this doesn't lead to
+| failing tests being reported as passing.
+| 
+| In all cases x0 contains either:
+| 
+| * The result of the prior write syscall made by the puts macro, which is
+|   a write of the two character string "]\n".
+| 
+| * The result of the prior write syscall made by the putdecn() function,
+|   which is a write of the single-character '\n'.
+| 
+| In either case, the return value of that write syscall may be a non-zero
+| number of bytes written, or a negative error code. As the relevant
+| strings are fewer than 256 characters, and all (positive) error codes
+| are less than 256, the value in the low 8 bits of x0 will not be zero.
+
+Mark.
 
