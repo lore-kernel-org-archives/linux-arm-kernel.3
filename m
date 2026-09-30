@@ -4,7 +4,7 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DFD90CA5FD4
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3E18BCA5FD2
 	for <linux-arm-kernel@archiver.kernel.org>; Wed, 30 Sep 2026 21:50:24 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
@@ -12,43 +12,43 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Xaz3/wrMiOTvQ7QsDHrniOTAXkJk6SVO21zvEdLnW0w=; b=Ul281wlLjvxHCZpie3pxlM3uDf
-	pE0y6kLflpcZ51wDsjKbAq4ezQ+tEAahbuDavXtM0UDg5+ANkZQW6ciTB4rgwMqOabPW7kUVUNn+z
-	QXxM2kFsPFMZbxRLgBhWp0ap3wRu8KVSO4RwVsR4+JdNPFn34+Xe6KJ4KzgB+9rUNa6FrpFB4yI2j
-	mlfUzSyCzDpN8naI8WkTa0uyCqs5Hdx+wlX+Odzyf4xKiPTc78z6eqVQWdyjxfpyai6cnIYm2zj9C
-	XEWZUArSBbbcWFZKmFHr8px9nDz5p5FCBA7ImCdTipoEDseCsdC1FfGxiUTKvR9zuctAzs0kNZIi6
-	xfudq1iw==;
+	bh=Wy0+k1InAjyE26lqhC7MpFZWdvI+C7jRsbn8a+z/FAQ=; b=AH3pPcBEwqmuanysZqPnKrPLJr
+	tWL0qBddksbbPbHr9fo4QhHQd5FBppWchWh8PC/0FIxnRKktLCv5N7m2J/jEZbEhT6utlXuZC15mS
+	MvnXS8LUsJ2HgWw0hjyk4aoOlSCNLx2KB/tn6ZW33Hr9M/HLgaib+dw8MOYmrVeaWfrbkfr4lR+ux
+	sTydenNJBpBKjLfdrvampAU50OimArwGhDa4TdrojvXd47Wsxb0Fw3Yd59O8QfR467FViuKYg4XmQ
+	kfWGOqAHi0MygVhVlNwDgdoZJgfBtKe1I91ZNsWU+HwCEeRe1D775+oiYiKxhMJf23RiDW/HeVOCJ
+	x18BRovA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xC2Bs-00000007J0y-34S1;
-	Wed, 30 Sep 2026 21:50:16 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1xC2Bt-00000007J1i-0TpG;
+	Wed, 30 Sep 2026 21:50:17 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xC2B6-00000007IUR-2FAd
+	id 1xC2BH-00000007If1-19ij
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 30 Sep 2026 21:49:28 +0000
+	Wed, 30 Sep 2026 21:49:39 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id F0BC06053D;
-	Wed, 30 Sep 2026 21:49:27 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 682BE1F0089C;
-	Wed, 30 Sep 2026 21:49:24 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 0C1C542A44;
+	Wed, 30 Sep 2026 21:49:39 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id A5E491F000FF;
+	Wed, 30 Sep 2026 21:49:35 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1790804967;
-	bh=Xaz3/wrMiOTvQ7QsDHrniOTAXkJk6SVO21zvEdLnW0w=;
+	s=k20260515; t=1790804978;
+	bh=Wy0+k1InAjyE26lqhC7MpFZWdvI+C7jRsbn8a+z/FAQ=;
 	h=From:Date:Subject:References:In-Reply-To:To:Cc;
-	b=Dx0DIGYHPOdAtusPWS4FBsCBp6nY9oJ88O/CumZSKDpPF6NEhxcvtyRyN3LKoGEii
-	 69myaNErotNg/Bm3bc0mVoosPIXtQb1nVlf09Y5dDceBbdAp4K6zm5pQ4MeQBezf7q
-	 KvWFjvP7xUbAZ6WrDYlKdz1toLMcAuIoee7dUi9mOXOriWeP1TdYQ2XoUeZsBn5MxD
-	 Qb1Qu+E87xD3yFg4or2Ttn8FeuWVCpXRDQrShhVZzmYgn6I/5KKd/T83dWqIUMKio9
-	 L3hhtHxztxbHnnFWUbp9gfuMKFsI71yGvvl6yl04OVNQyqSlas/Q1EgHqHFsDX2Bpe
-	 va8eYv6lmV4yg==
+	b=hdJfM4QhYbEs4brp34H1ssEHtyAj+BaeyqPWhk1zU+UMRak1YVElJXBGViX1yVEij
+	 6vl+a/SuEC47wcnrxV/sE3AeT92FiFZunGWVBUJYZxolTzbsqhKyVPeLqgLWGhaolr
+	 rijx3XZ67wI4Fm0hWlT5nJ6XJKAG84QX4pEv/hGxKmz6FVdHIp//yCr2LGQpRbWw0b
+	 zrzQmJ3A64rhHIrNbbEabYttriptehg2NxQCRj0ZK4Hd1wZBOCmcK2mHwJ8sED8kLF
+	 PvRYIh+44QPRnBCCg2dPaf4c76RTU0bBpEAHdRrlFkzKqZwDGeiaAsllmpEZgBaGo/
+	 /dFzcuUTuDShA==
 From: Mark Brown <broonie@kernel.org>
-Date: Wed, 30 Sep 2026 22:48:19 +0100
-Subject: [PATCH v21 09/15] KVM: arm64: Allow GCS to be enabled for guests
+Date: Wed, 30 Sep 2026 22:48:22 +0100
+Subject: [PATCH v21 12/15] KVM: selftests: arm64: Add GCS to set_id_regs
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20260930-arm64-gcs-v21-9-3556644cd927@kernel.org>
+Message-Id: <20260930-arm64-gcs-v21-12-3556644cd927@kernel.org>
 References: <20260930-arm64-gcs-v21-0-3556644cd927@kernel.org>
 In-Reply-To: <20260930-arm64-gcs-v21-0-3556644cd927@kernel.org>
 To: Catalin Marinas <catalin.marinas@arm.com>, 
@@ -63,15 +63,15 @@ Cc: Peter Maydell <peter.maydell@linaro.org>,
  linux-kselftest@vger.kernel.org, linux-kernel@vger.kernel.org, 
  Mark Brown <broonie@kernel.org>
 X-Mailer: b4 0.17-dev
-X-Developer-Signature: v=1; a=openpgp-sha256; l=1994; i=broonie@kernel.org;
- h=from:subject:message-id; bh=cxKp4O4LsyzanVWYD2N6RiRBPKov/JqWLVenhRBtLog=;
- b=owEBbQGS/pANAwAKASTWi3JdVIfQAcsmYgBqvYO63IkXqiM/IhBYdRfO72ei7V5hYPpACCZEa
- fR+7tMCUmuJATMEAAEKAB0WIQSt5miqZ1cYtZ/in+ok1otyXVSH0AUCar2DugAKCRAk1otyXVSH
- 0CfMB/9rJWt2FEC2Wgl6uPd/R/OwAnUa9YAFAEzvxGfIpus/WSp7NVVDOIpRPLbxlYT3No3biSp
- A7pbNnOkQ6EyOZkvkGWeDcG4LPsWobB8uIHQRNEllwcMqRHvwRczEPouhH0dv+VwRwf26XhBmj8
- nn9+3wFsL5PyUqtTDhvji/YRAXCBEGfc7J18UC9m1mHdcBiLUbA/MQzr1EWu1rXDs1TfF7p+8HV
- 5Rv1oqAsVnC06TzHg75xh0few7IZxo1+PaxoQXkx0+M0gPDnof1+/k8JTDHs5Hf8qRTrmruKgTJ
- p9NXWzdxHSjPDkGrXoYkZlFxGo8gfWGUKJR6soO/iM3WKTvr
+X-Developer-Signature: v=1; a=openpgp-sha256; l=1732; i=broonie@kernel.org;
+ h=from:subject:message-id; bh=Tfjwe96+Pus/NcQqd0MtFJGHAujN/0M7VQnvCDfTPfo=;
+ b=owEBbQGS/pANAwAKASTWi3JdVIfQAcsmYgBqvYO89S6s1s3YTYvEi7Pe2YG5B+wlge3CrvcBq
+ G8G8N0HucyJATMEAAEKAB0WIQSt5miqZ1cYtZ/in+ok1otyXVSH0AUCar2DvAAKCRAk1otyXVSH
+ 0AoAB/9GISjeiauUt6+C48J60uI4rxisvx5a6uEGeIbh3HehLpPkwEqujVDEk7TtxMtRTR0+REF
+ LuAD3f9u9Kxujl0hWnkk3ezyvSfE8WHAh+1htRmFRkIEOXcc305kIA0NGko3ICGJj2Ih/UlSJU5
+ XutnQeCpTwy43JlqFbVJ3KQ0vqoxcTeIaY2WfdolxBJUL2IZkXJmw4srDog2tW/RLE1T5BDNo69
+ rYnIdR8DgaQKHl5FLdsVmRQsUTFsd14z5LYEWPI5p7n9t/OifwTNxCmWgzf9PGbgUZWE5KakCqh
+ M7gKuWU98E5VW4zMbuQBCVQ7eDYx/3/1BWJdKp0aXRiVT98Q
 X-Developer-Key: i=broonie@kernel.org; a=openpgp;
  fpr=3F2568AAC26998F9E813A1C5C3F436CA30F5D8EB
 X-BeenThere: linux-arm-kernel@lists.infradead.org
@@ -88,59 +88,47 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Now that required functionality for GCS is in place expose
-ID_AA64PFR1_EL1.GCS, allowing guests to be given the feature.
+Now that GCS is configurable via the ID registers update set_id_regs to
+cover ID_AA64PFR1_EL1.GCS.
 
-Reviewed-by: Leonardo Bras <leo.bras@arm.com>
 Signed-off-by: Mark Brown <broonie@kernel.org>
 ---
- arch/arm64/kvm/nested.c   | 3 +--
- arch/arm64/kvm/sys_regs.c | 5 +++--
- 2 files changed, 4 insertions(+), 4 deletions(-)
+ tools/testing/selftests/kvm/arm64/set_id_regs.c | 8 ++++++++
+ 1 file changed, 8 insertions(+)
 
-diff --git a/arch/arm64/kvm/nested.c b/arch/arm64/kvm/nested.c
-index 3c4fc566eafc..f62d9ab7f31c 100644
---- a/arch/arm64/kvm/nested.c
-+++ b/arch/arm64/kvm/nested.c
-@@ -1702,11 +1702,10 @@ u64 limit_nv_id_reg(struct kvm *kvm, u32 reg, u64 val)
- 		break;
+diff --git a/tools/testing/selftests/kvm/arm64/set_id_regs.c b/tools/testing/selftests/kvm/arm64/set_id_regs.c
+index cb5e6358c59c..9db8516748cc 100644
+--- a/tools/testing/selftests/kvm/arm64/set_id_regs.c
++++ b/tools/testing/selftests/kvm/arm64/set_id_regs.c
+@@ -154,6 +154,7 @@ static const struct reg_ftr_bits ftr_id_aa64pfr0_el1[] = {
  
- 	case SYS_ID_AA64PFR1_EL1:
--		/* Only support BTI, SSBS, CSV2_frac */
-+		/* Only support GCS, BTI, SSBS, CSV2_frac */
- 		val &= ~(ID_AA64PFR1_EL1_PFAR		|
- 			 ID_AA64PFR1_EL1_MTEX		|
- 			 ID_AA64PFR1_EL1_THE		|
--			 ID_AA64PFR1_EL1_GCS		|
- 			 ID_AA64PFR1_EL1_MTE_frac	|
- 			 ID_AA64PFR1_EL1_NMI		|
- 			 ID_AA64PFR1_EL1_SME		|
-diff --git a/arch/arm64/kvm/sys_regs.c b/arch/arm64/kvm/sys_regs.c
-index faecf4657ec5..5de4ba1bef6b 100644
---- a/arch/arm64/kvm/sys_regs.c
-+++ b/arch/arm64/kvm/sys_regs.c
-@@ -2193,10 +2193,12 @@ static u64 sanitise_id_aa64pfr1_el1(const struct kvm_vcpu *vcpu, u64 val)
- 	      SYS_FIELD_GET(ID_AA64PFR0_EL1, RAS, pfr0) == ID_AA64PFR0_EL1_RAS_IMP))
- 		val &= ~ID_AA64PFR1_EL1_RAS_frac;
+ static const struct reg_ftr_bits ftr_id_aa64pfr1_el1[] = {
+ 	REG_FTR_BITS(FTR_LOWER_SAFE, ID_AA64PFR1_EL1, DF2, 0),
++	REG_FTR_BITS(FTR_LOWER_SAFE, ID_AA64PFR1_EL1, GCS, 0),
+ 	REG_FTR_BITS(FTR_LOWER_SAFE, ID_AA64PFR1_EL1, CSV2_frac, 0),
+ 	REG_FTR_BITS(FTR_LOWER_SAFE, ID_AA64PFR1_EL1, SSBS, ID_AA64PFR1_EL1_SSBS_NI),
+ 	REG_FTR_BITS(FTR_LOWER_SAFE, ID_AA64PFR1_EL1, BT, 0),
+@@ -818,6 +819,12 @@ struct reg_ftr_val {
+ 	  .mask = r ## _ ## f ## _MASK,				\
+ 	  .val = (r ## _ ## f ## _ ## v  << r ## _ ## f ## _SHIFT) }
  
-+	if (!system_supports_gcs())
-+		val &= ~ID_AA64PFR1_EL1_GCS;
++static const struct reg_ftr_val gcs_no_s1pie[] = {
++	REG_FTR_VAL(ID_AA64PFR1_EL1, GCS, IMP),
++	REG_FTR_VAL(ID_AA64MMFR3_EL1, S1PIE, NI),
++	{ }
++};
 +
- 	val &= ~ID_AA64PFR1_EL1_SME;
- 	val &= ~ID_AA64PFR1_EL1_RNDR_trap;
- 	val &= ~ID_AA64PFR1_EL1_NMI;
--	val &= ~ID_AA64PFR1_EL1_GCS;
- 	val &= ~ID_AA64PFR1_EL1_THE;
- 	val &= ~ID_AA64PFR1_EL1_MTEX;
- 	val &= ~ID_AA64PFR1_EL1_PFAR;
-@@ -3444,7 +3446,6 @@ static const struct sys_reg_desc sys_reg_descs[] = {
- 				     ~(ID_AA64PFR1_EL1_PFAR |
- 				       ID_AA64PFR1_EL1_MTEX |
- 				       ID_AA64PFR1_EL1_THE |
--				       ID_AA64PFR1_EL1_GCS |
- 				       ID_AA64PFR1_EL1_MTE_frac |
- 				       ID_AA64PFR1_EL1_NMI |
- 				       ID_AA64PFR1_EL1_RNDR_trap |
+ static const struct reg_ftr_val s1pie_no_tcr2[] = {
+ 	REG_FTR_VAL(ID_AA64MMFR3_EL1, TCRX, NI),
+ 	REG_FTR_VAL(ID_AA64MMFR3_EL1, S1PIE, IMP),
+@@ -836,6 +843,7 @@ struct ftr_config {
+ };
+ 
+ static const struct ftr_config invalid_configs[] = {
++	{ .name = "GCS without S1PIE", .regs = gcs_no_s1pie },
+ 	{ .name = "S1PIE without TCRX", .regs = s1pie_no_tcr2 },
+ 	{ .name = "S1POE without TCRX", .regs = s1poe_no_tcr2 },
+ };
 
 -- 
 2.47.3
