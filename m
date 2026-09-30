@@ -4,76 +4,109 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 976C0CA5FC5
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 30 Sep 2026 15:28:06 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D95FACA5FC7
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 30 Sep 2026 15:28:08 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=sE/fIembj5za2Gj+q2dDwwOxtAdNg4E9YchXSzIxXo4=; b=SOdtdC/ztYg2B3phcWHsIE1PGk
-	0lcXWeQdeoOhQ5D6/vNFrFGRpiQbOC2rY1WwFHZM5919sH+gschTkn7K9ucd6iZE9atT1zIV+bvA4
-	9Cy6gFw9x1Itv7OSKbrKoOoa+Bq0sq0BUUvH8AKb+G6ko02E/n2PwXLyu/XnpSafCNPMby92cJ1F9
-	rshz+o8YFZ/kk3TwCc52ORFWnmpv8xbIcyuAhXtHCg960nffalv0H1h1jUfc9Ua0HQPZ0BEqiVZ74
-	p3nLe0xZ7g49ubvSvEOCQAfKaZMGxHWOy8JcrDfDUMCP/zefxMF7IBqJDIxCW2pZaeZx1USjiT1Yf
-	GhOSvZOA==;
+	bh=m8/ka+J/ZNQmE2G5JtUp2jlHYt7CIUXWsqK/1+vFYBc=; b=ubwkYFpQ0oAfLkXrRBlouLOMic
+	pLFyFUuiyU/2XmJHREjgQFsV0Cnxfp0N6IuAz4qAWCyspoS/xnJBnEWH1+ksN+wYlE3ym7Bfr7wJc
+	ejIDPZ3k0f2zgZQHTWo2IAFSF3hzAeoKFe+IFu7UF6oHNTbWXIeCalqr6BRQLmdJUbGzcffDoKx0n
+	UaS1NTvVNN4mslt0g7v0fKDBrE+U7OAOYqR74tUJFHJAR6AsPwk8XKJTDKOE2rCQ6Fxal09atFGiE
+	kmbtUrZc54bBgRmUmXMpT/3VAN7QLT9keKmq8dwg+idSS5icQnCdo+LkBNC4LxpYVQxaATQKuaMWb
+	fuOUypWg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xBwDv-00000006VSx-0SHc;
+	id 1xBwDv-00000006VTG-1Fte;
 	Wed, 30 Sep 2026 15:27:59 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+Received: from mail-ej2-x0d.google.com ([2a00:1450:4864:34::d])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xBwDL-00000006VLr-3DC1
-	for linux-arm-kernel@bombadil.infradead.org;
-	Wed, 30 Sep 2026 15:27:23 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:Content-Type
-	:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:Message-ID:
-	Sender:Reply-To:Content-ID:Content-Description;
-	bh=sE/fIembj5za2Gj+q2dDwwOxtAdNg4E9YchXSzIxXo4=; b=L16Jp3U8IrMsS9LAkKMRUna/mN
-	FysmthWoxj9r4QCbUvHb/nqbAiHjEfnFYCi6YfVA6r2iqf2+OxO+N0G17o1KiHoSc0G5l2Z2n1/La
-	SA2JsHAj0170fKBwcljgRH6JT1yZzeGjttRFcRbqztNcaYSALAiVCv9AuaVHJr3K19l/Q/+a+gRrz
-	MG3aVITq1vtP+BnxrSK+IhQHZvCuqJpL0Y4/DTrNgkWbvpbWFhIrI8Ii6hRWj5Qnmh6FFS7RW5K6y
-	hoVR6HWY7nnbOrvIjQsAspVvqh00CSZZocECCNLp8YeSYrUBQaAnf+ffjI5avdwghZB5e3BVFuJYm
-	XFz0Gb7g==;
-Received: from foss.arm.com ([217.140.110.172])
-	by desiato.infradead.org with esmtp (Exim 4.99.2 #2 (Red Hat Linux))
-	id 1xBwDI-00000003zpF-1IS5
+	id 1xBwDT-00000006VNn-3srz
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 30 Sep 2026 15:27:22 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 9FD5F497;
-	Wed, 30 Sep 2026 08:27:13 -0700 (PDT)
-Received: from [192.168.178.24] (usa-sjc-mx-foss1.foss.arm.com [172.31.20.19])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 6B8613F86F;
-	Wed, 30 Sep 2026 08:27:15 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1790782037; bh=BMxuuBMmXl1PbkW1d5zdKSxy6yBqqDoKYBJRc1IY+1E=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=Ufz6GsZaOrldhgHWcIdahvrycYQ9GDFBm3l+cT3+cMhONUG/0Rv/0az0MGzvP64f6
-	 KTHAjTCiKEngiedp52jDkZJYi/hnC2/k4MYgWXNaMPJKwG035bteweSdmZsisjJQFE
-	 bLQG4cHtgkx0P07s5PbauauhTJ3n/txuJPmeC15k=
-Message-ID: <a15d179f-8a43-4b4a-8bd5-fc0afecad6e0@arm.com>
-Date: Wed, 30 Sep 2026 17:27:11 +0200
+	Wed, 30 Sep 2026 15:27:33 +0000
+Received: by mail-ej2-x0d.google.com with SMTP id a640c23a62f3a-c2e028ed54dso240089066b.1
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 30 Sep 2026 08:27:31 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=linaro.org; s=google; t=1790782050; x=1791386850; darn=lists.infradead.org;
+        h=content-transfer-encoding:content-type:in-reply-to:from
+         :content-language:references:cc:to:subject:user-agent:mime-version
+         :date:message-id:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=m8/ka+J/ZNQmE2G5JtUp2jlHYt7CIUXWsqK/1+vFYBc=;
+        b=DMXZo64nqd3+IxTWkuv2moO4fio9Td5QsX3T6wYGoi+sssQUQRAlbbmDAkQ56zIYEW
+         plPZNFacm8a7usjiWE3uM3+nV5niQFfPoSp0p1muL23IXShxUeQ6CcjHmDjynUdBIQbt
+         HUgER0Wao41D/Tk61/NPFDOAe7K646nsHaky2OPt2qo3ptEQaBnX/0N9ecG2Z8/AhCGs
+         GWvTtqr5wBgU8cD7oA0qeFJ1k93E/2tBsVz0372kkHGhJZ5XAqqYjkTFvvY+RfoSFTzR
+         cvky1Yx+x86vnLpmG/X2pGGHo7aEw2/ne4w1UOPz2MhNzPXM4uq0J2QFVxsyCXgW2A0V
+         +y8w==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1790782050; x=1791386850;
+        h=content-transfer-encoding:content-type:in-reply-to:from
+         :content-language:references:cc:to:subject:user-agent:mime-version
+         :date:message-id:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=m8/ka+J/ZNQmE2G5JtUp2jlHYt7CIUXWsqK/1+vFYBc=;
+        b=SoAMSRmsPR31dlhnm/P/wegEXzTo4j6Ra8x1WVzXt6r6TBnak/HFLi55ZIBlQRmcfZ
+         cYQcAYdknLdiyYzBTkhGhzMRyT1wyguyrX6vs7KxhYsH2419rU5cRhov74303uysBkc0
+         6jQlLQH7PtRItzY6aL9zBaqK2eIMbrPxjrHhOvKGgqeFpcI6YvRAXRwM/xc0WQ+XPqJO
+         9iHOX83Z3hgDVM8uN/kMGARWquusMCGZHyl1sZzYwJ3VshA6WS9pSSFZSVNFa0FQIpqv
+         b/nRZ4Yv17SeYk9d/LE0fMBu7pHlVffXucXQOHRNciYQY0FxXpshsfj27/4xhPL5rm1o
+         0NsQ==
+X-Forwarded-Encrypted: i=1; AKwUvBwQZEGuIUPIV/QF3Lxmb8I2U1Lb2MCzpj9fAArUtG/TPJQVmpsdp6wayOF+3SZPdp/jbEvK/ePRiu0Yu6TJSnSH@lists.infradead.org
+X-Gm-Message-State: AFuF++mH/KcchlRIkeHcQwMgJU3fkz3YXNJWnvxMNNfXdsHfPgAEO+ur
+	YZcbe611hA5TDOWiapOPy6/mTrvmziAr/QQhz+wRS1uQILzUZEeDVa63Pprp45OvNwI=
+X-Gm-Gg: AYBFou0JoyU46jzpAGpDvmNrgWeZhrgj+OY1wp12v37q2z2mFqD0qDMqwV0LhtsaP3J
+	7p8qBGuKYu8rX3oovQPl5Oqi88D6cOLM7FIJpQjdj3MYN5lnujIbN0jIWunm1h8hBo2X+2pcigB
+	A1DxudNyGpYkSFUsalHINMvgzP5Z53UnzQTuhuCwC3ErCPu2fPYHJVzUWYoeENwXHRvGHLvmBbz
+	lkLbgYSFMl779OGTKwRwVzXBc1RSOhiUuAVuyruIZRqL+CniR8/VtechaPoGYLIOgmsTTwfalXg
+	2FeQ0mVinG3WK7hhDbS/v/k8E7u9N54f5iYSCRqAlzGbX8wZJq5Yhwr+9I662+LRAYBBXPRGycl
+	LRjUvA9aVX+8wXB2DMzZzSJ3AIeFQso3eLvmyonI+jJxe97JwEowaYnCINOzd1vjm1CeAOJApOQ
+	ifuEhEztE4HCWaZvdIlyPbtX+dLhMIEWcwN0LxnZri0ggx2wZB5yHIHCLoyQEEP0PqcHWvXuJo0
+	SQ=
+X-Received: by 2002:a17:907:e002:20b0:c2d:ca32:2176 with SMTP id a640c23a62f3a-c2e23be61f9mr114745266b.8.1790782049863;
+        Wed, 30 Sep 2026 08:27:29 -0700 (PDT)
+Received: from [192.168.1.3] ([37.18.141.193])
+        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-c2e31a3eb32sm28640766b.3.2026.09.30.08.27.28
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Wed, 30 Sep 2026 08:27:29 -0700 (PDT)
+Message-ID: <56d86280-fcea-4d2d-b6b9-b47449f3408d@linaro.org>
+Date: Wed, 30 Sep 2026 16:27:27 +0100
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH] pinctrl: sunxi: dt: number the IRQ banks from the first
- one that has IRQs
-To: Pablo Mazzini <pmazzini@gmail.com>, Linus Walleij <linusw@kernel.org>,
- Chen-Yu Tsai <wens@kernel.org>, Jernej Skrabec <jernej.skrabec@gmail.com>,
- Samuel Holland <samuel@sholland.org>
-Cc: linux-gpio@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-sunxi@lists.linux.dev, linux-kernel@vger.kernel.org
-References: <20260929203634.32998-1-pmazzini@gmail.com>
-Content-Language: en-GB
-From: Andre Przywara <andre.przywara@arm.com>
-In-Reply-To: <20260929203634.32998-1-pmazzini@gmail.com>
+Subject: Re: [PATCH v9 20/22] KVM: arm64: Add vCPU device attr to partition
+ the PMU
+To: Colton Lewis <coltonlewis@google.com>
+Cc: Marc Zyngier <maz@kernel.org>, Oliver Upton <oupton@kernel.org>,
+ Oliver Upton <oliver.upton@linux.dev>, Joey Gouly <joey.gouly@arm.com>,
+ Suzuki K Poulose <suzuki.poulose@arm.com>, Zenghui Yu
+ <yuzenghui@huawei.com>, Fuad Tabba <fuad.tabba@linux.dev>,
+ Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
+ Mark Rutland <mark.rutland@arm.com>, Paolo Bonzini <pbonzini@redhat.com>,
+ Peter Zijlstra <peterz@infradead.org>, Ingo Molnar <mingo@redhat.com>,
+ Arnaldo Carvalho de Melo <acme@kernel.org>,
+ Namhyung Kim <namhyung@kernel.org>, Robin Murphy <robin.murphy@arm.com>,
+ Zide Chen <zide.chen@intel.com>, Alexandru Elisei
+ <alexandru.elisei@arm.com>,
+ Ganapatrao Kulkarni <gankulkarni@os.amperecomputing.com>,
+ Mingwei Zhang <mizhang@google.com>, Jonathan Corbet <corbet@lwn.net>,
+ Russell King <linux@armlinux.org.uk>, Shuah Khan <shuah@kernel.org>,
+ linux-perf-users@vger.kernel.org, linux-kselftest@vger.kernel.org,
+ linux-doc@vger.kernel.org, linux-kernel@vger.kernel.org,
+ kvm@vger.kernel.org, kvmarm@lists.linux.dev,
+ linux-arm-kernel@lists.infradead.org
+References: <20260924172928.2110956-1-coltonlewis@google.com>
+ <20260924172928.2110956-21-coltonlewis@google.com>
+Content-Language: en-US
+From: James Clark <james.clark@linaro.org>
+In-Reply-To: <20260924172928.2110956-21-coltonlewis@google.com>
 Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260930_162720_760720_8B5D8BA0 
-X-CRM114-Status: GOOD (  26.19  )
+X-CRM114-CacheID: sfid-20260930_082732_039500_77163580 
+X-CRM114-Status: GOOD (  23.73  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -88,78 +121,57 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Pablo,
 
-thanks for sending a patch!
 
-On 9/29/26 22:36, Pablo Mazzini wrote:
-> prepare_function_table() assumes the first pin is in bank 0. On the
-> A523, which has no PA pins, every IRQ bank is numbered one too high:
-> the last bank writes past the end of irq_array, and interrupts are
-> looked up at the wrong offsets.
-
-Yes, this is a known issue, and I already provided a quite different fix 
-for this[1]: the A523 manual actually lists a PortA GPIO interrupt, even 
-though this is pretty likely not functional. But specifying this IRQ in 
-the DT fixes the problem as well.
-The DT binding does not say how the IRQs are assigned to the GPIO ports, 
-so from that point of view my solution is similarly usable as yours - 
-though admittedly yours looks a little better and more future proof.
-
-I guess we now need to figure out how we want to handle this in the 
-future, and add an explanation to the binding. The A733 has a similar 
-problem: PortA does not exist. This time the manual does not explicitly 
-specify a GPIO IRQ, but conspicuously leaves a gap before the PortB GPIO 
-IRQ, so we can use that as well.
-
-Linus, Chen-Yu, Jernej: what do you think?
-
-Cheers,
-Andre
-
-[1] 
-https://lore.kernel.org/linux-sunxi/20260327113006.3135663-4-andre.przywara@arm.com/
-
+On 24/09/2026 18:29, Colton Lewis wrote:
+> Add the KVM_ARM_VCPU_PMU_V3_ENABLE_PARTITION vCPU device attribute to
+> enable a Partitioned PMU for a VM where PMUv3 and VHE are supported.
 > 
-> Count the IRQ banks from the first bank that has interrupts.
+> When partitioning is enabled (tracked via
+> KVM_ARCH_FLAG_PARTITION_PMU_ENABLED), userspace must explicitly
+> configure the number of guest event counters via
+> KVM_ARM_VCPU_PMU_V3_SET_NR_COUNTERS with a value strictly less than the
+> maximum number of general-purpose counters implemented by the PMU (or
+> 0 only when FEAT_HPMN0 is supported), leaving at least one
+> general-purpose counter reserved for host profiling prior to calling
+> KVM_ARM_VCPU_PMU_V3_INIT.
 > 
-> Fixes: f5e2cd34b12f ("pinctrl: sunxi: allow reading mux values from DT")
-> Signed-off-by: Pablo Mazzini <pmazzini@gmail.com>
+> Signed-off-by: Colton Lewis <coltonlewis@google.com>
 > ---
->   drivers/pinctrl/sunxi/pinctrl-sunxi-dt.c | 8 +++-----
->   1 file changed, 3 insertions(+), 5 deletions(-)
+>   Documentation/virt/kvm/devices/vcpu.rst | 42 ++++++++++++++-
+>   arch/arm64/include/asm/kvm_host.h       |  1 +
+>   arch/arm64/include/uapi/asm/kvm.h       |  2 +
+>   arch/arm64/kvm/pmu.c                    | 71 ++++++++++++++++++++++++-
+>   arch/arm64/kvm/sys_regs.c               |  5 +-
+>   5 files changed, 118 insertions(+), 3 deletions(-)
 > 
-> diff --git a/drivers/pinctrl/sunxi/pinctrl-sunxi-dt.c b/drivers/pinctrl/sunxi/pinctrl-sunxi-dt.c
-> index 50a16f3bd131..9c5eb21a86a5 100644
-> --- a/drivers/pinctrl/sunxi/pinctrl-sunxi-dt.c
-> +++ b/drivers/pinctrl/sunxi/pinctrl-sunxi-dt.c
-> @@ -208,7 +208,7 @@ static int prepare_function_table(struct device *dev, struct device_node *pnode,
->   	 * The extra functions will be filled in later.
->   	 */
->   	irq_bank = 0;
-> -	last_bank = 0;
-> +	last_bank = -1;
->   	for (i = 0; i < npins; i++) {
->   		struct sunxi_desc_pin *pin = &pins[i];
->   		int bank = (pin->pin.number - pin_base) / PINS_PER_BANK;
-> @@ -221,16 +221,14 @@ static int prepare_function_table(struct device *dev, struct device_node *pnode,
->   		func[1].muxval = 1;
+> diff --git a/Documentation/virt/kvm/devices/vcpu.rst b/Documentation/virt/kvm/devices/vcpu.rst
+> index deb5c51bc00c8..fb5921ed9dea2 100644
+> --- a/Documentation/virt/kvm/devices/vcpu.rst
+> +++ b/Documentation/virt/kvm/devices/vcpu.rst
+> @@ -57,6 +57,9 @@ Returns:
+>                     hardware PMU, or interrupt number not set (non-GICv5
+>                     guests, only)
+>   	 -EBUSY   PMUv3 already initialized
+> +	 -EINVAL  Partitioning enabled without explicitly configuring
+> +		  fewer than max_counters via
+> +		  KVM_ARM_VCPU_PMU_V3_SET_NR_COUNTERS
+>   	 =======  ======================================================
 >   
->   		if (irq_mux) {
-> -			if (bank > last_bank)
-> +			if (last_bank >= 0 && bank > last_bank)
->   				irq_bank++;
->   			func[lastfunc].muxval = irq_mux;
->   			func[lastfunc].irqbank = irq_bank;
->   			func[lastfunc].irqnum = pin->pin.number % PINS_PER_BANK;
->   			func[lastfunc].name = "irq";
-> -		}
-> -
-> -		if (bank > last_bank)
->   			last_bank = bank;
-> +		}
->   
->   		pin->functions = func;
->   
+>   Request the initialization of the PMUv3.  If using the PMUv3 with an in-kernel
+> @@ -162,7 +165,8 @@ the cpu field to the processor id.
+>   	 -EFAULT  Error accessing the value pointed to by addr
+>   	 -ENODEV  PMUv3 not supported or GIC not initialized
+>   	 -EINVAL  No PMUv3 explicitly selected, or value of N out of
+> -	 	  range
+> +	 	  range (or N >= max_counters when partitioning is
+> +		  enabled)
+
+"No PMUv3 explicitly selected, or value of N > max_counters, or N > 
+max_counters - 1 when partitioning is enabled".
+
+That might be clearer, otherwise it seems like max_counters being 
+relevant to "out of range" only applies to when partitioning is enabled, 
+not that it's max_counters all the time but one is -1.
 
 
