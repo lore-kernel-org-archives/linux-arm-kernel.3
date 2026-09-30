@@ -4,84 +4,63 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 10ECBCA5FA5
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 30 Sep 2026 02:05:18 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 45E8ECA5FAD
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 30 Sep 2026 02:10:16 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=KHVIaUxRnS/uW4IUGDWYJposvLKuR8AioO5aSjcHMXg=; b=nhFrEjNiJ+SWe7Qx4b5VhaaDbj
-	rEHZm5f0rRAw8o9X3Myem6dqzCTHiWfLetFEw9D+1enwoE+LmtMuNklRGG58wjFCkkPLaVzLksdjw
-	igJ5+DznAT4IiQ4CJpnvafomvO5PPezrZHTPUwsC1tWKeFwKEwAJtSDvoq5vJnYVs69Up4sUDRTkA
-	SV4W+u68iRV9vNkhzelA9FzSCnKXGhfRipS4OPeeXTBC6cA3kO1KZZsXWVd82Wtt3A15akBmmYPSY
-	Xy79gYEFCNG4IPM0EsE8lyL62LKckGVw6IpRWsmNzAvg2WxfHUtrpXBL3aoSmc+CLjGhqHA5I/16Q
-	05MTcGVw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
+	:Date:Message-Id:From:Subject:Content-Transfer-Encoding:MIME-Version:
+	Content-Type:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=k37ydz3gmrzOGd3xCFKZBYx6bSsaaaFykfYFvycKz5I=; b=h+7gw8PP1EuNegj0xgfY0qQYLH
+	fOyJYayQnf3P18DzSLqqyNu0YE2UNuLCMWFO8NdG5O/ICjRawXXrOfqyL3Ra9abIDvib30IlviUHn
+	I2sBZB2GbR9MCheMlIQJPPGRk77XHzAOEtDmYft1nWPzYfEsrGdd0A9COSqhc1SmiT8gAPPvwpiKK
+	FNx8KA5YxfIRysALgzqZyJdG0QxffiFn8y6bPJpTMlc7XGQ1ux2zaDWMcl3WQlja7RhAHuVH0O+Fi
+	CszSVFmpJiwpD+31dYVMCPeiQrkfqpb0Ho+lFDLKEFhrXcY02H44XN3kY6a/ocURmBNF1GhX2JiEV
+	Jip1L8eA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xBjh1-00000004toG-23OI;
-	Wed, 30 Sep 2026 02:05:11 +0000
-Received: from esa7.hc1455-7.c3s2.iphmx.com ([139.138.61.252])
+	id 1xBjlp-00000004u1E-03Hz;
+	Wed, 30 Sep 2026 02:10:09 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xBjgz-00000004tnt-0aAU
+	id 1xBjln-00000004u18-3imv
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 30 Sep 2026 02:05:10 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple;
-  d=fujitsu.com; i=@fujitsu.com; q=dns/txt; s=fj2;
-  t=1790733909; x=1822269909;
-  h=date:from:to:cc:subject:message-id:references:
-   mime-version:content-transfer-encoding:in-reply-to;
-  bh=GwkVQNzgUjv+Kg4ssvph3rWzuiQanbDbfsmCFjgCyDU=;
-  b=DP8rItaXn1b8eucQ5MhS2N+d/clXvQmZCHifTbnCdSklSZKlE3GI77j8
-   +YG92paBn06wIK7Cfoi2SBkPkrHb5Mo+Wpq5mAyGhhKwVKKipJm5hLb+i
-   68ZAba2a45HJCO4znt1nHTRl29oGeqnBsOxRQK812EkPpKUY6w8j3a3Cl
-   iM4kOFX5c44N8yDmeTnC2RYxpV9kGMd7bdQW2L2AKkFe3XPC0jFxTEiiZ
-   BVsHIM53/ZbR0wRmv7R6F/JjhqllECw/o0kIo7wyMwFEeQzny62isgJJF
-   GwUG9x93iG9AYDuplkdBosakylaremX+JdWQA0oGVw6Pv1H3diVgnOXO9
-   Q==;
-X-CSE-ConnectionGUID: Azy+aobeRxSH2orndavw+A==
-X-CSE-MsgGUID: f8aaqiqxSIitOUVPx7hJZg==
-X-IronPort-AV: E=McAfee;i="6800,10657,11920"; a="235493067"
-X-IronPort-AV: E=Sophos;i="6.27,130,1786978800"; 
-   d="scan'208";a="235493067"
-Received: from gmgwuk01.global.fujitsu.com ([172.187.114.235])
-  by esa7.hc1455-7.c3s2.iphmx.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 30 Sep 2026 11:05:05 +0900
-Received: from az2uksmgm3.o.css.fujitsu.com (unknown [10.151.22.200])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
-	(No client certificate requested)
-	by gmgwuk01.global.fujitsu.com (Postfix) with ESMTPS id 57EB81C1C71C
-	for <linux-arm-kernel@lists.infradead.org>; Wed, 30 Sep 2026 02:05:05 +0000 (UTC)
-Received: from az2uksmom3.o.css.fujitsu.com (unknown [10.151.22.205])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
-	(No client certificate requested)
-	by az2uksmgm3.o.css.fujitsu.com (Postfix) with ESMTPS id 0DFE0C011BB
-	for <linux-arm-kernel@lists.infradead.org>; Wed, 30 Sep 2026 02:05:05 +0000 (UTC)
-Received: from FCCLS0092175.localdomain (unknown [10.8.20.173])
-	by az2uksmom3.o.css.fujitsu.com (Postfix) with ESMTP id 167CF1000367;
-	Wed, 30 Sep 2026 02:05:00 +0000 (UTC)
-Date: Wed, 30 Sep 2026 11:04:58 +0900
-From: Kohei Enju <enju.kohei@fujitsu.com>
-To: Yeoreum Yun <yeoreum.yun@arm.com>
-Cc: linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
-	Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>, Jason Gunthorpe <jgg@ziepe.ca>, 
-	Suzuki Poulose <suzuki.poulose@arm.com>, Steven Price <steven.price@arm.com>, 
-	Sami Mujawar <sami.mujawar@arm.com>, thuth@redhat.com
-Subject: Re: [PATCH v2 1/3] arm64: rsi: Add helpers for Arm CCA measurement
- register operations
-Message-ID: <arxrOt1HEYeG6GJx@FCCLS0092175.localdomain>
-References: <20260929-arm_cca_mr-v2-0-1d98bba187fd@arm.com>
- <20260929-arm_cca_mr-v2-1-1d98bba187fd@arm.com>
+	Wed, 30 Sep 2026 02:10:07 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by tor.source.kernel.org (Postfix) with ESMTP id CCB42601DE;
+	Wed, 30 Sep 2026 02:10:06 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 8236A1F000FF;
+	Wed, 30 Sep 2026 02:10:06 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1790734206;
+	bh=k37ydz3gmrzOGd3xCFKZBYx6bSsaaaFykfYFvycKz5I=;
+	h=Subject:From:Date:References:In-Reply-To:To:Cc;
+	b=UHZJ/4Es0FgGH5CjBeSjh7lcOfz0A+Kwzhy6ChbbeKSTdcoyQMDJWpIPhlTItEvPO
+	 VnZO8XvUwlSQV3BflLNH2kpyhCbB/9Qeuy1qB1+JYOqU/4hpaB1gnmyBXeVxlpfzLb
+	 jT/QiF1A4mh0g2E7QZxKriW8rBJRKdhCYpqfVggP1LXh/10gL7vnftR9KhB1XQUawx
+	 mAq8sroiXgAZEYPYdrTAjrvaeVZ+BCWio9141smURObJ5tv4rXMw/VDz+UXIr/OR5N
+	 uay8baqvr/8qVzqgf8oNFmQVNA24QzOKaT/+tPe8XeWU9y3SibAXR+515/RgmgrMTV
+	 6VnIsNF2cd5yQ==
+Received: from [10.30.226.235] (localhost [IPv6:::1])
+	by aws-us-west-2-korg-oddjob-rhel9-1.codeaurora.org (Postfix) with ESMTP id 775243924FEA;
+	Wed, 30 Sep 2026 02:10:06 +0000 (UTC)
+Content-Type: text/plain; charset="utf-8"
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
 Content-Transfer-Encoding: 8bit
-In-Reply-To: <20260929-arm_cca_mr-v2-1-1d98bba187fd@arm.com>
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260929_190509_725628_BA21BE4E 
-X-CRM114-Status: GOOD (  32.31  )
+Subject: Re: [PATCH net] net: sparx5: skip ptp deinit if init was skipped
+From: patchwork-bot+netdevbpf@kernel.org
+Message-Id: <179073420528.1211220.17018666609894661061.git-patchwork-notify@kernel.org>
+Date: Wed, 30 Sep 2026 02:10:05 +0000
+References: <20260928044542.29287-1-quentin@q-lab.dev>
+In-Reply-To: <20260928044542.29287-1-quentin@q-lab.dev>
+To: Quentin Freimanis <quentin@q-lab.dev>
+Cc: netdev@vger.kernel.org, andrew+netdev@lunn.ch, davem@davemloft.net,
+ edumazet@kernel.org, kuba@kernel.org, pabeni@redhat.com,
+ Steen.Hegelund@microchip.com, daniel.machon@microchip.com,
+ UNGLinuxDriver@microchip.com, richardcochran@gmail.com,
+ horatiu.vultur@microchip.com, linux-arm-kernel@lists.infradead.org,
+ linux-kernel@vger.kernel.org
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -96,147 +75,36 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 09/29 17:57, Yeoreum Yun wrote:
-> From: Sami Mujawar <sami.mujawar@arm.com>
-> 
-> Add static inline helper functions to support reading the Realm
-> Initial Measurement (RIM) and reading/extending the Realm
-> Extensible Measurement (REM) registers.
-> 
-> The indices of the Arm CCA measurement registers, as defined by
-> the Realm Management Monitor specification, are as follows:
->     Index    Register
->     0        RIM
->     1 - 4    REM[0 - 3]
-> 
-> The rsi_measurement_extend() function allows extending REM[0–3]
-> registers with a caller-provided digest (up to 64 bytes).
-> Index 0 (RIM) is read-only and cannot be extended.
-> 
-> The rsi_measurement_read() function allows reading measurement
-> values from RIM (index 0) or REM[0–3] (indices 1–4). The returned
-> digest is expected to be 64 bytes.
-> 
-> Signed-off-by: Sami Mujawar <sami.mujawar@arm.com>
-> ---
->  include/linux/arm-rsi-cmds.h | 105 ++++++++++++++++++++++++++++++++++++++++++-
->  1 file changed, 104 insertions(+), 1 deletion(-)
-> 
-> diff --git a/include/linux/arm-rsi-cmds.h b/include/linux/arm-rsi-cmds.h
-> index 3f7a6a833993..608343266d81 100644
-> --- a/include/linux/arm-rsi-cmds.h
-> +++ b/include/linux/arm-rsi-cmds.h
-> @@ -1,6 +1,6 @@
->  /* SPDX-License-Identifier: GPL-2.0-only */
->  /*
-> - * Copyright (C) 2023 ARM Ltd.
-> + * Copyright (C) 2023 - 2025 ARM Ltd.
->   */
->  
->  #ifndef __LINUX_ARM_RSI_CMDS_H_
-> @@ -36,6 +36,26 @@ static inline bool is_realm_world(void) { return false; }
->  #define RSI_GRANULE_SHIFT		12
->  #define RSI_GRANULE_SIZE		(_AC(1, UL) << RSI_GRANULE_SHIFT)
->  
-> +/*
-> + * Maximum measurement data size in bytes.
-> + * According to the RMM Specification, the width of the RmmRealmMeasurement type
-> + * is 512 bits.
-> + */
-> +#define RSI_MAX_MEASUREMENT_DATA_SIZE_BYTES  64
-> +
-> +/*
-> + * Indices for the Realm Initial Measurement register (RIM) and the Realm
-> + * Extensible Measurement registers (REMs).
-> + * According to the RMM Specification, Realm attributes of a Realm include
-> + * an array of measurement values. The first entry in this array is a RIM.
-> + * The remaining entries in this array are REMs.
-> + */
-> +#define RSI_INDEX_RIM		0
-> +#define RSI_INDEX_REM0		1
-> +#define RSI_INDEX_REM1		2
-> +#define RSI_INDEX_REM2		3
-> +#define RSI_INDEX_REM3		4
-> +
->  enum ripas {
->  	RSI_RIPAS_EMPTY = 0,
->  	RSI_RIPAS_RAM = 1,
-> @@ -236,4 +256,87 @@ static inline unsigned long rsi_attestation_token_continue(phys_addr_t granule,
->  	return res.a0;
->  }
->  
-> +/**
-> + * rsi_measurement_extend - Extend the measurement value to the Realm Extensible
-> + * Measurement (REM).
-> + *
-> + * @idx:		Index of the REM register.
-> + *				Where:
-> + *				Index	Register
-> + *				1 - 4	REM[0-3]
-> + * @digest:		The digest data to be extended.
-> + * @digest_size:	Size of the digest data in bytes.
-> + *
-> + * Returns:
-> + *  On success, returns RSI_SUCCESS.
-> + *  Otherwise, -EINVAL
-> + */
-> +static inline unsigned long rsi_measurement_extend(u32 idx,
-> +						   const u8 *digest,
-> +						   unsigned long digest_size)
-> +{
-> +	struct arm_smccc_1_2_regs regs = { 0 };
-> +
-> +	/*
-> +	 * Index 0 is for RIM (which is Read Only), while
-> +	 * REM[0-3] are indexed from 1 - 4.
-> +	 * The digest size can be at the most 64 bytes.
-> +	 */
-> +	if (!digest || idx < RSI_INDEX_REM0 || idx > RSI_INDEX_REM3 ||
-> +	    digest_size == 0 || digest_size > RSI_MAX_MEASUREMENT_DATA_SIZE_BYTES)
-> +		return -EINVAL;
-> +
-> +	regs.a0 = SMC_RSI_MEASUREMENT_EXTEND;
-> +	regs.a1 = idx;
-> +	regs.a2 = digest_size;
-> +	memcpy(&regs.a3, digest, digest_size);
+Hello:
 
-With CONFIG_FORTIFY_SOURCE=y, FORTIFY reports the following warning for
-this memcpy:
+This patch was applied to netdev/net.git (main)
+by Jakub Kicinski <kuba@kernel.org>:
 
-  [  899.918673] ------------[ cut here ]------------
-  [  899.918806] memcpy: detected field-spanning write (size 32) of single field "&regs.a3" at ./include/linux/arm-rsi-cmds.h:292 (size 8)
-  [  899.919277] WARNING: ./include/linux/arm-rsi-cmds.h:292 at rsi_measurement_extend+0x104/0x118, CPU#0: dd/123
-  [  900.672180] Modules linked in:
-  [  900.769378] CPU: 0 UID: 0 PID: 123 Comm: dd Not tainted 7.3.0-rc4+ #6 PREEMPT(full)
-  [  901.034515] Hardware name: linux,dummy-virt (DT)
-  [  901.194939] pstate: 61402005 (nZCv daif +PAN -UAO -TCO +DIT -SSBS BTYPE=--)
-  [  901.390491] pc : rsi_measurement_extend+0x104/0x118
-  [  901.530657] lr : rsi_measurement_extend+0x104/0x118
-  [...]
-  [  903.770326] Call trace:
-  [  903.893102]  rsi_measurement_extend+0x104/0x118 (P)
-  [  904.056234]  arm_cca_mr_extend+0x40/0x58
-  [  904.270991]  tm_digest_write+0x90/0x1d8
-  [  904.439429]  sysfs_kf_bin_write+0x98/0xc8
-  [  904.596599]  kernfs_fop_write_iter+0x150/0x1e8
-  [  904.779881]  vfs_write+0x29c/0x450
-  [...]
+On Sun, 27 Sep 2026 21:45:42 -0700 you wrote:
+> sparx5_ptp_init() returns early on the base lan969x variants
+> because they do not have the SPX5_FEATURE_PTP flag. It also returns early
+> when no "ptp" interrupt is described. Unbinding the driver then causes a
+> NULL pointer dereference when cleaning up uninitialized tx_skbs queues:
+> 
+>     Unable to handle kernel NULL pointer dereference at virtual address
+>     0000000000000008
+>     Call trace:
+>     skb_queue_purge_reason+0x68/0x120 (P)
+>     sparx5_ptp_deinit+0x64/0xc0
+>     mchp_sparx5_remove+0x38/0x70
+>     platform_remove+0x20/0x30
+>     device_remove+0x4c/0x80
+> 
+> [...]
 
-Would it make sense to use a union to overlay the struct
-arm_smccc_1_2_regs with an RSI-specific argument layout and copy the
-digest into an explicit 64-byte array, as in commit 221049874b6a
-("arm64: RSI: fix field-spanning write warning in attestation token
-init")?
+Here is the summary with links:
+  - [net] net: sparx5: skip ptp deinit if init was skipped
+    https://git.kernel.org/netdev/net/c/0d2c49915bc3
 
-Thanks,
-Kohei
+You are awesome, thank you!
+-- 
+Deet-doot-dot, I am a bot.
+https://korg.docs.kernel.org/patchwork/pwbot.html
 
-> +	arm_smccc_1_2_smc(&regs, &regs);
-> +
-> +	if (regs.a0 != RSI_SUCCESS)
-> +		return -EINVAL;
-> +
-> +	return regs.a0;
-> +}
-> +
+
 
