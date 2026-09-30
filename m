@@ -4,82 +4,76 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7BF25CA5FAD
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 30 Sep 2026 02:39:55 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3879ACA5FAD
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 30 Sep 2026 02:44:47 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=wDLRgCmtZofHlLsEzxCeg1mgRHdArtiFGSOrLCvantA=; b=WlqlnNn/KT2uC85Wqwks0mqaJx
-	r9meIYGjYPzWeVpemSndllIrS3AJ7VLEMm7oucB6aCVkdKv43NYrm9anFdAIMuT10ssW8llv6iJGG
-	sIb+6U52deUrGv66Pw5RR6NTOnhz5h9x2Et+kIoyCz3fezSY6oG9m6j6BVpxGd8Xs5hJkjauJ/vIb
-	Zb5tjbREab4XZr2/5o8R2byLHI8oWuX1RPjch8J1H6vm4edsG8I4OGlEZDYABL8RQL1KIfxhknhhf
-	ub4N8+2vv3cwU9KU6c2F+N/gmw5L7afpLke/nMoyPs2kAhkz7uxGm1gAFIxCZD6y6WpGc4BzNupom
-	FFHWE0DQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=nu5ZaCtb+a/PsIAKfQUdrIHwtBUiHyWKKOnEg6MdREo=; b=vxYs5h/fW+zosW9ugo2SuAxQo3
+	q6FWt01qKoO52ooD0WLdXFdwXJoYTHN4jTwSaKLKBTRQ75VOzpzpmEma+L1JXhktqCr5LpBmWI5Uw
+	VG32hSZzA7m67ZvX+WqbIIQ0gwcLXQa7JrOo7a02kGqrswUyBTgWLOqSQv/W1m+dfd6KdnM8Woi4x
+	T529VF1tRMEC75dOedcLwsAUfZVAt8Rl+5j6PQbBJ7GChk3j81xsrf4DjP672OKb+bJFPY3aDW6QF
+	3XK20t3FpPwoYsM6wFuwIrREGuZfdI619bydtLO1xjh8uweiZIqEeQfL5oHDRv8c5Zuyc7TmB3IN9
+	PMyeRnoQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xBkEX-00000004v0P-0ZKa;
-	Wed, 30 Sep 2026 02:39:49 +0000
-Received: from esa12.hc1455-7.c3s2.iphmx.com ([139.138.37.100])
+	id 1xBkJD-00000004vZ9-1MRc;
+	Wed, 30 Sep 2026 02:44:39 +0000
+Received: from canpmsgout04.his.huawei.com ([113.46.200.219])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xBkEU-00000004uza-0MlY
+	id 1xBkJ9-00000004vYC-0hDa
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 30 Sep 2026 02:39:47 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple;
-  d=fujitsu.com; i=@fujitsu.com; q=dns/txt; s=fj2;
-  t=1790735986; x=1822271986;
-  h=date:from:to:cc:subject:message-id:references:
-   mime-version:in-reply-to;
-  bh=rpumM33xCGo2iOKTxGmSwYJt7A4M/e0v6a/QhZC+xPw=;
-  b=s2KPps6pRdktdc1CM/5w2v9RGjlQdrz0+UIGpQh459XXnIFH3UhECH38
-   I9qcIPWbqil6CdQquOqS53PeImjjTW6NhIPNAiZvAcwdjlio6dBuyxMrk
-   7gXB6C3BpRA6H3MEPkg+y/QfmP8S4ce2ICB3ljv48HiTyzHvkNzjRbHnZ
-   EIm4AiZFQgvNZoL6wR9FCv5duc4YGFVNuIDFvWBWQaP7UYrNTXwqU41hP
-   LullK/uRJOM8I4SeoJ/JrzI/4bVhL3iJKihdvEYdUJ7gtf/vPyjnct1dE
-   CPOv/1J+vQm8ERGMWUxMe9/x7JOcY7DTbbBfwqPHO0qkQvCPmBoNPzZYS
-   A==;
-X-CSE-ConnectionGUID: kN5rd/50QyW81WOavj0fjg==
-X-CSE-MsgGUID: pL62VS2qTPi2DzPl3EV3mw==
-X-IronPort-AV: E=McAfee;i="6800,10657,11920"; a="234347098"
-X-IronPort-AV: E=Sophos;i="6.27,130,1786978800"; 
-   d="scan'208";a="234347098"
-Received: from gmgwuk01.global.fujitsu.com ([172.187.114.235])
-  by esa12.hc1455-7.c3s2.iphmx.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 30 Sep 2026 11:39:44 +0900
-Received: from az2uksmgm3.o.css.fujitsu.com (unknown [10.151.22.200])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
-	(No client certificate requested)
-	by gmgwuk01.global.fujitsu.com (Postfix) with ESMTPS id F3A0B820710
-	for <linux-arm-kernel@lists.infradead.org>; Wed, 30 Sep 2026 02:39:43 +0000 (UTC)
-Received: from az2nlsmom2.o.css.fujitsu.com (unknown [10.150.26.200])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
-	(No client certificate requested)
-	by az2uksmgm3.o.css.fujitsu.com (Postfix) with ESMTPS id A2F15C011AD
-	for <linux-arm-kernel@lists.infradead.org>; Wed, 30 Sep 2026 02:39:43 +0000 (UTC)
-Received: from FCCLS0092175.localdomain (unknown [10.8.20.173])
-	by az2nlsmom2.o.css.fujitsu.com (Postfix) with SMTP id 643BA1800139;
-	Wed, 30 Sep 2026 02:39:39 +0000 (UTC)
-Date: Wed, 30 Sep 2026 11:39:36 +0900
-From: Kohei Enju <enju.kohei@fujitsu.com>
-To: Yeoreum Yun <yeoreum.yun@arm.com>
-Cc: linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
-	Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>, Jason Gunthorpe <jgg@ziepe.ca>, 
-	Suzuki Poulose <suzuki.poulose@arm.com>, Steven Price <steven.price@arm.com>, 
-	Sami Mujawar <sami.mujawar@arm.com>, thuth@redhat.com
-Subject: Re: [PATCH v2 2/3] arm64: rsi: Add realm hash algorithm defines
-Message-ID: <arxxqJnhY83Q4g2z@FCCLS0092175.localdomain>
-References: <20260929-arm_cca_mr-v2-0-1d98bba187fd@arm.com>
- <20260929-arm_cca_mr-v2-2-1d98bba187fd@arm.com>
+	Wed, 30 Sep 2026 02:44:37 +0000
+dkim-signature: v=1; a=rsa-sha256; d=huawei.com; s=dkim;
+	c=relaxed/relaxed; q=dns/txt;
+	h=From;
+	bh=nu5ZaCtb+a/PsIAKfQUdrIHwtBUiHyWKKOnEg6MdREo=;
+	b=0YbAQnMDvcVwdnz1Vzs/oN4/O2AuEgf1TO/pgmAKKlZo1i/+XGY5g4ohRwYZldoufBNmVHDCy
+	MlRY3pcYWYxSiOTokrxTozKa+Qr3C9Qcy0ZloP5cglfmKJb2N5Q+SCMX7lSU363DLSBcdDePqTo
+	/8/oPEr4RsXwkaOjrop2rS4=
+Received: from mail.maildlp.com (unknown [172.19.162.144])
+	by canpmsgout04.his.huawei.com (SkyGuard) with ESMTPS id 4hvfFs1p3dz1prLV;
+	Wed, 30 Sep 2026 10:32:17 +0800 (CST)
+Received: from kwepemr100010.china.huawei.com (unknown [7.202.195.125])
+	by mail.maildlp.com (Postfix) with ESMTPS id 6EA5B40538;
+	Wed, 30 Sep 2026 10:44:28 +0800 (CST)
+Received: from [10.67.120.103] (10.67.120.103) by
+ kwepemr100010.china.huawei.com (7.202.195.125) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.2562.45; Wed, 30 Sep 2026 10:44:27 +0800
+Message-ID: <8ca88576-651a-4b7f-91ff-2cb2359aa79e@huawei.com>
+Date: Wed, 30 Sep 2026 10:44:26 +0800
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-In-Reply-To: <20260929-arm_cca_mr-v2-2-1d98bba187fd@arm.com>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v5 01/15] KVM: arm64: pgtables: Change write bit from
+ S2AP_W to DBM
+To: Oliver Upton <oupton@kernel.org>
+CC: <maz@kernel.org>, <catalin.marinas@arm.com>, <will@kernel.org>,
+	<corbet@lwn.net>, <pbonzini@redhat.com>, <leo.bras@arm.com>,
+	<yuzenghui@huawei.com>, <wangzhou1@hisilicon.com>, <yangjinqian1@huawei.com>,
+	<caijian11@h-partners.com>, <liuyonglong@huawei.com>,
+	<tangchengchang@huawei.com>, <yezhenyu2@huawei.com>, <yubihong@huawei.com>,
+	<linuxarm@huawei.com>, <joey.gouly@arm.com>, <kvmarm@lists.linux.dev>,
+	<kvm@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
+	<linux-kernel@vger.kernel.org>, <seiden@linux.ibm.com>,
+	<suzuki.poulose@arm.com>, <fuad.tabba@linux.dev>, <mark.rutland@arm.com>,
+	<seanjc@google.com>, <rdunlap@infradead.org>, <linux-doc@vger.kernel.org>,
+	<linux-kselftest@vger.kernel.org>, <skhan@linuxfoundation.org>
+References: <20260929103655.85107-1-zhengtian10@huawei.com>
+ <20260929103655.85107-2-zhengtian10@huawei.com> <arxW4PUY3qqRkogl@kernel.org>
+From: Tian Zheng <zhengtian10@huawei.com>
+In-Reply-To: <arxW4PUY3qqRkogl@kernel.org>
+Content-Type: text/plain; charset="UTF-8"; format=flowed
+Content-Transfer-Encoding: 7bit
+X-Originating-IP: [10.67.120.103]
+X-ClientProxiedBy: kwepems500001.china.huawei.com (7.221.188.70) To
+ kwepemr100010.china.huawei.com (7.202.195.125)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260929_193946_408414_767AF670 
-X-CRM114-Status: GOOD (  19.27  )
+X-CRM114-CacheID: sfid-20260929_194435_795538_69092119 
+X-CRM114-Status: GOOD (  19.90  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -94,45 +88,100 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 09/29 17:57, Yeoreum Yun wrote:
-> From: Sami Mujawar <sami.mujawar@arm.com>
-> 
-> Add macro definitions for the hash algorithm identifiers, as
-> specified in the Realm Management Monitor (RMM) specification.
-> 
-> Signed-off-by: Sami Mujawar <sami.mujawar@arm.com>
-> ---
->  include/linux/arm-smccc-rsi.h | 7 +++++++
->  1 file changed, 7 insertions(+)
-> 
-> diff --git a/include/linux/arm-smccc-rsi.h b/include/linux/arm-smccc-rsi.h
-> index fddb77986f70..a83df2655808 100644
-> --- a/include/linux/arm-smccc-rsi.h
-> +++ b/include/linux/arm-smccc-rsi.h
-> @@ -144,6 +144,13 @@ struct realm_config {
->  
->  #endif /* __ASSEMBLER__ */
->  
-> +/*
-> + * The RSI definition of the Hash Algorithm (as specified by the Secure
-> + * Hash Standard) returned in the realm_config data structure.
-> + */
-> +#define RSI_HASH_SHA_256	0
-> +#define RSI_HASH_SHA_512	1
 
-Is it intentional to omit RSI_HASH_SHA_384 here? I realize it might not
-be implemented in RMM yet, but would it be worth adding the constant now
-for future support?
 
-Thanks,
-Kohei
+On 9/30/2026 8:25 AM, Oliver Upton wrote:
+> Hi Tian,
+> 
+> On Tue, Sep 29, 2026 at 06:36:41PM +0800, Tian Zheng wrote:
+>> From: Leonardo Bras <leo.bras@arm.com>
+>>
+>> As a first step of changing the encoding for the Stage2 PTE descriptor,
+>> introduce the DBM bit, and adapt every usage of writable to use the DBM
+>> bit (51) instead of S2AP[1]/Dirty bit (7).
+>>
+>> With DBM as the write permission bit and S2AP[1] as the dirty state,
+>> the encoding follows the FEAT_S2PIE principle of managing permissions
+>> and dirty state independently.
+>>
+>> For this step, we convert usages of RW(Dirty) -> WD(DBM|Dirty): every
+>> writable mapping sets both bits, read-only mappings clear both, and no
+>> behaviour changes.
+>>
+>> Link: https://lore.kernel.org/all/20260901171558.2674031-2-leo.bras@arm.com/
+>> Signed-off-by: Leonardo Bras <leo.bras@arm.com>
+>> [zhengtian: keep the nested walker reading writability from S2AP[1]
+>> alone, document why, and reword the commit message]
+>> Signed-off-by: Tian Zheng <zhengtian10@huawei.com>
+>> ---
+>>   arch/arm64/include/asm/kvm_pgtable.h | 3 +++
+>>   arch/arm64/kvm/hyp/pgtable.c         | 7 ++++---
+>>   arch/arm64/kvm/nested.c              | 5 +++++
+>>   arch/arm64/kvm/ptdump.c              | 4 ++--
+>>   4 files changed, 14 insertions(+), 5 deletions(-)
+>>
+>> diff --git a/arch/arm64/include/asm/kvm_pgtable.h b/arch/arm64/include/asm/kvm_pgtable.h
+>> index 41a8687938eb..37baa86d6fd8 100644
+>> --- a/arch/arm64/include/asm/kvm_pgtable.h
+>> +++ b/arch/arm64/include/asm/kvm_pgtable.h
+>> @@ -93,10 +93,13 @@ typedef u64 kvm_pte_t;
+>>
+>>   #define KVM_PTE_LEAF_ATTR_HI_S2_XN	GENMASK(54, 53)
+>>
+>> +#define KVM_PTE_LEAF_ATTR_HI_S2_DBM	BIT(51)
+>> +
+>>   #define KVM_PTE_LEAF_ATTR_HI_S1_GP	BIT(50)
+>>
+>>   #define KVM_PTE_LEAF_ATTR_S2_PERMS	(KVM_PTE_LEAF_ATTR_LO_S2_S2AP_R | \
+>>   					 KVM_PTE_LEAF_ATTR_LO_S2_S2AP_W | \
+>> +					 KVM_PTE_LEAF_ATTR_HI_S2_DBM | \
+>>   					 KVM_PTE_LEAF_ATTR_HI_S2_XN)
+>>
+>>   /* pKVM invalid pte encodings */
+>> diff --git a/arch/arm64/kvm/hyp/pgtable.c b/arch/arm64/kvm/hyp/pgtable.c
+>> index b74dd5ce1efd..50f4d3a74f77 100644
+>> --- a/arch/arm64/kvm/hyp/pgtable.c
+>> +++ b/arch/arm64/kvm/hyp/pgtable.c
+>> @@ -732,7 +732,7 @@ static int stage2_set_prot_attr(struct kvm_pgtable *pgt, enum kvm_pgtable_prot p
+>>   		attr |= KVM_PTE_LEAF_ATTR_LO_S2_S2AP_R;
+>>
+>>   	if (prot & KVM_PGTABLE_PROT_W)
+>> -		attr |= KVM_PTE_LEAF_ATTR_LO_S2_S2AP_W;
+>> +		attr |= KVM_PTE_LEAF_ATTR_HI_S2_DBM | KVM_PTE_LEAF_ATTR_LO_S2_S2AP_W;
+> 
+> Hmm... I'd actually like to see this structured where the "write" bit
+> could either be S2AP_W or DBM depending on if the system supports
+> FEAT_HAFDBS. Look at how HVHE is handled for selecting the right AP
+> encoding for the hyp stage-1 page tables.
+> 
 
-> +
->  /*
->   * Read configuration for the current Realm.
->   *
-> 
-> -- 
-> 2.43.0
-> 
+Hi Oliver,
+
+Thanks for the suggestion. I missed the case where FEAT_HAFDBS is not
+supported. Systems without the feature should keep the original
+encoding, with S2AP[1] as the write permission bit. I'll follow the HVHE
+pattern to select between the two encodings in the next version.
+
+Thanks!
+Tian
+
+>> diff --git a/arch/arm64/kvm/ptdump.c b/arch/arm64/kvm/ptdump.c
+>> index 69899797dbad..b0cb8d84a9e9 100644
+>> --- a/arch/arm64/kvm/ptdump.c
+>> +++ b/arch/arm64/kvm/ptdump.c
+>> @@ -40,8 +40,8 @@ static const struct ptdump_prot_bits stage2_pte_bits[] = {
+>>   		.clear	= " ",
+>>   	},
+>>   	{
+>> -		.mask	= KVM_PTE_LEAF_ATTR_LO_S2_S2AP_W,
+>> -		.val	= KVM_PTE_LEAF_ATTR_LO_S2_S2AP_W,
+>> +		.mask	= KVM_PTE_LEAF_ATTR_HI_S2_DBM,
+>> +		.val	= KVM_PTE_LEAF_ATTR_HI_S2_DBM,
+>>   		.set	= "W",
+>>   		.clear	= " ",
+>>   	},
+>> --
+>> 2.43.0
+>>
+
 
