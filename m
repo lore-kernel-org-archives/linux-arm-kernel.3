@@ -4,159 +4,107 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 30C6DCA5FC5
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 30 Sep 2026 15:18:28 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A242ACA5FC5
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 30 Sep 2026 15:26:05 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:References:In-Reply-To:Message-ID:Date
-	:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=iBJ+BgAwsuYJIa3K0WNtRKZKS4n8kXSHaCy29OB762Y=; b=nBHrYeVeeNO8m3x1Tr+bQ9xI1G
-	8UeQh8q6mvu2WXnvyuv+cP11AmyytSx58eLIUdYXPd59Ua/ApajYiXQXAfjAjIQoDmPP4pqus5ccw
-	cC4K5UC6loKrrhMSdw28ZAbgeWA+1Lu0LVAUFAbwVui2V0TiNc3WJGR/x7C1ncUEyAEu19QrJHFGz
-	W1yrFD2OxhAvsNB6+KaWxVfVMD8HOwbQh35k9paa94bKjAcJyRR7e5Ivt/F8bIfWGAMleXXCmzjRK
-	85jTV9yVrHebY5orJy4ysN2kEaTE1ycwrrk8lnetgz7F6em+vt3d/95MINxaYGrWILM0jCMey628J
-	jsumiYxg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=URPVZ5mnqaX/4a/mHP5WDlkoNKbhEPagHNKAx4oZedE=; b=S60UF92ifrci/Ivtx2M+cX06jP
+	zty3PQHHDeC82BX5ImwMov9hU9W1Jiw16bDK1uEtlqLoSVnFmHAhO4rHDbCwcENfzvgxvtdse8c8i
+	B9/iVmeMM8BJJh++5BMW3E1UDLyk6wjV+UG5DF94eYq+OOr9x8mFCOPzJ8nVs2xKoTqk/2MR6yidX
+	dSDb/e8BJR4qh788DG4nNYkMPHqj/TdVTAiy5ETQSl4NN1f0kTqrwWt3RND2V4mWDENkZ22ra+04m
+	m0ppMaRUFzIs0VCNAoLxYvKortheAP04sRm7JNCh2zRX4mcbvL3PohUGHvSkSlqtd1SI0W891aNjo
+	0j654XMQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xBw4U-00000006TF4-1zyW;
-	Wed, 30 Sep 2026 15:18:17 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1xBwBy-00000006V4Q-10Lw;
+	Wed, 30 Sep 2026 15:25:58 +0000
+Received: from mail-ej2-x0f.google.com ([2a00:1450:4864:34::f])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xBw4T-00000006TEq-1Yjt
-	for linux-arm-kernel@bombadil.infradead.org;
-	Wed, 30 Sep 2026 15:18:13 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=MIME-Version:Content-Transfer-Encoding
-	:Content-Type:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Sender:Reply-To:Content-ID:Content-Description;
-	bh=iBJ+BgAwsuYJIa3K0WNtRKZKS4n8kXSHaCy29OB762Y=; b=fGJZ4r1z4iRhZj2VHBdo7Huyln
-	c+A/HNI1mJor/ni3ORv97O+H3XSPznmu9Fks+oicPyo2T/yzMaIaVwCQoG7uZEbZHAHEj+EX4Rj9q
-	ctHKF7HNdeJvtUFbRL71nXMcAuDRxBfwS+SxwHv33seiHnbuHLv4Jhg/Rc7fDLi42zBkhoPBsYFGc
-	AH+Gg22tt5ak/fIXGra/MLpWV9+GumFsXeZH8ClAL9ZexJ9YijgQDyuIOVAwBvzhRvmI7jxua5Z+/
-	p/Hm14X8pcU6yOAc1QTEhKxiIDCH+fw2oPBEme9uMGT/RYy0uzKPA9usDzwjQ86BAAPi5PATPR06U
-	VzYBfqOg==;
-Received: from mail-northeuropeazon11012005.outbound.protection.outlook.com ([52.101.66.5] helo=DUZPR83CU001.outbound.protection.outlook.com)
-	by desiato.infradead.org with esmtps (Exim 4.99.2 #2 (Red Hat Linux))
-	id 1xBw4Q-00000003z2a-1fkh
+	id 1xBwBl-00000006V1a-2sH3
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 30 Sep 2026 15:18:12 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=nV78QrvTSZmAXeiref4MA9SCwPVqofPyImu2slDj773oKz0lGJhkKJnKu1pJTZwR4TeaE+Ka+pbNbpJH2qtalyjE8dQ6eWnFdVC2H3Iwa0CxoeIM94DhmKuQ1LZHHMnQJWzAkoY6GZ4pz/sWFfQBZXF/b44RkRAH+FdRd1k7uvF5IWbfpDWAh42/aCx/qv3+6vwsSOovBoBkaEU1Y0rDZNXWTaItiQ1Ega/KDPojrkf8CFMJfp90qsRy30WUxMzhABmAnthcNAU1N7jEAXYID0Lq+J0plgxcQenKj17s14PSSRfKCNVSN7X7rPlkveCtyZtHLjBghH7Lr4akcQqf7w==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=iBJ+BgAwsuYJIa3K0WNtRKZKS4n8kXSHaCy29OB762Y=;
- b=mOUp64ioEWtyQIDGrM/Id1nHvY65QUQTlCpuikRYjwZbX+6wlvzDItRX0puldOGKDO9YAEv4HeYEP2V+ufCdualCpHig1a3RZj0VOwH4Zux2FqrDrQViqtQykiIxJSwcXtGax1Cl8eVHvuXFdQUMJTq145LFgm4y+7OWOMQ2CYukg729SGt+Yne5FD1V92H9cc6iv8GmTnZvMvYNP24NCq+FMaetPMI8UyKiBZaSPhRD1FzTgEas9bSjHkx4QHZBiFw/Swjltfq2O/4xdKfEP12Z93viMebHpuhf9LtnxQQIv1wlQkTTm98OIdTd5hIIS+BOd7Xn2G2xmX0Ahv6Ixg==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
- dkim=pass header.d=oss.nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
- s=selector1-NXP1-onmicrosoft-com;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=iBJ+BgAwsuYJIa3K0WNtRKZKS4n8kXSHaCy29OB762Y=;
- b=w0LfBnmm3GxFWNmI5aujZqSM37Xv239PeIR8ENf7+3nCj0heXt0dbd9cHQ2GHIdVVrK9aAZWX0YlZyWjuK3e88JHE/cEyvsmJNrXDzC/Q/fy4DcYPTEoEjb/j29Za4b1KOqYoPptyOgWTG7KoO/vpexAyDvIyGUlWBNAqJVRBsyJhz3inOAanZiBnjNls2hT1fGZZrYYzWtUkzcxv2uBZOw3OeCVEPyjn+dRI/rJpkgfHo7rauoZ/Cg58cha0YFl1a6mDInXohK+lVZFaLzmliTK4bfT48IS6fvHNBnmBpCAeKsd73CqAnJSynSCD/dVpKcuISf2dQZLJemP8N6DFA==
-Authentication-Results: mx.microsoft.com 1; dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=oss.nxp.com;
-Received: from GV2PR04MB11799.eurprd04.prod.outlook.com (2603:10a6:150:2cf::9)
- by VI1PR04MB6957.eurprd04.prod.outlook.com (2603:10a6:803:135::24) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.451.24; Wed, 30 Sep
- 2026 15:18:05 +0000
-Received: from GV2PR04MB11799.eurprd04.prod.outlook.com
- ([fe80::2146:83a2:5329:b7c]) by GV2PR04MB11799.eurprd04.prod.outlook.com
- ([fe80::2146:83a2:5329:b7c%7]) with mapi id 15.21.0451.022; Wed, 30 Sep 2026
- 15:18:05 +0000
-From: Frank.Li@oss.nxp.com
-To: Russell King <linux@armlinux.org.uk>,
-	Sascha Hauer <s.hauer@pengutronix.de>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Fabio Estevam <festevam@gmail.com>,
-	Heiner Kallweit <hkallweit1@gmail.com>
-Cc: Frank Li <Frank.Li@nxp.com>,
-	linux-arm-kernel@lists.infradead.org,
-	imx@lists.linux.dev,
-	Tom Rini <trini@konsulko.com>,
-	Ilias Apalodimas <ilias.apalodimas@linaro.org>,
-	Stefano Babic <sbabic@nabladev.com>,
-	"NXP i.MX U-Boot Team" <uboot-imx@nxp.com>
-Subject: Re: [PATCH] ARM: imx6q: remove unused header includes
-Date: Wed, 30 Sep 2026 11:17:56 -0400
-Message-ID: <179078134446.567194.5317242454962834738.b4-ty@b4>
-X-Mailer: git-send-email 2.43.0
-In-Reply-To: <3cec5f38-e0d6-4d12-88d4-74cb0000a2f2@gmail.com>
-References: <3cec5f38-e0d6-4d12-88d4-74cb0000a2f2@gmail.com>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 8bit
-X-ClientProxiedBy: CY5PR19CA0047.namprd19.prod.outlook.com
- (2603:10b6:930:1a::6) To GV2PR04MB11799.eurprd04.prod.outlook.com
- (2603:10a6:150:2cf::9)
+	Wed, 30 Sep 2026 15:25:56 +0000
+Received: by mail-ej2-x0f.google.com with SMTP id a640c23a62f3a-c2a8b9acbc6so847768366b.0
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 30 Sep 2026 08:25:40 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=linaro.org; s=google; t=1790781939; x=1791386739; darn=lists.infradead.org;
+        h=content-transfer-encoding:content-type:in-reply-to:from
+         :content-language:references:cc:to:subject:user-agent:mime-version
+         :date:message-id:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=URPVZ5mnqaX/4a/mHP5WDlkoNKbhEPagHNKAx4oZedE=;
+        b=qVc6S1RFGYeX+NFmyp8Y4La5aI+PRd6LKt+5kBhcdoD8vc/i4r/NHfJn3wGpg99dxV
+         cpvJWuSuuJQzfnBF9NqpFqR51niHAF5M75Fi9Mr41HodSa8NADAsVSW2MaHBYb2P75vd
+         peG7nhH43/LTOXO+iCdh97IcZcwHHODqleOvLH6fCCtCGu89to91fp9eZny1v9+FrT6N
+         jpjEmdJmjesRIoST7SvtNnyU65egF74ZTyG4LqYJD1wtOR8s84b8pDirSzQJCU+a1HgW
+         OyxsInGhATQX6uT4KunTtbkVV9b/YgHf77yTlliKlaof5yYVR4YFGGnwyeudrfLub9cf
+         ZQxg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1790781939; x=1791386739;
+        h=content-transfer-encoding:content-type:in-reply-to:from
+         :content-language:references:cc:to:subject:user-agent:mime-version
+         :date:message-id:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=URPVZ5mnqaX/4a/mHP5WDlkoNKbhEPagHNKAx4oZedE=;
+        b=YAiRznjhedvXiX9EWl9mPGQ9k0WAp9tN4KuMToNEGaHNNzxafU68E3rPZ9xmxjVcya
+         bGsZu9VOrmv597K0dQJS9lP7vhSO6OsXstAIw9cC2t0+9lanqR7ot56wr9P0VFtaX8lv
+         fa0sWUIkEH4haP7imEVq6r4eHlmxxf2IS5boN1lnRc1A2r0WhcEvKAptUYeWMeEurgGz
+         6tDzSCjUfwDywYoDbnaGs/JlFnmpougvZ4B4OwrhcCIsrm+x4Gf1TQaqvSe4dXCGVpry
+         BAIiPI/YQvI518z02tYSkeIXukaiVdW1jBOcBhJVQggZ8fv3SnL03HJ4vBP+eM6tFhJ4
+         RtRw==
+X-Forwarded-Encrypted: i=1; AKwUvBwtraqJjzY3j/Vb5Q8u25d4zEmYSNezC3aL7AMKOEOEeJ4Fc/V+8jNCBrT8Ly75VmXsUbshbnDvNA1KUqEzY0kn@lists.infradead.org
+X-Gm-Message-State: AFq9FYKrbZrZ5NjH3ENaZBIuHzJEsm8A942KXS0dyKcRHNben1j8nB08
+	RegahV5e1mMDUPAg13eLejFWM6zxDr8ppZh2j9mWeuDbhvkSkMltyuzynL5djotmCd0=
+X-Gm-Gg: AYBFou1JaiOC5m6NuCxFdkf4OvB+eOp0bi2f02Zr5cz9fA7DjBWEQkQJORM7rlZoWIr
+	aiGK7WiarYThmCYVPqP1g/WVlxoIDQKAg4+6nieO1Evo7PRc7wiTGUEazvBYoq4yXdq+4Eoe7cL
+	Hrgc30rboLgRNfaozYf4viTSR/cTXml22A/WZlRexKSCfgm0wcgDmvw7rjhFVl4hv30mUqZMbE2
+	8NsJsODUib/29V9QiAn5hJZynE/0dIUnyiU07lwQzuIOP0rerpfSU6O9lmkOZAiaLhT/qzqQRMl
+	pRHpIHgcvdP4tCdRJjT+h4+Zpy0mdsN7LIe6vLVts119AI4RMUvpT4CYHEKqkl2a+bhCLqgIMK6
+	SAYq860WRZFAZhpAuQ6T4y/lI26Hrcun1pX+3L2uRFZ3QMPeO/4CemmYzxvnPiv63KSg/RcLUai
+	K8jp1/RmeDK1j5cRK2+vG/XlZZXlDo0l/aD/R79e/f2IyBIIr/t3drxOGqADLNB0A/xGrkndupc
+	JI=
+X-Received: by 2002:a17:907:6095:b0:c29:5215:b2d8 with SMTP id a640c23a62f3a-c2e23cabf4fmr155306066b.14.1790781938443;
+        Wed, 30 Sep 2026 08:25:38 -0700 (PDT)
+Received: from [192.168.1.3] ([37.18.141.193])
+        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-c2e31dd955bsm23066166b.70.2026.09.30.08.25.36
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Wed, 30 Sep 2026 08:25:38 -0700 (PDT)
+Message-ID: <8e47bb89-a894-4fd0-9f96-e11b5dea1972@linaro.org>
+Date: Wed, 30 Sep 2026 16:25:36 +0100
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: GV2PR04MB11799:EE_|VI1PR04MB6957:EE_
-X-MS-Office365-Filtering-Correlation-Id: 9b26f46d-a992-477b-5e7b-08df1f06069b
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|23010399003|19092799006|7416014|376014|1800799024|366016|10067099003|11063799006|56012099006|22082099003|18002099003;
-X-Microsoft-Antispam-Message-Info: q7zcYIYz0kZYAgXJp54fHpPHMYxkkMoHjlw5CmGWlQFfqxCY4OkXDT+VLBGVhO1PXmGeWK3oU3lpv2ctyR+4CoVchOzAhf+TlTKyQF89KFi6jO//EDO/5IyRNbr0yXJgc1XxuKpf/d3jxAlmALRySKOfDMn534VmMbGecd7G5A231tUzoVsATPgG8xFlhqpS7x/YqsqQRBdCcjgL3GQMeG3wxs5HZgIHS4uj6b7Vqne1qAcphBp2dR4Gk9BxM7Xk85S/bac/EKClAzT7EIjCrzwuefcGwZbKJdezkylzG1qm5D5h3bvAxVs21Nio5LPIx5ESGCoZbLQheCbpgCmZMpfp7UyFg/htlA7sNMVeJvaGZoKTh3oBVQUJu3hKIgWBU31L1RcSEVMzss1LMNefQxAz+JN7zMeLmDCTPStuc+EtWi/D2ea//V8vMmmx+4i72Lk+nCKjMZ9lP8VB+0CkH+vso5cuBFKuVhyMFN9sP6kmNEREVsp5J2dkVdaS3YKGxLrAqFEdnU5eQoztET77/bkEv/OFjV+4E4MLlHJhXcqDWN78kVjShibaDunJnrkBVVt24k9Wgm2o6M0mDoJOF+KvrkFc1IfkjcL3dVEFAQixqRNjf0Iq7SkLBNtrjFeZRNCKWUGLQfYdnEnfC7UiFyS9r0ZqUdPg1EHsoChW6MY=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:GV2PR04MB11799.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(23010399003)(19092799006)(7416014)(376014)(1800799024)(366016)(10067099003)(11063799006)(56012099006)(22082099003)(18002099003);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?a1ZFSVNVQ1pGdEtCTDV0ZHExU3crR2w5blBmTlNZVHJXdllUU2xPT0l2YWVv?=
- =?utf-8?B?Q1NqQXFTMVFZcnhaNEZoWHhhVllRTDRnV3FXNTArTDVBbTJuSXNYbnN5c0d3?=
- =?utf-8?B?OVZLVm0rZ2NCT3BZaUVoRXEvcVhOYm1ZMHdiN2N3OXgvbWZCalNCaWZld3ZT?=
- =?utf-8?B?MnBNZTZuejM1TThQOHh2Mmh0dGZGYWNTOXIxWUpvS2FDY2JGOTd3VnhLdEVq?=
- =?utf-8?B?REhuWDdUWmpRNGdaUlkvZGNLY0V0Vk9MWGpUek4wM1VkWUpZQWhUQkFGckpx?=
- =?utf-8?B?WHNnOU1PNitVc0F6Q0RrVlY0M2I5YjlRdWtTVHJDdGsyK3E0cWlCQisvSzBX?=
- =?utf-8?B?YTZlRGhXZnJ1SHRUT05ocldvOTFEcERwTUZmOFpwdkN3NG5WWGpHZEovcU50?=
- =?utf-8?B?bVdlMDZ5emU0bG1ydk9rWDBLdDkvelM5NUQrWTQrbjZpU0g3RzBNc3hqcnIv?=
- =?utf-8?B?Y1UwaGIzRy8xRDRzY2RZalB4cmZOWXhGTGxBMzhSWTRuMzJXRWtJMUlJMDg2?=
- =?utf-8?B?YmRIenpOUGZHejMzSXNURkhLZ1NZRTVaaDJJQVpPTHI1WDhsY2Nidm9xbEtU?=
- =?utf-8?B?ekVZNEtuVHZvdkpEV0FiTGxFZktWWVowbDVWZmlMR3AvRlhHNUo4bjB1Q2No?=
- =?utf-8?B?V3kvR011S1ZmY01udi81S2RnY2N6cnhId1pWZ1N5NjIzRDlCREFpZGdJSDlU?=
- =?utf-8?B?OFFIUXdoeDB1MWJPU29LSkJRWGJIcWxZVllGV2FOT1FETGJ0VmxYVmtIVUQ5?=
- =?utf-8?B?UVArSkZjQjg4d01MWmFTUHk3TU80RFJudE1JblhJamRGeW9GRDlEQ3Y1cjJB?=
- =?utf-8?B?R0RJNmJQQ1l3YzIycFJTVEhhU1JQWWR0eVZJMTZzWHZmNmFnWkNhd1NHVTB3?=
- =?utf-8?B?N3hQcG1jUUZ1c1Y0K3F0TkZWeEVyN0tqSFRBS3A3WHIrd2tiYlMrYWdmeDdp?=
- =?utf-8?B?MnpyRGE3ZnYxbnV5LzdxeUgzSW96YmF5TjFwY3FQRDFFK3VLNnA5VjlwZU16?=
- =?utf-8?B?V0wwblVnWmIzY05CZ1ZsYm44M05EcEh3TGJhUWVvZFhhMlpVc2diSUpsZzdK?=
- =?utf-8?B?ZGhaMkF3VU1PbHhRNGlFVTVUU1FJejBONEdsQ3VnekFuUWVWY0t4NWNZWXBk?=
- =?utf-8?B?a25oU2ZCS29YbWVrSEN3ZTNCeVdWa3ZIRGtFajl3OElJbEx2ZjJXSERpLzRY?=
- =?utf-8?B?ekZyLzY1cDBRNFI5TkFiUG1nN1UwbGhhdUNoUmNjMkNJcTNwZnpURnIrYlBT?=
- =?utf-8?B?aW15ekFSU1A5MFNUZ3FtOW9IZUpvWTN2YzJVNWM4WDV5L3lBdnVQM1pTcC9X?=
- =?utf-8?B?dXVCN3IrYTVLQVVKOENwU2dWK3B4OWZlMm9vZ2k3ay9DUHFQZUYvQU9DdlhM?=
- =?utf-8?B?YW1UcEVLZUx2VHhjc3hkUFQydVh0TnVIV3JGSWl4NHJ6UVBtRmw4N3BuZ1hE?=
- =?utf-8?B?QXN2Nml1aHJVeTFpVkpoRVFaNDFLZFlqcFI2N0Jqckh2QjRuMHJKamJsb3Z4?=
- =?utf-8?B?eXVSOUtEN0dBNjYvNkRqRExVbWhlWGgrbUoyaWlsQWc2KythTWlWdmtzeDFN?=
- =?utf-8?B?WDd6aGlHZlpCWWJxck5URUtENkkrQ2U5OUZwZDVFNDArN3FvODNwNDRlQlpC?=
- =?utf-8?B?OE0wQVJnY21QYk0vOTlqcUFML2dvd2lEQU5YNWdVSkZOcVJmTGZYNXFMVnFH?=
- =?utf-8?B?Y25wVE9kRk1ER2pzaWE2V0tnbmlXZi96U25IQlJWS05lVkxOMjlxOXZtTE14?=
- =?utf-8?B?RzNXc2VTUWNwd3IxNmVmaUcxOU1zemt0M0RNTDNzYU83VEp0bWE5Um1JUXYx?=
- =?utf-8?B?ZmIrYm1RUWxMR0JML2NvKzNhdmZ4TUJIWHpmK1oxR2RCY1ovYU1NZjN2T0xG?=
- =?utf-8?B?THFpSWUrL2JwRnUrQ0U4SGFEa1c2cExSZWM5YjNjQ1RvaTFwc25PemlNWldI?=
- =?utf-8?B?Q0thbkhvTUh5N3VCUlFGSlJiUXdZczJNenhMaTYyc1daVEpOUkk1QVc1aFVN?=
- =?utf-8?B?SmZZaDd2bnIwcDd4cTF0S1Z2aCtvWHRvR2lVOGgxVGNLdVFzTGs2RW5FQnp1?=
- =?utf-8?B?VG94M2ZjcDFsdTlLVERSdjdQNmh3Rnlrb0RDRGhWb29nc2ZsNU9PUTk3bTFy?=
- =?utf-8?B?Z3hHd1F4Ry9MTCsyYjEzSTVnelZGVk5LYjYyUFEwYzREdGRkdHdBMUU3SEV0?=
- =?utf-8?B?MDRVSEJQclhadVR6Qklsck9sVG00dWRMalVRRHU1NWtvOU03WTlFTXl6OFZt?=
- =?utf-8?B?NG1iaUJuVXRVdUVxL3UyQWVKMklRbTBaUUUvOFM4NXd6S2JQY1B6VlRndVJx?=
- =?utf-8?B?VzU4c0g2UFRtTUhHM25OOHBsMGdFb2VLNU1MNVR0Tmo3MXFZMnBabXB0MGpG?=
- =?utf-8?Q?El6q+m6Pr55hnCNfIAkOJKgmO/WzYUj3Mvoh6?=
-X-OriginatorOrg: oss.nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 9b26f46d-a992-477b-5e7b-08df1f06069b
-X-MS-Exchange-CrossTenant-AuthSource: GV2PR04MB11799.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 30 Sep 2026 15:18:05.3258
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: ummxiySWjvNkljBIHbVMrqAVvPes80foPENJ2mr9LsuZ7sXXJEExhG3u+3CFnSHrHO6mE2knw3ExC/UKBff2AdVU6XRg1BSrWoLXUn+957jGd4a1vVwQjvG/UrpCPLr6
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: VI1PR04MB6957
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v9 00/22] ARM64 PMU Partitioning
+To: Colton Lewis <coltonlewis@google.com>
+Cc: Marc Zyngier <maz@kernel.org>, Oliver Upton <oupton@kernel.org>,
+ Oliver Upton <oliver.upton@linux.dev>, Joey Gouly <joey.gouly@arm.com>,
+ Suzuki K Poulose <suzuki.poulose@arm.com>, Zenghui Yu
+ <yuzenghui@huawei.com>, Fuad Tabba <fuad.tabba@linux.dev>,
+ Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
+ Mark Rutland <mark.rutland@arm.com>, Paolo Bonzini <pbonzini@redhat.com>,
+ Peter Zijlstra <peterz@infradead.org>, Ingo Molnar <mingo@redhat.com>,
+ Arnaldo Carvalho de Melo <acme@kernel.org>,
+ Namhyung Kim <namhyung@kernel.org>, Robin Murphy <robin.murphy@arm.com>,
+ Zide Chen <zide.chen@intel.com>, Alexandru Elisei
+ <alexandru.elisei@arm.com>,
+ Ganapatrao Kulkarni <gankulkarni@os.amperecomputing.com>,
+ Mingwei Zhang <mizhang@google.com>, Jonathan Corbet <corbet@lwn.net>,
+ Russell King <linux@armlinux.org.uk>, Shuah Khan <shuah@kernel.org>,
+ linux-perf-users@vger.kernel.org, linux-kselftest@vger.kernel.org,
+ linux-doc@vger.kernel.org, linux-kernel@vger.kernel.org,
+ kvm@vger.kernel.org, kvmarm@lists.linux.dev,
+ linux-arm-kernel@lists.infradead.org
+References: <20260924172928.2110956-1-coltonlewis@google.com>
+Content-Language: en-US
+From: James Clark <james.clark@linaro.org>
+In-Reply-To: <20260924172928.2110956-1-coltonlewis@google.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260930_161810_708344_5857DA7F 
-X-CRM114-Status: UNSURE (   9.22  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260930_082546_152109_37468399 
+X-CRM114-Status: GOOD (  30.80  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -171,22 +119,194 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Frank Li <Frank.Li@nxp.com>
 
 
-On Fri, 11 Sep 2026 22:55:30 +0200, Heiner Kallweit wrote:
-> After 8392af7be78d ("ARM: imx6q: remove KSZ9021 PHY fixup") there's
-> no user of phy.h and micrel_phy.h left.
+On 24/09/2026 18:29, Colton Lewis wrote:
+> This series creates a new PMU scheme on ARM, a partitioned PMU that
+> allows reserving a subset of counters for more direct guest access,
+> significantly reducing overhead. More details, including performance
+> benchmarks, can be read in the v1 cover letter linked below.
+> 
+> There is no longer a kernel command line parameter
+> (`arm_pmuv3.reserved_host_counters`); PMU partitioning is now completely
+> controlled via the KVM API using `KVM_ARM_VCPU_PMU_V3_ENABLE_PARTITION`
+> and `KVM_ARM_VCPU_PMU_V3_SET_NR_COUNTERS` vCPU device attributes. When
+> partitioning is enabled for a VM, userspace must explicitly configure a
+> guest event counter count strictly less than the maximum general-purpose
+> counters implemented by the PMU (leaving at least one general-purpose
+> counter for the host) prior to calling `KVM_ARM_VCPU_PMU_V3_INIT`. A QEMU
+> patch demonstrating how to use the uAPI is sent separately.
+> 
+> An overview of what this series accomplishes was presented at KVM
+> Forum 2025. Slides [1] and video [2] are linked below.
+> 
+> v9:
+> 
+> * Rebase on top of v7.3-rc4.
+> 
+> * Drop the `arm_pmuv3.reserved_host_counters` module parameter so
+>    partitioning is completely controlled via the KVM vCPU device
+>    attribute uAPI (`KVM_ARM_VCPU_PMU_V3_ENABLE_PARTITION` and
+>    `KVM_ARM_VCPU_PMU_V3_SET_NR_COUNTERS`), and document the new
+>    attribute and counter allocation rules in
+>    `Documentation/virt/kvm/devices/vcpu.rst` (James Clark).
+> 
+> * Move the dynamic counter allocation mask (`cntr_mask`) from global
+>    `struct arm_pmu` to per-CPU `struct pmu_hw_events` (`cpuc->cntr_mask`)
+>    in a dedicated `drivers/perf` patch, fixing multi-pCPU counter
+>    reservation clobbering on vCPU migration and eliminating the
+>    `cpu_pm_pmu_setup()` cpuidle `WARN_ON_ONCE` (Zide Chen, James Clark).
+> 
+> * Synchronously propagate trapped guest writes to `PMEVTYPER<n>_EL0`
+>    and `PMCCFILTR_EL0` to hardware via `kvm_pmu_apply_single_event_filter()`
+>    when guest-owned, fixing in-guest `perf stat` event count skew across
+>    runs (James Clark, Sashiko AI Review).
+> 
+> * Refactor `armv8pmu_can_use_pmccntr()` and `armv8pmu_get_event_idx()`
+>    to check `cntr_mask` inside `armv8pmu_can_use_pmccntr()` and un-nest
+>    the 64-bit user-access check so cycle events fall back cleanly to
+>    general-purpose counters when `PMCCNTR_EL0` is reserved by a guest
+>    (Robin Murphy).
+> 
+> * Restrict the lazy transition to `VCPU_PMU_ACCESS_GUEST_OWNED` to when
+>    the guest actively enables counting (`PMCR_EL0.E = 1` or setting guest
+>    counter bits in `PMCNTENSET_EL0` / `PMINTENSET_EL1`), preventing guest
+>    boot-time PMU probing from prematurely claiming hardware counters and
+>    triggering spurious host counter preemption warnings (James Clark).
+> 
+> * Fix patch dependency ordering and series bisectability across all
+>    commits, removing intermediate `max_guest_counters` / `hw_cntr_impl`
+>    churn and squashing the selftest exception relaxation into the
+>    Partitioned PMU selftest patch (James Clark).
+> 
+> * Fix compiler warning for `struct arm_pmu` declaration in
+>    `include/kvm/arm_pmu.h` (kernel test robot) and guard
+>    `kvm_pmu_host_counter_mask()` when KVM is compiled in but not active
+>    (wuyifan).
+> 
+> * Track physical CPU PMU residency in `vcpu->arch.pmu.loaded_on_cpu`
+>    separately from `VCPU_PMU_ACCESS_GUEST_OWNED`, and toggle
+>    `MDCR_EL2.HPME` via `kvm_pmu_host_start()` / `kvm_pmu_host_stop()`
+>    instead of `PMCR_EL0.E` when starting/stopping host perf events while
+>    a partitioned guest is loaded.
+> 
+> * Allow `kvm_vcpu_pmu_resync_el0()` to resynchronize VHE EL0 event
+>    filters (`PMEVTYPER<n>_EL0.U`) in process context and order
+>    `kvm_pmu_put()` before `kvm_vcpu_pmu_restore_host()` in
+>    `kvm_arch_vcpu_put()`.
+> 
+> * Address additional Sashiko AI Review findings:
+>    - Check `idx - 1` against `cpuc->cntr_mask` in `armv8pmu_get_chain_idx()`
+>      to prevent 64-bit chained host events from crossing an odd `HPMN`
+>      partition boundary, and use `cpuc->cntr_mask` in
+>      `armv8pmu_enable_user_access()`.
+>    - Latch live hardware `PMOVSSET_EL0` overflow bits for guest counters
+>      with IRQs disabled (`local_irq_save()`) in `kvm_pmu_part_overflow_status()`
+>      and during trapped guest accesses to `PMOVS{SET,CLR}_EL0`.
+>    - Add mandatory `isb()` barriers after control-plane system register
+>      writes (`mdcr_el2`, `pmcntenclr_el0`, `pmintenclr_el1`), preserve
+>      guest `PMSELR_EL0` / `PMUSERENR_EL0` when `MDCR_EL2.TPM == 0`, and
+>      restore host `PMCR_EL0` control flags on `kvm_pmu_put()`.
+> 
+> v8:
+> https://lore.kernel.org/kvmarm/20260612192909.1153907-1-coltonlewis@google.com/
+> 
+> v7:
+> https://lore.kernel.org/kvmarm/20260504211813.1804997-1-coltonlewis@google.com/
+> 
+> v6:
+> https://lore.kernel.org/kvmarm/20260209221414.2169465-1-coltonlewis@google.com/
+> 
+> v5:
+> https://lore.kernel.org/kvmarm/20251209205121.1871534-1-coltonlewis@google.com/
+> 
+> v4:
+> https://lore.kernel.org/kvmarm/20250714225917.1396543-1-coltonlewis@google.com/
+> 
+> v3:
+> https://lore.kernel.org/kvm/20250626200459.1153955-1-coltonlewis@google.com/
+> 
+> v2:
+> https://lore.kernel.org/kvm/20250620221326.1261128-1-coltonlewis@google.com/
+> 
+> v1:
+> https://lore.kernel.org/kvm/20250602192702.2125115-1-coltonlewis@google.com/
+> 
+> [1] https://gitlab.com/qemu-project/kvm-forum/-/raw/main/_attachments/2025/Optimizing__itvHkhc.pdf
+> [2] https://www.youtube.com/watch?v=YRzZ8jMIA6M&list=PLW3ep1uCIRfxwmllXTOA2txfDWN6vUOHp&index=9
+> 
+> Colton Lewis (21):
+>    arm64: cpufeature: Add cpucap for HPMN0
+>    KVM: arm64: Reorganize PMU functions
+>    perf: arm_pmuv3: Generalize counter bitmasks
+>    perf: arm_pmuv3: Move counter allocation mask to per-CPU struct
+>      pmu_hw_events
+>    perf: arm_pmuv3: Check cntr_mask before using pmccntr
+>    perf: arm_pmuv3: Allocate counter indices from high to low
+>    KVM: arm64: Add initial scaffolding for Partitioned PMU
+>    KVM: arm64: Set up FGT for Partitioned PMU
+>    KVM: arm64: Add Partitioned PMU register trap handlers
+>    KVM: arm64: Set up MDCR_EL2 to handle a Partitioned PMU
+>    KVM: arm64: Context swap Partitioned PMU guest registers
+>    KVM: arm64: Enforce PMU event filter at vcpu_load()
+>    perf: Add perf_pmu_resched_update()
+>    KVM: arm64: Allow kvm_vcpu_pmu_resync_el0() to resync filters in
+>      process context
+>    KVM: arm64: Apply dynamic guest counter reservations
+>    KVM: arm64: Implement lazy PMU context swaps
+>    perf: arm_pmuv3: Handle IRQs for Partitioned PMU guest counters
+>    KVM: arm64: Detect overflows for the Partitioned PMU
+>    KVM: arm64: Add vCPU device attr to partition the PMU
+>    KVM: selftests: Add find_bit to KVM library
+>    KVM: arm64: selftests: Add test case for Partitioned PMU
+> 
+> Marc Zyngier (1):
+>    KVM: arm64: Reorganize PMU includes
+> 
+>   Documentation/virt/kvm/devices/vcpu.rst       |  42 +-
+>   arch/arm/include/asm/arm_pmuv3.h              |  16 +
+>   arch/arm64/include/asm/arm_pmuv3.h            |   7 +-
+>   arch/arm64/include/asm/kvm_host.h             |  18 +-
+>   arch/arm64/include/asm/kvm_types.h            |   6 +-
+>   arch/arm64/include/uapi/asm/kvm.h             |   2 +
+>   arch/arm64/kernel/cpufeature.c                |  10 +-
+>   arch/arm64/kvm/Makefile                       |   2 +-
+>   arch/arm64/kvm/arm.c                          |   4 +-
+>   arch/arm64/kvm/config.c                       |  49 +-
+>   arch/arm64/kvm/debug.c                        |  41 +-
+>   arch/arm64/kvm/pmu-direct.c                   | 636 ++++++++++++++
+>   arch/arm64/kvm/pmu-emul.c                     | 718 +---------------
+>   arch/arm64/kvm/pmu.c                          | 787 +++++++++++++++++-
+>   arch/arm64/kvm/sys_regs.c                     | 334 ++++++--
+>   arch/arm64/tools/cpucaps                      |   1 +
+>   arch/arm64/tools/sysreg                       |   6 +-
+>   drivers/perf/arm_pmu.c                        |   7 +-
+>   drivers/perf/arm_pmuv3.c                      |  97 ++-
+>   include/kvm/arm_pmu.h                         |  93 ++-
+>   include/linux/perf/arm_pmu.h                  |   2 +
+>   include/linux/perf/arm_pmuv3.h                |  14 +-
+>   include/linux/perf_event.h                    |   3 +
+>   kernel/events/core.c                          |  31 +-
+>   tools/include/perf/arm_pmuv3.h                |  12 +-
+>   tools/testing/selftests/kvm/Makefile.kvm      |   1 +
+>   .../selftests/kvm/arm64/vpmu_counter_access.c | 129 ++-
+>   tools/testing/selftests/kvm/lib/find_bit.c    |   2 +
+>   28 files changed, 2200 insertions(+), 870 deletions(-)
+>   create mode 100644 arch/arm64/kvm/pmu-direct.c
+>   create mode 100644 tools/testing/selftests/kvm/lib/find_bit.c
+> 
+> 
+> base-commit: 93f51579e7df248780214094418f205253383cc5
 
-Applied, thanks!
+Hi Colton,
 
-[1/1] ARM: imx6q: remove unused header includes
-      commit: 1a0a1dbf72e7ef7a6abbe14987b249f0f7754aa2
+Looks good to me, everything seems to be working now:
 
-I just sent out pull-request. I missed this patch. If there are chance to
-resend pull-request for 7.4, I will include this patch.
+Tested-by: James Clark <james.clark@linaro.org>
 
-Best regards,
---
-Frank Li <Frank.Li@nxp.com>
+There are still a few Sashiko comments though, and one critical one 
+about racing with pseudo-NMI PMU interrupts that looked reasonable. I 
+tried to test it and reproduce an actual issue but couldn't, so maybe 
+it's bogus.
+
 
