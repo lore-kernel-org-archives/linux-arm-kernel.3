@@ -4,109 +4,92 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CA883CA5FBB
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 30 Sep 2026 07:36:42 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6C34DCA5FC1
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 30 Sep 2026 07:41:18 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
-	:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=PRNSLRyn2N1iTesBby/+rq6D8yhyFSP+EyakI7q9A6g=; b=HBAIz/0CdHpir1qoayo4uu0D9r
-	cGhimFyV6QlT2pqOF5qv7/PChT7jBNLhsf2rCu114pah1XZUh6BXuSfbfkdHNgtXRgwkxjAcHJCHG
-	KS7WUQ2x9VuhltSZLE4Rkd3bri7IQ5SqYAxlStfzDsWsGQcqFQYy1E63WIGZFblvjPB+QwgNWl1Qq
-	M/HohXK/YoTIrGrCB6SoVZZ1WR0mQ7We5ZvNYZlAWyueRGwH4ubueVEd8NROjCXS3H2b4h0/ETmwz
-	vxfEnMUHkKDSFk7tm1qvXFKg9mhPffKXQh9HRarE/lC85S02qFz8EcDPYnIkdsY21HDp9WHyz6hcZ
-	sKhFC0kA==;
+	bh=vl2WbgCK45kh6MFsyNlXms8lFKSMElBCb1+7VmaLGjQ=; b=e908r/sHh9+GFX1InqtfVGd35x
+	JZv/wz8yQYopthnhbKS4Pei77vvYZzhjEVGaaiWoA/7OVYALtkd7KwWiwSra2Uab3Ya2zyCK9ds5M
+	ak2Em5/KSvQy5s/qN430m1SIz6+CTo7r4iKBJEUqAdw7jam9qOkRX/DPkv1EBZn4si6c0kwnfvmVl
+	aq2ug7TJlxGUyfDXaBHUTN//a1ileZWTEerqE1DFrR53iuxzk2y3WjcqBadnQHMdJkRYm/JKaqvt2
+	8qrlAOb0MQXb9MGnBkrWZsGZqrpMME6aPs1a/aADMz6PmfMK0a5HwsvPRgnmkhWUk12mbt4Ppt1ve
+	7YzErbhg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xBork-00000005Hzm-1110;
-	Wed, 30 Sep 2026 07:36:36 +0000
-Received: from mail-pj2-x16.google.com ([2607:f8b0:4864:39::16])
+	id 1xBovy-00000005IYb-2V2a;
+	Wed, 30 Sep 2026 07:41:01 +0000
+Received: from mgamail.intel.com ([192.198.163.12])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xBorg-00000005Hwv-40qg
+	id 1xBovw-00000005IY2-0vp7
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 30 Sep 2026 07:36:35 +0000
-Received: by mail-pj2-x16.google.com with SMTP id 98e67ed59e1d1-3a4c276e1c7so236124a91.0
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 30 Sep 2026 00:36:32 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1790753792; x=1791358592; darn=lists.infradead.org;
-        h=content-type:content-transfer-encoding:mime-version:references
-         :in-reply-to:message-id:date:subject:cc:to:from:from:to:cc:subject
-         :date:message-id:reply-to:content-type;
-        bh=PRNSLRyn2N1iTesBby/+rq6D8yhyFSP+EyakI7q9A6g=;
-        b=kSmBxTIJdXxzW6BOYSjscFNcO7JJjEAh+EBrYtsuTOT+9R4BYr+KYIAsi1neFCot/E
-         HaSTp8LB3SR4OT/eJ74DGMAPmLlzTpuUEqxS2jUcEFiM5u79kFmVj3EQp4H5FffT+yxH
-         hn1O6gSrpdHA+X4Ed8Cx1Yh9zrJF8KzxICcP/lD5JWM/VyOgwYOS6+NWvmmxc73EQFp8
-         rRKAQtb1pkx4Gf252C10ee8vS2rap/5Pyz9aYMUmrSOxOvAWy6wx8wm6mR45HwxS8/QU
-         GGLRdSngnPjoKso4UPf8iXKxBFZ41XgXK0V32xoSnp6750EwEIFsWeVcNJ2r1susCnQN
-         rMLA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1790753792; x=1791358592;
-        h=content-type:content-transfer-encoding:mime-version:references
-         :in-reply-to:message-id:date:subject:cc:to:from:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=PRNSLRyn2N1iTesBby/+rq6D8yhyFSP+EyakI7q9A6g=;
-        b=eB4YAWsSfHhAhldBlI3e91VwFXZPKnRyoz8oeAhf7agPlERymfVukwuuC8yZ5ncClq
-         9jillNSxQH9I1F/+XLLUUBHcDZzJj9FifimkZad+TveqyR6fSpr8nRC7TwNDWTqUL/8S
-         n3jTKaVu5PnzyGFnCl2SEOr4PoncjuXRnXmeUPrJ95oTm+WROBGFPjQVzt7Gdqq662Hh
-         y/d+KyrtrxjWo1de+tPJf/cwSaByoO4sOigG9t7ZjpTbvvQDHMRP5Pec7QnqatAfWPIP
-         9MAfwBMOJNehL9a9CYkczCjnSWxnHzPPnVjIGh9v1Tnznq/oifb4kXmi4vmeur1ZCgyI
-         xwrQ==
-X-Forwarded-Encrypted: i=1; AKwUvBwQC4C4SOGynWfiiqW3g/9QeWp07ru4Uhy9zx/TNgYvffLrr95iGtx6fvUknTQJtJeuNzjixEsPIuSz4RRy6wa9@lists.infradead.org
-X-Gm-Message-State: AFuF++n2V8keHqY0O6B4/3EaejaRPCFZk8nFRBAjp187Gxo32Fpg2mcH
-	epv6CbK8Y3KAzODIl9vOSTF137dcIeeSRlNG0qdGC19dO/L0r2s7VQUk
-X-Gm-Gg: AYBFou38mmD0TyLhtwNcNmFSNt4yHdGRpYBo9Ua/LX3bGhfllXz5vCQqnVZYjGICC0L
-	kU+WtMFAUvqhjRSjFavOdb/KIPswtDjs7uClCRBgPe757h0NkUJCmsa92PhfSVB3suQIYBEX3Xg
-	enBE2geDfB097NLmkRTGTgAXiTs0nh9hPSa+rLK6etMw26fL64Mzs+OBg8zQimWR9gumIeW36HZ
-	fIwOW7PHjmZerkD2Ei07kQv11/VVkFgo93Vly6n0bL4vAUfz/3DGMugj5pPiXSQo8k51Mo9y13e
-	O9fBRPZbgZZ9NESmghjlu4ViUOw0BvLc+0ZRHzxzAXAjdiTdMtlY3FUBTC4tVdkl+iXNrAB/MqB
-	MZuiydH/o11niDbRXu/VgFhRR4oMz7YqdO3QxTJn/N1jZo09MiZ9WiX8QDr8G59gAJrEKs18gfs
-	U0NGLJs4Q3ZtO/ADDGSTx+ciWO3OIvN2ZKGkl2eOWUIzsU5+3T38Puk8IqcQLVrVy2+rIbJ4OKL
-	skNDCjWq0vrEvIcTtJu1fDyfSkqulk0GxOJl449JIoGAY3dO7WEd61kKNdDQp8MGbtPE+DuFL6W
-	5UWs6oS3IAYYb79Ti5Cc/fU8wD+n36GQ2ULAeHqB5qTddOwz/g==
-X-Received: by 2002:a05:6a20:d492:b0:3dd:a196:3095 with SMTP id adf61e73a8af0-3de9ebb39c1mr589504637.69.1790753791652;
-        Wed, 30 Sep 2026 00:36:31 -0700 (PDT)
-Received: from minako.localnet ([2403:581e:d87e:0:739f:50a5:e171:f133])
-        by smtp.gmail.com with ESMTPSA id 41be03b00d2f7-cc7dab202f1sm367179a12.27.2026.09.30.00.36.22
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 30 Sep 2026 00:36:31 -0700 (PDT)
-From: James Calligeros <jcalligeros99@gmail.com>
-To: Mark Brown <broonie@kernel.org>
-Cc: Martin =?UTF-8?B?UG92acWhZXI=?= <povik+lin@cutebit.org>,
- Liam Girdwood <lgirdwood@gmail.com>, Rob Herring <robh@kernel.org>,
- Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>,
- Sven Peter <sven@kernel.org>, Janne Grunau <j@jannau.net>,
- Neal Gompa <neal@gompa.dev>, David Rhodes <david.rhodes@cirrus.com>,
- Richard Fitzgerald <rf@opensource.cirrus.com>,
- Jaroslav Kysela <perex@perex.cz>, Takashi Iwai <tiwai@suse.com>,
- Ulf Hansson <ulfh@kernel.org>, Amit Kucheria <amit.kucheria@linaro.org>,
- "Rafael J. Wysocki" <rafael.j.wysocki@intel.com>,
- Lars-Peter Clausen <lars@metafoo.de>, Vinod Koul <vkoul@kernel.org>,
- Matthias Brugger <matthias.bgg@gmail.com>,
- AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
- Shenghao Ding <shenghao-ding@ti.com>, Kevin Lu <kevin-lu@ti.com>,
- Baojun Xu <baojun.xu@ti.com>, Sen Wang <sen@ti.com>,
- James Schulman <james.schulman@cirrus.com>, asahi@lists.linux.dev,
- linux-sound@vger.kernel.org, devicetree@vger.kernel.org,
- linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- patches@opensource.cirrus.com, Takashi Iwai <tiwai@suse.de>,
- linux-mediatek@lists.infradead.org, Hector Martin <marcan@marcan.st>,
- Sasha Finkelstein <k@chaosmail.tech>
-Subject: Re: [PATCH 16/28] ASoC: apple: Add macaudio machine driver
-Date: Wed, 30 Sep 2026 17:36:21 +1000
-Message-ID: <ItQHm5ZKQ4Wltp6qbCRkSA@gmail.com>
-In-Reply-To: <0ae94fbe-cd41-4d49-b073-e65ab8eff724@sirena.org.uk>
-References: <20260920-macaudio-v1-0-741cc20a74e5@gmail.com>
- <6dv6M3LAS9mol5fvC8Ie-w@gmail.com>
- <0ae94fbe-cd41-4d49-b073-e65ab8eff724@sirena.org.uk>
+	Wed, 30 Sep 2026 07:40:57 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1790754056; x=1822290056;
+  h=date:from:to:cc:subject:message-id:references:
+   mime-version:in-reply-to;
+  bh=DB/gpgguVjDIuVwtjp6SLVEmPbEKy+QEiu2yF2ynW1A=;
+  b=kHZjVW8oodDY6PItDfdr4PoRAluLD5yfIx0lWfsJ+8fcKN6gqFYbN9v+
+   VjsmzAgsS8DmgrGs6t0wB5dQjWFwCY21B4tWFGRQ3BNrozhnwPae3mRQc
+   C7+s9HUmUHlkPT8ps0JSkEGr0Iy+38OH/vZq9JlTPLzXvo1k92XnqkyQ1
+   8++gtezw9Yh6AyWfOFTFnISgmjy0mqX2TKovAcDqLuTuJ1Xr2uXMnsk3R
+   jtpgGtxNv/XYXAHHWNfuk9z493OsiGKzZyX8ggu76nvTFLYZHfgW2AgUI
+   HOeDJ4Fo3K+/VuKSr3xVjWjYwcCHxwwrF0g3TtNa4PldR76DnFp4azG8E
+   g==;
+X-CSE-ConnectionGUID: 8WXYXwzHTx60NaCZ7HeUhg==
+X-CSE-MsgGUID: p7WeIjqdSRK6KME+PJTMQQ==
+X-IronPort-AV: E=McAfee;i="6800,10657,11920"; a="95295663"
+X-IronPort-AV: E=Sophos;i="6.27,132,1787036400"; 
+   d="scan'208";a="95295663"
+Received: from orviesa004.jf.intel.com ([10.64.159.144])
+  by fmvoesa106.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 30 Sep 2026 00:40:55 -0700
+X-CSE-ConnectionGUID: ypcLuiZ5TTK7EuilGWHtuw==
+X-CSE-MsgGUID: w/Puch9LTca83ohyI/ylog==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.27,132,1787036400"; 
+   d="scan'208";a="278960059"
+Received: from spandruv-desk1.amr.corp.intel.com (HELO localhost) ([10.245.245.137])
+  by orviesa004-auth.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 30 Sep 2026 00:40:50 -0700
+Date: Wed, 30 Sep 2026 10:40:48 +0300
+From: Andy Shevchenko <andriy.shevchenko@linux.intel.com>
+To: Ashok Raj <ashok.raj@oss.qualcomm.com>
+Cc: Lorenzo Pieralisi <lpieralisi@kernel.org>,
+	"Rafael J. Wysocki" <rafael@kernel.org>,
+	Mark Rutland <mark.rutland@arm.com>, Marc Zyngier <maz@kernel.org>,
+	Daniel Lezcano <daniel.lezcano@kernel.org>,
+	Thomas Gleixner <tglx@kernel.org>,
+	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+	Danilo Krummrich <dakr@kernel.org>,
+	Hanjun Guo <guohanjun@huawei.com>,
+	Sudeep Holla <sudeep.holla@kernel.org>,
+	Wim Van Sebroeck <wim@linux-watchdog.org>,
+	Guenter Roeck <linux@roeck-us.net>,
+	Robin Murphy <robin.murphy@arm.com>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Will Deacon <will@kernel.org>,
+	Bartosz Golaszewski <brgl@kernel.org>, linux-acpi@vger.kernel.org,
+	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+	driver-core@lists.linux.dev, linux-watchdog@vger.kernel.org
+Subject: Re: [PATCH RFC 02/11] ACPI: Introduce irq_get() for static fwnodes
+Message-ID: <ary9AGmVWDuez7Ax@ashevche-desk.local>
+References: <20260925-acpi-static-table-irq-probe-defer-v1-0-2c62125d0085@kernel.org>
+ <20260925-acpi-static-table-irq-probe-defer-v1-2-2c62125d0085@kernel.org>
+ <arr3IhF0bwN4uzUP@hu-ashoraj-lv.qualcomm.com>
+ <art5m5QPXAOAvkvW@red-moon>
+ <arxZ7BAya5ntRi6t@hu-ashoraj-lv.qualcomm.com>
 MIME-Version: 1.0
-Content-Transfer-Encoding: quoted-printable
-Content-Type: text/plain; charset="utf-8"
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <arxZ7BAya5ntRi6t@hu-ashoraj-lv.qualcomm.com>
+Organization: Intel Finland Oy - BIC 0357606-4 - c/o Alberga Business Park, 6
+ krs, Bertel Jungin Aukio 5, 02600 Espoo
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260930_003633_016879_DC793EFB 
-X-CRM114-Status: GOOD (  31.04  )
+X-CRM114-CacheID: sfid-20260930_004056_298461_41A2771C 
+X-CRM114-Status: GOOD (  15.90  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -121,74 +104,30 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Monday, 28 September 2026 9:03:13=E2=80=AFpm Australian Eastern Standard=
- Time Mark=20
-Brown wrote:
-> On Sat, Sep 26, 2026 at 11:06:02AM +1000, James Calligeros wrote:
-> > On Tuesday, 22 September 2026 7:38:54=E2=80=AFpm Australian Eastern Sta=
-ndard Time=20
-Mark Brown wrote:
-> > > > +	list_for_each_entry(kctl, &ma->card.snd_card->controls, list) {
-> > > > +		if (!snd_soc_control_matches(kctl,
-> > > > volume_control_names[ma->cfg->amp]))
-> > > > +			continue;
-> > >=20
-> > > This is used from the volume limit timeout work which doesn't hold the
-> > > controls_rwsem, userspace can add or remove user controls which would
-> > > change the list so the work needs to lock the controls list.
-> >=20
-> > Would it be sufficient to scoped_guard the controls_rwsem wherever we
-> > use this pattern?
->=20
-> I think so, but I didn't properly check.
->=20
+On Tue, Sep 29, 2026 at 05:38:04PM -0700, Ashok Raj wrote:
+> On Tue, Sep 29, 2026 at 10:40:59AM +0200, Lorenzo Pieralisi wrote:
+> > On Mon, Sep 28, 2026 at 04:24:18PM -0700, Ashok Raj wrote:
+> > > On Fri, Sep 25, 2026 at 09:48:01AM +0200, Lorenzo Pieralisi wrote:
 
-I did some testing of this and it causes deadlocks if we try to take the
-semaphore from inside the workqueue. I believe it is related to the fact
-that speakersafetyd has a blocking handle to the controls open at all times.
-This may be fixable by simply having speakersafetyd take a nonblocking
-handle instead. I will do some more testing before submitting v2.
+...
 
-> > > > +static int macaudio_dpcm_hw_params(struct snd_pcm_substream
-> > > > *substream,
-> > > > +				   struct snd_pcm_hw_params *params)
-> > > > +{
-> > > > +	struct snd_soc_pcm_runtime *rtd =3D
-> > > > snd_soc_substream_to_rtd(substream);
-> > > > +	struct macaudio_snd_data *ma =3D snd_soc_card_get_drvdata(rtd->ca=
-rd);
-> > > > +	struct macaudio_link_props *props =3D
-> > > > &ma->link_props[rtd->dai_link->id];
-> > > > +	struct snd_soc_dai *cpu_dai =3D snd_soc_rtd_to_cpu(rtd, 0);
-> > > > +	struct snd_interval *rate =3D hw_param_interval(params,
-> > > > +						     =20
-SNDRV_PCM_HW_PARAM_RATE);
-> > > > +	int bclk_ratio =3D macaudio_get_runtime_bclk_ratio(substream);
-> > > > +	int i;
-> > > > +
-> > > > +	if (props->is_sense) {
-> > > > +		rate->min =3D rate->max =3D cpu_dai->symmetric_rate;
-> > > > +		return 0;
-> > > > +	}
-> > >=20
-> > > It feels like this DAI ought to have separate ops...  Also, for the
-> > > sense link will we definitely already have a rate set up?
-> >=20
-> > AIUI, the cpu rate should always be set up by the time we hit
-> > this path as it is only taken when setting up the VISENSE FE (after the
-> > playback stuff is already set up).
->=20
-> Is that something we actually enforce or is that just a thing a sensible
-> userspace should do?  I can see something racing.
+> > > > +	ret = acpi_static_fwnode_read_u32_prop_index(fwnode, ACPI_IRQ_PROP_GSI_POLARITY,
+> > > > +						index, &polarity);
+> 
+> For each of the above calls for read_u32_prop_index() the allocation,
+> copy a value and does free it. 
+> 
+> Instead you could read the whole array, and just get each value and
+> discard it once? 
 
-We don't really enforce it. speakersafetyd is the only thing that opens the
-VISENSE PCM and does a blocking read of samples
-which only starts and subsequently completes after the "real" PCM
-is configured and playback begins. The sample rate is reliably
-reflected to speakersafetyd via the kcontrol on the VISENSE PCM. We
-have not experienced any race issues with this arrangement in ~5 years
-nor has anyone reported any to us. I'm happy to take pointers on
-how we should be doing this if the current approach won't fly.
+This was my question as well. But I formulated it differently.
+
+> > > > +	if (ret)
+> > > > +		return ret == -ENOENT ? -ENXIO : ret;
+
+-- 
+With Best Regards,
+Andy Shevchenko
 
 
 
