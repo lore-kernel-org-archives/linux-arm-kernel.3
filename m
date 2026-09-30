@@ -4,69 +4,81 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id AF7AACA5FC5
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 30 Sep 2026 21:44:47 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 845E9CA5FC4
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 30 Sep 2026 21:47:42 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
 	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=x75/A4gCqzcZrGvIrjJ+sqJbv94Ey0wVQQ18KutMg1I=; b=4YtkXMDNo3M+3V1l2xLQCMNjp2
-	/63bxekZLoPTnGyD726W8wjtH76tiMFJSGuXcdf78mLr9MXYVkrxGWK93822y42t44UPxLm9vHmp6
-	iizp7gMb6903cZCKZrhW+/0n9I6qOTUlamYrb0WK9U15oWhw/h+t7UUYcVLDlJpZ792wCUo5I3mBA
-	Q2mbcoDc9Jl8Q/8OD3l+UxvGltEsAnwTMe0TEOT09EWDodc/z76IvoWq14P0zsoTZ3ToYHMMuqihh
-	WPRQkz/CDyeR9Bhmf5zPIGEZH3B7s52fIo6HMgNjO+wfjfolQc9+84nlJOw60kB1uR5wcvjJbBNCB
-	Ij67Jjsw==;
+	bh=MfzXiat9H5DF2PiTWs4O9ojHJwLpSTSb+XBwmSF47uA=; b=MMgAgpkAY+LOXzlNQkEoTpibN+
+	lCjxCWaZ7t5b8gN1MJWoxquIYBXeWGxhhJ0Pxx6XJ8fC3i7vCst59Bq/M/nRPhNYuu+8IfLTyPk9k
+	4vSuc+x0bpbX1g4sJOb4/XR2waPSQ80aAqSLLT2X+6UX3SeRdFaD3Tr72N2d6sIyK746+1mvo4Q4A
+	z2qIpyKl7MYWP9zvSRsuPbCcpRe9a6xvWtTj16E/l/7lgXUidhl9Lm7sykOkhlXg9p0wIbMwl0ax0
+	wks5cEvEKnKd77O8i/3XzqVsGM31IB1ouzDqEhi+e8E2hXLIuSh25ZmpoYvdYKnDMQakM1Rfg25Vv
+	Gu1pWHSg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xC26S-00000007HQA-2Yqa;
-	Wed, 30 Sep 2026 21:44:40 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1xC29I-00000007Hl0-0M6b;
+	Wed, 30 Sep 2026 21:47:36 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xC26S-00000007HQ4-0yK8
+	id 1xC29G-00000007HkN-3ojH
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 30 Sep 2026 21:44:40 +0000
+	Wed, 30 Sep 2026 21:47:34 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id AC67F60A57
-	for <linux-arm-kernel@lists.infradead.org>; Wed, 30 Sep 2026 21:44:39 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 5CB931F0089E
-	for <linux-arm-kernel@lists.infradead.org>; Wed, 30 Sep 2026 21:44:39 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 7EF7D43D45
+	for <linux-arm-kernel@lists.infradead.org>; Wed, 30 Sep 2026 21:47:34 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 640DA1F00898
+	for <linux-arm-kernel@lists.infradead.org>; Wed, 30 Sep 2026 21:47:34 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1790804679;
-	bh=x75/A4gCqzcZrGvIrjJ+sqJbv94Ey0wVQQ18KutMg1I=;
+	s=k20260515; t=1790804854;
+	bh=MfzXiat9H5DF2PiTWs4O9ojHJwLpSTSb+XBwmSF47uA=;
 	h=References:In-Reply-To:From:Date:Subject:To:Cc;
-	b=MABWld2wIzPLvtaI5dmjY6APKTlFRidOZdEFdKyrd8ZtXE5pUM46eY9a8s0c4yDOr
-	 ov6KOwIYvxpwGb2i5+DN3bV5vXfuugYtilfrc79ZZG5DoWo0ji7nCaVoHayGlaOukM
-	 i55YgFzDi3G4eDaoCxpxoKU5FjuGpmRyr8oyOeErck0yM7+gmUjypzWnPqor9BagWN
-	 16QTnwYcI0px3ytzs67ROrJvjVSwWaF3dt7x+XPWQUsZxYIn+h84FDcOb3djn+vZBg
-	 0c2QPNHkcY+jvQVVGeasvlXib/pibESD/Q3Ikr2CLTcQPiSCVzVTjjE9sKklCKwSFi
-	 v+KjKMnKaZf6A==
-Received: by mail-lf2-f13.google.com with SMTP id 2adb3069b0e04-5ba330dbd67so1982838e87.0
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 30 Sep 2026 14:44:39 -0700 (PDT)
-X-Forwarded-Encrypted: i=1; AKwUvBxffWWRysNxz5uo5GDsOuLUFpRXju6v8Oz+G70jb82K3BhcKq66/xobjVdJ73khQbta8mOnO2K1XPguof74FAB4@lists.infradead.org
-X-Gm-Message-State: AFq9FYIO4sc1QZUhQM7keJOgt4FTnp0FZgxZpAu1CFomCX2DLFgCVH8o
-	7p3nFQUh5VirDt1KPnTSO8DsjBA3z4KfIXJYtszEUOSb/PfA3L65quSSrX4Ww4avOqnYgETNl1R
-	MCIo+Tss8zekOrAYvNJY95SrYV2GDlcs=
-X-Received: by 2002:a05:6512:3e0d:b0:5ad:5c4a:8221 with SMTP id
- 2adb3069b0e04-5ba4026960amr1187056e87.0.1790804678165; Wed, 30 Sep 2026
- 14:44:38 -0700 (PDT)
+	b=UioBh4V9PQcDGpw9Unc/Da5NbMY7NE901fFzRagTGXiAlkHHTtMmv1OqBE/22sWOa
+	 ngwmBVUj4zgjk9SlH7sYU4Nv1ZzJIwb4Zq1x40gAI9cvvsjpikYfYtDp+lgEnyYGXg
+	 qScvN3edrMuJeR6BOwCCpC2Y+KnFw+L6rdq7ow0vWuIZqo0zXRVILaeDOaFVSQKNw8
+	 LmaJ9GFc2x/aAm8iXx244y0PS3EdDOee0MNGKX7OzSxfi32rRN9FAnQh4Kp9dMnp4I
+	 7p/6JJ3P9u0fBzDoVhvRo4kvrX0Rx95HHSgX7GHkA4gtPhA21ZGGayF7McLMZ5BG+m
+	 Q5MEMnDNsf5Qw==
+Received: by mail-lr2-f35.google.com with SMTP id 38308e7fff4ca-3a776fd3b88so8572561fa.3
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 30 Sep 2026 14:47:34 -0700 (PDT)
+X-Forwarded-Encrypted: i=1; AKwUvBxxNWCC+NKvvHIT6k+kXO5rDXkHBk9QfdTUB3uGbz7xHQpyBDwurXeTHBcZ3MP9xpgZCih+1jFADWPUCifRvoHs@lists.infradead.org
+X-Gm-Message-State: AFq9FYJfUw7JxFeHW9X3+hVQlmLwRZhYVomQeVU7oOWk/Y8y49eQer+2
+	37exMz0xxQq6pWy5165Q8QaUX/xd5Kydf86gCqIa5yQSXi0GJR3GesEGrTCy+8shZQThTCU/ENZ
+	KVjI94Dhoh4q0G/Au7+2y/UvFiK/tkTw=
+X-Received: by 2002:a05:651c:1990:b0:3a7:7ddb:aab3 with SMTP id
+ 38308e7fff4ca-3a77ddbad7emr6934201fa.16.1790804853193; Wed, 30 Sep 2026
+ 14:47:33 -0700 (PDT)
 MIME-Version: 1.0
-References: <20260922031954.320895-1-phucduc.bui@gmail.com> <20260922031954.320895-4-phucduc.bui@gmail.com>
-In-Reply-To: <20260922031954.320895-4-phucduc.bui@gmail.com>
+References: <20260918-contrib-pg-pixel10-initial-dts-v4-0-745eaca28b1a@linaro.org>
+ <20260918-contrib-pg-pixel10-initial-dts-v4-2-745eaca28b1a@linaro.org>
+In-Reply-To: <20260918-contrib-pg-pixel10-initial-dts-v4-2-745eaca28b1a@linaro.org>
 From: Linus Walleij <linusw@kernel.org>
-Date: Wed, 30 Sep 2026 23:44:25 +0200
-X-Gmail-Original-Message-ID: <CAD++jLmE+Hjiv7UahoPXTXHD1KdYmeHLMhSybTt=3rHxSjC2LA@mail.gmail.com>
-X-Gm-Features: AclHuK_ndMT7hGc647CUvfJALH_COJ36nJJO_gqn7uNKeHTlIiNYpO8FKvA5GLg
-Message-ID: <CAD++jLmE+Hjiv7UahoPXTXHD1KdYmeHLMhSybTt=3rHxSjC2LA@mail.gmail.com>
-Subject: Re: [PATCH 3/3] crypto: sl3516 - Use pm_runtime_resume_and_get()
-To: phucduc.bui@gmail.com
-Cc: Corentin Labbe <clabbe.montjoie@gmail.com>, Herbert Xu <herbert@gondor.apana.org.au>, 
-	davem@davemloft.net, Chen-Yu Tsai <wens@kernel.org>, 
-	Jernej Skrabec <jernej.skrabec@gmail.com>, Samuel Holland <samuel@sholland.org>, 
-	Gilad Ben-Yossef <gilad@benyossef.com>, Hans Ulli Kroll <ulli.kroll@googlemail.com>, 
-	linux-crypto@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
-	linux-sunxi@lists.linux.dev, linux-kernel@vger.kernel.org
+Date: Wed, 30 Sep 2026 23:47:20 +0200
+X-Gmail-Original-Message-ID: <CAD++jLntPtJVosWrmO4Hh_kuAPyC2G8MRB9BAwwR0wx1OUzLiw@mail.gmail.com>
+X-Gm-Features: AclHuK9JASmZ3mAuwTzXMDc2vQ_yXfdUx9hC2uGUMFRzKST4nRDXC-j2uJr4VPc
+Message-ID: <CAD++jLntPtJVosWrmO4Hh_kuAPyC2G8MRB9BAwwR0wx1OUzLiw@mail.gmail.com>
+Subject: Re: [PATCH v4 2/4] arm64: dts: google: Add dts directory for
+ Google-designed silicon
+To: Peter Griffin <peter.griffin@linaro.org>
+Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+	Conor Dooley <conor+dt@kernel.org>, =?UTF-8?Q?Andr=C3=A9_Draszik?= <andre.draszik@linaro.org>, 
+	Tudor Ambarus <tudor.ambarus@linaro.org>, Catalin Marinas <catalin.marinas@arm.com>, 
+	Will Deacon <will@kernel.org>, Mark Rutland <mark.rutland@arm.com>, Arnd Bergmann <arnd@arndb.de>, 
+	Krzysztof Kozlowski <krzk@kernel.org>, Alexandre Belloni <alexandre.belloni@bootlin.com>, 
+	Drew Fustini <fustini@kernel.org>, Kees Cook <kees@kernel.org>, Tony Luck <tony.luck@intel.com>, 
+	"Guilherme G. Piccoli" <gpiccoli@igalia.com>, Greg Kroah-Hartman <gregkh@linuxfoundation.org>, 
+	Jiri Slaby <jirislaby@kernel.org>, devicetree@vger.kernel.org, 
+	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+	linux-samsung-soc@vger.kernel.org, soc@lists.linux.dev, 
+	Douglas Anderson <dianders@chromium.org>, Juan Yescas <jyescas@google.com>, 
+	RD Babiera <rdbabiera@google.com>, Brian Norris <briannorris@google.com>, 
+	William McVicker <willmcvicker@google.com>, kernel-team@android.com, 
+	linux-serial@vger.kernel.org, 
+	Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>, 
+	Brian Norris <briannorris@chromium.org>
 Content-Type: text/plain; charset="UTF-8"
 Content-Transfer-Encoding: quoted-printable
 X-BeenThere: linux-arm-kernel@lists.infradead.org
@@ -83,19 +95,26 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Sep 22, 2026 at 5:20=E2=80=AFAM <phucduc.bui@gmail.com> wrote:
+On Fri, Sep 18, 2026 at 9:05=E2=80=AFPM Peter Griffin <peter.griffin@linaro=
+.org> wrote:
 
-> From: bui duc phuc <phucduc.bui@gmail.com>
+> From: Douglas Anderson <dianders@chromium.org>
 >
-> Replace the open-coded pm_runtime_get_sync() + pm_runtime_put_noidle()
-> error handling pattern with pm_runtime_resume_and_get(), which already
-> does this internally.
+> The first four Google Tensor SoCs were offshoots of Samsung Exynos
+> SoCs and their device trees were organized under the "exynos/google"
+> directory. Starting with the Google Tensor G5 SoC in Pixel 10 phones,
+> Google Tensor SoCs are now of Google's own design. Add a location in
+> the tree to store these device tree files.
 >
-> No functional change.
+> Changes by Peter Griffin
+>  * update config symbol help with at least 4 lines to avoid checkpatch
+>    warning
 >
-> Found by manual code inspection.
->
-> Signed-off-by: bui duc phuc <phucduc.bui@gmail.com>
+> Signed-off-by: Douglas Anderson <dianders@chromium.org>
+> Reviewed-by: Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
+> Tested-by: Brian Norris <briannorris@chromium.org>
+> Reviewed-by: Brian Norris <briannorris@chromium.org>
+> Signed-off-by: Peter Griffin <peter.griffin@linaro.org>
 
 Reviewed-by: Linus Walleij <linusw@kernel.org>
 
