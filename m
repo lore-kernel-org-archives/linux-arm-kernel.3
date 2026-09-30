@@ -4,135 +4,60 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 52558CA5FC7
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 30 Sep 2026 16:21:27 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8FEEFCA5FCB
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 30 Sep 2026 16:26:07 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
-	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=0iskIw7S301v6TTGapwma4DAJyjd2ua9RbPKVQb0VhY=; b=FJO+cTVfD9PgGMXMoyWR941wn4
-	ed4h/5pp8HAEwBqC7Dez03p6CGr61gQ90SrBKtiL4TAVi71CrpZmdjo/QirLFxBHjiUY/3jCzkVQj
-	Pvi3ELcxo7dQ9szjg9Igemtd3/eXrBRYuihzR2kqI8rVTPYNTpH6t0wVm7IBZtzufHv+agEVv+Sah
-	UKyJ6DAi3WShbeW5fYUarMR0Qa+pzx0sGZUZS1aVT/6aCxq/yPDUiI8pAGUx4zV4Eq7KapgFmcM5C
-	LGFlpoljOBYtBYHxh3CDy5J/FDKEHlJ5dsAEtcewd64uXmw2MHXknSmrNVED0SpTOlkZr757lz4qa
-	COuO7igQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=4S4Ky9H6NIrDlJuACD42DZExJrayfct7UMHssAIDYYg=; b=f8Yf+yWB6p1lwLSLuduBuXmB3T
+	k2n1Zw5KHxpq8L1eqRBhBXorVa+ERY+b2MSadZEIxf2CFqC7daaX3Cx4Yl6+przqWXk6cYPPsLtqt
+	ouOgHAUA9UWMD4j5JdvhUxyatl1PEisYOyFjLBAfaOMuCREKFQkjz3wJrZEW4IuGZ8O1zIdt4OFdk
+	lXM643hLDsVNjI7zdVQawvN9UcbxXVf/4bobbzYEYtBOAMkr9zLGH1S1VOKP8kH8IMmdHzphHUoWL
+	tkUJeN99FP/r5kyz6uC2oziEqOfHHqNoOS58xF3AQjGTIe98lwSAZQU8iWh2CUYHXCjRaeAUYEq+P
+	OFWdgr4A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xBx3Y-00000006gnb-2rvH;
-	Wed, 30 Sep 2026 16:21:20 +0000
-Received: from mail-westeuropeazlp170130006.outbound.protection.outlook.com ([2a01:111:f403:c201::6] helo=AM0PR02CU008.outbound.protection.outlook.com)
+	id 1xBx82-00000006h8G-1SQ3;
+	Wed, 30 Sep 2026 16:25:58 +0000
+Received: from gloria.sntech.de ([185.11.138.130])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xBx3W-00000006gn1-3GHT
-	for linux-arm-kernel@lists.infradead.org;
-	Wed, 30 Sep 2026 16:21:19 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=w/Ekekec1qbe4RMloJ9cqzwLZL44BZ4OLNhV/cckwjb+F6ps5HwtCeP/u4fbtnVncdFZnK5k5JSdSL1y/oB0iu44dOEBUMTfJrxS5hVbTl5+inrMhp4FTmqfGOxGsc0j+qy0YbEz3NiqNOIV6nWgWrJEY/PaZn/mCkzYFsbI+E1y0gamSoeeeW0gO2TFSco9xzOGewSgE6EkNt9e0tSSweZUU1mubDm+dtqQ+QN1KL+0okQ06vnaqxvCIkILj8sZikta+A9BrKVXFQ0J+duMsfWHGjclqTFcjqbIKJmZer6V8Xtz7DMVW876mEW/DM8N0SH/ZcEBdsXQL/I0JFvUlg==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=0iskIw7S301v6TTGapwma4DAJyjd2ua9RbPKVQb0VhY=;
- b=XpctiRMbYC5ohdeHNmLHIsTKXBfkeYriGGgeYcrSOSe9XqWa1aKB3UCn6ZNMZ2uBDeIF5sUWs2L1HSJl7d6Ym6dkCfQRyWvbuLzQXs9yUsjPW2iKXK8CfXYST66IHNUBgNwx1PlslgMV0NiAwheKUZIuKSzyrzE4exsPKSUzl3XUkid3G+uI5IjHrsPSFTffeUsLvyDCRc+am44ifSvRXwHTfKP7wvuYJrbcmFZ4qkcgFP32J+wv2zsZ9Rpvjrb50g7bfmrrDvKWh2Hqqtiu/d9kE861dO2L1nmXWPqljttZLE56KHDEUif95hHwJtWHTHkTNsD9A+BEcGRnSqbXfg==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
- dkim=pass header.d=oss.nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
- s=selector1-NXP1-onmicrosoft-com;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=0iskIw7S301v6TTGapwma4DAJyjd2ua9RbPKVQb0VhY=;
- b=KjUAbHKMHBwvYj6NbxaY50FFFgMN5xKAuElbXyW6eGsUdeRdKecOA3br7iCFJNVMfsftwAt18VwGwU6e9nRU99F2iA+V59pVPRV4WkGY/QHIO6fbBzxgf5UF5osIyd44XOV7/rUSlUyego1tBJq1PcBzIeuts8CIh6Tp9Qgq+bt7rzE7dQ9Tjttc5l4AJhV6w3Y2LWQoIMRubfMFg99GAxj3XYdPClu6W5ZV8nBM0XqbTWWv9aRaZPiATDeZOMtJs+CHdkFDBrMaWsXYpogqqvCrdiW0IjE0gACCAtFXmW9oF9pXIgXmKiRpAlqt6Gys1Jve9Aijb+lEXKLxCM8UCA==
-Authentication-Results: mx.microsoft.com 1; dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=oss.nxp.com;
-Received: from GV2PR04MB11799.eurprd04.prod.outlook.com (2603:10a6:150:2cf::9)
- by AM9PR04MB7540.eurprd04.prod.outlook.com (2603:10a6:20b:283::14) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.472.15; Wed, 30 Sep
- 2026 16:21:14 +0000
-Received: from GV2PR04MB11799.eurprd04.prod.outlook.com
- ([fe80::2146:83a2:5329:b7c]) by GV2PR04MB11799.eurprd04.prod.outlook.com
- ([fe80::2146:83a2:5329:b7c%7]) with mapi id 15.21.0451.022; Wed, 30 Sep 2026
- 16:21:14 +0000
-Date: Wed, 30 Sep 2026 12:21:05 -0400
-From: Frank Li <Frank.li@oss.nxp.com>
-To: Laurent Pinchart <laurent.pinchart@ideasonboard.com>
-Cc: Guoniu Zhou <guoniu.zhou@oss.nxp.com>, Frank Li <Frank.Li@nxp.com>,
-	Mauro Carvalho Chehab <mchehab@kernel.org>,
-	Sascha Hauer <s.hauer@pengutronix.de>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Fabio Estevam <festevam@gmail.com>, Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Loic Poulain <loic.poulain@oss.qualcomm.com>,
-	linux-media@vger.kernel.org, imx@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
-	devicetree@vger.kernel.org
-Subject: Re: [PATCH v2 6/6] media: imx8-isi: Enable ISI RAW10/12/14 output
- LSB alignment
-Message-ID: <ar028ZyZg56Mk60M@lizhi-Precision-Tower-5810>
-References: <20260831-isi_imx952-v2-0-fafdb4b446d4@oss.nxp.com>
- <20260831-isi_imx952-v2-6-fafdb4b446d4@oss.nxp.com>
- <20260915000520.GB2804748@killaraus.ideasonboard.com>
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20260915000520.GB2804748@killaraus.ideasonboard.com>
-X-ClientProxiedBy: CY5PR19CA0108.namprd19.prod.outlook.com
- (2603:10b6:930:83::27) To GV2PR04MB11799.eurprd04.prod.outlook.com
- (2603:10a6:150:2cf::9)
+	id 1xBx80-00000006h75-0ScT;
+	Wed, 30 Sep 2026 16:25:57 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=sntech.de;
+	s=gloria202408; h=Content-Transfer-Encoding:MIME-Version:References:
+	In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type;
+	bh=4S4Ky9H6NIrDlJuACD42DZExJrayfct7UMHssAIDYYg=; b=AJb2YSPuw7wtv4lkmK3uAK72s1
+	juNhAS6pj1bKUB/xj9E0hcOOFuas8ZYh1KyOS7wK591AxijFqMepwBtU1cCIbC8D2gup+djNLc4WZ
+	Bqx7D12iS5vxXEkTMbWhKsQ9eGpi7lb7c9A73a4jFbTByNFLnqVot7XgpfWl80o3PFR4+oQsJjO2Z
+	zse8Arb1xRB7LR/BKAPAz8UX5wvqDsDM72LmNOsizfBcMUhfeX/ti6QLlOGEX9FSAYeDHi/PlGuPt
+	nO0eKNyWHuU/nIvyynSTbrw8DkKePkUTdWJTAQlkQ3UkQOuPIdURta3RyTiXoSJptIN1Hpv23iWJu
+	MGl5Xv9g==;
+From: Heiko Stuebner <heiko@sntech.de>
+To: heiko@sntech.de
+Cc: robh@kernel.org,
+	krzk+dt@kernel.org,
+	conor+dt@kernel.org,
+	quentin.schulz@cherry.de,
+	devicetree@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-rockchip@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	damon.ding@rock-chips.com,
+	Heiko Stuebner <heiko.stuebner@cherry.de>
+Subject: [PATCH v5 2/2] arm64: dts: rockchip: add RK3588 DP carrier from Theobroma Systems
+Date: Wed, 30 Sep 2026 18:25:44 +0200
+Message-ID: <20260930162545.2357505-3-heiko@sntech.de>
+X-Mailer: git-send-email 2.47.3
+In-Reply-To: <20260930162545.2357505-1-heiko@sntech.de>
+References: <20260930162545.2357505-1-heiko@sntech.de>
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: GV2PR04MB11799:EE_|AM9PR04MB7540:EE_
-X-MS-Office365-Filtering-Correlation-Id: 4db4461e-7eab-4f41-98c6-08df1f0ed90e
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|23010399003|19092799006|366016|7416014|376014|1800799024|22082099003|18002099003|4143699003|3023799007|10067099003|56012099006|11063799006;
-X-Microsoft-Antispam-Message-Info: 0mrxFG+656LPkKh6c5QnITh9Wcfo9IZ5Cld1cFRjWPX+3gpIHsvgwh4NE94oSUVq8rKZmZY8m+FTRwsqZd0Ko0NaChE7wljb8E9S/xiGEQb2kb0H5mDgY8TjLipXgUEnq/EqZw2r4VVaACy3QEyCF47LKprfQhDSNkVisezjozGs7ePipEdXAXNf/ALZqBQml1pip/6oR4nLFMJ2vgjOkAOnVYi6RP6id4Ll05M4EXbwD+UI2Vfdb0MvXHgGzK7n6xKpykl4cPpMtUP170uCFh3bbxQtSM7es5+qyduLZsMDfOoDa+H2LRepwDXE4TjuwfACGdtn8NtvQgJmWPko8x+WlYwtnE7d+b7HErTiWqKlUmaVvFb8FsPe5RoQBEgPaZkOJqmp8tJUu93hVUVpYhtXEooGov5V5XHBksucvK1YSnJaXYbJJCYJ3Haw2GUgKtdzU6mvMJYvks2tT9yCdh+ivvWvQYqr1Rh2/K//yYvy3gfQZgDhKfFs4mTnKwVeAABnzMpEn92WSJhQbS8h36WGV6psy2a1wkrgkcaDW7f6u3NJNfnF62Ye76mMPj7yvao9m9RnEIJMf23SRHxDqvOsxjoY1VqMRXCXiNZ0Ay9kL0GkLuUR/SY6DeF8cZ+qKaC0VKfohLVsJfN1oqvkMHL5oimHkvgw2q27+AQbzK8=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:GV2PR04MB11799.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(23010399003)(19092799006)(366016)(7416014)(376014)(1800799024)(22082099003)(18002099003)(4143699003)(3023799007)(10067099003)(56012099006)(11063799006);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?RqxIsr4DWXdbkRWVOT41NfYkUsHCwnXGg6M4OKHdBwtASnLBZJk1CkfYWdyL?=
- =?us-ascii?Q?CfzBHJdV9MmQ/HBpZzpMOElSyKt+NKNgIA87jnx+3gasA+3Q+WrrgKeS7oAf?=
- =?us-ascii?Q?FcpEJGgfk37BlzsM6eauT/z51wvKD64JeLbvd95F5sIS8Gcyf3v06jbMa4ey?=
- =?us-ascii?Q?/nAm32WcOEHIBLEco/ZkAJE2ZuerXnMZDph+qlA1GYYmSFpf7L44rIcLPhP3?=
- =?us-ascii?Q?haASFIsbolJn8yhvIASCAoTaJ0I7CX/9/4nKMSW4c7JjBunPCDd768iphUK2?=
- =?us-ascii?Q?zdnYHXt+Tuorhtothr5mK4trsBYfUuwtjMHi9mY85f0l7/1ytV4djct3lKZu?=
- =?us-ascii?Q?8tq9iAwHCk/TrTeQHeMwDoe84wU6PIwNG9/akXUpVjcF+p2lEcoSvaStH2pm?=
- =?us-ascii?Q?tZhxfoHHT3AfhIXX+kRKRFRrkO7gdfFNvD4zphhB3JL5uHCvH4S+a+toeGou?=
- =?us-ascii?Q?6G9X+4s0wA1qWYESbJEbk0hgNqpmxhAa47ITwsYnSu4lTlP/fZtX8L4kFKCb?=
- =?us-ascii?Q?Fq1++lA8Q5FdN9X3FpHCpkvAeZv2sNE++l9vBzgClWhhai+DjR7zrdy70C7J?=
- =?us-ascii?Q?kt/oee1CWWa4HmGWDznI10QHb8AWxKsx3e0MYZMLs+MEAQfv1+NkaxtP7lc1?=
- =?us-ascii?Q?py44RQBQpWyMcWJBfCczmmlQ/MTRR0nDgGj+dKngF/Zo+CS3YBeXyRq8G+dB?=
- =?us-ascii?Q?sUe6RrWAgJ9/BwLtQUsL3OPvSopX/2MRYhywr7Blqu65PBrRHal8OVC1VNwF?=
- =?us-ascii?Q?OFKGwe94Q0126m8Fo2fJN6+GEf+HL64EESVy8tjRwr+vUb4cmqx5+FOdqTlC?=
- =?us-ascii?Q?RwP8yXFsOV5WTMy8I39UmlSFw+e3LTnZWCYLAZlLA4C5Io9Gc8Dl/XFdvCxt?=
- =?us-ascii?Q?9FynH46kP8U7TXQoeAvBsdWwNZYECVmPuBYexMhLrRZ+UKmXrqvsgC2wpa0m?=
- =?us-ascii?Q?bVNHcmzwypeCebjO7fXpevyGgM1aAGbjvB+MmWxtGWenKfaAyRPSsdW6/SXu?=
- =?us-ascii?Q?t92z6fqOe7LajcB6mO4KzsJiZt6olYRnl1M05HoCf5sY9yiDfB0cXJSAWp93?=
- =?us-ascii?Q?VJTVIp7JIhgRuXJHtUELdWXYLpK/Xwp+l9p0d/CkGUeW7g5pb6RcOv3YLhn6?=
- =?us-ascii?Q?ZI7qH/cNUdYZiHtWdzR7dIjv9lLs3u3bHAsm/c+/y9nFKFpcMJ52U1+OZIXa?=
- =?us-ascii?Q?AqdG1r5ukY6x7hn5F590taiYOYfQqiGx8u2saJ4crL4J2oKasQ2s4jPlFB2i?=
- =?us-ascii?Q?dZuaLpeMzYS4DA+em7K1VshGh1ZcL8Tr64dx38zceFqYoFMQ7uTT8cnjbGnG?=
- =?us-ascii?Q?vKiXqRVJPQkBF/62ovp0mQQeJy+6XSFEyUtZTG3PlLfyH9P1M0Co/k9YpV+p?=
- =?us-ascii?Q?sDp4XwAmH1rT5qJjLoyl2NL51sUbkcgEs8BngvcITFx9uW/1nsi2DEZidV79?=
- =?us-ascii?Q?fwLpUMDn313pbaMGGytreM+Ow5kuQPgGCyp0Lh2/JkDocbSNo1xvMKqTxAe7?=
- =?us-ascii?Q?bhbyLrAld1hijSZWenKtAYOEo2YCikZoWZoxb5lopaV2po1idyEo9mrkINkQ?=
- =?us-ascii?Q?Ur+UjPE+xV+OGpgkWQ4NKM1cK9snmGseOpobYj/DLltMnsIyW46fCgizaQxR?=
- =?us-ascii?Q?RTWogkjONZyhadbqHVnBJ8GXU3F6+Q5dTSzm3sNUqNuVK+2RAzNEIDmT0bHT?=
- =?us-ascii?Q?oEVL2LLKX6QP7Sxf90r9jZzzVtP9QqAgZ4PbOIrawK5jYVaAeHAOmEPW4Ui3?=
- =?us-ascii?Q?/WtO3UMQE8Ji87AbxyX+d6LShWo+LNq++OaVr01ETY4x1LXgRSzK?=
-X-OriginatorOrg: oss.nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 4db4461e-7eab-4f41-98c6-08df1f0ed90e
-X-MS-Exchange-CrossTenant-AuthSource: GV2PR04MB11799.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 30 Sep 2026 16:21:14.3837
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: iUlbkOkhDs/OQIYgJQ/Hej3OF4HAjfwGN/LpHZWNbIQWYk5OyN2zCAp9n+PzqQAvtUwd2dieFu0UAcqpqs+ZRFr3qrV8/+z2QtbONSF9PVeY2fCsYWSOahzjkXkq+xZS
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: AM9PR04MB7540
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260930_092118_830156_6836E39D 
-X-CRM114-Status: GOOD (  22.94  )
+X-CRM114-CacheID: sfid-20260930_092556_200789_0A1289CF 
+X-CRM114-Status: GOOD (  15.79  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -147,62 +72,158 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Sep 15, 2026 at 03:05:20AM +0300, Laurent Pinchart wrote:
-> On Mon, Aug 31, 2026 at 11:37:01AM +0800, Guoniu Zhou wrote:
-> > V4L2 requires RAW formats to be LSB-aligned (right-aligned). Before
-> > i.MX952, the ISI shifts RAW10/12/14 output left to MSB, so the driver
-> > works around this by using RAW16 format instead.
-> >
-> > The i.MX952 ISI introduces a RAW output LSB alignment bit. Enable it
-> > along with the input MSB alignment on platforms that support this
-> > feature, so that RAW10/12/14 output formats can be used directly
-> > without the RAW16 workaround.
-> >
-> > Signed-off-by: Guoniu Zhou <guoniu.zhou@oss.nxp.com>
-> > ---
-> >  .../media/platform/nxp/imx8-isi/imx8-isi-core.c    |  1 +
-> >  .../media/platform/nxp/imx8-isi/imx8-isi-core.h    |  1 +
-> >  drivers/media/platform/nxp/imx8-isi/imx8-isi-hw.c  | 39 ++++++++++++++++++++-
-> >  .../media/platform/nxp/imx8-isi/imx8-isi-regs.h    |  3 ++
-> >  .../media/platform/nxp/imx8-isi/imx8-isi-video.c   | 40 +++++++++++-----------
-> >  5 files changed, 63 insertions(+), 21 deletions(-)
-> >
-> > diff --git a/drivers/media/platform/nxp/imx8-isi/imx8-isi-core.c b/drivers/media/platform/nxp/imx8-isi/imx8-isi-core.c
-> > index d492631dfb6d..0f776fc8fd7e 100644
-> > --- a/drivers/media/platform/nxp/imx8-isi/imx8-isi-core.c
-> > +++ b/drivers/media/platform/nxp/imx8-isi/imx8-isi-core.c
-> > @@ -394,6 +394,7 @@ static const struct mxc_isi_plat_data mxc_imx952_data = {
-> >  	.format_mask		= GENMASK(30, 24),
-> >  	.buf_active_reverse	= true,
-> >  	.has_36bit_dma		= true,
-> > +	.raw_out_lsb		= true,
-> >  };
-> >
-> >  /* -----------------------------------------------------------------------------
-> > diff --git a/drivers/media/platform/nxp/imx8-isi/imx8-isi-core.h b/drivers/media/platform/nxp/imx8-isi/imx8-isi-core.h
-> > index 73f6ea7b0ea1..c352bcf8dc47 100644
-> > --- a/drivers/media/platform/nxp/imx8-isi/imx8-isi-core.h
-> > +++ b/drivers/media/platform/nxp/imx8-isi/imx8-isi-core.h
-> > @@ -166,6 +166,7 @@ struct mxc_isi_plat_data {
-> >  	u32 format_mask;
-> >  	bool buf_active_reverse;
-> >  	bool has_36bit_dma;
-> > +	bool raw_out_lsb;
->
-> As there's a single SoC that supports this, I would have used the model
-> field instead of adding a new boolean.
+From: Heiko Stuebner <heiko.stuebner@cherry.de>
 
-Laurent:
+The DisplayPort carrier is a very simple baseboard only providing serial,
+ethernet and a displayport output.
 
-Considerring more SoC will be add. use bool is more extentable and
-managable. Make code clean and easier reader, and preferred by most
-subsystem maintainer.
+But its main functionality is that it routes the Analogix eDP controller
+to this DisplayPort output, which allows to test that controller simply
+by hooking it up to a suitable monitor.
 
-The another disvantge is model can't tell detail difference beween modules
-without go through all if branch.
+The Analogix-DP controller supports eDP 1.3 and DP 1.2, so can drive
+both eDP displays as well as full DP monitors. It does not support DP+
+so passive DP-to-HDMI adapters won't work.
 
-use each feature field can be easy identify soc difference by compare
-plat_data.
+Signed-off-by: Heiko Stuebner <heiko.stuebner@cherry.de>
+---
+ arch/arm64/boot/dts/rockchip/Makefile         |   1 +
+ .../rk3588-tiger-displayport-carrier.dts      | 113 ++++++++++++++++++
+ 2 files changed, 114 insertions(+)
+ create mode 100644 arch/arm64/boot/dts/rockchip/rk3588-tiger-displayport-carrier.dts
 
-Frank
+diff --git a/arch/arm64/boot/dts/rockchip/Makefile b/arch/arm64/boot/dts/rockchip/Makefile
+index 2edc9c0aceb5..bf80afba2351 100644
+--- a/arch/arm64/boot/dts/rockchip/Makefile
++++ b/arch/arm64/boot/dts/rockchip/Makefile
+@@ -217,6 +217,7 @@ dtb-$(CONFIG_ARCH_ROCKCHIP) += rk3588-rock-5b-plus.dtb
+ dtb-$(CONFIG_ARCH_ROCKCHIP) += rk3588-rock-5b-plus-radxa-cam4k-cam0.dtbo
+ dtb-$(CONFIG_ARCH_ROCKCHIP) += rk3588-rock-5b-plus-radxa-cam4k-cam1.dtbo
+ dtb-$(CONFIG_ARCH_ROCKCHIP) += rk3588-rock-5t.dtb
++dtb-$(CONFIG_ARCH_ROCKCHIP) += rk3588-tiger-displayport-carrier.dtb
+ dtb-$(CONFIG_ARCH_ROCKCHIP) += rk3588-tiger-haikou.dtb
+ dtb-$(CONFIG_ARCH_ROCKCHIP) += rk3588-tiger-haikou-video-demo.dtbo
+ dtb-$(CONFIG_ARCH_ROCKCHIP) += rk3588-toybrick-x0.dtb
+diff --git a/arch/arm64/boot/dts/rockchip/rk3588-tiger-displayport-carrier.dts b/arch/arm64/boot/dts/rockchip/rk3588-tiger-displayport-carrier.dts
+new file mode 100644
+index 000000000000..f6e95047fd5f
+--- /dev/null
++++ b/arch/arm64/boot/dts/rockchip/rk3588-tiger-displayport-carrier.dts
+@@ -0,0 +1,113 @@
++// SPDX-License-Identifier: (GPL-2.0+ OR MIT)
++/*
++ * Copyright (c) 2024 Cherry Embedded Solutions GmbH
++ */
++
++/dts-v1/;
++#include <dt-bindings/soc/rockchip,vop2.h>
++#include "rk3588-tiger.dtsi"
++
++/ {
++	model = "Theobroma Systems RK3588-Q7 SoM on Tiger Displayport Carrier v1";
++	compatible = "tsd,rk3588-tiger-displayport-carrier", "tsd,rk3588-tiger", "rockchip,rk3588";
++
++	aliases {
++		ethernet0 = &gmac0;
++	};
++
++	chosen {
++		stdout-path = "serial2:115200n8";
++	};
++
++	dp-connector {
++		compatible = "dp-connector";
++		dp-pwr-supply = <&vcc3v3_baseboard>;
++		/* Q7_DP_HPD# but Q7_HDMI_HPD# could be used too */
++		hpd-gpios = <&gpio4 RK_PB5 GPIO_ACTIVE_LOW>;
++		label = "dp0";
++		pinctrl-0 = <&edp0_hpd_l>;
++		pinctrl-names = "default";
++		type = "full-size";
++
++		port {
++			dp_con_in: endpoint {
++				remote-endpoint = <&edp0_out_con>;
++			};
++		};
++	};
++
++	vcc3v3_baseboard: regulator-vcc3v3-baseboard {
++		compatible = "regulator-fixed";
++		regulator-name = "vcc3v3_baseboard";
++		regulator-always-on;
++		regulator-boot-on;
++		regulator-min-microvolt = <3300000>;
++		regulator-max-microvolt = <3300000>;
++		vin-supply = <&vcc5v0_baseboard>;
++	};
++
++	vcc5v0_baseboard: regulator-vcc5v0-baseboard {
++		compatible = "regulator-fixed";
++		regulator-name = "vcc5v0_baseboard";
++		regulator-always-on;
++		regulator-boot-on;
++		regulator-min-microvolt = <5000000>;
++		regulator-max-microvolt = <5000000>;
++	};
++};
++
++&edp0 {
++	status = "okay";
++};
++
++&edp0_in {
++	edp0_in_vp2: endpoint {
++		remote-endpoint = <&vp2_out_edp0>;
++	};
++};
++
++&edp0_out {
++	edp0_out_con: endpoint {
++		remote-endpoint = <&dp_con_in>;
++	};
++};
++
++&gmac0 {
++	status = "okay";
++};
++
++&hdptxphy0 {
++	status = "okay";
++};
++
++&mmu600_pcie {
++	status = "disabled";
++};
++
++&pinctrl {
++	edp0 {
++		edp0_hpd_l: edp0-hpd-l-pin {
++			rockchip,pins = <4 RK_PB5 RK_FUNC_GPIO &pcfg_pull_up>;
++		};
++	};
++};
++
++&uart2 {
++	pinctrl-0 = <&uart2m2_xfer>;
++	status = "okay";
++};
++
++&vop {
++	status = "okay";
++};
++
++&vop_mmu {
++	status = "okay";
++};
++
++&vp2 {
++	vp2_out_edp0: endpoint@ROCKCHIP_VOP2_EP_EDP0 {
++		reg = <ROCKCHIP_VOP2_EP_EDP0>;
++		remote-endpoint = <&edp0_in_vp2>;
++	};
++};
+-- 
+2.47.3
+
 
