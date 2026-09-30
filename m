@@ -4,51 +4,52 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A83D1CA5FC4
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 30 Sep 2026 21:50:26 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6393CCA5FC5
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 30 Sep 2026 21:50:31 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=C2a3aKAOAWCQvHPMfzvxGHSX9GtshWwwpXGCiSwIczA=; b=TnfvYO37xftZhAmPsC62CWsPRV
-	5joFKTafNjHIYYyDT/O+GZ/hmTpPPZTakxO19lMPVf39ifMSuYePaGWgqU+LwRaiieLptL+6/6NCJ
-	SAHkFdzp4f9HfqRFT8FSnW8pgJisH8h6dVJnRTLHUiIxyv6vHJ54F8HhYEf54Q//+3VPdK5dQccUd
-	65FFRx7W8FhpuBS+mjPl7Yv6cC7TIYN9JrNK6SQw0Rwo7CBZPRYs940PBCu2aofxNBCsYgEzznlmR
-	xYLq+gk+XpJ5nlsPkWtmymkc9IP0qITztnKc5JPSdGtXdTBNtqQrXIKcblyoy3c59Ymk/EqacPcyD
-	e+nLXvGA==;
+	bh=QZ28KimG+sA29Zf5pARwG9R82neiorcaxW5Meg8/n6A=; b=EN96egWqyRIq21ilNTidu/2CaX
+	pU+RHGK7tvbqJTvs53g4+lS2QNAjPrbKX/xy4U2PhVcS213nAOXOhU2uxpFYAmXTpYCBeB79fFRAO
+	8awRAjbf+hW/6HZRkBcJTMeb0u8kPOA95WL4Ju6Yl1sQtcLKXrQNIGeZ9Y9sRMMgAuyvd/jh89cCL
+	HAQQZEmtlf2tvDyN/h6A6Zz6PzBRI+kt7rHqlmUmkxxkenZ5ASROGYygFziEr25sYOCBcRAyQ/+T7
+	X+8L3fTggowmo6Vuv0Ybz8Cp//icnbfEXQLorVo2W1gnBF6ZNgIOGbtI1hkKrlhUWE+xfWqmw3X4F
+	Mc9j9niQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xC2Bt-00000007J2Y-1YH3;
-	Wed, 30 Sep 2026 21:50:17 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1xC2Bs-00000007J1C-3VJR;
+	Wed, 30 Sep 2026 21:50:16 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xC2BP-00000007IlZ-0tLT
+	id 1xC2B9-00000007IXx-3J2h
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 30 Sep 2026 21:49:47 +0000
+	Wed, 30 Sep 2026 21:49:32 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id 9F70A6057A;
-	Wed, 30 Sep 2026 21:49:46 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 14AE71F000FF;
-	Wed, 30 Sep 2026 21:49:42 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 7DD2841734;
+	Wed, 30 Sep 2026 21:49:31 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 1C3B11F000FF;
+	Wed, 30 Sep 2026 21:49:27 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1790804986;
-	bh=C2a3aKAOAWCQvHPMfzvxGHSX9GtshWwwpXGCiSwIczA=;
+	s=k20260515; t=1790804971;
+	bh=QZ28KimG+sA29Zf5pARwG9R82neiorcaxW5Meg8/n6A=;
 	h=From:Date:Subject:References:In-Reply-To:To:Cc;
-	b=WzU1GddbjGM7swVSQkhFafBDdOITmXPNaZdy67ofXsd4NJDdZZYHCAfEK52xy8rZ3
-	 RCIzcuTG2eL5ihVSZ+v9S0IQ7n0Gthb0wcuiQnz1vXx2iFuhY0u3yuhhJNl5Va8cZ3
-	 jztHOvaGmeKutPS0AQgHqVtRvUOm0w5cZ0AB2KkbeSiO08z8kCPcyOaZ5aw/Ny8lZb
-	 mOmZ4eSZxDCOLePvz/9buUz1/eP9DiWqap7VQwDpn5H28hBPWJbFoeF6rBxwM0kQWH
-	 qCFM1lG1tPGRDfNVm8RRgU6WMCzLtiKYzgrf9FTDWdT9J71dS53aTYHJ6fuCWxOruY
-	 X6YQSiCgcr/iQ==
+	b=iZ3HjDFvbFex5g9q2a64XEmyyZs8RonDRPy7eQrkr0ybOz9oNP1NuT6W3tUo5W4L/
+	 RtV3UiznAnNy7mhQb7hncDpOhYyZSSe0SHsw7JC/tlSSPxlF3nmMjmxToEOv+XmnPo
+	 tq+dT9CR5t+TW2lEXd28UP7DfoMJaj6peKd2Eho7Tvfv0sA/iqCpOypA/2OKepxuyE
+	 UEHXsvq0f9tJPAcV3yO198ns5zpQD2fvZYBZ6QUfxgvR+IfZJK4CYUvkI93tNPfcSY
+	 e08jvZqsksoe2RAfSmVRDnw4YlzbOJbxvYqYRDUWunh39dEjZUYO2/CcLafu7KGYwx
+	 H8Wr2aoCeQaoQ==
 From: Mark Brown <broonie@kernel.org>
-Date: Wed, 30 Sep 2026 22:48:24 +0100
-Subject: [PATCH v21 14/15] tools: Synchronise the kernel esr.h
+Date: Wed, 30 Sep 2026 22:48:20 +0100
+Subject: [PATCH v21 10/15] KVM: selftests: arm64: Check that invalid
+ feature combinations are rejected
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20260930-arm64-gcs-v21-14-3556644cd927@kernel.org>
+Message-Id: <20260930-arm64-gcs-v21-10-3556644cd927@kernel.org>
 References: <20260930-arm64-gcs-v21-0-3556644cd927@kernel.org>
 In-Reply-To: <20260930-arm64-gcs-v21-0-3556644cd927@kernel.org>
 To: Catalin Marinas <catalin.marinas@arm.com>, 
@@ -63,15 +64,15 @@ Cc: Peter Maydell <peter.maydell@linaro.org>,
  linux-kselftest@vger.kernel.org, linux-kernel@vger.kernel.org, 
  Mark Brown <broonie@kernel.org>
 X-Mailer: b4 0.17-dev
-X-Developer-Signature: v=1; a=openpgp-sha256; l=7228; i=broonie@kernel.org;
- h=from:subject:message-id; bh=jOjbheMvQ2oaiZTFNxEcabEupt1ryfHHOU/dZyrsMYg=;
- b=owEBbQGS/pANAwAKASTWi3JdVIfQAcsmYgBqvYO+PNwvuwtOgqKb1SLmqd/GgYUJkrZPsLYrL
- 2lZe0r5DmKJATMEAAEKAB0WIQSt5miqZ1cYtZ/in+ok1otyXVSH0AUCar2DvgAKCRAk1otyXVSH
- 0EMYB/9rMvSHV7saPUZOt8G7n3A+cchdJZJs5kVWKk/Rhd1Qo1khx9owVuGtnqa3L5kXaa9ys8F
- w9zxo3Y0hQTIbQp5DDTwYmrQy/LwPv2eDCIHGin81IFqRpxoKCygRzifPNt3CxDiE5iPtulOMbE
- LCpJyCIeF1P7gV62nK5H+ixOwPlIQ+w+0OfoZDyeJN6G3UM0pa2/5uB0iHrJ5rem9Hu9gfzAGgB
- wGB8BRd+iHrJ5oPG8eXHoH016ODC/2U+dt4KuWZJIGv6ROCz12UEi+ckxJ2PsqGpTOGqTh+X9dx
- JjIPvUa9FcOKcujb/YCDUA/TGWdCxhgdBLAD5Gv5Qv3R6b6V
+X-Developer-Signature: v=1; a=openpgp-sha256; l=3874; i=broonie@kernel.org;
+ h=from:subject:message-id; bh=JTor9Lxzhm4h9y/I5pbwM1ZZXnzU52yIxfAOX8qz2wc=;
+ b=owEBbQGS/pANAwAKASTWi3JdVIfQAcsmYgBqvYO7wjG6Z2GuPWofP8i6Mr/VAYJ98hn1t+mMe
+ QZkuQqpusaJATMEAAEKAB0WIQSt5miqZ1cYtZ/in+ok1otyXVSH0AUCar2DuwAKCRAk1otyXVSH
+ 0Ei6B/kBZ+dbCyKYXXnJ07EhGQ2MhZ2QjSZwNUd0X0zZn9h+bU/e5VRXIFLM2zwY2bPaTFuei+U
+ AMcV36X/9auPS3zXxFoMuUhCtZAMCg/3gE9fuw8CzdT+LynwVnZA0tn/CLGCfBPyb0AGZsJOaGP
+ ZywZHYhBbjhaH4k+SN5NOxfiYzK41phINfkd2S0J0/1B+06O3w8k1pLbYKnflaPWDXGd0TivscS
+ t5w+9GicbfU63jdVIicSOrmzR9a2O7jN89BcoUZCoqDBoMga6TpYowNc/QDi13X45bLvuKBhGbx
+ KOppyt7+0hMUoFmPYZJU+dcW/vrLKw+T+ImsLbfvsWPF1ZwV
 X-Developer-Key: i=broonie@kernel.org; a=openpgp;
  fpr=3F2568AAC26998F9E813A1C5C3F436CA30F5D8EB
 X-BeenThere: linux-arm-kernel@lists.infradead.org
@@ -88,213 +89,132 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-To pick up definitions for GCS.
+In order to optimise fast paths KVM explicitly rejects configurations with
+S1PIE or S1POE but not TCR2, add coverage of this in the set_id_regs test.
+We have a list of invalid configurations, for each of them we try to run a
+VM and fail the test if it succeeds. We do feature detection by validating
+that we can write the fields with failing values.
 
-Reviewed-by: Leonardo Bras <leo.bras@arm.com>
+Since this misfiring can disrupt some of the other tests due to the kernel
+refusing to start guests we run the new tests first, improving diagnostics
+in the failing case.
+
 Signed-off-by: Mark Brown <broonie@kernel.org>
 ---
- tools/arch/arm64/include/asm/esr.h | 113 +++++++++++++++++++++++++++++++++----
- 1 file changed, 102 insertions(+), 11 deletions(-)
+ tools/testing/selftests/kvm/arm64/set_id_regs.c | 87 +++++++++++++++++++++++++
+ 1 file changed, 87 insertions(+)
 
-diff --git a/tools/arch/arm64/include/asm/esr.h b/tools/arch/arm64/include/asm/esr.h
-index f3c6403e5ef2..24c6ebe3fd41 100644
---- a/tools/arch/arm64/include/asm/esr.h
-+++ b/tools/arch/arm64/include/asm/esr.h
-@@ -19,7 +19,8 @@
- #define ESR_ELx_EC_FP_ASIMD	UL(0x07)
- #define ESR_ELx_EC_CP10_ID	UL(0x08)	/* EL2 only */
- #define ESR_ELx_EC_PAC		UL(0x09)	/* EL2 and above */
--/* Unallocated EC: 0x0A - 0x0B */
-+#define ESR_ELx_EC_OTHER	UL(0x0A)
-+/* Unallocated EC: 0x0B */
- #define ESR_ELx_EC_CP14_64	UL(0x0C)
- #define ESR_ELx_EC_BTI		UL(0x0D)
- #define ESR_ELx_EC_ILL		UL(0x0E)
-@@ -50,7 +51,8 @@
- #define ESR_ELx_EC_FP_EXC32	UL(0x28)
- /* Unallocated EC: 0x29 - 0x2B */
- #define ESR_ELx_EC_FP_EXC64	UL(0x2C)
--/* Unallocated EC: 0x2D - 0x2E */
-+#define ESR_ELx_EC_GCS		UL(0x2D)
-+/* Unallocated EC:  0x2E */
- #define ESR_ELx_EC_SERROR	UL(0x2F)
- #define ESR_ELx_EC_BREAKPT_LOW	UL(0x30)
- #define ESR_ELx_EC_BREAKPT_CUR	UL(0x31)
-@@ -97,6 +99,8 @@
- #define ESR_ELx_AET_CE		(UL(6) << ESR_ELx_AET_SHIFT)
- 
- /* Shared ISS field definitions for Data/Instruction aborts */
-+#define ESR_ELx_VNCR_SHIFT	(13)
-+#define ESR_ELx_VNCR		(UL(1) << ESR_ELx_VNCR_SHIFT)
- #define ESR_ELx_SET_SHIFT	(11)
- #define ESR_ELx_SET_MASK	(UL(3) << ESR_ELx_SET_SHIFT)
- #define ESR_ELx_FnV_SHIFT	(10)
-@@ -119,6 +123,16 @@
- #define ESR_ELx_FSC_SEA_TTW(n)	(0x14 + (n))
- #define ESR_ELx_FSC_SECC	(0x18)
- #define ESR_ELx_FSC_SECC_TTW(n)	(0x1c + (n))
-+#define ESR_ELx_FSC_EXCL_ATOMIC	(0x35)
-+#define ESR_ELx_FSC_ADDRSZ	(0x00)
-+
-+/*
-+ * Annoyingly, the negative levels for Address size faults aren't laid out
-+ * contiguously (or in the desired order)
-+ */
-+#define ESR_ELx_FSC_ADDRSZ_nL(n)	((n) == -1 ? 0x25 : 0x2C)
-+#define ESR_ELx_FSC_ADDRSZ_L(n)		((n) < 0 ? ESR_ELx_FSC_ADDRSZ_nL(n) : \
-+						   (ESR_ELx_FSC_ADDRSZ + (n)))
- 
- /* Status codes for individual page table levels */
- #define ESR_ELx_FSC_ACCESS_L(n)	(ESR_ELx_FSC_ACCESS + (n))
-@@ -141,12 +155,12 @@
- #define ESR_ELx_SF 		(UL(1) << ESR_ELx_SF_SHIFT)
- #define ESR_ELx_AR_SHIFT	(14)
- #define ESR_ELx_AR 		(UL(1) << ESR_ELx_AR_SHIFT)
--#define ESR_ELx_VNCR_SHIFT	(13)
--#define ESR_ELx_VNCR		(UL(1) << ESR_ELx_VNCR_SHIFT)
- #define ESR_ELx_CM_SHIFT	(8)
- #define ESR_ELx_CM 		(UL(1) << ESR_ELx_CM_SHIFT)
- 
- /* ISS2 field definitions for Data Aborts */
-+#define ESR_ELx_HDBSSF_SHIFT	(11)
-+#define ESR_ELx_HDBSSF		(UL(1) << ESR_ELx_HDBSSF_SHIFT)
- #define ESR_ELx_TnD_SHIFT	(10)
- #define ESR_ELx_TnD 		(UL(1) << ESR_ELx_TnD_SHIFT)
- #define ESR_ELx_TagAccess_SHIFT	(9)
-@@ -161,8 +175,6 @@
- #define ESR_ELx_Xs_MASK		(GENMASK_ULL(4, 0))
- 
- /* ISS field definitions for exceptions taken in to Hyp */
--#define ESR_ELx_FSC_ADDRSZ	(0x00)
--#define ESR_ELx_FSC_ADDRSZ_L(n)	(ESR_ELx_FSC_ADDRSZ + (n))
- #define ESR_ELx_CV		(UL(1) << 24)
- #define ESR_ELx_COND_SHIFT	(20)
- #define ESR_ELx_COND_MASK	(UL(0xF) << ESR_ELx_COND_SHIFT)
-@@ -174,6 +186,13 @@
- #define ESR_ELx_WFx_ISS_WFE	(UL(1) << 0)
- #define ESR_ELx_xVC_IMM_MASK	((UL(1) << 16) - 1)
- 
-+/* ISS definitions for LD64B/ST64B/{T,P}SBCSYNC instructions */
-+#define ESR_ELx_ISS_OTHER_ST64BV	(0)
-+#define ESR_ELx_ISS_OTHER_ST64BV0	(1)
-+#define ESR_ELx_ISS_OTHER_LDST64B	(2)
-+#define ESR_ELx_ISS_OTHER_TSBCSYNC	(3)
-+#define ESR_ELx_ISS_OTHER_PSBCSYNC	(4)
-+
- #define DISR_EL1_IDS		(UL(1) << 24)
- /*
-  * DISR_EL1 and ESR_ELx share the bottom 13 bits, but the RES0 bits may mean
-@@ -371,12 +390,14 @@
- /*
-  * ISS values for SME traps
-  */
-+#define ESR_ELx_SME_ISS_SMTC_MASK		GENMASK(2, 0)
-+#define ESR_ELx_SME_ISS_SMTC(esr)		((esr) & ESR_ELx_SME_ISS_SMTC_MASK)
- 
--#define ESR_ELx_SME_ISS_SME_DISABLED	0
--#define ESR_ELx_SME_ISS_ILL		1
--#define ESR_ELx_SME_ISS_SM_DISABLED	2
--#define ESR_ELx_SME_ISS_ZA_DISABLED	3
--#define ESR_ELx_SME_ISS_ZT_DISABLED	4
-+#define ESR_ELx_SME_ISS_SMTC_SME_DISABLED	0
-+#define ESR_ELx_SME_ISS_SMTC_ILL		1
-+#define ESR_ELx_SME_ISS_SMTC_SM_DISABLED	2
-+#define ESR_ELx_SME_ISS_SMTC_ZA_DISABLED	3
-+#define ESR_ELx_SME_ISS_SMTC_ZT_DISABLED	4
- 
- /* ISS field definitions for MOPS exceptions */
- #define ESR_ELx_MOPS_ISS_MEM_INST	(UL(1) << 24)
-@@ -387,6 +408,31 @@
- #define ESR_ELx_MOPS_ISS_SRCREG(esr)	(((esr) & (UL(0x1f) << 5)) >> 5)
- #define ESR_ELx_MOPS_ISS_SIZEREG(esr)	(((esr) & (UL(0x1f) << 0)) >> 0)
- 
-+/* ISS field definitions for GCS */
-+#define ESR_ELx_ExType_SHIFT	(20)
-+#define ESR_ELx_ExType_MASK		GENMASK(23, 20)
-+#define ESR_ELx_Raddr_SHIFT		(10)
-+#define ESR_ELx_Raddr_MASK		GENMASK(14, 10)
-+#define ESR_ELx_Rn_SHIFT		(5)
-+#define ESR_ELx_Rn_MASK			GENMASK(9, 5)
-+#define ESR_ELx_Rvalue_SHIFT		5
-+#define ESR_ELx_Rvalue_MASK		GENMASK(9, 5)
-+#define ESR_ELx_IT_SHIFT		(0)
-+#define ESR_ELx_IT_MASK			GENMASK(4, 0)
-+
-+#define ESR_ELx_ExType_DATA_CHECK	0
-+#define ESR_ELx_ExType_EXLOCK		1
-+#define ESR_ELx_ExType_STR		2
-+
-+#define ESR_ELx_IT_RET			0
-+#define ESR_ELx_IT_GCSPOPM		1
-+#define ESR_ELx_IT_RET_KEYA		2
-+#define ESR_ELx_IT_RET_KEYB		3
-+#define ESR_ELx_IT_GCSSS1		4
-+#define ESR_ELx_IT_GCSSS2		5
-+#define ESR_ELx_IT_GCSPOPCX		6
-+#define ESR_ELx_IT_GCSPOPX		7
-+
- #ifndef __ASSEMBLER__
- #include <asm/types.h>
- 
-@@ -408,6 +454,11 @@ static inline bool esr_is_cfi_brk(unsigned long esr)
- 	       (esr_brk_comment(esr) & ~CFI_BRK_IMM_MASK) == CFI_BRK_IMM_BASE;
+diff --git a/tools/testing/selftests/kvm/arm64/set_id_regs.c b/tools/testing/selftests/kvm/arm64/set_id_regs.c
+index 7429a1055df5..cb5e6358c59c 100644
+--- a/tools/testing/selftests/kvm/arm64/set_id_regs.c
++++ b/tools/testing/selftests/kvm/arm64/set_id_regs.c
+@@ -803,6 +803,89 @@ static void test_reset_preserves_id_regs(struct kvm_vcpu *vcpu)
+ 	ksft_test_result_pass("%s\n", __func__);
  }
  
-+static inline bool esr_is_ubsan_brk(unsigned long esr)
++struct reg_ftr_val {
++	u64 reg;
++	u64 mask;
++	u64 val;
++};
++
++#define REG_FTR_VAL(r, f, v)					\
++	{ .reg = ARM64_SYS_REG(sys_reg_Op0(SYS_ ## r),		\
++			       sys_reg_Op1(SYS_ ## r),		\
++			       sys_reg_CRn(SYS_ ## r),		\
++			       sys_reg_CRm(SYS_ ## r),		\
++			       sys_reg_Op2(SYS_ ## r)),		\
++	  .mask = r ## _ ## f ## _MASK,				\
++	  .val = (r ## _ ## f ## _ ## v  << r ## _ ## f ## _SHIFT) }
++
++static const struct reg_ftr_val s1pie_no_tcr2[] = {
++	REG_FTR_VAL(ID_AA64MMFR3_EL1, TCRX, NI),
++	REG_FTR_VAL(ID_AA64MMFR3_EL1, S1PIE, IMP),
++	{ }
++};
++
++static const struct reg_ftr_val s1poe_no_tcr2[] = {
++	REG_FTR_VAL(ID_AA64MMFR3_EL1, TCRX, NI),
++	REG_FTR_VAL(ID_AA64MMFR3_EL1, S1POE, IMP),
++	{ }
++};
++
++struct ftr_config {
++	const char *name;
++	const struct reg_ftr_val *regs;
++};
++
++static const struct ftr_config invalid_configs[] = {
++	{ .name = "S1PIE without TCRX", .regs = s1pie_no_tcr2 },
++	{ .name = "S1POE without TCRX", .regs = s1poe_no_tcr2 },
++};
++
++static void test_invalid_config(const struct ftr_config *config)
 +{
-+	return (esr_brk_comment(esr) & ~UBSAN_BRK_MASK) == UBSAN_BRK_IMM;
++	struct kvm_vcpu *vcpu;
++	struct kvm_vm *vm;
++	const struct reg_ftr_val *field;
++	u64 val;
++	int ret;
++
++	vm = vm_create(1);
++	vm_enable_cap(vm, KVM_CAP_ARM_WRITABLE_IMP_ID_REGS, 0);
++	vcpu = vm_vcpu_add(vm, 0, guest_code);
++	kvm_arch_vm_finalize_vcpus(vm);
++
++	/*
++	 * If we don't manage to set any of the fields assume the
++	 * system does not support the feature and skip the test.
++	 */
++	for (field = config->regs; field->reg; field++) {
++		val = vcpu_get_reg(vcpu, field->reg);
++		val &= ~field->mask;
++		val |= field->val;
++		__vcpu_set_reg(vcpu, field->reg, val);
++
++		if (vcpu_get_reg(vcpu, field->reg) != val) {
++			ksft_print_msg("Test setup not supported\n");
++			ksft_test_result_skip("refuse %s\n", config->name);
++			goto out;
++		}
++	}
++
++	ret = _vcpu_run(vcpu);
++	ksft_test_result(ret < 0 && errno == EINVAL, "refuse %s\n",
++			 config->name);
++out:
++	kvm_vm_free(vm);
 +}
 +
- static inline bool esr_fsc_is_translation_fault(unsigned long esr)
++static void test_invalid_configs(void)
++{
++	int i;
++
++	for (i = 0; i < ARRAY_SIZE(invalid_configs); i++) {
++		test_invalid_config(&invalid_configs[i]);
++	}
++}
++
+ int main(void)
  {
- 	esr = esr & ESR_ELx_FSC;
-@@ -439,6 +490,46 @@ static inline bool esr_fsc_is_access_flag_fault(unsigned long esr)
- 	       (esr == ESR_ELx_FSC_ACCESS_L(0));
- }
+ 	struct kvm_vcpu *vcpu;
+@@ -829,12 +912,16 @@ int main(void)
+ 	ksft_print_header();
  
-+static inline bool esr_fsc_is_excl_atomic_fault(unsigned long esr)
-+{
-+	esr = esr & ESR_ELx_FSC;
+ 	test_cnt = 3 + MPAM_IDREG_TEST + MTE_IDREG_TEST;
++	test_cnt += ARRAY_SIZE(invalid_configs);
+ 	for (i = 0; i < ARRAY_SIZE(test_regs); i++)
+ 		for (j = 0; test_regs[i].ftr_bits[j].type != FTR_END; j++)
+ 			test_cnt++;
+ 
+ 	ksft_set_plan(test_cnt);
+ 
++	/* Do this first in case a break interferes with other tests */
++	test_invalid_configs();
 +
-+	return esr == ESR_ELx_FSC_EXCL_ATOMIC;
-+}
-+
-+static inline bool esr_fsc_is_addr_sz_fault(unsigned long esr)
-+{
-+	esr &= ESR_ELx_FSC;
-+
-+	return (esr == ESR_ELx_FSC_ADDRSZ_L(3))	||
-+	       (esr == ESR_ELx_FSC_ADDRSZ_L(2))	||
-+	       (esr == ESR_ELx_FSC_ADDRSZ_L(1)) ||
-+	       (esr == ESR_ELx_FSC_ADDRSZ_L(0))	||
-+	       (esr == ESR_ELx_FSC_ADDRSZ_L(-1));
-+}
-+
-+static inline bool esr_fsc_is_sea_ttw(unsigned long esr)
-+{
-+	esr = esr & ESR_ELx_FSC;
-+
-+	return (esr == ESR_ELx_FSC_SEA_TTW(3)) ||
-+	       (esr == ESR_ELx_FSC_SEA_TTW(2)) ||
-+	       (esr == ESR_ELx_FSC_SEA_TTW(1)) ||
-+	       (esr == ESR_ELx_FSC_SEA_TTW(0)) ||
-+	       (esr == ESR_ELx_FSC_SEA_TTW(-1));
-+}
-+
-+static inline bool esr_fsc_is_secc_ttw(unsigned long esr)
-+{
-+	esr = esr & ESR_ELx_FSC;
-+
-+	return (esr == ESR_ELx_FSC_SECC_TTW(3)) ||
-+	       (esr == ESR_ELx_FSC_SECC_TTW(2)) ||
-+	       (esr == ESR_ELx_FSC_SECC_TTW(1)) ||
-+	       (esr == ESR_ELx_FSC_SECC_TTW(0)) ||
-+	       (esr == ESR_ELx_FSC_SECC_TTW(-1));
-+}
-+
- /* Indicate whether ESR.EC==0x1A is for an ERETAx instruction */
- static inline bool esr_iss_is_eretax(unsigned long esr)
- {
+ 	test_vm_ftr_id_regs(vcpu, aarch64_only);
+ 	test_vcpu_ftr_id_regs(vcpu);
+ 	test_vcpu_non_ftr_id_regs(vcpu);
 
 -- 
 2.47.3
