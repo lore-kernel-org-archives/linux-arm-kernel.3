@@ -4,62 +4,60 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1EE7ECA5FB1
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 30 Sep 2026 08:01:29 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B2CA5CA5FC3
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 30 Sep 2026 08:02:21 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:References:Cc:To:Subject:From:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=kP8/xgXorWxZkfAWc5lJ+mhCSmVoL9S8Y8qJCHw6Jac=; b=RBnBuhBDfgn16cVLH+N29DRngS
-	x1LLiTtuQpMD6VSHGOTaWO8e+j0D9I/NiOHdHW62FM6ZFv6nFHK4wsXBZ8Xl8nzygeg7j5V6ueNhA
-	Zoqkl91p32DZ4d1+MbCIWZIbyjnFKGbjKLNmXSb9OJUwduBg4rcfW3I1hPOZMvnd4vZmIqjhZpqxK
-	dY/tOe1TizBQeWr11NiU3JCeoA28AoI6LT987CnFy4sb+cwQrstq+vFs4ftVIVbYAB04MHpChD/Ww
-	Q62Sdl5p+UUf5TucO8+aiwjpO3Rpr2p/1zpi3QB1PQwtKmhFmcnZxhTdBXqbF4luVmWcHZ1ZflprQ
-	S4b3jUuQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=xwx6m2ZQp1le7cNOkqQqNCbD12qIRwdpYKQvV6oZXDs=; b=pLvSbTk7sjDYdXeMW5tfr4cMzQ
+	QXtx3kYl5zZBahoLsiAC/g+KHTUMtVPnTwxLHfUqQH76Bqu+w3fEJuBoCcnwD9izB8p/HKKvamWN1
+	1UTRjaz/ERMpapzMzmcVj6h2Tqjn4LEzNU+qhayN3IzNLHwQM90ZArA+mHm9NHHHWh3gQ5WKS1CZC
+	ts6IAClMEnWmskYBWiDIU7dCBJnxEkmkWVKebUgCnQu4LHOkM0UVNma6Gu+/dn/TS45+0+QF1n6Yi
+	QvbE+vhVax13siXvY+ANAqEKUfXhSBxJoegadzj9n5QUfP0mAx8caCRgSUcmr1dfhS5j1qfyDJkY8
+	Nuh+O2nw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xBpFe-00000005N0n-3vRv;
-	Wed, 30 Sep 2026 08:01:18 +0000
-Received: from sendmail.purelymail.com ([34.202.193.197])
+	id 1xBpGX-00000005N89-0LMw;
+	Wed, 30 Sep 2026 08:02:13 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xBpFb-00000005N0E-4AyM
+	id 1xBpGV-00000005N7W-0pam
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 30 Sep 2026 08:01:17 +0000
-DKIM-Signature: a=rsa-sha256; b=a444FESxs9a3t4Te4rw0LAWZ8KpDvKWCU8k0SiyFi01YsZi1paZ5DI19G1eSUwKLA7VILMOM3AiGWyUhPjMpibN9QPDOjvh4D41ZKnGXdVFdKSCeaEZIaXnOhh/T2gVkv88UFzehgqDgDyVcRX3e4zH+FBgr6YjcnBSqweRDChh6EEy4JNLe2GOkc185BksFqalSADo+PZwFp6pZJne8lkpH+DI7dxuZy2+BGaFlMjrQEmAmWRuK5kFTFClw+nxYkJoD5n7F6DpXw3J2AFfrffudhFa2fpyDDd+K5TDNoeZehO8/izlYkByrp8Kplb5lP3MTl2n6hujSyBgqzbjKhQ==; s=purelymail3; d=q-lab.dev; v=1; bh=8VvSOkc6y3rlTIlWLwAwwqIGp6vCW6cQopRx43uhKyE=; h=Received:Date:From:Subject:To;
-DKIM-Signature: a=rsa-sha256; b=cAI5tOWHSWMdhNh1KYmkPHnuNpvrEAUs1dOw9uXE4BL8wmuDj48J1cm3hM9kmyAZHQVBTQB0d9KGZk+IXbX+c/lduRGGZcfRXGkjyvVlXOufTilUnyZcTxipOXK/92YK3ch+ZYT+3VaN5nyCSk4cPFvx1V5JuFvuWQor//88Iwwjf3YXGq5QO9xhH2tXy6LUJRdVboSyi80mwpA3NDNMNhVr0N/Iuv0cawJWHRQnHl/XeSlw+A7lAhswu34brPtrb9FUIV7Y+MW9qmtvJw6qYmpZmVqHIIC8NwrQFd81m0T9DziUVaEOE5cw1499yiw9rjezd5vZ0ds0IMjKBHrCdw==; s=purelymail3; d=purelymail.com; v=1; bh=8VvSOkc6y3rlTIlWLwAwwqIGp6vCW6cQopRx43uhKyE=; h=Feedback-ID:Received:Date:From:Subject:To;
-Feedback-ID: 284201:25281:null:purelymail
-X-Pm-Original-To: linux-arm-kernel@lists.infradead.org
-Authentication-Results: purelymail.com; auth=pass
-Received: by smtp.purelymail.com (Purelymail SMTP) with ESMTPSA id 2023428983;
-          (version=TLSv1.3 cipher=TLS_AES_256_GCM_SHA384);
-          Wed, 30 Sep 2026 08:00:44 +0000 (UTC)
-Message-ID: <2fe4a450-f176-463b-9799-5a03f6448c38@q-lab.dev>
-Date: Wed, 30 Sep 2026 01:00:42 -0700
+	Wed, 30 Sep 2026 08:02:11 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by tor.source.kernel.org (Postfix) with ESMTP id 509DD6024D;
+	Wed, 30 Sep 2026 08:02:10 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 35BE71F000FF;
+	Wed, 30 Sep 2026 08:02:08 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1790755330;
+	bh=xwx6m2ZQp1le7cNOkqQqNCbD12qIRwdpYKQvV6oZXDs=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=nC5Bj5aA31/9/ysocwO/rUmDrrKRqi23kp87LQiXzOH0odQmkGCyE/9/QRFHM/K1n
+	 KGM1COe7P7iJQ3DgoD5YixNY1MK9eYOedHhA8/Nkop1ayExffo7BVwcjuhXtgedTVm
+	 4lIRa1EFEg4VBshglItYIDt6NUDg4BJPS6DdiJuBanNEYw6VxVhZgybXg/yzbKr4D+
+	 SlZH17jVuktoua0mlulBOIWWkaBSvD3MZgrdRH90CLTZ8rBFTYqL2kh3tYzO0AJu3n
+	 xoDF9yz4bKyk/R18j27r+N0kAP0SgDft/LuG4CuPzxg6ktxte7NHlTRSf9dk/lv4eM
+	 pSpxjWXXZYzDA==
+Date: Wed, 30 Sep 2026 09:02:04 +0100
+From: Will Deacon <will@kernel.org>
+To: Bradley Morgan <brads@mainlining.org>
+Cc: Catalin Marinas <catalin.marinas@arm.com>,
+	Mark Rutland <mark.rutland@arm.com>,
+	Mark Brown <broonie@kernel.org>,
+	Vladimir Murzin <vladimir.murzin@arm.com>,
+	Ard Biesheuvel <ardb@kernel.org>, Kees Cook <kees@kernel.org>,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH] arm64: scrub vector and pointer auth state on task death
+Message-ID: <arzB_AJIohqhvoiu@willie-the-truck>
+References: <20260930063647.1356613-1-brads@mainlining.org>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-From: Quentin Freimanis <quentin@q-lab.dev>
-Subject: Re: [PATCH net] net: sparx5: make ports inherit the switch base mac
- address type
-To: Jakub Kicinski <kuba@kernel.org>
-Cc: netdev@vger.kernel.org, Andrew Lunn <andrew+netdev@lunn.ch>,
- "David S. Miller" <davem@davemloft.net>, Eric Dumazet <edumazet@kernel.org>,
- Paolo Abeni <pabeni@redhat.com>,
- Steen Hegelund <Steen.Hegelund@microchip.com>,
- Daniel Machon <daniel.machon@microchip.com>, UNGLinuxDriver@microchip.com,
- Lars Povlsen <lars.povlsen@microchip.com>,
- Bjarni Jonasson <bjarni.jonasson@microchip.com>,
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-References: <20260928045012.30178-1-quentin@q-lab.dev>
- <20260929185936.687250f9@kernel.org>
-Content-Language: en-US
-In-Reply-To: <20260929185936.687250f9@kernel.org>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260930_010116_130739_DF9239ED 
-X-CRM114-Status: GOOD (  12.97  )
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20260930063647.1356613-1-brads@mainlining.org>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -74,38 +72,37 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Jakub,
-
-On 9/29/26 6:59 PM, Jakub Kicinski wrote:
-> On Sun, 27 Sep 2026 21:50:12 -0700 Quentin Freimanis wrote:
->> 0 is NET_ADDR_PERM, so userspace thinks this is a stable address.
+On Wed, Sep 30, 2026 at 06:36:47AM +0000, Bradley Morgan wrote:
+> When a task dies its SVE, SME and FPSIMD register state, and its
+> pointer auth keys, stay in freed slab pages until the allocator hands
+> them out again. init_on_free=1 users get this wiped for the whole heap
+> but the option is expensive, so it is off in most builds.
 > 
-> Could you please explain the end-user impact of this?
-> Unclear to me from the commit msg if this is something that broke
-> your deployment / scripts or maybe you simply noticed it from code
-> inspection / LLM scan.
+> The vector registers are not idle memory: userspace crypto runs
+> AES-GCM and Argon2 through SVE, so key material ends up in
+> sve_state, sme_state and thread_struct. On task exit and on the
+> exec and vector length reallocation paths those buffers are
+> dropped with a plain kfree(), and on task death the register file
+> copy embedded in thread_struct is not wiped at all. Anything that
+> reads the freed slab back (slab bugs, cold boot, a leaked page)
+> gets the dead task's keys.
 > 
-> No need to repost, just explain, I'll add it when applying.
-> 
+> Scrub it. kfree_sensitive() already exists for this exact job,
+> so the freeing sites just switch to it. The register file copy
+> and the pointer auth keys embedded in thread_struct cannot go
+> through kfree_sensitive(), so arch_release_task_struct() zeroes
+> them directly with memzero_explicit().
 
-With a random MAC reported as NET_ADDR_PERM, systemd's 
-MACAddressPolicy=persistent [1] leaves it unchanged, so a DHCP client 
-gets a new IP address every boot and a static reservation can't be used. 
-Reporting it as NET_ADDR_RANDOM makes systemd replace it with a stable 
-address derived from the interface name and machine-id.
+I don't really find this very compelling, tbh. Presumably this data can
+end up all over the place: on the stack, in a vCPU structure, in a GPR
+so it really just feels like doing something for the sake of feeling like
+we're making the kernel more secure rather than actually adding any
+tangible benefits. There are also lots of things you're not covering,
+so it's not clear why this is either necessary or sufficient.
 
-(this is my use case, and how I found the bug)
+What prompted you to do this?
 
->> Fix by tracking the base MAC address assign type in the sparx5 struct
->> and applying it to each port's netdev.
-> 
-> Generally no need to repeat what an average reader can easily grok
-> from the diff.
+Will
 
-Ack.
-
-- Quentin
-
-[1] 
-https://www.freedesktop.org/software/systemd/man/latest/systemd.link.html#MACAddressPolicy=
+P.S. This ended up in my spam for some reason.
 
