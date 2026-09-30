@@ -4,112 +4,96 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C0E09CA5FCF
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 30 Sep 2026 22:36:08 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D55B1CA5FC4
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 30 Sep 2026 22:36:31 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
-	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=31FtpfwVwzLD0ict8s7Xlxjmf0MpGO0qQ6jQtSv6HCI=; b=rVMb0zkk1YvUuEnYybbS3Zhvkx
-	3/Gco5tPq7pRJNdNQytCMB7iJDxdUSDcnytdoEymmUHPvEsGPXeC/oeY5hRyaY8bXT9O6QMdG+bvy
-	aaU7XrzFEgZ1iIfy6A1+fMcORHrUHhNrhhUQbq7ROWLF/Wn/sGKqI05o1FfBnEt/rSK5gzEMLyiwS
-	LM2/kFAybVDImpU2Zn047NS3AowL8COu3DafjFG5bxyP6zqq2VtBwmQ8MQupcCe67YuU0ihbNL7ck
-	RrglyYFgecvMfMbdFVxBdcp1qD5BVAaMkKhMYCvIegMuqvd4iDvMeS7t+vK0ewwBRaO0d3J6XKpoC
-	iCyxIlVA==;
+	Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:CC:To:From:
+	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
+	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=5ImfINeuOE9iLC8UGSBU6gB1KbarjxQhxnlQvxmJHpA=; b=mw/NuCMRrdjKxqWs4JO7CQI2uY
+	rCBAX97BW2ps7m36b5Y7W3SDdcMms49lykDp2vorLL36lQY5Ixk9NotNMryiyMfcp6GzrBx8Halst
+	ppQlch+sq5JoGoLB47lvRP2XVFf58VrfWxpeTQOl7sjxNBn7hnUA8f45OeVA/ZEnNBMUW6RqKn9W8
+	Te+aQldFeJcYBAQUV+XRTnaH5S56Hl/dOCgOaE7w2a0A5fB6a9OAEdRhHpIUncNTlcQ3S+mW+cBj2
+	95nteyIar9lUZb72O5hF3WHHElYVlgMbuXvtF8Vq75r/BQwozzMWG96aBGix2lIWFfqWsWNGrWCte
+	Xr6zgRlw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xC2u7-00000007Njr-0G9U;
-	Wed, 30 Sep 2026 22:35:59 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1xC2uX-00000007Nxd-2pwD;
+	Wed, 30 Sep 2026 22:36:25 +0000
+Received: from mx0b-0002e601.pphosted.com ([148.163.154.28])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xC2u2-00000007NhE-2OVY
-	for linux-arm-kernel@bombadil.infradead.org;
-	Wed, 30 Sep 2026 22:35:54 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Content-Type:Content-Transfer-Encoding
-	:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:CC:To:From:
-	Sender:Reply-To:Content-ID:Content-Description;
-	bh=31FtpfwVwzLD0ict8s7Xlxjmf0MpGO0qQ6jQtSv6HCI=; b=XVM0ZTzNcajLwtxDD7Kf/nuYis
-	Z22mq3pSk1n+wTMimCy0Av4vcp1tanf4qjiSKWzeuvAO7PqiAfdB6U+uzataT7s+aK+S5UsknX7Y3
-	9vWOHY0+g31RCKKgPyif6gzdL/YhrYgx6M59PbDpF4CO5k3riEYDGDO4bvWHbUAaHAlEH1QpmqBEz
-	x53VeGO5FTrArat2QcrNJZcTSGEYnAG/46gZX2TDiXxR3zSg26rgpE6CWLt7W08RdctJY76RiJwNv
-	2oIBHjvGELEm5A7VLkgsAtHDXazCa7CP0JZjJlWfAsrHxNSHy21XheDMRyBobq8Pkfgg7yhxa26ZV
-	LJldiyHw==;
-Received: from mx0a-0002e601.pphosted.com ([148.163.150.75])
-	by desiato.infradead.org with esmtps (Exim 4.99.2 #2 (Red Hat Linux))
-	id 1xC2ty-00000004N6d-1hhW
+	id 1xC2uF-00000007Nof-2Bi3
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 30 Sep 2026 22:35:53 +0000
-Received: from pps.filterd (m0384305.ppops.net [127.0.0.1])
-	by m0384305.ppops.net (8.18.1.11/8.18.1.11) with ESMTP id 68UKkGwc442992;
-	Wed, 30 Sep 2026 17:35:40 -0500
+	Wed, 30 Sep 2026 22:36:08 +0000
+Received: from pps.filterd (m0374955.ppops.net [127.0.0.1])
+	by mx0b-0002e601.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 68UKkQDF130208;
+	Wed, 30 Sep 2026 17:36:02 -0500
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com; h=cc
-	:content-transfer-encoding:content-type:date:from:in-reply-to
-	:message-id:mime-version:references:subject:to; s=
-	proofpoint-05-2026; bh=31FtpfwVwzLD0ict8s7Xlxjmf0MpGO0qQ6jQtSv6H
-	CI=; b=ZLZqdvUEoDW6ta1qHd/O5DL6cE/hsSigsymhGvt0/fCxahZ+oJp7Bk7Xu
-	ONId0DS+HwzrBXNDEbCd6Tz0nSmJd+ERVk/nN8sqYXuZzoGWODZUHNt2EHld4Zou
-	oTKbwtuy8YZt+56SCU0nR19Hy5QEpTqoqQ+zfePBK6KlEyMqs4fz6bxg4O13h8zn
-	HwlhFzRWVaF2zT0wWknkhqcZPZbCmsDXMgG+0WRUSS0iOimIf3q8Ck7SCKm+lNqX
-	Jujl+oVlX3s8s8uJi6cbxDTpBwoZ074XPCmiE0CLjkN1K1U0tLC6O5o2aYWKqC2c
-	Ycx365prOL4MC8lgRJjZQvO8gwA6Q==
-Received: from sn4pr0501cu005.outbound.protection.outlook.com (mail-southcentralusazon11011038.outbound.protection.outlook.com [40.93.194.38])
-	by m0384305.ppops.net (PPS) with ESMTPS id 4h10s23y1e-1
+	:content-transfer-encoding:content-type:date:from:message-id
+	:mime-version:subject:to; s=proofpoint-05-2026; bh=5ImfINeuOE9iL
+	C8UGSBU6gB1KbarjxQhxnlQvxmJHpA=; b=pRoZD+Y82iQtPGQ1Xdsp56ktdWjgH
+	1gnEsSSDXlAIrFQOFvwS5Os1L5cKde00JDWqI7bX3vHeiFKGb9POaJHbcpSkoy6C
+	Z1AXdIDMpwXBx4Hxc+Cm7/kMODyT7Fir7pDGJAhsa0wcwn02MmEeYnXX3O8sh878
+	bhj7n0Rigs8gG1P9I2K0HjxOMlaNpkuJ4e96nQCi4myUJ3lwR8Fa3vWosk0hoiBW
+	HaxBFyIHjjmetjId2gtbVNsJi0O2xml0szA+hpf4kmcj8CuzQ/jR742B2ylF7Y+C
+	NbRiTuP4JgL1DC81qabCf/EPKW7XgKlKQzSEJz19c8sPpZ6PH+hBG1AJQ==
+Received: from dm5pr21cu001.outbound.protection.outlook.com (mail-centralusazon11011000.outbound.protection.outlook.com [52.101.62.0])
+	by mx0b-0002e601.pphosted.com (PPS) with ESMTPS id 4h0ydvccnf-1
 	(version=TLSv1.3 cipher=TLS_AES_256_GCM_SHA384 bits=256 verify=NOT);
-	Wed, 30 Sep 2026 17:35:39 -0500 (CDT)
+	Wed, 30 Sep 2026 17:36:02 -0500 (CDT)
 ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=VqBHawKzjDH6eVDYEuOVGkc7YTAxeqDybXSA1XKc/taiol2O9ONTGytV51SEegMAoNd671E96eTJApqso9xEQa9A05Zmkdwlkx89BUXNo80UtaXR3nTu/3hly6DJhHMelLtS+YhHgPYkfYBYDolpsjoBODpYtGYlT2LxvImgwVzhG5bTiO6wsKdztblvPGRxhb5l8TMljKlaKmLe31HZeKbeKz3YraenQEVII+gxNJhdIOP2zhbIXEs/Y5agcpMaRuttoK1zrouL94LUukvc9ECepvfq8w+ulSTIx+zHwQlum06+wBScFQqhrfIQB2wHW77p359uXm5PclPmFqSHvg==
+ b=xjpTY0hhD6DpCOisetPU1ofSIGs+9ImZdyd8cPB5jON4wVjbTGQbAtcNfvo3fFDeoU0a+f2kpHEUmPZq63h8PVksQIx00iLQCiMfqHgkxhI+ZIr+uz0G/J5HoE8+wIeSixHWaqPYGsbcY2tDv4FU8WNZDiZlHLBL4uKjlY/kxHNRlmiyglQSD2iKSGbr/TpWdyKr7QhGtlRc2ueNTJsVBPKEtSN5uecHVnJGPQbX4BaIA2Ui85AQIde0ZW3Dne7yV33H6FJsFtWbqOcRSTPGjnvjbX5Y/y3Yq53TmWrlvMEGUfw/zjjTm58uEL64f6xsHLIF5nfhcin8ahMbXXA7Mw==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
  s=arcselector10001;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=31FtpfwVwzLD0ict8s7Xlxjmf0MpGO0qQ6jQtSv6HCI=;
- b=Qg6jeO6bzFkCArx0Hrr4SUAciyp2s4hoL8Y+eBQRxbsAN5NeHM8dAn/qSDth8UMk7wmELoTETNdxPTG8YOqEynHhvDPv+Tuk8SMR2Du5ZS2HyHEi4BgDME3/0MB6M8+Zb0tKbK5mj/lQGa8Zorum/RCO8JSb2OAuUQGPLHfm9J3fFnddrGpbuUN3yNld+HP+UW5lIi5/y3293XromSOBF9UHuwXC9OrfMBG5yFW6GJh8858VJzTdfcdq+dKpZfUtbXMSIk7qH559HvabZVaKR6oi7CnIiCOWgDMpRb/lhGJ2eAW6bcSZgiIfYOMU0TrjHcNSQNnTZ7V8f0IYf0U21w==
+ bh=5ImfINeuOE9iLC8UGSBU6gB1KbarjxQhxnlQvxmJHpA=;
+ b=MMmIFJ9tLnbJRWoY92C9GyS6ZYsoKxe1JhrV/+4onu4h+xuCCW4yfL90R+G7Z+Q4mLJLzniVNn0TSFEqyHoXF8EbqYkOKUpWx5y7dwZ4YDtsWTUjuEfBDhdVxx20v5AYlPhv7As4vkwtp2myNCPuhs199UbT0rg/v2QpYbsCU2tIMCJjJB3TlELdBqBllFCIiBKMATh36A5fAZtA6qR9xdLSCmabHE8JvfK9eU6chL+UDb0VVQBSPTDZ/k+jlRn+WsGynUZCp8UcJ3D1Muq17PR9N8mWuWuViTfZ+a4zi/6pyhUlxJhP1DN6m74LY+tyrl6UhOPYkLv6XgwIS19hMg==
 ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
- 198.47.21.195) smtp.rcpttodomain=vger.kernel.org smtp.mailfrom=ti.com;
+ 198.47.21.194) smtp.rcpttodomain=vger.kernel.org smtp.mailfrom=ti.com;
  dmarc=pass (p=quarantine sp=none pct=100) action=none header.from=ti.com;
  dkim=none (message not signed); arc=none (0)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
  d=ticloud.onmicrosoft.com; s=selector1-ticloud-onmicrosoft-com;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=31FtpfwVwzLD0ict8s7Xlxjmf0MpGO0qQ6jQtSv6HCI=;
- b=qcamWg74w/k4+OpnBegGmjxxshjyny4Nj0SqcgYJK2C9nFQrR+n7NzzV70JWl12MraawrKXGAqQnQgsuq0yxbl81Qv977NjiCYKpzDgT1WTNXVkgE0q2DOoRT0Vt5sS6X/2hvvZBgUbBc5uAdPCUFNkOmtqmJZziLnm0y+hZ7Ho=
-Received: from CH0PR03CA0327.namprd03.prod.outlook.com (2603:10b6:610:118::20)
- by SA1PR10MB997653.namprd10.prod.outlook.com (2603:10b6:806:4b3::5) with
+ bh=5ImfINeuOE9iLC8UGSBU6gB1KbarjxQhxnlQvxmJHpA=;
+ b=dSNwE4ydd9t573Gs1YUcH8c6jYACdBNvVAtkuYKg0uhkekrQuII72vRPIbuTUNkQBGpHsr+YOpOrukkBx85tOXGs+0hqKHIUqC4bEfwOnczMer1y/FiK8Gm8CZRcrtDEiknd9KADAjgC5+qGnsVAFPyEgg0wQSLd9XNmEi8Odjk=
+Received: from BN9PR03CA0232.namprd03.prod.outlook.com (2603:10b6:408:f8::27)
+ by CO1PR10MB4676.namprd10.prod.outlook.com (2603:10b6:303:9e::13) with
  Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.472.14; Wed, 30 Sep
- 2026 22:35:36 +0000
-Received: from BN5PEPF0004698D.namprd02.prod.outlook.com
- (2603:10b6:610:118:cafe::85) by CH0PR03CA0327.outlook.office365.com
- (2603:10b6:610:118::20) with Microsoft SMTP Server (version=TLS1_3,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.472.15; Wed, 30 Sep
+ 2026 22:35:41 +0000
+Received: from BN7PEPF00000090.namprd03.prod.outlook.com
+ (2603:10b6:408:f8:cafe::34) by BN9PR03CA0232.outlook.office365.com
+ (2603:10b6:408:f8::27) with Microsoft SMTP Server (version=TLS1_3,
  cipher=TLS_AES_256_GCM_SHA384) id 15.21.472.16 via Frontend Transport; Wed,
- 30 Sep 2026 22:35:35 +0000
+ 30 Sep 2026 22:35:41 +0000
 X-MS-Exchange-Authentication-Results: mx.microsoft.com 1; spf=pass (sender IP
- is 198.47.21.195) smtp.mailfrom=ti.com; dkim=none (message not signed)
+ is 198.47.21.194) smtp.mailfrom=ti.com; dkim=none (message not signed)
  header.d=none;dmarc=pass action=none header.from=ti.com;
 Received-SPF: Pass (protection.outlook.com: domain of ti.com designates
- 198.47.21.195 as permitted sender) receiver=protection.outlook.com;
- client-ip=198.47.21.195; helo=flwvzet201.ext.ti.com; pr=C
-Received: from flwvzet201.ext.ti.com (198.47.21.195) by
- BN5PEPF0004698D.mail.protection.outlook.com (10.167.245.42) with Microsoft
+ 198.47.21.194 as permitted sender) receiver=protection.outlook.com;
+ client-ip=198.47.21.194; helo=flwvzet200.ext.ti.com; pr=C
+Received: from flwvzet200.ext.ti.com (198.47.21.194) by
+ BN7PEPF00000090.mail.protection.outlook.com (10.167.245.68) with Microsoft
  SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.21.472.14 via Frontend Transport; Wed, 30 Sep 2026 22:35:33 +0000
-Received: from DFLE212.ent.ti.com (10.64.6.70) by flwvzet201.ext.ti.com
- (10.248.192.32) with Microsoft SMTP Server (version=TLS1_2,
+ 15.21.472.14 via Frontend Transport; Wed, 30 Sep 2026 22:35:39 +0000
+Received: from DFLE205.ent.ti.com (10.64.6.63) by flwvzet200.ext.ti.com
+ (10.248.192.31) with Microsoft SMTP Server (version=TLS1_2,
  cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.45; Wed, 30 Sep
  2026 17:35:04 -0500
-Received: from DFLE200.ent.ti.com (10.64.6.58) by DFLE212.ent.ti.com
- (10.64.6.70) with Microsoft SMTP Server (version=TLS1_2,
+Received: from DFLE207.ent.ti.com (10.64.6.65) by DFLE205.ent.ti.com
+ (10.64.6.63) with Microsoft SMTP Server (version=TLS1_2,
  cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.45; Wed, 30 Sep
  2026 17:35:04 -0500
-Received: from lelvem-mr06.itg.ti.com (10.180.75.8) by DFLE200.ent.ti.com
- (10.64.6.58) with Microsoft SMTP Server (version=TLS1_2,
+Received: from lelvem-mr06.itg.ti.com (10.180.75.8) by DFLE207.ent.ti.com
+ (10.64.6.65) with Microsoft SMTP Server (version=TLS1_2,
  cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.45 via Frontend
- Transport; Wed, 30 Sep 2026 17:35:04 -0500
+ Transport; Wed, 30 Sep 2026 17:35:03 -0500
 Received: from ula0226330.dhcp.ti.com ([10.249.33.42])
-	by lelvem-mr06.itg.ti.com (8.18.1/8.18.1) with ESMTP id 68UMZ3Tr3969567;
-	Wed, 30 Sep 2026 17:35:04 -0500
+	by lelvem-mr06.itg.ti.com (8.18.1/8.18.1) with ESMTP id 68UMZ3Tq3969567;
+	Wed, 30 Sep 2026 17:35:03 -0500
 From: Andrew Davis <afd@ti.com>
 To: Tony Lindgren <tony@atomide.com>, Vignesh R <vigneshr@ti.com>,
         "Andreas
@@ -122,68 +106,65 @@ CC: <linux-omap@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
         <linux-i2c@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
         Andrew Davis
 	<afd@ti.com>
-Subject: [uL RFC PATCH v3 1/8] i2c: omap: Drop bit shift for I2C register addresses
-Date: Wed, 30 Sep 2026 17:34:56 -0500
-Message-ID: <20260930223503.616776-2-afd@ti.com>
+Subject: [uL RFC PATCH v3 0/8] OMAP I2C driver cleanups
+Date: Wed, 30 Sep 2026 17:34:55 -0500
+Message-ID: <20260930223503.616776-1-afd@ti.com>
 X-Mailer: git-send-email 2.39.2
-In-Reply-To: <20260930223503.616776-1-afd@ti.com>
-References: <20260930223503.616776-1-afd@ti.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 Content-Type: text/plain
 X-EOPAttributedMessage: 0
 X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: BN5PEPF0004698D:EE_|SA1PR10MB997653:EE_
-X-MS-Office365-Filtering-Correlation-Id: ef19d44b-82aa-4e2a-858b-08df1f432429
+X-MS-TrafficTypeDiagnostic: BN7PEPF00000090:EE_|CO1PR10MB4676:EE_
+X-MS-Office365-Filtering-Correlation-Id: d4600a3d-37e2-4352-042a-08df1f43276f
 X-LD-Processed: e5b49634-450b-4709-8abb-1e2b19b982b7,ExtAddr
 X-MS-Exchange-SenderADCheck: 1
 X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|36860700016|376014|82310400026|1800799024|23010399003|56012099006|10067099003|22082099003|18002099003;
-X-Microsoft-Antispam-Message-Info: 3znZVLJXzeE9xGxbsTeQ5fOZjKEly0DHbzjrSwDgyZqUWGYBVZDkJLswRuG0HpmWNSIhhAw+3sckP3eaubHCwpyMfcIoNRXnHywRINv4zYS9h++2vsIHybRCzpycvFe0hgS5ktLZ2yJYQwsjAAwZUc3EW6annj4cafldVYQgX+2HkGWRQzRSIuCBj2AV4t3PSuGU01kLGSFktFbdyu8eUq2FXabKayaSn9zUDjXAwtYumDjX9lM6wQboa2g9vgfhS8dpY7hGd78DpEA/8+XqN5FokpaOt/+7fCFwthRrNjKtpVZmsJzkFUwaI3R34kAgO5Nwd3EcKReUZ2DXE0R/08XuAbScNeVu6hp0yRd1uO3Jg8NEytv4Ev+6cSq85KasAs+I7BENqY3WwXK/8zs+2WktElir/QOJ9PlzZ5XCxZigds2VFxj3FkQVshHxOSa3lo57l8k/hgMBVsCJM9IcjDOTVXCWUETfIt9KPjSKFSzsZrYuqu9QZhAXBNPKIhCVxFR9eB8M8o5CybQWpeml5B1039XDLDcQuSffdWKbxsdidqh1qZOdIuEkSXquBPlT0mZk5B8WTjW1E/qHeL9xbqHVZJs0R7JB/7sF9u4SwREoP3lIvmvckTFBgKwwlc4VVSeUPA/LEyJYXewz+665MkyRRv2dE1mXIPu7RzNeoOfWTtxcAT6owoGJcATSnqwhosBjQiyTp3F0SfK7ttTWrA==
-X-Forefront-Antispam-Report: CIP:198.47.21.195;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:flwvzet201.ext.ti.com;PTR:ErrorRetry;CAT:NONE;SFS:(13230040)(36860700016)(376014)(82310400026)(1800799024)(23010399003)(56012099006)(10067099003)(22082099003)(18002099003);DIR:OUT;SFP:1101;
+X-Microsoft-Antispam: BCL:0;ARA:13230040|82310400026|376014|36860700016|1800799024|23010399003|10067099003|56012099006|18002099003;
+X-Microsoft-Antispam-Message-Info: Teoj0J1mNXQ33jM223iWkj2x+TX4VDxkn261sGa//wXCdZs9QCn73JiuH81zcfYK1JJZVdr84aQzqZQ1vIVjRlsS2MMuIXj2zpQWZMg72zuNL4IUC1G85HZ6LWfWwnnvBrD2gECrgSj5T1mAhj7xZvZQT8CSHpGBXpZo2QU2NkLFlE7QrOCW98mJLVp0wsiv7F2C/lydmYeBYbNs5GXkNxnyJS66Muq9iZ9dVi8EYg4RamPCoshLHS+l62FD5RqPL2w2RsWz5MJ/zsvmqDvs8SBerqiCX1FLVgHoS8Wo70Wx8j2qU7kuNrZt8s4MwIjekxLbntxOHqeDLyrpK+i66IwlCqW/LjMVkRmrFI/ZdmrYyxwm4dF3OqnODinYMWbAxtmY1JROv+Z6qzjvtpOfXh/KZO7KD5nhWrrINxcyxodZYOnCfhHjsJBTKVS8rwyYvOAWq6zGdC5SBddMUlSRS+JgicMcsnxed7QsHzMshmImgROOmeLG5/GjEIZU7cPMge+Cb8R2RIqUukZZD/q1asuIcv8FDd2ygmrV33Kr+vEPIDS+WVIrc2qjYlzLoaTLkMqqAQ9NFVKYxImuCdJeKiLWtxyn5+Yqk2hO7jjvjN4D++xbj7Fr9GDr78OTqDyGt0mBX3xPcdZ95uCk+oH3obWSrn4yo5FVWqZ+v+RcsV2c0HdLd4nNTqUXtpyBo7zYq88UYo1qVdJKlgEFhhY7RA==
+X-Forefront-Antispam-Report: CIP:198.47.21.194;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:flwvzet200.ext.ti.com;PTR:ErrorRetry;CAT:NONE;SFS:(13230040)(82310400026)(376014)(36860700016)(1800799024)(23010399003)(10067099003)(56012099006)(18002099003);DIR:OUT;SFP:1101;
 X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: WbDAPY5+Uj47TOhCQvbBHpkZx72A3JVLNAXViK3bpzyp3CosmlUsNcG/VKkL/KWR5E3BfUHiKI3ux6X3Smbno4ODguV2A/XO9P4dxpj5ulUs14eKI3K9kVHhH1OK5pY9n2vAdcl4HcrlxnqvVeH84nNS9L8Zgct7D2y4QLRYaxKK2JOnqhD2gypL4wzyh1VF10uhoM9HYbzyH93bmal5CPL8sNnXJUnpuzEmC3px+9ELfdz0bzsxwCFApaAw9SIu4QTMJFYgesegJT4mAA80UN5PieKZ2Ex0oOVV8PFJKy+h5ucHGlX0ToxX3ggu7Dnfd6lxngb3WUoNH1DUGUyZ5xsOoEM5v4q+xwvDXRuSYRZNrcuxaJ5Oi1FrqG2t2PCQfa1DXO+G3BvUxNbQTerZ1nWSExarC+bYNL9G/aLk3rn6M0h0LDmP8WiVG3wsKU69
-X-Exchange-RoutingPolicyChecked: tCB2VuelakU3KlDK56WwhnaGt/O61YbtW+CGFv3Tm6rXwzPJwo2ymEZgvt1LZ/+QbNtXGZjnAjVK44aOldoeXncolfNUkGb1Ew+SrGJezCQVFv7uIFpgjSG/0FTDc9C2M/oCcWsbEGV6P4Sq3LcfE/xMZSR+Za4OsgB9z9I/EzwwQvECftZ52xI2ZRxkHtLT0VJ4ZDnsJWPY5j+JdzRNBunFYoXRxxIgnA0Z955wMIZEym574m+gKJ7NUZ4mNb0sz0PPO8G45l0jL4iXLmLsQZ0VLQWfaXSMcDQpMEH8/eIka4VNo4W8wbxILd2XH2fhL9nWoRuF+ZzqzgGpHXbqCg==
+X-MS-Exchange-AntiSpam-MessageData-0: 41SPLaGgQ8LiNawSNi/mldYFXMJPaGyc53eC0gldpO5yYqTYXE2lnD5a57q72hXL+qXYRxpqqEK4jf1qMv2rNcrfXCmIddiY3XuQw/8yIVhammVzf+yrj1FFv63TMzFuj2JJtuHFtiKoHH95faZZM0rqK80MVR37uvO6SHr1d9cpoKKYutvDC0o2oWURqF3j87hT0oHi2QM23pVHvCyfAGW3bP4XMhclQvw/XMGmvXfPHMMtTckmHtL4LHRhGxip9YweN1eqKX7Tddb7kWV5EWtnNZV8S+F4BU1yTpQ7XBlN8zMyforJDNKScKzQRv3IqqoW5sbkIvRzsGUGuafuid0J07LMZM/bDQB14NDkRH2XTmaMg/FUloSOXhDD+kkABWL3JsOmc2rvv4pPVutw/0bkTGtsu0TjuMjeCWtW9BKXlO6q5zRrJhIlIJx1+C6K
+X-Exchange-RoutingPolicyChecked: uVLA+AWiLWKN8CGhSXzgNc10zm/pxWKB6x5/zc7VnAByVOJtB8CSGlQhx3RF9aCGwfaOqnagKGNn2eabvRRVw0W1qe8v3FbOhCGP9zRwOQ9pa1gz4n3rh4M4AxL0zcnX58vM3iXrvhNM1wSUvVFj9B31CN8gC6H7AZorbMH37Zi8gyxlFlqdwC/IJ27wCqxT4ftISrMl15J5JviErHCQtnT5bf6gTV4nya0/GiWtanF7khjs27x9kb7rSSarvX4FY+tCYBmXE6NIVEkSB0w1BF/97HKFIYMdSLgiRHp6pXu93SAD+mE6gPuXbFsxLDNiievUoUvXIek0aCd4fJISZg==
 X-OriginatorOrg: ti.com
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 30 Sep 2026 22:35:33.8657
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 30 Sep 2026 22:35:39.3547
  (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: ef19d44b-82aa-4e2a-858b-08df1f432429
+X-MS-Exchange-CrossTenant-Network-Message-Id: d4600a3d-37e2-4352-042a-08df1f43276f
 X-MS-Exchange-CrossTenant-Id: e5b49634-450b-4709-8abb-1e2b19b982b7
-X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=e5b49634-450b-4709-8abb-1e2b19b982b7;Ip=[198.47.21.195];Helo=[flwvzet201.ext.ti.com]
-X-MS-Exchange-CrossTenant-AuthSource: BN5PEPF0004698D.namprd02.prod.outlook.com
+X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=e5b49634-450b-4709-8abb-1e2b19b982b7;Ip=[198.47.21.194];Helo=[flwvzet200.ext.ti.com]
+X-MS-Exchange-CrossTenant-AuthSource: BN7PEPF00000090.namprd03.prod.outlook.com
 X-MS-Exchange-CrossTenant-AuthAs: Anonymous
 X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: SA1PR10MB997653
-X-Proofpoint-GUID: TSd_G4WF41BUMz6g_Cai7p7EBKiy_VC8
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwOTMwMDA5MiBTYWx0ZWRfX2i9DXZ86rQ/d
- 66XpFep1MIm0V/a4v4Hjs3t3iwVN3dky7E9wA1F1pju51vKKCY3B2XkLTmElTKQzZ8c2HIZEn5L
- JyURKJHafC+CqZUBul25oYuiGUjuiYBLmjWgU4EzVo5+/NrQzqn0LT4p1+2hLCVQFehvcrHfBLW
- N5rnnWF25lqAAavvS0sKNs1jMLS4eFhqZ0pXIICFmsR8k2XuaxxnT1XN8l84gLPTo+C7GXTlQlc
- 1C7cjFIrcsiVccHL8o4I1wC1MVCxtt/PxORSMwbpEoTfeK6NmmBYNtprDAEqOn92v6b3aA5y9TA
- qWp5O8vptBHimwTDdedWa7MD7T/dtj6NYu30J2KtQFMabqOJ7LB2ptt+dgl8r6rzWZP8WcpLt7K
- 2z7Tm+Ullyud8Kizo/5y3zdNOgdZgCGknErlG2FyYOV8Vpn0uKacKCZUXU7BDqEU2rs0yJTqEwr
- OuqvjRoL5ufMgQGG0gg==
-X-Proofpoint-ORIG-GUID: TSd_G4WF41BUMz6g_Cai7p7EBKiy_VC8
-X-Authority-Analysis: v=2.4 cv=G6aJgNk5 c=1 sm=1 tr=0 ts=6abd8ebb cx=c_pps
- a=w8e6fJRD9yN2bKWo9pBaJQ==:117 a=tJyPKKxUohctrY4NYmUjkA==:17
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: CO1PR10MB4676
+X-Proofpoint-Spam-Info: AW1haW4tMjYwOTMwMDA5MiBTYWx0ZWRfX5Egd24xALRKZ
+ oa1rStYZ17xdJLW0C87Vw4EptxsgjfQ9Cij59CpYOEAXyWLvjXLM1k+92J5WFgjA3SRI7BML/3S
+ f6QcXSrHlA7Cozn7o0gNMTy0ICLM5oA=
+X-Proofpoint-GUID: Yt7v6neINtwuTISOU9NvuBED9z-SLRQN
+X-Authority-Analysis: v=2.4 cv=TegDJhQh c=1 sm=1 tr=0 ts=6abd8ed2 cx=c_pps
+ a=6BiUERe1gyZkJgaADwpG2w==:117 a=iwqwCZQqcuTv3JOpYdM7/Q==:17
  a=6eWqkTHjU83fiwn7nKZWdM+Sl24=:19 a=VdqzKS8jKosA:10 a=AlMIdn_sM9wA:10
- a=VkNPw1HP01LnGYTKEx00:22 a=Z8NIEmU8O1QQgoT56wFK:22 a=taLDd7a_hP9WKsMzeGRc:22
- a=sozttTNsAAAA:8 a=50gAi1W1AAAA:8 a=IpJZQVW2AAAA:8 a=miE_aGblqCwIs2vhnBUA:9
- a=bIAsa0K8HJLRn3BBPJ--:22 a=IawgGOuG5U0WyFbmm1f5:22
-X-Proofpoint-Spam-Info: AW1haW4tMjYwOTMwMDA5MiBTYWx0ZWRfXyuXgvVqIxGmH
- SLSc0JgB+cHFvMhI4SlEVtUed4afKZxoUlcuXWKQetX85/MygBzgE3iSe6mFJn0hd2blK5g5Al4
- WlvT1XNfUcjrzFnv/24X/I8BVr79u4s=
+ a=VkNPw1HP01LnGYTKEx00:22 a=Z8NIEmU8O1QQgoT56wFK:22 a=fPAWb5peG099m5CrUpKH:22
+ a=eAOsfQ8bo_TvZWU5rFEA:9
+X-Proofpoint-ORIG-GUID: Yt7v6neINtwuTISOU9NvuBED9z-SLRQN
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwOTMwMDA5MiBTYWx0ZWRfX72bUgdzc75oJ
+ 2Q9D+maRkWZXj6iq/vzRIcudKTpN2HRnk7Sa3aqjX2iJQ0RVEJfhw9cEOXwtjeJLCLCNBZoeqEd
+ arX4SCU/GCRbOoSeU4SyIVYul8k5QCjQ4/1NvMQocNCjgkmFh7VcOZ4Q7IXykh73uVl7Mxlxlhj
+ 2eEZzPISKoNStqqtCL8DrcqNxR5jcw3XZr/i7nlS30oH3hCiB0BfPhmhxyMCyXcVCQoRdq5egFi
+ VvLBC+JvWS6vZE5ryBKwz588UlBH6j+qUtNiZLeJHPiPiaP4g6XCjmNHqFdXeWg7gs/DZOJfS4N
+ I/s8S+Jv+T4offlXe2l6TGZmgb/gKCtWylZTY0s/Xr4lDvt4olQPWQQYqqiC5/cdnROEi2WgFZ3
+ L73LjRGnRa0OnCw4R9QUZ8MJrmiq35NL3g6o7boxoogl7tI3GWPfzKYqAVsLQfEvXqttzaq0Pnt
+ kV2XiVS3ixk6adCLnag==
 X-Proofpoint-Virus-Version: vendor=baseguard
  engine=ICAP:2.0.293,Aquarius:18.0.1176,Hydra:6.1.134,FMLib:17.12.100.49
  definitions=2026-09-30_04,2026-09-21_02,2025-10-01_01
 X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- clxscore=1015 adultscore=0 bulkscore=0 priorityscore=1501 impostorscore=0
- malwarescore=0 phishscore=0 lowpriorityscore=0 suspectscore=0 spamscore=0
+ spamscore=0 lowpriorityscore=0 malwarescore=0 phishscore=0 bulkscore=0
+ clxscore=1015 priorityscore=1501 adultscore=0 suspectscore=0 impostorscore=0
  classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
  reason=mlx scancount=1 engine=8.22.0-2609040000 definitions=main-2609300092
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260930_233551_251615_099E8641 
-X-CRM114-Status: GOOD (  20.77  )
+X-CRM114-CacheID: sfid-20260930_153607_692120_C0CBDBD3 
+X-CRM114-Status: GOOD (  10.37  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -198,153 +179,38 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The OMAP7xx devices used a register address shift of 1, but this device
-has long since been removed from the kernel. So now no remaining board
-device uses a shift other than 2, and no DT supported platform ever did.
-We can drop this flag and use the pre-shifted register addresses. This
-simplifies the register access.
+Hello all,
 
-Signed-off-by: Andrew Davis <afd@ti.com>
-Reviewed-by: Andreas Kemnade <andreas@kemnade.info>
-Acked-by: Kevin Hilman <khilman@baylibre.com>
----
- arch/arm/mach-omap1/i2c.c              |  4 ---
- drivers/i2c/busses/i2c-omap.c          | 50 +++++++++++---------------
- include/linux/platform_data/i2c-omap.h |  5 ---
- 3 files changed, 21 insertions(+), 38 deletions(-)
+Some hopefully simple cleanups and updates found while using this driver
+as reference when porting the same over to Zephyr. No functional changes.
 
-diff --git a/arch/arm/mach-omap1/i2c.c b/arch/arm/mach-omap1/i2c.c
-index 94d3e7883e027..bc7828a858941 100644
---- a/arch/arm/mach-omap1/i2c.c
-+++ b/arch/arm/mach-omap1/i2c.c
-@@ -61,10 +61,6 @@ int __init omap_i2c_add_bus(struct omap_i2c_bus_platform_data *pdata,
- 		       OMAP_I2C_FLAG_16BIT_DATA_REG |
- 		       OMAP_I2C_FLAG_ALWAYS_ARMXOR_CLK;
- 
--	/* how the cpu bus is wired up differs for 7xx only */
--
--	pdata->flags |= OMAP_I2C_FLAG_BUS_SHIFT_2;
--
- 	pdev->dev.platform_data = pdata;
- 
- 	return platform_device_register(pdev);
-diff --git a/drivers/i2c/busses/i2c-omap.c b/drivers/i2c/busses/i2c-omap.c
-index f02d294db42a6..c443f88267d6e 100644
---- a/drivers/i2c/busses/i2c-omap.c
-+++ b/drivers/i2c/busses/i2c-omap.c
-@@ -180,7 +180,6 @@ struct omap_i2c_dev {
- 	struct device		*dev;
- 	void __iomem		*base;		/* virtual */
- 	int			irq;
--	int			reg_shift;      /* bit shift for I2C register addresses */
- 	struct completion	cmd_complete;
- 	struct resource		*ioarea;
- 	u32			latency;	/* maximum mpu wkup latency */
-@@ -217,23 +216,23 @@ struct omap_i2c_dev {
- 
- static const u8 reg_map_ip_v1[] = {
- 	[OMAP_I2C_REV_REG] = 0x00,
--	[OMAP_I2C_IE_REG] = 0x01,
--	[OMAP_I2C_STAT_REG] = 0x02,
--	[OMAP_I2C_IV_REG] = 0x03,
--	[OMAP_I2C_WE_REG] = 0x03,
--	[OMAP_I2C_SYSS_REG] = 0x04,
--	[OMAP_I2C_BUF_REG] = 0x05,
--	[OMAP_I2C_CNT_REG] = 0x06,
--	[OMAP_I2C_DATA_REG] = 0x07,
--	[OMAP_I2C_SYSC_REG] = 0x08,
--	[OMAP_I2C_CON_REG] = 0x09,
--	[OMAP_I2C_OA_REG] = 0x0a,
--	[OMAP_I2C_SA_REG] = 0x0b,
--	[OMAP_I2C_PSC_REG] = 0x0c,
--	[OMAP_I2C_SCLL_REG] = 0x0d,
--	[OMAP_I2C_SCLH_REG] = 0x0e,
--	[OMAP_I2C_SYSTEST_REG] = 0x0f,
--	[OMAP_I2C_BUFSTAT_REG] = 0x10,
-+	[OMAP_I2C_IE_REG] = 0x04,
-+	[OMAP_I2C_STAT_REG] = 0x08,
-+	[OMAP_I2C_IV_REG] = 0x0c,
-+	[OMAP_I2C_WE_REG] = 0x0c,
-+	[OMAP_I2C_SYSS_REG] = 0x10,
-+	[OMAP_I2C_BUF_REG] = 0x14,
-+	[OMAP_I2C_CNT_REG] = 0x18,
-+	[OMAP_I2C_DATA_REG] = 0x1c,
-+	[OMAP_I2C_SYSC_REG] = 0x20,
-+	[OMAP_I2C_CON_REG] = 0x24,
-+	[OMAP_I2C_OA_REG] = 0x28,
-+	[OMAP_I2C_SA_REG] = 0x2c,
-+	[OMAP_I2C_PSC_REG] = 0x30,
-+	[OMAP_I2C_SCLL_REG] = 0x34,
-+	[OMAP_I2C_SCLH_REG] = 0x38,
-+	[OMAP_I2C_SYSTEST_REG] = 0x3c,
-+	[OMAP_I2C_BUFSTAT_REG] = 0x40,
- };
- 
- static const u8 reg_map_ip_v2[] = {
-@@ -267,14 +266,12 @@ static int omap_i2c_xfer_data(struct omap_i2c_dev *omap);
- static inline void omap_i2c_write_reg(struct omap_i2c_dev *omap,
- 				      int reg, u16 val)
- {
--	writew_relaxed(val, omap->base +
--			(omap->regs[reg] << omap->reg_shift));
-+	writew_relaxed(val, omap->base + omap->regs[reg]);
- }
- 
- static inline u16 omap_i2c_read_reg(struct omap_i2c_dev *omap, int reg)
- {
--	return readw_relaxed(omap->base +
--				(omap->regs[reg] << omap->reg_shift));
-+	return readw_relaxed(omap->base + omap->regs[reg]);
- }
- 
- static void __omap_i2c_init(struct omap_i2c_dev *omap)
-@@ -1214,19 +1211,16 @@ static struct omap_i2c_bus_platform_data omap2420_pdata = {
- 	.rev = OMAP_I2C_IP_VERSION_1,
- 	.flags = OMAP_I2C_FLAG_NO_FIFO |
- 			OMAP_I2C_FLAG_SIMPLE_CLOCK |
--			OMAP_I2C_FLAG_16BIT_DATA_REG |
--			OMAP_I2C_FLAG_BUS_SHIFT_2,
-+			OMAP_I2C_FLAG_16BIT_DATA_REG,
- };
- 
- static struct omap_i2c_bus_platform_data omap2430_pdata = {
- 	.rev = OMAP_I2C_IP_VERSION_1,
--	.flags = OMAP_I2C_FLAG_BUS_SHIFT_2 |
--			OMAP_I2C_FLAG_FORCE_19200_INT_CLK,
-+	.flags = OMAP_I2C_FLAG_FORCE_19200_INT_CLK,
- };
- 
- static struct omap_i2c_bus_platform_data omap3_pdata = {
- 	.rev = OMAP_I2C_IP_VERSION_1,
--	.flags = OMAP_I2C_FLAG_BUS_SHIFT_2,
- };
- 
- static struct omap_i2c_bus_platform_data omap4_pdata = {
-@@ -1384,8 +1378,6 @@ omap_i2c_probe(struct platform_device *pdev)
- 	platform_set_drvdata(pdev, omap);
- 	init_completion(&omap->cmd_complete);
- 
--	omap->reg_shift = (omap->flags >> OMAP_I2C_FLAG_BUS_SHIFT__SHIFT) & 3;
--
- 	pm_runtime_enable(omap->dev);
- 	pm_runtime_set_autosuspend_delay(omap->dev, OMAP_I2C_PM_TIMEOUT);
- 	pm_runtime_use_autosuspend(omap->dev);
-diff --git a/include/linux/platform_data/i2c-omap.h b/include/linux/platform_data/i2c-omap.h
-index 3444265ee8ee7..fe6753cd17bf5 100644
---- a/include/linux/platform_data/i2c-omap.h
-+++ b/include/linux/platform_data/i2c-omap.h
-@@ -23,11 +23,6 @@
- #define OMAP_I2C_FLAG_16BIT_DATA_REG		BIT(2)
- #define OMAP_I2C_FLAG_ALWAYS_ARMXOR_CLK	BIT(5)
- #define OMAP_I2C_FLAG_FORCE_19200_INT_CLK	BIT(6)
--/* how the CPU address bus must be translated for I2C unit access */
--#define OMAP_I2C_FLAG_BUS_SHIFT_NONE 0
--#define OMAP_I2C_FLAG_BUS_SHIFT_1		BIT(7)
--#define OMAP_I2C_FLAG_BUS_SHIFT_2		BIT(8)
--#define OMAP_I2C_FLAG_BUS_SHIFT__SHIFT 7
- 
- struct omap_i2c_bus_platform_data {
- 	u32		clkrate;
+Thanks,
+Andrew
+
+Changes for v3:
+ - Fix OMAP_I2C_STAT_REG value in [1/8] (Sashiko)
+ - Add Acked-by tag
+
+Changes for v2:
+ - Seems bitfield.h is not indirectly included for all archs, include
+   it explicitly in patch [8/8]
+ - Add Reviewed-by tags
+
+Andrew Davis (8):
+  i2c: omap: Drop bit shift for I2C register addresses
+  i2c: omap: Remove unused is_rdr and is_xdr variables
+  i2c: omap: Use devm_pm_runtime_enable() helper
+  i2c: omap: Combine event flags register definitions
+  i2c: omap: Use bool for flag values
+  i2c: omap: Make reset bit name match register name
+  i2c: omap: Switch to using BIT and GENMASK
+  i2c: omap: Add OMAP_I2C_BUF_{TX,RX}TRSH definitions
+
+ arch/arm/mach-omap1/i2c.c              |   4 -
+ drivers/i2c/busses/i2c-omap.c          | 255 +++++++++++--------------
+ include/linux/platform_data/i2c-omap.h |   5 -
+ 3 files changed, 113 insertions(+), 151 deletions(-)
+
 -- 
 2.39.2
 
