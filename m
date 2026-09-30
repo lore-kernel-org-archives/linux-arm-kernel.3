@@ -4,62 +4,78 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 972F9CA5FC5
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 30 Sep 2026 22:55:00 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3105ACA5FC5
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 30 Sep 2026 23:12:01 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=qHPlzGy4dd9m6Tg6m6EuH4FV6ScEYz4fEuF681xzp6Q=; b=22QN/MeL4ZjtnjmeUeX+xBA/Cy
-	7FX5if6bp+AqTlxmmJt0P+ZmVhKileBzwP+mZzyGSf4DjFphPCSc9NcTGUtYGu/R01hOx5Wtcon56
-	UWJFmbsVogmgJDuv7cPVD3hd9DNoLA0NcY5P9ce9Wl0XZJFLN+0okWELEu+sXodBExQmzjkLPrmS5
-	LRWvXwoxb9KBdqK3/MwRrPVj9UZYt/3oOEJ9eEJnEY9zyjVmm3n2/JxgBfAzXUT5B1U8w3kmTEWsc
-	06B0nZnqO+TSg+KWBkIv3mrylHhRwfSwVmM5AIfSkReFOQCywH0vUyBh0JMDzJD/6irxh/Rs2Y/by
-	MDrDPruw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:CC:To:From:
+	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
+	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=7RPhUjiycEcHQnbbkoTY2T62c754OsKYicvw3KrO6DM=; b=c07hcF9lLQISmL/txy4gjDhTOd
+	MjdfWM0Nsh+IUvpQSouyMwjw53gYPdvpx/FdI7+ilEfAgPfTjUdOxeDgmQ7+z54uHHgOBDmZMi1jb
+	hz4prZ2ecjGuOFd1wQ2OcXcB8SG6l0ALK95UJGuaSFcCpCZdi4QzIRQ99X6oko900xETLpl88S3di
+	tEe6Kb9UAwEvhFhWrPb8ycTyKL1H4tYsw4KV8THrMDSNwtvZ67xkYYaI4aspkU9ll+5B86xaz6ZJT
+	wudymHC7OnwX3h2m0nT/IryYgm9MrIq18x772bVmzAC9pQuOks1cHhuJ+gkvR5VbHdx93BqEVnQ9b
+	jb/uOQyA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xC3CP-00000007Pn0-3wVb;
-	Wed, 30 Sep 2026 22:54:53 +0000
-Received: from mail.cyberchaos.dev ([195.39.247.168])
+	id 1xC3Sq-00000007Qxb-16Zf;
+	Wed, 30 Sep 2026 23:11:52 +0000
+Received: from pdx-out-001.esa.us-west-2.outbound.mail-perimeter.amazon.com ([44.245.243.92])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xC3CM-00000007PmD-0iEm
+	id 1xC3Sm-00000007QxD-3kRQ
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 30 Sep 2026 22:54:52 +0000
-Message-ID: <6213fef4-5cbb-4ed1-8e12-d5529fc7469f@cyberchaos.dev>
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=cyberchaos.dev;
-	s=mail; t=1790808881;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=qHPlzGy4dd9m6Tg6m6EuH4FV6ScEYz4fEuF681xzp6Q=;
-	b=M4zNjgxB2Iy8jNu//9QdhE0Dkzz6N2fDyRSkLS9yGlSbN/+JioTDFPN1H6yMyt7ew90Rkd
-	WsI9Eata4Z2dn/7SvUnE5Qe9pcOzZjTRh8TtKhwnByPPis/W7PDqiKBuMLU+9rybhXTOcn
-	EkPDPJ9ZaHWi8DfXy5aVypE5PLHN6PU=
-Date: Thu, 1 Oct 2026 00:54:38 +0200
+	Wed, 30 Sep 2026 23:11:50 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+  d=amazon.com; i=@amazon.com; q=dns/txt; s=amazoncorp2;
+  t=1790809908; x=1822345908;
+  h=from:to:cc:subject:date:message-id:mime-version:
+   content-transfer-encoding;
+  bh=7RPhUjiycEcHQnbbkoTY2T62c754OsKYicvw3KrO6DM=;
+  b=cvztA2/PWYhZsNGHQ6Nm9pXx3BoeVUo7g124Tq/n55VircmPy+TkVOiC
+   X4jLR9n3VDn9lTz3BUifdvHPN9XiK+AnViuP4wL2I3tWlvKQ9KrRozbwc
+   zgs3F+WViXkFCwNF9leR0Ad76t8Q0i6qiq6sUpYrgYLRrfbGKWLo2LM/W
+   mw+tmMuW2oXmRG1ey4aw8ltoBbt2TENk8Y/O2HTE1SXoMw4NlSxHZggjG
+   wB5bSrJkXwxW9fZhPFwAOihJcQoZjo6epAweGrr0qP8WGREeClxt9Dvc1
+   LeMe0tH5WVRjS84jlFLce5n/yPP8nP3NQcRRtrSnC9owm9rmzxBK/Zvdr
+   A==;
+X-CSE-ConnectionGUID: COp1LAQJQkC/DYmRJ9GWiA==
+X-CSE-MsgGUID: UxrbsUqaRLC+VxuZPSvsvg==
+X-IronPort-AV: E=Sophos;i="6.27,133,1787011200"; 
+   d="scan'208";a="29591602"
+Received: from ip-10-5-9-48.us-west-2.compute.internal (HELO smtpout.naws.us-west-2.prod.farcaster.email.amazon.dev) ([10.5.9.48])
+  by internal-pdx-out-001.esa.us-west-2.outbound.mail-perimeter.amazon.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 30 Sep 2026 23:11:45 +0000
+Received: from EX19MTAUWA001.ant.amazon.com [205.251.233.182:10101]
+ by smtpin.naws.us-west-2.prod.farcaster.email.amazon.dev [10.0.43.208:2525] with esmtp (Farcaster)
+ id 2eeecea5-4b05-481e-bc0f-993f8015a844; Wed, 30 Sep 2026 23:11:45 +0000 (UTC)
+X-Farcaster-Flow-ID: 2eeecea5-4b05-481e-bc0f-993f8015a844
+Received: from EX19D001UWA001.ant.amazon.com (10.13.138.214) by
+ EX19MTAUWA001.ant.amazon.com (10.250.64.217) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA) id 15.2.2562.49;
+ Wed, 30 Sep 2026 23:11:45 +0000
+Received: from u34cccd802f2d52.amazon.com (10.106.239.10) by
+ EX19D001UWA001.ant.amazon.com (10.13.138.214) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA) id 15.2.2562.49;
+ Wed, 30 Sep 2026 23:11:43 +0000
+From: Haris Okanovic <harisokn@amazon.com>
+To: <robin.murphy@arm.com>, <mark.rutland@arm.com>, <will@kernel.org>
+CC: <linux-arm-kernel@lists.infradead.org>,
+	<linux-perf-users@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
+	<harisokn@amazon.com>
+Subject: [PATCH v2 0/2] perf/arm-cmn: Allow userspace to select the PMU's CPU
+Date: Wed, 30 Sep 2026 18:11:25 -0500
+Message-ID: <20260930231127.3094040-1-harisokn@amazon.com>
+X-Mailer: git-send-email 2.34.1
 MIME-Version: 1.0
-Subject: Re: [PATCH v2 0/2] pinctrl: apple: Add t8140-pinctrl support
-To: Krzysztof Kozlowski <krzk@kernel.org>,
- Yureka Lilian <yureka@cyberchaos.dev>
-Cc: Sven Peter <sven@kernel.org>, Janne Grunau <j@jannau.net>,
- Neal Gompa <neal@gompa.dev>, Linus Walleij <linusw@kernel.org>,
- Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
- Conor Dooley <conor+dt@kernel.org>, Mark Kettenis <kettenis@openbsd.org>,
- asahi@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
- linux-gpio@vger.kernel.org, devicetree@vger.kernel.org,
- linux-kernel@vger.kernel.org
-References: <20260926-apple-pinctrl-t8140-v2-0-620bd11cd2a1@cyberchaos.dev>
- <20260930-fascinating-armored-sunfish-ddcb59@quoll>
-Content-Language: en-US
-From: Yureka Lilian <yureka@cyberchaos.dev>
-In-Reply-To: <20260930-fascinating-armored-sunfish-ddcb59@quoll>
-Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 8bit
+Content-Type: text/plain
+X-Originating-IP: [10.106.239.10]
+X-ClientProxiedBy: EX19D037UWC004.ant.amazon.com (10.13.139.254) To
+ EX19D001UWA001.ant.amazon.com (10.13.138.214)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260930_155450_436211_6472BB3F 
-X-CRM114-Status: GOOD (  16.82  )
+X-CRM114-CacheID: sfid-20260930_161149_003218_759F6F51 
+X-CRM114-Status: GOOD (  12.48  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -74,36 +90,51 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 9/30/26 12:03, Krzysztof Kozlowski wrote:
-> On Sat, Sep 26, 2026 at 04:51:44PM +0200, Yureka Lilian wrote:
->> This patch series has fixes for probing the pinctrl_ap GPIO controller
->> on the MacBook Neo. The previous code would crash in the regmap_init on
->> this device, since reading the REG_GPIOx for certain pins causes an
->> SError.
->> To mitigate this, we adapt the gpio-reserved-ranges property to describe
->> pins which are unusable and whose REG_GPIOx should not be accessed.
->>
->> Also add the new t8140 base compatible to the dt-bindings, signifying
->> the different behavior of the t8140 pinctrl_ap device, and make the
->> driver accept it since it now respects the gpio-reserved-ranges property.
->>
->> Signed-off-by: Yureka Lilian <yureka@cyberchaos.dev>
->> ---
->> Changes in v2:
->> - EDITME: describe what is new in this series revision.
->> - EDITME: use bulletpoints and terse descriptions.
-> EDITME is here on purpose.
->
-> Best regards,
-> Krzysztof
+arm_cmn_probe() picks the CPU that owns the PMU and nothing but the CPU
+hotplug callbacks ever revisits it, so in practice all of the PMU's
+recurring work stays on the first CPU local to the interconnect's NUMA
+node. Patch 2 makes the existing 'cpumask' attribute writable so it can
+be moved, which helps on systems that confine background kernel work to
+a chosen set of housekeeping CPUs.
 
-Sorry about that, I had to send it twice (this is the first version 
-to actually land on the mailing list) and forgot that b4 does the whole 
-auto-increment and add these cover letter entries. Will be more careful 
-and use --preview-to before *every* send starting from next time.
+I made the existing 'cpumask' attribute writable rather than
+adding a new one. Every other implementation of that file is read-only,
+so I am happy to switch to a separate attribute if you would prefer to
+keep 'cpumask' uniformly read-only across PMUs.
 
-Thank you for understanding,
+Patch 1 is new in v2. Robin pointed out that perf_event_open() can latch
+cmn->cpu and then install the event after a migration has already moved
+the PMU, leaving it on a CPU which no longer owns the PMU's shared state.
+The window already exists via arm_cmn_pmu_online_cpu(), so patch 1 stands
+on its own; a writable cpumask just makes it reachable on demand.
 
-- Yureka
+Changes since v1:
+ - Added patch 1 to close the perf_event_open() race.
+ - No change to patch 2 (the v1 patch) other than being rebased.
+
+v1: https://lore.kernel.org/linux-arm-kernel/20260929223244.2411400-1-harisokn@amazon.com/
+
+Tested on two platforms with CONFIG_PROVE_LOCKING=y:
+
+  AWS m9g.metal-48xl CMN S3,  one mesh,   192 CPUs
+  AWS m8g.metal-48xl CMN-700, two meshes, 192 CPUs
+
+  - Multiplexing occurs on the configured CPU.
+  - Offlining the owning CPU migrates the PMU and updates the attribute.
+  - Writes racing CPU offline/online produced no lockdep reports.
+  - Hammer perf_event_open() while flipping the cpumask between two CPUs.
+
+Haris Okanovic (2):
+  perf/arm-cmn: Don't schedule events on a CPU which no longer owns the
+    PMU
+  perf/arm-cmn: Allow userspace to select the PMU's CPU
+
+ Documentation/admin-guide/perf/arm-cmn.rst | 18 ++++++++
+ drivers/perf/arm-cmn.c                     | 49 ++++++++++++++++++++--
+ 2 files changed, 63 insertions(+), 4 deletions(-)
+
+-- 
+Haris Okanovic
+AWS Graviton
 
 
