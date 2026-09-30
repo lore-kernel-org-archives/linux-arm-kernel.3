@@ -4,63 +4,137 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DCF29CA5FB1
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 30 Sep 2026 08:51:38 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E32B0CA5FC1
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 30 Sep 2026 08:53:41 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Jou4Kt+sia0lz+yCieUvpuLa6vFXzVEGmGHpLPFzDwI=; b=KWIUehli3h/cw9a0px3D+WQloT
-	VifMgtu+HAjguW0c8I1MrQggcUx/gasxzwTymiRHrKFXswXosEhciAcppJMkncYbS/bRNPxXhOF1p
-	U1udVtVbjbSg2eNHoWBNPAsKsLL6AZvPEdDGaV+bJDDNiPF+TKxrf2tUye0Tnss7i56MSg9Zv6an4
-	vb3doT+3dc+Y+Lz/14B4YJmm3jXK9xTKEkXsZau0I2ZVv5cRqF+cwFG6gzLtSk2DoYW0ly3PGIq2B
-	Cy99WSEbMaesuRbsr2lT+GB1TB02kzzHBmwd91RFU8qrG7vE0tVMOlTR7sqo8qUKpCMqjcuYW37vo
-	OWTcRh2Q==;
+	bh=NhIukOj8BOfFcEqXCoWm3ULcTHuspXE7+r0QvW4z63U=; b=sOnbrMyqM6veHbAjt16stqqcHi
+	7mGyxKj0YP5tG6BjT6Kwt+N07yyugr6ov69d+7crmwh+mkWYxjBEDPXj/uyvZvOsDqTW/4Y1F/R2m
+	5ll3K5zCYZk3t3XaENlfFqC0ArXw7mkcihANk91D9edbA/W+s9x2fViOAsxHY8bhnQlHcvu0nwH7L
+	QGG+zSxYYbODC3u9sxH9zui9wPIRxZ/XagHD+2N8fEr0c+TFvi13m6VOaQwqWIU9tJPRDx1AUyppT
+	2g/jWT0qkA6dUC2qISTKqD4m+q1t92aPyk8EIjPBsueIUzFBHQHA0qY3aVbmA/K5JGPmm80+pISXx
+	Dx+uuXIw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xBq2F-00000005UPV-3A8Q;
-	Wed, 30 Sep 2026 08:51:31 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xBq2D-00000005UOp-16ns
+	id 1xBq4F-00000005Uid-03AZ;
+	Wed, 30 Sep 2026 08:53:35 +0000
+Received: from mx0b-001b2d01.pphosted.com ([148.163.158.5])
+	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1xBq4C-00000005Ui0-07IV
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 30 Sep 2026 08:51:30 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 57DBB143D;
-	Wed, 30 Sep 2026 01:51:24 -0700 (PDT)
-Received: from J2N7QTR9R3.cambridge.arm.com (usa-sjc-imap-foss1.foss.arm.com [10.121.207.14])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 364523F85F;
-	Wed, 30 Sep 2026 01:51:26 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1790758287; bh=MZWTqZGizf2e4awlEik6xcTG3aUNk25jrVwdTTqUtAw=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=JVZXWF9xXQVk47nJJSaN6p+8Fx2fMXbO+4U8Qi17EeMFjFgx3/NeFEBN7ngYuVCiQ
-	 hMpKiQeTtxY9JH+kfuWM5KCtGZtk2ZJRqF8Chhjo3LBcKavdBv93ov1Bon1ayAvCba
-	 LIoeW37n7jkrQo01Y5Gs3B8lhR+sonKW3vnSMNV8=
-Date: Wed, 30 Sep 2026 09:51:15 +0100
-From: Mark Rutland <mark.rutland@arm.com>
-To: Mark Brown <broonie@kernel.org>
+	Wed, 30 Sep 2026 08:53:33 +0000
+Received: from pps.filterd (m0360072.ppops.net [127.0.0.1])
+	by mx0a-001b2d01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 68U7aoAg2367598;
+	Wed, 30 Sep 2026 08:53:18 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ibm.com; h=cc
+	:content-type:date:from:in-reply-to:message-id:mime-version
+	:references:subject:to; s=pp1; bh=NhIukOj8BOfFcEqXCoWm3ULcTHuspX
+	E7+r0QvW4z63U=; b=Rx9ygRXK4WPeGJMhbwYHlLYdxios9M47BgGk66SEF6gAMt
+	h0dW1XEo/2YkR5l3mMTR7WJn5zsyBgxIqbOMv+M5EyFozLbTkC/P86WeMMEohjv3
+	isA73RkGrpXKsD0X2vB01phmIwSiI5zWxane0cfeiT/eC5q5KwZ/p+h4NaeLXfCh
+	3Kl/slGriTpnE5ffjkQmytugwlxCFiJuXC8Fu9Jz4xRjXNk4wcNry5gQf+ryi/9T
+	jkWxNrvFXvpKzTdhrMiJaoq1b2383FivMVaTKP1eADYKl+6iSNyehGXHBrf33rDb
+	oqxhDVYDwB/03/5zobKhhepzeE1KbvE8IYXQTe4A==
+Received: from ppma12.dal12v.mail.ibm.com (dc.9e.1632.ip4.static.sl-reverse.com [50.22.158.220])
+	by mx0a-001b2d01.pphosted.com (PPS) with ESMTPS id 4gx5ptaysu-1
+	(version=TLSv1.3 cipher=TLS_AES_256_GCM_SHA384 bits=256 verify=NOT);
+	Wed, 30 Sep 2026 08:53:17 +0000 (GMT)
+Received: from pps.filterd (ppma12.dal12v.mail.ibm.com [127.0.0.1])
+	by ppma12.dal12v.mail.ibm.com (8.18.1.11/8.18.1.11) with ESMTP id 68U7lUPa3126451;
+	Wed, 30 Sep 2026 08:53:16 GMT
+Received: from smtprelay01.fra02v.mail.ibm.com ([9.218.2.227])
+	by ppma12.dal12v.mail.ibm.com (PPS) with ESMTPS id 4h0g8e39we-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Wed, 30 Sep 2026 08:53:16 +0000 (GMT)
+Received: from smtpav02.fra02v.mail.ibm.com (smtpav02.fra02v.mail.ibm.com [10.20.54.101])
+	by smtprelay01.fra02v.mail.ibm.com (8.14.9/8.14.9/NCO v10.0) with ESMTP id 68U8r94338732070
+	(version=TLSv1/SSLv3 cipher=DHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
+	Wed, 30 Sep 2026 08:53:10 GMT
+Received: from smtpav02.fra02v.mail.ibm.com (unknown [127.0.0.1])
+	by IMSVA (Postfix) with ESMTP id 95C1F20043;
+	Wed, 30 Sep 2026 08:53:09 +0000 (GMT)
+Received: from smtpav02.fra02v.mail.ibm.com (unknown [127.0.0.1])
+	by IMSVA (Postfix) with ESMTP id A79BE20040;
+	Wed, 30 Sep 2026 08:53:08 +0000 (GMT)
+Received: from osiris (unknown [9.111.12.23])
+	by smtpav02.fra02v.mail.ibm.com (Postfix) with ESMTPS;
+	Wed, 30 Sep 2026 08:53:08 +0000 (GMT)
+Date: Wed, 30 Sep 2026 10:53:07 +0200
+From: Steffen Eiden <seiden@linux.ibm.com>
+To: Marc Zyngier <maz@kernel.org>
 Cc: Catalin Marinas <catalin.marinas@arm.com>,
-	Will Deacon <will@kernel.org>, Shuah Khan <shuah@kernel.org>,
-	Marc Zyngier <maz@kernel.org>, Oliver Upton <oupton@kernel.org>,
-	Fuad Tabba <fuad.tabba@linux.dev>, linux-kernel@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kselftest@vger.kernel.org
-Subject: Re: [PATCH 03/11] kselftest/arm64: Move exit calls out of fp-stress
- loads
-Message-ID: <arzNg0jxDmbEMrJm@J2N7QTR9R3.cambridge.arm.com>
-References: <20260901-arm64-fp-stress-kvm-v1-0-31bce995b49b@kernel.org>
- <20260901-arm64-fp-stress-kvm-v1-3-31bce995b49b@kernel.org>
- <arvm8O6kL1I9Plrw@J2N7QTR9R3.cambridge.arm.com>
+        Andreas Grapentin <gra@linux.ibm.com>, kvm@vger.kernel.org,
+        kvmarm@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
+        linux-kernel@vger.kernel.org, linux-s390@vger.kernel.org,
+        Alexander Gordeev <agordeev@linux.ibm.com>,
+        Arnd Bergmann <arnd@arndb.de>,
+        Christian Borntraeger <borntraeger@linux.ibm.com>,
+        Claudio Imbrenda <imbrenda@linux.ibm.com>,
+        David Hildenbrand <david@kernel.org>,
+        Friedrich Welter <fritz@linux.ibm.com>, Fuad Tabba <tabba@google.com>,
+        Gautam Gala <ggala@linux.ibm.com>,
+        Hariharan Mari <hari55@linux.ibm.com>,
+        Heiko Carstens <hca@linux.ibm.com>,
+        Hendrik Brueckner <brueckner@linux.ibm.com>,
+        Ilya Leoshkevich <iii@linux.ibm.com>,
+        Janosch Frank <frankja@linux.ibm.com>, Joey Gouly <joey.gouly@arm.com>,
+        Nico Boehr <nrb@linux.ibm.com>,
+        Nina Schoetterl-Glausch <oss@nina.schoetterlglausch.eu>,
+        Oliver Upton <oupton@kernel.org>, Paolo Bonzini <pbonzini@redhat.com>,
+        Suzuki K Poulose <suzuki.poulose@arm.com>,
+        Sven Schnelle <svens@linux.ibm.com>,
+        Ulrich Weigand <Ulrich.Weigand@de.ibm.com>,
+        Vasily Gorbik <gor@linux.ibm.com>, Will Deacon <will@kernel.org>,
+        Zenghui Yu <yuzenghui@huawei.com>
+Subject: Re: [PATCH v8 16/29] arm64: Share arm64 headers with s390
+Message-ID: <20260930085307.770322-B-seiden@linux.ibm.com>
+References: <20260918133107.1042730-1-seiden@linux.ibm.com>
+ <20260918133107.1042730-17-seiden@linux.ibm.com>
+ <arqQ2Eat4VUBbl49@arm.com>
+ <20260928162345.428362-C-seiden@linux.ibm.com>
+ <ars6Jh5DiendDT7G@li-d8547bcc-2d90-11b2-a85c-a70f2a37009a.ibm.com>
+ <arvunF8epgpWh1YT@arm.com>
+ <20260930072803.664031-A-seiden@linux.ibm.com>
+ <865wzn41h6.wl-maz@kernel.org>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <arvm8O6kL1I9Plrw@J2N7QTR9R3.cambridge.arm.com>
+In-Reply-To: <865wzn41h6.wl-maz@kernel.org>
+X-TM-AS-GCONF: 00
+X-Proofpoint-Reinject: loops=2 maxloops=12
+X-Proofpoint-ORIG-GUID: hlt5tY_2sa3oCouRCckoYMzdGBgxEcfG
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwOTMwMDAzNCBTYWx0ZWRfX4XfLdgpSugRT
+ XlKY3BXGec62GjXr1X+q9M67hlS8YubEVWaNhhIhulpnmG2ZHgqFVr+JMnYqgFTwHGBQSjFE70P
+ enyCwFTO9Yls0xjnOUrNp4rpLxuGKQjXjVe61sDv0E508eP5Kl0eT4uGQtjZmRCn9luussRqyXS
+ EzlTbb2paiO2eythsFkgh5xASzLftBQVwdWS2iCab2oU2b0VyoGKPZGYt2lkW6NXZNWwCrso1Zs
+ O/1dOaAoci317V3iqnfv5YDJDl1A+Wm48aElWcKjYrK4D+r+3OwgwHW1rhlp6YGK6Nm5A0mxHrt
+ 5IIQ8Yo634NNeCpNVYn0D0RX6SSQ+3UEuj0Tz5WvLOzrPwR/7jos7+6/VyJ5Epib+FCSXZqICWf
+ JT4D4Dms5HnS5LOdl74qFsbJSc5NQjEw3jwfhHctbxUryr8H5Q5mTTuBlUT2fftpVBgl2BsbARa
+ dnBaT27Kq+ET3ko/vCQ==
+X-Proofpoint-Spam-Info: AW1haW4tMjYwOTMwMDAzNCBTYWx0ZWRfXx2ydMeHP7FMn
+ y172RhPy8DuzoeAapk44jnJfuMot6M4Z8iauGIimm8Ek3ereyYBPrAbiPULWZilGPkoqfRsvDw5
+ Kc9CBQQADM1FBkMtHRn018l4K5Atuhk=
+X-Authority-Analysis: v=2.4 cv=EY5d0/mC c=1 sm=1 tr=0 ts=6abccdfe cx=c_pps
+ a=bLidbwmWQ0KltjZqbj+ezA==:117 a=bLidbwmWQ0KltjZqbj+ezA==:17
+ a=kj9zAlcOel0A:10 a=VdqzKS8jKosA:10 a=VkNPw1HP01LnGYTKEx00:22
+ a=RnoormkPH1_aCDwRdu11:22 a=RzCfie-kr_QcCd8fBx8p:22 a=VnNF1IyMAAAA:8
+ a=GA_TYQvl0U8dmn4ZWnYA:9 a=CjuIK1q_8ugA:10
+X-Proofpoint-GUID: i_8l7rOMgnEnckEEpZJW-6IXi7e8oe2u
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1176,Hydra:6.1.134,FMLib:17.12.100.49
+ definitions=2026-09-30_01,2026-09-21_02,2025-10-01_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
+ phishscore=0 priorityscore=1501 suspectscore=0 adultscore=0 clxscore=1015
+ malwarescore=0 impostorscore=0 spamscore=0 lowpriorityscore=0 bulkscore=0
+ classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
+ reason=mlx scancount=1 engine=8.22.0-2609040000 definitions=main-2609300034
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260930_015129_345890_3991F263 
-X-CRM114-Status: GOOD (  20.78  )
+X-CRM114-CacheID: sfid-20260930_015332_216005_FEEB737B 
+X-CRM114-Status: GOOD (  44.67  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -75,53 +149,83 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Sep 29, 2026 at 05:27:28PM +0100, Mark Rutland wrote:
-> On Tue, Sep 01, 2026 at 06:06:43PM +0100, Mark Brown wrote:
-> > When they detect corruption the fp-stress test loads print load specific
-> > diagnostics and exits with a failure status.  In preparation for
-> > building versions intended to run as KVM guests factor the exits into
-> > asm-utils-linux.S.
+On Wed, Sep 30, 2026 at 08:55:49AM +0100, Marc Zyngier wrote:
+> On Wed, 30 Sep 2026 08:28:03 +0100,
+> Steffen Eiden <seiden@linux.ibm.com> wrote:
 > > 
-> > No functional change.
+> > On Tue, Sep 29, 2026 at 06:00:12PM +0100, Catalin Marinas wrote:
+> > > On Tue, Sep 29, 2026 at 06:19:20AM +0200, Andreas Grapentin wrote:
+> > > > On Sep 28 26, Steffen Eiden wrote:
+> > > > > On Mon, Sep 28, 2026 at 05:07:52PM +0100, Catalin Marinas wrote:
+> > > > > > On Fri, Sep 18, 2026 at 03:30:53PM +0200, Steffen Eiden wrote:
+> > > > > > > +# Enable all code shared to s390
+> > > > > > > +KBUILD_CFLAGS	+= -DARM64_S390_COMMON
+> > > > > > > +KBUILD_AFLAGS	+= -DARM64_S390_COMMON
+> > > > > > > +KBUILD_CPPFLAGS	+= -DARM64_S390_COMMON
+> > > > > > 
+> > > > > > Do we actually need these defines? They seem only to be used as markers
+> > > > > > for the awk scripts to extract the definitions. Why do we need the C
+> > > > > > preprocessor involved at all? Could we not just have comment markers:
+> > > > > > 
+> > > > > > /* ARM64_S390_COMMON_BEGIN */
+> > > > > > ...
+> > > > > > /* ARM64_S390_COMMON_END */
+> > > > > >
+> > > > > No technically we do not need those. They could be useful if we find out
+> > > > > that AWK is the wrong tool and move to a C Preprocessor + diff based
+> > > > > approach. 
+> > > > > 
+> > > > > if the ifdev is not closed the compiler will complain, but an 'arm did
+> > > > > not destroy us' verifiaction tool ( I will send one soonish) could do
+> > > > > the same.
+> > > > 
+> > > > iirc the last time we discussed this we didn't think that load-bearing
+> > > > comments were the right tool here. We also briefly floated the idea of
+> > > > using a #pragma region based approach, but in the end we went with the
+> > > > #ifdef preprocessor directives instead, as the least invasive
+> > > > non-comment marker that was available.
+> > > 
+> > > The downside is that the macro affects the preprocessed code. We need to
+> > > ensure they don't leak in uapi headers for example. Not a fan of this
+> > > approach but I don't have a better suggestion either. At least we could
+> > > write them as:
+> > > 
+> > > #if ARM64_S390_COMMON == 1
+> > 
+> > This is a great idea and an improvement. Thanks.
+> > 
+> > @Marc: Shall I sent a v9 of this series or do you want to pick v8 and I
+> > send this as an improvement once picked?
 > 
-> This is a good cleanup, but I do think it'd be worth noting that some of
-> the existing asm was wrong and worked by coincidence.
+> Please send a v9. That's invasive enough that it warrants it.
+
+Will send one ASAP.
+
 > 
-> I did mention that in the patches I linked you to a while back:
+> > > It would also be useful for the awk scripts look for the paired #endif
+> > > rather than relying on the comment at the end of the line. Otherwise
+> > > it's not really different from just sticking to comments.
+> > > 
+> > 
+> > Are you suggesting that the AWK scripts should track the #if% and #endif
+> > in the code and warn or reject if the marked endif for the shared code
+> > does not match pairing with the starting #if? That makes sense yes. I'll
+> > investigate and would add this as an improvement later on.
 > 
->   https://git.kernel.org/pub/scm/linux/kernel/git/mark/linux.git/commit/?id=922d15ef46cb486a79f168949e103f6df26f4fba
+> I think the suggestion is to teach the script about the #if/#endif
+> nesting, and therefore to not require the trailing comment on #endif
+> (i.e. the script acts as a normal cpp).
+> 
+> It should only be a matter of counting the #{if,ifdef}s and #endif
+> past the ARM64_S390_COMMON guard.
+>
 
-Sorry, that was the wrong link; I meant to share:
+Yes, countin is what I had in mind. I will deliver this feature (or fix?)
+as an improvement later on. At this point we may actually use the cpp to
+do that for us. This requires some investigation from my side. IMO the
+current implementation is a good first step we can use as a starting
+point for further improvements.
 
-  https://git.kernel.org/pub/scm/linux/kernel/git/mark/linux.git/commit/?id=2db277185f5c252decdf49b25cd461782e890cd1
+	Steffen
 
-... which was another patch from that cleanup series:
-
-  https://git.kernel.org/pub/scm/linux/kernel/git/mark/linux.git/log/?h=arm64/selftests/cleanup
-
-The description of the problem from the commit message was:
-
-| The barf functions in the fp-stress sub-tests erroneously place the
-| status value into x1 (rather than x0) when invoking the exit syscall,
-| potentially returning a different status than expected.
-| 
-| By coincidence, the low 8 bits of x0 happen to be non-zero for all of
-| these cases, and the exit will be treated as a failure by the fp-stress
-| harness, which is the desired behaviour. Hence this doesn't lead to
-| failing tests being reported as passing.
-| 
-| In all cases x0 contains either:
-| 
-| * The result of the prior write syscall made by the puts macro, which is
-|   a write of the two character string "]\n".
-| 
-| * The result of the prior write syscall made by the putdecn() function,
-|   which is a write of the single-character '\n'.
-| 
-| In either case, the return value of that write syscall may be a non-zero
-| number of bytes written, or a negative error code. As the relevant
-| strings are fewer than 256 characters, and all (positive) error codes
-| are less than 256, the value in the low 8 bits of x0 will not be zero.
-
-Mark.
 
