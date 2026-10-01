@@ -4,71 +4,67 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E3E09CA5FD4
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  1 Oct 2026 17:28:20 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8D78ACA5FDB
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  1 Oct 2026 17:36:45 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=W58m5D1Qq04GgCBROcqOqYr4uS4iCeytTxLxmDkHG/g=; b=Wdr5JLoORVBdmcDFw97iJ1cnfj
-	DqCRDJpDmRLIgpPfwgApipfNTdFBx8VzY3tWHWliTSyeoZrLVAn7uDCFUurqbieywTGGqACUhL2n2
-	tpF/zRa6mI9syoXrzjYBQIWnG9XE4yPcyh8LorPuJrU6iQL6iVcShk6vEjzni35bKKQlud9HDaljY
-	0OfmlyO9NunTzl58uFfJKwkgbzPggj3UKs7CVNxMRSaxv5thgcGtw06j1BNBf48d8MLgvMheweFf6
-	3aO6Uu8tXdj+0cWjosbT2DANT9r/IK/sXjnl0Ful58owRo3WZlzXTjdGTVtc3XjSba/h5mY9VRGAe
-	99Y+QDaQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=lOCW1Z2wBojhvp1lOH4gOljTn+CsamNekhb34DbTEaY=; b=lUFbWgQgDVm5FrFlo2H3FGCagu
+	XG9x+9XoorP8HhHBC4x6VqXASaeCXcaEQR4AaqWQ2GRIClOS9Yyp9wKtoZgjR5XMV2ef0o0CIuyds
+	8laxer4Xx95h+OfQ3JdriP6qs7OOQ2uICvMhB+C/Ga9+vv/tCPfJmEFXfIpCG/7lMkS81Fdlo8lcL
+	F736/s1Fp/+ucjc9FJFO8QSGar8aOhC0rgdWtd/x0sZSBiRoKqfNfoNOYksa3unNjT+IRgx+/aG2Z
+	6jnZH9JBImdwXSmzzjVpaJMJIxQUtF++H/MTlvlv+SX2WlX1DfYR8p9Z8emLyEoXKLZPitc3U4k1l
+	5DUhjAoQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xCKZm-00000009rEp-2edc;
-	Thu, 01 Oct 2026 17:28:10 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1xCKhw-00000009sSQ-2Yje;
+	Thu, 01 Oct 2026 17:36:36 +0000
+Received: from out-67.mta1.migadu.com ([95.215.58.67] helo=mta1.migadu.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xCKZf-00000009rDD-3f51
+	id 1xCKhs-00000009sRW-3kKX
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 01 Oct 2026 17:28:08 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id E57E243DED;
-	Thu,  1 Oct 2026 17:28:02 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 3E73A1F000FF;
-	Thu,  1 Oct 2026 17:27:59 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1790875682;
-	bh=W58m5D1Qq04GgCBROcqOqYr4uS4iCeytTxLxmDkHG/g=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=cAb0Gw1rbEm2vy6R+OXcDxHJqLX/4dmDQcOkQOkVwveQJWdcaZ0N+F15BE8YTm4YT
-	 Glf9iGP+lxwwQvq2jxCl/Xx+TtkSIDjhxy3CWeps7DVPvQnVIkrw1dIX0PZp2jdx9g
-	 RV4fjje8yt90XBnu1P22JXo9aeoHjNVm3vQEcRyCCrsqXztIEXx5icf/ale1T762W9
-	 +xDyp/LZ8MZvXK4IxwhmPwNTpdX8IAeLDRAVm8OMhLHBV382GYG6E9I4QOx1gQPqMd
-	 v/S3bGMoYpHgkjPJH6gb6IjI4bzYgbRaCjS1BqiwFat+FHnNVGtxua0wZzNV7WzK7M
-	 R2RC6kyZdJcvg==
-Date: Thu, 1 Oct 2026 18:27:56 +0100
-From: Mark Brown <broonie@kernel.org>
-To: "Lorenzo Stoakes (ARM)" <ljs@kernel.org>
-Cc: Catalin Marinas <catalin.marinas@arm.com>,
-	Will Deacon <will@kernel.org>, Marc Zyngier <maz@kernel.org>,
-	Joey Gouly <joey.gouly@arm.com>,
-	Suzuki K Poulose <suzuki.poulose@arm.com>,
-	Shuah Khan <shuah@kernel.org>, Oliver Upton <oupton@kernel.org>,
-	Fuad Tabba <fuad.tabba@linux.dev>,
-	Peter Maydell <peter.maydell@linaro.org>,
-	Leonardo Bras <leo.bras@arm.com>,
-	Wei-Lin Chang <weilin.chang@arm.com>,
-	Yao Yuan <yaoyuan@linux.alibaba.com>,
-	linux-arm-kernel@lists.infradead.org, linux-doc@vger.kernel.org,
-	kvmarm@lists.linux.dev, linux-kselftest@vger.kernel.org,
-	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v21 14/15] tools: Synchronise the kernel esr.h
-Message-ID: <680fe21e-beca-4056-84e3-f501fdfed902@sirena.org.uk>
-References: <20260930-arm64-gcs-v21-0-3556644cd927@kernel.org>
- <20260930-arm64-gcs-v21-14-3556644cd927@kernel.org>
- <ar6NXWzQ1rMb1aId@gremlin>
+	Thu, 01 Oct 2026 17:36:35 +0000
+X-Envelope-To: linux-arm-kernel@lists.infradead.org
+DKIM-Signature: a=rsa-sha256; bh=1S97aZ5lqXhW4kBuXjOjGy0qBmexZE7CglrgJsyPvnY=;
+ c=simple/simple; d=cknow-tech.com;
+ h=from:to:subject:date:message-id:mime-version:content-type; s=key1;
+ t=1790876189; v=1; x=1791480989;
+ b=odnn4PryHsC0nYms3mMv90uyM8xf5QG4S0v9waDv9rO5gQCHfTUwvjKMX+czmTu78w9M/aUn
+ EelOtEyRcK41BsT5PDu3QuiGXB/uVWc5LI5EvPOyaS0w0CJqH5kDqbD+h0b6Gcc0cnXZij0MF3I
+ gZvBunhThb8dXCJgeV88koMEG3HKbLzA8ksIjvYQgiK3JnokucsTVdt14oRk0JJ/ZKfIOiZXRF9
+ NsTzZp7YIfNubqktfEKQLjsL7cxZ4uMvp3aleZ899ZBzIOOTk5IVf6lrCYbH+r7pkHlMcoEm2vB
+ UXt3khhFZydrZkcv3R14b+G6WYI6adtmCbM9zrE209aNw==
+X-Envelope-To: linux-arm-kernel@lists.infradead.org
+Received: by smtp.migadu.com with ESMTPS id e9cad268562f180b;
+	Thu, 01 Oct 2026 17:36:29 +0000
+X-Mizu-Trace-ID: e9cad268562f180b
+X-Migadu-Flow: FLOW_OUT
+From: Diederik de Haas <diederik@cknow-tech.com>
+To: Dafna Hirschfeld <dafna@fastmail.com>,
+	Laurent Pinchart <laurent.pinchart@ideasonboard.com>,
+	Mauro Carvalho Chehab <mchehab@kernel.org>,
+	Heiko Stuebner <heiko@sntech.de>,
+	Detlev Casanova <detlev.casanova@collabora.com>,
+	Ezequiel Garcia <ezequiel@vanguardiasur.com.ar>,
+	Jacob Chen <jacob-chen@iotwrt.com>
+Cc: linux-media@vger.kernel.org,
+	linux-rockchip@lists.infradead.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	Diederik de Haas <diederik@cknow-tech.com>
+Subject: [PATCH 0/3] media: rockchip: Modernize PM_OPS
+Date: Thu,  1 Oct 2026 19:34:50 +0200
+Message-ID: <20261001173610.158931-1-diederik@cknow-tech.com>
+X-Mailer: git-send-email 2.55.0
 MIME-Version: 1.0
-Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="DprvDADVm2j3tP+g"
-Content-Disposition: inline
-In-Reply-To: <ar6NXWzQ1rMb1aId@gremlin>
-X-Cookie: Do not stamp.
+Content-Transfer-Encoding: 8bit
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20261001_103633_506148_14ABE150 
+X-CRM114-Status: UNSURE (   8.52  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -83,39 +79,33 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+A bunch of new PM_OPS macros got introduced in commit
+1a3c7bb08826 ("PM: core: Add new *_PM_OPS macros, deprecate old ones")
 
---DprvDADVm2j3tP+g
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
+Straight up copied from that commit message:
 
-On Thu, Oct 01, 2026 at 05:47:42PM +0100, Lorenzo Stoakes (ARM) wrote:
-> On Wed, Sep 30, 2026 at 10:48:24PM +0100, Mark Brown wrote:
-> > To pick up definitions for GCS.
-> >
-> > Reviewed-by: Leonardo Bras <leo.bras@arm.com>
-> > Signed-off-by: Mark Brown <broonie@kernel.org>
->=20
-> This seems to be out of date, with your series applied to next:
+    These new macros are very similar to their SET_*_PM_OPS() equivalent.
+    They however differ in the fact that the callbacks they set will always
+    be seen as referenced by the compiler. This means that the callback
+    functions don't need to be wrapped with a #ifdef CONFIG_PM guard, or
+    tagged with __maybe_unused, to prevent the compiler from complaining
+    about unused static symbols. The compiler will then simply evaluate at
+    compile time whether or not these symbols are dead code.
 
-Yeah, though some of those are changes that are in -next only so
-possibly slightly premature.  I'll resync with mainline, really this
-shouldn't be a manual sync :/
+So convert the rockchip media components which used the old macros to the
+new ones.
 
---DprvDADVm2j3tP+g
-Content-Type: application/pgp-signature; name="signature.asc"
+Diederik de Haas (3):
+  media: rkvdec: Switch to modern PM_OPS
+  media: rockchip: rga: Switch to modern PM_OPS
+  media: rkisp1: Switch to modern PM_OPS
 
------BEGIN PGP SIGNATURE-----
+ drivers/media/platform/rockchip/rga/rga.c           |  9 ++++-----
+ drivers/media/platform/rockchip/rkisp1/rkisp1-dev.c | 11 +++++------
+ drivers/media/platform/rockchip/rkvdec/rkvdec.c     |  9 +++------
+ 3 files changed, 12 insertions(+), 17 deletions(-)
 
-iQEzBAABCgAdFiEEreZoqmdXGLWf4p/qJNaLcl1Uh9AFAmq+mBsACgkQJNaLcl1U
-h9AFugf+Psag1H7XxGuG3D4J0/kGv/EHHZDmwkNPNqHh4/wspf175JUlhs6i7NeS
-Y38pNSWL3cKJn0FLw7hI+vi4i92gbgTQSVVa3kaJlydpTYpyotb22WgoU73NchNL
-yTTVA7wbyAC1doxMCSTTuYweTipV+TMrZMlDJ+D7S+0vCYG23NrQgPo6rbB+LCDw
-Fqq9aZEcGFOEDcIR+FNSw+jDD2lGg3xv+fngs/LBmUmIXPFA7wdZPXSyNie2S7QB
-6eTPT6HOtTcY6lxfDAsuqvuW+f/O9v3pC5ITzRFuEqKEODOBbtBADTITjuF6osqd
-pfVyCXWgX4SyvytiMyoI1EYtFdIT6w==
-=lSPU
------END PGP SIGNATURE-----
+-- 
+2.55.0
 
---DprvDADVm2j3tP+g--
 
