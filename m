@@ -4,54 +4,54 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3F6EBCA5FD2
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  1 Oct 2026 12:43:13 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7606BCA5FD4
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  1 Oct 2026 12:43:18 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=i5Z3bJt46CPEmDU7cFKYbz4SNeEy4GjbkdDR4/WWzvg=; b=JUcYayK5YYyzK0gf9qTcUkt0A9
-	OYG3po+11zlLrTnqVAHt0T3SJ+vSO9Jjd/7WBa/lXwZhgGjEapF58gpqUuoh2rsUnTymfl3kOsSL7
-	UTk7e5IDiDW5G6Nqi8h3USBL2BxhK5AFmsD79S7cR7dlAH4T/sHMYdh9nqarj+m9rlH0lCbc934Gg
-	+bvDcK3A9w4BHzRl5RqW5Ix64FH9ixn8PwnylbQJf74ckBz25yEa6OBpu+Qdzn0fIxVY7Qoo8uM3u
-	0jmqvsQebWfP0uBziv9Di2pQ2TI2EvIZ4+K17gyOAfGllePvsxoQN3I2238PTgq4XYy3vNV9QX3EG
-	2UwgbrIA==;
+	bh=TVnjYzkvuagpEKCsZ5XWhpT3Xm6tISGeO+ZmtZDI3fc=; b=u86RB+6+nSvngn7KpLZjiC8ieY
+	zLfy41m3/4m13S9kWnvLIyo8r3MYGvYdt8PMQvImW/8BQVVeo/DKS5annXwfPSTVgDxJQlXCJpT2M
+	4EEvCCkcn0ttWBWtAHNBj2Shd1toFAp9AzE1vh8HUz2toZ4V7x5tp9xxBFbuSAuT7HhWnrS3YYG+3
+	r0aUXDCsqmNa0ryc7vopqVObbhkolSeH0YhdzRJXr160HDN41Ri+6BJxLOv7kA8WJ3GXml2a8tkO7
+	oqeX5H2PW7vqAE4ov3A6tntuuhaSw9ytCfcK0u8F4CCC8iUI3AXUi1+0t9hDM61dfVYl8+PCQ/PbF
+	XFaac2Qw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xCG7v-000000096Eb-0rYl;
-	Thu, 01 Oct 2026 12:43:07 +0000
+	id 1xCG80-000000096HB-1fHN;
+	Thu, 01 Oct 2026 12:43:12 +0000
 Received: from smtpout-03.galae.net ([185.246.85.4])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xCG7s-000000096Dd-3GAp
+	id 1xCG7x-000000096FN-3bNL
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 01 Oct 2026 12:43:06 +0000
+	Thu, 01 Oct 2026 12:43:11 +0000
 Received: from smtpout-01.galae.net (smtpout-01.galae.net [212.83.139.233])
-	by smtpout-03.galae.net (Postfix) with ESMTPS id 430D04E41A77;
-	Thu,  1 Oct 2026 12:43:03 +0000 (UTC)
+	by smtpout-03.galae.net (Postfix) with ESMTPS id 611744E4205B;
+	Thu,  1 Oct 2026 12:43:08 +0000 (UTC)
 Received: from mail.galae.net (mail.galae.net [212.83.136.155])
-	by smtpout-01.galae.net (Postfix) with ESMTPS id 083E260341;
-	Thu,  1 Oct 2026 12:43:03 +0000 (UTC)
-Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 5930710328112;
-	Thu,  1 Oct 2026 14:42:53 +0200 (CEST)
+	by smtpout-01.galae.net (Postfix) with ESMTPS id 322E760341;
+	Thu,  1 Oct 2026 12:43:08 +0000 (UTC)
+Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id C451D1032811B;
+	Thu,  1 Oct 2026 14:43:01 +0200 (CEST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=dkim;
-	t=1790858577; h=from:subject:date:message-id:to:cc:mime-version:content-type:
+	t=1790858585; h=from:subject:date:message-id:to:cc:mime-version:content-type:
 	 content-transfer-encoding:in-reply-to:references;
-	bh=i5Z3bJt46CPEmDU7cFKYbz4SNeEy4GjbkdDR4/WWzvg=;
-	b=YAuT9Wp3cfXOBkE+gTazN0+HCqHYvNj2scp5Mul69TeqDXSt7EUg+E/OGZb88mzr/F3nF2
-	RLxKzWvEeJKoa4I3gbW+Mdx4DqO6Vp22k07NmAoG1RqN7IsqcI+IoxJUXj4Y9+oHekgAC1
-	E/KnqnnMcU7t/+8R5mSivpg79K/0xFa/2Eu2tVYrYBT9q56wD7KlRVME/VVAiU9N4iRBKp
-	J9SfTAf/ir/6dKiB4myDV4FUgatnn5HsMUDrZdnXwn0IU+DxsfbkBuAe6iH4viAJ9kwA5E
-	esPdi5rOhd0hkGJp0SXTgDVkdtKxfkpnPDsd8zdySSQtu4yZlM6/mD8UO/3aDQ==
+	bh=TVnjYzkvuagpEKCsZ5XWhpT3Xm6tISGeO+ZmtZDI3fc=;
+	b=S+1VkT7YmKhuYi1F7f3JXwOKcAnCCjimRiySrd+6yUbiAor0pa6GnbhQshFuEVmqktmH8C
+	pua7TaB8v5mPKgeM3UTjBaMvStJAZRY4mrmccLznfDn02EqociXCsgxmmn5p3d5Cz6wgsh
+	MptrTwkeYoQl2O+ZI58WuogA8qwDrenS7IJhEU4c9ITpAs+5/2vp+NPHYSk8gQqWAChQji
+	G176Mzb9T0R1lHIhrmoL1ZaDO1lg5/0cilJF6LeRRySJVJyUYA5an+rTh5GwqMrBrvFNGV
+	rHt+wYB+ViUIycxtzfkZj2adBxKs0wtlnU7gevG4llv62wxCinr+LwjzNSDqcg==
 From: Luca Ceresoli <luca.ceresoli@bootlin.com>
-Date: Thu, 01 Oct 2026 14:42:24 +0200
-Subject: [PATCH RFC v2 02/24] drm/connector: add
- drm_connector_hdmi_dynamic_init()
+Date: Thu, 01 Oct 2026 14:42:25 +0200
+Subject: [PATCH RFC v2 03/24] drm/display: bridge-connector: split code
+ allocation from initialization
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20261001-drm-bridge-hotplug-v2-2-8e34986dcb68@bootlin.com>
+Message-Id: <20261001-drm-bridge-hotplug-v2-3-8e34986dcb68@bootlin.com>
 References: <20261001-drm-bridge-hotplug-v2-0-8e34986dcb68@bootlin.com>
 In-Reply-To: <20261001-drm-bridge-hotplug-v2-0-8e34986dcb68@bootlin.com>
 To: Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, 
@@ -77,8 +77,8 @@ Cc: Hui Pu <Hui.Pu@gehealthcare.com>, Ian Ray <ian.ray@gehealthcare.com>,
 X-Mailer: b4 0.16.0
 X-Last-TLS-Session-Version: TLSv1.3
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261001_054305_114900_B10B0D7C 
-X-CRM114-Status: GOOD (  11.19  )
+X-CRM114-CacheID: sfid-20261001_054310_183871_5D1E47EC 
+X-CRM114-Status: GOOD (  17.72  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -93,93 +93,110 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-In preparation for adding hotpluggable bridges into the
-drm_bridge_connector, we need connectors to be created dynamically, both
-regular connectors and HDMI ones. drm_connector_init() already has a
-dynamic variant, add one for HDMI connectors too.
+Currently drm_bridge_connector_init() does two things:
+
+ * allocate and initialize the drm_bridge_connector
+   (which embeds a drm_connector) using drmm
+ * initialize and register the embedded drm_connector
+
+For bridge hotplug drmm allocations are not suitable because a connector
+may have to be added and removed multiple times in the lifetime of a card.
+
+In preparation to support that, split out from drm_bridge_connector_init()
+the code to allocate the drm_bridge_connector, so new (de)allocation code
+can reuse all the initialization code.
 
 Signed-off-by: Luca Ceresoli <luca.ceresoli@bootlin.com>
-
 ---
+ drivers/gpu/drm/display/drm_bridge_connector.c | 62 ++++++++++++++++----------
+ 1 file changed, 38 insertions(+), 24 deletions(-)
 
-Changes in v2:
-- rebased on current drm-misc-next: now drm_connector_hdmi_init() can fail,
-  so call drm_connector_cleanup(connector) if that happens
----
- drivers/gpu/drm/drm_connector.c | 42 +++++++++++++++++++++++++++++++++++++++++
- include/drm/drm_connector.h     |  6 ++++++
- 2 files changed, 48 insertions(+)
-
-diff --git a/drivers/gpu/drm/drm_connector.c b/drivers/gpu/drm/drm_connector.c
-index f5bd08640d25..f264cab0d184 100644
---- a/drivers/gpu/drm/drm_connector.c
-+++ b/drivers/gpu/drm/drm_connector.c
-@@ -708,6 +708,48 @@ int drmm_connector_hdmi_init(struct drm_device *dev,
+diff --git a/drivers/gpu/drm/display/drm_bridge_connector.c b/drivers/gpu/drm/display/drm_bridge_connector.c
+index 81f3e26f6fdf..41b51f0f13ae 100644
+--- a/drivers/gpu/drm/display/drm_bridge_connector.c
++++ b/drivers/gpu/drm/display/drm_bridge_connector.c
+@@ -837,27 +837,11 @@ static void drm_bridge_connector_put_bridges(struct drm_device *dev, void *data)
+ 	drm_bridge_put(bridge_connector->bridge_hdmi_cec);
  }
- EXPORT_SYMBOL(drmm_connector_hdmi_init);
  
+-/**
+- * drm_bridge_connector_init - Initialise a connector for a chain of bridges
+- * @drm: the DRM device
+- * @encoder: the encoder where the bridge chain starts
+- *
+- * Create a new &drm_bridge_connector for the @drm device. The connector is
+- * allocated, initialised, registered with the @drm device and attached to
+- * @encoder.
+- *
+- * The connector is associated with a chain of bridges that starts at
+- * the @encoder. All bridges in the chain shall report bridge operation flags
+- * (&drm_bridge->ops) and bridge output type (&drm_bridge->type), and none of
+- * them may create a DRM connector directly.
+- *
+- * Returns a pointer to the new connector on success, or a negative error
+- * pointer otherwise.
+- */
+-struct drm_connector *drm_bridge_connector_init(struct drm_device *drm,
+-						struct drm_encoder *encoder)
++static struct drm_connector *
++drm_bridge_connector_initialize(struct drm_bridge_connector *bridge_connector,
++				struct drm_device *drm,
++				struct drm_encoder *encoder)
+ {
+-	struct drm_bridge_connector *bridge_connector;
+ 	struct drm_connector *connector;
+ 	struct i2c_adapter *ddc = NULL;
+ 	struct drm_bridge *panel_bridge __free(drm_bridge_put) = NULL;
+@@ -865,10 +849,6 @@ struct drm_connector *drm_bridge_connector_init(struct drm_device *drm,
+ 	int connector_type;
+ 	int ret;
+ 
+-	bridge_connector = drmm_kzalloc(drm, sizeof(*bridge_connector), GFP_KERNEL);
+-	if (!bridge_connector)
+-		return ERR_PTR(-ENOMEM);
+-
+ 	ret = drmm_add_action(drm, drm_bridge_connector_put_bridges, bridge_connector);
+ 	if (ret)
+ 		return ERR_PTR(ret);
+@@ -1154,4 +1134,38 @@ struct drm_connector *drm_bridge_connector_init(struct drm_device *drm,
+ 
+ 	return connector;
+ }
++
 +/**
-+ * drmm_connector_hdmi_init - Init a preallocated dynamic HDMI connector
-+ * @dev: DRM device
-+ * @connector: A pointer to the HDMI connector to init
-+ * @funcs: callbacks for this connector
-+ * @hdmi_funcs: HDMI-related callbacks and capabilities for this connector
-+ * @connector_type: user visible type of the connector
-+ * @ddc: optional pointer to the associated ddc adapter
++ * drm_bridge_connector_init - Initialise a connector for a chain of bridges
++ * @drm: the DRM device
++ * @encoder: the encoder where the bridge chain starts
 + *
-+ * Initialises a preallocated dynamic HDMI connector. Connectors can be
-+ * subclassed as part of driver connector objects.
++ * Create a new &drm_bridge_connector for the @drm device. The connector is
++ * allocated, initialised, registered with the @drm device and attached to
++ * @encoder.
 + *
-+ * See drm_connector_dynamic_init(), the same constraints apply here. This
-+ * is just the HDMI version.
++ * The connector is associated with a chain of bridges that starts at
++ * the @encoder. All bridges in the chain shall report bridge operation flags
++ * (&drm_bridge->ops) and bridge output type (&drm_bridge->type), and none of
++ * them may create a DRM connector directly.
 + *
-+ * Returns:
-+ * Zero on success, error code on failure.
++ * Returns a pointer to the new connector on success, or a negative error
++ * pointer otherwise.
 + */
-+int drm_connector_hdmi_dynamic_init(struct drm_device *dev,
-+				    struct drm_connector *connector,
-+				    const struct drm_connector_funcs *funcs,
-+				    const struct drm_connector_hdmi_funcs *hdmi_funcs,
-+				    int connector_type,
-+				    struct i2c_adapter *ddc)
++struct drm_connector *drm_bridge_connector_init(struct drm_device *drm,
++						struct drm_encoder *encoder)
 +{
-+	int ret;
++	struct drm_bridge_connector *bridge_connector;
++	struct drm_connector *connector;
 +
-+	ret = drm_connector_hdmi_sanity_checks(dev, connector, hdmi_funcs, connector_type);
-+	if (ret)
-+		return ret;
++	bridge_connector = drmm_kzalloc(drm, sizeof(*bridge_connector), GFP_KERNEL);
++	if (!bridge_connector)
++		return ERR_PTR(-ENOMEM);
 +
-+	ret = drm_connector_dynamic_init(dev, connector, funcs, connector_type, ddc);
-+	if (ret)
-+		return ret;
++	connector = drm_bridge_connector_initialize(bridge_connector, drm, encoder);
++	if (IS_ERR(connector))
++		return connector;
 +
-+	if (ret)
-+		drm_connector_cleanup(connector);
-+
-+	return drm_connector_hdmi_initialize(dev, connector, hdmi_funcs);
++	return connector;
 +}
-+EXPORT_SYMBOL(drm_connector_hdmi_dynamic_init);
-+
- /**
-  * drmm_connector_hdmi_ini2 - Init a preallocated HDMI connector
-  * @dev: DRM device
-diff --git a/include/drm/drm_connector.h b/include/drm/drm_connector.h
-index 2ee7c59329aa..48bbbc365c93 100644
---- a/include/drm/drm_connector.h
-+++ b/include/drm/drm_connector.h
-@@ -2743,6 +2743,12 @@ int drmm_connector_hdmi_init(struct drm_device *dev,
- 			     const struct drm_connector_hdmi_funcs *hdmi_funcs,
- 			     int connector_type,
- 			     struct i2c_adapter *ddc);
-+int drm_connector_hdmi_dynamic_init(struct drm_device *dev,
-+				    struct drm_connector *connector,
-+				    const struct drm_connector_funcs *funcs,
-+				    const struct drm_connector_hdmi_funcs *hdmi_funcs,
-+				    int connector_type,
-+				    struct i2c_adapter *ddc);
- int drmm_connector_hdmi_ini2(struct drm_device *dev,
- 			     struct drm_connector *connector,
- 			     const char *vendor, const char *product,
+ EXPORT_SYMBOL_GPL(drm_bridge_connector_init);
 
 -- 
 2.55.0
