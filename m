@@ -4,53 +4,52 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 66F98CA5FD2
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  1 Oct 2026 01:15:34 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 489F7CA5FD6
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  1 Oct 2026 01:15:33 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=9YYo+8ACObyiLemRGEG+Y2ykw8dJyFunKp+Oej0AsZE=; b=c/NnOooKYw9pUwr+D2PIYxVTxy
-	Iv5vLj/k/PsxyRgJ1Mcrti+G4E11ba5P0y4qBLD+tFNAFXytEkI0YariD3qolydEP3eIsHPJxztjh
-	zQPWBYJDBfc/TbAmJ6J1Lij3C8sG8zAKveFjLsmyxMxKdxz46GhLWEgMRDJXvnOUKsSasMm5VKb5e
-	CLlmpNvxU32J8HaPieM7fhrhG18ufs5E5wK3/8gC4WHvuMTb47m1kucxQU7YTfEnZYKqLVTeUbEGd
-	CQQUK5eBF7NMwLC4l9aX1fq5YQxvBI1WivjfkjP+WRLpL8/+M6UosZuCP3JflVZI/EHAcuT0NdpxA
-	3BuyQc8g==;
+	bh=C62NbbZZXw/kBQhpslyP1gjpT+jZCJgIPo2p22d+QlI=; b=3LZM4La4Q+x2DYkMTRr6CRineY
+	pmj4GqWVkAik1UNjWiMUtSi4n1iKguNTV/xbVuNspANmWtC0g9l7Gjv5dIJ/10uJkc2j2SapdOjFB
+	tJu7PJHFF1i8lHQ/Wk9ZPiBepGGqZq+tf+9VAl1nDlosAeRnd7XsBhom1c8encJoU+UssR8+VymOg
+	HzExwrDGQZ2DiEz8Rtwq1oeMEm148FhGfgfBdyJhJGeTZ88Px1KDh3mG1RLjFlewnQk2VtjDqgGvK
+	5kVrdwP/ZkCRSo/bRTf6Jf0vyMatngcGJxQx4/WUG/dDafP02J7w9zci1DWE/1U3MeAvYxOSqEQVm
+	SUL6W5Ug==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xC5OR-00000007YDf-0Fge;
-	Thu, 01 Oct 2026 01:15:27 +0000
+	id 1xC5OQ-00000007YCj-33wj;
+	Thu, 01 Oct 2026 01:15:26 +0000
 Received: from bali.collaboradmins.com ([148.251.105.195])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xC5O8-00000007Y46-2Ejk;
-	Thu, 01 Oct 2026 01:15:10 +0000
+	id 1xC5O7-00000007Y3k-22ZV;
+	Thu, 01 Oct 2026 01:15:08 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
-	s=mail; t=1790817302;
-	bh=/25mUQVhbWdrJiq1vpQHSF057oLy+euJM19YMqCX+Fs=;
+	s=mail; t=1790817303;
+	bh=eTwvcHzDahjPYHCtMEH5hOYZ7IvsD5Sh3bBiNe6fI+U=;
 	h=From:Date:Subject:References:In-Reply-To:To:Cc:From;
-	b=qy0IfcYwYMkPi7M6MjB0Job0164tgQdM2YlGW9gSTT3RHOMAFYpQ52kGNwvXehXCJ
-	 JC3fGzF7HAIh5txk3TClUKVwovHTkNkmSmFGKw+md3YR8wGOr8TcajisSekUgegtvw
-	 9AY/Mcbs+OWgL8WhHvYtIQ9mUmVuk6DeDLAohV9n/ujoGg7DgrTH+yAL9EAY45RE53
-	 y+L3XmHCE/vbnq4oYpWys6r1PIPUeuAFzXBZX/9EaD7gQMKWXWY0XqCa/3dA1TFWzn
-	 yrvwkLo8/PZRlWuPwWFDJXyKSsJxBm2Qzy/3bs4s9h/0TWsRD3mTM5K6K6LhRDBxZV
-	 hI2v/m1irEJCA==
+	b=AJGtWScpvXvSKR4IHdG06rCq1VHxF0mP0qOFfXfHwx2YP17Jj43UTtdKcZqIktDz4
+	 pNO+5IU8uDFrKcDAzZqC37TcAeyN1pSJgNlHU5HSbJtIHjNGhT5YYZMaDXF0c6BcMR
+	 uVGU9Nka+bNChhQmLVCdxef4pNo4GRn8S0B0xy+FWCbWbWQdo2BP0aIH7Y63D6UD98
+	 QQuYb12YExyFpDIEn7eDE4YtJLzyQuTMBHBhSUpU0BhqdPcOEn2VVFDpYRAxPDPJbS
+	 4K7NsUzoMymyjvBwOabgXvnaZuAUWQxhDIvJOXIIzlBnUcNd5vZpgKvxDqdj/hCkWF
+	 MGC2sCL2CxQKg==
 Received: from localhost (unknown [100.64.0.241])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange secp256r1 server-signature RSA-PSS (4096 bits) server-digest SHA256)
 	(No client certificate requested)
 	(Authenticated sender: cristicc)
-	by bali.collaboradmins.com (Postfix) with ESMTPSA id A9D3217E1047;
-	Thu, 01 Oct 2026 03:15:02 +0200 (CEST)
+	by bali.collaboradmins.com (Postfix) with ESMTPSA id 5E98417E1088;
+	Thu, 01 Oct 2026 03:15:03 +0200 (CEST)
 From: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>
-Date: Thu, 01 Oct 2026 04:14:38 +0300
-Subject: [PATCH 7/8] drm/rockchip: rk3066_hdmi: Advertise HDMI 1.4
- capabilities
+Date: Thu, 01 Oct 2026 04:14:39 +0300
+Subject: [PATCH 8/8] drm/sun4i: hdmi: Convert to drmm_connector_hdmi_init()
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20261001-bridge-advert-hdmi-caps-v1-7-f8806570e243@collabora.com>
+Message-Id: <20261001-bridge-advert-hdmi-caps-v1-8-f8806570e243@collabora.com>
 References: <20261001-bridge-advert-hdmi-caps-v1-0-f8806570e243@collabora.com>
 In-Reply-To: <20261001-bridge-advert-hdmi-caps-v1-0-f8806570e243@collabora.com>
 To: Andrzej Hajda <andrzej.hajda@intel.com>, 
@@ -70,8 +69,8 @@ Cc: kernel@collabora.com, dri-devel@lists.freedesktop.org,
  linux-arm-kernel@lists.infradead.org, linux-sunxi@lists.linux.dev
 X-Mailer: b4 0.15.2
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260930_181508_775403_093C2554 
-X-CRM114-Status: GOOD (  11.48  )
+X-CRM114-CacheID: sfid-20260930_181507_687630_F3AD6071 
+X-CRM114-Status: GOOD (  14.56  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -86,47 +85,78 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Bridges using DRM_BRIDGE_OP_HDMI are now expected to also provide a
-supported HDMI version.  This is not yet enforced, but will become
-mandatory once the migration to the new caps-based HDMI connector
-initialization API is completed.
+Switch driver over to the new drmm_connector_hdmi_init() signature and
+advertise HDMI 1.2 support.  The vendor, product, supported_formats and
+max_bpc values previously passed as arguments are now provided through
+struct drm_connector_hdmi_funcs, together with the new
+supported_hdmi_ver field.
 
-The RK3066 HDMI TX supports HDMI 1.4a, as described in commit
-f84d3d37b7fb ("drm: rockchip: introduce rk3066 hdmi").  However, the
-driver does not currently enforce a maximum TMDS character rate, it only
-filters non-CEA modes and excludes VIC 1 (640x480) via the .mode_valid
-callback.
+The HDMI connector helpers infer the 165 MHz TMDS character rate ceiling
+from supported_hdmi_ver and reject modes exceeding it before invoking
+the driver's .tmds_char_rate_valid() hook.  This makes the explicit mode
+clock check in sun4i_hdmi_connector_clock_valid() redundant, so drop it.
 
-Advertise HDMI 1.4 support for now so that modes exceeding the 340 MHz
-TMDS limit are rejected by the core.
+No functional change intended.
 
-Reviewed-by: Heiko Stuebner <heiko@sntech.de>
 Reviewed-by: Maxime Ripard <mripard@kernel.org>
 Signed-off-by: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>
 ---
- drivers/gpu/drm/rockchip/rk3066_hdmi.c | 2 ++
- 1 file changed, 2 insertions(+)
+ drivers/gpu/drm/sun4i/sun4i_hdmi_enc.c | 25 +++++++++++--------------
+ 1 file changed, 11 insertions(+), 14 deletions(-)
 
-diff --git a/drivers/gpu/drm/rockchip/rk3066_hdmi.c b/drivers/gpu/drm/rockchip/rk3066_hdmi.c
-index f28d6a883e09..f748700b0ba6 100644
---- a/drivers/gpu/drm/rockchip/rk3066_hdmi.c
-+++ b/drivers/gpu/drm/rockchip/rk3066_hdmi.c
-@@ -14,6 +14,7 @@
- #include <drm/drm_probe_helper.h>
+diff --git a/drivers/gpu/drm/sun4i/sun4i_hdmi_enc.c b/drivers/gpu/drm/sun4i/sun4i_hdmi_enc.c
+index d98b6f12a7bc..6f4fe0c8efae 100644
+--- a/drivers/gpu/drm/sun4i/sun4i_hdmi_enc.c
++++ b/drivers/gpu/drm/sun4i/sun4i_hdmi_enc.c
+@@ -192,10 +192,6 @@ sun4i_hdmi_connector_clock_valid(const struct drm_connector *connector,
+ 	if (mode->flags & DRM_MODE_FLAG_DBLCLK)
+ 		return MODE_BAD;
  
- #include <linux/clk.h>
-+#include <linux/hdmi.h>
- #include <linux/mfd/syscon.h>
- #include <linux/platform_device.h>
- #include <linux/regmap.h>
-@@ -712,6 +713,7 @@ rk3066_hdmi_register(struct drm_device *drm, struct rk3066_hdmi *hdmi)
- 	hdmi->bridge.type = DRM_MODE_CONNECTOR_HDMIA;
- 	hdmi->bridge.vendor = "Rockchip";
- 	hdmi->bridge.product = "RK3066 HDMI";
-+	hdmi->bridge.supported_hdmi_ver = HDMI_VERSION_1_4;
+-	/* HDMI 1.0 max TMDS character rate */
+-	if (clock > HDMI_1_0_TMDS_CHAR_RATE_MAX_HZ)
+-		return MODE_CLOCK_HIGH;
+-
+ 	rounded_rate = clk_round_rate(hdmi->tmds_clk, clock);
+ 	if (rounded_rate > 0 &&
+ 	    max_t(unsigned long, rounded_rate, clock) -
+@@ -253,6 +249,15 @@ static struct i2c_adapter *sun4i_hdmi_get_ddc(struct device *dev)
+ }
  
- 	hdmi->bridge.ddc = rk3066_hdmi_i2c_adapter(hdmi);
- 	if (IS_ERR(hdmi->bridge.ddc))
+ static const struct drm_connector_hdmi_funcs sun4i_hdmi_hdmi_connector_funcs = {
++	/*
++	 * NOTE: Those are likely to be wrong, but I couldn't find
++	 * the actual ones in the BSP.
++	 */
++	.vendor = "AW",
++	.product = "HDMI",
++	.supported_hdmi_ver = HDMI_VERSION_1_2,
++	.supported_formats = BIT(DRM_OUTPUT_COLOR_FORMAT_RGB444),
++	.max_bpc = 8,
+ 	.tmds_char_rate_valid	= sun4i_hdmi_connector_clock_valid,
+ 	.avi = {
+ 		.clear_infoframe	= sun4i_hdmi_clear_avi_infoframe,
+@@ -654,19 +659,11 @@ static int sun4i_hdmi_bind(struct device *dev, struct device *master,
+ 
+ 	drm_connector_helper_add(&hdmi->connector,
+ 				 &sun4i_hdmi_connector_helper_funcs);
+-	ret = drmm_connector_hdmi_ini2(drm, &hdmi->connector,
+-				       /*
+-					* NOTE: Those are likely to be
+-					* wrong, but I couldn't find the
+-					* actual ones in the BSP.
+-					*/
+-				       "AW", "HDMI",
++	ret = drmm_connector_hdmi_init(drm, &hdmi->connector,
+ 				       &sun4i_hdmi_connector_funcs,
+ 				       &sun4i_hdmi_hdmi_connector_funcs,
+ 				       DRM_MODE_CONNECTOR_HDMIA,
+-				       hdmi->ddc_i2c,
+-				       BIT(DRM_OUTPUT_COLOR_FORMAT_RGB444),
+-				       8);
++				       hdmi->ddc_i2c);
+ 	if (ret) {
+ 		dev_err(dev,
+ 			"Couldn't initialise the HDMI connector\n");
 
 -- 
 2.55.0
