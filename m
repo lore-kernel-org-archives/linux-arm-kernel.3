@@ -4,53 +4,54 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3B516CA5FCB
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  1 Oct 2026 12:44:49 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7646DCA5FD2
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  1 Oct 2026 12:44:53 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Vb5gHDW38cFyiUtq3J31okaWES/ZSz5dlUdyKZGivyc=; b=C4QptKG9Bye2U3HX5JK2fOvq/s
-	p5dcnXq0A8WKd8DrZTz1oNq+CU0KD3a121+o/npB1G9FVJLtzKmHFzDZZKFi9G7pM5lxiEG7rCfBl
-	GdiXHf/+lw3dA3CWSERd4QjCJiLmJMZ6l6pjp1KG7JsEgBXlGbwaFBgKEI/yXnG4pkO/Vcfo+LMmX
-	v+szr98dakvslh2wA7nFdgYzFEMKQnqW28uv9XxncxDIDOcxQYQewPgsV0agpJXARAt7+nJR4W0Cs
-	ZOPiL49Dfo1pABOVBYaNkkSihi0N72XJ2c9VNKGHVYAaH08LEjmjVnfYjJw9Uo9XuGr9E1i8Vw4of
-	RWdrSqJw==;
+	bh=1Tlnho1brzlMd4ksWzTtyfdq2Zw7j9o87SIUMOY24WY=; b=VehlHIJyj24QkdwbbjUgp1RnpG
+	SZJX3XcZu2Qsc9jugLJ2wAcCmmu0EhBp4Wdp7khD7wf5qTomCgH8dchvIV8lKEy/71EOC4nEkRJCf
+	7u2CNHwhWu1eu4nF2N3+7Dyxm5Hpf7FxoHa5MBVACXpYin4MWo3LS1nBgSFngrkePhYxlSMTL4Bdf
+	0MkMfXpZGdceHfUEMSfIl2FIhZN5sYetYztdIhmq4ABrQPXyI5o4VPelC/cIAuCxW/v5KvSpnnA+i
+	6UCV1PoH5JTmhe3BBdX0G/gg2zLwgcjM5YvhAsxdPO8DASL7/nmevv2bXKE6OYT8+ZJyoSQog2fTo
+	qfHwJW0A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xCG9S-000000097PD-499k;
-	Thu, 01 Oct 2026 12:44:43 +0000
-Received: from smtpout-03.galae.net ([185.246.85.4])
+	id 1xCG9X-000000097ST-1Qow;
+	Thu, 01 Oct 2026 12:44:47 +0000
+Received: from smtpout-02.galae.net ([185.246.84.56])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xCG9P-000000097Lh-0KyL
+	id 1xCG9T-000000097P2-3zGI
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 01 Oct 2026 12:44:42 +0000
+	Thu, 01 Oct 2026 12:44:45 +0000
 Received: from smtpout-01.galae.net (smtpout-01.galae.net [212.83.139.233])
-	by smtpout-03.galae.net (Postfix) with ESMTPS id 8F0934E41E84;
-	Thu,  1 Oct 2026 12:44:37 +0000 (UTC)
+	by smtpout-02.galae.net (Postfix) with ESMTPS id 608501A24E0;
+	Thu,  1 Oct 2026 12:44:42 +0000 (UTC)
 Received: from mail.galae.net (mail.galae.net [212.83.136.155])
-	by smtpout-01.galae.net (Postfix) with ESMTPS id 6003560341;
-	Thu,  1 Oct 2026 12:44:37 +0000 (UTC)
-Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 95B5D10328140;
-	Thu,  1 Oct 2026 14:44:27 +0200 (CEST)
+	by smtpout-01.galae.net (Postfix) with ESMTPS id 2A7A360341;
+	Thu,  1 Oct 2026 12:44:42 +0000 (UTC)
+Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 523BC10328112;
+	Thu,  1 Oct 2026 14:44:36 +0200 (CEST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=dkim;
-	t=1790858672; h=from:subject:date:message-id:to:cc:mime-version:content-type:
+	t=1790858680; h=from:subject:date:message-id:to:cc:mime-version:content-type:
 	 content-transfer-encoding:in-reply-to:references;
-	bh=Vb5gHDW38cFyiUtq3J31okaWES/ZSz5dlUdyKZGivyc=;
-	b=c5fuW65gwFZgwXNxV8v5wcIh9zkecfihLXRN47onOYQzm+2MsdAOkpGiZYQwN65yG56h49
-	DTca+WeSM/bwWNgKLJVIDCC8mCtb3KBBVflzugOk5RuGSGXVitHViBibOa1ndmiGJSsMNj
-	tSIB0gmOC5izDj0h36JIv/20Kue5RdEgfTl3rtsO3sQKTtPiANbpQu3ECckENi5PT1pbRO
-	7qHwv9jMbaKUjxUI6cZmfp9YMq4njKxAV4gCNFtkbnBs99Sl974e/aHyexQXA6LBDdziq2
-	q2d7XflvQTDIANoVEfUttWshVJx5VX6GulikZFlaXJ8nW9VuFZROGDNk82o7vw==
+	bh=1Tlnho1brzlMd4ksWzTtyfdq2Zw7j9o87SIUMOY24WY=;
+	b=bk0cDzyg1YTT1G/89fCXjKIwa5+qKVwuT+Gst/ZBFW5kBoefdYewguhvKLuLO75angxUuU
+	vALs6E1p9sJZsfbLvBADsLVywiyyH90uyZdcFay8tFlGtldvdxzabi7mQf3nEGqUS8jCpi
+	M8i5vDcFxbYIgn8Xr71/l3KUAToKemYcv/SeAexWYbBBpeCKUeB0EJ4l2WzuHubrFn6DtF
+	M8+xdeLd1pn7op8ArqwuG+SI2yjOYVOFTUA/QdS/Ku5/kw93cyCWwI4956qwsADXUjC260
+	4rnqqbSGYWfN8nRqnYfhIAsRtMz+U5ITa9nvOXOn84zvIUxpn1KL7Qw7oThmnA==
 From: Luca Ceresoli <luca.ceresoli@bootlin.com>
-Date: Thu, 01 Oct 2026 14:42:40 +0200
-Subject: [PATCH RFC v2 18/24] drm/panel: implement .get_next_bridge
+Date: Thu, 01 Oct 2026 14:42:41 +0200
+Subject: [PATCH RFC v2 19/24] drm/bridge: display-connector: implement
+ .get_next_bridge
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20261001-drm-bridge-hotplug-v2-18-8e34986dcb68@bootlin.com>
+Message-Id: <20261001-drm-bridge-hotplug-v2-19-8e34986dcb68@bootlin.com>
 References: <20261001-drm-bridge-hotplug-v2-0-8e34986dcb68@bootlin.com>
 In-Reply-To: <20261001-drm-bridge-hotplug-v2-0-8e34986dcb68@bootlin.com>
 To: Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, 
@@ -76,8 +77,9 @@ Cc: Hui Pu <Hui.Pu@gehealthcare.com>, Ian Ray <ian.ray@gehealthcare.com>,
 X-Mailer: b4 0.16.0
 X-Last-TLS-Session-Version: TLSv1.3
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261001_054439_267008_71E8242F 
-X-CRM114-Status: GOOD (  10.58  )
+X-CRM114-CacheID: sfid-20261001_054444_149310_A70EC560 
+X-CRM114-Status: UNSURE (   9.31  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -97,42 +99,41 @@ this.
 
 Signed-off-by: Luca Ceresoli <luca.ceresoli@bootlin.com>
 ---
- drivers/gpu/drm/drm_panel.c | 8 +++++++-
- 1 file changed, 7 insertions(+), 1 deletion(-)
+ drivers/gpu/drm/bridge/display-connector.c | 7 +++++++
+ 1 file changed, 7 insertions(+)
 
-diff --git a/drivers/gpu/drm/drm_panel.c b/drivers/gpu/drm/drm_panel.c
-index c00529bfb706..8a2a99cca683 100644
---- a/drivers/gpu/drm/drm_panel.c
-+++ b/drivers/gpu/drm/drm_panel.c
-@@ -77,6 +77,11 @@ static const struct drm_connector_funcs panel_bridge_connector_funcs = {
- 	.atomic_destroy_state = drm_atomic_helper_connector_destroy_state,
- };
+diff --git a/drivers/gpu/drm/bridge/display-connector.c b/drivers/gpu/drm/bridge/display-connector.c
+index eb3412ec30a0..8b16ad89c7f1 100644
+--- a/drivers/gpu/drm/bridge/display-connector.c
++++ b/drivers/gpu/drm/bridge/display-connector.c
+@@ -36,6 +36,11 @@ to_display_connector(struct drm_bridge *bridge)
+ 	return container_of(bridge, struct display_connector, bridge);
+ }
  
-+static struct drm_bridge *drm_panel_bridge_get_next_bridge(struct drm_bridge *bridge)
++static struct drm_bridge *display_connector_get_next_bridge(struct drm_bridge *bridge)
 +{
 +	return NULL;
 +}
 +
- static int panel_bridge_attach(struct drm_bridge *bridge,
- 			       struct drm_encoder *encoder,
- 			       enum drm_bridge_attach_flags flags)
-@@ -217,6 +222,7 @@ static void panel_bridge_debugfs_init(struct drm_bridge *bridge,
+ static int display_connector_attach(struct drm_bridge *bridge,
+ 				    struct drm_encoder *encoder,
+ 				    enum drm_bridge_attach_flags flags)
+@@ -214,6 +219,7 @@ static u32 *display_connector_get_input_bus_fmts(struct drm_bridge *bridge,
  }
  
- static const struct drm_bridge_funcs panel_bridge_bridge_funcs = {
-+	.get_next_bridge = drm_panel_bridge_get_next_bridge,
- 	.attach = panel_bridge_attach,
- 	.detach = panel_bridge_detach,
- 	.atomic_pre_enable = panel_bridge_atomic_pre_enable,
-@@ -600,7 +606,7 @@ void drm_panel_add(struct drm_panel *panel)
- 	mutex_unlock(&panel_lock);
+ static const struct drm_bridge_funcs display_connector_bridge_funcs = {
++	.get_next_bridge = display_connector_get_next_bridge,
+ 	.attach = display_connector_attach,
+ 	.destroy = display_connector_destroy,
+ 	.detect = display_connector_bridge_detect,
+@@ -412,6 +418,7 @@ static int display_connector_probe(struct platform_device *pdev)
  
- 	panel->bridge.of_node = panel->dev->of_node;
--	panel->bridge.ops = DRM_BRIDGE_OP_MODES;
-+	panel->bridge.ops = DRM_BRIDGE_OP_MODES | DRM_BRIDGE_OP_GET_NEXT_BRIDGE;
- 	panel->bridge.type = panel->connector_type;
- 	panel->bridge.pre_enable_prev_first = panel->prepare_prev_first;
+ 	conn->bridge.of_node = pdev->dev.of_node;
  
++	conn->bridge.ops = DRM_BRIDGE_OP_GET_NEXT_BRIDGE;
+ 	if (conn->bridge.ddc)
+ 		conn->bridge.ops |= DRM_BRIDGE_OP_EDID
+ 				 |  DRM_BRIDGE_OP_DETECT;
 
 -- 
 2.55.0
