@@ -4,63 +4,80 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E18F0CA5FCE
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  1 Oct 2026 05:56:58 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 07BC2CA5FB3
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  1 Oct 2026 06:00:47 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ZDxsokV5obQ5C8QUjCgm5Et9Kq1WK82QzPRqqhS1oSo=; b=doYDGSTbdk6ieoCBtEhoEa7y/v
-	6e7repoflzGJcaDaoEU8FIzS8r3b0LTrqOX9y6SS7jwZQGrUlOv+Zr6Qrf8l3LtENvsAH9gtzzEUl
-	cZPZcMamSHyjjbrb/WvwNhAIXm5/7QFcJCyXaCTx9VN+XNKlb+OsIbDhfUloTLFZpYX8vIdMBnvaD
-	AjZlwhvkwvwPyvxUMTbAE8sj1sNCMexuCY9OZqLgwcHRnPeYwqnOjunSkZXy3P/yuNE317G7S7VWX
-	wkRwIcaVqc6IooE8zJuBbzARpO2ARBWiO6Cohw/k/hitw1qHZpcRljsv6VRVEea0MSQa3a9FpFWyt
-	OURA23eA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=vf2W5S7rnN/EqIPhbCpAlveRHHEMC7ftIJJRzgEuN34=; b=VakMiAzXezOTH32Cp8RTD5ILCQ
+	nR5aVzC/qQgrcSqpghS8tYK4JqwM2P7lmmNle+1cbUnDL4UdrWO4q8EPBaJhDAc1U+COs9Fwle2nc
+	Lu+dAWfk0rK9DMKqM/oum4bTh1mYVeo/W9amdiX0jXZUU9d/grS78fj6O+VpWKrNujSeBufMTHeZy
+	kHgoYBHUxVi1Cq1QtN16msWJFCc8fBoEcybUmkBBZ9dEk7QPkPV4CLoGItbLfZvmA/HiI5CPQeJXf
+	ESe1Y0j0qNs5sCN6e7HYtT2y7qe9iS25HetNEFFEtVNOEVp+MmnbNyoQQXYOQgTrZeGYIjGMrt/1y
+	CnkqgE0w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xC9mm-00000007qux-0epV;
-	Thu, 01 Oct 2026 05:56:52 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1xC9qT-00000007rGr-2o7l;
+	Thu, 01 Oct 2026 06:00:41 +0000
+Received: from cp2.siel.si ([46.19.12.180])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xC9ml-00000007quq-0TH6
+	id 1xC9qQ-00000007rG6-2KTQ
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 01 Oct 2026 05:56:51 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id A21BC43693;
-	Thu,  1 Oct 2026 05:56:49 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 54AB81F000FF;
-	Thu,  1 Oct 2026 05:56:48 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1790834209;
-	bh=ZDxsokV5obQ5C8QUjCgm5Et9Kq1WK82QzPRqqhS1oSo=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=JS1OLHY7AHmn7gnE2QX4jLhMDKzXZfIViXHr4j4k0n84XCeGcPItrHrlq4kwPc/g7
-	 VWuc+LL0Aw0XmJSh9tYVPvlj28ZO6K7GVqrPD75ctqrAeWX3eNL4SYtrnYDgCRwiiH
-	 pGhCtHnoJpzsIIVWMaW35sYlNJLZXFMxRTtI/dBNg172RjS0GPVSBjmVlIAFeA4wI+
-	 R+Zsy0mRxV+xjjEcNMWcQccSGH6piG6qRlp4MkMI8VX+H0CQ1gXQ6LfAafU4ZSTj6w
-	 GrbimXZxT3+1HTdKmwMey2dnVlNCcLPFTtzNr6xvjrXjxzWxsvuw49o8uWT8ZsIYIA
-	 fp+L5qpppAvSw==
-Date: Thu, 1 Oct 2026 07:56:44 +0200
-From: Krzysztof Kozlowski <krzk@kernel.org>
-To: Billy Tsai <billy_tsai@aspeedtech.com>
-Cc: Jonathan Cameron <jic23@kernel.org>, 
-	David Lechner <dlechner@baylibre.com>, Nuno =?utf-8?B?U8Oh?= <nuno.sa@analog.com>, 
-	Andy Shevchenko <andy@kernel.org>, Rob Herring <robh@kernel.org>, 
-	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
-	Joel Stanley <joel@jms.id.au>, Andrew Jeffery <andrew@codeconstruct.com.au>, 
-	Ryan Chen <ryan_chen@aspeedtech.com>, linux-iio@vger.kernel.org, devicetree@vger.kernel.org, 
-	linux-arm-kernel@lists.infradead.org, linux-aspeed@lists.ozlabs.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH 1/3] dt-bindings: iio: adc: Add syscon property for
- multi-SCU SoCs
-Message-ID: <20261001-obedient-stimulating-worm-0ae11c@quoll>
-References: <20261001-ast27xx-adc-upstream-v1-0-5ace57533418@aspeedtech.com>
- <20261001-ast27xx-adc-upstream-v1-1-5ace57533418@aspeedtech.com>
+	Thu, 01 Oct 2026 06:00:40 +0000
+Received: from 89-212-21-243.static.t-2.net ([89.212.21.243]:54566 helo=[192.168.69.116])
+	by cp2.siel.si with esmtpsa  (TLS1.3) tls TLS_AES_128_GCM_SHA256
+	(Exim 4.100.1)
+	(envelope-from <primoz.fiser@norik.com>)
+	id 1xC9qQ-00000001W8y-0Rgz;
+	Thu, 01 Oct 2026 08:00:34 +0200
+Message-ID: <37eb1b08-0430-48d0-bac9-88a4a1d8db8c@norik.com>
+Date: Thu, 1 Oct 2026 08:00:32 +0200
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-In-Reply-To: <20261001-ast27xx-adc-upstream-v1-1-5ace57533418@aspeedtech.com>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH 3/4] ARM: dts: imx6: phycore-som: Convert to generic PHY
+ reset binding
+To: Frank Li <Frank.li@oss.nxp.com>
+Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+ Conor Dooley <conor+dt@kernel.org>, Frank Li <Frank.Li@nxp.com>,
+ Sascha Hauer <s.hauer@pengutronix.de>,
+ Pengutronix Kernel Team <kernel@pengutronix.de>,
+ Fabio Estevam <festevam@gmail.com>, devicetree@vger.kernel.org,
+ imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
+ linux-kernel@vger.kernel.org, upstream@lists.phytec.de
+References: <20260930102532.2262700-1-primoz.fiser@norik.com>
+ <20260930102532.2262700-4-primoz.fiser@norik.com>
+ <ar0vxTCkxOg00jhn@SMW015318>
+Content-Language: en-US
+From: Primoz Fiser <primoz.fiser@norik.com>
+Autocrypt: addr=primoz.fiser@norik.com; keydata=
+ xjMEZrROOxYJKwYBBAHaRw8BAQdAADVOb5tiLVTUAC9nu/FUl4gj/+4fDLqbc3mk0Vz8riTN
+ JVByaW1veiBGaXNlciA8cHJpbW96LmZpc2VyQG5vcmlrLmNvbT7CiQQTFggAMRYhBK2YFSAH
+ ExsBZLCwJGoLbQEHbnBPBQJmtE47AhsDBAsJCAcFFQgJCgsFFgIDAQAACgkQagttAQducE+T
+ gAD+K4fKlIuvH75fAFwGYG/HT3F9mN64majvqJqvp3gTB9YBAL12gu+cm11m9JMyOyN0l6Os
+ jStsQFghPkzBSDWSDN0NzjgEZrROPBIKKwYBBAGXVQEFAQEHQP2xtEOhbgA+rfzvvcFkV1zK
+ 6ym3/c/OUQObCp50BocdAwEIB8J4BBgWCAAgFiEErZgVIAcTGwFksLAkagttAQducE8FAma0
+ TjwCGwwACgkQagttAQducE8ucAD9F1sXtQD4iA7Qu+SwNUAp/9x7Cqr37CSb2p6hbRmPJP8B
+ AMYR91JYlFmOJ+ScPhQ8/MgFO+V6pa7K2ebk5xYqsCgA
+Organization: Norik systems d.o.o.
+In-Reply-To: <ar0vxTCkxOg00jhn@SMW015318>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
+X-AntiAbuse: This header was added to track abuse, please include it with any abuse report
+X-AntiAbuse: Primary Hostname - cp2.siel.si
+X-AntiAbuse: Original Domain - lists.infradead.org
+X-AntiAbuse: Originator/Caller UID/GID - [47 12] / [47 12]
+X-AntiAbuse: Sender Address Domain - norik.com
+X-Get-Message-Sender-Via: cp2.siel.si: authenticated_id: primoz.fiser@norik.com
+X-Authenticated-Sender: cp2.siel.si: primoz.fiser@norik.com
+X-Source: 
+X-Source-Args: 
+X-Source-Dir: 
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260930_230038_780160_3A844054 
+X-CRM114-Status: GOOD (  12.89  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -75,75 +92,76 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Oct 01, 2026 at 11:28:44AM +0800, Billy Tsai wrote:
-> The ADC's reference-voltage trimming data lives in a System Control
-> Unit (SCU) register. SoCs with a single SCU instance let the driver
-> locate it without any additional information, but SoCs such as AST2700
-> that expose more than one SCU node need an explicit phandle to
-> disambiguate which one holds the trimming data.
+Hi Frank,
+
+On 9/30/26 17:50, Frank Li wrote:
+> On Wed, Sep 30, 2026 at 12:25:31PM +0200, Primoz Fiser wrote:
+>> The phy-reset-gpios property on the FEC node is deprecated by the
+>> Documentation/devicetree/bindings/net/fsl,fec.yaml in favour of the
+>> generic reset binding on the PHY node itself, described by the
+>> Documentation/devicetree/bindings/net/ethernet-phy.yaml.
+>>
+>> Move the reset GPIO from &fec to the ethphy child node as reset-gpios.
 > 
-> Add an optional "syscon" phandle property, and require it for the
-> AST2700 compatibles since they are the first multi-SCU SoCs supported
-> by this driver.
+> This movement may impact back compatiblity. Any other user use
+> phy-reset-gpios under $fec?
+
+Yeah, good point.
+
+I was tempted to convert due to checkpatch warning.
+
+Since it's a legacy board, lets keep phy-reset-gpios as is due to
+potential backward compatibility and other unforeseen implications.
+
+I will drop this patch in v2 and convert patch #4 to phy-reset-duration.
+
+BR,
+
+Primoz
+
 > 
-> Signed-off-by: Billy Tsai <billy_tsai@aspeedtech.com>
-> Assisted-by: Claude:claude-sonnet-5
-> ---
->  .../bindings/iio/adc/aspeed,ast2600-adc.yaml       | 28 ++++++++++++++++++++++
->  1 file changed, 28 insertions(+)
+> Frank
 > 
-> diff --git a/Documentation/devicetree/bindings/iio/adc/aspeed,ast2600-adc.yaml b/Documentation/devicetree/bindings/iio/adc/aspeed,ast2600-adc.yaml
-> index 249101b55cf4e..0d6b10450cfa8 100644
-> --- a/Documentation/devicetree/bindings/iio/adc/aspeed,ast2600-adc.yaml
-> +++ b/Documentation/devicetree/bindings/iio/adc/aspeed,ast2600-adc.yaml
-> @@ -67,6 +67,11 @@ properties:
->      description:
->        Inform the driver that last channel will be used to sensor battery.
->  
-> +  syscon:
+>>
+>> Signed-off-by: Primoz Fiser <primoz.fiser@norik.com>
+>> ---
+>>  arch/arm/boot/dts/nxp/imx/imx6qdl-phytec-phycore-som.dtsi | 2 +-
+>>  1 file changed, 1 insertion(+), 1 deletion(-)
+>>
+>> diff --git a/arch/arm/boot/dts/nxp/imx/imx6qdl-phytec-phycore-som.dtsi b/arch/arm/boot/dts/nxp/imx/imx6qdl-phytec-phycore-som.dtsi
+>> index 9070388eecb0..88eabc7af6b7 100644
+>> --- a/arch/arm/boot/dts/nxp/imx/imx6qdl-phytec-phycore-som.dtsi
+>> +++ b/arch/arm/boot/dts/nxp/imx/imx6qdl-phytec-phycore-som.dtsi
+>> @@ -56,7 +56,6 @@ &fec {
+>>  	phy-handle = <&ethphy>;
+>>  	phy-mode = "rgmii";
+>>  	phy-supply = <&vdd_eth_io>;
+>> -	phy-reset-gpios = <&gpio1 14 GPIO_ACTIVE_LOW>;
+>>  	status = "disabled";
+>>
+>>  	mdio {
+>> @@ -65,6 +64,7 @@ mdio {
+>>
+>>  		ethphy: ethernet-phy@3 {
+>>  			reg = <3>;
+>> +			reset-gpios = <&gpio1 14 GPIO_ACTIVE_LOW>;
+>>  			txc-skew-ps = <1680>;
+>>  			rxc-skew-ps = <1860>;
+>>  		};
+>> --
+>> 2.34.1
+>>
+>>
 
-Missing vendor and descriptive name. Please read writing bindings.
-
-> +    $ref: /schemas/types.yaml#/definitions/phandle
-> +    description:
-> +      Required on SoCs with more than one SCU instance (e.g. AST2700).
-
-Describe the purpose, not open code schema.
-
-> +
->  required:
->    - compatible
->    - reg
-> @@ -74,6 +79,18 @@ required:
->    - resets
->    - "#io-channel-cells"
->  
-> +allOf:
-> +  - if:
-> +      properties:
-> +        compatible:
-> +          contains:
-> +            enum:
-> +              - aspeed,ast2700-adc0
-> +              - aspeed,ast2700-adc1
-> +    then:
-> +      required:
-> +        - syscon
-> +
->  additionalProperties: false
->  
->  examples:
-> @@ -95,4 +112,15 @@ examples:
->          #io-channel-cells = <1>;
->          aspeed,int-vref-microvolt = <2500000>;
->      };
-> +  - |
-> +    #include <dt-bindings/clock/aspeed,ast2700-scu.h>
-> +    #include <dt-bindings/reset/aspeed,ast2700-scu.h>
-
-No need for a new exmaple for one new property.
-
-Best regards,
-Krzysztof
+-- 
+Primoz Fiser
+phone: +386-41-390-545
+email: primoz.fiser@norik.com
+--
+Norik systems d.o.o.
+Your embedded software partner
+Slovenia, EU
+phone: +386-41-540-545
+email: info@norik.com
 
 
