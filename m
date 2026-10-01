@@ -4,64 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 59726CA5FA5
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  1 Oct 2026 09:30:16 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B04B4CA5FB3
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  1 Oct 2026 09:34:26 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Date:Message-Id:From:Subject:Content-Transfer-Encoding:MIME-Version:
-	Content-Type:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=BASQsGTAf4/JG9/5xVbsFJZDHdyR3Pn4iHMnd9rEmIs=; b=ks6P2h1Trt4uN7EnxlSVQ4D6TD
-	C6reryrDBfxDt8s3VudNMNocrkFvkUXbH1Ot0hCjwkJeIEKPm8JjHvDpFS/5PaZGcFHPz4aEiCt8R
-	/46f5ms5M7hHgEHgbGmeA9e6H8OD5kj9CkZIHjbE/0lSgpJ3b061q+dWlVXgMTDfUQG024Ui6yAaq
-	JnjULkKsEL5h1rBmAbYWvNJoWCkEXFdBQuHKFaAEwlvNu2hAYbZH95l/SHEGwftggBB3QUjMUBi3+
-	tdixgcX9xiUitQgkbxwOjvIvqE10pXjmPDxTBhVLIfUfjT4edZEWZTiZMYbCcUm03NwC3TaP50gp8
-	QLm+Fk/g==;
+	bh=68HSkxELOQFz+Jf6fK34pTwAZVZfyUhd2rIP6STnHPE=; b=nUYbzxa6RHN5Gr1hWXKxXtQlFb
+	Blbbe7bnAj4wB2Ue0Osvz2CFto1tU5Nrf3O+craxK77LjqdJ5wav+/GVcSonFZu9XBYGdHyoFCgEf
+	O5bhTIHUUd3cIDHqJfO6Hay1A9wbhG2JQurNpCJur683d2xOhbmMZlPyuF6heOm7ymGaBYvrnyYpA
+	m71HfCLZW3xtHp6ZrS+YwVJu9I1rxV4nVg77+mvCtlW39b9kKemwjOIdecvAGyVTI8bjv2ZDA6B+q
+	xzB7LW+JNqh3xOk2c7yrJgNLBvyqPfoUrvznd1BzbpOMpdChJOLdNtOrMdE/uT9aUz6GEwX47YV9r
+	/H33w7Mg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xCD7B-00000008N7Y-3k7r;
-	Thu, 01 Oct 2026 09:30:09 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
-	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xCD7A-00000008N7B-1H9f
+	id 1xCDBD-00000008Ndp-1cuG;
+	Thu, 01 Oct 2026 09:34:19 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1xCDBA-00000008NdA-3qru
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 01 Oct 2026 09:30:08 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id A0D6243D50;
-	Thu,  1 Oct 2026 09:30:07 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 828801F000FF;
-	Thu,  1 Oct 2026 09:30:07 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1790847007;
-	bh=BASQsGTAf4/JG9/5xVbsFJZDHdyR3Pn4iHMnd9rEmIs=;
-	h=Subject:From:Date:References:In-Reply-To:To:Cc;
-	b=beL2mUp3MEQ2SzIRzIxpVDe+gwf84TxZZF2/q4ZJhsXxRStFUo2sf00kxm14aW2fc
-	 wCLoPiLmoFP5ul0zQ4PWi6YF9J8NJC2JAfCh+QxnMqlbCB4+eSReVi10xn7OKz/WyW
-	 B00rKffEBAU0s2rSxqB94G6cYdsZsg8z2m/PUz/ttzrKerG2k9+aekBCUkzuddBDJq
-	 HiL/lpfti1LjKXNPSE8vkvgBlThE+JMgpi/cZ4Z2G/MTET03dlKD7/bdoMHF8wmaNs
-	 SeSOiDf/CT92Hj58gMn1aP46I16SVziqckkAaXAsZHIZvYpxuDaIYFThx9tyASoWY7
-	 bud/bWcOg3fxg==
-Received: from [10.30.226.235] (localhost [IPv6:::1])
-	by aws-us-west-2-korg-oddjob-rhel9-1.codeaurora.org (Postfix) with ESMTP id 773E1380DBD7;
-	Thu,  1 Oct 2026 09:30:07 +0000 (UTC)
-Content-Type: text/plain; charset="utf-8"
+	Thu, 01 Oct 2026 09:34:18 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 87E32497;
+	Thu,  1 Oct 2026 02:34:12 -0700 (PDT)
+Received: from [10.57.54.170] (unknown [10.57.54.170])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id CAA703F86F;
+	Thu,  1 Oct 2026 02:34:13 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
+	t=1790847255; bh=1zrhDKNmu636ji5kFIjsspTp01sRMrCi4IOadjuNaHM=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=eKHxwRgsFLwuLhOef3kDJKGvaJxbwEY9GEebLqGc0Nmqyfzm1AfZ5WhNhm+smOwyh
+	 +cE/EkmEfoc4IB1exw347qcu3IIOnHAUdOqOGt3sZZDxafbxRhvAztatI8nLFIjrEl
+	 2EXbxy8FTS1+GoGL8dCflHfm2XEswdw3325mH/a4=
+Message-ID: <0494fd68-2b73-4bbd-b013-7d1e79fdf01a@arm.com>
+Date: Thu, 1 Oct 2026 11:34:12 +0200
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-Subject: Re: [PATCH net-next v2 0/2] net: axienet: allow instantiation without
- a
- device tree
-From: patchwork-bot+netdevbpf@kernel.org
-Message-Id: <179084700627.2358019.13742661894584329814.git-patchwork-notify@kernel.org>
-Date: Thu, 01 Oct 2026 09:30:06 +0000
-References: <20260928074256.462345-1-maimon.sagi@gmail.com>
-In-Reply-To: <20260928074256.462345-1-maimon.sagi@gmail.com>
-To: Sagi Maimon <maimon.sagi@gmail.com>
-Cc: netdev@vger.kernel.org, radhey.shyam.pandey@amd.com, michal.simek@amd.com,
- andrew+netdev@lunn.ch, davem@davemloft.net, edumazet@google.com,
- kuba@kernel.org, pabeni@redhat.com, linux-arm-kernel@lists.infradead.org,
- linux-kernel@vger.kernel.org, linux@armlinux.org.uk,
- vadim.fedorenko@linux.dev, richardcochran@gmail.com
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v3 1/2] arm64: smccc: add cache clean/invalidate IDs and
+ return codes
+To: Srirangan Madhavan <smadhavan@nvidia.com>, mark.rutland@arm.com,
+ lpieralisi@kernel.org, sudeep.holla@kernel.org, conor@kernel.org,
+ jic23@kernel.org
+Cc: catalin.marinas@arm.com, will@kernel.org, treding@nvidia.com,
+ jonathanh@nvidia.com, bence.csokas@arm.com,
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+ linux-tegra@vger.kernel.org
+References: <20260910082142.1522865-1-smadhavan@nvidia.com>
+ <20260910082142.1522865-2-smadhavan@nvidia.com>
+Content-Language: en-GB
+From: Andre Przywara <andre.przywara@arm.com>
+In-Reply-To: <20260910082142.1522865-2-smadhavan@nvidia.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20261001_023417_041328_AE638751 
+X-CRM114-Status: GOOD (  14.92  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -76,31 +76,118 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hello:
+Hi,
 
-This series was applied to netdev/net-next.git (main)
-by Paolo Abeni <pabeni@redhat.com>:
-
-On Mon, 28 Sep 2026 10:42:54 +0300 you wrote:
-> The ADVA TimeCard X2 is a PCIe timing card driven by ptp_ocp.  Its FPGA
-> contains an AXI Ethernet MAC with an AXI DMA engine.  The plan discussed
-> on netdev [1] is for ptp_ocp to register the MAC as a child platform
-> device described by a software node, so that this driver runs it rather
-> than a copy in ptp_ocp; Vadim Fedorenko agreed that a platform device is
-> the way to go.
+On 9/10/26 10:21, Srirangan Madhavan wrote:
+> Define SMCCC Arch function IDs for CLEAN_INV_MEMREGION and its ATTRIBUTES
+> call, and add RATE_LIMITED/BUSY return codes from DEN0028 for callers that
+> need transient error handling.
 > 
-> [...]
+> Signed-off-by: Srirangan Madhavan <smadhavan@nvidia.com>
+> Reviewed-by: Jonathan Cameron <jic23@kernel.org>
+> ---
+>   include/linux/arm-smccc.h       | 21 +++++++++++++++++++--
+>   tools/include/linux/arm-smccc.h | 21 +++++++++++++++++++--
+>   2 files changed, 38 insertions(+), 4 deletions(-)
+> 
+> diff --git a/include/linux/arm-smccc.h b/include/linux/arm-smccc.h
+> index 4de81848fe2e..2e205320d88a 100644
+> --- a/include/linux/arm-smccc.h
+> +++ b/include/linux/arm-smccc.hARM_SMCCC_FAST_CALL
+> @@ -116,6 +116,22 @@
+>   			   ARM_SMCCC_SMC_32,				\
+>   			   ARM_SMCCC_OWNER_CPU, 0x10)
+>   
+> +/*
+> + * DEN0028 v1.7 defines these cache maintenance functions as SMC64
+> + * because they carry 64-bit memory range arguments.
+> + */
+> +#define ARM_SMCCC_ARCH_CLEAN_INV_MEMREGION				\
+> +	ARM_SMCCC_CALL_VAL(ARM_SMCCC_FAST_CALL,				\
+> +			   ARM_SMCCC_SMC_64,				\
+> +			   ARM_SMCCC_OWNER_ARCH,			\
+> +			   0x5)
+> +
+> +#define ARM_SMCCC_ARCH_CLEAN_INV_MEMREGION_ATTRIBUTES			\
+> +	ARM_SMCCC_CALL_VAL(ARM_SMCCC_FAST_CALL,				\
+> +			   ARM_SMCCC_SMC_64,				\
+> +			   ARM_SMCCC_OWNER_ARCH,			\
+> +			   0x6)
+> +
+>   #define ARM_SMCCC_VENDOR_HYP_CALL_UID_FUNC_ID				\
+>   	ARM_SMCCC_CALL_VAL(ARM_SMCCC_FAST_CALL,				\
+>   			   ARM_SMCCC_SMC_32,				\
+> @@ -305,13 +321,14 @@
+>   			   0x53)
+>   
+>   /*
+> - * Return codes defined in ARM DEN 0070A
+> - * ARM DEN 0070A is now merged/consolidated into ARM DEN 0028 C
+> + * Return codes defined by Arm SMCCC (DEN0028 v1.7).
+>    */
+>   #define SMCCC_RET_SUCCESS			0
+>   #define SMCCC_RET_NOT_SUPPORTED			-1
+>   #define SMCCC_RET_NOT_REQUIRED			-2
+>   #define SMCCC_RET_INVALID_PARAMETER		-3
+> +#define SMCCC_RET_RATE_LIMITED			-4
+> +#define SMCCC_RET_BUSY				-5
+>   
+>   #ifndef __ASSEMBLY__
+>   
+> diff --git a/tools/include/linux/arm-smccc.h b/tools/include/linux/arm-smccc.h
+> index 63ce9bebccd3..ae5637b3240f 100644
+> --- a/tools/include/linux/arm-smccc.h
+> +++ b/tools/include/linux/arm-smccc.h
 
-Here is the summary with links:
-  - [net-next,v2,1/2] net: axienet: use device_property and fwnode APIs for probe-time config
-    https://git.kernel.org/netdev/net-next/c/f5185ec79dac
-  - [net-next,v2,2/2] net: axienet: add a MODULE_ALIAS for platform instantiation
-    https://git.kernel.org/netdev/net-next/c/418149559ef3
+Why is that? Is there any tool using that? I don't think we 
+unconditionally sync the two files?
 
-You are awesome, thank you!
--- 
-Deet-doot-dot, I am a bot.
-https://korg.docs.kernel.org/patchwork/pwbot.html
+The numbers in the file above match the spec, so for that part:
 
+Reviewed-by: Andre Przywara <andre.przywara@arm.com>
+
+Cheers,
+Andre
+
+
+> @@ -96,6 +96,22 @@
+>   			   ARM_SMCCC_SMC_32,				\
+>   			   0, 0x3fff)
+>   
+> +/*
+> + * DEN0028 v1.7 defines these cache maintenance functions as SMC64
+> + * because they carry 64-bit memory range arguments.
+> + */
+> +#define ARM_SMCCC_ARCH_CLEAN_INV_MEMREGION				\
+> +	ARM_SMCCC_CALL_VAL(ARM_SMCCC_FAST_CALL,				\
+> +			   ARM_SMCCC_SMC_64,				\
+> +			   ARM_SMCCC_OWNER_ARCH,			\
+> +			   0x5)
+> +
+> +#define ARM_SMCCC_ARCH_CLEAN_INV_MEMREGION_ATTRIBUTES			\
+> +	ARM_SMCCC_CALL_VAL(ARM_SMCCC_FAST_CALL,				\
+> +			   ARM_SMCCC_SMC_64,				\
+> +			   ARM_SMCCC_OWNER_ARCH,			\
+> +			   0x6)
+> +
+>   #define ARM_SMCCC_VENDOR_HYP_CALL_UID_FUNC_ID				\
+>   	ARM_SMCCC_CALL_VAL(ARM_SMCCC_FAST_CALL,				\
+>   			   ARM_SMCCC_SMC_32,				\
+> @@ -182,12 +198,13 @@
+>   			   0x53)
+>   
+>   /*
+> - * Return codes defined in ARM DEN 0070A
+> - * ARM DEN 0070A is now merged/consolidated into ARM DEN 0028 C
+> + * Return codes defined by Arm SMCCC (DEN0028 v1.7).
+>    */
+>   #define SMCCC_RET_SUCCESS			0
+>   #define SMCCC_RET_NOT_SUPPORTED			-1
+>   #define SMCCC_RET_NOT_REQUIRED			-2
+>   #define SMCCC_RET_INVALID_PARAMETER		-3
+> +#define SMCCC_RET_RATE_LIMITED			-4
+> +#define SMCCC_RET_BUSY				-5
+>   
+>   #endif /*__LINUX_ARM_SMCCC_H*/
 
 
