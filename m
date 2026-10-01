@@ -4,61 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8C441CA5FB3
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  1 Oct 2026 08:52:08 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 84A1FCA5FB3
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  1 Oct 2026 08:52:38 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=wXDGy1KwiWuPKf/8tsoiCSeU1/Mw9MHMSMSjBBEvIP8=; b=QtZc+o7vT9y4MxipTPnRoanDpj
-	+9gvpKazdVj6YYVCQJ2qf+dbLPCkcWfisEBfN0cBz/b+hGxLu7XIeDrRLwHjk7EeaOfS3Q9DHxjwJ
-	jlv62XR/6Phiud1nrfbef5EfQN006OyzTEbYEOR2oW2/gBDpXQb3NXcMCV5UrCxZkdU+nYaME/aSA
-	v3cB7Pd2ht5PkW3OMV6a7i7IlnxVokZchOvW5FWT91hpp1srXw5wOAJDhVo/RBwrwQU0n+/HZBEzr
-	B/b6I0wImEUfgRXyEkI/F4T17eY61GrdyHToNVDmJCzZgbLSoC0rUktW0MGPnK4VCFEq42lrGXCOC
-	8oF6rkGg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=yOfbXfp6ub02CLaVkSzncgam2NRXSN2eMhn2KnSsSd0=; b=VpBn4kOO79NajeNvVrkkp1QC4V
+	4bFhaPD8XHvMZhd8BGgMWfYv0tBVFq+UVH3DU5Os0pstfVidS095ueb8EklscpMIsJXsGTCT/3neS
+	2+2cjACM+xJbvDQjSraEJSjQGFZ/0SrWVdVlcV1hWBSMTLMq0KnzpVBTNL9BtIsDKn4BcG3aXeF7p
+	7rf63/QDeSUedj+0+SPYUKckyWE8E/WjE5e1ejnhwwk3WqZCbBRO+ieWixIoM89kbjtv/Kj+swham
+	jwj1KlnLSCgK+fhNT02a5yXdHlYQmpbSf884h21C/qrla8R+X85vMQ/T2vOoULsDB7j0nOIUa4Elr
+	5ZpU2qbQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xCCWI-00000008HG7-0iyI;
-	Thu, 01 Oct 2026 08:52:02 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xCCWF-00000008HFl-2wj8
+	id 1xCCWj-00000008HNE-3Wwp;
+	Thu, 01 Oct 2026 08:52:29 +0000
+Received: from mta-64-227.siemens.flowmailer.net ([185.136.64.227])
+	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1xCCWg-00000008HL3-0vPm
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 01 Oct 2026 08:52:00 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id E4D27497;
-	Thu,  1 Oct 2026 01:51:53 -0700 (PDT)
-Received: from arm.com (usa-sjc-imap-foss1.foss.arm.com [10.121.207.14])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 2D2D33F85F;
-	Thu,  1 Oct 2026 01:51:55 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1790844717; bh=nJL7T4f/rD7vUdshMIpvkv7tiy8BM+mA0Cdh9NJZBSI=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=uOdtAXVwG1CjvKZBLroFUoIbNiy8hgKXS0rg7CdbG/NM8bzQNKpQWULM/1F4aInWd
-	 qDDGOyeL9CYMNL7BC7sPw15KiYawbPxE7wvJxpuAr/w2QGde//a2+unNs0Tuufq2u+
-	 r6jQeR8MTTkcRibz0mFjhLxha1GVPiQvgxYZE9XI=
-Date: Thu, 1 Oct 2026 10:51:52 +0200
-From: Beata Michalska <beata.michalska@arm.com>
-To: Vladimir Murzin <vladimir.murzin@arm.com>
-Cc: linux-arm-kernel@lists.infradead.org, catalin.marinas@arm.com,
-	will@kernel.org, suzuki.poulose@arm.com, James.Morse@arm.com,
-	xuewen.yan94@gmail.com, seanwang1@lenovo.com,
+	Thu, 01 Oct 2026 08:52:28 +0000
+Received: by mta-64-227.siemens.flowmailer.net with ESMTPSA id 202610010852204e71d2550200020736
+        for <linux-arm-kernel@lists.infradead.org>;
+        Thu, 01 Oct 2026 10:52:21 +0200
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; s=fm1;
+ d=siemens.com; i=alexander.sverdlin@siemens.com;
+ h=Date:From:Subject:To:Message-ID:MIME-Version:Content-Type:Content-Transfer-Encoding:Cc;
+ bh=yOfbXfp6ub02CLaVkSzncgam2NRXSN2eMhn2KnSsSd0=;
+ b=pDn4MZM+/qgU33ijPc193ZPMjNuZoCFP3Zv8BNZDmuco+rPp+RIXRcK74TTgJW1x5dSbps
+ GLYZI96ML7kXlbRosOcMP2gZoH0BGRRt9PqDj+LS0BcYZyFGussWkmlNRDETXMx9p5tgbeM/
+ bUdmbZQLWjHuJ5DrmqshemH5407NykB5cydcj+Jcinf0nB/DdmZqXv/aaz3oDGWTfxYuYynD
+ HMwbMff14FFF5YOK3vGDrAKmY8c6Has1ZLsN3X+AsyUkAECFZi4dR5KRbmaGIowOTPejQ+WH
+ kcpRRQ70QvkYrhlSX248MoaNfRswNTBDiGFAjaIm1WnYSPi9wSPiHjwQ==;
+From: "A. Sverdlin" <alexander.sverdlin@siemens.com>
+To: linux-gpio@vger.kernel.org
+Cc: Alexander Sverdlin <alexander.sverdlin@siemens.com>,
+	Tony Lindgren <tony@atomide.com>,
+	Haojian Zhuang <haojian.zhuang@linaro.org>,
+	Linus Walleij <linusw@kernel.org>,
+	Lokesh Vutla <lokeshvutla@ti.com>,
+	Nishanth Menon <nm@ti.com>,
+	Rob Herring <robh@kernel.org>,
+	linux-arm-kernel@lists.infradead.org,
+	linux-omap@vger.kernel.org,
 	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v3 2/2] arm64: errata: Add Cortex-A725 erratum 3821522
- workaround
-Message-ID: <ar4fKMzA-tdITsxH@arm.com>
-References: <20260929154325.3416271-1-beata.michalska@arm.com>
- <20260929154325.3416271-3-beata.michalska@arm.com>
- <d0a20ba6-2d1f-4169-9188-15b954c377b4@arm.com>
+Subject: [PATCH 0/2] pinctrl: fix group/function table leaks on consumer re-probe
+Date: Thu,  1 Oct 2026 10:52:09 +0200
+Message-ID: <20261001085217.1778645-1-alexander.sverdlin@siemens.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <d0a20ba6-2d1f-4169-9188-15b954c377b4@arm.com>
+Content-Transfer-Encoding: 8bit
+X-Flowmailer-Platform: Siemens
+Feedback-ID: 519:519-456497:519-21489:flowmailer
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261001_015159_815185_7547C2E9 
-X-CRM114-Status: GOOD (  37.05  )
+X-CRM114-CacheID: sfid-20261001_015226_899000_448DB3CF 
+X-CRM114-Status: UNSURE (   9.47  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -73,130 +76,48 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Sep 30, 2026 at 10:27:27AM +0100, Vladimir Murzin wrote:
-> Hi Beata,
-Hi Vladimir
-> 
-> On 9/29/26 16:42, Beata Michalska wrote:
-> > Cortex-A725 erratum 3821522 affects the CNT_CYCLES event, which can
-> > incur a significant increment error when a CPU enters and subsequently
-> > exits WFE or WFI, and may no longer track the system counter
-> > frequency.
-> > 
-> > The AMEVCNTR01_EL0 counter is used as the AMU constant counter for
-> > frequency invariance and CPPC FFH feedback counters. Wire the affected
-> > Cortex-A725 range into the shared broken AMU constant-counter capability
-> > so the affected counter is treated as unavailable by returning zero in
-> > the AMU counter paths. This prevents the broken counter from being used
-> > as a reference source.
-> > 
-> > The erratum can also affect PMUv3 users of the CNT_CYCLES event,
-> > but this workaround intentionally does not change PMU event handling.
-> > Hiding or rejecting the PMU event from the erratum code would change
-> > the perf-visible PMU event interface, including raw event selection,
-> > and would need a separate PMU-specific approach rather than being
-> > folded into the AMU reference-counter workaround.
-> > 
-> > Cc: <stable@vger.kernel.org>
-> > Signed-off-by: Beata Michalska <beata.michalska@arm.com>
-> > ---
-> >  Documentation/arch/arm64/silicon-errata.rst |  2 ++
-> >  arch/arm64/Kconfig                          | 22 +++++++++++++++++++++
-> >  arch/arm64/kernel/cpu_errata.c              |  6 ++++++
-> >  arch/arm64/kernel/topology.c                |  9 +++++----
-> >  4 files changed, 35 insertions(+), 4 deletions(-)
-> > 
-> > diff --git a/Documentation/arch/arm64/silicon-errata.rst b/Documentation/arch/arm64/silicon-errata.rst
-> > index ac3248b9f2f3b..99a1eb4b833dd 100644
-> > --- a/Documentation/arch/arm64/silicon-errata.rst
-> > +++ b/Documentation/arch/arm64/silicon-errata.rst
-> > @@ -174,6 +174,8 @@ stable kernels.
-> >  +----------------+-----------------+-----------------+-----------------------------+
-> >  | ARM            | Cortex-A725     | #3456106        | ARM64_ERRATUM_3194386       |
-> >  +----------------+-----------------+-----------------+-----------------------------+
-> > +| ARM            | Cortex-A725     | #3821522        | ARM64_ERRATUM_3821522       |
-> > ++----------------+-----------------+-----------------+-----------------------------+
-> >  | ARM            | Cortex-X1       | #1502854        | N/A                         |
-> >  +----------------+-----------------+-----------------+-----------------------------+
-> >  | ARM            | Cortex-X1       | #3324344        | ARM64_ERRATUM_3194386       |
-> > diff --git a/arch/arm64/Kconfig b/arch/arm64/Kconfig
-> > index 3b6c052d46a18..cab741a695f52 100644
-> > --- a/arch/arm64/Kconfig
-> > +++ b/arch/arm64/Kconfig
-> > @@ -1081,6 +1081,28 @@ config ARM64_ERRATUM_2645198
-> >  
-> >  	  If unsure, say Y.
-> >  
-> > +config ARM64_ERRATUM_3821522
-> > +	bool "Cortex-A725: 3821522: workaround for possible CNT_CYCLES increment error due to WFE/WFI"
-> > +	depends on ARM64_AMU_EXTN
-> > +	select ARM64_WORKAROUND_BROKEN_AMU_CONSTCNT
-> > +	default y
-> > +	help
-> > +	  This option adds the workaround for ARM Cortex-A725 erratum 3821522.
-> > +
-> > +	  On affected A725 cores, the CNT_CYCLES event may incur a significant
-> > +	  increment error when entering and subsequently exiting WFx.
-> > +	  As a result, the CNT_CYCLES may diverge from the system counter
-> > +	  frequency at which it is expected to increment.
-> > +	  This renders the AMU counter AMEVCNTR01, that implements CNT_CYCLES,
-> > +	  being unreliable and unsuitable for use.
-> > +
-> > +	  Since there is no hardware workaround, reads of the affected CNT_CYCLES
-> > +	  counter return 0 in the relevant paths. This causes users of the counter
-> > +	  to treat it as unavailable and is functionally equivalent to firmware
-> > +	  disabling the affected counter.
-> > +
-> > +	  If unsure, say Y.
-> > +
-> >  config ARM64_WORKAROUND_SPECULATIVE_UNPRIV_LOAD
-> >  	bool
-> >  
-> > diff --git a/arch/arm64/kernel/cpu_errata.c b/arch/arm64/kernel/cpu_errata.c
-> > index f18683e56184b..42a6fff8c3f44 100644
-> > --- a/arch/arm64/kernel/cpu_errata.c
-> > +++ b/arch/arm64/kernel/cpu_errata.c
-> > @@ -388,6 +388,12 @@ static const struct arm64_cpu_capabilities arm64_repeat_amu_constcnt_list[] = {
-> >  		/* Cortex-A510 r0p0-r1p1 */
-> >  		CAP_MIDR_RANGE(MIDR_CORTEX_A510, 0, 0, 1, 1)
-> >  	},
-> > +#endif
-> > +#ifdef CONFIG_ARM64_ERRATUM_3821522
-> > +	{
-> > +		/* Cortex-A725 r0p0 - r0p2 */
-> > +		CAP_MIDR_RANGE(MIDR_CORTEX_A725, 0, 0, 0, 2)
-> > +	},
-> >  #endif
-> >  	{}
-> >  };
-> > diff --git a/arch/arm64/kernel/topology.c b/arch/arm64/kernel/topology.c
-> > index 64588554e7f76..fc5d3abd12905 100644
-> > --- a/arch/arm64/kernel/topology.c
-> > +++ b/arch/arm64/kernel/topology.c
-> > @@ -397,10 +397,11 @@ static void cpu_read_corecnt(void *val)
-> >  static void cpu_read_constcnt(void *val)
-> >  {
-> >  	/*
-> > -	 * Return 0 if the current CPU is affected by erratum 2457168. A value
-> > -	 * of 0 is also returned if the current CPU does not support AMUs or if
-> > -	 * the counter is disabled. A return value of 0 at counter read is
-> > -	 * properly handled as an error case by the users of the counter.
-> > +	 * Return 0 if the current CPU is affected by either erratum 2457168
-> > +	 * or erratum 3821522. A value of 0 is also returned if the current
-> 
-> Perhaps wording it generically like:
-> 
->   Return 0 if the current CPU is affected by a HW erratum.
-> 
-> would save us from having to change the comment next time we encounter a broken AMU :)
-Indeed. Will change that.
-Thanks.
+From: Alexander Sverdlin <alexander.sverdlin@siemens.com>
 
----
-BR
-Beata
-> 
-> Thanks
-> Vladimir
-> 
+Pinctrl drivers that create their groups/functions lazily from the
+consumer's device-tree node in .dt_node_to_map() leak the per-mapping
+tables when the same node is mapped again. The core deduplicates
+groups/functions by name and keeps the first instance for the controller's
+lifetime, so it silently drops the copies built on every subsequent
+mapping - e.g. on each re-probe of the consumer device. kmemleak does not
+flag them because they stay reachable from the controller's devres list.
+
+Reproducer (patch 1, pinctrl-single) - any board where a device referencing
+a pinctrl-single state is repeatedly re-probed; here an I2C TPM whose node
+has a "default" pinctrl state:
+
+  while modprobe tpm_tis_i2c; do rmmod tpm_tis_i2c; done
+
+The tables land in a generic kmalloc-N cache (kmalloc-192 on arm64, where
+ARCH_KMALLOC_MINALIGN pads every devres allocation; the bucket differs by
+config), so watch it cache-independently by diffing /proc/slabinfo after
+dropping the reclaimable slab:
+
+  sync; echo 3 > /proc/sys/vm/drop_caches
+  cat /proc/slabinfo | awk 'NR>2{print $1,$2}' | sort > /tmp/a
+  <run N cycles>
+  sync; echo 3 > /proc/sys/vm/drop_caches
+  cat /proc/slabinfo | awk 'NR>2{print $1,$2}' | sort > /tmp/b
+  join /tmp/a /tmp/b | awk '$3>$2{print $1,$3-$2}'
+
+Patch 1 (pinctrl-single) was found and fixed with the above test on real
+hardware. Patch 2 (ti-iodelay) has the same bug pattern - plus a missing
+.dt_free_map that leaks the mapping table as well - but was found by code
+review only and is compile-tested only; I have no such hardware to
+reproduce it.
+
+Alexander Sverdlin (2):
+  pinctrl: single: don't leak group/function tables on consumer re-probe
+  pinctrl: ti-iodelay: fix memory leaks on consumer re-probe
+
+ drivers/pinctrl/pinctrl-single.c        | 21 +++++++++++++++++++++
+ drivers/pinctrl/ti/pinctrl-ti-iodelay.c | 24 ++++++++++++++++++++++++
+ 2 files changed, 45 insertions(+)
+
+-- 
+2.55.0
 
