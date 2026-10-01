@@ -4,73 +4,106 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id ADFE6CA5FD2
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  1 Oct 2026 21:34:53 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B5AF9CA5FD2
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  1 Oct 2026 21:41:59 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=4EQaDthGXG//tsvqp7HRqH9/THSqJf0NMZqmFez268g=; b=bgaP+PpPbGKKKxfgzE12V8ZLBS
-	7CPFMZVjv2NARQhPQNlgrrxXt8Z8SnetzpO8iVu0Ny4DwqptgBDI3/x/6rdYImyQSKRcnkZ5t+G0U
-	xDH7wLVqkKQ9S0uk/6R7C+OXP8mqA1ew6xIIZiMTfT+20/0Cl+w4y5d3e/zfXP3zVDW0dYZ+ZnfnF
-	HXVIdOF0GRmUbl1/s9dXvSwPy0H/peQgiAykarFgN3zhlsoEMnSFreSfvF7LHYuy1fVTxHVObKzt7
-	myCBjycJxuaOfB0bZkCJDDAnNM2LhskBMFyRyCrLO8aYr/PVgZWUYG7EfvuZ3wHtahK6GVL3VO6ea
-	3dLQrbWg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=oaFDnLPAu8Azz5pGOzAaVOnZU0E7BdpohXF2E62Q87s=; b=H2e2KkJ4/wDeHaQNJ5y1A1A2+s
+	dZ+LTi4lSYksNIiWdsbgaFus3zRCZ6Wtb/T+cG8XMTRWZY1YYY2NVT7witTKU/S2XXHRW7OnhirD7
+	IFgVyM0a/M77O6jibZx+/K2/irKM9RBg/Ld3QtIFLLtZNpW89g1QjVz8ldPXWb/uc3DVyElHytbVh
+	JZegf0GsEMKO3G2RROO4p2VhKsOMyxDphXp0OBQ9mbAE4qIZ+ACsi8n9845kdwOKksTGuxfl+SW+0
+	H2tfnKspRJY+ZsBUbwp7t/pJnkq3hTnj94j8p3cTnZzTDuwOZXE0BFX86TW1biVDpCxPLYZ/9MzrQ
+	hC5x9MIw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xCOQQ-0000000AHOZ-0vUX;
-	Thu, 01 Oct 2026 21:34:46 +0000
-Received: from sender5-op-o11.zoho.com ([165.173.182.11])
+	id 1xCOXJ-0000000AHw3-14JH;
+	Thu, 01 Oct 2026 21:41:53 +0000
+Received: from us-smtp-delivery-124.mimecast.com ([170.10.129.124])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xCOQM-0000000AHMp-06Sz;
-	Thu, 01 Oct 2026 21:34:45 +0000
-ARC-Seal: i=1; a=rsa-sha256; t=1790890471; cv=none; 
-	d=zohomail.com; s=zohoarc; 
-	b=EbKuzb52YVqERGRFJkrQaBnSvOMgmiko/rjly+R/Sk2zQ5x9E6DpEpqcZls9uZq5u3MTJjinb83h20FZpckl6zsv8TjjHaxrsd4Okso0q+tbfOQWfjDlV7lGtx2P4W+r9LPiX8AAGN1poFT8QwpdDPg9zcKmEAuQ1kiT7J4HDVo=
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=zohomail.com; s=zohoarc; 
-	t=1790890471; h=Content-Type:Cc:Cc:Date:Date:From:From:In-Reply-To:MIME-Version:Message-ID:Subject:Subject:To:To:Message-Id:Reply-To; 
-	bh=4EQaDthGXG//tsvqp7HRqH9/THSqJf0NMZqmFez268g=; 
-	b=aKYzI4kbX3mQfbzB4hrGMMsln1laSCIO8OQDAy9GTS84j743hJAU5YMt5C9DKux/xHu26VzbIw92TS1sIKCZoY/Eg2+C+pUGZj+BcoiUjvvKqe6vbLE7GCYecNv6MMyrjqLY7jUOUA4d2HZ+GL9m2yhHC4EWFziDPMTA/LjD5EE=
-ARC-Authentication-Results: i=1; mx.zohomail.com;
-	dkim=pass  header.i=collabora.com;
-	spf=pass  smtp.mailfrom=sebastian.reichel@collabora.com;
-	dmarc=pass header.from=<sebastian.reichel@collabora.com>
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; t=1790890471;
-	s=zohomail; d=collabora.com; i=sebastian.reichel@collabora.com;
-	h=Date:Date:From:From:To:To:Cc:Cc:Subject:Subject:Message-ID:MIME-Version:Content-Type:In-Reply-To:Message-Id:Reply-To;
-	bh=4EQaDthGXG//tsvqp7HRqH9/THSqJf0NMZqmFez268g=;
-	b=f3gET3cB025CNa0Qgg4+m5wT2IfXkKP98VLGUYb+hjHCTUEuxOTaxs3Z6TfjfFMB
-	ew9xpGX+JeZ7DysneYao4jyddWLacnylzMsjMnilRZlw23s81qVggPegL+0+2CLkFHb
-	PDFHb09nVf55UtRUbcmG63qdvTdMqWU9KtN1JdeA=
-Received: by smtp.zohomail.com with SMTPS id 1790890469129854.6980276600326;
-	Thu, 1 Oct 2026 14:34:29 -0700 (PDT)
-Received: by venus (Postfix, from userid 1000)
-	id 860C5180944; Thu, 01 Oct 2026 23:34:25 +0200 (CEST)
-Date: Thu, 1 Oct 2026 23:34:25 +0200
-From: Sebastian Reichel <sebastian.reichel@collabora.com>
-To: Vinod Koul <vkoul@kernel.org>, 
-	Neil Armstrong <neil.armstrong@linaro.org>, Manivannan Sadhasivam <mani@kernel.org>, 
-	Heiko Stuebner <heiko@sntech.de>
-Cc: linux-phy@lists.infradead.org, linux-arm-kernel@lists.infradead.org, 
-	linux-rockchip@lists.infradead.org, linux-kernel@vger.kernel.org, 
-	Igor Paunovic <royalnet026@gmail.com>, kernel@collabora.com
-Subject: Re: [PATCH v2 0/4] phy: rockchip: inno-usb2: ensure PHY is running
- when clock is requested
-Message-ID: <ar7QuTetvpLltrDT@venus>
-References: <20261001-phy-rockchip-inno-usb2-clock-fix-v2-0-e01bf509359e@collabora.com>
+	id 1xCOXG-0000000AHvf-1Cvy
+	for linux-arm-kernel@lists.infradead.org;
+	Thu, 01 Oct 2026 21:41:51 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
+	s=mimecast20190719; t=1790890909;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=oaFDnLPAu8Azz5pGOzAaVOnZU0E7BdpohXF2E62Q87s=;
+	b=GeQoGMPUd5b21djfYmTcgC1bXVyoSymBWZvr7SDDXzii3nPqO4haWsLSDDCAb9J646qO6u
+	RRH47lxDpOa91YQ4sGBOxtlsREdIKOcWxUVyITmnr1PQ7Xz+nQjxg3Fu2WHYZyMqouYATw
+	yeglWBh2vpMn5qUK3fhgKJ+aRjntvsg=
+Received: from mail-pf1-f198.google.com (mail-pf1-f198.google.com
+ [209.85.210.198]) by relay.mimecast.com with ESMTP with STARTTLS
+ (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
+ us-mta-263-aIY1rYjGNFCztonzAGPfKA-1; Thu, 01 Oct 2026 17:41:47 -0400
+X-MC-Unique: aIY1rYjGNFCztonzAGPfKA-1
+X-Mimecast-MFC-AGG-ID: aIY1rYjGNFCztonzAGPfKA_1790890906
+Received: by mail-pf1-f198.google.com with SMTP id d2e1a72fcca58-8886b1d3242so946266b3a.0
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 01 Oct 2026 14:41:47 -0700 (PDT)
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1790890906; x=1791495706;
+        h=content-transfer-encoding:content-type:in-reply-to:from
+         :content-language:references:cc:to:subject:user-agent:mime-version
+         :date:message-id:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=oaFDnLPAu8Azz5pGOzAaVOnZU0E7BdpohXF2E62Q87s=;
+        b=iMX9KjC+X+ej4DIq3VgaEjVCjfKZtfslWuHG/zVAfuPWulIhVTXtmITEfbICx5eAbT
+         9FJtj4PkAoB0i574ZL6WC3PZY9HPjdbrLG/QCw3QY1KefVmp/M2T2kPyiD2c42MX4WTV
+         rC+36ZJY0/yzeI4NwXpIU74YAC1w/Jgv+AZ1KTnysVHUnRT+koNCCyEbR0rf88oQTaDy
+         DiXX+yvA0JLCIu/6ys+sreIKHErMUMxRBWLNg2XankXrKVoH+MMUuNXqSqI0naJbfJTp
+         HqiQ+GDnqOv4+CgyJW9R5q738TQNybtGWLi9I9NwYKdPIk84M+H7+Kc8qyFW1OlTRi4K
+         9+WQ==
+X-Forwarded-Encrypted: i=1; AKwUvBw/8R2Ko8S8jLFf236vOcTYF+jvXqm7ALoBG1ozSNoZ34FHHxAylw2RQVljB8gIpjH307StU9+g4uve2yOrfSTJ@lists.infradead.org
+X-Gm-Message-State: AFuF++klM+lgdUhdk9B5nACl4a01QuT5NZGK9PrTx/RI8so9dVEaahvX
+	ephMQHRZtcS/fmHm57OmSmPnPgBieAJO+AanD6TNny9L00zkyt5ahM6J4mrUdj2VSmoUfRMfpBQ
+	49kCD0bFQlrjJdU5jmIuz48MtxcitYmswd+/r4FEw6kjb5RUJ2CiSDeFam/02V2vGpyS7/bW2fl
+	1N
+X-Gm-Gg: AYBFou0ESWof1LPyoUMIBqUZQYpHe4fXdXHbPrMRbVwxE16Uy+bwwPxP6ywk210eCNH
+	r8cBp7e6HwGsrmRcW/4wtgTlm5dprK4IRWZ3j50B946HlDHXCx2gsWrNkn3ewZQ+9HnfLI+bIhv
+	QnrevjLs0pEsKIh5Bgmn3A+/hH1HtlxuZCtoKBNPgJ4S+wsARFdWj9Ce7AqZ7f7uHUYoce5TPvM
+	jrKBtO8FHRhxJw5XkmvVKusHU19zNEETP8trewewVf9YFHMK2ZTClahWnudmpFZS54h6Xc+WSiA
+	wLBS7J4ciIfTtD1dYT9Izqx1R8RpQpgv3yzA5fjCa5vo7etxrg/rHFfVC5xa0RxOP6bbye5/RFe
+	KB2QLGNI77OR/1pUxSYxDzPdjcuaeiTGuI96s2Ezx4w==
+X-Received: by 2002:a05:6a00:409a:b0:882:1b4d:1840 with SMTP id d2e1a72fcca58-88af58d4e46mr745868b3a.24.1790890906224;
+        Thu, 01 Oct 2026 14:41:46 -0700 (PDT)
+X-Received: by 2002:a05:6a00:409a:b0:882:1b4d:1840 with SMTP id d2e1a72fcca58-88af58d4e46mr745848b3a.24.1790890905746;
+        Thu, 01 Oct 2026 14:41:45 -0700 (PDT)
+Received: from [192.168.68.52] (n175-34-8-244.mrk21.qld.optusnet.com.au. [175.34.8.244])
+        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-88b0cb72834sm165561b3a.45.2026.10.01.14.41.39
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Thu, 01 Oct 2026 14:41:45 -0700 (PDT)
+Message-ID: <1ed590aa-a4bf-4980-82e1-185aee205909@redhat.com>
+Date: Fri, 2 Oct 2026 07:41:37 +1000
 MIME-Version: 1.0
-Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="hzbu3rdhu6gbb2rv"
-Content-Disposition: inline
-In-Reply-To: <20261001-phy-rockchip-inno-usb2-clock-fix-v2-0-e01bf509359e@collabora.com>
-X-Zoho-Virus-Status: 1
-X-Zoho-AV-Stamp: zmail-av-0.2.13.1.5.4/290.865.66
-X-ZohoMailClient: External
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v21 00/23] KVM: arm64: CCA: Add basic plumbing for Realms
+To: Suzuki K Poulose <suzuki.poulose@arm.com>, kvm@vger.kernel.org,
+ kvmarm@lists.linux.dev
+Cc: maz@kernel.org, will@kernel.org, catalin.marinas@arm.com,
+ linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ steven.price@arm.com, aneesh.kumar@kernel.org, oupton@kernel.org,
+ joey.gouly@arm.com, tabba@google.com, yuzenghui@huawei.com,
+ linux-coco@lists.linux.dev, gankulkarni@os.amperecomputing.com,
+ sdonthineni@nvidia.com, alpergun@google.com, fj0570is@fujitsu.com,
+ WeiLin.Chang@arm.com, lpieralisi@kernel.org, enju.kohei@fujitsu.com,
+ sudeep.holla@arm.com, jonathan.cameron@oss.qualcomm.com
+References: <20261001210703.1597150-1-suzuki.poulose@arm.com>
+From: Gavin Shan <gshan@redhat.com>
+In-Reply-To: <20261001210703.1597150-1-suzuki.poulose@arm.com>
+X-Mimecast-Spam-Score: 0
+X-Mimecast-MFC-PROC-ID: IUmxU8Z6GyZG2Np98FP_GtqVg1XiZnWjoKC8X1x4ua0_1790890906
+X-Mimecast-Originator: redhat.com
+Content-Language: en-US
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261001_143442_150905_CEBF972C 
-X-CRM114-Status: GOOD (  25.78  )
+X-CRM114-CacheID: sfid-20261001_144150_434613_2548DC83 
+X-CRM114-Status: GOOD (  10.02  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -85,103 +118,36 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+Hi Suzuki,
 
---hzbu3rdhu6gbb2rv
-Content-Type: text/plain; protected-headers=v1; charset=us-ascii
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
-Subject: Re: [PATCH v2 0/4] phy: rockchip: inno-usb2: ensure PHY is running
- when clock is requested
-MIME-Version: 1.0
+On 10/2/26 7:06 AM, Suzuki K Poulose wrote:
 
-Hi,
+[...]
 
-On Thu, Oct 01, 2026 at 03:12:38PM +0200, Sebastian Reichel wrote:
-> This was noticed on RK3588 EVB1 when resuming from system suspend. This
-> is technically a fix, but its unclear when the bug was introduced and
-> system suspend is broken on RK3588 for quite a while and not just due
-> to this problem. So I think this fix can be merged the normal way via
-> linux-next.
->
-> Changes in v2:
-> - Link to v1: https://patch.msgid.link/20260908-phy-rockchip-inno-usb2-cl=
-ock-fix-v1-1-f7d59c31b908@collabora.com
-> - Move suspend exit code from rockchip_usb2phy_power_on into a
->   separate patch and reuse it in the clock prepare function;
->   move is done in a separate patch
-> - Updated commit messages with proper rationale
-> - Added one more patch dropping useless assignment
->   of rport->suspended directly after calling
->   rockchip_usb2phy_power_on/off
-> - Add one more patch unifying and simplifying the debug
->   messages for phy init/power_on/power_off/exit
+> 
+> NOTE: There is a conflict with Fuad's patch to drop the WARN for unknown vm
+> ioctls, that is queued in fixes.
+> 
+>    https://lore.kernel.org/all/20260914093838.1082637-1-fuad.tabba@linux.dev
+> 
+> This series is comprised of (3) and (4) above.
+> 
+> The integration branch has been tested with the following components:
+> 
+>    tf-RMM:   main branch (commit 5e6e2acd) compliant to RMM-v2.0-beta3 [4]
+>    kvmtool: git@git.gitlab.arm.com:linux-arm/kvmtool-cca.git tag:cca-kvm-v20
+> 
+> [0] Arm CCA KVM Support v16 : https://lore.kernel.org/all/20260803134403.80630-1-steven.price@arm.com
+> [1] Linux firmware RMI v22 https://git.gitlab.arm.com/linux-arm/linux-cca/ cca/cca-host/fw_rmm/v22
+> [2] Linux GPF Host  https://git.gitlab.arm.com/linux-arm/linux-cca/ cca/cca-host/host-gpf/v19
+> [3] https://git.gitlab.arm.com/linux-arm/linux-cca/ cca/cca-host/kvm-v21/integration-v3
 
-I was too fast sending this out. While it fixes the problem on
-RK3588 EVB1 (used for testing this series), I just noticed it seems
-to introduce a new SError in DWC3 on RK3576 boards during boot. This
-is quite unexpected. I will investigate after LPC/OSSEU. For now
-please ignore this series.
+This branch doesn't exist. I guess it's "cca/cca-host/kvm-v21/integration-v2" instead?
 
-Sorry for the noise.
+> [4] https://support.arm.com/documentation/den0137/2-0bet3/
+> 
 
-Greetings,
+Thanks,
+Gavin
 
--- Sebastian
-
->=20
-> ---
-> To: Vinod Koul <vkoul@kernel.org>
-> To: Neil Armstrong <neil.armstrong@linaro.org>
-> To: Manivannan Sadhasivam <mani@kernel.org>
-> To: Heiko Stuebner <heiko@sntech.de>
-> Cc: linux-phy@lists.infradead.org
-> Cc: linux-arm-kernel@lists.infradead.org
-> Cc: linux-rockchip@lists.infradead.org
-> Cc: linux-kernel@vger.kernel.org
-> Cc: Igor Paunovic <royalnet026@gmail.com>
-> Cc: kernel@collabora.com
-> Signed-off-by: Sebastian Reichel <sebastian.reichel@collabora.com>
->=20
-> ---
-> Sebastian Reichel (4):
->       phy: rockchip: inno-usb2: simplify and unify PHY op debug messages
->       phy: rockchip: inno-usb2: drop duplicated update of rport->suspended
->       phy: rockchip: inno-usb2: move suspend handling into new function
->       phy: rockchip: inno-usb2: move suspend handling into clock prepare/=
-unprepare for RK3588/RK3576
->=20
->  drivers/phy/rockchip/phy-rockchip-inno-usb2.c | 85 +++++++++++++++++++--=
-------
->  1 file changed, 59 insertions(+), 26 deletions(-)
-> ---
-> base-commit: cee9395acd8043be0644b25c34bfa86623f2b935
-> change-id: 20260908-phy-rockchip-inno-usb2-clock-fix-edd65b57f884
->=20
-> Best regards,
-> -- =20
-> Sebastian Reichel <sebastian.reichel@collabora.com>
->=20
->=20
-
---hzbu3rdhu6gbb2rv
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iQIzBAABCgAdFiEE72YNB0Y/i3JqeVQT2O7X88g7+poFAmq+0doACgkQ2O7X88g7
-+pqJ1Q/8D2Tm0nol7ppugtLlv6+/sdwq4bM5fAAPKW0jJ1tKChQ0rtF/DSXa8GR7
-RbOLivmAi3u6osu+nV//YEB9FjnLaGZa2TEtUKCDB3EV6tuDMV3RnpVFMlxvQAvc
-5YeS7oJaIf2OX/SErBlk86vhgMumSZAyB9UHMlNUhJB64WhLTfBMBpWGnqha7gmC
-CaajrdlNNXFOn5mDJ/dV1EeH448pLXjdKfqFUAJ0K1jBfv2VHQOishuCHJblHhEV
-GFseURltjpuPhBT3BrwW0d2D7Il/hNUgrGFbPv65HUc+lOMy6+O5TeARpeGmqj5f
-gn5FEJaPgohvSSs40+FJ6kzHnzJSTrGgG8FBtJRTllSs/v8o12vApJBYzkTzVSGT
-XP6xHWVepj8OOdoPpIH+8nWHg61O5lb2JPXrfCOHar8Mv+pDILTvepuiZhdwjrtD
-NnAECNdunKHNVx3u32HsLVLm1O+9lR8DgPhYkktVKwVaz74fK0mjcp9jueiT8Mqb
-cnV1GUtqVvRZHIDSirNElBcbo5neaEq5G3faKjvj7+gT4eS2gX6qiBrigkSGglbQ
-58p/U+ELroD8RMPHtj0kr9wQYH8sHLU/0jVEbd/WecM0OEOVttxwwN+3Ee8uuDZ/
-wFPK7EvIMK1ADW+xnlG24liyZCvOdHE4QBhpsCmuh9ob6CnjJzk=
-=4Wvh
------END PGP SIGNATURE-----
-
---hzbu3rdhu6gbb2rv--
 
