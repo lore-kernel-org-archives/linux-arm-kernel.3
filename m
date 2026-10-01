@@ -4,41 +4,41 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A82A6CA5FCE
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  1 Oct 2026 21:07:45 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 98D75CA5FCE
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  1 Oct 2026 21:07:50 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=1xwd5ly47Iu+0HIg5quAuGIp0FwWiINUdHAg1XmoDmw=; b=NRAhgaXNt67nzVKYZdpQNTny9G
-	7ofs379t+Gd0zfoZ2gqaEdFGcMDtB455tE21VC/vQG6bDzXL7R9AFvnduJW+175U12ncWbKusnNZP
-	5l/xlih34G2Ed0Vd6jygWUKuwpRNnSw7FAMD+sjnmsjDTUB5bIOkuKEpBWTkvXRyHE/F3L2z9/bnj
-	g4AIxZYRGociwe1685+YYKwV2s0dfJKZdaJi1y3+HQ9B/WNyzBVXppcF5oy0R7es6gz095HEEJ3cA
-	RQjnmAZgMV2u+hAkH1s6o1CLG17AbR8UuUAW81rUDrcfOgzpcA6iIJLmmiBbtJRAF13tH4CHMKlzd
-	V8RHXqKA==;
+	bh=wzBk8z0DOusDgNSHogcnLfhfdXdnsKjnjoN5hWalnyc=; b=tCFbm8034nkLNmhaSAqhYVIvZl
+	k+WUsu/LXEF8JGYOK8FxhLDvyQSVx1TuCMQVxOYlMiUPwoGDVoKSeNrs71osQVIajTalXeF0M+5bM
+	mJSisRUHC5PZecBO40xJypmqzXPMUKl16pXOZSuxMqEUFNH8jyNxD0tBOiCP+CPqcLbXxv7dgXdE0
+	T3pZjQ/co0eY/E1m8W0fZr/nAr8bTOTtTtXL9BUzQ9oT5V0LMnbqbYnQR/Pv0tQLtZqiKWpbT0svc
+	61pPm0Whb347NSF+xpxudZPwNc8hk+xkLE1grW0Q1Gn6ZtwQ21oZ6bVsaZLOpp1faPF6DIt81Wscu
+	qSK6uDaA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xCO04-0000000ACki-2LeC;
-	Thu, 01 Oct 2026 21:07:32 +0000
+	id 1xCO0C-0000000ACpU-495F;
+	Thu, 01 Oct 2026 21:07:40 +0000
 Received: from foss.arm.com ([217.140.110.172])
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xCNzx-0000000ACir-3Xtd
+	id 1xCO0A-0000000ACnj-3Q1l
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 01 Oct 2026 21:07:31 +0000
+	Thu, 01 Oct 2026 21:07:40 +0000
 Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id E2A9F1476;
-	Thu,  1 Oct 2026 14:07:20 -0700 (PDT)
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 6817E16F8;
+	Thu,  1 Oct 2026 14:07:32 -0700 (PDT)
 Received: from ewhatever.cambridge.arm.com (ewhatever.cambridge.arm.com [10.2.197.99])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPA id ED0573F86F;
-	Thu,  1 Oct 2026 14:07:20 -0700 (PDT)
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPA id 52C253F86F;
+	Thu,  1 Oct 2026 14:07:32 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1790888844; bh=8etL8j5vGoOKfN2wQDB5I5lyGIQPbmxu1sDx9j9STUQ=;
+	t=1790888855; bh=vhmzYOeEMeS1gUmiyRsM5hDk21KN/XfVddfQo5gUwVs=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=O00f7z1Zt0ccXxejPp8Oz3pYkwszzujsCkHpG5c3cOSXk+sg/xfQhs4kTVBMRlaZ8
-	 x+YZjYEzA21hEH7Qs/BuvyXxyKYBphC7bFW7gBZ9Rkaw5GVSU3XfzOnzBBglZ0ROGq
-	 ykQKkJNBXZ/+3+4HVC8yUrIzHgNKbtNP9eQlIX0E=
+	b=i1vUaIj4iw7plgsFSQclSyaIDGcaA9k59WkWaaiFRdtI6nXMT+ZQ1Z+Omjlp3UJfP
+	 NlW5SH82WStj+o065LmGh52ZyVmOsospuSjxdmKk8C5qPUKr8ZcZ+9WSj8hoRxXuN5
+	 mM5hwjkKvN5Twc7JWGi8wcX6Pjg2MFk5xpN/OjqU=
 From: Suzuki K Poulose <suzuki.poulose@arm.com>
 To: kvm@vger.kernel.org,
 	kvmarm@lists.linux.dev
@@ -64,18 +64,19 @@ Cc: maz@kernel.org,
 	enju.kohei@fujitsu.com,
 	sudeep.holla@arm.com,
 	jonathan.cameron@oss.qualcomm.com,
+	Fuad Tabba <fuad.tabba@linux.dev>,
 	Suzuki K Poulose <suzuki.poulose@arm.com>
-Subject: [PATCH v21 01/23] KVM: arm64: protected VM: Handle user writes to CNTVCT_EL0/CNTPCT_EL0
-Date: Thu,  1 Oct 2026 22:06:41 +0100
-Message-ID: <20261001210703.1597150-2-suzuki.poulose@arm.com>
+Subject: [PATCH v21 04/23] KVM: arm64: Avoid including linux/kvm_host.h in kvm_pgtable.h
+Date: Thu,  1 Oct 2026 22:06:44 +0100
+Message-ID: <20261001210703.1597150-5-suzuki.poulose@arm.com>
 X-Mailer: git-send-email 2.43.0
 In-Reply-To: <20261001210703.1597150-1-suzuki.poulose@arm.com>
 References: <20261001210703.1597150-1-suzuki.poulose@arm.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261001_140725_966811_943DE47F 
-X-CRM114-Status: GOOD (  17.57  )
+X-CRM114-CacheID: sfid-20261001_140738_958612_357D1BBE 
+X-CRM114-Status: GOOD (  11.50  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -90,70 +91,81 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Protected VMs doesn't allow setting offsets for virtual and physical
-counters, as the offset is always fixed to 0. The VM ioctl is filtered
-out based on the cap. However we don't prevent the userspace from trying
-to write to the CNTVCT/CNTPCT registers. This would lead to KVM triggering
-a WARN() in timer_set_offset() as the vm_offset pointer is set to NULL.
+From: Steven Price <steven.price@arm.com>
 
-Fix this by always "fixing" the timer offsets to 0 and marking that the
-timer offset is set in the kvm->arch.flags at KVM init time for protected
-VMs. This prevents the access to the VM specific vm_offset at low cost.
-A userspace writing to the CNT*CT_EL0 would observe success, without
-any real effect. This is cleaner over spilling "*_is_protected()"
-checks and "matches" what we really do in practise. i.e., always run
-with "fixed counter offset of 0".
+To avoid future include cycles, drop the linux/kvm_host.h include in
+kvm_pgtable.h and include the lightweight headers required for the types
+and inline helpers used there. Additionally provide a forward
+declaration for struct kvm_s2_mmu as it's only used as a pointer in this
+file.
 
-Reported by Sashiko
+Both pgtable.c and kvm_pkvm.h relied on the indirect inclusion of
+kvm_host.h, so make that explicit.
 
-Link: https://lore.kernel.org/all/20260908164641.416911F00A3A@smtp.kernel.org
-Fixes: f7d05ee84a6a ("KVM: arm64: Prevent host from managing timer offsets for protected VMs")
-Suggested-by: Marc Zyngier <maz@kernel.org>
-Tested-by: Gavin Shan <gshan@redhat.com>
+Reviewed-by: Fuad Tabba <fuad.tabba@linux.dev>
+Reviewed-by: Gavin Shan <gshan@redhat.com>
+Signed-off-by: Steven Price <steven.price@arm.com>
 Signed-off-by: Suzuki K Poulose <suzuki.poulose@arm.com>
 ---
 Changes since v19:
- - Fix typos in commit description and explain why we choose the approach.
- - Improve comment in the code
-Changes since v18:
- - Retain NULL vm_offset for protected VMs to avoid host tampering with the
-   offset.
- - Moved the flag setting into kvm_timer_init_vm(), where it should have been
-   in the first place
+ - Include asm/memory.h, asm/page.h , linux/bitfield.h in asm/kvm_pgtable.h - Sashiko
 ---
- arch/arm64/kvm/arch_timer.c | 12 ++++++++++--
- 1 file changed, 10 insertions(+), 2 deletions(-)
+ arch/arm64/include/asm/kvm_pgtable.h | 10 +++++++++-
+ arch/arm64/include/asm/kvm_pkvm.h    |  2 +-
+ arch/arm64/kvm/hyp/pgtable.c         |  1 +
+ 3 files changed, 11 insertions(+), 2 deletions(-)
 
-diff --git a/arch/arm64/kvm/arch_timer.c b/arch/arm64/kvm/arch_timer.c
-index 6ac3321f4c575..a45845f4ae4ea 100644
---- a/arch/arm64/kvm/arch_timer.c
-+++ b/arch/arm64/kvm/arch_timer.c
-@@ -1110,8 +1110,7 @@ void kvm_timer_vcpu_init(struct kvm_vcpu *vcpu)
- 		timer_context_init(vcpu, i);
+diff --git a/arch/arm64/include/asm/kvm_pgtable.h b/arch/arm64/include/asm/kvm_pgtable.h
+index 41a8687938eb6..a211a5d87bf96 100644
+--- a/arch/arm64/include/asm/kvm_pgtable.h
++++ b/arch/arm64/include/asm/kvm_pgtable.h
+@@ -7,10 +7,18 @@
+ #ifndef __ARM64_KVM_PGTABLE_H__
+ #define __ARM64_KVM_PGTABLE_H__
  
- 	/* Synchronize offsets across timers of a VM if not already provided */
--	if (!vcpu_is_protected(vcpu) &&
--	    !test_bit(KVM_ARCH_FLAG_VM_COUNTER_OFFSET, &vcpu->kvm->arch.flags)) {
-+	if (!test_bit(KVM_ARCH_FLAG_VM_COUNTER_OFFSET, &vcpu->kvm->arch.flags)) {
- 		timer_set_offset(vcpu_vtimer(vcpu), kvm_phys_timer_read());
- 		timer_set_offset(vcpu_ptimer(vcpu), 0);
- 	}
-@@ -1133,6 +1132,15 @@ void kvm_timer_init_vm(struct kvm *kvm)
- 	 */
- 	for (int i = 0; i < NR_KVM_TIMERS; i++)
- 		kvm->arch.timer_data.ppi[i] = get_vgic_ppi(kvm, default_ppi[i]);
++#include <linux/bitfield.h>
+ #include <linux/bits.h>
+-#include <linux/kvm_host.h>
++#include <linux/kvm_types.h>
++#include <linux/rbtree_types.h>
++#include <linux/rcupdate.h>
+ #include <linux/types.h>
+ 
++#include <asm/memory.h>
++#include <asm/page.h>
 +
-+	/*
-+	 * Protected VMs don't allow the userspace to set counter offsets,
-+	 * either set via counter register writes or the dedicated ioctls.
-+	 * Pretend the offset has already been set and rely on the default
-+	 * offset being 0.
-+	 */
-+	if (kvm_vm_is_protected(kvm))
-+		set_bit(KVM_ARCH_FLAG_VM_COUNTER_OFFSET, &kvm->arch.flags);
- }
++struct kvm_s2_mmu;
++
+ #define KVM_PGTABLE_FIRST_LEVEL		-1
+ #define KVM_PGTABLE_LAST_LEVEL		3
  
- void kvm_timer_cpu_up(void)
+diff --git a/arch/arm64/include/asm/kvm_pkvm.h b/arch/arm64/include/asm/kvm_pkvm.h
+index beea00e693a0a..54a618d887fa4 100644
+--- a/arch/arm64/include/asm/kvm_pkvm.h
++++ b/arch/arm64/include/asm/kvm_pkvm.h
+@@ -7,9 +7,9 @@
+ #define __ARM64_KVM_PKVM_H__
+ 
+ #include <linux/arm_ffa.h>
++#include <linux/kvm_host.h>
+ #include <linux/memblock.h>
+ #include <linux/scatterlist.h>
+-#include <asm/kvm_host.h>
+ #include <asm/kvm_pgtable.h>
+ 
+ /* Maximum number of VMs that can co-exist under pKVM. */
+diff --git a/arch/arm64/kvm/hyp/pgtable.c b/arch/arm64/kvm/hyp/pgtable.c
+index b74dd5ce1efd3..f48253b9d88b5 100644
+--- a/arch/arm64/kvm/hyp/pgtable.c
++++ b/arch/arm64/kvm/hyp/pgtable.c
+@@ -8,6 +8,7 @@
+  */
+ 
+ #include <linux/bitfield.h>
++#include <linux/kvm_host.h>
+ #include <asm/kvm_pgtable.h>
+ #include <asm/stage2_pgtable.h>
+ 
 -- 
 2.43.0
 
