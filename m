@@ -4,57 +4,76 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D6A2ECA5FC5
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  1 Oct 2026 07:22:06 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 272ECCA5FB3
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  1 Oct 2026 07:23:01 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Cc:List-Subscribe:
-	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
-	Subject:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=gEGoSrNeNp8LVSAih/jv9NghjCp3BZmPnibUPhtyTQM=; b=t1Ub2RdMVqpysOY/DOGsbsRa9E
-	i46ErCWOwUy2EMyc6dZYba57qgOHFPh5JdIeIG+CO190JVM8WWG9M9R+w7GtvHEa7+H/yaRY3q2R0
-	48fxqwSw4SL6+HXy9uLTs35v601L0QzKkbF6nxtXoBgFkQ9hjecaMspYDHgulBJ5vf0J3Bsv4er5e
-	+CUwmPklXwfM7b/HMnpXhb0UWnZwIMyeVcFfxfkwaAsOg38NQCFI/cwg6DIXBCbUQBNyeEEAvVkP2
-	NEMGYXfQvXZaAS+xM/SiBBFUD+2PTyffoIQuWP+N1qxODcxdkWNEA9nzmst2MybBO5L28IkFACLyp
-	qS9Ynk1w==;
+	bh=vYPo30L+yzg4zdvP/9QG8tpdh1hu1GaLdI0m5fTJPic=; b=hKPl8pOlSmqjqnyDwe/XA1656a
+	dyb8dxQEhuDJzNy1J0qYnBR15/7WvFToJlfySk44exZjRAqDVg0t8fVBMTdJZjGW/K03C/OcxG+70
+	H4g8Sdbnsybd+jCZ7aX5gdXneW1d5pnd730O1dHC22vrX/ECCWeClLVTB3kh4NmicFem/uWbvlJlK
+	Z30RrkOrN5KG5g0Z4CyOY11UWp5yvYzrOpnCUnNoN+HYPwi57EGoRISsYhckMzcBFYlwfkw7XCBRy
+	OkaJo/DxgIHWGQzzfvbg+ZBvdLLXrLWTjqeFpBSgCQ2dhAdOPkkXxrgJe2bjvT9Xfzekps5y5Iz+U
+	d2Psb5ng==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xCB7A-00000007zDD-1sLl;
-	Thu, 01 Oct 2026 07:22:00 +0000
+	id 1xCB82-00000007zKI-2j02;
+	Thu, 01 Oct 2026 07:22:54 +0000
 Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xCB78-00000007zCK-2wis
-	for linux-arm-kernel@lists.infradead.org;
-	Thu, 01 Oct 2026 07:21:58 +0000
+	id 1xCB80-00000007zJv-3fwi;
+	Thu, 01 Oct 2026 07:22:52 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id 00509601FE;
-	Thu,  1 Oct 2026 07:21:58 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id C62F91F000FF;
-	Thu,  1 Oct 2026 07:21:54 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 41BF66022B;
+	Thu,  1 Oct 2026 07:22:52 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 6F1281F000FF;
+	Thu,  1 Oct 2026 07:22:51 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1790839317;
-	bh=gEGoSrNeNp8LVSAih/jv9NghjCp3BZmPnibUPhtyTQM=;
+	s=k20260515; t=1790839372;
+	bh=vYPo30L+yzg4zdvP/9QG8tpdh1hu1GaLdI0m5fTJPic=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=eqMOrzajN1ZB666iTc/dHkzEvg7SaX7jMlegP5YIoR/fvW63b/5BoKzRBaJiIJCro
-	 IuKNcv3UZOi/vmgA4dDme7QsNlOIOwqPWJO7YfBZsTT9zkrvNSfNyXFU0rUHbOi/4J
-	 rKCXnRYHRF5DKJYXbTBfYNwAUMQ/fFtkZUbvI7x2x0jT/Bslu12jD9cumBxgSBcNI0
-	 Z2YN9goxR0qxMSYEB6MnQ6HvPFSa9rCaLHppDidBaWb0/9jFEy5XMLUhflj3lwfmLV
-	 8uApljev46DXP1RmbwRtcC/4xB54trw4BuJGAkjrGBLchcjLxPWDszrizcVFiiPxwD
-	 CWBKjicZtf0iQ==
-Date: Thu, 1 Oct 2026 08:21:51 +0100
-From: Will Deacon <will@kernel.org>
-To: Linus Walleij <linusw@kernel.org>
-Subject: Re: [PATCH v2 00/21] arm64: Move overflow sp into SP_EL1 and kernel
- sp into SP_EL0
-Message-ID: <ar4KD6FTZzw2Wq6w@willie-the-truck>
-References: <20260918161407.2300-1-will@kernel.org>
- <CAD++jL=O30YiraMzpe=wd-s-ZHoiMWkXcr3B_qb_dp3TUk2A7g@mail.gmail.com>
+	b=XJ2wVMP6oeCv2GMjeOm0YD3l3EXN0xvYQRaArKhqbXcJi/lNWtYs7qDSfg4TNpFHp
+	 tcHiVxH+QjxL8CjN1f+z89ZIvf1Hou6pJ+j3Gi4E0x7pkQH9tWnm9d/UEcIoEotgFM
+	 jEramHJxTxiy5ABlYpKM8jY/3lCZctNaM4HAj0ioXvpnzhunNw8rs1zD+Y1lvpO0ah
+	 zySagzh5ov5stXJ4/RdnmgKqzpmBViqdr2Aw/xyL+lqBNt0GxrcBa8WKGCkeNfiEa0
+	 KgL8Iw7YwmuN/1nwxruU2fGL9KgLKqXzIBVRIXaif+Z96HE8O2YrtJvwiBfYJm0ITH
+	 1rxAUcnnoRAVQ==
+Date: Thu, 1 Oct 2026 09:22:48 +0200
+From: Maxime Ripard <mripard@kernel.org>
+To: Rob Herring <robh@kernel.org>
+Cc: Neil Armstrong <neil.armstrong@linaro.org>, 
+	Jessica Zhang <jesszhan0024@gmail.com>, David Airlie <airlied@gmail.com>, 
+	Simona Vetter <simona@ffwll.ch>, Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, 
+	Thomas Zimmermann <tzimmermann@suse.de>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+	Conor Dooley <conor+dt@kernel.org>, Nathan Chancellor <nathan@kernel.org>, 
+	Nick Desaulniers <ndesaulniers@google.com>, Bill Wendling <morbo@google.com>, 
+	Justin Stitt <justinstitt@google.com>, Florian Fainelli <florian.fainelli@broadcom.com>, 
+	Broadcom internal kernel review list <bcm-kernel-feedback-list@broadcom.com>, Andrzej Hajda <andrzej.hajda@intel.com>, 
+	Robert Foss <rfoss@kernel.org>, Laurent Pinchart <Laurent.pinchart@ideasonboard.com>, 
+	Jonas Karlman <jonas@kwiboo.se>, Jernej Skrabec <jernej.skrabec@gmail.com>, 
+	Luca Ceresoli <luca.ceresoli@bootlin.com>, Albert Esteve <aesteve@redhat.com>, 
+	Dave Stevenson <dave.stevenson@raspberrypi.com>, Javier Martinez Canillas <javierm@redhat.com>, 
+	dri-devel@lists.freedesktop.org, devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
+	bpf@vger.kernel.org, llvm@lists.linux.dev, linux-rpi-kernel@lists.infradead.org, 
+	linux-arm-kernel@lists.infradead.org, Benjamin Tissoires <bentiss@kernel.org>
+Subject: Re: [PATCH 1/6] dt-bindings: display: Add panel-mipi-dsi-bpf generic
+ panel binding
+Message-ID: <ar4HOuO-vox9VIKZ@houat>
+References: <20260928-drm-mipi-dsi-panel-ebpf-v1-0-5244926aace4@kernel.org>
+ <20260928-drm-mipi-dsi-panel-ebpf-v1-1-5244926aace4@kernel.org>
+ <20260928204059.GA515872-robh@kernel.org>
+ <artyl8fD3zzng8Uh@houat>
+ <20260929222822.GA2933878-robh@kernel.org>
+ <ary8IdL9zVXfS2fA@houat>
+ <CAL_JsqJCoWQmdBKEbekXb5LeLn1KcMiP2iG30r+npssJSZB5LA@mail.gmail.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
+Content-Type: multipart/signed; micalg=pgp-sha384;
+	protocol="application/pgp-signature"; boundary="eh5wavyv7nnca5rg"
 Content-Disposition: inline
-Content-Transfer-Encoding: 8bit
-In-Reply-To: <CAD++jL=O30YiraMzpe=wd-s-ZHoiMWkXcr3B_qb_dp3TUk2A7g@mail.gmail.com>
+In-Reply-To: <CAL_JsqJCoWQmdBKEbekXb5LeLn1KcMiP2iG30r+npssJSZB5LA@mail.gmail.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -66,35 +85,104 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
-Cc: Mark Rutland <mark.rutland@arm.com>, Vladimir Murzin <vladimir.murzin@arm.com>, Arnd Bergmann <arnd@arndb.de>, Catalin Marinas <catalin.marinas@arm.com>, linux-kernel@vger.kernel.org, Mostafa Saleh <smostafa@google.com>, Usama Anjum <usama.anjum@arm.com>, Marc Zyngier <maz@kernel.org>, David Hildenbrand <david@kernel.org>, Lorenzo Stoakes <ljs@kernel.org>, Oliver Upton <oupton@kernel.org>, Ard Biesheuvel <ardb@kernel.org>, linux-arm-kernel@lists.infradead.org
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Sep 30, 2026 at 11:42:51PM +0200, Linus Walleij wrote:
-> On Fri, Sep 18, 2026 at 6:14 PM Will Deacon <will@kernel.org> wrote:
-> 
-> > This is version two of the kernel stack juggling patches I previously
-> > posted here:
+
+--eh5wavyv7nnca5rg
+Content-Type: text/plain; protected-headers=v1; charset=utf-8
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
+Subject: Re: [PATCH 1/6] dt-bindings: display: Add panel-mipi-dsi-bpf generic
+ panel binding
+MIME-Version: 1.0
+
+On Wed, Sep 30, 2026 at 02:07:39PM -0500, Rob Herring wrote:
+> On Wed, Sep 30, 2026 at 3:04=E2=80=AFAM Maxime Ripard <mripard@kernel.org=
+> wrote:
 > >
-> >   https://lore.kernel.org/r/20260907164247.17223-1-will@kernel.org
+> > On Tue, Sep 29, 2026 at 05:28:22PM -0500, Rob Herring wrote:
+> > > On Tue, Sep 29, 2026 at 10:39:24AM +0200, Maxime Ripard wrote:
+> > > > On Mon, Sep 28, 2026 at 03:40:59PM -0500, Rob Herring wrote:
+> > > > > On Mon, Sep 28, 2026 at 06:22:01PM +0200, Maxime Ripard wrote:
+> > > > > > Most MIPI-DSI panel drivers follow an identical pattern: acquire
+> > > > > > regulators and GPIOs, perform a reset pulse with specific timin=
+g,
+> > > > > > send a vendor-supplied sequence of DSI commands, then enable the
+> > > > > > display. The only truly panel-specific part is the init sequence
+> > > > > > and power-on/off timing.
+>=20
+> [snip a bunch of irrelevant shit]
+>=20
+> > > > So, let's phrase this differently: what's different about the
+> > > > description than panel-mipi-dsi-spi, or any other binding already in
+> > > > tree?
+> > >
+> > > There's all of 3 panels supported. Compared to all the other panels we
+> > > have, hardly the rule over the exception. You can always fine "bad"
+> > > examples or exceptions.
+> > >
+> > > That one defines a single supply. Any other MIPI SPI panel with
+> > > different supplies or GPIO controls probably has its own binding. Try=
+ing
+> > > to parameterize that in DT doesn't work. We've rejected trying to do
+> > > that in DT over and over. What's your story here for that?
 > >
-> > Changes since v1 include:
-> >   * Fixed suspend/resume paths to handle the stack pointers properly
-> >   * Fixed restoration of ptrauth keys on resume
-> >   * Added tags
-> 
-> Overall I like what I see, but can we split it in two... like first the patches
-> up to fixing the overflow handling using SP_EL0 and finalize that?
+> > Sigh... Look, I really don't care about an argument DT maintainers use
+> > at their discretion for this. We both know full well that it's been and
+> > still is inconsistenly applied, and you also know that it's not like
+> > I've been playing the DT game since pretty much the beginning (on ARM
+> > anyway). So it's not like I don't want to make it work, I do. But what I
+> > care about is enabling that driver to work.
+> >
+> > I reused exactly the same binding than the last major binding that was
+> > merged for panels, and support about the same number of panels. I guess
+> > that was a mistake, so sorry for that.
+> >
+> > I'm fine with reworking the binding any way you want as long as it still
+> > allows for the same use-case, but I would have hoped for a better
+> > feedback on how to do so than "oh what a huge pile of shit this is".
+>=20
+> When you can answer my question above rather than make up shit I
+> didn't say, maybe I'll reply again on this thread. Otherwise I'm done
+> here. I don't need this abuse for the thankless job of DT
+> maintainership.
 
-Yes, that makes sense (and thanks for going through it). The whole thing
-is bisectable, so lemme go through the feedback I've got so far and send
-out a prefix that we could consider merging as preparatory work.
+It's been the whole tone of the reviews, so I'm sorry if you were caught
+in the crossfire and you didn't mean that. And I'm sorry it made your DT
+maintainership work harder than it already is.
 
-> Hopefully Usama can test just that part and see if it has a lesser
-> performance impact as well.
+I do mean what I said before though. I have no problem changing the
+binding the way you want, but I need to know what to change in the first
+place, otherwise it's really no better than a NAK, or we're bound to
+have the same exchange for the v2, and I'd rather not.
 
-I'd like to see those numbers at various points during the series, tbh,
-so we can rule out any stack-protector changes etc.
+I indeed missed your question, but now I'm not sure I understand what
+you mean by "paremeterize that in DT"? The supplies in the binding are
+an aggregate of all the possible supplies a panel can take. They are not
+a wildcard, but they all have their own semantics that are used by
+panels right now.
 
-Will
+I don't expect any new supply to be introduced, unless there's a major
+panel technology change such as the one we had with the introduction of
+OLED.
+
+Would you prefer to reduce the number of supplies to the minimum we need
+right now, and extend it as needed?
+
+Maxime
+
+--eh5wavyv7nnca5rg
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iJUEABMJAB0WIQTkHFbLp4ejekA/qfgnX84Zoj2+dgUCar4KSAAKCRAnX84Zoj2+
+drKVAYDR/ZDwDXBZxoJ1vN0aVjc4QVJvpsXjDFhzm6g8ERdGmINbKbE3z4HYkf8L
+rASKMl0BfRPGtCXfDtr+Ev35B1QViTxFnNv9Js2+WdypHe0kKGcY7E/8p6hiGNzS
+J8y0tgD50Q==
+=lNbO
+-----END PGP SIGNATURE-----
+
+--eh5wavyv7nnca5rg--
 
