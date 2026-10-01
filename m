@@ -4,121 +4,72 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4A7D2CA5FCB
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  1 Oct 2026 13:12:00 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id F150BCA5FD2
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  1 Oct 2026 13:12:22 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:Subject:References:In-Reply-To:Message-ID:Cc:To:
-	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=GL7ZDdP4Fbo0/jHz9SylqsQ2xSeu+fLePqrzmsWP+8c=; b=bM7oxC882I96lYvWbAgO2gfr21
-	i3FXtNXWApBkUAZltV4DkjzqusdDoP0q0uCh/4jVt4RIsC5hW5osZdS60M/QfdVJaqbPRJOiq7MXz
-	Mb43tfFPbQoqMkL2Mv1aCASaehRLidjEeRQsgv5QQCUMDfEMUNvGvsQwsS9dMROMN70BLxE9SyQHk
-	5vpTAfpZz2RT9t3tNvLaYLvV+3DN1PRr0t6Ce4x1+JolM6CgRpRGW+VS2uVgBZ4x+CcKXONXnbLnB
-	bqBlrlW/spbGyMZDNoAW02PVfrr6+0jr6EQkK6yqAtdMe5devRm/KeE/p/uUhnYgS4L4wjjrvayKO
-	SNecAkCQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
+	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=sDLuOxpMp7Tdhi5/vJ+Q0ikK/izUZmE6ibWwQcZ3I9Y=; b=Lq7ZZN6aQtTZI/LVUpsjwEirp1
+	qGegVVCuIb1OUOcWe1R5lBx7NSbmZGWhnJnwiLx2XHd5Ejncvcxcl67yK5DyXS9NDLnXzrQAKPaq5
+	2WEmsvo+JlLiSQBqFo1MueVXGVQjNyVVUB+8n0m5x2bpJgH0t9sIxvQn70Q7wgLPimVvA53k+mDzq
+	bTzKGfEyCKbRbYpk1pgAG3hYWhL/R0IXvR0X9QzUfwpLmN92qiwduPuhPjkgzIsrC/Ux0D9HWNKfS
+	ii8PqthjFHY8P+pnxen8SwK4mx5JSNRBOM9BGd7n1wNZcPnysPjLxGfBvJg04sLihwoGLKxFU4Y1t
+	to59CfoA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xCGZk-00000009BQA-13YE;
-	Thu, 01 Oct 2026 13:11:52 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1xCGa8-00000009BYt-2ctt;
+	Thu, 01 Oct 2026 13:12:16 +0000
+Received: from out-101.mta1.migadu.com ([95.215.58.101] helo=mta1.migadu.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xCGZi-00000009BPk-2nuN
-	for linux-arm-kernel@bombadil.infradead.org;
-	Thu, 01 Oct 2026 13:11:50 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:Content-Type
-	:MIME-Version:Subject:References:In-Reply-To:Message-ID:Cc:To:From:Date:
-	Sender:Reply-To:Content-ID:Content-Description;
-	bh=GL7ZDdP4Fbo0/jHz9SylqsQ2xSeu+fLePqrzmsWP+8c=; b=K33J1Za3PEiLJK//Lzg27wTV7q
-	MceVR8ATaJgWCsN2YhTAM6hTa72nAfKyVreZMQo4GHvZ61uc0wnlKLrmHGcsvKXCb8LMpZkWpxPLO
-	6jTcsvd8hpCrNdARFj1NphJsQD7c64GotScdkCaZQ2e6bGIJsV/tgxSnGxIbPo03Z4rsUXOovW5Vc
-	YrQA3VxFPkvwQDf9UhaMg2/fbQbCD6HeQqKFYseYPyM0FKUpfjAIpZXtqjm0UhR5m+/yhjiZ05j5H
-	vU47mPLZOTnvYQOnHXsdTnH3YFtEyjsXhbdIPLn7y24S59QehvrOtsiS/YHds+17dmQCF3XvRn0gC
-	OkxHGAiA==;
-Received: from server.couthit.com ([162.240.164.96])
-	by desiato.infradead.org with esmtps (Exim 4.99.2 #2 (Red Hat Linux))
-	id 1xCGZe-000000050I6-3qlc
+	id 1xCGa5-00000009BX9-2jE8
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 01 Oct 2026 13:11:49 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=couthit.com
-	; s=default; h=Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:
-	References:In-Reply-To:Message-ID:Cc:To:From:Date:Sender:Reply-To:Content-ID:
-	Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
-	:Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:List-Subscribe:
-	List-Post:List-Owner:List-Archive;
-	bh=GL7ZDdP4Fbo0/jHz9SylqsQ2xSeu+fLePqrzmsWP+8c=; b=tXfNsmpq3wAAFO3JIipdwGPpZL
-	dFxygGX3Wi39Xv4x5dfPL0f604sc+4ipFIrwUQ3YxYj10MUzn1d9IHcqP520JRRXnkGoxCJwBROTl
-	jN5TjoR887SOhh6k17kEIktCwiJ35G1QUylKOIR7hno1/JUkNIpGZTvI1kNCER8nTLjTTY1kNTgUW
-	mYwddTkvlEzQW1AO9UFvapEY6Icir7zRPFkLZK+GvBfTNiKUR5LRpPWcXVDILTAT5VzC4mvO69N6a
-	dKbDs0ULhIMW+OdQN+M0+ezJNZCUe9cblXjGGP8iUgI8wVAt8fEW0MML5wHAzcXHgTEorUcVk+vcW
-	CcQhHc9Q==;
-Received: from [115.246.246.98] (port=38216 helo=zimbra.couthit.local)
-	by server.couthit.com with esmtpsa  (TLS1.3) tls TLS_AES_256_GCM_SHA384
-	(Exim 4.99.5)
-	(envelope-from <parvathi@couthit.com>)
-	id 1xCGYu-00000000upB-35wd;
-	Thu, 01 Oct 2026 09:11:00 -0400
-Received: from localhost (localhost [127.0.0.1])
-	by zimbra.couthit.local (Postfix) with ESMTP id BCE431A08960;
-	Thu,  1 Oct 2026 18:40:57 +0530 (IST)
-Received: from zimbra.couthit.local ([127.0.0.1])
- by localhost (zimbra.couthit.local [127.0.0.1]) (amavis, port 10032)
- with ESMTP id NCaKiwFU2_z3; Thu,  1 Oct 2026 18:40:55 +0530 (IST)
-Received: from localhost (localhost [127.0.0.1])
-	by zimbra.couthit.local (Postfix) with ESMTP id 9184F1A0895F;
-	Thu,  1 Oct 2026 18:40:55 +0530 (IST)
-X-Virus-Scanned: amavis at couthit.local
-Received: from zimbra.couthit.local ([127.0.0.1])
- by localhost (zimbra.couthit.local [127.0.0.1]) (amavis, port 10026)
- with ESMTP id YqyNMpkImhzc; Thu,  1 Oct 2026 18:40:55 +0530 (IST)
-Received: from zimbra.couthit.local (zimbra.couthit.local [10.10.10.103])
-	by zimbra.couthit.local (Postfix) with ESMTP id 6A6231A08960;
-	Thu,  1 Oct 2026 18:40:55 +0530 (IST)
-Date: Thu, 1 Oct 2026 18:40:55 +0530 (IST)
-From: Parvathi Pudi <parvathi@couthit.com>
-To: Simon Horman <horms@kernel.org>
-Cc: parvathi <parvathi@couthit.com>, andrew+netdev <andrew+netdev@lunn.ch>, 
-	davem <davem@davemloft.net>, edumazet <edumazet@google.com>, 
-	kuba <kuba@kernel.org>, pabeni <pabeni@redhat.com>, 
-	danishanwar <danishanwar@ti.com>, rogerq <rogerq@kernel.org>, 
-	pmohan <pmohan@couthit.com>, afd <afd@ti.com>, 
-	Vadim Fedorenko <vadim.fedorenko@linux.dev>, haokexin@gmail.com, 
-	basharath <basharath@couthit.com>, arnd <arnd@arndb.de>, 
-	linux-kernel <linux-kernel@vger.kernel.org>, 
-	netdev <netdev@vger.kernel.org>, 
-	linux-arm-kernel <linux-arm-kernel@lists.infradead.org>, 
-	pratheesh <pratheesh@ti.com>, j-rameshbabu <j-rameshbabu@ti.com>, 
-	Vignesh Raghavendra <vigneshr@ti.com>, praneeth <praneeth@ti.com>, 
-	srk <srk@ti.com>, rogerq <rogerq@ti.com>, 
-	m-malladi <m-malladi@ti.com>, krishna <krishna@couthit.com>, 
-	mohan <mohan@couthit.com>
-Message-ID: <61177290.492777.1790860255343.JavaMail.zimbra@couthit.local>
-In-Reply-To: <20260925163944.721179-1-horms@kernel.org>
-References: <20260921134343.200426-4-parvathi@couthit.com> <20260925163944.721179-1-horms@kernel.org>
-Subject: Re: [PATCH net-next v4 3/3] net: ti: icssm-prueth: Support
- duplicate HW offload feature for HSR and PRP
+	Thu, 01 Oct 2026 13:12:15 +0000
+X-Envelope-To: linux-arm-kernel@lists.infradead.org
+DKIM-Signature: a=rsa-sha256; bh=B1MeEhDRbJ1+eBXmdpTqqYccTAe1bu1lIrhcKUuTIqA=;
+ c=simple/simple; d=linux.dev;
+ h=from:to:subject:date:message-id:mime-version:content-type; s=key1;
+ t=1790860331; v=1; x=1791465131;
+ b=rVAlHH1Sf7fwpXs2ewkQojlzEbSq2xsAOlxQq3LX56WqE/dVOzkW40MIm84+D9lIOE87Nm5Y
+ VkR7kMHMz4Ha4Hof9tgdR/89Eahr8e/RGy9zAdmmcyxjIkdDCCISjY/+dLoJLS12P96qtiyBrZ3
+ 03CZ7O9buYeqMKhXqzmPec5g=
+X-Envelope-To: linux-arm-kernel@lists.infradead.org
+Received: by smtp.migadu.com with ESMTPS id 2c553e1406d00f5d;
+	Thu, 01 Oct 2026 13:12:11 +0000
+X-Mizu-Trace-ID: 2c553e1406d00f5d
+X-Migadu-Flow: FLOW_OUT
+Received: by mail-lf1-f49.google.com with SMTP id 2adb3069b0e04-5ba4065fa07so7594e87.0
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 01 Oct 2026 06:12:06 -0700 (PDT)
+X-Forwarded-Encrypted: i=1; AKwUvBzjIt4VCYijJd7Rw5vwmm+yv0jp1JXVqMB2DvYlUdlnEdENG0kqVmRcJpIitQQ6paS/NW6Ow3+xdLSceH2zaZaw@lists.infradead.org
+X-Gm-Message-State: AFq9FYJY0Err/AsPG8kjRia/uru/fo1zX8wfWK3NACAFf9AYJllN8utP
+	DXWvbVREkZR7lHOn6bs18X9TQySozg+C2RmT5ZmmQBTSrQIxJfs/7wX5NQ5xz3ZsvvZRN38EejX
+	+aDAZv4nM6aobcoTnzc1z2LdheTpaig2MfH/Knwkl
+X-Received: by 2002:a05:6512:b8b:b0:5b4:74e2:4171 with SMTP id
+ 2adb3069b0e04-5ba43819ed1mr170584e87.4.1790860325842; Thu, 01 Oct 2026
+ 06:12:05 -0700 (PDT)
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Transfer-Encoding: 7bit
-X-Originating-IP: [10.10.10.233]
-X-Mailer: Zimbra 9.0.0_ZEXTRAS_20240927 (ZimbraWebClient - GC150 (Linux)/9.0.0_ZEXTRAS_20240927)
-Thread-Topic: icssm-prueth: Support duplicate HW offload feature for HSR and PRP
-Thread-Index: Li9uaJOhO8YSLEr4VnoTnJWJqE6+bw==
-X-AntiAbuse: This header was added to track abuse, please include it with any abuse report
-X-AntiAbuse: Primary Hostname - server.couthit.com
-X-AntiAbuse: Original Domain - lists.infradead.org
-X-AntiAbuse: Originator/Caller UID/GID - [47 12] / [47 12]
-X-AntiAbuse: Sender Address Domain - couthit.com
-X-Get-Message-Sender-Via: server.couthit.com: authenticated_id: smtp@couthit.com
-X-Authenticated-Sender: server.couthit.com: smtp@couthit.com
-X-Source: 
-X-Source-Args: 
-X-Source-Dir: 
+References: <20260914113338.159227-1-fuad.tabba@linux.dev> <20260914113338.159227-11-fuad.tabba@linux.dev>
+ <ar5ZLxL6-mz98tpN@willie-the-truck>
+In-Reply-To: <ar5ZLxL6-mz98tpN@willie-the-truck>
+From: Fuad Tabba <fuad.tabba@linux.dev>
+Date: Thu, 1 Oct 2026 14:11:29 +0100
+X-Gmail-Original-Message-ID: <CA+EHjTzJTpJikYuV-tYYoHbKU+E3UO3ORSdbogx0K+s+E6mofQ@mail.gmail.com>
+X-Gm-Features: AclHuK-BYP5-ESF0Lkngn2s3wyk7cTX09ixjLrcRsslFsyjwg-j-q23Rg_ftXRs
+Message-ID: <CA+EHjTzJTpJikYuV-tYYoHbKU+E3UO3ORSdbogx0K+s+E6mofQ@mail.gmail.com>
+Subject: Re: [PATCH v3 10/18] KVM: arm64: Handle PSCI calls for protected VMs
+ at EL2
+To: Will Deacon <will@kernel.org>
+Cc: maz@kernel.org, oupton@kernel.org, kvmarm@lists.linux.dev, 
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
+	catalin.marinas@arm.com, joey.gouly@arm.com, seiden@linux.ibm.com, 
+	suzuki.poulose@arm.com, yuzenghui@huawei.com, mark.rutland@arm.com, 
+	steven.price@arm.com, vdonnefort@google.com, qperret@google.com
+Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261001_141147_583201_EE5EFCBE 
-X-CRM114-Status: GOOD (  30.72  )
+X-CRM114-CacheID: sfid-20261001_061213_988652_45524DCC 
+X-CRM114-Status: GOOD (  10.51  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -133,177 +84,17 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi,
+On Thu, 01 Oct 2026 13:59:27 +0100, Will Deacon <will@kernel.org> wrote:
+[...]
+> > +    if (prev != PSCI_0_2_AFFINITY_LEVEL_ON_PENDING) {
+> > +        /* The only other writer of ON_PENDING is the rollback. */
+> > +        WARN_ON(prev != PSCI_0_2_AFFINITY_LEVEL_OFF);
+>
+> If you go with the idea we're discussing later in the thread, then I think
+> you need to drop this WARN_ON() and the comment that goes with it.
 
-> This is an AI-generated review of your patch. The human sending this
-> email has considered the AI review valid, or at least plausible.
-> Full review at:
-> https://sashiko.dev/#/patchset/20260921134343.200426-4-parvathi@couthit.com?part=3
-> ---
-> net: ti: icssm-prueth: Support duplicate HW offload feature for HSR and PRP
-> 
-> This commit introduces hardware duplication offloading for HSR and PRP in
-> the PRU Ethernet driver. It uses a shared queue to write frames into OCMC
-> RAM once, replicating transmission in firmware, and adds receive-side
-> handling for duplicate frames.
-> 
->> diff --git a/drivers/net/ethernet/ti/icssm/icssm_prueth.c
->> b/drivers/net/ethernet/ti/icssm/icssm_prueth.c
->> --- a/drivers/net/ethernet/ti/icssm/icssm_prueth.c
->> +++ b/drivers/net/ethernet/ti/icssm/icssm_prueth.c
-> [ ... ]
->> @@ -656,6 +725,57 @@ static int icssm_prueth_tx_enqueue(struct prueth_emac
->> *emac,
->>  	if (PRUETH_IS_HSR(prueth))
->>  		wr_buf_desc |= BIT(PRUETH_BD_HSR_FRAME_SHIFT);
->>  
->> +	if (prueth_is_lre(prueth)) {
->> +		ethhdr = (struct ethhdr *)skb_mac_header(skb);
->> +		proto = ethhdr->h_proto;
->> +
->> +		if (proto == htons(ETH_P_8021Q)) {
->> +			vlan_hdr = (struct vlan_ethhdr *)ethhdr;
->> +			proto = vlan_hdr->h_vlan_encapsulated_proto;
->> +			is_vlan = true;
->> +		}
->> +
->> +		/* Check if the SKB has HSR tag */
->> +		if (PRUETH_IS_HSR(prueth) && proto == htons(ETH_P_HSR)) {
->> +			hdr = skb_mac_header(skb);
->> +
->> +			if (is_vlan) {
->> +				hsr_ethhdr =
->> +					(struct hsr_txopt_ethhdr *)(hdr +
->> +								    VLAN_HLEN);
->> +			} else {
->> +				hsr_ethhdr = (struct hsr_txopt_ethhdr *)hdr;
->> +			}
->> +
->> +			/* PTP frames (ETH_P_1588) carry no LAN ID
->> +			 * in the HSR tag
->> +			 */
->> +			if (hsr_ethhdr->hsr_tag.encap_proto !=
->> +			    htons(ETH_P_1588)) {
->> +				wr_buf_desc |= PRUETH_BD_LAN_INFO_MASK;
-> 
-> [Severity: Medium]
-> Is it expected to unconditionally duplicate the frame here?
-> 
-> The driver exposes NETIF_F_HW_HSR_DUP as a toggleable ethtool feature, but
-> this data path checks PRUETH_IS_HSR() and always performs duplication. If a
-> user disables hw-hsr-dup, the software HSR core will duplicate packets and
-> send two copies. The hardware will then duplicate them again, causing a
-> broadcast storm.
-> 
-> Should this check the active ndev features instead?
-> 
+Will do, both go in v4.
 
-No. The HSR offload features can only be turned on or off together, and they cannot
-be changed while the port is an HSR slave or running. The firmware enters HSR mode
-only if these features are enabled when both ports join the HSR device. Otherwise the
-device stays in EMAC mode and this path is never taken. So PRUETH_IS_HSR() here always
-means hw-hsr-dup is enabled, and frames are never duplicated twice.
 
->> +			} else {
->> +				wr_buf_desc |= (txport <<
->> +						PRUETH_BD_LAN_A_SHIFT);
->> +			}
->> +			wr_buf_desc |= PRUETH_BD_RED_PKT_MASK;
->> +		} else if (PRUETH_IS_PRP(prueth)) {
->> +			/* Check if the SKB has PRP tag */
->> +			struct prp_txopt_rct *rct =
->> +				(struct prp_txopt_rct *)(skb_tail_pointer(skb) -
->> +							 ICSSM_LRE_TAG_SIZE);
->> +
->> +			if (rct->prp_suffix == htons(ETH_P_PRP)) {
-> 
-> [Severity: Medium]
-> Could this lead to unaligned memory accesses?
-> 
-> Since skb->len can be odd for arbitrary payloads like ICMP packets, the
-> tail pointer may be unaligned. The struct prp_txopt_rct contains __be16
-> fields and is not marked as __packed. Dereferencing rct->prp_suffix
-> directly from an unaligned address can cause unaligned access exceptions on
-> some ARM architectures.
-> 
-
-We will address this in the next version.
-
->> +				wr_buf_desc |= PRUETH_BD_LAN_INFO_MASK;
->> +				wr_buf_desc |= PRUETH_BD_RED_PKT_MASK;
->> +			} else {
->> +				wr_buf_desc |= (txport <<
->> +						PRUETH_BD_LAN_A_SHIFT);
->> +			}
->> +		} else {
->> +			wr_buf_desc |= (txport << PRUETH_BD_LAN_A_SHIFT);
->> +		}
->> +	}
-> [ ... ]
->> @@ -741,11 +871,36 @@ int icssm_emac_rx_packet(struct prueth_emac *emac, u16
->> *bd_rd_ptr,
-> [ ... ]
->> +	actual_pkt_len = pkt_info->length;
->> +
->> +	if (has_hsr_tag)
->> +		actual_pkt_len -= ICSSM_LRE_TAG_SIZE;
-> 
-> [Severity: Medium]
-> Does this unconditionally strip the HSR tag regardless of the netdev feature
-> configuration?
-> 
-> Similar to the duplication offload, NETIF_F_HW_HSR_TAG_RM is exposed via
-> ethtool but not checked in this data path. If a user disables tag removal in
-> hardware, the host stack might fail to parse the packet since the driver
-> still forcibly strips the tag.
-> 
-
-No. The tag is stripped only when the device is in HSR mode, and HSR mode is entered
-only when both ports join the HSR device with the HSR offload features enabled. These
-features can only be turned on or off together, and cannot be changed while the port
-is an HSR slave or running. If they are disabled, the device stays in EMAC mode, this
-path is not taken, and the HSR core removes the tag in software.
-
->>  
->>  	/* Allocate a socket buffer for this packet */
->>  	skb = netdev_alloc_skb_ip_align(ndev, actual_pkt_len);
-> [ ... ]
->> @@ -1309,17 +1473,31 @@ static enum netdev_tx icssm_emac_ndo_start_xmit(struct
->> sk_buff *skb,
->>  						struct net_device *ndev)
->>  {
->>  	struct prueth_emac *emac = netdev_priv(ndev);
->> +	/* Spinlock for Tx Queues */
->> +	spinlock_t *lock_queue;
->> +	unsigned long flags;
->>  	int ret;
->>  	u16 qid;
->>  
->>  	qid = icssm_prueth_get_tx_queue_id(emac->prueth, skb);
->> +	/* Select the TX queue spin lock for this queue ID */
->> +	if (prueth_is_lre(emac->prueth))
->> +		lock_queue = &emac->prueth->lre_host_queue_lock[qid - 2];
->> +	else
->> +		lock_queue = &emac->host_queue_lock[qid - 2];
->> +
-> 
-> [Severity: High]
-> Could a race condition occur here when the interface mode changes?
-> 
-> Because icssm_prueth_change_mode can modify the eth_type (which changes the
-> result of prueth_is_lre) and calls ndo_stop directly without waiting for
-> in-flight ndo_start_xmit calls to complete, there is a time-of-check to
-> time-of-use vulnerability.
-> 
-> If eth_type changes between this lock selection and the lock acquisition
-> below, one thread could acquire host_queue_lock while another acquires
-> lre_host_queue_lock. Both might then evaluate prueth_is_lre() as true inside
-> icssm_prueth_tx_enqueue, concurrently modifying the exact same shared LRE
-> queue descriptors and causing queue corruption.
-> 
-
-We will address this in the next version.
-
-Thanks and Regards,
-Parvathi.
+/fuad
 
