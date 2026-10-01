@@ -4,130 +4,74 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4B3BBCA5FD2
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  1 Oct 2026 12:47:10 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 73C55CA5FCB
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  1 Oct 2026 12:52:25 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
-	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
+	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=KI0e5Xi3MeErOcRG45l0GwUN7kF+FkH4HDsRl74+XsI=; b=um/Yzzj9QMlIeI1BdoJSPPRWaR
-	39MJcCtiXmgCpSzYOdasClXPX5cQIcdM7ubioVoqjl+gfGk3m95WoQOwb6CvOxWxfAYLEqKOGUvsJ
-	VKC8aKAKFDYuSCT4+wtM5vMOVQ8nZUbE/qmVyIIMLGVMCsQVUQJJCAh21hYIorCjoVrj4vQM0YTVZ
-	MUGbj3nrYw/Ij9u43nWagQDDoG732CfdjkqyeYGQ0bCwVxh8WAd24Tz9KYSZOTY13Wa54+bi9VVhL
-	QdJxIUhvFctKd33G7IEFMngqWrSsJhkQKTWKxPGx4wOn96RPanB/7/RvPI01wb5dwiLOgqQ0bkVaS
-	mTQI3HVw==;
+	bh=tec5FQuLPRbdVVuUIDCytMknbBana/Hua8s4K23aD0c=; b=F2ThSKkTUq+ljpsTwM3CE2kXmF
+	CYGbjKLrJDBbMk3HvjmP0wNlx6qTkD+MVVdIrkXRJ59/Wxc6Fc2xg4lZ8cPdZD/7v6rZs4FXk2Kys
+	XBu0oHz0FAPAf+PWeP0ZhpChzXZAvRXf05bmLB016ncSsXQMyV7p30bTt7mEthg9XDGesCW2JrtVx
+	LwiRyZq1saZVrYWqUROUQnDmnc1pPu1Nx9vqMMaD2voxadRDDwp5+4nNfAhabbcqIc/vJqbYhk958
+	69jlH/V5DnCJUbpNcrA7NGI2eEQ9ONhb6PtPSDbOPJUwZDI8tVXOhy9qG8NAvBfacCCIZdkHo1Fhi
+	+8xCvrsw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xCGBh-000000098a0-3HdG;
-	Thu, 01 Oct 2026 12:47:01 +0000
-Received: from mail-northeuropeazon11010037.outbound.protection.outlook.com ([52.101.84.37] helo=DB3PR0202CU003.outbound.protection.outlook.com)
+	id 1xCGGn-0000000990p-31m5;
+	Thu, 01 Oct 2026 12:52:18 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xCGBf-000000098ZE-3Pq8
+	id 1xCGGm-0000000990b-1Rak
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 01 Oct 2026 12:47:00 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=hKYZB1Wf7n5qjqEPvVx0TY/mgq3Gzk9L+frWMfDm7WhOMOFz7tCe26rwUJkGdAdqvakG7npgM6jLt1t5pMq3AAS1OpzNQMDEvce5HZQZXokaU9OFOGGa1nazoWxot0rWrJwbCdqyu1xVJhp0xgxPSrV444sc8F3z5c9av3PRoTjRqjS+pOL+Kyz84MV+ubpHd5eVTuG0deR/lXH/DQLmcTsYg92Lc8MjitBDUDZ+xkoA1VE1lrGr8smawK6xh2wobult/DB6E1F4o1d4cMKopHLeZQ24IycHLVs34bLWr6NjzgJfgwiw9B06s1evABhlHpOTwCpFhRE7rKc3s04dZQ==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=KI0e5Xi3MeErOcRG45l0GwUN7kF+FkH4HDsRl74+XsI=;
- b=mNEFpEPjsOByCqCbrEYM8MefLMremqk6utzgugy0h4HXRzwKSxdPXW1f/Rej3bLQLvc6cNNDBYWNXuY90EOVFFVATWdahLnjuG7ZTcRfXCt/spb8wbchZcxP6Ok/ur2x0kJkGgdFAOjTs3xwlHflAOJIYRPNrOCEtlmmYxs1N1AP6A7tZn8tLMp53Mpkk2CDUcGaXzMK8QIS5nKkp3TxmfwFIDSTRjqtiltt8fios2UFVPX4ZljUJk5pFEhmeoySwy0a8JkKFE//lvGbqFHc6ATnuMZTATklezq2nbSEtUk6R+rs6gu3kUzwa/gCplNEzeoh3pEpEGKuO33M/99kAA==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
- dkim=pass header.d=oss.nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
- s=selector1-NXP1-onmicrosoft-com;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=KI0e5Xi3MeErOcRG45l0GwUN7kF+FkH4HDsRl74+XsI=;
- b=ScnHpcYJrdK6FJEJMyqlLRtD4saKOdi6vpyR5dyGyIkMnPE7MgI9Z4QElBI5Apx1qTS0/fjSVM4SM5ApFxVJs3tvf9ovVzKzvTTp6uxPaUy7B98rfJqB+rzZiDA9WvphP99nNrdPiY8aqBs1VWEUQf8k4ncH9S3UFZFzxoiXdxgRASJcZwpIWjngbonfKRH6byrW3y8HOWl6q5RJcEqguzOhzPD36NOgrB55tIDD466jg0bTswwtR8YYZRD2oKsKpIaj7ALJKlF76VTopwAIJJT5iuEatN+RPcJI9iq79oh2yc69I0BnG3FQDS04nGt1ZOugcnhM+my+FGMuLCFOAQ==
-Authentication-Results: mx.microsoft.com 1; dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=oss.nxp.com;
-Received: from AM8PR04MB7874.eurprd04.prod.outlook.com (2603:10a6:20b:24d::9)
- by VE1PR04MB7328.eurprd04.prod.outlook.com (2603:10a6:800:1a5::11) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.472.18; Thu, 1 Oct
- 2026 12:46:53 +0000
-Received: from AM8PR04MB7874.eurprd04.prod.outlook.com
- ([fe80::ac38:1699:6f18:c5d9]) by AM8PR04MB7874.eurprd04.prod.outlook.com
- ([fe80::ac38:1699:6f18:c5d9%6]) with mapi id 15.21.0451.022; Thu, 1 Oct 2026
- 12:46:53 +0000
-Date: Thu, 1 Oct 2026 20:51:19 +0800
-From: Peng Fan <peng.fan@oss.nxp.com>
-To: Nicolin Chen <nicolinc@nvidia.com>
-Cc: Will Deacon <will@kernel.org>, Robin Murphy <robin.murphy@arm.com>,
-	"Joerg Roedel (AMD)" <joro@8bytes.org>,
-	Jean-Philippe Brucker <jpb@kernel.org>,
-	Jason Gunthorpe <jgg@ziepe.ca>,
-	linux-arm-kernel@lists.infradead.org, iommu@lists.linux.dev,
-	linux-kernel@vger.kernel.org, Peng Fan <peng.fan@nxp.com>
-Subject: Re: [PATCH RFC v3 1/3] iommu/arm-smmu-v3: Support shared SIDs in
- insert/remove_master
-Message-ID: <ar5XR0l9WZ1Fnai2@shlinux89>
-References: <20260930-smmu-shared-sid-v3-0-8abe6c1b4c20@nxp.com>
- <20260930-smmu-shared-sid-v3-1-8abe6c1b4c20@nxp.com>
- <ar1Q5y/xoa+Fcex7@nvidia.com>
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <ar1Q5y/xoa+Fcex7@nvidia.com>
-X-ClientProxiedBy: MA5P287CA0169.INDP287.PROD.OUTLOOK.COM
- (2603:1096:a01:1af::13) To AM8PR04MB7874.eurprd04.prod.outlook.com
- (2603:10a6:20b:24d::9)
+	Thu, 01 Oct 2026 12:52:16 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by sea.source.kernel.org (Postfix) with ESMTP id 75D89403DC;
+	Thu,  1 Oct 2026 12:52:15 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id B5D3E1F000FF;
+	Thu,  1 Oct 2026 12:52:14 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linuxfoundation.org;
+	s=korg; t=1790859135;
+	bh=tec5FQuLPRbdVVuUIDCytMknbBana/Hua8s4K23aD0c=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=K2poqIT9ceZq6Ra4TaTezpspNG6viPMERp45zFObidAykvZxZAxoOQIIzK3ssGp/Q
+	 CcwazjuaWGcA0ukfuqOP8DNdB4JdI9P43/U/uh6t4wGs5l1U5D3VfcJsaZHbxjZUgv
+	 I1xPQL6NDREljq3owZtVIHgwzvv9UWf6XJUC1uWY=
+Date: Thu, 1 Oct 2026 14:52:09 +0200
+From: Greg Kroah-Hartman <gregkh@linuxfoundation.org>
+To: longzhao@ambarella.com
+Cc: Arnd Bergmann <arnd@arndb.de>, Krzysztof Kozlowski <krzk@kernel.org>,
+	Alexandre Belloni <alexandre.belloni@bootlin.com>,
+	soc@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Michael Turquette <mturquette@baylibre.com>,
+	Stephen Boyd <sboyd@kernel.org>,
+	Jerome Brunet <jbrunet@baylibre.com>,
+	Linus Walleij <linusw@kernel.org>,
+	Bartosz Golaszewski <brgl@kernel.org>,
+	Michael Walle <mwalle@kernel.org>,
+	Jiri Slaby <jirislaby@kernel.org>,
+	Andy Shevchenko <andriy.shevchenko@linux.intel.com>,
+	Ilpo =?iso-8859-1?Q?J=E4rvinen?= <ilpo.jarvinen@linux.intel.com>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Will Deacon <will@kernel.org>, Long Zhao <zl020895@163.com>,
+	Lee Jones <lee@kernel.org>, mfd@lists.linux.dev,
+	devicetree@vger.kernel.org, linux-clk@vger.kernel.org,
+	linux-gpio@vger.kernel.org, linux-serial@vger.kernel.org,
+	linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v9 13/15] serial: 8250_dw: add Ambarella CV75 quirks
+Message-ID: <2026100140-overbite-mundane-fc79@gregkh>
+References: <20261001-cv75-v5-v9-0-486cc289a4b8@ambarella.com>
+ <20261001-cv75-v5-v9-13-486cc289a4b8@ambarella.com>
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: AM8PR04MB7874:EE_|VE1PR04MB7328:EE_
-X-MS-Office365-Filtering-Correlation-Id: 7d6348f4-87d8-4133-ac3a-08df1fba1193
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|23010399003|366016|1800799024|19092799006|376014|18002099003|22082099003|4143699003|10067099003|56012099006|11063799006|20046099003;
-X-Microsoft-Antispam-Message-Info: c+FUEojFw8ezEgc9SwJ88ws7Z0Dfd8/9AZNdVknmplFaruJ6hJthx7Gxi0SWVT/VYLfAJxvhUZh7sK3oT778zxvDow6ElA7+lePljK5R3ic5e+KBjDfdv0hpvzHasHqGjK/giP4qd14ZeiVmcl4+bK/o4FbLZIw5hhqJ+EEdn/w986vzy0qTzjU7ET7AWFg8SGBfEfC81xJG6pCf/APFHbz+26X6USHHCatUFSLJViXtGDnfhd8vJFdZ9LsW6iky0LX5CoUFCPwNueBmQh7ZvaqFIzDBOkuhi7Mmuy95U5gmPsLh+K52Y9YTqqzDw5ELwAI1qhj6AesEpYEL/w4uNhwF5+EWax6PDzCBTsnH9E/I4/JW1BE8wfZpqSEGUxJumsVUILSCpjKXqIqLPJzPzRKIcSFvEq3HmJSlWlDzECOIZdo4jcSgkeF3DHlGxWDFTUyxVEe+8zq+i3XLRjsazd3k1RS6IbVFb0158tVejSaKgEFeyJHVBwv5fes+VLkJ23uHhQF/iNqYNRSBLwF8NXPa5ZwFlvfmqQatn5oSBqmC3umGz5IWH5kwVUIujsra0VcH2qwdllMourcZ18jsAcCM7cDDBjXsXxL8IjHYsObVTNadS6MeDlFvPbxAjq/of6GO6M98btSBWyhOR0RC/iDHm313ZGqjhVgG1XhxkUg=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:AM8PR04MB7874.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(23010399003)(366016)(1800799024)(19092799006)(376014)(18002099003)(22082099003)(4143699003)(10067099003)(56012099006)(11063799006)(20046099003);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?E5HYu4Xe3fVUSGb4mUCsATCY6kPfdrfmcIRoOwkeuv1H1LNhl8XyxBGB89SR?=
- =?us-ascii?Q?S4+fyric0B7eskNUrB84pADsaZ6DStjQDcih09kUD4JokpksBWu+ktPBd0qZ?=
- =?us-ascii?Q?aXXh+ZJj60UtYxrXn0+izm669F76OuTIfcN1lty9Re/43110z+kM6R6GwFjI?=
- =?us-ascii?Q?cMAsvUGKv6A7jdgPJEcATHXTp/yuixGTRNcDalIQsBNkglCIRx/7w6WHf49o?=
- =?us-ascii?Q?jIpBWgJx47G9f9CcGkNUVffPgfE7PLyzVh6PCbi/Hb2yk5vprU/au6Bd3vam?=
- =?us-ascii?Q?U7LJmC0FlNFQp9OmLag/cUTx+hdIF3NzY7OHrL9F4bfEROOGYaY8L5ZK8h90?=
- =?us-ascii?Q?BOAVyBWBhzTTHTbD+u6HAmBVTufVYocq7SMXfIrMp4dwzIWUu/bJ676KzfZJ?=
- =?us-ascii?Q?OtgRlyul31zd1R5g4C0998uTv5mNUdeogdzIcmumPhqX4/0sjdiF7RfFVMgQ?=
- =?us-ascii?Q?lOqR7IYPGiIH3bQaxZlwXE92XKSgsCuM73i03sWFrWpH5ZyJnULkD/5I5h7y?=
- =?us-ascii?Q?QkvMgBU/6UCQi8lj6uBa8jaQSC6N3B5CmbyJejktqY8s1bIGAgNvxMUjejbS?=
- =?us-ascii?Q?q4yrsHwoCfXXLpj+9uMl1l/mXo9NML2WPGwfsPMe3I9iuoa/JsUPA5Xg5Fzt?=
- =?us-ascii?Q?Z2bAAmCjntMyGw8znKWhRue3WMoMrqspS817Aj7s68BZu7BH4f9/Y0kM97GL?=
- =?us-ascii?Q?m/YinZRoGJFooQro9SRCF3hq2069J7cfWn2CQmi/Eiedi3G/nDg/Aj9inFH6?=
- =?us-ascii?Q?LspfAH8BSpcsi20Y/VQ6IU6P3xk4JppmmXAYSUzxAqC++s1O86MBrjxo6Hjg?=
- =?us-ascii?Q?b0hPFyayaJGNa+Rjz5IKNuKfhAvsNZwO+nD3kVAgDSyavG38F20hyZKnGpOQ?=
- =?us-ascii?Q?e2ZjE8nI5T/Y3xHs68Lpq/FElDXVsyepGp8++E/hMA+iW6QVjN49ZlOUzYNb?=
- =?us-ascii?Q?2PDHBoVuk67CGSCaEE1SwmNcMEJK+5KQua9ZM4IkiPev7mmYlY5zZH7kKVZ1?=
- =?us-ascii?Q?D7UA4eNzEYqvXU6zi6zGOiaE94duZ7Lj8V2eRM690Gw0OENTRg2mSyo9Qta+?=
- =?us-ascii?Q?RWw9dTPQN2KN5IGhtM7nqbpr4CEeR46paDHpwRH2kKcdABk01JUfci2S58ED?=
- =?us-ascii?Q?AxvC8xpGyr49x96YAZzcx5V53QrJTPNTQ1VOQ5psSo03LYBCc7SBd4dctG6G?=
- =?us-ascii?Q?d+WDpEG/G8e0VDHokvBoTGce6nrVJ1+C1OTjuLvgBtHyhjcSDBv/LIpoC7a7?=
- =?us-ascii?Q?SsSg1m8rcCulk7EU2ozAj/UX9wy8IXqXPB7s6tDhzLrVYe3Bv5k+Jv+YP0mR?=
- =?us-ascii?Q?efv3PksapUOPujS2mF2B7DxXnDp2Yu51+o8G0eEyR79tOAhnXC3CmeQduL63?=
- =?us-ascii?Q?1zIUMuBHuRDsrO/dfNUkHrwwZulqe/MLgcjr6vapbOzRbb3wi5aGO2jncERn?=
- =?us-ascii?Q?lyP/zWUZ2HZaBPGEdT148eOzo3ccj3+1fELZSm/VRrxQYDGZZE92ksvDlVOW?=
- =?us-ascii?Q?0HOZwA2Mj+URbnyLMODZSyEuIKAxEMT4XscpynoBH8CvF7rniY+EXJShZWU7?=
- =?us-ascii?Q?iVraA5Ugbj+Zr7F/tbBRLZTRdggjXyVkbxrEorrehIfu+ggXTIm7DEDiv6TB?=
- =?us-ascii?Q?TkM2TpvrJ3ULykEWv0jzoQv7uaxBtJH/u05aGox4+RsuAgjIkhGMYZ0XfVo+?=
- =?us-ascii?Q?mdwdw5YWCr4w8gIg35gaEX63vCf55eIOquWxjamtAHX9N7oGqs9kFkUBwfCy?=
- =?us-ascii?Q?dJSE0jo7Dp9XWH6s6PCz/CsoZSfq6ApGEDj1exvRk480iqL50bVZ?=
-X-OriginatorOrg: oss.nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 7d6348f4-87d8-4133-ac3a-08df1fba1193
-X-MS-Exchange-CrossTenant-AuthSource: AM8PR04MB7874.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 01 Oct 2026 12:46:53.0516
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: yrnk/lmYv4kOrBa6tqMb2VA5gshQLoWVoidEbv9h2Qmuk3qZf2N2P//V25uZKnSrMNJ2BG4lvYjesiT19FVDvLlhw/QivZY19ZpsGLjmn8mK5HYTu5CCkomFagbLj4Pf
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: VE1PR04MB7328
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261001_054659_866907_FF54EC19 
-X-CRM114-Status: GOOD (  12.73  )
+Content-Type: text/plain; charset=iso-8859-1
+Content-Disposition: inline
+Content-Transfer-Encoding: 8bit
+In-Reply-To: <20261001-cv75-v5-v9-13-486cc289a4b8@ambarella.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -142,61 +86,30 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Sep 30, 2026 at 11:11:51AM -0700, Nicolin Chen wrote:
->On Wed, Sep 30, 2026 at 07:25:01PM +0800, Peng Fan (OSS) wrote:
->> @@ -4115,7 +4128,10 @@ static int arm_smmu_insert_master(struct arm_smmu_device *smmu,
->>  
->>  		new_stream->id = fwspec->ids[i];
->>  		new_stream->master = master;
->> +		new_stream->ste_installed = false;
->
->ste_installed is zero-ed.
+On Thu, Oct 01, 2026 at 08:41:02PM +0800, Long Zhao via B4 Relay wrote:
+> From: Long Zhao <longzhao@ambarella.com>
+> 
+> The Ambarella CV75 UART is Ambarella IP, not a Synopsys DesignWare
+> licensed block. At the register level it is close enough to DW APB UART
+> that a full custom UART driver is unnecessary: reuse 8250_dw with a
+> small platform quirk.
+> 
+> Quirks:
+> - keep IER ETOI (bit 5) set for RX timeout behaviour
+> - skip set_rate; baud clock is managed outside the UART block
+> 
+> Reviewed-by: Linus Walleij <linusw@kernel.org>
+> Reviewed-by: Andy Shevchenko <andriy.shevchenko@linux.intel.com>
+> Reviewed-by: Ilpo Järvinen <ilpo.jarvinen@linux.intel.com>
+> Signed-off-by: Long Zhao <longzhao@ambarella.com>
+> ---
+>  drivers/tty/serial/8250/8250_dw.c | 32 ++++++++++++++++++++++++++++++++
+>  1 file changed, 32 insertions(+)
 
-Fix in V4.
+When you submit lots of different subsystem patches all in one series,
+it's hard, if not impossible, for subsystem maintainers to take them :(
 
->
->> @@ -4136,23 +4152,29 @@ static int arm_smmu_insert_master(struct arm_smmu_device *smmu,
->>  		existing = rb_find_add(&new_stream->node, &smmu->streams,
-....
->>  
->>  	kfree(master->streams);
->
->.. when the owner stream gets freed with the master_a, the shared
->stream would UAF:
->
->  master_b->stream[0] --> new shared stream (SID=X) {shared_masters}
->           |
->           ---------------- shared_masters_elm ----------|
->                                                         v
->                                                      {freed}
->
->This should be changed to the model that I suggested in v2:
->
->      |---------------------------------------------------------|
->      |                                                         |
->      |     |----------- shared_masters_elm --------|           |
->      v     |                                       |           |
->  master_a->stream[0] --|                           v           |
->                        |--> stream (SID=X) {shared_masters; master;}
->  master_b->stream[0] --|                           ^
->            |                                       |
->            |----------- shared_masters_elm --------|
->
->When any master is removed:
-> * Delink its shared_masters_elm
-> * Free the shared stream when its shared_masters is empty
->
->If shared_masters isn't empty but the owner is removed:
-> * Give the ownership (stream->master pointer) to the next master
+thanks,
 
-Thanks for detailed explanation. I just posted out v4, hope v4
-is well following your suggestion if I not miss-understand anything.
-
-Thanks,
-Peng
-
->
->Nicolin
->
->
+greg k-h
 
