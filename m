@@ -4,136 +4,72 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3897CCA5FC4
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  1 Oct 2026 00:10:50 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id EA126CA5FC4
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  1 Oct 2026 00:20:47 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:References:In-Reply-To:Message-ID:Date
-	:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=N7a/bp/PO0bjhrDKIhcMe6L/5zm7OEtYBvJsXXJTZDE=; b=nsKoI4SScjf+4ZO9Kg2yXLa8WW
-	HtHUe828+9cMBUOsIAtl3wZW1LXSDEOSrTfz/74U0m/ZRohkEEh7fVP/qlMsnK6/mWnBCoY3a+gCC
-	QS8C7jpZTfFCzI4h7PjATW9vhXbvx2xQ13lle2jO5cL04dberMX66oIRDOQizFqH+algbUeOTuuEy
-	pbfFZFWpRKgDwjRbLG3zgoiHdHAKbztl3/ONTNtndt/riJuhNdicp60Mmr8uYqZqQl4v9kOWPfSl5
-	lEiSxyCwerrWE/qwXzOZvQf1dAiGCXzCIRwZF4dy9CiTA2rylW8bLc5MbRAHYUmEg2sJeygnqt88Y
-	MwCV3f6w==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=nvDkk7KAzeKLGpwf+aZU4NHqfAjJib2nahVIAwKSaI0=; b=o5//Y657BWUgqKRBoBOssCdQAJ
+	pjrBgHyv2hSYo21pT9EF8WGpLqsXJdAbY7F8Y5p+du+F/kvaDzEDwEKBJbkIIMrUbYMXliaZqdZMY
+	YgwvzFXiyD3kpl97HWHs80qvwUF9YtQuz3SB45FRhAsTL6Lh6Qb8VzP+6AW9igxzWG/dNxlbAqMX/
+	49sprWlsvTdScE0ZMrX0CahTulyEzQ0Q6P1/JERABade9gV2KD1tCNUWdydvRSuFdnEfbS45dPlHe
+	I8vbYLC/XyMmpEEvUEZNr+GThuSBNL39dO4HMgRw+DvcHLBUilVGe/URQSBEX4I5SOEZzGNqsnjKU
+	15vXGE3g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xC4Nn-00000007UmR-0RSF;
-	Thu, 01 Oct 2026 00:10:43 +0000
-Received: from mail-southcentralusazon11011062.outbound.protection.outlook.com ([40.93.194.62] helo=SN4PR0501CU005.outbound.protection.outlook.com)
+	id 1xC4XP-00000007VAI-3lUa;
+	Thu, 01 Oct 2026 00:20:39 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xC4Nl-00000007Um4-05Ij
+	id 1xC4XO-00000007VAB-2e6p
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 01 Oct 2026 00:10:42 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=El6qXVv4yaCmXQUl+NK5F1rRvLWi7lwMLdVbGa06/fvnzk5kzEEWlV3DlY7JV5EHvImUcaEq3UeVKb8yM96EDzVpVrf9PeeFZUBCplxBS6akQrXkbRQFq8JET8c2XIQSiJuoJ1q0c1UKATU1vXHq3qUX9p6pVurJg91ZBQ3j40KENwMjwUncjcZScZATTdw6GZJ9Be9JBS0CCt/aNoShahhSUAdyKc13ESmZkYhWFfpk/cJEAxiOFkww/0DCUDXI7vpFQ8j0RmoPRkivQCZwT+yYYryjP/ThUdeIB3swEpV6Pxq0Isj0CHblZaH0E0fqz6mrFgRDIVd9WNN+gHzaig==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=N7a/bp/PO0bjhrDKIhcMe6L/5zm7OEtYBvJsXXJTZDE=;
- b=Pz1bu6WQcxGhLHZfFhAhz04ccYG2oajX98Fgy4R+Xsvs/HS4RJsNGQSepC/97RSwjqeA/tLoI87EWxa3iUWmlXBFWKBEukHGFsscVApsHiXZLORbstG2s8R4JN2A2QYbVbZPNpoN3hzHB27mL69Aem44PIvjoXXAbnN0EJwocgNaNbm4oufrpcC5OEDYDIzC62fvnbIUsqf0OwXbSOvlobfVYcvW7AC5tgjUZIFjySpDwMo+tQDuMQ3g48kH4mJLilJzk+roJpeOGkB2sxhj0jsgpo44aBroTlsd+VnH/s8+O4S8CADpf5PjXjuWyy6pg/XJY8hQWBxjEAcE7XAlxA==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nokia.com; dmarc=pass action=none header.from=nokia.com;
- dkim=pass header.d=nokia.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nokia.com;
- s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=N7a/bp/PO0bjhrDKIhcMe6L/5zm7OEtYBvJsXXJTZDE=;
- b=P1/BRXImThrpdrP14CtcU8NtrjqnNOQCTSSGKzUwoY3rMyW3fDbQCXwob7RyoPgDFTlx+GUvHYY+7AgzJLLSCV4vhY+xS84Yc4PhBw87ZjXa+g2g3jQKHleXU2lrRYqX0TEoXZOYUbATGM8YS8koqy/UegIASiAMxOemBn9XxmErqaKbg+mb/AIPzQ2i72/EpYwiUX2ICPtYWsp6MO8oD1eEFyA3JF1WJr1LH4EUvuPbD71HYxZ2fiKsicPG1QFKCavg9x0edR4tF5sze9A3Z3HbYaSEQxvI4X8RsrTQY+2Db1wJE0S1xtLV93AlStlo6YfQJG8coXVwR0h/VmPE6A==
-Authentication-Results: mx.microsoft.com 1; dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nokia.com;
-Received: from BN0PR08MB6951.namprd08.prod.outlook.com (2603:10b6:408:128::14)
- by LY0PR08MB296823.namprd08.prod.outlook.com (2603:10b6:404:20a::22) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.472.15; Thu, 1 Oct
- 2026 00:10:33 +0000
-Received: from BN0PR08MB6951.namprd08.prod.outlook.com
- ([fe80::4dd1:e1e:56b0:b178]) by BN0PR08MB6951.namprd08.prod.outlook.com
- ([fe80::4dd1:e1e:56b0:b178%5]) with mapi id 15.21.0472.015; Thu, 1 Oct 2026
- 00:10:33 +0000
-From: Anthony Pighin <anthony.pighin@nokia.com>
-To: Jaidev Shastri <jaidevshastri@vt.edu>
-Cc: Ioana Ciornei <ioana.ciornei@nxp.com>,
-	"Christophe Leroy (CS GROUP)" <chleroy@kernel.org>,
+	Thu, 01 Oct 2026 00:20:38 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by tor.source.kernel.org (Postfix) with ESMTP id ABB6260142;
+	Thu,  1 Oct 2026 00:20:37 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 6F9EC1F000FF;
+	Thu,  1 Oct 2026 00:20:33 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1790814037;
+	bh=nvDkk7KAzeKLGpwf+aZU4NHqfAjJib2nahVIAwKSaI0=;
+	h=From:To:Cc:Subject:Date;
+	b=OG8UYunfY1IEU4lR5Hh9s7ga1Pc/J1NiPAmri6YrecIezcaO5fn9eiJXLc+P9Zkp+
+	 q9inJqWEhkI2LSQVWVmg5LIwTf5y3pmtJWnS0PYhKi9l7yBzyyYhdugSMrCvJP0DFy
+	 8IlbuWvrw2bQXODXq4hwYMo7453sHCnKvkTVVEl+m+38qByDagHXAqySOwhKV96ica
+	 EdQY1f9+ByweiOTIG6vZc0oYE4hosv5Mpyzznh4bkI52QNAc49GeyYrKSi58rwqAS9
+	 1pZdSLT8MLNK2x2M4hPb0mns1ormSvqmHKoGbLLGULtJl+iV4j2vYYVXpWXzXZ93gb
+	 TN82nJ/R2RLaw==
+From: "Masami Hiramatsu (Google)" <mhiramat@kernel.org>
+To: Josef Bacik <josef@toxicpanda.com>,
+	"Paul E . McKenney" <paulmck@kernel.org>,
+	Frederic Weisbecker <frederic@kernel.org>,
+	Alexei Starovoitov <ast@kernel.org>,
+	Steven Rostedt <rostedt@goodmis.org>
+Cc: Boqun Feng <boqun@kernel.org>,
+	Masami Hiramatsu <mhiramat@kernel.org>,
+	Mark Rutland <mark.rutland@arm.com>,
+	Peter Zijlstra <peterz@infradead.org>,
+	Thomas Gleixner <tglx@kernel.org>,
+	Daniel Borkmann <daniel@iogearbox.net>,
+	Andrii Nakryiko <andrii@kernel.org>,
+	Puranjay Mohan <puranjay@kernel.org>,
+	rcu@vger.kernel.org,
+	bpf@vger.kernel.org,
+	linux-trace-kernel@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
 	linux-kernel@vger.kernel.org,
-	linuxppc-dev@lists.ozlabs.org,
-	linux-arm-kernel@lists.infradead.org
-Subject: Re: [PATCH] soc: fsl: dpio: publish the dpaa2_io object only after it is initialised
-Date: Wed, 30 Sep 2026 20:08:45 -0400
-Message-ID: <20261001000845.3627423-1-anthony.pighin@nokia.com>
+	Andrea Parri <parri.andrea@gmail.com>
+Subject: [PATCH v4 0/1] kprobes: Make optprobe optimizer multi-generational and asynchronous
+Date: Thu,  1 Oct 2026 09:20:31 +0900
+Message-ID: <179081403098.474106.12959530220684805449.stgit@devnote2>
 X-Mailer: git-send-email 2.43.0
-In-Reply-To: <20260921-mb-dpio-v1-1-9e24539059c1@vt.edu>
-References: <20260921-mb-dpio-v1-1-9e24539059c1@vt.edu>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 8bit
-X-ClientProxiedBy: CH2PR08CA0012.namprd08.prod.outlook.com
- (2603:10b6:610:5a::22) To BN0PR08MB6951.namprd08.prod.outlook.com
- (2603:10b6:408:128::14)
+User-Agent: StGit/0.19
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: BN0PR08MB6951:EE_|LY0PR08MB296823:EE_
-X-MS-Office365-Filtering-Correlation-Id: 331335be-d2d8-442e-81ee-08df1f50696f
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|366016|23010399003|1800799024|376014|18002099003|22082099003|10067099003|56012099006|11063799006;
-X-Microsoft-Antispam-Message-Info: NZBYf3jqe4JKpG9rsmQJRGrkhksv7w/Hj/jB8N4JMrAxjBFjxXOT2cPIq1oBSCgcJLduxV8McXWlEw8iJdEbahDkluZyFrTitbxtKGRGxYWVVb9nWJJGbCmlCeQGXgr4lWMf4hjx6vnocMkNt1LZRMzCxfEQ2Vf8nMRMpw1a/uG8e7+ruHHOe49tKz5D5u2JjixAmtDDK+3ofaFh/eNydaB3Q2mf9h8CsKfWaR5oLCVJdkgByISu6pCqzVGrCmPcuz1cowDtbssFFzOX5I9OlJ8TWQ+zUk4YI/Aide1289ShqmNZt0l5suB40YPAhX027Yjh+WF6SfecdYFNT0mBbYvG5gUwwImEMnKzK+P4PZxA3yHjn/MYfVBgjaCsaSu5kbyNS2PCFTcY9pMX9oyam766x27nhokQBJ4goiUr4+z8Q//Z42BEk+bCwNTOSeXsWsAYtwn/ie+oA55Vg13vPczJkULurTesSyXOOapx9U+D6EB5pyLQ7/w7z+M8NAcu9VtGL99t6CpCrcRgFieQ3bnIepMEhcGCRzCTQ50o+Aefcxlss0ifQzevcpKWHOu1Fe8Af76IFd52BsnWW1xrruIMlbje1U0bTF63TmfSI83l9IWr4th7kTHzhaiQqLBBDsJUWaThlEPyOCrs/UXsggFYAal4eHWHc3mKhwUZddk=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:BN0PR08MB6951.namprd08.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(23010399003)(1800799024)(376014)(18002099003)(22082099003)(10067099003)(56012099006)(11063799006);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?TEpSaHNCSUJBUVc4dC9jdUtzbTJOZVZXYmVZUzVVUzBYaHdJSDhJc3VsVWIw?=
- =?utf-8?B?bHdiTnpoalBmQkhqcHV5LzQ4akhZcGJnd0VBYUhKSjJYNFJNSkc0MVR0Y3FS?=
- =?utf-8?B?bFVIUmRCNGFwZXpMVktSRVQ1ZUdHSGZGbU9ZSCt3TjhtcEE2R3ZEM3p4RzZM?=
- =?utf-8?B?azM2QmY5eXRYb01kK0VzYzh1RlVzMDdZSGlJTnh5V0dveWo5ZE1aUjdYdG01?=
- =?utf-8?B?VjJKWnVEbGtKLzFNU0FmOG9WcFFSNlBQYW1LOEpxNDg5TjdUaFQzdVFJK3JM?=
- =?utf-8?B?c3dxeU5DakplWjRCWHNHV1ZkZzhNV3ZWeHF4R2ptTjNkdW9lZGtNcVVtaEVP?=
- =?utf-8?B?SWh3QkRKUzlzZDRjdHVFeEplMXlHQUJjdzlBemZuQWUydk4rcmVkenVPU0tD?=
- =?utf-8?B?V3E2VWxtemtyUERhQy9HVDI1NHRlb0lkNXBzVVR5emVFcTlLcmtUWVhhU1Rl?=
- =?utf-8?B?cEx6NjJkd0JEZkthMEtma1ZqaUxUaEU5NlVZUmR3dU1TYU5ybTVGaEI2d1VQ?=
- =?utf-8?B?ZVY1TW5pTDd4OEIvaHZ4ZmViTU42NXFWUWhhQWZPMXdVV0gwSG9GdElEczBU?=
- =?utf-8?B?eWV1ZDNpb3FoVE1uWmRocFFmOENBU2htcFBQTE9nTGRZRmR2YytYbWQ4REdD?=
- =?utf-8?B?RXRlbXRDQ3pnbXFGTUs5TzBRbjRmVmdVTHVLRUNSWXY1akx5UEhhU1lrdlkx?=
- =?utf-8?B?QittN3JWYlp2eU8zRHh0M0pJWFcrR0FFRExKa3hZcXJneGgva1pKN2tqMUZ5?=
- =?utf-8?B?dDBFUWZDOEROOHdQNytFSDNPdk94UnpzWGRjRncwSzlxSkZmbWJvUGFoSGdi?=
- =?utf-8?B?RkpDQzRqNDFzMGtjVVJPeWY3VUJtakVMOHJCdTRWbmRwS0QraDYvZVFDTjJX?=
- =?utf-8?B?NTcxK3A3a3k1TUpESnRnbzNUV0hYK0t0U21SNzQ4VzdCSk9DVEJ1RHVDR0E0?=
- =?utf-8?B?RS9KRVlVcU15QWtuYXgvdnlxUzNLTjdXWUFOalRBcjllZU1rckxXcU50R0t6?=
- =?utf-8?B?RVFYSzRwQlJZa014VkxHQ3MrVUMxakZZOFVabUdtakRKYjJDcG15djFaRlhu?=
- =?utf-8?B?K3FWVzlKK3Frc2UvMEdreG13eEk1L3FRTTNhZDVpWStqQ1BlcE9WZzUzVzBh?=
- =?utf-8?B?VkJISXU3SlZVakFicEJ0ZHZ5RXp5MkNpUUF4T3RsaWpzTmxVTWJHOUZSNFo4?=
- =?utf-8?B?c3dEME5nOEVhSXJrUVJmd2lEVXVrQWh3ZElUbkhtckhKYkVubnJKeDdWemU3?=
- =?utf-8?B?V3hjdW9rS3FjL0dwbFNCNUpsMTR5MStaZDZjMnVwbEVxejNIUDE3dDZNUjJ2?=
- =?utf-8?B?V3ZnTnNPbG1EU01YejFWR3RtRjV0Tmd0azRPQjYxb051NmRJYzM0dUVaL1Ru?=
- =?utf-8?B?Y3JHTnB3endEWUFwZDFsaGszSE5CQTE4V21BL2lWOVBsNnNCNU1DU1phMHkx?=
- =?utf-8?B?bHdtZGNOVS9lcEV2OHVIZTh1MURobUxTTHBTS1RhdzlPNTYyNkJDTW4wek5s?=
- =?utf-8?B?MDh3YU4wYm15VW81MDRqN25BZnZvZmtCRDdhMHF6OE9QL3k5Mkg4MndWeUJG?=
- =?utf-8?B?ZEtqczd2R1J3UXNhRXRBUkE2V1NEaDMwUWZXWWN3eE1BYkJERFN3T25OdDZr?=
- =?utf-8?B?MnJtcDJjK1kyR1BMY2toZjBqL2ZxbmxDRzJ3OEgrSTkrbDJmMnNlTWVEUVpN?=
- =?utf-8?B?OVZCckxNRlRCaUkrQ1p1QjY5akNJblRaeWxVS3F1R0Ntd3BEYmZRWlR0WnRX?=
- =?utf-8?B?Z3FUUERaZUVmajVOczVJUWdNYXU4c2RFQWlPVG0zdlBad2loVmdKUWNVSW94?=
- =?utf-8?B?d25lZlNWbVlxZnY1LzdzSjdPRWJLMlRlZTFVcGYxYkd6RldkL0lkQ2EwUlhy?=
- =?utf-8?B?bkh1SkZxbGNYU0RNWHkxZDQvV28zWFhRTVpFaVk2c2JiMEpCVUtIYnIrRk4x?=
- =?utf-8?B?RkwvS0xRODZGYUtBbFhxc2UxbDJnSkRkRzl3ZWV6eENINEdGZlVGSGg2WXRF?=
- =?utf-8?B?UzRsYTVLUGdHNHBwbkdJWVk1cWVSNkZ3S3dDeks0Q21zVUtDOUhiV3JQMzNH?=
- =?utf-8?B?T2hDay9Lc0J6Yzh6bXZVM0NvZGRVQ3d3QldER1h0eTBpU1hlNFBDb3BEVWdD?=
- =?utf-8?B?RHpMMXJsc3c4QkttdW1WV2JRcGY2NHA2RUQ3bEpmVVpLRVdjOHN2VnJsUnln?=
- =?utf-8?B?U3JsOHl1MnZKdFkySUh2VHIvdG8zb09HSUxOUVZxbCtyRURQZEV0OEpBcmpQ?=
- =?utf-8?B?Q0hEa2o5ZWErV0dZRXMvQjNmMFJjNTdrUlU1M3R1QXdVcTZZRmFWcGN0V1ps?=
- =?utf-8?B?bDFidFpsb2d0TzhkTERNUXozY01sYk9pZzBhMExOZHkwdVpJQnUxQT09?=
-X-OriginatorOrg: nokia.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 331335be-d2d8-442e-81ee-08df1f50696f
-X-MS-Exchange-CrossTenant-AuthSource: BN0PR08MB6951.namprd08.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 01 Oct 2026 00:10:33.8138
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 5d471751-9675-428d-917b-70f44f9630b0
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: W/gUmwuE1V2rk2AS63/l3wG9UIyWgQArZL1cj8D2UvNm6WD2B9+Vf6Rdih25rT/EUVB4gYLWqDpTWuoLahv9YaBM52uFXaqN/GYeu2Fis/M=
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: LY0PR08MB296823
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260930_171041_128195_CAEB403A 
-X-CRM114-Status: GOOD (  10.17  )
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 8bit
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -148,35 +84,216 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Sep 22, 2026, Jaidev Shastri wrote:
-> obj->dev is assigned after the lock is dropped, so a reader can pick the
-> object up and pass a NULL supplier to device_link_add(), which fails
-> with -EINVAL and fails the consumer's probe.
+Hi,
 
-The object comes from kmalloc(), so obj->dev is not NULL but whatever
-was left in that memory. We hit this on LX2160A boards as an
-intermittent boot panic, with the deferred dpaa2-eth probe racing the
-DPIO probes.
+Here is the 4th version of the patch for making the optprobe optimizer
+multi-generational and asynchronous.
 
-  Unable to handle kernel paging request at virtual address deadbeefdeadbfd7
-  pc : device_link_add+0x80/0x700
-  x20: deadbeefdeadbeef
-  Call trace:
-   device_link_add+0x80/0x700
-   dpaa2_io_service_register+0x40/0x120 [fsl_mc_dpio]
-   dpaa2_eth_setup_dpio+0x128/0x468 [fsl_dpaa2_eth]
-   dpaa2_eth_probe+0x1dc/0x908 [fsl_dpaa2_eth]
+The previous version is here:
 
-Widening the window with an msleep(50) after the spin_unlock() makes it
-panic on every boot. With this patch applied to 6.12 and the same
-msleep(50) kept after the spin_unlock(), five boots in a row were clean.
+  https://lore.kernel.org/all/179077194409.424772.11709189894572687187.stgit@devnote2/
 
-Since this crashes real systems, could v2 say so in the commit message
-and carry these tags so it reaches the stable kernels?
+In this version:
+- Fix double hlist_del_rcu() / LIST_POISON2 dereference on cooling probes
+  (reported by Sashiko AI review[1]):
+  - In optprobe_finalize_generation(), do not unhash unused probes before
+    moving them to cur_gen's freeing list; defer unhashing to
+    do_unoptimize_kprobes() when cur_gen is dispatched.
+  - In do_unoptimize_kprobes(), use hlist_del_init_rcu() instead of
+    hlist_del_rcu() for idempotent and safe unhashing.
 
-Fixes: cf9ff75d15a9 ("soc: fsl: dpio: store a backpointer to the device backing the dpaa2_io")
-Fixes: 69651bd8d303 ("soc: fsl: dpio: add Net DIM integration")
-Cc: stable@vger.kernel.org
+[1] https://lore.kernel.org/all/20260930130018.997401F000FF@smtp.kernel.org/
 
-Tested-by: Anthony Pighin <anthony.pighin@nokia.com>
+=== How the Asynchronous Multi-Generational Optimizer Works ===
+
+1. Background & Motivation
+--------------------------
+Previously, kprobe_optimizer() executed synchronously:
+- It acquired kprobe_mutex, text_mutex, and cpus_read_lock().
+- It then called synchronize_rcu_tasks() while holding all three locks.
+- Under PREEMPT_LAZY / PREEMPT kernels and CPU-heavy server workloads,
+  synchronize_rcu_tasks() can stall for seconds to minutes waiting for
+  voluntary context switches on all online CPUs.
+- Holding text_mutex and cpus_read_lock() throughout this wait blocked
+  CPU hotplug, module loading/unloading, static keys, and all subsequent
+  kprobe registrations, frequently triggering hung-task watchdogs.
+
+The actual instruction modification (text-patching) takes only
+microseconds. The new optimizer completely decouples instruction patching
+from the Tasks RCU grace period wait using call_rcu_tasks(), dropping all
+locks during the wait.
+
+2. Architecture: Fixed Generational Ring
+----------------------------------------
+To ensure jump optimization never fails with -ENOMEM during tracing,
+a fixed ring of generation slots is used:
+
+  static struct optprobe_generation optprobe_gens[OPTPROBE_GEN_MAX];
+  (OPTPROBE_GEN_MAX = 2)
+
+Each generation struct contains 4 probe lists and tracking state:
+- optimizing_list:
+    Probes waiting to be optimized (jump installed). Text-patching is
+    deferred until after the generation's Tasks RCU grace period.
+- unoptimizing_list:
+    Probes waiting to be unoptimized (jump replaced with breakpoint)
+    prior to entering the grace period.
+- cooling_list:
+    In-use probes whose jumps were unoptimized, cooling down during the
+    Tasks RCU grace period. Holding them on this list keeps
+    list_empty(&op->list) false, preventing concurrent unregister_kprobes()
+    from prematurely freeing the aggregator or detour buffer before
+    preempted tasks exit.
+- freeing_list:
+    Cleaned/unused aggregator probes whose detour slots and memory
+    will be reclaimed after the Tasks RCU grace period completes.
+- rcu:
+    The rcu_head passed to call_rcu_tasks().
+- in_flight / ready:
+    State flags indicating if the generation is currently waiting on
+    Tasks RCU, or if the callback has fired and finalization is pending.
+
+3. The "Waiting Room" Invariant
+-------------------------------
+optprobe_cur_gen points to the current active ingress generation.
+All new optimization, unoptimization, and forced-cleanup requests from
+register_kprobe(), unregister_kprobe(), and kill_optimized_kprobe() are
+queued into optprobe_gens[optprobe_cur_gen].
+
+To ensure an idle generation slot is always available to absorb incoming
+requests without dynamic allocation, the last available generation slot
+is never dispatched while an earlier generation is still in flight
+(optprobe_can_fire() checks active_gens < OPTPROBE_GEN_MAX - 1).
+It acts as a non-blocking "waiting room".
+
+4. Execution Flow of the Optimizer Thread
+-----------------------------------------
+The dedicated optimizer kthread sleeps on kprobe_optimizer_wait and wakes
+when kicked, when a flush is requested, or when an RCU callback completes.
+
+                [ Probes Queued in cur_gen ]
+                            |
+               kprobe_optimizer_thread()
+                            |
+            (batching delay: OPTIMIZE_DELAY)
+                            |
+             kprobe_optimizer() [holds kprobe_mutex]
+             +------------------------------+
+             |                              |
+             v                              v
+   [ Step 1: Finalize ]           [ Step 2: Dispatch ]
+   (for ready generations)        (for cur_gen if can_fire)
+             |                              |
+   - Hold text_mutex & cpus_lock  - Hold text_mutex & cpus_lock
+   - arch_optimize_kprobes()      - arch_unoptimize_kprobes()
+   - do_free_cleaned_kprobes()    - Move in-use to cooling_list
+   - Drain cooling_list           - Advance cur_gen
+   - Drop text_mutex & cpus_lock  - Drop text_mutex & cpus_lock
+   - gen->in_flight = false       - call_rcu_tasks(&gen->rcu)
+             +------------------------------+
+                            |
+                            v
+                  [ Step 3: Notify ]
+                  - If progress:
+                      optimizer_passes++
+                      wake_up_var_locked(optimizer_passes)
+                  - Self-kick if more probes queued
+
+Step 1: Finalize Ready Generations (optprobe_finalize_generation)
+  Runs for any generation where the Tasks RCU callback marked ready = true:
+  1. Briefly acquires text_mutex and cpus_read_lock().
+  2. Calls arch_optimize_kprobes(&gen->optimizing_list) to patch the
+     relative jump into target instructions.
+  3. Releases text_mutex and cpus_read_lock().
+  4. Calls do_free_cleaned_kprobes(&gen->freeing_list) to release detour
+     buffers and free unused aggregator probes.
+  5. Drains gen->cooling_list:
+     - Probes unregistered while in flight (kprobe_unused()) are moved
+       to cur_gen's freeing_list for the next pass.
+     - Probes still in use have their disarming finalized via
+       list_del_init(&op->list), and are queued for re-optimization if
+       still enabled.
+  6. Clears in_flight = false and ready = false, returning the slot to
+     the idle pool.
+
+Step 2: Dispatch the Waiting Room (optprobe_dispatch_generation)
+  If the waiting room has queued probes and active_gens < OPTPROBE_GEN_MAX - 1:
+  1. Briefly acquires text_mutex and cpus_read_lock().
+  2. Calls do_unoptimize_kprobes(): executes arch_unoptimize_kprobes() to
+     replace relative jumps with breakpoints.
+  3. Probes that are unused are moved to gen->freeing_list and removed
+     from the kprobe hash table (hlist_del_rcu).
+  4. Probes still in use are moved to gen->cooling_list.
+  5. Releases text_mutex and cpus_read_lock().
+  6. Advances optprobe_cur_gen to the next generation slot.
+  7. Marks gen->in_flight = true, gen->ready = false.
+  8. Calls call_rcu_tasks(&gen->rcu, optprobe_generation_rcu_cb) and
+     immediately returns. kprobe_mutex is completely released while
+     Tasks RCU runs asynchronously in the background.
+
+Step 3: Pass Completion & Flusher Notification
+  1. If any generation was finalized or dispatched (progress was made),
+     increments optimizer_passes and wakes waiters sleeping on
+     wait_for_kprobe_optimizer().
+  2. If the waiting room still has queued probes and another generation
+     can fire immediately (e.g. sibling probes retrying optimization),
+     it kicks itself for another pass.
+
+5. Concurrency & Preemption Safety (The cooling_list)
+-----------------------------------------------------
+Under CONFIG_PREEMPTION=y, a task can be preempted inside an optprobe detour
+buffer (or the detour template). When a probe is disabled, its jump is
+reverted to an int3 breakpoint, but the detour buffer cannot be freed until
+all preempted tasks have executed a voluntary context switch (Tasks RCU).
+
+Because kprobe_mutex is dropped during the grace period, concurrent
+unregister_kprobes() could run. Previously, unregister_kprobes() checked
+kprobe_disarmed(ap), which evaluates:
+  kprobe_disabled(p) && list_empty(&op->list)
+
+If unoptimized in-use probes were simply detached (list_del_init),
+kprobe_disarmed() would become true prematurely, allowing
+free_aggr_kprobe() to free the detour buffer and kfree(op) while a
+preempted task was still inside the detour buffer.
+
+By placing unoptimized in-use probes onto gen->cooling_list:
+- They are kept off unoptimizing_list so arch_unoptimize_kprobes() will
+  never be called twice on them.
+- list_empty(&op->list) remains false throughout the Tasks RCU grace period.
+- unregister_kprobes() sees !kprobe_disarmed() and defers deleting the
+  aggregator.
+- When optprobe_finalize_generation() runs after the grace period, it
+  safely reclaims or disarms them without any use-after-free window.
+
+6. Flush Synchronization (Andrea Parri's Wait Queue Fix)
+--------------------------------------------------------
+When wait_for_kprobe_optimizer() flushes the optimizer:
+- It checks optprobe_optimizer_busy():
+    optprobe_has_queued_probes() || (optprobe_active_gens_count() > 0)
+- Instead of using a completion (which suffered from concurrent-waiter
+  init_completion() clobber races), it monitors the monotonic counter
+  optimizer_passes.
+- If work can be dispatched or a generation is ready, it wakes the
+  optimizer thread. Otherwise, if a generation is merely in flight, it
+  avoids redundant wakeups.
+- It sleeps via wait_var_event_mutex(&optimizer_passes, ..., &kprobe_mutex).
+  This cleanly releases kprobe_mutex while sleeping and wakes only when
+  actual progress is made, preventing CPU-bound spinloops until all
+  in-flight and queued generations drain.
+
+
+Thank you,
+
+---
+base-commit: 72d3fcf802c45d00b300f25b848a93c3a2bd7c7e
+
+Masami Hiramatsu (Google) (1):
+      kprobes: Make optprobe optimizer multi-generational and asynchronous
+
+
+ kernel/kprobes.c |  421 +++++++++++++++++++++++++++++++++++++++++-------------
+ 1 file changed, 319 insertions(+), 102 deletions(-)
+
+--
+Masami Hiramatsu (Google) <mhiramat@kernel.org>
 
