@@ -4,65 +4,62 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 414BCCA5FCB
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  1 Oct 2026 12:58:57 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 80A05CA5FD2
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  1 Oct 2026 12:59:41 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=99jEViOl5PDPr7S4f6dFd8qky+WBhygyyknHOH+obmo=; b=t1oilXjwqkSX0U5zFmCk+qgS6w
-	NxfrPjIWwSdi3JDvCo+0FV14xmIiV7kqMVZIt8WeF2imYeLu71+FXxrdD/9fnlER/gY/EwhwJlfgq
-	/0wZKRDU/1yzWUPlrd72We/bVGRAIxHzF2+YJRvJcwjQ2V14JnAMZB5aPZxZNUXsTO+ouAq0VTDRw
-	IcxH8Asme1bE9ZqMZWGtLbOqhZbph7eaJfFYvBi1vVrr3FYZ08ihHa+pETaC3lsBGHmQgrCLKQuxd
-	H4U4/7cG+RfIpqP/+yrcsUxeRU0hKan6pV8tQCl/kfW7hVwGLp8/Ngn5EUHEkSlmkdgdshDnDtBYl
-	vfyPidag==;
+	bh=2+QYNntd07WS7zMODeQXAyVckwYY6XqiZdZf5eCLe8k=; b=HfAW8EJOSINaac8VXBSxCPdxci
+	psh6Ida7CbnOhqgc9DIPOVnb6OP8WJs/8zM4ejvVTgZhA6LN9GHy8VZzrs49gwiakq89EwP+Itgm1
+	eCRB/pvFh4dfWIPBpQYzU8lEEdVyWzv3mXwqYsCGA6pDxwd0vNtpPvhqFD7haWebpSdJeFvAEgLiF
+	vcKz4yJbSt1u6W1nHFSPSNfimdKzx8oWlwMT+tmfiHnXo/zSLMeW6iiqOaX4MDMufOqUHo4BhSw79
+	9m/F+32ZayLydxkqaSroUT3TfJKdniEZRCjXzlFqiumM4WTRK6HnMHMcJ8LR+vd1u3Kwd5mvUjZbY
+	PYc+PPYQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xCGN8-000000099l6-2SRV;
-	Thu, 01 Oct 2026 12:58:50 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xCGN5-000000099k1-2pUX
+	id 1xCGNr-000000099tx-0qrp;
+	Thu, 01 Oct 2026 12:59:35 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
+	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1xCGNp-000000099tq-2Xv2
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 01 Oct 2026 12:58:49 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 33A72497;
-	Thu,  1 Oct 2026 05:58:40 -0700 (PDT)
-Received: from arm.com (usa-sjc-mx-foss1.foss.arm.com [172.31.20.19])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id C879F3F85F;
-	Thu,  1 Oct 2026 05:58:40 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1790859523; bh=weZVC+SDGzZZWfiF/GwygFk7zdR+r8AfKnlAZb1gUMw=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=g9AVJug1MjC/YjRWCqkfe7HbKIGnHgNws/5ZDp00SJD8kp37BFpOu0gXPNauTPfI+
-	 IHxC4kCwwyboG2Lu2OkI3LZQK6RvbGqaG3XlH+R7ITZhN1obN8g7uXZRtOJjmmwuwf
-	 Z38xa3Czv10sIGb7BizmWgDu9Ddek0qyPqXBRfRM=
-Date: Thu, 1 Oct 2026 13:58:38 +0100
-From: Catalin Marinas <catalin.marinas@arm.com>
-To: Suzuki K Poulose <suzuki.poulose@arm.com>
-Cc: kvm@vger.kernel.org, kvmarm@lists.linux.dev, maz@kernel.org,
-	will@kernel.org, linux-kernel@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org, steven.price@arm.com,
-	aneesh.kumar@kernel.org, oupton@kernel.org, gshan@redhat.com,
-	joey.gouly@arm.com, tabba@google.com, yuzenghui@huawei.com,
-	linux-coco@lists.linux.dev, gankulkarni@os.amperecomputing.com,
-	sdonthineni@nvidia.com, alpergun@google.com, fj0570is@fujitsu.com,
-	WeiLin.Chang@arm.com, lpieralisi@kernel.org, enju.kohei@fujitsu.com,
-	sudeep.holla@arm.com, jonathan.cameron@oss.qualcomm.com
-Subject: Re: [PATCH v21 8/9] firmware: arm_rmm: Add wrappers for Realm
- related RMI commands
-Message-ID: <ar5Y_pHBUQHbXr85@arm.com>
-References: <20261001084555.1456543-1-suzuki.poulose@arm.com>
- <20261001084555.1456543-9-suzuki.poulose@arm.com>
+	Thu, 01 Oct 2026 12:59:33 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by sea.source.kernel.org (Postfix) with ESMTP id 251F84042E;
+	Thu,  1 Oct 2026 12:59:33 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 0E16D1F000FF;
+	Thu,  1 Oct 2026 12:59:29 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1790859573;
+	bh=2+QYNntd07WS7zMODeQXAyVckwYY6XqiZdZf5eCLe8k=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=VPtdhrZLZS6IvmpaxQATO4OuteyezqkuAoyWrhPye1VvQ14ST5gu9mgOvbSfuyjDB
+	 UH5zO81vNqRp1IYbp/78IVOmIVhYhGjofsmECs5n3pQswCILJFth7eGwNr2SFudd5M
+	 gjIMBBAVwxo2p/78Jx8e6Bc/NMHv1+T4HbnnepH/4JEYDkRt9zbbgHaX3BEjH9r6UZ
+	 eWd9at+tcDUmTXy6Eab3A3eoxdNB1j8tsBDsDNVNV4bAFFr/NAvPoEKj2wn6e0xD6H
+	 K7XhGzsB6JfvfamVI7Shh7EqDontlUArSPxlI9o7WYa4x+M74v8PZTTX+ASwIhEFty
+	 t8/xTfDToBQ/w==
+Date: Thu, 1 Oct 2026 13:59:27 +0100
+From: Will Deacon <will@kernel.org>
+To: Fuad Tabba <fuad.tabba@linux.dev>
+Cc: maz@kernel.org, oupton@kernel.org, kvmarm@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+	catalin.marinas@arm.com, joey.gouly@arm.com, seiden@linux.ibm.com,
+	suzuki.poulose@arm.com, yuzenghui@huawei.com, mark.rutland@arm.com,
+	steven.price@arm.com, vdonnefort@google.com, qperret@google.com,
+	tabba@google.com
+Subject: Re: [PATCH v3 10/18] KVM: arm64: Handle PSCI calls for protected VMs
+ at EL2
+Message-ID: <ar5ZLxL6-mz98tpN@willie-the-truck>
+References: <20260914113338.159227-1-fuad.tabba@linux.dev>
+ <20260914113338.159227-11-fuad.tabba@linux.dev>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20261001084555.1456543-9-suzuki.poulose@arm.com>
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261001_055848_531675_AB139046 
-X-CRM114-Status: GOOD (  19.17  )
+In-Reply-To: <20260914113338.159227-11-fuad.tabba@linux.dev>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -77,77 +74,40 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Oct 01, 2026 at 09:45:54AM +0100, Suzuki K Poulose wrote:
-> diff --git a/include/linux/arm-rmi-cmds.h b/include/linux/arm-rmi-cmds.h
-> index 5d005054f3c6c..e3503aba646e2 100644
-> --- a/include/linux/arm-rmi-cmds.h
-> +++ b/include/linux/arm-rmi-cmds.h
-> @@ -53,6 +53,17 @@ static inline void rmi_smccc_invoke(struct arm_smccc_1_2_regs *regs)
->  	}
->  }
+On Mon, Sep 14, 2026 at 12:33:30PM +0100, Fuad Tabba wrote:
+> diff --git a/arch/arm64/kvm/hyp/nvhe/pkvm.c b/arch/arm64/kvm/hyp/nvhe/pkvm.c
+> index 855cb77c8bba1..d970cba12ca47 100644
+> --- a/arch/arm64/kvm/hyp/nvhe/pkvm.c
+> +++ b/arch/arm64/kvm/hyp/nvhe/pkvm.c
 >  
 > +/*
-> + * rmi_smccc_invoke_once: Invoke the RMI call and return the results. Do not
-> + * retry the command. Let the caller deal with RMI_BUSY or RMI_BLOCKED.
+> + * Reset the vCPU to its power-on state and commit ON_PENDING -> ON, on the
+> + * target's own CPU. Returns -ECANCELED, with no side effects, if a rollback
+> + * raced the reset.
 > + */
-> +static inline void rmi_smccc_invoke_once(struct arm_smccc_1_2_regs *regs)
+> +int pkvm_reset_vcpu(struct pkvm_hyp_vcpu *hyp_vcpu)
 > +{
-> +	struct arm_smccc_1_2_regs args = *regs;
+> +	struct vcpu_reset_state *reset_state = &hyp_vcpu->vcpu.arch.reset_state;
+> +	int prev;
 > +
-> +	arm_smccc_1_2_invoke(&args, regs);
-> +}
-
-Nit: I don't think we need to copy to args since there's no retry here.
-
-That said, the SMCCC call clobbers regs->a0. We should write a comment
-in case the caller thinks it can just retry with the same regs.
-Alternatively, we could pass args and res structures separately.
-
-> +/**
-> + * rmi_rec_destroy() - Destroy a REC
-> + * @rec: PA of the target REC
-> + * @sro: Allocated SRO context to be used
-> + *
-> + * Destroys a REC. The REC must not be running.
-> + *
-> + * Return: 0 on success, positive RMI result code or negative Linux error code
-> + */
-> +static inline long rmi_rec_destroy(unsigned long rec,
-> +				   struct rmi_sro_state *sro)
-> +{
-> +	return rmi_sro_memxfer_cmd(sro, GFP_KERNEL, SMC_RMI_REC_DESTROY, rec);
-> +}
+> +	/*
+> +	 * Pairs with smp_store_release(&reset_state->reset, true) in
+> +	 * pvm_psci_vcpu_on(). The acquire must precede the cmpxchg: reversed, a
+> +	 * winning cmpxchg with a false acquire would leave power_state == ON
+> +	 * with the reset skipped.
+> +	 */
+> +	if (!smp_load_acquire(&reset_state->reset))
+> +		return -ECANCELED;
 > +
-> +/**
-> + * rmi_rec_enter() - Enter a REC
-> + * @rec: PA of the target REC
-> + * @run_ptr: PA of RecRun structure
-> + *
-> + * Starts (or continues) execution within a REC.
-> + *
-> + * Return: RMI return code
-> + */
-> +static inline long rmi_rec_enter(unsigned long rec, unsigned long run_ptr)
+> +	prev = cmpxchg_relaxed(&hyp_vcpu->power_state,
+> +			       PSCI_0_2_AFFINITY_LEVEL_ON_PENDING,
+> +			       PSCI_0_2_AFFINITY_LEVEL_ON);
+> +	if (prev != PSCI_0_2_AFFINITY_LEVEL_ON_PENDING) {
+> +		/* The only other writer of ON_PENDING is the rollback. */
+> +		WARN_ON(prev != PSCI_0_2_AFFINITY_LEVEL_OFF);
 
-Nit: should probably be __always_inline. rmi_rec_destroy() and
-rmi_smccc_invoke_once() as well.
+If you go with the idea we're discussing later in the thread, then I think
+you need to drop this WARN_ON() and the comment that goes with it.
 
-Not for this series but something claude spotted in the integration
-branch - kvm_rec_enter() is noinstr. On this path, we end up in
-arm_smccc_1_1_get_conduit() which is not noinstr (again, that's for the
-other series; here just __always_inline should suffice).
-
-> +{
-> +	struct arm_smccc_1_2_regs regs = {
-> +		SMC_RMI_REC_ENTER, rec, run_ptr,
-> +	};
-> +
-> +	rmi_smccc_invoke_once(&regs);
-> +	return regs.a0;
-
-Should this use RMI_RESULT_STATUS(regs.a0)?
-
-The rest looks fine to me.
-
-Reviewed-by: Catalin Marinas <catalin.marinas@arm.com>
+Will
 
