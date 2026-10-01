@@ -4,113 +4,59 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 02171CA5FB3
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  1 Oct 2026 09:44:48 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0BACFCA5FB3
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  1 Oct 2026 09:47:19 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
-	Message-ID:Date:References:In-Reply-To:Subject:Cc:To:From:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=zH7V34OXWvQCWyssKCnOpja/kvoTZzJKQy/F14al/1M=; b=mxIostNrWH/cg04VPIeZFgMDdy
-	7c4D+5PbOCl8yEy63HoJUXtEBjt7tNzEe+/tKxkvh+LYKJp5otyApVJYSpH2RpW1PQB/TWeVbZwXi
-	nvyLMua3yTbKHaMfhVKH8ixufGVoTaazQ+2URJ6xHMjhEF/JwcUtxXyPPOhiWOgGnH4IFzVOhy64Y
-	I/dxz2MAbOzHg3fZvDcre9CrYuswY0895aWbcr/vCa6aN1jWd1dgCMKBhABDCAH/xMPGcshIeCThp
-	s+Gml6+0hEieVplVPMtdQjq04RIxbsp6fENHtISmAhFpNiCZVnEL3Q6Vy9hc9HzmIw6X/1qLLmtpC
-	fOkuq7ng==;
+	bh=nP/7NmxcFEkyCoBbKmC50W8cKRNPiQiDN30ZIAy2ec8=; b=tKicH5R0N33tuW5DLbxbZeOqE0
+	3eQ++sWEYq1SUiXurp/jKTYn/R+vs/oIpfZzcPLo5HYRX0myZyZxNqMrTuMtQySoUAXY/GHz23LZW
+	DQ5qV3Qfy2aaaqdtWCfvYf8IijfTiEygpTUwL91cbwDganaf5yzIjM3ejdOUCUV82JBMLK7yM+YZI
+	60mw7SgzqZQ3tE2ahuVBFigSwpIrIUZhmsT2Ews/b1ZepefHbr/QBk0k5fiXpKLmSLpPVlh/Lc5Wm
+	n6kuv/S7/HjYAhqkv/iYDIbL7so/RyxWxVlvEmnvM9kv4oTNPigwLBi22f3xSQdIJ7eGQlkfiQXyd
+	Kj5hObmQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xCDLG-00000008PTk-0Dxm;
-	Thu, 01 Oct 2026 09:44:42 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
-	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xCDLD-00000008PT1-10zi
-	for linux-arm-kernel@bombadil.infradead.org;
-	Thu, 01 Oct 2026 09:44:40 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Content-Type:MIME-Version:Message-ID:
-	Date:References:In-Reply-To:Subject:Cc:To:From:Sender:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description;
-	bh=zH7V34OXWvQCWyssKCnOpja/kvoTZzJKQy/F14al/1M=; b=nQERN4BroBv2NH1+VNNEMBBhc6
-	hAGEATSoML1p9s3/UkTWLcLLd+6P0wYpdDH7+JFmNSb0mrLSM3otsdSBbkyXg72HTmQn2FVevA10/
-	H1D2MsMgq8pXbCLDmPwxBfWcdN5a2B3/X8HE7+S66FLwzJFGRDuUu3PeOzGxm/dUnrDcP4M4Yknrv
-	bs6CKuW3OuxsFth9GKHq7AF07eklT+LvPWi0tLWMCmXyMgBSbzLQkhR87YWD9+yrCf324DrjRyM4a
-	nh1POVZOppIoNgBDvK/Q9tajIBpGAScOYPJE98nvARVn6kpQ8pLZ05ABTyl0babQ7+9T65B6HLczc
-	qZBvEjQA==;
-Received: from mail-wm2-x11.google.com ([2a00:1450:4864:31::11])
-	by desiato.infradead.org with esmtps (Exim 4.99.2 #2 (Red Hat Linux))
-	id 1xCDL9-00000004o6y-2IFI
+	id 1xCDNh-00000008Pvn-1mM3;
+	Thu, 01 Oct 2026 09:47:13 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1xCDNe-00000008Puj-2FRi
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 01 Oct 2026 09:44:37 +0000
-Received: by mail-wm2-x11.google.com with SMTP id 5b1f17b1804b1-49ffa15f67fso32087855e9.2
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 01 Oct 2026 02:44:35 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=baylibre.com; s=google; t=1790847874; x=1791452674; darn=lists.infradead.org;
-        h=content-type:mime-version:message-id:date:references:in-reply-to
-         :subject:cc:to:from:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=zH7V34OXWvQCWyssKCnOpja/kvoTZzJKQy/F14al/1M=;
-        b=E6EmmIUOV7dVqrgr4jNeWGQbZOt6CTgaK2F8IFV7ATVdm73UJ0z/2o0rxVdxch2e8w
-         MH6e7W6+bBR+KV7toFdDchkvW9Ye6xuwlwBuIpof7GgYphkEF1d8qzH5OlfOiBIIWxHB
-         qFswAEGJEt7JBcs0Ojsk7DW4feIEBPb373MvY8N6xaqM7b7qhEIX4Z2aAhJXJYtxoiTo
-         v7GMPWpLElmbTZhb9sZRaryQe9gX5gQhS4TtpANjvv1jY3dTUpGUMJ4SxlgeMj1GSN+2
-         DJ/z3ejX784aFxhs3uiFmYW3m9QEozJ3oJAB8q9tE5PLUkiKMDSfu8kEpDVzqKs2KBYX
-         7x7A==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1790847874; x=1791452674;
-        h=content-type:mime-version:message-id:date:references:in-reply-to
-         :subject:cc:to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject
-         :date:message-id:reply-to:content-type;
-        bh=zH7V34OXWvQCWyssKCnOpja/kvoTZzJKQy/F14al/1M=;
-        b=ItfGQDm+WFCklhNwZxSfMzp0PSXM+VFLJSAj4Sq/qm4VIbZFnE2dKOhKk47+ORw1Ch
-         LJUT0MJJ6RtcMEjfQyj1RwQJ02gei2OmiuebftvGe4kAvu69xy6mvZiX31NG36yfwmDq
-         v8giEWRdFChIGHpB4oN3u3Ms29NgNg1IW1EBgTAqoRXe5TEBLODXkQzcrZjoHtwqRcrG
-         b2HeYpl5pXMAcmp1PJy8nxL/4eR0gn7dUUfQwLmikEzpcHr6hiqB95sfrskvNpjRfxb1
-         /+GJavfpmsxS3r3ZGlPxFtLFGAzEeJgBBKSgRnH46GE3JS5Hc9LYoWphqOQKRuuGi+fu
-         6HHg==
-X-Forwarded-Encrypted: i=1; AKwUvBzGS0SaV4Ohucqw47gJdmosfup2PaMvtdr4PUCL+FeqalL8xuW9j0BEWwGCqPOUG8xeQRV/GYyozykgX2hVJdLi@lists.infradead.org
-X-Gm-Message-State: AFuF++lMJRE3aSYSem/kOB4cwB2gAOSNmb9xPtFhEiCvNCcY0W02nFIc
-	/+aCS38NETBgO7EEAaBwTZkDYT8VPhFXBDwpL7gJR83dqvbD9oBfpYimRNaFCKO5lPk=
-X-Gm-Gg: AYBFou2T1Uda7nHoqzhh/S1Zj1WRRacUU3y0tGm6a6665ORSvDy/u+8zeHA7J8q/iAK
-	hGxDzvVvqJWxjEKQ6wDyuzthDbBcgW/5O4y0b6MQcnPTv0Urfa8D2xeGMUhiSIe4PtruuOmplGu
-	RLxHrav5UocS68CB9WlgD3aOSBMoojPCsxtaFvjtBwUmOdpswXK7/+kjr2jiBZlpwY4+OXPpmsj
-	NeFASPOlvKLItruP4LMdQtXn3/s95B9rwAaUVZ9xYuGqHsVVrv3dWb/A6fPfTaoJ6rXX+Uvzib7
-	6oW0OE1t5Uc4U+NkBHxbfd4zKMA+uQhq8BtmXI9V/HpyqmrsRZ0PIxzBsEv8n6N0xNtKaVSOnhn
-	hOLhNMNqkS2+LC0En1bL+79QoC39QZdo3SeA1lgcqJ5ZaYTnSPhDFYIbcMiMoTVC4NA3f2gEezl
-	q/bcWviGwVYTDW4jpJAdiYlsYtcq8tqSNK30EvrV2caEWktFtqM7loRnAOHLXDVUm17KdIB6jNy
-	KzafFfoG2umyZniPbmZeaNCnmAH
-X-Received: by 2002:a05:600c:a015:b0:4a0:22d5:9087 with SMTP id 5b1f17b1804b1-4a022d591e7mr16229865e9.31.1790847873729;
-        Thu, 01 Oct 2026 02:44:33 -0700 (PDT)
-Received: from localhost (82-67-6-57.subs.proxad.net. [82.67.6.57])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4a01fa137basm53110945e9.1.2026.10.01.02.44.33
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 01 Oct 2026 02:44:33 -0700 (PDT)
-From: Jerome Brunet <jbrunet@baylibre.com>
-To: Miquel Raynal <miquel.raynal@bootlin.com>, Jacky Huang
- <ychuang3@nuvoton.com>, Shan-Chun Hung <schung@nuvoton.com>, Michael
- Turquette <mturquette@baylibre.com>, Stephen Boyd <sboyd@kernel.org>,
- Richard Cochran <richardcochran@gmail.com>, Arnd Bergmann <arnd@arndb.de>,
- Brian Masney <bmasney+clk@redhat.com>, Jerome Brunet
- <jbrunet+clk@baylibre.com>, Rob Herring <robh@kernel.org>, Krzysztof
- Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>
-Cc: Thomas Petazzoni <thomas.petazzoni@bootlin.com>, Steam Lin
- <STLin2@winbond.com>, linux-arm-kernel@lists.infradead.org,
- linux-clk@vger.kernel.org, linux-kernel@vger.kernel.org, Krzysztof
- Kozlowski <krzk@kernel.org>, devicetree@vger.kernel.org, Miquel Raynal
- <miquel.raynal@bootlin.com>, Jacky Huang <ychuang570808@gmail.com>,
- stable@vger.kernel.org
-Subject: Re: [PATCH v6 05/12] clk: nuvoton: ma35d1: Add missing WDT/WWDT
- parent clocks
-In-Reply-To: <20260930-perso-ma35d1-upstream-clk-v6-5-48937ee6c9bb@bootlin.com>
-References: <20260930-perso-ma35d1-upstream-clk-v6-0-48937ee6c9bb@bootlin.com>
- <20260930-perso-ma35d1-upstream-clk-v6-5-48937ee6c9bb@bootlin.com>
-Date: Thu, 01 Oct 2026 11:44:32 +0200
-Message-ID: <1j4if53gcf.fsf@starbuckisacylon.baylibre.com>
+	Thu, 01 Oct 2026 09:47:12 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 9271F497;
+	Thu,  1 Oct 2026 02:47:04 -0700 (PDT)
+Received: from arm.com (usa-sjc-mx-foss1.foss.arm.com [172.31.20.19])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 369363F86F;
+	Thu,  1 Oct 2026 02:47:06 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
+	t=1790848028; bh=/QIsZj5ZknEUJbqRrL7io4YJRt6LKVatf9W0JsU0gc0=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=C3YuSdKbRNRrJeKGiTX+MeAWFYw1nMoNgLQPuFYsOKCffatmtgLArZDDicLEn5IVN
+	 QdfadJ+CTSkMVLbzp8x6wGpUaXAex+pC4OdZCR998yLM9QY0S0Of+W+nz/hvtSi8a0
+	 Y4FJRvpIK78QwNVq7zTFGk0de+v9hV5E84NrS3R8=
+Date: Thu, 1 Oct 2026 10:47:03 +0100
+From: Catalin Marinas <catalin.marinas@arm.com>
+To: Suzuki K Poulose <suzuki.poulose@arm.com>
+Cc: linux-arm-kernel@lists.infradead.org, will@kernel.org,
+	linux-kernel@vger.kernel.org, steven.price@arm.com,
+	gshan@redhat.com, aneesh.kumar@kernel.org, maz@kernel.org,
+	oupton@kernel.org, tabba@google.com, mark.rutland@arm.com,
+	linux-coco@lists.linux.dev
+Subject: Re: [PATCH v19] arm64: mm: Handle Granule Protection Faults (GPFs)
+Message-ID: <ar4rYdrDAp_uveXv@arm.com>
+References: <20260930164930.1388438-1-suzuki.poulose@arm.com>
 MIME-Version: 1.0
-Content-Type: text/plain
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20260930164930.1388438-1-suzuki.poulose@arm.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261001_104435_772697_CBA9551C 
-X-CRM114-Status: GOOD (  19.72  )
+X-CRM114-CacheID: sfid-20261001_024710_648937_4E2B66A0 
+X-CRM114-Status: GOOD (  30.94  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -125,57 +71,90 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On mer. 30 sept. 2026 at 19:24, Miquel Raynal <miquel.raynal@bootlin.com> wrote:
-
-> The WDT and WWDT muxes list PCLK3/4096 and PCLK4/4096 among their
-> possible parents, but the driver never registers the corresponding
-> clocks, so these parents could never be used.
->
-> Add pclk3_div4096 and pclk4_div4096 as fixed factor children of pclk3
-> and pclk4 and expose them through the clock provider.
->
-> Reported-by: Jacky Huang <ychuang570808@gmail.com>
-> Closes: https://lore.kernel.org/linux-clk/b8a8a65b-e302-4747-bc90-4920fc48795a@gmail.com/
-> Suggested-by: Jacky Huang <ychuang570808@gmail.com>
-> Fixes: 691521a367cf ("clk: nuvoton: Add clock driver for ma35d1 clock controller")
-> Cc: stable@vger.kernel.org
-> Link: https://lore.kernel.org/linux-clk/b8a8a65b-e302-4747-bc90-4920fc48795a@gmail.com/
-
-Is this is a mistake ? We usually add this when applying 
-
-> Reviewed-by: Jerome Brunet <jbrunet@baylibre.com>
-> Signed-off-by: Miquel Raynal <miquel.raynal@bootlin.com>
+On Wed, Sep 30, 2026 at 05:49:30PM +0100, Suzuki K Poulose wrote:
+> From: Steven Price <steven.price@arm.com>
+> 
+> If the host attempts to access granules that have been delegated to RMM
+> (for use as an RMM object or Realm Data), these accesses will be caught
+> and will trigger a Granule Protection Fault (GPF).
+> 
+> A fault during a page walk signals a bug in the kernel and is handled by
+> oopsing the kernel. A non-page walk fault could be caused by:
+> 
+>  * Userspace having access to a page which has been delegated. We don't allow
+>    mapping a delegated page (which may have Realm VM private data) to EL0.
+>    But if we do encounter this, trigger a SIGBUS to allow debugging
+> 
+>  * A kernel mode access is even more serious, except for the cases where :
+>    - Benign overreads e.g. load_unaligned_zeropad(), we should be able to fix
+>      this up.
+>    - A kdump kernel trying to access delegated page (donated by the primary
+>      kernel). We do not support this yet, but can be added in the later series.
+> 
+> There is ongoing work to unmap the guest_memfd backed private pages
+> from the linear map. We would additionally need to unmap the other
+> delegated pages too. For now handle the GPF and only fixing up kernel mode
+> accesses via kernel VA (which would cover both the legitimate cases above)
+> 
+> Reviewed-by: Gavin Shan <gshan@redhat.com>
+> Signed-off-by: Steven Price <steven.price@arm.com>
+> Signed-off-by: Suzuki K Poulose <suzuki.poulose@arm.com>
 > ---
->  drivers/clk/nuvoton/clk-ma35d1.c | 4 +++-
->  1 file changed, 3 insertions(+), 1 deletion(-)
->
-> diff --git a/drivers/clk/nuvoton/clk-ma35d1.c b/drivers/clk/nuvoton/clk-ma35d1.c
-> index 6aa42a3e1be3..c914079cee2d 100644
-> --- a/drivers/clk/nuvoton/clk-ma35d1.c
-> +++ b/drivers/clk/nuvoton/clk-ma35d1.c
-> @@ -17,7 +17,7 @@
->  static DEFINE_SPINLOCK(ma35d1_lock);
+> Changes since v18:
+>  * Only fixup accesses via kernel VA
+> Changes since v17:
+>  * Pass untagged address to die_kernel_fault() - Sashiko
+>  * Explicitly check !user_mode() for fixups - Catalin
+>  * Switch to BUS_OBJERR for si_code from SI_KERNEL - Catalin
+> Changes since v16:
+>  * Update the commit description to indicate why we try to fixup GPFs
+> Changes since v10:
+>  * Don't call arm64_notify_die() in do_gpf() but simply return 1.
+> Changes since v2:
+>  * Include missing "Granule Protection Fault at level -1"
+> ---
+>  arch/arm64/mm/fault.c | 35 +++++++++++++++++++++++++++++------
+>  1 file changed, 29 insertions(+), 6 deletions(-)
+> 
+> diff --git a/arch/arm64/mm/fault.c b/arch/arm64/mm/fault.c
+> index 75c3e463df2ef..ded9288a5dd2f 100644
+> --- a/arch/arm64/mm/fault.c
+> +++ b/arch/arm64/mm/fault.c
+> @@ -914,6 +914,29 @@ static int do_tag_check_fault(unsigned long far, unsigned long esr,
+>  	return 0;
+>  }
 >  
->  #define PLL_MAX_NUM		5
-> -#define	MA35D1_CLK_COUNT	236
-> +#define	MA35D1_CLK_COUNT	238
->  
->  /* Clock Control Registers Offset */
->  #define REG_CLK_PWRCTL		0x00
-> @@ -544,6 +544,8 @@ static int ma35d1_clocks_probe(struct platform_device *pdev)
->  	hws[HCLK3] = ma35d1_clk_fixed_factor(dev, "hclk3", "sysclk1_mux", 1, 2);
->  	hws[PCLK3] = ma35d1_clk_fixed_factor(dev, "pclk3", "sysclk1_mux", 1, 2);
->  	hws[PCLK4] = ma35d1_clk_fixed_factor(dev, "pclk4", "sysclk1_mux", 1, 2);
-> +	hws[PCLK3_DIV4096] = ma35d1_clk_fixed_factor(dev, "pclk3_div4096", "pclk3", 1, 4096);
-> +	hws[PCLK4_DIV4096] = ma35d1_clk_fixed_factor(dev, "pclk4_div4096", "pclk4", 1, 4096);
->  
->  	hws[USBPHY0] = ma35d1_clk_fixed("usbphy0", 480000000);
->  	hws[USBPHY1] = ma35d1_clk_fixed("usbphy1", 480000000);
->
-> -- 
-> 2.55.0
->
+> +static int do_gpf_ptw(unsigned long far, unsigned long esr, struct pt_regs *regs)
+> +{
+> +	const struct fault_info *inf = esr_to_fault_info(esr);
+> +	unsigned long addr = untagged_addr(far);
+> +
+> +	die_kernel_fault(inf->name, addr, esr, regs);
+> +	return 0;
+> +}
+> +
+> +static int do_gpf(unsigned long far, unsigned long esr, struct pt_regs *regs)
+> +{
+> +	/*
+> +	 * Userspace must not have a delegated page mapped in. If the kernel
+> +	 * is made to access it, then we have a serious problem.
+> +	 * Only fixup if the access came via kernel VA. e.g., load_unaligned_zeropad()
+> +	 */
+> +	if (!user_mode(regs) && !is_el1_instruction_abort(esr) &&
+> +	    !is_ttbr0_addr(untagged_addr(far)) && fixup_exception(regs, esr))
+> +		return 0;
+> +
+> +	return 1;
+> +}
+
+The logic looks fine to me, so:
+
+Reviewed-by: Catalin Marinas <catalin.marinas@arm.com>
+
+Whether we want to unmap the delegated pages eventually (and not just
+guest_memfd), given that we get a synchronous fault architecturally, I'm
+not yet convinced it's worth it (it fragments the linear map).
 
 -- 
-Jerome
+Catalin
 
