@@ -4,62 +4,74 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6D027CA5FD4
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  1 Oct 2026 16:39:10 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 20629CA5FD6
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  1 Oct 2026 16:39:38 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=53qEhBkxOk8Rhw/laCIFBAvn8/m0XtPcvZMYs9C6rlQ=; b=hVTwFcMTDCnyFtAf9uMZvF5KU5
-	JZG88PmJ3QiUbFvYqUJeV8auw7wd2Kh5lciliP/fBp/Kkgz4saWoWBhBmJUzwVhXtImayqs1M46lm
-	I+VR8fFS6W+WUgBadvhQnI2QInoWcn1H8QvFyHUAixFEUZJYHeFbzcacnm4QH5i6PPsgfXFpb3Vyv
-	RbjKto5tWq70Yc1b7HfPsjPOZ9xTE+MIt4Ob9w15oEEWUFS+07rIwWatYJ8W2pd92SOmSuPVswowr
-	Ib8+XmmswIrwAZX4rM17L0ZhjE+qDqE2INQPCIJDYul8UWq2q9AkzCrg2zbJOerhWQE33HwIHaytO
-	X8K9PxCw==;
+	bh=qq+6EUhmiZleFP8JaAHh/mFkJt4aJ2uekt5AzQtFZ/Q=; b=f8m5Zi2+av9hocSUr28aPRTffO
+	rEzpYAAK3D4jK8QB1iI9zSIdFYxullbBjADbMhj+k31O1Ay4TQGGMPJi4antGfMHvugGAlCSQMVhK
+	gW7OlYFzjD0eVjOTtsPuX0feMIWQxtTyuBC/Boxh4I28nHQ3bln5xyznOALy/m1cL1BTKXj0y0BPQ
+	bJS6uEjGdiw21kyxYZq+ZAE5pwg80W4N1g5odtPuzXhrN+YkpjmWPzaiYWXXY3yZen2GQkGHopeSi
+	A0F50Fxlu6JudfKdMDADNRF9obH1/zySGf/L7H7nqApSRCK+6jaLFVw1BwJjaogtpFIkfImvFMZAU
+	yVF0TNmA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xCJoG-00000009jx6-0YaJ;
-	Thu, 01 Oct 2026 16:39:04 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
-	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xCJoE-00000009jw4-32KV
+	id 1xCJog-00000009k7q-1C8P;
+	Thu, 01 Oct 2026 16:39:30 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1xCJoe-00000009k6Q-0sNV
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 01 Oct 2026 16:39:02 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id D9FDC60A58;
-	Thu,  1 Oct 2026 16:39:01 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 407411F000FF;
-	Thu,  1 Oct 2026 16:38:57 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1790872741;
-	bh=53qEhBkxOk8Rhw/laCIFBAvn8/m0XtPcvZMYs9C6rlQ=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=ih38u32lPiJYlaJAURPfglfqwPvJJxhtf5w7W7gSfONpcFZzZDJYU6r4nW3CPdmEU
-	 GqoXWL8her2J6bcMV8UXzEiEVVlsBpoLP5nByHKacD7wwS26XFQKugqsRKZIFEwVmj
-	 JA+xslQaQC1Nbjjt8qzVnPE2bfC9L+z40rHufLphSQVcnGSMrFZtVtthpS5tyd+gFo
-	 eNHHwIYCTZloAMKT8sbG25on4W+Cqebz7aZblobreWAHexQC7WiPCBQrziapwvFRGu
-	 kjQHnrb96C9aAAslyi6KvHaZlrD9RoddsdxJZtn4H/ENIux8KW4XPqPPetdjdy2xW7
-	 KfyM51MqwEu/g==
-Date: Thu, 1 Oct 2026 17:38:54 +0100
-From: "Lorenzo Stoakes (ARM)" <ljs@kernel.org>
-To: Mark Brown <broonie@kernel.org>
-Cc: Catalin Marinas <catalin.marinas@arm.com>, 
-	Will Deacon <will@kernel.org>, Marc Zyngier <maz@kernel.org>, Joey Gouly <joey.gouly@arm.com>, 
-	Suzuki K Poulose <suzuki.poulose@arm.com>, Shuah Khan <shuah@kernel.org>, Oliver Upton <oupton@kernel.org>, 
-	Fuad Tabba <fuad.tabba@linux.dev>, Peter Maydell <peter.maydell@linaro.org>, 
-	Leonardo Bras <leo.bras@arm.com>, Wei-Lin Chang <weilin.chang@arm.com>, 
-	Yao Yuan <yaoyuan@linux.alibaba.com>, linux-arm-kernel@lists.infradead.org, linux-doc@vger.kernel.org, 
-	kvmarm@lists.linux.dev, linux-kselftest@vger.kernel.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v21 12/15] KVM: selftests: arm64: Add GCS to set_id_regs
-Message-ID: <ar6MIFW2vfM893yd@gremlin>
-References: <20260930-arm64-gcs-v21-0-3556644cd927@kernel.org>
- <20260930-arm64-gcs-v21-12-3556644cd927@kernel.org>
+	Thu, 01 Oct 2026 16:39:29 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id EE5E9497;
+	Thu,  1 Oct 2026 09:39:22 -0700 (PDT)
+Received: from e129823.arm.com (e129823.arm.com [10.2.213.3])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id E2E613F85F;
+	Thu,  1 Oct 2026 09:39:22 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
+	t=1790872766; bh=q4SvOgTXIsNqlpMUOj2ef8MMWb7VA7YCONSmXTiArQk=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=thPgHjGq4KLCxFCMOxTNwhO46NGyh+WVwgUMuprlxt+Nen4cbvbV1B/AetnyZ63cI
+	 qjGPOelzghxSe5sU3NpQYJCnPiPTWokp39L+895qwgszRoFOfxxUCOOwc2wmQus0+8
+	 blikHLD31ZKL4WOfKOE2CFaiphHnqEPP7yfAwj2U=
+Date: Thu, 1 Oct 2026 17:39:20 +0100
+From: Yeoreum Yun <yeoreum.yun@arm.com>
+To: Jason Gunthorpe <jgg@ziepe.ca>
+Cc: Roberto Sassu <roberto.sassu@huaweicloud.com>,
+	Yeoreum Yun <yeoreum.yun@arm.com>, linux-coco@lists.linux.dev,
+	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+	Eric Snowberg <eric.snowberg@oracle.com>,
+	linux-integrity@vger.kernel.org,
+	linux-security-module@vger.kernel.org,
+	Mimi Zohar <zohar@linux.ibm.com>,
+	Roberto Sassu <roberto.sassu@huawei.com>,
+	Dmitry Kasatkin <dmitry.kasatkin@gmail.com>,
+	Paul Moore <paul@paul-moore.com>, James Morris <jmorris@namei.org>,
+	"Serge E. Hallyn" <serge@hallyn.com>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Suzuki Poulose <suzuki.poulose@arm.com>,
+	Steven Price <steven.price@arm.com>,
+	Sami Mujawar <sami.mujawar@arm.com>,
+	"Aneesh Kumar K.V" <aneesh.kumar@kernel.org>,
+	Jiri Pirko <jiri@resnulli.us>, gongruiqi1@huawei.com
+Subject: Re: [PATCH RFC 0/3] security: ima: support TSM measurement registers
+Message-ID: <ar6MuKSDQc9J8o-6@e129823.arm.com>
+References: <20260930-ima_tgx_integration_v2-v1-0-722c35370548@arm.com>
+ <ebe68f6463f8ece8a5cd8ce70bba292ec4f64a41.camel@huaweicloud.com>
+ <c4fe5315d70fc162f1e5648e3fccb1676710d5e6.camel@huaweicloud.com>
+ <20261001151801.GC3019323@ziepe.ca>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20260930-arm64-gcs-v21-12-3556644cd927@kernel.org>
+In-Reply-To: <20261001151801.GC3019323@ziepe.ca>
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20261001_093928_325104_E1C8A7FF 
+X-CRM114-Status: GOOD (  24.55  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -74,62 +86,55 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Sep 30, 2026 at 10:48:22PM +0100, Mark Brown wrote:
-> Now that GCS is configurable via the ID registers update set_id_regs to
-> cover ID_AA64PFR1_EL1.GCS.
+Hi Jason,
 
-Should maybe also mention adding the GCS-without-S1PIE test?
+> On Thu, Oct 01, 2026 at 01:45:26PM +0200, Roberto Sassu wrote:
+> > On Thu, 2026-10-01 at 13:27 +0200, Roberto Sassu wrote:
+> > > On Wed, 2026-09-30 at 14:43 +0100, Yeoreum Yun wrote:
+> > > > Confidential computing guests without a TPM can use TSM measurement
+> > > > registers to record IMA measurement digests instead of TPM PCRs.
+> > 
+> > + Gong Ruiqi, of course.
+> 
+> We are working very seriously on this same problem too.
+> 
+> For some time we did investigate extending tsm_mr to do more things,
+> have a better uAPI, but that eventually evolved into the realization
+> that tsm_mr is simply too narrowly focused. It looks like James got to
+> this idea before we did. I agree with his remarks in the 2025 thread
+> with Gong.
+> 
+> So we've started work on a new comprehensive "Attestation subsytem"
+> that will pull in all forms of ROTs, TPM, CC stuff and SPDM use cases
+> to give a consistent user API to work with this class of HW. In many
+> ways I view this as a rename of tsm_mr (it will eventually fully
+> absorb it), but the name evokes the broader goal and encourages
+> everyone to come in, not just CC world.
+> 
+> Our overall goal would be for something like systemd to have a single
+> uniform kernel API that allows it interwork with any ROT someone may
+> have. A uAPI to do "Extend", "Quote", "Get Log" operations so that the
+> existing TPM support in systemd can be improved to work on any ROT
+> flexibly without having to hard code specific ROT behaviors into
+> systemd.
+> 
+> I've felt the ultimate end goal would be to make all the in-kernel tpm
+> users go through the proposed attestation subsystem so they can have
+> ROT and "PCR profile" agility. Certainly I've heard enough people
+> asking for this.
+> 
+> This is a broader topic than just IMA. For example DRTM also has to
+> use the TPM, and other ROTs. It also brings in a global shift of how
+> the system wide "PCR Profile" should work as post-DRTM has a different
+> TPM locality and access to the protected DRTM-only PCRs that are
+> normally blocked.
+> 
+> Jiri posted his current state here:
+>   https://lore.kernel.org/r/arzr32ZDComnfmny@FV6GYCPJ69
 
->
-> Signed-off-by: Mark Brown <broonie@kernel.org>
+Thanks to let me know. I'll take a look for this.
 
-Looks obviously correct (TM) to me too so:
-
-Reviewed-by: Lorenzo Stoakes (ARM) <ljs@kernel.org>
-
-> ---
->  tools/testing/selftests/kvm/arm64/set_id_regs.c | 8 ++++++++
->  1 file changed, 8 insertions(+)
->
-> diff --git a/tools/testing/selftests/kvm/arm64/set_id_regs.c b/tools/testing/selftests/kvm/arm64/set_id_regs.c
-> index cb5e6358c59c..9db8516748cc 100644
-> --- a/tools/testing/selftests/kvm/arm64/set_id_regs.c
-> +++ b/tools/testing/selftests/kvm/arm64/set_id_regs.c
-> @@ -154,6 +154,7 @@ static const struct reg_ftr_bits ftr_id_aa64pfr0_el1[] = {
->
->  static const struct reg_ftr_bits ftr_id_aa64pfr1_el1[] = {
->  	REG_FTR_BITS(FTR_LOWER_SAFE, ID_AA64PFR1_EL1, DF2, 0),
-> +	REG_FTR_BITS(FTR_LOWER_SAFE, ID_AA64PFR1_EL1, GCS, 0),
->  	REG_FTR_BITS(FTR_LOWER_SAFE, ID_AA64PFR1_EL1, CSV2_frac, 0),
->  	REG_FTR_BITS(FTR_LOWER_SAFE, ID_AA64PFR1_EL1, SSBS, ID_AA64PFR1_EL1_SSBS_NI),
->  	REG_FTR_BITS(FTR_LOWER_SAFE, ID_AA64PFR1_EL1, BT, 0),
-> @@ -818,6 +819,12 @@ struct reg_ftr_val {
->  	  .mask = r ## _ ## f ## _MASK,				\
->  	  .val = (r ## _ ## f ## _ ## v  << r ## _ ## f ## _SHIFT) }
->
-> +static const struct reg_ftr_val gcs_no_s1pie[] = {
-> +	REG_FTR_VAL(ID_AA64PFR1_EL1, GCS, IMP),
-> +	REG_FTR_VAL(ID_AA64MMFR3_EL1, S1PIE, NI),
-> +	{ }
-> +};
-> +
->  static const struct reg_ftr_val s1pie_no_tcr2[] = {
->  	REG_FTR_VAL(ID_AA64MMFR3_EL1, TCRX, NI),
->  	REG_FTR_VAL(ID_AA64MMFR3_EL1, S1PIE, IMP),
-> @@ -836,6 +843,7 @@ struct ftr_config {
->  };
->
->  static const struct ftr_config invalid_configs[] = {
-> +	{ .name = "GCS without S1PIE", .regs = gcs_no_s1pie },
->  	{ .name = "S1PIE without TCRX", .regs = s1pie_no_tcr2 },
->  	{ .name = "S1POE without TCRX", .regs = s1poe_no_tcr2 },
->  };
->
-> --
-> 2.47.3
->
->
-
---
-Cheers, Lorenzo
+-- 
+Sincerely,
+Yeoreum Yun
 
