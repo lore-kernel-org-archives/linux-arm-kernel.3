@@ -4,67 +4,74 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C18C9CA5FCB
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  1 Oct 2026 15:33:48 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8F515CA5FCB
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  1 Oct 2026 15:35:02 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Gl19LhtWLKjfcWFniW5fiNkolXSpsFJsnrsmyFVH1q0=; b=2CYlZjNdZk0+jL7u1kXJEcYDI1
-	l2aGye9Bpb2dKgnu64TnWQUXKB7hxRzSddScLsECG2rB/Ym9yY896D2Hf78mr+Ez7+ZUo7L1TjTwR
-	d5nTHUdV6rdvMQilesVmxdaSalcq8Odjcdf0OzWXTADFdkWBq2Hsd0QrrNaOLOO/b0dFPm2bbwNGs
-	weBZktVhfqnKze1FD3CMgfj98nvxA1i3iTltNGgVOdBahvSH32KlKZ/y5YAuRmE0ytc4ebC9//Oyh
-	IWj0tXSQrC2RK8zOIBn6mxYMvyQ5+rPNu4CKiouqHZeV1zirJXw1Re73tezo4M8g0dhfTM09seXqh
-	TuDEHDDg==;
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=Af8xwxarIrzJ9DFg+B2eAcI63nSpc0bzfKuadD4JKzI=; b=3UmfFfa5QeYIFUPjEOQy0VBEIt
+	3NObTCLnPRCgK7uxHn1WDY/5AoLocKdpHuo16aEI+fkozHjUtjSt0A6O5H0biIIxBxsQAbA1+z8uB
+	haQh+u4MJWci7HecX0Odz7b52Yvx+U+6gCUDKQpzkudwVoq0byuP3UDdCqU8P2jgx3nBD0/0+E3w3
+	m4xpkHZ+NEe8GPiRUYfX31064dABLFU0b2KfyzMPQKFE0rrMe4V7Uv6DG2EDjrlpzeaCmczydXbmf
+	3LdUad8fvGngAX1gmM2IZ7lQfOZLijW0FuIfvT19xKcayxsirFzKOdXCKyrUYR0J1RvdDcCcCtw5c
+	W6V59NKQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xCImy-00000009XSX-2Otk;
-	Thu, 01 Oct 2026 15:33:40 +0000
-Received: from linux.microsoft.com ([13.77.154.182])
+	id 1xCIoB-00000009XfE-3bCG;
+	Thu, 01 Oct 2026 15:34:55 +0000
+Received: from foss.arm.com ([217.140.110.172])
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xCImw-00000009XS2-01vw
+	id 1xCIo8-00000009Xee-3skl
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 01 Oct 2026 15:33:39 +0000
-Received: from jeffbarnes-ThinkPad-P14s-Gen-2i.corp.microsoft.com (unknown [52.167.112.163])
-	by linux.microsoft.com (Postfix) with ESMTPSA id E37D820B7168;
-	Thu,  1 Oct 2026 08:32:40 -0700 (PDT)
-DKIM-Filter: OpenDKIM Filter v2.11.0 linux.microsoft.com E37D820B7168
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.microsoft.com;
-	s=default; t=1790868763;
-	bh=Gl19LhtWLKjfcWFniW5fiNkolXSpsFJsnrsmyFVH1q0=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=cZ/hamC8umn0spRY/J9y8JezNfPCWT31hurpmlA7bpJhXsB7rbEtlOczIJ9IgD5ki
-	 DQUFZKgNroCLsA4WmmLh72Pahbh2xOp5hYRpsBSEzyBn678LaUGN6qOlSNWu5hDGQ3
-	 tiMpxWpqtJFgt/naaUNw8msDURvZcdOGerzo/ekw=
-From: Jeff Barnes <jeffbarnes@linux.microsoft.com>
-To: linux-pci@vger.kernel.org
-Cc: Frank.li@oss.nxp.com,
-	minghuan.Lian@nxp.com,
-	mingkai.hu@nxp.com,
-	roy.zang@nxp.com,
-	lpieralisi@kernel.org,
-	kwilczynski@kernel.org,
-	mani@kernel.org,
-	robh@kernel.org,
-	bhelgaas@google.com,
-	Zhiqiang.Hou@nxp.com,
-	linuxppc-dev@lists.ozlabs.org,
+	Thu, 01 Oct 2026 15:34:54 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 7D974497;
+	Thu,  1 Oct 2026 08:34:48 -0700 (PDT)
+Received: from e142021.fritz.box (usa-sjc-mx-foss1.foss.arm.com [172.31.20.19])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 45B9C3F86F;
+	Thu,  1 Oct 2026 08:34:48 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
+	t=1790868891; bh=7CNEw5WXfn5DqQbU2q5TrcNd80B22UTnV8ObayxHffI=;
+	h=From:To:Cc:Subject:Date:From;
+	b=Y5XghGrZYx7A7wp+zahgocBoxiCiEPS1P8XOgt8D8pDhJ/RrO371hAU/vcRUK6BQC
+	 KKLp530Y0faoFsek29y5IGszEvYFGYzUbZfFHOdNPaR6wZx/9dm54qE/y4zmtc1hJ0
+	 xFqFEvMpegegzEG4od+dM3K9PJUK+ijr02TkzyBw=
+From: Andre Przywara <andre.przywara@arm.com>
+To: Lorenzo Pieralisi <lpieralisi@kernel.org>,
+	Hanjun Guo <guohanjun@huawei.com>,
+	Sudeep Holla <sudeep.holla@kernel.org>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Will Deacon <will@kernel.org>,
+	"Rafael J . Wysocki" <rafael@kernel.org>,
+	Len Brown <lenb@kernel.org>,
+	James Morse <james.morse@arm.com>,
+	Ben Horgan <ben.horgan@arm.com>,
+	Reinette Chatre <reinette.chatre@intel.com>,
+	Fenghua Yu <fenghuay@nvidia.com>
+Cc: Jonathan Cameron <jic23@kernel.org>,
+	Srivathsa L Rao <srivathsa.rao@oss.qualcomm.com>,
+	Ganapatrao Kulkarni <ganapatrao.kulkarni@oss.qualcomm.com>,
+	Trilok Soni <tsoni@quicinc.com>,
+	Srinivas Ramana <sramana@qti.qualcomm.com>,
+	Niyas Sait <niyas.sait@arm.com>,
+	Lee Trager <lee@trager.us>,
+	Ritwick Sharma <ritwick.sharma@arm.com>,
+	Gavin Shan <gshan@redhat.com>,
+	linux-acpi@vger.kernel.org--cc,
 	linux-arm-kernel@lists.infradead.org,
-	imx@lists.linux.dev,
 	linux-kernel@vger.kernel.org
-Subject: [PATCH v2] Revert "PCI: layerscape: Change default error response behavior"
-Date: Thu,  1 Oct 2026 11:33:23 -0400
-Message-ID: <20261001153323.1965074-1-jeffbarnes@linux.microsoft.com>
+Subject: [PATCH v12 00/13] arm_mpam: Add MPAM-Fb firmware support
+Date: Thu,  1 Oct 2026 17:34:25 +0200
+Message-ID: <20261001153439.3295416-1-andre.przywara@arm.com>
 X-Mailer: git-send-email 2.43.0
-In-Reply-To: <0FEA6868-5A7C-4955-9FBB-BE9A1AE8D3F7@getmailspring.com>
-References: <0FEA6868-5A7C-4955-9FBB-BE9A1AE8D3F7@getmailspring.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261001_083338_076885_64691B8E 
-X-CRM114-Status: GOOD (  13.48  )
+X-CRM114-CacheID: sfid-20261001_083453_047950_9D057E7E 
+X-CRM114-Status: GOOD (  32.54  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -79,94 +86,222 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-This reverts commit 84d897d69938
-("PCI: layerscape: Change default error response behavior").
+Hi,
 
-The Layerscape PCIe driver programs the DesignWare
-AMBA_ERROR_RESPONSE_DEFAULT register at offset 0x8d0 with 0x9401.
+hopefully the final update to the MPAM-Fb code, for firmware based MSC
+accesses. Addressing mostly Sashiko comments, and some small changes
+pointed out by Jonathan. For a changelog see below. Based on v7.3-rc1.
 
-For AXI, the documented default with AMBA_ERROR_RESPONSE_GLOBAL cleared
-returns OKAY with all-ones data for errors on non-posted requests.
-Setting AMBA_ERROR_RESPONSE_GLOBAL causes an AXI error response instead,
-with AMBA_ERROR_RESPONSE_MAP selecting SLVERR or DECERR for individual
-PCIe completion errors.
+=======================
+The Arm MPAM specification defines Memory System Components (MSCs),
+which are devices that are programmed through an MMIO register frame. In
+some occasions this turned out to be too limiting: the MSC might be
+located behind a separate bus system (for instance inside an on-board
+controller), it might be mapped secure-only, or in a different processor
+socket without direct MMIO mapping. Also the MMIO access might be too slow
+or it would need to be filtered or otherwise access controlled. Finally
+there might be bugs in the MSC integration, which require a mediating
+firmware to be accessible.
 
-The value 0x9401 sets AMBA_ERROR_RESPONSE_GLOBAL and maps Unsupported
-Request, Completer Abort, and Completion Timeout to SLVERR.
+To accommodate all those different use cases, the MPAM-Fb specification
+[1] describes an alternative way to access MSCs. Accesses to an MSC
+would be wrapped in a message and communicated to the system using a
+shared-memory/mailbox system mostly mimicking the Arm SCMI spec.
+For ACPI systems, this would be abstracted through an ACPI PCC channel,
+which provides the shared-memory region and the mailbox trigger. We can
+lean on existing ACPI parsing code to register with these two
+subsystems, but cannot rely on the existing SCMI code in the kernel.
+This means we somewhat need to open code a very simplified SCMI handler,
+which just provides enough functionality for the very basic subset of
+SCMI that the MPAM-Fb spec requires.
 
-A PCI configuration access can race with the link going down after
-dw_pcie_other_conf_map_bus() checks the link but before
-pci_generic_config_read() performs the MMIO access. If the transaction
-results in a Completion Timeout, the Layerscape error response setting
-propagates it to AXI as SLVERR, resulting in an asynchronous SError and
-kernel panic.
+The first nine patches rework all MSC access wrappers to propagate error
+information. Pure MMIO based MSC accesses would never fail, but the
+MPAM-Fb access can go wrong in multiple ways. The patches have been split
+up purely for reviewing reasons, if the number is a problem, we could as
+well squash them. Please note that until the very last patch of this series
+any MSC accesses would always only return 0, it's only the final enablement
+of MPAM-Fb that could possibly introduce errors. Hence all former patches
+can add error handling gradually, those code paths wouldn't be triggered
+before the very last patch.
+Patch 10/13 solves a nasty problem: At the moment we protect stateful MSC
+register accesses (mon_sel) through a spinlock. Unfortunately the mailbox
+subsystem and the slow nature of the communication through this channel
+forbid MPAM-Fb access in atomic context. So this patch keeps using a
+spinlock for MMIO based accesses, but reverts to a mutex otherwise.
+We just deny taking the lock for MPAM-Fb in atomic context, ideally we
+wouldn't need that (no need to IPI another core when the MSC access does
+not need to be local to one particular core), or we simply deny that part
+of the functionality (access through perf).
+Patch 11/13 adds the code to redirect MSC accesses through the
+PCC shmem/mailbox system.
+Patch 12/13 reworks the error interrupt handler to use a threaded IRQ for
+MPAM-Fb, to be able to do MPAM-Fb MSC accesses inside (which might sleep).
+Patch 13/13 then adds the code to detect and store the PCC channel
+information from the ACPI tables, and eventually enables MPAM-Fb accesses.
 
-Reproduce the race by obtaining the configuration-space mapping while
-the link is up, then disabling the link from another CPU immediately
-before performing the MMIO configuration read.
+This whole series would enable systems where some MSCs are not accessible
+via MMIO to use those components anyway.
 
-With the error response override enabled, the overlapping configuration
-read results in an asynchronous SError and kernel panic. With the
-DesignWare default behavior restored, the same test returns 0xffffffff.
-AER reports a non-fatal Completion Timeout, and no SError or kernel
-panic occurs.
+Please have a look and test!
 
-Restore the documented DesignWare default error response behavior so a
-failed non-posted PCIe transaction does not become a fatal AXI error.
+Cheers,
+Andre
 
-Fixes: 84d897d69938 ("PCI: layerscape: Change default error response behavior")
-Cc: stable@vger.kernel.org
-Signed-off-by: Jeff Barnes <jeffbarnes@linux.microsoft.com>
+[1] https://developer.arm.com/documentation/den0144/latest
+
+Changes in v12:
+- adjust mailbox channel teardown order
+- add barrier after group of writel_relaxed() calls
+- drop unneeded mutex guard conversions
+- converge mpam_fb_send_request() errors to -EIO, to avoid filtering
+- separate errors from "false" return in mpam_ris_hw_probe_csu_nrdy()
+- add tags
+
+Changes in v11:
+- drop RFC patches for MPAM-ACPI spec change
+- add patch to propagte error in mpam_reset_class_locked()
+- move PCC channel put operation into mpam_msc_destroy()
+- increase props[] array size in ACPI code to accommodate new ID
+- use msc_fb_id in mpam_fb.c to stress independent numbering
+- use shorter "fb_id" name in msc struct for MPAM-Fb MSC number
+
+Changes in v10:
+- rebase on v7.3-rc1
+- add tags
+- (re-)introduce mpam_fb_msc_id field to allow per-PCC MSC IDs
+- add patch to introduce mpam_fb_offset ACPI MSC node field
+- add patch to adjust mpam_fb_msc_id if needed
+- add mon_sel_mutex comment
+- "select" missing KConfig symbols
+
+Changes in v9:
+- always create a threaded IRQ, but differ handling between PCC and MMIO
+- drop dev ptr setting for shared mailbox client (leave at NULL)
+- propagate errors from IRQ setup functions (incl. mpam_disable_msc_ecr)
+- improve MPAM-Fb error reporting (drop snprintf call)
+
+Changes in v8:
+- disable error IRQ on irqchip level when device side fails
+- use MSC dev pointer for dev_err() instead of mailbox one
+- smaller white space and formatting fixes
+- reorder MPAM-Fb definitions
+- rename error translation function to mpam_fb_to_linux_errno()
+- add review and test tags
+
+Changes in v7:
+- add tags
+- add new patch to propagate errors in mpam_reprogram_ris_partid()
+- prevent loop when mpam_diable() tries MSC accesses again
+- register MMIO error IRQ handler without IRQF_ONESHOT
+- re-use existing "err" variable instead of declaring "ret"
+- initialise mon_sel_lock later, to wait for interface decision
+- convert timeout units for nominal latency, between us and ms
+ 
+Changes in v6:
+- keep using hard IRQ handler for MMIO based accesses
+- move shmem buffer size and MPAM-Fb version check into mpam_fb.c
+- drop mutex guard in mpam_fb_send_request(), we use gotos anyway
+- factor out MPAM-Fb protocol error translation
+- add MPAM_FB_ERR_BUSY error code to translation
+- explicitly report also MPAM-Fb protocol error number when disabling MPAM
+- remove unneeded MPAM-Fb details from mpam_internal.h
+- drop leftover mpam_fb_msc_id usage 
+
+Changes in v5:
+- do not initialise _high variables early
+- fix whitespace issues
+- add Jonathan's Reviewed-by: tags
+- init only either the spinlock OR the mutex for the mon_sel_lock
+- drop warning about mapped_hwpage_sz for MPAM-Fb in mpam_msc_zero_mbwu_l()
+- change IRQ handler to threaded handler, to allow MPAM-Fb MSC accesses
+- disallow per-CPU IRQs (PPIs) for MPAM-Fb
+- trigger MPAM disabling on MPAM-Fb protocol errors
+- fix MPAM_PROTOCOL_VERSION_CMD name
+- use PCC driver defined symbol for PCC_CHAN_FLAGS_IRQ
+- add comment about usage of PCC's .signature field
+- check for illegal MPAM-Fb command before sending request
+- drop CPU accessibility check for MPAM-Fb based MSC accesses
+- move MPAM-Fb protocol message structs inside build functions
+- add comment about largest message size
+- drop extra msc->mpam_fb_msc_id, in favour using pdev->id
+- use already defined local dev variable instead of &pdev->dev
+- use FIELD_GET() macro for MPAM-Fb protocol check
+- drop devm_mutex_init() for pcc_chan_lock
+
+Changes in v4:
+- unify error check patterns
+- use scoped_guard(mutex) and ACQUIRE to simplify error handling
+- use struct kref for PCC channel refcount
+- drop unused mailbox rx_callback function
+- increase size of props[] array to hold new msc_id property
+- set mailbox TX timeout based on ACPI MPAM table field
+- use devm_mutex_init() to allow automatic cleanup
+- avoid overwriting error value for arm,not-ready-us property read
+- prune MPAM-Fb protocol token to fit into bitmask inside register
+- check return value for AIDR read
+- use two separate MPAM-Fb protocol payload structs
+- prune header list for mpam_fb.c
+- drop "nrdy handled as an error" change
+- fix message size field in MPAM-Fb protocol shmem area
+- drop message size return from MPAM-Fb message build functions
+- bring back IRQ flag in MPAM-Fb protocol header
+
+Changes in v3:
+- drop inner/outer mon_sel lock patch, replace with simpler version
+- harmonise code patterns in error propagation changes
+- drop mon_sel lock before erroring out in mpam_ris_hw_probe_csu_nrdy()
+- refactor mpam_msc_read_mbwu_l() to return an error
+- drop special NRDY handling in __ris_msmon_read()
+- add IRQ numbers in error interrupt handler to help pinpoint failure
+- refactor MPAM-Fb message generation to accommodate more than read/write
+- check MPAM-Fb protocol version at probe time
+- drop mpam_fb.h header, merge into mpam_internal.h
+- translate MPAM-Fb error code in Linux codes where needed
+- clear IRQ flag bit in MPAM-Fb protocol header
+- drop unneeded endianness conversions when crafting MPAM-Fb message
+- use C struct to model MPAM-Fb message payload
 
 Changes in v2:
-- Change the subject to identify this as a revert, as requested by
-  Frank Li.
-- Document the DesignWare AMBA_ERROR_RESPONSE_DEFAULT behavior and
-  decode the 0x9401 setting used by Layerscape.
-- Clarify that the setting propagates Completion Timeout as AXI SLVERR
-  rather than causing the underlying PCIe transaction failure.
+- add patches to add error propagation to MSC access wrappers
+- drop former patch 1/5 (not needed)
+- drop lock in mpam_reprogram_msc(), to avoid double lock
+- add support for multiple MSCs per PCC channel
+- adjust SCMI protocol code to use a PCC subtype 3 channel
+- let PCC code handle the PCC channel negotiation (due to subtype 3)
+- drop SCMI names in shmem offsets, and use existing PCC type 3 struct
+- adjust shmem field offsets to match MPAM-Fb spec, not pure SCMI
+- prevent MPAM-Fb calls inside atomic smp_call_function_any() payload
+- skip all MSC accesses inside the IRQ handler when using MPAM-Fb
 
----
- drivers/pci/controller/dwc/pci-layerscape.c | 12 ------------
- 1 file changed, 12 deletions(-)
 
-diff --git a/drivers/pci/controller/dwc/pci-layerscape.c b/drivers/pci/controller/dwc/pci-layerscape.c
-index 14d6ac4fc53f..d333f1ae8a41 100644
---- a/drivers/pci/controller/dwc/pci-layerscape.c
-+++ b/drivers/pci/controller/dwc/pci-layerscape.c
-@@ -28,8 +28,6 @@
- 
- /* PEX Internal Configuration Registers */
- #define PCIE_STRFMR1		0x71c /* Symbol Timer & Filter Mask Register1 */
--#define PCIE_ABSERR		0x8d0 /* Bridge Slave Error Response Register */
--#define PCIE_ABSERR_SETTING	0x9401 /* Forward error of non-posted request */
- 
- /* PF Message Command Register */
- #define LS_PCIE_PF_MCR		0x2c
-@@ -103,14 +101,6 @@ static void ls_pcie_drop_msg_tlp(struct ls_pcie *pcie)
- 	iowrite32(val, pci->dbi_base + PCIE_STRFMR1);
- }
- 
--/* Forward error response of outbound non-posted requests */
--static void ls_pcie_fix_error_response(struct ls_pcie *pcie)
--{
--	struct dw_pcie *pci = pcie->pci;
--
--	iowrite32(PCIE_ABSERR_SETTING, pci->dbi_base + PCIE_ABSERR);
--}
--
- static u32 ls_pcie_pf_lut_readl(struct ls_pcie *pcie, u32 off)
- {
- 	if (pcie->big_endian)
-@@ -180,8 +170,6 @@ static int ls_pcie_host_init(struct dw_pcie_rp *pp)
- 	struct dw_pcie *pci = to_dw_pcie_from_pp(pp);
- 	struct ls_pcie *pcie = to_ls_pcie(pci);
- 
--	ls_pcie_fix_error_response(pcie);
--
- 	dw_pcie_dbi_ro_wr_en(pci);
- 	ls_pcie_clear_multifunction(pcie);
- 	dw_pcie_dbi_ro_wr_dis(pci);
+Andre Przywara (13):
+  arm_mpam: let low level MSC accessors return an error
+  arm_mpam: propagate MSC access errors for hw_probe functions
+  arm_mpam: propagate MSC access errors for MBWU counters
+  arm_mpam: propagate MSC access errors for msmon helpers
+  arm_mpam: propagate MSC access errors for __ris_msmon_read()
+  arm_mpam: propagate MSC access errors for state saving function
+  arm_mpam: propagate MSC access errors for mpam_reprogram_ris_partid()
+  arm_mpam: propagate MSC access errors for interrupt control
+  arm_mpam: propagate MSC access errors in mpam_reset_class_locked()
+  arm_mpam: prepare mon_sel locking for MPAM-Fb
+  arm_mpam: add MPAM-Fb MSC firmware access support
+  arm_mpam: change MPAM-Fb error IRQ to use a threaded IRQ handler
+  arm_mpam: detect and enable MPAM-Fb PCC support
+
+ drivers/acpi/arm64/mpam.c       |   6 +-
+ drivers/resctrl/Kconfig         |   2 +
+ drivers/resctrl/Makefile        |   2 +-
+ drivers/resctrl/mpam_devices.c  | 928 ++++++++++++++++++++++++--------
+ drivers/resctrl/mpam_fb.c       | 258 +++++++++
+ drivers/resctrl/mpam_internal.h |  70 ++-
+ include/linux/arm_mpam.h        |   2 +-
+ 7 files changed, 1022 insertions(+), 246 deletions(-)
+ create mode 100644 drivers/resctrl/mpam_fb.c
+
+
+base-commit: cee9395acd8043be0644b25c34bfa86623f2b935
 -- 
 2.43.0
 
