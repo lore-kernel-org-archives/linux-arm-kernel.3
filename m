@@ -4,106 +4,67 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B5AF9CA5FD2
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  1 Oct 2026 21:41:59 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B5AD0CA5FD2
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  1 Oct 2026 21:44:13 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
+	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=oaFDnLPAu8Azz5pGOzAaVOnZU0E7BdpohXF2E62Q87s=; b=H2e2KkJ4/wDeHaQNJ5y1A1A2+s
-	dZ+LTi4lSYksNIiWdsbgaFus3zRCZ6Wtb/T+cG8XMTRWZY1YYY2NVT7witTKU/S2XXHRW7OnhirD7
-	IFgVyM0a/M77O6jibZx+/K2/irKM9RBg/Ld3QtIFLLtZNpW89g1QjVz8ldPXWb/uc3DVyElHytbVh
-	JZegf0GsEMKO3G2RROO4p2VhKsOMyxDphXp0OBQ9mbAE4qIZ+ACsi8n9845kdwOKksTGuxfl+SW+0
-	H2tfnKspRJY+ZsBUbwp7t/pJnkq3hTnj94j8p3cTnZzTDuwOZXE0BFX86TW1biVDpCxPLYZ/9MzrQ
-	hC5x9MIw==;
+	bh=i1ZT8E0+Pm5VDx4LcOMCqD5baN3Oe5eOsk0bsRrW/zs=; b=3ptV7UI7D3/wIqvF+Q+NqG9FSS
+	mLemyRCtMAf/d19OBymDa2K9YewvZLWMkKwnq8Lw6X/Zf4yaaHoTvQZPR36tQQ2qZ54YNgKoBK+/M
+	u97uRSt0VuRTAyjvqSn2ZdCTx7o6UC3BtuPgzjduHyWGA5BXsPy13Ws8C+S3a1jRCCx9/mmXhVPfX
+	gglPDRB51dQ8gsWfNUj/J8B8byY/n745Pr/K5dlvwYvdZ6AmW9TinosTSDueA2q90YThrCjozNT5R
+	1XahPHcTTUgZ+Q9DGpLpd7FRgAl5GuLw0bZOm8z+YZ2tuyifbOLYu3NYS73fdF4HjagIGiI5hATpF
+	RnsjSL4w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xCOXJ-0000000AHw3-14JH;
-	Thu, 01 Oct 2026 21:41:53 +0000
-Received: from us-smtp-delivery-124.mimecast.com ([170.10.129.124])
+	id 1xCNNB-0000000A9bA-1toE;
+	Thu, 01 Oct 2026 20:27:21 +0000
+Received: from chaosmail.tech ([77.81.229.115])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xCOXG-0000000AHvf-1Cvy
+	id 1xCNMy-0000000A9U8-29xp
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 01 Oct 2026 21:41:51 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1790890909;
+	Thu, 01 Oct 2026 20:27:11 +0000
+Received: by chaosmail.tech (Postfix) id 687771C930F;
+	Thu, 01 Oct 2026 20:27:04 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=chaosmail.tech;
+	s=mail; t=1790886425;
 	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
 	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
 	 content-transfer-encoding:content-transfer-encoding:
 	 in-reply-to:in-reply-to:references:references;
-	bh=oaFDnLPAu8Azz5pGOzAaVOnZU0E7BdpohXF2E62Q87s=;
-	b=GeQoGMPUd5b21djfYmTcgC1bXVyoSymBWZvr7SDDXzii3nPqO4haWsLSDDCAb9J646qO6u
-	RRH47lxDpOa91YQ4sGBOxtlsREdIKOcWxUVyITmnr1PQ7Xz+nQjxg3Fu2WHYZyMqouYATw
-	yeglWBh2vpMn5qUK3fhgKJ+aRjntvsg=
-Received: from mail-pf1-f198.google.com (mail-pf1-f198.google.com
- [209.85.210.198]) by relay.mimecast.com with ESMTP with STARTTLS
- (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
- us-mta-263-aIY1rYjGNFCztonzAGPfKA-1; Thu, 01 Oct 2026 17:41:47 -0400
-X-MC-Unique: aIY1rYjGNFCztonzAGPfKA-1
-X-Mimecast-MFC-AGG-ID: aIY1rYjGNFCztonzAGPfKA_1790890906
-Received: by mail-pf1-f198.google.com with SMTP id d2e1a72fcca58-8886b1d3242so946266b3a.0
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 01 Oct 2026 14:41:47 -0700 (PDT)
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1790890906; x=1791495706;
-        h=content-transfer-encoding:content-type:in-reply-to:from
-         :content-language:references:cc:to:subject:user-agent:mime-version
-         :date:message-id:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=oaFDnLPAu8Azz5pGOzAaVOnZU0E7BdpohXF2E62Q87s=;
-        b=iMX9KjC+X+ej4DIq3VgaEjVCjfKZtfslWuHG/zVAfuPWulIhVTXtmITEfbICx5eAbT
-         9FJtj4PkAoB0i574ZL6WC3PZY9HPjdbrLG/QCw3QY1KefVmp/M2T2kPyiD2c42MX4WTV
-         rC+36ZJY0/yzeI4NwXpIU74YAC1w/Jgv+AZ1KTnysVHUnRT+koNCCyEbR0rf88oQTaDy
-         DiXX+yvA0JLCIu/6ys+sreIKHErMUMxRBWLNg2XankXrKVoH+MMUuNXqSqI0naJbfJTp
-         HqiQ+GDnqOv4+CgyJW9R5q738TQNybtGWLi9I9NwYKdPIk84M+H7+Kc8qyFW1OlTRi4K
-         9+WQ==
-X-Forwarded-Encrypted: i=1; AKwUvBw/8R2Ko8S8jLFf236vOcTYF+jvXqm7ALoBG1ozSNoZ34FHHxAylw2RQVljB8gIpjH307StU9+g4uve2yOrfSTJ@lists.infradead.org
-X-Gm-Message-State: AFuF++klM+lgdUhdk9B5nACl4a01QuT5NZGK9PrTx/RI8so9dVEaahvX
-	ephMQHRZtcS/fmHm57OmSmPnPgBieAJO+AanD6TNny9L00zkyt5ahM6J4mrUdj2VSmoUfRMfpBQ
-	49kCD0bFQlrjJdU5jmIuz48MtxcitYmswd+/r4FEw6kjb5RUJ2CiSDeFam/02V2vGpyS7/bW2fl
-	1N
-X-Gm-Gg: AYBFou0ESWof1LPyoUMIBqUZQYpHe4fXdXHbPrMRbVwxE16Uy+bwwPxP6ywk210eCNH
-	r8cBp7e6HwGsrmRcW/4wtgTlm5dprK4IRWZ3j50B946HlDHXCx2gsWrNkn3ewZQ+9HnfLI+bIhv
-	QnrevjLs0pEsKIh5Bgmn3A+/hH1HtlxuZCtoKBNPgJ4S+wsARFdWj9Ce7AqZ7f7uHUYoce5TPvM
-	jrKBtO8FHRhxJw5XkmvVKusHU19zNEETP8trewewVf9YFHMK2ZTClahWnudmpFZS54h6Xc+WSiA
-	wLBS7J4ciIfTtD1dYT9Izqx1R8RpQpgv3yzA5fjCa5vo7etxrg/rHFfVC5xa0RxOP6bbye5/RFe
-	KB2QLGNI77OR/1pUxSYxDzPdjcuaeiTGuI96s2Ezx4w==
-X-Received: by 2002:a05:6a00:409a:b0:882:1b4d:1840 with SMTP id d2e1a72fcca58-88af58d4e46mr745868b3a.24.1790890906224;
-        Thu, 01 Oct 2026 14:41:46 -0700 (PDT)
-X-Received: by 2002:a05:6a00:409a:b0:882:1b4d:1840 with SMTP id d2e1a72fcca58-88af58d4e46mr745848b3a.24.1790890905746;
-        Thu, 01 Oct 2026 14:41:45 -0700 (PDT)
-Received: from [192.168.68.52] (n175-34-8-244.mrk21.qld.optusnet.com.au. [175.34.8.244])
-        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-88b0cb72834sm165561b3a.45.2026.10.01.14.41.39
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Thu, 01 Oct 2026 14:41:45 -0700 (PDT)
-Message-ID: <1ed590aa-a4bf-4980-82e1-185aee205909@redhat.com>
-Date: Fri, 2 Oct 2026 07:41:37 +1000
+	bh=i1ZT8E0+Pm5VDx4LcOMCqD5baN3Oe5eOsk0bsRrW/zs=;
+	b=T6be6OszmA3zpI7hKfZ2nYEtAE6inUj0H6HQf0qZZ7ujuTIFhGVAI9FRqHw8r481AvTUAT
+	/7XjP59LKcek8v2SFj8IbT/Mj3uXy6ER/l5Vhj3e0VWqYhh+B7+TXuwTkAtzK/jQSl+ZuH
+	HjEMCPgOjsXB9EU33tTOFMeEA7e7xJM=
+From: Sasha Finkelstein <k@chaosmail.tech>
+Date: Thu, 01 Oct 2026 22:26:59 +0200
+Subject: [PATCH v10 4/6] spmi: apple: Implement remaining commands
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v21 00/23] KVM: arm64: CCA: Add basic plumbing for Realms
-To: Suzuki K Poulose <suzuki.poulose@arm.com>, kvm@vger.kernel.org,
- kvmarm@lists.linux.dev
-Cc: maz@kernel.org, will@kernel.org, catalin.marinas@arm.com,
- linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- steven.price@arm.com, aneesh.kumar@kernel.org, oupton@kernel.org,
- joey.gouly@arm.com, tabba@google.com, yuzenghui@huawei.com,
- linux-coco@lists.linux.dev, gankulkarni@os.amperecomputing.com,
- sdonthineni@nvidia.com, alpergun@google.com, fj0570is@fujitsu.com,
- WeiLin.Chang@arm.com, lpieralisi@kernel.org, enju.kohei@fujitsu.com,
- sudeep.holla@arm.com, jonathan.cameron@oss.qualcomm.com
-References: <20261001210703.1597150-1-suzuki.poulose@arm.com>
-From: Gavin Shan <gshan@redhat.com>
-In-Reply-To: <20261001210703.1597150-1-suzuki.poulose@arm.com>
-X-Mimecast-Spam-Score: 0
-X-Mimecast-MFC-PROC-ID: IUmxU8Z6GyZG2Np98FP_GtqVg1XiZnWjoKC8X1x4ua0_1790890906
-X-Mimecast-Originator: redhat.com
-Content-Language: en-US
-Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
+Message-Id: <20261001-t603x-spmi-v10-4-ff815c66c73f@chaosmail.tech>
+References: <20261001-t603x-spmi-v10-0-ff815c66c73f@chaosmail.tech>
+In-Reply-To: <20261001-t603x-spmi-v10-0-ff815c66c73f@chaosmail.tech>
+To: Sven Peter <sven@kernel.org>, Janne Grunau <j@jannau.net>, 
+ Neal Gompa <neal@gompa.dev>, Stephen Boyd <sboyd@kernel.org>, 
+ Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>
+Cc: asahi@lists.linux.dev, linux-arm-kernel@lists.infradead.org, 
+ linux-kernel@vger.kernel.org, devicetree@vger.kernel.org, 
+ Sasha Finkelstein <k@chaosmail.tech>, Alba Mendez <me@alba.sh>
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1790886421; l=6582;
+ i=k@chaosmail.tech; s=20241124; h=from:subject:message-id;
+ bh=RH6K223nJdTsq2zsNyub+vrfUTvair8i/u/7LCuGT1E=;
+ b=1VcLM7DisTeW0r+S2OpaUauCdieZV3IkGCSdIbUOPRklkD1zwU9J82gq3O2wSlPW9LprGZpVT
+ mzwh7VYvnbtDbFmxyvdTysFq2XUBszOQUkgfsjarzb6jR1I+gJfwn7B
+X-Developer-Key: i=k@chaosmail.tech; a=ed25519;
+ pk=aSkp1PdZ+eF4jpMO6oLvz/YfT5XkBUneWwyhQrOgmsU=
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261001_144150_434613_2548DC83 
-X-CRM114-Status: GOOD (  10.02  )
+X-CRM114-CacheID: sfid-20261001_132708_850775_A5558F8F 
+X-CRM114-Status: GOOD (  14.56  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -118,36 +79,205 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Suzuki,
+From: Alba Mendez <me@alba.sh>
 
-On 10/2/26 7:06 AM, Suzuki K Poulose wrote:
+Add support for zero write and power management commands.
 
-[...]
+Signed-off-by: Alba Mendez <me@alba.sh>
+Signed-off-by: Sasha Finkelstein <k@chaosmail.tech>
+---
+ drivers/spmi/spmi-apple-controller.c | 116 +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++-----------------------------------------------
+ 1 file changed, 69 insertions(+), 47 deletions(-)
 
-> 
-> NOTE: There is a conflict with Fuad's patch to drop the WARN for unknown vm
-> ioctls, that is queued in fixes.
-> 
->    https://lore.kernel.org/all/20260914093838.1082637-1-fuad.tabba@linux.dev
-> 
-> This series is comprised of (3) and (4) above.
-> 
-> The integration branch has been tested with the following components:
-> 
->    tf-RMM:   main branch (commit 5e6e2acd) compliant to RMM-v2.0-beta3 [4]
->    kvmtool: git@git.gitlab.arm.com:linux-arm/kvmtool-cca.git tag:cca-kvm-v20
-> 
-> [0] Arm CCA KVM Support v16 : https://lore.kernel.org/all/20260803134403.80630-1-steven.price@arm.com
-> [1] Linux firmware RMI v22 https://git.gitlab.arm.com/linux-arm/linux-cca/ cca/cca-host/fw_rmm/v22
-> [2] Linux GPF Host  https://git.gitlab.arm.com/linux-arm/linux-cca/ cca/cca-host/host-gpf/v19
-> [3] https://git.gitlab.arm.com/linux-arm/linux-cca/ cca/cca-host/kvm-v21/integration-v3
+diff --git a/drivers/spmi/spmi-apple-controller.c b/drivers/spmi/spmi-apple-controller.c
+index b1c127cf5f44..9843dc871d6c 100644
+--- a/drivers/spmi/spmi-apple-controller.c
++++ b/drivers/spmi/spmi-apple-controller.c
+@@ -46,9 +46,9 @@ struct apple_spmi {
+ 	readl_poll_timeout((spmi)->regs + (reg), (val), (cond), \
+ 			   REG_POLL_INTERVAL_US, REG_POLL_TIMEOUT_US)
+ 
+-static inline u32 apple_spmi_pack_cmd(u8 opc, u8 sid, u16 saddr, size_t len)
++static inline u32 apple_spmi_pack_cmd(u8 opc, u8 sid, u16 param)
+ {
+-	return opc | sid << 8 | saddr << 16 | (len - 1) | (1 << 15);
++	return opc | sid << 8 | (u32)param << 16 | (1 << 15);
+ }
+ 
+ /* Wait for Rx FIFO to have something */
+@@ -69,14 +69,13 @@ static int apple_spmi_wait_rx_not_empty(struct spmi_controller *ctrl)
+ 	return 0;
+ }
+ 
+-static int spmi_read_cmd(struct spmi_controller *ctrl, u8 opc, u8 sid,
+-			 u16 saddr, u8 *buf, size_t len)
++static int spmi_raw_cmd(struct spmi_controller *ctrl, u8 opc, u8 sid, u16 param,
++			const u8 *buf_wr, size_t len_wr, u8 *buf_rd, size_t len_rd)
+ {
+ 	struct apple_spmi *spmi = spmi_controller_get_drvdata(ctrl);
+-	u32 spmi_cmd = apple_spmi_pack_cmd(opc, sid, saddr, len);
++	u32 spmi_cmd = apple_spmi_pack_cmd(opc, sid, param);
+ 	u32 reply, rsp;
+-	size_t len_read = 0;
+-	u8 i;
++	size_t i = 0, j;
+ 	int ret;
+ 
+ 	if (spmi->prev_fail) {
+@@ -86,6 +85,14 @@ static int spmi_read_cmd(struct spmi_controller *ctrl, u8 opc, u8 sid,
+ 
+ 	writel(spmi_cmd, spmi->regs + SPMI_CMD_REG);
+ 
++	while (i < len_wr) {
++		j = min_t(size_t, sizeof(spmi_cmd), len_wr - i);
++		spmi_cmd = 0;
++		memcpy(&spmi_cmd, buf_wr + i, j);
++		writel(spmi_cmd, spmi->regs + SPMI_CMD_REG);
++		i += j;
++	}
++
+ 	ret = apple_spmi_wait_rx_not_empty(ctrl);
+ 	if (ret)
+ 		return ret;
+@@ -93,7 +100,8 @@ static int spmi_read_cmd(struct spmi_controller *ctrl, u8 opc, u8 sid,
+ 	reply = readl(spmi->regs + SPMI_RSP_REG);
+ 
+ 	/* Read SPMI data reply */
+-	while (len_read < len) {
++	i = 0;
++	while (i < len_rd) {
+ 		if (readl(spmi->regs + SPMI_STATUS_REG) & SPMI_RX_FIFO_EMPTY) {
+ 			spmi->prev_fail = true;
+ 			dev_err_ratelimited(&ctrl->dev,
+@@ -101,11 +109,9 @@ static int spmi_read_cmd(struct spmi_controller *ctrl, u8 opc, u8 sid,
+ 			return -EIO;
+ 		}
+ 		rsp = readl(spmi->regs + SPMI_RSP_REG);
+-		i = 0;
+-		while ((len_read < len) && (i < 4)) {
+-			buf[len_read++] = ((0xff << (8 * i)) & rsp) >> (8 * i);
+-			i += 1;
+-		}
++		j = min_t(size_t, sizeof(spmi_cmd), len_rd - i);
++		memcpy(buf_rd + i, &rsp, j);
++		i += j;
+ 	}
+ 
+ 	if (!(readl(spmi->regs + SPMI_STATUS_REG) & SPMI_RX_FIFO_EMPTY)) {
+@@ -113,54 +119,69 @@ static int spmi_read_cmd(struct spmi_controller *ctrl, u8 opc, u8 sid,
+ 		spmi->prev_fail = true;
+ 	}
+ 
+-	if (~FIELD_GET(SPMI_REPLY_FRAME_PARITY_STATUS, reply) & ((1 << len) - 1)) {
++	if (!len_rd && !FIELD_GET(SPMI_REPLY_ACK, reply)) {
++		dev_err(&ctrl->dev, "command not acknowledged\n");
++		return -EIO;
++	}
++	if (~FIELD_GET(SPMI_REPLY_FRAME_PARITY_STATUS, reply) & ((1 << len_rd) - 1)) {
+ 		dev_err(&ctrl->dev, "some frames failed parity check\n");
+ 		return -EIO;
+ 	}
+ 	return 0;
+ }
+ 
+-static int spmi_write_cmd(struct spmi_controller *ctrl, u8 opc, u8 sid,
+-			  u16 saddr, const u8 *buf, size_t len)
++/* Send a raw command with 1..16 input data frames */
++static int spmi_raw_cmd_input(struct spmi_controller *ctrl, u8 opc, u8 sid,
++			 u16 param, u8 *buf, size_t len)
+ {
+-	struct apple_spmi *spmi = spmi_controller_get_drvdata(ctrl);
+-	u32 spmi_cmd = apple_spmi_pack_cmd(opc, sid, saddr, len);
+-	u32 reply;
+-	size_t i = 0, j;
+-	int ret;
+-
+-	if (spmi->prev_fail) {
+-		writel(SPMI_ACT_FIFO_FLUSH, spmi->regs + SPMI_ACT_REG);
+-		spmi->prev_fail = false;
+-	}
+-
+-	writel(spmi_cmd, spmi->regs + SPMI_CMD_REG);
++	return spmi_raw_cmd(ctrl, opc, sid, param, NULL, 0, buf, len);
++}
+ 
+-	while (i < len) {
+-		j = 0;
+-		spmi_cmd = 0;
+-		while ((j < 4) & (i < len))
+-			spmi_cmd |= buf[i++] << (j++ * 8);
++/* Send a raw command with (optional) body and an input ACK */
++static int spmi_raw_cmd_ack(struct spmi_controller *ctrl, u8 opc, u8 sid,
++			  u16 param, const u8 *buf, size_t len)
++{
++	return spmi_raw_cmd(ctrl, opc, sid, param, buf, len, NULL, 0);
++}
+ 
+-		writel(spmi_cmd, spmi->regs + SPMI_CMD_REG);
++static int spmi_read_cmd(struct spmi_controller *ctrl, u8 opc, u8 sid,
++			 u16 saddr, u8 *buf, size_t len)
++{
++	switch (opc) {
++	case SPMI_CMD_EXT_READ:
++	case SPMI_CMD_EXT_READL:
++		return spmi_raw_cmd_input(ctrl, opc | (len - 1), sid, saddr, buf, len);
++	case SPMI_CMD_READ:
++		return spmi_raw_cmd_input(ctrl, opc | saddr, sid, saddr, buf, len);
+ 	}
++	return -EINVAL;
++}
+ 
+-	ret = apple_spmi_wait_rx_not_empty(ctrl);
+-	if (ret)
+-		return ret;
+-
+-	reply = readl(spmi->regs + SPMI_RSP_REG);
+-
+-	if (!(readl(spmi->regs + SPMI_STATUS_REG) & SPMI_RX_FIFO_EMPTY)) {
+-		dev_warn(&ctrl->dev, "FIFO has extra data\n");
+-		spmi->prev_fail = true;
++static int spmi_write_cmd(struct spmi_controller *ctrl, u8 opc, u8 sid,
++			  u16 saddr, const u8 *buf, size_t len)
++{
++	switch (opc) {
++	case SPMI_CMD_WRITE:
++		return spmi_raw_cmd_ack(ctrl, opc | saddr, sid, buf[0] << 8 | saddr, NULL, 0);
++	case SPMI_CMD_ZERO_WRITE:
++		return spmi_raw_cmd_ack(ctrl, opc | buf[0], sid, buf[0] << 8 | saddr, NULL, 0);
++	case SPMI_CMD_EXT_WRITE:
++	case SPMI_CMD_EXT_WRITEL:
++		return spmi_raw_cmd_ack(ctrl, opc | (len - 1), sid, saddr, buf, len);
+ 	}
++	return -EINVAL;
++}
+ 
+-	if (!FIELD_GET(SPMI_REPLY_ACK, reply)) {
+-		dev_err(&ctrl->dev, "command not acknowledged\n");
+-		return -EIO;
++static int spmi_cmd(struct spmi_controller *ctrl, u8 opc, u8 sid)
++{
++	switch (opc) {
++	case SPMI_CMD_RESET:
++	case SPMI_CMD_SLEEP:
++	case SPMI_CMD_SHUTDOWN:
++	case SPMI_CMD_WAKEUP:
++		return spmi_raw_cmd_ack(ctrl, opc, sid, 0, NULL, 0);
+ 	}
+-	return 0;
++	return -EINVAL;
+ }
+ 
+ static int apple_spmi_probe(struct platform_device *pdev)
+@@ -183,6 +204,7 @@ static int apple_spmi_probe(struct platform_device *pdev)
+ 
+ 	ctrl->read_cmd = spmi_read_cmd;
+ 	ctrl->write_cmd = spmi_write_cmd;
++	ctrl->cmd = spmi_cmd;
+ 
+ 	ret = devm_spmi_controller_add(&pdev->dev, ctrl);
+ 	if (ret)
 
-This branch doesn't exist. I guess it's "cca/cca-host/kvm-v21/integration-v2" instead?
-
-> [4] https://support.arm.com/documentation/den0137/2-0bet3/
-> 
-
-Thanks,
-Gavin
+-- 
+2.55.0
 
 
