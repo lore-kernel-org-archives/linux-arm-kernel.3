@@ -4,35 +4,35 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id EBE46CA5FB3
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  1 Oct 2026 07:10:01 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BFC4BCA5FC5
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  1 Oct 2026 07:10:02 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=B5yO5cn1bI9HpM8oJJCtxSSRIgqf0OSZ3yTc2at/4Ls=; b=0Dply3xDDL+D2dU58jsGdPszuC
-	7FuhLFJAJUSN6kIE1H62Rq2jVrGj1dynO57qTHraXAQjanXCHpEVdIOUmt0R6wgiDFnoAOS7P2GSx
-	vDaLalYyc+TXSgo5qOIUOGIp/ff2vAw/LdBahxsSPKup7UyL7gJzRSi8FfkMAXYpV2ev4/zYeKCLE
-	zcIIxW6xdI3cs9HlmNYvZHdsfU734HiPcZ3+mHnrgvA6ElBxrVlso1qM26McxbS6GyZuh2YvZ8X5P
-	x5OdCsXvp449zfOmY3AufCbP5aTzKjd+BPxLGZ7Mv9sbdUiD1tOo50G01ayuxtixBS1FGkotnQP3r
-	7W73RQQA==;
+	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=jx/3Z5WGEmMbu5Hsr3G6ByHyWGO3jCxLxsODPvWyTJY=; b=CG3vURBNZjiUqvM1TwIoj9hqvv
+	maniPeP9doWkExplFBsIrb77zoEPT5bPrH0/o0a08KNYDkSNajYWt24EL/6OppY/XLuBI0EfLipz4
+	I6xNhtrTupsFup5hvE410jGILtzW+1qzK1MdyMSCOrTOkiexOzARDPh8xLP7O0NEyDDrSOu9lqsqM
+	Q9eqg8P56/5W5Ldb0XgeZ4lkmSzZXGJTP33n9AW9VPopCFGeRdH0bdefpxpwSlavBf0uxnGpD40gI
+	Dm7TcQLYf7Ixeqboom8TzExYeS1qjHsJMwVR2OvtGhJ1XJoH4Qx44fxOYTva3En4ZRF0uRQphRnKA
+	WXYir6lQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xCAvU-00000007xNT-09ET;
+	id 1xCAvU-00000007xNl-0WrC;
 	Thu, 01 Oct 2026 07:09:56 +0000
 Received: from cp2.siel.si ([46.19.12.180])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xCAvR-00000007xM5-1wLB
+	id 1xCAvR-00000007xM4-1x9W
 	for linux-arm-kernel@lists.infradead.org;
 	Thu, 01 Oct 2026 07:09:55 +0000
 Received: from 89-212-21-243.static.t-2.net ([89.212.21.243]:41660 helo=localhost.localdomain)
 	by cp2.siel.si with esmtpsa  (TLS1.3) tls TLS_AES_256_GCM_SHA384
 	(Exim 4.100.1)
 	(envelope-from <primoz.fiser@norik.com>)
-	id 1xCAvR-00000001Ztc-0zR9;
-	Thu, 01 Oct 2026 09:09:50 +0200
+	id 1xCAvR-00000001Ztc-04YD;
+	Thu, 01 Oct 2026 09:09:49 +0200
 From: Primoz Fiser <primoz.fiser@norik.com>
 To: Rob Herring <robh@kernel.org>,
 	Krzysztof Kozlowski <krzk+dt@kernel.org>,
@@ -46,12 +46,10 @@ Cc: devicetree@vger.kernel.org,
 	linux-arm-kernel@lists.infradead.org,
 	linux-kernel@vger.kernel.org,
 	upstream@lists.phytec.de
-Subject: [PATCH v2 1/3] ARM: dts: imx6: phycore-som: Set PMIC watchdog alias as default
-Date: Thu,  1 Oct 2026 09:09:45 +0200
-Message-Id: <20261001070947.1815279-2-primoz.fiser@norik.com>
+Subject: [PATCH v2 0/3] ARM: dts: imx6: phycore-som: PMIC and PHY fixes
+Date: Thu,  1 Oct 2026 09:09:44 +0200
+Message-Id: <20261001070947.1815279-1-primoz.fiser@norik.com>
 X-Mailer: git-send-email 2.34.1
-In-Reply-To: <20261001070947.1815279-1-primoz.fiser@norik.com>
-References: <20261001070947.1815279-1-primoz.fiser@norik.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-AntiAbuse: This header was added to track abuse, please include it with any abuse report
@@ -65,8 +63,8 @@ X-Source:
 X-Source-Args: 
 X-Source-Dir: 
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261001_000953_663425_0F206A71 
-X-CRM114-Status: UNSURE (   8.22  )
+X-CRM114-CacheID: sfid-20261001_000953_663890_2D45B907 
+X-CRM114-Status: UNSURE (   5.23  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -82,41 +80,31 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Pin the da9062 PMIC watchdog to /dev/watchdog0 via a DT alias, instead
-of leaving it to be assigned dynamically by probe order. This SOM
-already relies on the PMIC for reset (see commit aa4f48a4e06c ("ARM:
-dts: imx6: phycore: Rely on PMIC reboot/reset handler")), so this
-makes that the predictable, fixed watchdog device node.
+A few small fixes for the PHYTEC phyCORE-i.MX6 SOM:
 
-Signed-off-by: Primoz Fiser <primoz.fiser@norik.com>
----
+- Pin the DA9062 PMIC watchdog to /dev/watchdog0 (1/4).
+- Raise the PMIC's SOC/ARM buck ceiling to 1.5V, needed once the
+  1.2GHz OPP tier ([1]] requests 1.3V for VDD_ARM and the anatop
+  LDO's 125mV dropout is added on top (2/4).
+- Add phy-reset-duration to fec node for more robust reset pulse (3/4)
+
+[1] https://lore.kernel.org/all/20260923070505.494949-1-primoz.fiser@norik.com/
+
+Link to v1: https://lore.kernel.org/all/20260930102532.2262700-1-primoz.fiser@norik.com/
+
 Changes in v2:
-- no changes
+- Drop patch #3 from v1 (converting to reset-gpios) due to potential
+  backwards compatibility as suggested by Frank
+- Convert patch #4 from v1 to patch #3 in v2 (use phy-reset-duration)
 
- arch/arm/boot/dts/nxp/imx/imx6qdl-phytec-phycore-som.dtsi | 3 ++-
- 1 file changed, 2 insertions(+), 1 deletion(-)
+Primoz Fiser (3):
+  ARM: dts: imx6: phycore-som: Set PMIC watchdog alias as default
+  ARM: dts: imx6: phycore-som: Increase PMIC max SOC and ARM voltage
+  ARM: dts: imx6: phycore-som: Add phy-reset-duration
 
-diff --git a/arch/arm/boot/dts/nxp/imx/imx6qdl-phytec-phycore-som.dtsi b/arch/arm/boot/dts/nxp/imx/imx6qdl-phytec-phycore-som.dtsi
-index ddbfecd591f5..205467fd223e 100644
---- a/arch/arm/boot/dts/nxp/imx/imx6qdl-phytec-phycore-som.dtsi
-+++ b/arch/arm/boot/dts/nxp/imx/imx6qdl-phytec-phycore-som.dtsi
-@@ -11,6 +11,7 @@ / {
- 	aliases {
- 		rtc1 = &da9062_rtc;
- 		rtc2 = &snvs_rtc;
-+		watchdog0 = &da9062_wdog;
- 	};
- 
- 	/*
-@@ -112,7 +113,7 @@ da9062_onkey: onkey {
- 			compatible = "dlg,da9062-onkey";
- 		};
- 
--		watchdog {
-+		da9062_wdog: watchdog {
- 			compatible = "dlg,da9062-watchdog";
- 			dlg,use-sw-pm;
- 			dlg,wdt-sd = <1>;
+ arch/arm/boot/dts/nxp/imx/imx6qdl-phytec-phycore-som.dtsi | 8 +++++---
+ 1 file changed, 5 insertions(+), 3 deletions(-)
+
 -- 
 2.34.1
 
