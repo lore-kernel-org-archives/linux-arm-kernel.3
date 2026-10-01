@@ -4,62 +4,103 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 80EE1CA5FA5
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  1 Oct 2026 04:49:17 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1E93ACA5FB3
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  1 Oct 2026 04:53:46 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:References:In-Reply-To:Message-ID:Date
-	:Cc:To:From:Subject:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=+DkSaRksPctjXLY66uQzr4FJ5P5R5gD4v5VRG5Ua6/4=; b=VqYZA3OyheWyBsdCybz+ESXDqd
-	6IW5Q4V9+c53i3Vw3CiAu9zrT/DQM6297h+Jr36ER/tJFc9nh5EdR/Se6IERTSzD4rZZnbzP0Uy9Y
-	tesy4TxG0vYnHZI2tzYUZgmzW0/Gd/GNZE70mmEpX2bFV6wtEDFZ7LMecVLATzV1klxMj8ncFp9Hj
-	AD4nH2c3fMDkdogY6A2hqy+p7xM7TBxO0gM41DFpD2QsCGJx2UeFG1hKjLnZi/BUvlh7pwzOKefah
-	Z1ZK6GGqpnP1eWtB/60oZO/jCYATAVyLU/WMVgqRu27RhfCM7+eobRn+BPy0fbuCeUF5KdBkarMy2
-	g5MZVF1g==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:Message-Id:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:From:
+	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
+	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=qGfEP9YKt+sxdoo5ymI5NTrv8fzOq/Y6MXhmWkaNL/o=; b=QP4yGA04VwFpTC5ilIIMSCctW+
+	+aGCDuoUm3TiD5DnkbCes0KIcjuyE3soov7WZA0WLjiqrJBPttET+05wyEld/N4U9YcJVtbbJNP8Z
+	QBJHVDBdJNCOPHxJOoLglkdROJI4E2jj6cIJxHWohCGlEHaIV/DQCu+9xhebQXpE1it+S26O6A9lt
+	R4sUcHKv2iI9XaavYYVVcvBZGoH7bjr96ARoGvwy+6y9k6DW/q62ujbKGbT9pFqyvvlEQW+dxQZgM
+	P0gbkwxOLB2Q12tqaYC006Sq/fYSWK3sf/2F6SRJnw2P8JlCeemhrdkVQbOpXR5an5ez0oQ35XNlz
+	fTc0HlAg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xC8jG-00000007liX-2jvJ;
-	Thu, 01 Oct 2026 04:49:10 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1xC8nb-00000007m9x-19dH;
+	Thu, 01 Oct 2026 04:53:39 +0000
+Received: from mail-oo2-x0f.google.com ([2607:f8b0:4864:31::f])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xC8j4-00000007lgC-2Ssh
+	id 1xC8nY-00000007m9M-3A90
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 01 Oct 2026 04:48:58 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 3D5F843AEF;
-	Thu,  1 Oct 2026 04:48:58 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 639F01F00898;
-	Thu,  1 Oct 2026 04:48:57 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1790830138;
-	bh=+DkSaRksPctjXLY66uQzr4FJ5P5R5gD4v5VRG5Ua6/4=;
-	h=Subject:From:To:Cc:Date:In-Reply-To:References;
-	b=ffBse+MgvYCzgPDKjt6Wl/ZNW+vsC8XCd777IJ/skDZNt/V676zXRyXCmiL80AR2s
-	 Z0W4rp0LAxM3TefGSCSk9j6cTX22UfWQwrCl1pNhJt/w0NLmWY93VuHQhy7LxvM6wo
-	 c7Or/uEcDkW6rjiPwMoP0aBCxh0GJwjJi/n31P+2DRAQFQ0i+Ng1X/IHywCVPFdQZs
-	 4Zj7+f9vjfOElaw2fnBmzKV46YPBX/o1bls5MoHGxcw3vDpVAUZGEjd4ZDsG8YT8k4
-	 AAY/lqwKrfBslM1e7l/30oKeFLCZmtAmzB7Axu4ZbVQbQu581TqXwaryXfVeVLPdhg
-	 pHnhfqrujKMuQ==
-Subject: Re: [PATCH net-next v3 2/2] net: stmmac: align real_num_tx_queues to
- mqprio configuration
-From: netdev-bot+sashiko@kernel.org
-To: lorenzo.bianconi@oss.qualcomm.com
-Cc: maxime.chevallier@bootlin.com, andrew+netdev@lunn.ch, davem@davemloft.net,
- edumazet@google.com, kuba@kernel.org, pabeni@redhat.com,
- mcoquelin.stm32@gmail.com, alexandre.torgue@foss.st.com, olteanv@gmail.com,
- 0x1207@gmail.com, daniel@riscstar.com, netdev@vger.kernel.org,
- linux-stm32@st-md-mailman.stormreply.com,
- linux-arm-kernel@lists.infradead.org
-Date: Thu, 01 Oct 2026 04:48:56 +0000
-Message-ID: <179083013698.434549.12585855850118896867@kernel.org>
-In-Reply-To: <20260928-stmmac-mqprio-prio-offload-v3-2-abbe181f5024@oss.qualcomm.com>
-References: <20260928-stmmac-mqprio-prio-offload-v3-2-abbe181f5024@oss.qualcomm.com>
-X-sashiko-severity: Medium
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 8bit
+	Thu, 01 Oct 2026 04:53:37 +0000
+Received: by mail-oo2-x0f.google.com with SMTP id 46e09a7af769-81b02c279beso3672517a34.2
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 30 Sep 2026 21:53:36 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20251104; t=1790830415; x=1791435215; darn=lists.infradead.org;
+        h=cc:to:message-id:content-transfer-encoding:content-type
+         :mime-version:subject:date:from:from:to:cc:subject:date:message-id
+         :reply-to:content-type;
+        bh=qGfEP9YKt+sxdoo5ymI5NTrv8fzOq/Y6MXhmWkaNL/o=;
+        b=QRu28ZwjJhbAEoqr0deKHMQsW/TS6CvxbN8YtsGS4QGoQhZCVN/jORQs8YLIl2al7b
+         ekYcbMgoFsjpO9AW5icZKWWQGNB2aKMshlE/aaQAWMGTbe1yaaBkpDeElbXPTLiNCC3m
+         UpazKbtNhlJIjm2+8f79/m8LoJpD6/acIxXUtCZuweHF9/pxLugVTKg7LvPg0+xABniz
+         Mw99c6n7xbaqKMg1fs6QiXda+8aEVxe1mUb8VJNpwMHYFOtYJfni3TZhxqdOGYsQ2DqZ
+         tior9BSwZUg6w4TwVMMLiq+jXAfd7y9Rhb8EBGYDOM/Ke8ZKuMg06F1PH+AsZFobu76G
+         ELBg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1790830415; x=1791435215;
+        h=cc:to:message-id:content-transfer-encoding:content-type
+         :mime-version:subject:date:from:x-gm-gg:x-gm-message-state:from:to
+         :cc:subject:date:message-id:reply-to:content-type;
+        bh=qGfEP9YKt+sxdoo5ymI5NTrv8fzOq/Y6MXhmWkaNL/o=;
+        b=wxFl0qiMPkP0aBVyJofyehy4ucqYZKcqd+ZMtDO+//hYvAw164skzo+rsxMC8/sPM2
+         2rpEd39cg1+gFwyxQFec4999/MQtPavR312huUZLOvNFdSalIPV1If1mBZzjZ8LcQ2JJ
+         E36UjaVdjUkDVb+h3pLTXrf+IKJBEtmZHvcAxVSzuagTK286T68lAGjtapzhuGnC8I4Y
+         kkkTRb/j0n4Sj2G7oxT7vqTtmDZsjMu/Y/L4FbCmo1Xsjp8n/45xbUdyEBiNMt3jQX0D
+         8rfpaD5K3TcpN8XaK83BstPmM9STTlb1/K/0u6J6bMUfvILMqgsnmZCV/A8D8d2MtGX6
+         t6AQ==
+X-Forwarded-Encrypted: i=1; AKwUvByZZWcUXIiUnjspN3ZP7cm8sx95ZjkE1+691VKw3mmImgyb0+cKe9jsvjm/ZHjaXaIuKu293nPFw0meBtimJP5E@lists.infradead.org
+X-Gm-Message-State: AFuF++mGccqbhViZC8NsKKewtVjAdXC0wEPrtFjT914MMDPsx7VnYrEQ
+	HwWEFQvHV1aqkFlPhNerFfJonVntRaFS897YEvhPLRRX5W2JqhX6B3mP
+X-Gm-Gg: AYBFou3sMwV3qSLQb6JKofY6iItVMmgYr146Ci6DVy149rPFAKtE7oqwxIR3VugWd5M
+	a2mcJmJuKY1UzKume1FOq+pDBQUQwDd3kAtZCy2IpxqekDApC+tgYLIIy0BtqcHE6O1CCt8jgOQ
+	DE1CAp4yTMsNf0Ybs/rNgO69/Kdl+qK83viW51Hc+wATwfmh7PnHYLjdIrSz7xwc/LZ1OoRTeSk
+	toIvkDP2UbMGsDrfh5HG25k+wftseXBEqQPL1Dr9AJWzlq/omrwDXhexDj1gsb8M1bJyc32Uedm
+	QfmGUnDcGdQ1mwqA6iUCjrDoI3imat7sN+48JfYm7fFhvhYmX/NhE6QtEkDAx9oSzcR0CXR6Hbb
+	0T5giMn8sZ4jxSaYRxfav/90/jImhQTcq9Mu0FLSEA6LTTvCXd6ADMifa5pfoGFKQ+TTfGSSh7W
+	7aAj04VnwpfcnHGjd6twfPOfkMbmJ3jX+7TZmOdr/kkgMdxbIl+Q4Tw4GcbAmG3yb3mXtdejgiE
+	/O4RoSuj3FWPXZoRA9fg3CgQe0mKyjFkuDCu7ewXIB0Y3ot0Wuwy2++UVSs07MSPBctttYd9ha6
+	2AxFhcbzLxkkf/rgLOTHLX4iYAn6TZk48Maiapei/egzsHXHgLvmXgiVwEJbXDpAzbSyzbCDRpD
+	A9EqzznT5pp9iQf6ERzCPlP2esDKzynM=
+X-Received: by 2002:a05:6830:621a:b0:805:352c:a6a1 with SMTP id 46e09a7af769-8204aa5b392mr3774356a34.24.1790830415616;
+        Wed, 30 Sep 2026 21:53:35 -0700 (PDT)
+Received: from [127.0.1.1] (174-29-1-49.hlrn.qwest.net. [174.29.1.49])
+        by smtp.gmail.com with ESMTPSA id 46e09a7af769-8212aa1b208sm1788977a34.14.2026.09.30.21.53.34
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Wed, 30 Sep 2026 21:53:35 -0700 (PDT)
+From: James Hilliard <james.hilliard1@gmail.com>
+Date: Wed, 30 Sep 2026 22:53:26 -0600
+Subject: [PATCH net] net: stmmac: take ownership of saved RX state at poll
+ entry
 MIME-Version: 1.0
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+Message-Id: <20260930-stmmac-rx-state-v1-1-c286c43813c1@gmail.com>
+X-B4-Tracking: v=1; b=H4sIAAAAAAAC/y2MTQ6DIBCFr2JmXRJwLKBXMS5GHFoWaAu0MTHev
+ aTt7n3v74DMKXCGoTkg8TvksK0V1KUBd6f1xiIslaGVrZY9SpFLjORE2quiwkJ2Co3iDtk6qKt
+ HYh/27+MIKxeYfmbi56u+l38yU2bhthhDGRqD5rqgRd1RT6S1n1EZpWfHnj1aYkdLbViYzvMDl
+ 9fpd7IAAAA=
+X-Change-ID: 20260930-stmmac-rx-state-041371e43e8c
+To: netdev@vger.kernel.org, Paolo Abeni <pabeni@redhat.com>, 
+ Jakub Kicinski <kuba@kernel.org>, 
+ Maxime Chevallier <maxime.chevallier@bootlin.com>, 
+ Andrew Lunn <andrew+netdev@lunn.ch>, Eric Dumazet <edumazet@kernel.org>, 
+ Maxime Coquelin <mcoquelin.stm32@gmail.com>, 
+ Alexandre Torgue <alexandre.torgue@foss.st.com>, 
+ Jose Abreu <Jose.Abreu@synopsys.com>
+Cc: "David S. Miller" <davem@davemloft.net>, 
+ linux-stm32@st-md-mailman.stormreply.com, 
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
+ Eric Dumazet <edumazet@kernel.org>, 
+ James Hilliard <james.hilliard1@gmail.com>
+X-Mailer: b4 0.15.2
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260930_215336_813957_139CC7FE 
+X-CRM114-Status: GOOD (  14.43  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -74,195 +115,100 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Thank you for your contribution! Sashiko AI review found 3 potential
-issue(s) to consider.
+When a saved partial packet completes with a poll budget of one, the
+old loop can leave state_saved and state.skb pointing at an skb that
+has already been delivered or freed. The next poll then reuses that
+pointer, causing a use-after-free or double free.
 
-Critical: 0 · High: 0 · Medium: 1 · Low: 2
+Take the saved state at poll entry and clear the stored ownership
+immediately. Save it again only if the packet remains incomplete,
+including when the next descriptor is still DMA-owned. Release a
+saved partial skb when the RX ring is destroyed.
 
-If you believe none of the issues are legitimate, please reply to each
-issue of Medium severity or higher and explain why the AI is wrong.
-If any of them are legitimate and you plan to respin, please let patchwork
-know by including "pw-bot: cr" as a separate line at the end of your reply
-(one such reply per series is enough).
+Fixes: ec222003bd94 ("net: stmmac: Prepare to add Split Header support")
+Signed-off-by: James Hilliard <james.hilliard1@gmail.com>
+---
+ drivers/net/ethernet/stmicro/stmmac/stmmac_main.c | 25 ++++++++++++++++-------
+ 1 file changed, 18 insertions(+), 7 deletions(-)
 
-- [Medium] The value this patch stores as "the count required by the
-  active mqprio offload" (`priv->xmit_qdisc.num_tx_queues`) is…
-- [Low] This patch carries `Fixes: 195e4f409a40` ("net: stmmac: support
-  fp parameter of tc-mqprio", Sep 2024), but it depends on the commit…
-- [Low] The hardware TX queue priority map (PSTQx on dwmac4/5, PSTC on
-  XGMAC) becomes stale or inconsistent after `ethtool -L` while a…
+diff --git a/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c b/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
+index ec62fa7418f4..1a4d03aaaf78 100644
+--- a/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
++++ b/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
+@@ -2149,6 +2149,11 @@ static void __free_dma_rx_desc_resources(struct stmmac_priv *priv,
+ 	else
+ 		dma_free_rx_skbufs(priv, dma_conf, queue);
+ 
++	if (rx_q->state_saved)
++		dev_kfree_skb_any(rx_q->state.skb);
++	rx_q->state.skb = NULL;
++	rx_q->state_saved = 0;
++
+ 	rx_q->buf_alloc_num = 0;
+ 	rx_q->xsk_pool = NULL;
+ 
+@@ -5726,6 +5731,7 @@ static int stmmac_rx(struct stmmac_priv *priv, int limit, u32 queue)
+ 	struct stmmac_xdp_buff ctx;
+ 	bool fcs_stripped = false;
+ 	int xdp_status = 0;
++	bool in_progress = rx_q->state_saved;
+ 	int bufsz;
+ 
+ 	dma_dir = page_pool_get_dma_dir(rx_q->page_pool);
+@@ -5740,6 +5746,14 @@ static int stmmac_rx(struct stmmac_priv *priv, int limit, u32 queue)
+ 		stmmac_display_ring(priv, rx_head, priv->dma_conf.dma_rx_size, true,
+ 				    rx_q->dma_rx_phy, desc_size);
+ 	}
++	if (in_progress) {
++		skb = rx_q->state.skb;
++		error = rx_q->state.error;
++		len = rx_q->state.len;
++		rx_q->state.skb = NULL;
++		rx_q->state_saved = false;
++	}
++
+ 	while (count < limit) {
+ 		unsigned int buf1_len = 0, buf2_len = 0;
+ 		enum pkt_hash_types hash_type;
+@@ -5748,12 +5762,7 @@ static int stmmac_rx(struct stmmac_priv *priv, int limit, u32 queue)
+ 		int entry;
+ 		u32 hash;
+ 
+-		if (!count && rx_q->state_saved) {
+-			skb = rx_q->state.skb;
+-			error = rx_q->state.error;
+-			len = rx_q->state.len;
+-		} else {
+-			rx_q->state_saved = false;
++		if (!in_progress) {
+ 			skb = NULL;
+ 			error = 0;
+ 			len = 0;
+@@ -5787,6 +5796,8 @@ static int stmmac_rx(struct stmmac_priv *priv, int limit, u32 queue)
+ 
+ 		prefetch(np);
+ 
++		in_progress = status & rx_not_ls;
++
+ 		if (priv->extend_desc)
+ 			stmmac_rx_extended_status(priv, &priv->xstats, rx_q->dma_erx + entry);
+ 		if (unlikely(status == discard_frame)) {
+@@ -5971,7 +5982,7 @@ static int stmmac_rx(struct stmmac_priv *priv, int limit, u32 queue)
+ 		count++;
+ 	}
+ 
+-	if (status & rx_not_ls || skb) {
++	if (in_progress || skb) {
+ 		rx_q->state_saved = true;
+ 		rx_q->state.skb = skb;
+ 		rx_q->state.error = error;
 
---
+---
+base-commit: 7375d38364a9aa66fb31716bcefef38aecad75d8
+change-id: 20260930-stmmac-rx-state-041371e43e8c
 
-net: stmmac: align real_num_tx_queues to mqprio configuration
+Best regards,
+--  
+James Hilliard <james.hilliard1@gmail.com>
 
-This patch stores the TX queue count used by the active mqprio offload
-in priv->xmit_qdisc.num_tx_queues. stmmac_hw_setup() now uses that value
-instead of plat->tx_queues_to_use for real_num_tx_queues. The patch also
-makes stmmac_reinit_queues() reject TX counts below the count the
-offload needs.
-
-> Fixes: 195e4f409a40 ("net: stmmac: support fp parameter of tc-mqprio")
-
-[Severity: Low]
-Can this patch be applied to a tree that only has 195e4f409a40?
-
-It depends on the earlier commit in this series, "net: stmmac: add tc
-mqprio hw queue priority offload", which is a new feature. That commit
-added the xmit_qdisc struct in struct stmmac_priv, which this patch
-extends.
-
-It also added the hunk context used here. That context is the
-"if (priv->xmit_qdisc.prio_offload) {" restore block in
-stmmac_reset_tc_mqprio() and the tc_mqprio_config_queue_prio() call in
-tc_setup_dwmac510_mqprio().
-
-The bug being fixed already exists at 195e4f409a40. In that tree,
-stmmac_hw_setup() calls
-netif_set_real_num_tx_queues(dev, priv->plat->tx_queues_to_use), and
-tc_setup_dwmac510_mqprio() lowers real_num_tx_queues to the offloaded
-count.
-
-Stable tooling that uses the Fixes: tag will not be able to apply this
-patch unless it also takes the feature commit. Could the fix be reworked
-to apply to net on its own? If not, could the commit message mention
-the dependency?
-
-> diff --git a/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c b/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
-> index 27e4e86e3c8b..1c25d1c129d4 100644
-> --- a/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
-> +++ b/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
-
-[ ... ]
-
-> @@ -7676,6 +7676,10 @@ int stmmac_reinit_queues(struct net_device *dev, u8 rx_cnt, u8 tx_cnt)
->  	struct stmmac_priv *priv = netdev_priv(dev);
->  	int ret = 0, i;
->  
-> +	if (priv->xmit_qdisc.enabled &&
-> +	    tx_cnt < priv->xmit_qdisc.num_tx_queues)
-> +		return -EINVAL;
-> +
-
-[Severity: Low]
-While a channel-mode mqprio offload is active, this check still lets
-tx_cnt grow, or shrink as far as num_tx_queues. Does xmit_qdisc.prio[]
-stay in sync with the new queue count?
-
-At install time, tc_mqprio_config_queue_prio() fills prio[i] only for
-i < tx_queues_to_use. After ethtool -L raises the TX count, the path
-stmmac_open()->stmmac_hw_setup()->stmmac_mtl_configuration()->
-stmmac_mac_config_tx_queues_prio() programs every queue from prio[]:
-
-	for (i = 0; i < priv->plat->tx_queues_to_use; i++)
-		stmmac_tx_queue_prio(priv, priv->hw,
-				     priv->xmit_qdisc.prio[i], i);
-
-For the new queues, this writes the probe-time DT priority
-(plat->tx_queues_cfg[i].prio). Channel mode would give those queues 0,
-since they are outside every TC.
-
-dwmac4_tx_queue_priority() clears only the target queue's field:
-
-	value &= ~GMAC_TXQCTRL_PSTQX_MASK(queue);
-	value |= (prio << GMAC_TXQCTRL_PSTQX_SHIFT(queue)) &
-					GMAC_TXQCTRL_PSTQX_MASK(queue);
-
-As a result, one 802.1p priority can be mapped to both a mqprio TC
-queue and a newly added queue.
-
-The reverse sequence looks possible too: shrink tx_cnt while mqprio is
-active, delete the qdisc, then grow again. stmmac_reset_tc_mqprio()
-restores defaults only up to the reduced count:
-
-	for (i = 0; i < priv->plat->tx_queues_to_use; i++) {
-
-That leaves the mqprio-era 0 values in prio[] for the upper queues. The
-later increase writes those values while prio_offload is false, so the
-DT-configured priorities for those queues are lost.
-
-The prio[] state was added by the earlier "net: stmmac: add tc mqprio
-hw queue priority offload" commit in this series. Before that commit,
-stmmac_mac_config_tx_queues_prio() read plat->tx_queues_cfg directly.
-
-The runtime impact may be small. These fields mostly select which
-queues a received PFC frame pauses, and stmmac does not enable PFC
-reception.
-
-Should stmmac_reinit_queues() recompute prio[] for the new count? The
-alternative would be to refuse any tx_cnt change while prio_offload is
-set.
-
-[ ... ]
-
-> diff --git a/drivers/net/ethernet/stmicro/stmmac/stmmac_tc.c b/drivers/net/ethernet/stmicro/stmmac/stmmac_tc.c
-> index 07cf4582ed76..8bdc411e902f 100644
-> --- a/drivers/net/ethernet/stmicro/stmmac/stmmac_tc.c
-> +++ b/drivers/net/ethernet/stmicro/stmmac/stmmac_tc.c
-
-[ ... ]
-
-> @@ -1438,6 +1441,9 @@ static int tc_setup_dwmac510_mqprio(struct stmmac_priv *priv,
->  	if (mode == TC_MQPRIO_MODE_CHANNEL)
->  		tc_mqprio_config_queue_prio(priv, qopt);
->  
-> +	priv->xmit_qdisc.num_tx_queues = num_tx_queues;
-> +	priv->xmit_qdisc.enabled = true;
-> +
-
-[Severity: Medium]
-Is num_tx_queues the right value to store here? Earlier in
-tc_setup_dwmac510_mqprio(), it is computed as the sum of the counts,
-but the validation checks offset + count:
-
-	if (qopt->offset[i] + qopt->count[i] >
-	    priv->plat->tx_queues_to_use) {
-	...
-	num_tx_queues += qopt->count[i];
-
-mqprio_validate_queue_counts() rejects ranges that are out of bounds or
-overlap. It still allows gaps and a non-zero first offset.
-tc_mqprio_validate_chan_mode() requires offset[i] == i only in channel
-mode, so DCB-mode layouts like "queues 1@0 1@2" or "queues 2@1" are
-accepted.
-
-For those layouts, netif_set_real_num_tx_queues(ndev, num_tx_queues)
-reaches netif_setup_tc():
-
-	/* If TC0 is invalidated disable TC mapping */
-	if (res.offset + res.count > txq) {
-		...
-		WRITE_ONCE(dev->num_tc, 0);
-		return;
-	}
-	...
-		if (res.offset + res.count > txq) {
-			...
-			netdev_set_prio_tc_map(dev, i, 0);
-
-With "1@0 1@2" the sum is 2, so every priority mapped to TC1 moves to
-TC0. With "2@1", TC0 needs 3 queues but only 2 are real, so num_tc is
-set to 0.
-
-In both cases the function still returns success, with enabled = true
-and num_tx_queues = 2.
-
-This patch now keeps that value. stmmac_hw_setup() reapplies it on
-every open and resume, and the new check in stmmac_reinit_queues()
-compares tx_cnt against it.
-
-That check allows sum <= tx_cnt < max(offset + count), which leaves
-tx_cnt below queues that tc_to_txq[] still references. For "2@1", it
-rejects tx_cnt values below 2 even though num_tc is already 0.
-
-The sum-of-counts calculation predates this patch. Here it becomes the
-"count required by the active mqprio offload" that the commit message
-depends on.
-
-Would storing max(offset[i] + count[i]) make the saved value, the
-stmmac_reinit_queues() check and the stmmac_hw_setup() restore agree
-with the validation?
-
--- 
-Sashiko AI review · https://netdev-ai.bots.linux.dev/sashiko/#/patchset/20260928-stmmac-mqprio-prio-offload-v3-0-abbe181f5024%40oss.qualcomm.com
 
