@@ -4,62 +4,56 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2DC63CA5FB3
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  1 Oct 2026 12:10:32 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 06094CA5FCB
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  1 Oct 2026 12:11:16 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=aqwxQkrvWHQdymdWhzH74MJbxlyTutjoaXPFZnbwamw=; b=jAIqq7okuptbPyRJeHUfnVKzPU
-	W6b07sRQSxDU1rLR+mTBGQXfpxcUWWrsUQtWenEtBTczrfYl42Iq8b5uGijOw3VK4vnenF9dpNs/p
-	0scdcbWkxwChN9Xhr+j8RBaX0+hpg7AKNUD/uSy68kNKzgj+aF6/4slMew7SNzkXKjmJwuaePpphS
-	SC8p/r2uzRam5hOUBW4fFuxbcV6NYfCE9rdMyqUiq0zWzVbHV8LbdJxO6BgpZNXWUrXBkK2tMKfiZ
-	IT4f9IFgLaT0e/rTTpoFebBFbts2dw6ukf+CvU5KN/3V5Zv/U+/ISW0B8Ot6fImrPpBUwAuDMusst
-	7YKemEEA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=QTqQJkL63ohXjWLssut7aVeNBPbNyPoug3s4cPnbgPw=; b=FUB0SBtbR/BRZJI9RjrkYHqsY1
+	PTds7/dVz2ZEXS4f+U8E6scQUDjTiwcNoNuw7eClH73K39jLNf+M1PCzX73+MOBN2ctRd9iFJV0Rx
+	VjJE3wCu1XTc5BUYOxt9OlkY/f1L1VVrKi0pngBtZy6LG+ZsTK7ZvKxOv4PBDmnAz/Mf5+4LdyxzP
+	84VNrjkUTUSW/j7CEMDAwo9CNnN1lkseuTqt/HBxSaDNQnqnHwFj5OW3uPGmQrIka/G+S0qnyTSEs
+	SDjP2b/MaygHk06dm0Nj8novbbfEosYVBEQ3Bnqr4NlfIc1sXN5m6Z/2eSwLuoBsdOnwV9kp8JEAM
+	WQa0yPGQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xCFcG-000000090Xw-1CWm;
-	Thu, 01 Oct 2026 12:10:24 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xCFcD-000000090Qn-0yHc
-	for linux-arm-kernel@lists.infradead.org;
-	Thu, 01 Oct 2026 12:10:23 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 71119143D;
-	Thu,  1 Oct 2026 05:10:13 -0700 (PDT)
-Received: from [10.0.153.43] (e121487-lin.cambridge.arm.com [10.0.153.43])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 184C23F85F;
-	Thu,  1 Oct 2026 05:10:14 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1790856616; bh=GfzGR1fGsN/V0+j7gvKYifuzwingsnYuNC+55v70W3E=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=s9N4aedEESWfJQKMgJKYh1Qf9QTqNzfpKMcexbyKaFnIc7ItcimsgjuAz1MB5JZGl
-	 EPHqSxyYU3ZvSwEfbN6O0QLwE2jySodrKKWQAK03fBHcBAwn3b+DegcZ4lcI13xMTC
-	 79ZIzB+ACZqABxYBZIF48V4ozRurrc1t714p4bKg=
-Message-ID: <ce0a72a9-ea08-4899-b282-ea39b195a161@arm.com>
-Date: Thu, 1 Oct 2026 13:10:13 +0100
+	id 1xCFcz-000000091Sb-2wqd;
+	Thu, 01 Oct 2026 12:11:09 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
+	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1xCFcx-000000091Pf-2pvY;
+	Thu, 01 Oct 2026 12:11:07 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by sea.source.kernel.org (Postfix) with ESMTP id 338484360A;
+	Thu,  1 Oct 2026 12:11:07 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 493451F000FF;
+	Thu,  1 Oct 2026 12:11:06 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1790856667;
+	bh=QTqQJkL63ohXjWLssut7aVeNBPbNyPoug3s4cPnbgPw=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=i8/6oesk+nDhLAbk7K5hdssv8WTn/KKU/k/hD5wI0EcIm6J3f3kLBNo8TJCyL4jMp
+	 zqWNuit5QKwBo7ymBSYCrhOmTjNsxXVsGUUCedu9uB2986F5RpZMeUTPIV5jFR6hRd
+	 F2t0f9hLMrx6+YS0IbaFQfGMQip4S6lwNWuYc46ypZjIj8Y197cs/LsvnQM08eXIjf
+	 1VCGnnOXafqZiPC6vwpWiRf7XiqQsZ9K0bgBWj8NKi+cOszmZqlouA0SuQWy0Y7qVA
+	 /0iYpGdf6krAXkwJWoK/maXimWzImltBx9Ez/TFLrnPuKTc7lQa2oZamRxSEpjBMfe
+	 2YEeyM22dGyZw==
+Date: Thu, 1 Oct 2026 14:11:03 +0200
+From: Krzysztof Kozlowski <krzk@kernel.org>
+To: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
+Cc: arm-soc <arm@kernel.org>, soc <soc@kernel.org>, 
+	linux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org, matthias.bgg@gmail.com
+Subject: Re: [GIT,PULL,2/3] MediaTek ARM32 Device Tree updates for v7.4
+Message-ID: <20261001-thundering-durable-seriema-0aae1a@quoll>
+References: <20260923103222.25504-1-angelogioacchino.delregno@collabora.com>
+ <20260923103222.25504-2-angelogioacchino.delregno@collabora.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v4 1/2] arm64: errata: Factor out broken AMU const counter
- cap
-To: Beata Michalska <beata.michalska@arm.com>,
- linux-arm-kernel@lists.infradead.org
-Cc: catalin.marinas@arm.com, will@kernel.org, suzuki.poulose@arm.com,
- James.Morse@arm.com, xuewen.yan94@gmail.com, seanwang1@lenovo.com,
- linux-kernel@vger.kernel.org
-References: <20261001090050.3849551-1-beata.michalska@arm.com>
- <20261001090050.3849551-2-beata.michalska@arm.com>
-Content-Language: en-GB
-From: Vladimir Murzin <vladimir.murzin@arm.com>
-In-Reply-To: <20261001090050.3849551-2-beata.michalska@arm.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261001_051021_541683_76EF0B49 
-X-CRM114-Status: GOOD (  25.86  )
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+In-Reply-To: <20260923103222.25504-2-angelogioacchino.delregno@collabora.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -74,143 +68,23 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 10/1/26 10:00, Beata Michalska wrote:
-> Move the workaround from the erratum 2457168-specific cpucap to a generic
-> broken AMU constant-counter one. This keeps the existing Cortex-A510
-> handling unchanged while allowing other errata with similar AMU constant
-> counter issue to share the capability bit and call sites.
+On Wed, Sep 23, 2026 at 12:32:06PM +0200, AngeloGioacchino Del Regno wrote:
+> The following changes since commit cee9395acd8043be0644b25c34bfa86623f2b935:
 > 
-> Signed-off-by: Beata Michalska <beata.michalska@arm.com>
-> ---
->  arch/arm64/Kconfig             |  8 ++++++++
->  arch/arm64/kernel/cpu_errata.c | 20 ++++++++++++++------
->  arch/arm64/kernel/cpufeature.c |  2 +-
->  arch/arm64/kernel/topology.c   |  7 ++++---
->  arch/arm64/tools/cpucaps       |  2 +-
->  5 files changed, 28 insertions(+), 11 deletions(-)
+>   Linux 7.3-rc1 (2026-08-30 13:34:40 -0700)
 > 
-> diff --git a/arch/arm64/Kconfig b/arch/arm64/Kconfig
-> index b5a51b0ef9440..3b6c052d46a18 100644
-> --- a/arch/arm64/Kconfig
-> +++ b/arch/arm64/Kconfig
-> @@ -1040,9 +1040,17 @@ config ARM64_ERRATUM_1902691
->  
->  	  If unsure, say Y.
->  
-> +config ARM64_WORKAROUND_BROKEN_AMU_CONSTCNT
-> +	bool
-> +	# Targeting errata affecting AMEVCNTR01, the AMU constant counter.
-> +	# On affected CPUs the counter may not increment at the expected rate,
-> +	# making it unreliable. As a result, AMU users should treat it as
-> +	# unavailable rather than relying on misleading counter values.
-> +
->  config ARM64_ERRATUM_2457168
->  	bool "Cortex-A510: 2457168: workaround for AMEVCNTR01 incrementing incorrectly"
->  	depends on ARM64_AMU_EXTN
-> +	select ARM64_WORKAROUND_BROKEN_AMU_CONSTCNT
->  	default y
->  	help
->  	  This option adds the workaround for ARM Cortex-A510 erratum 2457168.
-> diff --git a/arch/arm64/kernel/cpu_errata.c b/arch/arm64/kernel/cpu_errata.c
-> index 5db8f0619e4bc..8ce559ac073c7 100644
-> --- a/arch/arm64/kernel/cpu_errata.c
-> +++ b/arch/arm64/kernel/cpu_errata.c
-> @@ -381,6 +381,16 @@ static const struct arm64_cpu_capabilities arm64_repeat_tlbi_list[] = {
->  };
->  #endif
->  
-> +#ifdef CONFIG_ARM64_WORKAROUND_BROKEN_AMU_CONSTCNT
-> +static const struct midr_range workaround_amu_constcnt_list[] = {
-> +#ifdef CONFIG_ARM64_ERRATUM_2457168
-> +	/* Cortex-A510 r0p0-r1p1 */
-> +	MIDR_RANGE(MIDR_CORTEX_A510, 0, 0, 1, 1),
-> +#endif
-> +	{}
-> +};
-> +#endif /* CONFIG_ARM64_WORKAROUND_BROKEN_AMU_CONSTCNT */
-> +
->  #ifdef CONFIG_CAVIUM_ERRATUM_23154
->  static const struct midr_range cavium_erratum_23154_cpus[] = {
->  	MIDR_ALL_VERSIONS(MIDR_THUNDERX),
-> @@ -916,14 +926,12 @@ const struct arm64_cpu_capabilities arm64_errata[] = {
->  		ERRATA_MIDR_REV_RANGE(MIDR_CORTEX_A510, 0, 0, 2)
->  	},
->  #endif
-> -#ifdef CONFIG_ARM64_ERRATUM_2457168
-> +#ifdef CONFIG_ARM64_WORKAROUND_BROKEN_AMU_CONSTCNT
->  	{
-> -		.desc = "ARM erratum 2457168",
-> -		.capability = ARM64_WORKAROUND_2457168,
-> +		.desc = "Broken AMU AMEVCNTR01 (const counter)",
-> +		.capability = ARM64_WORKAROUND_BROKEN_AMU_CONSTCNT,
->  		.type = ARM64_CPUCAP_WEAK_LOCAL_CPU_FEATURE,
-> -
-> -		/* Cortex-A510 r0p0-r1p1 */
-> -		CAP_MIDR_RANGE(MIDR_CORTEX_A510, 0, 0, 1, 1)
-> +		CAP_MIDR_RANGE_LIST(workaround_amu_constcnt_list)
->  	},
->  #endif
->  #ifdef CONFIG_ARM64_ERRATUM_2038923
-> diff --git a/arch/arm64/kernel/cpufeature.c b/arch/arm64/kernel/cpufeature.c
-> index 17b83a2518a8f..1569f84214763 100644
-> --- a/arch/arm64/kernel/cpufeature.c
-> +++ b/arch/arm64/kernel/cpufeature.c
-> @@ -2064,7 +2064,7 @@ static void cpu_amu_enable(struct arm64_cpu_capabilities const *cap)
->  		cpumask_set_cpu(smp_processor_id(), &amu_cpus);
->  
->  		/* 0 reference values signal broken/disabled counters */
-> -		if (!this_cpu_has_cap(ARM64_WORKAROUND_2457168))
-> +		if (!this_cpu_has_cap(ARM64_WORKAROUND_BROKEN_AMU_CONSTCNT))
->  			update_freq_counters_refs();
->  	}
->  }
-> diff --git a/arch/arm64/kernel/topology.c b/arch/arm64/kernel/topology.c
-> index d28438f8b83f1..64588554e7f76 100644
-> --- a/arch/arm64/kernel/topology.c
-> +++ b/arch/arm64/kernel/topology.c
-> @@ -402,7 +402,7 @@ static void cpu_read_constcnt(void *val)
->  	 * the counter is disabled. A return value of 0 at counter read is
->  	 * properly handled as an error case by the users of the counter.
->  	 */
-> -	*(u64 *)val = this_cpu_has_cap(ARM64_WORKAROUND_2457168) ?
-> +	*(u64 *)val = this_cpu_has_cap(ARM64_WORKAROUND_BROKEN_AMU_CONSTCNT) ?
->  		      0UL : read_constcnt();
->  }
->  
-> @@ -463,8 +463,9 @@ static void amu_read_core_const_ctrs(void *val)
->  
->  	/*
->  	 * cpu_read_constcnt() incurs slight latency due to the
-> -	 * ARM64_WORKAROUND_2457168 check. Read it first to minimize
-> -	 * the sampling skew between the const and core counters.
-> +	 * ARM64_WORKAROUND_BROKEN_AMU_CONSTCNT check.
-> +	 * Read it first to minimize the sampling skew between the const
-> +	 * and core counters.
->  	 */
->  	cpu_read_constcnt(&ctrs->constcnt);
->  	cpu_read_corecnt(&ctrs->corecnt);
-> diff --git a/arch/arm64/tools/cpucaps b/arch/arm64/tools/cpucaps
-> index 2775ba3359cfe..58b6c084f9f25 100644
-> --- a/arch/arm64/tools/cpucaps
-> +++ b/arch/arm64/tools/cpucaps
-> @@ -105,7 +105,6 @@ WORKAROUND_1902691
->  WORKAROUND_2038923
->  WORKAROUND_2064142
->  WORKAROUND_2077057
-> -WORKAROUND_2457168
->  WORKAROUND_2645198
->  WORKAROUND_2658417
->  WORKAROUND_4193714
-> @@ -132,3 +131,4 @@ WORKAROUND_REPEAT_TLBI_SYNC
->  WORKAROUND_SPECULATIVE_AT
->  WORKAROUND_SPECULATIVE_SSBS
->  WORKAROUND_SPECULATIVE_UNPRIV_LOAD
-> +WORKAROUND_BROKEN_AMU_CONSTCNT
-> -- 2.43.0
+> are available in the Git repository at:
+> 
+>   https://git.kernel.org/pub/scm/linux/kernel/git/mediatek/linux.git/ tags/mtk-dts32-for-v7.4
+> 
+> for you to fetch changes up to 2e195497fc9fc0dd89cf95dab80a2d0486dab65b:
+> 
+>   ARM: dts: mediatek: Add basic support for Amazon ford board (2026-09-10 16:41:20 +0200)
 > 
 
-Reviewed-by: Vladimir Murzin <vladimir.murzin@arm.com>
+Thanks, applied
 
-Thanks
-Vladimir
+Best regards,
+Krzysztof
+
 
