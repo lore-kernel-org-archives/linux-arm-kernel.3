@@ -4,81 +4,63 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id ACFFECA5FCB
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  1 Oct 2026 11:28:15 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8AC85CA5FCB
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  1 Oct 2026 11:28:27 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:References:In-Reply-To:Date:Cc:To:From
-	:Subject:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=pfkrqf1cMSzSZl4ywENaP2/5NyHNYUwv2zYCDbVjTJg=; b=bQ64bGOAbGr9r9hWxP1D2NE7jI
-	UogtEF2NMlm+VO1Nwfgv6IRrCGou0pMTM1cgJAZ2R8OW4S6JH39Nv1WnWGLT7Wga4Y+j6wIofDBw+
-	s6B5KDSZOhG7A/JUz6EwErsoFRdHVyLSCxhETPivrroug1BxhfCgamyf+6hWLwIuT5Pg8VUNrLrqL
-	30ywrCbUgCsYJE/Idr0rCH7UCxTWUrw1cu6BWkiZGqikpISs2MBCEsPT7tnaonwnqiewpY7QJmZHD
-	x80ud2jsizMt3cmT3rfmh7hhklah9GUFPDHK9bKBUnnQBS2g+53iwDAiX8/br2AYFKnP9CbqVbqk3
-	QtN9BH3A==;
+	bh=ds5ik7E8aFeLG9+eGz+NlTxnIFC20DsaI0MfbH9KF6k=; b=3LJInsn+GysyWkCdh7YGcKO7KR
+	Pnht/Ks2vdG0eAWZENUb9hfduA13qbgWCcT4zrCtvl5G0RqVG+7YYWWG0u9CgnDctHJVwANnAl8Fh
+	TvG27O1rEhg41BszjtXJK/82yoh3Esql5Y5zZzlNQ/C4BhufBTyllxsJxqr2EdsxL3MeC2zA8pPUR
+	0DyK/jXQ7ZI97ndmfhwcIbilhxcMWtS0XvY8IqX4YTqFlvXiFbSMtgPmS2324oMwkB9JLfdOcTfDQ
+	mcJ9+BzoEDjtN3yjzMy/4ucLl0wy85Y1btRTGO2efQaVr9i3isfnRkWWPMhimJXgg4qdYKGZIqVJ2
+	5HKjvJGg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xCExJ-00000008dSN-0aLL;
-	Thu, 01 Oct 2026 11:28:05 +0000
-Received: from frasgout12.his.huawei.com ([14.137.139.154])
+	id 1xCExZ-00000008dUu-143E;
+	Thu, 01 Oct 2026 11:28:21 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xCExF-00000008dRK-1ra1
+	id 1xCExY-00000008dUc-2pbC
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 01 Oct 2026 11:28:04 +0000
-Received: from mail.maildlp.com (unknown [172.18.224.196])
-	by frasgout12.his.huawei.com (SkyGuard) with ESMTPS id 4hwTwy2TgCzsvlV
-	for <linux-arm-kernel@lists.infradead.org>; Thu,  1 Oct 2026 19:20:34 +0800 (CST)
-Received: from mail02.huawei.com (unknown [7.182.16.27])
-	by mail.maildlp.com (Postfix) with ESMTP id 354A040497
-	for <linux-arm-kernel@lists.infradead.org>; Thu,  1 Oct 2026 19:27:53 +0800 (CST)
-Received: from [10.204.63.22] (unknown [10.204.63.22])
-	by APP2 (Coremail) with UTF8SMTPA id GxC2BwB3Vy+qQ75qmdM_AQ--.58836S2;
-	Thu, 01 Oct 2026 12:27:52 +0100 (CET)
-Message-ID: <ebe68f6463f8ece8a5cd8ce70bba292ec4f64a41.camel@huaweicloud.com>
-Subject: Re: [PATCH RFC 0/3] security: ima: support TSM measurement registers
-From: Roberto Sassu <roberto.sassu@huaweicloud.com>
-To: Yeoreum Yun <yeoreum.yun@arm.com>, linux-coco@lists.linux.dev, 
-	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, Eric
- Snowberg <eric.snowberg@oracle.com>, linux-integrity@vger.kernel.org, 
-	linux-security-module@vger.kernel.org
-Cc: Dan Williams <djbw@kernel.org>, Mimi Zohar <zohar@linux.ibm.com>, 
- Roberto Sassu <roberto.sassu@huawei.com>, Dmitry Kasatkin
- <dmitry.kasatkin@gmail.com>, Paul Moore <paul@paul-moore.com>, James Morris
- <jmorris@namei.org>, "Serge E. Hallyn" <serge@hallyn.com>, Catalin Marinas
- <catalin.marinas@arm.com>, Jason Gunthorpe <jgg@ziepe.ca>, Suzuki Poulose
- <suzuki.poulose@arm.com>, Steven Price <steven.price@arm.com>, Sami Mujawar
- <sami.mujawar@arm.com>, "Aneesh Kumar K.V" <aneesh.kumar@kernel.org>, Jiri
- Pirko <jiri@resnulli.us>
-Date: Thu, 01 Oct 2026 13:27:35 +0200
-In-Reply-To: <20260930-ima_tgx_integration_v2-v1-0-722c35370548@arm.com>
-References: <20260930-ima_tgx_integration_v2-v1-0-722c35370548@arm.com>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
-User-Agent: Evolution 3.52.3-0ubuntu1 
+	Thu, 01 Oct 2026 11:28:20 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by tor.source.kernel.org (Postfix) with ESMTP id C88DA601E4;
+	Thu,  1 Oct 2026 11:28:19 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 344A51F000FF;
+	Thu,  1 Oct 2026 11:28:15 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1790854099;
+	bh=ds5ik7E8aFeLG9+eGz+NlTxnIFC20DsaI0MfbH9KF6k=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=Tv79kSWilx5o3Mgjnv6DJsulMK1FxPD1gS7DssuJbuIB6XLXKDDufYKPtTkUgG+1c
+	 /GZZ/EqB3dXenONMYETxi+vZA1vJPnF3avtbUEqXo3PoU8+p7tqVAs1uPLVG334ry2
+	 4UuZk7zTvGoXN1nEDe7nL0MUkhudPFMxNllKQOiey7dMnF1/OlUTxL9ZzQHcLIe3Wd
+	 Ntct4FD7P/KhiRrAUxYYnfzjt/5SKCzPQF66AAe+NgkWQJsOl4YmWjrATckyU92tLU
+	 gKj3M8oIOr4ZJV52WDQEu+jEDngRReB2YxkeviHwajemKI/fVnOSCha7vmP9rckloa
+	 zZqZzJXDWUIOg==
+Date: Thu, 1 Oct 2026 12:28:12 +0100
+From: "Lorenzo Stoakes (ARM)" <ljs@kernel.org>
+To: Mark Brown <broonie@kernel.org>
+Cc: Catalin Marinas <catalin.marinas@arm.com>, 
+	Will Deacon <will@kernel.org>, Marc Zyngier <maz@kernel.org>, Joey Gouly <joey.gouly@arm.com>, 
+	Suzuki K Poulose <suzuki.poulose@arm.com>, Shuah Khan <shuah@kernel.org>, Oliver Upton <oupton@kernel.org>, 
+	Fuad Tabba <fuad.tabba@linux.dev>, Peter Maydell <peter.maydell@linaro.org>, 
+	Leonardo Bras <leo.bras@arm.com>, Wei-Lin Chang <weilin.chang@arm.com>, 
+	Yao Yuan <yaoyuan@linux.alibaba.com>, linux-arm-kernel@lists.infradead.org, linux-doc@vger.kernel.org, 
+	kvmarm@lists.linux.dev, linux-kselftest@vger.kernel.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v21 03/15] KVM: arm64: Manage GCS access and registers
+ for guests
+Message-ID: <ar5DIENoWVSOTQsY@gremlin>
+References: <20260930-arm64-gcs-v21-0-3556644cd927@kernel.org>
+ <20260930-arm64-gcs-v21-3-3556644cd927@kernel.org>
 MIME-Version: 1.0
-X-CM-TRANSID: GxC2BwB3Vy+qQ75qmdM_AQ--.58836S2
-X-Coremail-Antispam: 1UD129KBjvJXoWxCr47KFy7tr4kJw1ruF1ftFb_yoWrJr47pa
-	nIg3W3Gr1UJa43Cr1fA3WjvFWrW3yrGw4DWw43Jw1kCFsxZFy2gr40kFyFkF98Aryftr18
-	tr1Yqrs8u34qyFJanT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
-	9KBjDU0xBIdaVrnRJUUUvjb4IE77IF4wAFF20E14v26ryj6rWUM7CY07I20VC2zVCF04k2
-	6cxKx2IYs7xG6rWj6s0DM7CIcVAFz4kK6r1j6r18M28lY4IEw2IIxxk0rwA2F7IY1VAKz4
-	vEj48ve4kI8wA2z4x0Y4vE2Ix0cI8IcVAFwI0_Jr0_JF4l84ACjcxK6xIIjxv20xvEc7Cj
-	xVAFwI0_Gr0_Cr1l84ACjcxK6I8E87Iv67AKxVWUJVW8JwA2z4x0Y4vEx4A2jsIEc7CjxV
-	AFwI0_Gr0_Gr1UM2AIxVAIcxkEcVAq07x20xvEncxIr21l5I8CrVACY4xI64kE6c02F40E
-	x7xfMcIj6xIIjxv20xvE14v26r1j6r18McIj6I8E87Iv67AKxVWUJVW8JwAm72CE4IkC6x
-	0Yz7v_Jr0_Gr1lF7xvr2IY64vIr41lFIxGxcIEc7CjxVA2Y2ka0xkIwI1lc7CjxVAaw2AF
-	wI0_GFv_Wryl42xK82IYc2Ij64vIr41l4I8I3I0E4IkC6x0Yz7v_Jr0_Gr1lx2IqxVAqx4
-	xG67AKxVWUJVWUGwC20s026x8GjcxK67AKxVWUGVWUWwC2zVAF1VAY17CE14v26r4a6rW5
-	MIIYrxkI7VAKI48JMIIF0xvE2Ix0cI8IcVAFwI0_Jr0_JF4lIxAIcVC0I7IYx2IY6xkF7I
-	0E14v26r4j6F4UMIIF0xvE42xK8VAvwI8IcIk0rVWUJVWUCwCI42IY6I8E87Iv67AKxVWU
-	JVW8JwCI42IY6I8E87Iv6xkF7I0E14v26r4j6r4UJbIYCTnIWIevJa73UjIFyTuYvjxUIa
-	0PDUUUU
-X-CM-SenderInfo: purev21wro2thvvxqx5xdzvxpfor3voofrz/1tbiAgANBGq+BZ0nUgAAsy
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261001_042801_786487_AB15D9EE 
-X-CRM114-Status: GOOD (  16.12  )
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20260930-arm64-gcs-v21-3-3556644cd927@kernel.org>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -93,106 +75,31 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, 2026-09-30 at 14:43 +0100, Yeoreum Yun wrote:
-> Confidential computing guests without a TPM can use TSM measurement
-> registers to record IMA measurement digests instead of TPM PCRs.
+On Wed, Sep 30, 2026 at 10:48:13PM +0100, Mark Brown wrote:
 
-Hi Yeoreum
+> Reviewed-by: Leonardo Bras <leo.bras@arm.com>
+> Signed-off-by: Mark Brown <broonie@kernel.org>
 
-a similar patch set has been sent to the linux-integrity mailing list:
+With the preceding patch and the additional change below to extend the
+invariant to GCS as well, the issue with incorrect save/restore is resolved
+and this LGTM, so:
 
-https://lore.kernel.org/linux-integrity/20250630125928.765285-1-gongruiqi1@=
-huawei.com/
+Reviewed-by: Lorenzo Stoakes (ARM) <ljs@kernel.org>
 
-Could you please work with Gong Ruiqi to have a unified proposal?
+> diff --git a/arch/arm64/kvm/sys_regs.c b/arch/arm64/kvm/sys_regs.c
+> index 3ae293798b27..823460106de8 100644
+> --- a/arch/arm64/kvm/sys_regs.c
+> +++ b/arch/arm64/kvm/sys_regs.c
 
-Thanks
+> @@ -5875,6 +5917,9 @@ static bool kvm_validate_id_regs(struct kvm *kvm)
+>  	if (kvm_has_s1poe(kvm) && !kvm_has_tcr2(kvm))
+>  		return false;
+>
+> +	if (kvm_has_gcs(kvm) && !kvm_has_s1pie(kvm))
+> +		return false;
 
-Roberto
+OK nice this extends the invariant to cover GCS as well!
 
-> This series introduces in-kernel interfaces for accessing TSM
-> measurement registers, abstracts IMA's measurement-register operations,
-> and adds a TSM backend for Intel TDX and Arm CCA.
->=20
-> The following mappings between TPM PCR indices and TSM measurement
-> registers are defined for Intel TDX [0] and proposed for Arm CCA [1]:
->=20
->   TPM PCR index | Intel TDX register | Arm CCA register
->   --------------+--------------------+-----------------
->   0             | MRTD               | RIM
->   1, 7          | RTMR[0]            | REM[0]
->   2-6           | RTMR[1]            | REM[1]
->   8-15          | RTMR[2]            | REM[2]
->=20
-> These mappings allow IMA to translate PCR indices into the corresponding
-> TSM measurement registers.
->=20
-> The TPM backend remains preferred when it is available at IMA
-> initialization. Otherwise, IMA falls back to a supported TSM backend.
-> Only one backend is selected; IMA measurements are not extended to both
-> TPM PCRs and TSM measurement registers.
->=20
-> The attestation proccess for guest with TSM measurement register will
-> be done with Confidential Compute Event Log (CCEL) which is exported by
-> /sys/firmware/acpi/tables/data/CCEL. Here is brief process in arm64:
->=20
->   Verifier                 Realm guest              RMM / Platform
->      |                         |                           |
->      |--- Challenge (nonce) -->|                           |
->      |                         |--- Request token -------->|
->      |                         |    with challenge         |
->      |                         |                           |
->      |                         |<-- CCA token T -----------|
->      |<-- CCA token T ---------|                           |
->      |<-- CCEL event log ------|                           |
->      |<-- IMA measurement log -|                           |
->      |                         |                           |
->  Verify token T:               |                           |
->   - signatures                 |                           |
->   - Platform/Realm             |                           |
->     token binding              |                           |
->   - challenge freshness        |                           |
->   - platform/RIM policy        |                           |
->   - verify measurement logs    |                           |
->      |                         |                           |
->      | ----ACCEPT / REJECT---->|                           |
->=20
-> This patch based on arm-cca-mr series [3].
->=20
-> Link: [0] https://uefi.org/specs/UEFI/2.11/38_Confidential_Computing.html=
-#intel-trust-domain-extension
-> Link: [1] https://github.com/tianocore/edk2/issues/11383
-> Link: [2] https://github.com/tianocore/edk2/issues/11384
-> Link: [3] https://lore.kernel.org/all/20260929-arm_cca_mr-v2-0-1d98bba187=
-fd@arm.com/
->=20
-> ---
-> Yeoreum Yun (3):
->       virt: coco: introduce tsm_default_tm() and tsm_mr_read()/write()
->       security: IMA: introduce ima_mr structure
->       security: IMA: use TSM measurement registers
->=20
->  drivers/virt/coco/guest/tsm-mr.c          | 159 +++++++++++++---
->  include/linux/tsm-mr.h                    |  26 +++
->  security/integrity/ima/Makefile           |   3 +-
->  security/integrity/ima/ima.h              |   7 +-
->  security/integrity/ima/ima_api.c          |   4 +-
->  security/integrity/ima/ima_crypto.c       | 137 +++++---------
->  security/integrity/ima/ima_fs.c           |  16 +-
->  security/integrity/ima/ima_init.c         |   7 +-
->  security/integrity/ima/ima_mr.c           |  48 +++++
->  security/integrity/ima/ima_mr.h           |  76 ++++++++
->  security/integrity/ima/ima_mr_tpm.c       | 155 ++++++++++++++++
->  security/integrity/ima/ima_mr_tsm.c       | 290 ++++++++++++++++++++++++=
-++++++
->  security/integrity/ima/ima_queue.c        |  39 ++--
->  security/integrity/ima/ima_template.c     |   4 +-
->  security/integrity/ima/ima_template_lib.c |   2 +-
->  15 files changed, 819 insertions(+), 154 deletions(-)
-> ---
-> base-commit: b561246f45174b7472c24b75358ea95bae72b7b8
-> change-id: 20260929-ima_tgx_integration_v2-1c54aeeaeaee
->=20
-> Best regards,
-
+--
+Cheers, Lorenzo
 
