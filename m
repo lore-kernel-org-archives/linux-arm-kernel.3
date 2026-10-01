@@ -4,91 +4,78 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9A38DCA5FD4
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  1 Oct 2026 16:53:41 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 344F8CA5FD2
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  1 Oct 2026 16:56:37 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
-	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
-	From:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=9qiRChznzG49bw0b7f4vVaI+qLq1BzquHDgk86BLByg=; b=FVSqZaFP+QMpUpBmrZn9LWxknt
-	n+CzFluJxnZ3ByEiNxctPH+a0zIXflk3LTMYj6yJiXDJXeZSyW7pxSLIj/427waY0FGkZ1zupEDLe
-	UMCpAgwSfNRCuh6mbSI0X9Lg0Pf3SNzZcHOMJ442GVdmlmBE0xbShkPLCWqGrDaKZknUG2v9lbUqQ
-	E6783aSoJcgaM+2dbAd6abU3+ZM1aDrBGWt13cGoBXhPG2TEmDStbqA0dHPkC7F0FureiCvTApHgx
-	wDnjeFcrGla2tEscnHya8TZ66kgYzYz8pl55k8Lqe+JPJDSRLNExm5iArL2oxu3pOMnCiW5AfoHay
-	Nl81ANww==;
+	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:
+	References:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:
+	Subject:Date:From:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=1pKjzNZ0oNgV7kr7KSLvq/GxWBTa1JI/QjwrdWxTJyE=; b=fuCk9LGzbrRDFAz6c3YD9u9I7/
+	R6clPuGesBvrCxMv7Sus4xXGooaFDxken9gmcvIGn3tf422+mUzjy2BoEwWPt5gld879zidEyv+9g
+	YaJvVp4pk0i6houOupxe7qg3fgpxgwKENf4pJvjvYNHGaWYJHu9FJHo+gkVnJhjErvcXzcubBdsmy
+	i5vBJR551oc6H6k+j5lulmsLLpuRZ13OSL9ptyTcMNxPKrGJ5nDRDob5nUVyndnSHmkHCmVzeneC8
+	aaVl0946i4BVTIdMkqiPOYlV2t86nsWrZm8FYuwkgjZyz+NoUkYX3absT5fCpKXU4dsX8LpQAErss
+	NAJ7o9aw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xCG5x-000000094oY-0qLF;
-	Thu, 01 Oct 2026 12:41:07 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1xCK58-00000009mpQ-151z;
+	Thu, 01 Oct 2026 16:56:30 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xCG5s-000000094lg-3rm0
-	for linux-arm-kernel@lists.infradead.org;
-	Thu, 01 Oct 2026 12:41:01 +0000
+	id 1xCK56-00000009moP-41s8;
+	Thu, 01 Oct 2026 16:56:29 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 6A8BF4087A;
-	Thu,  1 Oct 2026 12:41:00 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPS id 1FDE7C2BCC7;
-	Thu,  1 Oct 2026 12:41:00 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 9E17743D1F;
+	Thu,  1 Oct 2026 16:56:28 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPS id 70899C2BCF4;
+	Thu,  1 Oct 2026 16:56:28 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1790858460;
-	bh=coHglYm9+1GQYQb+OpOOg0LrOVVxDuyh/0xYFK/oIn0=;
-	h=From:Subject:Date:To:Cc:Reply-To:From;
-	b=GiTnOT6HPkgqgO2CvmiXTq7zIm8Me6G/qV0NMV58TGqq01ianiEgWef2F9kufLfiI
-	 of1ZHnjHBXwbb1Xoy5T8Dd140sn+eS7cskPndUtlm5GN9howCARjJfncmYeNoWpFol
-	 diJ/DJBOySUbwOnGY9ZNuvbGtTeOKbH4LF52CbXl0RxsrdQHB+0QDyqvJyGSy6M4U+
-	 8B46UfpBLROSGBvsutHfSRLEVi7YZTt6UkqAbPO2RaFyo5ErjV9YVwD98jWKWSrPtD
-	 wlr/T/eyqe1O61QTmD8rT+Nmcb9I3PM4sRYzZQMDDGjYFkTVYK6h6Nxmp9Bge0MpGZ
-	 UYpsCCN2wS0uQ==
+	s=k20201202; t=1790873788;
+	bh=U6Axf79ZpyUkwq9Xo/HqsSHd8GDH7dGjJ/q6N5e0mvE=;
+	h=From:Date:Subject:References:In-Reply-To:To:Cc:Reply-To:From;
+	b=C/ikCzJ1vBb1OBqj9qNUwaYvx1dMvtAvS6Ic3dd7fVjgBc6IlOMVGeQl4GS4tUDnf
+	 FSpzYSQJANY3TtQKbcvqAZzd7CZVZH3+EDvhGx8PzeyqYDP26LL6oc+cSS920V4C2Z
+	 oMn4cBTadvFG0PEP9gOhT7Th8kZw9jMm0F92lgkxrilODnw0ew5+HwRbD1rNKxNTIR
+	 PJf1n5l9G12VLk0mo/kREIOCiU8MrlG2B/+VhY4MncmROTmvvAEsigw9eX4iYX8U9U
+	 ZUCtUCO4FrrhgpwwpHeiMargjvOtRII5usBs3soQ+khakTaVrx3yC4l3xnG5OxsyL/
+	 AwgqXRjF+jeiQ==
 Received: from aws-us-west-2-korg-lkml-1.web.codeaurora.org (localhost.localdomain [127.0.0.1])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 0B406CA5FA5;
-	Thu,  1 Oct 2026 12:41:00 +0000 (UTC)
-From: Long Zhao via B4 Relay <devnull+longzhao.ambarella.com@kernel.org>
-Subject: [PATCH v9 00/15] Ambarella CV75 SoC minimal bring-up
-Date: Thu, 01 Oct 2026 20:40:49 +0800
-Message-Id: <20261001-cv75-v5-v9-0-486cc289a4b8@ambarella.com>
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 50C17CA5FD6;
+	Thu,  1 Oct 2026 16:56:28 +0000 (UTC)
+From: Ronald Claveau via B4 Relay <devnull+linux-kernel-dev.aliel.fr@kernel.org>
+Date: Thu, 01 Oct 2026 18:55:35 +0200
+Subject: [PATCH v4 2/3] pwm: meson: Add optional bus clock for S4 PWM
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 8bit
-X-B4-Tracking: v=1; b=H4sIANFUvmoC/12Oy27CMBREfwV5XVd+xMSXVf8DsfDjmrgipLKDR
- YXy77UpIojlSGfmzI1kTBEz2W1uJGGJOU7nGuBjQ9xgzkek0ddMBBNbprmmrvSKFkUBBZNgZQf
- WkUqHNI10HhKalQfWPfmypYwicK1456y0/MuM1iQ8ncynm8Y28ZMwxOv9zP7wn/PFfqOb22Ijh
- pjnKf3e35a+cQ8RV6uoryIpoPcyWAeOvYnactEvXcHXrq5doUUIyoP23rx3l2X5A2yNVuUzAQA
- A
-X-Change-ID: 20260818-cv75-v5-9e2039b349bc
-To: Arnd Bergmann <arnd@arndb.de>, Krzysztof Kozlowski <krzk@kernel.org>, 
- Alexandre Belloni <alexandre.belloni@bootlin.com>, soc@lists.linux.dev, 
- linux-arm-kernel@lists.infradead.org
-Cc: Long Zhao <longzhao@ambarella.com>, Rob Herring <robh@kernel.org>, 
- Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>, 
- Michael Turquette <mturquette@baylibre.com>, 
- Stephen Boyd <sboyd@kernel.org>, Jerome Brunet <jbrunet@baylibre.com>, 
- Linus Walleij <linusw@kernel.org>, Bartosz Golaszewski <brgl@kernel.org>, 
- Michael Walle <mwalle@kernel.org>, 
- Greg Kroah-Hartman <gregkh@linuxfoundation.org>, 
- Jiri Slaby <jirislaby@kernel.org>, 
- Andy Shevchenko <andriy.shevchenko@linux.intel.com>, 
- =?utf-8?q?Ilpo_J=C3=A4rvinen?= <ilpo.jarvinen@linux.intel.com>, 
- Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>, 
- Long Zhao <zl020895@163.com>, Lee Jones <lee@kernel.org>, 
- mfd@lists.linux.dev, devicetree@vger.kernel.org, linux-clk@vger.kernel.org, 
- linux-gpio@vger.kernel.org, linux-serial@vger.kernel.org, 
- linux-kernel@vger.kernel.org, 
- Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
-X-Mailer: b4 0.15.2
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1790858457; l=9410;
- i=longzhao@ambarella.com; s=20260730; h=from:subject:message-id;
- bh=coHglYm9+1GQYQb+OpOOg0LrOVVxDuyh/0xYFK/oIn0=;
- b=WmWVByOx143QOAObt0mds1XXHtI0Ehlw/BSyI/PfNtcvSDueF5z4wfBcX9zDbnzRpXbaXgciY
- I2fPXRJWC+MD2reQ/3DzzjspPJQgJPsjhdprrIxpCKzLYUM2UmaLnB1
-X-Developer-Key: i=longzhao@ambarella.com; a=ed25519;
- pk=/xGhPTOX0/eYsyTWzyjjgAIW1Z/YD+IlnOnvcdRozow=
-X-Endpoint-Received: by B4 Relay for longzhao@ambarella.com/20260730 with
- auth_id=903
-X-Original-From: Long Zhao <longzhao@ambarella.com>
+Content-Transfer-Encoding: 7bit
+Message-Id: <20261001-add-t7-sys-pwm-clk-v4-2-8ed2b1e0cdfe@aliel.fr>
+References: <20261001-add-t7-sys-pwm-clk-v4-0-8ed2b1e0cdfe@aliel.fr>
+In-Reply-To: <20261001-add-t7-sys-pwm-clk-v4-0-8ed2b1e0cdfe@aliel.fr>
+To: =?utf-8?q?Uwe_Kleine-K=C3=B6nig?= <ukleinek@kernel.org>, 
+ Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, Heiner Kallweit <hkallweit1@gmail.com>, 
+ Neil Armstrong <neil.armstrong@linaro.org>, 
+ Kevin Hilman <khilman@baylibre.com>, Jerome Brunet <jbrunet@baylibre.com>, 
+ Martin Blumenstingl <martin.blumenstingl@googlemail.com>
+Cc: linux-pwm@vger.kernel.org, devicetree@vger.kernel.org, 
+ linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+ linux-amlogic@lists.infradead.org, 
+ Ronald Claveau <linux-kernel-dev@aliel.fr>
+X-Mailer: b4 0.14.3
+X-Developer-Signature: v=1; a=openpgp-sha256; l=1217;
+ i=linux-kernel-dev@aliel.fr; h=from:subject:message-id;
+ bh=glXVB2ABEZoXCQ9h/n4MfGeusOZpwiDdC/TOxoAXt/A=;
+ b=owGbwMvMwCWm1SvKXP3cUInxtFoSQ9a+CZvDb4u/m5OYfMPL9dz5S7emuekVdFtMjarYKRU1M
+ f7kr6nmHaUsDGJcDLJiiiz9cy1PvLt89MzXPeopMHNYmUCGMHBxCsBEDlsxMswS8jn6UvLrQYEd
+ iXoRDw9yOPNmLDi7ervgi+x1vzlSrpkxMjyUf9y2q0JJfHaW8KYDuVO6/krtfrdpx5e5Vs/UTLY
+ sCOEBAA==
+X-Developer-Key: i=linux-kernel-dev@aliel.fr; a=openpgp;
+ fpr=DFD863F61375BF917F0012173953305EF1D0EC3E
+X-Endpoint-Received: by B4 Relay for linux-kernel-dev@aliel.fr/default with
+ auth_id=744
+X-Original-From: Ronald Claveau <linux-kernel-dev@aliel.fr>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -100,206 +87,46 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
-Reply-To: longzhao@ambarella.com
+Reply-To: linux-kernel-dev@aliel.fr
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-This series adds minimal Ambarella CV75 support for early bring-up with
-a serial console: DT bindings, RCT clocks, PL061 GPIO via gpio-regmap,
-8250_dw UART quirks, ARCH_AMBARELLA, CV75 EVK DT, and MAINTAINERS.
-The pinctrl binding and driver are already in the pinctrl tree. The
-CV75 DT still describes that pin controller.
+From: Ronald Claveau <linux-kernel-dev@aliel.fr>
 
-This series is sent together for review. Please take the GPIO
-patches through the GPIO tree and provide an immutable branch
-for the SoC tree. The remaining patches should be applied via
-the SoC tree; subsystem maintainers are Cc'd for their pieces.
+On some SoCs (e.g. T7), the PWM controller has a system clock that must
+be enabled to access its registers, in addition to the per-channel
+input clocks.
 
-GPIO data path uses gpio-regmap with two layouts (ARM PrimeCell and
-Ambarella). IRQ stays a custom PL061 irqchip. The linear domain is
-created with the PL061 private data and attached by gpio-regmap.
-regmap-irq is not used.
+Get and enable it with devm_clk_get_optional_enabled() using the
+"bus" name. The clock is optional, so existing SoCs and device trees
+that do not provide it keep working unchanged.
 
-Verified with:
-- scripts/checkpatch.pl --strict (0 errors)
-- make dt_binding_check DT_SCHEMA_FILES=ambarella:pl061-gpio.yaml:syscon.yaml:snps-dw-apb-uart.yaml
-- make CHECK_DTBS=y ambarella/cv75-evk.dtb
-- arm64 build of new drivers/DTS
-- CV75 EVK: console via 8250_dw (dw-apb-uart); GPIO edge IRQ
-  (gpio-hammer / gpio-event-mon) with CONFIG_PROVE_LOCKING after
-  use_raw_spinlock
-
-Assisted-by: LLM
-Signed-off-by: Long Zhao <longzhao@ambarella.com>
+Signed-off-by: Ronald Claveau <linux-kernel-dev@aliel.fr>
 ---
-Changes in v9:
-- gpio-regmap: GPIO_REGMAP_QUIRK_SET_AFTER_DIR instead of
-  write_data_after_dir (Michael); put the flag in its own
-  group (Linus)
-- gpio-regmap: drop gpio_regmap_get_chip() (Michael)
-- gpio: pl061: create the irq domain with PL061 private data
-  before gpio_regmap_register() and let gpio-regmap attach it;
-  drop the gpio_chip irq helpers (Michael)
-- gpio: pl061: GPIO_REGMAP_ADDR() for the direction register
-  (Michael)
-- pinctrl: binding and driver applied by Linus Walleij; drop
-  them from this series (Linus)
-- Cc Michael Walle <mwalle@kernel.org>
-- collect Reviewed-by on the unchanged PL061 split patches
-  (Linus)
+ drivers/pwm/pwm-meson.c | 5 +++++
+ 1 file changed, 5 insertions(+)
 
-Link to v8: https://patch.msgid.link/20260921-cv75-v5-v8-0-282ff5d98dda@ambarella.com
+diff --git a/drivers/pwm/pwm-meson.c b/drivers/pwm/pwm-meson.c
+index 20e6cd07127c4..3ed6098dc5f00 100644
+--- a/drivers/pwm/pwm-meson.c
++++ b/drivers/pwm/pwm-meson.c
+@@ -508,8 +508,13 @@ static int meson_pwm_init_channels_s4(struct pwm_chip *chip)
+ 	struct device *dev = pwmchip_parent(chip);
+ 	struct device_node *np = dev->of_node;
+ 	struct meson_pwm *meson = to_meson_pwm(chip);
++	struct clk *bus_clk;
+ 	int i, ret;
+ 
++	bus_clk = devm_clk_get_optional_enabled(dev, "bus");
++	if (IS_ERR(bus_clk))
++		return dev_err_probe(dev, PTR_ERR(bus_clk), "Failed to get bus clock\n");
++
+ 	for (i = 0; i < MESON_NUM_PWMS; i++) {
+ 		meson->channels[i].clk = of_clk_get(np, i);
+ 		if (IS_ERR(meson->channels[i].clk))
 
-Changes in v8:
-- gpio: split v7 10/15 into 10/18 MMIO to regmap, 11/18 IRQ_TYPE_*
-  helpers, 12/18 cleanup.h guard(), 13/18 gpio-regmap + custom
-  irqchip, 14/18 Ambarella layout (Andy)
-- gpio: keep gpio_regmap_get_chip(); drop the irq_domain attach
-  change in gpio-regmap (Andy)
-- gpio-regmap: skip the pre-direction data write when write_data_after_dir
-  is set (Linus); still ignore gpio_regmap_set() returns (Andy)
-- gpio: use_raw_spinlock so irq_ack() can run under the irq
-  descriptor lock (PROVE_LOCKING on CV75); irq_set_parent() for wake
-- gpio: drop errno.h; -ENODATA; for_each_set_bit in PM; split virq
-  assignment; chained handler checks regmap_read (Andy)
-- pinctrl: 15/18 PINCTRL_PINGROUP + per-pin alts; header uses
-  forward declarations; regmap_assign_bits / __assign_bit;
-  -ENOTSUPP; -ENODATA; devm_kasprintf_strarray (Andy)
-- dt-bindings: gpio: 05/18 move allOf after required; explain why
-  CV75 is PrimeCell GPIO but not an arm,pl061 fallback, and why a
-  fixed arm,primecell-periphid is required (Krzysztof)
-- serial: 16/18 keep snps,dw-apb-uart first; Andy and Ilpo R-b
-- clk: drop mod_devicetable.h; use u16_fract (Andy, Uwe)
-- collect lore tags on unchanged bindings (Linus, Krzysztof)
-
-Link to v7: https://patch.msgid.link/20260915-cv75-v5-v7-0-3297d3fbc9c0@ambarella.com
-
-Changes in v7:
-- gpio: 10/15 convert ARM PL061 to gpio-regmap; 11/15 add Ambarella
-  layout with a second gpio_regmap config (Andy)
-- gpio: 10/15 drop gpio-regmap girq; custom irqchip with a linear
-  domain, gpio_chip chip data, and a chained handler (Andy)
-- gpio-regmap: 08/15 write_data_after_dir; 09/15 gpio_regmap_get_chip()
-  and quirk kerneldoc (Andy)
-- dt-bindings: gpio: 05/15 $ref arm/primecell.yaml and
-  unevaluatedProperties (Rob)
-- clk: fold the RCT driver into a single clk-cv75.c (Jerome)
-- serial: 8250_dw startup only updates the up->ier shadow (Ilpo)
-- collect lore tags on unchanged patches (Linus Reviewed-by; Krzysztof
-  Acked-by on the UART binding)
-
-Link to v6:
-https://lore.kernel.org/r/20260904-cv75-v5-v6-0-e918514cb3b1@ambarella.com
-
-Changes in v6:
-- gpio: convert gpio-pl061 data path to gpio-regmap; keep PL061 irqchip
-  (Andy, Linus). Add write_data_after_dir + girq helpers to gpio-regmap.
-  Ambarella layout uses JEP106 periphid 0x000e8061; no AFSEL clearing in
-  the GPIO driver; Ambarella skips unverified GPIO PM save/restore
-- serial: restore 8250_dw Ambarella quirks from v3; drop standalone
-  8250_ambarella (Andy). Commit message clarifies Ambarella IP with a
-  DW-like register map needing only a thin quirk. Binding under
-  snps-dw-apb-uart; DT uses ambarella,cv75-uart + snps,dw-apb-uart with
-  reg-shift/reg-io-width
-- clock/RCT: document #reset-cells (Krzysztof); soft-reset ID header and
-  reset provider deferred (no resets= consumers in this series)
-- arm64/Kconfig: do not select ARM_PSCI / HAVE_ARM_ARCH_TIMER (Sashiko)
-- pinctrl: no Ambarella suspend/resume claim without validated PM
-
-Link to v5:
-https://lore.kernel.org/r/20260818-cv75-v5-v5-0-7bbb12f0360f@ambarella.com
-Link to v2:
-https://lore.kernel.org/r/20260806-longzhao-upstream-cv75-v2-v2-0-6b09707c5fe9@ambarella.com
-Link to v3-A:
-https://lore.kernel.org/r/20260813-cv75-v3-a-v3-0-cfdd20b1b4dd@ambarella.com
-Link to v3-B:
-https://lore.kernel.org/r/20260813-cv75-v3-b-v3-0-1d82e18da09b@ambarella.com
-Link to v3-C:
-https://lore.kernel.org/r/20260813-cv75-v3-c-v3-0-9352b3fd6026@ambarella.com
-Link to v4-B:
-https://lore.kernel.org/r/20260814-cv75-v4-b-v4-0-622e63153d97@ambarella.com
-
-To: Arnd Bergmann <arnd@arndb.de>
-To: Krzysztof Kozlowski <krzk@kernel.org>
-To: Alexandre Belloni <alexandre.belloni@bootlin.com>
-To: soc@lists.linux.dev
-To: linux-arm-kernel@lists.infradead.org
-To: Long Zhao <longzhao@ambarella.com>
-Cc: Rob Herring <robh@kernel.org>
-Cc: Krzysztof Kozlowski <krzk+dt@kernel.org>
-Cc: Conor Dooley <conor+dt@kernel.org>
-Cc: Michael Turquette <mturquette@baylibre.com>
-Cc: Stephen Boyd <sboyd@kernel.org>
-Cc: Jerome Brunet <jbrunet@baylibre.com>
-Cc: Linus Walleij <linusw@kernel.org>
-Cc: Bartosz Golaszewski <brgl@kernel.org>
-Cc: Michael Walle <mwalle@kernel.org>
-Cc: Greg Kroah-Hartman <gregkh@linuxfoundation.org>
-Cc: Jiri Slaby <jirislaby@kernel.org>
-Cc: Andy Shevchenko <andriy.shevchenko@linux.intel.com>
-Cc: Ilpo Järvinen <ilpo.jarvinen@linux.intel.com>
-Cc: Catalin Marinas <catalin.marinas@arm.com>
-Cc: Will Deacon <will@kernel.org>
-Cc: Long Zhao <zl020895@163.com>
-Cc: Lee Jones <lee@kernel.org>
-Cc: mfd@lists.linux.dev
-Cc: devicetree@vger.kernel.org
-Cc: linux-clk@vger.kernel.org
-Cc: linux-gpio@vger.kernel.org
-Cc: linux-serial@vger.kernel.org
-Cc: linux-kernel@vger.kernel.org
-
----
-Long Zhao (15):
-      dt-bindings: arm: add Ambarella CV75 platforms
-      dt-bindings: mfd: syscon: add Ambarella CV75 secure scratchpad
-      dt-bindings: clock: add Ambarella CV75 RCT
-      dt-bindings: gpio: pl061: add Ambarella CV75 variant
-      dt-bindings: serial: snps-dw-apb-uart: add ambarella,cv75-uart
-      clk: ambarella: add CV75 RCT clock controller
-      gpiolib: regmap: add GPIO_REGMAP_QUIRK_SET_AFTER_DIR
-      gpio: pl061: convert register access to regmap
-      gpio: pl061: use IRQ_TYPE_LEVEL_MASK and IRQ_TYPE_EDGE_BOTH
-      gpio: pl061: use cleanup helpers for locks
-      gpio: pl061: switch data path to gpio-regmap
-      gpio: pl061: add Ambarella register-layout variant
-      serial: 8250_dw: add Ambarella CV75 quirks
-      arm64: ambarella: add ARCH_AMBARELLA and CV75 EVK DT
-      MAINTAINERS: add ARM/AMBARELLA SoC support
-
- .../devicetree/bindings/arm/ambarella.yaml         |  24 +
- .../bindings/clock/ambarella,cv75-rct.yaml         |  64 +++
- .../devicetree/bindings/gpio/pl061-gpio.yaml       |  25 +-
- Documentation/devicetree/bindings/mfd/syscon.yaml  |   1 +
- .../bindings/serial/snps-dw-apb-uart.yaml          |   1 +
- .../devicetree/bindings/vendor-prefixes.yaml       |   2 +
- MAINTAINERS                                        |  14 +
- arch/arm64/Kconfig.platforms                       |   6 +
- arch/arm64/boot/dts/Makefile                       |   1 +
- arch/arm64/boot/dts/ambarella/Makefile             |   3 +
- arch/arm64/boot/dts/ambarella/cv75-evk.dts         |  30 ++
- arch/arm64/boot/dts/ambarella/cv75.dtsi            | 177 +++++++
- arch/arm64/configs/defconfig                       |   1 +
- drivers/clk/Kconfig                                |   1 +
- drivers/clk/Makefile                               |   1 +
- drivers/clk/ambarella/Kconfig                      |   9 +
- drivers/clk/ambarella/Makefile                     |   3 +
- drivers/clk/ambarella/clk-cv75.c                   | 365 +++++++++++++
- drivers/gpio/Kconfig                               |   2 +
- drivers/gpio/gpio-pl061.c                          | 571 +++++++++++++--------
- drivers/gpio/gpio-regmap.c                         |  15 +-
- drivers/tty/serial/8250/8250_dw.c                  |  32 ++
- include/dt-bindings/clock/ambarella,cv75-rct.h     |  14 +
- include/linux/amba/bus.h                           |   1 +
- include/linux/gpio/regmap.h                        |  14 +
- 25 files changed, 1167 insertions(+), 210 deletions(-)
----
-base-commit: 34cf6dafc47441dfb6b356a095b89c3585a93714
-change-id: 20260818-cv75-v5-9e2039b349bc
-
-Best regards,
---  
-Long Zhao <longzhao@ambarella.com>
+-- 
+2.49.0
 
 
 
