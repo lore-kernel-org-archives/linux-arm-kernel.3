@@ -4,74 +4,103 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 82844CA5FB3
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  1 Oct 2026 04:19:26 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B088ECA5FA5
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  1 Oct 2026 04:31:51 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:References:In-Reply-To:Message-ID:Date
-	:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=URC7r36kokGjXCV5G6Ei8oKV54JoMbconYpCKkPt2AY=; b=ty4ta/RV5xgEGh1J3rEZZ3+DQD
-	MoRbXazdIulpLdUHl0ACnFvBMUGLqe30up9ehERViuXyXGojfKGBqVjXPvFJzFPbdEgrhNme06FYQ
-	QmGw6GX2U05OQzCPUYW9F13UyzQ2p1u4fXUCl+iKshSbEt52d+gvVegnyWexF5xqOTitYQdq133t9
-	ZxxIH08sd/q/PqCrjbN859OWOWmrh12YcSdQG2P3Yw0LZzusXsF5oiGd7WhVd8nzHyJH3FU449uhc
-	MYMn7mL0LxIO7Wj/YNdb0v/+0bMpKB+00spLDbUD1ODFOVgCFJ5WvcD3sZcFNRPn7/5j/911lnV4T
-	0yQzxiKw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:Message-Id:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:From:
+	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
+	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=Q4Vf2DmeXuIICczMLsgHOQylq088gF7uO3L3in1vUSo=; b=NtBpqZ47PciXUZx2zDNBBTAvLR
+	531ti8zfA9voVFYjM7yXZNCk6xs5JEc6F9IBemernF0RnMkV6AxBdZx9tgJp9pEU3Ku5CREx24dJp
+	tQl6qd6/H8HQFO4WDRJpT14w4ArNj2GwecG5qsTVK2hBbypygglrzhn0UuXMKxCzbUlfmGTLkbMxM
+	A3GbYHcDkhrX3njA8WqEhpcAgeACK3ye699+BQWA1Mjxjo4bomP/KwqAoXGa7cB0/v8Qd4leGFrG5
+	SCIYqmQ0SEvC8YNMqWRAYcmyvrPY6ojjnzpcSk5MIbBBboKVJgcuidurQQUWj8bKTq1OpWUIHQs03
+	caHUeIJg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xC8GG-00000007ikJ-45vh;
-	Thu, 01 Oct 2026 04:19:13 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1xC8SJ-00000007jGX-013H;
+	Thu, 01 Oct 2026 04:31:39 +0000
+Received: from mail-oi2-x0d.google.com ([2607:f8b0:4864:32::d])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xC8GG-00000007ikB-0Yr6
+	id 1xC8SH-00000007jG8-0FGu
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 01 Oct 2026 04:19:12 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id 1EC9860A53;
-	Thu,  1 Oct 2026 04:19:11 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 6B4291F000FF;
-	Thu,  1 Oct 2026 04:19:09 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1790828350;
-	bh=URC7r36kokGjXCV5G6Ei8oKV54JoMbconYpCKkPt2AY=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References;
-	b=U5WY8oxFU+kgU+M9TbzFPgVIxNdS2RiMNjxWlzHpx5wp9JuRYVFNlE43Stt+/R5P4
-	 8qkYt4LOVDwMIE47dQfLYKT78I0aETx5meS/J1AuT0pbGSqWVUi30q3MoOVeI1fd2S
-	 liXiWqaiMALLCElTs73KQ/fOquE6R8Q/57YsTMNHccGcH9HARnIXYB+ZX+mzsOTaeQ
-	 sX0PmYv+09s3fOt6Gph+FRn7XgCf2994xYdd3z/EwEeP6HzxP+UeGTJcIDlgAHd3iu
-	 DXfWCa1nVv6LiZ+fcnTG7VDBsAkG1MSVhvIDxfFU1wF0/7yR6l0MaOlGgfdSIZT0jw
-	 mjq9Fo9B/4Alg==
-From: netdev-bot+sinfo@kernel.org
-To: James Hilliard <james.hilliard1@gmail.com>
-Cc: netdev@vger.kernel.org, Paolo Abeni <pabeni@redhat.com>,
- Jakub Kicinski <kuba@kernel.org>,
- Lorenzo Bianconi <lorenzo.bianconi@oss.qualcomm.com>,
- Andrew Lunn <andrew+netdev@lunn.ch>, Alexei Starovoitov <ast@kernel.org>,
- Daniel Borkmann <daniel@iogearbox.net>,
- Jesper Dangaard Brouer <hawk@kernel.org>,
- John Fastabend <john.fastabend@gmail.com>,
- Stanislav Fomichev <sdf@fomichev.me>, Jose Abreu <Jose.Abreu@synopsys.com>,
- Russell King <linux@armlinux.org.uk>, Eric Dumazet <edumazet@google.com>,
- "David S. Miller" <davem@davemloft.net>,
- Maxime Coquelin <mcoquelin.stm32@gmail.com>,
- Alexandre Torgue <alexandre.torgue@foss.st.com>,
- Serge Semin <fancer.lancer@gmail.com>, Simon Horman <horms@kernel.org>,
- Maxime Chevallier <maxime.chevallier@bootlin.com>,
- Richard Cochran <richardcochran@gmail.com>,
- linux-stm32@st-md-mailman.stormreply.com,
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
- bpf@vger.kernel.org, Rayagond Kokatanur <rayagond@vayavyalabs.com>
-Subject: Re: [PATCH net-next v4 0/4] net: stmmac: preserve and restore the
- installed EST schedule
-Date: Thu, 01 Oct 2026 04:19:08 +0000
-Message-ID: <179082834895.31693.4009727999698761506@kernel.org>
-In-Reply-To: <20260930-stmmac-est-reapply-after-open-v4-0-9d4366587b73@gmail.com>
-References: <20260930-stmmac-est-reapply-after-open-v4-0-9d4366587b73@gmail.com>
-Auto-Submitted: auto-generated
+	Thu, 01 Oct 2026 04:31:38 +0000
+Received: by mail-oi2-x0d.google.com with SMTP id 5614622812f47-4e973221218so2809797b6e.0
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 30 Sep 2026 21:31:36 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20251104; t=1790829096; x=1791433896; darn=lists.infradead.org;
+        h=cc:to:message-id:content-transfer-encoding:content-type
+         :mime-version:subject:date:from:from:to:cc:subject:date:message-id
+         :reply-to:content-type;
+        bh=Q4Vf2DmeXuIICczMLsgHOQylq088gF7uO3L3in1vUSo=;
+        b=hQcoETmoJtKNHVJjG+N/adZor54KGLU/YVBO9PDdryA0l+OsNypmLRB/4OGol26dxi
+         HweSvioOjwEqVSx1hyrEELPZyoJVZzSfavbWENk8FUyhIwI5oSngag4x0f6IGJriRxCM
+         GwZp0DamVb2Wtbvf7dN5s4VDgrQZSpimCmwLOhcuS43BDyXC5pc0q6E8JifqRYgCqwk9
+         kpNCjEOH/csWrL07fgoADWhGao4Mg1L/Krq6H+B61tgmT/Dislwa5IpZ/+QcrbrBWTcp
+         ITviqm19kczTgwXLb+OcXqnFwgc6LTkmNegqX8MuR6Gi4v81SoIW2yLGbFmiKx3hwMVX
+         scIg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1790829096; x=1791433896;
+        h=cc:to:message-id:content-transfer-encoding:content-type
+         :mime-version:subject:date:from:x-gm-gg:x-gm-message-state:from:to
+         :cc:subject:date:message-id:reply-to:content-type;
+        bh=Q4Vf2DmeXuIICczMLsgHOQylq088gF7uO3L3in1vUSo=;
+        b=pPANft0CWBNwsEPuaemzIfMhxqzd5+p+mU7SmzNT7vNOqVQH6EXMeJ+Zromp4aNX9L
+         EEjxAEM5WPBMPsqhrbMSyxTuZXJwO/T4ghFJIPKOPdnpJQipOxn8EEgKpyQJ7Lgcy5rl
+         t8e2Z0USD8Lbg5EtF0ohVod5tNY7CYQV4GTn/RvzXDi6HLuWsxsrPxIlpVF3fH7rtDxX
+         MdbbG7TEo0foB19t0HXWBY9qNYhIkSQuTST0wn730IXWTq6q4+/6gY1CLVnMbzXiYPk2
+         m5p/we1R4yJDrhI0/oRET0dZGRn16yFspfIQzRtZJHpqKc2+tbzUREIXH85LpznpZFIl
+         LcHg==
+X-Forwarded-Encrypted: i=1; AKwUvBxv/GowdQzOwL5YgPzy9DxgSjhuXwClpWDUEOBlBYcGfvoNX4ZNTs9wLhgk0WhXYunsXqcmyWcwis1mBKd4F7G7@lists.infradead.org
+X-Gm-Message-State: AFuF++m3ayCxQ7RiT2BfiXfVkffIjHHKh4YFEgmHCo2a/uz4MZtPCo0e
+	fO2ZLCzLsfnvzWr6ACzuGpfCDOmIha2MT6bPIkLFqIcWkD6dZOzPg55j
+X-Gm-Gg: AYBFou2NBscKATZfmt5D3OzYif3aLyPP29MjcLty85SbGa6JWBiec9R/qm0RPtSoETV
+	MvEqWEWe8uWD3yUEE0zJpwxztTGlv8Ye65yvXOBtvihMqaZ5ISt5EHSc4OGAnFSLp4fHIzsv6UP
+	zPKizpCtI2OPqslg3LcmhjFKQu7D9HLlSLot93e5stl0Wwj5m7mqxYvMuPQFaAya8djRTYSKSu4
+	yojVXtigoDIjNsN1sExHLaDA0F4Hg7OsOhblxk4D60qs17/5cle0B+C7xt0+2hKMy+bOk6ynTWm
+	54VW0rRoQKbsu1pm7TUBOz7tjXR3lLILlJ6bGUO3ADzIs3csEHNO1Au8tqwxrlORUXsHPf57U2H
+	lAS7G3rOyr5+9ppxUZJJE+dx+Dz8VObx+RMDTxSFW1h2XhhYGVwPfC2/uiOssLUiPnYsYpO/LLg
+	KAq6i6Ygiqgh/1iprQImEZCXfJw/kiSAPp2Gnxf112iJpIEJ0+9eaX3jG0efjzDLkxfQ30wuVnv
+	j+PRuSy4EfBHz7wD4n02Alqxwu2n8pcwmID5X8s21RsDgmkuzEPIDoD8Sul8FzIsrxduuLiPDtK
+	/tE9DzX+0HEPZNtBe709fVlL7Nwh07DrnZuBvSRPUI+4kbuIOgxjXg+Z7M7AJ7XCq/Iyn6xM4pF
+	gXl/LHCOOsRtofRw4SjI7Gg==
+X-Received: by 2002:a05:6808:10ce:b0:4c3:db9b:3eae with SMTP id 5614622812f47-4f1b76329a7mr4055713b6e.15.1790829095989;
+        Wed, 30 Sep 2026 21:31:35 -0700 (PDT)
+Received: from [127.0.1.1] (174-29-1-49.hlrn.qwest.net. [174.29.1.49])
+        by smtp.gmail.com with ESMTPSA id 5614622812f47-4f349a4d20bsm1378430b6e.5.2026.09.30.21.31.34
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Wed, 30 Sep 2026 21:31:35 -0700 (PDT)
+From: James Hilliard <james.hilliard1@gmail.com>
+Date: Wed, 30 Sep 2026 22:31:32 -0600
+Subject: [PATCH net] net: stmmac: unwind the WoL IRQ after a safety IRQ
+ request failure
+MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-MIME-Version: 1.0
+Message-Id: <20260930-stmmac-irq-unwind-v1-1-0c8a053761c7@gmail.com>
+X-B4-Tracking: v=1; b=H4sIAAAAAAAC/y2MQQ7CIBBFr9LMWpIpVGh7FdMF0EFnUapA1aTp3
+ SXq8v2f93bIlJgyjM0OiZ6ceY0V2lMD/mbjlQTPlUGi1DgoFLksi/WC00Ns8cVxFuio1wO2WvU
+ zVO+eKPD727xApALTb0z02Gq//B9nMwm/LguXsbHGBets10tFyrf67JxE7LzpKATjcdDaSOcNT
+ MfxAWAG42q0AAAA
+X-Change-ID: 20260930-stmmac-irq-unwind-0be86901638d
+To: netdev@vger.kernel.org, Paolo Abeni <pabeni@redhat.com>, 
+ Jakub Kicinski <kuba@kernel.org>, 
+ Maxime Chevallier <maxime.chevallier@bootlin.com>, 
+ Andrew Lunn <andrew+netdev@lunn.ch>, Eric Dumazet <edumazet@kernel.org>, 
+ Maxime Coquelin <mcoquelin.stm32@gmail.com>, 
+ Alexandre Torgue <alexandre.torgue@foss.st.com>, 
+ Serge Semin <fancer.lancer@gmail.com>
+Cc: "David S. Miller" <davem@davemloft.net>, 
+ linux-stm32@st-md-mailman.stormreply.com, 
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
+ Eric Dumazet <edumazet@kernel.org>, 
+ James Hilliard <james.hilliard1@gmail.com>
+X-Mailer: b4 0.15.2
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260930_213137_109793_A4DA22D2 
+X-CRM114-Status: GOOD (  11.82  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -86,29 +115,49 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi!
+The safety IRQ is requested after the MAC and optional WoL IRQs. If its
+request fails, stmmac_free_irq() frees the unregistered safety IRQ and
+leaks the WoL handler. This can warn about an already-free IRQ and make
+the next open fail.
 
-This is an automated message. This series looks like a fix, but its
-commit messages seem to be missing some information:
+Move the safety and WoL cleanup labels into reverse acquisition order.
+This also fixes unwind after later per-queue IRQ request failures.
 
- - How the issue was discovered, e.g. hit in production, hit during
-   development, syzbot report, manual code inspection, LLM or static
-   analysis tool scan.
+Fixes: 5c2215167d12 ("net: stmmac: Add driver support for common safety IRQ")
+Signed-off-by: James Hilliard <james.hilliard1@gmail.com>
+---
+ drivers/net/ethernet/stmicro/stmmac/stmmac_main.c | 8 ++++----
+ 1 file changed, 4 insertions(+), 4 deletions(-)
 
- - Whether the issue was actually triggered, or is only theoretical
-   (e.g. found by code inspection). If it was triggered please include
-   the symptoms, like the stack trace or error messages.
+diff --git a/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c b/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
+index 3f34d491c959..4f3d452c3503 100644
+--- a/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
++++ b/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
+@@ -3797,13 +3797,13 @@ static void stmmac_free_irq(struct net_device *dev,
+ 			free_irq(msi->sfty_ce_irq, dev);
+ 		fallthrough;
+ 	case REQ_IRQ_ERR_SFTY_CE:
+-		if (priv->wol_irq > 0 && priv->wol_irq != dev->irq)
+-			free_irq(priv->wol_irq, dev);
+-		fallthrough;
+-	case REQ_IRQ_ERR_SFTY:
+ 		if (priv->sfty_irq > 0 && priv->sfty_irq != dev->irq)
+ 			free_irq(priv->sfty_irq, dev);
+ 		fallthrough;
++	case REQ_IRQ_ERR_SFTY:
++		if (priv->wol_irq > 0 && priv->wol_irq != dev->irq)
++			free_irq(priv->wol_irq, dev);
++		fallthrough;
+ 	case REQ_IRQ_ERR_WOL:
+ 		free_irq(dev->irq, dev);
+ 		fallthrough;
 
- - What hardware the change was tested on. For driver fixes please
-   mention the device (and if relevant firmware version) used for
-   testing, or say that the change was not tested on real hardware.
+---
+base-commit: a7bfaba4823e3c165bb2004c74eff7c096672bc7
+change-id: 20260930-stmmac-irq-unwind-0be86901638d
 
-Please do not repost the series just to address the above. Instead,
-reply to this email with the missing information, so that reviewers
-can take it into account. If the series needs another revision for
-other reasons, please include the information in the commit messages
-then.
+Best regards,
+--  
+James Hilliard <james.hilliard1@gmail.com>
 
-The evaluation is done by an LLM so it may be wrong, if you think
-that is the case please reply and explain.
 
