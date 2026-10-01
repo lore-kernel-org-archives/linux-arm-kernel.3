@@ -4,145 +4,131 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8444BCA5FD4
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  1 Oct 2026 16:14:43 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 66131CA5FD6
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  1 Oct 2026 16:19:42 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:In-Reply-To:References:Message-ID:Date
-	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
+	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Ss2pwsgwPq54TdYPUPk2EVXMIWwapenzI4+5XkJJTKg=; b=KR8W+LY/2Da3/FNVK/zev/flyC
-	qbWiyYn4TUyCpRGW3fthZXD4EDRNuepNSlvdWAIRmk4jYQRzkkMPZiAUyoYybtBMVjQM5CXeHE0Zc
-	5FBuZEODgfe7BUt3hxhOb5igZTsHxj8t3jSMj9lnZqg+t3hgVuVhNV17MX7HREOHtr9yNetCtOkEJ
-	MnED25FyNQeJbPCx6wgLRjGbT2hj3hhHEqCj50SU36zgkyeuEZ/pd8OwOFLxf1dSw0V1sYFXPemt8
-	4EZLzDgOniVUrvUDPrP30Fmwx83v+L3Ly4Rs4kpMNKP7/I+lo7L6TtcwBqhd37AF2V7S1eok/XFSe
-	zeVSWYGA==;
+	bh=yOmjIWuuFskKaVt9lkoQ9vyv6lpnJE3hOcThbRySXY4=; b=J620hdTC+nJEDQSBUKS116i3XT
+	KhKD/TdIQisMns+KYVfSrH4aFPgp8dT3FTuymcySYz5mKpriP92kiXnxfttVq2HobQMVJh40XW91B
+	DeF/LT1ntF0vKdRsp76H6OXNjI2JNpALbCK6RCS97QSdzFP8BTU8bVktnW5fBRiUKNq5ItFz5jgF6
+	YCHcILSMoI33H2ovfLm9mHS+HzZzk7EgyM5oC4005a8jqD28GE6/e2j3FD4nlQfoKp5XgXYDjUhlh
+	fJGojayAexIH1xsUCj1nlnsfgLHi8I7u28gg2tFIE8RHMQcrIX41O75uOQ+/lckSu/fyPj/WM4zjF
+	9a5n31bQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xCJQb-00000009fpQ-0MFb;
-	Thu, 01 Oct 2026 16:14:37 +0000
-Received: from mail-westus2azolkn19012019.outbound.protection.outlook.com ([52.103.10.19] helo=MW6PR02CU001.outbound.protection.outlook.com)
+	id 1xCJVO-00000009gPo-2owL;
+	Thu, 01 Oct 2026 16:19:34 +0000
+Received: from mail-francecentralazon11013062.outbound.protection.outlook.com ([40.107.162.62] helo=PA4PR04CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xCJQV-00000009foJ-0Wdz;
-	Thu, 01 Oct 2026 16:14:32 +0000
+	id 1xCJVL-00000009gPN-3b7S
+	for linux-arm-kernel@lists.infradead.org;
+	Thu, 01 Oct 2026 16:19:33 +0000
 ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=XyAJSZMhXYe4ue1SeJTt3GxliRi3gJDIFuZVOr/Rp3U3n8heihv/z6QoueoZ4gpMSZZhdjGjpuNHrkqbqjmcT1OtzaMyWHK+mqhGFT+RAQYumFL8Vo4FO0H3a75fIdwy/0LdD1v5nilsTdu2425Aw4IV277tRVVGtRqhtQvUS51M1QK+vI7pY77DTxImQU2M+QI11HPwtqeVFc9Vk85Nx6Pa/ubzmylU2b7BewupL2pKMB+IJUzTMu+1tGMO8ZCldoXKkGcn4tJQcm3K5ZAqs/UAh094KHJSdSPnB6Te1FUSHMx4fSUAkNN7WFAtk/Ab8AuS9C/7WI7BnDSh/bxZuQ==
+ b=ukcQ+igV6uK7IRgpHa0D7lrHWgoZArhP4GC7gY2cL4KWnXY8zUoPHtaseAj1KTGCKABb2k0gvf1JzRdAHi3Pp9o3jkfPRD4rUC2v0uTRFTnaa2njq+XX/nC3NIeuCzSBMrEc6ldvIig/gmkaGijwa7oxpLoCZFOCzbhGcRXGUJvbWeSP3OqfZgi8xwObV54Ckexi7d82WbuUC8+0hG8y17vMz+7RmpQsyeywo1MOr6R0HFHetxaxvb7zj7OKJ1fUdeKg34vcPkiBzAzGSK7CR51p/IjVvK5jCYm5ZCGflf794AYawvw+y+XV8LpppRJZxP3yBczK3ocnGAsZ7muzpw==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
  s=arcselector10001;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=Ss2pwsgwPq54TdYPUPk2EVXMIWwapenzI4+5XkJJTKg=;
- b=RLm4hHTMPuwUnVAK2vmDbv5VNRetM+BLjZMTAylZk1q4qxLDdkYZIzezTECMem5cKpJ/Om1bwedliJGkx3vMKkPXp17Yr7ATNHvp0g3bUPduhjUvXUY0JG3T/UHW7vTl+P+l+xulAgSutm/XA7sRbQMB31JO/YW47g9udAj09padprRniBpuAIQXz35gwP2LAVFYJkkTqsKlA5L+tokgnHm6AGxkPN0yTcyFCOmsu6/CRGA4keSBB5A3YD88kC9VaaUMOarZmJYin1mjHpZwY8C1WTLrZLJykmRpAV6c126wNqZ91xvhE7XXaATUsNcF9mBZw3hj0W9mVQxHGXR8/g==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=none; dmarc=none;
- dkim=none; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=outlook.com;
- s=selector1;
+ bh=yOmjIWuuFskKaVt9lkoQ9vyv6lpnJE3hOcThbRySXY4=;
+ b=EhwEdsN+07h6rCTZxuNb0ha3fwh802iPdQbQQhJd4SmwSZPoazB856WawwiQSurZ4nDhzzjx+6yOxuXtbI9Ib/jCf4QGLsODr50IAmpKgDKBZS36zIn55BZramMho3dNdvsJgUJ1lEmbg5J104r3uHHQLYRC3mKlCUnqHCoAtNRCkASwLAV2HdLun0HaknmvEtW+0Zo8XNJAOe8/xa7wRx/5vKOy7YIyto97fzx/U85DqqGzZxz36MRpiuZbOlW8EwtXiz5fdR3TwRCFAdQgdm6cARFzcdD3wY0STQkAk2CVVsM4keJhozNNbh0+guismsIeltNeS1Dkt5lSVm1sww==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
+ dkim=pass header.d=oss.nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
+ s=selector1-NXP1-onmicrosoft-com;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=Ss2pwsgwPq54TdYPUPk2EVXMIWwapenzI4+5XkJJTKg=;
- b=EWbDsIVdsy1ElKLleUZ7a3nA5LyHNtCGLXg5RXESPelxUqtxt16QsVYcQQJVYnbZbWzlAu2yP0E01+T6ADydTluaoUhdwjRmzNKe2DsFJJoLb2QQfvcgCy+RpJIKn6oMEZ2+CfCFvb65rUKWDo8tWDwlAqFyVyIxUTqSUzq9AGExYyGU1sh2UpXV2cI0C35uXchelMCMaGnOx6qphRv5YA5DT/8wZEXeMpSHQ5+YFuuxkGMUDKcyyKRhV5ciEabz0qRbJARsDw13BEwM7OY89/IDNTylRFfSwyA1miCUYTgjAZgqowFMqnx+hEzDUpXnzDVWXHq1VDV41t+XDp4G0A==
-Received: from SN6PR02MB4157.namprd02.prod.outlook.com (2603:10b6:805:33::23)
- by BY5PR02MB6612.namprd02.prod.outlook.com (2603:10b6:a03:206::16) with
+ bh=yOmjIWuuFskKaVt9lkoQ9vyv6lpnJE3hOcThbRySXY4=;
+ b=D7VqWzKiuZmiAaiKCRTHXYlbhNqksuwB6YFSBp74Tl/BBCGbrjTLvhX8hNzEP+Cxf9tXzIhx8/wuSE9kGSZ1nX4OzlIThZmuyA2jNmiRW4FZk3OISbSSH0s9iIQ74XdTJbQcMNCZ0i5BvXEAoAEIeJ6g5F8qeGBbSHmZuVJFyKorccuHtCH7ArDcoYKW5BARU1//YctnkTuq+ur0RzzycalcCLMaJq5aU6L9ybZGLg2DmrJhUw18XWljtudlwk047SX4UkD5K4Hjkd9JNhMUyxuRPrJ3SzTFy7oJe9y07eFICJtsfTG9A5ejnim8UmymPQWQrMJ0F70ovoEVnhB3gw==
+Authentication-Results: mx.microsoft.com 1; dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=oss.nxp.com;
+Received: from GV2PR04MB11799.eurprd04.prod.outlook.com (2603:10a6:150:2cf::9)
+ by AMZPR04MB301662.eurprd04.prod.outlook.com (2603:10a6:20b:7c3::13) with
  Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.472.18; Thu, 1 Oct
- 2026 16:14:22 +0000
-Received: from SN6PR02MB4157.namprd02.prod.outlook.com
- ([fe80::900:1ccf:2b1e:52b6]) by SN6PR02MB4157.namprd02.prod.outlook.com
- ([fe80::900:1ccf:2b1e:52b6%5]) with mapi id 15.21.0451.026; Thu, 1 Oct 2026
- 16:14:22 +0000
-From: Michael Kelley <mhklinux@outlook.com>
-To: Shradha Gupta <shradhagupta@linux.microsoft.com>, Wei Liu
-	<wei.liu@kernel.org>, Catalin Marinas <catalin.marinas@arm.com>, Baoquan He
-	<baoquan.he@linux.dev>
-CC: Will Deacon <will@kernel.org>, "K . Y . Srinivasan" <kys@microsoft.com>,
-	Haiyang Zhang <haiyangz@microsoft.com>, Dexuan Cui <decui@microsoft.com>,
-	Andrew Morton <akpm@linux-foundation.org>, Mike Rapoport <rppt@kernel.org>,
-	Pasha Tatashin <pasha.tatashin@soleen.com>, Pratyush Yadav
-	<pratyush@kernel.org>, Thomas Gleixner <tglx@kernel.org>, Ingo Molnar
-	<mingo@redhat.com>, Borislav Petkov <bp@alien8.de>, Dave Hansen
-	<dave.hansen@linux.intel.com>, "x86@kernel.org" <x86@kernel.org>, Arnd
- Bergmann <arnd@arndb.de>, "linux-hyperv@vger.kernel.org"
-	<linux-hyperv@vger.kernel.org>, "kexec@lists.infradead.org"
-	<kexec@lists.infradead.org>, "linux-arm-kernel@lists.infradead.org"
-	<linux-arm-kernel@lists.infradead.org>, "linux-kernel@vger.kernel.org"
-	<linux-kernel@vger.kernel.org>, "linux-arch@vger.kernel.org"
-	<linux-arch@vger.kernel.org>
-Subject: RE: [PATCH v3 0/2] hyperv: Run VMBus kexec cleanup from syscore
- shutdown
-Thread-Topic: [PATCH v3 0/2] hyperv: Run VMBus kexec cleanup from syscore
- shutdown
-Thread-Index: AQHdUafu8BdwG959PEWeGxKlWV317bbo3Hiw
-Date: Thu, 1 Oct 2026 16:14:22 +0000
-Message-ID: <SN6PR02MB41578FDB019EE76576C612A8D48A2@SN6PR02MB4157.namprd02.prod.outlook.com>
-References: <20261001132128.1703511-1-shradhagupta@linux.microsoft.com>
-In-Reply-To: <20261001132128.1703511-1-shradhagupta@linux.microsoft.com>
-Accept-Language: en-US
-Content-Language: en-US
-X-MS-Has-Attach: 
-X-MS-TNEF-Correlator: 
-x-ms-publictraffictype: Email
-x-ms-traffictypediagnostic: SN6PR02MB4157:EE_|BY5PR02MB6612:EE_
-x-ms-office365-filtering-correlation-id: 932b3aaf-da10-4f90-face-08df1fd70e17
-x-microsoft-antispam: BCL:0;ARA:14566002|15080799012|24021099003|55001999006|13091999003|31061999003|19110799012|8062599012|8060799015|25010399006|37011999003|51005399006|102099032|440099028|3412199025|40105399003|2607281247196008;
-x-microsoft-antispam-message-info: =?us-ascii?Q?U0IISlEIWPghFh7WtxG70LW3ef3AuboU9jiaYzI2JWC12XUwWchvhxNHil3F?=
- =?us-ascii?Q?3N0UPLXZQ9xBC9ryAMLGl2mxQRbQCdUdjhWYwkPT4lRRJ0EcX91KOhp8qrvF?=
- =?us-ascii?Q?Q3c8HWKctZD3ouPPxBrs9uqEHq7ZFrMPW41zo6fqCHS7PJ/csjA+3sN6Blek?=
- =?us-ascii?Q?9crKTm21BGPDY8HNx0BSK4jTXLH2cMBM1CjkXaVqaK7Ck+itrIjXJjKM1tK2?=
- =?us-ascii?Q?TMJUd2KSF2FxBfapqc/AcorY9+7Ae8FpvZgFuep1/qx6uDBc9ZW/LRPs9TEm?=
- =?us-ascii?Q?UoNseBqXlJSeEUh4bIlYpk5WzmmGfwD5TtfwSOByddVdJKIgl4lEQH0YV3aX?=
- =?us-ascii?Q?JAhSZYJIQBFg64uAtoaIc87ojkxWSQBnmdv07Z4HiCQAuVxFj9mrLg4aYs8N?=
- =?us-ascii?Q?k3Ybbh2FCKmWvkbKFWT1n7yg3PXYoWlSNQ8NUbM4R3tb9hRVL4EE7KJ4gfoD?=
- =?us-ascii?Q?kLS9RqRD4pXo1SySOe7hm+1qQ466TdJDEGKXCQsTL7uZJMh1lNFqUi+8PfDa?=
- =?us-ascii?Q?TxYelNZSlgEYRNdrTWG+YgXGzMNqhv5sbY7VhXMGP9q+8uG7N1NyP1jcMvvl?=
- =?us-ascii?Q?rU6gvZRnHcxy2xU/Do5/8NkdsE58lOtFTovrMv2AYbvhrkaL/XYH5WbDQZcS?=
- =?us-ascii?Q?5g8nqDb8HVcjTfBu0gzTCWcKlHuu9Bj0byV052JjsQanV6UbOZuqkX73A/Gs?=
- =?us-ascii?Q?pUq83Joa1gJEyu6VQ3YRo2STa4NKPbIgQ5edJyo7gq/nKBg+Oa7A9OPok9cQ?=
- =?us-ascii?Q?fsxRluPKa33ZrYaixS6B6P/yJgpOLdFscYTR0CuyMJCL/Wlb9mrTPFfketKF?=
- =?us-ascii?Q?s7DRgsxAcIuIiOiYwqF9j7URp50UPchH/RUAdwLFZ3dh1VY74XKywyFcWMTi?=
- =?us-ascii?Q?d0r+Kd5mBPTVm3p+YdZ7Hoo/nV7dJ1G0ZRUseTN4AnwfZDly4Aw1iTL3lkpF?=
- =?us-ascii?Q?csAiOtTPHqaes95LPMSzCo5qo4Q0yWg6dWV1GMbeGAOaUIf5JGozHUU+Q5QK?=
- =?us-ascii?Q?NT+mYxSUhUvp4vCsRwl3CLYgHP7cYvhwgH2+WuIGag0T6SQ=3D?=
-x-ms-exchange-antispam-messagedata-chunkcount: 1
-x-ms-exchange-antispam-messagedata-0: =?us-ascii?Q?XMM3CWeqEBXCe1KHZQkjhgTlrYY/RYuJEM+3g8fHohkex5bRji9MbZRzX1Yy?=
- =?us-ascii?Q?TTHWimLjM9+BA5j3Q5VEDW1gE6sK5JTSTKhe7Pm9qRE152TiXuoRCKrPnz2E?=
- =?us-ascii?Q?KjvpQ6SPgYoicms+YWe34XJq4B6FgYDg7Fxh1f5pNMC32O4DyvtXcKxlcMNQ?=
- =?us-ascii?Q?Sje7e6sGL2+ZchO2wz3u5ICWpHyXjJKFbbenj5gOY5mlDDF8Ux8jXN5wWo2j?=
- =?us-ascii?Q?Sjt0Zrr1qfyxDTvF088lpFFKF0CC+VKriowWbZFhPpehCKxF71N0Z2LvD0yp?=
- =?us-ascii?Q?/jGzV1T/rTbpKqxFKrG1DNo4wgQf+kDgJYnxg/7ZDJIBhjoch+ljAsF1vXTY?=
- =?us-ascii?Q?G5w0H//sQBguS2c51dkfbByvQ6F33VKH+dyi9+Y1y5hd8sr7lIpJwVc9TlkX?=
- =?us-ascii?Q?P112GUmRvnXiOvIjvZ6SM62uo+GEQEt/EYGIe7yFD5G2fy5Pn+YNIHOar5pW?=
- =?us-ascii?Q?P/DfeL0MmQxXT9jn/dDOZOkvnm17q46VRWUuMEVkrvZqDdEYDfcRPfKKYt4g?=
- =?us-ascii?Q?bmXAODDfMKzJMx1ZX/UNh5eU2iMUdxKAdlZPTw6zvpAshq72ENknHwuc/TmM?=
- =?us-ascii?Q?J7q+OB/8k4m20XxsPFQ3Yt5HnWWhCHoEH4M1lvuOXPk7htZ2D/n7SYTQH1bm?=
- =?us-ascii?Q?UXh7z3HUvAbSSMe2Mn1MHvV7q9/Un5zZM9cd6PVSG4fgDGHBCcflkkTW9JFf?=
- =?us-ascii?Q?n6Ny14QN+DQIemgIhbyKTjtkuiLjAGTclR/9eU7q575payg6cHiXLZmInEE6?=
- =?us-ascii?Q?GnFwd2caRhb3PpGZ24oFljkizyyYem1RueIN0gLw9XzBqL39TjT0r4XbBCbX?=
- =?us-ascii?Q?9jSIeO7/b/GoHUXTH8aOHU/wIj8psL/yVlFG0OA9Mei4991nVHGqiAwGWY0y?=
- =?us-ascii?Q?7Y3PpSJKcqK0Q+4c6fd77o0UfALdDLy+BPVywzkN7xP1xw9ZtOtZ3SgXaIki?=
- =?us-ascii?Q?MH9M9emeqygHqGlj1NidQUDj3+1+rJ39/rYqCgahBF4sIKtQPSE05/8BOJu1?=
- =?us-ascii?Q?9HpZUwPeJVGjxW1Dn4l3KEmzv0d4ssOqZqtBaH7T0hJvFi/fGaYVEj6fCT2B?=
- =?us-ascii?Q?Q+Gr+CngbuIiPSpSiZKulaAO3HpkZWT+DovsfQiXW2+WFYoIHS8XbuY4Moxe?=
- =?us-ascii?Q?i3H/t+Im4SWoTALMGUzY2BGDPT5h8KGeKECBcqH0Div0Wq/tbzMegipkv2U2?=
- =?us-ascii?Q?/gp0mUk+mg3J0oFXssN8x0f2bx5lQluKzxrBs6ak3Lh9zaXgoCDtRCE8ovj7?=
- =?us-ascii?Q?iZ4n/6fJ9o9lRcKDHxzX0WUXCloeNO18vAb2xZcRLp0Ao4slJB/pA/cduByA?=
- =?us-ascii?Q?/vAdE2jw6nfMW3k36sRTOME3dtuuubqlWEvOVL1Q8nzxu37fpuikxGBd4TRR?=
- =?us-ascii?Q?qPVShYg=3D?=
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: quoted-printable
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.451.19; Thu, 1 Oct
+ 2026 16:19:27 +0000
+Received: from GV2PR04MB11799.eurprd04.prod.outlook.com
+ ([fe80::2146:83a2:5329:b7c]) by GV2PR04MB11799.eurprd04.prod.outlook.com
+ ([fe80::2146:83a2:5329:b7c%7]) with mapi id 15.21.0451.022; Thu, 1 Oct 2026
+ 16:19:27 +0000
+Date: Thu, 1 Oct 2026 11:19:16 -0500
+From: Frank Li <Frank.li@oss.nxp.com>
+To: Leonardo Costa <leoreis.costa@gmail.com>
+Cc: robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org,
+	Frank.Li@nxp.com, s.hauer@pengutronix.de, kernel@pengutronix.de,
+	festevam@gmail.com, francesco.dolcini@toradex.com,
+	leonardo.costa@toradex.com, hvilleneuve@dimonoff.com,
+	marex@nabladev.com, stefano.r@variscite.com,
+	devicetree@vger.kernel.org, imx@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH 5/7] ARM: dts: imx6q-apalis: Add Toradex Resistive Touch
+ Display 7" Parallel
+Message-ID: <ar6IBEngz1w3T_Di@SMW015318>
+References: <20261001155412.3177428-1-leoreis.costa@gmail.com>
+ <20261001155412.3177428-6-leoreis.costa@gmail.com>
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20261001155412.3177428-6-leoreis.costa@gmail.com>
+X-ClientProxiedBy: CY5P221CA0133.NAMP221.PROD.OUTLOOK.COM
+ (2603:10b6:930:1f::17) To GV2PR04MB11799.eurprd04.prod.outlook.com
+ (2603:10a6:150:2cf::9)
 MIME-Version: 1.0
-X-OriginatorOrg: outlook.com
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: GV2PR04MB11799:EE_|AMZPR04MB301662:EE_
+X-MS-Office365-Filtering-Correlation-Id: 161e0719-985f-4843-e30c-08df1fd7c38d
+X-LD-Processed: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635,ExtAddr
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|23010399003|376014|366016|7416014|1800799024|19092799006|4143699003|10067099003|11063799006|56012099006|22082099003|18002099003|13003099007;
+X-Microsoft-Antispam-Message-Info: xCD5hwjc2JK0MIwpBdY9UXCEizlNrJvoQvfjparolLjbFWVRL8ngVdG5N80JL2bUgYczIJLrHQYqIKCO+o1gA09USY1gGMAw/g3dGoQqOOW0N/xU5nho8Wd9cdDVhKzHLQinCo21IVrEnzDpbbi6scC9St/5jzXPdqGaBM4r6ed5Z1xjC1DQldMnqQnAb1LI8fz51Ga0/PjKDTmLIRbv87K05M2btGbJARbE6rXBOi5otSp/K9P/LQmFo+wGH6D1ZfsBpH6N4mdsrzQGV4J+WilgEzp8rC//KRTX8WpIAA4EqPKGDHp9jPKrhi/T0eCpxXby4XGkJH1wTegCGH0otXx64uH4kCg12ZG5uNwniOPdgTXw4P7Slcts14cJqYYszJMQU8qgdY2rdG+Scdy1FF5SywDx6wnW6lGyCTMTktt9VU/ViN9IVMh9JLmi75u8/0aA89n11ndB662pf66ERAoqyF7yYZI4tcTW7wYOWppajT2NEUyWRN+25Mo5nhwLdMlLyWPzTWME0WH2dun9kP81sYJS9wx4AtMkWresDYMnt4WFAgQEHS72NrF/R0lse5ZxzuU5WsEJW7FpGn1S8CoqIIEuP3KJOwL0VAasCcq2271pC624fqC3JcERQbKf
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:GV2PR04MB11799.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(23010399003)(376014)(366016)(7416014)(1800799024)(19092799006)(4143699003)(10067099003)(11063799006)(56012099006)(22082099003)(18002099003)(13003099007);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?qZffyVJjCrUrg4rzfYe6aVE9MqI7wWJyR9TcjZ7PoyRTPm4AoNCti9i/1G78?=
+ =?us-ascii?Q?cSAQCPIlUI6X9+eG+4XgMxucIPqITWJGTx2JoeJvg7JVyGZ5tFQIsBXPS8HZ?=
+ =?us-ascii?Q?TSG22H9Or1uCD5LuN4kUCDcgryQ2mHBC45Ogssn+3QmXRXxsY0qpbe8Lx9G+?=
+ =?us-ascii?Q?71pjFO09+7C/ZRNYb0LpbEf8SKqSv+EeqfSFkpJbExYSEXaejvRTthIpqbFs?=
+ =?us-ascii?Q?x18oDbsVV7Sy0/3qM+9MAFvq99wIZwpkedG4LYvuyehWmTjT4BGHk+Jb02Od?=
+ =?us-ascii?Q?HzpKRzOYhM3OI3019xQyy5kWXGGADapeAmZ/NQtJX2YBaCU7XVle5H5LS/gq?=
+ =?us-ascii?Q?W8M2O9R+ZaRDnHp8rSaQODnOSQg+r0M6HwxwojXt57L+kS6PC13ebH9ytFLA?=
+ =?us-ascii?Q?MU5zTIXvizpqjvoPV4FJFfLDRNHDMDmL3pBz4mTXMwvMRrJ9ubq1nXewuNP8?=
+ =?us-ascii?Q?5WN4qf+nZvWK6pXiXm1uH0kgPeoa93BZn7sepCc/t6zVdcZbuFiXty+qUsGU?=
+ =?us-ascii?Q?6nkU1gPB+Ueag5Jm/qfYnVRqJG1xnWTmuYNg7/FhwQv6w+JBWmAlPjCEVBCn?=
+ =?us-ascii?Q?0i+1mIMBHzj9JMb321m/1AsXtKZQ5+E+n5z5ttNcGEK/tbTv56FLbssyRDEs?=
+ =?us-ascii?Q?19QGziYSXytiko4NmfK8QdYRzbxeb151nhbW6ztiLvO9+G3tnfesNrVd34FX?=
+ =?us-ascii?Q?rD/SBQZexzKaxsvQ5FV733ad67WaR9tPviHR60pvOCx9Yw75ZgraJtvt1CCQ?=
+ =?us-ascii?Q?ahwthpKT9wzMcsMmjYqMZy9+D4mvrSRgLTZHx/yIK+cyscAHA1g5woAKBsuo?=
+ =?us-ascii?Q?DmVDxC3XhdPKNLPuLhHgz5FMdWym9991128tjxiaFbXBy8kCPbneMPt/VuIa?=
+ =?us-ascii?Q?s9UPUqEDVZoiHR6Yn98RWpSwbMDHmy4h+i3ymHMIYu0W6HpXRq5LDl9yYoiz?=
+ =?us-ascii?Q?kfNSW9TFT0RCDxzH7EIpecyUifHQtYPL7sW7zb1Y6Zue5SrbSLv3tCOlPvGF?=
+ =?us-ascii?Q?eaS0IopSvTEB27U6YIegMdC6MU3egXNT+UWhKRVje2sEdpcguknyhITTNMSy?=
+ =?us-ascii?Q?IFxcKwSSCiXxj+4LvWcEjVoSWIQimv8wFLYEu27Jo/96bfX1xtRwXLBPYmk4?=
+ =?us-ascii?Q?LvZ0DpmZrLHEk9rOBpWdpUpFVoy1909h3dFbMm+R2FNBqGoNo8/ZNx72ZqwU?=
+ =?us-ascii?Q?fw6RCi2P8k4gG5FsD8kDeiQFfmZB+eip7RUuVo3gZP7BxH2IWOMQI5kdapNO?=
+ =?us-ascii?Q?bkRhK3B4VVghwmBeKVSaj73y/NhllX7NzPYEA8tYrogm+c+Q1lu4ewHK2Agb?=
+ =?us-ascii?Q?/sQ8iQ3Dg+poomk8ECH6Gn4i82Kj6U4bJ5F0+e4/tWDBehdF7mezGBKPkKoz?=
+ =?us-ascii?Q?Vn0pbV13OV3zDMrU+VgSBwGuE8rY1xRfvV9tM1KhQCea/KTA3Y2ENPKd51lP?=
+ =?us-ascii?Q?/xs2a7xkGdStB/TjK+diYxLuMQyFC3G57i0UUnA2/43TWP4ynzO2ugla+HkP?=
+ =?us-ascii?Q?+wtU0MiklLk93skspe8oMhyf+rB1iXrwGmchqJ+MHdjS9bl24HrI0FzWibKF?=
+ =?us-ascii?Q?gY+SiAwNB3kHjlCaR+a+Rn7NDNfPXDbUSI0T0BzBDIHNerEs5MuXJZ7H6cCa?=
+ =?us-ascii?Q?Fbkw9XoEwiZd8lfyZm9dQ+TFpYACkYGM+U01oYQQmRhE7f2yF76PMLB6ZDIB?=
+ =?us-ascii?Q?gN6D+6FD5NnoIY92+SaLu1IJwE719w3J5WBMlcTwrsO8pRbXFQ1I3OjSZ/fj?=
+ =?us-ascii?Q?DGRXM14HX/e7yTSnXmXxUKwTdqmUUWtkhoZTbQQP/OI16nEoh7uD?=
+X-OriginatorOrg: oss.nxp.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 161e0719-985f-4843-e30c-08df1fd7c38d
+X-MS-Exchange-CrossTenant-AuthSource: GV2PR04MB11799.eurprd04.prod.outlook.com
 X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-AuthSource: SN6PR02MB4157.namprd02.prod.outlook.com
-X-MS-Exchange-CrossTenant-RMS-PersistedConsumerOrg: 00000000-0000-0000-0000-000000000000
-X-MS-Exchange-CrossTenant-Network-Message-Id: 932b3aaf-da10-4f90-face-08df1fd70e17
-X-MS-Exchange-CrossTenant-originalarrivaltime: 01 Oct 2026 16:14:22.4641
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 01 Oct 2026 16:19:27.3912
  (UTC)
-X-MS-Exchange-CrossTenant-fromentityheader: Hosted
-X-MS-Exchange-CrossTenant-id: 84df9e7f-e9f6-40af-b435-aaaaaaaaaaaa
-X-MS-Exchange-CrossTenant-rms-persistedconsumerorg: 00000000-0000-0000-0000-000000000000
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: BY5PR02MB6612
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: nimmf/BD48ZMA9c6WbgY7eU+q1a5+IGJ2bZ1bMx1cE4iuH2kY2/PGq33rfzlsf/X944diUte27dVc3QbdbC9NOKg7ITMIfgj/iTB+wU2RgHSmYy5RDdn+SlgkkYUztC/
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: AMZPR04MB301662
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261001_091431_180170_A808A09E 
-X-CRM114-Status: GOOD (  23.55  )
+X-CRM114-CacheID: sfid-20261001_091931_906732_51DA8F1A 
+X-CRM114-Status: GOOD (  19.85  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -157,81 +143,108 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Shradha Gupta <shradhagupta@linux.microsoft.com> Sent: Thursday, Octo=
-ber 1, 2026 6:21 AM
->=20
-> Kexec reboot fails on ARM64 Hyper-V guests because the VMBus
-> connection and SynIC CPU hotplug state are not torn down before the
-> secondary CPUs are stopped. The kexec kernel consequently starts with
-> the previous kernel's VMBus state still active.
->=20
-> The previous version added an ARM64-specific syscore shutdown
-> implementation. This version follows Michael Kelley's review and moves
-> the cleanup into the existing architecture-independent VMBus syscore
-> operations. This removes the separate x86 handler dispatch and gives
-> x86 and ARM64 the same ordering:
->=20
->   device_shutdown()
->   syscore_shutdown()
->     VMBus UNLOAD and SynIC CPU hotplug teardown
->   machine_shutdown()
->=20
-> On x86, VMBus teardown now runs before hv_stimer_global_cleanup().
-> This ordering is safe after commit be0cfab740e5 ("clocksource: hyper-v:
-> Remove support for stimer interrupts in message mode") removed the
-> VMBus dependency from synthetic timer handling.
->=20
-> Patch 1 adds a read-only helper that reports whether a kexec reboot is
-> in progress. The helper is exported because HYPERV_VMBUS is tristate
-> and the common syscore callback must also link when VMBus is a module.
-> Patch 2 moves the cleanup into the common callback and removes the
-> obsolete architecture-specific setup/remove interface.
->=20
-> For stable kernels that still support message-mode stimers, an
-> ARM64-specific backport will be needed to preserve the existing x86
-> ordering.
->=20
-> Changes in v3:
->   - Use the existing common VMBus syscore operations on all
->     architectures, as suggested by Michael.
->   - Remove the x86 handler pointer and the weak setup/remove interface.
->   - Add an exported read-only helper for modular VMBus builds.
->   - Correct the Fixes tag to the commit that enabled Hyper-V on ARM64.
->=20
-> Changes in v2:
->   - Use syscore shutdown instead of an ARM64 machine_shutdown() hook, as
->     suggested by Catalin.
->=20
-> Shradha Gupta (2):
->   kexec: Add helper to report an active kexec reboot
->   Drivers: hv: Run VMBus kexec cleanup from syscore shutdown
->=20
->  arch/x86/kernel/cpu/mshyperv.c | 17 +----------------
->  drivers/hv/hv_common.c         | 10 ----------
->  drivers/hv/vmbus_drv.c         | 22 ++++++++++++++--------
->  include/asm-generic/mshyperv.h |  2 --
->  include/linux/kexec.h          |  2 ++
->  kernel/kexec_core.c            |  7 +++++++
->  6 files changed, 24 insertions(+), 36 deletions(-)
->=20
->=20
-> base-commit: be0cfab740e58b70047ef6e7e3d578f00ed5d258
-> --
-> 2.43.0
+On Thu, Oct 01, 2026 at 12:52:55PM -0300, Leonardo Costa wrote:
+> From: Leonardo Costa <leonardo.costa@toradex.com>
+>
+> Add a device tree overlay for the Resistive Touch Display 7" Parallel
+> on the Apalis iMX6 parallel RGB LCD interface.
+>
+> The panel is a LogicTechno LT161010-2NHR 7" WVGA TFT Transmissive LCD
+> with a resistive touch.
+>
+> The overlay is also combined with the Apalis iMX6 V1.2 Ixora Carrier
+> Board V1.2 device tree to provide a ready-to-use DTB.
+>
+> Link: https://developer.toradex.com/hardware/accessories/displays/resistive-touch-display-7inch-parallel/
+> Signed-off-by: Leonardo Costa <leonardo.costa@toradex.com>
+> ---
+>  arch/arm/boot/dts/nxp/imx/Makefile            |  6 ++++
+>  ...apalis-panel-res-touch-7inch-parallel.dtso | 30 +++++++++++++++++++
+>  2 files changed, 36 insertions(+)
+>  create mode 100644 arch/arm/boot/dts/nxp/imx/imx6q-apalis-panel-res-touch-7inch-parallel.dtso
+>
+> diff --git a/arch/arm/boot/dts/nxp/imx/Makefile b/arch/arm/boot/dts/nxp/imx/Makefile
+> index 5f35771cc3626..cd1b095ce06f4 100644
+> --- a/arch/arm/boot/dts/nxp/imx/Makefile
+> +++ b/arch/arm/boot/dts/nxp/imx/Makefile
+> @@ -107,6 +107,10 @@ imx6q-apalis-v1.2-ixora-v1.2-panel-cap-touch-7inch-parallel-dtbs := \
+>  	imx6q-apalis-v1.2-ixora-v1.2.dtb \
+>  	imx6q-apalis-panel-cap-touch-7inch-parallel.dtbo
+>
+> +imx6q-apalis-v1.2-ixora-v1.2-panel-res-touch-7inch-parallel-dtbs := \
+> +	imx6q-apalis-v1.2-ixora-v1.2.dtb \
+> +	imx6q-apalis-panel-res-touch-7inch-parallel.dtbo
+> +
+>  imx6qdl-dhcom-pdk2-overlay-497-200-x12-dtbs := \
+>  	imx6q-dhcom-pdk2.dtb \
+>  	imx6qdl-dhcom-pdk2-overlay-497-200-x12.dtbo
+> @@ -243,6 +247,7 @@ dtb-$(CONFIG_SOC_IMX6Q) += \
+>  	imx6q-apalis-ixora-v1.2-hdmi.dtb \
+>  	imx6q-apalis-panel-cap-touch-10inch-lvds.dtbo \
+>  	imx6q-apalis-panel-cap-touch-7inch-parallel.dtbo \
+> +	imx6q-apalis-panel-res-touch-7inch-parallel.dtbo \
+>  	imx6q-apalis-v1.2-eval.dtb \
+>  	imx6q-apalis-v1.2-eval-hdmi.dtb \
+>  	imx6q-apalis-v1.2-eval-v1.2.dtb \
+> @@ -255,6 +260,7 @@ dtb-$(CONFIG_SOC_IMX6Q) += \
+>  	imx6q-apalis-v1.2-ixora-v1.2-hdmi.dtb \
+>  	imx6q-apalis-v1.2-ixora-v1.2-panel-cap-touch-10inch-lvds.dtb \
+>  	imx6q-apalis-v1.2-ixora-v1.2-panel-cap-touch-7inch-parallel.dtb \
+> +	imx6q-apalis-v1.2-ixora-v1.2-panel-res-touch-7inch-parallel.dtb \
+>  	imx6q-apf6dev.dtb \
+>  	imx6q-arm2.dtb \
+>  	imx6q-b450v3.dtb \
+> diff --git a/arch/arm/boot/dts/nxp/imx/imx6q-apalis-panel-res-touch-7inch-parallel.dtso b/arch/arm/boot/dts/nxp/imx/imx6q-apalis-panel-res-touch-7inch-parallel.dtso
+> new file mode 100644
+> index 0000000000000..be2164dcd0369
+> --- /dev/null
+> +++ b/arch/arm/boot/dts/nxp/imx/imx6q-apalis-panel-res-touch-7inch-parallel.dtso
 
-Nice! Net impact is to remove 12 lines of code, instead of
-adding 40, which is great. And nothing under arch/arm64 is
-modified.
+imx6q-apalis-panel-lt161010.dtso, in case other 7inch panel added. it may
+be end of life in future.
 
-One minor point: In hv_machine_shutdown(), we have two
-sequential tests of kexec_in_progress. Given that you are
-removing some code under the first test, I think it would be
-fair game to do a very minor refactoring of existing code and
-combine the two tests. It just looks a little funny to have the
-same test twice in a row.
+or imx6q-apalis-parallel-panel-lt161010
 
-But regardless of whether you include that change, for
-the series,
+> @@ -0,0 +1,30 @@
+> +// SPDX-License-Identifier: GPL-2.0-only OR MIT
+> +/*
+> + * Copyright (c) Toradex
+> + *
+> + * Toradex Resistive Touch Display 7" Parallel connected through the 40-way
+> + * Unified Interface Display connector (as featured on Ixora carrier board and
+> + * Apalis Evaluation Board). Touchscreen is available only on Apalis iMX6 v1.2.
+> + *
+> + * https://docs.toradex.com/104498-7-inch-parallel-resistive-touch-display-800x480.pdf
+> + * https://developer.toradex.com/hardware/accessories/displays/resistive-touch-display-7inch-parallel/
+> + * https://www.toradex.com/accessories/resistive-touch-display
+> + */
+> +
+> +/dts-v1/;
+> +/plugin/;
+> +
+> +&backlight {
+> +	status = "okay";
+> +};
+> +
+> +&lcd_display {
+> +	status = "okay";
+> +};
+> +
+> +&panel_dpi {
+> +	compatible = "logictechno,lt161010-2nhr";
+> +	power-supply = <&reg_3v3_sw>;
 
-Reviewed-by: Michael Kelley <mhklinux@outlook.com>
+You'd better use additional unified name reg_lcd_panel
+
+in main board dts,
+reg_lcd_panel: reg_3v3_sw: regulator... {
+}
+
+So this dtso may be easy shared in future.
+
+Frank
+> +
+> +	status = "okay";
+> +};
+>
 
