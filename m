@@ -4,41 +4,41 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B219BCA5FD4
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  1 Oct 2026 21:08:25 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 00D0CCA5FD4
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  1 Oct 2026 21:08:32 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=FuNUljzoEpl0oR8lWC1KESdUs/Gb6Cdd9PNArMkRTaE=; b=ZIdwHoRBRRxcIWGsqArBFPRKN2
-	nFaaREe2ZEFZe+OB8X1sNyJZ3GdUegRhzxGucOUuui4YNqhlua3ohV7wdADNiE58akxna2Y478ms3
-	PLdzfI2NpFr2SoVP4HVOhhvE6rbonwM08AuU0a4m4++FqYPIA3Cr5HBz8/KIhM4EN2Tq3ghILziqF
-	I/hJcoxwLW9Hxt5DBacb/mmUQtDzL10hCCHefIbLePrJKhIBbLomXcMHAKksUlY50jzi8sJm+aqwr
-	qI2kvphsmEX3LguwbP8wuBYvoWEfPZ7mdDrgKdPvoDf5vhNbmYchGx5wJTNOVMnlb+ZoVRoM4OMGL
-	8p2jPCeg==;
+	bh=PPqwN56NUecnV3QwE9z20EdLxRktOuAIO9Zu/NZXLcU=; b=zBoqhPtPwrMx7BnKb7JxbsoVuU
+	0ntp5JyqC48WRc2kaP2dxyXwQO8aozgLGGqvhOpuhDuXYASB9WTSqFwJJLR2ujGddsCBOG4ZQJnNn
+	DIqItvqU178kpMpSf2SBV+IwMkyQ+cnXOZOfZaewp+53tOrhlLNf1Pz2H0dBVyBuUNsHE51U1Z2PN
+	6mC1ZIaYP+e2Dqf1V87u53ZQv7LMkXDbAO+FVxhyzY45E93SAfs3MSth+1QBL5tALnUcSHjMZ8spc
+	V2T8vI+tK06mfQiHEeK2qOsEBl5DoQpoLTIbWhmLRrgSBW9pm9qpgw4jXAZRS8y09AfcgA7RzeQhw
+	bBzluAog==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xCO0m-0000000ADFJ-0Ke1;
-	Thu, 01 Oct 2026 21:08:16 +0000
+	id 1xCO0w-0000000ADQH-1cTq;
+	Thu, 01 Oct 2026 21:08:26 +0000
 Received: from foss.arm.com ([217.140.110.172])
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xCO0j-0000000ADBf-1qNF
+	id 1xCO0p-0000000ADJc-0MSP
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 01 Oct 2026 21:08:14 +0000
+	Thu, 01 Oct 2026 21:08:24 +0000
 Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 6039316F8;
-	Thu,  1 Oct 2026 14:08:09 -0700 (PDT)
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 139821476;
+	Thu,  1 Oct 2026 14:08:13 -0700 (PDT)
 Received: from ewhatever.cambridge.arm.com (ewhatever.cambridge.arm.com [10.2.197.99])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPA id 6E0B93F86F;
-	Thu,  1 Oct 2026 14:08:09 -0700 (PDT)
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPA id 1CE943F86F;
+	Thu,  1 Oct 2026 14:08:12 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1790888892; bh=WsjSAf7iPMA/K8mPP8RhduMdKhLRQFgtRTlAA6Oernw=;
+	t=1790888896; bh=p+zcxg7BECsR89IwYH5uWpbzH4ouiCsroF6MFra80bY=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=RFd7Lj6pc3b5WJuyjN+0CngiS2XcgDjLatO4PjBuQKiDrlojAdaiCSbMVHraV9iZl
-	 vAc1wRY1KqcJ6B9P/EGfibuhWCS01SmILvA2Z3VhTXwiemh/bQFMbvDTAQLOnaRPjj
-	 koSqa0jPyoKTkJ36e9kYDSIhVD/FhY2F2MMRdGM8=
+	b=ljudYv2O+d9WFowhQOpSnrEkj9JxfgGTUeAPHmD6frk3qiRft2zy0dsr6z/d6SIfW
+	 2ShRlTfZKa1IN3/1rxRd7BVQIS53yQzz/FbXdFLb2cRigCZAgXeroi1aQZX/+behuH
+	 vuabQTWZpPoFNatOKgSPs1taNoM0lr4nZLVWLDc8=
 From: Suzuki K Poulose <suzuki.poulose@arm.com>
 To: kvm@vger.kernel.org,
 	kvmarm@lists.linux.dev
@@ -65,17 +65,18 @@ Cc: maz@kernel.org,
 	sudeep.holla@arm.com,
 	jonathan.cameron@oss.qualcomm.com,
 	Suzuki K Poulose <suzuki.poulose@arm.com>
-Subject: [PATCH v21 14/23] KVM: arm64: CCA: Add a new mode for supporting Realm guests
-Date: Thu,  1 Oct 2026 22:06:54 +0100
-Message-ID: <20261001210703.1597150-15-suzuki.poulose@arm.com>
+Subject: [PATCH v21 15/23] KVM: arm64: CCA: Add VCPU load/put for Realms
+Date: Thu,  1 Oct 2026 22:06:55 +0100
+Message-ID: <20261001210703.1597150-16-suzuki.poulose@arm.com>
 X-Mailer: git-send-email 2.43.0
 In-Reply-To: <20261001210703.1597150-1-suzuki.poulose@arm.com>
 References: <20261001210703.1597150-1-suzuki.poulose@arm.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261001_140813_614004_082D5CF0 
-X-CRM114-Status: GOOD (  11.22  )
+X-CRM114-CacheID: sfid-20261001_140819_174083_2113B223 
+X-CRM114-Status: UNSURE (   9.25  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -90,58 +91,60 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add an explicit mode to support Arm CCA guests.
+RMM controls the VCPU settings and most are hidden from the KVM, except
+for the VGIC and timer bits.
 
-Reviewed-by: Jonathan Cameron <jonathan.cameron@oss.qualcomm.com>
+A later patch would add syncing the VCPU state into the Realm REC related
+SMC parameters.
+
 Signed-off-by: Suzuki K Poulose <suzuki.poulose@arm.com>
 ---
- Documentation/admin-guide/kernel-parameters.txt | 3 +++
- arch/arm64/include/asm/kvm_host.h               | 1 +
- arch/arm64/kvm/arm.c                            | 5 +++++
- 3 files changed, 9 insertions(+)
+ arch/arm64/kvm/arm.c | 18 ++++++++++++++++++
+ 1 file changed, 18 insertions(+)
 
-diff --git a/Documentation/admin-guide/kernel-parameters.txt b/Documentation/admin-guide/kernel-parameters.txt
-index 68647ff4bdd24..1afe3df3b923e 100644
---- a/Documentation/admin-guide/kernel-parameters.txt
-+++ b/Documentation/admin-guide/kernel-parameters.txt
-@@ -3256,6 +3256,9 @@ Kernel parameters
- 			nested: VHE-based mode with support for nested
- 				virtualization. Requires at least ARMv8.4
- 				hardware (with FEAT_NV2).
-+			rmm: Support for running confidential guests in Realm
-+			     world using RMM, as defined by Arm Confidential
-+			     Compute Architecture (CCA)
- 
- 			Defaults to VHE/nVHE based on hardware support. Setting
- 			mode to "protected" will disable kexec and hibernation
-diff --git a/arch/arm64/include/asm/kvm_host.h b/arch/arm64/include/asm/kvm_host.h
-index 4d75b8e6797bb..4516594d90462 100644
---- a/arch/arm64/include/asm/kvm_host.h
-+++ b/arch/arm64/include/asm/kvm_host.h
-@@ -69,6 +69,7 @@ enum kvm_mode {
- 	KVM_MODE_DEFAULT,
- 	KVM_MODE_PROTECTED,
- 	KVM_MODE_NV,
-+	KVM_MODE_RMM,
- 	KVM_MODE_NONE,
- };
- #ifdef CONFIG_KVM
 diff --git a/arch/arm64/kvm/arm.c b/arch/arm64/kvm/arm.c
-index bcb78fc7676c5..3ab722f2af7c8 100644
+index 3ab722f2af7c8..8b1beddd80ea5 100644
 --- a/arch/arm64/kvm/arm.c
 +++ b/arch/arm64/kvm/arm.c
-@@ -3277,6 +3277,11 @@ static int __init early_kvm_mode_cfg(char *arg)
- 		return 0;
- 	}
- 
-+	if (strcmp(arg, "rmm") == 0 && !WARN_ON(!is_kernel_in_hyp_mode())) {
-+		kvm_mode = KVM_MODE_RMM;
-+		return 0;
-+	}
-+
- 	return -EINVAL;
+@@ -802,6 +802,13 @@ static void pkvm_vcpu_load(struct kvm_vcpu *vcpu)
+ 			  &vcpu->arch.vgic_cpu.vgic_v3);
  }
- early_param("kvm-arm.mode", early_kvm_mode_cfg);
+ 
++static void realm_vcpu_load(struct kvm_vcpu *vcpu)
++{
++	kvm_timer_vcpu_load(vcpu);
++	kvm_vgic_load(vcpu);
++	vcpu_set_wfx_traps(vcpu);
++}
++
+ void kvm_arch_vcpu_load(struct kvm_vcpu *vcpu, int cpu)
+ {
+ 	vcpu->cpu = cpu;
+@@ -854,6 +861,12 @@ static void pkvm_vcpu_put(struct kvm_vcpu *vcpu)
+ 	kvm_vcpu_pmu_restore_host(vcpu);
+ }
+ 
++static void realm_vcpu_put(struct kvm_vcpu *vcpu)
++{
++	kvm_timer_vcpu_put(vcpu);
++	kvm_vgic_put(vcpu);
++}
++
+ void kvm_arch_vcpu_put(struct kvm_vcpu *vcpu)
+ {
+ 	vcpu->arch.vcpu_ops->vcpu_put(vcpu);
+@@ -2211,6 +2224,11 @@ static const struct kvm_vcpu_ops pkvm_vcpu_ops = {
+ 	.vcpu_put = pkvm_vcpu_put,
+ };
+ 
++static const struct kvm_vcpu_ops realm_vcpu_ops = {
++	.vcpu_load = realm_vcpu_load,
++	.vcpu_put = realm_vcpu_put,
++};
++
+ #define KVM_VCPU_OPS(flavor, ops)		\
+ 	[(flavor)] = (ops)
+ 
 -- 
 2.43.0
 
