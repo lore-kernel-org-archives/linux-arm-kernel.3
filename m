@@ -4,69 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4B607CA5FCB
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  1 Oct 2026 12:05:02 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 01FCECA5FCB
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  1 Oct 2026 12:09:18 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=HgL/n87wUIynRIBk3hVwoxTR3GOoA+TrpsX5Ikeksvg=; b=1gMV6EbkFtCVXoo4XtSFq/Rc0I
-	Nxlwdw8igbsGmBX/SCustXEV+Iy6tWpMfLk8sejLItzMnYT18JMtxwF8UsVCju3a1392emVqv52/U
-	bPsOZaBkfTCNLHDChfDjbdzHIXKSCX0aISmWlVRU2OIZ5+8eaF7vL3QQLqu5pQORCxBrdRfUU7lq5
-	r0UjS44yuSZzVhERxXVxW81apWFP1KI3bdaCnfwWOBCxdTbzZIldpwC8hzvJLe4Y43r1zGFUvGRzr
-	skYvRuxarJiUE3j7mkNCJ9DejhUqPbQN/KwJqCO5ibpmpBbB5L4YUvjeX+lF+Ric5AQn/J4C4XdI8
-	uZJkoUrw==;
+	bh=hgUX0ii0uYxzjf7gvJ6LbuMXqEimXK9XD6l6fEYf20Q=; b=aPyXKUDEWTof51xvih+u7E7IL5
+	tPnF5gNNRko2Y3wmS+5i5O6pYPuU0zVLJtpwzqP4bDIWRoVc7hPYA90X5kyCR68uIQLX0tV8xZK4U
+	IVK94LeL8Mex5f/a1af0tieOEaz2rYFc6v0t+Lp+ljGd7N7piOrdv8sE4rjqGtuD0lf1xB3+ssbw0
+	KsiZMhsO241YCgZkdESZJZrjVtiBwz5JVM/plmbNTHzfL/zqTWKTJVYO+ubsNaxmWsTo1ETQaUsL6
+	ES7raGSjaBFCMPoRUCTNFDiQ5RZbSEEOXID4+4jsXsp0/mg/6gJOU4yloc3yGQ4GyZRSlugkSTIKo
+	ixV54Sxg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xCFWw-00000008pLX-3jz4;
-	Thu, 01 Oct 2026 12:04:54 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1xCFb6-00000008yd3-3bJi;
+	Thu, 01 Oct 2026 12:09:12 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xCFTL-00000008iQN-0XSp
+	id 1xCFWo-00000008ozK-3vyB
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 01 Oct 2026 12:01:11 +0000
+	Thu, 01 Oct 2026 12:04:47 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 9366C4126C;
-	Thu,  1 Oct 2026 12:01:10 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 8EE901F00898;
-	Thu,  1 Oct 2026 12:01:09 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 46F1B40840;
+	Thu,  1 Oct 2026 12:04:46 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id EBCCB1F000FF;
+	Thu,  1 Oct 2026 12:04:45 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1790856070;
-	bh=HgL/n87wUIynRIBk3hVwoxTR3GOoA+TrpsX5Ikeksvg=;
+	s=k20260515; t=1790856286;
+	bh=hgUX0ii0uYxzjf7gvJ6LbuMXqEimXK9XD6l6fEYf20Q=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=fAgCFphv5Sno6BFZGsyTHXNBEB+eEqzkISa1m4UJbBycGe6F8kIriqtcbA/m3xo2l
-	 SrrCuXT2VYNtC7xP9AD4SZGlq3C7UWD1F59oDTRceyE6mxdogAQzgiFMabsfG7CWVh
-	 q5rJjdoAkZ4E/2upHbNb3wsmcZ8Zp1v+VjmQq5qxQaryS0+1S8sMyvFXoCtTSk+aG6
-	 BYKD0jYkCnXsj8FANeW6SLCZ8HEQOwd+qfVXHIRHwrStF+DSGZH6zcvCtaj7Ge7MPg
-	 r1n79dpw4AXbS5xzu4Mx/RxpNQKqUtgOsu/yHJran6Hitxr65LM4p3s0TY2NyedlRQ
-	 Il3BRLEwtnIGA==
-Date: Thu, 1 Oct 2026 14:01:07 +0200
-From: Krzysztof Kozlowski <krzk@kernel.org>
-To: Bjorn Andersson <andersson@kernel.org>
-Cc: arm@kernel.org, soc@kernel.org, linux-arm-msm@vger.kernel.org, 
-	linux-arm-kernel@lists.infradead.org, Arnd Bergmann <arnd@arndb.de>, 
-	Viken Dadhaniya <viken.dadhaniya@oss.qualcomm.com>, Maulik Shah <maulik.shah@oss.qualcomm.com>, 
-	Ben Dooks <ben.dooks@codethink.co.uk>, Hardeep Sharma <hardeep.sharma@oss.qualcomm.com>, 
-	Konrad Dybcio <konrad.dybcio@oss.qualcomm.com>, Wangao Wang <wangao.wang@oss.qualcomm.com>, 
-	Abel Vesa <abel.vesa@oss.qualcomm.com>, Abel Vesa <abelvesa@kernel.org>, 
-	Bjorn Andersson <bjorn.andersson@oss.qualcomm.com>, Dan Carpenter <error27@gmail.com>, 
-	Geert Uytterhoeven <geert+renesas@glider.be>, Gopikrishna Garmidi <gopikrishna.garmidi@oss.qualcomm.com>, 
-	Gourav Kumar <gouravk@qti.qualcomm.com>, Hongyan Xu <getshell@seu.edu.cn>, 
-	Jason Pettit <jason.pettit@oss.qualcomm.com>, Jie Gan <jie.gan@oss.qualcomm.com>, 
-	Kathiravan Thirumoorthy <kathiravan.thirumoorthy@oss.qualcomm.com>, Linmao Li <lilinmao@kylinos.cn>, 
-	Luca Weiss <luca.weiss@fairphone.com>, Mukesh Ojha <mukesh.ojha@oss.qualcomm.com>, 
-	Pan Chuang <panchuang@vivo.com>, Sreeshankar K <sreeshankar0910@gmail.com>, 
-	Uwe =?utf-8?Q?Kleine-K=C3=B6nig?= <u.kleine-koenig@baylibre.com>, bui duc phuc <phucduc.bui@gmail.com>
-Subject: Re: [GIT PULL] Qualcomm driver updates for v7.4
-Message-ID: <20261001-stalwart-winged-curassow-6ff14c@quoll>
-References: <20260923025246.407729-1-andersson@kernel.org>
+	b=RPrwRMNeyziaNxy1CS1ZueSBS6AiEcQ1A+jWl175wRKI5L5gbEJNbGPySgltpn0xA
+	 9mTG1XF1EqUaS/Qyywo/aRjV+x8Ed39TA0d0L2z0YDJan9xAErjESPO4pLLFMtUp7k
+	 HlDETdYjFtMr3Wl3RF2AgpXD3XuMWsSqS9diq1ONUliPQJb8xNwwF7qPsOo7/PgTut
+	 Pi8INglaVY9/afFE7ilJERMc/VUioeJG3JX6AX7+BY0OAWJ619q2BjNH2lKpG0gkJq
+	 XdrgyAQyJj3GDBm9G+bXGQ4WjLJatED4SiNu7dHFhsDRjIriAXPYJ+VnU5BS2SlMmL
+	 6d6iJDp1gfO8A==
+Date: Thu, 1 Oct 2026 07:04:44 -0500
+From: Rob Herring <robh@kernel.org>
+To: Leo Yan <leo.yan@arm.com>
+Cc: Suzuki K Poulose <suzuki.poulose@arm.com>,
+	Mike Leach <mike.leach@arm.com>,
+	James Clark <james.clark@linaro.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Mathieu Poirier <mathieu.poirier@linaro.org>,
+	Leo Yan <leo.yan@linux.dev>, coresight@lists.linaro.org,
+	linux-arm-kernel@lists.infradead.org, devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org
+Subject: Re: [PATCH] dt-bindings: arm: coresight: Allow funnel clocks
+Message-ID: <20261001120444.GA1048975-robh@kernel.org>
+References: <20260921232834.3138571-1-robh@kernel.org>
+ <20261001100455.GL14479@e132581.arm.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
+Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
-In-Reply-To: <20260923025246.407729-1-andersson@kernel.org>
+In-Reply-To: <20261001100455.GL14479@e132581.arm.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -81,33 +76,52 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Sep 22, 2026 at 09:52:46PM -0500, Bjorn Andersson wrote:
->=20
-> The following changes since commit cee9395acd8043be0644b25c34bfa86623f2b9=
-35:
->=20
->   Linux 7.3-rc1 (2026-08-30 13:34:40 -0700)
->=20
-> are available in the Git repository at:
->=20
->   https://git.kernel.org/pub/scm/linux/kernel/git/qcom/linux.git tags/qco=
-m-drivers-for-7.4
->=20
-> for you to fetch changes up to d3bacfccd82c974a541398a5ce310de7546b525f:
->=20
->   firmware: qcom: scm: Allow QSEECOM on Asus Zenbook A14 (UX3407NA) (2026=
--09-16 17:07:24 -0500)
->=20
-> ----------------------------------------------------------------
+On Thu, Oct 01, 2026 at 11:04:55AM +0100, Leo Yan wrote:
+> Hi Rob,
+> 
+> On Mon, Sep 21, 2026 at 06:28:33PM -0500, Rob Herring (Arm) wrote:
+> > Some static funnel nodes have APB and AT clocks. Allow one or two
+> > clocks and the apb_pclk and atclk clock-names entries.
+> > 
+> > Assisted-by: LLM
+> > Signed-off-by: Rob Herring (Arm) <robh@kernel.org>
+> >
+> > ---
+> >  .../bindings/arm/arm,coresight-static-funnel.yaml      | 10 ++++++++++
+> >  1 file changed, 10 insertions(+)
+> > 
+> > diff --git a/Documentation/devicetree/bindings/arm/arm,coresight-static-funnel.yaml b/Documentation/devicetree/bindings/arm/arm,coresight-static-funnel.yaml
+> > index 9598a3d0a95b..4a3d08f9568c 100644
+> > --- a/Documentation/devicetree/bindings/arm/arm,coresight-static-funnel.yaml
+> > +++ b/Documentation/devicetree/bindings/arm/arm,coresight-static-funnel.yaml
+> > @@ -30,6 +30,16 @@ properties:
+> >    power-domains:
+> >      maxItems: 1
+> >  
+> > +  clocks:
+> > +    minItems: 1
+> > +    maxItems: 2
+> > +
+> > +  clock-names:
+> > +    minItems: 1
+> > +    items:
+> > +      - const: apb_pclk
+> > +      - const: atclk
+> 
+> The question is that a static funnel does not need to program any
+> registers, so in theory it should only need atclk as the module's core
+> clock, but not the APB programming clock (apb_pclk).
+>
+> Maybe I did not get this right when I initially enabled the static
+> funnel in hi3660-coresight.dtsi. We should probably remove pclk from the
+> static funnel node.
 
-Fails to build:
+Yes. I suppose in theory it has some clock, but if pclk needed to be 
+enabled, it is shared with all the other coresight components and 
+enabled anyways. And there's no atclk defined, so 'clocks' can just 
+be removed. Can you send a patch to do that, and I'll drop this one.
 
-drivers/soc/qcom/socinfo.c:25:27: error: =E2=80=98QCOM_ID_SM7250=E2=80=99 u=
-ndeclared here (not in a function); did you mean =E2=80=98QCOM_ID_SM7750=E2=
-=80=99?
+zynq7000 is even more of a mess I just noticed...
 
-
-Best regards,
-Krzysztof
-
+Rob
 
