@@ -4,41 +4,56 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BA012CA5FDD
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  1 Oct 2026 21:08:56 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 04085CA5FCE
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  1 Oct 2026 21:09:06 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=1pxhElFCEo3KxpGxKDkzPnTITLMuJernYtQnSq66JKs=; b=tOcrf8Az8cKsdbe346Zba2rqSG
-	RZ4T4MmMLlIaZ1rIAFz4axyjp8lb3WuDpUYBdkxIY4BnFe6Zuz3AEX4AtKqpsKpZEP33GuOuMZPM0
-	RSGXTngpehvYh57NLc3mb9O+gW6FCODzFu01nwV818QZKUphFrKr72Fb/3S9m77aYW5H5lK+PPDsD
-	GVHKKvFsuJuu80tzCKKzrSXwnqvR+04Pz+NbvaaZ3Di2dDAGas9hI2k1hhwMtmVn6YaI+WNNZGEI7
-	97bXvhraF1Fbm5ZTcLFo7aMOPbmItKMk+omxMEyNpMNwjSlGkvbpJFkOh53ARhPlDSeEJ1t+FWxtw
-	Zbv9EPmA==;
+	bh=mHDEdIV37wywvKfWac2DLyIEKWT5G3rardRZ0F2Wu3E=; b=A129XS2uwswW8KlJM3A8PRDelI
+	jzZNYcjn+y+thos88TKlx4uRrb0gRtr/ZhfyW2RryHnxalMrZdo/xAe3IadBNFJjp9QrQlxbPMOK5
+	Akg8HHffXMH0FM9x/ybjLH6AfWCadLoTuBcBc9DAZLdlQCTSwW3JxRoEn4UxlxX0T4I4jzCVbYS9q
+	uwguPnbSHCoVA+/Gglpb4qHPrcTZO+PKeZKzcpnOGzvLZOJ2rCH+FcpFaQBuNrE1uqG18RhkbifnW
+	B+210MzTk3DxVUd9ZLVVA8VRfyrj+c1ZkHTCJXO2N+boVQnJFRLKrgF1e55vHm5u0pFB7W07I1oFZ
+	DdDnrLwQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xCO1K-0000000ADpE-2T0x;
-	Thu, 01 Oct 2026 21:08:50 +0000
+	id 1xCO1T-0000000ADyf-39X8;
+	Thu, 01 Oct 2026 21:08:59 +0000
+Received: from casper.infradead.org ([2001:8b0:10b:1236::1])
+	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1xCO1S-0000000ADwZ-1jvq
+	for linux-arm-kernel@bombadil.infradead.org;
+	Thu, 01 Oct 2026 21:08:58 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=casper.20170209; h=Content-Transfer-Encoding:MIME-Version:
+	References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Sender:Reply-To:
+	Content-Type:Content-ID:Content-Description;
+	bh=mHDEdIV37wywvKfWac2DLyIEKWT5G3rardRZ0F2Wu3E=; b=J5ynG0x2qE9Tg11CxSFKciXhxs
+	ofYnQCkTYSYLRFBz6M1dXTCyc+sV+MqDaEWVZYhlO+uU9FBNy5G0804hGUU4JPhRbcSw9Qnlhm6w5
+	GIwvxNrWwjteSw0OcOh/Q0P9+iJr6n4HdIKxnI5lcxEINeMBaWpfDr6gZnq7Ww+WxmRLHnb3ygcXZ
+	kyN2kPnsyd+RP4cXdH7mXvmLlQeHfmeHvLUMRSHXoKM4KHEOIKkvqaFPoio9zLY0G93xw/9pTP28M
+	YIqMuDMlR+/EPXuep1p8QG6VDVm9d2hGNcsh1dCaBYTJfwD2DHt9RR9KflfaN9gSWBPemJOodR25C
+	EOfRfNFg==;
 Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xCO1D-0000000ADgp-1un3
+	by casper.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1xCO1G-00000009yzk-1fjI
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 01 Oct 2026 21:08:48 +0000
+	Thu, 01 Oct 2026 21:08:53 +0000
 Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id F3F6A497;
-	Thu,  1 Oct 2026 14:08:38 -0700 (PDT)
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id C5CDB16F8;
+	Thu,  1 Oct 2026 14:08:27 -0700 (PDT)
 Received: from ewhatever.cambridge.arm.com (ewhatever.cambridge.arm.com [10.2.197.99])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPA id E65E83F86F;
-	Thu,  1 Oct 2026 14:08:38 -0700 (PDT)
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPA id D0C643F86F;
+	Thu,  1 Oct 2026 14:08:27 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1790888922; bh=fed0HveaQV+jo167MjP5IvPuOTf6tTZwULv6IryG6jg=;
+	t=1790888911; bh=2PXwIt14fX6jbq9VY5Nb5EXCg/nGSies41eMDwzPo5I=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=kYgN04gPuX1iJDXO0wcdhBbRLvMkbN6n1Altxj5APh3Tvt98FgHMBSeZ0wPqbVuHk
-	 91WX4TXY719NCfAu/lz7UPzchu4QoxLzjLz4tRy2mV11vnXZ2ZsGN9mlv2YLuiLSF0
-	 DzjcW6PNDvx/piKv1WbJKjKFSSW19AEeipDgn1us=
+	b=FjT6oZniZY0Kc9sjUigR9bNtNa/gdRlA0HH37Aq9ICHOtmbA+T1gJF/u97trC9Iuz
+	 BOCcvZ1yFlb428LAzRviF1Eb3WFkqYeXrp8esc+e44/cAefEtVeovbzL1o8C9al3IN
+	 2zFjq4q6l2rucLoKdAPJUd8subLotGln3QyDGqWQ=
 From: Suzuki K Poulose <suzuki.poulose@arm.com>
 To: kvm@vger.kernel.org,
 	kvmarm@lists.linux.dev
@@ -64,19 +79,18 @@ Cc: maz@kernel.org,
 	enju.kohei@fujitsu.com,
 	sudeep.holla@arm.com,
 	jonathan.cameron@oss.qualcomm.com,
-	Jean-Philippe Brucker <jean-philippe@linaro.org>,
 	Suzuki K Poulose <suzuki.poulose@arm.com>
-Subject: [PATCH v21 22/23] KVM: arm64: CCA: Expose SVE VL register before VCPU finalization
-Date: Thu,  1 Oct 2026 22:07:02 +0100
-Message-ID: <20261001210703.1597150-23-suzuki.poulose@arm.com>
+Subject: [PATCH v21 19/23] KVM: arm64: Prevent unsupported vcpu features for VM types
+Date: Thu,  1 Oct 2026 22:06:59 +0100
+Message-ID: <20261001210703.1597150-20-suzuki.poulose@arm.com>
 X-Mailer: git-send-email 2.43.0
 In-Reply-To: <20261001210703.1597150-1-suzuki.poulose@arm.com>
 References: <20261001210703.1597150-1-suzuki.poulose@arm.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261001_140844_514675_F05713FF 
-X-CRM114-Status: GOOD (  18.14  )
+X-CRM114-CacheID: sfid-20261001_220848_656720_546B439C 
+X-CRM114-Status: GOOD (  11.59  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -91,103 +105,54 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Jean-Philippe Brucker <jean-philippe@linaro.org>
+Prevent unsupported VCPU features for the protected VCPUs.
+Realms and pVM do not support 32bit EL1 or NV yet.
+pKVM doesn't rely on the host vcpu features, but still
+block the vcpu init if we detect incompatible features.
 
-Userspace must configure the SVE vector length before the Realm is created
-(as it is part of the parameter for Realm creation), but the Realm VCPUs
-cannot be finalized until after the Realm Descriptor has been created.
-
-KVM_GET_REG_LIST currently rejects the unfinalized VCPUs, which prevents
-the userspace from discovering and configuring the VLs for  the Realm.
-
-Allow KVM_GET_REG_LIST for unfinalized RECs and make the SVE register
-enumeration handle the unfinalized case explicitly. i.e., only expose
-KVM_REG_ARM64_SVE_VLS before SVE is finalized.
-
-One adverse side effect of this change is that a KVM_GET_REG_LIST call that
-only probes for the array size will now succeed even if SVE is not
-finalized, but that seems harmless since the following KVM_GET_REG_LIST
-with the full array will fail.
-
-Signed-off-by: Jean-Philippe Brucker <jean-philippe@linaro.org>
-Signed-off-by: Steven Price <steven.price@arm.com>
 Signed-off-by: Suzuki K Poulose <suzuki.poulose@arm.com>
 ---
-Changes since v17:
- - Rewrite the commit description to clearly describe the purpose
----
- arch/arm64/kvm/arm.c   | 15 ++++++++++++++-
- arch/arm64/kvm/guest.c | 10 +++++-----
- 2 files changed, 19 insertions(+), 6 deletions(-)
+ arch/arm64/kvm/arm.c | 10 ++++++----
+ 1 file changed, 6 insertions(+), 4 deletions(-)
 
 diff --git a/arch/arm64/kvm/arm.c b/arch/arm64/kvm/arm.c
-index d43ae985ab1b4..2e153b4fc8f62 100644
+index 106b52e556e20..d43ae985ab1b4 100644
 --- a/arch/arm64/kvm/arm.c
 +++ b/arch/arm64/kvm/arm.c
-@@ -2004,6 +2004,19 @@ static int kvm_arm_vcpu_set_events(struct kvm_vcpu *vcpu,
- 	return __kvm_arm_vcpu_set_events(vcpu, events);
+@@ -1727,11 +1727,12 @@ int kvm_vm_ioctl_irq_line(struct kvm *kvm, struct kvm_irq_level *irq_level,
+ 	return -EINVAL;
  }
  
-+/*
-+ * Realm VCPUs can be finalized only after the Realm descriptor is created.
-+ * But in order to seal the SVE VL, we need to allow the userspace to read/write
-+ * to the SVE_VL, before everything is finalized.
-+ * Allow the register list for RECs before the VCPUs are finalized.
-+ */
-+static bool kvm_arm_vcpu_reg_list_allowed(struct kvm_vcpu *vcpu)
-+{
-+	if (kvm_arm_vcpu_is_finalized(vcpu))
-+		return true;
-+	return vcpu_is_rec(vcpu);
-+}
-+
- long kvm_arch_vcpu_ioctl(struct file *filp,
- 			 unsigned int ioctl, unsigned long arg)
+-static unsigned long system_supported_vcpu_features(void)
++static unsigned long system_supported_vcpu_features(struct kvm_vcpu *vcpu)
  {
-@@ -2059,7 +2072,7 @@ long kvm_arch_vcpu_ioctl(struct file *filp,
- 			break;
+ 	unsigned long features = KVM_VCPU_VALID_FEATURES;
  
- 		r = -EPERM;
--		if (!kvm_arm_vcpu_is_finalized(vcpu))
-+		if (!kvm_arm_vcpu_reg_list_allowed(vcpu))
- 			break;
+-	if (!cpus_have_final_cap(ARM64_HAS_32BIT_EL1))
++	if (vcpu_is_protected(vcpu) ||
++	    !cpus_have_final_cap(ARM64_HAS_32BIT_EL1))
+ 		clear_bit(KVM_ARM_VCPU_EL1_32BIT, &features);
  
- 		r = -EFAULT;
-diff --git a/arch/arm64/kvm/guest.c b/arch/arm64/kvm/guest.c
-index b01d6622b8720..c3ca369882273 100644
---- a/arch/arm64/kvm/guest.c
-+++ b/arch/arm64/kvm/guest.c
-@@ -598,8 +598,8 @@ static unsigned long num_sve_regs(const struct kvm_vcpu *vcpu)
- 	if (!vcpu_has_sve(vcpu))
- 		return 0;
+ 	if (!kvm_supports_guest_pmuv3()) {
+@@ -1747,7 +1748,8 @@ static unsigned long system_supported_vcpu_features(void)
+ 		clear_bit(KVM_ARM_VCPU_PTRAUTH_GENERIC, &features);
+ 	}
  
--	/* Policed by KVM_GET_REG_LIST: */
--	WARN_ON(!kvm_arm_vcpu_sve_finalized(vcpu));
-+	if (!kvm_arm_vcpu_sve_finalized(vcpu))
-+		return 1; /* KVM_REG_ARM64_SVE_VLS */
+-	if (!cpus_have_final_cap(ARM64_HAS_NESTED_VIRT))
++	if (vcpu_is_protected(vcpu) ||
++	    !cpus_have_final_cap(ARM64_HAS_NESTED_VIRT))
+ 		clear_bit(KVM_ARM_VCPU_HAS_EL2, &features);
  
- 	return slices * (SVE_NUM_PREGS + SVE_NUM_ZREGS + 1 /* FFR */)
- 		+ 1; /* KVM_REG_ARM64_SVE_VLS */
-@@ -616,9 +616,6 @@ static int copy_sve_reg_indices(const struct kvm_vcpu *vcpu,
- 	if (!vcpu_has_sve(vcpu))
- 		return 0;
+ 	return features;
+@@ -1767,7 +1769,7 @@ static int kvm_vcpu_init_check_features(struct kvm_vcpu *vcpu,
+ 			return -ENOENT;
+ 	}
  
--	/* Policed by KVM_GET_REG_LIST: */
--	WARN_ON(!kvm_arm_vcpu_sve_finalized(vcpu));
--
+-	if (features & ~system_supported_vcpu_features())
++	if (features & ~system_supported_vcpu_features(vcpu))
+ 		return -EINVAL;
+ 
  	/*
- 	 * Enumerate this first, so that userspace can save/restore in
- 	 * the order reported by KVM_GET_REG_LIST:
-@@ -628,6 +625,9 @@ static int copy_sve_reg_indices(const struct kvm_vcpu *vcpu,
- 		return -EFAULT;
- 	++num_regs;
- 
-+	if (!kvm_arm_vcpu_sve_finalized(vcpu))
-+		return num_regs;
-+
- 	for (i = 0; i < slices; i++) {
- 		for (n = 0; n < SVE_NUM_ZREGS; n++) {
- 			reg = KVM_REG_ARM64_SVE_ZREG(n, i);
 -- 
 2.43.0
 
