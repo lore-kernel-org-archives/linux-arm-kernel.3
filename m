@@ -4,83 +4,83 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C0658CA5FC1
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B91B8CA5FC4
 	for <linux-arm-kernel@archiver.kernel.org>; Thu,  1 Oct 2026 03:09:28 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=s1xaYOvgfuKPDqlqGi9mu0d7G4P5AdYn7w9BHWtqREA=; b=Z0sIZArc7yAh/BMXwgXkfUYk4A
-	pNCliv59/uKyr5PAiIcQ79QXT570FdJpA5oi9wVHSmhtUiJm0VV7DmSRFzeFVcScKr8rRzDbtNsgX
-	FhQcm3hyrBQ1lCYZAnzTZFnCQCstwUUzaKuO4n2VLdmLHOVK5pUHgUdLCUPmTJK01USMh0DVoGlH6
-	ycTiIMT7pD8+OJfXRih29gy5F8sFY5IH5aYrHkleiDzktbZefGScriKBGaIkoXHZbrV02wPGoYCf7
-	GnCMqWB+nH1q0Irltji7GrkkcRkLWn3s0pBw94NQkJDAeg+l9TAwD8dK1Y+E2HFK7KhcXXn24iCVB
-	w0nMv/Sg==;
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=d6XLJYbI7HUMV7gx7S4Fj3cUrwWbeBAJ9EUdAHuqM6E=; b=c9Rn0uT9TAbItS
+	MTmQL+9eWKBjuTkvDHHlyROfiVuWVwhJqRIR5w46JbGqwa9G/In6G6Izx5AUrKXGq1A6+GF0m38od
+	+b5HVTJMnCKXruh8eAT+LhBxdCxVFTVOjpMBBc/v8HoJ2eIgXBf9T5L3pEIqkiPRKX378Vlhqkvhk
+	LBpgeTnx81QHlbWbbL4mN67Cpxqt/vcVSo9XoocprhXnazG9nM/+aXJGbXZtsdYvq5LzjmpCWoyzd
+	bTCc5VOMyEWkoBVu+qyKfAId71lLEx2ZJS9xVuUV/8vRT4Sute8KYvjaADnB8TyB0LnLLC8eL+vC2
+	KxfF3bxTHT4iqGfU0kXQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xC7Af-00000007dyj-3kIL;
-	Thu, 01 Oct 2026 03:09:21 +0000
-Received: from mail-wm2-x11.google.com ([2a00:1450:4864:31::11])
+	id 1xC7Af-00000007dyx-4A5B;
+	Thu, 01 Oct 2026 03:09:22 +0000
+Received: from mail-wm2-x10.google.com ([2a00:1450:4864:31::10])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xC7Ac-00000007dx8-283u
+	id 1xC7Ac-00000007dx5-27ii
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 01 Oct 2026 03:09:19 +0000
-Received: by mail-wm2-x11.google.com with SMTP id 5b1f17b1804b1-49b912d37b6so33391455e9.0
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 30 Sep 2026 20:09:16 -0700 (PDT)
+	Thu, 01 Oct 2026 03:09:20 +0000
+Received: by mail-wm2-x10.google.com with SMTP id 5b1f17b1804b1-49ffa15f67fso29935415e9.2
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 30 Sep 2026 20:09:15 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1790824155; x=1791428955; darn=lists.infradead.org;
-        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
-         :content-type:mime-version:subject:date:from:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=s1xaYOvgfuKPDqlqGi9mu0d7G4P5AdYn7w9BHWtqREA=;
-        b=oAAAWYvl/yvamTov+1NmRC/kJnKgGFLI3Mo86bvqPOMutrxOKA185I4cKUXpzTcOkJ
-         hDxZbuBNZl4TbzATGkN2bLLfIWk+a0ysl0DmgA1doTxZVAftqtG0PNmk/MdFVvJ5dOp4
-         NK9/9MpL0Axdx2uozfrZJtuaiiieJxl00FuAMKff5T2H3SkTkzNZ38OrcaPP6SJ9aT6Q
-         spRXbAL8WIpQ0SYf9SHzWOpTwTZxIsy0GHY9/1dR24enq7TJPG08PMQ727pklZiMjXWF
-         ImBukp4InFHzysORUAmB6+aclspt4+xrRaU/SpV/+JdfiM/bec8EBh+ov+xVgzUCpfPl
-         p4GQ==
+        d=linaro.org; s=google; t=1790824154; x=1791428954; darn=lists.infradead.org;
+        h=cc:to:content-transfer-encoding:content-type:mime-version
+         :message-id:date:subject:from:from:to:cc:subject:date:message-id
+         :reply-to:content-type;
+        bh=d6XLJYbI7HUMV7gx7S4Fj3cUrwWbeBAJ9EUdAHuqM6E=;
+        b=Sx98xYHY0N3lM2tNoWdVJIb0qY+0nDa63iOKaKqgC7JIS2+ZIPT3A1bcK1/52cUtcx
+         BNe92nQPBWggnwm9J2O10E/+CsTuDN7nFqpvYn+l+3lArnssjOtIKhdU/opvq4xWFTk9
+         Vg+JkHkG50IBDfYg3EkoKBgdUmdlUeIsEmzVqbwLTAZKUNTzZFQa05JeTfmEM1lGMhqc
+         77Cr+lMkAyxKvCFkuL7o+He1zF5EvUyYpeaEPQVWp9aMkUB0DTPZBZdeagNuNGRlD5bw
+         qGmlhvi4sXhGBWMwxHVP5x+u33Th2iw3sCp8Q7OLaP/fVN+tbokbqlckhEEsYuuAW9ax
+         TyqA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1790824155; x=1791428955;
-        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
-         :content-type:mime-version:subject:date:from:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=s1xaYOvgfuKPDqlqGi9mu0d7G4P5AdYn7w9BHWtqREA=;
-        b=shPs68l4uqx/QtWovR4lDZeOcGtBF9KoRuTZyuY0NhGiNQEb/uJwDaZWYWHgOwuNeK
-         nKPntrc9Cw9VRs3vBLM3n5kcAZ163lA3JHAm5iQEalSOgN90Vjl9MEs5P1wW2v0FiDFP
-         SBASzy7EFr7F2T+0eb0XX2GccuUksOTbrO3OmyLcuVDhwYP1DGhfcZRE1b/uVqtkIO90
-         hV/bs7Cgghf7vSRmycGKPlJzoAUdIcdY+pD/grO+qV94mtPmOApR2GDqhRPnsNrsceLl
-         9MS7dh7PEk3hUputBL5tJeZ6O4KAd0wZKg8iw+eoQ5sVbn9bOB0N27NLzVUtaCglC6Nz
-         xthA==
-X-Forwarded-Encrypted: i=1; AKwUvBxS/jr9ZQjjpCSF8UuJ8lar2Wffji6p2Eb25OkPBZJ1md/XQnZ1NCA7ra7C9GIBQNouxOz8UnzKSYoXEkflMX9a@lists.infradead.org
-X-Gm-Message-State: AFuF++l7/VnPkA79mJpOQdRlCSSuuFT4etknhN1JHi35MKxcUmmC3gLA
-	FVgYGIyrPdwgN8nMFB6V686wbBb8ZM8OuWZL2y91Ju8RClJuU3A5FRoPP1udLbj9px8=
-X-Gm-Gg: AYBFou1xVJaUseFcnl+xv56zrAxnLxlRMgNnv5HbzX5u2V+wFSa8Hmkl+lslf26a9Nn
-	+wo/AN7lMnhmlIiCQXjeR0Zyry5DOzaATeEEgHPho+H3x8noRRfRX02CYye+8B6RM2Azh8HmPFH
-	MfajXRKghzNGNiejyXe6+YQ/4Rzfon8vHjJMYS8DQaZAhJICvhmG0KCoijTjFY1wKFSpHW5nlLu
-	N4PgEB048NM5IA6/p/5y1Qkwu0pqKiWxhgF2m4/K5026A5QkMfvVYtdp3WX1i+IFaQNqJkc7CoA
-	b+vpuA20GepAIQJFWkKPIDwz/SCxYdXTreEAvp+ECEFMaztWR3t7BbpGmoyRt7c1fMyOKWcijq4
-	jxhZdldxhhvGf2eAk2fkLgRJ7j3UMu/jhMi1/vqLeuVnVvvF03vXrSRMGPXfvOBosKhlxNJjwiE
-	cWDW88bbK2T7zRvNRT4zKc1b8R05tL1m3aLKgWOpo3ko4XcQyj8mag/cFNvRRzBU92VECZzYB46
-	ODyfLzLNdB1eNFUtJAZ3LHW8aE4LccNej6qmzzfNfIn4TEACCGQctbAAhl1dw==
-X-Received: by 2002:a05:600c:3548:b0:4a0:8f:7e42 with SMTP id 5b1f17b1804b1-4a01affad8amr46885985e9.13.1790824155497;
-        Wed, 30 Sep 2026 20:09:15 -0700 (PDT)
+        d=1e100.net; s=20260707; t=1790824154; x=1791428954;
+        h=cc:to:content-transfer-encoding:content-type:mime-version
+         :message-id:date:subject:from:x-gm-gg:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to:content-type;
+        bh=d6XLJYbI7HUMV7gx7S4Fj3cUrwWbeBAJ9EUdAHuqM6E=;
+        b=iegrXYPLHihtneKl7f3TYYUgLpp+udPBq5zDxwn4n8xg90qYwa3gl1OWUhika4RJis
+         TSfSCMBNkgvSJnTsLP0mEVPa06nIX19ZboBV9tKRKwWdvNhEfPbkjWrzNnuDZBqtfIjH
+         N88NaHi3+Vlxp2Dw3XTDjHK02Nhmg/qNUUdSMCagay/95m8lTRjf9dFsvXPkREXOSuRF
+         sHc217qppvBIMwOluKK7MHVYxGXr4kpeVlyRZ5B4jDJBc2peq+cSXR1UD83hlMaSkHpC
+         3Pzta/A2ffogFXwgeHk7BL/0tM4gVlaxy/jaCKunDHs8jN6kPpjAk2wkpTVzcYRsM4o6
+         mEzg==
+X-Forwarded-Encrypted: i=1; AKwUvBxVAsI3C3oyzrifomNjb/O2uew9yaZwcKlz6eeqsNdqeRTZdpx+QzCp5Hftj4PotjPUSE01NenoQUT6+fjYFzhl@lists.infradead.org
+X-Gm-Message-State: AFuF++l4UDvZRj8wqvn0jIdQFF6Wwy0il6RjQrUUV6zwBlYOz8ffZIhM
+	itHooelPMuw+uNRqsASMdLwMf4YdCse/eryX09IbPvV0kbr/QPQKbqJAqb09KyXKOoo=
+X-Gm-Gg: AYBFou2bg6qmM3LbyEkpVl+Vna6w2XPLiPeMUpLz+XsgKsPIHzhWUtxW9lYxV6p+Fkh
+	Z5QWy5QJkz/CIYsxkB9/cI41OyW7lPAkYU2dDfin7QDgCwMWUXLXxPCodyTKuZTb40zfJwhi+7q
+	zT9aqyu0JBb9HITuVu10swCeDv3XG9D4DBEeC6YXFBKaR+E97+vuxZeoW94hMAOsGnzQLjwr2q2
+	mFbxyRVn4GO0jSCaAjomneALhBjmoQWDbX+lw/Y5ABbOF4KsA4fw3iwGTyNghXUV59pfrC3UCZ0
+	HtlXU1Bk9FA5Pe8TlUKj2FCsMmZn1TaIJ8KvYJiFZ8UDEu01kbDdb3vpiOughsde8UzV/VO4Lk1
+	07ycCeGjN3Gxgiu+1d5f25nvnceZTXDZYLiyyXBehYFlv1Wow9yy6lv/EvVkAONO5a8m4HOehU+
+	8J9THtBxXPwIkNNfNwovpUBUyOFkFUGb2eXOWl6NvH0tyIV8XlY5pM/F6NXbduSlNagraWZ0GIW
+	j2vGZtLtp0KCyGVnV0KztRpBU7KBO8BR0FKjGK5MECEHyy1yjE1dkjZlwJYqw==
+X-Received: by 2002:a05:600d:4448:10b0:49f:ce78:3564 with SMTP id 5b1f17b1804b1-4a01b11bedcmr39473525e9.21.1790824154410;
+        Wed, 30 Sep 2026 20:09:14 -0700 (PDT)
 Received: from [127.0.1.1] ([94.4.85.166])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4a01f9145e6sm27091885e9.5.2026.09.30.20.09.14
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4a01f9145e6sm27091885e9.5.2026.09.30.20.09.12
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 30 Sep 2026 20:09:15 -0700 (PDT)
+        Wed, 30 Sep 2026 20:09:13 -0700 (PDT)
 From: Alexey Klimov <alexey.klimov@linaro.org>
-Date: Thu, 01 Oct 2026 04:09:12 +0100
-Subject: [PATCH 1/4] dt-bindings: iio: adc: samsung,exynos: Add Exynos850
- compatible
+Subject: [PATCH 0/4] Exynos850 ADC support and soc thermistor
+Date: Thu, 01 Oct 2026 04:09:11 +0100
+Message-Id: <20261001-exynos850_adc-v1-0-791b3516bb9d@linaro.org>
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20261001-exynos850_adc-v1-1-791b3516bb9d@linaro.org>
-References: <20261001-exynos850_adc-v1-0-791b3516bb9d@linaro.org>
-In-Reply-To: <20261001-exynos850_adc-v1-0-791b3516bb9d@linaro.org>
+X-B4-Tracking: v=1; b=H4sIANfOvWoC/6tWKk4tykwtVrJSqFYqSi3LLM7MzwNyDHUUlJIzE
+ vPSU3UzU4B8JSMDIzNDAwND3dSKyrz8YgtTg/jElGTdJBNjI0NLS1NjC8skJaCegqLUtMwKsHn
+ RsbW1AF3fQIBfAAAA
+X-Change-ID: 20261001-exynos850_adc-b4321995389b
 To: Sam Protsenko <semen.protsenko@linaro.org>, 
  Jonathan Cameron <jic23@kernel.org>, David Lechner <dlechner@baylibre.com>, 
  =?utf-8?q?Nuno_S=C3=A1?= <nuno.sa@analog.com>, 
@@ -95,9 +95,8 @@ Cc: linux-iio@vger.kernel.org, devicetree@vger.kernel.org,
  linux-kernel@vger.kernel.org
 X-Mailer: b4 0.14.3
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260930_200918_593644_BD0110EA 
-X-CRM114-Status: UNSURE (   9.68  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260930_200918_594410_249F56C1 
+X-CRM114-Status: GOOD (  13.42  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -112,32 +111,44 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The Exynos850 SoC contains an ADC block within the CMGP block.
-While similar to existing Exynos ADC v2 blocks, its data register is
-located at a different base offset (0x08) hence a new compatible.
+Hi all,
 
-Add "samsung,exynos850-adc" to the devicetree bindings to differentiate
-it from existing Exynos ADC variants.
+This small series adds support for the ADC block found in the Samsung
+Exynos850 SoC and enables the Murata NTC thermistor on the WinLink E850-96
+development board.
+
+Exynos850 ADC is also called ADC v3 in downstream but my understanding is
+that SoC names are more prefered.
+
+It also relies on PMIC 1.8v regulator which currently represented as a
+dummy one.
+
+First commit adds compatible for device tree bindings, second one adds
+support in the driver and last two place things in device tree files for
+E850-96 board.
+
+This was tested on mentioned above WinLink E850-96 by reading reported
+temperatures from thermistor.
 
 Signed-off-by: Alexey Klimov <alexey.klimov@linaro.org>
 ---
- Documentation/devicetree/bindings/iio/adc/samsung,exynos-adc.yaml | 1 +
- 1 file changed, 1 insertion(+)
+Alexey Klimov (4):
+      dt-bindings: iio: adc: samsung,exynos: Add Exynos850 compatible
+      iio: adc: exynos_adc: add Exynos850 support
+      arm64: dts: exynos850: add ADC node
+      arm64: dts: exynos850-e850-96: add soc thermistor node
 
-diff --git a/Documentation/devicetree/bindings/iio/adc/samsung,exynos-adc.yaml b/Documentation/devicetree/bindings/iio/adc/samsung,exynos-adc.yaml
-index def879f6ed20..90a220e3b78d 100644
---- a/Documentation/devicetree/bindings/iio/adc/samsung,exynos-adc.yaml
-+++ b/Documentation/devicetree/bindings/iio/adc/samsung,exynos-adc.yaml
-@@ -18,6 +18,7 @@ properties:
-           - samsung,exynos3250-adc
-           - samsung,exynos4212-adc                # Exynos4212 and Exynos4412
-           - samsung,exynos7-adc
-+          - samsung,exynos850-adc
-           - samsung,s3c6410-adc
-           - samsung,s5pv210-adc
-       - items:
+ .../bindings/iio/adc/samsung,exynos-adc.yaml       |  1 +
+ arch/arm64/boot/dts/exynos/exynos850-e850-96.dts   | 22 ++++++++
+ arch/arm64/boot/dts/exynos/exynos850.dtsi          | 10 ++++
+ drivers/iio/adc/exynos_adc.c                       | 66 +++++++++++++++++++++-
+ 4 files changed, 97 insertions(+), 2 deletions(-)
+---
+base-commit: 6375e61c01e93e35ee7acd336a689ac1fae4b509
+change-id: 20261001-exynos850_adc-b4321995389b
 
+Best regards,
 -- 
-2.51.0
+Alexey Klimov <alexey.klimov@linaro.org>
 
 
