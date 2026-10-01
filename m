@@ -4,41 +4,41 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 61DBECA5FD2
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  1 Oct 2026 13:58:23 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 46FE7CA5FD2
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  1 Oct 2026 13:58:31 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=1zlbSRyrFtNPDaLjbPhNk84wXtc4CnOK6n7Tusi3+h0=; b=tg16feHEQR6JXUw7Xe8D+XZBF6
-	+vh5/1tPueziUAra3oU9j0KaT5KQ1eoGJz7ni8APK6NF4nwu7a6aUQ3CSudf65HvbGsmh5VuxV7zw
-	tyPazBwVuCCsYi7auaHtppOzaJIykRP4cL2fAT8mEjM9j1K2CQKVDOJYbEKLYlusK5yzoEtxVw3M2
-	c/+Z/gkSKROVhjsUap8nol1wi6AREw8Vo53rDvH4WOUEItga+kqtgjg6WtgQ1Mv5Bg60Fh9OBDeci
-	FkX8kepn2smzI+IeUAOuNWZpluHqBeEbfna/CpvrNAJQJ9JXDiGkP0omUd6Caop3udGgBXcBEuYFk
-	5mN7GbbQ==;
+	bh=G856VBaBDtCGEPUIlD3/ESFvNEPq48x3STaWPnEfTrg=; b=jKwlw1uvJ6dmTD+hUc6uR88ZdE
+	Jcp916QA+qpCf93KdLURU11HZC1ZlbtcpIV5hQ5Zmi4kfxt00uBGGLHYtNNNaIFEdOnmZBsAbPsXy
+	QK3cW00mQV5Vm2+dRe5dUrTN9cZbo4MzLlP2+4qPHTVcfDBnkhLR9AKqKftqGfQb+NJiqeBVfJSV0
+	tbzUVO+9t7Nyvj1H949GliJrsrljYMJkuPf+c0rhMsaiNzNys47GuCaTb7vA7MvANkeg15v/RPrPL
+	G0PiU/Xnwd/yldiy7gBlJgZjbVtyyfVLbV67qFSvUNINpEtqCPV44rWnJrVI8Uo+cB0fCwMbVwM+C
+	v+Oft1xw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xCHIe-00000009InG-3wvg;
-	Thu, 01 Oct 2026 13:58:16 +0000
-Received: from out-55.mta0.migadu.com ([2001:41d0:1004:224b::37] helo=mta0.migadu.com)
+	id 1xCHIn-00000009ItP-0NZt;
+	Thu, 01 Oct 2026 13:58:25 +0000
+Received: from out-66.mta0.migadu.com ([2001:41d0:1004:224b::42] helo=mta0.migadu.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xCHIc-00000009IkK-3kcC
+	id 1xCHIi-00000009Ipp-3fjN
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 01 Oct 2026 13:58:16 +0000
+	Thu, 01 Oct 2026 13:58:24 +0000
 X-Envelope-To: linux-arm-kernel@lists.infradead.org
-DKIM-Signature: a=rsa-sha256; bh=9nCliy2aYIGuE6P4bJSsRa7bKNW1x8X38VUQa8owlws=;
+DKIM-Signature: a=rsa-sha256; bh=DN8NR5lcvDW0X1Z82iiLCQedKQtmq+7e77xqK9OOgxg=;
  c=simple/simple; d=linux.dev;
  h=from:to:subject:date:message-id:mime-version:content-type; s=key1;
- t=1790863092; v=1; x=1791467892;
- b=PkTTo4YwIA05hNlgSKAuhflfhFM1Cjjv7j6zdCWm2gbIkPxqNboWEkikaS9wU6ngnUa6tcjf
- jOSFj1cl81um53OVokjY3jJRRrorMxm82W8Tbhbnaw7ONnPZ9jee4oDtqyvgT/lX//2AbqbN6gN
- JBgjYb8jMoBrHA911EgANRVM=
+ t=1790863098; v=1; x=1791467898;
+ b=Y5ba+WDFCAeD3WKufTrp64h5By3u/tQ4U/0ZQokRsQRG0BicFQwYBM8MDILcErPmOSHAGVAe
+ 5T5Z8cgawhnOmZCW/ObaXTx3OOsgwPOOHShafJfiw+QgkdgqlClgDi1ZUT2Og/lpWHqpUtwAtxX
+ XSpOwn/BwyOF0U/+UJPBGzc4=
 X-Envelope-To: linux-arm-kernel@lists.infradead.org
-Received: by smtp.migadu.com with ESMTPS id d10e3876025132ec;
-	Thu, 01 Oct 2026 13:58:12 +0000
-X-Mizu-Trace-ID: d10e3876025132ec
+Received: by smtp.migadu.com with ESMTPS id a8f1a4b6362b26a2;
+	Thu, 01 Oct 2026 13:58:18 +0000
+X-Mizu-Trace-ID: a8f1a4b6362b26a2
 X-Migadu-Flow: FLOW_OUT
 From: Fuad Tabba <fuad.tabba@linux.dev>
 To: maz@kernel.org,
@@ -57,17 +57,17 @@ Cc: catalin.marinas@arm.com,
 	vdonnefort@google.com,
 	qperret@google.com,
 	tabba@google.com
-Subject: [PATCH v4 08/18] KVM: arm64: Add system register reset framework for protected VMs
-Date: Thu,  1 Oct 2026 14:57:01 +0100
-Message-Id: <20261001135711.1640520-9-fuad.tabba@linux.dev>
+Subject: [PATCH v4 09/18] KVM: arm64: Implement HVC handling for protected guests at EL2
+Date: Thu,  1 Oct 2026 14:57:02 +0100
+Message-Id: <20261001135711.1640520-10-fuad.tabba@linux.dev>
 X-Mailer: git-send-email 2.39.5
 In-Reply-To: <20261001135711.1640520-1-fuad.tabba@linux.dev>
 References: <20261001135711.1640520-1-fuad.tabba@linux.dev>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261001_065815_075240_D895D45C 
-X-CRM114-Status: GOOD (  18.00  )
+X-CRM114-CacheID: sfid-20261001_065821_067947_59330D17 
+X-CRM114-Status: GOOD (  14.03  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -82,143 +82,153 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add kvm_reset_pvm_sys_regs() and the pvm_sys_reg_reset_vals[] table
-that drives it, and call it from init_pkvm_hyp_vcpu() for protected
-vCPUs. The table holds the registers KVM resets that EL2 loads for a
-protected vCPU: the ones __sysreg_restore_state_nvhe() restores, and
-CNTV_CTL_EL0, which flush_hyp_timer_state() loads from a copy the
-host's kvm_timer_vcpu_reset() doesn't write. The ptrauth keys, which
-entry.S loads, are not in the table: sys_regs.c resets them to
-UNKNOWN, and a vCPU that CPU_ON brings back keeps the keys the guest
-last set, one UNKNOWN value in place of another.
+Extend kvm_handle_pvm_hvc64() to handle SMCCC_VERSION,
+SMCCC_ARCH_FEATURES and the vendor hypervisor call UID at EL2, so
+these queries don't reach the host. ARCH_FEATURES is mandatory from
+SMCCC 1.1, the version EL2 implements: it returns SUCCESS for itself and
+for SMCCC_VERSION, NOT_SUPPORTED for anything else, and handles the
+ARCH_WORKAROUND_1/2/3 queries as the host does, from a copy of the
+host's mitigation state taken at init with the sanitised ID registers.
+The workaround calls themselves are already handled on hyp entry.
 
-A register that resets to 0 still takes an entry: a later patch calls
-kvm_reset_pvm_sys_regs() again for PSCI CPU_ON at EL2, on a context
-that has run.
-
-A poison value stands in where sys_regs.c resets to UNKNOWN, and for
-VBAR_EL1 and CONTEXTIDR_EL1 in place of the 0 it uses.
-
-MPIDR_EL1 is derived from vcpu_id, as for any KVM guest.
-
-AMAIR_EL1 resets to 0 where sys_regs.c reads the hardware: the host
-writes it freely before the hypercall, and it's loaded on every guest
-entry.
-
-Until the per-EC marshalling patch removes the host's full-context
-copy from flush_hyp_vcpu(), that copy overwrites these values on every
-entry. It preserves CNTV_CTL_EL0, whose entry writes the zero the page
-already holds. So this patch has no observable effect on its own.
-
-No functional change intended.
-
-Reviewed-by: Joey Gouly <joey.gouly@arm.com>
 Signed-off-by: Fuad Tabba <fuad.tabba@linux.dev>
 ---
- arch/arm64/kvm/hyp/include/nvhe/pkvm.h |  1 +
- arch/arm64/kvm/hyp/nvhe/pkvm.c         |  5 +++
- arch/arm64/kvm/hyp/nvhe/sys_regs.c     | 60 ++++++++++++++++++++++++++
- 3 files changed, 66 insertions(+)
+ arch/arm64/include/asm/kvm_hyp.h |  4 ++
+ arch/arm64/kvm/arm.c             |  4 ++
+ arch/arm64/kvm/hyp/nvhe/pkvm.c   | 68 ++++++++++++++++++++++++++++++++
+ 3 files changed, 76 insertions(+)
 
-diff --git a/arch/arm64/kvm/hyp/include/nvhe/pkvm.h b/arch/arm64/kvm/hyp/include/nvhe/pkvm.h
-index ad42abaf31c5c..fcb13d8b4cb69 100644
---- a/arch/arm64/kvm/hyp/include/nvhe/pkvm.h
-+++ b/arch/arm64/kvm/hyp/include/nvhe/pkvm.h
-@@ -97,6 +97,7 @@ bool kvm_handle_pvm_hvc64(struct kvm_vcpu *vcpu, u64 *exit_code);
- bool kvm_handle_pvm_sysreg(struct kvm_vcpu *vcpu, u64 *exit_code);
- bool kvm_handle_pvm_restricted(struct kvm_vcpu *vcpu, u64 *exit_code);
- void kvm_init_pvm_id_regs(struct kvm_vcpu *vcpu);
-+void kvm_reset_pvm_sys_regs(struct kvm_vcpu *vcpu);
- int kvm_check_pvm_sysreg_table(void);
+diff --git a/arch/arm64/include/asm/kvm_hyp.h b/arch/arm64/include/asm/kvm_hyp.h
+index 4974492744cc8..7609c78c68f34 100644
+--- a/arch/arm64/include/asm/kvm_hyp.h
++++ b/arch/arm64/include/asm/kvm_hyp.h
+@@ -10,6 +10,7 @@
+ #include <linux/compiler.h>
+ #include <linux/kvm_host.h>
+ #include <asm/alternative.h>
++#include <asm/spectre.h>
+ #include <asm/sysreg.h>
  
- #endif /* __ARM64_KVM_NVHE_PKVM_H__ */
+ DECLARE_PER_CPU(struct kvm_cpu_context, kvm_hyp_ctxt);
+@@ -150,6 +151,9 @@ extern u64 kvm_nvhe_sym(id_aa64smfr0_el1_sys_val);
+ 
+ extern unsigned long kvm_nvhe_sym(__icache_flags);
+ extern unsigned int kvm_nvhe_sym(kvm_arm_vmid_bits);
++extern enum mitigation_state kvm_nvhe_sym(spectre_v2_state);
++extern enum mitigation_state kvm_nvhe_sym(spectre_v4_state);
++extern enum mitigation_state kvm_nvhe_sym(spectre_bhb_state);
+ extern unsigned int kvm_nvhe_sym(kvm_host_sve_max_vl);
+ extern unsigned long kvm_nvhe_sym(hyp_nr_cpus);
+ extern unsigned int kvm_nvhe_sym(hyp_gicv3_nr_lr);
+diff --git a/arch/arm64/kvm/arm.c b/arch/arm64/kvm/arm.c
+index db36815630790..cceeeee266902 100644
+--- a/arch/arm64/kvm/arm.c
++++ b/arch/arm64/kvm/arm.c
+@@ -2622,6 +2622,10 @@ static void kvm_hyp_init_symbols(void)
+ 	kvm_nvhe_sym(__icache_flags) = __icache_flags;
+ 	kvm_nvhe_sym(kvm_arm_vmid_bits) = kvm_arm_vmid_bits;
+ 
++	kvm_nvhe_sym(spectre_v2_state) = arm64_get_spectre_v2_state();
++	kvm_nvhe_sym(spectre_v4_state) = arm64_get_spectre_v4_state();
++	kvm_nvhe_sym(spectre_bhb_state) = arm64_get_spectre_bhb_state();
++
+ 	/* Propagate the FGT state to the nVHE side */
+ 	kvm_nvhe_sym(hfgrtr_masks)  = hfgrtr_masks;
+ 	kvm_nvhe_sym(hfgwtr_masks)  = hfgwtr_masks;
 diff --git a/arch/arm64/kvm/hyp/nvhe/pkvm.c b/arch/arm64/kvm/hyp/nvhe/pkvm.c
-index 8f3d9c293d186..6ff08d195ff56 100644
+index 6ff08d195ff56..10ff2ba6c6c1b 100644
 --- a/arch/arm64/kvm/hyp/nvhe/pkvm.c
 +++ b/arch/arm64/kvm/hyp/nvhe/pkvm.c
-@@ -588,6 +588,11 @@ static int init_pkvm_hyp_vcpu(struct pkvm_hyp_vcpu *hyp_vcpu,
- 		goto done;
+@@ -10,12 +10,18 @@
+ #include <linux/mm.h>
  
- 	ret = pkvm_vcpu_init_sve(hyp_vcpu, host_vcpu);
-+	if (ret)
-+		goto done;
-+
-+	if (pkvm_hyp_vcpu_is_protected(hyp_vcpu))
-+		kvm_reset_pvm_sys_regs(&hyp_vcpu->vcpu);
- done:
- 	if (ret)
- 		unpin_host_vcpu(host_vcpu);
-diff --git a/arch/arm64/kvm/hyp/nvhe/sys_regs.c b/arch/arm64/kvm/hyp/nvhe/sys_regs.c
-index 8758c68017765..87557d1b3bf07 100644
---- a/arch/arm64/kvm/hyp/nvhe/sys_regs.c
-+++ b/arch/arm64/kvm/hyp/nvhe/sys_regs.c
-@@ -525,6 +525,66 @@ static const struct sys_reg_desc pvm_sys_reg_descs[] = {
- 	/* Performance Monitoring Registers are restricted. */
- };
+ #include <asm/kvm_emulate.h>
++#include <asm/spectre.h>
  
-+struct sys_reg_desc_reset {
-+	int reg;
-+	void (*reset)(struct kvm_vcpu *vcpu, const struct sys_reg_desc_reset *rd);
-+	u64 value;
-+};
+ #include <nvhe/mem_protect.h>
+ #include <nvhe/memory.h>
+ #include <nvhe/pkvm.h>
+ #include <nvhe/trap_handler.h>
+ 
++/* The host's Spectre mitigation state, for SMCCC_ARCH_FEATURES. */
++enum mitigation_state spectre_v2_state;
++enum mitigation_state spectre_v4_state;
++enum mitigation_state spectre_bhb_state;
 +
-+static void reset_mpidr(struct kvm_vcpu *vcpu, const struct sys_reg_desc_reset *r)
-+{
-+	__vcpu_assign_sys_reg(vcpu, r->reg, kvm_calculate_mpidr(vcpu));
-+}
-+
-+static void reset_value(struct kvm_vcpu *vcpu, const struct sys_reg_desc_reset *r)
-+{
-+	__vcpu_assign_sys_reg(vcpu, r->reg, r->value);
-+}
-+
-+#define RESET_VAL(REG, VAL) {  REG, reset_value, VAL }
-+
-+#define RESET_ZERO(REG) RESET_VAL(REG, 0)
-+
-+#define RESET_UNKNOWN(REG) RESET_VAL(REG, 0x1de7ec7edbadc0deULL)
-+
-+#define RESET_FUNC(REG, FN) {  REG, FN, 0 }
-+
-+static const struct sys_reg_desc_reset pvm_sys_reg_reset_vals[] = {
-+	RESET_FUNC(MPIDR_EL1, reset_mpidr),
-+	RESET_UNKNOWN(TPIDR_EL0),
-+	RESET_UNKNOWN(TPIDRRO_EL0),
-+	RESET_UNKNOWN(TPIDR_EL1),
-+	RESET_ZERO(CNTKCTL_EL1),
-+	RESET_UNKNOWN(PAR_EL1),
-+	RESET_ZERO(DISR_EL1),
-+	RESET_ZERO(CPACR_EL1),
-+	RESET_VAL(CONTEXTIDR_EL1, 0x00000000dbadc0deULL),
-+	RESET_VAL(SCTLR_EL1, 0x00C50078ULL),
-+	RESET_ZERO(TCR_EL1),
-+	RESET_UNKNOWN(AFSR0_EL1),
-+	RESET_UNKNOWN(AFSR1_EL1),
-+	RESET_UNKNOWN(ESR_EL1),
-+	RESET_UNKNOWN(MAIR_EL1),
-+	RESET_ZERO(AMAIR_EL1),
-+	RESET_ZERO(MDSCR_EL1),
-+	RESET_ZERO(CNTV_CTL_EL0),
-+	RESET_UNKNOWN(TTBR0_EL1),
-+	RESET_UNKNOWN(TTBR1_EL1),
-+	RESET_UNKNOWN(FAR_EL1),
-+	RESET_VAL(VBAR_EL1, 0x1de7ec7edbadc000ULL),
-+};
-+
-+void kvm_reset_pvm_sys_regs(struct kvm_vcpu *vcpu)
-+{
-+	unsigned long i;
-+
-+	for (i = 0; i < ARRAY_SIZE(pvm_sys_reg_reset_vals); i++) {
-+		const struct sys_reg_desc_reset *r = &pvm_sys_reg_reset_vals[i];
-+
-+		r->reset(vcpu, r);
-+	}
-+}
-+
- /*
-  * Initializes feature registers for protected vms.
-  */
+ /* Used by icache_is_aliasing(). */
+ unsigned long __icache_flags;
+ 
+@@ -1181,8 +1187,70 @@ bool kvm_handle_pvm_hvc64(struct kvm_vcpu *vcpu, u64 *exit_code)
+ {
+ 	u64 val[4] = { SMCCC_RET_INVALID_PARAMETER };
+ 	bool handled = true;
++	u32 feature;
++	uuid_t uuid;
+ 
+ 	switch (smccc_get_function(vcpu)) {
++	case ARM_SMCCC_VERSION_FUNC_ID:
++		/* Nothing to be handled by the host. Go back to the guest. */
++		val[0] = ARM_SMCCC_VERSION_1_1;
++		break;
++	case ARM_SMCCC_ARCH_FEATURES_FUNC_ID:
++		/* The workaround calls themselves are handled on hyp entry. */
++		val[0] = SMCCC_RET_NOT_SUPPORTED;
++		feature = smccc_get_arg1(vcpu);
++		switch (feature) {
++		case ARM_SMCCC_VERSION_FUNC_ID:
++		case ARM_SMCCC_ARCH_FEATURES_FUNC_ID:
++			val[0] = SMCCC_RET_SUCCESS;
++			break;
++		case ARM_SMCCC_ARCH_WORKAROUND_1:
++			switch (spectre_v2_state) {
++			case SPECTRE_VULNERABLE:
++				break;
++			case SPECTRE_MITIGATED:
++				val[0] = SMCCC_RET_SUCCESS;
++				break;
++			case SPECTRE_UNAFFECTED:
++				val[0] = SMCCC_ARCH_WORKAROUND_RET_UNAFFECTED;
++				break;
++			}
++			break;
++		case ARM_SMCCC_ARCH_WORKAROUND_2:
++			switch (spectre_v4_state) {
++			case SPECTRE_VULNERABLE:
++				break;
++			case SPECTRE_MITIGATED:
++				/* With SSBS advertised the guest's default is safe. */
++				if (kvm_has_feat(vcpu->kvm, ID_AA64PFR1_EL1, SSBS, IMP))
++					break;
++				fallthrough;
++			case SPECTRE_UNAFFECTED:
++				val[0] = SMCCC_RET_NOT_REQUIRED;
++				break;
++			}
++			break;
++		case ARM_SMCCC_ARCH_WORKAROUND_3:
++			switch (spectre_bhb_state) {
++			case SPECTRE_VULNERABLE:
++				break;
++			case SPECTRE_MITIGATED:
++				val[0] = SMCCC_RET_SUCCESS;
++				break;
++			case SPECTRE_UNAFFECTED:
++				val[0] = SMCCC_ARCH_WORKAROUND_RET_UNAFFECTED;
++				break;
++			}
++			break;
++		}
++		break;
++	case ARM_SMCCC_VENDOR_HYP_CALL_UID_FUNC_ID:
++		uuid = ARM_SMCCC_VENDOR_HYP_UID_KVM;
++		val[0] = smccc_uuid_to_reg(&uuid, 0);
++		val[1] = smccc_uuid_to_reg(&uuid, 1);
++		val[2] = smccc_uuid_to_reg(&uuid, 2);
++		val[3] = smccc_uuid_to_reg(&uuid, 3);
++		break;
+ 	case ARM_SMCCC_VENDOR_HYP_KVM_FEATURES_FUNC_ID:
+ 		val[0] = BIT(ARM_SMCCC_KVM_FUNC_FEATURES);
+ 		val[0] |= BIT(ARM_SMCCC_KVM_FUNC_HYP_MEMINFO);
 -- 
 2.39.5
 
