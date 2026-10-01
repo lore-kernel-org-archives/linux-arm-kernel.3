@@ -4,111 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E9E8BCA5FC4
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  1 Oct 2026 03:44:22 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 75741CA5FB3
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  1 Oct 2026 03:52:18 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=w4ijuTp5svOtTgrjejnJF22Eh5tEOHO/CkeB5GXCR3I=; b=iUmLTCcDisGqdD+qiham9yRSeg
-	+jaz5HEB6YC7u9cMUv4TWHtIO0uOXDT2KaKPgkbyhgW+2OWC3UYUbh/oiARKRG+8ig01tBA3yOdX8
-	y2QsLnk3bEf1KVBtHHuRaX3wqNhiLjJhdZKlfNQRA+locOWw+TScHgPl6WjRWSLJXEFM/ISRZ0L1Z
-	fSfe9s17kBrjb37oNWSMUXbBp5REe9BN9YMZXaLG/I/HqyRQj82u6wmY6Ku7dhel8sHe+eX8Iu5gv
-	oFkv6W5+ChBfxj7Wr9DKsXqxFy7Ik/hR3d9x53ErdyNxOa+I5Ffex/ARfL7e/ubwufYRd23U8ZKJm
-	72tm0Dqg==;
+	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=wHZ2E/OQmO+09/WUCbUdj0HkaiGsm5QMM8GTBL9q62k=; b=Bbfk7SniRYWDspr3yWRafKJCA4
+	tJRYrl9ykI/FQq4vYygYiWmTbZEQUInF1MRODkvAzhoJ080QU+qzsHeDcdmb8LUp8SWO56Q8OYfx6
+	2LOmLctAxWclQUT1wIA6jRrAZYiOys1M3LjAj+oYNOPoaPY1kmLiQiOAEzwfz2YMZbQZybJTRn+dM
+	8LTC22F4d90Ugb0PaFo0AbeWfRuFl8ZPivoLU7v9MOq09dlpmKbG3UeyW8nOVFQsTFyMdYMNRtNFc
+	LejDHygSFBT7RfBxKzw6ERPz3OJAHMDuiZa+JmjOwefy57E4h0OOvff6I7qV2tveuOX+Kt9YLS7p6
+	gapvAhxQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xC7iS-00000007guq-22IJ;
-	Thu, 01 Oct 2026 03:44:16 +0000
-Received: from mail-oo1-xc2c.google.com ([2607:f8b0:4864:20::c2c])
+	id 1xC7q7-00000007hMB-1gSa;
+	Thu, 01 Oct 2026 03:52:11 +0000
+Received: from m16.mail.163.com ([220.197.31.2])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xC7iP-00000007gt8-26WR
+	id 1xC7q4-00000007hLm-2Q7m
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 01 Oct 2026 03:44:14 +0000
-Received: by mail-oo1-xc2c.google.com with SMTP id 006d021491bc7-6d95185ee17so2090664eaf.0
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 30 Sep 2026 20:44:12 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1790826252; cv=none;
-        d=google.com; s=arc-20260327;
-        b=aPFiszv+jdSSK0V3raDIQnlV0U5+LeJfwjXjAbV3WMFf5hnnuS74tkgVT8gsWL6dzT
-         sfRrrqZV8IuZDmxED97DEOoroqahWmdTBFKJyKA1c/WHbNsE5/YnCvsFCZhXFSd7m6GS
-         rty5pCiLPpHwQkEpf773E3J1e9WyK3GW+YRbZc4jk/0cyQB3mzTEap/YXoeoJncOmvWi
-         dQZQkrcCZicIZ/cM1+G1jOigiOCuJ/Eiigc9cPUnlefXgJBKELTDLEV3V9kAQkhB8Z96
-         iwmrngcewjOYsQc8urleF6rXkEHOgHDqGSa3G5Jz5EZ0ZxP0CD5kYYI3jHTz5+YOyFBG
-         CXbQ==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:dkim-signature;
-        bh=w4ijuTp5svOtTgrjejnJF22Eh5tEOHO/CkeB5GXCR3I=;
-        fh=RgoPfxOdkZCkgDuX1YsT9OeNPRXOv5GnHFxTzPEeyLk=;
-        b=K/wyTpA4/6P0J0HGlRtS3y9MqbDEqajZ6Bpw5wHkfMFUvuc/eMKtryoRxf6VHkAMnq
-         UsqFC3jziKNLUkjGsxEE92Twz9ndwIBdwP6YNGCX51ufQhixy7d5fdYRTKYicGYG60vT
-         4l8zeMZ0ocqDrwspF/2fEx8p/Y4SXL70LzsqioxKzRCXxkXbaMS0Jw7eDEKrHUi9UvDn
-         icfSi5baui0uLcpPjtQv0SqWvJg8RJE1zSbA3kb3vd2kowOhe4K5ppqyUjMAOG0f+EGC
-         J6ihzYujQGCPo3YpNi8koPXDVo28bcwIi4jGnxgpVsexmrcagqSjJsubHVFx4oyBq8Ug
-         TpAQ==;
-        darn=lists.infradead.org
-ARC-Authentication-Results: i=1; mx.google.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1790826252; x=1791431052; darn=lists.infradead.org;
-        h=content-transfer-encoding:content-type:cc:to:subject:message-id
-         :date:from:in-reply-to:references:mime-version:from:to:cc:subject
-         :date:message-id:reply-to:content-type;
-        bh=w4ijuTp5svOtTgrjejnJF22Eh5tEOHO/CkeB5GXCR3I=;
-        b=MPdSxzunuqBpc/isMDSJBdZTpjxlRHnLusP0cBm41B/idI+zGqS2xQyhL6gTXM9NoN
-         0Cg01w5TAhr78K13mQdUa0cMhTeYxVLmmau0EkoZaMW0y0O5RUJlvwHRNV7RvF5ExDoy
-         VN0r5ngl+CavejHQMGeMgwwnAPExkcl9aH9vEca8QsKtRrOY89riF9Ec/QWuBrFE82aI
-         abeHInl6dWnO3Wih6yoKCeteoaE0snEwYKX/M94uzT3Rnt3TKo7J6NmJsD22rJIPjj5+
-         i7i7RrVfUXy3lyQYzCObJmtpfYYeNdZq70BHTpf/ciW7mLNFsP2dmZt5uvZEq5F8Aq6w
-         i30A==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1790826252; x=1791431052;
-        h=content-transfer-encoding:content-type:cc:to:subject:message-id
-         :date:from:in-reply-to:references:mime-version:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=w4ijuTp5svOtTgrjejnJF22Eh5tEOHO/CkeB5GXCR3I=;
-        b=fYGWQiphluHvl4tZYXf+44WNiyGLwekzOWAPSPzpR+H6ynA0ZmAnqluB/jAMH7qYob
-         r9BNNu1PuFrmxfzfncCwGeFxGjJ+bB0GzcjXdxmfbMsXhOLL43YBnezmdop8Bu6ZpP2b
-         D0zEj1u1JJ+RPf6yjOuc+BQ3kgVsEZZD5J+A0F5t8mPy8vr0N2RqUaglUO9dWrUBW2H3
-         m9EOPSOuWE3VgmB9cK8Q76z43ykqvh528Zg1tBrSXWBs7Z7djWGDniEG/7kbd0f7odAm
-         4lXdhM+fgRT1A6HqTaFzj2GB3JNHgvyvfllCY7vha5u9AnWKnI/8wAFlFkDBOrYqB2cv
-         Qfzw==
-X-Forwarded-Encrypted: i=1; AKwUvBzQ/uqx5DPY/3T0AoQQU+1asQ4Ge4rA6a4IB7DZGt2qh6M4dPqNluUgOXBJIwS4e7iCRYd824YibXUm8TC1UPbT@lists.infradead.org
-X-Gm-Message-State: AFuF++nydF7rM9mIfdtQelC7riWhJBG1YhZGSNRBR8cJgSJ296atDp3Y
-	6Uz6baWNK/iZFAeuOkZEgRky4X3mcN1QfZk/+wlyqWi122f7xtyPt7m9snuLoZkMRbz/Lkokdee
-	j/3qZtn4RyyF5+qRyPfMXR+S9F7fR5QY=
-X-Gm-Gg: AYBFou3c7zQBWMJDlm2Xi17hoMlJwa7Ite/G54J6mtbaq5UIAUsVkaMHVnRsEviCvxZ
-	iJaLOWfAuEjlaA+eKoagCR6r5Eqk3ybRsQE46Mf2NseHRFJwaRuktE5Rk2KxT5EV/89xoRw9U1B
-	8ZU7ZWbqyeCmLZsSLV094mYhqkXzb4m/GxKANp+NuMy1DzZmUQue+hvsIl1soEOdA0n6fWnrrlX
-	8uO8It859mcWcqG3dq7TfyoFysbLOGi+Kg25mUvx/bEucgAkK7CNZoPnqtbx1yGXj9oBJIiM5rJ
-	jTLSq/Q+yLUskBIo3kS/SpjDR4Ib/Hfefc+aiymBygfp7Sdu/FgH8jFZiyIlgR3k4No=
-X-Received: by 2002:a05:6820:4cc7:b0:6d9:58a1:824 with SMTP id
- 006d021491bc7-6ddba7942ffmr1480642eaf.22.1790826251774; Wed, 30 Sep 2026
- 20:44:11 -0700 (PDT)
+	Thu, 01 Oct 2026 03:52:10 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=163.com;
+	s=s110527; h=From:To:Subject:Date:Message-Id:MIME-Version; bh=wH
+	Z2E/OQmO+09/WUCbUdj0HkaiGsm5QMM8GTBL9q62k=; b=Zf0JuOPIls4+quomvF
+	nFKUVOZk5IMYPshTuVt776e+7tN9ZqytWeEbvvRvBSol8m3c2HRBVV3SuI4LaT+k
+	VPmW7aXqk+dV2CdU9+ONPBDohJs7yYfzQ4w055kWHp2VMTohgN/uYzHX4hll/Ej2
+	bQHox+jWMSLpuSRUhU0qUD6Vs=
+Received: from 4CV529F122.company.local (unknown [])
+	by gzga-smtp-mtada-g0-2 (Coremail) with SMTP id _____wD3nwKY2L1q925SBw--.54539S2;
+	Thu, 01 Oct 2026 11:51:04 +0800 (CST)
+From: Ding Hui <dinghui1111@163.com>
+To: netdev-bot+sashiko@kernel.org,
+	Maxime Chevallier <maxime.chevallier@bootlin.com>,
+	Andrew Lunn <andrew+netdev@lunn.ch>,
+	"David S. Miller" <davem@davemloft.net>,
+	Eric Dumazet <edumazet@google.com>,
+	Jakub Kicinski <kuba@kernel.org>,
+	Paolo Abeni <pabeni@redhat.com>,
+	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
+	Alexandre Torgue <alexandre.torgue@foss.st.com>,
+	netdev@vger.kernel.org (open list:STMMAC ETHERNET DRIVER),
+	linux-stm32@st-md-mailman.stormreply.com (moderated list:ARM/STM32 ARCHITECTURE),
+	linux-arm-kernel@lists.infradead.org (moderated list:ARM/STM32 ARCHITECTURE),
+	linux-kernel@vger.kernel.org (open list)
+Cc: dinghui@lixiang.com,
+	xiasanbo@lixiang.com,
+	yangchen11@lixiang.com,
+	liuxuanjun@lixiang.com
+Subject: [PATCH net v4] net: stmmac: fix error path cleanup in DMA descriptor ring allocation
+Date: Thu,  1 Oct 2026 11:50:32 +0800
+Message-Id: <20261001035045.3305816-1-dinghui1111@163.com>
+X-Mailer: git-send-email 2.34.1
 MIME-Version: 1.0
-References: <20260926-b4-mt7629-toprgu-v1-0-c124bf9ac273@gmail.com>
- <20260926-b4-mt7629-toprgu-v1-1-c124bf9ac273@gmail.com> <20260929-spiffy-harrier-of-snow-b78e7b@quoll>
-In-Reply-To: <20260929-spiffy-harrier-of-snow-b78e7b@quoll>
-From: Chuanhong Guo <gch981213@gmail.com>
-Date: Thu, 1 Oct 2026 11:44:00 +0800
-X-Gm-Features: AclHuK9LNVBWetA4umqzLuoUjfCXVTn1WDE30aATZ75mv1-R3SpbZ9mzZOo88bg
-Message-ID: <CAJsYDVLimYZXk6mFrnsObCYFnK3HxqVJpuee+msnCi-GAUTXbQ@mail.gmail.com>
-Subject: Re: [PATCH 1/3] dt-bindings: reset: mediatek: add MT7629 TOPRGU reset indices
-To: Krzysztof Kozlowski <krzk@kernel.org>
-Cc: Philipp Zabel <p.zabel@pengutronix.de>, Rob Herring <robh@kernel.org>, 
-	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
-	Matthias Brugger <matthias.bgg@gmail.com>, 
-	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, 
-	Wim Van Sebroeck <wim@linux-watchdog.org>, Guenter Roeck <linux@roeck-us.net>, devicetree@vger.kernel.org, 
-	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
-	linux-mediatek@lists.infradead.org, linux-watchdog@vger.kernel.org
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+Content-Transfer-Encoding: 8bit
+X-CM-TRANSID: _____wD3nwKY2L1q925SBw--.54539S2
+X-Coremail-Antispam: 1Uf129KBjvJXoWfJr47CF4xGrW7JrWkJFyxZrb_yoWDWw15pF
+	4xCw4qkrWjqr15Jw4DJw48X3W5AayFyr4YgFWxWw1fZ3WavryYgF15Zryj9rykAFyku3Za
+	k398C3W3AF1UJrUanT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
+	9KBjDUYxBIdaVFxhVjvjDU0xZFpf9x07jtCzZUUUUU=
+X-CM-SenderInfo: pglqwx1xlriiqr6rljoofrz/xtbC0gpqlmq92KoK1wAA3c
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260930_204413_547510_07BF2CDF 
-X-CRM114-Status: GOOD (  19.98  )
+X-CRM114-CacheID: sfid-20260930_205209_050058_532F1610 
+X-CRM114-Status: GOOD (  20.56  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -123,59 +83,296 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi!
+From: Ding Hui <dinghui@lixiang.com>
 
-On Tue, Sep 29, 2026 at 4:44=E2=80=AFPM Krzysztof Kozlowski <krzk@kernel.or=
-g> wrote:
->
-> On Sat, Sep 26, 2026 at 07:13:59PM +0800, Chuanhong Guo wrote:
-> > Define all seven reset IDs documented in the MT7629 TOPRGU SWSYSRST
-> > register: INFRA, ETHDMA, DDRPHY, INFRA_AO, CONN, APMIXED and CONN_MCU.
-> > Use their register bit positions as reset IDs.
->
-> If so, I say you don't need bindings then... but fine except:
->
-> >
-> > Signed-off-by: Chuanhong Guo <gch981213@gmail.com>
-> > ---
-> >  include/dt-bindings/reset/mt7629-resets.h | 9 +++++++++
-> >  1 file changed, 9 insertions(+)
-> >
-> > diff --git a/include/dt-bindings/reset/mt7629-resets.h b/include/dt-bin=
-dings/reset/mt7629-resets.h
-> > index 6bb85734f68d..828919eee298 100644
-> > --- a/include/dt-bindings/reset/mt7629-resets.h
-> > +++ b/include/dt-bindings/reset/mt7629-resets.h
-> > @@ -53,6 +53,15 @@
-> >  #define MT7629_PCIE0_USER_RST                        30
-> >  #define MT7629_PCIE0_PIPE_RST                        31
-> >
-> > +/* TOPRGU resets */
->
-> Didn't new bindings switch to continues indexes?
->
+__alloc_dma_rx_desc_resources() and __alloc_dma_tx_desc_resources()
+allocate resources in multiple steps but return early on failure
+without cleaning up what they have already allocated. The outer
+error paths then call the free helpers on partially-initialized
+queues, which dereference pointers that were never allocated:
 
-This is written for the existing reset driver in mtk_wdt.c. I don't
-want to add a reset id remap when all the other SoCs in that
-driver use binding ids matching their hardware bits.
+  - dma_free_rx_skbufs() and dma_free_rx_xskbufs() dereference
+    rx_q->buf_pool[i] via stmmac_free_rx_buffer(), but buf_pool
+    may be NULL if its kzalloc_objs() failed.
 
-Is this OK for existing drivers?
-I can also live with plain numbers in the device tree if that's preferred.
+  - dma_free_tx_skbufs() dereferences tx_q->tx_skbuff_dma[i] via
+    stmmac_free_tx_buffer(), but tx_skbuff_dma may be NULL if its
+    kzalloc_objs() failed.
 
-Another option would be to include mt7622-resets.h for mt7629 dt
-as their TOPRGU definitions match exactly. But that would bring other
-unused mt7622 definitions into mt7629 dt, probably not ideal.
+  - stmmac_free_tx_buffer() dereferences tx_q->xdpf[i] and
+    tx_q->tx_skbuff[i] (aliased through a union), but tx_skbuff
+    may be NULL if its allocation failed while tx_skbuff_dma
+    succeeded.
 
-> > +#define MT7629_TOPRGU_INFRA_SW_RST           0
-> > +#define MT7629_TOPRGU_ETHDMA_SW_RST          1
-> > +#define MT7629_TOPRGU_DDRPHY_SW_RST          6
-> > +#define MT7629_TOPRGU_INFRA_AO_SW_RST                8
->
-> Best regards,
-> Krzysztof
->
+Fix this by making each allocation function responsible for undoing
+its own allocations on error, following the standard kernel error
+handling pattern of cleaning up in reverse order. Also add NULL
+checks in the free helpers as a defensive measure, since they may
+be called on partially-initialized queues.
+Additionally, make __free_dma_rx_desc_resources() and
+__free_dma_tx_desc_resources() clear the pointers they free, so that
+the NULL guards in the free helpers hold reliably when the long-lived
+priv->dma_conf is reused across XDP open/release cycles.
+Free the RX resources in alloc_dma_desc_resources() when the TX
+allocation fails, as the callers only free dma_conf itself on
+that path. And skip queues whose descriptor rings are not allocated
+in stmmac_rings_status_show() so reading the rings sysfs entry will
+never dereference a NULL pointer.
 
---
-Regards,
-Chuanhong Guo
+Signed-off-by: Ding Hui <dinghui@lixiang.com>
+
+---
+Changes in v4:
+  - Free the RX resources in alloc_dma_desc_resources() when the TX
+    allocation fails.
+  - Skip queues whose descriptor rings are not allocated in
+    stmmac_rings_status_show() and print a hint instead.
+  - Link to v3:
+    https://lore.kernel.org/netdev/20260919121436.1642724-1-dinghui1111@163.com/
+Changes in v3:
+  - Use addr directly in __alloc_dma_rx_desc_resources() error path
+    instead of the if/else block on rx_q->dma_erx/dma_rx.
+  - Clear the freed pointers in __free_dma_rx_desc_resources() and
+    __free_dma_tx_desc_resources().
+  - Link to v2:
+    https://lore.kernel.org/netdev/20260905154654.1725313-1-dinghui1111@163.com/
+Changes in v2:
+  - Instead of only adding NULL checks in the free helpers, also fix
+    __alloc_dma_rx_desc_resources() and __alloc_dma_tx_desc_resources()
+    to clean up their own allocations on error, as suggested by Andrew.
+  - Update commit message.
+  - Link to v1:
+    https://lore.kernel.org/netdev/20260830040610.1156008-1-dinghui1111@163.com/
+---
+ .../net/ethernet/stmicro/stmmac/stmmac_main.c | 92 +++++++++++++++++--
+ 1 file changed, 82 insertions(+), 10 deletions(-)
+
+diff --git a/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c b/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
+index f2fc89176654..e79dd726b1ca 100644
+--- a/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
++++ b/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
+@@ -1728,7 +1728,7 @@ static void stmmac_free_tx_buffer(struct stmmac_priv *priv,
+ 					 DMA_TO_DEVICE);
+ 	}
+ 
+-	if (tx_q->xdpf[i] &&
++	if (tx_q->xdpf && tx_q->xdpf[i] &&
+ 	    (tx_q->tx_skbuff_dma[i].buf_type == STMMAC_TXBUF_T_XDP_TX ||
+ 	     tx_q->tx_skbuff_dma[i].buf_type == STMMAC_TXBUF_T_XDP_NDO)) {
+ 		xdp_return_frame(tx_q->xdpf[i]);
+@@ -1738,7 +1738,7 @@ static void stmmac_free_tx_buffer(struct stmmac_priv *priv,
+ 	if (tx_q->tx_skbuff_dma[i].buf_type == STMMAC_TXBUF_T_XSK_TX)
+ 		tx_q->xsk_frames_done++;
+ 
+-	if (tx_q->tx_skbuff[i] &&
++	if (tx_q->tx_skbuff && tx_q->tx_skbuff[i] &&
+ 	    tx_q->tx_skbuff_dma[i].buf_type == STMMAC_TXBUF_T_SKB) {
+ 		dev_kfree_skb_any(tx_q->tx_skbuff[i]);
+ 		tx_q->tx_skbuff[i] = NULL;
+@@ -1761,6 +1761,10 @@ static void dma_free_rx_skbufs(struct stmmac_priv *priv,
+ 	struct stmmac_rx_queue *rx_q = &dma_conf->rx_queue[queue];
+ 	int i;
+ 
++	/* buf_pool may not be allocated if alloc failed early */
++	if (!rx_q->buf_pool)
++		return;
++
+ 	for (i = 0; i < dma_conf->dma_rx_size; i++)
+ 		stmmac_free_rx_buffer(priv, rx_q, i);
+ }
+@@ -1802,6 +1806,10 @@ static void dma_free_rx_xskbufs(struct stmmac_priv *priv,
+ 	struct stmmac_rx_queue *rx_q = &dma_conf->rx_queue[queue];
+ 	int i;
+ 
++	/* buf_pool may not be allocated if alloc failed early */
++	if (!rx_q->buf_pool)
++		return;
++
+ 	for (i = 0; i < dma_conf->dma_rx_size; i++) {
+ 		struct stmmac_rx_buffer *buf = &rx_q->buf_pool[i];
+ 
+@@ -2097,6 +2105,10 @@ static void dma_free_tx_skbufs(struct stmmac_priv *priv,
+ 	struct stmmac_tx_queue *tx_q = &dma_conf->tx_queue[queue];
+ 	int i;
+ 
++	/* tx_skbuff_dma may not be allocated if alloc failed early */
++	if (!tx_q->tx_skbuff_dma)
++		return;
++
+ 	tx_q->xsk_frames_done = 0;
+ 
+ 	for (i = 0; i < dma_conf->dma_tx_size; i++)
+@@ -2154,13 +2166,20 @@ static void __free_dma_rx_desc_resources(struct stmmac_priv *priv,
+ 	size = stmmac_get_rx_desc_size(priv) * dma_conf->dma_rx_size;
+ 
+ 	dma_free_coherent(priv->device, size, addr, rx_q->dma_rx_phy);
++	rx_q->dma_erx = NULL;
++	rx_q->dma_rx = NULL;
++	rx_q->dma_rx_phy = 0;
+ 
+ 	if (xdp_rxq_info_is_reg(&rx_q->xdp_rxq))
+ 		xdp_rxq_info_unreg(&rx_q->xdp_rxq);
+ 
+ 	kfree(rx_q->buf_pool);
+-	if (rx_q->page_pool)
++	rx_q->buf_pool = NULL;
++
++	if (rx_q->page_pool) {
+ 		page_pool_destroy(rx_q->page_pool);
++		rx_q->page_pool = NULL;
++	}
+ }
+ 
+ static void free_dma_rx_desc_resources(struct stmmac_priv *priv,
+@@ -2202,9 +2221,16 @@ static void __free_dma_tx_desc_resources(struct stmmac_priv *priv,
+ 	size = stmmac_get_tx_desc_size(priv, tx_q) * dma_conf->dma_tx_size;
+ 
+ 	dma_free_coherent(priv->device, size, addr, tx_q->dma_tx_phy);
++	tx_q->dma_etx = NULL;
++	tx_q->dma_entx = NULL;
++	tx_q->dma_tx = NULL;
++	tx_q->dma_tx_phy = 0;
+ 
+ 	kfree(tx_q->tx_skbuff_dma);
++	tx_q->tx_skbuff_dma = NULL;
++
+ 	kfree(tx_q->tx_skbuff);
++	tx_q->tx_skbuff = NULL;
+ }
+ 
+ static void free_dma_tx_desc_resources(struct stmmac_priv *priv,
+@@ -2272,15 +2298,19 @@ static int __alloc_dma_rx_desc_resources(struct stmmac_priv *priv,
+ 	}
+ 
+ 	rx_q->buf_pool = kzalloc_objs(*rx_q->buf_pool, dma_conf->dma_rx_size);
+-	if (!rx_q->buf_pool)
+-		return -ENOMEM;
++	if (!rx_q->buf_pool) {
++		ret = -ENOMEM;
++		goto err_destroy_pool;
++	}
+ 
+ 	size = stmmac_get_rx_desc_size(priv) * dma_conf->dma_rx_size;
+ 
+ 	addr = dma_alloc_coherent(priv->device, size, &rx_q->dma_rx_phy,
+ 				  GFP_KERNEL);
+-	if (!addr)
+-		return -ENOMEM;
++	if (!addr) {
++		ret = -ENOMEM;
++		goto err_free_buf_pool;
++	}
+ 
+ 	if (priv->extend_desc)
+ 		rx_q->dma_erx = addr;
+@@ -2296,10 +2326,22 @@ static int __alloc_dma_rx_desc_resources(struct stmmac_priv *priv,
+ 	ret = xdp_rxq_info_reg(&rx_q->xdp_rxq, priv->dev, queue, napi_id);
+ 	if (ret) {
+ 		netdev_err(priv->dev, "Failed to register xdp rxq info\n");
+-		return -EINVAL;
++		goto err_free_dma;
+ 	}
+ 
+ 	return 0;
++
++err_free_dma:
++	dma_free_coherent(priv->device, size, addr, rx_q->dma_rx_phy);
++	rx_q->dma_erx = NULL;
++	rx_q->dma_rx = NULL;
++err_free_buf_pool:
++	kfree(rx_q->buf_pool);
++	rx_q->buf_pool = NULL;
++err_destroy_pool:
++	page_pool_destroy(rx_q->page_pool);
++	rx_q->page_pool = NULL;
++	return ret;
+ }
+ 
+ static int alloc_dma_rx_desc_resources(struct stmmac_priv *priv,
+@@ -2352,14 +2394,14 @@ static int __alloc_dma_tx_desc_resources(struct stmmac_priv *priv,
+ 
+ 	tx_q->tx_skbuff = kzalloc_objs(struct sk_buff *, dma_conf->dma_tx_size);
+ 	if (!tx_q->tx_skbuff)
+-		return -ENOMEM;
++		goto err_free_skbuff_dma;
+ 
+ 	size = stmmac_get_tx_desc_size(priv, tx_q) * dma_conf->dma_tx_size;
+ 
+ 	addr = dma_alloc_coherent(priv->device, size,
+ 				  &tx_q->dma_tx_phy, GFP_KERNEL);
+ 	if (!addr)
+-		return -ENOMEM;
++		goto err_free_skbuff;
+ 
+ 	if (priv->extend_desc)
+ 		tx_q->dma_etx = addr;
+@@ -2369,6 +2411,14 @@ static int __alloc_dma_tx_desc_resources(struct stmmac_priv *priv,
+ 		tx_q->dma_tx = addr;
+ 
+ 	return 0;
++
++err_free_skbuff:
++	kfree(tx_q->tx_skbuff);
++	tx_q->tx_skbuff = NULL;
++err_free_skbuff_dma:
++	kfree(tx_q->tx_skbuff_dma);
++	tx_q->tx_skbuff_dma = NULL;
++	return -ENOMEM;
+ }
+ 
+ static int alloc_dma_tx_desc_resources(struct stmmac_priv *priv,
+@@ -2411,6 +2461,8 @@ static int alloc_dma_desc_resources(struct stmmac_priv *priv,
+ 		return ret;
+ 
+ 	ret = alloc_dma_tx_desc_resources(priv, dma_conf);
++	if (ret)
++		free_dma_rx_desc_resources(priv, dma_conf);
+ 
+ 	return ret;
+ }
+@@ -6510,10 +6562,20 @@ static int stmmac_rings_status_show(struct seq_file *seq, void *v)
+ 		seq_printf(seq, "RX Queue %d:\n", queue);
+ 
+ 		if (priv->extend_desc) {
++			if (!rx_q->dma_erx) {
++				seq_puts(seq, "Extended descriptor ring not allocated\n");
++				continue;
++			}
++
+ 			seq_printf(seq, "Extended descriptor ring:\n");
+ 			sysfs_display_ring((void *)rx_q->dma_erx,
+ 					   priv->dma_conf.dma_rx_size, 1, seq, rx_q->dma_rx_phy);
+ 		} else {
++			if (!rx_q->dma_rx) {
++				seq_puts(seq, "Descriptor ring not allocated\n");
++				continue;
++			}
++
+ 			seq_printf(seq, "Descriptor ring:\n");
+ 			sysfs_display_ring((void *)rx_q->dma_rx,
+ 					   priv->dma_conf.dma_rx_size, 0, seq, rx_q->dma_rx_phy);
+@@ -6526,10 +6588,20 @@ static int stmmac_rings_status_show(struct seq_file *seq, void *v)
+ 		seq_printf(seq, "TX Queue %d:\n", queue);
+ 
+ 		if (priv->extend_desc) {
++			if (!tx_q->dma_etx) {
++				seq_puts(seq, "Extended descriptor ring not allocated\n");
++				continue;
++			}
++
+ 			seq_printf(seq, "Extended descriptor ring:\n");
+ 			sysfs_display_ring((void *)tx_q->dma_etx,
+ 					   priv->dma_conf.dma_tx_size, 1, seq, tx_q->dma_tx_phy);
+ 		} else if (!(tx_q->tbs & STMMAC_TBS_AVAIL)) {
++			if (!tx_q->dma_tx) {
++				seq_puts(seq, "Descriptor ring not allocated\n");
++				continue;
++			}
++
+ 			seq_printf(seq, "Descriptor ring:\n");
+ 			sysfs_display_ring((void *)tx_q->dma_tx,
+ 					   priv->dma_conf.dma_tx_size, 0, seq, tx_q->dma_tx_phy);
+-- 
+2.34.1
+
 
