@@ -4,70 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3B84CCA5FDE
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  1 Oct 2026 21:34:16 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 342AECA5FCE
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  1 Oct 2026 21:34:18 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:From:
 	Subject:Message-ID:References:Mime-Version:In-Reply-To:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=nT9hMrtZRR/2siI80QtehZ8BnMD1l4DAL83J/BAbUcM=; b=jXv4J+sT+IbpK91LA1SC2lVQXI
-	C+M8BHWknujzXnec8IS0X1/Tie2c5A70JjlgLzLopa4LVXSw+PTHdpao+d1cN/24T2wjRZ5BfPUi2
-	3yY0jqZ99O0SXM6EZc+PLTDPiA2oG8RTybRYLSVdGDlwLJgVAPflhZA4BAlVXGSSHup/vFJagsXx3
-	ONjHA+IxcM4Bsfxu62qT0ltGHme6a91bTYcapgRaj5AEfi2YxlCgrwsGhvPCYZBWIrAq36p7M+raX
-	vEzq9ZkO8C0RjKw71BUwfJ9HEnP9gP526Q0CGNZzwETBkANnPbgmKZeroixrfIuubOjnUx6ioJ0cL
-	Q90e+Ipw==;
+	bh=aIbawXPVSEHJ0DscG76tmh9vZXpkAHRdIDz4TIVMzco=; b=5G6E13Az2gyNhgg7wfrM5Kl94v
+	ULmuFjmO3+kO2N+F7lLJDOSykLXhR0KmFbPCMT7hVPCjZOCgQs2VpBfsn0lYafRM2Pc/heUfPr0/+
+	uSn6BxuigHPBGPQrCA25LSDjL5YLYZCQaxzFVtPGE/Sn7nMW0EPD7w/1/mhFSP1ZZj7HPuryg3yf8
+	qmLFFGn2Y2uscLIf0XsulTq6bWrlH7l+sTo0AbV5WKbwJMlAAZXrFsk59hJDTxTsal/xDc578kzgv
+	sSi6CEGQoCzzntwFjzaafQa5nFX9lE5LEackswYY0++B62Tg6Q+l7em22JzS/PvAEw9kEiMCYcVVH
+	YdZafWTQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xCOPo-0000000AHDC-3D7k;
-	Thu, 01 Oct 2026 21:34:08 +0000
-Received: from mail-oi1-x247.google.com ([2607:f8b0:4864:20::247])
+	id 1xCOPp-0000000AHDu-3xUo;
+	Thu, 01 Oct 2026 21:34:09 +0000
+Received: from mail-oi1-x248.google.com ([2607:f8b0:4864:20::248])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xCOPg-0000000AHBI-2RMb
+	id 1xCOPn-0000000AHBs-0LQW
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 01 Oct 2026 21:34:01 +0000
-Received: by mail-oi1-x247.google.com with SMTP id 5614622812f47-4cbf700ddccso6996568b6e.0
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 01 Oct 2026 14:33:59 -0700 (PDT)
+	Thu, 01 Oct 2026 21:34:08 +0000
+Received: by mail-oi1-x248.google.com with SMTP id 5614622812f47-4b37620eb73so12524432b6e.1
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 01 Oct 2026 14:34:01 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20251104; t=1790890439; x=1791495239; darn=lists.infradead.org;
+        d=google.com; s=20251104; t=1790890440; x=1791495240; darn=lists.infradead.org;
         h=content-type:cc:to:from:subject:message-id:references:mime-version
          :in-reply-to:date:from:to:cc:subject:date:message-id:reply-to
          :content-type;
-        bh=nT9hMrtZRR/2siI80QtehZ8BnMD1l4DAL83J/BAbUcM=;
-        b=Ckjjj/1vj5a4gEokEJPQ0qwYolNSHawAbCOyu4LxLN0INNjYTc7MeQwM/iERoIfs8X
-         6kdPSf6ugiyl/lNXtG6suq6Q7Gkbp9hs6HRpxJ74Wn4TB90yTX/nNA0JAWwj9EOGPG0J
-         mIMeZPVS2Nu1eIQxl8OT+V6TS+AQVx1XETnYdazZMxSSzmqVpijOBDaTAvkRSnQY+sTL
-         dRQpZey+hCYal2WKWkhnRlGitfx75Naaojbwyf1fLuX/6frB5iwzyYOKWwQayrFXKjfu
-         ubwypu4hoWGRXJniNfy3ZqtjjLK8jUfp87l9f7DYn87zRPgTG3Re1h6qA6AxQ/fmP5Ye
-         MgvQ==
+        bh=aIbawXPVSEHJ0DscG76tmh9vZXpkAHRdIDz4TIVMzco=;
+        b=UOhNWvCyfpgnxkJU2OCWW93aKwzkCvuZwA56RMQk05IDd2rIkDExyL7NPmR3QZNkqT
+         pkYgINKz+T0nIu3Mn/1ycAuzncx9Mu50Sr+tkWDVMsiMjLan7JyFtCqb9cMK6i5Zhu28
+         KZ9wtHwNAjEmXgnHTuM5K/iVdLnOcslY0QaUb4rHpwZQpcHEvR0qpLLmzZzOhXf2+NhF
+         a1DqUgbjPnXJ6aW4eatyfDsnhGyi3kj9E26Sm0Tf2cOFVWA5qbWMgDcL+hujyxZcAgmr
+         C6UG2xvWck6fTTKd+AO2icroRDHoVV9E1hY3r4MnC4amJ+ohq2GvXEQEAsF4pAXeeXYL
+         3Kyw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1790890439; x=1791495239;
+        d=1e100.net; s=20260707; t=1790890440; x=1791495240;
         h=content-type:cc:to:from:subject:message-id:references:mime-version
          :in-reply-to:date:x-gm-message-state:from:to:cc:subject:date
          :message-id:reply-to:content-type;
-        bh=nT9hMrtZRR/2siI80QtehZ8BnMD1l4DAL83J/BAbUcM=;
-        b=ILlzwEFyGHGySfVnRcWM0Of+ZKmZQJjMZbNIB6TMYhpIqUsNKhCMYXLJPZFtNu9hZY
-         veDHudC/lT7KIfzDah16VcrwCexcvpPYZYLnYnvPU5rTJ9pM6u1vC+LOidn6diRLvk/+
-         7mBizdbfevb7BULezaq4QcDJOLupb8+PFV1R1TJTBEi/r4azjNjGXXRz92NfwReInu7R
-         ONLUCtxoIhoIkCquwIQx05fou32zMOAH+Bvi9fZJz9CP7PcqIuIy8uF+3YbUQkoKg1vk
-         vbcW2B7wuRymKSuw6OjqxbAMD6pQ5xc2tDXFeyV8FV6cmG5obgk0xP/10IZz6ZJzK4Pa
-         UWsw==
-X-Forwarded-Encrypted: i=1; AKwUvBx3SEsk+NJ9RhS7HROxmK1m+SjPh/krEW0e3IRbXLPYeHVmp3OlwFR86iEMTEEIgjgHO2vPYLC6J5sWkOU4j0sA@lists.infradead.org
-X-Gm-Message-State: AFuF++kG62N5xRI2wxdqXQmdg6AbpeXATEWCv68GluWExGjGjR3RkPUi
-	yOrtwtcKvMeSMnosRx4IOkRquhb9Sbu0z4HRGxZGI61h0s8IH6bF6mbRgen7HnWKsqGWhLF0W8D
-	bfM9FOYyRjMmZI4gzkraJo6llRA==
-X-Received: from ioben34.prod.google.com ([2002:a05:6602:3f62:b0:9af:289c:476c])
+        bh=aIbawXPVSEHJ0DscG76tmh9vZXpkAHRdIDz4TIVMzco=;
+        b=KSz94MPbg7LKtVPzy8/XGfR1dBxp44dUbk/LlSyBdYj7+i7734Ma6JS4eB1kEepG7u
+         RxL4oEpZnrEgAVHa19j9DANqd5R9Dczh6qaqASKi0cPzQkxREFolRc0icb0Rw2uV4uQw
+         8ED+NbA9IvZmOjXBTHfVmeBMS1q79P67ZS955BjNjbqftA9b/XhbV3VgdrGNpbNsyAXv
+         NiZBrRDkTD5vMz+vyoUlUZrIy0lEfZqU6NL9LGD+QIpeijc0QncK2Gw6HC0FBQ8ApT4E
+         itfmQ+IMMR+NYR4qM+ATieK2eNsIYG03nw1d8f65+wLivXiteHRwOh1hvePbjqIPGmpG
+         Pz4A==
+X-Forwarded-Encrypted: i=1; AKwUvBxB5LGKJrAtlfKgZdS7724oWU0q+rR8kOsgeopBoBb/5wvltdK3S+Afc1YGzJzH/eX2jAgyHPpBp8FdJFOg7kEx@lists.infradead.org
+X-Gm-Message-State: AFuF++nI7317/svAICtR0WgdL0/Q3hMWY4k1r9u687j6oDoJXul98UbY
+	t/wnd+Bi/L/XV1YuFRDa5Oa7KqJW3Y21wd2d4CKNcW+IXqQzuAjLtllBtnzRUZqaXQ1WBszP+2b
+	0m8eY+WwSq9cMkT8JH/8KSdF7Lw==
+X-Received: from ilbby7.prod.google.com ([2002:a05:6e02:2607:b0:50f:46b5:b429])
  (user=coltonlewis job=prod-delivery.src-stubby-dispatcher) by
- 2002:a05:6808:bc1:b0:4c3:2e7:55bb with SMTP id 5614622812f47-4f52a57e776mr435364b6e.38.1790890438606;
- Thu, 01 Oct 2026 14:33:58 -0700 (PDT)
-Date: Thu,  1 Oct 2026 21:33:56 +0000
-In-Reply-To: <5750151d-cb99-4f9d-b469-12a7b7796985@linaro.org>
+ 2002:a05:6808:2219:b0:4e6:6079:c33d with SMTP id 5614622812f47-4f5292ffc0amr467127b6e.10.1790890439463;
+ Thu, 01 Oct 2026 14:33:59 -0700 (PDT)
+Date: Thu,  1 Oct 2026 21:33:57 +0000
+In-Reply-To: <f54b9ea6-48b1-4f6c-92cc-b0a9249c2fb0@linaro.org>
 Mime-Version: 1.0
-References: <20260924172928.2110956-1-coltonlewis@google.com> <5750151d-cb99-4f9d-b469-12a7b7796985@linaro.org>
+References: <20260924172928.2110956-1-coltonlewis@google.com>
+ <20260924172928.2110956-17-coltonlewis@google.com> <f54b9ea6-48b1-4f6c-92cc-b0a9249c2fb0@linaro.org>
 X-Mailer: git-send-email 2.56.0.rc1.315.gc6ed9934b7-goog
-Message-ID: <20261001213357.2088894-2-coltonlewis@google.com>
-Subject: Re: [PATCH v9 00/22] ARM64 PMU Partitioning
+Message-ID: <20261001213357.2088894-3-coltonlewis@google.com>
+Subject: Re: [PATCH v9 16/22] KVM: arm64: Apply dynamic guest counter reservations
 From: Colton Lewis <coltonlewis@google.com>
 To: James Clark <james.clark@linaro.org>
 Cc: Colton Lewis <coltonlewis@google.com>, Marc Zyngier <maz@kernel.org>, 
@@ -87,8 +88,8 @@ Cc: Colton Lewis <coltonlewis@google.com>, Marc Zyngier <maz@kernel.org>,
 	kvmarm@lists.linux.dev, linux-arm-kernel@lists.infradead.org
 Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261001_143400_627576_C37935E9 
-X-CRM114-Status: GOOD (  21.57  )
+X-CRM114-CacheID: sfid-20261001_143407_537183_1291C545 
+X-CRM114-Status: GOOD (  25.62  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -105,38 +106,39 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 
 Hi James,
 
-On Wed, Sep 30, 2026 at 04:26:23PM +0100, James Clark wrote:
-> On 24/09/2026 18:29, Colton Lewis wrote:
-> > This series creates a new PMU scheme on ARM, a partitioned PMU that
-> > allows reserving a subset of counters for more direct guest access,
-> > significantly reducing overhead. More details, including performance
-> > benchmarks, can be read in the v1 cover letter linked below.
-> >
-> > There is no longer a kernel command line parameter
-> > (`arm_pmuv3.reserved_host_counters`); PMU partitioning is now completely
-> > controlled via the KVM API using `KVM_ARM_VCPU_PMU_V3_ENABLE_PARTITION`
-> > and `KVM_ARM_VCPU_PMU_V3_SET_NR_COUNTERS` vCPU device attributes. When
+On Wed, Sep 30, 2026 at 04:28:37PM +0100, James Clark wrote:
+> If you enable pseudo-NMIs, watchdog_hardlockup_enable() installs the
+> watchdog using a pinned PMU event. If host userspace also has a pinned event
+> on the mandatory 1 PMU counter assigned to the host, then a guest could
+> potentially squeeze out the watchdog.
 >
-> As far as I know there isn't a straightforward way to get the number of hw
-> counters from userspace. You have to either parse dmesg or attempt to open
-> incrementally more counters in a group until it fails.
+> I'm wondering if we need to prioritise kernel owned events? Or we just treat
+> them the same as any other event, and with PMU partitioning assume they
+> can't be guaranteed to be running? I feel like you would expect a watchdog
+> to be a bit more than best effort though, especially if there was always a
+> guaranteed counter available to put it on.
 >
-> This makes doing things like "use all counters for guest" or "reserve two
-> for the host" difficult. Maybe it's time to add a file to the PMU that
-> userspace can use query this.
+> I didn't follow it through completely, but it also looks like if the event
+> gets squeezed it would enter an error state and then never be re-enabled,
+> even after the guest stops running.
+>
+> Note, that I think the current ordering means that the watchdog won't
+> actually get squeezed out because it's created first. But I don't think we
+> can rely on the ordering as a strong guarantee, and it might get broken by
+> refactoring in the future.
 
-Inside a VMM, userspace can query the default PMCR_EL0.N via
-KVM_GET_ONE_REG(SYS_PMCR_EL0) after KVM_ARM_VCPU_INIT (or
-KVM_ARM_VCPU_PMU_V3_SET_PMU) and before calling
-KVM_ARM_VCPU_PMU_V3_SET_NR_COUNTERS, since KVM initializes
-nr_pmu_counters to the PMU's max_counters (which is how
-vpmu_counter_access discovers the limit).
+Good catch. Even without future refactoring, creation order can be
+defeated today if /proc/sys/kernel/nmi_watchdog is toggled off and back
+on at runtime while a userspace per-CPU pinned event is already open,
+giving the re-created watchdog a higher group_index and causing
+merge_sched_in() to put it into PERF_EVENT_STATE_ERROR when a
+partitioned guest takes PMCCNTR_EL0.
 
-For users and management tools outside the VMM (e.g. choosing N to pass
-on the QEMU command line), I agree it's awkward that
-/sys/bus/event_source/devices/<pmu>/caps/ exposes slots and bus_width
-but not the number of counters. I will add a patch to expose a caps
-attribute for the number of counters in drivers/perf/arm_pmuv3.c.
+Prioritizing kernel-owned events (!event->owner) ahead of userspace
+events in perf_event_groups_cmp() and perf_less_group_idx() guarantees
+that a kernel-pinned watchdog always wins the mandatory host counter
+over userspace pinned events regardless of creation order. I will look
+into adding that for v10.
 
 Thanks,
 Colton
