@@ -4,83 +4,66 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 76AD1CA5FD2
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  1 Oct 2026 15:50:11 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9C7EECA5FD4
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  1 Oct 2026 15:51:03 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:References:From:
-	To:Cc:Subject:Message-Id:Date:Content-Type:Content-Transfer-Encoding:
-	Mime-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:
+	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=uGiWo6C+ycX09EU8H32CDb7AmZmrCKj9IV2lN2Mp/Hk=; b=E4Ty7q7yTGGGkGLC5ZETg5A3JX
-	Ck/E+IjsUdB9lBRT96BQ68nvlUxJW9V2S8G2mqxbQkcXgBUm8si4XPe1n/0qURwXoT++XfbZxQAms
-	j6qf5O5YhkXZ/XoRy51zssBpIEZc93rZYw8q7NB77FrlFQDhgEdj/oePfUZYBOhRUsYkG3W04j3NG
-	s6Zm2AAO1iSKTy/o5bXTP0slIjOm6QIu9DGJzobQ5MdTWhMOqtnIF6FMRPm5gsiRrhvlMi4QDAdM2
-	mOnIeMzmdKj7wFUrK49B/GTp5S6CcRA1ptc+EXMmHNTL1W/o55TKmZoWBvfOKNfJbo+14+u4OJMWr
-	1TvdRNsw==;
+	bh=38PEju8gJraz7rj/lcXRXGwgYOzwaB6JD1QWV7pLJ5E=; b=M2em8Vf1E8oj6xa3D9WsrauoJ+
+	s5z4FVGH6oZER3jXAd8F18O9zvi32uyFdBRfC8S3nvwxcgtTtac00OLBcqRAaY9mB9xZNpJ8fLO9b
+	bi6foRv/iNlOR/LdozEDra5k+pj4auOtBb1z61SmhihHG2UUMBo1CwzsHbzfovDsUXrDwXYLIkY5U
+	90ioheikIHfAdMMvYt8mD2vKhpd09NBSVpFZnWYPZgtP6oGRe36KI1h07SheG+O0M2yNpeoFdE1FU
+	crp5zY1Y3RC718GBnZEQ/bcFPyNMknWTtnpIE7LSJbtDyW7bGfm5aP8t6wWxfx71T2N8iL+xM5zp5
+	EPHI8gFA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xCJ2p-00000009aP6-1Mty;
-	Thu, 01 Oct 2026 15:50:03 +0000
-Received: from smtpout-02.galae.net ([185.246.84.56])
+	id 1xCJ3h-00000009aYx-2DFY;
+	Thu, 01 Oct 2026 15:50:57 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xCJ2k-00000009aNq-11DQ
+	id 1xCJ3d-00000009aXn-0Y0f
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 01 Oct 2026 15:50:00 +0000
-Received: from smtpout-01.galae.net (smtpout-01.galae.net [212.83.139.233])
-	by smtpout-02.galae.net (Postfix) with ESMTPS id 23B291A1360;
-	Thu,  1 Oct 2026 15:49:55 +0000 (UTC)
-Received: from mail.galae.net (mail.galae.net [212.83.136.155])
-	by smtpout-01.galae.net (Postfix) with ESMTPS id E56BF60343;
-	Thu,  1 Oct 2026 15:49:54 +0000 (UTC)
-Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id BAD94103282D5;
-	Thu,  1 Oct 2026 17:49:40 +0200 (CEST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=dkim;
-	t=1790869792; h=from:subject:date:message-id:to:cc:mime-version:content-type:
-	 content-transfer-encoding:in-reply-to:references;
-	bh=uGiWo6C+ycX09EU8H32CDb7AmZmrCKj9IV2lN2Mp/Hk=;
-	b=ieDfAB85stwwyZZSONxP4MucbdJVdGaD4CpTNy0XtKFsHuWU+pNP8OS+xoLFHBrWXaM/Vp
-	1WYzN+Wc8w6iie1fbCnX32LrMk6e5YzcWJnq1SKuenvHkWs0XZytGUfVprH2foGRrwKqBn
-	ZWNyWpZxptuyAsWuQ/dcVlL7W+hgLx0KBfqpf8PflbL0Np7aC6MD86rEJaMHhGC2TF9P+T
-	pzorWpQcNQpiRbvbXIEUJXHGri4D5wGd1qywEMeZGLxL3XLDuoBwXb6DIiZNK3lK0/BF0j
-	PPDx1NfHnVBER6DpUYsTEn45LfFjbpasGktZ1AsxhDb/j1/C1zMS+rJOgrwA7w==
-Mime-Version: 1.0
-Content-Transfer-Encoding: quoted-printable
-Content-Type: text/plain; charset=UTF-8
-Date: Thu, 01 Oct 2026 17:49:39 +0200
-Message-Id: <DLTMCR2DR484.2J56NLPQEQO3M@bootlin.com>
-Subject: Re: [PATCH v2 0/7] drm: remove deprecated *_of_get_bridge() from
- non-OF drivers (fixes build regression)
-Cc: "Arnd Bergmann" <arnd@kernel.org>, "Doug Anderson"
- <dianders@chromium.org>, "Hui Pu" <Hui.Pu@gehealthcare.com>, "Ian Ray"
- <ian.ray@gehealthcare.com>, "Thomas Petazzoni"
- <thomas.petazzoni@bootlin.com>, <dri-devel@lists.freedesktop.org>,
- <imx@lists.linux.dev>, <linux-arm-kernel@lists.infradead.org>,
- <linux-kernel@vger.kernel.org>, <linux-renesas-soc@vger.kernel.org>,
- "kernel test robot" <lkp@intel.com>
-To: "Luca Ceresoli" <luca.ceresoli@bootlin.com>, "Maarten Lankhorst"
- <maarten.lankhorst@linux.intel.com>, "Maxime Ripard" <mripard@kernel.org>,
- "Thomas Zimmermann" <tzimmermann@suse.de>, "David Airlie"
- <airlied@gmail.com>, "Simona Vetter" <simona@ffwll.ch>, "Frank Li"
- <Frank.Li@nxp.com>, "Sascha Hauer" <s.hauer@pengutronix.de>, "Pengutronix
- Kernel Team" <kernel@pengutronix.de>, "Fabio Estevam" <festevam@gmail.com>,
- "Icenowy Zheng" <zhengxingda@iscas.ac.cn>, "Andrzej Hajda"
- <andrzej.hajda@intel.com>, "Neil Armstrong" <neil.armstrong@linaro.org>,
- "Robert Foss" <rfoss@kernel.org>, "Laurent Pinchart"
- <Laurent.pinchart@ideasonboard.com>, "Jonas Karlman" <jonas@kwiboo.se>,
- "Jernej Skrabec" <jernej.skrabec@gmail.com>, "Dave Stevenson"
- <dave.stevenson@raspberrypi.com>, =?utf-8?q?Ma=C3=ADra_Canal?=
- <mcanal@igalia.com>, "Raspberry Pi Kernel Maintenance"
- <kernel-list@raspberrypi.com>, "Geert Uytterhoeven"
- <geert+renesas@glider.be>
-From: "Luca Ceresoli" <luca.ceresoli@bootlin.com>
-X-Mailer: aerc 0.22.0
-References: <20260929-drm-fix-of_get_bridge-build-regression-v2-0-6da431d8f180@bootlin.com>
-In-Reply-To: <20260929-drm-fix-of_get_bridge-build-regression-v2-0-6da431d8f180@bootlin.com>
-X-Last-TLS-Session-Version: TLSv1.3
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261001_084958_423590_1206753C 
-X-CRM114-Status: GOOD (  11.38  )
+	Thu, 01 Oct 2026 15:50:55 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by tor.source.kernel.org (Postfix) with ESMTP id 4FDF560A6A;
+	Thu,  1 Oct 2026 15:50:52 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 97D4C1F000FF;
+	Thu,  1 Oct 2026 15:50:49 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1790869852;
+	bh=38PEju8gJraz7rj/lcXRXGwgYOzwaB6JD1QWV7pLJ5E=;
+	h=From:To:Cc:Subject:Date:In-Reply-To:References;
+	b=e6dqT27Z4SMNBytpWWlfL5w3s5ueCegHCiUgSDc2ZMEbD2bEswlCFECsVY+uPTcQF
+	 OJZVcmsT1d1FHkANFS6MKuXP+V3Qxcvg3LoKWk5M8xzSoi9h2qY2b+ToIgzoFn0jy0
+	 hVfnyb14YLbGSN3DOo0GfoGPdnSdvlw9WFZGROSEBne/2Uel4Khf3ihI5NHQZzHE8y
+	 E+hkT61NbbqlJdoRL7xdrtVlqLBS5UF6NsXYE1uJPNn+oOu2aztEqz/5aknt5MkT1w
+	 MIJfa9ZPAgWBbnHXAyzgAf1RXuBlVgGj8KpmK8WhwEbavVVzaGB2iVKFnVEyWTvT6t
+	 uU0m2Vk6lOarg==
+From: Will Deacon <will@kernel.org>
+To: linux-arm-kernel@lists.infradead.org,
+	Beata Michalska <beata.michalska@arm.com>
+Cc: catalin.marinas@arm.com,
+	mark.rutland@arm.com,
+	kernel-team@android.com,
+	Will Deacon <will@kernel.org>,
+	Vladimir.Murzin@arm.com,
+	suzuki.poulose@arm.com,
+	James.Morse@arm.com,
+	xuewen.yan94@gmail.com,
+	seanwang1@lenovo.com,
+	linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v4 0/2] arm64: errata: Share broken AMU constant-counter handling
+Date: Thu,  1 Oct 2026 16:50:42 +0100
+Message-ID: <179085736057.651403.12389463608357199980.b4-ty@kernel.org>
+X-Mailer: git-send-email 2.47.3
+In-Reply-To: <20261001090050.3849551-1-beata.michalska@arm.com>
+References: <20261001090050.3849551-1-beata.michalska@arm.com>
+MIME-Version: 1.0
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 8bit
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -95,39 +78,24 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue Sep 29, 2026 at 3:39 PM CEST, Luca Ceresoli wrote:
-> After commit Fixes: aa8a8c7e4641 ("drm/bridge: panel: move all code to
-> drm_panel.c") some drivers fail building:
->
->   error: implicit declaration of function 'devm_drm_of_get_bridge'
->
-> This is because devm_drm_of_get_bridge() (and drmm_of_get_bridge()) have
-> been moved to drm-panel.h.
->
-> The affected drivers are those which:
->
->  * can be built without CONFIG_OF, and
->  * don't include drm_panel.h
->
-> The affected drivers are 3, fix them (patches 1-3) by replacing the
-> deprecated *_of_get_bridge() calls with of_drm_get_bridge_by_endpoint().
->
-> While there, do the same for all drivers which be built without CONFIG_OF=
-,
-> even if they don't fail (patches 4-7).
->
-> Signed-off-by: Luca Ceresoli <luca.ceresoli@bootlin.com>
+On Thu, 01 Oct 2026 11:00:30 +0200, Beata Michalska wrote:
+> This series factors out the existing Cortex-A510 erratum 2457168 AMU constant
+> counter workaround into a generic broken AMU constant-counter capability,
+> then wires Cortex-A725 erratum 3821522 into the same handling.
+> 
 
-Patches 1-4 and 7 applied to drm-misc-next. This includes all fixes to the
-known regressions.
+Applied to arm64 (for-next/fixes), thanks!
 
-The two missing patches (5-6) are improvements, not bugfixes, and have
-changes requested. I will send a v3 later on.
+[1/2] arm64: errata: Factor out broken AMU const counter cap
+      https://git.kernel.org/arm64/c/573371caf7ae
+[2/2] arm64: errata: Add Cortex-A725 erratum 3821522 workaround
+      https://git.kernel.org/arm64/c/45f730467987
 
-Luca
+Cheers,
+-- 
+Will
 
---
-Luca Ceresoli, Bootlin
-Embedded Linux and Kernel engineering
-https://bootlin.com
+https://fixes.arm64.dev
+https://next.arm64.dev
+https://will.arm64.dev
 
