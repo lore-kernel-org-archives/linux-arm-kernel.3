@@ -4,121 +4,79 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4ACC6CA5FD4
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  1 Oct 2026 21:06:25 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B9589CA5FD4
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  1 Oct 2026 21:07:38 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=zQjpYhlPNUCc8b2PKOBh4ENa5gh7HULkWsy4SYnLXSM=; b=2yfRtgcUJW+T3Aai+ePMfiupP/
-	f0D+YUMDZIhGWeC/+oQPSutB+MK/KvOXh4lPP1Hu+P88mLV4YoWqwKtXh1WAJzYLBan/JfBVApaqI
-	HBjq0IVAeq/CRxNO4fU8s7c3OWzmnA56hH5LzBTvGAjwnjwWifxvbYAgcCC+nz6NlRLvjZGGHtwyQ
-	owuWBYWYrT4p97V5ogDbVshS3bAG8GOZVg3kS+3LQYkRSZ8+73zTXn6aBdKibyW4NnWSHacuDojk/
-	q6Vm2PjXzeYYUWZ63rVI8ecRK91c0tkDgHErkCA9Eh183xJOl4mP2hyj2IICX/3JOicpEqZVBakh7
-	Pwhfxc8A==;
+	bh=H6/LFLPNfnv33X+hQA/Y4rBVZxSFcDoYhQAwew2z5BE=; b=3cXnFK80BASq0Jg/dJnYM8pgmT
+	lyN1xiIYFiaozcdmijVvtlbqcZ4S86ZiqdLfq4+wceu7fwklrzWNeB8zx5tCw/UBxIpwms82yunwQ
+	Talg4eo8iH2QX5TTXWxk8sJBpySECPLCLvoyh4U2bZNDvMy5iG2xGdtOmLbweBYdTGYBbYcIssrho
+	6vDMjf1EAocKfsBGB9rygYkYrePoAgH0cY+iRKfCe2Ixs7jgYy28aTo36MoDrm4T+OTeovzg+bZTn
+	Ey2nOXZDwrfbdKDQzJtSIYk6W+FcCrg/DXjvJ2LgFp0+LtfSNGtGXei/YS6x8h1TQTYONxokenmID
+	VSEbSHDQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xCNyo-0000000ACZI-0VxR;
-	Thu, 01 Oct 2026 21:06:14 +0000
-Received: from mail-pz2-x10.google.com ([2607:f8b0:4864:3b::10])
-	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xCNyk-0000000ACXu-2fuV
+	id 1xCO04-0000000ACl0-2m2A;
+	Thu, 01 Oct 2026 21:07:32 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1xCO02-0000000ACjt-0Z4f
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 01 Oct 2026 21:06:12 +0000
-Received: by mail-pz2-x10.google.com with SMTP id d2e1a72fcca58-8633a38df87so3047621b3a.2
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 01 Oct 2026 14:06:07 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1790888767; cv=none;
-        d=google.com; s=arc-20260327;
-        b=M0xoeQTFKMMCHrv1rfp3AdZOcjZq6qXd8f7t+2pPgVwjkiHUnnjYBvzb3iEsmZLx92
-         kKkEno+Jk3jsU3/4wjNzp0JTM7dbDaRiDJ93sF7X5sgV6E8BzdiIQZoaEF/Ar+mwEAmI
-         WQWCdyERzasxnepTLF93p0dT0Upa33os5uAjSKgLf3vTMW9SlTWGNorHSGKEXF1+Pcx2
-         ZJgX0uWnwO0nS3CqoYPI6+kVNuzFGRG8LS/FnxKHW34onnN3hJWboxTn/uEWUw1ZuzEU
-         J8HGkCjrsO4JtYcO9UUZNXbDFmq/Ll4DuboUI3gpKTSQ1XtZdThE6xDbZ08EC/ZHMtml
-         +jIA==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:dkim-signature;
-        bh=zQjpYhlPNUCc8b2PKOBh4ENa5gh7HULkWsy4SYnLXSM=;
-        fh=VXNZmtO7gBOvpCUjV/TSR0jyOzjfzJLEZAYkyLbY/PQ=;
-        b=GnzWrR0L5KWs6pmdBu6d92cv3qKuLewPOKgxmbErb0WWtbidoF8BLzYrIjgh3hvdbN
-         DrIlm9NYHcyAA9H5NmLk6T2JT56OYQnp7WgL0M/KnNgaiQ0wH6WsFmQhuO/j+HW5h35J
-         BD7miYoG9YeYmQzpRljZVa368UL1tKnpXvhN+JoqymNDFPKF50hSgaOaXTg2kXCVuhm5
-         kKMlxTLdnYEz5+rFkOvYFu7ErvGOLBDEldd1EyrUecUpgh5u2HBSiwSp27U2lHuxc9rd
-         AYyl+fm9726VjpqVjZ4wSJqdSjn7OJV8E39nj1Xh/Nl+0Dm3gOZwTwDqxwuMcOyBxYUx
-         7w0A==;
-        darn=lists.infradead.org
-ARC-Authentication-Results: i=1; mx.google.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=paul-moore.com; s=google; t=1790888767; x=1791493567; darn=lists.infradead.org;
-        h=content-transfer-encoding:content-type:cc:to:subject:message-id
-         :date:from:in-reply-to:references:mime-version:from:to:cc:subject
-         :date:message-id:reply-to:content-type;
-        bh=zQjpYhlPNUCc8b2PKOBh4ENa5gh7HULkWsy4SYnLXSM=;
-        b=DN/VIJm/TVF33kWwQQj8JT3e4luI0EuPjE6obgYGddC8GUaWXvnLl0Af6mkX86sDhS
-         sSVcpoHXrF0CkHCNh/XL04L3PoTDInpKTuj9/niTRjVlZo0qSVLynAd0Jo6AJIFIPvS2
-         +BYTfjfdyjDd5FVRmCwTVvYsUT0/FEDxZh+EQIj2l1LXjEmLoU+QyTPqs1FY5ZHrlT+o
-         xWYIo8/5+r1qQMI/lr+nLSi0aeztrvufqRJQwO7W5vJluz/mAnh197hH0nO7qbJDV72W
-         odjOXXjcYwtJfmLfLLZAaMa2QzwHxGgqpTGpJ9Z2zAn94D+QqFd2ghoErT5GzNT2Ucvg
-         AIgg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1790888767; x=1791493567;
-        h=content-transfer-encoding:content-type:cc:to:subject:message-id
-         :date:from:in-reply-to:references:mime-version:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=zQjpYhlPNUCc8b2PKOBh4ENa5gh7HULkWsy4SYnLXSM=;
-        b=Vbt/CCYP1nIpM3tnCsVjm3ylnGkMrErDuZTjo8BxeGQlJx713hazwBxM78OJIl22bs
-         Bz3Eg6hr/htFe6tcs4QWYCcOaQm9X06My4Eoj5mIR8GXzU/jKSm6hoNzWOysbRvo3c44
-         pcKkv5wAm6XuNGfOpPdXDXX/5D4dU/GALPv3IdIKRq1e16gvfje9AblmM6RER3lw1FYw
-         A2sHRfdtugAGV0X22mQp4rrm5h+M4Ahl7/GSejkFPFp5a/8ukkD+x1kfCdYqtWpfPDgn
-         f4sJZ/FktFrIjIex/M9dt97GA+gHCv+Cx+uLMvZKxA5421dKBI/R1XiVBa3l7F0DHkBV
-         FtCQ==
-X-Forwarded-Encrypted: i=1; AKwUvBwqXuoTiphlmGb3dm1R7m6TxvWRCdeK7vorWQFcaMhA/Fr6t5a74D9+tLS0upvpnID/OxHLEKD41cERPVyvcZIl@lists.infradead.org
-X-Gm-Message-State: AFuF++mnEfAFIBZquWdhB3QZOmVgLrF7Pm+rlaAxJuWsxRCVrGaw55rB
-	E0g3y0BYMZys4KRn0U/DGK11jyPKbrcTphrucYt/xubURdnmuegqFTHvCn7UJOfUaGGTsZbSsgo
-	MD0XA5VFWcBuGaBFQ9/ZfF28BtAV+DRK2eBoWuxHw
-X-Gm-Gg: AYBFou3MCYnjR/dxxvbeS3cRX4wIJ+SJg7+PL3o+eHRzU2fi2Qf3eCqg8Bx2Q8pW5K6
-	OkOJRruAs3DpByyhm2REuIKBcaTDq0sqqhA1MoIo2UFUcE9M0Yai6mShlqMEdjRSNtBcBJcxADR
-	uJp7qqgKceTZenUVTMcLSy3e77pWP74eYGeD5KRFvqVZbu8Yzhugo5Zie89g2RizWIugstVjst+
-	/5AexD508HDgNoIoUKIzjqTMto2jA5A56va+oBmIpdoArSYr9FSCBH17V6nfibq+qBy0EwEAMOK
-	h21Vb1YawjCF8ZSV+WvMTuutm4B4+kZK2U1u2mKnvSulDHWE6uaDFYB0U2uNTWHGFks64ibytg+
-	JjkzIkTlOFFTB
-X-Received: by 2002:a05:6a00:1254:b0:881:5dcb:400e with SMTP id
- d2e1a72fcca58-88af6d24f34mr727169b3a.56.1790888767004; Thu, 01 Oct 2026
- 14:06:07 -0700 (PDT)
+	Thu, 01 Oct 2026 21:07:31 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id B90FC497;
+	Thu,  1 Oct 2026 14:07:24 -0700 (PDT)
+Received: from ewhatever.cambridge.arm.com (ewhatever.cambridge.arm.com [10.2.197.99])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPA id 9F42A3F86F;
+	Thu,  1 Oct 2026 14:07:24 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
+	t=1790888848; bh=tQPgXa0jI7YAYMnIJ4TZ6BAVtiDhJcnzdYxdyAnW4NQ=;
+	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
+	b=Dsiuhkrgp/f3tyW1xyU130N4Gz6BTdT/2fOWBbqHdpbDTKbkLw71V2FPDT2Bg9Zb7
+	 pkOTXJcI/9zy6wquq5hxT7U2IcJvnY+A+PlylLh/63bn7myRN4Jyd/qA7/lTFeZrii
+	 UXnoAFmPuxAIVtlQ/k+e2F3IkjEXuaUIxxR18KCI=
+From: Suzuki K Poulose <suzuki.poulose@arm.com>
+To: kvm@vger.kernel.org,
+	kvmarm@lists.linux.dev
+Cc: maz@kernel.org,
+	will@kernel.org,
+	catalin.marinas@arm.com,
+	linux-kernel@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	steven.price@arm.com,
+	aneesh.kumar@kernel.org,
+	oupton@kernel.org,
+	gshan@redhat.com,
+	joey.gouly@arm.com,
+	tabba@google.com,
+	yuzenghui@huawei.com,
+	linux-coco@lists.linux.dev,
+	gankulkarni@os.amperecomputing.com,
+	sdonthineni@nvidia.com,
+	alpergun@google.com,
+	fj0570is@fujitsu.com,
+	WeiLin.Chang@arm.com,
+	lpieralisi@kernel.org,
+	enju.kohei@fujitsu.com,
+	sudeep.holla@arm.com,
+	jonathan.cameron@oss.qualcomm.com,
+	Suzuki K Poulose <suzuki.poulose@arm.com>,
+	Fuad Tabba <fuad.tabba@linux.dev>
+Subject: [PATCH v21 02/23] KVM: arm64: Disable Steal time accounting for protected guests
+Date: Thu,  1 Oct 2026 22:06:42 +0100
+Message-ID: <20261001210703.1597150-3-suzuki.poulose@arm.com>
+X-Mailer: git-send-email 2.43.0
+In-Reply-To: <20261001210703.1597150-1-suzuki.poulose@arm.com>
+References: <20261001210703.1597150-1-suzuki.poulose@arm.com>
 MIME-Version: 1.0
-References: <cover.1790088067.git.rrobaina@redhat.com>
-In-Reply-To: <cover.1790088067.git.rrobaina@redhat.com>
-From: Paul Moore <paul@paul-moore.com>
-Date: Thu, 1 Oct 2026 17:05:54 -0400
-X-Gm-Features: AclHuK923qNeclwyxHc-N96rTW9f--kU_8IWc_3FVDcJfFTXqnWMr4asd_Mjppw
-Message-ID: <CAHC9VhQ=FFYVNmQdiMsqg+5KDDrSC3SZS+H2=r_GkhfwQox8tg@mail.gmail.com>
-Subject: Re: [PATCH v3 00/14] audit: log all six syscall arguments in the
- SYSCALL record
-To: Ricardo Robaina <rrobaina@redhat.com>
-Cc: audit@vger.kernel.org, linux-kernel@vger.kernel.org, 
-	linux-alpha@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
-	linux-csky@vger.kernel.org, linux-mips@vger.kernel.org, 
-	linux-openrisc@vger.kernel.org, linux-parisc@vger.kernel.org, 
-	linux-sh@vger.kernel.org, sparclinux@vger.kernel.org, 
-	linux-um@lists.infradead.org, bpf@vger.kernel.org, eparis@redhat.com, 
-	sgrubb@redhat.com, oleg@redhat.com, richard.henderson@linaro.org, 
-	mattst88@gmail.com, linmag7@gmail.com, linux@armlinux.org.uk, 
-	catalin.marinas@arm.com, will@kernel.org, guoren@kernel.org, monstr@monstr.eu, 
-	tsbogend@alpha.franken.de, jonas@southpole.se, 
-	stefan.kristiansson@saunalahti.fi, shorne@gmail.com, 
-	James.Bottomley@hansenpartnership.com, deller@gmx.de, 
-	ysato@users.sourceforge.jp, dalias@libc.org, glaubitz@physik.fu-berlin.de, 
-	davem@davemloft.net, andreas@gaisler.com, richard@nod.at, 
-	anton.ivanov@cambridgegreys.com, johannes@sipsolutions.net, chris@zankel.net, 
-	jcmvbkbc@gmail.com, tglx@kernel.org, peterz@infradead.org, luto@kernel.org
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261001_140610_817988_869346A4 
-X-CRM114-Status: GOOD (  23.07  )
+X-CRM114-CacheID: sfid-20261001_140730_720193_E67B5CD7 
+X-CRM114-Status: GOOD (  12.08  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -133,51 +91,95 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Sep 22, 2026 at 3:21=E2=80=AFPM Ricardo Robaina <rrobaina@redhat.co=
-m> wrote:
->
-> The SYSCALL record currently logs only four of the six syscall
-> arguments (a0-a3), silently discarding the remaining two. This
-> leads to the need for auxiliary records when audit-relevant
-> data lands in the 5th or 6th argument of a syscall.
->
-> This series extends the SYSCALL record to log all six arguments,
-> by adding arguments a4 and a5 inline within the existing record.
+PVTIME support is advertised by KVM_CAP_STEAL_TIME, which doesn't take into
+account the kvm instance. Even with that, a VMM could skip the CAP check
+and proceed to configure the PVTIME as we don't do further check on the
+DEVICE_CTRL. Tighten this up by passing the KVM instance around wherever
+possible and catch things early.
 
-Thanks Ricardo, this looks great!
+Reviewed-by: Fuad Tabba <fuad.tabba@linux.dev>
+Tested-by: Gavin Shan <gshan@redhat.com>
+Signed-off-by: Suzuki K Poulose <suzuki.poulose@arm.com>
+---
+ arch/arm64/include/asm/kvm_host.h |  2 +-
+ arch/arm64/kvm/arm.c              |  2 +-
+ arch/arm64/kvm/pvtime.c           | 14 +++++++-------
+ 3 files changed, 9 insertions(+), 9 deletions(-)
 
-There are a few things in some of the individual patches which I reply
-to in a minute, but there are a couple of "global" things that I
-wanted to mention:
+diff --git a/arch/arm64/include/asm/kvm_host.h b/arch/arm64/include/asm/kvm_host.h
+index 27fe0cd5b2d7a..286489a69dff5 100644
+--- a/arch/arm64/include/asm/kvm_host.h
++++ b/arch/arm64/include/asm/kvm_host.h
+@@ -1346,7 +1346,7 @@ long kvm_hypercall_pv_features(struct kvm_vcpu *vcpu);
+ gpa_t kvm_init_stolen_time(struct kvm_vcpu *vcpu);
+ void kvm_update_stolen_time(struct kvm_vcpu *vcpu);
+ 
+-bool kvm_arm_pvtime_supported(void);
++bool kvm_arm_pvtime_supported(struct kvm *kvm);
+ int kvm_arm_pvtime_set_attr(struct kvm_vcpu *vcpu,
+ 			    struct kvm_device_attr *attr);
+ int kvm_arm_pvtime_get_attr(struct kvm_vcpu *vcpu,
+diff --git a/arch/arm64/kvm/arm.c b/arch/arm64/kvm/arm.c
+index 8b080804bc90b..db36815630790 100644
+--- a/arch/arm64/kvm/arm.c
++++ b/arch/arm64/kvm/arm.c
+@@ -447,7 +447,7 @@ int kvm_vm_ioctl_check_extension(struct kvm *kvm, long ext)
+ 		r = system_supports_mte();
+ 		break;
+ 	case KVM_CAP_STEAL_TIME:
+-		r = kvm_arm_pvtime_supported();
++		r = kvm_arm_pvtime_supported(kvm);
+ 		break;
+ 	case KVM_CAP_ARM_EL1_32BIT:
+ 		r = cpus_have_final_cap(ARM64_HAS_32BIT_EL1);
+diff --git a/arch/arm64/kvm/pvtime.c b/arch/arm64/kvm/pvtime.c
+index 4ceabaa4c30bd..579e0a4720ad2 100644
+--- a/arch/arm64/kvm/pvtime.c
++++ b/arch/arm64/kvm/pvtime.c
+@@ -67,9 +67,9 @@ gpa_t kvm_init_stolen_time(struct kvm_vcpu *vcpu)
+ 	return base;
+ }
+ 
+-bool kvm_arm_pvtime_supported(void)
++bool kvm_arm_pvtime_supported(struct kvm *kvm)
+ {
+-	return !!sched_info_on();
++	return !!sched_info_on() && (!kvm || !kvm_vm_is_protected(kvm));
+ }
+ 
+ int kvm_arm_pvtime_set_attr(struct kvm_vcpu *vcpu,
+@@ -81,8 +81,8 @@ int kvm_arm_pvtime_set_attr(struct kvm_vcpu *vcpu,
+ 	int ret = 0;
+ 	int idx;
+ 
+-	if (!kvm_arm_pvtime_supported() ||
+-	    attr->attr != KVM_ARM_VCPU_PVTIME_IPA)
++	if (!kvm_arm_pvtime_supported(kvm) ||
++	    (attr->attr != KVM_ARM_VCPU_PVTIME_IPA))
+ 		return -ENXIO;
+ 
+ 	if (get_user(ipa, user))
+@@ -110,8 +110,8 @@ int kvm_arm_pvtime_get_attr(struct kvm_vcpu *vcpu,
+ 	u64 __user *user = (u64 __user *)attr->addr;
+ 	u64 ipa;
+ 
+-	if (!kvm_arm_pvtime_supported() ||
+-	    attr->attr != KVM_ARM_VCPU_PVTIME_IPA)
++	if (!kvm_arm_pvtime_supported(vcpu->kvm) ||
++	    (attr->attr != KVM_ARM_VCPU_PVTIME_IPA))
+ 		return -ENXIO;
+ 
+ 	ipa = vcpu->arch.steal.base;
+@@ -126,7 +126,7 @@ int kvm_arm_pvtime_has_attr(struct kvm_vcpu *vcpu,
+ {
+ 	switch (attr->attr) {
+ 	case KVM_ARM_VCPU_PVTIME_IPA:
+-		if (kvm_arm_pvtime_supported())
++		if (kvm_arm_pvtime_supported(vcpu->kvm))
+ 			return 0;
+ 	}
+ 	return -ENXIO;
+-- 
+2.43.0
 
-* As pointed out by Sashiko, when you were converting all of the
-arches, it looks like you missed alpha.  I took a quick look and it
-appears that it should be a pretty straightforward conversion like
-most of the others.
-
-* We need to get ACKs from all the various arch maintainers.  Aside
-from the parisc changes all of your arch specific patches are trivial
-(and cleaner than the existing code IMO) so I don't expect anyone to
-complain, but getting ACKs will likely take some time.  Even the
-parisc patches aren't that bad, and arguably they fix a problem for
-seccomp so that should make asking for ACKs easier :)
-
-Since I expect chasing down all the various maintainers for ACKs will
-take a little while, and I'd like to start getting this patchset some
-basic testing, I'm going to merge it into dev-staging now.  While the
-dev-staging branch doesn't feed into linux-next (this isn't likely to
-land in the next merge window) it is one of the branches that gets
-tested automatically and included in my kernel-secnext RPM builds.
-This also means you won't need to worry about keeping this patchset
-up-to-date with rebasing, as I rebase dev-staging as needed (it
-intentionally isn't a stable branch).  Going forward, if there are any
-minor changes to this patchset, e.g. a few line change in one of two
-patches, please just send a fixup patchset based against
-audit/dev-staging and I'll squash it into the relevant patch in the
-series.  However, in the unlikely event that a major rewrite is
-needed, just send a new patchset ... but I'll be very surprised if
-that happens here :)
-
---=20
-paul-moore.com
 
