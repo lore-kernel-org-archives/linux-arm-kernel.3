@@ -4,70 +4,63 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8201BCA5FD2
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  1 Oct 2026 14:32:52 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D3FFBCA5FD2
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  1 Oct 2026 14:35:35 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
-	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ZubPw8nbdYjCvgsg5d5Z5G+EyGIkfXysT9UUvILely4=; b=LvwYzqgpTRFJDlA0RFKt3zAeoC
-	eY91x8ngM+jYtv2M0rk9prOdVxVHYVYKIwcGtBVoHhfzVi5MDNY0Bdy0uuKicfC8NXfVW+jaRBAmx
-	CE5O5W9URRLcgLzzuLiOHw2AncbGMH/Ep+xWSAdKAq6vX8UVo0GQUyZ9C40ZHZbtwD4cqUx0ppHiS
-	i0QD40RahXMXrumT2nbKUpc7tbIAyvA5CNNLRUU+AR/rq/tfweWto0fgX9jEeIe1k/HgcQAr4H5EF
-	67EiBssjokaYtArpB6NO0jiLj8VESMKnRCbXaD8KoXXtXPbWVySH+dY1KEIyN4qPdYGsdxbt9m5OG
-	/nuxr0pg==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Cc:List-Subscribe:
+	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-ID:Subject:To:
+	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=k/IwPDM4uQwinZ6vpUMMDSfiapx1SuzFEtGXvxkRX1Q=; b=PVvKMlxXvfvffv
+	jVEyN2rviW0NVURA5b+5PLs2mpVnldSl6ll3T1FDtAlQroHjJZ/WFeig4wSWMQYRXzEfz5quWAS4D
+	7Y3mi3kbbKIjJeqkheMrluO233ZVcsmKXmBzjSfhXt7GvlbfkR+/ONi5gZImnNvnzvMaEGxrjjh1L
+	JSapXX4FPP6qE2ybTV/JMSzTTcZNjRqV/Fd97UhCFQTqJP3tGdFSmdAxfKSdnIgF/dXxLQDDb6HL5
+	zqQgZqwJ004hCG9ywD/ouOCEblDFEXprwEWBBtzdNzoHD1wkNixoqK6Q4n5qdqfOQZSCYrpVz48LH
+	ucLUMaT7PjMlDPipBQWQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xCHpz-00000009PBk-0sUH;
-	Thu, 01 Oct 2026 14:32:43 +0000
-Received: from out-56.mta0.migadu.com ([2001:41d0:1004:224b::38] helo=mta0.migadu.com)
+	id 1xCHsd-00000009Pbj-0LY0;
+	Thu, 01 Oct 2026 14:35:27 +0000
+Received: from galois.linutronix.de ([193.142.43.55])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xCHpv-00000009PAa-0a8h
+	id 1xCHsa-00000009PaJ-1FJj
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 01 Oct 2026 14:32:41 +0000
-X-Envelope-To: linux-arm-kernel@lists.infradead.org
-DKIM-Signature: a=rsa-sha256; bh=999ozKnr12qqAVi3LloNIavbUCDjUOpW5yhPr1EvpdY=;
- c=simple/simple; d=linux.dev;
- h=from:to:subject:date:message-id:mime-version:content-type; s=key1;
- t=1790865156; v=1; x=1791469956;
- b=isgpmZuTNKxPrmwACs/PBUz1efb5qtIazPb68PZSZo7VE+R+XXrl0N/q6gK+jb26iZ2Mm8c+
- mq0dutrJ5Y69XwZWqw4rht3ULS5kjYCFyKxRsSdc9c1YjsxKekdqJiUYPa4iX8KUJXd5rgLvsdV
- Qv0GKaejSb9FaJ9sISsUECEw=
-X-Envelope-To: linux-arm-kernel@lists.infradead.org
-Received: by smtp.migadu.com with ESMTPS id 9bad505520d93b6e;
-	Thu, 01 Oct 2026 14:32:36 +0000
-X-Mizu-Trace-ID: 9bad505520d93b6e
-X-Migadu-Flow: FLOW_OUT
-Received: by mail-lf1-f44.google.com with SMTP id 2adb3069b0e04-5ba429b64c5so8151e87.1
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 01 Oct 2026 07:32:32 -0700 (PDT)
-X-Forwarded-Encrypted: i=1; AKwUvByiYeYL+vKDk0qdea0lxaQOU/aFbQbekktB5I/yYIfn5aHw21apuapV+cHS493HHczAvd60t+texrm1ySyP/Wd0@lists.infradead.org
-X-Gm-Message-State: AFq9FYKdJT8YBK6xrMGfYuxbks3BRPaTG1jZ26lm5fGpEIMOBaVXzv8I
-	7ub3iWdlzgjxZwwhhTzqtlcbHZ0n7KhfmzuVjldTZqupt3QZnV5oj1u956B35NIT2MqzBu1ZN6g
-	/F6Tkqvu66I4Dexch5Jo3w4RNf5vZx8kw0skOansB
-X-Received: by 2002:a05:6512:3194:b0:5b8:d04b:a1be with SMTP id
- 2adb3069b0e04-5bb7944842dmr58567e87.2.1790865151162; Thu, 01 Oct 2026
- 07:32:31 -0700 (PDT)
+	Thu, 01 Oct 2026 14:35:25 +0000
+Date: Thu, 1 Oct 2026 16:35:16 +0200
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linutronix.de;
+	s=2020; t=1790865318;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding;
+	bh=k/IwPDM4uQwinZ6vpUMMDSfiapx1SuzFEtGXvxkRX1Q=;
+	b=EGaf6LV77GVDh2qDtBS0L0ovit6VuVSVy4N/Xwz7i0Ta16G5odiDggo/sSO6mXvnmlheX+
+	fdi4vJcobMcItHJvKKfvUecvUL5egi4PtQ9NzOut7kuwONuZL1H3xZCxn42ItqZwIhemAQ
+	036pj9i9DY8MsJPcwVaVtF3S0cT1F+L66zUzqkS+rOWsocEQfgfO4nD7YvB3T2u5LZvuN6
+	pX6kAvgGpylcZCwkFof3ht4Rz1fbtlj4+FudktvQRK2B547T0cNa7G5Fk2F9OznyXftmfe
+	w4hda6syyKrnXfykILWlypx5R1ReV+QsVJZq/xGMnuPy9/fKfVMBTiWkjtDiOQ==
+DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=linutronix.de;
+	s=2020e; t=1790865318;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding;
+	bh=k/IwPDM4uQwinZ6vpUMMDSfiapx1SuzFEtGXvxkRX1Q=;
+	b=qxQIiIiiGy8O4AGTLiYYaXjCtKmrOjVtRNmEImHWYW8A4ahFZYqlL1hApBmfn0uhfLJkDd
+	gnkP2aSO54TzUXBA==
+From: Sebastian Andrzej Siewior <bigeasy@linutronix.de>
+To: linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+	linux-rt-devel@lists.linux.dev, linux-perf-users@vger.kernel.org,
+	loongarch@lists.linux.dev
+Subject: [PATCH v3] ARM, ARM64, LONGARCH, XTENSA: Delay HW BP notification to
+ task_work()
+Message-ID: <20261001143516.Ew8C97WS@linutronix.de>
 MIME-Version: 1.0
-References: <20261001135711.1640520-1-fuad.tabba@linux.dev>
-In-Reply-To: <20261001135711.1640520-1-fuad.tabba@linux.dev>
-From: Fuad Tabba <fuad.tabba@linux.dev>
-Date: Thu, 1 Oct 2026 15:31:55 +0100
-X-Gmail-Original-Message-ID: <CA+EHjTyiwG6=VT1kSfyt+A1aMoTG4q6wdYkNmnDuwAbkz3YsMg@mail.gmail.com>
-X-Gm-Features: AclHuK8-UiMlAsIzvUJY49qlEjdh0TC9CmnSfweB2LsKfWfa236H8RRsE5ESvog
-Message-ID: <CA+EHjTyiwG6=VT1kSfyt+A1aMoTG4q6wdYkNmnDuwAbkz3YsMg@mail.gmail.com>
-Subject: Re: [PATCH v4 00/18] KVM: arm64: Confine protected VM vCPU state to EL2
-To: maz@kernel.org
-Cc: catalin.marinas@arm.com, will@kernel.org, joey.gouly@arm.com, 
-	seiden@linux.ibm.com, suzuki.poulose@arm.com, yuzenghui@huawei.com, 
-	mark.rutland@arm.com, steven.price@arm.com, vdonnefort@google.com, 
-	qperret@google.com, oupton@kernel.org, kvmarm@lists.linux.dev, 
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-Content-Type: text/plain; charset="UTF-8"
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261001_073239_320572_569E4BAB 
-X-CRM114-Status: GOOD (  28.17  )
+X-CRM114-CacheID: sfid-20261001_073524_655481_B5A78649 
+X-CRM114-Status: GOOD (  21.59  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -79,148 +72,312 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
+Cc: Mark Rutland <mark.rutland@arm.com>, Ian Rogers <irogers@google.com>, Peter Zijlstra <peterz@infradead.org>, Catalin Marinas <catalin.marinas@arm.com>, Oleg Nesterov <oleg@redhat.com>, WANG Xuerui <kernel@xen0n.name>, Will Deacon <will@kernel.org>, Huacai Chen <chenhuacai@kernel.org>, Russell King <linux@armlinux.org.uk>, Alexander Shishkin <alexander.shishkin@linux.intel.com>, Ingo Molnar <mingo@redhat.com>, Waiman Long <longman@redhat.com>, Clark Williams <clrkwllms@kernel.org>, "Luis Claudio R. Goncalves" <lgoncalv@redhat.com>, James Clark <james.clark@linaro.org>, Steven Rostedt <rostedt@goodmis.org>, Arnaldo Carvalho de Melo <acme@kernel.org>, Namhyung Kim <namhyung@kernel.org>, Chris Zankel <chris@zankel.net>, Max Filippov <jcmvbkbc@gmail.com>, Adrian Hunter <adrian.hunter@intel.com>, Jiri Olsa <jolsa@kernel.org>
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Marc,
+Waiman, Luis, Ada reported that HW breakpoints on ARM64 trigger
+"sleeping while atomic" warnings on PREEMPT_RT. The hardware event is
+delivered with disabled interrupts and perf intrastrucure expects
+disabled interrupts while the overflow callback is invoked.
 
-Here's a link to the series based on kvmarm/next, conflicts resolved:
+The callback then sends a SIGTRAP signal for which it acquires
+sighand_struct::siglock, a spinlock_t which becomes a sleeping lock and
+must not be acquired in atomic context.
 
-https://android-kvm.googlesource.com/linux/+/refs/heads/tabba/pkvm-core-b-v4-kvmarm-next
+Delay the event callback until the return to userland.
+Add perf_arch_hwbp_notify(), a generic perf callback which delayes the
+actual callback invocation to task_work_add() callback. This callback
+invokes the architecture defines callback arch_hwbp_send_sig().
+This requires struct callback_head and the functions require
+ARCH_NEED_PERF_HW_NOTIF to be defined.
 
-Cheers,
-/fuad
+This was reported against ARM64. ARM, LongARCH and Xtensa follow the
+same pattern are also converted. Xtensa is the only not supporting
+PREEMPT_RT but now we have all architectures using the same pattern.
 
-On Thu, 1 Oct 2026 at 14:57, Fuad Tabba <fuad.tabba@linux.dev> wrote:
->
-> Hi folks,
->
-> Changes since v3 [1]:
->   - A protected vCPU that EL2 holds powered off reads as
->     KVM_MP_STATE_UNINITIALIZED, in place of a new bool. (Marc)
->   - The marshalling and PSCI patches access the host copy through the
->     vCPU accessors, with every assignment on one line. (Marc)
->   - The PC adjustment pair is kvm_adjust_pc_get()/put() and tests for
->     the hyp vCPU directly. (Marc)
->   - CPU_OFF clears the reset flag before its release of OFF, CPU_ON's
->     relaxed cmpxchg is ordered by its control dependency, and the
->     CPU_ON rollback stores OFF with a release. pkvm_reset_vcpu()
->     carries the CPU_ON/CPU_OFF sequence as a comment and drops its
->     WARN_ON(). (Vincent, Will)
->   - Collected Reviewed-bys.
->
-> Following the vCPU state-sync series [3], this series completes the
-> job for protected VMs: a protected guest's register state stays at
-> EL2, and the host sees only what handling each exit requires.
->
-> EL2 marshals a protected vCPU's state per exception class instead of
-> copying the whole context both ways. It owns the vCPU's trap
-> configuration, system register reset and HVC handling, and implements
-> PSCI itself: AFFINITY_INFO is left to the host, and CPU_ON and CPU_OFF
-> are resolved at EL2 with the host only scheduling the target or
-> stopping it. A protected guest's TRNG calls, which the host handled
-> until now, return NOT_SUPPORTED until TRNG for protected guests
-> follows. EL2 implements PSCI 1.1, so a protected guest also loses the
-> functions the host supports above that version, SYSTEM_OFF2 included.
-> Host ioctls that would reach the state EL2 owns fail with -EPERM, so a
-> protected VM's state isn't save/restorable. All of this is scoped
-> to KVM_VM_TYPE_ARM_PROTECTED, and pkvm.rst describes the resulting API.
->
-> The kvmtool changes that go with this are posted separately [4].
->
-> Patches 1 to 3 go out separately: the HCR_EL2.VSE fix [5], and the
-> host vCPU VM read and pin fixes, patches 4 and 5 of the host hypercall
-> fixes series [2]. None of the three is part of this series. They're
-> carried so the series applies as is and Sashiko can run on it.
->
-> The KVM_ARM_PREFERRED_TARGET documentation fix [6] went out just ahead
-> of v1. Nothing here depends on it to apply, but patch 18 documents vCPU
-> feature availability as something the capabilities report, while
-> api.rst 4.83 still points userspace at a bitmap that has always been
-> empty.
->
-> The series is structured as follows:
->
->   01:     The HCR_EL2.VSE fix, posted separately.
->   02-03:  The host vCPU VM read and pin fixes, posted separately.
->   04:     Steal time disabled for protected VMs.
->   05-06:  Per-exception-class entry handlers; EL2 owns a protected
->           vCPU's trap configuration.
->   07-09:  Timer state, system register reset and HVC handling at EL2.
->   10-11:  PSCI at EL2, and the KVM_ARM_VCPU_INIT and PSCI version
->           restrictions.
->   12-14:  Host PC adjustments blocked; an UNDEF at EL2 for exit
->           classes the host doesn't emulate; per-class state
->           marshalling.
->   15-16:  Host changes to private state, and host power-on of a vCPU
->           EL2 holds powered off, rejected.
->   17:     Capability allowlist.
->   18:     Documentation.
->
-> Still to come: selftests, TRNG, self-hosted debug and SVE for protected
-> guests, and much more, as separate series.
->
-> Based on v7.3-rc3 (fd73f4a665989).
->
-> Cheers,
-> /fuad
->
-> [1] https://lore.kernel.org/all/20260914113338.159227-1-fuad.tabba@linux.dev/
-> [2] https://lore.kernel.org/all/20260915123846.2317931-1-fuad.tabba@linux.dev/
-> [3] https://lore.kernel.org/all/20260729131823.2021516-1-fuad.tabba@linux.dev/
-> [4] https://lore.kernel.org/all/20260831192406.1341841-1-fuad.tabba@linux.dev/
-> [5] https://lore.kernel.org/all/20260829071120.2522788-1-fuad.tabba@linux.dev/
-> [6] https://lore.kernel.org/all/20260831162815.269851-1-fuad.tabba@linux.dev/
->
-> Fuad Tabba (16):
->   KVM: arm64: Sync HCR_EL2.VSE back to the host vCPU under pKVM
->   KVM: arm64: Validate the host vCPU's VM before reading it under pKVM
->   KVM: arm64: Pin the host vCPU before adjusting its PC under pKVM
->   KVM: arm64: Disable steal time for protected VMs
->   KVM: arm64: Skip fixed-feature state flush for protected vCPUs
->   KVM: arm64: Add system register reset framework for protected VMs
->   KVM: arm64: Implement HVC handling for protected guests at EL2
->   KVM: arm64: Handle PSCI calls for protected VMs at EL2
->   KVM: arm64: Restrict KVM_ARM_VCPU_INIT and PSCI version for protected
->     VMs
->   KVM: arm64: Prevent host PC adjustments for protected vCPUs
->   KVM: arm64: Inject an UNDEF at EL2 for unhandled protected guest exits
->   KVM: arm64: Add per-EC entry/exit state marshalling for protected
->     guests
->   KVM: arm64: Reject host access to protected VM private state
->   KVM: arm64: Reject host power-on of a vCPU that EL2 holds powered off
->   KVM: arm64: Advertise the capabilities that protected VMs support
->   KVM: arm64: Document the protected VM userspace API
->
-> Marc Zyngier (2):
->   KVM: arm64: Introduce per-EC entry handlers for pKVM
->   KVM: arm64: Add {flush,sync}_hyp_timer_state() primitives
->
->  Documentation/virt/kvm/api.rst                |  27 +-
->  .../virt/kvm/arm/fw-pseudo-registers.rst      |   2 +
->  Documentation/virt/kvm/arm/pkvm.rst           | 164 ++++-
->  Documentation/virt/kvm/devices/vcpu.rst       |   3 +-
->  arch/arm64/include/asm/kvm_host.h             |  22 +-
->  arch/arm64/include/asm/kvm_hyp.h              |   4 +
->  arch/arm64/include/asm/kvm_pkvm.h             |  33 +
->  arch/arm64/kvm/arm.c                          |  76 ++-
->  arch/arm64/kvm/guest.c                        |  11 +
->  arch/arm64/kvm/hyp/exception.c                |  26 +-
->  arch/arm64/kvm/hyp/include/hyp/adjust_pc.h    |  48 ++
->  arch/arm64/kvm/hyp/include/nvhe/pkvm.h        |  20 +
->  arch/arm64/kvm/hyp/nvhe/hyp-main.c            | 595 +++++++++++++++++-
->  arch/arm64/kvm/hyp/nvhe/pkvm.c                | 422 ++++++++++++-
->  arch/arm64/kvm/hyp/nvhe/switch.c              |  29 +-
->  arch/arm64/kvm/hyp/nvhe/sys_regs.c            |  60 ++
->  arch/arm64/kvm/hypercalls.c                   |   7 +
->  arch/arm64/kvm/pkvm.c                         |  21 +-
->  arch/arm64/kvm/psci.c                         |  11 +-
->  arch/arm64/kvm/pvtime.c                       |  10 +-
->  20 files changed, 1503 insertions(+), 88 deletions(-)
->
->
-> base-commit: fd73f4a6659897191fa0d40695fe370925dd3780
-> --
-> 2.39.5
->
+Reported-by: Luis Claudio R. Goncalves <lgoncalv@redhat.com>
+Reported-by: Waiman Long <longman@redhat.com>
+Closes: https://lore.kernel.org/all/aho0eqjMESuHxECr@redhat.com/
+Signed-off-by: Sebastian Andrzej Siewior <bigeasy@linutronix.de>
+---
+
+v2=E2=80=A6v3: https://lore.kernel.org/all/20260814085118.OPEA_Ssn@linutron=
+ix.de/
+ - Add Xtensa for completion
+ - sashiko complains and wants TWA_SIGNAL instead TWA_RESUME. His
+   argument is that a syscall will trap via get_user() and loop forever
+   instead making progress. This is wrong IMHO. ARM64 will single step
+   over the watchpoint and continue execution. The only downside is that
+   userland will get notified after the syscall completed. So my theory.
+   Using TWA_SIGNAL is worse: Assume we have a watchpoint on UADDR and
+   are in a futex() syscall. The get_user() invocation will trigger the
+   exception, the debug handler will step over and queue a signal. The
+   futex code will notice this and return ERESTARTNOINTR. A signal will
+   be sent, the syscall restarts, traps onto UADDR again, the loop
+   continues. But this should be case now, too=E2=80=A6
+   Now that I look into arch_build_bp_info() and do actual testing I must
+   say arm64 does not support mixed breakpoints. This means there is no
+   breakpoint in kernel on a userland address. \o/
+
+v1=E2=80=A6v2: https://lore.kernel.org/all/20260713144939.FuCj9yvZ@linutron=
+ix.de/
+ - sashiko complained that a memory breakpoint might trigger several
+   times before a signal is sent if the syscall touches the memory (via
+   get_user()) more than once before returning back. This would lead to
+   list corruption in task_work_add(). To handle this, there is now a
+   variable which is set via xchg before task_work_add() and cleared
+   after the signal has been sent.
+
+ arch/arm/include/asm/hw_breakpoint.h       |  1 +
+ arch/arm/kernel/ptrace.c                   |  6 ++---
+ arch/arm64/include/asm/hw_breakpoint.h     |  1 +
+ arch/arm64/kernel/ptrace.c                 |  6 ++---
+ arch/loongarch/include/asm/hw_breakpoint.h |  1 +
+ arch/loongarch/kernel/ptrace.c             |  6 ++---
+ arch/xtensa/include/asm/hw_breakpoint.h    |  1 +
+ arch/xtensa/kernel/ptrace.c                |  6 ++---
+ include/linux/hw_breakpoint.h              |  3 +++
+ include/linux/perf_event.h                 |  4 ++++
+ kernel/events/core.c                       | 26 ++++++++++++++++++++++
+ 11 files changed, 45 insertions(+), 16 deletions(-)
+
+diff --git a/arch/arm/include/asm/hw_breakpoint.h b/arch/arm/include/asm/hw=
+_breakpoint.h
+index e7f9961c53b2d..5b3a373348ff5 100644
+--- a/arch/arm/include/asm/hw_breakpoint.h
++++ b/arch/arm/include/asm/hw_breakpoint.h
+@@ -7,6 +7,7 @@
+ struct task_struct;
+=20
+ #ifdef CONFIG_HAVE_HW_BREAKPOINT
++#define ARCH_NEED_PERF_HW_NOTIF
+=20
+ struct arch_hw_breakpoint_ctrl {
+ 		u32 __reserved	: 9,
+diff --git a/arch/arm/kernel/ptrace.c b/arch/arm/kernel/ptrace.c
+index ed7a2a87a6707..ab6ac7b88bd4e 100644
+--- a/arch/arm/kernel/ptrace.c
++++ b/arch/arm/kernel/ptrace.c
+@@ -347,9 +347,7 @@ static long ptrace_hbp_idx_to_num(int idx)
+ /*
+  * Handle hitting a HW-breakpoint.
+  */
+-static void ptrace_hbptriggered(struct perf_event *bp,
+-				     struct perf_sample_data *data,
+-				     struct pt_regs *regs)
++void arch_hwbp_send_sig(struct perf_event *bp)
+ {
+ 	struct arch_hw_breakpoint *bkpt =3D counter_arch_bp(bp);
+ 	long num;
+@@ -424,7 +422,7 @@ static struct perf_event *ptrace_hbp_create(struct task=
+_struct *tsk, int type)
+ 	attr.bp_type	=3D type;
+ 	attr.disabled	=3D 1;
+=20
+-	return register_user_hw_breakpoint(&attr, ptrace_hbptriggered, NULL,
++	return register_user_hw_breakpoint(&attr, perf_arch_hwbp_notify, NULL,
+ 					   tsk);
+ }
+=20
+diff --git a/arch/arm64/include/asm/hw_breakpoint.h b/arch/arm64/include/as=
+m/hw_breakpoint.h
+index bd81cf17744af..58befb79c885c 100644
+--- a/arch/arm64/include/asm/hw_breakpoint.h
++++ b/arch/arm64/include/asm/hw_breakpoint.h
+@@ -124,6 +124,7 @@ extern void hw_breakpoint_pmu_read(struct perf_event *b=
+p);
+ extern int hw_breakpoint_slots(int type);
+=20
+ #ifdef CONFIG_HAVE_HW_BREAKPOINT
++#define ARCH_NEED_PERF_HW_NOTIF
+ extern void hw_breakpoint_thread_switch(struct task_struct *next);
+ extern void ptrace_hw_copy_thread(struct task_struct *task);
+ #else
+diff --git a/arch/arm64/kernel/ptrace.c b/arch/arm64/kernel/ptrace.c
+index f743cbec1c3ad..2a9d8bad98090 100644
+--- a/arch/arm64/kernel/ptrace.c
++++ b/arch/arm64/kernel/ptrace.c
+@@ -168,9 +168,7 @@ void ptrace_disable(struct task_struct *child)
+ /*
+  * Handle hitting a HW-breakpoint.
+  */
+-static void ptrace_hbptriggered(struct perf_event *bp,
+-				struct perf_sample_data *data,
+-				struct pt_regs *regs)
++void arch_hwbp_send_sig(struct perf_event *bp)
+ {
+ 	struct arch_hw_breakpoint *bkpt =3D counter_arch_bp(bp);
+ 	const char *desc =3D "Hardware breakpoint trap (ptrace)";
+@@ -312,7 +310,7 @@ static struct perf_event *ptrace_hbp_create(unsigned in=
+t note_type,
+ 	attr.bp_type	=3D type;
+ 	attr.disabled	=3D 1;
+=20
+-	bp =3D register_user_hw_breakpoint(&attr, ptrace_hbptriggered, NULL, tsk);
++	bp =3D register_user_hw_breakpoint(&attr, perf_arch_hwbp_notify, NULL, ts=
+k);
+ 	if (IS_ERR(bp))
+ 		return bp;
+=20
+diff --git a/arch/loongarch/include/asm/hw_breakpoint.h b/arch/loongarch/in=
+clude/asm/hw_breakpoint.h
+index 5faa97a87a9e2..2b51922eb5492 100644
+--- a/arch/loongarch/include/asm/hw_breakpoint.h
++++ b/arch/loongarch/include/asm/hw_breakpoint.h
+@@ -120,6 +120,7 @@ void breakpoint_handler(struct pt_regs *regs);
+ void watchpoint_handler(struct pt_regs *regs);
+=20
+ #ifdef CONFIG_HAVE_HW_BREAKPOINT
++#define ARCH_NEED_PERF_HW_NOTIF
+ extern void ptrace_hw_copy_thread(struct task_struct *task);
+ extern void hw_breakpoint_thread_switch(struct task_struct *next);
+ #else
+diff --git a/arch/loongarch/kernel/ptrace.c b/arch/loongarch/kernel/ptrace.c
+index be38430f7e280..1d5e05a70b8d3 100644
+--- a/arch/loongarch/kernel/ptrace.c
++++ b/arch/loongarch/kernel/ptrace.c
+@@ -384,9 +384,7 @@ static int lbt_set(struct task_struct *target,
+ /*
+  * Handle hitting a HW-breakpoint.
+  */
+-static void ptrace_hbptriggered(struct perf_event *bp,
+-				struct perf_sample_data *data,
+-				struct pt_regs *regs)
++void arch_hwbp_send_sig(struct perf_event *bp)
+ {
+ 	int i;
+ 	struct arch_hw_breakpoint *bkpt =3D counter_arch_bp(bp);
+@@ -479,7 +477,7 @@ static struct perf_event *ptrace_hbp_create(unsigned in=
+t note_type,
+ 	attr.bp_type	=3D type;
+ 	attr.disabled	=3D 1;
+=20
+-	bp =3D register_user_hw_breakpoint(&attr, ptrace_hbptriggered, NULL, tsk);
++	bp =3D register_user_hw_breakpoint(&attr, perf_arch_hwbp_notify, NULL, ts=
+k);
+ 	if (IS_ERR(bp))
+ 		return bp;
+=20
+diff --git a/arch/xtensa/include/asm/hw_breakpoint.h b/arch/xtensa/include/=
+asm/hw_breakpoint.h
+index 9ec86f440a48e..4a627a5ed9893 100644
+--- a/arch/xtensa/include/asm/hw_breakpoint.h
++++ b/arch/xtensa/include/asm/hw_breakpoint.h
+@@ -12,6 +12,7 @@
+ #define __ASM_XTENSA_HW_BREAKPOINT_H
+=20
+ #ifdef CONFIG_HAVE_HW_BREAKPOINT
++#define ARCH_NEED_PERF_HW_NOTIF
+=20
+ #include <linux/kdebug.h>
+ #include <linux/types.h>
+diff --git a/arch/xtensa/kernel/ptrace.c b/arch/xtensa/kernel/ptrace.c
+index 364e4fdabb00d..9e3b5aff1b8f8 100644
+--- a/arch/xtensa/kernel/ptrace.c
++++ b/arch/xtensa/kernel/ptrace.c
+@@ -361,9 +361,7 @@ static int ptrace_pokeusr(struct task_struct *child, lo=
+ng regno, long val)
+ }
+=20
+ #ifdef CONFIG_HAVE_HW_BREAKPOINT
+-static void ptrace_hbptriggered(struct perf_event *bp,
+-				struct perf_sample_data *data,
+-				struct pt_regs *regs)
++void arch_hwbp_send_sig(struct perf_event *bp)
+ {
+ 	int i;
+ 	struct arch_hw_breakpoint *bkpt =3D counter_arch_bp(bp);
+@@ -395,7 +393,7 @@ static struct perf_event *ptrace_hbp_create(struct task=
+_struct *tsk, int type)
+ 	attr.bp_type	=3D type;
+ 	attr.disabled	=3D 1;
+=20
+-	return register_user_hw_breakpoint(&attr, ptrace_hbptriggered, NULL,
++	return register_user_hw_breakpoint(&attr, perf_arch_hwbp_notify, NULL,
+ 					   tsk);
+ }
+=20
+diff --git a/include/linux/hw_breakpoint.h b/include/linux/hw_breakpoint.h
+index db199d653dd1a..bb4c1064a103d 100644
+--- a/include/linux/hw_breakpoint.h
++++ b/include/linux/hw_breakpoint.h
+@@ -85,6 +85,9 @@ extern int register_perf_hw_breakpoint(struct perf_event =
+*bp);
+ extern void unregister_hw_breakpoint(struct perf_event *bp);
+ extern void unregister_wide_hw_breakpoint(struct perf_event * __percpu *cp=
+u_events);
+ extern bool hw_breakpoint_is_used(void);
++extern void arch_hwbp_send_sig(struct perf_event *bp);
++extern void perf_arch_hwbp_notify(struct perf_event *bp, struct perf_sampl=
+e_data *data,
++				  struct pt_regs *regs);
+=20
+ extern int dbg_reserve_bp_slot(struct perf_event *bp);
+ extern int dbg_release_bp_slot(struct perf_event *bp);
+diff --git a/include/linux/perf_event.h b/include/linux/perf_event.h
+index 915c6fd3f0845..4e0cea7f59e4c 100644
+--- a/include/linux/perf_event.h
++++ b/include/linux/perf_event.h
+@@ -215,6 +215,10 @@ struct hw_perf_event {
+=20
+ 	/* Last sync'ed generation of filters */
+ 	unsigned long			addr_filters_gen;
++#ifdef ARCH_NEED_PERF_HW_NOTIF
++	struct callback_head		arch_hw_notif;
++	int				arch_hw_notif_busy;
++#endif
+=20
+ /*
+  * hw_perf_event::state flags; used to track the PERF_EF_* state.
+diff --git a/kernel/events/core.c b/kernel/events/core.c
+index 634d2ccbab82d..9b38a14880361 100644
+--- a/kernel/events/core.c
++++ b/kernel/events/core.c
+@@ -13381,6 +13381,28 @@ static void account_event(struct perf_event *event)
+ 	account_pmu_sb_event(event);
+ }
+=20
++#ifdef ARCH_NEED_PERF_HW_NOTIF
++static void perf_arch_hwbp_send_sig(struct callback_head *head)
++{
++	struct perf_event *bp;
++
++	bp =3D container_of(head, struct perf_event, hw.arch_hw_notif);
++	arch_hwbp_send_sig(bp);
++	xchg_relaxed(&bp->hw.arch_hw_notif_busy, 0);
++	put_event(bp);
++}
++
++void perf_arch_hwbp_notify(struct perf_event *bp, struct perf_sample_data =
+*data,
++			   struct pt_regs *regs)
++{
++	if (WARN_ON_ONCE(!atomic_long_inc_not_zero(&bp->refcount)))
++		return;
++	if (xchg_relaxed(&bp->hw.arch_hw_notif_busy, 1) ||
++	    WARN_ON_ONCE(task_work_add(current, &bp->hw.arch_hw_notif, TWA_RESUME=
+)))
++		put_event(bp);
++}
++#endif
++
+ /*
+  * Allocate and initialize an event structure
+  */
+@@ -13486,6 +13508,10 @@ perf_event_alloc(struct perf_event_attr *attr, int=
+ cpu,
+ 	}
+=20
+ 	if (overflow_handler) {
++#ifdef ARCH_NEED_PERF_HW_NOTIF
++		if (overflow_handler =3D=3D perf_arch_hwbp_notify)
++			init_task_work(&event->hw.arch_hw_notif, perf_arch_hwbp_send_sig);
++#endif
+ 		event->overflow_handler	=3D overflow_handler;
+ 		event->overflow_handler_context =3D context;
+ 	} else if (is_write_backward(event)){
+--=20
+2.55.0
+
 
