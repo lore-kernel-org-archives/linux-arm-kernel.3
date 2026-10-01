@@ -4,67 +4,120 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 96C3ACA5FB3
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  1 Oct 2026 11:35:39 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5534ACA5FCE
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  1 Oct 2026 11:36:47 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Cc:List-Subscribe:
-	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	Content-Transfer-Encoding:Content-Type:To:Subject:Message-ID:Date:From:
-	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=lmVFF1nXCXJO244kYT0wDxxDBN+y/dJyhYK3aGkTJlY=; b=e+IHLAGLTXbqNW
-	/nLStTaFZFKj9HeV+TVDVhzi1kRdqUtj4HbCYPwtRYjv8S4CgitlOtkoOcdzFz93gc+VoDhPna5ZL
-	nmRlZwj9dUu9qGQKfb4OSBvZpsm5NICLenbuDxzOUWPsohwzwQBHLJkEZP73gBNgzoNiFpqxCEiBf
-	mBE4pUpLP1aUdS/7FfLOfZvyg0joU7UtUKHMzIHlYLt5e08yuylyWeRG1CUC6rppSqvF7kbqDACz5
-	ImWmUnwUVzFf/mtp6slxUS+dsyg/noYJpZyfgPRalWi0oSmbIM4b3zTQevRdlfEv8jTGq/1sm7c1V
-	Qt1D9nH4qOoZxMf+yF0g==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Cc:Content-ID:Content-Description:Resent-Date:Resent-From
+	:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=Xm4wvdZWya38Tv5HPQOs01QtbugiGek4xDtMzVs3F8w=; b=zuq5F6sqq+HnSPseYEADGnSAvs
+	bxd+0En+NIiMpSgTN5zCY4dwBmXdCdIV0BDCFEg8qS41LjmDTnFP5O4VMHH2uFK0S0NYPkpqMLfy1
+	VDHDjN3KwWDuez3tpZIh1Xx/ygqQCqU/5cQLrSQG5/B5hV+7ot1+KQsPCPNUfWzXd00EjYDTTSgqb
+	g30TpK6WOFwFK2wRWOjE4n6Y33B2SoYoRyCr/GGd9wa73JSXgQA+0MnaHS34q/huLPvNUQuR29bBw
+	1ANvpbuG45fXMEXHzMy5/yQ67j3l8Flw/vLPv8HDaYRcU/leD4MAKguLhh9cYXlme/CYB9QCZKBuv
+	zb1HpJYA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xCF4W-00000008eAV-3UeQ;
-	Thu, 01 Oct 2026 11:35:32 +0000
+	id 1xCF5d-00000008eLC-01JB;
+	Thu, 01 Oct 2026 11:36:41 +0000
 Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xCF4U-00000008eAA-39PU
+	id 1xCF5a-00000008eKp-45VS
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 01 Oct 2026 11:35:30 +0000
+	Thu, 01 Oct 2026 11:36:39 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id 34F3A60A57
-	for <linux-arm-kernel@lists.infradead.org>; Thu,  1 Oct 2026 11:35:30 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id E0DBF1F000FF
-	for <linux-arm-kernel@lists.infradead.org>; Thu,  1 Oct 2026 11:35:29 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 59DBE601E4;
+	Thu,  1 Oct 2026 11:36:38 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 204A81F000FF;
+	Thu,  1 Oct 2026 11:36:30 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1790854529;
-	bh=lmVFF1nXCXJO244kYT0wDxxDBN+y/dJyhYK3aGkTJlY=;
-	h=References:In-Reply-To:From:Date:Subject:To:Cc;
-	b=jwXMABLGDse/lPscqO8TloE6bDUdUuDr0fKdSPAdYGQKZ+tXWPZQ97pjoHNbXokTX
-	 86n3XtKkEXGx2oAJ/hhsn97FYrqQ+t/thnaTN8GgBbIxY7hd9UBeo1dYsQVn+6brP3
-	 uyCLaIKVdrhkS3fNOLseME8si8m+JGSZx0Nql5Rq+JPiLMOXTneIWshUuu4xXLHD2T
-	 Bbx7S0RgRnW2iY0rBMUucUZip1Mwt+3dr5o/BQecBrnYhguAhFj5GxzlIVXyAsODn2
-	 fw6d93oNQiPPtl8IzcXpvcnydx1c+Yxtv8fkgsAPpyrf/abIvFgpoRIS0CcQlEtZ0H
-	 Tm+xqultb0MhQ==
-Received: by mail-lf2-f13.google.com with SMTP id 2adb3069b0e04-5ba43157c71so965383e87.3
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 01 Oct 2026 04:35:29 -0700 (PDT)
-X-Gm-Message-State: AFq9FYI74BrGEwAmJYANqX/yFxqlAmKV07t4VXsAYb6XBaZ2EkcJ6uNI
-	Q5SW2A9cLtBms5xzQUnUZePrp0z82fff7oYj3ko8VG43nJA23CFFHDHlxtfuYATbrc6Zm9l+RLD
-	ApvA3oheSQPYKVLSqvqFETh6yk64Xbcc=
-X-Received: by 2002:ac2:5930:0:b0:5b8:f816:ec70 with SMTP id
- 2adb3069b0e04-5ba405f57d1mr1355745e87.24.1790854528685; Thu, 01 Oct 2026
- 04:35:28 -0700 (PDT)
+	s=k20260515; t=1790854598;
+	bh=Xm4wvdZWya38Tv5HPQOs01QtbugiGek4xDtMzVs3F8w=;
+	h=Date:Subject:To:References:From:In-Reply-To;
+	b=mXBFgjFKwBNERzVdoZjaNomeWpe3e8lQdbYE0ZfCu5nbH/GH5tEuNHS+dfHO3QrMK
+	 HaZuDubT41hg2PppQgdI3UbIcyvLh/DTUtdTvTqgVj3fvR/EZXwYiHppC+2WzbNlG9
+	 TtQcx5HbOcisqysMYBL9T5wxIMwRNr5KUruOb7hdn3Hn+DAMBpVpRjjzj4jCgcQ9/u
+	 IuJ9nzw+s61u5LY7WWsKlZbCUQHYKyMLav1uZKFJvV1QXDcYXnDHdsEV2cei8YFWv9
+	 LtJjuWuW5NFFdNYedScxnyvlri8/xtBBRdiICnaL5MMCFKblAlvJ8IoNNRRVVS/LMb
+	 WSNmnGNHDkRjg==
+Message-ID: <86dabeec-c40c-43c0-adab-b95fb7825ddc@kernel.org>
+Date: Thu, 1 Oct 2026 13:36:28 +0200
 MIME-Version: 1.0
-References: <20260918161407.2300-1-will@kernel.org> <20260918161407.2300-20-will@kernel.org>
- <CAD++jLm=9RyVXf+hqFCMir2dBFbwysR5g8Tp2_14H48xtLx8Uw@mail.gmail.com>
- <ar4LWGJ_qfV71_Ia@willie-the-truck> <CAD++jLkipuU0PcEvr=Bqy86Av_y9YBuVFsw6dtgy9zbkAWNU=g@mail.gmail.com>
- <ar5Ex6nNxmdgzbva@willie-the-truck>
-In-Reply-To: <ar5Ex6nNxmdgzbva@willie-the-truck>
-From: Linus Walleij <linusw@kernel.org>
-Date: Thu, 1 Oct 2026 13:35:16 +0200
-X-Gmail-Original-Message-ID: <CAD++jL=ujWPMdXGtuq=TF8vct=fB=Lpzj+mNzX6VD1Srro2Hhg@mail.gmail.com>
-X-Gm-Features: AclHuK8I67CQYv5b9ACMbbIAsFozd-dw4qbwbLd-GEz-j_rLU-8nMqq0lUW0FN4
-Message-ID: <CAD++jL=ujWPMdXGtuq=TF8vct=fB=Lpzj+mNzX6VD1Srro2Hhg@mail.gmail.com>
-Subject: Re: [PATCH v2 19/21] arm64: entry: The great stack switcheroo
-To: Will Deacon <will@kernel.org>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH 5/7] maccess: Batch TCO handling in kernel nofault loops
+To: Muhammad Usama Anjum <usama.anjum@arm.com>,
+ Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
+ Mark Rutland <mark.rutland@arm.com>, Alexei Starovoitov <ast@kernel.org>,
+ Daniel Borkmann <daniel@iogearbox.net>, Andrii Nakryiko <andrii@kernel.org>,
+ Eduard Zingerman <eddyz87@gmail.com>,
+ Kumar Kartikeya Dwivedi <memxor@gmail.com>,
+ Martin KaFai Lau <martin.lau@linux.dev>, Song Liu <song@kernel.org>,
+ Yonghong Song <yonghong.song@linux.dev>, Jiri Olsa <jolsa@kernel.org>,
+ Emil Tsalapatis <emil@etsalapatis.com>,
+ Ihor Solodrai <ihor.solodrai@linux.dev>,
+ Andrew Morton <akpm@linux-foundation.org>, Lorenzo Stoakes <ljs@kernel.org>,
+ "Liam R. Howlett" <liam@infradead.org>, Vlastimil Babka <vbabka@kernel.org>,
+ Mike Rapoport <rppt@kernel.org>, Suren Baghdasaryan <surenb@google.com>,
+ Michal Hocko <mhocko@suse.com>,
+ "moderated list:ARM64 PORT (AARCH64 ARCHITECTURE)"
+ <linux-arm-kernel@lists.infradead.org>,
+ open list <linux-kernel@vger.kernel.org>,
+ "open list:BPF [GENERAL] (Safe Dynamic Programs and Tools)"
+ <bpf@vger.kernel.org>,
+ "open list:MEMORY MANAGEMENT - CORE" <linux-mm@kvack.org>
+References: <20260824160523.3907021-1-usama.anjum@arm.com>
+ <20260824160523.3907021-7-usama.anjum@arm.com>
+From: "David Hildenbrand (Arm)" <david@kernel.org>
+Content-Language: en-US
+Autocrypt: addr=david@kernel.org; keydata=
+ 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
+ qIws/H2t
+In-Reply-To: <20260824160523.3907021-7-usama.anjum@arm.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -76,27 +129,60 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
-Cc: Mark Rutland <mark.rutland@arm.com>, Vladimir Murzin <vladimir.murzin@arm.com>, Arnd Bergmann <arnd@arndb.de>, Catalin Marinas <catalin.marinas@arm.com>, linux-kernel@vger.kernel.org, Mostafa Saleh <smostafa@google.com>, Marc Zyngier <maz@kernel.org>, David Hildenbrand <david@kernel.org>, Lorenzo Stoakes <ljs@kernel.org>, Oliver Upton <oupton@kernel.org>, Ard Biesheuvel <ardb@kernel.org>, linux-arm-kernel@lists.infradead.org
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Oct 1, 2026 at 1:32=E2=80=AFPM Will Deacon <will@kernel.org> wrote:
-> On Thu, Oct 01, 2026 at 10:38:22AM +0200, Linus Walleij wrote:
+On 8/24/26 18:04, Muhammad Usama Anjum wrote:
+> With Hardware Tag-Based KASAN in asynchronous or asymmetric mode, every
+> arm64 kernel nofault access sets and clears PSTATE.TCO. Copy and string
+> loops repeat that pair even though tag checking can stay disabled for the
+> whole operation.
+> 
+> Cover each non-empty operation with one bare nofault region and use bare
+> accessors in the loop. Leaving the region restores TCO before page faults
+> are enabled again, including after an access fault. Existing empty-work
+> checks ensure that every new region performs at least one access.
+> 
+> The number of dynamic MSR TCO executions therefore changes as follows:
+> 
+>     Work                         Before    After
+>     N nofault accesses          2N        2
+>     4 KiB nofault copy          1,024     2
+>     N-byte strncpy              2N        2
+> 
+> The 4 KiB case assumes 512 64-bit accesses. These figures come from the
+> control flow rather than a runtime measurement, so the time saved depends
+> on the CPU and workload. Generic fallbacks leave other architectures
+> unchanged.
+> 
+> Signed-off-by: Muhammad Usama Anjum <usama.anjum@arm.com>
+> ---
 
-> > > > This patch gives me panic, and as can be seen from the review
-> > > > comments need some love...
-> > >
-> > > Please can you share the panic message? I'll definitely be reworking
-> > > this based on the review comments, but if there's a bug it would be
-> > > great to see the details now!
-> >
-> > Haha. I was not referring to the kernel function but the emotion ;D
->
-> Oh! That kind of panic is easier to fix :) Are you going to LPC?
+[...]
 
-Sadly no. This year looks great but I'm just not in travelling
-mode for the moment. But later!
+>  Efault:
+> @@ -96,11 +100,13 @@ long strncpy_from_kernel_nofault(char *dst, const void *unsafe_addr, long count)
+>  		return -ERANGE;
+>  
+>  	scoped_guard(pagefault) {
+> -		do {
+> -			__get_kernel_nofault(dst, src, u8, Efault);
+> -			dst++;
+> -			src++;
+> -		} while (dst[-1] && src - unsafe_addr < count);
+> +		scoped_guard(__kernel_nofault_bare) {
+> +			do {
+> +				__get_kernel_nofault_bare(dst, src, u8, Efault);
+> +				dst++;
+> +				src++;
+> +			} while (dst[-1] && src - unsafe_addr < count);
+> +		}
 
-Yours,
-Linus Walleij
+Reading the same thing multiple times, why can't we have a new guard that wraps
+both these things?
+
+-- 
+Cheers,
+
+David
 
