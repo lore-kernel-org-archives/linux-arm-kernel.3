@@ -4,34 +4,49 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0EEB1CA5FA5
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  1 Oct 2026 08:10:22 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D23D4CA5FB3
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  1 Oct 2026 08:11:01 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=NPoYByFTFNQ0eKE0UIRbY/91YsZJlxpBD7HX6rTcOwM=; b=fXANxWj2Wou2EzCGnGUCAQ1x2k
-	hkV5UQiJIiefYCCCCiZU08P9y+CdtDlDpRVHl0klwUaIJIlb+SKcBMFiBTrVdauAvoU1cBLXPUxV1
-	QMMu1haH8t7MFLVOQfgUauum9udYGYkf0LaaAzh5QBXINb2Y1OKwDrg0OcPQ6o+JI0V2ri8Efe7KP
-	w+L+zsLkd3YaH+fEb7XJeuCaVct2SG9Vin9TjDEh8FRQ8AvxYM0232HCrmI2repCPvjzsGOt9m/GU
-	4/V+fcthAMLm5Q4K0p/iCUt7cUwMfw0NubIXm7oGIAdbk9OC/QyqHqjFvfMwmGEjUFHLqzXkD9d8W
-	PX/AOnlA==;
+	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=k6XubT8oFBQXKbvZ/ist0Q0eQYWorneOJ/4SaUe8dPM=; b=lcjKLjJgLynSBtCHpnL+pMm8Na
+	B1JjivZYzzBds3+TA0Ca0/wU8NTmNuaFsQCD8mPwHKTU+ZtwsJ5tmrGodDpfl8OCjj/tBDVd/w7VA
+	YrWAYYmW5VqKxZ15bqLwCO4Uwl2+dqjpSRE9onrTVUUGtFIIDxCYBGZ+S59Gdp3l/o4zzyUt58oB2
+	sVthfUk87qV/O/fs8Jul7BoyEMcuEXR4JLH6THqKZLtLZMOLJ86uhiQ4xooYu3rkDyTbMpoCs90Ms
+	H5592MX13BDwINPOdS9meoA5AUOGYlG/OYKMYIeXCjjHyFMn9sfE/p2Gxs09JGEZ56AVM5u9tSzAI
+	D2QHRQEg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xCBrq-0000000864a-2Zld;
-	Thu, 01 Oct 2026 08:10:14 +0000
-Received: from cp2.siel.si ([46.19.12.180])
+	id 1xCBsV-000000086Ac-3uBM;
+	Thu, 01 Oct 2026 08:10:55 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xCBrn-0000000863s-0uMT
+	id 1xCBsU-000000086A5-32zJ
+	for linux-arm-kernel@bombadil.infradead.org;
+	Thu, 01 Oct 2026 08:10:54 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:MIME-Version
+	:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:Sender:Reply-To:
+	Content-Type:Content-ID:Content-Description;
+	bh=k6XubT8oFBQXKbvZ/ist0Q0eQYWorneOJ/4SaUe8dPM=; b=FKt82PfegajXlZBFFl4Iki151z
+	XT4luvXs9/oX0DT3i6SSwjqyQdHLKdLZguDzFMBcYDF3AP7VdFfslwLxC4NYJfUiS8PpRYHsu+JB8
+	MPxsz8ptwGXou43TK2B2gduyP7Q0WeyPDGJArRHeEsJyXbVWSKTJ7ydXN0XWbpvVQ8MhhOC1b/3et
+	oJu9QMjHOYhXL3mPzhYsZGPBaR0vkegX0j+CQhQO/54lIz0R6Ah+40E4euOJ7DoRPBE4JM7FN9VZ9
+	FZXUG0IEOsf0Dc4wd6J5BJYXp67nQxMDsBGZFTvCgORQGy6o7dW5M++2TWXbalzC4gKv/uH6MDtbF
+	riiacuRQ==;
+Received: from cp2.siel.si ([46.19.12.180])
+	by desiato.infradead.org with esmtps (Exim 4.99.2 #2 (Red Hat Linux))
+	id 1xCBsR-00000004iIp-1Ft3
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 01 Oct 2026 08:10:13 +0000
+	Thu, 01 Oct 2026 08:10:53 +0000
 Received: from 89-212-21-243.static.t-2.net ([89.212.21.243]:34824 helo=localhost.localdomain)
 	by cp2.siel.si with esmtpsa  (TLS1.3) tls TLS_AES_256_GCM_SHA384
 	(Exim 4.100.1)
 	(envelope-from <primoz.fiser@norik.com>)
-	id 1xCBrm-00000001der-3so3;
+	id 1xCBrn-00000001der-0UkL;
 	Thu, 01 Oct 2026 10:10:07 +0200
 From: Primoz Fiser <primoz.fiser@norik.com>
 To: Rob Herring <robh@kernel.org>,
@@ -46,10 +61,12 @@ Cc: devicetree@vger.kernel.org,
 	linux-arm-kernel@lists.infradead.org,
 	linux-kernel@vger.kernel.org,
 	upstream@lists.phytec.de
-Subject: [PATCH v2 0/2] ARM: dts: imx6: phytec-mira: phyBOARD-Mira fixes
-Date: Thu,  1 Oct 2026 10:10:03 +0200
-Message-Id: <20261001081005.2209755-1-primoz.fiser@norik.com>
+Subject: [PATCH v2 2/2] ARM: dts: imx6qdl-phytec-mira: Fix uart3 CTS/RTS pinmuxing
+Date: Thu,  1 Oct 2026 10:10:05 +0200
+Message-Id: <20261001081005.2209755-3-primoz.fiser@norik.com>
 X-Mailer: git-send-email 2.34.1
+In-Reply-To: <20261001081005.2209755-1-primoz.fiser@norik.com>
+References: <20261001081005.2209755-1-primoz.fiser@norik.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-AntiAbuse: This header was added to track abuse, please include it with any abuse report
@@ -63,8 +80,8 @@ X-Source:
 X-Source-Args: 
 X-Source-Dir: 
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261001_011011_414574_314484C1 
-X-CRM114-Status: UNSURE (   5.41  )
+X-CRM114-CacheID: sfid-20261001_091051_628965_DAC91718 
+X-CRM114-Status: UNSURE (   8.01  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -80,26 +97,33 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Two small fixes for the PHYTEC phyBOARD-Mira-i.MX6 boards:
+The pin muxing of the UART3 CTS and RTS pins on the phyBOARD-Mira is
+wrong. They are swapped. Pad EIM_EB3 has to be muxed as RTS and pad
+EIM_D23 as CTS.
 
-- Since commit 888e5fad9b78 ("Input: stmpe - add axis inversion and
-  swapping capability") landed, the touchscreen axis inversion these
-  boards need can be described in devicetree instead of userspace (2/2).
-- Fix uart3 CTS/RTS pinmuxing since pins were swapped.
-
-Link to v1: https://lore.kernel.org/all/20260930103425.2315286-1-primoz.fiser@norik.com/
-
+Signed-off-by: Primoz Fiser <primoz.fiser@norik.com>
+---
 Changes in v2:
-- Drop patch #1 from v1 
-- Add new patch #2 (CTS/RTS swap fix)
+- new patch
 
-Primoz Fiser (2):
-  ARM: dts: imx6qdl-phytec-mira: Add touchscreen-inverted properties
-  ARM: dts: imx6qdl-phytec-mira: Fix uart3 CTS/RTS pinmuxing
+ arch/arm/boot/dts/nxp/imx/imx6qdl-phytec-mira.dtsi | 4 ++--
+ 1 file changed, 2 insertions(+), 2 deletions(-)
 
- arch/arm/boot/dts/nxp/imx/imx6qdl-phytec-mira.dtsi | 6 ++++--
- 1 file changed, 4 insertions(+), 2 deletions(-)
-
+diff --git a/arch/arm/boot/dts/nxp/imx/imx6qdl-phytec-mira.dtsi b/arch/arm/boot/dts/nxp/imx/imx6qdl-phytec-mira.dtsi
+index a7d6af162731..8b2b4ed76328 100644
+--- a/arch/arm/boot/dts/nxp/imx/imx6qdl-phytec-mira.dtsi
++++ b/arch/arm/boot/dts/nxp/imx/imx6qdl-phytec-mira.dtsi
+@@ -374,8 +374,8 @@ MX6QDL_PAD_EIM_D27__UART2_RX_DATA	0x1b0b1
+ 
+ 	pinctrl_uart3: uart3grp {
+ 		fsl,pins = <
+-			MX6QDL_PAD_EIM_EB3__UART3_CTS_B		0x1b0b1
+-			MX6QDL_PAD_EIM_D23__UART3_RTS_B		0x1b0b1
++			MX6QDL_PAD_EIM_EB3__UART3_RTS_B		0x1b0b1
++			MX6QDL_PAD_EIM_D23__UART3_CTS_B		0x1b0b1
+ 			MX6QDL_PAD_EIM_D24__UART3_TX_DATA	0x1b0b1
+ 			MX6QDL_PAD_EIM_D25__UART3_RX_DATA	0x1b0b1
+ 		>;
 -- 
 2.34.1
 
