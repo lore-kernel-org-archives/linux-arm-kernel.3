@@ -4,70 +4,60 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D3B0CCA5FD4
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  1 Oct 2026 20:52:24 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6CBAFCA5FD4
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  1 Oct 2026 21:00:41 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=q9ttC13+Szmw2q5jUZhmuOOwnwu09uPEZ6e3y79ttiA=; b=pSY9BVKlE03HU7gg5el906Dghw
-	jLDEo9hHn8APTpO+5uAoUCDRnflTu5pF1FeUSdOCvMTIdnzFDlwIDgDN7ARbwNfm9lOIzDRAzqzCX
-	Q/GvwTsZGuLVHT8NcDu4uvuIQA2DU0Q5kVcfcNijve9hLZjoSQYL/Qs9h2TmeCO2eduCeYvibisms
-	31FrpfYxpOFVWNxCUBtW2j3Hm/Bp5maDSSiOUejKU0E3m1oG1mqUzG09oVZFetEVS0nw82Nvlf+Y6
-	uGq4agrAwBBL54aqg2TkIT7SYJ2U87G7mMXqkSDvgkL17dhoiQN2QZnr0srnT3Svbp/9RcymcWLGK
-	O7sxzWWQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=/5NsAM9nSVtA2GkRrXYxyaaUaDLH0bm60UyVF2aq5+I=; b=JR6Fsh2tWMjoNXhHgMPqE6xvLs
+	Nqiw6ZKsg6RPymoWlMmPvxyLLl5DGBRIZJo7UQz1fSHW9L05826inMULxk6rsVjtOEOaYzt3z1Rfl
+	UBTfAwIQIktoJOzCaKdKwTN5zd7IdfdEmXXNftJig343MwcJlZHEp1DrRUVaOQ9KZ5Tt3FgGusXfQ
+	60Ys9O2244/G+bTmgwj/nq4Orl1QfgQkcto9jIINDD+mF9v8wfMEDWY7h4s2p7pJP0Va5U+x8TKN+
+	KfJSQ4XlPQ3xY7Nw538MRJx8sAizOSzCfpTcbV9vkG+XgKpv7viYnDXX/QzZJEuaxKBkS6C8Lm/UF
+	YeN830fg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xCNlK-0000000ABlE-2Fxr;
-	Thu, 01 Oct 2026 20:52:18 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1xCNtK-0000000ACA3-11FU;
+	Thu, 01 Oct 2026 21:00:34 +0000
+Received: from perceval.ideasonboard.com ([213.167.242.64])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xCNlI-0000000ABky-1W46
+	id 1xCNtE-0000000AC9Y-1W96
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 01 Oct 2026 20:52:17 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id 8ACD060534
-	for <linux-arm-kernel@lists.infradead.org>; Thu,  1 Oct 2026 20:52:15 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 42C201F00899
-	for <linux-arm-kernel@lists.infradead.org>; Thu,  1 Oct 2026 20:52:15 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1790887935;
-	bh=q9ttC13+Szmw2q5jUZhmuOOwnwu09uPEZ6e3y79ttiA=;
-	h=References:In-Reply-To:From:Date:Subject:To:Cc;
-	b=Xf6brGexee1jd+IvaGPNkVrQy2PKgADseSQpBcrVIUySxZEOoK+mUTJJ8dFVoK/FD
-	 xDfepoA02FoD1kqrELvMAkNMx2YzlS8445JeyM5t2P7RzT1qe6FWWFp9OGfYYHazmS
-	 QE/zmoCILsspP0+qkz7sG/9pLu79ypqesVEaqXp83dGUyPpWDEJTNVq35Qp8X0WuK8
-	 7vlgM+W4cZB4rCFXOaI+di92p/5bAOohYDBo1jWKBks9KO2PjqaZGYzEhhZslPSHBB
-	 m7cvQffYCsoAYVyXD3XD7ehB6OhlOn8u8Dy+u0OG5SWJiGnugM1gDa+bXp92AJw0Pd
-	 tJ2BvXaszahTA==
-Received: by mail-lr2-f35.google.com with SMTP id 38308e7fff4ca-3a64d20990fso67898541fa.1
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 01 Oct 2026 13:52:15 -0700 (PDT)
-X-Forwarded-Encrypted: i=1; AKwUvBwNqUEbzNB+x3FRnrS2g52qi339LKdI2Fo8b6fL3BPTdhE9gskK9sK5CAcL8yP4/ovufLdz5hkcXrtDZK560pGH@lists.infradead.org
-X-Gm-Message-State: AFq9FYLSf92Y/9/Kh3na9pNDaZ8QRByyhHdTIbG8FGB2uPaZOajjnf4N
-	U8afMFMPfUq72PwIFfcamH1yp4KC2aRlE3PpFnbOB7D78B9yikc7AET2mE2w4YepnphD+1wDfWP
-	iWwf5Q25xFgglO+rEX+komypT4kBoaFg=
-X-Received: by 2002:a05:651c:2115:b0:3a6:6011:fc98 with SMTP id
- 38308e7fff4ca-3a8877f67f7mr1329021fa.26.1790887933882; Thu, 01 Oct 2026
- 13:52:13 -0700 (PDT)
+	Thu, 01 Oct 2026 21:00:30 +0000
+Received: from killaraus.ideasonboard.com (2001-14ba-70f3-e800--a06.rev.dnainternet.fi [IPv6:2001:14ba:70f3:e800::a06])
+	by perceval.ideasonboard.com (Postfix) with ESMTPSA id 78532593;
+	Thu,  1 Oct 2026 22:58:29 +0200 (CEST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=ideasonboard.com;
+	s=mail; t=1790888309;
+	bh=xH0u8C5iqbgx1k8NmWvyHlZXUFkitoJMZ2/QXJho17E=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=B/bxI5qhZCm5GHy3VGESwHbAINU5xKrCtPL2g9PAw8WMitKPJ+2pqD9F7Ur7KUUpM
+	 bPYXUCtEFj8jXF2JeRoEVcNOTpk5jZy5eXHqO4R0GlZjokEMmGtcWzgsOpLMmlb54j
+	 tG1QqPC9iTqjkxHtXQ8lcVMSG/BOsn+QSzNRZ3ck=
+Date: Fri, 2 Oct 2026 00:00:21 +0300
+From: Laurent Pinchart <laurent.pinchart@ideasonboard.com>
+To: Frank Li <Frank.li@oss.nxp.com>
+Cc: Jiale Yao <yaojiale02@163.com>, Vinod Koul <vkoul@kernel.org>,
+	Frank Li <Frank.Li@kernel.org>, Michal Simek <michal.simek@amd.com>,
+	Hyun Kwon <hyun.kwon@xilinx.com>, dmaengine@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH 3/3] dmaengine: xilinx: dpdma: Reserve space for a string
+ terminator
+Message-ID: <20261001210021.GQ944070@killaraus.ideasonboard.com>
+References: <20260926121250.3258285-1-yaojiale02@163.com>
+ <20260926121250.3258285-4-yaojiale02@163.com>
+ <20260926143415.GA764757@killaraus.ideasonboard.com>
+ <ar7Hj-BQW7xPtjaC@lizhi-Precision-Tower-5810>
 MIME-Version: 1.0
-References: <20260930092020.1047221-1-y-abhilashchandra@ti.com> <20260930092020.1047221-3-y-abhilashchandra@ti.com>
-In-Reply-To: <20260930092020.1047221-3-y-abhilashchandra@ti.com>
-From: Linus Walleij <linusw@kernel.org>
-Date: Thu, 1 Oct 2026 22:52:02 +0200
-X-Gmail-Original-Message-ID: <CAD++jLm462gGw38acBk1VzwKZq0WE6xfFUKoMsoiVxy4iqfEtg@mail.gmail.com>
-X-Gm-Features: AclHuK9E9lhAW9EXXB412B7L3puPb3e0XQeQk3VcMKZ_aaAndt5SX5qECoYPyw8
-Message-ID: <CAD++jLm462gGw38acBk1VzwKZq0WE6xfFUKoMsoiVxy4iqfEtg@mail.gmail.com>
-Subject: Re: [PATCH 2/3] pinctrl: ti: Add TDA54 pin controller driver
-To: Yemike Abhilash Chandra <y-abhilashchandra@ti.com>
-Cc: robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org, nm@ti.com, 
-	vigneshr@ti.com, kristo@kernel.org, brgl@kernel.org, 
-	linux-gpio@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
-	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, afd@ti.com, 
-	u-kumar1@ti.com
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+In-Reply-To: <ar7Hj-BQW7xPtjaC@lizhi-Precision-Tower-5810>
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20261001_140028_893240_7CEDB506 
+X-CRM114-Status: GOOD (  23.03  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -82,56 +72,49 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Yemike,
+On Thu, Oct 01, 2026 at 04:50:23PM -0400, Frank Li wrote:
+> On Sat, Sep 26, 2026 at 05:34:15PM +0300, Laurent Pinchart wrote:
+> > On Sat, Sep 26, 2026 at 08:12:50PM +0800, Jiale Yao wrote:
+> > > xilinx_dpdma_debugfs_write() allocates a buffer of size bytes, and
+> > > strncpy_from_user() can fill it without a terminating NUL when the input
+> > > has no NUL in the copied range. strsep() and strcasecmp() then read
+> > > beyond the buffer.
+> >
+> > strncpy() has long been considered unsafe, and has finally been removed
+> > from the kernel in v7.2. A better fix would be to similarly replace
+> > strncpy_from_user() with a safe equivalent.
+> 
+> Do you means use strndup_user()?
 
-thanks for your patch!
+I was thinking about adding a strscpy_user(), but a dup version could
+possibly be interesting too if there are enough users that call
+k[zm]alloc + strncpy_from_user.
 
-On Wed, Sep 30, 2026 at 11:21=E2=80=AFAM Yemike Abhilash Chandra
-<y-abhilashchandra@ti.com> wrote:
+> > > Allocate an extra byte and keep that byte zero-initialized, so the input
+> > > copied remains unchanged and the buffer is always terminated.
+> > >
+> > > Fixes: 1d220435cab3 ("dmaengine: xilinx: dpdma: Add debugfs support")
+> > > Signed-off-by: Jiale Yao <yaojiale02@163.com>
+> > > ---
+> > >  drivers/dma/xilinx/xilinx_dpdma.c | 2 +-
+> > >  1 file changed, 1 insertion(+), 1 deletion(-)
+> > >
+> > > diff --git a/drivers/dma/xilinx/xilinx_dpdma.c b/drivers/dma/xilinx/xilinx_dpdma.c
+> > > index d9a3542c4531..b61ef3062d84 100644
+> > > --- a/drivers/dma/xilinx/xilinx_dpdma.c
+> > > +++ b/drivers/dma/xilinx/xilinx_dpdma.c
+> > > @@ -410,7 +410,7 @@ static ssize_t xilinx_dpdma_debugfs_write(struct file *f,
+> > >  	if (dpdma_debugfs.testcase != DPDMA_TC_NONE)
+> > >  		return -EBUSY;
+> > >
+> > > -	kern_buff = kzalloc(size, GFP_KERNEL);
+> > > +	kern_buff = kzalloc(size + 1, GFP_KERNEL);
+> > >  	if (!kern_buff)
+> > >  		return -ENOMEM;
+> > >  	kern_buff_start = kern_buff;
 
-> The TDA54 pin controller splits the pad configuration across two register=
-s:
-> PADCFGA holds the mux mode and the functional pin configuration, PADCFGB
-> holds the wakeup and retention configuration. The controller also support=
-s
-> two proxy addressing regions and claiming of registers. A register claime=
-d
-> through proxy 1 becomes read-only at proxy 0 and can only be written
-> through proxy 1.
->
-> Add support for the pin controller in the TI TDA54 SoC.
->
-> Signed-off-by: Yemike Abhilash Chandra <y-abhilashchandra@ti.com>
+-- 
+Regards,
 
-Overall this looks pretty nice.
-
-Check the Sashiko reviews, there is always something
-interesting there.
-
-> +config PINCTRL_TDA54
-> +       tristate "TI TDA54 pinctrl driver"
-> +       depends on OF && (ARCH_K3 || COMPILE_TEST)
-> +       select GENERIC_PINCTRL_GROUPS
-> +       select GENERIC_PINMUX_FUNCTIONS
-> +       select GENERIC_PINCONF
-
-Just
-
-select GENERIC_PINCTRL
-
-and you get all three.
-
-> +static int tda54_dt_node_to_map(struct pinctrl_dev *pctldev,
-> +                               struct device_node *np,
-> +                               struct pinctrl_map **maps,
-> +                               unsigned int *num_maps)
-
-What is so unique here that you need your own node to map function?
-
-Can't you use pinctrl_generic_pinmux_dt_node_to_map()?
-
-Please consult the code in drivers/pinctrl/pinctrl-generic.c.
-
-Yours,
-Linus Walleij
+Laurent Pinchart
 
