@@ -4,67 +4,65 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 95727CA5FA5
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  1 Oct 2026 08:37:41 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 85FDECA5FB3
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  1 Oct 2026 08:38:46 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=zd4Rd9CRvxd2ybJD/+XeXGt4GToIyin27erBl4UTD4s=; b=VfFTCophY1qx6+Z+L7sQZ0RqTG
-	p2zEqAB70ZLx/fCGa82Arn0WUx2NAPfNMINkBaqYJmCQyuDMr8M4IFEAi01RrTF12izP9Bu/VKueq
-	SYIcWFaCfeHGVNydDWRpRqcdNFqIoiBTaJyhG3EJT+Vs++9oBaUdm+CFR4tF0Yh6sRQ5HULPhOdSV
-	SsL4dkurwhKZPe9ZGjJEIe8bGGqQtdwjXGipNeQ6oNPcb+RKzxwhI1YsIukbV8lc3NsGVdxNgXjOQ
-	+dswA0cbgg3YG2CfliElWqYA5oy55at43Dx2Py60QNeQXlMhLmFV2Cl8yUDFyL6s1PakTsCiSoPL4
-	kekwsMkw==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Cc:List-Subscribe:
+	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
+	Content-Transfer-Encoding:Content-Type:To:Subject:Message-ID:Date:From:
+	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=is/ngq975mUjUBzTdIqiNV/aCl6skLZgP+5C7ZZcfo4=; b=idcKXCTxSLVJA/
+	eok4+zvQIdjINo688bOHyxk/rejqXR5J0ZOlw4ARHKdaZ/GgtM9NWOt+gztmjP/0Nevs5t2n5Q2d7
+	3PqBYdvC/4aslXY/8viY31zdrTSJSejmRzEg5gvWgyXif3daG9Zj3gl6Bcn6SMFf1w/0g46uFVOe6
+	kubvnmMXxkeq8TY95xRv0Kw8U2xINLzFSO/Cxa7gu+DHv7aoWyWEGfNGJj099zAoWMQP1usWBuRtD
+	VWCDlda/fLWhNPeEwJVrqLt9Guara1F3dL/89lf19OUjlsQBEc9SBjtivx6wgbEquId8+MrBPs3UR
+	+XXQcKdDhdufsBExQUVg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xCCDf-00000008BDq-3oXK;
-	Thu, 01 Oct 2026 08:32:47 +0000
+	id 1xCCJM-00000008CCI-1Co9;
+	Thu, 01 Oct 2026 08:38:40 +0000
 Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xCCDe-00000008BDQ-2jvO
+	id 1xCCJL-00000008CC6-15Kk
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 01 Oct 2026 08:32:46 +0000
+	Thu, 01 Oct 2026 08:38:39 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 34B5941521;
-	Thu,  1 Oct 2026 08:32:46 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 8F45D1F00898;
-	Thu,  1 Oct 2026 08:32:45 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id D31004353C
+	for <linux-arm-kernel@lists.infradead.org>; Thu,  1 Oct 2026 08:38:38 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id B7D561F0089D
+	for <linux-arm-kernel@lists.infradead.org>; Thu,  1 Oct 2026 08:38:38 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1790843566;
-	bh=zd4Rd9CRvxd2ybJD/+XeXGt4GToIyin27erBl4UTD4s=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=lqRA69vVhP22r+xNMjuZDk6zVy0BlPDTwdr8miLQzuLn5bKlkEkfF/6lzBVtcnV45
-	 noqAa7JlvMDWw6XSe5NoDH9/SGEXVzbIPRkw51e9quA6ZGoVkFYibTVnVTic/TBXKr
-	 FniUuL8aU1vf2a8t1jztuYCMUQBUpPs4tqZolg0+MWbdRuWxilq0MOXgiira04Vejf
-	 sWp+bCXIForjCTb7GXRREKeRYFUf8lbzpZdd4n+pbIsi2/CZ9J2egH9kmQ5EP3mreJ
-	 KTKn0lEHFuHfyRRjZqHAqYZbJBdg+BO7W8d0DUAN6JKNtvFy5oxRQCgAqKRcAGuFOJ
-	 2spgEVfEMRLVg==
-Date: Thu, 1 Oct 2026 10:32:43 +0200
-From: Lorenzo Bianconi <lorenzo@kernel.org>
-To: James Hilliard <james.hilliard1@gmail.com>
-Cc: netdev@vger.kernel.org, Paolo Abeni <pabeni@redhat.com>,
-	Jakub Kicinski <kuba@kernel.org>,
-	Maxime Chevallier <maxime.chevallier@bootlin.com>,
-	Andrew Lunn <andrew+netdev@lunn.ch>,
-	Eric Dumazet <edumazet@kernel.org>,
-	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
-	Alexandre Torgue <alexandre.torgue@foss.st.com>,
-	Jose Abreu <Jose.Abreu@synopsys.com>,
-	"David S. Miller" <davem@davemloft.net>,
-	linux-stm32@st-md-mailman.stormreply.com,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH net] net: stmmac: take ownership of saved RX state at
- poll entry
-Message-ID: <ar4aq0i5lJLT7SGd@lore-desk>
-References: <20260930-stmmac-rx-state-v1-1-c286c43813c1@gmail.com>
+	s=k20260515; t=1790843918;
+	bh=is/ngq975mUjUBzTdIqiNV/aCl6skLZgP+5C7ZZcfo4=;
+	h=References:In-Reply-To:From:Date:Subject:To:Cc;
+	b=DXx/PLNR9NqnLC//mCAWY7SvbPVzN9mfq49qG89mVN0TfrXV0kuS9EyELgzXqMYAh
+	 Uk8cbxTo5s1FgIPUFJa+JoN7BZ3NvCv308v7z+01wFzBOAB/uNWnJ3SbjxwaCc1Ld1
+	 A1fgmFU6fm3tFtrCbgp8RkvPoAK1F8Ce/VL8JbL16bAi8ANRemcKTL2IDSKp/a6qN+
+	 l1I88K2Q0eUhehJYOnWqMwDtESK6CC0B/U2TCf5E6PPxS9gIAXID1RfG3QIyLEe8mU
+	 5FVpXaIALhbXY9prgI7QkNwFJ2SJXsJeV9bAP6n96OXi/S4HWrj254KUxw4LdKbxH5
+	 stKAyn+TJm9YA==
+Received: by mail-oo2-f42.google.com with SMTP id 006d021491bc7-6d83e2833feso1619189eaf.0
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 01 Oct 2026 01:38:38 -0700 (PDT)
+X-Gm-Message-State: AFuF++lE+INz55Vv17AW1jtkS6xQeKqKVFuYfDIfxMQCuVlPPcAUXGTK
+	2fSfvNwCjnCKEtJzknMTmrYpisJIgIDCDIWofwLqxP+xqlFKHLLU5luRR+RnrRLL+LvodovlSeq
+	ybLMgiyqYEANPSZvu8PGoL3fEJ0xtyMk=
+X-Received: by 2002:a05:6820:1806:b0:6d9:bad0:8374 with SMTP id
+ 006d021491bc7-6dcf1fa428amr3428672eaf.10.1790843918052; Thu, 01 Oct 2026
+ 01:38:38 -0700 (PDT)
 MIME-Version: 1.0
-Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="tPlwEejj5iNQjWqT"
-Content-Disposition: inline
-In-Reply-To: <20260930-stmmac-rx-state-v1-1-c286c43813c1@gmail.com>
+References: <20260918161407.2300-1-will@kernel.org> <20260918161407.2300-20-will@kernel.org>
+ <CAD++jLm=9RyVXf+hqFCMir2dBFbwysR5g8Tp2_14H48xtLx8Uw@mail.gmail.com> <ar4LWGJ_qfV71_Ia@willie-the-truck>
+In-Reply-To: <ar4LWGJ_qfV71_Ia@willie-the-truck>
+From: Linus Walleij <linusw@kernel.org>
+Date: Thu, 1 Oct 2026 10:38:22 +0200
+X-Gmail-Original-Message-ID: <CAD++jLkipuU0PcEvr=Bqy86Av_y9YBuVFsw6dtgy9zbkAWNU=g@mail.gmail.com>
+X-Gm-Features: AclHuK9bZYHoY_AXjKZDaH1MPRes_W7KUtKQxFuh8xG-8gqtKY6GBTng2OBvj8Q
+Message-ID: <CAD++jLkipuU0PcEvr=Bqy86Av_y9YBuVFsw6dtgy9zbkAWNU=g@mail.gmail.com>
+Subject: Re: [PATCH v2 19/21] arm64: entry: The great stack switcheroo
+To: Will Deacon <will@kernel.org>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -76,149 +74,41 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
+Cc: Mark Rutland <mark.rutland@arm.com>, Vladimir Murzin <vladimir.murzin@arm.com>, Arnd Bergmann <arnd@arndb.de>, Catalin Marinas <catalin.marinas@arm.com>, linux-kernel@vger.kernel.org, Mostafa Saleh <smostafa@google.com>, Marc Zyngier <maz@kernel.org>, David Hildenbrand <david@kernel.org>, Lorenzo Stoakes <ljs@kernel.org>, Oliver Upton <oupton@kernel.org>, Ard Biesheuvel <ardb@kernel.org>, linux-arm-kernel@lists.infradead.org
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
---tPlwEejj5iNQjWqT
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
+On Thu, Oct 1, 2026 at 9:27=E2=80=AFAM Will Deacon <will@kernel.org> wrote:
+> On Wed, Sep 30, 2026 at 11:36:35PM +0200, Linus Walleij wrote:
+> > On Fri, Sep 18, 2026 at 6:15=E2=80=AFPM Will Deacon <will@kernel.org> w=
+rote:
+> >
+> > > With the kernel stack pointer in SP_EL1 and the overflow stack pointe=
+r
+> > > in SP_EL0, it is now straightforward to switch between the two on
+> > > exception entry from EL1 by writing to SPSel. However, since exceptio=
+n
+> > > entry sets PSTATE.SP to 1 (selecting SP_EL1 as the stack pointer),
+> > > repurposing the overflow stack as a more general kernel exception sta=
+ck
+> > > would require writing to SPSel on every exception entry from the kern=
+el.
+> > >
+> > > Switch things around so that the overflow stack resides in SP_EL1, wi=
+th
+> > > the kernel stack residing in SP_EL0.
+> > >
+> > > Signed-off-by: Will Deacon <will@kernel.org>
+> >
+> > This patch gives me panic, and as can be seen from the review
+> > comments need some love...
+>
+> Please can you share the panic message? I'll definitely be reworking
+> this based on the review comments, but if there's a bug it would be
+> great to see the details now!
 
-> When a saved partial packet completes with a poll budget of one, the
-> old loop can leave state_saved and state.skb pointing at an skb that
-> has already been delivered or freed. The next poll then reuses that
-> pointer, causing a use-after-free or double free.
->=20
-> Take the saved state at poll entry and clear the stored ownership
-> immediately. Save it again only if the packet remains incomplete,
-> including when the next descriptor is still DMA-owned. Release a
-> saved partial skb when the RX ring is destroyed.
->=20
-> Fixes: ec222003bd94 ("net: stmmac: Prepare to add Split Header support")
-> Signed-off-by: James Hilliard <james.hilliard1@gmail.com>
+Haha. I was not referring to the kernel function but the emotion ;D
 
-Hi James,
-
-I guess we have a similar issue for stmmac_rx_zc() path as well, can you pl=
-ease
-fix it as well?
-
-> ---
->  drivers/net/ethernet/stmicro/stmmac/stmmac_main.c | 25 ++++++++++++++++-=
-------
->  1 file changed, 18 insertions(+), 7 deletions(-)
->=20
-> diff --git a/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c b/drivers/=
-net/ethernet/stmicro/stmmac/stmmac_main.c
-> index ec62fa7418f4..1a4d03aaaf78 100644
-> --- a/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
-> +++ b/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
-> @@ -2149,6 +2149,11 @@ static void __free_dma_rx_desc_resources(struct st=
-mmac_priv *priv,
->  	else
->  		dma_free_rx_skbufs(priv, dma_conf, queue);
-> =20
-> +	if (rx_q->state_saved)
-> +		dev_kfree_skb_any(rx_q->state.skb);
-
-nit: you can drop if (rx_q->state_saved) and just run dev_kfree_skb_any().
-
-> +	rx_q->state.skb =3D NULL;
-> +	rx_q->state_saved =3D 0;
-
-nit: rx_q->state_saved =3D false;
-
-> +
->  	rx_q->buf_alloc_num =3D 0;
->  	rx_q->xsk_pool =3D NULL;
-> =20
-> @@ -5726,6 +5731,7 @@ static int stmmac_rx(struct stmmac_priv *priv, int =
-limit, u32 queue)
->  	struct stmmac_xdp_buff ctx;
->  	bool fcs_stripped =3D false;
->  	int xdp_status =3D 0;
-> +	bool in_progress =3D rx_q->state_saved;
-
-can you please respect RCT here?
-
-Regards,
-Lorenzo
-
->  	int bufsz;
-> =20
->  	dma_dir =3D page_pool_get_dma_dir(rx_q->page_pool);
-> @@ -5740,6 +5746,14 @@ static int stmmac_rx(struct stmmac_priv *priv, int=
- limit, u32 queue)
->  		stmmac_display_ring(priv, rx_head, priv->dma_conf.dma_rx_size, true,
->  				    rx_q->dma_rx_phy, desc_size);
->  	}
-> +	if (in_progress) {
-> +		skb =3D rx_q->state.skb;
-> +		error =3D rx_q->state.error;
-> +		len =3D rx_q->state.len;
-> +		rx_q->state.skb =3D NULL;
-> +		rx_q->state_saved =3D false;
-> +	}
-> +
->  	while (count < limit) {
->  		unsigned int buf1_len =3D 0, buf2_len =3D 0;
->  		enum pkt_hash_types hash_type;
-> @@ -5748,12 +5762,7 @@ static int stmmac_rx(struct stmmac_priv *priv, int=
- limit, u32 queue)
->  		int entry;
->  		u32 hash;
-> =20
-> -		if (!count && rx_q->state_saved) {
-> -			skb =3D rx_q->state.skb;
-> -			error =3D rx_q->state.error;
-> -			len =3D rx_q->state.len;
-> -		} else {
-> -			rx_q->state_saved =3D false;
-> +		if (!in_progress) {
->  			skb =3D NULL;
->  			error =3D 0;
->  			len =3D 0;
-> @@ -5787,6 +5796,8 @@ static int stmmac_rx(struct stmmac_priv *priv, int =
-limit, u32 queue)
-> =20
->  		prefetch(np);
-> =20
-> +		in_progress =3D status & rx_not_ls;
-> +
->  		if (priv->extend_desc)
->  			stmmac_rx_extended_status(priv, &priv->xstats, rx_q->dma_erx + entry);
->  		if (unlikely(status =3D=3D discard_frame)) {
-> @@ -5971,7 +5982,7 @@ static int stmmac_rx(struct stmmac_priv *priv, int =
-limit, u32 queue)
->  		count++;
->  	}
-> =20
-> -	if (status & rx_not_ls || skb) {
-> +	if (in_progress || skb) {
->  		rx_q->state_saved =3D true;
->  		rx_q->state.skb =3D skb;
->  		rx_q->state.error =3D error;
->=20
-> ---
-> base-commit: 7375d38364a9aa66fb31716bcefef38aecad75d8
-> change-id: 20260930-stmmac-rx-state-041371e43e8c
->=20
-> Best regards,
-> -- =20
-> James Hilliard <james.hilliard1@gmail.com>
->=20
->=20
-
---tPlwEejj5iNQjWqT
-Content-Type: application/pgp-signature; name=signature.asc
-
------BEGIN PGP SIGNATURE-----
-
-iHUEABYKAB0WIQTquNwa3Txd3rGGn7Y6cBh0uS2trAUCar4aqwAKCRA6cBh0uS2t
-rFuEAQDSLs28FZXtvlFLovCP1shWroHJcnR6//fdjyCKN0DS2AD/f6MbvrXfDTP6
-NaSWZHYL7Stp2fYZCBntEBoUBKpiCAI=
-=LpWX
------END PGP SIGNATURE-----
-
---tPlwEejj5iNQjWqT--
+Yours,
+Linus Walleij
 
