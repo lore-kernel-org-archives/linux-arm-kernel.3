@@ -4,7 +4,7 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id F398FCA5FDE
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7CEDFCA5FD2
 	for <linux-arm-kernel@archiver.kernel.org>; Thu,  1 Oct 2026 22:07:12 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
@@ -12,32 +12,32 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=uvnZ0OjFgR11f2LC6cFgEePrdPVXvRkOeEjzH8YB4Ps=; b=Rj7KHKK5MHrGTHrLy9oc0Z4ZZ4
-	HJbBC/VNeCmfcvtDkykOTRdmPHDgJ83Ag2ZXT1/COYvBv7+ZztDh/ECr6qbhKnYE/ZwntnEjavoBu
-	qOfo7X9LFj0GDzWbsBa2raoXMAFyONhlxKhERpMtWkVnlA/Nv72prrlPWJQNjdDT6SBtVLUD+TQgI
-	jxxBYNu6s99sIFbUIvCPx813IHKkZVB8hh7d3kTMyljplj658GuBi5RXNOPHOMJ2Zo6QEae0IoNEm
-	QiZDMdtaJot27LR2kSikOWTKm7ILNBwBua2pNCNN+lafIiH8Ar6UxcwpXNYfK1nZKl3JPaNs9WWX4
-	JNlYmnrg==;
+	bh=yt0d7f0K7RTpFyUxmS5k853unes0VcTfu1z72WXMx1g=; b=uyqjD2Exn3gYWFdvh47wdWbYrl
+	A1E7gxC7TRthb3wq36XrI6fbo5/euR1L9Lkaa+PiW0DJSTV/wfwMXQTvkhxWOTxQMcAJcYn2qgOXH
+	R/o371AHXXZVglpViKMvt6ewbflBRzBXAgRkuoPegaMKh8dqE+zVKfGi9CcH0qfUr0ik7SEXUYVff
+	BPKFOiOUTfX0XVBEBtfsCbd/leklAnCZJDxgtpBciNo+SINfzJFyRXbRRli73YZ/Zr2OYULQ2ruaG
+	NPJxECTpS6aVEaFKI9RDaVrlhJG1i4gXLBFQ3YjHnYlEr2vKTnUWNovIFTfplqHS5ZBar5ZprDrYE
+	Oer+uGnw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xCOvi-0000000AK8u-1lWN;
+	id 1xCOvi-0000000AK8b-1CN9;
 	Thu, 01 Oct 2026 22:07:06 +0000
 Received: from linux.microsoft.com ([13.77.154.182])
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xCOve-0000000AK6f-2m6P
+	id 1xCOvd-0000000AK5z-2LWL
 	for linux-arm-kernel@lists.infradead.org;
 	Thu, 01 Oct 2026 22:07:03 +0000
 Received: from linuxonhyperv3.guj3yctzbm1etfxqx2vob5hsef.xx.internal.cloudapp.net (linux.microsoft.com [13.77.154.182])
-	by linux.microsoft.com (Postfix) with ESMTPSA id ED74020B716C;
-	Thu,  1 Oct 2026 15:06:08 -0700 (PDT)
-DKIM-Filter: OpenDKIM Filter v2.11.0 linux.microsoft.com ED74020B716C
+	by linux.microsoft.com (Postfix) with ESMTPSA id D727420B7168;
+	Thu,  1 Oct 2026 15:06:06 -0700 (PDT)
+DKIM-Filter: OpenDKIM Filter v2.11.0 linux.microsoft.com D727420B7168
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.microsoft.com;
-	s=default; t=1790892369;
-	bh=uvnZ0OjFgR11f2LC6cFgEePrdPVXvRkOeEjzH8YB4Ps=;
+	s=default; t=1790892366;
+	bh=yt0d7f0K7RTpFyUxmS5k853unes0VcTfu1z72WXMx1g=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=j+MR8HoDv1hDNZn7dGKEK4FxM0UyLhJcBGuPBlh0oeVq8Nf9XWVN0J0YFkLTDsFi2
-	 X3pLj2x3hC1SPaIBKCY2y4sMJpEG6HzsALfZQkswJB/A9D7XvDiWnIzu6Y7HXM/PE1
-	 xwejRyfE+sShtFvU8irW4xRqxJfKmpJEhJk5wakU=
+	b=GsI7nSMyUm9bkvwFV59pXbAzRZ1rtG+7DY7ghLfWUrh3Sw+ODLhNkYrcHrCNhDaz4
+	 6f7RekhhHZ6erFXPQd+wY+Uu3gHrGfN1Ox0jhBEJPuNcuUW2xljC5TEQEXBf63ffn3
+	 0IpNNNkuFMLcabLHq7wPHJn0iNDC+tgJfyUrmbkk=
 From: Kameron Carr <kameroncarr@linux.microsoft.com>
 To: kys@microsoft.com,
 	haiyangz@microsoft.com,
@@ -56,18 +56,17 @@ Cc: catalin.marinas@arm.com,
 	linux-arm-kernel@lists.infradead.org,
 	linux-kernel@vger.kernel.org,
 	linux-arch@vger.kernel.org
-Subject: [PATCH v4 6/6] arm64: hyperv: Implement hv_is_isolation_supported() for CCA Realms
-Date: Thu,  1 Oct 2026 15:05:52 -0700
-Message-ID: <20261001220552.1793471-7-kameroncarr@linux.microsoft.com>
+Subject: [PATCH v4 2/6] firmware: smccc: Detect hypervisor via RSI host call in CCA Realms
+Date: Thu,  1 Oct 2026 15:05:48 -0700
+Message-ID: <20261001220552.1793471-3-kameroncarr@linux.microsoft.com>
 X-Mailer: git-send-email 2.43.7
 In-Reply-To: <20261001220552.1793471-1-kameroncarr@linux.microsoft.com>
 References: <20261001220552.1793471-1-kameroncarr@linux.microsoft.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261001_150702_725931_57B636B3 
-X-CRM114-Status: UNSURE (   7.45  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20261001_150701_627317_720DE6E5 
+X-CRM114-Status: GOOD (  12.29  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -82,32 +81,88 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Provide an arm64 implementation of hv_is_isolation_supported() that
-overrides the __weak default in drivers/hv/hv_common.c.
+Modify arm_smccc_hypervisor_has_uuid() to check is_realm_world() and
+use rsi_host_call() to query the hypervisor vendor UUID when inside a
+Realm. The realm path is factored into a helper,
+arm_smccc_realm_get_hypervisor_uuid(), that owns a file-static
+rsi_host_call buffer (uuid_hc) serialized by a spinlock.
 
-The implementation deliberately does not depend on
-hv_is_hyperv_initialized() because hv_common_init() consults
-hv_is_isolation_supported() before hyperv_initialized is set.
+The RSI-specific includes, file-static state and helper are guarded
+with CONFIG_ARM64 because <asm/rsi.h> does not exist on 32-bit ARM.
+
+For non-Realm environments, the existing arm_smccc_1_1_invoke() path
+is unchanged.
 
 Reviewed-by: Michael Kelley <mhklinux@outlook.com>
 Signed-off-by: Kameron Carr <kameroncarr@linux.microsoft.com>
 ---
- arch/arm64/hyperv/mshyperv.c | 5 +++++
- 1 file changed, 5 insertions(+)
+ drivers/firmware/smccc/smccc.c | 41 +++++++++++++++++++++++++++++++++-
+ 1 file changed, 40 insertions(+), 1 deletion(-)
 
-diff --git a/arch/arm64/hyperv/mshyperv.c b/arch/arm64/hyperv/mshyperv.c
-index 45ca8e2..c41188a 100644
---- a/arch/arm64/hyperv/mshyperv.c
-+++ b/arch/arm64/hyperv/mshyperv.c
-@@ -163,3 +163,8 @@ bool hv_isolation_type_cca(void)
- {
- 	return is_realm_world();
- }
+diff --git a/drivers/firmware/smccc/smccc.c b/drivers/firmware/smccc/smccc.c
+index afc2e4d..7e77170 100644
+--- a/drivers/firmware/smccc/smccc.c
++++ b/drivers/firmware/smccc/smccc.c
+@@ -14,6 +14,12 @@
+ 
+ #include <asm/archrandom.h>
+ 
++#ifdef CONFIG_ARM64
++#include <linux/arm-rsi-cmds.h>
++#include <linux/cleanup.h>
++#include <linux/spinlock.h>
++#endif
 +
-+bool hv_is_isolation_supported(void)
+ static u32 smccc_version = ARM_SMCCC_VERSION_1_0;
+ static enum arm_smccc_conduit smccc_conduit = SMCCC_CONDUIT_NONE;
+ 
+@@ -69,12 +75,45 @@ s32 arm_smccc_get_soc_id_revision(void)
+ }
+ EXPORT_SYMBOL_GPL(arm_smccc_get_soc_id_revision);
+ 
++#ifdef CONFIG_ARM64
++static struct rsi_host_call uuid_hc;
++static DEFINE_SPINLOCK(uuid_hc_lock);
++
++/*
++ * Helper function to get the hypervisor UUID via an RsiHostCall.
++ */
++static void arm_smccc_realm_get_hypervisor_uuid(struct arm_smccc_res *res)
 +{
-+	return is_realm_world();
++	guard(spinlock_irqsave)(&uuid_hc_lock);
++
++	memset(&uuid_hc, 0, sizeof(uuid_hc));
++	uuid_hc.gprs[0] = ARM_SMCCC_VENDOR_HYP_CALL_UID_FUNC_ID;
++
++	if (rsi_host_call(__pa_symbol(&uuid_hc)) != RSI_SUCCESS) {
++		res->a0 = SMCCC_RET_NOT_SUPPORTED;
++		return;
++	}
++
++	res->a0 = uuid_hc.gprs[0];
++	res->a1 = uuid_hc.gprs[1];
++	res->a2 = uuid_hc.gprs[2];
++	res->a3 = uuid_hc.gprs[3];
 +}
++#endif
++
+ bool arm_smccc_hypervisor_has_uuid(const uuid_t *hyp_uuid)
+ {
+ 	struct arm_smccc_res res = {};
+ 	uuid_t uuid;
+ 
+-	arm_smccc_1_1_invoke(ARM_SMCCC_VENDOR_HYP_CALL_UID_FUNC_ID, &res);
++#ifdef CONFIG_ARM64
++	if (is_realm_world())
++		arm_smccc_realm_get_hypervisor_uuid(&res);
++	else
++#endif
++		arm_smccc_1_1_invoke(ARM_SMCCC_VENDOR_HYP_CALL_UID_FUNC_ID,
++				     &res);
++
+ 	if (res.a0 == SMCCC_RET_NOT_SUPPORTED)
+ 		return false;
+ 
 -- 
 2.45.4
 
