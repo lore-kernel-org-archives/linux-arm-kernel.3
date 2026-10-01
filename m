@@ -4,7 +4,7 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C6FC3CA5FCB
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B0959CA5FC1
 	for <linux-arm-kernel@archiver.kernel.org>; Thu,  1 Oct 2026 03:29:15 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
@@ -12,36 +12,36 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	:Message-ID:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=CBIl9615h3PEG4pm/w2jSWGbQjSYORVju8rELwG85z8=; b=QsaX4vFDycOOtuwHB3Q7PjgeUX
-	TsTileVoYRgyRMdlUdFlyf25NE3fRBe4sNKTcbSDAGovOpOBbJ9QmOc2bLobPTn2lCB+1HSf+S9TD
-	HfxgXwhtC8+34eU+EHbMvyQiEH6P+m1bb7c5uZt45G1S/iYLd5upMzT9KtX7BsFnzMbYVSulvtAcg
-	iGDDQ0kwSW3tKi/zIaPB2RB0ARTMduTj5TMJ2sx/WH1r9oje8MUQkchtTJzlrUY/vjSAH0v04pDTy
-	UhIRcKeznVEfvccKB1Ys4yaFtZMQTvLdK+i6jnrUndkF8s40AJ0lHHEqpBYlJZatbmUZv3ye8Qi/Y
-	ACfhXzIg==;
+	bh=mh4wlLozHixAk1AZzMLTj5UWdBe6r+5OganuS/DeSog=; b=tHZm4km2FpFwxc5k8MXZ86TCYQ
+	EtFcuSozrD+ZAESoZhO/uFdMT6EffXQBP8Mx6fbfWF3LSbobv6F2uzKyeZZQ5lUJ5m9DlrMgYfDUv
+	hyciT9IoRQyvy0EWcBdp5w9NOXKIKcDc5OWaycrCOXzo1UQJJUaP5DAqFawDUY/eK/xL0LX+x0iYa
+	hygl3O/6ps9Hz66S8E3Kh0xYdP9MzNDHGiFsLp3RvtN4ieUgZHsG2Qa/iQ5DuoK9rtfU5X/inrBHe
+	QSIPA6UnL9ydlBRQ+T9qHHnJjp5YC6A3RN2t0FOVDDt1happ9UFdXeYp60gz+a3kyhjtsmCooZC1O
+	Cxh/KYHQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xC7Tp-00000007fUf-2Jtm;
+	id 1xC7Tp-00000007fUN-1yGS;
 	Thu, 01 Oct 2026 03:29:09 +0000
 Received: from mail.aspeedtech.com ([211.20.114.72] helo=twmbx01.aspeedtech.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xC7Th-00000007fQd-1nw7
+	id 1xC7Tf-00000007fQd-48nG
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 01 Oct 2026 03:29:02 +0000
+	Thu, 01 Oct 2026 03:29:01 +0000
 Received: from TWMBX01.aspeed.com (192.168.0.62) by TWMBX01.aspeed.com
  (192.168.0.62) with Microsoft SMTP Server (version=TLS1_2,
  cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1748.10; Thu, 1 Oct
- 2026 11:28:46 +0800
+ 2026 11:28:45 +0800
 Received: from [127.0.1.1] (192.168.10.13) by TWMBX01.aspeed.com
  (192.168.0.62) with Microsoft SMTP Server id 15.2.1748.10 via Frontend
- Transport; Thu, 1 Oct 2026 11:28:46 +0800
+ Transport; Thu, 1 Oct 2026 11:28:45 +0800
 From: Billy Tsai <billy_tsai@aspeedtech.com>
-Date: Thu, 1 Oct 2026 11:28:45 +0800
-Subject: [PATCH 2/3] iio: adc: aspeed: Use syscon phandle for trimming data
- when available
+Date: Thu, 1 Oct 2026 11:28:44 +0800
+Subject: [PATCH 1/3] dt-bindings: iio: adc: Add syscon property for
+ multi-SCU SoCs
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-ID: <20261001-ast27xx-adc-upstream-v1-2-5ace57533418@aspeedtech.com>
+Message-ID: <20261001-ast27xx-adc-upstream-v1-1-5ace57533418@aspeedtech.com>
 References: <20261001-ast27xx-adc-upstream-v1-0-5ace57533418@aspeedtech.com>
 In-Reply-To: <20261001-ast27xx-adc-upstream-v1-0-5ace57533418@aspeedtech.com>
 To: Jonathan Cameron <jic23@kernel.org>, David Lechner
@@ -55,16 +55,17 @@ CC: <linux-iio@vger.kernel.org>, <devicetree@vger.kernel.org>,
 	<linux-kernel@vger.kernel.org>, Billy Tsai <billy_tsai@aspeedtech.com>,
 	Jonathan Cameron <jic23@kernel.org>
 X-Mailer: b4 0.14.3
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1790825325; l=2228;
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1790825325; l=2250;
  i=billy_tsai@aspeedtech.com; s=20251118; h=from:subject:message-id;
- bh=JoCVKHqa1BfpuBeYRt31i7335+6pSUtxVcgJhxASgGg=;
- b=ldmeVaetAGKZ06YJ1o/8zPnc4zn6XrJp8cCAd9zJTPmYq0EnTpDeYPJhv+TOKHiiSiKyY3742
- vaEMd+l1kiaCcNBQR+Uc1EUfLQ/iBPA72VVzMOFiAAkpkQ3Y1qlIpKT
+ bh=FsGT1zbL6rxTYT0DVNlN72Kt+1ynoxmzD31cbn5Esb0=;
+ b=iiLL+6sgRQAuRmZdFxMpNwDwxz4WK9BDIu+XM8WhKlgLD5WieKxUpiRgWTyiNfTxp6PsnUs2F
+ OSn1Dk0UIOECdFmC6HXqdGOQdq4yd9WL9+2W0UOt0jpkHWCII0Lar3m
 X-Developer-Key: i=billy_tsai@aspeedtech.com; a=ed25519;
  pk=/A8qvgZ6CPfnwKgT6/+k+nvXOkN477MshEGJvVdzeeQ=
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260930_202901_487584_C1486CA4 
-X-CRM114-Status: GOOD (  10.68  )
+X-CRM114-CacheID: sfid-20260930_202900_030680_7EE01E58 
+X-CRM114-Status: UNSURE (   9.25  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -79,59 +80,73 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-aspeed_adc_set_trim_data() locates the SCU holding the ADC's
-reference-voltage trimming data with of_find_node_by_name(NULL,
-"syscon"), a global search that matches the first device-tree node
-named "syscon" regardless of which SCU instance it actually is.
+The ADC's reference-voltage trimming data lives in a System Control
+Unit (SCU) register. SoCs with a single SCU instance let the driver
+locate it without any additional information, but SoCs such as AST2700
+that expose more than one SCU node need an explicit phandle to
+disambiguate which one holds the trimming data.
 
-On AST2700, which splits its SCU into "syscon0" (soc0) and "syscon1"
-(soc1), both nodes share the same node name "syscon" and only differ
-by label and unit address, so the lookup always resolves to syscon0
-even though the ADC's trimming data lives in syscon1.
+Add an optional "syscon" phandle property, and require it for the
+AST2700 compatibles since they are the first multi-SCU SoCs supported
+by this driver.
 
-Use the new "syscon" phandle property when present to look up the
-correct regmap directly, falling back to the old global by-name search
-when the property is absent so existing device trees keep working.
-
-Fixes: 9d8b88ffb773 ("iio: adc: aspeed: Add AST2700 ADC support")
 Signed-off-by: Billy Tsai <billy_tsai@aspeedtech.com>
 Assisted-by: Claude:claude-sonnet-5
 ---
- drivers/iio/adc/aspeed_adc.c | 20 ++++++++++++++------
- 1 file changed, 14 insertions(+), 6 deletions(-)
+ .../bindings/iio/adc/aspeed,ast2600-adc.yaml       | 28 ++++++++++++++++++++++
+ 1 file changed, 28 insertions(+)
 
-diff --git a/drivers/iio/adc/aspeed_adc.c b/drivers/iio/adc/aspeed_adc.c
-index 6169ce28261e..d195bc3e155f 100644
---- a/drivers/iio/adc/aspeed_adc.c
-+++ b/drivers/iio/adc/aspeed_adc.c
-@@ -206,13 +206,21 @@ static int aspeed_adc_set_trim_data(struct iio_dev *indio_dev)
- 	u32 scu_otp, trimming_val;
- 	struct aspeed_adc_data *data = iio_priv(indio_dev);
+diff --git a/Documentation/devicetree/bindings/iio/adc/aspeed,ast2600-adc.yaml b/Documentation/devicetree/bindings/iio/adc/aspeed,ast2600-adc.yaml
+index 249101b55cf4e..0d6b10450cfa8 100644
+--- a/Documentation/devicetree/bindings/iio/adc/aspeed,ast2600-adc.yaml
++++ b/Documentation/devicetree/bindings/iio/adc/aspeed,ast2600-adc.yaml
+@@ -67,6 +67,11 @@ properties:
+     description:
+       Inform the driver that last channel will be used to sensor battery.
  
--	syscon = of_find_node_by_name(NULL, "syscon");
--	if (syscon == NULL) {
--		dev_warn(data->dev, "Couldn't find syscon node\n");
--		return -EOPNOTSUPP;
-+	scu = syscon_regmap_lookup_by_phandle_optional(data->dev->of_node, "syscon");
-+	if (!scu) {
-+		/*
-+		 * No "syscon" phandle: either a single-SCU SoC, or a DTB
-+		 * predating the property. Fall back to the old global
-+		 * by-name lookup for backward compatibility.
-+		 */
-+		syscon = of_find_node_by_name(NULL, "syscon");
-+		if (syscon == NULL) {
-+			dev_warn(data->dev, "Couldn't find syscon node\n");
-+			return -EOPNOTSUPP;
-+		}
-+		scu = syscon_node_to_regmap(syscon);
-+		of_node_put(syscon);
- 	}
--	scu = syscon_node_to_regmap(syscon);
--	of_node_put(syscon);
- 	if (IS_ERR(scu)) {
- 		dev_warn(data->dev, "Failed to get syscon regmap\n");
- 		return -EOPNOTSUPP;
++  syscon:
++    $ref: /schemas/types.yaml#/definitions/phandle
++    description:
++      Required on SoCs with more than one SCU instance (e.g. AST2700).
++
+ required:
+   - compatible
+   - reg
+@@ -74,6 +79,18 @@ required:
+   - resets
+   - "#io-channel-cells"
+ 
++allOf:
++  - if:
++      properties:
++        compatible:
++          contains:
++            enum:
++              - aspeed,ast2700-adc0
++              - aspeed,ast2700-adc1
++    then:
++      required:
++        - syscon
++
+ additionalProperties: false
+ 
+ examples:
+@@ -95,4 +112,15 @@ examples:
+         #io-channel-cells = <1>;
+         aspeed,int-vref-microvolt = <2500000>;
+     };
++  - |
++    #include <dt-bindings/clock/aspeed,ast2700-scu.h>
++    #include <dt-bindings/reset/aspeed,ast2700-scu.h>
++    adc0: adc@14c00000 {
++        compatible = "aspeed,ast2700-adc0";
++        reg = <0x14c00000 0x100>;
++        clocks = <&syscon1 SCU1_CLK_AHB>;
++        resets = <&syscon1 SCU1_RESET_ADC>;
++        syscon = <&syscon1>;
++        #io-channel-cells = <1>;
++    };
+ ...
 
 -- 
 2.34.1
