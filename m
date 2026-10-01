@@ -4,71 +4,72 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BD12DCA5FD6
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  1 Oct 2026 15:54:37 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 12034CA5FD4
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  1 Oct 2026 15:54:38 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=ObWleL9TA7UPO+YvdXrGwmMNTs1BuFhMK+d7zLOGlOo=; b=AK0yYUmt2nAb1KaBdTPK0AuM9D
-	X+N+GBDJd67FIVYdUfBXMH2GSvAO5XggGJjMWD9+3WW9zj00Nu+1iyufmTDxI+E+sSCnTgLNmFQN+
-	z8QtgjzdGhYlHcyDfi//9Q/y9CimagGCgzHr0CJXJ4p5WuO/DSscmtdjrw5sGvUPGV7lhOJ10eLBK
-	cczHAHe6ytQzZ1U9FWWT3YC+oGdKWcmu1gteGjkv2JOOOh2G5fI/Hd0J4Wza6E19pyAiLn3EMZFy/
-	NLo5e9oJ9WAw6Z4yjq91pXykLGeqyXRj/oQXh1B+VoIpvE55abXLQVf6YbXRxeJS/DWwwlD7WF3DS
-	bSm+ExcA==;
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=wgvDf4RLDng0uvipLWv31zDG7gco8OVe3xdb0OyCHis=; b=aDdDlrcjxnwK1s9xHdBw4tf5Vw
+	Xl0x5sfvPEmfhOBBupFtxhTzPYUS9CNotJb4TflLMmq4KYZEVOvaTevPlImOlUlF+814pm+Ma+dpj
+	RIu8SxXfTbnhDg1cF6tAEGBYDvnGq7oQwz8W3RNxXoP8QEATAqCBs0z6Pp6XJm+drU4GRg5lH01Kn
+	JaI2i9tlRM0Tnyai97HpqfrCmNes43P+uDCyFH2T85ZFVVBkTf6B5E1xa95rDINuDhuv8ag8owBpo
+	TDAYif6JY35l/IZ3OnNYjieAAByIsiJMuSPobqS4n2jydr69w3Z5yIlaztLTvcQaC+oN6n+jPCNZi
+	xQP/GL9g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xCJ76-00000009bHe-28za;
-	Thu, 01 Oct 2026 15:54:28 +0000
-Received: from mail-wm2-x11.google.com ([2a00:1450:4864:31::11])
+	id 1xCJ77-00000009bJF-2e7W;
+	Thu, 01 Oct 2026 15:54:29 +0000
+Received: from mail-wr2-x0e.google.com ([2a00:1450:4864:30::e])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xCJ73-00000009bDh-2p13
+	id 1xCJ75-00000009bFc-13nZ
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 01 Oct 2026 15:54:27 +0000
-Received: by mail-wm2-x11.google.com with SMTP id 5b1f17b1804b1-4a00d8bec5aso20313085e9.2
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 01 Oct 2026 08:54:24 -0700 (PDT)
+	Thu, 01 Oct 2026 15:54:28 +0000
+Received: by mail-wr2-x0e.google.com with SMTP id ffacd0b85a97d-48af4663da5so2466836f8f.3
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 01 Oct 2026 08:54:26 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1790870063; x=1791474863; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
-        bh=ObWleL9TA7UPO+YvdXrGwmMNTs1BuFhMK+d7zLOGlOo=;
-        b=JmIaqLzmUAO47s2nPq7JV/7sMtPcs5ew+t8iyqLqxHXB0svGRXa3FJ66ZzKuNUuNg1
-         ModarqHoiRTNpOavmS+BkoV7cU24IUPYBq+4bC4KGd//fpNLoJueWPPmLF7fpiseLGG5
-         yWI1/gPftLWqUi+YGKluty/mrH2oUB4VKfzqXVrVhnHjPx5FDnZV1VsQNoqcJfYJVBAC
-         xe3V4L0y0tFw6xLtlm2ThBEbQLb5YmuOEzTQytzrPzT9rBULqlgObuxQlmamlxcZ90U+
-         3dTCNsjq/FWLUWu5ez7zi355WBXHizVKeeJxReGh5fOD9/tBqZvIIBkR+ahNTTyJ7fVy
-         JYwA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1790870063; x=1791474863;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+        d=gmail.com; s=20251104; t=1790870065; x=1791474865; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to:content-type;
-        bh=ObWleL9TA7UPO+YvdXrGwmMNTs1BuFhMK+d7zLOGlOo=;
-        b=KkcPMZxg3Hxl/KYHIdl3QQ+jPZ2rQ9lHTArVTx4IbDtVtRAj6qhfgUXVJUDRN6PP5M
-         oi8471unl4AsLeDB/GAX5c4jMFu9Quy4N4gy0V/mqudIy9FHp5UVP1u+aBYLfyTPm0VI
-         S9h7vQI6aGWpjXWtsC4fUYSPrRRMSZ8V6HHCr2JPqJ6MEcGLq2cqIqcCu9S3VA/WLO53
-         H0LaQFcK0xI8guc2KDnQBHyMeo5+KL2/t9iVYB5qNjqZkfFxQfkKTgNwnhpJvF5g1yJQ
-         3/3Xx3hG5r6+kaxtdZ2Xv7APEBj6b2VOwhQzSUb6O+1ZT1C2BOY97oJBjMiJRqNvweAZ
-         sVww==
-X-Forwarded-Encrypted: i=1; AKwUvBzY9Az7PAev2zlpHciutZQ2RBjmhEat9j0irPx/zb9d7MAqo1L/pXqPRv1j/fIWXivgq9CyfC3ljyNnpgDjGnSi@lists.infradead.org
-X-Gm-Message-State: AFuF++mgCcBjt675gPmTKHZ5hdtyuU3e+YNSIG8Utvszpve7aOdWonEp
-	hkTLSm882iwfOTuo3Cl/Pfgg94wg9FU4NnAYd29mhgDoHpKFTHwWNbae
-X-Gm-Gg: AYBFou2sQB94s6Cce7NursLoEyuxtbJwcTI7DJSbmGhx2FMJE512MSMBhewRixRredT
-	Mgp9KiCUTlP2DWx1Ts7MtbRyX4DQ1mfCHS7Cvb/2hsgh6p37SJE5qoav5ajhiYRL2yjFfC35K3j
-	weUvn2rxgm++6t+ef9wsXfRJ/cxTDbikR9PkHvZr5S+F1bDNrEI0oJ/UUeEEOvWuhXn/RWWKf6B
-	T9i6sZo+lwF5jtq0m3v48D7QZE7qof/ZBOY6heuMnXNBZJMiWwAEx30ucuI/codpBxBP/uUj6Gf
-	emPiK4HJ4j6uBYFLv2U5aTStQaJiVLOceg0I9LvJMssT9IuSW3jBoXM0KtVGVrTdct6UrY5A+tE
-	O5cIzqyfTGQ8sEWepxZNmfPJ2du8/ko0aKPBzB5spUaTsnBwwSj2Lj8TemzJVxXZFnIN1PBYnIW
-	kSTR00uC/HX0a8UWcsHHa8kVaLt++3LHBm5ar3pSS/22ZP+MFlhpbT2WCptywQRQ3+5QDz0BNrL
-	iaiIwCVIaKWBJtqQ40KNKjFMACSr1a8UlINASKPrnPV9JQAPyCR817TFGsLXP0WaIGQ/W+cWYed
-X-Received: by 2002:a05:600c:4e4b:b0:4a0:263b:1f77 with SMTP id 5b1f17b1804b1-4a0276a1f28mr643585e9.8.1790870062454;
-        Thu, 01 Oct 2026 08:54:22 -0700 (PDT)
+        bh=wgvDf4RLDng0uvipLWv31zDG7gco8OVe3xdb0OyCHis=;
+        b=Ei6fYDME/YB/yX/dh3psiQHzOGzP06EskiXZ+MGRlIPHjxwTwhbr/uA+L8W7zyGgls
+         DMkcCGcsklP26eCEGoGwQsPZ+md75uFK3PnZNU6GdrxQq9OzowQI25KkCrkwkcFA4Wnj
+         lKqShl6PKjSvPQl+HBxfRZsynG4jyjhx1YHOTtI1MXvLcWFEk/ozxl/V0aDgE05lZifF
+         Jy6uBZ51PhL+RhUNk7Gbdns9jwBhPXySA3n+F4ywd64VKuTqi9on5pGfMSoqC47Dsy6u
+         5bn1Ymewy2kSjFr1A6mGKoDxQPJffv6eGRRWZEph34SwFLQgTecjDJdzF5MoNZdy+tbD
+         jIrQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1790870065; x=1791474865;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
+         :to:cc:subject:date:message-id:reply-to:content-type;
+        bh=wgvDf4RLDng0uvipLWv31zDG7gco8OVe3xdb0OyCHis=;
+        b=0rXHmzsKWdeTVjc/+ClJObvol73e8SVaFhAWVWrUfGMxfdDOwbcirz0acbeNFcYHrh
+         rwWSFqlJ7vpg8DH2VwdCuJvrSBAloOqeJzIOzDtRXQuX9Ufz5X+DqCNAhhO34U2jy1Bv
+         lfidN8GbS1TEGW2pQMUCySWeEHU7Nvsj5Se61yK3c7UUOZz96fcia1E8WFvOd1GldEmL
+         wH0cbCkoJw0tzpOONJaNO0kmKMN5nwgMz46SPQbFcRtbZgWs5siJJwVpmZsWHIKkgS13
+         ZC1MqhRyIN3DqidAYe+7trKbOC7EF4v5MdpbaK8iDF/3uF6ozxkDwAvZwbZZM9LcJlGx
+         AUgw==
+X-Forwarded-Encrypted: i=1; AKwUvBzYLkkjNh93Jc8VEF6x9fosFb0c8xdy2cqnrXzE+RuUWLbMiP9jg30J0mymP9+JZPbAbJsTdgJI0n3MfdB0oDlT@lists.infradead.org
+X-Gm-Message-State: AFq9FYKM80XgKLqYAu8sTPoNCY//+PSxoZAdS3Xn2VMuUWUqlGUJp9lB
+	/G579AvEN+EvY6bC4fOHXHZgNPquA3PwMRmJZHJ1JCCOsXSF3fwFtqx5
+X-Gm-Gg: AYBFou0innL9ridc6jzDP/fmZjMucTET8dlNl9IDdO6nKakyW6ZmGjMC9HkIP8fKbrI
+	U4Z4Tqu0e63Br6BE1Bm9RsHNvBfQLKsmAlPWAo50p/zgL1sM3qc1KkdY1BbcoYkEc2fvNMyolUC
+	qwnwwPtaTq4S5vKoAZFNFMn/2yHdVnwxIr7U/rgUlm8T8TEyIdI0Q0rYS+bp9IqB7VaTd/kf6yw
+	i+5pqOU5Ywg/nznuBYCzllTu07K7pq8OgjEhr9vu/qHwxqjOVMn/7ajxhlwfNSEP3PRhWPWJt49
+	bAXZzkuGU1KCF23lPgL9DYqrIuB/h5sGy3zaUEMHFpxbf/5qA9KgG/vnbH5uss5G0wuRtiXWQ4x
+	eiTcks3cb1JDXGsF0ZSBapADBJZnS9HEq5WSBrYdTeYxbX8+T0sAydVZz7apnAlRiM0VYpFyu2c
+	wWr9kcXIqdLcBbpXnKwISTo3y4s8QQNiOJ/YFVGvU5E37eCQ6EkYikEZs1lp34JvBzkwAVaqJX7
+	6TxBhFES2Wr7VvhPZgZlgV3Dh6nR8NZUrLRcMm5xCLsCnBWfI2Mj1x+gd010kfBzNY7odmxsKJ8
+X-Received: by 2002:a05:6000:469a:b0:48a:fd90:f254 with SMTP id ffacd0b85a97d-48b1272a07amr24159f8f.28.1790870065261;
+        Thu, 01 Oct 2026 08:54:25 -0700 (PDT)
 Received: from leonardoc-nb (248.201.173.83.static.wline.lns.sme.cust.swisscom.ch. [83.173.201.248])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-48b068ff6eesm6517294f8f.11.2026.10.01.08.54.21
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-48b068ff6eesm6517294f8f.11.2026.10.01.08.54.24
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 01 Oct 2026 08:54:22 -0700 (PDT)
+        Thu, 01 Oct 2026 08:54:24 -0700 (PDT)
 From: Leonardo Costa <leoreis.costa@gmail.com>
 To: robh@kernel.org,
 	krzk+dt@kernel.org,
@@ -86,15 +87,17 @@ Cc: devicetree@vger.kernel.org,
 	imx@lists.linux.dev,
 	linux-arm-kernel@lists.infradead.org,
 	linux-kernel@vger.kernel.org
-Subject: [PATCH 0/7] ARM: dts: Add Apalis iMX6 overlays
-Date: Thu,  1 Oct 2026 12:52:50 -0300
-Message-ID: <20261001155412.3177428-1-leoreis.costa@gmail.com>
+Subject: [PATCH 1/7] ARM: dts: imx6q-apalis: Add HDMI Overlay
+Date: Thu,  1 Oct 2026 12:52:51 -0300
+Message-ID: <20261001155412.3177428-2-leoreis.costa@gmail.com>
 X-Mailer: git-send-email 2.43.0
+In-Reply-To: <20261001155412.3177428-1-leoreis.costa@gmail.com>
+References: <20261001155412.3177428-1-leoreis.costa@gmail.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261001_085425_749378_4B54F7C6 
-X-CRM114-Status: GOOD (  10.98  )
+X-CRM114-CacheID: sfid-20261001_085427_331651_FA297B4D 
+X-CRM114-Status: GOOD (  15.37  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -111,54 +114,114 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 
 From: Leonardo Costa <leonardo.costa@toradex.com>
 
-This series adds device tree overlays for the Apalis iMX6 SoM. The
-overlays cover HDMI, parallel and LVDS displays, audio configuration and
-OV5640 CSI camera modules.
+Add a device tree overlay for the HDMI output on the Apalis iMX6.
 
-The series adds support for:
+The overlay is also combined with the various versions of the Ixora and
+Evaluation Board carrier board device trees to provide ready-to-use
+DTBs.
 
-- HDMI Displays
-- Toradex Capacitive Touch Display 10.1" LVDS
-- Toradex Capacitive and Resistive Touch 7" Parallel Displays
-- NAU8822 Bridge Tied Load configuration on the Apalis Evaluation Board V1.2
-- Toradex OV5640 CSI camera variants with 27 MHz and 24 MHz oscillators
-
-The Makefile entries build the standalone overlays as DTBOs, and add
-ready-to-use composed DTBs for selected carrier boards and accessory
-combinations, for build-time coverage.
-
-Leonardo Costa (7):
-  ARM: dts: imx6q-apalis: Add HDMI Overlay
-  ARM: dts: imx6q-apalis-ixora: Add 3.3V_SW power regulator
-  ARM: dts: imx6q-apalis: Add Toradex Capacitive Touch Display 10.1"
-    LVDS
-  ARM: dts: imx6q-apalis: Add Toradex Capacitive Touch Display 7"
-    Parallel
-  ARM: dts: imx6q-apalis: Add Toradex Resistive Touch Display 7"
-    Parallel
-  ARM: dts: imx6q-apalis: Add NAU8822 Bridge Tied Load
-  ARM: dts: imx6q-apalis: Add Toradex OV5640 CSI Cameras
-
- arch/arm/boot/dts/nxp/imx/Makefile            | 87 +++++++++++++++++++
- .../imx6q-apalis-eval-v1.2-nau8822-btl.dtso   | 15 ++++
- .../boot/dts/nxp/imx/imx6q-apalis-hdmi.dtso   | 13 +++
- .../dts/nxp/imx/imx6q-apalis-ixora-v1.2.dts   |  7 ++
- .../boot/dts/nxp/imx/imx6q-apalis-ixora.dts   |  7 ++
- .../nxp/imx/imx6q-apalis-ov5640-24mhz.dtso    | 17 ++++
- .../boot/dts/nxp/imx/imx6q-apalis-ov5640.dtsi | 68 +++++++++++++++
- .../boot/dts/nxp/imx/imx6q-apalis-ov5640.dtso | 18 ++++
- ...6q-apalis-panel-cap-touch-10inch-lvds.dtso | 53 +++++++++++
- ...apalis-panel-cap-touch-7inch-parallel.dtso | 34 ++++++++
- ...apalis-panel-res-touch-7inch-parallel.dtso | 30 +++++++
- arch/arm/boot/dts/nxp/imx/imx6qdl-apalis.dtsi | 86 ------------------
- 12 files changed, 349 insertions(+), 86 deletions(-)
- create mode 100644 arch/arm/boot/dts/nxp/imx/imx6q-apalis-eval-v1.2-nau8822-btl.dtso
+Signed-off-by: Leonardo Costa <leonardo.costa@toradex.com>
+---
+ arch/arm/boot/dts/nxp/imx/Makefile            | 51 +++++++++++++++++++
+ .../boot/dts/nxp/imx/imx6q-apalis-hdmi.dtso   | 13 +++++
+ 2 files changed, 64 insertions(+)
  create mode 100644 arch/arm/boot/dts/nxp/imx/imx6q-apalis-hdmi.dtso
- create mode 100644 arch/arm/boot/dts/nxp/imx/imx6q-apalis-ov5640-24mhz.dtso
- create mode 100644 arch/arm/boot/dts/nxp/imx/imx6q-apalis-ov5640.dtsi
- create mode 100644 arch/arm/boot/dts/nxp/imx/imx6q-apalis-ov5640.dtso
- create mode 100644 arch/arm/boot/dts/nxp/imx/imx6q-apalis-panel-cap-touch-10inch-lvds.dtso
- create mode 100644 arch/arm/boot/dts/nxp/imx/imx6q-apalis-panel-cap-touch-7inch-parallel.dtso
- create mode 100644 arch/arm/boot/dts/nxp/imx/imx6q-apalis-panel-res-touch-7inch-parallel.dtso
 
+diff --git a/arch/arm/boot/dts/nxp/imx/Makefile b/arch/arm/boot/dts/nxp/imx/Makefile
+index c5caca92ea10c..32d77a59c4358 100644
+--- a/arch/arm/boot/dts/nxp/imx/Makefile
++++ b/arch/arm/boot/dts/nxp/imx/Makefile
+@@ -59,6 +59,46 @@ dtb-$(CONFIG_SOC_IMX53) += \
+ imx53-qsb-hdmi-dtbs := imx53-qsb.dtb imx53-qsb-hdmi.dtbo
+ imx53-qsrb-hdmi-dtbs := imx53-qsrb.dtb imx53-qsb-hdmi.dtbo
+ 
++imx6q-apalis-eval-hdmi-dtbs := \
++	imx6q-apalis-eval.dtb \
++	imx6q-apalis-hdmi.dtbo
++
++imx6q-apalis-eval-v1.2-hdmi-dtbs := \
++	imx6q-apalis-eval-v1.2.dtb \
++	imx6q-apalis-hdmi.dtbo
++
++imx6q-apalis-ixora-hdmi-dtbs := \
++	imx6q-apalis-ixora.dtb \
++	imx6q-apalis-hdmi.dtbo
++
++imx6q-apalis-ixora-v1.1-hdmi-dtbs := \
++	imx6q-apalis-ixora-v1.1.dtb \
++	imx6q-apalis-hdmi.dtbo
++
++imx6q-apalis-ixora-v1.2-hdmi-dtbs := \
++	imx6q-apalis-ixora-v1.2.dtb \
++	imx6q-apalis-hdmi.dtbo
++
++imx6q-apalis-v1.2-eval-hdmi-dtbs := \
++	imx6q-apalis-v1.2-eval.dtb \
++	imx6q-apalis-hdmi.dtbo
++
++imx6q-apalis-v1.2-eval-v1.2-hdmi-dtbs := \
++	imx6q-apalis-v1.2-eval-v1.2.dtb \
++	imx6q-apalis-hdmi.dtbo
++
++imx6q-apalis-v1.2-ixora-hdmi-dtbs := \
++	imx6q-apalis-v1.2-ixora.dtb \
++	imx6q-apalis-hdmi.dtbo
++
++imx6q-apalis-v1.2-ixora-v1.1-hdmi-dtbs := \
++	imx6q-apalis-v1.2-ixora-v1.1.dtb \
++	imx6q-apalis-hdmi.dtbo
++
++imx6q-apalis-v1.2-ixora-v1.2-hdmi-dtbs := \
++	imx6q-apalis-v1.2-ixora-v1.2.dtb \
++	imx6q-apalis-hdmi.dtbo
++
+ imx6qdl-dhcom-pdk2-overlay-497-200-x12-dtbs := \
+ 	imx6q-dhcom-pdk2.dtb \
+ 	imx6qdl-dhcom-pdk2-overlay-497-200-x12.dtbo
+@@ -183,15 +223,26 @@ dtb-$(CONFIG_SOC_IMX6Q) += \
+ 	imx6dl-yapp4-phoenix.dtb \
+ 	imx6dl-yapp4-ursa.dtb \
+ 	imx6q-apalis-eval.dtb \
++	imx6q-apalis-eval-hdmi.dtb \
+ 	imx6q-apalis-eval-v1.2.dtb \
++	imx6q-apalis-eval-v1.2-hdmi.dtb \
++	imx6q-apalis-hdmi.dtbo \
+ 	imx6q-apalis-ixora.dtb \
++	imx6q-apalis-ixora-hdmi.dtb \
+ 	imx6q-apalis-ixora-v1.1.dtb \
++	imx6q-apalis-ixora-v1.1-hdmi.dtb \
+ 	imx6q-apalis-ixora-v1.2.dtb \
++	imx6q-apalis-ixora-v1.2-hdmi.dtb \
+ 	imx6q-apalis-v1.2-eval.dtb \
++	imx6q-apalis-v1.2-eval-hdmi.dtb \
+ 	imx6q-apalis-v1.2-eval-v1.2.dtb \
++	imx6q-apalis-v1.2-eval-v1.2-hdmi.dtb \
+ 	imx6q-apalis-v1.2-ixora.dtb \
++	imx6q-apalis-v1.2-ixora-hdmi.dtb \
+ 	imx6q-apalis-v1.2-ixora-v1.1.dtb \
++	imx6q-apalis-v1.2-ixora-v1.1-hdmi.dtb \
+ 	imx6q-apalis-v1.2-ixora-v1.2.dtb \
++	imx6q-apalis-v1.2-ixora-v1.2-hdmi.dtb \
+ 	imx6q-apf6dev.dtb \
+ 	imx6q-arm2.dtb \
+ 	imx6q-b450v3.dtb \
+diff --git a/arch/arm/boot/dts/nxp/imx/imx6q-apalis-hdmi.dtso b/arch/arm/boot/dts/nxp/imx/imx6q-apalis-hdmi.dtso
+new file mode 100644
+index 0000000000000..592bd366d94e4
+--- /dev/null
++++ b/arch/arm/boot/dts/nxp/imx/imx6q-apalis-hdmi.dtso
+@@ -0,0 +1,13 @@
++// SPDX-License-Identifier: GPL-2.0-only OR MIT
++/*
++ * Copyright (c) Toradex
++ *
++ * Enable the HDMI interface on the Apalis iMX6.
++ */
++
++/dts-v1/;
++/plugin/;
++
++&hdmi {
++	status = "okay";
++};
 
