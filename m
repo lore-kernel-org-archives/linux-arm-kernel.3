@@ -4,62 +4,91 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E1EF3CA5FD2
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  1 Oct 2026 21:26:41 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 383C7CA5FD2
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  1 Oct 2026 21:34:16 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:From:
+	Subject:Message-ID:References:Mime-Version:In-Reply-To:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=J4TV0b49DMUb4s9V8THpO/dg6QtAbKgGa71G1KGPoyA=; b=drWscP4BItQPmz8mrF9wQ9Q66g
-	OYkgZb2kG2NB2xHT7TQ1S5NiPHYdS8PTumAsjQiZckc/awClyYfxZsVGzbcWD+POxOXIQjEJQYaRJ
-	b74HO5vXpRMf405xIhyiqZP2C4E14rKDWvgzm3Zi+oglPiNMWNf5afLF2cKfxpF/WlJLK9u/8bJFd
-	sv7mjJW5ThkhAaMXYeISL7fC2Z7fGEvU/Ee9uRFivOc/N5N27fRbQADOAZ1bdunqkNOZbWM1gNbjf
-	6N7gjPXxi3cNFrxYcU0LVJBitwWGKsY1OXRirP5DHL0cP1XwUQamJqs4+WZ8UoC7sfc3vcd8Q+CAj
-	/jvhQvTA==;
+	bh=aoQY2n7UuHsEBO2b/7mwS2MVg8AzdCvjCqCqmkccQyQ=; b=bkqDfKnv2eNqmMs7HH114f1NpE
+	Liwi8XdtwHwhMr1yvqhvgxVh54+4hndyTaw2v7mOCW87nqNF6LH4mO3BxMPZRRSOlXUiZDFavwU81
+	ns4u11DNd0V6PoH3WzDgD6xzlnAPVqnN288zUXved2g0ULF5lDJL9WSD16bkqMflNlbB8oTpL4CLR
+	g1JapTRADHd/GjWD5LmoslpyI8ktlShU5EuxGZ0oLKPeh5cT8nPjZObgQkR2kbN1pwZUiTlvV2kPd
+	a0L98ivQ506Wb1yoGvyZ8JWpnzVo3CO5gXwQ+w6+YmYFw/oeCvBkn38DI7P+Kfwk6iskdTp7CxULx
+	p3/Keomg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xCOIO-0000000AGYu-0Otx;
-	Thu, 01 Oct 2026 21:26:30 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1xCOPi-0000000AHBz-0ftH;
+	Thu, 01 Oct 2026 21:34:02 +0000
+Received: from mail-oi1-x245.google.com ([2607:f8b0:4864:20::245])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xCOIH-0000000AGY9-1Qhp
+	id 1xCOPf-0000000AHBF-3Hrl
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 01 Oct 2026 21:26:26 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id 962A960218;
-	Thu,  1 Oct 2026 21:26:20 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 5E12C1F000FF;
-	Thu,  1 Oct 2026 21:26:17 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1790889980;
-	bh=J4TV0b49DMUb4s9V8THpO/dg6QtAbKgGa71G1KGPoyA=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=n3jDF5yTTCRtYHGZjtnQoy+aLpc2DV3zJ1hz+/EaO9CigQgY+GkwuJp0NMjjkliiz
-	 hj4GNE7xq90PbAco6Sq7zU/SqiS5MwC8eSx68tY9YXuIPiYsw/aycw/qA2lIi07V9o
-	 +oABAnkS9gmTt+G1ZCbr/fUUiGw0hVRbvxhYUgPbmLCD7YvGrAETnp6KxygOrERXYL
-	 5uh8S9LYcm5YX0E1fBRwFvjmecEa5ihSc+MmetuPbznuX9hQp//b2mrKXK2EeR25D/
-	 aNqnLx9haoIDbOTSWf35oa10NUAXxQLz7qGpYCim4Fg1o60zK6b6OLAcF+biOr9XT5
-	 pi4uV9OpsasAg==
-Date: Thu, 1 Oct 2026 22:26:15 +0100
-From: Conor Dooley <conor@kernel.org>
-To: Linus Walleij <linusw@kernel.org>
-Cc: Yemike Abhilash Chandra <y-abhilashchandra@ti.com>, robh@kernel.org,
-	krzk+dt@kernel.org, conor+dt@kernel.org, nm@ti.com, vigneshr@ti.com,
-	kristo@kernel.org, brgl@kernel.org, linux-gpio@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org, devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org, afd@ti.com, u-kumar1@ti.com
-Subject: Re: [PATCH 1/3] dt-bindings: pinctrl: Add TI TDA54 pin controller
-Message-ID: <20261001-repost-reselect-2b597c627c11@spud>
-References: <20260930092020.1047221-1-y-abhilashchandra@ti.com>
- <20260930092020.1047221-2-y-abhilashchandra@ti.com>
- <CAD++jLnok0bz9kXiW=O8+4fPBYvm9nG-AA-8CopDpc-DBvBiJA@mail.gmail.com>
-MIME-Version: 1.0
-Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="dVB2jDxu3m4Tk3Ds"
-Content-Disposition: inline
-In-Reply-To: <CAD++jLnok0bz9kXiW=O8+4fPBYvm9nG-AA-8CopDpc-DBvBiJA@mail.gmail.com>
+	Thu, 01 Oct 2026 21:34:00 +0000
+Received: by mail-oi1-x245.google.com with SMTP id 5614622812f47-4db3db8687fso2229461b6e.0
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 01 Oct 2026 14:33:58 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=google.com; s=20251104; t=1790890438; x=1791495238; darn=lists.infradead.org;
+        h=content-type:cc:to:from:subject:message-id:references:mime-version
+         :in-reply-to:date:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=aoQY2n7UuHsEBO2b/7mwS2MVg8AzdCvjCqCqmkccQyQ=;
+        b=OOFyX6MmzvO1hXnJbifV/xopI4pezx3DReAPVZqAiGEM40KNA1B37PgE5Ypwvo4h6r
+         jTTUGRRLDoN/9q8HUAtaWSLbgbXLLwVR3BQty3ttXd+1tdug9hKzK/nGPI88CkkAIV7l
+         IlyExYNv0X6hTbUml7+tLbOy7dibfzv9rO0P20xxNHVr4eEA85rXVjI+maE2x4gUmkqL
+         H/h1pqxiAPum5X+4WvPOlIQYX+f8YIb3AAM3VkWdsUjiryDeBd3PM5Q8g9Lf9pOgZLfn
+         fRTgPFj30/15nPdYHahDt78XnLNs5USk/JUWNMOGvPPAymxFx98niVmoxT/BnTrw5PAl
+         dDng==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1790890438; x=1791495238;
+        h=content-type:cc:to:from:subject:message-id:references:mime-version
+         :in-reply-to:date:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=aoQY2n7UuHsEBO2b/7mwS2MVg8AzdCvjCqCqmkccQyQ=;
+        b=Yz0asH/d3dwzcgrDDyasMYNQ1FskijurIThglUAqiyYmkbv4C3niupeMcomaCeMQxr
+         MtPqFGoJUGBi1zZ56+VWDBrxJUfIqtRHI/H6vpNpFLVj7XvEpcLPaxTiy24w/S+uT3gg
+         PJoOM4Ag5dv2am1/CJcdes/zo5WoWpWR9ODNH/Kizv44FIBimzsDBkCgs4MpxRoWTzRo
+         nFYWn6v/Oa8xJ3eeIbtkpQ0/WOfQs+LrDR82/SqUNKkPP/HxqiWBciY1mbaLfZV5w2bn
+         u1zsh0K5HX+f5LpN8xPefUN9k9Jxly5EtmO1YRYyseLDOCj5cETvv+XU6D2+WXdfBjx+
+         Igdg==
+X-Forwarded-Encrypted: i=1; AKwUvBxtjruwEXl7qKnn4Q+MWog7BkQ+n+nRb408khumufc6sqa0G7TSOsPWr6mgHSysv3l9Ls9Y0GhVoQ7jbgIdq6mm@lists.infradead.org
+X-Gm-Message-State: AFuF++k1ZR+Mth9naMYVXi6r7OcUXo7SCPeW+3p5jCQkwWQLOBmQrneS
+	u/FyKFBQgzHJQ1afmcZQuGsi1ppbHN7Nk3XemDq6VuizBDNJb0yUKjZj/8ejO4KvRcbs/sBImz2
+	NuOSRY05FTvsH2c0CrrIrSE/cIA==
+X-Received: from ilbcx6.prod.google.com ([2002:a05:6e02:3c06:b0:50d:b50e:1675])
+ (user=coltonlewis job=prod-delivery.src-stubby-dispatcher) by
+ 2002:a05:6808:1211:b0:4b9:a829:f015 with SMTP id 5614622812f47-4f529d297bemr430489b6e.33.1790890437780;
+ Thu, 01 Oct 2026 14:33:57 -0700 (PDT)
+Date: Thu,  1 Oct 2026 21:33:55 +0000
+In-Reply-To: <8e47bb89-a894-4fd0-9f96-e11b5dea1972@linaro.org>
+Mime-Version: 1.0
+References: <20260924172928.2110956-1-coltonlewis@google.com> <8e47bb89-a894-4fd0-9f96-e11b5dea1972@linaro.org>
+X-Mailer: git-send-email 2.56.0.rc1.315.gc6ed9934b7-goog
+Message-ID: <20261001213357.2088894-1-coltonlewis@google.com>
+Subject: Re: [PATCH v9 00/22] ARM64 PMU Partitioning
+From: Colton Lewis <coltonlewis@google.com>
+To: James Clark <james.clark@linaro.org>
+Cc: Colton Lewis <coltonlewis@google.com>, Marc Zyngier <maz@kernel.org>, 
+	Oliver Upton <oupton@kernel.org>, Oliver Upton <oliver.upton@linux.dev>, 
+	Joey Gouly <joey.gouly@arm.com>, Suzuki K Poulose <suzuki.poulose@arm.com>, 
+	Zenghui Yu <yuzenghui@huawei.com>, Fuad Tabba <fuad.tabba@linux.dev>, 
+	Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>, 
+	Mark Rutland <mark.rutland@arm.com>, Paolo Bonzini <pbonzini@redhat.com>, 
+	Peter Zijlstra <peterz@infradead.org>, Ingo Molnar <mingo@redhat.com>, 
+	Arnaldo Carvalho de Melo <acme@kernel.org>, Namhyung Kim <namhyung@kernel.org>, 
+	Robin Murphy <robin.murphy@arm.com>, Zide Chen <zide.chen@intel.com>, 
+	Alexandru Elisei <alexandru.elisei@arm.com>, 
+	Ganapatrao Kulkarni <gankulkarni@os.amperecomputing.com>, Mingwei Zhang <mizhang@google.com>, 
+	Jonathan Corbet <corbet@lwn.net>, Russell King <linux@armlinux.org.uk>, Shuah Khan <shuah@kernel.org>, 
+	linux-perf-users@vger.kernel.org, linux-kselftest@vger.kernel.org, 
+	linux-doc@vger.kernel.org, linux-kernel@vger.kernel.org, kvm@vger.kernel.org, 
+	kvmarm@lists.linux.dev, linux-arm-kernel@lists.infradead.org
+Content-Type: text/plain; charset="UTF-8"
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20261001_143359_850162_A7CA8632 
+X-CRM114-Status: GOOD (  14.33  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -74,210 +103,33 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
---dVB2jDxu3m4Tk3Ds
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
+Hi James,
 
-On Thu, Oct 01, 2026 at 11:10:34PM +0200, Linus Walleij wrote:
-> Hi Yemike,
->=20
-> thanks for your patch!
->=20
-> On Wed, Sep 30, 2026 at 11:21=E2=80=AFAM Yemike Abhilash Chandra
-> <y-abhilashchandra@ti.com> wrote:
->=20
-> > +      ti,debounce-select:
-> > +        $ref: /schemas/types.yaml#/definitions/uint32
-> > +        enum: [0, 1, 2, 3, 4, 5, 6]
-> > +        description:
-> > +          Selects which DBOUNCE_CFGn period register in the control mo=
-dule
-> > +          drives the debounce filter for this pad. 0 disables debounci=
-ng,
-> > +          1 to 6 select DBOUNCE_CFG1 to DBOUNCE_CFG6.
->=20
-> What's wrong with the existing input-debounce property?
->=20
->   input-debounce:
->     $ref: /schemas/types.yaml#/definitions/uint32-array
->     description: Takes the debounce time in usec as argument or 0 to disa=
-ble
->       debouncing
->=20
-> Just translate usec:s into your custom format in the code, problem solved.
->=20
-> > +      ti,virt-gpio-instance:
-> > +        $ref: /schemas/types.yaml#/definitions/uint32
-> > +        enum: [0, 1, 2, 3, 4, 5, 6, 7]
-> > +        description:
-> > +          Selects which virtual GPIO instance controls this pad, allow=
-ing
-> > +          protection between multiple virtual views of the GPIO control
-> > +          registers. Has no effect unless the pad is muxed to GPIO mode
-> > +          (muxmode 7).
->=20
-> Wow crazy stuff. OK keep it :D
->=20
-> > +      ti,wakeup:
-> > +        $ref: /schemas/types.yaml#/definitions/uint32
-> > +        enum: [0, 1, 2, 3]
-> > +        description: |
-> > +          Wakeup event configuration for this pad.
-> > +          0 - wakeup disabled
-> > +          1 - wakeup triggered by any change of the pin input value
-> > +          2 - wakeup triggered by a low value on the pin
-> > +          3 - wakeup triggered by a high value on the pin
->=20
-> I just have the feeling this should be a generic property. It seems so us=
-eful.
->=20
-> Can you just add this as wakeup-mode =3D <custom value> in
-> Documentation/devicetree/bindings/pinctrl/pincfg-node.yaml
+On Wed, Sep 30, 2026 at 04:25:36PM +0100, James Clark wrote:
+> Looks good to me, everything seems to be working now:
+>
+> Tested-by: James Clark <james.clark@linaro.org>
 
-And I think it should probably be strings, so that there's some hope of
-commonality, since obviously any user is going to invent different
-mappings.
+Thank you for testing and for all the reviews!
 
->=20
-> > +      ti,retention-bias:
-> > +        $ref: /schemas/types.yaml#/definitions/uint32
-> > +        enum: [0, 1, 2]
-> > +        description: |
-> > +          Enables the internal I/O pullup/pulldown resistor when pin e=
-nters
-> > +          TDA54 I/O retention mode, and configures the I/O pull resist=
-or
-> > +          direction.
-> > +          0 - OFF mode pad pull resistor disable
-> > +          1 - Select OFF mode pulldown resistor
-> > +          2 - Select OFF mode pullup resistor
->=20
-> Use names inspired by the generic config types and flags instead
-> of enums.
->=20
-> ti,retention-bias-disable;
-> ti,retention-bias-pull-down;
-> ti,retention-bias-pull-up;
->=20
-> > +      ti,retention-offmode:
-> > +        $ref: /schemas/types.yaml#/definitions/uint32
-> > +        enum: [0, 1]
-> > +        description: |
-> > +          I/O behaviour when retention mode is active.
-> > +          0 - I/O maintains its previous state
-> > +          1 - I/O state is forced to the OFF mode value
->=20
-> Behaviour of *what*?
->=20
-> The driver stage?
->=20
-> I suspect you should make two bool flags
-> ti,retention-output-hold;
-> ti,retention-output-disable;
->=20
-> > +      ti,retention-output:
-> > +        $ref: /schemas/types.yaml#/definitions/uint32
-> > +        enum: [0, 1, 2]
-> > +        description: |
-> > +          Output driver behaviour while the pad is in retention mode.
-> > +          0 - output driver disabled
-> > +          1 - output driver enabled, pad driven low
-> > +          2 - output driver enabled, pad driven high
->=20
-> Make three flags:
-> ti,retention-output-disable;
-> ti,retention-output-low;
-> ti,retention-output-high;
->=20
-> > +      ti,retention-force:
-> > +        $ref: /schemas/types.yaml#/definitions/uint32
-> > +        enum: [0, 1]
-> > +        description: |
-> > +          I/O retention controls.
-> > +          0 - gated by the Device Manager logic
-> > +          1 - forced active, overriding the Device Manager gating logic
->=20
-> This is clearly a bool flag. It should contain device-manager as that
-> magic entity is involved.
->=20
-> ti,retention-device-manager-enable;
-> ti,retention-device-manager-forced-active;
->=20
-> Both seems to be related to the device manager whatever that is.
->=20
-> > +      ti,isolation-bypass:
-> > +        $ref: /schemas/types.yaml#/definitions/uint32
-> > +        enum: [0, 1]
-> > +        description: |
-> > +          I/O isolation for this pad.
-> > +          0 - isolation preserved
-> > +          1 - isolation bypassed
->=20
-> What does this even mean electronically speaking? Explain in a descriptio=
-n:
-> statement.
->=20
-> ti,isolation-preserve;
-> ti.isolation-bypass-enable;
+> There are still a few Sashiko comments though, and one critical one about
+> racing with pseudo-NMI PMU interrupts that looked reasonable. I tried to
+> test it and reproduce an actual issue but couldn't, so maybe it's bogus.
 
-Is this not just an either or, so there should only be one property
-here.
+The "Critical" Sashiko comment on Patch 19/22 (claiming that clearing
+hardware PMOVSSET_EL0 loses overflow bits because the guest has direct
+untrapped access to PMOVSSET_EL0) is a false positive: Patch 09/22 sets
+HDFGRTR_EL2_PMOVS and HDFGWTR_EL2_PMOVS (and without FGT, MDCR_EL2.TPM
+is set), so guest accesses to PMOVSSET_EL0 and PMOVSCLR_EL0 always trap
+to pmu_reg_read() / pmu_reg_write().
 
->=20
-> perhaps?
->=20
-> Some of the retention settings seem *very* generic, c.f. this
-> from include/dt-bindings/pinctrl/nomadik.h that has been
-> around forever:
->=20
-> #define SLPM_DISABLED           0
-> #define SLPM_ENABLED            1
-> #define SLPM_INPUT_NOPULL       0
-> #define SLPM_INPUT_PULLUP       1
-> #define SLPM_INPUT_PULLDOWN     2
-> #define SLPM_DIR_INPUT          3
-> #define SLPM_OUTPUT_LOW         0
-> #define SLPM_OUTPUT_HIGH        1
-> #define SLPM_DIR_OUTPUT         2
-> #define SLPM_WAKEUP_DISABLE     0
-> #define SLPM_WAKEUP_ENABLE      1
->=20
-> SLPM means "sleep mode", yeah pretty much retention...
->=20
-> I think the corresponding retention settings for things that are really
-> quite generic should just be added to the generic pin config bindings.
+The pseudo-NMI race comments on Patch 11/22 and Patch 19/22 are
+theoretically possible in a narrow 2-instruction RMW window because
+local_irq_save() does not mask GICv3 pseudo-NMIs, which explains why it
+wasn't reproducible in practice. In v10 I will make the PMOVSSET_EL0
+shadow updates and vcpu->arch.mdcr_el2 assignment atomic, and address
+the other valid Sashiko findings.
 
-Additionally, if any of the custom properties are gonna be kept as
-numerical values, they're all missing defaults. In the case where you're
-advocating for multiple boolean properties, one of them is gonna have to
-be required as otherwise we're looking at indeterminate states based on
-reset values or what a prior stage may or may not have done? The reset
-values should probably be considered default, but the cleanest way to
-make this work with separate booleans is have a
-oneOf:
- - required:
-    - a
- - required:
-    - b
- - required:
-    - c
-
-and you've also got to deal with people potentially making mistakes and
-adding multiple properties for the same feature or trying to overwrite a
-$som.dtsi/$soc-common.dtsi config and not realising that they've got to
-do a /delete-property/ on the other property for the feature.
-
---dVB2jDxu3m4Tk3Ds
-Content-Type: application/pgp-signature; name=signature.asc
-
------BEGIN PGP SIGNATURE-----
-
-iHUEABYKAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCar7P9wAKCRB4tDGHoIJi
-0uEAAP0cOa24ZA8ax0vvN2MZDigQznH1gU0puuf6fxAIdRKxqAEA6GNLdXqZI5TS
-PaTfG4xs2OTP1gaXawTbAfNC3RY0/Ac=
-=fHVV
------END PGP SIGNATURE-----
-
---dVB2jDxu3m4Tk3Ds--
+Thanks,
+Colton
 
