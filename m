@@ -4,94 +4,99 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 60F4DCA5FA5
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  1 Oct 2026 08:47:10 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 33E5FCA5FA5
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  1 Oct 2026 08:48:54 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=GT5RB+tv5fr77NYm7TiockhYzFijEjg6HhMwBqbf0Vc=; b=Ax0Mqy6Yw2Bx9ZGQG4Hebl3pvR
-	McaQzlvdASPGSb2ZI0AxhLGh2c1Msw5sJPEwgiNQz9dG8ZeNQZg/dU81B0gehiivWpmAraytJm+se
-	NA0VjcS180qxD6YvhIQYk9g8QLHwX3PVRilXl239NOIsqwJxGzBqyUJswl6ZpxTL7tjpsGU7ZBqtQ
-	pMXLL4jafWcXPLjG380Sy2L8tv1Rj7Qo/UyRoqkws+csVHGjA4Mrb4gGsn/seRDCY0wGp0P5vMv6Z
-	kE+IC2rBomJ2YPe2GNy7x1G9mArzulSVXXMEU1bhcpKz7e82thX8ECLYcpkYVMRG4XQag6wdf7xE6
-	CJJiFI8A==;
+	bh=xkYtUBxUyQXi2wHjivuAC69Sw5c4fAlKZiLrX6CMriA=; b=MWRLVChEfMv25iA8MN3liYsuXw
+	StVpx6DacWQILbqLb2TDGgn8DlcgFT2Z0ct/h5NAp69w340gVyYW18XoLFimMLMVJQjIzcs2ExkRL
+	DyzvDiIuXZSm4fP47F0Ap8jK1YHHaXmFLbmpYpYk7K1mITaaPvKNPK3mSzRtHti/n6CWt0JcgwLbf
+	iAVfo1Av1Dl7uPf6Fb2/d8nPrdOMLYkbde7KwAg8MdICCNf6X7zW7V15sVw0dymCQo/hYVjjkLWvV
+	Cu8m/sGTlWO/RPLHRcooNETDLgsEtUPKWR8ww3EdbqM1JL6+z+Z2jG7uBVf+ka5OP+ZeMUHhK2MPM
+	m1+CBLSA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xCCRT-00000008Fn9-03zn;
-	Thu, 01 Oct 2026 08:47:03 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1xCCT9-00000008GOT-3L51;
+	Thu, 01 Oct 2026 08:48:47 +0000
+Received: from mail-pz2-x2b.google.com ([2607:f8b0:4864:3b::2b])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xCCRR-00000008Fjw-2arQ
-	for linux-arm-kernel@bombadil.infradead.org;
-	Thu, 01 Oct 2026 08:47:01 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:MIME-Version
-	:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Sender:Reply-To:
-	Content-Type:Content-ID:Content-Description;
-	bh=GT5RB+tv5fr77NYm7TiockhYzFijEjg6HhMwBqbf0Vc=; b=lrzY9TfgisqONADI7Hk1fAUKjO
-	QGekr4inBvp2XIuTYO6hbuiVs54ZvkqCtvUWNH65FlMKRdQiZJO8Jfb2QSRAun2J6f9N2miezbSnd
-	1tZfhaRuuvoVa8DG0/43GeeT8vmeFxbZRuHK7q2FB8tOco4ZDL21ok2KKkcAPaihBwGtvXV/CLgju
-	V9dI+l63U17GKin09BZrDiAgtj5rWNwMTZ1V3mGjvcExpceHVKZhwG3iN1M2e0TGJ5zMtyDoN4U/t
-	Nz9kR35EXusZsV15S34IHJewzYjYQe4fBksDYKSsW+qHe7Ywexz5jp6h2OxPlH1aZ2DTeTp1jL9Y5
-	C3qQjOgw==;
-Received: from foss.arm.com ([217.140.110.172])
-	by desiato.infradead.org with esmtp (Exim 4.99.2 #2 (Red Hat Linux))
-	id 1xCCRN-00000004kuI-1xhS
+	id 1xCCT6-00000008GNd-3tcB
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 01 Oct 2026 08:46:59 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 0F759169E;
-	Thu,  1 Oct 2026 01:46:53 -0700 (PDT)
-Received: from ewhatever.cambridge.arm.com (ewhatever.cambridge.arm.com [10.2.197.99])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPA id 596103F85F;
-	Thu,  1 Oct 2026 01:46:53 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1790844416; bh=/hbqQXvydI/cbOiE3kBOkvhziUA1TXNotJV14+0m5x4=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=kE7v9iciE/7+WAnqZqeUn3Pr2zvxK8K2TQskagzUbY91Xxm2KwiNTmNQtJCo1ZQh1
-	 k5DGHfM5n4Z8eVkBoasw04xMX/buFJp6/XMz1zEL0fQxpmfpSXM0pRBpgUG8mXZ9z7
-	 NFWtoCORAOkrS5/UHeJFNEgr8FF2Tmy5+XKkiQR4=
-From: Suzuki K Poulose <suzuki.poulose@arm.com>
-To: kvm@vger.kernel.org,
-	kvmarm@lists.linux.dev
-Cc: maz@kernel.org,
-	will@kernel.org,
-	catalin.marinas@arm.com,
-	linux-kernel@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	steven.price@arm.com,
-	aneesh.kumar@kernel.org,
-	oupton@kernel.org,
-	gshan@redhat.com,
-	joey.gouly@arm.com,
-	tabba@google.com,
-	yuzenghui@huawei.com,
-	linux-coco@lists.linux.dev,
-	gankulkarni@os.amperecomputing.com,
-	sdonthineni@nvidia.com,
-	alpergun@google.com,
-	fj0570is@fujitsu.com,
-	WeiLin.Chang@arm.com,
-	lpieralisi@kernel.org,
-	enju.kohei@fujitsu.com,
-	sudeep.holla@arm.com,
-	jonathan.cameron@oss.qualcomm.com,
-	Suzuki K Poulose <suzuki.poulose@arm.com>,
-	David Hildenbrand <david@kernel.org>
-Subject: [PATCH v21 9/9] firmware: arm_rmm: hotplug: Skip memory added to ZONE_MOVABLE
-Date: Thu,  1 Oct 2026 09:45:55 +0100
-Message-ID: <20261001084555.1456543-10-suzuki.poulose@arm.com>
-X-Mailer: git-send-email 2.43.0
-In-Reply-To: <20261001084555.1456543-1-suzuki.poulose@arm.com>
-References: <20261001084555.1456543-1-suzuki.poulose@arm.com>
+	Thu, 01 Oct 2026 08:48:46 +0000
+Received: by mail-pz2-x2b.google.com with SMTP id 41be03b00d2f7-cc78dd54610so2286630a12.1
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 01 Oct 2026 01:48:44 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20251104; t=1790844523; x=1791449323; darn=lists.infradead.org;
+        h=content-transfer-encoding:content-type:in-reply-to:from
+         :content-language:references:cc:to:subject:user-agent:mime-version
+         :date:message-id:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=xkYtUBxUyQXi2wHjivuAC69Sw5c4fAlKZiLrX6CMriA=;
+        b=eoYSOPX4OnyUESUwFLsMX8Oya4uob9cQSHZmLWlm5Xrx+4sX/2I2QOOf9Z1MuJELRp
+         Leyq+dbGSx0EBkXpJdRACryDpOYOZPeA9bVvHL+YCngA1sJ+uo8Z5evF2rpuDxyhYzke
+         Dcx56z0wp2vfSpetrp7L1j4hVx3Mw8n4o8H63jCZJJ13X1PcZpItSohvHefMFgm7nB75
+         F+AmlErADs5C8yb4QSTh3PxE6LNUeqb23HTZxXs5qlI843OwJf+lxdXRCqDWp55sxkzO
+         ldXP0Yjcstt1iM/q3tIkIzqeNve7Aq5XinqPUUfU8zSE8c156haXGmSBmdySYM+iLBYn
+         +5eQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1790844523; x=1791449323;
+        h=content-transfer-encoding:content-type:in-reply-to:from
+         :content-language:references:cc:to:subject:user-agent:mime-version
+         :date:message-id:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=xkYtUBxUyQXi2wHjivuAC69Sw5c4fAlKZiLrX6CMriA=;
+        b=ME8Z7ebgJKz89bWI4jNhm0Siu0xGsXcd1efTcuSZxGSMEnsRgR6osDlKtVPKYoNHXG
+         ZFj5/OEGGP0c5hvagtcWsu6/xPu1z5p9tJ3qdteGhqHIQIKOqpbWG2uXhY+icBucXk8n
+         9xMjSUQKwcEsbyLtYhtbfJFZAz2jJZxf+lbLMfpNjTw4oFm+kHbJpoI6Ko+mARpWsh0T
+         RdDKgTcnm3GClM5XbqdhYw50r3PWkEA5KVUwzm5UHRYwjrwmEiBV2Y3FlV7ZGu6mhlzW
+         Hqba8aaTNz0/2syRWXXf1jC+zqap29gBgNEGpGfCvIgtssosTl/C0s0z/v2tEr/fAyO9
+         U+pA==
+X-Forwarded-Encrypted: i=1; AKwUvBzvFXidtZzdBxWYooSDCuQs5rnIROI+X/hYPaRum7TlOs8NUBJuV5TgzoZHpgjacVcIGWJwcPuDT8zN8B9gfdWt@lists.infradead.org
+X-Gm-Message-State: AFuF++nExuVgX4B9XoSY2v+Ynyf1qhJyM7+Lnzz3WV8fmKsDJ/rBnBVV
+	jKanhQsfn0nkbhl66Cv1rM3BN4JMnJV5obG8l0/tSNBWEbCw6PBqbkpf
+X-Gm-Gg: AYBFou2lC3TgrJnUysWtxvTs4bJbgZffvYbmZrJWua8u+WRopvRG2y6XpqQTIuETesc
+	vJ8vpcVABi23aVpJKO/WxDyi0eJzcYDeJSdxsq1VSpifQxv0BwZItSoOoBPjEnOb99lkoeTgzjs
+	lxE3OYlwG4ZILmEwpKHPE+5UMFUl6T6JzjuSv8M0El8g3NvcK98DDvkzaVVKwW859PpUyudW4SK
+	zH66KdJzEns90qZJEzK4SFvxsuJGKRxNWPgiI1Ebj+1axyECN99wdYV0GuHKanzWdGsti27B/lX
+	NbQV586e4Qe6CE2Gp8sV6pgHLs70upIJKEpM39QACjYeIzt/mOsYKwI2xo6yTutR7SbCEq+3LB9
+	eurXkQxUCPMweGef2EdjUm9bCkWuzUltSzWrP0OaCRyZN1Gw432kVl4WGilbaknNk5CxOxpJhUT
+	sZCxiPgMkgaRbRl9XPocvqPMfTRRaJpoMZ9ZmtALdWnoTvB9tSy9fqk0dKHtHOnrgiJeaELUKdt
+	KG0CjSXXEaaO92vE9U0rIe4QJp/OKSCE/qq4rIoHIC78UbvAbpyITU=
+X-Received: by 2002:a05:6a21:9218:b0:3dd:85a8:cacb with SMTP id adf61e73a8af0-3de9e8a898fmr4391298637.34.1790844523436;
+        Thu, 01 Oct 2026 01:48:43 -0700 (PDT)
+Received: from [172.19.1.47] (60-250-196-139.hinet-ip.hinet.net. [60.250.196.139])
+        by smtp.gmail.com with ESMTPSA id 41be03b00d2f7-cc7e546039dsm1125695a12.8.2026.10.01.01.48.40
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Thu, 01 Oct 2026 01:48:42 -0700 (PDT)
+Message-ID: <92216f9b-6c8a-430d-9bca-eaf583106a3e@gmail.com>
+Date: Thu, 1 Oct 2026 16:48:37 +0800
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v6 2/3] arm64: dts: nuvoton: ma35d1: add USB controllers
+ and dual-port PHY node
+To: Joey Lu <a0987203069@gmail.com>, Vinod Koul <vkoul@kernel.org>,
+ Neil Armstrong <neil.armstrong@linaro.org>
+Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+ Conor Dooley <conor+dt@kernel.org>, Arnd Bergmann <arnd@arndb.de>,
+ Catalin Marinas <catalin.marinas@arm.com>, Jacky Huang
+ <ychuang3@nuvoton.com>, Shan-Chun Hung <schung@nuvoton.com>,
+ Hui-Ping Chen <hpchen0nvt@gmail.com>, Joey Lu <yclu4@nuvoton.com>,
+ linux-phy@lists.infradead.org, devicetree@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+References: <20260929020854.1282339-1-a0987203069@gmail.com>
+ <20260929020854.1282339-3-a0987203069@gmail.com>
+Content-Language: en-US
+From: Jacky Huang <ychuang570808@gmail.com>
+In-Reply-To: <20260929020854.1282339-3-a0987203069@gmail.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261001_094657_751584_429A9C80 
-X-CRM114-Status: GOOD (  14.63  )
+X-CRM114-CacheID: sfid-20261001_014844_974904_0964C775 
+X-CRM114-Status: GOOD (  10.31  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -106,44 +111,34 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-If the hotadded memory is in ZONE_MOVABLE, we could allow that to proceed
-without the RMM having fine grained tracking, as we won't allocate pages
-from there for guest-memfd or kernel allocation
 
-Cc: Catalin Marinas <catalin.marinas@arm.com>
-Cc: David Hildenbrand (Arm) <david@kernel.org>
-Reviewed-by: Catalin Marinas <catalin.marinas@arm.com>
-Signed-off-by: Suzuki K Poulose <suzuki.poulose@arm.com>
----
-Changes since v20:
- - Use is_zone_movable_page() and only check the start_pfn
----
- drivers/firmware/arm_rmm/rmi.c | 11 +++++++++++
- 1 file changed, 11 insertions(+)
 
-diff --git a/drivers/firmware/arm_rmm/rmi.c b/drivers/firmware/arm_rmm/rmi.c
-index d0842d621cd4b..a01ab69a64c7c 100644
---- a/drivers/firmware/arm_rmm/rmi.c
-+++ b/drivers/firmware/arm_rmm/rmi.c
-@@ -1043,6 +1043,17 @@ static int rmi_memory_notifier(struct notifier_block *nb,
- 	start = PFN_PHYS(arg->start_pfn);
- 	end = PFN_PHYS(arg->start_pfn + arg->nr_pages);
- 
-+	/*
-+	 * If the hotplugged memory region is in ZONE_MOVABLE, neither the
-+	 * guest-memfd nor the kernel allocations can come from there. So we are
-+	 * fine to skip this.
-+	 * For boot time memory, we don't allow this discount, as the
-+	 * decision to move boot memory pages to ZONE_MOVABLE is purely
-+	 * a kernel choice and the firmware must have decided what it covers.
-+	 */
-+	if (is_zone_movable_page(pfn_to_page(arg->start_pfn)))
-+		return NOTIFY_DONE;
-+
- 	ret = rmi_prepare_memory(start, end);
- 
- 	return notifier_from_errno(ret);
--- 
-2.43.0
+> Add the USB subsystem nodes for the MA35D1 SoC and boards:
+>
+>    - usb_phy: standalone PHY node with #phy-cells = <1>, covering both
+>      the OTG port (PHY0, index 0) and the host-only port (PHY1, index 1).
+>      Uses nuvoton,sys phandle and HUSBH0_GATE clock per the binding.
+>
+>    - usb (DWC2 gadget, USB0): phys = <&usb_phy 0>, dr_mode = peripheral.
+>    - ehci0/ohci0 (USB0 host): phys = <&usb_phy 0>, companion pairing.
+>    - ehci1/ohci1 (USB1 host): phys = <&usb_phy 1>.
+>
+> Board files (ma35d1-som-256m.dts, ma35d1-iot-512m.dts) add pinctrl for
+> VBUSVLD, PWREN and OVC signals and enable all USB nodes.
+>
+> Signed-off-by: Joey Lu <a0987203069@gmail.com>
+> ---
+>   .../boot/dts/nuvoton/ma35d1-iot-512m.dts      | 36 ++++++++++
+>   .../boot/dts/nuvoton/ma35d1-som-256m.dts      | 36 ++++++++++
+>   arch/arm64/boot/dts/nuvoton/ma35d1.dtsi       | 65 +++++++++++++++++++
+>   3 files changed, 137 insertions(+)
+[...]
+
+
+Reviewed-by: Jacky Huang <ychuang3@nuvoton.com>
+
+Best regards,
+Jacky Huang
+
 
 
