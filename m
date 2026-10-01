@@ -4,54 +4,54 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id EE963CA5FD4
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  1 Oct 2026 12:44:03 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9C631CA5FD2
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  1 Oct 2026 12:44:10 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=d8sRHCj1LfeaitArGCptBNg5yIjIKKLU8Yc9pqpZHp8=; b=sSSBPEyIbpairmxG5KIZ/sKogI
-	ryctwy7Ny6yqZJPplg4uRVFQs4FXm+TLX6+N/DW2+yYrwXGMHo6StFNWCx0Dv6ckU4OUYCUz2Qu0U
-	rxx4GrCCcLHZtc3ipN8+AMfYbL3+bMbsdGsRM1hxIcC4qGQL7rTCZpV2BZzqgprX0D9p8ool0lo52
-	RI3u3HHBy9+H5RSOClw8IMNspuAlOUMW+Z7LA+j9vZCCN8iRNUL4a+g1UEEN5hakeuF2e0GMBZ5fq
-	mWBBIjp+8/zMzgV390ITmH4cKZ/gAlvpfhGh8k6sz9PFPmIBC16rk2fngpI6tUtSZ9kj7KXboUdCv
-	vlqO99MA==;
+	bh=uBDynqj0MRNe0ZE5dYCnK/0m9DNXvSOsN2x3my6qZE0=; b=3DbwgchMzgmONKBedCMnXi4vNX
+	qDWazJrR19pdko0zWiZ3hJSdKIf8dXxxoCFDfUBdaAG62ItFn/qXjUuvtw6ja4G6+syAbTomuglAI
+	teYpxJsFEud7c5S1Q97diDa/TifVujnvClFKhA2L+ou37xbJ4TU1Po8L8VXYDWiUsa4wKMgfkBnlC
+	rhBJRDFZjAKCyXN81oSZ0PbHiVECPPWWxrxtw85bpMHDVx6PZ25gsS70WuqtLjP5wBYHK2QTNUwau
+	al5qdciiYNZM5cazD9Kfp95AlIivkl0qF1lH1etH4uDxtTrc3LZ7SnE77qcoJKhg8L8M5TdVsh33y
+	JgzQ6jpw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xCG8j-000000096py-0ttK;
-	Thu, 01 Oct 2026 12:43:57 +0000
-Received: from smtpout-03.galae.net ([185.246.85.4])
+	id 1xCG8q-000000096vh-21xh;
+	Thu, 01 Oct 2026 12:44:04 +0000
+Received: from smtpout-02.galae.net ([185.246.84.56])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xCG8h-000000096mP-0Suc
+	id 1xCG8m-000000096qw-16dB
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 01 Oct 2026 12:43:56 +0000
+	Thu, 01 Oct 2026 12:44:03 +0000
 Received: from smtpout-01.galae.net (smtpout-01.galae.net [212.83.139.233])
-	by smtpout-03.galae.net (Postfix) with ESMTPS id 7FAA84E41E84;
-	Thu,  1 Oct 2026 12:43:53 +0000 (UTC)
+	by smtpout-02.galae.net (Postfix) with ESMTPS id BBEEC1A24DD;
+	Thu,  1 Oct 2026 12:43:58 +0000 (UTC)
 Received: from mail.galae.net (mail.galae.net [212.83.136.155])
-	by smtpout-01.galae.net (Postfix) with ESMTPS id 2C5A160341;
-	Thu,  1 Oct 2026 12:43:53 +0000 (UTC)
-Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id B20031032809F;
-	Thu,  1 Oct 2026 14:43:46 +0200 (CEST)
+	by smtpout-01.galae.net (Postfix) with ESMTPS id 848D060341;
+	Thu,  1 Oct 2026 12:43:58 +0000 (UTC)
+Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 6E5D11032811B;
+	Thu,  1 Oct 2026 14:43:51 +0200 (CEST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=dkim;
-	t=1790858630; h=from:subject:date:message-id:to:cc:mime-version:content-type:
+	t=1790858636; h=from:subject:date:message-id:to:cc:mime-version:content-type:
 	 content-transfer-encoding:in-reply-to:references;
-	bh=d8sRHCj1LfeaitArGCptBNg5yIjIKKLU8Yc9pqpZHp8=;
-	b=uKqwpUTxeMSVETp8oi2R2qfYX3XikeUsnqq6J6anFGUgYa0FuvoZkeKx3hY5Sx2qrYcPHH
-	Js5oT13YMmnmZvKP83HPQIdRLekLXWkwgb5yFixpjBmh0/Fc+qJpqTdIGpVj5I251YMCWx
-	Lw0V2VSRgJ6hwfFwu3zEbOCr/EbfOiGX3M5tonBIXjJftpVfZmlAPki2k4AyMWuStB9hrs
-	LuHYY8vNXRPVMAxmyaKjivrL6T9L8pHpgJi8twn24DOQiRUdj5ac1hF8zt2IXnsjEzoOCa
-	cpITW9wSrIBWoPhGuFE+YJAjH44ioVtKFeGk/lC0C/S7gvmqFAV3q459WcQI2w==
+	bh=uBDynqj0MRNe0ZE5dYCnK/0m9DNXvSOsN2x3my6qZE0=;
+	b=JPdWxQm1nF0z8GIFcgwEpWxo3QmoSCS6QhBxCwWHTqwDfXxoomJUioC6SeiKDZHJAtOwCW
+	/zcLk+Xv5IgsT8ObmefEO0uIZ2Ofl+qJYq9M+h74Yo4rTEsmXGfpl049cAdxcWAyljD2h/
+	EcF70V8h3CA96e5sel/Dfu8BpD0EBCd6rvz9IJru5K5Gezz+ROZhNJ1XY8ObxcPyfBpYW5
+	0f4TsinQew72YShXkQenL6ekNHvqtaqsD5WeqONB7pGl+52UOxI3JzdzCcejAfOm9r0D2h
+	ZSq0RhTSwcr1spv3HkT8DdXU5z1gwEzAHHdySgUVhYPL0T2KbL5H/9iYBT9QzQ==
 From: Luca Ceresoli <luca.ceresoli@bootlin.com>
-Date: Thu, 01 Oct 2026 14:42:34 +0200
-Subject: [PATCH RFC v2 12/24] drm/bridge: shutdown and cleanup on bridge
- unplug
+Date: Thu, 01 Oct 2026 14:42:35 +0200
+Subject: [PATCH RFC v2 13/24] drm/mipi-dsi: turn DRM_MIPI_DSI into a
+ tristate
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20261001-drm-bridge-hotplug-v2-12-8e34986dcb68@bootlin.com>
+Message-Id: <20261001-drm-bridge-hotplug-v2-13-8e34986dcb68@bootlin.com>
 References: <20261001-drm-bridge-hotplug-v2-0-8e34986dcb68@bootlin.com>
 In-Reply-To: <20261001-drm-bridge-hotplug-v2-0-8e34986dcb68@bootlin.com>
 To: Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, 
@@ -77,9 +77,8 @@ Cc: Hui Pu <Hui.Pu@gehealthcare.com>, Ian Ray <ian.ray@gehealthcare.com>,
 X-Mailer: b4 0.16.0
 X-Last-TLS-Session-Version: TLSv1.3
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261001_054355_304453_C560265D 
-X-CRM114-Status: UNSURE (   9.73  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20261001_054400_465268_6FE2642B 
+X-CRM114-Status: GOOD (  10.63  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -94,38 +93,30 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-With the upcoming support for DRM bridge hot(un)plugging, bridges can be
-removed at any time. When this happens, shutdown the pipeline and detach
-from the encoder chain the bridge being removed along with all the
-following ones.
+DRM_MIPI_DSI is currently a bool, but there's no reason to not be allowed
+to build it as a loadable module.
+
+Moreover being a bool prevents DRM_MIPI_DSI to depend on a tristate module
+that is configured as 'm'.
 
 Signed-off-by: Luca Ceresoli <luca.ceresoli@bootlin.com>
 ---
- drivers/gpu/drm/drm_bridge.c | 8 ++++++++
- 1 file changed, 8 insertions(+)
+ drivers/gpu/drm/Kconfig | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
 
-diff --git a/drivers/gpu/drm/drm_bridge.c b/drivers/gpu/drm/drm_bridge.c
-index 2a112ed69e20..c0a2f7f1ce62 100644
---- a/drivers/gpu/drm/drm_bridge.c
-+++ b/drivers/gpu/drm/drm_bridge.c
-@@ -509,9 +509,17 @@ EXPORT_SYMBOL(devm_drm_bridge_add);
-  * it won't be found by users via of_drm_find_and_get_bridge(), and add it
-  * to the lingering bridge list, to keep track of it until its allocated
-  * memory is eventually freed.
-+ *
-+ * If the bridge was attached, also shutdown CRTCs and detach this bridge
-+ * and the following ones.
-  */
- void drm_bridge_remove(struct drm_bridge *bridge)
- {
-+	if (bridge->encoder) {
-+		drm_atomic_shutdown(bridge->dev);
-+		drm_encoder_cleanup_from(bridge->encoder, bridge);
-+	}
-+
- 	mutex_lock(&bridge_lock);
- 	list_move_tail(&bridge->list, &bridge_lingering_list);
- 	mutex_unlock(&bridge_lock);
+diff --git a/drivers/gpu/drm/Kconfig b/drivers/gpu/drm/Kconfig
+index 65d46dfa7266..9bdd9110e754 100644
+--- a/drivers/gpu/drm/Kconfig
++++ b/drivers/gpu/drm/Kconfig
+@@ -39,7 +39,7 @@ config DRM_MIPI_DBI
+ 	select DRM_KMS_HELPER
+ 
+ config DRM_MIPI_DSI
+-	bool
++	tristate
+ 	depends on DRM
+ 
+ config DRM_KMS_HELPER
 
 -- 
 2.55.0
