@@ -4,103 +4,87 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A2095CA5FB3
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  1 Oct 2026 04:39:36 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A2FAECA5FA5
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  1 Oct 2026 04:41:41 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:Message-Id:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:From:
-	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
-	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=3lo2Y0hgRgiPSnYGSDe7Yf1GMCBIGPwRSlX2+EmhVtc=; b=dPRWdSMaRBo2kL7aHxdp5hXJd9
-	3KwBpG4KMqO+ycWvNpasR6iIeYHNbzY0JEkPwLQ6V6mMSiX1PkwVPj0sLT76MQrWkoQ7vbyAPPiU0
-	FUp5U/HVbOQznwXgiCrkjYyFn16kGndUMszReRSbBxjQ/zg30QCZ+nxM0K28LSbAI/pSaFYfAOz7P
-	5kQqx10O83g135DRtwHzVESAbLN5dX5cOCBG2is5+pk8E7rAZhFPSDsXNQwbvB3krnZpTOnAz/LE1
-	fnr/QcV3Ab92RvKWpcSzKXwdA3RSlxnhtgaOK5aC+g2+9fXsVBvKPPnzz+qfQQpLk+w7pUICh9foD
-	+JkhUrww==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=tVU5xB7+vpzEDdoS9i3GNs5XYI1dWTYZUYdxVIutOtM=; b=f5Kps3XctGOwx1zbcH2Es9KTb8
+	se13GEt1aD6aA+0SnrjzukstGYxEifFLuvk5++q9AwLjAVeu0xDaStnHgcsvzM19xzI4dnYEj7xxf
+	PHpnn1N5IFvYvOpNsgcdwI65O0OqGU7aeMV+VlScTumRxiGwazVuNAqEZmsLd28ak2rXGdGgT7/YB
+	e0Utyf9jKffHA3TQLTnIhjEGhU0fL1eSS8yTni0Z7jbxXhlb+eOWEnbkouA86LPCrzEVDCB1vbtsI
+	y1cbc7VmZ+4cNIpYXCADoudYijE0DC1HsBcj4oFSR9j5YQs4CObzObq/XqFbDiX6La10pqj0HPzOy
+	ZAA/pzvw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xC8Zt-00000007jr7-3Qld;
-	Thu, 01 Oct 2026 04:39:29 +0000
-Received: from mail-oo2-x2a.google.com ([2607:f8b0:4864:31::2a])
+	id 1xC8bu-00000007k48-0Aez;
+	Thu, 01 Oct 2026 04:41:34 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xC8Zq-00000007jqX-0Nqb
-	for linux-arm-kernel@lists.infradead.org;
-	Thu, 01 Oct 2026 04:39:27 +0000
-Received: by mail-oo2-x2a.google.com with SMTP id 46e09a7af769-7f4f0c89e34so4316221a34.1
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 30 Sep 2026 21:39:25 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1790829565; x=1791434365; darn=lists.infradead.org;
-        h=cc:to:message-id:content-transfer-encoding:content-type
-         :mime-version:subject:date:from:from:to:cc:subject:date:message-id
-         :reply-to:content-type;
-        bh=3lo2Y0hgRgiPSnYGSDe7Yf1GMCBIGPwRSlX2+EmhVtc=;
-        b=AwJhLTPcuqnqzuNkSMShgDdfgfvinjWW1Oo6WCXEc3DFvzGLqe/t0AwIjjLLy8imfv
-         Ky7xKTDqtfEdMiUAlGjGxvmfAA6+xQsDxrVWUXlbbQ+54qXbFPGuZBaNhHMHzaNAHlA6
-         BxSoWCTzUf0zig/L2nRV//l6qrN/K9Gbx2CHIkJx5wAz6qZo79/EjxOAQdvXXKfTKYRs
-         kGIxAIzeVR0FTE22/s3HKROIncSmtCfhg9446RyLr38m/RIxJlUdeeXeVCjIZD5VtS7C
-         mXkwSvVSPvF0surkkdt4+0tdZVMHZAIUy5lJaYK3PcZbtrM+NrYryM0tNjVUJDsZQPMz
-         u8ag==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1790829565; x=1791434365;
-        h=cc:to:message-id:content-transfer-encoding:content-type
-         :mime-version:subject:date:from:x-gm-gg:x-gm-message-state:from:to
-         :cc:subject:date:message-id:reply-to:content-type;
-        bh=3lo2Y0hgRgiPSnYGSDe7Yf1GMCBIGPwRSlX2+EmhVtc=;
-        b=PdR1twPJT4b33UrZ+4t6H7oxnAzVPQ4LY1k9+Xsv+AjpUwLrKmZwSM3dFYiFHPhSy1
-         0Ug00eTSr9tt8Ecf5J1Ea/bXmc4JnbYfVb0xLD1oLdGbkDQOs3X/uGxkUm/MXBH787QL
-         0c3B4MYQmP2Fts6uUaAh7ueC6jmVlmC5hqz3o/oPg5Lu2VD8ywpxB/R1l8PZMc/9T26/
-         OvcmMqmh7FM8DxskBo6ctbhdy7QDm2LdO8a6Et/TVTeD5MfIKCH4zKxbjv6Z1NeJh3DP
-         kMe6+3zVSuwJa2QfySuNL8qPsXXwnT94wk+lsgIdqlJGG02okbQho4unGR9+k9md95ZC
-         mMvw==
-X-Forwarded-Encrypted: i=1; AKwUvBxZSu7YBbYX8+DBH8JAgfImt5nYAMXNbOIpLjEmYdKdcAp7RpI90Env3WgKoQGnxdDuvVTCNfYQ7AvGo5tB8KOa@lists.infradead.org
-X-Gm-Message-State: AFuF++kq1jpQboFag3vkrK2aah928RV5s5wJbJMKNWEdghlILapmH+yD
-	ksT0oW+SadhRB8HPkc8CZkHiEWke5dTQNqvpf9gS6LumXF3GIsc6+oI1
-X-Gm-Gg: AYBFou1+qlAMqDExYAJ+ybYk08ONQRPE7As1K6BcxufXnEvXOteEU+tfkH5YUPA9yxi
-	Bf2+zJnf1uxXK/lpLuLPvlV5R4f2wtheDYVBK5P1lM3WsI1cmvD1sghWxuYOx5lHnlgeiLY+zJJ
-	zZcJt6gF0oPupTZqAv4HyvuICdqpPW9KnoWXt3e8u1BUibopjhmRuqlhdTAHvlBnIucqFGZ8lLf
-	x3c6zN/5nbdd1px8f8KegYR85V7ypA3lZRemoL5Oxo3rwAPBKdqlhpYPPy4QZ5fMZcEkOudzUYm
-	69k9ONWpZ1sYWd3XEmzsrs7MVcZoo6YeP0P5y7fDN69D8v379k+Sb1vTiobxhbAuZl/QbDgywiQ
-	cUJkZLedU+zSiHGR9CBhmylJzHMyzGFI7IaKJy7DUYknOI8khfpXBu76dF3V9mn0zQR4jqwtBXa
-	dUubmN17/F4bCsx4hQpOfrkq9sy5h5A0oppgTSU2Ko6D8s1aVaGI8I9JfUAOnbPtZ451fJt75DP
-	A/+7Uf577cCArdYzHkr4KKbKdeljWhZqovv+dmmvAxf/D+Lgb9Iu/yXiJmBr9RAxbGC1mxFwq/E
-	aAtle1lYIqIj5MYM+igcJkHF00LkTK4GkcfS6+DNreJ+XLB/Hc625fs+aGItjQ8C0rNu4lf0zsX
-	TPpUYIv2mpGXsm+0L0tO009+csQCsufw0
-X-Received: by 2002:a05:6830:6d4e:b0:7f4:eb76:881d with SMTP id 46e09a7af769-82049119577mr4659618a34.5.1790829565141;
-        Wed, 30 Sep 2026 21:39:25 -0700 (PDT)
-Received: from [127.0.1.1] (174-29-1-49.hlrn.qwest.net. [174.29.1.49])
-        by smtp.gmail.com with ESMTPSA id 46e09a7af769-8212aa1a2b8sm1792815a34.13.2026.09.30.21.39.23
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 30 Sep 2026 21:39:24 -0700 (PDT)
-From: James Hilliard <james.hilliard1@gmail.com>
-Date: Wed, 30 Sep 2026 22:39:22 -0600
-Subject: [PATCH net] net: stmmac: leave the datapath running for
- normal-size MTU changes
+	id 1xC8bs-00000007k3u-0ugD;
+	Thu, 01 Oct 2026 04:41:32 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by sea.source.kernel.org (Postfix) with ESMTP id 9E188407B2;
+	Thu,  1 Oct 2026 04:41:31 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id B96EF1F000FF;
+	Thu,  1 Oct 2026 04:41:21 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1790829691;
+	bh=tVU5xB7+vpzEDdoS9i3GNs5XYI1dWTYZUYdxVIutOtM=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To;
+	b=Bq0nZkKWMqWIxU4tIv4zapeOdCpnHz5b/zR/btuwhOI6yqWhkNa16ZLAdV0XAonaE
+	 LT/7g8b0EEn8q6WkaYSXcge2H8Yc3IFapoddC+KtKRElzzzS2tCykxpi6k5aZA9kay
+	 7Bx2fP9pScRcEmAWGN5VHfJ7AF5BwdkPUQT7ytyICmEnBPU0xblgkviAuLC9gCD0Mc
+	 1wW64Qj4Bi6OFUgghHfnyrW6ZOr1ms95vNMMwVa/6E/AhGbiTu69p6opZ+oOc4sLrS
+	 iIWKzWRMviz1dpodiBtpGvwGIBrsrPpmtw65JP7qKlykYyEAPSVgsAOV08268AC+o8
+	 rWTxHJHwYW1TQ==
+Message-ID: <ede392d7-3104-4a0f-9fa1-99b22552dcd6@kernel.org>
+Date: Thu, 1 Oct 2026 06:41:20 +0200
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20260930-stmmac-mtu-fastpath-v1-1-fd73f378c071@gmail.com>
-X-B4-Tracking: v=1; b=H4sIAAAAAAAC/y2NwQ6DIBBEf8XsuSQIFrS/0njYxaVyQC1g08T47
- yVtj28mb+aAzClwhltzQOJXyGFdKrSXBtyMy4NFmCqDksrIQUuRS4zoRCy78JjLhmUWpu9bzTh
- pGiRUc0vsw/u7eoeFC4y/MPFzrw/l3xBmFm6NMZRbg5Y8Ena90qxda65ESsrO2Y69t04OxlhFz
- sJ4nh/Y9ncutgAAAA==
-X-Change-ID: 20260930-stmmac-mtu-fastpath-68813ead3b90
-To: netdev@vger.kernel.org, Paolo Abeni <pabeni@redhat.com>, 
- Jakub Kicinski <kuba@kernel.org>, 
- Maxime Chevallier <maxime.chevallier@bootlin.com>, 
- Andrew Lunn <andrew+netdev@lunn.ch>, Eric Dumazet <edumazet@kernel.org>, 
- Maxime Coquelin <mcoquelin.stm32@gmail.com>, 
- Alexandre Torgue <alexandre.torgue@foss.st.com>, 
- Christian Marangi <ansuelsmth@gmail.com>
-Cc: "David S. Miller" <davem@davemloft.net>, 
- linux-stm32@st-md-mailman.stormreply.com, 
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
- Eric Dumazet <edumazet@kernel.org>, 
- James Hilliard <james.hilliard1@gmail.com>
-X-Mailer: b4 0.15.2
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260930_213926_704026_90A9DC17 
-X-CRM114-Status: GOOD (  14.43  )
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v2] random: vDSO: Avoid call to memset() when zeroing
+ reserved in __cvdso_getrandom_data()
+To: "Jason A. Donenfeld" <Jason@zx2c4.com>,
+ Nathan Chancellor <nathan@kernel.org>
+Cc: Nick Desaulniers <ndesaulniers@google.com>,
+ Andy Lutomirski <luto@kernel.org>, Thomas Gleixner <tglx@kernel.org>,
+ Theodore Ts'o <tytso@mit.edu>, Vincenzo Frascino
+ <vincenzo.frascino@arm.com>, Bill Wendling <morbo@google.com>,
+ Justin Stitt <justinstitt@google.com>,
+ Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
+ Mark Rutland <mark.rutland@arm.com>, Huacai Chen <chenhuacai@kernel.org>,
+ WANG Xuerui <kernel@xen0n.name>, Madhavan Srinivasan <maddy@linux.ibm.com>,
+ Michael Ellerman <mpe@ellerman.id.au>, Nicholas Piggin <npiggin@gmail.com>,
+ Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>,
+ Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>,
+ Heiko Carstens <hca@linux.ibm.com>, Vasily Gorbik <gor@linux.ibm.com>,
+ Alexander Gordeev <agordeev@linux.ibm.com>,
+ Christian Borntraeger <borntraeger@linux.ibm.com>,
+ Sven Schnelle <svens@linux.ibm.com>, Ingo Molnar <mingo@redhat.com>,
+ Borislav Petkov <bp@alien8.de>, Dave Hansen <dave.hansen@linux.intel.com>,
+ "H. Peter Anvin" <hpa@zytor.com>, x86@kernel.org,
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+ loongarch@lists.linux.dev, linuxppc-dev@lists.ozlabs.org,
+ linux-riscv@lists.infradead.org, linux-s390@vger.kernel.org,
+ llvm@lists.linux.dev
+References: <CAKwvOdmuvn0LZkYEsH84hnOGTYhTtzuWs3wMARtWdTeL6dD9sA@mail.gmail.com>
+ <CAKwvOdnxKVpn=nAFaqP+9PTx4PqgHsUVWv6e60Pcr29W_eZrpQ@mail.gmail.com>
+ <CAKwvOdmNZL3eFvV3v77GXDzL+XLgz+BT9TA=my0yTnbsHqVeSg@mail.gmail.com>
+ <areYMjNcaqe86ds4@zx2c4.com>
+ <9d1c338b-368f-4ea2-a12e-c28d49adff5e@kernel.org>
+ <are6s5e6On3hpD3M@zx2c4.com>
+ <CAKwvOd=BrMfFT88jsvBPhh383qqk5G+J07CsofNu0MVkziyhCg@mail.gmail.com>
+ <20260930133813.GA3142230@ax162> <ar0a4b9CjL2YHCkY@zx2c4.com>
+ <ar0gTS71qxnx9AkW@zx2c4.com> <20260930151337.GD3142230@ax162>
+ <CAHmME9pA+AntJ6hWoFYpTVjh-NUSd0ZGXp5XiUuhQcq3HjQT3g@mail.gmail.com>
+Content-Language: fr-FR
+From: "Christophe Leroy (CS GROUP)" <chleroy@kernel.org>
+In-Reply-To: <CAHmME9pA+AntJ6hWoFYpTVjh-NUSd0ZGXp5XiUuhQcq3HjQT3g@mail.gmail.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 8bit
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -115,45 +99,63 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-When both MTUs are at most ETH_DATA_LEN, the receive buffer size and MAC
-receive limit do not change. Update the MTU without restarting the
-datapath.
+Hi,
 
-This also avoids rebinding a live AF_XDP pool to a temporary RXQ. XDP
-rejects jumbo MTUs, so all supported XDP MTU changes take this path.
-Jumbo transitions remain on the reopen path until the rollback change.
+Le 30/09/2026 à 17:16, Jason A. Donenfeld a écrit :
+> On Wed, Sep 30, 2026 at 5:13 PM Nathan Chancellor <nathan@kernel.org> wrote:
+>>
+>> On Wed, Sep 30, 2026 at 04:44:29PM +0200, Jason A. Donenfeld wrote:
+>>> Nathan, would this be okay with you?
+>>> https://eur01.safelinks.protection.outlook.com/?url=https%3A%2F%2Fgit.zx2c4.com%2Flinux-rng%2Fcommit%2F%3Fid%3Dd216701724b7d8209ff42150658ad5c712bdb503&data=05%7C02%7Cchristophe.leroy2%40cs-soprasteria.com%7C8f69935bffb344bf0ddc08df1f05e358%7C8b87af7d86474dc78df45f69a2011bb5%7C0%7C0%7C639263782324080837%7CUnknown%7CTWFpbGZsb3d8eyJFbXB0eU1hcGkiOnRydWUsIlYiOiIwLjAuMDAwMCIsIlAiOiJXaW4zMiIsIkFOIjoiTWFpbCIsIldUIjoyfQ%3D%3D%7C0%7C%7C%7C&sdata=BA7Fyr0%2FynggvBnR%2FpiCvNCQHtNBagqvSb0i11AvoLU%3D&reserved=0
+>>
+>> Can you stick
+>>
+>>    Cc: stable@vger.kernel.org # v6.12+
+>>    Closes: https://eur01.safelinks.protection.outlook.com/?url=https%3A%2F%2Fgithub.com%2FClangBuiltLinux%2Flinux%2Fissues%2F2183&data=05%7C02%7Cchristophe.leroy2%40cs-soprasteria.com%7C8f69935bffb344bf0ddc08df1f05e358%7C8b87af7d86474dc78df45f69a2011bb5%7C0%7C0%7C639263782324110679%7CUnknown%7CTWFpbGZsb3d8eyJFbXB0eU1hcGkiOnRydWUsIlYiOiIwLjAuMDAwMCIsIlAiOiJXaW4zMiIsIkFOIjoiTWFpbCIsIldUIjoyfQ%3D%3D%7C0%7C%7C%7C&sdata=6C8%2FAEQoh%2B8pfgfYQkL7qf5Ue%2F5sAGtfqRptzsSG0CM%3D&reserved=0
+>>
+>> on that? Otherwise, looks good to me, that's basically what I had for my
+>> v3 locally.
+> 
+> Sure, done. Also removed the now-unused array_size.h include.
 
-Fixes: 3470079687448 ("net: ethernet: stmicro: stmmac: permit MTU change with interface up")
-Signed-off-by: James Hilliard <james.hilliard1@gmail.com>
----
- drivers/net/ethernet/stmicro/stmmac/stmmac_main.c | 7 ++++++-
- 1 file changed, 6 insertions(+), 1 deletion(-)
+I'm still very sceptic with this patch. You are degrading the behaviour 
+with GCC for a problem with CLANG. Why ?
 
-diff --git a/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c b/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
-index 3f34d491c959..03cd14d10356 100644
---- a/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
-+++ b/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
-@@ -6161,7 +6161,12 @@ static int stmmac_change_mtu(struct net_device *dev, int new_mtu)
- 	if ((txfifosz < new_mtu) || (new_mtu > BUF_SIZE_16KiB))
- 		return -EINVAL;
- 
--	if (netif_running(dev)) {
-+	/* Normal-size frames use the same buffers and MAC receive limits.
-+	 * In particular, do not disturb a live AF_XDP pool: XDP does not
-+	 * support jumbo frames, so it never needs the ring replacement below.
-+	 */
-+	if (netif_running(dev) &&
-+	    (dev->mtu > ETH_DATA_LEN || mtu > ETH_DATA_LEN)) {
- 		netdev_dbg(priv->dev, "restarting interface to change its MTU\n");
- 		/* Try to allocate the new DMA conf with the new mtu */
- 		dma_conf = stmmac_setup_dma_desc(priv, mtu);
+Before the patch, with both GCC 13 and GCC 16 on powerpc32 I get a 
+pretty standard optimised loop that clears words 4 by 4 (with auto 
+increment of pointer) which is the most optimal on powerpc:
 
----
-base-commit: a7bfaba4823e3c165bb2004c74eff7c096672bc7
-change-id: 20260930-stmmac-mtu-fastpath-68813ead3b90
+  3f0:	39 00 00 0c 	li      r8,12
+  3f4:	35 08 ff fc 	addic.  r8,r8,-4
+  3f8:	91 49 00 04 	stw     r10,4(r9)
+  3fc:	91 49 00 08 	stw     r10,8(r9)
+  400:	91 49 00 0c 	stw     r10,12(r9)
+  404:	95 49 00 10 	stwu    r10,16(r9)
+  408:	40 82 ff ec 	bne     3f4 <__c_kernel_getrandom+0x3f4>
 
-Best regards,
---  
-James Hilliard <james.hilliard1@gmail.com>
+With the patch,
 
+With GCC 13 I get a very suboptimal loop copying bytes one by one
+
+  3d8:	39 40 00 34 	li      r10,52
+...
+  3e4:	39 20 00 00 	li      r9,0
+  3e8:	7d 49 03 a6 	mtctr   r10
+  3ec:	9d 3e 00 01 	stbu    r9,1(r30)
+  3f0:	42 00 ff fc 	bdnz    3ec <__c_kernel_getrandom+0x3ec>
+
+With GCC 16 I get something a bit better but not as good as before, it 
+is a loop clearing words only one by one and incrementing pointer with 
+an additional insn instead of using auto-increment instruction stwu.
+
+  3e0:	39 40 00 0d 	li      r10,13
+...
+  3f0:	7d 49 03 a6 	mtctr   r10
+  3f4:	91 3f 00 00 	stw     r9,0(r31)
+  3f8:	3b ff 00 04 	addi    r31,r31,4
+  3fc:	42 00 ff f8 	bdnz    3f4 <__c_kernel_getrandom+0x3f4>
+
+Please restrict the patch to clang builds.
+
+Christophe
 
