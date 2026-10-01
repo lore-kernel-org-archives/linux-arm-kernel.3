@@ -4,79 +4,123 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9C67FCA5FD2
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  1 Oct 2026 20:22:01 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BA96ACA5FCE
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  1 Oct 2026 20:23:34 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	MIME-Version:References:Message-ID:Subject:CC:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Rpnkv8sjp18UMvlu0bszxjEN781OkuOaq6ugdu+OZEM=; b=vpIK2ZuYer5vswKheoB9XBl8rt
-	qmLEMMF0Jp9fLSgDiMMfz16cyye2IDaw4Gt2ovOqz+ZF+hyeYwydq0auvnJkhu6SIcU9RsYNzJA1n
-	Atf4aQnX+V4olDCJ/g4/I82uzmMCnTcQgd9rSraglpLIsOvaiaadZeMLfJVnVPOYb3hi/aMjo6hza
-	znilTaBS75AXUbSrBjTO33rQXHSSOIqWacgrdkru1DB7+ko0s7mplSdlog78Rh48dxd3TskeFNggK
-	EzGXY9G04F3RQt7C2Y+mn0TMb/kcCg8GfxGN63TmYA4jBUTJBwFb3UHGuj5WezueiMwD3dpMT6yQh
-	2648qx/w==;
+	bh=jpPkeOCPURulNiOuVdrND84Csg55H/+ONreaDCazi8I=; b=ZmlqE/110oUIjd4IqIJe2ACr2i
+	9Du/swvGKkD/JIg6yazVua4A45wCOQTpKm9gDNtZrh0B/da2fpP0w6V45LPTfycsTAbVtcmHNjiXw
+	Ks4tN9eM0ovj2qorLkIDKg9UEbl4on7wmoupIEqygrUaDfoa0xS7nKUgD4TVnhQOki3HfKOGoAgnP
+	SK19Aa80lVlucTc43mp3SRuK+xHvXr+YknfQ6nXzfeA8p7A5hPzBh8N71S/WirG8rZIkYjifNfI5O
+	9ilenZWbKFj3ukOntoZe0Ylv16rPRtpYxdkdOmXdcSxLzvqqnaw5PFhPnpbb3dcZY4p8jsDOetMUg
+	v+5d5ohA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xCMNi-0000000A4bk-1xJE;
-	Thu, 01 Oct 2026 19:23:50 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1xCNJK-0000000A8xV-00rj;
+	Thu, 01 Oct 2026 20:23:22 +0000
+Received: from mail-westus2azlp170120002.outbound.protection.outlook.com ([2a01:111:f403:c007::2] helo=MW6PR02CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xCMNg-0000000A4bc-497s
+	id 1xCNJD-0000000A8vZ-32sn
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 01 Oct 2026 19:23:49 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 8BE994387F;
-	Thu,  1 Oct 2026 19:23:48 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 504511F000FF;
-	Thu,  1 Oct 2026 19:23:43 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1790882628;
-	bh=Rpnkv8sjp18UMvlu0bszxjEN781OkuOaq6ugdu+OZEM=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=fY1V5cH1JLiLTot6M/QR5x9Z67RjCTDyu9UEu5ze3oJFHI4vMHHgva5vxSOLb2mmj
-	 D03ZXFpoPdcmas4irXiyv+uhjtaSZkG5wySv9VOIncBFZ/2casOgi6aIr1RgfIa1Kx
-	 YKVo11pY8r8//bBs/I8Gfxzx1oK0UmbjuM99UMa4RsJvv39yikja+Jda9JmhIwRGNl
-	 mJbkg4idXCXMkWflnCNf6qfiwUWXQK+5EtP/8eSWJ1YKcaYx3urELmJuZRP/0pquAs
-	 c1P39wEjLmUMvVJd9gn2EM/dg9Br3QQLcmiOvZn+9xOLp4572zx5DcgXRhMpKCAXpM
-	 4q6QIueiIyT5g==
-Date: Thu, 1 Oct 2026 20:23:41 +0100
-From: Conor Dooley <conor@kernel.org>
-To: longzhao@ambarella.com
-Cc: Arnd Bergmann <arnd@arndb.de>, Krzysztof Kozlowski <krzk@kernel.org>,
-	Alexandre Belloni <alexandre.belloni@bootlin.com>,
-	soc@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Michael Turquette <mturquette@baylibre.com>,
-	Stephen Boyd <sboyd@kernel.org>,
-	Jerome Brunet <jbrunet@baylibre.com>,
-	Linus Walleij <linusw@kernel.org>,
-	Bartosz Golaszewski <brgl@kernel.org>,
-	Michael Walle <mwalle@kernel.org>,
-	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
-	Jiri Slaby <jirislaby@kernel.org>,
-	Andy Shevchenko <andriy.shevchenko@linux.intel.com>,
-	Ilpo =?iso-8859-1?Q?J=E4rvinen?= <ilpo.jarvinen@linux.intel.com>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Will Deacon <will@kernel.org>, Long Zhao <zl020895@163.com>,
-	Lee Jones <lee@kernel.org>, mfd@lists.linux.dev,
-	devicetree@vger.kernel.org, linux-clk@vger.kernel.org,
-	linux-gpio@vger.kernel.org, linux-serial@vger.kernel.org,
-	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v9 04/15] dt-bindings: gpio: pl061: add Ambarella CV75
- variant
-Message-ID: <20261001-attempt-savior-5d4a0eed4320@spud>
-References: <20261001-cv75-v5-v9-0-486cc289a4b8@ambarella.com>
- <20261001-cv75-v5-v9-4-486cc289a4b8@ambarella.com>
+	Thu, 01 Oct 2026 20:23:21 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=F+27dLCA6Mgyet4dUBSVlbYqKfvTxW8JhyZiFXpiFhV7bs3KQbfFh4mE+iUnErSQeUIE1x3WlsOC0CrEjJGwGvEsnz3GaGVXFKl4Aandfubq791MVP/nLrIkZOoIiNX5SDtaQvotzMXTR4lB3cJkpmwOAWZYuBnAVuh2DPX+KuwMVaJcGuluEjoUgexOX8Y5SBxTegetNIJTb/fBCWZF4rPuMZ04x+DeM0CaHM5WVZZms1UPEWVCb6gbF8KDLMIb7skMTliFjxhQzxknn4Kl0Wj4oA6RgBtNxq6/cszzw6h1XGDhStqkNGB2e5GSNUAxq9ahczj++2hLgH5E+BxQ+Q==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=jpPkeOCPURulNiOuVdrND84Csg55H/+ONreaDCazi8I=;
+ b=HxTRAeazuQMcH6vlCjZnij5aUAQPWA/dajh9F1sozs4uIffDT+0qljS7L3WSBozB3XnvM/RMBnDlICCf6s/BECPcHmcz/9vUy/Ey/hEecuOa9ObNIWbSKBW8icG3O+xCfF15nwHKZF0JsKwmNMyt005sHqEz8bGpde5+VvQOWMsu8lv6PNq8SZ7gFnHr4QeqmcoBTG5Lp7OiWbx+EHnScl0TzE6te6Srr7s7dneJw4bqAxCSTlQkiPbhiDM4Ud9nKvD4HuKC9lXt8nMY9E17psWcTpHrvY7kOr/qAMtGNuKVjnIHlo2mxNaAcnlB1bbhXQDgTvhmPvJo/QwgCLjSdg==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
+ 216.228.118.232) smtp.rcpttodomain=google.com smtp.mailfrom=nvidia.com;
+ dmarc=pass (p=reject sp=reject pct=100) action=none header.from=nvidia.com;
+ dkim=none (message not signed); arc=none (0)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
+ s=selector2;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=jpPkeOCPURulNiOuVdrND84Csg55H/+ONreaDCazi8I=;
+ b=auSHSEHfjMhs3Iwdo/ByIGBNy57dkcjYw8gcVPkr/uqvOtzJvYHf/gXv6fVHcpVfFAVEFjQKJ4Dw0pVPa+7V+T9MtsHtJfH7fuK7gNai1Ge8eDaHaJ3PKJy5eKHrNyB+Jigr3PN7RIqy1tJcJjjccpoTcTDpUdmE6VxkE8TEvfZ1HlDXI5S+y+vfMZtKyHspHkWfoFf/Pd8ptNNEamrY+o7Cq6aH9ctv8bU11S+DsJlHw9H+hJYFvYZXZBWsQrQuMJ99ZjnE8SvkQxrZ6P3RWlDRr3N7JYsI6+Ms/Zxpj3wiA4rbfUzc8aUqD+jygES3M78WAtsruqvyJMy1YW8I8A==
+Received: from SJ0PR03CA0141.namprd03.prod.outlook.com (2603:10b6:a03:33c::26)
+ by LV0PR12MB243158.namprd12.prod.outlook.com (2603:10b6:408:3fc::8) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.472.18; Thu, 1 Oct
+ 2026 20:23:07 +0000
+Received: from SJ1PEPF0000231F.namprd03.prod.outlook.com
+ (2603:10b6:a03:33c:cafe::7f) by SJ0PR03CA0141.outlook.office365.com
+ (2603:10b6:a03:33c::26) with Microsoft SMTP Server (version=TLS1_3,
+ cipher=TLS_AES_256_GCM_SHA384) id 15.21.406.7 via Frontend Transport; Thu, 1
+ Oct 2026 20:23:07 +0000
+X-MS-Exchange-Authentication-Results: mx.microsoft.com 1; spf=pass (sender IP
+ is 216.228.118.232) smtp.mailfrom=nvidia.com; dkim=none (message not signed)
+ header.d=none;dmarc=pass action=none header.from=nvidia.com;
+Received-SPF: Pass (protection.outlook.com: domain of nvidia.com designates
+ 216.228.118.232 as permitted sender) receiver=protection.outlook.com;
+ client-ip=216.228.118.232; helo=mail.nvidia.com; pr=C
+Received: from mail.nvidia.com (216.228.118.232) by
+ SJ1PEPF0000231F.mail.protection.outlook.com (10.167.242.235) with Microsoft
+ SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.21.472.14 via Frontend Transport; Thu, 1 Oct 2026 20:23:07 +0000
+Received: from drhqmail203.nvidia.com (10.126.190.182) by mail.nvidia.com
+ (10.127.129.5) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.49; Thu, 1 Oct
+ 2026 13:22:44 -0700
+Received: from drhqmail202.nvidia.com (10.126.190.181) by
+ drhqmail203.nvidia.com (10.126.190.182) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.2562.49; Thu, 1 Oct 2026 13:22:44 -0700
+Received: from nvidia.com (10.127.8.10) by mail.nvidia.com (10.126.190.181)
+ with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.49 via Frontend
+ Transport; Thu, 1 Oct 2026 13:22:42 -0700
+Date: Thu, 1 Oct 2026 13:22:40 -0700
+From: Nicolin Chen <nicolinc@nvidia.com>
+To: Pranjal Shrivastava <praan@google.com>
+CC: <iommu@lists.linux.dev>, Will Deacon <will@kernel.org>, Joerg Roedel
+	<joro@8bytes.org>, Robin Murphy <robin.murphy@arm.com>, Jason Gunthorpe
+	<jgg@ziepe.ca>, Mostafa Saleh <smostafa@google.com>, Daniel Mentz
+	<danielmentz@google.com>, Ashish Mhetre <amhetre@nvidia.com>,
+	<linux-arm-kernel@lists.infradead.org>, Thomas Gleixner <tglx@kernel.org>,
+	Radu Rendec <radu@rendec.net>, Bjorn Helgaas <bhelgaas@google.com>,
+	<linux-pci@vger.kernel.org>, <linux-kernel@vger.kernel.org>, "Greg
+ Kroah-Hartman" <gregkh@linuxfoundation.org>, <rafael@kernel.org>, "Danilo
+ Krummrich" <dakr@kernel.org>, <driver-core@lists.linux.dev>
+Subject: Re: [PATCH v11 13/16] iommu/arm-smmu-v3: Implement pm_runtime &
+ system sleep ops
+Message-ID: <ar7BEIURVG6kGKX8@nvidia.com>
+References: <20260929034510.2023173-1-praan@google.com>
+ <20260929034510.2023173-14-praan@google.com>
 MIME-Version: 1.0
-Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="HWgF0jKgF/ClaY3B"
+Content-Type: text/plain; charset="us-ascii"
 Content-Disposition: inline
-In-Reply-To: <20261001-cv75-v5-v9-4-486cc289a4b8@ambarella.com>
+In-Reply-To: <20260929034510.2023173-14-praan@google.com>
+X-NV-OnPremToCloud: ExternallySecured
+X-EOPAttributedMessage: 0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: SJ1PEPF0000231F:EE_|LV0PR12MB243158:EE_
+X-MS-Office365-Filtering-Correlation-Id: 6069da64-a309-4036-a7b5-08df1ff9cde1
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|82310400026|36860700016|376014|7416014|23010399003|1800799024|56012099006|6133799003|11063799006|4143699003|10067099003|22082099003|18002099003;
+X-Microsoft-Antispam-Message-Info: wkNJ00GJVTxA/PZgKwTJQTPQs7wJNy5VilET7+tVt1HDv1I+bROwmfVJrzpQrMLLflfxafWye3V6K/PLdrVkDyES4bEGPu0KgDaWrDyiJ0bUfe71Lhp09dXQljvtWOEj0fNg9YcQtbOQZLM5ymcyR12VYrBqTrTElqyMCMdvaJsPmFN1Ss29EA914SRHYIium1NeN2Zo1s8Yole2paZ4CHe+B4WXlVEuW8vps/2W464TnwDEYnn0k82NGeZJ/wkSyoRQV4jFHiTGFqE2/OLIqqWy3XZd0vCI3c/7Y0lvQVAlvKuB8VRyqO9cGsD/M/nOkD2wZHj5bC+MyjD5H9++04cotbvZvty9SAdrHU4+o7VcRXvUFvhdmES9seH2L9TinNG7dfcC4fKLM8c0yK/dok7QG2cH68RCTsF/ArSvJ2EG1QjGxDiCK6eIlECO6hQfyPl3qaIgIQBVg6vY5PXLEcHSxnuwjce1fxu/WTFEB0vTFHFBZTo6ulUpYFWRPZ7nlCtxVm45L7yt9iHazZ+ZJw9OB+todHUm0WaS7H8eJIUtWCKgNwx7R1Kc62gD8hyxt80SZbrPNz1f5iF/ThIvgi7RWJEh6e8JvdYpclGgtNGml8zteT0U/Olt6Q2tHbp1hceQn9XmD5tMaYkGKr/kJohnpZAKZ/Ge0FzV+eBFXsz9PaNTslEC67RSBu1eKHoRX434uRoNtKMXqOja56sASw==
+X-Forefront-Antispam-Report: CIP:216.228.118.232;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:mail.nvidia.com;PTR:dc7edge1.nvidia.com;CAT:NONE;SFS:(13230040)(82310400026)(36860700016)(376014)(7416014)(23010399003)(1800799024)(56012099006)(6133799003)(11063799006)(4143699003)(10067099003)(22082099003)(18002099003);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: /joHKHcVocduuhZZ4Mr+NO+05zxdWqnpFYLy+SyQELNicRWh1jHHUqV9ec3cVCMyfgiBN/Id/w+eYAbaPhoqQajIXONZ3zFBFWX4+3pg0PMdHjFNKyAuLeSj16K3DFA/dFTMBwuzcq8ypVylUkZcJpx3+ykDtYPHAxBjP4esizlPg6i0mMAc/iELbfNEIGkCMLsIcH9v+RjtoWdiNl93oUvbr6KiNgyklLPvASMcy1tWOBEpNoiAcb99eIprCI749bFgVLYqe09B45Y1Ek0KIFsPP2QL66JfochG+0TcfCjUjbq4VuyqqTFvW/SSLsk7DX9Qq38r8eK0CT5LgIIW+8RnZ4JC94O68YpF+x9d8CpN9fdDyUEMOMi//37IpU8NTYt+qbe+0B3oGK/9k74HWGJ2j8zavQWG8TIT1/0vKKRVL4aRFNboEHzmwHfiw5XF
+X-OriginatorOrg: Nvidia.com
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 01 Oct 2026 20:23:07.1076
+ (UTC)
+X-MS-Exchange-CrossTenant-Network-Message-Id: 6069da64-a309-4036-a7b5-08df1ff9cde1
+X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
+X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=43083d15-7273-40c1-b7db-39efd9ccc17a;Ip=[216.228.118.232];Helo=[mail.nvidia.com]
+X-MS-Exchange-CrossTenant-AuthSource: SJ1PEPF0000231F.namprd03.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Anonymous
+X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: LV0PR12MB243158
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20261001_132320_062711_6F7472F7 
+X-CRM114-Status: GOOD (  23.22  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -91,105 +135,128 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
---HWgF0jKgF/ClaY3B
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
+Just some small things from a quick scan:
 
-On Thu, Oct 01, 2026 at 08:40:53PM +0800, Long Zhao via B4 Relay wrote:
-> From: Long Zhao <longzhao@ambarella.com>
->=20
-> The CV75 GPIO banks sit on the AMBA PrimeCell bus but are not
-> register-compatible with the ARM PL061. Each bank is 32-bit and 32
-> lines, with extra mask/enable registers, so arm,pl061 must not be used
-> as a fallback compatible.
-
-What has this got in common with the pl061 beyond using the PrimeCell
-bus? Current reason for putting them together is a bit tenuous to me.
-
-Cheers,
-Conor.
-
->=20
-> The AMBA core matches the PL061 driver by PrimeCell ID, not by the DT
-> compatible string. These blocks do not implement the standard PL061 ID
-> (0x00041061) in the ID registers, so arm,primecell-periphid is required
-> and is fixed to 0x000e8061; the driver uses that ID to select the
-> Ambarella layout. gpio-ranges is required because each bank is a slice
-> of the SoC pinctrl pin space.
->=20
-> Signed-off-by: Long Zhao <longzhao@ambarella.com>
-> ---
->  .../devicetree/bindings/gpio/pl061-gpio.yaml       | 25 ++++++++++++++++=
-+++---
->  1 file changed, 22 insertions(+), 3 deletions(-)
->=20
-> diff --git a/Documentation/devicetree/bindings/gpio/pl061-gpio.yaml b/Doc=
-umentation/devicetree/bindings/gpio/pl061-gpio.yaml
-> index 4d970e55104b..c22dd8a1d2c1 100644
-> --- a/Documentation/devicetree/bindings/gpio/pl061-gpio.yaml
-> +++ b/Documentation/devicetree/bindings/gpio/pl061-gpio.yaml
-> @@ -15,7 +15,9 @@ select:
->    properties:
->      compatible:
->        contains:
-> -        const: arm,pl061
-> +        enum:
-> +          - arm,pl061
-> +          - ambarella,cv75-gpio
->    required:
->      - compatible
-> =20
-> @@ -25,7 +27,9 @@ properties:
-> =20
->    compatible:
->      items:
-> -      - const: arm,pl061
-> +      - enum:
-> +          - ambarella,cv75-gpio
-> +          - arm,pl061
->        - const: arm,primecell
-> =20
->    reg:
-> @@ -64,6 +68,21 @@ required:
->    - "#gpio-cells"
->    - gpio-controller
-> =20
-> -additionalProperties: false
-> +allOf:
-> +  - $ref: /schemas/arm/primecell.yaml#
-> +  - if:
-> +      properties:
-> +        compatible:
-> +          contains:
-> +            const: ambarella,cv75-gpio
-> +    then:
-> +      properties:
-> +        arm,primecell-periphid:
-> +          const: 0x000e8061
-> +      required:
-> +        - arm,primecell-periphid
-> +        - gpio-ranges
+On Tue, Sep 29, 2026 at 03:45:07AM +0000, Pranjal Shrivastava wrote:
+> diff --git a/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.h b/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.h
+> index 0a841441cc44..d0a3d497915c 100644
+> --- a/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.h
+> +++ b/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.h
+> @@ -663,11 +663,14 @@ arm_smmu_make_cmd_tlbi(enum arm_smmu_cmdq_opcode op, u16 asid, u16 vmid)
+[...]
+> +#define RPM_AUTOSUSPEND_DELAY_MS	15
 > +
-> +unevaluatedProperties: false
-> =20
->  ...
->=20
-> --=20
-> 2.34.1
->=20
->=20
+>  struct arm_smmu_ll_queue {
+>  	union {
+>  		u64			val;
+> @@ -1234,6 +1237,18 @@ int arm_smmu_cmdq_issue_cmdlist(struct arm_smmu_device *smmu,
+>  				bool sync);
+>  bool arm_smmu_erratum_repeat_tlbi_cfgi(void);
+>  
+> +/*
+> + * Lockless pre-check to test if the SMMU is actively powered.
+> + * Races with concurrent suspend are benign: the cmpxchg loop in
+> + * arm_smmu_cmdq_issue_cmdlist() acts as the true commit point.
+> + * If we lose the race, that loop observes Q_STOP == 1 and safely
+> + * drops the command. If we win, the suspend thread waits for us.
+> + */
+> +static inline bool arm_smmu_is_active(struct arm_smmu_device *smmu)
+> +{
+> +	return !Q_STOP(READ_ONCE(smmu->cmdq.q.llq.prod));
+> +}
 
---HWgF0jKgF/ClaY3B
-Content-Type: application/pgp-signature; name=signature.asc
+Move these to the patch that uses it? 
 
------BEGIN PGP SIGNATURE-----
+> diff --git a/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c b/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c
+> index 89a4e756ff17..e127e3be3a6b 100644
+> --- a/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c
+> +++ b/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c
+> @@ -29,6 +29,7 @@
+>  #include <linux/platform_device.h>
+>  #include <linux/sort.h>
+>  #include <linux/string_choices.h>
+> +#include <linux/pm_runtime.h>
+>  #include <kunit/visibility.h>
+>  #include <uapi/linux/iommufd.h>
+>  
+> @@ -119,6 +120,45 @@ static const char * const event_class_str[] = {
+>  static int arm_smmu_alloc_cd_tables(struct arm_smmu_master *master);
+>  static bool arm_smmu_ats_supported(struct arm_smmu_master *master);
+>  
+> +/* Runtime PM helpers */
+> +__maybe_unused static int arm_smmu_rpm_get(struct arm_smmu_device *smmu)
+> +{
+> +	int ret;
+> +
+> +	if (!pm_runtime_enabled(smmu->dev))
+> +		return 0;
+> +
+> +	ret = pm_runtime_resume_and_get(smmu->dev);
+> +	if (ret < 0) {
+> +		dev_err(smmu->dev, "failed to resume device: %d\n", ret);
+> +		return ret;
+> +	}
+> +
+> +	return 0;
+> +}
+> +
+> +__maybe_unused static bool arm_smmu_rpm_get_if_active(struct arm_smmu_device *smmu)
+> +{
+> +	if (!pm_runtime_enabled(smmu->dev))
+> +		return true;
+> +
+> +	return pm_runtime_get_if_active(smmu->dev) > 0;
+> +}
+> +
+> +__maybe_unused static void arm_smmu_rpm_put(struct arm_smmu_device *smmu)
+> +{
+> +	int ret;
+> +
+> +	if (!pm_runtime_enabled(smmu->dev))
+> +		return;
+> +
+> +	ret = pm_runtime_put_autosuspend(smmu->dev);
+> +
+> +	/* -EAGAIN & -EBUSY aren't failures */
+> +	if (ret < 0 && ret != -EAGAIN && ret != -EBUSY)
+> +		dev_err(smmu->dev, "failed to suspend device: %d\n", ret);
+> +}
 
-iHUEABYKAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCar6zPQAKCRB4tDGHoIJi
-0sbWAQC2gJITIvi3oeB7VNQ7l+eQKH46qmQnUasw4hIdQq9aKQEA1pUhCnsQx5St
-9qZrXpVm5HYjxjulbTmRwuxs88NSPQA=
-=Eo/9
------END PGP SIGNATURE-----
+Ditto
 
---HWgF0jKgF/ClaY3B--
+> +static int __maybe_unused arm_smmu_runtime_suspend(struct device *dev)
+[...]
+> +	/* Wait for the last committed owner to reach the hardware */
+> +	while (atomic_read(&cmdq->owner_prod) != target && timeout) {
+> +		udelay(1);
+> +		timeout--;
+> +	}
+> +
+> +	/*
+> +	 * Entering suspend implies no active clients. A timeout here
+> +	 * indicates a fatal CMDQ lockup or hardware stall. We proceed
+> +	 * anyway to prioritize memory safety (avoiding stale TLBs)
+> +	 */
+> +	if (!timeout)
+> +		dev_err(smmu->dev, "cmdq owner wait timeout, (check runtime PM + devlinks)\n");
+> +
+> +	/* Wait for cmdq->lock == 0 to ensure last CMDQ_CONS_REG is written */
+> +	timeout = ARM_SMMU_SUSPEND_TIMEOUT_US;
+> +	while (atomic_read(&cmdq->lock) != 0 && timeout) {
+> +		udelay(1);
+> +		timeout--;
+> +	}
+> +
+> +	/* Timing out here implies misconfigured Runtime PM or broken devlinks */
+> +	if (!timeout)
+> +		dev_err(smmu->dev, "cmdq lock != 0, forcing suspend. Polling CPUs may fault.\n");
+
+Maybe a small helper that takes: read pointer, target, print?
+
+> +	/* Wait for pending gerror handlers */
+> +	synchronize_irq(smmu->combined_irq ? smmu->combined_irq : smmu->gerr_irq);
+
+Both might be 0?
+
+Nicolin
 
