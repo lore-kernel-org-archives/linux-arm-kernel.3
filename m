@@ -4,101 +4,96 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0BDE8CA5FCE
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  1 Oct 2026 08:23:01 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8676ECA5FA5
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  1 Oct 2026 08:23:07 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=faFSmgf0UoH3tPqp1jvEcgCuDHoV29KBYn+yS8rEdOg=; b=jGuNjly5PHoJDfIx1hwfFeXQi3
-	yvYYCgw3/LBVUulIE8l9ASNlD0mb7tQj5Z4hoemJ5KGroe52vtXbZbO8++OAOtsQNQnczEk4tIKqh
-	53SIr7xAIxECz34oZBhVZfuVeDfiyfN5Y6ObZ6b3w+YhFB6KF4U0bbPiqA95KKuSA0i9LLF7Y+gRr
-	CE8s8aI7iuKxoJtD1K5iZUx/fk5x+TTRlfB1+TQPzQ6111MtuGyte5hx4qy5GIsZ5PC3zMmuibsyP
-	KYRLuRzMU5JH82LTocqaO0nKL3YxPUb3XJnBDpIiDUD2cK0TfyHVOOc8lI00/hvp0gBUfsbcEn5Od
-	4uv1jN8Q==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:References:In-Reply-To:Date:Cc:To:From
+	:Subject:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=SU7IEV8K31VentfUkgezeCnenvWoxswvOfrHYxEVQl0=; b=Q55xlWLwG5j1QuM5LhQ+28laxk
+	0oB7l1wSoTq/vGfZV/VAHWV9jbtVnKqXvwBKa4gEkx+PE3ui4eC0LVaxcKMRk3JGxkvjMduV4wXfM
+	iLWQHDFjpx5drYxCsFL28p7iJm27gquF16Y78byGBjCluFE4vDJwXzzjFygUzAjoOMEWHlVTMxWvM
+	LOFETA+BwYfFzj982YZrNk2SceJdlhB5a6dDhOeJGEJBQOTOz8nz11epoGSemThHDZmbtHtnE6dPH
+	Qk8VMGA4BIxZkCRkg4jjppXTLOCnMeCDG7HxX4fO570+8TjyupSj802bbP00Z8sP096by+8E4rUeJ
+	NeevggDg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xCC45-000000088Wz-2FBs;
-	Thu, 01 Oct 2026 08:22:53 +0000
+	id 1xCC49-000000088hG-47sO;
+	Thu, 01 Oct 2026 08:22:58 +0000
 Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xCC3h-000000087dw-1R96;
-	Thu, 01 Oct 2026 08:22:29 +0000
+	id 1xCC3i-000000087go-3hEk
+	for linux-arm-kernel@bombadil.infradead.org;
+	Thu, 01 Oct 2026 08:22:31 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Cc:To:In-Reply-To:References:
-	Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Sender:Reply-To:Content-ID:Content-Description;
-	bh=faFSmgf0UoH3tPqp1jvEcgCuDHoV29KBYn+yS8rEdOg=; b=TFR4soYCYED5RrdYlr2h//zW7b
-	JcZqymHMziMaMAQM7SSzWCdctwYPipcuY621b2egM2l2TysPGWOZDtCBKoZx4scp7Iy61QQUp0A4/
-	diYl5RjFgQSeo9BA3FYu9905EaZlc12IIvu0f99CnmiarO97IGbDahm+XoW2q1qZhVkxnlsIVCcsf
-	ZwokdTNEtThABzc1ySjVB5igM/UyriSELpxsHUnYtoxfEjL6OCPSdlz/3bmanVN5spI6RCAoVxLZ+
-	59FU5/cO8BGkUcdb9n04xt4fwRLnu+Si8EatmOiJRooZXM90X1keHWxfNaQTM5XkThnE99pnQjxHy
-	i5Phqpvg==;
-Received: from bali.collaboradmins.com ([148.251.105.195])
+	d=infradead.org; s=desiato.20200630; h=MIME-Version:Content-Transfer-Encoding
+	:Content-Type:References:In-Reply-To:Date:Cc:To:From:Subject:Message-ID:
+	Sender:Reply-To:Content-ID:Content-Description;
+	bh=SU7IEV8K31VentfUkgezeCnenvWoxswvOfrHYxEVQl0=; b=fyX8Ys7jZj0QMTt5EHdLiZz4VY
+	mmIB8leNlDf/v8OxTxw0XQMHIFiUqp9eNbVTeSUHeG46Dfs7m/ltwjuXfWnrRxg6oy1tiCbzaUaXh
+	2z5wpqYi3ril1w0wpEh1n3wrsucCbankGWr768ZI0cP1vQjLcbiAyX26ctCC+a/jASuNkA+pM1QWY
+	t9SxVILxV/S0eNcFYA5Sj6NeMuRM7m8Tmur2dfF8hE5fhBi99sDvrvR9XRM8VUWgSkVsNAkfl3Tir
+	l7muXexfgCo8/iDwvtros0qUdlZovfjly76KQjidDgrtjhxpgEIA4/g1lgH46rEv2db5mBJf/f8Wp
+	cXnsA0fA==;
+Received: from smtpout-03.galae.net ([185.246.85.4])
 	by desiato.infradead.org with esmtps (Exim 4.99.2 #2 (Red Hat Linux))
-	id 1xCC3e-00000004iwT-19d6;
-	Thu, 01 Oct 2026 08:22:28 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
-	s=mail; t=1790842945;
-	bh=ctvo10c6ZHGhBb9Ez2vAg3xgbygWnaRa1DyjwWhzx9I=;
-	h=From:Date:Subject:References:In-Reply-To:To:Cc:From;
-	b=AFIN15lPYvTfV5D6SPuQSu6M+sXDS7YmjWVza0JfvDzkIVZsvCy06aVU1OIjVSgis
-	 6Y95fWd0Tbz9SGLp5L+sqTmmSV6chxb146FEF9KFDMDYn+z/JWSMkxu6wN/uhwoyy/
-	 347LTzp8af0Y9ppR5Qn/R+8CydyhLorpp3crXHPOCFdkRh6atM2FDz6srHai117kfY
-	 /kAAE4WVrL6t+7SJefhSEIfARCm87M9Ks4tHaI8h58v3CEJ71TDhWt8sHcS/0fI//M
-	 rNOM1q2KOWt10PsJyxZ8KECGoN0QqAwEf8lidKtvb2nnFqAF78G2y+cB4+Xb5ANqhB
-	 AWpsvF5bicaXQ==
-Received: from yukiji.home (unknown [100.64.0.131])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange x25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(No client certificate requested)
-	(Authenticated sender: laeyraud)
-	by bali.collaboradmins.com (Postfix) with ESMTPSA id 2E73317E1294;
-	Thu, 01 Oct 2026 10:22:24 +0200 (CEST)
-From: Louis-Alexis Eyraud <louisalexis.eyraud@collabora.com>
-Date: Thu, 01 Oct 2026 10:21:56 +0200
-Subject: [PATCH v13 24/24] scsi: ufs: mediatek: Add MT8196 compatible,
- update copyright
+	id 1xCC3f-00000004iwu-3PL5
+	for linux-arm-kernel@lists.infradead.org;
+	Thu, 01 Oct 2026 08:22:29 +0000
+Received: from smtpout-01.galae.net (smtpout-01.galae.net [212.83.139.233])
+	by smtpout-03.galae.net (Postfix) with ESMTPS id 0DB2E4E410ED;
+	Thu,  1 Oct 2026 08:22:25 +0000 (UTC)
+Received: from mail.galae.net (mail.galae.net [212.83.136.155])
+	by smtpout-01.galae.net (Postfix) with ESMTPS id C2B5460341;
+	Thu,  1 Oct 2026 08:22:24 +0000 (UTC)
+Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 1420E103290C1;
+	Thu,  1 Oct 2026 10:22:15 +0200 (CEST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=dkim;
+	t=1790842943; h=from:subject:date:message-id:to:cc:mime-version:content-type:
+	 content-transfer-encoding:in-reply-to:references;
+	bh=SU7IEV8K31VentfUkgezeCnenvWoxswvOfrHYxEVQl0=;
+	b=nJMALIU1tbooMgeAGLRs2BwuEqkgLDYowj4ggQkgLnldsk/8YLuEjRzAHIXmOof/jZcEaQ
+	T7J6diupyFGSakm03gCM8vIRmqJQE8EVFg3fJBWL+rKwWX4HV/Q5SXidLYHAMRuaFAvFsF
+	vS8jLNOfhY8W4QTzpqQ97fB7F7Cg7WrqQdnU/b9MOqOClfczP4vyB1uSF/jDaJ7uCjeZhv
+	xkGeQ0iOxAgcwpeg3re+PQLytVEtBpn5A+9lcpzMC/eu6xx8gDPokAPeFAAPeuEfSkI0La
+	P/8dzBerMm0+UT9db8wgBWRxKLUmw1fphI9jrFFXbTzH3slUjdTvLfHAX5XHmw==
+Message-ID: <accaa9f4ad05ef73071e5cfb5368fcbdd394d3ab.camel@bootlin.com>
+Subject: Re: [PATCH v2 5/7] drm/vc4: dpi: stop using deprecated
+ drmm_of_get_bridge()
+From: Paul Cercueil <paul.cercueil@bootlin.com>
+To: Luca Ceresoli <luca.ceresoli@bootlin.com>, Maarten Lankhorst	
+ <maarten.lankhorst@linux.intel.com>, Maxime Ripard <mripard@kernel.org>, 
+ Thomas Zimmermann <tzimmermann@suse.de>, David Airlie <airlied@gmail.com>,
+ Simona Vetter <simona@ffwll.ch>, Frank Li	 <Frank.Li@nxp.com>, Sascha Hauer
+ <s.hauer@pengutronix.de>, Pengutronix Kernel Team <kernel@pengutronix.de>,
+ Fabio Estevam <festevam@gmail.com>, Icenowy Zheng	
+ <zhengxingda@iscas.ac.cn>, Andrzej Hajda <andrzej.hajda@intel.com>, Neil
+ Armstrong <neil.armstrong@linaro.org>, Robert Foss <rfoss@kernel.org>,
+ Laurent Pinchart	 <Laurent.pinchart@ideasonboard.com>, Jonas Karlman
+ <jonas@kwiboo.se>, Jernej Skrabec <jernej.skrabec@gmail.com>, Dave
+ Stevenson <dave.stevenson@raspberrypi.com>,  =?ISO-8859-1?Q?Ma=EDra?= Canal
+	 <mcanal@igalia.com>, Raspberry Pi Kernel Maintenance	
+ <kernel-list@raspberrypi.com>, Geert Uytterhoeven <geert+renesas@glider.be>
+Cc: Arnd Bergmann <arnd@kernel.org>, Doug Anderson <dianders@chromium.org>, 
+ Hui Pu <Hui.Pu@gehealthcare.com>, Ian Ray <ian.ray@gehealthcare.com>,
+ Thomas Petazzoni	 <thomas.petazzoni@bootlin.com>,
+ dri-devel@lists.freedesktop.org, 	imx@lists.linux.dev,
+ linux-arm-kernel@lists.infradead.org, 	linux-kernel@vger.kernel.org,
+ linux-renesas-soc@vger.kernel.org
+Date: Thu, 01 Oct 2026 10:22:13 +0200
+In-Reply-To: <20260929-drm-fix-of_get_bridge-build-regression-v2-5-6da431d8f180@bootlin.com>
+References: <20260929-drm-fix-of_get_bridge-build-regression-v2-0-6da431d8f180@bootlin.com>
+	 <20260929-drm-fix-of_get_bridge-build-regression-v2-5-6da431d8f180@bootlin.com>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
+User-Agent: Evolution 3.56.2-0+deb13u1 
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20261001-mt8196-ufs-v13-24-60854adab6d9@collabora.com>
-References: <20261001-mt8196-ufs-v13-0-60854adab6d9@collabora.com>
-In-Reply-To: <20261001-mt8196-ufs-v13-0-60854adab6d9@collabora.com>
-To: Chunfeng Yun <chunfeng.yun@mediatek.com>, Vinod Koul <vkoul@kernel.org>, 
- Neil Armstrong <neil.armstrong@linaro.org>, Rob Herring <robh@kernel.org>, 
- Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>, 
- Matthias Brugger <matthias.bgg@gmail.com>, 
- AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, 
- Peter Wang <peter.wang@mediatek.com>, 
- Chaotian Jing <chaotian.jing@mediatek.com>, 
- Alim Akhtar <alim.akhtar@samsung.com>, 
- Avri Altman <avri.altman@sandisk.com>, Bart Van Assche <bvanassche@acm.org>, 
- Stanley Jhu <chu.stanley@gmail.com>, 
- "James E.J. Bottomley" <James.Bottomley@HansenPartnership.com>, 
- Philipp Zabel <p.zabel@pengutronix.de>, Liam Girdwood <lgirdwood@gmail.com>, 
- Mark Brown <broonie@kernel.org>, Manivannan Sadhasivam <mani@kernel.org>, 
- "Martin K. Petersen" <mkp@kernel.org>
-Cc: kernel@collabora.com, linux-arm-kernel@lists.infradead.org, 
- linux-mediatek@lists.infradead.org, linux-phy@lists.infradead.org, 
- devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
- linux-scsi@vger.kernel.org, 
- Nicolas Frattaroli <nicolas.frattaroli@collabora.com>, 
- Louis-Alexis Eyraud <louisalexis.eyraud@collabora.com>
-X-Mailer: b4 0.14.3
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1790842918; l=2479;
- i=louisalexis.eyraud@collabora.com; s=20250113; h=from:subject:message-id;
- bh=cWTgHnZ/lMdOvuu4I4G/RHLEbAxcnvmFO7SITuHbHaA=;
- b=xDUyDGQumkFkn0Peb3Yk9j1EfG4X9GJq4V3I6mkbR0sl71mC4xrz6e9aUOZIwBix/kQrd5seb
- QmqNVWWsGIrA2z0f7gQ578A5DWW1tccAqPjYFjPtXxc8fuN1Iu+jKG7
-X-Developer-Key: i=louisalexis.eyraud@collabora.com; a=ed25519;
- pk=CHFBDB2Kqh4EHc6JIqFn69GhxJJAzc0Zr4e8QxtumuM=
+X-Last-TLS-Session-Version: TLSv1.3
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261001_092226_739255_D00393EC 
-X-CRM114-Status: GOOD (  13.73  )
+X-CRM114-CacheID: sfid-20261001_092228_105707_9EDDA145 
+X-CRM114-Status: GOOD (  20.76  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -113,73 +108,68 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
+Hi Luca,
 
-The MT8196's UFS controller has a new compatible. Add the necessary
-struct definitions to support it.
+Le mardi 29 septembre 2026 =C3=A0 15:39 +0200, Luca Ceresoli a =C3=A9crit=
+=C2=A0:
+> drmm_of_get_bridge() is deprecated, switch to
+> of_drm_get_bridge_by_endpoint(). As of_drm_get_bridge_by_endpoint() retur=
+ns
+> a refcounted bridge, ensure it is put.
+>=20
+> drm_panel.h becomes unused, drop the include.
+>=20
+> Also remove a comment that is now obvious: now panels are just bridges.
+>=20
+> Signed-off-by: Luca Ceresoli <luca.ceresoli@bootlin.com>
+> ---
+> =C2=A0drivers/gpu/drm/vc4/vc4_dpi.c | 9 ++-------
+> =C2=A01 file changed, 2 insertions(+), 7 deletions(-)
+>=20
+> diff --git a/drivers/gpu/drm/vc4/vc4_dpi.c b/drivers/gpu/drm/vc4/vc4_dpi.=
+c
+> index 53f36626a50d..5060eb463704 100644
+> --- a/drivers/gpu/drm/vc4/vc4_dpi.c
+> +++ b/drivers/gpu/drm/vc4/vc4_dpi.c
+> @@ -16,7 +16,6 @@
+> =C2=A0#include <drm/drm_drv.h>
+> =C2=A0#include <drm/drm_edid.h>
+> =C2=A0#include <drm/drm_of.h>
+> -#include <drm/drm_panel.h>
+> =C2=A0#include <drm/drm_print.h>
+> =C2=A0#include <drm/drm_probe_helper.h>
+> =C2=A0#include <drm/drm_simple_kms_helper.h>
+> @@ -279,16 +278,12 @@ static const struct of_device_id vc4_dpi_dt_match[]=
+ =3D {
+> =C2=A0	{}
+> =C2=A0};
+> =C2=A0
+> -/* Sets up the next link in the display chain, whether it's a panel or
+> - * a bridge.
+> - */
 
-Also update the copyrights and authors, without tabs following spaces to
-avoid checkpatch errors, to list myself as having contributed to this
-driver after the preceding rework patches.
+The first part of the comment is not wrong, I would keep "Sets up the next =
+link
+in the display chain".
 
-Reviewed-by: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
-Reviewed-by: Peter Wang <peter.wang@mediatek.com>
-Signed-off-by: Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
-Signed-off-by: Louis-Alexis Eyraud <louisalexis.eyraud@collabora.com>
----
- drivers/ufs/host/ufs-mediatek.c | 18 ++++++++++++++++--
- 1 file changed, 16 insertions(+), 2 deletions(-)
+> =C2=A0static int vc4_dpi_init_bridge(struct vc4_dpi *dpi)
+> =C2=A0{
+> -	struct drm_device *drm =3D dpi->encoder.base.dev;
+> =C2=A0	struct device *dev =3D &dpi->pdev->dev;
+> -	struct drm_bridge *bridge;
+> =C2=A0
+> -	bridge =3D drmm_of_get_bridge(drm, dev->of_node, 0, 0);
+> +	struct drm_bridge *bridge __free(drm_bridge_put) =3D
+> +		of_drm_get_bridge_by_endpoint(dev->of_node, 0, 0);
+> =C2=A0	if (IS_ERR(bridge)) {
+> =C2=A0		/* If nothing was connected in the DT, that's not an
+> =C2=A0		 * error.
 
-diff --git a/drivers/ufs/host/ufs-mediatek.c b/drivers/ufs/host/ufs-mediatek.c
-index 1d9cb928de49..56ec65c2ac07 100644
---- a/drivers/ufs/host/ufs-mediatek.c
-+++ b/drivers/ufs/host/ufs-mediatek.c
-@@ -1,9 +1,11 @@
- // SPDX-License-Identifier: GPL-2.0
- /*
-  * Copyright (C) 2019 MediaTek Inc.
-+ * Copyright (C) 2026 Collabora Ltd.
-  * Authors:
-- *	Stanley Chu <stanley.chu@mediatek.com>
-- *	Peter Wang <peter.wang@mediatek.com>
-+ *      Stanley Chu <stanley.chu@mediatek.com>
-+ *      Peter Wang <peter.wang@mediatek.com>
-+ *      Nicolas Frattaroli <nicolas.frattaroli@collabora.com> (Major cleanups)
-  */
- 
- #include <linux/arm-smccc.h>
-@@ -2257,6 +2259,10 @@ static const char *const ufs_mtk_regs_avdd12_ckbuf_avdd18[] = {
- 	"avdd12", "avdd12-ckbuf", "avdd18"
- };
- 
-+static const char *const ufs_mtk_regs_avdd12_ckbuf[] = {
-+	"avdd12", "avdd12-ckbuf"
-+};
-+
- static const struct ufs_mtk_soc_data mt8183_data = {
- 	.has_avdd09 = true,
- 	.reg_names = ufs_mtk_regs_avdd12_avdd18,
-@@ -2269,10 +2275,18 @@ static const struct ufs_mtk_soc_data mt8192_8195_data = {
- 	.num_reg_names = ARRAY_SIZE(ufs_mtk_regs_avdd12_ckbuf_avdd18),
- };
- 
-+static const struct ufs_mtk_soc_data mt8196_data = {
-+	.has_avdd09 = true,
-+	.has_avdd09_1 = true,
-+	.reg_names = ufs_mtk_regs_avdd12_ckbuf,
-+	.num_reg_names = ARRAY_SIZE(ufs_mtk_regs_avdd12_ckbuf),
-+};
-+
- static const struct of_device_id ufs_mtk_of_match[] = {
- 	{ .compatible = "mediatek,mt8183-ufshci", .data = &mt8183_data },
- 	{ .compatible = "mediatek,mt8192-ufshci", .data = &mt8192_8195_data },
- 	{ .compatible = "mediatek,mt8195-ufshci", .data = &mt8192_8195_data },
-+	{ .compatible = "mediatek,mt8196-ufshci", .data = &mt8196_data },
- 	{},
- };
- MODULE_DEVICE_TABLE(of, ufs_mtk_of_match);
+It could make sense to go the extra mile and just move that code back into =
+the
+caller function, I don't see much benefit in having it in a static function
+here.
 
--- 
-2.55.0
-
+Cheers,
+-Paul
 
