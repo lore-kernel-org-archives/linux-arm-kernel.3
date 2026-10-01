@@ -4,98 +4,97 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7DE6ECA5FCB
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 80EDACA5FD4
 	for <linux-arm-kernel@archiver.kernel.org>; Thu,  1 Oct 2026 14:22:06 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
+	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=S33UzsYXrhxOtgRyb+fkmOHpk0z2PGLJbFC6/Ufui6U=; b=Y7XEw4+DHGyzAX
-	JT1WKtUVGpUDzp3oeUHx3P3der4RJunrd0N6M1b0v1T0f8BDC2FSUIWvR9K6coJekbq9RBkG0xsr6
-	r4e/zBN4nex9jZ9FDf4/qCY6+RhiNvVvQI5wx0BPm42glw25Z6UekJIk2PleGgtIHi4Yfz8K8A+9K
-	ND4JBYKHRgZ0D8Lkkz5AW45rT/kH0CJsa4bTeRuYTjOjOcnzcAf86zcrdfixznBS95QQNlVJyPHvG
-	+Ee18ELJcq7ddz+0GyXCCKgoeoPAs0Awi9rIzbIl8kpv0o4tojBROWIzh5hZEjvn3dzkBySRCuCG5
-	UC6yPHy0aah/yZP7GzMQ==;
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=m/XzKic3mIkTxbK/Zld2/LgmkZ+m7jvrTtGlJe2zmg8=; b=cR/Q//pFCHvXdgMHWZErwSVFJ+
+	KA/swvreMxciDKrSM3863o1hmXbyD9CmBYC6GSlAiroUcHI9RBI7rqEjjLJunMM5q1eUGZ+kkHcmK
+	tkQhgWw0jhQXThvwzXOBy/81NqRsa0UGpRFqeFy8NRsBhPjsV15MIsstKxjBzSUGcZCcpEjBl+NI7
+	2jaIN7jADkOXzW4TEwkCDwPpmn2bmKAsnMerlHgApe1SIdex3I5bOysP9uMrxw0+eCa3/zuyL96By
+	BB6tJsQiP16egvwAr/ooFOUV1+XY2Xhp2acKO3hIUOspfflWnIK1pka8SUa9zKmRXzfrYLTODw1wU
+	ln/RUnfA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xCHfI-00000009M8k-2HfB;
-	Thu, 01 Oct 2026 14:21:42 +0000
+	id 1xCHfO-00000009MBW-1B9h;
+	Thu, 01 Oct 2026 14:21:46 +0000
 Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xCHfH-00000009M81-2akn
+	id 1xCHfI-00000009M8X-36J1
 	for linux-arm-kernel@bombadil.infradead.org;
-	Thu, 01 Oct 2026 14:21:39 +0000
+	Thu, 01 Oct 2026 14:21:42 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Cc:To:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:Message-Id:Date:Subject:From:Sender:Reply-To:
-	Content-ID:Content-Description:In-Reply-To:References;
-	bh=S33UzsYXrhxOtgRyb+fkmOHpk0z2PGLJbFC6/Ufui6U=; b=gX5H6p/70cEXNzxPs98annlpks
-	LQujRCDqC/F6XH7O2Hlif9IQZukSz0/xUWCeCcjnJKBWm1tYxSgnUa4eH6SPwQ6Hu6mrSxyn/+MhZ
-	foHPHAy4OsyfxgNRTNtAJuuBLDnzZcvs/SmkSaMBItP8xSEicn2Z072komQz03e/IigStZIinbpLZ
-	JsrhFTOWPHKsiZYpD3PwP5iaOLTB5R5tgF7B+Dxy1zh6iNyGz4WoFuRLd6UEoO+dR2RNUCDdvJWM7
-	w/g04rliJGxu4xSxv9hQsIWeOgseCSpgA5qTr847OFpU5m/5MrW/8NVA+7qZBWjxLJuD4sBdPsn/f
-	EiBkqN2g==;
-Received: from mail-wr2-x0f.google.com ([2a00:1450:4864:30::f])
+	d=infradead.org; s=desiato.20200630; h=Cc:To:In-Reply-To:References:
+	Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
+	From:Sender:Reply-To:Content-ID:Content-Description;
+	bh=m/XzKic3mIkTxbK/Zld2/LgmkZ+m7jvrTtGlJe2zmg8=; b=Xac1A4yICZQUpFcO7LRqKxyfS4
+	IasUKN359VEa4H6OFadBHD9UnbAszZ1aszlvam1HCom2eDeG3noP0H/hshjNDWwtW1UOludm1v9Ie
+	suZwbfXtIqWEbPt7mRmGMD2fs1ejSj4ctUF587CGi4hK8/QLfPc17rjgtJY+QvqLwsaHWBbjB1YNz
+	/VeJeH1JuZSUSMKIPsnSC9eDSrSfteUZ+9AJtwdCdsQX0IGTzlIlMTH4wy8m7qgZdB2e3CStuWRZA
+	7KmngFRCEjBDosrsHT+t+N679UMlZAO1zu4db+/YMQsmfuJsMM7X2Yp8r4+J6PqJ+QrIqyecjWFGO
+	vSQUlfhg==;
+Received: from mail-wm2-x11.google.com ([2a00:1450:4864:31::11])
 	by desiato.infradead.org with esmtps (Exim 4.99.2 #2 (Red Hat Linux))
-	id 1xCHfC-0000000547N-3doL
+	id 1xCHfF-0000000548W-2b5Z
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 01 Oct 2026 14:21:38 +0000
-Received: by mail-wr2-x0f.google.com with SMTP id ffacd0b85a97d-4887840c529so2288948f8f.1
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 01 Oct 2026 07:21:34 -0700 (PDT)
+	Thu, 01 Oct 2026 14:21:39 +0000
+Received: by mail-wm2-x11.google.com with SMTP id 5b1f17b1804b1-49d1fb0cf5eso60251435e9.3
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 01 Oct 2026 07:21:37 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1790864493; x=1791469293; darn=lists.infradead.org;
-        h=cc:to:content-transfer-encoding:content-type:mime-version
-         :message-id:date:subject:from:from:to:cc:subject:date:message-id
-         :reply-to:content-type;
-        bh=S33UzsYXrhxOtgRyb+fkmOHpk0z2PGLJbFC6/Ufui6U=;
-        b=fZ7xliiqSMK7gPjYoiTheHOPIoIAW8hDbZuRA7ibT2eKxr/CegMBJNcfUdlprc0DMK
-         ZLNPDFJpD8h9CZ/2pwqeIH3n3HdgQY1J3k2amEUQouLDScOnNJ3y9ogmbqDmRVg1lEbw
-         5vIklIRgcsPm/Ip9p1qXRjO+51717jiFM1yWq/Tf/PD/GLjEugelsa0Z/I6dN96Uu5Iv
-         rCHUPrdayFzB07qLu5VHjEiM4uJTbNS1F3QBDhZNNFH2Qqf5YmCAUtgTvig7SYcErnDl
-         /GHN25rK+D5wPjqiaAYr7v5cIulszvY3CZCoy72jI3+Gw6VqEZFcbtqcYGOi7osDIxhC
-         6t4A==
+        d=linaro.org; s=google; t=1790864496; x=1791469296; darn=lists.infradead.org;
+        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
+         :content-type:mime-version:subject:date:from:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=m/XzKic3mIkTxbK/Zld2/LgmkZ+m7jvrTtGlJe2zmg8=;
+        b=PtT1ebUPkM+qElJInKst+PXDA35dtFah5Jq51+Spbcenh9dPbT/4UR2G9pIrBkWV44
+         r7DDt3BeeKtmwwbl8vkJpIAmCyrOxKImHetel0LN1ZZBcTCEtlK9nJNMvVlee6Kr3lGu
+         KuzG77dyRZbUPT5+K7EpWsl0G6nsDY3hMcFTzSgmakuG0vM1kz6uuxQ1f6tEJNxAliim
+         zIidrw6LBSuYA42tmW4K+7dw/T6qeunjpnHV0BQdbAgTIKY+2G4vuWppA+TLRnEhMX6t
+         0H4tI6pgmRxqeBeYvof5E+YHkJWqGL314LM9U0UYQy0kRrk3Z4FNZT9DVRGnafzzSqjD
+         T5ZQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1790864493; x=1791469293;
-        h=cc:to:content-transfer-encoding:content-type:mime-version
-         :message-id:date:subject:from:x-gm-gg:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to:content-type;
-        bh=S33UzsYXrhxOtgRyb+fkmOHpk0z2PGLJbFC6/Ufui6U=;
-        b=dVp9AwNDnSCYkuznVc1vcFXok2qKrXVNehOkF3Knvb+3oxmS7+TuZvYdBphKzUElbq
-         g+E+eQdzbrpRWyEPjwcWEjIHzIC/9WeTzQxv0mqUaS8+tndzNkcjB43ta/PFF6+By2qo
-         AoRmikr1uLNglOZZxa67bhKtGsO8rx/c3sQKslS27QSboqTozb389i83gdNXtrb/oxG6
-         XQokZReO8+GnyTMmPrHjB9SIDsGdfGzpyMzBaPpf4FrcUEYx7XBIFZXuSxWkbWjwT2jR
-         upNWWVLKbQ9+sN9npoDoh7atOC0EeY9bh5wl5w7pRXNv7zzPn/FQMMi/OiJp1gQCKL+V
-         cjmw==
-X-Forwarded-Encrypted: i=1; AKwUvBy84W19nbA7D216u16iDnIjOExdXKCuzXvv3HuZ/uW4dZpaOJOvCZ2ZDHMwI4R1wWcOlmT220vK4OqTsYPMi/Or@lists.infradead.org
-X-Gm-Message-State: AFuF++lIFHgPeGqmPZJ9hxPrBfZqqkl/7AYskEV+jQRmby3uGaJ8HI8l
-	vWp9LczavhMaSWkeBStoQcQwOegBXvdQ/+cjVEl7tRh6Mbk6I1Odj3gZjDmegpjAT9o=
-X-Gm-Gg: AYBFou3YZKzkat8Mw5ls3frX6Cguz3NlSrgQwCh/6evF0bVajsyG6K0oOUnAP8YPfNJ
-	hz1fBb/w+oyTNT+xxSz/4pPp263xaTcPjhxx/+gH23sjmX4xyEiXPMh1mSJ5vVCTxrf6UgVOkZq
-	zdukQybwHloDKHqovdnUV3XhW20DHsrAaUe/TDI7LJP0gqSsoYsBxCGXl4bXaag1VMTjZzV43dv
-	otcPQScDcYFPG1mkgDoaVBe3XmMZs6yrzjxrJt1XtFs0nN2MrAIW08XzZ3KqH/SsLiHRLPEuHio
-	jXF1/cldrCl8m/apuv58oSKodKp+Y8C0sGLfK1MOTlkrECdJVXPESPC/axTFX+Xs0mUxueFUDV6
-	FlxVGQ82wLywB1BAT35TIVQEtqDk0HVv8ilWCHvi2hllIsi+dXmES42QKqCj9zy4Ibu33GnyHwK
-	tfiANRO6khtI48iSt39QfHALr9j9gW13ET56NRTCX7jg53QEgCH3fnjuf3Z9hTm5fWgUtvDzx3O
-	Z1u/B41AGviQg==
-X-Received: by 2002:a05:600c:a107:b0:4a0:1ef1:b62b with SMTP id 5b1f17b1804b1-4a01ef1b7ebmr38500685e9.10.1790864493549;
-        Thu, 01 Oct 2026 07:21:33 -0700 (PDT)
+        d=1e100.net; s=20260707; t=1790864496; x=1791469296;
+        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
+         :content-type:mime-version:subject:date:from:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=m/XzKic3mIkTxbK/Zld2/LgmkZ+m7jvrTtGlJe2zmg8=;
+        b=JZjz+CjLU2tGJUOAG6f4sbtP780dd9Yq0DWKMCdOC6w0yX/+ryXJ/XWQZBG3xKErhh
+         JNLp8erQp7RJ+W6rPgJFvaoIOyiIc9HGVuWjufg2NcISNuhsGrg355tDRUAQrgegedNL
+         DldujHOmO58Q7pVo9gWKFp4kMBMJD0yKWgd26ijpzNMLbtb8dHvanwjV7xfhCpNkg74L
+         NM/MoQpg4QLF2b9Uylwr4NwEUNmpJlMxVc8ZZRYNqVtGGrKrOBYDGcF6Ggigif2aTFGd
+         GJmX3kKl9oojEyU/AXXNWzdccz9qzBKyTsT235bLUJVUIn5A+0JXW4tgFmgAMOvF58E2
+         fSuw==
+X-Forwarded-Encrypted: i=1; AKwUvBwN9lD+1RuzQijWted7ddLakG1Mrw0VJmLOW7LLjMmsu4N4YejCQn0xAol2GKb32jIQOlms/9iOMJHQJOoI42RG@lists.infradead.org
+X-Gm-Message-State: AFuF++kSEh2zbOeYpI/Ut1DEwD9TGMGzEEvIYbr4zk1Dy1s5nPzyNk3q
+	BMgHIrwe2EQPIY4R7keAXtHcgAzG1fpN2juh1sGRnmSW0w0txnFMSTRMABzJYXiUyrs=
+X-Gm-Gg: AYBFou3D5snwIjF+HhpTxBqaAjtgXc7Lv16Vd1AI/7wrV2p5GkvjnEQLG2zWfKiQODS
+	MGqBKx6gUt6PnhK4K9tJ0bRYvQkcr9dHbM5X4x9hGYGSMtrSITPB7Oh4+V40YQENwSPuSEePMlB
+	U8j2/47DwqRXVNxDwUk6w7gApcqv+dgp0vttOMyUcCwIRLqGMF/7xIB55SKCRmwX+3/FkXliFK7
+	/ll5yMR9wetErFWJM7dWnWvw0tKmw6Xvj+S6E6kial2EwPCFJ9JV35D1ONdV6W2TE0MzQCy8zlz
+	YG3Sr2TIPnPpNznehtV8e9u4Hij+k3vn8qsBcD4vhT3x6YObmWcyVaj9PRAOeNV4EZwiEJVOAQw
+	+Eu2KUBvYAOp5Ykei8JfQiEPZ6U3xnSkl/yQI+S7DqHgtvqmaepmxUvC8KhagZw1+NxEUqjPBcR
+	sBjjBl8pEhBga4ZzD2OkvQZshyXdQgkNhpknBI1l4Pegnx+kiGgw5y9q57QCXNrAlL43TymUxMt
+	Q==
+X-Received: by 2002:a05:600c:6206:b0:49f:eddb:bcb1 with SMTP id 5b1f17b1804b1-4a01b11cb33mr86968865e9.25.1790864495929;
+        Thu, 01 Oct 2026 07:21:35 -0700 (PDT)
 Received: from pop-os.local ([37.18.141.193])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4a020f7f1c2sm34783975e9.2.2026.10.01.07.21.32
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4a020f7f1c2sm34783975e9.2.2026.10.01.07.21.34
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 01 Oct 2026 07:21:32 -0700 (PDT)
+        Thu, 01 Oct 2026 07:21:35 -0700 (PDT)
 From: James Clark <james.clark@linaro.org>
-Subject: [PATCH 0/2] coresight: Retry failed HW_ID writes
-Date: Thu, 01 Oct 2026 15:21:14 +0100
-Message-Id: <20261001-james-cs-retry-hw_id-v1-0-4d45ab46cde7@linaro.org>
+Date: Thu, 01 Oct 2026 15:21:16 +0100
+Subject: [PATCH 2/2] coresight: Retry failed HW_ID writes
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-X-B4-Tracking: v=1; b=H4sIAFpsvmoC/yXMWwrCQAxG4a2UPBuYmYKIWxGRNvOPTcEqSb1Ru
- ndHffwezlnIYQqnfbOQ4aGu16kibhqSoZvOYM3VlELaxhAij90FzuJsmO3Nw/OkmXclQlopKfc
- t1fRmKPr6bQ/Hv/3ej5D5+6J1/QAt3Ef0eAAAAA==
-X-Change-ID: 20261001-james-cs-retry-hw_id-8f1ec3cf2db3
+Message-Id: <20261001-james-cs-retry-hw_id-v1-2-4d45ab46cde7@linaro.org>
+References: <20261001-james-cs-retry-hw_id-v1-0-4d45ab46cde7@linaro.org>
+In-Reply-To: <20261001-james-cs-retry-hw_id-v1-0-4d45ab46cde7@linaro.org>
 To: Peter Zijlstra <peterz@infradead.org>, Ingo Molnar <mingo@redhat.com>, 
  Arnaldo Carvalho de Melo <acme@kernel.org>, 
  Namhyung Kim <namhyung@kernel.org>, Mark Rutland <mark.rutland@arm.com>, 
@@ -109,8 +108,8 @@ Cc: linux-perf-users@vger.kernel.org, linux-kernel@vger.kernel.org,
  James Clark <james.clark@linaro.org>
 X-Mailer: b4 0.15.2
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261001_152134_959596_FF761FEE 
-X-CRM114-Status: GOOD (  11.46  )
+X-CRM114-CacheID: sfid-20261001_152137_755391_D2929853 
+X-CRM114-Status: GOOD (  21.13  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -125,28 +124,110 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Extracted from the last two commits from [1] as they were only
-conceptually related to that patchset, not functionally. This can be
-safely applied to the driver separately.
-
-[1] https://lore.kernel.org/linux-perf-users/20260821-james-cs-hw_id-output-failure-v1-0-9d532ddabcc3@linaro.org/
+Don't set the aux_hwid_done bit when writes fail so that it can be
+retried later if the ring buffer was full. Add a second attempt on stop,
+which will always succeed if the stop's AUX output also has enough space
+to be written. If there is no AUX record then there will be no decoding,
+so the missing HW_ID isn't important.
 
 Signed-off-by: James Clark <james.clark@linaro.org>
 ---
-James Clark (2):
-      perf/core: Return errors from perf_report_aux_output_id()
-      coresight: Retry failed HW_ID writes
-
  drivers/hwtracing/coresight/coresight-etm-perf.c | 50 +++++++++++++++---------
- include/linux/perf_event.h                       |  2 +-
- kernel/events/core.c                             |  6 ++-
- 3 files changed, 36 insertions(+), 22 deletions(-)
----
-base-commit: 75ba5c486ea071d44d3f61318c88a7793bc768d4
-change-id: 20261001-james-cs-retry-hw_id-8f1ec3cf2db3
+ 1 file changed, 31 insertions(+), 19 deletions(-)
 
-Best regards,
---  
-James Clark <james.clark@linaro.org>
+diff --git a/drivers/hwtracing/coresight/coresight-etm-perf.c b/drivers/hwtracing/coresight/coresight-etm-perf.c
+index 09b21a711a87..9238a12628fb 100644
+--- a/drivers/hwtracing/coresight/coresight-etm-perf.c
++++ b/drivers/hwtracing/coresight/coresight-etm-perf.c
+@@ -536,6 +536,31 @@ static int etm_event_resume(struct coresight_path *path)
+ 	return ret;
+ }
+ 
++static void etm_output_hw_id(struct perf_event *event,
++			     struct etm_event_data *event_data,
++			     struct coresight_path *path,
++			     struct coresight_device *sink)
++{
++	int cpu = smp_processor_id();
++	u64 hw_id;
++
++	/*
++	 * output cpu / trace ID in perf record, once for the lifetime
++	 * of the event.
++	 */
++	if (!cpumask_test_cpu(cpu, &event_data->aux_hwid_done)) {
++		hw_id = FIELD_PREP(CS_AUX_HW_ID_MAJOR_VERSION_MASK,
++				CS_AUX_HW_ID_MAJOR_VERSION);
++		hw_id |= FIELD_PREP(CS_AUX_HW_ID_MINOR_VERSION_MASK,
++				CS_AUX_HW_ID_MINOR_VERSION);
++		hw_id |= FIELD_PREP(CS_AUX_HW_ID_TRACE_ID_MASK, path->trace_id);
++		hw_id |= FIELD_PREP(CS_AUX_HW_ID_SINK_ID_MASK, coresight_get_sink_id(sink));
++
++		if (!perf_report_aux_output_id(event, hw_id))
++			cpumask_set_cpu(cpu, &event_data->aux_hwid_done);
++	}
++}
++
+ static void etm_event_start(struct perf_event *event, int flags)
+ {
+ 	int cpu = smp_processor_id();
+@@ -544,7 +569,6 @@ static void etm_event_start(struct perf_event *event, int flags)
+ 	struct perf_output_handle *handle = &ctxt->handle;
+ 	struct coresight_device *source, *sink;
+ 	struct coresight_path *path;
+-	u64 hw_id;
+ 
+ 	if (flags & PERF_EF_RESUME) {
+ 		path = etm_event_get_ctxt_path(ctxt);
+@@ -596,22 +620,7 @@ static void etm_event_start(struct perf_event *event, int flags)
+ 	if (coresight_enable_source(source, event, CS_MODE_PERF, path))
+ 		goto fail_disable_path;
+ 
+-	/*
+-	 * output cpu / trace ID in perf record, once for the lifetime
+-	 * of the event.
+-	 */
+-	if (!cpumask_test_cpu(cpu, &event_data->aux_hwid_done)) {
+-		cpumask_set_cpu(cpu, &event_data->aux_hwid_done);
+-
+-		hw_id = FIELD_PREP(CS_AUX_HW_ID_MAJOR_VERSION_MASK,
+-				CS_AUX_HW_ID_MAJOR_VERSION);
+-		hw_id |= FIELD_PREP(CS_AUX_HW_ID_MINOR_VERSION_MASK,
+-				CS_AUX_HW_ID_MINOR_VERSION);
+-		hw_id |= FIELD_PREP(CS_AUX_HW_ID_TRACE_ID_MASK, path->trace_id);
+-		hw_id |= FIELD_PREP(CS_AUX_HW_ID_SINK_ID_MASK, coresight_get_sink_id(sink));
+-
+-		perf_report_aux_output_id(event, hw_id);
+-	}
++	etm_output_hw_id(event, event_data, path, sink);
+ 
+ out:
+ 	/* Tell the perf core the event is alive */
+@@ -679,6 +688,7 @@ static void etm_event_pause(struct coresight_path *path,
+ 		if (!size)
+ 			return;
+ 
++		etm_output_hw_id(event, event_data, path, sink);
+ 		perf_aux_output_end(handle, size);
+ 		perf_aux_output_begin(handle, event);
+ 	} else {
+@@ -769,10 +779,12 @@ static void etm_event_stop(struct perf_event *event, int mode)
+ 		 * But we should never get a non-zero size with
+ 		 * an invalid handle.
+ 		 */
+-		if (READ_ONCE(handle->event))
++		if (READ_ONCE(handle->event)) {
++			etm_output_hw_id(event, event_data, path, sink);
+ 			perf_aux_output_end(handle, size);
+-		else
++		} else {
+ 			WARN_ON(size);
++		}
+ 	}
+ 
+ 	/* Disabling the path make its elements available to other sessions */
+
+-- 
+2.43.0
 
 
