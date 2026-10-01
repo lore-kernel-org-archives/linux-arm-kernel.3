@@ -4,72 +4,72 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8C409CA5FC5
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  1 Oct 2026 07:52:04 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id ABEAACA5FC5
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  1 Oct 2026 07:52:10 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=W2FqaMzaGINgzjJOw7zufrrcqxjVM6pp3g9UOy5lEX8=; b=Q+Mag2KyuDoYJ2d/0i11Xnq3L5
-	Rbip16AR/uwK6Qavy50jpdW0c/VnNe8eNw+zuADNVybulUgDNhA1d5TmawYnQxoBTi+mb+GIC4+F0
-	zDGZ9acVdi8AijfoqKGcq4cASc50r2+BDzEAVPUkJTom4e22ah5hVbHelqRZpiCX08xom4ElpmLC6
-	GBZHyBKvecNOUibyGtvwlxvSARz/g+J5NmD/NmMsdHFk4i+S5lTW5+GQOiLm8TE8W+oNzo3axkg+7
-	p+qN1MIuVyW+dn3dXyhVITMyAZKD/05o39ixvR8lSyPPNPFsB66URnHE9SIpGPvFb7XUrONP6GHVS
-	hePwP+bw==;
+	bh=KjOU7YARtrXAbkjxgoW/D83MupO/fBHcHqOARUheMbc=; b=wqkf+XykTcJkteb9ScT+u0KZFo
+	0MCKAZ3yOfUU2B14V6LBgzfrQC2IMJMAYDpVnPwmDz2YqqHMAMKXUmZjpJMeH47olcNHa7RcWTLlf
+	/8WqqJzybNWP4ku8aWuHHnlGzexyzrO7SuJAtFvqptvxa/1IxMrTRWS+X1iafWZVTlMkH73vQ7UGc
+	TqOjWeElI0yd6rGRYwfY4TFX17ReCBGPsYGt1mbgS2H0gYksNkRqS/xWlCik8wF8wCaRNr2NQ6rF+
+	m13fNd77nYMuDPqvy+OuA/ZJo0DR2vtqiZxM32Gcp0aLHscXdGf5PuEpMb6MSll+T9qwLjp53jMl3
+	QRUmil0w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xCBaA-000000083mB-0fsx;
-	Thu, 01 Oct 2026 07:51:58 +0000
-Received: from mail-pz2-x28.google.com ([2607:f8b0:4864:3b::28])
+	id 1xCBaG-000000083oZ-1556;
+	Thu, 01 Oct 2026 07:52:04 +0000
+Received: from mail-pz2-x2b.google.com ([2607:f8b0:4864:3b::2b])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xCBa8-000000083ky-1Lik
+	id 1xCBaE-000000083nd-1pCZ
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 01 Oct 2026 07:51:57 +0000
-Received: by mail-pz2-x28.google.com with SMTP id d2e1a72fcca58-888e95f3e96so69226b3a.1
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 01 Oct 2026 00:51:55 -0700 (PDT)
+	Thu, 01 Oct 2026 07:52:03 +0000
+Received: by mail-pz2-x2b.google.com with SMTP id d2e1a72fcca58-88098dbba5fso1370896b3a.1
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 01 Oct 2026 00:52:02 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1790841115; x=1791445915; darn=lists.infradead.org;
+        d=gmail.com; s=20251104; t=1790841121; x=1791445921; darn=lists.infradead.org;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to:content-type;
-        bh=W2FqaMzaGINgzjJOw7zufrrcqxjVM6pp3g9UOy5lEX8=;
-        b=ORTAqftXnQYfkF0XmE0Z1lF+Gt51vkk8RTTWWJREIypGCCCdH21MG7QHUOKEnt7p7n
-         e+6nxJ+DM5ieQXPCY8yr++AA5prwLQHB8d4PE0H6tZXoNG/DnBqr4BicTRMFg3XJg2c/
-         BRX5k7zUbtOlvCBTQCXEBb9Ds+CNxjxM/+zzmkskgk8mtrk0hDTrFsh1Ecj1Rrz7vJxx
-         qr5S2rp+TsD+dCTIDT9O8aubmR51qgzpqA/IizmdbdQIeg0bx0U0IrurBD6l2zxgfxDi
-         g+4pWYliFlCGsSvWH3Df1ISFm91qMKa4vFCOVZWxQS6oQBY6C0h8ZKTHmIHxBdF4kAjn
-         gF/Q==
+        bh=KjOU7YARtrXAbkjxgoW/D83MupO/fBHcHqOARUheMbc=;
+        b=WCRT47NPNVtpLNsBgpnpzOuYD3ebm3HJnKjOqCSWBcOOtUNbWJYpYOXw5lzgedt9nZ
+         iBkHtJ50jUTJnqh3P1qZCAEtWpa33/9MMC5/tDeGXJQV0empD2ql7Ca+7Vv/dB5on7rL
+         73btPU5xZ0ECpnE9apzaCDgUNR5CP1EJojvt06Gm3SSgxiJEQcWaLsP3HKy8MUiegNVb
+         azTUoXUJ1a2ZMIIiJijeU5dskH/xAWsO5KYpVNaeZZMfWeoUB500BDLgcSDdEFoXMSGv
+         6aEl4NkKVtRHIjgK/zDy5DiiQmZlpp8h861RrMX+70Xn6t+h1sHu9tmwuH7ownxiuOXF
+         eQzA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1790841115; x=1791445915;
+        d=1e100.net; s=20260707; t=1790841121; x=1791445921;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
          :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=W2FqaMzaGINgzjJOw7zufrrcqxjVM6pp3g9UOy5lEX8=;
-        b=wvY3nNIfO4n3FDYTMLbEBYaM2Mu6ABvWRQu8hEaEsbhhCj3uMd8iKgU6Yt6ih7tjBu
-         RhR+mR7A638N8hb6w3cShcBjjkxXV2jdb8eqZCVB+iCfz3a0PsVKToHzi040SmSjsGMi
-         6PTcn+kRDIN3XsM6IlPUTlKk7obv+TtwuI6uyD2puhE0OaC8N//GDMp5M4he+wLVpj7l
-         PLZ7P4HZ4huwVUGaKDMcuYX5MuhuAUNPnaXwqQtwXaFpobuy9nnFT7KwSdVSVezAvvQ3
-         lcxKi3iS/GSkoobsJr29UtitQs5m99V4FNX5rR8KNtwqNmSvB+jPQokZTJkfzi6eaVUJ
-         TJjw==
-X-Forwarded-Encrypted: i=1; AKwUvBwzbZI1IiPZhKzE5q4PKbFlstwV6uebs5reC7DQcJNR6a11b/ezS/IxV6pU6ePX/ZJPBK19m7yHRUEbERC0x2Gz@lists.infradead.org
-X-Gm-Message-State: AFuF++noH5fZrmlJ0Ok1B1rxtMHnaLHLrabjVc40mxq8RXaACEUM0Dm3
-	RmNjfL8IbDZ5XsIbaEemOlKoyLa4ktSSjyyJfUzR4R7B4ZnsU1Weohk+DlSS1A==
-X-Gm-Gg: AYBFou3L8azcIxkSGvdQCjiIyNN3jGitjrv9IfrK2jrWd95BXAD8vl0B83gePHYmve+
-	pMIPAQ4QBWblIYK77qjC9mydOGMzzwJYO5MplFKBqMCeabLz+mmtFp9dp5IeDNOtAPOd32PoCNF
-	0jZVftpO8UyELNk+S4ADDjOktt08yAqmevuWIqTuTSgklrjmPHY9fQ4Cs/GKwDMJuaDenX4uXxc
-	xOY3PVDi9wp3B83XFgxhsAL+sBO+aCEoUnC1fbXPZ+y2GRpBw/UB1j8TCQjLf9r+GkKeV+fV2vp
-	+K1WdMIrLpUxR77B++xbksYOkvui6MvFW7JAhwEoMz7Zs6RMgiFf5En8hdR9N/73o01NqztrEO4
-	WMjBDambGLSwbV6vDBtnCDXI1cJojV6n2M3lWFK7nIPZhfl/WvTjB5x8R0bpD0r9GQm4yjVfZe0
-	OzUAwe0LCZ+jTRdgxg3yLbuzhRg9pvcEg1TeKjRjNvz3HwSY6ksndbV3ryGaDXk3c28wX4Io7mN
-	kB65t9jEkwh7S78R8oyFQLwNcjfCm/5yxfK355ePvEE8z8atiCQqSMq
-X-Received: by 2002:a05:6a00:218e:b0:879:2a08:99bb with SMTP id d2e1a72fcca58-8874dd6acddmr3330370b3a.56.1790841115325;
-        Thu, 01 Oct 2026 00:51:55 -0700 (PDT)
+        bh=KjOU7YARtrXAbkjxgoW/D83MupO/fBHcHqOARUheMbc=;
+        b=xqauPOGowzkr+h4sT8xEPmA4SJo8Z4ZzHzNPy1lwYKSyDDw0iJUuQiG3cPpoZmRPly
+         HE5e0C7WvSlpOtpwgT3P5xmlpLWv1jHcWPCuoZTrtaUrtgJ3qWUK0JzvkkNx8RoZH4Qx
+         BKCQ3AILpZqXeVDVA5xzYZxAJGUUq3Vnr0UKiVBnJCYZ34dYUWCxoQUD80FphDoDFCpT
+         pwRYE54dPSlRJYefa6WWy1cX+R8D4gVCVW5zrzmTD3cD3oYOxfS5uNUKM0I/W+wlHdfH
+         ARaF+6Sqry24hxJt3dWsJTnNxO3yqfrPj1FzPbWLZ7Vdc9ZI9cgirC5Y6/VBwJdsZnzS
+         4yzA==
+X-Forwarded-Encrypted: i=1; AKwUvByxojM0wqMkhVIR1aYFeZ5cxoybX64h3V7aM0xDtUPcK9shzzjJz8v4qW14/y7cdUp9qubbf+5DAnxU124CgXsB@lists.infradead.org
+X-Gm-Message-State: AFuF++kx8KqY3JQNs6v32jH3ZhKWgFXqluxn+r8Qb+psTT0MFHIJRt0q
+	anDcftdU32wolSYArK3zY5JOcWHZ742zMoMbpOUQGxbQQE+eMbiubTY9
+X-Gm-Gg: AYBFou0BR3v+gQczrRNXPdUS+UCZJqXy6RoiIc0FhkKNzndO4q/FmA3wdL0eoHsoBBh
+	ipmNK7mdgoJiEfExX/za38Z7JsVW+xHIw/nUhQTLD30NIusYgdgp2mkwKfiX5mqo20XRlafN6xq
+	WztPX9k2ZUQ0EvirQR4YLAq0xjrSyJf8VNYruLfFZd7mh9uJOxAeBjY5h3voLqt3CZqkt6/ug52
+	0p5Zt3InZ76bVpq31LHbt9ihho8bkx+6mDZGvB8Z7BokihsceaL7P4BtJHqRmjTSja2VyCwLfFo
+	mGjIiSA2iuadJvX8Tom8X9tYBEqaZzFAHKGROWBi3luLtV9YFnqp21A+ks4G3lL27mOKQvy2URo
+	+YaKjKTuO3JcbwDI7dah8NdjX4nQUPbWxMICbxgydVvFTslUxCFZpQckQIOJMxaIdyrI5d19aBA
+	gOhe9zawNxIA38qJhOp6KfoGOBk/oKLtjlBPjm80HkKiRF41AIu9Bu5ysoRaHC+aD04bcwN41Yu
+	4o1bn0TABkczZ4ohYOBeVeGWJ5iKn6KPriuo4o3c9PWKoGLz6G51s7D
+X-Received: by 2002:a05:6a00:2301:b0:886:95df:c50c with SMTP id d2e1a72fcca58-887fe5c8dddmr1176734b3a.26.1790841121413;
+        Thu, 01 Oct 2026 00:52:01 -0700 (PDT)
 Received: from localhost.localdomain (60-250-196-139.hinet-ip.hinet.net. [60.250.196.139])
-        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-88819db440csm666843b3a.60.2026.10.01.00.51.52
+        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-88819db440csm666843b3a.60.2026.10.01.00.51.58
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 01 Oct 2026 00:51:54 -0700 (PDT)
+        Thu, 01 Oct 2026 00:52:00 -0700 (PDT)
 From: Zi-Yu Chen <zychennvt@gmail.com>
 To: Andi Shyti <andi.shyti@kernel.org>,
 	linux-i2c@vger.kernel.org,
@@ -83,19 +83,18 @@ Cc: Jacky Huang <ychuang3@nuvoton.com>,
 	Conor Dooley <conor+dt@kernel.org>,
 	Philipp Zabel <p.zabel@pengutronix.de>,
 	Andrew Jeffery <andrew@codeconstruct.com.au>,
-	Zi-Yu Chen <zychennvt@gmail.com>,
-	Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
-Subject: [PATCH v11 1/3] dt-bindings: i2c: nuvoton,ma35d1-i2c: Add MA35D1 I2C controller
-Date: Thu,  1 Oct 2026 15:50:59 +0800
-Message-Id: <20261001075101.489660-2-zychennvt@gmail.com>
+	Zi-Yu Chen <zychennvt@gmail.com>
+Subject: [PATCH v11 3/3] arm64: dts: nuvoton: Add I2C nodes for MA35D1 SoC
+Date: Thu,  1 Oct 2026 15:51:01 +0800
+Message-Id: <20261001075101.489660-4-zychennvt@gmail.com>
 X-Mailer: git-send-email 2.34.1
 In-Reply-To: <20261001075101.489660-1-zychennvt@gmail.com>
 References: <20261001075101.489660-1-zychennvt@gmail.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261001_005156_385662_ED93AEF0 
-X-CRM114-Status: GOOD (  14.14  )
+X-CRM114-CacheID: sfid-20261001_005202_487640_469F2AB3 
+X-CRM114-Status: GOOD (  11.05  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -110,85 +109,138 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add device tree binding documentation for the I2C controller
-found in the Nuvoton MA35D1 SoC.
+Add I2C controller nodes to the MA35D1 SoC dtsi file.
+Also, enable the I2C2 interface on the MA35D1 SOM board and
+configure its pinctrl to allow communication with the onboard
+NAU8822 audio codec
 
-Reviewed-by: Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
 Signed-off-by: Zi-Yu Chen <zychennvt@gmail.com>
 ---
- .../bindings/i2c/nuvoton,ma35d1-i2c.yaml      | 63 +++++++++++++++++++
- 1 file changed, 63 insertions(+)
- create mode 100644 Documentation/devicetree/bindings/i2c/nuvoton,ma35d1-i2c.yaml
+ .../boot/dts/nuvoton/ma35d1-som-256m.dts      | 20 ++++++
+ arch/arm64/boot/dts/nuvoton/ma35d1.dtsi       | 72 +++++++++++++++++++
+ 2 files changed, 92 insertions(+)
 
-diff --git a/Documentation/devicetree/bindings/i2c/nuvoton,ma35d1-i2c.yaml b/Documentation/devicetree/bindings/i2c/nuvoton,ma35d1-i2c.yaml
-new file mode 100644
-index 000000000000..0713e1c1ecb8
---- /dev/null
-+++ b/Documentation/devicetree/bindings/i2c/nuvoton,ma35d1-i2c.yaml
-@@ -0,0 +1,63 @@
-+# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
-+%YAML 1.2
-+---
-+$id: http://devicetree.org/schemas/i2c/nuvoton,ma35d1-i2c.yaml#
-+$schema: http://devicetree.org/meta-schemas/core.yaml#
+diff --git a/arch/arm64/boot/dts/nuvoton/ma35d1-som-256m.dts b/arch/arm64/boot/dts/nuvoton/ma35d1-som-256m.dts
+index a029b660e8dc..488567f830a6 100644
+--- a/arch/arm64/boot/dts/nuvoton/ma35d1-som-256m.dts
++++ b/arch/arm64/boot/dts/nuvoton/ma35d1-som-256m.dts
+@@ -57,6 +57,18 @@ &clk {
+ 			   "integer";
+ };
+ 
++&i2c2 {
++	status = "okay";
++	pinctrl-names = "default";
++	pinctrl-0 = <&pinctrl_i2c2>;
 +
-+title: Nuvoton MA35D1 I2C Controller
++	nau8822: audio-codec@1a {
++		compatible = "nuvoton,nau8822";
++		reg = <0x1a>;
++		nuvoton,spk-btl;
++	};
++};
 +
-+maintainers:
-+  - Zi-Yu Chen <zychennvt@gmail.com>
+ &pinctrl {
+ 	uart-grp {
+ 		pinctrl_uart0: uart0-pins {
+@@ -100,6 +112,14 @@ pinctrl_uart16: uart16-pins {
+ 			power-source = <1>;
+ 		};
+ 	};
 +
-+description:
-+  The Nuvoton MA35D1 I2C controller supports controller and optional target mode.
++	i2c-grp {
++		pinctrl_i2c2: i2c2-pins {
++			nuvoton,pins = <1 8 4>,
++				       <1 9 4>;
++			bias-disable;
++		};
++	};
+ };
+ 
+ &uart0 {
+diff --git a/arch/arm64/boot/dts/nuvoton/ma35d1.dtsi b/arch/arm64/boot/dts/nuvoton/ma35d1.dtsi
+index 7228ad4735b5..28488889f564 100644
+--- a/arch/arm64/boot/dts/nuvoton/ma35d1.dtsi
++++ b/arch/arm64/boot/dts/nuvoton/ma35d1.dtsi
+@@ -372,6 +372,78 @@ uart15: serial@407f0000 {
+ 			status = "disabled";
+ 		};
+ 
++		i2c0: i2c@40800000 {
++			compatible = "nuvoton,ma35d1-i2c";
++			reg = <0x0 0x40800000 0x0 0x1000>;
++			interrupts = <GIC_SPI 13 IRQ_TYPE_LEVEL_HIGH>;
++			clocks = <&clk I2C0_GATE>;
++			clock-frequency = <100000>;
++			resets = <&sys MA35D1_RESET_I2C0>;
++			status = "disabled";
++			#address-cells = <1>;
++			#size-cells = <0>;
++		};
 +
-+allOf:
-+  - $ref: /schemas/i2c/i2c-controller.yaml#
++		i2c1: i2c@40810000 {
++			compatible = "nuvoton,ma35d1-i2c";
++			reg = <0x0 0x40810000 0x0 0x1000>;
++			interrupts = <GIC_SPI 69 IRQ_TYPE_LEVEL_HIGH>;
++			clocks = <&clk I2C1_GATE>;
++			clock-frequency = <100000>;
++			resets = <&sys MA35D1_RESET_I2C1>;
++			status = "disabled";
++			#address-cells = <1>;
++			#size-cells = <0>;
++		};
 +
-+properties:
-+  compatible:
-+    const: nuvoton,ma35d1-i2c
++		i2c2: i2c@40820000 {
++			compatible = "nuvoton,ma35d1-i2c";
++			reg = <0x0 0x40820000 0x0 0x1000>;
++			interrupts = <GIC_SPI 97 IRQ_TYPE_LEVEL_HIGH>;
++			clocks = <&clk I2C2_GATE>;
++			clock-frequency = <100000>;
++			resets = <&sys MA35D1_RESET_I2C2>;
++			status = "disabled";
++			#address-cells = <1>;
++			#size-cells = <0>;
++		};
 +
-+  reg:
-+    maxItems: 1
++		i2c3: i2c@40830000 {
++			compatible = "nuvoton,ma35d1-i2c";
++			reg = <0x0 0x40830000 0x0 0x1000>;
++			interrupts = <GIC_SPI 98 IRQ_TYPE_LEVEL_HIGH>;
++			clocks = <&clk I2C3_GATE>;
++			clock-frequency = <100000>;
++			resets = <&sys MA35D1_RESET_I2C3>;
++			status = "disabled";
++			#address-cells = <1>;
++			#size-cells = <0>;
++		};
 +
-+  interrupts:
-+    maxItems: 1
++		i2c4: i2c@40840000 {
++			compatible = "nuvoton,ma35d1-i2c";
++			reg = <0x0 0x40840000 0x0 0x1000>;
++			interrupts = <GIC_SPI 123 IRQ_TYPE_LEVEL_HIGH>;
++			clocks = <&clk I2C4_GATE>;
++			clock-frequency = <100000>;
++			resets = <&sys MA35D1_RESET_I2C4>;
++			status = "disabled";
++			#address-cells = <1>;
++			#size-cells = <0>;
++		};
 +
-+  clocks:
-+    maxItems: 1
++		i2c5: i2c@40850000 {
++			compatible = "nuvoton,ma35d1-i2c";
++			reg = <0x0 0x40850000 0x0 0x1000>;
++			interrupts = <GIC_SPI 124 IRQ_TYPE_LEVEL_HIGH>;
++			clocks = <&clk I2C5_GATE>;
++			clock-frequency = <100000>;
++			resets = <&sys MA35D1_RESET_I2C5>;
++			status = "disabled";
++			#address-cells = <1>;
++			#size-cells = <0>;
++		};
 +
-+  clock-frequency:
-+    description:
-+      Desired I2C bus clock frequency in Hz. The absence of this property
-+      indicates the default frequency 100 kHz.
-+
-+  resets:
-+    maxItems: 1
-+
-+required:
-+  - compatible
-+  - reg
-+  - interrupts
-+  - clocks
-+  - resets
-+
-+unevaluatedProperties: false
-+
-+examples:
-+  - |
-+    #include <dt-bindings/interrupt-controller/arm-gic.h>
-+    #include <dt-bindings/clock/nuvoton,ma35d1-clk.h>
-+    #include <dt-bindings/reset/nuvoton,ma35d1-reset.h>
-+
-+    i2c0: i2c@40800000 {
-+      compatible = "nuvoton,ma35d1-i2c";
-+      reg = <0x40800000 0x1000>;
-+      interrupts = <GIC_SPI 13 IRQ_TYPE_LEVEL_HIGH>;
-+      clocks = <&clk I2C0_GATE>;
-+      clock-frequency = <100000>;
-+      resets = <&sys MA35D1_RESET_I2C0>;
-+      #address-cells = <1>;
-+      #size-cells = <0>;
-+    };
+ 		uart16: serial@40880000 {
+ 			compatible = "nuvoton,ma35d1-uart";
+ 			reg = <0x0 0x40880000 0x0 0x100>;
 -- 
 2.34.1
 
