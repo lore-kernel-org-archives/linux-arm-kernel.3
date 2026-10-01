@@ -4,70 +4,63 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0F22ACA5FCE
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  1 Oct 2026 19:28:59 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3A3D4CA5FCE
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  1 Oct 2026 19:29:39 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:MIME-Version:Message-ID:Date:References:In-Reply-To:Subject:Cc:
+	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=m11GMEyvhzjd9E6+wwt5uc3aFkOwju9CszSHqjpI5h0=; b=IBAjD9DcU0L+0Vgcmrff7jWXwp
-	S3+zhP8DQ0g4wkidzwZh2JOYHxfS35VuLO30Da8SpwUOxGlTyb4A2HIPseNxwSSZrgNZBWZsUvpCg
-	j0Y9nGDtrrafLlnNP7JJDE+BzmfDrHULtY6zn1ozDdnjbvzvd9elX7wcCQbWrBqbr4zIKEQZtr9Kg
-	vYXRro78KKNMAMN56DAGJ0GTsZDBrC9mmDGezvU5XmrgPhpWd9V6MTuWsndzimZC+F5grQoNdbwG2
-	vQDZlq1paf00A0qfLwHs1v/53QA5J1oru4nRnaOFzsQerKGzEJwNfUqMQoSEtTyUGZtOBrVWb5+yy
-	CAWeYTqg==;
+	bh=0sWDayJOkxAeOGqqB0NIGD2EYTzPiQHVomT9o9M6NJE=; b=G/7YD6bmHC7Z+CuQY8rcDIdIIs
+	EjWGhaMDyXvWmdri4SuxOQgGLq7jnE1kgo1AN6xcIQjHgsOFW3OCtNvLkIOnTfX11/NpVM+lG5UjS
+	GSYmAqzx8kiEciP13eJmIs8l6ZeI5/vGHB8DBDRBrjecZF9TeUIEaj9LcWKreLbKLaBxST62QWVrS
+	qjhYV67eVc7U6/+IaEfKdD3MAxjUImCisvTecUwI4yaKIEyielxVe0yKJCKT01rND+uO0iJ3xva7P
+	z7N91WyoBthWPnlcZ+no4nVA2G3p819hx1L3mncKhJXRb0QYRLKfzOQ4tXIg5bPrrDaf4bb8ZGx+f
+	mWxg+xmQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xCMSb-0000000A4uW-1aSk;
-	Thu, 01 Oct 2026 19:28:53 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1xCMTE-0000000A4yx-280w;
+	Thu, 01 Oct 2026 19:29:32 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xCMSa-0000000A4uO-0jfb
-	for linux-arm-kernel@lists.infradead.org;
-	Thu, 01 Oct 2026 19:28:52 +0000
+	id 1xCMTD-0000000A4yl-1Shc;
+	Thu, 01 Oct 2026 19:29:31 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id 6D94D602C2
-	for <linux-arm-kernel@lists.infradead.org>; Thu,  1 Oct 2026 19:28:51 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 218331F0089D
-	for <linux-arm-kernel@lists.infradead.org>; Thu,  1 Oct 2026 19:28:51 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id D77D3415A9;
+	Thu,  1 Oct 2026 19:29:30 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id EC4451F000FF;
+	Thu,  1 Oct 2026 19:29:29 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1790882931;
-	bh=m11GMEyvhzjd9E6+wwt5uc3aFkOwju9CszSHqjpI5h0=;
-	h=References:In-Reply-To:From:Date:Subject:To:Cc;
-	b=XpHF0yEP2CAfUBo0dIKOgho+y53PMw4J0ynCzZzK3Bv5ke5J4Pt+TGBpaXZB/E7aQ
-	 i+Li3h43sorfblLs2LronkcGQC8G1KB25jrahgfSUW7fLmOKWSmYKsa2/Yy9llZ24Z
-	 Ycc1PTALVDSG1UpjJikuEf+C7j5qe8PDy7urlXiq1YiraQttIRFz5oKyajZNRT83i3
-	 6WH5iuJkNOzLtB/Y19CwJ8Vt6Vt9lkRMS5+xi+p1R3ovbrDx3E7FdIBthcj0EoT/Q9
-	 8z/iYPaxNfzr7d1UAWPyol5b93IXmPXhLO6evqUfTx8ar2kVNuMJQSTDp9HivFa/z6
-	 0Kq4GSyWtTyng==
-Received: by mail-lf2-f12.google.com with SMTP id 2adb3069b0e04-5ba3ae12b79so2096978e87.0
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 01 Oct 2026 12:28:51 -0700 (PDT)
-X-Forwarded-Encrypted: i=1; AKwUvBxdQplHk92hAIQN/323DBwSH9M4qhIFNMpok+nuMAYmbh77yrHUc1bZVRz9cowqB5agVsvGLV1tTPZjW65B0m3k@lists.infradead.org
-X-Gm-Message-State: AFq9FYJJ/pOSK4UOwUzePwsmHM2xnslRp6W5T4jpMMy/FRBXE/JmSGsa
-	tdIfZNABI1xCmHDnSasEm/bdozk7R+mji4+fV3ByKLYoJT2DAav06QqMHgTfEs2M5ZuNlZvl7Id
-	Tc5qlWqeJuNq5sN0EvS7+mqstkMQmLYw=
-X-Received: by 2002:a05:6512:3b91:b0:5b6:4ae:8c02 with SMTP id
- 2adb3069b0e04-5bb9bc3a38amr67418e87.29.1790882929875; Thu, 01 Oct 2026
- 12:28:49 -0700 (PDT)
+	s=k20260515; t=1790882970;
+	bh=0sWDayJOkxAeOGqqB0NIGD2EYTzPiQHVomT9o9M6NJE=;
+	h=From:To:Cc:Subject:In-Reply-To:References:Date;
+	b=etqvOpLPcimxHlPPMuhIKLv01U67MpgFnDZ8Y3ieFvsD8dguldGMoBRIjHNML1ell
+	 /8euWeMtkYpB9iJGTyOwz8+RAkiDppmh9yWUQcFOI2sOjC3e2WNyBqlsIxfRf8zDnt
+	 R/J0upFjOe+7FopiiAKnmP6Cbuu6z80pGh+Pc8DNd6Yi2ahDp7+uD5qo//nb7UJCMf
+	 ioWsMQhp3n/Nu/IoWKDMUDgt2IhQ3TSO+dhOgYSafmwCNScW6lgts5VXrMnxktHs1A
+	 yx/jLmuL2oWfB87JG/PEpa2blPrsHTwr/DwrAV4ZReaq3ryymkqKAduTRudHXmry60
+	 7sXWdTzVZzCcw==
+From: Thomas Gleixner <tglx@kernel.org>
+To: Han / =?utf-8?B?7ZWc7IOB7JqwU2FuZ3dvbw==?= <sangwoo.han@nearthlab.com>,
+ Bjorn Helgaas
+ <helgaas@kernel.org>
+Cc: jim2101024@gmail.com, florian.fainelli@broadcom.com,
+ lpieralisi@kernel.org, kwilczynski@kernel.org, mani@kernel.org,
+ bhelgaas@google.com, bcm-kernel-feedback-list@broadcom.com,
+ robh@kernel.org, linux-pci@vger.kernel.org,
+ linux-rpi-kernel@lists.infradead.org,
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, Inochi
+ Amaoto <inochiama@gmail.com>
+Subject: Re: [PATCH] PCI: brcmstb: Reserve only the MSI vectors that are
+ handed out
+In-Reply-To: <CAFg7d9bJJjR7JEMXanttGVcGisa4x3uLYPR43Te4+JKMzHBkfQ@mail.gmail.com>
+References: <87cxuo3fl9.ffs@fw13> <20260916231029.GA988000@bhelgaas>
+ <CAFg7d9bJJjR7JEMXanttGVcGisa4x3uLYPR43Te4+JKMzHBkfQ@mail.gmail.com>
+Date: Thu, 01 Oct 2026 21:29:27 +0200
+Message-ID: <871pa9gqy0.ffs@fw13>
 MIME-Version: 1.0
-References: <20260929203634.32998-1-pmazzini@gmail.com> <a15d179f-8a43-4b4a-8bd5-fc0afecad6e0@arm.com>
- <CAD++jL=wEKZ5nRofe09heO8uUa4Cd12SYz3+XPhsStioQ5XTXQ@mail.gmail.com> <d9e249b7-baf9-4ad3-a3ae-b9765feca5d8@arm.com>
-In-Reply-To: <d9e249b7-baf9-4ad3-a3ae-b9765feca5d8@arm.com>
-From: Linus Walleij <linusw@kernel.org>
-Date: Thu, 1 Oct 2026 21:28:36 +0200
-X-Gmail-Original-Message-ID: <CAD++jL=bhQ8Pj12wgCi8RaRTEUcrXzhHm+EYA67dBEvn8P_rCw@mail.gmail.com>
-X-Gm-Features: AclHuK_wLU1qzQeRdKRPBZrb-Hz7ltUFota33qajxnsq0Ifw9pLY5cjoFByXrTo
-Message-ID: <CAD++jL=bhQ8Pj12wgCi8RaRTEUcrXzhHm+EYA67dBEvn8P_rCw@mail.gmail.com>
-Subject: Re: [PATCH] pinctrl: sunxi: dt: number the IRQ banks from the first
- one that has IRQs
-To: Andre Przywara <andre.przywara@arm.com>
-Cc: Pablo Mazzini <pmazzini@gmail.com>, Chen-Yu Tsai <wens@kernel.org>, 
-	Jernej Skrabec <jernej.skrabec@gmail.com>, Samuel Holland <samuel@sholland.org>, 
-	linux-gpio@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
-	linux-sunxi@lists.linux.dev, linux-kernel@vger.kernel.org
-Content-Type: text/plain; charset="UTF-8"
+Content-Type: text/plain; charset=utf-8
 Content-Transfer-Encoding: quoted-printable
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -83,19 +76,121 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Oct 1, 2026 at 2:31=E2=80=AFPM Andre Przywara <andre.przywara@arm.c=
-om> wrote:
+On Mon, Sep 21 2026 at 18:05, Han / =ED=95=9C=EC=83=81=EC=9A=B0Sangwoo wrot=
+e:
+> I tested Thomas's patch on the same hardware setup with the 5-vector
+> MSI endpoint. The patch was applied as posted on top of 6.12.93
+> (rpi-6.12.y).
+>
+> With the patch applied:
+>
+> - The MSI base hwirq remained at 0x8 across 200 driver reload cycles.
+> - The driver got all 5 requested vectors on every cycle, with no
+> single-MSI fallback. Multiple Message Enable remained at 8.
+> - The brcmstb inner-domain mapping returned to baseline after each
+> unload/reload, with 12 mapped while the driver was loaded and 4 after
+> unload.
+> - A kprobe showed one allocation of 8 vectors followed by eight
+> single-vector frees, with nothing left over.
 
-> So we could revert the DT patch, and take Pablo's code patch, with a
-> Fixes: tag, but that would create some broken combinations meanwhile.
+8 single vector frees?
 
-I see it like this was a bug in the DTS file, so this if fine as-is.
+Seems I got something wrong there verus the bulk free. Updated patch
+below.
 
-> And in any case we should add a word to the binding document, to pin
-> down what's expected here.
+> The MSI vector exhaustion issue I originally observed no longer
+> reproduces with the patch.
 
-Can we enforce it with YAML constraints or is it too open-ended?
+Good. Can you please retest with the updated patch?
 
-Yours,
-Linus Walleij
+> I also observed a KASAN report with managed affinity. Using a small
+> out-of-tree test module bound to the same endpoint and requesting 1..3
+> vectors with PCI_IRQ_MSI | PCI_IRQ_AFFINITY, a request for 3 vectors
+> resulted in:
+>
+> BUG: KASAN: slab-out-of-bounds in __irq_alloc_descs+0x158/0x460
+>
+> Requests for 5 and 7 vectors were capped to 4 on this 4-CPU system and
+> did not trigger the report. I have not checked this against the
+> unpatched kernel yet, so I cannot tell whether it is related to the
+> patch.
+
+Any updates on that? Also please provide the source for that test.
+
+Thanks,
+
+        tglx
+---
+--- a/kernel/irq/irqdomain.c
++++ b/kernel/irq/irqdomain.c
+@@ -1610,6 +1610,17 @@ static void irq_domain_free_irqs_hierarc
+ 	if (!domain->ops->free)
+ 		return;
+=20
++	/*
++	 * MSI device domains are capable of bulk free.
++	 *
++	 * CHECKME: Are all MSI parent domains capable?
++	 */
++	if (domain->flags & (IRQ_DOMAIN_FLAG_MSI_DEVICE | IRQ_DOMAIN_FLAG_MSI_PAR=
+ENT)) {
++		if (irq_domain_get_irq_data(domain, irq_base))
++			domain->ops->free(domain, irq_base, nr_irqs);
++		return;
++	}
++
+ 	for (i =3D 0; i < nr_irqs; i++) {
+ 		if (irq_domain_get_irq_data(domain, irq_base + i))
+ 			domain->ops->free(domain, irq_base + i, 1);
+--- a/kernel/irq/msi.c
++++ b/kernel/irq/msi.c
+@@ -1333,20 +1333,28 @@ static int __msi_domain_alloc_irqs(struc
+=20
+ 		ops->set_desc(&arg, desc);
+=20
+-		virq =3D __irq_domain_alloc_irqs(domain, -1, desc->nvec_used,
++		/* Make sure a MULTI-MSI allocation is power of two */
++		unsigned int nvec_aligned =3D roundup_pow_of_two(desc->nvec_used);
++
++		virq =3D __irq_domain_alloc_irqs(domain, -1, nvec_aligned,
+ 					       dev_to_node(dev), &arg, false,
+ 					       desc->affinity);
+ 		if (virq < 0)
+ 			return msi_handle_pci_fail(domain, desc, allocated);
+=20
+-		for (i =3D 0; i < desc->nvec_used; i++) {
++		for (i =3D 0; i < nvec_aligned; i++) {
+ 			irq_set_msi_desc_off(virq, i, desc);
+ 			irq_debugfs_copy_devname(virq + i, dev);
+ 			ret =3D msi_init_virq(domain, virq + i, vflags);
+ 			if (ret)
+ 				return ret;
+ 		}
++
+ 		if (info->flags & MSI_FLAG_DEV_SYSFS) {
++			/*
++			 * This only exposes desc->nvec_used and ignores the
++			 * overallocated MULTI-MSI ones.
++			 */
+ 			ret =3D msi_sysfs_populate_desc(dev, desc);
+ 			if (ret)
+ 				return ret;
+@@ -1610,13 +1618,15 @@ static void __msi_domain_free_irqs(struc
+ 			continue;
+=20
+ 		/* Make sure all interrupts are deactivated */
+-		for (i =3D 0; i < desc->nvec_used; i++) {
++		unsigned int nvec_aligned =3D roundup_pow_of_two(desc->nvec_used);
++
++		for (i =3D 0; i < nvec_aligned; i++) {
+ 			irqd =3D irq_domain_get_irq_data(domain, desc->irq + i);
+ 			if (irqd && irqd_is_activated(irqd))
+ 				irq_domain_deactivate_irq(irqd);
+ 		}
+=20
+-		irq_domain_free_irqs(desc->irq, desc->nvec_used);
++		irq_domain_free_irqs(desc->irq, nvec_aligned);
+ 		if (info->flags & MSI_FLAG_DEV_SYSFS)
+ 			msi_sysfs_remove_desc(dev, desc);
+ 		desc->irq =3D 0;
 
