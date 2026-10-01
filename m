@@ -4,88 +4,100 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D836BCA5FD4
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  1 Oct 2026 16:49:48 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D686ECA5FCF
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  1 Oct 2026 16:51:03 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
-	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:
-	References:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:
-	Subject:Date:From:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=8SzusLKauk33HdFOAGv2hPOxQhN/QtVf9ge6bWt8NUc=; b=bVvYnbzwS0frOBvuIqRiwa54+B
-	JzBkV+5sJ/v4T7qmI4ENnYrSHxURny+tWUjreSw47gbCk1C9wUJ1LTfzLdb5KRNK/dml/7tXz2nWQ
-	dlT5f0KLn+Dak0fFPnCHtbpYUxqhILZtN3h9+OS/vCo0ZAB2maA7pJemMwnmp6yINoVZjRqCWD8mM
-	YXXd4ySM1COt0hTBOSxBcgj9bjLxQYW9szF4bHTeEISSyheTNL821YJC3c+7QS0cFDbWFtAY1GaTS
-	GkGkRkEa1hoPTzbXoZURwAXulgWogRv0hfd2BVASS/XAMGYl6wHd5yCf6ktiiLtZbqLrG0lDOJLV0
-	fzjE5mDw==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	References:In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=U+uboDNmd3c4+oklKhah8Yxki5qXO3q5Peg5zVIsILo=; b=yaO2Mdk4CyIeXb6tRLT01uCk0B
+	fHnr6uJD8kNCMG2P0J/7RRqdBCjLr0T12BwisokDEQHC78gGalTW2BND7WN1pPRGsDlTXQzi0XPf5
+	yyWoJ7/39yv+fvytnmwPC4dvT0tM6q/K8mDRYTQ9JMebizZt7L0PV8acfqWGHxhtS+kUPQjciODVx
+	zMEIfUURL2yiC96LHGPNFubOGMSqrUv3WDfn7hOqLUHlB0bvHh/LWlhFf9ZPwbHyrHZtRmIUrOqzs
+	35xOLRCF2gamz31vDYcL5R4CvdvODLjEAjrxQ5QwQ6b1FU8pf0p1Sx360XLkyGAJI9LHxqoQynqHf
+	2urHD51g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xCG63-000000094v0-1o49;
-	Thu, 01 Oct 2026 12:41:11 +0000
+	id 1xCISh-00000009UDg-1CLv;
+	Thu, 01 Oct 2026 15:12:43 +0000
 Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xCG5u-000000094mE-0pLK
+	id 1xCISg-00000009UDU-10YU
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 01 Oct 2026 12:41:02 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id E541541149;
-	Thu,  1 Oct 2026 12:41:00 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPS id 8D2B4C4DDE4;
-	Thu,  1 Oct 2026 12:41:00 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1790858460;
-	bh=vqJg9MCrHhTQ3dSYeAuOSHwl+5KNi8MVa3c/QFLqYsE=;
-	h=From:Date:Subject:References:In-Reply-To:To:Cc:Reply-To:From;
-	b=s5wE65kyk31TVBG0Do9N+KjySvKQUyeg84o3ZmEWqCZUblV3Q7TInuzPmvrhmSCeS
-	 8vSbi2BWtrnbl2XKBufgeEWvd1A+ofgbBlf2CfdSPfY79XX2qMz/A0Wi9KDrFudeox
-	 wXS4caWFyvEhpCb5r/DbFpuQsiXWnXaf39p3dx6hOzmzD+Q6Cer1U6bblR2zdt7vkl
-	 VXlhg3komckzGtC/Q4FYB7yN4o8JUkqcf4FEkThbgf5USBC2qrwuXdeEoHMtBAeCzV
-	 nf95fIxlgjJ/2cnM039gWHDgCtY3XFTQN3Bpa52PepLB6L7p4sc2ClvUR/4hES7oU6
-	 SiweN4mCE83Dg==
-Received: from aws-us-west-2-korg-lkml-1.web.codeaurora.org (localhost.localdomain [127.0.0.1])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 76F3CCA5FD6;
-	Thu,  1 Oct 2026 12:41:00 +0000 (UTC)
-From: Long Zhao via B4 Relay <devnull+longzhao.ambarella.com@kernel.org>
-Date: Thu, 01 Oct 2026 20:40:54 +0800
-Subject: [PATCH v9 05/15] dt-bindings: serial: snps-dw-apb-uart: add
- ambarella,cv75-uart
-MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20261001-cv75-v5-v9-5-486cc289a4b8@ambarella.com>
-References: <20261001-cv75-v5-v9-0-486cc289a4b8@ambarella.com>
-In-Reply-To: <20261001-cv75-v5-v9-0-486cc289a4b8@ambarella.com>
-To: Arnd Bergmann <arnd@arndb.de>, Krzysztof Kozlowski <krzk@kernel.org>, 
- Alexandre Belloni <alexandre.belloni@bootlin.com>, soc@lists.linux.dev, 
- linux-arm-kernel@lists.infradead.org
-Cc: Long Zhao <longzhao@ambarella.com>, Rob Herring <robh@kernel.org>, 
- Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>, 
- Michael Turquette <mturquette@baylibre.com>, 
- Stephen Boyd <sboyd@kernel.org>, Jerome Brunet <jbrunet@baylibre.com>, 
- Linus Walleij <linusw@kernel.org>, Bartosz Golaszewski <brgl@kernel.org>, 
- Michael Walle <mwalle@kernel.org>, 
- Greg Kroah-Hartman <gregkh@linuxfoundation.org>, 
- Jiri Slaby <jirislaby@kernel.org>, 
- Andy Shevchenko <andriy.shevchenko@linux.intel.com>, 
- =?utf-8?q?Ilpo_J=C3=A4rvinen?= <ilpo.jarvinen@linux.intel.com>, 
- Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>, 
- Long Zhao <zl020895@163.com>, Lee Jones <lee@kernel.org>, 
- mfd@lists.linux.dev, devicetree@vger.kernel.org, linux-clk@vger.kernel.org, 
- linux-gpio@vger.kernel.org, linux-serial@vger.kernel.org, 
- linux-kernel@vger.kernel.org, 
- Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
-X-Mailer: b4 0.15.2
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1790858457; l=1072;
- i=longzhao@ambarella.com; s=20260730; h=from:subject:message-id;
- bh=aI42/QWFrT0q/wEmjSA5wdZvhIPXU9faQz3G+ySJ344=;
- b=GJyR08f2m1KBM40itHZIVPxg3lvd9r9y6CUpV2Ai8ClGQ/FUWgpQIFuuO90FvVU3YnUMMEkj6
- 4oYVmJRfounAKLKknYAZ1rifH3WZ48+AGulMe0TOCQR3pIqHkUpwlPD
-X-Developer-Key: i=longzhao@ambarella.com; a=ed25519;
- pk=/xGhPTOX0/eYsyTWzyjjgAIW1Z/YD+IlnOnvcdRozow=
-X-Endpoint-Received: by B4 Relay for longzhao@ambarella.com/20260730 with
- auth_id=903
-X-Original-From: Long Zhao <longzhao@ambarella.com>
+	Thu, 01 Oct 2026 15:12:42 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by sea.source.kernel.org (Postfix) with ESMTP id E524E4115A;
+	Thu,  1 Oct 2026 15:12:41 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id C415D1F000FF;
+	Thu,  1 Oct 2026 15:12:41 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1790867561;
+	bh=U+uboDNmd3c4+oklKhah8Yxki5qXO3q5Peg5zVIsILo=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References;
+	b=EXjsYr3f9pk1lSJ048/qqJa1G/jbortu2tHrJtCudQVO2+7tqauxJ+/+f9p0waRi7
+	 1uY4s7FPFIZu0WxNaYxlUICOcD7sKykQwEypzkeI5xMv3IgVVbq8n4KRsajjb3BIq1
+	 b88p5JWvYfF6QWcNjkrIDL3TLUVbFBDa6UcpTX6N9TSKW4Wc8k1L+3iUF7eH6jCaTg
+	 93jFhVkJQQ2BW9oSyPN7Imk5R9GGZXmy0UdDsnC+aS6gHhq9F2njzzXoDFeXX2TR2i
+	 YRzt/RAjNUg7FFQfVJ2LxzO58lCK6hPoNrThjczfiMz/LtxEDSRuEdMQGzf+KV54Hl
+	 vTFevA+w2d6IQ==
+Received: from sofa.misterjones.org ([185.219.108.64] helo=goblin-girl.misterjones.org)
+	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.98.2)
+	(envelope-from <maz@kernel.org>)
+	id 1xCISd-0000000Fqe0-1JUm;
+	Thu, 01 Oct 2026 15:12:39 +0000
+Date: Thu, 01 Oct 2026 16:12:38 +0100
+Message-ID: <86wls1315l.wl-maz@kernel.org>
+From: Marc Zyngier <maz@kernel.org>
+To: Steffen Eiden <seiden@linux.ibm.com>
+Cc: kvm@vger.kernel.org,
+	kvmarm@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	linux-s390@vger.kernel.org,
+	Alexander Gordeev <agordeev@linux.ibm.com>,
+	Andreas Grapentin <gra@linux.ibm.com>,
+	Arnd Bergmann <arnd@arndb.de>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Christian Borntraeger <borntraeger@linux.ibm.com>,
+	Claudio Imbrenda <imbrenda@linux.ibm.com>,
+	David Hildenbrand <david@kernel.org>,
+	Friedrich Welter <fritz@linux.ibm.com>,
+	Gautam Gala <ggala@linux.ibm.com>,
+	Hariharan Mari <hari55@linux.ibm.com>,
+	Heiko Carstens <hca@linux.ibm.com>,
+	Hendrik Brueckner <brueckner@linux.ibm.com>,
+	Ilya Leoshkevich <iii@linux.ibm.com>,
+	Janosch Frank <frankja@linux.ibm.com>,
+	Joey Gouly <joey.gouly@arm.com>,
+	Nico Boehr <nrb@linux.ibm.com>,
+	Nina Schoetterl-Glausch <oss@nina.schoetterlglausch.eu>,
+	Oliver Upton <oupton@kernel.org>,
+	Paolo Bonzini <pbonzini@redhat.com>,
+	Sean Christopherson <seanjc@google.com>,
+	Suzuki K Poulose <suzuki.poulose@arm.com>,
+	Sven Schnelle <svens@linux.ibm.com>,
+	Ulrich Weigand <Ulrich.Weigand@de.ibm.com>,
+	Vasily Gorbik <gor@linux.ibm.com>,
+	Will Deacon <will@kernel.org>,
+	Zenghui Yu <yuzenghui@huawei.com>,
+	Fuad Tabba <fuad.tabba@linux.dev>
+Subject: Re: (subset) [PATCH v9 00/24] KVM: s390: Introduce arm64 KVM
+In-Reply-To: <20261001132715.108643-A-seiden@linux.ibm.com>
+References: <20260930173441.66762-1-seiden@linux.ibm.com>
+	<179085262878.3865846.5787241839391727949.b4-ty@b4>
+	<20261001132715.108643-A-seiden@linux.ibm.com>
+User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
+ FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/30.1
+ (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
+MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
+Content-Type: text/plain; charset=US-ASCII
+X-SA-Exim-Connect-IP: 185.219.108.64
+X-SA-Exim-Rcpt-To: seiden@linux.ibm.com, kvm@vger.kernel.org, kvmarm@lists.linux.dev, linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, linux-s390@vger.kernel.org, agordeev@linux.ibm.com, gra@linux.ibm.com, arnd@arndb.de, catalin.marinas@arm.com, borntraeger@linux.ibm.com, imbrenda@linux.ibm.com, david@kernel.org, fritz@linux.ibm.com, ggala@linux.ibm.com, hari55@linux.ibm.com, hca@linux.ibm.com, brueckner@linux.ibm.com, iii@linux.ibm.com, frankja@linux.ibm.com, joey.gouly@arm.com, nrb@linux.ibm.com, oss@nina.schoetterlglausch.eu, oupton@kernel.org, pbonzini@redhat.com, seanjc@google.com, suzuki.poulose@arm.com, svens@linux.ibm.com, Ulrich.Weigand@de.ibm.com, gor@linux.ibm.com, will@kernel.org, yuzenghui@huawei.com, fuad.tabba@linux.dev
+X-SA-Exim-Mail-From: maz@kernel.org
+X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -97,38 +109,137 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
-Reply-To: longzhao@ambarella.com
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Long Zhao <longzhao@ambarella.com>
+On Thu, 01 Oct 2026 14:27:15 +0100,
+Steffen Eiden <seiden@linux.ibm.com> wrote:
+> 
+> On Thu, Oct 01, 2026 at 12:04:51PM +0100, Marc Zyngier wrote:
+> > On Wed, 30 Sep 2026 19:34:15 +0200, Steffen Eiden wrote:
+> > > Introduce arm-on-s390. Enable KVM-accelerated ARM CPU virtualisation on s390.
+> > > 
+> > > The new KVM functionally depends on KVM/vfio: Use file-based reference
+> > > counting for KVM [5] The series itself should apply w/o those.
+> > > 
+> > > For the original, now partially outdated, cover letter, have a look at versions
+> > > one to three [1].
+> > > 
+> > > [...]
+> > 
+> > Applied to next, thanks!
+> > 
+> > [05/24] arm64: ptrace: Use constants for compat register numbers
+> >         commit: 295d3df9b1e425099a4eb37954a02c4a08fdb496
+> > [06/24] arm64: sysreg: Convert SPSR_ELx to automatic register generation
+> >         commit: d3d78520068779779e1ed7aa0dd8a3ce63e1ca43
+> > [07/24] KVM: arm64: Access elements of vcpu_gp_regs individually
+> >         commit: 29d92585ab987bb80b1e78d811aaea2a8db86e62
+> > [08/24] KVM: arm64: Use accessor functions for core regs
+> >         commit: 89ed62818f10e38e64fea46d43ee6455a1beb647
+> > [09/24] arm64: Prepare sharing arm64 headers with s390
+> >         commit: df6a70516adec8b7f5fa49e1755d8ee33d980d9c
+> > [10/24] arm64: Share arm64 headers with s390
+> >         commit: c7e18ba462536e870b0ff4deca581babcac9135b
+> > [11/24] KVM: arm64: Share arm64 code with s390
+> >         commit: dcb776bfcccc9662001a75b99dbfbef55f46eb31
+> > 
+> > Note that there were a few conflicts. Please check that I resolved
+> > them correctly.
+> 
+> 
+> After rebasing on those the arm-on-s390 part does not build anymore :( 
 
-Add the Ambarella CV75 compatible string to the Synopsys DW APB UART
-binding. The block is Ambarella IP with a DW-like register map, so it
-is described as a DW APB UART variant.
+Well, that's sort of expected. The kvmarm tree doesn't have the S390
+stuff yet, and contains tons of new stuff.
 
-Acked-by: Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
-Reviewed-by: Linus Walleij <linusw@kernel.org>
-Signed-off-by: Long Zhao <longzhao@ambarella.com>
----
- Documentation/devicetree/bindings/serial/snps-dw-apb-uart.yaml | 1 +
- 1 file changed, 1 insertion(+)
+> We are missing the definition of
+> static __always_inline bool esr_abt_is_s1ptw(unsigned long esr)
+> 
+> 
+> quick fix: 
+> 
+> on top of [10/24]  arm64: Share arm64 headers with s390
+> 
+> diff --git a/arch/arm64/include/asm/kvm_emulate.h b/arch/arm64/include/asm/kvm_emulate.h
+> index bf35cbe8ddcb..0708f792c631 100644
+> --- a/arch/arm64/include/asm/kvm_emulate.h
+> +++ b/arch/arm64/include/asm/kvm_emulate.h
+> @@ -367,10 +367,13 @@ static __always_inline u64 kvm_vcpu_get_esr(const struct kvm_vcpu *vcpu)
+>         return vcpu->arch.fault.esr_el2;
+>  }
+> 
+> +#if ARM64_S390_COMMON == 1
+>  static __always_inline bool esr_abt_is_s1ptw(unsigned long esr)
+>  {
+>         return esr & ESR_ELx_S1PTW;
+>  }
+> +
+> +#endif /* ARM64_S390_COMMON == 1 */
+> 
+>  static __always_inline bool esr_abt_is_exec_fault(unsigned long esr)
+>  {
+> 
+> 
+> 
+> A cleaner solution it to move this defenition just below  
+> void kvm_vcpu_wfi(struct kvm_vcpu *vcpu) in 
+> [09/24] arm64: Prepare sharing arm64 headers with s390
+> and expand the shared region in the following patch.
 
-diff --git a/Documentation/devicetree/bindings/serial/snps-dw-apb-uart.yaml b/Documentation/devicetree/bindings/serial/snps-dw-apb-uart.yaml
-index 49f51b002879..cec5c679f1a9 100644
---- a/Documentation/devicetree/bindings/serial/snps-dw-apb-uart.yaml
-+++ b/Documentation/devicetree/bindings/serial/snps-dw-apb-uart.yaml
-@@ -51,6 +51,7 @@ properties:
-           - const: renesas,rzn1-uart
-       - items:
-           - enum:
-+              - ambarella,cv75-uart
-               - anlogic,dr1v90-uart
-               - brcm,bcm11351-dw-apb-uart
-               - brcm,bcm21664-dw-apb-uart
+I'm redoing the merge and fixing it as follows (note that the
+ARM64_S390_COMMON guards are already present):
+
+@@ -336,16 +367,6 @@ static __always_inline u64 kvm_vcpu_get_esr(const struct kvm_vcpu *vcpu)
+ 	return vcpu->arch.fault.esr_el2;
+ }
+ 
+-static __always_inline bool esr_abt_is_s1ptw(unsigned long esr)
+-{
+-	return esr & ESR_ELx_S1PTW;
+-}
+-
+-static __always_inline bool esr_abt_is_exec_fault(unsigned long esr)
+-{
+-	return esr_trap_is_iabt(esr) && !esr_abt_is_s1ptw(esr);
+-}
+-
+ static inline bool guest_hyp_wfx_traps_enabled(const struct kvm_vcpu *vcpu)
+ {
+ 	u64 esr = kvm_vcpu_get_esr(vcpu);
+@@ -389,6 +410,12 @@ static inline u64 kvm_vcpu_get_disr(const struct kvm_vcpu *vcpu)
+ 	return vcpu->arch.fault.disr_el1;
+ }
+ 
++#if ARM64_S390_COMMON == 1
++static __always_inline bool esr_abt_is_s1ptw(unsigned long esr)
++{
++	return esr & ESR_ELx_S1PTW;
++}
++
+ static inline u32 kvm_vcpu_hvc_get_imm(const struct kvm_vcpu *vcpu)
+ {
+ 	return kvm_vcpu_get_esr(vcpu) & ESR_ELx_xVC_IMM_MASK;
+@@ -456,6 +483,13 @@ static __always_inline u8 kvm_vcpu_trap_get_fault(const struct kvm_vcpu *vcpu)
+ 	return kvm_vcpu_get_esr(vcpu) & ESR_ELx_FSC;
+ }
+ 
++#endif /* ARM64_S390_COMMON == 1 */
++
++static __always_inline bool esr_abt_is_exec_fault(unsigned long esr)
++{
++	return esr_trap_is_iabt(esr) && !esr_abt_is_s1ptw(esr);
++}
++
+ static inline
+ bool kvm_vcpu_trap_is_permission_fault(const struct kvm_vcpu *vcpu)
+ {
+
+
+Does this work for you?
+
+	M.
 
 -- 
-2.34.1
-
-
+Without deviation from the norm, progress is not possible.
 
