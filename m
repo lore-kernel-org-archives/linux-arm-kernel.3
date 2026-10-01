@@ -4,64 +4,136 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C49DDCA5FC4
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  1 Oct 2026 00:00:27 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3897CCA5FC4
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  1 Oct 2026 00:10:50 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Date:Message-Id:From:Subject:Content-Transfer-Encoding:MIME-Version:
-	Content-Type:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=pNfChoSajGhfWOPVeoF7VAoXyvssorcmQEafSm+VYUo=; b=HMPP3J15nwRr9OFszlY8y83BrQ
-	JXFRdIOanPZgjUSDwCwGykBC3qArIeeH7Z+dqF+WNpUeZZnU9hnvqAi6ES7e8PmbM2mK8FZciZrsM
-	A3MzIQVixymKVNOtO8Zr7GPj0SJZ+AzVlz5Zz4BvbKyg/UGlXIlP7WHm0Sq54B5YuuSxx1LIK1JZL
-	LgYEO+dJzSHq/2HyByeKEDY3eGkxHoFU4XZgZWwqH/L5Iv9fIFbs0cWZrkd4looBf1m9M25Ziz5gn
-	wB0R4oAVZJ1jFwmGeS7w0gydXx9YV2ygtETl3XvAMcbJSoKmMftZ9QZTGdhV63cGC5+dWlHXN/MjL
-	NAiS+P3w==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:References:In-Reply-To:Message-ID:Date
+	:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=N7a/bp/PO0bjhrDKIhcMe6L/5zm7OEtYBvJsXXJTZDE=; b=nsKoI4SScjf+4ZO9Kg2yXLa8WW
+	HtHUe828+9cMBUOsIAtl3wZW1LXSDEOSrTfz/74U0m/ZRohkEEh7fVP/qlMsnK6/mWnBCoY3a+gCC
+	QS8C7jpZTfFCzI4h7PjATW9vhXbvx2xQ13lle2jO5cL04dberMX66oIRDOQizFqH+algbUeOTuuEy
+	pbfFZFWpRKgDwjRbLG3zgoiHdHAKbztl3/ONTNtndt/riJuhNdicp60Mmr8uYqZqQl4v9kOWPfSl5
+	lEiSxyCwerrWE/qwXzOZvQf1dAiGCXzCIRwZF4dy9CiTA2rylW8bLc5MbRAHYUmEg2sJeygnqt88Y
+	MwCV3f6w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xC4Dg-00000007UK5-0Bz5;
-	Thu, 01 Oct 2026 00:00:16 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1xC4Nn-00000007UmR-0RSF;
+	Thu, 01 Oct 2026 00:10:43 +0000
+Received: from mail-southcentralusazon11011062.outbound.protection.outlook.com ([40.93.194.62] helo=SN4PR0501CU005.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xC4De-00000007UJv-2m34
+	id 1xC4Nl-00000007Um4-05Ij
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 01 Oct 2026 00:00:14 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id 92E3C6057A;
-	Thu,  1 Oct 2026 00:00:13 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 447D61F000FF;
-	Thu,  1 Oct 2026 00:00:13 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1790812813;
-	bh=pNfChoSajGhfWOPVeoF7VAoXyvssorcmQEafSm+VYUo=;
-	h=Subject:From:Date:References:In-Reply-To:To:Cc;
-	b=bcf1pbfwcWcawFJkZIGjRvaUURr/Vo25kHP7x6cJMv3xItSKFrfqw/Y99eYkWpeKf
-	 7gZb4Ke2Ks6JgzpZm+5vHJxt4YaKup7sgtu9DjSEvNgAKaI0WO10JQnHjzdY0+mpyd
-	 uMy8Ttusc9aHg5fnW935ayV580xSpfS8qxonrQ3XLVLLVudMh2MvwkoMk9CIqRO+o5
-	 1igTcgkGAHEW3p1F8lIlgH/J/HeEXdPefghrpUfPLTNwepgU/ilGq6JocooAoUZJPg
-	 GzRQEQ8PMw4Y8tNLo05aEwj3RuUQm770ZQ7VZrPo+RVQgRXNBlcl5tjfYTh1NbJOH9
-	 JQjOvNG+P0CKA==
-Received: from [10.30.226.235] (localhost [IPv6:::1])
-	by aws-us-west-2-korg-oddjob-rhel9-1.codeaurora.org (Postfix) with ESMTP id 3A3E03AA6A61;
-	Thu,  1 Oct 2026 00:00:13 +0000 (UTC)
-Content-Type: text/plain; charset="utf-8"
-MIME-Version: 1.0
+	Thu, 01 Oct 2026 00:10:42 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=El6qXVv4yaCmXQUl+NK5F1rRvLWi7lwMLdVbGa06/fvnzk5kzEEWlV3DlY7JV5EHvImUcaEq3UeVKb8yM96EDzVpVrf9PeeFZUBCplxBS6akQrXkbRQFq8JET8c2XIQSiJuoJ1q0c1UKATU1vXHq3qUX9p6pVurJg91ZBQ3j40KENwMjwUncjcZScZATTdw6GZJ9Be9JBS0CCt/aNoShahhSUAdyKc13ESmZkYhWFfpk/cJEAxiOFkww/0DCUDXI7vpFQ8j0RmoPRkivQCZwT+yYYryjP/ThUdeIB3swEpV6Pxq0Isj0CHblZaH0E0fqz6mrFgRDIVd9WNN+gHzaig==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=N7a/bp/PO0bjhrDKIhcMe6L/5zm7OEtYBvJsXXJTZDE=;
+ b=Pz1bu6WQcxGhLHZfFhAhz04ccYG2oajX98Fgy4R+Xsvs/HS4RJsNGQSepC/97RSwjqeA/tLoI87EWxa3iUWmlXBFWKBEukHGFsscVApsHiXZLORbstG2s8R4JN2A2QYbVbZPNpoN3hzHB27mL69Aem44PIvjoXXAbnN0EJwocgNaNbm4oufrpcC5OEDYDIzC62fvnbIUsqf0OwXbSOvlobfVYcvW7AC5tgjUZIFjySpDwMo+tQDuMQ3g48kH4mJLilJzk+roJpeOGkB2sxhj0jsgpo44aBroTlsd+VnH/s8+O4S8CADpf5PjXjuWyy6pg/XJY8hQWBxjEAcE7XAlxA==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=nokia.com; dmarc=pass action=none header.from=nokia.com;
+ dkim=pass header.d=nokia.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nokia.com;
+ s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=N7a/bp/PO0bjhrDKIhcMe6L/5zm7OEtYBvJsXXJTZDE=;
+ b=P1/BRXImThrpdrP14CtcU8NtrjqnNOQCTSSGKzUwoY3rMyW3fDbQCXwob7RyoPgDFTlx+GUvHYY+7AgzJLLSCV4vhY+xS84Yc4PhBw87ZjXa+g2g3jQKHleXU2lrRYqX0TEoXZOYUbATGM8YS8koqy/UegIASiAMxOemBn9XxmErqaKbg+mb/AIPzQ2i72/EpYwiUX2ICPtYWsp6MO8oD1eEFyA3JF1WJr1LH4EUvuPbD71HYxZ2fiKsicPG1QFKCavg9x0edR4tF5sze9A3Z3HbYaSEQxvI4X8RsrTQY+2Db1wJE0S1xtLV93AlStlo6YfQJG8coXVwR0h/VmPE6A==
+Authentication-Results: mx.microsoft.com 1; dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=nokia.com;
+Received: from BN0PR08MB6951.namprd08.prod.outlook.com (2603:10b6:408:128::14)
+ by LY0PR08MB296823.namprd08.prod.outlook.com (2603:10b6:404:20a::22) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.472.15; Thu, 1 Oct
+ 2026 00:10:33 +0000
+Received: from BN0PR08MB6951.namprd08.prod.outlook.com
+ ([fe80::4dd1:e1e:56b0:b178]) by BN0PR08MB6951.namprd08.prod.outlook.com
+ ([fe80::4dd1:e1e:56b0:b178%5]) with mapi id 15.21.0472.015; Thu, 1 Oct 2026
+ 00:10:33 +0000
+From: Anthony Pighin <anthony.pighin@nokia.com>
+To: Jaidev Shastri <jaidevshastri@vt.edu>
+Cc: Ioana Ciornei <ioana.ciornei@nxp.com>,
+	"Christophe Leroy (CS GROUP)" <chleroy@kernel.org>,
+	linux-kernel@vger.kernel.org,
+	linuxppc-dev@lists.ozlabs.org,
+	linux-arm-kernel@lists.infradead.org
+Subject: Re: [PATCH] soc: fsl: dpio: publish the dpaa2_io object only after it is initialised
+Date: Wed, 30 Sep 2026 20:08:45 -0400
+Message-ID: <20261001000845.3627423-1-anthony.pighin@nokia.com>
+X-Mailer: git-send-email 2.43.0
+In-Reply-To: <20260921-mb-dpio-v1-1-9e24539059c1@vt.edu>
+References: <20260921-mb-dpio-v1-1-9e24539059c1@vt.edu>
+Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 8bit
-Subject: Re: [PATCH net v4] net: stmmac: do not keep the new TSO MSS cached on
- mapping failures
-From: patchwork-bot+netdevbpf@kernel.org
-Message-Id: <179081281177.2182141.16737247267026791615.git-patchwork-notify@kernel.org>
-Date: Thu, 01 Oct 2026 00:00:11 +0000
-References: <20260928123422.1698785-1-xiaolinkui@126.com>
-In-Reply-To: <20260928123422.1698785-1-xiaolinkui@126.com>
-To: Linkui Xiao <xiaolinkui@126.com>
-Cc: maxime.chevallier@bootlin.com, andrew+netdev@lunn.ch, davem@davemloft.net,
- edumazet@google.com, kuba@kernel.org, pabeni@redhat.com,
- mcoquelin.stm32@gmail.com, alexandre.torgue@foss.st.com,
- netdev@vger.kernel.org, linux-stm32@st-md-mailman.stormreply.com,
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
- xiaolinkui@kylinos.cn, stable@vger.kernel.org
+X-ClientProxiedBy: CH2PR08CA0012.namprd08.prod.outlook.com
+ (2603:10b6:610:5a::22) To BN0PR08MB6951.namprd08.prod.outlook.com
+ (2603:10b6:408:128::14)
+MIME-Version: 1.0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: BN0PR08MB6951:EE_|LY0PR08MB296823:EE_
+X-MS-Office365-Filtering-Correlation-Id: 331335be-d2d8-442e-81ee-08df1f50696f
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|366016|23010399003|1800799024|376014|18002099003|22082099003|10067099003|56012099006|11063799006;
+X-Microsoft-Antispam-Message-Info: NZBYf3jqe4JKpG9rsmQJRGrkhksv7w/Hj/jB8N4JMrAxjBFjxXOT2cPIq1oBSCgcJLduxV8McXWlEw8iJdEbahDkluZyFrTitbxtKGRGxYWVVb9nWJJGbCmlCeQGXgr4lWMf4hjx6vnocMkNt1LZRMzCxfEQ2Vf8nMRMpw1a/uG8e7+ruHHOe49tKz5D5u2JjixAmtDDK+3ofaFh/eNydaB3Q2mf9h8CsKfWaR5oLCVJdkgByISu6pCqzVGrCmPcuz1cowDtbssFFzOX5I9OlJ8TWQ+zUk4YI/Aide1289ShqmNZt0l5suB40YPAhX027Yjh+WF6SfecdYFNT0mBbYvG5gUwwImEMnKzK+P4PZxA3yHjn/MYfVBgjaCsaSu5kbyNS2PCFTcY9pMX9oyam766x27nhokQBJ4goiUr4+z8Q//Z42BEk+bCwNTOSeXsWsAYtwn/ie+oA55Vg13vPczJkULurTesSyXOOapx9U+D6EB5pyLQ7/w7z+M8NAcu9VtGL99t6CpCrcRgFieQ3bnIepMEhcGCRzCTQ50o+Aefcxlss0ifQzevcpKWHOu1Fe8Af76IFd52BsnWW1xrruIMlbje1U0bTF63TmfSI83l9IWr4th7kTHzhaiQqLBBDsJUWaThlEPyOCrs/UXsggFYAal4eHWHc3mKhwUZddk=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:BN0PR08MB6951.namprd08.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(23010399003)(1800799024)(376014)(18002099003)(22082099003)(10067099003)(56012099006)(11063799006);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?TEpSaHNCSUJBUVc4dC9jdUtzbTJOZVZXYmVZUzVVUzBYaHdJSDhJc3VsVWIw?=
+ =?utf-8?B?bHdiTnpoalBmQkhqcHV5LzQ4akhZcGJnd0VBYUhKSjJYNFJNSkc0MVR0Y3FS?=
+ =?utf-8?B?bFVIUmRCNGFwZXpMVktSRVQ1ZUdHSGZGbU9ZSCt3TjhtcEE2R3ZEM3p4RzZM?=
+ =?utf-8?B?azM2QmY5eXRYb01kK0VzYzh1RlVzMDdZSGlJTnh5V0dveWo5ZE1aUjdYdG01?=
+ =?utf-8?B?VjJKWnVEbGtKLzFNU0FmOG9WcFFSNlBQYW1LOEpxNDg5TjdUaFQzdVFJK3JM?=
+ =?utf-8?B?c3dxeU5DakplWjRCWHNHV1ZkZzhNV3ZWeHF4R2ptTjNkdW9lZGtNcVVtaEVP?=
+ =?utf-8?B?SWh3QkRKUzlzZDRjdHVFeEplMXlHQUJjdzlBemZuQWUydk4rcmVkenVPU0tD?=
+ =?utf-8?B?V3E2VWxtemtyUERhQy9HVDI1NHRlb0lkNXBzVVR5emVFcTlLcmtUWVhhU1Rl?=
+ =?utf-8?B?cEx6NjJkd0JEZkthMEtma1ZqaUxUaEU5NlVZUmR3dU1TYU5ybTVGaEI2d1VQ?=
+ =?utf-8?B?ZVY1TW5pTDd4OEIvaHZ4ZmViTU42NXFWUWhhQWZPMXdVV0gwSG9GdElEczBU?=
+ =?utf-8?B?eWV1ZDNpb3FoVE1uWmRocFFmOENBU2htcFBQTE9nTGRZRmR2YytYbWQ4REdD?=
+ =?utf-8?B?RXRlbXRDQ3pnbXFGTUs5TzBRbjRmVmdVTHVLRUNSWXY1akx5UEhhU1lrdlkx?=
+ =?utf-8?B?QittN3JWYlp2eU8zRHh0M0pJWFcrR0FFRExKa3hZcXJneGgva1pKN2tqMUZ5?=
+ =?utf-8?B?dDBFUWZDOEROOHdQNytFSDNPdk94UnpzWGRjRncwSzlxSkZmbWJvUGFoSGdi?=
+ =?utf-8?B?RkpDQzRqNDFzMGtjVVJPeWY3VUJtakVMOHJCdTRWbmRwS0QraDYvZVFDTjJX?=
+ =?utf-8?B?NTcxK3A3a3k1TUpESnRnbzNUV0hYK0t0U21SNzQ4VzdCSk9DVEJ1RHVDR0E0?=
+ =?utf-8?B?RS9KRVlVcU15QWtuYXgvdnlxUzNLTjdXWUFOalRBcjllZU1rckxXcU50R0t6?=
+ =?utf-8?B?RVFYSzRwQlJZa014VkxHQ3MrVUMxakZZOFVabUdtakRKYjJDcG15djFaRlhu?=
+ =?utf-8?B?K3FWVzlKK3Frc2UvMEdreG13eEk1L3FRTTNhZDVpWStqQ1BlcE9WZzUzVzBh?=
+ =?utf-8?B?VkJISXU3SlZVakFicEJ0ZHZ5RXp5MkNpUUF4T3RsaWpzTmxVTWJHOUZSNFo4?=
+ =?utf-8?B?c3dEME5nOEVhSXJrUVJmd2lEVXVrQWh3ZElUbkhtckhKYkVubnJKeDdWemU3?=
+ =?utf-8?B?V3hjdW9rS3FjL0dwbFNCNUpsMTR5MStaZDZjMnVwbEVxejNIUDE3dDZNUjJ2?=
+ =?utf-8?B?V3ZnTnNPbG1EU01YejFWR3RtRjV0Tmd0azRPQjYxb051NmRJYzM0dUVaL1Ru?=
+ =?utf-8?B?Y3JHTnB3endEWUFwZDFsaGszSE5CQTE4V21BL2lWOVBsNnNCNU1DU1phMHkx?=
+ =?utf-8?B?bHdtZGNOVS9lcEV2OHVIZTh1MURobUxTTHBTS1RhdzlPNTYyNkJDTW4wek5s?=
+ =?utf-8?B?MDh3YU4wYm15VW81MDRqN25BZnZvZmtCRDdhMHF6OE9QL3k5Mkg4MndWeUJG?=
+ =?utf-8?B?ZEtqczd2R1J3UXNhRXRBUkE2V1NEaDMwUWZXWWN3eE1BYkJERFN3T25OdDZr?=
+ =?utf-8?B?MnJtcDJjK1kyR1BMY2toZjBqL2ZxbmxDRzJ3OEgrSTkrbDJmMnNlTWVEUVpN?=
+ =?utf-8?B?OVZCckxNRlRCaUkrQ1p1QjY5akNJblRaeWxVS3F1R0Ntd3BEYmZRWlR0WnRX?=
+ =?utf-8?B?Z3FUUERaZUVmajVOczVJUWdNYXU4c2RFQWlPVG0zdlBad2loVmdKUWNVSW94?=
+ =?utf-8?B?d25lZlNWbVlxZnY1LzdzSjdPRWJLMlRlZTFVcGYxYkd6RldkL0lkQ2EwUlhy?=
+ =?utf-8?B?bkh1SkZxbGNYU0RNWHkxZDQvV28zWFhRTVpFaVk2c2JiMEpCVUtIYnIrRk4x?=
+ =?utf-8?B?RkwvS0xRODZGYUtBbFhxc2UxbDJnSkRkRzl3ZWV6eENINEdGZlVGSGg2WXRF?=
+ =?utf-8?B?UzRsYTVLUGdHNHBwbkdJWVk1cWVSNkZ3S3dDeks0Q21zVUtDOUhiV3JQMzNH?=
+ =?utf-8?B?T2hDay9Lc0J6Yzh6bXZVM0NvZGRVQ3d3QldER1h0eTBpU1hlNFBDb3BEVWdD?=
+ =?utf-8?B?RHpMMXJsc3c4QkttdW1WV2JRcGY2NHA2RUQ3bEpmVVpLRVdjOHN2VnJsUnln?=
+ =?utf-8?B?U3JsOHl1MnZKdFkySUh2VHIvdG8zb09HSUxOUVZxbCtyRURQZEV0OEpBcmpQ?=
+ =?utf-8?B?Q0hEa2o5ZWErV0dZRXMvQjNmMFJjNTdrUlU1M3R1QXdVcTZZRmFWcGN0V1ps?=
+ =?utf-8?B?bDFidFpsb2d0TzhkTERNUXozY01sYk9pZzBhMExOZHkwdVpJQnUxQT09?=
+X-OriginatorOrg: nokia.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 331335be-d2d8-442e-81ee-08df1f50696f
+X-MS-Exchange-CrossTenant-AuthSource: BN0PR08MB6951.namprd08.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 01 Oct 2026 00:10:33.8138
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 5d471751-9675-428d-917b-70f44f9630b0
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: W/gUmwuE1V2rk2AS63/l3wG9UIyWgQArZL1cj8D2UvNm6WD2B9+Vf6Rdih25rT/EUVB4gYLWqDpTWuoLahv9YaBM52uFXaqN/GYeu2Fis/M=
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: LY0PR08MB296823
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260930_171041_128195_CAEB403A 
+X-CRM114-Status: GOOD (  10.17  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -76,31 +148,35 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hello:
+On Mon, Sep 22, 2026, Jaidev Shastri wrote:
+> obj->dev is assigned after the lock is dropped, so a reader can pick the
+> object up and pass a NULL supplier to device_link_add(), which fails
+> with -EINVAL and fails the consumer's probe.
 
-This patch was applied to netdev/net-next.git (main)
-by Jakub Kicinski <kuba@kernel.org>:
+The object comes from kmalloc(), so obj->dev is not NULL but whatever
+was left in that memory. We hit this on LX2160A boards as an
+intermittent boot panic, with the deferred dpaa2-eth probe racing the
+DPIO probes.
 
-On Mon, 28 Sep 2026 20:34:22 +0800 you wrote:
-> From: Linkui Xiao <xiaolinkui@kylinos.cn>
-> 
-> stmmac_tso_xmit() fills the MSS context descriptor and stores the new MSS
-> in tx_q->mss right away, but the descriptor only gets its OWN bit much
-> later, right before the frame is handed to the DMA. Every error path in
-> between - the dma_map_single() of the linear part and the
-> skb_frag_dma_map() of each fragment - returns with tx_q->mss already
-> updated while the MAC is still programmed with the previous MSS.
-> 
-> [...]
+  Unable to handle kernel paging request at virtual address deadbeefdeadbfd7
+  pc : device_link_add+0x80/0x700
+  x20: deadbeefdeadbeef
+  Call trace:
+   device_link_add+0x80/0x700
+   dpaa2_io_service_register+0x40/0x120 [fsl_mc_dpio]
+   dpaa2_eth_setup_dpio+0x128/0x468 [fsl_dpaa2_eth]
+   dpaa2_eth_probe+0x1dc/0x908 [fsl_dpaa2_eth]
 
-Here is the summary with links:
-  - [net,v4] net: stmmac: do not keep the new TSO MSS cached on mapping failures
-    https://git.kernel.org/netdev/net-next/c/6b76e4efe73f
+Widening the window with an msleep(50) after the spin_unlock() makes it
+panic on every boot. With this patch applied to 6.12 and the same
+msleep(50) kept after the spin_unlock(), five boots in a row were clean.
 
-You are awesome, thank you!
--- 
-Deet-doot-dot, I am a bot.
-https://korg.docs.kernel.org/patchwork/pwbot.html
+Since this crashes real systems, could v2 say so in the commit message
+and carry these tags so it reaches the stable kernels?
 
+Fixes: cf9ff75d15a9 ("soc: fsl: dpio: store a backpointer to the device backing the dpaa2_io")
+Fixes: 69651bd8d303 ("soc: fsl: dpio: add Net DIM integration")
+Cc: stable@vger.kernel.org
 
+Tested-by: Anthony Pighin <anthony.pighin@nokia.com>
 
