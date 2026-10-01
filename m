@@ -4,86 +4,82 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5A268CA5FD4
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  1 Oct 2026 12:41:30 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8A659CA5FD2
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  1 Oct 2026 12:43:02 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
-	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:
-	References:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:
-	Subject:Date:From:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=L4DAEUEEV+8YVCAjeouZ8Q/vmRziuBWjR3LDXiMkcik=; b=lSHSBbF0B7x90Q5YNFAp64YQT5
-	Z09+40ctgMyUw3UCNl2lJTII+FgiaFLKNfTbKtIbOFUdp3DC9bl/fdQfJYFCFW9BiK3bqkSnAeuox
-	ZpUnNBnuGufaV0sBXVzi4YncbfG5Mrv68NhDSIh33b7lmeNC5lX+3q21uVaoy3p8Lk7tdgHZ9j9bj
-	nufPTkFaP3SLi7BsoeMUYq9/XhsEsnvNa7XMuaG+xc8C68JeL0A3XvaXYOBRNcV07x/xSdVq91gmC
-	hebOL5l6Ra8KUn0kL5WYpnX9yQKa1YGfYtEB7UTb6SEb+Yt5xgPvBeBuQQ45cl7+8Fb6UMnFo4PWV
-	G0EJe08w==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=kFketbQjFOXUjzZoyDe0MakWl3/d+LeuaEIKcQrTGks=; b=DN7mWxbMDvc6om
+	EWz/GjGnrqFXtEnEzo1jAg5f+0TDyEN2EwtojKJjInW9V+/a3Y3Eug7CoKizhru39OqbBIZjnpEFy
+	U5u3/lNFRwBWUFThHyVzKdCtbnBd+zFdcLwEf9Yf9NUPA4KxFlaNsts+acBjMPS85zQGWFhWcC0v7
+	yXYklubKR8FIFqH2G/VKpTz04LBegTmyPJSeXjpFB5kOC35SZtzJZvBoA884BmJc2Haa4ziwDHwDE
+	MRQzdDmDxQLqtRbE86Ugwa7bYQ9+xFUBfEmc9OkmI+dzOfG/PNpXlI1rE5sceqvmsvsdHtzP/oz3M
+	r2wt4dgNN8pFTbs9ZXDQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xCG61-000000094rZ-2FCO;
-	Thu, 01 Oct 2026 12:41:09 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1xCG7j-000000096BO-3WI4;
+	Thu, 01 Oct 2026 12:42:55 +0000
+Received: from smtpout-03.galae.net ([185.246.85.4])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xCG5t-000000094mI-49le
+	id 1xCG7f-000000096Ab-0pB2
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 01 Oct 2026 12:41:02 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 3C6074401B;
-	Thu,  1 Oct 2026 12:41:01 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPS id CF7F2C4AF63;
-	Thu,  1 Oct 2026 12:41:00 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1790858460;
-	bh=A6TKI0IEGVMFdx8CFDfSgaU1YD5Nt5zfxVsEGII7wcY=;
-	h=From:Date:Subject:References:In-Reply-To:To:Cc:Reply-To:From;
-	b=B0FhEXetmubFk5A0uAW8VT7IuslY1koHHJFebMms3DZ1wdwpMEAQb6ztcVaGGNV3/
-	 FGTZI+bsb1TAL719VKn59RvRb+ktU77ubFd/WAgOZ59HwA5W/aRAcYLJPQS4BVfZYY
-	 7LXkuI6XKUogQ+t0DY63kK69PlOAmsD1qDMld0T+2ongPDy6/ji5AROhO2BJttQX8H
-	 g5GCG+0G1URetpCzyNUYGDPrM33x99S0AmCc2xI3goUnrtNUo3u0JLrRPq2r1cq3wk
-	 vkbCEr20xoz+EqpKwcUGiriVGnzoky0k/iHptaqo/gLks87qY9UzBXdZvQ3vuN5K9N
-	 oCc4+fSupmG9w==
-Received: from aws-us-west-2-korg-lkml-1.web.codeaurora.org (localhost.localdomain [127.0.0.1])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id B8E48CA5FD4;
-	Thu,  1 Oct 2026 12:41:00 +0000 (UTC)
-From: Long Zhao via B4 Relay <devnull+longzhao.ambarella.com@kernel.org>
-Date: Thu, 01 Oct 2026 20:40:57 +0800
-Subject: [PATCH v9 08/15] gpio: pl061: convert register access to regmap
+	Thu, 01 Oct 2026 12:42:53 +0000
+Received: from smtpout-01.galae.net (smtpout-01.galae.net [212.83.139.233])
+	by smtpout-03.galae.net (Postfix) with ESMTPS id 068BA4E42328;
+	Thu,  1 Oct 2026 12:42:46 +0000 (UTC)
+Received: from mail.galae.net (mail.galae.net [212.83.136.155])
+	by smtpout-01.galae.net (Postfix) with ESMTPS id C61B960341;
+	Thu,  1 Oct 2026 12:42:45 +0000 (UTC)
+Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 2E213103280FE;
+	Thu,  1 Oct 2026 14:42:28 +0200 (CEST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=dkim;
+	t=1790858559; h=from:subject:date:message-id:to:cc:mime-version:content-type:
+	 content-transfer-encoding; bh=kFketbQjFOXUjzZoyDe0MakWl3/d+LeuaEIKcQrTGks=;
+	b=YeAjWJTtzK0mgeoheHoQE4I1w8iqNuG7ku5pdUyQjq+lONZ42TVvAtPZEHvQoPaVRSVHjQ
+	B2lEpNs2kRjn9374NpbFWVwAmRCbm4sMysU8UJVB6Uu9YDPDQ3K47eqKrTEbmhNXOD7WeX
+	H56ubf67yPO/tcHPAOn0k12PvRa3UvbLVzem2xuhDhJkeLj6nbxAaBtdFUIoXVeIG7fnFz
+	ayADvRCCQ1nHfmgi2WxYG0oENac3B40kCjHCAR+/KnLrNYjQ6wO3KbUgUwlWEnclM8zMir
+	9+yGJKcNIuQnOQOQQA2XyArSuQKVWz7a42j83d7uRZ30QwZdIA5eUMjQ3ANJ0Q==
+From: Luca Ceresoli <luca.ceresoli@bootlin.com>
+Subject: [PATCH RFC v2 00/24] drm bridge hotplug
+Date: Thu, 01 Oct 2026 14:42:22 +0200
+Message-Id: <20261001-drm-bridge-hotplug-v2-0-8e34986dcb68@bootlin.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20261001-cv75-v5-v9-8-486cc289a4b8@ambarella.com>
-References: <20261001-cv75-v5-v9-0-486cc289a4b8@ambarella.com>
-In-Reply-To: <20261001-cv75-v5-v9-0-486cc289a4b8@ambarella.com>
-To: Arnd Bergmann <arnd@arndb.de>, Krzysztof Kozlowski <krzk@kernel.org>, 
- Alexandre Belloni <alexandre.belloni@bootlin.com>, soc@lists.linux.dev, 
- linux-arm-kernel@lists.infradead.org
-Cc: Long Zhao <longzhao@ambarella.com>, Rob Herring <robh@kernel.org>, 
- Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>, 
- Michael Turquette <mturquette@baylibre.com>, 
- Stephen Boyd <sboyd@kernel.org>, Jerome Brunet <jbrunet@baylibre.com>, 
- Linus Walleij <linusw@kernel.org>, Bartosz Golaszewski <brgl@kernel.org>, 
- Michael Walle <mwalle@kernel.org>, 
- Greg Kroah-Hartman <gregkh@linuxfoundation.org>, 
- Jiri Slaby <jirislaby@kernel.org>, 
- Andy Shevchenko <andriy.shevchenko@linux.intel.com>, 
- =?utf-8?q?Ilpo_J=C3=A4rvinen?= <ilpo.jarvinen@linux.intel.com>, 
- Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>, 
- Long Zhao <zl020895@163.com>, Lee Jones <lee@kernel.org>, 
- mfd@lists.linux.dev, devicetree@vger.kernel.org, linux-clk@vger.kernel.org, 
- linux-gpio@vger.kernel.org, linux-serial@vger.kernel.org, 
- linux-kernel@vger.kernel.org
-X-Mailer: b4 0.15.2
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1790858457; l=11303;
- i=longzhao@ambarella.com; s=20260730; h=from:subject:message-id;
- bh=uA7OlKuOGQYG2GvBwBpLkW2V50ylczQZjnla8/gJ09Q=;
- b=UVxJ8/cur2KGMQAJzKg6fp3KkLU3VEVcTrEHp5lxCvYPWKyyHxBi6wCPMHIq0w2xRFaq7Xb0m
- kzZzzTajgOrDM9exQ19sNHcXbtJdWRpDrzqiPsWUiQNzeUjSeJvWqVc
-X-Developer-Key: i=longzhao@ambarella.com; a=ed25519;
- pk=/xGhPTOX0/eYsyTWzyjjgAIW1Z/YD+IlnOnvcdRozow=
-X-Endpoint-Received: by B4 Relay for longzhao@ambarella.com/20260730 with
- auth_id=903
-X-Original-From: Long Zhao <longzhao@ambarella.com>
+Content-Transfer-Encoding: 8bit
+X-B4-Tracking: v=1; b=H4sIAAAAAAAC/22Oyw6CMBBFf4XM2hoolKgrExM/wK1hQekAY4BiW
+ 4iG8O+Wx9LlnTlzz0xg0RBauAQTGBzJku584IcAijrvKmSkfAYe8jQUkWDKtEwaUn5Ta9c3Q8W
+ SlKdCxTkvTwL8YW+wpM9a+oTH/QbZNrSDfGHhlrodM/gevNJt7ILVZJ023/WfMVobdvX5n3qMW
+ MgSgVwqGatSJleptWuoOxa6hWye5x/+A2x14gAAAA==
+X-Change-ID: 20260515-drm-bridge-hotplug-46265d3a2f85
+To: Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, 
+ Maxime Ripard <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>, 
+ David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>, 
+ Andrzej Hajda <andrzej.hajda@intel.com>, 
+ Neil Armstrong <neil.armstrong@linaro.org>, Robert Foss <rfoss@kernel.org>, 
+ Laurent Pinchart <Laurent.pinchart@ideasonboard.com>, 
+ Jonas Karlman <jonas@kwiboo.se>, Jernej Skrabec <jernej.skrabec@gmail.com>, 
+ Inki Dae <inki.dae@samsung.com>, Jagan Teki <jagan@amarulasolutions.com>, 
+ Marek Szyprowski <m.szyprowski@samsung.com>, 
+ Jessica Zhang <jesszhan0024@gmail.com>, 
+ Douglas Anderson <dianders@chromium.org>, Marek Vasut <marex@denx.de>, 
+ Stefan Agner <stefan@agner.ch>, Frank Li <Frank.Li@nxp.com>, 
+ Sascha Hauer <s.hauer@pengutronix.de>, 
+ Pengutronix Kernel Team <kernel@pengutronix.de>, 
+ Fabio Estevam <festevam@gmail.com>
+Cc: Hui Pu <Hui.Pu@gehealthcare.com>, Ian Ray <ian.ray@gehealthcare.com>, 
+ Luca Ceresoli <luca.ceresoli@bootlin.com>, 
+ Thomas Petazzoni <thomas.petazzoni@bootlin.com>, 
+ dri-devel@lists.freedesktop.org, linux-kernel@vger.kernel.org, 
+ imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org
+X-Mailer: b4 0.16.0
+X-Last-TLS-Session-Version: TLSv1.3
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20261001_054251_537378_121B9030 
+X-CRM114-Status: GOOD (  18.89  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -95,346 +91,230 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
-Reply-To: longzhao@ambarella.com
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Long Zhao <longzhao@ambarella.com>
+Hello,
 
-Replace readb()/writeb() with a MMIO regmap while keeping the existing
-gpio_chip and girq irqchip. Use a raw spinlock so irq_ack() can run
-under the irq descriptor lock.
+this series adds support for Linux-based devices with a DRM pipeline whose
+final components, including one or more bridges, can be hot-plugged and
+hot-unplugged
 
-Reviewed-by: Linus Walleij <linusw@kernel.org>
-Signed-off-by: Long Zhao <longzhao@ambarella.com>
+For more about the use case see the v1 cover letter:
+https://lore.kernel.org/lkml/20260519-drm-bridge-hotplug-v1-0-45e2bdb3dfb4@bootlin.com/
+
+For reviewers with limited time for review
+==========================================
+
+These are the patches with the core changes and likely needing review and
+discussion (most relevant first):
+
+ * 23: the new drm_hotplug_helper (the main patch)
+ * 24: an example usage
+ * 5-6: the main changes to the bridge-connector
+ * 17-22: the new get_next_bridge bridge func
+
+The following can be skipped at this iteration, changes have been requested
+in the v1 discussion but not yet implemented, and these patches are not
+crucial:
+
+ * 10-12: still needs rewording
+ * 13-16: need docs, still todo
+
+Design
+======
+
+The drm_bridge_connector is nowadays the recommended way to implement DRM
+connectors when a chain of bridges is used.
+
+This series proposes a small helper (drm_hotplug_helper) which drivers can
+use to make their encoder able to:
+
+ * receive hotplug-relevant events
+ * add a drm_bridge_connector when a new bridge is added making the
+   pipeline complete in the hardware
+ * remove the drm_bridge_connector when a bridge is removed
+ 
+Series layout
+=============
+
+ A. Add a dynamic variant of drmm_connector_hdmi_init()
+    (needed for the bridge-connector to allocate the connector dynamically)
+
+      1 drm/connector: split drmm_connector_hdmi_init() in 3 parts
+      2 drm/connector: add drm_connector_hdmi_dynamic_init()
+
+ B. bridge-connector: use a dynamic drm_connector
+
+      3 drm/display: bridge-connector: split code allocation from initialization
+      4 drm/display: bridge-connector: hoist error management to common code
+      5 drm/display: bridge-connector: use a dynamic connector
+      6 drm/display: bridge-connector: add APIs to add/remove the connector dynamically
+
+ C. Misc preparation work
+
+      7 drm/bridge: samsung-dsim: move drm_bridge_add() call to probe
+      8 drm/bridge: initialize chain_node list head on allocation
+      9 drm/bridge: initialize chain_node list head on detach and attach errors
+
+ D. drm_bridge: stop pipeline when a bridge is removed
+
+     10 drm/encoder: add drm_encoder_cleanup_from()
+     11 drm/atomic: move drm_atomic_helper_disable_all() and drm_atomic_helper_shutdown() from drm_atomic_helper to drm_atomic
+     12 drm/bridge: shutdown and cleanup on bridge unplug
+
+ E. Add notifier mechanism to let common code (the bridge-connector)
+    take actions on hotplug events
+
+     13 drm/mipi-dsi: turn DRM_MIPI_DSI into a tristate
+     14 drm: event-notifier: add mechanism to notify about hotplug events
+     15 drm/bridge: notify about detached bridges
+     16 drm/mipi-dsi: notify about DSI attach
+
+ F. Let bridges return their next bridge
+    (allows to know when the pipeline is complete)
+
+     17 drm/bridge: add drm_bridge_get_next() and supporting func
+     18 drm/panel: implement .get_next_bridge
+     19 drm/bridge: display-connector: implement .get_next_bridge
+     20 drm/bridge: ti-sn65dsi83: implement .get_next_bridge
+     21 drm/bridge: ti-sn65dsi86: implement .get_next_bridge
+     22 drm/bridge: samsung-dsim: implement .get_next_bridge
+
+ G. Implement bridge hotplug in bridge-connector, enable it in a driver
+
+     23 drm: drm_hotplug_helper: new helper to implement bridge hotplug
+     24 drm/mxsfb/lcdif: enable bridge hotplug
+
+== Grand plan
+
+This is part of the work to support hotplug of DRM bridges. The grand plan
+was initially discussed in [0].
+
+Here's the work breakdown (➜ marks the current series):
+
+ 1. … add refcounting to DRM bridges struct drm_bridge,
+      based on devm_drm_bridge_alloc()
+    A. ✔ add new alloc API and refcounting (v6.16)
+    B. ✔ convert all bridge drivers to new API (v6.17)
+    C. ✔ kunit tests (v6.17)
+    D. ✔ add get/put to drm_bridge_add/remove() + attach/detach()
+         and warn on old allocation pattern (v6.17)
+    E. … add get/put on drm_bridge accessors
+       1. ✔ drm_bridge_chain_get_first_bridge(), add cleanup action (v6.18)
+       2. ✔ drm_bridge_get_prev_bridge() (v6.18)
+       3. ✔ drm_bridge_get_next_bridge() (v6.19)
+       4. ✔ drm_for_each_bridge_in_chain() (v6.19)
+       5. ✔ drm_bridge_connector_init (v6.19)
+       6. ✔ protect encoder bridge chain with a mutex (v7.2)
+       7. ✔ of_drm_find_bridge
+          a. ✔ add of_drm_get_bridge() (v7.0),
+               convert basic direct users (v7.0-v7.1)
+          b. ✔ convert direct of_drm_get_bridge() users, part 2 (v7.0)
+          c. ✔ convert direct of_drm_get_bridge() users, part 3 (v7.0)
+          d. ✔ convert direct of_drm_get_bridge() users, part 4 (v7.1-v7.2)
+          e. ✔ bridge-only drm_of_find_panel_or_bridge() users (v7.2)
+       8. … panel_bridge lifetime
+          a. ✔ cleanup DRM_PANEL in bridge drivers (v7.4)
+	  b. ✔ embed a drm_bridge in every drm_panel (v7.4)
+	  c. … remove deprecated *_of_get_bridge(): non-OF drivers
+	  d.   remove deprecated *_of_get_bridge(): OF drivers
+       9. ✔ enforce drm_bridge_add before drm_bridge_attach (v6.19)
+    F. ✔ debugfs improvements
+       1. ✔ add top-level 'bridges' file (v6.16)
+       2. ✔ show refcount and list lingering bridges (v6.19)
+ 2. ✔ handle gracefully atomic updates during bridge removal
+    A. ✔ Add drm_bridge_enter/exit() to protect device resources (v7.0)
+    B. ✔ Add drm_bridge_clear_and_put() (v7.1)
+ 3. … DSI host-device driver interaction
+ 4. ✔ removing the need for the "always-disconnected" connector
+ 5. ✔ Migrate i.MX LCDIF driver to bridge-connector (v7.2)
+ 6. ➜ DRM bridge hotplug
+    A. ➜ Bridge hotplug management in the DRM core
+       1. ✔ bridge-connector: attach encoder to the connector (v7.2)
+       2. ➜ drm bridge hotplug
+    B.   Device tree description
+
+[0] https://lore.kernel.org/lkml/20250206-hotplug-drm-bridge-v6-0-9d6f2c9c3058@bootlin.com/#t
+   
+
 ---
- drivers/gpio/Kconfig      |   1 +
- drivers/gpio/gpio-pl061.c | 134 ++++++++++++++++++++++++++++++----------------
- 2 files changed, 89 insertions(+), 46 deletions(-)
+Changes in v2:
+- Rewrote: added new drm_hotplug_helper, dropped most changes to drm_bridge_connector
+- Added get_next_bridge func, dropped is_tail func
+- Rebased on drm-misc-next, which required a few reworks
+- Fix dynconn mutex locking
+- Fix sashiko-reported bugs
+- Drop "drm/display: bridge-connector: store the drm_device pointer", not
+  strongly needed, and adapt the remaining patches
+- Simplify handle_hpd code types
+- Lots of other smaller improvements
+- Link to v1: https://patch.msgid.link/20260519-drm-bridge-hotplug-v1-0-45e2bdb3dfb4@bootlin.com
 
-diff --git a/drivers/gpio/Kconfig b/drivers/gpio/Kconfig
-index f03c05288376..2a1487bd1a94 100644
---- a/drivers/gpio/Kconfig
-+++ b/drivers/gpio/Kconfig
-@@ -583,6 +583,7 @@ config GPIO_PL061
- 	depends on ARM_AMBA || COMPILE_TEST
- 	select IRQ_DOMAIN
- 	select GPIOLIB_IRQCHIP
-+	select REGMAP_MMIO
- 	help
- 	  Say yes here to support the PrimeCell PL061 GPIO device.
- 
-diff --git a/drivers/gpio/gpio-pl061.c b/drivers/gpio/gpio-pl061.c
-index 919cf86fd590..66aea0856bc4 100644
---- a/drivers/gpio/gpio-pl061.c
-+++ b/drivers/gpio/gpio-pl061.c
-@@ -19,9 +19,11 @@
- #include <linux/ioport.h>
- #include <linux/irq.h>
- #include <linux/irqchip/chained_irq.h>
-+#include <linux/log2.h>
- #include <linux/module.h>
- #include <linux/pinctrl/consumer.h>
- #include <linux/pm.h>
-+#include <linux/regmap.h>
- #include <linux/seq_file.h>
- #include <linux/slab.h>
- #include <linux/spinlock.h>
-@@ -36,6 +38,7 @@
- #define GPIOIC  0x41C
- 
- #define PL061_GPIO_NR	8
-+#define PL061_DATA_OFFSET	2
- 
- struct pl061_context_save_regs {
- 	u8 gpio_data;
-@@ -49,18 +52,49 @@ struct pl061_context_save_regs {
- struct pl061 {
- 	raw_spinlock_t		lock;
- 
--	void __iomem		*base;
-+	struct regmap		*regmap;
- 	struct gpio_chip	gc;
- 	int			parent_irq;
- 
- 	struct pl061_context_save_regs csave_regs;
- };
- 
-+static bool pl061_is_data_reg(unsigned int reg)
-+{
-+	return is_power_of_2(reg) &&
-+	       reg >= BIT(PL061_DATA_OFFSET) &&
-+	       reg <= BIT(PL061_DATA_OFFSET + PL061_GPIO_NR - 1);
-+}
-+
-+static bool pl061_volatile_reg(struct device *dev, unsigned int reg)
-+{
-+	switch (reg) {
-+	case GPIOMIS:
-+	case GPIOIC:
-+		return true;
-+	default:
-+		return pl061_is_data_reg(reg);
-+	}
-+}
-+
-+static const struct regmap_config pl061_regmap_config = {
-+	.reg_bits = 16,
-+	.val_bits = 8,
-+	.reg_stride = 4,
-+	.max_register = GPIOIC,
-+	.volatile_reg = pl061_volatile_reg,
-+	.fast_io = true,
-+	.use_raw_spinlock = true,
-+};
-+
- static int pl061_get_direction(struct gpio_chip *gc, unsigned offset)
- {
- 	struct pl061 *pl061 = gpiochip_get_data(gc);
-+	unsigned int gpiodir = 0;
- 
--	if (readb(pl061->base + GPIODIR) & BIT(offset))
-+	regmap_read(pl061->regmap, GPIODIR, &gpiodir);
-+
-+	if (gpiodir & BIT(offset))
- 		return GPIO_LINE_DIRECTION_OUT;
- 
- 	return GPIO_LINE_DIRECTION_IN;
-@@ -70,12 +104,9 @@ static int pl061_direction_input(struct gpio_chip *gc, unsigned offset)
- {
- 	struct pl061 *pl061 = gpiochip_get_data(gc);
- 	unsigned long flags;
--	unsigned char gpiodir;
- 
- 	raw_spin_lock_irqsave(&pl061->lock, flags);
--	gpiodir = readb(pl061->base + GPIODIR);
--	gpiodir &= ~(BIT(offset));
--	writeb(gpiodir, pl061->base + GPIODIR);
-+	regmap_update_bits(pl061->regmap, GPIODIR, BIT(offset), 0);
- 	raw_spin_unlock_irqrestore(&pl061->lock, flags);
- 
- 	return 0;
-@@ -86,19 +117,19 @@ static int pl061_direction_output(struct gpio_chip *gc, unsigned offset,
- {
- 	struct pl061 *pl061 = gpiochip_get_data(gc);
- 	unsigned long flags;
--	unsigned char gpiodir;
-+	unsigned int mask = BIT(offset);
- 
- 	raw_spin_lock_irqsave(&pl061->lock, flags);
--	writeb(!!value << offset, pl061->base + (BIT(offset + 2)));
--	gpiodir = readb(pl061->base + GPIODIR);
--	gpiodir |= BIT(offset);
--	writeb(gpiodir, pl061->base + GPIODIR);
-+	regmap_write(pl061->regmap, BIT(offset + PL061_DATA_OFFSET),
-+		     !!value << offset);
-+	regmap_update_bits(pl061->regmap, GPIODIR, mask, mask);
- 
- 	/*
- 	 * gpio value is set again, because pl061 doesn't allow to set value of
- 	 * a gpio pin before configuring it in OUT mode.
- 	 */
--	writeb(!!value << offset, pl061->base + (BIT(offset + 2)));
-+	regmap_write(pl061->regmap, BIT(offset + PL061_DATA_OFFSET),
-+		     !!value << offset);
- 	raw_spin_unlock_irqrestore(&pl061->lock, flags);
- 
- 	return 0;
-@@ -107,15 +138,19 @@ static int pl061_direction_output(struct gpio_chip *gc, unsigned offset,
- static int pl061_get_value(struct gpio_chip *gc, unsigned offset)
- {
- 	struct pl061 *pl061 = gpiochip_get_data(gc);
-+	unsigned int val = 0;
-+
-+	regmap_read(pl061->regmap, BIT(offset + PL061_DATA_OFFSET), &val);
- 
--	return !!readb(pl061->base + (BIT(offset + 2)));
-+	return !!val;
- }
- 
- static int pl061_set_value(struct gpio_chip *gc, unsigned int offset, int value)
- {
- 	struct pl061 *pl061 = gpiochip_get_data(gc);
- 
--	writeb(!!value << offset, pl061->base + (BIT(offset + 2)));
-+	regmap_write(pl061->regmap, BIT(offset + PL061_DATA_OFFSET),
-+		     !!value << offset);
- 
- 	return 0;
- }
-@@ -126,8 +161,8 @@ static int pl061_irq_type(struct irq_data *d, unsigned trigger)
- 	struct pl061 *pl061 = gpiochip_get_data(gc);
- 	int offset = irqd_to_hwirq(d);
- 	unsigned long flags;
--	u8 gpiois, gpioibe, gpioiev;
--	u8 bit = BIT(offset);
-+	unsigned int gpiois = 0, gpioibe = 0, gpioiev = 0;
-+	unsigned int bit = BIT(offset);
- 
- 	if (offset < 0 || offset >= PL061_GPIO_NR)
- 		return -EINVAL;
-@@ -145,9 +180,9 @@ static int pl061_irq_type(struct irq_data *d, unsigned trigger)
- 
- 	raw_spin_lock_irqsave(&pl061->lock, flags);
- 
--	gpioiev = readb(pl061->base + GPIOIEV);
--	gpiois = readb(pl061->base + GPIOIS);
--	gpioibe = readb(pl061->base + GPIOIBE);
-+	regmap_read(pl061->regmap, GPIOIEV, &gpioiev);
-+	regmap_read(pl061->regmap, GPIOIS, &gpiois);
-+	regmap_read(pl061->regmap, GPIOIBE, &gpioibe);
- 
- 	if (trigger & (IRQ_TYPE_LEVEL_HIGH | IRQ_TYPE_LEVEL_LOW)) {
- 		bool polarity = trigger & IRQ_TYPE_LEVEL_HIGH;
-@@ -199,9 +234,9 @@ static int pl061_irq_type(struct irq_data *d, unsigned trigger)
- 			 offset);
- 	}
- 
--	writeb(gpiois, pl061->base + GPIOIS);
--	writeb(gpioibe, pl061->base + GPIOIBE);
--	writeb(gpioiev, pl061->base + GPIOIEV);
-+	regmap_write(pl061->regmap, GPIOIS, gpiois);
-+	regmap_write(pl061->regmap, GPIOIBE, gpioibe);
-+	regmap_write(pl061->regmap, GPIOIEV, gpioiev);
- 
- 	raw_spin_unlock_irqrestore(&pl061->lock, flags);
- 
-@@ -211,6 +246,7 @@ static int pl061_irq_type(struct irq_data *d, unsigned trigger)
- static void pl061_irq_handler(struct irq_desc *desc)
- {
- 	unsigned long pending;
-+	unsigned int mis = 0;
- 	int offset;
- 	struct gpio_chip *gc = irq_desc_get_handler_data(desc);
- 	struct pl061 *pl061 = gpiochip_get_data(gc);
-@@ -218,8 +254,9 @@ static void pl061_irq_handler(struct irq_desc *desc)
- 
- 	chained_irq_enter(irqchip, desc);
- 
--	pending = readb(pl061->base + GPIOMIS);
--	if (pending) {
-+	regmap_read(pl061->regmap, GPIOMIS, &mis);
-+	if (mis) {
-+		pending = mis;
- 		for_each_set_bit(offset, &pending, PL061_GPIO_NR)
- 			generic_handle_domain_irq(gc->irq.domain,
- 						  offset);
-@@ -233,11 +270,9 @@ static void pl061_irq_mask(struct irq_data *d)
- 	struct gpio_chip *gc = irq_data_get_irq_chip_data(d);
- 	struct pl061 *pl061 = gpiochip_get_data(gc);
- 	u8 mask = BIT(irqd_to_hwirq(d) % PL061_GPIO_NR);
--	u8 gpioie;
- 
- 	raw_spin_lock(&pl061->lock);
--	gpioie = readb(pl061->base + GPIOIE) & ~mask;
--	writeb(gpioie, pl061->base + GPIOIE);
-+	regmap_update_bits(pl061->regmap, GPIOIE, mask, 0);
- 	raw_spin_unlock(&pl061->lock);
- 
- 	gpiochip_disable_irq(gc, d->hwirq);
-@@ -248,13 +283,11 @@ static void pl061_irq_unmask(struct irq_data *d)
- 	struct gpio_chip *gc = irq_data_get_irq_chip_data(d);
- 	struct pl061 *pl061 = gpiochip_get_data(gc);
- 	u8 mask = BIT(irqd_to_hwirq(d) % PL061_GPIO_NR);
--	u8 gpioie;
- 
- 	gpiochip_enable_irq(gc, d->hwirq);
- 
- 	raw_spin_lock(&pl061->lock);
--	gpioie = readb(pl061->base + GPIOIE) | mask;
--	writeb(gpioie, pl061->base + GPIOIE);
-+	regmap_update_bits(pl061->regmap, GPIOIE, mask, mask);
- 	raw_spin_unlock(&pl061->lock);
- }
- 
-@@ -272,9 +305,7 @@ static void pl061_irq_ack(struct irq_data *d)
- 	struct pl061 *pl061 = gpiochip_get_data(gc);
- 	u8 mask = BIT(irqd_to_hwirq(d) % PL061_GPIO_NR);
- 
--	raw_spin_lock(&pl061->lock);
--	writeb(mask, pl061->base + GPIOIC);
--	raw_spin_unlock(&pl061->lock);
-+	regmap_write(pl061->regmap, GPIOIC, mask);
- }
- 
- static int pl061_irq_set_wake(struct irq_data *d, unsigned int state)
-@@ -308,15 +339,20 @@ static int pl061_probe(struct amba_device *adev, const struct amba_id *id)
- 	struct device *dev = &adev->dev;
- 	struct pl061 *pl061;
- 	struct gpio_irq_chip *girq;
-+	void __iomem *base;
- 	int ret, irq;
- 
- 	pl061 = devm_kzalloc(dev, sizeof(*pl061), GFP_KERNEL);
- 	if (pl061 == NULL)
- 		return -ENOMEM;
- 
--	pl061->base = devm_ioremap_resource(dev, &adev->res);
--	if (IS_ERR(pl061->base))
--		return PTR_ERR(pl061->base);
-+	base = devm_ioremap_resource(dev, &adev->res);
-+	if (IS_ERR(base))
-+		return PTR_ERR(base);
-+
-+	pl061->regmap = devm_regmap_init_mmio(dev, base, &pl061_regmap_config);
-+	if (IS_ERR(pl061->regmap))
-+		return PTR_ERR(pl061->regmap);
- 
- 	raw_spin_lock_init(&pl061->lock);
- 	pl061->gc.request = gpiochip_generic_request;
-@@ -335,7 +371,7 @@ static int pl061_probe(struct amba_device *adev, const struct amba_id *id)
- 	/*
- 	 * irq_chip support
- 	 */
--	writeb(0, pl061->base + GPIOIE); /* disable irqs */
-+	regmap_write(pl061->regmap, GPIOIE, 0); /* disable irqs */
- 	irq = adev->irq[0];
- 	if (!irq)
- 		dev_warn(&adev->dev, "IRQ support disabled\n");
-@@ -366,14 +402,20 @@ static int pl061_probe(struct amba_device *adev, const struct amba_id *id)
- static int pl061_suspend(struct device *dev)
- {
- 	struct pl061 *pl061 = dev_get_drvdata(dev);
-+	unsigned int val = 0;
- 	int offset;
- 
- 	pl061->csave_regs.gpio_data = 0;
--	pl061->csave_regs.gpio_dir = readb(pl061->base + GPIODIR);
--	pl061->csave_regs.gpio_is = readb(pl061->base + GPIOIS);
--	pl061->csave_regs.gpio_ibe = readb(pl061->base + GPIOIBE);
--	pl061->csave_regs.gpio_iev = readb(pl061->base + GPIOIEV);
--	pl061->csave_regs.gpio_ie = readb(pl061->base + GPIOIE);
-+	regmap_read(pl061->regmap, GPIODIR, &val);
-+	pl061->csave_regs.gpio_dir = val;
-+	regmap_read(pl061->regmap, GPIOIS, &val);
-+	pl061->csave_regs.gpio_is = val;
-+	regmap_read(pl061->regmap, GPIOIBE, &val);
-+	pl061->csave_regs.gpio_ibe = val;
-+	regmap_read(pl061->regmap, GPIOIEV, &val);
-+	pl061->csave_regs.gpio_iev = val;
-+	regmap_read(pl061->regmap, GPIOIE, &val);
-+	pl061->csave_regs.gpio_ie = val;
- 
- 	for (offset = 0; offset < PL061_GPIO_NR; offset++) {
- 		if (pl061->csave_regs.gpio_dir & (BIT(offset)))
-@@ -398,10 +440,10 @@ static int pl061_resume(struct device *dev)
- 			pl061_direction_input(&pl061->gc, offset);
- 	}
- 
--	writeb(pl061->csave_regs.gpio_is, pl061->base + GPIOIS);
--	writeb(pl061->csave_regs.gpio_ibe, pl061->base + GPIOIBE);
--	writeb(pl061->csave_regs.gpio_iev, pl061->base + GPIOIEV);
--	writeb(pl061->csave_regs.gpio_ie, pl061->base + GPIOIE);
-+	regmap_write(pl061->regmap, GPIOIS, pl061->csave_regs.gpio_is);
-+	regmap_write(pl061->regmap, GPIOIBE, pl061->csave_regs.gpio_ibe);
-+	regmap_write(pl061->regmap, GPIOIEV, pl061->csave_regs.gpio_iev);
-+	regmap_write(pl061->regmap, GPIOIE, pl061->csave_regs.gpio_ie);
- 
- 	return 0;
- }
+---
+Luca Ceresoli (24):
+      drm/connector: split drmm_connector_hdmi_init() in 3 parts
+      drm/connector: add drm_connector_hdmi_dynamic_init()
+      drm/display: bridge-connector: split code allocation from initialization
+      drm/display: bridge-connector: hoist error management to common code
+      drm/display: bridge-connector: use a dynamic connector
+      drm/display: bridge-connector: add APIs to add/remove the connector dynamically
+      drm/bridge: samsung-dsim: move drm_bridge_add() call to probe
+      drm/bridge: initialize chain_node list head on allocation
+      drm/bridge: initialize chain_node list head on detach and attach errors
+      drm/encoder: add drm_encoder_cleanup_from()
+      drm/atomic: move drm_atomic_helper_disable_all() and drm_atomic_helper_shutdown() from drm_atomic_helper to drm_atomic
+      drm/bridge: shutdown and cleanup on bridge unplug
+      drm/mipi-dsi: turn DRM_MIPI_DSI into a tristate
+      drm: event-notifier: add mechanism to notify about hotplug events
+      drm/bridge: notify about detached bridges
+      drm/mipi-dsi: notify about DSI attach
+      drm/bridge: add drm_bridge_get_next() and supporting func
+      drm/panel: implement .get_next_bridge
+      drm/bridge: display-connector: implement .get_next_bridge
+      drm/bridge: ti-sn65dsi83: implement .get_next_bridge
+      drm/bridge: ti-sn65dsi86: implement .get_next_bridge
+      drm/bridge: samsung-dsim: implement .get_next_bridge
+      drm: drm_hotplug_helper: new helper to implement bridge hotplug
+      drm/mxsfb/lcdif: enable bridge hotplug
 
--- 
-2.34.1
+ MAINTAINERS                                    |   8 +
+ drivers/gpu/drm/Kconfig                        |   7 +-
+ drivers/gpu/drm/Makefile                       |   2 +
+ drivers/gpu/drm/bridge/display-connector.c     |   7 +
+ drivers/gpu/drm/bridge/samsung-dsim.c          |  24 ++-
+ drivers/gpu/drm/bridge/ti-sn65dsi83.c          |   9 +
+ drivers/gpu/drm/bridge/ti-sn65dsi86.c          |  11 +-
+ drivers/gpu/drm/display/Kconfig                |   6 +
+ drivers/gpu/drm/display/Makefile               |   2 +
+ drivers/gpu/drm/display/drm_bridge_connector.c | 172 +++++++++++------
+ drivers/gpu/drm/display/drm_hotplug_helper.c   | 243 +++++++++++++++++++++++++
+ drivers/gpu/drm/drm_atomic.c                   | 115 ++++++++++++
+ drivers/gpu/drm/drm_atomic_helper.c            |  76 +-------
+ drivers/gpu/drm/drm_bridge.c                   |  45 ++++-
+ drivers/gpu/drm/drm_connector.c                | 130 +++++++++----
+ drivers/gpu/drm/drm_encoder.c                  |  38 ++++
+ drivers/gpu/drm/drm_event_notifier.c           |  58 ++++++
+ drivers/gpu/drm/drm_mipi_dsi.c                 |   3 +
+ drivers/gpu/drm/drm_panel.c                    |   8 +-
+ drivers/gpu/drm/mxsfb/Kconfig                  |   2 +-
+ drivers/gpu/drm/mxsfb/lcdif_drv.c              |  12 +-
+ include/drm/drm_atomic.h                       |   3 +
+ include/drm/drm_bridge.h                       |  26 +++
+ include/drm/drm_bridge_connector.h             |   4 +
+ include/drm/drm_connector.h                    |   6 +
+ include/drm/drm_encoder.h                      |   1 +
+ include/drm/drm_event_notifier.h               |  38 ++++
+ include/drm/drm_hotplug_helper.h               |  13 ++
+ 28 files changed, 894 insertions(+), 175 deletions(-)
+---
+base-commit: e051645b3b4be7c8f9f77596e62f554cd52b008b
+change-id: 20260515-drm-bridge-hotplug-46265d3a2f85
 
+Best regards,
+--  
+Luca Ceresoli, Bootlin
+Embedded Linux and Kernel engineering
+https://bootlin.com
 
 
