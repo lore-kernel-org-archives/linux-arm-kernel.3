@@ -4,70 +4,86 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 46FE7CA5FD2
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  1 Oct 2026 13:58:31 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 62814CA5FD2
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  1 Oct 2026 13:58:45 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
+	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:
+	References:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:
+	Subject:Date:From:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=G856VBaBDtCGEPUIlD3/ESFvNEPq48x3STaWPnEfTrg=; b=jKwlw1uvJ6dmTD+hUc6uR88ZdE
-	Jcp916QA+qpCf93KdLURU11HZC1ZlbtcpIV5hQ5Zmi4kfxt00uBGGLHYtNNNaIFEdOnmZBsAbPsXy
-	QK3cW00mQV5Vm2+dRe5dUrTN9cZbo4MzLlP2+4qPHTVcfDBnkhLR9AKqKftqGfQb+NJiqeBVfJSV0
-	tbzUVO+9t7Nyvj1H949GliJrsrljYMJkuPf+c0rhMsaiNzNys47GuCaTb7vA7MvANkeg15v/RPrPL
-	G0PiU/Xnwd/yldiy7gBlJgZjbVtyyfVLbV67qFSvUNINpEtqCPV44rWnJrVI8Uo+cB0fCwMbVwM+C
-	v+Oft1xw==;
+	bh=Na+yNwADVHtT0+06vQ945iPzbZLRjZ92Pxuevq6zNF8=; b=tifx3f2x9AI9TUkQBNWRjOdmKE
+	fqe/2KIR2Gh1fl47zVTS3stoWMSW9/0rsMbsPDPNEkj7L9S9w/XUEV9U50Wf/fj72PSNvfbz3As6D
+	Oqeaa09thVXw3HXn+abTnB6VKe7y0LvnRbZyclAve/aelTchg3+l2BY7DC+zY2vcgMSoKYMFeobgA
+	wE38TvGl/SnmxZzT6F003PTyyQiXRwEjMaqTWCShD9GYWvGQ8bthzinKXZkzWs41Pbn9rjhHb77qT
+	sbNC4qUmrjGsmD9y++GE9dyON+z69eYZv1uG7thNzEcoORAboQN3Ad1fmsyw0VDO65WWrogGXqOPz
+	fcAgJGuA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xCHIn-00000009ItP-0NZt;
-	Thu, 01 Oct 2026 13:58:25 +0000
-Received: from out-66.mta0.migadu.com ([2001:41d0:1004:224b::42] helo=mta0.migadu.com)
+	id 1xCG64-000000094xx-1iNb;
+	Thu, 01 Oct 2026 12:41:12 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xCHIi-00000009Ipp-3fjN
+	id 1xCG5u-000000094mM-3vA1
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 01 Oct 2026 13:58:24 +0000
-X-Envelope-To: linux-arm-kernel@lists.infradead.org
-DKIM-Signature: a=rsa-sha256; bh=DN8NR5lcvDW0X1Z82iiLCQedKQtmq+7e77xqK9OOgxg=;
- c=simple/simple; d=linux.dev;
- h=from:to:subject:date:message-id:mime-version:content-type; s=key1;
- t=1790863098; v=1; x=1791467898;
- b=Y5ba+WDFCAeD3WKufTrp64h5By3u/tQ4U/0ZQokRsQRG0BicFQwYBM8MDILcErPmOSHAGVAe
- 5T5Z8cgawhnOmZCW/ObaXTx3OOsgwPOOHShafJfiw+QgkdgqlClgDi1ZUT2Og/lpWHqpUtwAtxX
- XSpOwn/BwyOF0U/+UJPBGzc4=
-X-Envelope-To: linux-arm-kernel@lists.infradead.org
-Received: by smtp.migadu.com with ESMTPS id a8f1a4b6362b26a2;
-	Thu, 01 Oct 2026 13:58:18 +0000
-X-Mizu-Trace-ID: a8f1a4b6362b26a2
-X-Migadu-Flow: FLOW_OUT
-From: Fuad Tabba <fuad.tabba@linux.dev>
-To: maz@kernel.org,
-	oupton@kernel.org,
-	kvmarm@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org
-Cc: catalin.marinas@arm.com,
-	will@kernel.org,
-	joey.gouly@arm.com,
-	seiden@linux.ibm.com,
-	suzuki.poulose@arm.com,
-	yuzenghui@huawei.com,
-	mark.rutland@arm.com,
-	steven.price@arm.com,
-	vdonnefort@google.com,
-	qperret@google.com,
-	tabba@google.com
-Subject: [PATCH v4 09/18] KVM: arm64: Implement HVC handling for protected guests at EL2
-Date: Thu,  1 Oct 2026 14:57:02 +0100
-Message-Id: <20261001135711.1640520-10-fuad.tabba@linux.dev>
-X-Mailer: git-send-email 2.39.5
-In-Reply-To: <20261001135711.1640520-1-fuad.tabba@linux.dev>
-References: <20261001135711.1640520-1-fuad.tabba@linux.dev>
+	Thu, 01 Oct 2026 12:41:02 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id CBF6144860;
+	Thu,  1 Oct 2026 12:41:01 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPS id 72C9BC4E676;
+	Thu,  1 Oct 2026 12:41:01 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1790858461;
+	bh=zgU3iQM72YbxnsGmykO32NltLNkwhLgTNSOphGXHrLE=;
+	h=From:Date:Subject:References:In-Reply-To:To:Cc:Reply-To:From;
+	b=KQZTqminV40hcWHp907bjyVtoweFscb8nksCTM9o2M1jcdpGyin5XX+98Y3whR9Iq
+	 yla0FC/HfYNmoUqcXguaarJu+WqoZ7j6OmAq3fQXQDtPsKtyysTPKSmPFtlkTa/FGG
+	 c0np4i1M7fG2Axyrh6aOuA6bRfyJNPvDzADtQetKB7j9gFFBsF8s69mfc0o9QW1LnF
+	 y0rUG4XB5PUtH0q/ZscRXmFWgoTLSRsqkBsRHTappruQ/+CSm/jsiG1dloYSIhzxl1
+	 jdBBURuILtgtKoogeq31Sh1v9P0MRvKoYLNRQCImcT9je5h0HiWmvWsSnJpd+jLjnv
+	 3ebQX8G30186w==
+Received: from aws-us-west-2-korg-lkml-1.web.codeaurora.org (localhost.localdomain [127.0.0.1])
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 5E155CA5FD9;
+	Thu,  1 Oct 2026 12:41:01 +0000 (UTC)
+From: Long Zhao via B4 Relay <devnull+longzhao.ambarella.com@kernel.org>
+Date: Thu, 01 Oct 2026 20:41:04 +0800
+Subject: [PATCH v9 15/15] MAINTAINERS: add ARM/AMBARELLA SoC support
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261001_065821_067947_59330D17 
-X-CRM114-Status: GOOD (  14.03  )
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+Message-Id: <20261001-cv75-v5-v9-15-486cc289a4b8@ambarella.com>
+References: <20261001-cv75-v5-v9-0-486cc289a4b8@ambarella.com>
+In-Reply-To: <20261001-cv75-v5-v9-0-486cc289a4b8@ambarella.com>
+To: Arnd Bergmann <arnd@arndb.de>, Krzysztof Kozlowski <krzk@kernel.org>, 
+ Alexandre Belloni <alexandre.belloni@bootlin.com>, soc@lists.linux.dev, 
+ linux-arm-kernel@lists.infradead.org
+Cc: Long Zhao <longzhao@ambarella.com>, Rob Herring <robh@kernel.org>, 
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, 
+ Michael Turquette <mturquette@baylibre.com>, 
+ Stephen Boyd <sboyd@kernel.org>, Jerome Brunet <jbrunet@baylibre.com>, 
+ Linus Walleij <linusw@kernel.org>, Bartosz Golaszewski <brgl@kernel.org>, 
+ Michael Walle <mwalle@kernel.org>, 
+ Greg Kroah-Hartman <gregkh@linuxfoundation.org>, 
+ Jiri Slaby <jirislaby@kernel.org>, 
+ Andy Shevchenko <andriy.shevchenko@linux.intel.com>, 
+ =?utf-8?q?Ilpo_J=C3=A4rvinen?= <ilpo.jarvinen@linux.intel.com>, 
+ Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>, 
+ Long Zhao <zl020895@163.com>, Lee Jones <lee@kernel.org>, 
+ mfd@lists.linux.dev, devicetree@vger.kernel.org, linux-clk@vger.kernel.org, 
+ linux-gpio@vger.kernel.org, linux-serial@vger.kernel.org, 
+ linux-kernel@vger.kernel.org
+X-Mailer: b4 0.15.2
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1790858457; l=1241;
+ i=longzhao@ambarella.com; s=20260730; h=from:subject:message-id;
+ bh=66/FpPmSuU75AtQewU8cj7mu+Qa/5qamx4Km8ySoeYo=;
+ b=UQEl4EIWvylxjuSUeW+DDd+fd5g+2eGGqIKwhHMf9YI70cTL6LbHVpa5wqSiKPNpe6eKu2mWu
+ eHXXcsemHpjA4uicqb+wmHcy8JyKaRCF4Qi4Uzwzc1fUxslGyxbvNAm
+X-Developer-Key: i=longzhao@ambarella.com; a=ed25519;
+ pk=/xGhPTOX0/eYsyTWzyjjgAIW1Z/YD+IlnOnvcdRozow=
+X-Endpoint-Received: by B4 Relay for longzhao@ambarella.com/20260730 with
+ auth_id=903
+X-Original-From: Long Zhao <longzhao@ambarella.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -79,157 +95,49 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
+Reply-To: longzhao@ambarella.com
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Extend kvm_handle_pvm_hvc64() to handle SMCCC_VERSION,
-SMCCC_ARCH_FEATURES and the vendor hypervisor call UID at EL2, so
-these queries don't reach the host. ARCH_FEATURES is mandatory from
-SMCCC 1.1, the version EL2 implements: it returns SUCCESS for itself and
-for SMCCC_VERSION, NOT_SUPPORTED for anything else, and handles the
-ARCH_WORKAROUND_1/2/3 queries as the host does, from a copy of the
-host's mitigation state taken at init with the sanitised ID registers.
-The workaround calls themselves are already handled on hyp entry.
+From: Long Zhao <longzhao@ambarella.com>
 
-Signed-off-by: Fuad Tabba <fuad.tabba@linux.dev>
+Add a maintainer entry covering Ambarella CV75 bindings, DTS and
+related drivers.
+
+Reviewed-by: Linus Walleij <linusw@kernel.org>
+Signed-off-by: Long Zhao <longzhao@ambarella.com>
 ---
- arch/arm64/include/asm/kvm_hyp.h |  4 ++
- arch/arm64/kvm/arm.c             |  4 ++
- arch/arm64/kvm/hyp/nvhe/pkvm.c   | 68 ++++++++++++++++++++++++++++++++
- 3 files changed, 76 insertions(+)
+ MAINTAINERS | 14 ++++++++++++++
+ 1 file changed, 14 insertions(+)
 
-diff --git a/arch/arm64/include/asm/kvm_hyp.h b/arch/arm64/include/asm/kvm_hyp.h
-index 4974492744cc8..7609c78c68f34 100644
---- a/arch/arm64/include/asm/kvm_hyp.h
-+++ b/arch/arm64/include/asm/kvm_hyp.h
-@@ -10,6 +10,7 @@
- #include <linux/compiler.h>
- #include <linux/kvm_host.h>
- #include <asm/alternative.h>
-+#include <asm/spectre.h>
- #include <asm/sysreg.h>
+diff --git a/MAINTAINERS b/MAINTAINERS
+index 803b60ad628f..59e5b32d7a02 100644
+--- a/MAINTAINERS
++++ b/MAINTAINERS
+@@ -2502,6 +2502,20 @@ F:	drivers/clocksource/asm9260_timer.c
+ F:	drivers/rtc/rtc-asm9260.c
+ F:	drivers/watchdog/asm9260_wdt.c
  
- DECLARE_PER_CPU(struct kvm_cpu_context, kvm_hyp_ctxt);
-@@ -150,6 +151,9 @@ extern u64 kvm_nvhe_sym(id_aa64smfr0_el1_sys_val);
- 
- extern unsigned long kvm_nvhe_sym(__icache_flags);
- extern unsigned int kvm_nvhe_sym(kvm_arm_vmid_bits);
-+extern enum mitigation_state kvm_nvhe_sym(spectre_v2_state);
-+extern enum mitigation_state kvm_nvhe_sym(spectre_v4_state);
-+extern enum mitigation_state kvm_nvhe_sym(spectre_bhb_state);
- extern unsigned int kvm_nvhe_sym(kvm_host_sve_max_vl);
- extern unsigned long kvm_nvhe_sym(hyp_nr_cpus);
- extern unsigned int kvm_nvhe_sym(hyp_gicv3_nr_lr);
-diff --git a/arch/arm64/kvm/arm.c b/arch/arm64/kvm/arm.c
-index db36815630790..cceeeee266902 100644
---- a/arch/arm64/kvm/arm.c
-+++ b/arch/arm64/kvm/arm.c
-@@ -2622,6 +2622,10 @@ static void kvm_hyp_init_symbols(void)
- 	kvm_nvhe_sym(__icache_flags) = __icache_flags;
- 	kvm_nvhe_sym(kvm_arm_vmid_bits) = kvm_arm_vmid_bits;
- 
-+	kvm_nvhe_sym(spectre_v2_state) = arm64_get_spectre_v2_state();
-+	kvm_nvhe_sym(spectre_v4_state) = arm64_get_spectre_v4_state();
-+	kvm_nvhe_sym(spectre_bhb_state) = arm64_get_spectre_bhb_state();
++ARM/AMBARELLA SOC SUPPORT
++M:	Long Zhao <longzhao@ambarella.com>
++L:	linux-arm-kernel@lists.infradead.org (moderated for non-subscribers)
++L:	devicetree@vger.kernel.org
++S:	Maintained
++F:	Documentation/devicetree/bindings/arm/ambarella.yaml
++F:	Documentation/devicetree/bindings/clock/ambarella,cv75-rct.yaml
++F:	Documentation/devicetree/bindings/pinctrl/ambarella,cv75-pinctrl.yaml
++F:	arch/arm64/boot/dts/ambarella/
++F:	drivers/clk/ambarella/
++F:	drivers/pinctrl/pinctrl-ambarella*
++F:	include/dt-bindings/clock/ambarella,cv75-rct.h
++N:	ambarella
 +
- 	/* Propagate the FGT state to the nVHE side */
- 	kvm_nvhe_sym(hfgrtr_masks)  = hfgrtr_masks;
- 	kvm_nvhe_sym(hfgwtr_masks)  = hfgwtr_masks;
-diff --git a/arch/arm64/kvm/hyp/nvhe/pkvm.c b/arch/arm64/kvm/hyp/nvhe/pkvm.c
-index 6ff08d195ff56..10ff2ba6c6c1b 100644
---- a/arch/arm64/kvm/hyp/nvhe/pkvm.c
-+++ b/arch/arm64/kvm/hyp/nvhe/pkvm.c
-@@ -10,12 +10,18 @@
- #include <linux/mm.h>
- 
- #include <asm/kvm_emulate.h>
-+#include <asm/spectre.h>
- 
- #include <nvhe/mem_protect.h>
- #include <nvhe/memory.h>
- #include <nvhe/pkvm.h>
- #include <nvhe/trap_handler.h>
- 
-+/* The host's Spectre mitigation state, for SMCCC_ARCH_FEATURES. */
-+enum mitigation_state spectre_v2_state;
-+enum mitigation_state spectre_v4_state;
-+enum mitigation_state spectre_bhb_state;
-+
- /* Used by icache_is_aliasing(). */
- unsigned long __icache_flags;
- 
-@@ -1181,8 +1187,70 @@ bool kvm_handle_pvm_hvc64(struct kvm_vcpu *vcpu, u64 *exit_code)
- {
- 	u64 val[4] = { SMCCC_RET_INVALID_PARAMETER };
- 	bool handled = true;
-+	u32 feature;
-+	uuid_t uuid;
- 
- 	switch (smccc_get_function(vcpu)) {
-+	case ARM_SMCCC_VERSION_FUNC_ID:
-+		/* Nothing to be handled by the host. Go back to the guest. */
-+		val[0] = ARM_SMCCC_VERSION_1_1;
-+		break;
-+	case ARM_SMCCC_ARCH_FEATURES_FUNC_ID:
-+		/* The workaround calls themselves are handled on hyp entry. */
-+		val[0] = SMCCC_RET_NOT_SUPPORTED;
-+		feature = smccc_get_arg1(vcpu);
-+		switch (feature) {
-+		case ARM_SMCCC_VERSION_FUNC_ID:
-+		case ARM_SMCCC_ARCH_FEATURES_FUNC_ID:
-+			val[0] = SMCCC_RET_SUCCESS;
-+			break;
-+		case ARM_SMCCC_ARCH_WORKAROUND_1:
-+			switch (spectre_v2_state) {
-+			case SPECTRE_VULNERABLE:
-+				break;
-+			case SPECTRE_MITIGATED:
-+				val[0] = SMCCC_RET_SUCCESS;
-+				break;
-+			case SPECTRE_UNAFFECTED:
-+				val[0] = SMCCC_ARCH_WORKAROUND_RET_UNAFFECTED;
-+				break;
-+			}
-+			break;
-+		case ARM_SMCCC_ARCH_WORKAROUND_2:
-+			switch (spectre_v4_state) {
-+			case SPECTRE_VULNERABLE:
-+				break;
-+			case SPECTRE_MITIGATED:
-+				/* With SSBS advertised the guest's default is safe. */
-+				if (kvm_has_feat(vcpu->kvm, ID_AA64PFR1_EL1, SSBS, IMP))
-+					break;
-+				fallthrough;
-+			case SPECTRE_UNAFFECTED:
-+				val[0] = SMCCC_RET_NOT_REQUIRED;
-+				break;
-+			}
-+			break;
-+		case ARM_SMCCC_ARCH_WORKAROUND_3:
-+			switch (spectre_bhb_state) {
-+			case SPECTRE_VULNERABLE:
-+				break;
-+			case SPECTRE_MITIGATED:
-+				val[0] = SMCCC_RET_SUCCESS;
-+				break;
-+			case SPECTRE_UNAFFECTED:
-+				val[0] = SMCCC_ARCH_WORKAROUND_RET_UNAFFECTED;
-+				break;
-+			}
-+			break;
-+		}
-+		break;
-+	case ARM_SMCCC_VENDOR_HYP_CALL_UID_FUNC_ID:
-+		uuid = ARM_SMCCC_VENDOR_HYP_UID_KVM;
-+		val[0] = smccc_uuid_to_reg(&uuid, 0);
-+		val[1] = smccc_uuid_to_reg(&uuid, 1);
-+		val[2] = smccc_uuid_to_reg(&uuid, 2);
-+		val[3] = smccc_uuid_to_reg(&uuid, 3);
-+		break;
- 	case ARM_SMCCC_VENDOR_HYP_KVM_FEATURES_FUNC_ID:
- 		val[0] = BIT(ARM_SMCCC_KVM_FUNC_FEATURES);
- 		val[0] |= BIT(ARM_SMCCC_KVM_FUNC_HYP_MEMINFO);
+ ARM/AMD PENSANDO ARM64 ARCHITECTURE
+ M:	Brad Larson <blarson@amd.com>
+ L:	linux-arm-kernel@lists.infradead.org (moderated for non-subscribers)
+
 -- 
-2.39.5
+2.34.1
+
 
 
