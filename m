@@ -4,67 +4,110 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 20F1ECA5FB3
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  1 Oct 2026 10:00:20 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 00894CA5FB3
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  1 Oct 2026 10:15:14 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=dY76eQFJFbcYtTtHCHhdoCdyDWIvzzfDE47J+yUIxXE=; b=sV5rNn2wsiE3zPK8EenDbwbYu2
-	gDkyRpK0sllwHSpcNgr1TWY0my8qtKqjnI1t5m5n1FUgmZf9eBiYM7Boh3cx3hpEwFUR12U9fNiaB
-	mkgPNHm/0u3cAHnCR8KilJqAtHvMrmUKD93nSMoM3nWQ+caMjbxfPkz1V5hY49rmn2N6Cx3CiEcC3
-	r378oOuDPFoLDUtec3h6tz1BZfc5+NYDLtOqBJnlGzMkeP3znOIvFbgd+FO4Xnede2UuE/YEyMeOa
-	wrOMNQkRU+GTEtCZoH21eR3+dI1mb4+iqh2HJoIO4EaA5aLeGVHoGrCC3wFGACYibHf6pa2SnnIec
-	gCjdawGw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=oYWMzc7dzXRMIQ4WDnbpQus1ZRBA7rO8qi5HTtl8Bo4=; b=mnUBSduSe59tk3RtwMGFpNVB2E
+	TdqxyXF7CoYWk+wIueO/wKfGoS/D0LJCzI4HQUzoOg54hxHTuRk9Y/f2BwvTQemx1NG6nXVloR5UQ
+	/RubbJedDMah8Uwy+wUH/a9ik2OXmBUH4vFCLBVbdkDlxuV9JnGLmZ5LMW2KVf2zxiOyQ6O0AwQVL
+	rbSJ5t97VBznfPKCIbMvM+2/XL257YCiLlakBDxw0Hn0FTDQe1xuwI6bijNbi8kv0nGpMtddgvy5d
+	VMRN4CuHxLBe9t5BPMvta9RMZyBX6gAKmxuXVgIFrS3cfqKIr0Z/YITEZKucFnVYRsp3arqKhM0rV
+	kQjdGWZQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xCDaI-00000008SMu-0fbN;
-	Thu, 01 Oct 2026 10:00:14 +0000
-Received: from smtpout-02.galae.net ([185.246.84.56])
+	id 1xCDoi-00000008UAF-3U0Z;
+	Thu, 01 Oct 2026 10:15:08 +0000
+Received: from mail-lf2-x11.google.com ([2a00:1450:4864:36::11])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xCDaE-00000008SLL-42kq
+	id 1xCDog-00000008U8j-1xma
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 01 Oct 2026 10:00:12 +0000
-Received: from smtpout-01.galae.net (smtpout-01.galae.net [212.83.139.233])
-	by smtpout-02.galae.net (Postfix) with ESMTPS id 612021A109E;
-	Thu,  1 Oct 2026 10:00:06 +0000 (UTC)
-Received: from mail.galae.net (mail.galae.net [212.83.136.155])
-	by smtpout-01.galae.net (Postfix) with ESMTPS id 344C460341;
-	Thu,  1 Oct 2026 10:00:06 +0000 (UTC)
-Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 3E84610329611;
-	Thu,  1 Oct 2026 12:00:01 +0200 (CEST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=dkim;
-	t=1790848805; h=from:subject:date:message-id:to:cc:mime-version:content-type:
-	 in-reply-to:references; bh=dY76eQFJFbcYtTtHCHhdoCdyDWIvzzfDE47J+yUIxXE=;
-	b=q5KiaogDA3ek6cAs+uG7cZ4CePZVBmJ52xqL7kEvFNBOcY421S3HVNlzyPaw9UKexYAw+W
-	KlSq5KHMtBcXa1jCK8pzcW+nY72n5Y/yb3/mI+3uYozc2kpmc7fD7DYdgwa8ThokLg7aKB
-	E5+iht4/uhKSG5fYwh2Z+WJ5/OtnrbqqpSixFRXcTzJsSF8RnzdZNSbX3AIF+egeVevFuf
-	bIURk6g0zRtgDxeySFJg4FlRV0lGJ+LH9kNzKyLTAGw2bu3wKgQcYAxzaYPssh6yNmwFEp
-	cru6mBaK71yTu0Y28N+bGFzp1doORDs+EgpwKUaNddnP0K46Ug8lwizhG/DazA==
-Date: Thu, 1 Oct 2026 12:00:00 +0200
-From: Alexandre Belloni <alexandre.belloni@bootlin.com>
-To: Hans Ulli Kroll <ulli.kroll@googlemail.com>,
-	Linus Walleij <linusw@kernel.org>,
-	Liu Dalin <liudalin@kylinsec.com.cn>
-Cc: linux-arm-kernel@lists.infradead.org, linux-rtc@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	Deng Yingchao <dengyingchao@kylinsec.com.cn>,
-	Qin Yungao <qinyungao@kylinsec.com.cn>,
-	Luo Qiu <luoqiu@kylinsec.com.cn>
-Subject: Re: [PATCH v2 0/3] rtc: ftrtc010: fix resource management and
- integer overflow
-Message-ID: <179084877097.656441.12706042901770671456.b4-ty@b4>
-References: <B61B30904C7ACEEF+20260827080320.3351155-1-liudalin@kylinsec.com.cn>
+	Thu, 01 Oct 2026 10:15:07 +0000
+Received: by mail-lf2-x11.google.com with SMTP id 2adb3069b0e04-5b5e4f16f15so6217566e87.3
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 01 Oct 2026 03:15:05 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1790849704; cv=none;
+        d=google.com; s=arc-20260327;
+        b=AJzRCRcnJVgicj1473fyBYHDTCS3EuCirlvBcOW8svo0X6fAEThbXlQj9T2RWZR8Dj
+         qNQhn0Yn6wVcq6emjoZ3XwfCqF2lyIMKHWvPnAOLhdsB53+/h3Zd88hwGhTprJOm1jVI
+         j9hkOtIrwgZ3uOE6iFEakrZeP5Kd3W4bTVx9Rhaj9bDNsj497E3T82UbDWEI3fJm5fNQ
+         IYrzHd1uDzMGzRxUFLWFhcv/b1JI0vuvbCP2HivAnQ8Yz1iNwlSXgTaEdb3LoCQ4/NsD
+         4MnEgHmy7cKT3zhhga01tCe7UOAvDA37h6dWorppUJIJQibJvAZlf7g8Bg4gfjF8qlyx
+         nSew==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:dkim-signature;
+        bh=oYWMzc7dzXRMIQ4WDnbpQus1ZRBA7rO8qi5HTtl8Bo4=;
+        fh=B0nElZgjQMu/PYfBmzT1sOC8YREAwFMw62wQcwd0VuY=;
+        b=mnU0J1y4WPTQxUuYADIO4a33TIcUPIFMWlG530h4XN6S289h1wEcFJVxzX2csjR4q/
+         HnaVLSh3SiYFAjv9VhFnhjMnJrthU4ZUiCpHeBXM7Pgvqq4t552/rTfX468/npbDSRbj
+         P8B2N7w4ZetHo7z9VWEYJOs3bOUV1mfHlEsHvPWkDAXBBV45yvtoS2Y4dBeRmy924Zlk
+         P8a7xk0ralW6nGCdusc5Nx/0sem1ZlwwfqzR3c3KipDWWX1I/6K6svsd74YZy3A8FsAN
+         Oq9Tdvys+KMgiCVppoJICL3KuTQE6j4mSdRQw7lNiv2dZTmm+p6nwVszxMwGWu5+PqPp
+         TlvA==;
+        darn=lists.infradead.org
+ARC-Authentication-Results: i=1; mx.google.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20251104; t=1790849704; x=1791454504; darn=lists.infradead.org;
+        h=content-transfer-encoding:content-type:cc:to:subject:message-id
+         :date:from:in-reply-to:references:mime-version:from:to:cc:subject
+         :date:message-id:reply-to:content-type;
+        bh=oYWMzc7dzXRMIQ4WDnbpQus1ZRBA7rO8qi5HTtl8Bo4=;
+        b=Tt4e7HmnsVQz90ijtpPuZveNKF5iIMQO7sbXQon6TJzkYKj7XJx050O81WRC8yb3dy
+         aVdxLtzkZg5yfxU2bViUoutBW20cy0Z7ZCVeDN7U5LA8ow1FLLM2Saz0rYAPVdURs41a
+         tzvwvt1mlRyNO+hdgBb6bYw2E81UQWZhnIgw5a7RHAvoN7A6sD0valQL96ukv0MX95we
+         Sw+K6JK+7wNoGWmI2chw54beyrrSRSpKOneLcEziMpcE6a6QejQuMkp30QQPb8oDPsy7
+         l3rVBKTsdTODbR51HAdUVz2oL5q4PrpMcN9GkKyPhRITdZtlizNIq5JVKGsXhDogRlnO
+         uWgQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1790849704; x=1791454504;
+        h=content-transfer-encoding:content-type:cc:to:subject:message-id
+         :date:from:in-reply-to:references:mime-version:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=oYWMzc7dzXRMIQ4WDnbpQus1ZRBA7rO8qi5HTtl8Bo4=;
+        b=EoUIsk3Bd48VJuVOa1aMnPyrBn5c/BQHoMo2AqmgL4w8ttYvnVs/Mkq+N//zXyPanK
+         gMhyCcnSK6UMM8aqoB0J3sjLJILA+MJxLdHqprTSuPZ77VX1KQPmifsiSuYKK+YiZ99i
+         Zw5iFFKxvSc+DR5Cnf6XcucZKtkYLgQlC7IOMMP2xQd8eaWJ3BXszYgcS7Plt/UWEt+X
+         w6MgaXKo8k3SK3PO2/C68AeEDpREgJIQuDlG/ZrY9IMR12G5ABVXPR0ERoLC/7QTI/3h
+         OqjG9OF3bGUUTJOVVMPbMKKhyvXfkGpZPojjo61kmT6RZVkMm6HK8TnZwWco4aFyK3/Z
+         p+VA==
+X-Forwarded-Encrypted: i=1; AKwUvByCDsRgLXViFNpHSunmGMNesc0s6s+XVJiWP81T2LwF/RcMNyQs4XI4OpR12aMzGUTEW4CvVnKVqFZLZyugl0S3@lists.infradead.org
+X-Gm-Message-State: AFq9FYJEwzAplDzMMKYPRcMg9sBFQ9hFBNuenXk8X/89v0dJuHNmnDfA
+	oCOuMfgwyGLYjoXAznxwflgQI7EsWd4abUTv9qqCQZrvl1x3yH+eMiW1lvXgwkJGJHQm1PgISTB
+	R2s154NbJFa05IHIOyx/zgc2Xp+uCbVk=
+X-Gm-Gg: AYBFou3+huApO9Y2wsNvDYNFKzGaBu5RFjZkq1wCXFZpLGhSJDcVNg+tj/AC9r7x5BG
+	zVovyzbk0Gsk7u4oeZ7UMyB/hbqaoZ9DsIBkmM1yXWhp2W4+7w1vm2x7ZZj6uwWUeek4t75fFmA
+	ypOsbjSGnfemcsBENIdgqFL+y62htPH/xN62QeXK7nzWmvz5LsTLS335/KUaCpmH0X9la25JbSM
+	ySJh2LXmPi+bkeWJ9Vr/sWFXcXc6WKgjP16Zjna8reGzcyzXcuQoWX6gz1+w+epnbbLRBBDVPi3
+	i8ber3xSSZO6EfpHq4h2EqwC9Lk4+YGhix9+Kan4DutPqrhkkzyRNf/1ufXXFlDWhdiX8fVksWR
+	7usoD5uo6+ry0GAzHTLYzY9IANHdqHmn4kIyZ/3KMhD9M
+X-Received: by 2002:a05:6512:6d2:b0:5bb:784e:3df4 with SMTP id
+ 2adb3069b0e04-5bb784e3ee0mr282162e87.46.1790849703308; Thu, 01 Oct 2026
+ 03:15:03 -0700 (PDT)
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <B61B30904C7ACEEF+20260827080320.3351155-1-liudalin@kylinsec.com.cn>
-X-Last-TLS-Session-Version: TLSv1.3
+References: <20261001081005.2209755-1-primoz.fiser@norik.com>
+In-Reply-To: <20261001081005.2209755-1-primoz.fiser@norik.com>
+From: Fabio Estevam <festevam@gmail.com>
+Date: Thu, 1 Oct 2026 07:14:49 -0300
+X-Gm-Features: AclHuK-74KPyiquqCXZSrY27gWUyd7LOlkpNPte8XIS6tTUYVa6o1fJvZXPOZX8
+Message-ID: <CAOMZO5Aibmm3d=9Ucro0Tqvyh_s3EozLM25axV3XxeLuG67PCg@mail.gmail.com>
+Subject: Re: [PATCH v2 0/2] ARM: dts: imx6: phytec-mira: phyBOARD-Mira fixes
+To: Primoz Fiser <primoz.fiser@norik.com>
+Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+	Conor Dooley <conor+dt@kernel.org>, Frank Li <Frank.Li@nxp.com>, 
+	Sascha Hauer <s.hauer@pengutronix.de>, Pengutronix Kernel Team <kernel@pengutronix.de>, 
+	devicetree@vger.kernel.org, imx@lists.linux.dev, 
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
+	upstream@lists.phytec.de
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261001_030011_194152_5B1AA954 
-X-CRM114-Status: UNSURE (   9.83  )
+X-CRM114-CacheID: sfid-20261001_031506_522397_D13FCE48 
+X-CRM114-Status: UNSURE (   8.99  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -80,35 +123,12 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, 27 Aug 2026 16:03:17 +0800, Liu Dalin wrote:
-> This series fixes three issues in the Faraday FTRTC010 RTC driver
-> found by Sashiko AI static analysis:
-> 
-> Patch 1: Fixes a clock resource leak when devm_rtc_register_device()
-> fails in ftrtc010_rtc_probe().
-> 
-> Patch 2: Replaces manual clock management with devm APIs to fix a
-> use-after-disable vulnerability in ftrtc010_rtc_remove(). The RTC
-> device is registered via devm_rtc_register_device() but clocks are
-> manually disabled in .remove() before devres cleanup, creating a
-> window where MMIO reads on clock-gated hardware can cause a
-> synchronous external abort.
-> 
-> [...]
+Hi Primoz,
 
-Applied, thanks!
+On Thu, Oct 1, 2026 at 5:10=E2=80=AFAM Primoz Fiser <primoz.fiser@norik.com=
+> wrote:
+>
+> Two small fixes for the PHYTEC phyBOARD-Mira-i.MX6 boards:
 
-[1/3] rtc: ftrtc010: fix clock resource leak on probe failure
-      https://git.kernel.org/abelloni/c/c60478875a44
-[2/3] rtc: ftrtc010: use devm clock APIs to fix use-after-disable in remove
-      https://git.kernel.org/abelloni/c/d41ee317c990
-[3/3] rtc: ftrtc010: fix integer overflow in time calculation
-      https://git.kernel.org/abelloni/c/8ef8e9839a23
-
-Best regards,
-
--- 
-Alexandre Belloni, co-owner and COO, Bootlin
-Embedded Linux and Kernel engineering
-https://bootlin.com
+Shouldn't they have a Fixes tag, then?
 
