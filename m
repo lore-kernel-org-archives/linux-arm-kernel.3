@@ -4,59 +4,63 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0BACFCA5FB3
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  1 Oct 2026 09:47:19 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3A49BCA5FA5
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  1 Oct 2026 09:49:38 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=nP/7NmxcFEkyCoBbKmC50W8cKRNPiQiDN30ZIAy2ec8=; b=tKicH5R0N33tuW5DLbxbZeOqE0
-	3eQ++sWEYq1SUiXurp/jKTYn/R+vs/oIpfZzcPLo5HYRX0myZyZxNqMrTuMtQySoUAXY/GHz23LZW
-	DQ5qV3Qfy2aaaqdtWCfvYf8IijfTiEygpTUwL91cbwDganaf5yzIjM3ejdOUCUV82JBMLK7yM+YZI
-	60mw7SgzqZQ3tE2ahuVBFigSwpIrIUZhmsT2Ews/b1ZepefHbr/QBk0k5fiXpKLmSLpPVlh/Lc5Wm
-	n6kuv/S7/HjYAhqkv/iYDIbL7so/RyxWxVlvEmnvM9kv4oTNPigwLBi22f3xSQdIJ7eGQlkfiQXyd
-	Kj5hObmQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:References:Cc:To:Subject:From:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=AkyAo74eNYt7g7Tf3ylj7ygI4/rqvLaIrNTAgDqHndo=; b=vp4P2xVqZ1GKJtI7/bdEy630OF
+	njt/3i7sCMb2VknnhxbH6ac8WyBG7cJskLWEdQjj3MWLq7ndGr14KzHuGsJNgsIvfKKt8teJgC9MT
+	KOrbmCT6IAXpO7LqaTJUu7qj4uS0G+EuCngcQtgrY3m2WnwmTvihch7zuAWNbRD26wPp25g0X7Mgy
+	dq2a9qC2ZZ6xYWW6ihPIPhsP/V77Yo5HEZbRED+J7Qea8TWnScRWqXDkzpST6ckqX/OhsheQwKlgI
+	95TBOokR4wVKVMXruilbUFpGSXysu8STPply/x7Wkmz0PRGVzIhYHAzfmDUu1poXrev3yb4hhOnf9
+	61ucqVsQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xCDNh-00000008Pvn-1mM3;
-	Thu, 01 Oct 2026 09:47:13 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xCDNe-00000008Puj-2FRi
-	for linux-arm-kernel@lists.infradead.org;
-	Thu, 01 Oct 2026 09:47:12 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 9271F497;
-	Thu,  1 Oct 2026 02:47:04 -0700 (PDT)
-Received: from arm.com (usa-sjc-mx-foss1.foss.arm.com [172.31.20.19])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 369363F86F;
-	Thu,  1 Oct 2026 02:47:06 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1790848028; bh=/QIsZj5ZknEUJbqRrL7io4YJRt6LKVatf9W0JsU0gc0=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=C3YuSdKbRNRrJeKGiTX+MeAWFYw1nMoNgLQPuFYsOKCffatmtgLArZDDicLEn5IVN
-	 QdfadJ+CTSkMVLbzp8x6wGpUaXAex+pC4OdZCR998yLM9QY0S0Of+W+nz/hvtSi8a0
-	 Y4FJRvpIK78QwNVq7zTFGk0de+v9hV5E84NrS3R8=
-Date: Thu, 1 Oct 2026 10:47:03 +0100
-From: Catalin Marinas <catalin.marinas@arm.com>
-To: Suzuki K Poulose <suzuki.poulose@arm.com>
-Cc: linux-arm-kernel@lists.infradead.org, will@kernel.org,
-	linux-kernel@vger.kernel.org, steven.price@arm.com,
-	gshan@redhat.com, aneesh.kumar@kernel.org, maz@kernel.org,
-	oupton@kernel.org, tabba@google.com, mark.rutland@arm.com,
-	linux-coco@lists.linux.dev
-Subject: Re: [PATCH v19] arm64: mm: Handle Granule Protection Faults (GPFs)
-Message-ID: <ar4rYdrDAp_uveXv@arm.com>
-References: <20260930164930.1388438-1-suzuki.poulose@arm.com>
+	id 1xCDPu-00000008QM1-49uQ;
+	Thu, 01 Oct 2026 09:49:30 +0000
+Received: from courrier.aliel.fr ([65.21.61.41])
+	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1xCDPq-00000008QIl-1Nmn;
+	Thu, 01 Oct 2026 09:49:29 +0000
+Message-ID: <cb8a33f0-2aa3-4ec1-9efc-af78eaa4b435@aliel.fr>
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=aliel.fr;
+	s=courrier-s1; t=1790848157;
+	bh=OfzALKUKErDnTeV6+Scy6LOty9NGQxM9etrLaViB0jA=;
+	h=Date:From:Subject:To:Cc:References:In-Reply-To;
+	b=YducBsFgeTVWLgaNUEqqiArMeOdjw49nO470W2tuk25ONR6sR62oPwPLiXoDrRjla
+	 7uw9c3Hu2p51okugWypnlZkwCRXxCqtXjGERkf8r7rCfxtdBpi3aAn0ei/FPtoMcJj
+	 6f1VSsbp6XBQ61/Pz3tl8ESa7xr+rK4XVpLlIOAY=
+Date: Thu, 1 Oct 2026 11:48:01 +0200
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20260930164930.1388438-1-suzuki.poulose@arm.com>
+User-Agent: Mozilla Thunderbird Beta
+From: linux-kernel-dev@aliel.fr
+Subject: Re: [PATCH v3 1/3] dt-bindings: pwm: amlogic: Add core clock for S4
+ like
+To: Chuan Liu <chuan.liu@amlogic.com>, Conor Dooley <conor@kernel.org>
+Cc: =?UTF-8?Q?Uwe_Kleine-K=C3=B6nig?= <ukleinek@kernel.org>,
+ Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+ Conor Dooley <conor+dt@kernel.org>, Heiner Kallweit <hkallweit1@gmail.com>,
+ Neil Armstrong <neil.armstrong@linaro.org>,
+ Kevin Hilman <khilman@baylibre.com>, Jerome Brunet <jbrunet@baylibre.com>,
+ Martin Blumenstingl <martin.blumenstingl@googlemail.com>,
+ linux-pwm@vger.kernel.org, devicetree@vger.kernel.org,
+ linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-amlogic@lists.infradead.org
+References: <20260927-add-t7-sys-pwm-clk-v3-0-18d66abea4d1@aliel.fr>
+ <20260927-add-t7-sys-pwm-clk-v3-1-18d66abea4d1@aliel.fr>
+ <20260928-cardiac-relax-cdccdecdd4c2@spud>
+ <1bf03811-40f8-4c85-bf45-e48c5545c3e1@amlogic.com>
+Content-Language: en-US
+In-Reply-To: <1bf03811-40f8-4c85-bf45-e48c5545c3e1@amlogic.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261001_024710_648937_4E2B66A0 
-X-CRM114-Status: GOOD (  30.94  )
+X-CRM114-CacheID: sfid-20261001_024926_986834_06440188 
+X-CRM114-Status: GOOD (  21.07  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -71,90 +75,125 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Sep 30, 2026 at 05:49:30PM +0100, Suzuki K Poulose wrote:
-> From: Steven Price <steven.price@arm.com>
-> 
-> If the host attempts to access granules that have been delegated to RMM
-> (for use as an RMM object or Realm Data), these accesses will be caught
-> and will trigger a Granule Protection Fault (GPF).
-> 
-> A fault during a page walk signals a bug in the kernel and is handled by
-> oopsing the kernel. A non-page walk fault could be caused by:
-> 
->  * Userspace having access to a page which has been delegated. We don't allow
->    mapping a delegated page (which may have Realm VM private data) to EL0.
->    But if we do encounter this, trigger a SIGBUS to allow debugging
-> 
->  * A kernel mode access is even more serious, except for the cases where :
->    - Benign overreads e.g. load_unaligned_zeropad(), we should be able to fix
->      this up.
->    - A kdump kernel trying to access delegated page (donated by the primary
->      kernel). We do not support this yet, but can be added in the later series.
-> 
-> There is ongoing work to unmap the guest_memfd backed private pages
-> from the linear map. We would additionally need to unmap the other
-> delegated pages too. For now handle the GPF and only fixing up kernel mode
-> accesses via kernel VA (which would cover both the legitimate cases above)
-> 
-> Reviewed-by: Gavin Shan <gshan@redhat.com>
-> Signed-off-by: Steven Price <steven.price@arm.com>
-> Signed-off-by: Suzuki K Poulose <suzuki.poulose@arm.com>
-> ---
-> Changes since v18:
->  * Only fixup accesses via kernel VA
-> Changes since v17:
->  * Pass untagged address to die_kernel_fault() - Sashiko
->  * Explicitly check !user_mode() for fixups - Catalin
->  * Switch to BUS_OBJERR for si_code from SI_KERNEL - Catalin
-> Changes since v16:
->  * Update the commit description to indicate why we try to fixup GPFs
-> Changes since v10:
->  * Don't call arm64_notify_die() in do_gpf() but simply return 1.
-> Changes since v2:
->  * Include missing "Granule Protection Fault at level -1"
-> ---
->  arch/arm64/mm/fault.c | 35 +++++++++++++++++++++++++++++------
->  1 file changed, 29 insertions(+), 6 deletions(-)
-> 
-> diff --git a/arch/arm64/mm/fault.c b/arch/arm64/mm/fault.c
-> index 75c3e463df2ef..ded9288a5dd2f 100644
-> --- a/arch/arm64/mm/fault.c
-> +++ b/arch/arm64/mm/fault.c
-> @@ -914,6 +914,29 @@ static int do_tag_check_fault(unsigned long far, unsigned long esr,
->  	return 0;
->  }
->  
-> +static int do_gpf_ptw(unsigned long far, unsigned long esr, struct pt_regs *regs)
-> +{
-> +	const struct fault_info *inf = esr_to_fault_info(esr);
-> +	unsigned long addr = untagged_addr(far);
-> +
-> +	die_kernel_fault(inf->name, addr, esr, regs);
-> +	return 0;
-> +}
-> +
-> +static int do_gpf(unsigned long far, unsigned long esr, struct pt_regs *regs)
-> +{
-> +	/*
-> +	 * Userspace must not have a delegated page mapped in. If the kernel
-> +	 * is made to access it, then we have a serious problem.
-> +	 * Only fixup if the access came via kernel VA. e.g., load_unaligned_zeropad()
-> +	 */
-> +	if (!user_mode(regs) && !is_el1_instruction_abort(esr) &&
-> +	    !is_ttbr0_addr(untagged_addr(far)) && fixup_exception(regs, esr))
-> +		return 0;
-> +
-> +	return 1;
-> +}
+Hi Chuan,
 
-The logic looks fine to me, so:
+On 9/30/26 9:13 AM, Chuan Liu wrote:
+> Hi Ronald, Cc Conor,
+> 
+> On 9/29/2026 12:46 AM, Conor Dooley wrote:
+>> On Sun, Sep 27, 2026 at 04:28:15PM +0200, Ronald Claveau via B4 Relay
+>> wrote:
+>>> From: Ronald Claveau <linux-kernel-dev@aliel.fr>
+>>>
+>>> The T7, A1, C3, and S4 PWM controllers have a system clock in
+>>> addition to the two input clocks of channels A and B.
+>>>
+>>> The channel clocks are acquired by index in the pwm driver,
+>>> where the core clock is fetched by name, with optional get
+>>> which is silent when not provided.
+>>>
+>>> Require clock-names and minimum 3 items for S4, and devices
+>>> which fallback to S4, where the PWM devices do not work
+>>> without all 3 clocks.
+>>>
+>>> Add an example showing T7 usage with its fallback to
+>>> amlogic,meson-s4-pwm.
+>>>
+>>> Signed-off-by: Ronald Claveau <linux-kernel-dev@aliel.fr>
+>>> ---
+>>>   .../devicetree/bindings/pwm/pwm-amlogic.yaml        | 21 ++++++++++
+>>> ++++++++---
+>>>   1 file changed, 18 insertions(+), 3 deletions(-)
+>>>
+>>> diff --git a/Documentation/devicetree/bindings/pwm/pwm-amlogic.yaml
+>>> b/Documentation/devicetree/bindings/pwm/pwm-amlogic.yaml
+>>> index c337d85da40f1..e9cd5f1fdf264 100644
+>>> --- a/Documentation/devicetree/bindings/pwm/pwm-amlogic.yaml
+>>> +++ b/Documentation/devicetree/bindings/pwm/pwm-amlogic.yaml
+>>> @@ -62,7 +62,7 @@ properties:
+>>>       clock-names:
+>>>       minItems: 1
+>>> -    maxItems: 2
+>>> +    maxItems: 3
+>>>       power-domains:
+>>>       maxItems: 1
+>>> @@ -143,9 +143,15 @@ allOf:
+>>>             items:
+>>>               - description: input clock of PWM channel A
+>>>               - description: input clock of PWM channel B
+>>> -        clock-names: false
+>>> +            - description: gate clock for the PWM controller
+> 
+> This is the APB bus clock gate for the PWM controller. If this clock is
+> disabled, the CPU can no longer access the PWM controller's registers.
+> 
+> This clock serves the same purpose as the "bus" clock in the thermal
+> sensor patch you submitted previously [1].
+> 
+> By the way, in the Amlogic clock driver, many sys_clk/clk81 clocks are
+> used to provide the clock for the APB bus of individual controllers.
+> Some of them also provide the functional clock for the controller, such
+> as I2C.
+> 
+> Therefore, would it be reasonable to keep the description here
+> consistent with the description in the thermal dt-binding mentioned above?
+> 
+> [1] https://lore.kernel.org/all/20260923-fix-t7-thermal-clock-v2-1-
+> bff7a09eb487@aliel.fr/
+> 
 
-Reviewed-by: Catalin Marinas <catalin.marinas@arm.com>
+Thanks for your help and your feedback on this series. I will rename and
+change the description in v4.
 
-Whether we want to unmap the delegated pages eventually (and not just
-guest_memfd), given that we get a synchronous fault architecturally, I'm
-not yet convinced it's worth it (it fragments the linear map).
+>>> +        clock-names:
+>>> +          items:
+>>> +            - const: channel-a
+>>> +            - const: channel-b
+>>> +            - const: core
+> 
+> Similarly, would it be more appropriate to name this clock "bus" as well?
+> 
+>>>         required:
+>>>           - clocks
+>>> +        - clock-names
+>>>       - if:
+>>>         properties:
+>>> @@ -179,6 +185,15 @@ examples:
+>>>       pwm@1000 {
+>>>         compatible = "amlogic,meson-s4-pwm";
+>>>         reg = <0x1000 0x10>;
+>>> -      clocks = <&pwm_src_a>, <&pwm_src_b>;
+>>> +      clocks = <&pwm_src_a>, <&pwm_src_b>, <&pwm_src_core>;
+>>> +      clock-names = "channel-a", "channel-b", "core";
+>>> +      #pwm-cells = <3>;
+>>> +    };
+>>> +  - |
+>>> +    pwm@60000 {
+>>
+>> If you respin, drop the second example please, since it doesn't actually
+>> do anything different anymore.
+>>
+
+I will drop this example in the mean time.
+
+>> Acked-by: Conor Dooley <conor.dooley@microchip.com>
+>> pw-bot: not-applicable
+>>
+>>> +      compatible = "amlogic,t7-pwm", "amlogic,meson-s4-pwm";
+>>> +      reg = <0x60000 0x24>;
+>>> +      clocks = <&channel_a>, <&channel_b>, <&core>;
+>>> +      clock-names = "channel-a", "channel-b", "core";
+>>>         #pwm-cells = <3>;
+>>>       };
+>>>
+>>> -- 
+>>> 2.49.0
+>>>
+>>>
+> 
+
 
 -- 
-Catalin
+Best regards,
+Ronald
 
