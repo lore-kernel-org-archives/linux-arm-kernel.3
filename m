@@ -4,154 +4,102 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CE860CA5FA5
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  1 Oct 2026 05:15:19 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BC972CA5FB3
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  1 Oct 2026 05:28:09 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:In-Reply-To:References:Message-ID:Date
-	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Hg5ntrUOcUereLEpBNg2T6r9p+VHUHcQfPmfbP/SbZg=; b=QxXQ9xYfYIugGE1USURrm+pkg6
-	bkh9WJUPmaUIHKrz4UVfUQywKt/A4UmuXcxdwXDQzeFS7NB6K6QdxKYsHlfMOth1C2l9Us4KjoACl
-	irYQC20HIGDngyiwi5Cv9K9WRqtysbuS2FMOoWqjdSLnZgfBQY8BDr/FRv4eCjAaCptiuZNgw24Ze
-	h0AUrdSrST/GIZVAZiY44atKIZXgNVcZ3jWWoEXSIrwc95RcH3Vt50zZhJ/AZc8eQwCzbxlmH9NFG
-	aLkvBzicVaNRptz7CUjXqPtnGnHeg/WJ85Eu6Gb2nJioxA3an2QKIZqtYgAUT8JT/181rVy9XS5b+
-	bw6dUW9Q==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	Content-Transfer-Encoding:Message-ID:Date:References:In-Reply-To:Subject:Cc:
+	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=IVL0YicU6s4vWnH0QGlqg5VqXOz3HA74QxakKY7UMwI=; b=ZlNr7kDjvr8Ny/hhSJCBjC1QKK
+	utAABM5liZlKcEM94qEbTS6zyBSsShfKXc25K+M2sKEQ4cGYcTVuiqxbuWqsYI79Zu03MhYn1dzFA
+	SokkkEuKV7saOtbh2OTEofcAmVlT40pLKvp1C5mS5/vJ4uskpZVJGeaKKQZW3yye6KOGZltzhDF7F
+	didJKXSteX924/4UBLDBsvHdVmbPyvWtLeVyQJoNJnkzK/r6UgiFrjsfRHlRDBCpBRiXhpMQePRIW
+	Mg8dKB3RAlanvKnwSyvoKt9a3fzHrfNL5lcL2tFb+0hRC+B60Tam9HkXED8x3kVRT4Bd5NeoS4eB8
+	0TzFH2+A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xC98Q-00000007myB-1OCQ;
-	Thu, 01 Oct 2026 05:15:10 +0000
-Received: from mail-koreacentralazon11013004.outbound.protection.outlook.com ([40.107.44.4] helo=SEYPR02CU001.outbound.protection.outlook.com)
+	id 1xC9Kt-00000007or3-0qD8;
+	Thu, 01 Oct 2026 05:28:03 +0000
+Received: from mail-wm2-x10.google.com ([2a00:1450:4864:31::10])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xC98N-00000007mxU-2vTL
+	id 1xC9Kq-00000007oqa-1wwr
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 01 Oct 2026 05:15:09 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=ZKhgvZi3ezt3OylK+EF7sOlbvpUsQ5L/1RxWlJzlneyFZu5OhPBW0Ed4ux4RENP2ezrJUi5VXVmN4H1/qQJ1/9ROjWQr6N/G0zD4DsDT31HUyKj9wk8awkPcxd65uk9VzOXww2td62ME6aMm79/kKCcSf++8QJCUj6QovNvlT7Lxk8voqELU2BrAUOB9ndJJKQpcYzhfm23jSR2TH2+YulHTEPB0Xw0i6oAkXa59VAVKjvvFY4hL8CmEq4R/+dX2Qx2LrDgF6VzRKzclPdG0eNmyLBfaP0i/6NCWwqYg5mP+qKeofDl/4R+f/dI81qzNb4B7FQPre3NZGrfdMfytkg==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=Hg5ntrUOcUereLEpBNg2T6r9p+VHUHcQfPmfbP/SbZg=;
- b=gSIt4pU98VHsVvj7PTw+BrflNPr2CIqD35axKGhFS1B86Nx+h+FIYrupyu49wsuFXZaj39gxTCi4kTkxB7I0jT+7UwzUCAgPsA4414L1ZZ3DYy4BKiSCoy0UZCDuJrZ6L+QrEC1dyrDhUU1XARBb9Hg/DBHp16tM2txS1jNSGp6FlA23hD/gccULKFtWtq3sMK8KAHGeJ1uq5Pb5IplV+QGvHLvZI6ug/w2zNbMw4HQ3zXh9Mf66YJYVqRk9g2SIBbqzs+dVSZSIhFjxEsauspQLkuGnhQKW4cSuwr125r00fFqxsAoatJBjOz3xz1lUR/QTDgSQ4tdhVJG4F/BipA==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=cortina-access.com; dmarc=pass action=none
- header.from=cortina-access.com; dkim=pass header.d=cortina-access.com;
- arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=CORTINA-ACCESS.COM;
- s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=Hg5ntrUOcUereLEpBNg2T6r9p+VHUHcQfPmfbP/SbZg=;
- b=SnRwwlvlZUgSmzZYn4ad7NzE4vSBtvMLYXd5s5QCPMVDD+cGU8xr63D6RSPSQsXaSCzA4Ezxy7FLBVPxVXBf5njUtUJng5JV2NfciNNc+nybhcmdXvPG36qqXQIRbamw6Yj7VX7IWJJkD5e98W5n4bkZ9rTlJlOt+BcuGiYPrdY=
-Received: from SEZPR01MB4208.apcprd01.prod.exchangelabs.com
- (2603:1096:101:4e::6) by SEZPR01MB6107.apcprd01.prod.exchangelabs.com
- (2603:1096:101:21f::14) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.472.15; Thu, 1 Oct
- 2026 05:14:59 +0000
-Received: from SEZPR01MB4208.apcprd01.prod.exchangelabs.com
- ([fe80::7087:4bde:9129:725c]) by SEZPR01MB4208.apcprd01.prod.exchangelabs.com
- ([fe80::7087:4bde:9129:725c%4]) with mapi id 15.21.0451.022; Thu, 1 Oct 2026
- 05:14:59 +0000
-From: Jason Li <jason.li@cortina-access.com>
-To: Fil Dunsky <filipp.dunsky@gmail.com>
-CC: Arnd Bergmann <arnd@arndb.de>, Linus Walleij <linusw@kernel.org>,
-	Krzysztof Kozlowski <krzk@kernel.org>, Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>,
-	Greg Kroah-Hartman <gregkh@linuxfoundation.org>, Jiri Slaby
-	<jirislaby@kernel.org>, Russell King <linux@armlinux.org.uk>, Alexandre
- Belloni <alexandre.belloni@bootlin.com>, Drew Fustini <fustini@kernel.org>,
-	Lorenzo Pieralisi <lpieralisi@kernel.org>,
-	"linux-arm-kernel@lists.infradead.org"
-	<linux-arm-kernel@lists.infradead.org>, "devicetree@vger.kernel.org"
-	<devicetree@vger.kernel.org>, "linux-kernel@vger.kernel.org"
-	<linux-kernel@vger.kernel.org>, "linux-serial@vger.kernel.org"
-	<linux-serial@vger.kernel.org>
-Subject: RE: [PATCH RFC 07/10] tty: serial: Add Cortina Systems CS75xx UART
- driver
-Thread-Topic: [PATCH RFC 07/10] tty: serial: Add Cortina Systems CS75xx UART
- driver
-Thread-Index: AQHdUMwOK5V3y77FgkSOeOEe0ntIqrbm+wWAgAD5pVCAABL4gIAAHcEQ
-Date: Thu, 1 Oct 2026 05:14:59 +0000
-Message-ID: <SEZPR01MB4208B8B4A5A7F48F7FFE0C9FA28A2@SEZPR01MB4208.apcprd01.prod.exchangelabs.com>
+	Thu, 01 Oct 2026 05:28:01 +0000
+Received: by mail-wm2-x10.google.com with SMTP id 5b1f17b1804b1-49fff6f0f87so32151665e9.3
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 30 Sep 2026 22:27:59 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20251104; t=1790832478; x=1791437278; darn=lists.infradead.org;
+        h=content-type:mime-version:content-transfer-encoding:message-id:date
+         :references:in-reply-to:subject:cc:to:from:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=IVL0YicU6s4vWnH0QGlqg5VqXOz3HA74QxakKY7UMwI=;
+        b=Sdx65ifRLYIPJxuwk562rfVeH0ZJ0a5XY+CCxYbM/7S2p8PjKcVyHkvgjALITfHVir
+         8JbPPi3BhjvMWZkBr8DBSRLHZgwg1hb0NQdophIHFDE+9tURakYdhS+sZ/dk2wwuImnm
+         5KtM5U6NR2AuSTTmaeCnVO6tm/ZU6DtCy8KoKTXdW41agaHd4fYmJPzVGDShNzpJ0YvN
+         RnKL/0zE1t4rikWkGiZ426MjTB90mFI61FAV91wZHg60X2KZdEO6hGEx0iBNDoHqq8H4
+         P9oTXaeoejhZURaSzLa8xX7v4n4H+Bhq8oKWYHbDsBZqhzAOaiRJmbrpoBneDgQO2hc+
+         fiMA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1790832478; x=1791437278;
+        h=content-type:mime-version:content-transfer-encoding:message-id:date
+         :references:in-reply-to:subject:cc:to:from:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=IVL0YicU6s4vWnH0QGlqg5VqXOz3HA74QxakKY7UMwI=;
+        b=0LBTE1BNY+t/nvhzSKvMU8T9cs9DCZACAzRcqTW1LOMN2Pzh3rccoMFOj5lRi1UjOz
+         +Beu/fR7osccCcSqtBVUqU8N0oqoMVhlhkkaqX5qD0LmFcQlCUZs8O6YApBDX1G60yaG
+         WLln9so0uVv8WH2qYSsPRTC5eaOm9E9muGxkZfUP3++rEBfXqRzdzqIdt7fYbxIXWNqE
+         eqecUi644+efZ8sWhtIsZf/FCqyeK+NMfFMWpY7jaw4ZoZmDy9HJxGdxmdvnYBe6FIfe
+         5RqSch6SgUgyW5Cc4y1cprFLoTrGto+ElpSshldZ41mhBVrIditscDw5fJOizab6D7D1
+         eJpw==
+X-Forwarded-Encrypted: i=1; AKwUvBwl22QvXjuaEFzphQsSxAjoBvhPPxKs9c3Dndxh86t26hfljC5qx07x2Mm1Ir5bcSuuL+sTo1nUnAwSRYWNfFfj@lists.infradead.org
+X-Gm-Message-State: AFuF++mF/oUJqtDrYdKHdwmiz4zc21/Fk3FG49RW0Q4lyjXePhvwVhaV
+	WQQjF6MYoDISRP4LsHdpU3NxRMQzOh8S1b2bhJz0GT/VJjaOOM1EEhQAPHDrgsLCPfZQmD/o
+X-Gm-Gg: AYBFou3Ulh8Jrc/R6Ul8tcXep3vD+RcHn37ZSxo9cUdmEIC4LKIy3dctQccHyNjo0tP
+	NLw5lKRGx2+IPv6Fn5oYkEFjA4ZIyg93Y/HKB+X1BKGh8EZdAupjnqxgaWYndakK3GW/zb85a4v
+	M4oMX4kADr3NaIgKPa5EchSLAnesZfCsaSx/sJSwmfadKL+QOkRv3Lcw8uifiZMdH+dKfwV2ytD
+	GWEjUJqE+oldsmdYv1N4ZLkAzFKngfagD9tERRwzg/Mvaz/9DCwV7BEWi/T+QADqNBIVbysl8jE
+	i4xTDR0NOaSmwpaoBq42fk8MTIDCtWyAEJetws3RXvIQTIUl3wXbynlY/YRk6wugBJdPTM5sqnj
+	6G+dXH7vZwvu+/K4e46D+yM9Pa1dSOZUaiYiTyFR/V/r2zVWUpaPTg0K66+ZMjLTiKUSakuRQ7V
+	b9fUeeDMmoPsKND4u9s0A7f7Ws4auSTU5TF/Rb1jqwgwXMPm14sff+22CVkHRenG0zG2VuYWBRp
+	t6O2eITNzrizF1fIWkEftYRlAb1mYNCf10PY8hPPzg=
+X-Received: by 2002:a05:600c:4687:b0:4a0:3a3:33e2 with SMTP id 5b1f17b1804b1-4a01adde08dmr57434805e9.5.1790832478268;
+        Wed, 30 Sep 2026 22:27:58 -0700 (PDT)
+Received: from [127.0.1.1] ([92.241.26.38])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4a01f979c05sm64944975e9.3.2026.09.30.22.27.56
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Wed, 30 Sep 2026 22:27:57 -0700 (PDT)
+From: Fil Dunsky <filipp.dunsky@gmail.com>
+To: Jason Li <jason.li@cortina-access.com>
+Cc: Arnd Bergmann <arnd@arndb.de>, Linus Walleij <linusw@kernel.org>,
+ Krzysztof Kozlowski <krzk@kernel.org>, Rob Herring <robh@kernel.org>,
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>,
+ Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+ Jiri Slaby <jirislaby@kernel.org>, Russell King <linux@armlinux.org.uk>,
+ Alexandre Belloni <alexandre.belloni@bootlin.com>,
+ Drew Fustini <fustini@kernel.org>, Lorenzo Pieralisi <lpieralisi@kernel.org>,
+ "linux-arm-kernel@lists.infradead.org" <linux-arm-kernel@lists.infradead.org>,
+ "devicetree@vger.kernel.org" <devicetree@vger.kernel.org>,
+ "linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
+ "linux-serial@vger.kernel.org" <linux-serial@vger.kernel.org>
+Subject: RE: [PATCH RFC 07/10] tty: serial: Add Cortina Systems CS75xx UART driver
+In-Reply-To: <SEZPR01MB4208B8B4A5A7F48F7FFE0C9FA28A2@SEZPR01MB4208.apcprd01.prod.exchangelabs.com>
 References: <20260930-b4-cs75xx-v1-0-4617c4463529@gmail.com>
  <20260930-b4-cs75xx-v1-7-4617c4463529@gmail.com>
  <CAD++jLkzcf7gJB82XT3-xb4jLujtWSNz1kT2r1-4N54rRfRNMA@mail.gmail.com>
  <1d81c2ef-7a5b-4306-83d2-ff96b0eb6a06@app.fastmail.com>
- <179076749140.3134070.3869742286743401078@gmail.com>
- <SEZPR01MB42087271C56AD1C7E926AF35A28A2@SEZPR01MB4208.apcprd01.prod.exchangelabs.com>
- <179082517588.138645.14615134489246049313@gmail.com>
-In-Reply-To: <179082517588.138645.14615134489246049313@gmail.com>
-Accept-Language: en-US, zh-TW, en-AS
-Content-Language: en-US
-X-MS-Has-Attach: 
-X-MS-TNEF-Correlator: 
-authentication-results: mx.microsoft.com 1; dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=cortina-access.com;
-x-ms-publictraffictype: Email
-x-ms-traffictypediagnostic: SEZPR01MB4208:EE_|SEZPR01MB6107:EE_
-x-ms-office365-filtering-correlation-id: da6d6637-1403-417b-802d-08df1f7af09f
-x-ms-exchange-senderadcheck: 1
-x-ms-exchange-antispam-relay: 0
-x-microsoft-antispam: BCL:0;ARA:13230040|7416014|376014|366016|23010399003|1800799024|22082099003|18002099003|38070700021|4143699003|10067099003|11063799006|5023799004|56012099006;
-x-microsoft-antispam-message-info: +Kh+xnHfVY8YqaIdCOQyKeDJhb/oko10ycahMSPExUsHWErBJaBPMOcyOaNU3V/oDmhuoDXhfxVA5eTKV13P2TQ3OWGG22dP2wxc26YD9dCUgsZ1Lbz9XwOl8hP+MzguyjX4IYzeu0pfNI/Kyg0IWsZxUlaLsAOJTQMXV5L5ydJPmTh3N4u6OAWFMLhB9tCFLj6fglPtY/HEtdRrSpYoDMhOjEQ4VPQDtfPrzfUIcGOOKqkb6Ba1UuqmoAjG+xOahhBoGFJnat2UG0nezevxLX5RpdujAhIPBWRwAy4YdkNQdyxXLfIBQmqXwdHF60oyvx+zemAc/sC69EDuhxEBn8pHB6yMiDwkS/n87w1S3u+ViKJFk6yQIYqebHuT8UL4g4Oy2FoZdVhqsAf4ytsM4bByIJtxwG0iDUzCZCfHrSJJwl7CZ1/1YG4GN7ACjM/GOESOwiNJohswheumZiy4+3MX3jQ5S4Q06EFNZVtx//wxDcGVepCkq7OlcbVSmxa65KdvTI4gB+OdOAMUovm8lyE8oxWsWZTp+cbqgv8UlkwwcVVSROKR6CqcRpboclEyrcfcRGTS5bgqZPJ9KK5cDdOhWVK9vZn25Btb6tQuVCqzcKRfwt6EuzaenN12QiZJKzjKE/Ja0OmJFrsnAR5nW7VeKwB2yclZjhitJQOkBkT6wlUh1sizJFnHSwFYRqTNc+5DW0rG2lhFQuflmnLtwYvPwt4ONkFkW9JRYKvNKf0=
-x-forefront-antispam-report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:SEZPR01MB4208.apcprd01.prod.exchangelabs.com;PTR:;CAT:NONE;SFS:(13230040)(7416014)(376014)(366016)(23010399003)(1800799024)(22082099003)(18002099003)(38070700021)(4143699003)(10067099003)(11063799006)(5023799004)(56012099006);DIR:OUT;SFP:1101;
-x-ms-exchange-antispam-messagedata-chunkcount: 1
-x-ms-exchange-antispam-messagedata-0: =?utf-8?B?QkRtaEU1ZW83RTFOOHJSNUVVLzlVbXBBVU0vQXNMM2d3RGFja0p2MGVDV3Zq?=
- =?utf-8?B?TXdHTVJWUmkySVJNSU5hUC9GaGpCZ29mbktQMUFpbFhoTDZWYS8zalpPSFhL?=
- =?utf-8?B?K0tWZ0JlUXVUek9mTEthdk1lK0tPcVFEWEd0bXRMTWNnK0tVczdqSU9CTXlq?=
- =?utf-8?B?dDg3M2xUeVBHbk54Wk9Jd1g5K1MyOUNJQlI0MkRqWG1UYVhYZjJVWTBDaCtx?=
- =?utf-8?B?WjRIVzZTSmVzVDBNOWFEaUVhWGptV2J2M29SQTRDS2g2V3BTeUtwNEhCVXY1?=
- =?utf-8?B?Qnd3NEdXNVpheklFU1dyS2hvaE5vcHYyWktJNmcwdFU5V3BvaHF3eFNnbkxF?=
- =?utf-8?B?M01XRDNGRFljWkJjVTZwU2pLMWhYbS9JV3ZpMXRYc3FyOUlPdkQ4dWlxYU0w?=
- =?utf-8?B?VWhHUXY1cDdKV3FYdXltai9IUzRVOHc1NkdNcS9JVk1CZWpHOWltOVhjT1Q1?=
- =?utf-8?B?R00xVFlyUlhtc3hNbGQ4a25yWWhPdGtZTTdHekltMWVPaHhmWERnL2VsaXFy?=
- =?utf-8?B?WmFJT1kzMW9Hc1hkMDJ1cnZZWXZYWFY5OUJJSGFnbGNHdDFXc1J2ZURhcFhO?=
- =?utf-8?B?UzZjWklaUFpUbjVlODRXaHhBd3FvZkN1QkVneFpxRXJYRjNqMkNrRFV6dnhG?=
- =?utf-8?B?L0JqRXA4K3ZRUXdQanRXUmRubGtTRWhqNVJXRjhvN0h0RlppYnMyak1EOXEr?=
- =?utf-8?B?SVFkYUtNc1VIRGVCdGRwRW1JWjhlNDlOUnNvVnlkdmlyQkpoWU54d0Y0b3Jt?=
- =?utf-8?B?ZkozN3c5WWljdGtiTWNIa0plMFhNZ1FWcXdKanN2YjhGM2dsaDN5aXpuU3Nx?=
- =?utf-8?B?Rk45TGhUeDJ2SDdXejBVU1lpOWV5REpudFlEVGF3KzRhZkhGN29HZVd0YnJK?=
- =?utf-8?B?NTgzNll6VlNyMVJ0aVZBUWYwQjNJS3RzejZsaUFNQ1VGYjZOYUlWMlJROXpU?=
- =?utf-8?B?elFia09yK2VVdE1sTHIwVDVIb3hQeFRWRXFlcHBaemdyNmlHNkdyeXUzUmpv?=
- =?utf-8?B?NUY3d3ZxcWlqeEVhRUY2d1haUnFjU3BtNlREK0ROS0puTTZtWldxZk1kWTR6?=
- =?utf-8?B?RUVOSmZrbitTekJHWUVoNFppWjltWG42SGJ6aG5kNVMyMC9RWDZnTExydnVa?=
- =?utf-8?B?UndXcG5WTkZUR0ZwbmIwM05Wamg3WEJYeDdISWdLVXRZRlg2TjNjSm9wS1Vp?=
- =?utf-8?B?K0pHaVlRR2FLcE1YaVhoOHovQjcwMGx0YWZYR2cxaGtHamQ3L0NVRzRqQVVp?=
- =?utf-8?B?aTRmTEhsSTRHUEZZSHhPV1VDa3hFNzQ2b1BBRlNwVkxZVWlNU3FoR1NmRm0y?=
- =?utf-8?B?U1hza3diSkh3RitYcVRTeElUMXF3UzFzUThCUWxHZldJOFl6OUtmYVdPK2Ri?=
- =?utf-8?B?NlNISERuUy9pZ3RxVTNrV3FrRVcwMjA2aVVFc0FxZjFuOHBHOVZ2L1dzR0dP?=
- =?utf-8?B?MHlMbnkyYlRNbjNoVnpoNldTODVTZUZabVp0L1h3c3Q5dmRSQ01oajc0SDVn?=
- =?utf-8?B?MUFKMWIvamROKzRpS0VtMUdranFUeWIrTk9mRWMyYStSdGN6MTJKcThCazRC?=
- =?utf-8?B?bUI0ODFDSGUvY09GWmxLV0xtZ21Hc1Nuak44Y2ZPMnBrNTFwY3ZZZXRPRlg3?=
- =?utf-8?B?QWN1dzJrdDE4Z25INTZ6MThKSmgvNWhtVURuSHh3ZjVFNHdLUjhGMGRhcFNn?=
- =?utf-8?B?bTJQSkV2NEJLUW9aaDhKRy90cWdnMVllNUpTcWJRejl5NmNydml1VUR0TkpL?=
- =?utf-8?B?SVU0a1ZVaHZHYzFGUmlEUC9weGVTa29mV1M3S2JKRXBObkxUcjRkc3lMTk8z?=
- =?utf-8?B?T3lidEJXc0dpcW1LNkhTK1VveXo3M05pNlRyaW1qV0VQdERYUEtla3luZThT?=
- =?utf-8?B?c3lZYWNIOXJqcHZoL1dOQzVXWEg1V3RmUjBaU0hrRi8wNk1lUThRZllQckI0?=
- =?utf-8?B?aVA1RjZMd1VBTUlMZ3ZOcGxQbGd3bFR2WG9udEM0YzFtZ3RWSytMMWpuVEJS?=
- =?utf-8?B?dDhhT0szMzRNNDJtUkdBT1Z1blNyMy9IbzdtMitXV2d6SjUrU0IrNDJ1RXYv?=
- =?utf-8?B?TXo5b2hVMUpxclpySkZzdWc3K1VqWFc3VVlkelF4RXZ4ckJpcExNNTdwKzM5?=
- =?utf-8?B?OFpiUkw1a0hEM2lvMTdXcjk1UldxeHFLVmY1TTFIUjFHNGF3V3QvYlhQRmg3?=
- =?utf-8?B?dUtSQndBd1Foc3JBa1RjbVRrZmxOMURVNUQxTCtFdmVPL3RJN2xzdUJGZnhz?=
- =?utf-8?B?Q3BYb1hIMUVEa3cyTU1pbkp1YlZNSDVBRlV6SjJFV3pCU3B4WXFKeGFRczhK?=
- =?utf-8?B?eHYwdDl3OXAvR0NKWjhIVk8yK2ZPYmRMMFRhY0M5VlByS0dJdXYvdz09?=
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+ <179076749140.3134070.3869742286743401078@gmail.com> <SEZPR01MB42087271C56AD1C7E926AF35A28A2@SEZPR01MB4208.apcprd01.prod.exchangelabs.com>
+ <179082517588.138645.14615134489246049313@gmail.com> <SEZPR01MB4208B8B4A5A7F48F7FFE0C9FA28A2@SEZPR01MB4208.apcprd01.prod.exchangelabs.com>
+Date: Thu, 01 Oct 2026 08:26:39 +0300
+Message-ID: <179083239972.193541.4791387611943615705@gmail.com>
+Content-Transfer-Encoding: 8bit
 MIME-Version: 1.0
-X-OriginatorOrg: CORTINA-ACCESS.COM
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-AuthSource: SEZPR01MB4208.apcprd01.prod.exchangelabs.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: da6d6637-1403-417b-802d-08df1f7af09f
-X-MS-Exchange-CrossTenant-originalarrivaltime: 01 Oct 2026 05:14:59.3329
- (UTC)
-X-MS-Exchange-CrossTenant-fromentityheader: Hosted
-X-MS-Exchange-CrossTenant-id: 0694623c-6669-497c-89c3-3a32a9934313
-X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
-X-MS-Exchange-CrossTenant-userprincipalname: JB5TKzKza8c56UQKzf6U5SLjUsgRTRe/4TgnHjB292hv8C4sMjNpPbO0MsicDiAGsVbeNlMU/4wAjMyitSebNLDTCHUJWl/TWsY75W8yVxw=
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: SEZPR01MB6107
+Content-Type: text/plain; charset="utf-8"; format="fixed"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260930_221507_752396_6B5A0EF2 
-X-CRM114-Status: GOOD (  26.78  )
+X-CRM114-CacheID: sfid-20260930_222800_551657_2D0E5C41 
+X-CRM114-Status: GOOD (  14.35  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -166,55 +114,34 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-PiAtLS0tLU9yaWdpbmFsIE1lc3NhZ2UtLS0tLQ0KPiBGcm9tOiBGaWwgRHVuc2t5IDxmaWxpcHAu
-ZHVuc2t5QGdtYWlsLmNvbT4NCj4gU2VudDogVGh1cnNkYXksIE9jdG9iZXIgMSwgMjAyNiAxMToy
-NiBBTQ0KPiBUbzogSmFzb24gTGkgPGphc29uLmxpQGNvcnRpbmEtYWNjZXNzLmNvbT4NCj4gQ2M6
-IEFybmQgQmVyZ21hbm4gPGFybmRAYXJuZGIuZGU+OyBMaW51cyBXYWxsZWlqIDxsaW51c3dAa2Vy
-bmVsLm9yZz47DQo+IEtyenlzenRvZiBLb3psb3dza2kgPGtyemtAa2VybmVsLm9yZz47IFJvYiBI
-ZXJyaW5nIDxyb2JoQGtlcm5lbC5vcmc+Ow0KPiBLcnp5c3p0b2YgS296bG93c2tpIDxrcnprK2R0
-QGtlcm5lbC5vcmc+OyBDb25vciBEb29sZXkNCj4gPGNvbm9yK2R0QGtlcm5lbC5vcmc+OyBHcmVn
-IEtyb2FoLUhhcnRtYW4gPGdyZWdraEBsaW51eGZvdW5kYXRpb24ub3JnPjsNCj4gSmlyaSBTbGFi
-eSA8amlyaXNsYWJ5QGtlcm5lbC5vcmc+OyBSdXNzZWxsIEtpbmcgPGxpbnV4QGFybWxpbnV4Lm9y
-Zy51az47DQo+IEFsZXhhbmRyZSBCZWxsb25pIDxhbGV4YW5kcmUuYmVsbG9uaUBib290bGluLmNv
-bT47IERyZXcgRnVzdGluaQ0KPiA8ZnVzdGluaUBrZXJuZWwub3JnPjsgTG9yZW56byBQaWVyYWxp
-c2kgPGxwaWVyYWxpc2lAa2VybmVsLm9yZz47DQo+IGxpbnV4LWFybS1rZXJuZWxAbGlzdHMuaW5m
-cmFkZWFkLm9yZzsgZGV2aWNldHJlZUB2Z2VyLmtlcm5lbC5vcmc7DQo+IGxpbnV4LWtlcm5lbEB2
-Z2VyLmtlcm5lbC5vcmc7IGxpbnV4LXNlcmlhbEB2Z2VyLmtlcm5lbC5vcmcNCj4gU3ViamVjdDog
-UkU6IFtQQVRDSCBSRkMgMDcvMTBdIHR0eTogc2VyaWFsOiBBZGQgQ29ydGluYSBTeXN0ZW1zIENT
-NzV4eCBVQVJUDQo+IGRyaXZlcg0KPiANCj4gRXh0ZXJuYWwgbWFpbCA6DQo+IFRoaXMgZW1haWwg
-b3JpZ2luYXRlZCBmcm9tIG91dHNpZGUgdGhlIG9yZ2FuaXphdGlvbi4gRG8gbm90IHJlcGx5LCBj
-bGljayBsaW5rcywgb3INCj4gb3BlbiBhdHRhY2htZW50cyB1bmxlc3MgeW91IHJlY29nbml6ZSB0
-aGUgc2VuZGVyIGFuZCBrbm93IHRoZSBjb250ZW50IGlzDQo+IHNhZmUuDQo+IA0KPiBPbiBUaHUs
-IE9jdCAwMSwgMjAyNiBhdCAwMzoxNzoyOEFNICswMDAwLCBKYXNvbiBMaSB3cm90ZToNCj4gPiBZ
-ZXMsIHRoZXkgYXJlIGFjdHVhbGx5IHNhbWUgSFcgbG9naWMuIEJ1dCB0aGUgYnJhbmQgbmFtZSBv
-ZiBDU3h4eHggaXMNCj4gPiBvd25lZCBieSBNYXJ2ZWxsIGluc3RlYWQgb2YgQ29ydGluYS1BY2Nl
-c3Mgbm93Lg0KPiA+IFdpbGwgdGhlcmUgYW55IGxlZ2FsIGlzc3VlIGlmIHVuaWZ5IHRoZW0gYXMg
-b25lIGRyaXZlcj8NCj4gDQo+IFRoYW5rcyBmb3IgY29uZmlybWluZyB0aGF0IGl0IGlzIHRoZSBz
-YW1lIGxvZ2ljLg0KPiANCj4gSSBhbSBub3QgYSBsYXd5ZXIsIGJ1dCBJIGRvIG5vdCBzZWUgYSBw
-cm9ibGVtIGhlcmUuIFRoZSBwYXJ0IG51bWJlcnMgb25seQ0KPiBzaG93IHVwIGFzIGNvbXBhdGli
-bGUgc3RyaW5ncywgS2NvbmZpZyBoZWxwIHRleHQgYW5kIGNvbW1lbnRzIHRoYXQgc2F5IHdoaWNo
-DQo+IGhhcmR3YXJlIHRoZSBjb2RlIHJ1bnMgb24sIGFuZCB0aGUga2VybmVsIGRvZXMgdGhhdCBm
-b3IgY2hpcHMgb2YgY29tcGFuaWVzDQo+IHRoYXQgd2VyZSBib3VnaHQgb3Igc3BsaXQgdXAgYWxs
-IHRoZSB0aW1lLiBUaGUgZHJpdmVyIGl0c2VsZiBpcyBHUEwgY29kZTsgeW91cg0KPiBhZGRpdGlv
-bnMgd291bGQgYmUgdW5kZXIgdGhlIEdQTCBhcyB3ZWxsLCB3aXRoIHlvdXIgb3duIGNvcHlyaWdo
-dCBsaW5lLg0KPiBOb3RoaW5nIGluIGl0IHVzZXMgYSB0cmFkZW1hcmsgdG8gbmFtZSB0aGUgcHJv
-ZHVjdC4NCj4gDQo+IFRoZSBwbGFuIGZvciB2MiBpcyBhIG5ldXRyYWwgbmFtZTogZHJpdmVycy90
-dHkvc2VyaWFsL2NvcnRpbmEtdWFydC5jLA0KPiBTRVJJQUxfQ09SVElOQSwgcG9ydCB0eXBlICJD
-T1JUSU5BIiwgYW5kIGEgYmluZGluZyB3aXRoIG9uZSBjb21wYXRpYmxlIHBlcg0KPiBTb0MgKCJj
-b3J0aW5hLGNzNzU0Mi11YXJ0IiBmb3IgbWluZSwgYSAiY29ydGluYS1hY2Nlc3MsLi4uIiBvbmUg
-Zm9yIHlvdXJzKS4gSWYNCj4gQ29ydGluYSBBY2Nlc3Mgd291bGQgcmF0aGVyIGhhdmUgdGhlIENB
-IHBhcnRzIGRlc2NyaWJlZCBkaWZmZXJlbnRseSBpbiB0aGUgaGVscA0KPiB0ZXh0IG9yIHRoZSBi
-aW5kaW5nIHRpdGxlLCB0ZWxsIG1lIHdoYXQgd29yZGluZyB5b3UgcHJlZmVyIGFuZCBJIHdpbGwg
-dXNlIGl0Lg0KPiANCj4gVGhhbmtzLA0KPiBGaWwNClRoYW5rcyBmb3IgY2xhcmlmeWluZy4NCldl
-IGFncmVlIHdpdGggdGhlIGFwcHJvYWNoIG9mIHVzaW5nIGEgc2luZ2xlIFVBUlQgZHJpdmVyIHNp
-bmNlIHRoZSBDUzc1eHggYW5kIENBIHNlcmllcyBzaGFyZSB0aGUgc2FtZSBVQVJUIGhhcmR3YXJl
-IGltcGxlbWVudGF0aW9uLg0KRm9yIHRoZSBEZXZpY2UgVHJlZSBjb21wYXRpYmxlIHN0cmluZ3Ms
-IHdlIHdvdWxkIHByZWZlciB1c2luZyB0aGUgImNvcnRpbmEtYWNjZXNzIiB2ZW5kb3IgcHJlZml4
-IGZvciB0aGUgQ0EgU29DcyAoZS5nLiAiY29ydGluYS1hY2Nlc3MsPHNvYz4tdWFydCIpLg0KV2Ug
-ZG8gbm90IGhhdmUgY29uY2VybnMgd2l0aCB1c2luZyBhIG5ldXRyYWwgZHJpdmVyIG5hbWUgc3Vj
-aCBhcyBjb3J0aW5hLXVhcnQuIEhvd2V2ZXIsIGZvciBEVCBiaW5kaW5ncyBhbmQgcmVsYXRlZCBk
-b2N1bWVudGF0aW9uIGRlc2NyaWJpbmcgdGhlIENBIGRldmljZXMsIHdlIHdvdWxkIHByZWZlciB0
-aGUgd29yZGluZyAiQ29ydGluYSBBY2Nlc3MiIHRvIGRpc3Rpbmd1aXNoIHRoZW0gZnJvbSB0aGUg
-bGVnYWN5IENvcnRpbmEvTWFydmVsbCBicmFuZGVkIGRldmljZXMuDQoNClRoYW5rcywNCkphc29u
-DQo=
+On Thu, Oct 01, 2026 at 05:14:59AM +0000, Jason Li wrote:
+> We agree with the approach of using a single UART driver since the
+> CS75xx and CA series share the same UART hardware implementation.
+> For the Device Tree compatible strings, we would prefer using the
+> "cortina-access" vendor prefix for the CA SoCs (e.g.
+> "cortina-access,<soc>-uart").
+> We do not have concerns with using a neutral driver name such as
+> cortina-uart. However, for DT bindings and related documentation
+> describing the CA devices, we would prefer the wording "Cortina
+> Access" to distinguish them from the legacy Cortina/Marvell branded
+> devices.
+
+Thanks, that works for me. So for v2:
+
+- drivers/tty/serial/cortina-uart.c, SERIAL_CORTINA,
+  SERIAL_CORTINA_CONSOLE;
+- the CS75xx parts keep the existing "cortina" prefix
+  ("cortina,cs7542-uart"), the CA parts get "cortina-access,<soc>-uart"
+  when they are added;
+- the binding and the Kconfig help name both families, as "Cortina
+  Systems CS75xx" and "Cortina Access CAxxxx".
+
+Arnd, this also answers the prefix question from patch 4 for me: I
+would leave the CS75xx compatibles and the dts directory on "cortina"
+then, and use "cortina-access" only for the parts that Cortina Access
+made. Please shout if you or the DT maintainers see it differently.
+
+Thanks,
+Fil
+
 
