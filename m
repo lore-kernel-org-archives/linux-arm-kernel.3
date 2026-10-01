@@ -4,57 +4,74 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8A3A2CA5FB3
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  1 Oct 2026 12:22:38 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E6043CA5FB3
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  1 Oct 2026 12:34:23 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Txa73AibBOUFGnqEUgy9UQjLyox1mglOmNld2kHTL9M=; b=Yi8FShS9CM1cJp5I7Jh/z+K97x
-	qjvdqE9LbBjls7aUSu4taaMELYLEtqP4I9a3DQNCTWxQbZofabjTqigGNP/KnIZRjsTWWMHHFlWaO
-	cF/R1zsdMwPul3bMzu4fRpkTnro2fmNkQqbAC8cBtoc91iRVqe369Qkznzwc5n7ZiWGxkddqp+EqQ
-	6ohpADtaj8CCwytNrjAPGkC5WiCCjCmTgmXU1ya8Gm3k9wEdX5Q0a08TQlVdUPcDOTdOIKT7J6XIk
-	M2Pl92IZmE9dMyjYdV7wHSoePDOgFRQ02MDZTH19Ud9HyqQedpZw5juJtI+pQkJZg7ksERPcYNWxy
-	iL2UHKtw==;
+	bh=PzSvFLGXXhDhvscc/9MFlHIrUkWd1NO5NFV4BtnVy4A=; b=NYHnBnMu/LbUx6KYi7DOkIzJtZ
+	Tv2T/LiK8V2R+q0vxJs36eE+ovbi6HgPLT9RcjU4ZkUSLOaAsQXE6tYtwsT0+byrVn6HaR21WgQ/W
+	A2sk8QvpLyQ8L4zcGYiVidgiDmbudApglS2B+ZWECuKPDvQedH6mGy/SFRG6zNojbJCSpkT2plIgY
+	nkxH8gNWDZFQ8hL8Auw30nRxNnUYYQBQZ/6xiAsu5YdRXhd5Zpob+87kIwHi42FcTeh5ISEjr4gwZ
+	fcp2X1iKHHUkJMLFvX4S8bEpBczygimFrrAQjVg7K5BM1Xo60W0J+lBSjTEP3u684I3eAk72KxLDo
+	ZGDCvUQQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xCFo0-000000093H9-02r6;
-	Thu, 01 Oct 2026 12:22:32 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1xCFzN-0000000947n-1H2c;
+	Thu, 01 Oct 2026 12:34:17 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xCFny-000000093Gp-128m
+	id 1xCFzM-0000000947e-1n8V
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 01 Oct 2026 12:22:30 +0000
+	Thu, 01 Oct 2026 12:34:16 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id 742CD60A55;
-	Thu,  1 Oct 2026 12:22:29 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 4AD5A1F000FF;
-	Thu,  1 Oct 2026 12:22:27 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id E3DEA401C2;
+	Thu,  1 Oct 2026 12:34:15 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 47FD81F00898;
+	Thu,  1 Oct 2026 12:34:09 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1790857349;
-	bh=Txa73AibBOUFGnqEUgy9UQjLyox1mglOmNld2kHTL9M=;
+	s=k20260515; t=1790858055;
+	bh=PzSvFLGXXhDhvscc/9MFlHIrUkWd1NO5NFV4BtnVy4A=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=CsDC78qXzYYpOMV8w2qnZYpSaYWdLT0/j8SDEUXDrzzRv4m2sGvsn5I3S7axzVQkd
-	 MXhGhUQF5O2FHw65Y/RfvXbClKioHk9k9eLHpevJ7Qh4EoscWZxHKofpvamiyEgTAR
-	 kC6SnMxGtHpS75EXpkgGcxFeyMzwIJZnl7fwK9ZKIVa6iDKf0BMGeGdS4+veMrLS/q
-	 P+xWeMoFzLN9pQvAGzZrHSysUggRx3NJVmyYHE0iYJGT+I/XUWV0elNjJiZbG241SX
-	 jczOnsKZLGyLruNNPDKnvy6dznYp3V7ZbDK+5e1bS3+k4eKAWauhf7Jnp58o8HmGoD
-	 byUMtBnr58qqg==
-Date: Thu, 1 Oct 2026 14:22:25 +0200
-From: Krzysztof Kozlowski <krzk@kernel.org>
-To: Sudeep Holla <sudeep.holla@kernel.org>
-Cc: SoC Team <soc@lists.linux.dev>, arm-scmi@vger.kernel.org, 
-	ALKML <linux-arm-kernel@lists.infradead.org>, Arnd Bergmann <arnd@kernel.org>, 
-	Cristian Marussi <cristian.marussi@arm.com>
-Subject: Re: [GIT PULL] firmware: arm_scmi: Updates for v7.4
-Message-ID: <20261001-crafty-attractive-kangaroo-d20f0f@quoll>
-References: <20260928065112.2492223-1-sudeep.holla@kernel.org>
+	b=if4SvAJ18eHheJNDIHcxsy7TV/obUhX+e28ofec1ugv6Qzf1xWPauEKNX2d5q4tTp
+	 lqIuMR+qdhIvYgLNPo+Xu71RRG2jvwkgCBw9d0spl9LBDZYsQtwcfML4ZVgiSM96eu
+	 NziDpTlnYQuD6PZdYxCPJL8kHi9knoo5gRcjO9s2i9wA9xfxVdbp6Yvnr/0AAd0qde
+	 D8UclBqsHY5y39KB5plqsT63o4jWH8xj6VEW4Hu89PvcGeID+lsA7y6rvKVYZ9Xbb6
+	 3yejC5BjkVY3QrY5fE+q8ahCPjh/bI+RcEG2FarJLbEFB9YnZ35RB5mMH9dP/3yAwJ
+	 NiIHnfgpTOdfw==
+Date: Thu, 1 Oct 2026 18:04:06 +0530
+From: Sumit Garg <sumit.garg@kernel.org>
+To: Will Deacon <will@kernel.org>
+Cc: brendan.jackman@linux.dev, Vincent Donnefort <vdonnefort@google.com>,
+	catalin.marinas@arm.com, rppt@kernel.org, akpm@linux-foundation.org,
+	sudeep.holla@kernel.org, jenswi@kernel.org, robh@kernel.org,
+	mark.rutland@arm.com, ardb@kernel.org, thierry.reding@kernel.org,
+	david@kernel.org, danielmentz@google.com,
+	linux-arm-kernel@lists.infradead.org, linux-mm@kvack.org,
+	op-tee@lists.trustedfirmware.org, devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v2 0/8] arm64: Unmap FF-A lent memory from direct map
+Message-ID: <ar5TPvANFUoosxGW@sumit-xelite>
+Mail-Followup-To: Will Deacon <will@kernel.org>, brendan.jackman@linux.dev,
+	Vincent Donnefort <vdonnefort@google.com>, catalin.marinas@arm.com,
+	rppt@kernel.org, akpm@linux-foundation.org, sudeep.holla@kernel.org,
+	jenswi@kernel.org, robh@kernel.org, mark.rutland@arm.com,
+	ardb@kernel.org, thierry.reding@kernel.org, david@kernel.org,
+	danielmentz@google.com, linux-arm-kernel@lists.infradead.org,
+	linux-mm@kvack.org, op-tee@lists.trustedfirmware.org,
+	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org
+References: <20260921110050.3977591-1-vdonnefort@google.com>
+ <arIYtjmSKCs14SqO@sumit-xelite>
+ <arKW_91EeKA-w96m@willie-the-truck>
+ <are21BjeS1O3RYE3@sumit-xelite>
+ <aruh86rd5FMv2i9G@willie-the-truck>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
+Content-Type: text/plain; charset=us-ascii; format=flowed
 Content-Disposition: inline
-In-Reply-To: <20260928065112.2492223-1-sudeep.holla@kernel.org>
+In-Reply-To: <aruh86rd5FMv2i9G@willie-the-truck>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -69,31 +86,89 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Sep 28, 2026 at 07:51:11AM +0100, Sudeep Holla wrote:
-> Hi ARM SoC Team,
-> 
-> Please pull !
-> 
-> Regards,
-> Sudeep
-> 
-> -->8
-> The following changes since commit 8544e0da1a04c77b98e2e313a423a5c72e48ea32:
-> 
->   Merge branches 'for-next/ffa/fixes' and 'for-next/scmi/fixes' of git://git.kernel.org/pub/scm/linux/kernel/git/sudeep.holla/linux (2026-09-08 21:04:42 +0100)
-> 
-> are available in the Git repository at:
-> 
->   git://git.kernel.org/pub/scm/linux/kernel/git/sudeep.holla/linux.git tags/scmi-updates-7.4
-> 
-> for you to fetch changes up to aac4e67d6eb93118cfa70c6562b5f9c81a7042ef:
-> 
->   firmware: arm_scmi: Always create devices for standard protocols (2026-09-24 09:10:43 +0100)
-> 
+On Tue, 29 Sep 2026 at 12:33:07 +0100, Will Deacon wrote:
+>On Sat, Sep 26, 2026 at 05:43:08PM +0530, Sumit Garg wrote:
+>> Looks like you dropped me from your reply.
+>
+>Huh, that's weird. If I hit reply-all ('g') in mutt, it moves the entire
+>CC list to To: and drops you. I suspect the same thing happened to Thierry
+>when he replied here:
+>
+>https://lore.kernel.org/all/arJcN60nagFKXj2Q@orome/
+>
+>I can't figure out why that's happening :/
+>I manually tried to fix the To: and Cc: lines in this message.
 
-Thanks, applied
+Thanks.
 
-Best regards,
-Krzysztof
+>
+>> On Tue, 22 Sep 2026 at 15:55:59 +0100, Will Deacon wrote:
+>> > I spoke to Brendan at LPC (?) last year but this doesn't really work
+>> > for arm64 because it relies on being able to unmap arbitrary parts of
+>> > the linear map, which isn't generally possible unless you force pte-level
+>> > mappings for everything, which is prohibitive for perf/power.
+>>
+>> As per the cover letter it's about allocating pages that are not present
+>> in the direct map. This essentially fits the protected DMABufs use-case
+>> where we don't want any kernel mapping to exist at any time. Bufers
+>> allocated from protected DMABufs are only meant to be accessed by the
+>> TEE implementation or HW accelerators like in the secure media pipeline.
+>
+>That sounds like it should probably build on top of this series, then.
 
+The main problem I see with this series is it tries to move from the generic
+CMA allocator to a reserved FF-A CMA pool which again comes from the
+DT. We already support reserved pool allocations via "no-map" which are
+discovered dynamically from OP-TEE.
+
+If we can rather support a generic CMA like allocator for arm64 which
+can support unmapped allocations then I am all for it. These platform
+specific reserved pools isn't a scalable solution.
+
+>You could allocate the DMABufs from a CMA region that has no linear alias.
+
+Allocation from generic CMA pool is already the case here:
+
+tee_shm_alloc_dma_mem() ->
+   dma_alloc_pages()
+
+Do you mean it's just fine to unmap buffers allocated from generic CMA
+region since it doesn't have any linear alias?
+
+>
+>> > Vincent's series tackles that by using a pool so that only that part of
+>> > memory requires the pte-level mappings in the linear map. That's the
+>> > whole point of it, so I don't think it makes sense to drop it in favour
+>> > of Brendan's approach (which doesn't work).
+>> >
+>>
+>> For protected DMABufs, we even don't require any pte-level mappings in
+>> linear map. The whole idea of mapping and unmapping is just a bottleneck
+>> for performance sensitive secure media pipeline use-cases. That's why if
+>> we can support __GFP_UNMAPPED with the memory allocator on arm64 would
+>> be the best fit for this use-case.
+>
+>The point is that you will require pte-level mappings for the linear map
+>if you want to unmap from it at runtime on arm64. If you don't, then you
+>can end up needing to split a block mapping (e.g. pmd-level) when you
+>decide to unmap only part of it and there isn't a safe way to do that on
+>arm64 without transiently unmapping the entire block, which can lead to
+>fatal translation faults during that window.
+
+I agree with you here, what I am rather trying to find if on arm64 there
+is any possibilty to have a generic allocator for unmapped pages. That's
+the use-case here as well as what Brendan't patch-set was trying to address.
+
+>
+>> Now the question is why arm64 can't support __GFP_UNMAPPED similar to
+>> how Brendan is doing it for x86?
+>
+>Because arm64 != x86? Presumably x86 doesn't have the strict
+>break-before-make requirements we have on arm64.
+>
+
+Sure, sounds like you are eluding to that the generic MM flag
+__GFP_UNMAPPED being proposed can't be supported on arm64, right?
+
+-Sumit
 
