@@ -4,65 +4,90 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 70D8ECA5FD4
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  1 Oct 2026 17:49:56 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 62894CA5FD4
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  1 Oct 2026 17:55:14 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:Message-ID:References:In-Reply-To:Subject:Cc:To:From:Date:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=TpovwenXPDOa/CzlL9Tb6pvO6bb3yMG0I4srjw+nzys=; b=J7duWInFe6p18yjdRqXtagxpMm
-	t4B8j4sd0udZcuYoYJOEe3MUAXujIvsIWf55/qono2Si4LlVrHH4zK1DOTNfTiUBv+LMPThqCvsjJ
-	JEewCKxYf9OjkJk3LyYf+ABH1/7PYelSe/3ODzjPpLsFZPTuK4br4KDIBu/NHaGQSGjt19HF98J/c
-	nn1q5gSEH0MyMe9eQWtv1zJr7+s9hr6zd0NXRztPZp8sSLzAAnDTLlA1OUzlde4X7sSVaC5CBpc3y
-	9vBHqsBRGv0+usur3B8f1VVBDJ8Yf/i7QJrUHGzuAjxnjk3Scd1odXcQLN0tLkg0x5eRYIVrVGvk2
-	ODbxnj9w==;
+	bh=e5fiATXuidJ60CvoDdPvwnRrwN5d6VT3jAzCpUmTPrM=; b=ILROCuDk6J7nD7f0x8D/2E3pdW
+	1p0xU3IbBLfTXpfhbEIHKnhPeqgnH6sx//UubPFvLJo+CVSLoofn2Nq3oY4ZHr/NQyTbFHG2Q/3R0
+	y1GApmwpOs/vZ81n+/JWfZbUOYOpCxYRBM+i22JWJSVIDnCIUzDg2S+0/SUA0DkPfsoUEi0PY3bkd
+	e5l1NQF+e7iIeYgTCXrf4sfIvIXMyugCB0PlT9M6cYb794fUmBuQzdVWIfWqUV+dYweDdwuENH4MW
+	C6ZiYWnjCEgBF981NzBAoOalM7xfRK6JA0OJw0sf1rTdujmaHUJ0lgLw+hT6oBVIwHGotgRROzdc8
+	wVKJGx4w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xCKug-00000009u8h-25Bo;
-	Thu, 01 Oct 2026 17:49:46 +0000
-Received: from mail11.truemail.it ([2001:4b7e:0:8::81])
+	id 1xCKzl-00000009v8z-1N03;
+	Thu, 01 Oct 2026 17:55:02 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xCKuY-00000009u1h-3fES
+	id 1xCKzi-00000009v8D-41Yb
+	for linux-arm-kernel@bombadil.infradead.org;
+	Thu, 01 Oct 2026 17:54:59 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:Content-Type
+	:Message-ID:References:In-Reply-To:Subject:Cc:To:From:Date:MIME-Version:
+	Sender:Reply-To:Content-ID:Content-Description;
+	bh=e5fiATXuidJ60CvoDdPvwnRrwN5d6VT3jAzCpUmTPrM=; b=SEed9/GnoYIFr8v6QgbmsJXei1
+	C+y51tmu06iOXjfdSSYrg2gq+9MNDD+e9lx2IWU3tpq1WYmaIc/tmNyPvV7iO7rY9sD1+641kIsNm
+	bU6bKlpr4D4ziFcoidb2dBQpACOrA9wIk2lHPPqUaOBF6HJRNBaRxTcxZBSQsSOBtjqXWRhjsYWyu
+	t8WWHYw72l9jVzbRsK/3DRbncaqKzfiOJXjBGK3cZ9IFR2czf8oU/MwdEY7mRUdxU+5Rf2kLj0mCH
+	G0RcP52ZTU2ZIJL4l7WXvhnbK7LbbJIhbcG8xIg44Lnn76Dq9spkMtEt7tH0KEGxi1Kt1zWiG4M8M
+	v7T527/w==;
+Received: from fanzine2.igalia.com ([213.97.179.56])
+	by desiato.infradead.org with esmtps (Exim 4.99.2 #2 (Red Hat Linux))
+	id 1xCKzb-00000005H3c-1prH
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 01 Oct 2026 17:49:41 +0000
-Received: from francesco-nb.. (93-49-2-63.ip317.fastwebnet.it [93.49.2.63])
-	by mail11.truemail.it (Postfix) with ESMTPA id 985DB2039F;
-	Thu,  1 Oct 2026 19:49:35 +0200 (CEST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=dolcini.it;
-	s=default; t=1790876976;
-	bh=TpovwenXPDOa/CzlL9Tb6pvO6bb3yMG0I4srjw+nzys=; h=From:To:Subject;
-	b=Az21ypb2ppPYsw7tCj0wC3qzExydj67M83JxIZ5X5MnuG3W8z4yhdKDgOUpQhU+Rh
-	 XKcuTKYJNLFr25o/1OTtoXX+QjY80n7S5hCnUhapChLZef34pmFGISdMsf4YLFcrPi
-	 9BZdsvSrz1TEFh4XnCPV9SLIi8b1up/q9sDIrqLnQPYYkEqiVqJZJf/4SbjXP032v3
-	 /SM8Gf/MaGAFSMoydXbubqpukR6Ol8Hz8rrWOIH/5dA9TdB/Kgda4OGPSORlh7RNE7
-	 Wk3bGcFOctVTlu3Wknkt2xsm6CScTFRM/YrUcHMObUbZDoDKa7b9hJJxytSXjx4ycy
-	 BNVxWDzArxcvQ==
-From: Francesco Dolcini <francesco@dolcini.it>
-To: Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Frank Li <Frank.Li@nxp.com>,
-	Sascha Hauer <s.hauer@pengutronix.de>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Fabio Estevam <festevam@gmail.com>
-Cc: Francesco Dolcini <francesco.dolcini@toradex.com>,
-	devicetree@vger.kernel.org,
-	imx@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org
-Subject: [PATCH v1 7/7] ARM: dts: imx6ull-colibri-emmc: Add VGA overlay
-Date: Thu,  1 Oct 2026 19:49:16 +0200
-Message-ID: <20261001174924.3831455-8-francesco@dolcini.it>
-X-Mailer: git-send-email 2.47.3
-In-Reply-To: <20261001174924.3831455-1-francesco@dolcini.it>
-References: <20261001174924.3831455-1-francesco@dolcini.it>
+	Thu, 01 Oct 2026 17:54:55 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=igalia.com;
+	s=20170329; h=Content-Transfer-Encoding:Content-Type:Message-ID:Subject:Cc:To
+	:From:Date:MIME-Version:From:Reply-To;
+	bh=e5fiATXuidJ60CvoDdPvwnRrwN5d6VT3jAzCpUmTPrM=; b=NeinwNRv+dXtKK93Tr1C+VYoTK
+	i/vQ75nwE+VMdQ9SPgUnpUK6ErIbLdhjs4e9XOBo7HXPBWyirTV2NOuHlKph/VutUpSgyFOXkvopE
+	rpTkV3Jt+DbgYz0krgb9BhHpMKI9MN18mMBohrt79WTpZUf/+Em95xDzoxlXl2s2Gd/66ZzipJgBb
+	tbBHtF8lf1KhVO7oa0qUNk/hTch/5XCLHeJ5EjaBvVJ5onpjJ/jfVs40GTa370y93/+lwEp3htq46
+	9s/x885ieTgavOnIJsCZv+PL5jQvSn3Ztp196AoC7eqShpOKQXYBUathD8wOhjpku2n3Zi6N7Lw0c
+	YawpEJBA==;
+Received: from maestria.local.igalia.com ([192.168.10.14] helo=mail.igalia.com)
+	by fanzine2.igalia.com with esmtps 
+	(Cipher TLS1.3:ECDHE_SECP256R1__RSA_PSS_RSAE_SHA256__AES_256_GCM:256) (Exim)
+	id 1xCKzR-00AEdb-3U; Thu, 01 Oct 2026 19:54:41 +0200
+Received: from webmail.service.igalia.com ([192.168.21.45])
+	by mail.igalia.com with esmtp (Exim)
+	id 1xCKzQ-007yvO-0o;
+	Thu, 01 Oct 2026 19:54:41 +0200
+Received: from localhost ([127.0.0.1] helo=webmail.igalia.com)
+	by webmail.service.igalia.com with esmtp (Exim 4.98.2)
+	(envelope-from <andrealmeid@igalia.com>)
+	id 1xCKzQ-00000006IO9-0VFK;
+	Thu, 01 Oct 2026 19:54:40 +0200
 MIME-Version: 1.0
+Date: Thu, 01 Oct 2026 19:54:40 +0200
+From: =?UTF-8?Q?Andr=C3=A9_Almeida?= <andrealmeid@igalia.com>
+To: Will Deacon <will@kernel.org>
+Cc: Catalin Marinas <catalin.marinas@arm.com>, Billy Laws
+ <blaws05@gmail.com>, Mark Rutland <mark.rutland@arm.com>, Mark Brown
+ <broonie@kernel.org>, Ryan Houdek <sonicadvance1@gmail.com>,
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+ kernel-dev@igalia.com
+Subject: Re: [RFC PATCH v3 1/1] arch: arm64: Implement unaligned atomic
+ emulation
+In-Reply-To: <ar0OyoPqGfmrkdH5@willie-the-truck>
+References: <20260930020138.2377090-1-andrealmeid@igalia.com>
+ <20260930020138.2377090-2-andrealmeid@igalia.com>
+ <ary-2rOs_b2IY6M1@willie-the-truck>
+ <00227dc1-e01c-4de8-b3e3-3cd8de74cba9@igalia.com>
+ <ar0OyoPqGfmrkdH5@willie-the-truck>
+Message-ID: <3a7956e40289cb1f3224851947026907@igalia.com>
+X-Sender: andrealmeid@igalia.com
+Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261001_104939_245715_5CAC09EA 
-X-CRM114-Status: GOOD (  17.20  )
+X-CRM114-CacheID: sfid-20261001_185453_174113_09B6CF85 
+X-CRM114-Status: GOOD (  29.04  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -77,241 +102,80 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Francesco Dolcini <francesco.dolcini@toradex.com>
+On 2026-09-30 15:29, Will Deacon wrote:
+> On Wed, Sep 30, 2026 at 07:29:22AM -0300, André Almeida wrote:
+>> Em 30/09/2026 04:48, Will Deacon escreveu:
+>> > On Tue, Sep 29, 2026 at 11:01:38PM -0300, André Almeida wrote:
+>> > > Implement support for emulating unaligned atomic operations on arm64.
+>> > > User applications that wish to enable support for this should use the
+>> > > pctrl() flag `PR_ARM64_UNALIGN_ATOMIC_EMULATE`.
+>> > > 
+>> > > Signed-off-by: André Almeida <andrealmeid@igalia.com>
+>> > > ---
+>> > >   arch/arm64/Kconfig                   |   6 +
+>> > >   arch/arm64/include/asm/exception.h   |   1 +
+>> > >   arch/arm64/include/asm/processor.h   |   5 +
+>> > >   arch/arm64/include/asm/rwonce.h      |  14 +-
+>> > >   arch/arm64/include/asm/thread_info.h |   1 +
+>> > >   arch/arm64/kernel/Makefile           |   3 +-
+>> > >   arch/arm64/kernel/process.c          |  15 +
+>> > >   arch/arm64/kernel/unaligned_atomic.c | 521 +++++++++++++++++++++++++++
+>> > >   arch/arm64/mm/fault.c                |  10 +
+>> > >   include/uapi/linux/prctl.h           |   5 +
+>> > >   kernel/sys.c                         |   7 +-
+>> > >   11 files changed, 579 insertions(+), 9 deletions(-)
+>> > >   create mode 100644 arch/arm64/kernel/unaligned_atomic.c
+>> > 
+>> > No.
+>> > 
+>> > I already explained to you why this doesn't work:
+>> > 
+>> > https://lore.kernel.org/r/aV1YnOetDHhKe4hz@willie-the-truck
+>> 
+>> Indeed, last time you raised some points, and then Ryan replied them. Is
+>> there any specific point that doesn't work? I couldn't find a reply for
+>> Ryan's answers:
+>> 
+>> https://lore.kernel.org/all/CABnRqDf5EQUoXu=pJ6mj4-JfwAzEfcAE2cYrNzJANFycx7cMUA@mail.gmail.com/
+> 
+> So rather than get involved in the discussion, you did nothing for almost
+> a year and then resent the exact same patch? Why?
+> 
+> I don't think the implementation is correct and I don't think we should
+> be emulating this either. I hope I made that clear last year. Ryan
+> thinks it's "fine" due to the locking, but I don't see how that helps
+> with the example I gave.
 
-Add a device tree overlay for the VGA output on the Colibri iMX6ULL eMMC
-parallel RGB LCD interface. The VGA output is driven through a
-non-programmable video DAC without VESA DDC I2C signals to a DVI
-connector. The DAC power-save input is driven by the BL_ON signal on
-SODIMM 71, like on the Colibri iMX7.
+Good, now we're talking. Now is clear that the most problematic part is
+the split lock "emulation".
 
-The overlay content is identical to the Colibri iMX7 eMMC one, only the
-GPIO driving the DAC power-save input is SoC specific. To avoid
-duplicating it, rework the Colibri iMX7 eMMC overlay moving the common
-part to a new dtsi shared between the two modules, and include it from
-both overlays.
+I agree that your example would cause tearing, and it would create a
+memory state that would never happen with such instructions, or the
+equivalent
+of them in x86. Now I wonder which options do we have to have some sort
+of bus
+locking here. Giving that this instruction is already super expensive in
+x86 anyways,
+we don't need to be super quick as well, but we don't want a system
+freeze as well:
 
-The overlay is also combined with the Aster, Evaluation Board v3, Iris
-and Iris v2 carrier board device trees to provide ready-to-use DTBs.
+- Somehow pause the other CPUs while the two instructions are happening.
+I wonder if
+we need to pause all of them or just the ones that share the specific
+cache, or is the
+LLC always shared amongst all cores?
+- The kernel side lock doesn't serialize all users, so maybe there could
+be a Giant Lock
+in userspace for all threads sharing this resource. My cover letter is
+outdated in that
+regard, giving that the new set_robust_list2() will enable multiple
+robust lists per process.
+- Could flush instructions be useful somehow how?
 
-Signed-off-by: Francesco Dolcini <francesco.dolcini@toradex.com>
----
- arch/arm/boot/dts/nxp/imx/Makefile            | 21 +++++++
- .../dts/nxp/imx/imx6ull-colibri-emmc-vga.dtso | 24 ++++++++
- .../dts/nxp/imx/imx6ull-imx7-colibri-vga.dtsi | 61 +++++++++++++++++++
- .../dts/nxp/imx/imx7d-colibri-emmc-vga.dtso   | 52 ++--------------
- 4 files changed, 112 insertions(+), 46 deletions(-)
- create mode 100644 arch/arm/boot/dts/nxp/imx/imx6ull-colibri-emmc-vga.dtso
- create mode 100644 arch/arm/boot/dts/nxp/imx/imx6ull-imx7-colibri-vga.dtsi
+While I try to test some of this ideas, any other ideas that you might
+have
+about locking two cache lines would be super useful.
 
-diff --git a/arch/arm/boot/dts/nxp/imx/Makefile b/arch/arm/boot/dts/nxp/imx/Makefile
-index 83f65b031e55..fa2a6dd82385 100644
---- a/arch/arm/boot/dts/nxp/imx/Makefile
-+++ b/arch/arm/boot/dts/nxp/imx/Makefile
-@@ -369,6 +369,22 @@ imx6ull-colibri-emmc-eval-v3-panel-res-touch-7inch-parallel-dtbs := \
- 	imx6ull-colibri-emmc-eval-v3.dtb \
- 	imx6ull-colibri-emmc-panel-res-touch-7inch-parallel.dtbo
- 
-+imx6ull-colibri-emmc-aster-vga-dtbs := \
-+	imx6ull-colibri-emmc-aster.dtb \
-+	imx6ull-colibri-emmc-vga.dtbo
-+
-+imx6ull-colibri-emmc-eval-v3-vga-dtbs := \
-+	imx6ull-colibri-emmc-eval-v3.dtb \
-+	imx6ull-colibri-emmc-vga.dtbo
-+
-+imx6ull-colibri-emmc-iris-vga-dtbs := \
-+	imx6ull-colibri-emmc-iris.dtb \
-+	imx6ull-colibri-emmc-vga.dtbo
-+
-+imx6ull-colibri-emmc-iris-v2-vga-dtbs := \
-+	imx6ull-colibri-emmc-iris-v2.dtb \
-+	imx6ull-colibri-emmc-vga.dtbo
-+
- dtb-$(CONFIG_SOC_IMX6UL) += \
- 	imx6ul-14x14-evk.dtb \
- 	imx6ul-ccimx6ulsbcexpress.dtb \
-@@ -398,15 +414,20 @@ dtb-$(CONFIG_SOC_IMX6UL) += \
- 	imx6ull-colibri-aster.dtb \
- 	imx6ull-colibri-emmc-aster.dtb \
- 	imx6ull-colibri-emmc-aster-panel-cap-touch-7inch-parallel.dtb \
-+	imx6ull-colibri-emmc-aster-vga.dtb \
- 	imx6ull-colibri-emmc-eval-v3.dtb \
- 	imx6ull-colibri-emmc-eval-v3-panel-cap-touch-7inch-parallel-touch-adapter.dtb \
- 	imx6ull-colibri-emmc-eval-v3-panel-res-touch-7inch-parallel.dtb \
-+	imx6ull-colibri-emmc-eval-v3-vga.dtb \
- 	imx6ull-colibri-emmc-iris.dtb \
-+	imx6ull-colibri-emmc-iris-vga.dtb \
- 	imx6ull-colibri-emmc-iris-v2.dtb \
- 	imx6ull-colibri-emmc-iris-v2-panel-cap-touch-7inch-parallel.dtb \
-+	imx6ull-colibri-emmc-iris-v2-vga.dtb \
- 	imx6ull-colibri-emmc-panel-cap-touch-7inch-parallel.dtbo \
- 	imx6ull-colibri-emmc-panel-cap-touch-7inch-parallel-touch-adapter.dtbo \
- 	imx6ull-colibri-emmc-panel-res-touch-7inch-parallel.dtbo \
-+	imx6ull-colibri-emmc-vga.dtbo \
- 	imx6ull-colibri-eval-v3.dtb \
- 	imx6ull-colibri-iris.dtb \
- 	imx6ull-colibri-iris-v2.dtb \
-diff --git a/arch/arm/boot/dts/nxp/imx/imx6ull-colibri-emmc-vga.dtso b/arch/arm/boot/dts/nxp/imx/imx6ull-colibri-emmc-vga.dtso
-new file mode 100644
-index 000000000000..4ecf221de27e
---- /dev/null
-+++ b/arch/arm/boot/dts/nxp/imx/imx6ull-colibri-emmc-vga.dtso
-@@ -0,0 +1,24 @@
-+// SPDX-License-Identifier: GPL-2.0-only OR MIT
-+/*
-+ * Copyright (c) Toradex
-+ *
-+ * VGA output connected to the Colibri parallel RGB LCD interface through a
-+ * non-programmable video DAC with a DVI connector.
-+ *
-+ * The VGA output is available on multiple carrier boards (including Iris,
-+ * Eval, Aster) without VESA DDC I2C signals.
-+ */
-+
-+/dts-v1/;
-+/plugin/;
-+
-+#include <dt-bindings/gpio/gpio.h>
-+
-+#include "imx6ull-imx7-colibri-vga.dtsi"
-+
-+&vga_encoder {
-+	pinctrl-names = "default";
-+	pinctrl-0 = <&pinctrl_gpio_bl_on>;
-+	/* SODIMM 71 / BL_ON */
-+	enable-gpios = <&gpio1 11 GPIO_ACTIVE_HIGH>;
-+};
-diff --git a/arch/arm/boot/dts/nxp/imx/imx6ull-imx7-colibri-vga.dtsi b/arch/arm/boot/dts/nxp/imx/imx6ull-imx7-colibri-vga.dtsi
-new file mode 100644
-index 000000000000..7e323698f338
---- /dev/null
-+++ b/arch/arm/boot/dts/nxp/imx/imx6ull-imx7-colibri-vga.dtsi
-@@ -0,0 +1,61 @@
-+// SPDX-License-Identifier: GPL-2.0-only OR MIT
-+/*
-+ * Copyright (c) Toradex
-+ *
-+ * VGA output connected to the Colibri parallel RGB LCD interface through a
-+ * non-programmable video DAC with a DVI connector, shared by the Colibri
-+ * iMX6ULL eMMC and Colibri iMX7 eMMC overlays.
-+ *
-+ * The VGA output is available on multiple carrier boards (including Iris,
-+ * Eval, Aster) without VESA DDC I2C signals.
-+ *
-+ * The DAC power-save input is driven by the BL_ON signal on SODIMM 71, the
-+ * SoC specific pinctrl and GPIO are described by the overlay including this
-+ * file.
-+ */
-+
-+&{/} {
-+	vga_encoder: vga-encoder {
-+		compatible = "dumb-vga-dac";
-+
-+		ports {
-+			#address-cells = <1>;
-+			#size-cells = <0>;
-+
-+			port@0 {
-+				reg = <0>;
-+
-+				vga_enc_in: endpoint {
-+					remote-endpoint = <&lcdif_out>;
-+				};
-+			};
-+
-+			port@1 {
-+				reg = <1>;
-+
-+				vga_enc_out: endpoint {
-+					remote-endpoint = <&dvi_connector_in>;
-+				};
-+			};
-+		};
-+	};
-+
-+	dvi-connector {
-+		compatible = "dvi-connector";
-+		analog;
-+
-+		port {
-+			dvi_connector_in: endpoint {
-+				remote-endpoint = <&vga_enc_out>;
-+			};
-+		};
-+	};
-+};
-+
-+&lcdif {
-+	status = "okay";
-+};
-+
-+&lcdif_out {
-+	remote-endpoint = <&vga_enc_in>;
-+};
-diff --git a/arch/arm/boot/dts/nxp/imx/imx7d-colibri-emmc-vga.dtso b/arch/arm/boot/dts/nxp/imx/imx7d-colibri-emmc-vga.dtso
-index 363c0c2cc43e..ae3d8da02e67 100644
---- a/arch/arm/boot/dts/nxp/imx/imx7d-colibri-emmc-vga.dtso
-+++ b/arch/arm/boot/dts/nxp/imx/imx7d-colibri-emmc-vga.dtso
-@@ -14,51 +14,11 @@
- 
- #include <dt-bindings/gpio/gpio.h>
- 
--&{/} {
--	vga-encoder {
--		compatible = "dumb-vga-dac";
--		pinctrl-names = "default";
--		pinctrl-0 = <&pinctrl_gpio_bl_on>;
--		enable-gpios = <&gpio5 1 GPIO_ACTIVE_HIGH>;
-+#include "imx6ull-imx7-colibri-vga.dtsi"
- 
--		ports {
--			#address-cells = <1>;
--			#size-cells = <0>;
--
--			port@0 {
--				reg = <0>;
--
--				vga_enc_in: endpoint {
--					remote-endpoint = <&lcdif_out>;
--				};
--			};
--
--			port@1 {
--				reg = <1>;
--
--				vga_enc_out: endpoint {
--					remote-endpoint = <&dvi_connector_in>;
--				};
--			};
--		};
--	};
--
--	dvi-connector {
--		compatible = "dvi-connector";
--		analog;
--
--		port {
--			dvi_connector_in: endpoint {
--				remote-endpoint = <&vga_enc_out>;
--			};
--		};
--	};
--};
--
--&lcdif {
--	status = "okay";
--};
--
--&lcdif_out {
--	remote-endpoint = <&vga_enc_in>;
-+&vga_encoder {
-+	pinctrl-names = "default";
-+	pinctrl-0 = <&pinctrl_gpio_bl_on>;
-+	/* SODIMM 71 / BL_ON */
-+	enable-gpios = <&gpio5 1 GPIO_ACTIVE_HIGH>;
- };
--- 
-2.47.3
-
+Thanks again for your time!
+    André
 
