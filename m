@@ -4,69 +4,62 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 02806CA5FCB
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  1 Oct 2026 11:39:56 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CBBCBCA5FCB
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  1 Oct 2026 11:43:03 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:MIME-Version:Date:Message-Id:Subject:References:In-Reply-To:Cc:
+	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=as2BDHmC0Ok2GeH167WFPpDilwxhWMhG/KUN7OsT6g4=; b=wBepKSP+/5ipb2orhdw9rHl2/D
-	+TFHoe7Mr9T78JrdxuMaN6z85jRVGaQKF7zBAQ95J5IEely22344bPsuO8hyvFqYZpZIeuZE8Vqir
-	X9drOeZqJklAy+aoDKTGlMa/jLAL2yZXxDKetYgCZF0UeszesonRE14Wh0xh+naC2wAek1Crv8LDh
-	zqwiS3KLNhZoXi6bKJvm6Ao34svvnfdTSpgdmNsNbkFfbaBAw45jHCeb1KYOAHxM4rURz/cwsnHku
-	OfMswrsbDU4Oq5Fryvg9RtVMUro5HA2Jctslaj/HE3q/u28lrQ2yxWvEjB0DNrvc1X/uI4VkQM0EH
-	zgdWv0tg==;
+	bh=ezo9AABzihn8v9w+EzLT2Oqew0alnRrS/G6JzrXB5K0=; b=p1d8gmAF+EyrRO75JtwXgQ8mb9
+	y5P6Nx3yCsYabPyJNxVW2YtkoH7YV59U85UvAbILR7Nc7gp1hrtvjNM3dPTxC4nPMuPbYARobpro5
+	XhW9puClki1Jtn8DK3/f8zGqbv3xw0gN1UU5QhRFuDOc4FOq1DrKRU6Jn8O+AYkKlWqi729dHljID
+	/sGMy7D8l0wyJQFaT9DZ5czPhl3ynpeWFD9zD7S7T5Zfjvni/oCKwnfIKPsft8Vc2Ww9DGh/fQOzG
+	uxfWf3db4A/N30Oy81SXyy+O+kFPNIrSRFxd7+HIANUKSxsb9UvBAl4fYd2tYwlxwIfGx8cgfJ7o+
+	HvADpdpw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xCF8d-00000008ee8-2e6J;
-	Thu, 01 Oct 2026 11:39:47 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xCF8a-00000008edT-38HF
+	id 1xCFBh-00000008eyz-1n6G;
+	Thu, 01 Oct 2026 11:42:57 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1xCFBf-00000008eyT-3BDF
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 01 Oct 2026 11:39:46 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 7F9A6497;
-	Thu,  1 Oct 2026 04:39:38 -0700 (PDT)
-Received: from [10.57.9.178] (unknown [10.57.9.178])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 47ED43F86F;
-	Thu,  1 Oct 2026 04:39:38 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1790854781; bh=aIUuO4ENC77y8AatC+unyTYHYRfthaC+8kOZ3gEUHLc=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=neqGY7qENHa5C3IakID0foMencI4cFZZHabSuLJ1lNBFE4M0m2FgM7mAvbQNY3BFx
-	 stn/gI/6Xq2wXq7RIjF5XuMlVa57lMplWsGspYC8wxz97g6TqZdZE3Y5XcZczFYbgm
-	 OpqxKgkX2oAxFSQVnqoXEr45ElxUfdqWnQd2sbTw=
-Message-ID: <bf6efab5-ab8e-48e2-8576-2f3fb69a3d6a@arm.com>
-Date: Thu, 1 Oct 2026 12:39:36 +0100
+	Thu, 01 Oct 2026 11:42:55 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by tor.source.kernel.org (Postfix) with ESMTP id A6BCE60A55;
+	Thu,  1 Oct 2026 11:42:54 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 28EED1F00898;
+	Thu,  1 Oct 2026 11:42:50 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1790854974;
+	bh=ezo9AABzihn8v9w+EzLT2Oqew0alnRrS/G6JzrXB5K0=;
+	h=From:To:Cc:In-Reply-To:References:Subject:Date;
+	b=Z7bGx+9YjwQE9mmx5xOfDrWwbuyPcSv80D+JAIMF/rbGp+AAKEwfzI+EPb7nQsdJK
+	 pK0KmwY+OHTVp2I1huCwyQFIXyUXy3IbfwBL6c/P089Bn46pBhVyEYJ5Gfcu1jV1Tp
+	 Vj0QjTMV7Nwb8S6ea+60PhwGOA1LattBvoasIP7H7WZ13C1P/lk2Ydbhk5jyPA/yzM
+	 uttRxmd8TJSFcv9+pQhG+RZrCrHq51nRqfqnuyefDqHLe4qN+xucigLvVBd05DwTRW
+	 e2pjwmZJgo089MtmhNI+1kqpYx5e3KGU28SBQWzwq9A6Beg3t/x2///mazUmVJV+Kj
+	 aE03LVf3B+8ag==
+From: Krzysztof Kozlowski <krzk@kernel.org>
+To: =?utf-8?q?Marek_Beh=C3=BAn?= <kabel@kernel.org>, 
+ Ridham Khurana <khurana.ridham222@gmail.com>
+Cc: soc@lists.linux.dev, linux-arm-kernel@lists.infradead.org, 
+ Arnd Bergmann <arnd@arndb.de>, linux-kernel@vger.kernel.org, 
+ Shuah Khan <shuah@kernel.org>, Jori Koolstra <jkoolstra@xs4all.nl>, 
+ Brigham Campbell <me@brighamcampbell.com>, 
+ linux-kernel-mentees@lists.linux.dev
+In-Reply-To: <20260921204204.797294-1-khurana.ridham222@gmail.com>
+References: <20260921204204.797294-1-khurana.ridham222@gmail.com>
+Subject: Re: [PATCH RESEND] platform: cznic: turris-omnia-mcu: Add missing
+ MODULE_DEVICE_TABLE()
+Message-Id: <179085497050.480978.17953690152528059792.b4-ty@b4>
+Date: Thu, 01 Oct 2026 13:42:50 +0200
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v21 7/9] arm64: Block hibernate and kexec while RMM is
- active
-Content-Language: en-GB
-To: Catalin Marinas <catalin.marinas@arm.com>
-Cc: kvm@vger.kernel.org, kvmarm@lists.linux.dev, maz@kernel.org,
- will@kernel.org, linux-kernel@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, steven.price@arm.com,
- aneesh.kumar@kernel.org, oupton@kernel.org, gshan@redhat.com,
- joey.gouly@arm.com, tabba@google.com, yuzenghui@huawei.com,
- linux-coco@lists.linux.dev, gankulkarni@os.amperecomputing.com,
- sdonthineni@nvidia.com, alpergun@google.com, fj0570is@fujitsu.com,
- WeiLin.Chang@arm.com, lpieralisi@kernel.org, enju.kohei@fujitsu.com,
- sudeep.holla@arm.com, jonathan.cameron@oss.qualcomm.com,
- "Rafael J. Wysocki" <rafael@kernel.org>, Len Brown <lenb@kernel.org>,
- Pavel Machek <pavel@kernel.org>, linux-pm@vger.kernel.org
-References: <20261001084555.1456543-1-suzuki.poulose@arm.com>
- <20261001084555.1456543-8-suzuki.poulose@arm.com> <ar4-kg8Jq9BTn7Sb@arm.com>
-From: Suzuki K Poulose <suzuki.poulose@arm.com>
-In-Reply-To: <ar4-kg8Jq9BTn7Sb@arm.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261001_043944_883774_2E7F533B 
-X-CRM114-Status: GOOD (  35.53  )
+X-Mailer: b4 0.16.0
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -81,167 +74,25 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 01/10/2026 12:05, Catalin Marinas wrote:
-> On Thu, Oct 01, 2026 at 09:45:53AM +0100, Suzuki K Poulose wrote:
->> RMM can be deactivated only after all delegated granules have been
->> reclaimed. If a new kernel is entered while any granules remain in the
->> Realm PAS, accesses to that memory can raise a Granule Protection Fault
->> and be fatal to the new kernel.
->>
->> Crash kexec/kdump needs separate handling. It can be supported only once
->> the crash kernel can tolerate delegated memory inherited from the primary
->> kernel. i.e., be able to read the pages safely and fixup the GPF. Until
->> then disable the kexec completely.
->>
->> Hibernate has a similar problem. The image cannot be safely saved for
->> delegated pages, as the RMM doesn't support exporting the pages.
->>
->> Disable both kexec and hiberation while the RMM is active.
+
+On Mon, 21 Sep 2026 20:41:47 +0000, Ridham Khurana wrote:
+> The driver wires of_omnia_mcu_match into the i2c_driver's
+> .of_match_table but never exports it with MODULE_DEVICE_TABLE(), so no
+> module alias is generated and the module is not autoloaded when the MCU
+> is probed from the device tree.
 > 
-> I would mention that this adds a new arch_hibernation_available() hook
-> called from hibernation_available(), otherwise the hibernation
-> maintainers may not realise why they've been cc'ed.
+> Found by code inspection. Not tested on the hardware itself; with the
+> module built, the alias lookup
 > 
-> Alternatively, just introduce the hook as a separate patch without any
-> arch code.
+> [...]
 
-I will go for this approach, adding the hook in a prep patch and then
-the arm64 version with kexec changes.
+Applied, thanks!
 
+[1/1] platform: cznic: turris-omnia-mcu: Add missing MODULE_DEVICE_TABLE()
+      https://git.kernel.org/soc/soc/c/59797443846bc2451c35816026bbb79d281c9f23
 
-> 
->> Cc: "Rafael J. Wysocki" <rafael@kernel.org>
->> Cc: Len Brown <lenb@kernel.org>
->> Cc: Pavel Machek <pavel@kernel.org>
->> Cc: linux-pm@vger.kernel.org
->> Signed-off-by: Suzuki K Poulose <suzuki.poulose@arm.com>
->> ---
->> Changes since v20:
->>   - Add arch_hibernation_available() hook for archs to have a say and drop the
->>     other checks.
->> Changes since v19:
->>   - New patch to disable kexec and hibernation with RMM
->> ---
->>   arch/arm64/kernel/hibernate.c     | 14 ++++++++++++++
->>   arch/arm64/kernel/machine_kexec.c | 11 +++++++++++
->>   include/linux/suspend.h           |  1 +
->>   kernel/power/hibernate.c          |  8 +++++++-
->>   4 files changed, 33 insertions(+), 1 deletion(-)
->>
->> diff --git a/arch/arm64/kernel/hibernate.c b/arch/arm64/kernel/hibernate.c
->> index 7bf1174277772..08e03d24b93a8 100644
->> --- a/arch/arm64/kernel/hibernate.c
->> +++ b/arch/arm64/kernel/hibernate.c
->> @@ -10,6 +10,8 @@
->>    * Copyright (C) 2006 Rafael J. Wysocki <rjw@sisk.pl>
->>    */
->>   #define pr_fmt(x) "hibernate: " x
->> +
->> +#include <linux/arm-rmi-cmds.h>
->>   #include <linux/cpu.h>
->>   #include <linux/kvm_host.h>
->>   #include <linux/pm.h>
->> @@ -105,6 +107,18 @@ void notrace restore_processor_state(void)
->>   {
->>   }
->>   
->> +bool arch_hibernation_available(void)
->> +{
->> +	/*
->> +	 * If we have activated the RMM, there could be pages that are
->> +	 * delegated to the RMM. Trying to save them to the image will be fatal.
->> +	 * Also, we donate pages to the RMM at activation and restoring data
->> +	 * to those pages are going to be fatal.
->> +	 * Hence, disable the hibernation when the RMM is active
->> +	 */
->> +	return !cpus_are_stuck_in_kernel() && !is_rmm_active();
->> +}
-> 
-> For now, I would keep is_rmm_active() only in here as not to change the
-> behaviour for pKVM. "disk" would disappear from /sys/power/state with
-> this patch. I think it's the correct thing to do for pKVM as well but we
-> can discuss this separately once this goes in (I also think pKVM using
-> cpus_are_stuck_in_kernel() is a bit of a bodge but it's a handy hook
-> called in the right places).
-
-I was in double mind about this. Yes, I agree, makes sense to deal the
-pKVM case separately.
-
-
-> 
->> +
->>   int arch_hibernation_header_save(void *addr, unsigned int max_size)
->>   {
->>   	struct arch_hibernate_hdr *hdr = addr;
->> diff --git a/arch/arm64/kernel/machine_kexec.c b/arch/arm64/kernel/machine_kexec.c
->> index 8f9bc2327dc85..48f343704cb54 100644
->> --- a/arch/arm64/kernel/machine_kexec.c
->> +++ b/arch/arm64/kernel/machine_kexec.c
->> @@ -6,6 +6,7 @@
->>    * Copyright (C) Huawei Futurewei Technologies.
->>    */
->>   
->> +#include <linux/arm-rmi-cmds.h>
->>   #include <linux/interrupt.h>
->>   #include <linux/irq.h>
->>   #include <linux/kernel.h>
->> @@ -59,6 +60,16 @@ int machine_kexec_prepare(struct kimage *kimage)
->>   		return -EBUSY;
->>   	}
->>   
->> +	/*
->> +	 * We will be able to allow kdump to proceed, once we have the support
->> +	 * for handling GPF from vmcore accesses to delegated pages. Until then
->> +	 * block kexec completely.
->> +	 */
->> +	if (is_rmm_active()) {
->> +		pr_err("Can't kexec: RMM is active.\n");
->> +		return -EBUSY;
->> +	}
->> +
->>   	return 0;
->>   }
->>   
->> diff --git a/include/linux/suspend.h b/include/linux/suspend.h
->> index b02876f1ae38a..a3815027773c5 100644
->> --- a/include/linux/suspend.h
->> +++ b/include/linux/suspend.h
->> @@ -401,6 +401,7 @@ int hibernate_quiet_exec(int (*func)(void *data), void *data);
->>   int hibernate_resume_nonboot_cpu_disable(void);
->>   int arch_hibernation_header_save(void *addr, unsigned int max_size);
->>   int arch_hibernation_header_restore(void *addr);
->> +bool arch_hibernation_available(void);
->>   
->>   #else /* CONFIG_HIBERNATION */
->>   static inline void register_nosave_region(unsigned long b, unsigned long e) {}
->> diff --git a/kernel/power/hibernate.c b/kernel/power/hibernate.c
->> index d2479c69d71a4..9d9d53828542f 100644
->> --- a/kernel/power/hibernate.c
->> +++ b/kernel/power/hibernate.c
->> @@ -106,11 +106,17 @@ bool hibernation_in_progress(void)
->>   	return !atomic_read(&hibernate_atomic);
->>   }
->>   
->> +__weak bool arch_hibernation_available(void)
->> +{
->> +	return true;
->> +}
->> +
->>   bool hibernation_available(void)
->>   {
->>   	return nohibernate == 0 &&
->>   		!security_locked_down(LOCKDOWN_HIBERNATION) &&
->> -		!secretmem_active() && !cxl_mem_active();
->> +		!secretmem_active() && !cxl_mem_active() &&
->> +		arch_hibernation_available();
->>   }
-> 
-> With the comments above addressed:
-> 
-> Reviewed-by: Catalin Marinas <catalin.marinas@arm.com>
-
-Thank you!
-
-Suzuki
+Best regards,
+-- 
+Krzysztof Kozlowski <krzk@kernel.org>
 
 
