@@ -4,144 +4,134 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B2B2CCA5FB3
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  1 Oct 2026 09:39:01 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3AF98CA5FCF
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  1 Oct 2026 09:43:54 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=DrWa66j0hTcus25nYq/Fkb5TBHxWAJjvPe1utIoQNCE=; b=mToeQq98E+crCOLPwR7zDuNtXZ
-	GG2qnQhGZr3Rg2ClVbGcBB1soixusDu6A/9kIpJwQQFhcU+BtHr/imDUteSccvY+wzu/G5C16Ym12
-	xeny/HljRDl8QZ4zxqdbeudh4/z+lENW/tm9yuc7pkRABi1YQOXddb4IrV/QddU6WKUK81ZpRi/Fw
-	nQBpdg56DA7jQYkR+enxZAJ+va9vuyZKKimvc94GtU7bflUK7jGxMO2zB39Gs2p0YKVqiSrS0ibNT
-	T9mXfL4wbvNzxpS89g/zjvv9wlPBqgam71mvUo8vBV/i+ZzCbflHayt7F3vT9bTGdpyQ8H5Fu2oFG
-	esbDaPIw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=3n0CnZvo+6eTpzF1nBxQ1ccBSLbwhr/WCDc8ErOCpL8=; b=LtvdJHUki2WM5B2Ofevj+7TGg+
+	Byy9zfFSM2D4x+JzCl8SElqYfJKuIRM2l22CQ6zNzlMtpAkMuSH+FRRnFso/eiiKMv/RIKQSwtKow
+	05vGwhg6gFJqWRrJs+EfjuN4GuodJHcRazwxFZOn1DNyVO7zjOT49h0d67bclgO+g2cFpQtNB22zz
+	Nod1x+Z02TiIjDBWiQ9pew1X4Xkp6Nupn2xI2nKwtZrK6gXkaVSEjnfxcTpY53yj9txkRm9T46cDC
+	8+46/njUdtbFWwc7EJ8v9wzD9dHJ62EBz5iA+kQoMVnC5oy7NVos/osJvnoJ7AO++wnVrXR9Eg11B
+	lghKmJ1g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xCDFf-00000008OhC-0EZi;
-	Thu, 01 Oct 2026 09:38:55 +0000
-Received: from mx0b-0031df01.pphosted.com ([205.220.180.131])
+	id 1xCDKL-00000008PKR-3BoU;
+	Thu, 01 Oct 2026 09:43:45 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xCDFc-00000008OgG-4BNH
+	id 1xCDKJ-00000008PJs-1BUi
+	for linux-arm-kernel@bombadil.infradead.org;
+	Thu, 01 Oct 2026 09:43:43 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:Content-Type
+	:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:Message-ID:
+	Sender:Reply-To:Content-ID:Content-Description;
+	bh=3n0CnZvo+6eTpzF1nBxQ1ccBSLbwhr/WCDc8ErOCpL8=; b=DEILBzUlNNa3CfbS8coQXVuWB8
+	+F6gvYZjIwzGyNn5D8boHd4DAQtGThPndsHmtrguuqaMvLL//uNUP8nLN90rT6ZKSVYee5sKIGjEg
+	AaIXmkzsugwEvJSr3d60juF8cp65gu1WPja0epjNBDiZg73XViWyg5Uhb6HeyeAF2cgjdLwTCJccq
+	EozHwfAGOkx88a3Bdh8o8dW/Tf7O/fkAy6Azjyg1yKtqeFp4LygKTb6gLsEiKj3OMOr6Vp6yE4zdD
+	3jGcEesF0CTeDQ0ordyGlFNVsrncyUcGwNrnb9R6aGSIiRchF6sepaI9ilcBemJ5X9g+G9OQKVrRO
+	tLLm2sEQ==;
+Received: from mail-westeuropeazon11013001.outbound.protection.outlook.com ([52.101.72.1] helo=AM0PR02CU008.outbound.protection.outlook.com)
+	by desiato.infradead.org with esmtps (Exim 4.99.2 #2 (Red Hat Linux))
+	id 1xCDKG-00000004nzU-14Id
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 01 Oct 2026 09:38:54 +0000
-Received: from pps.filterd (m0279873.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 6916xltE1661059
-	for <linux-arm-kernel@lists.infradead.org>; Thu, 1 Oct 2026 09:38:52 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
-	cc:content-type:date:from:in-reply-to:message-id:mime-version
-	:references:subject:to; s=qcppdkim1; bh=DrWa66j0hTcus25nYq/Fkb5T
-	BHxWAJjvPe1utIoQNCE=; b=PRSB/MnVAwE423KDKNUELp9Meju13Me4itv8BetQ
-	vDfFGoP37nYhIx1y+xxH3OllKzS+7Ugn+xC8XwcWsmpBZEdtbcjP6iMusatgGD4x
-	T40+A8+ln4hqebacjLhxdV87ZdEokaXuOxj/zgGHtWOULm7sWLQkmWzSxqmBgDo0
-	3nCnYOh2SEE+7eGX3/o0sdFZE785V8mgSDz0LefKivTc01jgcWoKjKJTrH5RwC9o
-	OR8i9hPhiLx2q5uoDZ9NE1ttCxyMZgANu5OreznsdJAPPrQRQwYJPN4knDzYsjuS
-	VbCOC9Z5P9f7sNFioRGWo5i8JUJ82V1mU6EbrL0d0TQunA==
-Received: from mail-qv1-f72.google.com (mail-qv1-f72.google.com [209.85.219.72])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4h167pkmwk-1
-	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
-	for <linux-arm-kernel@lists.infradead.org>; Thu, 01 Oct 2026 09:38:51 +0000 (GMT)
-Received: by mail-qv1-f72.google.com with SMTP id 6a1803df08f44-91235881828so128180156d6.3
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 01 Oct 2026 02:38:51 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=oss.qualcomm.com; s=google; t=1790847531; x=1791452331; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:content-type:mime-version
-         :references:message-id:subject:cc:to:from:date:from:to:cc:subject
-         :date:message-id:reply-to:content-type;
-        bh=DrWa66j0hTcus25nYq/Fkb5TBHxWAJjvPe1utIoQNCE=;
-        b=S5T0UTgDAkxYODs4bTMgbDOrtKq29ALWff/lYrSLQE4aq8FW6JXdCms79pxrJ220E+
-         bz1iBB7eG3GKClip8xf0aNmw1KXz27n5SA/FACkWRAOW6NQmFqW/XpqnRIjEONABxNse
-         cXZuNNub+HXPQSW18X4yr6N79UeIdJKvNXiCdELzFw6ldcf/ebi6l2gPPhs5W/FPpZVN
-         holKNJFrrKBnzucy+k07YaQkdzmkMn49hyUe5iro7bEIinmXBbbAH6kqGCArsx7xK3xn
-         1G/ByL/8bfO63FVgn41G8NSBclmsLz3bQUy7GAIRZZy3udo1LJ+w98pQNYw/LcE58VKY
-         F6nw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1790847531; x=1791452331;
-        h=in-reply-to:content-disposition:content-type:mime-version
-         :references:message-id:subject:cc:to:from:date:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=DrWa66j0hTcus25nYq/Fkb5TBHxWAJjvPe1utIoQNCE=;
-        b=g4CtFuVa2UxesYsZIhXcF5ikkfnesMIKyEVcgcdaLvjlqqhpag9cZUj3vbz7CPYPsv
-         lQbu3zckbelNmI152vucmbiaAIFQlp6KtxItU3q9/vzaNukIfBO7cJ+utLCOUoPJh6rd
-         bbWdOkj62+8t+VW+k5MW84wD4Ei5wD5Ze0ub0DHjohhF0SOgXcclCZd26S3x/itYb/Vu
-         eVMxRt8Zjtr5IyMGy1YiqJq4E0oBF0NJNakTuwJ5lD7cOwEnoiIUxnJ6lu81ONOniR+F
-         fTkwmNoP/ILxejKwMJdtexmZw4JP1DrTS8jR6z6DuaR9aUMoIErNqeS2XAOKiWjlRMIL
-         f8Eg==
-X-Forwarded-Encrypted: i=1; AKwUvBxZOOnX5NRa1W6kS8gonGFYBabn7g3YB/GgQxg/1vn2LimnrbHkYmEXmO2nQ+gqUPFVceY8B90OmcYkuAvD21+S@lists.infradead.org
-X-Gm-Message-State: AFuF++ltqNpmaKDl9GczdId6vq9Ah7WNH/6qx9DUf9R010vrFXZnOU0K
-	57Vjhbuc4AOfZNAADrGijZNczRcj/9x7wsry+XHF7UrFkVbAqmVeEgQtJ/YmZyS/P0vHuCEaJRj
-	9GogT0JJpG663cZ62YIVy4yybdRdhg9j2i3BLArD0HZsh+uQMY+j+NCugAi6PaHLUUpNucGr0uf
-	Y/Xg==
-X-Gm-Gg: AYBFou0Jn40OcARhTKQojmHAg+1u6Ap7/UcMDpqT5oOoZjxb2mBWXlJs1/KNZi7RX+D
-	Rg2NP6Fm4A61LVoN9CezJwzOMgrCrBkc3Hj7g88jm3V4uZ7r5J9v9mA+29BaT+oY+vZhnGzug1c
-	fvBwkNDomKohnqBQUbC++L6Ec9V4970dCgdOmwbXI41WIBpmcnD3piw4KRfGWVAwjdROY+neEMJ
-	OuiiRn/6BK4NyzOcRA0VbQANI1+Xl1HYz+8n06M6qBIFovDwFumCi2YeONGQj7OsyS/UCyOGyDh
-	U68pHjqnm9A/+DLpYVebEqybxY/3ho45eueDjyBtO3lavds5uAu0dNIUbe7tpBiK2Eu/Ocq9quM
-	4VLnTBT6rNtzgrA==
-X-Received: by 2002:a05:620a:4102:b0:93b:eac0:ddd5 with SMTP id af79cd13be357-93ca97ae97bmr808655185a.51.1790847531002;
-        Thu, 01 Oct 2026 02:38:51 -0700 (PDT)
-X-Received: by 2002:a05:620a:4102:b0:93b:eac0:ddd5 with SMTP id af79cd13be357-93ca97ae97bmr808651085a.51.1790847530391;
-        Thu, 01 Oct 2026 02:38:50 -0700 (PDT)
-Received: from localhost ([188.216.77.92])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4a01f984d89sm64686035e9.7.2026.10.01.02.38.47
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 01 Oct 2026 02:38:48 -0700 (PDT)
-Date: Thu, 1 Oct 2026 11:38:47 +0200
-From: Lorenzo Bianconi <lorenzo.bianconi@oss.qualcomm.com>
-To: netdev-bot+sinfo@kernel.org
-Cc: Maxime Chevallier <maxime.chevallier@bootlin.com>,
-        Andrew Lunn <andrew+netdev@lunn.ch>,
-        "David S. Miller" <davem@davemloft.net>,
-        Eric Dumazet <edumazet@kernel.org>, Jakub Kicinski <kuba@kernel.org>,
-        Paolo Abeni <pabeni@redhat.com>,
-        Maxime Coquelin <mcoquelin.stm32@gmail.com>,
-        Alexandre Torgue <alexandre.torgue@foss.st.com>,
-        Richard Cochran <richardcochran@gmail.com>,
-        Jose Abreu <Jose.Abreu@synopsys.com>, netdev@vger.kernel.org,
-        linux-stm32@st-md-mailman.stormreply.com,
-        linux-arm-kernel@lists.infradead.org
-Subject: Re: [PATCH net v3] net: stmmac: propagate PTP addend and system time
- programming errors
-Message-ID: <ar4qJ9gI3dk4S3yw@lore-desk>
-References: <20260929-stmmac-ptp-added-systime-error-v3-1-ddd6afe936b4@oss.qualcomm.com>
- <179068769042.31693.17699965363723906103@kernel.org>
+	Thu, 01 Oct 2026 09:43:42 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=A79zMjvfTkaFOZyOwjVGQPbN1vbUJJ2h5+BawzG8H9LNUO1Bjh8odlL9UmRi8tCT1WRUXR0t+GGeYBICku4JgmWBBnQMfb5jQ+Z5YYyxvvUrC5JsTVYuLjmYfqCEyhf2G7ZcwORHlxDzbf88F5SeSQspBB+Fso3ApI5t6FxDZHN1zSh46WINm8tJrjmvAwCcp6AtXJTNs4JybztxXZPvJRg2pxbqR9g79Q6yPtivxwSwEacym1qVRx37J4X28jieYhZTIs7SMJnPR2bSwmqGWT3Fx02pmBDtHyyZDuZSf4FWyBHFLg4aY4tfirQfS4fH7Z4Jt52rfPabGXTs6jLHOA==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=3n0CnZvo+6eTpzF1nBxQ1ccBSLbwhr/WCDc8ErOCpL8=;
+ b=V6BO5v3RLy9eKWmCB08f9Rh74dmTV1KIKxBlDMVvEUNvpO6ILfnKZQZm+hCIzR02UTLjSNZ5Me0ATl/NbZQdvpA/T2dXdLO1wBntgkeDFcZaXrLABq7obPTlWTB+/8FF8Pfq9aNi/Knl99HZCtRU58/h1rcgS6gX0da5HI/hZfyj0vjuQPxFQfR0oSuFESbI4OcZ7RmkCKDY+oY0IG4EINfhGX3CY91VltjeE41JV+0bs9R+TIhaKM4fMR8HR6yxFsXHPhQMiIv1qn/R9sugGFKkWNGBnfn9Q9RA1rsvF3MD7y3ATWBOPMd43arjqLNTrCL3GDj+oCC+PSEcncvG4w==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=fail (sender ip is
+ 164.130.1.59) smtp.rcpttodomain=nabladev.com smtp.mailfrom=foss.st.com;
+ dmarc=fail (p=none sp=none pct=100) action=none header.from=foss.st.com;
+ dkim=none (message not signed); arc=none (0)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=foss.st.com;
+ s=selector2;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=3n0CnZvo+6eTpzF1nBxQ1ccBSLbwhr/WCDc8ErOCpL8=;
+ b=oPGe6fC4jtROPYSL7/ztUof++UoKSooX5IAvnzHjaybcA8AGt1X8BkLz7R2c24FiyXVVmwvyCit2yprW6guFvNvHogW9Tfdy8aGnxPT2gAebDlK/7Z89S/7U8zML+upls4IATIplDwTc9tTx46TKcaMhY9J44MTGB3aVQtR+yNTK+DciA4DrTz7htTGI3v/p+a6YwI5DIrjnCtxWCv3jKmE47GbpEvupbXodV3FR+Bcw1suiUNKaXXjpFvWKYNucF7nbV4z/irYvpWXWo6rvKZyVym1wuz8IVA+JeR5J6fikluL/LInRkIBoLNONBlJlZGztG0mmFqc+U+rATP9Gyw==
+Received: from PAZP264CA0201.FRAP264.PROD.OUTLOOK.COM (2603:10a6:102:237::8)
+ by VI1PR10MB8134.EURPRD10.PROD.OUTLOOK.COM (2603:10a6:800:1df::15) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.451.24; Thu, 1 Oct
+ 2026 09:43:34 +0000
+Received: from ZR1PEPF0000E6B6.eurprd07.prod.outlook.com
+ (2603:10a6:102:237:cafe::b) by PAZP264CA0201.outlook.office365.com
+ (2603:10a6:102:237::8) with Microsoft SMTP Server (version=TLS1_3,
+ cipher=TLS_AES_256_GCM_SHA384) id 15.21.472.16 via Frontend Transport; Thu, 1
+ Oct 2026 09:43:34 +0000
+X-MS-Exchange-Authentication-Results: mx.microsoft.com 1; spf=fail (sender IP
+ is 164.130.1.59) smtp.mailfrom=foss.st.com; dkim=none (message not signed)
+ header.d=none;dmarc=fail action=none header.from=foss.st.com;
+Received-SPF: Fail (protection.outlook.com: domain of foss.st.com does not
+ designate 164.130.1.59 as permitted sender) receiver=protection.outlook.com;
+ client-ip=164.130.1.59; helo=smtpO365.st.com;
+Received: from smtpO365.st.com (164.130.1.59) by
+ ZR1PEPF0000E6B6.mail.protection.outlook.com (10.167.241.69) with Microsoft
+ SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.21.472.14 via Frontend Transport; Thu, 1 Oct 2026 09:43:34 +0000
+Received: from STKDAG1NODE2.st.com (10.75.128.133) by smtpo365.st.com
+ (10.250.44.71) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.43; Thu, 1 Oct
+ 2026 11:50:06 +0200
+Received: from [10.48.86.79] (10.48.86.79) by STKDAG1NODE2.st.com
+ (10.75.128.133) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.43; Thu, 1 Oct
+ 2026 11:43:32 +0200
+Message-ID: <f404d273-352c-436c-87f1-885297b01418@foss.st.com>
+Date: Thu, 1 Oct 2026 11:43:32 +0200
 MIME-Version: 1.0
-Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="8R9T85pNZ31B4MBi"
-Content-Disposition: inline
-In-Reply-To: <179068769042.31693.17699965363723906103@kernel.org>
-X-Proofpoint-ORIG-GUID: f8CjyKY7Yb1g8EW_FTAHKeTm7eECI1Cb
-X-Proofpoint-Spam-Info: AW1haW4tMjYxMDAxMDAzOCBTYWx0ZWRfX/I/gEjctOrxl
- KIjQovy45FwC6YUzPismZLeLIzYZoDRtniMsH2YScHPfTnltIzm0S3JvEIq/I7EWFN96um0t1TC
- eEfigASAdVQPSALLeZNBy2gyhXfiXJU=
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYxMDAxMDAzOCBTYWx0ZWRfX7Kxfiew3AUnI
- 85FE1hizp+bfxFpJnl+yVwBq354YXmo5uUHw8LkzvsuwhW2p7wKSfC9lI+RGfIMw3o8x1jafEL8
- nk7FBxk/zqTdiTmO3Jz31Q1yBbw0B2NtzQY8V2Yyt61hYE1NMmvA1NRQpKhvWT3hIij0+nNFRdH
- YrYoC8WNhHfcFnFwtiMpd2ef4gzzTrawiczRSJKDEA6MDafp4D2iuAvKMPkkDBI/UXEx45mL6da
- vAYvuct2LB0BL8D2MpoZtEdZVNBAQMppIimgq1yn1k6K7UjeovW9aXTLjdHd58rJEZR6/hF0mrw
- qno+WErx4PAxycOqhtVQltH3Mg0ClIoKxKI4GrgOVXd1AUXyJh5LQi1p4c8ucs1pzhoVqOJiJMV
- o3kF/d/ObrWOFS/TVB7lupnXo4AEmT1oxcajgZbVhEUPyEns2qFdM0WNvPeTdHoPzlK4jzs7oIL
- lM9a0+y4YR6UoKNkj0A==
-X-Proofpoint-GUID: f8CjyKY7Yb1g8EW_FTAHKeTm7eECI1Cb
-X-Authority-Analysis: v=2.4 cv=WpC+otfv c=1 sm=1 tr=0 ts=6abe2a2b cx=c_pps
- a=7E5Bxpl4vBhpaufnMqZlrw==:117 a=WpTaRW6qxYHRGzLzQsVYzg==:17
- a=660iZSQnnn4A:10 a=s4-Qcg_JpJYA:10 a=VkNPw1HP01LnGYTKEx00:22
- a=u7WPNUs3qKkmUXheDGA7:22 a=rJkE3RaqiGZ5pbrm-msn:22 a=jeKYxtEjmYGD5WCmXysA:9
- a=CjuIK1q_8ugA:10 a=TtmoeoLASM2qgFhL7psA:9 a=pJ04lnu7RYOZP9TFuWaZ:22
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1176,Hydra:6.1.134,FMLib:17.12.100.49
- definitions=2026-10-01_03,2026-09-21_02,2025-10-01_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- lowpriorityscore=0 phishscore=0 bulkscore=0 priorityscore=1501 suspectscore=0
- malwarescore=0 impostorscore=0 adultscore=0 clxscore=1015 spamscore=0
- classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
- reason=mlx scancount=1 engine=8.22.0-2609040000 definitions=main-2610010038
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH 5/5] arm64: dts: st: Do not encode path in
+ sdmmc2_*_pins_a/pins2 phandle
+To: Marek Vasut <marex@nabladev.com>, <linux-arm-kernel@lists.infradead.org>
+CC: Bartosz Golaszewski <brgl@kernel.org>, Conor Dooley <conor+dt@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>, Linus Walleij <linusw@kernel.org>,
+	Rob Herring <robh@kernel.org>, <devicetree@vger.kernel.org>,
+	<kernel@dh-electronics.com>, <linux-gpio@vger.kernel.org>,
+	<linux-kernel@vger.kernel.org>, <linux-stm32@st-md-mailman.stormreply.com>
+References: <20260929194035.496244-1-marex@nabladev.com>
+ <20260929194035.496244-5-marex@nabladev.com>
+Content-Language: en-US
+From: Alexandre TORGUE <alexandre.torgue@foss.st.com>
+In-Reply-To: <20260929194035.496244-5-marex@nabladev.com>
+Content-Type: text/plain; charset="UTF-8"; format=flowed
+Content-Transfer-Encoding: 7bit
+X-Originating-IP: [10.48.86.79]
+X-ClientProxiedBy: ENXCAS1NODE2.st.com (10.75.128.138) To STKDAG1NODE2.st.com
+ (10.75.128.133)
+X-EOPAttributedMessage: 0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: ZR1PEPF0000E6B6:EE_|VI1PR10MB8134:EE_
+X-MS-Office365-Filtering-Correlation-Id: 8ccc822a-c6a9-4fcb-12b5-08df1fa075ec
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|36860700016|82310400026|7416014|23010399003|376014|1800799024|10067099003|11063799006|56012099006|4143699003|22082099003|18002099003;
+X-Microsoft-Antispam-Message-Info: vU7mAdSS+VnyzDRVITBacqKHruGXjCJhG8YiCeQTF/FsP0Qz/ZTcI/ZFn3O0C75PUz26qYma9vDDvosZuPF7LeaacSKp2XGPyqVt/h6k3GhmcBDUq6g/Bi5H3uYWOuxVg8O//4ArNJuWYEAOjMKXTUqhUFTJviedsMGnceyj2P1i61mN6x2HeDk6mWmYeACJ8FfGTU7Daztvs9E/LSUCL+ImqxGErhJ5fTc5YQX9HVcR/bzJg3yR5KDeJ8VDMmyQkzhSBb9rl/b0qy5Z+y0wJ6AhiF2xJ/MdecZimI+CJbWh4AyjCvgsr/DCrdeJcum7HSX3jUNblrMEmIHRNDLHsLt9gwTiXoD9r1O11KVsD9RfXWVY7MP8WnvhTvRXiA+2ZEqPOQd/gL2mIg35fbUHNXEDFFYPpeKJCiXluVvatI1cHEai9PTxS3GGz4UXDLcg/uknf2Gvdqx7XsvMdaum3p/bI6jcq5IHlk8/8KjcuuTO/aqKucLNOlzyX8MeT21vl61ut3AjbnsoocR+KGBsW9Oa+QVHthO0076kZvrY3P+pDolQtCoXKc41fjK0knmL20qXXXA2fV5rUTsiunuDlsdkU37GQukenz59m1wn/ulIACCNAQhWbty0LNYeBJOLc44Za8S8nFYjN4Q+LvB8cSIl0rhBY993iYx4WviwIWfsuJwfM7OHQJv0cURzdq4p2k7uq9SzsCndCiAWqqI1Sg==
+X-Forefront-Antispam-Report: CIP:164.130.1.59;CTRY:IT;LANG:en;SCL:1;SRV:;IPV:CAL;SFV:NSPM;H:smtpO365.st.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(36860700016)(82310400026)(7416014)(23010399003)(376014)(1800799024)(10067099003)(11063799006)(56012099006)(4143699003)(22082099003)(18002099003);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: 2hROHqvPEYBCqwjTFmD2b6Qw5Oh0Dw+x8/OWtAm91W4PkMI7RJqyN/I51dNvm/RP7rld0EbwzdbXHfGoGO8GKiyfZBqKTIctH4fokm95Mnx2sJiShV774E3jvBFj6N2n7WUrRojndZIpneHaXfgni2Atthl3MJAUe+3MFnoKdUOcqCCOLxZjcPN53duudzYEH4GlJbCGfBuW/udek7hdkos2I+9QapqpWpLeDY1Q3o9rLQxqoZarCZq3VOEUx1cJm59DiW9apOZK72uD/4wYtYxGV+9PYd/S41s29yVMoDVctNVVb9PXtlXZxbC6Fu1m8rwlLqMzWe+pnQeZc/EG0NLdgRjysfjzkaWmLNxNwF8KkcfJcAhgvb3hrUAMn4XftvrJcKHbmKadw4Wr2JwUtzKTS3tNdud5bEIHqokvZmWD+aK/LwG22Yj4/sezvPc1
+X-OriginatorOrg: foss.st.com
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 01 Oct 2026 09:43:34.2819
+ (UTC)
+X-MS-Exchange-CrossTenant-Network-Message-Id: 8ccc822a-c6a9-4fcb-12b5-08df1fa075ec
+X-MS-Exchange-CrossTenant-Id: 75e027c9-20d5-47d5-b82f-77d7cd041e8f
+X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=75e027c9-20d5-47d5-b82f-77d7cd041e8f;Ip=[164.130.1.59];Helo=[smtpO365.st.com]
+X-MS-Exchange-CrossTenant-AuthSource: ZR1PEPF0000E6B6.eurprd07.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Anonymous
+X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: VI1PR10MB8134
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261001_023853_153200_9D2FA262 
-X-CRM114-Status: GOOD (  24.89  )
+X-CRM114-CacheID: sfid-20261001_104340_472479_202E7208 
+X-CRM114-Status: GOOD (  13.85  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -156,59 +146,63 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
---8R9T85pNZ31B4MBi
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
+Hi Marek
 
-> Hi!
->=20
-> This is an automated message. This series looks like a fix, but its
-> commit messages seem to be missing some information:
->=20
->  - How the issue was discovered, e.g. hit in production, hit during
->    development, syzbot report, manual code inspection, LLM or static
->    analysis tool scan.
+On 9/29/26 21:39, Marek Vasut wrote:
+> Do not encode node path in phandles, describe subnodes instead.
+> This is only a consistency change, no functional change.
+> 
+> Fixes: 9b584c92f94f ("arm64: dts: st: Add support for DH electronics STM32MP23xx/STM32MP25xx DHCOS SoM and Breakout Board and DHSBC")
+> Signed-off-by: Marek Vasut <marex@nabladev.com>
+> ---
+> Cc: Alexandre Torgue <alexandre.torgue@foss.st.com>
+> Cc: Bartosz Golaszewski <brgl@kernel.org>
+> Cc: Conor Dooley <conor+dt@kernel.org>
+> Cc: Krzysztof Kozlowski <krzk+dt@kernel.org>
+> Cc: Linus Walleij <linusw@kernel.org>
+> Cc: Rob Herring <robh@kernel.org>
+> Cc: devicetree@vger.kernel.org
+> Cc: kernel@dh-electronics.com
+> Cc: linux-arm-kernel@lists.infradead.org
+> Cc: linux-gpio@vger.kernel.org
+> Cc: linux-kernel@vger.kernel.org
+> Cc: linux-stm32@st-md-mailman.stormreply.com
+> ---
+>   .../arm64/boot/dts/st/stm32mp2xxx-dhcos-som.dtsi | 16 ++++++++++------
+>   1 file changed, 10 insertions(+), 6 deletions(-)
+> 
+> diff --git a/arch/arm64/boot/dts/st/stm32mp2xxx-dhcos-som.dtsi b/arch/arm64/boot/dts/st/stm32mp2xxx-dhcos-som.dtsi
+> index 80d829c55d9d8..bcf63e2ea9898 100644
+> --- a/arch/arm64/boot/dts/st/stm32mp2xxx-dhcos-som.dtsi
+> +++ b/arch/arm64/boot/dts/st/stm32mp2xxx-dhcos-som.dtsi
+> @@ -389,14 +389,18 @@ &scmi_vddio4 {
+>   	regulator-always-on;
+>   };
+>   
+> -&{sdmmc2_b4_pins_a/pins2} {
+> -	/delete-property/ bias-disable;
+> -	bias-pull-up;
+> +&sdmmc2_b4_pins_a {
+> +	pins2 {
+> +		/delete-property/ bias-disable;
+> +		bias-pull-up;
+> +	};
+>   };
+>   
+> -&{sdmmc2_b4_od_pins_a/pins2} {
+> -	/delete-property/ bias-disable;
+> -	bias-pull-up;
+> +&sdmmc2_b4_od_pins_a {
+> +	pins2 {
+> +		/delete-property/ bias-disable;
+> +		bias-pull-up;
+> +	};
+>   };
+>   
+>   &sdmmc2 {
 
-I discovered the issue during manual code inspection
+Patches 1 to 5 applied on stm32-next. Note that all patches have been squashed.
 
->=20
->  - Whether the issue was actually triggered, or is only theoretical
->    (e.g. found by code inspection). If it was triggered please include
->    the symptoms, like the stack trace or error messages.
-
-This issue is theoretical, I have never triggered it on a running device.
-
->=20
->  - What hardware the change was tested on. For driver fixes please
->    mention the device (and if relevant firmware version) used for
->    testing, or say that the change was not tested on real hardware.
-
-I tested the modified codebase on a qualcomm rb3-gen2 board.
-
-Regards,
-Lorenzo
-
->=20
-> Please do not repost the series just to address the above. Instead,
-> reply to this email with the missing information, so that reviewers
-> can take it into account. If the series needs another revision for
-> other reasons, please include the information in the commit messages
-> then.
->=20
-> The evaluation is done by an LLM so it may be wrong, if you think
-> that is the case please reply and explain.
-
---8R9T85pNZ31B4MBi
-Content-Type: application/pgp-signature; name=signature.asc
-
------BEGIN PGP SIGNATURE-----
-
-iHUEABYKAB0WIQTquNwa3Txd3rGGn7Y6cBh0uS2trAUCar4qJwAKCRA6cBh0uS2t
-rELSAP9HYlTAf2mcxWuOVgeouaefMXxRsMxlo7nr5ueWymrv4wEA4wf7C2dHgd6W
-B7t9Q80FMvQlwZq2+VnfrK6bTc7NAQ4=
-=fQft
------END PGP SIGNATURE-----
-
---8R9T85pNZ31B4MBi--
+Thanks
+Alex
 
