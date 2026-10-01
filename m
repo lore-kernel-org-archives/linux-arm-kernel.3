@@ -4,67 +4,67 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 53F91CA5FE0
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  1 Oct 2026 08:22:26 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 826EECA5FD7
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  1 Oct 2026 08:22:25 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=AWXYcb6M8eIa7SawGG9xrKQJY1GrC1wDI7Sb0kgvz0Y=; b=ytD/56h7PVTz5RwLGgpGBA/OKM
-	Kyc3ntJ65qiWA6G37W/+Pi/jcwzUXOXVqcCKYO6LvpReN7vKxW33lqv0r8WlkS4ucP9hZR9F1simI
-	ovGvRMLY2hpI6t/Ko1ix0jO8H6iHlac8IT1X7OFr+YuTLsLWzbbDkg8GWxCKKksFtR4tHm1akHutO
-	h4aOOsRF3HJyEh9CVerpBVmNWfSaZtKESkLdeK8I8kj4EBXYbFn4YiipDiTxKVtiPwr490mVUve5F
-	WgNPEdFNePYN7SR1QAI1OZWP8G3Keg/TL+HRUnHMDRXNDt3OXtzHcrhZrcyH1XAIPCFsB4hQjUlZP
-	4uCiqCfw==;
+	bh=mmzCmgBunReDri/zOZWv737BTom0LNHVlNqqcUF4Omg=; b=zfSmxCgTazLIV9CWwHXzdAHY3N
+	ZxSSjNHQn1BWgbWD0gv1y8HCs5j2Ngk5nfC47AR3l37KbIEU2AhNiGtofkmiyoaoQfg2eLfVhQNXc
+	W8lPGJvBSWits7xnDAqMFsgwwaw1MUMyBeullLmFH7BgoAIbUkyx+h+D2Cp3csEPAX0iBC0P5+CYa
+	3csLech0J3yp7i/PqPJFRc4ijhLOzojtKZaCnCyUWxSBR5ou2CTM6F6CzrfuaEd35YPmZHWFp7yYS
+	PQJNG+HkZhkuXXF+q8gY/c3idQbxa2dlXz+V2gdtS5TbqPqR035mDqtfYv7999LmTseb4LXlZ3YQN
+	frBoSQaw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xCC3W-000000087K0-1QnV;
-	Thu, 01 Oct 2026 08:22:18 +0000
+	id 1xCC3U-000000087F3-37aj;
+	Thu, 01 Oct 2026 08:22:16 +0000
 Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xCC3S-0000000877p-026G;
-	Thu, 01 Oct 2026 08:22:14 +0000
+	id 1xCC3Q-00000008773-1GVO;
+	Thu, 01 Oct 2026 08:22:13 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=infradead.org; s=desiato.20200630; h=Cc:To:In-Reply-To:References:
 	Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Sender:Reply-To:Content-ID:Content-Description;
-	bh=AWXYcb6M8eIa7SawGG9xrKQJY1GrC1wDI7Sb0kgvz0Y=; b=YbdDyhHQHT+I7vKZgbm1iZ2p3J
-	vwtvzXMkJGOe952J66ytbjrnCMCk8JyXcPckjuv9zet7Bezj0UOXRjI12UvWEcw4FnK6pslPqFeSk
-	za6h3AVb1jGny3uq1p8ojreIX7Z5pQbX0T/CnVWT978Wnv7p+65Xp7NF/P95eZVoSgj1Rh3TAd0Zg
-	n62EB9qJJYAxMWDCu+quhEBgIWBMJj9KLKnS2mupZJ+9lpjb88beNPVIn0sMA3/Wt4Ya+rE0Fwj7P
-	/cTTrcGV7p4bG+y1YE4dVNYocWfm14p9W1MbNricOaFqlVQ4nIYrs5PuQECbmtAPCocXryU7tp1Av
-	iGmMqUNQ==;
+	bh=mmzCmgBunReDri/zOZWv737BTom0LNHVlNqqcUF4Omg=; b=jbbT+jT0bB9PYyJ8uhK0GZkRHq
+	5pm0EMbEtatexVOBsKRtrouNy9Y30TZ6lTNZxUXxi4+roRby0DnM53bHdB53M9RlqUOH3BPwdMbPf
+	vR+Of+ZDKXUO7cDNCz5efFYqv/IaeSEEkSvwzUHX6697mkTs/0icwzuBnjIhVteMUOAsMPtxB5ixf
+	BHV1zJ21ozGyqK9v71BLca/HBskKfyedrOVKUAXdbxv6EIYeM78RV0jEjChzzVVkr2JdgnXLjYBc3
+	mmxipIkF8THl35Ne7CGoJWSFT+IgKXojmL6ttIcqSWB8axuLu7oBJq4/65E2B/aTz0oi61KodiBa2
+	F0yeSLCQ==;
 Received: from bali.collaboradmins.com ([2a01:4f8:201:9162::2])
 	by desiato.infradead.org with esmtps (Exim 4.99.2 #2 (Red Hat Linux))
-	id 1xCC3O-00000004iqG-3NzY;
-	Thu, 01 Oct 2026 08:22:12 +0000
+	id 1xCC3K-00000004ioV-422K;
+	Thu, 01 Oct 2026 08:22:11 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
-	s=mail; t=1790842928;
-	bh=0hXTN9PTK1qF1bHkdWlrfOmYipj2UNgaXWsktSXRif8=;
+	s=mail; t=1790842921;
+	bh=Rbn2DtEXFlBEWZDcTzb5theeUJW+mynrwXMS+uXDbVA=;
 	h=From:Date:Subject:References:In-Reply-To:To:Cc:From;
-	b=AyEULIsK7b4qKXbi9vE7cvwAV9FqnBVkLMoVnu/wm+BnoB4vd3LWtOp2JKpqBaWQU
-	 YzgV3WksRM8Qkd7xg8UBEgagUEmpXhrrxld5md+nug1rj7nM9wVpYn77H/U6lYpnUg
-	 iQC2x14EX3Totqrq7LOwRJtnPlgG7d4BiqgMJNjNAk4Rj2jI3SRUAbpR2EIAFMa3ic
-	 R6stZoF1C5NnrpZXcqNd+lv7apdPXpcS+yL7sPox25ubsAQ5mVVjp59PGjMSSxOA+2
-	 mDh3YYogaFOniphkS3IrJqILC1MATJP2PhHV2RgQOAIcvRqfKLzLUYSDIKsHGmhTCz
-	 nbcmfILq94crA==
+	b=qe2npKBcArCOiTEfjdNAVDmHvFWy9JKBq45H9xLN5Q/WGj7cX4PbzreySlGPUJzH/
+	 ATkpAMBWk0FfOhU7bATY4fijkxeo+zk2DyJ4Wu8XnqpnAHmA+2bKGdEcVBs6VoOR42
+	 LbXa2vE2CEBoS0TcWktB/fiAtOR6iutpZr7Jo+WIt1hw6zqToJi2KpMCiFjKHJxNa3
+	 qSXvuZxhWUDIUuyUlzy4XS8f2ffogZJF+camOYWb+OvEO0fVEoD69HbGQOxIUOiZxH
+	 7XP5U+dWtXryiapZTS2WUypyikNsiqnQ8KYVwaMBVgyLhCeGcODX6raQAO6y7+JdgT
+	 /nXgnbYYyDivQ==
 Received: from yukiji.home (unknown [100.64.0.131])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange x25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
 	(No client certificate requested)
 	(Authenticated sender: laeyraud)
-	by bali.collaboradmins.com (Postfix) with ESMTPSA id 18B1617E022A;
-	Thu, 01 Oct 2026 10:22:07 +0200 (CEST)
+	by bali.collaboradmins.com (Postfix) with ESMTPSA id 9826617E056B;
+	Thu, 01 Oct 2026 10:22:00 +0200 (CEST)
 From: Louis-Alexis Eyraud <louisalexis.eyraud@collabora.com>
-Date: Thu, 01 Oct 2026 10:21:40 +0200
-Subject: [PATCH v13 08/24] scsi: ufs: mediatek: Add dual 0.9V supply
- support
+Date: Thu, 01 Oct 2026 10:21:34 +0200
+Subject: [PATCH v13 02/24] dt-bindings: ufs: mediatek,ufs: Complete the
+ binding
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20261001-mt8196-ufs-v13-8-60854adab6d9@collabora.com>
+Message-Id: <20261001-mt8196-ufs-v13-2-60854adab6d9@collabora.com>
 References: <20261001-mt8196-ufs-v13-0-60854adab6d9@collabora.com>
 In-Reply-To: <20261001-mt8196-ufs-v13-0-60854adab6d9@collabora.com>
 To: Chunfeng Yun <chunfeng.yun@mediatek.com>, Vinod Koul <vkoul@kernel.org>, 
@@ -89,16 +89,16 @@ Cc: kernel@collabora.com, linux-arm-kernel@lists.infradead.org,
  Nicolas Frattaroli <nicolas.frattaroli@collabora.com>, 
  Louis-Alexis Eyraud <louisalexis.eyraud@collabora.com>
 X-Mailer: b4 0.14.3
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1790842918; l=5105;
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1790842918; l=7040;
  i=louisalexis.eyraud@collabora.com; s=20250113; h=from:subject:message-id;
- bh=0hXTN9PTK1qF1bHkdWlrfOmYipj2UNgaXWsktSXRif8=;
- b=CyzpWc9qZ2ETOIH/NmGHffbYMYyyK+2Qv4nzGd1xZLqzzdEGgwutvk5U85iQYfYV8+zPvUz8A
- xsMxlCzVMldAUDKSl5VDhsdFmZE+hnsb4c9b2TgvxLPFF7uviHcDVnu
+ bh=tsSjem3nD/R00+JjWfBrSonrxAzR8P3GQQSGkAiEcwA=;
+ b=Xw47aWJlS2LUTfWUY6c5juxvVhfT4A4h5Tg4r3tGayZzzHCxe+pKyl9hkUQhgmk/Zlpogzlee
+ gaElpFliPEtBy0Wl9kgT+siszr+3/sgh0eELQ7VgkZHS3C3ma0jxo8Y
 X-Developer-Key: i=louisalexis.eyraud@collabora.com; a=ed25519;
  pk=CHFBDB2Kqh4EHc6JIqFn69GhxJJAzc0Zr4e8QxtumuM=
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261001_092211_146297_6EA39005 
-X-CRM114-Status: GOOD (  19.97  )
+X-CRM114-CacheID: sfid-20261001_092207_764376_80A7DE4B 
+X-CRM114-Status: GOOD (  22.50  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -113,171 +113,224 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The MT8196 SoC has an additional pin in comparison of the MT8183 SoC,
-that is used to feed the host controller with a 0.9V supply.
+From: Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
 
-In preparation of this SoC support, add in platform data and
-driver the management a second optional 0.9V regulator named
-"avdd09-1".
+As it stands, the mediatek,ufs.yaml binding is startlingly incomplete.
+Its one example, which is the only real "user" of this binding in
+mainline, uses the deprecated freq-table-hz property.
 
+The resets, of which there are three optional ones, are completely
+absent.
+
+The clock description for MT8195 is incomplete, as is the one for
+MT8192. It's not known if the one clock binding for MT8183 is even
+correct, but I do not have access to the necessary code and
+documentation to find this out myself.
+
+The power supply situation is not much better; the binding describes one
+required power supply, but it's the UFS card supply, not any of the
+supplies feeding the controller silicon.
+
+No second example is present in the binding, making verification
+difficult.
+
+Disallow freq-table-hz and move to operating-points-v2. It's fine to
+break compatibility here, as the binding is currently unused and would
+be impossible to correctly use in its current state.
+
+Add the three resets and the corresponding reset-names property. These
+resets appear to be optional, i.e. not required for the functioning of
+the device.
+
+Move the list of clock names out of the if condition, and expand it for
+the confirmed clocks I could find by cross-referencing several clock
+drivers. For MT8195, increase the minimum number of clocks to include
+the rx_symbol ones, as they're internal to the SoC and should always
+be present, and should therefore not be omitted.
+
+MT8192 gets to have at least 3 clocks, as these were the ones I could
+quickly confirm from a glance at various trees. I can't say this was an
+exhaustive search though, but it's better than the current situation.
+
+Properly document all supplies, with which pin name on the SoCs they
+supply. Complete the example with them.
+
+Also add a MT8195 example to the binding, using supply labels that I am
+pretty sure would be the right ones for e.g. the Radxa NIO 12L.
+
+Finally, remove the 'ufs_' prefix from all clock names containing it
+and rename 'ufs' clock to 'main'.
+
+Signed-off-by: Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
+Reviewed-by: Chaotian Jing <chaotian.jing@mediatek.com>
 Reviewed-by: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
+Reviewed-by: Rob Herring (Arm) <robh@kernel.org>
 Signed-off-by: Louis-Alexis Eyraud <louisalexis.eyraud@collabora.com>
 ---
- drivers/ufs/host/ufs-mediatek.c | 96 +++++++++++++++++++++++++++++++----------
- drivers/ufs/host/ufs-mediatek.h |  1 +
- 2 files changed, 74 insertions(+), 23 deletions(-)
+ .../devicetree/bindings/ufs/mediatek,ufs.yaml      | 115 +++++++++++++++++----
+ 1 file changed, 96 insertions(+), 19 deletions(-)
 
-diff --git a/drivers/ufs/host/ufs-mediatek.c b/drivers/ufs/host/ufs-mediatek.c
-index f43bee50adb2..5721aa24d0b9 100644
---- a/drivers/ufs/host/ufs-mediatek.c
-+++ b/drivers/ufs/host/ufs-mediatek.c
-@@ -41,6 +41,7 @@ static void _ufs_mtk_clk_scale(struct ufs_hba *hba, bool scale_up);
+diff --git a/Documentation/devicetree/bindings/ufs/mediatek,ufs.yaml b/Documentation/devicetree/bindings/ufs/mediatek,ufs.yaml
+index 15c347f5e660..945cb986b06b 100644
+--- a/Documentation/devicetree/bindings/ufs/mediatek,ufs.yaml
++++ b/Documentation/devicetree/bindings/ufs/mediatek,ufs.yaml
+@@ -19,11 +19,25 @@ properties:
  
- struct ufs_mtk_soc_data {
- 	bool has_avdd09;
-+	bool has_avdd09_1;
- };
+   clocks:
+     minItems: 1
+-    maxItems: 8
++    maxItems: 10
  
- static const struct ufs_dev_quirk ufs_mtk_dev_fixups[] = {
-@@ -513,18 +514,40 @@ static int ufs_mtk_wait_link_state(struct ufs_hba *hba, u32 state,
- static int ufs_mtk_09v_off(struct ufs_mtk_host *host)
- {
- 	struct arm_smccc_res res;
--	int ret;
-+	int ret, ret2;
- 
--	if (!host->reg_avdd09)
-+	if (!host->reg_avdd09 && !host->reg_avdd09_1)
- 		return 0;
- 
- 	ufs_mtk_va09_pwr_ctrl(res, 0);
--	ret = regulator_disable(host->reg_avdd09);
--	if (ret) {
--		dev_err(host->hba->dev, "Failed to disable avdd09-supply: %pe\n",
--			ERR_PTR(ret));
--		ufs_mtk_va09_pwr_ctrl(res, 1);
--		return ret;
+   clock-names:
+     minItems: 1
+-    maxItems: 8
++    items:
++      - const: main
++      - const: aes
++      - const: tick
++      - const: unipro_sysclk
++      - const: unipro_tick
++      - const: unipro_mp_bclk
++      - const: tx_symbol
++      - const: mem_sub
++      - const: rx_symbol0
++      - const: rx_symbol1
 +
-+	if (host->reg_avdd09) {
-+		ret = regulator_disable(host->reg_avdd09);
-+		if (ret) {
-+			dev_err(host->hba->dev, "Failed to disable avdd09-supply: %pe\n",
-+				ERR_PTR(ret));
-+			ufs_mtk_va09_pwr_ctrl(res, 1);
-+			return ret;
-+		}
-+	}
++  operating-points-v2: true
 +
-+	if (host->reg_avdd09_1) {
-+		ret = regulator_disable(host->reg_avdd09_1);
-+		if (ret) {
-+			dev_err(host->hba->dev, "Failed to disable avdd09-1-supply: %pe\n",
-+				ERR_PTR(ret));
++  freq-table-hz: false
+ 
+   phys:
+     maxItems: 1
+@@ -31,8 +45,36 @@ properties:
+   reg:
+     maxItems: 1
+ 
++  resets:
++    items:
++      - description: reset for the UniPro layer
++      - description: reset for the cryptography engine
++      - description: reset for the host controller
 +
-+			if (host->reg_avdd09) {
-+				ret2 = regulator_enable(host->reg_avdd09);
-+				if (ret2)
-+					dev_err(host->hba->dev,
-+						"Failed to re-enable avdd09-supply: %pe\n",
-+						ERR_PTR(ret2));
-+			}
++  reset-names:
++    items:
++      - const: unipro
++      - const: crypto
++      - const: hci
 +
-+			ufs_mtk_va09_pwr_ctrl(res, 1);
-+			return ret;
-+		}
- 	}
- 
- 	return 0;
-@@ -535,14 +558,28 @@ static int ufs_mtk_09v_on(struct ufs_mtk_host *host)
- 	struct arm_smccc_res res;
- 	int ret;
- 
--	if (!host->reg_avdd09)
-+	if (!host->reg_avdd09 && !host->reg_avdd09_1)
- 		return 0;
- 
--	ret = regulator_enable(host->reg_avdd09);
--	if (ret) {
--		dev_err(host->hba->dev, "Failed to enable avdd09-supply: %pe\n",
--			ERR_PTR(ret));
--		return ret;
-+	if (host->reg_avdd09) {
-+		ret = regulator_enable(host->reg_avdd09);
-+		if (ret) {
-+			dev_err(host->hba->dev, "Failed to enable avdd09-supply: %pe\n",
-+				ERR_PTR(ret));
-+			return ret;
-+		}
-+	}
++  avdd09-supply:
++    description: Phandle to the 0.9V supply powering the AVDD09_UFS pin
 +
-+	if (host->reg_avdd09_1) {
-+		ret = regulator_enable(host->reg_avdd09_1);
-+		if (ret) {
-+			dev_err(host->hba->dev, "Failed to enable avdd09-1-supply: %pe\n",
-+				ERR_PTR(ret));
-+			if (host->reg_avdd09)
-+				regulator_disable(host->reg_avdd09);
++  avdd12-supply:
++    description: Phandle to the 1.2V supply powering the AVDD12_UFS pin
 +
-+			return ret;
-+		}
- 	}
++  avdd12-ckbuf-supply:
++    description: Phandle to the 1.2V supply powering the AVDD12_CKBUF_UFS pin
++
++  avdd18-supply:
++    description: Phandle to the 1.8V supply powering the AVDD18_UFS pin
++
+   vcc-supply: true
  
- 	ufs_mtk_va09_pwr_ctrl(res, 1);
-@@ -1232,20 +1269,33 @@ static int ufs_mtk_get_supplies(struct ufs_mtk_host *host)
- 	struct device *dev = host->hba->dev;
- 	const struct ufs_mtk_soc_data *data = of_device_get_match_data(dev);
++  vccq-supply: true
++
++  vccq2-supply: true
++
+   mediatek,ufs-disable-mcq:
+     $ref: /schemas/types.yaml#/definitions/flag
+     description: The mask to disable MCQ (Multi-Circular Queue) for UFS host.
+@@ -54,29 +96,41 @@ allOf:
+       properties:
+         compatible:
+           contains:
+-            enum:
+-              - mediatek,mt8195-ufshci
++            const: mediatek,mt8183-ufshci
+     then:
+       properties:
+         clocks:
+-          minItems: 8
++          maxItems: 1
+         clock-names:
+           items:
+-            - const: ufs
+-            - const: ufs_aes
+-            - const: ufs_tick
+-            - const: unipro_sysclk
+-            - const: unipro_tick
+-            - const: unipro_mp_bclk
+-            - const: ufs_tx_symbol
+-            - const: ufs_mem_sub
+-    else:
++            - const: main
++        avdd12-ckbuf-supply: false
++  - if:
++      properties:
++        compatible:
++          contains:
++            const: mediatek,mt8192-ufshci
++    then:
+       properties:
+         clocks:
+-          maxItems: 1
++          minItems: 3
++          maxItems: 3
+         clock-names:
+-          items:
+-            - const: ufs
++          minItems: 3
++          maxItems: 3
++        avdd09-supply: false
++  - if:
++      properties:
++        compatible:
++          contains:
++            const: mediatek,mt8195-ufshci
++    then:
++      properties:
++        clocks:
++          minItems: 10
++        clock-names:
++          minItems: 10
++        avdd09-supply: false
  
--	if (!data || !data->has_avdd09)
-+	if (!data)
- 		return 0;
+ examples:
+   - |
+@@ -94,9 +148,32 @@ examples:
+             phys = <&ufsphy>;
  
--	host->reg_avdd09 = devm_regulator_get_optional(dev, "avdd09");
--	if (IS_ERR(host->reg_avdd09)) {
--		if (PTR_ERR(host->reg_avdd09) == -ENODEV) {
-+	if (data->has_avdd09) {
-+		host->reg_avdd09 = devm_regulator_get_optional(dev, "avdd09");
-+		if (IS_ERR(host->reg_avdd09)) {
-+			if (PTR_ERR(host->reg_avdd09) != -ENODEV) {
-+				return dev_err_probe(dev,
-+						     PTR_ERR(host->reg_avdd09),
-+						     "Failed to get avdd09 regulator: %pe\n",
-+						     host->reg_avdd09);
-+			}
- 			host->reg_avdd09 = NULL;
--			return 0;
- 		}
-+	}
+             clocks = <&infracfg_ao CLK_INFRA_UFS>;
+-            clock-names = "ufs";
+-            freq-table-hz = <0 0>;
++            clock-names = "main";
  
--		return dev_err_probe(dev,
--				     PTR_ERR(host->reg_avdd09),
--				     "Failed to get avdd09 regulator: %pe\n",
--				     host->reg_avdd09);
-+	if (data->has_avdd09_1) {
-+		host->reg_avdd09_1 = devm_regulator_get_optional(dev, "avdd09-1");
-+		if (IS_ERR(host->reg_avdd09_1)) {
-+			if (PTR_ERR(host->reg_avdd09_1) != -ENODEV) {
-+				return dev_err_probe(dev,
-+						     PTR_ERR(host->reg_avdd09_1),
-+						     "Failed to get avdd09-1 regulator: %pe\n",
-+						     host->reg_avdd09_1);
-+			}
-+			host->reg_avdd09_1 = NULL;
-+		}
- 	}
- 
- 	return 0;
-diff --git a/drivers/ufs/host/ufs-mediatek.h b/drivers/ufs/host/ufs-mediatek.h
-index c63740b98e85..477fb9e36555 100644
---- a/drivers/ufs/host/ufs-mediatek.h
-+++ b/drivers/ufs/host/ufs-mediatek.h
-@@ -176,6 +176,7 @@ struct ufs_mtk_mcq_intr_info {
- struct ufs_mtk_host {
- 	struct phy *mphy;
- 	struct regulator *reg_avdd09;
-+	struct regulator *reg_avdd09_1;
- 	struct reset_control_bulk_data resets[MTK_UFS_NUM_RESETS];
- 	struct ufs_hba *hba;
- 	struct ufs_mtk_crypt_cfg *crypt;
+             vcc-supply = <&mt_pmic_vemc_ldo_reg>;
+         };
+     };
++  - |
++    ufshci@11270000 {
++        compatible = "mediatek,mt8195-ufshci";
++        reg = <0x11270000 0x2300>;
++        interrupts = <GIC_SPI 137 IRQ_TYPE_LEVEL_HIGH>;
++        phys = <&ufsphy>;
++        clocks = <&infracfg_ao 63>, <&infracfg_ao 64>, <&infracfg_ao 65>,
++                 <&infracfg_ao 54>, <&infracfg_ao 55>, <&infracfg_ao 56>,
++                 <&infracfg_ao 90>, <&infracfg_ao 93>, <&topckgen 212>,
++                 <&topckgen 215>;
++        clock-names = "main", "aes", "tick", "unipro_sysclk", "unipro_tick",
++                      "unipro_mp_bclk", "tx_symbol", "mem_sub", "rx_symbol0",
++                      "rx_symbol1";
++
++        operating-points-v2 = <&ufs_opp_table>;
++
++        avdd12-supply = <&mt6359_vrf12_ldo_reg>;
++        avdd12-ckbuf-supply = <&mt6359_vbbck_ldo_reg>;
++        avdd18-supply = <&mt6359_vio18_ldo_reg>;
++        vcc-supply = <&mt6359_vemc_1_ldo_reg>;
++        vccq2-supply = <&mt6359_vufs_ldo_reg>;
++
++        mediatek,ufs-disable-mcq;
++    };
 
 -- 
 2.55.0
