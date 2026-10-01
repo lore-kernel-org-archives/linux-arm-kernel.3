@@ -4,65 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A25B8CA5FD2
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  1 Oct 2026 19:25:07 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0F22ACA5FCE
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  1 Oct 2026 19:28:59 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
 	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=vUgg6Q6C7bmDuxn2xo5vJ0z9fBM6ieoXi9Gwqqo6ztg=; b=F8LSOWs4lgP64PnULJaYSaXL3m
-	bdQA9yomg85r7QIEPxKggg5h40qbTJJDL0br4GBx48hzCfxDLAb+GKOyxgHTPzLD61JpQrQhmZsBY
-	ULqlee5vdc+bWCM4WnNpDPkDwc9LguoKA2dzZpILwT1Gp1eFIm81XpiowgB1biZaIxxtvCyOcFzZK
-	V94MSToAbF0upnboVCwjGnb2wNinRnIBN1Y/1+QBcyFe8xsiuIhxCEo9wUfKoZ1DajTSHtBA2B1fu
-	rXS0TdQjjl433UA0OAoDM4JHZXtlIPs6V959lv81e6hm/T8zpyuQ7xxsao9S6iYSvyv7K/WSK3TMb
-	dKLqrMzQ==;
+	bh=m11GMEyvhzjd9E6+wwt5uc3aFkOwju9CszSHqjpI5h0=; b=IBAjD9DcU0L+0Vgcmrff7jWXwp
+	S3+zhP8DQ0g4wkidzwZh2JOYHxfS35VuLO30Da8SpwUOxGlTyb4A2HIPseNxwSSZrgNZBWZsUvpCg
+	j0Y9nGDtrrafLlnNP7JJDE+BzmfDrHULtY6zn1ozDdnjbvzvd9elX7wcCQbWrBqbr4zIKEQZtr9Kg
+	vYXRro78KKNMAMN56DAGJ0GTsZDBrC9mmDGezvU5XmrgPhpWd9V6MTuWsndzimZC+F5grQoNdbwG2
+	vQDZlq1paf00A0qfLwHs1v/53QA5J1oru4nRnaOFzsQerKGzEJwNfUqMQoSEtTyUGZtOBrVWb5+yy
+	CAWeYTqg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xCMOo-0000000A4ht-3eps;
-	Thu, 01 Oct 2026 19:24:58 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1xCMSb-0000000A4uW-1aSk;
+	Thu, 01 Oct 2026 19:28:53 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xCMOk-0000000A4hV-3Pw6
+	id 1xCMSa-0000000A4uO-0jfb
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 01 Oct 2026 19:24:57 +0000
+	Thu, 01 Oct 2026 19:28:52 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 9015241A8D
-	for <linux-arm-kernel@lists.infradead.org>; Thu,  1 Oct 2026 19:24:54 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 74BBB1F000FF
-	for <linux-arm-kernel@lists.infradead.org>; Thu,  1 Oct 2026 19:24:54 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 6D94D602C2
+	for <linux-arm-kernel@lists.infradead.org>; Thu,  1 Oct 2026 19:28:51 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 218331F0089D
+	for <linux-arm-kernel@lists.infradead.org>; Thu,  1 Oct 2026 19:28:51 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1790882694;
-	bh=vUgg6Q6C7bmDuxn2xo5vJ0z9fBM6ieoXi9Gwqqo6ztg=;
+	s=k20260515; t=1790882931;
+	bh=m11GMEyvhzjd9E6+wwt5uc3aFkOwju9CszSHqjpI5h0=;
 	h=References:In-Reply-To:From:Date:Subject:To:Cc;
-	b=hE40VTv5kwI5vC8qst+3Ul5mT0paNlCQ+tf7CAY4EHEkad3Nu5hQAnl9sDO34Uc0T
-	 YrVoz5Yw1WccIZzYQFyvFfnow3Gd9+veVtMXJVaJ41gEnU2Blv71WjfVfE1YG3Tkrq
-	 580XnIWKwqe+M1s7w27PmqMFE6UOviplL3z3V6CS/A87ABMKsT+Wh8Rhgf6u8pIQ00
-	 5lHnBb9fw820KAJvWsLfoxtfNfiGLLPPlP/ZskPfW1EqwC41p1o63Ymg8kXMcd1pRI
-	 eIHpCCp2qzYzvwoy3NDA1DQ+NgOttFGltKFKhDoBo+V4cyI4JmWYM4kq6zAaWRitzl
-	 VP9b/mYLMmt1w==
-Received: by mail-lj1-f180.google.com with SMTP id 38308e7fff4ca-3a20f06cce6so34380761fa.1
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 01 Oct 2026 12:24:54 -0700 (PDT)
-X-Forwarded-Encrypted: i=1; AKwUvBy3YuhISf1n0PyBE8KjgF9uEnkfCRK73XEQZVKFtebuig0Q+dOZ5gmqZFgJxmX6NGnol/qcWH0VxR5RYQHNFNCT@lists.infradead.org
-X-Gm-Message-State: AFq9FYJAD0YKGzoT2ns7mnoMFIeIeQ708l1YQ2agNRPmrtwdLUfhf+Xd
-	dUoqRzhdh2LdGwAyT3iN59yRCRR0RQnC34JF57/6SkZOAGLohs2GCNb5ASlrev2Cvi8/c8eK9vC
-	P240GGzyUHSsBtIYQr7aH0QITgeb2AcM=
-X-Received: by 2002:a05:651c:1987:b0:3a4:68f1:8bee with SMTP id
- 38308e7fff4ca-3a7833da2afmr10860121fa.6.1790882693269; Thu, 01 Oct 2026
- 12:24:53 -0700 (PDT)
+	b=XpHF0yEP2CAfUBo0dIKOgho+y53PMw4J0ynCzZzK3Bv5ke5J4Pt+TGBpaXZB/E7aQ
+	 i+Li3h43sorfblLs2LronkcGQC8G1KB25jrahgfSUW7fLmOKWSmYKsa2/Yy9llZ24Z
+	 Ycc1PTALVDSG1UpjJikuEf+C7j5qe8PDy7urlXiq1YiraQttIRFz5oKyajZNRT83i3
+	 6WH5iuJkNOzLtB/Y19CwJ8Vt6Vt9lkRMS5+xi+p1R3ovbrDx3E7FdIBthcj0EoT/Q9
+	 8z/iYPaxNfzr7d1UAWPyol5b93IXmPXhLO6evqUfTx8ar2kVNuMJQSTDp9HivFa/z6
+	 0Kq4GSyWtTyng==
+Received: by mail-lf2-f12.google.com with SMTP id 2adb3069b0e04-5ba3ae12b79so2096978e87.0
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 01 Oct 2026 12:28:51 -0700 (PDT)
+X-Forwarded-Encrypted: i=1; AKwUvBxdQplHk92hAIQN/323DBwSH9M4qhIFNMpok+nuMAYmbh77yrHUc1bZVRz9cowqB5agVsvGLV1tTPZjW65B0m3k@lists.infradead.org
+X-Gm-Message-State: AFq9FYJJ/pOSK4UOwUzePwsmHM2xnslRp6W5T4jpMMy/FRBXE/JmSGsa
+	tdIfZNABI1xCmHDnSasEm/bdozk7R+mji4+fV3ByKLYoJT2DAav06QqMHgTfEs2M5ZuNlZvl7Id
+	Tc5qlWqeJuNq5sN0EvS7+mqstkMQmLYw=
+X-Received: by 2002:a05:6512:3b91:b0:5b6:4ae:8c02 with SMTP id
+ 2adb3069b0e04-5bb9bc3a38amr67418e87.29.1790882929875; Thu, 01 Oct 2026
+ 12:28:49 -0700 (PDT)
 MIME-Version: 1.0
-References: <CAD++jL=vbc7DM1RB8_VfzWJhT0ZSGYegKN7NKJLbBB7bgFio2w@mail.gmail.com>
- <20261001-striped-polar-tuatara-d66794@quoll>
-In-Reply-To: <20261001-striped-polar-tuatara-d66794@quoll>
+References: <20260929203634.32998-1-pmazzini@gmail.com> <a15d179f-8a43-4b4a-8bd5-fc0afecad6e0@arm.com>
+ <CAD++jL=wEKZ5nRofe09heO8uUa4Cd12SYz3+XPhsStioQ5XTXQ@mail.gmail.com> <d9e249b7-baf9-4ad3-a3ae-b9765feca5d8@arm.com>
+In-Reply-To: <d9e249b7-baf9-4ad3-a3ae-b9765feca5d8@arm.com>
 From: Linus Walleij <linusw@kernel.org>
-Date: Thu, 1 Oct 2026 21:24:40 +0200
-X-Gmail-Original-Message-ID: <CAD++jLk4Kyzi51qm1_N459xA6jxZR_97xGa+wuUQZLB_uU0A-g@mail.gmail.com>
-X-Gm-Features: AclHuK-limh2gCePDThBkjOajbz9qF9G52sFUd6I5HvvxJLugmHTOb6rOCipE6c
-Message-ID: <CAD++jLk4Kyzi51qm1_N459xA6jxZR_97xGa+wuUQZLB_uU0A-g@mail.gmail.com>
-Subject: Re: [GIT PULL] Ux500 DTS changes for v7.4
-To: Krzysztof Kozlowski <krzk@kernel.org>
-Cc: soc@lists.linux.dev, Linux ARM <linux-arm-kernel@lists.infradead.org>
+Date: Thu, 1 Oct 2026 21:28:36 +0200
+X-Gmail-Original-Message-ID: <CAD++jL=bhQ8Pj12wgCi8RaRTEUcrXzhHm+EYA67dBEvn8P_rCw@mail.gmail.com>
+X-Gm-Features: AclHuK_wLU1qzQeRdKRPBZrb-Hz7ltUFota33qajxnsq0Ifw9pLY5cjoFByXrTo
+Message-ID: <CAD++jL=bhQ8Pj12wgCi8RaRTEUcrXzhHm+EYA67dBEvn8P_rCw@mail.gmail.com>
+Subject: Re: [PATCH] pinctrl: sunxi: dt: number the IRQ banks from the first
+ one that has IRQs
+To: Andre Przywara <andre.przywara@arm.com>
+Cc: Pablo Mazzini <pmazzini@gmail.com>, Chen-Yu Tsai <wens@kernel.org>, 
+	Jernej Skrabec <jernej.skrabec@gmail.com>, Samuel Holland <samuel@sholland.org>, 
+	linux-gpio@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+	linux-sunxi@lists.linux.dev, linux-kernel@vger.kernel.org
 Content-Type: text/plain; charset="UTF-8"
 Content-Transfer-Encoding: quoted-printable
 X-BeenThere: linux-arm-kernel@lists.infradead.org
@@ -79,33 +83,18 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Oct 1, 2026 at 2:15=E2=80=AFPM Krzysztof Kozlowski <krzk@kernel.org=
-> wrote:
+On Thu, Oct 1, 2026 at 2:31=E2=80=AFPM Andre Przywara <andre.przywara@arm.c=
+om> wrote:
 
-> > Linus Walleij (9):
-> >       ARM: dts: ux500: Make panel regulators have unique names
-> >       ARM: dts: ux500: Harmonize GPIO key names
-> >       ARM: dts: ux500: Add the Imagis ISA to Janice DTS
-> >       ARM: dts: ux500: Add the Imagis ISA to Gavini DTS
-> >       ARM: dts: ux500: Add new AB8500/AB8505 regulators
-> >       ARM: dts: ux500: Fix up regulator assignments
-> >       ARM: dts: ux500: Add sound DAI provider cells
-> >       ARM: dts: ux500: Convert HREF audio to audio-graph-card2
-> >       ARM: dts: ux500: Add Samsung phone audio graphs
->
-> None of this was in next:
->
-> Days in linux-next:
-> ----------------------------------------
->  0 | +++++++++ (9)
->
-> Commits with 0 days in linux-next (9 of 9: 100.0%):
->
-> What happened?
+> So we could revert the DT patch, and take Pablo's code patch, with a
+> Fixes: tag, but that would create some broken combinations meanwhile.
 
-I've never had any -next tree for this SoC, I always just collected
-the patches and used the SoC tree itself as testing ground as
-for most minor SoCs...
+I see it like this was a bug in the DTS file, so this if fine as-is.
+
+> And in any case we should add a word to the binding document, to pin
+> down what's expected here.
+
+Can we enforce it with YAML constraints or is it too open-ended?
 
 Yours,
 Linus Walleij
