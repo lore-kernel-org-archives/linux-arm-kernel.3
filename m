@@ -4,70 +4,128 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id EF8DECA5FD2
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  1 Oct 2026 20:32:37 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 00774CA5FDD
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  1 Oct 2026 20:51:31 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=qcLz5VIqrPLxxts4VNciRIChNErXev7IuXl2T9sRc74=; b=gp/zJiTU/EWybg//NNlZDcr1yi
-	CCebxiJk490HeWevMvosALkIO7r8ANcnd+Q1TAsGqAczBjf31bukfiq3KulfJ+cx1U3mfvwFz+Wuh
-	GkgnW7pyNhZlO+mEQFLKTblQ8TqM/+q+I5hYxaykOnVYTwj4QayY/h274p5jLSmpGph1HX9H2f6tb
-	yT0UoLNhRClt4vGXBXXKTihMsgmsV+2Vgil5m4CxukGBR3M3vmUhyldItgi72VZlCktJzQ5deq3QY
-	Cvulip5S6koKzhVgaNbwSL+Q+Rjl7rVzOW4+pPDY1N1d7S4+Cu7xQ+731pt+OlC9OAxBjVvOILuOR
-	dg0nUpTA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
+	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=LIVx6o82PaJRej2GW2jUDVd1+/oZRxZLSNyowyuaqso=; b=JaKssbsGe6uw4Vl9Y0WtUUPv+8
+	3ZesOrS/uhww6tPAKuyEIOD070LMip3qNkwNdqKtp9StLfgoqgELOoNjVx/8AsIqSr4FDJeARvi2C
+	coI7KlX76Gs8dRQr0FSB+GONnm/6T8YZN6Iz/gObKC2YH+P62CqSQE6b3IWYMJmZaqpV8lXJx+2Oo
+	StprpUmFnJloK+Uwd+UWq+xiiaCaQDd9ZUIEdaSPnmCa5WNaQTMRsdApU9DvnThrGA13eLybrnlBE
+	sT7sleu+EpRFCppSHbCTO/TZRgiCDlPyiRd1wMfcUWgMr529pXLrirrgzzwScWQxCpOFo8NH2pfan
+	0XkWKQ6A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xCNSB-0000000AAXk-2ton;
-	Thu, 01 Oct 2026 20:32:31 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1xCNkT-0000000ABbu-13tn;
+	Thu, 01 Oct 2026 20:51:25 +0000
+Received: from mail-northeuropeazlp170110003.outbound.protection.outlook.com ([2a01:111:f403:c200::3] helo=DU2PR03CU002.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xCNS8-0000000AAX9-1OP2
+	id 1xCNkQ-0000000ABbI-2BfL
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 01 Oct 2026 20:32:30 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id 61F7360218
-	for <linux-arm-kernel@lists.infradead.org>; Thu,  1 Oct 2026 20:32:27 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 19F761F00899
-	for <linux-arm-kernel@lists.infradead.org>; Thu,  1 Oct 2026 20:32:27 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1790886747;
-	bh=qcLz5VIqrPLxxts4VNciRIChNErXev7IuXl2T9sRc74=;
-	h=References:In-Reply-To:From:Date:Subject:To:Cc;
-	b=JtAcjmb49+9CVJKKEKK72AUjiANdqcGzX2MyKefsSjb3idsWueBWake18fQhfv+Ai
-	 7/HGaw6z/l17lppNHZUzLHNDaVA0Le7pliiWzs6eID4bzAUrk693H3muNWG2nSuwxE
-	 8gUDAvtEC8QiyQ8rKVrT8T0st+ZtH5ccJ5hXwJi1XLqTpjaXaB4LD17BFIIoy/JM25
-	 9n9unR3EOj8sIhaqx1ql7NLYBRl/K+Vy2gUDti0x5zcdPdbit/gOezlSf44Qn0hlWF
-	 58UspUPrIgJqol0cvVs8KoLKL7Fiswt9akIMA1ydEays924kiPFib7sLx/qEhcSvmT
-	 3kF8NnRtWu4zg==
-Received: by mail-lf2-f12.google.com with SMTP id 2adb3069b0e04-5bb79ea1170so760339e87.1
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 01 Oct 2026 13:32:27 -0700 (PDT)
-X-Gm-Message-State: AFq9FYKFEsj6nOQDaoKaf3NU/JtH2CXlLC+vS4/Jz+dp1SChWGzH7FgJ
-	+Imk3WN1QHsvPxMVT6av7p4OkmUD9Mb9QrI7u2QeuTugJD+hyNJqcLgDSzhhp2p2lotwQAtT/K7
-	p8IqIftAhh+lIo8ZpNsQxiKQZx+NgCMY=
-X-Received: by 2002:a05:6512:3052:b0:5b8:edbd:60a4 with SMTP id
- 2adb3069b0e04-5bb9bb145c3mr112291e87.43.1790886745879; Thu, 01 Oct 2026
- 13:32:25 -0700 (PDT)
+	Thu, 01 Oct 2026 20:51:23 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=s1ElXGIKDjDawk3o8Oe5G0XqdHtC951ewdKFcvxVqX1ZcmozTdOeZgyUnH8MCN4c574kJaUVVB9qQIaelt6MTdpgZ1s08fqAotrncHWjcoUBjaItqJzuubS6yA9p3J1Z4WMTctmc+7zQIwIZt/mP/KdacgUTPFrXIedvVFZoGlF/FrLh017cSB6Krrzz9o6F06Y3AIGTniKRh6X5P3vlG8gbIyteJTI6sPEuNdVNM1Aw3/h8j8oKR7NFMdp6/pp0lJocQ2/lIHSgdS0YH7iacyCHhcbcoqgDbXkoZGpwiP/brDZ42i2TJG+Kv5mjQWd0K7bD6fuT+4s9ez9S31yNMw==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=LIVx6o82PaJRej2GW2jUDVd1+/oZRxZLSNyowyuaqso=;
+ b=kaeRCOyOtceVwmIb2XkPvUM3hwAAiaz5yk9GuiXtQqscQ2Uh3BHpwb294BcOEosUuFwAmFH0hzDfHVEA0WpMTL2QYH9kkyN0k7NXyHWX8PuQuw75wez4lH+LOTibdsT1rviYKQQR6hWK8bFSSZVV1UAZMK+ZuPWc2+f6RCAmPIxOc0C/63bxV//Wa7siE2iEbwhOJ7pXIxT8IitVZ+xJNCJyaxGKUNUUN6ovjSslANTj8ER0fz+CPeTMH2hcIpJhaoUadgn539ConygZ5RGEd+Ytf3irW0stBT84OtevhWceCIURJxs6KAqZpA/tlNpPr4Fwv3a1GgPzrBpaV1ZNZw==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
+ dkim=pass header.d=oss.nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
+ s=selector1-NXP1-onmicrosoft-com;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=LIVx6o82PaJRej2GW2jUDVd1+/oZRxZLSNyowyuaqso=;
+ b=QpP16LA8+0+Kd1N1xOz/V6k6yIjQq77x9PIMpeIdu6UPsCYYbLBrBZZ1Ld7vYc9JTS6qnIxhcrMqFUTokKq888xUOCUAvJRX8bD4ZwHEnvzhS45msgg7t5G6zQBzZYJVwPE/4PI6vZAs2RD2rLrD6YKof53ZFLZ2z53TLe7YPdIYmc7nnx1lPlz4sN//dAhtj//QYPrrSPp9BJF4QHbcmlacELbjgCjZU/OY5VnrZ/S1fDTVVQENfYUkJxt2R/D2q+rgH04Ec96guZq6oBVLgmfEV0+Q0BJ0c6SHF1qG7Kc816YSmZJxLV/mvZYwfiZEVpqz5qovcAyI8lLbLyTBjA==
+Authentication-Results: mx.microsoft.com 1; dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=oss.nxp.com;
+Received: from GV2PR04MB11799.eurprd04.prod.outlook.com (2603:10a6:150:2cf::9)
+ by AS8PR04MB8692.eurprd04.prod.outlook.com (2603:10a6:20b:42b::15) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.472.18; Thu, 1 Oct
+ 2026 20:51:11 +0000
+Received: from GV2PR04MB11799.eurprd04.prod.outlook.com
+ ([fe80::2146:83a2:5329:b7c]) by GV2PR04MB11799.eurprd04.prod.outlook.com
+ ([fe80::2146:83a2:5329:b7c%7]) with mapi id 15.21.0451.022; Thu, 1 Oct 2026
+ 20:50:30 +0000
+Date: Thu, 1 Oct 2026 16:50:23 -0400
+From: Frank Li <Frank.li@oss.nxp.com>
+To: Laurent Pinchart <laurent.pinchart@ideasonboard.com>
+Cc: Jiale Yao <yaojiale02@163.com>, Vinod Koul <vkoul@kernel.org>,
+	Frank Li <Frank.Li@kernel.org>, Michal Simek <michal.simek@amd.com>,
+	Hyun Kwon <hyun.kwon@xilinx.com>, dmaengine@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH 3/3] dmaengine: xilinx: dpdma: Reserve space for a string
+ terminator
+Message-ID: <ar7Hj-BQW7xPtjaC@lizhi-Precision-Tower-5810>
+References: <20260926121250.3258285-1-yaojiale02@163.com>
+ <20260926121250.3258285-4-yaojiale02@163.com>
+ <20260926143415.GA764757@killaraus.ideasonboard.com>
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20260926143415.GA764757@killaraus.ideasonboard.com>
+X-ClientProxiedBy: CY5PR15CA0209.namprd15.prod.outlook.com
+ (2603:10b6:930:82::27) To GV2PR04MB11799.eurprd04.prod.outlook.com
+ (2603:10a6:150:2cf::9)
 MIME-Version: 1.0
-References: <20260929194035.496244-1-marex@nabladev.com> <20260929194035.496244-3-marex@nabladev.com>
-In-Reply-To: <20260929194035.496244-3-marex@nabladev.com>
-From: Linus Walleij <linusw@kernel.org>
-Date: Thu, 1 Oct 2026 22:32:11 +0200
-X-Gmail-Original-Message-ID: <CAD++jLkCT=hHQnrxqX8K1_d-ige-LTR2SeCa1ETqE=2gr602zw@mail.gmail.com>
-X-Gm-Features: AclHuK_BwtELP-F-5UZURmutq3weQqdSW_tv9x3rIhlaIFQbzeU0e-SvQ-dDFrs
-Message-ID: <CAD++jLkCT=hHQnrxqX8K1_d-ige-LTR2SeCa1ETqE=2gr602zw@mail.gmail.com>
-Subject: Re: [PATCH 3/5] arm64: dts: st: Reuse sdmmc1_*_pins_a pinmux
-To: Marek Vasut <marex@nabladev.com>
-Cc: linux-arm-kernel@lists.infradead.org, 
-	Alexandre Torgue <alexandre.torgue@foss.st.com>, Bartosz Golaszewski <brgl@kernel.org>, 
-	Conor Dooley <conor+dt@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, Rob Herring <robh@kernel.org>, 
-	devicetree@vger.kernel.org, kernel@dh-electronics.com, 
-	linux-gpio@vger.kernel.org, linux-kernel@vger.kernel.org, 
-	linux-stm32@st-md-mailman.stormreply.com
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: GV2PR04MB11799:EE_|AS8PR04MB8692:EE_
+X-MS-Office365-Filtering-Correlation-Id: d528dea7-e488-4cbf-ef94-08df1ffda151
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|19092799006|1800799024|23010399003|366016|376014|10067099003|4143699003|56012099006|11063799006|22082099003|18002099003;
+X-Microsoft-Antispam-Message-Info: Aserf5OcubU3fb/hhvZVBpDGmamtCZPdvxOlDDjYFTEQEIt6Qy8BZL7ddEf44PRE1TLvyZh5sfjSnKBYOO1MkeOn0dU20ORV2Ufgefd3vWzIlfn1Po3cUbHLKkXG0hYzzEBCP3zS43aSffhOYhUfJ655cbJuHiSa8lbgy+6hS4AtVpxrpQYrxtNLp3V4KDm6cJkmQSciPt+YcIptGoiolqzhjIp0ZFV4qjiT+otrEpdIF3O+z3zpE8LqWnLCntA4sOKp895xdXg4LjxeM8cBfJPpQzpGYtDsUVSox9l2fXEeZ4KcT2QI9C8vhL0k/yhn2Dph1jp2b/Tg7bMNtcjtUJsIPKgGNoxZBl5/SwEvnR/ECUcAD2YJAksuRUQO8E36QZw/MzHbxTNA6ilMrHwAyZ3EFOG57VvQx4eBY1mVO5gROP/Hjqqs9/AzdC0KnVTWLDU9SMu27OFGO340Z2z15ah0oiiUX0s5Doio9I01Xm2V7nqsBanbQHrfRIIYh84S+/f7+qxns+uZXs+ayQ1MOxUMtwTxhr9bSa9QFXlEsKPLrVcaQjxxfvfYw67qaB+7n6lYHKP/mjbei4gf3Ica+zbqZdSgBN+AsCYCxinfmgm6dKYucXZsvcY2T4y+M/1vDfa24CPMXKtQ+1MdEOUwnMCGJcbzjjiSHoz7m7lrZtY=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:GV2PR04MB11799.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(19092799006)(1800799024)(23010399003)(366016)(376014)(10067099003)(4143699003)(56012099006)(11063799006)(22082099003)(18002099003);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?b/Q0wm90KQ8+CEHGBzi3Y48rra6YvOFpZnWX7D6UCPlmVf7hSEb87FMF4RpC?=
+ =?us-ascii?Q?lyuCoUToYMvLC7A8zm8KAfZtWaWGkwQ3i+ZLL93eML8pPnAOsYN+ymkMxkGG?=
+ =?us-ascii?Q?w5B1mrox65QBxdOyye4D470qTPt+9LaTku0w76jfqO12oDKh5uyHT/gsytJB?=
+ =?us-ascii?Q?KjzZ1hcRqdhxBvIkS/qHmggw7ulXjj2xDZ74MDXNYHNO1Jtirv1tWKU3JOHl?=
+ =?us-ascii?Q?00qxFXdRuVzjaRrpUSRw+PA3g6DFfQN74fVmHPunNT1HdSh1L0OuLFq18Wjp?=
+ =?us-ascii?Q?aiaUsj3mv4h3G+VtspNmKHIswqw0OSFBv/gcleYC4Y5fy3Yqaa1D/d5Whras?=
+ =?us-ascii?Q?VduBC7OActrp6xBgPsaXP1ocFum5/HwCEK87Tu2RUh3bIXVEN0p1ao0wPF7J?=
+ =?us-ascii?Q?hun/iQ32TmkJOZG7DF7jIMOni5PcS+od3wFyIWjC5tchzmyq5wZVoTC846FQ?=
+ =?us-ascii?Q?xDkpLEWpFk8zIz+obyUCQEzSvVHrXcA551PQn3FFXEj8/j4wh5yviKg8t4Wg?=
+ =?us-ascii?Q?IUif7dH25HIoslJzCFHLP0oxHR5UhPNF2Gh4OH9f4xCTvMj9hEjAe/AbL7p3?=
+ =?us-ascii?Q?dlq0n93PXjx4dUr0achvUV6jAU0VtaXuo9A/iSERYeOXqYd0Uq55bWAqin8K?=
+ =?us-ascii?Q?K0H5rjkbLxdq6aTPTPkx67EMcAW/+n77j9bmQ8FtROxT9o4qByjfIJ37pClU?=
+ =?us-ascii?Q?67O8xvSTc/GtvbT2uwtS/T3TIqgRE9YHmSDW7sfKQGpaaet2Lwqkliw/UYG+?=
+ =?us-ascii?Q?QAR0Lj2c6q7KScz80qGPy9slQMw/WZikBUSc1105F2r4wu60BJBK4Zgdz4SS?=
+ =?us-ascii?Q?nQeHDCQCStqyDyC9SrenpGW0FDtpTXfk465k/5h7yqmuQvCJqY7NW3ucYi5A?=
+ =?us-ascii?Q?sKjL8DLtO+zQ/IZpyJgYsnNku+ONwY5UuzB89nadlMmfGRAofJ7Z437qQJJD?=
+ =?us-ascii?Q?JZ8MJCaCg7RY9xrTXYXLZDaE8pknrYRlFUhp8zsHA0o1vUtzafZNc1wrlQwB?=
+ =?us-ascii?Q?xXPA2clcphl+aPk6ISYr8HhwaNtUaz6Xf8jD3XqD79iU+ogGOWOAcRa9aZu0?=
+ =?us-ascii?Q?NeJE+2CMQ5lq2pmq7sHQyty6k4DrNhSZt55P0CwEueG6YwsdI6i3ePnK7nTY?=
+ =?us-ascii?Q?7PvzgXMbywgRXQLSkdYXx811vfErRmbIASMFITCMN4FQ6JrZro1QIF91RMac?=
+ =?us-ascii?Q?ZyflkR2qKSDI2QvtKgsb1HjTVRETHZHgGzrRGRpEysHgiyF1+nbCnpvbs55a?=
+ =?us-ascii?Q?OwatadTrcSPjzH6UfGBeCUvATQjfPudVX1746+IEeFpsSjYjxiEFt5OG5MLe?=
+ =?us-ascii?Q?1SCOP+U2pgk2K/tbA5e5O8fzykX43TDRkU1VF7qD+dfwcCgDLo0Xm2RxbeQ2?=
+ =?us-ascii?Q?/FxoMfJfjLzsa8ZyiFlgMRrw6JcX6fK4T9oDUP7pXosjn23JkjxCauzVT5Vl?=
+ =?us-ascii?Q?h+FFEZDc+FpKw0kb3lwkd5vR69q4lnC9yXKsCJKlcsHTwvRk6wVsWWwhuesM?=
+ =?us-ascii?Q?7LtM/qXvVd1z/m+MekpKbxMAEDMXMkZ8f3thdZ4HfdErqIJibUuieuiq/rZH?=
+ =?us-ascii?Q?2mge4WjA1rJNtA0rMyrNkNybpYd333KxRlkd94isay/evHSogt1Rf0hRWSe9?=
+ =?us-ascii?Q?ZURFdGwPZrhzuo7rjkQ4Fjhvnq7D+vJlodBhpfVCRKT96Gqsqz253Ajk3xDR?=
+ =?us-ascii?Q?DeirMgP2ZEpz4PZSM4QGsDYUgXcG7MCMrB0/C9KcF9IYfShsCG3VCNaX4IjT?=
+ =?us-ascii?Q?nDizXpZPohnbMLxT63J7FqXL8ezhIBi3kvcU5eTTSU3p8jCwH8uw?=
+X-OriginatorOrg: oss.nxp.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: d528dea7-e488-4cbf-ef94-08df1ffda151
+X-MS-Exchange-CrossTenant-AuthSource: GV2PR04MB11799.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 01 Oct 2026 20:50:30.6877
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: AIfJcUtJCHgQpyiK4qyOyOlmoxhIdJa+vPfvW214NhghsHuKrHGuLfbMZcD3cauGekZhRDiWh8ehw91cn7h6snJXx3flSdGoMKbwQ+0A/Z2XgTp6LTE4WO7c1Ym7Rybf
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: AS8PR04MB8692
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20261001_135122_568374_30F24982 
+X-CRM114-Status: GOOD (  21.11  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -82,21 +140,47 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Sep 29, 2026 at 9:41=E2=80=AFPM Marek Vasut <marex@nabladev.com> wr=
-ote:
-
-> It is perfectly possible to use sdmmc1_*_pins_a on the DH electronics
-> STM32MP23xx/STM32MP25xx DHCOS SoM, the only difference is the slew rate.
-> Reuse sdmmc1_*_pins_a with updated slew rate on board level.
+On Sat, Sep 26, 2026 at 05:34:15PM +0300, Laurent Pinchart wrote:
+> On Sat, Sep 26, 2026 at 08:12:50PM +0800, Jiale Yao wrote:
+> > xilinx_dpdma_debugfs_write() allocates a buffer of size bytes, and
+> > strncpy_from_user() can fill it without a terminating NUL when the input
+> > has no NUL in the copied range. strsep() and strcasecmp() then read
+> > beyond the buffer.
 >
-> Fixes: 9b584c92f94f ("arm64: dts: st: Add support for DH electronics STM3=
-2MP23xx/STM32MP25xx DHCOS SoM and Breakout Board and DHSBC")
-> Signed-off-by: Marek Vasut <marex@nabladev.com>
+> strncpy() has long been considered unsafe, and has finally been removed
+> from the kernel in v7.2. A better fix would be to similarly replace
+> strncpy_from_user() with a safe equivalent.
 
-That's neat.
+Do you means use strndup_user()?
 
-Reviewed-by: Linus Walleij <linusw@kernel.org>
+Frank
 
-Yours,
-Linus Walleij
+>
+> > Allocate an extra byte and keep that byte zero-initialized, so the input
+> > copied remains unchanged and the buffer is always terminated.
+> >
+> > Fixes: 1d220435cab3 ("dmaengine: xilinx: dpdma: Add debugfs support")
+> > Signed-off-by: Jiale Yao <yaojiale02@163.com>
+> > ---
+> >  drivers/dma/xilinx/xilinx_dpdma.c | 2 +-
+> >  1 file changed, 1 insertion(+), 1 deletion(-)
+> >
+> > diff --git a/drivers/dma/xilinx/xilinx_dpdma.c b/drivers/dma/xilinx/xilinx_dpdma.c
+> > index d9a3542c4531..b61ef3062d84 100644
+> > --- a/drivers/dma/xilinx/xilinx_dpdma.c
+> > +++ b/drivers/dma/xilinx/xilinx_dpdma.c
+> > @@ -410,7 +410,7 @@ static ssize_t xilinx_dpdma_debugfs_write(struct file *f,
+> >  	if (dpdma_debugfs.testcase != DPDMA_TC_NONE)
+> >  		return -EBUSY;
+> >
+> > -	kern_buff = kzalloc(size, GFP_KERNEL);
+> > +	kern_buff = kzalloc(size + 1, GFP_KERNEL);
+> >  	if (!kern_buff)
+> >  		return -ENOMEM;
+> >  	kern_buff_start = kern_buff;
+>
+> --
+> Regards,
+>
+> Laurent Pinchart
 
