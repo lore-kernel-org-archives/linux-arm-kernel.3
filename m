@@ -4,66 +4,72 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 804FFCA5FA5
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  1 Oct 2026 09:11:49 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A8D79CA5FA5
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  1 Oct 2026 09:18:36 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=L7TnZSTs1JU3qWXRO9syH405YVN6kk4t/lEfXU9Fcks=; b=DPUAvTWHV0aUmkxNHzA3bu0m64
-	unCkTqlGvjQs1G+JVttl+kfX8ibeq/IvK0LOgT5V6zikTN184e/WyvK52OCcXhE/ot3Ep9CaEGRC4
-	tS0JERgUTlZaP+Iu2tYxV9VDkIeE1905KlRzmoct4l09KA5YKzqc5O5WwV70ZmHmEC8pxnndioL2H
-	9bC7X+kdiAT/3ORjhrCZwbvOZGJ6UD5vdWzCNmR9C95mo8v0hKRodW0JfZMxLyCSEKuwudeyAjrvI
-	vW/26mWJdGnkAeweyPgoSmMrfsGHQCxD8qqyUFG+ZuI2DE6UuArrH+s8F9tjfaFh6mlYXY4tBS62m
-	ALqNQtGQ==;
+	bh=lebBIPbB/BBbKsr8+CagAXggQBPA0B122eAEgpfMh5o=; b=N4sWUW1j4aVOoNMEd9q+GeljJ+
+	oNOs0elHwKiBNLcQRztrZgUAqbfTx1ViPCu2HaYrXrtZ9QQg2FGK9X7/lKrswq5RMV81haycEt3/E
+	EFpBDdQe38im/bmshi4cgwcTj8gctaYtDXtJ4v2wbf5vuokAUj6awKIWHiQJpKJ3hseLq2TZu4luA
+	mo/bEVyiAr8AY4fcvC57VuzwEnCPNY/s3vzx0GNUMGmncliOghD7xbxXahuZ6E1CHcZQbUMoxeJOU
+	Bt2ZKB2e+Vbbv1e5g7ARtGuxYUXOJZhnlXnLSITepNpUp3X81xZaeQ4j17jGaGWqBIlIQnKQ+ap6l
+	qmbdN7XA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xCCpK-00000008KFf-3NFD;
-	Thu, 01 Oct 2026 09:11:43 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xCCpH-00000008KF3-2Oe3
+	id 1xCCvs-00000008KxO-0WEn;
+	Thu, 01 Oct 2026 09:18:28 +0000
+Received: from smtpout-03.galae.net ([185.246.85.4])
+	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1xCCvo-00000008KwI-3Xay
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 01 Oct 2026 09:11:41 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 9757D497;
-	Thu,  1 Oct 2026 02:11:34 -0700 (PDT)
-Received: from [10.57.9.178] (unknown [10.57.9.178])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id BDB343F86F;
-	Thu,  1 Oct 2026 02:11:36 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1790845898; bh=GQrDMdfMqZNswkZK5dFyWnVceo9e29aWWhkScXVyzjw=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=ufUYSCruKSsgdz5AQlNPK4y4LK9KHDsv7nd6GemQeqNp+/bgncE9xD3ttBnyyqxgp
-	 yW4GsFqAV2/s/ErFu2GT4lpgVd14g+qe52yHiioiQYjTtr0gr/tzyth1sfw1THT4mY
-	 19QyBDeyP+mJwuEAStC3anS0gKSFObEQ79Qw93a0=
-Message-ID: <ea458644-d723-46e2-bd7d-7746e56d7a08@arm.com>
-Date: Thu, 1 Oct 2026 10:11:35 +0100
+	Thu, 01 Oct 2026 09:18:26 +0000
+Received: from smtpout-01.galae.net (smtpout-01.galae.net [212.83.139.233])
+	by smtpout-03.galae.net (Postfix) with ESMTPS id DF5CD4E410EA;
+	Thu,  1 Oct 2026 09:18:20 +0000 (UTC)
+Received: from mail.galae.net (mail.galae.net [212.83.136.155])
+	by smtpout-01.galae.net (Postfix) with ESMTPS id A1C8B60341;
+	Thu,  1 Oct 2026 09:18:20 +0000 (UTC)
+Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 12CCF1032989B;
+	Thu,  1 Oct 2026 11:18:11 +0200 (CEST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=dkim;
+	t=1790846299; h=from:subject:date:message-id:to:cc:mime-version:content-type:
+	 content-transfer-encoding:content-language:in-reply-to:references;
+	bh=lebBIPbB/BBbKsr8+CagAXggQBPA0B122eAEgpfMh5o=;
+	b=mklAmku1L9j4jxEGEYeaz5xKAc7GnKmjXPB4EhFw8ZQXCmES2qu4X1GTw7Sugi3/+CXE4D
+	EF0HpF24Cg8mSm7VyLbCo+4qqW6kMYxeMlZMDxhkDvphEpgs9xAWCgTTeY2VgLCJL3wbeh
+	ZQFGF4Gn8HkTqX2UIdPYWYJ/e3TSUzi9+4wAjC7Gz/m6TBwGEcBcnpGkyiKDND4j+bkaHi
+	ksN2jBTmKlw859wU2lOYkpUhPnEaso7lsLhNefWdc7DvgGHF70fUTe8+T21PBjNRCU9wu4
+	CKTdhWuz+SatO++nEjviuTpy9kPxmX6y1QMY/LHMr6s8RRs8/jq5ZqtY5QYHkg==
+Message-ID: <993cebd8-2a98-411e-b8d6-d2088966d9a3@bootlin.com>
+Date: Thu, 1 Oct 2026 11:18:10 +0200
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v21 8/9] firmware: arm_rmm: Add wrappers for Realm related
- RMI commands
-Content-Language: en-GB
-To: sashiko-reviews@lists.linux.dev
-Cc: Marc Zyngier <maz@kernel.org>, kvm@vger.kernel.org,
- kvmarm@lists.linux.dev, Oliver Upton <oupton@kernel.org>,
- Catalin Marinas <catalin.marinas@arm.com>,
- "linux-arm-kernel@lists.infradead.org"
- <linux-arm-kernel@lists.infradead.org>,
- "linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
- Will Deacon <will@kernel.org>
-References: <20261001084555.1456543-1-suzuki.poulose@arm.com>
- <20261001084555.1456543-9-suzuki.poulose@arm.com>
- <20261001090450.C1CBB1F0089A@smtp.kernel.org>
-From: Suzuki K Poulose <suzuki.poulose@arm.com>
-In-Reply-To: <20261001090450.C1CBB1F0089A@smtp.kernel.org>
-Content-Type: text/plain; charset=UTF-8; format=flowed
+Subject: Re: [PATCH net v3] net: stmmac: propagate PTP addend and system time
+ programming errors
+To: Lorenzo Bianconi <lorenzo.bianconi@oss.qualcomm.com>,
+ Andrew Lunn <andrew+netdev@lunn.ch>, "David S. Miller"
+ <davem@davemloft.net>, Eric Dumazet <edumazet@kernel.org>,
+ Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
+ Maxime Coquelin <mcoquelin.stm32@gmail.com>,
+ Alexandre Torgue <alexandre.torgue@foss.st.com>,
+ Richard Cochran <richardcochran@gmail.com>,
+ Jose Abreu <Jose.Abreu@synopsys.com>
+Cc: netdev@vger.kernel.org, linux-stm32@st-md-mailman.stormreply.com,
+ linux-arm-kernel@lists.infradead.org
+References: <20260929-stmmac-ptp-added-systime-error-v3-1-ddd6afe936b4@oss.qualcomm.com>
+Content-Language: en-US
+From: Maxime Chevallier <maxime.chevallier@bootlin.com>
+In-Reply-To: <20260929-stmmac-ptp-added-systime-error-v3-1-ddd6afe936b4@oss.qualcomm.com>
+Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
+X-Last-TLS-Session-Version: TLSv1.3
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261001_021140_249922_DEC0A0A8 
-X-CRM114-Status: GOOD (  15.92  )
+X-CRM114-CacheID: sfid-20261001_021825_027434_75415E94 
+X-CRM114-Status: GOOD (  11.25  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,88 +84,45 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 01/10/2026 10:04, sashiko-bot@kernel.org wrote:
-> Thank you for your contribution! Sashiko AI review found 1 potential issue(s) to consider:
-> - [High] arm_rmm: dropped out_top on RMI_ERROR_RTT for range commands
-> --
-> 
-> commit 68e63e1b38f1af07d69bbc2eee9306e4bedb8efa
-> Author: Steven Price <steven.price@arm.com>
-> 
-> firmware: arm_rmm: Add wrappers for Realm related RMI commands
-> 
-> This commit introduces wrappers for the RMI calls used to create and
-> manage realm guests. These inline functions map the standard KVM realm
-> operations to their underlying SMCCC interfaces.
-> 
->> diff --git a/include/linux/arm-rmi-cmds.h b/include/linux/arm-rmi-cmds.h
->> index 5d005054f3c6c..e3503aba646e2 100644
->> --- a/include/linux/arm-rmi-cmds.h
->> +++ b/include/linux/arm-rmi-cmds.h
-> [ ... ]
->> +static inline long rmi_rtt_data_map(unsigned long rd,
->> +				    unsigned long base,
->> +				    unsigned long top,
->> +				    unsigned long flags,
->> +				    unsigned long oaddr,
->> +				    unsigned long *out_top)
->> +{
->> +	struct arm_smccc_1_2_regs regs = {
->> +		SMC_RMI_RTT_DATA_MAP, rd, base, top, flags, oaddr
->> +	};
->> +	long ret;
->> +
->> +	ret = rmi_sro_execute(&regs);
->> +
->> +	if (ret == RMI_SUCCESS && out_top)
->> +		*out_top = regs.a1;
-> 
-> [Severity: High]
-> If this operation encounters an RTT state conflict midway through processing
-> the range, the RMM terminates early and returns RMI_ERROR_RTT.
-> 
+Hi Lorenzo,
 
-Nope, see below.
-
-> When that happens, the RMM writes the failing IPA to out_top (register x1)
-> so the caller knows which pages were successfully processed before the error.
+On 9/29/26 15:10, Lorenzo Bianconi wrote:
+> stmmac_update_subsecond_increment() ignores the error returned by
+> stmmac_config_addend(), and stmmac_init_tstamp_counter() discards the
+> addend and system time programming errors, always returning success. A
+> failure to program the addend (PTP_TCR_TSADDREG) or to initialize the
+> system time counter (PTP_TCR_TSINIT) is therefore silently swallowed,
+> leaving the hardware timestamp counter in a non-running or partially
+> configured state while the driver keeps operating as if timestamping
+> were up. This matters for TAPRIO/EST offloading, which derives the gate
+> base time from the hardware timestamp counter.
 > 
-> By restricting the out_top assignment strictly to ret == RMI_SUCCESS, doesn't
-> this silently discard the partial progress indicator on RMI_ERROR_RTT, causing
-> KVM to lose track of the modified pages?
+> The same hooks are also called from the PHC callbacks: settime64 and
+> adjfine drop the error and report success to clock_settime() and
+> clock_adjtime(), so a dead PTP reference clock goes unnoticed by
+> ptp4l/phc2sys.
 > 
->> +
->> +	return ret;
->> +}
-> [ ... ]
->> +static inline long rmi_rtt_data_unmap(unsigned long rd,
->> +				      unsigned long base,
->> +				      unsigned long top,
->> +				      unsigned long flags,
->> +				      unsigned long oaddr,
->> +				      unsigned long *out_top,
->> +				      unsigned long *out_range,
->> +				      unsigned long *out_count)
->> +{
->> +	struct arm_smccc_1_2_regs regs = {
->> +		SMC_RMI_RTT_DATA_UNMAP, rd, base, top, flags, oaddr
->> +	};
->> +	long ret;
->> +
->> +	ret = rmi_sro_execute(&regs);
->> +
->> +	if (ret != RMI_SUCCESS)
->> +		return ret;
->> +
->> +	if (out_top)
->> +		*out_top = regs.a1;
+> Return error codes from stmmac_update_subsecond_increment(),
+> stmmac_init_tstamp_counter(), stmmac_dl_ts_coarse_set() and the
+> settime64/adjfine callbacks instead of silently returning success. On
+> failure, roll back the partially applied configuration so the hardware
+> and the driver bookkeeping stay consistent, and report the reason
+> through the devlink extack. Also guard against a zero sub-second
+> increment, which would otherwise divide by zero when computing the
+> addend.
 > 
-> [Severity: High]
-> Similarly, if rmi_rtt_data_unmap() encounters an RMI_ERROR_RTT, it returns
-> early here without populating out_top.
+> Reset the persistent timestamping state (hwts_tx_en, hwts_rx_en,
+> tstamp_config, systime_flags and tsfupdt_coarse) when (re)initializing
+> timestamping, so a failed init does not leave TX/RX timestamping
+> enabled on a counter that never started.
+> 
+> Fixes: cc4c9001ce31 ("net: stmmac: Switch stmmac_hwtimestamp to generic HW Interface Helpers")
+> Signed-off-by: Lorenzo Bianconi <lorenzo.bianconi@oss.qualcomm.com>
 
-As explained earlier, out_top is invalid when result != RMI_SUCCESS for
-all cases except RMI_RTT_DESTROY.
+Thanks, this is nice.
 
-Suzuki
+Reviewed-by: Maxime Chevallier <maxime.chevallier@bootlin.com>
+
+Maxime
+
 
