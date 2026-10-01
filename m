@@ -4,81 +4,88 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 65C8DCA5FD2
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  1 Oct 2026 12:45:04 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 29872CA5FD4
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  1 Oct 2026 12:45:06 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=rpVfkIZMmQdurRVLSRng0OFRynPKl3AukF6MjWLjGoQ=; b=BW5LnSS58i2Cn7kx8gm9J0YGyX
-	ZVuNfzMykY/0mSo1/hxYV1qMElbh6HMi81bR/cEfYYY+WrbdlSfYMDbX4nkt8O7Gf8CvWZI3f1WFm
-	5LKQBba1oXcqPqZ/QypI5Vm9DsWW600lNt2I6q62dUFT5IlCYmgscdhFEP9T0YvWV55CtDOhLZqBB
-	UGU6D1ZRru3rKQkTUgYjO6+JyO7XhEzUFcZ7XvbodE0c0O9uQqo7RQKNqsP5XfotwTwvMEbguwcUr
-	UcHy5Y/sMrscOqEfmritNlrN7wP8hlDVIrpw5Axycede83+ZedB9QGF7mMis4cf5KSyXbLWFcJdo2
-	Ex+OhlSA==;
+	bh=/ZyZ7g3c8QNW8v4IgX6ZlE3a0TN55N3ZA3FiDz+oVX8=; b=gRDguLFqr9U2ZjB7rus07Z2LdL
+	r6qRuIJw+1japGERDNLqAB+BbdOiR3MLga3MIN2UpZ2HENLilF6vCG/852P5JeRoudT0BvHGKRld6
+	+jh73PeQb2od0aeVMALmVfYt5CDouvg3wjIVeMgqpybZKO1YORIfvQi7TLE7MTgBKdBuPj27aI9uI
+	FVgIybVo49iHActZKUAGYpwEjDzjQdpSKLL8y6vLYduCPzd75n5BKwZDqwEvusA9aL2c9ZI83d3b3
+	M8E7ZBtcaKWEW3lDmICLrM1UPsxdXCOid/BGoXlz6vk1+phhOq1+fASNCe4e8vv8rqIIqatCewZD+
+	fEFcQpqg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xCG9h-000000097aG-2P4D;
-	Thu, 01 Oct 2026 12:44:57 +0000
-Received: from smtpout-03.galae.net ([185.246.85.4])
+	id 1xCG9j-000000097cF-2rvQ;
+	Thu, 01 Oct 2026 12:44:59 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xCG9e-000000097XH-2Ula
+	id 1xCG9i-000000097a8-0TzR
+	for linux-arm-kernel@bombadil.infradead.org;
+	Thu, 01 Oct 2026 12:44:58 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:Content-Type
+	:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:Message-ID:
+	Sender:Reply-To:Content-ID:Content-Description;
+	bh=/ZyZ7g3c8QNW8v4IgX6ZlE3a0TN55N3ZA3FiDz+oVX8=; b=WPUwfuvGHwJMC2XfSp7LWETEUn
+	VcHzfHQLuSGRKs1Ynv4tTSs5YRDfVRALKK99Rvu2iKBemfN1z1V+72QS5ZOUCmj2mFbUrW69QKfOZ
+	kKsjefwmRpHA80ITezmJtj4tbXZhXSiXCni25p35mbtqLkt/JNpntdmezYAnJW3/Tra4t08JbeAcG
+	7IB54QrYPAEcF5QaqbmwXAWfbB5pVWfbpJIK5hjYq3yQKGdLz9UfbYYPYAe4KM897gbQVOGwG/svD
+	9T7c9N+ngTPqlt5r+qcSmJCXIckbJee0F567cjFCrQmSP/g7fJ3nmgO2tOsD7gM6fHDZDutWVzric
+	66UlP3cg==;
+Received: from smtpout-03.galae.net ([185.246.85.4])
+	by desiato.infradead.org with esmtps (Exim 4.99.2 #2 (Red Hat Linux))
+	id 1xCG9f-00000004yqN-1Dgn
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 01 Oct 2026 12:44:56 +0000
+	Thu, 01 Oct 2026 12:44:57 +0000
 Received: from smtpout-01.galae.net (smtpout-01.galae.net [212.83.139.233])
-	by smtpout-03.galae.net (Postfix) with ESMTPS id 050914E416CC;
-	Thu,  1 Oct 2026 12:44:53 +0000 (UTC)
+	by smtpout-03.galae.net (Postfix) with ESMTPS id 426904E41E84;
+	Thu,  1 Oct 2026 12:44:54 +0000 (UTC)
 Received: from mail.galae.net (mail.galae.net [212.83.136.155])
-	by smtpout-01.galae.net (Postfix) with ESMTPS id C57F460341;
-	Thu,  1 Oct 2026 12:44:52 +0000 (UTC)
-Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 9206510328105;
-	Thu,  1 Oct 2026 14:44:45 +0200 (CEST)
+	by smtpout-01.galae.net (Postfix) with ESMTPS id 143B660341;
+	Thu,  1 Oct 2026 12:44:54 +0000 (UTC)
+Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 441271032809F;
+	Thu,  1 Oct 2026 14:44:43 +0200 (CEST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=dkim;
-	t=1790858690; h=from:subject:date:message-id:to:cc:mime-version:content-type:
-	 content-transfer-encoding:in-reply-to:references;
-	bh=rpVfkIZMmQdurRVLSRng0OFRynPKl3AukF6MjWLjGoQ=;
-	b=GeRCdvCSP0ELtOglNNDwnlP0we9U0+IuG6VnbWKcKH18jyqSH84UZH2DYCE+/E1+HGobQl
-	1OGI9ngUc0cb8709QVWw3B54YA0+KzFactSZ7eIr1Tyut03da7bddK8n3w/M45MKzHWAeD
-	oHl4+UBxKspLMYctwlS8KTrSD/GAeZElS5DUVT+VArK+NSbgCmgyOroBlhIGR4tmgcZBdE
-	HwiDVRXojzT4hW+abfy14J963Unn3I2VqZ96p0AD5JV0MrLhKc1Qbu511F5p5KvGyz9sPx
-	N0wkcUjJlAlv/jAA0t901JmKpqSlE06myX/dpHLwwV2fbq0P1sb+IL/5oFogiA==
-From: Luca Ceresoli <luca.ceresoli@bootlin.com>
-Date: Thu, 01 Oct 2026 14:42:43 +0200
-Subject: [PATCH RFC v2 21/24] drm/bridge: ti-sn65dsi86: implement
- .get_next_bridge
+	t=1790858692; h=from:subject:date:message-id:to:cc:mime-version:content-type:
+	 content-transfer-encoding:content-language:in-reply-to:references;
+	bh=/ZyZ7g3c8QNW8v4IgX6ZlE3a0TN55N3ZA3FiDz+oVX8=;
+	b=DtXsaFJLIvsmIiTNRUH9bnHqDM798SviRlTLvWsyCuv943cFNforimCQqx2zNSEhLYAdyQ
+	iD89MEjsjn6XTe622JLW/36e4AZ0W2zJmd0/EwfMX7D/IQEe44DcuDL8hMxD85FAorWPYJ
+	jny4VsfoIwVtdwT6whUoHdOl5954gW4XdlWlwI2oGLeTsL9+iy1q+4DzpirM6yIBB3fBIj
+	ruNYoJou+/Ww1D11XvGDiB1jV0bBld/z82o8ZPc6ZAHqwKVwK7ajW3kHLa/uq1W8L2Vfu7
+	FenR8iZFZjapkj/uzDvfEnm8A7p0ooUphOwvgqrXV9Yh0VRwkDK1JevegWMrYg==
+Message-ID: <9c867ce8-ff4a-4d0f-a09e-a94b59d602bd@bootlin.com>
+Date: Thu, 1 Oct 2026 14:44:42 +0200
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH net-next v3 0/2] net: stmmac: Introduce hw queue priority
+ offload
+To: Lorenzo Bianconi <lorenzo.bianconi@oss.qualcomm.com>,
+ Andrew Lunn <andrew+netdev@lunn.ch>, "David S. Miller"
+ <davem@davemloft.net>, Eric Dumazet <edumazet@google.com>,
+ Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
+ Maxime Coquelin <mcoquelin.stm32@gmail.com>,
+ Alexandre Torgue <alexandre.torgue@foss.st.com>,
+ Vladimir Oltean <olteanv@gmail.com>, Furong Xu <0x1207@gmail.com>
+Cc: Daniel Thompson <daniel@riscstar.com>, netdev@vger.kernel.org,
+ linux-stm32@st-md-mailman.stormreply.com,
+ linux-arm-kernel@lists.infradead.org, Davide Caratti <dcaratti@redhat.com>
+References: <20260928-stmmac-mqprio-prio-offload-v3-0-abbe181f5024@oss.qualcomm.com>
+Content-Language: en-US
+From: Maxime Chevallier <maxime.chevallier@bootlin.com>
+In-Reply-To: <20260928-stmmac-mqprio-prio-offload-v3-0-abbe181f5024@oss.qualcomm.com>
+Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
-Message-Id: <20261001-drm-bridge-hotplug-v2-21-8e34986dcb68@bootlin.com>
-References: <20261001-drm-bridge-hotplug-v2-0-8e34986dcb68@bootlin.com>
-In-Reply-To: <20261001-drm-bridge-hotplug-v2-0-8e34986dcb68@bootlin.com>
-To: Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, 
- Maxime Ripard <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>, 
- David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>, 
- Andrzej Hajda <andrzej.hajda@intel.com>, 
- Neil Armstrong <neil.armstrong@linaro.org>, Robert Foss <rfoss@kernel.org>, 
- Laurent Pinchart <Laurent.pinchart@ideasonboard.com>, 
- Jonas Karlman <jonas@kwiboo.se>, Jernej Skrabec <jernej.skrabec@gmail.com>, 
- Inki Dae <inki.dae@samsung.com>, Jagan Teki <jagan@amarulasolutions.com>, 
- Marek Szyprowski <m.szyprowski@samsung.com>, 
- Jessica Zhang <jesszhan0024@gmail.com>, 
- Douglas Anderson <dianders@chromium.org>, Marek Vasut <marex@denx.de>, 
- Stefan Agner <stefan@agner.ch>, Frank Li <Frank.Li@nxp.com>, 
- Sascha Hauer <s.hauer@pengutronix.de>, 
- Pengutronix Kernel Team <kernel@pengutronix.de>, 
- Fabio Estevam <festevam@gmail.com>
-Cc: Hui Pu <Hui.Pu@gehealthcare.com>, Ian Ray <ian.ray@gehealthcare.com>, 
- Luca Ceresoli <luca.ceresoli@bootlin.com>, 
- Thomas Petazzoni <thomas.petazzoni@bootlin.com>, 
- dri-devel@lists.freedesktop.org, linux-kernel@vger.kernel.org, 
- imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org
-X-Mailer: b4 0.16.0
 X-Last-TLS-Session-Version: TLSv1.3
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261001_054454_799062_3777312C 
-X-CRM114-Status: GOOD (  10.33  )
+X-CRM114-CacheID: sfid-20261001_134455_540481_9CCC7FD6 
+X-CRM114-Status: UNSURE (   8.66  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -93,52 +100,27 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add get_next_callback func to expose the next bridge.
+Hi Lorenzo,
 
-Signed-off-by: Luca Ceresoli <luca.ceresoli@bootlin.com>
----
- drivers/gpu/drm/bridge/ti-sn65dsi86.c | 11 ++++++++++-
- 1 file changed, 10 insertions(+), 1 deletion(-)
+On 9/28/26 18:48, Lorenzo Bianconi wrote:
+> Implement the offload of the tc mqprio hw queue priority in the stmmac
+> driver. This feature requires the mqprio to be configured in channel
+> mode.
+> Do not overwrite real_num_tx_queues configured by the qdisc in
+> stmmac_hw_setup().
 
-diff --git a/drivers/gpu/drm/bridge/ti-sn65dsi86.c b/drivers/gpu/drm/bridge/ti-sn65dsi86.c
-index 369c13183232..7196097f68aa 100644
---- a/drivers/gpu/drm/bridge/ti-sn65dsi86.c
-+++ b/drivers/gpu/drm/bridge/ti-sn65dsi86.c
-@@ -768,6 +768,13 @@ static int ti_sn_attach_host(struct auxiliary_device *adev, struct ti_sn65dsi86
- 	return devm_mipi_dsi_attach(&adev->dev, dsi);
- }
- 
-+static struct drm_bridge *sn65dsi86_get_next_bridge(struct drm_bridge *bridge)
-+{
-+	struct ti_sn65dsi86 *pdata = bridge_to_ti_sn65dsi86(bridge);
-+
-+	return pdata->next_bridge ?: ERR_PTR(-ENODEV);
-+}
-+
- static int ti_sn_bridge_attach(struct drm_bridge *bridge,
- 			       struct drm_encoder *encoder,
- 			       enum drm_bridge_attach_flags flags)
-@@ -1358,6 +1365,7 @@ static void ti_sn_bridge_hpd_disable(struct drm_bridge *bridge)
- }
- 
- static const struct drm_bridge_funcs ti_sn_bridge_funcs = {
-+	.get_next_bridge = sn65dsi86_get_next_bridge,
- 	.attach = ti_sn_bridge_attach,
- 	.detach = ti_sn_bridge_detach,
- 	.mode_valid = ti_sn_bridge_mode_valid,
-@@ -1496,8 +1504,9 @@ static int ti_sn_bridge_probe(struct auxiliary_device *adev,
- 	pdata->bridge.type = pdata->next_bridge->type == DRM_MODE_CONNECTOR_DisplayPort
- 			   ? DRM_MODE_CONNECTOR_DisplayPort : DRM_MODE_CONNECTOR_eDP;
- 
-+	pdata->bridge.ops = DRM_BRIDGE_OP_GET_NEXT_BRIDGE;
- 	if (pdata->bridge.type == DRM_MODE_CONNECTOR_DisplayPort) {
--		pdata->bridge.ops = DRM_BRIDGE_OP_EDID | DRM_BRIDGE_OP_DETECT;
-+		pdata->bridge.ops |= DRM_BRIDGE_OP_EDID | DRM_BRIDGE_OP_DETECT;
- 		if (client->irq)
- 			pdata->bridge.ops |= DRM_BRIDGE_OP_HPD;
- 		/*
+I've tested that on AgileX5 with:
 
--- 
-2.55.0
+tc qdisc replace dev eth0 root handle 1: mqprio num_tc 2 \
+map 0 0 0 0 1 1 1 1 queues 1@0 1@1 hw 1 mode channel
+
+I do see the right prio -> queue mapping being used :)
+
+Also checked that doing a down->up keeps the config. This is
+great, thanks !
+
+Tested-by: Maxime Chevallier <maxime.chevallier@bootlin.com>
+
+Maxime
 
 
