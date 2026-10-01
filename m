@@ -4,100 +4,61 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D686ECA5FCF
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  1 Oct 2026 16:51:03 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DDE6BCA5FD4
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  1 Oct 2026 16:53:31 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
-	References:In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=U+uboDNmd3c4+oklKhah8Yxki5qXO3q5Peg5zVIsILo=; b=yaO2Mdk4CyIeXb6tRLT01uCk0B
-	fHnr6uJD8kNCMG2P0J/7RRqdBCjLr0T12BwisokDEQHC78gGalTW2BND7WN1pPRGsDlTXQzi0XPf5
-	yyWoJ7/39yv+fvytnmwPC4dvT0tM6q/K8mDRYTQ9JMebizZt7L0PV8acfqWGHxhtS+kUPQjciODVx
-	zMEIfUURL2yiC96LHGPNFubOGMSqrUv3WDfn7hOqLUHlB0bvHh/LWlhFf9ZPwbHyrHZtRmIUrOqzs
-	35xOLRCF2gamz31vDYcL5R4CvdvODLjEAjrxQ5QwQ6b1FU8pf0p1Sx360XLkyGAJI9LHxqoQynqHf
-	2urHD51g==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:Message-ID:In-Reply-To:Subject:CC:To:From:Date:
+	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
+	:Resent-To:Resent-Cc:Resent-Message-ID:References:List-Owner;
+	bh=8F9+lpy3V1Yl1wcdKSphAECSLZz4osJu4uWhm9xA1GU=; b=AsDFJWKtPR71lWDSsxIyQTTRDT
+	exFw95HuYFPi9oJa1htE+5Wg6RIj29YYi49jAEx2BZ2snKksnfFIf+Rv9XxoLtuqzkPUhivIPq6kP
+	yItLFw/L3ZAUrxmQiuLdQzq5mNlRZ3k0qdGkrVjUDRmsRj3reLlutBiZREn6hUGjVd+uZOg/fx+ru
+	0AT/AzYiesKsIyutsM7P/4QQ4hNHMgwH0RRuTjnvftXmgZXkKMxTQa+WUdUWmFj6LzpXp8wZYWVsO
+	C4x42X1sZhE/Me8C02ERGhhW6tN4blE/Iv57XdZj1gTjp4BkL2NJR/UYoN/YgDQcRMSFcmeKxKvEQ
+	oSBZzCnQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xCISh-00000009UDg-1CLv;
-	Thu, 01 Oct 2026 15:12:43 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1xCK23-00000009mLN-1HFY;
+	Thu, 01 Oct 2026 16:53:19 +0000
+Received: from mail.mainlining.org ([5.75.144.95])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xCISg-00000009UDU-10YU
-	for linux-arm-kernel@lists.infradead.org;
-	Thu, 01 Oct 2026 15:12:42 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id E524E4115A;
-	Thu,  1 Oct 2026 15:12:41 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id C415D1F000FF;
-	Thu,  1 Oct 2026 15:12:41 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1790867561;
-	bh=U+uboDNmd3c4+oklKhah8Yxki5qXO3q5Peg5zVIsILo=;
-	h=Date:From:To:Cc:Subject:In-Reply-To:References;
-	b=EXjsYr3f9pk1lSJ048/qqJa1G/jbortu2tHrJtCudQVO2+7tqauxJ+/+f9p0waRi7
-	 1uY4s7FPFIZu0WxNaYxlUICOcD7sKykQwEypzkeI5xMv3IgVVbq8n4KRsajjb3BIq1
-	 b88p5JWvYfF6QWcNjkrIDL3TLUVbFBDa6UcpTX6N9TSKW4Wc8k1L+3iUF7eH6jCaTg
-	 93jFhVkJQQ2BW9oSyPN7Imk5R9GGZXmy0UdDsnC+aS6gHhq9F2njzzXoDFeXX2TR2i
-	 YRzt/RAjNUg7FFQfVJ2LxzO58lCK6hPoNrThjczfiMz/LtxEDSRuEdMQGzf+KV54Hl
-	 vTFevA+w2d6IQ==
-Received: from sofa.misterjones.org ([185.219.108.64] helo=goblin-girl.misterjones.org)
-	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.98.2)
-	(envelope-from <maz@kernel.org>)
-	id 1xCISd-0000000Fqe0-1JUm;
-	Thu, 01 Oct 2026 15:12:39 +0000
-Date: Thu, 01 Oct 2026 16:12:38 +0100
-Message-ID: <86wls1315l.wl-maz@kernel.org>
-From: Marc Zyngier <maz@kernel.org>
-To: Steffen Eiden <seiden@linux.ibm.com>
-Cc: kvm@vger.kernel.org,
-	kvmarm@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	linux-s390@vger.kernel.org,
-	Alexander Gordeev <agordeev@linux.ibm.com>,
-	Andreas Grapentin <gra@linux.ibm.com>,
-	Arnd Bergmann <arnd@arndb.de>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Christian Borntraeger <borntraeger@linux.ibm.com>,
-	Claudio Imbrenda <imbrenda@linux.ibm.com>,
-	David Hildenbrand <david@kernel.org>,
-	Friedrich Welter <fritz@linux.ibm.com>,
-	Gautam Gala <ggala@linux.ibm.com>,
-	Hariharan Mari <hari55@linux.ibm.com>,
-	Heiko Carstens <hca@linux.ibm.com>,
-	Hendrik Brueckner <brueckner@linux.ibm.com>,
-	Ilya Leoshkevich <iii@linux.ibm.com>,
-	Janosch Frank <frankja@linux.ibm.com>,
-	Joey Gouly <joey.gouly@arm.com>,
-	Nico Boehr <nrb@linux.ibm.com>,
-	Nina Schoetterl-Glausch <oss@nina.schoetterlglausch.eu>,
-	Oliver Upton <oupton@kernel.org>,
-	Paolo Bonzini <pbonzini@redhat.com>,
-	Sean Christopherson <seanjc@google.com>,
-	Suzuki K Poulose <suzuki.poulose@arm.com>,
-	Sven Schnelle <svens@linux.ibm.com>,
-	Ulrich Weigand <Ulrich.Weigand@de.ibm.com>,
-	Vasily Gorbik <gor@linux.ibm.com>,
-	Will Deacon <will@kernel.org>,
-	Zenghui Yu <yuzenghui@huawei.com>,
-	Fuad Tabba <fuad.tabba@linux.dev>
-Subject: Re: (subset) [PATCH v9 00/24] KVM: s390: Introduce arm64 KVM
-In-Reply-To: <20261001132715.108643-A-seiden@linux.ibm.com>
-References: <20260930173441.66762-1-seiden@linux.ibm.com>
-	<179085262878.3865846.5787241839391727949.b4-ty@b4>
-	<20261001132715.108643-A-seiden@linux.ibm.com>
-User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
- FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/30.1
- (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
-MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
-Content-Type: text/plain; charset=US-ASCII
-X-SA-Exim-Connect-IP: 185.219.108.64
-X-SA-Exim-Rcpt-To: seiden@linux.ibm.com, kvm@vger.kernel.org, kvmarm@lists.linux.dev, linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, linux-s390@vger.kernel.org, agordeev@linux.ibm.com, gra@linux.ibm.com, arnd@arndb.de, catalin.marinas@arm.com, borntraeger@linux.ibm.com, imbrenda@linux.ibm.com, david@kernel.org, fritz@linux.ibm.com, ggala@linux.ibm.com, hari55@linux.ibm.com, hca@linux.ibm.com, brueckner@linux.ibm.com, iii@linux.ibm.com, frankja@linux.ibm.com, joey.gouly@arm.com, nrb@linux.ibm.com, oss@nina.schoetterlglausch.eu, oupton@kernel.org, pbonzini@redhat.com, seanjc@google.com, suzuki.poulose@arm.com, svens@linux.ibm.com, Ulrich.Weigand@de.ibm.com, gor@linux.ibm.com, will@kernel.org, yuzenghui@huawei.com, fuad.tabba@linux.dev
-X-SA-Exim-Mail-From: maz@kernel.org
-X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
+	id 1xCK20-00000009mKU-06OB;
+	Thu, 01 Oct 2026 16:53:17 +0000
+DKIM-Signature: v=1; a=rsa-sha256; s=202507r; d=mainlining.org; c=relaxed/relaxed;
+	h=Message-ID:Subject:To:From:Date; t=1790873577; bh=8F9+lpy3V1Yl1wcdKSphAEC
+	SLZz4osJu4uWhm9xA1GU=; b=bIVwCPuuR5boSqT4zIKAfC6BsNl7oH1RWhHSBOK51yxFYQHErm
+	9Ehah0eq1VmKR6s4aQvY7sEEj7dlnGTDPtRBtuJ/3K2QwAgk/th+4ZdmfCE6DVnvKs+vvRFLmoD
+	uFheuOsID8Vs25gZRqSVDX4UyTfLinUFmo8f5Y4k0sj5rnNRRCkXBTgXJgPs6pMgl2w0lvBjvhJ
+	nm6SYHRZp85w5Qf/SdpfUh2qnSunTXvFDDoLrkiGcuih6ICSZelp7rnDYembk0BUOfMz5UUesR3
+	1Ra52dxyoOuFEWQKJiQ+sG6IwWp3cjBGI52Tw8WrS6KBS/pdNCc4Ac+d0aPv/x31pVw==;
+DKIM-Signature: v=1; a=ed25519-sha256; s=202507e; d=mainlining.org; c=relaxed/relaxed;
+	h=Message-ID:Subject:To:From:Date; t=1790873577; bh=8F9+lpy3V1Yl1wcdKSphAEC
+	SLZz4osJu4uWhm9xA1GU=; b=TLeS1x+07OKyp7Y41Bv59QHa1ZC5LyUP86OqeRf+MfKBRO8GoF
+	OpHXVuruAiHXRPQtJFqYym+Rej01xqkI2xBA==;
+Date: Thu, 01 Oct 2026 17:52:58 +0100
+From: Bradley Morgan <brads@mainlining.org>
+To: shradhagupta@linux.microsoft.com
+CC: akpm@linux-foundation.org, arnd@arndb.de, baoquan.he@linux.dev, bp@alien8.de,
+ catalin.marinas@arm.com, dave.hansen@linux.intel.com, decui@microsoft.com,
+ haiyangz@microsoft.com, kexec@lists.infradead.org, kys@microsoft.com,
+ linux-arch@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-hyperv@vger.kernel.org, linux-kernel@vger.kernel.org,
+ longli@microsoft.com, mhklinux@outlook.com, mingo@redhat.com,
+ pasha.tatashin@soleen.com, pratyush@kernel.org, rppt@kernel.org,
+ tglx@kernel.org, wei.liu@kernel.org, will@kernel.org, x86@kernel.org
+Subject: =?US-ASCII?Q?Re=3A_=5BPATCH_v3_0/2=5D_hyperv=3A_Run_VMBus?=
+ =?US-ASCII?Q?_kexec_cleanup_from_syscore_shutdown?=
+In-Reply-To: <20261001132128.1703511-1-shradhagupta@linux.microsoft.com>
+Message-ID: <C8205996-C913-487A-BB8A-E3DD018AF747@mainlining.org>
+MIME-Version: 1.0
+Content-Type: text/plain;
+ charset=utf-8
+Content-Transfer-Encoding: 8bit
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20261001_095316_212493_7F3160B4 
+X-CRM114-Status: GOOD (  12.90  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -112,134 +73,72 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, 01 Oct 2026 14:27:15 +0100,
-Steffen Eiden <seiden@linux.ibm.com> wrote:
-> 
-> On Thu, Oct 01, 2026 at 12:04:51PM +0100, Marc Zyngier wrote:
-> > On Wed, 30 Sep 2026 19:34:15 +0200, Steffen Eiden wrote:
-> > > Introduce arm-on-s390. Enable KVM-accelerated ARM CPU virtualisation on s390.
-> > > 
-> > > The new KVM functionally depends on KVM/vfio: Use file-based reference
-> > > counting for KVM [5] The series itself should apply w/o those.
-> > > 
-> > > For the original, now partially outdated, cover letter, have a look at versions
-> > > one to three [1].
-> > > 
-> > > [...]
-> > 
-> > Applied to next, thanks!
-> > 
-> > [05/24] arm64: ptrace: Use constants for compat register numbers
-> >         commit: 295d3df9b1e425099a4eb37954a02c4a08fdb496
-> > [06/24] arm64: sysreg: Convert SPSR_ELx to automatic register generation
-> >         commit: d3d78520068779779e1ed7aa0dd8a3ce63e1ca43
-> > [07/24] KVM: arm64: Access elements of vcpu_gp_regs individually
-> >         commit: 29d92585ab987bb80b1e78d811aaea2a8db86e62
-> > [08/24] KVM: arm64: Use accessor functions for core regs
-> >         commit: 89ed62818f10e38e64fea46d43ee6455a1beb647
-> > [09/24] arm64: Prepare sharing arm64 headers with s390
-> >         commit: df6a70516adec8b7f5fa49e1755d8ee33d980d9c
-> > [10/24] arm64: Share arm64 headers with s390
-> >         commit: c7e18ba462536e870b0ff4deca581babcac9135b
-> > [11/24] KVM: arm64: Share arm64 code with s390
-> >         commit: dcb776bfcccc9662001a75b99dbfbef55f46eb31
-> > 
-> > Note that there were a few conflicts. Please check that I resolved
-> > them correctly.
-> 
-> 
-> After rebasing on those the arm-on-s390 part does not build anymore :( 
+On 1 October 2026 14:21:25 BST, Shradha Gupta
+<shradhagupta@linux.microsoft.com> wrote:
+>Kexec reboot fails on ARM64 Hyper-V guests because the VMBus
+>connection and SynIC CPU hotplug state are not torn down before the
+>secondary CPUs are stopped. The kexec kernel consequently starts with
+>the previous kernel's VMBus state still active.
+>
+>The previous version added an ARM64-specific syscore shutdown
+>implementation. This version follows Michael Kelley's review and moves
+>the cleanup into the existing architecture-independent VMBus syscore
+>operations. This removes the separate x86 handler dispatch and gives
+>x86 and ARM64 the same ordering:
+>
+>  device_shutdown()
+>  syscore_shutdown()
+>    VMBus UNLOAD and SynIC CPU hotplug teardown
+>  machine_shutdown()
+>
+>On x86, VMBus teardown now runs before hv_stimer_global_cleanup().
+>This ordering is safe after commit be0cfab740e5 ("clocksource: hyper-v:
+>Remove support for stimer interrupts in message mode") removed the
+>VMBus dependency from synthetic timer handling.
+>
+>Patch 1 adds a read-only helper that reports whether a kexec reboot is
+>in progress. The helper is exported because HYPERV_VMBUS is tristate
+>and the common syscore callback must also link when VMBus is a module.
+>Patch 2 moves the cleanup into the common callback and removes the
+>obsolete architecture-specific setup/remove interface.
+>
+>For stable kernels that still support message-mode stimers, an
+>ARM64-specific backport will be needed to preserve the existing x86
+>ordering.
+>
+>Changes in v3:
+>  - Use the existing common VMBus syscore operations on all
+>    architectures, as suggested by Michael.
+>  - Remove the x86 handler pointer and the weak setup/remove interface.
+>  - Add an exported read-only helper for modular VMBus builds.
+>  - Correct the Fixes tag to the commit that enabled Hyper-V on ARM64.
+>
+>Changes in v2:
+>  - Use syscore shutdown instead of an ARM64 machine_shutdown() hook, as
+>    suggested by Catalin.
+>
+>Shradha Gupta (2):
+>  kexec: Add helper to report an active kexec reboot
+>  Drivers: hv: Run VMBus kexec cleanup from syscore shutdown
+>
+> arch/x86/kernel/cpu/mshyperv.c | 17 +----------------
+> drivers/hv/hv_common.c         | 10 ----------
+> drivers/hv/vmbus_drv.c         | 22 ++++++++++++++--------
+> include/asm-generic/mshyperv.h |  2 --
+> include/linux/kexec.h          |  2 ++
+> kernel/kexec_core.c            |  7 +++++++
+> 6 files changed, 24 insertions(+), 36 deletions(-)
+>
+>
+>base-commit: be0cfab740e58b70047ef6e7e3d578f00ed5d258
+>
 
-Well, that's sort of expected. The kvmarm tree doesn't have the S390
-stuff yet, and contains tons of new stuff.
+Wow! Great!!!
 
-> We are missing the definition of
-> static __always_inline bool esr_abt_is_s1ptw(unsigned long esr)
-> 
-> 
-> quick fix: 
-> 
-> on top of [10/24]  arm64: Share arm64 headers with s390
-> 
-> diff --git a/arch/arm64/include/asm/kvm_emulate.h b/arch/arm64/include/asm/kvm_emulate.h
-> index bf35cbe8ddcb..0708f792c631 100644
-> --- a/arch/arm64/include/asm/kvm_emulate.h
-> +++ b/arch/arm64/include/asm/kvm_emulate.h
-> @@ -367,10 +367,13 @@ static __always_inline u64 kvm_vcpu_get_esr(const struct kvm_vcpu *vcpu)
->         return vcpu->arch.fault.esr_el2;
->  }
-> 
-> +#if ARM64_S390_COMMON == 1
->  static __always_inline bool esr_abt_is_s1ptw(unsigned long esr)
->  {
->         return esr & ESR_ELx_S1PTW;
->  }
-> +
-> +#endif /* ARM64_S390_COMMON == 1 */
-> 
->  static __always_inline bool esr_abt_is_exec_fault(unsigned long esr)
->  {
-> 
-> 
-> 
-> A cleaner solution it to move this defenition just below  
-> void kvm_vcpu_wfi(struct kvm_vcpu *vcpu) in 
-> [09/24] arm64: Prepare sharing arm64 headers with s390
-> and expand the shared region in the following patch.
+Whole series:
 
-I'm redoing the merge and fixing it as follows (note that the
-ARM64_S390_COMMON guards are already present):
+Reviewed-by: Bradley Morgan <brads@mainlining.org>
 
-@@ -336,16 +367,6 @@ static __always_inline u64 kvm_vcpu_get_esr(const struct kvm_vcpu *vcpu)
- 	return vcpu->arch.fault.esr_el2;
- }
- 
--static __always_inline bool esr_abt_is_s1ptw(unsigned long esr)
--{
--	return esr & ESR_ELx_S1PTW;
--}
--
--static __always_inline bool esr_abt_is_exec_fault(unsigned long esr)
--{
--	return esr_trap_is_iabt(esr) && !esr_abt_is_s1ptw(esr);
--}
--
- static inline bool guest_hyp_wfx_traps_enabled(const struct kvm_vcpu *vcpu)
- {
- 	u64 esr = kvm_vcpu_get_esr(vcpu);
-@@ -389,6 +410,12 @@ static inline u64 kvm_vcpu_get_disr(const struct kvm_vcpu *vcpu)
- 	return vcpu->arch.fault.disr_el1;
- }
- 
-+#if ARM64_S390_COMMON == 1
-+static __always_inline bool esr_abt_is_s1ptw(unsigned long esr)
-+{
-+	return esr & ESR_ELx_S1PTW;
-+}
-+
- static inline u32 kvm_vcpu_hvc_get_imm(const struct kvm_vcpu *vcpu)
- {
- 	return kvm_vcpu_get_esr(vcpu) & ESR_ELx_xVC_IMM_MASK;
-@@ -456,6 +483,13 @@ static __always_inline u8 kvm_vcpu_trap_get_fault(const struct kvm_vcpu *vcpu)
- 	return kvm_vcpu_get_esr(vcpu) & ESR_ELx_FSC;
- }
- 
-+#endif /* ARM64_S390_COMMON == 1 */
-+
-+static __always_inline bool esr_abt_is_exec_fault(unsigned long esr)
-+{
-+	return esr_trap_is_iabt(esr) && !esr_abt_is_s1ptw(esr);
-+}
-+
- static inline
- bool kvm_vcpu_trap_is_permission_fault(const struct kvm_vcpu *vcpu)
- {
-
-
-Does this work for you?
-
-	M.
-
--- 
-Without deviation from the norm, progress is not possible.
+--- Thanks!
+"I'm not a very positive person" - Linus torvalds
 
