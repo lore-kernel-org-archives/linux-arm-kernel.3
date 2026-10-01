@@ -4,70 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8844FCA5FD2
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  1 Oct 2026 14:29:13 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BA810CA5FCB
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  1 Oct 2026 14:29:19 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:From:
 	Subject:Message-ID:References:Mime-Version:In-Reply-To:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=+s4NWOlWqk4S+J0HZTfoSpJM7Gl6B52/Z0IH4Bg+ix8=; b=EO2gPrUpZlljsdwJEgvqvRfqgh
-	hNeF6cNjFTnsHD3/UXNu9CJCEssLsqcCLJcdMM0R8xrgSi5F8jc3RZUhha/r18CqMxkyl1V9q/0Mj
-	2QBlxIT6KE8fT/+8qi2bO+MFk+HPG4SzXbv+PPTiZrbvmuZQ/zxijAEwQGQq2cQv63GQtsVq8+Fgx
-	axx6Fd0YGGtgwQuagtx+qwOSDeF3KThm0jYg0F481EsIC0CPanoq3kXhu+GGFb+4/RvjeAaku5tl8
-	oC3+TybyTpqD6gn08bycNVeyfDUU6QODZDd6KvrQ9mJooctrFJ8eym5b0b6mKTunxAfiQdMDcz8dS
-	xuKp5Bkg==;
+	bh=VdKdmYQa5IF5pNpKkb7vq3XA/j7YuaBLx3jNXDvjAXQ=; b=LY0IriHMPwUQUps1kYzaVpkO7m
+	8G2TvuVcko2ca5OGFKWPoxzjCyj37IdYYUJaLi0PK9Ss3zW7bLxQ0HqlGz+4FYRPaWXpuGGTdcwgT
+	ajCHZ1oN5KgpvX1wIF2V0bL2gI0Z6UDoHL+sANgXTnix2sVIExdhP6FBoQ+EhXPUl2lLh/Yuftk9d
+	u8jA5rbc8JpWK7GxLJTQ2mu2FLs5ncc1+39AI6zIdHr6sb+UdgPcL2/j8Am6nlZP82mGcT+zGHxSs
+	A3J4HXZmplGIppyEKLxr4aqL7aehgY8BD19VVLP0fmQFRVtQQ1R4J2k+RP3eoSvApN+n3WYr/yun8
+	p7mhIEpQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xCHmS-00000009NA5-23Sr;
-	Thu, 01 Oct 2026 14:29:04 +0000
-Received: from mail-wr1-x448.google.com ([2a00:1450:4864:20::448])
+	id 1xCHmW-00000009NDF-3CtT;
+	Thu, 01 Oct 2026 14:29:08 +0000
+Received: from mail-ed1-x546.google.com ([2a00:1450:4864:20::546])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xCHmP-00000009N5v-2MEV
+	id 1xCHmS-00000009N7H-1axI
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 01 Oct 2026 14:29:02 +0000
-Received: by mail-wr1-x448.google.com with SMTP id ffacd0b85a97d-48885f0ffe7so3737226f8f.0
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 01 Oct 2026 07:29:00 -0700 (PDT)
+	Thu, 01 Oct 2026 14:29:05 +0000
+Received: by mail-ed1-x546.google.com with SMTP id 4fb4d7f45d1cf-6af9a90e40fso113756a12.3
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 01 Oct 2026 07:29:02 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20251104; t=1790864939; x=1791469739; darn=lists.infradead.org;
+        d=google.com; s=20251104; t=1790864941; x=1791469741; darn=lists.infradead.org;
         h=content-type:cc:to:from:subject:message-id:references:mime-version
          :in-reply-to:date:from:to:cc:subject:date:message-id:reply-to
          :content-type;
-        bh=+s4NWOlWqk4S+J0HZTfoSpJM7Gl6B52/Z0IH4Bg+ix8=;
-        b=PCfaW7Yz63CV/DzFNqa257tf1nOeM2cFjgBmZZk4m5ga229PpMuyCWLy0GmNQuntAp
-         cw70xkA7sCDzQ6t/cgJ4Fgn2iQAWn1G7y/HrWggsIlRjuZwOyrTs4ZOPFaSP8Z7E8vH3
-         /aDbU5Ma9z7c4Kx1aZg8dUvMljkyPH9e0N0Ln9KTDmwT8bPIlKPg+qE4i5E0Vvqotp7j
-         JrEL/0d61uY9YjAAK1Q+ZTfQMw/Ha7BfAiJMsx9GY5HioCfP7wuELpPdns9/+CK8bIoh
-         IGnnAQ0Z8WLfmyYzBihJL8J+w0q6V7r2YnEjL+q2h8v57M9j8puDkoh4jOfAdKGLgBrG
-         kn0Q==
+        bh=VdKdmYQa5IF5pNpKkb7vq3XA/j7YuaBLx3jNXDvjAXQ=;
+        b=dMQaP7ezrX/PIL3OSV9RcBE+WErTwiYvzG2y9jLek+bV6AUEsZ9dadFJUkk/B6cvZO
+         0k67Wap68CylgGXhEcttuhJr8GoyA6t8Z5QzojuIN7kPTSK6vUfM731fM/GVjZogG3RV
+         kjQ1tU35z0LuQ3uS68iXC8BZRAjnX6LlBlSBe7h+ML8xYcfs6HH9QvGPXql7M/1GmRqX
+         dKwQyojm2qjRB4sgtlPFRnFIwjxpHEE+0GbdSMi9sqniLch2BNYMVYfJAo7x7OwerDbS
+         D7RrrKUpkoBzstBtsvf5sxy/DnqrzIrVxCZX9dBxX4rlpmrRVBBEmpGYwX72EJg1k/oF
+         ls2g==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1790864939; x=1791469739;
+        d=1e100.net; s=20260707; t=1790864941; x=1791469741;
         h=content-type:cc:to:from:subject:message-id:references:mime-version
          :in-reply-to:date:x-gm-message-state:from:to:cc:subject:date
          :message-id:reply-to:content-type;
-        bh=+s4NWOlWqk4S+J0HZTfoSpJM7Gl6B52/Z0IH4Bg+ix8=;
-        b=pjr2dS0GRdYLnp+Ayr7lLCziHw7TKu+tYIXyCIIxsO0jKUg9NPUgrz1cEiLJXLV49+
-         +sbGQxhE7D86K3YUAA/ZFwCCgU9BbtUkqFipIJrh+/4TZSs8rxA8PpyJMokZyt/bdKA7
-         g2VU3BO288SYf/bFKPuf8AjZ3wD/u6dH+Uw3syMAI9EWTL8I6GiuQHB0POV/jni6ewJg
-         Wl1j/GEAEQl72V3aY59YMt2DEld+O4UL2QrdsFozyb4C6jcuw6Md5zExLfn6Wn+MmMXd
-         fQXB5uk/jLXMU13s8dAk3SiIJK2gWaYKqy9MiiXSrAqFSYg6I/WBk9tVqse01pkBufzi
-         fA/A==
-X-Forwarded-Encrypted: i=1; AKwUvByultg8qmKZZt4A+/4NFBR8qCnMJmD+yZCpBZKN8nqt0atuP5F/OyG/n8i+7Zj3P7zIyZDXUfRrdd4bsH1YYoT6@lists.infradead.org
-X-Gm-Message-State: AFuF++n0A4msB2IErhb3mwBn5Ql8cWjsnk0STm5GCwILtZFh/koINYLM
-	HF6bCpD27yj55Iugaf0wZhrFP+rlpVqvcpZx3hTzhi/R+8ceWfII/y189Db1Y9CdyTnOBIjK1fD
-	RQEr+o7UFV2uw7CW0DPF6Fw==
-X-Received: from wmpr23.prod.google.com ([2002:a05:600c:3217:b0:4a0:1622:59a0])
+        bh=VdKdmYQa5IF5pNpKkb7vq3XA/j7YuaBLx3jNXDvjAXQ=;
+        b=0BQoj1Wp5+3cJ8ysAFuWjpup3loDFxboSHQowt6wh5Yt1c6QxqrDCpKCls3imj220+
+         f+Bsun5lVwyQnaFlOPDT+Z7g0HWMMrY7vI20eCLMGy/RNY6bfjE3wfGT5o18rO8Fuv2i
+         WIb9F6FabOmLbshZU93vAz8Iey4Qiq0E4xg7oX8+WZK48XXtlCMAlEIJsVjLOgzEwRTz
+         m2oBNVBLPu5ZET3svyYib31zRFzYh4+Z585lsOwq/GuoUn/rfz/cVLDaqroLgv6SfPLF
+         zZ99cSQ3RQw8IeGz3XPJyNzAvrTIdlKK9/McI/IwBx+pYTc58FNRQmdCtRU3jEQjDIbr
+         WBeg==
+X-Forwarded-Encrypted: i=1; AKwUvBw+K5iC++G0h2YigerGmxTlZ025I3bWRzjmGgb1djYP3/RwibMSVj0C6Og6gp280PitJ4vDT7BLe/KMJUnDkjZ+@lists.infradead.org
+X-Gm-Message-State: AFq9FYJm7qmkmCQiNdBkJBsTS+kTglcdpaBQFpfYZE4xut8NtcfwD5xk
+	VMYH8HuFP+K748jy6hYDP0QQraA6YZN+ayhz83ItRyHHkqYWENl8+NGdt+G2syUaJZFCi4l0zr1
+	wWhumtmeAtt5O2wCkehOMJQ==
+X-Received: from edpg12.prod.google.com ([2002:aa7:d1cc:0:b0:6ac:7d1d:721f])
  (user=vdonnefort job=prod-delivery.src-stubby-dispatcher) by
- 2002:a05:600c:3d92:b0:4a0:25d5:e853 with SMTP id 5b1f17b1804b1-4a025d5eaf7mr14273125e9.35.1790864938529;
- Thu, 01 Oct 2026 07:28:58 -0700 (PDT)
-Date: Thu,  1 Oct 2026 15:28:34 +0100
+ 2002:a05:6402:270d:b0:6ac:bccf:7c2a with SMTP id 4fb4d7f45d1cf-6ae198649f5mr3903585a12.2.1790864940795;
+ Thu, 01 Oct 2026 07:29:00 -0700 (PDT)
+Date: Thu,  1 Oct 2026 15:28:36 +0100
 In-Reply-To: <20261001142849.3367614-1-vdonnefort@google.com>
 Mime-Version: 1.0
 References: <20261001142849.3367614-1-vdonnefort@google.com>
 X-Mailer: git-send-email 2.56.0.rc1.315.gc6ed9934b7-goog
-Message-ID: <20261001142849.3367614-4-vdonnefort@google.com>
-Subject: [PATCH v6 03/18] KVM: arm64: Add pkvm_map_private_va_range
+Message-ID: <20261001142849.3367614-6-vdonnefort@google.com>
+Subject: [PATCH v6 05/18] KVM: arm64: Allow kvm_hyp_memcache usage outside of stage-2
 From: Vincent Donnefort <vdonnefort@google.com>
 To: maz@kernel.org, oupton@kernel.org, kvmarm@lists.linux.dev, 
 	linux-arm-kernel@lists.infradead.org
@@ -77,8 +77,8 @@ Cc: joey.gouly@arm.com, seiden@linux.ibm.com, suzuki.poulose@arm.com,
 	Vincent Donnefort <vdonnefort@google.com>
 Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261001_072901_639518_375D1F8C 
-X-CRM114-Status: GOOD (  19.78  )
+X-CRM114-CacheID: sfid-20261001_072904_456738_87C2BB87 
+X-CRM114-Status: GOOD (  16.22  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -93,175 +93,92 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-In preparation for the pKVM heap allocator, introduce
-pkvm_map_private_va_range() to map a physical range into the pKVM
-private range.
+Although currently limited to guest stage-2 page-table allocations,
+struct kvm_hyp_memcache is a useful primitive for passing a list of
+discontiguous pages between host and hypervisor.
+
+Introduce init_hyp_memcache() to initialise a generic hyp memcache, and
+init_hyp_stage2_memcache() for stage-2 specific memcaches. The generic
+initialiser will be used to top up the upcoming pKVM heap allocator.
+
+Note that the generic kvm_hyp_memcache does not account for the
+allocated memory. This is expected: donations to the heap allocator are
+shared and recycled, they cannot be accounted for a specific VM.
 
 Signed-off-by: Vincent Donnefort <vdonnefort@google.com>
 Reviewed-by: Fuad Tabba <fuad.tabba@linux.dev>
 Tested-by: Fuad Tabba <fuad.tabba@linux.dev>
 ---
- arch/arm64/kvm/hyp/include/nvhe/mm.h |  1 +
- arch/arm64/kvm/hyp/nvhe/mm.c         | 59 ++++++++++++++++++++++++----
- 2 files changed, 52 insertions(+), 8 deletions(-)
+ arch/arm64/include/asm/kvm_host.h | 13 +++++++++++++
+ arch/arm64/kvm/mmu.c              |  4 +++-
+ arch/arm64/kvm/pkvm.c             |  4 ++--
+ 3 files changed, 18 insertions(+), 3 deletions(-)
 
-diff --git a/arch/arm64/kvm/hyp/include/nvhe/mm.h b/arch/arm64/kvm/hyp/include/nvhe/mm.h
-index 00cadd13ee5d..ea97ea49820e 100644
---- a/arch/arm64/kvm/hyp/include/nvhe/mm.h
-+++ b/arch/arm64/kvm/hyp/include/nvhe/mm.h
-@@ -31,6 +31,7 @@ int __pkvm_create_private_mapping(phys_addr_t phys, size_t size,
- 				  unsigned long *haddr);
- int pkvm_create_stack(phys_addr_t phys, unsigned long *haddr);
- int pkvm_alloc_private_va_range(size_t size, unsigned long *haddr);
-+int pkvm_map_private_va_range(void *haddr, phys_addr_t phys, size_t size);
- phys_addr_t pkvm_private_va_range_pa(void *va);
+diff --git a/arch/arm64/include/asm/kvm_host.h b/arch/arm64/include/asm/kvm_host.h
+index fc1a82777ed4..64cd6233b439 100644
+--- a/arch/arm64/include/asm/kvm_host.h
++++ b/arch/arm64/include/asm/kvm_host.h
+@@ -92,9 +92,22 @@ struct kvm_hyp_memcache {
+ 	struct pkvm_mapping *mapping; /* only used from EL1 */
  
- #endif /* __KVM_HYP_MM_H */
-diff --git a/arch/arm64/kvm/hyp/nvhe/mm.c b/arch/arm64/kvm/hyp/nvhe/mm.c
-index 9ab7f613fa36..4a22fb74182b 100644
---- a/arch/arm64/kvm/hyp/nvhe/mm.c
-+++ b/arch/arm64/kvm/hyp/nvhe/mm.c
-@@ -25,6 +25,7 @@ struct memblock_region hyp_memory[HYP_MEMBLOCK_REGIONS];
- unsigned int hyp_memblock_nr;
+ #define	HYP_MEMCACHE_ACCOUNT_STAGE2	BIT(1)
++#define	HYP_MEMCACHE_ACCOUNT_KMEMCG	BIT(2)
+ 	unsigned long flags;
+ };
  
- static u64 __io_map_base;
-+static u64 __io_map_next;
- 
- struct hyp_fixmap_slot {
- 	u64 addr;
-@@ -50,7 +51,7 @@ static int __pkvm_alloc_private_va_range(unsigned long start, size_t size)
- 
- 	hyp_assert_lock_held(&pkvm_pgd_lock);
- 
--	if (!start || start < __io_map_base)
-+	if (!start || start < __io_map_next)
- 		return -EINVAL;
- 
- 	/* The allocated size is always a multiple of PAGE_SIZE */
-@@ -60,7 +61,7 @@ static int __pkvm_alloc_private_va_range(unsigned long start, size_t size)
- 	if (cur > __hyp_vmemmap)
- 		return -ENOMEM;
- 
--	__io_map_base = cur;
-+	__io_map_next = cur;
- 
- 	return 0;
- }
-@@ -70,7 +71,7 @@ static int __pkvm_alloc_private_va_range(unsigned long start, size_t size)
-  * @size:	The size of the VA range to reserve.
-  * @haddr:	The hypervisor virtual start address of the allocation.
-  *
-- * The private virtual address (VA) range is allocated above __io_map_base
-+ * The private virtual address (VA) range is allocated above __io_map_next
-  * and aligned based on the order of @size.
-  *
-  * Return: 0 on success or negative error code on failure.
-@@ -81,7 +82,7 @@ int pkvm_alloc_private_va_range(size_t size, unsigned long *haddr)
- 	int ret;
- 
- 	hyp_spin_lock(&pkvm_pgd_lock);
--	addr = __io_map_base;
-+	addr = __io_map_next;
- 	ret = __pkvm_alloc_private_va_range(addr, size);
- 	hyp_spin_unlock(&pkvm_pgd_lock);
- 
-@@ -90,6 +91,41 @@ int pkvm_alloc_private_va_range(size_t size, unsigned long *haddr)
- 	return ret;
- }
- 
-+/**
-+ * pkvm_map_private_va_range() - Map a physical range into the private VA range
-+ * @haddr:	The virtual address in the private range.
-+ * @phys:	The physical address to map.
-+ * @size:	The size of the range to map.
-+ *
-+ * The hypervisor VA @haddr must have been first allocated with
-+ * pkvm_alloc_private_va_range(). The created mapping can later be removed
-+ * with pkvm_remove_mappings().
-+ *
-+ * Return: 0 on success, negative error code on failure.
-+ */
-+int pkvm_map_private_va_range(void *haddr, phys_addr_t phys, size_t size)
++static inline void init_hyp_memcache(struct kvm_hyp_memcache *mc)
 +{
-+	unsigned long addr = (unsigned long)haddr;
-+	int ret;
-+
-+	if (!PAGE_ALIGNED(addr | phys | size))
-+		return -EINVAL;
-+
-+	guard(hyp_spinlock)(&pkvm_pgd_lock);
-+
-+	if (addr < __io_map_base || addr >= __io_map_next)
-+		return -EINVAL;
-+
-+	if (size > __io_map_next - addr)
-+		return -EINVAL;
-+
-+	ret = kvm_pgtable_hyp_map(&pkvm_pgtable, addr, size, phys, PAGE_HYP);
-+	if (ret)
-+		kvm_pgtable_hyp_unmap(&pkvm_pgtable, addr, size);
-+
-+	return ret;
++	memset(mc, 0, sizeof(*mc));
++	mc->mapping = ZERO_SIZE_PTR; /* Prevent allocation, solely useful for stage2 memcache */
 +}
 +
- /**
-  * pkvm_private_va_range_pa - Translate a private VA to a physical address.
-  * @va:		The private virtual address to translate.
-@@ -168,6 +204,12 @@ int pkvm_create_mappings(void *from, void *to, enum kvm_pgtable_prot prot)
-  * pkvm_remove_mappings - Remove mappings from the hypervisor page-table
-  * @from:	The starting virtual address of the range to remove
-  * @to:		The ending virtual address of the range to remove
-+ *
-+ * The range [@from, @to) can be a subset of the range previously mapped by
-+ * pkvm_create_mappings(), as the latter enforces PTE-level mappings. However,
-+ * it cannot be a subset of a range mapped by pkvm_map_private_va_range() as
-+ * that function allows block mappings which the hypervisor page-table does not
-+ * split.
-  */
- void pkvm_remove_mappings(void *from, void *to)
++static inline void init_hyp_stage2_memcache(struct kvm_hyp_memcache *mc)
++{
++	memset(mc, 0, sizeof(*mc));
++	mc->flags = HYP_MEMCACHE_ACCOUNT_STAGE2 | HYP_MEMCACHE_ACCOUNT_KMEMCG;
++}
++
+ static inline void push_hyp_memcache(struct kvm_hyp_memcache *mc,
+ 				     phys_addr_t *p,
+ 				     phys_addr_t (*to_pa)(void *virt))
+diff --git a/arch/arm64/kvm/mmu.c b/arch/arm64/kvm/mmu.c
+index 9ba86450fe4a..3163502cc7d2 100644
+--- a/arch/arm64/kvm/mmu.c
++++ b/arch/arm64/kvm/mmu.c
+@@ -1160,8 +1160,10 @@ static void *hyp_mc_alloc_fn(void *mc)
  {
-@@ -377,7 +419,7 @@ static int create_fixblock(void)
- 		return -EINVAL;
+ 	struct kvm_hyp_memcache *memcache = mc;
+ 	void *addr;
++	gfp_t gfp;
  
- 	hyp_spin_lock(&pkvm_pgd_lock);
--	addr = ALIGN(__io_map_base, PMD_SIZE);
-+	addr = ALIGN(__io_map_next, PMD_SIZE);
- 	ret = __pkvm_alloc_private_va_range(addr, PMD_SIZE);
- 	if (ret)
- 		goto unlock;
-@@ -462,6 +504,7 @@ int hyp_create_idmap(u32 hyp_va_bits)
- 	 */
- 	__io_map_base = start & BIT(hyp_va_bits - 2);
- 	__io_map_base ^= BIT(hyp_va_bits - 2);
-+	__io_map_next = __io_map_base;
- 	__hyp_vmemmap = __io_map_base | BIT(hyp_va_bits - 3);
+-	addr = (void *)__get_free_page(GFP_KERNEL_ACCOUNT);
++	gfp = memcache->flags & HYP_MEMCACHE_ACCOUNT_KMEMCG ? GFP_KERNEL_ACCOUNT : GFP_KERNEL;
++	addr = (void *)__get_free_page(gfp);
+ 	if (addr && memcache->flags & HYP_MEMCACHE_ACCOUNT_STAGE2)
+ 		kvm_account_pgtable_pages(addr, 1);
  
- 	return __pkvm_create_mappings(start, end - start, start, PAGE_HYP_EXEC);
-@@ -475,13 +518,13 @@ int pkvm_create_stack(phys_addr_t phys, unsigned long *haddr)
+diff --git a/arch/arm64/kvm/pkvm.c b/arch/arm64/kvm/pkvm.c
+index 8e4c6e4bec12..e5200731a45b 100644
+--- a/arch/arm64/kvm/pkvm.c
++++ b/arch/arm64/kvm/pkvm.c
+@@ -111,7 +111,7 @@ static int __pkvm_create_hyp_vcpu(struct kvm_vcpu *vcpu)
+ 	void *hyp_vcpu;
+ 	int ret;
  
- 	hyp_spin_lock(&pkvm_pgd_lock);
+-	vcpu->arch.pkvm_memcache.flags |= HYP_MEMCACHE_ACCOUNT_STAGE2;
++	init_hyp_stage2_memcache(&vcpu->arch.pkvm_memcache);
  
--	prev_base = __io_map_base;
-+	prev_base = __io_map_next;
- 	/*
- 	 * Efficient stack verification using the NVHE_STACK_SHIFT bit implies
- 	 * an alignment of our allocation on the order of the size.
- 	 */
- 	size = NVHE_STACK_SIZE * 2;
--	addr = ALIGN(__io_map_base, size);
-+	addr = ALIGN(__io_map_next, size);
+ 	hyp_vcpu = alloc_pages_exact(hyp_vcpu_sz, GFP_KERNEL_ACCOUNT);
+ 	if (!hyp_vcpu)
+@@ -172,7 +172,7 @@ static int __pkvm_create_hyp_vm(struct kvm *kvm)
+ 		goto free_vm;
  
- 	ret = __pkvm_alloc_private_va_range(addr, size);
- 	if (!ret) {
-@@ -497,7 +540,7 @@ int pkvm_create_stack(phys_addr_t phys, unsigned long *haddr)
- 		ret = kvm_pgtable_hyp_map(&pkvm_pgtable, addr + NVHE_STACK_SIZE,
- 					  NVHE_STACK_SIZE, phys, PAGE_HYP);
- 		if (ret)
--			__io_map_base = prev_base;
-+			__io_map_next = prev_base;
- 	}
- 	hyp_spin_unlock(&pkvm_pgd_lock);
+ 	kvm->arch.pkvm.is_created = true;
+-	kvm->arch.pkvm.stage2_teardown_mc.flags |= HYP_MEMCACHE_ACCOUNT_STAGE2;
++	init_hyp_stage2_memcache(&kvm->arch.pkvm.stage2_teardown_mc);
+ 	kvm_account_pgtable_pages(pgd, pgd_sz / PAGE_SIZE);
  
+ 	return 0;
 -- 
 2.56.0.rc1.315.gc6ed9934b7-goog
 
