@@ -4,61 +4,74 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 950AACA5FC5
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  1 Oct 2026 01:12:55 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5E697CA5FD4
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  1 Oct 2026 01:15:12 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=acsKLoL715zw971OMSfoId5cJwr49Nq1L5jIBYkpQCQ=; b=ubqgB4ouR8ShrHG+rKh4ODoFXI
-	gvXc8eo3vGxRbcxcPOXnxWPzI3u5mWC472K1x0oR8k8mSUpffDgUzmABRXxGC+ihL7J6RQ1TbFmnm
-	0HrAe8PAT9MTdgZOU6RLGeg/d4UlJtmFeZpdp2gJK83iiruLJ971dxm8Q/5DnEREYV4pxYKlrregI
-	jv8YWKu9HcH+s1g7cEYz5Vng8fPk0LbpsnTZ4v8tI0nDmGex90gQ7jFpQGJndjHSWF1iLCOYwzXpU
-	2uwsniKpdbtXFt2vQQtZkh2x5gH+mMhnU5sys3dPsbFAcpMd8O7jQJ/1QupfFchGXM0XNyBr85VYS
-	lic8bjyw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
+	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=LUB0VVgHgtXIp8o7rJtGyJCAaIhMMrNeFbeeiqPLqwg=; b=GuEi3OGVdomFROmjQHLVoO4o4o
+	/NAQHGAqT356dcYejthPGrCUbzhCPsbFR6mR2vLt9olnx5ok1ehMWBA1gA6Pr8YHTTihnpaiH5cw/
+	ds2EI7E47/S2PSxdetvEPFSZ6P0afK79NEXWmrujIqFOiANQS2w+0skZyS+6HDYc1eh5XzUwC3yD5
+	KsH3F00LY3J6BOWncmvvvxNpco7Y6P694Z0qiXWt0CdZqKQPnE9apDtfPhOQ/9CuPoxf53PdZXFDw
+	oS0Ro2HsA10DDZ2WTQon4xyGr6j56b2U8i7i4Tanq0Lh4wOjid4+zkNONmFwzWi6Md0P11k4e9CDM
+	KMLT6Ecw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xC5Ln-00000007Xw6-254o;
-	Thu, 01 Oct 2026 01:12:43 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1xC5O5-00000007Y3B-378n;
+	Thu, 01 Oct 2026 01:15:05 +0000
+Received: from bali.collaboradmins.com ([148.251.105.195])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xC5Lm-00000007Xw0-1H1G
-	for linux-arm-kernel@lists.infradead.org;
-	Thu, 01 Oct 2026 01:12:42 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id 6E98560142;
-	Thu,  1 Oct 2026 01:12:41 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id E42F71F000FF;
-	Thu,  1 Oct 2026 01:12:40 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1790817161;
-	bh=acsKLoL715zw971OMSfoId5cJwr49Nq1L5jIBYkpQCQ=;
-	h=From:To:Cc:Subject:Date;
-	b=nM6RGH2vwmTbwEmc10UCR5TMq+4WNGGj7M05aBTv4oByfBZTWitBqvq04JEkawpY7
-	 3Qvl9qmdRiJDCWXxPs/zdeRiDEZTIJO/jJ041/I/XOvOtV36sDttLhT5RULskbQMyd
-	 w5rm4xHd2Gb90L/L3f1cfZp6SSS/Tt18jOqTt2J2Nc3OcKL/8/S8V4r59RecFNZ0gP
-	 EJ+HiljYDteOdTGaS/S5cCCbUe8HR26lGK5u5oS0QYbwCHfWnj5IjgNjeVTZaeyzfN
-	 oTN20rE355CWL7GpX+LJdr1/Lpxaaza7WQehyzuXUrdXVYjLHWZFXq0eIJa832g6o4
-	 G9rNZLfCY5MOQ==
-From: "Rob Herring (Arm)" <robh@kernel.org>
-To: Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Frank Li <Frank.Li@nxp.com>,
-	Sascha Hauer <s.hauer@pengutronix.de>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Fabio Estevam <festevam@gmail.com>
-Cc: devicetree@vger.kernel.org,
-	imx@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org
-Subject: [PATCH] arm64: dts: freescale: Drop undocumented "hardware" root node properties
-Date: Wed, 30 Sep 2026 20:12:31 -0500
-Message-ID: <20261001011233.1306251-1-robh@kernel.org>
-X-Mailer: git-send-email 2.53.0
+	id 1xC5O2-00000007Y1k-41tn;
+	Thu, 01 Oct 2026 01:15:04 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
+	s=mail; t=1790817299;
+	bh=GmU9KxG2tOqNJrmpd/Y+xY8fvGP2Q7VSLjx6DP+d1Sw=;
+	h=From:Date:Subject:References:In-Reply-To:To:Cc:From;
+	b=dF1W2HbCu8uZkuJ4BzqdJRyBtnYeO7ncpGdyUeWodtwXHcj7wFYmGgbshdtPXsc6q
+	 OxPRRQuRHo8OY9DDQNAKbS2SFQtUh2JfSBse4nmq2+avZZkKbq86vOB6R6tXBYggEU
+	 OuCL1iITxUOcNO9mJ+63+V5I9dtdhZU8A1ZMDdM6D1eYFPWBPOioMX/rINv8gw4YIy
+	 aj3xMgIIRe3zudi8AyTC687g5DKjxfg9iWUInEqL/X6PEIP3tKS/m+U87u8G7W9uK1
+	 mC0KBJyCrpYO2foEndePxKlBu/BnhQ8ygTa0YfrJGjp0mMzJGpOJHS7so3i+mLbUnK
+	 vAwCUcR3ujs1A==
+Received: from localhost (unknown [100.64.0.241])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange secp256r1 server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	(Authenticated sender: cristicc)
+	by bali.collaboradmins.com (Postfix) with ESMTPSA id 3E5E917E089A;
+	Thu, 01 Oct 2026 03:14:59 +0200 (CEST)
+From: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>
+Date: Thu, 01 Oct 2026 04:14:33 +0300
+Subject: [PATCH 2/8] drm/bridge: inno-hdmi: Advertise HDMI 1.2 capabilities
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+Message-Id: <20261001-bridge-advert-hdmi-caps-v1-2-f8806570e243@collabora.com>
+References: <20261001-bridge-advert-hdmi-caps-v1-0-f8806570e243@collabora.com>
+In-Reply-To: <20261001-bridge-advert-hdmi-caps-v1-0-f8806570e243@collabora.com>
+To: Andrzej Hajda <andrzej.hajda@intel.com>, 
+ Neil Armstrong <neil.armstrong@linaro.org>, Robert Foss <rfoss@kernel.org>, 
+ Laurent Pinchart <Laurent.pinchart@ideasonboard.com>, 
+ Jonas Karlman <jonas@kwiboo.se>, Jernej Skrabec <jernej.skrabec@gmail.com>, 
+ Luca Ceresoli <luca.ceresoli@bootlin.com>, 
+ Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, 
+ Maxime Ripard <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>, 
+ David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>, 
+ Andy Yan <andy.yan@rock-chips.com>, Liu Ying <victor.liu@nxp.com>, 
+ Phong LE <ple@baylibre.com>, Sandy Huang <hjc@rock-chips.com>, 
+ =?utf-8?q?Heiko_St=C3=BCbner?= <heiko@sntech.de>, 
+ Chen-Yu Tsai <wens@kernel.org>, Samuel Holland <samuel@sholland.org>
+Cc: kernel@collabora.com, dri-devel@lists.freedesktop.org, 
+ linux-kernel@vger.kernel.org, linux-rockchip@lists.infradead.org, 
+ linux-arm-kernel@lists.infradead.org, linux-sunxi@lists.linux.dev
+X-Mailer: b4 0.15.2
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260930_181503_172675_E3516E2F 
+X-CRM114-Status: UNSURE (   9.18  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -73,54 +86,35 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The "hardware" property in the root node on some NXP i.MX8 boards is not
-documented. We already have both compatible and model property to
-describe the platform.
+Bridges using DRM_BRIDGE_OP_HDMI are now expected to also provide a
+supported HDMI version.  This is not yet enforced, but will become
+mandatory once the migration to the new caps-based HDMI connector
+initialization API is completed.
 
-Signed-off-by: Rob Herring (Arm) <robh@kernel.org>
+Since inno_hdmi_phy_config.pixelclock does not exceed 165 MHz for any of
+the chip variants handled by the driver, advertise HDMI 1.2 as the
+supported version.
+
+Reviewed-by: Maxime Ripard <mripard@kernel.org>
+Signed-off-by: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>
 ---
- .../boot/dts/freescale/imx8mm-tx8m-1610-moduline-iv-306-d.dts    | 1 -
- .../boot/dts/freescale/imx8mm-tx8m-1610-moduline-mini-111.dts    | 1 -
- .../boot/dts/freescale/imx8mp-tx8p-ml81-moduline-display-106.dts | 1 -
- 3 files changed, 3 deletions(-)
+ drivers/gpu/drm/bridge/inno-hdmi.c | 1 +
+ 1 file changed, 1 insertion(+)
 
-diff --git a/arch/arm64/boot/dts/freescale/imx8mm-tx8m-1610-moduline-iv-306-d.dts b/arch/arm64/boot/dts/freescale/imx8mm-tx8m-1610-moduline-iv-306-d.dts
-index 6cc04aa90f21..d15297a42d8f 100644
---- a/arch/arm64/boot/dts/freescale/imx8mm-tx8m-1610-moduline-iv-306-d.dts
-+++ b/arch/arm64/boot/dts/freescale/imx8mm-tx8m-1610-moduline-iv-306-d.dts
-@@ -12,7 +12,6 @@
- / {
- 	chassis-type = "embedded";
- 	compatible = "gocontroll,moduline-iv-306-d", "karo,tx8m-1610", "fsl,imx8mm";
--	hardware = "Moduline IV V3.06-D";
- 	model = "GOcontroll Moduline IV";
+diff --git a/drivers/gpu/drm/bridge/inno-hdmi.c b/drivers/gpu/drm/bridge/inno-hdmi.c
+index dd35f5a875d3..ea3447d4f285 100644
+--- a/drivers/gpu/drm/bridge/inno-hdmi.c
++++ b/drivers/gpu/drm/bridge/inno-hdmi.c
+@@ -1119,6 +1119,7 @@ struct inno_hdmi *inno_hdmi_bind(struct device *dev,
+ 	hdmi->bridge.type = DRM_MODE_CONNECTOR_HDMIA;
+ 	hdmi->bridge.vendor = "Inno";
+ 	hdmi->bridge.product = "Inno HDMI";
++	hdmi->bridge.supported_hdmi_ver = HDMI_VERSION_1_2;
  
- 	aliases {
-diff --git a/arch/arm64/boot/dts/freescale/imx8mm-tx8m-1610-moduline-mini-111.dts b/arch/arm64/boot/dts/freescale/imx8mm-tx8m-1610-moduline-mini-111.dts
-index 39b7d9077e8e..9148ea7c6609 100644
---- a/arch/arm64/boot/dts/freescale/imx8mm-tx8m-1610-moduline-mini-111.dts
-+++ b/arch/arm64/boot/dts/freescale/imx8mm-tx8m-1610-moduline-mini-111.dts
-@@ -12,7 +12,6 @@
- / {
- 	chassis-type = "embedded";
- 	compatible = "gocontroll,moduline-mini-111", "karo,tx8m-1610", "fsl,imx8mm";
--	hardware = "Moduline Mini V1.11";
- 	model = "GOcontroll Moduline Mini";
- 
- 	aliases {
-diff --git a/arch/arm64/boot/dts/freescale/imx8mp-tx8p-ml81-moduline-display-106.dts b/arch/arm64/boot/dts/freescale/imx8mp-tx8p-ml81-moduline-display-106.dts
-index 87b20b856458..206992ff9640 100644
---- a/arch/arm64/boot/dts/freescale/imx8mp-tx8p-ml81-moduline-display-106.dts
-+++ b/arch/arm64/boot/dts/freescale/imx8mp-tx8p-ml81-moduline-display-106.dts
-@@ -11,7 +11,6 @@
- / {
- 	compatible = "gocontroll,moduline-display-106", "karo,tx8p-ml81", "fsl,imx8mp";
- 	chassis-type = "embedded";
--	hardware = "Moduline Display V1.06";
- 	model = "GOcontroll Moduline Display baseboard";
- 
- 	aliases {
+ 	hdmi->bridge.ddc = inno_hdmi_i2c_adapter(hdmi);
+ 	if (IS_ERR(hdmi->bridge.ddc))
+
 -- 
-2.53.0
+2.55.0
 
 
