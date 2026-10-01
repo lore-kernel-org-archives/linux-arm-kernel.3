@@ -4,68 +4,76 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1ACCACA5FB3
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  1 Oct 2026 11:06:22 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 13C0FCA5FCB
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  1 Oct 2026 11:07:40 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=kioH6FD2uWvntc8cL4msZrH2Tz0anweBh9VtrlELY3w=; b=jqE+NEXkDRgs8M6uZDfDjws2vk
-	uWSEGiXwMkaEy7Mf6ghVegz44gz3jd2K92B31Zl/ph7T/E+55UA7BLA9LJ30pvOY5a2BNbsZFyWay
-	MF7zB6GQ8pk3UANONGOErpIja+lNdcUS6CVLcHiN3iGpAEaR2TNh86PxkgnrVQa8l8NEHx+ykscM4
-	9kw3frST7o1XWI/iebJkmOirS9fcx4+GpFn222cyWSUm4amupz0f9aO6eqZkgW9dBgzZq7XDtXBd6
-	d3luRnajPGyk5RPwk5RlYwiwTHlaWLfBPe2OmYj2pNsVp3EH7HIGPHFsbhMcLTYbl0P2v2UuqyR9e
-	tMiRC1zQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=Z30FlrqlbcA0bfl7CltL26LpmBEQ96tPR9jwxaJO/aE=; b=0TjoQvJlOPZ9lxpTYmbp9nqTPa
+	e0o2LYodAyjOqANKzWs8zUVvAwP6tNqHRpXn4wRRpDlc9J/7Br4HuNTIX3eEaRxKNozHXz1cuL3rs
+	R+63JKDAnnc172OktfrjjcNKDkQ8gmsExGO/op6GpceQJN9mT0m7tY2KTeBaaPGs7qmbgiEVD1CyT
+	faFROqwqToPWNl+cdpXbUX07KxOOIlHXr54VavaeBNZI7qJ/VdSDJhpWm/Aa15XFSfzakFIpZktar
+	rFLpbtMYRPjmWDy//+WnqqVMQiiq3iy0tr1oYe9NNAl1Nk22LLTuTYVrQxFCwVYNYOutj0cY3R9hR
+	hp+OlhUA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xCEcB-00000008anZ-1UmQ;
-	Thu, 01 Oct 2026 11:06:15 +0000
+	id 1xCEdR-00000008b2T-2ZZw;
+	Thu, 01 Oct 2026 11:07:33 +0000
 Received: from foss.arm.com ([217.140.110.172])
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xCEc6-00000008amU-0kYu
+	id 1xCEdO-00000008b18-0fWQ
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 01 Oct 2026 11:06:13 +0000
+	Thu, 01 Oct 2026 11:07:31 +0000
 Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id D1A18497;
-	Thu,  1 Oct 2026 04:06:05 -0700 (PDT)
-Received: from arm.com (usa-sjc-mx-foss1.foss.arm.com [172.31.20.19])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 629933F86F;
-	Thu,  1 Oct 2026 04:06:05 -0700 (PDT)
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id EF42A497;
+	Thu,  1 Oct 2026 04:07:22 -0700 (PDT)
+Received: from e142392.cambridge.arm.com (usa-sjc-imap-foss1.foss.arm.com [10.121.207.14])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id C2D2C3F86F;
+	Thu,  1 Oct 2026 04:07:22 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1790852769; bh=+V5xRtwSpEjK63wJ+cyKK9U6lr5/HJMU+DNwniXIDPM=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=QA4Dw1zgbThIBjOabcmXcqRHYzROk+Gtzp31ZMqTM1Gizq4hBiCin0fp9CZK59U3Z
-	 lnsZgFVLWM+YD5l+BCQwOtq4F4JiM/pb/+vop0z4oiTIc3E6LJHU7eaxU6vNx7EXKu
-	 x7Lh+csDbTkySVd40j7jwq/nY4waPO8BTz6TOZ1s=
-Date: Thu, 1 Oct 2026 12:05:54 +0100
-From: Catalin Marinas <catalin.marinas@arm.com>
-To: Suzuki K Poulose <suzuki.poulose@arm.com>
-Cc: kvm@vger.kernel.org, kvmarm@lists.linux.dev, maz@kernel.org,
-	will@kernel.org, linux-kernel@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org, steven.price@arm.com,
-	aneesh.kumar@kernel.org, oupton@kernel.org, gshan@redhat.com,
-	joey.gouly@arm.com, tabba@google.com, yuzenghui@huawei.com,
-	linux-coco@lists.linux.dev, gankulkarni@os.amperecomputing.com,
-	sdonthineni@nvidia.com, alpergun@google.com, fj0570is@fujitsu.com,
-	WeiLin.Chang@arm.com, lpieralisi@kernel.org, enju.kohei@fujitsu.com,
-	sudeep.holla@arm.com, jonathan.cameron@oss.qualcomm.com,
-	"Rafael J. Wysocki" <rafael@kernel.org>,
-	Len Brown <lenb@kernel.org>, Pavel Machek <pavel@kernel.org>,
-	linux-pm@vger.kernel.org
-Subject: Re: [PATCH v21 7/9] arm64: Block hibernate and kexec while RMM is
- active
-Message-ID: <ar4-kg8Jq9BTn7Sb@arm.com>
-References: <20261001084555.1456543-1-suzuki.poulose@arm.com>
- <20261001084555.1456543-8-suzuki.poulose@arm.com>
+	t=1790852846; bh=4DAiayNigTX+g+3g54tMOjDfHo5LSjI4E5QwkB1TMt8=;
+	h=From:To:Cc:Subject:Date:From;
+	b=SEqbRqgr7Bz+660L1PCMbE8pEbH+yVGsLlw5/TUkc5VwETrtJn6CmW4YF7beKF14p
+	 c5OJ8EJID75s14rq1YkXHLWwROvttTARh7Wx3BMQ8iUhi3T0p3mrJP+2kAdoAw4ilH
+	 PIzHvnnvNV9qlJG5latOLHXa/5+9amrEMabHoYbQ=
+From: =?UTF-8?q?Kristina=20Mart=C5=A1enko?= <kristina.martsenko@arm.com>
+To: linux-arm-kernel@lists.infradead.org,
+	linux-acpi@vger.kernel.org,
+	kvmarm@lists.linux.dev,
+	linux-efi@vger.kernel.org
+Cc: Catalin Marinas <catalin.marinas@arm.com>,
+	Will Deacon <will@kernel.org>,
+	Mark Rutland <mark.rutland@arm.com>,
+	Ryan Roberts <ryan.roberts@arm.com>,
+	David Hildenbrand <david@kernel.org>,
+	Lorenzo Stoakes <ljs@kernel.org>,
+	Linu Cherian <linu.cherian@arm.com>,
+	Anshuman Khandual <anshuman.khandual@arm.com>,
+	Lorenzo Pieralisi <lpieralisi@kernel.org>,
+	Hanjun Guo <guohanjun@huawei.com>,
+	Sudeep Holla <sudeep.holla@kernel.org>,
+	Marc Zyngier <maz@kernel.org>,
+	Oliver Upton <oupton@kernel.org>,
+	Fuad Tabba <fuad.tabba@linux.dev>,
+	Joey Gouly <joey.gouly@arm.com>,
+	Steffen Eiden <seiden@linux.ibm.com>,
+	Suzuki K Poulose <suzuki.poulose@arm.com>,
+	Zenghui Yu <yuzenghui@huawei.com>,
+	Ard Biesheuvel <ardb@kernel.org>,
+	Ilias Apalodimas <ilias.apalodimas@linaro.org>
+Subject: [RFC 00/12] arm64: Add support for TLBI domains
+Date: Thu,  1 Oct 2026 12:06:43 +0100
+Message-ID: <20261001110655.461473-1-kristina.martsenko@arm.com>
+X-Mailer: git-send-email 2.43.0
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20261001084555.1456543-8-suzuki.poulose@arm.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261001_040612_465769_5E40A815 
-X-CRM114-Status: GOOD (  36.47  )
+X-CRM114-CacheID: sfid-20261001_040730_277993_85A82587 
+X-CRM114-Status: GOOD (  21.80  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -80,151 +88,104 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Oct 01, 2026 at 09:45:53AM +0100, Suzuki K Poulose wrote:
-> RMM can be deactivated only after all delegated granules have been
-> reclaimed. If a new kernel is entered while any granules remain in the
-> Realm PAS, accesses to that memory can raise a Granule Protection Fault
-> and be fatal to the new kernel.
-> 
-> Crash kexec/kdump needs separate handling. It can be supported only once
-> the crash kernel can tolerate delegated memory inherited from the primary
-> kernel. i.e., be able to read the pages safely and fixup the GPF. Until
-> then disable the kexec completely.
-> 
-> Hibernate has a similar problem. The image cannot be safely saved for
-> delegated pages, as the RMM doesn't support exporting the pages.
-> 
-> Disable both kexec and hiberation while the RMM is active.
+Hi,
 
-I would mention that this adds a new arch_hibernation_available() hook
-called from hibernation_available(), otherwise the hibernation
-maintainers may not realise why they've been cc'ed.
+This series allows the kernel to use TLBI domains. TLBI domains (FEAT_TLBID) is
+an Arm architecture feature that enables a TLB invalidation to target a subset
+of CPUs instead of the whole system. It can improve performance on systems with
+many CPUs. TLBID is not yet part of the Arm Architecture Reference Manual but
+some of it is described in the latest XML [1].
 
-Alternatively, just introduce the hook as a separate patch without any
-arch code.
+The goal of this series is to send TLBI commands only to the CPUs where a
+process has run (i.e. where its page tables have been installed). The last
+patch explains a bit about how it works. This is an RFC since I'm not familiar
+with the kernel's TLB/mm code and I'd like feedback on whether the general
+approach is correct.
 
-> Cc: "Rafael J. Wysocki" <rafael@kernel.org>
-> Cc: Len Brown <lenb@kernel.org>
-> Cc: Pavel Machek <pavel@kernel.org>
-> Cc: linux-pm@vger.kernel.org
-> Signed-off-by: Suzuki K Poulose <suzuki.poulose@arm.com>
-> ---
-> Changes since v20:
->  - Add arch_hibernation_available() hook for archs to have a say and drop the
->    other checks.
-> Changes since v19:
->  - New patch to disable kexec and hibernation with RMM
-> ---
->  arch/arm64/kernel/hibernate.c     | 14 ++++++++++++++
->  arch/arm64/kernel/machine_kexec.c | 11 +++++++++++
->  include/linux/suspend.h           |  1 +
->  kernel/power/hibernate.c          |  8 +++++++-
->  4 files changed, 33 insertions(+), 1 deletion(-)
-> 
-> diff --git a/arch/arm64/kernel/hibernate.c b/arch/arm64/kernel/hibernate.c
-> index 7bf1174277772..08e03d24b93a8 100644
-> --- a/arch/arm64/kernel/hibernate.c
-> +++ b/arch/arm64/kernel/hibernate.c
-> @@ -10,6 +10,8 @@
->   * Copyright (C) 2006 Rafael J. Wysocki <rjw@sisk.pl>
->   */
->  #define pr_fmt(x) "hibernate: " x
-> +
-> +#include <linux/arm-rmi-cmds.h>
->  #include <linux/cpu.h>
->  #include <linux/kvm_host.h>
->  #include <linux/pm.h>
-> @@ -105,6 +107,18 @@ void notrace restore_processor_state(void)
->  {
->  }
->  
-> +bool arch_hibernation_available(void)
-> +{
-> +	/*
-> +	 * If we have activated the RMM, there could be pages that are
-> +	 * delegated to the RMM. Trying to save them to the image will be fatal.
-> +	 * Also, we donate pages to the RMM at activation and restoring data
-> +	 * to those pages are going to be fatal.
-> +	 * Hence, disable the hibernation when the RMM is active
-> +	 */
-> +	return !cpus_are_stuck_in_kernel() && !is_rmm_active();
-> +}
+A few notes and open questions:
 
-For now, I would keep is_rmm_active() only in here as not to change the
-behaviour for pKVM. "disk" would disappear from /sys/power/state with
-this patch. I think it's the correct thing to do for pKVM as well but we
-can discuss this separately once this goes in (I also think pKVM using
-cpus_are_stuck_in_kernel() is a bit of a bodge but it's a handy hook
-called in the right places).
+  * Domains are described in a new "TLBI" ACPI table. This is not yet part of
+    the ACPI specification. There was an initial proposal [2] but this series
+    uses a newer WIP version of the table that aims to be published by the end
+    of the year.
 
-> +
->  int arch_hibernation_header_save(void *addr, unsigned int max_size)
->  {
->  	struct arch_hibernate_hdr *hdr = addr;
-> diff --git a/arch/arm64/kernel/machine_kexec.c b/arch/arm64/kernel/machine_kexec.c
-> index 8f9bc2327dc85..48f343704cb54 100644
-> --- a/arch/arm64/kernel/machine_kexec.c
-> +++ b/arch/arm64/kernel/machine_kexec.c
-> @@ -6,6 +6,7 @@
->   * Copyright (C) Huawei Futurewei Technologies.
->   */
->  
-> +#include <linux/arm-rmi-cmds.h>
->  #include <linux/interrupt.h>
->  #include <linux/irq.h>
->  #include <linux/kernel.h>
-> @@ -59,6 +60,16 @@ int machine_kexec_prepare(struct kimage *kimage)
->  		return -EBUSY;
->  	}
->  
-> +	/*
-> +	 * We will be able to allow kdump to proceed, once we have the support
-> +	 * for handling GPF from vmcore accesses to delegated pages. Until then
-> +	 * block kexec completely.
-> +	 */
-> +	if (is_rmm_active()) {
-> +		pr_err("Can't kexec: RMM is active.\n");
-> +		return -EBUSY;
-> +	}
-> +
->  	return 0;
->  }
->  
-> diff --git a/include/linux/suspend.h b/include/linux/suspend.h
-> index b02876f1ae38a..a3815027773c5 100644
-> --- a/include/linux/suspend.h
-> +++ b/include/linux/suspend.h
-> @@ -401,6 +401,7 @@ int hibernate_quiet_exec(int (*func)(void *data), void *data);
->  int hibernate_resume_nonboot_cpu_disable(void);
->  int arch_hibernation_header_save(void *addr, unsigned int max_size);
->  int arch_hibernation_header_restore(void *addr);
-> +bool arch_hibernation_available(void);
->  
->  #else /* CONFIG_HIBERNATION */
->  static inline void register_nosave_region(unsigned long b, unsigned long e) {}
-> diff --git a/kernel/power/hibernate.c b/kernel/power/hibernate.c
-> index d2479c69d71a4..9d9d53828542f 100644
-> --- a/kernel/power/hibernate.c
-> +++ b/kernel/power/hibernate.c
-> @@ -106,11 +106,17 @@ bool hibernation_in_progress(void)
->  	return !atomic_read(&hibernate_atomic);
->  }
->  
-> +__weak bool arch_hibernation_available(void)
-> +{
-> +	return true;
-> +}
-> +
->  bool hibernation_available(void)
->  {
->  	return nohibernate == 0 &&
->  		!security_locked_down(LOCKDOWN_HIBERNATION) &&
-> -		!secretmem_active() && !cxl_mem_active();
-> +		!secretmem_active() && !cxl_mem_active() &&
-> +		arch_hibernation_available();
->  }
+  * There is currently no device tree binding since the feature is mainly meant
+    for server-class systems.
 
-With the comments above addressed:
+  * It's also possible to use TLBI domains to limit a KVM guest's TLB
+    invalidations to CPUs where the guest has run. I'll try to include that in
+    the next version. This series only disables domains for guests.
 
-Reviewed-by: Catalin Marinas <catalin.marinas@arm.com>
+  * With this series a long-running process may eventually run on all CPUs and
+    just issue broadcast TLBIs. It may be worth periodically reducing the set
+    of CPUs but it's not clear when.
+
+  * There are currently no performance numbers since there is no hardware with
+    this feature yet.
+
+  * The series has been tested on an Arm FVP which supports the TLBID
+    architecture but does not have any domains (except domain 0).
+
+Any feedback is welcome.
+
+Thanks,
+Kristina
+
+[1] https://support.arm.com/architectures/a-profile-architecture#Downloads
+[2] https://github.com/tianocore/edk2/issues/11999
+
+
+Kristina Martšenko (12):
+  arm64: sysreg: Add definitions for FEAT_TLBID
+  arm64: Detect FEAT_TLBID
+  KVM: arm64: Hide TLBID from guest sysregs
+  KVM: arm64: Hide TLBID from guest instructions
+  ACPICA: Add TLBI table definition
+  ACPI: TLBI: Parse domains from table
+  arm64: tlbid: Set up CPU domain bitmaps
+  efi/arm: Check return value of init_new_context()
+  arm64: tlbid: Track the TLBI domain of a task
+  arm64: Support TLBIP instructions
+  arm64: tlbid: Pass domain to TLBI instructions
+  arm64: tlbid: Add documentation
+
+ Documentation/arch/arm64/booting.rst    |  10 ++
+ arch/arm64/Kconfig                      |  12 ++
+ arch/arm64/include/asm/acpi.h           |  10 ++
+ arch/arm64/include/asm/cpu.h            |   1 +
+ arch/arm64/include/asm/cpufeature.h     |  15 ++
+ arch/arm64/include/asm/el2_setup.h      |  76 +++++++-
+ arch/arm64/include/asm/kvm_emulate.h    |   5 +
+ arch/arm64/include/asm/mmu.h            |  13 ++
+ arch/arm64/include/asm/mmu_context.h    |   9 +-
+ arch/arm64/include/asm/tlbflush.h       | 219 +++++++++++++++++-------
+ arch/arm64/kernel/cpufeature.c          |  25 +++
+ arch/arm64/kernel/cpuinfo.c             |   3 +
+ arch/arm64/kvm/config.c                 |   6 +
+ arch/arm64/kvm/emulate-nested.c         |   1 +
+ arch/arm64/kvm/hyp/include/hyp/switch.h |   7 +-
+ arch/arm64/kvm/hyp/nvhe/tlb.c           |   2 +-
+ arch/arm64/kvm/hyp/vhe/tlb.c            |   4 +-
+ arch/arm64/kvm/sys_regs.c               |   3 +
+ arch/arm64/mm/Makefile                  |   1 +
+ arch/arm64/mm/context.c                 |   6 +-
+ arch/arm64/mm/tlbid.c                   | 210 +++++++++++++++++++++++
+ arch/arm64/tools/cpucaps                |   1 +
+ arch/arm64/tools/sysreg                 |  53 +++++-
+ drivers/acpi/arm64/Kconfig              |   3 +
+ drivers/acpi/arm64/Makefile             |   1 +
+ drivers/acpi/arm64/init.c               |   2 +
+ drivers/acpi/arm64/init.h               |   1 +
+ drivers/acpi/arm64/tlbi.c               | 196 +++++++++++++++++++++
+ drivers/firmware/efi/arm-runtime.c      |   3 +-
+ include/acpi/actbl2.h                   |  32 ++++
+ 30 files changed, 858 insertions(+), 72 deletions(-)
+ create mode 100644 arch/arm64/mm/tlbid.c
+ create mode 100644 drivers/acpi/arm64/tlbi.c
+
+
+base-commit: 93f51579e7df248780214094418f205253383cc5
+-- 
+2.43.0
+
 
