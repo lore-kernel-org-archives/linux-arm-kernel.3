@@ -4,63 +4,81 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 13589CA5FD2
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  1 Oct 2026 14:25:51 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A60E6CA5FD2
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  1 Oct 2026 14:29:09 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:From:
+	Subject:Message-ID:References:Mime-Version:In-Reply-To:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=8AC7GbvuCCMMbO7MKRkTJUZ5RNbtzx9lp9nn1lg0M9w=; b=sloAkxFRQtbAQQtk1JMD7JI7OA
-	Rk92H+VUCrh1m13JzeODnmSuXWj19lIQ7QmVGSA0x1p+xkH8QXf+XlerXK2+aFjbU2OoJ2QbX3bG9
-	j/RsOTeULQCVZ/XM4/fgVgunUhqrINS7PRPuO+HHilmZrZBQL3Lwsg78DdK4LqyLQEjh07k4BzSgw
-	Uh8qiREeHWwBF86xNgEhd/Wkjxl1TKIlbAWcV3bIn9QycAyzx0FfPxZ23qRSojfiQ5Lz87ZMXXj/K
-	pPEMYMbbCgX+xNVs+OFUQsP9vO28PdnS2ejC56Cee4nILTI4XmgR+DuQOGBJSXphR0F8SEVOw61N5
-	lV3Ci0cA==;
+	bh=HXdW3KLWBNEvOd9ZzhOaPRcErPR/vT/YK+xCwxPIfYM=; b=vOSKUWzg0AyDtdBcXCnTXk/RW7
+	MT69G23Ez1KWn0SMOpVdfRjH8Kn8DfpyU/zJPBJ+Bd7oF/wNORJcw8h1TkEdwBvuW0kcusyTaiAc1
+	9HArAVU86mUqk4Ioy6Oi5CMTLsonYxAUt14hAnlZM9sT1eF2+GQNitgo2y30EvzyNDDFG4It265O2
+	tNrIy45ffGbKI9OZKImO0D8T6aiObiXC8F9QV4ZMVblBYAgbzp5TwdkuwcGosy+u3/sPDHcaVnoIK
+	/2kICNeeobDvyiSTvhu1LN5ein/qCYV8MZCS7gI9P88jLmj9XGOtTwfmVKIRORG8ZF1sW9evG9sBm
+	08FyrqqA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xCHjE-00000009MmT-2C5b;
-	Thu, 01 Oct 2026 14:25:44 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1xCHmQ-00000009N7b-0lrt;
+	Thu, 01 Oct 2026 14:29:02 +0000
+Received: from mail-wm1-x348.google.com ([2a00:1450:4864:20::348])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xCHjD-00000009MlR-0HvZ
+	id 1xCHmN-00000009N5l-3Gn5
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 01 Oct 2026 14:25:43 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id EE1EB6021D;
-	Thu,  1 Oct 2026 14:25:38 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 43B1F1F000FF;
-	Thu,  1 Oct 2026 14:25:34 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1790864738;
-	bh=8AC7GbvuCCMMbO7MKRkTJUZ5RNbtzx9lp9nn1lg0M9w=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=iehR+JhNmWti4pt7pfdUdJ6fePSYT//2YUHfiZ2GH0gFzcTvh2uujKnreTPbdh9f3
-	 InAhVQJauuzfMtHOROac9Sn4iUr2Jjiuf/5dsLjq+np/OXGSrrfwX4FbkLGWaOEwfC
-	 SOpmvaH9GBGPE7YYvV9OX4mhXFOzAmcIiyqd3r6AOysyHvWbfeLFc2ZN2fxsGDwJvI
-	 CfLvGrDiLGkpHpn67BrpwfZtN31KPXLEsyAzyDfQ616aG4PbKBiqPXJWGqwoKE4NuS
-	 0/uH67EaBvXRO9WWtTh8DTHR41EpXacsiDhks8IoOxdDPuBTu6237B3FfonEih7AmT
-	 kVO94jhXn8CRw==
-Date: Thu, 1 Oct 2026 15:25:31 +0100
-From: "Lorenzo Stoakes (ARM)" <ljs@kernel.org>
-To: Mark Brown <broonie@kernel.org>
-Cc: Catalin Marinas <catalin.marinas@arm.com>, 
-	Will Deacon <will@kernel.org>, Marc Zyngier <maz@kernel.org>, Joey Gouly <joey.gouly@arm.com>, 
-	Suzuki K Poulose <suzuki.poulose@arm.com>, Shuah Khan <shuah@kernel.org>, Oliver Upton <oupton@kernel.org>, 
-	Fuad Tabba <fuad.tabba@linux.dev>, Peter Maydell <peter.maydell@linaro.org>, 
-	Leonardo Bras <leo.bras@arm.com>, Wei-Lin Chang <weilin.chang@arm.com>, 
-	Yao Yuan <yaoyuan@linux.alibaba.com>, linux-arm-kernel@lists.infradead.org, linux-doc@vger.kernel.org, 
-	kvmarm@lists.linux.dev, linux-kselftest@vger.kernel.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v21 07/15] KVM: arm64: Forward GCS exceptions to nested
- guests
-Message-ID: <ar5cHWMczKd6yw7n@gremlin>
-References: <20260930-arm64-gcs-v21-0-3556644cd927@kernel.org>
- <20260930-arm64-gcs-v21-7-3556644cd927@kernel.org>
-MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20260930-arm64-gcs-v21-7-3556644cd927@kernel.org>
+	Thu, 01 Oct 2026 14:29:00 +0000
+Received: by mail-wm1-x348.google.com with SMTP id 5b1f17b1804b1-4a0185655deso15393045e9.2
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 01 Oct 2026 07:28:59 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=google.com; s=20251104; t=1790864938; x=1791469738; darn=lists.infradead.org;
+        h=content-type:cc:to:from:subject:message-id:references:mime-version
+         :in-reply-to:date:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=HXdW3KLWBNEvOd9ZzhOaPRcErPR/vT/YK+xCwxPIfYM=;
+        b=Fw7LOXYjmU2gWcp8BQg930IoZ5hfFGEjCNuqwl7i+h4JATMCVvRRt+B9+R5DibD6jv
+         AxRVRkLQHGrOFipl+6G5PgPTX71VpYygJIFtau3AXcHPMJBGMkklifWIz/yPviphDdH1
+         kz850M5QrELMqSlykl51YzlHsuTJ7eM8QWl84K9zOHADc0CfPIbQiisUGPCZWDDam6bd
+         98fO9HhfsM5O5sb39b/pYaWSNwiG6zqeqO97y1g/fMFDZHWitMS41zFx/NpqBBkmIYyV
+         tODJm5Cn/nDdVePwRgB5FSwdvORgmk1O9KvoypYZvWqx+NlR+KEPSOLTpwAEnlzIdFCe
+         4Jag==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1790864938; x=1791469738;
+        h=content-type:cc:to:from:subject:message-id:references:mime-version
+         :in-reply-to:date:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=HXdW3KLWBNEvOd9ZzhOaPRcErPR/vT/YK+xCwxPIfYM=;
+        b=TwgofpDc6Ihq899Ifn7BTMMsLI9OvwIdTrFSLE3frbabzkCmkRXq8rzhytaFjQ6EI9
+         2wNpn93iDucVghbV7V9VwPMe2g/PMkN7Y+aWE9FhHp2vybHD0+LlIGMGZfIzMo+7zcXl
+         ttGattl//C08pumGllJzrLY04r0W12IlFwnghXs/x+NOlo1V15Y5BlO5swqJ4+V7AK86
+         WMh0N72bOUTFC7ZeawSPxWtpc46bdnj2M5kAtOrk7mFXHZZVTQVAwB3pMpigrdy+UWUy
+         LrXS/RsAA4kB/2HORF0A65EImigHpMfIiSYMTAu/QwAOCwRpRegvEDKNmXnAoDyW+Rc2
+         gjzw==
+X-Forwarded-Encrypted: i=1; AKwUvBw4UiPUMbFDc+4+Xx7rwtESpBfQzcgm7g0uNNHhmxQqOy2sBS1BQuvF7ahx7XircppKa+efM3kmfDdYDPWN9Qq0@lists.infradead.org
+X-Gm-Message-State: AFuF++nhlSwrxM9LZ0ykpGhiw1NEtnEZIRvZ4hmoT9AZu85xHYx5gD5w
+	ysM6Fi1yjJ5osq7Ti57VUjjcF7Y2nzdIGe6gwVahEo3N7gUlreYixAJ879uG7XJyBHLKQbaggpQ
+	UaQ23C6BgaQs/c4JejD6r+g==
+X-Received: from wmlm13.prod.google.com ([2002:a7b:ca4d:0:b0:49f:e41d:3d75])
+ (user=vdonnefort job=prod-delivery.src-stubby-dispatcher) by
+ 2002:a05:600c:c490:b0:49f:ce73:5e96 with SMTP id 5b1f17b1804b1-4a01b12d914mr82599505e9.34.1790864937470;
+ Thu, 01 Oct 2026 07:28:57 -0700 (PDT)
+Date: Thu,  1 Oct 2026 15:28:33 +0100
+In-Reply-To: <20261001142849.3367614-1-vdonnefort@google.com>
+Mime-Version: 1.0
+References: <20261001142849.3367614-1-vdonnefort@google.com>
+X-Mailer: git-send-email 2.56.0.rc1.315.gc6ed9934b7-goog
+Message-ID: <20261001142849.3367614-3-vdonnefort@google.com>
+Subject: [PATCH v6 02/18] KVM: arm64: Add pkvm_remove_mappings
+From: Vincent Donnefort <vdonnefort@google.com>
+To: maz@kernel.org, oupton@kernel.org, kvmarm@lists.linux.dev, 
+	linux-arm-kernel@lists.infradead.org
+Cc: joey.gouly@arm.com, seiden@linux.ibm.com, suzuki.poulose@arm.com, 
+	yuzenghui@huawei.com, catalin.marinas@arm.com, will@kernel.org, 
+	kernel-team@android.com, fuad.tabba@linux.dev, 
+	Vincent Donnefort <vdonnefort@google.com>
+Content-Type: text/plain; charset="UTF-8"
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20261001_072859_832734_B343C7DC 
+X-CRM114-Status: GOOD (  11.36  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -75,92 +93,60 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Sep 30, 2026 at 10:48:17PM +0100, Mark Brown wrote:
-> For nested guests where HFGITR_EL2.nGCSSTR_EL1 is clear or when there are
+Add the counterpart to pkvm_create_mappings(), allowing previously
+mapped ranges to be removed. This will be useful for the upcoming pKVM
+heap allocator to manage its private mappings.
 
-I see at [0] that, if HFGITR_EL2.nGCSSTR_EL1 is clear:
+Signed-off-by: Vincent Donnefort <vdonnefort@google.com>
+Reviewed-by: Fuad Tabba <fuad.tabba@linux.dev>
+Tested-by: Fuad Tabba <fuad.tabba@linux.dev>
+---
+ arch/arm64/kvm/hyp/include/nvhe/mm.h |  1 +
+ arch/arm64/kvm/hyp/nvhe/mm.c         | 18 ++++++++++++++++++
+ 2 files changed, 19 insertions(+)
 
-"If EL2 is implemented and enabled in the current Security state, and
-either EL3 is not implemented or SCR_EL3.FGTEn == 1, then execution at EL1
-using AArch64 of any of the specified instructions generates a GCS
-exception with EC syndrome value 0x2D, unless the instruction generates a
-higher priority exception."
+diff --git a/arch/arm64/kvm/hyp/include/nvhe/mm.h b/arch/arm64/kvm/hyp/include/nvhe/mm.h
+index 85f1e3c711d9..00cadd13ee5d 100644
+--- a/arch/arm64/kvm/hyp/include/nvhe/mm.h
++++ b/arch/arm64/kvm/hyp/include/nvhe/mm.h
+@@ -25,6 +25,7 @@ int hyp_back_vmemmap(phys_addr_t back);
+ int pkvm_cpu_set_vector(enum arm64_hyp_spectre_vector slot);
+ int pkvm_create_mappings(void *from, void *to, enum kvm_pgtable_prot prot);
+ int pkvm_create_mappings_locked(void *from, void *to, enum kvm_pgtable_prot prot);
++void pkvm_remove_mappings(void *from, void *to);
+ int __pkvm_create_private_mapping(phys_addr_t phys, size_t size,
+ 				  enum kvm_pgtable_prot prot,
+ 				  unsigned long *haddr);
+diff --git a/arch/arm64/kvm/hyp/nvhe/mm.c b/arch/arm64/kvm/hyp/nvhe/mm.c
+index 755630c0d15e..9ab7f613fa36 100644
+--- a/arch/arm64/kvm/hyp/nvhe/mm.c
++++ b/arch/arm64/kvm/hyp/nvhe/mm.c
+@@ -164,6 +164,24 @@ int pkvm_create_mappings(void *from, void *to, enum kvm_pgtable_prot prot)
+ 	return ret;
+ }
+ 
++/**
++ * pkvm_remove_mappings - Remove mappings from the hypervisor page-table
++ * @from:	The starting virtual address of the range to remove
++ * @to:		The ending virtual address of the range to remove
++ */
++void pkvm_remove_mappings(void *from, void *to)
++{
++	u64 size;
++
++	WARN_ON(from > to);
++	to = PTR_ALIGN(to, PAGE_SIZE);
++	from = PTR_ALIGN_DOWN(from, PAGE_SIZE);
++	size = (u64)to - (u64)from;
++
++	guard(hyp_spinlock)(&pkvm_pgd_lock);
++	WARN_ON(kvm_pgtable_hyp_unmap(&pkvm_pgtable, (u64)from, size) != size);
++}
++
+ int hyp_back_vmemmap(phys_addr_t back)
+ {
+ 	unsigned long i, start, size, end = 0;
+-- 
+2.56.0.rc1.315.gc6ed9934b7-goog
 
-For:
-
-GCSSTR.
-GCSSTTR when PSTATE.UAO is 1.
-GCSSTTR when the Effective value of HCR_EL2.{NV, NV1} is {1, 1}.
-
-So privileged GCS stores.
-
-[0]: https://support.arm.com/documentation/111107/2026-09/AArch64-Registers/HFGITR-EL2--Hypervisor-Fine-Grained-Instruction-Trap-Register?lang=en
-
-> L2 GCS data check exceptions we need to forward the exception to the guest.
-> Add handling to do so.
->
-> Reviewed-by: Leonardo Bras <leo.bras@arm.com>
-> Signed-off-by: Mark Brown <broonie@kernel.org>
-
-(A bunch of commentary here, just reasoning out loud for my own
-understanding.)
-
-All LGTM, so:
-
-Reviewed-by: Lorenzo Stoakes (ARM) <ljs@kernel.org>
-
-> diff --git a/arch/arm64/kvm/handle_exit.c b/arch/arm64/kvm/handle_exit.c
-> index db37678dcb05..a8198e96fcb4 100644
-> --- a/arch/arm64/kvm/handle_exit.c
-> +++ b/arch/arm64/kvm/handle_exit.c
-
-> +/*
-> + * We might get GCS exceptions that need to be forwarded to the
-> + * hypervisor when a nested guest has HFGITR_EL2.nGCSSTR_EL1 clear, or
-> + * for a GCS data check exception for a L2 guest.
-> + */
-
-OK so I see this is used as a handler in:
-
-static exit_handle_fn arm_exit_handlers[] = {
-	...
-	[ESR_ELx_EC_GCS]	= kvm_handle_gcs,
-};
-
-And as per the arm ref page, 0x2D == ESR_ELx_EC_GCS.
-
-And it's always something being injected, so returning 1 (handled) is fine.
-
->  static int kvm_handle_gcs(struct kvm_vcpu *vcpu)
->  {
-> -	/* We don't expect GCS, so treat it with contempt */
-> -	if (kvm_has_feat(vcpu->kvm, ID_AA64PFR1_EL1, GCS, IMP))
-> -		WARN_ON_ONCE(1);
-> +	if (!kvm_has_gcs(vcpu->kvm)) {
-> +		kvm_inject_undefined(vcpu);
-> +		return 1;
-> +	}
-
-OK so make it not-a-kernel-warning if unsupported...
-
->
-> +	if (vcpu_has_nv(vcpu)) {
-> +		kvm_inject_nested_sync(vcpu, kvm_vcpu_get_esr(vcpu));
-
-...And this is the L0 at physical EL2 -> vEL2 (in physical EL1) injecting a
-synchronous exception.
-
-So it seems to me the key point of the patch is to forward to nested
-guests, hence the subject line :>)
-
-> +		return 1;
-> +	}
-> +
-> +	WARN_ON_ONCE(1);
-
-And this is an 'impossible' case because it should have been handled
-natively otherwise. So it's a bug in KVM if it ever happened.
-
---
-Cheers, Lorenzo
 
