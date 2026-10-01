@@ -4,97 +4,122 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BA9AECA5FA5
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  1 Oct 2026 09:36:50 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 187F4CA5FB3
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  1 Oct 2026 09:38:40 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
-	Message-ID:Date:References:In-Reply-To:Subject:Cc:To:From:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=DQz75FsX45fFNLdrpdOp/Fyp4l/FKa+g0Qu8HGi4Fv4=; b=qJHkVaa3XUWaz564gVRcilCTwk
-	yDJZD7eRB0bcQ2FpFawyuNzYDSgK2miCIK07kDQz6rbWiSNR4qdPCVzYOfVdX+yTtw66Et5mlUAkZ
-	uQjlq7yoiDbPTaWYdwrfPuxXkuWwPcdcr0Y2S+QXZ9xzJh58f/lWIzAyO89K0hiXRxA74Yprk7cRp
-	tgMPkKYpFkOcGCa/pT+UdZNOyIpcPc9hhBQYVyQHSa2RpApB+dBDTkZg8g6DvqWxBIljbIrM0KwHy
-	ESOqD7czLy7iLkaJPdRaOtSVp6yLcAmbIkCv9A41Sd5xe4NIxa/c7DGxyN0dQNmo10lEfU6eJdaE9
-	Dqx19CuA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=HoYdJQ/wR/FSIzYKig/dgZTQTIj5NZrPF99JqgsrSX4=; b=JU2GR7ER5A61xQelG/gsoed1Xm
+	ZKPlHudR/hMPYGuea3FFLhSDqgUnPoKitzoJGzynvia0G4RIQ3Qp6E3cNZ6wA677hcGpg//iSbq/0
+	BIka9mlQj+2FLn293GPxKJUYLl6Fuc6ij66CCoWoF3qHyk9mDk0fqknH6wECPj0ngt5kj5XecUP5v
+	z/f27eGoxr5VVqqOF7niHxlTE6vJMQ1KaDu4YJsvuW40ssobH0tQ5jdaU3HykmDlUIHuyR1P2xynD
+	1O6Xe9HPLKI/aWJVvo9flXYSHGNiwMF9svZ6wx7AHOZC5HuA5gi0P4IwodenVhN8qAtt4TqJL0+Cv
+	ghUw9lhw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xCDDT-00000008OH6-2aP7;
-	Thu, 01 Oct 2026 09:36:39 +0000
-Received: from mail-wm2-x11.google.com ([2a00:1450:4864:31::11])
+	id 1xCDFJ-00000008OcX-3rTD;
+	Thu, 01 Oct 2026 09:38:33 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xCDDR-00000008OFv-2cuV
+	id 1xCDFJ-00000008OcL-09tk
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 01 Oct 2026 09:36:39 +0000
-Received: by mail-wm2-x11.google.com with SMTP id 5b1f17b1804b1-49e6b885ef8so37239775e9.1
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 01 Oct 2026 02:36:36 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=baylibre.com; s=google; t=1790847395; x=1791452195; darn=lists.infradead.org;
-        h=content-type:mime-version:message-id:date:references:in-reply-to
-         :subject:cc:to:from:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=DQz75FsX45fFNLdrpdOp/Fyp4l/FKa+g0Qu8HGi4Fv4=;
-        b=g+/am/MoM4fsxtp/HHjquQ1Gvlm9hp5U3BgoZMp3r/eFVTMK9hQlLeYxuxyvW6hGcu
-         7PqE2/nD4GkE7E+3VWja+byo44k6mwzDyG25P6pfUDzH5Q4uc+KfjzyPAMV6tq2IWQwx
-         +HUgf3bjnmErP94JYn1RD3anCNTzVV1XO0h4USl35rpIYHHGDzNe3iWKxeZe+PMDaA2e
-         dU9eCTRpKLxoneQQ5YwgGmDKp/K4/aSNWyZM+pb2Um0zKNUaFNuk/w2BSyPPxroEd0Cb
-         gy9SiCbSqhdv1/A7HgyXHxD0CfcvcZQ+oSu904LVIpz+XdVQoh1xXMDEgRoA7iGBz5al
-         crbg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1790847395; x=1791452195;
-        h=content-type:mime-version:message-id:date:references:in-reply-to
-         :subject:cc:to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject
-         :date:message-id:reply-to:content-type;
-        bh=DQz75FsX45fFNLdrpdOp/Fyp4l/FKa+g0Qu8HGi4Fv4=;
-        b=uT5bjUElB+jZTEYCB1bKBNrOfuUuSbzKNQzo7/iJ0ENuZh6WMghtnn6idKU144/r/S
-         eMKMFUXGcSKcqvRZfc+2a+Uf02hT4mCoqUOjTleqURsR4qBEuMbCGP8PW7JCx/mfjHYq
-         c0zHSou+C9lT8+grSioPZc7vkNbUJ5C6irUbvxkLV7OPt73okXMDTNHUPNrYe8vM2cxh
-         0LUzDuEmOwmt1QNM+YmppeS5PzC9hjnDWhbc5eRvtVd3j4WFyA8YACRYnF20p/806kmE
-         mSdW+kDan6u1thsCdvSxf/nYuwDB6uTPEfkYtqgenhu/+Bh7FrrTIuNSoWilCweEFN89
-         Vwlg==
-X-Forwarded-Encrypted: i=1; AKwUvBxcvrTIPoU5GNIA7WfL24opGj++rusj12F6LYiUGwsGj4qRk8xSZ4iA74FY0pj6yoACRhjtZ/VlinFeZ0713gbJ@lists.infradead.org
-X-Gm-Message-State: AFuF++mDki6hoJYhO07huLhJUUnHWwGdc9gQ9AzpmCWcQme6j50fnXWK
-	jAIsP4U+fsvmJVb152jabT7XKlr+wlKvKaIwlEQs77O+hNZkwXRd7GWhdvNNoHB50eh0Y2c8FOm
-	ihTRZ
-X-Gm-Gg: AYBFou1ryN5Vv3pZcHd46l1x+JK8YXv0H5UfmYRi8sb31QyRWmr9uYDjvyPR5IlkRJK
-	zlGhVaoOMaPNPJQck4HuT0PW1sCUTzrJ23n2dCLzqKfzc2+6qVkLc0WAow3+G7KkKLWeOhM+XDl
-	xyQXu+ZtIaGKTOHWgYrulfMyG3cdk9VDP4v9SPfct2wxwE9vnmXAODJYLTA5J7LgAFn6noKrqNp
-	ncYsL/nmMksEEwxoKJJgClhs/5PLclvWZgn2btuM1UBozioSkKftk0cfkvLC175+oIGe5rPyoqj
-	SHdcAb7p6ZTKfA/6OmFnyc/HWT3SfslQpigum8dd8Fd7ifN/pJWFA9xARO73uVDGnTrHzokZ9la
-	5rQWD2SFEsUHWFIoQRVmxbdOvQOyJutPiqtJkN2RmU2sLfm7Rio+rxWcRUYI93LliZ/YKqVoMnP
-	mTt8XijGw88X7iiQg0mNiuj9OnFFVuLtsBTDC83b7GxU2REBYtwQi+kCOJxQsNe173h9lfbyJl2
-	DVxzPYy2yoAUQyc0BqADJrxMSvp
-X-Received: by 2002:a05:600c:3144:b0:4a0:1c0e:b2a8 with SMTP id 5b1f17b1804b1-4a01c0ecb6fmr59256415e9.28.1790847395168;
-        Thu, 01 Oct 2026 02:36:35 -0700 (PDT)
-Received: from localhost (82-67-6-57.subs.proxad.net. [82.67.6.57])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4a020f7f220sm57243775e9.5.2026.10.01.02.36.34
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 01 Oct 2026 02:36:34 -0700 (PDT)
-From: Jerome Brunet <jbrunet@baylibre.com>
-To: Miquel Raynal <miquel.raynal@bootlin.com>, Jacky Huang
- <ychuang3@nuvoton.com>, Shan-Chun Hung <schung@nuvoton.com>, Michael
- Turquette <mturquette@baylibre.com>, Stephen Boyd <sboyd@kernel.org>,
- Richard Cochran <richardcochran@gmail.com>, Arnd Bergmann <arnd@arndb.de>,
- Brian Masney <bmasney+clk@redhat.com>, Jerome Brunet
- <jbrunet+clk@baylibre.com>, Rob Herring <robh@kernel.org>, Krzysztof
- Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>
-Cc: Thomas Petazzoni <thomas.petazzoni@bootlin.com>, Steam Lin
- <STLin2@winbond.com>, linux-arm-kernel@lists.infradead.org,
- linux-clk@vger.kernel.org, linux-kernel@vger.kernel.org, Krzysztof
- Kozlowski <krzk@kernel.org>, devicetree@vger.kernel.org, Miquel Raynal
- <miquel.raynal@bootlin.com>, stable@vger.kernel.org
-Subject: Re: [PATCH v6 08/12] clk: nuvoton: ma35d1: Retrieve HXT/LXT from DT
-In-Reply-To: <20260930-perso-ma35d1-upstream-clk-v6-8-48937ee6c9bb@bootlin.com>
-References: <20260930-perso-ma35d1-upstream-clk-v6-0-48937ee6c9bb@bootlin.com>
- <20260930-perso-ma35d1-upstream-clk-v6-8-48937ee6c9bb@bootlin.com>
-Date: Thu, 01 Oct 2026 11:36:33 +0200
-Message-ID: <1j7bk13gpq.fsf@starbuckisacylon.baylibre.com>
+	Thu, 01 Oct 2026 09:38:33 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by tor.source.kernel.org (Postfix) with ESMTP id 1A52A6022B;
+	Thu,  1 Oct 2026 09:38:32 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 083231F000FF;
+	Thu,  1 Oct 2026 09:38:21 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1790847511;
+	bh=HoYdJQ/wR/FSIzYKig/dgZTQTIj5NZrPF99JqgsrSX4=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To;
+	b=m4x8niJfwwS2Ay+QrDsyU077Ft14GTDoHqCeGRs/IwMSYTCix5IHi0CqPNrjBVXWG
+	 UXhl1zy/aSXkRclDaDfXxUEB3SDQUKFKVco+aRnyQEjZoVvm+e3jTO21nc+LgI9I8W
+	 a2SmEa4fnv4f4JUBSDZLHgArKf85JuX6lg94n9kz1ly2pA0e3fVzXYpEUUIYk+Bg1H
+	 5gMQUt3dk2wBY2pjElwUuoI/u265rKq/GciEBQo0TaLoqWOijF+vIpNn82ewUZ6cT+
+	 lREVSAJF6jphwpM3sX9nv1cfH1CNLobOSj5PuMmtwdRL5PS03Fs6mPX+4ir9HsSEqP
+	 n6TLpFQmk394g==
+Message-ID: <c329c4dd-a004-4ea7-918c-3731738e43b6@kernel.org>
+Date: Thu, 1 Oct 2026 11:38:19 +0200
 MIME-Version: 1.0
-Content-Type: text/plain
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261001_023637_693550_E4506AA2 
-X-CRM114-Status: GOOD (  27.26  )
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v4 03/13] dt-bindings: arm: fsl: Add Variscite i.MX6ULZ
+ board variants
+To: Stefano Radaelli <stefano.radaelli21@gmail.com>
+Cc: Frank Li <Frank.Li@nxp.com>, linux-kernel@vger.kernel.org,
+ devicetree@vger.kernel.org, imx@lists.linux.dev,
+ linux-arm-kernel@lists.infradead.org, pierluigi.p@variscite.com,
+ Stefano Radaelli <stefano.r@variscite.com>, Rob Herring <robh@kernel.org>,
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
+ <conor+dt@kernel.org>, Andrew Lunn <andrew+netdev@lunn.ch>,
+ "David S. Miller" <davem@davemloft.net>, Eric Dumazet <edumazet@google.com>,
+ Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
+ Sascha Hauer <s.hauer@pengutronix.de>,
+ Pengutronix Kernel Team <kernel@pengutronix.de>,
+ Fabio Estevam <festevam@gmail.com>, Heiner Kallweit <hkallweit1@gmail.com>,
+ Russell King <linux@armlinux.org.uk>, Shawn Guo <shawnguo@kernel.org>,
+ Joseph Guo <qijian.guo@nxp.com>, Josua Mayer <josua@solid-run.com>,
+ Ernest Van Hoecke <ernest.vanhoecke@toradex.com>,
+ Mehmet Fide <mehmet.fide@screeningeagle.com>,
+ Francesco Dolcini <francesco.dolcini@toradex.com>,
+ Markus Niebel <Markus.Niebel@ew.tq-group.com>,
+ Hugo Villeneuve <hvilleneuve@dimonoff.com>,
+ Stefan Eichenberger <eichest@gmail.com>, netdev@vger.kernel.org
+References: <cover.1790693249.git.stefano.r@variscite.com>
+ <1e6f9e01bd9e0e0801b18ddc9eb44bde200ea984.1790693249.git.stefano.r@variscite.com>
+ <20261001-immortal-wild-wallaby-23de50@quoll>
+ <ar4jkNZc0eoF-EhL@Lord-Beerus.station>
+From: Krzysztof Kozlowski <krzk@kernel.org>
+Content-Language: en-US
+Autocrypt: addr=krzk@kernel.org; keydata=
+ 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
+In-Reply-To: <ar4jkNZc0eoF-EhL@Lord-Beerus.station>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -109,131 +134,31 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On mer. 30 sept. 2026 at 19:24, Miquel Raynal <miquel.raynal@bootlin.com> wrote:
+On 01/10/2026 11:10, Stefano Radaelli wrote:
+> On Thu, Oct 01, 2026 at 10:09:22AM +0200, Krzysztof Kozlowski wrote:
+>> On Tue, Sep 29, 2026 at 05:17:30PM +0200, Stefano Radaelli wrote:
+>>> +          - const: variscite,dart-6ul-imx6ulz
+>>> +          - const: fsl,imx6ull
+>>> +          - const: fsl,imx6ulz
+>>
+>> Is this the right order? Which one is superset of which?
+>>
+> 
+> I followed the compatible order used by the existing i.MX6ULZ EVK
+> and had also noticed the comment questioning whether `fsl,imx6ull`
+> should come last.
+> On review, I agree: i.MX6ULZ is the reduced-feature variant, while
+> i.MX6ULL is the more general compatible.
+> We can use `fsl,imx6ulz` followed by `fsl,imx6ull` for the new
 
-> HXT and LXT are crystal oscillator inputs of the clock controller, they
-> are described in the DT, so retrieve them, in order, and store them in
-> their respective HXT/LXT hw table entries.
->
-> Since old DTs reference the HXT fixed-clock without naming it and do not
-> describe LXT at all, we assume that HXT must be present, and fallback to
-> creating a fixed clock for LXT if it is not described (for backward
-> compatibility purposes).
->
-> The downstream gate clocks can directly use the hw clocks as parents,
-> instead of relying on string matching.
->
-> Fixes: 691521a367cf ("clk: nuvoton: Add clock driver for ma35d1 clock controller")
-> Cc: stable@vger.kernel.org
-> Signed-off-by: Miquel Raynal <miquel.raynal@bootlin.com>
-> ---
->  drivers/clk/nuvoton/clk-ma35d1.c | 43 ++++++++++++++++++++++++++++++++--------
->  1 file changed, 35 insertions(+), 8 deletions(-)
->
-> diff --git a/drivers/clk/nuvoton/clk-ma35d1.c b/drivers/clk/nuvoton/clk-ma35d1.c
-> index ceebcbd8c18b..d955d79abdd2 100644
-> --- a/drivers/clk/nuvoton/clk-ma35d1.c
-> +++ b/drivers/clk/nuvoton/clk-ma35d1.c
-> @@ -4,6 +4,7 @@
->   * Author: Chi-Fang Li <cfli0@nuvoton.com>
->   */
->  
-> +#include <linux/clk.h>
->  #include <linux/clk-provider.h>
->  #include <linux/mfd/syscon.h>
->  #include <linux/module.h>
-> @@ -191,6 +192,15 @@ static struct clk_hw *ma35d1_clk_gate(struct device *dev, const char *name, cons
->  				    reg, shift, 0, &ma35d1_lock);
->  }
->  
-> +static struct clk_hw *ma35d1_clk_gate_parent(struct device *dev, const char *name,
-> +					     struct clk_hw *parent,
-> +					     void __iomem *reg, u8 shift)
-> +{
-> +	return devm_clk_hw_register_gate_parent_hw(dev, name, parent,
-> +						   CLK_SET_RATE_PARENT,
-> +						   reg, shift, 0, &ma35d1_lock);
-> +}
-> +
->  static int ma35d1_get_pll_setting(struct device_node *clk_node, u32 *pllmode)
->  {
->  	const char *of_str;
-> @@ -215,10 +225,12 @@ static int ma35d1_clocks_probe(struct platform_device *pdev)
->  {
->  	struct device *dev = &pdev->dev;
->  	struct device_node *clk_node = pdev->dev.of_node;
-> +	struct clk_bulk_data *clks;
->  	void __iomem *clk_base;
->  	static struct clk_hw **hws;
->  	static struct clk_hw_onecell_data *ma35d1_hw_data;
->  	u32 pllmode[PLL_MAX_NUM];
-> +	int num_clks;
->  	int ret;
->  
->  	ma35d1_hw_data = devm_kzalloc(dev,
-> @@ -240,12 +252,27 @@ static int ma35d1_clocks_probe(struct platform_device *pdev)
->  		return -EINVAL;
->  	}
->  
-> -	hws[HXT] = ma35d1_clk_fixed("hxt", 24000000);
-> -	hws[HXT_GATE] = ma35d1_clk_gate(dev, "hxt_gate", "hxt",
-> -					clk_base + REG_CLK_PWRCTL, 0);
-> -	hws[LXT] = ma35d1_clk_fixed("lxt", 32768);
-> -	hws[LXT_GATE] = ma35d1_clk_gate(dev, "lxt_gate", "lxt",
-> -					clk_base + REG_CLK_PWRCTL, 1);
-> +	num_clks = devm_clk_bulk_get_all(dev, &clks);
-> +	if (num_clks < 0)
-> +		return num_clks;
-> +
-> +	if (!num_clks) {
-> +		dev_err(dev, "missing crystal input clocks\n");
-> +		return -ENODEV;
-> +	}
-> +
-> +	hws[HXT] = __clk_get_hw(clks[0].clk);
+Yes
 
-Don't open code it. use .fw_name
+> Variscite entries. I can also propose a separate patch to update
+> the existing EVK compatible order to match, what do you think?
 
-> +
-> +	if (num_clks > 1)
-> +		hws[LXT] = __clk_get_hw(clks[1].clk);
-> +	else
-> +		/* Old DTs do not describe the low-speed crystal */
-> +		hws[LXT] = ma35d1_clk_fixed("lxt", 32768);
+That probably should stay as is, because there could be a user checking
+last fallback. Shouldn't, but could be.
 
-I'd give it another name so you can clearly see the difference between the
-DT one and the manually registered one.
-
-> +
-
-Don't need to open code this either.
-provide both .fw_name and .name - CCF will fallback to the name.
-
-When you want to conditionally register the fixed is up to you.
-
-> +	hws[HXT_GATE] = ma35d1_clk_gate_parent(dev, "hxt_gate", hws[HXT],
-> +					       clk_base + REG_CLK_PWRCTL, 0);
-> +	hws[LXT_GATE] = ma35d1_clk_gate_parent(dev, "lxt_gate", hws[LXT],
-> +					       clk_base + REG_CLK_PWRCTL, 1);
->  	hws[HIRC] = ma35d1_clk_fixed("hirc", 12000000);
->  	hws[HIRC_GATE] = ma35d1_clk_gate(dev, "hirc_gate", "hirc",
->  					 clk_base + REG_CLK_PWRCTL, 2);
-> @@ -632,8 +659,8 @@ static int ma35d1_clocks_probe(struct platform_device *pdev)
->  	hws[UART16_GATE] = ma35d1_clk_gate(dev, "uart16_gate", "uart16_div",
->  					   clk_base + REG_CLK_APBCLK0, 28);
->  
-> -	hws[RTC_GATE] = ma35d1_clk_gate(dev, "rtc_gate", "lxt",
-> -					clk_base + REG_CLK_APBCLK0, 29);
-> +	hws[RTC_GATE] = ma35d1_clk_gate_parent(dev, "rtc_gate", hws[LXT],
-> +					       clk_base + REG_CLK_APBCLK0, 29);
->  	hws[DDR_GATE] = ma35d1_clk_gate(dev, "ddr_gate", "ddrpll",
->  					clk_base + REG_CLK_APBCLK0, 30);
->  
->
-> -- 
-> 2.55.0
->
-
--- 
-Jerome
+Best regards,
+Krzysztof
 
