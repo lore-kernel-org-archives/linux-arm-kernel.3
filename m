@@ -4,76 +4,106 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1F866CA5FD2
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  1 Oct 2026 15:36:02 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1140CCA5FD2
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  1 Oct 2026 15:38:54 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=EFVdGQyf1ysMkw7o/W89OGkNmuyRF7UkSVI2LhWmj8o=; b=iYOLRNjgAv/vBrefMM85CsM+IA
-	JJi8W8MonpUJlCokW8Z9iTkpnxBeq6GZ1RUEyaPFLgjPa3Tqz61qfMULxwHPhNkhrsNMfg8YGO72Z
-	Sj2YoDuXxvrYBqixS2xRF6fjZBgZTxZxMiLt9/qIKqiWFU/ZCbcuyvtTXbGFni2Csikx/B/39LGfe
-	j9hB2L0qF1U+yVRFKl7J8AhNPO3YqFTCQXiTBivez8Ty0MtqDYgOJas1o7LxSmRDSa7LIvSJftg33
-	9+UlPrDfc0+aNgbDqAjWB945MkqCBHi4Qead5exSblF5dCAnu9vDSK01nDHDGizQiSpeHn1mfaPIa
-	TG/joYrw==;
+	bh=xx70lC/bWUp788wCvnZl/epp/8zx5Fhu34iv8tJWVos=; b=n9TYX/SsBkPQF5gKMp92oyHIhM
+	FdUbHSL/ujNuOyopjaCUH8K4dFFSnuVuJQE2Xr+y3TqQPOT6HgqgayW19EAIkSbxjpu4aWCJIhLfF
+	Xg1BANiqspoGFdMcYjqzeg0Ij2tegIGFyZS9hiE1oRxBg7nrJzV2Rl+gxoFo494mHlejIo4C2sR76
+	3NtP4h5zaRN1YImxNDqHSMJwPJ1+GQEJdox+eckQivxW2ybEJoIH+IxsfnfMGhDt5/cvhuuNvxdGV
+	ejDcqYfJlduDJ/8H+AW2STOOYfeyrsoCK1irop8VfBvqwPh4W6gptb4NYikXvAed5uCBqiO3pxsAc
+	l/DVBk2w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xCIp8-00000009YKi-0mgd;
-	Thu, 01 Oct 2026 15:35:55 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xCIoz-00000009YCO-0niE
-	for linux-arm-kernel@lists.infradead.org;
-	Thu, 01 Oct 2026 15:35:49 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 8117B1764;
-	Thu,  1 Oct 2026 08:35:40 -0700 (PDT)
-Received: from e142021.fritz.box (usa-sjc-mx-foss1.foss.arm.com [172.31.20.19])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 46F5C3F86F;
-	Thu,  1 Oct 2026 08:35:40 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1790868943; bh=OYBrNMJ+3LAWPZ3o1CowFfm3LRLunGkU9SnJLCPzI0w=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=Xd1ecXLk5+JLfJ5no6bdgcNd1Ezejv0Lz74PCH2SB6SQpj+hss0UkU8zZZjPGWaRD
-	 fiS1K2DS50gjamVrhVDlMtwfaBee5DWMExrOyJIUDDC4tuElQ8hSBCCxl4xilxWl4y
-	 o2UFFb5V9MSx4XyT4/eN7djOt9tQ8/9JedPlz91M=
-From: Andre Przywara <andre.przywara@arm.com>
-To: Lorenzo Pieralisi <lpieralisi@kernel.org>,
-	Hanjun Guo <guohanjun@huawei.com>,
-	Sudeep Holla <sudeep.holla@kernel.org>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Will Deacon <will@kernel.org>,
-	"Rafael J . Wysocki" <rafael@kernel.org>,
-	Len Brown <lenb@kernel.org>,
-	James Morse <james.morse@arm.com>,
-	Ben Horgan <ben.horgan@arm.com>,
-	Reinette Chatre <reinette.chatre@intel.com>,
-	Fenghua Yu <fenghuay@nvidia.com>
-Cc: Jonathan Cameron <jic23@kernel.org>,
-	Srivathsa L Rao <srivathsa.rao@oss.qualcomm.com>,
-	Ganapatrao Kulkarni <ganapatrao.kulkarni@oss.qualcomm.com>,
-	Trilok Soni <tsoni@quicinc.com>,
-	Srinivas Ramana <sramana@qti.qualcomm.com>,
-	Niyas Sait <niyas.sait@arm.com>,
-	Lee Trager <lee@trager.us>,
-	Ritwick Sharma <ritwick.sharma@arm.com>,
-	Gavin Shan <gshan@redhat.com>,
-	linux-acpi@vger.kernel.org--cc,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org
-Subject: [PATCH v12 13/13] arm_mpam: detect and enable MPAM-Fb PCC support
-Date: Thu,  1 Oct 2026 17:34:38 +0200
-Message-ID: <20261001153439.3295416-14-andre.przywara@arm.com>
-X-Mailer: git-send-email 2.43.0
-In-Reply-To: <20261001153439.3295416-1-andre.przywara@arm.com>
-References: <20261001153439.3295416-1-andre.przywara@arm.com>
+	id 1xCIru-00000009Z0l-0gRS;
+	Thu, 01 Oct 2026 15:38:46 +0000
+Received: from email2.ecloud.global ([2a01:4f9:4b:5387::2] helo=mail2.ecloud.global)
+	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1xCIrq-00000009Yzf-3npw;
+	Thu, 01 Oct 2026 15:38:44 +0000
+Received: from authenticated-user (mail2.ecloud.global [127.0.0.1])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange x25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
+	(No client certificate requested)
+	by mail2.ecloud.global (Postfix) with ESMTPSA id 3A32C720B98;
+	Thu, 01 Oct 2026 15:38:31 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=murena.io; s=mail2;
+	t=1790869113;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=xx70lC/bWUp788wCvnZl/epp/8zx5Fhu34iv8tJWVos=;
+	b=ToqdSVrd1HsEwQzmjfBFjYDZriKj3Sm05yKCCOdKEyfTliJyEP2YF4EEk8MenyLA9MSni7
+	GG43lHUfIUmAetKOeV1Ptr15wnRIInrp1qj7QaJKcQOslpMkya+w288xPjrp06HiB9VkwE
+	WXIw4BIPap4JOIojeomLaOpZ/sdWYWw=
+ARC-Seal: i=1; a=rsa-sha256; d=murena.io; s=mail2; cv=none; t=1790869113;
+	b=Ko5QVLSK+WrA7oMsstFqO36iwQ4nJpom37gtaBSd3BXP7TUrNUIDhYeZVK9BeJt3RMRkKj
+	vzWcU8F9J8ZrlYnMOUcDK6T404QQg1U0Gsx6kLkH1JPbEJkf6kFJyDFAP39PSJadud8ohU
+	e3c/yGRhMRfGyQuktdMVJ7V+6ZLnsNI=
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=murena.io;
+	s=mail2; t=1790869113;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=xx70lC/bWUp788wCvnZl/epp/8zx5Fhu34iv8tJWVos=;
+	b=KPA9poo3H1N3+NopbQsllMRGvV20jq2v4Z9vJVtKN2JJKhB3uNRwhvrNu7iSWLfZvfTH0G
+	1fynS3FwlDKdQJiNqQhOIDExt0R1yFuv8eNBmGwcEvIpkwnw6luXLOgu1Nw0747QfDpET6
+	IZf+7KD7h27N9TPbnX3mv2Y7mMc8R/g=
+ARC-Authentication-Results: i=1;
+	mail2.ecloud.global;
+	auth=pass smtp.mailfrom=maud_spierings@murena.io
+Message-ID: <7d41064a-1f7f-4461-a4ea-513d6afce267@murena.io>
+Date: Thu, 1 Oct 2026 17:38:30 +0200
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+Subject: Re: [PATCH v5 13/21] drm/bridge: inno-hdmi: Make the register clock
+ source selectable
+To: Michal Wilczynski <m.wilczynski@samsung.com>,
+ Vinod Koul <vkoul@kernel.org>, Manivannan Sadhasivam <mani@kernel.org>,
+ Neil Armstrong <neil.armstrong@linaro.org>, Rob Herring <robh@kernel.org>,
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
+ <conor+dt@kernel.org>, Andrzej Hajda <andrzej.hajda@intel.com>,
+ Robert Foss <rfoss@kernel.org>,
+ Laurent Pinchart <Laurent.pinchart@ideasonboard.com>,
+ Jonas Karlman <jonas@kwiboo.se>, Jernej Skrabec <jernej.skrabec@gmail.com>,
+ Luca Ceresoli <luca.ceresoli@bootlin.com>,
+ Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
+ Maxime Ripard <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>,
+ Andy Yan <andy.yan@rock-chips.com>, Philipp Zabel <p.zabel@pengutronix.de>,
+ Emil Renner Berthing <kernel@esmil.dk>, Hal Feng
+ <hal.feng@starfivetech.com>, Michael Turquette <mturquette@baylibre.com>,
+ Stephen Boyd <sboyd@kernel.org>, Heiko Stuebner <heiko@sntech.de>,
+ Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>,
+ Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>,
+ Dominique Belhachemi <db@domibel.de>, Brian Masney <bmasney+clk@redhat.com>,
+ Jerome Brunet <jbrunet+clk@baylibre.com>
+Cc: linux-phy@lists.infradead.org, devicetree@vger.kernel.org,
+ linux-kernel@vger.kernel.org, dri-devel@lists.freedesktop.org,
+ linux-clk@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-rockchip@lists.infradead.org, linux-riscv@lists.infradead.org,
+ Marek Szyprowski <m.szyprowski@samsung.com>,
+ Graham Markall <hello@big-grey.co.uk>,
+ Icenowy Zheng <zhengxingda@iscas.ac.cn>,
+ Chaoyi Chen <chaoyi.chen@rock-chips.com>,
+ Joshua Peisach <jpeisach@ubuntu.com>,
+ =?UTF-8?Q?Uwe_Kleine-K=C3=B6nig?= <u.kleine-koenig@baylibre.com>
+References: <20260929-jh7110-clean-send-v5-0-82b4d8e3c6c7@samsung.com>
+ <CGME20260929103233eucas1p1bc0682334aad710c3894271f46ba1f47@eucas1p1.samsung.com>
+ <20260929-jh7110-clean-send-v5-13-82b4d8e3c6c7@samsung.com>
+Content-Language: en-US
+From: Maud Spierings <maud_spierings@murena.io>
+In-Reply-To: <20260929-jh7110-clean-send-v5-13-82b4d8e3c6c7@samsung.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261001_083547_330188_5FE337C5 
-X-CRM114-Status: GOOD (  23.15  )
+X-CRM114-CacheID: sfid-20261001_083843_170396_061A5F74 
+X-CRM114-Status: GOOD (  21.65  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -88,294 +118,66 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The Arm MPAM-Fb specification [1] describes a protocol to access MSC
-registers through a firmware interface. This requires a shared memory
-region to hold the message, and a mailbox to trigger the access.
-For ACPI this is wrapped as a PCC channel, described using existing
-ACPI abstractions.
+Hi Michal,
 
-Add code to parse those PCC table descriptions associated with an MSC,
-and store the parsed information in the MSC struct.
-There can be multiple PCC channels, and each channel can serve multiple
-MSCs, so we need to keep track of the channel usage, using a list and
-a refcount.
+Can confirm that this is fixed now! Thanks for integrating this!
 
-This will be used by the MPAM-Fb access wrapper code.
+Tested-by: Maud Spierings <maud_spierings@murena.io>
 
-[1] https://developer.arm.com/documentation/den0144/latest
+Kind regards,
+Maud
 
-Signed-off-by: Andre Przywara <andre.przywara@arm.com>
-Tested-by: Ritwick Sharma <ritwick.sharma@arm.com> # on Arm AGI CPU
-Reviewed-by: Jonathan Cameron <jonathan.cameron@oss.qualcomm.com>
-Tested-by: Srivathsa L Rao <srivathsa.rao@oss.qualcomm.com>
-Reviewed-by: Srivathsa L Rao <srivathsa.rao@oss.qualcomm.com>
-Reviewed-by: Gavin Shan <gshan@redhat.com>
----
- drivers/resctrl/Kconfig         |   1 +
- drivers/resctrl/mpam_devices.c  | 119 +++++++++++++++++++++++++++++++-
- drivers/resctrl/mpam_fb.c       |  41 +++++++++++
- drivers/resctrl/mpam_internal.h |   2 +
- 4 files changed, 161 insertions(+), 2 deletions(-)
-
-diff --git a/drivers/resctrl/Kconfig b/drivers/resctrl/Kconfig
-index 9591d792736e5..f5ff9b1f6c48e 100644
---- a/drivers/resctrl/Kconfig
-+++ b/drivers/resctrl/Kconfig
-@@ -2,6 +2,7 @@ menuconfig ARM64_MPAM_DRIVER
- 	bool "MPAM driver"
- 	depends on ARM64 && ARM64_MPAM
- 	select ACPI_MPAM if ACPI
-+	select PCC if ACPI
- 	select MAILBOX
- 	help
- 	  Memory System Resource Partitioning and Monitoring (MPAM) driver for
-diff --git a/drivers/resctrl/mpam_devices.c b/drivers/resctrl/mpam_devices.c
-index 08b1e84e3f794..94d6eb6d3a1b2 100644
---- a/drivers/resctrl/mpam_devices.c
-+++ b/drivers/resctrl/mpam_devices.c
-@@ -20,14 +20,19 @@
- #include <linux/irqdesc.h>
- #include <linux/list.h>
- #include <linux/lockdep.h>
-+#include <linux/mailbox_client.h>
- #include <linux/mutex.h>
- #include <linux/platform_device.h>
- #include <linux/printk.h>
-+#include <linux/property.h>
- #include <linux/srcu.h>
- #include <linux/spinlock.h>
- #include <linux/types.h>
- #include <linux/workqueue.h>
- 
-+#include <acpi/pcc.h>
-+#include <acpi/acpi_io.h>
-+
- #include "mpam_internal.h"
- 
- /* Values for the T241 errata workaround */
-@@ -50,6 +55,87 @@ static LIST_HEAD(mpam_all_msc);
- 
- struct srcu_struct mpam_srcu;
- 
-+/* PCC channels might be serving multiple MSCs, so keep a refcounted list. */
-+static DEFINE_MUTEX(pcc_chan_list_lock);
-+static LIST_HEAD(pcc_chan_list);
-+
-+static void mpam_pcc_chan_release(struct kref *ref)
-+{
-+	struct mpam_pcc_chan *cur = container_of(ref, struct mpam_pcc_chan,
-+						 refcount);
-+
-+	pcc_mbox_free_channel(cur->pcc_chan);
-+	list_del(&cur->pcc_chans);
-+	mutex_destroy(&cur->pcc_chan_lock);
-+	kfree(cur);
-+}
-+
-+static struct mpam_pcc_chan *mpam_pcc_chan_get(struct device *dev,
-+					       int subspace_id)
-+{
-+	struct mpam_pcc_chan *cur;
-+
-+	guard(mutex)(&pcc_chan_list_lock);
-+
-+	list_for_each_entry(cur, &pcc_chan_list, pcc_chans) {
-+		if (cur->subspace_id == subspace_id) {
-+			kref_get(&cur->refcount);
-+
-+			return cur;
-+		}
-+	}
-+
-+	cur = kzalloc_obj(*cur);
-+	if (!cur)
-+		return ERR_PTR(-ENOMEM);
-+
-+	cur->pcc_cl.tx_block = true;
-+
-+	cur->pcc_chan = pcc_mbox_request_channel(&cur->pcc_cl, subspace_id);
-+	if (IS_ERR(cur->pcc_chan)) {
-+		long err = PTR_ERR(cur->pcc_chan);
-+
-+		kfree(cur);
-+		return ERR_PTR(err);
-+	}
-+
-+	/*
-+	 * Timeout based on the "nominal latency" in us, from the
-+	 * PCC ACPI table. tx_tout is in ms.
-+	 * Add some margin here to be on the safe side.
-+	 */
-+	cur->pcc_cl.tx_tout = DIV_ROUND_UP(cur->pcc_chan->latency * 5, 1000);
-+
-+	mutex_init(&cur->pcc_chan_lock);
-+
-+	cur->subspace_id = subspace_id;
-+	kref_init(&cur->refcount);
-+
-+	list_add_tail(&cur->pcc_chans, &pcc_chan_list);
-+
-+	return cur;
-+}
-+
-+static int mpam_pcc_chan_put(struct mpam_pcc_chan *pcc_chan)
-+{
-+	struct mpam_pcc_chan *cur, *tmp;
-+
-+	if (!pcc_chan)
-+		return 0;
-+
-+	guard(mutex)(&pcc_chan_list_lock);
-+
-+	list_for_each_entry_safe(cur, tmp, &pcc_chan_list, pcc_chans) {
-+		if (cur == pcc_chan) {
-+			kref_put(&cur->refcount, mpam_pcc_chan_release);
-+
-+			return 0;
-+		}
-+	}
-+
-+	return -ENOENT;
-+}
-+
- /*
-  * Number of MSCs that have been probed. Once all MSCs have been probed MPAM
-  * can be enabled.
-@@ -2286,6 +2372,8 @@ static void mpam_msc_destroy(struct mpam_msc *msc)
- 		mpam_ris_destroy(ris);
- 
- 	list_del_rcu(&msc->all_msc_list);
-+	synchronize_srcu(&mpam_srcu);
-+	mpam_pcc_chan_put(msc->pcc_chan);
- 	platform_set_drvdata(pdev, NULL);
- 
- 	add_to_garbage(msc);
-@@ -2308,7 +2396,7 @@ static void mpam_msc_drv_remove(struct platform_device *pdev)
- static struct mpam_msc *do_mpam_msc_drv_probe(struct platform_device *pdev)
- {
- 	int err;
--	u32 tmp;
-+	u32 pcc_subspace_id;
- 	struct mpam_msc *msc;
- 	struct resource *msc_res;
- 	struct device *dev = &pdev->dev;
-@@ -2352,7 +2440,7 @@ static struct mpam_msc *do_mpam_msc_drv_probe(struct platform_device *pdev)
- 	if (err)
- 		return ERR_PTR(err);
- 
--	if (device_property_read_u32(&pdev->dev, "pcc-channel", &tmp))
-+	if (device_property_read_u32(dev, "pcc-channel", &pcc_subspace_id))
- 		msc->iface = MPAM_IFACE_MMIO;
- 	else
- 		msc->iface = MPAM_IFACE_PCC;
-@@ -2373,6 +2461,33 @@ static struct mpam_msc *do_mpam_msc_drv_probe(struct platform_device *pdev)
- 		}
- 		msc->mapped_hwpage_sz = msc_res->end - msc_res->start;
- 		msc->mapped_hwpage = io;
-+	} else if (msc->iface == MPAM_IFACE_PCC) {
-+		u32 mpam_fb_msc_id;
-+
-+		msc->pcc_chan = mpam_pcc_chan_get(dev, pcc_subspace_id);
-+		if (IS_ERR(msc->pcc_chan)) {
-+			pr_err("Failed to request MSC PCC channel\n");
-+			return ERR_CAST(msc->pcc_chan);
-+		}
-+
-+		err = mpam_fb_check_shared_buffer_size(msc);
-+		if (err) {
-+			mpam_pcc_chan_put(msc->pcc_chan);
-+
-+			return ERR_PTR(err);
-+		}
-+
-+		err = mpam_fb_check_protocol_version(msc);
-+		if (err) {
-+			mpam_pcc_chan_put(msc->pcc_chan);
-+
-+			return ERR_PTR(err);
-+		}
-+
-+		if (device_property_read_u32(&pdev->dev, "mpam-fb-msc-id",
-+					     &mpam_fb_msc_id))
-+			mpam_fb_msc_id = msc->id;
-+		msc->fb_id = mpam_fb_msc_id;
- 	} else {
- 		return ERR_PTR(-EINVAL);
- 	}
-diff --git a/drivers/resctrl/mpam_fb.c b/drivers/resctrl/mpam_fb.c
-index 72f45e9582df9..54834052cbde0 100644
---- a/drivers/resctrl/mpam_fb.c
-+++ b/drivers/resctrl/mpam_fb.c
-@@ -20,10 +20,15 @@
- #define MPAM_FB_PROTOCOL_ID		0x1a
- 
- #define MPAM_PROTOCOL_VERSION_CMD	0x0
-+#define MPAM_FB_VERSION_MAJOR_MASK		GENMASK_U32(31, 16)
-+#define MPAM_FB_VERSION_MINOR_MASK		GENMASK_U32(15, 0)
-+
- #define MPAM_MSC_READ_CMD		0x4
- #define MPAM_MSC_WRITE_CMD		0x5
- 
- #define MPAM_FB_PROT_HEADER_LEN		sizeof(u32)
-+/* The longest message is MPAM_MSC_WRITE, with 4 parameters. */
-+#define MPAM_FB_MAX_MSG_SIZE		(4 * sizeof(u32))
- 
- #define MPAM_FB_SUCCESS		 0
- #define MPAM_FB_ERR_NOT_SUPPORTED	-1
-@@ -215,3 +220,39 @@ int mpam_fb_send_write_request(struct mpam_msc *msc, u16 reg, u32 value)
- 	return mpam_fb_send_request(msc, msc->fb_id, reg, &value,
- 				    MPAM_MSC_WRITE_CMD);
- }
-+
-+/* We only support MPAM-Fb protocol version 1.x */
-+int mpam_fb_check_protocol_version(struct mpam_msc *msc)
-+{
-+	u32 version;
-+	int ret;
-+
-+	ret = mpam_fb_send_request(msc, 0, 0, &version,
-+				   MPAM_PROTOCOL_VERSION_CMD);
-+	if (ret)
-+		return ret;
-+
-+	if (FIELD_GET(MPAM_FB_VERSION_MAJOR_MASK, version) != 1) {
-+		pr_err("Incompatible MPAM-Fb protocol version %d.%d\n",
-+		       FIELD_GET(MPAM_FB_VERSION_MAJOR_MASK, version),
-+		       FIELD_GET(MPAM_FB_VERSION_MINOR_MASK, version));
-+
-+		return -EINVAL;
-+	}
-+
-+	return 0;
-+}
-+
-+int mpam_fb_check_shared_buffer_size(struct mpam_msc *msc)
-+{
-+	int min_buffer_size = MPAM_FB_MAX_MSG_SIZE +
-+			      sizeof(struct acpi_pcct_ext_pcc_shared_memory);
-+
-+	if (msc->pcc_chan->pcc_chan->shmem_size < min_buffer_size) {
-+		pr_err("MPAM-Fb PCC channel size too small.\n");
-+
-+		return -ENOMEM;
-+	}
-+
-+	return 0;
-+}
-diff --git a/drivers/resctrl/mpam_internal.h b/drivers/resctrl/mpam_internal.h
-index 99057d6abee1e..ee7c3953a9b6c 100644
---- a/drivers/resctrl/mpam_internal.h
-+++ b/drivers/resctrl/mpam_internal.h
-@@ -538,6 +538,8 @@ static inline void mpam_resctrl_teardown_class(struct mpam_class *class) { }
- /* MPAM-Fb Firmware-backed protocol wrappers */
- int mpam_fb_send_read_request(struct mpam_msc *msc, u16 reg, u32 *result);
- int mpam_fb_send_write_request(struct mpam_msc *msc, u16 reg, u32 value);
-+int mpam_fb_check_protocol_version(struct mpam_msc *msc);
-+int mpam_fb_check_shared_buffer_size(struct mpam_msc *msc);
- 
- /*
-  * MPAM MSCs have the following register layout. See:
--- 
-2.43.0
+On 9/29/26 12:31, Michal Wilczynski wrote:
+> inno_hdmi_init_hw() drives the register interface from the system clock
+> on every platform, by setting v_REG_CLK_SOURCE_SYS unconditionally in
+> HDMI_SYS_CTRL.
+> 
+> That is not right everywhere. On the JH7110 a Framework 13 (fml13v01)
+> panel flickers continuously with the system clock selected and behaves
+> once the TMDS clock drives the register interface instead. Maud Spierings
+> found this by diffing HDMI_SYS_CTRL against the StarFive vendor kernel,
+> which leaves the bit clear.
+> 
+> Add a plat_data flag for it rather than changing the bit for everyone.
+> The Rockchip integrations keep the system clock, so this is a no-op for
+> them; only a platform that asks for it gets the TMDS clock.
+> 
+> Reported-by: Maud Spierings <maud_spierings@murena.io>
+> Closes: https://lore.kernel.org/all/e780ecb8-918f-4816-99c8-b69b10b25a18@murena.io/
+> Signed-off-by: Michal Wilczynski <m.wilczynski@samsung.com>
+> ---
+>   drivers/gpu/drm/bridge/inno-hdmi.c | 4 +++-
+>   include/drm/bridge/inno_hdmi.h     | 2 ++
+>   2 files changed, 5 insertions(+), 1 deletion(-)
+> 
+> diff --git a/drivers/gpu/drm/bridge/inno-hdmi.c b/drivers/gpu/drm/bridge/inno-hdmi.c
+> index 56f7d41cdae49ae872599a86799412c421158369..db92013a3b1e7c1b6668e9257523a0ca8d2c23d7 100644
+> --- a/drivers/gpu/drm/bridge/inno-hdmi.c
+> +++ b/drivers/gpu/drm/bridge/inno-hdmi.c
+> @@ -580,7 +580,9 @@ static void inno_hdmi_init_hw(struct inno_hdmi *hdmi)
+>   	usleep_range(100, 150);
+>   
+>   	msk = m_REG_CLK_INV | m_REG_CLK_SOURCE | m_POWER | m_INT_POL;
+> -	val = v_REG_CLK_INV | v_REG_CLK_SOURCE_SYS | v_PWR_ON | v_INT_POL_HIGH;
+> +	val = v_REG_CLK_INV | v_PWR_ON | v_INT_POL_HIGH;
+> +	val |= hdmi->plat_data->reg_clk_source_tmds ? v_REG_CLK_SOURCE_TMDS :
+> +						      v_REG_CLK_SOURCE_SYS;
+>   	hdmi_modb(hdmi, HDMI_SYS_CTRL, msk, val);
+>   
+>   	inno_hdmi_standby(hdmi);
+> diff --git a/include/drm/bridge/inno_hdmi.h b/include/drm/bridge/inno_hdmi.h
+> index 1e9974401c39e3773bb339eaec0b45ff1dd9c975..620f035eb9846762ff91cd933b30e07eaeeae8ed 100644
+> --- a/include/drm/bridge/inno_hdmi.h
+> +++ b/include/drm/bridge/inno_hdmi.h
+> @@ -32,6 +32,8 @@ struct inno_hdmi_plat_data {
+>   	const struct inno_hdmi_plat_ops *ops;
+>   	struct inno_hdmi_phy_config *phy_configs;
+>   	struct inno_hdmi_phy_config *default_phy_config;
+> +	/* Clock the register interface from the TMDS clock, not the system clock. */
+> +	bool reg_clk_source_tmds;
+>   };
+>   
+>   struct inno_hdmi *inno_hdmi_bind(struct device *pdev,
+> 
 
 
