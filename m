@@ -4,67 +4,67 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 017D4CA5FE0
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  1 Oct 2026 08:22:58 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0BDE8CA5FCE
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  1 Oct 2026 08:23:01 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Cw5Md4vlQmmym/q3UHeWVb3S8Fi8h4WqY6aiv8+6FGI=; b=D+5a+JxQqws4DwMatOdcPcXYRd
-	A9q5eDeHDggh9GD9+8WM5gWYHbTrwettYnWAoUGokVzyGZdzoGJAf5S2M9CQ9jctAKHuI3RwL5LWG
-	YOo0oYO3XhiWrQhtuZtNu+YEzho7sElo33M7dFi5lVV/s9JG39e/+6RlZ281t0nRom4FNY0faGYuQ
-	f8wh96IlQUjCq/1lQZSmOIfkX0bxVAk11MxtHA+y6KLmUYsPbJ7J99n4I7lXJJ4QqNGzaokjvfgel
-	zaTX6kvbg17SIpzSOBzzBUZBnll9UIQaTazANx3LH/UNcwpyzE/bViErqftyf0MzXAUCNzE3atDwI
-	GZHxUVwA==;
+	bh=faFSmgf0UoH3tPqp1jvEcgCuDHoV29KBYn+yS8rEdOg=; b=jGuNjly5PHoJDfIx1hwfFeXQi3
+	yvYYCgw3/LBVUulIE8l9ASNlD0mb7tQj5Z4hoemJ5KGroe52vtXbZbO8++OAOtsQNQnczEk4tIKqh
+	53SIr7xAIxECz34oZBhVZfuVeDfiyfN5Y6ObZ6b3w+YhFB6KF4U0bbPiqA95KKuSA0i9LLF7Y+gRr
+	CE8s8aI7iuKxoJtD1K5iZUx/fk5x+TTRlfB1+TQPzQ6111MtuGyte5hx4qy5GIsZ5PC3zMmuibsyP
+	KYRLuRzMU5JH82LTocqaO0nKL3YxPUb3XJnBDpIiDUD2cK0TfyHVOOc8lI00/hvp0gBUfsbcEn5Od
+	4uv1jN8Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xCC42-000000088QF-1qKO;
-	Thu, 01 Oct 2026 08:22:50 +0000
+	id 1xCC45-000000088Wz-2FBs;
+	Thu, 01 Oct 2026 08:22:53 +0000
 Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xCC3g-000000087bO-3CaP;
+	id 1xCC3h-000000087dw-1R96;
 	Thu, 01 Oct 2026 08:22:29 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=infradead.org; s=desiato.20200630; h=Cc:To:In-Reply-To:References:
 	Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Sender:Reply-To:Content-ID:Content-Description;
-	bh=Cw5Md4vlQmmym/q3UHeWVb3S8Fi8h4WqY6aiv8+6FGI=; b=JCxQDXGPHAUQuYSe+HuE54nGcn
-	3e52nLUgbG0HW2+UNma/0KtGCYJCGDN55ClqTsX1BBkuwGF5KA+kxY1DFvZ/2Z/cOOvq3LjcaslDk
-	GCJpMWV62sZ+R/tyW1KBDJL491208Zgaswp7qIRcUNKPIygpKWJ8735bF+g9IO1K3GBeFZOddwIxk
-	ywpS5J42z93tG4I7EzHnJYep8sYRlWVRNW+XH5Jtpc1A6Ot5x16ZeFfHqOmOrtYCiJ6l+Ld9mx1KV
-	zXWFw2EYBgeYiiFxza1pOe64tIGARqylLf8lXBRGVZoB+LDRStW64/yzFWfof7n8EE4dTQOPi5qjG
-	4bWYe1Eg==;
+	bh=faFSmgf0UoH3tPqp1jvEcgCuDHoV29KBYn+yS8rEdOg=; b=TFR4soYCYED5RrdYlr2h//zW7b
+	JcZqymHMziMaMAQM7SSzWCdctwYPipcuY621b2egM2l2TysPGWOZDtCBKoZx4scp7Iy61QQUp0A4/
+	diYl5RjFgQSeo9BA3FYu9905EaZlc12IIvu0f99CnmiarO97IGbDahm+XoW2q1qZhVkxnlsIVCcsf
+	ZwokdTNEtThABzc1ySjVB5igM/UyriSELpxsHUnYtoxfEjL6OCPSdlz/3bmanVN5spI6RCAoVxLZ+
+	59FU5/cO8BGkUcdb9n04xt4fwRLnu+Si8EatmOiJRooZXM90X1keHWxfNaQTM5XkThnE99pnQjxHy
+	i5Phqpvg==;
 Received: from bali.collaboradmins.com ([148.251.105.195])
 	by desiato.infradead.org with esmtps (Exim 4.99.2 #2 (Red Hat Linux))
-	id 1xCC3d-00000004ivl-0jKp;
-	Thu, 01 Oct 2026 08:22:27 +0000
+	id 1xCC3e-00000004iwT-19d6;
+	Thu, 01 Oct 2026 08:22:28 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
-	s=mail; t=1790842944;
-	bh=l2hO/KJEmWtszH5GEQpJ9ssJ+uFhum7Wp730pKmXQZE=;
+	s=mail; t=1790842945;
+	bh=ctvo10c6ZHGhBb9Ez2vAg3xgbygWnaRa1DyjwWhzx9I=;
 	h=From:Date:Subject:References:In-Reply-To:To:Cc:From;
-	b=FbYY91ZzRC3wwCMrOXQfj24wxM99+qJcYnUjn5FFei/yamq6OKy5HiejzW7NLcTzO
-	 BziPHhBa1DTWD1x3w7AK5Lp3W1Hmx1K2QGxO/P9HViBOEtbij1N3Zm1xtO5LD5UamP
-	 PUxuT83ShpTn0CWxO2G6j6bLE6XTu+f4UUDqJ13H0RDGoWhGVULoBiCrc2V/r7USqb
-	 z/ZH/p+ymex8dQ0fEmXefssqCmLX2vON8W/O3xrXZ25caxH0q8vJAwJWtJ7MqllS1a
-	 kET8usk2EtuaSelOxWBifGIW9lWaLJaVBHAknwdMgtpc7WUy30P/kjjDiiSr7K+CGd
-	 RhkGmz8dDuqMw==
+	b=AFIN15lPYvTfV5D6SPuQSu6M+sXDS7YmjWVza0JfvDzkIVZsvCy06aVU1OIjVSgis
+	 6Y95fWd0Tbz9SGLp5L+sqTmmSV6chxb146FEF9KFDMDYn+z/JWSMkxu6wN/uhwoyy/
+	 347LTzp8af0Y9ppR5Qn/R+8CydyhLorpp3crXHPOCFdkRh6atM2FDz6srHai117kfY
+	 /kAAE4WVrL6t+7SJefhSEIfARCm87M9Ks4tHaI8h58v3CEJ71TDhWt8sHcS/0fI//M
+	 rNOM1q2KOWt10PsJyxZ8KECGoN0QqAwEf8lidKtvb2nnFqAF78G2y+cB4+Xb5ANqhB
+	 AWpsvF5bicaXQ==
 Received: from yukiji.home (unknown [100.64.0.131])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange x25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
 	(No client certificate requested)
 	(Authenticated sender: laeyraud)
-	by bali.collaboradmins.com (Postfix) with ESMTPSA id 1ECDE17E0906;
-	Thu, 01 Oct 2026 10:22:23 +0200 (CEST)
+	by bali.collaboradmins.com (Postfix) with ESMTPSA id 2E73317E1294;
+	Thu, 01 Oct 2026 10:22:24 +0200 (CEST)
 From: Louis-Alexis Eyraud <louisalexis.eyraud@collabora.com>
-Date: Thu, 01 Oct 2026 10:21:55 +0200
-Subject: [PATCH v13 23/24] scsi: ufs: mediatek: Remove undocumented
- "clk-scale-up-vcore-min"
+Date: Thu, 01 Oct 2026 10:21:56 +0200
+Subject: [PATCH v13 24/24] scsi: ufs: mediatek: Add MT8196 compatible,
+ update copyright
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20261001-mt8196-ufs-v13-23-60854adab6d9@collabora.com>
+Message-Id: <20261001-mt8196-ufs-v13-24-60854adab6d9@collabora.com>
 References: <20261001-mt8196-ufs-v13-0-60854adab6d9@collabora.com>
 In-Reply-To: <20261001-mt8196-ufs-v13-0-60854adab6d9@collabora.com>
 To: Chunfeng Yun <chunfeng.yun@mediatek.com>, Vinod Koul <vkoul@kernel.org>, 
@@ -89,16 +89,16 @@ Cc: kernel@collabora.com, linux-arm-kernel@lists.infradead.org,
  Nicolas Frattaroli <nicolas.frattaroli@collabora.com>, 
  Louis-Alexis Eyraud <louisalexis.eyraud@collabora.com>
 X-Mailer: b4 0.14.3
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1790842918; l=4256;
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1790842918; l=2479;
  i=louisalexis.eyraud@collabora.com; s=20250113; h=from:subject:message-id;
- bh=+k1PcNjMZn/9p7ErJS/nfzOKBYihpmoa+aVg+KcZuzY=;
- b=I838HejL2+NaULLx0/FQ7CpMXTpT8/5/LSuQp+RqKKtncdxp/2ULV2pWi4rXudAAgWE1agIak
- 9wvTNPuyspZBCrI3na9qr1n8R+pYHrFFAOH+G+4iW8gJQY1XjWZcG0b
+ bh=cWTgHnZ/lMdOvuu4I4G/RHLEbAxcnvmFO7SITuHbHaA=;
+ b=xDUyDGQumkFkn0Peb3Yk9j1EfG4X9GJq4V3I6mkbR0sl71mC4xrz6e9aUOZIwBix/kQrd5seb
+ QmqNVWWsGIrA2z0f7gQ578A5DWW1tccAqPjYFjPtXxc8fuN1Iu+jKG7
 X-Developer-Key: i=louisalexis.eyraud@collabora.com; a=ed25519;
  pk=CHFBDB2Kqh4EHc6JIqFn69GhxJJAzc0Zr4e8QxtumuM=
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261001_092225_851495_3CE4058B 
-X-CRM114-Status: GOOD (  18.91  )
+X-CRM114-CacheID: sfid-20261001_092226_739255_D00393EC 
+X-CRM114-Status: GOOD (  13.73  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -115,127 +115,69 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 
 From: Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
 
-The MediaTek UFS driver contains support for an undocumented,
-non-vendor-prefixed u32 property named "clk-scale-up-vcore-min".
+The MT8196's UFS controller has a new compatible. Add the necessary
+struct definitions to support it.
 
-Since it is not part of any binding, and would not pass a bindings
-review in its current form, remove it.
-
-To return this functionality, it needs to be resubmitted in a series
-that also introduces it to the binding, and justifies what it is used
-for. Compatibility with downstream device trees is not a valid
-justification for its existence.
+Also update the copyrights and authors, without tabs following spaces to
+avoid checkpatch errors, to list myself as having contributed to this
+driver after the preceding rework patches.
 
 Reviewed-by: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
+Reviewed-by: Peter Wang <peter.wang@mediatek.com>
 Signed-off-by: Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
-Reviewed-by: Chaotian Jing <chaotian.jing@mediatek.com>
 Signed-off-by: Louis-Alexis Eyraud <louisalexis.eyraud@collabora.com>
 ---
- drivers/ufs/host/ufs-mediatek.c | 42 +----------------------------------------
- drivers/ufs/host/ufs-mediatek.h |  1 -
- 2 files changed, 1 insertion(+), 42 deletions(-)
+ drivers/ufs/host/ufs-mediatek.c | 18 ++++++++++++++++--
+ 1 file changed, 16 insertions(+), 2 deletions(-)
 
 diff --git a/drivers/ufs/host/ufs-mediatek.c b/drivers/ufs/host/ufs-mediatek.c
-index 2473aba8fbf8..1d9cb928de49 100644
+index 1d9cb928de49..56ec65c2ac07 100644
 --- a/drivers/ufs/host/ufs-mediatek.c
 +++ b/drivers/ufs/host/ufs-mediatek.c
-@@ -922,8 +922,6 @@ static void ufs_mtk_init_clocks(struct ufs_hba *hba)
- 	struct ufs_mtk_host *host = ufshcd_get_variant(hba);
- 	struct list_head *head = &hba->clk_list_head;
- 	struct ufs_clk_info *clki, *clki_tmp;
--	struct device *dev = hba->dev;
--	u32 volt;
+@@ -1,9 +1,11 @@
+ // SPDX-License-Identifier: GPL-2.0
+ /*
+  * Copyright (C) 2019 MediaTek Inc.
++ * Copyright (C) 2026 Collabora Ltd.
+  * Authors:
+- *	Stanley Chu <stanley.chu@mediatek.com>
+- *	Peter Wang <peter.wang@mediatek.com>
++ *      Stanley Chu <stanley.chu@mediatek.com>
++ *      Peter Wang <peter.wang@mediatek.com>
++ *      Nicolas Frattaroli <nicolas.frattaroli@collabora.com> (Major cleanups)
+  */
  
- 	/*
- 	 * Find private clocks and store them in struct ufs_mtk_clk.
-@@ -960,24 +958,7 @@ static void ufs_mtk_init_clocks(struct ufs_hba *hba)
- 	if (!ufs_mtk_is_clk_scale_ready(hba)) {
- 		hba->caps &= ~UFSHCD_CAP_CLK_SCALING;
- 		dev_info(hba->dev, "%s: Clock scaling unavailable", __func__);
--		return;
--	}
--
--	if (!host->reg_vcore)
--		return;
--
--	if (of_property_read_u32(dev->of_node, "clk-scale-up-vcore-min",
--				 &volt)) {
--		dev_info(dev, "failed to get clk-scale-up-vcore-min");
--		return;
- 	}
--
--	host->mclk.vcore_volt = volt;
--
--	/* If default boot is max gear, request vcore */
--	if (volt && host->clk_scale_up)
--		if (regulator_set_voltage(host->reg_vcore, volt, INT_MAX))
--			dev_err(hba->dev, "Failed to set vcore to %d\n", volt);
- }
- 
- static void ufs_mtk_setup_clk_gating(struct ufs_hba *hba)
-@@ -1971,8 +1952,7 @@ static void _ufs_mtk_clk_scale(struct ufs_hba *hba, bool scale_up)
- 	struct ufs_mtk_clk *mclk = &host->mclk;
- 	struct ufs_clk_info *clki = mclk->ufs_sel_clki;
- 	struct ufs_clk_info *fde_clki = mclk->ufs_fde_clki;
--	int volt, ret = 0;
--	bool clk_bind_vcore = false;
-+	int ret = 0;
- 	bool clk_fde_scale = false;
- 
- 	if (!hba->clk_scaling.is_initialized)
-@@ -1981,10 +1961,6 @@ static void _ufs_mtk_clk_scale(struct ufs_hba *hba, bool scale_up)
- 	if (!clki || !fde_clki)
- 		return;
- 
--	volt = host->mclk.vcore_volt;
--	if (host->reg_vcore && volt)
--		clk_bind_vcore = true;
--
- 	if (mclk->ufs_fde_max_clki && mclk->ufs_fde_min_clki)
- 		clk_fde_scale = true;
- 
-@@ -2005,14 +1981,6 @@ static void _ufs_mtk_clk_scale(struct ufs_hba *hba, bool scale_up)
- 	}
- 
- 	if (scale_up) {
--		if (clk_bind_vcore) {
--			ret = regulator_set_voltage(host->reg_vcore, volt, INT_MAX);
--			if (ret) {
--				dev_err(hba->dev, "Failed to set vcore to %d\n", volt);
--				goto out;
--			}
--		}
--
- 		ret = clk_set_parent(clki->clk, mclk->ufs_sel_max_clki->clk);
- 		if (ret) {
- 			dev_err(hba->dev, "%s: Failed to set clock mux: %pe\n",
-@@ -2044,14 +2012,6 @@ static void _ufs_mtk_clk_scale(struct ufs_hba *hba, bool scale_up)
- 				__func__, ERR_PTR(ret));
- 			goto out;
- 		}
--
--		if (clk_bind_vcore) {
--			ret = regulator_set_voltage(host->reg_vcore, 0, INT_MAX);
--			if (ret) {
--				dev_err(hba->dev, "%s: Failed to set vcore to minimum: %pe\n",
--					__func__, ERR_PTR(ret));
--			}
--		}
- 	}
- 
- out:
-diff --git a/drivers/ufs/host/ufs-mediatek.h b/drivers/ufs/host/ufs-mediatek.h
-index 1fa14a83e8cd..4966aae5bd34 100644
---- a/drivers/ufs/host/ufs-mediatek.h
-+++ b/drivers/ufs/host/ufs-mediatek.h
-@@ -154,7 +154,6 @@ struct ufs_mtk_clk {
- 	struct ufs_clk_info *ufs_fde_clki; /* Mux */
- 	struct ufs_clk_info *ufs_fde_max_clki; /* Max src */
- 	struct ufs_clk_info *ufs_fde_min_clki; /* Min src */
--	int vcore_volt;
+ #include <linux/arm-smccc.h>
+@@ -2257,6 +2259,10 @@ static const char *const ufs_mtk_regs_avdd12_ckbuf_avdd18[] = {
+ 	"avdd12", "avdd12-ckbuf", "avdd18"
  };
  
- struct ufs_mtk_hw_ver {
++static const char *const ufs_mtk_regs_avdd12_ckbuf[] = {
++	"avdd12", "avdd12-ckbuf"
++};
++
+ static const struct ufs_mtk_soc_data mt8183_data = {
+ 	.has_avdd09 = true,
+ 	.reg_names = ufs_mtk_regs_avdd12_avdd18,
+@@ -2269,10 +2275,18 @@ static const struct ufs_mtk_soc_data mt8192_8195_data = {
+ 	.num_reg_names = ARRAY_SIZE(ufs_mtk_regs_avdd12_ckbuf_avdd18),
+ };
+ 
++static const struct ufs_mtk_soc_data mt8196_data = {
++	.has_avdd09 = true,
++	.has_avdd09_1 = true,
++	.reg_names = ufs_mtk_regs_avdd12_ckbuf,
++	.num_reg_names = ARRAY_SIZE(ufs_mtk_regs_avdd12_ckbuf),
++};
++
+ static const struct of_device_id ufs_mtk_of_match[] = {
+ 	{ .compatible = "mediatek,mt8183-ufshci", .data = &mt8183_data },
+ 	{ .compatible = "mediatek,mt8192-ufshci", .data = &mt8192_8195_data },
+ 	{ .compatible = "mediatek,mt8195-ufshci", .data = &mt8192_8195_data },
++	{ .compatible = "mediatek,mt8196-ufshci", .data = &mt8196_data },
+ 	{},
+ };
+ MODULE_DEVICE_TABLE(of, ufs_mtk_of_match);
 
 -- 
 2.55.0
