@@ -4,58 +4,82 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 184A9CA5FA5
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  1 Oct 2026 09:59:04 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 45D6ECA5FA5
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  1 Oct 2026 09:59:42 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:From:
+	Subject:Message-ID:References:Mime-Version:In-Reply-To:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=VYkw38vXccedXe7/VFxScAzP/yByphJr6jcUEvgt6sI=; b=G+85huql6bfUhipnteJz3hqQzc
-	T4V2Xn1qbBYay32LcXDk9V78wsWV8bbe9Z5EcVglrRT2NTEZfOXpN/uwsHexfKeRz8pIcDKdBlgwU
-	eaCPA2PKweNVNvKNo+1Tk5ALLW/m26uRAgkzdSNOCyjZsgQ8QWc82jHw+AXXZOHCqhF14DcjTPwuw
-	k09iotFJBr4QxxmBWSMgVSjib2071G4XwWisZEpsmNhe83Z7AQVJZFzXpcPKkE+pbkRR95F96RWSl
-	E37vfDw+f8D4eCy4PZ77qDPXCmnGtp2cc90cy6AvLTUHsMoqdZrqcfaC+tdMAcgu29b+jVo8gXsNQ
-	/r1dBtoA==;
+	bh=CoEuXCUHMThE7b0HEAeKA32nViaypVkNSYDvFKph1Uw=; b=I8YA4xaUsX/a48EovtteGNpPvC
+	vQJDja5rNZ99BfMSHSGAnl9wNCBl7LNrx1e2E9cERcmoerXPnI3FvsMutzs9TRSavNYKyZY8cgBEY
+	stPN3D434qrwZKW543xZyVFjfcPyVGI6LRkBV39HUSONaZzpUI7W/Ar6MvYd0Cl9fXgif4IVQndgp
+	v4ynVkJDaNVguM+LFXIdfU+REuCm5lCLejSNaf5+5uxIH+fJcadw2F9hRxEqxKfItxE7NzshT3Lz2
+	y8pjNqUEVejG/Ajx+ip1le74ZGhlSJEzM7DmjYFx/t1ZT0DdXrJeI/5XrqyrW71O4zR208Uk05f3a
+	k3pK4KnA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xCDZ1-00000008S7t-3jS6;
-	Thu, 01 Oct 2026 09:58:55 +0000
-Received: from out-8.mta1.migadu.com ([95.215.58.8] helo=mta1.migadu.com)
+	id 1xCCUF-00000008GcQ-2uFh;
+	Thu, 01 Oct 2026 08:49:55 +0000
+Received: from mail-ed1-x545.google.com ([2a00:1450:4864:20::545])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xCDYx-00000008S75-0E19
+	id 1xCCUD-00000008GZA-0gJK
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 01 Oct 2026 09:58:53 +0000
-X-Envelope-To: linux-arm-kernel@lists.infradead.org
-DKIM-Signature: a=rsa-sha256; bh=VYkw38vXccedXe7/VFxScAzP/yByphJr6jcUEvgt6sI=;
- c=simple/simple; d=grimler.se;
- h=from:to:subject:date:message-id:mime-version:content-type; s=key1;
- t=1790848727; v=1; x=1791453527;
- b=gvIzqcsSpGGSd8xwJV8LAQidmX6DpJW8w3rXWgBLsrQjKn0CcozqHAA5bZhGQXJbQWoF2VCm
- 9HT50gMS9iMtGeZYt/bnWorP1qqY8iAeMoy4Fg4emewtflElWuGDt/y4twkhsXkuWBrAHwZxDjc
- mKvYg/3ZhqqHna25vhoxw3SI=
-X-Envelope-To: linux-arm-kernel@lists.infradead.org
-Received: by mta12.migadu.com with ESMTPS id 75f6aa3334aa47bb;
-	Thu, 01 Oct 2026 09:58:47 +0000
-X-Mizu-Trace-ID: 75f6aa3334aa47bb
-X-Migadu-Flow: FLOW_OUT
-Date: Thu, 1 Oct 2026 11:58:44 +0200
-From: Henrik Grimler <henrik@grimler.se>
-To: Kian <kianprogramer@gmail.com>
-Cc: linux-samsung-soc@vger.kernel.org, linux-arm-kernel@lists.infradead.org
-Subject: Re: Samsung Galaxy J7 Pro =?utf-8?Q?=28j7y?=
- =?utf-8?B?MTdsdGUpIOKAlA==?= Upstream Linux support
-Message-ID: <20261001095838.GA26093@localhost>
-References: <CAC-nSOxO_9tSE8jNGGQZKPtiKPq0qn2sgGWppzD_8yu1q=Wamg@mail.gmail.com>
-MIME-Version: 1.0
-Content-Type: multipart/signed; micalg=pgp-sha256;
-	protocol="application/pgp-signature"; boundary="b0uKHmnE8itGM4fo"
-Content-Disposition: inline
-In-Reply-To: <CAC-nSOxO_9tSE8jNGGQZKPtiKPq0qn2sgGWppzD_8yu1q=Wamg@mail.gmail.com>
+	Thu, 01 Oct 2026 08:49:54 +0000
+Received: by mail-ed1-x545.google.com with SMTP id 4fb4d7f45d1cf-6ae14ecef5fso1695028a12.0
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 01 Oct 2026 01:49:51 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=google.com; s=20251104; t=1790844590; x=1791449390; darn=lists.infradead.org;
+        h=content-type:cc:to:from:subject:message-id:references:mime-version
+         :in-reply-to:date:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=CoEuXCUHMThE7b0HEAeKA32nViaypVkNSYDvFKph1Uw=;
+        b=Iiq1lFxxJg5AB1l1gbTjjlYjqOjsJvb44exyjiD0gQD8krU0H8Ib/C8JAAa41UkSkj
+         YxeK9nw7BlY/uea0HezcBBspeoYYFwbjwv8M6mYNTya7K8JsyApU7Ge0l3qnAfWWJthD
+         OZxqmmeZUiIZ2k6t6knviU9Q5wTNrxtJMf1btLP1NfmKJMv4AJHcCN0CySTRoacTG940
+         e4w2ihuP8YRmCll0aeEI/3O2UuC03EYRQyHF4uCKFTTiyFAtVXsZ7+1RceeVSDQD/LO9
+         TVU2nPs27Yf3zBkLQ5EsKlzakBft2q7ArkrQ1bMzj8fEKEjkMUop8uh9laZcJvGJnHwW
+         GUTg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1790844590; x=1791449390;
+        h=content-type:cc:to:from:subject:message-id:references:mime-version
+         :in-reply-to:date:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=CoEuXCUHMThE7b0HEAeKA32nViaypVkNSYDvFKph1Uw=;
+        b=GR1Y4NjopF13SWfvmah8li/zWXazAyzq32ZjYGIzUuL/L4PFYmFuffcZsqy7QxH9/N
+         Xe6fGkHToiTi+kb0h4P+yXrkF0y4UCVW62Vp/BoyXxQy8lnXD8CWkJnwTu7Z7yuNCV/1
+         cJfQUq6er7wjhc+jsKIq4ecVT2qU1/aZSjNxDEp7/N50LMammy3SnSWSMsLfPdnSNCvD
+         JCJM9jWWc84q9PhkPEeLtC1x0RH/U21ETOY1SatXDGAt+OmeuUlirmaA5V+G6u3ABYwd
+         X2utgv7/COrSnKwohLPeIp9tCQilKtk/j2xVJ3JkwbTW5BJ3dmYcT/JYTmqDy8VKV4aq
+         P6Uw==
+X-Forwarded-Encrypted: i=1; AKwUvBxOaA0dEdxUKVF6gHlx1S95gDYTj6/i20yWn5dWklv7oKq6xP8nzcdjAtM8mszkxz19zDZ+ndgBa9hz/5+dgwRW@lists.infradead.org
+X-Gm-Message-State: AFq9FYLPCEm4vOSlGxt/Hf1Qk+0vr6ju+zeIIs3CMaCH2aeI9wh6ESkz
+	NOPbAyTa6QFTt6eV/yMunuJjQTBV7UhVmqv7pbllJ/q9yFnFXhS4/097J+Q//7UAnNfba1Ku1fh
+	Z5dP3iH+Qy2qR+185vt8Juw==
+X-Received: from edbdc21.prod.google.com ([2002:a05:6402:3115:b0:6ae:197e:353e])
+ (user=vdonnefort job=prod-delivery.src-stubby-dispatcher) by
+ 2002:a05:6402:4003:b0:6ac:72da:dd98 with SMTP id 4fb4d7f45d1cf-6ae198f206fmr3222244a12.15.1790844590380;
+ Thu, 01 Oct 2026 01:49:50 -0700 (PDT)
+Date: Thu,  1 Oct 2026 09:49:07 +0100
+In-Reply-To: <20261001084909.2937943-1-vdonnefort@google.com>
+Mime-Version: 1.0
+References: <20261001084909.2937943-1-vdonnefort@google.com>
+X-Mailer: git-send-email 2.56.0.rc1.315.gc6ed9934b7-goog
+Message-ID: <20261001084909.2937943-4-vdonnefort@google.com>
+Subject: [PATCH v4 3/4] tracing/remotes: Add REMOTE_EVENT_CUSTOM_PRINTK() helper
+From: Vincent Donnefort <vdonnefort@google.com>
+To: maz@kernel.org, oupton@kernel.org, kvmarm@lists.linux.dev, 
+	linux-arm-kernel@lists.infradead.org
+Cc: joey.gouly@arm.com, seiden@linux.ibm.com, suzuki.poulose@arm.com, 
+	yuzenghui@huawei.com, catalin.marinas@arm.com, will@kernel.org, 
+	kernel-team@android.com, fuad.tabba@linux.dev, 
+	Vincent Donnefort <vdonnefort@google.com>, Fuad Tabba <tabba@google.com>, 
+	Steven Rostedt <rostedt@goodmis.org>
+Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261001_025851_839754_7694BF50 
-X-CRM114-Status: GOOD (  34.27  )
+X-CRM114-CacheID: sfid-20261001_014953_221265_DC630E52 
+X-CRM114-Status: GOOD (  12.31  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -70,148 +94,65 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
---b0uKHmnE8itGM4fo
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
+The current REMOTE_EVENT() takes as a __printk argument a string format
+and a list of arguments, such as RE_PRINTK("foo=%d bar=%d", foo, bar).
+Add a REMOTE_EVENT_CUSTOM_PRINTK() where the __printk argument can be a
+function. This intends to support the creation of a "printk" event for
+the arm64 nVHE/pKVM hypervisor with a dynamic prototype and by extension
+a dynamic print format.
 
-Hi Kian,
+Signed-off-by: Vincent Donnefort <vdonnefort@google.com>
+Reviewed-by: Fuad Tabba <tabba@google.com>
+Tested-by: Fuad Tabba <tabba@google.com>
+Acked-by: Steven Rostedt <rostedt@goodmis.org>
+---
+ include/trace/define_remote_events.h | 19 ++++++++++++++++---
+ 1 file changed, 16 insertions(+), 3 deletions(-)
 
-On Thu, Oct 01, 2026 at 10:33:42AM +0330, Kian wrote:
-> Hello,
->=20
-> I am reaching out regarding mainline Linux support for the Samsung
-> Galaxy J7 Pro (SM-J730F, j7y17lte), which is based on the Samsung
-> Exynos 7870 SoC.
->=20
-> The Exynos 7870 already has upstream Linux support and ongoing
-> community development, including Device Tree support for the SoC and
-> several devices based on it.
->=20
-> There have also been several community projects and attempts
-> specifically targeting the J7 Pro. For example, there are existing
-> Device Tree sources such as exynos7870-j7y17lte.dts, previous attempts
-> to boot newer Linux kernels on the device, and Linux/postmarketOS work
-> targeting the actual J7 Pro hardware.
->=20
-> These projects are useful starting points, but each of them has its
-> own limitations, missing functionality, or unresolved issues,
+diff --git a/include/trace/define_remote_events.h b/include/trace/define_remote_events.h
+index 676e803dc144..4f4d58e37b84 100644
+--- a/include/trace/define_remote_events.h
++++ b/include/trace/define_remote_events.h
+@@ -35,17 +35,26 @@ do {											\
+ 
+ #define RE_PRINTK(__args...) __args
+ 
+-#define REMOTE_EVENT(__name, __id, __struct, __printk)					\
+-	REMOTE_EVENT_FORMAT(__name, __struct);						\
++#define REMOTE_EVENT_PRINT_FUNC(__name, __printk)					\
+ 	static void remote_event_print_##__name(void *evt, struct trace_seq *seq)	\
+ 	{										\
+ 		struct remote_event_format_##__name __maybe_unused *__entry = evt;	\
+ 		trace_seq_puts(seq, #__name);						\
+-		remote_printk(__printk);						\
++		__printk;								\
+ 	}
++
++#define REMOTE_EVENT(__name, __id, __struct, __printk)					\
++	REMOTE_EVENT_FORMAT(__name, __struct);						\
++	REMOTE_EVENT_PRINT_FUNC(__name, remote_printk(__printk))
++
++#define REMOTE_EVENT_CUSTOM_PRINTK(__name, __id, __struct, __printk)			\
++	REMOTE_EVENT_FORMAT(__name, __struct);						\
++	REMOTE_EVENT_PRINT_FUNC(__name, __printk)
++
+ #include REMOTE_EVENT_INCLUDE(REMOTE_EVENT_INCLUDE_FILE)
+ 
+ #undef REMOTE_EVENT
++#undef REMOTE_EVENT_CUSTOM_PRINTK
+ #undef RE_PRINTK
+ #undef re_field
+ #define re_field(__type, __field)							\
+@@ -70,4 +79,8 @@ do {											\
+ 		.print_fmt	= remote_event_print_fmt_##__name,			\
+ 		.print		= remote_event_print_##__name,				\
+ 	}
++
++#define REMOTE_EVENT_CUSTOM_PRINTK(__name, __id, __struct, __printk)			\
++	REMOTE_EVENT(__name, __id, RE_STRUCT(__struct), "Unknown")
++
+ #include REMOTE_EVENT_INCLUDE(REMOTE_EVENT_INCLUDE_FILE)
+-- 
+2.56.0.rc1.315.gc6ed9934b7-goog
 
-I think you are misunderstanding the community projects. They are
-missing features or have unresolved issues because no one has had
-time, or the skills, or the interest, to work on the
-features/issues. Issues or regressions happen with mainline linux as
-well, and there is no guarantee that anyone has time or interest to
-discover and investigate issues for older devices here
-either.
-
-> and none of them provides complete upstream support for the J7 Pro.
-
-"complete upstream support" would be the (un-achievable?) end-goal, of
-course none of them prove complete upstream support.
-
-> I can provide links to these projects and repositories so that the
-> existing work can be reviewed and compared.
->=20
-> Rather than creating yet another unofficial downstream kernel or
-> another separate community project with its own limitations,
-
-Ok, but how will you test your patches? It seems a lot easier to test
-the kernel together with a community project rather than writing your
-own initfs and rootfs and essentially inventing yet another community
-project in the process.
-
-> I would like to try to bring the existing work together and work
-> toward proper upstream Linux support for the device.
-
-PostmarketOS (now re-branded as Nura [1]) encourages contributors to
-send their patches upstream, a lot of time has been spent on writing
-wiki pages about the upstreaming process, and creating a mainlining
-guide [2, 3]. I suggest you read the guide and reach out to the other
-people working on exynos7xxx devices.
-
-> Would someone familiar with the Exynos 7870 platform and Samsung
-> Device Trees be interested in reviewing the existing J7 Pro work and
-> assessing what is still required for mainline support?
-
-Rather than thinking about what is missing you should start testing a
-small barebone .dts for your device (maybe with uart/serial and/or
-framebuffer support and not much else), and add more features when you
-have had the time to properly test and verify them. This is where
-community projects are useful, you can collaborate with others that
-are working on the same or similar devices and test&develop features
-together.
-
-> I own a physical SM-J730F and have access to the actual device for
-> development and testing. I can provide the links to the existing
-> community projects, Device Tree sources, repositories, and other
-> relevant work.
->=20
-> I am willing to do anything that is reasonably within my ability to
-> help with the upstreaming effort. I can perform hardware testing,
-> collect boot logs and dmesg output, investigate hardware and Device
-> Tree information, reproduce issues, test kernel and Device Tree
-> changes, test patches on the actual device, and provide reproducible
-> test results. If additional information or specific tests are needed,
-> I am also willing to carry them out and learn whatever is necessary to
-> help with the development process.
-
-Sounds great, only thing missing is then to create the dts for the
-device, and probably add support for your device to some drivers. Most
-likely no one here will prepare patches for you, so this is a great
-opportunity for you to learn how to do those things.
-
-Again, I suggest you get involved with a community project and learn
-=66rom, and together with, the other people interested in adding support
-upstream for similar devices. Nura(/PostmarketOS) for example has an
-active exynos-arm64 community that work on exynos7xxx and other arm64
-SOCs, please check out their matrix chat [4].
-
-[1] https://nura.eco/blog/2026/09/27/nura-rename/
-[2] https://wiki.nura.eco/wiki/Mainlining
-[3] https://wiki.nura.eco/wiki/Mainlining_Guide
-[4] https://matrix.to/#/#exynos-arm64-mainline:nope.chat
-
-Best regards,
-Henrik Grimler
-
-> I do not want to simply create another unofficial project for the J7
-> Pro. My goal is to make use of the work that already exists, identify
-> what is missing or needs to be fixed, and help move the device toward
-> a clean and maintainable upstream implementation.
->=20
-> If there is interest in working on this, I can provide the relevant
-> project and repository links, Device Tree sources, logs, and any other
-> hardware information I have available.
->=20
-> I would be very interested in helping bring the J7 Pro into the
-> upstream Linux ecosystem, and I am willing to contribute wherever I
-> can.
->=20
-> Thank you for your time and for your work on Samsung Exynos support in
-> the Linux kernel.
->=20
-> Best regards,
->=20
-> A J7 Pro owner and contributor
->=20
-
-
---b0uKHmnE8itGM4fo
-Content-Type: application/pgp-signature; name=signature.asc
-
------BEGIN PGP SIGNATURE-----
-
-iQFPBAEBCAA5FiEELH8prpeJH2QZqeLNsAduSQtxYWsFAmq+Ls8bFIAAAAAABAAO
-bWFudTIsMi41KzEuMTIsMywyAAoJELAHbkkLcWFrMpoH/3YTAonzJUvyMR20bMRs
-XLof7AyQYLp166+NuMBl+deKA43RWChRBVa/bSyYLk2PCKhBr2jLnTdCeytS9lw7
-W10wlz5ZuD/3BsfTOycoeMDv1P09quljdMHjPTUTHIcOIpGFlWPiO27m1jSYg9Pd
-02Tg5uFELeBSwUV6aAoS0P1V946aIGRZr+lne5gaSYqPAGdbk+HK3bNK1o09S4G4
-f0Ubi1KBzfNuvDZeQULuVwqM6eVPafkRP0Xsy/xC9vdXQWLr3cgJ7tUPrvIIseJX
-XjGRbMi5l9QchODnV0/32SFW88V5coUvL/54+NIkmZAv1MYMYaX9beGcYKMyMURk
-zWI=
-=xrL4
------END PGP SIGNATURE-----
-
---b0uKHmnE8itGM4fo--
 
