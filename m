@@ -4,80 +4,104 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 07BC2CA5FB3
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  1 Oct 2026 06:00:47 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7029FCA5FB3
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  1 Oct 2026 06:09:45 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=vf2W5S7rnN/EqIPhbCpAlveRHHEMC7ftIJJRzgEuN34=; b=VakMiAzXezOTH32Cp8RTD5ILCQ
-	nR5aVzC/qQgrcSqpghS8tYK4JqwM2P7lmmNle+1cbUnDL4UdrWO4q8EPBaJhDAc1U+COs9Fwle2nc
-	Lu+dAWfk0rK9DMKqM/oum4bTh1mYVeo/W9amdiX0jXZUU9d/grS78fj6O+VpWKrNujSeBufMTHeZy
-	kHgoYBHUxVi1Cq1QtN16msWJFCc8fBoEcybUmkBBZ9dEk7QPkPV4CLoGItbLfZvmA/HiI5CPQeJXf
-	ESe1Y0j0qNs5sCN6e7HYtT2y7qe9iS25HetNEFFEtVNOEVp+MmnbNyoQQXYOQgTrZeGYIjGMrt/1y
-	CnkqgE0w==;
+	bh=chw6/SdajFRbZqWoHfe7q1GxdMMrIeRtmFotLArWKGA=; b=oE7/pRy2JEUMlW0pCL2MJhkeay
+	PeSIjYS3IIJxsdhCZJbOQzU9D5JkzgSoufXfjQyiQh8uylNzHRBEtpX5o7TSv/Cu1+1lP7a5ofqvs
+	tDYxZ8aaHa6FiL8IJu1sH7a062QlNeOrYXznW0puVa6+ppXEYQPaA+J6suth8rDPC8upVQth8Ovge
+	TUBNG2RzaDnDn4ht9mp4JBczawgewHDelVQgVNcXWjK6wncElu8zIOKjQPk9FrpGB4DTPKbFRSUKv
+	nbSp7ApsKkAxVK/sqDhSUFrl1ntVgFVF9SIhKQIh8B/XurOhW1sSG9Anz/Qpj/PXNAqy0bktqfsyx
+	DkNA+XKg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xC9qT-00000007rGr-2o7l;
-	Thu, 01 Oct 2026 06:00:41 +0000
-Received: from cp2.siel.si ([46.19.12.180])
+	id 1xC9z9-00000007roV-0I7G;
+	Thu, 01 Oct 2026 06:09:39 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xC9qQ-00000007rG6-2KTQ
-	for linux-arm-kernel@lists.infradead.org;
-	Thu, 01 Oct 2026 06:00:40 +0000
-Received: from 89-212-21-243.static.t-2.net ([89.212.21.243]:54566 helo=[192.168.69.116])
-	by cp2.siel.si with esmtpsa  (TLS1.3) tls TLS_AES_128_GCM_SHA256
-	(Exim 4.100.1)
-	(envelope-from <primoz.fiser@norik.com>)
-	id 1xC9qQ-00000001W8y-0Rgz;
-	Thu, 01 Oct 2026 08:00:34 +0200
-Message-ID: <37eb1b08-0430-48d0-bac9-88a4a1d8db8c@norik.com>
-Date: Thu, 1 Oct 2026 08:00:32 +0200
+	id 1xC9z8-00000007roC-0SbL;
+	Thu, 01 Oct 2026 06:09:38 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by sea.source.kernel.org (Postfix) with ESMTP id 66827400B8;
+	Thu,  1 Oct 2026 06:09:37 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id D356C1F000FF;
+	Thu,  1 Oct 2026 06:09:34 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1790834977;
+	bh=chw6/SdajFRbZqWoHfe7q1GxdMMrIeRtmFotLArWKGA=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To;
+	b=NZixzwri3NCcgArc2NjHI0EQFcS17sYKA6WzedENfwxceNqJmah7pokNpWpflqFEa
+	 dSMlHANcGFc4bK2caafpL8g0UTbK8lH0lKfwIjt5jj69jhpHOaLpJaLEJtkhSpr+ee
+	 mzq9PWRv/Z+A7wUB9mtPGzz5LdheaZBie+44KDKQt2RPFmPCX3UPTU/yJKpwRDWB/L
+	 J4qyi7OmvZWdb9spt0TU8pz8qJUzNkHpigh0rSzZsiR12Z4Q3m2zJunWxBpG5Q4nNG
+	 PUFx5BnB2qcLA9vS5h9tipag2vFD3ilAOzEsWPEd4ozhzj7xjHRGOpTy1JO99MeS+H
+	 Gr7lKRzcNp0yQ==
+Message-ID: <2e420fc4-e829-42ea-99c2-48e518ac59d9@kernel.org>
+Date: Thu, 1 Oct 2026 08:09:32 +0200
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 3/4] ARM: dts: imx6: phycore-som: Convert to generic PHY
- reset binding
-To: Frank Li <Frank.li@oss.nxp.com>
-Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
- Conor Dooley <conor+dt@kernel.org>, Frank Li <Frank.Li@nxp.com>,
- Sascha Hauer <s.hauer@pengutronix.de>,
- Pengutronix Kernel Team <kernel@pengutronix.de>,
- Fabio Estevam <festevam@gmail.com>, devicetree@vger.kernel.org,
- imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
- linux-kernel@vger.kernel.org, upstream@lists.phytec.de
-References: <20260930102532.2262700-1-primoz.fiser@norik.com>
- <20260930102532.2262700-4-primoz.fiser@norik.com>
- <ar0vxTCkxOg00jhn@SMW015318>
+Subject: Re: [PATCH v2] serial: 8250_bcm2835aux: Add support for RTS/CTS auto
+ flow control
+To: =?UTF-8?B?SmFuIMSMZXJtw6Fr?= <sairon@sairon.cz>,
+ gregkh@linuxfoundation.org, florian.fainelli@broadcom.com,
+ rjui@broadcom.com, sbranden@broadcom.com
+Cc: phil@raspberrypi.com, stefan@agner.ch,
+ bcm-kernel-feedback-list@broadcom.com, linux-serial@vger.kernel.org,
+ linux-rpi-kernel@lists.infradead.org, linux-arm-kernel@lists.infradead.org,
+ linux-kernel@vger.kernel.org
+References: <20260930125620.221836-1-sairon@sairon.cz>
 Content-Language: en-US
-From: Primoz Fiser <primoz.fiser@norik.com>
-Autocrypt: addr=primoz.fiser@norik.com; keydata=
- xjMEZrROOxYJKwYBBAHaRw8BAQdAADVOb5tiLVTUAC9nu/FUl4gj/+4fDLqbc3mk0Vz8riTN
- JVByaW1veiBGaXNlciA8cHJpbW96LmZpc2VyQG5vcmlrLmNvbT7CiQQTFggAMRYhBK2YFSAH
- ExsBZLCwJGoLbQEHbnBPBQJmtE47AhsDBAsJCAcFFQgJCgsFFgIDAQAACgkQagttAQducE+T
- gAD+K4fKlIuvH75fAFwGYG/HT3F9mN64majvqJqvp3gTB9YBAL12gu+cm11m9JMyOyN0l6Os
- jStsQFghPkzBSDWSDN0NzjgEZrROPBIKKwYBBAGXVQEFAQEHQP2xtEOhbgA+rfzvvcFkV1zK
- 6ym3/c/OUQObCp50BocdAwEIB8J4BBgWCAAgFiEErZgVIAcTGwFksLAkagttAQducE8FAma0
- TjwCGwwACgkQagttAQducE8ucAD9F1sXtQD4iA7Qu+SwNUAp/9x7Cqr37CSb2p6hbRmPJP8B
- AMYR91JYlFmOJ+ScPhQ8/MgFO+V6pa7K2ebk5xYqsCgA
-Organization: Norik systems d.o.o.
-In-Reply-To: <ar0vxTCkxOg00jhn@SMW015318>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
-X-AntiAbuse: This header was added to track abuse, please include it with any abuse report
-X-AntiAbuse: Primary Hostname - cp2.siel.si
-X-AntiAbuse: Original Domain - lists.infradead.org
-X-AntiAbuse: Originator/Caller UID/GID - [47 12] / [47 12]
-X-AntiAbuse: Sender Address Domain - norik.com
-X-Get-Message-Sender-Via: cp2.siel.si: authenticated_id: primoz.fiser@norik.com
-X-Authenticated-Sender: cp2.siel.si: primoz.fiser@norik.com
-X-Source: 
-X-Source-Args: 
-X-Source-Dir: 
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260930_230038_780160_3A844054 
-X-CRM114-Status: GOOD (  12.89  )
+From: Jiri Slaby <jirislaby@kernel.org>
+Autocrypt: addr=jirislaby@kernel.org; keydata=
+ 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
+In-Reply-To: <20260930125620.221836-1-sairon@sairon.cz>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 8bit
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -92,76 +116,38 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Frank,
+On 30. 09. 26, 14:56, Jan Čermák wrote:
+> --- a/drivers/tty/serial/8250/8250_bcm2835aux.c
+> +++ b/drivers/tty/serial/8250/8250_bcm2835aux.c
+...
+> @@ -46,6 +59,150 @@ struct bcm2835aux_data {
+>   	u32 cntl;
+>   };
+>   
+> +static bool bcm2835aux_tty_throttled(struct uart_port *port)
+> +{
+> +	struct tty_struct *tty;
+> +	bool throttled;
+> +
+> +	if (!port->state)
+> +		return false;
+> +
+> +	tty = tty_port_tty_get(&port->state->port);
+> +	throttled = tty && tty_throttled(tty);
+ > +	tty_kref_put(tty);
+ > +
+ > +	return throttled;
 
-On 9/30/26 17:50, Frank Li wrote:
-> On Wed, Sep 30, 2026 at 12:25:31PM +0200, Primoz Fiser wrote:
->> The phy-reset-gpios property on the FEC node is deprecated by the
->> Documentation/devicetree/bindings/net/fsl,fec.yaml in favour of the
->> generic reset binding on the PHY node itself, described by the
->> Documentation/devicetree/bindings/net/ethernet-phy.yaml.
->>
->> Move the reset GPIO from &fec to the ethphy child node as reset-gpios.
-> 
-> This movement may impact back compatiblity. Any other user use
-> phy-reset-gpios under $fec?
+Instead:
 
-Yeah, good point.
+scoped_guard(tty_port_tty, port)
+    return tty_throttled(scoped_tty());
 
-I was tempted to convert due to checkpatch warning.
+return false;
 
-Since it's a legacy board, lets keep phy-reset-gpios as is due to
-potential backward compatibility and other unforeseen implications.
-
-I will drop this patch in v2 and convert patch #4 to phy-reset-duration.
-
-BR,
-
-Primoz
-
-> 
-> Frank
-> 
->>
->> Signed-off-by: Primoz Fiser <primoz.fiser@norik.com>
->> ---
->>  arch/arm/boot/dts/nxp/imx/imx6qdl-phytec-phycore-som.dtsi | 2 +-
->>  1 file changed, 1 insertion(+), 1 deletion(-)
->>
->> diff --git a/arch/arm/boot/dts/nxp/imx/imx6qdl-phytec-phycore-som.dtsi b/arch/arm/boot/dts/nxp/imx/imx6qdl-phytec-phycore-som.dtsi
->> index 9070388eecb0..88eabc7af6b7 100644
->> --- a/arch/arm/boot/dts/nxp/imx/imx6qdl-phytec-phycore-som.dtsi
->> +++ b/arch/arm/boot/dts/nxp/imx/imx6qdl-phytec-phycore-som.dtsi
->> @@ -56,7 +56,6 @@ &fec {
->>  	phy-handle = <&ethphy>;
->>  	phy-mode = "rgmii";
->>  	phy-supply = <&vdd_eth_io>;
->> -	phy-reset-gpios = <&gpio1 14 GPIO_ACTIVE_LOW>;
->>  	status = "disabled";
->>
->>  	mdio {
->> @@ -65,6 +64,7 @@ mdio {
->>
->>  		ethphy: ethernet-phy@3 {
->>  			reg = <3>;
->> +			reset-gpios = <&gpio1 14 GPIO_ACTIVE_LOW>;
->>  			txc-skew-ps = <1680>;
->>  			rxc-skew-ps = <1860>;
->>  		};
->> --
->> 2.34.1
->>
->>
-
+> +}
+thanks,
 -- 
-Primoz Fiser
-phone: +386-41-390-545
-email: primoz.fiser@norik.com
---
-Norik systems d.o.o.
-Your embedded software partner
-Slovenia, EU
-phone: +386-41-540-545
-email: info@norik.com
-
+js
+suse labs
 
