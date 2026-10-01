@@ -4,7 +4,7 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9B776CA5FA5
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id AD7D9CA5FD4
 	for <linux-arm-kernel@archiver.kernel.org>; Thu,  1 Oct 2026 08:22:23 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
@@ -12,59 +12,59 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=G8vU4fraYJY2dKV6dsvqKiUd/8XZienPc6/6TZlCtSI=; b=V8v9pYuP8/7SzwSATFxpiH+3jU
-	FUG5oXqBdpU8iDu8kuJNvoTLQnRFIh/PcZfwHnacMduNlyZK1TVDMu884rIf2HTUMFLYAxppoyoWd
-	VqTYRp3J+ZblNXTLOhgDos94iRevgzHglw9c6p6OJFBbJEcRzR1IHHgBbDF0U1Lq4TNd1amVmCivJ
-	8QB6Cgd14k2eJMTcKgalVZegDto3oyHFvBzqLVTwf4UFt1HRDTuFdLHMTSOjnHDPSvZG7XSzoEPsA
-	+2xv9WVFLDnmZvWc92mLspC5hTbKIB3Tz7Is6wJzq2s6NPFSjBJRo3rD1eJ+1jndorioxjzZaZrmj
-	DWbdbE1Q==;
+	bh=TaaZl5GmaW2NfuUA6tcCmwJ6qRigH2LvATcDIn8roDc=; b=LiuKklP9Vggjp4n0d8MXeB0LRx
+	CfShSTpG2uuy0X7kpjZsnnRdXa6rsCmylLYGdqqwU9N9w0pKX0lPZ4k9vB0Ozv7dY+7uDo1KBO7vU
+	aGhezRttEtz8N2Fd0/yzKBN0wK87VVW44aadebJowkNZkqhCYYhGZDfDCfqSMX9lN5V6UyWmxXbvJ
+	kShBSK5xU9tkFzRpj8qtJt3kDZDUtQHrMahLTaCvPwG8LDwv3uZlIGljx8aANTmsD/gSTjwfl+zRB
+	e00j/LRGFpZCFYgnE4v8Bh2dXGCClk0+3ePsYCJuOWDUvUWFrPkWdLcqbJol9jfJExFtgrYx/4vOF
+	OQa6Tb4Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xCC3Q-0000000877j-2T3s;
-	Thu, 01 Oct 2026 08:22:13 +0000
+	id 1xCC3U-000000087FU-3fre;
+	Thu, 01 Oct 2026 08:22:16 +0000
 Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xCC3O-0000000875Q-3xKM;
-	Thu, 01 Oct 2026 08:22:11 +0000
+	id 1xCC3Q-00000008778-1SGJ;
+	Thu, 01 Oct 2026 08:22:13 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=infradead.org; s=desiato.20200630; h=Cc:To:In-Reply-To:References:
 	Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Sender:Reply-To:Content-ID:Content-Description;
-	bh=G8vU4fraYJY2dKV6dsvqKiUd/8XZienPc6/6TZlCtSI=; b=cfcAphEISHmuqvv3TgY0Bt9rsR
-	Zi7Nmta8RO+J8UysZowNX+zPO5ZahJe++jTz10bsn+JrN/RKiVzS7OTzM0Rno5micqj+JMMnzYWSI
-	VFsS28OLhaHd0fg1xuWDO99cb0ltHT5vgyvJXYYQ3RvV5UEIhdkjgI6f+k9YYTEcpZT7tAme0wsIs
-	+ihpjLH7FERDomSrnLadu4t91bDjX+f7HLNeFK6BLv58kKCBLWCZcN/U2p2i0vLNCQjxYBztjgkq4
-	PeE07ZkOL2FC7cuZhQu7bNe1vy5N22AXHrGRi+beVnIikErf+SxjgsXd9+NZdQm37ItHIA6shmRJw
-	2uOaOCXA==;
-Received: from bali.collaboradmins.com ([2a01:4f8:201:9162::2])
+	bh=TaaZl5GmaW2NfuUA6tcCmwJ6qRigH2LvATcDIn8roDc=; b=UJiLQOesQ+2f0wEJZIywFUvUX/
+	27TOJedlBKcMHab3hxpvlPix9iZ3i8Yd0KrxuiJBKad2uIIMqna9iRjnhVW5tMXuJPcNEbGwnaxHz
+	l3f9ySKXRJtIPWfLClfaBL7Dzg+tGAEElr7DIImNnBXQXd2jI+Zw1+xDu61YxzZaqUbRAsenX5mpa
+	ZXVYOf5aXPvcKpldhvyXIPP3BHgVnAL+uWCihgHnoiPowN1Rmmo3DJH1loWBflYw8drtLLLJtExxq
+	0/UecV3di3FmMdqGJsekPrMlrq0W4QikWA5Jl4/MRVKuQ9bSarTIHSefaeDonxE1s1utStXNG1+S2
+	w5lr0hZA==;
+Received: from bali.collaboradmins.com ([148.251.105.195])
 	by desiato.infradead.org with esmtps (Exim 4.99.2 #2 (Red Hat Linux))
-	id 1xCC3K-00000004ioZ-3tY5;
-	Thu, 01 Oct 2026 08:22:09 +0000
+	id 1xCC3L-00000004ioc-2a6o;
+	Thu, 01 Oct 2026 08:22:11 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
-	s=mail; t=1790842922;
-	bh=64rsImq8u3QqJm7zF2WoizydBGZG/XiWxYKOWCXRpQ0=;
+	s=mail; t=1790842923;
+	bh=HXEFqOMYQclLXNgj2YBJ3cW9HGMGfJeqHst6wm/hNow=;
 	h=From:Date:Subject:References:In-Reply-To:To:Cc:From;
-	b=UrNARKVDpLdz7v2hzVJmzkiq4JT3mwX1e6D47KKHlOuyvk+DP5M9sCYvpaFwrz+b5
-	 Y9D0Wg8cbXICZsIZFS4QZddJVNcKg4MLkzQDZaQ6k+JyjM7THtb7BJ9VXX17RBCY1a
-	 Lsrp3kbxMc/gR12y3tGjptOeZu9JMp35Y6DPU0Z6KxzK1e4fLL8zFicZsMZGRLKfXK
-	 g3fScAwhKMXKcnr2bBpnuejB9y2TSTRw2LycSCK18ksGIWF8fN7l6x04Zsc7yY72iw
-	 rXNZkk/zmz8xTQgdCc6nA7smyCvwGu8Ykspu/qRItAh/9Bd5nJTbYunoA/uNqHId2c
-	 Xo0QXoe4pPX5A==
+	b=pMww5UgZYb33kdIoC2C7QLZ2htPt0OsKKbaLaSLzlU32+PTh5q/PTtKkcWlyCQ6UD
+	 zO5pFakMuZaqZZzUaqjziC/kW+qc86J205RL9qaH0K8gSGaPWE79raDwpJUXGqGjLk
+	 9tqCtnXoib7MRyYWEkbJeD/Mc+kGBEdwsgbUZtSB7FkUwP78gavhvw6iCasVaIfX8Q
+	 eyCYaCW2313H+6sArnjx/8VkJPDr3OJhiMoIFqK6pSyR6J8K0qpYawqyh63ZRyt0fI
+	 RtbkbkLOIn8Em0Q1wTxDeMvDghDBI9C5IMh6ztA3ltMLEhDlET0j5lieGCM8BTcc9N
+	 VH6Hl/e4f5J+g==
 Received: from yukiji.home (unknown [100.64.0.131])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange x25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
 	(No client certificate requested)
 	(Authenticated sender: laeyraud)
-	by bali.collaboradmins.com (Postfix) with ESMTPSA id B0CF617E0667;
-	Thu, 01 Oct 2026 10:22:01 +0200 (CEST)
+	by bali.collaboradmins.com (Postfix) with ESMTPSA id C167817E0803;
+	Thu, 01 Oct 2026 10:22:02 +0200 (CEST)
 From: Louis-Alexis Eyraud <louisalexis.eyraud@collabora.com>
-Date: Thu, 01 Oct 2026 10:21:35 +0200
-Subject: [PATCH v13 03/24] dt-bindings: ufs: mediatek,ufs: Add mt8196
- variant
+Date: Thu, 01 Oct 2026 10:21:36 +0200
+Subject: [PATCH v13 04/24] scsi: ufs: mediatek: Move MTK_SIP_UFS_CONTROL to
+ mtk_sip_svc.h
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20261001-mt8196-ufs-v13-3-60854adab6d9@collabora.com>
+Message-Id: <20261001-mt8196-ufs-v13-4-60854adab6d9@collabora.com>
 References: <20261001-mt8196-ufs-v13-0-60854adab6d9@collabora.com>
 In-Reply-To: <20261001-mt8196-ufs-v13-0-60854adab6d9@collabora.com>
 To: Chunfeng Yun <chunfeng.yun@mediatek.com>, Vinod Koul <vkoul@kernel.org>, 
@@ -89,16 +89,16 @@ Cc: kernel@collabora.com, linux-arm-kernel@lists.infradead.org,
  Nicolas Frattaroli <nicolas.frattaroli@collabora.com>, 
  Louis-Alexis Eyraud <louisalexis.eyraud@collabora.com>
 X-Mailer: b4 0.14.3
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1790842918; l=2540;
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1790842918; l=1832;
  i=louisalexis.eyraud@collabora.com; s=20250113; h=from:subject:message-id;
- bh=AipbRJl+DnZaj2oACO08sgptMG0954obXAyLR09vgH8=;
- b=ycTp4X0c5pSF8va92oSGXSqUVN8dzWl1DwLvBfGtt7bjzPUek0dK+mDr7qiBwt9sbYMdTdA82
- FAiK47q9x6rAAiMeSzdGTvDis7il+AifypF16pX8h9QnwyyReCEPjHk
+ bh=z5h4Zo+etU6eLsizbb7MCmCVs96yTicxCToFv5toJJQ=;
+ b=HvYXDslqjXYiYUf5S/fKnQ10vDRPPtMmaAZZIDLXcHnJwFllEuSrdmt7y69w/L+7wFIM29B8k
+ NHsMdu60+3uAY8+jlBQEMBaMR8MR5xbwceroqQkcKv6uuFpasL7SZ9f
 X-Developer-Key: i=louisalexis.eyraud@collabora.com; a=ed25519;
  pk=CHFBDB2Kqh4EHc6JIqFn69GhxJJAzc0Zr4e8QxtumuM=
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261001_092207_656561_7CDF5E82 
-X-CRM114-Status: GOOD (  12.64  )
+X-CRM114-CacheID: sfid-20261001_092208_096596_DB99BB81 
+X-CRM114-Status: GOOD (  14.86  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -115,83 +115,49 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 
 From: Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
 
-The MediaTek MT8196 SoC's UFS controller uses a different set of supplies.
-It is therefore not compatible with the MT8195. It also have an additional
-0.9V supply pin (AVDD09_UFS_1), that is specific to this SoC, thus not
-currently described in the binding.
+SMC commands used by multiple drivers need to live in a shared header
+file somewhere to avoid code duplication. In order to rework the MPHY
+reset control to be in the phy-mtk-ufs.c driver, both ufs-mediatek and
+the phy driver need access to this command.
 
-Add a compatible for this SoC and new property for the additional supply,
-and modify the binding correspondingly.
+Move it to mtk_sip_svc.h, where other such command definitions already
+live.
 
-Signed-off-by: Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
-Reviewed-by: Chaotian Jing <chaotian.jing@mediatek.com>
 Reviewed-by: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
-Reviewed-by: Rob Herring (Arm) <robh@kernel.org>
+Reviewed-by: Peter Wang <peter.wang@mediatek.com>
+Signed-off-by: Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
 Signed-off-by: Louis-Alexis Eyraud <louisalexis.eyraud@collabora.com>
 ---
- .../devicetree/bindings/ufs/mediatek,ufs.yaml       | 21 +++++++++++++++++++++
- 1 file changed, 21 insertions(+)
+ drivers/ufs/host/ufs-mediatek-sip.h      | 1 -
+ include/linux/soc/mediatek/mtk_sip_svc.h | 3 +++
+ 2 files changed, 3 insertions(+), 1 deletion(-)
 
-diff --git a/Documentation/devicetree/bindings/ufs/mediatek,ufs.yaml b/Documentation/devicetree/bindings/ufs/mediatek,ufs.yaml
-index 945cb986b06b..99181ec9dda0 100644
---- a/Documentation/devicetree/bindings/ufs/mediatek,ufs.yaml
-+++ b/Documentation/devicetree/bindings/ufs/mediatek,ufs.yaml
-@@ -16,6 +16,7 @@ properties:
-       - mediatek,mt8183-ufshci
-       - mediatek,mt8192-ufshci
-       - mediatek,mt8195-ufshci
-+      - mediatek,mt8196-ufshci
+diff --git a/drivers/ufs/host/ufs-mediatek-sip.h b/drivers/ufs/host/ufs-mediatek-sip.h
+index 7d17aedf6fb8..d627dfb4a766 100644
+--- a/drivers/ufs/host/ufs-mediatek-sip.h
++++ b/drivers/ufs/host/ufs-mediatek-sip.h
+@@ -11,7 +11,6 @@
+ /*
+  * SiP (Slicon Partner) commands
+  */
+-#define MTK_SIP_UFS_CONTROL               MTK_SIP_SMC_CMD(0x276)
+ #define UFS_MTK_SIP_VA09_PWR_CTRL         BIT(0)
+ #define UFS_MTK_SIP_DEVICE_RESET          BIT(1)
+ #define UFS_MTK_SIP_CRYPTO_CTRL           BIT(2)
+diff --git a/include/linux/soc/mediatek/mtk_sip_svc.h b/include/linux/soc/mediatek/mtk_sip_svc.h
+index 6c95a29b79fa..36ab3153fe44 100644
+--- a/include/linux/soc/mediatek/mtk_sip_svc.h
++++ b/include/linux/soc/mediatek/mtk_sip_svc.h
+@@ -22,6 +22,9 @@
+ 	ARM_SMCCC_CALL_VAL(ARM_SMCCC_FAST_CALL, MTK_SIP_SMC_CONVENTION, \
+ 			   ARM_SMCCC_OWNER_SIP, fn_id)
  
-   clocks:
-     minItems: 1
-@@ -60,6 +61,9 @@ properties:
-   avdd09-supply:
-     description: Phandle to the 0.9V supply powering the AVDD09_UFS pin
- 
-+  avdd09-1-supply:
-+    description: Phandle to the 0.9V supply powering the AVDD09_UFS_1 pin
++/* UFS related SMC call */
++#define MTK_SIP_UFS_CONTROL		MTK_SIP_SMC_CMD(0x276)
 +
-   avdd12-supply:
-     description: Phandle to the 1.2V supply powering the AVDD12_UFS pin
+ /* Modem related SMC call */
+ #define MTK_SIP_KERNEL_CCCI_CONTROL	MTK_SIP_SMC_CMD(0x505)
  
-@@ -104,6 +108,7 @@ allOf:
-         clock-names:
-           items:
-             - const: main
-+        avdd09-1-supply: false
-         avdd12-ckbuf-supply: false
-   - if:
-       properties:
-@@ -119,6 +124,7 @@ allOf:
-           minItems: 3
-           maxItems: 3
-         avdd09-supply: false
-+        avdd09-1-supply: false
-   - if:
-       properties:
-         compatible:
-@@ -131,6 +137,21 @@ allOf:
-         clock-names:
-           minItems: 10
-         avdd09-supply: false
-+        avdd09-1-supply: false
-+  - if:
-+      properties:
-+        compatible:
-+          contains:
-+            const: mediatek,mt8196-ufshci
-+    then:
-+      properties:
-+        clocks:
-+          minItems: 10
-+        clock-names:
-+          minItems: 10
-+        avdd18-supply: false
-+      required:
-+        - operating-points-v2
- 
- examples:
-   - |
 
 -- 
 2.55.0
