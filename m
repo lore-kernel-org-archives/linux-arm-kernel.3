@@ -4,99 +4,78 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 33E5FCA5FA5
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  1 Oct 2026 08:48:54 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 71654CA5FB3
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  1 Oct 2026 08:49:58 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=xkYtUBxUyQXi2wHjivuAC69Sw5c4fAlKZiLrX6CMriA=; b=MWRLVChEfMv25iA8MN3liYsuXw
-	StVpx6DacWQILbqLb2TDGgn8DlcgFT2Z0ct/h5NAp69w340gVyYW18XoLFimMLMVJQjIzcs2ExkRL
-	DyzvDiIuXZSm4fP47F0Ap8jK1YHHaXmFLbmpYpYk7K1mITaaPvKNPK3mSzRtHti/n6CWt0JcgwLbf
-	iAVfo1Av1Dl7uPf6Fb2/d8nPrdOMLYkbde7KwAg8MdICCNf6X7zW7V15sVw0dymCQo/hYVjjkLWvV
-	Cu8m/sGTlWO/RPLHRcooNETDLgsEtUPKWR8ww3EdbqM1JL6+z+Z2jG7uBVf+ka5OP+ZeMUHhK2MPM
-	m1+CBLSA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:From:
+	Subject:Message-ID:Mime-Version:Date:Reply-To:Content-Transfer-Encoding:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=l6OQWnvlaofLL8k3CM7ZM02e20BESVixuphXWNKf53Y=; b=JtqoQpWZlEOS7PVARTW11XRsnX
+	8qWTJ58lKpwNi9b6RuxX4SgKNPQWpQSRPpxxt/qayVJlwM0Gg1SudU1JfCvmlCEEl0WZg2+Lw0J6v
+	CghS3VSSPcWzh0QbNIb1POFIs+rQVUCUsWiGNBiOYpSQCqOJavr8iuqrJiHukExk9xTrAA2ZYsybU
+	Wp4E2eN60V0xXCK7eG/JBuDTdh91XMrVH9UmjHmlXtiIt8gs0w4ungdIg6YUsp/I2Z1VuKeb/oMEv
+	i+nl1f/5WsLuYgEdBInEYXBm3/+PPDoZgoQ7G5pbxo2+Eyp2Fq4Th73MGxIcZ6ZtGeQl6ufOzbJgo
+	sxzDa+/g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xCCT9-00000008GOT-3L51;
-	Thu, 01 Oct 2026 08:48:47 +0000
-Received: from mail-pz2-x2b.google.com ([2607:f8b0:4864:3b::2b])
+	id 1xCCUC-00000008GZh-0uVY;
+	Thu, 01 Oct 2026 08:49:52 +0000
+Received: from mail-wm1-x346.google.com ([2a00:1450:4864:20::346])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xCCT6-00000008GNd-3tcB
+	id 1xCCUA-00000008GYP-0OBx
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 01 Oct 2026 08:48:46 +0000
-Received: by mail-pz2-x2b.google.com with SMTP id 41be03b00d2f7-cc78dd54610so2286630a12.1
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 01 Oct 2026 01:48:44 -0700 (PDT)
+	Thu, 01 Oct 2026 08:49:51 +0000
+Received: by mail-wm1-x346.google.com with SMTP id 5b1f17b1804b1-4a02085598fso3964685e9.3
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 01 Oct 2026 01:49:48 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1790844523; x=1791449323; darn=lists.infradead.org;
-        h=content-transfer-encoding:content-type:in-reply-to:from
-         :content-language:references:cc:to:subject:user-agent:mime-version
-         :date:message-id:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=xkYtUBxUyQXi2wHjivuAC69Sw5c4fAlKZiLrX6CMriA=;
-        b=eoYSOPX4OnyUESUwFLsMX8Oya4uob9cQSHZmLWlm5Xrx+4sX/2I2QOOf9Z1MuJELRp
-         Leyq+dbGSx0EBkXpJdRACryDpOYOZPeA9bVvHL+YCngA1sJ+uo8Z5evF2rpuDxyhYzke
-         Dcx56z0wp2vfSpetrp7L1j4hVx3Mw8n4o8H63jCZJJ13X1PcZpItSohvHefMFgm7nB75
-         F+AmlErADs5C8yb4QSTh3PxE6LNUeqb23HTZxXs5qlI843OwJf+lxdXRCqDWp55sxkzO
-         ldXP0Yjcstt1iM/q3tIkIzqeNve7Aq5XinqPUUfU8zSE8c156haXGmSBmdySYM+iLBYn
-         +5eQ==
+        d=google.com; s=20251104; t=1790844587; x=1791449387; darn=lists.infradead.org;
+        h=content-type:cc:to:from:subject:message-id:mime-version:date:from
+         :to:cc:subject:date:message-id:reply-to:content-type;
+        bh=l6OQWnvlaofLL8k3CM7ZM02e20BESVixuphXWNKf53Y=;
+        b=fd0mgcYdMsgiVwll/2NWyeSU4Pgv3M4ejylU6p+jxhIcO2lpNzQVoylBG6IY5Ld2Pk
+         slyiNN9GQ3Z3IU5wXGnUI8X3cZqhiE99GAJ96v3T/dmPGpvIEHevqlUroA7/zxQqVUGi
+         NlNbNXb+Uh9C7/ORZXcYs9njFURGyO5z6kecodV++07WA3jnmPu2tsFfB/1JV117Zu7B
+         o5je0Uj3Nb0NFy1O44KwLIVGXvM8MWLEBF0eledwF6i7LTennlcq0gJR0GtM06/G38Uy
+         0LN4SD3JFdCWlmytFrDHNU+VP9rj5eOz9uS4QCcV6NtcNV2y6mnCdHwIusdFMt3kq7O+
+         TydA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1790844523; x=1791449323;
-        h=content-transfer-encoding:content-type:in-reply-to:from
-         :content-language:references:cc:to:subject:user-agent:mime-version
-         :date:message-id:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=xkYtUBxUyQXi2wHjivuAC69Sw5c4fAlKZiLrX6CMriA=;
-        b=ME8Z7ebgJKz89bWI4jNhm0Siu0xGsXcd1efTcuSZxGSMEnsRgR6osDlKtVPKYoNHXG
-         ZFj5/OEGGP0c5hvagtcWsu6/xPu1z5p9tJ3qdteGhqHIQIKOqpbWG2uXhY+icBucXk8n
-         9xMjSUQKwcEsbyLtYhtbfJFZAz2jJZxf+lbLMfpNjTw4oFm+kHbJpoI6Ko+mARpWsh0T
-         RdDKgTcnm3GClM5XbqdhYw50r3PWkEA5KVUwzm5UHRYwjrwmEiBV2Y3FlV7ZGu6mhlzW
-         Hqba8aaTNz0/2syRWXXf1jC+zqap29gBgNEGpGfCvIgtssosTl/C0s0z/v2tEr/fAyO9
-         U+pA==
-X-Forwarded-Encrypted: i=1; AKwUvBzvFXidtZzdBxWYooSDCuQs5rnIROI+X/hYPaRum7TlOs8NUBJuV5TgzoZHpgjacVcIGWJwcPuDT8zN8B9gfdWt@lists.infradead.org
-X-Gm-Message-State: AFuF++nExuVgX4B9XoSY2v+Ynyf1qhJyM7+Lnzz3WV8fmKsDJ/rBnBVV
-	jKanhQsfn0nkbhl66Cv1rM3BN4JMnJV5obG8l0/tSNBWEbCw6PBqbkpf
-X-Gm-Gg: AYBFou2lC3TgrJnUysWtxvTs4bJbgZffvYbmZrJWua8u+WRopvRG2y6XpqQTIuETesc
-	vJ8vpcVABi23aVpJKO/WxDyi0eJzcYDeJSdxsq1VSpifQxv0BwZItSoOoBPjEnOb99lkoeTgzjs
-	lxE3OYlwG4ZILmEwpKHPE+5UMFUl6T6JzjuSv8M0El8g3NvcK98DDvkzaVVKwW859PpUyudW4SK
-	zH66KdJzEns90qZJEzK4SFvxsuJGKRxNWPgiI1Ebj+1axyECN99wdYV0GuHKanzWdGsti27B/lX
-	NbQV586e4Qe6CE2Gp8sV6pgHLs70upIJKEpM39QACjYeIzt/mOsYKwI2xo6yTutR7SbCEq+3LB9
-	eurXkQxUCPMweGef2EdjUm9bCkWuzUltSzWrP0OaCRyZN1Gw432kVl4WGilbaknNk5CxOxpJhUT
-	sZCxiPgMkgaRbRl9XPocvqPMfTRRaJpoMZ9ZmtALdWnoTvB9tSy9fqk0dKHtHOnrgiJeaELUKdt
-	KG0CjSXXEaaO92vE9U0rIe4QJp/OKSCE/qq4rIoHIC78UbvAbpyITU=
-X-Received: by 2002:a05:6a21:9218:b0:3dd:85a8:cacb with SMTP id adf61e73a8af0-3de9e8a898fmr4391298637.34.1790844523436;
-        Thu, 01 Oct 2026 01:48:43 -0700 (PDT)
-Received: from [172.19.1.47] (60-250-196-139.hinet-ip.hinet.net. [60.250.196.139])
-        by smtp.gmail.com with ESMTPSA id 41be03b00d2f7-cc7e546039dsm1125695a12.8.2026.10.01.01.48.40
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Thu, 01 Oct 2026 01:48:42 -0700 (PDT)
-Message-ID: <92216f9b-6c8a-430d-9bca-eaf583106a3e@gmail.com>
-Date: Thu, 1 Oct 2026 16:48:37 +0800
-MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v6 2/3] arm64: dts: nuvoton: ma35d1: add USB controllers
- and dual-port PHY node
-To: Joey Lu <a0987203069@gmail.com>, Vinod Koul <vkoul@kernel.org>,
- Neil Armstrong <neil.armstrong@linaro.org>
-Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
- Conor Dooley <conor+dt@kernel.org>, Arnd Bergmann <arnd@arndb.de>,
- Catalin Marinas <catalin.marinas@arm.com>, Jacky Huang
- <ychuang3@nuvoton.com>, Shan-Chun Hung <schung@nuvoton.com>,
- Hui-Ping Chen <hpchen0nvt@gmail.com>, Joey Lu <yclu4@nuvoton.com>,
- linux-phy@lists.infradead.org, devicetree@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-References: <20260929020854.1282339-1-a0987203069@gmail.com>
- <20260929020854.1282339-3-a0987203069@gmail.com>
-Content-Language: en-US
-From: Jacky Huang <ychuang570808@gmail.com>
-In-Reply-To: <20260929020854.1282339-3-a0987203069@gmail.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
+        d=1e100.net; s=20260707; t=1790844587; x=1791449387;
+        h=content-type:cc:to:from:subject:message-id:mime-version:date
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=l6OQWnvlaofLL8k3CM7ZM02e20BESVixuphXWNKf53Y=;
+        b=wryDt5pB8SZowcnSpQ5N2/2dGPQezFZrW35+CO8O6B70sGyj3i4+U43H7iMydCiddD
+         bLWnWe3A883hMafZ7hasqnGR6HIhnlYNO9LDVpyTwVBL+7a30V5HoqBXQJSSRI3jKrs8
+         7b6/9mZo/7ZJz6F5fLcw88AnMGO5pIEmEhqZOAyBoucV8/S53LxI1s6Y51ceBDm1hnA1
+         pYqZC3x46iz5kMhq9uGqZwIcKgbc2hx2jYWlMw1L5zL2YDTUbgeafD5IybWCK0bmy/wI
+         jWOD2vpgfbCOZRJ67xZrGbeRdelmj2q7DqGANG+iJFLEeWrwlUVNHTbWwfEKs5bWAb1A
+         zwvg==
+X-Forwarded-Encrypted: i=1; AKwUvBwB6UAO7hTSHu31Hda3eYNDt57eGP9H5ezvllmgFAXXgHXAAaqUafIYyjZfQpNjYaa6UVKThf3FZRs/3+fuyciz@lists.infradead.org
+X-Gm-Message-State: AFuF++kfAa0a9iE7HCbzQ6bWAjdvrGl7wX+2PjdobmNfymkwZKqs8gXX
+	e5ZMnZhrVmxUB1erP66+hvF5ZF4964huM2DwrGUXRSd0x3ay9cWZqMBUjc7n2Q5Hh8Ja90QrGNg
+	9NA4icuOMze8ysfLBt/YJ/Q==
+X-Received: from wryt17.prod.google.com ([2002:a05:6000:1a51:b0:48b:9d:f0bb])
+ (user=vdonnefort job=prod-delivery.src-stubby-dispatcher) by
+ 2002:a05:600c:4687:b0:4a0:3a3:33e2 with SMTP id 5b1f17b1804b1-4a01adde08dmr65743185e9.5.1790844586686;
+ Thu, 01 Oct 2026 01:49:46 -0700 (PDT)
+Date: Thu,  1 Oct 2026 09:49:04 +0100
+Mime-Version: 1.0
+X-Mailer: git-send-email 2.56.0.rc1.315.gc6ed9934b7-goog
+Message-ID: <20261001084909.2937943-1-vdonnefort@google.com>
+Subject: [PATCH v4 0/4] trace_hyp_printk() for pKVM/nVHE hypervisor
+From: Vincent Donnefort <vdonnefort@google.com>
+To: maz@kernel.org, oupton@kernel.org, kvmarm@lists.linux.dev, 
+	linux-arm-kernel@lists.infradead.org
+Cc: joey.gouly@arm.com, seiden@linux.ibm.com, suzuki.poulose@arm.com, 
+	yuzenghui@huawei.com, catalin.marinas@arm.com, will@kernel.org, 
+	kernel-team@android.com, fuad.tabba@linux.dev, 
+	Vincent Donnefort <vdonnefort@google.com>
+Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261001_014844_974904_0964C775 
-X-CRM114-Status: GOOD (  10.31  )
+X-CRM114-CacheID: sfid-20261001_014950_150423_55E69B79 
+X-CRM114-Status: GOOD (  13.65  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -111,34 +90,72 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+Hi all,
+
+This series adds a hypervisor event "hyp_printk" which enables
+developers to log pretty much anything into the hypervisor tracing
+buffer, just like the kernel function trace_printk().
+
+This enables rich logging from the hypervisor, while leaving all the
+string parsing burden to the kernel. This has been the main way of
+debugging pKVM in Android.
+
+Even though not strictly related to trace_hyp_printk, I have added the
+following two patches:
+
+  * KVM: arm64: Allow early calls to pKVM host_share/unshare_hyp
+
+    This one mainly intends to support one of the new features I have
+    posted here [1], which allows to enable tracing as early as
+    possible. I have added it here to limit cross-posting.
+
+  * KVM: arm64: Move kvm_define_hypevents.h to arch/arm64/kvm/
+
+    This one is just a cleanup.
+
+[1] https://lore.kernel.org/all/20260605163825.1762953-1-vdonnefort@google.com/
+
+Changelog:
+
+v4:
+  - Store nr_args in struct hyp_string_fmt instead of using
+    ring_buffer_event_length() (Sashiko)
+
+v3 (https://lore.kernel.org/all/20260930153505.2144559-1-vdonnefort@google.com/):
+  - Collect Steven's tag
+  - Rebase on 7.3-rc3
+
+v2 (https://lore.kernel.org/all/20260708075435.47419-1-vdonnefort@google.com/):
+  - Collect Fuad's tags
+  - Rebase on 7.2-rc2
+  - Warn when trace_hyp_printk callsites are exhausted (Fuad)
+
+v1 (https://lore.kernel.org/all/20260612142245.1015744-1-vdonnefort@google.com/)
+
+Vincent Donnefort (4):
+  KVM: arm64: Allow early calls to pKVM host_share/unshare_hyp
+  KVM: arm64: Move kvm_define_hypevents.h to arch/arm64/kvm/
+  tracing/remotes: Add REMOTE_EVENT_CUSTOM_PRINTK() helper
+  KVM: arm64: Add hyp_printk event to nVHE/pKVM hyp
+
+ arch/arm64/include/asm/kvm_asm.h              |  4 +-
+ arch/arm64/include/asm/kvm_hypevents.h        | 14 ++++
+ arch/arm64/include/asm/kvm_hyptrace.h         |  9 +++
+ arch/arm64/kernel/image-vars.h                |  1 +
+ arch/arm64/kernel/vmlinux.lds.S               |  4 ++
+ .../define_hypevents.h}                       |  0
+ .../kvm/hyp/include/nvhe/define_events.h      |  2 -
+ arch/arm64/kvm/hyp/include/nvhe/trace.h       | 66 +++++++++++++++++++
+ arch/arm64/kvm/hyp/nvhe/events.c              |  6 ++
+ arch/arm64/kvm/hyp/nvhe/hyp-main.c            |  2 +-
+ arch/arm64/kvm/hyp_trace.c                    | 60 ++++++++++++++++-
+ include/trace/define_remote_events.h          | 19 +++++-
+ 12 files changed, 178 insertions(+), 9 deletions(-)
+ rename arch/arm64/{include/asm/kvm_define_hypevents.h => kvm/define_hypevents.h} (100%)
 
 
-> Add the USB subsystem nodes for the MA35D1 SoC and boards:
->
->    - usb_phy: standalone PHY node with #phy-cells = <1>, covering both
->      the OTG port (PHY0, index 0) and the host-only port (PHY1, index 1).
->      Uses nuvoton,sys phandle and HUSBH0_GATE clock per the binding.
->
->    - usb (DWC2 gadget, USB0): phys = <&usb_phy 0>, dr_mode = peripheral.
->    - ehci0/ohci0 (USB0 host): phys = <&usb_phy 0>, companion pairing.
->    - ehci1/ohci1 (USB1 host): phys = <&usb_phy 1>.
->
-> Board files (ma35d1-som-256m.dts, ma35d1-iot-512m.dts) add pinctrl for
-> VBUSVLD, PWREN and OVC signals and enable all USB nodes.
->
-> Signed-off-by: Joey Lu <a0987203069@gmail.com>
-> ---
->   .../boot/dts/nuvoton/ma35d1-iot-512m.dts      | 36 ++++++++++
->   .../boot/dts/nuvoton/ma35d1-som-256m.dts      | 36 ++++++++++
->   arch/arm64/boot/dts/nuvoton/ma35d1.dtsi       | 65 +++++++++++++++++++
->   3 files changed, 137 insertions(+)
-[...]
-
-
-Reviewed-by: Jacky Huang <ychuang3@nuvoton.com>
-
-Best regards,
-Jacky Huang
-
+base-commit: fd73f4a6659897191fa0d40695fe370925dd3780
+-- 
+2.56.0.rc1.315.gc6ed9934b7-goog
 
 
