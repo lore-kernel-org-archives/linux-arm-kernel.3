@@ -4,142 +4,104 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 56BFBCA5FA5
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  1 Oct 2026 06:25:36 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D02E3CA5FB3
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  1 Oct 2026 06:29:34 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:Cc:To:
-	Subject:Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=VRQmgk4Zgm990HGJ+inpszgpxlOhssO+EdhZ0EFhuBA=; b=j5v7PSAWoF1RMQ4lBKd2cwCfyK
-	UHyVfiWk7rd3zuS3Hv/e7ctgGY57qRtW3c6Cs/t56WRcuRaN4jh9en01KPniNt4XqbJgrO2+SUdfw
-	VXh6qoJySx9LL7bZngR1O7PkaFHM9pFROdDz16sFIGnOo8KVk1deq0rkyxGcu0Ra94SdDi2cRWRF5
-	Vndg7PDn2uQaU1J7DtL0gRNde9aMbFXNJC8lQb8p3qxvSWaLlwrRT73daOp7DKJBGFhyfBk1sCJ3N
-	H/tnT0jqnUKWxk5+7VVdwxn6i1sm1cvmsicLeYgix/vOt2rIizDd2s1HkZyRYJb+K1mW/S90aafj6
-	NyM39OAw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	Content-Transfer-Encoding:Message-ID:Date:References:In-Reply-To:Subject:Cc:
+	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=YmUdotlXBym7+M7DTZqezt6CY+s7rUVFUXVNY2HpXtE=; b=NcWXxENyrIWEMqxPReOjzsz0G9
+	DOlWsmfzhZnozJAUU5WW2kbQaVzog4EVRtpjaZ1JxXtYuEqOg77PhvBfXn8J8yX0MfOE8W8/zToxy
+	S8S83oGT0E+tquyJQdv7nUQkT1BDsYUtF/CY3OSujvwokI7EpCdczOvc0k53VkUfxUfcbwFLAbk60
+	1S0+g4uC58b3PSkikV/LJ1qB/7vH6XTHWwL0iFpPWyGpJqjp6TLcj7VP/vX0ZfFAn1SvzoupA7Qq5
+	fnG55ahgAP8XH/i9SCvP5/eOeAezujVXgBM9USW0g1l9EDeulkROYKGYz74nQlZUPX1qVUFePalV+
+	ZwKQHn8g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xCAES-00000007t0g-34Jh;
-	Thu, 01 Oct 2026 06:25:28 +0000
-Received: from mail-northeuropeazon11012031.outbound.protection.outlook.com ([52.101.66.31] helo=DUZPR83CU001.outbound.protection.outlook.com)
+	id 1xCAII-00000007tPD-1x5b;
+	Thu, 01 Oct 2026 06:29:26 +0000
+Received: from mail-wr2-x0f.google.com ([2a00:1450:4864:30::f])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xCAEQ-00000007szx-134n
+	id 1xCAIF-00000007tOa-40rU
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 01 Oct 2026 06:25:27 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=SEgcrMdKaWm5KZIywYuMMcR+GAtMlCpvsNaZj+/sOxOehXhyBkIfngZ9Y8nt3oQnCOYGmMmtA/WCZGGzj5Ke55KmnbQi6NjQHxRd0zqFEhQJPXnTB2bRdpgJvv2Yhy6G9nqKGqV6Sf4gq8NynHaH+rssZdkiRng/ejq3PSZC6elzZwF47j2kR301NTWKhkJmH/7NzV7oW9jIGece8kE+q18S242kKaN7fM0qO1tkhn5kgCC29Zlgsvswm4OqoncG5yuMxpv7aeWnrHbpZJHaW8YIth/9KGNdMEOhOTAGnWLJVP6jjZwbBRSbWUYOsOJdqtv4U2van6UptYYIWkQqPA==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=VRQmgk4Zgm990HGJ+inpszgpxlOhssO+EdhZ0EFhuBA=;
- b=vrJ0Qt4I1JlINsYQMjhJdl4HVnIrImwWweLwlnLKY/G2PyZVj78N2njM4zNaoQV1khoHcnm2ahtqtEZkwDliS9Ss8xj9g3sJh/9NR5Hlz6W/8vV13CDMeqre5vB8LHiCfVltVwqV3Q5FkCQnPvbHXERMZ/Kcs/vLdSUd8z3RCmt6SAKvZ9XV5tO4w/1o9KYXBJ4/hDiyfOy61B+NlKj7S3Z0AnZ32cBQlBw1aaK6+nBmEx1EN2CcEklAXcRU1Xx03gTbDRUxo2DxqxQQjEyYvE/ymjCHe4OLNNXQ8NbI0tzvxycfkl77Qy5kCHDCEepuerLDZ5tZFxdljqbowO2cLw==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
- dkim=pass header.d=oss.nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
- s=selector1-NXP1-onmicrosoft-com;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=VRQmgk4Zgm990HGJ+inpszgpxlOhssO+EdhZ0EFhuBA=;
- b=mYrwaZmztU41O2d8Z6WY+JmIT97yrAaiqy8znwVPJTdNALHm3uAV7QbhC1GbCnVrsRV8sXayhpJs26auPbPweBF8pwAQRe5QvQlocSAgDM+bZYeHqRtoxDhV/h1bYAER75QKcznRDRxRURXk1ZBTWzz44hXa4hNEUMxDfubcULRanuqkvSbpgaLaqzUhF81+mYHmNpy3dNclvI27XMdh+m/2NpN4dynFp1oUrmewWDDHHCXG7kqT4mVjgEuErE0z0EUTlWYwPDGrOErlcX4gTJ5UNsH3CbKa0gmz7+OiuGjLA/VwySpIQQrSRWat0DrhLcASBbwRhz43zko5IHwAxA==
-Authentication-Results: mx.microsoft.com 1; dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=oss.nxp.com;
-Received: from GVXPR04MB12316.eurprd04.prod.outlook.com (2603:10a6:150:2c6::8)
- by GV4PR04MB537162.eurprd04.prod.outlook.com (2603:10a6:150:403::24) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.472.15; Thu, 1 Oct
- 2026 06:25:19 +0000
-Received: from GVXPR04MB12316.eurprd04.prod.outlook.com
- ([fe80::fc6e:ca22:f065:def4]) by GVXPR04MB12316.eurprd04.prod.outlook.com
- ([fe80::fc6e:ca22:f065:def4%5]) with mapi id 15.21.0451.022; Thu, 1 Oct 2026
- 06:25:19 +0000
-Message-ID: <bf5ef25f-d04b-4064-bb4a-802d80c7075e@oss.nxp.com>
-Date: Thu, 1 Oct 2026 09:28:49 +0300
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH] arm64: dts: freescale: Drop undocumented "hardware" root
- node properties
-To: "Rob Herring (Arm)" <robh@kernel.org>,
- Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
- <conor+dt@kernel.org>, Frank Li <Frank.Li@nxp.com>,
- Sascha Hauer <s.hauer@pengutronix.de>,
- Pengutronix Kernel Team <kernel@pengutronix.de>,
- Fabio Estevam <festevam@gmail.com>
-Cc: devicetree@vger.kernel.org, imx@lists.linux.dev,
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-References: <20261001011233.1306251-1-robh@kernel.org>
-Content-Language: en-US
-From: Daniel Baluta <daniel.baluta@oss.nxp.com>
-In-Reply-To: <20261001011233.1306251-1-robh@kernel.org>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
-X-ClientProxiedBy: AM0PR02CA0177.eurprd02.prod.outlook.com
- (2603:10a6:20b:28e::14) To GVXPR04MB12316.eurprd04.prod.outlook.com
- (2603:10a6:150:2c6::8)
+	Thu, 01 Oct 2026 06:29:25 +0000
+Received: by mail-wr2-x0f.google.com with SMTP id ffacd0b85a97d-48b042e00f7so706663f8f.0
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 30 Sep 2026 23:29:23 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20251104; t=1790836162; x=1791440962; darn=lists.infradead.org;
+        h=content-type:mime-version:content-transfer-encoding:message-id:date
+         :references:in-reply-to:subject:cc:to:from:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=YmUdotlXBym7+M7DTZqezt6CY+s7rUVFUXVNY2HpXtE=;
+        b=Wj6PCSmafjnukRPqeDvARwyAyeNNU76pyiLE3CrH7a1B7znxu0HfG9UnEezQBgvs5M
+         8+hqx2NgYon0/JcuqmZjhkIpRgd2lANxZO6qnONj/Tj5oR6FIUVb0UR9J5j9WuK7VRav
+         jeCyJHOIQtJP+I/gEIVZxFmgsVo3a1bNmOe6tNumYJrVVGGjT0QUWhL9IeFCZ7h31RLu
+         46bpIWCXb//k9gcV4ZBsbjZxXW7s8IG2etQEA5ItBZHRiKvyzDHRI0rfPbburhJL2JgD
+         QCyksivDiYFYujd0vX2Cr5YPvxCToOCWHHwkNW6fCkxnmk8zD7bi7T6MzCSU8vNYLSra
+         GTFg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1790836162; x=1791440962;
+        h=content-type:mime-version:content-transfer-encoding:message-id:date
+         :references:in-reply-to:subject:cc:to:from:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=YmUdotlXBym7+M7DTZqezt6CY+s7rUVFUXVNY2HpXtE=;
+        b=MuFi4RR+4MieanVch6BNKP38JAGQCtt+Tu0JYf7jRKiHsct31rT0xsR5X7EyOAegPv
+         c2a5i0Qm9zGCl6n5nVg45+SekETF1s/sDPobCfiAaobNOKcfRHvehTT7DQHpelPK+Qe9
+         zzcbUAWP5NmlILzggwUiGuGcU7uHpPZYyUjw5T3rNWR4XY7RQGaMz0dHWzago04EF7x5
+         78lNdDphrvVYnp07EiOxuEvtNHKEHjraRXvuB4ffE5JRUh5wa3OeeXGm2OJHqI6cH13n
+         OkdgRmURtjthJ+jSyQE4U9HikjreyJCYvQhwoeg0js7PSP7515WZDpOgubG411S8xDOx
+         15Ug==
+X-Forwarded-Encrypted: i=1; AKwUvBy9JtP0RoVz9KymuFDQcROD6surPxndH9ZtU1W/GIacELlXCnw0LJICAPDT/jSRnIcCF0M+/bvFDBEFQJCVQS7H@lists.infradead.org
+X-Gm-Message-State: AFuF++lwzxZoTsOv9Iyaa2qfxsXfH3u7S3BfqcmGGK0XMR9ITSN+iXxo
+	ENMEIhIJVNzb2+H+20FEtVtBU0mU3I4S3wbGQibLJzeoQHFfnH22T7YJ
+X-Gm-Gg: AYBFou2Ydxh0SdMPh8ERUSC565rXgjxmaz6EPO/wVHsj4NiRr8TiyT8NwJinXzpBXHZ
+	T47k3rxY7WVVJ4TE8GUYzxc5ElLcmtcOxdvlvUQzKjp/l9EAWoqbq5Ut5fbz/NuythSrI1pPMr6
+	tAxiky0QPISRnuPDN2QELkC1dfCMoQ12MO4qPUDQWMp1weB3cOoHS4qLzsEamKbDT5EZx+oRsBF
+	XJ6rWJ5KOb5Tn2nvkY+vfUwQUP0aoq9sZLP/PmPcp+BaQqgOjX+rsYPdMkMPz2a8bNJq5BRPgSC
+	6m4HwYnhSm0UxPy0bnQqwqaM8Jdi9uI4ddpWD7Y9Fpuc+polVvkpyCVC6lf3a4ReBpK0cgLG//z
+	j35VtQ1Lq36R6gviFfhghVWeWBleYL+wo+pLF9natlNR75aulwC7hQGDQTzky3HCJkz+VvoFltD
+	zjTFj/c79NYe1BmPwW6fYQhK48chEZDYhjcMnqRFFp4EE9b0uspYBtS0QA3PEkextdsZfhCwI6+
+	M/KTgIslxp4ue66Sqbr4tCMwz3MYWpD
+X-Received: by 2002:a05:600c:6088:b0:49f:fd66:5fec with SMTP id 5b1f17b1804b1-4a01ab4d57dmr54370375e9.0.1790836162047;
+        Wed, 30 Sep 2026 23:29:22 -0700 (PDT)
+Received: from [127.0.1.1] ([92.241.26.38])
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-48b068ff891sm4026217f8f.9.2026.09.30.23.29.20
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Wed, 30 Sep 2026 23:29:21 -0700 (PDT)
+From: Fil Dunsky <filipp.dunsky@gmail.com>
+To: Arnd Bergmann <arnd@arndb.de>
+Cc: Jason Li <jason.li@cortina-access.com>, Linus Walleij <linusw@kernel.org>,
+ Krzysztof Kozlowski <krzk@kernel.org>, Rob Herring <robh@kernel.org>,
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>,
+ Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+ Jiri Slaby <jirislaby@kernel.org>, Russell King <linux@armlinux.org.uk>,
+ Alexandre Belloni <alexandre.belloni@bootlin.com>,
+ Drew Fustini <fustini@kernel.org>, Lorenzo Pieralisi <lpieralisi@kernel.org>,
+ "linux-arm-kernel@lists.infradead.org" <linux-arm-kernel@lists.infradead.org>,
+ "devicetree@vger.kernel.org" <devicetree@vger.kernel.org>,
+ "linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
+ "linux-serial@vger.kernel.org" <linux-serial@vger.kernel.org>
+Subject: Re: [PATCH RFC 07/10] tty: serial: Add Cortina Systems CS75xx UART driver
+In-Reply-To: <3ddf4b8e-14b7-442b-9d4f-5167875e3d64@app.fastmail.com>
+References: <20260930-b4-cs75xx-v1-0-4617c4463529@gmail.com>
+ <20260930-b4-cs75xx-v1-7-4617c4463529@gmail.com>
+ <CAD++jLkzcf7gJB82XT3-xb4jLujtWSNz1kT2r1-4N54rRfRNMA@mail.gmail.com>
+ <1d81c2ef-7a5b-4306-83d2-ff96b0eb6a06@app.fastmail.com>
+ <179076749140.3134070.3869742286743401078@gmail.com> <SEZPR01MB42087271C56AD1C7E926AF35A28A2@SEZPR01MB4208.apcprd01.prod.exchangelabs.com>
+ <179082517588.138645.14615134489246049313@gmail.com> <SEZPR01MB4208B8B4A5A7F48F7FFE0C9FA28A2@SEZPR01MB4208.apcprd01.prod.exchangelabs.com>
+ <179083239972.193541.4791387611943615705@gmail.com>
+ <3ddf4b8e-14b7-442b-9d4f-5167875e3d64@app.fastmail.com>
+Date: Thu, 01 Oct 2026 09:29:19 +0300
+Message-ID: <179083615914.311026.2458351803214458859@gmail.com>
+Content-Transfer-Encoding: 8bit
 MIME-Version: 1.0
-X-MS-Exchange-MessageSentRepresentingType: 1
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: GVXPR04MB12316:EE_|GV4PR04MB537162:EE_
-X-MS-Office365-Filtering-Correlation-Id: 024d9cb8-3e9a-4443-0733-08df1f84c3de
-X-MS-Exchange-SharedMailbox-RoutingAgent-Processed: True
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|366016|23010399003|376014|7416014|1800799024|19092799006|11063799006|10067099003|56012099006|22082099003|18002099003;
-X-Microsoft-Antispam-Message-Info: doDRNM0DiHdRt2DbvJ7WoLrZ389LzT6jJqDhPF9t8J4W4kBNrAR7IuA+zUYz0YjWfeTXYCiPUhQ0nqhDBtUWhjh/agQh0nnhqQ3zHIt4iIzZK5edYceJePE9fAdmgPWUZXYUO0KGjySbgGu/AyK6hmvHGJP/ySXfapRAJsK/mXianxZF/K5pSdLGbVZsrmtEGEerxhMVLUuCc09CJdMT0Ak2b9AQbrjdYoDdE7p9lztVf3kvnXk975NwxFCY53oHiuY4Y7ph80QRwRyBINm/JPQz6TgN6WOTqmZMxodj46Zk3ixUWFQrvnTZvBm/ZJkGzRbFP6t4tPfsN0dAiUlXFSZo+ZhHIGu+Y0QQSnmaJ0imGCmRFjBGgkOR0LCTr79JKKKozZVyG943KlaiIUtUyprwzFGiwSVeXqo3ERyXR3Dw4yhZa3HvG2TDlyjufygvYSVkIVM4pITfgh/sOm3AOS3l8H1Ir/i5g2n3/wOe4VgzJYy9wqfHDmDvEPDsPaLXSznSl8LqrKFmM5tqyuYMjUe7OuNDSeRMN/UD51VV8ulU3Ur8mSi2zQy/DKKljRvov5OXHIbTbwYFEfPO3i9TSPlmbkmZIHxed0HIxcn+wpOgI+liTY/L+JYMBoBmINY9SD5vVK3p2koAjPRNa3zTvJsscj1/byPcaxR9wd+0icg=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:GVXPR04MB12316.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(23010399003)(376014)(7416014)(1800799024)(19092799006)(11063799006)(10067099003)(56012099006)(22082099003)(18002099003);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?QXlwaDdoVVpUVlRFdEY1UUJlSGtUd1k2bUlEalRyYkxaaG9pdXY1OGR6Mmc4?=
- =?utf-8?B?NUdGVjRQeUNHenBkZkMvR043b01sU0hpcUp2anBBMG1uS3pEbW0xU25JWDBQ?=
- =?utf-8?B?b3ZaZ1FpT1A0czdOc0w1RTBjV0ZZZTNJa3RXNU1BVnhkVHhCZVllbVVQZEx1?=
- =?utf-8?B?UTNhb3dZd2ZmTk1jVjhuSy9ORlhUM1dOLzdvQXJKR2tKckErbzlGWEFWZGJN?=
- =?utf-8?B?ME1uallJK3dmNVFiY2p4M2xDT05CMUg1alpSWm5rMVJLK2ZNK3plb0FFSlkx?=
- =?utf-8?B?NGNqWmM4VWpMeHNvSmQ0OXJhMHo2cHRaVmMvMkE2VzZhcFhsTkZRV05jQmlD?=
- =?utf-8?B?L0pxcXB0ODhqWkdzeENMV01hd2kzZzhQQ0NkcUxjenFsVU1FbCtIdVhtVjBp?=
- =?utf-8?B?MmJiWjVLb0xjVU1NblNoRDN4TDdIT2ZFRStGUHY2UUdvT3VRZjkzdEdoQVpW?=
- =?utf-8?B?ZmJSMDlDQXg1RGpMRlJnMFRzRTBVbERiUHJjVEYvK01wRjNjZWxYc1U0NUFs?=
- =?utf-8?B?T3ZUL3VvMlMwQUczaXFmZHZMWVJOWWE4SzBDb0FmWWJhVG5pT2RraHcwYlNm?=
- =?utf-8?B?SDlkQ0pqRnMvSE9yVzZ2R3BoWTVMSTc3aGUzQUJWRlNzWUZ1NVEyTHpIMytl?=
- =?utf-8?B?NHFrQllxV0c5TDVkS1JPcWZETUt4OFFhVGNQRGlTMUtsdW5naE1TbGsxNk1W?=
- =?utf-8?B?ZDBhSVJ2RzNaa0crY081Mk1TOUV0NFZIUjZpWmM1ajUrQ0dCNHh6cVFpOFJj?=
- =?utf-8?B?R2V3a1ZtZVIySUhMdkF2ODlhSEdPWEhCRzI2M29TOG9ydUlzbFdKOGtXei9D?=
- =?utf-8?B?bkR4dXpVeUxMZXRuUzBNdm5jQlY5T2VYMFVoV0xxaUlnMHpTaHRTbEQ1c2VK?=
- =?utf-8?B?b21LT2ovNWV2djB3UzhVaVZBZi9tTFlHRWtCaHYxa0xxaCsrd2RXSndvaURW?=
- =?utf-8?B?M3YrcmxDK2JvemZ5Z2Q5UExzVG5rSVUydGJ6eEV3c1V1eng4b2hDRjBnbW50?=
- =?utf-8?B?UGlBKzV3OHdEK2Y0M3p0SXcrM093bFBIc3ZhS1hvQ2o4dzZmaFdoeUhGV3Fn?=
- =?utf-8?B?eVcvVEQvZ21Dc3RqaFJ0K1hqUnJQUUFNWVQwVlowSDRyaTFUOFNlb0pEb01P?=
- =?utf-8?B?VVIrTU8xWkZmbURETG15YXlyZjB2a0JXcW02QkJhMWVjczJBV2NXSlF6UHZp?=
- =?utf-8?B?YmNBNFg4SDNNRnNxYTdEV2J2RGVoeld0am02VmI4M1JIZGdJWFpCb21XUmI5?=
- =?utf-8?B?Z2hXTUpUeVNhQVFxRjBFdjZFY2JRdGdaWFRNTUthV0NPa1JYaHdXSEdCZy84?=
- =?utf-8?B?clBUZWN0d1JRSFJyeUdUeFZkNUFSZDNTeWZ4YjIxUnI2NDFibm81WnRmY2hV?=
- =?utf-8?B?MUxrcVR2UGQ1SkJzc2lray9VanBJS2JIWWhpMm5id1IzS1VleHJDWElvalRD?=
- =?utf-8?B?SkVHNW93TnpaRmdhcjhMYXMyNjk5M2g1d3ZxTkt4SjlMZXR2SmNCbFVVR3k3?=
- =?utf-8?B?MFIvS1EvWndoTTFXRFMrR05DS1ZXVDBVbHZiSWZNTTlhYUNUaFhVbG50TUNH?=
- =?utf-8?B?ZUMwY2krdHE1bXF2eFBhTWRDSThadS9WaGs1WmdVM1grSE9MODY5SERBUWhU?=
- =?utf-8?B?M1pTcHJpTUVGK3ZJS0ZoNkxkY2dEM05CQWU5RW1wTTRDMFBSOHNFNkNhOW1F?=
- =?utf-8?B?SFJrZVRSY2tFdHNMYSswL3Q0RHprRTk0dm40dG9HbmZ1ZEUrRFdLY3hCamZI?=
- =?utf-8?B?Z09sM3RBcHIweDNyclZiTWtFc21MamJiYm4ydHpxUnFUNGNKQ0xtU1RpaEpZ?=
- =?utf-8?B?WmZuYkxVNkpPUFlPaG9xT2Z6c3h1bnA0K0Izby9jNDJBSzdCdDNoTVBiN3Fw?=
- =?utf-8?B?eWdtclp2UlQ4dzh1VHQ4QUNyM3grYjV1OHNRdkdnYjRoSzg1azhWSDhhRExJ?=
- =?utf-8?B?cHR3UVhRaUUyZnd1dDIwMElvcGI0UVBtUzBrZVZhekRXQ0FLazFQTGUxYURO?=
- =?utf-8?B?R1NNS3U5ZGI0cE5qSi9FSUY3S2hWRkFqYmZyWkVwVldPZjlHY0dCdzkzMGNz?=
- =?utf-8?B?RTF2R3JSZmVzRUVJTTlEeUpiMmZKNlAzbmNoSGNkaCt3dS9LVTJJbW9wZW5S?=
- =?utf-8?B?bUIwcTZzcTBRZm9icndWY1Y1L1kyeTRITzZXVDZsT2Y3Ymw4bWE3VWxZMks2?=
- =?utf-8?B?V3h2R1NrL25wcXR0eHVHTFFsOXFXVXpnWVdHcFNoSUpUdE95NjhjRkRCZzVU?=
- =?utf-8?B?SnhCQi9HeXFLU2FmMjlQQkJad2pPbWNhM0F3WEYwY2NpanVpemdLbC9EM202?=
- =?utf-8?B?RGVHb1haRWpqWkFLWmJZaFQzdDdWVGV6UU0rVTN1TFpaOTM1eXNsdz09?=
-X-OriginatorOrg: oss.nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 024d9cb8-3e9a-4443-0733-08df1f84c3de
-X-MS-Exchange-CrossTenant-AuthSource: GVXPR04MB12316.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 01 Oct 2026 06:25:19.4615
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: XuloAgJlmsUnhc7ZBrlFwp0AgN+pxlirEdjQWu2OC+1Owl8Gf/ZV/c2URVW8TN+zqzWM36ZZBRa+Q4ON4IHPTQ==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: GV4PR04MB537162
+Content-Type: text/plain; charset="utf-8"; format="fixed"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260930_232526_302053_6A5FC9A4 
-X-CRM114-Status: GOOD (  13.40  )
+X-CRM114-CacheID: sfid-20260930_232924_045733_C635A981 
+X-CRM114-Status: GOOD (  10.96  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -154,58 +116,24 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 10/1/26 04:12, Rob Herring (Arm) wrote:
-> The "hardware" property in the root node on some NXP i.MX8 boards is not
-> documented. We already have both compatible and model property to
-> describe the platform.
-> 
-> Signed-off-by: Rob Herring (Arm) <robh@kernel.org>
+On Thu, Oct 01, 2026 at 08:18:56AM +0200, Arnd Bergmann wrote:
+> No objections from me either way, but I don't quite understand what
+> that will mean for the older parts that that are still sold by
+> Cortina Access: cs8032, cs8022 and cs8124. If someone later adds
+> DT support for those, would we use 'cortina,cs8032' or
+> 'cortina-access,cs8032'?
 
-I was looking for a fix for this, this looks good.
+I would go by the part number, the way fsl/nxp is handled: the parts
+that came out of Cortina Systems with a CSxxxx number keep "cortina",
+so "cortina,cs8032", and the CAxxxx parts that Cortina Access designed
+use "cortina-access". That gives a rule a later submitter can apply
+without knowing who sells the chip today.
 
-Reviewed-by: Daniel Baluta <daniel.baluta@nxp.com>
+Jason, if Cortina Access would rather see its current CS80xx/CS81xx
+parts under "cortina-access", now would be the time to say so; I have
+no stake in those and only need a rule for the CS75xx.
 
-> ---
->  .../boot/dts/freescale/imx8mm-tx8m-1610-moduline-iv-306-d.dts    | 1 -
->  .../boot/dts/freescale/imx8mm-tx8m-1610-moduline-mini-111.dts    | 1 -
->  .../boot/dts/freescale/imx8mp-tx8p-ml81-moduline-display-106.dts | 1 -
->  3 files changed, 3 deletions(-)
-> 
-> diff --git a/arch/arm64/boot/dts/freescale/imx8mm-tx8m-1610-moduline-iv-306-d.dts b/arch/arm64/boot/dts/freescale/imx8mm-tx8m-1610-moduline-iv-306-d.dts
-> index 6cc04aa90f21..d15297a42d8f 100644
-> --- a/arch/arm64/boot/dts/freescale/imx8mm-tx8m-1610-moduline-iv-306-d.dts
-> +++ b/arch/arm64/boot/dts/freescale/imx8mm-tx8m-1610-moduline-iv-306-d.dts
-> @@ -12,7 +12,6 @@
->  / {
->  	chassis-type = "embedded";
->  	compatible = "gocontroll,moduline-iv-306-d", "karo,tx8m-1610", "fsl,imx8mm";
-> -	hardware = "Moduline IV V3.06-D";
->  	model = "GOcontroll Moduline IV";
->  
->  	aliases {
-> diff --git a/arch/arm64/boot/dts/freescale/imx8mm-tx8m-1610-moduline-mini-111.dts b/arch/arm64/boot/dts/freescale/imx8mm-tx8m-1610-moduline-mini-111.dts
-> index 39b7d9077e8e..9148ea7c6609 100644
-> --- a/arch/arm64/boot/dts/freescale/imx8mm-tx8m-1610-moduline-mini-111.dts
-> +++ b/arch/arm64/boot/dts/freescale/imx8mm-tx8m-1610-moduline-mini-111.dts
-> @@ -12,7 +12,6 @@
->  / {
->  	chassis-type = "embedded";
->  	compatible = "gocontroll,moduline-mini-111", "karo,tx8m-1610", "fsl,imx8mm";
-> -	hardware = "Moduline Mini V1.11";
->  	model = "GOcontroll Moduline Mini";
->  
->  	aliases {
-> diff --git a/arch/arm64/boot/dts/freescale/imx8mp-tx8p-ml81-moduline-display-106.dts b/arch/arm64/boot/dts/freescale/imx8mp-tx8p-ml81-moduline-display-106.dts
-> index 87b20b856458..206992ff9640 100644
-> --- a/arch/arm64/boot/dts/freescale/imx8mp-tx8p-ml81-moduline-display-106.dts
-> +++ b/arch/arm64/boot/dts/freescale/imx8mp-tx8p-ml81-moduline-display-106.dts
-> @@ -11,7 +11,6 @@
->  / {
->  	compatible = "gocontroll,moduline-display-106", "karo,tx8p-ml81", "fsl,imx8mp";
->  	chassis-type = "embedded";
-> -	hardware = "Moduline Display V1.06";
->  	model = "GOcontroll Moduline Display baseboard";
->  
->  	aliases {
+Thanks,
+Fil
 
 
