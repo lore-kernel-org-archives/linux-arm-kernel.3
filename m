@@ -4,135 +4,73 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D2408CA5FD2
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  1 Oct 2026 15:28:27 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 97D6DCA5FCB
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  1 Oct 2026 15:30:44 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=vgnG8rVeRbJNCaAy2IBzbkoT7ghCWnR2QVi/WWha3Vs=; b=jN8zyIaYyUuvofoFdy1l3cvtcy
-	/n5pRbdQYkXCFaelBEhqNkxIaYkl8yrdOSl+A2iODDt0eMI2l98ioexHBJzl8Fb7hCx6iUDe2zvwq
-	c6bVylJ1CPsFJ3zFGSo4aAUG83fgZ61GF+9pR97neb0WNkQlM3ZsCTSbUQBLahfLEGKzFcOi339ub
-	1T16U8GloGjwv8HzMttPG/s5rgNKA20gGNGkbi+LDfAptll+YXuqcLMv/Rnbs8IFLYYOe4852ITH8
-	EFljsjUjTO3f3Y0QtwEobR46n3eZrCfG3A++eoZokyATfDzG4I/Xmh7b9zaDGjPNE6E1FBE+Ml+9h
-	HBfZkf4w==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=n4qkix7dZvZjzdXjV58aFtwAsoYI5IyUdaFVc+NF8I8=; b=2gK4OCyC/ehdw1vKra4b7TUhL8
+	RuGBA4PO5ZUXaPW8B/aO0mfm6euLZoEie+DKVL9nQi5Ru/T06KlVSMlAGxw+zcy2sM2wribsNOAis
+	6bcRfzau3KfQBWUzA2co4Ea9PmMB7PvLf3oqlxi3x6dDxXzAIuNGML25EQchtI1o0kUMBy0l/Xa+9
+	0I3fnSbPVZP0LeJt1Ltt5MrtbrIcdr7QdvoejtPvV3Bi+h7YE8NQq0lcTAWzqTaqzJyBsBqO0P+F0
+	Ifjls8Pw4svqmTUXKIOyCdRlvYbcYdvhiGQ4jox/GrSVk5tu7MzFFfTJPq1camwFXzPgZh8zyRsEj
+	0Ku6dIMw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xCIho-00000009Wp8-2pI4;
-	Thu, 01 Oct 2026 15:28:20 +0000
-Received: from mx0a-001b2d01.pphosted.com ([148.163.156.1])
+	id 1xCIk2-00000009X8f-05Qr;
+	Thu, 01 Oct 2026 15:30:38 +0000
+Received: from sender4-pp-f112.zoho.com ([136.143.188.112])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xCIhn-00000009Wom-050J
-	for linux-arm-kernel@lists.infradead.org;
-	Thu, 01 Oct 2026 15:28:20 +0000
-Received: from pps.filterd (m0356517.ppops.net [127.0.0.1])
-	by mx0a-001b2d01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 691Daqo31887543;
-	Thu, 1 Oct 2026 15:28:07 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ibm.com; h=cc
-	:content-type:date:from:in-reply-to:message-id:mime-version
-	:references:subject:to; s=pp1; bh=vgnG8rVeRbJNCaAy2IBzbkoT7ghCWn
-	R2QVi/WWha3Vs=; b=rrV0xBOgP8q6078R+SrzmauKvifGq4NiympvzFOYe3ewk6
-	HKWGwytDTchEh2YX/B6teyqNutB9496uebTQH5SxabrZaYznb1k1AiulSAEZ9Txp
-	yu52H8+LZdr/lL4PDIdoCHmpjLwh5//EdfaZ/jduDJ11bfT/O3Vg8Y40wiZrJlxP
-	ckDaNIU6wZE60IN6j3UvpfA0Bl/r4dssBrJEQmOge9+kZBcGfkM38+L3iqlbk6S/
-	NpGj3s6Uxd6IkUqlctA5oxpG5g4RwRzLG7CksJVemmweU+sjXvfhLj9Ctl2rnEXU
-	YsjYMTz2IKqdLGzpaGshw2pV1+PXvdThoqwJeXzQ==
-Received: from ppma12.dal12v.mail.ibm.com (dc.9e.1632.ip4.static.sl-reverse.com [50.22.158.220])
-	by mx0a-001b2d01.pphosted.com (PPS) with ESMTPS id 4gx5s5m1aj-1
-	(version=TLSv1.3 cipher=TLS_AES_256_GCM_SHA384 bits=256 verify=NOT);
-	Thu, 01 Oct 2026 15:28:06 +0000 (GMT)
-Received: from pps.filterd (ppma12.dal12v.mail.ibm.com [127.0.0.1])
-	by ppma12.dal12v.mail.ibm.com (8.18.1.11/8.18.1.11) with ESMTP id 691DlUMQ1014241;
-	Thu, 1 Oct 2026 15:28:06 GMT
-Received: from smtprelay01.fra02v.mail.ibm.com ([9.218.2.227])
-	by ppma12.dal12v.mail.ibm.com (PPS) with ESMTPS id 4h0g8e9p97-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Thu, 01 Oct 2026 15:28:06 +0000 (GMT)
-Received: from smtpav07.fra02v.mail.ibm.com (smtpav07.fra02v.mail.ibm.com [10.20.54.106])
-	by smtprelay01.fra02v.mail.ibm.com (8.14.9/8.14.9/NCO v10.0) with ESMTP id 691FS2Kg42205502
-	(version=TLSv1/SSLv3 cipher=DHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
-	Thu, 1 Oct 2026 15:28:02 GMT
-Received: from smtpav07.fra02v.mail.ibm.com (unknown [127.0.0.1])
-	by IMSVA (Postfix) with ESMTP id 2E5452004F;
-	Thu,  1 Oct 2026 15:28:02 +0000 (GMT)
-Received: from smtpav07.fra02v.mail.ibm.com (unknown [127.0.0.1])
-	by IMSVA (Postfix) with ESMTP id C5B302004B;
-	Thu,  1 Oct 2026 15:28:01 +0000 (GMT)
-Received: from osiris (unknown [9.224.76.185])
-	by smtpav07.fra02v.mail.ibm.com (Postfix) with ESMTPS;
-	Thu,  1 Oct 2026 15:28:01 +0000 (GMT)
-Date: Thu, 1 Oct 2026 17:30:05 +0200
-From: Steffen Eiden <seiden@linux.ibm.com>
-To: "Lorenzo Stoakes (ARM)" <ljs@kernel.org>
-Cc: Arnd Bergmann <arnd@arndb.de>, kvm@vger.kernel.org, kvmarm@lists.linux.dev,
-        linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
-        linux-s390@vger.kernel.org, Alexander Gordeev <agordeev@linux.ibm.com>,
-        Andreas Grapentin <gra@linux.ibm.com>,
-        Catalin Marinas <catalin.marinas@arm.com>,
-        Christian Borntraeger <borntraeger@linux.ibm.com>,
-        Claudio Imbrenda <imbrenda@linux.ibm.com>,
-        "David Hildenbrand (Red Hat)" <david@kernel.org>,
-        Friedrich Welter <fritz@linux.ibm.com>, Fuad Tabba <tabba@google.com>,
-        Gautam Gala <ggala@linux.ibm.com>,
-        Hariharan Mari <hari55@linux.ibm.com>,
-        Heiko Carstens <hca@linux.ibm.com>,
-        Hendrik Brueckner <brueckner@linux.ibm.com>,
-        Ilya Leoshkevich <iii@linux.ibm.com>,
-        Janosch Frank <frankja@linux.ibm.com>, Joey Gouly <joey.gouly@arm.com>,
-        Marc Zyngier <maz@kernel.org>, Nico Boehr <nrb@linux.ibm.com>,
-        Nina Schoetterl-Glausch <oss@nina.schoetterlglausch.eu>,
-        Oliver Upton <oupton@kernel.org>, Paolo Bonzini <pbonzini@redhat.com>,
-        Sean Christopherson <seanjc@google.com>,
-        Suzuki K Poulose <suzuki.poulose@arm.com>,
-        Sven Schnelle <svens@linux.ibm.com>,
-        Ulrich Weigand <Ulrich.Weigand@de.ibm.com>,
-        Vasily Gorbik <gor@linux.ibm.com>, Will Deacon <will@kernel.org>,
-        Zenghui Yu <yuzenghui@huawei.com>
-Subject: Re: [PATCH v9 23/24] KVM: s390: arm64: Implement basic page fault
- handler
-Message-ID: <20261001153005.314717-B-seiden@linux.ibm.com>
-References: <20260930173441.66762-1-seiden@linux.ibm.com>
- <20260930173441.66762-24-seiden@linux.ibm.com>
- <e2742ccb-6b91-463c-a148-30b7e2f41e9a@app.fastmail.com>
- <e1569c6e-94df-4609-8d94-d6319b4171cf@app.fastmail.com>
- <ar5udQI9qDAtYrGi@gremlin>
+	id 1xCIju-00000009X7f-3MkJ;
+	Thu, 01 Oct 2026 15:30:36 +0000
+ARC-Seal: i=1; a=rsa-sha256; t=1790868626; cv=none; 
+	d=zohomail.com; s=zohoarc; 
+	b=XUgeEb3gNoxnt1XzcxOvhPvkfSd2suARWDp6D+NlkVMci0aO/Io7dIaDwfbnyzDQeWK7mqu3kbTJX6wqp/u8/ftfWVbnIR0F0OIjxowLRBCwOOQPT0YTFHyLDRW3Ns2i1rMpxAH61L8UwoAKub4QEnpSnPsdt99wkOSKYx28z+Y=
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=zohomail.com; s=zohoarc; 
+	t=1790868626; h=Content-Type:Content-Transfer-Encoding:Cc:Cc:Date:Date:From:From:In-Reply-To:MIME-Version:Message-ID:Subject:Subject:To:To:Message-Id:Reply-To; 
+	bh=n4qkix7dZvZjzdXjV58aFtwAsoYI5IyUdaFVc+NF8I8=; 
+	b=JYiBANQxSGCKWIBYig/nlk0aZpeNXXy3/puE2qgs15DrgwC4n8AoVuu/6EyhGNpMECW2YpHXoLPEVrmPglOmulUjNVJmSQp4nVj4zSlcMOt7rZ/QAObIaW3n68khA78DIIj3LWzOp2pki8wZyYtVf6R9bk8oSQ74Nm/Mujalpew=
+ARC-Authentication-Results: i=1; mx.zohomail.com;
+	dkim=pass  header.i=collabora.com;
+	spf=pass  smtp.mailfrom=michael.riesch@collabora.com;
+	dmarc=pass header.from=<michael.riesch@collabora.com>
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; t=1790868626;
+	s=zohomail; d=collabora.com; i=michael.riesch@collabora.com;
+	h=Message-ID:Date:Date:MIME-Version:Subject:Subject:To:To:Cc:Cc:From:From:In-Reply-To:Content-Type:Content-Transfer-Encoding:Message-Id:Reply-To;
+	bh=n4qkix7dZvZjzdXjV58aFtwAsoYI5IyUdaFVc+NF8I8=;
+	b=WYHLkrJJQwGtVsWH3fDUgmmHGwySrgSfdE2zx3VPHqehnrwaj9YotOQuX2+f71VK
+	pla1RVcYmMb2TjAMBLWX69aaACdq7yYLxALAYZ8EruWEQNs+rh2W4hADofm7Hu+mFhP
+	oXADJ+mKOiXFVydxR6jtjB21Ym+ouDFi2jWE5jWc=
+Received: by smtp.zohomail.com with SMTPS id 1790868624762694.0539957154162;
+	Thu, 1 Oct 2026 08:30:24 -0700 (PDT)
+Message-ID: <74d65aee-043e-42a1-bdb8-c1889c4c19a8@collabora.com>
+Date: Thu, 1 Oct 2026 17:30:21 +0200
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <ar5udQI9qDAtYrGi@gremlin>
-X-TM-AS-GCONF: 00
-X-Proofpoint-Reinject: loops=2 maxloops=12
-X-Proofpoint-Spam-Info: AW1haW4tMjYxMDAxMDA2MCBTYWx0ZWRfX2dHxbg9WFAX3
- vCgw9xIT/uH9JuA8kMyp8iH4EM3shTvqHta2glpmTrhKg3ZxR+HYWRuuZ1Tb8SDqndrkHQh6/g+
- HCpaYQIFM66g6y0gOBIIndyYh7p2nCo=
-X-Authority-Analysis: v=2.4 cv=HJ5WhYtv c=1 sm=1 tr=0 ts=6abe7c07 cx=c_pps
- a=bLidbwmWQ0KltjZqbj+ezA==:117 a=bLidbwmWQ0KltjZqbj+ezA==:17
- a=kj9zAlcOel0A:10 a=660iZSQnnn4A:10 a=VkNPw1HP01LnGYTKEx00:22
- a=RnoormkPH1_aCDwRdu11:22 a=U7nrCbtTmkRpXpFmAIza:22 a=6ZjwDr74HOGPPcGGw4sA:9
- a=CjuIK1q_8ugA:10
-X-Proofpoint-GUID: jiEUxPFN5Hly8OX4mT18-m95iiCMMpxy
-X-Proofpoint-ORIG-GUID: AEF0VvpZZK8TQE1iAmu6GvIL5k8eZq4v
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYxMDAxMDA2MCBTYWx0ZWRfX3RZjgu7EO1TA
- nqQ6f8qZDuj+FPjK69SeLZS8QCIs8YEYUY7Hyu2E4gXHbNesmy4e6o9PQ9/Xd+7/G0R80Z5nWjw
- EQqwPb3JnhC1nqV/a11F5dwG7zSablKI4L/xqnp2Ysw+fqPx6pOP57yhGFqyhQ1GQCZlgGK5n1u
- Qv0T/F/J4FJTuMevh+tDdEQDqvHDwCb9xqjco02PAhkckyMFdw/LL5fJPKPjOHHn+J7e4dBseRK
- PPRUzfVZbuMeQgVcdacTKOowhtTn/sQYW3meePxrGUws0FqjoAD8eWU2/gXiq/w3FHM1cf6XOv9
- uhX09oM//b03nI0dFItJxvZfWkP9CBB4TgEZgiTAOxASgM0FVQr124GqOTWBmPKh82X3428GbWk
- TGFa6lGK5NaWuPk+3yk4zN+LR2H94ETBltPv2d2WNlCpb9/ZUpTdebyl1YaQreR4PtlEkNODDcg
- qBrwGspG411rS5vx1YQ==
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1176,Hydra:6.1.134,FMLib:17.12.100.49
- definitions=2026-10-01_04,2026-09-21_02,2025-10-01_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- malwarescore=0 suspectscore=0 bulkscore=0 clxscore=1015 lowpriorityscore=0
- spamscore=0 impostorscore=0 phishscore=0 priorityscore=1501 adultscore=0
- classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
- reason=mlx scancount=1 engine=8.22.0-2609040000 definitions=main-2610010060
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v2 4/5] media: rockchip: rkcif: add support for rk3576
+ vicap mipi capture
+To: Amin Gattout <amin.gattout@gmail.com>,
+ Mehdi Djait <mehdi.djait@linux.intel.com>,
+ Mauro Carvalho Chehab <mchehab@kernel.org>, Rob Herring <robh@kernel.org>,
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
+ <conor+dt@kernel.org>, Heiko Stuebner <heiko@sntech.de>
+Cc: linux-media@vger.kernel.org, devicetree@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org,
+ linux-kernel@vger.kernel.org
+References: <20260921-vicap-rk3576-v2-0-0a4582e20c72@gmail.com>
+ <20260921-vicap-rk3576-v2-4-0a4582e20c72@gmail.com>
+Content-Language: en-US
+From: Michael Riesch <michael.riesch@collabora.com>
+In-Reply-To: <20260921-vicap-rk3576-v2-4-0a4582e20c72@gmail.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
+X-ZohoMailClient: External
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261001_082819_091136_64EC35D9 
-X-CRM114-Status: GOOD (  25.41  )
+X-CRM114-CacheID: sfid-20261001_083030_966746_EE83AD84 
+X-CRM114-Status: GOOD (  22.03  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -147,70 +85,262 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Oct 01, 2026 at 03:36:26PM +0100, Lorenzo Stoakes (ARM) wrote:
-> On Thu, Oct 01, 2026 at 03:35:37PM +0200, Arnd Bergmann wrote:
-> > Another ones: after 34cfa9b3af17 ("KVM: arm64: Implement
-> > KVM_PRE_FAULT_MEMORY"), we are now missing a kvm_arch_pre_fault_allowed()
-> > definition in arch/s390/kvm/arm64/mmu.c:
-> >
-> > ERROR: modpost: arch/s390/kvm/arm64/kvm-arm64.ko: symbol 'kvm_arch_pre_fault_allowed' undefined!
-> >
-> > I copied the arm64 version without the pkvm reference to make it
-> > build for me.
-> >
-> >      Arnd
-> >
-> > diff --git a/arch/s390/kvm/arm64/mmu.c b/arch/s390/kvm/arm64/mmu.c
-> > index 7ee157c61d70..be16351acaae 100644
-> > --- a/arch/s390/kvm/arm64/mmu.c
-> > +++ b/arch/s390/kvm/arm64/mmu.c
-> > @@ -179,6 +179,14 @@ int kvm_handle_guest_abort(struct kvm_vcpu *vcpu)
-> >  	return ret;
-> >  }
-> >
-> > +int kvm_arch_pre_fault_allowed(struct kvm_vcpu *vcpu)
-> > +{
-> > +	if (!kvm_vcpu_initialized(vcpu))
-> > +		return -ENOEXEC;
-> > +
-> > +	return 0;
-> > +}
-> > +
-thanks. This must have slipped through somehow.
+Hi Amin,
 
+Thanks for the patch!
 
+On 9/21/26 17:30, Amin Gattout wrote:
+> The RK3576 Video Capture (VICAP) unit features a Digital Video Port
+> (DVP) and five MIPI CSI-2 capture interfaces. Compared to the RK3588
+> variant, the MIPI register blocks are laid out differently (there is
+> no block at offset 0x200), the ID_CTRL0 bit layout has changed, and
+> the VC/DT filter has moved from ID_CTRL0 to ID_CTRL1. The capture
+> size, which the other variants configure in ID_CTRL1, lives in the
+> ID_SET_SIZE register.
 > 
-> Ah the s390 <-> kvm emulation stuff.
-
-no, its not emulation :) 
-We use a hardware based acclearaion approach.
-
-
+> On the RK3576 the pixel clock of each MIPI port enters the VICAP
+> through a dedicated CRU gate (CLK_VICAP_I0CLK to CLK_VICAP_I4CLK),
+> so the variant claims these five clocks in addition to aclk, hclk
+> and dclk.
 > 
-> Yep if it's meant to behave like arm64 then that should be correct.
-> 
-> It's odd to me that pre-faulting was not previously implemented for actual-arm64
-> but was added as part of the virtualised s390/arm64 thing automatically :)
-> 
-> Not sure if this implementation requires what s390 does with:
-> 
-> +int kvm_arch_pre_fault_allowed(struct kvm_vcpu *vcpu)
-> +{
-> +       if (kvm_is_ucontrol(vcpu->kvm))
-> +               return -EINVAL;
-no, ucontrol is a feature only for native s390 guests.
-kvm_arm64 on s390 always evaluates kvm_is_ucontrol() to false if it
-appears in shared (between both s390 KVMs) code.
+> Signed-off-by: Amin Gattout <amin.gattout@gmail.com>
 
+Reviewed-by: Michael Riesch <michael.riesch@collabora.com>
+
+(and with that, for the complete patch series)
+
+Best regards,
+Michael
+
+> ---
+>  .../platform/rockchip/rkcif/rkcif-capture-mipi.c   | 140 +++++++++++++++++++++
+>  .../platform/rockchip/rkcif/rkcif-capture-mipi.h   |   1 +
+>  .../media/platform/rockchip/rkcif/rkcif-common.h   |   2 +-
+>  drivers/media/platform/rockchip/rkcif/rkcif-dev.c  |  21 ++++
+>  4 files changed, 163 insertions(+), 1 deletion(-)
+> 
+> diff --git a/drivers/media/platform/rockchip/rkcif/rkcif-capture-mipi.c b/drivers/media/platform/rockchip/rkcif/rkcif-capture-mipi.c
+> index 432f47a1fc23..53e62d059764 100644
+> --- a/drivers/media/platform/rockchip/rkcif/rkcif-capture-mipi.c
+> +++ b/drivers/media/platform/rockchip/rkcif/rkcif-capture-mipi.c
+> @@ -30,6 +30,14 @@
+>  #define RK3568_MIPI_CTRL0_CROP_EN     BIT(5)
+>  #define RK3568_MIPI_CTRL0_WRDDR(type) ((type) << 1)
+>  
+> +#define RK3576_MIPI_CTRL0_HIGH_ALIGN  BIT(11)
+> +#define RK3576_MIPI_CTRL0_WRDDR(type) ((type) << 8)
+> +#define RK3576_MIPI_CTRL0_PARSE(type) ((type) << 4)
+> +#define RK3576_MIPI_CTRL0_DMA_EN      BIT(3)
+> +#define RK3576_MIPI_CTRL0_CROP_EN     BIT(1)
 > +
-> +       return 0;
+> +#define RK3576_MIPI_CTRL1_DT(dt)      ((dt) << 2)
+> +
+>  #define RK3588_MIPI_CTRL0_DMA_EN      BIT(28)
+>  #define RK3588_MIPI_CTRL0_HIGH_ALIGN  BIT(27)
+>  #define RK3588_MIPI_CTRL0_WRDDR(type) ((type) << 5)
+> @@ -490,6 +498,138 @@ const struct rkcif_mipi_match_data rkcif_rk3568_vicap_mipi_match_data = {
+>  	},
+>  };
+>  
+> +static u32
+> +rkcif_rk3576_mipi_ctrl0(struct rkcif_stream *stream,
+> +			const struct rkcif_output_fmt *active_out_fmt)
+> +{
+> +	u32 ctrl0 = RKCIF_MIPI_CTRL0_CAP_EN | RK3576_MIPI_CTRL0_DMA_EN |
+> +		    RK3576_MIPI_CTRL0_CROP_EN;
+> +
+> +	switch (active_out_fmt->mipi.type) {
+> +	case RKCIF_MIPI_TYPE_RAW8:
+> +		break;
+> +	case RKCIF_MIPI_TYPE_RAW10:
+> +		ctrl0 |= RK3576_MIPI_CTRL0_PARSE(0x1);
+> +		if (!active_out_fmt->mipi.compact)
+> +			ctrl0 |= RK3576_MIPI_CTRL0_WRDDR(0x1);
+> +		break;
+> +	case RKCIF_MIPI_TYPE_RAW12:
+> +		ctrl0 |= RK3576_MIPI_CTRL0_PARSE(0x2);
+> +		if (!active_out_fmt->mipi.compact)
+> +			ctrl0 |= RK3576_MIPI_CTRL0_WRDDR(0x1);
+> +		break;
+> +	case RKCIF_MIPI_TYPE_RGB888:
+> +		ctrl0 |= RK3576_MIPI_CTRL0_PARSE(0x7);
+> +		break;
+> +	case RKCIF_MIPI_TYPE_YUV422SP:
+> +		ctrl0 |= RK3576_MIPI_CTRL0_WRDDR(0x4);
+> +		break;
+> +	case RKCIF_MIPI_TYPE_YUV420SP:
+> +		ctrl0 |= RK3576_MIPI_CTRL0_WRDDR(0x5);
+> +		break;
+> +	case RKCIF_MIPI_TYPE_YUV400:
+> +		ctrl0 |= RK3576_MIPI_CTRL0_WRDDR(0x3);
+> +		break;
+> +	default:
+> +		break;
+> +	}
+> +
+> +	return ctrl0;
 > +}
+> +
+> +static u32
+> +rkcif_rk3576_mipi_ctrl1(struct rkcif_stream *stream,
+> +			const struct rkcif_output_fmt *active_out_fmt)
+> +{
+> +	return RK3576_MIPI_CTRL1_DT(active_out_fmt->mipi.dt);
+> +}
+> +
+> +const struct rkcif_mipi_match_data rkcif_rk3576_vicap_mipi_match_data = {
+> +	.mipi_num = 5,
+> +	.mipi_ctrl0 = rkcif_rk3576_mipi_ctrl0,
+> +	.mipi_ctrl1 = rkcif_rk3576_mipi_ctrl1,
+> +	.regs = {
+> +		[RKCIF_MIPI_CTRL] = 0x20,
+> +		[RKCIF_MIPI_INTEN] = 0x74,
+> +		[RKCIF_MIPI_INTSTAT] = 0x78,
+> +	},
+> +	.regs_id = {
+> +		[RKCIF_ID0] = {
+> +			[RKCIF_MIPI_CTRL0] = 0x00,
+> +			[RKCIF_MIPI_CTRL1] = 0x04,
+> +			[RKCIF_MIPI_FRAME0_ADDR_Y] = 0x24,
+> +			[RKCIF_MIPI_FRAME0_ADDR_UV] = 0x2c,
+> +			[RKCIF_MIPI_FRAME0_VLW_Y] = 0x34,
+> +			[RKCIF_MIPI_FRAME0_VLW_UV] = RKCIF_REGISTER_NOTSUPPORTED,
+> +			[RKCIF_MIPI_FRAME1_ADDR_Y] = 0x28,
+> +			[RKCIF_MIPI_FRAME1_ADDR_UV] = 0x30,
+> +			[RKCIF_MIPI_FRAME1_VLW_Y] = RKCIF_REGISTER_NOTSUPPORTED,
+> +			[RKCIF_MIPI_FRAME1_VLW_UV] = RKCIF_REGISTER_NOTSUPPORTED,
+> +			[RKCIF_MIPI_CROP_START] = 0x90,
+> +			[RKCIF_MIPI_SET_SIZE] = 0xa0,
+> +		},
+> +		[RKCIF_ID1] = {
+> +			[RKCIF_MIPI_CTRL0] = 0x08,
+> +			[RKCIF_MIPI_CTRL1] = 0x0c,
+> +			[RKCIF_MIPI_FRAME0_ADDR_Y] = 0x38,
+> +			[RKCIF_MIPI_FRAME0_ADDR_UV] = 0x40,
+> +			[RKCIF_MIPI_FRAME0_VLW_Y] = 0x48,
+> +			[RKCIF_MIPI_FRAME0_VLW_UV] = RKCIF_REGISTER_NOTSUPPORTED,
+> +			[RKCIF_MIPI_FRAME1_ADDR_Y] = 0x3c,
+> +			[RKCIF_MIPI_FRAME1_ADDR_UV] = 0x44,
+> +			[RKCIF_MIPI_FRAME1_VLW_Y] = RKCIF_REGISTER_NOTSUPPORTED,
+> +			[RKCIF_MIPI_FRAME1_VLW_UV] = RKCIF_REGISTER_NOTSUPPORTED,
+> +			[RKCIF_MIPI_CROP_START] = 0x94,
+> +			[RKCIF_MIPI_SET_SIZE] = 0xa4,
+> +		},
+> +		[RKCIF_ID2] = {
+> +			[RKCIF_MIPI_CTRL0] = 0x10,
+> +			[RKCIF_MIPI_CTRL1] = 0x14,
+> +			[RKCIF_MIPI_FRAME0_ADDR_Y] = 0x4c,
+> +			[RKCIF_MIPI_FRAME0_ADDR_UV] = 0x54,
+> +			[RKCIF_MIPI_FRAME0_VLW_Y] = 0x5c,
+> +			[RKCIF_MIPI_FRAME0_VLW_UV] = RKCIF_REGISTER_NOTSUPPORTED,
+> +			[RKCIF_MIPI_FRAME1_ADDR_Y] = 0x50,
+> +			[RKCIF_MIPI_FRAME1_ADDR_UV] = 0x58,
+> +			[RKCIF_MIPI_FRAME1_VLW_Y] = RKCIF_REGISTER_NOTSUPPORTED,
+> +			[RKCIF_MIPI_FRAME1_VLW_UV] = RKCIF_REGISTER_NOTSUPPORTED,
+> +			[RKCIF_MIPI_CROP_START] = 0x98,
+> +			[RKCIF_MIPI_SET_SIZE] = 0xa8,
+> +		},
+> +		[RKCIF_ID3] = {
+> +			[RKCIF_MIPI_CTRL0] = 0x18,
+> +			[RKCIF_MIPI_CTRL1] = 0x1c,
+> +			[RKCIF_MIPI_FRAME0_ADDR_Y] = 0x60,
+> +			[RKCIF_MIPI_FRAME0_ADDR_UV] = 0x68,
+> +			[RKCIF_MIPI_FRAME0_VLW_Y] = 0x70,
+> +			[RKCIF_MIPI_FRAME0_VLW_UV] = RKCIF_REGISTER_NOTSUPPORTED,
+> +			[RKCIF_MIPI_FRAME1_ADDR_Y] = 0x64,
+> +			[RKCIF_MIPI_FRAME1_ADDR_UV] = 0x6c,
+> +			[RKCIF_MIPI_FRAME1_VLW_Y] = RKCIF_REGISTER_NOTSUPPORTED,
+> +			[RKCIF_MIPI_FRAME1_VLW_UV] = RKCIF_REGISTER_NOTSUPPORTED,
+> +			[RKCIF_MIPI_CROP_START] = 0x9c,
+> +			[RKCIF_MIPI_SET_SIZE] = 0xac,
+> +		},
+> +	},
+> +	.blocks = {
+> +		{
+> +			.offset = 0x100,
+> +		},
+> +		{
+> +			.offset = 0x300,
+> +		},
+> +		{
+> +			.offset = 0x400,
+> +		},
+> +		{
+> +			.offset = 0x500,
+> +		},
+> +		{
+> +			.offset = 0x600,
+> +		},
+> +	},
+> +};
+> +
+>  static u32
+>  rkcif_rk3588_mipi_ctrl0(struct rkcif_stream *stream,
+>  			const struct rkcif_output_fmt *active_out_fmt)
+> diff --git a/drivers/media/platform/rockchip/rkcif/rkcif-capture-mipi.h b/drivers/media/platform/rockchip/rkcif/rkcif-capture-mipi.h
+> index 7edaca44f653..4e17cbc04b76 100644
+> --- a/drivers/media/platform/rockchip/rkcif/rkcif-capture-mipi.h
+> +++ b/drivers/media/platform/rockchip/rkcif/rkcif-capture-mipi.h
+> @@ -13,6 +13,7 @@
+>  #include "rkcif-common.h"
+>  
+>  extern const struct rkcif_mipi_match_data rkcif_rk3568_vicap_mipi_match_data;
+> +extern const struct rkcif_mipi_match_data rkcif_rk3576_vicap_mipi_match_data;
+>  extern const struct rkcif_mipi_match_data rkcif_rk3588_vicap_mipi_match_data;
+>  
+>  int rkcif_mipi_register(struct rkcif_device *rkcif);
+> diff --git a/drivers/media/platform/rockchip/rkcif/rkcif-common.h b/drivers/media/platform/rockchip/rkcif/rkcif-common.h
+> index f83c8099b78e..08a213438d34 100644
+> --- a/drivers/media/platform/rockchip/rkcif/rkcif-common.h
+> +++ b/drivers/media/platform/rockchip/rkcif/rkcif-common.h
+> @@ -27,7 +27,7 @@
+>  #include "rkcif-regs.h"
+>  
+>  #define RKCIF_DRIVER_NAME "rockchip-cif"
+> -#define RKCIF_CLK_MAX	  5
+> +#define RKCIF_CLK_MAX	  8
+>  
+>  enum rkcif_format_type {
+>  	RKCIF_FMT_TYPE_INVALID,
+> diff --git a/drivers/media/platform/rockchip/rkcif/rkcif-dev.c b/drivers/media/platform/rockchip/rkcif/rkcif-dev.c
+> index be3a174b9aab..2a5758776b3e 100644
+> --- a/drivers/media/platform/rockchip/rkcif/rkcif-dev.c
+> +++ b/drivers/media/platform/rockchip/rkcif/rkcif-dev.c
+> @@ -53,6 +53,23 @@ static const struct rkcif_match_data rk3568_vicap_match_data = {
+>  	.mipi = &rkcif_rk3568_vicap_mipi_match_data,
+>  };
+>  
+> +static const char *const rk3576_vicap_clks[] = {
+> +	"aclk",
+> +	"hclk",
+> +	"dclk",
+> +	"iclk",
+> +	"iclk1",
+> +	"iclk2",
+> +	"iclk3",
+> +	"iclk4",
+> +};
+> +
+> +static const struct rkcif_match_data rk3576_vicap_match_data = {
+> +	.clks = rk3576_vicap_clks,
+> +	.clks_num = ARRAY_SIZE(rk3576_vicap_clks),
+> +	.mipi = &rkcif_rk3576_vicap_mipi_match_data,
+> +};
+> +
+>  static const char *const rk3588_vicap_clks[] = {
+>  	"aclk",
+>  	"hclk",
+> @@ -76,6 +93,10 @@ static const struct of_device_id rkcif_plat_of_match[] = {
+>  		.compatible = "rockchip,rk3568-vicap",
+>  		.data = &rk3568_vicap_match_data,
+>  	},
+> +	{
+> +		.compatible = "rockchip,rk3576-vicap",
+> +		.data = &rk3576_vicap_match_data,
+> +	},
+>  	{
+>  		.compatible = "rockchip,rk3588-vicap",
+>  		.data = &rk3588_vicap_match_data,
 > 
-> Or both conditions? One for the s390 guys.
-> 
-so just the initialized test.
 
-thanks
-
-	Steffen
 
