@@ -4,64 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 01FCECA5FCB
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  1 Oct 2026 12:09:18 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DA31ECA5FCC
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  1 Oct 2026 12:09:20 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=hgUX0ii0uYxzjf7gvJ6LbuMXqEimXK9XD6l6fEYf20Q=; b=aPyXKUDEWTof51xvih+u7E7IL5
-	tPnF5gNNRko2Y3wmS+5i5O6pYPuU0zVLJtpwzqP4bDIWRoVc7hPYA90X5kyCR68uIQLX0tV8xZK4U
-	IVK94LeL8Mex5f/a1af0tieOEaz2rYFc6v0t+Lp+ljGd7N7piOrdv8sE4rjqGtuD0lf1xB3+ssbw0
-	KsiZMhsO241YCgZkdESZJZrjVtiBwz5JVM/plmbNTHzfL/zqTWKTJVYO+ubsNaxmWsTo1ETQaUsL6
-	ES7raGSjaBFCMPoRUCTNFDiQ5RZbSEEOXID4+4jsXsp0/mg/6gJOU4yloc3yGQ4GyZRSlugkSTIKo
-	ixV54Sxg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=oFflTVwPFgB5wC1sBWWWQyP2hcLqKZXoXqnWK6jB09I=; b=GB1B5nKiPsbJNRLQnshj1/HbxV
+	ZbfTPJh79x4qST2VS+QDJTLXac6MH+DKsSqPViZkFVcyjrk9ZD6NKMwITYEYH6ONKCSzl6DTZeGID
+	lrKakC/d3CNnKw22r0ymM6NiSVT0o9LVS3HMY6kCajyMsZN27VY8bzJDp654/lMIyqojZlnZ/RqFO
+	dse+xVPTAQ5mNaRgPulRAdZK1uDnB90FXBpjGZLjXR1fuaeO3iLUvJ7bhvclWvlFhXftKM5rhPrIK
+	iR94Lrb+n9OFSU/eM+tJ/Cei9Qt6B/35H5Sll1kTzOOpaPqQ0c+Pqc8kcRVbK6C0m4TiN9r8C/62a
+	4Uy9eu+w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xCFb6-00000008yd3-3bJi;
-	Thu, 01 Oct 2026 12:09:12 +0000
+	id 1xCFb8-00000008yih-3UQq;
+	Thu, 01 Oct 2026 12:09:14 +0000
 Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xCFWo-00000008ozK-3vyB
+	id 1xCFY0-00000008ro0-42mk
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 01 Oct 2026 12:04:47 +0000
+	Thu, 01 Oct 2026 12:06:01 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 46F1B40840;
-	Thu,  1 Oct 2026 12:04:46 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id EBCCB1F000FF;
-	Thu,  1 Oct 2026 12:04:45 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id A90A243C0A
+	for <linux-arm-kernel@lists.infradead.org>; Thu,  1 Oct 2026 12:06:00 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 914731F000FF
+	for <linux-arm-kernel@lists.infradead.org>; Thu,  1 Oct 2026 12:06:00 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1790856286;
-	bh=hgUX0ii0uYxzjf7gvJ6LbuMXqEimXK9XD6l6fEYf20Q=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=RPrwRMNeyziaNxy1CS1ZueSBS6AiEcQ1A+jWl175wRKI5L5gbEJNbGPySgltpn0xA
-	 9mTG1XF1EqUaS/Qyywo/aRjV+x8Ed39TA0d0L2z0YDJan9xAErjESPO4pLLFMtUp7k
-	 HlDETdYjFtMr3Wl3RF2AgpXD3XuMWsSqS9diq1ONUliPQJb8xNwwF7qPsOo7/PgTut
-	 Pi8INglaVY9/afFE7ilJERMc/VUioeJG3JX6AX7+BY0OAWJ619q2BjNH2lKpG0gkJq
-	 XdrgyAQyJj3GDBm9G+bXGQ4WjLJatED4SiNu7dHFhsDRjIriAXPYJ+VnU5BS2SlMmL
-	 6d6iJDp1gfO8A==
-Date: Thu, 1 Oct 2026 07:04:44 -0500
-From: Rob Herring <robh@kernel.org>
-To: Leo Yan <leo.yan@arm.com>
-Cc: Suzuki K Poulose <suzuki.poulose@arm.com>,
-	Mike Leach <mike.leach@arm.com>,
-	James Clark <james.clark@linaro.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Mathieu Poirier <mathieu.poirier@linaro.org>,
-	Leo Yan <leo.yan@linux.dev>, coresight@lists.linaro.org,
-	linux-arm-kernel@lists.infradead.org, devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH] dt-bindings: arm: coresight: Allow funnel clocks
-Message-ID: <20261001120444.GA1048975-robh@kernel.org>
-References: <20260921232834.3138571-1-robh@kernel.org>
- <20261001100455.GL14479@e132581.arm.com>
+	s=k20260515; t=1790856360;
+	bh=oFflTVwPFgB5wC1sBWWWQyP2hcLqKZXoXqnWK6jB09I=;
+	h=References:In-Reply-To:From:Date:Subject:To:Cc;
+	b=NyX5P91vzbFhZN0U9vod7AAB3LWbMk0HZEqkXoUBF5HXDkw5sYemUmd/UbuefNcOq
+	 gCKRb67oKrelFaOIFra81n5va1cR3oPq7hmPFx5OO0YotIiw5P5ZgSkukv73b8uy+j
+	 oP+gTucqufGnSIYUgz/4YzNXHCquafhqk1uPW9ghF7kEcy4yVrqTmtjmNg551p8jgz
+	 GUbE+mxI1I94RMkSzSnNGUSYpcAY+24Qwjh8P3kViddZyWTgLlKyB0duYyuS45Phk5
+	 p6pwpWdq6ieSVtlszgIWoy9qFdLq717gPQcNbweqMVM2ywOeleHmqYNyS5TaWr6RII
+	 xIf/J6vx6jHnQ==
+Received: by mail-oa2-f20.google.com with SMTP id 586e51a60fabf-4788fe5736eso4390545fac.2
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 01 Oct 2026 05:06:00 -0700 (PDT)
+X-Forwarded-Encrypted: i=1; AKwUvBwVPBB0bG5Etk1U5BE3T+H5KkRMM96lcV9qLloanyX+2Th9GCllbS6xQf6Rq8DxZNDenO3/hknhHMNv7Kfxxt97@lists.infradead.org
+X-Gm-Message-State: AFuF++nEGHRLokybqRymzdOThEC4rPjiUsOzMRIWw5HKA8zYzyt+xZoR
+	Mj8YDDkrwz8ujiwjEerDZegbU46Fu68mA4XIw6H/Pc4oInYH8iHKEgMXvXx3spHG4kymTy3oGtt
+	7Rx2tvMkXIHD90AeiNub9EJc4RZY1lO8=
+X-Received: by 2002:a05:6870:3226:b0:448:89e3:4c58 with SMTP id
+ 586e51a60fabf-49ddd47f26fmr4458014fac.18.1790856359785; Thu, 01 Oct 2026
+ 05:05:59 -0700 (PDT)
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20261001100455.GL14479@e132581.arm.com>
+References: <20260929203634.32998-1-pmazzini@gmail.com>
+In-Reply-To: <20260929203634.32998-1-pmazzini@gmail.com>
+From: Linus Walleij <linusw@kernel.org>
+Date: Thu, 1 Oct 2026 14:05:45 +0200
+X-Gmail-Original-Message-ID: <CAD++jLkJidyettiPkFAh9BNaPVKMxyJzgNnaH8qfMc9=HutaQQ@mail.gmail.com>
+X-Gm-Features: AclHuK_kjtaxNY-Iy7s6smCT08kvmYV1w1aOxLf8dIwxCcC_POGl6GaEEQo_Grk
+Message-ID: <CAD++jLkJidyettiPkFAh9BNaPVKMxyJzgNnaH8qfMc9=HutaQQ@mail.gmail.com>
+Subject: Re: [PATCH] pinctrl: sunxi: dt: number the IRQ banks from the first
+ one that has IRQs
+To: Pablo Mazzini <pmazzini@gmail.com>
+Cc: Chen-Yu Tsai <wens@kernel.org>, Jernej Skrabec <jernej.skrabec@gmail.com>, 
+	Samuel Holland <samuel@sholland.org>, Andre Przywara <andre.przywara@arm.com>, linux-gpio@vger.kernel.org, 
+	linux-arm-kernel@lists.infradead.org, linux-sunxi@lists.linux.dev, 
+	linux-kernel@vger.kernel.org
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -76,52 +82,87 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Oct 01, 2026 at 11:04:55AM +0100, Leo Yan wrote:
-> Hi Rob,
-> 
-> On Mon, Sep 21, 2026 at 06:28:33PM -0500, Rob Herring (Arm) wrote:
-> > Some static funnel nodes have APB and AT clocks. Allow one or two
-> > clocks and the apb_pclk and atclk clock-names entries.
-> > 
-> > Assisted-by: LLM
-> > Signed-off-by: Rob Herring (Arm) <robh@kernel.org>
-> >
-> > ---
-> >  .../bindings/arm/arm,coresight-static-funnel.yaml      | 10 ++++++++++
-> >  1 file changed, 10 insertions(+)
-> > 
-> > diff --git a/Documentation/devicetree/bindings/arm/arm,coresight-static-funnel.yaml b/Documentation/devicetree/bindings/arm/arm,coresight-static-funnel.yaml
-> > index 9598a3d0a95b..4a3d08f9568c 100644
-> > --- a/Documentation/devicetree/bindings/arm/arm,coresight-static-funnel.yaml
-> > +++ b/Documentation/devicetree/bindings/arm/arm,coresight-static-funnel.yaml
-> > @@ -30,6 +30,16 @@ properties:
-> >    power-domains:
-> >      maxItems: 1
-> >  
-> > +  clocks:
-> > +    minItems: 1
-> > +    maxItems: 2
-> > +
-> > +  clock-names:
-> > +    minItems: 1
-> > +    items:
-> > +      - const: apb_pclk
-> > +      - const: atclk
-> 
-> The question is that a static funnel does not need to program any
-> registers, so in theory it should only need atclk as the module's core
-> clock, but not the APB programming clock (apb_pclk).
+On Tue, Sep 29, 2026 at 10:37=E2=80=AFPM Pablo Mazzini <pmazzini@gmail.com>=
+ wrote:
+
+> prepare_function_table() assumes the first pin is in bank 0. On the
+> A523, which has no PA pins, every IRQ bank is numbered one too high:
+> the last bank writes past the end of irq_array,
+
+Why don't you add a patch to protect against that?
+
+Something like this (completely untested, not even compiled)
+
+diff --git a/drivers/pinctrl/sunxi/pinctrl-sunxi.c
+b/drivers/pinctrl/sunxi/pinctrl-sunxi.c
+index 31cd142ce0f7..c0c90d9e3215 100644
+--- a/drivers/pinctrl/sunxi/pinctrl-sunxi.c
++++ b/drivers/pinctrl/sunxi/pinctrl-sunxi.c
+@@ -1632,9 +1632,10 @@ int sunxi_pinctrl_init_with_flags(struct
+platform_device *pdev,
+        else
+                pctl->pow_mod_sel_offset =3D PIO_POW_MOD_SEL_REG;
+
++       pctl->irqs =3D IRQ_PER_BANK * pctl->desc->irq_banks;
+        pctl->irq_array =3D devm_kcalloc(&pdev->dev,
+-                                      IRQ_PER_BANK * pctl->desc->irq_banks=
+,
+-                                      sizeof(*pctl->irq_array),
++                                      pctl->irqs,
++                                      sizeof(unsigned int),
+                                       GFP_KERNEL);
+        if (!pctl->irq_array)
+                return -ENOMEM;
+diff --git a/drivers/pinctrl/sunxi/pinctrl-sunxi.h
+b/drivers/pinctrl/sunxi/pinctrl-sunxi.h
+index 8bd00c6ff628..9e0ed9c0c1ee 100644
+--- a/drivers/pinctrl/sunxi/pinctrl-sunxi.h
++++ b/drivers/pinctrl/sunxi/pinctrl-sunxi.h
+@@ -176,7 +176,8 @@ struct sunxi_pinctrl {
+        struct sunxi_pinctrl_group      *groups;
+        unsigned                        ngroups;
+        int                             *irq;
+-       unsigned                        *irq_array;
++       unsigned                        irq_array[] __counted_by(irqs);
++       unsigned                        irqs;
+        raw_spinlock_t                  lock;
+        /*
+         * Output latch shadow, one word per bank.  Seeded lockless at
+
+
+> and interrupts are
+> looked up at the wrong offsets.
 >
-> Maybe I did not get this right when I initially enabled the static
-> funnel in hi3660-coresight.dtsi. We should probably remove pclk from the
-> static funnel node.
+> Count the IRQ banks from the first bank that has interrupts.
+(...)
+>         irq_bank =3D 0;
+> -       last_bank =3D 0;
+> +       last_bank =3D -1;
+>         for (i =3D 0; i < npins; i++) {
+>                 struct sunxi_desc_pin *pin =3D &pins[i];
+>                 int bank =3D (pin->pin.number - pin_base) / PINS_PER_BANK=
+;
+> @@ -221,16 +221,14 @@ static int prepare_function_table(struct device *de=
+v, struct device_node *pnode,
+>                 func[1].muxval =3D 1;
+>
+>                 if (irq_mux) {
+> -                       if (bank > last_bank)
+> +                       if (last_bank >=3D 0 && bank > last_bank)
+>                                 irq_bank++;
+>                         func[lastfunc].muxval =3D irq_mux;
+>                         func[lastfunc].irqbank =3D irq_bank;
+>                         func[lastfunc].irqnum =3D pin->pin.number % PINS_=
+PER_BANK;
+>                         func[lastfunc].name =3D "irq";
+> -               }
+> -
+> -               if (bank > last_bank)
+>                         last_bank =3D bank;
+> +               }
 
-Yes. I suppose in theory it has some clock, but if pclk needed to be 
-enabled, it is shared with all the other coresight components and 
-enabled anyways. And there's no atclk defined, so 'clocks' can just 
-be removed. Can you send a patch to do that, and I'll drop this one.
+This looks reasonable.
 
-zynq7000 is even more of a mess I just noticed...
-
-Rob
+Yours,
+Linus Walleij
 
