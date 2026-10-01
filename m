@@ -4,75 +4,98 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 51B8BCA5FC5
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  1 Oct 2026 07:01:38 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 469D5CA5FC5
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  1 Oct 2026 07:04:06 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=KS0Ss/ffTJUp5L49rLpdU43wb6+7z7lGoeJJi6W0x3M=; b=BwlnB0QnJzXkmPIBSjs+emwRaM
-	NyZQZozBEK79zvyQ9cCNl1wkoiRPa6gRNLNwUq5hER+ws37oEzsyFpgRPUXayQlYPPVNKQDjra5AZ
-	CRtLYNXsXTBD/ZytWIDdoOTXkOOIAtRGy6D4difWfoD9AHjsL8kVKtHudT9lr2/T2CbnwD1qKZZlX
-	I7Ln9jsdnXCOCtrktaMR66uCizw0q6DJQcBdEJK0W3ti1U3BmxQSkTtdc96KpLlQFFqrFHMDJPUJ1
-	R38hRyMFFrC7iTTGiDVbdoWPLBf4Wg/6mbHAW0pziiswzoZOFhl96fFIG2M2aSKOEudGpG37rC/OG
-	TFeGxObg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
+	Message-ID:Date:From:MIME-Version:Reply-To:Content-Transfer-Encoding:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=Ag6+/GkxMCWZ0gyOTMJWIz6nOKWNtLtlkOUsQnDCd70=; b=crIevOSQRMJ58FAw+MXCHx7VQZ
+	1RWIRNQuky89+sNfo4RThN0X4jVpnK164w1Bwuvez/rnyisNcixrtFuwj8mM7J12E3aNFyoJgWiWv
+	D9kKzK3QJ6keiBHOc7SeautMn5gvTOFJSk9NYaLvZ35DpYcHHdjeKgpp7IY461wSZ1fOVxoh/u0N3
+	qOZI7pnXCNDfkoS4YRjrcKbqGV8iP040sNVJjqabA1+RZxvYPWjp2K8fhLDNFseAMaerbPhEkskuL
+	jSKGHEvQ04k35hH8h6lGn4lQdZoH70V4T5UEp2t3FbepMsFOHMHAcxj1OVcbXUC/Enl+FAuWaUiy9
+	jp5OvAOQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xCAnD-00000007wN0-3haN;
-	Thu, 01 Oct 2026 07:01:23 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1xCApj-00000007wft-2KVO;
+	Thu, 01 Oct 2026 07:03:59 +0000
+Received: from mail-lf2-x10.google.com ([2a00:1450:4864:36::10])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xCAmu-00000007wIm-2XnU;
-	Thu, 01 Oct 2026 07:01:06 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 5C74843987;
-	Thu,  1 Oct 2026 07:01:04 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id B96BC1F000FF;
-	Thu,  1 Oct 2026 07:01:03 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1790838064;
-	bh=KS0Ss/ffTJUp5L49rLpdU43wb6+7z7lGoeJJi6W0x3M=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=Lp7ep3StOohbLecY2bxsRKPlsyxwPZfsGjFriRa7GH7Nfor7FnoL75V0NjDj+zOvd
-	 Y9t9D6A7+m5aTs/Sqz9t9LWMcr5BcY0JM6d2NUmPsI2QTXaAOQfHJgPoslvv0/tNpx
-	 Cx39zhzVS8o1qi3wjpFQoxtVq64z+KgWcDXHC7zSI1OWkt+VD7g+GcxYlkP4Z9bwIV
-	 tVDvkYjaL/SDbQhOuIcNbi9HtP8RehenrFceEPX82uX36A313KnmeYWoXjaL2RqxTU
-	 +cZ7rFe4V9yoavp9cAp9Xl/NO7hI1ETfYBKgQowxS+PoVHPxJlnEfICZIDYTGxDumw
-	 +LkDLNqgJhpfQ==
-Date: Thu, 1 Oct 2026 09:01:01 +0200
-From: Maxime Ripard <mripard@kernel.org>
-To: Neil Armstrong <neil.armstrong@linaro.org>
-Cc: Benjamin Tissoires <bentiss@kernel.org>, 
-	Jessica Zhang <jesszhan0024@gmail.com>, David Airlie <airlied@gmail.com>, 
-	Simona Vetter <simona@ffwll.ch>, Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, 
-	Thomas Zimmermann <tzimmermann@suse.de>, Rob Herring <robh@kernel.org>, 
-	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
-	Nathan Chancellor <nathan@kernel.org>, Nick Desaulniers <ndesaulniers@google.com>, 
-	Bill Wendling <morbo@google.com>, Justin Stitt <justinstitt@google.com>, 
-	Florian Fainelli <florian.fainelli@broadcom.com>, 
-	Broadcom internal kernel review list <bcm-kernel-feedback-list@broadcom.com>, Andrzej Hajda <andrzej.hajda@intel.com>, 
-	Robert Foss <rfoss@kernel.org>, Laurent Pinchart <Laurent.pinchart@ideasonboard.com>, 
-	Jonas Karlman <jonas@kwiboo.se>, Jernej Skrabec <jernej.skrabec@gmail.com>, 
-	Luca Ceresoli <luca.ceresoli@bootlin.com>, Albert Esteve <aesteve@redhat.com>, 
-	Dave Stevenson <dave.stevenson@raspberrypi.com>, Javier Martinez Canillas <javierm@redhat.com>, 
-	dri-devel@lists.freedesktop.org, devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
-	bpf@vger.kernel.org, llvm@lists.linux.dev, linux-rpi-kernel@lists.infradead.org, 
-	linux-arm-kernel@lists.infradead.org
-Subject: Re: [PATCH 0/6] drm/bridge: Add a BPF-based MIPI-DSI panel driver
-Message-ID: <ar4C329Cm5hzB3kH@houat>
-References: <20260928-drm-mipi-dsi-panel-ebpf-v1-0-5244926aace4@kernel.org>
- <6b80cb97-6706-412a-b013-9423f6f75153@linaro.org>
- <arqhwHiVf00j94J7@beelink>
- <0259fe4b-3118-4ab0-9b62-55101bfd7f33@linaro.org>
- <artlIYhgbskRJXDQ@houat>
- <27bc999f-ef3a-450d-a4ea-57ac45508705@linaro.org>
+	id 1xCAph-00000007wfW-1P3R
+	for linux-arm-kernel@lists.infradead.org;
+	Thu, 01 Oct 2026 07:03:58 +0000
+Received: by mail-lf2-x10.google.com with SMTP id 2adb3069b0e04-5ba3d84150dso1490998e87.2
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 01 Oct 2026 00:03:56 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1790838235; cv=none;
+        d=google.com; s=arc-20260327;
+        b=c18ICHEosKtYGiUaOpTg+GC/IMzc9bRVtHkIiHNgmD2UdbREAu00jRc0dELx3yhjAf
+         UAfKefaWlLRjG1iqNZVbtvKkOtoS+73hcPbKXYDOgrvG242P7/EGO3dWdEB2pTzhNX4R
+         2SoEM0gyu/s5EFJNf5gDTJpU3Rpfm/o3pzeWd86kHC4tiU744yBXsNEOlGaZO6hM7Zbu
+         S39pGl5MmF9+ArchKTveeqg0HPlZJrSeHAx0yjSpjCgg5fecYFJnJ5gRja6hES7y6WTi
+         JzzCBDEYCO3QsENDzf4jgwoM+H64FB+XWDiu1S1F8HvbEb06/309aw0sIpXSpjOEhwyn
+         bf9w==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
+        h=cc:to:subject:message-id:date:from:mime-version:dkim-signature;
+        bh=Ag6+/GkxMCWZ0gyOTMJWIz6nOKWNtLtlkOUsQnDCd70=;
+        fh=lDGRW2TzXCWHfVSMMM4/aMf1SPiHWbOidoFA7N811J0=;
+        b=gchajjEgPRjSpZQuSYfvQbNj2Bcwo332N3+NF1ag1XcTIsXj5bk8FiB1808CmtWN0J
+         MLoS2Zh3nw2hgXU6/8UqpR8g+5ECbrl63FEQr5zkoQliXToZ+5c4WbXlOAc4klzE9tMW
+         42qhUl+HdFiP4z8vsGRkl037jRzIlH8h9TO05xQKVjLiFCGZeY4TpjCpY9ZvHvHKpwf7
+         s2QdpjV9LgfcO77mAodTF1AN56alIfQhg42HUX2Jd+FFoaRqnwuyEhfAT3C4xXHswxuN
+         HM6RjkbmP/78YTu94ruLQVrNRhhQavRA7k0i+Z7fsieV08JYr9OQjtxMvxCckNExKpSe
+         z4og==;
+        darn=lists.infradead.org
+ARC-Authentication-Results: i=1; mx.google.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20251104; t=1790838235; x=1791443035; darn=lists.infradead.org;
+        h=content-type:cc:to:subject:message-id:date:from:mime-version:from
+         :to:cc:subject:date:message-id:reply-to:content-type;
+        bh=Ag6+/GkxMCWZ0gyOTMJWIz6nOKWNtLtlkOUsQnDCd70=;
+        b=DZq272o+nt4ELA20srn/dcWRWY9dcAwogWa39OFHzBdzXtQQpmEfhlI+giAtnF1xKn
+         pUAejv0zW2ZDDdTjFX0bsENaonliLuZsBtS/WPT1JgZwOZSlwW7lNtOUnLXgCg/qT26+
+         cXyQ0KDWRzez518VZB6ihs7ewEfQRT26NelDc4U/oniHg0UiEYyh62twtfrjyzFMhiyW
+         YjoRuiwepBxaY4kYsYpkYKHmS54F2EJQ6/HWRHzvN7Dt0g0kzZCsgN6Tr2n4x1TstI4w
+         pF3Zs1312lat0PJVRymEhooghkP33uFCvFQqVzMmnj++krb9toEuYAJiOs9NOHbR6is1
+         Z5KQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1790838235; x=1791443035;
+        h=content-type:cc:to:subject:message-id:date:from:mime-version
+         :x-gm-gg:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to:content-type;
+        bh=Ag6+/GkxMCWZ0gyOTMJWIz6nOKWNtLtlkOUsQnDCd70=;
+        b=gl1EreMXX7b7zzxu8PtxD3Pqx9KEv85EhkUlFUotlSnRyo9qQy3K/0/OcBxRnw72c4
+         Mi5DCH5WclwhhDqSJTmEtXL0+r/39CpE7jekeqmWe3KeSWI6hWS4GLDHbVkL1LeOXBba
+         5GOigFPqeNPjZiSNUgwrQBWzbXeVzbkUQkomCk7EQAejToajXTCLCAUgB/6fAD7yRzbR
+         KfP2GFYNK97eQKETXyXRCwiQPX1LygiT1WnQXgTLlb5bbumjTTm6XVTAIqWWSLILJJE8
+         53Nr58Fa5j+5Er5KF0ahlsGtnm0OSsjiJlq39z3SSJD8Mu4YCJNJ0XitqwL9t3kQOrzV
+         aUPw==
+X-Gm-Message-State: AFq9FYLRGKOGKwC9gzDM//XPq3V1wMfdcqpGjINjtlJkmIyceiSAznyQ
+	oBodUaAPf+al96uqP60hW9S2wNsGI3ahj3kY3ROqyj9+J11BaLNtq+kivCN4YNB4pANFmCU3Zb3
+	lcaMHo7OBlNUp6Fay041I6K08Dkptt5w=
+X-Gm-Gg: AYBFou3cq6RgV3EndOC93IjxMUvJC9bH46U4tqQOKMmGnWySL1G9HAmAs25hbLJ++Ix
+	DnATbAVSdfjM2JYsKdWzzual7MZk8QDejrBXVJ5Xbkzks4GHEQdk5atKkPvjDJ9+eKbNfqxkjzH
+	wyMrMKLU9eKEf0NUUtOeK2OKpfM03Sn/cUSTg11SUqo8VRZrcdD/K/SPqX6Qt9ysjiFCS8D2S2o
+	/mCctatzdKwwcy7a3VS+qnnG909//xSThfpnJkkVamUEmk6Zq4VaM8Eg7M9rGcCIpP0AOBqACgJ
+	CZdfTGrS8aJU/OaYR/rNtyHoZ6KUn6i9GyGEDgDQyy8HSiJuDwHgbFqRfw==
+X-Received: by 2002:a05:6512:33d3:b0:5b5:e8d5:7fe2 with SMTP id
+ 2adb3069b0e04-5ba402b1598mr1495490e87.5.1790838234915; Thu, 01 Oct 2026
+ 00:03:54 -0700 (PDT)
 MIME-Version: 1.0
-Content-Type: multipart/signed; micalg=pgp-sha384;
-	protocol="application/pgp-signature"; boundary="bnu55xk7ah7f6vwr"
-Content-Disposition: inline
-In-Reply-To: <27bc999f-ef3a-450d-a4ea-57ac45508705@linaro.org>
+From: Kian <kianprogramer@gmail.com>
+Date: Thu, 1 Oct 2026 10:33:42 +0330
+X-Gm-Features: AclHuK9v9IWAa-Zm8vVN5oXY6hVZIfnTT2Oe0yzhsz7sRc8LNSBCZc4BGg3ti-Y
+Message-ID: <CAC-nSOxO_9tSE8jNGGQZKPtiKPq0qn2sgGWppzD_8yu1q=Wamg@mail.gmail.com>
+Subject: =?UTF-8?Q?Samsung_Galaxy_J7_Pro_=28j7y17lte=29_=E2=80=94_Upstream_Linux_?=
+	=?UTF-8?Q?support?=
+To: linux-samsung-soc@vger.kernel.org
+Cc: linux-arm-kernel@lists.infradead.org
+Content-Type: text/plain; charset="UTF-8"
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20261001_000357_394129_C7BABBA2 
+X-CRM114-Status: GOOD (  13.66  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -87,208 +110,68 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+Hello,
 
---bnu55xk7ah7f6vwr
-Content-Type: text/plain; protected-headers=v1; charset=us-ascii
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
-Subject: Re: [PATCH 0/6] drm/bridge: Add a BPF-based MIPI-DSI panel driver
-MIME-Version: 1.0
+I am reaching out regarding mainline Linux support for the Samsung
+Galaxy J7 Pro (SM-J730F, j7y17lte), which is based on the Samsung
+Exynos 7870 SoC.
 
-On Wed, Sep 30, 2026 at 03:49:12PM +0200, Neil Armstrong wrote:
-> On 9/29/26 09:27, Maxime Ripard wrote:
-> > On Mon, Sep 28, 2026 at 09:20:12PM +0200, Neil Armstrong wrote:
-> > > On 9/28/26 19:24, Benjamin Tissoires wrote:
-> > > > On Sep 28 2026, Neil Armstrong wrote:
-> > > > > Hi,
-> > > > >=20
-> > > > > On 9/28/26 18:22, Maxime Ripard wrote:
-> > > > > > Hi,
-> > > > > >=20
-> > > > > > Panels in general, and MIPI-DSI panels in particular, are pretty
-> > > > > > difficult to support and require pretty much a panel driver for=
- each
-> > > > > > panel produced. Most of them are pretty simple, and require an =
-opaque
-> > > > > > initialization sequence that is usually poorly documented.
-> > > > > >=20
-> > > > > > This creates a tension between OEMs and distros because OEMs wi=
-ll
-> > > > > > typically get a new panel to react to a sourcing issue during
-> > > > > > production, and thus need some swift turnaround between getting=
- their
-> > > > > > new panel and it being operational in the OS. Distributions on =
-the other
-> > > > > > hand can take years to ship a kernel with that new panel driver.
-> > > > > >=20
-> > > > > > To solve this, I followed the example of HID-BPF and wrote a pa=
-nel
-> > > > > > driver that will rely on BPF programs to perform the panel
-> > > > > > initialization. That way, we can ship the programs separately f=
-rom the
-> > > > > > kernel, and with a different lifecycle. If this driver is accep=
-ted, the
-> > > > > > plan is to have a userspace component started by udev to identi=
-fy and
-> > > > > > load the right BPF program for the panels found on the device.
-> > > > >=20
-> > > > > This is kind of late for serious applications except if we manage=
- to
-> > > > > solve the bootloader to Linux display engine transition.
-> > > > >=20
-> > > > > >=20
-> > > > > > This driver is fully functional and works with both 5" and 7" T=
-ouch
-> > > > > > Display 2 panels for the RaspberryPi. However, it breaks away f=
-rom the
-> > > > > > typical panel driver in multiple ways:
-> > > > > >=20
-> > > > > > - BPF programs can only be loaded by userspace. This leaves us =
-with two
-> > > > > >      choices:
-> > > > > >=20
-> > > > > >      * We prevent the driver from loading until the script itse=
-lf is
-> > > > > >        loaded. This has the side effect of preventing any other=
- output to
-> > > > > >        be used until the initramfs is ran at the earliest, and =
-possibly
-> > > > > >        ever if the loader isn't installed for example.
-> > > > >=20
-> > > > > This adds a dependency on user-space behavior and if somehow the
-> > > > > initramfs doesn't load for a reason we won't have a way to display
-> > > > > an error.
-> > > > >=20
-> > > > > >=20
-> > > > > >      * Or we probe the driver all the time, but only report it =
-as connected
-> > > > > >        once a program has been registered. This is somewhat unc=
-onventional,
-> > > > > >        but allows the other outputs to be functional, *and* all=
-ows the user
-> > > > > >        to force the output if their panel doesn't require any
-> > > > > >        initialization or during debugging. I chose this solutio=
-n.
-> > > > >=20
-> > > > > Both options are not really great...
-> > > > >=20
-> > > > > >=20
-> > > > > > - It's not a panel driver, but a bridge one, which is also pret=
-ty
-> > > > > >      unconventional. This is required because panel drivers don=
-'t have
-> > > > > >      access to a detect callback that is required for the above=
-, but I also
-> > > > > >      think that the recent work from Luca blurs the line from p=
-anels and
-> > > > > >      bridges and we'll end up going that road anyway.
-> > > > >=20
-> > > > > On this point, DDIC _are_ bridges, but in the current panel API w=
-e blur the line between
-> > > > > the panel and the DDIC. So being a bridge is fine, but in a gener=
-al way we lack
-> > > > > a proper way to describe the display/panel/monitor independently =
-of the DDIC.
-> > > > >=20
-> > > > > At first glance it's a nice driver, but moving the timings into a=
- blob moves something
-> > > > > into possible proprietary binaries with possible closed licence a=
-nd distribution
-> > > > > restriction so it's a downgrade for the same of bringing up a pan=
-el faster.
-> > > >=20
-> > > > Quick answer on this, because I had the very same questions regardi=
-ng
-> > > > HID-BPF:
-> > > > - in BPF, you can require (and by default it does) that only GPL
-> > > > 	compatible BPF programs are loaded, closing the argument of "closed
-> > > > 	licence and distribution restriction"
-> > > > - also, a BPF program can be disassembled much easier than a binary
-> > > > 	blob, and I remember Alexei showing me an example where you get al=
-most
-> > > > 	the source code from the BPF object in just one pass.
-> > >=20
-> > > Right, it "solve" one of my question, but doesn't really solve the is=
-sue
-> > > of vendors providing "GPL" bpf programs with source available "somewh=
-ere".
-> >=20
-> > Would you be ok if I was to make a tool to decompile a BPF program into=
- its
-> > source file equivalent?
->=20
-> Not really, I don't see the point TBH.
+The Exynos 7870 already has upstream Linux support and ongoing
+community development, including Device Tree support for the SoC and
+several devices based on it.
 
-Cool, another moving goalpost then.
+There have also been several community projects and attempts
+specifically targeting the J7 Pro. For example, there are existing
+Device Tree sources such as exynos7870-j7y17lte.dts, previous attempts
+to boot newer Linux kernels on the device, and Linux/postmarketOS work
+targeting the actual J7 Pro hardware.
 
-> > > Another big issue is the API, I don't want to keep the current API as=
--is,
-> > > we plan to support more advanced panel features and use try to use the
-> > > atomic states to support rate switching for example, and I'm not conf=
-ident
-> > > it's a good idea since there's no "simple" and "forever valid" API
-> > > to initialize panels...
-> >=20
-> > So, a couple of things here. First, I really don't think we should
-> > extend the panel API, like at all. But let's discuss that at Plumbers, I
-> > don't think it's very relevant to this discussion anyway.
->=20
-> It is, and I'll expose why we need to get out of this deprecated API
-> as soon as possible, we are seriously keeping the ability to provide
-> support for advanced panel features which are implemented in vendor
-> kernels.
+These projects are useful starting points, but each of them has its
+own limitations, missing functionality, or unresolved issues, and none
+of them provides complete upstream support for the J7 Pro. I can
+provide links to these projects and repositories so that the existing
+work can be reviewed and compared.
 
-I guess I'm not the one working on out-of-tree panel drivers then. But
-yeah, I don't dispute that statement.
+Rather than creating yet another unofficial downstream kernel or
+another separate community project with its own limitations, I would
+like to try to bring the existing work together and work toward proper
+upstream Linux support for the device.
 
-> The API was ok when DSI was added and we didn't have generalized atomic
-> modesetting, why would you not want panels to embrace atomic ?
->=20
-> I don't understand, please elaborate.
+Would someone familiar with the Exynos 7870 platform and Samsung
+Device Trees be interested in reviewing the existing J7 Pro work and
+assessing what is still required for mainline support?
 
-Again, you're putting words in my mouth. I never said I don't want
-panels to embrace atomic. I said we shouldn't extend the panel API, I
-told you twice what I meant exactly by that:
+I own a physical SM-J730F and have access to the actual device for
+development and testing. I can provide the links to the existing
+community projects, Device Tree sources, repositories, and other
+relevant work.
 
-https://lore.kernel.org/ksummit/20260604-grinning-determined-falcon-0e8b01@=
-houat/
+I am willing to do anything that is reasonably within my ability to
+help with the upstreaming effort. I can perform hardware testing,
+collect boot logs and dmesg output, investigate hardware and Device
+Tree information, reproduce issues, test kernel and Device Tree
+changes, test patches on the actual device, and provide reproducible
+test results. If additional information or specific tests are needed,
+I am also willing to carry them out and learn whatever is necessary to
+help with the development process.
 
-> I acknowledge it might sound a bit like "let's burn the whole thing to
-> the ground", but what you just described sounds an awful lot like what
-> the bridge API already does.
->
-> Let's acknowledge that drm_bridge isn't just about bridge anymore, make
-> panels bridges, and we're done.
+I do not want to simply create another unofficial project for the J7
+Pro. My goal is to make use of the work that already exists, identify
+what is missing or needs to be fixed, and help move the device toward
+a clean and maintainable upstream implementation.
 
-https://lore.kernel.org/dri-devel/20260928-drm-mipi-dsi-panel-ebpf-v1-0-524=
-4926aace4@kernel.org/
+If there is interest in working on this, I can provide the relevant
+project and repository links, Device Tree sources, logs, and any other
+hardware information I have available.
 
-> It's not a panel driver, but a bridge one, which is also pretty
-> unconventional. This is required because panel drivers don't have
-> access to a detect callback that is required for the above, but I also
-> think that the recent work from Luca blurs the line from panels and
-> bridges and we'll end up going that road anyway.
+I would be very interested in helping bring the J7 Pro into the
+upstream Linux ecosystem, and I am willing to contribute wherever I
+can.
 
-So, yeah, my point is we already have an atomic API to support panels:
-it's the bridge one. If your plan is to make the panel API an equivalent
-to the bridge API, then it just makes no sense when all consumers are
-handling bridges anyway. Just write a bridge driver for your panel IC,
-and you're done. It works today, and you don't have to extend anything.
-And you can embrace your atomic panel.
+Thank you for your time and for your work on Samsung Exynos support in
+the Linux kernel.
 
-Maxime
+Best regards,
 
---bnu55xk7ah7f6vwr
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iJUEABMJAB0WIQTkHFbLp4ejekA/qfgnX84Zoj2+dgUCar4FLAAKCRAnX84Zoj2+
-dkWqAX9zUZI4E7mxKZN1Y1GCLbXBhkAvgliVL8C1FEaYE4+MjOPRi3MnEf78Hsxk
-/9MrBfcBgOofz+9iFoZkLYhZfn5hVc6U6621zAhtiqRzZNvaqK9allN+rkgXh1zN
-RDrtanF4bQ==
-=1Xtb
------END PGP SIGNATURE-----
-
---bnu55xk7ah7f6vwr--
+A J7 Pro owner and contributor
 
