@@ -4,72 +4,58 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 49740CA5FD2
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  1 Oct 2026 14:40:00 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D989FCA5FCB
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  1 Oct 2026 14:42:41 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=zrZF9htcgFwurGelubRw2y+vGDbhNqUEY9ht2zIj3A4=; b=nlHYF1mthlaK0j+F7pxzaL14Dc
-	G+8g5twAhS/gJWvBHgr20l84M2gSKHZiq3D/C3aC3xSOTdZ1L+r2ORTrfO4gZ0RuP2vY+9mcmv3Pm
-	NIbR6Kj1yUJJTbYw9HrG8vRu/pv4n85aL+JE66QaxFLWxV/MRVXvjCSN5gQYunTPfNTuEDjFRpFvm
-	q7t+JPD689XpVC/Qx/wBwm0HZN5MFNMOc73UeI2jvE1TXwTAdztinRPCPYaV4l7sngseJDhZUeitk
-	qHWk53UhURi1JuTcJsch04mnh6dx/cmh+MUEWLeXoJLGpSJSWpFo511X4BGjHE+rUyGu36F+HMp+m
-	zWfqbq/Q==;
+	bh=Dil0luGlEj2skgdgBYsBMLakh1zRrXCw1B+zEJ9jPY4=; b=voUds3s6pSN03/2pj5eYLPFHKv
+	tPJv1FO8nV1lJDqy0/Z5fuXtvQSsE+h9d7YDi8dDqZfMEZTlSNA4dod3voYFpiXa4qy1HgArfHOl4
+	N0td9IOk2Mguu4SN1aX0rwhqGAr6ms6wM1CXGb5J5Cqa5cKbGAk2IJ68sESOqZUwf7/6MpRrX+NR/
+	PYV0UgcLRAAhdFNFQlkkT1oEZ1P7OErBqCPQiPz5bxGMzi9uGk2oQ6LtRgQZhiMn4sWHmEz5Wnlat
+	wvHeLBzJT/FpWDAMRNRQwKtX4/8xgWlZdi+ADTK7jjlnVozpfsygdgWWpS3FmIIPtKgmYTNMw2d/H
+	NZm8AafQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xCHwv-00000009Q4r-3hNC;
-	Thu, 01 Oct 2026 14:39:53 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
-	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xCHwv-00000009Q4e-1X7P
+	id 1xCHzX-00000009QQn-2I5G;
+	Thu, 01 Oct 2026 14:42:35 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1xCHzU-00000009QPJ-0QG7
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 01 Oct 2026 14:39:53 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id 701AC60A52;
-	Thu,  1 Oct 2026 14:39:52 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 0887B1F000FF;
-	Thu,  1 Oct 2026 14:39:43 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1790865592;
-	bh=zrZF9htcgFwurGelubRw2y+vGDbhNqUEY9ht2zIj3A4=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=V2Z+ehITLzlytS6ExkwFAUw1ZyPlXGHmYqb/Cog99vNuqHH7pQPa327No2IEMqHlC
-	 m5E+c1ikFUeLWiWJ9GPG/AXvfcFSfre/22sIJj4SCBEQkP6NFamqaySD/BcG6hmUH3
-	 GiapTECNf1vZjqORXdj3e/tOeqC8HWTrCg5OV6lNYZno68RjPomjOqezvBIqn8lBLX
-	 yJtHwR0QH7GZnmdHgm0tVsWrHyfxWr1jmRMbYNSCaxLBpAGAr7ApLvdzr5ztjoEUGs
-	 bMKobLfCan0nCpOaFh1cgBQGqhZuGQXRpW3QVA/6vnSBcJtAiUNfvuxHK90BkTjZLD
-	 ECbfNxiA3pAFw==
-Date: Thu, 1 Oct 2026 15:39:41 +0100
-From: "Lorenzo Stoakes (ARM)" <ljs@kernel.org>
-To: Arnd Bergmann <arnd@arndb.de>
-Cc: Steffen Eiden <seiden@linux.ibm.com>, kvm@vger.kernel.org, 
-	kvmarm@lists.linux.dev, linux-arm-kernel@lists.infradead.org, 
-	linux-kernel@vger.kernel.org, linux-s390@vger.kernel.org, 
-	Alexander Gordeev <agordeev@linux.ibm.com>, Andreas Grapentin <gra@linux.ibm.com>, 
-	Catalin Marinas <catalin.marinas@arm.com>, Christian Borntraeger <borntraeger@linux.ibm.com>, 
-	Claudio Imbrenda <imbrenda@linux.ibm.com>, "David Hildenbrand (Red Hat)" <david@kernel.org>, 
-	Friedrich Welter <fritz@linux.ibm.com>, Fuad Tabba <tabba@google.com>, Gautam Gala <ggala@linux.ibm.com>, 
-	Hariharan Mari <hari55@linux.ibm.com>, Heiko Carstens <hca@linux.ibm.com>, 
-	Hendrik Brueckner <brueckner@linux.ibm.com>, Ilya Leoshkevich <iii@linux.ibm.com>, 
-	Janosch Frank <frankja@linux.ibm.com>, Joey Gouly <joey.gouly@arm.com>, Marc Zyngier <maz@kernel.org>, 
-	Nico Boehr <nrb@linux.ibm.com>, Nina Schoetterl-Glausch <oss@nina.schoetterlglausch.eu>, 
-	Oliver Upton <oupton@kernel.org>, Paolo Bonzini <pbonzini@redhat.com>, 
-	Sean Christopherson <seanjc@google.com>, Suzuki K Poulose <suzuki.poulose@arm.com>, 
-	Sven Schnelle <svens@linux.ibm.com>, Ulrich Weigand <Ulrich.Weigand@de.ibm.com>, 
-	Vasily Gorbik <gor@linux.ibm.com>, Will Deacon <will@kernel.org>, Zenghui Yu <yuzenghui@huawei.com>
-Subject: Re: [PATCH v9 23/24] KVM: s390: arm64: Implement basic page fault
- handler
-Message-ID: <ar5wJRdtp6dogT6u@gremlin>
-References: <20260930173441.66762-1-seiden@linux.ibm.com>
- <20260930173441.66762-24-seiden@linux.ibm.com>
- <e2742ccb-6b91-463c-a148-30b7e2f41e9a@app.fastmail.com>
+	Thu, 01 Oct 2026 14:42:34 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 72335497;
+	Thu,  1 Oct 2026 07:42:27 -0700 (PDT)
+Received: from J2N7QTR9R3.cambridge.arm.com (usa-sjc-imap-foss1.foss.arm.com [10.121.207.14])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id D92C83F85F;
+	Thu,  1 Oct 2026 07:42:29 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
+	t=1790865750; bh=L1X+aSQgTpevDtKgf3igo4ZbONRtN9Jmbh5rvE0+7AY=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=JCpNOy2Xjltm6Qc3UpPgw4WUoIgP7FJad5cJXaiHBs0uevpNhfD4qM0765KhBb3R3
+	 7sHQ70+QbenrikJHpHq6c/+5iUHSV+TiBLfrSFYQIbnGXQDxbhTZYZxVQqa7mWGgke
+	 nw2WxCU189mCRGVbi6jut3tZeu01/y5ICn7Dkd0k=
+Date: Thu, 1 Oct 2026 15:42:24 +0100
+From: Mark Rutland <mark.rutland@arm.com>
+To: Mark Brown <broonie@kernel.org>
+Cc: linux-arm-kernel@lists.infradead.org, catalin.marinas@arm.com,
+	stable@vger.kernel.org, will@kernel.org
+Subject: Re: [PATCH] arm64/fpsimd: signal: Forbid non-streaming SVE payload
+ on SME-only systems
+Message-ID: <ar5xUENHCvhAnUX3@J2N7QTR9R3.cambridge.arm.com>
+References: <20261001130836.1410888-1-mark.rutland@arm.com>
+ <51351e42-60d1-417d-b61b-6011bfe5d2b5@sirena.org.uk>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <e2742ccb-6b91-463c-a148-30b7e2f41e9a@app.fastmail.com>
+In-Reply-To: <51351e42-60d1-417d-b61b-6011bfe5d2b5@sirena.org.uk>
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20261001_074232_218892_5D2554FA 
+X-CRM114-Status: GOOD (  14.53  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -84,58 +70,43 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Oct 01, 2026 at 02:10:06PM +0200, Arnd Bergmann wrote:
-> Hi Steffen,
->
-> [Adding Lorenzo Stoakes to Cc]
->
-> I see this function fails to build on top of linux-next, as the
-> kvm_vcpu_dabt_is_cm() function was removed by commit 18b94675b1fb
-> ("KVM: arm64: Use ESR helpers in guest abort handling").
->
-> I used this patch to make it build, but I'm not sure if this is
-> the correct fix:
->
-> diff --git a/arch/s390/kvm/arm64/mmu.c b/arch/s390/kvm/arm64/mmu.c
-> index 3c1c8a2def73..7ee157c61d70 100644
-> --- a/arch/s390/kvm/arm64/mmu.c
-> +++ b/arch/s390/kvm/arm64/mmu.c
-> @@ -119,6 +119,7 @@ int kvm_handle_guest_abort(struct kvm_vcpu *vcpu)
->  	hva = gfn_to_hva_memslot_prot(memslot, gfn, &writable);
->  	write_fault = kvm_s390_cur_gmap_fault_is_write(vcpu);
->  	if (kvm_is_error_hva(hva) || (write_fault && !writable)) {
-> +		unsigned long esr = kvm_vcpu_get_esr(vcpu);
->  		ret = -ENOEXEC;
->  		/*
->  		 * The guest has put either its instructions or its page-tables
-> @@ -143,7 +144,7 @@ int kvm_handle_guest_abort(struct kvm_vcpu *vcpu)
->  		 * Check for a cache maintenance operation. Assume the guest is
->  		 * cautious and skip instruction
->  		 */
-> -		if (kvm_is_error_hva(hva) && kvm_vcpu_dabt_is_cm(vcpu)) {
-> +		if (kvm_is_error_hva(hva) && esr_dabt_is_cm(esr)) {
->  			kvm_incr_pc(vcpu);
->  			ret = 1;
->  			goto out_unlock;
+On Thu, Oct 01, 2026 at 03:25:03PM +0100, Mark Brown wrote:
+> On Thu, Oct 01, 2026 at 02:08:36PM +0100, Mark Rutland wrote:
+> > @@ -443,19 +444,33 @@ static int restore_sve_fpsimd_context(struct user_ctxs *user)
+> 
+> >  	} else {
+> >  		/*
+> > -		 * A SME only system use SVE for streaming mode so can
+> > -		 * have a SVE formatted context with a zero VL and no
+> > -		 * payload data.
+> > +		 * Non-streaming SVE state may be preserved without an SVE
+> > +		 * payload, in which case all state is saved in the FPSIMD
+> > +		 * context.
+> > +		 *
+> > +		 * On SME-only systems, non-streaming (FPSIMD-only) state is
+> > +		 * always preserved without an SVE payload, and with VL==0. On
+> > +		 * such systems, only accept non-streaming state without an SVE
+> > +		 * payload.
+> >  		 */
+> > -		if (!system_supports_sve() && !system_supports_sme())
+> > +		if (!system_supports_sve() && !fpsimd_only)
+> >  			return -EINVAL;
+> 
+> This means that this function will now accept a FPSIMD only SVE context
+> on systems with neither SVE nor SME, but that check was redundant since
+> we already reject anything with SVE magic in parse_user_sigframe() on
+> such systems and should never get here anyway.
 
-Thanks for the report!
+Yes. The commit message explained that:
 
-The original function was:
+  As parse_user_sigframe() rejects SVE signal frames when neither SVE
+  nor SME are supported, it isn't necessary for
+  restore_sve_fpsimd_context() to handle the case where neither are
+  supported.
 
-static inline bool kvm_vcpu_dabt_is_cm(const struct kvm_vcpu *vcpu)
-{
-	return !!(kvm_vcpu_get_esr(vcpu) & ESR_ELx_CM);
-}
+> Reviewed-by: Mark Brown <broonie@kernel.org>
 
-And esr_dabt_is_cm() is:
+Thanks.
 
-static __always_inline bool esr_dabt_is_cm(unsigned long esr)
-{
-	return esr & ESR_ELx_CM;
-}
-
-So looks good to me at a glance!
-
---
-Cheers, Lorenzo
+Mark.
 
