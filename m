@@ -4,76 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 78BAACA5FCE
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  1 Oct 2026 21:12:35 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9C592CA5FD4
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  1 Oct 2026 21:14:10 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=yV3OoqhhTOyvLfdzMAWwmTNQmt2i01UTi3FCUoHNWiw=; b=FA4FzWHgzTv4dfGlMeYljg5EiA
-	rwRc9kVK4H8TyajMFqWsgBv/5IHbAfOk/IVOo0hTxDPB/bYH7+ZbBknah7mwaS7ukhPtPfMOTjt9p
-	19bzkkGLDQ1lJ/P7eabouHcg+r/+gGNiin36TxFv7MEmki/yp3wmXFZxDTCs/h7rDGbABzpGYkyvI
-	fsf7nqdo+xHtxAQ+DC7ErlYX64UNSzT9AtBFITHg1oWpGcWGGgophyh0CTk/dewpmBallNgQSnMDF
-	hmGf/X/CAH0jjZH47Js6Ncq0XEqMvrIagetm1PxHmL7KebA9Xz51m6s1zmZK1qWCh9bcZDL6RkJk0
-	YhoDeU/A==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=XyDDvvco+d3mYshhwaSSq4pDGDpCB4IF/PEVe4NawGo=; b=RV5pHWLFxM040c94MO02tThkYn
+	pDruc/2q8s7Ytrlek6l/RTWP/qCZ/94QPID+a4sdrVP8ErEs4s+IJDTpOj4Xw8Kd/eCjKXx1Lfqx9
+	teR7iMA/lJhTNWO+0r8kaW0GFG7nddZUKmt6hZlElUhNyHBj2O1bDU4ILSzPGUB9jXF1phVUoNVKj
+	iBJN5uH4mtmQsYN9MOKOh/tbbJVB0KoO7isq6N5JmgT9MbazjOHoaZ5m8vOleSxWXkVie3r0FNT8Q
+	nndXPJqATNxR8wJOIYzeRkvPBcAk7w0oARL2wiAi4gg1/uLW5oD/HO0HzcJ/HSw5OD0xhQe00Cf4A
+	eZSTB7kw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xCO4r-0000000AEt6-1a79;
-	Thu, 01 Oct 2026 21:12:29 +0000
-Received: from casper.infradead.org ([2001:8b0:10b:1236::1])
+	id 1xCO6F-0000000AFDE-3zN0;
+	Thu, 01 Oct 2026 21:13:56 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xCO4k-0000000AEsD-2coW;
-	Thu, 01 Oct 2026 21:12:27 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=casper.20170209; h=In-Reply-To:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
-	Sender:Reply-To:Content-ID:Content-Description;
-	bh=yV3OoqhhTOyvLfdzMAWwmTNQmt2i01UTi3FCUoHNWiw=; b=N3eGFqkw2bH2ZVrnw5+je4uWhZ
-	J+5Vt4ELsqK0nd7/5K0Dd3phpnJ11mcwHS9Ckj3NnVfMsk3pJIqKyXmFaO6aqqA1wUOjjbfAe5arF
-	TXtggCg1hUKUMga2W9gTs9o/sg+Zks2X3RF48SVs0T94Jmo+mUUucCvXppgBF7+LGEeIqIZshggBe
-	Uj12hMsorknpIKgwpTe1E0upzf6OQpQnfPN4W6l1K6OQ73Y+dEepsFpKQcPnSMS5u6W9c74ZrdYyK
-	xX8PEkyeFYpBoW7g/MrJJK8Xb3/ePcA+lpljARA7IhJfalxxtq5SGY3d0Y5fDh4Aq7VYWlkLzvhKy
-	s/2qqAIQ==;
-Received: from willy by casper.infradead.org with local (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xCO4e-0000000A0JS-34rA;
-	Thu, 01 Oct 2026 21:12:16 +0000
-Date: Thu, 1 Oct 2026 22:12:16 +0100
-From: Matthew Wilcox <willy@infradead.org>
-To: Barry Song <baohua@kernel.org>
-Cc: "Lorenzo Stoakes (ARM)" <ljs@kernel.org>,
-	Hongru Zhang <zhanghongru06@gmail.com>, akpm@linux-foundation.org,
-	linux-mm@kvack.org, linux-kernel@vger.kernel.org, surenb@google.com,
-	david@kernel.org, liam@infradead.org, mhocko@suse.com,
-	rppt@kernel.org, shakeel.butt@linux.dev, vbabka@kernel.org,
-	zhaonanzhe@xiaomi.com, linux@armlinux.org.uk,
-	catalin.marinas@arm.com, will@kernel.org, mark.rutland@arm.com,
-	linux-arm-kernel@lists.infradead.org, chenhuacai@kernel.org,
-	kernel@xen0n.name, loongarch@lists.linux.dev, maddy@linux.ibm.com,
-	mpe@ellerman.id.au, npiggin@gmail.com, chleroy@kernel.org,
-	linuxppc-dev@lists.ozlabs.org, pjw@kernel.org, palmer@dabbelt.com,
-	aou@eecs.berkeley.edu, alex@ghiti.fr,
-	linux-riscv@lists.infradead.org, agordeev@linux.ibm.com,
-	gerald.schaefer@linux.ibm.com, hca@linux.ibm.com, gor@linux.ibm.com,
-	borntraeger@linux.ibm.com, svens@linux.ibm.com,
-	linux-s390@vger.kernel.org, dave.hansen@linux.intel.com,
-	luto@kernel.org, peterz@infradead.org, tglx@kernel.org,
-	mingo@redhat.com, bp@alien8.de, x86@kernel.org, hpa@zytor.com,
-	Hongru Zhang <zhanghongru@xiaomi.com>
-Subject: Re: [PATCH v6] mm: retry page faults once under the per-VMA lock
-Message-ID: <ar7MsOb6IJLt4eLo@casper.infradead.org>
-References: <20260911025613.1220845-1-zhanghongru@xiaomi.com>
- <arFYRAa-i7CIwmHL@gremlin>
- <arF-E3Nsw9ZliH0t@casper.infradead.org>
- <arI_w2wTfA00Mgy9@gremlin>
- <armexcXDiG8ryZd6@casper.infradead.org>
- <CAGsJ_4xuFi7K+crAcFQ998SxXS0xPM6QeA34JV+6+Sy005rXLg@mail.gmail.com>
+	id 1xCO6D-0000000AFCh-3ZXk
+	for linux-arm-kernel@lists.infradead.org;
+	Thu, 01 Oct 2026 21:13:54 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by sea.source.kernel.org (Postfix) with ESMTP id 9A22942A13
+	for <linux-arm-kernel@lists.infradead.org>; Thu,  1 Oct 2026 21:13:53 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 7E7431F0089F
+	for <linux-arm-kernel@lists.infradead.org>; Thu,  1 Oct 2026 21:13:53 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1790889233;
+	bh=XyDDvvco+d3mYshhwaSSq4pDGDpCB4IF/PEVe4NawGo=;
+	h=References:In-Reply-To:From:Date:Subject:To:Cc;
+	b=VJmeh5ksyazvF5b+uHiFuo+Fkk6I2oEkomFcTpQ21cV7s7Ezpvo2WgVusFoCZgkcq
+	 0zMsaKO6LO+hSz4EJ60U7PJejykfqbW755h946vLBB6L1w5baFM7MtYHfbgXR7s7Ic
+	 DsNON4VsPVifglKVHnHekmWa1Hm32i3mwLRJlEo78moodMhXS9K15e8KCLX2R2eaL5
+	 jWWTgRAFbdVHjAHmKmJTCU1aazlhC3iWjD8Ovh+PKsZrpknhpTuTwmQ2Z32CUkGIz4
+	 26chOz/4enh/ta858jhMXP5Fok4BYwf53CDVQErWoh0nbDdETeMLinDeFNGQMOQnmo
+	 XDskNRObVbmtw==
+Received: by mail-lr2-f21.google.com with SMTP id 38308e7fff4ca-3a2ff148dfdso57214541fa.1
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 01 Oct 2026 14:13:53 -0700 (PDT)
+X-Forwarded-Encrypted: i=1; AKwUvBxuyLOh5+JsNKhzuqOrY6jVTSJ9RgkFicpW8cm39/YwRwWo3+40oFHT9KFlWN5uGP2BzXJo8aVu7ZGaTPO/ayGQ@lists.infradead.org
+X-Gm-Message-State: AFq9FYI+E5G1r3terBglKP/y4dD30Xmv6JRbKudstKb5MeGV32+IB5kV
+	hbl3kdSGTffptvYTWzF4a83FGSfcU8ou1Iu7zPFs4GIwtlklL71cwojg+NbwQSgojvzohIrUWgr
+	kshfNy1cPjUVlz0mqAk2ZFomjuokxCjw=
+X-Received: by 2002:a05:651c:210e:b0:3a6:32a5:efa0 with SMTP id
+ 38308e7fff4ca-3a8877c5ae7mr1272461fa.22.1790889232244; Thu, 01 Oct 2026
+ 14:13:52 -0700 (PDT)
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-Content-Transfer-Encoding: 8bit
-In-Reply-To: <CAGsJ_4xuFi7K+crAcFQ998SxXS0xPM6QeA34JV+6+Sy005rXLg@mail.gmail.com>
+References: <20260926-apple-pinctrl-t8140-v2-0-620bd11cd2a1@cyberchaos.dev>
+In-Reply-To: <20260926-apple-pinctrl-t8140-v2-0-620bd11cd2a1@cyberchaos.dev>
+From: Linus Walleij <linusw@kernel.org>
+Date: Thu, 1 Oct 2026 23:13:39 +0200
+X-Gmail-Original-Message-ID: <CAD++jLm1tFh073xxPx2WzidABvP_fRY0Bhf8DkO64W6VBQ8UYw@mail.gmail.com>
+X-Gm-Features: AclHuK_bJIEK2xjDLFUNw_m3k1RB-KhI2mP3RWR1EocLD8uDhL9bs84JVwEtVgI
+Message-ID: <CAD++jLm1tFh073xxPx2WzidABvP_fRY0Bhf8DkO64W6VBQ8UYw@mail.gmail.com>
+Subject: Re: [PATCH v2 0/2] pinctrl: apple: Add t8140-pinctrl support
+To: Yureka Lilian <yureka@cyberchaos.dev>
+Cc: Sven Peter <sven@kernel.org>, Janne Grunau <j@jannau.net>, Neal Gompa <neal@gompa.dev>, 
+	Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
+	Mark Kettenis <kettenis@openbsd.org>, asahi@lists.linux.dev, 
+	linux-arm-kernel@lists.infradead.org, linux-gpio@vger.kernel.org, 
+	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -88,85 +82,24 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Sep 28, 2026 at 10:48:41AM +0800, Barry Song wrote:
-> On Mon, Sep 28, 2026 at 6:55 AM Matthew Wilcox <willy@infradead.org> wrote:
-> > So while doing my slides, I realised that what we need to avoid doing
-> > is (a) sleeping while holding the mmap_lock (b) returning RETRY while
-> > holding the VMA lock
-> >
-> > And that turns out to be as simple as this patch:
-> >
-> > diff --git a/include/linux/mm.h b/include/linux/mm.h
-> > index dd09c438fa23..94ed2333f8d8 100644
-> > --- a/include/linux/mm.h
-> > +++ b/include/linux/mm.h
-> > @@ -723,6 +723,8 @@ enum {
-> >   */
-> >  static inline bool fault_flag_allow_retry_first(enum fault_flag flags)
-> >  {
-> > +       if (flags & FAULT_FLAG_VMA_LOCK)
-> > +               return false;
-> >         return (flags & FAULT_FLAG_ALLOW_RETRY) &&
-> >             (!(flags & FAULT_FLAG_TRIED));
-> >  }
-> >
-> > OK, this is a hack.  The function is spectacularly badly named, and
-> > needs to be renamed before a patch can go upstream.  But this should
-> > fix the contention on mmap_lock.
-> 
-> Thanks for your suggestion.
-> This is exactly what we did in Android Common Kernel before we had
-> Lorenzo's proposal (bypassing `fault_flag_allow_retry_first()`):
-> 
-> https://android.googlesource.com/kernel/common/+/1b9b045a586245cc1c29b2747c6586234c7f5bad%5E%21/#F2
+On Sat, Sep 26, 2026 at 4:52=E2=80=AFPM Yureka Lilian <yureka@cyberchaos.de=
+v> wrote:
 
-Looks like that one didn't cover __folio_lock_or_retry(), but that
-doesn't invalidate your point.
+> This patch series has fixes for probing the pinctrl_ap GPIO controller
+> on the MacBook Neo. The previous code would crash in the regmap_init on
+> this device, since reading the REG_GPIOx for certain pins causes an
+> SError.
+> To mitigate this, we adapt the gpio-reserved-ranges property to describe
+> pins which are unusable and whose REG_GPIOx should not be accessed.
+>
+> Also add the new t8140 base compatible to the dt-bindings, signifying
+> the different behavior of the t8140 pinctrl_ap device, and make the
+> driver accept it since it now respects the gpio-reserved-ranges property.
+>
+> Signed-off-by: Yureka Lilian <yureka@cyberchaos.dev>
 
-> Note that Lorenzo's proposal avoids mmap_lock contention without
-> introducing any new VMA lock contention. It also doesn't require a new
-> flag that would break KMI. So this is clearly the preferred approach.
+Patches applied!
 
-But it does retry multiple times in cases where we know the fault
-will always fail (eg the fault is on a device-private VMA)
-
-> > Could somebody try it?  I've verified it boots and runs some userspace
-> > fine, but I don't have the workload to test the contention.
-> 
-> Both Nanzhe and Hongru tested it before and reported the fork issue.
-
-So what I didn't realise is that fork() waits for page faults to finish.
-I don't think that's necessary, so we can just stop doing that (whitespace
-damaged):
-
-diff --git a/mm/mmap.c b/mm/mmap.c
-index 4bf26b0f1e6e..e79555247d3a 100644
---- a/mm/mmap.c
-+++ b/mm/mmap.c
-@@ -1739,9 +1739,6 @@ __latent_entropy int dup_mmap(struct mm_struct *mm, struct mm_struct *oldmm)
-        for_each_vma(vmi, mpnt) {
-                struct file *file;
-
--               retval = vma_start_write_killable(mpnt);
--               if (retval < 0)
--                       goto loop_out;
-                if (vma_test(mpnt, VMA_DONTCOPY_BIT)) {
-                        retval = vma_iter_clear_gfp(&vmi, mpnt->vm_start,
-                                                    mpnt->vm_end, GFP_KERNEL);
-
-I think this is safe.  I've booted a kernel with this change, and
-everything seems to run fine.  Of course I don't have any multithreaded
-applications which call fork() because that's a stupid way to write an
-application, so it's not really tested.
-
-My argument for why it's safe is that a thread which takes a page
-fault during fork() might have taken the page fault either before or
-after fork().  The faults will definitely happen in the parent process.
-They may or may not have happened in the child process, which can't
-possibly care whether or not they've happened.
-
-The only difference I can think of being observable is that the child
-may observe some later faults to have occurred, while some earlier faults
-to have not occurred.  I have a hard time believing any application can
-possibly depend on it.
+Yours,
+Linus Walleij
 
