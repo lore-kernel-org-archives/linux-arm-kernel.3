@@ -4,61 +4,63 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DDE6BCA5FD4
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  1 Oct 2026 16:53:31 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 86A19CA5FD6
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  1 Oct 2026 16:53:33 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:Message-ID:In-Reply-To:Subject:CC:To:From:Date:
-	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
-	:Resent-To:Resent-Cc:Resent-Message-ID:References:List-Owner;
-	bh=8F9+lpy3V1Yl1wcdKSphAECSLZz4osJu4uWhm9xA1GU=; b=AsDFJWKtPR71lWDSsxIyQTTRDT
-	exFw95HuYFPi9oJa1htE+5Wg6RIj29YYi49jAEx2BZ2snKksnfFIf+Rv9XxoLtuqzkPUhivIPq6kP
-	yItLFw/L3ZAUrxmQiuLdQzq5mNlRZ3k0qdGkrVjUDRmsRj3reLlutBiZREn6hUGjVd+uZOg/fx+ru
-	0AT/AzYiesKsIyutsM7P/4QQ4hNHMgwH0RRuTjnvftXmgZXkKMxTQa+WUdUWmFj6LzpXp8wZYWVsO
-	C4x42X1sZhE/Me8C02ERGhhW6tN4blE/Iv57XdZj1gTjp4BkL2NJR/UYoN/YgDQcRMSFcmeKxKvEQ
-	oSBZzCnQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=pldxfBBUJszv2h95WSmrqJHgRj+RN0mpAukKCJ4Us+g=; b=G8RNRl642T4SdRA5tuCNMuLGRc
+	igIxuHwRhi5B37HE9suEbAlm9KgSibwc6WHjfNPaS8BWloisCz1aV4vcdGn/2t8k2es4xBlYfwX/R
+	tll2ts5W7YHeP0WnZUF5mysAegrJIw5QE62AHeF5OLZEeZidfjFZGD/xOA9EVYpcYV1cGtBhJRaPE
+	rjH0Be0FY9ctslivNIfYCeOID4P+bFU8xFq7xYNTj7Cr+hsNCHbu0qp+MtyT2NVG1FNuYCGVYKWdd
+	BdipYoc/do2kiWWe+SRRiS3kt/JaY11WforjEpNAb0FDiMkHekyH2MViMn87jcjtXwlLN76STZHbH
+	/H3pMFNg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xCK23-00000009mLN-1HFY;
+	id 1xCK22-00000009mLA-3YNp;
 	Thu, 01 Oct 2026 16:53:19 +0000
-Received: from mail.mainlining.org ([5.75.144.95])
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xCK20-00000009mKU-06OB;
+	id 1xCK21-00000009mKq-02Rf
+	for linux-arm-kernel@lists.infradead.org;
 	Thu, 01 Oct 2026 16:53:17 +0000
-DKIM-Signature: v=1; a=rsa-sha256; s=202507r; d=mainlining.org; c=relaxed/relaxed;
-	h=Message-ID:Subject:To:From:Date; t=1790873577; bh=8F9+lpy3V1Yl1wcdKSphAEC
-	SLZz4osJu4uWhm9xA1GU=; b=bIVwCPuuR5boSqT4zIKAfC6BsNl7oH1RWhHSBOK51yxFYQHErm
-	9Ehah0eq1VmKR6s4aQvY7sEEj7dlnGTDPtRBtuJ/3K2QwAgk/th+4ZdmfCE6DVnvKs+vvRFLmoD
-	uFheuOsID8Vs25gZRqSVDX4UyTfLinUFmo8f5Y4k0sj5rnNRRCkXBTgXJgPs6pMgl2w0lvBjvhJ
-	nm6SYHRZp85w5Qf/SdpfUh2qnSunTXvFDDoLrkiGcuih6ICSZelp7rnDYembk0BUOfMz5UUesR3
-	1Ra52dxyoOuFEWQKJiQ+sG6IwWp3cjBGI52Tw8WrS6KBS/pdNCc4Ac+d0aPv/x31pVw==;
-DKIM-Signature: v=1; a=ed25519-sha256; s=202507e; d=mainlining.org; c=relaxed/relaxed;
-	h=Message-ID:Subject:To:From:Date; t=1790873577; bh=8F9+lpy3V1Yl1wcdKSphAEC
-	SLZz4osJu4uWhm9xA1GU=; b=TLeS1x+07OKyp7Y41Bv59QHa1ZC5LyUP86OqeRf+MfKBRO8GoF
-	OpHXVuruAiHXRPQtJFqYym+Rej01xqkI2xBA==;
-Date: Thu, 01 Oct 2026 17:52:58 +0100
-From: Bradley Morgan <brads@mainlining.org>
-To: shradhagupta@linux.microsoft.com
-CC: akpm@linux-foundation.org, arnd@arndb.de, baoquan.he@linux.dev, bp@alien8.de,
- catalin.marinas@arm.com, dave.hansen@linux.intel.com, decui@microsoft.com,
- haiyangz@microsoft.com, kexec@lists.infradead.org, kys@microsoft.com,
- linux-arch@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-hyperv@vger.kernel.org, linux-kernel@vger.kernel.org,
- longli@microsoft.com, mhklinux@outlook.com, mingo@redhat.com,
- pasha.tatashin@soleen.com, pratyush@kernel.org, rppt@kernel.org,
- tglx@kernel.org, wei.liu@kernel.org, will@kernel.org, x86@kernel.org
-Subject: =?US-ASCII?Q?Re=3A_=5BPATCH_v3_0/2=5D_hyperv=3A_Run_VMBus?=
- =?US-ASCII?Q?_kexec_cleanup_from_syscore_shutdown?=
-In-Reply-To: <20261001132128.1703511-1-shradhagupta@linux.microsoft.com>
-Message-ID: <C8205996-C913-487A-BB8A-E3DD018AF747@mainlining.org>
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by sea.source.kernel.org (Postfix) with ESMTP id 7E9C740193;
+	Thu,  1 Oct 2026 16:53:16 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 204151F000FF;
+	Thu,  1 Oct 2026 16:53:11 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1790873596;
+	bh=pldxfBBUJszv2h95WSmrqJHgRj+RN0mpAukKCJ4Us+g=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=LvbSVCpaCUVkCAz7so8zugOU3NwB259fPKMks2lna/kHm0w4qsV+s9KRttiSYjuTA
+	 YWqi1beCw/63VRYo0D6E/5KjdiQoKuWAd02GWBKBvUyHv2gNb5OpWIBZgmsUN+JO77
+	 fPkC76O599BnM951u6Mz1XTKKEeAlR3aeV0Pw8AKnIPyIHfQuI6mwgdcokO0RvViPk
+	 RdT41/5KVCI+WaVbKnShZrhW6IiaQJW0alniE3u/M/Mzo96jeQdxwX+5sWe3XE02nT
+	 gHobMG1OESuD/ILEtZBbpiDZA1gbnXyxoe6/X/W0xeRaKXMcPnl4XzBCqJkfx7M4xQ
+	 tOdXdnwJxlghw==
+Date: Thu, 1 Oct 2026 17:53:09 +0100
+From: "Lorenzo Stoakes (ARM)" <ljs@kernel.org>
+To: Mark Brown <broonie@kernel.org>
+Cc: Catalin Marinas <catalin.marinas@arm.com>, 
+	Will Deacon <will@kernel.org>, Marc Zyngier <maz@kernel.org>, Joey Gouly <joey.gouly@arm.com>, 
+	Suzuki K Poulose <suzuki.poulose@arm.com>, Shuah Khan <shuah@kernel.org>, Oliver Upton <oupton@kernel.org>, 
+	Fuad Tabba <fuad.tabba@linux.dev>, Peter Maydell <peter.maydell@linaro.org>, 
+	Leonardo Bras <leo.bras@arm.com>, Wei-Lin Chang <weilin.chang@arm.com>, 
+	Yao Yuan <yaoyuan@linux.alibaba.com>, linux-arm-kernel@lists.infradead.org, linux-doc@vger.kernel.org, 
+	kvmarm@lists.linux.dev, linux-kselftest@vger.kernel.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v21 15/15] KVM: selftests: arm64: Add GCS EXLOCK
+ exception emulation test
+Message-ID: <ar6PJqq3Ujaz-ibx@gremlin>
+References: <20260930-arm64-gcs-v21-0-3556644cd927@kernel.org>
+ <20260930-arm64-gcs-v21-15-3556644cd927@kernel.org>
 MIME-Version: 1.0
-Content-Type: text/plain;
- charset=utf-8
-Content-Transfer-Encoding: 8bit
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261001_095316_212493_7F3160B4 
-X-CRM114-Status: GOOD (  12.90  )
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20260930-arm64-gcs-v21-15-3556644cd927@kernel.org>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -73,72 +75,41 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 1 October 2026 14:21:25 BST, Shradha Gupta
-<shradhagupta@linux.microsoft.com> wrote:
->Kexec reboot fails on ARM64 Hyper-V guests because the VMBus
->connection and SynIC CPU hotplug state are not torn down before the
->secondary CPUs are stopped. The kexec kernel consequently starts with
->the previous kernel's VMBus state still active.
+On Wed, Sep 30, 2026 at 10:48:25PM +0100, Mark Brown wrote:
+> When running in vEL2 ERET is emulated, this means that we must emulate
+> the behaviour of GCSCR_EL2.EXLOCKEN. Add a test that validates the
+> behaviour.
 >
->The previous version added an ARM64-specific syscore shutdown
->implementation. This version follows Michael Kelley's review and moves
->the cleanup into the existing architecture-independent VMBus syscore
->operations. This removes the separate x86 handler dispatch and gives
->x86 and ARM64 the same ordering:
+> As per DDI0487 R_WTXBY PSTATE.EXLOCK is set to the value of
+> GCSCR_ELx.EXLOCKEN when taking an exception to the same exception level.
+> As per DDI0487 R_TYTWB if on exception return to the same EL
+> GCSCR_ELx.EXLOCKEN is 1 and PSTATE.EXLOCK is not 1 then the exception
+> return is illegal.
 >
->  device_shutdown()
->  syscore_shutdown()
->    VMBus UNLOAD and SynIC CPU hotplug teardown
->  machine_shutdown()
+> We nest handling of two UDFs to allow us to both observe and modify
+> PSTATE.EXLOCK, checking that expected exceptions are generated for ERET.
+> We also repeat the UDF tests having enabled fine grained traps for ERET
+> to try to ensure that the slow paths are taken.
 >
->On x86, VMBus teardown now runs before hv_stimer_global_cleanup().
->This ordering is safe after commit be0cfab740e5 ("clocksource: hyper-v:
->Remove support for stimer interrupts in message mode") removed the
->VMBus dependency from synthetic timer handling.
+> We also attempt to write to both SPSR_ELx and ELR_ELx, again using a UDF
+> handler to control PSTATE.EXLOCK. We do all this both with and without
+> having enabled EXLOCKEN, though only for code running at EL2 due to
+> framework limitations.
 >
->Patch 1 adds a read-only helper that reports whether a kexec reboot is
->in progress. The helper is exported because HYPERV_VMBUS is tristate
->and the common syscore callback must also link when VMBus is a module.
->Patch 2 moves the cleanup into the common callback and removes the
->obsolete architecture-specific setup/remove interface.
+> For completeness we also inject a data abort from EL0 to EL2 with
+> GCSCR_EL2.EXLOCKEN set, ensuring that PSTATE.EXLOCK is not set.
 >
->For stable kernels that still support message-mode stimers, an
->ARM64-specific backport will be needed to preserve the existing x86
->ordering.
->
->Changes in v3:
->  - Use the existing common VMBus syscore operations on all
->    architectures, as suggested by Michael.
->  - Remove the x86 handler pointer and the weak setup/remove interface.
->  - Add an exported read-only helper for modular VMBus builds.
->  - Correct the Fixes tag to the commit that enabled Hyper-V on ARM64.
->
->Changes in v2:
->  - Use syscore shutdown instead of an ARM64 machine_shutdown() hook, as
->    suggested by Catalin.
->
->Shradha Gupta (2):
->  kexec: Add helper to report an active kexec reboot
->  Drivers: hv: Run VMBus kexec cleanup from syscore shutdown
->
-> arch/x86/kernel/cpu/mshyperv.c | 17 +----------------
-> drivers/hv/hv_common.c         | 10 ----------
-> drivers/hv/vmbus_drv.c         | 22 ++++++++++++++--------
-> include/asm-generic/mshyperv.h |  2 --
-> include/linux/kexec.h          |  2 ++
-> kernel/kexec_core.c            |  7 +++++++
-> 6 files changed, 24 insertions(+), 36 deletions(-)
->
->
->base-commit: be0cfab740e58b70047ef6e7e3d578f00ed5d258
->
+> Signed-off-by: Mark Brown <broonie@kernel.org>
+> Reviewed-by: Leonardo Bras <leo.bras@arm.com>
 
-Wow! Great!!!
+This all seems reasonable test-wise, but I wonder if the discussion around 8/15
+might alter some of what's tested here?
 
-Whole series:
+In that - if it's only hardware that's doing the locked check then the SPSR (and
+probably ELR?) bits might only be exercising that rather than KVM stuff?
 
-Reviewed-by: Bradley Morgan <brads@mainlining.org>
+It might only need a comment update though :)
 
---- Thanks!
-"I'm not a very positive person" - Linus torvalds
+--
+Cheers, Lorenzo
 
