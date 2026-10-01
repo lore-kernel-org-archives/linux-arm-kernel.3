@@ -4,73 +4,59 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5D735CA5FCB
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  1 Oct 2026 14:25:15 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 49AABCA5FD2
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  1 Oct 2026 14:25:16 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=7KcOYGwo3ka+oNeQbD2okrFirOHUtYboYlH+ghZugxI=; b=ifdAjX8p3N84Mr8QRmjszEiTeG
-	bNRleCM63T33O/GlnJWRzn+1bpb2AnGIULMT46hyPgDRKE2XgiUb4aFGqJVltcNIVDOYTye/ENjSn
-	1iorKUiDykDkYFa0VqlBDWJjtaa5MokgDIVHZ2i3zO7ubGwD/h6RO+TCt6tpif47akSx+XlaV10nU
-	oq+qznA3SHLjOTasjq0llGedGZv1g+HitjeosF7p1LVQDXbqjB5fSmtRNONxtnsaShunq7cLqaa73
-	/U8Jjcf4LhWpPQqROFtriSAFYOGsh9BM/P+rX1X0SgUOByZSObtbCICnPUNgjwTzAQ7rwTKjVxM5F
-	7D97eB2Q==;
+	bh=x3zQ3EST5J6Jwoq4e3go3Re87KsFnzCXlaMPneOsi+A=; b=v6We+goFyeG9H10BuwYYSnu+bq
+	Btv1ohgJcRcL9TFU1uzjWx+cZz6CkisbrKEkI8FwMD2cBWZ+EKP8gUlrAYwgsT55WthunxjbBxDbT
+	5BGEfx61Yly+LSBzbVuU5k6aVYRSNwxnA9m59VI7MqNIbaIyaZEAY0xRRIQlOuj0beg+w+fc6aEA+
+	6huIwWvOb0s2lh5EUEAFgPuuxwUUbAbXOEuNORqeTkCSg2TJGvj/+tCBikUHN7HWI1+AAH+PqkfQd
+	+2bha9mUekNBnzbJ3OD3DX4CSLZXUdJvfBxIe4QQiHIq/ziJU+N6Wl6qVgFh6PHUGHAz8Vmzgkmgh
+	IE5TF+MQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xCHif-00000009MeW-0iGg;
-	Thu, 01 Oct 2026 14:25:09 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xCHic-00000009MdT-3aYn
+	id 1xCHig-00000009Mf2-1Ydf;
+	Thu, 01 Oct 2026 14:25:10 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1xCHif-00000009MeM-1XuH
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 01 Oct 2026 14:25:08 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 87EDD497;
-	Thu,  1 Oct 2026 07:24:59 -0700 (PDT)
-Received: from e129823.arm.com (e129823.arm.com [10.2.213.3])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id A6FAA3F85F;
-	Thu,  1 Oct 2026 07:24:59 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1790864702; bh=1hHoKyAPD/b2cGTc6dQTSAgCcK5RPRJLB0llMk6ht/Y=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=vXAk2mOiEzPgG8p0QPPgnsQD9c5SttjpCm6UTeqpSxuv3JpF0R9stnfs2sdooXT1+
-	 +mCwykU1KCsMii36XRamLizkeQxtZpwHbBx36tBChLs0b2MUBc+3jhX+h4uZmD5BNU
-	 l8S2Mq3+aGtDdpe0Qwus2ffDKEwIB9946i46aoYk=
-Date: Thu, 1 Oct 2026 15:24:57 +0100
-From: Yeoreum Yun <yeoreum.yun@arm.com>
-To: Roberto Sassu <roberto.sassu@huaweicloud.com>
-Cc: Yeoreum Yun <yeoreum.yun@arm.com>, linux-coco@lists.linux.dev,
-	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-	Eric Snowberg <eric.snowberg@oracle.com>,
-	linux-integrity@vger.kernel.org,
-	linux-security-module@vger.kernel.org,
-	Dan Williams <djbw@kernel.org>, Mimi Zohar <zohar@linux.ibm.com>,
-	Roberto Sassu <roberto.sassu@huawei.com>,
-	Dmitry Kasatkin <dmitry.kasatkin@gmail.com>,
-	Paul Moore <paul@paul-moore.com>, James Morris <jmorris@namei.org>,
-	"Serge E. Hallyn" <serge@hallyn.com>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Jason Gunthorpe <jgg@ziepe.ca>,
-	Suzuki Poulose <suzuki.poulose@arm.com>,
-	Steven Price <steven.price@arm.com>,
-	Sami Mujawar <sami.mujawar@arm.com>,
-	"Aneesh Kumar K.V" <aneesh.kumar@kernel.org>,
-	Jiri Pirko <jiri@resnulli.us>, gongruiqi1@huawei.com
-Subject: Re: [PATCH RFC 0/3] security: ima: support TSM measurement registers
-Message-ID: <ar5tOUor0bp3MtQ6@e129823.arm.com>
-References: <20260930-ima_tgx_integration_v2-v1-0-722c35370548@arm.com>
- <ebe68f6463f8ece8a5cd8ce70bba292ec4f64a41.camel@huaweicloud.com>
- <c4fe5315d70fc162f1e5648e3fccb1676710d5e6.camel@huaweicloud.com>
+	Thu, 01 Oct 2026 14:25:09 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by tor.source.kernel.org (Postfix) with ESMTP id 653E160A55;
+	Thu,  1 Oct 2026 14:25:08 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id DFCA01F000FF;
+	Thu,  1 Oct 2026 14:25:06 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1790864708;
+	bh=x3zQ3EST5J6Jwoq4e3go3Re87KsFnzCXlaMPneOsi+A=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=fMBR5/LL+PolIe6nLQjT3hXnbDcETLtXOxzf31PRSITSr2MDtxs5VK75f5UhlMXvh
+	 UBRsdZ4rd/KHwROIYgT1JIXyn9xAd2sML/sSR78OMGfEHv4cfQX/vcwS723etTc0+o
+	 L6OJrLRmXiafpCHiCJBSx9Liv0wgYutzOSPDlHVGJMxA4FGwfE1eIJOl6Rwn0/mmIY
+	 TWRBqyoFVK3zEvdz8ODdYko3mu3NYB3nr4GK1+C1LuXayEvYZpjMUTc7zzrNTmQkOk
+	 BrjvQQyHvB9eg4796KCC1iRu/Vp6lZHpHTEhQ1mpI1/Tc7kZF1gHSaqsHjkQIJAbS3
+	 nxbj5kFJ2rCaQ==
+Date: Thu, 1 Oct 2026 15:25:03 +0100
+From: Mark Brown <broonie@kernel.org>
+To: Mark Rutland <mark.rutland@arm.com>
+Cc: linux-arm-kernel@lists.infradead.org, catalin.marinas@arm.com,
+	stable@vger.kernel.org, will@kernel.org
+Subject: Re: [PATCH] arm64/fpsimd: signal: Forbid non-streaming SVE payload
+ on SME-only systems
+Message-ID: <51351e42-60d1-417d-b61b-6011bfe5d2b5@sirena.org.uk>
+References: <20261001130836.1410888-1-mark.rutland@arm.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="tjgr7GheXTi+teXB"
 Content-Disposition: inline
-In-Reply-To: <c4fe5315d70fc162f1e5648e3fccb1676710d5e6.camel@huaweicloud.com>
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261001_072507_210296_20939922 
-X-CRM114-Status: GOOD (  29.76  )
+In-Reply-To: <20261001130836.1410888-1-mark.rutland@arm.com>
+X-Cookie: Do not stamp.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -85,119 +71,64 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Roberto,
 
-> On Thu, 2026-10-01 at 13:27 +0200, Roberto Sassu wrote:
-> > On Wed, 2026-09-30 at 14:43 +0100, Yeoreum Yun wrote:
-> > > Confidential computing guests without a TPM can use TSM measurement
-> > > registers to record IMA measurement digests instead of TPM PCRs.
-> 
-> + Gong Ruiqi, of course.
-> 
-> Roberto
-> 
-> > Hi Yeoreum
-> > 
-> > a similar patch set has been sent to the linux-integrity mailing list:
-> > 
-> > https://lore.kernel.org/linux-integrity/20250630125928.765285-1-gongruiqi1@huawei.com/
-> > 
-> > Could you please work with Gong Ruiqi to have a unified proposal?
-> > 
-> > Thanks
-> > 
-> > Roberto
-> > 
+--tjgr7GheXTi+teXB
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
 
-Thanks for letting me know and I think the proposal is almost the same
-with the different terminology only.
+On Thu, Oct 01, 2026 at 02:08:36PM +0100, Mark Rutland wrote:
 
-@Gong, what do you think?
+> Regardless of this patch, the kselftests themselves are broken for
+> SME-only configurations. The signal tests have been broken for at least
+> 3 years (since the kernel started creating SVE contexts on SME-only
+> systems), so evidently such configurations are not being tested. I have
+> some local fixes for the kselftests that I will send out soon.
 
-> > > This series introduces in-kernel interfaces for accessing TSM
-> > > measurement registers, abstracts IMA's measurement-register operations,
-> > > and adds a TSM backend for Intel TDX and Arm CCA.
-> > > 
-> > > The following mappings between TPM PCR indices and TSM measurement
-> > > registers are defined for Intel TDX [0] and proposed for Arm CCA [1]:
-> > > 
-> > >   TPM PCR index | Intel TDX register | Arm CCA register
-> > >   --------------+--------------------+-----------------
-> > >   0             | MRTD               | RIM
-> > >   1, 7          | RTMR[0]            | REM[0]
-> > >   2-6           | RTMR[1]            | REM[1]
-> > >   8-15          | RTMR[2]            | REM[2]
-> > > 
-> > > These mappings allow IMA to translate PCR indices into the corresponding
-> > > TSM measurement registers.
-> > > 
-> > > The TPM backend remains preferred when it is available at IMA
-> > > initialization. Otherwise, IMA falls back to a supported TSM backend.
-> > > Only one backend is selected; IMA measurements are not extended to both
-> > > TPM PCRs and TSM measurement registers.
-> > > 
-> > > The attestation proccess for guest with TSM measurement register will
-> > > be done with Confidential Compute Event Log (CCEL) which is exported by
-> > > /sys/firmware/acpi/tables/data/CCEL. Here is brief process in arm64:
-> > > 
-> > >   Verifier                 Realm guest              RMM / Platform
-> > >      |                         |                           |
-> > >      |--- Challenge (nonce) -->|                           |
-> > >      |                         |--- Request token -------->|
-> > >      |                         |    with challenge         |
-> > >      |                         |                           |
-> > >      |                         |<-- CCA token T -----------|
-> > >      |<-- CCA token T ---------|                           |
-> > >      |<-- CCEL event log ------|                           |
-> > >      |<-- IMA measurement log -|                           |
-> > >      |                         |                           |
-> > >  Verify token T:               |                           |
-> > >   - signatures                 |                           |
-> > >   - Platform/Realm             |                           |
-> > >     token binding              |                           |
-> > >   - challenge freshness        |                           |
-> > >   - platform/RIM policy        |                           |
-> > >   - verify measurement logs    |                           |
-> > >      |                         |                           |
-> > >      | ----ACCEPT / REJECT---->|                           |
-> > > 
-> > > This patch based on arm-cca-mr series [3].
-> > > 
-> > > Link: [0] https://uefi.org/specs/UEFI/2.11/38_Confidential_Computing.html#intel-trust-domain-extension
-> > > Link: [1] https://github.com/tianocore/edk2/issues/11383
-> > > Link: [2] https://github.com/tianocore/edk2/issues/11384
-> > > Link: [3] https://lore.kernel.org/all/20260929-arm_cca_mr-v2-0-1d98bba187fd@arm.com/
-> > > 
-> > > ---
-> > > Yeoreum Yun (3):
-> > >       virt: coco: introduce tsm_default_tm() and tsm_mr_read()/write()
-> > >       security: IMA: introduce ima_mr structure
-> > >       security: IMA: use TSM measurement registers
-> > > 
-> > >  drivers/virt/coco/guest/tsm-mr.c          | 159 +++++++++++++---
-> > >  include/linux/tsm-mr.h                    |  26 +++
-> > >  security/integrity/ima/Makefile           |   3 +-
-> > >  security/integrity/ima/ima.h              |   7 +-
-> > >  security/integrity/ima/ima_api.c          |   4 +-
-> > >  security/integrity/ima/ima_crypto.c       | 137 +++++---------
-> > >  security/integrity/ima/ima_fs.c           |  16 +-
-> > >  security/integrity/ima/ima_init.c         |   7 +-
-> > >  security/integrity/ima/ima_mr.c           |  48 +++++
-> > >  security/integrity/ima/ima_mr.h           |  76 ++++++++
-> > >  security/integrity/ima/ima_mr_tpm.c       | 155 ++++++++++++++++
-> > >  security/integrity/ima/ima_mr_tsm.c       | 290 ++++++++++++++++++++++++++++++
-> > >  security/integrity/ima/ima_queue.c        |  39 ++--
-> > >  security/integrity/ima/ima_template.c     |   4 +-
-> > >  security/integrity/ima/ima_template_lib.c |   2 +-
-> > >  15 files changed, 819 insertions(+), 154 deletions(-)
-> > > ---
-> > > base-commit: b561246f45174b7472c24b75358ea95bae72b7b8
-> > > change-id: 20260929-ima_tgx_integration_v2-1c54aeeaeaee
-> > > 
-> > > Best regards,
-> 
+I do have some coverage set up but it's set up in such a way that it'll
+only notice new failures so things that have never worked won't be
+visible.
 
--- 
-Sincerely,
-Yeoreum Yun
+> @@ -443,19 +444,33 @@ static int restore_sve_fpsimd_context(struct user_ctxs *user)
+
+>  	} else {
+>  		/*
+> -		 * A SME only system use SVE for streaming mode so can
+> -		 * have a SVE formatted context with a zero VL and no
+> -		 * payload data.
+> +		 * Non-streaming SVE state may be preserved without an SVE
+> +		 * payload, in which case all state is saved in the FPSIMD
+> +		 * context.
+> +		 *
+> +		 * On SME-only systems, non-streaming (FPSIMD-only) state is
+> +		 * always preserved without an SVE payload, and with VL==0. On
+> +		 * such systems, only accept non-streaming state without an SVE
+> +		 * payload.
+>  		 */
+> -		if (!system_supports_sve() && !system_supports_sme())
+> +		if (!system_supports_sve() && !fpsimd_only)
+>  			return -EINVAL;
+
+This means that this function will now accept a FPSIMD only SVE context
+on systems with neither SVE nor SME, but that check was redundant since
+we already reject anything with SVE magic in parse_user_sigframe() on
+such systems and should never get here anyway.
+
+Reviewed-by: Mark Brown <broonie@kernel.org>
+
+--tjgr7GheXTi+teXB
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iQEzBAABCgAdFiEEreZoqmdXGLWf4p/qJNaLcl1Uh9AFAmq+bT8ACgkQJNaLcl1U
+h9A8Dgf/bpQ6h/269Fw6oWtU7lRmSPaWBeB9mziw3EfHbp+Mmnk+V/Z0Y5+ls/nz
+C4v9qTOP/oklHyg+W3PrwDBoYjxj73wcViCsUgP9xW5VZDKs6K57wi+15mnVgDOX
+sGuX7PXTstguS0u9oF+l4PWK2CmajpHgFTx2CeYrsp0kQHppNDwe35bW/i30Oinv
+gc1dNeNKELqVgi+By/Dw2ZXIPb2hWRvhWoJ3u0/ZqiXJcho6+zHzPY2yLC4rUBIb
+uOf82LB9LLQ2KBvJLBe26ZuXnzU6r1+FZoj1061ZXLUgF+f8mPZbQkQW75PujF3N
+pTxxIz3pHiuEAn+h928xct0qaweg1g==
+=0L+C
+-----END PGP SIGNATURE-----
+
+--tjgr7GheXTi+teXB--
 
