@@ -4,56 +4,139 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 06094CA5FCB
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  1 Oct 2026 12:11:16 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 67156CA5FB3
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  1 Oct 2026 12:11:42 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=QTqQJkL63ohXjWLssut7aVeNBPbNyPoug3s4cPnbgPw=; b=FUB0SBtbR/BRZJI9RjrkYHqsY1
-	PTds7/dVz2ZEXS4f+U8E6scQUDjTiwcNoNuw7eClH73K39jLNf+M1PCzX73+MOBN2ctRd9iFJV0Rx
-	VjJE3wCu1XTc5BUYOxt9OlkY/f1L1VVrKi0pngBtZy6LG+ZsTK7ZvKxOv4PBDmnAz/Mf5+4LdyxzP
-	84VNrjkUTUSW/j7CEMDAwo9CNnN1lkseuTqt/HBxSaDNQnqnHwFj5OW3uPGmQrIka/G+S0qnyTSEs
-	SDjP2b/MaygHk06dm0Nj8novbbfEosYVBEQ3Bnqr4NlfIc1sXN5m6Z/2eSwLuoBsdOnwV9kp8JEAM
-	WQa0yPGQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:Subject:References:In-Reply-To:Message-Id:Cc:To:From:Date:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=LrP4wnPTH49w5JcU809MXbLlJcIqsc8CmLzg77Y19Yo=; b=Ihgn8fzT6VG5aRNV/F+4vxYHEB
+	9L5zgGf61gQMgQ3hyN1p7jQmGBKm1+USNKtBL8ZaNKieowfU4s+Mum1X779CfhvASm2EFzT5g2s/J
+	v2mdySJpoPLyAwIA8NVtR15mw/YOOpOfh58ciuCNHyJTPfvHdrU8hfGUBv3Cb0ZDYXq4qQkxjZ5HX
+	wecCvj22Kaafkc49zI7bkSthSOTovOqv3MSUXLyCFAieuj+Zc9pz9ifDKs0r+Ac9CWK3yhevXTclQ
+	WTxKHUEtkDSlZwE3HCKbLN4jDqBHVEbDj5aMDmyL7WbeFoZxwZPSnt62ln7o1WxB8c3KkxJido8Xp
+	wWfk4m9Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xCFcz-000000091Sb-2wqd;
-	Thu, 01 Oct 2026 12:11:09 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1xCFdP-000000091xK-0CZY;
+	Thu, 01 Oct 2026 12:11:35 +0000
+Received: from fhigh-a8-smtp.messagingengine.com ([103.168.172.159])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xCFcx-000000091Pf-2pvY;
-	Thu, 01 Oct 2026 12:11:07 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 338484360A;
-	Thu,  1 Oct 2026 12:11:07 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 493451F000FF;
-	Thu,  1 Oct 2026 12:11:06 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1790856667;
-	bh=QTqQJkL63ohXjWLssut7aVeNBPbNyPoug3s4cPnbgPw=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=i8/6oesk+nDhLAbk7K5hdssv8WTn/KKU/k/hD5wI0EcIm6J3f3kLBNo8TJCyL4jMp
-	 zqWNuit5QKwBo7ymBSYCrhOmTjNsxXVsGUUCedu9uB2986F5RpZMeUTPIV5jFR6hRd
-	 F2t0f9hLMrx6+YS0IbaFQfGMQip4S6lwNWuYc46ypZjIj8Y197cs/LsvnQM08eXIjf
-	 1VCGnnOXafqZiPC6vwpWiRf7XiqQsZ9K0bgBWj8NKi+cOszmZqlouA0SuQWy0Y7qVA
-	 /0iYpGdf6krAXkwJWoK/maXimWzImltBx9Ez/TFLrnPuKTc7lQa2oZamRxSEpjBMfe
-	 2YEeyM22dGyZw==
-Date: Thu, 1 Oct 2026 14:11:03 +0200
-From: Krzysztof Kozlowski <krzk@kernel.org>
-To: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
-Cc: arm-soc <arm@kernel.org>, soc <soc@kernel.org>, 
-	linux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org, matthias.bgg@gmail.com
-Subject: Re: [GIT,PULL,2/3] MediaTek ARM32 Device Tree updates for v7.4
-Message-ID: <20261001-thundering-durable-seriema-0aae1a@quoll>
-References: <20260923103222.25504-1-angelogioacchino.delregno@collabora.com>
- <20260923103222.25504-2-angelogioacchino.delregno@collabora.com>
+	id 1xCFdM-000000091sa-132I
+	for linux-arm-kernel@lists.infradead.org;
+	Thu, 01 Oct 2026 12:11:34 +0000
+Received: from ams-compute-02.internal (ams-compute-02.internal [10.64.2.62])
+	by mailfhigh.phl.internal (Postfix) with ESMTP id 0F416140008F
+	for <linux-arm-kernel@lists.infradead.org>; Thu,  1 Oct 2026 08:11:27 -0400 (EDT)
+Received: from ams-imap-03 ([10.64.2.23])
+  by ams-compute-02.internal (MEProxy); Thu, 01 Oct 2026 08:11:28 -0400
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=arndb.de; h=cc
+	:cc:content-transfer-encoding:content-type:content-type:date
+	:date:from:from:in-reply-to:in-reply-to:message-id:mime-version
+	:references:reply-to:subject:subject:to:to; s=fm1; t=1790856674;
+	 x=1790943074; bh=LrP4wnPTH49w5JcU809MXbLlJcIqsc8CmLzg77Y19Yo=; b=
+	DdZptR14wbpanHzm6uKkKZ0c9hXpIWiEzd/rLBR76KL5KksnHcsvaER2Qu/EZLX2
+	iTysz/+vPCwRIZ35fPbIJu8HtFLcQEOTDdrccmt5LhVUFNujINRMaSkpHpo7Hdk4
+	rJk1InvEJnIw813C43vLa5Qr5CwpHE/r0CO1nvF4hPMtCjKDqMuqMgQJ1svVepYk
+	GvV80ITRAyKcVoU8xpiSTLx2ParbRk2TkJDOZNpqE1tWZjqqJywaEbcGw7S2xgiG
+	8KZbkkO4Smu6Qyr87tB8+t5EYiigRa3FeL/96OLJ2poloiH9igIqDbcqKnpglzuB
+	8PjKYewAK3Dg/3nCBXskvQ==
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
+	messagingengine.com; h=cc:cc:content-transfer-encoding
+	:content-type:content-type:date:date:feedback-id:feedback-id
+	:from:from:in-reply-to:in-reply-to:message-id:mime-version
+	:references:reply-to:subject:subject:to:to:x-me-proxy
+	:x-me-sender:x-me-sender:x-sasl-enc; s=fm1; t=1790856674; x=
+	1790943074; bh=LrP4wnPTH49w5JcU809MXbLlJcIqsc8CmLzg77Y19Yo=; b=M
+	TMJkvNIJV1H2eTr4uWJq7gIRL4MykfuemTKy3B8qDSQbSo0zIeVIXZKoDMnJ0QeY
+	cRL8+5bXAI54jMaw+DclA5lCIqX8N7DRrMcllnGqJcC5+4aofEPGPXW7wMSUVBkY
+	To8PD1I8mkSFZBr75Np9MWQ8yhQ7NyMQfjuud7GZqLY6i+GBYrKuW8Sika6VR0Mv
+	FM0YqHlrIGa0jUZtikBYE5yZAUqFYZK0dmj7LTgFfh6hRFDVe0w5Q33s6YBmZsM+
+	TsNQrs8hHK8OwprTOFSJwkO/Wf5efJdOkjKdL2qyssfe3qqsNjt8BD/YSfAQcqbx
+	6OOTYNm6IJNHvRgu9BwWA==
+X-DKIM2-Info: draft=ietf-dkim-dkim2-spec-06;
+	repo=github.com/dkim2wg/interop; date=2026-09-30; sw=lmtpprox;
+	action=sign d=arndb.de a=rsa-sha256;
+DKIM2-Signature: i=1; m=1; t=1790856674; d=arndb.de;
+	mf=PGFybmRAYXJuZGIuZGU+;
+	rt=PGxpbnV4LWFybS1rZXJuZWxAbGlzdHMuaW5mcmFkZWFkLm9yZz4=;
+	s=fm1:rsa-sha256:CVqgNMDhgbXrJN+/iOeq3cLEPm4pkeLwL5u5i9g+Uz/hXT3
+	W0UA82wYNj1m1HD+0wiEVWHQ1wlbiRW2hjNKtLQ82rUtdyI5aZliBCoXPLxfIcoB
+	MUlnr1AtMCHrYwFJivm29XPLBrqsbpBrEGykARcUH8FWfJ3Q9zCBiNislJ7xz9pS
+	mRBfUFtQJ+qdH+OWJy6NH4snCljOHBT1Cgupk4UwrVtRbdiPuxPrSxdeqDFjvje7
+	cqiUZu/QuHTjC3kjiR5NmloRkS6Zqn+Tktwmy3w4iC5HJ0/fStD4g+y3VxSNvixf
+	Ki9S62hH9ffjAy/sPvJqQCVI/ubqdfM3bQINljA==;
+X-DKIM2-Info: draft=ietf-dkim-dkim2-spec-06;
+	repo=github.com/dkim2wg/interop; date=2026-09-30; sw=lmtpprox;
+	action=mi-m=1; hc=12;
+	hn=cc,content-transfer-encoding,content-type,date,feedback-id,
+	from,in-reply-to,message-id,mime-version,references,subject,to;
+Message-Instance: m=1; h=sha256:0d3aVtmayZTOzeQ+MpEcEkolJRwy5WF92/2k3IpurhQ=:yCbYjKH+S5QEfiIfZQdjrjC5qwYdJpqahL/rYFDjmls=;
+X-ME-Sender: <xms:2k2-aiTRKWbMc107WhYzHUymmXtYgzuL5oAi-X1o6feSNt-MwREVtg>
+    <xme:2k2-aik4c_KL12gKMLv9VYRj5ZxXpw9mV_peTngbibceQZCIiLTLMk7fQXLhxlE0D
+    l_uDmIrMBPDhtxifqu3dqdCAK4IYCNgAH2fZAvJwGy0MZLgLkxHe-hQ>
+X-ME-Proxy-Cause: dmFkZTGKlnIEsaaPd8MjhsmVKAuQGGCkE6iNhqa5cgmJ0cUZLPa4JCOr3xxfefUsNnq5Qu
+    zIlkZrYxyZZ90IF/NlCb7O0gNqwyI0nsaf77oXEqC6rcMe0AJlx1DbPIELICOaraMNVL92
+    6YD4uYwOQjzFJSe68LWxRWl4gKdGiTNLNgpwEuhc4yqMab+1djzPF1FbsLmn6QlxedBlUz
+    QE3A8cLPSz0AE36Lw+kxBpXqqnwRsojToOFL+h3cipO/SFygy55CoVQWctruTKuv4FhoUW
+    vEWWPlLDvbsfaWv1HNFhJsDx1888K0soTkGt1ki4fl2kkn+ckgLKjRJkrYgYxrcGPfHTqO
+    /U6VHuVF8Gl+WbJM6vfMhtApm5BKKwPu2MYVZh/dd/u7pO3yjAtlHdM1OtMZEYxTrQQVgn
+    DOJE4fvSrQqtqQfKX6KzzPM+I3vemYarjMgstK/GlVj5OSnz7pMRx908MvtCOlH4j9SlbA
+    +B7i6gOX2+QOJ9kzn8mVblz3NJfUfzzjFA/7H1F7crEh4epIST19sEeHee+RBIZM9qhvjs
+    85fruzJ6LWf4fJ8aKLau5nkmelaefTXuDwSKfj3H3VNz43iuHRRvFLPxt9TT9eaxq8hLAw
+    p4LOQzewFyYLMGCm3NDh14uUgZGNpbLZ5/ox80hAW52RxUDHGYuVp+yY7MSQ
+X-ME-Proxy: <xmx:3k2-arboxQ7fgmQSr02igr-P_X0AC1jaCz4CHvCFupNkg6NACoELFw>
+    <xmx:3k2-avz2MRDuBo2q7ocXxhEGE4TMtfUeCjRGvXUl7FsZySNYSepcNg>
+    <xmx:3k2-aqaToNTnuqqH1NTAkNGi7kgMn8cmSG4Qomxq2MZqShqXpauA7g>
+    <xmx:3k2-amyTTgKTSRZ_1u8LkWAANhuCjngI3vrEbXzXCK1vz6dQeLne7w>
+    <xmx:4k2-auNCvzqprV9hX_UxKrvj8cfadVF3_geCgaO3KJdhUG4fMXa8qFc4>
+Feedback-ID: i56a14606:Fastmail
+Received: by mailuser.ams.internal (Postfix, from userid 501)
+	id 3DC4332A008A; Thu,  1 Oct 2026 08:11:06 -0400 (EDT)
+X-Mailer: MessagingEngine.com Webmail Interface
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-In-Reply-To: <20260923103222.25504-2-angelogioacchino.delregno@collabora.com>
+X-ThreadId: AyQhVaDaKSSk
+Date: Thu, 01 Oct 2026 14:10:06 +0200
+From: "Arnd Bergmann" <arnd@arndb.de>
+To: "Steffen Eiden" <seiden@linux.ibm.com>, kvm@vger.kernel.org,
+ kvmarm@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
+ linux-kernel@vger.kernel.org, linux-s390@vger.kernel.org
+Cc: "Alexander Gordeev" <agordeev@linux.ibm.com>,
+ "Andreas Grapentin" <gra@linux.ibm.com>,
+ "Catalin Marinas" <catalin.marinas@arm.com>,
+ "Christian Borntraeger" <borntraeger@linux.ibm.com>,
+ "Claudio Imbrenda" <imbrenda@linux.ibm.com>,
+ "David Hildenbrand (Red Hat)" <david@kernel.org>,
+ "Friedrich Welter" <fritz@linux.ibm.com>,
+ "Fuad Tabba" <tabba@google.com>, "Gautam Gala" <ggala@linux.ibm.com>,
+ "Hariharan Mari" <hari55@linux.ibm.com>,
+ "Heiko Carstens" <hca@linux.ibm.com>,
+ "Hendrik Brueckner" <brueckner@linux.ibm.com>,
+ "Ilya Leoshkevich" <iii@linux.ibm.com>,
+ "Janosch Frank" <frankja@linux.ibm.com>,
+ "Joey Gouly" <joey.gouly@arm.com>, "Marc Zyngier" <maz@kernel.org>,
+ "Nico Boehr" <nrb@linux.ibm.com>,
+ "Nina Schoetterl-Glausch" <oss@nina.schoetterlglausch.eu>,
+ "Oliver Upton" <oupton@kernel.org>,
+ "Paolo Bonzini" <pbonzini@redhat.com>,
+ "Sean Christopherson" <seanjc@google.com>,
+ "Suzuki K Poulose" <suzuki.poulose@arm.com>,
+ "Sven Schnelle" <svens@linux.ibm.com>,
+ "Ulrich Weigand" <Ulrich.Weigand@de.ibm.com>,
+ "Vasily Gorbik" <gor@linux.ibm.com>, "Will Deacon" <will@kernel.org>,
+ "Zenghui Yu" <yuzenghui@huawei.com>, "Lorenzo Stoakes" <ljs@kernel.org>
+Message-Id: <e2742ccb-6b91-463c-a148-30b7e2f41e9a@app.fastmail.com>
+In-Reply-To: <20260930173441.66762-24-seiden@linux.ibm.com>
+References: <20260930173441.66762-1-seiden@linux.ibm.com>
+ <20260930173441.66762-24-seiden@linux.ibm.com>
+Subject: Re: [PATCH v9 23/24] KVM: s390: arm64: Implement basic page fault handler
+Content-Type: text/plain
+Content-Transfer-Encoding: 7bit
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20261001_051133_054904_D43EA76F 
+X-CRM114-Status: GOOD (  14.11  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -68,23 +151,49 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Sep 23, 2026 at 12:32:06PM +0200, AngeloGioacchino Del Regno wrote:
-> The following changes since commit cee9395acd8043be0644b25c34bfa86623f2b935:
-> 
->   Linux 7.3-rc1 (2026-08-30 13:34:40 -0700)
-> 
-> are available in the Git repository at:
-> 
->   https://git.kernel.org/pub/scm/linux/kernel/git/mediatek/linux.git/ tags/mtk-dts32-for-v7.4
-> 
-> for you to fetch changes up to 2e195497fc9fc0dd89cf95dab80a2d0486dab65b:
-> 
->   ARM: dts: mediatek: Add basic support for Amazon ford board (2026-09-10 16:41:20 +0200)
-> 
 
-Thanks, applied
+> +		/*
+> +		 * Check for a cache maintenance operation. Assume the guest is
+> +		 * cautious and skip instruction
+> +		 */
+> +		if (kvm_is_error_hva(hva) && kvm_vcpu_dabt_is_cm(vcpu)) {
+> +			kvm_incr_pc(vcpu);
+> +			ret = 1;
+> +			goto out_unlock;
 
-Best regards,
-Krzysztof
+Hi Steffen,
 
+[Adding Lorenzo Stoakes to Cc]
+
+I see this function fails to build on top of linux-next, as the 
+kvm_vcpu_dabt_is_cm() function was removed by commit 18b94675b1fb
+("KVM: arm64: Use ESR helpers in guest abort handling").
+
+I used this patch to make it build, but I'm not sure if this is
+the correct fix:
+
+diff --git a/arch/s390/kvm/arm64/mmu.c b/arch/s390/kvm/arm64/mmu.c
+index 3c1c8a2def73..7ee157c61d70 100644
+--- a/arch/s390/kvm/arm64/mmu.c
++++ b/arch/s390/kvm/arm64/mmu.c
+@@ -119,6 +119,7 @@ int kvm_handle_guest_abort(struct kvm_vcpu *vcpu)
+ 	hva = gfn_to_hva_memslot_prot(memslot, gfn, &writable);
+ 	write_fault = kvm_s390_cur_gmap_fault_is_write(vcpu);
+ 	if (kvm_is_error_hva(hva) || (write_fault && !writable)) {
++		unsigned long esr = kvm_vcpu_get_esr(vcpu);
+ 		ret = -ENOEXEC;
+ 		/*
+ 		 * The guest has put either its instructions or its page-tables
+@@ -143,7 +144,7 @@ int kvm_handle_guest_abort(struct kvm_vcpu *vcpu)
+ 		 * Check for a cache maintenance operation. Assume the guest is
+ 		 * cautious and skip instruction
+ 		 */
+-		if (kvm_is_error_hva(hva) && kvm_vcpu_dabt_is_cm(vcpu)) {
++		if (kvm_is_error_hva(hva) && esr_dabt_is_cm(esr)) {
+ 			kvm_incr_pc(vcpu);
+ 			ret = 1;
+ 			goto out_unlock;
+
+
+      Arnd
 
