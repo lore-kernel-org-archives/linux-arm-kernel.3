@@ -4,75 +4,68 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 89DBFCA5FD4
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  1 Oct 2026 16:12:54 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 122F5CA5FD6
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  1 Oct 2026 16:13:22 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:Message-ID:Date:References:In-Reply-To:Subject:Cc:
+	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:
 	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=BFgFgmJeZliuTaE95NHJ21R0tItMIZqm1nC1CcwqcAY=; b=eBt5B9B2TV9SABDDkd5wcwT3mp
-	mLf3Qd5l6JRl88bSYn0s21gJaA0asubx/XTctmSJCjfKCPUaQp8khAlcVmQnRQTWdJyp1wGUQPNQm
-	XPIZfmvDReUxV63XmPEuPrLTxLLG/GI5lQrwoP8pTPoToCHCxbcyrt/oKL/SoMZ0D8WksbBSFLSY7
-	wjkkUUXBvbCpzLL1Jq3aZfUoQ5jfAWElnlycqiLLIen46S0UO7xXKrnKZ3TS8Alr1HJWEiGmVk2W9
-	QmBnv/7O2fpWK9ge0OF++kyFvAN3CYQWhGPiGMulJPNPQODnuQIXBIwXmfIqJPlKkxdJtmgC+1Ust
-	TuvTmVHw==;
+	bh=i8mhUdALf68ZLZyoYPR1latUAnqfrCDXB2hItp/7ays=; b=JkTk2zlBmqGbeh6tEM9omO5nLK
+	4wF/5bDMtbxvPWe7bVbR1M80aQ5lTPQ+LgU7kncmYsAptVDFAHKRXGBMVWGzrCVUd5ylxhFxOYqrI
+	XC9HPHOczzTNr+uwlR2JpuT/Jri6CDQprZYXX2d6cauoR77eNfTGAmJ1bPaTQfemDsrWgKNwNX0FG
+	Ivw0C9gzdyHq0a6cGnf2u/8y/TzEhAn/096lTO/k/yeFcSYeDsFqXt0XnOkjIs8i5fQfk2YhNc3KB
+	rlsn/QRrexliy+bqxWgdtJpM3dRv7T1vXjyR7R4Z5zyFp9BKLX5pkJz/NaK4CMiDxP43g7s7k2oK+
+	LbMoQ1uw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xCJOo-00000009fWx-3fr2;
-	Thu, 01 Oct 2026 16:12:46 +0000
-Received: from smtpout-03.galae.net ([185.246.85.4])
-	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xCJOl-00000009fVu-1Fbp
+	id 1xCJPI-00000009fdm-0SM1;
+	Thu, 01 Oct 2026 16:13:16 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1xCJPF-00000009fdF-1PqF
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 01 Oct 2026 16:12:45 +0000
-Received: from smtpout-01.galae.net (smtpout-01.galae.net [212.83.139.233])
-	by smtpout-03.galae.net (Postfix) with ESMTPS id E917C4E41EFD;
-	Thu,  1 Oct 2026 16:12:39 +0000 (UTC)
-Received: from mail.galae.net (mail.galae.net [212.83.136.155])
-	by smtpout-01.galae.net (Postfix) with ESMTPS id 9FB4160343;
-	Thu,  1 Oct 2026 16:12:39 +0000 (UTC)
-Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id B4B5A103282A7;
-	Thu,  1 Oct 2026 18:12:30 +0200 (CEST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=dkim;
-	t=1790871157; h=from:subject:date:message-id:to:cc:mime-version:content-type:
-	 content-transfer-encoding:in-reply-to:references;
-	bh=BFgFgmJeZliuTaE95NHJ21R0tItMIZqm1nC1CcwqcAY=;
-	b=R8kSheh5qpYXPb5+qnU/aZgN19+5zjzf79rXO5j1MDaBEr16DX5HFXmvvfC4i8WFKJReR0
-	OVuCLQcRxsQvCh6/UfUXkR8dyvVkfGPytEoLSA3wR5tfe/jJqhTmrLVUCNGnNoqcjQgztY
-	925PxiB7aZDCYY6Q4sPhoUZ5ZkI70ZAME6vqEmlB2TEb9tcyY3k/f10/XF5pPdtNK3kGBB
-	VOnn+oL5VXMAPF+MDOTf0g5FTOwcALudFrp5Dkx2bdNt2KFkvvbtw/sU9uTnN0Tq+dwIpI
-	YJo8ZbEaUfEPxBQ5/+hmlM6qT56bKq0EpoIiegxjAJoIgZqYtNrGCroCookNFQ==
-From: Miquel Raynal <miquel.raynal@bootlin.com>
-To: Jerome Brunet <jbrunet@baylibre.com>
-Cc: Jacky Huang <ychuang3@nuvoton.com>,  Shan-Chun Hung
- <schung@nuvoton.com>,  Michael Turquette <mturquette@baylibre.com>,
-  Stephen Boyd <sboyd@kernel.org>,  Richard Cochran
- <richardcochran@gmail.com>,  Arnd Bergmann <arnd@arndb.de>,  Brian Masney
- <bmasney+clk@redhat.com>,  Jerome Brunet <jbrunet+clk@baylibre.com>,  Rob
- Herring <robh@kernel.org>,  Krzysztof Kozlowski <krzk+dt@kernel.org>,
-  Conor Dooley <conor+dt@kernel.org>,  Thomas Petazzoni
- <thomas.petazzoni@bootlin.com>,  Steam Lin <STLin2@winbond.com>,
-  linux-arm-kernel@lists.infradead.org,  linux-clk@vger.kernel.org,
-  linux-kernel@vger.kernel.org,  Krzysztof Kozlowski <krzk@kernel.org>,
-  devicetree@vger.kernel.org,  stable@vger.kernel.org
-Subject: Re: [PATCH v6 08/12] clk: nuvoton: ma35d1: Retrieve HXT/LXT from DT
-In-Reply-To: <1j7bk13gpq.fsf@starbuckisacylon.baylibre.com> (Jerome Brunet's
-	message of "Thu, 01 Oct 2026 11:36:33 +0200")
-References: <20260930-perso-ma35d1-upstream-clk-v6-0-48937ee6c9bb@bootlin.com>
-	<20260930-perso-ma35d1-upstream-clk-v6-8-48937ee6c9bb@bootlin.com>
-	<1j7bk13gpq.fsf@starbuckisacylon.baylibre.com>
-User-Agent: mu4e 1.12.12; emacs 30.2
-Date: Thu, 01 Oct 2026 18:12:29 +0200
-Message-ID: <87o6ddmmc2.fsf@bootlin.com>
+	Thu, 01 Oct 2026 16:13:15 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id A21E0497;
+	Thu,  1 Oct 2026 09:13:08 -0700 (PDT)
+Received: from gaia.lan (usa-sjc-mx-foss1.foss.arm.com [172.31.20.19])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 3A23F3F85F;
+	Thu,  1 Oct 2026 09:13:10 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
+	t=1790871192; bh=0cqJO1i8WSHNskeho44J8qRuYt033EnjtqI998xdVLo=;
+	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
+	b=DCCcMtQy/wkDs/2F6eLa0NNzINJKgwlyP1VAk0K+TObn28mjmbiGmgHFgvKcIi8dB
+	 T2hZQVCrVIRPwI+uir9LnRmql0HhMfI/sAmU2AW41HsLaHtBiXbSnGL+sErlMm791l
+	 8nhhbu0fm1G+hPkSbgFB2hEE0ygrfpDvFTMwSpeM=
+From: Catalin Marinas <catalin.marinas@arm.com>
+To: Will Deacon <will@kernel.org>,
+	Fuad Tabba <fuad.tabba@linux.dev>
+Cc: Mark Rutland <mark.rutland@arm.com>,
+	Jonathan Corbet <corbet@lwn.net>,
+	Shuah Khan <skhan@linuxfoundation.org>,
+	Randy Dunlap <rdunlap@infradead.org>,
+	Ben Horgan <ben.horgan@arm.com>,
+	James Morse <james.morse@arm.com>,
+	Xi Ruoyao <xry111@xry111.site>,
+	Marc Zyngier <maz@kernel.org>,
+	Bradley Morgan <brads@mainlining.org>,
+	linux-arm-kernel@lists.infradead.org,
+	linux-doc@vger.kernel.org,
+	linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v3] arm64: mpam: Document when to set arm64.nompam
+Date: Thu,  1 Oct 2026 17:12:33 +0100
+Message-ID: <179087115295.1106801.13408508563792829779.b4-ty@b4>
+X-Mailer: git-send-email 2.47.3
+In-Reply-To: <20260908145622.2828319-1-fuad.tabba@linux.dev>
+References: <20260908145622.2828319-1-fuad.tabba@linux.dev>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Transfer-Encoding: quoted-printable
-X-Last-TLS-Session-Version: TLSv1.3
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261001_091243_648110_947F7AAF 
-X-CRM114-Status: GOOD (  25.51  )
+X-CRM114-CacheID: sfid-20261001_091313_823050_7FB8E169 
+X-CRM114-Status: GOOD (  11.81  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -87,137 +80,24 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 01/10/2026 at 11:36:33 +02, Jerome Brunet <jbrunet@baylibre.com> wrote:
+On Tue, 08 Sep 2026 15:56:22 +0100, Fuad Tabba wrote:
+> arm64.nompam skips the MPAM2_EL2 and MPAMHCR_EL2 writes in
+> finalise_el2_state and leaves the ARM64_MPAM cpucap unset. Where EL3
+> firmware has cleared MPAM3_EL3.TRAPLOWER, the EL2 trap controls are
+> left unwritten, at reset values that are UNKNOWN, and KVM still hides
+> MPAM from the guest but no longer enables the traps that stop a guest
+> from using it. KVM never saves or restores MPAM0_EL1, MPAM1_EL1 and
+> MPAMSM_EL1, so what one guest writes reaches the next guest and the
+> host. Nor can the kernel make the EL2 writes unconditionally: they trap
+> to EL3 on the firmware the option exists for, and TRAPLOWER cannot be
+> read below EL3.
+> 
+> [...]
 
-> On mer. 30 sept. 2026 at 19:24, Miquel Raynal <miquel.raynal@bootlin.com>=
- wrote:
->
->> HXT and LXT are crystal oscillator inputs of the clock controller, they
->> are described in the DT, so retrieve them, in order, and store them in
->> their respective HXT/LXT hw table entries.
->>
->> Since old DTs reference the HXT fixed-clock without naming it and do not
->> describe LXT at all, we assume that HXT must be present, and fallback to
->> creating a fixed clock for LXT if it is not described (for backward
->> compatibility purposes).
->>
->> The downstream gate clocks can directly use the hw clocks as parents,
->> instead of relying on string matching.
->>
->> Fixes: 691521a367cf ("clk: nuvoton: Add clock driver for ma35d1 clock co=
-ntroller")
->> Cc: stable@vger.kernel.org
->> Signed-off-by: Miquel Raynal <miquel.raynal@bootlin.com>
->> ---
->>  drivers/clk/nuvoton/clk-ma35d1.c | 43 ++++++++++++++++++++++++++++++++-=
--------
->>  1 file changed, 35 insertions(+), 8 deletions(-)
->>
->> diff --git a/drivers/clk/nuvoton/clk-ma35d1.c b/drivers/clk/nuvoton/clk-=
-ma35d1.c
->> index ceebcbd8c18b..d955d79abdd2 100644
->> --- a/drivers/clk/nuvoton/clk-ma35d1.c
->> +++ b/drivers/clk/nuvoton/clk-ma35d1.c
->> @@ -4,6 +4,7 @@
->>   * Author: Chi-Fang Li <cfli0@nuvoton.com>
->>   */
->>=20=20
->> +#include <linux/clk.h>
->>  #include <linux/clk-provider.h>
->>  #include <linux/mfd/syscon.h>
->>  #include <linux/module.h>
->> @@ -191,6 +192,15 @@ static struct clk_hw *ma35d1_clk_gate(struct device=
- *dev, const char *name, cons
->>  				    reg, shift, 0, &ma35d1_lock);
->>  }
->>=20=20
->> +static struct clk_hw *ma35d1_clk_gate_parent(struct device *dev, const =
-char *name,
->> +					     struct clk_hw *parent,
->> +					     void __iomem *reg, u8 shift)
->> +{
->> +	return devm_clk_hw_register_gate_parent_hw(dev, name, parent,
->> +						   CLK_SET_RATE_PARENT,
->> +						   reg, shift, 0, &ma35d1_lock);
->> +}
->> +
->>  static int ma35d1_get_pll_setting(struct device_node *clk_node, u32 *pl=
-lmode)
->>  {
->>  	const char *of_str;
->> @@ -215,10 +225,12 @@ static int ma35d1_clocks_probe(struct platform_dev=
-ice *pdev)
->>  {
->>  	struct device *dev =3D &pdev->dev;
->>  	struct device_node *clk_node =3D pdev->dev.of_node;
->> +	struct clk_bulk_data *clks;
->>  	void __iomem *clk_base;
->>  	static struct clk_hw **hws;
->>  	static struct clk_hw_onecell_data *ma35d1_hw_data;
->>  	u32 pllmode[PLL_MAX_NUM];
->> +	int num_clks;
->>  	int ret;
->>=20=20
->>  	ma35d1_hw_data =3D devm_kzalloc(dev,
->> @@ -240,12 +252,27 @@ static int ma35d1_clocks_probe(struct platform_dev=
-ice *pdev)
->>  		return -EINVAL;
->>  	}
->>=20=20
->> -	hws[HXT] =3D ma35d1_clk_fixed("hxt", 24000000);
->> -	hws[HXT_GATE] =3D ma35d1_clk_gate(dev, "hxt_gate", "hxt",
->> -					clk_base + REG_CLK_PWRCTL, 0);
->> -	hws[LXT] =3D ma35d1_clk_fixed("lxt", 32768);
->> -	hws[LXT_GATE] =3D ma35d1_clk_gate(dev, "lxt_gate", "lxt",
->> -					clk_base + REG_CLK_PWRCTL, 1);
->> +	num_clks =3D devm_clk_bulk_get_all(dev, &clks);
->> +	if (num_clks < 0)
->> +		return num_clks;
->> +
->> +	if (!num_clks) {
->> +		dev_err(dev, "missing crystal input clocks\n");
->> +		return -ENODEV;
->> +	}
->> +
->> +	hws[HXT] =3D __clk_get_hw(clks[0].clk);
->
-> Don't open code it. use .fw_name
+Applied to arm64 (for-next/mpam), thanks!
 
-Ok, if I understand your suggestion, I will go for the use of
+[1/1] arm64: mpam: Document when to set arm64.nompam
+      https://git.kernel.org/arm64/c/eb0fde98fee4
 
-    devm_clk_hw_register_fixed_rate_parent_data()
-
-for these fixed clocks.
-
->
->> +
->> +	if (num_clks > 1)
->> +		hws[LXT] =3D __clk_get_hw(clks[1].clk);
->> +	else
->> +		/* Old DTs do not describe the low-speed crystal */
->> +		hws[LXT] =3D ma35d1_clk_fixed("lxt", 32768);
->
-> I'd give it another name so you can clearly see the difference between the
-> DT one and the manually registered one.
->
->> +
->
-> Don't need to open code this either.
-> provide both .fw_name and .name - CCF will fallback to the name.
->
-> When you want to conditionally register the fixed is up to you.
-
-Ok, so if my understanding is correct, I should use parent data with:
-* .fw_name being the clock-names entry
-* .name being the name of the clock that will be created ex-nihilo
-Am I correct? And clock-output-names in that case has no importance at
-all (hence this strengthen my wish to get rid of it)?
-
-In the fallback case, what naming makes sense? I don't know. I would
-have preferred to just name it "hxt" (respectively "lxt") in both cases
-because we truly don't care about the name, except it would be nicer for
-the reader of clk_summary. Do you mind if I keep "hxt"/"lxt" for both?
-
-Thanks a lot for the hints!
-Miqu=C3=A8l
+(and this wasn't a pure mpam patch, should have picked it directly ;))
 
