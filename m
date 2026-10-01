@@ -4,62 +4,63 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7572CCA5FB3
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  1 Oct 2026 06:59:35 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 35851CA5FB3
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  1 Oct 2026 07:00:21 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
 	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=adKEV0wp8fnkm3B2gVtkxUbYQ0N4xZbbOvQZcLnu0xk=; b=CBpH/UMbJlLSVm06eTGjiajC1x
-	ghvocXYZ5HdfRWbQfxq1pqVoORLYuAIUH6rYuQDOKQPzHSRhFpCet0IgQNT9belvpuHIeF0WlA/i1
-	Uee3fPoD5s2ihs/tQMNSYvcRXlyf4n2WXCy0WBHcqygVO+ahaMBlOwLovyL+0rglqgTVsN1w5wDth
-	x6YDe0AlY7WdRjRGgZCyyXCYcioLqxELw7XwznvS7eCowxB6WKBOUxPCHFYjB0aqa4o1gJfQauagw
-	NSGXRbvQqtgCMNOAhUhDNLOKdhjJJyrgrjUL6Is040Q8bG4Z6uBXqpxpbUrbNULZ7CaVkVPwErShD
-	Ee/dM3/A==;
+	bh=QJwfbKCyn/gh6UMXa/B9wDnCdxqQxEqYbYvEbOHcRzo=; b=Js0bBKcC9ywhHb+6Td1dUYelll
+	F9LsYqPX8cgGp2nAn2fMKTc0m0034Yvvuvcgb//vj+FIfN6weqgKvyQe6kCPME7Jjovv9ptD6whjC
+	B7QQrHfBtBAZDJ5QgC2wPm98ZO/Wvb55HboXHlfaYTfe80hPHB/wKY/Pp4DBjJ2QzC/M3BdfzgEaY
+	MPCbVpkd91RQ2JkdnblIjMGS7uhUZAHVKo0vYX31wHOz0eeCvcVFQGgULvkWGtHt/ldLF4FGItQGR
+	HHiZSU+gKndWlT1Zs12T9cDtJ53voiUOGinegZGl6Jg8KmOvyNw222gIurYoLJQlcerXLUvM3h/ql
+	4ePkTAxA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xCAlM-00000007w0P-35N1;
-	Thu, 01 Oct 2026 06:59:28 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1xCAlp-00000007w8h-3sm4;
+	Thu, 01 Oct 2026 06:59:57 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xCAlL-00000007w08-1Tn3
+	id 1xCAlZ-00000007w3S-1CQC
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 01 Oct 2026 06:59:27 +0000
+	Thu, 01 Oct 2026 06:59:41 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id BA2C944540
-	for <linux-arm-kernel@lists.infradead.org>; Thu,  1 Oct 2026 06:59:26 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id A24691F0089D
-	for <linux-arm-kernel@lists.infradead.org>; Thu,  1 Oct 2026 06:59:26 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 5AF7160A65
+	for <linux-arm-kernel@lists.infradead.org>; Thu,  1 Oct 2026 06:59:40 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id E09381F00A09
+	for <linux-arm-kernel@lists.infradead.org>; Thu,  1 Oct 2026 06:59:39 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1790837966;
-	bh=adKEV0wp8fnkm3B2gVtkxUbYQ0N4xZbbOvQZcLnu0xk=;
+	s=k20260515; t=1790837979;
+	bh=QJwfbKCyn/gh6UMXa/B9wDnCdxqQxEqYbYvEbOHcRzo=;
 	h=References:In-Reply-To:From:Date:Subject:To:Cc;
-	b=ZTEqIekgpZghTg8Qn8vwEmbcMeMYl2MORgJxn3aIHii9lmlTTHXZULIZaVG6qSbBU
-	 P1GpvEyVhrBhMi/mxpGoxmyOhDj0twY5/81waMYx34MNJYpyJW/LGUPeAxIk4Gb3tS
-	 291yIQxl1AzJd+hKdqlRFd6inzcyYydgb3tNfWPDRy9FVVDUzeGQbpXp2S02THGyJO
-	 cBNMWgzFXyDjGvG+KjD2jVAWTdEuZ5SPtgBv4hf/VJBW5T/eR3p7ntSCwVWjJbxHS/
-	 EtdsuoEljzPiJkqs+B/W+oywc3R6jty9xcO198geJNwEC8Z9ZM5JTuumBUxhIb+jXo
-	 21JWDU1ZRilHQ==
-Received: by mail-lf2-f12.google.com with SMTP id 2adb3069b0e04-5b8e986b8b1so6292106e87.3
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 30 Sep 2026 23:59:26 -0700 (PDT)
-X-Forwarded-Encrypted: i=1; AKwUvByIIJEJPiSyA7VIWgkoqa4AYcgrZ/PXXDBSobDrS7fnIiQpEV/5H6jtYojUazMevKkPRNuFKKnsalrmlfp9ijOD@lists.infradead.org
-X-Gm-Message-State: AFq9FYK9Q0VyGKuPL6G4XIDb0BC7hBwv+VyJjwsKptyGoIl3dNsDpVMT
-	je3x28EAJv2jO4DvgQgZ6ZtWv4ebZl8ToALqCMh2StF66K4a9F8z71k7cr6N2mkF6KjCbRSnQUM
-	CnS9xMO+rvDUNHguEgCVNzeRYKS+sB/k=
-X-Received: by 2002:a05:6512:3ba0:b0:5ba:3b01:36a5 with SMTP id
- 2adb3069b0e04-5ba405ee75amr1389712e87.14.1790837964923; Wed, 30 Sep 2026
- 23:59:24 -0700 (PDT)
+	b=Eb7QsxdVvwC6Q6ASOE6RHWopINjqmVsM+asCISC8KzX4TbbjLlLnsFGewjxLBiuAL
+	 USpbOV25b9ZmxZxGODhRZ/pIOUEV4j/7ISqQiq/4Q3iBTdt2DVLljYevQD1l6XoyiL
+	 /6myJolVu0oJo4EALqct9L6A2ND53yX9mOAI/X1jCNzZ1CH/ZbM+48f/OViR41yaiE
+	 YSWVB+jXEhQSQQdD456ShpIZi68mzYXHl+aRD0Dw6RexksYrZgHbY19oPl/9V4B29b
+	 xtsP823iFmnkNIANNLcxBYI21WhoxAkFuarvbrBPjvq3midaRtXgYMBNaY+ttNwSXN
+	 HLUC7j9fQRUAA==
+Received: by mail-lr2-f35.google.com with SMTP id 38308e7fff4ca-3a6124046f0so52239031fa.3
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 30 Sep 2026 23:59:39 -0700 (PDT)
+X-Forwarded-Encrypted: i=1; AKwUvBxz/i78VWYx6rfNvkdln/owRtw7eh5y9hgkUjE2lhJV/KEiaiYQB5hjEJHtlHBCUaqL4iXUCgUtG5hdnZKeO5hL@lists.infradead.org
+X-Gm-Message-State: AFq9FYJhDpa0PRDNZfcB9RagNAggoIb7LlIIWY1lRX8bt+DTbdQPPwO1
+	QUVqi7+t5FA2Z7PQH8c+a6G6v7EoyfwvY1+qIXGWN0jAq0UiyWnuo1uGgRciaCMTYhrXUo9YBMD
+	JKoKjo9B2fuUp4Hh2rHA6reLGBwL6N04=
+X-Received: by 2002:a2e:a99a:0:b0:3a7:812b:d0b with SMTP id
+ 38308e7fff4ca-3a7812b1f22mr7437971fa.11.1790837978465; Wed, 30 Sep 2026
+ 23:59:38 -0700 (PDT)
 MIME-Version: 1.0
-References: <20260916-drm-bridge-every-panel-v3-0-83afb4f1a707@bootlin.com> <20260916-drm-bridge-every-panel-v3-7-83afb4f1a707@bootlin.com>
-In-Reply-To: <20260916-drm-bridge-every-panel-v3-7-83afb4f1a707@bootlin.com>
+References: <20260916-drm-bridge-every-panel-v3-0-83afb4f1a707@bootlin.com> <20260916-drm-bridge-every-panel-v3-8-83afb4f1a707@bootlin.com>
+In-Reply-To: <20260916-drm-bridge-every-panel-v3-8-83afb4f1a707@bootlin.com>
 From: Linus Walleij <linusw@kernel.org>
-Date: Thu, 1 Oct 2026 08:59:09 +0200
-X-Gmail-Original-Message-ID: <CAD++jLkhYNZ4R4Z60zTzNoZwCtk4rcL-pCbgdHpNEzV-4oO_Wg@mail.gmail.com>
-X-Gm-Features: AclHuK8feDgrhg1tWHz9y2oJ4IDmaC5Th2MaGXRPg_l1XDpQ6IeWaj3r9RadEo0
-Message-ID: <CAD++jLkhYNZ4R4Z60zTzNoZwCtk4rcL-pCbgdHpNEzV-4oO_Wg@mail.gmail.com>
-Subject: Re: [PATCH v3 07/19] drm/panel: deprecate panel-bridge APIs
+Date: Thu, 1 Oct 2026 08:59:25 +0200
+X-Gmail-Original-Message-ID: <CAD++jL=G5ObsdvbhHFsEOeGYQFSd8Ggo7jaEupRTEdPmQD1e1A@mail.gmail.com>
+X-Gm-Features: AclHuK_sHPl7UkC73IJwZdQ3ifWpNCzHWYkFbMbP-K9-g_pDmrUnJv1iVcxQNBo
+Message-ID: <CAD++jL=G5ObsdvbhHFsEOeGYQFSd8Ggo7jaEupRTEdPmQD1e1A@mail.gmail.com>
+Subject: Re: [PATCH v3 08/19] drm/todo: add entry for removing the
+ panel_bridge API
 To: Luca Ceresoli <luca.ceresoli@bootlin.com>
 Cc: Andrzej Hajda <andrzej.hajda@intel.com>, Neil Armstrong <neil.armstrong@linaro.org>, 
 	Robert Foss <rfoss@kernel.org>, Laurent Pinchart <Laurent.pinchart@ideasonboard.com>, 
@@ -102,12 +103,10 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 On Wed, Sep 16, 2026 at 3:46=E2=80=AFPM Luca Ceresoli <luca.ceresoli@bootli=
 n.com> wrote:
 
-> Now that a drm_bridge is embedded into every drm_panel, the panel_bridge =
-is
-> not needed anymore. Its APIs are just accessing the embedded drm_bridge
-> transparently.
->
-> Deprecate them all, encouraging to use the drm_bridge API.
+> Now that a drm-bridge is embedded into every drm_panel during the panel
+> creation, the panel_bridge does not really exist anymore. Its API has bee=
+n
+> deprecated and kept until drivers convert to the bridge API.
 >
 > Signed-off-by: Luca Ceresoli <luca.ceresoli@bootlin.com>
 
