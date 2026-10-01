@@ -4,117 +4,152 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 72B43CA5FA5
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  1 Oct 2026 07:49:04 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 826A6CA5FC5
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  1 Oct 2026 07:49:35 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:CC:To:From:
-	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
-	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=qxDo3HHzTovQhz6OrzPJHW7C4ZDzap2ESG/3oGegh3s=; b=NwHjAWwWKzDo0GgpSBnf12EG+H
-	Wb4Qa0bbNLn65liecmRzqGmpiKrCsH2XviFGCGmk78mvB5XzhlbUdpWYuzk9Qo5Q+1vtuNPLcZD54
-	9BIr+LXed+XkfW2zfc/dY7AyYSXL+vkcAxp5hMXp1By3c5YN9wUCIx14c9KAbD55U2kL2ivUPrerY
-	ELEI8aO/KF54zIgeCFbY8AB9FsL4uQ0q2jn/zWWt7/LIBNwuvP2gFJLlT0Kr0FlZE9wxDyGev8CDB
-	6olBtGoMUcyYLq24VmOR+q9tp12XG6niSmmsasQhNeTRJdu1oFio+BeRgOrdLcuflFvv69R7uCRMe
-	nnJqv33Q==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=fcJEazZnT8uURAanK1Vp1Zd7zXkiTHBM91KnjXvtuLI=; b=Stk93PDIuFkanaa49BIijP3doX
+	Cyzpfopzk7Xem8ttYk3WG4A0Bv4ZYFkJUokCEHoFlGQlXsvuqBJbM3RLxQwcD+kukWKlAHBBzADGX
+	TImwjqinrRsda/IyXm0TLJhbQfFQ/pqioBftIsomiabIi0g6mBYth2J+8tK8GZyaO2Lu0ycRQN5F6
+	qk2X1EZVuXFD9IA+aLa/rRxY/bh5r1ZufZ1cR3746kC59+5uCP0scBKFG0Z+r0H1pMsG/hjt1rv/o
+	i955VAEJrRPQQrs51DQjpJU2eFJosKEmKp6G89xwZbk07FFevo5ymNcOa0L5IjE7+pAOldouLLImm
+	mJG0YcDQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xCBXE-000000083Oy-3vk0;
-	Thu, 01 Oct 2026 07:48:56 +0000
-Received: from mail-centralusazlp170110009.outbound.protection.outlook.com ([2a01:111:f403:c111::9] helo=DM5PR21CU001.outbound.protection.outlook.com)
+	id 1xCBXk-000000083Vw-0O23;
+	Thu, 01 Oct 2026 07:49:28 +0000
+Received: from mx0a-0031df01.pphosted.com ([205.220.168.131])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xCBXC-000000083Nx-0LOB
+	id 1xCBXh-000000083Uy-1i1A
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 01 Oct 2026 07:48:55 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=O7FOOhmoeUCoYUjFhiLfvR2vIo6pxBfRGXHn335XbSLJhxnxl9UHUopgP8Ndu5918K9MZ7JUKq2z7iosAyp/crE90fi3QyTShuzqazU+WZ9FSU6BQMLLARF7KPnyD3JhHRfd5VzSTPS3fHMTPVJE6loytLGyQvBmM7ntP4ZWrOMUsoQXHB4lVnN8r1DDFzAOmmyRE9XMZKHPG+JekNVNNyd4+btaULSqvBA2EUul0A1bDSGd9OpKmY5FqC854izJWCA+11bJ1PI9+sVn5ebiy/A4ssaUXjXBPCxmk1iT42e6xNIwWYahUbvqV1qbv8yWVtCfwFV9kbkj/Xl8RRgppw==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=qxDo3HHzTovQhz6OrzPJHW7C4ZDzap2ESG/3oGegh3s=;
- b=HUrHjDKUFY6Y7fIq8RITWfVMhfacizKdaxJ29QtmaInw8ChtEw/22amGMCpoWBXWYEls9sAYaDHk9k7UMEqz5Rmua6yWUUrTY9z/NUZwMAO6YCdWNF+9Q32FPOiuZ37pD6ZoDIPpYBPPAI4U0Gfj9yyH51nkgqoK+S5VWs2/MLKeskym+z04n/tLOGkootM+I5LT3fAeTcu/uzwvTHu31iPWN0cEe0BEsSW85/+8ANdgDKoqAleCL7YN8CQBdxBt/CeEme1Y89OOskE5I21d45SHrDYvdqt4jBdnYjziTV9J3y7yM78zMbhhrmUCE6CqJJuNGOqJVqSdwnUZZH3QFQ==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
- 165.204.84.17) smtp.rcpttodomain=vger.kernel.org smtp.mailfrom=amd.com;
- dmarc=pass (p=quarantine sp=quarantine pct=100) action=none
- header.from=amd.com; dkim=none (message not signed); arc=none (0)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=amd.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=qxDo3HHzTovQhz6OrzPJHW7C4ZDzap2ESG/3oGegh3s=;
- b=ej3Rjb9LgnKGM8rFC2b7AQ/UetGrmVqG8OMwDnwOhfdTwOIYTKd8sLHwpFBPrI2O3pvL8Xv5VNYShX4hgStFnppzSNCi96LbkKKoo2aPxPxCjIPnamZMVlKgDkuDtDkXbj9xyjaJ9RHFWw724kNi3VRkWu9bEIoVQd0YtAToqc8=
-Received: from BN0PR04CA0059.namprd04.prod.outlook.com (2603:10b6:408:e8::34)
- by SJ0PR12MB7459.namprd12.prod.outlook.com (2603:10b6:a03:48d::14) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.472.15; Thu, 1 Oct
- 2026 07:47:43 +0000
-Received: from BN2PEPF000055DE.namprd21.prod.outlook.com
- (2603:10b6:408:e8:cafe::58) by BN0PR04CA0059.outlook.office365.com
- (2603:10b6:408:e8::34) with Microsoft SMTP Server (version=TLS1_3,
- cipher=TLS_AES_256_GCM_SHA384) id 15.21.472.16 via Frontend Transport; Thu, 1
- Oct 2026 07:47:43 +0000
-X-MS-Exchange-Authentication-Results: mx.microsoft.com 1; spf=pass (sender IP
- is 165.204.84.17) smtp.mailfrom=amd.com; dkim=none (message not signed)
- header.d=none;dmarc=pass action=none header.from=amd.com;
-Received-SPF: Pass (protection.outlook.com: domain of amd.com designates
- 165.204.84.17 as permitted sender) receiver=protection.outlook.com;
- client-ip=165.204.84.17; helo=satlexmb07.amd.com; pr=C
-Received: from satlexmb07.amd.com (165.204.84.17) by
- BN2PEPF000055DE.mail.protection.outlook.com (10.167.245.8) with Microsoft
- SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.21.496.3 via Frontend Transport; Thu, 1 Oct 2026 07:47:43 +0000
-Received: from satlexmb10.amd.com (10.181.42.219) by satlexmb07.amd.com
- (10.181.42.216) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.49; Thu, 1 Oct
- 2026 02:47:42 -0500
-Received: from satlexmb07.amd.com (10.181.42.216) by satlexmb10.amd.com
- (10.181.42.219) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.49; Thu, 1 Oct
- 2026 02:47:41 -0500
-Received: from xhdvineethc40.xilinx.com (10.180.168.240) by satlexmb07.amd.com
- (10.181.42.216) with Microsoft SMTP Server id 15.2.2562.49 via Frontend
- Transport; Thu, 1 Oct 2026 02:47:37 -0500
-From: Vineeth Karumanchi <vineeth.karumanchi@amd.com>
-To: <git@amd.com>, <netdev@vger.kernel.org>
-CC: <vineeth.karumanchi@amd.com>, Andrew Lunn <andrew@lunn.ch>, "Heiner
- Kallweit" <hkallweit1@gmail.com>, Russell King <linux@armlinux.org.uk>,
-	"David S . Miller" <davem@davemloft.net>, Eric Dumazet <edumazet@kernel.org>,
-	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>, "Michal
- Simek" <michal.simek@amd.com>, Florian Fainelli <f.fainelli@gmail.com>,
-	Harini Katakam <harini.katakam@amd.com>, Kedareswara rao Appana
-	<appanad@amd.com>, <linux-arm-kernel@lists.infradead.org>,
-	<linux-kernel@vger.kernel.org>
-Subject: [PATCH net 0/2] net: phy: xilinx-gmii2rgmii: Fix PHY data ownership and removal
-Date: Thu, 1 Oct 2026 13:17:16 +0530
-Message-ID: <20261001074718.3944521-1-vineeth.karumanchi@amd.com>
-X-Mailer: git-send-email 2.44.4
+	Thu, 01 Oct 2026 07:49:26 +0000
+Received: from pps.filterd (m0279865.ppops.net [127.0.0.1])
+	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 6916xKI72805837
+	for <linux-arm-kernel@lists.infradead.org>; Thu, 1 Oct 2026 07:49:24 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
+	cc:content-type:date:from:in-reply-to:message-id:mime-version
+	:references:subject:to; s=qcppdkim1; bh=fcJEazZnT8uURAanK1Vp1Zd7
+	zXkiTHBM91KnjXvtuLI=; b=K5C3bsDlHExr54kPSs+k42C1Le03azP4hHEclWjd
+	oPVQ8l4jJl0G4i05tME0aYbORdAoY/Zdz3X7IFOJ3gkymDNrQcgkzGTVKhUPKGkQ
+	RIzSjZrPQGcu7xwV42gRDcB2eltkNnnD6zCd6s8etYHjo+EV07hwVzaZqVRp5xY5
+	qKOmhaOT8zapXKDkYn4Or+VadKDFuqtebUsLwVqeKwgyplsi3AedJMToxoROlnHc
+	DW9t9YdZTZlE22m6jiuNzjtZY+SeP6ctXmJppbhA/sZi3HnKFwkRbb06pWEHLGE1
+	ySBXtUaKRge/6R13V2oQgIIALQp27IZDO9AMPfJKN9V6cw==
+Received: from mail-qk1-f200.google.com (mail-qk1-f200.google.com [209.85.222.200])
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4h1hvkgcfq-1
+	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
+	for <linux-arm-kernel@lists.infradead.org>; Thu, 01 Oct 2026 07:49:23 +0000 (GMT)
+Received: by mail-qk1-f200.google.com with SMTP id af79cd13be357-93a01d1d1b6so1106469285a.1
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 01 Oct 2026 00:49:23 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=oss.qualcomm.com; s=google; t=1790840963; x=1791445763; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:content-type:mime-version
+         :references:message-id:subject:cc:to:from:date:from:to:cc:subject
+         :date:message-id:reply-to:content-type;
+        bh=fcJEazZnT8uURAanK1Vp1Zd7zXkiTHBM91KnjXvtuLI=;
+        b=bYoOS2RnIlpiLeQArWXjl2ZiXRSlatuRSxoO1xsFbfkyoJMKW15N9bBfv9A3p8KBiy
+         q0xeOAbiAKUgS8mO87LEBgLv9n3lY+nSOzCB8yW+BXUUTXAYcbL5ADGY22xyajDuF3Vx
+         j+yTzKY8NShdExRzei2Q+yyA3I0bUuxtqaFSKLkmAsks2xQTyajGZrsWbFs5gDQLGIq7
+         EKkCflVOd1ownv1VLvOYAxz8F/N+G9ZaAEgRtf0q2b8LE57v9/75X2k2K3WcpB79MBIL
+         eKlwrkUYTDgKLnip0mCWlFN6nlMBvXqLAOuYsIwZGO1DDABzm7dN47vAO2GyJVUE09XI
+         qStg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1790840963; x=1791445763;
+        h=in-reply-to:content-disposition:content-type:mime-version
+         :references:message-id:subject:cc:to:from:date:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=fcJEazZnT8uURAanK1Vp1Zd7zXkiTHBM91KnjXvtuLI=;
+        b=gSXRnAY+Wjnv6djAoIZ+zF4/XLkX8EudzhABxigTzLhNSzcKrVE8791NHcLE9lNKT/
+         oYfQ+lZ+Ey9Uu94uCPQ3Xd75BwK5IHIXx7SFVC/BhAPn91mMDPrFenC/7X5Rw3Cg0nBo
+         DcHrqKh45gAnQ/Lt9EMkJPHgTazNBLXy/b4Inw1nppwLiQIXBQCiSjJ2ZuFjt08E8d3U
+         pVZ/LICd9E9By8cfbI+HUHbivrBSLDxJbrunkRuY23eCCjHORY/hQKEcS0hKYy/HHek3
+         kGqIP9YdZ+BaZDbs+IXNCMNVzTVD87hxIRfFQdDu/AoYTTJ0xtyXjLVReTGIzwjZb8QN
+         3GrQ==
+X-Forwarded-Encrypted: i=1; AKwUvBx52IXvr2QbsqyzLhwkg9fFALGJ3eRIcEMNSw5Ayn3oZm6rya2pHZJs1vhwk2o/zMm08XUxnEFnbvCica7g955L@lists.infradead.org
+X-Gm-Message-State: AFuF++nicZvim1iv5Qqtq5Dfxd1jmgzbFrELfT4/skqPm7NbVHF5COGY
+	sC2ms4jbZN6ll8sPnNUJeQIkQhCVJHGPuHp4hmCOSMn/6fvHls+aETVSDACNq0UKpn9/MppIhZC
+	5uIWTWwT4lZmi4V6TVQae2hSu7VLnoLkFQjmJ2FHk2VC6+s7nZvRxgBb/h5xMFTr2kZjhiAb+aR
+	9MSg==
+X-Gm-Gg: AYBFou289//REHdS3vzJRzZdSaOwJOSJ7/TLdYJ/g37CT5lXmcPCr7JRxgkDCETcVou
+	cKYU2Wthn5xgfhnpi7YrzvKaERMUt7Ogevy9hJ2wyuF2WQBW55UY3wf9GtmmWUSY5HwwOqMqabb
+	42a1rPP6DOatqoeN/Iw/HO4fVVCm/hgHN+iIDhOyJsQi/wAq17oHTujpKvCrSZZq0ff7uusJNUO
+	8C628R+eGW4+S7gfZdOogi6z+jjz5r8osJ/5KDaE9eDdbBQU3sl7/7T1eTGET//whHJLVKHxM9Z
+	bhqACRtQ30hxObXC4mMhLmNh3H+Npsf09YxoU+rjMy8HiOQclQP1vanr82XTe2IuAm/YFV6VfxL
+	6Yp+87tdQ01kIjg==
+X-Received: by 2002:a05:620a:6602:b0:939:ede4:a499 with SMTP id af79cd13be357-93ca94f6634mr719060885a.5.1790840962921;
+        Thu, 01 Oct 2026 00:49:22 -0700 (PDT)
+X-Received: by 2002:a05:620a:6602:b0:939:ede4:a499 with SMTP id af79cd13be357-93ca94f6634mr719054085a.5.1790840962161;
+        Thu, 01 Oct 2026 00:49:22 -0700 (PDT)
+Received: from localhost ([188.216.77.92])
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-48b068ff95esm4416843f8f.12.2026.10.01.00.49.20
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Thu, 01 Oct 2026 00:49:20 -0700 (PDT)
+Date: Thu, 1 Oct 2026 09:49:20 +0200
+From: Lorenzo Bianconi <lorenzo.bianconi@oss.qualcomm.com>
+To: James Hilliard <james.hilliard1@gmail.com>
+Cc: netdev@vger.kernel.org, Paolo Abeni <pabeni@redhat.com>,
+        Jakub Kicinski <kuba@kernel.org>, Andrew Lunn <andrew+netdev@lunn.ch>,
+        Alexei Starovoitov <ast@kernel.org>,
+        Daniel Borkmann <daniel@iogearbox.net>,
+        Jesper Dangaard Brouer <hawk@kernel.org>,
+        John Fastabend <john.fastabend@gmail.com>,
+        Stanislav Fomichev <sdf@fomichev.me>,
+        Jose Abreu <Jose.Abreu@synopsys.com>,
+        Russell King <linux@armlinux.org.uk>,
+        Eric Dumazet <edumazet@google.com>,
+        "David S. Miller" <davem@davemloft.net>,
+        Maxime Coquelin <mcoquelin.stm32@gmail.com>,
+        Alexandre Torgue <alexandre.torgue@foss.st.com>,
+        Serge Semin <fancer.lancer@gmail.com>, Simon Horman <horms@kernel.org>,
+        Maxime Chevallier <maxime.chevallier@bootlin.com>,
+        Richard Cochran <richardcochran@gmail.com>,
+        linux-stm32@st-md-mailman.stormreply.com,
+        linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+        bpf@vger.kernel.org, Rayagond Kokatanur <rayagond@vayavyalabs.com>
+Subject: Re: [PATCH net-next v4 0/4] net: stmmac: preserve and restore the
+ installed EST schedule
+Message-ID: <ar4QgHsclh1vWVHk@lore-desk>
+References: <20260930-stmmac-est-reapply-after-open-v4-0-9d4366587b73@gmail.com>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-Content-Type: text/plain
-X-EOPAttributedMessage: 0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: BN2PEPF000055DE:EE_|SJ0PR12MB7459:EE_
-X-MS-Office365-Filtering-Correlation-Id: 1af96b1a-7cbb-4efa-bf80-08df1f9046eb
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|7416014|376014|23010399003|36860700016|82310400026|1800799024|11063799006|56012099006|18002099003|10067099003;
-X-Microsoft-Antispam-Message-Info: hJn8Kdq1Qa9WXwMuvKqdGIsrvTcmKzD4ARyGx4noQs9SN/jMguS3DhCWIOgrkapZYpaOhZkkiT9HSpPBVWy+Hm+qRwNW1RlbX57nXKLwgo2EHvpDzcXmS/CBgNMXu/XtU793zqRIisUUOU37AgPcfzUg1zb4KCDqdHQ3XRZN086Qy/YcQIxHovOLQyOFTapRKtiOhZFXEhpLLKm9et7TmZOY+hig/R13d65nTPXkQ0VHKOczkXIAxmatIaW6jslOoZE1qDPISp+GQ1pcNghDBQXnLm8f2Qrf+m50khPmUVn/EXjPPicYY6eKcGC1u5ViDpT/YBJtIxnv+R39f1OfLYj+XHLACyqwn0jE35N1G/d6Ah4BDLjk3aZwDpj5zfbFW04GSMvKD6euMmwvZ91kf8+EWU8M3dkpG/gu74nUR5TAp/uYDagdCCOsm9gANNUQEPXp87I1T479FBMiBHX6M6Yc4M7NGLzagt/j71l5Qmifq2em5kjgn1M1AArBN4Z+mHrTM9+cRDxLEZNu3KbLfdC5hVj83GuXvZwDX7uCoIxuPfRMpcYue7qaAWklFp2tYY239a4ZEcTfzTqczDnRq4mcxqII4QqWMxEZM7ydn23Q6bc/Uxb0lFtCw6jhX+LzQ+idECTlyJga813I62Zu0rHRtdVoHjIlpeHwBh+rhu2l8LEy2Wvmf3MKDXRH+0oYcCHyYrT1KVexJKi6z5glBQ==
-X-Forefront-Antispam-Report: CIP:165.204.84.17;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:satlexmb07.amd.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(7416014)(376014)(23010399003)(36860700016)(82310400026)(1800799024)(11063799006)(56012099006)(18002099003)(10067099003);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: yUQ3r92BukRBaY+FQRC1PLyvlhcu1kf4nMAhq4lEhnatrhkXsUR8PCtj9WNTPFtS1rv17DDSli0s6xUWtrXg/M/N4tXGbufDomnhEZ5hD8Wu+YQe43GP8A47Cjs5kYuEgFDjkK/uiwBP4fVNe7uBNH2bmy3lc39u/qyKcMTNbLj52DkEs1Z1ks8eCJOOrwt43AzUcMKaENikhF6WcVIKJPrqAfII2pf/Vu82GSjORzbEjttoO+U3qAGjybee0+qGmU5u+O/j4AmeS1evN0zzoQTyIr0enmkqt1YSO6bRcwgQ0qOWaUa/FyKBrOpTmRGFBuP7SmFO/dc6ShHBvFyDat6oM3WEojwYbGetPyc55uA6aOTVroc/Yt94h5HOXK26RgKGUJGP5KRWvBGQ5US4c8giFpnRZ8JaTtNM8vovyOFFv2uwnrw6NLkjnwa2loRB
-X-OriginatorOrg: amd.com
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 01 Oct 2026 07:47:43.5074
- (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: 1af96b1a-7cbb-4efa-bf80-08df1f9046eb
-X-MS-Exchange-CrossTenant-Id: 3dd8961f-e488-4e60-8e11-a82d994e183d
-X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=3dd8961f-e488-4e60-8e11-a82d994e183d;Ip=[165.204.84.17];Helo=[satlexmb07.amd.com]
-X-MS-Exchange-CrossTenant-AuthSource: BN2PEPF000055DE.namprd21.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Anonymous
-X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: SJ0PR12MB7459
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="5O14Dw0334SoMGBW"
+Content-Disposition: inline
+In-Reply-To: <20260930-stmmac-est-reapply-after-open-v4-0-9d4366587b73@gmail.com>
+X-Proofpoint-Spam-Info: AW1haW4tMjYxMDAxMDAzMSBTYWx0ZWRfXx47f7jjeSmTD
+ /SqEvy4O1gm4CPQlyYwGZIUyOd3x+wS9IUBqYy2vVuc4XF1J11106tcOkF9PXyDdmzcedBCqkOa
+ cSFcrlRpNE4O/K9HPaIfyayIIMZZCwU=
+X-Proofpoint-ORIG-GUID: IkoslSDSR_ETfbKlD-PdkGgMfpzqr17Z
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYxMDAxMDAzMSBTYWx0ZWRfX0wS7TWoyBVBN
+ Zzo2BXYmhqAq3bJ5JYmzWJXHWFlAAR7+RmSiHfKvhBCdnzWwrmns1kZVgN+p1dNxbhkT6i8OcWQ
+ IZrxH7R4D/WUgditQR6ao0BH9NQc0uMtK5SsWBsPd+fztCW7k0C3JWRUU/C0XIinNQIKokJxdIn
+ pOQIZT1k5tK2ChBbxMEF7NcKnM+/r8Zx4Ns05qvtNG9E21cDqf97aT40NAiMwqea5XUjDnGCpt8
+ ef5XvX24ZxDxAx2sAYkwXcFIgn/+lE4MY+6RFVKKfSRG8+MdA9GxYTr9v+X/adynqgqFradrX9+
+ QHc7ycbvjRjIhUTj7pheHowtQ24Wh1l2VwD+8SPGfCvTmetB3xJPrYsLUZThc29uR4Wvp5z7YEV
+ Y8d4pwWnh/RbbnkZRa3rLjQvvldBWuh5quONQtWM+ZRL0X4jEu+L1IVnBCZjCZnekG7d1zozu6W
+ tz51/zgX/kTg31nVrqw==
+X-Authority-Analysis: v=2.4 cv=IY8Symqa c=1 sm=1 tr=0 ts=6abe1084 cx=c_pps
+ a=hnmNkyzTK/kJ09Xio7VxxA==:117 a=WpTaRW6qxYHRGzLzQsVYzg==:17
+ a=660iZSQnnn4A:10 a=s4-Qcg_JpJYA:10 a=VkNPw1HP01LnGYTKEx00:22
+ a=u7WPNUs3qKkmUXheDGA7:22 a=Um2Pa8k9VHT-vaBCBUpS:22 a=VwQbUJbxAAAA:8
+ a=EUspDBNiAAAA:8 a=NEAV23lmAAAA:8 a=pGLkceISAAAA:8 a=vIXCTXOdsuUdJ7saXm0A:9
+ a=CjuIK1q_8ugA:10 a=6N3VuSNxPG3FNRDMqtEA:9 a=PEH46H7Ffwr30OY-TuGO:22
+X-Proofpoint-GUID: IkoslSDSR_ETfbKlD-PdkGgMfpzqr17Z
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1176,Hydra:6.1.134,FMLib:17.12.100.49
+ definitions=2026-10-01_03,2026-09-21_02,2025-10-01_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
+ adultscore=0 phishscore=0 malwarescore=0 lowpriorityscore=0 spamscore=0
+ bulkscore=0 impostorscore=0 priorityscore=1501 clxscore=1015 suspectscore=0
+ classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
+ reason=mlx scancount=1 engine=8.22.0-2609040000 definitions=main-2610010031
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261001_004854_121253_6D37ACF5 
-X-CRM114-Status: UNSURE (   9.05  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20261001_004925_454795_6BE14E78 
+X-CRM114-Status: GOOD (  25.39  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -129,35 +164,109 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The Xilinx GMII-to-RGMII converter copies the attached PHY driver and
-replaces its read_status and set_loopback callbacks. This series addresses
-two problems in that arrangement: overwriting driver data belonging to
-the external PHY, and leaving phydev->drv pointing at freed converter
-memory after converter removal.
+--5O14Dw0334SoMGBW
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
 
-Patch 1 retrieves the converter private data from its embedded phy_driver
-using container_of_const(), preserving the external PHY's MDIO driver-data
-field. It fixes the overwrite introduced by commit 168f7a161608 ("net: phy:
-gmii2rgmii: Dont use priv field in phy device").
+> Continue Lorenzo Bianconi's EST replay series with v4 of the unmerged wor=
+k:
+> https://lore.kernel.org/r/20260902-stmmac-est-reapply-after-open-v3-0-e72=
+a6df5a7ef@oss.qualcomm.com
 
-Patch 2 stores private data on the converter's own MDIO device and adds a
-remove callback. It restores the original PHY driver under phydev->lock
-and releases the reference acquired by of_phy_find_device(). This addresses
-the stale pointer observed during PHY state-machine polling after
-converter-only unbind. The missing removal cleanup dates back to commit
-f411a6160bd4 ("net: phy: Add gmiitorgmii converter support"). Apply the
-patches in order.
+Hi James,
 
-Vineeth Karumanchi (2):
-  net: phy: xilinx-gmii2rgmii: Avoid overwriting PHY drvdata
-  net: phy: xilinx-gmii2rgmii: Restore PHY driver on remove
+My plan is to continue working on this series (the code is available in [0]=
+),
+I am just waiting other patches to be merged upstream before reposting in o=
+rder
+to avoid any conflict. I guess it is correct to publicly ask before posting
+other people patches.
+Moreover, this is thecnically a fix so this seires should targed net tree.
 
- drivers/net/phy/xilinx_gmii2rgmii.c | 31 +++++++++++++++++++++++++----
- 1 file changed, 27 insertions(+), 4 deletions(-)
+Regards,
+Lorenzo
 
+[0] https://github.com/LorenzoBianconi/net-next/tree/b4/stmmac-est-reapply-=
+after-open
 
-base-commit: 7375d38364a9aa66fb31716bcefef38aecad75d8
--- 
-2.43.0
+>=20
+> The PTP initialization fix from that series is already in the base.
+> Carry the remaining embedded-state and explicit-enable preparations,
+> and restore the installed schedule after open and resume reset.
+>=20
+> Build TAPRIO replacements separately so rejected updates cannot
+> corrupt the installed schedule. Rebase the previous schedule against
+> the current PHC when rolling back a failed hardware update, and keep
+> DMA stopped until replay succeeds. These changes do not depend on
+> the later datapath recovery series.
+>=20
+> Changes in v4:
+> - Omit the merged PTP initialization patch and adapt the remaining
+>   changes to probe-time PTP locking and current TAPRIO error handling.
+> - Separate schedule validation/rollback from open and resume replay.
+> - Reuse the base-time helper for replacement, PHC adjustment and
+>   rollback; propagate errors while preserving the installed cache.
+> - Start DMA only after the installed schedule has been restored.
+> - Link to v3: https://lore.kernel.org/r/20260902-stmmac-est-reapply-after=
+-open-v3-0-e72a6df5a7ef@oss.qualcomm.com
+>=20
+> Changes in v3:
+> - Guard priv->est.enable update using est_lock mutex.
+> - Embed stmmac_est in stmmac_priv struct.
+> - Rework locking in tc_taprio_configure().
+> - Fix possible divided by zero crash in tc_taprio_configure().
+> - Add missing reconfiguration during stmmac_resume().
+> - Honor ptp error code in __stmmac_open() and stmmac_resume().
+> - Link to v2: https://lore.kernel.org/r/20260829-stmmac-est-reapply-after=
+-open-v2-1-5e5ccb185e92@oss.qualcomm.com
+>=20
+> Changes in v2:
+> - Rename stmmac_est_reconfigure() in stmmac_setup_est().
+> - Rely on stmmac_setup_est() in tc_taprio_configure().
+> - Link to v1: https://lore.kernel.org/r/20260825-stmmac-est-reapply-after=
+-open-v1-1-dfa80735e0a1@oss.qualcomm.com
+>=20
+> Assisted-by: Codex:gpt-6-astra
+> Signed-off-by: James Hilliard <james.hilliard1@gmail.com>
+>=20
+> ---
+> James Hilliard (1):
+>       net: stmmac: preserve the installed EST schedule on errors
+>=20
+> Lorenzo Bianconi (3):
+>       net: stmmac: embed struct stmmac_est in stmmac_priv struct
+>       net: stmmac: pass the desired EST enable state to est_configure()
+>       net: stmmac: restore EST before starting DMA on open and resume
+>=20
+>  drivers/net/ethernet/stmicro/stmmac/hwif.h        |   2 +-
+>  drivers/net/ethernet/stmicro/stmmac/stmmac.h      |   2 +-
+>  drivers/net/ethernet/stmicro/stmmac/stmmac_est.c  |  47 ++++++-
+>  drivers/net/ethernet/stmicro/stmmac/stmmac_est.h  |  13 ++
+>  drivers/net/ethernet/stmicro/stmmac/stmmac_main.c |  38 ++++--
+>  drivers/net/ethernet/stmicro/stmmac/stmmac_ptp.c  |  59 ++++-----
+>  drivers/net/ethernet/stmicro/stmmac/stmmac_tc.c   | 142 +++++++++++-----=
+------
+>  7 files changed, 176 insertions(+), 127 deletions(-)
+> ---
+> base-commit: 1631d79ae57dce2c5f88ad278307028638a8b4d9
+> change-id: 20260824-stmmac-est-reapply-after-open-181d70a15eb6
+>=20
+> Best regards,
+> -- =20
+> James Hilliard <james.hilliard1@gmail.com>
+>=20
 
+--5O14Dw0334SoMGBW
+Content-Type: application/pgp-signature; name=signature.asc
+
+-----BEGIN PGP SIGNATURE-----
+
+iHUEABYKAB0WIQTquNwa3Txd3rGGn7Y6cBh0uS2trAUCar4QgAAKCRA6cBh0uS2t
+rHudAQDRHrkhhNLiQEOGozztlHRmh86K2cUt6Z+4yLFiMw0PWwEA8XYf7p64JJYb
+H5S88bWzi8YBwiXw36fKmolphF5lWAk=
+=R8Ou
+-----END PGP SIGNATURE-----
+
+--5O14Dw0334SoMGBW--
 
