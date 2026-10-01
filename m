@@ -4,73 +4,61 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id AC062CA5FD2
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  1 Oct 2026 15:01:38 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C9F62CA5FCB
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  1 Oct 2026 15:03:14 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=7bW5MafubFoYnhuJLpqKkMD8gQQoCRhnHRElEH1UNac=; b=gRdsCGo+ldXmQECy8HJM1r9ePE
-	S/rL+bamQaw03Eo8VAW3y1U/CRZ+ITM+8xBV/QR4qQ9qO9rKtW6KG8obeAUASuC6IDjesIYx2HPO9
-	G55PtR7wY90sn/VuyV4IVrd2zz6QZ+p0Sw72Q0geNRWEIVx6gLditBU1ZhQY35iurdSUJrmr6MJHM
-	Mdg46OYLwpIU7oxQjIsYND+GkfFrHnr64UxxLXmc1frr2cEDfgOM3oJD+Q5fqnXj9OgM2Joon23CI
-	0giAds8zIekjLAafil6SInBRvcjN+tmpHr4XgDWWb3da4OsxaAcmyYKX4xfD6Q+VcTS9Ps9ES9+an
-	puyzSSOA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=0QmbxN4VfLYHzSRB2Qq2UmgbuXRr7oTK33xCNS7m8dM=; b=VlZd2bawDxEN2pPPjBWRrk7llH
+	vO4fo7Km0EigH2p3kVE50/zYP0Q3GrJzzaZwnTDRqdZStJITRNkF2Uc55Gxse6t23bGaFoH7ekS8N
+	lIKVXNPn+Y7xIVw/kR9qxPuQF2bVtsamjdWASddHESFNWxx3pNzKeWWTWZx6OY7JnyV5PjCC0qEj/
+	IttRrDuELzS+iJnKwYmTAipyQWybVEh89ieuWtC70W7yFIpmcuD27VrWVmXy+BT5q9+VGaSMd1FEe
+	Bl8HujSGxIJHYB6rrlpAUlotLqt7IgDfnHm9phohRnYplDjuFcEO+KLgcBHSEx1IgsNc2/jvawOUz
+	4ceE35+w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xCIHq-00000009T2i-20ef;
-	Thu, 01 Oct 2026 15:01:30 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xCIHj-00000009T0S-1RqA
+	id 1xCIJP-00000009TLQ-3qdI;
+	Thu, 01 Oct 2026 15:03:07 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
+	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1xCIJO-00000009TLH-0TgP
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 01 Oct 2026 15:01:27 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id DD88E497;
-	Thu,  1 Oct 2026 08:01:17 -0700 (PDT)
-Received: from [192.168.178.24] (usa-sjc-mx-foss1.foss.arm.com [172.31.20.19])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 953FB3F85F;
-	Thu,  1 Oct 2026 08:01:17 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1790866881; bh=XTVRVF8m0N+oPT7x4//CBmcmJrGUeaN4+yGD8CNBiOM=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=G/j4cpmaNURwJkDqE/EaZyyFQYGzqEP++n8HFWe72Pw+38oyxBYNXYyXPa1SEW/AB
-	 k1nn88RJyGZFpJgREFG+BIQtYTl3gdp/xFuMGoFJMvEVsYxwrIBfOf51IalmSMHgsG
-	 Zsaxu2rNyH47XphizEDyGo3TUU7P67Y5FcEeFQ5w=
-Message-ID: <4cf07f55-9fe0-4083-bd4f-3ee1a2b85753@arm.com>
-Date: Thu, 1 Oct 2026 17:01:16 +0200
+	Thu, 01 Oct 2026 15:03:07 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by sea.source.kernel.org (Postfix) with ESMTP id D80F94328D;
+	Thu,  1 Oct 2026 15:03:05 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 4E0D81F000FF;
+	Thu,  1 Oct 2026 15:03:04 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1790866985;
+	bh=0QmbxN4VfLYHzSRB2Qq2UmgbuXRr7oTK33xCNS7m8dM=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=NY4Q6nhebDqD2A3j9re4F3C/oMnryFA8M44NGEI8CeVOoyPzCfaEEN2jvjNwA5D2S
+	 MheIlnQO+bLaNAXEYwzn5pB31DRGwfNA7+pwg/Y148ipAKLi0Fn5DHwxtN0fQUXGqd
+	 sb/58McJCPC+Aji7n5MdVONncM/mrxr5/bVQ1ToeBW+YpY5oPHtGiv3A1z+agEGHw0
+	 T3tb5qJPdH41IXhZ5mOQio9cJdlQ9FiHkj1RO6u8EiThM5aKzTCeHnRPpg/HH1d2XD
+	 VuaTwQpNz8tEQ6LXJmalMGWM1ngrmXXnFSivVFD66pZuto7W9NJYz4zS6BfMj/Jx+h
+	 FVL4HBD2EDBTw==
+Date: Thu, 1 Oct 2026 16:03:02 +0100
+From: Sudeep Holla <sudeep.holla@kernel.org>
+To: Alex Tran <alex.tran@oss.qualcomm.com>
+Cc: Cristian Marussi <cristian.marussi@arm.com>,
+	Sudeep Holla <sudeep.holla@kernel.org>,
+	Linus Walleij <linusw@kernel.org>, arm-scmi@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org, linux-gpio@vger.kernel.org,
+	linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v2 1/3] pinctrl: scmi: Replace pinmux ops get function
+ info with generics
+Message-ID: <20261001-authentic-dove-of-enthusiasm-bd7ebd@sudeepholla>
+References: <20260917-scmi-pinctrl-generics-v2-0-3eeee364257f@oss.qualcomm.com>
+ <20260917-scmi-pinctrl-generics-v2-1-3eeee364257f@oss.qualcomm.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v11 08/13] arm_mpam: propagate MSC access errors for
- interrupt control
-To: Jonathan Cameron <jonathan.cameron@oss.qualcomm.com>
-Cc: Lorenzo Pieralisi <lpieralisi@kernel.org>,
- Hanjun Guo <guohanjun@huawei.com>, Sudeep Holla <sudeep.holla@kernel.org>,
- Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
- "Rafael J . Wysocki" <rafael@kernel.org>, Len Brown <lenb@kernel.org>,
- James Morse <james.morse@arm.com>, Ben Horgan <ben.horgan@arm.com>,
- Reinette Chatre <reinette.chatre@intel.com>, Fenghua Yu
- <fenghuay@nvidia.com>, Jonathan Cameron <jic23@kernel.org>,
- Srivathsa L Rao <srivathsa.rao@oss.qualcomm.com>,
- Ganapatrao Kulkarni <ganapatrao.kulkarni@oss.qualcomm.com>,
- Trilok Soni <tsoni@quicinc.com>, Srinivas Ramana <sramana@qti.qualcomm.com>,
- Niyas Sait <niyas.sait@arm.com>, Lee Trager <lee@trager.us>,
- Ritwick Sharma <ritwick.sharma@arm.com>, Gavin Shan <gshan@redhat.com>,
- linux-acpi@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-kernel@vger.kernel.org
-References: <20260924152739.2865510-1-andre.przywara@arm.com>
- <20260924152739.2865510-9-andre.przywara@arm.com>
- <20260924152017.00004ec8@oss.qualcomm.com>
-Content-Language: en-GB
-From: Andre Przywara <andre.przywara@arm.com>
-In-Reply-To: <20260924152017.00004ec8@oss.qualcomm.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261001_080125_419291_9C492329 
-X-CRM114-Status: GOOD (  21.32  )
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20260917-scmi-pinctrl-generics-v2-1-3eeee364257f@oss.qualcomm.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -85,121 +73,199 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Jonathan,
+On Thu, Sep 17, 2026 at 03:55:55PM -0700, Alex Tran wrote:
+> During probe, populate the pinctrl device with function info
+> so that the generic callbacks can be used to fetch function
+> count, name, and groups. Remove locally stored functions
+> since caching them in this driver is no longer needed.
+> 
+> Signed-off-by: Alex Tran <alex.tran@oss.qualcomm.com>
+> ---
+>  drivers/pinctrl/pinctrl-scmi.c | 151 +++++++++++++++++------------------------
+>  1 file changed, 61 insertions(+), 90 deletions(-)
+> 
+> diff --git a/drivers/pinctrl/pinctrl-scmi.c b/drivers/pinctrl/pinctrl-scmi.c
+> index 1bb36ca477b7..1d85a16f300d 100644
+> --- a/drivers/pinctrl/pinctrl-scmi.c
+> +++ b/drivers/pinctrl/pinctrl-scmi.c
+> @@ -24,6 +24,7 @@
+>  #include "pinctrl-utils.h"
+>  #include "core.h"
+>  #include "pinconf.h"
+> +#include "pinmux.h"
+>  
+>  #define DRV_NAME "scmi-pinctrl"
+>  
+> @@ -37,8 +38,6 @@ struct scmi_pinctrl {
+>  	struct scmi_protocol_handle *ph;
+>  	struct pinctrl_dev *pctldev;
+>  	struct pinctrl_desc pctl_desc;
+> -	struct pinfunction *functions;
+> -	unsigned int nr_functions;
+>  };
+>  
+>  static int pinctrl_scmi_get_groups_count(struct pinctrl_dev *pctldev)
+> @@ -84,86 +83,6 @@ static const struct pinctrl_ops pinctrl_scmi_pinctrl_ops = {
+>  #endif
+>  };
+>  
+> -static int pinctrl_scmi_get_functions_count(struct pinctrl_dev *pctldev)
+> -{
+> -	struct scmi_pinctrl *pmx = pinctrl_dev_get_drvdata(pctldev);
+> -
+> -	return pinctrl_ops->count_get(pmx->ph, FUNCTION_TYPE);
+> -}
+> -
+> -static const char *pinctrl_scmi_get_function_name(struct pinctrl_dev *pctldev,
+> -						  unsigned int selector)
+> -{
+> -	int ret;
+> -	const char *name;
+> -	struct scmi_pinctrl *pmx = pinctrl_dev_get_drvdata(pctldev);
+> -
+> -	ret = pinctrl_ops->name_get(pmx->ph, selector, FUNCTION_TYPE, &name);
+> -	if (ret) {
+> -		dev_err(pmx->dev, "get name failed with err %d", ret);
+> -		return NULL;
+> -	}
+> -
+> -	return name;
+> -}
+> -
+> -static int pinctrl_scmi_get_function_groups(struct pinctrl_dev *pctldev,
+> -					    unsigned int selector,
+> -					    const char * const **p_groups,
+> -					    unsigned int * const p_num_groups)
+> -{
+> -	struct pinfunction *func;
+> -	const unsigned int *group_ids;
+> -	unsigned int num_groups;
+> -	const char **groups;
+> -	int ret, i;
+> -	struct scmi_pinctrl *pmx = pinctrl_dev_get_drvdata(pctldev);
+> -
+> -	if (!p_groups || !p_num_groups)
+> -		return -EINVAL;
+> -
+> -	if (selector >= pmx->nr_functions)
+> -		return -EINVAL;
+> -
+> -	func = &pmx->functions[selector];
+> -	if (func->ngroups)
+> -		goto done;
+> -
+> -	ret = pinctrl_ops->function_groups_get(pmx->ph, selector, &num_groups,
+> -					       &group_ids);
+> -	if (ret) {
+> -		dev_err(pmx->dev, "Unable to get function groups, err %d", ret);
+> -		return ret;
+> -	}
+> -	if (!num_groups)
+> -		return -EINVAL;
+> -
+> -	groups = kcalloc(num_groups, sizeof(*groups), GFP_KERNEL);
+> -	if (!groups)
+> -		return -ENOMEM;
+> -
+> -	for (i = 0; i < num_groups; i++) {
+> -		groups[i] = pinctrl_scmi_get_group_name(pctldev, group_ids[i]);
+> -		if (!groups[i]) {
+> -			ret = -EINVAL;
+> -			goto err_free;
+> -		}
+> -	}
+> -
+> -	func->ngroups = num_groups;
+> -	func->groups = groups;
+> -done:
+> -	*p_groups = func->groups;
+> -	*p_num_groups = func->ngroups;
+> -
+> -	return 0;
+> -
+> -err_free:
+> -	kfree(groups);
+> -
+> -	return ret;
+> -}
+> -
+>  static int pinctrl_scmi_func_set_mux(struct pinctrl_dev *pctldev,
+>  				     unsigned int selector, unsigned int group)
+>  {
+> @@ -190,9 +109,9 @@ static int pinctrl_scmi_free(struct pinctrl_dev *pctldev, unsigned int offset)
+>  static const struct pinmux_ops pinctrl_scmi_pinmux_ops = {
+>  	.request = pinctrl_scmi_request,
+>  	.free = pinctrl_scmi_free,
+> -	.get_functions_count = pinctrl_scmi_get_functions_count,
+> -	.get_function_name = pinctrl_scmi_get_function_name,
+> -	.get_function_groups = pinctrl_scmi_get_function_groups,
+> +	.get_functions_count = pinmux_generic_get_function_count,
+> +	.get_function_name = pinmux_generic_get_function_name,
+> +	.get_function_groups = pinmux_generic_get_function_groups,
+>  	.set_mux = pinctrl_scmi_func_set_mux,
+>  };
+>  
+> @@ -487,6 +406,60 @@ static const struct pinconf_ops pinctrl_scmi_pinconf_ops = {
+>  	.pin_config_config_dbg_show = pinconf_generic_dump_config,
+>  };
+>  
+> +static int pinctrl_scmi_get_functions(struct scmi_pinctrl *pmx)
+> +{
+> +	unsigned int nr_funcs, nr_groups, i, j;
+> +	const unsigned int *group_ids;
+> +	const char *fname;
+> +	const char **gnames;
+> +	int ret;
+> +
+> +	nr_funcs = pinctrl_ops->count_get(pmx->ph, FUNCTION_TYPE);
+> +
+> +	for (i = 0; i < nr_funcs; i++) {
+> +		ret = pinctrl_ops->name_get(pmx->ph, i, FUNCTION_TYPE,
+> +					    &fname);
+> +		if (ret)
+> +			return ret;
+> +
+> +		ret = pinctrl_ops->function_groups_get(pmx->ph, i,
+> +						       &nr_groups,
+> +						       &group_ids);
+> +		if (ret)
+> +			return ret;
+> +
+> +		if (!nr_groups)
+> +			dev_warn(pmx->dev,
+> +				 "Function %s contains no groups\n",
+> +				 fname);
+> +
+> +		gnames = devm_kmalloc_array(pmx->dev, nr_groups,
+> +					    sizeof(*gnames), GFP_KERNEL);
+> +		if (!gnames)
+> +			return -ENOMEM;
+> +
+> +		for (j = 0; j < nr_groups; j++) {
+> +			ret = pinctrl_ops->name_get(pmx->ph, group_ids[j],
+> +						    GROUP_TYPE, &gnames[j]);
+> +			if (ret)
+> +				return ret;
+> +		}
+> +
+> +		ret = pinmux_generic_add_function(pmx->pctldev, fname, gnames,
+> +				  nr_groups, NULL);
+> +		if (ret < 0)
+> +			return ret;
 
-On 9/25/26 00:20, Jonathan Cameron wrote:
-> On Thu, 24 Sep 2026 17:27:34 +0200
-> Andre Przywara <andre.przywara@arm.com> wrote:
-> 
->> Allow the functions dealing with interrupt registration and enablement
->> to check for and return errors, and propagate MSC read and write errors
->> from the lower level up.
->> This does not cover the IRQ handler yet, as this needs some more
->> attention.
->>
->> Signed-off-by: Andre Przywara <andre.przywara@arm.com>
->> Reviewed-by: Srivathsa L Rao <srivathsa.rao@oss.qualcomm.com>
-> 
-> A few trivial things below.  Anyhow, I don't really care about them so
+Since this will fail the probe, don't we have to pinmux_generic_remove_function()
+for all the added functions ? I don't know if devm_* takes care of it, just
+thought I have check as I don't have much deeper knowledge of pinctl
+sub-system.
 
-Your comments make sense, and since they shrink the diff, I am all for 
-them. Thanks for the tag!
+If the above cleanup is needed, with that added, else w/o it:
 
-Cheers,
-Andre
-> 
-> Reviewed-by: Jonathan Cameron <jonathan.cameron@oss.qualcomm.com>
-> 
->> ---
->>   drivers/resctrl/mpam_devices.c | 31 +++++++++++++++----------------
->>   1 file changed, 15 insertions(+), 16 deletions(-)
->>
->> diff --git a/drivers/resctrl/mpam_devices.c b/drivers/resctrl/mpam_devices.c
->> index 558efab75f911..eb26c25b9f970 100644
->> --- a/drivers/resctrl/mpam_devices.c
->> +++ b/drivers/resctrl/mpam_devices.c
->> @@ -1105,7 +1105,9 @@ static int mpam_msc_hw_probe(struct mpam_msc *msc)
->>   	}
->>   
->>   	/* Clear any stale errors */
->> -	mpam_msc_clear_esr(msc);
->> +	ret = mpam_msc_clear_esr(msc);
->> +	if (ret)
->> +		return ret;
->>   
->>   	spin_lock(&partid_max_lock);
->>   	mpam_partid_max = min(mpam_partid_max, msc->partid_max);
->> @@ -2668,9 +2670,7 @@ static int mpam_enable_msc_ecr(void *_msc)
->>   {
->>   	struct mpam_msc *msc = _msc;
->>   
->> -	__mpam_write_reg(msc, MPAMF_ECR, MPAMF_ECR_INTEN);
->> -
->> -	return 0;
->> +	return __mpam_write_reg(msc, MPAMF_ECR, MPAMF_ECR_INTEN);
->>   }
->>   
->>   /* This can run in mpam_disable(), and the interrupt handler on the same CPU */
->> @@ -2678,9 +2678,7 @@ static int mpam_disable_msc_ecr(void *_msc)
->>   {
->>   	struct mpam_msc *msc = _msc;
->>   
->> -	__mpam_write_reg(msc, MPAMF_ECR, 0);
->> -
->> -	return 0;
->> +	return __mpam_write_reg(msc, MPAMF_ECR, 0);
->>   }
->>   
->>   static irqreturn_t __mpam_irq_handler(int irq, struct mpam_msc *msc)
->> @@ -2777,11 +2775,13 @@ static int mpam_register_irqs(void)
->>   				return err;
->>   		}
->>   
->> -		mutex_lock(&msc->error_irq_lock);
->> -		msc->error_irq_req = true;
->> -		mpam_touch_msc(msc, mpam_enable_msc_ecr, msc);
->> -		msc->error_irq_hw_enabled = true;
->> -		mutex_unlock(&msc->error_irq_lock);
->> +		scoped_guard(mutex, &msc->error_irq_lock) {
->> +			msc->error_irq_req = true;
->> +			err = mpam_touch_msc(msc, mpam_enable_msc_ecr, msc);
->> +			if (err)
->> +				return err;
->> +			msc->error_irq_hw_enabled = true;
->> +		}
-> 
-> Scope ends here so unless something else gets added in later patches, you
-> could just use a guard() and reduce the noise.
-> 
->>   	}
->>   
->>   	return 0;
->> @@ -2800,10 +2800,10 @@ static void mpam_unregister_irqs(void)
->>   		if (irq <= 0)
->>   			continue;
->>   
->> -		mutex_lock(&msc->error_irq_lock);
-> 
-> Given you don't return early as a result this is an unrelated change. I don't
-> really mind but in ideal world would be a separate patch.
-> 
->> +		guard(mutex)(&msc->error_irq_lock);
->>   		if (msc->error_irq_hw_enabled) {
->> -			mpam_touch_msc(msc, mpam_disable_msc_ecr, msc);
->> -			msc->error_irq_hw_enabled = false;
->> +			if (!mpam_touch_msc(msc, mpam_disable_msc_ecr, msc))
->> +				msc->error_irq_hw_enabled = false;
->>   		}
->>   
->>   		if (msc->error_irq_req) {
->> @@ -2815,7 +2815,6 @@ static void mpam_unregister_irqs(void)
->>   			}
->>   			msc->error_irq_req = false;
->>   		}
->> -		mutex_unlock(&msc->error_irq_lock);
->>   	}
->>   }
->>   
-> 
+Acked-by: Sudeep Holla <sudeep.holla@kernel.org>
 
+It is a nice cleanup to avoid unnecessary duplication and move to reuse of
+functionality provided already by the core pinctl.
+
+-- 
+Regards,
+Sudeep
 
