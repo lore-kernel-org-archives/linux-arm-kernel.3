@@ -4,144 +4,73 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3DC7FCA5FCB
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  1 Oct 2026 15:00:43 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id AC062CA5FD2
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  1 Oct 2026 15:01:38 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:References:In-Reply-To:Message-ID:Date
-	:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=YkXBv8Na4wsm/RCPLApeAPIfvqp2P4qELX2hBGYkmWM=; b=VWg0+vwnXDOSFYx29l5ErpM5z3
-	otSQmx6LU9yrJXR82g59T2nlQfQp2xtgSKvBhWxJ4AvNta2HqijnRzOLqHq0EpJhQ4LspzM7zHcFk
-	p34WBqtYG9/LSn/wG0h9EgAbQMJA80W5uaSfyzjIBIbNw8g8TILRdeZtItZXiDEopljcpfdZMgYDP
-	+kQUIoWR1rsxAFJIB0mp6SMl9Vkt9LTuI0MdoKauaU5s5lMZ/TmtL9dNhIHx4IIteHnoWJhS9ahRf
-	au1/ZoROuIDtGGk+PLEmzY0LzddortedsUON7WXzQLtOhGt20ydzeK1Ewq5xGGPIdWON3hAhN7EXn
-	5Gy+pQDg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=7bW5MafubFoYnhuJLpqKkMD8gQQoCRhnHRElEH1UNac=; b=gRdsCGo+ldXmQECy8HJM1r9ePE
+	S/rL+bamQaw03Eo8VAW3y1U/CRZ+ITM+8xBV/QR4qQ9qO9rKtW6KG8obeAUASuC6IDjesIYx2HPO9
+	G55PtR7wY90sn/VuyV4IVrd2zz6QZ+p0Sw72Q0geNRWEIVx6gLditBU1ZhQY35iurdSUJrmr6MJHM
+	Mdg46OYLwpIU7oxQjIsYND+GkfFrHnr64UxxLXmc1frr2cEDfgOM3oJD+Q5fqnXj9OgM2Joon23CI
+	0giAds8zIekjLAafil6SInBRvcjN+tmpHr4XgDWWb3da4OsxaAcmyYKX4xfD6Q+VcTS9Ps9ES9+an
+	puyzSSOA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xCIGx-00000009SmO-3Giu;
-	Thu, 01 Oct 2026 15:00:35 +0000
-Received: from mail-francecentralazon11013071.outbound.protection.outlook.com ([40.107.162.71] helo=PA4PR04CU001.outbound.protection.outlook.com)
-	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xCIGl-00000009Sh5-1cmc
+	id 1xCIHq-00000009T2i-20ef;
+	Thu, 01 Oct 2026 15:01:30 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1xCIHj-00000009T0S-1RqA
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 01 Oct 2026 15:00:33 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=BZx0+1lFSUiQgyZowcLgF91n3Cwusv67xwskVpgmSx0i6p1wfg1QOJ/qjz5fdP9KDBBTgdCRcnFCs16T/XNVH5B8ZBJbv9n/Ns1v6CeU6b1gcBSalZKoEJ4n6vQ0AdRY3m6gNIM4+QPoG4gDzcY2zhA6RbveN9N4KI3p+ozjR2H880IL6V3cP6tLjFbWwtEeFH9JjKCKNDmHGH7tAIO+F3RRjCy65dMCFNNHijmFw3Gsr+OI1v1wjfemlvBD3/+KteRZyahrytxBWyJpyFFGUz9ZKPVff6jO8GctpjIHXvuNMvTCRPDbla0MamHLNpPOksZ5VUK8sMa5hOJNDYdm5A==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=YkXBv8Na4wsm/RCPLApeAPIfvqp2P4qELX2hBGYkmWM=;
- b=n9CAurAsMDLDoxop9UgizR6e8zEcJU5i7OYyj/tL57EgLN1hIqeCchtK1GLatU/mR1zFH3CtHorDCJorNYEMTXQwj0q1C4YtYMmDGPimQhwdTyp8ohpq9UX1Lohg1+uK5aI9vEDQFDuSVPsS8M546nBWlFEDckf4hV9pBrqsIX8ziAwr3BI/wRpVEnC0o0LZJOYwivgWtNksjEo5tsNrXUH9Osq44le1p8YaXGd0u0yqr39DE8BG29hXBVAuiNHiZgK5+Pl2d7EkEhFpmB05nVahKuC6/5Ac1DgRb5TMAeBlu77P4mzHMXqUY5xxsxF8WuEsQHPiYnnhp1CKB2oFTg==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
- dkim=pass header.d=oss.nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
- s=selector1-NXP1-onmicrosoft-com;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=YkXBv8Na4wsm/RCPLApeAPIfvqp2P4qELX2hBGYkmWM=;
- b=Si1tdGBp00cm7/YCOFgvrYaQ8QXAFlCJzyoD7TsINWy/TUWjsW1bgG1+aGmYU6YCBRW2X8X9CdncxdkZGidcTXZBPdgX4R7YD0YnqeDvggPnQfBTL9ud3j6u0sKzcOCru99PowHIvowWKFUHJnFcTvz8Hopx8jxviNtYD35zexNFTqLJ7HnHEO44Iah+YNyMm5eW53B5hM9Zq5xM1o8K5cAQFq+SIvBEObAb7dB+PAvX4nH06cVdbkXx2GHNVqLrGWlLDNfnsylLHsP9/KHryzT8aFkVAQxutUCY2jFha5BTGBSeM/vpfoZ7EQCztM88EgQ7tzuTpZFsM7+eofRsYw==
-Authentication-Results: mx.microsoft.com 1; dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=oss.nxp.com;
-Received: from GV2PR04MB11799.eurprd04.prod.outlook.com (2603:10a6:150:2cf::9)
- by DU4PR04MB11412.eurprd04.prod.outlook.com (2603:10a6:10:5d8::14) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.472.18; Thu, 1 Oct
- 2026 15:00:18 +0000
-Received: from GV2PR04MB11799.eurprd04.prod.outlook.com
- ([fe80::2146:83a2:5329:b7c]) by GV2PR04MB11799.eurprd04.prod.outlook.com
- ([fe80::2146:83a2:5329:b7c%7]) with mapi id 15.21.0451.022; Thu, 1 Oct 2026
- 15:00:17 +0000
-From: Frank.Li@oss.nxp.com
-To: Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Shawn Guo <shawnguo@kernel.org>,
-	Sascha Hauer <s.hauer@pengutronix.de>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Fabio Estevam <festevam@gmail.com>,
-	Andrii Salivon <andrijsalivon@plajta.eu>
-Cc: Frank Li <Frank.Li@nxp.com>,
-	devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	imx@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org
-Subject: Re: [PATCH v2 0/2] Add support for Amazon Kindle 4 (Yoshi)
-Date: Thu,  1 Oct 2026 11:00:10 -0400
-Message-ID: <179086680651.2217519.5558580290302031419.b4-ty@b4>
-X-Mailer: git-send-email 2.43.0
-In-Reply-To: <20260920-imx50-yoshi-v1-0-b8a46b3a972f@plajta.eu>
-References: <20260920-imx50-yoshi-v1-0-b8a46b3a972f@plajta.eu>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 8bit
-X-ClientProxiedBy: CY5PR14CA0024.namprd14.prod.outlook.com
- (2603:10b6:930:2::30) To GV2PR04MB11799.eurprd04.prod.outlook.com
- (2603:10a6:150:2cf::9)
+	Thu, 01 Oct 2026 15:01:27 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id DD88E497;
+	Thu,  1 Oct 2026 08:01:17 -0700 (PDT)
+Received: from [192.168.178.24] (usa-sjc-mx-foss1.foss.arm.com [172.31.20.19])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 953FB3F85F;
+	Thu,  1 Oct 2026 08:01:17 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
+	t=1790866881; bh=XTVRVF8m0N+oPT7x4//CBmcmJrGUeaN4+yGD8CNBiOM=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=G/j4cpmaNURwJkDqE/EaZyyFQYGzqEP++n8HFWe72Pw+38oyxBYNXYyXPa1SEW/AB
+	 k1nn88RJyGZFpJgREFG+BIQtYTl3gdp/xFuMGoFJMvEVsYxwrIBfOf51IalmSMHgsG
+	 Zsaxu2rNyH47XphizEDyGo3TUU7P67Y5FcEeFQ5w=
+Message-ID: <4cf07f55-9fe0-4083-bd4f-3ee1a2b85753@arm.com>
+Date: Thu, 1 Oct 2026 17:01:16 +0200
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: GV2PR04MB11799:EE_|DU4PR04MB11412:EE_
-X-MS-Office365-Filtering-Correlation-Id: bbd34f4e-7e5a-41bb-3c71-08df1fccb489
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|7416014|376014|1800799024|366016|23010399003|19092799006|18002099003|22082099003|10067099003|56012099006|11063799006;
-X-Microsoft-Antispam-Message-Info: uHJuKoIlWL7Yvq5+v/G9ZzeLA+BMNeTSo6h2mK5wZc/MS+M9N/Bt1Kkwq+qZpusvSbOIfq9exPbW4Z7Whfc1WEQdIQJ1QfzCZAidOmVFQhfLMEeWeOcnqdIMqU5wlLbQvGDJe4hon7aYpwI2zfw+XSAdbk2ZtF3TBA5RVJGriWIL+oWoFNCI5bb7HvQLKWERTett9fw0MqE8I/UtBIQhHx5JfGOeb8efq9ibHIxA7Au4AbLd1Ne+8RJ7Ab1q6mcclUtNWbQfYQtgF96H1oMhKUvKFAi5pPWET0xEpoCXwttLiJlZgPpEpIZAbsGeY/kcR02QuOWzj0dE66SuFJtYQz4+tb9GwMt7ZlMS7eh+y6Y/ojeurW8BpZyH8AFAitxTWf7Ik2xEga+2u15MRwr9MkuS5pPuxOPNcFYJmcoCaADEBnt8rOkYn60Giro//PLlT8cHcS3RMVA3iUHEud3JlMWmERxEXUHG0Msi5E5vSrQE2riZ9l8UZr71MEq5Y7WPgPPiqNL9Q565ksKqDYmrO/nYgAHrrUcN27L9PeGguhBEZ3pINT6nLxhEc4cU8wr+pWlD5TJTBN6FQb1RD46cfAhnqFR6KdJPq56KFB1aNvxGbCEC8pC1PSBzm//rnYXqrCuR3kttN4ZOdokjPMshmLDRa6TyMJEGE44FkQ6ac0U=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:GV2PR04MB11799.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(7416014)(376014)(1800799024)(366016)(23010399003)(19092799006)(18002099003)(22082099003)(10067099003)(56012099006)(11063799006);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?ZW1BQmtSeDhHN2VEaENFRlA5ZUJhV3lQQkc3TFZITWlRWmZjZVV4ODZyUS9R?=
- =?utf-8?B?bWVrOS84Q2VvclFQaXVRYisza00rOGtjdEhKZENEdUR5KzN1bDFSQlpkWDUw?=
- =?utf-8?B?TWR5b0hWd2U4VWd5Q3k3c1ZkT2tPM3ovdkRrN2ZXZEJBeDdDaTdaT0pSbkxU?=
- =?utf-8?B?citnSEJ5Qkp0eHIyaDhiYW5oSW1pRTdDd2JKaUUzbmM2Uko0bjJlaTE3cDM2?=
- =?utf-8?B?K2kwdVR2V0dycjZTRzhacllpNUpkcGlic3hZdGtjbDh4RFBuRUNIMzQvZkhs?=
- =?utf-8?B?YncyNkVVM0I3MiszbXhMY1dLRDJYM2RIczBZMDN2ZkNMQnUrY0N5UisvZE5u?=
- =?utf-8?B?bHhMNkRsSnZXN3N0amliWHUxV2NqY25vSEptZTFMbnNkOTJTclhjNjhvTlBl?=
- =?utf-8?B?QXBpYS9QVVNRU25hZ2RZbTFQUGExbTFqbWFOK3hsNWZLUDZxZGFwMEVrc3Nz?=
- =?utf-8?B?VC9HVzkxT0pIVkJsNkEveFZ6R0lQNXJCN1J4SFdWUzYvVGYydVdLck11cEM0?=
- =?utf-8?B?Mld6VnBUbmF6Wlp6dHVQQUM4TWhIcFFZWnFtemhyRktZZkZ4Z1NlSGZZQVc4?=
- =?utf-8?B?WE5uK0xIMDIzemlrU2FseVBiaUR5emxIcnhUWDE0dTFvZ0hkbzVmR3VSZytV?=
- =?utf-8?B?VEtmNXQ5QmJSTWVrR2VKNUszRGcxbGtuYnQ3R2h4VzErNzhNdU50OWYvSEsv?=
- =?utf-8?B?SHc1R3NhODZITmRxN3JHc1JLTmNyU2pkcEtsYVgwU0xvVjQwcSt3U2l3dHAv?=
- =?utf-8?B?OTZHa0FFMGlLK0tLMWxXRGdwZmhlKzQ3QnNaWDNaM0E5ZDEybDZKM2UwaXox?=
- =?utf-8?B?MUxpS3hPQzNTZHpZOVlCYU4wZUFGak9DdzdadnQ1cy80T1pwN2ppOXFsTVpv?=
- =?utf-8?B?OTZjVjdsSVdJd3ZKZm5EWnFMMVZaVWlOUU1DYlZkT3N5SWtKQkV1NFA4aDcw?=
- =?utf-8?B?THFjREF2dUdUSGlOREFHSE9PVXFNUU5vVzd4RWZyTE1qYytNS0w2ZElxR1ZZ?=
- =?utf-8?B?ay8rNS8xdEhDTS8ydGZUTkw3dHNvR1pDRzZGZjZnQUQ4dDhqSmQ4Wnh6K3NN?=
- =?utf-8?B?VVlMeVNQSVg0bkRoUGxPZ01DSmcvQkU3MWJtUjljZ1RkaFM5WmVwZGYxSzF0?=
- =?utf-8?B?bUtDcE9aNnhtczJpZjRoQnIzYnIrdXA1Y2lyRlM5L0NFUWRqOGhlZVFMQzZ5?=
- =?utf-8?B?eExGVnNjeEhMQURYdVBaRFhmZEZrdW94UjloLzBLdks2Q3BTODQwRWZSTUpT?=
- =?utf-8?B?dmhuVUx1YUp0bkFIV0hOUW44WkNUTFBmS3B3cUNEZ2gxeXFEdFg3Rlk1ZUZH?=
- =?utf-8?B?TjljSmJLUU00SUI2OE5LNCtiVEw3ZEx0Mk9GbTltdXovOWVsNXZKM2dqTUJV?=
- =?utf-8?B?NUR4K25PQzdRYWR4S3dKeGZjU0pnWW5McTI2cSt2ZEpqdWVBc1lGU3lBZjNS?=
- =?utf-8?B?Y2JnMHVSQ0xHT1JWditjRFJVUjhSM3hjTGtUZUliUzRvamZsVjdDRWxBYjFi?=
- =?utf-8?B?Wno3RWNnZzBKaGhFT0dDdXBkaGRiWmdHNDlPNXJQMFVlTzdKdm5tMlFxaGJx?=
- =?utf-8?B?eFFkNGpJeGtLb0xvREFLWDFhRjVEU1hPdzVqd3RGRzRMdUlUR0pBYVVzRnE2?=
- =?utf-8?B?QndCVmlvc3FSMlVmY1hXREdGYlUvVmpmb0FSb1lwa1E2K3hUV1Qydmw4Z2ZN?=
- =?utf-8?B?RVpEVDBZek9vQ1FuZmJNMHBhOXQ5ZVNYVUhFaUdvMzRXTlozVHVMclk2di91?=
- =?utf-8?B?VFlJTFBHS2xra1lpcG4yUm9zNkhrWnFuTmlSV0R0dlBuNDFrcVRsOTJuVlNs?=
- =?utf-8?B?eUpBR3M1M0J3RVorV2c3TmY2VzVTUnVSRWQrNHF0c0FVQ2lndjJsdHI3ZW0v?=
- =?utf-8?B?MERzazJzK05za2tGS0pRbkVFalo1NDdVa1Z2UDdTamNQdUp3Z0lCWVB1SnZP?=
- =?utf-8?B?T09MaCtidTU0ZVB6RWlJcDBFL3VOYXp1WFBIRDhRMGxQekQ5WGR6MURZVFQy?=
- =?utf-8?B?ZmVsUGJxaEZHUHErWjZzQmpmbmE0QmpmRnNCc3dhMWpzT0RGWUtrWjFmMzRO?=
- =?utf-8?B?TEo3VWdCampLWmE1K2ppakJWdEsyeVBKSE1WNTRlODJqemJsRjVhUVY2Tzl1?=
- =?utf-8?B?MGdsRWlQQU5DeTJkdGtBT0lZNkJteU5QMDZza0NuU0JMeTVnc3FuUUdtMEpq?=
- =?utf-8?B?RmdHUzRCRDYrNC9jbHUrc0xvVXFlMEcvYVl2Q3Y5cFRYcjgyWHBrWjNzU0N4?=
- =?utf-8?B?SzA1NlRpVGtpTGNIV2xjRHNtR1N4dC9QREJMczJYczUrT2paYnZuVGFHa0FJ?=
- =?utf-8?B?S1MxMnZvajRCNGl5emZGaGtxa3RSa1JhbDVqVWd6QzMxNTFVNjhMSzlJVGpU?=
- =?utf-8?Q?vRYJgzbSaMJaIzdBmJYPic4OOP1ofAnYHiWaT?=
-X-OriginatorOrg: oss.nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: bbd34f4e-7e5a-41bb-3c71-08df1fccb489
-X-MS-Exchange-CrossTenant-AuthSource: GV2PR04MB11799.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 01 Oct 2026 15:00:17.4564
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: HdOUgSwSSPD0Ql2DucuS6Q2DLj66EvVUnUlbNL/0hoLB5yBj9k7z9uO9C2ewBUg/+Jfi3jLc/vI/lv2hZiyz+Yxl5AG/MkTWtzOJoitG0thQvKwvpKSo1IVLKu9yNnsp
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: DU4PR04MB11412
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v11 08/13] arm_mpam: propagate MSC access errors for
+ interrupt control
+To: Jonathan Cameron <jonathan.cameron@oss.qualcomm.com>
+Cc: Lorenzo Pieralisi <lpieralisi@kernel.org>,
+ Hanjun Guo <guohanjun@huawei.com>, Sudeep Holla <sudeep.holla@kernel.org>,
+ Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
+ "Rafael J . Wysocki" <rafael@kernel.org>, Len Brown <lenb@kernel.org>,
+ James Morse <james.morse@arm.com>, Ben Horgan <ben.horgan@arm.com>,
+ Reinette Chatre <reinette.chatre@intel.com>, Fenghua Yu
+ <fenghuay@nvidia.com>, Jonathan Cameron <jic23@kernel.org>,
+ Srivathsa L Rao <srivathsa.rao@oss.qualcomm.com>,
+ Ganapatrao Kulkarni <ganapatrao.kulkarni@oss.qualcomm.com>,
+ Trilok Soni <tsoni@quicinc.com>, Srinivas Ramana <sramana@qti.qualcomm.com>,
+ Niyas Sait <niyas.sait@arm.com>, Lee Trager <lee@trager.us>,
+ Ritwick Sharma <ritwick.sharma@arm.com>, Gavin Shan <gshan@redhat.com>,
+ linux-acpi@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-kernel@vger.kernel.org
+References: <20260924152739.2865510-1-andre.przywara@arm.com>
+ <20260924152739.2865510-9-andre.przywara@arm.com>
+ <20260924152017.00004ec8@oss.qualcomm.com>
+Content-Language: en-GB
+From: Andre Przywara <andre.przywara@arm.com>
+In-Reply-To: <20260924152017.00004ec8@oss.qualcomm.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261001_080027_159558_3930C23E 
-X-CRM114-Status: GOOD (  10.71  )
+X-CRM114-CacheID: sfid-20261001_080125_419291_9C492329 
+X-CRM114-Status: GOOD (  21.32  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -156,27 +85,121 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Frank Li <Frank.Li@nxp.com>
+Hi Jonathan,
 
-
-On Sun, 20 Sep 2026 21:21:36 +0200, Andrii Salivon wrote:
-> This series adds the device tree binding and initial board support
-> for the i.MX50 based Amazon Kindle 4.
+On 9/25/26 00:20, Jonathan Cameron wrote:
+> On Thu, 24 Sep 2026 17:27:34 +0200
+> Andre Przywara <andre.przywara@arm.com> wrote:
 > 
-> Changes since v1:
-> - Fixed alphabetical ordering in fsl.yaml, Makefile, and the dts
->   iomuxc pin group entries
+>> Allow the functions dealing with interrupt registration and enablement
+>> to check for and return errors, and propagate MSC read and write errors
+>> from the lower level up.
+>> This does not cover the IRQ handler yet, as this needs some more
+>> attention.
+>>
+>> Signed-off-by: Andre Przywara <andre.przywara@arm.com>
+>> Reviewed-by: Srivathsa L Rao <srivathsa.rao@oss.qualcomm.com>
 > 
-> [...]
+> A few trivial things below.  Anyhow, I don't really care about them so
 
-Applied, thanks!
+Your comments make sense, and since they shrink the diff, I am all for 
+them. Thanks for the tag!
 
-[1/2] dt-bindings: arm: fsl: add Amazon Kindle 4 (Yoshi)
-      commit: 60d031f9e361afcd1a33efcaacdcb19205fd6d5d
-[2/2] ARM: dts: imx50: add support for Amazon Kindle 4 (Yoshi)
-      commit: 1a4b790752a297a296cf48b8e3f88684060d745f
+Cheers,
+Andre
+> 
+> Reviewed-by: Jonathan Cameron <jonathan.cameron@oss.qualcomm.com>
+> 
+>> ---
+>>   drivers/resctrl/mpam_devices.c | 31 +++++++++++++++----------------
+>>   1 file changed, 15 insertions(+), 16 deletions(-)
+>>
+>> diff --git a/drivers/resctrl/mpam_devices.c b/drivers/resctrl/mpam_devices.c
+>> index 558efab75f911..eb26c25b9f970 100644
+>> --- a/drivers/resctrl/mpam_devices.c
+>> +++ b/drivers/resctrl/mpam_devices.c
+>> @@ -1105,7 +1105,9 @@ static int mpam_msc_hw_probe(struct mpam_msc *msc)
+>>   	}
+>>   
+>>   	/* Clear any stale errors */
+>> -	mpam_msc_clear_esr(msc);
+>> +	ret = mpam_msc_clear_esr(msc);
+>> +	if (ret)
+>> +		return ret;
+>>   
+>>   	spin_lock(&partid_max_lock);
+>>   	mpam_partid_max = min(mpam_partid_max, msc->partid_max);
+>> @@ -2668,9 +2670,7 @@ static int mpam_enable_msc_ecr(void *_msc)
+>>   {
+>>   	struct mpam_msc *msc = _msc;
+>>   
+>> -	__mpam_write_reg(msc, MPAMF_ECR, MPAMF_ECR_INTEN);
+>> -
+>> -	return 0;
+>> +	return __mpam_write_reg(msc, MPAMF_ECR, MPAMF_ECR_INTEN);
+>>   }
+>>   
+>>   /* This can run in mpam_disable(), and the interrupt handler on the same CPU */
+>> @@ -2678,9 +2678,7 @@ static int mpam_disable_msc_ecr(void *_msc)
+>>   {
+>>   	struct mpam_msc *msc = _msc;
+>>   
+>> -	__mpam_write_reg(msc, MPAMF_ECR, 0);
+>> -
+>> -	return 0;
+>> +	return __mpam_write_reg(msc, MPAMF_ECR, 0);
+>>   }
+>>   
+>>   static irqreturn_t __mpam_irq_handler(int irq, struct mpam_msc *msc)
+>> @@ -2777,11 +2775,13 @@ static int mpam_register_irqs(void)
+>>   				return err;
+>>   		}
+>>   
+>> -		mutex_lock(&msc->error_irq_lock);
+>> -		msc->error_irq_req = true;
+>> -		mpam_touch_msc(msc, mpam_enable_msc_ecr, msc);
+>> -		msc->error_irq_hw_enabled = true;
+>> -		mutex_unlock(&msc->error_irq_lock);
+>> +		scoped_guard(mutex, &msc->error_irq_lock) {
+>> +			msc->error_irq_req = true;
+>> +			err = mpam_touch_msc(msc, mpam_enable_msc_ecr, msc);
+>> +			if (err)
+>> +				return err;
+>> +			msc->error_irq_hw_enabled = true;
+>> +		}
+> 
+> Scope ends here so unless something else gets added in later patches, you
+> could just use a guard() and reduce the noise.
+> 
+>>   	}
+>>   
+>>   	return 0;
+>> @@ -2800,10 +2800,10 @@ static void mpam_unregister_irqs(void)
+>>   		if (irq <= 0)
+>>   			continue;
+>>   
+>> -		mutex_lock(&msc->error_irq_lock);
+> 
+> Given you don't return early as a result this is an unrelated change. I don't
+> really mind but in ideal world would be a separate patch.
+> 
+>> +		guard(mutex)(&msc->error_irq_lock);
+>>   		if (msc->error_irq_hw_enabled) {
+>> -			mpam_touch_msc(msc, mpam_disable_msc_ecr, msc);
+>> -			msc->error_irq_hw_enabled = false;
+>> +			if (!mpam_touch_msc(msc, mpam_disable_msc_ecr, msc))
+>> +				msc->error_irq_hw_enabled = false;
+>>   		}
+>>   
+>>   		if (msc->error_irq_req) {
+>> @@ -2815,7 +2815,6 @@ static void mpam_unregister_irqs(void)
+>>   			}
+>>   			msc->error_irq_req = false;
+>>   		}
+>> -		mutex_unlock(&msc->error_irq_lock);
+>>   	}
+>>   }
+>>   
+> 
 
-Best regards,
--- 
-Frank Li <Frank.Li@nxp.com>
 
