@@ -4,114 +4,136 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C1A9DCA5FB3
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  1 Oct 2026 10:53:59 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BF930CA5FCB
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  1 Oct 2026 11:03:12 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=vEbjjiBAb1Gv1/q3JktK2vYVX0s4JpnfBYopaxaaLpw=; b=SGLGoqx4eb+GsUl/JBkYSdvXEU
-	dB30h/JbMSvqA4ZXR5te1wR+XE7cKGa/HjHDk6sCx9tG7BhgnBJuVwLFFy7eioUv2fc0vaNsAhy2a
-	w3PQitSFjUoK1W4ClpVM+QzghFFZWaoc021k6hTQ9fskm6y/hf+iVt2UeDgJ4GViOw9+YqbOJXg8L
-	m5qTJN3wtxvM4W2ta9jKf8f1nZz5XjbyfQ5DrhDlKCFzGgtgwn6rI+OU0+XlJKrxNWFQdLxvf4W+4
-	ZS/lSe2NDC7QYNyePGUMH2OklOVSSR4vVNYo/dXCqPTiFND7U4Y+l9nX7pAvAdWh9bMYkARLQ9xZU
-	uGNFPZHg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=ItK1CfwuIZ04jNSyZCfqu+kV1LoCb64Jr8/HT5gDcpQ=; b=L2occ1WUhVhLQWZ7VxNtT6m0Y3
+	vPEr12aUS8qgYQ3h/TbvBxEyr17hboN+GSnLwWwMqBnPYxJvQrnKyJyy/jOYVXwzVsQwQAqQTS+S4
+	1Hjvi7/lbjWvp6OHuFte3JIRo01K9TSUW9pgFh7DYzmvuMpeFH/vmsqCNoI6CUQmsNz5LbyjCXbCZ
+	LTxP3uW5hEDAnW8cTZiGbVxwoVHto2PzMATM2QWwnGfOQgFKrwRC0QTIQwa/EV/Ah7QHQbuAitEcG
+	16BcCSNFjhhO+wxu323QyanG3Kri1IkIjNZfR7q4/WvppQzKDbtXT6UGZ+hVD7yK5VRLIZXyTuvyy
+	4JfGhRyg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xCEQD-00000008ZGg-1N9Y;
-	Thu, 01 Oct 2026 10:53:53 +0000
-Received: from mail-yx2-x0f.google.com ([2607:f8b0:4864:41::f])
+	id 1xCEZ5-00000008a3h-2IeY;
+	Thu, 01 Oct 2026 11:03:03 +0000
+Received: from mx0b-001b2d01.pphosted.com ([148.163.158.5])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xCEQA-00000008ZFC-3Hpm
+	id 1xCEZ2-00000008a2d-2Et9
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 01 Oct 2026 10:53:51 +0000
-Received: by mail-yx2-x0f.google.com with SMTP id 956f58d0204a3-671563fb8beso6306841d50.3
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 01 Oct 2026 03:53:48 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1790852028; cv=none;
-        d=google.com; s=arc-20260327;
-        b=qmX2UTdhtievRFMJbdaboJaZR0r/zEJnpm7Xalu034WX5d9DFV5tUDtGGWB4V4ENXt
-         L7iL9gAZzp99+nYhCq/9kRYNlVv1wkBVByYqhtvbDjAoM9MR378YWpVYIv+eC9HIFQSj
-         3pVCqgixat+FJr/p0tKdooPsp4q1PoMe1mS98ekLuW5nofNWrIKNG0kwVh8m9sB3WvyU
-         Wx60KgIgrGngoWb9GCW6F0g/Tl+ZvQc1x1X/XH0qBd4WoFTuSywIf+rtz5m+E0sR26Ox
-         +gGixf0MghQSqrs9QjHpJtWgZ6hCXoO+y7aPpWbUmxDR050b4fqBTkC09Y/ZZgSktTxl
-         WNMg==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:dkim-signature;
-        bh=vEbjjiBAb1Gv1/q3JktK2vYVX0s4JpnfBYopaxaaLpw=;
-        fh=hK4Q+7uimasL+1WbGp4KN1Maqz6mr8QqIaTpALKgwOw=;
-        b=V5MQG8Wp+WUPEu9l6dpIN1oXm+h7uRTZfC+b/Crqcytvqt6H/afZB/fVAjDsFuQbf/
-         IsHH2DtRqgrsXR1kMYCctVn0CVVXq58FZKtye2J2T5yDLkaoO+NBFkDeJR3JlmBa9bE3
-         HzT3IXoRZI1XDHr1NR0rFeRmifO6nElKdLb6qfrUo0KfI5Up5xMZgDXyp4HEbOqb1PYg
-         eQHpEQxfWB0xQGV3M1q1sLW0+GaggyqTGanzu8PetZ+5L9lElUNFvbGVmn/E5vNVkOJ9
-         UOlYuDetgjiLZ0N5EXnoVo0k48KFqGjJBVjAf+9XclhFeIw2OH01nKQTNqKpG6dFwYpt
-         DZYA==;
-        darn=lists.infradead.org
-ARC-Authentication-Results: i=1; mx.google.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=chromium.org; s=google; t=1790852028; x=1791456828; darn=lists.infradead.org;
-        h=content-transfer-encoding:content-type:cc:to:subject:message-id
-         :date:from:in-reply-to:references:mime-version:from:to:cc:subject
-         :date:message-id:reply-to:content-type;
-        bh=vEbjjiBAb1Gv1/q3JktK2vYVX0s4JpnfBYopaxaaLpw=;
-        b=F6lsJG0MdGY7Q6IlclZWkMURnq95KA/DlZf8BXZJSqyl9wmxSq/k1BH11DEd8ht6/m
-         7am79JwVIyet88rt/CCu4KEI/tpaeDzwYGE4X+f2uP4FU2TnQCtMt105G+flVoBLQCGw
-         qhCirve7R74Pqeu7DFlYoOK6e/79hotBX/GOY=
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1790852028; x=1791456828;
-        h=content-transfer-encoding:content-type:cc:to:subject:message-id
-         :date:from:in-reply-to:references:mime-version:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=vEbjjiBAb1Gv1/q3JktK2vYVX0s4JpnfBYopaxaaLpw=;
-        b=UxU+uwf9NMrUzVKeIAyZJo6u6JNWSd5Xgzm79VknpX3L2wbGKLBNkA/h93a8xAOJ7x
-         bfUqxdyGTPVI6YWuk7z+RBGmNql5/mKW4gdLqhzlALLJv8XBmsJnSuACQjV0IZSLcd4y
-         JniwtXgSXYcfOKb7rk+iOSymzamd8h679H21rLT4JYsu2JG+4ShK/g0/rviRGP6/m20+
-         o0X6qz8rS9ubWwkLh/BsAFJhygUlW9Vt0k3f3JTy8uLWZE+KI6QkdNTYDuZKM/vHsr8d
-         7zcPMVrU7PXa6AJGHkg4grPQl2eM0LvnHFEoikVpfRUayfmiP8GF99uYstcbwOXHHvtd
-         Lz9g==
-X-Forwarded-Encrypted: i=1; AKwUvBwLQmme1dPzoDqtWTAwrcJ7G4dJpA6uyTMcSqWYUGIc/e0DUJVhUy9FGZ4csede9R5r+2UwCvA+QK9eEH9TLbg7@lists.infradead.org
-X-Gm-Message-State: AFq9FYJJL/uY20D0CA3iX4nYrIUji2sFj7/5XBhiERikuPPNEkZ+XgBY
-	dmS4dbuibsju+b6Jnlp+nlrogk6DBKRwjTCh5M4PtCEr8AUYBuG3Js+ltvQB5HfxHqZBGJnYCZq
-	rebL30dluRG9m++DgEtqCMJjp7zNb68zdokNfJe1M
-X-Gm-Gg: AYBFou3/Erwihx+ygIx7cMviYeMGszszT97oVXPDKdBPfm1aIhIFLs0A5vPrgtjyvSv
-	JAL0/CaWDTiLOHsMRJ9sDw++bJcaVZ4WFfu9qjNqU2yinfZVICD7hCGrl69CJPEQ1+MyfvCvRzB
-	AgFGxqd0xU32wLD7S6Ovc5BaAStn4lM5CDiSNTaL/qfM7NHAYB00+GjGeWPmjChwyDllc4kvoIL
-	hb3MuPy7I6scCwRh85KlfseGYQKwGKnebJgjflvbnkBh2Ru7rrAnyLTdtk7vVcDQX8D8OPIB/D7
-	Uron1ZhKji4ssUWtzgbRc6J6DipF2HdLX0+qdLjD9ENrfAcWg57u6/G2x8VGuaaeMccpDwT/UiE
-	ypX/vC3Fkzw==
-X-Received: by 2002:a05:690e:4105:b0:676:9954:81ef with SMTP id
- 956f58d0204a3-676995489a9mr323421d50.14.1790852028003; Thu, 01 Oct 2026
- 03:53:48 -0700 (PDT)
+	Thu, 01 Oct 2026 11:03:01 +0000
+Received: from pps.filterd (m0353725.ppops.net [127.0.0.1])
+	by mx0a-001b2d01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 69175UUs4040713;
+	Thu, 1 Oct 2026 11:02:36 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ibm.com; h=cc
+	:content-type:date:from:in-reply-to:message-id:mime-version
+	:references:sender:subject:to; s=pp1; bh=ItK1CfwuIZ04jNSyZCfqu+k
+	V1LoCb64Jr8/HT5gDcpQ=; b=WtuQgMqMiWN4iF/2g4eiK3oT8hFUANWv/rv24dj
+	rLiAcMbw0JctJJ5mYj6/PWBc3BpxY1JX8ZEOPs+aEyQhjnmI5JpX8SKqM2Jk3YyN
+	ogcEGhEwfegcSHReoRUdtpsX4MQh7yqGkvt+xB6/Xo/I4TalqfcgWPVILveq4xY1
+	Qfx8eMDDv06j96koVerE9z6S95FVdfZ3t8EbyXvDJWogzY3+6yt0nGBqxOpstgwE
+	v68AqnrC9N6DP2McpbxYswk2y2ayZIde0qnJxqcs3vamUP5pSFgTbiMv8OxrwiRj
+	GXD5I1IKGNyBfO/dfDr78aLA2z9heQXtxcAfeKnF0M1wqag==
+Received: from ppma21.wdc07v.mail.ibm.com (5b.69.3da9.ip4.static.sl-reverse.com [169.61.105.91])
+	by mx0a-001b2d01.pphosted.com (PPS) with ESMTPS id 4gx4fehk62-1
+	(version=TLSv1.3 cipher=TLS_AES_256_GCM_SHA384 bits=256 verify=NOT);
+	Thu, 01 Oct 2026 11:02:35 +0000 (GMT)
+Received: from pps.filterd (ppma21.wdc07v.mail.ibm.com [127.0.0.1])
+	by ppma21.wdc07v.mail.ibm.com (8.18.1.11/8.18.1.11) with ESMTP id 69172Vqm520699;
+	Thu, 1 Oct 2026 11:02:34 GMT
+Received: from smtprelay05.fra02v.mail.ibm.com ([9.218.2.225])
+	by ppma21.wdc07v.mail.ibm.com (PPS) with ESMTPS id 4h0hfpgdgd-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Thu, 01 Oct 2026 11:02:34 +0000 (GMT)
+Received: from smtpav05.fra02v.mail.ibm.com (smtpav05.fra02v.mail.ibm.com [10.20.54.104])
+	by smtprelay05.fra02v.mail.ibm.com (8.14.9/8.14.9/NCO v10.0) with ESMTP id 691B2UVe50659598
+	(version=TLSv1/SSLv3 cipher=DHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
+	Thu, 1 Oct 2026 11:02:30 GMT
+Received: from smtpav05.fra02v.mail.ibm.com (unknown [127.0.0.1])
+	by IMSVA (Postfix) with ESMTP id 678F820043;
+	Thu,  1 Oct 2026 11:02:30 +0000 (GMT)
+Received: from smtpav05.fra02v.mail.ibm.com (unknown [127.0.0.1])
+	by IMSVA (Postfix) with ESMTP id 3F29920040;
+	Thu,  1 Oct 2026 11:02:30 +0000 (GMT)
+Received: from vela (unknown [9.87.140.173])
+	by smtpav05.fra02v.mail.ibm.com (Postfix) with ESMTPS;
+	Thu,  1 Oct 2026 11:02:30 +0000 (GMT)
+Received: from brueckner by vela with local (Exim 4.99.5)
+	(envelope-from <brueckner@linux.ibm.com>)
+	id 1xCDz3-0000000EDXx-1JV6;
+	Thu, 01 Oct 2026 12:25:49 +0200
+Date: Thu, 1 Oct 2026 12:25:49 +0200
+From: Hendrik Brueckner <brueckner@linux.ibm.com>
+To: Steffen Eiden <seiden@linux.ibm.com>
+Cc: kvm@vger.kernel.org, kvmarm@lists.linux.dev,
+        linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+        linux-s390@vger.kernel.org, Alexander Gordeev <agordeev@linux.ibm.com>,
+        Andreas Grapentin <gra@linux.ibm.com>, Arnd Bergmann <arnd@arndb.de>,
+        Catalin Marinas <catalin.marinas@arm.com>,
+        Christian Borntraeger <borntraeger@linux.ibm.com>,
+        Claudio Imbrenda <imbrenda@linux.ibm.com>,
+        David Hildenbrand <david@kernel.org>,
+        Friedrich Welter <fritz@linux.ibm.com>, Fuad Tabba <tabba@google.com>,
+        Gautam Gala <ggala@linux.ibm.com>,
+        Hariharan Mari <hari55@linux.ibm.com>,
+        Heiko Carstens <hca@linux.ibm.com>,
+        Hendrik Brueckner <brueckner@linux.ibm.com>,
+        Ilya Leoshkevich <iii@linux.ibm.com>,
+        Janosch Frank <frankja@linux.ibm.com>, Joey Gouly <joey.gouly@arm.com>,
+        Marc Zyngier <maz@kernel.org>, Nico Boehr <nrb@linux.ibm.com>,
+        Nina Schoetterl-Glausch <oss@nina.schoetterlglausch.eu>,
+        Oliver Upton <oupton@kernel.org>, Paolo Bonzini <pbonzini@redhat.com>,
+        Sean Christopherson <seanjc@google.com>,
+        Suzuki K Poulose <suzuki.poulose@arm.com>,
+        Sven Schnelle <svens@linux.ibm.com>,
+        Ulrich Weigand <Ulrich.Weigand@de.ibm.com>,
+        Vasily Gorbik <gor@linux.ibm.com>, Will Deacon <will@kernel.org>,
+        Zenghui Yu <yuzenghui@huawei.com>
+Subject: Re: [PATCH v9 14/24] s390/tools: Use arm64 headers
+Message-ID: <ar41LayUDhKN26cq@linux.ibm.com>
+References: <20260930173441.66762-1-seiden@linux.ibm.com>
+ <20260930173441.66762-15-seiden@linux.ibm.com>
 MIME-Version: 1.0
-References: <20260916075745.3549953-1-wenst@chromium.org> <20260916075745.3549953-7-wenst@chromium.org>
-In-Reply-To: <20260916075745.3549953-7-wenst@chromium.org>
-From: Chen-Yu Tsai <wenst@chromium.org>
-Date: Thu, 1 Oct 2026 18:53:36 +0800
-X-Gm-Features: AclHuK_wafiRDk696txMZ3q8q7Qaz4NsP-wYkipLMPcHq1r5tW6zotnKrD-_NRc
-Message-ID: <CAGXv+5GdBUafk6niG-UMDx=z6LJQ6iHAWhDpm1Ly2ce6CQDaxg@mail.gmail.com>
-Subject: Re: [PATCH v9 06/15] usb: hub: Associate port@ fwnode with USB port device
-To: Bartosz Golaszewski <brgl@kernel.org>, Greg Kroah-Hartman <gregkh@linuxfoundation.org>, 
-	Andy Shevchenko <andriy.shevchenko@linux.intel.com>, Daniel Scally <djrscally@gmail.com>, 
-	Heikki Krogerus <heikki.krogerus@linux.intel.com>, 
-	Sakari Ailus <sakari.ailus@linux.intel.com>, "Rafael J. Wysocki" <rafael@kernel.org>, 
-	Danilo Krummrich <dakr@kernel.org>, Rob Herring <robh@kernel.org>, 
-	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
-	Matthias Brugger <matthias.bgg@gmail.com>, 
-	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
-Cc: linux-acpi@vger.kernel.org, driver-core@lists.linux.dev, 
-	linux-pm@vger.kernel.org, linux-usb@vger.kernel.org, 
-	devicetree@vger.kernel.org, linux-mediatek@lists.infradead.org, 
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
-	Manivannan Sadhasivam <mani@kernel.org>, Alan Stern <stern@rowland.harvard.edu>, 
-	Bartosz Golaszewski <bartosz.golaszewski@oss.qualcomm.com>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20260930173441.66762-15-seiden@linux.ibm.com>
+X-TM-AS-GCONF: 00
+X-Proofpoint-Reinject: loops=2 maxloops=12
+X-Authority-Analysis: v=2.4 cv=FYWiV5+6 c=1 sm=1 tr=0 ts=6abe3dcb cx=c_pps
+ a=GFwsV6G8L6GxiO2Y/PsHdQ==:117 a=GFwsV6G8L6GxiO2Y/PsHdQ==:17
+ a=kj9zAlcOel0A:10 a=660iZSQnnn4A:10 a=VkNPw1HP01LnGYTKEx00:22
+ a=RnoormkPH1_aCDwRdu11:22 a=V8glGbnc2Ofi9Qvn3v5h:22 a=VnNF1IyMAAAA:8
+ a=pIDYuyBsNzMzyUpEjcUA:9 a=CjuIK1q_8ugA:10
+X-Proofpoint-Spam-Info: AW1haW4tMjYxMDAxMDA0MiBTYWx0ZWRfXz1Q15mH2sVvj
+ RknoqLGudmx52FOgkx1dkcCaCmq9oxf/2E8oKEBr1KtVKDWgTmzeNOOy7tpgHWpTZGfeE32tGTt
+ O42Uw3WfNedO+DwVs7j2TZ89fZs1zwM=
+X-Proofpoint-ORIG-GUID: x45Aq5iA47UwqHleMqD5u89nRp6caifF
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYxMDAxMDA0MiBTYWx0ZWRfX0sc7XyEBvHcK
+ FuScV3wXgBKFzpJFhAsP3V/w4wX+Wpdeq3PsMD3A0SvUrL8TXWM9bioPCm7jPJ6X+qqdAKAi95L
+ eggqevF1i+ArdyWah5iWhFGPvxK8jhXyiXBuRpUlcrXWNEsK8QjXNeQoygNgMJCD4FvHjkh/flG
+ 2T8/AUtimtx5CONt3ZIyqzYaGwxueHQEOs0VQOH8CECtSmcb2Jp75Fzz/Pen4HQO8d3j2EUiyja
+ /iga8m+lrKCmT3li7tyRcZf6mz3ZdLUJDScZOGYK4SSLJMGeiE0xP57OvwiAbCaH28M9L09w8l+
+ RcXCrVvUYHLpbS1GHTTb1odBpXoai6p8viyQ6eV+R/nKb2YBEXOjWDF2BEgAYvVyODg7yRd38a4
+ b7pFN1OhQLI8s5R4bOZzTI31GMxmncHXEbNCfK04R/E82RUzAS2bxaOHqRrY54IRTvNJCU8yESC
+ 2o+o22kgESxsEMel06A==
+X-Proofpoint-GUID: AkvHnWmuv38b6ddyzKFfJgbkuVZgn30w
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1176,Hydra:6.1.134,FMLib:17.12.100.49
+ definitions=2026-10-01_03,2026-09-21_02,2025-10-01_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
+ adultscore=0 clxscore=1015 impostorscore=0 spamscore=0 phishscore=0
+ priorityscore=1501 malwarescore=0 bulkscore=0 lowpriorityscore=0
+ suspectscore=0 classifier=typeunknown authscore=0 authtc= authcc=
+ route=outbound adjust=0 reason=mlx scancount=1 engine=8.22.0-2609040000
+ definitions=main-2610010042
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261001_035350_832271_C92DB525 
-X-CRM114-Status: GOOD (  32.67  )
+X-CRM114-CacheID: sfid-20261001_040300_693225_B15DF484 
+X-CRM114-Status: GOOD (  15.62  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -126,126 +148,32 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Sep 16, 2026 at 3:58=E2=80=AFPM Chen-Yu Tsai <wenst@chromium.org> w=
-rote:
->
-> When a USB hub port is connected to a connector in a firmware node
-> graph, the port itself has a node in the graph.
->
-> Associate the port's firmware node with the USB port's device,
-> usb_port::dev. This is used in later changes for the M.2 slot power
-> sequencing provider to match against the requesting port.
->
-> To avoid potential conflicts with ACPI firmware nodes and then causing
-> power management issues, only assign the firmware node if the hub's
-> firmware node is not an ACPI firmware node.
->
-> Reviewed-by: Andy Shevchenko <andriy.shevchenko@linux.intel.com>
-> Reviewed-by: Bartosz Golaszewski <bartosz.golaszewski@oss.qualcomm.com>
-> Signed-off-by: Chen-Yu Tsai <wenst@chromium.org>
+On Wed, Sep 30, 2026 at 07:34:29PM +0200, Steffen Eiden wrote:
+> Introduce a flexible system for sharing ARM64 headers with s390 KVM.
+> Selected arm64 headers or snippet of headers will be reachable by s390
+> code through asm/header.h.
+> 
+> Add copy-arm64h.awk that detects ARM64_S390_COMMON markers and extracts
+> marked section into a generated header consumable by s390. Falls back to
+> full file copy when no markers are found.
+> 
+> Transform copied includes by replacing '#include <asm/...>' with
+> '#include <arm64/...>' and similar for uapi headers to ensure
+> correct path resolution on s390 and allow for a clear separation of s390
+> asm headers and arm64 asm headers.
+> 
+> Integrate this extraction into the s390/kapi target, conditional on
+> CONFIG_KVM.
+> 
+> Signed-off-by: Steffen Eiden <seiden@linux.ibm.com>
 > ---
-> Changes since v5:
-> - Added extra |struct fwnode_handle *| local variables to shorten lines
->   (Andy)
-> - Added comment about passing fwnode_graph_get_port_by_id() return value
->   directly to device_set_node() (Andy)
->
-> Changes since v4:
-> - Dropped unused |hdev| variable
-> - Added flags for fwnode_graph_get_port_by_id() with
->   FWNODE_GRAPH_DEVICE_DISABLED so that even incomplete
->   ports can be connected
->
-> Changes since v3:
-> - Added missing fwnode_handle_put()
->
-> Changes since v2:
-> - Skip assignment if hub firmware node is ACPI node
-> ---
->  drivers/usb/core/port.c | 25 +++++++++++++++++++++++++
->  1 file changed, 25 insertions(+)
->
-> diff --git a/drivers/usb/core/port.c b/drivers/usb/core/port.c
-> index b4452b665f59..c0a51d9b06a6 100644
-> --- a/drivers/usb/core/port.c
-> +++ b/drivers/usb/core/port.c
-> @@ -7,6 +7,7 @@
->   * Author: Lan Tianyu <tianyu.lan@intel.com>
->   */
->
-> +#include <linux/acpi.h>
->  #include <linux/kstrtox.h>
->  #include <linux/slab.h>
->  #include <linux/string_choices.h>
-> @@ -358,6 +359,11 @@ static void usb_port_device_release(struct device *d=
-ev)
->  {
->         struct usb_port *port_dev =3D to_usb_port(dev);
->
-> +       /*
-> +        * At this point ACPI nodes and swnodes have been removed by
-> +        * device_platform_notify_remove() in device_del().
-> +        */
-> +       fwnode_handle_put(dev_fwnode(dev));
->         kfree(port_dev->req);
->         kfree(port_dev);
->  }
-> @@ -754,6 +760,7 @@ int usb_hub_create_port_device(struct usb_hub *hub, i=
-nt port1)
->  {
->         struct usb_port *port_dev;
->         struct usb_device *hdev =3D hub->hdev;
-> +       struct fwnode_handle *fwnode =3D dev_fwnode(&hdev->dev);
->         int retval;
->
->         port_dev =3D kzalloc_obj(*port_dev);
-> @@ -782,6 +789,24 @@ int usb_hub_create_port_device(struct usb_hub *hub, =
-int port1)
->         port_dev->dev.driver =3D &usb_port_driver;
->         dev_set_name(&port_dev->dev, "%s-port%d", dev_name(&hub->hdev->de=
-v),
->                         port1);
-> +
-> +       /*
-> +        * ACPI FW nodes are associated later when device_register() happ=
-ens.
-> +        * Skip assigning one here to avoid potential conflicts.
-> +        */
-> +       if (!is_acpi_node(fwnode)) {
-> +               struct fwnode_handle *port;
-> +
-> +               /*
-> +                * fwnode_graph_get_port_by_id() returns either a valid f=
-wnode handle
-> +                * or NULL. Passing NULL to device_set_node() clears any =
-associated
-> +                * fwnode. It is effectively a no-op here, since no fwnod=
-e has been
-> +                * assigned to the newly created device yet.
-> +                */
-> +               port =3D fwnode_graph_get_port_by_id(fwnode, port1, FWNOD=
-E_GRAPH_DEVICE_DISABLED);
+>  arch/s390/include/uapi/Kbuild        |  6 ++
+>  arch/s390/tools/Makefile             |  6 +-
+>  arch/s390/tools/Makefile.arm64h      | 55 ++++++++++++++++++
+>  arch/s390/tools/copy-arm64h-full.awk | 50 +++++++++++++++++
+>  arch/s390/tools/copy-arm64h.awk      | 83 ++++++++++++++++++++++++++++
 
-After AI hinted, I found some dwc3 hardware to test this on.
+Thanks for the updates.
 
-"port1" needs to be remapped using usb_hcd_find_raw_port_number() when the
-hub is the root hub. Otherwise both HS and SS ports end up getting the
-same port node, which is incorrect.
-
-Same needs to be done for "usb_of_get_connect_type(hdev, port1)" some
-lines above the diff context.
-
-This mapping is currently only done in usb_acpi_get_companion_for_port()
-and usb_alloc_dev().
-
-
-> +               device_set_node(&port_dev->dev, port);
-> +       }
-> +
->         mutex_init(&port_dev->status_lock);
->         retval =3D device_register(&port_dev->dev);
->         if (retval) {
-> --
-> 2.55.0.1032.g73a4cd73de-goog
->
+Reviewed-by: Hendrik Brueckner <brueckner@linux.ibm.com>
 
