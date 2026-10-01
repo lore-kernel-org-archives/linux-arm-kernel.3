@@ -4,64 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 824DECA5FD4
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  1 Oct 2026 16:36:52 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 273B7CA5FD6
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  1 Oct 2026 16:37:57 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=BXLMAg3FlhSPADp+jfcghXHh3xfR672rAp8rAyJvzVo=; b=vdYpoXoQ5OwXBFH5ODErlak8RA
-	iBgMF3FiYeC8MhCBwg3V1rINmD0zVxaBmTuvLh2csJkkl/tVbemDocM+MBk6pY+k+1G5lBTGzCsha
-	nh0prycGKW9Flbw9mApsdXwQ3Pn/y1mqcSkm+BB1UWNN9uYiKjjaJnkuSxqGTZ3SmXBKXa7kxGhp1
-	ZA9UhVcZ/WXwTEh/3ZWXshYQttqL5A4lakNqhRzbCRth0mzrO3iFaePo5rd+hpNWB2X40mFON1h3C
-	a2tJVHSSQjrffDjyLa4nJuRkMKbKd9GH/hLiL4F9lOPjppJxf+ITD7EMKIBlXuTUHyXL511Ar2ub6
-	h1/hOJKA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=hkI4B0+a9WH2Ce9DKIS5MASTZ5XWugplj40QV3OBLOM=; b=wUUm8arupon2NB++Q0TTe78jSe
+	+PtayHod/ibGn5TVA60c8pgeq0PdT5F5Ut99FCwvD7y16jC10d0FlhCDKuJjCblbkOWywnzt1l9vO
+	Aki0Z5ZAEv+HhiTzPrwueUGbIwXqeUKwBddeotKAtWvd9ihJbRjN5yFYCpY/Sh4YdFRRqmQszf++Z
+	E+AO5MxM1zyitRlqGt8yBOPWABgWZMure1Xq6uaviMNaSFF9NCRMcw893Yl7xBHHLBIdin0SytaFA
+	yIwy+XGjlA3VbgKLHcgFAGXEJfP2WwsoE1rjR/9xzTdJhnGpniTPpxlzI4LFYEjPP4w8GUiNuWL0C
+	CZRydkSQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xCJm2-00000009jRI-1v67;
-	Thu, 01 Oct 2026 16:36:46 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
-	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xCJm0-00000009jQn-3QYa
+	id 1xCJn4-00000009jhd-2bDZ;
+	Thu, 01 Oct 2026 16:37:50 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1xCJmz-00000009jg7-3rhs
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 01 Oct 2026 16:36:44 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 3F8FE429D5;
-	Thu,  1 Oct 2026 16:36:44 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 9CF1E1F000FF;
-	Thu,  1 Oct 2026 16:36:39 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1790872604;
-	bh=BXLMAg3FlhSPADp+jfcghXHh3xfR672rAp8rAyJvzVo=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=MI2RWpwaJp/wRl1dRcHeuajsqvY1oGk53fo/PNKRs874vC3Bu+RiWPn45D7au2Wry
-	 6J+WxP1QK/S2chfk9HGMdhF6jToyBoWYT9aKw71o5zKTuuKs1hxgYeKQmFqeMrIjC9
-	 6TjFR1H3Pq9pofIW5XS2U8Pv/7Vw3f+CHJyHek59TUX1nkUrwyg52gD7/AnbifIwKf
-	 s2jpADjhYjtpkgBn8BY5zZy1BpXJPYeysTIR5OU8O7VT2wkHGf6J11GYrBiGTztNwB
-	 bfAGwLW1/Vh3qIAiOZ2r2EajetCqfCxlPYcEypgpm6rzT6VQL/nlk+bnY0lYcF4PPk
-	 1IP/QRrT3Zjwg==
-Date: Thu, 1 Oct 2026 17:36:37 +0100
-From: "Lorenzo Stoakes (ARM)" <ljs@kernel.org>
-To: Mark Brown <broonie@kernel.org>
-Cc: Catalin Marinas <catalin.marinas@arm.com>, 
-	Will Deacon <will@kernel.org>, Marc Zyngier <maz@kernel.org>, Joey Gouly <joey.gouly@arm.com>, 
-	Suzuki K Poulose <suzuki.poulose@arm.com>, Shuah Khan <shuah@kernel.org>, Oliver Upton <oupton@kernel.org>, 
-	Fuad Tabba <fuad.tabba@linux.dev>, Peter Maydell <peter.maydell@linaro.org>, 
-	Leonardo Bras <leo.bras@arm.com>, Wei-Lin Chang <weilin.chang@arm.com>, 
-	Yao Yuan <yaoyuan@linux.alibaba.com>, linux-arm-kernel@lists.infradead.org, linux-doc@vger.kernel.org, 
-	kvmarm@lists.linux.dev, linux-kselftest@vger.kernel.org, linux-kernel@vger.kernel.org, 
-	Thiago Jung Bauermann <thiago.bauermann@linaro.org>
-Subject: Re: [PATCH v21 11/15] KVM: selftests: arm64: Add GCS registers to
- get-reg-list
-Message-ID: <ar6L9O-MGe12d95Z@gremlin>
-References: <20260930-arm64-gcs-v21-0-3556644cd927@kernel.org>
- <20260930-arm64-gcs-v21-11-3556644cd927@kernel.org>
+	Thu, 01 Oct 2026 16:37:49 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 6A8D7497;
+	Thu,  1 Oct 2026 09:37:41 -0700 (PDT)
+Received: from [10.57.9.178] (unknown [10.57.9.178])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id D8C683F85F;
+	Thu,  1 Oct 2026 09:37:39 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
+	t=1790872664; bh=K9BrYtciJGkSxMEbrXtvHk2FbFP0IJ/JnLlba9Tczjs=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=BsV62LOqI5ja68sCQcFyb5ijD1CAgATdMGzmBFi4PPZQ2Nl1po/USPeOyjARfB1hR
+	 4IW2nKeALWQxil1hxMsJbWCTmjfJWwrfaJRQWTlMxqg8rSgve5w/QmYdvcMHIJ7CR0
+	 apDR+U8DfZ9vBePkOCIe3Wvt8ZYFIpX+pUeF5fiY=
+Message-ID: <c8ea1847-0a92-46b2-a038-37a9d581e8b2@arm.com>
+Date: Thu, 1 Oct 2026 17:37:37 +0100
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20260930-arm64-gcs-v21-11-3556644cd927@kernel.org>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v20 22/22] KVM: arm64: CCA: Control user register access
+ for Realms
+Content-Language: en-GB
+To: Catalin Marinas <catalin.marinas@arm.com>
+Cc: kvm@vger.kernel.org, kvmarm@lists.linux.dev, maz@kernel.org,
+ will@kernel.org, linux-kernel@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, steven.price@arm.com,
+ aneesh.kumar@kernel.org, oupton@kernel.org, gshan@redhat.com,
+ joey.gouly@arm.com, tabba@google.com, yuzenghui@huawei.com,
+ linux-coco@lists.linux.dev, gankulkarni@os.amperecomputing.com,
+ sdonthineni@nvidia.com, alpergun@google.com, fj0570is@fujitsu.com,
+ WeiLin.Chang@arm.com, lpieralisi@kernel.org, enju.kohei@fujitsu.com,
+ sudeep.holla@arm.com, jonathan.cameron@oss.qualcomm.com,
+ Jean-Philippe Brucker <jean-philippe@linaro.org>
+References: <20260924160504.853911-1-suzuki.poulose@arm.com>
+ <20260924160504.853911-23-suzuki.poulose@arm.com> <ar6CEXfo-AIYtq1J@arm.com>
+From: Suzuki K Poulose <suzuki.poulose@arm.com>
+In-Reply-To: <ar6CEXfo-AIYtq1J@arm.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20261001_093746_147842_8891306B 
+X-CRM114-Status: UNSURE (   9.66  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -76,17 +81,28 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Sep 30, 2026 at 10:48:21PM +0100, Mark Brown wrote:
-> GCS adds new registers GCSCR_ELx, GCSCRE0_EL1 and GCSPR_ELx. Add
-> these to those validated by get-reg-list.
->
-> Reviewed-by: Thiago Jung Bauermann <thiago.bauermann@linaro.org>
-> Signed-off-by: Mark Brown <broonie@kernel.org>
+On 01/10/2026 16:53, Catalin Marinas wrote:
+> On Thu, Sep 24, 2026 at 05:05:04PM +0100, Suzuki K Poulose wrote:
+>> From: Jean-Philippe Brucker <jean-philippe@linaro.org>
+>>
+>> The RMM restricts the access to the register states that the host can
+>> read/modify for a given Realm.
+>>
+>> e.g., At VCPU creation, can modify GPRS (x0-x30) and PC.
+>>        While servicing SMCCC calls via RSI_HOST_CALL or servicing PSCI
+>>        requests.
+>>        MMIO emulation in the unprotected space.
+>>
+>> Additionally we use the sysreg configuration to advertise/configure the
+>> following Realm parameters, which are required before the Realm Descriptor
+>> :w
+> 
+> Should use Emacs ;)
+> 
 
-This looks obviously correct (TM) to me so:
+Dang it ;-) I have fixed it in v21. Thanks
 
-Reviewed-by: Lorenzo Stoakes (ARM) <ljs@kernel.org>
+Cheers
+Suzuki
 
---
-Cheers, Lorenzo
 
