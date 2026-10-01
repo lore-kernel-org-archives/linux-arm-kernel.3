@@ -4,89 +4,81 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2A922CA5FD4
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  1 Oct 2026 16:03:40 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 58E12CA5FD4
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  1 Oct 2026 16:06:42 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:From:
+	Subject:Message-ID:References:Mime-Version:In-Reply-To:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=OSUIn2vvgZY9nja7L+v/qJsWqMEJTAmZepfV/Nzm4+g=; b=Gy/5HkqypN1tpU93YDfhxJNwFu
-	kNmNGVg2I5ju40l4rxGbmuBXafFuKAASCX8kUXLV6OXYLdsiJ7/AxhJv8NsaXO8gcdRxiHi1prheJ
-	AQ+qS/hXEAs6kJAZJSGyvmAxXdBzlJUC2Wi6E1dmtr5frfce4lf7GTohGOsNEPDh9PidCbY7hnknN
-	G2NWqfruRicuyuCZhvHSN8hr6ckowSp+KJ5fSMe2PaaAVmNfIREi03bL5plujyvf1j/54oMNdaI7j
-	LWmxWyKangYS/y/dcFa6NGQ+uTIua7joZmulvn9mcGTIVwXM4YE8xGgM6kmomIiG22DjviUcRkOku
-	45/VrFTw==;
+	bh=DbNyTfmEUsMI7X9xHV6bnMQSPZF042c57U4JdGGTHOY=; b=SOfJtt0BKHkq5U42cR5UE7vBNm
+	LhV6DufzW2G0KDhUQalqBW4RWbXd0f9pxu2LHhU+PxAisi15+JwAF51bU0L1EA8MuLPqiy227cf1e
+	lvyfmOUeN4OGjdz/8GnvXEVYtbpwsC06evJ+zIStS1ehbZwf+2M1VujC6/7LZQ1DkyvHIvdVspAKn
+	Nmef8go7iWndWI1VMlRBXHOUJxSeHahnXxqwtn3OFmgApx5IGXrn9RXWcSpf8pYgyEJKWunpeaEL5
+	+ut+h89BcZe7oKbnE7fXIt3oV1UtQ6VaKRu7CX9Y5wQGeSrNbmIeBU6uTpjOYKZMvXwyeXyWaTMWz
+	5NKEVjhA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xCJFt-00000009dMa-0w7B;
-	Thu, 01 Oct 2026 16:03:33 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1xCHmp-00000009Nbu-0tuV;
+	Thu, 01 Oct 2026 14:29:27 +0000
+Received: from mail-wm1-f71.google.com ([209.85.128.71])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xCJFr-00000009dMN-1Qnb;
-	Thu, 01 Oct 2026 16:03:31 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id 49D6E60A68;
-	Thu,  1 Oct 2026 16:03:29 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id B3D301F000FF;
-	Thu,  1 Oct 2026 16:03:28 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1790870609;
-	bh=OSUIn2vvgZY9nja7L+v/qJsWqMEJTAmZepfV/Nzm4+g=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=K/WOfh/6qDstRLC9ZRaNs7cNIQQwjOtWjnTQtkFB6PNQpgptrztf0vSZh4DTnZump
-	 ufgp5zI8dj1FfYTNwcct0yW+pbJ1cnXRsx64fvIJT7k/mTHFbB7QbfmdWqlgA2okEj
-	 MqOQaSGg/aeB4V2gt+drRL1DnXmxFWq04iX9rTbWvptKsLY/gt1wHPRSKfeVtnuziW
-	 ICrWJnbBeXEXGsj90XEOLMUTGz++GUwx2BKWLFPOO3CIMQdxaXRTsMjkVK05zO/J+W
-	 hMhw3abDTOyagZDekqC93G3fX0z6NIHa5uJorfvpgC75831IR/qGvdzjKV+I6P0zg9
-	 xksO8IEdJu0iw==
-Date: Thu, 1 Oct 2026 11:03:27 -0500
-From: Rob Herring <robh@kernel.org>
-To: Maxime Ripard <mripard@kernel.org>
-Cc: Neil Armstrong <neil.armstrong@linaro.org>,
-	Jessica Zhang <jesszhan0024@gmail.com>,
-	David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>,
-	Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
-	Thomas Zimmermann <tzimmermann@suse.de>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Nathan Chancellor <nathan@kernel.org>,
-	Nick Desaulniers <ndesaulniers@google.com>,
-	Bill Wendling <morbo@google.com>,
-	Justin Stitt <justinstitt@google.com>,
-	Florian Fainelli <florian.fainelli@broadcom.com>,
-	Broadcom internal kernel review list <bcm-kernel-feedback-list@broadcom.com>,
-	Andrzej Hajda <andrzej.hajda@intel.com>,
-	Robert Foss <rfoss@kernel.org>,
-	Laurent Pinchart <Laurent.pinchart@ideasonboard.com>,
-	Jonas Karlman <jonas@kwiboo.se>,
-	Jernej Skrabec <jernej.skrabec@gmail.com>,
-	Luca Ceresoli <luca.ceresoli@bootlin.com>,
-	Albert Esteve <aesteve@redhat.com>,
-	Dave Stevenson <dave.stevenson@raspberrypi.com>,
-	Javier Martinez Canillas <javierm@redhat.com>,
-	dri-devel@lists.freedesktop.org, devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org, bpf@vger.kernel.org,
-	llvm@lists.linux.dev, linux-rpi-kernel@lists.infradead.org,
-	linux-arm-kernel@lists.infradead.org,
-	Benjamin Tissoires <bentiss@kernel.org>
-Subject: Re: [PATCH 1/6] dt-bindings: display: Add panel-mipi-dsi-bpf generic
- panel binding
-Message-ID: <20261001160327.GA512699-robh@kernel.org>
-References: <20260928-drm-mipi-dsi-panel-ebpf-v1-0-5244926aace4@kernel.org>
- <20260928-drm-mipi-dsi-panel-ebpf-v1-1-5244926aace4@kernel.org>
- <20260928204059.GA515872-robh@kernel.org>
- <artyl8fD3zzng8Uh@houat>
- <20260929222822.GA2933878-robh@kernel.org>
- <ary8IdL9zVXfS2fA@houat>
- <CAL_JsqJCoWQmdBKEbekXb5LeLn1KcMiP2iG30r+npssJSZB5LA@mail.gmail.com>
- <ar4HOuO-vox9VIKZ@houat>
-MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-Content-Transfer-Encoding: 8bit
-In-Reply-To: <ar4HOuO-vox9VIKZ@houat>
+	id 1xCHmi-00000009NPD-0Cvp
+	for linux-arm-kernel@lists.infradead.org;
+	Thu, 01 Oct 2026 14:29:22 +0000
+Received: by mail-wm1-f71.google.com with SMTP id 5b1f17b1804b1-49e7631c43aso63004065e9.3
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 01 Oct 2026 07:29:17 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=google.com; s=20251104; t=1790864956; x=1791469756; darn=lists.infradead.org;
+        h=content-type:cc:to:from:subject:message-id:references:mime-version
+         :in-reply-to:date:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=DbNyTfmEUsMI7X9xHV6bnMQSPZF042c57U4JdGGTHOY=;
+        b=O0P5IGYPaC94nr2ow8WqljvsO91z4V4FNPdQauRZmJ8mDU4gOwbln0mjJvMwusiwZf
+         0Tn18UNoBane0goawYom85DWkzO3hX2BRrjPVGgakSh/32rFijszHHpvbPa2HsjYr1mI
+         y89JcOWoSaHaBzdTI5+cYQ0EUEy1yBdkaq7cGYV/ox/TphmXTO2lbfFiloCWM6e662B9
+         mWM5bpdoO2dUEigvNttJaVh74/oaFOqWbHFf2LBL2tb1hZPFNbbHVC9n79KdWUsgMEHn
+         A6AkxHAmXeO90WOvpm/51MxRxHO0Bp4u9arW1BSwaKM1+4YD+tKLRidmKgIYwfIYeJS+
+         dTKw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1790864956; x=1791469756;
+        h=content-type:cc:to:from:subject:message-id:references:mime-version
+         :in-reply-to:date:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=DbNyTfmEUsMI7X9xHV6bnMQSPZF042c57U4JdGGTHOY=;
+        b=1NrhixjP7eUjZ8CUOPSQuzYmUILcd2fcH3Rv8LJ7/tnhOrS6ZuDxzaHHrVtklN10Z+
+         X8AgWWwO7MAxFA3f9jiDaufgLpf6Am6cqOXUJISTa2drQsEMoSQDgJUkgjsq4hfKqn4V
+         fPWcqKXwamIGHYFlUXAPGp56muGVsvwRWlDptP35/X4+h5ukgo7kle6hhHmjbC9ztJzD
+         Zb4FUYwPKdr585m6IKVbXezdXKOn8n3SSze0cokNdI0k5fKdGWAcFVkde9nkPRYWy3v2
+         etVbffK07qOyXmqVis/s0N/RksUVg8FjWPGaMgGd3VKRApiqCZ/z4vofkH+MURup9QAK
+         uicw==
+X-Forwarded-Encrypted: i=1; AKwUvBwDtYG72NVaJHtI+24vEqp7BzDHFshXxtLdW5LJ/IZdrPxTz2eAQLu5fjD6G044RXTaVZdOGaZuGidVoOD59V35@lists.infradead.org
+X-Gm-Message-State: AFuF++lWXXVTVwwM/e7gG0zwWhcIPDsqRLh82JLmkyrs8yRzbiynvA0Z
+	sG88jc9zSYJ8AOPMxp/u36+7ZoGi+svSTY9xr/5puyY2yE/NipAqbr3BXjoPmu+3SwD7mxHTX03
+	s7OWEftoijdNhkDt+t9bUUA==
+X-Received: from wmdv11.prod.google.com ([2002:a05:600c:12cb:b0:4a0:2a5:ce1a])
+ (user=vdonnefort job=prod-delivery.src-stubby-dispatcher) by
+ 2002:a05:600c:6990:b0:4a0:1fb9:2f51 with SMTP id 5b1f17b1804b1-4a01fb931e2mr46156775e9.14.1790864955622;
+ Thu, 01 Oct 2026 07:29:15 -0700 (PDT)
+Date: Thu,  1 Oct 2026 15:28:46 +0100
+In-Reply-To: <20261001142849.3367614-1-vdonnefort@google.com>
+Mime-Version: 1.0
+References: <20261001142849.3367614-1-vdonnefort@google.com>
+X-Mailer: git-send-email 2.56.0.rc1.315.gc6ed9934b7-goog
+Message-ID: <20261001142849.3367614-16-vdonnefort@google.com>
+Subject: [PATCH v6 15/18] KVM: arm64: Rename vCPU pkvm_memcache to stage2_mc
+From: Vincent Donnefort <vdonnefort@google.com>
+To: maz@kernel.org, oupton@kernel.org, kvmarm@lists.linux.dev, 
+	linux-arm-kernel@lists.infradead.org
+Cc: joey.gouly@arm.com, seiden@linux.ibm.com, suzuki.poulose@arm.com, 
+	yuzenghui@huawei.com, catalin.marinas@arm.com, will@kernel.org, 
+	kernel-team@android.com, fuad.tabba@linux.dev, 
+	Vincent Donnefort <vdonnefort@google.com>
+Content-Type: text/plain; charset="UTF-8"
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20261001_072920_152780_600ED738 
+X-CRM114-Status: GOOD (  18.34  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -101,107 +93,175 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Oct 01, 2026 at 09:22:48AM +0200, Maxime Ripard wrote:
-> On Wed, Sep 30, 2026 at 02:07:39PM -0500, Rob Herring wrote:
-> > On Wed, Sep 30, 2026 at 3:04 AM Maxime Ripard <mripard@kernel.org> wrote:
-> > >
-> > > On Tue, Sep 29, 2026 at 05:28:22PM -0500, Rob Herring wrote:
-> > > > On Tue, Sep 29, 2026 at 10:39:24AM +0200, Maxime Ripard wrote:
-> > > > > On Mon, Sep 28, 2026 at 03:40:59PM -0500, Rob Herring wrote:
-> > > > > > On Mon, Sep 28, 2026 at 06:22:01PM +0200, Maxime Ripard wrote:
-> > > > > > > Most MIPI-DSI panel drivers follow an identical pattern: acquire
-> > > > > > > regulators and GPIOs, perform a reset pulse with specific timing,
-> > > > > > > send a vendor-supplied sequence of DSI commands, then enable the
-> > > > > > > display. The only truly panel-specific part is the init sequence
-> > > > > > > and power-on/off timing.
-> > 
-> > [snip a bunch of irrelevant shit]
-> > 
-> > > > > So, let's phrase this differently: what's different about the
-> > > > > description than panel-mipi-dsi-spi, or any other binding already in
-> > > > > tree?
-> > > >
-> > > > There's all of 3 panels supported. Compared to all the other panels we
-> > > > have, hardly the rule over the exception. You can always fine "bad"
-> > > > examples or exceptions.
-> > > >
-> > > > That one defines a single supply. Any other MIPI SPI panel with
-> > > > different supplies or GPIO controls probably has its own binding. Trying
-> > > > to parameterize that in DT doesn't work. We've rejected trying to do
-> > > > that in DT over and over. What's your story here for that?
-> > >
-> > > Sigh... Look, I really don't care about an argument DT maintainers use
-> > > at their discretion for this. We both know full well that it's been and
-> > > still is inconsistenly applied, and you also know that it's not like
-> > > I've been playing the DT game since pretty much the beginning (on ARM
-> > > anyway). So it's not like I don't want to make it work, I do. But what I
-> > > care about is enabling that driver to work.
-> > >
-> > > I reused exactly the same binding than the last major binding that was
-> > > merged for panels, and support about the same number of panels. I guess
-> > > that was a mistake, so sorry for that.
-> > >
-> > > I'm fine with reworking the binding any way you want as long as it still
-> > > allows for the same use-case, but I would have hoped for a better
-> > > feedback on how to do so than "oh what a huge pile of shit this is".
-> > 
-> > When you can answer my question above rather than make up shit I
-> > didn't say, maybe I'll reply again on this thread. Otherwise I'm done
-> > here. I don't need this abuse for the thankless job of DT
-> > maintainership.
-> 
-> It's been the whole tone of the reviews, so I'm sorry if you were caught
-> in the crossfire and you didn't mean that. And I'm sorry it made your DT
-> maintainership work harder than it already is.
-> 
-> I do mean what I said before though. I have no problem changing the
-> binding the way you want, but I need to know what to change in the first
-> place, otherwise it's really no better than a NAK, or we're bound to
-> have the same exchange for the v2, and I'd rather not.
-> 
-> I indeed missed your question, but now I'm not sure I understand what
-> you mean by "paremeterize that in DT"? The supplies in the binding are
-> an aggregate of all the possible supplies a panel can take. They are not
-> a wildcard, but they all have their own semantics that are used by
-> panels right now.
+With the introduction of the pKVM hyp allocator, the memcache for vCPUs
+is now only used for carrying pages dedicated to the stage-2 page tables.
+Rename pkvm_memcache to stage2_mc to reflect its purpose.
 
-I read a bit more of the series and understand it a bit better now.
+Signed-off-by: Vincent Donnefort <vdonnefort@google.com>
+Tested-by: Fuad Tabba <fuad.tabba@linux.dev>
+Reviewed-by: Fuad Tabba <fuad.tabba@linux.dev>
+---
+ arch/arm64/include/asm/kvm_host.h     |  4 ++--
+ arch/arm64/kvm/arm.c                  |  2 +-
+ arch/arm64/kvm/hyp/nvhe/hyp-main.c    |  6 +++---
+ arch/arm64/kvm/hyp/nvhe/mem_protect.c | 10 +++++-----
+ arch/arm64/kvm/hyp/nvhe/pkvm.c        |  6 +++---
+ arch/arm64/kvm/mmu.c                  |  2 +-
+ arch/arm64/kvm/pkvm.c                 |  2 +-
+ 7 files changed, 16 insertions(+), 16 deletions(-)
 
-> I don't expect any new supply to be introduced, unless there's a major
-> panel technology change such as the one we had with the introduction of
-> OLED.
-> 
-> Would you prefer to reduce the number of supplies to the minimum we need
-> right now, and extend it as needed?
+diff --git a/arch/arm64/include/asm/kvm_host.h b/arch/arm64/include/asm/kvm_host.h
+index 3cca9f3b2eeb..0c4498a2f30d 100644
+--- a/arch/arm64/include/asm/kvm_host.h
++++ b/arch/arm64/include/asm/kvm_host.h
+@@ -937,8 +937,8 @@ struct kvm_vcpu_arch {
+ 	/* Cache some mmu pages needed inside spinlock regions */
+ 	struct kvm_mmu_memory_cache mmu_page_cache;
+ 
+-	/* Pages to top-up the pKVM/EL2 guest pool */
+-	struct kvm_hyp_memcache pkvm_memcache;
++	/* Pages to top-up the pKVM/EL2 guest stage-2 pool */
++	struct kvm_hyp_memcache stage2_mc;
+ 
+ 	/* Virtual SError ESR to restore when HCR_EL2.VSE is set */
+ 	u64 vsesr_el2;
+diff --git a/arch/arm64/kvm/arm.c b/arch/arm64/kvm/arm.c
+index 09ae5431ce58..fa77abf8cff6 100644
+--- a/arch/arm64/kvm/arm.c
++++ b/arch/arm64/kvm/arm.c
+@@ -591,7 +591,7 @@ void kvm_arch_vcpu_destroy(struct kvm_vcpu *vcpu)
+ 	if (!is_protected_kvm_enabled())
+ 		kvm_mmu_free_memory_cache(&vcpu->arch.mmu_page_cache);
+ 	else
+-		free_hyp_memcache(&vcpu->arch.pkvm_memcache);
++		free_hyp_memcache(&vcpu->arch.stage2_mc);
+ 	kvm_timer_vcpu_terminate(vcpu);
+ 	kvm_pmu_vcpu_destroy(vcpu);
+ 	kvm_vgic_vcpu_destroy(vcpu);
+diff --git a/arch/arm64/kvm/hyp/nvhe/hyp-main.c b/arch/arm64/kvm/hyp/nvhe/hyp-main.c
+index 281d1359606a..af348e008f52 100644
+--- a/arch/arm64/kvm/hyp/nvhe/hyp-main.c
++++ b/arch/arm64/kvm/hyp/nvhe/hyp-main.c
+@@ -464,9 +464,9 @@ static int pkvm_refill_memcache(struct pkvm_hyp_vcpu *hyp_vcpu)
+ {
+ 	struct kvm_vcpu *host_vcpu = hyp_vcpu->host_vcpu;
+ 
+-	return refill_memcache(&hyp_vcpu->vcpu.arch.pkvm_memcache,
+-			       host_vcpu->arch.pkvm_memcache.nr_pages,
+-			       &host_vcpu->arch.pkvm_memcache);
++	return refill_memcache(&hyp_vcpu->vcpu.arch.stage2_mc,
++			       host_vcpu->arch.stage2_mc.nr_pages,
++			       &host_vcpu->arch.stage2_mc);
+ }
+ 
+ DEFINE_KVM_HOST_HCALL(int, __pkvm_host_donate_guest,
+diff --git a/arch/arm64/kvm/hyp/nvhe/mem_protect.c b/arch/arm64/kvm/hyp/nvhe/mem_protect.c
+index 39aa8911f62c..dadd48431036 100644
+--- a/arch/arm64/kvm/hyp/nvhe/mem_protect.c
++++ b/arch/arm64/kvm/hyp/nvhe/mem_protect.c
+@@ -1023,7 +1023,7 @@ int __pkvm_guest_share_host(struct pkvm_hyp_vcpu *vcpu, u64 gfn)
+ 	ret = 0;
+ 	WARN_ON(kvm_pgtable_stage2_map(&vm->pgt, ipa, PAGE_SIZE, phys,
+ 				       pkvm_mkstate(KVM_PGTABLE_PROT_RWX, PKVM_PAGE_SHARED_OWNED),
+-				       &vcpu->vcpu.arch.pkvm_memcache, 0));
++				       &vcpu->vcpu.arch.stage2_mc, 0));
+ 	WARN_ON(__host_set_page_state_range(phys, PAGE_SIZE, PKVM_PAGE_SHARED_BORROWED));
+ unlock:
+ 	guest_unlock_component(vm);
+@@ -1058,7 +1058,7 @@ int __pkvm_guest_unshare_host(struct pkvm_hyp_vcpu *vcpu, u64 gfn)
+ 						      PKVM_ID_GUEST, meta));
+ 	WARN_ON(kvm_pgtable_stage2_map(&vm->pgt, ipa, PAGE_SIZE, phys,
+ 				       pkvm_mkstate(KVM_PGTABLE_PROT_RWX, PKVM_PAGE_OWNED),
+-				       &vcpu->vcpu.arch.pkvm_memcache, 0));
++				       &vcpu->vcpu.arch.stage2_mc, 0));
+ unlock:
+ 	guest_unlock_component(vm);
+ 	host_unlock_component();
+@@ -1422,7 +1422,7 @@ static int __guest_check_pgtable_memcache(struct pkvm_hyp_vcpu *vcpu)
+ {
+ 	struct pkvm_hyp_vm *vm = pkvm_hyp_vcpu_to_hyp_vm(vcpu);
+ 
+-	if (vcpu->vcpu.arch.pkvm_memcache.nr_pages < kvm_mmu_cache_min_pages(vm->pgt.mmu))
++	if (vcpu->vcpu.arch.stage2_mc.nr_pages < kvm_mmu_cache_min_pages(vm->pgt.mmu))
+ 		return -ENOMEM;
+ 
+ 	return 0;
+@@ -1456,7 +1456,7 @@ int __pkvm_host_donate_guest(u64 pfn, u64 gfn, struct pkvm_hyp_vcpu *vcpu)
+ 						      PKVM_ID_GUEST, meta));
+ 	WARN_ON(kvm_pgtable_stage2_map(&vm->pgt, ipa, PAGE_SIZE, phys,
+ 				       pkvm_mkstate(KVM_PGTABLE_PROT_RWX, PKVM_PAGE_OWNED),
+-				       &vcpu->vcpu.arch.pkvm_memcache, 0));
++				       &vcpu->vcpu.arch.stage2_mc, 0));
+ 
+ unlock:
+ 	guest_unlock_component(vm);
+@@ -1527,7 +1527,7 @@ int __pkvm_host_share_guest(u64 pfn, u64 gfn, u64 nr_pages, struct pkvm_hyp_vcpu
+ 
+ 	WARN_ON(kvm_pgtable_stage2_map(&vm->pgt, ipa, size, phys,
+ 				       pkvm_mkstate(prot, PKVM_PAGE_SHARED_BORROWED),
+-				       &vcpu->vcpu.arch.pkvm_memcache, 0));
++				       &vcpu->vcpu.arch.stage2_mc, 0));
+ 
+ unlock:
+ 	guest_unlock_component(vm);
+diff --git a/arch/arm64/kvm/hyp/nvhe/pkvm.c b/arch/arm64/kvm/hyp/nvhe/pkvm.c
+index 5031ef9e6fe9..599488b6d124 100644
+--- a/arch/arm64/kvm/hyp/nvhe/pkvm.c
++++ b/arch/arm64/kvm/hyp/nvhe/pkvm.c
+@@ -774,7 +774,7 @@ struct pkvm_hyp_vcpu *init_selftest_vm(void *virt)
+ 			continue;
+ 		p[i].refcount = 1;
+ 		if (seeded < min_pages) {
+-			push_hyp_memcache(&selftest_vcpu.vcpu.arch.pkvm_memcache,
++			push_hyp_memcache(&selftest_vcpu.vcpu.arch.stage2_mc,
+ 					  hyp_page_to_virt(&p[i]), hyp_virt_to_phys);
+ 			seeded++;
+ 		} else {
+@@ -1009,7 +1009,7 @@ int __pkvm_finalize_teardown_vm(pkvm_handle_t handle)
+ 	reclaim_pgtable_pages(hyp_vm, stage2_mc);
+ 	unpin_host_vcpus(hyp_vm->vcpus, hyp_vm->kvm.created_vcpus);
+ 
+-	/* Push the metadata pages to the teardown memcache */
++	/* Push the stage-2 pages to the teardown memcache */
+ 	for (idx = 0; idx < hyp_vm->kvm.created_vcpus; ++idx) {
+ 		struct pkvm_hyp_vcpu *hyp_vcpu = hyp_vm->vcpus[idx];
+ 		struct kvm_hyp_memcache *vcpu_mc;
+@@ -1017,7 +1017,7 @@ int __pkvm_finalize_teardown_vm(pkvm_handle_t handle)
+ 		if (!hyp_vcpu)
+ 			continue;
+ 
+-		vcpu_mc = &hyp_vcpu->vcpu.arch.pkvm_memcache;
++		vcpu_mc = &hyp_vcpu->vcpu.arch.stage2_mc;
+ 
+ 		while (vcpu_mc->nr_pages) {
+ 			void *addr = pop_hyp_memcache(vcpu_mc, hyp_phys_to_virt);
+diff --git a/arch/arm64/kvm/mmu.c b/arch/arm64/kvm/mmu.c
+index 3163502cc7d2..afde0894ab15 100644
+--- a/arch/arm64/kvm/mmu.c
++++ b/arch/arm64/kvm/mmu.c
+@@ -1553,7 +1553,7 @@ static void *get_mmu_memcache(struct kvm_vcpu *vcpu)
+ 	if (!is_protected_kvm_enabled())
+ 		return &vcpu->arch.mmu_page_cache;
+ 	else
+-		return &vcpu->arch.pkvm_memcache;
++		return &vcpu->arch.stage2_mc;
+ }
+ 
+ static int topup_mmu_memcache(struct kvm_vcpu *vcpu, void *memcache)
+diff --git a/arch/arm64/kvm/pkvm.c b/arch/arm64/kvm/pkvm.c
+index 36e677e51f7d..83e18c0e30b5 100644
+--- a/arch/arm64/kvm/pkvm.c
++++ b/arch/arm64/kvm/pkvm.c
+@@ -182,7 +182,7 @@ static int __pkvm_create_hyp_vcpu(struct kvm_vcpu *vcpu)
+ 	pkvm_handle_t handle = vcpu->kvm->arch.pkvm.handle;
+ 	int ret;
+ 
+-	init_hyp_stage2_memcache(&vcpu->arch.pkvm_memcache);
++	init_hyp_stage2_memcache(&vcpu->arch.stage2_mc);
+ 
+ 	ret = pkvm_call_hyp_req(__pkvm_init_vcpu, handle, vcpu);
+ 	if (!ret)
+-- 
+2.56.0.rc1.315.gc6ed9934b7-goog
 
-No. You've defined some arbitrary list of supply names not just in the 
-binding, but in the kernel. I think both are a mistake. Can't the BPF 
-prog define the supply names and pass those to the kernel? Then when you 
-have a panel with 'foo' and 'bar' supplies, you don't need a kernel 
-change or some remapping to the existing set of names. The only real 
-exception we have there is if it's a single supply, just use 
-'power-supply'. It's the same issue with GPIOs, but there's generally 
-less variability with them.
-
-The whole point of requiring specific compatibles and not doing "generic 
-bindings" is that's the only way the OS implementation can evolve 
-without changing the DT. You can have a specific driver or a generic 
-driver or a generic driver using BPF and which one can change over time 
-if needed, but from a DT perspective we don't care.
-
-So first, make this BPF stuff work with any existing panels (or some 
-defined set). I'm not saying convert everything, only that you could. 
-Otherwise you've failed the test of if the driver implementation 
-changes, does the binding have to change.
-
-After that, the remaining problem is only how do you make it 
-work with unknown panels (only unknown to the kernel as any new panel 
-still needs a binding). There's 2 ways we can solve that. Either make 
-the kernel be able to bind to a generic driver without a compatible 
-match or have a fallback compatible. The former could be done by 
-userspace (though I saw gregkh added a taint for userspace bind 
-recently) or we could somehow make the kernel bind to any DSI child 
-devices without a match.
-
-Rob
 
