@@ -4,147 +4,96 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2F996CA5FA5
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  1 Oct 2026 09:03:47 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 62A90CA5FB3
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  1 Oct 2026 09:04:56 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-ID:Content-Type:In-Reply-To:References:
-	Message-ID:Date:Subject:To:From:Reply-To:Cc:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Iwt2FcZTUcN/btxjRsH2ZPlE7NgDh1TFOQWaEEJi1PU=; b=kHG2/jRlHYuRomZPPa0xsFtZXY
-	o14flVhOkC5hET8uk13aOvqLfMZ1dLSRAO3cKYcxbeWbDgsoRkxokG99flPpkHrLX5uIlB20cs+jo
-	5BHJiBDzasTrGfXC1OVvvyFPQtfxeS99s4T6G3ld1LdHjKIugJ3rsP3fA7UKiP1AmVVGEODrw0nxJ
-	KHeE66rAY7jXc0SREHIL9tutQS9f8/K09XZNvLNOPJNv/I34136H74PODufmGEdThXTgKdAOXssZf
-	zdfcrwoaj1JujFpdr1A97fY8JIa5pgZuCsLnpDdYtg+Yi0KvSeB9I9XOsfi4cQ5N4aTZCiLDYN6fv
-	3o++7RmA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=Qbp3jVmH+sFkYqhmX+ZJ1D5BkSS4kkEKH3MsLVvCz28=; b=FANaTJBwPKfl8SesKTcbg9098v
+	MtJD7D+/6Fp05ykdWOedHC4gMwPo055O3YFt6klxDXth+DKCKqJ9sNAIF0CQ8tRdXqieolxvULwKz
+	atwu7HGfTlndrtHzhdnCWdV0cIRdRZRFBpY8XdYm6xA0Zak0aiyPpvJniVXFFEtC/CfK6Tofc4q8l
+	QW3+bN3yQ75++HDeIdS8LC/pRsE7temFzn7X5ht9KP1MwClQLr0MMSWfz8pE9g66KNvY0VLKaQvr8
+	GXuRR71w++76UJo+AY83aw2Sj3la5TXyA/kpcdR52dkbiowcteTAcKZi6WD7c/FE4kyonBaMhQT7G
+	3dbkf/vg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xCChU-00000008J98-02ut;
-	Thu, 01 Oct 2026 09:03:36 +0000
-Received: from mail-northcentralusazon11010070.outbound.protection.outlook.com ([52.101.193.70] helo=CH1PR05CU001.outbound.protection.outlook.com)
+	id 1xCCif-00000008JRW-2B7l;
+	Thu, 01 Oct 2026 09:04:49 +0000
+Received: from mail-wm2-x11.google.com ([2a00:1450:4864:31::11])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xCChN-00000008J7Y-3wbW;
-	Thu, 01 Oct 2026 09:03:33 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=nvDxz2jaA8jdEYcRAFRu7qbJdO4Fh0dVfmTBOqRrjC8mdHlVuCF2/TuHKK+Mf5OiDSjgbvR/zueetn6Sk4aePkHSXy9iTHgcb0WSc33zbqdOq26Gw0Zhlf4eRYvkn6fSdjA0TrwAY5/G5BYGJdi9+QZSEcRU/ZoQf/YdB9mjKF5LFQjmCkmKunrFPr/8FQ/YE/P5mIv4kmk9T69iBaDej9/txxvM1HKrUDlrYaOBuv+xuPn6Ada5Zs0Lox5/GI5oY4qqi06qZCDX7sE72HC+zic0QnMt7rF5q0gpvWtsdKqel8aISUv9As0YSh6LmaTLJKmv6e1SahPdsip+87HLpg==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=Iwt2FcZTUcN/btxjRsH2ZPlE7NgDh1TFOQWaEEJi1PU=;
- b=bHElAwdq1RldKuloqJlxKgMaLsiKI+b6B47yi+/pWEmQVl0x+xcpvehXZz/T/oI40FtNBAXW5VplAypdWwVa6sHN2S6lmndoMeTpsEiHyqG6Hz2NR7i2OhtREWfxVPsBxb2Ob2yHcA5pR2gabO1l407C7yFWRoPLNs1TUpSZHnIa3hW6Sq1USlQtqWAkhYKJXn8g5Vq6E0Ykir7k8wAWJauOT29Aals96CULqSwd1fqWFdOfCYnwU3jkyTViG0o0hdL1Bodc89A/uQTpUoy3QpMjY5r6hQC6+SA18rZ+586TZlNmg5xCjpdIvVNR0t+i5EcOHaWPn2m41E9GELk1oA==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=microchip.com; dmarc=pass action=none
- header.from=microchip.com; dkim=pass header.d=microchip.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=microchip.com;
- s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=Iwt2FcZTUcN/btxjRsH2ZPlE7NgDh1TFOQWaEEJi1PU=;
- b=zkTiiJRtofr1m0n4CobcpHoyT4/kPgg6ybnFeC1ZbAsOzE42SDH6nJdgBNOrEBbDjNJcmKBlb+V04Vz7HlL+0cSsYCE2A8nxtme21jQuqK5rPUC0sHdY15ig+5hyOrYNmbpgQ/A8b7waqAJrXTMjV1DoyvtSq6Jxf+Rez+LwHWFrOJyIk6mOzrfKB7j65BA9j7aK/ZSLDgzrgHb6b6JGxQ+AmYXz9I3Qnxup/Xg7o+FoWvZBZmQcm1UMFHG8toApU1cIetouBkMvb8x5fwnYr0H9UdqkG8shkhntxajUIdDyplrKG9E+K8s0/lv/wH4om2c4Sckd35zO5djHlftV7Q==
-Received: from DS6PR11MB523643.namprd11.prod.outlook.com (2603:10b6:8:468::12)
- by DS7PR11MB7784.namprd11.prod.outlook.com (2603:10b6:8:e1::14) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.472.15; Thu, 1 Oct
- 2026 09:03:22 +0000
-Received: from DS6PR11MB523643.namprd11.prod.outlook.com
- ([fe80::1cc0:e019:a70b:f954]) by DS6PR11MB523643.namprd11.prod.outlook.com
- ([fe80::1cc0:e019:a70b:f954%4]) with mapi id 15.21.0451.026; Thu, 1 Oct 2026
- 09:03:22 +0000
-From: <Manikandan.M@microchip.com>
-To: <mwalle@kernel.org>, <pratyush@kernel.org>,
-	<takahiro.kuwano@infineon.com>, <miquel.raynal@bootlin.com>,
-	<richard@nod.at>, <vigneshr@ti.com>, <robh@kernel.org>, <krzk+dt@kernel.org>,
-	<conor+dt@kernel.org>, <srini@kernel.org>, <Nicolas.Ferre@microchip.com>,
-	<alexandre.belloni@bootlin.com>, <claudiu.beznea@tuxon.dev>,
-	<linux@armlinux.org.uk>, <richardcochran@gmail.com>, <arnd@arndb.de>,
-	<linusw@kernel.org>, <gregkh@linuxfoundation.org>,
-	<mathieu.dubois-briand@bootlin.com>, <linux-mtd@lists.infradead.org>,
-	<devicetree@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
-	<linux-arm-kernel@lists.infradead.org>, <netdev@vger.kernel.org>
-Subject: Re: [PATCH v7 3/7] mtd: spi-nor: sfdp: expose the SFDP as a read-only
- NVMEM device
-Thread-Topic: [PATCH v7 3/7] mtd: spi-nor: sfdp: expose the SFDP as a
- read-only NVMEM device
-Thread-Index: AQHdKkh8ssbUvMZsfEyMbU+NvXWKVbbDPUYAgCQBoACAAXP0AA==
-Date: Thu, 1 Oct 2026 09:03:22 +0000
-Message-ID: <b175bb3b-7678-4966-974f-6636feed8d83@microchip.com>
-References: <20260812104955.485667-1-manikandan.m@microchip.com>
- <20260812104955.485667-4-manikandan.m@microchip.com>
- <DL93QHVC01B9.3U3K1G8NC0MZA@kernel.org>
- <7412c28b-28ec-41f1-b083-ccb2510e3341@microchip.com>
-In-Reply-To: <7412c28b-28ec-41f1-b083-ccb2510e3341@microchip.com>
-Accept-Language: en-GB, en-US
-Content-Language: en-GB
-X-MS-Has-Attach: 
-X-MS-TNEF-Correlator: 
-authentication-results: mx.microsoft.com 1; dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=microchip.com;
-x-ms-publictraffictype: Email
-x-ms-traffictypediagnostic: DS6PR11MB523643:EE_|DS7PR11MB7784:EE_
-x-ms-office365-filtering-correlation-id: 01375f5d-b207-41ab-8c9d-08df1f9ad874
-x-ms-exchange-senderadcheck: 1
-x-ms-exchange-antispam-relay: 0
-x-microsoft-antispam: BCL:0;ARA:13230040|366016|23010399003|7416014|376014|1800799024|22082099003|18002099003|38070700021|921020|4143699003|6133799003|3023799007|10067099003|56012099006|11063799006|5023799004;
-x-microsoft-antispam-message-info: rRU5MFW96f+YcXFaOP45Qw4Dq653TUaYYzht3hWfylpkdwERZSOLKPxwYY7RD7j88pIhcHWMdz7TBoB39LJJFtQQF7/cGupeLhZNDcZ1HQ3f2VsoR6DXokdFl4aUt152KrsYBR+M6YYxYDHdMSD7nLnTVLukNIRm5HfRQ5NjuBT132SLxfTvqYsHtAJv1eNWcdl+/FhIXvxR1gOH4LpJh85vhB3oLM0443LaekUO7zLzUhXK4t+GghUyw57+J9w8RbRtL8noq1AXit7fl6RUpypwumOERpG/S+O2h25jmReV420X4K3EcBtU8hKr1onKofErVcIDDTbWW4mVqH6OsL/APHyUlNlNYhNe686JK2D7fsLJVsoG0v+EJA2bJS2grStFtCCxyz8rm7OaJt/APU+vQpDE36VNnCu9kqAW6NLDP0yvJbcwkS+Zc8iC7UEhTP0tfwVDOEDLD+TaUgQfs/obnutru2kANKMpGRDsA6x4eYFU9HNHVMQ0EoPq8oQIwWRhEjCvikPl9X9W81lFLhJsdLGlB0V9bwWaSw4V4z7vtxcu/B5Uu68CozT0gS1MIUaNYCNgIx9cpjSVpWAjx4Kei6gg9sbY6FknyCLjid/uBwt31MJsFXK6O3l8MEzKwMlEYeuJPFUYNNfoLwAzgqbvYBLHgNber+er6MqnnQU6ClPEPpTG2Zq6Fldkk1CRRmSFZwjYddGjZEbHZjxNZfz/6ApCBXBPPUu1Fj3l7AxwVox9x18Z42azNGA6XJXI
-x-forefront-antispam-report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:DS6PR11MB523643.namprd11.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(23010399003)(7416014)(376014)(1800799024)(22082099003)(18002099003)(38070700021)(921020)(4143699003)(6133799003)(3023799007)(10067099003)(56012099006)(11063799006)(5023799004);DIR:OUT;SFP:1101;
-x-ms-exchange-antispam-messagedata-chunkcount: 1
-x-ms-exchange-antispam-messagedata-0: =?utf-8?B?dnM3N2NiZlBJYVZYOTh5QmkyOUMyMUlRbis0aU9jVnhnckVhVGlNM0J2VDZL?=
- =?utf-8?B?NzhSeThmN3YwZ0hadGRvVE8yQ2dWSDdHSzBZU1F1bjQvMkVyeTNOOUJVSDVI?=
- =?utf-8?B?c1pqM3pKTk1IeWNrWGkxU0FZRVFvWjBrUDJQSHdvUWU2OFdWWENZaEZGNCtE?=
- =?utf-8?B?NWI0RWcybTVmb2xzRndET1RLQ05CZmFrZ0M0VkNuc25FS2lJSHNKaW5qZlpM?=
- =?utf-8?B?WGFGdDdITHlTQjZRR3RhLzd1Z0dVZ29uQmIrU010S2RzVk1JckNva1RESW05?=
- =?utf-8?B?UEd5K2hLME43MXlrOXlvb0I2SlJ5RHVmc3YxUjl0d1lsQW9jWWpiMWhBa1M2?=
- =?utf-8?B?OU04RHhWS3ZiaUprbXJuQ2tNZVkvd0ZkemNxRTF3ekFZcUdMaXJNZUhkN1p6?=
- =?utf-8?B?b0JKZndjSEd5VlcvYWxsSGFPQWhCR3lIWFkxK3JHaHZZam5Wa296NHNUTmF4?=
- =?utf-8?B?TkxvUWw0bGNCZm5HaS92b3FkVmNsWE5oRk45QjZzWTNNeFdCY245UWk4WXI0?=
- =?utf-8?B?TlN1M3R4dU1TdUQzVnlmakVOVk05S1N0cUtSd29veXZib3NqL2wxaUVVOTNz?=
- =?utf-8?B?MzhoeUQycTJjcWpFSVVCVkMwaGVmbEhWWnkzYnNJTTliNFd2VVVkMkhlbHZL?=
- =?utf-8?B?bnJweCsrQ3hNR2NQV1g1Z3Qyd0FtMWtnNEQzOFh3UmlYZk9rczVydlhwcTdj?=
- =?utf-8?B?QW1aOEVITlcvTFNscWtEUGVqY2VnSEp2WTl2ZHo2Um4wbmUyNW1SdnhUL0xu?=
- =?utf-8?B?Q3daTlkzQjV5VmtrNmVGQ2tXVEZIS1FzbVpieDBXZVFOaFpUM2xDYmQzTStG?=
- =?utf-8?B?c2Y5cGsxOHB3bzlCZ2dZekVObEpJK0MzemZ5cUc5aVo5Ky95SFQzbm91Q1hl?=
- =?utf-8?B?aFpJTFpSMTN5ZytlbS9BSTJaeFhCVExrVEJSRVlJSmowT3pudHlRVE50UkNP?=
- =?utf-8?B?QUhCZTR5ZnREQ041S0pzeGhkNlVQRittSXJGR25Dd3IzNXplRk9STURYM0Y4?=
- =?utf-8?B?M0owc2pJbXgvUDRoeGVNaEIwYWc5R1ROYis3aHhrRHRJcEFmaWFsaGNqTGRl?=
- =?utf-8?B?RDROVm5jTGdkQ25nR0ZJSUtyQ2VyYVJKMkY2Mk5MenFHWFdvM1Z5OFV6Y0M2?=
- =?utf-8?B?QW5uVGNRMGdwSSs4UWNuQ0FYdWZSZWV6U2RMcHBOYVNqSkdXVTltVVhheG5z?=
- =?utf-8?B?U3lXMU1VZ295RkRjcENUU3dlbHJNZE5IZllReVB5bURhV0l0RkxhRDNQOGZ0?=
- =?utf-8?B?N3ZDZG0rV3BZMStMSForcW9CWDRsWHVsY1BHMUJRc21WUHZZcTRIdFgyM3da?=
- =?utf-8?B?NGo4YWw4anJha0ZxS0haY2JybkdxUHZ2THZiRi8rQnhXcDBINHBNcXNWdlN0?=
- =?utf-8?B?ZnRxcDhJaW4vMlk5TG5CbkJERnJhZWx0QU5qU01maHUxZEFaYUl3d2FITG5M?=
- =?utf-8?B?dUZkMFlPT3V5QW1TcVI0M1EzL2ZPaWYwS2ZVcmwwSnRYTmNiYjlXOFVrb0E4?=
- =?utf-8?B?SGRIRjJEVDFWdTlDeHlCYjZhT0FCQkgyc09ac3FXR1BuR01zMVo3UDcvd3o2?=
- =?utf-8?B?NythZ3RRcVVvSDBObjZaaHJTT2h3MVBhNW1KaklYWWtyRVVER0VjZWRBTWg3?=
- =?utf-8?B?T1BsZWxPS0tQZlMyRmJZRnhXZFM0NkRIVHUwbWkzTmpaaDlWQjF0NS9ITWxw?=
- =?utf-8?B?ZGFVYmYxcTFHK0JXRkZtc1czR2lQbGpWSUtSVlB5ZXU3YXhmS0p4alpKazNI?=
- =?utf-8?B?WktLdVpLOXJBLy9VOFltTG1SUkNmUHBzeE1zOWJjbEkvU0pKSlBnVVNUUklH?=
- =?utf-8?B?bHhKVGFuVTFkWlJZMEJFdW5UWHZESmVMZmJkSUNCbVh2ODk3UFNscTZzZWN5?=
- =?utf-8?B?V085b1llbG5zVGpPTmx0bjlBZTlpR003Mkt3RFBSNzQ5cm1jSGdjR2hFS1U2?=
- =?utf-8?B?NDZJc3NNcGs1OUt2RytkU2tQVkp3RmxrdjBIOXZ2UjQzRWJqUVBCczNvWjNV?=
- =?utf-8?B?cy92SmFUYk9UVTZJUE5FdElFeVoxWTBFM3BVNGNURWZMeEhNWWVRSkdKYnRm?=
- =?utf-8?B?YVVNMk5vZGpuT1prY212WjdqZFNSRkJKTjFRMmpQaG44N0FkSDI4UGJvUzdE?=
- =?utf-8?B?VkJBMzIrUk5Pck92Mmo3cUlmUExlTjFIR1RRQmwrOTFkdUNYbGVWVWFieFBi?=
- =?utf-8?B?bGtKam5hRXBPcnFjN1dvQ0lESVkvaGphNDl1cTlUcHg5bTFoRzBZYXRxZWxH?=
- =?utf-8?B?T2x6SlBBWnNEeTlrUWQxajEwT3ZMeWNiMmIxTVdUaXlNQzZSUmdkYW5ETmlm?=
- =?utf-8?B?YUJQQ2g5YmV5NEZMMlZTbDRHMGpiREpMcGNSaFNOWVN4cTRYZG5ydz09?=
-Content-Type: text/plain; charset="utf-8"
-Content-ID: <D4CE23AAB8CCA24BA49A833C25770955@namprd11.prod.outlook.com>
-Content-Transfer-Encoding: base64
+	id 1xCCia-00000008JQF-30oT
+	for linux-arm-kernel@lists.infradead.org;
+	Thu, 01 Oct 2026 09:04:47 +0000
+Received: by mail-wm2-x11.google.com with SMTP id 5b1f17b1804b1-49b912d822dso46395955e9.2
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 01 Oct 2026 02:04:44 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=sairon.cz; s=google; t=1790845483; x=1791450283; darn=lists.infradead.org;
+        h=content-transfer-encoding:content-type:mime-version:message-id:date
+         :subject:cc:to:from:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=Qbp3jVmH+sFkYqhmX+ZJ1D5BkSS4kkEKH3MsLVvCz28=;
+        b=NwPlJK1dC9jPDOMuAXT2XK1XVUMrwdaRhhnnLp0MPt5b/Te7nmivxAlYChEO/Clfo3
+         dlBriXq87SNCLkYFEGTZZ5/q/fuT/uXFMrvIP1jkHNqDbopKzMz5wq4j4meyvJ4CsFwO
+         lFceMUyWXsjxZz9TFBq/+pWF/33OQ3ThRRrWk0UrDUzRE1xpK1wBDJieW+955uP+q/vE
+         dDAKkDH1gf7nMgXhHs5qh3tTVl50Zp8pAgs55b+TMpWl7R7no6JT1bRbXhZS8wgP0AJM
+         C0eSbLzuKF0LIVUlt2xo98wI+HbSLBmgU4GYti9Ut1eHjeV7WZCxEjbG55WtMLwyQRx6
+         IQFQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1790845483; x=1791450283;
+        h=content-transfer-encoding:content-type:mime-version:message-id:date
+         :subject:cc:to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject
+         :date:message-id:reply-to:content-type;
+        bh=Qbp3jVmH+sFkYqhmX+ZJ1D5BkSS4kkEKH3MsLVvCz28=;
+        b=VHkj0Msl6SDm0ZQyVBimHVI1nZF09N08QgmXlQKXdFNTJg9DpSfuvgTNXZudVdzT+7
+         MbfdEpgO6btPhXKKFATanTXREL28gwMBe6GkJ4j7mQlKeyxoieiCM0NAZojkKgi1sGtq
+         D1GUmLYEeXax9vVC9wC90KI7jNn86KQKIMBgGXQxLXn83Oeco6P5OgaRbEFiLZR7JrsE
+         jS6qnpZLkAUSROYjcgiXl8cdazzWokoe+liRYg09tS6owxne9obnSZ0I1GvNQPY+LmLg
+         Ri/zOoLCQPDOrF58DR+lqFQ8WVMv0T1MLcnVRorWFwPAMVA2pgX4XvcGJsjjofmUIwHb
+         eKog==
+X-Forwarded-Encrypted: i=1; AKwUvBwdMaOS/9kmeQI6Pgo/jrbrRdD/7bmJ7OWVvFt1ZjuEu73H9b0SAFbVMRUf+WPWru0DS5YlbNCN4PK3Wn8NiYqc@lists.infradead.org
+X-Gm-Message-State: AFuF++kEyr4AuGS87k1eO89mhMjI+FDgJarhcc5wSjDe0uwYXjW4+NqS
+	F0CkE26t/X1JBil5MdtX2RlcKmGojLcJP+yfl+kCXxXdVe5LNlFSLbz2os2x8F6TYEg=
+X-Gm-Gg: AYBFou1No/UVwitD2YupJAUx4m7zm9B3CJBYs5ZEdtqO5xtI4bqPOkH6auPa6Oz2nCb
+	jH6v6ve5mOV7Opbk/w2FCorwY/DOOgBwzJ3YWHqJsBH4tJXPdIciXcDZjE8tX9jL4gPbCH1TUxP
+	ZdzLoVJuyaihyIbX6SRuaImWaKOYiiUSeCcZZw15IGySyD7qkC1A8MBD04HqlaEkHRnWioj90mc
+	121pXrv2Tf1YwOQ+FpZu7+pheRkwuLhulMwn6oOMDzKm+Tp8e1XkxKFkiryKi7g+XKIwlqJFq+G
+	veCEi/wlJqKlHRAmoF0Ci84eKZ+5JugrV0OB/rtqc7eXGbF8NdFQfZqYxFnDUCb0VBx3iPr12Er
+	vbjBPbQ80AkYUeDpguQghWT++1smdvvHA/Q9Nsmgh8tRYQNHaZTKfLgm9WG2aowiEJ53lxV74li
+	sWRZvfed07SxP+n/FpLSh60hCKsqRrSyyUuwzaDVMCWqPI1w94UH/sSMOHsEW1wNnf1uoc8CUTu
+	Mnlu9pNFua0avGnXJex94LIU3hq7mdB8H9OtudlwLe9EtXSlpWXepvK/Mc=
+X-Received: by 2002:a05:600c:4fc9:b0:49c:cee0:f383 with SMTP id 5b1f17b1804b1-4a01afe12a1mr63735345e9.16.1790845482560;
+        Thu, 01 Oct 2026 02:04:42 -0700 (PDT)
+Received: from krabice.lan ([2a02:8308:5084:6400:9c5f:33da:d2c3:ec96])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4a01f98224csm44126435e9.3.2026.10.01.02.04.41
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Thu, 01 Oct 2026 02:04:41 -0700 (PDT)
+From: =?UTF-8?q?Jan=20=C4=8Cerm=C3=A1k?= <sairon@sairon.cz>
+To: gregkh@linuxfoundation.org,
+	jirislaby@kernel.org,
+	florian.fainelli@broadcom.com,
+	rjui@broadcom.com,
+	sbranden@broadcom.com
+Cc: phil@raspberrypi.com,
+	stefan@agner.ch,
+	bcm-kernel-feedback-list@broadcom.com,
+	linux-serial@vger.kernel.org,
+	linux-rpi-kernel@lists.infradead.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	=?UTF-8?q?Jan=20=C4=8Cerm=C3=A1k?= <sairon@sairon.cz>
+Subject: [PATCH v3] serial: 8250_bcm2835aux: Add support for RTS/CTS auto flow control
+Date: Thu,  1 Oct 2026 11:04:32 +0200
+Message-ID: <20261001090432.1045270-1-sairon@sairon.cz>
+X-Mailer: git-send-email 2.55.0
 MIME-Version: 1.0
-X-OriginatorOrg: microchip.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-AuthSource: DS6PR11MB523643.namprd11.prod.outlook.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 01375f5d-b207-41ab-8c9d-08df1f9ad874
-X-MS-Exchange-CrossTenant-originalarrivaltime: 01 Oct 2026 09:03:22.6689
- (UTC)
-X-MS-Exchange-CrossTenant-fromentityheader: Hosted
-X-MS-Exchange-CrossTenant-id: 3f4057f3-b418-4d4e-ba84-d55b4e897d88
-X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
-X-MS-Exchange-CrossTenant-userprincipalname: C6D2Dip284SNu3VtJSm73E5ajlTKwtvP+6os6/vucPdvsTrlF/O+DQleVHC/H4rXelm6KlIAbq0HplEOgo2DunJbOgKdFrVyfbP+1Fkwjj0=
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: DS7PR11MB7784
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261001_020330_208289_F54C1D88 
-X-CRM114-Status: GOOD (  23.47  )
+X-CRM114-CacheID: sfid-20261001_020444_819726_DE56FFFF 
+X-CRM114-Status: GOOD (  28.58  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -159,104 +108,273 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-SGkgTWljaGFlbCwNCg0KT24gOS8zMC8yNiA0OjIyIFBNLCBNYW5pa2FuZGFuLk1AbWljcm9jaGlw
-LmNvbSB3cm90ZToNCj4gSGkgTWljaGFlbCwNCj4gDQo+IFNvcnJ5IGZvciB0aGUgbGF0ZSByZXBs
-eS4NCj4gDQo+IE9uIDkvNy8yNiA2OjMwIFBNLCBNaWNoYWVsIFdhbGxlIHdyb3RlOg0KPj4gSGks
-DQo+Pg0KPj4gT24gV2VkIEF1ZyAxMiwgMjAyNiBhdCAxMjo0OSBQTSBDRVNULCBNYW5pa2FuZGFu
-IE11cmFsaWRoYXJhbiB3cm90ZToNCj4+PiBUaGUgU1BJIE5PUiBjb3JlIGFscmVhZHkgcmVhZHMg
-dGhlIFNGRFAgdGFibGVzIGR1cmluZyBlbnVtZXJhdGlvbiBhbmQNCj4+PiBjYWNoZXMgdGhlbSBp
-biBub3ItPnNmZHAtPmR3b3JkcyAoc2VlIHNwaV9ub3JfcGFyc2Vfc2ZkcCgpKS4gUmUtZXhwb3Nl
-DQo+Pj4gdGhhdCBjYWNoZWQgZGF0YSBhcyBhIHJlYWQtb25seSBOVk1FTSBkZXZpY2UsIGluIG9u
-LWZsYXNoIGJ5dGUgb3JkZXIsDQo+Pj4gcm9vdGVkIGF0IHRoZSBmbGFzaCdzIFNGRFAgY2hpbGQg
-bm9kZSAoY29tcGF0aWJsZSAiamVkZWMsc2ZkcCIpLg0KPj4+DQo+Pj4gVGhpcyBsZXRzIE5WTUVN
-IGNlbGxzIHJlZmVyZW5jZSBhbnkgU0ZEUCBkYXRhOiBhIGZpeGVkLWxheW91dCBmb3INCj4+PiBw
-YXJhbWV0ZXJzIGF0IGEga25vd24gb2Zmc2V0LCBvciBhbiBudm1lbS1sYXlvdXQgcGFyc2VyIGZv
-ciB2ZW5kb3IgZGF0YQ0KPj4+IHdob3NlIGxvY2F0aW9uIG11c3QgYmUgZGlzY292ZXJlZCBhdCBy
-dW50aW1lLiBUaGUgZGV2aWNlIGlzIG9ubHkgcmVnaXN0ZXJlZA0KPj4+IHdoZW4gYW4gInNmZHAi
-IG5vZGUgaXMgcHJlc2VudCBpbiB0aGUgZGV2aWNlIHRyZWUuDQo+Pj4NCj4+PiBTaWduZWQtb2Zm
-LWJ5OiBNYW5pa2FuZGFuIE11cmFsaWRoYXJhbiA8bWFuaWthbmRhbi5tQG1pY3JvY2hpcC5jb20+
-DQo+Pj4gLS0tDQo+Pj4gICAgZHJpdmVycy9tdGQvc3BpLW5vci9jb3JlLmMgfCA3OCArKysrKysr
-KysrKysrKysrKysrKysrKysrKysrKysrKysrKysrKw0KPj4+ICAgIDEgZmlsZSBjaGFuZ2VkLCA3
-OCBpbnNlcnRpb25zKCspDQo+Pj4NCj4+PiBkaWZmIC0tZ2l0IGEvZHJpdmVycy9tdGQvc3BpLW5v
-ci9jb3JlLmMgYi9kcml2ZXJzL210ZC9zcGktbm9yL2NvcmUuYw0KPj4+IGluZGV4IGNjZjQzOTZj
-ZGNkMC4uMDQyNWFmNmU4OThmIDEwMDY0NA0KPj4+IC0tLSBhL2RyaXZlcnMvbXRkL3NwaS1ub3Iv
-Y29yZS5jDQo+Pj4gKysrIGIvZHJpdmVycy9tdGQvc3BpLW5vci9jb3JlLmMNCj4+PiBAQCAtMTcs
-NiArMTcsNyBAQA0KPj4+ICAgICNpbmNsdWRlIDxsaW51eC9tdGQvbXRkLmg+DQo+Pj4gICAgI2lu
-Y2x1ZGUgPGxpbnV4L210ZC9zcGktbm9yLmg+DQo+Pj4gICAgI2luY2x1ZGUgPGxpbnV4L211dGV4
-Lmg+DQo+Pj4gKyNpbmNsdWRlIDxsaW51eC9udm1lbS1wcm92aWRlci5oPg0KPj4+ICAgICNpbmNs
-dWRlIDxsaW51eC9vZi5oPg0KPj4+ICAgICNpbmNsdWRlIDxsaW51eC9yZWd1bGF0b3IvY29uc3Vt
-ZXIuaD4NCj4+PiAgICAjaW5jbHVkZSA8bGludXgvc2NoZWQvdGFza19zdGFjay5oPg0KPj4+IEBA
-IC0zMDAxLDYgKzMwMDIsNzUgQEAgc3RhdGljIHZvaWQgc3BpX25vcl9pbml0X2ZpeHVwX2ZsYWdz
-KHN0cnVjdCBzcGlfbm9yICpub3IpDQo+Pj4gICAgCQlub3ItPmZsYWdzIHw9IFNOT1JfRl9JT19N
-T0RFX0VOX1ZPTEFUSUxFOw0KPj4+ICAgIH0NCj4+PiAgICANCj4+PiArc3RhdGljIGludCBzcGlf
-bm9yX3NmZHBfcmVnX3JlYWQodm9pZCAqcHJpdiwgdW5zaWduZWQgaW50IG9mZnNldCwNCj4+PiAr
-CQkJCSB2b2lkICp2YWwsIHNpemVfdCBieXRlcykNCj4+PiArew0KPj4+ICsJc3RydWN0IHNwaV9u
-b3IgKm5vciA9IHByaXY7DQo+Pj4gKwlzdHJ1Y3Qgc2ZkcCAqc2ZkcCA9IG5vci0+c2ZkcDsNCj4+
-PiArCXNpemVfdCBzZmRwX3NpemUgPSBzZmRwLT5udW1fZHdvcmRzICogc2l6ZW9mKCpzZmRwLT5k
-d29yZHMpOw0KPj4+ICsNCj4+PiArCWlmIChvZmZzZXQgPj0gc2ZkcF9zaXplIHx8IGJ5dGVzID4g
-c2ZkcF9zaXplIC0gb2Zmc2V0KQ0KPj4+ICsJCXJldHVybiAtRUlOVkFMOw0KPj4+ICsNCj4+PiAr
-CS8qIFRoZSBjYWNoZWQgU0ZEUCBpcyBrZXB0IGluIG9uLWZsYXNoIChsaXR0bGUtZW5kaWFuKSBi
-eXRlIG9yZGVyLiAqLw0KPj4+ICsJbWVtY3B5KHZhbCwgKHU4ICopc2ZkcC0+ZHdvcmRzICsgb2Zm
-c2V0LCBieXRlcyk7DQo+Pj4gKw0KPj4+ICsJcmV0dXJuIDA7DQo+Pj4gK30NCj4+PiArDQo+Pj4g
-Ky8qKg0KPj4+ICsgKiBzcGlfbm9yX3JlZ2lzdGVyX3NmZHBfbnZtZW0oKSAtIGV4cG9zZSB0aGUg
-U0ZEUCBhcyBhIHJlYWQtb25seSBOVk1FTSBkZXZpY2UNCj4+PiArICogQG5vcjoJcG9pbnRlciB0
-byBhICdzdHJ1Y3Qgc3BpX25vcicNCj4+PiArICoNCj4+PiArICogRXhwb3NlIHRoZSB3aG9sZSBT
-RkRQLCBpbiBvbi1mbGFzaCBieXRlIG9yZGVyLCBhcyBhIHJlYWQtb25seSBOVk1FTSBkZXZpY2UN
-Cj4+PiArICogcm9vdGVkIGF0IHRoZSBmbGFzaCdzIFNGRFAgY2hpbGQgbm9kZSAoY29tcGF0aWJs
-ZSAiamVkZWMsc2ZkcCIpLiBUaGlzIGxldHMNCj4+PiArICogZ2VuZXJpYyAoZml4ZWQtbGF5b3V0
-KSBvciB2ZW5kb3IgKG52bWVtLWxheW91dCkgY2VsbHMgcmVmZXJlbmNlIGFueSBTRkRQDQo+Pj4g
-KyAqIGRhdGEuIFRoZSBkZXZpY2UgaXMgb25seSByZWdpc3RlcmVkIHdoZW4gYSBjaGlsZCBub2Rl
-IHdpdGggdGhlICJqZWRlYyxzZmRwIg0KPj4+ICsgKiBjb21wYXRpYmxlIGlzIGRlc2NyaWJlZCBp
-biB0aGUgZGV2aWNlIHRyZWUuDQo+Pj4gKyAqDQo+Pj4gKyAqIFJldHVybjogMCBvbiBzdWNjZXNz
-IG9yIGlmIHRoZXJlIGlzIG5vdGhpbmcgdG8gZG8sIC1lcnJubyBvdGhlcndpc2UuDQo+Pj4gKyAq
-Lw0KPj4+ICtzdGF0aWMgaW50IHNwaV9ub3JfcmVnaXN0ZXJfc2ZkcF9udm1lbShzdHJ1Y3Qgc3Bp
-X25vciAqbm9yKQ0KPj4+ICt7DQo+Pj4gKwlzdHJ1Y3QgZGV2aWNlICpkZXYgPSBub3ItPmRldjsN
-Cj4+PiArCXN0cnVjdCBudm1lbV9jb25maWcgY29uZmlnID0geyB9Ow0KPj4+ICsJc3RydWN0IG52
-bWVtX2RldmljZSAqbnZtZW07DQo+Pj4gKwlzdHJ1Y3QgZGV2aWNlX25vZGUgKm5wOw0KPj4+ICsN
-Cj4+PiArCWlmICghbm9yLT5zZmRwKQ0KPj4+ICsJCXJldHVybiAwOw0KPj4+ICsNCj4+PiArCW5w
-ID0gb2ZfZ2V0X2NvbXBhdGlibGVfY2hpbGQoZGV2X29mX25vZGUoZGV2KSwgImplZGVjLHNmZHAi
-KTsNCj4+PiArCWlmICghbnApDQo+Pj4gKwkJcmV0dXJuIDA7DQo+Pg0KPj4gV2hhdCBpZiB0aGVy
-ZSBpcyBubyBqZWRlYyxzZmRwIG5vZGU/IFNob3VsZCB0aGlzIGJlIGFkZGVkIGFueXdheXM/DQo+
-Pg0KaWYgdGhlcmUgaXMgbm8gamVkZWMsc2ZkcCBub2RlLCB0aGUgL3N5cy9idXMvbnZtZW0vZGV2
-aWNlcy9zZmRwKiBlbnRyeSANCndpbGwgbm90IGFwcGVhci4NClJlbW92aW5nIHRoaXMgY2hlY2sg
-d2lsbCBzaWxlbnRseSByZWdpc3RlcmluZyB0aGUgU0ZEUCBOVk1FTSBkZXZpY2Ugb24gDQpldmVy
-eSBTUEktTk9SIGZsYXNoIGJ5IGRlZmF1bHQuDQpEbyB5b3Ugc3VnZ2VzdCByZW1vdmluZyBpdCA/
-DQoNCj4+PiArDQo+Pj4gKwljb25maWcuZGV2ID0gZGV2Ow0KPj4+ICsJY29uZmlnLm9mX25vZGUg
-PSBucDsNCj4+DQo+PiBXaGF0IGFib3V0IGp1c3Q6DQo+PiAJY29uZmlnLm9mX25vZGUgPSBvZl9n
-ZXRfY29tcGF0aWJsZV9jaGlsZChkZXZfb2Zfbm9kZShkZXYpLCAiamVkZWMsc2ZkcCIpOw0KPj4N
-Cj4gd2lsbCBkbyB0aGF0LCBUaGFua3MNCj4+PiArCWNvbmZpZy5uYW1lID0gInNmZHAiOw0KPj4+
-ICsJY29uZmlnLmlkID0gTlZNRU1fREVWSURfQVVUTzsNCj4+PiArCWNvbmZpZy5vd25lciA9IFRI
-SVNfTU9EVUxFOw0KPj4+ICsJY29uZmlnLnJlYWRfb25seSA9IHRydWU7DQo+Pj4gKwljb25maWcu
-d29yZF9zaXplID0gMTsNCj4+PiArCWNvbmZpZy5zdHJpZGUgPSAxOw0KPj4+ICsJY29uZmlnLnNp
-emUgPSAoaW50KShub3ItPnNmZHAtPm51bV9kd29yZHMgKiBzaXplb2YoKm5vci0+c2ZkcC0+ZHdv
-cmRzKSk7DQo+Pj4gKwljb25maWcucmVnX3JlYWQgPSBzcGlfbm9yX3NmZHBfcmVnX3JlYWQ7DQo+
-Pj4gKwljb25maWcucHJpdiA9IG5vcjsNCj4+PiArDQo+Pj4gKwludm1lbSA9IGRldm1fbnZtZW1f
-cmVnaXN0ZXIoZGV2LCAmY29uZmlnKTsNCj4+PiArCW9mX25vZGVfcHV0KG5wKTsNCj4+DQo+PiBU
-aGlzIG5vdyBsZWF2ZXMgdGhlIG52bWVtIGRldmljZSB3aXRoIGEgZGFuZ2xpbmcgcG9pbnRlci4g
-V2hhdCBJDQo+PiBtZWFudCBpbiBteSBwcmV2aW91cyByZXBseSwgd2FzIHRoYXQgeW91J2xsIGFk
-ZCBhbiBvZl9ub2RlX2dldCgpIHRvDQo+PiB0aGUgbnZtZW1fcmVnaXN0ZXIoKSwgc28gdGhlIG52
-bWVtIHN1YnN5c3RlbSB3aWxsIGhhdmUgaXRzIG93bg0KPj4gdHJhY2tpbmcuDQo+Pg0KPiBBbmQg
-U29ycnksIEkgb3Zlcmxvb2tlZCB0aGF0IOKAlCBJIG1vdmVkIHRoZSBvZl9ub2RlX3B1dCgpIGlu
-c3RlYWQgb2YNCj4gYWRkaW5nIHRoZSBvZl9ub2RlX2dldCgpIHRvIG52bWVtX3JlZ2lzdGVyKCku
-DQo+IEknbGwgZm9sZCBpdCBpbnRvIHY4IGFuZCBzZW5kIGl0IHNob3J0bHkg4oCUIGxldCBtZSBr
-bm93IGlmIHlvdSdkIHJhdGhlcg0KPiBzZWUgdGhlIGNvcmUgcGF0Y2ggcG9zdGVkIHNlcGFyYXRl
-bHkgZmlyc3QuDQo+PiAtbWljaGFlbA0KPj4NCj4+PiArCWlmIChJU19FUlIobnZtZW0pKSB7DQo+
-Pj4gKwkJLyogTlZNRU0gc3VwcG9ydCBpcyBvcHRpb25hbC4gKi8NCj4+PiArCQlpZiAoUFRSX0VS
-Uihudm1lbSkgPT0gLUVPUE5PVFNVUFApDQo+Pj4gKwkJCXJldHVybiAwOw0KPj4+ICsJCXJldHVy
-biBkZXZfZXJyX3Byb2JlKGRldiwgUFRSX0VSUihudm1lbSksDQo+Pj4gKwkJCQkgICAgICJmYWls
-ZWQgdG8gcmVnaXN0ZXIgU0ZEUCBOVk1FTSBkZXZpY2VcbiIpOw0KPj4+ICsJfQ0KPj4+ICsNCj4+
-PiArCWRldl9kYmcoZGV2LCAiZXhwb3NlZCAlZC1ieXRlIFNGRFAgYXMgYW4gTlZNRU0gZGV2aWNl
-XG4iLCBjb25maWcuc2l6ZSk7DQo+Pj4gKw0KPj4+ICsJcmV0dXJuIDA7DQo+Pj4gK30NCj4+PiAr
-DQo+Pj4gICAgLyoqDQo+Pj4gICAgICogc3BpX25vcl9sYXRlX2luaXRfcGFyYW1zKCkgLSBMYXRl
-IGluaXRpYWxpemF0aW9uIG9mIGRlZmF1bHQgZmxhc2ggcGFyYW1ldGVycy4NCj4+PiAgICAgKiBA
-bm9yOglwb2ludGVyIHRvIGEgJ3N0cnVjdCBzcGlfbm9yJw0KPj4+IEBAIC0zMjA0LDYgKzMyNzQs
-MTQgQEAgc3RhdGljIGludCBzcGlfbm9yX2luaXRfcGFyYW1zKHN0cnVjdCBzcGlfbm9yICpub3Ip
-DQo+Pj4gICAgCQlzcGlfbm9yX2luaXRfcGFyYW1zX2RlcHJlY2F0ZWQobm9yKTsNCj4+PiAgICAJ
-fQ0KPj4+ICAgIA0KPj4+ICsJLyoNCj4+PiArCSAqIEV4cG9zZSB0aGUgU0ZEUCB0YWJsZSBhcyBh
-biBOVk1FTSBkZXZpY2Ugb25seSB3aGVuDQo+Pj4gKwkgKiB0aGUgZmxhc2ggYWN0dWFsbHkgcHJv
-dmlkZXMgb25lDQo+Pj4gKwkgKi8NCj4+PiArCXJldCA9IHNwaV9ub3JfcmVnaXN0ZXJfc2ZkcF9u
-dm1lbShub3IpOw0KPj4+ICsJaWYgKHJldCkNCj4+PiArCQlyZXR1cm4gcmV0Ow0KPj4+ICsNCj4+
-PiAgICAJcmV0ID0gc3BpX25vcl9sYXRlX2luaXRfcGFyYW1zKG5vcik7DQo+Pj4gICAgCWlmIChy
-ZXQpDQo+Pj4gICAgCQlyZXR1cm4gcmV0Ow0KPj4NCj4gDQo+IA0KDQoNCi0tIA0KVGhhbmtzIGFu
-ZCBSZWdhcmRzLA0KTWFuaWthbmRhbiBNLg0K
+The bcm2835aux mini UART can automatically de-assert RTS based on the RX
+FIFO fill level and gate the transmitter on CTS, but the driver never
+made use of it. Wire it up:
+
+- Enable AUTORTS/AUTOCTS (with the RTS4 threshold and inverted, i.e.
+  conventional active-low, polarity) whenever CRTSCTS is set on ports
+  declaring the "uart-has-rtscts" property, advertised via
+  UPF_HARD_FLOW.
+
+- Gate the AUTORTS function on TIOCM_RTS in set_mctrl() so that clearing
+  RTS (port close, TIOCMBIC, B0) actually de-asserts the pin while auto
+  flow control is active.
+
+- Implement throttle()/unthrottle() by disabling the RX interrupts and
+  letting the FIFO fill up, making the hardware de-assert RTS - the same
+  approach as in 8250_omap. Re-sync this state on termios and rs485
+  changes, as those paths may re-enable the RX interrupts (or leave them
+  disabled) behind the throttle's back.
+
+- Never enable auto flow control together with rs485, which uses RTS as
+  the transceiver direction control. As the software CTS fallback of the
+  serial core cannot work without a modem status interrupt, strip
+  CRTSCTS whenever it cannot be handled in hardware. Keep it when a CTS
+  GPIO is present, as the serial core's mctrl_gpio handling then
+  delivers the interrupt and the software fallback keeps working.
+
+- Restore RXEN when rs485 is disabled, as the emulation may be torn down
+  without the rs485_stop_tx() callback ever being called, which would
+  leave the receiver disabled.
+
+Assisted-by: Claude:claude-fable-5
+Signed-off-by: Jan Čermák <sairon@sairon.cz>
+---
+
+Notes:
+    v3:
+    - Use tty_port_tty scoped guard in bcm2835aux_tty_throttled()
+    
+    v2:
+    - Keep CRTSCTS when a CTS GPIO is configured on the port, so the
+      serial core's GPIO-driven software CTS fallback keeps working
+      [Sashiko]
+    - Take a tty reference with tty_port_tty_get() in
+      bcm2835aux_tty_throttled() [Sashiko]
+    
+    v2: https://lore.kernel.org/r/20260930125620.221836-1-sairon@sairon.cz/
+    v1: https://lore.kernel.org/r/cover.1786030659.git.sairon@sairon.cz
+
+ drivers/tty/serial/8250/8250_bcm2835aux.c | 167 +++++++++++++++++++++-
+ 1 file changed, 163 insertions(+), 4 deletions(-)
+
+diff --git a/drivers/tty/serial/8250/8250_bcm2835aux.c b/drivers/tty/serial/8250/8250_bcm2835aux.c
+index 0609582a62f7..626e2e61ef41 100644
+--- a/drivers/tty/serial/8250/8250_bcm2835aux.c
++++ b/drivers/tty/serial/8250/8250_bcm2835aux.c
+@@ -7,9 +7,9 @@
+  * Based on 8250_lpc18xx.c:
+  * Copyright (C) 2015 Joachim Eastwood <manabian@gmail.com>
+  *
+- * The bcm2835aux is capable of RTS auto flow-control, but this driver doesn't
+- * take advantage of it yet.  When adding support, be sure not to enable it
+- * simultaneously to rs485.
++ * The bcm2835aux's RTS/CTS auto flow-control is enabled for ports declaring
++ * the "uart-has-rtscts" property, but never simultaneously to rs485, which
++ * repurposes RTS as the transceiver direction control.
+  */
+ 
+ #include <linux/clk.h>
+@@ -19,6 +19,7 @@
+ #include <linux/of.h>
+ #include <linux/platform_device.h>
+ #include <linux/property.h>
++#include <linux/tty.h>
+ 
+ #include "8250.h"
+ 
+@@ -34,6 +35,18 @@
+ #define BCM2835_AUX_UART_CNTL_RTSINV	0x40 /* Invert auto RTS polarity */
+ #define BCM2835_AUX_UART_CNTL_CTSINV	0x80 /* Invert auto CTS polarity */
+ 
++/*
++ * Set auto RTS to de-assert with 4 FIFO slots left (RTS4).
++ *
++ * The RTSINV/CTSINV bits select the auto flow assert level, which out of
++ * reset is active-high. Set them to get the conventional active-low RTS/CTS.
++ */
++#define BCM2835_AUX_UART_CNTL_AUTORTS_MASK \
++	(BCM2835_AUX_UART_CNTL_AUTORTS | BCM2835_AUX_UART_CNTL_RTS4 | \
++	 BCM2835_AUX_UART_CNTL_RTSINV)
++#define BCM2835_AUX_UART_CNTL_AUTOCTS_MASK \
++	(BCM2835_AUX_UART_CNTL_AUTOCTS | BCM2835_AUX_UART_CNTL_CTSINV)
++
+ /**
+  * struct bcm2835aux_data - driver private data of BCM2835 auxiliary UART
+  * @clk: clock producer of the port's uartclk
+@@ -46,6 +59,146 @@ struct bcm2835aux_data {
+ 	u32 cntl;
+ };
+ 
++static bool bcm2835aux_tty_throttled(struct uart_port *port)
++{
++	if (!port->state)
++		return false;
++
++	scoped_guard(tty_port_tty, &port->state->port)
++		return tty_throttled(scoped_tty());
++
++	return false;
++}
++
++/* Program the CNTL auto flow bits from port->status and mctrl */
++static void bcm2835aux_update_flow(struct uart_port *port, unsigned int mctrl)
++{
++	struct bcm2835aux_data *data = dev_get_drvdata(port->dev);
++	struct uart_8250_port *up = up_to_u8250p(port);
++
++	data->cntl &= ~(BCM2835_AUX_UART_CNTL_AUTORTS_MASK |
++			BCM2835_AUX_UART_CNTL_AUTOCTS_MASK);
++	if ((port->status & UPSTAT_AUTORTS) && (mctrl & TIOCM_RTS))
++		data->cntl |= BCM2835_AUX_UART_CNTL_AUTORTS_MASK;
++	if (port->status & UPSTAT_AUTOCTS)
++		data->cntl |= BCM2835_AUX_UART_CNTL_AUTOCTS_MASK;
++
++	serial_out(up, BCM2835_AUX_UART_CNTL, data->cntl);
++}
++
++static void bcm2835aux_enable_rx_irq(struct uart_port *port)
++{
++	struct uart_8250_port *up = up_to_u8250p(port);
++
++	up->ier |= UART_IER_RLSI | UART_IER_RDI;
++	serial_out(up, UART_IER, up->ier);
++}
++
++static void bcm2835aux_set_autoflow(struct uart_port *port, tcflag_t cflag,
++				    bool rs485_enabled)
++{
++	bool was_enabled = port->status & UPSTAT_AUTORTS;
++	bool enable;
++
++	/*
++	 * rs485 uses RTS as the transceiver direction control, which is
++	 * mutually exclusive with the auto flow-control of the pin.
++	 */
++	enable = (cflag & CRTSCTS) && (port->flags & UPF_HARD_FLOW) &&
++		 !rs485_enabled;
++
++	if (enable) {
++		port->status |= UPSTAT_AUTORTS | UPSTAT_AUTOCTS;
++		/* Restore the throttle state lost in startup/resume/rs485 paths */
++		if (bcm2835aux_tty_throttled(port)) {
++			/* let the FIFO fill up and de-assert RTS in hardware */
++			port->ops->stop_rx(port);
++			/* reclaim an RTS lowered by software flow control */
++			if ((cflag & CBAUD) != B0)
++				port->mctrl |= TIOCM_RTS;
++		}
++	} else {
++		port->status &= ~(UPSTAT_AUTORTS | UPSTAT_AUTOCTS);
++		/* unthrottle() will no longer be called after leaving auto-RTS mode */
++		if (was_enabled)
++			bcm2835aux_enable_rx_irq(port);
++	}
++
++	bcm2835aux_update_flow(port, port->mctrl);
++}
++
++static void bcm2835aux_set_mctrl(struct uart_port *port, unsigned int mctrl)
++{
++	serial8250_do_set_mctrl(port, mctrl);
++	bcm2835aux_update_flow(port, mctrl);
++}
++
++static void bcm2835aux_set_termios(struct uart_port *port,
++				   struct ktermios *termios,
++				   const struct ktermios *old)
++{
++	struct uart_8250_port *up = up_to_u8250p(port);
++	bool hw_flow = (port->flags & UPF_HARD_FLOW) &&
++		       !(port->rs485.flags & SER_RS485_ENABLED);
++
++	/*
++	 * Strip CRTSCTS when the hardware auto flow-control cannot be
++	 * used, as the serial core's software CTS fallback cannot work
++	 * without a modem status interrupt. A CTS GPIO provides one.
++	 */
++	if (!hw_flow && !mctrl_gpio_to_gpiod(up->gpios, UART_GPIO_CTS))
++		termios->c_cflag &= ~CRTSCTS;
++
++	serial8250_do_set_termios(port, termios, old);
++
++	guard(uart_port_lock_irqsave)(port);
++
++	bcm2835aux_set_autoflow(port, termios->c_cflag,
++				port->rs485.flags & SER_RS485_ENABLED);
++}
++
++static void bcm2835aux_throttle(struct uart_port *port)
++{
++	guard(uart_port_lock_irqsave)(port);
++
++	port->ops->stop_rx(port);
++}
++
++static void bcm2835aux_unthrottle(struct uart_port *port)
++{
++	guard(uart_port_lock_irqsave)(port);
++
++	bcm2835aux_enable_rx_irq(port);
++}
++
++static int bcm2835aux_rs485_config(struct uart_port *port,
++				   struct ktermios *termios,
++				   struct serial_rs485 *rs485)
++{
++	tcflag_t cflag = termios ? termios->c_cflag : 0;
++	bool rs485_enabled;
++	int ret;
++
++	ret = serial8250_em485_config(port, termios, rs485);
++	if (ret)
++		return ret;
++
++	rs485_enabled = rs485->flags & SER_RS485_ENABLED;
++	if (!rs485_enabled) {
++		struct bcm2835aux_data *data = dev_get_drvdata(port->dev);
++
++		data->cntl |= BCM2835_AUX_UART_CNTL_RXEN;
++	}
++
++	/*
++	 * termios is NULL when rs485 is set up from firmware properties at
++	 * port registration, before the port has been opened.
++	 */
++	bcm2835aux_set_autoflow(port, cflag, rs485_enabled);
++
++	return 0;
++}
++
+ static void bcm2835aux_rs485_start_tx(struct uart_8250_port *up, bool toggle_ier)
+ {
+ 	if (!(up->port.rs485.flags & SER_RS485_RX_DURING_TX)) {
+@@ -99,7 +252,11 @@ static int bcm2835aux_serial_probe(struct platform_device *pdev)
+ 	up.port.dev = &pdev->dev;
+ 	up.port.type = PORT_16550;
+ 	up.port.flags = UPF_FIXED_PORT | UPF_FIXED_TYPE | UPF_SKIP_TEST | UPF_IOREMAP;
+-	up.port.rs485_config = serial8250_em485_config;
++	up.port.set_termios = bcm2835aux_set_termios;
++	up.port.set_mctrl = bcm2835aux_set_mctrl;
++	up.port.throttle = bcm2835aux_throttle;
++	up.port.unthrottle = bcm2835aux_unthrottle;
++	up.port.rs485_config = bcm2835aux_rs485_config;
+ 	up.port.rs485_supported = serial8250_em485_supported;
+ 	up.rs485_start_tx = bcm2835aux_rs485_start_tx;
+ 	up.rs485_stop_tx = bcm2835aux_rs485_stop_tx;
+@@ -134,6 +291,8 @@ static int bcm2835aux_serial_probe(struct platform_device *pdev)
+ 	ret = uart_read_port_properties(&up.port);
+ 	if (ret)
+ 		goto rm_swnode;
++	if (device_property_read_bool(&pdev->dev, "uart-has-rtscts"))
++		up.port.flags |= UPF_HARD_FLOW;
+ 
+ 	up.port.regshift = 2;
+ 	up.port.fifosize = 8;
+
+base-commit: 551c722f40809618230001baccf219193e22fc5a
+-- 
+2.55.0
+
 
