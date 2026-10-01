@@ -4,70 +4,97 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id EF6ACCA5FD2
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  1 Oct 2026 18:48:16 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6DBE5CA5FD4
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  1 Oct 2026 19:04:08 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=9Lm+M8MVG2/j/DA3KhX8RKq6lO3WVRmuquhIWhMi/v0=; b=NeYtVYSjNV65EeVO2oPAONakkO
-	60jh7LI+8N0ajvrApVimfZSKG0/8Y0ODn9+I+P5WQdcf9MnpJos7WaokRO4MOb3uDUOpwxhJseQsP
-	ZePqKjNJ4MoVIHDPcjfP+iZHVSuEwqJOqBLllWU7AhbRG95UND+ZvEvQxIGL56rbR9KhwnhHtRDam
-	Mbd2jOkrYw260FlqEzh6vOSu+dZuSMtfhAF2uuaAIezhIZ8EU1/koTxhH1bVS77rvJvb8ozmLSdKe
-	ur6h8BpX6Lxu80fvefw9Ga8B1eI/Si3+3rYeBz2F7ha2JzOL+Ed4gvAvdfbrwIq/JCfNeYWTU6uMS
-	grTrVgag==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	Content-Transfer-Encoding:Message-ID:Date:References:In-Reply-To:Subject:Cc:
+	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=JH8rWq/AytgPhFoS61LuGcNOLtYiANYYgdfeoHCVlD4=; b=cC6YOtGmLf9Ft5QcA32k/q8vUn
+	nQA9O3U/6d+BpXxo/qMTm+4WtESKqic39W1mR8dikRiRGjxXxf0oOGjn0vKa4sQpQPfpFH5RM4XzC
+	MXAk2cdV+w+6fuPRCkwGqzZqF1HCKsN4uJOEkQ1dmMLY5LGykzJShmGdHE1u75OBFxu1juy4xKfRV
+	8bbqEacODs6pXlhoa89IpIEzOAeU0YH4T3pVKaxXpS0WCrpl+d+w0iIQ2NkUTUzO0vAnNUxI/ipKx
+	vfmfbggJU4OPrsSEv4iWfMN8QiibT0JSmHQqfnpa+BXvQFDUemijSv1wkeokQOWVKAjU+IEJT3Ode
+	hRPkQZmA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xCLpC-0000000A2KR-16OQ;
-	Thu, 01 Oct 2026 18:48:10 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1xCM4T-0000000A3VF-1LAH;
+	Thu, 01 Oct 2026 19:03:57 +0000
+Received: from mail-wr2-x0f.google.com ([2a00:1450:4864:30::f])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xCLpB-0000000A2KL-1Sko
+	id 1xCM4Q-0000000A3UV-2u6t
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 01 Oct 2026 18:48:09 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id B7B0660218;
-	Thu,  1 Oct 2026 18:48:08 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 3FE421F000FF;
-	Thu,  1 Oct 2026 18:48:05 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1790880488;
-	bh=9Lm+M8MVG2/j/DA3KhX8RKq6lO3WVRmuquhIWhMi/v0=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=bZ20jGkZHznyMIEhpnnAzGW75hk1BQkMfu2cHp8YVOazEL1VlT527GDs4WDbtbh0y
-	 eGsUW5cf5fqfMkoMHPq99wXm8NeWgVNJLPLfto+SxMgFKAkSelYwRn6APWGRrtqVKv
-	 FoJMqu74pwXtGjkMyKOpWCs7Q+wLQPz9AHqfOEKXerCKngzwF+Py90HMmcph5rkuwk
-	 iwhtbxnDmi1L0Xe5kRi56YUJFvUuGumbgWu5E9828OST4/7rKLRgfF/Xb6+8uUBusj
-	 BODm+oo3H2rR/NrOKMBBIqECSWBO787ePM4ojDUCGEgchV+mRsvJH+fz9CajwXRCSq
-	 xOPc6tQVWB1bA==
-Date: Thu, 1 Oct 2026 19:48:03 +0100
-From: Conor Dooley <conor@kernel.org>
-To: Fil Dunsky <filipp.dunsky@gmail.com>
+	Thu, 01 Oct 2026 19:03:56 +0000
+Received: by mail-wr2-x0f.google.com with SMTP id ffacd0b85a97d-48b09f6bbe8so682280f8f.1
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 01 Oct 2026 12:03:53 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20251104; t=1790881432; x=1791486232; darn=lists.infradead.org;
+        h=content-type:mime-version:content-transfer-encoding:message-id:date
+         :references:in-reply-to:subject:cc:to:from:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=JH8rWq/AytgPhFoS61LuGcNOLtYiANYYgdfeoHCVlD4=;
+        b=mDlLB6lovEVAs5YNYWZWbL1R1nOheYhOLqKOHUFcIhy1Gmx8LHhPUXsfF7J5ZcvHop
+         hgJVjI4y7236G7ZgxrEgDcglR8F59qtBDElnDIPLp83NGcWvFplmhKUGyLf8XsbHCoEJ
+         hO3iENlNjoU/s24t3xvOpsrt+dA7cU0B0o+HYkFCGpUkioeLNFQ4DS5ycwbWNttU9cHd
+         5GwfbJYf1EMYkZIeT2y5MA+lfC0UzBqi8gEJ3PPHhhoVdfSyXatvonJEgOxkgBF9XuYk
+         zM6umTqktgiaJ5GvJ9nl1sRnLyULmiF72HPmKfYWbjy4nfQyaB0VA+EGiBmbTBQzoMXu
+         Zqgg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1790881432; x=1791486232;
+        h=content-type:mime-version:content-transfer-encoding:message-id:date
+         :references:in-reply-to:subject:cc:to:from:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=JH8rWq/AytgPhFoS61LuGcNOLtYiANYYgdfeoHCVlD4=;
+        b=l21coQ+eM2aalfHzCb6ZK8R5koQ/CL00OJMfWL6mudK/xe/fdoW7Wd3o6XVoF1P95e
+         imYKCqoAEu1Xiz4bDFFoP3I5GNuEuFWvGviXWHzEvvkqD8mWiGFCttgjnwmxNeLHXnB/
+         HN2kiicuG/hn/a3LdrukNICWGBBX+28P1JU5BkafzDCt4syK7ichVMxi13nPNnn9Iw5D
+         uvURthbJjAryEqUobc666f2XqN/d37qNgWvhbdn7dYxv3Vv4YRyx9RNi7yZeCKEB3BdA
+         kwRCrr8Jjw91dsE+95Hb8l8rgnShWRCTAgANmXR5oJNqFc0NzKDR3j7DS+n6BM1UWJuz
+         2pGA==
+X-Forwarded-Encrypted: i=1; AKwUvBzBs0RPuWvLv/IspGhMZBStjr7gWxiHzHTojCcQv03AK6Rolz5V7wIUI+7OuPEX04jKMVOQyR7F64VjjrvPVnU7@lists.infradead.org
+X-Gm-Message-State: AFq9FYL/p9A321ehJFiX3RavAZfwSDUcIB9xHbhcn/QTdyiuq7WbHTHe
+	puwPdFolCbgta8VM8tyF9WeGTKDy2G7dX32tt+tmA7NVotvAhPrC+jzpuKfId0o+biVxnYmP
+X-Gm-Gg: AYBFou2w8g9d3weJM6Kk3tWBqEfD3vYx8VCzUnUh8wnpiiOdxccTiFbG2jBr3JZiFlz
+	5mPygmpWta8WLntuwRz/Eq1snTSCljjSd6laqEXEIVwGiYQHBrQFxbaPW6vCX1lbxFH3YaWJmtS
+	17Ki2/UX+ODDtsPreM0FcUlgGMK+qC5J36TBcCw4f75cpDBTbTpZT/8+3nFkuc/vMG0zTSNRlrv
+	qDmIXAmkWQHYkN2HiXepTr7cGv/JdGinT00kbN9QVWmqYjbSrk21fepxc3PDniKg3bDvoPcXiaV
+	1WakP0ZHB3aktV1QAi0EauntNLMBVgH57Etu6kNVvLOGhUbUsZEh0R5jslIO6dT6RzlK4q+xi2C
+	lGtMPJsaZFuGXLurIKBXvzGUca9dOWD6aXI7RWE3dMV4y3RRnyA2lCKUonq0L9nZh+4+jOx+gmV
+	+nRQ9t0jvI2sOJmc9StY47ZG54Q+XnNtPILcMvuPsMsFTYCHh+YBi+LbR3ZIlp48QgwQW3GuglH
+	t7nP0liLVMkUu9tuUFAIduFXImKwvdRPA==
+X-Received: by 2002:a05:6000:491b:b0:487:da0:df5a with SMTP id ffacd0b85a97d-48b12729938mr853133f8f.42.1790881432191;
+        Thu, 01 Oct 2026 12:03:52 -0700 (PDT)
+Received: from [127.0.1.1] ([92.241.23.201])
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-48b380fada5sm222539f8f.24.2026.10.01.12.03.49
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Thu, 01 Oct 2026 12:03:51 -0700 (PDT)
+From: Fil Dunsky <filipp.dunsky@gmail.com>
+To: Conor Dooley <conor@kernel.org>
 Cc: Arnd Bergmann <arnd@arndb.de>, Linus Walleij <linusw@kernel.org>,
-	Krzysztof Kozlowski <krzk@kernel.org>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
-	Jiri Slaby <jirislaby@kernel.org>,
-	Russell King <linux@armlinux.org.uk>,
-	Alexandre Belloni <alexandre.belloni@bootlin.com>,
-	Drew Fustini <fustini@kernel.org>,
-	Lorenzo Pieralisi <lpieralisi@kernel.org>,
-	linux-arm-kernel@lists.infradead.org, devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org, linux-serial@vger.kernel.org
-Subject: Re: [PATCH RFC 06/10] dt-bindings: serial: Add Cortina Systems
- CS7542 UART
-Message-ID: <20261001-depose-jawed-f58674109fe7@spud>
+ Krzysztof Kozlowski <krzk@kernel.org>, Rob Herring <robh@kernel.org>,
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>,
+ Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+ Jiri Slaby <jirislaby@kernel.org>, Russell King <linux@armlinux.org.uk>,
+ Alexandre Belloni <alexandre.belloni@bootlin.com>,
+ Drew Fustini <fustini@kernel.org>, Lorenzo Pieralisi <lpieralisi@kernel.org>,
+ linux-arm-kernel@lists.infradead.org, devicetree@vger.kernel.org,
+ linux-kernel@vger.kernel.org, linux-serial@vger.kernel.org
+Subject: Re: [PATCH RFC 06/10] dt-bindings: serial: Add Cortina Systems CS7542 UART
+In-Reply-To: <20261001-depose-jawed-f58674109fe7@spud>
 References: <20260930-b4-cs75xx-v1-0-4617c4463529@gmail.com>
  <20260930-b4-cs75xx-v1-6-4617c4463529@gmail.com>
+ <20261001-depose-jawed-f58674109fe7@spud>
+Date: Thu, 01 Oct 2026 22:03:49 +0300
+Message-ID: <179088142900.827715.5924606072568297915@gmail.com>
+Content-Transfer-Encoding: 8bit
 MIME-Version: 1.0
-Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="1lectGXiRA3UGBbo"
-Content-Disposition: inline
-In-Reply-To: <20260930-b4-cs75xx-v1-6-4617c4463529@gmail.com>
+Content-Type: text/plain; charset="utf-8"; format="fixed"
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20261001_120354_737686_BD224B12 
+X-CRM114-Status: GOOD (  11.93  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -82,103 +109,22 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
---1lectGXiRA3UGBbo
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
+On Thu, Oct 01, 2026 at 07:48:03PM +0100, Conor Dooley wrote:
+> > +description:
+> > +  The UART found in the Cortina Systems CS75xx (Goldengate G2) SoCs. It has
+>
+> Different SoCs need specific compatibles.
+> They can fall back to the cs7542.
 
-On Wed, Sep 30, 2026 at 10:00:05AM +0300, Fil Dunsky wrote:
-> Add the binding for the UART found in the Cortina Systems CS75xx
-> (Goldengate G2) SoCs such as the CS7542.
->=20
-> Signed-off-by: Fil Dunsky <filipp.dunsky@gmail.com>
-> ---
->  .../bindings/serial/cortina,cs7542-uart.yaml       | 50 ++++++++++++++++=
-++++++
->  1 file changed, 50 insertions(+)
->=20
-> diff --git a/Documentation/devicetree/bindings/serial/cortina,cs7542-uart=
-=2Eyaml b/Documentation/devicetree/bindings/serial/cortina,cs7542-uart.yaml
-> new file mode 100644
-> index 00000000000..2f8bda97ff8
-> --- /dev/null
-> +++ b/Documentation/devicetree/bindings/serial/cortina,cs7542-uart.yaml
-> @@ -0,0 +1,50 @@
-> +# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
-> +%YAML 1.2
-> +---
-> +$id: http://devicetree.org/schemas/serial/cortina,cs7542-uart.yaml#
-> +$schema: http://devicetree.org/meta-schemas/core.yaml#
-> +
-> +title: Cortina Systems CS7542 UART
-> +
-> +maintainers:
-> +  - Fil Dunsky <filipp.dunsky@gmail.com>
-> +
-> +description:
-> +  The UART found in the Cortina Systems CS75xx (Goldengate G2) SoCs. It =
-has
-
-Different SoCs need specific compatibles.
-They can fall back to the cs7542.
-pw-bot: changes-requested
+Right, the text reads as if the one compatible covered the whole
+family. The binding only describes the CS7542, which is the only part
+I can test, so in v2 the description says just that, and that the
+other CS75xx parts and the Cortina Access ones (the same block, see
+the discussion on patch 7) are to be added with their own compatible
+and "cortina,cs7542-uart" as the fallback. The compatible stays a
+single const until one of them is added.
 
 Thanks,
-Conor.
+Fil
 
-> +  transmit and receive FIFOs and a 24-bit baud rate divider running from=
- the
-> +  peripheral (APB) clock.
-> +
-> +allOf:
-> +  - $ref: serial.yaml#
-> +
-> +properties:
-> +  compatible:
-> +    const: cortina,cs7542-uart
-> +
-> +  reg:
-> +    maxItems: 1
-> +
-> +  interrupts:
-> +    maxItems: 1
-> +
-> +  clocks:
-> +    maxItems: 1
-> +
-> +required:
-> +  - compatible
-> +  - reg
-> +  - interrupts
-> +  - clocks
-> +
-> +unevaluatedProperties: false
-> +
-> +examples:
-> +  - |
-> +    #include <dt-bindings/interrupt-controller/arm-gic.h>
-> +
-> +    serial@f0070110 {
-> +        compatible =3D "cortina,cs7542-uart";
-> +        reg =3D <0xf0070110 0x30>;
-> +        interrupts =3D <GIC_SPI 6 IRQ_TYPE_LEVEL_HIGH>;
-> +        clocks =3D <&apb_clk>;
-> +    };
->=20
-> --=20
-> 2.53.0
->=20
-
---1lectGXiRA3UGBbo
-Content-Type: application/pgp-signature; name=signature.asc
-
------BEGIN PGP SIGNATURE-----
-
-iHUEABYKAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCar6q4wAKCRB4tDGHoIJi
-0hm0AP94GGT1ED51TBPnDueYYfZC+gGoGhnv3U8yJmaowoaOkAD/Q0gGutHzijrB
-16kj6FFFZcyk14oFJy5rp8uSc9d1vQo=
-=IU4d
------END PGP SIGNATURE-----
-
---1lectGXiRA3UGBbo--
 
