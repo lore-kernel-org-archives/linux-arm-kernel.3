@@ -4,34 +4,34 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 47B4CCA5FC5
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  1 Oct 2026 07:30:12 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 10B80CA5FA5
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  1 Oct 2026 07:30:14 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=7GIq7Ytb6z2nu4Eac27CSfcHe824GRgVKa6PJ9EW5sg=; b=m/elLHMSLn9chnUDpssdwF/u++
-	RTh9bpIMqk7kkCNJl0cVmsS47RRbwkCiGAE7P84lONyT8zorGw8gpVMI8VsWWk6CdEdh5w1dcsvCW
-	jkcY6OCmSUnCkvWGt5IYSEMq9xDatFlL1XOCqokyBX4iC6/4Zs9AcKO+L8PxxkGtw8U5p0IB59x7a
-	h9t3hYG6kt78ImMSTAFQMlGqIrXhlELAie4igIsIqW7Ou6yN0VeY37r3UeullzopuvE+Wa/oJxas3
-	SKAvBki30ieUtUqpPiRYynOMaZ8S02E7mXCpBil1BU3kR0CvDyF8Vq3Rg11RZyAz1insbB/YZBww8
-	H6Z3g7rQ==;
+	bh=jeqEP66eT2ip4FVzjQ+fAmi5N3q+KaP4bGgtZC4fNxI=; b=shL8lk8o/+2SoUV+iNw3DFvRNw
+	56XL0Npu5BcY50YnvD3LRN2Zhk5M6iGbuXiQsQcm7rSEgJQMMu6rGtpmmUJtFzfRU6czQGYHJb/JM
+	29GwfmKxJ/vM3VpnY3iWoTJ251FQIwgegVy5tUjcszEjsEP32sUScXmtn3khpCmN38WnkzAEqbTVv
+	cCUI2qYO6aRNHyZAOLkcJixabFQTJMIu8eSCYbUXtl71gJHW61zayG/Zv8vrn1mAknFwaRSnRaZjF
+	7xtpyReUfPsSbkFTH/4atEBfgUrDQHV8kfq6YVcVPSiLiVgtiE0EZk+uw4iBzJpLek6LUbgHq38C5
+	y1zcw1kg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xCBF2-00000007zuZ-1K0K;
-	Thu, 01 Oct 2026 07:30:09 +0000
+	id 1xCBF6-00000007zvx-1dUG;
+	Thu, 01 Oct 2026 07:30:12 +0000
 Received: from cp2.siel.si ([46.19.12.180])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xCBEz-00000007ztx-0ouS
+	id 1xCBF2-00000007zuY-3SNw
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 01 Oct 2026 07:30:07 +0000
+	Thu, 01 Oct 2026 07:30:11 +0000
 Received: from 89-212-21-243.static.t-2.net ([89.212.21.243]:41660 helo=localhost.localdomain)
 	by cp2.siel.si with esmtpsa  (TLS1.3) tls TLS_AES_256_GCM_SHA384
 	(Exim 4.100.1)
 	(envelope-from <primoz.fiser@norik.com>)
-	id 1xCAvR-00000001Ztc-1s4Q;
+	id 1xCAvR-00000001Ztc-1QzD;
 	Thu, 01 Oct 2026 09:09:50 +0200
 From: Primoz Fiser <primoz.fiser@norik.com>
 To: Rob Herring <robh@kernel.org>,
@@ -46,9 +46,9 @@ Cc: devicetree@vger.kernel.org,
 	linux-arm-kernel@lists.infradead.org,
 	linux-kernel@vger.kernel.org,
 	upstream@lists.phytec.de
-Subject: [PATCH v2 3/3] ARM: dts: imx6: phycore-som: Add phy-reset-duration
-Date: Thu,  1 Oct 2026 09:09:47 +0200
-Message-Id: <20261001070947.1815279-4-primoz.fiser@norik.com>
+Subject: [PATCH v2 2/3] ARM: dts: imx6: phycore-som: Increase PMIC max SOC and ARM voltage
+Date: Thu,  1 Oct 2026 09:09:46 +0200
+Message-Id: <20261001070947.1815279-3-primoz.fiser@norik.com>
 X-Mailer: git-send-email 2.34.1
 In-Reply-To: <20261001070947.1815279-1-primoz.fiser@norik.com>
 References: <20261001070947.1815279-1-primoz.fiser@norik.com>
@@ -65,8 +65,8 @@ X-Source:
 X-Source-Args: 
 X-Source-Dir: 
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261001_003005_400791_F9BF2507 
-X-CRM114-Status: UNSURE (   6.59  )
+X-CRM114-CacheID: sfid-20261001_003009_348218_086DF328 
+X-CRM114-Status: UNSURE (   8.20  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -82,31 +82,42 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Without an explicit phy-reset-duration, fec_reset_phy() defaults the
-phy-reset-gpios assertion to 1 ms. Extend it to 10 ms for a more robust
-PHY reset pulse as otherwise Ethernet PHY probing occasionally fails.
+The i.MX 6Quad with 1.2 GHz needs 1.4-1.5 V supply voltage for the 1.2
+GHz operating point. Therefore this patch increases the maximum output
+voltage of the PMIC's SOC and ARM core supply regulators to 1.5 V.
+Otherwise transition to 1.2 GHz OPP fails (with the 125 mV anatop LDO
+dropout taken into account).
 
 Signed-off-by: Primoz Fiser <primoz.fiser@norik.com>
 ---
 Changes in v2:
-- drop patch #3 from v1
-- convert patch #4 from v1 to phy-reset-duration instead
+- no changes
 
- arch/arm/boot/dts/nxp/imx/imx6qdl-phytec-phycore-som.dtsi | 1 +
- 1 file changed, 1 insertion(+)
+ arch/arm/boot/dts/nxp/imx/imx6qdl-phytec-phycore-som.dtsi | 4 ++--
+ 1 file changed, 2 insertions(+), 2 deletions(-)
 
 diff --git a/arch/arm/boot/dts/nxp/imx/imx6qdl-phytec-phycore-som.dtsi b/arch/arm/boot/dts/nxp/imx/imx6qdl-phytec-phycore-som.dtsi
-index 9070388eecb0..977cf7825e78 100644
+index 205467fd223e..9070388eecb0 100644
 --- a/arch/arm/boot/dts/nxp/imx/imx6qdl-phytec-phycore-som.dtsi
 +++ b/arch/arm/boot/dts/nxp/imx/imx6qdl-phytec-phycore-som.dtsi
-@@ -57,6 +57,7 @@ &fec {
- 	phy-mode = "rgmii";
- 	phy-supply = <&vdd_eth_io>;
- 	phy-reset-gpios = <&gpio1 14 GPIO_ACTIVE_LOW>;
-+	phy-reset-duration = <10>; /* in msecs */
- 	status = "disabled";
- 
- 	mdio {
+@@ -133,7 +133,7 @@ regulators {
+ 			vdd_arm: buck1 {
+ 				regulator-name = "vdd_arm";
+ 				regulator-min-microvolt = <925000>;
+-				regulator-max-microvolt = <1380000>;
++				regulator-max-microvolt = <1500000>;
+ 				regulator-initial-mode = <DA9063_BUCK_MODE_SYNC>;
+ 				regulator-always-on;
+ 			};
+@@ -141,7 +141,7 @@ vdd_arm: buck1 {
+ 			vdd_soc: buck2 {
+ 				regulator-name = "vdd_soc";
+ 				regulator-min-microvolt = <1150000>;
+-				regulator-max-microvolt = <1380000>;
++				regulator-max-microvolt = <1500000>;
+ 				regulator-initial-mode = <DA9063_BUCK_MODE_SYNC>;
+ 				regulator-always-on;
+ 			};
 -- 
 2.34.1
 
