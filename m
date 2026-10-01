@@ -4,61 +4,145 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C9F62CA5FCB
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  1 Oct 2026 15:03:14 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A74F2CA5FD2
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  1 Oct 2026 15:07:10 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:References:In-Reply-To:Message-ID:Date
+	:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=0QmbxN4VfLYHzSRB2Qq2UmgbuXRr7oTK33xCNS7m8dM=; b=VlZd2bawDxEN2pPPjBWRrk7llH
-	vO4fo7Km0EigH2p3kVE50/zYP0Q3GrJzzaZwnTDRqdZStJITRNkF2Uc55Gxse6t23bGaFoH7ekS8N
-	lIKVXNPn+Y7xIVw/kR9qxPuQF2bVtsamjdWASddHESFNWxx3pNzKeWWTWZx6OY7JnyV5PjCC0qEj/
-	IttRrDuELzS+iJnKwYmTAipyQWybVEh89ieuWtC70W7yFIpmcuD27VrWVmXy+BT5q9+VGaSMd1FEe
-	Bl8HujSGxIJHYB6rrlpAUlotLqt7IgDfnHm9phohRnYplDjuFcEO+KLgcBHSEx1IgsNc2/jvawOUz
-	4ceE35+w==;
+	bh=dGk+Ci+6dHafZk/qw0DYFJBgdFGNxjFCjO13VuIHmSQ=; b=hM5SBwRiNYUn30J2aXhk32xWqw
+	fYbM4OOVnBbUnQAy9Xo7yMcFhPmaPUQDByBkDWX9Pv6lmrQKzm9ZFdqrJFrWskFE3Ae0yhkEAnhKx
+	zkZSn26K56t71KMSN5WooKDajI7vh3yuRqPAhW5XODIBKcfENFRUm0PwdXoN+2NiQd+GONQfMY4Z5
+	Aozex/s5y8mIYW7wYQRH0uwnMqexUCm8EVhOyOuDnrV6hW8cR3xJvF6A0ZrilKhALCKYsAYrIZzQC
+	kGu1lEl4iZ0M2Lq8+sClJj0zpCnkx5xVh1hVpbaz84zYKvmJTQMDqesPlafG472eTi6NLrGCQhMeR
+	8AtBgpsw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xCIJP-00000009TLQ-3qdI;
-	Thu, 01 Oct 2026 15:03:07 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1xCINE-00000009TdN-1OHK;
+	Thu, 01 Oct 2026 15:07:04 +0000
+Received: from mail-norwayeastazlp170130007.outbound.protection.outlook.com ([2a01:111:f403:c20f::7] helo=OSPPR02CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xCIJO-00000009TLH-0TgP
+	id 1xCINC-00000009Tcd-0VwT
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 01 Oct 2026 15:03:07 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id D80F94328D;
-	Thu,  1 Oct 2026 15:03:05 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 4E0D81F000FF;
-	Thu,  1 Oct 2026 15:03:04 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1790866985;
-	bh=0QmbxN4VfLYHzSRB2Qq2UmgbuXRr7oTK33xCNS7m8dM=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=NY4Q6nhebDqD2A3j9re4F3C/oMnryFA8M44NGEI8CeVOoyPzCfaEEN2jvjNwA5D2S
-	 MheIlnQO+bLaNAXEYwzn5pB31DRGwfNA7+pwg/Y148ipAKLi0Fn5DHwxtN0fQUXGqd
-	 sb/58McJCPC+Aji7n5MdVONncM/mrxr5/bVQ1ToeBW+YpY5oPHtGiv3A1z+agEGHw0
-	 T3tb5qJPdH41IXhZ5mOQio9cJdlQ9FiHkj1RO6u8EiThM5aKzTCeHnRPpg/HH1d2XD
-	 VuaTwQpNz8tEQ6LXJmalMGWM1ngrmXXnFSivVFD66pZuto7W9NJYz4zS6BfMj/Jx+h
-	 FVL4HBD2EDBTw==
-Date: Thu, 1 Oct 2026 16:03:02 +0100
-From: Sudeep Holla <sudeep.holla@kernel.org>
-To: Alex Tran <alex.tran@oss.qualcomm.com>
-Cc: Cristian Marussi <cristian.marussi@arm.com>,
-	Sudeep Holla <sudeep.holla@kernel.org>,
-	Linus Walleij <linusw@kernel.org>, arm-scmi@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org, linux-gpio@vger.kernel.org,
-	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v2 1/3] pinctrl: scmi: Replace pinmux ops get function
- info with generics
-Message-ID: <20261001-authentic-dove-of-enthusiasm-bd7ebd@sudeepholla>
-References: <20260917-scmi-pinctrl-generics-v2-0-3eeee364257f@oss.qualcomm.com>
- <20260917-scmi-pinctrl-generics-v2-1-3eeee364257f@oss.qualcomm.com>
+	Thu, 01 Oct 2026 15:07:03 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=Y7CE34K7LoLkBslfCmOektv44FaT7L6D6Ad5iTfHk466oYRcjVOuGndwzEqIPnRxNEdi1m9LmavPt+GFkV2iv8hC3jw4GFFSaPXl8oVSuox0MphvBe9z6t2z00oFd8+W5V/sbyv4tWbCfOT2BOh1dejRjYlFKtYKFn9SjSUmTJbABDMlptaUW883ui2lqJQpuX2ABGakyexVqHOA/o7qOMemthlu/VlQPpCzoOdcWOVh4H/ZYThPQQJ/4qlNDxfs1WHb5sLbXQoJZdhXBwTts6tNMEsbqTpceU3dr6P+b5FxBrV86CrDKS5oWS2Maq7ORFruWX/syVCURhcE7xqltA==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=dGk+Ci+6dHafZk/qw0DYFJBgdFGNxjFCjO13VuIHmSQ=;
+ b=koYnjomO3Re7KyhO08UwT07QctD8Kq4cz6AFLn5F+FksYSXKGm58bbvsJwDVQ9wLvd5a/w1avKTVlFsGA5QcnE+R/QU5+gQX3OeWxJaoeGEu/oJ36qsSPpLEKoXkPbysDhFkOadOyqLb7DqOhNzKmbYU61f18jT+Kj9iwNWC/GbtDyhePyCl8z8xFj9qhmo35NGVFPtnpFI3pjWwJTdA66PqaY11NL0QRMEXBXG0OQITrTg9EUbbhmRAWfYovxBq/zwm+127qaah0UU+aOwVQ2uCKXP9hMcQ4yEzOICbNsW8LCOlcBHtrakveL01yPSA6VxV+40XN/Gst0Mt9zha3g==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
+ dkim=pass header.d=oss.nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
+ s=selector1-NXP1-onmicrosoft-com;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=dGk+Ci+6dHafZk/qw0DYFJBgdFGNxjFCjO13VuIHmSQ=;
+ b=urO6dX6CTNJucD/Fkx2cTmEht3IASt2QCR1n2Gh3q6Cru7pnA93xB8ui6kmO7PWWjXleKISlq0YJUjxaBhpX/hmmOV4rmtnL2vnockhmwiNK3WYPpSRpSSPc0cggQoPxMT+/oF9fokUEH3seVWiUNR7sP1RkT2uRmDKN0QzO7kqSzNT2EOl4GKfuN7MBDyykhMRH+DJs/0+6XVXBAlunK/IJYGsllY0Hm7hIkn/kjbW5K5ZKyMQiXm5TZ5mouOSc5vskwjF7Ig1wm/IKAaTrLsvuRvb9bO2r0vU9fFOMY4AGMQAi045nUodLj2RTnGZA4RxLDnbDiASetZzy8StKUA==
+Authentication-Results: mx.microsoft.com 1; dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=oss.nxp.com;
+Received: from GV2PR04MB11799.eurprd04.prod.outlook.com (2603:10a6:150:2cf::9)
+ by DB8PR04MB7116.eurprd04.prod.outlook.com (2603:10a6:10:127::22) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.451.24; Thu, 1 Oct
+ 2026 15:06:56 +0000
+Received: from GV2PR04MB11799.eurprd04.prod.outlook.com
+ ([fe80::2146:83a2:5329:b7c]) by GV2PR04MB11799.eurprd04.prod.outlook.com
+ ([fe80::2146:83a2:5329:b7c%7]) with mapi id 15.21.0451.022; Thu, 1 Oct 2026
+ 15:06:56 +0000
+From: Frank.Li@oss.nxp.com
+To: Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Sascha Hauer <s.hauer@pengutronix.de>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Fabio Estevam <festevam@gmail.com>,
+	Primoz Fiser <primoz.fiser@norik.com>
+Cc: Frank Li <Frank.Li@nxp.com>,
+	devicetree@vger.kernel.org,
+	imx@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	upstream@lists.phytec.de
+Subject: Re: [PATCH] ARM: dts: imx6dl-phytec-mira: Add phyBOARD-Mira-i.MX6DL with eMMC
+Date: Thu,  1 Oct 2026 11:06:49 -0400
+Message-ID: <179086720079.2224347.18121437168142320948.b4-ty@b4>
+X-Mailer: git-send-email 2.43.0
+In-Reply-To: <20260928123612.2250601-1-primoz.fiser@norik.com>
+References: <20260928123612.2250601-1-primoz.fiser@norik.com>
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 8bit
+X-ClientProxiedBy: PH8P220CA0037.NAMP220.PROD.OUTLOOK.COM
+ (2603:10b6:510:2d9::9) To GV2PR04MB11799.eurprd04.prod.outlook.com
+ (2603:10a6:150:2cf::9)
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20260917-scmi-pinctrl-generics-v2-1-3eeee364257f@oss.qualcomm.com>
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: GV2PR04MB11799:EE_|DB8PR04MB7116:EE_
+X-MS-Office365-Filtering-Correlation-Id: a1acd8f5-688f-4088-ffeb-08df1fcda278
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|19092799006|7416014|23010399003|1800799024|376014|366016|10067099003|11063799006|56012099006|22082099003|18002099003;
+X-Microsoft-Antispam-Message-Info: VzTZfETD0tkhP6UZajv9snnSF7RSdIA565rrTCUV7wmrSPHmHMbElJ/JsLa8AnavGNj6lwFf6GloyTB8eQ+YlJbAixDHIVePwIoIN+v1T/pwmI2N8ygCpBOhd0GGgjZ42SiBTh3X9+A/Rv0MQ2r6C7D8ohiwQ6j+NiX2ZMsCMRU71LYlHe/LUY51As62skfuH4+wjMRqqM72N96QbzGIU6myMaOIi01uzGBr8bn11uGydPB/6lZnUYuFOpgGHgKvPKfyz91RIeSv4ELXY4fwBzPgj4qWnJpube44fEXunx9+CCOzrfUjPrN6mKbQhbSl12Sx3IHIgliOG5aO4VD5kEDzyO7AusHaxT1Mtge8CkO8ywyDz4qRrzpjTi+Z+CIt1ZLFYK8aBCzYq/XLWoelccZAi29uKeaT1iz+bJC2pO3MQ+iBHXL4jJmVnLjeWZTqb0bt1EWAZCQMnrMDDE7UfHWMd3HPFTw3sw/5/Sy0nDTcuYNQohCdWxjVOEtsRtl13sSdxixDMceL+8IAxKivHTklg1P8g16oMjyRQZK6oJUFT5rLHWu1gJSAEMgw9lnykaYSFzkvkx+MS2GhtcOlU/XT8cYpq8QvjkMh9G+Jv9jXOVAtnrG4MlNGe/B9qr3hO7R6g9vHD4KDXHDuidt52nmsE31zo7W90/MrU1wsS04=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:GV2PR04MB11799.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(19092799006)(7416014)(23010399003)(1800799024)(376014)(366016)(10067099003)(11063799006)(56012099006)(22082099003)(18002099003);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?T01SVEtKUUxwV0p5aldzT2s4N1FrMEgxTHpNQmZZUEUyZ0Zkc01PR1FwRHAz?=
+ =?utf-8?B?UU5MbEhKODFwb1ZzOXNFdEk5MmlKSVBvQ1Q4SFhrYmQrM05oQjFwZXhNMlVX?=
+ =?utf-8?B?S0xFYzQzT2gvNWRMRkRNUzhuay9nWmhmMHFOc3gxWHlyam5rNFM0OEJFTy9H?=
+ =?utf-8?B?b3NDMWJSM0Y1cWV6U2hIY3paRG0wcDVHWWJZeStwb2Q3bU5FMTJnRzNVZm5m?=
+ =?utf-8?B?TVV4bUtsaGR5YmpSZG1FeldoMHZQSEVXOTlyb0UxWk1URSt5enN3ZHFIUVVG?=
+ =?utf-8?B?R284c3JETUFiTHVjd0Y1TTVETmZKMmdXMGNLVG1VKzl6Zms2b0NGclA1RlVq?=
+ =?utf-8?B?RXFFbTlRMVdITFdtS0JRLzRtR0dsYkg4Ykt1VVNhdmhiR2Z1K3lTdGlQL3VF?=
+ =?utf-8?B?d1lJMTJMaU5QZXpoZmxibXcrR04xYXFWRFF0Tk1pZVdsTGJhRDRROUFOLzgy?=
+ =?utf-8?B?VVFwS3FIWVIrQnZaZUFYZGlySHFXM2tRMDJpWWdyYnZneVg1VHRHdTdvVXp1?=
+ =?utf-8?B?bG0zRDJXWW90d3A1L3hiL2xBMmFnR2dlZXhKZVpLTVF0SnJ4T3NhczRXb0pW?=
+ =?utf-8?B?NFJhQmJZWFhSS0doQ3BrNml2REt0WE5uWWhhbVhwSWdxN01NMzREejhlZjZu?=
+ =?utf-8?B?VVZOdk40MDZhVTZONFI1WlQvWEpDWDNnSzBGaS9DZmJjWURNZk16Q1A0SUtP?=
+ =?utf-8?B?bytXQWJyWng4M2g2c1pzck5zU0ZYMTZ3UWZIbUZKQjNLeGhlaTdnUE1vNkhF?=
+ =?utf-8?B?TDFRQUJBZ3ExZGxmSk9jeUdNK1YxV0dyUlZrbUovL1B5NXRmWEw4aDNnNjZp?=
+ =?utf-8?B?Ri9TYlppVzZJbUNFN0lPT3d1ZVpuckNNdjNnM21rZE5xNDUxUWFnQm1zNlMz?=
+ =?utf-8?B?Q0dVNHgzRVZSdlJ0akhQenpKZGRpMFg2cjFwcXhQUDZwM3NoOUhrSERoUG1W?=
+ =?utf-8?B?UERTekpvaUl6NDNyVEN5ZVFXT1V0VDVSZjdMM3pDRXRHVTBURitCNUc4Wm1h?=
+ =?utf-8?B?VGpVd1NrWTFFdm5yZHdGMWZmZGxtSUdDbGovQkYzNW9iU1ZLTndkVCtUOHRB?=
+ =?utf-8?B?ZHlGMU9GZld1cWJ5Y0hpdTM5ejhzRCtzTlkvOStkR0N1TzZBbDVMSkFOT0lv?=
+ =?utf-8?B?YSs2S0V2TVdhZWk2TXhLN3h5R29ocFV2TmZEQU4zRktiMFNsM2tDV1Z4bmlD?=
+ =?utf-8?B?U3Z0SnZxb3dXWVJzR0lyTXFwUjQ4NVFab1NGSFFOdkJaclpEakx1MFBiOWJ4?=
+ =?utf-8?B?a3E4eDFKazZpRlROdTlsYVhOaFRhTEpCMU15SU52WXkyL0tWNXRmNzQ4TU1n?=
+ =?utf-8?B?Vm5DV3MrYXF5MGJLdmgzVkdFWGpQTTh4Rkw4VXR2MVNlN282eEVoRFcvZ1o5?=
+ =?utf-8?B?aEQwbGhUeEszYm5ZMWVWK3piZTRQdmR1TVZPQnV0bEhPK1pPeHlieEpML1pB?=
+ =?utf-8?B?ek42NHQvZXZEM3kwa0s1b09FemhOb3BiZDAxaFNyb2ZSM0tibzlML24zL0hS?=
+ =?utf-8?B?NERsYldSc2RxZm92QjJCTFFGQ1hrSFRTcCtUS0pVSTFxVmpUMVZ4TWRMa1cy?=
+ =?utf-8?B?N2VNQTVSZjR1SDFYNHVpZHBMZUN4MUdySnd2dmM0L09hREtneTRTZ05pbmZQ?=
+ =?utf-8?B?K0FrM3VGbGkrQUpyQUVBZEpwT2t1NzNOMVFQUS9JL0VFRkhvSEUyTG5GUnVL?=
+ =?utf-8?B?NmpZRVEwdjhwM0M3QUw3OW05a1YxOGRCQldLemRsTis3ODJaYmp1bktqNjF4?=
+ =?utf-8?B?Y2pSOWVocW8vOS9LQWJWaWllOUx1bWJKK014WjhnVEZhbEV4Q3o2djdYRVVz?=
+ =?utf-8?B?QzdLZXFEdG5UeFVNL256UStXQ1JyWmp3NVl4V3dMaVpLNzd1QkdvTG9VeWl5?=
+ =?utf-8?B?TkE3R3ZpMnprcmkzWS9rRkFJZVFXRjZ0SjNkU3VIanJFcEc0R1ZZeDFlSm5C?=
+ =?utf-8?B?c3lSQnpmUHcrUWM1RkRYN01rU05YQlhwb3JtcnZpbmtXLzk0NkRvQVFVMGVm?=
+ =?utf-8?B?b1FyV3hYaUlDMStFNTVLc2dsRXhlZGp6dGdBSUNuSnBWNEMxY3VIazFQd21i?=
+ =?utf-8?B?ZGZlMS9NKzI2MnBHY1NZK0Z2RFNiZ1RCVEVidTcyMmduRTArdmx3MTcxNHpk?=
+ =?utf-8?B?TWpqdnB1UzA0cEkySS9XLzZaQ1l3b3NrQysrTmcvVDQwL0dVbG5Nbjh1alMw?=
+ =?utf-8?B?a3l0UHk0UVZDWUlQRmkvbEhoWmV0N1krdVBNbnNGSTZiYjRoMEd2aWs2b3FI?=
+ =?utf-8?B?Mi9Mc1E1anFINlZINW9nYWFxUGU5R2p2SmZmWkJyS2s1MzlOVmFHS1UvNFdm?=
+ =?utf-8?B?YXZ6cWRlZndzL0JVRlB5Yko1RkpLcWJjM1BvNGJBbWI1aXhKRHpNY1A0NDdl?=
+ =?utf-8?Q?5nIRezi4WPGACcI/Lcxt+bmPF0CYCwssNpYhy?=
+X-OriginatorOrg: oss.nxp.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: a1acd8f5-688f-4088-ffeb-08df1fcda278
+X-MS-Exchange-CrossTenant-AuthSource: GV2PR04MB11799.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 01 Oct 2026 15:06:56.6828
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: HjYrM0HG8vW3cIUlnuygOjxzCArJ4+f+t3Yc71P5vXew25qpNdR1PDYnbVJ1R2XoV4HecEa/IWBUIu6ZbDp2XE3lLb98CYCPDGDfTPOtf57Ao+vN/YZxr9nl//5nBC6p
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: DB8PR04MB7116
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20261001_080702_171084_002FC4F3 
+X-CRM114-Status: UNSURE (   8.97  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -73,199 +157,21 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Sep 17, 2026 at 03:55:55PM -0700, Alex Tran wrote:
-> During probe, populate the pinctrl device with function info
-> so that the generic callbacks can be used to fetch function
-> count, name, and groups. Remove locally stored functions
-> since caching them in this driver is no longer needed.
-> 
-> Signed-off-by: Alex Tran <alex.tran@oss.qualcomm.com>
-> ---
->  drivers/pinctrl/pinctrl-scmi.c | 151 +++++++++++++++++------------------------
->  1 file changed, 61 insertions(+), 90 deletions(-)
-> 
-> diff --git a/drivers/pinctrl/pinctrl-scmi.c b/drivers/pinctrl/pinctrl-scmi.c
-> index 1bb36ca477b7..1d85a16f300d 100644
-> --- a/drivers/pinctrl/pinctrl-scmi.c
-> +++ b/drivers/pinctrl/pinctrl-scmi.c
-> @@ -24,6 +24,7 @@
->  #include "pinctrl-utils.h"
->  #include "core.h"
->  #include "pinconf.h"
-> +#include "pinmux.h"
->  
->  #define DRV_NAME "scmi-pinctrl"
->  
-> @@ -37,8 +38,6 @@ struct scmi_pinctrl {
->  	struct scmi_protocol_handle *ph;
->  	struct pinctrl_dev *pctldev;
->  	struct pinctrl_desc pctl_desc;
-> -	struct pinfunction *functions;
-> -	unsigned int nr_functions;
->  };
->  
->  static int pinctrl_scmi_get_groups_count(struct pinctrl_dev *pctldev)
-> @@ -84,86 +83,6 @@ static const struct pinctrl_ops pinctrl_scmi_pinctrl_ops = {
->  #endif
->  };
->  
-> -static int pinctrl_scmi_get_functions_count(struct pinctrl_dev *pctldev)
-> -{
-> -	struct scmi_pinctrl *pmx = pinctrl_dev_get_drvdata(pctldev);
-> -
-> -	return pinctrl_ops->count_get(pmx->ph, FUNCTION_TYPE);
-> -}
-> -
-> -static const char *pinctrl_scmi_get_function_name(struct pinctrl_dev *pctldev,
-> -						  unsigned int selector)
-> -{
-> -	int ret;
-> -	const char *name;
-> -	struct scmi_pinctrl *pmx = pinctrl_dev_get_drvdata(pctldev);
-> -
-> -	ret = pinctrl_ops->name_get(pmx->ph, selector, FUNCTION_TYPE, &name);
-> -	if (ret) {
-> -		dev_err(pmx->dev, "get name failed with err %d", ret);
-> -		return NULL;
-> -	}
-> -
-> -	return name;
-> -}
-> -
-> -static int pinctrl_scmi_get_function_groups(struct pinctrl_dev *pctldev,
-> -					    unsigned int selector,
-> -					    const char * const **p_groups,
-> -					    unsigned int * const p_num_groups)
-> -{
-> -	struct pinfunction *func;
-> -	const unsigned int *group_ids;
-> -	unsigned int num_groups;
-> -	const char **groups;
-> -	int ret, i;
-> -	struct scmi_pinctrl *pmx = pinctrl_dev_get_drvdata(pctldev);
-> -
-> -	if (!p_groups || !p_num_groups)
-> -		return -EINVAL;
-> -
-> -	if (selector >= pmx->nr_functions)
-> -		return -EINVAL;
-> -
-> -	func = &pmx->functions[selector];
-> -	if (func->ngroups)
-> -		goto done;
-> -
-> -	ret = pinctrl_ops->function_groups_get(pmx->ph, selector, &num_groups,
-> -					       &group_ids);
-> -	if (ret) {
-> -		dev_err(pmx->dev, "Unable to get function groups, err %d", ret);
-> -		return ret;
-> -	}
-> -	if (!num_groups)
-> -		return -EINVAL;
-> -
-> -	groups = kcalloc(num_groups, sizeof(*groups), GFP_KERNEL);
-> -	if (!groups)
-> -		return -ENOMEM;
-> -
-> -	for (i = 0; i < num_groups; i++) {
-> -		groups[i] = pinctrl_scmi_get_group_name(pctldev, group_ids[i]);
-> -		if (!groups[i]) {
-> -			ret = -EINVAL;
-> -			goto err_free;
-> -		}
-> -	}
-> -
-> -	func->ngroups = num_groups;
-> -	func->groups = groups;
-> -done:
-> -	*p_groups = func->groups;
-> -	*p_num_groups = func->ngroups;
-> -
-> -	return 0;
-> -
-> -err_free:
-> -	kfree(groups);
-> -
-> -	return ret;
-> -}
-> -
->  static int pinctrl_scmi_func_set_mux(struct pinctrl_dev *pctldev,
->  				     unsigned int selector, unsigned int group)
->  {
-> @@ -190,9 +109,9 @@ static int pinctrl_scmi_free(struct pinctrl_dev *pctldev, unsigned int offset)
->  static const struct pinmux_ops pinctrl_scmi_pinmux_ops = {
->  	.request = pinctrl_scmi_request,
->  	.free = pinctrl_scmi_free,
-> -	.get_functions_count = pinctrl_scmi_get_functions_count,
-> -	.get_function_name = pinctrl_scmi_get_function_name,
-> -	.get_function_groups = pinctrl_scmi_get_function_groups,
-> +	.get_functions_count = pinmux_generic_get_function_count,
-> +	.get_function_name = pinmux_generic_get_function_name,
-> +	.get_function_groups = pinmux_generic_get_function_groups,
->  	.set_mux = pinctrl_scmi_func_set_mux,
->  };
->  
-> @@ -487,6 +406,60 @@ static const struct pinconf_ops pinctrl_scmi_pinconf_ops = {
->  	.pin_config_config_dbg_show = pinconf_generic_dump_config,
->  };
->  
-> +static int pinctrl_scmi_get_functions(struct scmi_pinctrl *pmx)
-> +{
-> +	unsigned int nr_funcs, nr_groups, i, j;
-> +	const unsigned int *group_ids;
-> +	const char *fname;
-> +	const char **gnames;
-> +	int ret;
-> +
-> +	nr_funcs = pinctrl_ops->count_get(pmx->ph, FUNCTION_TYPE);
-> +
-> +	for (i = 0; i < nr_funcs; i++) {
-> +		ret = pinctrl_ops->name_get(pmx->ph, i, FUNCTION_TYPE,
-> +					    &fname);
-> +		if (ret)
-> +			return ret;
-> +
-> +		ret = pinctrl_ops->function_groups_get(pmx->ph, i,
-> +						       &nr_groups,
-> +						       &group_ids);
-> +		if (ret)
-> +			return ret;
-> +
-> +		if (!nr_groups)
-> +			dev_warn(pmx->dev,
-> +				 "Function %s contains no groups\n",
-> +				 fname);
-> +
-> +		gnames = devm_kmalloc_array(pmx->dev, nr_groups,
-> +					    sizeof(*gnames), GFP_KERNEL);
-> +		if (!gnames)
-> +			return -ENOMEM;
-> +
-> +		for (j = 0; j < nr_groups; j++) {
-> +			ret = pinctrl_ops->name_get(pmx->ph, group_ids[j],
-> +						    GROUP_TYPE, &gnames[j]);
-> +			if (ret)
-> +				return ret;
-> +		}
-> +
-> +		ret = pinmux_generic_add_function(pmx->pctldev, fname, gnames,
-> +				  nr_groups, NULL);
-> +		if (ret < 0)
-> +			return ret;
+From: Frank Li <Frank.Li@nxp.com>
 
-Since this will fail the probe, don't we have to pinmux_generic_remove_function()
-for all the added functions ? I don't know if devm_* takes care of it, just
-thought I have check as I don't have much deeper knowledge of pinctl
-sub-system.
 
-If the above cleanup is needed, with that added, else w/o it:
+On Mon, 28 Sep 2026 14:36:12 +0200, Primoz Fiser wrote:
+> Add device-tree for PHYTEC phyBOARD-Mira-i.MX6 DL board with eMMC. The
+> variant with NAND storage is already present in-tree. Now let's add the
+> eMMC variant for which the compatible string "imx6dl-pbac06-emmc"
+> already exists too but was not used until now.
 
-Acked-by: Sudeep Holla <sudeep.holla@kernel.org>
+Applied, thanks!
 
-It is a nice cleanup to avoid unnecessary duplication and move to reuse of
-functionality provided already by the core pinctl.
+[1/1] ARM: dts: imx6dl-phytec-mira: Add phyBOARD-Mira-i.MX6DL with eMMC
+      commit: ec7b37c768d34107d06bd629d05cde0e2218ee9a
 
+Best regards,
 -- 
-Regards,
-Sudeep
+Frank Li <Frank.Li@nxp.com>
 
