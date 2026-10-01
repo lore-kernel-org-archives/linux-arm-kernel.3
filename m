@@ -4,119 +4,98 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1B036CA5FCE
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  1 Oct 2026 08:31:31 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C859DCA5FB3
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  1 Oct 2026 08:32:18 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:References:From:
+	To:Cc:Subject:Message-Id:Date:Content-Type:Content-Transfer-Encoding:
+	Mime-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=EU0sYZ/FO/mx2+yJVtb2c4Or0T6adefpzzLzs+MHc/0=; b=v9FTO1W/RpfQFyjgvspJzuB3ZY
-	EsNClPBn/7wn4Du7rMyQTa6NiaygvZLBzFOTycPeGcLEKNRBI3AcbsYo4Keg7iJYCIkyMwqneXxbj
-	FCNhup5Q/4cpsN9e4CBnkTgAsPz1u7Z18wgKGadyhRIqnzDEU59dEXR0xNRWPGL7PqmxHS9+ejbS/
-	eCklXDBN+yijCYqgP7kbe0fnemllwGOIiNGPZsTlEeoPro44OLE1r/CfXufdSGIZzugjyCZyYnnH8
-	PNWXlL4URfIr3ec2h95FKJLw/k5b2hRl72ygMHflW+QNjiAaXpcpogbNcEVNN8TtDZC+zwlSSDIhW
-	pICzdGIQ==;
+	bh=RiIDTpci/0UJ3NCrt48cxrs7UcRvkm9TcGYKchYj198=; b=FZQ4/HOJN5NfWKF4GJE7sqUkIA
+	lSiCZ+h/gAKrsEZbmI0ka1ZBOXxuXtTK6u6SpcEs6BJv12KUXoNAtqKQeoXPjuA23O/jt+6Jw2cyx
+	KV8No6JdNxSLi+mgYYs750CfGlJh5GX4QagImT3FbhvnYNKooc/m2KtFQITG9Wh6RxYkIunTLX/NC
+	A9xFldPu1VMvwpo03e+oTQdVJbAR587xhSNggoApi1BLUzWGrlSumkDf+eaCs3k1SJsQeicazQCvm
+	QD4zBrry/xoljVkPqmzcbBpOx6nlC4SpMXYqDyGphabwqbN5EnYDYh3Wt6ZVFq9JnA3SlJU62IFbj
+	MIMDEQ5g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xCCCL-00000008Asx-1VHu;
-	Thu, 01 Oct 2026 08:31:25 +0000
-Received: from mail-vs2-f36.google.com ([74.125.227.36])
+	id 1xCCD6-00000008B5C-2Hkc;
+	Thu, 01 Oct 2026 08:32:12 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xCCCJ-00000008ArZ-1zhZ
+	id 1xCCD6-00000008B4y-0kiL
+	for linux-arm-kernel@bombadil.infradead.org;
+	Thu, 01 Oct 2026 08:32:12 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=In-Reply-To:References:From:To:Cc:
+	Subject:Message-Id:Date:Content-Type:Content-Transfer-Encoding:Mime-Version:
+	Sender:Reply-To:Content-ID:Content-Description;
+	bh=RiIDTpci/0UJ3NCrt48cxrs7UcRvkm9TcGYKchYj198=; b=Jb/WAXflUunMgjBmdgWcQe9rx6
+	UJA/T8RcV1UamJAwgatcjK/GjHzTZkeSNbld0+axR/CmsjiAAXOQxVWyJrwK2YjAOk1YaxTF/JUDx
+	wOlrPevXm++uQ82txFcesa9+dv8qPiETacDCKGjp4x13NS56UJrDQGXm/+eRra6EqBMazC9AJtUyT
+	xufYBy+WeGP4jmKMiyJ2whDXIKwPbyfbwrALheOowiwe5cDAPNSzrgk4Y1LYS0cycT9xe7RKIR3oJ
+	hsWsOFZ2Ir6ScBsa3B+jtGEmLPRBS+6MMCbON+02j1NhVuqRFGd92wF9SSvUugf09WM1IRTBOg7Gr
+	JY/8Wjrw==;
+Received: from smtpout-02.galae.net ([185.246.84.56])
+	by desiato.infradead.org with esmtps (Exim 4.99.2 #2 (Red Hat Linux))
+	id 1xCCCl-00000004jsG-18ev
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 01 Oct 2026 08:31:24 +0000
-Received: by mail-vs2-f36.google.com with SMTP id ada2fe7eead31-7ba698eb7cfso995942137.1
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 01 Oct 2026 01:31:22 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1790843481; cv=none;
-        d=google.com; s=arc-20260327;
-        b=OO4MShhn5ilNAU/qOCZrrO3qDUGzXbcrILt0CD9Wv+dQv7qEmHYlg4t3zacAr2gRqD
-         /E6czXQpkyccGqYdLjCJ0KZXlw1kZrJ8fsOwpXegiudVpp8wJPbsN/bWtkxZ+DdmX7Vz
-         d2yT3WeBv2Dy6d/BqUbP068jATs+sICi0eB55wI9SAtP1SyvtPQi0TEnhGNiS+qe+1ji
-         d9Pwu8z8o1T+0QpIc2PvwimU6V0PRFu9UhU4C+6Fg59GD+57z2CHZ75kPzwlu4csT9uB
-         HEVQryxsgA8cQzavdjeCSDs9abcv3cHWsJDS2wITwhpWf1o1c2Ff1lHJ0zd6ieOokUn1
-         hXYA==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:dkim-signature;
-        bh=EU0sYZ/FO/mx2+yJVtb2c4Or0T6adefpzzLzs+MHc/0=;
-        fh=zmsJ06Aiu8uF4gAuT70+TPM9HfRF1Moc7IgQ4U3G5so=;
-        b=JtbNsChfdpjxI3EYpVX75Yr3a2R7vIrn0WLekLtANmYZzTVRqz9ZImGd84JWjCFV+t
-         Yse0QbOXLsBh4m0cYwyhxRWiz/7vts48iN+T8ZcFuxZX2nkjUyOxCLt/2xcmlMmMQBH2
-         JBXEe668wrpoltopCAkdmsFS2kSgoXIyOzDymoRPKM62sBY7z5Oe2BP33dSnbcsK3DSY
-         1xdfgTCKj3DBqY6KhdHPhPtzoaorW7g1rzMIb8ga7YF5aOeJhGHe5m6mQ+GU/r8nUAax
-         v/zBGvp6h7mpSwbStyfermyOrBGqZ34UY9ikKzKPo74bKgBsNDcuCJz53WyWqXuLz2ym
-         wKhw==;
-        darn=lists.infradead.org
-ARC-Authentication-Results: i=1; mx.google.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1790843481; x=1791448281; darn=lists.infradead.org;
-        h=content-transfer-encoding:content-type:cc:to:subject:message-id
-         :date:from:in-reply-to:references:mime-version:from:to:cc:subject
-         :date:message-id:reply-to:content-type;
-        bh=EU0sYZ/FO/mx2+yJVtb2c4Or0T6adefpzzLzs+MHc/0=;
-        b=Y7jSPw5xXCzFl2N45znrE7q2rdgHlzJrPZRXw5HuUK9EHD1lCrqX2yMjr3k8oybCLN
-         twgEXkJmEXrUFZdkhq/GtfsCEl5IUem9AjtReBY2KHgTF/d++YHQxUxF9CvxzccPiEuZ
-         G5X0hi5U3Pg2jLvIiJ3+PrJApzFTwqi/ZmTomonEHJoVorGbdwOr924p7Sr+q8Vss1BV
-         GoUZUJf6Q/z/gG1p6Fgj+b+/ViiQYQ8YD0LfQkTAIcv972XiWrebRqYBthtM0MkMz3TI
-         RByry4+mhOGbRiWrvM3aT4D/mYQQldfA0IBS5DNFEWzCyqZPsjyOAeYRYbUS58rM5A3e
-         xBJg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1790843481; x=1791448281;
-        h=content-transfer-encoding:content-type:cc:to:subject:message-id
-         :date:from:in-reply-to:references:mime-version:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=EU0sYZ/FO/mx2+yJVtb2c4Or0T6adefpzzLzs+MHc/0=;
-        b=otv0cr6qckrWocDW73Yurc2lm+1Fsmo0t4ZTNVctFZ0RDFe1lLMOR3q0qS+5ZXe5ek
-         +USeMj/juMw1MA/vgDSrqCSgqwu7kDrMKUB8JPubYCTpHb4LYx1m0ZxwW6DI4RJBttgG
-         CzP+htcVr+mBl6Sg4/0+AMrVB20sGZy4dPXowwfbbu4dEn6+xTSt4VAqifR/faUEOWPh
-         WOm/AGY1RRI198rz7GpdjmojpUTiuwqA2wFLElSaikrmHPjsNOr6b03uKXvVgYecNVLW
-         kCZ0y7qM8gbNtPUhTFoLGSRYYZaYEb5U1NMzTSSaP1KuGbAj5uw2fZDHiqklMV7cdcTr
-         CH+A==
-X-Forwarded-Encrypted: i=1; AKwUvByTqYNWJ2eKs6b1pRwa/ujsv+qXDyuwqrXLK0or7P1/7rJ+gqFfDFGO343EHhCX3nryK7mRYIkwxNRDG6gfvaiJ@lists.infradead.org
-X-Gm-Message-State: AFq9FYLWm7UXaWHlGoj/IfNpoSWTFNgSVGAqKN94OPbdyiVNisw7Hgoa
-	jnZovRFkvf9Bi+VP0q2Pj67t+x/YU1TFUib789ZEFEPzL1ZzPrTFtQtxdpif0A2uaa8yMbqf0Am
-	LiSB/7cvPi+2ue9erQRye/qZ3jHYRcE4=
-X-Gm-Gg: AYBFou0JRUdWGCH8nR+rId3M4phuU3u3dr5TgSLgCqKYuZVGgiIR0PTel6SH3Ef6SI2
-	+bJFERjCrtZi6m8wi6Ru7i8SoOWVu5kVjCjZ+n1fsKc/yzrYVY1XBuKZyOmXToRKE6AXl3bLjf/
-	gLEDO9MN5LrZNXbznPdoeD8zUlXkL6rLsCVw5i/zTwdI08c5Oa6imwFaXwW5uMGW3M9u03QFplb
-	Kap+80NfsLhw0zFnwLHQDqx0b8oBBsvBhouFylRSY2rDPrQFH06jABPMlmIZAsrcbJ9+e/UK0Do
-	7tdgawHGjzKP+6bxTfNvfTt9W0nyPwd2WGSmO+KIYwosb6F5FB6XpRlHmz31fvD+cvOFIYF7XKt
-	MX1PtQ0hs0tbP7Wcjylosj/PLpUvEvwPF5SbLQblxr2HQc+uzObshHt+6u/N0r6eITWmR2Ck6KB
-	UZpRs6wVz9I2kxTHNXzPV2m5mK0sx/kebzmYvcEL/o4pjp
-X-Received: by 2002:a05:6102:3fa3:b0:7a7:198a:c2bf with SMTP id
- ada2fe7eead31-7be735975ffmr902214137.29.1790843481357; Thu, 01 Oct 2026
- 01:31:21 -0700 (PDT)
-MIME-Version: 1.0
-References: <20260930-stmmac-est-reapply-after-open-v4-0-9d4366587b73@gmail.com>
- <ar4QgHsclh1vWVHk@lore-desk>
-In-Reply-To: <ar4QgHsclh1vWVHk@lore-desk>
-From: James Hilliard <james.hilliard1@gmail.com>
-Date: Thu, 1 Oct 2026 02:31:10 -0600
-X-Gm-Features: AclHuK_sh2_y0gAgCI9ChdR_dvfCKXwH4PgjB21fl6342cXclcDVA9-LiyvPKRI
-Message-ID: <CADvTj4rxCuL-BNq1P3KW=1m==0PDMvn7j1=J4WW1yZLJfw5DNw@mail.gmail.com>
-Subject: Re: [PATCH net-next v4 0/4] net: stmmac: preserve and restore the
- installed EST schedule
-To: Lorenzo Bianconi <lorenzo.bianconi@oss.qualcomm.com>
-Cc: netdev@vger.kernel.org, Paolo Abeni <pabeni@redhat.com>, 
-	Jakub Kicinski <kuba@kernel.org>, Andrew Lunn <andrew+netdev@lunn.ch>, 
-	Alexei Starovoitov <ast@kernel.org>, Daniel Borkmann <daniel@iogearbox.net>, 
-	Jesper Dangaard Brouer <hawk@kernel.org>, John Fastabend <john.fastabend@gmail.com>, 
-	Stanislav Fomichev <sdf@fomichev.me>, Jose Abreu <Jose.Abreu@synopsys.com>, 
-	Russell King <linux@armlinux.org.uk>, Eric Dumazet <edumazet@google.com>, 
-	"David S. Miller" <davem@davemloft.net>, Maxime Coquelin <mcoquelin.stm32@gmail.com>, 
-	Alexandre Torgue <alexandre.torgue@foss.st.com>, Serge Semin <fancer.lancer@gmail.com>, 
-	Simon Horman <horms@kernel.org>, Maxime Chevallier <maxime.chevallier@bootlin.com>, 
-	Richard Cochran <richardcochran@gmail.com>, linux-stm32@st-md-mailman.stormreply.com, 
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
-	bpf@vger.kernel.org, Rayagond Kokatanur <rayagond@vayavyalabs.com>
-Content-Type: text/plain; charset="UTF-8"
+	Thu, 01 Oct 2026 08:32:07 +0000
+Received: from smtpout-01.galae.net (smtpout-01.galae.net [212.83.139.233])
+	by smtpout-02.galae.net (Postfix) with ESMTPS id B50A01A109B;
+	Thu,  1 Oct 2026 08:31:48 +0000 (UTC)
+Received: from mail.galae.net (mail.galae.net [212.83.136.155])
+	by smtpout-01.galae.net (Postfix) with ESMTPS id 81B8260341;
+	Thu,  1 Oct 2026 08:31:48 +0000 (UTC)
+Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 5F0F4103290C1;
+	Thu,  1 Oct 2026 10:31:38 +0200 (CEST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=dkim;
+	t=1790843506; h=from:subject:date:message-id:to:cc:mime-version:content-type:
+	 content-transfer-encoding:in-reply-to:references;
+	bh=RiIDTpci/0UJ3NCrt48cxrs7UcRvkm9TcGYKchYj198=;
+	b=sagW3Htt5YQwsJod0ppAZZLVo/HIbh2Wh1p3vMtfEqB4XzuMaoD5AyK9Xuqhjsglex+M6K
+	d6GboCZyFgqJlMZx/6YAQ/YGbVbRnzF/QRgBYMIxDkxucLFdgQTFK7kiSTyH2OcmiZydOt
+	cccMEa+DX6efu2rnGF1NSYK75PUxwZe91djO9sMyVvwWqi1k3ZSaKvhvSSfS4AyzCGrV8Z
+	lzPuYHAJ/x6OL2dxv2lcoAoKWQvoySk7ekWG2AyInjDdfcaHesnl6/y18kaAcliFte1w5R
+	U/SEZR0ZuELcN7FNSCQ3LXdMRk/6JwXjyWiJuEMWoEEcGGJtD4zg1voBIxS/MA==
+Mime-Version: 1.0
 Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset=UTF-8
+Date: Thu, 01 Oct 2026 10:31:37 +0200
+Message-Id: <DLTD1D4TV8ZX.2PNM1B670T8UK@bootlin.com>
+Subject: Re: [PATCH v2 5/7] drm/vc4: dpi: stop using deprecated
+ drmm_of_get_bridge()
+Cc: "Arnd Bergmann" <arnd@kernel.org>, "Doug Anderson"
+ <dianders@chromium.org>, "Hui Pu" <Hui.Pu@gehealthcare.com>, "Ian Ray"
+ <ian.ray@gehealthcare.com>, "Thomas Petazzoni"
+ <thomas.petazzoni@bootlin.com>, <dri-devel@lists.freedesktop.org>,
+ <imx@lists.linux.dev>, <linux-arm-kernel@lists.infradead.org>,
+ <linux-kernel@vger.kernel.org>, <linux-renesas-soc@vger.kernel.org>
+To: "Paul Cercueil" <paul.cercueil@bootlin.com>, "Luca Ceresoli"
+ <luca.ceresoli@bootlin.com>, "Maarten Lankhorst"
+ <maarten.lankhorst@linux.intel.com>, "Maxime Ripard" <mripard@kernel.org>,
+ "Thomas Zimmermann" <tzimmermann@suse.de>, "David Airlie"
+ <airlied@gmail.com>, "Simona Vetter" <simona@ffwll.ch>, "Frank Li"
+ <Frank.Li@nxp.com>, "Sascha Hauer" <s.hauer@pengutronix.de>, "Pengutronix
+ Kernel Team" <kernel@pengutronix.de>, "Fabio Estevam" <festevam@gmail.com>,
+ "Icenowy Zheng" <zhengxingda@iscas.ac.cn>, "Andrzej Hajda"
+ <andrzej.hajda@intel.com>, "Neil Armstrong" <neil.armstrong@linaro.org>,
+ "Robert Foss" <rfoss@kernel.org>, "Laurent Pinchart"
+ <Laurent.pinchart@ideasonboard.com>, "Jonas Karlman" <jonas@kwiboo.se>,
+ "Jernej Skrabec" <jernej.skrabec@gmail.com>, "Dave Stevenson"
+ <dave.stevenson@raspberrypi.com>, =?utf-8?q?Ma=C3=ADra_Canal?=
+ <mcanal@igalia.com>, "Raspberry Pi Kernel Maintenance"
+ <kernel-list@raspberrypi.com>, "Geert Uytterhoeven"
+ <geert+renesas@glider.be>
+From: "Luca Ceresoli" <luca.ceresoli@bootlin.com>
+X-Mailer: aerc 0.22.0
+References: <20260929-drm-fix-of_get_bridge-build-regression-v2-0-6da431d8f180@bootlin.com> <20260929-drm-fix-of_get_bridge-build-regression-v2-5-6da431d8f180@bootlin.com> <accaa9f4ad05ef73071e5cfb5368fcbdd394d3ab.camel@bootlin.com>
+In-Reply-To: <accaa9f4ad05ef73071e5cfb5368fcbdd394d3ab.camel@bootlin.com>
+X-Last-TLS-Session-Version: TLSv1.3
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261001_013123_571235_C1AE0F3C 
-X-CRM114-Status: GOOD (  35.52  )
+X-CRM114-CacheID: sfid-20261001_093152_039609_84E5C8D9 
+X-CRM114-Status: GOOD (  15.60  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -131,173 +110,46 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Oct 1, 2026 at 1:49=E2=80=AFAM Lorenzo Bianconi
-<lorenzo.bianconi@oss.qualcomm.com> wrote:
+Hi Paul,
+
+On Thu Oct 1, 2026 at 10:22 AM CEST, Paul Cercueil wrote:
+
+>> -/* Sets up the next link in the display chain, whether it's a panel or
+>> - * a bridge.
+>> - */
 >
-> > Continue Lorenzo Bianconi's EST replay series with v4 of the unmerged w=
-ork:
-> > https://lore.kernel.org/r/20260902-stmmac-est-reapply-after-open-v3-0-e=
-72a6df5a7ef@oss.qualcomm.com
+> The first part of the comment is not wrong, I would keep "Sets up the nex=
+t link
+> in the display chain".
+
+OK, I will do it in v3. This patch is not a fix, so not urgent.
+
+>> =C2=A0static int vc4_dpi_init_bridge(struct vc4_dpi *dpi)
+>> =C2=A0{
+>> -	struct drm_device *drm =3D dpi->encoder.base.dev;
+>> =C2=A0	struct device *dev =3D &dpi->pdev->dev;
+>> -	struct drm_bridge *bridge;
+>>
+>> -	bridge =3D drmm_of_get_bridge(drm, dev->of_node, 0, 0);
+>> +	struct drm_bridge *bridge __free(drm_bridge_put) =3D
+>> +		of_drm_get_bridge_by_endpoint(dev->of_node, 0, 0);
+>> =C2=A0	if (IS_ERR(bridge)) {
+>> =C2=A0		/* If nothing was connected in the DT, that's not an
+>> =C2=A0		 * error.
 >
-> Hi James,
->
-> My plan is to continue working on this series (the code is available in [=
-0]),
+> It could make sense to go the extra mile and just move that code back int=
+o the
+> caller function, I don't see much benefit in having it in a static functi=
+on
+> here.
 
-I compared your b4/stmmac-est-reapply-after-open branch at
-e7a2792034e0 with the EST v4 I posted. The first two patches
-(embedding the EST state and passing an explicit enable argument)
-are equivalent apart from the additional sign-off.
+Why not. If no one objects I'll do it as an additional patch in v3.
 
-The substantive differences are:
+Cheers,
+Luca
 
-1. Preserving the installed schedule on replacement failure
-
-Both versions validate the gate list before modifying the installed
-schedule, so both preserve it when an entry fails validation.
-
-Your version then overwrites priv->est before programming hardware.
-If EST programming or preemption mapping fails, it disables EST.
-However, TAPRIO keeps its previous schedule when the driver rejects
-the replacement, leaving the driver and qdisc with different state.
-
-My version builds the complete replacement in a separate object and
-publishes it only after programming and preemption mapping succeed.
-On failure, it retains the old configuration and attempts to restore
-it, advancing the old base time by whole cycles against the current
-PHC time.
-
-2. Restoring EST before starting DMA
-
-Your version starts DMA inside stmmac_hw_setup(), before PTP setup
-and EST replay.
-
-Mine moves DMA startup into the open and resume paths, after those
-steps succeed. This keeps DMA stopped if EST restoration fails. I
-wouldn't claim the earlier ordering necessarily transmits an ungated
-packet, but the later startup gives us a stronger initialization
-invariant.
-
-3. Serializing EST across a PHC time adjustment
-
-Your adjtime path releases est_lock between disabling EST and
-adjusting the clock, then reacquires it for replay. It also ignores
-the disable, clock-adjustment and replay errors.
-
-Mine holds est_lock across that entire sequence, so a concurrent
-TAPRIO operation cannot replace or destroy the schedule partway
-through it. It checks the errors and attempts replay even after a
-failed clock adjustment, while preserving the first error.
-
-4. PTP prerequisite version
-
-My series uses the newer PTP error-propagation fix already merged
-as 8181678a92f0. Your branch carries an earlier version below the EST
-series. The merged version also tracks PTP enablement and handles
-platforms without a configured PTP clock rate. This is your newer
-upstream work, rather than an additional change in my EST patches.
-
-One limitation of my version is that rollback remains best-effort:
-if restoring the old schedule also fails, it logs the failure but
-retains the old software configuration. Hardware can therefore
-still differ from the cache. Neither version guarantees recovery
-from that double failure.
-
-I'd suggest retaining the candidate-schedule handling, later DMA
-startup and adjtime serialization when consolidating the series.
-
-> I am just waiting other patches to be merged upstream before reposting in=
- order
-> to avoid any conflict. I guess it is correct to publicly ask before posti=
-ng
-> other people patches.
-
-I guess I had assumed since it had been nearly a month since your
-last series that you just hadn't gotten around to spinning a new one
-and figured if you were still working on it then my changes might be
-helpful either way since I had reworked a few things while working
-on a series depends on these changes.
-
-Feel free to take back over and incorporate my changes into your
-next revision if/as appropriate.
-
-> Moreover, this is thecnically a fix so this seires should targed net tree=
-.
-
-I think the fixes you may have been waiting on are in net-next, which
-is the reason I did not target the net tree.
-
->
-> Regards,
-> Lorenzo
->
-> [0] https://github.com/LorenzoBianconi/net-next/tree/b4/stmmac-est-reappl=
-y-after-open
->
-> >
-> > The PTP initialization fix from that series is already in the base.
-> > Carry the remaining embedded-state and explicit-enable preparations,
-> > and restore the installed schedule after open and resume reset.
-> >
-> > Build TAPRIO replacements separately so rejected updates cannot
-> > corrupt the installed schedule. Rebase the previous schedule against
-> > the current PHC when rolling back a failed hardware update, and keep
-> > DMA stopped until replay succeeds. These changes do not depend on
-> > the later datapath recovery series.
-> >
-> > Changes in v4:
-> > - Omit the merged PTP initialization patch and adapt the remaining
-> >   changes to probe-time PTP locking and current TAPRIO error handling.
-> > - Separate schedule validation/rollback from open and resume replay.
-> > - Reuse the base-time helper for replacement, PHC adjustment and
-> >   rollback; propagate errors while preserving the installed cache.
-> > - Start DMA only after the installed schedule has been restored.
-> > - Link to v3: https://lore.kernel.org/r/20260902-stmmac-est-reapply-aft=
-er-open-v3-0-e72a6df5a7ef@oss.qualcomm.com
-> >
-> > Changes in v3:
-> > - Guard priv->est.enable update using est_lock mutex.
-> > - Embed stmmac_est in stmmac_priv struct.
-> > - Rework locking in tc_taprio_configure().
-> > - Fix possible divided by zero crash in tc_taprio_configure().
-> > - Add missing reconfiguration during stmmac_resume().
-> > - Honor ptp error code in __stmmac_open() and stmmac_resume().
-> > - Link to v2: https://lore.kernel.org/r/20260829-stmmac-est-reapply-aft=
-er-open-v2-1-5e5ccb185e92@oss.qualcomm.com
-> >
-> > Changes in v2:
-> > - Rename stmmac_est_reconfigure() in stmmac_setup_est().
-> > - Rely on stmmac_setup_est() in tc_taprio_configure().
-> > - Link to v1: https://lore.kernel.org/r/20260825-stmmac-est-reapply-aft=
-er-open-v1-1-dfa80735e0a1@oss.qualcomm.com
-> >
-> > Assisted-by: Codex:gpt-6-astra
-> > Signed-off-by: James Hilliard <james.hilliard1@gmail.com>
-> >
-> > ---
-> > James Hilliard (1):
-> >       net: stmmac: preserve the installed EST schedule on errors
-> >
-> > Lorenzo Bianconi (3):
-> >       net: stmmac: embed struct stmmac_est in stmmac_priv struct
-> >       net: stmmac: pass the desired EST enable state to est_configure()
-> >       net: stmmac: restore EST before starting DMA on open and resume
-> >
-> >  drivers/net/ethernet/stmicro/stmmac/hwif.h        |   2 +-
-> >  drivers/net/ethernet/stmicro/stmmac/stmmac.h      |   2 +-
-> >  drivers/net/ethernet/stmicro/stmmac/stmmac_est.c  |  47 ++++++-
-> >  drivers/net/ethernet/stmicro/stmmac/stmmac_est.h  |  13 ++
-> >  drivers/net/ethernet/stmicro/stmmac/stmmac_main.c |  38 ++++--
-> >  drivers/net/ethernet/stmicro/stmmac/stmmac_ptp.c  |  59 ++++-----
-> >  drivers/net/ethernet/stmicro/stmmac/stmmac_tc.c   | 142 +++++++++++---=
---------
-> >  7 files changed, 176 insertions(+), 127 deletions(-)
-> > ---
-> > base-commit: 1631d79ae57dce2c5f88ad278307028638a8b4d9
-> > change-id: 20260824-stmmac-est-reapply-after-open-181d70a15eb6
-> >
-> > Best regards,
-> > --
-> > James Hilliard <james.hilliard1@gmail.com>
-> >
+--
+Luca Ceresoli, Bootlin
+Embedded Linux and Kernel engineering
+https://bootlin.com
 
