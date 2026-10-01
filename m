@@ -4,119 +4,146 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1681BCA5FD4
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  1 Oct 2026 14:58:00 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2083ACA5FD9
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  1 Oct 2026 14:58:03 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
-	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:References:In-Reply-To:Message-ID:Date
+	:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=xBnYWeGMv5EmKOUlcf2CObnB03eJ2iBN/Zsm3hmHKZQ=; b=f8p/g0QqeTgsTOkm/KCyA4LSmh
-	x3EBUCQGafUwMCLDok5SBzqXdq1kHUr4aw0fGjJ7WV4HHE/8eARtzPh6+hELxkA2qp2I5D3lE3o8s
-	RPhmbBYfQYpyPK0P/7fU5g39OnzxircVKBdqE/5fBep0wsErCdMMvIVxzI03j3wPeGlzYbXmzB7Fq
-	xi5a2Bju5EMAe41U1mEPvfV/e9ZefOaw4ou3qEO4ZhmcJ5sriLtAs10vUU9dg0WjoJKLAoUMxyg6t
-	fDbuUzgb1JpgDj4OQ6mv99W4pZnHsM0x85xKczPEXGUKPhcxwUk6GH92EkegGN7ypiyHCn6hqlrFp
-	/MnSCkoA==;
+	bh=snNvl4T8BhT1IzTpdLrr/w2Nzv5n6Nza+LCPF/m3XS8=; b=P413DRYjIpOGRjGA/GAb/ZsumW
+	T0xTe6sDXOFn+ypIT9PFnItRJDLQRRCZ64CNVTfWPV/aTVyONdp97Wd1fv+uEmjrkIU5ewF8l/ra8
+	j8WtCnUDPTmOBK163WUAr6ls1Fs5e5PE/gK9HQkHgjUqqADNiRiWxOVbEOQ8Q3oEPfYaaP2Hb42KO
+	lLnw50QfP1NjUKvawYRDJQQLAZB39QOuBJfU4lTdiCtFHrvD0ZOQko2+kdfFP08/mu0ZAZoWthGq1
+	BY+hxuYGX0XqKfBnZJFRKadnVn1bEmm/svieGR+jPKeg9148g8F0j4ebxNOchh6yFSmj6LXxe3KGf
+	eFwRUsog==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xCIEJ-00000009S1o-2ZhI;
-	Thu, 01 Oct 2026 14:57:51 +0000
-Received: from mail-francesouthazlp170110003.outbound.protection.outlook.com ([2a01:111:f403:c207::3] helo=MRWPR03CU001.outbound.protection.outlook.com)
+	id 1xCIEM-00000009S3e-3Tji;
+	Thu, 01 Oct 2026 14:57:55 +0000
+Received: from mail-northeuropeazon11011036.outbound.protection.outlook.com ([52.101.65.36] helo=DU2PR03CU002.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xCIED-00000009Ryb-0rYc
+	id 1xCIEH-00000009S0D-3BqC
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 01 Oct 2026 14:57:48 +0000
+	Thu, 01 Oct 2026 14:57:52 +0000
 ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=GvMLQdl+/FYygPSIaPJlqiXCYzIhJRdNOgHvOisiSdui7t+XXXtnXQDDRAvnL3ze1FGV+ct0+61sgIF7H2qh8kj2ZE2lBuU17U/uuZQJpnruFRxBc5Puc0vw51TiJen3jwV8dcHjn/F7klIAEd/5pMYChRqZmhGHnqfO4We6ytwPpjBr16fgZHW7qNtB3i8K+F8j0r8E6U4blcOJ6IIocakQJ73bebI72jtGEu0MxHKFWGU+oRl4bPKHZ9Jj3LU8SEWg6t+VjYr3qzOp71Q4SYE35Jf9lGNmTqePJq2yBGLthycuJKCPxTavD2GimVG6hx1mr0P0L98/1h+RJZbHSw==
+ b=JXH4psja3yter1yQZLCaPHGL82ZGLJhQwyS3B46vD/ZYUsZ4P5Yn9WRq2WNPnj0viu9rrmLVqYTRZtANwIPMcQhrwqyQdYf4yPrApE2qPOchcu9Ebr8Vj1kuNso9lm3CTgrGCOS5eq6jG1KxphCzwXMUvkc+CrN6jZVvTCJJplZeFwVcn3NArPnTDBTP/ObGX/INE8WAMp59AAjg6HkOtmY0+KDlFeG03Jm9jaMhLiQFxHmreiL7Rfm0YtmXbUTG3OjDArl6mqbftSbBw0+ch2JWD3p9tj0tW/pT7X+KlQTgjC4p0jDiEhgOgtVGLlR2gHIGQfo/QbKaJnioqLmwIQ==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
  s=arcselector10001;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=xBnYWeGMv5EmKOUlcf2CObnB03eJ2iBN/Zsm3hmHKZQ=;
- b=OYqtGEWuon8ym1o52hTf7NNq7GUJXTlR6E+CxHh4mO7uiMhfVZzasnc0axgIQLGjA9uyw2lo9lY98xQ3E0XY7G6NMEP/a0ePJh0J4FLCSTQrEjUVVO3C/pgZjHUY9H/vAS7kyYYYWjCVBGYYb4JWF4S70OCYZyBVLvC9r8X7Yc4jXUyvOMkL5F2IrCHwkKUv/pl0sDiwxrhYK4s3nz1AvgivdUHD8BTc8L3TDCwaYThstw10bFN57evNBC1lxDbjjA29/iqDxBwRysEW1tpYmngVPnMV3hW7YAxYDn9wF2Bt3XM4qcqYnZIs8CrUpGBiPiGiSQ3toZ/ox2DsT0CTaw==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=fail (sender ip is
- 164.130.1.60) smtp.rcpttodomain=kernel.org smtp.mailfrom=foss.st.com;
- dmarc=fail (p=none sp=none pct=100) action=none header.from=foss.st.com;
- dkim=none (message not signed); arc=none (0)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=foss.st.com;
- s=selector2;
+ bh=snNvl4T8BhT1IzTpdLrr/w2Nzv5n6Nza+LCPF/m3XS8=;
+ b=PvAPvK6hjNiCcjDTgD90ZmPrWscG6+Um0x6RdiSvlcsCeyc9W0SH7/PEfouA2YUWrikwZz4P5krMMPgEjtEmXmoZ4QOaOs/RCrR21vNigQr47/zhAnM/9EyNULSNmq1mWcIxT6KoBHtr1w3iOc9M//WAWBOc/FLF9121z+gb9i84RWibr4DLA/O3/ue94t/jX+VIocr8IZCSG29eydW2ab/SVur9h6uFVRjqYqpQMH1rJp4WYTj+YYvghzwJD4hlT7ZnoMs1bcbhtcN1ghToo7M1wuc9J4coWqMqJNUQvQDe8+A6zRqfs/ifkcYcl1OTV6ohXYlW/oZwx88Kte7XDg==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
+ dkim=pass header.d=oss.nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
+ s=selector1-NXP1-onmicrosoft-com;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=xBnYWeGMv5EmKOUlcf2CObnB03eJ2iBN/Zsm3hmHKZQ=;
- b=ctl+mU3KxinsBkMrK4pbcQzLByDoOPZBgEGjTVcqBmNZn26Og5eBtCDkh2OtXjARBZW9wfaSX5gBq9uSF/FNLlAHDuxTqoxa/QYNdAgSgbyONudhXsW2F1nQCaXg3n1iIPtYYE0gjIwlFFOBd4DFHLMDPK8n+11AXtWr+YnvSViiNCMuBXFMhn9Cf7P6b5PXBOfJNhl0CmAhp7FevCCy5+fabFaDkyDPjNgU+cJvSttCPRQnpafIkBQbo1XXHiuNH//Z4upapYQipWkAitCIOdIxPQ9hPk68kSciDuXuWi08+WEpktC14O3CU4wqeZwApDA8CPhhRaEHR0Gvb7tC0g==
-Received: from PAYP264CA0028.FRAP264.PROD.OUTLOOK.COM (2603:10a6:102:11f::15)
- by DBAPR10MB4011.EURPRD10.PROD.OUTLOOK.COM (2603:10a6:10:1c3::15) with
+ bh=snNvl4T8BhT1IzTpdLrr/w2Nzv5n6Nza+LCPF/m3XS8=;
+ b=tFtKMzV1pZ3SkTDw2oFkebdsdpGfUTAK+2uYcy2UkCQjLNvIhp6sIqT8CCq+Fajtbrg4FCN0LJQ/Z1UiC+9HsjY9+FnvV2333VntD0dgZZ5638iWvMIycOl2ct1x4HT7ejyBYPbsuWCmytX8RUKRwBMDwFsQAJaTY3PK/i0tzTRfjMeKY511va6TUs3/YcKv6x83mlc+yQE5JQnV4kTdjXLiB8f70LDEuPxRW71XYDrvYzg6djBofxjjiYprzx+ZyZIHmYz+ZiSP+jiQpv9Axu3ZxL1r6n1sChnIIwTsdlplmFrxYK6aTk1FXT0MNiCXQkVLN4IHbtjTy6Ky5DNcMA==
+Authentication-Results: mx.microsoft.com 1; dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=oss.nxp.com;
+Received: from GV2PR04MB11799.eurprd04.prod.outlook.com (2603:10a6:150:2cf::9)
+ by VI0PR04MB10927.eurprd04.prod.outlook.com (2603:10a6:800:265::12) with
  Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.472.18; Thu, 1 Oct
- 2026 14:57:35 +0000
-Received: from ZR1PEPF0000E461.eurprd04.prod.outlook.com
- (2603:10a6:102:11f:cafe::8b) by PAYP264CA0028.outlook.office365.com
- (2603:10a6:102:11f::15) with Microsoft SMTP Server (version=TLS1_3,
- cipher=TLS_AES_256_GCM_SHA384) id 15.21.472.16 via Frontend Transport; Thu, 1
- Oct 2026 14:57:35 +0000
-X-MS-Exchange-Authentication-Results: mx.microsoft.com 1; spf=fail (sender IP
- is 164.130.1.60) smtp.mailfrom=foss.st.com; dkim=none (message not signed)
- header.d=none;dmarc=fail action=none header.from=foss.st.com;
-Received-SPF: Fail (protection.outlook.com: domain of foss.st.com does not
- designate 164.130.1.60 as permitted sender) receiver=protection.outlook.com;
- client-ip=164.130.1.60; helo=smtpO365.st.com;
-Received: from smtpO365.st.com (164.130.1.60) by
- ZR1PEPF0000E461.mail.protection.outlook.com (10.167.241.59) with Microsoft
- SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.21.472.14 via Frontend Transport; Thu, 1 Oct 2026 14:57:35 +0000
-Received: from STKDAG1NODE2.st.com (10.75.128.133) by smtpO365.st.com
- (10.250.44.72) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.43; Thu, 1 Oct
- 2026 17:03:29 +0200
-Received: from localhost (10.48.87.64) by STKDAG1NODE2.st.com (10.75.128.133)
- with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.43; Thu, 1 Oct
- 2026 16:57:34 +0200
-From: Olivier Moysan <olivier.moysan@foss.st.com>
-To: Jonathan Cameron <jic23@kernel.org>, David Lechner
-	<dlechner@baylibre.com>, =?UTF-8?q?Nuno=20S=C3=A1?= <nuno.sa@analog.com>,
-	Andy Shevchenko <andy@kernel.org>, Rob Herring <robh@kernel.org>, "Krzysztof
- Kozlowski" <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, "Maxime
- Coquelin" <mcoquelin.stm32@gmail.com>, Alexandre Torgue
-	<alexandre.torgue@foss.st.com>, Olivier Moysan <olivier.moysan@foss.st.com>
-CC: <linux-iio@vger.kernel.org>, <devicetree@vger.kernel.org>,
-	<linux-stm32@st-md-mailman.stormreply.com>,
-	<linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>
-Subject: [PATCH 1/3] dt-bindings: iio: adc: add bindings for stm32 mdf filter
-Date: Thu, 1 Oct 2026 16:56:45 +0200
-Message-ID: <20261001145702.2628429-2-olivier.moysan@foss.st.com>
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.451.27; Thu, 1 Oct
+ 2026 14:57:43 +0000
+Received: from GV2PR04MB11799.eurprd04.prod.outlook.com
+ ([fe80::2146:83a2:5329:b7c]) by GV2PR04MB11799.eurprd04.prod.outlook.com
+ ([fe80::2146:83a2:5329:b7c%7]) with mapi id 15.21.0451.022; Thu, 1 Oct 2026
+ 14:57:43 +0000
+From: Frank.Li@oss.nxp.com
+To: Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Sascha Hauer <s.hauer@pengutronix.de>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Fabio Estevam <festevam@gmail.com>,
+	Primoz Fiser <primoz.fiser@norik.com>
+Cc: Frank Li <Frank.Li@nxp.com>,
+	devicetree@vger.kernel.org,
+	imx@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	upstream@lists.phytec.de,
+	Yunus Bas <y.bas@phytec.de>
+Subject: Re: [PATCH 0/2] ARM: dts: phyCORE-i.MX6 custom OPP table
+Date: Thu,  1 Oct 2026 10:57:36 -0400
+Message-ID: <179086665044.2214513.936581075433795034.b4-ty@b4>
 X-Mailer: git-send-email 2.43.0
-In-Reply-To: <20261001145702.2628429-1-olivier.moysan@foss.st.com>
-References: <20261001145702.2628429-1-olivier.moysan@foss.st.com>
-MIME-Version: 1.0
+In-Reply-To: <20260923070505.494949-1-primoz.fiser@norik.com>
+References: <20260923070505.494949-1-primoz.fiser@norik.com>
+Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit
-Content-Type: text/plain
-X-Originating-IP: [10.48.87.64]
-X-ClientProxiedBy: ENXCAS1NODE2.st.com (10.75.128.138) To STKDAG1NODE2.st.com
- (10.75.128.133)
-X-EOPAttributedMessage: 0
+X-ClientProxiedBy: PH8P220CA0013.NAMP220.PROD.OUTLOOK.COM
+ (2603:10b6:510:345::8) To GV2PR04MB11799.eurprd04.prod.outlook.com
+ (2603:10a6:150:2cf::9)
+MIME-Version: 1.0
 X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: ZR1PEPF0000E461:EE_|DBAPR10MB4011:EE_
-X-MS-Office365-Filtering-Correlation-Id: 83dc4752-4c80-473f-cd27-08df1fcc53e6
+X-MS-TrafficTypeDiagnostic: GV2PR04MB11799:EE_|VI0PR04MB10927:EE_
+X-MS-Office365-Filtering-Correlation-Id: bf1e4ba5-c827-457a-3b01-08df1fcc58ab
 X-MS-Exchange-SenderADCheck: 1
 X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|36860700016|23010399003|7416014|376014|1800799024|82310400026|18002099003|22082099003|13003099007|921020|6133799003|3023799007|10067099003|56012099006|11063799006;
-X-Microsoft-Antispam-Message-Info: BQLB6bX7sy6bnUAG5Prqx6hCrTkWauR/+k3DXn6iFz7t8wxOuFjllyqu7qIC6Pw0zl8MDmN3MpOkn86HiERHU3zkE7ufc4rNyfa0MVnBu9yi027FUsTpWaSDZ9DrQnPFBaFkWcAQzIladNAPzN6Z9nMPqK6BDnWk6DzI7kRgz5KZofSMLsjJ7VTwYsurFVoYbhSP3lYa2nhx8OVF35RB98UWad8NwPh2N+8Nqyiu9fVWtjes9HuqOaTvQpZF97FnMjGv80yhFiAFsvDL10mZVaLOFfCG/IVZPVjWD+eES2ci1flejItZKsvece0giDbWcO10ElVoY31TwSLK0eyiiDAjuSYpPrh0Cold9Cm9/6366MTE6oZ9/d8EmDYK4y++1MakbV0TVlJKuJ9TaHcZHbwOIqpDtxk6nUHV8zeKyPAUwMfv8sTw9xYsRhZyYly8bOXaTHojjNCyRPMXbz2xAOV2HJEmzmYgNueX49iJdavR6ZDTijFm73YSko3zpvWNPNpmNlCTTg1KybyxKyHMdzdMPt2/HYX0iWNWCAUTfRAu9VIIOSAFbN6+epLb3eKJ+svwcFCd1ksoR5Y9JEEWNSrLC11uRicTVBgbZ5NqA1ypbaJLLnQUqkpdt3qJN+LOYMs/PKwFXD+yYj4TZOd9Vw7PhkD7PMUeFlnLKQTqtTM8IzJ3IQJcOqPJho763xVmDJ8S3v6lC7IrtjFHorKzKg==
-X-Forefront-Antispam-Report: CIP:164.130.1.60;CTRY:IT;LANG:en;SCL:1;SRV:;IPV:CAL;SFV:NSPM;H:smtpO365.st.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(36860700016)(23010399003)(7416014)(376014)(1800799024)(82310400026)(18002099003)(22082099003)(13003099007)(921020)(6133799003)(3023799007)(10067099003)(56012099006)(11063799006);DIR:OUT;SFP:1101;
+X-Microsoft-Antispam: BCL:0;ARA:13230040|366016|7416014|19092799006|1800799024|23010399003|376014|10067099003|56012099006|11063799006|18002099003|22082099003;
+X-Microsoft-Antispam-Message-Info: EP1oKDNSlam+grrWWs7akoaUEW8deNXsfGfQxQxtqxlI43Z7UZeVM8QqZw/2V980oQWUpil1ALbHih0k3D3Kj+2L+sUi9lcFZ8eExZEc0DewJkuEI3py1fcHGE+4vAEMQ4pR4mUnDxvVARK5e5pEPxJepa8IJoiHHkqwneJDkw7gIRMA0P4od9+QA5axxtm46FbcZ2b61w/YwN9+RnFMGr9YOUnFT+rPK4LXvLGCtEv2A0h1XnA5DSRVJgM49WZ9rOJS8smjcSQ89modfCI7ULcIYxY2RgQKMwkWjGMSpgVHx/fOsu9v5R06nWA94X0RrEUnCyDNTvcWYspH57AEJnKAn+eYXUJRdUzSBPJhAqS1EI5TjEjBHskH/Q8pPuGUZ41jE9pvxjgb9ps75ChOn8cWpS28ZICBSy3cGdUxtbCizWrimjsXeOQ25FfekaVuRq6i7f3x2ig0hR1LmWZTXLW97e/5M6yS+ZCUeNKAKcjXke6V+fShxXkVmBZEiWSwzf8W5idxIDmOqm+IO7ytlwZJ5ttONOrf34FvwouKf5rCkioJ01WVfBDd+pXNicVOK9Dp/j6NNYQTzMfNDfmZMOi3vCDIundhRDZb2ZLDEv9BvfBwoVhLCZhP5LUD3A82/QfiqiSh9bTk9hw6D3H8+rcUF537/RVFZ4kdQ1FnNcE=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:GV2PR04MB11799.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(7416014)(19092799006)(1800799024)(23010399003)(376014)(10067099003)(56012099006)(11063799006)(18002099003)(22082099003);DIR:OUT;SFP:1101;
 X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: kGc8YeOlzbhJxLM6/awNgq4iKez8pT2wUiSoJzn/kqL9utnWdIWVv3x8oH+mvR08hW4lqzoR3NijlKIF8OyKnuKT7dL4K4v/ZBmWh+Q9c7z71/M/k278VYE766NuEeNLRGFpDVCCMvbYkYuWvB5JwfdfFGBEKadtqj/VnOZxHORzYg+yS0huz8HhPAiun7MZHKrhOGEvTtcIG4TC8e1qPxuCsVmweEnRnmfnK75yoXhM+kApjQ3FbK3fmSnacQT1B4h/Xymo+n2lPWV6G1Li7e2kmvfLh4Qb2KRWz77H7nlzBoZ5M6F9DdYAUB/sfpOhkdMrU9mZuJl/m1Ef9gpd2P30JtcBsUrqJ+ZWUD2WXmfSd5UGTso7ENQxf9eciKEfzWk/2yqGY4RWhbKTkncSdzpnIw/afm6FSM8bOwF0/SYCa+HZx19vMY2bpltgOYrb
-X-OriginatorOrg: foss.st.com
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 01 Oct 2026 14:57:35.0663
+X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?SVdDU3VFT3JRWkwzUFN6K2s3SXU2V1ZRei9Ic05nVlJBL1V5Vmk3NWNVY2RE?=
+ =?utf-8?B?T1ZIN0NRN0J2UG9RN0dKSUtsUDZHU25pcTB6WHZWVGVsZ3kwUWhPcXliajlE?=
+ =?utf-8?B?L2NERk1XYUs1Z2R5SEhZVUg0SmNyWmFHZHp1U082WXJLdTJLU3lxN0k2Wlpx?=
+ =?utf-8?B?eVZucUcvUTJhMmwrTy9INDBaUEN2NlZqV1d5alBKSE9tTk5DbUlGNlREd25K?=
+ =?utf-8?B?YUhxZm93Nk5CNVRMbU15ZVJkMGVHWkxOM3NrQ2hpRHlaa3VRbVQ3aXVhbDVa?=
+ =?utf-8?B?STZTU3JZVmxuMU5tSTJ4Wnp0OTNmR3hHRDlOWm5hOTNNM0dWeTMzbk1rc3Ez?=
+ =?utf-8?B?M3FaRG9aaWFOTTBCR0J1TlVzT1dDd2xZSHhmRjhwQTFheFhNOE1Eb1dEYVlR?=
+ =?utf-8?B?dkY3Y0tZZTV3UWpyOHVxVkY1QXlabkRIVUlJTk9hSkR3amVKWnJqeUd5QUx6?=
+ =?utf-8?B?STRUZmxiWEJxeThoM1BCcHpMY2ovOVpXKzNSZFN0b0RFNlhZdWE5TWhWQ09h?=
+ =?utf-8?B?WnJSRVRpbkJtdmx5NGlQQWMyZm16bXJBTURQbkVhY2JyQ3ZIRU1kU0N2QVI1?=
+ =?utf-8?B?SmNxUVVrSmtxbEloYXlxNXc3R3ovdWVHVTMwUEx1REFMUkpvYWswTndySGQ0?=
+ =?utf-8?B?NUV2RnBkc3FSUkYweTNvK0RQdFArcVNwMElGNEpkV0Nha01KTldvcjdNVXFW?=
+ =?utf-8?B?b3dPaTFQellkOCs0L09yMlV0ZTAralo3bk1NdWxxTU1jMWJVS1d4L1pSV21J?=
+ =?utf-8?B?ZGpyb2JjL0pwRll5a0NZUzBvTUI1YWMxaWh3WncyMHg4ejRSTTEyQnkvZTJ2?=
+ =?utf-8?B?TjJIaTNOaWhmajd0MVdTSS93MS9GV3JhZUgvSHM0bEplK0M5Vm5wUEhhN2Zy?=
+ =?utf-8?B?RTl2MGwxVHdUejJSOFI5dDlXVmhsNTQvUWszWFBPOWJtdXN6ZVU0TEVxbXd5?=
+ =?utf-8?B?cG9mWlN0NUNhOFFBWHJHNVFSamh2bWY4cytkVFRQS0pUbVJYdHdpRXdIVTNG?=
+ =?utf-8?B?ZTRkUzd5N3Bsckl5ZVNlN2tnbVFzUTNJTlZZVXliM2dPMWx2VEtpVTZTYkNY?=
+ =?utf-8?B?SjJsOUJ2L205SUJaUUc4Tis4ZlhRcmRJQjJ4QVMrSE4wT2I1dWlYTU9sckFY?=
+ =?utf-8?B?bW1FeHhXVGZnbEhCK1VENzluVWRDWFpzRGh2UVVkbE1BZHJMRFNyVk1iREx0?=
+ =?utf-8?B?cDlDaWhwNXptTTNXbnVtdy9mbTE0Rys3cUZkN21QVXRMUGs3NU9QOW4rVnNk?=
+ =?utf-8?B?Ti82OHZOdXZNZkYyL2tQRndyVkR2Rm1oUTVYSGp4TnhTY1A4YUZXSXZ4Z0RS?=
+ =?utf-8?B?WW15b0pzeWl5ZWRFVmpSRk1TS3AxK201S0FHTWxrdjhIV3o5SGtHeXh5WFV5?=
+ =?utf-8?B?M2RwQmowZktERXhkSGdTbFViSEQzTmJHNHFNTUpNVTFESnJGeXhUNk1DY01m?=
+ =?utf-8?B?WTZ3REt6QzZ6THB3Uzg2OXc5bENNSmNla3p5Z0R2Q09oKy9jSWFKNUYySmtp?=
+ =?utf-8?B?NTIxUVBlTU5nVjJtT2Y1UGwwdE12V2gvaDRuY2dvL2RaY1AvNU9peXhrenRr?=
+ =?utf-8?B?clZyblJKOFFIaDJkRk5tbDc5ejZNa1M2WHk2ejNkR0RVbVN2UHArY3ppbHZj?=
+ =?utf-8?B?NHVWU3psNnlReVRNMUVUUzAyWWMyMGtUWHk3SHk5SnE2cXdjaEcrVi9Ja2VO?=
+ =?utf-8?B?QzZHd2dvS0ZDYVpKNHY3VldqWm9pMnRmQVMyZ1FiQ2dML0p3TEFWNHNrMDFW?=
+ =?utf-8?B?RWtWY251MUlONVhaV2lRT2lpcUo5YzQwMkpmVXk2RnZTWkc4VTRpUHV6NzhT?=
+ =?utf-8?B?bk85ZTdwRDBvNnpuMHhueU1YcFNscC9qMUNEbmhKeEs4emNCT3N3VXpQV0xr?=
+ =?utf-8?B?T3V4d2Q3Y0NYMkZDOG5hVWhzSFFiZmpqN1gxMDArRXdwYXl5VWsrcTJBdEVr?=
+ =?utf-8?B?MnNmTGN0N3NGSWZHdG1XdHA5SWJYNmIraGU5T3lSU1VMRjF4YXMyMlFFaHBY?=
+ =?utf-8?B?SjlrdWpQWU81V091M0d3SCtlQldnNnV5Qk05dFlRRThpeEhxUmVmTkwwdXUv?=
+ =?utf-8?B?ai9JdEJvQitHcDF5QXFWbHVsdSs1RU44RllLd3kwQ3o1a0NOamluR25SN0t4?=
+ =?utf-8?B?RCt6UzhqWGU1Q2hIRHhsOHRCQzZ6dWh3NzBwZUlSU0h3bGtjYllkUnZrZEJX?=
+ =?utf-8?B?N3BQM0lnYVJmMS9MVXJCTy80VFc5MlQ4NmpVN2hGSVFwaTV6OWVtSUhIM1I0?=
+ =?utf-8?B?V0FzeHdUSmdkaDM2alRVMjFvTGszUTRDWWdtY3NQZmR1ZHRtSEJ3enptQnRm?=
+ =?utf-8?B?eDh6aS9Ob3o4RDV2MUxvWWZaWGpZVU43SU5CWE9vNkM3TDlRV2M1N2JBcUJL?=
+ =?utf-8?Q?U1sEUcHLgF0ofJPqBQrD5rByZI/adiDl0Xt+u?=
+X-OriginatorOrg: oss.nxp.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: bf1e4ba5-c827-457a-3b01-08df1fcc58ab
+X-MS-Exchange-CrossTenant-AuthSource: GV2PR04MB11799.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 01 Oct 2026 14:57:43.4978
  (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: 83dc4752-4c80-473f-cd27-08df1fcc53e6
-X-MS-Exchange-CrossTenant-Id: 75e027c9-20d5-47d5-b82f-77d7cd041e8f
-X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=75e027c9-20d5-47d5-b82f-77d7cd041e8f;Ip=[164.130.1.60];Helo=[smtpO365.st.com]
-X-MS-Exchange-CrossTenant-AuthSource: ZR1PEPF0000E461.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Anonymous
-X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: DBAPR10MB4011
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: H6zdNcTlz4azBWf5bighu2jPoXOEwHUGWyeY1kH8k4qbd9utiG2SSyGicItC2PU8XHdVGiW4K4jNIWiyEaoATaBWZ9O5qkO/T5CxRWSap+uaWEmbX+8yPW0I25LkOYuZ
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: VI0PR04MB10927
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261001_075745_497851_5CEDE891 
-X-CRM114-Status: GOOD (  18.27  )
+X-CRM114-CacheID: sfid-20261001_075751_577597_181D7782 
+X-CRM114-Status: UNSURE (   9.35  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -131,406 +158,29 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add bindings that describes STM32 MDF settings to support
-digital filtering for Pulse Density Modulation (PDM) microphones
-and analog sigma delta modulators.
+From: Frank Li <Frank.Li@nxp.com>
 
-Signed-off-by: Olivier Moysan <olivier.moysan@foss.st.com>
----
- .../bindings/iio/adc/st,stm32-mdf-adc.yaml    | 383 ++++++++++++++++++
- 1 file changed, 383 insertions(+)
- create mode 100644 Documentation/devicetree/bindings/iio/adc/st,stm32-mdf-adc.yaml
 
-diff --git a/Documentation/devicetree/bindings/iio/adc/st,stm32-mdf-adc.yaml b/Documentation/devicetree/bindings/iio/adc/st,stm32-mdf-adc.yaml
-new file mode 100644
-index 000000000000..f2fbc3e150e8
---- /dev/null
-+++ b/Documentation/devicetree/bindings/iio/adc/st,stm32-mdf-adc.yaml
-@@ -0,0 +1,383 @@
-+# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
-+%YAML 1.2
-+---
-+$id: http://devicetree.org/schemas/iio/adc/st,stm32-mdf-adc.yaml#
-+$schema: http://devicetree.org/meta-schemas/core.yaml#
-+
-+title: STMicroelectronics STM32 Multi-function Digital Filter (MDF) ADC
-+
-+maintainers:
-+  - Olivier Moysan <olivier.moysan@foss.st.com>
-+
-+description: |
-+  STM32 MDF ADC is a sigma delta analog-to-digital converter dedicated to
-+  interface external sigma delta modulators to STM32 micro controllers.
-+
-+properties:
-+  compatible:
-+    enum:
-+      - st,stm32mp25-mdf
-+      - st,stm32mp23-mdf
-+
-+  reg:
-+    minItems: 1
-+    maxItems: 2
-+
-+  clocks:
-+    maxItems: 1
-+
-+  clock-names:
-+    description: Internal clock used for MDF digital processing.
-+    items:
-+      - const: ker_ck
-+
-+  "#clock-cells":
-+    enum: [0, 1]
-+
-+  clock-output-names:
-+    description: |
-+      CCK0 and CCK1 are optional output clocks, which share the same clock frequency,
-+      but can be gated independently to save power.
-+    minItems: 1
-+    maxItems: 2
-+    oneOf:
-+      - items:
-+          - const: cck0
-+      - items:
-+          - const: cck1
-+      - items:
-+          - const: cck0
-+          - const: cck1
-+
-+  clock-frequency:
-+    description: |
-+      Common clock frequency (Hz) for CCK0 and CCK1 output clocks.
-+      The frequency must be a multiple of the "ker_ck" clock frequency.
-+    maximum: 25000000
-+
-+  "#address-cells":
-+    const: 1
-+
-+  "#size-cells":
-+    const: 1
-+
-+  ranges: true
-+
-+  clock-ranges: true
-+
-+  resets:
-+    maxItems: 1
-+
-+  reset-names:
-+    items:
-+      - const: mdf
-+
-+  access-controllers:
-+    $ref: /schemas/types.yaml#/definitions/phandle-array
-+    description: |
-+      Phandle to the rifsc device to check access right.
-+
-+  power-domains:
-+    maxItems: 1
-+
-+  st,interleave:
-+    description: |
-+      List of phandles of interleaved filters. The indexes of interleaved filters must be
-+      consecutives starting from 0 (i.e in range [0..N]). The samples from interleaved filters
-+      are muxed in a single channel and retrieved through the device associated to the filter 0.
-+      The filters 1..N have to be enabled, but inherit their configuration from filter 0.
-+    $ref: /schemas/types.yaml#/definitions/phandle-array
-+
-+required:
-+  - compatible
-+  - reg
-+  - ranges
-+  - clocks
-+  - clock-names
-+  - clock-ranges
-+  - "#address-cells"
-+  - "#size-cells"
-+
-+additionalProperties: false
-+
-+patternProperties:
-+  "^sitf@[0-9]+$":
-+    type: object
-+    description: Serial interface child node
-+
-+    properties:
-+      compatible:
-+        enum:
-+          - st,stm32mp25-sitf-mdf
-+
-+      reg:
-+        description: Specify the SITF serial interface instance
-+        maxItems: 1
-+
-+      clocks:
-+        description: |
-+          Serial interface clock (optional depending on interface mode)
-+        maxItems: 1
-+
-+      st,sitf-mode:
-+        description: |
-+          Select serial interface protocol
-+          - spi: SPI mode
-+          - lf_spi: low frequency SPI mode for low power applications
-+        $ref: /schemas/types.yaml#/definitions/string
-+        enum:
-+          - spi
-+          - lf_spi
-+
-+    required:
-+      - reg
-+      - st,sitf-mode
-+
-+    additionalProperties: false
-+
-+  "^filter@[0-9]+$":
-+    type: object
-+    description: Digital filter path child node
-+
-+    properties:
-+      compatible:
-+        enum:
-+          - st,stm32mp25-mdf-dmic
-+          - st,stm32mp25-mdf-adc
-+
-+      reg:
-+        description: Specify the MDF filter instance
-+        maxItems: 1
-+
-+      interrupts:
-+        maxItems: 1
-+
-+      clocks:
-+        minItems: 1
-+        description: Internal clock used for MDF digital processing and control blocks.
-+
-+      clock-names:
-+        items:
-+          - const: ker_ck
-+
-+      dmas:
-+        maxItems: 1
-+
-+      dma-names:
-+        items:
-+          - const: rx
-+
-+      "#io-channel-cells":
-+        const: 1
-+
-+      '#address-cells':
-+        const: 1
-+
-+      '#size-cells':
-+        const: 0
-+
-+      st,cic-mode:
-+        description: |
-+          Cascaded-integrator-comb (CIC) filter configuration
-+          - 0: MCIC & ACIC filters in FastSinc mode
-+          - [1-3]: MCIC & ACIC filters in Sinc mode order 1 to 3
-+          - [4-5]: Single CIC filter in Sinc mode order 4 to 5
-+          For audio purpose it is recommended to use CIC Sinc4 or Sinc5
-+          This property is mandatory for filter 0 or filters not used in interleave mode.
-+        $ref: /schemas/types.yaml#/definitions/uint32
-+        minimum: 0
-+        maximum: 5
-+
-+      st,delay:
-+        description: Filter delay in samples
-+        $ref: /schemas/types.yaml#/definitions/uint32
-+        maximum: 127
-+
-+      st,rs-filter-bypass:
-+        description: Bypass RSFLT reshaping filter.
-+        $ref: /schemas/types.yaml#/definitions/flag
-+
-+      st,hpf-filter-cutoff-bp:
-+        description: |
-+          High Pass Filter (HPF) cut-off frequency expressed as a fraction of the PCM sampling rate.
-+          Cut-off frequency = st,hpf-filter-cutoff-bp x Fpcm / 10000.
-+          If this property is not defined the HPF is disabled.
-+        enum: [625, 1250, 2500, 9500]
-+
-+      st,sync:
-+        description:
-+          Synchronize to another filter.
-+          Must contain the phandle of the filter providing the synchronization.
-+        allOf:
-+          - $ref: /schemas/types.yaml#/definitions/phandle-array
-+          - maxItems: 1
-+
-+      st,sitf:
-+        $ref: /schemas/types.yaml#/definitions/phandle-array
-+        items:
-+          - items:
-+              - description: Phandle of the serial interface connected to the digital filter
-+              - description: |
-+                  The phandle's argument selects the bitstream on the falling or rising edge
-+                  of the serial interface clock:
-+                  - 0: rising edge
-+                  - 1: falling edge
-+                enum: [0, 1]
-+                default: 0
-+        description:
-+          Should be phandle/bitstream pair.
-+
-+    required:
-+      - compatible
-+      - reg
-+      - interrupts
-+      - dmas
-+      - dma-names
-+      - "#io-channel-cells"
-+      - "#address-cells"
-+      - "#size-cells"
-+      - st,sitf
-+
-+    unevaluatedProperties: false
-+
-+    patternProperties:
-+      "^channel@([0-7])$":
-+        type: object
-+        $ref: adc.yaml
-+        description: Represents the external channel which is connected to the MDF.
-+
-+        properties:
-+          reg:
-+            maximum: 7
-+
-+          io-backends:
-+            description:
-+              Used to pipe external sigma delta modulator or internal ADC backend to MDF
-+              channel.
-+            maxItems: 1
-+
-+        required:
-+          - reg
-+
-+        unevaluatedProperties: false
-+
-+    allOf:
-+      - if:
-+          properties:
-+            compatible:
-+              contains:
-+                const: st,stm32mp25-mdf-adc
-+
-+        then:
-+          patternProperties:
-+            "^channel@[0-7]$":
-+              required:
-+                - io-backends
-+
-+      - if:
-+          properties:
-+            compatible:
-+              contains:
-+                const: st,stm32mp25-mdf-dmic
-+
-+        then:
-+          patternProperties:
-+            "^mdf-dai+$":
-+              type: object
-+              description: child node
-+
-+              properties:
-+                compatible:
-+                  enum:
-+                    - st,stm32mp25-mdf-dai
-+
-+                "#sound-dai-cells":
-+                  const: 0
-+
-+                io-channels:
-+                  description:
-+                    From common IIO binding. Used to pipe external sigma delta
-+                    modulator or internal ADC output to MDF channel.
-+
-+                power-domains:
-+                  maxItems: 1
-+
-+                port:
-+                  $ref: /schemas/sound/audio-graph-port.yaml#
-+                  unevaluatedProperties: false
-+
-+              required:
-+                - compatible
-+                - "#sound-dai-cells"
-+                - io-channels
-+
-+              additionalProperties: false
-+
-+examples:
-+  - |
-+    #include <dt-bindings/clock/st,stm32mp25-rcc.h>
-+    #include <dt-bindings/interrupt-controller/arm-gic.h>
-+    mdf1: mdf@504d0000 {
-+      compatible = "st,stm32mp25-mdf";
-+      ranges = <0 0x504d0000 0x1000>;
-+      reg = <0x504d0000 0x8>, <0x504d0ff0 0x10>;
-+      #address-cells = <1>;
-+      #size-cells = <1>;
-+      clocks = <&rcc CK_KER_MDF1>;
-+      clock-names = "ker_ck";
-+      clock-ranges;
-+      #clock-cells = <1>;
-+      clock-output-names = "cck0", "cck1";
-+      clock-frequency = <2048000>;
-+
-+      sitf5: sitf@300 {
-+        compatible = "st,stm32mp25-sitf-mdf";
-+        reg = <0x300 0x4>;
-+        st,sitf-mode = "spi";
-+        clocks = <&mdf1 0>;
-+      };
-+
-+      filter0: filter@84 {
-+        compatible = "st,stm32mp25-mdf-dmic";
-+        reg = <0x84 0x70>;
-+        #io-channel-cells = <1>;
-+        interrupts = <GIC_SPI 184 IRQ_TYPE_LEVEL_HIGH>;
-+        dmas = <&hpdma 63 0x63 0x12 0>;
-+        dma-names = "rx";
-+        st,cic-mode = <5>;
-+        st,sitf = <&sitf5 0>;
-+        #address-cells = <1>;
-+        #size-cells = <0>;
-+
-+        channel@0 {
-+          reg = <0>;
-+        };
-+
-+        asoc_pdm0: mdf-dai {
-+          compatible = "st,stm32mp25-mdf-dai";
-+          #sound-dai-cells = <0>;
-+          io-channels = <&filter0 0>;
-+        };
-+      };
-+
-+      filter1: filter@104  {
-+        compatible = "st,stm32mp25-mdf-adc";
-+        reg = <0x104 0x70>;
-+        #io-channel-cells = <1>;
-+        interrupts = <GIC_SPI 185 IRQ_TYPE_LEVEL_HIGH>;
-+        dmas = <&hpdma 64 0x63 0x12 0>;
-+        dma-names = "rx";
-+        st,cic-mode = <2>;
-+        st,sitf = <&sitf5 1>;
-+        #address-cells = <1>;
-+        #size-cells = <0>;
-+
-+        channel@1 {
-+          reg = <1>;
-+          settling-time-us = <1000>;
-+          io-backends = <&sd_adc1>;
-+        };
-+      };
-+    };
-+
-+...
+On Wed, 23 Sep 2026 09:05:03 +0200, Primoz Fiser wrote:
+> This is a revival of a series originally posted by Yunus Bas in
+> February 2022 [1][2]. It adds a label to the imx6dl cpu1 node and
+> introduces phyCORE-i.MX6 SOM specific operating-points tables, since
+> the phyCORE modules run at slightly different voltage/frequency values
+> than the generic i.MX6Q/DL tables.
+> 
+> [1] https://lore.kernel.org/all/20220209223258.1672425-1-y.bas@phytec.de/
+> [2] https://lore.kernel.org/all/20220209223258.1672425-2-y.bas@phytec.de/
+> 
+> [...]
+
+Applied, thanks!
+
+[1/2] ARM: dts: imx6dl: Add a label to cpu1 node
+      commit: dcbe9b512afacb9a6ee8966b8129861e02256a8f
+[2/2] ARM: dts: imx6qdl: phycore-som: Add custom volt/freq table
+      commit: bf2f5dba1ff19d575eb9917c7722bf095724f4a6
+
+Best regards,
 -- 
-2.43.0
-
+Frank Li <Frank.Li@nxp.com>
 
