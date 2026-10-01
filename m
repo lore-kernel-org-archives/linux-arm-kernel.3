@@ -4,67 +4,67 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B5AD0CA5FD2
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  1 Oct 2026 21:44:13 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 168DFCA5FCE
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  1 Oct 2026 22:07:10 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=i1ZT8E0+Pm5VDx4LcOMCqD5baN3Oe5eOsk0bsRrW/zs=; b=3ptV7UI7D3/wIqvF+Q+NqG9FSS
-	mLemyRCtMAf/d19OBymDa2K9YewvZLWMkKwnq8Lw6X/Zf4yaaHoTvQZPR36tQQ2qZ54YNgKoBK+/M
-	u97uRSt0VuRTAyjvqSn2ZdCTx7o6UC3BtuPgzjduHyWGA5BXsPy13Ws8C+S3a1jRCCx9/mmXhVPfX
-	gglPDRB51dQ8gsWfNUj/J8B8byY/n745Pr/K5dlvwYvdZ6AmW9TinosTSDueA2q90YThrCjozNT5R
-	1XahPHcTTUgZ+Q9DGpLpd7FRgAl5GuLw0bZOm8z+YZ2tuyifbOLYu3NYS73fdF4HjagIGiI5hATpF
-	RnsjSL4w==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=0ZfNdmtpBctwNB7gcGUVJbd+WaNGSB4OdhLupMhtGUg=; b=g1TwphYc6ZE4nbfWMHLQLc+ywu
+	1tm1t0eDjrmrt6Vei7we4QqJyynhBO/gAzML/1rAxRt/NZS1hB2lX8QTBOpIek8ekUv8WsaM0xmGw
+	Zym/qssHEVKHFQl11M2iI0/yS3BkTELln/P8PpnJ4hqab66CmAjl7CgiU3qlxRk+/mGl74WTD4GAK
+	kDOoSh8pfqqmi50v+58KxCFF/QAUV0xiTeK/V4rlAXqFPLoM35sDF0CtcFo8MKtvVaZodUK5wV+DC
+	3Xhj7O2F9OcNrb9aMC6iQg5Gjtof057D9CXDquJtRrxja+sAPIgCPc/MupMg32eo/nqHBiWh323Rn
+	sG5xB8bA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xCNNB-0000000A9bA-1toE;
-	Thu, 01 Oct 2026 20:27:21 +0000
-Received: from chaosmail.tech ([77.81.229.115])
-	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xCNMy-0000000A9U8-29xp
+	id 1xCOvf-0000000AK7U-0jma;
+	Thu, 01 Oct 2026 22:07:03 +0000
+Received: from linux.microsoft.com ([13.77.154.182])
+	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1xCOvd-0000000AK5P-0Naq
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 01 Oct 2026 20:27:11 +0000
-Received: by chaosmail.tech (Postfix) id 687771C930F;
-	Thu, 01 Oct 2026 20:27:04 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=chaosmail.tech;
-	s=mail; t=1790886425;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=i1ZT8E0+Pm5VDx4LcOMCqD5baN3Oe5eOsk0bsRrW/zs=;
-	b=T6be6OszmA3zpI7hKfZ2nYEtAE6inUj0H6HQf0qZZ7ujuTIFhGVAI9FRqHw8r481AvTUAT
-	/7XjP59LKcek8v2SFj8IbT/Mj3uXy6ER/l5Vhj3e0VWqYhh+B7+TXuwTkAtzK/jQSl+ZuH
-	HjEMCPgOjsXB9EU33tTOFMeEA7e7xJM=
-From: Sasha Finkelstein <k@chaosmail.tech>
-Date: Thu, 01 Oct 2026 22:26:59 +0200
-Subject: [PATCH v10 4/6] spmi: apple: Implement remaining commands
+	Thu, 01 Oct 2026 22:07:02 +0000
+Received: from linuxonhyperv3.guj3yctzbm1etfxqx2vob5hsef.xx.internal.cloudapp.net (linux.microsoft.com [13.77.154.182])
+	by linux.microsoft.com (Postfix) with ESMTPSA id 99C3620B7166;
+	Thu,  1 Oct 2026 15:06:05 -0700 (PDT)
+DKIM-Filter: OpenDKIM Filter v2.11.0 linux.microsoft.com 99C3620B7166
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.microsoft.com;
+	s=default; t=1790892365;
+	bh=0ZfNdmtpBctwNB7gcGUVJbd+WaNGSB4OdhLupMhtGUg=;
+	h=From:To:Cc:Subject:Date:From;
+	b=tCkp9/sEsXTy2leGHvmYWMXOT6vBCkEtlzwdPmEnrX2zGrVl1IrnJRxiLOqa5xJAy
+	 JnQZFp39NDRMENdA8pe5qr4Ne17qFqxxFfHh5bmWwXFKL8Fth2ugfjvg3fs3XsrLhp
+	 muyVeJL2R7BsMu6MrQFSWQR4S+9h9zmTECr5epM0=
+From: Kameron Carr <kameroncarr@linux.microsoft.com>
+To: kys@microsoft.com,
+	haiyangz@microsoft.com,
+	wei.liu@kernel.org,
+	decui@microsoft.com,
+	longli@microsoft.com,
+	mhklinux@outlook.com
+Cc: catalin.marinas@arm.com,
+	will@kernel.org,
+	mark.rutland@arm.com,
+	lpieralisi@kernel.org,
+	sudeep.holla@kernel.org,
+	arnd@arndb.de,
+	thuth@redhat.com,
+	linux-hyperv@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	linux-arch@vger.kernel.org
+Subject: [PATCH v4 0/6] arm64: hyperv: Add Realm support for Hyper-V
+Date: Thu,  1 Oct 2026 15:05:46 -0700
+Message-ID: <20261001220552.1793471-1-kameroncarr@linux.microsoft.com>
+X-Mailer: git-send-email 2.43.7
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20261001-t603x-spmi-v10-4-ff815c66c73f@chaosmail.tech>
-References: <20261001-t603x-spmi-v10-0-ff815c66c73f@chaosmail.tech>
-In-Reply-To: <20261001-t603x-spmi-v10-0-ff815c66c73f@chaosmail.tech>
-To: Sven Peter <sven@kernel.org>, Janne Grunau <j@jannau.net>, 
- Neal Gompa <neal@gompa.dev>, Stephen Boyd <sboyd@kernel.org>, 
- Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>
-Cc: asahi@lists.linux.dev, linux-arm-kernel@lists.infradead.org, 
- linux-kernel@vger.kernel.org, devicetree@vger.kernel.org, 
- Sasha Finkelstein <k@chaosmail.tech>, Alba Mendez <me@alba.sh>
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1790886421; l=6582;
- i=k@chaosmail.tech; s=20241124; h=from:subject:message-id;
- bh=RH6K223nJdTsq2zsNyub+vrfUTvair8i/u/7LCuGT1E=;
- b=1VcLM7DisTeW0r+S2OpaUauCdieZV3IkGCSdIbUOPRklkD1zwU9J82gq3O2wSlPW9LprGZpVT
- mzwh7VYvnbtDbFmxyvdTysFq2XUBszOQUkgfsjarzb6jR1I+gJfwn7B
-X-Developer-Key: i=k@chaosmail.tech; a=ed25519;
- pk=aSkp1PdZ+eF4jpMO6oLvz/YfT5XkBUneWwyhQrOgmsU=
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261001_132708_850775_A5558F8F 
-X-CRM114-Status: GOOD (  14.56  )
+X-CRM114-CacheID: sfid-20261001_150701_162677_7AD41835 
+X-CRM114-Status: GOOD (  12.53  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -79,205 +79,69 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Alba Mendez <me@alba.sh>
+Realms (CoCo VMs on ARM) require host calls to be routed through the RMM
+(Realm Management Monitor) via the RSI (Realm Service Interface). This
+series implements most of the necessary changes to support Realms on
+Hyper-V.
 
-Add support for zero write and power management commands.
+One required change is not included in this series. The two buffers
+allocated via vzalloc() in netvsc_init_buf() cannot be decrypted in
+vmbus_establish_gpadl(). Currently only linearly mapped memory can be
+decrypted.
 
-Signed-off-by: Alba Mendez <me@alba.sh>
-Signed-off-by: Sasha Finkelstein <k@chaosmail.tech>
----
- drivers/spmi/spmi-apple-controller.c | 116 +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++-----------------------------------------------
- 1 file changed, 69 insertions(+), 47 deletions(-)
+This patch series was tested by booting a Realm on Cobalt 200 running
+Windows. I tested 4KB and 64KB page size. I replaced vzalloc() in
+netvsc_init_buf() with alloc_pages_node() -> set_memory_decrypted() ->
+vmap() in my testing as a workaround for the issue mentioned above [1].
 
-diff --git a/drivers/spmi/spmi-apple-controller.c b/drivers/spmi/spmi-apple-controller.c
-index b1c127cf5f44..9843dc871d6c 100644
---- a/drivers/spmi/spmi-apple-controller.c
-+++ b/drivers/spmi/spmi-apple-controller.c
-@@ -46,9 +46,9 @@ struct apple_spmi {
- 	readl_poll_timeout((spmi)->regs + (reg), (val), (cond), \
- 			   REG_POLL_INTERVAL_US, REG_POLL_TIMEOUT_US)
- 
--static inline u32 apple_spmi_pack_cmd(u8 opc, u8 sid, u16 saddr, size_t len)
-+static inline u32 apple_spmi_pack_cmd(u8 opc, u8 sid, u16 param)
- {
--	return opc | sid << 8 | saddr << 16 | (len - 1) | (1 << 15);
-+	return opc | sid << 8 | (u32)param << 16 | (1 << 15);
- }
- 
- /* Wait for Rx FIFO to have something */
-@@ -69,14 +69,13 @@ static int apple_spmi_wait_rx_not_empty(struct spmi_controller *ctrl)
- 	return 0;
- }
- 
--static int spmi_read_cmd(struct spmi_controller *ctrl, u8 opc, u8 sid,
--			 u16 saddr, u8 *buf, size_t len)
-+static int spmi_raw_cmd(struct spmi_controller *ctrl, u8 opc, u8 sid, u16 param,
-+			const u8 *buf_wr, size_t len_wr, u8 *buf_rd, size_t len_rd)
- {
- 	struct apple_spmi *spmi = spmi_controller_get_drvdata(ctrl);
--	u32 spmi_cmd = apple_spmi_pack_cmd(opc, sid, saddr, len);
-+	u32 spmi_cmd = apple_spmi_pack_cmd(opc, sid, param);
- 	u32 reply, rsp;
--	size_t len_read = 0;
--	u8 i;
-+	size_t i = 0, j;
- 	int ret;
- 
- 	if (spmi->prev_fail) {
-@@ -86,6 +85,14 @@ static int spmi_read_cmd(struct spmi_controller *ctrl, u8 opc, u8 sid,
- 
- 	writel(spmi_cmd, spmi->regs + SPMI_CMD_REG);
- 
-+	while (i < len_wr) {
-+		j = min_t(size_t, sizeof(spmi_cmd), len_wr - i);
-+		spmi_cmd = 0;
-+		memcpy(&spmi_cmd, buf_wr + i, j);
-+		writel(spmi_cmd, spmi->regs + SPMI_CMD_REG);
-+		i += j;
-+	}
-+
- 	ret = apple_spmi_wait_rx_not_empty(ctrl);
- 	if (ret)
- 		return ret;
-@@ -93,7 +100,8 @@ static int spmi_read_cmd(struct spmi_controller *ctrl, u8 opc, u8 sid,
- 	reply = readl(spmi->regs + SPMI_RSP_REG);
- 
- 	/* Read SPMI data reply */
--	while (len_read < len) {
-+	i = 0;
-+	while (i < len_rd) {
- 		if (readl(spmi->regs + SPMI_STATUS_REG) & SPMI_RX_FIFO_EMPTY) {
- 			spmi->prev_fail = true;
- 			dev_err_ratelimited(&ctrl->dev,
-@@ -101,11 +109,9 @@ static int spmi_read_cmd(struct spmi_controller *ctrl, u8 opc, u8 sid,
- 			return -EIO;
- 		}
- 		rsp = readl(spmi->regs + SPMI_RSP_REG);
--		i = 0;
--		while ((len_read < len) && (i < 4)) {
--			buf[len_read++] = ((0xff << (8 * i)) & rsp) >> (8 * i);
--			i += 1;
--		}
-+		j = min_t(size_t, sizeof(spmi_cmd), len_rd - i);
-+		memcpy(buf_rd + i, &rsp, j);
-+		i += j;
- 	}
- 
- 	if (!(readl(spmi->regs + SPMI_STATUS_REG) & SPMI_RX_FIFO_EMPTY)) {
-@@ -113,54 +119,69 @@ static int spmi_read_cmd(struct spmi_controller *ctrl, u8 opc, u8 sid,
- 		spmi->prev_fail = true;
- 	}
- 
--	if (~FIELD_GET(SPMI_REPLY_FRAME_PARITY_STATUS, reply) & ((1 << len) - 1)) {
-+	if (!len_rd && !FIELD_GET(SPMI_REPLY_ACK, reply)) {
-+		dev_err(&ctrl->dev, "command not acknowledged\n");
-+		return -EIO;
-+	}
-+	if (~FIELD_GET(SPMI_REPLY_FRAME_PARITY_STATUS, reply) & ((1 << len_rd) - 1)) {
- 		dev_err(&ctrl->dev, "some frames failed parity check\n");
- 		return -EIO;
- 	}
- 	return 0;
- }
- 
--static int spmi_write_cmd(struct spmi_controller *ctrl, u8 opc, u8 sid,
--			  u16 saddr, const u8 *buf, size_t len)
-+/* Send a raw command with 1..16 input data frames */
-+static int spmi_raw_cmd_input(struct spmi_controller *ctrl, u8 opc, u8 sid,
-+			 u16 param, u8 *buf, size_t len)
- {
--	struct apple_spmi *spmi = spmi_controller_get_drvdata(ctrl);
--	u32 spmi_cmd = apple_spmi_pack_cmd(opc, sid, saddr, len);
--	u32 reply;
--	size_t i = 0, j;
--	int ret;
--
--	if (spmi->prev_fail) {
--		writel(SPMI_ACT_FIFO_FLUSH, spmi->regs + SPMI_ACT_REG);
--		spmi->prev_fail = false;
--	}
--
--	writel(spmi_cmd, spmi->regs + SPMI_CMD_REG);
-+	return spmi_raw_cmd(ctrl, opc, sid, param, NULL, 0, buf, len);
-+}
- 
--	while (i < len) {
--		j = 0;
--		spmi_cmd = 0;
--		while ((j < 4) & (i < len))
--			spmi_cmd |= buf[i++] << (j++ * 8);
-+/* Send a raw command with (optional) body and an input ACK */
-+static int spmi_raw_cmd_ack(struct spmi_controller *ctrl, u8 opc, u8 sid,
-+			  u16 param, const u8 *buf, size_t len)
-+{
-+	return spmi_raw_cmd(ctrl, opc, sid, param, buf, len, NULL, 0);
-+}
- 
--		writel(spmi_cmd, spmi->regs + SPMI_CMD_REG);
-+static int spmi_read_cmd(struct spmi_controller *ctrl, u8 opc, u8 sid,
-+			 u16 saddr, u8 *buf, size_t len)
-+{
-+	switch (opc) {
-+	case SPMI_CMD_EXT_READ:
-+	case SPMI_CMD_EXT_READL:
-+		return spmi_raw_cmd_input(ctrl, opc | (len - 1), sid, saddr, buf, len);
-+	case SPMI_CMD_READ:
-+		return spmi_raw_cmd_input(ctrl, opc | saddr, sid, saddr, buf, len);
- 	}
-+	return -EINVAL;
-+}
- 
--	ret = apple_spmi_wait_rx_not_empty(ctrl);
--	if (ret)
--		return ret;
--
--	reply = readl(spmi->regs + SPMI_RSP_REG);
--
--	if (!(readl(spmi->regs + SPMI_STATUS_REG) & SPMI_RX_FIFO_EMPTY)) {
--		dev_warn(&ctrl->dev, "FIFO has extra data\n");
--		spmi->prev_fail = true;
-+static int spmi_write_cmd(struct spmi_controller *ctrl, u8 opc, u8 sid,
-+			  u16 saddr, const u8 *buf, size_t len)
-+{
-+	switch (opc) {
-+	case SPMI_CMD_WRITE:
-+		return spmi_raw_cmd_ack(ctrl, opc | saddr, sid, buf[0] << 8 | saddr, NULL, 0);
-+	case SPMI_CMD_ZERO_WRITE:
-+		return spmi_raw_cmd_ack(ctrl, opc | buf[0], sid, buf[0] << 8 | saddr, NULL, 0);
-+	case SPMI_CMD_EXT_WRITE:
-+	case SPMI_CMD_EXT_WRITEL:
-+		return spmi_raw_cmd_ack(ctrl, opc | (len - 1), sid, saddr, buf, len);
- 	}
-+	return -EINVAL;
-+}
- 
--	if (!FIELD_GET(SPMI_REPLY_ACK, reply)) {
--		dev_err(&ctrl->dev, "command not acknowledged\n");
--		return -EIO;
-+static int spmi_cmd(struct spmi_controller *ctrl, u8 opc, u8 sid)
-+{
-+	switch (opc) {
-+	case SPMI_CMD_RESET:
-+	case SPMI_CMD_SLEEP:
-+	case SPMI_CMD_SHUTDOWN:
-+	case SPMI_CMD_WAKEUP:
-+		return spmi_raw_cmd_ack(ctrl, opc, sid, 0, NULL, 0);
- 	}
--	return 0;
-+	return -EINVAL;
- }
- 
- static int apple_spmi_probe(struct platform_device *pdev)
-@@ -183,6 +204,7 @@ static int apple_spmi_probe(struct platform_device *pdev)
- 
- 	ctrl->read_cmd = spmi_read_cmd;
- 	ctrl->write_cmd = spmi_write_cmd;
-+	ctrl->cmd = spmi_cmd;
- 
- 	ret = devm_spmi_controller_add(&pdev->dev, ctrl);
- 	if (ret)
+Changes since v1 [2]:
+  Patch 1: Add explicit padding to the RSI host call structure
+  Patch 3: Change from a per-cpu pointer lazily allocated to an array
+             of host call structs indexed by cpu id
+  Patch 4: Align input_page + output_page allocation to PAGE_SIZE since
+             that is the smallest unit of memory that can be decrypted
+           ~Remove KASAN tags before passing address to
+             set_memory_decrypted() since __is_lm_address() does pointer
+             arithmetic.~
+  Patch 5: Add a helper function to reduce repetition
+           Check for NULL before indexing into host call array
 
+Changes since v2 [3]:
+  Patch 3: Remove hv_hostcall_free() and inline the logic for simplicity
+           Reorder edits to keep #include line at the end of the file
+  Patch 4: Remove kasan_reset_tag()
+
+Changes since v3 [4]:
+  Rebased onto arm64 for-next/smccc-bus which includes moving RSI header
+  files out of arch/arm64 [5]
+
+[1] https://lore.kernel.org/all/20260721195633.1438361-1-kameroncarr@linux.microsoft.com/
+[2] https://lore.kernel.org/all/20260609181030.2378391-1-kameroncarr@linux.microsoft.com/
+[3] https://lore.kernel.org/all/20260625173500.1995481-1-kameroncarr@linux.microsoft.com/
+[4] https://lore.kernel.org/all/20260721201148.1441143-1-kameroncarr@linux.microsoft.com/
+[5] https://lore.kernel.org/all/20260923140405.1111554-4-aneesh.kumar@kernel.org/
+
+Kameron Carr (6):
+  arm64: rsi: Add RSI host call structure and helper function
+  firmware: smccc: Detect hypervisor via RSI host call in CCA Realms
+  arm64: hyperv: Add per-CPU RSI host call infrastructure for CCA Realms
+  Drivers: hv: Mark shared memory as decrypted for CCA Realms
+  arm64: hyperv: Route hypercalls through RSI host call in CCA Realms
+  arm64: hyperv: Implement hv_is_isolation_supported() for CCA Realms
+
+ arch/arm64/hyperv/hv_core.c       | 156 +++++++++++++++++++++++-------
+ arch/arm64/hyperv/mshyperv.c      |  38 +++++++-
+ arch/arm64/include/asm/mshyperv.h |   4 +
+ drivers/firmware/smccc/smccc.c    |  41 +++++++-
+ drivers/hv/hv_common.c            |  17 +++-
+ include/asm-generic/mshyperv.h    |   1 +
+ include/linux/arm-rsi-cmds.h      |  22 +++++
+ include/linux/arm-smccc-rsi.h     |   7 ++
+ 8 files changed, 245 insertions(+), 41 deletions(-)
+
+
+base-commit: bce57945f5e7207960b2bd567a6e880f90258ffb
 -- 
-2.55.0
+2.45.4
 
 
