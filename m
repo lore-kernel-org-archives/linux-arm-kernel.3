@@ -4,81 +4,124 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 257EACA5FD4
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  1 Oct 2026 17:59:33 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1D20FCA5FCE
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  1 Oct 2026 18:04:12 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:From:
-	Subject:Message-ID:References:Mime-Version:In-Reply-To:Date:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:CC:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=8x+WOwJb8ZYQgifj5DAZhtg6Tqmw4UwJVTgrA3MagC4=; b=ymgVBh4KDXygj9Y0sIQLeT7t6y
-	Oy+sJFEt9s9ukJnerk0dhU0OEMjb/hhIBvUOfnKdIUuCp5waV/B+ntAmOZhukhFGucVPtkNS5PCjf
-	5mQuMtQENP1Wi34fa8NMbpAv/6i4dalWyMucssq4dR7SufbP1Nj93whkWuyXza7qdgs32XGjzildN
-	B00v5gd0UY4k2BAZm4mF2HMA470a8NCxhVyGCYM8dLlOO5fXTtDklyHJhlNfsRpqJfN+/Naz1+aP9
-	qxd8B3UtSGPeXwot0O95fvJev2ucrV+lr1mxyVo7Iwt1C8MF0J0bT2yvo3qKPq0HGMi2tWw4Tquq1
-	5LnluvtA==;
+	bh=4eZIu0ByKLmylD9kPONKLCE9vBYmRBQGjGZ2s2bJrus=; b=DRt+RmcnWPqK9pqklPWwf2rPT8
+	xi9Kt5ibTxEa0qdzrHcvIxRGelSxssFl2f26XynhVrBKVK7To6tchvdPjYq4TLuUuVyzTqcw98mMM
+	KQIGpjM4VsF7hZTzVQ9F8fyTM0jkSyJOcfCXgTUgXkHJzZ1ph7QYJ2JP5WkIVuXhwlxXdFPjNxRe6
+	fm+pmDAEWVhOuFRe0y1b1DREiXMnvdXFO8px4lccKf9f65w+xm6XqbDi2Gb8EtixwtBhtw0I2aB0b
+	zRXrIRaeUzXJCHORu+73d5MKp1atLZiXlCH2jUI406ScZoXWz0qPXB8tSPvDlEP4dsQKJfTG+wknb
+	HZYj6L1A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xCHmZ-00000009NHh-41DU;
-	Thu, 01 Oct 2026 14:29:11 +0000
-Received: from mail-wm1-x345.google.com ([2a00:1450:4864:20::345])
+	id 1xCL8X-00000009wL9-2KRJ;
+	Thu, 01 Oct 2026 18:04:05 +0000
+Received: from mail-eastusazlp17011000f.outbound.protection.outlook.com ([2a01:111:f403:c100::f] helo=BL2PR02CU003.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xCHmW-00000009NBp-35WM
+	id 1xCL8V-00000009wKS-0Ykl
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 01 Oct 2026 14:29:10 +0000
-Received: by mail-wm1-x345.google.com with SMTP id 5b1f17b1804b1-4a004b70f99so26723685e9.2
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 01 Oct 2026 07:29:07 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20251104; t=1790864946; x=1791469746; darn=lists.infradead.org;
-        h=content-type:cc:to:from:subject:message-id:references:mime-version
-         :in-reply-to:date:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=8x+WOwJb8ZYQgifj5DAZhtg6Tqmw4UwJVTgrA3MagC4=;
-        b=BRQuuLVDAg4aJdwqF+d19A7EULZ1rtj5SbTCyxGIQBjEzW57TPKRUwhoiDgo/gQYKs
-         AwNXdo6osRe2565/bW2yekVZKVLDlfQq7q5oNBC0lkXfD6jxPdpz8G6D5nqxqcI65aZF
-         gT1cG1HN8huTaIZIMh91clALbUjKv7Jpm1mUeXAtz/qp7VUvVgiyJL96eNyZyDJwfOCA
-         sXDMDivZ4WaeLIhfUHF+ccIeLS0wme4HXibYJjKWu1IlGb1N5qcuDqF0uAL2Qrqm7zhf
-         0tYkdPWKK2WqINVRUk4AyzwGHdLpU2Ji9iliY7FUcBLK9HiCb36Dx1lRZWw3FFXO1gqS
-         CJGg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1790864946; x=1791469746;
-        h=content-type:cc:to:from:subject:message-id:references:mime-version
-         :in-reply-to:date:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=8x+WOwJb8ZYQgifj5DAZhtg6Tqmw4UwJVTgrA3MagC4=;
-        b=UOxKng7YOxgL+xveq1Dnb7Kz2sK44ui6Nm+wW/isXlrpnG7bCdPZ3Cg/ZK/7oqPMDX
-         52KXOgFnKtBE2xFQqxGepn7fZYBszGzZ9k17nxUpzWkOrCHJ648uMe5e5iTPCwa70g27
-         +lIkt4h2GNRpF/mBtulvPSwoUDZtk95vYSy0qKmHxUkqChBcSvcMSZLaIH9gUzWDm4kS
-         OTMC7zOEBqkRKqMokEMURJF0njPUM9N+Bur4xYhDs+Ejat+Ms27zjc2m4SlpOEIQW16a
-         B+dnZtlNM9/QABmz+URiWicUeiPSfS4HPZUs+L3UU/XpxjPndfFs79XPxnhc8q+X0G4R
-         rh0g==
-X-Forwarded-Encrypted: i=1; AKwUvBwsR0E0Syp9e0zAr965OkTYekjch75OwA44mRHGx/dKxjAGU59Psjxz7f14djntg8Sh52o7vzdsR12QPuW5cEh1@lists.infradead.org
-X-Gm-Message-State: AFuF++kZI+Wyh4hlx5To8DL0NMsZZXWMiOfwrruCvlWtQTc3Kc3ByYmE
-	dp/8/TACDx6fdUVRB2wqNsgWxrsqE5bt7ljVTgKn6mU/Boc0t7IDYvKtsIhs48rMdn0vzs8HpTI
-	BPsmPHxJepjeCYQ4Bovu2JQ==
-X-Received: from wmqg19.prod.google.com ([2002:a05:600c:4ed3:b0:4a0:334:56b4])
- (user=vdonnefort job=prod-delivery.src-stubby-dispatcher) by
- 2002:a05:600c:4e42:b0:4a0:1d:3ac4 with SMTP id 5b1f17b1804b1-4a01aff06d5mr80499015e9.6.1790864945476;
- Thu, 01 Oct 2026 07:29:05 -0700 (PDT)
-Date: Thu,  1 Oct 2026 15:28:38 +0100
-In-Reply-To: <20261001142849.3367614-1-vdonnefort@google.com>
-Mime-Version: 1.0
-References: <20261001142849.3367614-1-vdonnefort@google.com>
-X-Mailer: git-send-email 2.56.0.rc1.315.gc6ed9934b7-goog
-Message-ID: <20261001142849.3367614-8-vdonnefort@google.com>
-Subject: [PATCH v6 07/18] KVM: arm64: Add PKVM_HYP_REQ_HYP_ALLOC request
-From: Vincent Donnefort <vdonnefort@google.com>
-To: maz@kernel.org, oupton@kernel.org, kvmarm@lists.linux.dev, 
-	linux-arm-kernel@lists.infradead.org
-Cc: joey.gouly@arm.com, seiden@linux.ibm.com, suzuki.poulose@arm.com, 
-	yuzenghui@huawei.com, catalin.marinas@arm.com, will@kernel.org, 
-	kernel-team@android.com, fuad.tabba@linux.dev, 
-	Vincent Donnefort <vdonnefort@google.com>
-Content-Type: text/plain; charset="UTF-8"
+	Thu, 01 Oct 2026 18:04:04 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=Xy6da2qPodJIsDQqngwaR2iUoXx2910zW9htXnU5AtSjbQkBJGloDVbPwMupTsIj/SNyyMiWBWjXniPjtitL0DDUN9h8IWi5+h6yxhakPx9xvYchHbnQw/see7AH5rjQPtkLnul3ccaGjsEVyEbQYUL/fLyepM+vt3N5YCZeoeF3XxivA1Hd5IJpRDYUv0VQ1EgreRFHKMnRZY0HeRclziEvcWmQ8AysGW/gDZWNCnyOOHhLqtFznKr5oCtngxNqsCHamSloFg/PmUQaxFpWNWWOKbPFK9BoRbxD0XqfgpQ3s7ZM4oxMEEJ1+WQ6NeY28jDKhYo7XrMOFBxdy4HX7g==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=4eZIu0ByKLmylD9kPONKLCE9vBYmRBQGjGZ2s2bJrus=;
+ b=euRsKXMO0ToLWk4Jjp0pSduwXQ4TFpHPNHjeu8TV810ANucRaS0E9eRl3DHpOj2+hJ+2tvPe0WH/DoQAznB6tJ1yipMK+6oO95FfwNuGBLR+cd7UVqQ7GX9cM+QDU31kZPtjEL0SDKzOQr8iWRkiTBOE7HBEYyPC2yjmug1ZwKiTwSE9rb3ncAtN1lLmm+BBsL15wcl9zpMDq+x9rlj25yfIKF5punXpNErOHUxKT6ZaMEoKdPpI4Ll4FZW0UzXoFWRmQNw3gFvhD+wvG7ap1BgoWSfq7s0TbUNxeRhamIVF/dTuxYFT46OkCNAxHgVeetn3qurbxMoNzn8X1DKeNQ==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
+ 216.228.117.160) smtp.rcpttodomain=google.com smtp.mailfrom=nvidia.com;
+ dmarc=pass (p=reject sp=reject pct=100) action=none header.from=nvidia.com;
+ dkim=none (message not signed); arc=none (0)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
+ s=selector2;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=4eZIu0ByKLmylD9kPONKLCE9vBYmRBQGjGZ2s2bJrus=;
+ b=B1/pFQmpPID7YyqJCyTJFW1LX1bGYGWSPWcgcyrHfM8fXb2PVF6O/s7VoFNvoIXHm2KdKjH7EW6aAQqfAldyC/Auz4V5D1dPsHtdE/sIEXQeH2KZLhyp9q0g5SQyuAZi7o0UTA012qNiPdwzCfLAoTyN9iIwoHqUNli4SlNGQChoqTia3gQVaaHijGfaspmSAImdVpKMHKxfghxnBno5lMT0o/SAulb5zNonny2ATZw6IHaiFG2ln0B4XcUOQSFD4ku6YUFMidpa4YN5J/MP5tJgzxt0l4EJ3GB7iw1If0pwg+O5lAgffRgylbh1SYWSaVut81uzo97g85KwBJtwdg==
+Received: from DS7P221CA0008.NAMP221.PROD.OUTLOOK.COM (2603:10b6:8:25b::6) by
+ LV5PR12MB9804.namprd12.prod.outlook.com (2603:10b6:408:303::8) with Microsoft
+ SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.21.451.24; Thu, 1 Oct 2026 18:03:53 +0000
+Received: from BN2PEPF0000A802.namprd02.prod.outlook.com
+ (2603:10b6:8:25b:cafe::41) by DS7P221CA0008.outlook.office365.com
+ (2603:10b6:8:25b::6) with Microsoft SMTP Server (version=TLS1_3,
+ cipher=TLS_AES_256_GCM_SHA384) id 15.21.472.18 via Frontend Transport; Thu, 1
+ Oct 2026 18:03:53 +0000
+X-MS-Exchange-Authentication-Results: mx.microsoft.com 1; spf=pass (sender IP
+ is 216.228.117.160) smtp.mailfrom=nvidia.com; dkim=none (message not signed)
+ header.d=none;dmarc=pass action=none header.from=nvidia.com;
+Received-SPF: Pass (protection.outlook.com: domain of nvidia.com designates
+ 216.228.117.160 as permitted sender) receiver=protection.outlook.com;
+ client-ip=216.228.117.160; helo=mail.nvidia.com; pr=C
+Received: from mail.nvidia.com (216.228.117.160) by
+ BN2PEPF0000A802.mail.protection.outlook.com (10.167.245.171) with Microsoft
+ SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.21.472.14 via Frontend Transport; Thu, 1 Oct 2026 18:03:52 +0000
+Received: from rnnvmail205.nvidia.com (10.129.68.10) by mail.nvidia.com
+ (10.129.200.66) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.49; Thu, 1 Oct
+ 2026 11:03:19 -0700
+Received: from rnnvmail205.nvidia.com (10.129.68.10) by rnnvmail205.nvidia.com
+ (10.129.68.10) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.49; Thu, 1 Oct
+ 2026 11:03:19 -0700
+Received: from nvidia.com (10.127.8.10) by mail.nvidia.com (10.129.68.10) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.49 via Frontend
+ Transport; Thu, 1 Oct 2026 11:03:17 -0700
+Date: Thu, 1 Oct 2026 11:03:15 -0700
+From: Nicolin Chen <nicolinc@nvidia.com>
+To: Pranjal Shrivastava <praan@google.com>
+CC: <iommu@lists.linux.dev>, Will Deacon <will@kernel.org>, Joerg Roedel
+	<joro@8bytes.org>, Robin Murphy <robin.murphy@arm.com>, Jason Gunthorpe
+	<jgg@ziepe.ca>, Mostafa Saleh <smostafa@google.com>, Daniel Mentz
+	<danielmentz@google.com>, Ashish Mhetre <amhetre@nvidia.com>,
+	<linux-arm-kernel@lists.infradead.org>, Thomas Gleixner <tglx@kernel.org>,
+	Radu Rendec <radu@rendec.net>, Bjorn Helgaas <bhelgaas@google.com>,
+	<linux-pci@vger.kernel.org>, <linux-kernel@vger.kernel.org>, "Greg
+ Kroah-Hartman" <gregkh@linuxfoundation.org>, <rafael@kernel.org>, "Danilo
+ Krummrich" <dakr@kernel.org>, <driver-core@lists.linux.dev>
+Subject: Re: [PATCH v11 11/16] iommu/arm-smmu-v3: Add CMDQ_PROD_STOP_FLAG to
+ gate CMDQ submissions
+Message-ID: <ar6gY9grmdMZcN/M@nvidia.com>
+References: <20260929034510.2023173-1-praan@google.com>
+ <20260929034510.2023173-12-praan@google.com>
+ <ar1yNtr7Kp2OTcDd@nvidia.com>
+ <ar3yWUmi8E0k37Ml@google.com>
+MIME-Version: 1.0
+Content-Type: text/plain; charset="us-ascii"
+Content-Disposition: inline
+In-Reply-To: <ar3yWUmi8E0k37Ml@google.com>
+X-NV-OnPremToCloud: ExternallySecured
+X-EOPAttributedMessage: 0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: BN2PEPF0000A802:EE_|LV5PR12MB9804:EE_
+X-MS-Office365-Filtering-Correlation-Id: 23d0559a-662a-498c-2550-08df1fe65a7e
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|82310400026|23010399003|7416014|376014|1800799024|36860700016|11063799006|10067099003|56012099006|6133799003|22082099003|4143699003|18002099003;
+X-Microsoft-Antispam-Message-Info: bDxz9yFGwjoJn0RAmb3GE1jqkjl0Zyp+Q1PYxMrmRs+2ZrA1RCq8sc8UQO5OAYwSZxWUVZYz7h4caXz+ZuuVCmG91PylSZi7y0obkvBNeVWcQe+Ae9jopgG7P6IWXsq/LzIfmwAiOaUcPdKtIypT7BONjlSYQANnd2facUH/ZJDcOAs/mvrySivSjnq/SaflsJONLIDaLHpQBrlu1Eiz1YFXb3i1MzS0B7eIUuDP3UoBPKz8KewGWAaw6tL9/F9pEROZjw79LQi+O1Q1URJqImLyI0SKCaFqwStxSwMOWwKIX4L8aWqOdM87xf6EyKVSInvg8O5hGvB3bfD0mTNevMPNdVHjnm96sE5PpGG5C9HqdXdMv1sE8mgGWedTR7RgSVfC1NlF4ZG3Al4l2tAwBwx5MSmxwQ9KJ4iNk48agPKb1H0vZaZUL5CCXx8TLv/xGfq4q+Hcg2JoacPNb1Ppd5xvrpj+MlMUA01lLMMEUv5DZC4KlowuciAeR1+g6mw/9OkQopwYRi30OIzIBVvXyA9o2Y2TOGpvpGIFo8QBOztmPplER54v39qbNRIAN8eqcWI0e2LSNqo2F744j8cnV+Cx/qpU8Up+UCRAGLwqkPp2CceThz+zond8YBzjru6y5Zjwyn1VqnNIN7RpsYro7+UiRCT2CF/AJOhzG6lxbJf/R3Qg8fC91P3qhx/pTrbTSqv9GGh89NNpc3D2+wi+Sg==
+X-Forefront-Antispam-Report: CIP:216.228.117.160;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:mail.nvidia.com;PTR:dc6edge1.nvidia.com;CAT:NONE;SFS:(13230040)(82310400026)(23010399003)(7416014)(376014)(1800799024)(36860700016)(11063799006)(10067099003)(56012099006)(6133799003)(22082099003)(4143699003)(18002099003);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: k2xrJW3QqDsnltYje1YGRGmX0cMLlc3eo8fJ2lHJYiTu5v3Ds/DVRmc1zHv0r/sU/oJCCEBj+3blKf4bkHUxnxLTpA7nueHEG725kmn82nxQu8Hq2SJfXXs168PpfMnRm5ViZ7F76if4jxhSFRFeoAEEtnr24j2ZQfdMrlt2w1sev+SBvdeep+UHeiwT0CEE0gMr2zZAQjT7nF8NO5EvwZkqrnVaZaOdugiqqpA1/YKykYN4kBzYYAtHxh3NGWn6dxroffyqydcjGur43l9/f6C0C+sQA3p3nrXmXCxT/vqML3RrHzRb+iInkK2iwJ4wVN0kB+G7+8SwWNHpvMZqlKzElGj6//LLrudZfhrE37YeiTg1p61vMBZfgR+IymlhQqz0JTx2hpGLVPRUPpMiWgB7fsDfXTsS3qOtIXzZqMtjuTJmEFpYl6NAMRqY11xV
+X-OriginatorOrg: Nvidia.com
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 01 Oct 2026 18:03:52.9217
+ (UTC)
+X-MS-Exchange-CrossTenant-Network-Message-Id: 23d0559a-662a-498c-2550-08df1fe65a7e
+X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
+X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=43083d15-7273-40c1-b7db-39efd9ccc17a;Ip=[216.228.117.160];Helo=[mail.nvidia.com]
+X-MS-Exchange-CrossTenant-AuthSource: BN2PEPF0000A802.namprd02.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Anonymous
+X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: LV5PR12MB9804
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261001_072908_841698_0A3BE9BB 
-X-CRM114-Status: GOOD (  19.67  )
+X-CRM114-CacheID: sfid-20261001_110403_184981_22CBD5B6 
+X-CRM114-Status: GOOD (  22.20  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -93,201 +136,48 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Introduce a new pkvm_hyp_request type asking the host to top up the pKVM
-heap allocator.
+On Thu, Oct 01, 2026 at 05:40:41AM +0000, Pranjal Shrivastava wrote:
+> On Wed, Sep 30, 2026 at 01:33:58PM -0700, Nicolin Chen wrote:
+> > We may get away from the TLB maintenance. But ATC can be the case
+> > broken by the stop flag?
+> > 
+> 
+> Not really, I guess Sashiko missed the comment in a later patch. This
+> was discussed with Jason in v9 [1].
+> 
+> The key thing is that ATC_INVs can't be issued by the time we set this
+> flag anyway.. if we're in the suspend callback, the PCIe EP is already
+> suspended, so none of the ATC invalidation TLPs would be responded to.
 
-Signed-off-by: Vincent Donnefort <vdonnefort@google.com>
-Tested-by: Fuad Tabba <fuad.tabba@linux.dev>
-Reviewed-by: Fuad Tabba <fuad.tabba@linux.dev>
----
- arch/arm64/include/asm/kvm_asm.h   |  1 +
- arch/arm64/include/asm/kvm_hcall.h |  6 ++++++
- arch/arm64/include/asm/kvm_pkvm.h  |  5 +++++
- arch/arm64/kvm/hyp/nvhe/hyp-main.c | 26 ++++++++++++++++++++++++++
- arch/arm64/kvm/pkvm.c              | 30 ++++++++++++++++++++++++++++++
- arch/arm64/kvm/trace_pkvm.h        |  6 ++++--
- 6 files changed, 72 insertions(+), 2 deletions(-)
+Okay.
 
-diff --git a/arch/arm64/include/asm/kvm_asm.h b/arch/arm64/include/asm/kvm_asm.h
-index e5b92ac09e69..de59e89318fa 100644
---- a/arch/arm64/include/asm/kvm_asm.h
-+++ b/arch/arm64/include/asm/kvm_asm.h
-@@ -89,6 +89,7 @@ enum __kvm_host_smccc_func {
- 	__KVM_HOST_SMCCC_FUNC___vgic_v3_restore_vmcr_aprs,
- 	__KVM_HOST_SMCCC_FUNC___vgic_v5_save_apr,
- 	__KVM_HOST_SMCCC_FUNC___vgic_v5_restore_vmcr_apr,
-+	__KVM_HOST_SMCCC_FUNC___pkvm_hyp_topup,
- 
- 	MARKER(__KVM_HOST_SMCCC_FUNC_PKVM_ONLY),
- 
-diff --git a/arch/arm64/include/asm/kvm_hcall.h b/arch/arm64/include/asm/kvm_hcall.h
-index 9f06af58a4b0..6d6f12400e94 100644
---- a/arch/arm64/include/asm/kvm_hcall.h
-+++ b/arch/arm64/include/asm/kvm_hcall.h
-@@ -22,6 +22,10 @@
- 
- typedef u16 pkvm_handle_t;
- 
-+enum pkvm_topup_id {
-+	PKVM_TOPUP_HYP_ALLOC,
-+};
-+
- struct kvm;
- struct kvm_s2_mmu;
- struct kvm_vcpu;
-@@ -193,6 +197,8 @@ DECLARE_KVM_HOST_HCALL(void, __vgic_v5_save_apr,
- 	struct vgic_v5_cpu_if __kern *, cpu_if)
- DECLARE_KVM_HOST_HCALL(void, __vgic_v5_restore_vmcr_apr,
- 	struct vgic_v5_cpu_if __kern *, cpu_if)
-+DECLARE_KVM_HOST_HCALL(int, __pkvm_hyp_topup,
-+	enum pkvm_topup_id, id, phys_addr_t, head, unsigned long, nr_pages)
- 
- /* Hypercalls that are available only when pKVM has finalised. */
- DECLARE_KVM_HOST_HCALL(int, __pkvm_host_share_hyp,
-diff --git a/arch/arm64/include/asm/kvm_pkvm.h b/arch/arm64/include/asm/kvm_pkvm.h
-index 19bddf261c82..c338178d6bb2 100644
---- a/arch/arm64/include/asm/kvm_pkvm.h
-+++ b/arch/arm64/include/asm/kvm_pkvm.h
-@@ -207,6 +207,7 @@ struct pkvm_mapping {
- 
- enum pkvm_hyp_req_type {
- 	PKVM_HYP_NO_REQ = 0,
-+	PKVM_HYP_REQ_HYP_ALLOC,
- 	__PKVM_HYP_REQ_TYPE_MAX,
- };
- 
-@@ -228,9 +229,13 @@ struct pkvm_hyp_req {
- 
- static inline size_t pkvm_hyp_req_arg_size(u8 type)
- {
-+	struct pkvm_hyp_req *req;
-+
- 	switch (type) {
- 	case PKVM_HYP_NO_REQ:
- 		return 0;
-+	case PKVM_HYP_REQ_HYP_ALLOC:
-+		return sizeof(req->mem);
- 	default:
- 		WARN_ON(1);
- 	}
-diff --git a/arch/arm64/kvm/hyp/nvhe/hyp-main.c b/arch/arm64/kvm/hyp/nvhe/hyp-main.c
-index 91e74a1a334f..2b89eb274482 100644
---- a/arch/arm64/kvm/hyp/nvhe/hyp-main.c
-+++ b/arch/arm64/kvm/hyp/nvhe/hyp-main.c
-@@ -17,6 +17,7 @@
- #include <asm/kvm_hypevents.h>
- #include <asm/kvm_mmu.h>
- 
-+#include <nvhe/alloc.h>
- #include <nvhe/ffa.h>
- #include <nvhe/mem_protect.h>
- #include <nvhe/mm.h>
-@@ -799,6 +800,30 @@ DEFINE_KVM_HOST_HCALL(int, __pkvm_finalize_teardown_vm,
- 	return __pkvm_finalize_teardown_vm(handle);
- }
- 
-+DEFINE_KVM_HOST_HCALL(int, __pkvm_hyp_topup,
-+	enum pkvm_topup_id, id, phys_addr_t, head, unsigned long, nr_pages)
-+{
-+	struct kvm_cpu_context *host_ctxt = host_data_ptr(host_ctxt);
-+	struct kvm_hyp_memcache host_mc = {
-+		.head = head,
-+		.nr_pages = nr_pages,
-+	};
-+	int ret;
-+
-+	switch (id) {
-+	case PKVM_TOPUP_HYP_ALLOC:
-+		ret = hyp_alloc_topup(&host_mc);
-+		break;
-+	default:
-+		ret = -EINVAL;
-+	}
-+
-+	cpu_reg(host_ctxt, 2) = host_mc.head;
-+	cpu_reg(host_ctxt, 3) = host_mc.nr_pages;
-+
-+	return ret;
-+}
-+
- DEFINE_KVM_HOST_HCALL(int, __tracing_load,
- 	void __kern *, desc_hva, size_t, desc_size)
- {
-@@ -893,6 +918,7 @@ static const hcall_t host_hcall[] = {
- 	HANDLE_FUNC(__vgic_v3_restore_vmcr_aprs),
- 	HANDLE_FUNC(__vgic_v5_save_apr),
- 	HANDLE_FUNC(__vgic_v5_restore_vmcr_apr),
-+	HANDLE_FUNC(__pkvm_hyp_topup),
- 
- 	HANDLE_FUNC(__pkvm_host_share_hyp),
- 	HANDLE_FUNC(__pkvm_host_unshare_hyp),
-diff --git a/arch/arm64/kvm/pkvm.c b/arch/arm64/kvm/pkvm.c
-index 11d9e2f70cd8..9cd23978481c 100644
---- a/arch/arm64/kvm/pkvm.c
-+++ b/arch/arm64/kvm/pkvm.c
-@@ -88,6 +88,33 @@ void __init kvm_hyp_reserve(void)
- 		 hyp_mem_base);
- }
- 
-+static int pkvm_hyp_topup(enum pkvm_topup_id id, unsigned long nr_pages)
-+{
-+	struct kvm_hyp_memcache mc;
-+	struct arm_smccc_res res;
-+	int ret;
-+
-+	init_hyp_memcache(&mc);
-+	ret = topup_hyp_memcache(&mc, nr_pages);
-+	if (ret)
-+		goto err;
-+
-+	arm_smccc_1_1_hvc(KVM_HOST_SMCCC_FUNC(__pkvm_hyp_topup), id, mc.head,
-+			  mc.nr_pages, &res);
-+	if (WARN_ON_ONCE(res.a0 != SMCCC_RET_SUCCESS)) {
-+		ret = -EINVAL;
-+		goto err;
-+	}
-+
-+	ret = res.a1;
-+	mc.head = res.a2;
-+	mc.nr_pages = res.a3;
-+
-+err:
-+	free_hyp_memcache(&mc);
-+	return ret;
-+}
-+
- static void __pkvm_destroy_hyp_vm(struct kvm *kvm)
- {
- 	if (pkvm_hyp_vm_is_created(kvm)) {
-@@ -603,6 +630,9 @@ static int pkvm_handle_hyp_req(struct pkvm_hyp_req *req)
- 	int ret = -EINVAL;
- 
- 	switch (req->type) {
-+	case PKVM_HYP_REQ_HYP_ALLOC:
-+		ret = pkvm_hyp_topup(PKVM_TOPUP_HYP_ALLOC, req->mem.nr_pages);
-+		break;
- 	}
- 
- 	trace_kvm_handle_pkvm_hyp_req(req, ret);
-diff --git a/arch/arm64/kvm/trace_pkvm.h b/arch/arm64/kvm/trace_pkvm.h
-index 3966c111e3ad..493225e3282d 100644
---- a/arch/arm64/kvm/trace_pkvm.h
-+++ b/arch/arm64/kvm/trace_pkvm.h
-@@ -9,9 +9,11 @@
- #define TRACE_SYSTEM kvm
- 
- TRACE_DEFINE_ENUM(PKVM_HYP_NO_REQ);
-+TRACE_DEFINE_ENUM(PKVM_HYP_REQ_HYP_ALLOC);
- 
--#define PKVM_HYP_REQ_TYPES \
--	{ PKVM_HYP_NO_REQ, "NO_REQ" }
-+#define PKVM_HYP_REQ_TYPES				\
-+	{ PKVM_HYP_NO_REQ, "NO_REQ" },			\
-+	{ PKVM_HYP_REQ_HYP_ALLOC, "HYP_ALLOC" }
- 
- TRACE_EVENT(kvm_handle_pkvm_hyp_req,
- 	TP_PROTO(struct pkvm_hyp_req *req, int ret),
--- 
-2.56.0.rc1.315.gc6ed9934b7-goog
+> I'd addressed this in the RPM patch with a comment right above this check:
+> 
+>          * Note that eliding ATC invalidations (CMDQ_OP_ATC_INV) is safe
+>          * because client PCIe endpoints are guaranteed to be suspended
+>          * (via device links) before the SMMU is suspended. With the PCIe
+>          * links in a low-power state, no new TLPs can be transmitted.
+>          * It is strictly the responsibility of the client/endpoint driver
+>          * to quiesce DMA and ensure that the ATC state is cleared across
+>          * power state transitions.
+> 
+> i.e. we only start eliding once *all* consumers are RPM suspended, so
+> the "endpoint in D0" scenario can't happen.. and a suspended PCIe
+> function shouldn't be issuing translated requests anyway.
 
+Maybe move it to this PATCH-11?
+
+> So we can't issue ATC_INVs during suspend (the EP is already down), nor
+> during resume (the SMMU resumes *before* the EP is made active). The EP
+> can't use its ATC while suspended, and if it loses power/resets on the
+> way back to D0 (from D3cold, or D3hot with No_Soft_Reset=0), it comes 
+> back with an empty ATC.. same assumption the PCI reset path makes today
+> (pci_dev_reset_iommu_prepare()).
+
+In that case, would the STOP flag be too late? It's only set in
+the middle of the SMMU suspend. So, an ATC command (via doamin
+invalidation) might be issued prior to the Point of Commitment,
+which will be timed out due to the unresponding EP?
+
+Nicolin
 
