@@ -4,67 +4,66 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 826EECA5FD7
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  1 Oct 2026 08:22:25 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1F13BCA5FA5
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  1 Oct 2026 08:22:29 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=mmzCmgBunReDri/zOZWv737BTom0LNHVlNqqcUF4Omg=; b=zfSmxCgTazLIV9CWwHXzdAHY3N
-	ZxSSjNHQn1BWgbWD0gv1y8HCs5j2Ngk5nfC47AR3l37KbIEU2AhNiGtofkmiyoaoQfg2eLfVhQNXc
-	W8lPGJvBSWits7xnDAqMFsgwwaw1MUMyBeullLmFH7BgoAIbUkyx+h+D2Cp3csEPAX0iBC0P5+CYa
-	3csLech0J3yp7i/PqPJFRc4ijhLOzojtKZaCnCyUWxSBR5ou2CTM6F6CzrfuaEd35YPmZHWFp7yYS
-	PQJNG+HkZhkuXXF+q8gY/c3idQbxa2dlXz+V2gdtS5TbqPqR035mDqtfYv7999LmTseb4LXlZ3YQN
-	frBoSQaw==;
+	bh=PYvUdbcxoqQgTG/Ap0FYa1LeFOd/Rqrh+SQiyojvnMI=; b=X4q4mbVXMM1Kq55sOR1HdmoZPX
+	7plSz5AdJZ9aTSuP4cFH7UeAFD+rhFisUQl76aSQ7BQ4MzjpY5caltXb2tAaeBtC46vZiIriHD8LP
+	PfuseBPROuss5hxQeWyNqnndpsLTxE4UJ5TK/Kpf0C7OYO56cOJd3C3y4A0isrJX+Hz8obY7HGVyo
+	pU1sG46b/VXp/uy/yISfmYhkipeCIU5DH0kL/OjHw2zUlRKe1r6CNfy0t4dnEcEz4aK4h+SEGZzgW
+	3rWfy1ptVVFIN1GwqkcbXw3ntngKHp6iP6DUlaAm8PxghYOMFKqjyQek1d+58Qk9bKO/YC6Ad9zbf
+	35v2DRwg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xCC3U-000000087F3-37aj;
-	Thu, 01 Oct 2026 08:22:16 +0000
+	id 1xCC3W-000000087LH-3Ux9;
+	Thu, 01 Oct 2026 08:22:18 +0000
 Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xCC3Q-00000008773-1GVO;
-	Thu, 01 Oct 2026 08:22:13 +0000
+	id 1xCC3S-0000000877r-0fiE;
+	Thu, 01 Oct 2026 08:22:14 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=infradead.org; s=desiato.20200630; h=Cc:To:In-Reply-To:References:
 	Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Sender:Reply-To:Content-ID:Content-Description;
-	bh=mmzCmgBunReDri/zOZWv737BTom0LNHVlNqqcUF4Omg=; b=jbbT+jT0bB9PYyJ8uhK0GZkRHq
-	5pm0EMbEtatexVOBsKRtrouNy9Y30TZ6lTNZxUXxi4+roRby0DnM53bHdB53M9RlqUOH3BPwdMbPf
-	vR+Of+ZDKXUO7cDNCz5efFYqv/IaeSEEkSvwzUHX6697mkTs/0icwzuBnjIhVteMUOAsMPtxB5ixf
-	BHV1zJ21ozGyqK9v71BLca/HBskKfyedrOVKUAXdbxv6EIYeM78RV0jEjChzzVVkr2JdgnXLjYBc3
-	mmxipIkF8THl35Ne7CGoJWSFT+IgKXojmL6ttIcqSWB8axuLu7oBJq4/65E2B/aTz0oi61KodiBa2
-	F0yeSLCQ==;
-Received: from bali.collaboradmins.com ([2a01:4f8:201:9162::2])
+	bh=PYvUdbcxoqQgTG/Ap0FYa1LeFOd/Rqrh+SQiyojvnMI=; b=Zfuj4Jh7ghZ068ukm003jznTys
+	uEQDJ1hV6KBmyoIDRZQBCtY6OS3LtdGh6X3lcX1SZ7FgGtgCYmSfbCkpW0vlzp8MwzMuuhvWp0oP6
+	84Qd8ey/6YB2mueALm73ENGsJRPN7ElJ+DLE3jxl0li/nbROVx/sE3d2agoR+0uf1ialIDSmtY9+F
+	Gv99VuqIm/whG4tIz9qCNB+BbSMNj+QehehQ/cYaqJqHR0nYkbL5xo4kiOe7vTJ7hRS0bKnoGEzW4
+	kS4jaVvfyij+oItzRiTzvybkaPi0LqI0pqeSZpN0fe534DXVl6QsZNp9eZodTRVcJhXjr3AeuvkXC
+	joVe8oGA==;
+Received: from bali.collaboradmins.com ([148.251.105.195])
 	by desiato.infradead.org with esmtps (Exim 4.99.2 #2 (Red Hat Linux))
-	id 1xCC3K-00000004ioV-422K;
-	Thu, 01 Oct 2026 08:22:11 +0000
+	id 1xCC3O-00000004iqI-3yxz;
+	Thu, 01 Oct 2026 08:22:12 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
-	s=mail; t=1790842921;
-	bh=Rbn2DtEXFlBEWZDcTzb5theeUJW+mynrwXMS+uXDbVA=;
+	s=mail; t=1790842929;
+	bh=sVYy1lvcQDUBZamXHv0+rAHaonVcdGcrPUYbdTT+5nQ=;
 	h=From:Date:Subject:References:In-Reply-To:To:Cc:From;
-	b=qe2npKBcArCOiTEfjdNAVDmHvFWy9JKBq45H9xLN5Q/WGj7cX4PbzreySlGPUJzH/
-	 ATkpAMBWk0FfOhU7bATY4fijkxeo+zk2DyJ4Wu8XnqpnAHmA+2bKGdEcVBs6VoOR42
-	 LbXa2vE2CEBoS0TcWktB/fiAtOR6iutpZr7Jo+WIt1hw6zqToJi2KpMCiFjKHJxNa3
-	 qSXvuZxhWUDIUuyUlzy4XS8f2ffogZJF+camOYWb+OvEO0fVEoD69HbGQOxIUOiZxH
-	 7XP5U+dWtXryiapZTS2WUypyikNsiqnQ8KYVwaMBVgyLhCeGcODX6raQAO6y7+JdgT
-	 /nXgnbYYyDivQ==
+	b=mrJl0S9/0ngvQtvFL8lFaw222tbW7kV4Z0oVwO9vM+JLQRSy3v3BBBIsOBrqBRdny
+	 t0oZvK2lIiA86VPTz3dPWZSZdiBIlN+XmMiAnbL4Ko/ryGR58g1WeUNq5pO8hyS7ro
+	 sEI764rAqmvuY1dbOh4DjfDXqhrq4/lkAG8IVjyO2oiX+R0SZQI7MVJNieQY1emS+W
+	 SsRPoHlRCthUnrTNO7IyFXJN5X+6tX5GOJcBJ8dPMHTK5Y2B19nopHivew65lD2Ie1
+	 8dEoidAGNaB2xhJN3wz64QMfIGZCmhluZy0FSvejgc32A1Dj9IdlyPQofpy7+Ubet+
+	 wSDVfrjIPUNIA==
 Received: from yukiji.home (unknown [100.64.0.131])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange x25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
 	(No client certificate requested)
 	(Authenticated sender: laeyraud)
-	by bali.collaboradmins.com (Postfix) with ESMTPSA id 9826617E056B;
-	Thu, 01 Oct 2026 10:22:00 +0200 (CEST)
+	by bali.collaboradmins.com (Postfix) with ESMTPSA id 2BBB017E0371;
+	Thu, 01 Oct 2026 10:22:08 +0200 (CEST)
 From: Louis-Alexis Eyraud <louisalexis.eyraud@collabora.com>
-Date: Thu, 01 Oct 2026 10:21:34 +0200
-Subject: [PATCH v13 02/24] dt-bindings: ufs: mediatek,ufs: Complete the
- binding
+Date: Thu, 01 Oct 2026 10:21:41 +0200
+Subject: [PATCH v13 09/24] scsi: ufs: mediatek: Rework init function
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20261001-mt8196-ufs-v13-2-60854adab6d9@collabora.com>
+Message-Id: <20261001-mt8196-ufs-v13-9-60854adab6d9@collabora.com>
 References: <20261001-mt8196-ufs-v13-0-60854adab6d9@collabora.com>
 In-Reply-To: <20261001-mt8196-ufs-v13-0-60854adab6d9@collabora.com>
 To: Chunfeng Yun <chunfeng.yun@mediatek.com>, Vinod Koul <vkoul@kernel.org>, 
@@ -86,19 +85,18 @@ Cc: kernel@collabora.com, linux-arm-kernel@lists.infradead.org,
  linux-mediatek@lists.infradead.org, linux-phy@lists.infradead.org, 
  devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
  linux-scsi@vger.kernel.org, 
- Nicolas Frattaroli <nicolas.frattaroli@collabora.com>, 
- Louis-Alexis Eyraud <louisalexis.eyraud@collabora.com>
+ Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
 X-Mailer: b4 0.14.3
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1790842918; l=7040;
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1790842918; l=3160;
  i=louisalexis.eyraud@collabora.com; s=20250113; h=from:subject:message-id;
- bh=tsSjem3nD/R00+JjWfBrSonrxAzR8P3GQQSGkAiEcwA=;
- b=Xw47aWJlS2LUTfWUY6c5juxvVhfT4A4h5Tg4r3tGayZzzHCxe+pKyl9hkUQhgmk/Zlpogzlee
- gaElpFliPEtBy0Wl9kgT+siszr+3/sgh0eELQ7VgkZHS3C3ma0jxo8Y
+ bh=WCX8t21Q33dMe2d3mKBeu0PLt53GTI4ejo7xFiru0Vk=;
+ b=d4zBGSH1/5yt0mkliva7pMKXmSIi7Vr7aBEO2E04ftTrP9ouo3PepUPABPPrKh7qntV3epfvx
+ L+fSN5eQQFmDKE5vS6LVtaLnRG8NZSVJ1HpsfF+EdBBHEzgON40Sz7u
 X-Developer-Key: i=louisalexis.eyraud@collabora.com; a=ed25519;
  pk=CHFBDB2Kqh4EHc6JIqFn69GhxJJAzc0Zr4e8QxtumuM=
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261001_092207_764376_80A7DE4B 
-X-CRM114-Status: GOOD (  22.50  )
+X-CRM114-CacheID: sfid-20261001_092211_342247_040CF3A0 
+X-CRM114-Status: GOOD (  18.45  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -115,222 +113,112 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 
 From: Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
 
-As it stands, the mediatek,ufs.yaml binding is startlingly incomplete.
-Its one example, which is the only real "user" of this binding in
-mainline, uses the deprecated freq-table-hz property.
+Printing an error message on ENOMEM is pointless. The print will not
+work because there is no memory.
 
-The resets, of which there are three optional ones, are completely
-absent.
+Adding an of_match_device to the init function is pointless. Why would a
+different device with a different probe function ever use the same init
+function? Get rid of it.
 
-The clock description for MT8195 is incomplete, as is the one for
-MT8192. It's not known if the one clock binding for MT8183 is even
-correct, but I do not have access to the necessary code and
-documentation to find this out myself.
+zero-initialising an error variable just so you can then goto a bare
+return statement with that error variable to signal success is also
+pointless, just return directly, there's no unwind being done.
 
-The power supply situation is not much better; the binding describes one
-required power supply, but it's the UFS card supply, not any of the
-supplies feeding the controller silicon.
-
-No second example is present in the binding, making verification
-difficult.
-
-Disallow freq-table-hz and move to operating-points-v2. It's fine to
-break compatibility here, as the binding is currently unused and would
-be impossible to correctly use in its current state.
-
-Add the three resets and the corresponding reset-names property. These
-resets appear to be optional, i.e. not required for the functioning of
-the device.
-
-Move the list of clock names out of the if condition, and expand it for
-the confirmed clocks I could find by cross-referencing several clock
-drivers. For MT8195, increase the minimum number of clocks to include
-the rx_symbol ones, as they're internal to the SoC and should always
-be present, and should therefore not be omitted.
-
-MT8192 gets to have at least 3 clocks, as these were the ones I could
-quickly confirm from a glance at various trees. I can't say this was an
-exhaustive search though, but it's better than the current situation.
-
-Properly document all supplies, with which pin name on the SoCs they
-supply. Complete the example with them.
-
-Also add a MT8195 example to the binding, using supply labels that I am
-pretty sure would be the right ones for e.g. the Radxa NIO 12L.
-
-Finally, remove the 'ufs_' prefix from all clock names containing it
-and rename 'ufs' clock to 'main'.
-
-Signed-off-by: Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
-Reviewed-by: Chaotian Jing <chaotian.jing@mediatek.com>
+Reviewed-by: Peter Wang <peter.wang@mediatek.com>
 Reviewed-by: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
-Reviewed-by: Rob Herring (Arm) <robh@kernel.org>
-Signed-off-by: Louis-Alexis Eyraud <louisalexis.eyraud@collabora.com>
+Signed-off-by: Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
 ---
- .../devicetree/bindings/ufs/mediatek,ufs.yaml      | 115 +++++++++++++++++----
- 1 file changed, 96 insertions(+), 19 deletions(-)
+ drivers/ufs/host/ufs-mediatek.c | 43 +++++++++++++++--------------------------
+ 1 file changed, 16 insertions(+), 27 deletions(-)
 
-diff --git a/Documentation/devicetree/bindings/ufs/mediatek,ufs.yaml b/Documentation/devicetree/bindings/ufs/mediatek,ufs.yaml
-index 15c347f5e660..945cb986b06b 100644
---- a/Documentation/devicetree/bindings/ufs/mediatek,ufs.yaml
-+++ b/Documentation/devicetree/bindings/ufs/mediatek,ufs.yaml
-@@ -19,11 +19,25 @@ properties:
+diff --git a/drivers/ufs/host/ufs-mediatek.c b/drivers/ufs/host/ufs-mediatek.c
+index 5721aa24d0b9..3251f6e7dfe9 100644
+--- a/drivers/ufs/host/ufs-mediatek.c
++++ b/drivers/ufs/host/ufs-mediatek.c
+@@ -54,18 +54,6 @@ static const struct ufs_dev_quirk ufs_mtk_dev_fixups[] = {
+ 	{}
+ };
  
-   clocks:
-     minItems: 1
--    maxItems: 8
-+    maxItems: 10
+-static const struct ufs_mtk_soc_data mt8183_data = {
+-	.has_avdd09 = true,
+-};
+-
+-static const struct of_device_id ufs_mtk_of_match[] = {
+-	{ .compatible = "mediatek,mt8183-ufshci", .data = &mt8183_data },
+-	{ .compatible = "mediatek,mt8192-ufshci" },
+-	{ .compatible = "mediatek,mt8195-ufshci" },
+-	{},
+-};
+-MODULE_DEVICE_TABLE(of, ufs_mtk_of_match);
+-
+ /*
+  * Details of UIC Errors
+  */
+@@ -1313,29 +1301,19 @@ static int ufs_mtk_get_supplies(struct ufs_mtk_host *host)
+  */
+ static int ufs_mtk_init(struct ufs_hba *hba)
+ {
+-	const struct of_device_id *id;
+ 	struct device *dev = hba->dev;
+ 	struct ufs_mtk_host *host;
+ 	struct Scsi_Host *shost = hba->host;
+-	int err = 0;
++	int err;
+ 	struct arm_smccc_res res;
  
-   clock-names:
-     minItems: 1
--    maxItems: 8
-+    items:
-+      - const: main
-+      - const: aes
-+      - const: tick
-+      - const: unipro_sysclk
-+      - const: unipro_tick
-+      - const: unipro_mp_bclk
-+      - const: tx_symbol
-+      - const: mem_sub
-+      - const: rx_symbol0
-+      - const: rx_symbol1
-+
-+  operating-points-v2: true
-+
-+  freq-table-hz: false
+ 	host = devm_kzalloc(dev, sizeof(*host), GFP_KERNEL);
+-	if (!host) {
+-		err = -ENOMEM;
+-		dev_info(dev, "%s: no memory for mtk ufs host\n", __func__);
+-		goto out;
+-	}
++	if (!host)
++		return -ENOMEM;
  
-   phys:
-     maxItems: 1
-@@ -31,8 +45,36 @@ properties:
-   reg:
-     maxItems: 1
+ 	host->hba = hba;
+ 	ufshcd_set_variant(hba, host);
  
-+  resets:
-+    items:
-+      - description: reset for the UniPro layer
-+      - description: reset for the cryptography engine
-+      - description: reset for the host controller
-+
-+  reset-names:
-+    items:
-+      - const: unipro
-+      - const: crypto
-+      - const: hci
-+
-+  avdd09-supply:
-+    description: Phandle to the 0.9V supply powering the AVDD09_UFS pin
-+
-+  avdd12-supply:
-+    description: Phandle to the 1.2V supply powering the AVDD12_UFS pin
-+
-+  avdd12-ckbuf-supply:
-+    description: Phandle to the 1.2V supply powering the AVDD12_CKBUF_UFS pin
-+
-+  avdd18-supply:
-+    description: Phandle to the 1.8V supply powering the AVDD18_UFS pin
-+
-   vcc-supply: true
+-	id = of_match_device(ufs_mtk_of_match, dev);
+-	if (!id) {
+-		err = -EINVAL;
+-		goto out;
+-	}
+-
+ 	/* Initialize host capability */
+ 	ufs_mtk_init_host_caps(hba);
  
-+  vccq-supply: true
-+
-+  vccq2-supply: true
-+
-   mediatek,ufs-disable-mcq:
-     $ref: /schemas/types.yaml#/definitions/flag
-     description: The mask to disable MCQ (Multi-Circular Queue) for UFS host.
-@@ -54,29 +96,41 @@ allOf:
-       properties:
-         compatible:
-           contains:
--            enum:
--              - mediatek,mt8195-ufshci
-+            const: mediatek,mt8183-ufshci
-     then:
-       properties:
-         clocks:
--          minItems: 8
-+          maxItems: 1
-         clock-names:
-           items:
--            - const: ufs
--            - const: ufs_aes
--            - const: ufs_tick
--            - const: unipro_sysclk
--            - const: unipro_tick
--            - const: unipro_mp_bclk
--            - const: ufs_tx_symbol
--            - const: ufs_mem_sub
--    else:
-+            - const: main
-+        avdd12-ckbuf-supply: false
-+  - if:
-+      properties:
-+        compatible:
-+          contains:
-+            const: mediatek,mt8192-ufshci
-+    then:
-       properties:
-         clocks:
--          maxItems: 1
-+          minItems: 3
-+          maxItems: 3
-         clock-names:
--          items:
--            - const: ufs
-+          minItems: 3
-+          maxItems: 3
-+        avdd09-supply: false
-+  - if:
-+      properties:
-+        compatible:
-+          contains:
-+            const: mediatek,mt8195-ufshci
-+    then:
-+      properties:
-+        clocks:
-+          minItems: 10
-+        clock-names:
-+          minItems: 10
-+        avdd09-supply: false
+@@ -1409,11 +1387,10 @@ static int ufs_mtk_init(struct ufs_hba *hba)
  
- examples:
-   - |
-@@ -94,9 +148,32 @@ examples:
-             phys = <&ufsphy>;
+ 	ufs_mtk_get_hw_ip_version(hba);
  
-             clocks = <&infracfg_ao CLK_INFRA_UFS>;
--            clock-names = "ufs";
--            freq-table-hz = <0 0>;
-+            clock-names = "main";
+-	goto out;
++	return 0;
  
-             vcc-supply = <&mt_pmic_vemc_ldo_reg>;
-         };
-     };
-+  - |
-+    ufshci@11270000 {
-+        compatible = "mediatek,mt8195-ufshci";
-+        reg = <0x11270000 0x2300>;
-+        interrupts = <GIC_SPI 137 IRQ_TYPE_LEVEL_HIGH>;
-+        phys = <&ufsphy>;
-+        clocks = <&infracfg_ao 63>, <&infracfg_ao 64>, <&infracfg_ao 65>,
-+                 <&infracfg_ao 54>, <&infracfg_ao 55>, <&infracfg_ao 56>,
-+                 <&infracfg_ao 90>, <&infracfg_ao 93>, <&topckgen 212>,
-+                 <&topckgen 215>;
-+        clock-names = "main", "aes", "tick", "unipro_sysclk", "unipro_tick",
-+                      "unipro_mp_bclk", "tx_symbol", "mem_sub", "rx_symbol0",
-+                      "rx_symbol1";
+ out_variant_clear:
+ 	ufshcd_set_variant(hba, NULL);
+-out:
+ 	return err;
+ }
+ 
+@@ -2455,6 +2432,18 @@ static const struct ufs_hba_variant_ops ufs_hba_mtk_vops = {
+ 	.config_scsi_dev     = ufs_mtk_config_scsi_dev,
+ };
+ 
++static const struct ufs_mtk_soc_data mt8183_data = {
++	.has_avdd09 = true,
++};
 +
-+        operating-points-v2 = <&ufs_opp_table>;
++static const struct of_device_id ufs_mtk_of_match[] = {
++	{ .compatible = "mediatek,mt8183-ufshci", .data = &mt8183_data },
++	{ .compatible = "mediatek,mt8192-ufshci" },
++	{ .compatible = "mediatek,mt8195-ufshci" },
++	{},
++};
++MODULE_DEVICE_TABLE(of, ufs_mtk_of_match);
 +
-+        avdd12-supply = <&mt6359_vrf12_ldo_reg>;
-+        avdd12-ckbuf-supply = <&mt6359_vbbck_ldo_reg>;
-+        avdd18-supply = <&mt6359_vio18_ldo_reg>;
-+        vcc-supply = <&mt6359_vemc_1_ldo_reg>;
-+        vccq2-supply = <&mt6359_vufs_ldo_reg>;
-+
-+        mediatek,ufs-disable-mcq;
-+    };
+ /**
+  * ufs_mtk_probe - probe routine of the driver
+  * @pdev: pointer to Platform device handle
 
 -- 
 2.55.0
