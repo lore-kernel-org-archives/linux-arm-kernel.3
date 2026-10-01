@@ -4,144 +4,68 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 124A4CA5FD2
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  1 Oct 2026 13:53:28 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C6DAACA5FCB
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  1 Oct 2026 13:57:30 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=OFDrY6jJae9sQwA/g3w+iQrtIzp0EFP/zxY0CoXTnCI=; b=x3+wS0MD56cN5ZPM+DbOa+T7rb
-	teqLk2RhZicmhS2/V7CZZqaiDlaO9iQHn1ehx4kpFwvTBf+3vVLnpw1C9At2NRrWM0HB0uPTuBShi
-	IZFcKo8ikRGeUYEEKR9G6kjx6pOZpABYZEj+5s6/NIxoeeI5QZayNtwK/sWqoMPmhOgYSVmxaVAC3
-	lrStMsHQEfD7pYrFFC0G5p5z+L3zf/NnFqM1HjQitzHRKAOlBrDdGwX8As6RD2fRHK7MXFrl+VfZs
-	9TTpS09ypx0TWu1gABIpgbS7jauRd3ZZ4yp7fBDdn0ooTA0PhQWimQTsSBkjOLGx4DxZI66eU2pxX
-	53YRh+mQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=LtNe1cpyx1zJLFtWN4sIwka9yI1Q/FoNLqv3demoTJI=; b=35T61r1JUxlHl4PhRuFnJCzhkC
+	3XDRQug0T7YzGPEezAABgmRsMUu9B1XYk2CN4+KlUH9xlZEGz+JPTu+1QFZpkb5ZLSNu39p0abrn1
+	BgMT6XJvqQc6jR+dOqXlxX1xi9jAQXJ+0+UMxl+XsdbDwiqV51PzLTFYLzzKcvasoz1rRf6SB+wUJ
+	UuXcI1T+t05KBN325VV5TS4OLjDoDV4OXHBrTQdM7J3vWMK5yQtaJr2AYZtRu8HkLQYtucCPbWymg
+	JI0CwjzVpY7a5G/Yk1WBVKlVfDOiKWuUfa7pwYiAWYy+Cz7W+6H9mV40GpP47zOUS1mVy6oQ/EDl+
+	A15DU01A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xCHDs-00000009HyS-2i94;
-	Thu, 01 Oct 2026 13:53:20 +0000
-Received: from mx0a-0031df01.pphosted.com ([205.220.168.131])
+	id 1xCHHm-00000009IEt-0jSC;
+	Thu, 01 Oct 2026 13:57:22 +0000
+Received: from out-124.mta1.migadu.com ([95.215.58.124] helo=mta1.migadu.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xCHDp-00000009Hy4-3ZXu
+	id 1xCHHi-00000009IEJ-1Ck0
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 01 Oct 2026 13:53:19 +0000
-Received: from pps.filterd (m0279867.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 691DijmB3776319
-	for <linux-arm-kernel@lists.infradead.org>; Thu, 1 Oct 2026 13:53:17 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
-	cc:content-type:date:from:in-reply-to:message-id:mime-version
-	:references:subject:to; s=qcppdkim1; bh=OFDrY6jJae9sQwA/g3w+iQrt
-	Izp0EFP/zxY0CoXTnCI=; b=bpp8giiUnK4uLsq6baRkCaK0oAqKx8JpJWoUzFCq
-	oR/aRp2lcOKpy2LKgjB3ELJBHdlHgiVQvDYaQEtha9CcLcbst0+rzdN0T/QqpddL
-	diTXXMK7mRp/C/w/meg5cQoZklX5IoF6k2citY3xg7rlVIT4OXznbCqCXFtq8s5V
-	VzZ88BSR5WZub9EP1BPXj2Wqb3dgJKjl0IVnmAkz/7cF9yuOv0jePA/pxr/709DX
-	O7DW2jf/g2Gs9AlfAjaBOrvfpatao0IOD7jEPWeFzvvVIaKn/agVIMpnhMAh1MxI
-	Ei+BZLZPupa12MLnQ4vAqUI/Y/z7cxUJIJo1Jh3nva99xQ==
-Received: from mail-vs1-f70.google.com (mail-vs1-f70.google.com [209.85.217.70])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4h1p2b8qam-1
-	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
-	for <linux-arm-kernel@lists.infradead.org>; Thu, 01 Oct 2026 13:53:17 +0000 (GMT)
-Received: by mail-vs1-f70.google.com with SMTP id ada2fe7eead31-7b2f700b30bso1412206137.1
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 01 Oct 2026 06:53:16 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=oss.qualcomm.com; s=google; t=1790862796; x=1791467596; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:content-type:mime-version
-         :references:message-id:subject:cc:to:from:date:from:to:cc:subject
-         :date:message-id:reply-to:content-type;
-        bh=OFDrY6jJae9sQwA/g3w+iQrtIzp0EFP/zxY0CoXTnCI=;
-        b=C/YkZiELC7hau+/eIG9KblXqEk52ikWf5rowX4u0jX6oSIZNz9kqNeG6wV68rJ8Mf3
-         QkcZJrSqvFBuWvcir4r53KC14aLNmmDdnm/ZcruF4ydBh0MOT60WVacL96TK4Z3hrF7T
-         ShSru5zDvTXqOsZlDgD/oYFbvUKG+jwcItRhzIVqcGU32tVuxy1LbUU7nXpQGJXafP5I
-         r8leH8SPM/4u+YHLvX77MKSQp/dZtd8Loq56U083k9MJTacfSlw3ydi2s1vslsU1z0K5
-         mhEKdmpUsInSs89I0Rd7n1GP4ktUQ7r7oWJGR99l5ejQvwHra2FrhdN1StGNOsgrAHRA
-         EtzA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1790862796; x=1791467596;
-        h=in-reply-to:content-disposition:content-type:mime-version
-         :references:message-id:subject:cc:to:from:date:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=OFDrY6jJae9sQwA/g3w+iQrtIzp0EFP/zxY0CoXTnCI=;
-        b=o+7ouVOxzJ2XLc4zqH0ilo54OPoRhIYBCq2EEoncb5MpEJufzaP26ixyvWec5j4TWL
-         1BgSCL9ouJ2d3vaLQfJp70qlaMaDUlLq6mkDZdxNgbB2VYbE1tHuzaO25nCwmmhfMsA5
-         Za7imBoI9bfHWdm/Zrk44hJ3x2zTLuaNOvmAo5jL9YqB52C0JsMUU85oy3vbGCR0B2Oo
-         cK/aFbLeQrQmR3ILT2yItLKnI7jViRtxqjTnpemZUf3Qoy8tsMMQteGWB5+kKIXamC1Q
-         1GtDm988c2A2NFFRco2jN5tMlkrGHflk7X22rNYAzhTbbigoF5eOEuH9N6BxLYmb3b24
-         doAg==
-X-Forwarded-Encrypted: i=1; AKwUvByVaIVWg9fDwidbA+Gk95eTEvVuX1eXX+t1VYm4N5AQXZG8CoF8aEXvfoDXQx9emN1BZQ1FySaaTEWiKRnaHE0W@lists.infradead.org
-X-Gm-Message-State: AFq9FYINFZ2zlGdJ3h9U3LKmKi/542wByAgC6QhTLV9MA3sYFfVisELG
-	AnBRn+Oj/x7r3OmxFySTlOgQsaYCe4O9c7Ht+2vjhcoQMfnow2Gvz64PIDkXnfhQsRcLWPPae5N
-	hlEWfLxTcsHVCR8D8oLIQiEfSXJPOis7+AklaOyQF805C+urEdhfWkK5RlXPMNvK0Zb9B7HcELF
-	GH3g==
-X-Gm-Gg: AYBFou16QKGYun/AIMSaNBCsQy4m26miGQb//kGQv+N9ZNn3KoApSGal5g6G44VwMoc
-	SPHCM/RFjozBb7oOfzENIrYBp/9K7QQQ+goh6N4FWtBSMP09OH8cjDyW1lHx6sBGCa2XkuYft8k
-	IYNhAH43xYX2TEhfDTvZR3ue5nkP3xrSJQSZMkuB8XhAuLXoqhpi+CGe0Y69Jabbrww6tRP5sUf
-	7oY9x16XKadQcict1og7/MTGBias/fCCA70dTlGPIulNIN4iqK4N15E9SfqTIoxSVUpEv8BBWOj
-	sy3JiAFOQY1GziD/nNAea2qk4wiSa8+N9MeYKdTMqhwgkQnkqZMDZYKUZcGqNcO22IY4xWpa1tq
-	Y3aRDZeO0CEjmzg==
-X-Received: by 2002:a05:6102:2b84:b0:7b2:f790:c028 with SMTP id ada2fe7eead31-7be73a8dd26mr1146115137.25.1790862795992;
-        Thu, 01 Oct 2026 06:53:15 -0700 (PDT)
-X-Received: by 2002:a05:6102:2b84:b0:7b2:f790:c028 with SMTP id ada2fe7eead31-7be73a8dd26mr1146103137.25.1790862795417;
-        Thu, 01 Oct 2026 06:53:15 -0700 (PDT)
-Received: from localhost ([188.216.77.92])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-48b0690d284sm6096797f8f.17.2026.10.01.06.53.13
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 01 Oct 2026 06:53:13 -0700 (PDT)
-Date: Thu, 1 Oct 2026 15:53:12 +0200
-From: Lorenzo Bianconi <lorenzo.bianconi@oss.qualcomm.com>
-To: Maxime Chevallier <maxime.chevallier@bootlin.com>,
-        Andrew Lunn <andrew+netdev@lunn.ch>,
-        "David S. Miller" <davem@davemloft.net>,
-        Eric Dumazet <edumazet@google.com>, Jakub Kicinski <kuba@kernel.org>,
-        Paolo Abeni <pabeni@redhat.com>,
-        Maxime Coquelin <mcoquelin.stm32@gmail.com>,
-        Alexandre Torgue <alexandre.torgue@foss.st.com>,
-        Vladimir Oltean <olteanv@gmail.com>, Furong Xu <0x1207@gmail.com>
-Cc: Daniel Thompson <daniel@riscstar.com>, netdev@vger.kernel.org,
-        linux-stm32@st-md-mailman.stormreply.com,
-        linux-arm-kernel@lists.infradead.org,
-        Davide Caratti <dcaratti@redhat.com>
-Subject: Re: [PATCH net-next v3 0/2] net: stmmac: Introduce hw queue priority
- offload
-Message-ID: <ar5lyAFx3H7Z5McI@lore-desk>
-References: <20260928-stmmac-mqprio-prio-offload-v3-0-abbe181f5024@oss.qualcomm.com>
+	Thu, 01 Oct 2026 13:57:20 +0000
+X-Envelope-To: linux-arm-kernel@lists.infradead.org
+DKIM-Signature: a=rsa-sha256; bh=7LRmeL2aZdsgLBivLTyfL6P6xPAh8rIwxSP5UYb2qbo=;
+ c=simple/simple; d=linux.dev;
+ h=from:to:subject:date:message-id:mime-version:content-type; s=key1;
+ t=1790863036; v=1; x=1791467836;
+ b=TndGKWATG2SngtKPIbxX1iLl1H55HzSlXpcuMmbBxrKTbrsZNjoYivoVGJ5z5MjbjDvSJ0bq
+ L2Shi1C1zmb4os0qPKVr8dMe8bQxLBmsWdn+BCcPTotRqgjwb6d8n073BuLNMB87At4hrP/P7sf
+ rxQRb4Uk87iaXZbPggzO/Q34=
+X-Envelope-To: linux-arm-kernel@lists.infradead.org
+Received: by smtp.migadu.com with ESMTPS id d6b035d067cc9da9;
+	Thu, 01 Oct 2026 13:57:15 +0000
+X-Mizu-Trace-ID: d6b035d067cc9da9
+X-Migadu-Flow: FLOW_OUT
+From: Fuad Tabba <fuad.tabba@linux.dev>
+To: maz@kernel.org,
+	oupton@kernel.org,
+	kvmarm@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org
+Cc: catalin.marinas@arm.com,
+	will@kernel.org,
+	joey.gouly@arm.com,
+	seiden@linux.ibm.com,
+	suzuki.poulose@arm.com,
+	yuzenghui@huawei.com,
+	mark.rutland@arm.com,
+	steven.price@arm.com,
+	vdonnefort@google.com,
+	qperret@google.com,
+	tabba@google.com
+Subject: [PATCH v4 00/18] KVM: arm64: Confine protected VM vCPU state to EL2
+Date: Thu,  1 Oct 2026 14:56:53 +0100
+Message-Id: <20261001135711.1640520-1-fuad.tabba@linux.dev>
+X-Mailer: git-send-email 2.39.5
 MIME-Version: 1.0
-Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="oVNdUR3qC5DoPBrS"
-Content-Disposition: inline
-In-Reply-To: <20260928-stmmac-mqprio-prio-offload-v3-0-abbe181f5024@oss.qualcomm.com>
-X-Proofpoint-GUID: FkH5B_rT5ClI-qKOkr_lBxb3AnYpRWD-
-X-Proofpoint-ORIG-GUID: FkH5B_rT5ClI-qKOkr_lBxb3AnYpRWD-
-X-Authority-Analysis: v=2.4 cv=O8SsLx9W c=1 sm=1 tr=0 ts=6abe65cd cx=c_pps
- a=N1BjEkVkxJi3uNfLdpvX3g==:117 a=WpTaRW6qxYHRGzLzQsVYzg==:17
- a=660iZSQnnn4A:10 a=s4-Qcg_JpJYA:10 a=VkNPw1HP01LnGYTKEx00:22
- a=u7WPNUs3qKkmUXheDGA7:22 a=eoimf2acIAo5FJnRuUoq:22 a=VwQbUJbxAAAA:8
- a=EUspDBNiAAAA:8 a=n-0y5aq-Uey8P2rTCuMA:9 a=CjuIK1q_8ugA:10
- a=TfBcX7fOkBFiNxCBcSgA:9 a=crWF4MFLhNY0qMRaF8an:22
-X-Proofpoint-Spam-Info: AW1haW4tMjYxMDAxMDA1NSBTYWx0ZWRfX7XYxQqAVzfqy
- 5C6ORZxTCWwvl56SiIFLLFgeKiolW2bjjUZf8r8MDflELPHtxmK3Ez+UClbvG7vIHkrrOPQ/hw3
- 9tVmh/uZnThW62ZIcUNUYJyGLd+g1Cw=
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYxMDAxMDA1NSBTYWx0ZWRfX/luq1aRrXXmP
- gASKVt7yPsHUqa5bF2/7mk++Oyk4ho+SHJOPrqYNmEq7oxC82HqklTPO63NBzsqJOGdsKL5n3fm
- o25qrQ8l6Tu7ZsSHJoKiHdwCoVIIfBZD2pxmyWC5sGvQZB556FaWpVmWSbDFDOL5aSKADrjb6Wr
- 4nDxjSswogBmv9Gr7xFu9voPofOAq0OcXyt/K9ZFYXZq0+x0lQtS3EHk8ClDUyZmhHjwkTAT8S8
- DUVGhAUkfaunqF8u+5vq1o2TAv+udTl5NY1b+mjiSTGDl1eInQ/t6tZZOxmaIhZE1RbaRj7m6j7
- j+KcS+aEegwAgybg9zCST6QKFPod7e64g2iXNzIBV1D65jL2k0MWc6W24YoVKWj99dg+tihAA5R
- Xya3fsJMpZa5zgL6Wg0j5PCcHIeP9gP50PtePmar9IUqUadTCTvuPAzE6VWqLkw9/EnLB4xqhOj
- YOSRQMnEJZCxUciV2QQ==
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1176,Hydra:6.1.134,FMLib:17.12.100.49
- definitions=2026-10-01_04,2026-09-21_02,2025-10-01_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- malwarescore=0 lowpriorityscore=0 clxscore=1015 adultscore=0 bulkscore=0
- phishscore=0 impostorscore=0 suspectscore=0 priorityscore=1501 spamscore=0
- classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
- reason=mlx scancount=1 engine=8.22.0-2609040000 definitions=main-2610010055
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261001_065318_024890_922480A8 
-X-CRM114-Status: GOOD (  20.80  )
+X-CRM114-CacheID: sfid-20261001_065719_001383_7564CD68 
+X-CRM114-Status: GOOD (  15.01  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -156,72 +80,134 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
---oVNdUR3qC5DoPBrS
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
+Hi folks,
 
-> Implement the offload of the tc mqprio hw queue priority in the stmmac
-> driver. This feature requires the mqprio to be configured in channel
-> mode.
-> Do not overwrite real_num_tx_queues configured by the qdisc in
-> stmmac_hw_setup().
->=20
-> ---
-> Changes in v3:
-> - Fix cbs overwriting removing mqprio qdisc configured in dcb mode.
-> - Return an error in stmmac_reinit_queues() if configured number of tx
->   queues is lower than xmit_qdisc.num_tx_queues and mqprio offloading is
->   enabled.
-> - Link to v2: https://lore.kernel.org/r/20260924-stmmac-mqprio-prio-offlo=
-ad-v2-0-fdd8b69efccf@oss.qualcomm.com
->=20
-> Changes in v2:
-> - Forbid cbs queue offload if mqprio is already enabled.
-> - SP requires 1:1 TC to TXQ map.
-> - Fix the real_num_tx_queue overwrite during device open.
-> - Require the qdisc to be configured in channel mode to enable hw queue
->   priority offload in order to not introduce any regression in the
->   previous driver behaviour.
-> - Link to v1: https://lore.kernel.org/r/20260918-stmmac-mqprio-prio-offlo=
-ad-v1-1-5328157fcb58@oss.qualcomm.com
+Changes since v3 [1]:
+  - A protected vCPU that EL2 holds powered off reads as
+    KVM_MP_STATE_UNINITIALIZED, in place of a new bool. (Marc)
+  - The marshalling and PSCI patches access the host copy through the
+    vCPU accessors, with every assignment on one line. (Marc)
+  - The PC adjustment pair is kvm_adjust_pc_get()/put() and tests for
+    the hyp vCPU directly. (Marc)
+  - CPU_OFF clears the reset flag before its release of OFF, CPU_ON's
+    relaxed cmpxchg is ordered by its control dependency, and the
+    CPU_ON rollback stores OFF with a release. pkvm_reset_vcpu()
+    carries the CPU_ON/CPU_OFF sequence as a comment and drops its
+    WARN_ON(). (Vincent, Will)
+  - Collected Reviewed-bys.
 
-I will address sashiko's comment in v4.
+Following the vCPU state-sync series [3], this series completes the
+job for protected VMs: a protected guest's register state stays at
+EL2, and the host sees only what handling each exit requires.
 
-Regards,
-Lorenzo
+EL2 marshals a protected vCPU's state per exception class instead of
+copying the whole context both ways. It owns the vCPU's trap
+configuration, system register reset and HVC handling, and implements
+PSCI itself: AFFINITY_INFO is left to the host, and CPU_ON and CPU_OFF
+are resolved at EL2 with the host only scheduling the target or
+stopping it. A protected guest's TRNG calls, which the host handled
+until now, return NOT_SUPPORTED until TRNG for protected guests
+follows. EL2 implements PSCI 1.1, so a protected guest also loses the
+functions the host supports above that version, SYSTEM_OFF2 included.
+Host ioctls that would reach the state EL2 owns fail with -EPERM, so a
+protected VM's state isn't save/restorable. All of this is scoped
+to KVM_VM_TYPE_ARM_PROTECTED, and pkvm.rst describes the resulting API.
 
->=20
-> ---
-> Lorenzo Bianconi (2):
->       net: stmmac: add tc mqprio hw queue priority offload
->       net: stmmac: align real_num_tx_queues to mqprio configuration
->=20
->  drivers/net/ethernet/stmicro/stmmac/stmmac.h      |   9 ++
->  drivers/net/ethernet/stmicro/stmmac/stmmac_fpe.c  |   2 +-
->  drivers/net/ethernet/stmicro/stmmac/stmmac_main.c |  37 ++++--
->  drivers/net/ethernet/stmicro/stmmac/stmmac_tc.c   | 144 ++++++++++++++++=
-++++--
->  4 files changed, 169 insertions(+), 23 deletions(-)
-> ---
-> base-commit: 014d795c73837ea2339a4ea8e8f82c6e959b845d
-> change-id: 20260918-stmmac-mqprio-prio-offload-3d82d87f7bc8
->=20
-> Best regards,
-> --=20
-> Lorenzo Bianconi <lorenzo.bianconi@oss.qualcomm.com>
->=20
+The kvmtool changes that go with this are posted separately [4].
 
---oVNdUR3qC5DoPBrS
-Content-Type: application/pgp-signature; name=signature.asc
+Patches 1 to 3 go out separately: the HCR_EL2.VSE fix [5], and the
+host vCPU VM read and pin fixes, patches 4 and 5 of the host hypercall
+fixes series [2]. None of the three is part of this series. They're
+carried so the series applies as is and Sashiko can run on it.
 
------BEGIN PGP SIGNATURE-----
+The KVM_ARM_PREFERRED_TARGET documentation fix [6] went out just ahead
+of v1. Nothing here depends on it to apply, but patch 18 documents vCPU
+feature availability as something the capabilities report, while
+api.rst 4.83 still points userspace at a bitmap that has always been
+empty.
 
-iHUEABYKAB0WIQTquNwa3Txd3rGGn7Y6cBh0uS2trAUCar5lyAAKCRA6cBh0uS2t
-rFoYAPwIof3Ii6CtUjrRrswysbsJ6mXCQG3Qm6KMH59m8VQIswEAtY/GVTsy0GxB
-UK5hZzSmyHk71qhui2ggdZrfK5RAnQ8=
-=vuXL
------END PGP SIGNATURE-----
+The series is structured as follows:
 
---oVNdUR3qC5DoPBrS--
+  01:     The HCR_EL2.VSE fix, posted separately.
+  02-03:  The host vCPU VM read and pin fixes, posted separately.
+  04:     Steal time disabled for protected VMs.
+  05-06:  Per-exception-class entry handlers; EL2 owns a protected
+          vCPU's trap configuration.
+  07-09:  Timer state, system register reset and HVC handling at EL2.
+  10-11:  PSCI at EL2, and the KVM_ARM_VCPU_INIT and PSCI version
+          restrictions.
+  12-14:  Host PC adjustments blocked; an UNDEF at EL2 for exit
+          classes the host doesn't emulate; per-class state
+          marshalling.
+  15-16:  Host changes to private state, and host power-on of a vCPU
+          EL2 holds powered off, rejected.
+  17:     Capability allowlist.
+  18:     Documentation.
+
+Still to come: selftests, TRNG, self-hosted debug and SVE for protected
+guests, and much more, as separate series.
+
+Based on v7.3-rc3 (fd73f4a665989).
+
+Cheers,
+/fuad
+
+[1] https://lore.kernel.org/all/20260914113338.159227-1-fuad.tabba@linux.dev/
+[2] https://lore.kernel.org/all/20260915123846.2317931-1-fuad.tabba@linux.dev/
+[3] https://lore.kernel.org/all/20260729131823.2021516-1-fuad.tabba@linux.dev/
+[4] https://lore.kernel.org/all/20260831192406.1341841-1-fuad.tabba@linux.dev/
+[5] https://lore.kernel.org/all/20260829071120.2522788-1-fuad.tabba@linux.dev/
+[6] https://lore.kernel.org/all/20260831162815.269851-1-fuad.tabba@linux.dev/
+
+Fuad Tabba (16):
+  KVM: arm64: Sync HCR_EL2.VSE back to the host vCPU under pKVM
+  KVM: arm64: Validate the host vCPU's VM before reading it under pKVM
+  KVM: arm64: Pin the host vCPU before adjusting its PC under pKVM
+  KVM: arm64: Disable steal time for protected VMs
+  KVM: arm64: Skip fixed-feature state flush for protected vCPUs
+  KVM: arm64: Add system register reset framework for protected VMs
+  KVM: arm64: Implement HVC handling for protected guests at EL2
+  KVM: arm64: Handle PSCI calls for protected VMs at EL2
+  KVM: arm64: Restrict KVM_ARM_VCPU_INIT and PSCI version for protected
+    VMs
+  KVM: arm64: Prevent host PC adjustments for protected vCPUs
+  KVM: arm64: Inject an UNDEF at EL2 for unhandled protected guest exits
+  KVM: arm64: Add per-EC entry/exit state marshalling for protected
+    guests
+  KVM: arm64: Reject host access to protected VM private state
+  KVM: arm64: Reject host power-on of a vCPU that EL2 holds powered off
+  KVM: arm64: Advertise the capabilities that protected VMs support
+  KVM: arm64: Document the protected VM userspace API
+
+Marc Zyngier (2):
+  KVM: arm64: Introduce per-EC entry handlers for pKVM
+  KVM: arm64: Add {flush,sync}_hyp_timer_state() primitives
+
+ Documentation/virt/kvm/api.rst                |  27 +-
+ .../virt/kvm/arm/fw-pseudo-registers.rst      |   2 +
+ Documentation/virt/kvm/arm/pkvm.rst           | 164 ++++-
+ Documentation/virt/kvm/devices/vcpu.rst       |   3 +-
+ arch/arm64/include/asm/kvm_host.h             |  22 +-
+ arch/arm64/include/asm/kvm_hyp.h              |   4 +
+ arch/arm64/include/asm/kvm_pkvm.h             |  33 +
+ arch/arm64/kvm/arm.c                          |  76 ++-
+ arch/arm64/kvm/guest.c                        |  11 +
+ arch/arm64/kvm/hyp/exception.c                |  26 +-
+ arch/arm64/kvm/hyp/include/hyp/adjust_pc.h    |  48 ++
+ arch/arm64/kvm/hyp/include/nvhe/pkvm.h        |  20 +
+ arch/arm64/kvm/hyp/nvhe/hyp-main.c            | 595 +++++++++++++++++-
+ arch/arm64/kvm/hyp/nvhe/pkvm.c                | 422 ++++++++++++-
+ arch/arm64/kvm/hyp/nvhe/switch.c              |  29 +-
+ arch/arm64/kvm/hyp/nvhe/sys_regs.c            |  60 ++
+ arch/arm64/kvm/hypercalls.c                   |   7 +
+ arch/arm64/kvm/pkvm.c                         |  21 +-
+ arch/arm64/kvm/psci.c                         |  11 +-
+ arch/arm64/kvm/pvtime.c                       |  10 +-
+ 20 files changed, 1503 insertions(+), 88 deletions(-)
+
+
+base-commit: fd73f4a6659897191fa0d40695fe370925dd3780
+-- 
+2.39.5
+
 
