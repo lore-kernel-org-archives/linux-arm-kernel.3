@@ -4,120 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5534ACA5FCE
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  1 Oct 2026 11:36:47 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 02806CA5FCB
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  1 Oct 2026 11:39:56 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Cc:Content-ID:Content-Description:Resent-Date:Resent-From
-	:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Xm4wvdZWya38Tv5HPQOs01QtbugiGek4xDtMzVs3F8w=; b=zuq5F6sqq+HnSPseYEADGnSAvs
-	bxd+0En+NIiMpSgTN5zCY4dwBmXdCdIV0BDCFEg8qS41LjmDTnFP5O4VMHH2uFK0S0NYPkpqMLfy1
-	VDHDjN3KwWDuez3tpZIh1Xx/ygqQCqU/5cQLrSQG5/B5hV+7ot1+KQsPCPNUfWzXd00EjYDTTSgqb
-	g30TpK6WOFwFK2wRWOjE4n6Y33B2SoYoRyCr/GGd9wa73JSXgQA+0MnaHS34q/huLPvNUQuR29bBw
-	1ANvpbuG45fXMEXHzMy5/yQ67j3l8Flw/vLPv8HDaYRcU/leD4MAKguLhh9cYXlme/CYB9QCZKBuv
-	zb1HpJYA==;
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=as2BDHmC0Ok2GeH167WFPpDilwxhWMhG/KUN7OsT6g4=; b=wBepKSP+/5ipb2orhdw9rHl2/D
+	+TFHoe7Mr9T78JrdxuMaN6z85jRVGaQKF7zBAQ95J5IEely22344bPsuO8hyvFqYZpZIeuZE8Vqir
+	X9drOeZqJklAy+aoDKTGlMa/jLAL2yZXxDKetYgCZF0UeszesonRE14Wh0xh+naC2wAek1Crv8LDh
+	zqwiS3KLNhZoXi6bKJvm6Ao34svvnfdTSpgdmNsNbkFfbaBAw45jHCeb1KYOAHxM4rURz/cwsnHku
+	OfMswrsbDU4Oq5Fryvg9RtVMUro5HA2Jctslaj/HE3q/u28lrQ2yxWvEjB0DNrvc1X/uI4VkQM0EH
+	zgdWv0tg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xCF5d-00000008eLC-01JB;
-	Thu, 01 Oct 2026 11:36:41 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
-	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xCF5a-00000008eKp-45VS
+	id 1xCF8d-00000008ee8-2e6J;
+	Thu, 01 Oct 2026 11:39:47 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1xCF8a-00000008edT-38HF
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 01 Oct 2026 11:36:39 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id 59DBE601E4;
-	Thu,  1 Oct 2026 11:36:38 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 204A81F000FF;
-	Thu,  1 Oct 2026 11:36:30 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1790854598;
-	bh=Xm4wvdZWya38Tv5HPQOs01QtbugiGek4xDtMzVs3F8w=;
-	h=Date:Subject:To:References:From:In-Reply-To;
-	b=mXBFgjFKwBNERzVdoZjaNomeWpe3e8lQdbYE0ZfCu5nbH/GH5tEuNHS+dfHO3QrMK
-	 HaZuDubT41hg2PppQgdI3UbIcyvLh/DTUtdTvTqgVj3fvR/EZXwYiHppC+2WzbNlG9
-	 TtQcx5HbOcisqysMYBL9T5wxIMwRNr5KUruOb7hdn3Hn+DAMBpVpRjjzj4jCgcQ9/u
-	 IuJ9nzw+s61u5LY7WWsKlZbCUQHYKyMLav1uZKFJvV1QXDcYXnDHdsEV2cei8YFWv9
-	 LtJjuWuW5NFFdNYedScxnyvlri8/xtBBRdiICnaL5MMCFKblAlvJ8IoNNRRVVS/LMb
-	 WSNmnGNHDkRjg==
-Message-ID: <86dabeec-c40c-43c0-adab-b95fb7825ddc@kernel.org>
-Date: Thu, 1 Oct 2026 13:36:28 +0200
+	Thu, 01 Oct 2026 11:39:46 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 7F9A6497;
+	Thu,  1 Oct 2026 04:39:38 -0700 (PDT)
+Received: from [10.57.9.178] (unknown [10.57.9.178])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 47ED43F86F;
+	Thu,  1 Oct 2026 04:39:38 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
+	t=1790854781; bh=aIUuO4ENC77y8AatC+unyTYHYRfthaC+8kOZ3gEUHLc=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=neqGY7qENHa5C3IakID0foMencI4cFZZHabSuLJ1lNBFE4M0m2FgM7mAvbQNY3BFx
+	 stn/gI/6Xq2wXq7RIjF5XuMlVa57lMplWsGspYC8wxz97g6TqZdZE3Y5XcZczFYbgm
+	 OpqxKgkX2oAxFSQVnqoXEr45ElxUfdqWnQd2sbTw=
+Message-ID: <bf6efab5-ab8e-48e2-8576-2f3fb69a3d6a@arm.com>
+Date: Thu, 1 Oct 2026 12:39:36 +0100
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 5/7] maccess: Batch TCO handling in kernel nofault loops
-To: Muhammad Usama Anjum <usama.anjum@arm.com>,
- Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
- Mark Rutland <mark.rutland@arm.com>, Alexei Starovoitov <ast@kernel.org>,
- Daniel Borkmann <daniel@iogearbox.net>, Andrii Nakryiko <andrii@kernel.org>,
- Eduard Zingerman <eddyz87@gmail.com>,
- Kumar Kartikeya Dwivedi <memxor@gmail.com>,
- Martin KaFai Lau <martin.lau@linux.dev>, Song Liu <song@kernel.org>,
- Yonghong Song <yonghong.song@linux.dev>, Jiri Olsa <jolsa@kernel.org>,
- Emil Tsalapatis <emil@etsalapatis.com>,
- Ihor Solodrai <ihor.solodrai@linux.dev>,
- Andrew Morton <akpm@linux-foundation.org>, Lorenzo Stoakes <ljs@kernel.org>,
- "Liam R. Howlett" <liam@infradead.org>, Vlastimil Babka <vbabka@kernel.org>,
- Mike Rapoport <rppt@kernel.org>, Suren Baghdasaryan <surenb@google.com>,
- Michal Hocko <mhocko@suse.com>,
- "moderated list:ARM64 PORT (AARCH64 ARCHITECTURE)"
- <linux-arm-kernel@lists.infradead.org>,
- open list <linux-kernel@vger.kernel.org>,
- "open list:BPF [GENERAL] (Safe Dynamic Programs and Tools)"
- <bpf@vger.kernel.org>,
- "open list:MEMORY MANAGEMENT - CORE" <linux-mm@kvack.org>
-References: <20260824160523.3907021-1-usama.anjum@arm.com>
- <20260824160523.3907021-7-usama.anjum@arm.com>
-From: "David Hildenbrand (Arm)" <david@kernel.org>
-Content-Language: en-US
-Autocrypt: addr=david@kernel.org; keydata=
- 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
- qIws/H2t
-In-Reply-To: <20260824160523.3907021-7-usama.anjum@arm.com>
-Content-Type: text/plain; charset=UTF-8
+Subject: Re: [PATCH v21 7/9] arm64: Block hibernate and kexec while RMM is
+ active
+Content-Language: en-GB
+To: Catalin Marinas <catalin.marinas@arm.com>
+Cc: kvm@vger.kernel.org, kvmarm@lists.linux.dev, maz@kernel.org,
+ will@kernel.org, linux-kernel@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, steven.price@arm.com,
+ aneesh.kumar@kernel.org, oupton@kernel.org, gshan@redhat.com,
+ joey.gouly@arm.com, tabba@google.com, yuzenghui@huawei.com,
+ linux-coco@lists.linux.dev, gankulkarni@os.amperecomputing.com,
+ sdonthineni@nvidia.com, alpergun@google.com, fj0570is@fujitsu.com,
+ WeiLin.Chang@arm.com, lpieralisi@kernel.org, enju.kohei@fujitsu.com,
+ sudeep.holla@arm.com, jonathan.cameron@oss.qualcomm.com,
+ "Rafael J. Wysocki" <rafael@kernel.org>, Len Brown <lenb@kernel.org>,
+ Pavel Machek <pavel@kernel.org>, linux-pm@vger.kernel.org
+References: <20261001084555.1456543-1-suzuki.poulose@arm.com>
+ <20261001084555.1456543-8-suzuki.poulose@arm.com> <ar4-kg8Jq9BTn7Sb@arm.com>
+From: Suzuki K Poulose <suzuki.poulose@arm.com>
+In-Reply-To: <ar4-kg8Jq9BTn7Sb@arm.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 7bit
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20261001_043944_883774_2E7F533B 
+X-CRM114-Status: GOOD (  35.53  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -132,57 +81,167 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 8/24/26 18:04, Muhammad Usama Anjum wrote:
-> With Hardware Tag-Based KASAN in asynchronous or asymmetric mode, every
-> arm64 kernel nofault access sets and clears PSTATE.TCO. Copy and string
-> loops repeat that pair even though tag checking can stay disabled for the
-> whole operation.
+On 01/10/2026 12:05, Catalin Marinas wrote:
+> On Thu, Oct 01, 2026 at 09:45:53AM +0100, Suzuki K Poulose wrote:
+>> RMM can be deactivated only after all delegated granules have been
+>> reclaimed. If a new kernel is entered while any granules remain in the
+>> Realm PAS, accesses to that memory can raise a Granule Protection Fault
+>> and be fatal to the new kernel.
+>>
+>> Crash kexec/kdump needs separate handling. It can be supported only once
+>> the crash kernel can tolerate delegated memory inherited from the primary
+>> kernel. i.e., be able to read the pages safely and fixup the GPF. Until
+>> then disable the kexec completely.
+>>
+>> Hibernate has a similar problem. The image cannot be safely saved for
+>> delegated pages, as the RMM doesn't support exporting the pages.
+>>
+>> Disable both kexec and hiberation while the RMM is active.
 > 
-> Cover each non-empty operation with one bare nofault region and use bare
-> accessors in the loop. Leaving the region restores TCO before page faults
-> are enabled again, including after an access fault. Existing empty-work
-> checks ensure that every new region performs at least one access.
+> I would mention that this adds a new arch_hibernation_available() hook
+> called from hibernation_available(), otherwise the hibernation
+> maintainers may not realise why they've been cc'ed.
 > 
-> The number of dynamic MSR TCO executions therefore changes as follows:
+> Alternatively, just introduce the hook as a separate patch without any
+> arch code.
+
+I will go for this approach, adding the hook in a prep patch and then
+the arm64 version with kexec changes.
+
+
 > 
->     Work                         Before    After
->     N nofault accesses          2N        2
->     4 KiB nofault copy          1,024     2
->     N-byte strncpy              2N        2
+>> Cc: "Rafael J. Wysocki" <rafael@kernel.org>
+>> Cc: Len Brown <lenb@kernel.org>
+>> Cc: Pavel Machek <pavel@kernel.org>
+>> Cc: linux-pm@vger.kernel.org
+>> Signed-off-by: Suzuki K Poulose <suzuki.poulose@arm.com>
+>> ---
+>> Changes since v20:
+>>   - Add arch_hibernation_available() hook for archs to have a say and drop the
+>>     other checks.
+>> Changes since v19:
+>>   - New patch to disable kexec and hibernation with RMM
+>> ---
+>>   arch/arm64/kernel/hibernate.c     | 14 ++++++++++++++
+>>   arch/arm64/kernel/machine_kexec.c | 11 +++++++++++
+>>   include/linux/suspend.h           |  1 +
+>>   kernel/power/hibernate.c          |  8 +++++++-
+>>   4 files changed, 33 insertions(+), 1 deletion(-)
+>>
+>> diff --git a/arch/arm64/kernel/hibernate.c b/arch/arm64/kernel/hibernate.c
+>> index 7bf1174277772..08e03d24b93a8 100644
+>> --- a/arch/arm64/kernel/hibernate.c
+>> +++ b/arch/arm64/kernel/hibernate.c
+>> @@ -10,6 +10,8 @@
+>>    * Copyright (C) 2006 Rafael J. Wysocki <rjw@sisk.pl>
+>>    */
+>>   #define pr_fmt(x) "hibernate: " x
+>> +
+>> +#include <linux/arm-rmi-cmds.h>
+>>   #include <linux/cpu.h>
+>>   #include <linux/kvm_host.h>
+>>   #include <linux/pm.h>
+>> @@ -105,6 +107,18 @@ void notrace restore_processor_state(void)
+>>   {
+>>   }
+>>   
+>> +bool arch_hibernation_available(void)
+>> +{
+>> +	/*
+>> +	 * If we have activated the RMM, there could be pages that are
+>> +	 * delegated to the RMM. Trying to save them to the image will be fatal.
+>> +	 * Also, we donate pages to the RMM at activation and restoring data
+>> +	 * to those pages are going to be fatal.
+>> +	 * Hence, disable the hibernation when the RMM is active
+>> +	 */
+>> +	return !cpus_are_stuck_in_kernel() && !is_rmm_active();
+>> +}
 > 
-> The 4 KiB case assumes 512 64-bit accesses. These figures come from the
-> control flow rather than a runtime measurement, so the time saved depends
-> on the CPU and workload. Generic fallbacks leave other architectures
-> unchanged.
+> For now, I would keep is_rmm_active() only in here as not to change the
+> behaviour for pKVM. "disk" would disappear from /sys/power/state with
+> this patch. I think it's the correct thing to do for pKVM as well but we
+> can discuss this separately once this goes in (I also think pKVM using
+> cpus_are_stuck_in_kernel() is a bit of a bodge but it's a handy hook
+> called in the right places).
+
+I was in double mind about this. Yes, I agree, makes sense to deal the
+pKVM case separately.
+
+
 > 
-> Signed-off-by: Muhammad Usama Anjum <usama.anjum@arm.com>
-> ---
+>> +
+>>   int arch_hibernation_header_save(void *addr, unsigned int max_size)
+>>   {
+>>   	struct arch_hibernate_hdr *hdr = addr;
+>> diff --git a/arch/arm64/kernel/machine_kexec.c b/arch/arm64/kernel/machine_kexec.c
+>> index 8f9bc2327dc85..48f343704cb54 100644
+>> --- a/arch/arm64/kernel/machine_kexec.c
+>> +++ b/arch/arm64/kernel/machine_kexec.c
+>> @@ -6,6 +6,7 @@
+>>    * Copyright (C) Huawei Futurewei Technologies.
+>>    */
+>>   
+>> +#include <linux/arm-rmi-cmds.h>
+>>   #include <linux/interrupt.h>
+>>   #include <linux/irq.h>
+>>   #include <linux/kernel.h>
+>> @@ -59,6 +60,16 @@ int machine_kexec_prepare(struct kimage *kimage)
+>>   		return -EBUSY;
+>>   	}
+>>   
+>> +	/*
+>> +	 * We will be able to allow kdump to proceed, once we have the support
+>> +	 * for handling GPF from vmcore accesses to delegated pages. Until then
+>> +	 * block kexec completely.
+>> +	 */
+>> +	if (is_rmm_active()) {
+>> +		pr_err("Can't kexec: RMM is active.\n");
+>> +		return -EBUSY;
+>> +	}
+>> +
+>>   	return 0;
+>>   }
+>>   
+>> diff --git a/include/linux/suspend.h b/include/linux/suspend.h
+>> index b02876f1ae38a..a3815027773c5 100644
+>> --- a/include/linux/suspend.h
+>> +++ b/include/linux/suspend.h
+>> @@ -401,6 +401,7 @@ int hibernate_quiet_exec(int (*func)(void *data), void *data);
+>>   int hibernate_resume_nonboot_cpu_disable(void);
+>>   int arch_hibernation_header_save(void *addr, unsigned int max_size);
+>>   int arch_hibernation_header_restore(void *addr);
+>> +bool arch_hibernation_available(void);
+>>   
+>>   #else /* CONFIG_HIBERNATION */
+>>   static inline void register_nosave_region(unsigned long b, unsigned long e) {}
+>> diff --git a/kernel/power/hibernate.c b/kernel/power/hibernate.c
+>> index d2479c69d71a4..9d9d53828542f 100644
+>> --- a/kernel/power/hibernate.c
+>> +++ b/kernel/power/hibernate.c
+>> @@ -106,11 +106,17 @@ bool hibernation_in_progress(void)
+>>   	return !atomic_read(&hibernate_atomic);
+>>   }
+>>   
+>> +__weak bool arch_hibernation_available(void)
+>> +{
+>> +	return true;
+>> +}
+>> +
+>>   bool hibernation_available(void)
+>>   {
+>>   	return nohibernate == 0 &&
+>>   		!security_locked_down(LOCKDOWN_HIBERNATION) &&
+>> -		!secretmem_active() && !cxl_mem_active();
+>> +		!secretmem_active() && !cxl_mem_active() &&
+>> +		arch_hibernation_available();
+>>   }
+> 
+> With the comments above addressed:
+> 
+> Reviewed-by: Catalin Marinas <catalin.marinas@arm.com>
 
-[...]
+Thank you!
 
->  Efault:
-> @@ -96,11 +100,13 @@ long strncpy_from_kernel_nofault(char *dst, const void *unsafe_addr, long count)
->  		return -ERANGE;
->  
->  	scoped_guard(pagefault) {
-> -		do {
-> -			__get_kernel_nofault(dst, src, u8, Efault);
-> -			dst++;
-> -			src++;
-> -		} while (dst[-1] && src - unsafe_addr < count);
-> +		scoped_guard(__kernel_nofault_bare) {
-> +			do {
-> +				__get_kernel_nofault_bare(dst, src, u8, Efault);
-> +				dst++;
-> +				src++;
-> +			} while (dst[-1] && src - unsafe_addr < count);
-> +		}
+Suzuki
 
-Reading the same thing multiple times, why can't we have a new guard that wraps
-both these things?
-
--- 
-Cheers,
-
-David
 
