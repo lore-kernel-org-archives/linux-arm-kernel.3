@@ -4,73 +4,67 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 97D6DCA5FCB
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  1 Oct 2026 15:30:44 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C18C9CA5FCB
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  1 Oct 2026 15:33:48 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=n4qkix7dZvZjzdXjV58aFtwAsoYI5IyUdaFVc+NF8I8=; b=2gK4OCyC/ehdw1vKra4b7TUhL8
-	RuGBA4PO5ZUXaPW8B/aO0mfm6euLZoEie+DKVL9nQi5Ru/T06KlVSMlAGxw+zcy2sM2wribsNOAis
-	6bcRfzau3KfQBWUzA2co4Ea9PmMB7PvLf3oqlxi3x6dDxXzAIuNGML25EQchtI1o0kUMBy0l/Xa+9
-	0I3fnSbPVZP0LeJt1Ltt5MrtbrIcdr7QdvoejtPvV3Bi+h7YE8NQq0lcTAWzqTaqzJyBsBqO0P+F0
-	Ifjls8Pw4svqmTUXKIOyCdRlvYbcYdvhiGQ4jox/GrSVk5tu7MzFFfTJPq1camwFXzPgZh8zyRsEj
-	0Ku6dIMw==;
+	bh=Gl19LhtWLKjfcWFniW5fiNkolXSpsFJsnrsmyFVH1q0=; b=2CYlZjNdZk0+jL7u1kXJEcYDI1
+	l2aGye9Bpb2dKgnu64TnWQUXKB7hxRzSddScLsECG2rB/Ym9yY896D2Hf78mr+Ez7+ZUo7L1TjTwR
+	d5nTHUdV6rdvMQilesVmxdaSalcq8Odjcdf0OzWXTADFdkWBq2Hsd0QrrNaOLOO/b0dFPm2bbwNGs
+	weBZktVhfqnKze1FD3CMgfj98nvxA1i3iTltNGgVOdBahvSH32KlKZ/y5YAuRmE0ytc4ebC9//Oyh
+	IWj0tXSQrC2RK8zOIBn6mxYMvyQ5+rPNu4CKiouqHZeV1zirJXw1Re73tezo4M8g0dhfTM09seXqh
+	TuDEHDDg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xCIk2-00000009X8f-05Qr;
-	Thu, 01 Oct 2026 15:30:38 +0000
-Received: from sender4-pp-f112.zoho.com ([136.143.188.112])
-	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xCIju-00000009X7f-3MkJ;
-	Thu, 01 Oct 2026 15:30:36 +0000
-ARC-Seal: i=1; a=rsa-sha256; t=1790868626; cv=none; 
-	d=zohomail.com; s=zohoarc; 
-	b=XUgeEb3gNoxnt1XzcxOvhPvkfSd2suARWDp6D+NlkVMci0aO/Io7dIaDwfbnyzDQeWK7mqu3kbTJX6wqp/u8/ftfWVbnIR0F0OIjxowLRBCwOOQPT0YTFHyLDRW3Ns2i1rMpxAH61L8UwoAKub4QEnpSnPsdt99wkOSKYx28z+Y=
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=zohomail.com; s=zohoarc; 
-	t=1790868626; h=Content-Type:Content-Transfer-Encoding:Cc:Cc:Date:Date:From:From:In-Reply-To:MIME-Version:Message-ID:Subject:Subject:To:To:Message-Id:Reply-To; 
-	bh=n4qkix7dZvZjzdXjV58aFtwAsoYI5IyUdaFVc+NF8I8=; 
-	b=JYiBANQxSGCKWIBYig/nlk0aZpeNXXy3/puE2qgs15DrgwC4n8AoVuu/6EyhGNpMECW2YpHXoLPEVrmPglOmulUjNVJmSQp4nVj4zSlcMOt7rZ/QAObIaW3n68khA78DIIj3LWzOp2pki8wZyYtVf6R9bk8oSQ74Nm/Mujalpew=
-ARC-Authentication-Results: i=1; mx.zohomail.com;
-	dkim=pass  header.i=collabora.com;
-	spf=pass  smtp.mailfrom=michael.riesch@collabora.com;
-	dmarc=pass header.from=<michael.riesch@collabora.com>
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; t=1790868626;
-	s=zohomail; d=collabora.com; i=michael.riesch@collabora.com;
-	h=Message-ID:Date:Date:MIME-Version:Subject:Subject:To:To:Cc:Cc:From:From:In-Reply-To:Content-Type:Content-Transfer-Encoding:Message-Id:Reply-To;
-	bh=n4qkix7dZvZjzdXjV58aFtwAsoYI5IyUdaFVc+NF8I8=;
-	b=WYHLkrJJQwGtVsWH3fDUgmmHGwySrgSfdE2zx3VPHqehnrwaj9YotOQuX2+f71VK
-	pla1RVcYmMb2TjAMBLWX69aaACdq7yYLxALAYZ8EruWEQNs+rh2W4hADofm7Hu+mFhP
-	oXADJ+mKOiXFVydxR6jtjB21Ym+ouDFi2jWE5jWc=
-Received: by smtp.zohomail.com with SMTPS id 1790868624762694.0539957154162;
-	Thu, 1 Oct 2026 08:30:24 -0700 (PDT)
-Message-ID: <74d65aee-043e-42a1-bdb8-c1889c4c19a8@collabora.com>
-Date: Thu, 1 Oct 2026 17:30:21 +0200
+	id 1xCImy-00000009XSX-2Otk;
+	Thu, 01 Oct 2026 15:33:40 +0000
+Received: from linux.microsoft.com ([13.77.154.182])
+	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1xCImw-00000009XS2-01vw
+	for linux-arm-kernel@lists.infradead.org;
+	Thu, 01 Oct 2026 15:33:39 +0000
+Received: from jeffbarnes-ThinkPad-P14s-Gen-2i.corp.microsoft.com (unknown [52.167.112.163])
+	by linux.microsoft.com (Postfix) with ESMTPSA id E37D820B7168;
+	Thu,  1 Oct 2026 08:32:40 -0700 (PDT)
+DKIM-Filter: OpenDKIM Filter v2.11.0 linux.microsoft.com E37D820B7168
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.microsoft.com;
+	s=default; t=1790868763;
+	bh=Gl19LhtWLKjfcWFniW5fiNkolXSpsFJsnrsmyFVH1q0=;
+	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
+	b=cZ/hamC8umn0spRY/J9y8JezNfPCWT31hurpmlA7bpJhXsB7rbEtlOczIJ9IgD5ki
+	 DQUFZKgNroCLsA4WmmLh72Pahbh2xOp5hYRpsBSEzyBn678LaUGN6qOlSNWu5hDGQ3
+	 tiMpxWpqtJFgt/naaUNw8msDURvZcdOGerzo/ekw=
+From: Jeff Barnes <jeffbarnes@linux.microsoft.com>
+To: linux-pci@vger.kernel.org
+Cc: Frank.li@oss.nxp.com,
+	minghuan.Lian@nxp.com,
+	mingkai.hu@nxp.com,
+	roy.zang@nxp.com,
+	lpieralisi@kernel.org,
+	kwilczynski@kernel.org,
+	mani@kernel.org,
+	robh@kernel.org,
+	bhelgaas@google.com,
+	Zhiqiang.Hou@nxp.com,
+	linuxppc-dev@lists.ozlabs.org,
+	linux-arm-kernel@lists.infradead.org,
+	imx@lists.linux.dev,
+	linux-kernel@vger.kernel.org
+Subject: [PATCH v2] Revert "PCI: layerscape: Change default error response behavior"
+Date: Thu,  1 Oct 2026 11:33:23 -0400
+Message-ID: <20261001153323.1965074-1-jeffbarnes@linux.microsoft.com>
+X-Mailer: git-send-email 2.43.0
+In-Reply-To: <0FEA6868-5A7C-4955-9FBB-BE9A1AE8D3F7@getmailspring.com>
+References: <0FEA6868-5A7C-4955-9FBB-BE9A1AE8D3F7@getmailspring.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2 4/5] media: rockchip: rkcif: add support for rk3576
- vicap mipi capture
-To: Amin Gattout <amin.gattout@gmail.com>,
- Mehdi Djait <mehdi.djait@linux.intel.com>,
- Mauro Carvalho Chehab <mchehab@kernel.org>, Rob Herring <robh@kernel.org>,
- Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
- <conor+dt@kernel.org>, Heiko Stuebner <heiko@sntech.de>
-Cc: linux-media@vger.kernel.org, devicetree@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org,
- linux-kernel@vger.kernel.org
-References: <20260921-vicap-rk3576-v2-0-0a4582e20c72@gmail.com>
- <20260921-vicap-rk3576-v2-4-0a4582e20c72@gmail.com>
-Content-Language: en-US
-From: Michael Riesch <michael.riesch@collabora.com>
-In-Reply-To: <20260921-vicap-rk3576-v2-4-0a4582e20c72@gmail.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
-X-ZohoMailClient: External
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261001_083030_966746_EE83AD84 
-X-CRM114-Status: GOOD (  22.03  )
+X-CRM114-CacheID: sfid-20261001_083338_076885_64691B8E 
+X-CRM114-Status: GOOD (  13.48  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -85,262 +79,95 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Amin,
+This reverts commit 84d897d69938
+("PCI: layerscape: Change default error response behavior").
 
-Thanks for the patch!
+The Layerscape PCIe driver programs the DesignWare
+AMBA_ERROR_RESPONSE_DEFAULT register at offset 0x8d0 with 0x9401.
 
-On 9/21/26 17:30, Amin Gattout wrote:
-> The RK3576 Video Capture (VICAP) unit features a Digital Video Port
-> (DVP) and five MIPI CSI-2 capture interfaces. Compared to the RK3588
-> variant, the MIPI register blocks are laid out differently (there is
-> no block at offset 0x200), the ID_CTRL0 bit layout has changed, and
-> the VC/DT filter has moved from ID_CTRL0 to ID_CTRL1. The capture
-> size, which the other variants configure in ID_CTRL1, lives in the
-> ID_SET_SIZE register.
-> 
-> On the RK3576 the pixel clock of each MIPI port enters the VICAP
-> through a dedicated CRU gate (CLK_VICAP_I0CLK to CLK_VICAP_I4CLK),
-> so the variant claims these five clocks in addition to aclk, hclk
-> and dclk.
-> 
-> Signed-off-by: Amin Gattout <amin.gattout@gmail.com>
+For AXI, the documented default with AMBA_ERROR_RESPONSE_GLOBAL cleared
+returns OKAY with all-ones data for errors on non-posted requests.
+Setting AMBA_ERROR_RESPONSE_GLOBAL causes an AXI error response instead,
+with AMBA_ERROR_RESPONSE_MAP selecting SLVERR or DECERR for individual
+PCIe completion errors.
 
-Reviewed-by: Michael Riesch <michael.riesch@collabora.com>
+The value 0x9401 sets AMBA_ERROR_RESPONSE_GLOBAL and maps Unsupported
+Request, Completer Abort, and Completion Timeout to SLVERR.
 
-(and with that, for the complete patch series)
+A PCI configuration access can race with the link going down after
+dw_pcie_other_conf_map_bus() checks the link but before
+pci_generic_config_read() performs the MMIO access. If the transaction
+results in a Completion Timeout, the Layerscape error response setting
+propagates it to AXI as SLVERR, resulting in an asynchronous SError and
+kernel panic.
 
-Best regards,
-Michael
+Reproduce the race by obtaining the configuration-space mapping while
+the link is up, then disabling the link from another CPU immediately
+before performing the MMIO configuration read.
 
-> ---
->  .../platform/rockchip/rkcif/rkcif-capture-mipi.c   | 140 +++++++++++++++++++++
->  .../platform/rockchip/rkcif/rkcif-capture-mipi.h   |   1 +
->  .../media/platform/rockchip/rkcif/rkcif-common.h   |   2 +-
->  drivers/media/platform/rockchip/rkcif/rkcif-dev.c  |  21 ++++
->  4 files changed, 163 insertions(+), 1 deletion(-)
-> 
-> diff --git a/drivers/media/platform/rockchip/rkcif/rkcif-capture-mipi.c b/drivers/media/platform/rockchip/rkcif/rkcif-capture-mipi.c
-> index 432f47a1fc23..53e62d059764 100644
-> --- a/drivers/media/platform/rockchip/rkcif/rkcif-capture-mipi.c
-> +++ b/drivers/media/platform/rockchip/rkcif/rkcif-capture-mipi.c
-> @@ -30,6 +30,14 @@
->  #define RK3568_MIPI_CTRL0_CROP_EN     BIT(5)
->  #define RK3568_MIPI_CTRL0_WRDDR(type) ((type) << 1)
->  
-> +#define RK3576_MIPI_CTRL0_HIGH_ALIGN  BIT(11)
-> +#define RK3576_MIPI_CTRL0_WRDDR(type) ((type) << 8)
-> +#define RK3576_MIPI_CTRL0_PARSE(type) ((type) << 4)
-> +#define RK3576_MIPI_CTRL0_DMA_EN      BIT(3)
-> +#define RK3576_MIPI_CTRL0_CROP_EN     BIT(1)
-> +
-> +#define RK3576_MIPI_CTRL1_DT(dt)      ((dt) << 2)
-> +
->  #define RK3588_MIPI_CTRL0_DMA_EN      BIT(28)
->  #define RK3588_MIPI_CTRL0_HIGH_ALIGN  BIT(27)
->  #define RK3588_MIPI_CTRL0_WRDDR(type) ((type) << 5)
-> @@ -490,6 +498,138 @@ const struct rkcif_mipi_match_data rkcif_rk3568_vicap_mipi_match_data = {
->  	},
->  };
->  
-> +static u32
-> +rkcif_rk3576_mipi_ctrl0(struct rkcif_stream *stream,
-> +			const struct rkcif_output_fmt *active_out_fmt)
-> +{
-> +	u32 ctrl0 = RKCIF_MIPI_CTRL0_CAP_EN | RK3576_MIPI_CTRL0_DMA_EN |
-> +		    RK3576_MIPI_CTRL0_CROP_EN;
-> +
-> +	switch (active_out_fmt->mipi.type) {
-> +	case RKCIF_MIPI_TYPE_RAW8:
-> +		break;
-> +	case RKCIF_MIPI_TYPE_RAW10:
-> +		ctrl0 |= RK3576_MIPI_CTRL0_PARSE(0x1);
-> +		if (!active_out_fmt->mipi.compact)
-> +			ctrl0 |= RK3576_MIPI_CTRL0_WRDDR(0x1);
-> +		break;
-> +	case RKCIF_MIPI_TYPE_RAW12:
-> +		ctrl0 |= RK3576_MIPI_CTRL0_PARSE(0x2);
-> +		if (!active_out_fmt->mipi.compact)
-> +			ctrl0 |= RK3576_MIPI_CTRL0_WRDDR(0x1);
-> +		break;
-> +	case RKCIF_MIPI_TYPE_RGB888:
-> +		ctrl0 |= RK3576_MIPI_CTRL0_PARSE(0x7);
-> +		break;
-> +	case RKCIF_MIPI_TYPE_YUV422SP:
-> +		ctrl0 |= RK3576_MIPI_CTRL0_WRDDR(0x4);
-> +		break;
-> +	case RKCIF_MIPI_TYPE_YUV420SP:
-> +		ctrl0 |= RK3576_MIPI_CTRL0_WRDDR(0x5);
-> +		break;
-> +	case RKCIF_MIPI_TYPE_YUV400:
-> +		ctrl0 |= RK3576_MIPI_CTRL0_WRDDR(0x3);
-> +		break;
-> +	default:
-> +		break;
-> +	}
-> +
-> +	return ctrl0;
-> +}
-> +
-> +static u32
-> +rkcif_rk3576_mipi_ctrl1(struct rkcif_stream *stream,
-> +			const struct rkcif_output_fmt *active_out_fmt)
-> +{
-> +	return RK3576_MIPI_CTRL1_DT(active_out_fmt->mipi.dt);
-> +}
-> +
-> +const struct rkcif_mipi_match_data rkcif_rk3576_vicap_mipi_match_data = {
-> +	.mipi_num = 5,
-> +	.mipi_ctrl0 = rkcif_rk3576_mipi_ctrl0,
-> +	.mipi_ctrl1 = rkcif_rk3576_mipi_ctrl1,
-> +	.regs = {
-> +		[RKCIF_MIPI_CTRL] = 0x20,
-> +		[RKCIF_MIPI_INTEN] = 0x74,
-> +		[RKCIF_MIPI_INTSTAT] = 0x78,
-> +	},
-> +	.regs_id = {
-> +		[RKCIF_ID0] = {
-> +			[RKCIF_MIPI_CTRL0] = 0x00,
-> +			[RKCIF_MIPI_CTRL1] = 0x04,
-> +			[RKCIF_MIPI_FRAME0_ADDR_Y] = 0x24,
-> +			[RKCIF_MIPI_FRAME0_ADDR_UV] = 0x2c,
-> +			[RKCIF_MIPI_FRAME0_VLW_Y] = 0x34,
-> +			[RKCIF_MIPI_FRAME0_VLW_UV] = RKCIF_REGISTER_NOTSUPPORTED,
-> +			[RKCIF_MIPI_FRAME1_ADDR_Y] = 0x28,
-> +			[RKCIF_MIPI_FRAME1_ADDR_UV] = 0x30,
-> +			[RKCIF_MIPI_FRAME1_VLW_Y] = RKCIF_REGISTER_NOTSUPPORTED,
-> +			[RKCIF_MIPI_FRAME1_VLW_UV] = RKCIF_REGISTER_NOTSUPPORTED,
-> +			[RKCIF_MIPI_CROP_START] = 0x90,
-> +			[RKCIF_MIPI_SET_SIZE] = 0xa0,
-> +		},
-> +		[RKCIF_ID1] = {
-> +			[RKCIF_MIPI_CTRL0] = 0x08,
-> +			[RKCIF_MIPI_CTRL1] = 0x0c,
-> +			[RKCIF_MIPI_FRAME0_ADDR_Y] = 0x38,
-> +			[RKCIF_MIPI_FRAME0_ADDR_UV] = 0x40,
-> +			[RKCIF_MIPI_FRAME0_VLW_Y] = 0x48,
-> +			[RKCIF_MIPI_FRAME0_VLW_UV] = RKCIF_REGISTER_NOTSUPPORTED,
-> +			[RKCIF_MIPI_FRAME1_ADDR_Y] = 0x3c,
-> +			[RKCIF_MIPI_FRAME1_ADDR_UV] = 0x44,
-> +			[RKCIF_MIPI_FRAME1_VLW_Y] = RKCIF_REGISTER_NOTSUPPORTED,
-> +			[RKCIF_MIPI_FRAME1_VLW_UV] = RKCIF_REGISTER_NOTSUPPORTED,
-> +			[RKCIF_MIPI_CROP_START] = 0x94,
-> +			[RKCIF_MIPI_SET_SIZE] = 0xa4,
-> +		},
-> +		[RKCIF_ID2] = {
-> +			[RKCIF_MIPI_CTRL0] = 0x10,
-> +			[RKCIF_MIPI_CTRL1] = 0x14,
-> +			[RKCIF_MIPI_FRAME0_ADDR_Y] = 0x4c,
-> +			[RKCIF_MIPI_FRAME0_ADDR_UV] = 0x54,
-> +			[RKCIF_MIPI_FRAME0_VLW_Y] = 0x5c,
-> +			[RKCIF_MIPI_FRAME0_VLW_UV] = RKCIF_REGISTER_NOTSUPPORTED,
-> +			[RKCIF_MIPI_FRAME1_ADDR_Y] = 0x50,
-> +			[RKCIF_MIPI_FRAME1_ADDR_UV] = 0x58,
-> +			[RKCIF_MIPI_FRAME1_VLW_Y] = RKCIF_REGISTER_NOTSUPPORTED,
-> +			[RKCIF_MIPI_FRAME1_VLW_UV] = RKCIF_REGISTER_NOTSUPPORTED,
-> +			[RKCIF_MIPI_CROP_START] = 0x98,
-> +			[RKCIF_MIPI_SET_SIZE] = 0xa8,
-> +		},
-> +		[RKCIF_ID3] = {
-> +			[RKCIF_MIPI_CTRL0] = 0x18,
-> +			[RKCIF_MIPI_CTRL1] = 0x1c,
-> +			[RKCIF_MIPI_FRAME0_ADDR_Y] = 0x60,
-> +			[RKCIF_MIPI_FRAME0_ADDR_UV] = 0x68,
-> +			[RKCIF_MIPI_FRAME0_VLW_Y] = 0x70,
-> +			[RKCIF_MIPI_FRAME0_VLW_UV] = RKCIF_REGISTER_NOTSUPPORTED,
-> +			[RKCIF_MIPI_FRAME1_ADDR_Y] = 0x64,
-> +			[RKCIF_MIPI_FRAME1_ADDR_UV] = 0x6c,
-> +			[RKCIF_MIPI_FRAME1_VLW_Y] = RKCIF_REGISTER_NOTSUPPORTED,
-> +			[RKCIF_MIPI_FRAME1_VLW_UV] = RKCIF_REGISTER_NOTSUPPORTED,
-> +			[RKCIF_MIPI_CROP_START] = 0x9c,
-> +			[RKCIF_MIPI_SET_SIZE] = 0xac,
-> +		},
-> +	},
-> +	.blocks = {
-> +		{
-> +			.offset = 0x100,
-> +		},
-> +		{
-> +			.offset = 0x300,
-> +		},
-> +		{
-> +			.offset = 0x400,
-> +		},
-> +		{
-> +			.offset = 0x500,
-> +		},
-> +		{
-> +			.offset = 0x600,
-> +		},
-> +	},
-> +};
-> +
->  static u32
->  rkcif_rk3588_mipi_ctrl0(struct rkcif_stream *stream,
->  			const struct rkcif_output_fmt *active_out_fmt)
-> diff --git a/drivers/media/platform/rockchip/rkcif/rkcif-capture-mipi.h b/drivers/media/platform/rockchip/rkcif/rkcif-capture-mipi.h
-> index 7edaca44f653..4e17cbc04b76 100644
-> --- a/drivers/media/platform/rockchip/rkcif/rkcif-capture-mipi.h
-> +++ b/drivers/media/platform/rockchip/rkcif/rkcif-capture-mipi.h
-> @@ -13,6 +13,7 @@
->  #include "rkcif-common.h"
->  
->  extern const struct rkcif_mipi_match_data rkcif_rk3568_vicap_mipi_match_data;
-> +extern const struct rkcif_mipi_match_data rkcif_rk3576_vicap_mipi_match_data;
->  extern const struct rkcif_mipi_match_data rkcif_rk3588_vicap_mipi_match_data;
->  
->  int rkcif_mipi_register(struct rkcif_device *rkcif);
-> diff --git a/drivers/media/platform/rockchip/rkcif/rkcif-common.h b/drivers/media/platform/rockchip/rkcif/rkcif-common.h
-> index f83c8099b78e..08a213438d34 100644
-> --- a/drivers/media/platform/rockchip/rkcif/rkcif-common.h
-> +++ b/drivers/media/platform/rockchip/rkcif/rkcif-common.h
-> @@ -27,7 +27,7 @@
->  #include "rkcif-regs.h"
->  
->  #define RKCIF_DRIVER_NAME "rockchip-cif"
-> -#define RKCIF_CLK_MAX	  5
-> +#define RKCIF_CLK_MAX	  8
->  
->  enum rkcif_format_type {
->  	RKCIF_FMT_TYPE_INVALID,
-> diff --git a/drivers/media/platform/rockchip/rkcif/rkcif-dev.c b/drivers/media/platform/rockchip/rkcif/rkcif-dev.c
-> index be3a174b9aab..2a5758776b3e 100644
-> --- a/drivers/media/platform/rockchip/rkcif/rkcif-dev.c
-> +++ b/drivers/media/platform/rockchip/rkcif/rkcif-dev.c
-> @@ -53,6 +53,23 @@ static const struct rkcif_match_data rk3568_vicap_match_data = {
->  	.mipi = &rkcif_rk3568_vicap_mipi_match_data,
->  };
->  
-> +static const char *const rk3576_vicap_clks[] = {
-> +	"aclk",
-> +	"hclk",
-> +	"dclk",
-> +	"iclk",
-> +	"iclk1",
-> +	"iclk2",
-> +	"iclk3",
-> +	"iclk4",
-> +};
-> +
-> +static const struct rkcif_match_data rk3576_vicap_match_data = {
-> +	.clks = rk3576_vicap_clks,
-> +	.clks_num = ARRAY_SIZE(rk3576_vicap_clks),
-> +	.mipi = &rkcif_rk3576_vicap_mipi_match_data,
-> +};
-> +
->  static const char *const rk3588_vicap_clks[] = {
->  	"aclk",
->  	"hclk",
-> @@ -76,6 +93,10 @@ static const struct of_device_id rkcif_plat_of_match[] = {
->  		.compatible = "rockchip,rk3568-vicap",
->  		.data = &rk3568_vicap_match_data,
->  	},
-> +	{
-> +		.compatible = "rockchip,rk3576-vicap",
-> +		.data = &rk3576_vicap_match_data,
-> +	},
->  	{
->  		.compatible = "rockchip,rk3588-vicap",
->  		.data = &rk3588_vicap_match_data,
-> 
+With the error response override enabled, the overlapping configuration
+read results in an asynchronous SError and kernel panic. With the
+DesignWare default behavior restored, the same test returns 0xffffffff.
+AER reports a non-fatal Completion Timeout, and no SError or kernel
+panic occurs.
+
+Restore the documented DesignWare default error response behavior so a
+failed non-posted PCIe transaction does not become a fatal AXI error.
+
+Fixes: 84d897d69938 ("PCI: layerscape: Change default error response behavior")
+Cc: stable@vger.kernel.org
+Signed-off-by: Jeff Barnes <jeffbarnes@linux.microsoft.com>
+
+Changes in v2:
+- Change the subject to identify this as a revert, as requested by
+  Frank Li.
+- Document the DesignWare AMBA_ERROR_RESPONSE_DEFAULT behavior and
+  decode the 0x9401 setting used by Layerscape.
+- Clarify that the setting propagates Completion Timeout as AXI SLVERR
+  rather than causing the underlying PCIe transaction failure.
+
+---
+ drivers/pci/controller/dwc/pci-layerscape.c | 12 ------------
+ 1 file changed, 12 deletions(-)
+
+diff --git a/drivers/pci/controller/dwc/pci-layerscape.c b/drivers/pci/controller/dwc/pci-layerscape.c
+index 14d6ac4fc53f..d333f1ae8a41 100644
+--- a/drivers/pci/controller/dwc/pci-layerscape.c
++++ b/drivers/pci/controller/dwc/pci-layerscape.c
+@@ -28,8 +28,6 @@
+ 
+ /* PEX Internal Configuration Registers */
+ #define PCIE_STRFMR1		0x71c /* Symbol Timer & Filter Mask Register1 */
+-#define PCIE_ABSERR		0x8d0 /* Bridge Slave Error Response Register */
+-#define PCIE_ABSERR_SETTING	0x9401 /* Forward error of non-posted request */
+ 
+ /* PF Message Command Register */
+ #define LS_PCIE_PF_MCR		0x2c
+@@ -103,14 +101,6 @@ static void ls_pcie_drop_msg_tlp(struct ls_pcie *pcie)
+ 	iowrite32(val, pci->dbi_base + PCIE_STRFMR1);
+ }
+ 
+-/* Forward error response of outbound non-posted requests */
+-static void ls_pcie_fix_error_response(struct ls_pcie *pcie)
+-{
+-	struct dw_pcie *pci = pcie->pci;
+-
+-	iowrite32(PCIE_ABSERR_SETTING, pci->dbi_base + PCIE_ABSERR);
+-}
+-
+ static u32 ls_pcie_pf_lut_readl(struct ls_pcie *pcie, u32 off)
+ {
+ 	if (pcie->big_endian)
+@@ -180,8 +170,6 @@ static int ls_pcie_host_init(struct dw_pcie_rp *pp)
+ 	struct dw_pcie *pci = to_dw_pcie_from_pp(pp);
+ 	struct ls_pcie *pcie = to_ls_pcie(pci);
+ 
+-	ls_pcie_fix_error_response(pcie);
+-
+ 	dw_pcie_dbi_ro_wr_en(pci);
+ 	ls_pcie_clear_multifunction(pcie);
+ 	dw_pcie_dbi_ro_wr_dis(pci);
+-- 
+2.43.0
 
 
