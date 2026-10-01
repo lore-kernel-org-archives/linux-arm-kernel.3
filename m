@@ -4,98 +4,82 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 54D78CA5FD2
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  1 Oct 2026 11:44:34 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 27463CA5FCB
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  1 Oct 2026 11:45:59 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=+Hv7iEv8847rRd+Yspj++pyIEYShjXqQiTuC8kxfzTw=; b=MUQLUY5pktrVU2AZojwXu7l9l+
-	82vr15vYFpWL3b/5G03No6VkxDMChkdJ4f/DIA4Cb+5TL9/xOMIA7lLfpnZ/QHEUxvcLeXb6GS2Qt
-	ho/MQqQ0pR9wCB6f7dZTGkVrKb0Qj8eG8JdXJdvwb7ETs+Vy2J3BEGqfOEeVKYQiqL9YTRb7TYpeL
-	1e4jvB8+kqc5NyM13FuET5y5luixTTMsbSLX/8lSGmwTtB+DaLX2LoCwPQ+iOXDhBT4OMvDCeoDEU
-	rIZd6i0Ms4qx9CZ4wO4eZT05Y6kMq3c3p7CpFCbmpRzStZvwKmEYK/fFIMTq8FDVHBPn3kQ3hy8/X
-	lBs/9yow==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:References:In-Reply-To:Date:Cc:To:From
+	:Subject:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=he6Vv/KDZgq3LfcKFGIqUGo8xqv7tZYCW8IutHROaZE=; b=WeoXAoM1HeLLdEgygytMpcrpjD
+	QuT3xSDye35TMEYbaf3Tn7ORbLDtH3NfONm97rLwXtz2yHSUNjQk0/bcaqG9ibglKzNI+zv3MCciZ
+	BhUn7QmumupB0KGE8UTgB216ECplEA0VotbtOzvxDweUUlr2BFLW4PsbLk+JV9TPvrekB7QYjYO/h
+	xauZ4HM64kHE8MMCXPmH4NpPR0m1wJjyVsltiy6p86w1N/ohe8oDxbKLodq/u1cPQ8dPWb9/eTxKz
+	o6QIXprW/E8VWbzeDWJLbAcDxYRnodVF+eqH4DN3P2oCl0Sh8e4UFxK6IwwDYIvMz4yEN7p0GE6sx
+	XQIub7LQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xCFD8-00000008fM1-29x3;
-	Thu, 01 Oct 2026 11:44:26 +0000
-Received: from mail-wm2-x11.google.com ([2a00:1450:4864:31::11])
+	id 1xCFEW-00000008fzj-3GbU;
+	Thu, 01 Oct 2026 11:45:52 +0000
+Received: from frasgout11.his.huawei.com ([14.137.139.23])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xCFD4-00000008fGA-1HFe
+	id 1xCFER-00000008fxY-3yam
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 01 Oct 2026 11:44:24 +0000
-Received: by mail-wm2-x11.google.com with SMTP id 5b1f17b1804b1-49e66390995so37082215e9.2
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 01 Oct 2026 04:44:21 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1790855061; x=1791459861; darn=lists.infradead.org;
-        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
-         :content-type:mime-version:subject:date:from:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=+Hv7iEv8847rRd+Yspj++pyIEYShjXqQiTuC8kxfzTw=;
-        b=H2UozRXO5ScBQ/sjS+KDBM64JAmNB8DtVpvORXlFbGvOi2Hbrc2RaWXqPt+lpD1ylH
-         n8cs5Rg7Fp1nYhpubFy5lGLUz1hlCk39o7Ot3GGdfKHcRcWmlf2/7WEb4jD0cOuNS6iz
-         hd0EmM3mx6yzF4jlAqh02YrKdiSh0K3+J0YrIcxhD20kKwgw4IjpSNjxN3twWQZaABHj
-         w6ok0h5BHquXzFy8VOimRP0Q2QhpyUEfVeQtLzzIU22YH1y/ohN4qsDkrVqlOecpM94u
-         ugEYaRJkFq1lSasuEeJjKJXElm9B3Gt6pHnQo5jrdZiBzdxTDRmGEpJSLOAOGKKfg/7C
-         jgpw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1790855061; x=1791459861;
-        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
-         :content-type:mime-version:subject:date:from:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=+Hv7iEv8847rRd+Yspj++pyIEYShjXqQiTuC8kxfzTw=;
-        b=gCEbf1c7rXGznsxYMKPu6O8Br+KZWHr3ifMiTVtu77Wm0xxjJeYDT+Ou9ofafIssRb
-         sKOHoq9QMj0ncI7BepzrP3CelYwn8PPnRvQq0bgbhn6t3j4dpheTP80gB2Nmzp0QPDaf
-         9pPCh9XY88CBCsGQYN4C56yjfpxOYxQf+mXpdDuL+XDjMaXRdo5tFSenGN1pJK/FmemR
-         SkyUg2XhItm8kgEdCjHks8hrfj89KHCXrwY9n++W8c76GTBwd94XxbAdAfQNEQfJ07Rr
-         kei6baJEiEnFGnFbFW8d6z+U2cUlhNWmDCBVdSfxw89Ehb8kp8O755H2agHzH/a1IOxN
-         C9EA==
-X-Forwarded-Encrypted: i=1; AKwUvBwP5PECsTg70Y5eg87663Ef0bRzDeFqz5cnez5SUWV7mCy2hsxoGsz/vjOI0YfLD00v98esPxEqRo2dpvfj10x8@lists.infradead.org
-X-Gm-Message-State: AFuF++mskTKoIgXm1Dv7V+JwTaK+iewirRxw9eId5pJgaRYQ0Molcu9g
-	CqR+ozG1xAGDffF1M0LeoRIP/brzEezdi9st+g1/K4g8ohNqIlhXwFZ7
-X-Gm-Gg: AYBFou1Usaj+t0mTqiRXHG8BIvoPZ/5e/cmerNd255s8NozcCAdRC3333HQBiSBL6ZP
-	lHuKGMFy5F9mbR+8Z/o7T8XPATC4mYepoIVSK+HuCdA9UeH2ZQ3rXn/pJ8rQeq5l49I3oN2j29l
-	Q0fdGYzqqiUH3SsgilhnLl6QmeAYAd6+L8QLxjhu+1B9BuhTPf2dehvpqIKg6xUNkgjoiM1Pel/
-	0IWuIKpf1D05bGLrjDI/UOySfRoJfKreUMwzOKQeVxPayPqdzinmLRL1qUJvBeluHUqeSoyOocj
-	32x+Q17veCijHFrz/cTNRwk9vaTD+XPoG1Wg7O1QHy4IFW9uZvV7FQ+uRt5MlFxoPDLyL5BWMR/
-	GQiwNdKP/yadELFIrdFqfhXkC/nI6vzogJWLG1n7ItY/upUxW9p3QhPjrt1M19TD3nG+RVUNRcT
-	+XajWnpQKCWF6BK0mtVjlI8cPFSW9HL8EtKPQtwDA/b/PfkprZxT1l8mTdD5lVDvCucOU5mQhA/
-	aAUCdm8tJMDLTZ1emmJOgcEyKwpCFRUAqV+lTBXRoRlljRI5V/6PtXWOwI21gjn9IZlf0clpQ==
-X-Received: by 2002:a05:600d:6414:10b0:4a0:1b14:ce81 with SMTP id 5b1f17b1804b1-4a01b14cf1dmr54994265e9.3.1790855060652;
-        Thu, 01 Oct 2026 04:44:20 -0700 (PDT)
-Received: from ernest.hoecke-nb (248.201.173.83.static.wline.lns.sme.cust.swisscom.ch. [83.173.201.248])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-48b1035eff8sm1243705f8f.7.2026.10.01.04.44.19
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 01 Oct 2026 04:44:20 -0700 (PDT)
-From: Ernest Van Hoecke <ernestvanhoecke@gmail.com>
-Date: Thu, 01 Oct 2026 13:44:14 +0200
-Subject: [PATCH v2 6/6] arm64: dts: freescale: imx8mp-verdin: Add mezzanine
- OV5640 overlays
+	Thu, 01 Oct 2026 11:45:51 +0000
+Received: from mail.maildlp.com (unknown [172.18.224.235])
+	by frasgout11.his.huawei.com (SkyGuard) with ESMTPS id 4hwVJw6q9gz1HC8K
+	for <linux-arm-kernel@lists.infradead.org>; Thu,  1 Oct 2026 19:37:52 +0800 (CST)
+Received: from mail02.huawei.com (unknown [7.182.16.27])
+	by mail.maildlp.com (Postfix) with ESMTP id EB2104055C
+	for <linux-arm-kernel@lists.infradead.org>; Thu,  1 Oct 2026 19:45:43 +0800 (CST)
+Received: from [10.204.63.22] (unknown [10.204.63.22])
+	by APP2 (Coremail) with UTF8SMTPA id GxC2BwCn1S3ZR75qIAVAAQ--.1291S2;
+	Thu, 01 Oct 2026 12:45:43 +0100 (CET)
+Message-ID: <c4fe5315d70fc162f1e5648e3fccb1676710d5e6.camel@huaweicloud.com>
+Subject: Re: [PATCH RFC 0/3] security: ima: support TSM measurement registers
+From: Roberto Sassu <roberto.sassu@huaweicloud.com>
+To: Yeoreum Yun <yeoreum.yun@arm.com>, linux-coco@lists.linux.dev, 
+	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, Eric
+ Snowberg <eric.snowberg@oracle.com>, linux-integrity@vger.kernel.org, 
+	linux-security-module@vger.kernel.org
+Cc: Dan Williams <djbw@kernel.org>, Mimi Zohar <zohar@linux.ibm.com>, 
+ Roberto Sassu <roberto.sassu@huawei.com>, Dmitry Kasatkin
+ <dmitry.kasatkin@gmail.com>, Paul Moore <paul@paul-moore.com>, James Morris
+ <jmorris@namei.org>, "Serge E. Hallyn" <serge@hallyn.com>, Catalin Marinas
+ <catalin.marinas@arm.com>, Jason Gunthorpe <jgg@ziepe.ca>, Suzuki Poulose
+ <suzuki.poulose@arm.com>, Steven Price <steven.price@arm.com>, Sami Mujawar
+ <sami.mujawar@arm.com>, "Aneesh Kumar K.V" <aneesh.kumar@kernel.org>, Jiri
+ Pirko <jiri@resnulli.us>, gongruiqi1@huawei.com
+Date: Thu, 01 Oct 2026 13:45:26 +0200
+In-Reply-To: <ebe68f6463f8ece8a5cd8ce70bba292ec4f64a41.camel@huaweicloud.com>
+References: <20260930-ima_tgx_integration_v2-v1-0-722c35370548@arm.com>
+	 <ebe68f6463f8ece8a5cd8ce70bba292ec4f64a41.camel@huaweicloud.com>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
+User-Agent: Evolution 3.52.3-0ubuntu1 
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20261001-verdin-imx8mp-hmp-camera-ready-v2-6-7d1343ecd3ec@toradex.com>
-References: <20261001-verdin-imx8mp-hmp-camera-ready-v2-0-7d1343ecd3ec@toradex.com>
-In-Reply-To: <20261001-verdin-imx8mp-hmp-camera-ready-v2-0-7d1343ecd3ec@toradex.com>
-To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>, Frank Li <Frank.Li@nxp.com>, 
- Sascha Hauer <s.hauer@pengutronix.de>, 
- Pengutronix Kernel Team <kernel@pengutronix.de>, 
- Fabio Estevam <festevam@gmail.com>
-Cc: Kieran Bingham <kieran.bingham@ideasonboard.com>, 
- Francesco Dolcini <francesco.dolcini@toradex.com>, 
- Dave Stevenson <dave.stevenson@raspberrypi.com>, devicetree@vger.kernel.org, 
- imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org, 
- linux-kernel@vger.kernel.org, 
- Ernest Van Hoecke <ernest.vanhoecke@toradex.com>
-X-Mailer: b4 0.13.0
+X-CM-TRANSID: GxC2BwCn1S3ZR75qIAVAAQ--.1291S2
+X-Coremail-Antispam: 1UD129KBjvJXoWxur4xuFWkCw1DAr48tw4Dtwb_yoWrGw17pa
+	yag3W3Cr1UJa43Cr1fZ3WUuF4Fg3yrtw1DW343J340kFs8ZFyjgr40kryFkF9xGryftr18
+	tr1aqrs8uw1qyFJanT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
+	9KBjDU0xBIdaVrnRJUUUvjb4IE77IF4wAFF20E14v26ryj6rWUM7CY07I20VC2zVCF04k2
+	6cxKx2IYs7xG6rWj6s0DM7CIcVAFz4kK6r1j6r18M28lY4IEw2IIxxk0rwA2F7IY1VAKz4
+	vEj48ve4kI8wA2z4x0Y4vE2Ix0cI8IcVAFwI0_Jr0_JF4l84ACjcxK6xIIjxv20xvEc7Cj
+	xVAFwI0_Gr0_Cr1l84ACjcxK6I8E87Iv67AKxVWUJVW8JwA2z4x0Y4vEx4A2jsIEc7CjxV
+	AFwI0_Gr0_Gr1UM2AIxVAIcxkEcVAq07x20xvEncxIr21l5I8CrVACY4xI64kE6c02F40E
+	x7xfMcIj6xIIjxv20xvE14v26r1j6r18McIj6I8E87Iv67AKxVWUJVW8JwAm72CE4IkC6x
+	0Yz7v_Jr0_Gr1lF7xvr2IY64vIr41lFIxGxcIEc7CjxVA2Y2ka0xkIwI1lc7CjxVAaw2AF
+	wI0_GFv_Wryl42xK82IYc2Ij64vIr41l4I8I3I0E4IkC6x0Yz7v_Jr0_Gr1lx2IqxVAqx4
+	xG67AKxVWUJVWUGwC20s026x8GjcxK67AKxVWUGVWUWwC2zVAF1VAY17CE14v26r4a6rW5
+	MIIYrxkI7VAKI48JMIIF0xvE2Ix0cI8IcVAFwI0_Jr0_JF4lIxAIcVC0I7IYx2IY6xkF7I
+	0E14v26r4j6F4UMIIF0xvE42xK8VAvwI8IcIk0rVWUJVWUCwCI42IY6I8E87Iv67AKxVWU
+	JVW8JwCI42IY6I8E87Iv6xkF7I0E14v26r4j6r4UJbIYCTnIWIevJa73UjIFyTuYvjxUIa
+	0PDUUUU
+X-CM-SenderInfo: purev21wro2thvvxqx5xdzvxpfor3voofrz/1tbiAQANBGq+Bbco3QAAsb
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261001_044422_639621_55F9F96C 
-X-CRM114-Status: GOOD (  14.96  )
+X-CRM114-CacheID: sfid-20261001_044548_348846_C3995866 
+X-CRM114-Status: GOOD (  22.64  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -110,307 +94,112 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Ernest Van Hoecke <ernest.vanhoecke@toradex.com>
+On Thu, 2026-10-01 at 13:27 +0200, Roberto Sassu wrote:
+> On Wed, 2026-09-30 at 14:43 +0100, Yeoreum Yun wrote:
+> > Confidential computing guests without a TPM can use TSM measurement
+> > registers to record IMA measurement digests instead of TPM PCRs.
 
-The Verdin iMX8M Plus exposes its second MIPI CSI-2 interface through the
-Verdin iMX8M Plus Mezzanine. Add overlays for using a Toradex OV5640 camera
-on this interface.
++ Gong Ruiqi, of course.
 
-The mezzanine can route the camera control signals through two jumper
-configurations. Describe each configuration as a GPIO nexus mapping so the
-camera description remains independent of the physical routing.
+Roberto
 
-The default positions share the native CSI_1 GPIOs and are intended for a
-single camera. The alternate positions permit simultaneous native and
-mezzanine cameras, but conflict with the Atmel MXT touchscreen GPIO.
-
-The current camera set uses a 27 MHz on-board oscillator. The legacy camera
-module uses 24 MHz, so provide variants for both.
-
-Link: https://developer.toradex.com/hardware/verdin-som-family/add-ons/verdin-imx8m-plus-mezzanine/
-Link: https://developer.toradex.com/hardware/accessories/cameras/csi-camera-module-5mp-ov5640-arducam
-Link: https://developer.toradex.com/hardware/legacy-products/other/csi-camera-module-5mp-ov5640/
-Signed-off-by: Ernest Van Hoecke <ernest.vanhoecke@toradex.com>
----
- arch/arm64/boot/dts/freescale/Makefile             | 19 ++++++
- ...-verdin-mezzanine-ov5640-24mhz-alt-jumpers.dtso | 19 ++++++
- ...din-mezzanine-ov5640-24mhz-default-jumpers.dtso | 18 +++++
- ...imx8mp-verdin-mezzanine-ov5640-alt-jumpers.dtso | 38 +++++++++++
- ...mp-verdin-mezzanine-ov5640-default-jumpers.dtso | 42 ++++++++++++
- .../freescale/imx8mp-verdin-mezzanine-ov5640.dtsi  | 78 ++++++++++++++++++++++
- 6 files changed, 214 insertions(+)
-
-diff --git a/arch/arm64/boot/dts/freescale/Makefile b/arch/arm64/boot/dts/freescale/Makefile
-index d2422f1d692a..3d2cbdac22bb 100644
---- a/arch/arm64/boot/dts/freescale/Makefile
-+++ b/arch/arm64/boot/dts/freescale/Makefile
-@@ -738,6 +738,10 @@ dtb-$(CONFIG_ARCH_MXC) += imx8mp-venice-gw75xx-2x.dtb
- dtb-$(CONFIG_ARCH_MXC) += imx8mp-venice-gw82xx-2x.dtb
- dtb-$(CONFIG_ARCH_MXC) += imx8mp-verdin-dev-nau8822-btl.dtbo
- dtb-$(CONFIG_ARCH_MXC) += imx8mp-verdin-dsi-to-hdmi.dtbo
-+dtb-$(CONFIG_ARCH_MXC) += imx8mp-verdin-mezzanine-ov5640-24mhz-alt-jumpers.dtbo
-+dtb-$(CONFIG_ARCH_MXC) += imx8mp-verdin-mezzanine-ov5640-24mhz-default-jumpers.dtbo
-+dtb-$(CONFIG_ARCH_MXC) += imx8mp-verdin-mezzanine-ov5640-alt-jumpers.dtbo
-+dtb-$(CONFIG_ARCH_MXC) += imx8mp-verdin-mezzanine-ov5640-default-jumpers.dtbo
- dtb-$(CONFIG_ARCH_MXC) += imx8mp-verdin-nonwifi-dahlia-dsi-to-hdmi.dtb
- dtb-$(CONFIG_ARCH_MXC) += imx8mp-verdin-nonwifi-dahlia-panel-cap-touch-10inch-dsi.dtb
- dtb-$(CONFIG_ARCH_MXC) += imx8mp-verdin-nonwifi-dahlia.dtb
-@@ -756,6 +760,11 @@ dtb-$(CONFIG_ARCH_MXC) += imx8mp-verdin-wifi-dahlia-dsi-to-hdmi.dtb
- dtb-$(CONFIG_ARCH_MXC) += imx8mp-verdin-wifi-dahlia-panel-cap-touch-10inch-dsi.dtb
- dtb-$(CONFIG_ARCH_MXC) += imx8mp-verdin-wifi-dahlia.dtb
- dtb-$(CONFIG_ARCH_MXC) += imx8mp-verdin-wifi-dev-dsi-to-hdmi.dtb
-+dtb-$(CONFIG_ARCH_MXC) += imx8mp-verdin-wifi-dev-dual-ov5640.dtb
-+dtb-$(CONFIG_ARCH_MXC) += imx8mp-verdin-wifi-dev-mezzanine-ov5640-24mhz-alt-jumpers.dtb
-+dtb-$(CONFIG_ARCH_MXC) += imx8mp-verdin-wifi-dev-mezzanine-ov5640-24mhz-default-jumpers.dtb
-+dtb-$(CONFIG_ARCH_MXC) += imx8mp-verdin-wifi-dev-mezzanine-ov5640-alt-jumpers.dtb
-+dtb-$(CONFIG_ARCH_MXC) += imx8mp-verdin-wifi-dev-mezzanine-ov5640-default-jumpers.dtb
- dtb-$(CONFIG_ARCH_MXC) += imx8mp-verdin-wifi-dev-nau8822-btl.dtb
- dtb-$(CONFIG_ARCH_MXC) += imx8mp-verdin-wifi-dev-ov5640-24mhz.dtb
- dtb-$(CONFIG_ARCH_MXC) += imx8mp-verdin-wifi-dev-ov5640.dtb
-@@ -777,6 +786,16 @@ imx8mp-verdin-wifi-dahlia-dsi-to-hdmi-dtbs := imx8mp-verdin-wifi-dahlia.dtb imx8
- imx8mp-verdin-wifi-dahlia-panel-cap-touch-10inch-dsi-dtbs := imx8mp-verdin-wifi-dahlia.dtb \
- 	imx8mp-verdin-panel-cap-touch-10inch-dsi.dtbo
- imx8mp-verdin-wifi-dev-dsi-to-hdmi-dtbs := imx8mp-verdin-wifi-dev.dtb imx8mp-verdin-dsi-to-hdmi.dtbo
-+imx8mp-verdin-wifi-dev-dual-ov5640-dtbs := imx8mp-verdin-wifi-dev.dtb imx8m-verdin-ov5640.dtbo \
-+	imx8mp-verdin-mezzanine-ov5640-alt-jumpers.dtbo
-+imx8mp-verdin-wifi-dev-mezzanine-ov5640-24mhz-alt-jumpers-dtbs := imx8mp-verdin-wifi-dev.dtb \
-+	imx8mp-verdin-mezzanine-ov5640-24mhz-alt-jumpers.dtbo
-+imx8mp-verdin-wifi-dev-mezzanine-ov5640-24mhz-default-jumpers-dtbs := imx8mp-verdin-wifi-dev.dtb \
-+	imx8mp-verdin-mezzanine-ov5640-24mhz-default-jumpers.dtbo
-+imx8mp-verdin-wifi-dev-mezzanine-ov5640-alt-jumpers-dtbs := imx8mp-verdin-wifi-dev.dtb \
-+	imx8mp-verdin-mezzanine-ov5640-alt-jumpers.dtbo
-+imx8mp-verdin-wifi-dev-mezzanine-ov5640-default-jumpers-dtbs := imx8mp-verdin-wifi-dev.dtb \
-+	imx8mp-verdin-mezzanine-ov5640-default-jumpers.dtbo
- imx8mp-verdin-wifi-dev-nau8822-btl-dtbs := imx8mp-verdin-wifi-dev.dtb imx8mp-verdin-dev-nau8822-btl.dtbo
- imx8mp-verdin-wifi-dev-ov5640-24mhz-dtbs := imx8mp-verdin-wifi-dev.dtb imx8m-verdin-ov5640-24mhz.dtbo
- imx8mp-verdin-wifi-dev-ov5640-dtbs := imx8mp-verdin-wifi-dev.dtb imx8m-verdin-ov5640.dtbo
-diff --git a/arch/arm64/boot/dts/freescale/imx8mp-verdin-mezzanine-ov5640-24mhz-alt-jumpers.dtso b/arch/arm64/boot/dts/freescale/imx8mp-verdin-mezzanine-ov5640-24mhz-alt-jumpers.dtso
-new file mode 100644
-index 000000000000..9579ad2f2235
---- /dev/null
-+++ b/arch/arm64/boot/dts/freescale/imx8mp-verdin-mezzanine-ov5640-24mhz-alt-jumpers.dtso
-@@ -0,0 +1,19 @@
-+// SPDX-License-Identifier: GPL-2.0-only OR MIT
-+/*
-+ * Copyright (c) Toradex
-+ *
-+ * Toradex CSI Camera Module 5MP OV5640 on the Verdin iMX8M Plus Mezzanine with
-+ * alternate GPIO jumper positions.
-+ *
-+ * https://developer.toradex.com/hardware/legacy-products/other/csi-camera-module-5mp-ov5640/
-+ * https://developer.toradex.com/hardware/verdin-som-family/add-ons/verdin-imx8m-plus-mezzanine/
-+ */
-+
-+/dts-v1/;
-+/plugin/;
-+
-+#include "imx8mp-verdin-mezzanine-ov5640-alt-jumpers.dtso"
-+
-+&clk_ov5640_mezz_osc {
-+	clock-frequency = <24000000>;
-+};
-diff --git a/arch/arm64/boot/dts/freescale/imx8mp-verdin-mezzanine-ov5640-24mhz-default-jumpers.dtso b/arch/arm64/boot/dts/freescale/imx8mp-verdin-mezzanine-ov5640-24mhz-default-jumpers.dtso
-new file mode 100644
-index 000000000000..2079f9ead22d
---- /dev/null
-+++ b/arch/arm64/boot/dts/freescale/imx8mp-verdin-mezzanine-ov5640-24mhz-default-jumpers.dtso
-@@ -0,0 +1,18 @@
-+// SPDX-License-Identifier: GPL-2.0-only OR MIT
-+/*
-+ * Copyright (c) Toradex
-+ *
-+ * Toradex CSI Camera Module 5MP OV5640 on the Verdin iMX8M Plus Mezzanine.
-+ *
-+ * https://developer.toradex.com/hardware/legacy-products/other/csi-camera-module-5mp-ov5640/
-+ * https://developer.toradex.com/hardware/verdin-som-family/add-ons/verdin-imx8m-plus-mezzanine/
-+ */
-+
-+/dts-v1/;
-+/plugin/;
-+
-+#include "imx8mp-verdin-mezzanine-ov5640-default-jumpers.dtso"
-+
-+&clk_ov5640_mezz_osc {
-+	clock-frequency = <24000000>;
-+};
-diff --git a/arch/arm64/boot/dts/freescale/imx8mp-verdin-mezzanine-ov5640-alt-jumpers.dtso b/arch/arm64/boot/dts/freescale/imx8mp-verdin-mezzanine-ov5640-alt-jumpers.dtso
-new file mode 100644
-index 000000000000..9f2372227a8d
---- /dev/null
-+++ b/arch/arm64/boot/dts/freescale/imx8mp-verdin-mezzanine-ov5640-alt-jumpers.dtso
-@@ -0,0 +1,38 @@
-+// SPDX-License-Identifier: GPL-2.0-only OR MIT
-+/*
-+ * Copyright (c) Toradex
-+ *
-+ * Toradex CSI Camera Set 5MP OV5640 on the Verdin iMX8M Plus Mezzanine with
-+ * alternate GPIO jumper positions.
-+ * These positions support two cameras but share Verdin GPIO_2 with the Atmel
-+ * MXT touchscreen.
-+ *
-+ * https://developer.toradex.com/hardware/accessories/cameras/csi-camera-module-5mp-ov5640-arducam
-+ * https://developer.toradex.com/hardware/verdin-som-family/add-ons/verdin-imx8m-plus-mezzanine/
-+ */
-+
-+/dts-v1/;
-+/plugin/;
-+
-+#include "imx8mp-verdin-mezzanine-ov5640.dtsi"
-+
-+&{/} {
-+	verdin_mezz_camera_connector: camera-connector-1 {
-+		compatible = "toradex,camera-connector";
-+		#gpio-cells = <2>;
-+		/*
-+		 * CSI_2_GPIO_0_RST (pin 11) - JP5 1-2 - Verdin GPIO_1
-+		 * CSI_2_GPIO_1     (pin 22) - JP6 1-2 - Verdin GPIO_2
-+		 * CSI_2_GPIO_3     (pin 24) - JP8 1-2 - Verdin GPIO_4
-+		 */
-+		gpio-map = <0 0 &gpio1 0 GPIO_ACTIVE_HIGH>,
-+			   <1 0 &gpio1 1 GPIO_ACTIVE_HIGH>,
-+			   <3 0 &gpio1 6 GPIO_ACTIVE_HIGH>;
-+		gpio-map-mask = <0xffffffff 0x0>;
-+		gpio-map-pass-thru = <0x0 0xffffffff>;
-+	};
-+};
-+
-+&clk_ov5640_mezz_osc {
-+	clock-frequency = <27000000>;
-+};
-diff --git a/arch/arm64/boot/dts/freescale/imx8mp-verdin-mezzanine-ov5640-default-jumpers.dtso b/arch/arm64/boot/dts/freescale/imx8mp-verdin-mezzanine-ov5640-default-jumpers.dtso
-new file mode 100644
-index 000000000000..801beb8f48a6
---- /dev/null
-+++ b/arch/arm64/boot/dts/freescale/imx8mp-verdin-mezzanine-ov5640-default-jumpers.dtso
-@@ -0,0 +1,42 @@
-+// SPDX-License-Identifier: GPL-2.0-only OR MIT
-+/*
-+ * Copyright (c) Toradex
-+ *
-+ * Toradex CSI Camera Set 5MP OV5640 on the Verdin iMX8M Plus Mezzanine.
-+ * The default jumper positions share GPIOs with the Verdin CSI_1 interface
-+ * and do not support using both camera connectors at the same time.
-+ *
-+ * https://developer.toradex.com/hardware/accessories/cameras/csi-camera-module-5mp-ov5640-arducam
-+ * https://developer.toradex.com/hardware/verdin-som-family/add-ons/verdin-imx8m-plus-mezzanine/
-+ */
-+
-+/dts-v1/;
-+/plugin/;
-+
-+#include "imx8mp-verdin-mezzanine-ov5640.dtsi"
-+
-+&{/} {
-+	verdin_mezz_camera_connector: camera-connector-1 {
-+		compatible = "toradex,camera-connector";
-+		#gpio-cells = <2>;
-+		/*
-+		 * CSI_2_GPIO_0_RST (pin 11) - JP5 2-3 - Verdin GPIO_5_CSI
-+		 * CSI_2_GPIO_1     (pin 22) - JP6 2-3 - Verdin GPIO_6_CSI
-+		 * CSI_2_GPIO_3     (pin 24) - JP8 2-3 - Verdin GPIO_8_CSI
-+		 */
-+		gpio-map = <0 0 &gpio1 7 GPIO_ACTIVE_HIGH>,
-+			   <1 0 &gpio1 8 GPIO_ACTIVE_HIGH>,
-+			   <3 0 &gpio4 1 GPIO_ACTIVE_HIGH>;
-+		gpio-map-mask = <0xffffffff 0x0>;
-+		gpio-map-pass-thru = <0x0 0xffffffff>;
-+	};
-+};
-+
-+&clk_ov5640_mezz_osc {
-+	clock-frequency = <27000000>;
-+};
-+
-+&ov5640_mezz {
-+	pinctrl-names = "default";
-+	pinctrl-0 = <&pinctrl_gpio5>, <&pinctrl_gpio6>;
-+};
-diff --git a/arch/arm64/boot/dts/freescale/imx8mp-verdin-mezzanine-ov5640.dtsi b/arch/arm64/boot/dts/freescale/imx8mp-verdin-mezzanine-ov5640.dtsi
-new file mode 100644
-index 000000000000..3902ba62fb91
---- /dev/null
-+++ b/arch/arm64/boot/dts/freescale/imx8mp-verdin-mezzanine-ov5640.dtsi
-@@ -0,0 +1,78 @@
-+// SPDX-License-Identifier: GPL-2.0-only OR MIT
-+/*
-+ * Copyright (c) Toradex
-+ *
-+ * Common device tree include for Toradex OV5640 CSI camera on the Verdin
-+ * iMX8M Plus Mezzanine.
-+ */
-+
-+#include <dt-bindings/gpio/gpio.h>
-+
-+/ {
-+	compatible = "toradex,verdin-imx8mp";
-+};
-+
-+&{/} {
-+	clk_ov5640_mezz_osc: ov5640-mezzanine-xclk {
-+		compatible = "fixed-clock";
-+		#clock-cells = <0>;
-+	};
-+
-+	reg_verdin_mezz_csi: regulator-mezzanine-csi {
-+		compatible = "regulator-fixed";
-+		gpios = <&verdin_mezz_camera_connector 3 GPIO_ACTIVE_HIGH>;
-+		enable-active-high;
-+		regulator-name = "V_CSI_MEZZ";
-+		startup-delay-us = <5000>;
-+	};
-+};
-+
-+&isi_0 {
-+	status = "okay";
-+};
-+
-+/* Verdin I2C_2_DSI (Mezzanine JP3 and JP4 in position 2-3) */
-+&i2c2 {
-+	#address-cells = <1>;
-+	#size-cells = <0>;
-+
-+	status = "okay";
-+
-+	ov5640_mezz: camera@3c {
-+		compatible = "ovti,ov5640";
-+		reg = <0x3c>;
-+		clocks = <&clk_ov5640_mezz_osc>;
-+		clock-names = "xclk";
-+		AVDD-supply = <&reg_verdin_mezz_csi>;
-+		DOVDD-supply = <&reg_verdin_mezz_csi>;
-+		DVDD-supply = <&reg_verdin_mezz_csi>;
-+		powerdown-gpios = <&verdin_mezz_camera_connector 1 GPIO_ACTIVE_HIGH>;
-+		reset-gpios = <&verdin_mezz_camera_connector 0 GPIO_ACTIVE_LOW>;
-+
-+		port {
-+			ov5640_mezz_to_mipi_csi_1: endpoint {
-+				clock-lanes = <0>;
-+				data-lanes = <1 2>;
-+				remote-endpoint = <&mipi_csi_1_in>;
-+			};
-+		};
-+	};
-+};
-+
-+&mipi_csi_1 {
-+	status = "okay";
-+
-+	ports {
-+		#address-cells = <1>;
-+		#size-cells = <0>;
-+
-+		port@0 {
-+			reg = <0>;
-+
-+			mipi_csi_1_in: endpoint {
-+				data-lanes = <1 2>;
-+				remote-endpoint = <&ov5640_mezz_to_mipi_csi_1>;
-+			};
-+		};
-+	};
-+};
-
--- 
-2.43.0
+> Hi Yeoreum
+>=20
+> a similar patch set has been sent to the linux-integrity mailing list:
+>=20
+> https://lore.kernel.org/linux-integrity/20250630125928.765285-1-gongruiqi=
+1@huawei.com/
+>=20
+> Could you please work with Gong Ruiqi to have a unified proposal?
+>=20
+> Thanks
+>=20
+> Roberto
+>=20
+> > This series introduces in-kernel interfaces for accessing TSM
+> > measurement registers, abstracts IMA's measurement-register operations,
+> > and adds a TSM backend for Intel TDX and Arm CCA.
+> >=20
+> > The following mappings between TPM PCR indices and TSM measurement
+> > registers are defined for Intel TDX [0] and proposed for Arm CCA [1]:
+> >=20
+> >   TPM PCR index | Intel TDX register | Arm CCA register
+> >   --------------+--------------------+-----------------
+> >   0             | MRTD               | RIM
+> >   1, 7          | RTMR[0]            | REM[0]
+> >   2-6           | RTMR[1]            | REM[1]
+> >   8-15          | RTMR[2]            | REM[2]
+> >=20
+> > These mappings allow IMA to translate PCR indices into the correspondin=
+g
+> > TSM measurement registers.
+> >=20
+> > The TPM backend remains preferred when it is available at IMA
+> > initialization. Otherwise, IMA falls back to a supported TSM backend.
+> > Only one backend is selected; IMA measurements are not extended to both
+> > TPM PCRs and TSM measurement registers.
+> >=20
+> > The attestation proccess for guest with TSM measurement register will
+> > be done with Confidential Compute Event Log (CCEL) which is exported by
+> > /sys/firmware/acpi/tables/data/CCEL. Here is brief process in arm64:
+> >=20
+> >   Verifier                 Realm guest              RMM / Platform
+> >      |                         |                           |
+> >      |--- Challenge (nonce) -->|                           |
+> >      |                         |--- Request token -------->|
+> >      |                         |    with challenge         |
+> >      |                         |                           |
+> >      |                         |<-- CCA token T -----------|
+> >      |<-- CCA token T ---------|                           |
+> >      |<-- CCEL event log ------|                           |
+> >      |<-- IMA measurement log -|                           |
+> >      |                         |                           |
+> >  Verify token T:               |                           |
+> >   - signatures                 |                           |
+> >   - Platform/Realm             |                           |
+> >     token binding              |                           |
+> >   - challenge freshness        |                           |
+> >   - platform/RIM policy        |                           |
+> >   - verify measurement logs    |                           |
+> >      |                         |                           |
+> >      | ----ACCEPT / REJECT---->|                           |
+> >=20
+> > This patch based on arm-cca-mr series [3].
+> >=20
+> > Link: [0] https://uefi.org/specs/UEFI/2.11/38_Confidential_Computing.ht=
+ml#intel-trust-domain-extension
+> > Link: [1] https://github.com/tianocore/edk2/issues/11383
+> > Link: [2] https://github.com/tianocore/edk2/issues/11384
+> > Link: [3] https://lore.kernel.org/all/20260929-arm_cca_mr-v2-0-1d98bba1=
+87fd@arm.com/
+> >=20
+> > ---
+> > Yeoreum Yun (3):
+> >       virt: coco: introduce tsm_default_tm() and tsm_mr_read()/write()
+> >       security: IMA: introduce ima_mr structure
+> >       security: IMA: use TSM measurement registers
+> >=20
+> >  drivers/virt/coco/guest/tsm-mr.c          | 159 +++++++++++++---
+> >  include/linux/tsm-mr.h                    |  26 +++
+> >  security/integrity/ima/Makefile           |   3 +-
+> >  security/integrity/ima/ima.h              |   7 +-
+> >  security/integrity/ima/ima_api.c          |   4 +-
+> >  security/integrity/ima/ima_crypto.c       | 137 +++++---------
+> >  security/integrity/ima/ima_fs.c           |  16 +-
+> >  security/integrity/ima/ima_init.c         |   7 +-
+> >  security/integrity/ima/ima_mr.c           |  48 +++++
+> >  security/integrity/ima/ima_mr.h           |  76 ++++++++
+> >  security/integrity/ima/ima_mr_tpm.c       | 155 ++++++++++++++++
+> >  security/integrity/ima/ima_mr_tsm.c       | 290 ++++++++++++++++++++++=
+++++++++
+> >  security/integrity/ima/ima_queue.c        |  39 ++--
+> >  security/integrity/ima/ima_template.c     |   4 +-
+> >  security/integrity/ima/ima_template_lib.c |   2 +-
+> >  15 files changed, 819 insertions(+), 154 deletions(-)
+> > ---
+> > base-commit: b561246f45174b7472c24b75358ea95bae72b7b8
+> > change-id: 20260929-ima_tgx_integration_v2-1c54aeeaeaee
+> >=20
+> > Best regards,
 
 
