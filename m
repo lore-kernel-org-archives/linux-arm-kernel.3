@@ -4,98 +4,79 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 469D5CA5FC5
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  1 Oct 2026 07:04:06 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DC64ECA5FB3
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  1 Oct 2026 07:04:16 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
-	Message-ID:Date:From:MIME-Version:Reply-To:Content-Transfer-Encoding:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=Ag6+/GkxMCWZ0gyOTMJWIz6nOKWNtLtlkOUsQnDCd70=; b=crIevOSQRMJ58FAw+MXCHx7VQZ
-	1RWIRNQuky89+sNfo4RThN0X4jVpnK164w1Bwuvez/rnyisNcixrtFuwj8mM7J12E3aNFyoJgWiWv
-	D9kKzK3QJ6keiBHOc7SeautMn5gvTOFJSk9NYaLvZ35DpYcHHdjeKgpp7IY461wSZ1fOVxoh/u0N3
-	qOZI7pnXCNDfkoS4YRjrcKbqGV8iP040sNVJjqabA1+RZxvYPWjp2K8fhLDNFseAMaerbPhEkskuL
-	jSKGHEvQ04k35hH8h6lGn4lQdZoH70V4T5UEp2t3FbepMsFOHMHAcxj1OVcbXUC/Enl+FAuWaUiy9
-	jp5OvAOQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=wEN0e2H7/40ktw6SZv37khLK/vSI6EBRPCqKAg34jhs=; b=Ki4s4pEzzjWLEUXMAK/K6yQWVi
+	TW2EBQDPlSIdngCH+OLz+WiITZABqfOD6bc1ka+YJ91EemnF3+Oza1l4KJZWY8Tgm2DoyWazbrFlL
+	L5mJBNL4q/oGdUie0Ylq8C3KaC0xkDZmonQz19cgGxblcNSFuWes67shqcP0I1ARYcx9La0eow2tJ
+	29EPgh2iTn2Fh7/SSZdHuo2iXjfLAYpXkSTR3X3fUKpz0qlUxsxCBD7BB1txeUaDLbL8EJDDZXpze
+	xCDBIdM+8d2GPoT/0gNBj90DzGqFzW1JWUvG8poetDasQ9mpStcqR64LW5xcHwJi4fJRe/xlMi4M2
+	bdxsgzSA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xCApj-00000007wft-2KVO;
-	Thu, 01 Oct 2026 07:03:59 +0000
-Received: from mail-lf2-x10.google.com ([2a00:1450:4864:36::10])
+	id 1xCApu-00000007wiG-3Aze;
+	Thu, 01 Oct 2026 07:04:10 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xCAph-00000007wfW-1P3R
+	id 1xCApu-00000007wi2-0mat
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 01 Oct 2026 07:03:58 +0000
-Received: by mail-lf2-x10.google.com with SMTP id 2adb3069b0e04-5ba3d84150dso1490998e87.2
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 01 Oct 2026 00:03:56 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1790838235; cv=none;
-        d=google.com; s=arc-20260327;
-        b=c18ICHEosKtYGiUaOpTg+GC/IMzc9bRVtHkIiHNgmD2UdbREAu00jRc0dELx3yhjAf
-         UAfKefaWlLRjG1iqNZVbtvKkOtoS+73hcPbKXYDOgrvG242P7/EGO3dWdEB2pTzhNX4R
-         2SoEM0gyu/s5EFJNf5gDTJpU3Rpfm/o3pzeWd86kHC4tiU744yBXsNEOlGaZO6hM7Zbu
-         S39pGl5MmF9+ArchKTveeqg0HPlZJrSeHAx0yjSpjCgg5fecYFJnJ5gRja6hES7y6WTi
-         JzzCBDEYCO3QsENDzf4jgwoM+H64FB+XWDiu1S1F8HvbEb06/309aw0sIpXSpjOEhwyn
-         bf9w==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
-        h=cc:to:subject:message-id:date:from:mime-version:dkim-signature;
-        bh=Ag6+/GkxMCWZ0gyOTMJWIz6nOKWNtLtlkOUsQnDCd70=;
-        fh=lDGRW2TzXCWHfVSMMM4/aMf1SPiHWbOidoFA7N811J0=;
-        b=gchajjEgPRjSpZQuSYfvQbNj2Bcwo332N3+NF1ag1XcTIsXj5bk8FiB1808CmtWN0J
-         MLoS2Zh3nw2hgXU6/8UqpR8g+5ECbrl63FEQr5zkoQliXToZ+5c4WbXlOAc4klzE9tMW
-         42qhUl+HdFiP4z8vsGRkl037jRzIlH8h9TO05xQKVjLiFCGZeY4TpjCpY9ZvHvHKpwf7
-         s2QdpjV9LgfcO77mAodTF1AN56alIfQhg42HUX2Jd+FFoaRqnwuyEhfAT3C4xXHswxuN
-         HM6RjkbmP/78YTu94ruLQVrNRhhQavRA7k0i+Z7fsieV08JYr9OQjtxMvxCckNExKpSe
-         z4og==;
-        darn=lists.infradead.org
-ARC-Authentication-Results: i=1; mx.google.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1790838235; x=1791443035; darn=lists.infradead.org;
-        h=content-type:cc:to:subject:message-id:date:from:mime-version:from
-         :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=Ag6+/GkxMCWZ0gyOTMJWIz6nOKWNtLtlkOUsQnDCd70=;
-        b=DZq272o+nt4ELA20srn/dcWRWY9dcAwogWa39OFHzBdzXtQQpmEfhlI+giAtnF1xKn
-         pUAejv0zW2ZDDdTjFX0bsENaonliLuZsBtS/WPT1JgZwOZSlwW7lNtOUnLXgCg/qT26+
-         cXyQ0KDWRzez518VZB6ihs7ewEfQRT26NelDc4U/oniHg0UiEYyh62twtfrjyzFMhiyW
-         YjoRuiwepBxaY4kYsYpkYKHmS54F2EJQ6/HWRHzvN7Dt0g0kzZCsgN6Tr2n4x1TstI4w
-         pF3Zs1312lat0PJVRymEhooghkP33uFCvFQqVzMmnj++krb9toEuYAJiOs9NOHbR6is1
-         Z5KQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1790838235; x=1791443035;
-        h=content-type:cc:to:subject:message-id:date:from:mime-version
-         :x-gm-gg:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to:content-type;
-        bh=Ag6+/GkxMCWZ0gyOTMJWIz6nOKWNtLtlkOUsQnDCd70=;
-        b=gl1EreMXX7b7zzxu8PtxD3Pqx9KEv85EhkUlFUotlSnRyo9qQy3K/0/OcBxRnw72c4
-         Mi5DCH5WclwhhDqSJTmEtXL0+r/39CpE7jekeqmWe3KeSWI6hWS4GLDHbVkL1LeOXBba
-         5GOigFPqeNPjZiSNUgwrQBWzbXeVzbkUQkomCk7EQAejToajXTCLCAUgB/6fAD7yRzbR
-         KfP2GFYNK97eQKETXyXRCwiQPX1LygiT1WnQXgTLlb5bbumjTTm6XVTAIqWWSLILJJE8
-         53Nr58Fa5j+5Er5KF0ahlsGtnm0OSsjiJlq39z3SSJD8Mu4YCJNJ0XitqwL9t3kQOrzV
-         aUPw==
-X-Gm-Message-State: AFq9FYLRGKOGKwC9gzDM//XPq3V1wMfdcqpGjINjtlJkmIyceiSAznyQ
-	oBodUaAPf+al96uqP60hW9S2wNsGI3ahj3kY3ROqyj9+J11BaLNtq+kivCN4YNB4pANFmCU3Zb3
-	lcaMHo7OBlNUp6Fay041I6K08Dkptt5w=
-X-Gm-Gg: AYBFou3cq6RgV3EndOC93IjxMUvJC9bH46U4tqQOKMmGnWySL1G9HAmAs25hbLJ++Ix
-	DnATbAVSdfjM2JYsKdWzzual7MZk8QDejrBXVJ5Xbkzks4GHEQdk5atKkPvjDJ9+eKbNfqxkjzH
-	wyMrMKLU9eKEf0NUUtOeK2OKpfM03Sn/cUSTg11SUqo8VRZrcdD/K/SPqX6Qt9ysjiFCS8D2S2o
-	/mCctatzdKwwcy7a3VS+qnnG909//xSThfpnJkkVamUEmk6Zq4VaM8Eg7M9rGcCIpP0AOBqACgJ
-	CZdfTGrS8aJU/OaYR/rNtyHoZ6KUn6i9GyGEDgDQyy8HSiJuDwHgbFqRfw==
-X-Received: by 2002:a05:6512:33d3:b0:5b5:e8d5:7fe2 with SMTP id
- 2adb3069b0e04-5ba402b1598mr1495490e87.5.1790838234915; Thu, 01 Oct 2026
- 00:03:54 -0700 (PDT)
+	Thu, 01 Oct 2026 07:04:10 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by sea.source.kernel.org (Postfix) with ESMTP id DACC443BDD
+	for <linux-arm-kernel@lists.infradead.org>; Thu,  1 Oct 2026 07:04:09 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id B047C1F0089F
+	for <linux-arm-kernel@lists.infradead.org>; Thu,  1 Oct 2026 07:04:09 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1790838249;
+	bh=wEN0e2H7/40ktw6SZv37khLK/vSI6EBRPCqKAg34jhs=;
+	h=References:In-Reply-To:From:Date:Subject:To:Cc;
+	b=Rag2NIgaLGE5+zLXWRj+vMIiBBSCcqDN/WT8xmBZ9nHFiVEs2z/YtTzC5yHrY0tG1
+	 kNoVSCdt3xMdbcLIM3FYTafcIdDEixFTew1wrZgus+9IkwmEgFk5jey7/R8nW6G4y1
+	 NyvcQe0/5Wkmn+m/57rSuvmFQ9F2ouJO1Z9L5nH66BHM+uS0MDtzLCizg0VTyeRcUl
+	 UyPtU9ZqSXRQzl9yaoOBAn3EU8htUUsEKKD0gtfB5Zg4zin84yQto7shhfcqEx50ZH
+	 Zz3TxgUxZM/Zpn5Sy8Hh/qCR0fuURqeLKbQ7zIphL3aS3cTuAreeImFLlOE4fFOVVC
+	 XlFnieB76IgqA==
+Received: by mail-lf2-f12.google.com with SMTP id 2adb3069b0e04-5bb6ddbb75dso109640e87.1
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 01 Oct 2026 00:04:09 -0700 (PDT)
+X-Forwarded-Encrypted: i=1; AKwUvBx5Xf4GQ3leXIe87JSb92fWJ4ikYfxIgCyTX9K8Q65cCgMzRNcJoYUS225Ih6THbpe7YSG12UF8kgoTAaKBQM6/@lists.infradead.org
+X-Gm-Message-State: AFq9FYLhxp/9fbVsMnOJebGxaXJ4CMuJavdubrfB9sphRAX8Obqd2NSO
+	F02cH0/NHTV9/SGMIuH9TcsiRARIMGBq2iNcNxnxV2ZZgeklCgcMNNR8K8cpIA3GcGk+GUVFsRA
+	QSUj2ukwkeSimoxUv7DgmziDVAr+roEQ=
+X-Received: by 2002:a05:6512:715:b0:5b8:edeb:5c27 with SMTP id
+ 2adb3069b0e04-5ba405ea48emr1230973e87.10.1790838248433; Thu, 01 Oct 2026
+ 00:04:08 -0700 (PDT)
 MIME-Version: 1.0
-From: Kian <kianprogramer@gmail.com>
-Date: Thu, 1 Oct 2026 10:33:42 +0330
-X-Gm-Features: AclHuK9v9IWAa-Zm8vVN5oXY6hVZIfnTT2Oe0yzhsz7sRc8LNSBCZc4BGg3ti-Y
-Message-ID: <CAC-nSOxO_9tSE8jNGGQZKPtiKPq0qn2sgGWppzD_8yu1q=Wamg@mail.gmail.com>
-Subject: =?UTF-8?Q?Samsung_Galaxy_J7_Pro_=28j7y17lte=29_=E2=80=94_Upstream_Linux_?=
-	=?UTF-8?Q?support?=
-To: linux-samsung-soc@vger.kernel.org
-Cc: linux-arm-kernel@lists.infradead.org
+References: <20260921-cv75-v5-v8-0-282ff5d98dda@ambarella.com> <20260921-cv75-v5-v8-4-282ff5d98dda@ambarella.com>
+In-Reply-To: <20260921-cv75-v5-v8-4-282ff5d98dda@ambarella.com>
+From: Linus Walleij <linusw@kernel.org>
+Date: Thu, 1 Oct 2026 09:03:53 +0200
+X-Gmail-Original-Message-ID: <CAD++jLmKF5XxHsJX29sdXC_6JHKn-7HkE=N+TKtk5xODtQj3_w@mail.gmail.com>
+X-Gm-Features: AclHuK8S_q-U5PRteYICZ8VGfGhkOd-OtdrQpaJ2DynuPN4AlXp-gJ1LMPWAi-g
+Message-ID: <CAD++jLmKF5XxHsJX29sdXC_6JHKn-7HkE=N+TKtk5xODtQj3_w@mail.gmail.com>
+Subject: Re: [PATCH v8 04/18] dt-bindings: pinctrl: add Ambarella CV75 pinctrl
+To: longzhao@ambarella.com
+Cc: Arnd Bergmann <arnd@arndb.de>, Krzysztof Kozlowski <krzk@kernel.org>, 
+	Alexandre Belloni <alexandre.belloni@bootlin.com>, soc@lists.linux.dev, 
+	linux-arm-kernel@lists.infradead.org, Rob Herring <robh@kernel.org>, 
+	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
+	Michael Turquette <mturquette@baylibre.com>, Stephen Boyd <sboyd@kernel.org>, 
+	Jerome Brunet <jbrunet@baylibre.com>, Bartosz Golaszewski <brgl@kernel.org>, 
+	Greg Kroah-Hartman <gregkh@linuxfoundation.org>, Jiri Slaby <jirislaby@kernel.org>, 
+	Andy Shevchenko <andriy.shevchenko@linux.intel.com>, 
+	=?UTF-8?Q?Ilpo_J=C3=A4rvinen?= <ilpo.jarvinen@linux.intel.com>, 
+	Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>, Long Zhao <zl020895@163.com>, 
+	Lee Jones <lee@kernel.org>, mfd@lists.linux.dev, devicetree@vger.kernel.org, 
+	linux-clk@vger.kernel.org, linux-gpio@vger.kernel.org, 
+	linux-serial@vger.kernel.org, linux-kernel@vger.kernel.org, 
+	Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
 Content-Type: text/plain; charset="UTF-8"
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261001_000357_394129_C7BABBA2 
-X-CRM114-Status: GOOD (  13.66  )
+Content-Transfer-Encoding: quoted-printable
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -110,68 +91,20 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hello,
+On Mon, Sep 21, 2026 at 6:23=E2=80=AFAM Long Zhao via B4 Relay
+<devnull+longzhao.ambarella.com@kernel.org> wrote:
 
-I am reaching out regarding mainline Linux support for the Samsung
-Galaxy J7 Pro (SM-J730F, j7y17lte), which is based on the Samsung
-Exynos 7870 SoC.
+> From: Long Zhao <longzhao@ambarella.com>
+>
+> Document the CV75 pin controller binding using generic function and
+> groups properties for pinmux configuration.
+>
+> Reviewed-by: Linus Walleij <linusw@kernel.org>
+> Reviewed-by: Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
+> Signed-off-by: Long Zhao <longzhao@ambarella.com>
 
-The Exynos 7870 already has upstream Linux support and ongoing
-community development, including Device Tree support for the SoC and
-several devices based on it.
+This patch 4/18 applied to the pinctrl tree.
 
-There have also been several community projects and attempts
-specifically targeting the J7 Pro. For example, there are existing
-Device Tree sources such as exynos7870-j7y17lte.dts, previous attempts
-to boot newer Linux kernels on the device, and Linux/postmarketOS work
-targeting the actual J7 Pro hardware.
-
-These projects are useful starting points, but each of them has its
-own limitations, missing functionality, or unresolved issues, and none
-of them provides complete upstream support for the J7 Pro. I can
-provide links to these projects and repositories so that the existing
-work can be reviewed and compared.
-
-Rather than creating yet another unofficial downstream kernel or
-another separate community project with its own limitations, I would
-like to try to bring the existing work together and work toward proper
-upstream Linux support for the device.
-
-Would someone familiar with the Exynos 7870 platform and Samsung
-Device Trees be interested in reviewing the existing J7 Pro work and
-assessing what is still required for mainline support?
-
-I own a physical SM-J730F and have access to the actual device for
-development and testing. I can provide the links to the existing
-community projects, Device Tree sources, repositories, and other
-relevant work.
-
-I am willing to do anything that is reasonably within my ability to
-help with the upstreaming effort. I can perform hardware testing,
-collect boot logs and dmesg output, investigate hardware and Device
-Tree information, reproduce issues, test kernel and Device Tree
-changes, test patches on the actual device, and provide reproducible
-test results. If additional information or specific tests are needed,
-I am also willing to carry them out and learn whatever is necessary to
-help with the development process.
-
-I do not want to simply create another unofficial project for the J7
-Pro. My goal is to make use of the work that already exists, identify
-what is missing or needs to be fixed, and help move the device toward
-a clean and maintainable upstream implementation.
-
-If there is interest in working on this, I can provide the relevant
-project and repository links, Device Tree sources, logs, and any other
-hardware information I have available.
-
-I would be very interested in helping bring the J7 Pro into the
-upstream Linux ecosystem, and I am willing to contribute wherever I
-can.
-
-Thank you for your time and for your work on Samsung Exynos support in
-the Linux kernel.
-
-Best regards,
-
-A J7 Pro owner and contributor
+Yours,
+Linus Walleij
 
