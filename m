@@ -4,66 +4,103 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 49B20CA5FB3
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  1 Oct 2026 04:33:10 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A2095CA5FB3
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  1 Oct 2026 04:39:36 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:References:In-Reply-To:Message-ID:Date
-	:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=URC7r36kokGjXCV5G6Ei8oKV54JoMbconYpCKkPt2AY=; b=f+uxIWt13tlRNCSEh7sJuFrgmU
-	3AJwBUeFOLWnrzZiVUJ+H3bNFE/eLfuGMXqZTCrz+nz4NZEyUWNYPT4nLkCW05/IqN1pUizMv3DdA
-	/ZypjtxkZ6XXZM4+M2JnwD3grKc4Q+6PB8R2bs0TeqYFGiIruXQLoThN+m3JTDdT9yDXRnOM5o7BI
-	ixQgpmhPR03fLtRklZVluAanxUX7PXCsrtDnfnInMdHAPBzRMHzxxT0W6De4PWCaGaGcC1wQsjhSx
-	8PUDhejjB6Hwmoccnx65Pjdit7HM0f0KyUfi1XniWpjXQuvZghjHcbzZfyzgl0jqFMETiDwVzmOZw
-	vNn0BOyA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:Message-Id:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:From:
+	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
+	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=3lo2Y0hgRgiPSnYGSDe7Yf1GMCBIGPwRSlX2+EmhVtc=; b=dPRWdSMaRBo2kL7aHxdp5hXJd9
+	3KwBpG4KMqO+ycWvNpasR6iIeYHNbzY0JEkPwLQ6V6mMSiX1PkwVPj0sLT76MQrWkoQ7vbyAPPiU0
+	FUp5U/HVbOQznwXgiCrkjYyFn16kGndUMszReRSbBxjQ/zg30QCZ+nxM0K28LSbAI/pSaFYfAOz7P
+	5kQqx10O83g135DRtwHzVESAbLN5dX5cOCBG2is5+pk8E7rAZhFPSDsXNQwbvB3krnZpTOnAz/LE1
+	fnr/QcV3Ab92RvKWpcSzKXwdA3RSlxnhtgaOK5aC+g2+9fXsVBvKPPnzz+qfQQpLk+w7pUICh9foD
+	+JkhUrww==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xC8Tf-00000007jPY-0kYE;
-	Thu, 01 Oct 2026 04:33:03 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1xC8Zt-00000007jr7-3Qld;
+	Thu, 01 Oct 2026 04:39:29 +0000
+Received: from mail-oo2-x2a.google.com ([2607:f8b0:4864:31::2a])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xC8Te-00000007jPN-0PgN
+	id 1xC8Zq-00000007jqX-0Nqb
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 01 Oct 2026 04:33:02 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id 4AB0F60142;
-	Thu,  1 Oct 2026 04:33:01 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 536C71F000FF;
-	Thu,  1 Oct 2026 04:33:00 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1790829181;
-	bh=URC7r36kokGjXCV5G6Ei8oKV54JoMbconYpCKkPt2AY=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References;
-	b=bVRCDdf0/1T8kSqaKwEzdCIoYR6HU5BI7iyh2jOl+PXmpwZbt8o9DhW4p24oGXdpN
-	 /PTZ+SsBkJPIsIPvDcoTwm9LfB+asS5Hkkq+HJ5ww2TizYYZW3JxVe0CpFBnmZ+N2S
-	 A/WPfA1LU5Jq42mqez/7H5iC90o5GKWpWO7nRNhKIMcZDqZw16FfPEEWFd+Gcr2hdX
-	 pVNKUqvOSttOHiJkesISfQ47cwgLhzDtaU91wkM1PVkjRdIaFo6iRD8IM3G21heegY
-	 jhvxjJh+lFi6qCfHAMo4MfsYy4gZbU8pYYjopnmrvatStYYBV24maw5iXQNStyzunG
-	 SNgp3Dt1tfiKQ==
-From: netdev-bot+sinfo@kernel.org
-To: James Hilliard <james.hilliard1@gmail.com>
-Cc: netdev@vger.kernel.org, Paolo Abeni <pabeni@redhat.com>,
- Jakub Kicinski <kuba@kernel.org>,
- Maxime Chevallier <maxime.chevallier@bootlin.com>,
- Andrew Lunn <andrew+netdev@lunn.ch>, Eric Dumazet <edumazet@kernel.org>,
- Maxime Coquelin <mcoquelin.stm32@gmail.com>,
- Alexandre Torgue <alexandre.torgue@foss.st.com>,
- Serge Semin <fancer.lancer@gmail.com>,
- "David S. Miller" <davem@davemloft.net>,
- linux-stm32@st-md-mailman.stormreply.com,
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH net] net: stmmac: unwind the WoL IRQ after a safety IRQ
- request failure
-Date: Thu, 01 Oct 2026 04:32:59 +0000
-Message-ID: <179082917987.31693.16306963663623790870@kernel.org>
-In-Reply-To: <20260930-stmmac-irq-unwind-v1-1-0c8a053761c7@gmail.com>
-References: <20260930-stmmac-irq-unwind-v1-1-0c8a053761c7@gmail.com>
-Auto-Submitted: auto-generated
+	Thu, 01 Oct 2026 04:39:27 +0000
+Received: by mail-oo2-x2a.google.com with SMTP id 46e09a7af769-7f4f0c89e34so4316221a34.1
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 30 Sep 2026 21:39:25 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20251104; t=1790829565; x=1791434365; darn=lists.infradead.org;
+        h=cc:to:message-id:content-transfer-encoding:content-type
+         :mime-version:subject:date:from:from:to:cc:subject:date:message-id
+         :reply-to:content-type;
+        bh=3lo2Y0hgRgiPSnYGSDe7Yf1GMCBIGPwRSlX2+EmhVtc=;
+        b=AwJhLTPcuqnqzuNkSMShgDdfgfvinjWW1Oo6WCXEc3DFvzGLqe/t0AwIjjLLy8imfv
+         Ky7xKTDqtfEdMiUAlGjGxvmfAA6+xQsDxrVWUXlbbQ+54qXbFPGuZBaNhHMHzaNAHlA6
+         BxSoWCTzUf0zig/L2nRV//l6qrN/K9Gbx2CHIkJx5wAz6qZo79/EjxOAQdvXXKfTKYRs
+         kGIxAIzeVR0FTE22/s3HKROIncSmtCfhg9446RyLr38m/RIxJlUdeeXeVCjIZD5VtS7C
+         mXkwSvVSPvF0surkkdt4+0tdZVMHZAIUy5lJaYK3PcZbtrM+NrYryM0tNjVUJDsZQPMz
+         u8ag==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1790829565; x=1791434365;
+        h=cc:to:message-id:content-transfer-encoding:content-type
+         :mime-version:subject:date:from:x-gm-gg:x-gm-message-state:from:to
+         :cc:subject:date:message-id:reply-to:content-type;
+        bh=3lo2Y0hgRgiPSnYGSDe7Yf1GMCBIGPwRSlX2+EmhVtc=;
+        b=PdR1twPJT4b33UrZ+4t6H7oxnAzVPQ4LY1k9+Xsv+AjpUwLrKmZwSM3dFYiFHPhSy1
+         0Ug00eTSr9tt8Ecf5J1Ea/bXmc4JnbYfVb0xLD1oLdGbkDQOs3X/uGxkUm/MXBH787QL
+         0c3B4MYQmP2Fts6uUaAh7ueC6jmVlmC5hqz3o/oPg5Lu2VD8ywpxB/R1l8PZMc/9T26/
+         OvcmMqmh7FM8DxskBo6ctbhdy7QDm2LdO8a6Et/TVTeD5MfIKCH4zKxbjv6Z1NeJh3DP
+         kMe6+3zVSuwJa2QfySuNL8qPsXXwnT94wk+lsgIdqlJGG02okbQho4unGR9+k9md95ZC
+         mMvw==
+X-Forwarded-Encrypted: i=1; AKwUvBxZSu7YBbYX8+DBH8JAgfImt5nYAMXNbOIpLjEmYdKdcAp7RpI90Env3WgKoQGnxdDuvVTCNfYQ7AvGo5tB8KOa@lists.infradead.org
+X-Gm-Message-State: AFuF++kq1jpQboFag3vkrK2aah928RV5s5wJbJMKNWEdghlILapmH+yD
+	ksT0oW+SadhRB8HPkc8CZkHiEWke5dTQNqvpf9gS6LumXF3GIsc6+oI1
+X-Gm-Gg: AYBFou1+qlAMqDExYAJ+ybYk08ONQRPE7As1K6BcxufXnEvXOteEU+tfkH5YUPA9yxi
+	Bf2+zJnf1uxXK/lpLuLPvlV5R4f2wtheDYVBK5P1lM3WsI1cmvD1sghWxuYOx5lHnlgeiLY+zJJ
+	zZcJt6gF0oPupTZqAv4HyvuICdqpPW9KnoWXt3e8u1BUibopjhmRuqlhdTAHvlBnIucqFGZ8lLf
+	x3c6zN/5nbdd1px8f8KegYR85V7ypA3lZRemoL5Oxo3rwAPBKdqlhpYPPy4QZ5fMZcEkOudzUYm
+	69k9ONWpZ1sYWd3XEmzsrs7MVcZoo6YeP0P5y7fDN69D8v379k+Sb1vTiobxhbAuZl/QbDgywiQ
+	cUJkZLedU+zSiHGR9CBhmylJzHMyzGFI7IaKJy7DUYknOI8khfpXBu76dF3V9mn0zQR4jqwtBXa
+	dUubmN17/F4bCsx4hQpOfrkq9sy5h5A0oppgTSU2Ko6D8s1aVaGI8I9JfUAOnbPtZ451fJt75DP
+	A/+7Uf577cCArdYzHkr4KKbKdeljWhZqovv+dmmvAxf/D+Lgb9Iu/yXiJmBr9RAxbGC1mxFwq/E
+	aAtle1lYIqIj5MYM+igcJkHF00LkTK4GkcfS6+DNreJ+XLB/Hc625fs+aGItjQ8C0rNu4lf0zsX
+	TPpUYIv2mpGXsm+0L0tO009+csQCsufw0
+X-Received: by 2002:a05:6830:6d4e:b0:7f4:eb76:881d with SMTP id 46e09a7af769-82049119577mr4659618a34.5.1790829565141;
+        Wed, 30 Sep 2026 21:39:25 -0700 (PDT)
+Received: from [127.0.1.1] (174-29-1-49.hlrn.qwest.net. [174.29.1.49])
+        by smtp.gmail.com with ESMTPSA id 46e09a7af769-8212aa1a2b8sm1792815a34.13.2026.09.30.21.39.23
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Wed, 30 Sep 2026 21:39:24 -0700 (PDT)
+From: James Hilliard <james.hilliard1@gmail.com>
+Date: Wed, 30 Sep 2026 22:39:22 -0600
+Subject: [PATCH net] net: stmmac: leave the datapath running for
+ normal-size MTU changes
+MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-MIME-Version: 1.0
+Message-Id: <20260930-stmmac-mtu-fastpath-v1-1-fd73f378c071@gmail.com>
+X-B4-Tracking: v=1; b=H4sIAAAAAAAC/y2NwQ6DIBBEf8XsuSQIFrS/0njYxaVyQC1g08T47
+ yVtj28mb+aAzClwhltzQOJXyGFdKrSXBtyMy4NFmCqDksrIQUuRS4zoRCy78JjLhmUWpu9bzTh
+ pGiRUc0vsw/u7eoeFC4y/MPFzrw/l3xBmFm6NMZRbg5Y8Ena90qxda65ESsrO2Y69t04OxlhFz
+ sJ4nh/Y9ncutgAAAA==
+X-Change-ID: 20260930-stmmac-mtu-fastpath-68813ead3b90
+To: netdev@vger.kernel.org, Paolo Abeni <pabeni@redhat.com>, 
+ Jakub Kicinski <kuba@kernel.org>, 
+ Maxime Chevallier <maxime.chevallier@bootlin.com>, 
+ Andrew Lunn <andrew+netdev@lunn.ch>, Eric Dumazet <edumazet@kernel.org>, 
+ Maxime Coquelin <mcoquelin.stm32@gmail.com>, 
+ Alexandre Torgue <alexandre.torgue@foss.st.com>, 
+ Christian Marangi <ansuelsmth@gmail.com>
+Cc: "David S. Miller" <davem@davemloft.net>, 
+ linux-stm32@st-md-mailman.stormreply.com, 
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
+ Eric Dumazet <edumazet@kernel.org>, 
+ James Hilliard <james.hilliard1@gmail.com>
+X-Mailer: b4 0.15.2
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260930_213926_704026_90A9DC17 
+X-CRM114-Status: GOOD (  14.43  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,29 +115,45 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi!
+When both MTUs are at most ETH_DATA_LEN, the receive buffer size and MAC
+receive limit do not change. Update the MTU without restarting the
+datapath.
 
-This is an automated message. This series looks like a fix, but its
-commit messages seem to be missing some information:
+This also avoids rebinding a live AF_XDP pool to a temporary RXQ. XDP
+rejects jumbo MTUs, so all supported XDP MTU changes take this path.
+Jumbo transitions remain on the reopen path until the rollback change.
 
- - How the issue was discovered, e.g. hit in production, hit during
-   development, syzbot report, manual code inspection, LLM or static
-   analysis tool scan.
+Fixes: 3470079687448 ("net: ethernet: stmicro: stmmac: permit MTU change with interface up")
+Signed-off-by: James Hilliard <james.hilliard1@gmail.com>
+---
+ drivers/net/ethernet/stmicro/stmmac/stmmac_main.c | 7 ++++++-
+ 1 file changed, 6 insertions(+), 1 deletion(-)
 
- - Whether the issue was actually triggered, or is only theoretical
-   (e.g. found by code inspection). If it was triggered please include
-   the symptoms, like the stack trace or error messages.
+diff --git a/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c b/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
+index 3f34d491c959..03cd14d10356 100644
+--- a/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
++++ b/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
+@@ -6161,7 +6161,12 @@ static int stmmac_change_mtu(struct net_device *dev, int new_mtu)
+ 	if ((txfifosz < new_mtu) || (new_mtu > BUF_SIZE_16KiB))
+ 		return -EINVAL;
+ 
+-	if (netif_running(dev)) {
++	/* Normal-size frames use the same buffers and MAC receive limits.
++	 * In particular, do not disturb a live AF_XDP pool: XDP does not
++	 * support jumbo frames, so it never needs the ring replacement below.
++	 */
++	if (netif_running(dev) &&
++	    (dev->mtu > ETH_DATA_LEN || mtu > ETH_DATA_LEN)) {
+ 		netdev_dbg(priv->dev, "restarting interface to change its MTU\n");
+ 		/* Try to allocate the new DMA conf with the new mtu */
+ 		dma_conf = stmmac_setup_dma_desc(priv, mtu);
 
- - What hardware the change was tested on. For driver fixes please
-   mention the device (and if relevant firmware version) used for
-   testing, or say that the change was not tested on real hardware.
+---
+base-commit: a7bfaba4823e3c165bb2004c74eff7c096672bc7
+change-id: 20260930-stmmac-mtu-fastpath-68813ead3b90
 
-Please do not repost the series just to address the above. Instead,
-reply to this email with the missing information, so that reviewers
-can take it into account. If the series needs another revision for
-other reasons, please include the information in the commit messages
-then.
+Best regards,
+--  
+James Hilliard <james.hilliard1@gmail.com>
 
-The evaluation is done by an LLM so it may be wrong, if you think
-that is the case please reply and explain.
 
