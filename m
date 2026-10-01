@@ -4,93 +4,85 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 312BBCA5FD2
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  1 Oct 2026 13:59:29 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D6E69CA5FD2
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  1 Oct 2026 13:59:33 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:Subject:References:Cc:To:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=VVxTmi5k40WI0DcLtCyKWH3QCS5Hnr6jxxODyyl3ffA=; b=rYhoUqZ1Q3I+HBrWiJf8dxtbFD
-	zdEFsDtKOYD2bgtfC4/a28N2Mq8vnaJXqcXSKfRfbJmdHial4iqDGTGOL8sGLR23VI5+o8749m+go
-	1Oh/MJxPt7e3qMYC/4Xj2Is8kcc3Kx+ZNK8MX4bDBEJ9Yuk2/KRxU8n01TDFCb0gxn9hfBM6n0K7h
-	VsZH1o94aHhRMo3UCj0UOReYRJDb0PrSQgFhYu+cnYRO2aHr57MiEJs9HY0773QeTpxi2WBxD5UoI
-	NCSWTIWDKaLveIUUzlY1vSVVV8ZJq2cmCQTSIkQtMxBWjDUk8RXuNiK1ZOr6CL6h5r8/t/P972CDt
-	rVit95Sg==;
+	bh=uVNx+P3Y2f0HGBVMUeJv0U3/6ZFKjMgYfJ/KkCb3kak=; b=AhIfj2CiChXlkZjyfqHJZdonU4
+	GT4/VXfOvF0tx7QfomnQlqMqcffmvNfxD1cV5SiGZOu1Us0NDizzoR1XVIuUFF8Xntn8VoNFpmYmq
+	eCOJcJEmOXSJkS/6V1lEnoaFlRVG+rcWAdsH6wUI4MRi35F+3caqyCM/nvtIh39nUTFuycQxZKnfh
+	c+07K39KfDANZa3lqTcC5JcmdV9XFna6yD05GZWdNUGN+KES0TrJ/7B60yld0IB1UH4GTAEZywI/t
+	iU8T/pBNzrCrdg21j4lOHI8Av5gCYsxsFQ3PmicXz1q38aJXOTubN8l1N1eS+MsnDWD5n1RngCWOR
+	UZBGGQAw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xCHJi-00000009JUc-2sVe;
-	Thu, 01 Oct 2026 13:59:22 +0000
-Received: from mail-qv2-x0d.google.com ([2607:f8b0:4864:33::d])
+	id 1xCHJk-00000009JWQ-3tzQ;
+	Thu, 01 Oct 2026 13:59:24 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xCHJd-00000009JQC-1wu0
+	id 1xCHJk-00000009JVX-0Dep
+	for linux-arm-kernel@bombadil.infradead.org;
+	Thu, 01 Oct 2026 13:59:24 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:MIME-Version
+	:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:Sender:Reply-To:
+	Content-Type:Content-ID:Content-Description;
+	bh=uVNx+P3Y2f0HGBVMUeJv0U3/6ZFKjMgYfJ/KkCb3kak=; b=CXPVrupQdY7XJl7E1X3ZsqxGBk
+	R4Wk2svbVm5pXI7rB1fmZbIpAxfKjYT7W0ZNvhK3y00J0h0UTK5GwXanlxrTY3rTpwy/h/jrNu3bu
+	lUP3pv0SDAYEjlHjr02dx2rBZCg2kT9xxhDGo1ewqATmqsbXtO1YurXhsdQ0c7y3GMgrKD754Zpjs
+	6MUzp6UC2eDlRsSqgTTYber8gFI/fyA3yniJOTrzyHYF59ervaFQL/olp1BkVdpdC+vz5vCR+O4ZC
+	ewHBKljTbdu4cvqOGWyhMjHUNv/3NHNhpDsWuF7NcrWpbmE2t0ztYphGPiBWZfEJ40ViR01HdRuB1
+	ytddWjdg==;
+Received: from out-131.mta1.migadu.com ([95.215.58.131] helo=mta1.migadu.com)
+	by desiato.infradead.org with esmtps (Exim 4.99.2 #2 (Red Hat Linux))
+	id 1xCHJh-0000000532K-0R1h
 	for linux-arm-kernel@lists.infradead.org;
+	Thu, 01 Oct 2026 13:59:22 +0000
+X-Envelope-To: linux-arm-kernel@lists.infradead.org
+DKIM-Signature: a=rsa-sha256; bh=8PgbjM3RudzbwOkoe5Gt2RQoxYVPLiuGki2F4kB8jq4=;
+ c=simple/simple; d=linux.dev;
+ h=from:to:subject:date:message-id:mime-version:content-type; s=key1;
+ t=1790863158; v=1; x=1791467958;
+ b=QC9CjX0ati5vaQheM/gwz2+H83RSittLuCB2DXPdXAaKPzFDdK3nr/RatpZUKVYd6Mf2DV+7
+ upNXka0MtzmgAT9LnbGU5IxUMh0+zLjn7OPSg0OuBRvSWlCCRde4cVls932Q5tlyn9Offm8m0TB
+ 9zYzopToVvrQHGoT653/AEh0=
+X-Envelope-To: linux-arm-kernel@lists.infradead.org
+Received: by smtp.migadu.com with ESMTPS id 43ef2dae9eb95ac3;
 	Thu, 01 Oct 2026 13:59:18 +0000
-Received: by mail-qv2-x0d.google.com with SMTP id 6a1803df08f44-917a345a6a5so12964316d6.2
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 01 Oct 2026 06:59:16 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1790863156; x=1791467956; darn=lists.infradead.org;
-        h=content-transfer-encoding:content-type:in-reply-to:from
-         :content-language:subject:references:cc:to:user-agent:mime-version
-         :date:message-id:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=VVxTmi5k40WI0DcLtCyKWH3QCS5Hnr6jxxODyyl3ffA=;
-        b=Bi9wdLesXJu/SpxAaAAJEPgAZYT+srKQUP/gYwAfrx8O/v0sXi8slcIyLXQMaotpHb
-         Orlm3LUHG4QSzsKKpYMek9bjgyscgU2WTeY23cxjKWxWu1ypE8Ze4SIZjcXbwrxtevPH
-         J7e2an095qQCBDZiEYuXQyRhBJ5XSls7kytIK2pIG9IOox8K4fuV3RThNSAT+hFFX3DS
-         qnpkrcx5f4HP0Gw3vY6a2oy70WMVerb+dm/Wp5Bxriusa2AMjizuPVxDqH3EBfiYsmbg
-         y6yiY4XI2REiBgmAnILGnN5OS5glRzoyxExIyFWRDOPnk5yHy1oPydaSVb9AOWUKRB9n
-         OKLQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1790863156; x=1791467956;
-        h=content-transfer-encoding:content-type:in-reply-to:from
-         :content-language:subject:references:cc:to:user-agent:mime-version
-         :date:message-id:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=VVxTmi5k40WI0DcLtCyKWH3QCS5Hnr6jxxODyyl3ffA=;
-        b=Bsf2pOA2VUmFMJabiQdoE6Qk42GTCGNH6bJt+SLhShmw1Fl51VQkqktHL7/PASq3I3
-         TYzX7UWWp0ZY+ApSRFnGQXH6moeDbjImoSIXTGb7Neamz4H3+AaLAofNN7VRxQp/9rv9
-         02NHa0oUZ1j+u/DecUERZDVPYwuyzZlU01qLwqrrThha/+pR5gfkQuazzPQW1jGSz53t
-         Km7DT/vPikaIRZl0Xp3uYrdQbLBKJOphohKEyeH8Z3ONMFAgvax/x9W9PEz7DqK0BRsL
-         VLnJsWM+q1djb3zmFoSERjRKeusuXsuXlrfSbLGvs/2L299xV9KgaMnwwwCVLoVKaLu9
-         8JzA==
-X-Forwarded-Encrypted: i=1; AKwUvBzk9CPOk04zz7tpf1DpK9+p2xLuIbIoP6iD/CJ83CFr62NPJqepgn9F3MCMGYOt8RTw/W6vri7ct0tUGqQzektG@lists.infradead.org
-X-Gm-Message-State: AFuF++lDHb9XV66ae8+HYMh3/5nuYoc8iEfLjABpOgnScIndJSGsOQAe
-	I+8ednkAdPtXCQApsHoHwUeGbdO8LFfmp/o4g7G/MTwAEk4dLRJq4cGd
-X-Gm-Gg: AYBFou0/Vy1btjWHwRF69iLeDD40ILf463jU/Kn+lmI+ncnHpt8GEjc4xhcCPFTN8MD
-	wK3x0Ykcxg6OFzxpaCwM8/oXlGUVFV0tRTNR+iZpI5pOAlpvWxUXiczr1Z/RIgPgqveIssBGhHE
-	2Y3yya/r7EFsCjkWuaTSG6fzO/CVCprz4p+ttxk9dL4ZrQnR02yZ9pDDEAcUD4QYbWM7ZHsf389
-	xWyYQpZkdq/+PC7Z1rhGXg29oTFDNArmeXDjlyHvehj8al+H8k1MyD1Lo7zf8z3iAadjKDu4ngr
-	S0z2HLr/WNkHcafOSOKvQkAumiYxfbVV9Alg0FIoJ33v4BMyX2NzhSLexPOvoxUDNvEicGCN8Gk
-	iMLmZCcEJMkgbXpzUnSdiSv6N5wJR9wN371RLWMt9rDGaQPrbayHbO+BoQsrqQVJbVACydAIWt0
-	vTTA1KiVqGwCfdsKBZ26/6W5DKELHHgTxassi/rTL9EEHMBrPanFoWEHVsWV6/Qw27qAjBP3Jxs
-	WtVSZ1A2uOPZdnrH11LMppBy6VqfofIRxcKUAgwiXIJ
-X-Received: by 2002:a05:620a:2626:b0:93c:c08f:ebb with SMTP id af79cd13be357-93cc08f5401mr227577885a.26.1790863155696;
-        Thu, 01 Oct 2026 06:59:15 -0700 (PDT)
-Received: from [192.168.11.3] (215.96.231.218.rev.ocx2915.net. [218.231.96.215])
-        by smtp.gmail.com with ESMTPSA id af79cd13be357-93cc7093756sm10772085a.38.2026.10.01.06.59.12
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Thu, 01 Oct 2026 06:59:14 -0700 (PDT)
-Message-ID: <ac3e3fce-b27a-4d17-9616-48a70ddaf28b@gmail.com>
-Date: Thu, 1 Oct 2026 22:59:11 +0900
+X-Mizu-Trace-ID: 43ef2dae9eb95ac3
+X-Migadu-Flow: FLOW_OUT
+From: Fuad Tabba <fuad.tabba@linux.dev>
+To: maz@kernel.org,
+	oupton@kernel.org,
+	kvmarm@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org
+Cc: catalin.marinas@arm.com,
+	will@kernel.org,
+	joey.gouly@arm.com,
+	seiden@linux.ibm.com,
+	suzuki.poulose@arm.com,
+	yuzenghui@huawei.com,
+	mark.rutland@arm.com,
+	steven.price@arm.com,
+	vdonnefort@google.com,
+	qperret@google.com,
+	tabba@google.com
+Subject: [PATCH v4 16/18] KVM: arm64: Reject host power-on of a vCPU that EL2 holds powered off
+Date: Thu,  1 Oct 2026 14:57:09 +0100
+Message-Id: <20261001135711.1640520-17-fuad.tabba@linux.dev>
+X-Mailer: git-send-email 2.39.5
+In-Reply-To: <20261001135711.1640520-1-fuad.tabba@linux.dev>
+References: <20261001135711.1640520-1-fuad.tabba@linux.dev>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-To: linusw@kernel.org
-Cc: arnd@arndb.de, linux-arm-kernel@lists.infradead.org,
- linux-kernel@vger.kernel.org, linux@armlinux.org.uk, oleg@redhat.com,
- paulmck@kernel.org, ruanjinjie@huawei.com, tglx@kernel.org,
- thehajime@gmail.com
-References: <20260910-arm-generic-irq-entry-v7-1-v3-1-5fd90f6859e1@kernel.org>
-Subject: Re: [PATCH v3] ARM: entry: Convert IRQ handling to generic IRQ entry
-Content-Language: en-US
-From: Yoshifumi SHU <envzhu@gmail.com>
-In-Reply-To: <20260910-arm-generic-irq-entry-v7-1-v3-1-5fd90f6859e1@kernel.org>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261001_065917_514890_E0689216 
-X-CRM114-Status: GOOD (  13.34  )
+X-CRM114-CacheID: sfid-20261001_145921_357659_26F334F8 
+X-CRM114-Status: GOOD (  21.08  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -105,53 +97,206 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Linus,
+A protected vCPU's power state belongs to EL2, which changes it only
+on the guest's own PSCI calls. KVM_SET_MP_STATE(RUNNABLE) on a vCPU
+EL2 holds powered off changes the host's copy alone, and the guest's
+next CPU_ON of that vCPU then fails: mp_state is no longer STOPPED, so
+the host returns ALREADY_ON, and the guest's retry fails the same way
+until the VMM stops the vCPU again. SUSPENDED has the same effect.
 
-I took a look at the Cortex-M (V7M) part. 
+Record a vCPU EL2 holds powered off as KVM_MP_STATE_UNINITIALIZED, an
+encoding arm64 didn't use: the guest's CPU_OFF writes it, as does hyp
+vCPU creation for a vCPU that starts STOPPED, and only the guest's
+CPU_ON writes RUNNABLE over it. RUNNABLE and SUSPENDED from the VMM
+return -EPERM on it, the VMM can't write the value itself, and
+KVM_ARM_VCPU_INIT, which would write STOPPED or RUNNABLE over it, is
+rejected once the vCPU has run.
 
-Since V7M now selects GENERIC_IRQ_ENTRY as well, a call to
-arm_rseq_user_enter() is required near the V7M interrupt entry path for
-rseq to work correctly. It corresponds to the arm_rseq_user_exit() call
-you added in entry-common.S:no_work_pending, which V7M reaches via
-v7m_ret_to_user_from_irq.
+The VMM can still pause and resume a vCPU EL2 has powered on. Neither
+STOPPED nor kvm_prepare_system_event() overwrites the value: a vCPU at
+it is already off, and a STOPPED in its place would turn the guest's
+next CPU_ON into ALREADY_ON, after a SYSTEM_RESET exit the VMM runs on
+from. kvm_arm_vcpu_stopped() covers it, so the run loop sleeps the
+vCPU as before.
 
-A minimal fix would be:
+The guest's CPU_ON is gated on the value rather than on STOPPED. A
+STOPPED written between the target's CPU_OFF exit and the host's
+power-off of it, which kvm_prepare_system_event() can do from another
+vCPU's SYSTEM_OFF or SYSTEM_RESET, would otherwise let the CPU_ON
+through, and the power-off would then record the target powered off
+while EL2 holds it ON_PENDING, with no way back before VM teardown.
+Gated on the value, that CPU_ON returns ALREADY_ON and the retry
+succeeds once the power-off has run.
 
-diff --git a/arch/arm/kernel/entry-v7m.S b/arch/arm/kernel/entry-v7m.S
-index 49a3a34e2913..e8102413461f 100644
---- a/arch/arm/kernel/entry-v7m.S
-+++ b/arch/arm/kernel/entry-v7m.S
-@@ -87,6 +87,10 @@ ENDPROC(__irq_entry)
- __pendsv_entry:
- 	v7m_exception_entry
+Signed-off-by: Fuad Tabba <fuad.tabba@linux.dev>
+---
+ arch/arm64/include/asm/kvm_host.h |  1 +
+ arch/arm64/kvm/arm.c              | 35 +++++++++++++++++++++++++------
+ arch/arm64/kvm/pkvm.c             | 21 +++++++++++++++----
+ arch/arm64/kvm/psci.c             | 11 ++++++++--
+ 4 files changed, 56 insertions(+), 12 deletions(-)
+
+diff --git a/arch/arm64/include/asm/kvm_host.h b/arch/arm64/include/asm/kvm_host.h
+index 37d0721d39a45..e99b706c879cf 100644
+--- a/arch/arm64/include/asm/kvm_host.h
++++ b/arch/arm64/include/asm/kvm_host.h
+@@ -1564,6 +1564,7 @@ static inline void kvm_hyp_reserve(void) { }
  
-+#ifdef CONFIG_RSEQ
-+	bl	arm_rseq_user_enter
-+#endif
+ void kvm_arm_vcpu_power_off(struct kvm_vcpu *vcpu);
+ bool kvm_arm_vcpu_stopped(struct kvm_vcpu *vcpu);
++bool kvm_pkvm_vcpu_is_powered_off(struct kvm_vcpu *vcpu);
+ 
+ static inline u64 *__vm_id_reg(struct kvm_arch *ka, u32 reg)
+ {
+diff --git a/arch/arm64/kvm/arm.c b/arch/arm64/kvm/arm.c
+index 14fe4e7275796..a89087c83e27f 100644
+--- a/arch/arm64/kvm/arm.c
++++ b/arch/arm64/kvm/arm.c
+@@ -770,23 +770,28 @@ void kvm_arch_vcpu_put(struct kvm_vcpu *vcpu)
+ 	vcpu->cpu = -1;
+ }
+ 
+-static void __kvm_arm_vcpu_power_off(struct kvm_vcpu *vcpu)
++static void __kvm_arm_vcpu_power_off(struct kvm_vcpu *vcpu, u32 mp_state)
+ {
+-	WRITE_ONCE(vcpu->arch.mp_state.mp_state, KVM_MP_STATE_STOPPED);
++	WRITE_ONCE(vcpu->arch.mp_state.mp_state, mp_state);
+ 	kvm_make_request(KVM_REQ_SLEEP, vcpu);
+ 	kvm_vcpu_kick(vcpu);
+ }
+ 
++/* The guest's own CPU_OFF: EL2 has already powered the vCPU off. */
+ void kvm_arm_vcpu_power_off(struct kvm_vcpu *vcpu)
+ {
++	u32 mp_state = vcpu_is_protected(vcpu) ? KVM_MP_STATE_UNINITIALIZED : KVM_MP_STATE_STOPPED;
 +
- 	ldr	r1, =BASEADDR_V7M_SCB
- 	mov	r0, #V7M_SCB_ICSR_PENDSVCLR
- 	str	r0, [r1, V7M_SCB_ICSR]	@ clear PendSV
-
-
-This actually calls arm_rseq_user_enter() in PendSV rather than in
-__irq_entry. I think this is fine because the rseq.event.user_irq flag
-set by this function is only checked on the return path to user space,
-specifically, during rseq handling inside do_work_pending() on V7M.
-
-However, applying this fix highlights the ongoing maintenance burden and
-motivates converting the V7M IRQ entry to use the generic IRQ entry. I'd
-like to take on this conversion work.
-
-I already have a rough idea of how to implement it (it is somewhat
-complicated). I hope to implement the prototype within a week or two. I
-will send it out as a separate RFC on top of your patch series.
-
-As a quick test for your patch series, I confirmed that Buildroot boots
-successfully with and without the rseq change above on QEMU MPS3-AN547
-(Cortex-M55 / Arm v8.1-M). I will run more comprehensive tests on real
-hardware, like kselftests including rseq.
+ 	spin_lock(&vcpu->arch.mp_state_lock);
+-	__kvm_arm_vcpu_power_off(vcpu);
++	__kvm_arm_vcpu_power_off(vcpu, mp_state);
+ 	spin_unlock(&vcpu->arch.mp_state_lock);
+ }
  
-Best regards,
-Yoshifumi
+ bool kvm_arm_vcpu_stopped(struct kvm_vcpu *vcpu)
+ {
+-	return READ_ONCE(vcpu->arch.mp_state.mp_state) == KVM_MP_STATE_STOPPED;
++	u32 mp_state = READ_ONCE(vcpu->arch.mp_state.mp_state);
++
++	return mp_state == KVM_MP_STATE_STOPPED || mp_state == KVM_MP_STATE_UNINITIALIZED;
+ }
+ 
+ static void kvm_arm_vcpu_suspend(struct kvm_vcpu *vcpu)
+@@ -801,6 +806,12 @@ static bool kvm_arm_vcpu_suspended(struct kvm_vcpu *vcpu)
+ 	return READ_ONCE(vcpu->arch.mp_state.mp_state) == KVM_MP_STATE_SUSPENDED;
+ }
+ 
++/* Only the guest's CPU_ON may start a vCPU EL2 holds powered off. */
++bool kvm_pkvm_vcpu_is_powered_off(struct kvm_vcpu *vcpu)
++{
++	return READ_ONCE(vcpu->arch.mp_state.mp_state) == KVM_MP_STATE_UNINITIALIZED;
++}
++
+ int kvm_arch_vcpu_ioctl_get_mpstate(struct kvm_vcpu *vcpu,
+ 				    struct kvm_mp_state *mp_state)
+ {
+@@ -818,12 +829,24 @@ int kvm_arch_vcpu_ioctl_set_mpstate(struct kvm_vcpu *vcpu,
+ 
+ 	switch (mp_state->mp_state) {
+ 	case KVM_MP_STATE_RUNNABLE:
++		if (kvm_pkvm_vcpu_is_powered_off(vcpu)) {
++			ret = -EPERM;
++			break;
++		}
++
+ 		WRITE_ONCE(vcpu->arch.mp_state, *mp_state);
+ 		break;
+ 	case KVM_MP_STATE_STOPPED:
+-		__kvm_arm_vcpu_power_off(vcpu);
++		/* Keep EL2's off record: STOPPED over it would let RUNNABLE through. */
++		if (!kvm_pkvm_vcpu_is_powered_off(vcpu))
++			__kvm_arm_vcpu_power_off(vcpu, KVM_MP_STATE_STOPPED);
+ 		break;
+ 	case KVM_MP_STATE_SUSPENDED:
++		if (kvm_pkvm_vcpu_is_powered_off(vcpu)) {
++			ret = -EPERM;
++			break;
++		}
++
+ 		kvm_arm_vcpu_suspend(vcpu);
+ 		break;
+ 	default:
+@@ -1788,7 +1811,7 @@ static int kvm_arch_vcpu_ioctl_vcpu_init(struct kvm_vcpu *vcpu,
+ 	spin_lock(&vcpu->arch.mp_state_lock);
+ 
+ 	if (power_off)
+-		__kvm_arm_vcpu_power_off(vcpu);
++		__kvm_arm_vcpu_power_off(vcpu, KVM_MP_STATE_STOPPED);
+ 	else
+ 		WRITE_ONCE(vcpu->arch.mp_state.mp_state, KVM_MP_STATE_RUNNABLE);
+ 
+diff --git a/arch/arm64/kvm/pkvm.c b/arch/arm64/kvm/pkvm.c
+index 8e4c6e4bec123..99a5d9a913129 100644
+--- a/arch/arm64/kvm/pkvm.c
++++ b/arch/arm64/kvm/pkvm.c
+@@ -118,12 +118,25 @@ static int __pkvm_create_hyp_vcpu(struct kvm_vcpu *vcpu)
+ 		return -ENOMEM;
+ 
+ 	ret = kvm_call_hyp_nvhe(__pkvm_init_vcpu, handle, vcpu, hyp_vcpu);
+-	if (!ret)
+-		vcpu_set_flag(vcpu, VCPU_PKVM_FINALIZED);
+-	else
++	if (ret) {
+ 		free_pages_exact(hyp_vcpu, hyp_vcpu_sz);
++		return ret;
++	}
+ 
+-	return ret;
++	/*
++	 * Mirror EL2's seeding of power_state from mp_state. The hyp vCPU is
++	 * published, so take mp_state_lock against kvm_psci_vcpu_on().
++	 */
++	if (vcpu_is_protected(vcpu)) {
++		spin_lock(&vcpu->arch.mp_state_lock);
++		if (kvm_arm_vcpu_stopped(vcpu))
++			WRITE_ONCE(vcpu->arch.mp_state.mp_state, KVM_MP_STATE_UNINITIALIZED);
++		spin_unlock(&vcpu->arch.mp_state_lock);
++	}
++
++	vcpu_set_flag(vcpu, VCPU_PKVM_FINALIZED);
++
++	return 0;
+ }
+ 
+ /*
+diff --git a/arch/arm64/kvm/psci.c b/arch/arm64/kvm/psci.c
+index e3db84400d1f8..b01f8d44033f1 100644
+--- a/arch/arm64/kvm/psci.c
++++ b/arch/arm64/kvm/psci.c
+@@ -63,7 +63,12 @@ static unsigned long kvm_psci_vcpu_on(struct kvm_vcpu *source_vcpu)
+ 		return PSCI_RET_INVALID_PARAMS;
+ 
+ 	spin_lock(&vcpu->arch.mp_state_lock);
+-	if (!kvm_arm_vcpu_stopped(vcpu)) {
++	/*
++	 * A protected vCPU is off once the host has acted on EL2's CPU_OFF.
++	 * STOPPED before that is the VMM's pause.
++	 */
++	if (!kvm_arm_vcpu_stopped(vcpu) ||
++	    (vcpu_is_protected(vcpu) && !kvm_pkvm_vcpu_is_powered_off(vcpu))) {
+ 		if (kvm_psci_version(source_vcpu) != KVM_ARM_PSCI_0_1)
+ 			ret = PSCI_RET_ALREADY_ON;
+ 		else
+@@ -161,7 +166,9 @@ static void kvm_prepare_system_event(struct kvm_vcpu *vcpu, u32 type, u64 flags)
+ 	 */
+ 	kvm_for_each_vcpu(i, tmp, vcpu->kvm) {
+ 		spin_lock(&tmp->arch.mp_state_lock);
+-		WRITE_ONCE(tmp->arch.mp_state.mp_state, KVM_MP_STATE_STOPPED);
++		/* Keep EL2's off record for the guest's next CPU_ON. */
++		if (!kvm_pkvm_vcpu_is_powered_off(tmp))
++			WRITE_ONCE(tmp->arch.mp_state.mp_state, KVM_MP_STATE_STOPPED);
+ 		spin_unlock(&tmp->arch.mp_state_lock);
+ 	}
+ 	kvm_make_all_cpus_request(vcpu->kvm, KVM_REQ_SLEEP);
+-- 
+2.39.5
+
 
