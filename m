@@ -4,87 +4,129 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1DF69CA5FD6
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  1 Oct 2026 16:30:46 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2BBA1CA5FDB
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  1 Oct 2026 16:31:18 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
-	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:
-	References:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:
-	Subject:Date:From:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=0yDZOAIm8/Q3QD8+C6s41Grxf2KSvFAj+qQW3BIcQGs=; b=c+m/T5x0nM6Wm0Zhi/83p71Ssj
-	6q/8dvu8gRzSG2D8o+41zIiF32Z/xYsuMo0WGjQrzRi8k5g1BQJU7wNb48SCB+hMt8NAV7a2aVZv1
-	Ofch0eDyzRtzS9R0NABqOTernuKCqylszpYLzcR4OxYpCtONQ8q1qUATTp37HCXd4yoR27334yRUw
-	Sa5d6Tl90iROHLVb+ub/NjDh49UsHDBAjw8+6ZreNz42aaXTLU0TbrK3D/AH+KLPsvNQ/UKN9BDhL
-	Wh5PrL3M/uJ/F0EUIUEMrHkwR/iHBh0ni6fzu6/iCmzwP4JI/PTRwxpvHOUjyzykoNZTxXwZZ8BTE
-	Y6HDfoGw==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
+	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=pPdsI+9ngxx/DXb9f5gVXjmuXNqPHX2f9c4dLhBsLJU=; b=WoYQVYCjpXU/1t9Mxwt3uAR01b
+	PswlN79xhwV2xz9YoMwp6ZxOcEqvf5g5qSLdPZBFpZHaNMCgTLlvm5VQJ7Df2NgoKyG2xtCO4yr7c
+	JtiXss0lj37t67RRPQstV5blpECAOtkLPBKYej9JEu/LpxSxufFD4tejgnqqg+zWutwhd89qGvWOh
+	CzR4MEgJd//PlB0L/Z2FKXRbcZj/csiwOWFPqQMuyw/IYsngM1CykoHNWExgN+MvOV5pv1ouzNGAL
+	Y+eNDXWVnj3CfW5gab25mJhRBwAjHLt6LJid/Kjz0rxTvxobZJGdDXzjQ8sfPd5yo7l+tV8C7yprP
+	fE38ILlw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xCG60-000000094pd-3NuP;
-	Thu, 01 Oct 2026 12:41:08 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1xCJgZ-00000009iSW-11wZ;
+	Thu, 01 Oct 2026 16:31:07 +0000
+Received: from mail-norwayeastazon11013037.outbound.protection.outlook.com ([40.107.159.37] helo=OSPPR02CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xCG5t-000000094lj-1KxN
+	id 1xCJgI-00000009iPf-0Q2i
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 01 Oct 2026 12:41:01 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id B068E447A6;
-	Thu,  1 Oct 2026 12:41:00 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPS id 68761C4AF1C;
-	Thu,  1 Oct 2026 12:41:00 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1790858460;
-	bh=TA4UvtPaI6N/mD+iZIrCt55LdDwZ1OZdGI9FuRlVZFs=;
-	h=From:Date:Subject:References:In-Reply-To:To:Cc:Reply-To:From;
-	b=NAY5v30SwqDl2eaxP6g0qGMcRQvQTwEFtxTF3loIjcOEMkfPPTxH1ZqKpj5Bd2vO+
-	 2CohcSEy4dwkTBXgSnrKEEJzIvGXRMoeCJJoxvkRpK1QCS74WFlvFEEzQVa7133H5t
-	 fXrHoI239EgtqNNm61+GOM5mz3WK5eqieahoCmwrR1GrwkSf+riJGFQfsIj/vIftW5
-	 v2wG+vcqcmP6Z6/M5J0CeEOKbwkEUHNDwhx5Q2fxZl065guOR0cN37SfOoZSxkde1h
-	 l2erXJsQT7EEWysDAQXRyKlXbu93iRcphss6SU7xRaPNyTRmk6PIJ4sWGSwJefHlJ2
-	 8Hy6SZiC1/q9Q==
-Received: from aws-us-west-2-korg-lkml-1.web.codeaurora.org (localhost.localdomain [127.0.0.1])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 4BA71CA5FD4;
-	Thu,  1 Oct 2026 12:41:00 +0000 (UTC)
-From: Long Zhao via B4 Relay <devnull+longzhao.ambarella.com@kernel.org>
-Date: Thu, 01 Oct 2026 20:40:52 +0800
-Subject: [PATCH v9 03/15] dt-bindings: clock: add Ambarella CV75 RCT
+	Thu, 01 Oct 2026 16:31:02 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=T15+XZmvr4uLsqX+N7gVcAxmeqRUMl68e7+p2MzrxY5zXE7vRSad7myZaNrWtTXy47Qb9+b6sjgaS1R8JUwfFGiho06rAMWrjSRHex25Vw7VkWqjCMBSNDZrLVE0GEVIr5CKUmSZP2IabPsob+klgA0TmuX/ZhqKIALFUf+AWCHYSsQg9MuieHqeqOac0fxCvzS6rmaHg1MCIymWMb0lA+0+WRISjiTQc9AgLMOFE/2V7KIkLdRsqNkDe5brCAGyZpG+fCwYTbUv3nO2whNWOe0Cp4xD8dvJWG6YWGYHoz9As37/1nIVz/fo4bHKds4/sNCzb8Viqex5a3xwCRyq2Q==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=pPdsI+9ngxx/DXb9f5gVXjmuXNqPHX2f9c4dLhBsLJU=;
+ b=hc+cwVYHwtDZCYkD0RJpT0ORBjPd77+NZs23lYsy4k1uvmQnTYHIsAxjKLfmuG1Zcpr/KwiD1DDdXAFJKwYISMFcfbZMBhZerBesHh1f/zHD/ue38ALBMA9w35pLHkuz/QBEFDwd54CzHrd8KpcczHKEZRYLpF4FN0GUWQp7h4y3jfER4OpRTv7BV4rBTJp8h1DVkRNlUdKfBroAlmOEzD3j/WlEakUrgtkMy5gUcmedm+tFtk2Sgqs1TitIIc6QJw1KpghJp60mWCadnpkBcNoIk4uvXfFc1V0NzY9Va1MLQO1DYybeWN35g0sGF6I42+bsoZ+qzznwbhD7JuFfLw==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
+ dkim=pass header.d=oss.nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
+ s=selector1-NXP1-onmicrosoft-com;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=pPdsI+9ngxx/DXb9f5gVXjmuXNqPHX2f9c4dLhBsLJU=;
+ b=hcr0bLn4JALeIIeHc2VrgKXepxWg7kIklJH67mYsg0IfTcvyV18Kr+W8qhcBGbzWnawVGY+6iqOHqmA5V2ebAMjLadWaq8QInBkAqzXmChEJZ0rPHQ1CnuG1G/AVAFie8BPeCgZgUgaRC6vCvKUzMyDAq+dj+yaCKB/WOWiTtx7yzte9gvZq0h7BaREiktv8RR/4+hSPBjzSnHpQF8+vJD7vGi1FK8IR1+q6vz8shUdxkKdo8se3oMZmigRhMK5DkM7LJpo/N9zEsE5bOnQAUYDk0GSjJpNtNL2OZTQ2HE7SkM60eVTSCcDzAcwL1uhSpSGIELzpd/2mylDngjMM4A==
+Authentication-Results: mx.microsoft.com 1; dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=oss.nxp.com;
+Received: from GV2PR04MB11799.eurprd04.prod.outlook.com (2603:10a6:150:2cf::9)
+ by AS8PR04MB9045.eurprd04.prod.outlook.com (2603:10a6:20b:440::13) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.472.18; Thu, 1 Oct
+ 2026 16:30:44 +0000
+Received: from GV2PR04MB11799.eurprd04.prod.outlook.com
+ ([fe80::2146:83a2:5329:b7c]) by GV2PR04MB11799.eurprd04.prod.outlook.com
+ ([fe80::2146:83a2:5329:b7c%7]) with mapi id 15.21.0451.022; Thu, 1 Oct 2026
+ 16:30:44 +0000
+Date: Thu, 1 Oct 2026 11:30:34 -0500
+From: Frank Li <Frank.li@oss.nxp.com>
+To: Jeff Barnes <jeffbarnes@linux.microsoft.com>
+Cc: linux-pci@vger.kernel.org, minghuan.Lian@nxp.com, mingkai.hu@nxp.com,
+	roy.zang@nxp.com, lpieralisi@kernel.org, kwilczynski@kernel.org,
+	mani@kernel.org, robh@kernel.org, bhelgaas@google.com,
+	Zhiqiang.Hou@nxp.com, linuxppc-dev@lists.ozlabs.org,
+	linux-arm-kernel@lists.infradead.org, imx@lists.linux.dev,
+	linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v2] Revert "PCI: layerscape: Change default error
+ response behavior"
+Message-ID: <ar6KqnfQ4S5jtqeI@SMW015318>
+References: <0FEA6868-5A7C-4955-9FBB-BE9A1AE8D3F7@getmailspring.com>
+ <20261001153323.1965074-1-jeffbarnes@linux.microsoft.com>
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20261001153323.1965074-1-jeffbarnes@linux.microsoft.com>
+X-ClientProxiedBy: CYXPR03CA0009.namprd03.prod.outlook.com
+ (2603:10b6:930:d0::7) To GV2PR04MB11799.eurprd04.prod.outlook.com
+ (2603:10a6:150:2cf::9)
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20261001-cv75-v5-v9-3-486cc289a4b8@ambarella.com>
-References: <20261001-cv75-v5-v9-0-486cc289a4b8@ambarella.com>
-In-Reply-To: <20261001-cv75-v5-v9-0-486cc289a4b8@ambarella.com>
-To: Arnd Bergmann <arnd@arndb.de>, Krzysztof Kozlowski <krzk@kernel.org>, 
- Alexandre Belloni <alexandre.belloni@bootlin.com>, soc@lists.linux.dev, 
- linux-arm-kernel@lists.infradead.org
-Cc: Long Zhao <longzhao@ambarella.com>, Rob Herring <robh@kernel.org>, 
- Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>, 
- Michael Turquette <mturquette@baylibre.com>, 
- Stephen Boyd <sboyd@kernel.org>, Jerome Brunet <jbrunet@baylibre.com>, 
- Linus Walleij <linusw@kernel.org>, Bartosz Golaszewski <brgl@kernel.org>, 
- Michael Walle <mwalle@kernel.org>, 
- Greg Kroah-Hartman <gregkh@linuxfoundation.org>, 
- Jiri Slaby <jirislaby@kernel.org>, 
- Andy Shevchenko <andriy.shevchenko@linux.intel.com>, 
- =?utf-8?q?Ilpo_J=C3=A4rvinen?= <ilpo.jarvinen@linux.intel.com>, 
- Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>, 
- Long Zhao <zl020895@163.com>, Lee Jones <lee@kernel.org>, 
- mfd@lists.linux.dev, devicetree@vger.kernel.org, linux-clk@vger.kernel.org, 
- linux-gpio@vger.kernel.org, linux-serial@vger.kernel.org, 
- linux-kernel@vger.kernel.org, 
- Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
-X-Mailer: b4 0.15.2
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1790858457; l=2969;
- i=longzhao@ambarella.com; s=20260730; h=from:subject:message-id;
- bh=gEKr05f9YAOrNVHJfKB47io9QNiMkJyDyO/ZJBUGYg0=;
- b=u7dATT7wovn/IzB7hOxdMtQfu2TUxzRgNkKQ39Z1EcHYb35bAClImZoJ8ho3BL/DMU+yHDbEA
- CPIgGMCt6wNBF6lEORnSXvvSdijqmTcbHfSanh6jfTOQUvRI8WcsCxC
-X-Developer-Key: i=longzhao@ambarella.com; a=ed25519;
- pk=/xGhPTOX0/eYsyTWzyjjgAIW1Z/YD+IlnOnvcdRozow=
-X-Endpoint-Received: by B4 Relay for longzhao@ambarella.com/20260730 with
- auth_id=903
-X-Original-From: Long Zhao <longzhao@ambarella.com>
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: GV2PR04MB11799:EE_|AS8PR04MB9045:EE_
+X-MS-Office365-Filtering-Correlation-Id: 2cc219e2-0c43-4506-9a17-08df1fd95703
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|23010399003|19092799006|366016|1800799024|376014|7416014|18002099003|22082099003|4143699003|6133799003|3023799007|10067099003|56012099006|11063799006;
+X-Microsoft-Antispam-Message-Info: /6Q2+5SvetV9WkKkOdD7GlRfqExjzU3H9D0A5xy3GiCchYM1VycmU+yvPHGYznmVlGkGI8zA0sD2RuuxgE7aSOxI5M7GAWsoIlJBIZQp+6494z0jyorD6yQAcPSclQWPTFfLeVB8OwX+akbeO2yQhaOFVtZcjBezH9rD9UjWQVpZyoJSSXyF/NEyR+6FmyrfwhXMMNafrY0Gh637ifsMYWvWh2TbLKsXlQXnAfXPUlDbzFJNQagxmTmCh1AVueoX2KVXxZ3xzD7mSZwTjcIikMhzKo++b2u4pES7/RYOO+SbeKMaDG9Q/8jbCd39I6LLRO3BnRq8rWg3YzJjlWe2spA0dGQTXYBJSX8+h1+D0h3QSlQv565Ad9XLYTUTtqQph1imbmJQ58ENeAvxxx4KwDXkvOhhlT2N9BJ+7AsnQQDZnz62jb0ejVpMRrHaPw+zC9xAWflC0tKU8m5bepE55/BjA2WgpVSs2us+QjTdm/4xLdiSS/VpkgTbLzRPPXSKx0Jf9L5uLOmk7zx/UezvzTiZ/c+rIxErnW5KiSQrl/n/t7cSIglbFG39PrHcroPXuffixLbsG5Myh+7p6xcj0jCgvYM+5vU39Qm+5f53HQsnkKameZTb7iP0Wto27ybCNhlpoIMg8hooThU2/5QPRJf9vc5gxv80LozFaDDphNE=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:GV2PR04MB11799.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(23010399003)(19092799006)(366016)(1800799024)(376014)(7416014)(18002099003)(22082099003)(4143699003)(6133799003)(3023799007)(10067099003)(56012099006)(11063799006);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?hfeCt+UROdbbCQKO7Y+pCM5wQW68xsRr/MxYX4yQUC54y84ACl3OxY7dLf1U?=
+ =?us-ascii?Q?jmmLHCz5sGlaQ0P+HMFNlGSmJYsKbO6R2UWib/I00wmgtHFRQ22C/dI838uZ?=
+ =?us-ascii?Q?GkFTJdf222b/gexZYNEa5i5dVIY1RbTgGq1agw2Pm5s/kcIDVyNZNtOAmrHz?=
+ =?us-ascii?Q?zA5I1USPgOm2ImnWAcomEcnXP8YPzWZn1lYVuJ2isb9LOmboEV0cLD2H7PML?=
+ =?us-ascii?Q?ZbCedpptjOfoIH9fBEjPg1Tj1gta5fRa7pHsMcWSI0YVU20ULdtw/8eT0rJ0?=
+ =?us-ascii?Q?X17BHz+Ke7b7Mg3Vvbv+kCKf0JzmX5Z22GGBUmEbq7hI/pUUKPZgS/VeNIbz?=
+ =?us-ascii?Q?cpQVfJMWVaEQghtZS8tyKREgso9ryK37yO34bQZfULtvNkewqtu4mrKVfM5e?=
+ =?us-ascii?Q?xDC0FnBS+czojot0elQXNqSaEyd2Q64lh7tbw6SQxuuyGIzStKUy723Xh+9I?=
+ =?us-ascii?Q?yPCZle6FBszmC8kiyK8tb4lbKRBfIX47gcBPktzIyRwG4G93cR2WuUTax/YG?=
+ =?us-ascii?Q?d2CNLdFcsL2cyDoziPXmEtJBNdBVJyuN2lR5BOUYutCQ3opOH7efF+QpNGND?=
+ =?us-ascii?Q?XOWHuUcn68mVrqnwZKbcHTobIKqlrQnFaUK2vZelevbpa1yG+WOhNSC5L2tp?=
+ =?us-ascii?Q?zpP8ZU1T/87/d+MdHORg7hVWrt14ejC4PYuGlcWukW8hZ6ZF+ccvDlPugSva?=
+ =?us-ascii?Q?6k5mE+KcJxiZAjxVQelP5mzHwC8Wo6q1sqOoLtTDbvIoYBZC9qt2+OHaja9s?=
+ =?us-ascii?Q?l7VZG16cMOC0RErccaNZii242onCCFXDYZqm7CXZ4tZtW8e4AFCUhZ2P/4+a?=
+ =?us-ascii?Q?ueJQAxpW3yzs/z5+OE+W7zBAV3at9xgFvft7eUNelgwmv+UD9mXXh1Y0rXFM?=
+ =?us-ascii?Q?1pmny3p9eopG0mnj72FmFwhSYLoW64gwT82IujefCn42MPv7Y5JR5LhBkLGH?=
+ =?us-ascii?Q?W2wv92OewV8q1gf39QKMNyWunoi7ga76ofMTWg0Ml7hgF1ZQXWQk6yLkhKBf?=
+ =?us-ascii?Q?1s9hdqOK4DTOmD+8RQhuRgvLiz8X2gtadogQSnJDQcmPZuj9jj/wxJ0cLsTQ?=
+ =?us-ascii?Q?zbxtJSPka12sOhtFt3swhTrbmEQ0Ma+vOxLeZaKOK/VRnvhtI3ga2wo/yymc?=
+ =?us-ascii?Q?djfLgBsIFXVYPXeJCm++iE/ZVYXP+RTnDxmce/kIp3pDZVW6fKqJ5XOdTq9X?=
+ =?us-ascii?Q?F0DQZxaq8B8+UMQdMdZMqBmpCO/PGUw5dgWLfuCB+9HYfD9GOZIE+gHQ/2vM?=
+ =?us-ascii?Q?SJywVyTN60Zrtsb16ZWJKivML7WpkihlslmqiA0Yh5cdHGe4gs0MLRXe7g44?=
+ =?us-ascii?Q?cT3+Afj3QLkbnBK/qkuOZALPRoIiloyw946DhPk3MiaAOiHA0XSo4uDxZcHq?=
+ =?us-ascii?Q?cZXJ9QxsmgVsuq4OW3JFzsvoqUyiLOZGn44AMgIqhcVBHTUCTifjkf7lzgXI?=
+ =?us-ascii?Q?3A4LKO2d1AqC5LygW1sBYEwQaj5k6RfJMvtbdBOWitwQ1LmwM+uSa5AZV8wt?=
+ =?us-ascii?Q?3U3O0ExmxYW8bT0y26pwYaK/pixxKhzoyKn4WISxe2i0PK9WSWcn1afpgZij?=
+ =?us-ascii?Q?SotkaLd0Ahq/Cjuju3jrG6eizY8kzDTbcrShOMQ2151J3TfNty4MuWzfxBf0?=
+ =?us-ascii?Q?ewXg/nGQDYBslhAlwamBkDdCK+1BADX7fIeyOf1TsTqGtw4EfKr6Vjwxo9dS?=
+ =?us-ascii?Q?6FnzBLU4NDmgd935T2sIR9SjA1TNhYV3QeGlkD63qIXDGZGuDvDLXcK+1cSZ?=
+ =?us-ascii?Q?AVwlZJZdigSFIvrqsZc6AriwXzyYvNg4lNIRJwpqyaVzgwC8dfTF?=
+X-OriginatorOrg: oss.nxp.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 2cc219e2-0c43-4506-9a17-08df1fd95703
+X-MS-Exchange-CrossTenant-AuthSource: GV2PR04MB11799.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 01 Oct 2026 16:30:44.1603
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: MpCI2+HlP1dqP87RXKNomT7b31lsP5KNH/ax4pHNGCkIDvtuQS44GCReJwoKwu519A5YFS28jd23pPrsji2A2v4HroYUxbz8NfyIHGw/0X5TH7v4LxzCGYCegW1AE4hp
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: AS8PR04MB9045
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20261001_093050_221542_408F738B 
+X-CRM114-Status: GOOD (  27.07  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -96,119 +138,108 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
-Reply-To: longzhao@ambarella.com
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Long Zhao <longzhao@ambarella.com>
+On Thu, Oct 01, 2026 at 11:33:23AM -0400, Jeff Barnes wrote:
+> [You don't often get email from jeffbarnes@linux.microsoft.com. Learn why this is important at https://aka.ms/LearnAboutSenderIdentification ]
+>
+> This reverts commit 84d897d69938
+> ("PCI: layerscape: Change default error response behavior").
+>
+> The Layerscape PCIe driver programs the DesignWare
+> AMBA_ERROR_RESPONSE_DEFAULT register at offset 0x8d0 with 0x9401.
+>
+> For AXI, the documented default with AMBA_ERROR_RESPONSE_GLOBAL cleared
+> returns OKAY with all-ones data for errors on non-posted requests.
+> Setting AMBA_ERROR_RESPONSE_GLOBAL causes an AXI error response instead,
+> with AMBA_ERROR_RESPONSE_MAP selecting SLVERR or DECERR for individual
+> PCIe completion errors.
+>
+> The value 0x9401 sets AMBA_ERROR_RESPONSE_GLOBAL and maps Unsupported
+> Request, Completer Abort, and Completion Timeout to SLVERR.
+>
+> A PCI configuration access can race with the link going down after
+> dw_pcie_other_conf_map_bus() checks the link but before
+> pci_generic_config_read() performs the MMIO access. If the transaction
+> results in a Completion Timeout, the Layerscape error response setting
+> propagates it to AXI as SLVERR, resulting in an asynchronous SError and
+> kernel panic.
+>
+> Reproduce the race by obtaining the configuration-space mapping while
+> the link is up, then disabling the link from another CPU immediately
+> before performing the MMIO configuration read.
+>
+> With the error response override enabled, the overlapping configuration
+> read results in an asynchronous SError and kernel panic. With the
+> DesignWare default behavior restored, the same test returns 0xffffffff.
+> AER reports a non-fatal Completion Timeout, and no SError or kernel
+> panic occurs.
+>
+> Restore the documented DesignWare default error response behavior so a
+> failed non-posted PCIe transaction does not become a fatal AXI error.
+>
+> Fixes: 84d897d69938 ("PCI: layerscape: Change default error response behavior")
+> Cc: stable@vger.kernel.org
+> Signed-off-by: Jeff Barnes <jeffbarnes@linux.microsoft.com>
+>
 
-Document the CV75 RCT clock controller and the clock ID header used by
-DT consumers.
-
-Document #reset-cells for the RCT reset-provider role. Soft-reset line
-IDs and the reset provider driver are deferred; this series has no
-resets= consumers.
-
-Reviewed-by: Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
-Signed-off-by: Long Zhao <longzhao@ambarella.com>
 ---
- .../bindings/clock/ambarella,cv75-rct.yaml         | 64 ++++++++++++++++++++++
- include/dt-bindings/clock/ambarella,cv75-rct.h     | 14 +++++
- 2 files changed, 78 insertions(+)
 
-diff --git a/Documentation/devicetree/bindings/clock/ambarella,cv75-rct.yaml b/Documentation/devicetree/bindings/clock/ambarella,cv75-rct.yaml
-new file mode 100644
-index 000000000000..be89bd75f9e2
---- /dev/null
-+++ b/Documentation/devicetree/bindings/clock/ambarella,cv75-rct.yaml
-@@ -0,0 +1,64 @@
-+# SPDX-License-Identifier: GPL-2.0-only OR BSD-2-Clause
-+%YAML 1.2
-+---
-+$id: http://devicetree.org/schemas/clock/ambarella,cv75-rct.yaml#
-+$schema: http://devicetree.org/meta-schemas/core.yaml#
-+
-+title: Ambarella CV75 RCT Clock Controller
-+
-+maintainers:
-+  - Long Zhao <longzhao@ambarella.com>
-+
-+description: |
-+  The RCT (Reset and Clock Tree) block on the Ambarella CV75 SoC provides
-+  PLLs, clock muxes, dividers and soft-reset controls for on-chip
-+  peripherals.
-+
-+  The same register region is also exposed as a syscon for other SoC
-+  blocks (e.g. pin drive-strength), hence the "syscon" compatible.
-+
-+  Clock indices are defined in include/dt-bindings/clock/ambarella,cv75-rct.h.
-+
-+properties:
-+
-+  compatible:
-+    items:
-+      - const: ambarella,cv75-rct
-+      - const: syscon
-+
-+  reg:
-+    maxItems: 1
-+
-+  clocks:
-+    description: Reference crystal oscillator (typically 24 MHz)
-+    maxItems: 1
-+
-+  clock-names:
-+    const: osc
-+
-+  "#clock-cells":
-+    const: 1
-+
-+  "#reset-cells":
-+    const: 1
-+
-+required:
-+  - compatible
-+  - reg
-+  - clocks
-+  - clock-names
-+  - "#clock-cells"
-+  - "#reset-cells"
-+
-+additionalProperties: false
-+
-+examples:
-+  - |
-+    clock-controller@ed080000 {
-+        compatible = "ambarella,cv75-rct", "syscon";
-+        reg = <0xed080000 0x1000>;
-+        clocks = <&osc>;
-+        clock-names = "osc";
-+        #clock-cells = <1>;
-+        #reset-cells = <1>;
-+    };
-diff --git a/include/dt-bindings/clock/ambarella,cv75-rct.h b/include/dt-bindings/clock/ambarella,cv75-rct.h
-new file mode 100644
-index 000000000000..b3e965b4ff2e
---- /dev/null
-+++ b/include/dt-bindings/clock/ambarella,cv75-rct.h
-@@ -0,0 +1,14 @@
-+/* SPDX-License-Identifier: GPL-2.0-only OR BSD-2-Clause */
-+/*
-+ * Copyright (C) 2026 Ambarella, Inc.
-+ */
-+
-+#ifndef _DT_BINDINGS_CLOCK_AMBARELLA_CV75_RCT_H
-+#define _DT_BINDINGS_CLOCK_AMBARELLA_CV75_RCT_H
-+
-+#define CV75_GCLK_UART0		0
-+#define CV75_GCLK_CORE		1
-+#define CV75_GCLK_AHB		2
-+#define CV75_GCLK_APB		3
-+
-+#endif
+should be here, maintainer should can handle this for you.
 
--- 
-2.34.1
+Reviewed-by: Frank Li <Frank.Li@nxp.com>.
 
-
+> Changes in v2:
+> - Change the subject to identify this as a revert, as requested by
+>   Frank Li.
+> - Document the DesignWare AMBA_ERROR_RESPONSE_DEFAULT behavior and
+>   decode the 0x9401 setting used by Layerscape.
+> - Clarify that the setting propagates Completion Timeout as AXI SLVERR
+>   rather than causing the underlying PCIe transaction failure.
+>
+> ---
+>  drivers/pci/controller/dwc/pci-layerscape.c | 12 ------------
+>  1 file changed, 12 deletions(-)
+>
+> diff --git a/drivers/pci/controller/dwc/pci-layerscape.c b/drivers/pci/controller/dwc/pci-layerscape.c
+> index 14d6ac4fc53f..d333f1ae8a41 100644
+> --- a/drivers/pci/controller/dwc/pci-layerscape.c
+> +++ b/drivers/pci/controller/dwc/pci-layerscape.c
+> @@ -28,8 +28,6 @@
+>
+>  /* PEX Internal Configuration Registers */
+>  #define PCIE_STRFMR1           0x71c /* Symbol Timer & Filter Mask Register1 */
+> -#define PCIE_ABSERR            0x8d0 /* Bridge Slave Error Response Register */
+> -#define PCIE_ABSERR_SETTING    0x9401 /* Forward error of non-posted request */
+>
+>  /* PF Message Command Register */
+>  #define LS_PCIE_PF_MCR         0x2c
+> @@ -103,14 +101,6 @@ static void ls_pcie_drop_msg_tlp(struct ls_pcie *pcie)
+>         iowrite32(val, pci->dbi_base + PCIE_STRFMR1);
+>  }
+>
+> -/* Forward error response of outbound non-posted requests */
+> -static void ls_pcie_fix_error_response(struct ls_pcie *pcie)
+> -{
+> -       struct dw_pcie *pci = pcie->pci;
+> -
+> -       iowrite32(PCIE_ABSERR_SETTING, pci->dbi_base + PCIE_ABSERR);
+> -}
+> -
+>  static u32 ls_pcie_pf_lut_readl(struct ls_pcie *pcie, u32 off)
+>  {
+>         if (pcie->big_endian)
+> @@ -180,8 +170,6 @@ static int ls_pcie_host_init(struct dw_pcie_rp *pp)
+>         struct dw_pcie *pci = to_dw_pcie_from_pp(pp);
+>         struct ls_pcie *pcie = to_ls_pcie(pci);
+>
+> -       ls_pcie_fix_error_response(pcie);
+> -
+>         dw_pcie_dbi_ro_wr_en(pci);
+>         ls_pcie_clear_multifunction(pcie);
+>         dw_pcie_dbi_ro_wr_dis(pci);
+> --
+> 2.43.0
+>
 
