@@ -4,142 +4,88 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6CEEDCA5FC4
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  1 Oct 2026 01:51:16 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id AF4D5CA5FC4
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  1 Oct 2026 02:24:45 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:Message-ID:Date:Subject:CC:To:From:
-	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
-	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=R1+43rlpdgTOVCgb+d7heyJtM6CdCQ9Jo1vRzhK+6sA=; b=t1C8JltFHqS1xh9OpjgeDfL/DI
-	NggCaqBt/BhHwbrVPscvMJX3vovbtkEiGNwLT+5LLx3RTqYeXd5Hz4uD3h65Il8Ym3xJTGE1yHDGz
-	kepe+PMx1Bx/u7MVOtTf5YUWA4yB+1BHzoB2SUASEdzJFuoEZ8z87P6/i707zfbqMosl+t9e3r7Hh
-	Rc/UiqzIV6LY8B7epBwzrmKk84MkulZhTqzd+GV7v8fT7VFsik0fq31IfK2tVVBwggmcUcHKeJtAw
-	RbhQ/kD5GatlfcriWzB7b6fV4sT4oplf16V/2fMy/nbx+AW+iliVx1WChCsDeZ/6DswRL76eSHsv9
-	Z9w3SAuQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=JBj760CSPEhTHdB5J8bb+wCBarK2SuYvXC2QB16HtCA=; b=s0Fvdcy7YicGCbFCipBThhQH96
+	jWNbUR8HQcFqeNNpSVgOKPwVsv4Ao8VePaez/HwTFqd3H4r3HvCba73CZDiXBq1V2dSbhn1AlBBhS
+	FYZpMe1fNfSBa1T/K+cnrtmM5EjIBuJA84vV1IIs6vntoZYP3sdq5ICoYvcLg5X97DeJ23wp6DOkF
+	mT/fiKbPdj/PJ7zJT4kBRDovOOT4y5mD61Oiw7qHLQqlW6AJEogZQmWsL5V2pwcxCbcMW/qUvh1jl
+	dN74EVwg6HCHhkte1SeJ2F5A53kY2TREYND020iP69DdmW1KBMAUGRteBZVYfhcYUxpsuNG6JTfhT
+	6ZhNXFRw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xC5wo-00000007adN-0JPc;
-	Thu, 01 Oct 2026 01:50:58 +0000
-Received: from mo-csw1121.securemx.jp ([210.130.202.132] helo=mo-csw.securemx.jp)
+	id 1xC6TL-00000007bUE-28OJ;
+	Thu, 01 Oct 2026 02:24:35 +0000
+Received: from mail-pj2-x2b.google.com ([2607:f8b0:4864:39::2b])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xC5wj-00000007ad1-18lS
+	id 1xC6TI-00000007bTo-0LdT
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 01 Oct 2026 01:50:56 +0000
-DKIM-Signature: v=1;a=rsa-sha256;c=relaxed/simple;d=mail.toshiba;h=From:To:CC:
-	Subject:Date:Message-ID:Content-Type:Content-Transfer-Encoding:MIME-Version;
-	i=nobuhiro.iwamatsu.x90@mail.toshiba;s=key2.smx;t=1790819438;x=1792029038;bh=
-	TBGd+hbldNvTZI9TM6aic7odYDUBt4wO06+UEXbwEnQ=;b=aAu1UGm1fzOMMRFwMgt/f6I/togz7n
-	ZRVsBCFF+FR2sqDBkKJk+oihn9l+4LLjR+7KY3BCpIb2EB7VGUnC82dph3QkhMxeRusoJsowjtII/
-	ULV587VtGkoRTJ14zTrj0O8g5lxVphmVESBvIIDX0gPIdNdn6RU9PlGmtxMjiS7PUKXZTLtjDqabN
-	jXzBSHgKfW+dbe5DtaY8Arz/d5J/XnSijWd2BeXHL7vh8+Ko1apG21A1/KhJqwU2HySG62092SXUM
-	cBSG/EFtJFMOgdrV5SnsVx3R3orLv9aq3QanATYufn8/mELC9/qrr1y1j9DinrPh0qvUeh6xSWGAc
-	Vdng==;
-Received: by mo-csw.securemx.jp (mx-mo-csw1121) id 6911obYH2588868; Thu, 1 Oct 2026 10:50:37 +0900
-X-Iguazu-Qid: 2rWgSEmgZgodJrEi0O
-X-Iguazu-QSIG: v=2; s=1; t=1790819437; q=2rWgSEmgZgodJrEi0O; m=SDz/tRBHeaTBT1yzWhKLQhgPOgRNYf5nu9M08DoXoio=
-Received: from imx12-a.toshiba.co.jp (unknown [38.106.60.135])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange ECDHE (P-256) server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(No client certificate requested)
-	 id 4hwFHK2zc0z4vyy; Thu,  1 Oct 2026 10:50:37 +0900 (JST)
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=lzdNbZitFcHsvbTuIMH26CwMMAwQWZ+Vtt8W5gZEImhnaEHXFoBK1zdJfeC9LUdrRxVRjBREQx02LQWXXw/uWJhWry22YWzbpUtUBIf902V1UWCHp5OAHYytniYcseZr7u9OTitgPi7XHPUKGkoVKqTOb61kmPITqPSrFpyb888pNltzhjzcrrbfFbUZPMxkaYnwq6E1f43jBYpl36dXa10fuf4DIP+QpYk06In0Vkywdr77fEZEDSA4JptR0BSMsxYA07QaE1maQeESpAKBmGE7VU5ev6pxQedEzO4QvxmDDngw+9/+hRcoo72u1RsIKGJvOMiyve2IM/Gv3Fg4gw==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=R1+43rlpdgTOVCgb+d7heyJtM6CdCQ9Jo1vRzhK+6sA=;
- b=sLWga4QS2OirWzcmvvviZjQXO8cvmf9ZyaKWvU0wmY/EeByhQJwX50RWC1JUddLL/00GCf1UdgEcHLSaF+IIUmH332lmarX4WlS4fnQz/DTJTdSiUiLkxqzdDYuzKn/TGGsszWvdO0Z9CN/6tXiEIDDQELMlgUHpP9zFrVYbWr4ZY/I+vXnLr2V3YXF+Mi4mnj4tFuxz8A+CE6wLaT6By6IP6ZpoiarRP3ZYZwiYRykLEW5nEjUn5rAnmXRQb9XOXnO10hSmfSAIl82fmn5Cv0UVI+pp+yEY+3lBfIdJH81uOcLExisJ5l9e55SuU3XrtzJHrnvtUI6O6q87aBMmAg==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=mail.toshiba; dmarc=pass action=none header.from=mail.toshiba;
- dkim=pass header.d=mail.toshiba; arc=none
-From: <nobuhiro.iwamatsu.x90@mail.toshiba>
-To: <soc@kernel.org>
-CC: <yuji.ishikawa.x51@mail.toshiba>, <linux-arm-kernel@lists.infradead.org>
-Subject: [GIT PULL] Visconti5 SoC Changes for v7.4
-Thread-Topic: [GIT PULL] Visconti5 SoC Changes for v7.4
-Thread-Index: Ad1RRxQ5NE//uJR4SNW2pYvpyKsbIA==
-Date: Thu, 1 Oct 2026 01:50:33 +0000
-X-TSB-HOP2: ON
-Message-ID: <TY7PR01MB14818E7E9984CE8F0B260CC73CD8A2@TY7PR01MB14818.jpnprd01.prod.outlook.com>
-Accept-Language: ja-JP, en-US
-Content-Language: ja-JP
-X-MS-Has-Attach: 
-X-MS-TNEF-Correlator: 
-authentication-results: mx.microsoft.com 1; dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=mail.toshiba;
-x-ms-publictraffictype: Email
-x-ms-traffictypediagnostic: TY7PR01MB14818:EE_|TYCPR01MB10396:EE_
-x-ms-office365-filtering-correlation-id: 280e7f90-7363-422c-d92a-08df1f5e61b2
-x-ms-exchange-senderadcheck: 1
-x-ms-exchange-antispam-relay: 0
-x-microsoft-antispam: BCL:0;ARA:13230040|1800799024|376014|366016|23010399003|10067099003|56012099006|11063799006|18002099003|38070700021;
-x-microsoft-antispam-message-info: 28gxjG4po427aDOerZrhxcUFnDH2elC8psd5mMNqOGeGDSdBcUnSoGBdyxaDffBYmIp6asg6jVfA78XXMc/VIKTs5EI3I6xEQAVwDv+m9L8kxVhKwHlJ58AyGqYWVFbQwppbJom4C60tNyy/G3M4CTGNZ6rPqB0isKzO9rliwKI0A5IjdGxUBS3FoxwpPZ/K2GGr3I7Tv1LvlnghQCxMdWqWesKk73APP5iVGT4CdGQW9fF6HjZEJ5/63Rqm66hljkp0QzF1QuDWfJiY4hLDJ8HjfWtT8p6HzxsPBwG7NyisvffRNpG0FFnkN1gtVQy4G1wAcpsvOh897Lc9AMRatKUard74PeXlUMC1bO2gzXiORSsE/8X1VBwjb9DemZ1/LiQjGkM4na30ZnGvXClIBYF/oEf3mLEXVZbFHwDKkvHugh24sv6uxl4Ga2StkIvyaSvVNAFpRBHGsmWmOc/ty7WbLirWzB9/abAe8pfXHrFmxVDrrRbkLHyjzdgUH6MciVORNlw7/Gi86+F8GRX2rL7IuRQBg0qw4kNC0fnu4+x2amkcu0vSTyDHON4RxLZzsApATcZoETT+VzHRmtuvwiaj23fquTdKfdj0CsYZldfmRm0pkv8uAYbsgT70OxPTEsrW+IBZ9Ap6zZRgYic7u6PKAzA78sTpvK8vRvcqQ1cyOmcABVFVJwQW0lXavhdZWjAz08vn7zRKhjQMvpDTN2JvHaqkjSmy3cm32A+qWwg=
-x-forefront-antispam-report: CIP:255.255.255.255;CTRY:;LANG:ja;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:TY7PR01MB14818.jpnprd01.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(376014)(366016)(23010399003)(10067099003)(56012099006)(11063799006)(18002099003)(38070700021);DIR:OUT;SFP:1101;
-x-ms-exchange-antispam-messagedata-chunkcount: 1
-x-ms-exchange-antispam-messagedata-0: =?iso-2022-jp?B?d0NuSlVOOUxsd1lrVXkyV01PUTI2Mm9EU0RSU0JvbTNMRUp6RU9IcVJa?=
- =?iso-2022-jp?B?VXY3d1UzendyeHUvRmhDMVZQbG5YNmtOYkxtQnRHWk9XMzBGbE16VzJt?=
- =?iso-2022-jp?B?U3VhTGVhd2dMZ2l0dWxseEhndFJyU25EdVhBRkZaekpyRTZwbFdKaTZ3?=
- =?iso-2022-jp?B?VTRyRStlYlE4anNzcHFsWjFGa2RaTURxZ28vVWVVQkNmcjRjUXhCdmRl?=
- =?iso-2022-jp?B?dDlDalVmd0J2aVIrdldhZG95YVNYMTlmZEQ0WGhVNG1lUUR6VzBHY1Vn?=
- =?iso-2022-jp?B?MWFTc0p5QlVoMWJBWnNCWVEwZVdvekV3dGdlOGJrdW40ME03WDI1eG0y?=
- =?iso-2022-jp?B?MWxKRDNSd1BoUTFrL2RBZ003S2hMc1UrbVpZb0tPVW15WW1OS0NxaUVa?=
- =?iso-2022-jp?B?VVE0SXZaVlRBWTlXYTJoeTJmMkpPSDhOTUQvZlgra1FSc3FtRFVpd0Er?=
- =?iso-2022-jp?B?akhXWEc1d2ZMYjA2SURXd29yUzJnSjhncy9IQWxUSFVSaU5ld3BFR1Zu?=
- =?iso-2022-jp?B?V3lucVFKTS9SR1RVS3lLb0NOMVovT2hOWXdwRFFSblRhUCtBU045TXU0?=
- =?iso-2022-jp?B?ZW9Eck9wZFFpRlFlakNOM2dMZ1FhMVQ5ZDlWeXJPRXRkT04wKy9qQS9p?=
- =?iso-2022-jp?B?eFhlK1lyTGpGb2J6ZEZIZXRPYmxTNHA5UDlwQXJySHpKNnl3MmpXbENw?=
- =?iso-2022-jp?B?djltZWVPVnE4M3RkazB0Z1dVZjU3OUdYdUxtVFFmQVhhK285TDlNQWJP?=
- =?iso-2022-jp?B?S0IrWFpPMDdqVkIyRmFORGZlN1BJR3pSUDNQMXJxanhZdUJFdGJaMkdq?=
- =?iso-2022-jp?B?SDVvSnFZcVhYcTFjVmRpZFdPRHF3YWxMTXp4R1NQVnFxdUhEL0EyMmRI?=
- =?iso-2022-jp?B?RktYelNnT3hwTEk4eE91cDZCVUNTYkhmRDJvSE4yMnRVZzM3NEVrVHI1?=
- =?iso-2022-jp?B?cUxNTnU3SFpGK1BQOGdmdGViU2l1VE1MNVN1QnJkcWZyRmU5VjBzZXhT?=
- =?iso-2022-jp?B?STdCczg3dVFUdjgzZER2TU52ckxZOGhHRW5McjVCeGR5VjlmRmFqS0pC?=
- =?iso-2022-jp?B?TXFINEdzNUpCSWFRenFocmRjc1hLeUQ2WWNvMzR3c1h3dnpYakRJblJy?=
- =?iso-2022-jp?B?aE1lTnByOEhQTVEyV1FVSVZxWDVuaC9GQWY1cTBnelNhSFNJQndjWU9r?=
- =?iso-2022-jp?B?SDdPNm43V3h6R0dCVjlRL0FMUWpxbVd4RGxvVUpQc091TUNxdUg2T2JC?=
- =?iso-2022-jp?B?ZE54aVJlNEhUaE5SaDhHQVgwT3N3bkltRHMrekI4QmtNWDhkTnVTMHp0?=
- =?iso-2022-jp?B?TFZ5YzJyT1NsSlhsTmFtZEc3L2xVUmVUSEFXcC9lUUxaL2Y2WVJzVlpt?=
- =?iso-2022-jp?B?TEp0ZWhiRnkvY085NzJzam8yZ1BUWHVqa0lUSGNCaFRTdzNyMGVzMThK?=
- =?iso-2022-jp?B?QUUvMm5DOG9mc2FtM24zWUprY1BUTE9JNmpSR3Qvalp0NGJjckxXRDh5?=
- =?iso-2022-jp?B?eWdYY3puQ3hHYThrbmNtTnZDckJBSkZVZGVFWExqeHpudEg4MXAxOWdE?=
- =?iso-2022-jp?B?b2hTMFg3OXBueEJFOXovSFZEcUZwSXo3MkQrOWN3Z205SzdveFBvY3lq?=
- =?iso-2022-jp?B?MS9BNVd3Y2hNOVdHSDlnUnRSc3k5d0EwOTNYZitvK0Znano5ZjVFTmVL?=
- =?iso-2022-jp?B?RDBybTUwZTd4WS8zSVF0eEpVOXdnNzM5VC8zcnM4L3kvdW5ITEMvOXJp?=
- =?iso-2022-jp?B?R053eStOSkt2ZTdkVjd2T2dBS1ZsQ2V0cmpyTUt1d2RpZnFlMkw4SWRw?=
- =?iso-2022-jp?B?NWpTOE5rZDEvdDdISTBKeWdPQXJQKys3aVJ0MFZQeWRMaUlvdDdKbWhK?=
- =?iso-2022-jp?B?TTh4VDJpQjVoak1mcW9zUUZ3WkhPcmV1NWlrcjNNUmdlc0wveVJBZXRQ?=
- =?iso-2022-jp?B?MkpFeTl6Z3YwRExuQkZFb04rUW5JODErRitlUWJ0UjdWMlRQUTl4NXhD?=
- =?iso-2022-jp?B?c2dxWkgrVm01ZjNRYXJlOWMzSndGZ1RmeStwZkFjelV6Y0VlUVBQb3Rq?=
- =?iso-2022-jp?B?SllPajJVZTVjaFJtWmk3QUdpVVFJWW5uNFhYVGd2clRMTjExTTdWTXhs?=
- =?iso-2022-jp?B?OXRoRiswMy9nU0pnTmhFZkVzUFA2dXdnUTV4TVFuTkd6OVdvNXlYVWZ6?=
- =?iso-2022-jp?B?Ny9kdFpOV2x1R1YvcWRjS3Q1d0FYVUhFalJiTVFZdHY3VDA2Z0I2T2M4?=
- =?iso-2022-jp?B?djRJMGF0c2FJNE16bm1Qb3FiRXhtT04rMGJvNzJpYnQ0TUpmRThvRGNq?=
- =?iso-2022-jp?B?MXQwUDR0dFYxd2ZNcFhyKzJPbFhaakpXaE8zeUU0T3pBb2cyREo2bG96?=
- =?iso-2022-jp?B?RkVwdUtmeWZkc0pLbWtaZDNPelh4Uy9ZL2dNdHFBbmNyTEgyL2NLZG9P?=
- =?iso-2022-jp?B?dlNlNmJyNUlZWHlodUdBdnN3OWdiTGxhaU1rRGxtQytsZFJ5NkhucWRy?=
- =?iso-2022-jp?B?aUFQc3FXWjJ3ZWFMRnVlMndQVGloMTJLL3FHUDZveE9yTlRnZ3B4dUNU?=
- =?iso-2022-jp?B?clJFR0xoWT0=?=
-Content-Type: text/plain; charset="iso-2022-jp"
-Content-Transfer-Encoding: quoted-printable
+	Thu, 01 Oct 2026 02:24:33 +0000
+Received: by mail-pj2-x2b.google.com with SMTP id d9443c01a7336-2e2d42b972bso14250345ad.3
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 30 Sep 2026 19:24:30 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20251104; t=1790821470; x=1791426270; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
+        bh=JBj760CSPEhTHdB5J8bb+wCBarK2SuYvXC2QB16HtCA=;
+        b=fJ7halD7qN/gu8F1HFPI4zWnnlOtHBmfcNFI36N5dGI3+xk7bIr3hJhDXiUGGPKP+P
+         rRyBWFDG64xd5HhlmP2hyaqis3i0RdiGrvHL4Djk1r+acbZJSCFhmgc4W+CVebH9FwTY
+         IaEAsjiCC0UURnijUBJ1tYRvnkRyzJl1vrfG5OalhMU0vEMdtjcn034XQGLc4O+kQPJs
+         R8lTboJCvXYxuetV9hp0CwvwpFbSnRJv6qKdGcr3BuftE6dcQeOc600Mq+S7Yd8nfl9n
+         WB11VEUoU/IyK+Te13KW3rQo4ansHBoe8BcYF2o+cVykQ248ZZijWhPtbyZNCThDorvQ
+         bKwg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1790821470; x=1791426270;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=JBj760CSPEhTHdB5J8bb+wCBarK2SuYvXC2QB16HtCA=;
+        b=fB2W9/JXPWrpxcm/Jg/GIpjIIDbq/SLZXXFqmhWPtg74n/V8Nj48970TcEMtd1PVFI
+         i+xq10l2yKGxWkl/3joSmvLgJJLr/IsTS/NE/nViqN6ZK/frvgkEY75fRwGAHvCF8eU7
+         UHrq2EZTU7TpDIfwi08hQe3eIh7YnGsdmvA8lqerqlWeTFd+YHw29LnA13yQ3LTFfFxF
+         vEdU+m8Y3Q7GRUcbMyZpNbgfu8wnjXF+TP7xHvlcZKK4y2JcKag7OqTrlcZd0Rqq4SsQ
+         RPGfeuHIgYRVKb5tyB0EhDLGKKksGX0Seq8WuWf+ELCvsYWljmI6LWoDOBKa/MODRcSu
+         NfKA==
+X-Forwarded-Encrypted: i=1; AKwUvBwYUu5jn9PRfq2ep2rRFw7bc2fpGO5nqN+uidRgfSQV2wIxW10D8IzPzc2ESA/Dk185sWMFY2FM3ZLnE/D7waah@lists.infradead.org
+X-Gm-Message-State: AFq9FYLiKA0rV4prQYafNe7dVWrCOkWvNInrcFXurAd++yBT7k4AE4/I
+	2vpCDSjC4DR2r3SUmBYC8ygSN9UmuRzgvTeHNIhNx+zs2AnyVQmKwcDY
+X-Gm-Gg: AYBFou0Sr15H/CowOkziMBjLQ1Aow3E4YdwLs/nJHXQoj5p7hfFJJmGK1s5XS+TwF8W
+	wqa7WMOhQgio/+MdOmu2N0W6cRyYqgy+wx4c4xx5AY9SFkC2OCdNympL/oLPV8p4OXVnKvlEoCl
+	pNRurLAvayMw3gPMCx7IXMyctpawMzNDwCwt/7+S7DPl/QZbxiDQ+Tpj7FhKZLBUaAgd96UO0lZ
+	YpasQWsNOaJedu4GfJM0aiqatowrpPGEIzW0flDoe8O+VLgExMURA9HZjBHpB0rkCovHFx5jJf1
+	KROdI9LQG05kQjsCSI5eq6ThtGn3NltdWySVfEZ/jrqkyS0koQ6iuO+BlSgyhWhVd8bTLrpOw+A
+	lTWugYJgXan0GlN10gjM6dPqhbZuBVIZKt4PSKNOyWf1UNZw45KXvLRsT8A0eA2R0nqTGywaJdp
+	vaNYgtRXl/2lIJkHwzWp9LfqWuBqlZ/gtGCpLm7I5RnAvKoRJdZvBlBo1xhpQDXA==
+X-Received: by 2002:a17:90b:28c4:b0:3a4:8c41:fab6 with SMTP id 98e67ed59e1d1-3a4d18bde23mr2612397a91.46.1790821469669;
+        Wed, 30 Sep 2026 19:24:29 -0700 (PDT)
+Received: from archlinux ([212.192.12.80])
+        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-3a4f43a12c9sm2153230a91.2.2026.09.30.19.24.22
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Wed, 30 Sep 2026 19:24:29 -0700 (PDT)
+From: Mikhail Kalashnikov <iuncuim@gmail.com>
+To: Chen-Yu Tsai <wens@kernel.org>,
+	Jernej Skrabec <jernej.skrabec@gmail.com>,
+	Samuel Holland <samuel@sholland.org>
+Cc: devicetree@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-sunxi@lists.linux.dev,
+	linux-kernel@vger.kernel.org,
+	Andre Przywara <andre.przywara@arm.com>
+Subject: [PATCH v2 0/4] arm64: dts: allwinner: add Teclast P85T (A523) support
+Date: Thu,  1 Oct 2026 10:24:11 +0800
+Message-ID: <20261001022415.913959-1-iuncuim@gmail.com>
+X-Mailer: git-send-email 2.55.0
 MIME-Version: 1.0
-X-Exchange-RoutingPolicyChecked: Obdi5lJEIsIeCU84VgUubc2RI7y1QgcQdMjATGkrGjdzflPcC78u6wdHw94A8fwk5yLVZKatW7UDCLlHgqpsnm+1VDOSSJnkwQdFz1iw+fAqdfHQDIa56jBS5qIEKRM2LLy2YJrr8Wht3PhDwZes42kuIamDJ39YyJKa+HmTpQwZygA3GfkvI/Fnihj/WBRZYcpcQ+Y2ghYLJY7UeHr1jBI3Ldu30B4tomhQj61u+Ds1kRqteNFPgc0u0dPcaln0wrOteEyoBJQSR7c/UZGHfcvWzFcySeHi5zfY0eDDKFg2H6+8Xvg9wiGz7aGeXqz8umDbN8P3xVXnCiXbM5IcLQ==
-X-OriginatorOrg: mail.toshiba
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-AuthSource: TY7PR01MB14818.jpnprd01.prod.outlook.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 280e7f90-7363-422c-d92a-08df1f5e61b2
-X-MS-Exchange-CrossTenant-originalarrivaltime: 01 Oct 2026 01:50:33.6060
- (UTC)
-X-MS-Exchange-CrossTenant-fromentityheader: Hosted
-X-MS-Exchange-CrossTenant-id: f109924e-fb71-4ba0-b2cc-65dcdf6fbe4f
-X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
-X-MS-Exchange-CrossTenant-userprincipalname: qhGfeQZVkfRL27KU73SWVm7nR1rlKSgFhvDXIItzHD1CCtpVwgfG8S+rAPnLCW2q3DmJmw/Wo29qQYyPNkUNR+YY/+wRaDvjBcI8rBwAM/MENvpZxBB4NRc68umZ4BzX
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: TYCPR01MB10396
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260930_185053_925282_EE39FE73 
-X-CRM114-Status: UNSURE (   6.54  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260930_192432_253075_1D4C23A9 
+X-CRM114-Status: GOOD (  15.99  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -154,32 +100,76 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The following changes since commit cee9395acd8043be0644b25c34bfa86623f2b935=
-:
+This series adds initial support for the Teclast P85T, an 8-inch tablet
+based on the Allwinner A523 (sun55i) SoC.
 
-  Linux 7.3-rc1 (2026-08-30 13:34:40 -0700)
+This initial submission enables only what has a binding today.
+Display (DE/TCON/DSI), PWM backlight, audio codec, camera (CSI/VIN)
+and LRADC keys are deliberately left out, as those blocks is not ready
+yet. They will be sent separately.
 
-are available in the Git repository at:
+Patches 1 and 2 overlap with Andre's series
+https://lore.kernel.org/linux-sunxi/20260914210115.28151-1-andre.przywara@arm.com/T/#ma8a2554315eccbccdb15ee7ac212a4d0afb45a5c
+They are included for compatibility and differ only in the full company
+name in the description.
 
-  https://git.kernel.org/pub/scm/linux/kernel/git/iwamatsu/linux-visconti.g=
-it tags/visconti-soc-7.4
+Touchscreen operation requires firmware extracted from the Android
+firmware; the file will be added to a public repository later.
 
-for you to fetch changes up to ed94e2913d0e1b0e242913ac520ce5d56cb86bc1:
+The touchscreen values below were obtained experimentally via evtest
+and may be inaccurate:
+  touchscreen-size-x = <1786>;
+  touchscreen-size-y = <1128>;
 
-  MAINTAINERS: Change ARM Visconti5 architecture maintenance status to Odd =
-Fixes (2026-10-01 10:12:01 +0900)
+With the values below the touchscreen and display coordinates match:
+  touchscreen-inverted-y;
+  touchscreen-swapped-x-y;
 
-----------------------------------------------------------------
-Visconti SoC Changes for v7.4
+The battery values are taken from the battery label
+(5000 mAh, 4.4 V max charge) and the Android DTB
+(pmu_runtime_chgcur = <0x320>, i.e. 800 mA safe charge current).
 
-- Change ARM Visconti5 architecture maintenance status to Odd Fixes
+U-Boot support requires an LPDDR3 driver for the A523, which will be
+sent a bit later.
 
-----------------------------------------------------------------
-Nobuhiro Iwamatsu (1):
-      MAINTAINERS: Change ARM Visconti5 architecture maintenance status to =
-Odd Fixes
+A ready-to-use image with working display, audio and touchscreen can be
+found on the Manjaro forum. Patches will be added as other contributors
+add their parts.
 
- MAINTAINERS | 2 +-
- 1 file changed, 1 insertion(+), 1 deletion(-)
+Changes since v1 [1]:
+  - Added Reviewed-by from Andre Przywara for patch 3;
+  - Replaced the dummy 1.8V pio-18 regulator with the real PMIC rails;
+  - Dropped reg_dcdc4: no consumers, the kernel would turn it off;
+  - Dropped AXP323 aldo1/dldo1: no consumers - the board is verified
+    to work with both rails disabled;
+  - Renamed bldo2 to "vcc-dram-1v8" (needs to be kept always-on).
+  - Renamed cldo1 from "vcc-codec-sd" to "vcc-codec-mmc";
+  - Described AXP323 dcdc3 as the RISC-V management core supply, like
+    on the other A523 boards;
+  - USB: removed the inbound 5V rail from usb0_vbus-supply and dropped
+    ehci0/ohci0; the port is works like peripheral-only, using
+    usb0_vbus_det-gpios for VBUS sensing;
+  - Dropped the iio-hwmon node due to invalid values;
+  - Commit message wording: those blocks "don't have a binding yet".
 
+[1] https://lore.kernel.org/linux-sunxi/20260918165414.1129076-1-iuncuim@gmail.com/
+
+Based on 7.3-rc3.
+
+Mikhail Kalashnikov (4):
+  dt-bindings: vendor-prefixes: Add vendor prefix for Teclast
+  dt-bindings: arm: sunxi: Add Teclast P85T tablet
+  arm64: dts: allwinner: sun55i-a523: add I2C0 and I2C1 pin groups
+  arm64: dts: allwinner: add Teclast P85T tablet
+
+ .../devicetree/bindings/arm/sunxi.yaml        |   5 +
+ .../devicetree/bindings/vendor-prefixes.yaml  |   2 +
+ arch/arm64/boot/dts/allwinner/Makefile        |   1 +
+ .../allwinner/sun55i-a523-teclast-p85t.dts    | 386 ++++++++++++++++++
+ .../arm64/boot/dts/allwinner/sun55i-a523.dtsi |  18 +
+ 5 files changed, 412 insertions(+)
+ create mode 100644 arch/arm64/boot/dts/allwinner/sun55i-a523-teclast-p85t.dts
+
+-- 
+2.55.0
 
