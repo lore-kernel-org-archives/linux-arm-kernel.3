@@ -4,130 +4,76 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DEE70CA5FB3
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  1 Oct 2026 08:46:09 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8F735CA5FB3
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  1 Oct 2026 08:46:40 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
-	Message-ID:Date:References:In-Reply-To:Subject:CC:To:From:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=3Xrs85Ebn0nGM0UWSvtiEb02s9P71GwQWjUWGiLgHJM=; b=nWJZgJnID0vEWndbttDhI/KuDw
-	PmIyQfJ5KeSo5x6OWrkvDPfJCPp84ilEvNo17fu0DQuTVEpzsIKgZtpPbOWGQMbM3Ul/rm4ihvH6q
-	Y8PvSZHYFjqdEZfhF761B7nMPA1779wcNWhO//Etl/TvlnxPzC5pjSbCQvj293cpxHQxwnOToG2rr
-	czlGHPE5cVxmPZHntMaiLWy/zP/Bmm7tuCs62eXkuC4XYMENfrdWaeI1XBlYEeR3Zbd0WOemj4DVh
-	KFDjh9lysy4bdPV18oak35ehsFqIAFwSQfHcRASrpQeXiX6B19pxA0LUTg3a3QbXLVXbkQVjqlCRp
-	uIfCwy7g==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=6NnpJ+NnprRH5nKtph84hcEmvovNIDPxHShOYCLU+CE=; b=pw1CIFn6WyaXIABXCdsg060mN2
+	zxQO90d1MGpI/6Od80zhCTqGqzX6RAT8OEP7tZXAAry2H2IUA725NdpYRWSgpY+lu87kCVJNMHVd7
+	K3i0gmOLPN+7b4F/RVguMIt/3+1cd5yukts10kRlL1WxVNP98EP7wQWsi25ZF/rUkZEJJ5auKJJbU
+	EBJ3Iqy8zBiRu7+1i0MD7tsPxeRiZ0pu0NVML8+AIZg/tfWXloMcLYFq74WINFKCZAvckpnSHocbk
+	WO9htp16eTUo84jmWrAYVa7IzbpvozYZI28brMuvH+EnbkU4QdX1wqjUSCmmqP1te52nNN/rnbsnL
+	kiePznug==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xCCQU-00000008FHl-2J7Y;
-	Thu, 01 Oct 2026 08:46:02 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
-	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xCCQS-00000008FHZ-3bnQ
-	for linux-arm-kernel@bombadil.infradead.org;
-	Thu, 01 Oct 2026 08:46:01 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Content-Type:MIME-Version:Message-ID:
-	Date:References:In-Reply-To:Subject:CC:To:From:Sender:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description;
-	bh=3Xrs85Ebn0nGM0UWSvtiEb02s9P71GwQWjUWGiLgHJM=; b=ErnpBBVkWdw4Sj3HCAMmQaY5qj
-	2fzvzMB2sOrnDaNgHHVR8JXk+soye5COnvs0AAeh32tO8WOmTNZY2Z375aM48WQAJWvo/WoZHJLi1
-	P4JcodzLeW37SdUCdTbJp0mUh2ApyX459Eaq9JSoJLXnbEZMTD6OyCwUKHtE6p+iZnQVXGWCc96kx
-	VTj/0h+tc+1iKoNwgVZ3cn9/zujjbvjj+9yEnufjpsMvi3W7+2VLaiPuS0fmPu9Nt7oH1CcXFozKw
-	0zDBDcr5s4ySBwoXd5mg0JQcfOtvVIVGc1WA58+DMxgEG9eMTQbiBrv6SGJjuxZHRpVPx9FVs41qp
-	luxam0Tw==;
-Received: from mail-norwayeastazlp170130007.outbound.protection.outlook.com ([2a01:111:f403:c20f::7] helo=OSPPR02CU001.outbound.protection.outlook.com)
-	by desiato.infradead.org with esmtps (Exim 4.99.2 #2 (Red Hat Linux))
-	id 1xCCQO-00000004kpU-3Dgr
+	id 1xCCQz-00000008FN4-2oyw;
+	Thu, 01 Oct 2026 08:46:33 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1xCCQu-00000008FLx-2YyB
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 01 Oct 2026 08:45:59 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=CJ1J/qcbb9cK9d8k/566yl9HjJ8g6pzbebgceVfOLzkL/qCVvZh39OepWMCJ1Q/93dCnypZX4ANzXASCNZed3pAY9Y5ENumC/wrBw4WZYI3JWhOgv1mSydM5WZ91YgWJNR9PuZmgDdCQIlVVqdQ3tdpJKwVz+ho00U7LdkE7CP8e9wJJX5t2fk1bMKEqMdyNlOCI82Er6S5Fq3uG9PeskakY6L28v+gxnlnlTOyVRlwUQ7bVrb2cfJi8/IjJtcvzgjUaw3hjwzS7QGkAECPxSFYIR5dRixhZeJ9I7SZg95Jkp5ILmC7Ogt0GX0HwSjqZ3zc8gcidW9aF3MRrjQudYw==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=3Xrs85Ebn0nGM0UWSvtiEb02s9P71GwQWjUWGiLgHJM=;
- b=kEU+5fuwnngqa7QL2EP90e8hU64Qp2++XX53f/c2syHdCbbZeaAB2ygf74a2uBaXJ6lP0boEk8Rv5xyJi23P6hFGFy8BPycZN3bBqLQGtGZ8bO8P1DrICPdCFa0deJQlGz2CAQhwmit0RBiw2rHQtaNjWmgOBbYyBqJWQOELEuM/n0Xt4cgnrVJPNv8Mvpzk/M3U3htTPe7C1tduGMgZeuPEZppBVFN5Aqrut2r6LtZbBnDuC31fWY36RYFDDKgkwP/wHAE4NsDNxvW6HKJ3vOvr8xAN7IJzXWmlQ07oz/xz09vd8rCNGs5sEY8GTKOxRtbrP96Pq6jtr0PtvafxVA==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
- 195.60.68.100) smtp.rcpttodomain=vger.kernel.org smtp.mailfrom=axis.com;
- dmarc=pass (p=none sp=none pct=100) action=none header.from=axis.com;
- dkim=none (message not signed); arc=none (0)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=axis.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=3Xrs85Ebn0nGM0UWSvtiEb02s9P71GwQWjUWGiLgHJM=;
- b=DtGa2OLmv9lqQSxGlRpL1ICCV8dhb1UjP6anhQaufGv2rzFaIrDuna/LzNO6jmQtLRVIf6IngbfzqleXW6uaPiGxbMVG+0SMX5LStjKfXWa/CtGm4oxo5UvGAqxW/XU8zdhj3SMRKegeLSKDB4C0bHOEqTIGx/pWV4T9cmVk7TY=
-Received: from GVYP280CA0043.SWEP280.PROD.OUTLOOK.COM (2603:10a6:150:f9::18)
- by AS8PR02MB9912.eurprd02.prod.outlook.com (2603:10a6:20b:617::7) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.472.15; Thu, 1 Oct
- 2026 08:45:44 +0000
-Received: from WA1PEPF00009B3A.eurprd05.prod.outlook.com
- (2603:10a6:150:f9:cafe::ac) by GVYP280CA0043.outlook.office365.com
- (2603:10a6:150:f9::18) with Microsoft SMTP Server (version=TLS1_3,
- cipher=TLS_AES_256_GCM_SHA384) id 15.21.472.16 via Frontend Transport; Thu, 1
- Oct 2026 08:45:44 +0000
-X-MS-Exchange-Authentication-Results: mx.microsoft.com 1; spf=pass (sender IP
- is 195.60.68.100) smtp.mailfrom=axis.com; dkim=none (message not signed)
- header.d=none;dmarc=pass action=none header.from=axis.com;
-Received-SPF: Pass (protection.outlook.com: domain of axis.com designates
- 195.60.68.100 as permitted sender) receiver=protection.outlook.com;
- client-ip=195.60.68.100; helo=mail.axis.com; pr=C
-Received: from mail.axis.com (195.60.68.100) by
- WA1PEPF00009B3A.mail.protection.outlook.com (10.167.242.40) with Microsoft
- SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.21.472.14 via Frontend Transport; Thu, 1 Oct 2026 08:45:44 +0000
-Received: from pc67007-2609 (10.4.0.13) by se-mail10w.axis.com (10.20.40.10)
- with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1748.39; Thu, 1 Oct
- 2026 10:45:41 +0200
-From: Waqar Hameed <waqar.hameed@axis.com>
-To: Krzysztof Kozlowski <krzk@kernel.org>, Konrad Dybcio
-	<konradybcio@kernel.org>
-CC: Peter Griffin <peter.griffin@linaro.org>, =?utf-8?Q?Andr=C3=A9?= Draszik
-	<andre.draszik@linaro.org>, Tudor Ambarus <tudor.ambarus@linaro.org>, "Rob
- Herring" <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, "Conor
- Dooley" <conor+dt@kernel.org>, Alim Akhtar <alim.akhtar@samsung.com>, "Sam
- Protsenko" <semen.protsenko@linaro.org>, Ivaylo Ivanov
-	<ivo.ivanov.ivanov1@gmail.com>, <kernel@axis.com>,
-	<linux-arm-kernel@lists.infradead.org>, <linux-samsung-soc@vger.kernel.org>,
-	<devicetree@vger.kernel.org>, <linux-kernel@vger.kernel.org>
-Subject: Re: [PATCH 00/16] arm64: dts: exynos: Format with dtfmt
-In-Reply-To: <ba1939f5-c528-42b8-971a-4b16998c37f9@kernel.org>
-References: <cover.1790629313.git.waqar.hameed@axis.com>
-	<ba1939f5-c528-42b8-971a-4b16998c37f9@kernel.org>
-User-Agent: a.out
-Date: Thu, 1 Oct 2026 10:45:41 +0200
-Message-ID: <pndy0chstai.a.out@axis.com>
+	Thu, 01 Oct 2026 08:46:32 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id C9392497;
+	Thu,  1 Oct 2026 01:46:22 -0700 (PDT)
+Received: from ewhatever.cambridge.arm.com (ewhatever.cambridge.arm.com [10.2.197.99])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPA id 370F33F85F;
+	Thu,  1 Oct 2026 01:46:23 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
+	t=1790844386; bh=IWn6X2ee4Ws5ZRmnpMPegABaKn2HtGw846vc6CMx/f4=;
+	h=From:To:Cc:Subject:Date:From;
+	b=BOES6TJdAgaxj9sgffC4/YFGo6K3J2xZwGfaNJXnxi9lbiKFjOtyUgGl97DbpU8Xk
+	 Ve3Y+o2E/0qASYM5GacSPkRBhlsGN86c7AL1Bs3sGKkGm9DJXuttwGDF7ZiWfsYzDq
+	 /8BnUMXDxSjxf33CmPUN3QDlnN+mL0TqgVPyN70Y=
+From: Suzuki K Poulose <suzuki.poulose@arm.com>
+To: kvm@vger.kernel.org,
+	kvmarm@lists.linux.dev
+Cc: maz@kernel.org,
+	will@kernel.org,
+	catalin.marinas@arm.com,
+	linux-kernel@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	steven.price@arm.com,
+	aneesh.kumar@kernel.org,
+	oupton@kernel.org,
+	gshan@redhat.com,
+	joey.gouly@arm.com,
+	tabba@google.com,
+	yuzenghui@huawei.com,
+	linux-coco@lists.linux.dev,
+	gankulkarni@os.amperecomputing.com,
+	sdonthineni@nvidia.com,
+	alpergun@google.com,
+	fj0570is@fujitsu.com,
+	WeiLin.Chang@arm.com,
+	lpieralisi@kernel.org,
+	enju.kohei@fujitsu.com,
+	sudeep.holla@arm.com,
+	jonathan.cameron@oss.qualcomm.com,
+	Suzuki K Poulose <suzuki.poulose@arm.com>
+Subject: [PATCH v21 0/9] firmware: arm_rmm: Add RMM v2.0 base RMI support
+Date: Thu,  1 Oct 2026 09:45:46 +0100
+Message-ID: <20261001084555.1456543-1-suzuki.poulose@arm.com>
+X-Mailer: git-send-email 2.43.0
 MIME-Version: 1.0
-Content-Type: text/plain
-X-Originating-IP: [10.4.0.13]
-X-ClientProxiedBy: se-mail10w.axis.com (10.20.40.10) To se-mail10w.axis.com
- (10.20.40.10)
-X-EOPAttributedMessage: 0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: WA1PEPF00009B3A:EE_|AS8PR02MB9912:EE_
-X-MS-Office365-Filtering-Correlation-Id: cb8c8d3e-f98c-4345-6dd0-08df1f9861bf
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|30052699003|23010399003|7416014|82310400026|376014|36860700016|22082099003|18002099003|13003099007|4143699003|10067099003|5023799004|11063799006|56012099006;
-X-Microsoft-Antispam-Message-Info: Kf+sxnawRR9yPrHmDjSluSqPWjmQALnk54rVLpj/6T6XftonDXOpi+svcUj0GgEz9xTYdGlSUjIDuDX+CH4/Gooogxt1pwlVYDDBHPt6Z2SbFSxAh4cmU+oViyKb+lYEoJEzR9cdCz7DTbQLg7sPS25aEKnl4IUmOHy38/tWlvbqYsaoFpbietTgOPD41o8/OvBWlfkZH+XGViE8Q08b3p9SujENwUkq9mEHa5o3gfAKHYS8sVGV2nFgcbaT42+jb+BOElsuXQORZqv02xYVUWvodXyW5sK+VrMEVkW5a7/VTWiFhvgT9uKTpXBQXktVIy1CmAjcGrpzYkb3DhB6hL+ruGid+RWhrfQSd3GF8Gsk/2qTYkqj2W/szGV28i79ByhvTFURrTdFtWvufL2RoZWA3tJellyPjPi5SCJ1Vd7IHC5LVgaWNN0Zttn77m9y3tz3rX5vgde32V7AxWNS+O8xU+Qy2fDfLJaOFWlg0/fHQPxzH0DwynkveKC5JSK73vIFWHFWefZbqI9a9TQDLl3upkvKeyZpFFZLx40feTPLY6Td3HEHVB21fyIKdFMRDn2Uk7EZ99jjVQgRI6FJcO7zhOgtAYXO93pXteVju8mnAawv4ECy7DAwUg7Uohk/UEqE2tLisw6x211ofpwuiRLJJ1mXXMBb6Vxb+mNgLvdj9JvSlXE8rroo3zPs08/WlUIOvY5Z3R7SvMg3xoSozQ==
-X-Forefront-Antispam-Report: CIP:195.60.68.100;CTRY:SE;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:mail.axis.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(1800799024)(30052699003)(23010399003)(7416014)(82310400026)(376014)(36860700016)(22082099003)(18002099003)(13003099007)(4143699003)(10067099003)(5023799004)(11063799006)(56012099006);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: o/JuxvyLFCEsMY/YH8z3AdiJnEw8MSsidM6ztnPdUCo8ibohu5LIxqLq6u+XigNY3ttHIPDQcdvS8DIGAPOMSfrVJUQIVCdH0v07Yn7ABH2NKXVdUZAKHG472V4USGUgN3xYlEoGgBLACD+m/ce9n38z4NrsnPTRtITM7U1Mr13PhXWG6fpv2NSmwL2joC9axBCA1wuYMtdTj/SBf3Fud+1Bu2PtjiMZfwzHB9XZjZVLd5GlyTRr7GkoJx6xyTUknqtoweABXTHYYxxbyHU/sy6+fhcgoDVn5bP7mTB2zAN56ONAmro3+EWzmi1trBxNdqU11A7/kCYYe6tTgx5hLngFJuZp1+ZZd/ANe5O8nDnQOusP42RRulHpnpEurfdBoHzHA+tUKjME4zlCcICbUdewBjMS/i7eRNgMv1t/LrYEYaeOX7PP4cnyFE6QuBCJ
-X-OriginatorOrg: axis.com
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 01 Oct 2026 08:45:44.4799
- (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: cb8c8d3e-f98c-4345-6dd0-08df1f9861bf
-X-MS-Exchange-CrossTenant-Id: 78703d3c-b907-432f-b066-88f7af9ca3af
-X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=78703d3c-b907-432f-b066-88f7af9ca3af;Ip=[195.60.68.100];Helo=[mail.axis.com]
-X-MS-Exchange-CrossTenant-AuthSource: WA1PEPF00009B3A.eurprd05.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Anonymous
-X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: AS8PR02MB9912
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261001_094557_049411_7A20818E 
-X-CRM114-Status: GOOD (  14.15  )
+X-CRM114-CacheID: sfid-20261001_014628_742540_CA725C25 
+X-CRM114-Status: GOOD (  31.00  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -142,38 +88,186 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Sep 29, 2026 at 07:43 +0200 Krzysztof Kozlowski <krzk@kernel.org> wrote:
+This series adds the generic firmware layer for talking to the Realm
+Management Monitor (RMM), as specified by the RMM v2.0-bet3
+specification[1]. It is the first part of the Arm CCA host support that
+was previously posted as part of the larger KVM series.
 
-> On 29/09/2026 00:38, Waqar Hameed wrote:
->> I was looking through the notes for the last Devicetree microconference
->> at Linux Plumbers (LPC) 2025 [1], and realized that the tool I have been
->> working on might be of interest here: dtfmt - a Devicetree Source
->> formatter [2].
->> 
->> dtfmt uses a parser with lexical grammar (tree-sitter) directly ported
->
-> We do not use dtfmt. 
+The split allows this RMM support to be used as a base for other work,
+including Aneesh's PCI IDE support with Arm CCA RMM as the TSM,
+ without depending on the KVM Realm support that will follow as separate
+ series. (See more on that below)
 
-Not sure what you mean here. We couldn't have used dtfmt since it didn't
-exist until I published it? Are you maybe referring to "formatters" as
-in general?
+The series adds:
 
-I'm not going to argue _why_ formatters (for Devicetree Source) are good
-thing to have, Konrad Dybcio did a very good job of that during his
-presentation [1].
+ * The RMI SMC definitions and direct-call wrappers.
 
-> I think you missed entire recent work and recent
-> commits, where `git log` would point you.
->
-> https://lore.kernel.org/all/20260911-b4-dts-samsung-cleanup-strict-continued-v1-0-9aa55051c42b@oss.qualcomm.com/
+ * RMM discovery and version checks during firmware init.
 
-I did a `git pull` on `master` and started from there. Nevertheless,
-maybe it was good to "miss it" and do the "double work" here, to show
-what dtfmt caught that previous work missed.
+ * RMM host configuration, including the host page size.
 
-Let me know if you want me to run it on `arch/arm/boot/dts/samsung` to
-show some more examples. Or even better, you could play with it yourself
-:)
+ * Stateful RMI Operation (SRO) infrastructure for commands which the RMM
+   can complete across multiple SMC calls while requesting or returning
+   memory to the host.
 
-[1] https://www.youtube.com/live/2Gput2daq4c?si=A4F2CvstRef1qD6e&t=28246
+ * Verification that granule tracking is available at fine granularity.
+   Fine-grained tracking allows each granule in the system to be tracked
+   independently, which is required before individual granules can be
+   delegated. A future series will add support for dynamically supplying
+   memory to the RMM for this tracking.
+
+ * Support for fully firmware-managed systems, where the Granule Protection
+   Tables for memory regions are allocated and managed by firmware. RMM v2.0
+   also allows dynamic GPT creation on demand; support for that will be added
+   in a later series.
+
+ * Wrappers for the RMI commands that are used for managing the "Realm VM"
+   lifecycle. This is added in to make it easier for the on-going KVM support
+   to evolve in parallel pieces.
+
+If the platform firmware cannot manage the granule tracking or the GPTs, we
+bail out and deactivate the RMM, reclaiming any memory that we have donated.
+
+The RMM v2.0 spec introduces Stateful RMI Operations (SROs), which allow
+the RMM to complete an operation over several SMC calls while requesting
+or returning memory to the host. This allows interrupts to be handled in
+the middle of an operation and lets the RMM dynamically allocate memory
+for internal tracking purposes. For example, RMI_REC_CREATE no longer
+needs auxiliary granules to be provided up front, and can instead
+request memory during the operation.
+
+This series applies on v7.3-rc2 and a branch is available at [2]. The KVM
+CCA support that builds on this series is available at [3] as an integration
+branch. The KVM support depends on guest-memfd-in-place conversion support v13
+from Ackerley [4], we plan to split that into parts, which apply cleanly on
+v7.3-rcx without any dependency and is in progress. This will be made available
+as soon as it is ready. Until then [3] shows how this base series enables KVM
+CCA support. You may find the tf-RMM [5] and kvmtool support [6] below.
+The kvm integration branch has been tested with kvm-unit-tests [7] and Linux
+kernel booting with PCI device assigned as an untrusted device.
+
+[1] RMM spec : https://support.arm.com/documentation/den0137/2-0bet3/
+[2] This series: https://gitlab.arm.com/linux-arm/linux-cca.git cca/cca-host/fw_rmm/v21
+[3] KVM CCA v21 integration branch: https://gitlab.arm.com/linux-arm/linux-cca.git cca/cca/cca-host/kvm-v21/integration-v2
+[4] Gmem inplace conversion https://github.com/googleprodkernel/linux-cc/tree/guest_memfd-inplace-conversion-v13
+[5] TF-RMM https://git.trustedfirmware.org/TF-RMM/tf-rmm.git main (commit: 134266ae)
+[6] kvmtool https://gitlab.arm.com/linux-arm/kvmtool-cca.git tag:cca-kvm-v20 (Also cca/kvm-v18)
+[7] kvm-unit-tests https://gitlab.arm.com/linux-arm/kvm-unit-tests-cca.git tag: cca-rmm-v2.0
+
+Known issues: RMMv2.0 spec.
+==========================
+Here are some of the known issues affecting the code here. I have included the
+ticket number associated with the issues, which will be available in the RMM
+spec, when a public release is available. (So that it is easier to see if the
+issues has been fixed in the spec and easily spot them)
+
+ * RmiOpMemDonateReq:count (Uint14) is incompatible with RmiAddrRangeDesc4KB
+  (Uint10) and RmiAddrRangeDesc16KB (Uint12). i.e., a larger contiguous request
+  may not be satisfiable by the host. This is resolved in the RMM spec, by clamping
+  the upper limit on the number to match the RmiAddrRangeDesc* and will be published
+  in the next release. (FENIMORE-1744)
+ * RMM to clarify the scenarios that triggers the RMI_BLOCKED and the
+   recommendations to limit the cases. (FENIMORE-1783)
+ * RMM to clarify the "PE bound" SRO context pool to really mean global pool
+   (FENIMORE-1802)
+ * Clarify RMI_RTT_DATA_UNMAP, output_count, output_range are only valid when
+   result is RMI_SUCCESS (FENIMORE-1746)
+ * Fix the top_bound condition for RMI_GPT_INFO, (top > pa_sz) (FENIMORE-1807)
+
+Changes since v20:
+
+ ** Patch: firmware: arm_rmm: Add support for SRO
+  - Fix potential overflow of donated_size from a buggy RMM
+  - Use FIELD_MAX() for the maximum count support for RMI_ADDR_RANGE
+ ** Patch: arm64: Block hibernate and kexec while RMM is active
+  - Block hibernate via a new hook "arch_hibernation_available()"
+ ** Patch: firmware: arm_rmm: Add wrappers for Realm related RMI commands
+  - Add a non-retrying rmi_smccc_invoke_once, use that for REC_ENTER. Will be
+    useable by other DA related RMI calls. KVM integration branch also handles
+    RMI_BUSY and treats it as ARM_EXCEPTION_IRQ
+ ** Patch: firmware: arm_rmm: hotplug: Skip memory added to ZONE_MOVABLE
+  - firmware: arm_rmm: hotplug: Skip memory added to ZONE_MOVABLE
+ ** Collected Reviews, Ack with thanks
+
+Changes since v19:
+ https://lore.kernel.org/all/0260924135201.850038-1-suzuki.poulose@arm.com
+
+ ** Patch 1 - RMI SMCCC definitions
+  - Fold 'padding' only union in rec_exit to the previous group of fields
+  - Add static_assert to make sure the struct field offsets match the spec
+  - Rename 'padding' fields to 'sizer' which they really are
+  - Add MAINTAINERS entry for the new header file under ARM64
+ ** Patch 2 - firmware: arm_rmm: Check for RMI support at init
+  - Fix comment : s/RmiFeatureRegister5/RmiFeatureRegister4/
+  - rmi_feat_reg() s/unsigned long/unsigned int for index
+  - linux/arm-rmi-cmds.h -> Mark the "#endif"
+  - Use += rmi.o in Makefile
+  - Mask the ID_AA64PFR0_EL1_RME field for KVM guests
+  - Add MAINTAINERS entry for header file and arm_rmm directory
+ ** Patch 3 - firmware: arm_rmm: Configure the RMM with the host's page size
+  - Don't initialize 'ret' in rmi_configure, add explicit return 0/-EINVAL
+ ** Patch 4 - firmware: arm_rmm: Add support for SRO
+  - Fix typos s/-ECANCELLED/ECANCELED/ rmi_sro_execute()
+  - Drop duplicate, incorrect assignment of sro_handle in rmi_sro_execute()
+  - Drop int i, redeclartion in for() for rmi_sro_donate_noncontig()
+  - Drop donated_granules for rmi_sro_donate_contig()
+  - Drop "inline" and be consistent with the rest of the code
+  - Avoid nesting if..else in rmi_*delegate_range by breaking out on error
+  - Consistent styling in comments, wrap to 80space, spelling corrections
+  - s/\*\*/\*/ for comment above functions
+  - Reorder the functions to appear as rmi_*_delegate* followed by rmi_*_undelegate*
+  - WARN_ON if the RMM MemDonateReq:count exceeds the RmiAddrRangeDesc:count
+  - Reject requests larger than MAX_PAGE_ORDER
+  - Reject "donate" requests with states other than DELEGATED or UNDELEGATED
+ ** Patch 6 - firmware: arm_rmm: Ensure the RMM has GPT entries for memory
+  - Wrap comments to 80spaces.
+  - Add a comment on ALIGN_DOWN the end of memory range.
+  - Add is_rmm_active() to report if the RMM is in ACTIVE state
+  - Switch errors to -ENODEV from -ENOMEM when RMM doesn't manage the region
+  - Print error messages when RMI_GPT_INFO/RMI_GRANULE_TRACKIN_GET fails
+ ** Patch 7 : arm64: Block hibernate and kexec while RMM is active
+  - New patch in v20.
+ ** Patch 8 : firmware: arm_rmm: Add wrappers for Realm related RMI commands
+  - Use rmi_sro_memxfr_command() for rec_create - Catalin
+ ** Patch 9 : firmware: arm_rmm: hotplug: Skip memory added to ZONE_MOVABLE
+  - New patch in v20, relax the memory hotplug checking
+
+Steven Price (7):
+  firmware: arm_rmm: Add SMC definitions for calling the RMM
+  firmware: arm_rmm: Check for RMI support at init
+  firmware: arm_rmm: Configure the RMM with the host's page size
+  firmware: arm_rmm: Add support for SRO
+  firmware: arm_rmm: Activate the RMM
+  firmware: arm_rmm: Ensure the RMM has GPT entries for memory
+  firmware: arm_rmm: Add wrappers for Realm related RMI commands
+
+Suzuki K Poulose (2):
+  arm64: Block hibernate and kexec while RMM is active
+  firmware: arm_rmm: hotplug: Skip memory added to ZONE_MOVABLE
+
+ MAINTAINERS                       |    3 +
+ arch/arm64/Kconfig                |    1 +
+ arch/arm64/kernel/cpufeature.c    |    1 +
+ arch/arm64/kernel/hibernate.c     |   14 +
+ arch/arm64/kernel/machine_kexec.c |   11 +
+ arch/arm64/kvm/sys_regs.c         |    2 +
+ drivers/firmware/Kconfig          |    1 +
+ drivers/firmware/Makefile         |    1 +
+ drivers/firmware/arm_rmm/Kconfig  |   25 +
+ drivers/firmware/arm_rmm/Makefile |    1 +
+ drivers/firmware/arm_rmm/rmi.c    | 1128 +++++++++++++++++++++++++++++
+ include/linux/arm-rmi-cmds.h      |  578 +++++++++++++++
+ include/linux/arm-smccc-rmi.h     |  516 +++++++++++++
+ include/linux/suspend.h           |    1 +
+ kernel/power/hibernate.c          |    8 +-
+ 15 files changed, 2290 insertions(+), 1 deletion(-)
+ create mode 100644 drivers/firmware/arm_rmm/Kconfig
+ create mode 100644 drivers/firmware/arm_rmm/Makefile
+ create mode 100644 drivers/firmware/arm_rmm/rmi.c
+ create mode 100644 include/linux/arm-rmi-cmds.h
+ create mode 100644 include/linux/arm-smccc-rmi.h
+
+-- 
+2.43.0
+
 
