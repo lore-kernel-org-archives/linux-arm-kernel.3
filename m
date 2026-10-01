@@ -4,92 +4,73 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 342AECA5FCE
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  1 Oct 2026 21:34:18 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id ADFE6CA5FD2
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  1 Oct 2026 21:34:53 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:From:
-	Subject:Message-ID:References:Mime-Version:In-Reply-To:Date:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=aIbawXPVSEHJ0DscG76tmh9vZXpkAHRdIDz4TIVMzco=; b=5G6E13Az2gyNhgg7wfrM5Kl94v
-	ULmuFjmO3+kO2N+F7lLJDOSykLXhR0KmFbPCMT7hVPCjZOCgQs2VpBfsn0lYafRM2Pc/heUfPr0/+
-	uSn6BxuigHPBGPQrCA25LSDjL5YLYZCQaxzFVtPGE/Sn7nMW0EPD7w/1/mhFSP1ZZj7HPuryg3yf8
-	qmLFFGn2Y2uscLIf0XsulTq6bWrlH7l+sTo0AbV5WKbwJMlAAZXrFsk59hJDTxTsal/xDc578kzgv
-	sSi6CEGQoCzzntwFjzaafQa5nFX9lE5LEackswYY0++B62Tg6Q+l7em22JzS/PvAEw9kEiMCYcVVH
-	YdZafWTQ==;
+	bh=4EQaDthGXG//tsvqp7HRqH9/THSqJf0NMZqmFez268g=; b=bgaP+PpPbGKKKxfgzE12V8ZLBS
+	7CPFMZVjv2NARQhPQNlgrrxXt8Z8SnetzpO8iVu0Ny4DwqptgBDI3/x/6rdYImyQSKRcnkZ5t+G0U
+	xDH7wLVqkKQ9S0uk/6R7C+OXP8mqA1ew6xIIZiMTfT+20/0Cl+w4y5d3e/zfXP3zVDW0dYZ+ZnfnF
+	HXVIdOF0GRmUbl1/s9dXvSwPy0H/peQgiAykarFgN3zhlsoEMnSFreSfvF7LHYuy1fVTxHVObKzt7
+	myCBjycJxuaOfB0bZkCJDDAnNM2LhskBMFyRyCrLO8aYr/PVgZWUYG7EfvuZ3wHtahK6GVL3VO6ea
+	3dLQrbWg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xCOPp-0000000AHDu-3xUo;
-	Thu, 01 Oct 2026 21:34:09 +0000
-Received: from mail-oi1-x248.google.com ([2607:f8b0:4864:20::248])
+	id 1xCOQQ-0000000AHOZ-0vUX;
+	Thu, 01 Oct 2026 21:34:46 +0000
+Received: from sender5-op-o11.zoho.com ([165.173.182.11])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xCOPn-0000000AHBs-0LQW
-	for linux-arm-kernel@lists.infradead.org;
-	Thu, 01 Oct 2026 21:34:08 +0000
-Received: by mail-oi1-x248.google.com with SMTP id 5614622812f47-4b37620eb73so12524432b6e.1
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 01 Oct 2026 14:34:01 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20251104; t=1790890440; x=1791495240; darn=lists.infradead.org;
-        h=content-type:cc:to:from:subject:message-id:references:mime-version
-         :in-reply-to:date:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=aIbawXPVSEHJ0DscG76tmh9vZXpkAHRdIDz4TIVMzco=;
-        b=UOhNWvCyfpgnxkJU2OCWW93aKwzkCvuZwA56RMQk05IDd2rIkDExyL7NPmR3QZNkqT
-         pkYgINKz+T0nIu3Mn/1ycAuzncx9Mu50Sr+tkWDVMsiMjLan7JyFtCqb9cMK6i5Zhu28
-         KZ9wtHwNAjEmXgnHTuM5K/iVdLnOcslY0QaUb4rHpwZQpcHEvR0qpLLmzZzOhXf2+NhF
-         a1DqUgbjPnXJ6aW4eatyfDsnhGyi3kj9E26Sm0Tf2cOFVWA5qbWMgDcL+hujyxZcAgmr
-         C6UG2xvWck6fTTKd+AO2icroRDHoVV9E1hY3r4MnC4amJ+ohq2GvXEQEAsF4pAXeeXYL
-         3Kyw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1790890440; x=1791495240;
-        h=content-type:cc:to:from:subject:message-id:references:mime-version
-         :in-reply-to:date:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=aIbawXPVSEHJ0DscG76tmh9vZXpkAHRdIDz4TIVMzco=;
-        b=KSz94MPbg7LKtVPzy8/XGfR1dBxp44dUbk/LlSyBdYj7+i7734Ma6JS4eB1kEepG7u
-         RxL4oEpZnrEgAVHa19j9DANqd5R9Dczh6qaqASKi0cPzQkxREFolRc0icb0Rw2uV4uQw
-         8ED+NbA9IvZmOjXBTHfVmeBMS1q79P67ZS955BjNjbqftA9b/XhbV3VgdrGNpbNsyAXv
-         NiZBrRDkTD5vMz+vyoUlUZrIy0lEfZqU6NL9LGD+QIpeijc0QncK2Gw6HC0FBQ8ApT4E
-         itfmQ+IMMR+NYR4qM+ATieK2eNsIYG03nw1d8f65+wLivXiteHRwOh1hvePbjqIPGmpG
-         Pz4A==
-X-Forwarded-Encrypted: i=1; AKwUvBxB5LGKJrAtlfKgZdS7724oWU0q+rR8kOsgeopBoBb/5wvltdK3S+Afc1YGzJzH/eX2jAgyHPpBp8FdJFOg7kEx@lists.infradead.org
-X-Gm-Message-State: AFuF++nI7317/svAICtR0WgdL0/Q3hMWY4k1r9u687j6oDoJXul98UbY
-	t/wnd+Bi/L/XV1YuFRDa5Oa7KqJW3Y21wd2d4CKNcW+IXqQzuAjLtllBtnzRUZqaXQ1WBszP+2b
-	0m8eY+WwSq9cMkT8JH/8KSdF7Lw==
-X-Received: from ilbby7.prod.google.com ([2002:a05:6e02:2607:b0:50f:46b5:b429])
- (user=coltonlewis job=prod-delivery.src-stubby-dispatcher) by
- 2002:a05:6808:2219:b0:4e6:6079:c33d with SMTP id 5614622812f47-4f5292ffc0amr467127b6e.10.1790890439463;
- Thu, 01 Oct 2026 14:33:59 -0700 (PDT)
-Date: Thu,  1 Oct 2026 21:33:57 +0000
-In-Reply-To: <f54b9ea6-48b1-4f6c-92cc-b0a9249c2fb0@linaro.org>
-Mime-Version: 1.0
-References: <20260924172928.2110956-1-coltonlewis@google.com>
- <20260924172928.2110956-17-coltonlewis@google.com> <f54b9ea6-48b1-4f6c-92cc-b0a9249c2fb0@linaro.org>
-X-Mailer: git-send-email 2.56.0.rc1.315.gc6ed9934b7-goog
-Message-ID: <20261001213357.2088894-3-coltonlewis@google.com>
-Subject: Re: [PATCH v9 16/22] KVM: arm64: Apply dynamic guest counter reservations
-From: Colton Lewis <coltonlewis@google.com>
-To: James Clark <james.clark@linaro.org>
-Cc: Colton Lewis <coltonlewis@google.com>, Marc Zyngier <maz@kernel.org>, 
-	Oliver Upton <oupton@kernel.org>, Oliver Upton <oliver.upton@linux.dev>, 
-	Joey Gouly <joey.gouly@arm.com>, Suzuki K Poulose <suzuki.poulose@arm.com>, 
-	Zenghui Yu <yuzenghui@huawei.com>, Fuad Tabba <fuad.tabba@linux.dev>, 
-	Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>, 
-	Mark Rutland <mark.rutland@arm.com>, Paolo Bonzini <pbonzini@redhat.com>, 
-	Peter Zijlstra <peterz@infradead.org>, Ingo Molnar <mingo@redhat.com>, 
-	Arnaldo Carvalho de Melo <acme@kernel.org>, Namhyung Kim <namhyung@kernel.org>, 
-	Robin Murphy <robin.murphy@arm.com>, Zide Chen <zide.chen@intel.com>, 
-	Alexandru Elisei <alexandru.elisei@arm.com>, 
-	Ganapatrao Kulkarni <gankulkarni@os.amperecomputing.com>, Mingwei Zhang <mizhang@google.com>, 
-	Jonathan Corbet <corbet@lwn.net>, Russell King <linux@armlinux.org.uk>, Shuah Khan <shuah@kernel.org>, 
-	linux-perf-users@vger.kernel.org, linux-kselftest@vger.kernel.org, 
-	linux-doc@vger.kernel.org, linux-kernel@vger.kernel.org, kvm@vger.kernel.org, 
-	kvmarm@lists.linux.dev, linux-arm-kernel@lists.infradead.org
-Content-Type: text/plain; charset="UTF-8"
+	id 1xCOQM-0000000AHMp-06Sz;
+	Thu, 01 Oct 2026 21:34:45 +0000
+ARC-Seal: i=1; a=rsa-sha256; t=1790890471; cv=none; 
+	d=zohomail.com; s=zohoarc; 
+	b=EbKuzb52YVqERGRFJkrQaBnSvOMgmiko/rjly+R/Sk2zQ5x9E6DpEpqcZls9uZq5u3MTJjinb83h20FZpckl6zsv8TjjHaxrsd4Okso0q+tbfOQWfjDlV7lGtx2P4W+r9LPiX8AAGN1poFT8QwpdDPg9zcKmEAuQ1kiT7J4HDVo=
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=zohomail.com; s=zohoarc; 
+	t=1790890471; h=Content-Type:Cc:Cc:Date:Date:From:From:In-Reply-To:MIME-Version:Message-ID:Subject:Subject:To:To:Message-Id:Reply-To; 
+	bh=4EQaDthGXG//tsvqp7HRqH9/THSqJf0NMZqmFez268g=; 
+	b=aKYzI4kbX3mQfbzB4hrGMMsln1laSCIO8OQDAy9GTS84j743hJAU5YMt5C9DKux/xHu26VzbIw92TS1sIKCZoY/Eg2+C+pUGZj+BcoiUjvvKqe6vbLE7GCYecNv6MMyrjqLY7jUOUA4d2HZ+GL9m2yhHC4EWFziDPMTA/LjD5EE=
+ARC-Authentication-Results: i=1; mx.zohomail.com;
+	dkim=pass  header.i=collabora.com;
+	spf=pass  smtp.mailfrom=sebastian.reichel@collabora.com;
+	dmarc=pass header.from=<sebastian.reichel@collabora.com>
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; t=1790890471;
+	s=zohomail; d=collabora.com; i=sebastian.reichel@collabora.com;
+	h=Date:Date:From:From:To:To:Cc:Cc:Subject:Subject:Message-ID:MIME-Version:Content-Type:In-Reply-To:Message-Id:Reply-To;
+	bh=4EQaDthGXG//tsvqp7HRqH9/THSqJf0NMZqmFez268g=;
+	b=f3gET3cB025CNa0Qgg4+m5wT2IfXkKP98VLGUYb+hjHCTUEuxOTaxs3Z6TfjfFMB
+	ew9xpGX+JeZ7DysneYao4jyddWLacnylzMsjMnilRZlw23s81qVggPegL+0+2CLkFHb
+	PDFHb09nVf55UtRUbcmG63qdvTdMqWU9KtN1JdeA=
+Received: by smtp.zohomail.com with SMTPS id 1790890469129854.6980276600326;
+	Thu, 1 Oct 2026 14:34:29 -0700 (PDT)
+Received: by venus (Postfix, from userid 1000)
+	id 860C5180944; Thu, 01 Oct 2026 23:34:25 +0200 (CEST)
+Date: Thu, 1 Oct 2026 23:34:25 +0200
+From: Sebastian Reichel <sebastian.reichel@collabora.com>
+To: Vinod Koul <vkoul@kernel.org>, 
+	Neil Armstrong <neil.armstrong@linaro.org>, Manivannan Sadhasivam <mani@kernel.org>, 
+	Heiko Stuebner <heiko@sntech.de>
+Cc: linux-phy@lists.infradead.org, linux-arm-kernel@lists.infradead.org, 
+	linux-rockchip@lists.infradead.org, linux-kernel@vger.kernel.org, 
+	Igor Paunovic <royalnet026@gmail.com>, kernel@collabora.com
+Subject: Re: [PATCH v2 0/4] phy: rockchip: inno-usb2: ensure PHY is running
+ when clock is requested
+Message-ID: <ar7QuTetvpLltrDT@venus>
+References: <20261001-phy-rockchip-inno-usb2-clock-fix-v2-0-e01bf509359e@collabora.com>
+MIME-Version: 1.0
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="hzbu3rdhu6gbb2rv"
+Content-Disposition: inline
+In-Reply-To: <20261001-phy-rockchip-inno-usb2-clock-fix-v2-0-e01bf509359e@collabora.com>
+X-Zoho-Virus-Status: 1
+X-Zoho-AV-Stamp: zmail-av-0.2.13.1.5.4/290.865.66
+X-ZohoMailClient: External
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261001_143407_537183_1291C545 
-X-CRM114-Status: GOOD (  25.62  )
+X-CRM114-CacheID: sfid-20261001_143442_150905_CEBF972C 
+X-CRM114-Status: GOOD (  25.78  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -104,42 +85,103 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi James,
 
-On Wed, Sep 30, 2026 at 04:28:37PM +0100, James Clark wrote:
-> If you enable pseudo-NMIs, watchdog_hardlockup_enable() installs the
-> watchdog using a pinned PMU event. If host userspace also has a pinned event
-> on the mandatory 1 PMU counter assigned to the host, then a guest could
-> potentially squeeze out the watchdog.
+--hzbu3rdhu6gbb2rv
+Content-Type: text/plain; protected-headers=v1; charset=us-ascii
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
+Subject: Re: [PATCH v2 0/4] phy: rockchip: inno-usb2: ensure PHY is running
+ when clock is requested
+MIME-Version: 1.0
+
+Hi,
+
+On Thu, Oct 01, 2026 at 03:12:38PM +0200, Sebastian Reichel wrote:
+> This was noticed on RK3588 EVB1 when resuming from system suspend. This
+> is technically a fix, but its unclear when the bug was introduced and
+> system suspend is broken on RK3588 for quite a while and not just due
+> to this problem. So I think this fix can be merged the normal way via
+> linux-next.
 >
-> I'm wondering if we need to prioritise kernel owned events? Or we just treat
-> them the same as any other event, and with PMU partitioning assume they
-> can't be guaranteed to be running? I feel like you would expect a watchdog
-> to be a bit more than best effort though, especially if there was always a
-> guaranteed counter available to put it on.
->
-> I didn't follow it through completely, but it also looks like if the event
-> gets squeezed it would enter an error state and then never be re-enabled,
-> even after the guest stops running.
->
-> Note, that I think the current ordering means that the watchdog won't
-> actually get squeezed out because it's created first. But I don't think we
-> can rely on the ordering as a strong guarantee, and it might get broken by
-> refactoring in the future.
+> Changes in v2:
+> - Link to v1: https://patch.msgid.link/20260908-phy-rockchip-inno-usb2-cl=
+ock-fix-v1-1-f7d59c31b908@collabora.com
+> - Move suspend exit code from rockchip_usb2phy_power_on into a
+>   separate patch and reuse it in the clock prepare function;
+>   move is done in a separate patch
+> - Updated commit messages with proper rationale
+> - Added one more patch dropping useless assignment
+>   of rport->suspended directly after calling
+>   rockchip_usb2phy_power_on/off
+> - Add one more patch unifying and simplifying the debug
+>   messages for phy init/power_on/power_off/exit
 
-Good catch. Even without future refactoring, creation order can be
-defeated today if /proc/sys/kernel/nmi_watchdog is toggled off and back
-on at runtime while a userspace per-CPU pinned event is already open,
-giving the re-created watchdog a higher group_index and causing
-merge_sched_in() to put it into PERF_EVENT_STATE_ERROR when a
-partitioned guest takes PMCCNTR_EL0.
+I was too fast sending this out. While it fixes the problem on
+RK3588 EVB1 (used for testing this series), I just noticed it seems
+to introduce a new SError in DWC3 on RK3576 boards during boot. This
+is quite unexpected. I will investigate after LPC/OSSEU. For now
+please ignore this series.
 
-Prioritizing kernel-owned events (!event->owner) ahead of userspace
-events in perf_event_groups_cmp() and perf_less_group_idx() guarantees
-that a kernel-pinned watchdog always wins the mandatory host counter
-over userspace pinned events regardless of creation order. I will look
-into adding that for v10.
+Sorry for the noise.
 
-Thanks,
-Colton
+Greetings,
+
+-- Sebastian
+
+>=20
+> ---
+> To: Vinod Koul <vkoul@kernel.org>
+> To: Neil Armstrong <neil.armstrong@linaro.org>
+> To: Manivannan Sadhasivam <mani@kernel.org>
+> To: Heiko Stuebner <heiko@sntech.de>
+> Cc: linux-phy@lists.infradead.org
+> Cc: linux-arm-kernel@lists.infradead.org
+> Cc: linux-rockchip@lists.infradead.org
+> Cc: linux-kernel@vger.kernel.org
+> Cc: Igor Paunovic <royalnet026@gmail.com>
+> Cc: kernel@collabora.com
+> Signed-off-by: Sebastian Reichel <sebastian.reichel@collabora.com>
+>=20
+> ---
+> Sebastian Reichel (4):
+>       phy: rockchip: inno-usb2: simplify and unify PHY op debug messages
+>       phy: rockchip: inno-usb2: drop duplicated update of rport->suspended
+>       phy: rockchip: inno-usb2: move suspend handling into new function
+>       phy: rockchip: inno-usb2: move suspend handling into clock prepare/=
+unprepare for RK3588/RK3576
+>=20
+>  drivers/phy/rockchip/phy-rockchip-inno-usb2.c | 85 +++++++++++++++++++--=
+------
+>  1 file changed, 59 insertions(+), 26 deletions(-)
+> ---
+> base-commit: cee9395acd8043be0644b25c34bfa86623f2b935
+> change-id: 20260908-phy-rockchip-inno-usb2-clock-fix-edd65b57f884
+>=20
+> Best regards,
+> -- =20
+> Sebastian Reichel <sebastian.reichel@collabora.com>
+>=20
+>=20
+
+--hzbu3rdhu6gbb2rv
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iQIzBAABCgAdFiEE72YNB0Y/i3JqeVQT2O7X88g7+poFAmq+0doACgkQ2O7X88g7
++pqJ1Q/8D2Tm0nol7ppugtLlv6+/sdwq4bM5fAAPKW0jJ1tKChQ0rtF/DSXa8GR7
+RbOLivmAi3u6osu+nV//YEB9FjnLaGZa2TEtUKCDB3EV6tuDMV3RnpVFMlxvQAvc
+5YeS7oJaIf2OX/SErBlk86vhgMumSZAyB9UHMlNUhJB64WhLTfBMBpWGnqha7gmC
+CaajrdlNNXFOn5mDJ/dV1EeH448pLXjdKfqFUAJ0K1jBfv2VHQOishuCHJblHhEV
+GFseURltjpuPhBT3BrwW0d2D7Il/hNUgrGFbPv65HUc+lOMy6+O5TeARpeGmqj5f
+gn5FEJaPgohvSSs40+FJ6kzHnzJSTrGgG8FBtJRTllSs/v8o12vApJBYzkTzVSGT
+XP6xHWVepj8OOdoPpIH+8nWHg61O5lb2JPXrfCOHar8Mv+pDILTvepuiZhdwjrtD
+NnAECNdunKHNVx3u32HsLVLm1O+9lR8DgPhYkktVKwVaz74fK0mjcp9jueiT8Mqb
+cnV1GUtqVvRZHIDSirNElBcbo5neaEq5G3faKjvj7+gT4eS2gX6qiBrigkSGglbQ
+58p/U+ELroD8RMPHtj0kr9wQYH8sHLU/0jVEbd/WecM0OEOVttxwwN+3Ee8uuDZ/
+wFPK7EvIMK1ADW+xnlG24liyZCvOdHE4QBhpsCmuh9ob6CnjJzk=
+=4Wvh
+-----END PGP SIGNATURE-----
+
+--hzbu3rdhu6gbb2rv--
 
