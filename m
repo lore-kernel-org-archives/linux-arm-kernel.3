@@ -4,53 +4,52 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 16863CA5FB3
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  1 Oct 2026 08:22:15 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4F037CA5FB3
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  1 Oct 2026 08:22:18 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=B2hAyMVGiJ6BH6Ju1u2jM13gBSylzxvuzgajC1H1sYk=; b=UVrO49SFxDhmk6tG92MlWP4Mr+
-	vnXUd1FkaznZLfq9jyQfkIyUE2qM8YjjkR3DkP6rlpSBKXT6sdLJL8UuOeN1i+vFOtNNauamGIzbo
-	hj1/vK0MK5+mJcynDrQ2O2jONcJHAokxOdNAi+ALig68LNricrakUQJGW0Gn4GnpU2v8uy2BUh0kO
-	YL2D5H774pV9MNVwmqm1+Tve/lSPobso/eoOa93EEMXyEpwkIilXIsflpjEF/VmreTUQd14y+JUK+
-	vsChu66Goy2o8pg4iU/Aw6jdHIdOTcjFBYqCS4nMduZrpJQHEHfeyQzApVKFlDx+jA/hlbYDTHNdq
-	BgPY+M1Q==;
+	bh=ER1b+hSMSn4hr6bQGB/eYTX0hpz6P/sKFnnyGw3zNOA=; b=Y9UZUWueZKKL+KdZeVUNv+zQu6
+	F8YTVVmrsrSYF0fRoSvcY/HDj+AFa679/vxjjujOl6w6e/tWhl/v7Gy8D1VaRhEmuIOkszzHruwaO
+	lMJQqUFew5YSEKQZI7ROihKY39oICNe5B8g+liqq3fjXztsL8lz2JkBXUq4PELdsqBFIr4EZhj2g3
+	97julDluYCyPGti6WTFUFum1perLbEK6TrUbZ9uyeVHSa/y5IuxZE8CmbR/Ez8Ze7elOB7nXhPO+4
+	OJFva6ksk9OMXQlyImjtN35Dr7PQVnviP5MIDPD9LZwXu0bN3ruI8o+HtDZ6sFgT5sciF87QyPSei
+	BHw5IrRA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xCC3K-0000000872i-3zvj;
-	Thu, 01 Oct 2026 08:22:06 +0000
+	id 1xCC3P-0000000875w-0pHO;
+	Thu, 01 Oct 2026 08:22:11 +0000
 Received: from bali.collaboradmins.com ([148.251.105.195])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xCC3I-0000000870P-1AKf;
-	Thu, 01 Oct 2026 08:22:05 +0000
+	id 1xCC3L-0000000872f-46hH;
+	Thu, 01 Oct 2026 08:22:09 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
-	s=mail; t=1790842920;
-	bh=ZEqXV20UfJpPysNADYTF43diSa/57Iv3c2M4KOvi/ko=;
+	s=mail; t=1790842925;
+	bh=mAIP0R0R3ZRT8eb1CqhE3+U8ZxN1ys92D0LYC0fzz8Y=;
 	h=From:Date:Subject:References:In-Reply-To:To:Cc:From;
-	b=IMzqHNP76Wp3Wc+S9lPDy+NpswwFh+1gpD8tJunryFGunUs3vv7IhMaelIle2aIjl
-	 Hxfybw+J1SLcJD3s6k1lgcc3uqbA1IblT2HCSd5Pxxt2TUYtnZSMOsIAJ11opoZXuC
-	 w8djvM+NTv7D9OfaubBuVY4Qaw3zw50CU0SFQAQuyzbib5nD7ZYHTDmXfot3xQ6hNh
-	 Gp7J6+LIY1ctOq3EXoKDlWHWS1569djtCGJX2F377AnCphnbpxKITo1NCpg76pC7V1
-	 5oU5eWsqefJWZVZYLUNJer3osDOS7GGkPzKXuuQhDKwNzIzhDn1Jqjmv2b+Sy6Prea
-	 6RomqOKCul1fA==
+	b=SBwmvD0y/PU+MVLaszQ7fpvc4wk4LdB7wJe7O5Jy025rsjFGvwR5jWoblYw176N0z
+	 m1iV46hPXJppjJHN1wQ0aThGNvrjxa500tHet0k9EoVRZb42qccRxUu3UVZscqQcxH
+	 ubXhua+drZArkfibTp+wXbEyi3lSFepXpNa3tGzRgn0j0R/pW4zWOAkCvIlM/n7467
+	 Kt9joBuw1/bejlH0WpvRf37dxDxeE6/Bz8mdJF/S/+4tsHA2wp9zweTt0/kuU+fiAP
+	 0hJh4Ct020Zsao3yPytVP/eYIy6VarqZskRwV5HAxIouLyKGn+hu6w5B1m3PTLnwtB
+	 vOcOCiKAL7FHA==
 Received: from yukiji.home (unknown [100.64.0.131])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange x25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
 	(No client certificate requested)
 	(Authenticated sender: laeyraud)
-	by bali.collaboradmins.com (Postfix) with ESMTPSA id 7B98817E0528;
-	Thu, 01 Oct 2026 10:21:59 +0200 (CEST)
+	by bali.collaboradmins.com (Postfix) with ESMTPSA id E4CE417E0906;
+	Thu, 01 Oct 2026 10:22:04 +0200 (CEST)
 From: Louis-Alexis Eyraud <louisalexis.eyraud@collabora.com>
-Date: Thu, 01 Oct 2026 10:21:33 +0200
-Subject: [PATCH v13 01/24] dt-bindings: phy: Add mediatek,mt8196-ufsphy
- variant
+Date: Thu, 01 Oct 2026 10:21:38 +0200
+Subject: [PATCH v13 06/24] scsi: ufs: mediatek: Rework resets
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20261001-mt8196-ufs-v13-1-60854adab6d9@collabora.com>
+Message-Id: <20261001-mt8196-ufs-v13-6-60854adab6d9@collabora.com>
 References: <20261001-mt8196-ufs-v13-0-60854adab6d9@collabora.com>
 In-Reply-To: <20261001-mt8196-ufs-v13-0-60854adab6d9@collabora.com>
 To: Chunfeng Yun <chunfeng.yun@mediatek.com>, Vinod Koul <vkoul@kernel.org>, 
@@ -73,20 +72,18 @@ Cc: kernel@collabora.com, linux-arm-kernel@lists.infradead.org,
  devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
  linux-scsi@vger.kernel.org, 
  Nicolas Frattaroli <nicolas.frattaroli@collabora.com>, 
- Conor Dooley <conor.dooley@microchip.com>, 
  Louis-Alexis Eyraud <louisalexis.eyraud@collabora.com>
 X-Mailer: b4 0.14.3
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1790842918; l=2063;
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1790842918; l=6225;
  i=louisalexis.eyraud@collabora.com; s=20250113; h=from:subject:message-id;
- bh=bk5EtgAp8+Q6dY7h9oTa6fh/C3fcFtiFpYBT06lrORk=;
- b=VTNyZH/4LfEBAVcKqbYQLbMKaPS9Gh4wV3ROkxfSFmaJR0yLGxxPk21LRdjo6Vv4vdaDiuYaw
- CzMPuZN9UKQC4dr+4FtWGG+8YZb/I5pVwkkUwCGdxP37R/rNaWNoORM
+ bh=Vbiz68FI96aitngRkTHwkJdTr4Wurrjv80SHrHvHjEQ=;
+ b=JhMMWzLU6Vz/+W2z62k7YkYgzoE19bWDY33tBXRtTvO136LgrHqJO7z9TD8Tcs6rTakjRb5Fc
+ p4j6wr11PviDjBFsW7WRaWeVrkpZbd0OmIYTcWeZFUfpf7AnP6SloBq
 X-Developer-Key: i=louisalexis.eyraud@collabora.com; a=ed25519;
  pk=CHFBDB2Kqh4EHc6JIqFn69GhxJJAzc0Zr4e8QxtumuM=
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261001_012204_486957_4D96E0BE 
-X-CRM114-Status: UNSURE (   9.90  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20261001_012208_200336_EA492DC4 
+X-CRM114-Status: GOOD (  20.07  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -103,64 +100,195 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 
 From: Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
 
-The MediaTek MT8196 SoC includes an M-PHY compatible with the already
-existing mt8183 binding.
+Rework the reset control getting in the driver's probe function to use
+the bulk reset APIs. Use the optional variant instead of defaulting to
+NULL if the resets fail, so that absent resets can be distinguished from
+erroneous resets.
 
-However, one omission from the original binding was that all of these
-variants may have an optional reset.
-
-Add the new compatible, and also the resets property, with an example.
+Also remove all remnants of the MPHY reset ever having lived in this
+driver.
 
 Reviewed-by: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
 Reviewed-by: Peter Wang <peter.wang@mediatek.com>
-Acked-by: Conor Dooley <conor.dooley@microchip.com>
-Acked-by: Vinod Koul <vkoul@kernel.org>
+Reviewed-by: Philipp Zabel <p.zabel@pengutronix.de>
 Signed-off-by: Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
 Signed-off-by: Louis-Alexis Eyraud <louisalexis.eyraud@collabora.com>
 ---
- .../devicetree/bindings/phy/mediatek,ufs-phy.yaml        | 16 ++++++++++++++++
- 1 file changed, 16 insertions(+)
+ drivers/ufs/host/ufs-mediatek-sip.h |  8 ----
+ drivers/ufs/host/ufs-mediatek.c     | 79 +++++++++++++++++++------------------
+ drivers/ufs/host/ufs-mediatek.h     |  7 ++--
+ 3 files changed, 43 insertions(+), 51 deletions(-)
 
-diff --git a/Documentation/devicetree/bindings/phy/mediatek,ufs-phy.yaml b/Documentation/devicetree/bindings/phy/mediatek,ufs-phy.yaml
-index 6e2edd43fc2a..ee71dfa4e0c0 100644
---- a/Documentation/devicetree/bindings/phy/mediatek,ufs-phy.yaml
-+++ b/Documentation/devicetree/bindings/phy/mediatek,ufs-phy.yaml
-@@ -27,6 +27,7 @@ properties:
-       - items:
-           - enum:
-               - mediatek,mt8195-ufsphy
-+              - mediatek,mt8196-ufsphy
-           - const: mediatek,mt8183-ufsphy
-       - const: mediatek,mt8183-ufsphy
+diff --git a/drivers/ufs/host/ufs-mediatek-sip.h b/drivers/ufs/host/ufs-mediatek-sip.h
+index d627dfb4a766..256598cc3b5b 100644
+--- a/drivers/ufs/host/ufs-mediatek-sip.h
++++ b/drivers/ufs/host/ufs-mediatek-sip.h
+@@ -31,11 +31,6 @@ enum ufs_mtk_vcc_num {
+ 	UFS_VCC_MAX
+ };
  
-@@ -43,6 +44,10 @@ properties:
-       - const: unipro
-       - const: mp
+-enum ufs_mtk_mphy_op {
+-	UFS_MPHY_BACKUP = 0,
+-	UFS_MPHY_RESTORE
+-};
+-
+ /*
+  * SMC call wrapper function
+  */
+@@ -84,9 +79,6 @@ static inline void _ufs_mtk_smc(struct ufs_mtk_smc_arg s)
+ #define ufs_mtk_device_pwr_ctrl(on, ufs_version, res) \
+ 	ufs_mtk_smc(UFS_MTK_SIP_DEVICE_PWR_CTRL, &(res), on, ufs_version)
  
-+  resets:
-+    items:
-+      - description: Optional UFS M-PHY reset.
+-#define ufs_mtk_mphy_ctrl(op, res) \
+-	ufs_mtk_smc(UFS_MTK_SIP_MPHY_CTRL, &(res), op)
+-
+ #define ufs_mtk_mtcmos_ctrl(op, res) \
+ 	ufs_mtk_smc(UFS_MTK_SIP_MTCMOS_CTRL, &(res), op)
+ 
+diff --git a/drivers/ufs/host/ufs-mediatek.c b/drivers/ufs/host/ufs-mediatek.c
+index 541bbaf92c21..4737a7a8acfc 100644
+--- a/drivers/ufs/host/ufs-mediatek.c
++++ b/drivers/ufs/host/ufs-mediatek.c
+@@ -94,6 +94,12 @@ static const char *const ufs_uic_dl_err_str[] = {
+ 	"PA_INIT"
+ };
+ 
++static const char *const ufs_reset_names[] = {
++	"hci",
++	"crypto",
++	"unipro",
++};
 +
-   "#phy-cells":
-     const: 0
+ static bool ufs_mtk_is_boost_crypt_enabled(struct ufs_hba *hba)
+ {
+ 	struct ufs_mtk_host *host = ufshcd_get_variant(hba);
+@@ -204,49 +210,46 @@ static void ufs_mtk_crypto_enable(struct ufs_hba *hba)
+ static void ufs_mtk_host_reset(struct ufs_hba *hba)
+ {
+ 	struct ufs_mtk_host *host = ufshcd_get_variant(hba);
+-	struct arm_smccc_res res;
+-
+-	reset_control_assert(host->hci_reset);
+-	reset_control_assert(host->crypto_reset);
+-	reset_control_assert(host->unipro_reset);
+-	reset_control_assert(host->mphy_reset);
+-
+-	usleep_range(100, 110);
++	int ret;
  
-@@ -66,5 +71,16 @@ examples:
-         clock-names = "unipro", "mp";
-         #phy-cells = <0>;
-     };
-+  - |
-+    #include <dt-bindings/reset/mediatek,mt8196-resets.h>
-+    ufs-phy@16800000 {
-+        compatible = "mediatek,mt8196-ufsphy", "mediatek,mt8183-ufsphy";
-+        reg = <0x16800000 0x10000>;
-+        clocks = <&ufs_ao_clk 3>,
-+                 <&ufs_ao_clk 5>;
-+        clock-names = "unipro", "mp";
-+        resets = <&ufs_ao_clk MT8196_UFSAO_RST0_UFS_MPHY>;
-+        #phy-cells = <0>;
-+    };
+-	reset_control_deassert(host->unipro_reset);
+-	reset_control_deassert(host->crypto_reset);
+-	reset_control_deassert(host->hci_reset);
+-	reset_control_deassert(host->mphy_reset);
++	ret = reset_control_bulk_assert(MTK_UFS_NUM_RESETS, host->resets);
++	if (ret)
++		dev_warn(hba->dev, "Host reset assert failed: %pe\n", ERR_PTR(ret));
  
- ...
+-	/* restore mphy setting aftre mphy reset */
+-	if (host->mphy_reset)
+-		ufs_mtk_mphy_ctrl(UFS_MPHY_RESTORE, res);
+-}
++	ret = phy_reset(host->mphy);
+ 
+-static void ufs_mtk_init_reset_control(struct ufs_hba *hba,
+-				       struct reset_control **rc,
+-				       char *str)
+-{
+-	*rc = devm_reset_control_get(hba->dev, str);
+-	if (IS_ERR(*rc)) {
+-		dev_info(hba->dev, "Failed to get reset control %s: %ld\n",
+-			 str, PTR_ERR(*rc));
+-		*rc = NULL;
++	/*
++	 * Only sleep if there is no MPHY or MPHY doesn't have a reset
++	 * implemented (which already sleeps) or the PHY reset function failed
++	 * somehow, just to be safe
++	 */
++	if (!host->mphy || ret) {
++		usleep_range(100, 110);
++		if (ret && (ret != -EOPNOTSUPP))
++			dev_warn(hba->dev, "PHY reset failed: %pe\n", ERR_PTR(ret));
+ 	}
++
++	ret = reset_control_bulk_deassert(MTK_UFS_NUM_RESETS, host->resets);
++	if (ret)
++		dev_warn(hba->dev, "Host reset deassert failed: %pe\n", ERR_PTR(ret));
+ }
+ 
+-static void ufs_mtk_init_reset(struct ufs_hba *hba)
++static int ufs_mtk_init_reset(struct ufs_hba *hba)
+ {
+ 	struct ufs_mtk_host *host = ufshcd_get_variant(hba);
++	int ret, i;
++
++	for (i = 0; i < MTK_UFS_NUM_RESETS; i++)
++		host->resets[i].id = ufs_reset_names[i];
+ 
+-	ufs_mtk_init_reset_control(hba, &host->hci_reset,
+-				   "hci_rst");
+-	ufs_mtk_init_reset_control(hba, &host->unipro_reset,
+-				   "unipro_rst");
+-	ufs_mtk_init_reset_control(hba, &host->crypto_reset,
+-				   "crypto_rst");
+-	ufs_mtk_init_reset_control(hba, &host->mphy_reset,
+-				   "mphy_rst");
++	ret = devm_reset_control_bulk_get_optional_exclusive(hba->dev, MTK_UFS_NUM_RESETS,
++							     host->resets);
++	if (ret) {
++		dev_err(hba->dev, "Failed to get resets: %pe\n", ERR_PTR(ret));
++		return ret;
++	}
++
++	return 0;
+ }
+ 
+ static int ufs_mtk_hce_enable_notify(struct ufs_hba *hba,
+@@ -1248,11 +1251,9 @@ static int ufs_mtk_init(struct ufs_hba *hba)
+ 	if (err)
+ 		goto out_variant_clear;
+ 
+-	ufs_mtk_init_reset(hba);
+-
+-	/* backup mphy setting if mphy can reset */
+-	if (host->mphy_reset)
+-		ufs_mtk_mphy_ctrl(UFS_MPHY_BACKUP, res);
++	err = ufs_mtk_init_reset(hba);
++	if (err)
++		goto out_variant_clear;
+ 
+ 	/* Enable runtime autosuspend */
+ 	hba->caps |= UFSHCD_CAP_RPM_AUTOSUSPEND;
+diff --git a/drivers/ufs/host/ufs-mediatek.h b/drivers/ufs/host/ufs-mediatek.h
+index 73cdc726f290..f95f12eb9926 100644
+--- a/drivers/ufs/host/ufs-mediatek.h
++++ b/drivers/ufs/host/ufs-mediatek.h
+@@ -7,12 +7,14 @@
+ #define _UFS_MEDIATEK_H
+ 
+ #include <linux/bitops.h>
++#include <linux/reset.h>
+ 
+ /*
+  * MCQ define and struct
+  */
+ #define UFSHCD_MAX_Q_NR 8
+ #define MTK_MCQ_INVALID_IRQ	0xFFFF
++#define MTK_UFS_NUM_RESETS 3
+ 
+ /* REG_UFS_MMIO_OPT_CTRL_0 160h */
+ #define EHS_EN                  BIT(0)
+@@ -175,10 +177,7 @@ struct ufs_mtk_mcq_intr_info {
+ struct ufs_mtk_host {
+ 	struct phy *mphy;
+ 	struct regulator *reg_va09;
+-	struct reset_control *hci_reset;
+-	struct reset_control *unipro_reset;
+-	struct reset_control *crypto_reset;
+-	struct reset_control *mphy_reset;
++	struct reset_control_bulk_data resets[MTK_UFS_NUM_RESETS];
+ 	struct ufs_hba *hba;
+ 	struct ufs_mtk_crypt_cfg *crypt;
+ 	struct ufs_mtk_clk mclk;
 
 -- 
 2.55.0
