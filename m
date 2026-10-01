@@ -4,56 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 64530CA5FC5
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  1 Oct 2026 01:15:32 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1982ECA5FCF
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  1 Oct 2026 01:15:34 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
+	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=FR8VvSydbvG625ZnzLjelBQUK8JgZHt8pImKOScTQVA=; b=wiKEuE8w8u1diA
-	xmfS+n/Xqx/4SHtiSqbiTjykGVuL9CUL09oXm1CQIH3XkbeKlS3Jvye8pKcocM06rpQAqEtVByhUC
-	NFOax55MFm2UJJIlzp6tc0ZPS15mNTgnDCWB5Egbwo6QAEuGA5AhRdmg55ddxk2jaDtDwfGXCcFN+
-	65oax4/dCFgFpNn33mXJjjDcFE5YVcqfI7drPnOs3d9W9FaZhhbrMgSiu7WOllZpE3cfizumIw+kF
-	HMLkXZbQcAK/xS5YOhNqt/1AdcltqFpGnopAEhYw0JMP/ANUt7NK1exgACO7DNc0tuFrqVSXgJ5oP
-	a/ZODxZy8l1xQwm5IOBA==;
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=/Bn1dTh9kl6TMvc22fej/T55VW3YJEqtebNN850Pukk=; b=XAIdF1uIaA8xbNA93i1EFc4w88
+	XNPjuM9x3BD+5e3bLud9x0yuTHpJR/YM0fVuyua2NSkfKDqLaLCUbTidcRgwJgcngjOwSz6hhpvb+
+	zN9AAZtP2EU1KemnyAeAQGuLfj9rGAyjUA0D1e0tz/mxMqBK1+OfcLTdbD2DjuZ25REVqad2my6o+
+	uBXQ4R90DipAU4ZmNLJ5OHGTQDlT3abT/h7rTbsWOsXhrkK9GJBFdm5lMT2eJbl3bPMtCvLfNZv47
+	pQnuvdo4cLxoWdEgc6t/qbC1TYE+k7o1rp090a0bmHuAsi5x0YNr+Jb1TuYhTRtB2ktIG3xrHRwim
+	IS3p+B/A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xC5OQ-00000007YBc-0qiU;
-	Thu, 01 Oct 2026 01:15:26 +0000
-Received: from bali.collaboradmins.com ([2a01:4f8:201:9162::2])
+	id 1xC5OR-00000007YE9-1CPt;
+	Thu, 01 Oct 2026 01:15:27 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xC5O3-00000007Y1e-0B1F;
-	Thu, 01 Oct 2026 01:15:05 +0000
+	id 1xC5OA-00000007Y5R-2yeE;
+	Thu, 01 Oct 2026 01:15:10 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=Cc:To:In-Reply-To:References:
+	Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
+	From:Sender:Reply-To:Content-ID:Content-Description;
+	bh=/Bn1dTh9kl6TMvc22fej/T55VW3YJEqtebNN850Pukk=; b=T6ZBA9ZhKTFK/FggZqhVRco2q4
+	zZbj44BLjhxDXIuDw51tolFlr3ErBaXRxZWrEnecLEOsrE3zlQgrYlHO1RT4N8cMvJKpChdFQlEbp
+	5PNgc5b6MK4dHXuxRGipTxhdZRd3YbiFEy1jasRiR5croPbvwUF+J4SHtXEIy6KrSfOxT3tDNPJ6c
+	F7aQyv2cJULpTFj3AMTSkdo2ddpV9zPpWdcZdEjZsDXP46/6CatCZfd6KeY3Mye2pFXyft1+2VAAa
+	2iNflVFdJMnJu1HpgDfjn0TSpO458jG5G9xbAxAgY9B3PxeXOgfe9omr5Y+wq9f27PZpaW4VvSolh
+	YHK3AWlw==;
+Received: from bali.collaboradmins.com ([2a01:4f8:201:9162::2])
+	by desiato.infradead.org with esmtps (Exim 4.99.2 #2 (Red Hat Linux))
+	id 1xC5O7-00000004TrH-124C;
+	Thu, 01 Oct 2026 01:15:09 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
-	s=mail; t=1790817297;
-	bh=GOwaAXoYGkU8Dmsfbd0ly6CQtUQz/aO+7qSW3lRVFfc=;
-	h=From:Subject:Date:To:Cc:From;
-	b=JjmWbhc1cshW4EJhs0xurwV4/ppkoW5zKF5sLR4SQ9SakSuYgJfEeql4zeH7FUHZD
-	 +Uv8nYGthylw1Tr65U0pl/qfbo30qEkAJXsbXh9wo9yY7ngudH2EhwHTcLlyQwk7P4
-	 Bx1e/WNwfzx56NxoGJM6N93bmgIw4owgzTXp9oR2GScJyn6+dH78bJQorV+Mu6OUPP
-	 wlOMSjiNU+RR0nnl4FzhsY/nfx63xtJYIGYe2ESBBKzZhlyfFd3xAe/3qZ0uXUjpyP
-	 0f5nVaX20r3DPioaQNfjZyx/zUxYSEFHbOpoWqJDJvbu/fMXpwyCbmzQQtbiLL/CPj
-	 DOVNoB69B4xdQ==
+	s=mail; t=1790817300;
+	bh=trz+pg8TdAmiapUzXFOsDd1JTCIdVAs8CD5I44OX+Hk=;
+	h=From:Date:Subject:References:In-Reply-To:To:Cc:From;
+	b=izeOJWKAI6UcIH+uKv09mw3+Ceir8XOZOZUYbLKS6GBbMnG0W1cVjaKwqZpH1i334
+	 VAssMy6QGwHjA3L1tn/4v8KWYr3vHP4P8xf/ysOowiJj8/2QCMJTxVNkvllB8z89l4
+	 EmkKUnLIO5Qv9RwmQwDkId/b4oUq6era9yer6hiLrFu3W6Y2eXyp62V4WdcIZO0fF5
+	 jkIitmTBylHgCo/TW8GWBayz8trDyqLB8rcYDWc+Rdf+TDmMrWVohaNY6wW4vdc6El
+	 CRDivybezBOJCxGFHCMlVX35bFQhR92eToUhIRl4mILohBhM6dHBEstECk4qv4bPk1
+	 EGwGexRqi6CVg==
 Received: from localhost (unknown [100.64.0.241])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange secp256r1 server-signature RSA-PSS (4096 bits) server-digest SHA256)
 	(No client certificate requested)
 	(Authenticated sender: cristicc)
-	by bali.collaboradmins.com (Postfix) with ESMTPSA id D448C17E017E;
-	Thu, 01 Oct 2026 03:14:57 +0200 (CEST)
+	by bali.collaboradmins.com (Postfix) with ESMTPSA id 9E11017E0B0F;
+	Thu, 01 Oct 2026 03:15:00 +0200 (CEST)
 From: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>
-Subject: [PATCH 0/8] drm: Advertise supported HDMI version in HDMI drivers
-Date: Thu, 01 Oct 2026 04:14:31 +0300
-Message-Id: <20261001-bridge-advert-hdmi-caps-v1-0-f8806570e243@collabora.com>
+Date: Thu, 01 Oct 2026 04:14:35 +0300
+Subject: [PATCH 4/8] drm/bridge: ite-it6263: Advertise HDMI 1.3
+ capabilities
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-X-B4-Tracking: v=1; b=H4sIAAAAAAAC/yXMQQqDQAyF4atI1g1kRttFr1JcjJNYU6iVREUQ7
- 96pXX4P3r+Di6k43KsdTFZ1/YwF4VJBHtL4FFQuhkjxFogCdqZc1sSr2IwDvxVzmhyvTByJGqo
- jQ3lPJr1uZ/nR/u1L95I8/3JwHF9ERRI8ewAAAA==
-X-Change-ID: 20261001-bridge-advert-hdmi-caps-5d0d2004032d
+Message-Id: <20261001-bridge-advert-hdmi-caps-v1-4-f8806570e243@collabora.com>
+References: <20261001-bridge-advert-hdmi-caps-v1-0-f8806570e243@collabora.com>
+In-Reply-To: <20261001-bridge-advert-hdmi-caps-v1-0-f8806570e243@collabora.com>
 To: Andrzej Hajda <andrzej.hajda@intel.com>, 
  Neil Armstrong <neil.armstrong@linaro.org>, Robert Foss <rfoss@kernel.org>, 
  Laurent Pinchart <Laurent.pinchart@ideasonboard.com>, 
@@ -71,8 +84,8 @@ Cc: kernel@collabora.com, dri-devel@lists.freedesktop.org,
  linux-arm-kernel@lists.infradead.org, linux-sunxi@lists.linux.dev
 X-Mailer: b4 0.15.2
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260930_181503_234483_5F51BB20 
-X-CRM114-Status: GOOD (  10.03  )
+X-CRM114-CacheID: sfid-20261001_021507_782928_4D247071 
+X-CRM114-Status: GOOD (  13.99  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -87,42 +100,80 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-This series consists of patches 50-57 from "[PATCH v11 00/74] Add HDMI
-2.0 support to DW HDMI QP TX" [1], to set the supported HDMI version for
-the HDMI connector/bridge drivers that currently leave it unset - except
-the MediaTek HDMI driver (for now), as it requires non-trivial changes:
-there is a core library shared between two variants, one being HDMI 2.0
-compliant.
+Bridges using DRM_BRIDGE_OP_HDMI are expected to provide the supported
+HDMI version.  This is not enforced yet, but will become mandatory once
+the migration to the caps-based HDMI connector initialization API is
+complete.
 
-The infrastructure patches have been merged and there are no remaining
-dependencies, so these are now sent as a separate series, rebased on top
-of the latest drm-misc-next.  The Reviewed-by tags from Maxime Ripard on
-v11 have been collected; no functional changes were made since v11.
+Advertise HDMI 1.3 support for IT6263, covering the 225 MHz TMDS
+character rate currently documented by the driver, which is within the
+HDMI 1.3 limit of 340 MHz.  Additionally, keep the stricter 150 MHz
+effective mode limit by setting max_tmds_char_rate from
+MAX_PIXEL_CLOCK_KHZ.
 
-[1] https://lore.kernel.org/all/20260901-dw-hdmi-qp-scramb-v11-0-bc12954a0688@collabora.com/
+The existing .hdmi_tmds_char_rate_valid() hook checks both the pixel
+clock and TMDS character rate.  Since the bridge only supports 8 bpc
+RGB444, these are equivalent for supported modes, making the 225 MHz
+TMDS rate check unreachable once the 150 MHz pixel-clock limit is
+applied.
 
+drm_bridge_connector_atomic_check() invokes
+drm_atomic_helper_connector_hdmi_check(), which rejects modes whose
+computed TMDS character rate exceeds the connector's max_tmds_char_rate
+before invoking the driver's .tmds_char_rate_valid hook.  Since
+max_tmds_char_rate now carries the existing effective limit,
+it6263_hdmi_tmds_char_rate_valid() is redundant.  Drop it.
+
+Reviewed-by: Maxime Ripard <mripard@kernel.org>
 Signed-off-by: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>
 ---
-Cristian Ciocaltea (8):
-      drm/bridge: adv7511: Advertise HDMI 1.2 capabilities
-      drm/bridge: inno-hdmi: Advertise HDMI 1.2 capabilities
-      drm/bridge: ite-it6263: Drop redundant .mode_valid hook
-      drm/bridge: ite-it6263: Advertise HDMI 1.3 capabilities
-      drm/bridge: ite-it66121: Advertise HDMI 1.2 capabilities
-      drm/bridge: lontium-lt9611: Advertise HDMI 1.4 capabilities
-      drm/rockchip: rk3066_hdmi: Advertise HDMI 1.4 capabilities
-      drm/sun4i: hdmi: Convert to drmm_connector_hdmi_init()
+ drivers/gpu/drm/bridge/ite-it6263.c | 17 ++---------------
+ 1 file changed, 2 insertions(+), 15 deletions(-)
 
- drivers/gpu/drm/bridge/adv7511/adv7511_drv.c | 22 +++----------------
- drivers/gpu/drm/bridge/inno-hdmi.c           |  1 +
- drivers/gpu/drm/bridge/ite-it6263.c          | 33 ++--------------------------
- drivers/gpu/drm/bridge/ite-it66121.c         | 13 ++++-------
- drivers/gpu/drm/bridge/lontium-lt9611.c      | 16 +++-----------
- drivers/gpu/drm/rockchip/rk3066_hdmi.c       |  2 ++
- drivers/gpu/drm/sun4i/sun4i_hdmi_enc.c       | 25 ++++++++++-----------
- 7 files changed, 26 insertions(+), 86 deletions(-)
----
-base-commit: 37b346eab23aead52d17a8fa687056bfc651a416
-change-id: 20261001-bridge-advert-hdmi-caps-5d0d2004032d
+diff --git a/drivers/gpu/drm/bridge/ite-it6263.c b/drivers/gpu/drm/bridge/ite-it6263.c
+index 550999491086..e8e0197171e1 100644
+--- a/drivers/gpu/drm/bridge/ite-it6263.c
++++ b/drivers/gpu/drm/bridge/ite-it6263.c
+@@ -738,20 +738,6 @@ it6263_bridge_atomic_get_input_bus_fmts(struct drm_bridge *bridge,
+ 	return input_fmts;
+ }
+ 
+-static enum drm_mode_status
+-it6263_hdmi_tmds_char_rate_valid(const struct drm_bridge *bridge,
+-				 const struct drm_display_mode *mode,
+-				 unsigned long long tmds_rate)
+-{
+-	if (mode->clock > MAX_PIXEL_CLOCK_KHZ)
+-		return MODE_CLOCK_HIGH;
+-
+-	if (tmds_rate > MAX_HDMI_TMDS_CHAR_RATE_HZ)
+-		return MODE_CLOCK_HIGH;
+-
+-	return MODE_OK;
+-}
+-
+ static int it6263_hdmi_clear_avi_infoframe(struct drm_bridge *bridge)
+ {
+ 	struct it6263 *it = bridge_to_it6263(bridge);
+@@ -821,7 +807,6 @@ static const struct drm_bridge_funcs it6263_bridge_funcs = {
+ 	.detect = it6263_bridge_detect,
+ 	.edid_read = it6263_bridge_edid_read,
+ 	.atomic_get_input_bus_fmts = it6263_bridge_atomic_get_input_bus_fmts,
+-	.hdmi_tmds_char_rate_valid = it6263_hdmi_tmds_char_rate_valid,
+ 	.hdmi_clear_avi_infoframe = it6263_hdmi_clear_avi_infoframe,
+ 	.hdmi_write_avi_infoframe = it6263_hdmi_write_avi_infoframe,
+ 	.hdmi_clear_hdmi_infoframe = it6263_hdmi_clear_hdmi_infoframe,
+@@ -883,6 +868,8 @@ static int it6263_probe(struct i2c_client *client)
+ 	it->bridge.type = DRM_MODE_CONNECTOR_HDMIA;
+ 	it->bridge.vendor = "ITE";
+ 	it->bridge.product = "IT6263";
++	it->bridge.supported_hdmi_ver = HDMI_VERSION_1_3;
++	it->bridge.max_tmds_char_rate = 1000ULL * MAX_PIXEL_CLOCK_KHZ;
+ 
+ 	return devm_drm_bridge_add(dev, &it->bridge);
+ }
+
+-- 
+2.55.0
 
 
