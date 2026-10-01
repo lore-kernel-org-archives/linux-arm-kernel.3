@@ -4,70 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2BA6ECA5FCB
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  1 Oct 2026 14:29:29 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E8CE7CA5FD2
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  1 Oct 2026 14:29:28 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:From:
 	Subject:Message-ID:References:Mime-Version:In-Reply-To:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=AgtErX92+S4B0epnd2wY3xYBTw3NROE9KR9546jjP9s=; b=pyQTdAfg6a6vzGl+2T+C0ZBKkj
-	HFLKiB7h8IqvBNz7y7QAF/HTRAkDymvzt57A+MKZJFe60h+qU0A+kwJyW7x8GEYBOMJXd5z25v0vl
-	rOGhedgsW4TZB/EMz4wfLOuE3pnNSE7a+74AFqelUhBuYdI2P8oNxKG40BbWC5vm5lxB1k770mQ9X
-	ktC+fXIg88bFzXFHzQyazsLuScPYa71iIlrDm64rKbBTd3p7UeOTe8mm8s0OatfZFIyun6MwkgnwK
-	8/sYQjDLSzwnJkusRmBUnfbS35/GXaWJDtJgFx98u7t1+QqcRJAWWVFC9SzXBqGvVEHxGMoJhKMMZ
-	up+rIEEA==;
+	bh=Jn0PGmRZ95YzYWjXtHNof1FVIqlljCjfwxKO/9v9jY0=; b=t1CnZ5uPn/F0OkGimJkrmz+naL
+	rK+1Z8ji49kt2KTrEqvY0/GmRB/kMGmCNgut+j5Ji05zSujc+KJYdsVRg7xURDY1PT6gPNQX7NuA0
+	LNDCf1kQdUbeFktcHUORqGNnh1jqd12wTL3RQuXi5ejV8otwgaRiQqSDub6FHMmFLOTln/td37tbI
+	Qk/d2rKjvK4MFCyIYgNcTziXgyfbg2NZUZSwJOGplG9v/XE3XalK5agvnZfqoXVj97xT9EddBlhsK
+	FBwGuWxSmvJBqRsRlzg5uk29gEnTLMsvtSONcPVUGP60gEjAkQZ32Bc99L6wOMhr5/GqXVuWB+RDw
+	nMgNEYyw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xCHmd-00000009NMI-1ypO;
-	Thu, 01 Oct 2026 14:29:15 +0000
-Received: from mail-ed1-x548.google.com ([2a00:1450:4864:20::548])
+	id 1xCHmU-00000009NC0-2jkp;
+	Thu, 01 Oct 2026 14:29:06 +0000
+Received: from mail-wm1-x347.google.com ([2a00:1450:4864:20::347])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xCHmZ-00000009NEr-1aT2
+	id 1xCHmQ-00000009N6Z-1kNj
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 01 Oct 2026 14:29:13 +0000
-Received: by mail-ed1-x548.google.com with SMTP id 4fb4d7f45d1cf-6a9b7e63963so8539527a12.1
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 01 Oct 2026 07:29:10 -0700 (PDT)
+	Thu, 01 Oct 2026 14:29:04 +0000
+Received: by mail-wm1-x347.google.com with SMTP id 5b1f17b1804b1-495689bfcc8so56667925e9.1
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 01 Oct 2026 07:29:01 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20251104; t=1790864949; x=1791469749; darn=lists.infradead.org;
+        d=google.com; s=20251104; t=1790864940; x=1791469740; darn=lists.infradead.org;
         h=content-type:cc:to:from:subject:message-id:references:mime-version
          :in-reply-to:date:from:to:cc:subject:date:message-id:reply-to
          :content-type;
-        bh=AgtErX92+S4B0epnd2wY3xYBTw3NROE9KR9546jjP9s=;
-        b=uScAkNMu4MDE4F6jqfV/BjaNeyxfyWpEMI7krkB5zTVffqrrNGHFOKtw/JqrEnPxQ6
-         vp35t7+Ia8ScA2InHHkqxmuzSCYGnCyvsCxplJbtUN1T2IxH3+689/Spyfkh6KF60RDz
-         HN6POCu60m6sCjRM4wvBGnMgbs6WiBtIghA76poH0PTHAW4mzrxKe77J7atp6kM2YNsb
-         Ycmo1t9y14EGgevPj70hP9oA/A97mI8uw4Wr1BsIx7uuCUPYNnIXpoS9I2FTv18+gyUd
-         Z8oZhYO8mBH/hK7VaWMNBJgaCB6EhKwqRXHwTJ09KrA/4sYMN4LKw7bTUxlxzAtEYyT9
-         Eyag==
+        bh=Jn0PGmRZ95YzYWjXtHNof1FVIqlljCjfwxKO/9v9jY0=;
+        b=EKZ/9rqvq1DbxV38EP0gF4q7crC+saEoTo5oCgU15k7HlGVN/v62vFop1ltuPnz/E8
+         yE5sPxbClDlG07Z/jQhIkoGhBoSkEp7/TzQKqo3lzPw7MEKzjjwUVLNNTjcysvKqS7Vf
+         WtRbuQDpdPZAbi9bExerp0rBND0LwHcWXYqT7YDHp4RUuRRFOR1IqN5qGcFYO3T615IZ
+         C0RmW827q0bynb1/eNJv9afMlhLguvd9qM5JGQ3/l05GIK/qDEF+kTw7NZVa9PjM4aE4
+         sz9a96dtCQeGE+18tZb/8aqWrpIdXxMjeHO41pBcM8nLS7KzV2FhehyKxAdeAdeXHuiW
+         vFSQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1790864949; x=1791469749;
+        d=1e100.net; s=20260707; t=1790864940; x=1791469740;
         h=content-type:cc:to:from:subject:message-id:references:mime-version
          :in-reply-to:date:x-gm-message-state:from:to:cc:subject:date
          :message-id:reply-to:content-type;
-        bh=AgtErX92+S4B0epnd2wY3xYBTw3NROE9KR9546jjP9s=;
-        b=bRGzbhnUi9wR9QNS0e3AdKOW2cF3iJNztocVwzqlpI9/Z9PVEy8VqZ+MI6AaZyobse
-         y8wNoBtL93diAiq2WeLrrq7nKAQn6uJAodGO0r30hJ3g3D50i8NjFm/EDsDUsiDRbFkq
-         0vMbvJmvwqkkK71hzvkritOxpZOeO4SZg4n/8vmQJYRGm/9bNYxDC1YDgb0wmEmKtci0
-         qFcra5AJNbAmrDV6WSGGjm9xHO279A0BZeToYNJYE69L/QlSlqbgEfuZ+QRe8/Ctzta/
-         kA6jU39M4k1WzRvL2XQdfOXdZXTl+1p1OxvtApZOKVomcHURRipniOQ/jW6Y5g3dQIsc
-         Tbcw==
-X-Forwarded-Encrypted: i=1; AKwUvBzwXre3r9YkMkzX2Y+p2DqPqYNVYkHLk9/UzLUpydcZzDyoqY9jnRbnM1VXJsTR1cP/f+0+NI3SIjqqATOlYrRx@lists.infradead.org
-X-Gm-Message-State: AFq9FYLI5utn2nsREWdzYhW5tDSFPGEDlsicAD1XKRWWcWLfxkfS70Rl
-	0vmj94wueKigl6bUx4E3zrTCMyD6PWLshzS/BBsqLnIfl0674iGgiKLcn0z1U0vJvEujfiTwF5B
-	d/JNoFz5OMSQ0slyjMOd6vQ==
-X-Received: from edbch8.prod.google.com ([2002:a05:6402:1bc8:b0:6a5:d898:8471])
+        bh=Jn0PGmRZ95YzYWjXtHNof1FVIqlljCjfwxKO/9v9jY0=;
+        b=Oh/YrXEBhGFrO+K9w2xT7+lDNvA7C/geh5ME2UtWdXX0F4YMLo0AoxOcgQIOJ+zzJa
+         jojwuwHb6kJXg+Jkw9lFrMRMcBZzOcN0rAMwfcn7iW+m1f9uKdD/K01jBM65SZnNAqgI
+         rPS6QSK5laJz04HQzYWPtHktriZRhgsPi6rDxM8xzjofL+zdOsjYYIvyRow0YUwraQxQ
+         /rIHiUQgB77w2IHEOU30EonDkgDX44YZwzALHQmDcquvZlx7V/7caikX6C2nCcc9ls0w
+         AxXOh+NDwngx4x9DWbct1wLHSY2nT7dhqfFvuWA0XN4Y/07OOXQKmioDOVY9dihoMwUU
+         Rwrg==
+X-Forwarded-Encrypted: i=1; AKwUvBwpbZa04KWai97/L39ur3nor1mzv7YnXcN3mNTzIvR0+T1kFPUTNB4vybDPYw5ly5GxnPwpSCB/6JlH00sPmcpY@lists.infradead.org
+X-Gm-Message-State: AFuF++m3NkrpDkWzLy14uQ4I9WR/sN5R+SHu7w7R5pEurQq5Oiuk2EJd
+	DTRof80yaZt6u+ZeeGY8x3zypS9D68yaiUm0sjgpOqE/v/FNj5Th7EdJT4QprLXieLJCMLLbK97
+	K2gCpAaKePzZLaxtT+H0Bvw==
+X-Received: from wmna8.prod.google.com ([2002:a05:600c:688:b0:4a0:2207:2163])
  (user=vdonnefort job=prod-delivery.src-stubby-dispatcher) by
- 2002:a05:6402:4024:b0:6aa:734a:a091 with SMTP id 4fb4d7f45d1cf-6ae19929a44mr4327530a12.40.1790864948432;
- Thu, 01 Oct 2026 07:29:08 -0700 (PDT)
-Date: Thu,  1 Oct 2026 15:28:40 +0100
+ 2002:a05:600d:8642:10b0:4a0:1b15:8852 with SMTP id 5b1f17b1804b1-4a01b1588bfmr61447445e9.16.1790864939778;
+ Thu, 01 Oct 2026 07:28:59 -0700 (PDT)
+Date: Thu,  1 Oct 2026 15:28:35 +0100
 In-Reply-To: <20261001142849.3367614-1-vdonnefort@google.com>
 Mime-Version: 1.0
 References: <20261001142849.3367614-1-vdonnefort@google.com>
 X-Mailer: git-send-email 2.56.0.rc1.315.gc6ed9934b7-goog
-Message-ID: <20261001142849.3367614-10-vdonnefort@google.com>
-Subject: [PATCH v6 09/18] KVM: arm64: Add selftests for the pKVM heap allocator
+Message-ID: <20261001142849.3367614-5-vdonnefort@google.com>
+Subject: [PATCH v6 04/18] KVM: arm64: Add a heap allocator for the pKVM hyp
 From: Vincent Donnefort <vdonnefort@google.com>
 To: maz@kernel.org, oupton@kernel.org, kvmarm@lists.linux.dev, 
 	linux-arm-kernel@lists.infradead.org
@@ -77,8 +77,8 @@ Cc: joey.gouly@arm.com, seiden@linux.ibm.com, suzuki.poulose@arm.com,
 	Vincent Donnefort <vdonnefort@google.com>
 Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261001_072911_867907_0EAD7E52 
-X-CRM114-Status: GOOD (  21.10  )
+X-CRM114-CacheID: sfid-20261001_072902_820533_B787921C 
+X-CRM114-Status: GOOD (  29.84  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -93,421 +93,1139 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Introduce a comprehensive runtime selftest for the pKVM hypervisor heap
-allocator, executed during init when CONFIG_NVHE_EL2_DEBUG is enabled.
+Currently, memory used by the hypervisor comes from donations that are
+embedded within HVCs. e.g. __pkvm_init_vm()'s hyp_vm.
 
-The selftest runs entirely at EL2 and exercises allocator's core
-mechanisms:
+This is cumbersome: the host needs to know the size of those
+struct, the memory must be page-aligned and physically contiguous which
+may be difficult to satisfy when host memory is highly fragmented.
 
-  * over-sized allocations
-  * basic allocation and alignment
-  * chunk recycling, splitting, merging
-  * memory reclaiming
-  * memory topup
+Create a heap allocator to manage VA-contiguous memory. This allocator
+grows upward, recycles unused chunks of memory and provides a simple API
+to allocate and free:
+
+  hyp_alloc(size), hyp_free(addr)
+
+This heap allocator also manages the underlying physical memory,
+allowing the host to top up the allocator's pool and reclaim memory.
+
+  hyp_alloc_topup(), hyp_alloc_reclaim().
+
+Pages remain mapped in the allocator's VA-space as long as they are not
+reclaimed.
+
+When the allocator runs out of memory, hyp_alloc() fails and
+hyp_alloc_errno() returns -ENOMEM to signal that a top-up is required.
+
+Additionally, harden the allocator with a fast hash of the chunks
+meta-data. This intends to detect accidental corruptions and makes the
+allocator slightly more robust to potential attacks.
 
 Signed-off-by: Vincent Donnefort <vdonnefort@google.com>
-Reviewed-by: Fuad Tabba <fuad.tabba@linux.dev>
 Tested-by: Fuad Tabba <fuad.tabba@linux.dev>
+Reviewed-by: Fuad Tabba <fuad.tabba@linux.dev>
 ---
- arch/arm64/include/asm/kvm_asm.h        |   1 +
- arch/arm64/include/asm/kvm_hcall.h      |   2 +
- arch/arm64/include/asm/kvm_pkvm.h       |   3 +
- arch/arm64/kvm/arm.c                    |   2 +
- arch/arm64/kvm/hyp/include/nvhe/alloc.h |  11 ++
- arch/arm64/kvm/hyp/nvhe/alloc.c         | 186 +++++++++++++++++++++++-
- arch/arm64/kvm/hyp/nvhe/hyp-main.c      |  24 +++
- arch/arm64/kvm/pkvm.c                   |  19 +++
- 8 files changed, 247 insertions(+), 1 deletion(-)
+ arch/arm64/kvm/hyp/include/nvhe/alloc.h |   17 +
+ arch/arm64/kvm/hyp/nvhe/Makefile        |    2 +-
+ arch/arm64/kvm/hyp/nvhe/alloc.c         | 1027 +++++++++++++++++++++++
+ arch/arm64/kvm/hyp/nvhe/setup.c         |    6 +
+ 4 files changed, 1051 insertions(+), 1 deletion(-)
+ create mode 100644 arch/arm64/kvm/hyp/include/nvhe/alloc.h
+ create mode 100644 arch/arm64/kvm/hyp/nvhe/alloc.c
 
-diff --git a/arch/arm64/include/asm/kvm_asm.h b/arch/arm64/include/asm/kvm_asm.h
-index fc3c52b03154..1ac1990bbd68 100644
---- a/arch/arm64/include/asm/kvm_asm.h
-+++ b/arch/arm64/include/asm/kvm_asm.h
-@@ -62,6 +62,7 @@ enum __kvm_host_smccc_func {
- 	__KVM_HOST_SMCCC_FUNC___kvm_enable_ssbs,
- 	__KVM_HOST_SMCCC_FUNC___vgic_v3_init_lrs,
- 	__KVM_HOST_SMCCC_FUNC___vgic_v3_get_gic_config,
-+	__KVM_HOST_SMCCC_FUNC___pkvm_hyp_alloc_selftest,
- 
- 	MARKER(__KVM_HOST_SMCCC_FUNC_MIN_PKVM),
- 
-diff --git a/arch/arm64/include/asm/kvm_hcall.h b/arch/arm64/include/asm/kvm_hcall.h
-index bce6eb8b20e0..8a6c2506fdeb 100644
---- a/arch/arm64/include/asm/kvm_hcall.h
-+++ b/arch/arm64/include/asm/kvm_hcall.h
-@@ -24,6 +24,7 @@ typedef u16 pkvm_handle_t;
- 
- enum pkvm_topup_id {
- 	PKVM_TOPUP_HYP_ALLOC,
-+	PKVM_TOPUP_HYP_ALLOC_SELFTEST,
- };
- 
- struct kvm;
-@@ -153,6 +154,7 @@ DECLARE_KVM_HOST_HCALL(int, __pkvm_cpu_set_vector,
- DECLARE_KVM_HOST_HCALL0(void, __kvm_enable_ssbs)
- DECLARE_KVM_HOST_HCALL0(void, __vgic_v3_init_lrs)
- DECLARE_KVM_HOST_HCALL0(u64, __vgic_v3_get_gic_config)
-+DECLARE_KVM_HOST_HCALL0(int, __pkvm_hyp_alloc_selftest)
- 
- DECLARE_KVM_HOST_HCALL0(int, __pkvm_prot_finalize)
- 
-diff --git a/arch/arm64/include/asm/kvm_pkvm.h b/arch/arm64/include/asm/kvm_pkvm.h
-index c338178d6bb2..ec8060f220f4 100644
---- a/arch/arm64/include/asm/kvm_pkvm.h
-+++ b/arch/arm64/include/asm/kvm_pkvm.h
-@@ -17,6 +17,7 @@
- 
- #define HYP_MEMBLOCK_REGIONS 128
- 
-+void pkvm_selftests(void);
- int pkvm_init_host_vm(struct kvm *kvm, unsigned long type);
- int pkvm_create_hyp_vm(struct kvm *kvm);
- bool pkvm_hyp_vm_is_created(struct kvm *kvm);
-@@ -208,6 +209,7 @@ struct pkvm_mapping {
- enum pkvm_hyp_req_type {
- 	PKVM_HYP_NO_REQ = 0,
- 	PKVM_HYP_REQ_HYP_ALLOC,
-+	PKVM_HYP_REQ_HYP_ALLOC_SELFTEST,
- 	__PKVM_HYP_REQ_TYPE_MAX,
- };
- 
-@@ -235,6 +237,7 @@ static inline size_t pkvm_hyp_req_arg_size(u8 type)
- 	case PKVM_HYP_NO_REQ:
- 		return 0;
- 	case PKVM_HYP_REQ_HYP_ALLOC:
-+	case PKVM_HYP_REQ_HYP_ALLOC_SELFTEST:
- 		return sizeof(req->mem);
- 	default:
- 		WARN_ON(1);
-diff --git a/arch/arm64/kvm/arm.c b/arch/arm64/kvm/arm.c
-index 8b080804bc90..09ae5431ce58 100644
---- a/arch/arm64/kvm/arm.c
-+++ b/arch/arm64/kvm/arm.c
-@@ -2914,6 +2914,8 @@ static int __init init_hyp_mode(void)
- 			kvm_err("Failed to init hyp memory protection\n");
- 			goto out_err;
- 		}
-+
-+		pkvm_selftests();
- 	}
- 
- 	return 0;
 diff --git a/arch/arm64/kvm/hyp/include/nvhe/alloc.h b/arch/arm64/kvm/hyp/include/nvhe/alloc.h
-index 8f87a63f8946..bca0168e0046 100644
---- a/arch/arm64/kvm/hyp/include/nvhe/alloc.h
+new file mode 100644
+index 000000000000..8f87a63f8946
+--- /dev/null
 +++ b/arch/arm64/kvm/hyp/include/nvhe/alloc.h
-@@ -14,4 +14,15 @@ int hyp_alloc_init(size_t size);
- int hyp_alloc_topup(struct kvm_hyp_memcache *host_mc);
- unsigned long hyp_alloc_reclaimable(void);
- void hyp_alloc_reclaim(struct kvm_hyp_memcache *host_mc, unsigned long target);
+@@ -0,0 +1,17 @@
++/* SPDX-License-Identifier: GPL-2.0-only */
++#ifndef __KVM_NVHE_ALLOC__
++#define __KVM_NVHE_ALLOC__
++#include <linux/types.h>
 +
-+#ifdef CONFIG_NVHE_EL2_DEBUG
-+int hyp_allocator_selftest(void);
-+u32 hyp_alloc_selftest_topup_needed(void);
-+int hyp_alloc_selftest_topup(struct kvm_hyp_memcache *host_mc);
-+void hyp_alloc_selftest_reclaim(struct kvm_hyp_memcache *host_mc, unsigned long target);
-+#else
-+static inline int hyp_alloc_selftest_topup(struct kvm_hyp_memcache *host_mc) { return 0; };
-+static inline void
-+hyp_alloc_selftest_reclaim(struct kvm_hyp_memcache *host_mc, unsigned long target) { };
++#include <asm/kvm_host.h>
++
++void *hyp_alloc(size_t size);
++int hyp_alloc_errno(void);
++u32 hyp_alloc_topup_needed(void);
++void hyp_free(void *addr);
++
++int hyp_alloc_init(size_t size);
++int hyp_alloc_topup(struct kvm_hyp_memcache *host_mc);
++unsigned long hyp_alloc_reclaimable(void);
++void hyp_alloc_reclaim(struct kvm_hyp_memcache *host_mc, unsigned long target);
 +#endif
- #endif
+diff --git a/arch/arm64/kvm/hyp/nvhe/Makefile b/arch/arm64/kvm/hyp/nvhe/Makefile
+index ccc1fe839409..ee0abb2e6af5 100644
+--- a/arch/arm64/kvm/hyp/nvhe/Makefile
++++ b/arch/arm64/kvm/hyp/nvhe/Makefile
+@@ -23,7 +23,7 @@ lib-objs := $(addprefix ../../../lib/, $(lib-objs))
+ CFLAGS_switch.nvhe.o += -Wno-override-init
+ 
+ hyp-obj-y := timer-sr.o sysreg-sr.o debug-sr.o switch.o tlb.o hyp-init.o host.o \
+-	 hyp-main.o hyp-smp.o psci-relay.o early_alloc.o page_alloc.o \
++	 hyp-main.o hyp-smp.o psci-relay.o alloc.o early_alloc.o page_alloc.o \
+ 	 cache.o setup.o mm.o mem_protect.o sys_regs.o pkvm.o stacktrace.o ffa.o
+ hyp-obj-y += ../vgic-v3-sr.o ../aarch32.o ../vgic-v2-cpuif-proxy.o ../entry.o \
+ 	 ../hyp-entry.o ../exception.o ../pgtable.o ../vgic-v5-sr.o
 diff --git a/arch/arm64/kvm/hyp/nvhe/alloc.c b/arch/arm64/kvm/hyp/nvhe/alloc.c
-index e0104d2dd6c0..c1881c0011c9 100644
---- a/arch/arm64/kvm/hyp/nvhe/alloc.c
+new file mode 100644
+index 000000000000..e0104d2dd6c0
+--- /dev/null
 +++ b/arch/arm64/kvm/hyp/nvhe/alloc.c
-@@ -1001,9 +1001,17 @@ int hyp_alloc_errno(void)
- 	return hyp_allocator_errno(&hyp_allocator);
- }
- 
-+static int selftest_init(void);
+@@ -0,0 +1,1027 @@
++// SPDX-License-Identifier: GPL-2.0-only
++/*
++ * Copyright (C) 2026 Google LLC
++ * Author: Vincent Donnefort <vdonnefort@google.com>
++ *
++ * This heap allocator manages a reserved VA space range, dynamically mapping
++ * and unmapping physical pages on-demand to minimise the pKVM hypervisor
++ * footprint. As memory is reclaimed and relinquished to the host, unmapped
++ * holes are introduced within the VA space. To prevent orphans mapped regions,
++ * neighboring unused chunks cannot be merged if they are separated by an
++ * unmapped region.
++ *
++ */
 +
- int hyp_alloc_init(size_t size)
- {
--	return hyp_allocator_init(&hyp_allocator, size);
-+	int ret;
++#include <nvhe/alloc.h>
++#include <nvhe/mem_protect.h>
++#include <nvhe/mm.h>
++#include <nvhe/spinlock.h>
 +
-+	ret = hyp_allocator_init(&hyp_allocator, size);
-+	if (ret)
-+		return ret;
++#include <linux/build_bug.h>
++#include <linux/hash.h>
 +
-+	return selftest_init();
- }
- 
- void hyp_alloc_reclaim(struct kvm_hyp_memcache *mc, unsigned long target)
-@@ -1025,3 +1033,179 @@ u32 hyp_alloc_topup_needed(void)
- {
- 	return hyp_allocator_topup_needed(&hyp_allocator);
- }
++/*
++ * A minimum of 16 bytes allows us to comply with the alignment requirement for
++ * FPSIMD registers that are part of struct pkvm_hyp_vcpu.
++ *
++ * It also must be a power of two.
++ */
++#define MIN_ALLOC_SIZE 16UL
 +
-+#ifdef CONFIG_NVHE_EL2_DEBUG
-+#define SELFTEST_MAX_PAGES 6
-+#define SELFTEST_MAX_SIZE (PAGE_SIZE * SELFTEST_MAX_PAGES)
++/**
++ * struct chunk_hdr - Chunk header
++ * @next:       offset from this chunk header to the next one.
++ * @prev:       offset from this chunk header to the previous one.
++ * @__unmapped: Internal field containing the offset to the unmapped page
++ *              boundary, multiplexed with the allocation state flag.
++ * @hash:       Hash computed over the chunk header.
++ */
++struct chunk_hdr {
++	u32			next;
++	u32			prev;
++#define USED_BIT_MASK		1U
++	u32			__unmapped;
++	u32			hash;
++	char			data[];
++} __aligned(MIN_ALLOC_SIZE);
 +
-+static DEFINE_PER_CPU(int, __selftest_errno);
-+static DEFINE_PER_CPU(u32, __selftest_topup_needed);
-+
-+static struct hyp_allocator selftest_allocator = {
-+	.errno = &__selftest_errno,
-+	.topup_needed = &__selftest_topup_needed,
-+	.lock = __HYP_SPIN_LOCK_UNLOCKED,
++/**
++ * struct hyp_allocator - Heap allocator
++ * @start:		Start in the allocator's reserved virtual address range.
++ * @end:		End in the allocator's reserved virtual address range.
++ * @last_used:		Pointer to the end of the last used chunk. This is
++ *			necessary for the last chunk in the list as the
++ *			allocated size of a chunk is derived from the next one.
++ * @first_unmapped:	Pointer to the first unmapped page in the
++ *			allocator's range. This is only necessary and
++ *			updated when no chunk is in the list.
++ * @head:		Head of the chunk list.
++ * @tail:		Tail of the chunk list.
++ * @mc:			Memcache containing pre-allocated pages for mapping.
++ * @lock:		Spinlock protecting the allocator state.
++ * @errno:		Per-CPU error code for allocation failures.
++ * @topup_needed:	Per-CPU page counter needed to top-up the memcache.
++ */
++struct hyp_allocator {
++	void			*start;
++	void			*end;
++	void			*last_used;
++	void			*first_unmapped;
++	struct chunk_hdr	*head;
++	struct chunk_hdr	*tail;
++	struct kvm_hyp_memcache	mc;
++	hyp_spinlock_t		lock;
++	int __percpu		*errno;
++	u32 __percpu		*topup_needed;
 +};
 +
-+int hyp_alloc_selftest_topup(struct kvm_hyp_memcache *host_mc)
++static u32 chunk_hash_compute(const struct chunk_hdr *chunk)
 +{
-+	return hyp_allocator_topup(&selftest_allocator, host_mc);
++	u32 hash = 0;
++
++	BUILD_BUG_ON(sizeof(*chunk) != 16);
++
++	hash ^= hash_64(*(const u64 *)chunk, 32);
++	hash ^= hash_32(chunk->__unmapped, 32);
++	return hash;
 +}
 +
-+void hyp_alloc_selftest_reclaim(struct kvm_hyp_memcache *host_mc, unsigned long target)
++static void chunk_set_hash(struct chunk_hdr *chunk)
 +{
-+	hyp_allocator_reclaim(&selftest_allocator, host_mc, target);
++	if (chunk)
++		chunk->hash = chunk_hash_compute(chunk);
 +}
 +
-+u32 hyp_alloc_selftest_topup_needed(void)
++static void chunk_check_hash(const struct chunk_hdr *chunk)
 +{
-+	return hyp_allocator_topup_needed(&selftest_allocator);
++	if (chunk)
++		WARN_ON(chunk->hash != chunk_hash_compute(chunk));
 +}
 +
-+static int selftest_init(void)
++static bool chunk_is_used(const struct chunk_hdr *chunk)
 +{
-+	return hyp_allocator_init(&selftest_allocator, SELFTEST_MAX_SIZE);
++	return !!(chunk->__unmapped & USED_BIT_MASK);
 +}
 +
-+static void *selftest_alloc(size_t size)
++static void chunk_set_used(struct chunk_hdr *chunk)
 +{
-+	return hyp_allocator_alloc(&selftest_allocator, size);
++	chunk->__unmapped |= USED_BIT_MASK;
 +}
 +
-+static void selftest_free(void *addr)
++static void chunk_set_unused(struct chunk_hdr *chunk)
 +{
-+	hyp_allocator_free(&selftest_allocator, addr);
++	chunk->__unmapped &= ~USED_BIT_MASK;
 +}
 +
-+static int selftest_errno(void)
++static void *chunk_unmapped(const struct chunk_hdr *chunk)
 +{
-+	return hyp_allocator_errno(&selftest_allocator);
++	u32 offset = chunk->__unmapped & ~USED_BIT_MASK;
++
++	if (!offset)
++		return NULL;
++
++	return (void *)chunk + offset;
 +}
 +
-+int hyp_allocator_selftest(void)
++static void __chunk_set_unmapped(struct chunk_hdr *chunk, u32 unmapped)
 +{
-+	struct hyp_allocator *allocator = &selftest_allocator;
-+	static DEFINE_HYP_SPINLOCK(selftest_lock);
-+	struct kvm_hyp_memcache host_mc = { };
-+	void *addr1, *addr2, *addr3, *addr4;
-+	int ret;
++	chunk->__unmapped = unmapped | (chunk_is_used(chunk) ? USED_BIT_MASK : 0);
++}
 +
-+	guard(hyp_spinlock)(&selftest_lock);
++static void chunk_set_unmapped(struct chunk_hdr *chunk, void *unmapped)
++{
++	WARN_ON(!PAGE_ALIGNED(unmapped));
 +
-+	if (allocator->mc.nr_pages < SELFTEST_MAX_PAGES) {
-+		*this_cpu_ptr(allocator->topup_needed) = SELFTEST_MAX_PAGES -
-+							 allocator->mc.nr_pages;
-+		return -ENOMEM;
++	if (unmapped) {
++		WARN_ON((void *)chunk > unmapped);
++		__chunk_set_unmapped(chunk, unmapped - (void *)chunk);
++	} else {
++		__chunk_set_unmapped(chunk, 0);
++	}
++}
++
++static void *chunk_data(const struct chunk_hdr *chunk)
++{
++	return (void *)&chunk->data;
++}
++
++static struct chunk_hdr *__chunk_next(const struct chunk_hdr *chunk)
++{
++	if (!chunk->next)
++		return NULL;
++
++	return (struct chunk_hdr *)((void *)chunk + chunk->next);
++}
++
++static struct chunk_hdr *__chunk_prev(const struct chunk_hdr *chunk)
++{
++	if (!chunk->prev)
++		return NULL;
++
++	return (struct chunk_hdr *)((void *)chunk - chunk->prev);
++}
++
++static void chunk_set_next(struct chunk_hdr *chunk, struct chunk_hdr *next)
++{
++	if (!chunk)
++		return;
++
++	if (next) {
++		WARN_ON(chunk > next);
++		chunk->next = (void *)next - (void *)chunk;
++	} else {
++		chunk->next = 0;
++	}
++}
++
++static void chunk_set_prev(struct chunk_hdr *chunk, struct chunk_hdr *prev)
++{
++	if (!chunk)
++		return;
++
++	if (prev) {
++		WARN_ON(chunk < prev);
++		chunk->prev = (void *)chunk - (void *)prev;
++	} else {
++		chunk->prev = 0;
++	}
++}
++
++static struct chunk_hdr *chunk_get_next(const struct chunk_hdr *chunk)
++{
++	struct chunk_hdr *next = __chunk_next(chunk);
++
++	chunk_check_hash(next);
++	return next;
++}
++
++static struct chunk_hdr *chunk_get_prev(const struct chunk_hdr *chunk)
++{
++	struct chunk_hdr *prev = __chunk_prev(chunk);
++
++	chunk_check_hash(prev);
++	return prev;
++}
++
++static struct chunk_hdr *chunk_get(struct chunk_hdr *chunk)
++{
++	chunk_check_hash(chunk);
++	return chunk;
++}
++
++#define chunk_hdr_size() \
++	offsetof(struct chunk_hdr, data)
++
++#define chunk_min_size() \
++	(chunk_hdr_size() + MIN_ALLOC_SIZE)
++
++static size_t chunk_data_size(const struct chunk_hdr *chunk, struct hyp_allocator *allocator)
++{
++	struct chunk_hdr *next = chunk_get_next(chunk);
++	void *end;
++
++	if (next)
++		end = (void *)next;
++	else
++		end = allocator->end;
++
++	return end - chunk_data(chunk);
++}
++
++static size_t chunk_mapped_data_size(const struct chunk_hdr *chunk, struct hyp_allocator *allocator)
++{
++	void *unmapped = chunk_unmapped(chunk);
++
++	if (!unmapped)
++		return chunk_data_size(chunk, allocator);
++
++	return unmapped - chunk_data(chunk);
++}
++
++static size_t chunk_used_size(const struct chunk_hdr *chunk, struct hyp_allocator *allocator)
++{
++	struct chunk_hdr *next = chunk_get_next(chunk);
++
++	if (!chunk_is_used(chunk))
++		return 0;
++
++	if (next)
++		return chunk_mapped_data_size(chunk, allocator);
++
++	return allocator->last_used - chunk_data(chunk);
++}
++
++static void chunk_list_insert(struct chunk_hdr *chunk, struct chunk_hdr *prev)
++{
++	struct chunk_hdr *next = NULL;
++
++	WARN_ON(!chunk);
++
++	if (prev) {
++		next = chunk_get_next(prev);
++		chunk_set_next(prev, chunk);
++		chunk_set_hash(prev);
 +	}
 +
-+	selftest_alloc(SELFTEST_MAX_SIZE);
-+	if (selftest_errno() != -E2BIG)
-+		return -EINVAL;
-+
-+	selftest_alloc(SIZE_MAX);
-+	if (selftest_errno() != -E2BIG)
-+		return -EINVAL;
-+
-+	/* Test first chunk */
-+	addr1 = selftest_alloc(0);
-+	if (!addr1 || addr1 != (void *)allocator->start + chunk_hdr_size())
-+		return -EINVAL;
-+
-+	/* Test second contiguous chunk with unaligned size */
-+	addr2 = selftest_alloc(MIN_ALLOC_SIZE + 1);
-+	if (!addr2)
-+		return -EINVAL;
-+	addr3 = selftest_alloc(0);
-+	if (!addr3 ||
-+	    addr3 != addr2 + (2 * MIN_ALLOC_SIZE) + chunk_hdr_size())
-+		return -EINVAL;
-+
-+	selftest_free(addr3);
-+
-+	/* Test chunk recycling */
-+	selftest_free(addr1);
-+	if (addr1 != selftest_alloc(0))
-+		return -EINVAL;
-+
-+	/* Test chunk forward merging */
-+	addr3 = selftest_alloc(0);
-+	selftest_free(addr2);
-+	selftest_free(addr1);
-+	if (addr1 != selftest_alloc(MIN_ALLOC_SIZE * 2))
-+		return -EINVAL;
-+
-+	selftest_free(addr1);
-+
-+	/* Test chunk splitting */
-+	if (addr1 != selftest_alloc(0))
-+		return -EINVAL;
-+	if (addr2 != selftest_alloc(0))
-+		return -EINVAL;
-+
-+	/* Test chunk backward merging */
-+	selftest_free(addr1);
-+	selftest_free(addr2);
-+	if (addr1 != selftest_alloc(MIN_ALLOC_SIZE * 2))
-+		return -EINVAL;
-+
-+	selftest_free(addr1);
-+
-+	/* Test chunk 3-way merging */
-+	addr1 = selftest_alloc(0);
-+	addr2 = selftest_alloc(0);
-+	addr4 = selftest_alloc(0);
-+	selftest_free(addr1);
-+	selftest_free(addr3);
-+	selftest_free(addr2);
-+	if (addr1 != selftest_alloc(MIN_ALLOC_SIZE * 3))
-+		return -EINVAL;
-+
-+	selftest_free(addr4);
-+	selftest_free(addr1);
-+
-+	/* Test reclaiming */
-+	if (addr1 != selftest_alloc(0))
-+		return -EINVAL;
-+	if (addr2 != selftest_alloc(PAGE_SIZE * 2))
-+		return -EINVAL;
-+	addr3 = selftest_alloc(0);
-+	addr4 = selftest_alloc(PAGE_SIZE);
-+
-+	/* Test reclaiming the last chunk of the list */
-+	selftest_free(addr4);
-+	hyp_allocator_reclaim(allocator, &host_mc, SELFTEST_MAX_PAGES);
-+	if (host_mc.nr_pages != SELFTEST_MAX_PAGES - 3)
-+		return -EINVAL;
-+
-+	/* Test punching a hole in the middle of a free chunk ... */
-+	selftest_free(addr2);
-+	hyp_allocator_reclaim(allocator, &host_mc, SELFTEST_MAX_PAGES);
-+	if (host_mc.nr_pages != SELFTEST_MAX_PAGES - 2)
-+		return -EINVAL;
-+
-+	if (selftest_alloc(PAGE_SIZE))
-+		return -EINVAL;
-+	if (selftest_errno() != -ENOMEM)
-+		return -EINVAL;
-+
-+	/* ... and to refill this hole */
-+	ret = hyp_allocator_topup(allocator, &host_mc);
-+	if (ret)
-+		return ret;
-+	/* Chunk at addr2 was made smaller by the reclaim */
-+	if (addr2 != selftest_alloc(PAGE_SIZE))
-+		return -EINVAL;
-+
-+	/* Test reclaiming the entire allocator from the host */
-+	selftest_free(addr3);
-+	selftest_free(addr2);
-+	selftest_free(addr1);
-+	if (addr1 != selftest_alloc(SELFTEST_MAX_PAGES * PAGE_SIZE - chunk_hdr_size()))
-+		return -EINVAL;
-+	selftest_free(addr1);
-+
-+	return 0;
-+}
-+#else
-+static int selftest_init(void) { return 0; }
-+#endif
-diff --git a/arch/arm64/kvm/hyp/nvhe/hyp-main.c b/arch/arm64/kvm/hyp/nvhe/hyp-main.c
-index fdc39f064718..a6e6c0941428 100644
---- a/arch/arm64/kvm/hyp/nvhe/hyp-main.c
-+++ b/arch/arm64/kvm/hyp/nvhe/hyp-main.c
-@@ -800,6 +800,23 @@ DEFINE_KVM_HOST_HCALL(int, __pkvm_finalize_teardown_vm,
- 	return __pkvm_finalize_teardown_vm(handle);
- }
- 
-+DEFINE_KVM_HOST_HCALL0(int, __pkvm_hyp_alloc_selftest)
-+{
-+	struct pkvm_hyp_req req = { .type = PKVM_HYP_NO_REQ };
-+	int ret = -EPERM;
-+
-+#ifdef CONFIG_NVHE_EL2_DEBUG
-+	ret = hyp_allocator_selftest();
-+	if (ret == -ENOMEM) {
-+		req.type = PKVM_HYP_REQ_HYP_ALLOC_SELFTEST;
-+		req.mem.nr_pages = hyp_alloc_selftest_topup_needed();
++	if (next) {
++		chunk_set_prev(next, chunk);
++		chunk_set_hash(next);
 +	}
-+#endif
-+	pkvm_hyp_req_to_smccc(host_data_ptr(host_ctxt), &req);
++
++	chunk_set_next(chunk, next);
++	chunk_set_prev(chunk, prev);
++}
++
++static void chunk_list_del(struct chunk_hdr *chunk)
++{
++	struct chunk_hdr *prev, *next;
++
++	WARN_ON(!chunk);
++
++	prev = chunk_get_prev(chunk);
++	next = chunk_get_next(chunk);
++
++	if (prev) {
++		chunk_set_next(prev, next);
++		chunk_set_hash(prev);
++	}
++
++	if (next) {
++		chunk_set_prev(next, prev);
++		chunk_set_hash(next);
++	}
++}
++
++/*
++ * Return a fixup start address for chunk creation. It makes sure the chunk
++ * header doesn't cross any page boundary and that it leaves enough space at the
++ * start of page. This is intended to prevent orphan mapped regions during chunk
++ * memory reclaim
++ */
++static void *chunk_start(void *start)
++{
++	void *page = PTR_ALIGN(start, PAGE_SIZE);
++
++	if (page - start < chunk_hdr_size())
++		return page;
++
++	page = PTR_ALIGN_DOWN(start, PAGE_SIZE);
++	if (start - page < chunk_min_size())
++		return page + chunk_min_size();
++
++	return start;
++}
++
++static void hyp_allocator_set_errno(struct hyp_allocator *allocator, int errno)
++{
++	*this_cpu_ptr(allocator->errno) = errno;
++}
++
++static int hyp_allocator_errno(struct hyp_allocator *allocator)
++{
++	int *errno = this_cpu_ptr(allocator->errno);
++	int ret = *errno;
++
++	*errno = 0;
 +
 +	return ret;
 +}
 +
- DEFINE_KVM_HOST_HCALL(int, __pkvm_hyp_topup,
- 	enum pkvm_topup_id, id, phys_addr_t, head, unsigned long, nr_pages)
- {
-@@ -814,6 +831,9 @@ DEFINE_KVM_HOST_HCALL(int, __pkvm_hyp_topup,
- 	case PKVM_TOPUP_HYP_ALLOC:
- 		ret = hyp_alloc_topup(&host_mc);
- 		break;
-+	case PKVM_TOPUP_HYP_ALLOC_SELFTEST:
-+		ret = hyp_alloc_selftest_topup(&host_mc);
-+		break;
- 	default:
- 		ret = -EINVAL;
- 	}
-@@ -835,6 +855,9 @@ DEFINE_KVM_HOST_HCALL(int, __pkvm_hyp_reclaim,
- 	case PKVM_TOPUP_HYP_ALLOC:
- 		hyp_alloc_reclaim(&host_mc, target);
- 		break;
-+	case PKVM_TOPUP_HYP_ALLOC_SELFTEST:
-+		hyp_alloc_selftest_reclaim(&host_mc, target);
-+		break;
- 	default:
- 		ret = -EINVAL;
- 	}
-@@ -927,6 +950,7 @@ static const hcall_t host_hcall[] = {
- 	HANDLE_FUNC(__kvm_enable_ssbs),
- 	HANDLE_FUNC(__vgic_v3_init_lrs),
- 	HANDLE_FUNC(__vgic_v3_get_gic_config),
-+	HANDLE_FUNC(__pkvm_hyp_alloc_selftest),
- 	HANDLE_FUNC(__pkvm_prot_finalize),
- 
- 	HANDLE_FUNC(__kvm_adjust_pc),
-diff --git a/arch/arm64/kvm/pkvm.c b/arch/arm64/kvm/pkvm.c
-index fec819a9dc78..7821f2592eba 100644
---- a/arch/arm64/kvm/pkvm.c
-+++ b/arch/arm64/kvm/pkvm.c
-@@ -344,6 +344,22 @@ static int __init pkvm_drop_host_privileges(void)
- 	return ret;
- }
- 
-+void __init pkvm_selftests(void)
++static int hyp_allocator_map(struct hyp_allocator *allocator, struct chunk_hdr *chunk,
++			     struct chunk_hdr *next,
++			     void *addr, void *end)
 +{
-+#ifdef CONFIG_NVHE_EL2_DEBUG
-+	int ret = pkvm_call_hyp_req(__pkvm_hyp_alloc_selftest);
-+	unsigned long reclaimed;
++	void *unmapped = chunk ? chunk_unmapped(chunk) : allocator->first_unmapped;
++	void *unmapped_end = next ?: allocator->end;
 +
-+	reclaimed = pkvm_hyp_reclaim(PKVM_TOPUP_HYP_ALLOC_SELFTEST, ULONG_MAX);
++	/*
++	 * hyp_allocator_can_create_chunk() already validates addr/end
++	 * belong to the chunk.
++	 */
++	WARN_ON(end <= addr);
 +
-+	/* On failure, not all the pages may be reclaimable */
-+	if (!ret)
-+		WARN_ON(reclaimed != 6 /* SELFTEST_MAX_PAGES */);
-+	else
-+		kvm_err("pKVM hyp allocator selftest failed (%d)\n", ret);
-+#endif
++	/* The chunk does not span an unmapped region */
++	if (!unmapped)
++		return 0;
++
++	while (unmapped < end) {
++		void *page = pop_hyp_memcache(&allocator->mc, hyp_phys_to_virt);
++		int ret;
++
++		if (!page) {
++			end = PTR_ALIGN(end, PAGE_SIZE);
++			*this_cpu_ptr(allocator->topup_needed) =
++				(unsigned long)(end - unmapped) >> PAGE_SHIFT;
++			return -ENOMEM;
++		}
++
++		ret = pkvm_map_private_va_range(unmapped, hyp_virt_to_phys(page), PAGE_SIZE);
++		if (ret) {
++			push_hyp_memcache(&allocator->mc, page, hyp_virt_to_phys);
++			return ret;
++		}
++
++		unmapped += PAGE_SIZE;
++
++		/*
++		 * Reset the unmap field if we've reached the next chunk or the
++		 * allocator boundary. Chunks are always installed to cover a
++		 * mapped region followed by an unmapped one. Therefore, we
++		 * expect next to be PAGE_ALIGNED.
++		 */
++		WARN_ON(!PAGE_ALIGNED(unmapped_end));
++		if (unmapped == unmapped_end)
++			unmapped = NULL;
++
++		if (chunk) {
++			chunk_set_unmapped(chunk, unmapped);
++			chunk_set_hash(chunk);
++		} else {
++			allocator->first_unmapped = unmapped;
++		}
++
++		if (!unmapped)
++			break;
++	}
++
++	return 0;
 +}
 +
- static int __init finalize_pkvm(void)
- {
- 	int ret;
-@@ -677,6 +693,9 @@ static int pkvm_handle_hyp_req(struct pkvm_hyp_req *req)
- 	case PKVM_HYP_REQ_HYP_ALLOC:
- 		ret = pkvm_hyp_topup(PKVM_TOPUP_HYP_ALLOC, req->mem.nr_pages);
- 		break;
-+	case PKVM_HYP_REQ_HYP_ALLOC_SELFTEST:
-+		ret = pkvm_hyp_topup(PKVM_TOPUP_HYP_ALLOC_SELFTEST, req->mem.nr_pages);
-+		break;
- 	}
++static void hyp_allocator_unmap(struct hyp_allocator *allocator, struct chunk_hdr *chunk,
++				void *addr, void *end)
++{
++	void *unmap = addr;
++
++	/*
++	 * hyp_allocator_chunk_reclaimable() already computes valid addr/end, no
++	 * need to check them again
++	 */
++	WARN_ON(end <= addr);
++
++	while (unmap < end) {
++		phys_addr_t pa = pkvm_private_va_range_pa((void *)unmap);
++		void *page = hyp_phys_to_virt(pa);
++
++		push_hyp_memcache(&allocator->mc, page, hyp_virt_to_phys);
++		unmap += PAGE_SIZE;
++	}
++
++	pkvm_remove_mappings(addr, end);
++
++	if (chunk) {
++		chunk_set_unmapped(chunk, addr);
++		chunk_set_hash(chunk);
++	} else {
++		allocator->first_unmapped = addr;
++	}
++}
++
++static bool hyp_allocator_can_create_chunk(struct hyp_allocator *allocator,
++					   const struct chunk_hdr *prev,
++					   const struct chunk_hdr *next,
++					   void *addr, void *end)
++{
++	void *page, *unmapped;
++
++	if (addr < allocator->start || end > allocator->end)
++		return false;
++
++	/* First chunk created must be installed at allocator->start */
++	if (!prev)
++		return addr == allocator->start;
++
++	/* Must not overwrite the next chunk */
++	if (next && end > (void *)next)
++		return false;
++
++	/* Must not overwrite the previous chunk */
++	if (addr < (chunk_data(prev) + chunk_used_size(prev, allocator)))
++		return false;
++
++	/* Header must not cross page boundaries */
++	page = PTR_ALIGN(addr, PAGE_SIZE);
++	if (page != addr && (page - addr) < chunk_hdr_size())
++		return false;
++
++	/* Must leave a minimum distance from a page-start to maximise reclaim */
++	page = PTR_ALIGN_DOWN(addr, PAGE_SIZE);
++	if (page != addr && (addr - page) < chunk_min_size())
++		return false;
++
++	unmapped = chunk_unmapped(prev);
++	if (!unmapped)
++		return true;
++
++	/* Must never create an orphan mapped region */
++	if (addr > unmapped)
++		return false;
++
++	return true;
++}
++
++/*
++ * Tries to create a new chunk in the allocator whose header starts at @addr and
++ * whose data finishes at @end.
++ */
++static struct chunk_hdr *hyp_allocator_create_chunk(struct hyp_allocator *allocator,
++						    struct chunk_hdr *prev, void *addr,
++						    void *end, bool used)
++{
++	struct chunk_hdr *next, *chunk = addr;
++	void *unmapped;
++	int ret;
++
++	if (end > allocator->end)
++		return ERR_PTR(-E2BIG);
++
++	next = prev ? chunk_get_next(prev) : NULL;
++	if (!hyp_allocator_can_create_chunk(allocator, prev, next, addr, end))
++		return ERR_PTR(-EINVAL);
++
++	ret = hyp_allocator_map(allocator, prev, next, addr, end);
++	if (ret)
++		return ERR_PTR(ret);
++
++	memset(chunk, 0, sizeof(*chunk));
++	if (used)
++		chunk_set_used(chunk);
++	else
++		chunk_set_unused(chunk);
++
++	/* First chunk, first allocation */
++	if (!prev) {
++		chunk_set_unmapped(chunk, allocator->first_unmapped);
++		chunk_list_insert(chunk, NULL);
++		chunk_set_hash(chunk);
++
++		allocator->last_used = end;
++		allocator->head = allocator->tail = chunk;
++		return chunk;
++	}
++
++	/* Last chunk in the list */
++	if (!next) {
++		allocator->last_used = end;
++		allocator->tail = chunk;
++	}
++
++	/* Inherit prev's unmapped region */
++	unmapped = chunk_unmapped(prev);
++	chunk_set_unmapped(chunk, unmapped);
++	chunk_list_insert(chunk, prev);
++	chunk_set_hash(chunk);
++
++	chunk_set_unmapped(prev, NULL);
++	chunk_set_hash(prev);
++
++	return chunk;
++}
++
++static bool hyp_allocator_can_destroy_chunk(const struct chunk_hdr *prev,
++					    const struct chunk_hdr *next,
++					    const struct chunk_hdr *chunk)
++{
++	if (chunk_is_used(chunk))
++		return false;
++
++	/* Can't merge down unless we are the last one in the list */
++	if (next && chunk_is_used(prev))
++		return false;
++
++	/* Must never create an orphan mapped region */
++	if (chunk_unmapped(prev))
++		return false;
++
++	return true;
++}
++
++static int hyp_allocator_destroy_chunk(struct hyp_allocator *allocator,
++				       struct chunk_hdr *prev,
++				       struct chunk_hdr *chunk)
++{
++	struct chunk_hdr *next = chunk_get_next(chunk);
++
++	if (!hyp_allocator_can_destroy_chunk(prev, next, chunk))
++		return -EINVAL;
++
++	/* Last chunk in the list */
++	if (!next) {
++		allocator->last_used = chunk;
++		allocator->tail = prev;
++	}
++
++	chunk_set_unmapped(prev, chunk_unmapped(chunk));
++	chunk_set_hash(prev);
++	chunk_list_del(chunk);
++
++	return 0;
++}
++
++/*
++ * Return the best unused chunk for recycling, that is the smallest chunk
++ * fitting the allocation which needs to use the least unmapped region.
++ */
++static struct chunk_hdr *hyp_allocator_find_efficient_chunk(struct hyp_allocator *allocator,
++							    size_t size)
++{
++	struct chunk_hdr *chunk, *best_chunk = NULL;
++	size_t best_data_size = SIZE_MAX;
++	size_t best_missing = SIZE_MAX;
++
++	chunk = allocator->head;
++	while (chunk) {
++		size_t missing, mapped, data_size;
++
++		if (chunk_is_used(chunk))
++			goto next;
++
++		data_size = chunk_data_size(chunk, allocator);
++		if (data_size < size)
++			goto next;
++
++		mapped = chunk_mapped_data_size(chunk, allocator);
++		missing = (size > mapped) ? DIV_ROUND_UP(size - mapped, PAGE_SIZE) : 0;
++		if (missing > best_missing)
++			goto next;
++
++		if (missing == best_missing && data_size >= best_data_size)
++			goto next;
++
++		best_missing = missing;
++		best_data_size = data_size;
++		best_chunk = chunk;
++
++next:
++		chunk = chunk_get_next(chunk);
++	}
++
++	return best_chunk;
++}
++
++static struct chunk_hdr *hyp_allocator_reuse_chunk(struct hyp_allocator *allocator,
++						   struct chunk_hdr *chunk, size_t size)
++{
++	struct chunk_hdr *next = chunk_get_next(chunk);
++	void *start, *end, *split, *split_end;
++	int ret;
++
++	start = chunk_data(chunk);
++	end = start + size;
++
++	/* Last chunk in the list, no need to split */
++	if (!next) {
++		split = split_end = NULL;
++		allocator->last_used = chunk_data(chunk) + size;
++	} else {
++		split = chunk_start(end);
++		split_end = split + chunk_min_size();
++
++		if (!hyp_allocator_can_create_chunk(allocator, chunk, next, split, split_end))
++			split = split_end = NULL;
++	}
++
++	/* Batch the mapping of the reused chunk and the split */
++	ret = hyp_allocator_map(allocator, chunk, next, chunk_data(chunk), split ? split_end : end);
++	if (ret)
++		return ERR_PTR(ret);
++
++	if (split)
++		WARN_ON(IS_ERR_OR_NULL(
++			hyp_allocator_create_chunk(allocator, chunk, split, split_end, false)));
++
++	chunk_set_used(chunk);
++	chunk_set_hash(chunk);
++
++	return chunk;
++}
++
++static struct chunk_hdr *hyp_allocator_alloc_chunk(struct hyp_allocator *allocator, size_t size)
++{
++	struct chunk_hdr *chunk;
++	void *start, *end;
++
++	/* First allocation */
++	if (!allocator->head) {
++		start = allocator->start;
++		end = start + chunk_hdr_size() + size;
++		return hyp_allocator_create_chunk(allocator, NULL, start, end, true);
++	}
++
++	chunk = hyp_allocator_find_efficient_chunk(allocator, size);
++
++	/* Nothing found, create a new chunk at the end in the list */
++	if (!chunk) {
++		start = chunk_start(chunk_data(allocator->tail) +
++				    chunk_used_size(allocator->tail, allocator));
++		end = start + chunk_hdr_size() + size;
++		return hyp_allocator_create_chunk(allocator, allocator->tail, start, end, true);
++	}
++
++	return hyp_allocator_reuse_chunk(allocator, chunk, size);
++}
++
++static void *hyp_allocator_alloc(struct hyp_allocator *allocator, size_t size)
++{
++	struct chunk_hdr *chunk;
++
++	size = max(size, MIN_ALLOC_SIZE);
++
++	/* Ensure we do not overflow ALIGN(MIN_ALLOC_SIZE) */
++	if (size > U32_MAX) {
++		hyp_allocator_set_errno(allocator, -E2BIG);
++		return NULL;
++	}
++
++	size = ALIGN(size, MIN_ALLOC_SIZE);
++	if (size > (allocator->end - allocator->start - chunk_hdr_size())) {
++		hyp_allocator_set_errno(allocator, -E2BIG);
++		return NULL;
++	}
++
++	scoped_guard(hyp_spinlock, &allocator->lock) {
++		chunk = hyp_allocator_alloc_chunk(allocator, size);
++		if (IS_ERR_OR_NULL(chunk)) {
++			hyp_allocator_set_errno(allocator,
++						IS_ERR(chunk) ? PTR_ERR(chunk) : -EINVAL);
++			return NULL;
++		}
++	}
++
++	memset(chunk_data(chunk), 0, size);
++	return chunk_data(chunk);
++}
++
++static void hyp_allocator_free(struct hyp_allocator *allocator, void *data)
++{
++	struct chunk_hdr *chunk, *next, *prev;
++
++	if (!data)
++		return;
++
++	WARN_ON(!IS_ALIGNED((unsigned long)data, MIN_ALLOC_SIZE));
++	WARN_ON(data >= allocator->end || data < allocator->start + chunk_hdr_size());
++
++	guard(hyp_spinlock)(&allocator->lock);
++
++	chunk = chunk_get(container_of(data, struct chunk_hdr, data));
++	WARN_ON(!chunk_is_used(chunk));
++	chunk_set_unused(chunk);
++	chunk_set_hash(chunk);
++
++	next = chunk_get_next(chunk);
++	if (next)
++		hyp_allocator_destroy_chunk(allocator, chunk, next);
++
++	prev = chunk_get_prev(chunk);
++	if (prev)
++		hyp_allocator_destroy_chunk(allocator, prev, chunk);
++}
++
++static unsigned long hyp_allocator_chunk_reclaimable(struct hyp_allocator *allocator,
++						     const struct chunk_hdr *chunk,
++						     u64 *__addr, u64 *__end)
++{
++	struct chunk_hdr *next;
++	void *addr, *end;
++
++	/* Last chunk in the allocator */
++	if (chunk == allocator->head && chunk == allocator->tail && !chunk_is_used(chunk)) {
++		addr = (void *)chunk;
++		end = chunk_unmapped(chunk);
++		if (!end)
++			end = allocator->end;
++		goto end;
++	}
++
++	next = chunk_get_next(chunk);
++
++	/* Last chunk in the list we can reclaim, even if used */
++	if (!next) {
++		addr = chunk_data(chunk) + chunk_used_size(chunk, allocator);
++		addr = PTR_ALIGN(addr, PAGE_SIZE);
++		end = chunk_unmapped(chunk);
++		if (!end)
++			end = allocator->end;
++		goto end;
++	}
++
++	if (chunk_is_used(chunk))
++		return 0;
++
++	addr = PTR_ALIGN(chunk_data(chunk), PAGE_SIZE);
++	end = chunk_unmapped(chunk);
++	if (!end)
++		end = PTR_ALIGN_DOWN(next, PAGE_SIZE);
++
++end:
++	if (addr >= end)
++		return 0;
++
++	if (__end)
++		*__end = (u64)end;
++	if (__addr)
++		*__addr = (u64)addr;
++
++	return (end - addr) >> PAGE_SHIFT;
++}
++
++static void hyp_allocator_reclaim_chunk(struct hyp_allocator *allocator, struct chunk_hdr *chunk,
++					void *addr, void *end)
++{
++	struct chunk_hdr *next;
++
++	WARN_ON(end <= addr);
++
++	/* We are about to destroy the last chunk in the allocator */
++	if (addr == allocator->start) {
++		allocator->tail = allocator->head = chunk = NULL;
++		goto unmap;
++	}
++
++	next = chunk_get_next(chunk);
++
++	/*
++	 * Split the reclaimed chunk at the next page boundary,
++	 * this ensures no orphan mapped region is created. Splitting at the page boundary is always
++	 * possible because chunks always leave a minimum distance to the page start.
++	 *
++	 *  +--------------+
++	 *  |______________|
++	 *  |______________|<- Next chunk
++	 *  |_ _ _ __ _ _ _|
++	 *  |              |<- Page-aligned split
++	 *  +--------------+
++	 *  +--------------+
++	 *  |              |
++	 *  |              |<- Page reclaimed
++	 *  |              |
++	 *  |              |
++	 *  +--------------+
++	 *  +--------------+
++	 *  |              |
++	 *  |______________|
++	 *  |______________|<- Chunk to split
++	 *  |              |
++	 *  +--------------+
++	 */
++	if (next && !chunk_unmapped(chunk) && next != end)
++		WARN_ON(IS_ERR_OR_NULL(hyp_allocator_create_chunk(allocator, chunk, end, next,
++								  false)));
++unmap:
++	hyp_allocator_unmap(allocator, chunk, addr, end);
++}
++
++/*
++ * Return the best reclaimable chunk which is the highest chunk in the list
++ * with the biggest reclaimable region.
++ */
++static struct chunk_hdr *hyp_allocator_find_reclaimable_chunk(struct hyp_allocator *allocator,
++							      u64 *addr, u64 *end)
++{
++	struct chunk_hdr *chunk, *best_chunk = NULL;
++	unsigned long best_reclaimable = 0;
++
++	chunk = allocator->head;
++	while (chunk) {
++		u64 __addr, __end;
++		unsigned long reclaimable = hyp_allocator_chunk_reclaimable(allocator, chunk,
++									    &__addr, &__end);
++
++		/* Favour the top biggest chunks */
++		if (reclaimable && reclaimable >= best_reclaimable) {
++			best_reclaimable = reclaimable;
++			best_chunk = chunk;
++			*addr = __addr;
++			*end = __end;
++		}
++
++		chunk = chunk_get_next(chunk);
++	}
++
++	return best_chunk;
++}
++
++static void hyp_allocator_drain_memcache(struct hyp_allocator *allocator,
++					 struct kvm_hyp_memcache *host_mc,
++					 unsigned long target)
++{
++	struct kvm_hyp_memcache *mc = &allocator->mc;
++
++	while (target && mc->nr_pages) {
++		void *page = pop_hyp_memcache(mc, hyp_phys_to_virt);
++
++		memset(page, 0, PAGE_SIZE);
++		kvm_flush_dcache_to_poc(page, PAGE_SIZE);
++		push_hyp_memcache(host_mc, page, hyp_virt_to_phys);
++		WARN_ON(__pkvm_hyp_donate_host(hyp_virt_to_pfn(page), 1));
++
++		target--;
++	}
++}
++
++static void hyp_allocator_reclaim(struct hyp_allocator *allocator, struct kvm_hyp_memcache *host_mc,
++				  unsigned long target)
++{
++	unsigned long reclaimed = 0;
++
++	if (!target)
++		return;
++
++	guard(hyp_spinlock)(&allocator->lock);
++
++	do {
++		struct chunk_hdr *chunk;
++		unsigned long r;
++		u64 addr, end;
++
++		chunk = hyp_allocator_find_reclaimable_chunk(allocator, &addr, &end);
++		if (!chunk)
++			break;
++
++		r = min((end - addr) >> PAGE_SHIFT, target - reclaimed);
++		addr = end - (r << PAGE_SHIFT);
++		hyp_allocator_reclaim_chunk(allocator, chunk, (void *)addr, (void *)end);
++
++		reclaimed += r;
++	} while (reclaimed < target);
++
++	hyp_allocator_drain_memcache(allocator, host_mc, target);
++}
++
++static unsigned long hyp_allocator_reclaimable(struct hyp_allocator *allocator)
++{
++	unsigned long reclaimable;
++	struct chunk_hdr *chunk;
++
++	guard(hyp_spinlock)(&allocator->lock);
++
++	/*
++	 * While allocator->mc typically contains transient pages,
++	 * over-allocation or an aborted operation could leave pages behind.
++	 * Account for allocator->mc so stalled topup pages can be reclaimed.
++	 */
++	reclaimable = allocator->mc.nr_pages;
++
++	chunk = allocator->head;
++	while (chunk) {
++		reclaimable += hyp_allocator_chunk_reclaimable(allocator, chunk, NULL, NULL);
++		chunk = chunk_get_next(chunk);
++	}
++
++	return reclaimable;
++}
++
++static int hyp_allocator_topup(struct hyp_allocator *allocator,
++			       struct kvm_hyp_memcache *host_mc)
++{
++	struct kvm_hyp_memcache *alloc_mc = &allocator->mc;
++
++	guard(hyp_spinlock)(&allocator->lock);
++	return refill_memcache(alloc_mc, host_mc->nr_pages + alloc_mc->nr_pages, host_mc);
++}
++
++static u32 hyp_allocator_topup_needed(struct hyp_allocator *allocator)
++{
++	u32 *topup_needed = this_cpu_ptr(allocator->topup_needed);
++	u32 ret = *topup_needed;
++
++	*topup_needed = 0;
++
++	return ret;
++}
++
++static int hyp_allocator_init(struct hyp_allocator *allocator, size_t size)
++{
++	unsigned long start;
++	int ret;
++
++	size = PAGE_ALIGN(size);
++
++	/* constrained by chunk_hdr u32 types */
++	if (size > U32_MAX || !size)
++		return -EINVAL;
++
++	ret = pkvm_alloc_private_va_range(size, &start);
++	if (ret)
++		return ret;
++
++	allocator->first_unmapped = allocator->start = (void *)start;
++	allocator->end = allocator->start + size;
++	hyp_spin_lock_init(&allocator->lock);
++
++	return 0;
++}
++
++static DEFINE_PER_CPU(int, __hyp_allocator_errno);
++static DEFINE_PER_CPU(u32, __hyp_allocator_topup_needed);
++
++static struct hyp_allocator hyp_allocator = {
++	.errno = &__hyp_allocator_errno,
++	.topup_needed = &__hyp_allocator_topup_needed,
++};
++
++/**
++ * hyp_alloc() - Allocate memory from the heap allocator
++ *
++ * @size:	Allocation size in bytes.
++ *
++ * Callers must ensure they do not hold pkvm_pgd_lock to avoid deadlocks,
++ * as the allocator may modify the hyp stage-1 page-table.
++ *
++ * Return: A pointer to the allocated memory on success, else NULL.
++ */
++void *hyp_alloc(size_t size)
++{
++	return hyp_allocator_alloc(&hyp_allocator, size);
++}
++
++/**
++ * hyp_free() - Free memory allocated with hyp_alloc()
++ *
++ * @data:	Address returned by the original hyp_alloc().
++ *
++ * The use of any other address than one returned by hyp_alloc() will cause a
++ * hypervisor panic.
++ */
++void hyp_free(void *data)
++{
++	hyp_allocator_free(&hyp_allocator, data);
++}
++
++/**
++ * hyp_alloc_errno() - Read the errno on allocation error
++ *
++ * Get the return code from an allocation failure.
++ *
++ * Return: -ENOMEM if the allocator needs a refill from the host, -E2BIG if
++ * there is no VA space left else 0.
++ */
++int hyp_alloc_errno(void)
++{
++	return hyp_allocator_errno(&hyp_allocator);
++}
++
++int hyp_alloc_init(size_t size)
++{
++	return hyp_allocator_init(&hyp_allocator, size);
++}
++
++void hyp_alloc_reclaim(struct kvm_hyp_memcache *mc, unsigned long target)
++{
++	hyp_allocator_reclaim(&hyp_allocator, mc, target);
++}
++
++unsigned long hyp_alloc_reclaimable(void)
++{
++	return hyp_allocator_reclaimable(&hyp_allocator);
++}
++
++int hyp_alloc_topup(struct kvm_hyp_memcache *host_mc)
++{
++	return hyp_allocator_topup(&hyp_allocator, host_mc);
++}
++
++u32 hyp_alloc_topup_needed(void)
++{
++	return hyp_allocator_topup_needed(&hyp_allocator);
++}
+diff --git a/arch/arm64/kvm/hyp/nvhe/setup.c b/arch/arm64/kvm/hyp/nvhe/setup.c
+index 75b00c323310..9fd3dcde3557 100644
+--- a/arch/arm64/kvm/hyp/nvhe/setup.c
++++ b/arch/arm64/kvm/hyp/nvhe/setup.c
+@@ -10,6 +10,7 @@
+ #include <asm/kvm_pgtable.h>
+ #include <asm/kvm_pkvm.h>
  
- 	trace_kvm_handle_pkvm_hyp_req(req, ret);
++#include <nvhe/alloc.h>
+ #include <nvhe/early_alloc.h>
+ #include <nvhe/ffa.h>
+ #include <nvhe/gfp.h>
+@@ -363,6 +364,11 @@ int __pkvm_init(phys_addr_t phys, unsigned long size, unsigned long *per_cpu_bas
+ 	if (ret)
+ 		return ret;
+ 
++	/* Arbitrary size, unmapped at boot and only consume VA-space */
++	ret = hyp_alloc_init(SZ_128M);
++	if (ret)
++		return ret;
++
+ 	update_nvhe_init_params();
+ 
+ 	/* Jump in the idmap page to switch to the new page-tables */
 -- 
 2.56.0.rc1.315.gc6ed9934b7-goog
 
