@@ -4,59 +4,128 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7FC14CA5FD2
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  1 Oct 2026 14:44:54 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6BDF8CA5FCB
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  1 Oct 2026 14:50:05 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
+	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=63dxPAt9XcT66Tq82kcXkbDZlj/m4Bx9Zd5XKY1en8U=; b=SEFzjREmMt+KKbUjkCfdyXm7xj
-	nNiJRZuHWMjQMH1aVktOs1RFnpCpItT42QF046pqK8KkF0T3G5Ws1srKsl3fpVjDCQNMeUVwhKw8q
-	NqunavzoGfSsYv8lVaJdC/jlFrHJJp2k84pWWx4cwr3ugMMZbjar4/ZLqAMKO81fUuz4aMF7AD5c0
-	vUivkxcwXFPL+eDHeNBLmn0JD8VnoCuHIrcQSbL7Ap/6Gome+g8yRM6NReqNHhOcNDufbE/v+DyJf
-	6k8I9v2SvqGTCT3Whe70z+Vhph1Bphqo/0gB3dG9m50aD/xVw+WNLGJdAgR42Z1edNMQEVVaswTTw
-	9O0LD+BA==;
+	bh=ckxfA4Q41cskYde/9HvCT0D+V6kP29MW4Z5Kjh6/mCM=; b=PBBV3L7p7XYcxtHr4vnCVM8kbo
+	kbzgvmv2rZnlKLgMkbKWnszFYqD6rIodlf73mQdtX82HZQaMp5u5q8lDN2tzrN04nDCEdaHfXiLg+
+	cov+N/RF56ox8LzcKwcKInIv3+gUfCPRJZruw1PKIPIwf6wy+f5DEye8Nngn3v3pTyNMvCPvo2PUY
+	D/HcqV88LDyfCmQQVzxjGXiKz2lTipKAZw5jAYy/csgJIZuNIByOwJ47f7FGsVgfmkTDeyWizEV4N
+	RisW7Dh0MSCbmPDvc/PL50PRP0IWZbLm3olr6mvbLowKZpXZwapBSLxHyCvZjInQjHwV8VSuHRi7M
+	BSrftZ3Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xCI1f-00000009QfO-3Jsz;
-	Thu, 01 Oct 2026 14:44:48 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1xCI6f-00000009RBb-43Xa;
+	Thu, 01 Oct 2026 14:49:57 +0000
+Received: from mail-francecentralazlp170130007.outbound.protection.outlook.com ([2a01:111:f403:c20a::7] helo=PA4PR04CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xCI1e-00000009QfH-0t79
+	id 1xCI6d-00000009RAh-2XUo
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 01 Oct 2026 14:44:46 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 7F00940346;
-	Thu,  1 Oct 2026 14:44:45 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 1D22E1F000FF;
-	Thu,  1 Oct 2026 14:44:43 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1790865885;
-	bh=63dxPAt9XcT66Tq82kcXkbDZlj/m4Bx9Zd5XKY1en8U=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=TEbHaD9URUDeakq+mYH63uXsDoqNiaNTOQEMrBaTXxGpaMlzKWpodH0zd3pdWOKzS
-	 vSSJuDKr0/taNbRXl4ezmx8ohpO2Nw2IPPQYV/xc0VtFgC2dIbo0RU/09UGavws660
-	 IXxArJPosqeMARCusSsf34CyNu1fR9NbX3SZIF62csFABPDCLD2sBNi7vr6yWy+ky1
-	 JnV2kic5MtXISVPw38eLsZPHSugGRZ56iWXT1CD5v2ZTdJTZi+NSuknpsG962qPPs1
-	 2UaWQ7TlQH1TSCCnSaQzayfmHP7ginBqr3FzQWji/BYd8bnmOYzGhKTeCbS0g7FrfF
-	 xF2DTmtUtBUVQ==
-Date: Thu, 1 Oct 2026 15:44:42 +0100
-From: Sudeep Holla <sudeep.holla@kernel.org>
-To: Jay Buddhabhatti <jay.buddhabhatti@amd.com>
-Cc: cristian.marussi@arm.com, arm-scmi@vger.kernel.org,
-	Sudeep Holla <sudeep.holla@kernel.org>,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
-	git@amd.com
-Subject: Re: [RFC PATCH] firmware: arm_scmi: skip empty CLOCK_DESCRIBE_RATES
- replies
-Message-ID: <20261001-persimmon-wallaby-of-popularity-c29bf3@sudeepholla>
-References: <20261001114538.671755-1-jay.buddhabhatti@amd.com>
-MIME-Version: 1.0
+	Thu, 01 Oct 2026 14:49:56 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=uqEXDMuzkOxjoGxh/+Z1fETDrzg9OvI2V/IQMEYwR6PYhYXMZtoFjRncSefd7ffB+sukx3n6tggWgSFmgxUii1yomtbOyu9Bxf3xW/2OKkcSNCaKH+NtzoyCzUQIKHhwZfroBpSrwq91rgzjc/fg6/4mzNZdcCtBHggp4CXOn7bTJENrqEezQRu2hDnAT34LJdbxFxpQKXtRNh8QsBeRNOyv75ZDmp5I6pKVZXpGFGSuP5zGfZZf+pznEzxj498QtfKXLrjElEO/7iYnjV7pA4e7W4Yx9Xm+Iy9FjWvV0yOG6u+r2aUbFs+TtF1qwPOL7H0R9NXWx9/xKmuFNVMuIw==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=ckxfA4Q41cskYde/9HvCT0D+V6kP29MW4Z5Kjh6/mCM=;
+ b=n/8Wfe7Wbrwba2BLrqO9DXzC3Wj3DAxfLql3bqlwMCW3dR0w5XVNj70NYqXtK28sKsUwBl1bLEk9pEUI6YfWi9L1kL3KLn/QrWjIfRhWQqa9YSzHSVGJHewh2YyT3+UI/CLPv3l0Fz+WhDB/4DgmTHlAfl8AHK/7IgtiWuHN07z7uFYExN2Tv4Y2Ged4yOHoF4o5gWgndD8JGmjB2yJUuFQBmkf1AxM2yX8C/MMUEWv9zPSiWm/OjTEc9N4NlhJEsqSxkXRHetsWcPdF/5YQDPziPuil8JDa1CwhXPK7u5fWFb4INaw21nxg9yEPSl7fCyRZiY/U927g8jB3yrtnRQ==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
+ dkim=pass header.d=oss.nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
+ s=selector1-NXP1-onmicrosoft-com;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=ckxfA4Q41cskYde/9HvCT0D+V6kP29MW4Z5Kjh6/mCM=;
+ b=sdIkBwLZgE29mNrN7cdMItzjs66MIQtoF037+YG1uiI1c/01olPM625aZ9DbNgYWcsUlIOakMUKPUKtAjSjj/5Y3y6WW+ARc+DcCPJQBIkpQY8PeJG9KmPkCvEPZ4E77JALgA3B9UZ4+hcix1yotSTfefdyMqrGS5rtZZZcUSy3Qf0Io1qzfV4YmkeNY/sGHwrXFk8jfvj+iOLkQVPsvy9F+00NrUjNEnr78J7RWVf+0aVWKoJ9ydMKxGAhOww9u8x+DL6lXdLVhYADuRG4ks8r4KhitIn5/qub0Z9S7vEbWnyEvZZu6Y4PA9rbItr5cEAWkznnyz4vxdIz0Ke41yg==
+Authentication-Results: mx.microsoft.com 1; dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=oss.nxp.com;
+Received: from GV2PR04MB11799.eurprd04.prod.outlook.com (2603:10a6:150:2cf::9)
+ by PA2PR04MB10312.eurprd04.prod.outlook.com (2603:10a6:102:414::7) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.451.24; Thu, 1 Oct
+ 2026 14:49:46 +0000
+Received: from GV2PR04MB11799.eurprd04.prod.outlook.com
+ ([fe80::2146:83a2:5329:b7c]) by GV2PR04MB11799.eurprd04.prod.outlook.com
+ ([fe80::2146:83a2:5329:b7c%7]) with mapi id 15.21.0451.022; Thu, 1 Oct 2026
+ 14:49:43 +0000
+Date: Thu, 1 Oct 2026 09:49:33 -0500
+From: Frank Li <Frank.li@oss.nxp.com>
+To: Primoz Fiser <primoz.fiser@norik.com>
+Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>, Frank Li <Frank.Li@nxp.com>,
+	Sascha Hauer <s.hauer@pengutronix.de>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Fabio Estevam <festevam@gmail.com>, devicetree@vger.kernel.org,
+	imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org, upstream@lists.phytec.de
+Subject: Re: [PATCH v2 0/3] ARM: dts: imx6: phycore-som: PMIC and PHY fixes
+Message-ID: <ar5y_StTTBYDeck3@SMW015318>
+References: <20261001070947.1815279-1-primoz.fiser@norik.com>
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20261001114538.671755-1-jay.buddhabhatti@amd.com>
+In-Reply-To: <20261001070947.1815279-1-primoz.fiser@norik.com>
+X-ClientProxiedBy: CYXPR02CA0017.namprd02.prod.outlook.com
+ (2603:10b6:930:cf::12) To GV2PR04MB11799.eurprd04.prod.outlook.com
+ (2603:10a6:150:2cf::9)
+MIME-Version: 1.0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: GV2PR04MB11799:EE_|PA2PR04MB10312:EE_
+X-MS-Office365-Filtering-Correlation-Id: 94a15edb-7164-4da5-47ad-08df1fcb3a2f
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|19092799006|1800799024|7416014|376014|23010399003|366016|10067099003|56012099006|11063799006|18002099003|22082099003;
+X-Microsoft-Antispam-Message-Info: dMEVYstpqNaMPRiw4/O6WOfV6eO61wM4pEa3OCTeS68fBNsuoIL1gKLTc3FXhroyrgllqlGWoIl2fRW1LvXi5gtZBu9txJ9o/omXYxd0jlKDt/+qTnrLEP5YaruQMF8DI39nIdCMihmfIvhuIWE0j2iJmQlKg5cr9353yVuR8wJaDB0WXLpCpFW6kiDPXAPBUENu+zpab234K5JFfEwzWX3MQTzggftsmblK728kq9A24CmsO1/L6GKvh+0vYU9OFG0F5uJfp1MdB3a9+xJeXis/D+sezPbAqQo1eJJuFp85P+FwydcS0emO5Hxv2OlWaCaF+SJUPAjlMVt/FaqZe07foaPCozcdHXm3Aiua6oeHyCsqbMtw+KbHgGsxgSR2cUWZL2sZ8I9Q9yrgBssGdXHhJeFJh4EBYM9rlUnUdzZbDcaM7JLOKDpFdNbjtF1Qy0crU9WjGJoDc46sQ9kpUi1ZcNjzXvPrccTV5Ou4romMgYTt25QOaS94EGulEEHAAY7fjM9qTLS717FaHdm3P083xxIeZ3aBh77FRdhd1YMHN2rvnIzPQwQVtCkHW0A0nGC75oT7wS4Lj7wrzhygXfCouyMCWG/fPT14lkyEXZnXUZ5n/dyCRwfOp+AlfD0N2SquUwskrLs+XhrT0X5dubuQAoh4cuiDZH+0QExTeAQ=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:GV2PR04MB11799.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(19092799006)(1800799024)(7416014)(376014)(23010399003)(366016)(10067099003)(56012099006)(11063799006)(18002099003)(22082099003);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?BCUFKXaqucNOSZQUlZjFV+Rr2dt+9HLp76JyDhUHEl7aFAo/Zltb9/JY5KV1?=
+ =?us-ascii?Q?Vsy8TcHPPZHpwWgTObz/xuR3c281skfPzx1H4z9IWeUywlunhVRYVKiRSy8i?=
+ =?us-ascii?Q?0Gs7jg+pdoTBiMcUC74+MU9W0IpKgBe4AHyJ4jR45V9hDVF5rjrFcFEayW4S?=
+ =?us-ascii?Q?21hDe+i1g8uAg4aL805vDdvjXd41m+oGnG/6cpiJUCyqRvVvsH51mJMD7O2A?=
+ =?us-ascii?Q?R3IjBhBKeDz2z8/9o+8/KLLhm/Nyo0MHHC53oeDWauBvtVwAiYmUYALHobS6?=
+ =?us-ascii?Q?s6ssVofWFrzmN2pKdx5Uqle4yfq+eOqaD0nRefzHLcdUj7Kwkts7KwqmVohs?=
+ =?us-ascii?Q?5oEMpsUOOw8G/h+NAffgYDCs2kywJHWC7DbTNtwbAoI/dt4USF9LDb1fYDvr?=
+ =?us-ascii?Q?hUSZWi/9BDHXi74ja/gmagrGhPAuK95MuSnQzuOu4J3hsX5QPVxm/IAYHpMl?=
+ =?us-ascii?Q?Jp4uCKAuT1kos+dghfTPnoj4FCxZ0umFTY1/IvOPXseVKnw2O3weCPoUHU3K?=
+ =?us-ascii?Q?zzwzef4UsAo6RvjRB+vkBcTAjzLj7LW+5Y+3y0inOPZmg6Zhmi8KbGBLIbBB?=
+ =?us-ascii?Q?KeyivWAKT2gdwCXpry3JGhIhuAiLKYUQmw16q3DTdIItdPkHVYhZ6a63b8Ka?=
+ =?us-ascii?Q?CG9JrDLDqlVgG2WdW51zUSnLnjXbQaJpC5fPcfgWR8VXVKHadsd6M+r20L3V?=
+ =?us-ascii?Q?AavzgbwAPv6hgcqobubtjdS+mQT4wxrfoJCCCKiuXiYqeeeEkngPG9D+dTRs?=
+ =?us-ascii?Q?5vCqoBfhMyYiSgHcr4/8Gf2Txia9KYwGvQjQf2yxb3A9kI2jbfpzbMMDWCSa?=
+ =?us-ascii?Q?FJM8HwTLWfr9/U0gaoAg0Zuf/XDn6HTl6wAWs9XvQAqd11e+BTwMO9geuPGG?=
+ =?us-ascii?Q?M4wgq8tsDQQClnlyJGpjYJrR79rnVYpUDlWuoArag53hkvcjWD2WXSWhZLYc?=
+ =?us-ascii?Q?k/OraA8NjQarY6sp1DauQ7HL9tuQmc9W7o0R9a5iZarf1zem7Iwkk4AWFzYR?=
+ =?us-ascii?Q?hGBW1zXo8ws0JtyMcG+AFlyxmt/hkfgcGsd11lXHFRhAzl3zPfBduVfUKHCK?=
+ =?us-ascii?Q?Fp69XhA8fNKArS3Rsld6Q6XghD40pGZGPEfbQvdP1AHZnUXKF8MlNkIozkNQ?=
+ =?us-ascii?Q?B4T45cxI1k9qOmyxP2ide43Ugw4jUr5ojCi5uyXlgcRJHche5zK/rH1Gw7UI?=
+ =?us-ascii?Q?GlFIQDUFzhjgt5gt2SxQItcVT8eCCkKcghoIBwwtV/boK6059h6YQEBeB+st?=
+ =?us-ascii?Q?MX3ZguhfYkScZY0HbANpNSiLio5IP24amroqNFwOj0BM91l05zYGrZTlZ2Rk?=
+ =?us-ascii?Q?0y5yGK5ZUbDO0lnFJAZwnraQqpZTS9gK5kf+hsek770x23bBgzvlJD4u5LMH?=
+ =?us-ascii?Q?sAAmbEJ7fL8dVBF7LJabKIERWnSWYcvcQk/xu3plNwE9DLiOih116tYle0vy?=
+ =?us-ascii?Q?8X9nGpF0+1ttDOgQpwi2s7aYTp4bLYxgvECC5yyNQUPedmTwkiSf0mWWRR6y?=
+ =?us-ascii?Q?zFh/yo0J9Zc0kloyB4eyYKwNnmRYS3kqdRGgaEYp0/+KB1z9CPVFCgLt58Eh?=
+ =?us-ascii?Q?pH/tTTNpXJ/aC2lWuS1fpJQ997UFgG5LL35bgdr5a/HKzcB7SVVxklY6pSr2?=
+ =?us-ascii?Q?3RKA5lOWvMytkRaY1QN2Q57vCm43H1qIiCKJHoIL1LyTiEW43QBEfMW7ZNem?=
+ =?us-ascii?Q?cA7JVLunLlQYuv1gBNP9rzGa3dcYNEScf0y6OZIyv6ch74hUIzK5eGCTWJUk?=
+ =?us-ascii?Q?+wErghiD87t04uMNQb7HllWSBTIxjiJFlvoTUwUOc5vX13BsYYu2?=
+X-OriginatorOrg: oss.nxp.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 94a15edb-7164-4da5-47ad-08df1fcb3a2f
+X-MS-Exchange-CrossTenant-AuthSource: GV2PR04MB11799.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 01 Oct 2026 14:49:42.9077
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: LyIpMHvHS+LCOQh3a/3BqzgQW9nefM4i3HL8Ifp06OiOWrAxNqWv5r341rsh5aVeuUPg4XaWe+KsaWyjEb7GlCoUTyCGjZ9fEQS6YGZ4qHTfE/PO82WrQGCfRxYN7SCg
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: PA2PR04MB10312
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20261001_074955_663898_8F997FBB 
+X-CRM114-Status: GOOD (  14.20  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -71,82 +140,39 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Oct 01, 2026 at 04:45:38AM -0700, Jay Buddhabhatti wrote:
-> Some platforms advertise reserved or uninstantiated clock IDs that still
-> succeed CLOCK_DESCRIBE_RATES with zero rates. After dynamic rate
-> allocation, kcalloc(0) returns ZERO_SIZE_PTR and protocol init then
-> dereferences rates[0], which panics.
-> 
-> Do not allocate or index the rate array when the firmware reports an
-> empty list, so unused IDs are skipped instead of taking down the SCMI
-> clock provider.
-> 
-> Fixes: 62ba967595e0 ("firmware: arm_scmi: Make clock rates allocation dynamic")
-> Signed-off-by: Jay Buddhabhatti <jay.buddhabhatti@amd.com>
-> ---
-> The SCMI server is the source of this zero rate and successful response
-> and it should be fixed in SCMI server. This defensive check in Linux is
-> still useful because firmware responses must be validated before
-> de-referencing dynamically allocated data, The panic is a Linux
-> regression introduced by dynamic rate allocation; previous fixed array
-> tolerated the same response and other SCMI implementations could return
-> the same unexpected response.
-> ---
->  drivers/firmware/arm_scmi/clock.c | 18 ++++++++++++++++++
->  1 file changed, 18 insertions(+)
-> 
-> diff --git a/drivers/firmware/arm_scmi/clock.c b/drivers/firmware/arm_scmi/clock.c
-> index 0278705d809e..8934a95527e2 100644
-> --- a/drivers/firmware/arm_scmi/clock.c
-> +++ b/drivers/firmware/arm_scmi/clock.c
-> @@ -8,6 +8,7 @@
->  #include <linux/math64.h>
->  #include <linux/module.h>
->  #include <linux/limits.h>
-> +#include <linux/slab.h>
->  #include <linux/sort.h>
->  
->  #include "protocols.h"
-> @@ -484,6 +485,13 @@ iter_clk_describe_update_state(struct scmi_iterator_state *st,
->  	if (!st->max_resources) {
->  		unsigned int tot_rates = st->num_returned + st->num_remaining;
->  
-> +		/*
-> +		 * Unused/reserved clock IDs return 0 rates. kmalloc(0)
-> +		 * returns ZERO_SIZE_PTR and must not be dereferenced.
-> +		 */
-> +		if (!tot_rates)
-> +			return 0;
-> +
->  		p->clkd->r.rates = devm_kcalloc(p->dev, tot_rates,
->  						sizeof(*p->clkd->r.rates), GFP_KERNEL);
->  		if (!p->clkd->r.rates)
-> @@ -505,6 +513,9 @@ iter_clk_describe_process_response(const struct scmi_protocol_handle *ph,
->  	struct scmi_clk_ipriv *p = priv;
->  	const struct scmi_msg_resp_clock_describe_rates *r = response;
->  
-> +	if (ZERO_OR_NULL_PTR(p->clkd->r.rates))
-> +		return -EPROTO;
-> +
->  	p->clkd->r.rates[p->clkd->r.num_rates] = RATE_TO_U64(r->rate[st->loop_idx]);
->  
->  	/* Count only effectively discovered rates */
-> @@ -622,6 +633,13 @@ scmi_clock_describe_rates_get(const struct scmi_protocol_handle *ph,
->  	if (ret)
->  		return ret;
->  
-> +	/*
-> +	 * Some platforms expose reserved clock IDs with an empty
-> +	 * CLOCK_DESCRIBE_RATES reply. Do not dereference rates[].
-> +	 */
-> +	if (!clkd->r.num_rates || ZERO_OR_NULL_PTR(clkd->r.rates))
-> +		return 0;
-> +
+On Thu, Oct 01, 2026 at 09:09:44AM +0200, Primoz Fiser wrote:
+> A few small fixes for the PHYTEC phyCORE-i.MX6 SOM:
+>
+> - Pin the DA9062 PMIC watchdog to /dev/watchdog0 (1/4).
+> - Raise the PMIC's SOC/ARM buck ceiling to 1.5V, needed once the
+>   1.2GHz OPP tier ([1]] requests 1.3V for VDD_ARM and the anatop
+>   LDO's 125mV dropout is added on top (2/4).
+> - Add phy-reset-duration to fec node for more robust reset pulse (3/4)
+>
+> [1] https://lore.kernel.org/all/20260923070505.494949-1-primoz.fiser@norik.com/
+>
+> Link to v1: https://lore.kernel.org/all/20260930102532.2262700-1-primoz.fiser@norik.com/
+>
+> Changes in v2:
+> - Drop patch #3 from v1 (converting to reset-gpios) due to potential
+>   backwards compatibility as suggested by Frank
+> - Convert patch #4 from v1 to patch #3 in v2 (use phy-reset-duration)
 
-I expect the Clock rate control bit to be unset in the permissions for
-these clock, else it may be dangerous to do this. Please add that check.
+What branch do you work on? I can't apply.
 
--- 
-Regards,
-Sudeep
+Frank
+
+>
+> Primoz Fiser (3):
+>   ARM: dts: imx6: phycore-som: Set PMIC watchdog alias as default
+>   ARM: dts: imx6: phycore-som: Increase PMIC max SOC and ARM voltage
+>   ARM: dts: imx6: phycore-som: Add phy-reset-duration
+>
+>  arch/arm/boot/dts/nxp/imx/imx6qdl-phytec-phycore-som.dtsi | 8 +++++---
+>  1 file changed, 5 insertions(+), 3 deletions(-)
+>
+> --
+> 2.34.1
+>
+>
 
