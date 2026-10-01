@@ -4,51 +4,52 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C43A9CA5FCB
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  1 Oct 2026 11:33:22 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id AF171CA5FB3
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  1 Oct 2026 11:34:46 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=b2hY2Lwa9e4ug6tiGWzP7cLmTEKbjt1EVVbwD8WgJqc=; b=wbAK0zI4+wI4VtOOBOfFW27ls2
-	owRJs3l/Ue5sXCYuTBNrfQox8XlbW5b67XSNcqMqHAGobEnSpzq/rndGoIV2vhgBw/YHZ5p/zYibx
-	ZGwqHSfxsDSHv5udWVZLsT7aofRCFxtl8oHBQ7WGaIia/mS7xq9jIZBw7RO4k/4Qb2GPX2RNzhSOk
-	stVDcI37Xv6RRkH3jQKLG2/w5qi/SFA02W8ZGqKbrQQn5Qmnmi1+ugnnx/yQ/OSQ6FiB3iEwPOOwo
-	mSfiUQkkrtynBvDqlfcECbKXXXtJnDhAqEGVs2Ck3c3LGoqU5yCL3mrSUvPSAaf98+wIMCVFxkHYR
-	Gp8HrMVA==;
+	Content-Type:In-Reply-To:From:References:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Cc:Content-ID:Content-Description:Resent-Date:Resent-From
+	:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=OFUfBJhfs43LK2uJ35trWg6Dxj/vYrf6yAbtRpo/I9Q=; b=40E+gYDZv4X0CjC815kkcr4LuM
+	62k8wt6dxekEkuVAK+o85DMvySkWLR0VQfnHZN0ySyWrq5zemsjuqSD1gRQyOmzfWhBgrCrPfOMdQ
+	qkB011tGPPUIvWOzR9s2zmRbm1S+k/94PIUFvQfvzP3dCsh4l2RmMS5pLAHHmPEQvGKI+e5CX0lWs
+	YYBEMP9Gw7TOHb+HEf3PaNH7QUAZtq/K43H6yKMMT/9zChaweM3K/+KKtvxmeZMVQChVI00ZcDO9C
+	dbfreGo6dOGcYIkcLAx3bWbBPPw1QrD7I9aNADkcMbwbOvj2i3RcZ0qhrCvVhm3OdAXAlFPwuhynr
+	FfaZWTVA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xCF2K-00000008dsc-0pK6;
-	Thu, 01 Oct 2026 11:33:16 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1xCF3f-00000008e0h-1hEC;
+	Thu, 01 Oct 2026 11:34:39 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xCF2I-00000008dsI-0eKu
+	id 1xCF3d-00000008e0T-1SGb
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 01 Oct 2026 11:33:14 +0000
+	Thu, 01 Oct 2026 11:34:37 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id B306360A55;
-	Thu,  1 Oct 2026 11:33:12 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 3039A1F000FF;
-	Thu,  1 Oct 2026 11:33:05 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id C98D941745;
+	Thu,  1 Oct 2026 11:34:36 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 7079C1F000FF;
+	Thu,  1 Oct 2026 11:34:28 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1790854392;
-	bh=b2hY2Lwa9e4ug6tiGWzP7cLmTEKbjt1EVVbwD8WgJqc=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To;
-	b=iD53Oifp/0W8HMOSNW9RLwVbugDqNyDtJoq4TPv4O2H+BOf7+CcJKqPB1nG0G9tg4
-	 Ou+C2O2JlfDb7vpzb7HfDkraQyJ++Upwa8X8TTgcD6F+Ze956QW97elz7kK4l/gbzY
-	 SWdxBw6KMHjiH6PnnGJhkq1Sjz751s1sMCP4N/GD1rEBqE5j4tjvdsDniB+5d5JStZ
-	 ygajxJTAvJFlo/QWoLABdpjnQ0OIGs1pIeksWHX1R8jWoMvp1fKOpKwMd24oe1/GeU
-	 MfPXizuEjQRxBTnxQy6GWVhaO3YwSTyWDkV6mriRPMOVVa1Xc9P2kVv7Wefp7PZRR7
-	 /qs2Z/i1dQ5zA==
-Message-ID: <7454d7a3-57c6-4883-a66b-26129e633c6e@kernel.org>
-Date: Thu, 1 Oct 2026 13:33:02 +0200
+	s=k20260515; t=1790854476;
+	bh=OFUfBJhfs43LK2uJ35trWg6Dxj/vYrf6yAbtRpo/I9Q=;
+	h=Date:Subject:To:References:From:In-Reply-To;
+	b=hU/U6FzrcmDrLuYwspEuImByZobXbfI3VhwI7ef+aDvD2f2HwXe2U0G2qGEHQJzu6
+	 fgcV7rEMPAoLLQN1Q2c2AXy58ZQUD8hIexEoci4gM6Ih/uiXQxHxNonUVR69E6Z8gX
+	 ZTd2WblSoo4EGpHGIeFX6HXyLNzS/Cdpm+hpU9rUMMXmjb05OM36DMx4SfGLcf0gsY
+	 Xd5ro+jXBJIF3mVya4X9/ghB9UFUxuxmCPjf3cWIEx2a3tmZoAqGLQznV8tA3UPEsW
+	 K4ktT/2AdvhFaj3l0TnW65UsRSRYVUOIcQe3dCdHOI6V/iROn3Thy4HYnYpDvZky5p
+	 AYOKVxe1+r+vg==
+Message-ID: <10fd28a8-04e0-4e50-860b-ae094dd1e008@kernel.org>
+Date: Thu, 1 Oct 2026 13:34:25 +0200
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 4/7] maccess: Use a scoped guard for page faults
-To: Muhammad Usama Anjum <usama.anjum@arm.com>
-Cc: Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
+Subject: Re: [PATCH 3/7] maccess: Skip setup for zero-sized kernel nofault
+ copies
+To: Muhammad Usama Anjum <usama.anjum@arm.com>,
+ Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
  Mark Rutland <mark.rutland@arm.com>, Alexei Starovoitov <ast@kernel.org>,
  Daniel Borkmann <daniel@iogearbox.net>, Andrii Nakryiko <andrii@kernel.org>,
  Eduard Zingerman <eddyz87@gmail.com>,
@@ -66,12 +67,9 @@ Cc: Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
  open list <linux-kernel@vger.kernel.org>,
  "open list:BPF [GENERAL] (Safe Dynamic Programs and Tools)"
  <bpf@vger.kernel.org>,
- "open list:MEMORY MANAGEMENT - CORE" <linux-mm@kvack.org>,
- Viktor Malik <vmalik@redhat.com>
+ "open list:MEMORY MANAGEMENT - CORE" <linux-mm@kvack.org>
 References: <20260824160523.3907021-1-usama.anjum@arm.com>
- <20260824160523.3907021-5-usama.anjum@arm.com>
- <79daa73b-0d34-4e84-8450-56f90bc700d4@kernel.org>
- <98e9ac67-7df3-4c0a-8814-37e196d94020@arm.com>
+ <20260824160523.3907021-4-usama.anjum@arm.com>
 From: "David Hildenbrand (Arm)" <david@kernel.org>
 Content-Language: en-US
 Autocrypt: addr=david@kernel.org; keydata=
@@ -118,7 +116,7 @@ Autocrypt: addr=david@kernel.org; keydata=
  3iyY2Nsd7JxfKu1PRhCGwXzRw5TlfEsoRI7V9A8isUCoqE2Dzh3FvYHVeX4Us+bRL/oqareJ
  CIFqgYMyvHj7Q06kTKmauOe4Nf0l0qEkIuIzfoLJ3qr5UyXc2hLtWyT9Ir+lYlX9efqh7mOY
  qIws/H2t
-In-Reply-To: <98e9ac67-7df3-4c0a-8814-37e196d94020@arm.com>
+In-Reply-To: <20260824160523.3907021-4-usama.anjum@arm.com>
 Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
 X-BeenThere: linux-arm-kernel@lists.infradead.org
@@ -135,73 +133,44 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 8/25/26 14:07, Muhammad Usama Anjum wrote:
-> On 25/08/2026 11:36 am, David Hildenbrand (Arm) wrote:
->> On 8/24/26 18:04, Muhammad Usama Anjum wrote:
->>> Kernel nofault copy and string paths open-code page-fault disable and
->>> enable around label-based loops, duplicating cleanup on success and
->>> failure.
->>>
->>> Use a page-fault scope guard instead. Leaving the scope now re-enables
->>> page faults on both paths without separate cleanup at the fault label.
->>>
->>> No functional change.
->>>
->>> Signed-off-by: Muhammad Usama Anjum <usama.anjum@arm.com>
->>> ---
->>>  mm/maccess.c | 53 +++++++++++++++++++++++++---------------------------
->>>  1 file changed, 25 insertions(+), 28 deletions(-)
->>>
->>> diff --git a/mm/maccess.c b/mm/maccess.c
->>> index c59a0e092d24a..f695ceefe6fcc 100644
->>> --- a/mm/maccess.c
->>> +++ b/mm/maccess.c
->>> @@ -38,18 +38,17 @@ long copy_from_kernel_nofault(void *dst, const void *src, size_t size)
->>>  	if (!size)
->>>  		return 0;
->>>  
->>> -	pagefault_disable();
->>> -	if (!(align & 7))
->>> -		copy_from_kernel_nofault_loop(dst, src, size, u64, Efault);
->>> -	if (!(align & 3))
->>> -		copy_from_kernel_nofault_loop(dst, src, size, u32, Efault);
->>> -	if (!(align & 1))
->>> -		copy_from_kernel_nofault_loop(dst, src, size, u16, Efault);
->>> -	copy_from_kernel_nofault_loop(dst, src, size, u8, Efault);
->>> -	pagefault_enable();
->>> +	scoped_guard(pagefault) {
->>> +		if (!(align & 7))
->>> +			copy_from_kernel_nofault_loop(dst, src, size, u64, Efault);
->>> +		if (!(align & 3))
->>> +			copy_from_kernel_nofault_loop(dst, src, size, u32, Efault);
->>> +		if (!(align & 1))
->>> +			copy_from_kernel_nofault_loop(dst, src, size, u16, Efault);
->>> +		copy_from_kernel_nofault_loop(dst, src, size, u8, Efault);
->>> +	}
->>
->> While I understand what pagefault_disable+pagefault_enable does, it is
->> completely unclear what scoped_guard(pagefault) does.
->>
->> Should this be scoped_guard(disabled_pagefaults) or sth like that?
->>
+On 8/24/26 18:04, Muhammad Usama Anjum wrote:
+> A zero-sized kernel nofault copy does not enter an access loop, but it
+> still disables and re-enables page faults.
 > 
-> The `pagefault` guard is already defined in `include/linux/uaccess.h`:
+> Zero sizes are valid. BPF probe-read helpers accept them, and KGDB memory
+> packets may carry a zero length.
+> 
+> Return before changing page-fault state when there is nothing to copy.
+> For reads, keep architecture-specific address validation before the fast
+> path so its behavior is unchanged.
+> 
+> Signed-off-by: Muhammad Usama Anjum <usama.anjum@arm.com>
+> ---
+>  mm/maccess.c | 5 +++++
+>  1 file changed, 5 insertions(+)
+> 
+> diff --git a/mm/maccess.c b/mm/maccess.c
+> index 486559d688583..c59a0e092d24a 100644
+> --- a/mm/maccess.c
+> +++ b/mm/maccess.c
+> @@ -35,6 +35,8 @@ long copy_from_kernel_nofault(void *dst, const void *src, size_t size)
+>  
+>  	if (!copy_from_kernel_nofault_allowed(src, size))
+>  		return -ERANGE;
+> +	if (!size)
+> +		return 0;
+>  
+>  	pagefault_disable();
+>  	if (!(align & 7))
+> @@ -65,6 +67,9 @@ long copy_to_kernel_nofault(void *dst, const void *src, size_t size)
+>  {
+>  	unsigned long align = 0;
+>  
+> +	if (!size)
+> +		return 0;
+> +
 
-Ah, sorry, I thought this was added in this series.
-
-It's completely confusing.
-
-	guard(pagefault)();
-
-meaning "disable pagefault", what?! :)
-
-CCin Viktor: I see that the patch that introduced that has no acks from MM. I
-don't blame you, because the file is not actually listed under the MM section.
-
-I think this really needs to be cleaned up to clarify that we *disable* pagefaults.
-
-Usama, can you throw in a patch to clean that up? (calling it nofault,
-disable_pagefaults or whatever)
+Worth an unlikely() ? It's the corner case.
 
 -- 
 Cheers,
