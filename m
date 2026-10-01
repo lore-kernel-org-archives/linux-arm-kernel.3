@@ -4,94 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 46228CA5FD4
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  1 Oct 2026 21:09:40 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1A2ACCA5FD4
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  1 Oct 2026 21:11:03 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=TaYcgLBHk6VYiVpfVnVQGfQsoBC9axZK0xhevJXC8uU=; b=DshoklhQfICqUBuXoIJvmEUrCo
-	Mfb8xxs5WDotAmJMRpBzygNn0T4/fQOX9wiNWf3LJZhHpV8k33xSTP2xxm9H3aFl6be64MUUNGgGr
-	yqx9Dq/hIWbeDpDz7rRrIsSnGw43jg9ONITWJK4tVmWfji//Xsi3OkjScnQ/VL6ZenaU7m0QMBS4B
-	sBi/+HAPR0DfLDHr0mWBGfMEQmvXOgizvDGXTmQ60kB0ckLIZavNGZ67LWBDp52T4MMzSu5IXp8yy
-	o/SB/4GqrTZwCATNMOg/wn7mHaSTmAuPkUdjlfv9tKMHTc8UNCnJ9z8k3UEAmZpnBvfpJ+A2DS48S
-	kVOY4MMQ==;
+	bh=Cv/AHEsBbnYG0BEg3b4FxMz/rNctK75WTcep6/1Bhe4=; b=B+xsPlI8nDD/0vy74S/ziO9tKv
+	CxpwcHRhyZNnzhCt7ZI2qQ8RzayuCEuH6pofxRJ2njBNfC5/0+I3R/CEKc44EIuD9f/e1KI8UtDdf
+	3ycpF/LVuVwlaGvFnTBLIKy9C35+4CxhNfCk65Y3MXeTJ4VU89fWH+V8kP3tJ34Gk42xJO/2OmoEj
+	2ZZBs1RJb/WBAGK4W/9LR0eJXai+X9DpOkil4DXQt4meZnj7266dQ/1afqrWJeipa4BWa2EgSCDMT
+	7kOD3MrziMEYsyu133dP2FtrdFIKsi0AM7ETl/vyYalW9nWLhQ0nATzgdJN9UESO4bhTPKzMyuxBG
+	98H14gNA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xCO1z-0000000AEJP-0OfI;
-	Thu, 01 Oct 2026 21:09:33 +0000
-Received: from casper.infradead.org ([2001:8b0:10b:1236::1])
+	id 1xCO3L-0000000AEfR-1ea8;
+	Thu, 01 Oct 2026 21:10:55 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xCO1y-0000000AEIL-0Ton
-	for linux-arm-kernel@bombadil.infradead.org;
-	Thu, 01 Oct 2026 21:09:30 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=casper.20170209; h=Content-Transfer-Encoding:MIME-Version:
-	References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Sender:Reply-To:
-	Content-Type:Content-ID:Content-Description;
-	bh=TaYcgLBHk6VYiVpfVnVQGfQsoBC9axZK0xhevJXC8uU=; b=m66T5+fTyJu5gWUijNE3cJsXFb
-	tE4N5eK36rBRZUeTR78RK0T3XQdaTOZIiLUeyNh+oTTWsUO7eIQnW6pPMjwnQVxiDyBaxWg6nSLGr
-	V02qA6zC1kqIFzim/o/lbgaoL3fQgyGySXMR33Pb7lLlF7UM9rcO1ez4hOwtBBrtGsz8t91WTbvFm
-	HfJad4YKutBXzMePotiCLpqO4IbkH4S0pTnaSws6BL8gp72zQytIZMujmygOg0szRh3GTyf0LteIf
-	42aC9OnsoLWsURrFJGMGVbGWy7LfdbTgm4BzRyuNG91vArX0MgpKCfraXxMBQZmBaWDjIvhcoQ2vm
-	DUHn5RCQ==;
-Received: from foss.arm.com ([217.140.110.172])
-	by casper.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xCO1i-00000009zEq-48XK
+	id 1xCO3H-0000000AEdk-3FSX
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 01 Oct 2026 21:09:27 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id C63221476;
-	Thu,  1 Oct 2026 14:08:42 -0700 (PDT)
-Received: from ewhatever.cambridge.arm.com (ewhatever.cambridge.arm.com [10.2.197.99])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPA id B44563F86F;
-	Thu,  1 Oct 2026 14:08:42 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1790888926; bh=+hXKXlviQfN2QJXIbC/yz9IDZImjMWTbgpyFT8Aj5q4=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=rEzWHT+0HPRXN26RMVgQn8MkiEJrN/wHywc0QV8vVGNrp6K8voGDec3ABMgvM53jV
-	 OVobjJSEHlgy41E9uIazN6SA/+yHFbetqsRooX09EhveoGf6PBNERkprJGbj6Hf/fo
-	 Bk+8nL1hIGMGquR46MKiOdNWfO4YOrrnaTPQInn4=
-From: Suzuki K Poulose <suzuki.poulose@arm.com>
-To: kvm@vger.kernel.org,
-	kvmarm@lists.linux.dev
-Cc: maz@kernel.org,
-	will@kernel.org,
-	catalin.marinas@arm.com,
-	linux-kernel@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	steven.price@arm.com,
-	aneesh.kumar@kernel.org,
-	oupton@kernel.org,
-	gshan@redhat.com,
-	joey.gouly@arm.com,
-	tabba@google.com,
-	yuzenghui@huawei.com,
-	linux-coco@lists.linux.dev,
-	gankulkarni@os.amperecomputing.com,
-	sdonthineni@nvidia.com,
-	alpergun@google.com,
-	fj0570is@fujitsu.com,
-	WeiLin.Chang@arm.com,
-	lpieralisi@kernel.org,
-	enju.kohei@fujitsu.com,
-	sudeep.holla@arm.com,
-	jonathan.cameron@oss.qualcomm.com,
-	Jean-Philippe Brucker <jean-philippe@linaro.org>,
-	Suzuki K Poulose <suzuki.poulose@arm.com>
-Subject: [PATCH v21 23/23] KVM: arm64: CCA: Control user register access for Realms
-Date: Thu,  1 Oct 2026 22:07:03 +0100
-Message-ID: <20261001210703.1597150-24-suzuki.poulose@arm.com>
-X-Mailer: git-send-email 2.43.0
-In-Reply-To: <20261001210703.1597150-1-suzuki.poulose@arm.com>
-References: <20261001210703.1597150-1-suzuki.poulose@arm.com>
+	Thu, 01 Oct 2026 21:10:51 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by sea.source.kernel.org (Postfix) with ESMTP id 45E3C440A5
+	for <linux-arm-kernel@lists.infradead.org>; Thu,  1 Oct 2026 21:10:51 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 2A1451F00899
+	for <linux-arm-kernel@lists.infradead.org>; Thu,  1 Oct 2026 21:10:51 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1790889051;
+	bh=Cv/AHEsBbnYG0BEg3b4FxMz/rNctK75WTcep6/1Bhe4=;
+	h=References:In-Reply-To:From:Date:Subject:To:Cc;
+	b=ddwwBZ84yvtt1R2029E/eH4Z+7yntVZy5kecE9fWb7IL/X16zEkvTHQm2s0UHtQcX
+	 Ns3orOrmaydJVkrCWEDl6C806roFrNuPim6F6ENsrWrS7t56jLiQE9VU/lUKpmXFl7
+	 khh93F5bLaJv8wQY13t6bODnKGs5sXQPlUYw6Xo9X/ffULFOENIxyxCtAi3upzuMeb
+	 Ve57/0L90zvXbqCoRR/SvxUZhkXP3Laankhc3W7eAMoQ3YOXShX/MYw8oblcX6CtGr
+	 1NFg6hxgZx/asuCWf+DC13XBQjof4Bvh5Y6nOceYYZYVnHHiuKcIGbDd8sug65MmCx
+	 rpEiVfol3riDw==
+Received: by mail-lr2-f34.google.com with SMTP id 38308e7fff4ca-3a652b710a5so70139621fa.3
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 01 Oct 2026 14:10:51 -0700 (PDT)
+X-Forwarded-Encrypted: i=1; AKwUvBzl+yrVYevoiJDgARdwedn7LyhSuqBMkAOE7xlDKlvPF+F486g5vYoM6XCmxST7XEf8KLPpFkpjez63fatI713S@lists.infradead.org
+X-Gm-Message-State: AFq9FYIfg2TYYbsS5q0QJmwKjhRVpriCt5iLMF1s0+4naa9hQ/tMoy58
+	YYRRuGnF5dVt/o50VZBp5ByUGtnfLheZw78n7vWobdTqk8WR8/N1PqJz2LWcYXZlpneI6VvpSI2
+	og1hhAAiSMrs5ytfhXoYWIkpIEMGOYrY=
+X-Received: by 2002:a05:651c:1987:b0:3a5:b187:c7a3 with SMTP id
+ 38308e7fff4ca-3a87f7d8b35mr1130761fa.2.1790889049900; Thu, 01 Oct 2026
+ 14:10:49 -0700 (PDT)
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261001_220916_041438_C6095A07 
-X-CRM114-Status: GOOD (  25.08  )
+References: <20260930092020.1047221-1-y-abhilashchandra@ti.com> <20260930092020.1047221-2-y-abhilashchandra@ti.com>
+In-Reply-To: <20260930092020.1047221-2-y-abhilashchandra@ti.com>
+From: Linus Walleij <linusw@kernel.org>
+Date: Thu, 1 Oct 2026 23:10:34 +0200
+X-Gmail-Original-Message-ID: <CAD++jLnok0bz9kXiW=O8+4fPBYvm9nG-AA-8CopDpc-DBvBiJA@mail.gmail.com>
+X-Gm-Features: AclHuK_xn_-CKnIZzt8Aiza52a34qEVHcG5dNEDn3VR0fTXp_jLDfo12LQfvZZ0
+Message-ID: <CAD++jLnok0bz9kXiW=O8+4fPBYvm9nG-AA-8CopDpc-DBvBiJA@mail.gmail.com>
+Subject: Re: [PATCH 1/3] dt-bindings: pinctrl: Add TI TDA54 pin controller
+To: Yemike Abhilash Chandra <y-abhilashchandra@ti.com>
+Cc: robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org, nm@ti.com, 
+	vigneshr@ti.com, kristo@kernel.org, brgl@kernel.org, 
+	linux-gpio@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, afd@ti.com, 
+	u-kumar1@ti.com
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -106,268 +82,163 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Jean-Philippe Brucker <jean-philippe@linaro.org>
+Hi Yemike,
 
-The RMM restricts the access to the register states that the host can
-read/modify for a given Realm.
+thanks for your patch!
 
-e.g., At VCPU creation, can modify GPRS (x0-x30) and PC.
-      While servicing SMCCC calls via RSI_HOST_CALL or servicing PSCI
-      requests.
-      MMIO emulation in the unprotected space.
+On Wed, Sep 30, 2026 at 11:21=E2=80=AFAM Yemike Abhilash Chandra
+<y-abhilashchandra@ti.com> wrote:
 
-Additionally we use the sysreg configuration to advertise/configure the
-following Realm parameters, which are required before the Realm Descriptor
-is created:
- - SVE Vector Length
- - Number of HW Breakpoints/Watchpoints
- - PMU Counters.
+> +      ti,debounce-select:
+> +        $ref: /schemas/types.yaml#/definitions/uint32
+> +        enum: [0, 1, 2, 3, 4, 5, 6]
+> +        description:
+> +          Selects which DBOUNCE_CFGn period register in the control modu=
+le
+> +          drives the debounce filter for this pad. 0 disables debouncing=
+,
+> +          1 to 6 select DBOUNCE_CFG1 to DBOUNCE_CFG6.
 
-Thus KVM also additionally allows access to ID_AA64DFR0_EL1 and SVE_VLS for
-the configuration of Realm creation parameters. We don't support PMUs for
-the Realm VMs yet, so PMCR is not exposed.
+What's wrong with the existing input-debounce property?
 
-The RMM makes similar restrictions for reading of the guest's registers
-(this is *confidential* compute after all), however we don't impose the
-restriction here. This allows the VMM to read (stale) values from the
-registers which might be useful to read back the initial values even if
-the RMM doesn't provide the latest version. For migration of a realm VM,
-a new interface will be needed so that the VMM can receive an
-(encrypted) blob of the VM's state.
+  input-debounce:
+    $ref: /schemas/types.yaml#/definitions/uint32-array
+    description: Takes the debounce time in usec as argument or 0 to disabl=
+e
+      debouncing
 
-Reflect the above in KVM_GET_REG_LIST, KVM_SET_ONE_REG calls.
+Just translate usec:s into your custom format in the code, problem solved.
 
-Signed-off-by: Jean-Philippe Brucker <jean-philippe@linaro.org>
-Co-developed-by: Steven Price <steven.price@arm.com>
-Signed-off-by: Steven Price <steven.price@arm.com>
-Co-developed-by: Suzuki K Poulose <suzuki.poulose@arm.com>
-Signed-off-by: Suzuki K Poulose <suzuki.poulose@arm.com>
----
-Changes since v18:
- - Don't expose PMCR_EL0 to the userspace now, we could do that when we
-   support PMU
- - Fix check patch warnings
-Changes since v17:
-  - Merge related changes into one single patch for the user set/get registers
-    I have retained the Review tags, as the code hasn't changed, just the patches
-    were merged into a single one with the same tags.
-  - Limit KVM_GET_REG_LIST to the allowed CORE registers.
----
- arch/arm64/kvm/guest.c      | 63 +++++++++++++++++++++++++++++++++++++
- arch/arm64/kvm/hypercalls.c |  4 +--
- arch/arm64/kvm/sys_regs.c   | 28 +++++++++++++----
- 3 files changed, 87 insertions(+), 8 deletions(-)
+> +      ti,virt-gpio-instance:
+> +        $ref: /schemas/types.yaml#/definitions/uint32
+> +        enum: [0, 1, 2, 3, 4, 5, 6, 7]
+> +        description:
+> +          Selects which virtual GPIO instance controls this pad, allowin=
+g
+> +          protection between multiple virtual views of the GPIO control
+> +          registers. Has no effect unless the pad is muxed to GPIO mode
+> +          (muxmode 7).
 
-diff --git a/arch/arm64/kvm/guest.c b/arch/arm64/kvm/guest.c
-index c3ca369882273..ffe3f5ce4b3cf 100644
---- a/arch/arm64/kvm/guest.c
-+++ b/arch/arm64/kvm/guest.c
-@@ -73,6 +73,25 @@ static u64 core_reg_offset_from_id(u64 id)
- 	return id & ~(KVM_REG_ARCH_MASK | KVM_REG_SIZE_MASK | KVM_REG_ARM_CORE);
- }
- 
-+static bool kvm_realm_validate_core_reg(u64 off)
-+{
-+	/*
-+	 * Note that GPRs can only sometimes be controlled by the VMM.
-+	 * For PSCI only X0-X6 are used, higher registers are ignored (restored
-+	 * from the REC).
-+	 * For HOST_CALL all of X0-X30 are copied to the RsiHostCall structure.
-+	 * For emulated MMIO X0 is always used.
-+	 * PC can only be set before the realm is activated.
-+	 */
-+	switch (off) {
-+	case KVM_REG_ARM_CORE_REG(regs.regs[0]) ...
-+	     KVM_REG_ARM_CORE_REG(regs.regs[30]):
-+	case KVM_REG_ARM_CORE_REG(regs.pc):
-+		return true;
-+	}
-+	return false;
-+}
-+
- static int core_reg_size_from_offset(const struct kvm_vcpu *vcpu, u64 off)
- {
- 	int size;
-@@ -553,6 +572,9 @@ static int copy_core_reg_indices(const struct kvm_vcpu *vcpu,
- 		u64 reg = KVM_REG_ARM64 | KVM_REG_ARM_CORE | i;
- 		int size = core_reg_size_from_offset(vcpu, i);
- 
-+		if (vcpu_is_rec(vcpu) && !kvm_realm_validate_core_reg(i))
-+			continue;
-+
- 		if (size < 0)
- 			continue;
- 
-@@ -598,6 +620,9 @@ static unsigned long num_sve_regs(const struct kvm_vcpu *vcpu)
- 	if (!vcpu_has_sve(vcpu))
- 		return 0;
- 
-+	if (kvm_vm_is_realm(vcpu->kvm))
-+		return 1; /* KVM_REG_ARM64_SVE_VLS */
-+
- 	if (!kvm_arm_vcpu_sve_finalized(vcpu))
- 		return 1; /* KVM_REG_ARM64_SVE_VLS */
- 
-@@ -625,6 +650,10 @@ static int copy_sve_reg_indices(const struct kvm_vcpu *vcpu,
- 		return -EFAULT;
- 	++num_regs;
- 
-+	/* For Realms only support SVE_VLS */
-+	if (kvm_vm_is_realm(vcpu->kvm))
-+		return num_regs;
-+
- 	if (!kvm_arm_vcpu_sve_finalized(vcpu))
- 		return num_regs;
- 
-@@ -705,6 +734,11 @@ int kvm_arm_get_reg(struct kvm_vcpu *vcpu, const struct kvm_one_reg *reg)
- 	if ((reg->id & ~KVM_REG_SIZE_MASK) >> 32 != KVM_REG_ARM64 >> 32)
- 		return -EINVAL;
- 
-+	/*
-+	 * We don't filter out the register reads for Realms, like we do for
-+	 * the user writes. We expose junk data for the VMM instead of
-+	 * denying the requests.
-+	 */
- 	switch (reg->id & KVM_REG_ARM_COPROC_MASK) {
- 	case KVM_REG_ARM_CORE:	return get_core_reg(vcpu, reg);
- 	case KVM_REG_ARM_FW:
-@@ -716,12 +750,41 @@ int kvm_arm_get_reg(struct kvm_vcpu *vcpu, const struct kvm_one_reg *reg)
- 	return kvm_arm_sys_reg_get_reg(vcpu, reg);
- }
- 
-+#define KVM_REG_ARM_ID_AA64DFR0_EL1	ARM64_SYS_REG(3, 0, 0, 5, 0)
-+/*
-+ * The RMI ABI only enables setting some GPRs and PC. The selection of GPRs
-+ * that are available depends on the Realm state and the reason for the last
-+ * exit.  All other registers are reset to architectural or otherwise defined
-+ * reset values by the RMM, except for a few configuration fields that
-+ * correspond to Realm parameters.
-+ */
-+static bool validate_realm_set_reg(struct kvm_vcpu *vcpu,
-+				   const struct kvm_one_reg *reg)
-+{
-+	if ((reg->id & KVM_REG_ARM_COPROC_MASK) == KVM_REG_ARM_CORE) {
-+		u64 off = core_reg_offset_from_id(reg->id);
-+
-+		return kvm_realm_validate_core_reg(off);
-+	}
-+
-+	switch (reg->id) {
-+	case KVM_REG_ARM_ID_AA64DFR0_EL1:
-+	case KVM_REG_ARM64_SVE_VLS:
-+		return true;
-+	}
-+
-+	return false;
-+}
-+
- int kvm_arm_set_reg(struct kvm_vcpu *vcpu, const struct kvm_one_reg *reg)
- {
- 	/* We currently use nothing arch-specific in upper 32 bits */
- 	if ((reg->id & ~KVM_REG_SIZE_MASK) >> 32 != KVM_REG_ARM64 >> 32)
- 		return -EINVAL;
- 
-+	if (kvm_vm_is_realm(vcpu->kvm) && !validate_realm_set_reg(vcpu, reg))
-+		return -EINVAL;
-+
- 	switch (reg->id & KVM_REG_ARM_COPROC_MASK) {
- 	case KVM_REG_ARM_CORE:	return set_core_reg(vcpu, reg);
- 	case KVM_REG_ARM_FW:
-diff --git a/arch/arm64/kvm/hypercalls.c b/arch/arm64/kvm/hypercalls.c
-index b11b8821c9fbc..2b1e6fdeb4d5c 100644
---- a/arch/arm64/kvm/hypercalls.c
-+++ b/arch/arm64/kvm/hypercalls.c
-@@ -414,14 +414,14 @@ void kvm_arm_teardown_hypercalls(struct kvm *kvm)
- 
- int kvm_arm_get_fw_num_regs(struct kvm_vcpu *vcpu)
- {
--	return ARRAY_SIZE(kvm_arm_fw_reg_ids);
-+	return vcpu_is_rec(vcpu) ? 0 : ARRAY_SIZE(kvm_arm_fw_reg_ids);
- }
- 
- int kvm_arm_copy_fw_reg_indices(struct kvm_vcpu *vcpu, u64 __user *uindices)
- {
- 	int i;
- 
--	for (i = 0; i < ARRAY_SIZE(kvm_arm_fw_reg_ids); i++) {
-+	for (i = 0; i < kvm_arm_get_fw_num_regs(vcpu); i++) {
- 		if (put_user(kvm_arm_fw_reg_ids[i], uindices++))
- 			return -EFAULT;
- 	}
-diff --git a/arch/arm64/kvm/sys_regs.c b/arch/arm64/kvm/sys_regs.c
-index 44aae52c473d7..47ebde943a09e 100644
---- a/arch/arm64/kvm/sys_regs.c
-+++ b/arch/arm64/kvm/sys_regs.c
-@@ -5638,18 +5638,18 @@ int kvm_arm_sys_reg_set_reg(struct kvm_vcpu *vcpu, const struct kvm_one_reg *reg
- 				    sys_reg_descs, ARRAY_SIZE(sys_reg_descs));
- }
- 
--static unsigned int num_demux_regs(void)
-+static inline unsigned int num_demux_regs(struct kvm_vcpu *vcpu)
- {
--	return CSSELR_MAX;
-+	return vcpu_is_rec(vcpu) ? 0 : CSSELR_MAX;
- }
- 
--static int write_demux_regids(u64 __user *uindices)
-+static int write_demux_regids(struct kvm_vcpu *vcpu, u64 __user *uindices)
- {
- 	u64 val = KVM_REG_ARM64 | KVM_REG_SIZE_U32 | KVM_REG_ARM_DEMUX;
- 	unsigned int i;
- 
- 	val |= KVM_REG_ARM_DEMUX_ID_CCSIDR;
--	for (i = 0; i < CSSELR_MAX; i++) {
-+	for (i = 0; i < num_demux_regs(vcpu); i++) {
- 		if (put_user(val | i, uindices))
- 			return -EFAULT;
- 		uindices++;
-@@ -5693,11 +5693,27 @@ static bool copy_reg_to_user(const struct sys_reg_desc *reg, u64 __user **uind)
- 	return true;
- }
- 
-+static inline bool kvm_realm_sys_reg_hidden_user(const struct kvm_vcpu *vcpu,
-+						 u64 reg)
-+{
-+	if (!vcpu_is_rec(vcpu))
-+		return false;
-+
-+	switch (reg) {
-+	case SYS_ID_AA64DFR0_EL1:
-+		return false;
-+	}
-+	return true;
-+}
-+
- static int walk_one_sys_reg(const struct kvm_vcpu *vcpu,
- 			    const struct sys_reg_desc *rd,
- 			    u64 __user **uind,
- 			    unsigned int *total)
- {
-+	if (kvm_realm_sys_reg_hidden_user(vcpu, reg_to_encoding(rd)))
-+		return 0;
-+
- 	/*
- 	 * Ignore registers we trap but don't save,
- 	 * and for which no custom user accessor is provided.
-@@ -5735,7 +5751,7 @@ static int walk_sys_regs(struct kvm_vcpu *vcpu, u64 __user *uind)
- 
- unsigned long kvm_arm_num_sys_reg_descs(struct kvm_vcpu *vcpu)
- {
--	return num_demux_regs()
-+	return num_demux_regs(vcpu)
- 		+ walk_sys_regs(vcpu, (u64 __user *)NULL);
- }
- 
-@@ -5748,7 +5764,7 @@ int kvm_arm_copy_sys_reg_indices(struct kvm_vcpu *vcpu, u64 __user *uindices)
- 		return err;
- 	uindices += err;
- 
--	return write_demux_regids(uindices);
-+	return write_demux_regids(vcpu, uindices);
- }
- 
- #define KVM_ARM_FEATURE_ID_RANGE_INDEX(r)			\
--- 
-2.43.0
+Wow crazy stuff. OK keep it :D
 
+> +      ti,wakeup:
+> +        $ref: /schemas/types.yaml#/definitions/uint32
+> +        enum: [0, 1, 2, 3]
+> +        description: |
+> +          Wakeup event configuration for this pad.
+> +          0 - wakeup disabled
+> +          1 - wakeup triggered by any change of the pin input value
+> +          2 - wakeup triggered by a low value on the pin
+> +          3 - wakeup triggered by a high value on the pin
+
+I just have the feeling this should be a generic property. It seems so usef=
+ul.
+
+Can you just add this as wakeup-mode =3D <custom value> in
+Documentation/devicetree/bindings/pinctrl/pincfg-node.yaml
+
+> +      ti,retention-bias:
+> +        $ref: /schemas/types.yaml#/definitions/uint32
+> +        enum: [0, 1, 2]
+> +        description: |
+> +          Enables the internal I/O pullup/pulldown resistor when pin ent=
+ers
+> +          TDA54 I/O retention mode, and configures the I/O pull resistor
+> +          direction.
+> +          0 - OFF mode pad pull resistor disable
+> +          1 - Select OFF mode pulldown resistor
+> +          2 - Select OFF mode pullup resistor
+
+Use names inspired by the generic config types and flags instead
+of enums.
+
+ti,retention-bias-disable;
+ti,retention-bias-pull-down;
+ti,retention-bias-pull-up;
+
+> +      ti,retention-offmode:
+> +        $ref: /schemas/types.yaml#/definitions/uint32
+> +        enum: [0, 1]
+> +        description: |
+> +          I/O behaviour when retention mode is active.
+> +          0 - I/O maintains its previous state
+> +          1 - I/O state is forced to the OFF mode value
+
+Behaviour of *what*?
+
+The driver stage?
+
+I suspect you should make two bool flags
+ti,retention-output-hold;
+ti,retention-output-disable;
+
+> +      ti,retention-output:
+> +        $ref: /schemas/types.yaml#/definitions/uint32
+> +        enum: [0, 1, 2]
+> +        description: |
+> +          Output driver behaviour while the pad is in retention mode.
+> +          0 - output driver disabled
+> +          1 - output driver enabled, pad driven low
+> +          2 - output driver enabled, pad driven high
+
+Make three flags:
+ti,retention-output-disable;
+ti,retention-output-low;
+ti,retention-output-high;
+
+> +      ti,retention-force:
+> +        $ref: /schemas/types.yaml#/definitions/uint32
+> +        enum: [0, 1]
+> +        description: |
+> +          I/O retention controls.
+> +          0 - gated by the Device Manager logic
+> +          1 - forced active, overriding the Device Manager gating logic
+
+This is clearly a bool flag. It should contain device-manager as that
+magic entity is involved.
+
+ti,retention-device-manager-enable;
+ti,retention-device-manager-forced-active;
+
+Both seems to be related to the device manager whatever that is.
+
+> +      ti,isolation-bypass:
+> +        $ref: /schemas/types.yaml#/definitions/uint32
+> +        enum: [0, 1]
+> +        description: |
+> +          I/O isolation for this pad.
+> +          0 - isolation preserved
+> +          1 - isolation bypassed
+
+What does this even mean electronically speaking? Explain in a description:
+statement.
+
+ti,isolation-preserve;
+ti.isolation-bypass-enable;
+
+perhaps?
+
+Some of the retention settings seem *very* generic, c.f. this
+from include/dt-bindings/pinctrl/nomadik.h that has been
+around forever:
+
+#define SLPM_DISABLED           0
+#define SLPM_ENABLED            1
+#define SLPM_INPUT_NOPULL       0
+#define SLPM_INPUT_PULLUP       1
+#define SLPM_INPUT_PULLDOWN     2
+#define SLPM_DIR_INPUT          3
+#define SLPM_OUTPUT_LOW         0
+#define SLPM_OUTPUT_HIGH        1
+#define SLPM_DIR_OUTPUT         2
+#define SLPM_WAKEUP_DISABLE     0
+#define SLPM_WAKEUP_ENABLE      1
+
+SLPM means "sleep mode", yeah pretty much retention...
+
+I think the corresponding retention settings for things that are really
+quite generic should just be added to the generic pin config bindings.
+
+Yours,
+Linus Walleij
 
