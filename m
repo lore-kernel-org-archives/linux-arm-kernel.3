@@ -4,71 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6A034CA5FD2
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  1 Oct 2026 13:18:43 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B962ACA5FCB
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  1 Oct 2026 13:18:49 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=g2a/uAq+WStsO8aQx6BMPUzRVm0wlq4SS94ygHqJZbI=; b=JFENQHa5jtKsj+lyhYxEfUBptF
-	BiY32goqNGXJjhVT5Stxgv1OTDI28ADz30MfE/yE6Mx1lz7avrvlw/1EYzm6x4CD5w9jJ78vVi0vk
-	NYm2Bua4dubDctqx3BR/4D5mhusk/Jbv3H2ULUqfpf1oHmZT4JOxTK3XJb7ce2RmOLDlWK546VxMA
-	I0UHXSfg0o/F1wNqo8059SoLCq2Oz6skLhtvq1GlKUCy++X8dbSLg8fguRYq//GtJQ63nBgXTPl6c
-	h/SJhlrijUg+DF8K3LIfMoNgx1z0HGRz5TOGbSF/B4Ivs65tGIlwN4KyeBj7Bf2+0k089zfqlLZEI
-	P38cB5TQ==;
+	bh=rLY/ur1Fk26mxY+HoEWe9ij36mmqxTHAK9cMFWuPb0c=; b=tE7RYVp03/NQeZOpKo9MKjszo6
+	XOsxAz5yx3tclx16IQIHPlfGdkaIbXtBio9h8d+6xneDSNLL7ZLP/tvm2HanNoQ51nwlbyntHkVye
+	A/+PB51Sa9FtFnzGuiqaZ3a1zcePotJwPzIP5S669zLxK8HBzXHduH1olKcB/LGihCl7aOEHMBigN
+	7btttFxPGDTNGJHIV+tOComiwXmEojANXR0Ec3JVZQGX+kJYznNm7Fsnna1enexZrv02XoY9ZjcK1
+	C3ZyWjKE3B0+nmj9zxatHP0w6Rv3E/NLYB7OaPo/kNBcn7/luWvBqAwhEjAMIodVSRh3t2YtD1JiX
+	usFliG2Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xCGgE-00000009DQw-25zi;
-	Thu, 01 Oct 2026 13:18:35 +0000
-Received: from mail-pj2-x0c.google.com ([2607:f8b0:4864:39::c])
+	id 1xCGgJ-00000009DSf-12e6;
+	Thu, 01 Oct 2026 13:18:42 +0000
+Received: from mail-pj2-x0f.google.com ([2607:f8b0:4864:39::f])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xCGgB-00000009DPh-2k3L
+	id 1xCGgG-00000009DRL-0DBk
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 01 Oct 2026 13:18:33 +0000
-Received: by mail-pj2-x0c.google.com with SMTP id 98e67ed59e1d1-3a0d2c37b0bso2602430a91.0
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 01 Oct 2026 06:18:31 -0700 (PDT)
+	Thu, 01 Oct 2026 13:18:37 +0000
+Received: by mail-pj2-x0f.google.com with SMTP id 98e67ed59e1d1-3a4c8262465so1926527a91.2
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 01 Oct 2026 06:18:35 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1790860711; x=1791465511; darn=lists.infradead.org;
+        d=gmail.com; s=20251104; t=1790860715; x=1791465515; darn=lists.infradead.org;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to:content-type;
-        bh=g2a/uAq+WStsO8aQx6BMPUzRVm0wlq4SS94ygHqJZbI=;
-        b=VnBxJdbTJWv/fPrHXfTiAjJaKIzVAYonloIxvKabV9oVwYp2o3Pnuvxm2rUYTFMFpv
-         L3LRYdJiybUdubLwfoktHLTkiSpVynG+aTFa1YEvNV+ovQjc6nZ9X+Pyrhn6DhoALmpM
-         VTHRwrbr6flm3eWEPm6BIBjEQyMdo1MgQu3Vi8+3lcTd/tLMfc8H1xy/Gziy/4tIE2s6
-         Xi8VuNPBCjV4LhZuPrhKrod4atjvWnlt77rE5DGsydKYCHIJmSJTE9YUEhQvLinpPHQQ
-         DxIjY2Z3VAKOsleizD+bqKBI9cxO1nCaaF1hXScIunggXdR3A9ZY3KIm9A4qu68gDeYT
-         ps7A==
+        bh=rLY/ur1Fk26mxY+HoEWe9ij36mmqxTHAK9cMFWuPb0c=;
+        b=m3TfviVCE4WF7CyShzNEfTY+KIMajRatyxpkR3peIrsKJpp2jYVyINZUFkGhdEH55r
+         tyBEQH0MdWJnlO1chqlUhApZ91sr6ISrEtgJHz5r4NbDsNpV8XUIt8CIaoXO6IQtLATZ
+         z3CJvn3VC50F6GvteasevKPt+jO7Un+9TytH7XJEugdVSN4VEXjDWYxNFJyJWr1vMLUt
+         0xgTamKPyMO9aBUahQylejLrR1+0+mmiBwGKyus0QfRjeo3arsh1yRU4kIIwnxX8mNQA
+         AFtC7wtKtsD7WNlR6UpEo2jAcfKe7Prn0kIMaMuAgmCDDFiEBxOUrtRKnABoc6xzRANJ
+         JoMw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1790860711; x=1791465511;
+        d=1e100.net; s=20260707; t=1790860715; x=1791465515;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
          :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=g2a/uAq+WStsO8aQx6BMPUzRVm0wlq4SS94ygHqJZbI=;
-        b=vmQiZq2Uqj1tYrEN4PsVFtGaikH6Kj0hKRZnhbenRfsLiJc97jo7vXitaKX1jpTN9X
-         mKyR/q7/kqRi7oCwWDrxt8mM8FzdWg0szICOuRFkj4LFIvW4Oh/QyCMk46QZlglp2QRJ
-         10RgzaG0JLmKt0+6C7ZxmlBwUShwYOoKTOmt4BE8n+SlSD/cxyw97fhyGJaoLFNNYhhR
-         CwVzBqJK9ITFSiAD+kL5NGowXL1KNp2MqxQY5RFgKYqB/T0hHn05qq8vJse8ZCoFKZ00
-         9vl0EsX0et7B4JZ15+bkzbqJ2rTO1rOFRA9esd9uznv6LIPCU0OESUOIi1imEz8Ww/Qm
-         MrEg==
-X-Gm-Message-State: AFq9FYKtYWkY1cjZU7MN1USpNEssUtlrRhcAuOd5IM1WHum0tXQwwxmD
-	bLbXXe+PBOjVI7UJDFzRPf1Y5BiUJSLIr1APSEkNq6ctuv5NOCFLro/r
-X-Gm-Gg: AYBFou26a9tGmi72vwdOKao9VuFBBpVqxGPHbedXe4DCTNcgdoTw5iDSanHgtKiPFWL
-	tnYlvk7JW/q2RlC4EQtK+pryzTPG4Ncq9nx/EflQekpqgcgsjcBmX2mc6NaGFVTwsH5wUvQBFz6
-	hhIGyne7TBU3IafX7YhXvstrb3+RuVYLd36zIZ8YVU8L0yxrx0Q4jidKoWiH3SQphOdcYKG4koB
-	TyK+5xE81BQMB031S4CMJCTv9aoCj/XQ8Ljldwy0CH4pmCim0ttho7yq2JR/9xWqJqlM2vc7WmF
-	2aii4a86vTLJYXAnXwGOWVSxZ7u5C3NhiaSrIpuiAO4gOVQgprWeH38YtZCuy4U8nsv1/c542+K
-	zl58qJ3z6Bt/gL8fMWRwIsYrK2wHPr2NuCjzkzqsfffjk+H/xIxTqm7JjZMncmDMJdHtSYNnIba
-	UM/uKlXsypQWjguShpvlGVVObBhyWXZPoGHoApmsfT8YhNQwFVjSQgi7yK8GxG9ZEfWzFB6KuQ+
-	rVaAQ0Yi6VcWvj745/HYushYiuaA6K25CtL6eqPAspBOIylYng3L0YkK6bL
-X-Received: by 2002:a17:90b:5787:b0:3a0:c1de:f720 with SMTP id 98e67ed59e1d1-3a4d197e17emr4062843a91.20.1790860710586;
-        Thu, 01 Oct 2026 06:18:30 -0700 (PDT)
+        bh=rLY/ur1Fk26mxY+HoEWe9ij36mmqxTHAK9cMFWuPb0c=;
+        b=YyuCRbIhtNMIwgnFwn5HfEEI94IC7UqDF4yFrdTF7767GZTP142iLU/29Et5KPQVop
+         n844P6mz1pSgjFdeOphWeZZvnwVxpXEhOV3q0bI6BDcuAmNcHcpVeP1Yr6kIsorMluiz
+         Fre7RUsAYVz4rZcxxRXkhfWe5knWqsqeruQVx/Qr5HDu+hTe88OCiLFsy4GNlgOSzVMs
+         lW9gsC7MXBXlBRJYB21pMIGZW6yguGRACL57nkNoHekT2lXrG/+lFYjkVxPBi4G0kq9N
+         i/p6sQfzCGd4w0LUlMB4P/8nkQ3Swfy0s06XN2JQaJQBkssZABE0S2eTg3DO0xbNeJ1R
+         3eNQ==
+X-Gm-Message-State: AFq9FYJLqGoDxqKFZTvZ4GO3p4+1GYkDVxeG+oFGugp40T+3UuQltdWZ
+	QYfhIZAds29FzgMdsN616mBAvKMv9bs9JSrbNUS1Y7wui2UmpZHHviV0
+X-Gm-Gg: AYBFou3k1cCP5cxmEEF5MicM27CBmt1mDlVFKQwuWRBDrlioOrowwCczO93oqXM1Brb
+	/t27VFT0N/4kw2RR1/sAP4N4fZnqCeIessv9GYdCim+t0PeqIsiwSHPa2yJzAr4RTfhcOayxmGe
+	UsUh9R4PTzqpo9IeTW7OC9DfCHROBRW7WLXBl+NZYiIFc0KAZzEt8SnRaYwf6YYK2liPkwJZaLR
+	yxGQ5lxnmeoG6Zrr1ZoHy1icPOO2x8ueqjRdeV3qBuAPUAQsUmqpQYI008VEVeWwr6kSPKUBvMF
+	wZic+787sQ9Q/yKfm8e6UeeS8JIHfB2YOXS6cUX+HduKBaTJ2Axk5Mu+G5Bp1ihkg3OpaSUOvRZ
+	aLISApJN3q5iL0Rda9HoD3aTDjbX3s+/nj6fhhV4TdAz5F4tAZOTLGG5jzNul+UCX8u390g4myX
+	F91AMb3mIizT30LZZ+A3RxtGVZAvm2lJeuS0Pvz/p8rj6SIxOmlYIX8Yc1rzRoN6FSC9c0bfO05
+	isKdDlLN/I4Wd23RusklCMmr0bV1HzwtJxo2ZgExlGslFRuevb1D9FfNRUOz6uasZHr2xU=
+X-Received: by 2002:a17:90b:48cc:b0:3a4:c18c:b894 with SMTP id 98e67ed59e1d1-3a4d18f52d7mr3756070a91.52.1790860714983;
+        Thu, 01 Oct 2026 06:18:34 -0700 (PDT)
 Received: from localhost.localdomain (60-250-196-139.hinet-ip.hinet.net. [60.250.196.139])
-        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-3a4f46bb550sm5016692a91.5.2026.10.01.06.18.27
+        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-3a4f46bb550sm5016692a91.5.2026.10.01.06.18.32
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 01 Oct 2026 06:18:29 -0700 (PDT)
+        Thu, 01 Oct 2026 06:18:34 -0700 (PDT)
 From: Chi-Wen Weng <cwweng.linux@gmail.com>
 To: broonie@kernel.org,
 	robh@kernel.org,
@@ -80,17 +80,17 @@ Cc: linux-arm-kernel@lists.infradead.org,
 	linux-kernel@vger.kernel.org,
 	cwweng@nuvoton.com,
 	cwweng.linux@gmail.com
-Subject: [PATCH v2 1/3] spi: dt-bindings: nuvoton,ma35d1-qspi: Add MA35D1 SPI controller
-Date: Thu,  1 Oct 2026 21:18:16 +0800
-Message-Id: <20261001131818.110028-2-cwweng.linux@gmail.com>
+Subject: [PATCH v2 2/3] spi: ma35d1: Add Nuvoton MA35D1 SPI controller support
+Date: Thu,  1 Oct 2026 21:18:17 +0800
+Message-Id: <20261001131818.110028-3-cwweng.linux@gmail.com>
 X-Mailer: git-send-email 2.25.1
 In-Reply-To: <20261001131818.110028-1-cwweng.linux@gmail.com>
 References: <20261001131818.110028-1-cwweng.linux@gmail.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261001_061832_090156_1C528C71 
-X-CRM114-Status: GOOD (  14.19  )
+X-CRM114-CacheID: sfid-20261001_061836_131236_452190B8 
+X-CRM114-Status: GOOD (  26.48  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -107,102 +107,791 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 
 From: Chi-Wen Weng <cwweng@nuvoton.com>
 
-Extend the existing MA35D1 QSPI binding to also describe the MA35D1 SPI
-controller.
+Add support for the SPI controller found in the Nuvoton MA35D1 SoC.
 
-The SPI and QSPI controllers are separate hardware IPs. QSPI additionally
-supports dual, quad and DTR transfers and a target-mode timeout function,
-but these differences do not require additional controller-specific
-Devicetree properties.
+The driver supports SPI host mode using polling-based PIO transfers,
+with SPI modes 0 through 3, LSB-first operation, and word sizes from
+8 to 32 bits.
 
-Both controllers expose the same Devicetree-visible resources and provide
-up to two native chip-select signals. GPIO chip selects are supported
-through the generic SPI controller binding. Since the MA35D1 QSPI driver
-now supports GPIO chip selects, also remove the existing restriction
-on cs-gpios for the QSPI compatible.
+Support the two native chip-select outputs as well as GPIO chip selects
+through the SPI core GPIO descriptor support.
 
-Add the nuvoton,ma35d1-spi compatible and update the binding description
-and examples to cover both controllers.
+Configure the SPI clock divider according to the hardware requirement
+that only odd CLKDIV register values are valid, ensuring that the
+generated SPI clock does not exceed the requested transfer frequency.
+
+The controller must be disabled before changing CTL, CLKDIV, SSCTL or
+FIFOCTL. Avoid unnecessary enable/disable cycles by reconfiguring the
+controller only when the transfer settings change.
+
+Add system sleep support using the SPI core suspend and resume helpers.
+The MA35D1 SPI registers are retained across power-down and deep sleep,
+so no hardware state restoration is required after resume.
 
 Signed-off-by: Chi-Wen Weng <cwweng@nuvoton.com>
 ---
- .../bindings/spi/nuvoton,ma35d1-qspi.yaml     | 41 +++++++++++++++++--
- 1 file changed, 37 insertions(+), 4 deletions(-)
+ drivers/spi/Kconfig      |  11 +
+ drivers/spi/Makefile     |   1 +
+ drivers/spi/spi-ma35d1.c | 716 +++++++++++++++++++++++++++++++++++++++
+ 3 files changed, 728 insertions(+)
+ create mode 100644 drivers/spi/spi-ma35d1.c
 
-diff --git a/Documentation/devicetree/bindings/spi/nuvoton,ma35d1-qspi.yaml b/Documentation/devicetree/bindings/spi/nuvoton,ma35d1-qspi.yaml
-index 40965ec5163b..72f2e1e1219a 100644
---- a/Documentation/devicetree/bindings/spi/nuvoton,ma35d1-qspi.yaml
-+++ b/Documentation/devicetree/bindings/spi/nuvoton,ma35d1-qspi.yaml
-@@ -4,7 +4,17 @@
- $id: http://devicetree.org/schemas/spi/nuvoton,ma35d1-qspi.yaml#
- $schema: http://devicetree.org/meta-schemas/core.yaml#
+diff --git a/drivers/spi/Kconfig b/drivers/spi/Kconfig
+index eb042cf5268f..49088e5886d3 100644
+--- a/drivers/spi/Kconfig
++++ b/drivers/spi/Kconfig
+@@ -667,6 +667,17 @@ config SPI_LP8841_RTC
+ 	  Say N here unless you plan to run the kernel on an ICP DAS
+ 	  LP-8x4x industrial computer.
  
--title: Nuvoton MA35D1 Quad SPI Controller
-+title: Nuvoton MA35D1 SPI and Quad SPI Controllers
++config SPI_MA35D1
++	tristate "Nuvoton MA35D1 SPI controller"
++	depends on ARCH_MA35 || COMPILE_TEST
++	help
++	  This enables support for the SPI controller found in
++	  Nuvoton MA35D1 SoCs.
 +
-+description: |
-+  The Nuvoton MA35D1 SoC contains separate SPI and QSPI controller IPs.
-+  Both controllers expose the same Devicetree-visible resources and provide
-+  two native chip-select signals. GPIO chip selects are supported through the
-+  generic SPI controller binding.
++	  The controller supports standard SPI peripheral devices with
++	  configurable clock polarity and phase, chip select, and data
++	  word sizes from 8 to 32 bits.
 +
-+  The QSPI controller additionally supports dual, quad and DTR transfers and
-+  a target-mode timeout function. These capability differences do not require
-+  additional controller properties.
- 
- maintainers:
-   - Chi-Wen Weng <cwweng@nuvoton.com>
-@@ -14,7 +24,9 @@ allOf:
- 
- properties:
-   compatible:
--    const: nuvoton,ma35d1-qspi
-+    enum:
-+      - nuvoton,ma35d1-spi
-+      - nuvoton,ma35d1-qspi
- 
-   reg:
-     maxItems: 1
-@@ -33,8 +45,6 @@ properties:
-     maximum: 2
-     default: 2
- 
--  cs-gpios: false
--
- required:
-   - compatible
-   - reg
-@@ -59,7 +69,30 @@ examples:
-             interrupts = <GIC_SPI 57 IRQ_TYPE_LEVEL_HIGH>;
-             clocks = <&clk QSPI0_GATE>;
-             resets = <&sys MA35D1_RESET_QSPI0>;
+ config SPI_MA35D1_QSPI
+ 	tristate "Nuvoton MA35D1 QSPI controller"
+ 	depends on ARCH_MA35 || COMPILE_TEST
+diff --git a/drivers/spi/Makefile b/drivers/spi/Makefile
+index 37c6eec9b541..b493f50b93e3 100644
+--- a/drivers/spi/Makefile
++++ b/drivers/spi/Makefile
+@@ -86,6 +86,7 @@ obj-$(CONFIG_SPI_LOONGSON_CORE)		+= spi-loongson-core.o
+ obj-$(CONFIG_SPI_LOONGSON_PCI)		+= spi-loongson-pci.o
+ obj-$(CONFIG_SPI_LOONGSON_PLATFORM)	+= spi-loongson-plat.o
+ obj-$(CONFIG_SPI_LP8841_RTC)		+= spi-lp8841-rtc.o
++obj-$(CONFIG_SPI_MA35D1)		+= spi-ma35d1.o
+ obj-$(CONFIG_SPI_MA35D1_QSPI)		+= spi-ma35d1-qspi.o
+ obj-$(CONFIG_SPI_MESON_SPICC)		+= spi-meson-spicc.o
+ obj-$(CONFIG_SPI_MESON_SPIFC)		+= spi-meson-spifc.o
+diff --git a/drivers/spi/spi-ma35d1.c b/drivers/spi/spi-ma35d1.c
+new file mode 100644
+index 000000000000..7560cb7e0b09
+--- /dev/null
++++ b/drivers/spi/spi-ma35d1.c
+@@ -0,0 +1,716 @@
++// SPDX-License-Identifier: GPL-2.0-or-later
++//
++// Nuvoton MA35D1 SPI controller driver
++//
++// Copyright (c) 2026 Nuvoton Technology Corp.
++// Author: Chi-Wen Weng <cwweng@nuvoton.com>
 +
-+            #address-cells = <1>;
-+            #size-cells = <0>;
-+        };
-+    };
++#include <linux/bitfield.h>
++#include <linux/bits.h>
++#include <linux/clk.h>
++#include <linux/delay.h>
++#include <linux/device.h>
++#include <linux/io.h>
++#include <linux/iopoll.h>
++#include <linux/math.h>
++#include <linux/module.h>
++#include <linux/pm.h>
++#include <linux/platform_device.h>
++#include <linux/property.h>
++#include <linux/reset.h>
++#include <linux/sizes.h>
++#include <linux/spi/spi.h>
++#include <linux/time.h>
++#include <linux/unaligned.h>
 +
-+  - |
-+    #include <dt-bindings/interrupt-controller/arm-gic.h>
-+    #include <dt-bindings/clock/nuvoton,ma35d1-clk.h>
-+    #include <dt-bindings/reset/nuvoton,ma35d1-reset.h>
++/* Register offset definitions */
++#define NUVOTON_SPI_CTL_OFFSET			0x00
++#define NUVOTON_SPI_CLKDIV_OFFSET		0x04
++#define NUVOTON_SPI_SSCTL_OFFSET		0x08
++#define NUVOTON_SPI_PDMACTL_OFFSET		0x0c
++#define NUVOTON_SPI_FIFOCTL_OFFSET		0x10
++#define NUVOTON_SPI_STATUS_OFFSET		0x14
++#define NUVOTON_SPI_TX_OFFSET			0x20
++#define NUVOTON_SPI_RX_OFFSET			0x30
 +
-+    soc {
-+        #address-cells = <2>;
-+        #size-cells = <2>;
++/* SPI Control Register bit masks */
++#define NUVOTON_SPI_CTL_DATDIR_MASK		BIT(20)
++#define NUVOTON_SPI_CTL_REORDER_MASK		BIT(19)
++#define NUVOTON_SPI_CTL_SLAVE_MASK		BIT(18)
++#define NUVOTON_SPI_CTL_UNITIEN_MASK		BIT(17)
++#define NUVOTON_SPI_CTL_RXONLY_MASK		BIT(15)
++#define NUVOTON_SPI_CTL_HALFDPX_MASK		BIT(14)
++#define NUVOTON_SPI_CTL_LSB_MASK		BIT(13)
++#define NUVOTON_SPI_CTL_DWIDTH_MASK		GENMASK(12, 8)
++#define NUVOTON_SPI_CTL_SUSPITV_MASK		GENMASK(7, 4)
++#define NUVOTON_SPI_CTL_CLKPOL_MASK		BIT(3)
++#define NUVOTON_SPI_CTL_TXNEG_MASK		BIT(2)
++#define NUVOTON_SPI_CTL_RXNEG_MASK		BIT(1)
++#define NUVOTON_SPI_CTL_SPIEN_MASK		BIT(0)
 +
-+        spi@40600000 {
-+            compatible = "nuvoton,ma35d1-spi";
-+            reg = <0 0x40600000 0 0x10000>;
-+            interrupts = <GIC_SPI 89 IRQ_TYPE_LEVEL_HIGH>;
-+            clocks = <&clk SPI0_GATE>;
-+            resets = <&sys MA35D1_RESET_SPI0>;
++/* SPI Clock Divider Register bit masks */
++#define NUVOTON_SPI_CLKDIV_MASK			GENMASK(8, 0)
 +
-             #address-cells = <1>;
-             #size-cells = <0>;
-         };
-     };
-+...
++/* SPI Slave Select Control Register bit masks */
++#define NUVOTON_SPI_SSCTL_SS1_MASK		BIT(1)
++#define NUVOTON_SPI_SSCTL_SS0_MASK		BIT(0)
++#define NUVOTON_SPI_SSCTL_SSACTPOL_MASK		BIT(2)
++#define NUVOTON_SPI_SSCTL_AUTOSS_MASK		BIT(3)
++#define NUVOTON_SPI_SSCTL_SLV3WIRE_MASK		BIT(4)
++#define NUVOTON_SPI_SSCTL_SLVBEIEN_MASK		BIT(8)
++#define NUVOTON_SPI_SSCTL_SLVURIEN_MASK		BIT(9)
++#define NUVOTON_SPI_SSCTL_SSACTIEN_MASK		BIT(12)
++#define NUVOTON_SPI_SSCTL_SSINAIEN_MASK		BIT(13)
++
++/* SPI PDMA Control Register bit masks */
++#define NUVOTON_SPI_PDMACTL_TXPDMAEN_MASK	BIT(0)
++#define NUVOTON_SPI_PDMACTL_RXPDMAEN_MASK	BIT(1)
++
++/* SPI FIFO Control Register bit masks */
++#define NUVOTON_SPI_FIFOCTL_SLVBERX_MASK	BIT(10)
++#define NUVOTON_SPI_FIFOCTL_TXUFIEN_MASK	BIT(7)
++#define NUVOTON_SPI_FIFOCTL_TXUFPOL_MASK	BIT(6)
++#define NUVOTON_SPI_FIFOCTL_RXOVIEN_MASK	BIT(5)
++#define NUVOTON_SPI_FIFOCTL_RXTOIEN_MASK	BIT(4)
++#define NUVOTON_SPI_FIFOCTL_TXTHIEN_MASK	BIT(3)
++#define NUVOTON_SPI_FIFOCTL_RXTHIEN_MASK	BIT(2)
++#define NUVOTON_SPI_FIFOCTL_TXRST_MASK		BIT(1)
++#define NUVOTON_SPI_FIFOCTL_RXRST_MASK		BIT(0)
++
++/* SPI Status Register bit masks */
++#define NUVOTON_SPI_STATUS_TXRXRST_MASK		BIT(23)
++#define NUVOTON_SPI_STATUS_TXFULL_MASK		BIT(17)
++#define NUVOTON_SPI_STATUS_SPIENSTS_MASK	BIT(15)
++#define NUVOTON_SPI_STATUS_RXEMPTY_MASK		BIT(8)
++#define NUVOTON_SPI_STATUS_BUSY_MASK		BIT(0)
++
++#define NUVOTON_SPI_MAX_NATIVE_CS		2
++#define NUVOTON_SPI_DEFAULT_NUM_CS		2
++#define NUVOTON_SPI_DEFAULT_BPW			8
++#define NUVOTON_SPI_MAX_SPEED_HZ		100000000U
++#define NUVOTON_SPI_MIN_DIVISOR			2U
++#define NUVOTON_SPI_MAX_DIVISOR			512U
++#define NUVOTON_SPI_RESET_CYCLES			5U
++
++/* Bound PIO operations to avoid long polling loops. */
++#define NUVOTON_SPI_MAX_TRANSFER_SIZE		SZ_4K
++#define NUVOTON_SPI_TIMEOUT_US			10000
++
++struct nuvoton_spi {
++	void __iomem *regs;
++	struct device *dev;
++	unsigned long clk_rate;
++};
++
++static u32 nuvoton_spi_read(struct nuvoton_spi *nspi, u32 reg)
++{
++	return readl(nspi->regs + reg);
++}
++
++static void nuvoton_spi_write(struct nuvoton_spi *nspi, u32 val, u32 reg)
++{
++	writel(val, nspi->regs + reg);
++}
++
++static void nuvoton_spi_update_bits(struct nuvoton_spi *nspi, u32 reg,
++				    u32 mask, u32 val)
++{
++	u32 tmp;
++
++	tmp = nuvoton_spi_read(nspi, reg);
++	tmp &= ~mask;
++	tmp |= val & mask;
++	nuvoton_spi_write(nspi, tmp, reg);
++}
++
++static int nuvoton_spi_disable(struct nuvoton_spi *nspi)
++{
++	u32 ctl;
++	u32 val;
++
++	ctl = nuvoton_spi_read(nspi, NUVOTON_SPI_CTL_OFFSET);
++	if (!(ctl & NUVOTON_SPI_CTL_SPIEN_MASK))
++		return 0;
++
++	nuvoton_spi_write(nspi, ctl & ~NUVOTON_SPI_CTL_SPIEN_MASK,
++			  NUVOTON_SPI_CTL_OFFSET);
++
++	return readl_poll_timeout_atomic(nspi->regs + NUVOTON_SPI_STATUS_OFFSET,
++					 val,
++					 !(val & NUVOTON_SPI_STATUS_SPIENSTS_MASK),
++					 1, NUVOTON_SPI_TIMEOUT_US);
++}
++
++static int nuvoton_spi_enable(struct nuvoton_spi *nspi)
++{
++	u32 ctl;
++	u32 val;
++
++	ctl = nuvoton_spi_read(nspi, NUVOTON_SPI_CTL_OFFSET);
++	if (ctl & NUVOTON_SPI_CTL_SPIEN_MASK)
++		return 0;
++
++	nuvoton_spi_write(nspi, ctl | NUVOTON_SPI_CTL_SPIEN_MASK,
++			  NUVOTON_SPI_CTL_OFFSET);
++
++	return readl_poll_timeout_atomic(nspi->regs + NUVOTON_SPI_STATUS_OFFSET,
++					 val,
++					 val & NUVOTON_SPI_STATUS_SPIENSTS_MASK,
++					 1, NUVOTON_SPI_TIMEOUT_US);
++}
++
++static int nuvoton_spi_wait_ready(struct nuvoton_spi *nspi)
++{
++	u32 val;
++
++	return readl_poll_timeout(nspi->regs + NUVOTON_SPI_STATUS_OFFSET, val,
++				  !(val & NUVOTON_SPI_STATUS_BUSY_MASK),
++				  0, NUVOTON_SPI_TIMEOUT_US);
++}
++
++static int nuvoton_spi_reset_fifo(struct nuvoton_spi *nspi)
++{
++	u32 val;
++
++	nuvoton_spi_update_bits(nspi, NUVOTON_SPI_FIFOCTL_OFFSET,
++				NUVOTON_SPI_FIFOCTL_TXRST_MASK |
++				NUVOTON_SPI_FIFOCTL_RXRST_MASK,
++				NUVOTON_SPI_FIFOCTL_TXRST_MASK |
++				NUVOTON_SPI_FIFOCTL_RXRST_MASK);
++
++	/*
++	 * Give the controller a short time to latch the FIFO reset request
++	 * before polling the reset status bit.
++	 */
++	udelay(1);
++
++	return readl_poll_timeout(nspi->regs + NUVOTON_SPI_STATUS_OFFSET, val,
++				  !(val & NUVOTON_SPI_STATUS_TXRXRST_MASK),
++				  1, NUVOTON_SPI_TIMEOUT_US);
++}
++
++static int nuvoton_spi_wait_tx_not_full(struct nuvoton_spi *nspi)
++{
++	u32 val;
++
++	return readl_poll_timeout(nspi->regs + NUVOTON_SPI_STATUS_OFFSET, val,
++				  !(val & NUVOTON_SPI_STATUS_TXFULL_MASK),
++				  0, NUVOTON_SPI_TIMEOUT_US);
++}
++
++static int nuvoton_spi_wait_rx_not_empty(struct nuvoton_spi *nspi)
++{
++	u32 val;
++
++	return readl_poll_timeout(nspi->regs + NUVOTON_SPI_STATUS_OFFSET, val,
++				  !(val & NUVOTON_SPI_STATUS_RXEMPTY_MASK),
++				  0, NUVOTON_SPI_TIMEOUT_US);
++}
++
++static int nuvoton_spi_calc_divisor(unsigned long clk_rate, u32 speed_hz,
++				    unsigned int *divisor)
++{
++	unsigned int div;
++
++	div = DIV_ROUND_UP(clk_rate, speed_hz);
++	if (div < NUVOTON_SPI_MIN_DIVISOR)
++		div = NUVOTON_SPI_MIN_DIVISOR;
++
++	/*
++	 * CLKDIV only accepts odd register values, corresponding to even
++	 * clock divisors. Round up so the generated clock never exceeds
++	 * the requested frequency.
++	 */
++	if (div & 1)
++		div++;
++
++	if (div > NUVOTON_SPI_MAX_DIVISOR)
++		return -EINVAL;
++
++	*divisor = div;
++
++	return 0;
++}
++
++static int nuvoton_spi_configure_mode(struct nuvoton_spi *nspi,
++				      struct spi_device *spi)
++{
++	u32 mask = NUVOTON_SPI_CTL_TXNEG_MASK |
++		   NUVOTON_SPI_CTL_RXNEG_MASK |
++		   NUVOTON_SPI_CTL_CLKPOL_MASK |
++		   NUVOTON_SPI_CTL_LSB_MASK;
++	u32 ctl = 0;
++	u32 cur_ctl;
++	u32 mode;
++	int ret;
++
++	mode = spi->mode & SPI_MODE_X_MASK;
++	if (mode == SPI_MODE_0 || mode == SPI_MODE_3)
++		ctl |= NUVOTON_SPI_CTL_TXNEG_MASK;
++	else
++		ctl |= NUVOTON_SPI_CTL_RXNEG_MASK;
++
++	if (spi->mode & SPI_CPOL)
++		ctl |= NUVOTON_SPI_CTL_CLKPOL_MASK;
++
++	if (spi->mode & SPI_LSB_FIRST)
++		ctl |= NUVOTON_SPI_CTL_LSB_MASK;
++
++	cur_ctl = nuvoton_spi_read(nspi, NUVOTON_SPI_CTL_OFFSET);
++	if ((cur_ctl & mask) == ctl)
++		return 0;
++
++	ret = nuvoton_spi_disable(nspi);
++	if (ret)
++		return ret;
++
++	nuvoton_spi_update_bits(nspi, NUVOTON_SPI_CTL_OFFSET, mask, ctl);
++
++	return 0;
++}
++
++static int nuvoton_spi_configure_transfer(struct nuvoton_spi *nspi,
++					  struct spi_transfer *xfer)
++{
++	u32 ctl_mask = NUVOTON_SPI_CTL_DWIDTH_MASK;
++	u32 cur_clkdiv;
++	u32 cur_ctl;
++	u32 clkdiv;
++	u32 dwidth;
++	unsigned int divisor;
++	int ret;
++
++	ret = nuvoton_spi_calc_divisor(nspi->clk_rate, xfer->speed_hz,
++				       &divisor);
++	if (ret) {
++		dev_err(nspi->dev, "unsupported SPI clock %u Hz\n",
++			xfer->speed_hz);
++		return ret;
++	}
++
++	clkdiv = FIELD_PREP(NUVOTON_SPI_CLKDIV_MASK, divisor - 1);
++	dwidth = xfer->bits_per_word == 32 ? 0 : xfer->bits_per_word;
++	dwidth = FIELD_PREP(NUVOTON_SPI_CTL_DWIDTH_MASK, dwidth);
++
++	xfer->effective_speed_hz = nspi->clk_rate / divisor;
++
++	cur_ctl = nuvoton_spi_read(nspi, NUVOTON_SPI_CTL_OFFSET);
++	cur_clkdiv = nuvoton_spi_read(nspi, NUVOTON_SPI_CLKDIV_OFFSET);
++
++	if ((cur_ctl & ctl_mask) == dwidth &&
++	    (cur_clkdiv & NUVOTON_SPI_CLKDIV_MASK) == clkdiv)
++		return 0;
++
++	ret = nuvoton_spi_disable(nspi);
++	if (ret)
++		return ret;
++
++	if ((cur_ctl & ctl_mask) != dwidth)
++		nuvoton_spi_update_bits(nspi, NUVOTON_SPI_CTL_OFFSET,
++					ctl_mask, dwidth);
++
++	if ((cur_clkdiv & NUVOTON_SPI_CLKDIV_MASK) != clkdiv)
++		nuvoton_spi_write(nspi, clkdiv, NUVOTON_SPI_CLKDIV_OFFSET);
++
++	return 0;
++}
++
++static u32 nuvoton_spi_get_tx_word(const void *txbuf, unsigned int offset,
++				   unsigned int bytes_per_word)
++{
++	if (!txbuf)
++		return 0;
++
++	switch (bytes_per_word) {
++	case 1:
++		return ((const u8 *)txbuf)[offset];
++	case 2:
++		return get_unaligned((const u16 *)((const u8 *)txbuf + offset));
++	case 4:
++		return get_unaligned((const u32 *)((const u8 *)txbuf + offset));
++	default:
++		return 0;
++	}
++}
++
++static void nuvoton_spi_put_rx_word(void *rxbuf, unsigned int offset,
++				    unsigned int bytes_per_word, u32 val)
++{
++	if (!rxbuf)
++		return;
++
++	switch (bytes_per_word) {
++	case 1:
++		((u8 *)rxbuf)[offset] = val;
++		break;
++	case 2:
++		put_unaligned((u16)val, (u16 *)((u8 *)rxbuf + offset));
++		break;
++	case 4:
++		put_unaligned(val, (u32 *)((u8 *)rxbuf + offset));
++		break;
++	}
++}
++
++static int nuvoton_spi_txrx(struct nuvoton_spi *nspi,
++			    struct spi_transfer *xfer)
++{
++	unsigned int bytes_per_word;
++	unsigned int offset;
++	u32 val;
++	int ret;
++
++	bytes_per_word = spi_bpw_to_bytes(xfer->bits_per_word);
++
++	/*
++	 * Use conservative word-by-word PIO. Each transmitted word produces
++	 * one receive FIFO entry, so always drain RX, including TX-only
++	 * transfers. RX-only transfers send zero-filled dummy words.
++	 */
++	for (offset = 0; offset < xfer->len; offset += bytes_per_word) {
++		ret = nuvoton_spi_wait_tx_not_full(nspi);
++		if (ret) {
++			dev_err(nspi->dev, "TX FIFO full timeout\n");
++			return ret;
++		}
++
++		val = nuvoton_spi_get_tx_word(xfer->tx_buf, offset,
++					      bytes_per_word);
++		nuvoton_spi_write(nspi, val, NUVOTON_SPI_TX_OFFSET);
++
++		ret = nuvoton_spi_wait_rx_not_empty(nspi);
++		if (ret) {
++			dev_err(nspi->dev, "RX FIFO empty timeout\n");
++			return ret;
++		}
++
++		val = nuvoton_spi_read(nspi, NUVOTON_SPI_RX_OFFSET);
++		nuvoton_spi_put_rx_word(xfer->rx_buf, offset, bytes_per_word,
++					val);
++
++		spi_delay_exec(&xfer->word_delay, xfer);
++	}
++
++	ret = nuvoton_spi_wait_ready(nspi);
++	if (ret)
++		dev_err(nspi->dev, "controller busy timeout\n");
++
++	return ret;
++}
++
++static void nuvoton_spi_set_cs_level(struct nuvoton_spi *nspi,
++				     unsigned int cs, bool assert)
++{
++	u32 mask;
++
++	switch (cs) {
++	case 0:
++		mask = NUVOTON_SPI_SSCTL_SS0_MASK;
++		break;
++	case 1:
++		mask = NUVOTON_SPI_SSCTL_SS1_MASK;
++		break;
++	default:
++		dev_warn(nspi->dev, "invalid chip select %u\n", cs);
++		return;
++	}
++
++	nuvoton_spi_update_bits(nspi, NUVOTON_SPI_SSCTL_OFFSET,
++				mask, assert ? mask : 0);
++}
++
++static int nuvoton_spi_setup(struct spi_device *spi)
++{
++	unsigned int cs = spi_get_chipselect(spi, 0);
++
++	if (spi_get_csgpiod(spi, 0))
++		return 0;
++
++	if (cs >= NUVOTON_SPI_MAX_NATIVE_CS) {
++		dev_err(&spi->dev, "invalid native chip select %u\n", cs);
++		return -EINVAL;
++	}
++
++	if (spi->mode & SPI_CS_HIGH) {
++		dev_err(&spi->dev,
++			"active-high native chip select is not supported\n");
++		return -EINVAL;
++	}
++
++	return 0;
++}
++
++static void nuvoton_spi_set_cs(struct spi_device *spi, bool level)
++{
++	struct nuvoton_spi *nspi = spi_controller_get_devdata(spi->controller);
++	int ret;
++
++	/*
++	 * SSCTL may only be changed while SPIEN is clear. Clearing SPIEN
++	 * retains the CLK and MOSI output levels.
++	 */
++	ret = nuvoton_spi_disable(nspi);
++	if (ret) {
++		dev_err(nspi->dev, "failed to disable controller for chip select\n");
++		return;
++	}
++
++	/*
++	 * The SPI core passes the physical CS level to ->set_cs(). This
++	 * initial driver only supports active-low native chip selects.
++	 */
++	nuvoton_spi_set_cs_level(nspi, spi_get_chipselect(spi, 0), !level);
++}
++
++static int nuvoton_spi_prepare_message(struct spi_controller *ctlr,
++				       struct spi_message *message)
++{
++	struct nuvoton_spi *nspi = spi_controller_get_devdata(ctlr);
++	int ret;
++
++	ret = nuvoton_spi_configure_mode(nspi, message->spi);
++	if (ret)
++		dev_err(nspi->dev, "failed to configure SPI mode\n");
++
++	return ret;
++}
++
++static int nuvoton_spi_transfer_one(struct spi_controller *ctlr,
++				    struct spi_device *spi,
++				    struct spi_transfer *xfer)
++{
++	struct nuvoton_spi *nspi = spi_controller_get_devdata(ctlr);
++	int ret;
++
++	ret = nuvoton_spi_configure_transfer(nspi, xfer);
++	if (ret)
++		return ret;
++
++	ret = nuvoton_spi_enable(nspi);
++	if (ret) {
++		dev_err(nspi->dev, "failed to enable controller\n");
++		return ret;
++	}
++
++	return nuvoton_spi_txrx(nspi, xfer);
++}
++
++static void nuvoton_spi_handle_err(struct spi_controller *ctlr,
++				   struct spi_message *message)
++{
++	struct nuvoton_spi *nspi = spi_controller_get_devdata(ctlr);
++	int ret;
++
++	ret = nuvoton_spi_disable(nspi);
++	if (ret) {
++		dev_err(nspi->dev,
++			"failed to disable controller during recovery\n");
++		return;
++	}
++
++	ret = nuvoton_spi_reset_fifo(nspi);
++	if (ret)
++		dev_err(nspi->dev, "failed to reset FIFO during recovery\n");
++}
++
++static size_t nuvoton_spi_max_transfer_size(struct spi_device *spi)
++{
++	return NUVOTON_SPI_MAX_TRANSFER_SIZE;
++}
++
++static int nuvoton_spi_hw_init(struct nuvoton_spi *nspi)
++{
++	u32 ctl_mask;
++	u32 fifo_mask;
++	u32 ssctl_mask;
++	int ret;
++
++	ret = nuvoton_spi_disable(nspi);
++	if (ret) {
++		dev_err(nspi->dev, "failed to disable controller\n");
++		return ret;
++	}
++
++	ctl_mask = NUVOTON_SPI_CTL_DATDIR_MASK |
++		   NUVOTON_SPI_CTL_REORDER_MASK |
++		   NUVOTON_SPI_CTL_SLAVE_MASK |
++		   NUVOTON_SPI_CTL_UNITIEN_MASK |
++		   NUVOTON_SPI_CTL_RXONLY_MASK |
++		   NUVOTON_SPI_CTL_HALFDPX_MASK |
++		   NUVOTON_SPI_CTL_LSB_MASK |
++		   NUVOTON_SPI_CTL_DWIDTH_MASK |
++		   NUVOTON_SPI_CTL_SUSPITV_MASK |
++		   NUVOTON_SPI_CTL_CLKPOL_MASK |
++		   NUVOTON_SPI_CTL_TXNEG_MASK |
++		   NUVOTON_SPI_CTL_RXNEG_MASK;
++
++	nuvoton_spi_update_bits(nspi, NUVOTON_SPI_CTL_OFFSET, ctl_mask,
++				NUVOTON_SPI_CTL_TXNEG_MASK |
++				FIELD_PREP(NUVOTON_SPI_CTL_DWIDTH_MASK,
++					   NUVOTON_SPI_DEFAULT_BPW));
++
++	ssctl_mask = NUVOTON_SPI_SSCTL_SS0_MASK |
++		     NUVOTON_SPI_SSCTL_SS1_MASK |
++		     NUVOTON_SPI_SSCTL_SSACTPOL_MASK |
++		     NUVOTON_SPI_SSCTL_AUTOSS_MASK |
++		     NUVOTON_SPI_SSCTL_SLV3WIRE_MASK |
++		     NUVOTON_SPI_SSCTL_SLVBEIEN_MASK |
++		     NUVOTON_SPI_SSCTL_SLVURIEN_MASK |
++		     NUVOTON_SPI_SSCTL_SSACTIEN_MASK |
++		     NUVOTON_SPI_SSCTL_SSINAIEN_MASK;
++
++	nuvoton_spi_update_bits(nspi, NUVOTON_SPI_SSCTL_OFFSET,
++				ssctl_mask, 0);
++
++	nuvoton_spi_update_bits(nspi, NUVOTON_SPI_PDMACTL_OFFSET,
++				NUVOTON_SPI_PDMACTL_TXPDMAEN_MASK |
++				NUVOTON_SPI_PDMACTL_RXPDMAEN_MASK, 0);
++
++	fifo_mask = NUVOTON_SPI_FIFOCTL_SLVBERX_MASK |
++		    NUVOTON_SPI_FIFOCTL_TXUFIEN_MASK |
++		    NUVOTON_SPI_FIFOCTL_TXUFPOL_MASK |
++		    NUVOTON_SPI_FIFOCTL_RXOVIEN_MASK |
++		    NUVOTON_SPI_FIFOCTL_RXTOIEN_MASK |
++		    NUVOTON_SPI_FIFOCTL_TXTHIEN_MASK |
++		    NUVOTON_SPI_FIFOCTL_RXTHIEN_MASK;
++
++	nuvoton_spi_update_bits(nspi, NUVOTON_SPI_FIFOCTL_OFFSET, fifo_mask, 0);
++
++	ret = nuvoton_spi_reset_fifo(nspi);
++	if (ret)
++		dev_err(nspi->dev, "FIFO reset timed out\n");
++
++	return ret;
++}
++
++static int nuvoton_spi_probe(struct platform_device *pdev)
++{
++	struct device *dev = &pdev->dev;
++	struct spi_controller *ctlr;
++	struct nuvoton_spi *nspi;
++	struct reset_control *rst;
++	struct clk *clk;
++	unsigned int max_divisor;
++	u32 num_cs = NUVOTON_SPI_DEFAULT_NUM_CS;
++	int ret;
++
++	if (device_property_read_bool(dev, "spi-slave"))
++		return dev_err_probe(dev, -EOPNOTSUPP,
++				     "target mode is not supported\n");
++
++	ctlr = devm_spi_alloc_host(dev, sizeof(*nspi));
++	if (!ctlr)
++		return -ENOMEM;
++
++	platform_set_drvdata(pdev, ctlr);
++
++	nspi = spi_controller_get_devdata(ctlr);
++	nspi->dev = dev;
++
++	nspi->regs = devm_platform_ioremap_resource(pdev, 0);
++	if (IS_ERR(nspi->regs))
++		return PTR_ERR(nspi->regs);
++
++	clk = devm_clk_get_enabled(dev, NULL);
++	if (IS_ERR(clk))
++		return dev_err_probe(dev, PTR_ERR(clk),
++				     "failed to get and enable clock\n");
++
++	nspi->clk_rate = clk_get_rate(clk);
++	if (!nspi->clk_rate)
++		return dev_err_probe(dev, -EINVAL, "invalid clock rate\n");
++
++	rst = devm_reset_control_get_exclusive_deasserted(dev, NULL);
++	if (IS_ERR(rst))
++		return dev_err_probe(dev, PTR_ERR(rst),
++				     "failed to get and deassert reset\n");
++
++	/*
++	 * The hardware requires at least five peripheral clock cycles after
++	 * reset deassertion before programming controller registers.
++	 */
++	udelay(DIV_ROUND_UP_ULL((u64)NUVOTON_SPI_RESET_CYCLES *
++				USEC_PER_SEC, nspi->clk_rate));
++
++	ret = device_property_read_u32(dev, "num-cs", &num_cs);
++	if (ret && ret != -EINVAL)
++		return dev_err_probe(dev, ret, "failed to read num-cs\n");
++
++	if (!num_cs || num_cs > NUVOTON_SPI_MAX_NATIVE_CS)
++		return dev_err_probe(dev, -EINVAL, "invalid num-cs %u\n",
++				     num_cs);
++
++	ctlr->num_chipselect = num_cs;
++	ctlr->max_native_cs = NUVOTON_SPI_MAX_NATIVE_CS;
++	ctlr->use_gpio_descriptors = true;
++	ctlr->max_transfer_size = nuvoton_spi_max_transfer_size;
++	ctlr->setup = nuvoton_spi_setup;
++	ctlr->set_cs = nuvoton_spi_set_cs;
++	ctlr->prepare_message = nuvoton_spi_prepare_message;
++	ctlr->transfer_one = nuvoton_spi_transfer_one;
++	ctlr->handle_err = nuvoton_spi_handle_err;
++	ctlr->bits_per_word_mask = SPI_BPW_RANGE_MASK(8, 32);
++	ctlr->mode_bits = SPI_CPOL | SPI_CPHA | SPI_LSB_FIRST;
++	ctlr->min_speed_hz = DIV_ROUND_UP(nspi->clk_rate,
++					  NUVOTON_SPI_MAX_DIVISOR);
++
++	ret = nuvoton_spi_calc_divisor(nspi->clk_rate,
++				       NUVOTON_SPI_MAX_SPEED_HZ, &max_divisor);
++	if (ret)
++		return dev_err_probe(dev, ret,
++				     "clock rate does not support SPI transfers\n");
++
++	ctlr->max_speed_hz = nspi->clk_rate / max_divisor;
++
++	ret = nuvoton_spi_hw_init(nspi);
++	if (ret)
++		return ret;
++
++	ret = devm_spi_register_controller(dev, ctlr);
++	if (ret)
++		return dev_err_probe(dev, ret,
++				     "failed to register SPI controller\n");
++
++	return 0;
++}
++
++static int nuvoton_spi_suspend(struct device *dev)
++{
++	struct spi_controller *ctlr = dev_get_drvdata(dev);
++
++	return spi_controller_suspend(ctlr);
++}
++
++static int nuvoton_spi_resume(struct device *dev)
++{
++	struct spi_controller *ctlr = dev_get_drvdata(dev);
++
++	/*
++	 * The MA35D1 SPI registers are retained across power-down and deep
++	 * sleep, so the controller state does not need to be restored here.
++	 */
++	return spi_controller_resume(ctlr);
++}
++
++static DEFINE_SIMPLE_DEV_PM_OPS(nuvoton_spi_pm_ops, nuvoton_spi_suspend,
++				nuvoton_spi_resume);
++
++static const struct of_device_id nuvoton_spi_of_match[] = {
++	{ .compatible = "nuvoton,ma35d1-spi" },
++	{ }
++};
++MODULE_DEVICE_TABLE(of, nuvoton_spi_of_match);
++
++static struct platform_driver nuvoton_spi_driver = {
++	.driver = {
++		.name = "ma35d1-spi",
++		.of_match_table = nuvoton_spi_of_match,
++		.pm = pm_sleep_ptr(&nuvoton_spi_pm_ops),
++	},
++	.probe = nuvoton_spi_probe,
++};
++module_platform_driver(nuvoton_spi_driver);
++
++MODULE_DESCRIPTION("Nuvoton MA35D1 SPI controller driver");
++MODULE_AUTHOR("Chi-Wen Weng <cwweng@nuvoton.com>");
++MODULE_LICENSE("GPL");
 -- 
 2.25.1
 
