@@ -4,121 +4,84 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id F3A09CA5FB3
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  1 Oct 2026 12:34:30 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E2DC0CA5FCB
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  1 Oct 2026 12:40:48 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:MIME-Version:Date:Message-Id:Subject:References:In-Reply-To:Cc:
+	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=gMYtf80P5oX4IkVB/3A4AGGwzt6DCWZzJjMZ+oV75Lw=; b=0GVDO/eehGiaFC9iyAcZhpAEgJ
-	NSQYfu5yFFdPvrxXitqfVmA13G3ZtOYORU3PBmEJjhuUZrfGOHvHbaebFf0tRC9dfQZa1++C1btjS
-	uaaUDa0WQYUNSgsfHdj4NC6hIocu+yJjgsnMeZ8w/Kn9zZMLnByU69UsuQb3q4xaPF3Xhbp0V5b7G
-	ezqOPkMeQsk0W9ZYpgmp02DDDzZmSrgTXkprgJQDK7Kx0of8YXSQF0QVD1xbmPmnurVWj1oKRbSc9
-	PD6f86s4pqxMSlsT5BFbGbYdVlkucQSyYJUu0RErFVlmT22aIcA/sP03n25Gh+bNXkwc4nFPN+Eml
-	tz/+ho3Q==;
+	bh=2yqV/Awvfmtsj6q/00BzdhQQlByccag34Ejy1niliro=; b=acpEPI06pds7DJX+qd/K9Tm7/2
+	Rmfgugpqa76m8r7Ctv2hzdCfncrAiV2xPy90Ye1XBhRqdoHJET8wSjqxQ1VFfwZqzMqgu80Aij5yu
+	wyfAcJZhNGqEyAK2keUoa+9MGatSxLYmT+C3WYpNeT8hQp+kkCMB52IVBpCkdwk0AXnxgxgHtJCln
+	cx2jy3bjyjJryq3C4LyP0D7LnnijgsE19vLo16Ts+ZYiz+2AmidEijJGgzmjFTPAaWjOxlyKxvCQH
+	DufdXjFDkYT2qsWTmhQ91kt/59Fd/d/T0e72i6cts+uQsz2hqrnhxDpgaU16wtyE46flKb0bk/Hhs
+	NCCrvDsQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xCFzU-0000000949I-1fYk;
-	Thu, 01 Oct 2026 12:34:24 +0000
-Received: from us-smtp-delivery-124.mimecast.com ([170.10.129.124])
+	id 1xCG5K-000000094gd-0iy6;
+	Thu, 01 Oct 2026 12:40:26 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xCFzR-0000000948D-3Zqk
+	id 1xCG5I-000000094gW-2F0c
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 01 Oct 2026 12:34:23 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1790858059;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=gMYtf80P5oX4IkVB/3A4AGGwzt6DCWZzJjMZ+oV75Lw=;
-	b=R7n+h50jX04mI4k4OlpFiJCdbQPkj9PRBz0hvCx/+GwPO6AHj3PzsvIfn7MeL5cLgaUk++
-	UXQNsciGQnVVmxFoFRLk1WD1QUAb03fVTMBQFTAVR3bN+XSWzJ32FtmX/0NZ7vG1i7X9ek
-	HheuS5r7nmVGNCGvmE1qzp4Dk5IcUQ4=
-Received: from mail-wr1-f71.google.com (mail-wr1-f71.google.com
- [209.85.221.71]) by relay.mimecast.com with ESMTP with STARTTLS
- (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
- us-mta-569-oJ90GtWnNyiDc3FGl0SQmA-1; Thu, 01 Oct 2026 08:32:52 -0400
-X-MC-Unique: oJ90GtWnNyiDc3FGl0SQmA-1
-X-Mimecast-MFC-AGG-ID: oJ90GtWnNyiDc3FGl0SQmA_1790857971
-Received: by mail-wr1-f71.google.com with SMTP id ffacd0b85a97d-47f6e8b5996so5894071f8f.2
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 01 Oct 2026 05:32:52 -0700 (PDT)
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1790857971; x=1791462771;
-        h=content-transfer-encoding:content-type:in-reply-to:content-language
-         :from:references:cc:to:subject:user-agent:mime-version:date
-         :message-id:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=gMYtf80P5oX4IkVB/3A4AGGwzt6DCWZzJjMZ+oV75Lw=;
-        b=HWtW5FE0k1nl0ECVb5bqNXjEKabOSRt440/eMMYAlE72S8cdIJPOG+iBgHOvF8bNFP
-         gxUdGSM+/2RjFzMB8GMs7s+RZkVSsUWOUfbHG2rlGCDxfP5ZKLfpm8VYXar6LlerYBpb
-         SGBZXUJiSeOj24E3GxOvy9IF6hf3STi2FBOZdo7YaLXhbZDpL1oSpeS6ePyBdO2Ygjt2
-         IiwZ7DWrBqAXY/SF4+hqHcxlykKNkulRN8D8/3iD5f/t7SX7N9i1b44ye/g8xYZeBR6t
-         eQ8xAKXHtZhOBzJz7JsAGuKS4BpIrCGztkxAGPZzSLuKdfORp5Mq5+C5XDdwdrjdQWiN
-         J/Hg==
-X-Forwarded-Encrypted: i=1; AKwUvBxKKCTIAfyf2vn+MjY0ae1U6U0qrXx2apX1BcuxUxVJp/iDgVUOV7AKxqYKLSljwAPzf9he/4+EyQC4FlFGT+fG@lists.infradead.org
-X-Gm-Message-State: AFq9FYKKPPwhDyD9R//kR4w/ntjoN1sR9Kn37PgjdGb3YLNdbJfLZAl7
-	xZlb6fjjAEWM97qdfnr4ALPfE1L0xOx5eoGdrFRIYTPvOerrPx87nGLQDgg3ENmsAC0qdq3dMJR
-	Of5nOczGZhGV9mxAX+vzaiiMG6dxSpkMVYRmS2wsFmvPS8mbkwAGmCQb3IS4spoINXG/1SAe75M
-	A=
-X-Gm-Gg: AYBFou2q8NeKd9HN7OyFh0XnMz2xVB4mNy5ubyMvGyg8oOLUwFtj/ava383THRneshB
-	FmXXFs6RNRc21VPR8joXYcJTgR4IqqY3dFkf2fv//j2S6Rj/8cCk7Jix5NW0UlHAO0sPx9KLJPo
-	7Fe6Fr/+fI2Yl0sYF6WDsxWPHehHw9j2QbkKuQkTxH/KRn8diTAiEqKITXXvR/E6hyhXtpb8F0D
-	gVD/X3zD6yhKwYW6TgaYbPAIomMMPsRiqOV3t/2Xw7pC84joiXXGwTUF17cFdmtAM/M7sJXvaP+
-	arLlfYy6ZDCAbxuCBuk27FBOucsSjyJ3qJJJdIppp5Wcm+K9J5SGLB5HlTvVbYWHFTkTFQ6MIMR
-	JTzAe+RINHqp2aMl/L5cpzssSrmGwi7MVzA==
-X-Received: by 2002:a05:6000:4107:b0:485:ac35:5c5d with SMTP id ffacd0b85a97d-48b05870bd4mr4665287f8f.15.1790857970886;
-        Thu, 01 Oct 2026 05:32:50 -0700 (PDT)
-X-Received: by 2002:a05:6000:4107:b0:485:ac35:5c5d with SMTP id ffacd0b85a97d-48b05870bd4mr4665181f8f.15.1790857969830;
-        Thu, 01 Oct 2026 05:32:49 -0700 (PDT)
-Received: from [192.168.0.101] (185-219-167-205-static.vivo.cz. [185.219.167.205])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-48b0691d681sm5371173f8f.23.2026.10.01.05.32.48
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Thu, 01 Oct 2026 05:32:49 -0700 (PDT)
-Message-ID: <5e183c24-4acd-4b79-b601-bd1aa2f53dce@redhat.com>
-Date: Thu, 1 Oct 2026 14:32:46 +0200
+	Thu, 01 Oct 2026 12:40:24 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by tor.source.kernel.org (Postfix) with ESMTP id 7D86760A57;
+	Thu,  1 Oct 2026 12:40:23 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 2B14C1F000FF;
+	Thu,  1 Oct 2026 12:40:08 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1790858423;
+	bh=2yqV/Awvfmtsj6q/00BzdhQQlByccag34Ejy1niliro=;
+	h=From:To:Cc:In-Reply-To:References:Subject:Date;
+	b=ZCRnnyX8s+71IPbGhb8/YT80JuAIidJq2MhvpK0OmnrhU8tM+2O/S/Bl9VgbeSrPX
+	 3yUSMWSDbh1RXwypspIpwjZ/Z1PM3duR4aqQ5YFaM18wqtZpQby0D1EYtE8k0QSZ8e
+	 DoX3iA65giwjlB+w0u+rUBIopt0ZKF8dcOZLwjiJykmgjKICYBg4gER6dAUCEQaqZ5
+	 PZoZQFXgI1hXXsF9qPOv4feQbT7MXXMdRjvhizrHrFEkp+CUlPa5hfyyQyv7ZuAGWk
+	 2kP8fPcf8yDi1q6BuPrC+UIeF2Cb1AbHsbQvgbgAFl2g7EjyyKHiScRLdrGa3q4/RR
+	 N5Mf3T94WTuVg==
+From: Krzysztof Kozlowski <krzk@kernel.org>
+To: soc@lists.linux.dev, Arnd Bergmann <arnd@kernel.org>
+Cc: Arnd Bergmann <arnd@arndb.de>, Rob Herring <robh@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, Russell King <linux@armlinux.org.uk>, 
+ Liviu Dudau <liviu.dudau@arm.com>, Sudeep Holla <sudeep.holla@kernel.org>, 
+ Lorenzo Pieralisi <lpieralisi@kernel.org>, Frank Li <Frank.Li@nxp.com>, 
+ Sascha Hauer <s.hauer@pengutronix.de>, 
+ Pengutronix Kernel Team <kernel@pengutronix.de>, 
+ Fabio Estevam <festevam@gmail.com>, Vladimir Zapolskiy <vz@mleia.com>, 
+ Stefan Agner <stefan@agner.ch>, Maxime Coquelin <mcoquelin.stm32@gmail.com>, 
+ Alexandre Torgue <alexandre.torgue@foss.st.com>, 
+ Aaro Koskinen <aaro.koskinen@iki.fi>, 
+ Andreas Kemnade <andreas@kemnade.info>, Kevin Hilman <khilman@baylibre.com>, 
+ Roger Quadros <rogerq@kernel.org>, Tony Lindgren <tony@atomide.com>, 
+ Nicolas Ferre <nicolas.ferre@microchip.com>, 
+ Alexandre Belloni <alexandre.belloni@bootlin.com>, 
+ Claudiu Beznea <claudiu.beznea@tuxon.dev>, Andrew Lunn <andrew@lunn.ch>, 
+ Sebastian Hesselbarth <sebastian.hesselbarth@gmail.com>, 
+ Gregory Clement <gregory.clement@bootlin.com>, 
+ Robert Jarzmik <robert.jarzmik@free.fr>, 
+ Kristoffer Ericson <kristoffer.ericson@gmail.com>, 
+ Linus Walleij <linusw@kernel.org>, 
+ Ethan Nelson-Moore <enelsonmoore@gmail.com>, 
+ Geert Uytterhoeven <geert@linux-m68k.org>, 
+ Alexander Sverdlin <alexander.sverdlin@siemens.com>, 
+ Shawn Guo <shawnguo@kernel.org>, Karl Mehltretter <kmehltretter@gmail.com>, 
+ "David Hildenbrand (Arm)" <david@kernel.org>, 
+ Nicolas Pitre <npitre@baylibre.com>, linux-doc@vger.kernel.org, 
+ linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+ devicetree@vger.kernel.org, imx@lists.linux.dev, 
+ linux-stm32@st-md-mailman.stormreply.com, linux-omap@vger.kernel.org
+In-Reply-To: <20260914140821.1805449-1-arnd@kernel.org>
+References: <20260914140821.1805449-1-arnd@kernel.org>
+Subject: Re: [PATCH v2 00/14] ARM: deprecated platform removal
+Message-Id: <179085840863.602414.17097032215174834953.b4-ty@b4>
+Date: Thu, 01 Oct 2026 14:40:08 +0200
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 4/7] maccess: Use a scoped guard for page faults
-To: "David Hildenbrand (Arm)" <david@kernel.org>,
- Muhammad Usama Anjum <usama.anjum@arm.com>
-Cc: Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
- Mark Rutland <mark.rutland@arm.com>, Alexei Starovoitov <ast@kernel.org>,
- Daniel Borkmann <daniel@iogearbox.net>, Andrii Nakryiko <andrii@kernel.org>,
- Eduard Zingerman <eddyz87@gmail.com>,
- Kumar Kartikeya Dwivedi <memxor@gmail.com>,
- Martin KaFai Lau <martin.lau@linux.dev>, Song Liu <song@kernel.org>,
- Yonghong Song <yonghong.song@linux.dev>, Jiri Olsa <jolsa@kernel.org>,
- Emil Tsalapatis <emil@etsalapatis.com>,
- Ihor Solodrai <ihor.solodrai@linux.dev>,
- Andrew Morton <akpm@linux-foundation.org>, Lorenzo Stoakes <ljs@kernel.org>,
- "Liam R. Howlett" <liam@infradead.org>, Vlastimil Babka <vbabka@kernel.org>,
- Mike Rapoport <rppt@kernel.org>, Suren Baghdasaryan <surenb@google.com>,
- Michal Hocko <mhocko@suse.com>,
- "moderated list:ARM64 PORT (AARCH64 ARCHITECTURE)"
- <linux-arm-kernel@lists.infradead.org>,
- open list <linux-kernel@vger.kernel.org>,
- "open list:BPF [GENERAL] (Safe Dynamic Programs and Tools)"
- <bpf@vger.kernel.org>,
- "open list:MEMORY MANAGEMENT - CORE" <linux-mm@kvack.org>
-References: <20260824160523.3907021-1-usama.anjum@arm.com>
- <20260824160523.3907021-5-usama.anjum@arm.com>
- <79daa73b-0d34-4e84-8450-56f90bc700d4@kernel.org>
- <98e9ac67-7df3-4c0a-8814-37e196d94020@arm.com>
- <7454d7a3-57c6-4883-a66b-26129e633c6e@kernel.org>
-From: Viktor Malik <vmalik@redhat.com>
-In-Reply-To: <7454d7a3-57c6-4883-a66b-26129e633c6e@kernel.org>
-X-Mimecast-Spam-Score: 0
-X-Mimecast-MFC-PROC-ID: RW5lGjFOFHqQoGlxREubxZ03zBnb8yv4N-9d-30GmQw_1790857971
-X-Mimecast-Originator: redhat.com
-Content-Language: en-US
-Content-Type: text/plain; charset=UTF-8
+Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261001_053421_974804_1773C107 
-X-CRM114-Status: GOOD (  20.75  )
+X-Mailer: b4 0.16.0
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -133,82 +96,54 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 10/1/26 13:33, David Hildenbrand (Arm) wrote:
-> On 8/25/26 14:07, Muhammad Usama Anjum wrote:
->> On 25/08/2026 11:36 am, David Hildenbrand (Arm) wrote:
->>> On 8/24/26 18:04, Muhammad Usama Anjum wrote:
->>>> Kernel nofault copy and string paths open-code page-fault disable and
->>>> enable around label-based loops, duplicating cleanup on success and
->>>> failure.
->>>>
->>>> Use a page-fault scope guard instead. Leaving the scope now re-enables
->>>> page faults on both paths without separate cleanup at the fault label.
->>>>
->>>> No functional change.
->>>>
->>>> Signed-off-by: Muhammad Usama Anjum <usama.anjum@arm.com>
->>>> ---
->>>>  mm/maccess.c | 53 +++++++++++++++++++++++++---------------------------
->>>>  1 file changed, 25 insertions(+), 28 deletions(-)
->>>>
->>>> diff --git a/mm/maccess.c b/mm/maccess.c
->>>> index c59a0e092d24a..f695ceefe6fcc 100644
->>>> --- a/mm/maccess.c
->>>> +++ b/mm/maccess.c
->>>> @@ -38,18 +38,17 @@ long copy_from_kernel_nofault(void *dst, const void *src, size_t size)
->>>>  	if (!size)
->>>>  		return 0;
->>>>  
->>>> -	pagefault_disable();
->>>> -	if (!(align & 7))
->>>> -		copy_from_kernel_nofault_loop(dst, src, size, u64, Efault);
->>>> -	if (!(align & 3))
->>>> -		copy_from_kernel_nofault_loop(dst, src, size, u32, Efault);
->>>> -	if (!(align & 1))
->>>> -		copy_from_kernel_nofault_loop(dst, src, size, u16, Efault);
->>>> -	copy_from_kernel_nofault_loop(dst, src, size, u8, Efault);
->>>> -	pagefault_enable();
->>>> +	scoped_guard(pagefault) {
->>>> +		if (!(align & 7))
->>>> +			copy_from_kernel_nofault_loop(dst, src, size, u64, Efault);
->>>> +		if (!(align & 3))
->>>> +			copy_from_kernel_nofault_loop(dst, src, size, u32, Efault);
->>>> +		if (!(align & 1))
->>>> +			copy_from_kernel_nofault_loop(dst, src, size, u16, Efault);
->>>> +		copy_from_kernel_nofault_loop(dst, src, size, u8, Efault);
->>>> +	}
->>>
->>> While I understand what pagefault_disable+pagefault_enable does, it is
->>> completely unclear what scoped_guard(pagefault) does.
->>>
->>> Should this be scoped_guard(disabled_pagefaults) or sth like that?
->>>
->>
->> The `pagefault` guard is already defined in `include/linux/uaccess.h`:
-> 
-> Ah, sorry, I thought this was added in this series.
-> 
-> It's completely confusing.
-> 
-> 	guard(pagefault)();
-> 
-> meaning "disable pagefault", what?! :)
-> 
-> CCin Viktor: I see that the patch that introduced that has no acks from MM. I
-> don't blame you, because the file is not actually listed under the MM section.
 
-You're right, looking at it back, it's a really unfortunate name.
-Renaming to nofault or disable_pagefault is certainly better.
-
-Thanks for pointing this out.
-
-Viktor
-
+On Mon, 14 Sep 2026 16:08:02 +0200, Arnd Bergmann wrote:
+> From: Arnd Bergmann <arnd@arndb.de>
 > 
-> I think this really needs to be cleaned up to clarify that we *disable* pagefaults.
+> In the 7.3 kernel, I marked a number of platforms and features as
+> deprecated, with the plan to keep these around for the LTS kernel, but
+> remove them in 7.4, see [1].
 > 
-> Usama, can you throw in a patch to clean that up? (calling it nofault,
-> disable_pagefaults or whatever)
+> Cleaning out the deprecated platform code has turned into a larger effort
+> than I expected, currently standing at 300 patches, with a lot of them
+> still in need of being split up into smaller ones, see [2] for a current
+> snapshot.
 > 
+> [...]
+
+Applied, thanks!
+
+[01/14] ARM: remove sa1100 platform
+        https://git.kernel.org/soc/soc/c/95664df86fdf6e70e411ad9e3910b402489a22c3
+[02/14] ARM: remove footbridge
+        https://git.kernel.org/soc/soc/c/21b5f207cb8b1d0a819dd1799ef8c56178d5b1d7
+[03/14] ARM: remove legacy pxa board files
+        https://git.kernel.org/soc/soc/c/538532cd1532f44e7c2519ecd3dfbcbed08061e2
+[04/14] ARM: orion/dove/mv78xx0: remove all board files
+        https://git.kernel.org/soc/soc/c/f98cb2a43e0efa32ed8723df8d687acdb69dab06
+[05/14] ARM: orion5x: fold plat-orion/pcie.c and hw_pci into pci.c
+        https://git.kernel.org/soc/soc/c/4fa61946d7c3e6da57a6db11551fa2ac17078370
+[06/14] ARM: omap2: remove omap24xx support
+        https://git.kernel.org/soc/soc/c/cbd33c61480b8fa64046d956f4f68bca5cf68fbe
+[07/14] ARM: imx: remove i.MX31 SoC support
+        https://git.kernel.org/soc/soc/c/104a7a07163962fe259a2e5272fb70446f19793b
+[08/14] ARM: versatile: remove Integrator/CM1136JF-S option
+        https://git.kernel.org/soc/soc/c/1fbbfb51f20f3d0a1da6b542d7f29acc29815403
+[09/14] ARM: imx: remove nommu support
+        https://git.kernel.org/soc/soc/c/2e1031df3c5f64f96660074f695e3b24e4bd3018
+[10/14] ARM: lpc18xx: remove entire platform
+        https://git.kernel.org/soc/soc/c/31431dc97977003efbd4fb25e77aec8744338280
+[11/14] ARM: stm32: remove stm32f4/f7/h7 MCU support
+        https://git.kernel.org/soc/soc/c/6fa463cad26fed984b62a764345e65a98fd0a30a
+[12/14] ARM: versatile: remove mps2 support
+        https://git.kernel.org/soc/soc/c/1b983b0549163d4016574b0043664cdb47eea8cd
+[13/14] ARM: at91: remove samv7 support
+        https://git.kernel.org/soc/soc/c/1b9867b95e1e4a88c80b2e5612b7092b90ae3f88
+[14/14] ARM: axxia: remove entire platform
+        https://git.kernel.org/soc/soc/c/af4f7acd7b73780c7fece5d156e7d9a7791a60af
+
+Best regards,
+-- 
+Krzysztof Kozlowski <krzk@kernel.org>
 
 
