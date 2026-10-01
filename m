@@ -4,59 +4,63 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 49AABCA5FD2
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  1 Oct 2026 14:25:16 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 13589CA5FD2
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  1 Oct 2026 14:25:51 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=x3zQ3EST5J6Jwoq4e3go3Re87KsFnzCXlaMPneOsi+A=; b=v6We+goFyeG9H10BuwYYSnu+bq
-	Btv1ohgJcRcL9TFU1uzjWx+cZz6CkisbrKEkI8FwMD2cBWZ+EKP8gUlrAYwgsT55WthunxjbBxDbT
-	5BGEfx61Yly+LSBzbVuU5k6aVYRSNwxnA9m59VI7MqNIbaIyaZEAY0xRRIQlOuj0beg+w+fc6aEA+
-	6huIwWvOb0s2lh5EUEAFgPuuxwUUbAbXOEuNORqeTkCSg2TJGvj/+tCBikUHN7HWI1+AAH+PqkfQd
-	+2bha9mUekNBnzbJ3OD3DX4CSLZXUdJvfBxIe4QQiHIq/ziJU+N6Wl6qVgFh6PHUGHAz8Vmzgkmgh
-	IE5TF+MQ==;
+	bh=8AC7GbvuCCMMbO7MKRkTJUZ5RNbtzx9lp9nn1lg0M9w=; b=sloAkxFRQtbAQQtk1JMD7JI7OA
+	Rk92H+VUCrh1m13JzeODnmSuXWj19lIQ7QmVGSA0x1p+xkH8QXf+XlerXK2+aFjbU2OoJ2QbX3bG9
+	j/RsOTeULQCVZ/XM4/fgVgunUhqrINS7PRPuO+HHilmZrZBQL3Lwsg78DdK4LqyLQEjh07k4BzSgw
+	Uh8qiREeHWwBF86xNgEhd/Wkjxl1TKIlbAWcV3bIn9QycAyzx0FfPxZ23qRSojfiQ5Lz87ZMXXj/K
+	pPEMYMbbCgX+xNVs+OFUQsP9vO28PdnS2ejC56Cee4nILTI4XmgR+DuQOGBJSXphR0F8SEVOw61N5
+	lV3Ci0cA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xCHig-00000009Mf2-1Ydf;
-	Thu, 01 Oct 2026 14:25:10 +0000
+	id 1xCHjE-00000009MmT-2C5b;
+	Thu, 01 Oct 2026 14:25:44 +0000
 Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xCHif-00000009MeM-1XuH
+	id 1xCHjD-00000009MlR-0HvZ
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 01 Oct 2026 14:25:09 +0000
+	Thu, 01 Oct 2026 14:25:43 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id 653E160A55;
-	Thu,  1 Oct 2026 14:25:08 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id DFCA01F000FF;
-	Thu,  1 Oct 2026 14:25:06 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id EE1EB6021D;
+	Thu,  1 Oct 2026 14:25:38 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 43B1F1F000FF;
+	Thu,  1 Oct 2026 14:25:34 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1790864708;
-	bh=x3zQ3EST5J6Jwoq4e3go3Re87KsFnzCXlaMPneOsi+A=;
+	s=k20260515; t=1790864738;
+	bh=8AC7GbvuCCMMbO7MKRkTJUZ5RNbtzx9lp9nn1lg0M9w=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=fMBR5/LL+PolIe6nLQjT3hXnbDcETLtXOxzf31PRSITSr2MDtxs5VK75f5UhlMXvh
-	 UBRsdZ4rd/KHwROIYgT1JIXyn9xAd2sML/sSR78OMGfEHv4cfQX/vcwS723etTc0+o
-	 L6OJrLRmXiafpCHiCJBSx9Liv0wgYutzOSPDlHVGJMxA4FGwfE1eIJOl6Rwn0/mmIY
-	 TWRBqyoFVK3zEvdz8ODdYko3mu3NYB3nr4GK1+C1LuXayEvYZpjMUTc7zzrNTmQkOk
-	 BrjvQQyHvB9eg4796KCC1iRu/Vp6lZHpHTEhQ1mpI1/Tc7kZF1gHSaqsHjkQIJAbS3
-	 nxbj5kFJ2rCaQ==
-Date: Thu, 1 Oct 2026 15:25:03 +0100
-From: Mark Brown <broonie@kernel.org>
-To: Mark Rutland <mark.rutland@arm.com>
-Cc: linux-arm-kernel@lists.infradead.org, catalin.marinas@arm.com,
-	stable@vger.kernel.org, will@kernel.org
-Subject: Re: [PATCH] arm64/fpsimd: signal: Forbid non-streaming SVE payload
- on SME-only systems
-Message-ID: <51351e42-60d1-417d-b61b-6011bfe5d2b5@sirena.org.uk>
-References: <20261001130836.1410888-1-mark.rutland@arm.com>
+	b=iehR+JhNmWti4pt7pfdUdJ6fePSYT//2YUHfiZ2GH0gFzcTvh2uujKnreTPbdh9f3
+	 InAhVQJauuzfMtHOROac9Sn4iUr2Jjiuf/5dsLjq+np/OXGSrrfwX4FbkLGWaOEwfC
+	 SOpmvaH9GBGPE7YYvV9OX4mhXFOzAmcIiyqd3r6AOysyHvWbfeLFc2ZN2fxsGDwJvI
+	 CfLvGrDiLGkpHpn67BrpwfZtN31KPXLEsyAzyDfQ616aG4PbKBiqPXJWGqwoKE4NuS
+	 0/uH67EaBvXRO9WWtTh8DTHR41EpXacsiDhks8IoOxdDPuBTu6237B3FfonEih7AmT
+	 kVO94jhXn8CRw==
+Date: Thu, 1 Oct 2026 15:25:31 +0100
+From: "Lorenzo Stoakes (ARM)" <ljs@kernel.org>
+To: Mark Brown <broonie@kernel.org>
+Cc: Catalin Marinas <catalin.marinas@arm.com>, 
+	Will Deacon <will@kernel.org>, Marc Zyngier <maz@kernel.org>, Joey Gouly <joey.gouly@arm.com>, 
+	Suzuki K Poulose <suzuki.poulose@arm.com>, Shuah Khan <shuah@kernel.org>, Oliver Upton <oupton@kernel.org>, 
+	Fuad Tabba <fuad.tabba@linux.dev>, Peter Maydell <peter.maydell@linaro.org>, 
+	Leonardo Bras <leo.bras@arm.com>, Wei-Lin Chang <weilin.chang@arm.com>, 
+	Yao Yuan <yaoyuan@linux.alibaba.com>, linux-arm-kernel@lists.infradead.org, linux-doc@vger.kernel.org, 
+	kvmarm@lists.linux.dev, linux-kselftest@vger.kernel.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v21 07/15] KVM: arm64: Forward GCS exceptions to nested
+ guests
+Message-ID: <ar5cHWMczKd6yw7n@gremlin>
+References: <20260930-arm64-gcs-v21-0-3556644cd927@kernel.org>
+ <20260930-arm64-gcs-v21-7-3556644cd927@kernel.org>
 MIME-Version: 1.0
-Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="tjgr7GheXTi+teXB"
+Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20261001130836.1410888-1-mark.rutland@arm.com>
-X-Cookie: Do not stamp.
+In-Reply-To: <20260930-arm64-gcs-v21-7-3556644cd927@kernel.org>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -71,64 +75,92 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+On Wed, Sep 30, 2026 at 10:48:17PM +0100, Mark Brown wrote:
+> For nested guests where HFGITR_EL2.nGCSSTR_EL1 is clear or when there are
 
---tjgr7GheXTi+teXB
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
+I see at [0] that, if HFGITR_EL2.nGCSSTR_EL1 is clear:
 
-On Thu, Oct 01, 2026 at 02:08:36PM +0100, Mark Rutland wrote:
+"If EL2 is implemented and enabled in the current Security state, and
+either EL3 is not implemented or SCR_EL3.FGTEn == 1, then execution at EL1
+using AArch64 of any of the specified instructions generates a GCS
+exception with EC syndrome value 0x2D, unless the instruction generates a
+higher priority exception."
 
-> Regardless of this patch, the kselftests themselves are broken for
-> SME-only configurations. The signal tests have been broken for at least
-> 3 years (since the kernel started creating SVE contexts on SME-only
-> systems), so evidently such configurations are not being tested. I have
-> some local fixes for the kselftests that I will send out soon.
+For:
 
-I do have some coverage set up but it's set up in such a way that it'll
-only notice new failures so things that have never worked won't be
-visible.
+GCSSTR.
+GCSSTTR when PSTATE.UAO is 1.
+GCSSTTR when the Effective value of HCR_EL2.{NV, NV1} is {1, 1}.
 
-> @@ -443,19 +444,33 @@ static int restore_sve_fpsimd_context(struct user_ctxs *user)
+So privileged GCS stores.
 
->  	} else {
->  		/*
-> -		 * A SME only system use SVE for streaming mode so can
-> -		 * have a SVE formatted context with a zero VL and no
-> -		 * payload data.
-> +		 * Non-streaming SVE state may be preserved without an SVE
-> +		 * payload, in which case all state is saved in the FPSIMD
-> +		 * context.
-> +		 *
-> +		 * On SME-only systems, non-streaming (FPSIMD-only) state is
-> +		 * always preserved without an SVE payload, and with VL==0. On
-> +		 * such systems, only accept non-streaming state without an SVE
-> +		 * payload.
->  		 */
-> -		if (!system_supports_sve() && !system_supports_sme())
-> +		if (!system_supports_sve() && !fpsimd_only)
->  			return -EINVAL;
+[0]: https://support.arm.com/documentation/111107/2026-09/AArch64-Registers/HFGITR-EL2--Hypervisor-Fine-Grained-Instruction-Trap-Register?lang=en
 
-This means that this function will now accept a FPSIMD only SVE context
-on systems with neither SVE nor SME, but that check was redundant since
-we already reject anything with SVE magic in parse_user_sigframe() on
-such systems and should never get here anyway.
+> L2 GCS data check exceptions we need to forward the exception to the guest.
+> Add handling to do so.
+>
+> Reviewed-by: Leonardo Bras <leo.bras@arm.com>
+> Signed-off-by: Mark Brown <broonie@kernel.org>
 
-Reviewed-by: Mark Brown <broonie@kernel.org>
+(A bunch of commentary here, just reasoning out loud for my own
+understanding.)
 
---tjgr7GheXTi+teXB
-Content-Type: application/pgp-signature; name="signature.asc"
+All LGTM, so:
 
------BEGIN PGP SIGNATURE-----
+Reviewed-by: Lorenzo Stoakes (ARM) <ljs@kernel.org>
 
-iQEzBAABCgAdFiEEreZoqmdXGLWf4p/qJNaLcl1Uh9AFAmq+bT8ACgkQJNaLcl1U
-h9A8Dgf/bpQ6h/269Fw6oWtU7lRmSPaWBeB9mziw3EfHbp+Mmnk+V/Z0Y5+ls/nz
-C4v9qTOP/oklHyg+W3PrwDBoYjxj73wcViCsUgP9xW5VZDKs6K57wi+15mnVgDOX
-sGuX7PXTstguS0u9oF+l4PWK2CmajpHgFTx2CeYrsp0kQHppNDwe35bW/i30Oinv
-gc1dNeNKELqVgi+By/Dw2ZXIPb2hWRvhWoJ3u0/ZqiXJcho6+zHzPY2yLC4rUBIb
-uOf82LB9LLQ2KBvJLBe26ZuXnzU6r1+FZoj1061ZXLUgF+f8mPZbQkQW75PujF3N
-pTxxIz3pHiuEAn+h928xct0qaweg1g==
-=0L+C
------END PGP SIGNATURE-----
+> diff --git a/arch/arm64/kvm/handle_exit.c b/arch/arm64/kvm/handle_exit.c
+> index db37678dcb05..a8198e96fcb4 100644
+> --- a/arch/arm64/kvm/handle_exit.c
+> +++ b/arch/arm64/kvm/handle_exit.c
 
---tjgr7GheXTi+teXB--
+> +/*
+> + * We might get GCS exceptions that need to be forwarded to the
+> + * hypervisor when a nested guest has HFGITR_EL2.nGCSSTR_EL1 clear, or
+> + * for a GCS data check exception for a L2 guest.
+> + */
+
+OK so I see this is used as a handler in:
+
+static exit_handle_fn arm_exit_handlers[] = {
+	...
+	[ESR_ELx_EC_GCS]	= kvm_handle_gcs,
+};
+
+And as per the arm ref page, 0x2D == ESR_ELx_EC_GCS.
+
+And it's always something being injected, so returning 1 (handled) is fine.
+
+>  static int kvm_handle_gcs(struct kvm_vcpu *vcpu)
+>  {
+> -	/* We don't expect GCS, so treat it with contempt */
+> -	if (kvm_has_feat(vcpu->kvm, ID_AA64PFR1_EL1, GCS, IMP))
+> -		WARN_ON_ONCE(1);
+> +	if (!kvm_has_gcs(vcpu->kvm)) {
+> +		kvm_inject_undefined(vcpu);
+> +		return 1;
+> +	}
+
+OK so make it not-a-kernel-warning if unsupported...
+
+>
+> +	if (vcpu_has_nv(vcpu)) {
+> +		kvm_inject_nested_sync(vcpu, kvm_vcpu_get_esr(vcpu));
+
+...And this is the L0 at physical EL2 -> vEL2 (in physical EL1) injecting a
+synchronous exception.
+
+So it seems to me the key point of the patch is to forward to nested
+guests, hence the subject line :>)
+
+> +		return 1;
+> +	}
+> +
+> +	WARN_ON_ONCE(1);
+
+And this is an 'impossible' case because it should have been handled
+natively otherwise. So it's a bug in KVM if it ever happened.
+
+--
+Cheers, Lorenzo
 
