@@ -4,50 +4,49 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id AF171CA5FB3
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  1 Oct 2026 11:34:46 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 51E88CA5FCB
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  1 Oct 2026 11:35:25 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Cc:Content-ID:Content-Description:Resent-Date:Resent-From
 	:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=OFUfBJhfs43LK2uJ35trWg6Dxj/vYrf6yAbtRpo/I9Q=; b=40E+gYDZv4X0CjC815kkcr4LuM
-	62k8wt6dxekEkuVAK+o85DMvySkWLR0VQfnHZN0ySyWrq5zemsjuqSD1gRQyOmzfWhBgrCrPfOMdQ
-	qkB011tGPPUIvWOzR9s2zmRbm1S+k/94PIUFvQfvzP3dCsh4l2RmMS5pLAHHmPEQvGKI+e5CX0lWs
-	YYBEMP9Gw7TOHb+HEf3PaNH7QUAZtq/K43H6yKMMT/9zChaweM3K/+KKtvxmeZMVQChVI00ZcDO9C
-	dbfreGo6dOGcYIkcLAx3bWbBPPw1QrD7I9aNADkcMbwbOvj2i3RcZ0qhrCvVhm3OdAXAlFPwuhynr
-	FfaZWTVA==;
+	bh=IR+/nwhsFwuNmBp3vUC3gN77geHokdiIHhVMCgtINUc=; b=4KtO8K6GenrEbDMhHjnT//NJWh
+	tI9FToocyRbGg79OffSgEsDcXiTWUmJLeoi8VBHlxFE/S6mt7RQBfnsvTxSAc+VqngRdMvkl5ZPmk
+	4vneffozMagacwiCZK0EKzykVvqC74C41e9aKBm9BD11bDgiRsVBsEu2bbLDmd0rHZMlOEonngV1l
+	3aY5OKsl+xnvL/glRk1GuNydJx4ZnOnJV2df0Ixr2Nj9JCtPF+tyF6Bw86ydx5dnJqmVfbyB/Le1M
+	xg+bdy2ZLxnhv3NKBADNTA1Mc0NAsdXmzLUuxhxCTCxdxPonUg9tsHoZNkRksif+NwOQM2ybPahSE
+	Gp0VSdew==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xCF3f-00000008e0h-1hEC;
-	Thu, 01 Oct 2026 11:34:39 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1xCF4H-00000008e7J-30mZ;
+	Thu, 01 Oct 2026 11:35:17 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xCF3d-00000008e0T-1SGb
+	id 1xCF4G-00000008e71-3i6R
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 01 Oct 2026 11:34:37 +0000
+	Thu, 01 Oct 2026 11:35:16 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id C98D941745;
-	Thu,  1 Oct 2026 11:34:36 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 7079C1F000FF;
-	Thu,  1 Oct 2026 11:34:28 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id AB8E260A58;
+	Thu,  1 Oct 2026 11:35:15 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id C3AF01F000FF;
+	Thu,  1 Oct 2026 11:35:08 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1790854476;
-	bh=OFUfBJhfs43LK2uJ35trWg6Dxj/vYrf6yAbtRpo/I9Q=;
+	s=k20260515; t=1790854515;
+	bh=IR+/nwhsFwuNmBp3vUC3gN77geHokdiIHhVMCgtINUc=;
 	h=Date:Subject:To:References:From:In-Reply-To;
-	b=hU/U6FzrcmDrLuYwspEuImByZobXbfI3VhwI7ef+aDvD2f2HwXe2U0G2qGEHQJzu6
-	 fgcV7rEMPAoLLQN1Q2c2AXy58ZQUD8hIexEoci4gM6Ih/uiXQxHxNonUVR69E6Z8gX
-	 ZTd2WblSoo4EGpHGIeFX6HXyLNzS/Cdpm+hpU9rUMMXmjb05OM36DMx4SfGLcf0gsY
-	 Xd5ro+jXBJIF3mVya4X9/ghB9UFUxuxmCPjf3cWIEx2a3tmZoAqGLQznV8tA3UPEsW
-	 K4ktT/2AdvhFaj3l0TnW65UsRSRYVUOIcQe3dCdHOI6V/iROn3Thy4HYnYpDvZky5p
-	 AYOKVxe1+r+vg==
-Message-ID: <10fd28a8-04e0-4e50-860b-ae094dd1e008@kernel.org>
-Date: Thu, 1 Oct 2026 13:34:25 +0200
+	b=exBCzXDy4UfhbBpIf5ElPtsGdou5G37JN1w6zO7SBcy+SQbM6GyJXwNHkbHPDnbpX
+	 IiL40C+o59OcASc4wrLOZbNwO4nID9qatgAYSxpMwSl4u+eS+DnMWbLJ5jPdhKguBz
+	 8DBRKcQwqHEVHiKYWYVCAkwFeR6Jg1rqW3UD/xHeiC7vbIPaflaLY2qYQb7tUo0sGe
+	 NmZkPEy0IidKDzc1gEE3dajCaIi9wfaS96HPGSWyAU25kIVWUG+OdoesMdrtY2EGRc
+	 t1Jpoo3+ZwnDxJMNa57kL89/A8Sb2vVsmQHZNPRrjThEc6Ig3JrTgP9deNmUZWKIqT
+	 M/Trwd49yf+nw==
+Message-ID: <819802b5-e8b0-41dc-a1d3-8ed843d9a769@kernel.org>
+Date: Thu, 1 Oct 2026 13:35:05 +0200
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 3/7] maccess: Skip setup for zero-sized kernel nofault
- copies
+Subject: Re: [PATCH 4/7] maccess: Use a scoped guard to re-enable page faults
 To: Muhammad Usama Anjum <usama.anjum@arm.com>,
  Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
  Mark Rutland <mark.rutland@arm.com>, Alexei Starovoitov <ast@kernel.org>,
@@ -69,7 +68,7 @@ To: Muhammad Usama Anjum <usama.anjum@arm.com>,
  <bpf@vger.kernel.org>,
  "open list:MEMORY MANAGEMENT - CORE" <linux-mm@kvack.org>
 References: <20260824160523.3907021-1-usama.anjum@arm.com>
- <20260824160523.3907021-4-usama.anjum@arm.com>
+ <20260824160523.3907021-6-usama.anjum@arm.com>
 From: "David Hildenbrand (Arm)" <david@kernel.org>
 Content-Language: en-US
 Autocrypt: addr=david@kernel.org; keydata=
@@ -116,7 +115,7 @@ Autocrypt: addr=david@kernel.org; keydata=
  3iyY2Nsd7JxfKu1PRhCGwXzRw5TlfEsoRI7V9A8isUCoqE2Dzh3FvYHVeX4Us+bRL/oqareJ
  CIFqgYMyvHj7Q06kTKmauOe4Nf0l0qEkIuIzfoLJ3qr5UyXc2hLtWyT9Ir+lYlX9efqh7mOY
  qIws/H2t
-In-Reply-To: <20260824160523.3907021-4-usama.anjum@arm.com>
+In-Reply-To: <20260824160523.3907021-6-usama.anjum@arm.com>
 Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
 X-BeenThere: linux-arm-kernel@lists.infradead.org
@@ -134,43 +133,21 @@ Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
 On 8/24/26 18:04, Muhammad Usama Anjum wrote:
-> A zero-sized kernel nofault copy does not enter an access loop, but it
-> still disables and re-enables page faults.
+> Kernel nofault copy and string paths open-code page-fault disable and
+> enable around label-based loops, duplicating cleanup on success and
+> failure.
 > 
-> Zero sizes are valid. BPF probe-read helpers accept them, and KGDB memory
-> packets may carry a zero length.
+> Use a page-fault scope guard instead. Leaving the scope now re-enables
+> page faults on both paths without separate cleanup at the fault label.
 > 
-> Return before changing page-fault state when there is nothing to copy.
-> For reads, keep architecture-specific address validation before the fast
-> path so its behavior is unchanged.
+> No functional change.
 > 
 > Signed-off-by: Muhammad Usama Anjum <usama.anjum@arm.com>
 > ---
->  mm/maccess.c | 5 +++++
->  1 file changed, 5 insertions(+)
-> 
-> diff --git a/mm/maccess.c b/mm/maccess.c
-> index 486559d688583..c59a0e092d24a 100644
-> --- a/mm/maccess.c
-> +++ b/mm/maccess.c
-> @@ -35,6 +35,8 @@ long copy_from_kernel_nofault(void *dst, const void *src, size_t size)
->  
->  	if (!copy_from_kernel_nofault_allowed(src, size))
->  		return -ERANGE;
-> +	if (!size)
-> +		return 0;
->  
->  	pagefault_disable();
->  	if (!(align & 7))
-> @@ -65,6 +67,9 @@ long copy_to_kernel_nofault(void *dst, const void *src, size_t size)
->  {
->  	unsigned long align = 0;
->  
-> +	if (!size)
-> +		return 0;
-> +
 
-Worth an unlikely() ? It's the corner case.
+Patch itself is fine, but the guard name is completely misleading.
+
+Acked-by: David Hildenbrand (Arm) <david@kernel.org>
 
 -- 
 Cheers,
