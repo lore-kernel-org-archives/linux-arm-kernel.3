@@ -4,62 +4,88 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D987ACA5FCF
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  1 Oct 2026 16:47:58 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D836BCA5FD4
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  1 Oct 2026 16:49:48 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=xTsRBC1y30K49/WiHZ0twj0lmBMnb1uUeNXQH4IyQ18=; b=B08yNWUy9cI4YURoml+Ae6E5l+
-	ToH7slD8rktcxmFqUjxnJKFgrxuoaKOm/gRaX5vuSc5g6X37g4pqO1PMjAX4+h0B8FvJZdY9wiy1y
-	G02NRJj7YPSK6v4mgFCdFX6hAuvSBmG6R6bt5cNZKjevLSdUjPW7gIdxHWR/q7cw4JOGSRa8kpJJx
-	yjw2oFOsfTCEJlXL5/tjNCXF8Yk2QB4ljzRaC0TQCiIYNaiNk2AkBTYg0VQQ1DmMRMT7eeQdBP9un
-	hmIozLPTWVX8niO8zj9//72h+GG/i0/boFK3m7LQObB1UXgQnKElG8XFNpoRXy6rkKFLJ9XCEIMOD
-	7LfS8oQQ==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
+	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:
+	References:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:
+	Subject:Date:From:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=8SzusLKauk33HdFOAGv2hPOxQhN/QtVf9ge6bWt8NUc=; b=bVvYnbzwS0frOBvuIqRiwa54+B
+	JzBkV+5sJ/v4T7qmI4ENnYrSHxURny+tWUjreSw47gbCk1C9wUJ1LTfzLdb5KRNK/dml/7tXz2nWQ
+	dlT5f0KLn+Dak0fFPnCHtbpYUxqhILZtN3h9+OS/vCo0ZAB2maA7pJemMwnmp6yINoVZjRqCWD8mM
+	YXXd4ySM1COt0hTBOSxBcgj9bjLxQYW9szF4bHTeEISSyheTNL821YJC3c+7QS0cFDbWFtAY1GaTS
+	GkGkRkEa1hoPTzbXoZURwAXulgWogRv0hfd2BVASS/XAMGYl6wHd5yCf6ktiiLtZbqLrG0lDOJLV0
+	fzjE5mDw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xCJwl-00000009lfr-0M6B;
-	Thu, 01 Oct 2026 16:47:51 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1xCG63-000000094v0-1o49;
+	Thu, 01 Oct 2026 12:41:11 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xCJwk-00000009lfV-19lU
+	id 1xCG5u-000000094mE-0pLK
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 01 Oct 2026 16:47:50 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id 8CEE86021D;
-	Thu,  1 Oct 2026 16:47:49 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id F41241F000FF;
-	Thu,  1 Oct 2026 16:47:44 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1790873269;
-	bh=xTsRBC1y30K49/WiHZ0twj0lmBMnb1uUeNXQH4IyQ18=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=lSGfvBUpgdrGNChtVsUti2z/cJcWjmoIJaYKfDBTqEFGR1ecsC3FK8Kst+5KikLqe
-	 YVs765eRpJpOX6eg0K69hwYIwCfDgBOotsgdGvqj5f6Uwm5N2YSKyae0638FTAjRaS
-	 iEtZi6KQwOBjB0iYeMQ+feYhzggZ4LiSqmSO+Ql3LUx/gszCP0R4EV5yam3F6CtAKF
-	 /dOXxDXpu5O9twUlx2dnna7zohQnus22P+7PjWjoWzgoGFii3jIPBcJTFs6Y7SEv8v
-	 1XAzr6CMURZwgk0ITWStl0WIeU6EoVF3Xi2GnovBbwj0QcuPT6oqwtiOFRUeBKI9o3
-	 OyTthtDyjF5pA==
-Date: Thu, 1 Oct 2026 17:47:42 +0100
-From: "Lorenzo Stoakes (ARM)" <ljs@kernel.org>
-To: Mark Brown <broonie@kernel.org>
-Cc: Catalin Marinas <catalin.marinas@arm.com>, 
-	Will Deacon <will@kernel.org>, Marc Zyngier <maz@kernel.org>, Joey Gouly <joey.gouly@arm.com>, 
-	Suzuki K Poulose <suzuki.poulose@arm.com>, Shuah Khan <shuah@kernel.org>, Oliver Upton <oupton@kernel.org>, 
-	Fuad Tabba <fuad.tabba@linux.dev>, Peter Maydell <peter.maydell@linaro.org>, 
-	Leonardo Bras <leo.bras@arm.com>, Wei-Lin Chang <weilin.chang@arm.com>, 
-	Yao Yuan <yaoyuan@linux.alibaba.com>, linux-arm-kernel@lists.infradead.org, linux-doc@vger.kernel.org, 
-	kvmarm@lists.linux.dev, linux-kselftest@vger.kernel.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v21 14/15] tools: Synchronise the kernel esr.h
-Message-ID: <ar6NXWzQ1rMb1aId@gremlin>
-References: <20260930-arm64-gcs-v21-0-3556644cd927@kernel.org>
- <20260930-arm64-gcs-v21-14-3556644cd927@kernel.org>
+	Thu, 01 Oct 2026 12:41:02 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id E541541149;
+	Thu,  1 Oct 2026 12:41:00 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPS id 8D2B4C4DDE4;
+	Thu,  1 Oct 2026 12:41:00 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1790858460;
+	bh=vqJg9MCrHhTQ3dSYeAuOSHwl+5KNi8MVa3c/QFLqYsE=;
+	h=From:Date:Subject:References:In-Reply-To:To:Cc:Reply-To:From;
+	b=s5wE65kyk31TVBG0Do9N+KjySvKQUyeg84o3ZmEWqCZUblV3Q7TInuzPmvrhmSCeS
+	 8vSbi2BWtrnbl2XKBufgeEWvd1A+ofgbBlf2CfdSPfY79XX2qMz/A0Wi9KDrFudeox
+	 wXS4caWFyvEhpCb5r/DbFpuQsiXWnXaf39p3dx6hOzmzD+Q6Cer1U6bblR2zdt7vkl
+	 VXlhg3komckzGtC/Q4FYB7yN4o8JUkqcf4FEkThbgf5USBC2qrwuXdeEoHMtBAeCzV
+	 nf95fIxlgjJ/2cnM039gWHDgCtY3XFTQN3Bpa52PepLB6L7p4sc2ClvUR/4hES7oU6
+	 SiweN4mCE83Dg==
+Received: from aws-us-west-2-korg-lkml-1.web.codeaurora.org (localhost.localdomain [127.0.0.1])
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 76F3CCA5FD6;
+	Thu,  1 Oct 2026 12:41:00 +0000 (UTC)
+From: Long Zhao via B4 Relay <devnull+longzhao.ambarella.com@kernel.org>
+Date: Thu, 01 Oct 2026 20:40:54 +0800
+Subject: [PATCH v9 05/15] dt-bindings: serial: snps-dw-apb-uart: add
+ ambarella,cv75-uart
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20260930-arm64-gcs-v21-14-3556644cd927@kernel.org>
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+Message-Id: <20261001-cv75-v5-v9-5-486cc289a4b8@ambarella.com>
+References: <20261001-cv75-v5-v9-0-486cc289a4b8@ambarella.com>
+In-Reply-To: <20261001-cv75-v5-v9-0-486cc289a4b8@ambarella.com>
+To: Arnd Bergmann <arnd@arndb.de>, Krzysztof Kozlowski <krzk@kernel.org>, 
+ Alexandre Belloni <alexandre.belloni@bootlin.com>, soc@lists.linux.dev, 
+ linux-arm-kernel@lists.infradead.org
+Cc: Long Zhao <longzhao@ambarella.com>, Rob Herring <robh@kernel.org>, 
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, 
+ Michael Turquette <mturquette@baylibre.com>, 
+ Stephen Boyd <sboyd@kernel.org>, Jerome Brunet <jbrunet@baylibre.com>, 
+ Linus Walleij <linusw@kernel.org>, Bartosz Golaszewski <brgl@kernel.org>, 
+ Michael Walle <mwalle@kernel.org>, 
+ Greg Kroah-Hartman <gregkh@linuxfoundation.org>, 
+ Jiri Slaby <jirislaby@kernel.org>, 
+ Andy Shevchenko <andriy.shevchenko@linux.intel.com>, 
+ =?utf-8?q?Ilpo_J=C3=A4rvinen?= <ilpo.jarvinen@linux.intel.com>, 
+ Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>, 
+ Long Zhao <zl020895@163.com>, Lee Jones <lee@kernel.org>, 
+ mfd@lists.linux.dev, devicetree@vger.kernel.org, linux-clk@vger.kernel.org, 
+ linux-gpio@vger.kernel.org, linux-serial@vger.kernel.org, 
+ linux-kernel@vger.kernel.org, 
+ Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
+X-Mailer: b4 0.15.2
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1790858457; l=1072;
+ i=longzhao@ambarella.com; s=20260730; h=from:subject:message-id;
+ bh=aI42/QWFrT0q/wEmjSA5wdZvhIPXU9faQz3G+ySJ344=;
+ b=GJyR08f2m1KBM40itHZIVPxg3lvd9r9y6CUpV2Ai8ClGQ/FUWgpQIFuuO90FvVU3YnUMMEkj6
+ 4oYVmJRfounAKLKknYAZ1rifH3WZ48+AGulMe0TOCQR3pIqHkUpwlPD
+X-Developer-Key: i=longzhao@ambarella.com; a=ed25519;
+ pk=/xGhPTOX0/eYsyTWzyjjgAIW1Z/YD+IlnOnvcdRozow=
+X-Endpoint-Received: by B4 Relay for longzhao@ambarella.com/20260730 with
+ auth_id=903
+X-Original-From: Long Zhao <longzhao@ambarella.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -71,74 +97,38 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
+Reply-To: longzhao@ambarella.com
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Sep 30, 2026 at 10:48:24PM +0100, Mark Brown wrote:
-> To pick up definitions for GCS.
->
-> Reviewed-by: Leonardo Bras <leo.bras@arm.com>
-> Signed-off-by: Mark Brown <broonie@kernel.org>
+From: Long Zhao <longzhao@ambarella.com>
 
-This seems to be out of date, with your series applied to next:
+Add the Ambarella CV75 compatible string to the Synopsys DW APB UART
+binding. The block is Ambarella IP with a DW-like register map, so it
+is described as a DW APB UART variant.
 
-$ diff -u arch/arm64/include/asm/esr.h tools/arch/arm64/include/asm/esr.h
---- arch/arm64/include/asm/esr.h	2026-10-01 17:43:56.186852562 +0100
-+++ tools/arch/arm64/include/asm/esr.h	2026-10-01 17:43:56.194056154 +0100
-@@ -7,7 +7,6 @@
- #ifndef __ASM_ESR_H
- #define __ASM_ESR_H
+Acked-by: Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
+Reviewed-by: Linus Walleij <linusw@kernel.org>
+Signed-off-by: Long Zhao <longzhao@ambarella.com>
+---
+ Documentation/devicetree/bindings/serial/snps-dw-apb-uart.yaml | 1 +
+ 1 file changed, 1 insertion(+)
 
--#include <asm/memory.h>
- #include <asm/sysreg.h>
+diff --git a/Documentation/devicetree/bindings/serial/snps-dw-apb-uart.yaml b/Documentation/devicetree/bindings/serial/snps-dw-apb-uart.yaml
+index 49f51b002879..cec5c679f1a9 100644
+--- a/Documentation/devicetree/bindings/serial/snps-dw-apb-uart.yaml
++++ b/Documentation/devicetree/bindings/serial/snps-dw-apb-uart.yaml
+@@ -51,6 +51,7 @@ properties:
+           - const: renesas,rzn1-uart
+       - items:
+           - enum:
++              - ambarella,cv75-uart
+               - anlogic,dr1v90-uart
+               - brcm,bcm11351-dw-apb-uart
+               - brcm,bcm21664-dw-apb-uart
 
- #define ESR_ELx_EC_UNKNOWN	UL(0x00)
-@@ -131,7 +130,7 @@
-  * Annoyingly, the negative levels for Address size faults aren't laid out
-  * contiguously (or in the desired order)
-  */
--#define ESR_ELx_FSC_ADDRSZ_nL(n)	((n) == -1 ? 0x29 : 0x2C)
-+#define ESR_ELx_FSC_ADDRSZ_nL(n)	((n) == -1 ? 0x25 : 0x2C)
- #define ESR_ELx_FSC_ADDRSZ_L(n)		((n) < 0 ? ESR_ELx_FSC_ADDRSZ_nL(n) : \
- 						   (ESR_ELx_FSC_ADDRSZ + (n)))
+-- 
+2.34.1
 
-@@ -437,35 +436,6 @@
- #ifndef __ASSEMBLER__
- #include <asm/types.h>
 
--static __always_inline bool esr_trap_is_iabt(unsigned long esr)
--{
--	return ESR_ELx_EC(esr) == ESR_ELx_EC_IABT_LOW;
--}
--
--/* Always check for S1PTW *before* using this. */
--static __always_inline bool esr_dabt_is_write(unsigned long esr)
--{
--	return esr & ESR_ELx_WNR;
--}
--
--static __always_inline bool esr_dabt_is_cm(unsigned long esr)
--{
--	return esr & ESR_ELx_CM;
--}
--
--static __always_inline bool esr_abt_is_sea(unsigned long esr)
--{
--	switch (esr & ESR_ELx_FSC) {
--	case ESR_ELx_FSC_EXTABT:
--	case ESR_ELx_FSC_SEA_TTW(-1) ... ESR_ELx_FSC_SEA_TTW(3):
--	case ESR_ELx_FSC_SECC:
--	case ESR_ELx_FSC_SECC_TTW(-1) ... ESR_ELx_FSC_SECC_TTW(3):
--		return true;
--	default:
--		return false;
--	}
--}
--
- static inline unsigned long esr_brk_comment(unsigned long esr)
- {
- 	return esr & ESR_ELx_BRK64_ISS_COMMENT_MASK;
-
---
-Cheers, Lorenzo
 
