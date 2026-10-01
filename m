@@ -4,64 +4,112 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B04B4CA5FB3
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  1 Oct 2026 09:34:26 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 116D7CA5FB3
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  1 Oct 2026 09:35:23 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=68HSkxELOQFz+Jf6fK34pTwAZVZfyUhd2rIP6STnHPE=; b=nUYbzxa6RHN5Gr1hWXKxXtQlFb
-	Blbbe7bnAj4wB2Ue0Osvz2CFto1tU5Nrf3O+craxK77LjqdJ5wav+/GVcSonFZu9XBYGdHyoFCgEf
-	O5bhTIHUUd3cIDHqJfO6Hay1A9wbhG2JQurNpCJur683d2xOhbmMZlPyuF6heOm7ymGaBYvrnyYpA
-	m71HfCLZW3xtHp6ZrS+YwVJu9I1rxV4nVg77+mvCtlW39b9kKemwjOIdecvAGyVTI8bjv2ZDA6B+q
-	xzB7LW+JNqh3xOk2c7yrJgNLBvyqPfoUrvznd1BzbpOMpdChJOLdNtOrMdE/uT9aUz6GEwX47YV9r
-	/H33w7Mg==;
+	bh=vYNfNqLHkMdvHAs749vvVhbZflan3bjWqgzofQ0smdo=; b=eBF/pFiZhqyN0ejnemBfPeC7vP
+	x3vC279paCbWbjnlM+iqYiDwIX+MdivR2Ny/8Wg/S9MSz06GO3SBdTJQUoaL3p1HaYHdppF6/enqF
+	cssKxO8ZCfAd4hfYgVl+rjUBFtqt090PM0+IEmSQ7hr9hgmke8C3fCDMbx4+pOXYInO6kG6pnZvvK
+	XYFM03/+oMFvEnXa0vbKk9GjzvAkBQOSJxLbB0mUcb999hDw2+Cks/0B47H4GFJJbOJC+/9S0Nf9+
+	fDCBZUvcwejgY6dVDlm8qDdOjV+Ixs2JH58XA3I5gEx4Sa9PpbWZLxsWx2ML1D0IY6oCdbwNPRBym
+	/imk5zEA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xCDBD-00000008Ndp-1cuG;
-	Thu, 01 Oct 2026 09:34:19 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xCDBA-00000008NdA-3qru
+	id 1xCDC8-00000008NuY-2NGo;
+	Thu, 01 Oct 2026 09:35:16 +0000
+Received: from mail-ed2-x0c.google.com ([2a00:1450:4864:33::c])
+	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1xCDC6-00000008Nsw-0giA
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 01 Oct 2026 09:34:18 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 87E32497;
-	Thu,  1 Oct 2026 02:34:12 -0700 (PDT)
-Received: from [10.57.54.170] (unknown [10.57.54.170])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id CAA703F86F;
-	Thu,  1 Oct 2026 02:34:13 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1790847255; bh=1zrhDKNmu636ji5kFIjsspTp01sRMrCi4IOadjuNaHM=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=eKHxwRgsFLwuLhOef3kDJKGvaJxbwEY9GEebLqGc0Nmqyfzm1AfZ5WhNhm+smOwyh
-	 +cE/EkmEfoc4IB1exw347qcu3IIOnHAUdOqOGt3sZZDxafbxRhvAztatI8nLFIjrEl
-	 2EXbxy8FTS1+GoGL8dCflHfm2XEswdw3325mH/a4=
-Message-ID: <0494fd68-2b73-4bbd-b013-7d1e79fdf01a@arm.com>
-Date: Thu, 1 Oct 2026 11:34:12 +0200
+	Thu, 01 Oct 2026 09:35:15 +0000
+Received: by mail-ed2-x0c.google.com with SMTP id 4fb4d7f45d1cf-6acb8b78d6cso4171994a12.2
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 01 Oct 2026 02:35:12 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1790847311; cv=none;
+        d=google.com; s=arc-20260327;
+        b=sYSEdYr8VPHAzUIQeedqVr34d/bRI12V/O3ys2uVSI9ciqcsA9hxo14KTNUizwQRw3
+         KztNlr6GD8O0P69z2lBYGtXBIQYDPeMWH6eVb2WljaiUea4wVYzlvrN6OukO5Dt0EmLN
+         34Fugw34Ddre+AR+DilOij0QtUsmSOhwpZgQfVcBlUBxKpq0SYoteapblqRBui71Ctub
+         8A5QrZnGVOtiSEjgaqyDGkUkEgjI9v5D0w+z86cRaQojSX4sXzTdhwYntU0fiwipYH0N
+         ohBjWXAeLYgAg0qkn+vyDjFsi77YdslmEhF9XzBTyNcBSJb6YJRCwt5CZs0kcfgHp0lE
+         w0ng==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:dkim-signature;
+        bh=vYNfNqLHkMdvHAs749vvVhbZflan3bjWqgzofQ0smdo=;
+        fh=/mJAT2udrbZx1n7fz7JLxMW43ss2fW4131uinpKGS6k=;
+        b=E/DIH4RbJbh/O8eFZ9x0LKbsdlIhHfarwUSzYre9y7xnG4UFocVqwerlpzVycrVj9H
+         lf8feOak6T1iLuAtmV3tPzN5QYFprUXuxC7LppcayrTUGcsX8EDzU2YqKPTvtSucbeLG
+         LItACGmCRoqchXdTp9QbplqbN++FWWc89Unmb6qcaVsjkXGQYD02rBv/yQBcEA4eJMHq
+         5XEs187uoSQWfqRv3SdMxiJbW4F5QKPfVTjLpLvkw0JJCghUUT7qQ6MFDStOwCXNROoU
+         9NL+t61z32zG0jl4My+oi08rZtlEULXZ+5qj0dBThkuUxGVKI7yvxmMQMtDw7/gjszl0
+         qJZg==;
+        darn=lists.infradead.org
+ARC-Authentication-Results: i=1; mx.google.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=linaro.org; s=google; t=1790847311; x=1791452111; darn=lists.infradead.org;
+        h=content-transfer-encoding:content-type:cc:to:subject:message-id
+         :date:from:in-reply-to:references:mime-version:from:to:cc:subject
+         :date:message-id:reply-to:content-type;
+        bh=vYNfNqLHkMdvHAs749vvVhbZflan3bjWqgzofQ0smdo=;
+        b=t/3SlqWbrEq5S32QeSbocHG4FUrVocmb3EkF85OAd9eJeIbeGSyiGbJECiCmE1pPgt
+         jaeuJUMk5JKxXN0fJPjz743hfXbLfDRLKtrCLvdiLyzphO141I+W4dWv4yMX1ucm3kVZ
+         PMepLCzfQR1Y5u5dc3fD6GxQ9W1s0InDZSro3748ATtsUuKP2uZjKtjMIkFzpioe8lyY
+         JJRJTlgMyAFp5XYfHJkUGJvLCQ6SWrmIyM4rQqBWisgsS2FteN0zkDq5bh/AaYOt4euM
+         6eaHGiT9C43dbPsGHvmW4uJzlsb0tsyPBaOutC911HcRt4nBu00Y49ufjZDqSwMmkUkb
+         yePA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1790847311; x=1791452111;
+        h=content-transfer-encoding:content-type:cc:to:subject:message-id
+         :date:from:in-reply-to:references:mime-version:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=vYNfNqLHkMdvHAs749vvVhbZflan3bjWqgzofQ0smdo=;
+        b=1TpobSrHCc2yF7I2FO9nktLUXH8NTDbYvAdi7tvjslBzfEnbM8WXVOQyNgqXuGRL2a
+         u/Pkk3B3kbL7ZVUyloiIZeLXuFq+njz5OXzp8b2CC6Sp2zcUWuHHKzDhIZ1WFbaSeLKb
+         XbnJOyYB2aurh+UjojSeipueukJ4wNcPbw6TTylj3y0/cIeJfiJ0kjkbccrmp2gmdJjM
+         I2DLB8rcSlEXymptjzRo0j4lgv8Bvcjo18FTl3JqDz6YK1qjRZ54Z+iD3EhFgtK32cpl
+         oYbXO2vat+pTysdG0y/quy/ATyI+cD3FQ5a1b4mO4dBCyiHqYoJ3e22eEJh1TLUSlyFD
+         ZLdg==
+X-Forwarded-Encrypted: i=1; AKwUvBxIqUA0KN0OdvOiO/wEpAVJV1B4mygPma0kjMmgQ+uG53aNPQfCytqcawJs6SqDbBjJNZ+f8+u+eJDGGdr8qu32@lists.infradead.org
+X-Gm-Message-State: AFq9FYKF7/aoyyhFrNhY3TUCnKxzkIAp+DNOB43Sf8XgnZHbkezio+aV
+	8YntLVA3Xu1YI3k6PEBxCBxXoRGvOlit1Lku6tMHyoZJEUWo/BKLAZ2CiqwNIjQChuqiZwAZa1L
+	NzJpe47pchvCQDQhlhe0Z9QVVv7dXDqUrPEJHG7J1oQ==
+X-Gm-Gg: AYBFou130bCmk+w7Konm9k3znF7WSsy3THRiNa7hN/tQ3fm8UePQmhIRlVLu9ICP4ej
+	jM7yxymNvXNUUWKpuwdA4n2Xs7KCKGh7eymnEuwk4ZJRpmRaVNm5rwOp/ABMc2WNm36Fx0SqVhy
+	ZiLSYzE2wiRIzcUQaZAaQ4THl6DudBGA8i9Sk3PoJyJfVu767pjKwagUSdXbqizS9XDMESdzBL6
+	aAgF+QFB3lUmXgnKb68VgWYCGuRNdzjmqOdmQEw3HB1Z2nLpPvWQZCilpv+pOZl7nAKFOmQ4PI5
+	A0awvtoFzyJ6PHNS2rwJwHdY30heCM2ha/P4aVKe/hguqRP9d2zQgSR2cLQttghKZ9xGaA0ZVkF
+	hy0+WINWwWjmY5Q==
+X-Received: by 2002:a05:6402:c4e:b0:6aa:490e:5506 with SMTP id
+ 4fb4d7f45d1cf-6ae1996fd65mr3129163a12.39.1790847311405; Thu, 01 Oct 2026
+ 02:35:11 -0700 (PDT)
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v3 1/2] arm64: smccc: add cache clean/invalidate IDs and
- return codes
-To: Srirangan Madhavan <smadhavan@nvidia.com>, mark.rutland@arm.com,
- lpieralisi@kernel.org, sudeep.holla@kernel.org, conor@kernel.org,
- jic23@kernel.org
-Cc: catalin.marinas@arm.com, will@kernel.org, treding@nvidia.com,
- jonathanh@nvidia.com, bence.csokas@arm.com,
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
- linux-tegra@vger.kernel.org
-References: <20260910082142.1522865-1-smadhavan@nvidia.com>
- <20260910082142.1522865-2-smadhavan@nvidia.com>
-Content-Language: en-GB
-From: Andre Przywara <andre.przywara@arm.com>
-In-Reply-To: <20260910082142.1522865-2-smadhavan@nvidia.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
+References: <20260929-pixel10-initial-dts-fixup-v1-1-b304868cc3e8@linaro.org>
+ <CAD=FV=VAiHf0-9sPvgGKji4j47rL38Ja3S2yiEfztubgZqBpjw@mail.gmail.com> <e58235f1-2c9a-461e-8231-8729eb3e9c46@kernel.org>
+In-Reply-To: <e58235f1-2c9a-461e-8231-8729eb3e9c46@kernel.org>
+From: Peter Griffin <peter.griffin@linaro.org>
+Date: Thu, 1 Oct 2026 10:34:58 +0100
+X-Gm-Features: AclHuK_YpgKbBYxkFtRgH6bLpQ_dPXQcVCNkRBcwgfpIDgIy_RrFnu-Dzk9rMWU
+Message-ID: <CADrjBPoppW+tAY3QXgawcCx7nvvSvWkQDKbP9R4r_4zAU3vWGg@mail.gmail.com>
+Subject: Re: [PATCH] arm64: dts: google: lga: fixup #size-cells DT warning
+To: Krzysztof Kozlowski <krzk@kernel.org>
+Cc: Doug Anderson <dianders@chromium.org>, =?UTF-8?Q?Andr=C3=A9_Draszik?= <andre.draszik@linaro.org>, 
+	Tudor Ambarus <tudor.ambarus@linaro.org>, Rob Herring <robh@kernel.org>, 
+	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
+	Brian Norris <briannorris@chromium.org>, Juan Yescas <jyescas@google.com>, 
+	linux-arm-kernel@lists.infradead.org, linux-samsung-soc@vger.kernel.org, 
+	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
+	kernel-team@android.com
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261001_023417_041328_AE638751 
-X-CRM114-Status: GOOD (  14.92  )
+X-CRM114-CacheID: sfid-20261001_023514_242142_DBDD6783 
+X-CRM114-Status: GOOD (  13.66  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -76,118 +124,34 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi,
+On Wed, 30 Sept 2026 at 06:22, Krzysztof Kozlowski <krzk@kernel.org> wrote:
+>
+> On 29/09/2026 17:47, Doug Anderson wrote:
+> > Hi,
+> >
+> > On Tue, Sep 29, 2026 at 4:11=E2=80=AFAM Peter Griffin <peter.griffin@li=
+naro.org> wrote:
+> >>
+> >> Fix newly introduced DT warnings:
+> >> Warning (avoid_unnecessary_addr_size): /soc@0/interrupt-controller@588=
+0000:
+> >> unnecessary #address-cells/#size-cells without "ranges", "dma-ranges" =
+or
+> >> child "reg" or "ranges" property
+> >>
+> >> Fixes: 80f23487d554c7 ("arm64: dts: google: Add initial dts for franke=
+l/blazer/mustang")
+> >
+> > Is the above git hash correct? In linuxnext, I see:
+>
+> Yeah:
+>
+>         WARNING: Unknown commit id '80f23487d554c7', maybe rebased or not=
+ pulled?
+>
+> I'll fix both when applied
 
-On 9/10/26 10:21, Srirangan Madhavan wrote:
-> Define SMCCC Arch function IDs for CLEAN_INV_MEMREGION and its ATTRIBUTES
-> call, and add RATE_LIMITED/BUSY return codes from DEN0028 for callers that
-> need transient error handling.
-> 
-> Signed-off-by: Srirangan Madhavan <smadhavan@nvidia.com>
-> Reviewed-by: Jonathan Cameron <jic23@kernel.org>
-> ---
->   include/linux/arm-smccc.h       | 21 +++++++++++++++++++--
->   tools/include/linux/arm-smccc.h | 21 +++++++++++++++++++--
->   2 files changed, 38 insertions(+), 4 deletions(-)
-> 
-> diff --git a/include/linux/arm-smccc.h b/include/linux/arm-smccc.h
-> index 4de81848fe2e..2e205320d88a 100644
-> --- a/include/linux/arm-smccc.h
-> +++ b/include/linux/arm-smccc.hARM_SMCCC_FAST_CALL
-> @@ -116,6 +116,22 @@
->   			   ARM_SMCCC_SMC_32,				\
->   			   ARM_SMCCC_OWNER_CPU, 0x10)
->   
-> +/*
-> + * DEN0028 v1.7 defines these cache maintenance functions as SMC64
-> + * because they carry 64-bit memory range arguments.
-> + */
-> +#define ARM_SMCCC_ARCH_CLEAN_INV_MEMREGION				\
-> +	ARM_SMCCC_CALL_VAL(ARM_SMCCC_FAST_CALL,				\
-> +			   ARM_SMCCC_SMC_64,				\
-> +			   ARM_SMCCC_OWNER_ARCH,			\
-> +			   0x5)
-> +
-> +#define ARM_SMCCC_ARCH_CLEAN_INV_MEMREGION_ATTRIBUTES			\
-> +	ARM_SMCCC_CALL_VAL(ARM_SMCCC_FAST_CALL,				\
-> +			   ARM_SMCCC_SMC_64,				\
-> +			   ARM_SMCCC_OWNER_ARCH,			\
-> +			   0x6)
-> +
->   #define ARM_SMCCC_VENDOR_HYP_CALL_UID_FUNC_ID				\
->   	ARM_SMCCC_CALL_VAL(ARM_SMCCC_FAST_CALL,				\
->   			   ARM_SMCCC_SMC_32,				\
-> @@ -305,13 +321,14 @@
->   			   0x53)
->   
->   /*
-> - * Return codes defined in ARM DEN 0070A
-> - * ARM DEN 0070A is now merged/consolidated into ARM DEN 0028 C
-> + * Return codes defined by Arm SMCCC (DEN0028 v1.7).
->    */
->   #define SMCCC_RET_SUCCESS			0
->   #define SMCCC_RET_NOT_SUPPORTED			-1
->   #define SMCCC_RET_NOT_REQUIRED			-2
->   #define SMCCC_RET_INVALID_PARAMETER		-3
-> +#define SMCCC_RET_RATE_LIMITED			-4
-> +#define SMCCC_RET_BUSY				-5
->   
->   #ifndef __ASSEMBLY__
->   
-> diff --git a/tools/include/linux/arm-smccc.h b/tools/include/linux/arm-smccc.h
-> index 63ce9bebccd3..ae5637b3240f 100644
-> --- a/tools/include/linux/arm-smccc.h
-> +++ b/tools/include/linux/arm-smccc.h
+Thanks Krzysztof and also Doug for noticing.
 
-Why is that? Is there any tool using that? I don't think we 
-unconditionally sync the two files?
-
-The numbers in the file above match the spec, so for that part:
-
-Reviewed-by: Andre Przywara <andre.przywara@arm.com>
-
-Cheers,
-Andre
-
-
-> @@ -96,6 +96,22 @@
->   			   ARM_SMCCC_SMC_32,				\
->   			   0, 0x3fff)
->   
-> +/*
-> + * DEN0028 v1.7 defines these cache maintenance functions as SMC64
-> + * because they carry 64-bit memory range arguments.
-> + */
-> +#define ARM_SMCCC_ARCH_CLEAN_INV_MEMREGION				\
-> +	ARM_SMCCC_CALL_VAL(ARM_SMCCC_FAST_CALL,				\
-> +			   ARM_SMCCC_SMC_64,				\
-> +			   ARM_SMCCC_OWNER_ARCH,			\
-> +			   0x5)
-> +
-> +#define ARM_SMCCC_ARCH_CLEAN_INV_MEMREGION_ATTRIBUTES			\
-> +	ARM_SMCCC_CALL_VAL(ARM_SMCCC_FAST_CALL,				\
-> +			   ARM_SMCCC_SMC_64,				\
-> +			   ARM_SMCCC_OWNER_ARCH,			\
-> +			   0x6)
-> +
->   #define ARM_SMCCC_VENDOR_HYP_CALL_UID_FUNC_ID				\
->   	ARM_SMCCC_CALL_VAL(ARM_SMCCC_FAST_CALL,				\
->   			   ARM_SMCCC_SMC_32,				\
-> @@ -182,12 +198,13 @@
->   			   0x53)
->   
->   /*
-> - * Return codes defined in ARM DEN 0070A
-> - * ARM DEN 0070A is now merged/consolidated into ARM DEN 0028 C
-> + * Return codes defined by Arm SMCCC (DEN0028 v1.7).
->    */
->   #define SMCCC_RET_SUCCESS			0
->   #define SMCCC_RET_NOT_SUPPORTED			-1
->   #define SMCCC_RET_NOT_REQUIRED			-2
->   #define SMCCC_RET_INVALID_PARAMETER		-3
-> +#define SMCCC_RET_RATE_LIMITED			-4
-> +#define SMCCC_RET_BUSY				-5
->   
->   #endif /*__LINUX_ARM_SMCCC_H*/
-
+Peter
 
