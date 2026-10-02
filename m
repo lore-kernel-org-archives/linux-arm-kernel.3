@@ -4,66 +4,102 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 27082CA5FE0
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  2 Oct 2026 09:02:49 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id F03D1CA5FC4
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  2 Oct 2026 09:02:55 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=OfgMEUF+Fw0qOI2z3NuCRJaeDMkJbrHyQvlbCPr4av4=; b=bPuAsgrztdq+WniPWZK0qeHkH5
-	FHaw7/+0dJw3PtEi4X51NB/aYloO01CVDwedGTkskC4CVLrVk5no9rMoJxEGXb0w93SJ14R9yIFvz
-	Btw5OHs8lCfJ5b0P8lXnpFYP1o6MB6tG6UKveM2n/s6wY/oPOAcMTvZvrGvZbw1/6CuWpiDxBK7Pc
-	bKE2sLrmZPtYrDErS3kohvja2nyXyFszoQlW67vanJOkh+mjE/8w2TXpuGkkSAtJ/x5/tit7eW9aa
-	j1oChBrmqUQM9jJpxJ0+5cQMLC8wGkLDRxAaOyIVOz8fsDZ71kGQAsEaHyLGTjk3G3AxgrZWnmNKs
-	HPU1dT1A==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	References:In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=QVMF5xJlxpruAChtkNj1qM1C4rtnjpVNs7oYQB53+ZY=; b=CbnXt7H6helEUDum/A3tjFbCzL
+	/YekZvd/Qdkwklzg/70rSc+vmSsToeawTcnmkOU0oCt6Q2UBw0e9ud0gNAYpIC4ALmdKrh6IV52nD
+	w80VEmdBw+qgs4cEheTriel/FbsTlEkigMtn3jxu80sZMF0KMjiV4arvvPrO5kNWaLyTMWH936NDT
+	iqFBouXPPSPKfIbXURVoMXil7OaUQMNmJUWIUfTE6sI+UWaIQmh90nssLZYkHOmyDPKePlGNVy5pl
+	eJ1An1UqFY8EE9lOC5anZBRYXSkdrL2jw+mOFSBnFAcUWuLq8kdngghMv7zkXIKY26E242Gk15eBI
+	wfaxk7ng==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xCZA8-0000000B3Lh-3jA9;
-	Fri, 02 Oct 2026 09:02:40 +0000
-Received: from mail11.truemail.it ([217.194.8.81])
+	id 1xCZAH-0000000B3Od-4BOE;
+	Fri, 02 Oct 2026 09:02:50 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xCZA5-0000000B3KT-3Ibq
+	id 1xCZAD-0000000B3NR-45mw
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 02 Oct 2026 09:02:39 +0000
-Received: from francesco-nb.. (93-49-2-63.ip317.fastwebnet.it [93.49.2.63])
-	by mail11.truemail.it (Postfix) with ESMTPA id 4365D1FA8F;
-	Fri,  2 Oct 2026 11:02:35 +0200 (CEST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=dolcini.it;
-	s=default; t=1790931755;
-	bh=OfgMEUF+Fw0qOI2z3NuCRJaeDMkJbrHyQvlbCPr4av4=; h=From:To:Subject;
-	b=HD0syKCxyO7pI/3K1fG+TXZMhYEcypAIjoZCL3siMyKIONN2VO6xeYJmdn6zhzsny
-	 DYgpcRHZWwbi7M5c/s0RTFY6Nz8BGRabzH88jkBZUlUxcMwvhSNBHbG5syd8OMooyi
-	 GgRd9I61fTQ6CijkphkJZdtbk4xGnZROwS8zQSsjc7R0N8Ww2JIXgNiHQHCyjB6lm6
-	 fxeAiTfHkvxQrsWkshN20MP4WIunj6ZrtnvWPN2xexwFfqJCSeDrKvFaBTVY9MMNIi
-	 urXgT7KCYO2Ri4cMyrhm36i2IaYcRi3V9rKnOxz6xAuoLcmTbog0prIccHleMaOTux
-	 FZUL37p2123vw==
-From: Francesco Dolcini <francesco@dolcini.it>
-To: Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Frank Li <Frank.Li@nxp.com>,
-	Sascha Hauer <s.hauer@pengutronix.de>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Fabio Estevam <festevam@gmail.com>
-Cc: Francesco Dolcini <francesco.dolcini@toradex.com>,
-	devicetree@vger.kernel.org,
-	imx@lists.linux.dev,
+	Fri, 02 Oct 2026 09:02:48 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by sea.source.kernel.org (Postfix) with ESMTP id 106E6413B6;
+	Fri,  2 Oct 2026 09:02:45 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id E13F41F000FF;
+	Fri,  2 Oct 2026 09:02:44 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1790931764;
+	bh=QVMF5xJlxpruAChtkNj1qM1C4rtnjpVNs7oYQB53+ZY=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References;
+	b=jOqGjIeyGi1TXTU6JwZrpZ7QTHwotBwuHhTo+6TSuWiQCmCCCK7iX0yUflRxnM7PQ
+	 GCFD78clYw1rLgmWRfdO+fFaFVT4YtV+VYGZ1RaSxrS5dhFAYnRv7MpfgPKalyRAUs
+	 bNoR5zcLKTDOJHHaFbaoHyYn+F6JBysnAFCXlnYkp0ZPOdgxqailH7htMyV7Q6tzp4
+	 b/DVfXRgnxCTBijDILV9YDgNmcQOwSawb6OWvHqnny7HCXnrW5EvmoWF6F+wQaiXlg
+	 1abn+ZtjQKNQ9oQm+i+9ft/OSU+2ITCNqxzvn1FGC/JcJxmLBKB7JUXNSLWM2GBMHL
+	 HlFs0KjFMaYSA==
+Received: from sofa.misterjones.org ([185.219.108.64] helo=goblin-girl.misterjones.org)
+	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.98.2)
+	(envelope-from <maz@kernel.org>)
+	id 1xCZAA-0000000G8Wn-28pp;
+	Fri, 02 Oct 2026 09:02:42 +0000
+Date: Fri, 02 Oct 2026 10:02:41 +0100
+Message-ID: <86v77k326m.wl-maz@kernel.org>
+From: Marc Zyngier <maz@kernel.org>
+To: Steffen Eiden <seiden@linux.ibm.com>
+Cc: kvm@vger.kernel.org,
+	kvmarm@lists.linux.dev,
 	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org
-Subject: [PATCH v1 2/2] arm64: dts: freescale: imx95-aquila: fix i3c2 pinctrl group node name
-Date: Fri,  2 Oct 2026 11:02:27 +0200
-Message-ID: <20261002090228.41445-2-francesco@dolcini.it>
-X-Mailer: git-send-email 2.47.3
-In-Reply-To: <20261002090228.41445-1-francesco@dolcini.it>
-References: <20261002090228.41445-1-francesco@dolcini.it>
-MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261002_020238_006857_3FD49FBB 
-X-CRM114-Status: UNSURE (   9.80  )
-X-CRM114-Notice: Please train this message.
+	linux-kernel@vger.kernel.org,
+	linux-s390@vger.kernel.org,
+	Alexander Gordeev <agordeev@linux.ibm.com>,
+	Andreas Grapentin <gra@linux.ibm.com>,
+	Arnd Bergmann <arnd@arndb.de>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Christian Borntraeger <borntraeger@linux.ibm.com>,
+	Claudio Imbrenda <imbrenda@linux.ibm.com>,
+	David Hildenbrand <david@kernel.org>,
+	Friedrich Welter <fritz@linux.ibm.com>,
+	Gautam Gala <ggala@linux.ibm.com>,
+	Hariharan Mari <hari55@linux.ibm.com>,
+	Heiko Carstens <hca@linux.ibm.com>,
+	Hendrik Brueckner <brueckner@linux.ibm.com>,
+	Ilya Leoshkevich <iii@linux.ibm.com>,
+	Janosch Frank <frankja@linux.ibm.com>,
+	Joey Gouly <joey.gouly@arm.com>,
+	Nico Boehr <nrb@linux.ibm.com>,
+	Nina Schoetterl-Glausch <oss@nina.schoetterlglausch.eu>,
+	Oliver Upton <oupton@kernel.org>,
+	Paolo Bonzini <pbonzini@redhat.com>,
+	Sean Christopherson <seanjc@google.com>,
+	Suzuki K Poulose <suzuki.poulose@arm.com>,
+	Sven Schnelle <svens@linux.ibm.com>,
+	Ulrich Weigand <Ulrich.Weigand@de.ibm.com>,
+	Vasily Gorbik <gor@linux.ibm.com>,
+	Will Deacon <will@kernel.org>,
+	Zenghui Yu <yuzenghui@huawei.com>,
+	Fuad Tabba <fuad.tabba@linux.dev>
+Subject: Re: (subset) [PATCH v9 00/24] KVM: s390: Introduce arm64 KVM
+In-Reply-To: <20261002080015.22510-A-seiden@linux.ibm.com>
+References: <20260930173441.66762-1-seiden@linux.ibm.com>
+	<179085262878.3865846.5787241839391727949.b4-ty@b4>
+	<20261001132715.108643-A-seiden@linux.ibm.com>
+	<86wls1315l.wl-maz@kernel.org>
+	<20261002080015.22510-A-seiden@linux.ibm.com>
+User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
+ FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/30.1
+ (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
+MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
+Content-Type: text/plain; charset=US-ASCII
+X-SA-Exim-Connect-IP: 185.219.108.64
+X-SA-Exim-Rcpt-To: seiden@linux.ibm.com, kvm@vger.kernel.org, kvmarm@lists.linux.dev, linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, linux-s390@vger.kernel.org, agordeev@linux.ibm.com, gra@linux.ibm.com, arnd@arndb.de, catalin.marinas@arm.com, borntraeger@linux.ibm.com, imbrenda@linux.ibm.com, david@kernel.org, fritz@linux.ibm.com, ggala@linux.ibm.com, hari55@linux.ibm.com, hca@linux.ibm.com, brueckner@linux.ibm.com, iii@linux.ibm.com, frankja@linux.ibm.com, joey.gouly@arm.com, nrb@linux.ibm.com, oss@nina.schoetterlglausch.eu, oupton@kernel.org, pbonzini@redhat.com, seanjc@google.com, suzuki.poulose@arm.com, svens@linux.ibm.com, Ulrich.Weigand@de.ibm.com, gor@linux.ibm.com, will@kernel.org, yuzenghui@huawei.com, fuad.tabba@linux.dev
+X-SA-Exim-Mail-From: maz@kernel.org
+X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,31 +114,29 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Francesco Dolcini <francesco.dolcini@toradex.com>
+On Fri, 02 Oct 2026 09:00:15 +0100,
+Steffen Eiden <seiden@linux.ibm.com> wrote:
+> 
+> Yes the positioning of the functions look good. It builds on top of
+> kvmarm/next + this (sightly relocated (line numbes are different) patch
+> + arm on s390 stuff.
 
-The pinctrl group node for I3C2 is named "i3c2cgrp", with a stray "c".
-Rename it to "i3c2grp" to match the label and the usual naming convention.
+Cool. I've now pushed out the rebuilt kvmarm/next branch with this,
+and hopefully it will make it into -next today.
 
-Fixes: d5c082ba23db ("arm64: dts: freescale: add Aquila iMX95 support")
-Signed-off-by: Francesco Dolcini <francesco.dolcini@toradex.com>
----
- arch/arm64/boot/dts/freescale/imx95-aquila.dtsi | 2 +-
- 1 file changed, 1 insertion(+), 1 deletion(-)
+Let me know if anything else is amiss.
 
-diff --git a/arch/arm64/boot/dts/freescale/imx95-aquila.dtsi b/arch/arm64/boot/dts/freescale/imx95-aquila.dtsi
-index c5f4cf0541f2..287b7bcebc73 100644
---- a/arch/arm64/boot/dts/freescale/imx95-aquila.dtsi
-+++ b/arch/arm64/boot/dts/freescale/imx95-aquila.dtsi
-@@ -932,7 +932,7 @@ pinctrl_ctrl_gpio_exp_int: gpioexpintgrp {
- 	};
- 
- 	/* Aquila I2C_2 */
--	pinctrl_i3c2: i3c2cgrp {
-+	pinctrl_i3c2: i3c2grp {
- 		fsl,pins = <IMX95_PAD_ENET1_MDC__I3C2_SCL	0x40001186>, /* Aquila C17 */
- 			   <IMX95_PAD_ENET1_MDIO__I3C2_SDA	0x40001186>; /* Aquila C16 */
- 	};
+> I'll work on a verification tool for you guys to make this process
+> easier.
+
+I guess the ultimate verification tool is to build s390 with the rest
+of the patches, which I've just done. This doesn't lead to any error
+that wasn't already reported.
+
+Thanks,
+
+	M.
+
 -- 
-2.47.3
-
+Without deviation from the norm, progress is not possible.
 
