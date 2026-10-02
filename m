@@ -4,61 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E5CD5CA5FDD
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  2 Oct 2026 15:13:25 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C15E8CA5FDD
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  2 Oct 2026 15:15:31 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=aHxYBTE1OsKuhsEE6ZrEfxWyEtF/byjSQDlGxJMoKJ0=; b=IwZ/60UnKcFY7ZNrP+L/3xMJ7K
-	3Yi1jzcs6r2drma78OzCpGSBZAnszRFzLIkztBdIA9BkWJbsBBPTQVoDnmbB8xbEXds7ioLBUdnKo
-	dNk1AunMWMtDA4hfJzGF441B36ZW7KSBMxR6aKXTHZsKa7XxI473y8pv0lQ5c5czCPVzKgpaH6mZk
-	QdWCoxwYjxyhbs4THdWVafHo7Sy/y7j/lhgZXH/tUq+KC/Tmz1vnWloStic7k1cVt21gDPXK5E+qE
-	/hAM5wg0DNSr5cNu/mQUXex+utxylgueWgEbYOAkHfjkCgQwDlW2rB+4Y3LxGm2rHCRVcLk/2lr8a
-	8sQoNlkQ==;
+	bh=J1CsfjuFiKdZorAXWgmauMwdgMdFGzeMY/HzlfjwKuQ=; b=KnoYzC8nXaD5wi8l/IUFnV0vGR
+	xE4GFB2Lk2yZxwxzxmrs5+ittXJiqPxE333PGGcx0scgqAWd+JFfq5ZmvNYxeUDiN0gS/2EtR1Q1v
+	2y0Llfv4Ir4cgUuLcwH62Nyh8+9hW/W+XkRJW9ZnyAcMiokklQwouSW9mHsUHkdHFn0tY+XdKtZZk
+	6gw7teY2yd7L3Q3X3BNraBXffrmimKGkLy1mPbFrr9qiMMVhBhFCJcjRjy3oNncpBxvORbxYajvHZ
+	96SqXGcEpiqhf1KoaHDCYqFt5rO5hCCHCnU8fimCM4JkO94faHKYx01vZT1aeAk5AmMhMYQkUInoz
+	PVIHwMWA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xCewm-0000000BsRL-1yRq;
-	Fri, 02 Oct 2026 15:13:16 +0000
+	id 1xCeyj-0000000BshM-3YV5;
+	Fri, 02 Oct 2026 15:15:17 +0000
 Received: from foss.arm.com ([217.140.110.172])
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xCewj-0000000BsPT-0uOX
+	id 1xCeyg-0000000Bsgv-2q5f
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 02 Oct 2026 15:13:14 +0000
+	Fri, 02 Oct 2026 15:15:15 +0000
 Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id EE7A3143D;
-	Fri,  2 Oct 2026 08:13:08 -0700 (PDT)
-Received: from [10.2.212.14] (eglon.cambridge.arm.com [10.2.212.14])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 253603F85F;
-	Fri,  2 Oct 2026 08:13:11 -0700 (PDT)
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 95834143D;
+	Fri,  2 Oct 2026 08:15:09 -0700 (PDT)
+Received: from [10.57.8.170] (unknown [10.57.8.170])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 8291F3F85F;
+	Fri,  2 Oct 2026 08:15:09 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1790953992; bh=jUwYm8A449oFyERTeHMiXV6Q+jSW+utHZmHcbtHiDIc=;
+	t=1790954113; bh=ELvA9eECm9X8xz8cLNWJerW7Zrs56j8/gPBHi6bQfAQ=;
 	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=PyVT89QGatZIIud1XV+UTsOLiIwaLnnaGqTJevACKxSvJns+jdMbQSS0lulFkChIZ
-	 WoZDkvYmg5SbAOznG34b7NpQDPc5r/hHWaQ5o38Vtwzdud/hh4BWRGGxfko9WWzduA
-	 427KgUdySdoM2Whfrg02/+iyT4QBIPvMCNVaToCQ=
-Message-ID: <b61f8b82-a872-4d50-88fc-845287305011@arm.com>
-Date: Fri, 2 Oct 2026 16:13:08 +0100
+	b=e/z+/n06DSw8s8JlOWXlAtjzjYm25fc9jLHgrTo3RhyWsmmAIyy3j08qP4TzIdjSS
+	 i1XDER7EGZI78JBxCEhHmrhsg6HJecq/80SfKLh1Si6/jmxdcksfoV7sMgyWi7U8LA
+	 kq+LppQbltELEHrEHjQrIFbsWBlmpXgBCDEFpcrQ=
+Message-ID: <10563362-5964-4ef7-b5d7-fe1d67ce4adb@arm.com>
+Date: Fri, 2 Oct 2026 16:15:07 +0100
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2 05/12] arm_mpam: Ensure MBWU counters are reset on
- restore
-To: Ben Horgan <ben.horgan@arm.com>
-Cc: reinette.chatre@intel.com, fenghuay@nvidia.com,
- linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- dave.martin@arm.com, andre.przywara@arm.com, Gavin Shan <gshan@redhat.com>
-References: <20260917145617.2202986-1-ben.horgan@arm.com>
- <20260917145617.2202986-6-ben.horgan@arm.com>
+Subject: Re: [PATCH v21 05/23] KVM: arm64: Track the type of VM in kvm_arch
 Content-Language: en-GB
-From: James Morse <james.morse@arm.com>
-In-Reply-To: <20260917145617.2202986-6-ben.horgan@arm.com>
-Content-Type: text/plain; charset=UTF-8
+To: Marc Zyngier <maz@kernel.org>, Fuad Tabba <tabba@google.com>
+Cc: kvm@vger.kernel.org, kvmarm@lists.linux.dev, will@kernel.org,
+ catalin.marinas@arm.com, linux-kernel@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, steven.price@arm.com,
+ aneesh.kumar@kernel.org, oupton@kernel.org, gshan@redhat.com,
+ joey.gouly@arm.com, yuzenghui@huawei.com, linux-coco@lists.linux.dev,
+ gankulkarni@os.amperecomputing.com, sdonthineni@nvidia.com,
+ alpergun@google.com, fj0570is@fujitsu.com, WeiLin.Chang@arm.com,
+ lpieralisi@kernel.org, enju.kohei@fujitsu.com, sudeep.holla@arm.com,
+ jonathan.cameron@oss.qualcomm.com
+References: <20261001210703.1597150-1-suzuki.poulose@arm.com>
+ <20261001210703.1597150-6-suzuki.poulose@arm.com>
+ <CA+EHjTxtatPyGcyvEyR129cqUiAYcO_cxRVtwZO0ckZsOnD7TA@mail.gmail.com>
+ <86se2o2rbs.wl-maz@kernel.org>
+ <CA+EHjTwHuJ0u_TTP46zNFKFmBP124XHHLUVhkAUSyfhe92=41w@mail.gmail.com>
+ <86pkxs2npx.wl-maz@kernel.org>
+From: Suzuki K Poulose <suzuki.poulose@arm.com>
+In-Reply-To: <86pkxs2npx.wl-maz@kernel.org>
+Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261002_081313_920938_E17F5D67 
-X-CRM114-Status: GOOD (  20.58  )
+X-CRM114-CacheID: sfid-20261002_081514_812027_0461BEEF 
+X-CRM114-Status: GOOD (  27.19  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -73,97 +82,148 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Ben,
+On 02/10/2026 15:15, Marc Zyngier wrote:
+> On Fri, 02 Oct 2026 14:05:17 +0100,
+> Fuad Tabba <tabba@google.com> wrote:
+>>
+>> Hi Marc,
+>>
+>> On Fri, 02 Oct 2026 13:57:11 +0100, Marc Zyngier <maz@kernel.org> wrote:
+>> [...]
+>>> Just to make sure. Is that what you had in mind?
+>>
+>> A diff is worth a thousand words :) Yes, that's it. With that, every
+>> remaining hyp user of vcpu_is_protected() only runs with pKVM, so the
+>> kern_hyp_va() case in the macro can go too.
+> 
+> Actually, scratch all of that. The whole thing is written upside down,
+> and makes little sense. I wish I had looked at it more closely...
+> 
+> The *_protected__pkvm() shouldn't exist at all, because nVHE is the
+> only context where it matters, and therefore we can specialise the
+> *normal* accessors for the nVHE context (see below). No *_pkvm(), no
+> kern_hyp_va(), nothing at all.
+> 
+> I'm also dead against the unprotected_pkvm() stuff, as it looks
+> pointlessly specialised. Specifically, this nugget is making my head
+> spin:
+> 
+> +       if (!kvm_vm_is_unprotected_pkvm(vcpu->kvm))
+>                  return;
+> 
+> Honestly, we introduce the flavor stuff to make it easy to match
+> things on a particular VM type in a readable way. So why isn't this
+> reading:
+> 
+> 	if (vcpu->kvm->arch.vm_flavor != VM_PROTECTED_PKVM)
+> 		return;
+> 
+> which makes it pretty explicit. You can gate it with a
+> is_protected_kvm_enabled() if you want, as it was before.
+> 
+> 	M.
+> 
+> 
+> diff --git a/arch/arm64/include/asm/kvm_host.h b/arch/arm64/include/asm/kvm_host.h
+> index 9e1fa00d96f7c..6b64f9610f3a3 100644
+> --- a/arch/arm64/include/asm/kvm_host.h
+> +++ b/arch/arm64/include/asm/kvm_host.h
+> @@ -1519,41 +1519,22 @@ struct kvm *kvm_arch_alloc_vm(void);
+>   
+>   #define __KVM_HAVE_ARCH_FLUSH_REMOTE_TLBS_RANGE
+>   
+> -#define kvm_vm_is_protected(kvm)	((kvm)->arch.vm_flavor >= __VM_PROTECTED)
+> -/*
+> - * Accessing vcpu->kvm from nVHE hyp stub is tricky, as we need to convert the
+> - * pointer to the hyp VA. With pKVM, the nVHE code runs with the hyp_vcpu,
+> - * which is populated correctly.
+> - */
+> -#define vcpu_is_protected(vcpu)						\
+> -	({								\
+> -		struct kvm *__kvm = READ_ONCE((vcpu)->kvm);		\
+> -		bool __protected = false;				\
+> -									\
+> -		if (__kvm) {						\
+> -			if (is_nvhe_hyp_code() &&			\
+> -			    !is_protected_kvm_enabled()) 		\
+> -				__kvm = kern_hyp_va(__kvm); 		\
+> -									\
+> -			__protected = kvm_vm_is_protected(__kvm);	\
+> -		}							\
+> -		__protected;						\
+> -	})
+> -
+> -#define kvm_vm_is_protected_pkvm(kvm)					\
+> +#ifdef __KVM_NVHE_HYPERVISOR__
+> +#define kvm_vm_is_protected(kvm)					\
+>   	(is_protected_kvm_enabled() && ((kvm)->arch.vm_flavor == VM_PROTECTED_PKVM))
+> -
+>   /*
+>    * Rely on is_protected_kvm_enabled() check in kvm_vm_is_protected_pkvm() to
+>    * make sure the vcpu->kvm is always valid VA in the context
+>    */
+> -#define vcpu_is_protected_pkvm(vcpu)					\
+> +#define vcpu_is_protected(vcpu)						\
+>   	({								\
+>   		struct kvm *__kvm = READ_ONCE((vcpu)->kvm);		\
+> -									\
+> -		(__kvm && kvm_vm_is_protected_pkvm(__kvm));		\
+> +		(__kvm && kvm_vm_is_protected(__kvm));			\
+>   	})
+> -
+> +#else
+> +#define kvm_vm_is_protected(kvm)	((kvm)->arch.vm_flavor >= __VM_PROTECTED)
+> +#define vcpu_is_protected(vcpu)		kvm_vm_is_protected((vcpu)->kvm)
+> +#endif
+>   
+>   #define kvm_vm_is_unprotected_pkvm(kvm)		\
+>   	(is_protected_kvm_enabled() && ((kvm)->arch.vm_flavor == VM_PKVM))
+> diff --git a/arch/arm64/kvm/mmu.c b/arch/arm64/kvm/mmu.c
+> index 0f4e8b71fa85d..9ba86450fe4af 100644
+> --- a/arch/arm64/kvm/mmu.c
+> +++ b/arch/arm64/kvm/mmu.c
+> @@ -2624,7 +2624,7 @@ int kvm_arch_prepare_memory_region(struct kvm *kvm,
+>   	hva_t hva, reg_end;
+>   	int ret = 0;
+>   
+> -	if (kvm_vm_is_protected_pkvm(kvm)) {
+> +	if (kvm_vm_is_protected(kvm)) {
 
-On 17/09/2026 15:56, Ben Horgan wrote:
-> When an MSC becomes inaccessible due to cpu offline CFG_MBWU_CTL is set to
-> zero in mpam_save_mbwu_state(). This is very likely to mean that the config
-> will mismatch when restoring and so the monitor will be reset. However, the
-> state may have been lost and so there are no guarantees.
+We have slightly different handling for Realms. The final code for this
+looks like :
 
-Power management and kexec are the reason this is done.
+	if (kvm_vm_is_protected(kvm)) {
+		if (new &&
+		    new->flags & (KVM_MEM_LOG_DIRTY_PAGES | KVM_MEM_READONLY)) {
+			return -EPERM;
+		}
+	}
 
-I have a niggling suspicion that some hardware engineer may allow 'running counters'
-to inhibit power-down - which means the cache could stay on when all its CPUs are off.
-
-We may kexec while these CPUs are off. Leaving the hardware in its reset state is
-the least surprising thing to do, and also means we don't get bitten by the above
-(theoretical) power management thing if the next kernel doesn't know about MPAM.
-
-
-> Ensure the reset happens by setting the reset_on_next_read
-
-Doing this makes it more robust,
-
-
-> and remove the unnecessary writes from mpam_save_mbwu_state().
-
-I think this is still a good thing to do.
-
-
-> diff --git a/drivers/resctrl/mpam_devices.c b/drivers/resctrl/mpam_devices.c
-> index d39d210574a6..6cba3ef21cc8 100644
-> --- a/drivers/resctrl/mpam_devices.c
-> +++ b/drivers/resctrl/mpam_devices.c
-> @@ -1652,6 +1652,7 @@ static int mpam_restore_mbwu_state(void *_ris)
->  	u64 val;
->  	struct mon_read mwbu_arg;
->  	struct mpam_msc_ris *ris = _ris;
-> +	struct msmon_mbwu_state *mbwu_state;
->  	struct mpam_msc *msc = ris->vmsc->msc;
->  	struct mpam_class *class = ris->vmsc->comp->class;
->  
-> @@ -1659,16 +1660,20 @@ static int mpam_restore_mbwu_state(void *_ris)
->  		if (WARN_ON_ONCE(!mpam_mon_sel_lock(msc)))
->  			return -EIO;
->  
-> -		if (!ris->mbwu_state[i].enabled) {
-> +		mbwu_state = &ris->mbwu_state[i];
-> +
-> +		if (!mbwu_state->enabled) {
->  			mpam_mon_sel_unlock(msc);
->  			continue;
->  		}
->  
->  		mwbu_arg.ris = ris;
-> -		mwbu_arg.ctx = &ris->mbwu_state[i].cfg;
-> +		mwbu_arg.ctx = &mbwu_state->cfg;
->  		mwbu_arg.type = mpam_msmon_choose_counter(class);
->  		mwbu_arg.val = &val;
->  
-> +		mbwu_state->reset_on_next_read = true;
-> +
->  		mpam_mon_sel_unlock(msc);
->  
->  		__ris_msmon_read(&mwbu_arg);
-> @@ -1701,15 +1706,11 @@ static int mpam_save_mbwu_state(void *arg)
->  
->  		cur_flt = mpam_read_monsel_reg(msc, CFG_MBWU_FLT);
->  		cur_ctl = mpam_read_monsel_reg(msc, CFG_MBWU_CTL);
-
-> -		mpam_write_monsel_reg(msc, CFG_MBWU_CTL, 0);
-
-I plan to drop this line,
+	if (kvm_vm_is_protected_pkvm(kvm)) {
+		/* Cannot modify memslots once a pVM has run. */
+		if (pkvm_hyp_vm_is_created(kvm) &&
+		    (change == KVM_MR_DELETE || change == KVM_MR_MOVE)) {
+			return -EPERM;
+		}
+	} else if (kvm_realm_is_created(kvm)) {
+		/*
+		 * Once the Realm is created, we cannot modify any slots that
+		 * could be providing private memory. i.e., guest_memfd backed
+		 * slots.
+		 * TODO: Handle trusted device private memory slots
+		 */
+		if (kvm_slot_has_gmem(old) || kvm_slot_has_gmem(new))
+			return -EPERM;
+	}
 
 
-> -		if (mpam_ris_has_mbwu_long_counter(ris)) {
-> +		if (mpam_ris_has_mbwu_long_counter(ris))
->  			val = mpam_msc_read_mbwu_l(msc);
-> -			mpam_msc_zero_mbwu_l(msc);
-> -		} else {
-> +		else
->  			val = mpam_read_monsel_reg(msc, MBWU);
-> -			mpam_write_monsel_reg(msc, MBWU, 0);
-> -		}
+Of course we could invert the checks to detect vm_is_protected_pkvm()
 
-But keep this. With reset_on_next_read the driver won't consume the stale value, and
-that approach also covers the hardware resetting into unusual states.
+Suzuki
 
+>   		/* Cannot modify memslots once a pVM has run. */
+>   		if (pkvm_hyp_vm_is_created(kvm) &&
+>   		    (change == KVM_MR_DELETE || change == KVM_MR_MOVE)) {
+> 
 
-Reviewed-by: James Morse <james.morse@arm.com>
-
-
-Thanks,
-
-James
 
