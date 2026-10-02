@@ -4,62 +4,62 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C62DBCA5FC4
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  2 Oct 2026 15:24:59 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9BC11CA5FC4
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  2 Oct 2026 15:28:22 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=AosLLIuB1dPtCca7mE3P44tJ+OxOUbCWqvIRUkrF0CQ=; b=TlAji9XMQhTtJWBzXWeeiSpAUe
-	EcO5rd3UpmTsX9OL/d63tBQyU6IEOcKx4KNVozLDj0TgcKuF8y8QmLcKEaKJ7s6lzpmLxpBQEhR8d
-	d0e+sV1t86CCXZFv4liGTW7yEPQVrxxt8pCve3c8ODShRSDtryZyZohTiWJ1o8SkKWLOY9yQ60dMV
-	9H7YWQaaeRSR7Xmvcq39wmLY8RMa/SKqkRyDVe2B0h0eBcxm3UftxPeLkMfL4FGUFuQvAf5fbaJ0I
-	1SC1LwHExu1fwH5T37O9YDBcVAi/i2SjaYq0yRoyZ1U6we1mi4FlrkT0/JlSDhkV5VEotPZnmAVuZ
-	CWQuuiGA==;
+	bh=OEWDi0GnM504mJolEuuHguaPOvbVGXjXGmdXpFb+87E=; b=dWKRnoBgi3CBTp67klSKfxOB5K
+	YWqaTqU0p+QDxiX+yUJvMR0EhRCGP1ahcUoHPg0hZoEHtYZL44+VZ6t0knrGic1guIf04obuB/uEq
+	R8ADNyP1g8Y8zo4qRLoDzFcj23QpMEOjtqrOpGgKRQnUrmGf1yGQvLvsgNDUk5aYrGhUfgg6426kB
+	mb4hCXyTuZ6eNCAC4Ps4nDZYN4T9bX+mT+gBG4BMooBPRxth4shLoPpGLtCfOF+31wuvS3ZcHgWB2
+	GmAz+TYUgG2cCf2MZUkKzSLs4+X1pQEGJCRnb0JQfvbWL3SnlCJKQpTMGbzFuvSBRF1e0wZBhCtnk
+	8GqzygsA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xCf81-0000000BucP-0DCp;
-	Fri, 02 Oct 2026 15:24:53 +0000
+	id 1xCfBI-0000000Buwv-2B2M;
+	Fri, 02 Oct 2026 15:28:16 +0000
 Received: from foss.arm.com ([217.140.110.172])
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xCf7y-0000000BubR-3yzF
+	id 1xCfBF-0000000Buvi-0qkD
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 02 Oct 2026 15:24:52 +0000
+	Fri, 02 Oct 2026 15:28:14 +0000
 Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 9DAB3143D;
-	Fri,  2 Oct 2026 08:24:46 -0700 (PDT)
-Received: from [10.211.55.3] (unknown [10.57.85.160])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 992463F85F;
-	Fri,  2 Oct 2026 08:24:48 -0700 (PDT)
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id B2DF0143D;
+	Fri,  2 Oct 2026 08:28:08 -0700 (PDT)
+Received: from [10.2.212.14] (eglon.cambridge.arm.com [10.2.212.14])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id F39E63F882;
+	Fri,  2 Oct 2026 08:28:10 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1790954690; bh=xnlgs42XdKqbQTcU4z+/UmT6K9FjiGZ2s9DZoBILceM=;
+	t=1790954892; bh=SBJel+ooDz1gRUkPel1Y7M40DlcCPPj25e5QajwwZXc=;
 	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=Xb4OIyBoZ5rbDQrDtuphfB7vn5BkZ0VOq7KmL0YI86OEb76pDNrPfRhRtos1xr+EE
-	 4Ze4rtI7Td5RX2fDZH1HQwrFL9c1/K065lnnoqQFzZe7FeJPmafat33cnUZMNnKinh
-	 3htFJZjG4bH6OOYzWFPYfekGfUVtBvcNnkU7GKag=
-Message-ID: <d92066cd-dbc6-47d7-b218-7dc8c97721da@arm.com>
-Date: Fri, 2 Oct 2026 16:24:46 +0100
+	b=CK99x9/uXkjfykjfyQ0CVPfBcqtZ9StLdvj7pbREw+MQSQflkVc7QJKS4Dh7BvWQr
+	 uexp/V0BBMrbfEBoW6njlQxh2GKs1wEm/xZjgjUpl27IJ5A2hGS04KXfUSOKvkB0hB
+	 eWv/KHlw/1b1QwPre4m2xaV6lqUFBQMyn5tMdsZg=
+Message-ID: <0e78cff6-edd1-4db8-bdb0-7ee6123b146f@arm.com>
+Date: Fri, 2 Oct 2026 16:28:08 +0100
 MIME-Version: 1.0
-User-Agent: Thunderbird Daily
-Subject: Re: [PATCH v2 05/12] arm_mpam: Ensure MBWU counters are reset on
- restore
-To: James Morse <james.morse@arm.com>
-Cc: reinette.chatre@intel.com, fenghuay@nvidia.com,
- linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- dave.martin@arm.com, andre.przywara@arm.com, Gavin Shan <gshan@redhat.com>
-References: <20260917145617.2202986-1-ben.horgan@arm.com>
- <20260917145617.2202986-6-ben.horgan@arm.com>
- <b61f8b82-a872-4d50-88fc-845287305011@arm.com>
-Content-Language: en-US
-From: Ben Horgan <ben.horgan@arm.com>
-In-Reply-To: <b61f8b82-a872-4d50-88fc-845287305011@arm.com>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH] MAINTAINERS: Add mpam.rst to the MPAM DRIVER entry
+To: Fuad Tabba <fuad.tabba@linux.dev>, Ben Horgan <ben.horgan@arm.com>
+Cc: Reinette Chatre <reinette.chatre@intel.com>,
+ Fenghua Yu <fenghuay@nvidia.com>, Catalin Marinas <catalin.marinas@arm.com>,
+ Will Deacon <will@kernel.org>,
+ Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>,
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+ Fuad Tabba <tabba@google.com>
+References: <20260903182300.2706684-1-fuad.tabba@linux.dev>
+Content-Language: en-GB
+From: James Morse <james.morse@arm.com>
+In-Reply-To: <20260903182300.2706684-1-fuad.tabba@linux.dev>
 Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261002_082451_084435_7DD216B1 
-X-CRM114-Status: GOOD (  26.14  )
+X-CRM114-CacheID: sfid-20261002_082813_298288_0B3A5FDB 
+X-CRM114-Status: GOOD (  12.64  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -74,114 +74,49 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi James,
+Hi Fuad,
 
-On 02/10/2026 16:13, James Morse wrote:
-> Hi Ben,
-> 
-> On 17/09/2026 15:56, Ben Horgan wrote:
->> When an MSC becomes inaccessible due to cpu offline CFG_MBWU_CTL is set to
->> zero in mpam_save_mbwu_state(). This is very likely to mean that the config
->> will mismatch when restoring and so the monitor will be reset. However, the
->> state may have been lost and so there are no guarantees.
-> 
-> Power management and kexec are the reason this is done.
-> 
-> I have a niggling suspicion that some hardware engineer may allow 'running counters'
-> to inhibit power-down - which means the cache could stay on when all its CPUs are off.
+On 03/09/2026 19:23, Fuad Tabba wrote:
+> Documentation/arch/arm64/mpam.rst is not listed under MPAM DRIVER, so
+> get_maintainer.pl names neither MPAM maintainer on a patch to it.
 
-Ah, I see.
+Fair enough ...
 
-> 
-> We may kexec while these CPUs are off. Leaving the hardware in its reset state is
-> the least surprising thing to do, and also means we don't get bitten by the above
-> (theoretical) power management thing if the next kernel doesn't know about MPAM.
+I've picked this up to send on to Catalin...
 
-Make sense.
 
+> Signed-off-by: Fuad Tabba <fuad.tabba@linux.dev>
+> ---
 > 
-> 
->> Ensure the reset happens by setting the reset_on_next_read
-> 
-> Doing this makes it more robust,
-> 
-> 
->> and remove the unnecessary writes from mpam_save_mbwu_state().
-> 
-> I think this is still a good thing to do.
-> 
-> 
->> diff --git a/drivers/resctrl/mpam_devices.c b/drivers/resctrl/mpam_devices.c
->> index d39d210574a6..6cba3ef21cc8 100644
->> --- a/drivers/resctrl/mpam_devices.c
->> +++ b/drivers/resctrl/mpam_devices.c
->> @@ -1652,6 +1652,7 @@ static int mpam_restore_mbwu_state(void *_ris)
->>  	u64 val;
->>  	struct mon_read mwbu_arg;
->>  	struct mpam_msc_ris *ris = _ris;
->> +	struct msmon_mbwu_state *mbwu_state;
->>  	struct mpam_msc *msc = ris->vmsc->msc;
->>  	struct mpam_class *class = ris->vmsc->comp->class;
->>  
->> @@ -1659,16 +1660,20 @@ static int mpam_restore_mbwu_state(void *_ris)
->>  		if (WARN_ON_ONCE(!mpam_mon_sel_lock(msc)))
->>  			return -EIO;
->>  
->> -		if (!ris->mbwu_state[i].enabled) {
->> +		mbwu_state = &ris->mbwu_state[i];
->> +
->> +		if (!mbwu_state->enabled) {
->>  			mpam_mon_sel_unlock(msc);
->>  			continue;
->>  		}
->>  
->>  		mwbu_arg.ris = ris;
->> -		mwbu_arg.ctx = &ris->mbwu_state[i].cfg;
->> +		mwbu_arg.ctx = &mbwu_state->cfg;
->>  		mwbu_arg.type = mpam_msmon_choose_counter(class);
->>  		mwbu_arg.val = &val;
->>  
->> +		mbwu_state->reset_on_next_read = true;
->> +
->>  		mpam_mon_sel_unlock(msc);
->>  
->>  		__ris_msmon_read(&mwbu_arg);
->> @@ -1701,15 +1706,11 @@ static int mpam_save_mbwu_state(void *arg)
->>  
->>  		cur_flt = mpam_read_monsel_reg(msc, CFG_MBWU_FLT);
->>  		cur_ctl = mpam_read_monsel_reg(msc, CFG_MBWU_CTL);
-> 
->> -		mpam_write_monsel_reg(msc, CFG_MBWU_CTL, 0);
-> 
-> I plan to drop this line,
+> Notes:
+>     Found this while putting together the recipient list for [1]:
+>     get_maintainer.pl names neither MPAM maintainer on a patch to mpam.rst.
 
-Ok, I agree.
+>     arch/arm64/kernel/mpam.c, arch/arm64/include/asm/mpam.h and
+>     drivers/acpi/arm64/mpam.c aren't in this entry either, but that
+>     didn't look as clear cut, so I've left them out. Happy to respin
+>     with them added.
+
+I'd leave that - the split is so that stuff in the arm-arm is part of the arch
+code, and things that aren't a buried out in drivers.
+
 
 Thanks,
 
-Ben
+James
 
-> 
-> 
->> -		if (mpam_ris_has_mbwu_long_counter(ris)) {
->> +		if (mpam_ris_has_mbwu_long_counter(ris))
->>  			val = mpam_msc_read_mbwu_l(msc);
->> -			mpam_msc_zero_mbwu_l(msc);
->> -		} else {
->> +		else
->>  			val = mpam_read_monsel_reg(msc, MBWU);
->> -			mpam_write_monsel_reg(msc, MBWU, 0);
->> -		}
-> 
-> But keep this. With reset_on_next_read the driver won't consume the stale value, and
-> that approach also covers the hardware resetting into unusual states.
-> 
-> 
-> Reviewed-by: James Morse <james.morse@arm.com>
-> 
-> 
-> Thanks,
-> 
-> James
+
+> diff --git a/MAINTAINERS b/MAINTAINERS
+> index fc320b373656f..20a6e70df83c8 100644
+> --- a/MAINTAINERS
+> +++ b/MAINTAINERS
+> @@ -18438,6 +18438,7 @@ M:	Ben Horgan <ben.horgan@arm.com>
+>  R:	Reinette Chatre <reinette.chatre@intel.com>
+>  R:	Fenghua Yu <fenghuay@nvidia.com>
+>  S:	Maintained
+> +F:	Documentation/arch/arm64/mpam.rst
+>  F:	drivers/resctrl/mpam_*
+>  F:	drivers/resctrl/test_mpam_*
+>  F:	include/linux/arm_mpam.h
 
 
