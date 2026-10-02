@@ -4,80 +4,61 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CB82DCA5FDD
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  2 Oct 2026 15:17:38 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id AC16DCA5FDD
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  2 Oct 2026 15:18:01 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Mime-Version:References:In-Reply-To:Message-Id:Subject:Cc:To:
-	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=wE3U7Byhrw/Kpcm8Ly1rmNIVci2f+5xG9aFcXfipmYw=; b=yrQce07ooQLont9SAFLCKMrw2X
-	RSYANVUWxosNFGrKpD6AlnC1h0ORyqMnQhC292j3LzdQHw54DYzydsjqu72pOCHWs8KuhxvUbnzgz
-	oDbrOWFctYoFystyoY/hK7WMuG4EvL5/phyRL31vjkI54uuQx1qCUmQ3EBai1b+eCbPXTXcVOuTF0
-	JLjuhoWNhyPfVgcpW5MX/KZLZtiWQDV235eU8fOzl3Dg3yjuYshmiGmkqPWRJO/DaLyFahABT/K3V
-	uoRcqScK8kEyHt0YMj8WbnkjN94ZfM+SsKZgiHeEt1p1KZLSbis/FA+d9+81GziGNfEXd+NALfkMr
-	Nx10PJIA==;
+	bh=PmtZy4P0Z5BcCsBas0dqYDpN83VxKr2GOrIgsIG75Yg=; b=HxY4aHN8VUsQ9kBT9iGNIPeGZ0
+	tc8l+0aHVKIc24Sx+nP9GlYn9W8hB2aC6HSUNnSsVkUbDTPh0sbRVJsB/sYy5hPjo8AwfdNuywFl8
+	Ge0P13XN5o5UqHbKINFRDTfDv9C0+YtupysXuFlNcW58b99KX1obhVUDmdR6U7vOFfkAhl7uHjynh
+	H+ctqfqApiXXlEYgQ7c1zJMiYIEO+HHk+q6KxIONwqT+i07fUzp2OvqSSauetSwFG7WnRx68P61nq
+	VFu8mnwGQ29M0ZJHAhhovCJcHV/MZU4Rug1OZlNrCAFHL44/3TspSqLX8m8mlDokF+sAk6RlUwBI8
+	2m6p1WpA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xCf0u-0000000BtB7-2J4N;
-	Fri, 02 Oct 2026 15:17:32 +0000
-Received: from mail.hugovil.com ([162.243.120.170])
-	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xCf0r-0000000BtAR-3q3M
+	id 1xCf1H-0000000BtEn-3Cp9;
+	Fri, 02 Oct 2026 15:17:55 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1xCf1E-0000000BtDz-22VN
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 02 Oct 2026 15:17:31 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=hugovil.com
-	; s=default; h=Content-Transfer-Encoding:Mime-Version:Message-Id:Subject:Cc:
-	To:From:Date:subject:date:message-id:reply-to;
-	bh=wE3U7Byhrw/Kpcm8Ly1rmNIVci2f+5xG9aFcXfipmYw=; b=SMCF/6DTq0glMoooo/iQqxm/tX
-	sg7VCwD1qirlhknp4EwkW5M42uM+MoJd9oS3digNacbkJgC2yN030yIeoNl4o+GpPv8SlgXJTQNjy
-	SSOBuFI8nphakfUvWg5xBYzJ91sQ3iG4V8b6DAbC1wAgZKQWCiOPCUQl9CT4+qptf0LA=;
-Received: from modemcable168.174-80-70.mc.videotron.ca ([70.80.174.168] helo=pettiford.lan)
-	by mail.hugovil.com with esmtpa (Exim 4.98.2)
-	(envelope-from <hugo@hugovil.com>)
-	id 1xCf0k-000000007gc-07t4;
-	Fri, 02 Oct 2026 11:17:23 -0400
-Date: Fri, 2 Oct 2026 11:17:22 -0400
-From: Hugo Villeneuve <hugo@hugovil.com>
-To: Stefano Radaelli <stefano.radaelli21@gmail.com>
-Cc: Frank Li <Frank.Li@nxp.com>, linux-kernel@vger.kernel.org,
- devicetree@vger.kernel.org, imx@lists.linux.dev,
- linux-arm-kernel@lists.infradead.org, pierluigi.p@variscite.com, Stefano
- Radaelli <stefano.r@variscite.com>, Rob Herring <robh@kernel.org>,
- Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
- <conor+dt@kernel.org>, Andrew Lunn <andrew+netdev@lunn.ch>,
- "David S. Miller" <davem@davemloft.net>, Eric Dumazet
- <edumazet@google.com>, Jakub Kicinski <kuba@kernel.org>, Paolo Abeni
- <pabeni@redhat.com>, Sascha Hauer <s.hauer@pengutronix.de>, Pengutronix
- Kernel Team <kernel@pengutronix.de>, Fabio Estevam <festevam@gmail.com>,
- Heiner Kallweit <hkallweit1@gmail.com>, Russell King
- <linux@armlinux.org.uk>, Shawn Guo <shawnguo@kernel.org>, Joseph Guo
- <qijian.guo@nxp.com>, Josua Mayer <josua@solid-run.com>, Ernest Van Hoecke
- <ernest.vanhoecke@toradex.com>, Mehmet Fide
- <mehmet.fide@screeningeagle.com>, Francesco Dolcini
- <francesco.dolcini@toradex.com>, Markus Niebel
- <Markus.Niebel@ew.tq-group.com>, Hugo Villeneuve
- <hvilleneuve@dimonoff.com>, Stefan Eichenberger <eichest@gmail.com>,
- netdev@vger.kernel.org
-Subject: Re: [PATCH v4 00/13] ARM: dts: imx6ul: Add Variscite VAR-SOM-6UL
- and DART-6UL
-Message-Id: <20261002111722.a09e76b8e19fdfe3dc857b4e@hugovil.com>
-In-Reply-To: <ar-cgeR8U0dmOTvI@Lord-Beerus.station>
-References: <cover.1790693249.git.stefano.r@variscite.com>
-	<20260929121455.437291ea4b53130e3e19778c@hugovil.com>
-	<arv4MwHV4LntROkN@Lord-Beerus.station>
-	<20261001144344.2100854b8f5e2d81cf87b424@hugovil.com>
-	<ar-cgeR8U0dmOTvI@Lord-Beerus.station>
-X-Mailer: Sylpheed 3.8.0beta1 (GTK+ 2.24.33; x86_64-pc-linux-gnu)
-Mime-Version: 1.0
+	Fri, 02 Oct 2026 15:17:53 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id E90A5143D;
+	Fri,  2 Oct 2026 08:17:46 -0700 (PDT)
+Received: from [10.2.212.14] (eglon.cambridge.arm.com [10.2.212.14])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 3BF153F85F;
+	Fri,  2 Oct 2026 08:17:49 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
+	t=1790954270; bh=4/fl//FzQwWFZWipdtig+n4zBqLbuWVE2d0wceY0kSQ=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=vZKgAgXcUAeGhpzelqjlTDkjiRiHifpYKdaWEwV89WXwe6Q/u95WZTSGjtY6J2NaN
+	 fERGN4oIlA6Hdju+yxDSisAuLRFSAkMTux+wayOVOasnFwpIKwQBc2yIYr2P7MTRa3
+	 0mcgVeDwHTpVWJm9mdbqaDDnvLsXNMyH4xWzZweM=
+Message-ID: <71c0021a-1438-416d-9d72-988b8ea3eef7@arm.com>
+Date: Fri, 2 Oct 2026 16:17:46 +0100
+MIME-Version: 1.0
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v2 09/12] arm_mpam: resctrl: Make read_mon_cdp_safe() self
+ consistent
+To: Ben Horgan <ben.horgan@arm.com>
+Cc: reinette.chatre@intel.com, fenghuay@nvidia.com,
+ linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ dave.martin@arm.com, andre.przywara@arm.com, Gavin Shan <gshan@redhat.com>
+References: <20260917145617.2202986-1-ben.horgan@arm.com>
+ <20260917145617.2202986-10-ben.horgan@arm.com>
+Content-Language: en-GB
+From: James Morse <james.morse@arm.com>
+In-Reply-To: <20260917145617.2202986-10-ben.horgan@arm.com>
 Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 8bit
-X-Spam_score: -2.0
-X-Spam_bar: --
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261002_081729_957399_E740C2AE 
-X-CRM114-Status: GOOD (  42.25  )
+X-CRM114-CacheID: sfid-20261002_081752_633572_90F48727 
+X-CRM114-Status: GOOD (  17.39  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -92,111 +73,54 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Stefano,
+Hi Ben,
 
-On Fri, 2 Oct 2026 13:58:57 +0200
-Stefano Radaelli <stefano.radaelli21@gmail.com> wrote:
-
-> On Thu, Oct 01, 2026 at 02:43:44PM -0400, Hugo Villeneuve wrote:
+On 17/09/2026 15:56, Ben Horgan wrote:
+> When read_mon_cdp_safe() is called with cdp_enabled equal to false then the
+> reading returned in val is the sum of the monitor values for the given
+> component. However, when cdp_enabled equal to true it is again the sum of
+> the monitor values but with the initial value of val also added. Both
+> resctrl_arch_cntr_read() and resctrl_arch_rmid_read() call
+> read_mon_cdp_safe() and are documented to return the val directly without
+> consideration of the older value.
 > 
-> Hi Hugo,
-> 
-> > 
-> > Great to know Variscite is adding support for the DART-6UL.
-> > 
-> 
-> Thank you Hugo :)
-> Over the past year, we have been prioritizing security and consistency
-> by adopting a mainline-first approach.
-> We have added support for almost all of our SOMs and configurations,
-> as well as several driver changes and additions:
-> https://git.kernel.org/pub/scm/linux/kernel/git/next/linux-next.git/log/?h=master&qt=author&q=Stefano+Radaelli
-> And now it's time for the immortal i.MX6UL!
-> 
-> > 
-> > Please work with the existing modular DTSI files, do not simply remove
-> > them and reimplement them into your own files.
-> > 
-> 
-> Agreed. Where possible, I’ll reuse the modular files you added and
-> propose fix commits wherever changes are needed.
-> 
-> > 
-> > I tested it and it works. But like I said, if adjustments need to be
-> > made, they are welcome and can be done in a separate patch to fix it.
-> > This sequencing is something not very well documented in Variscite
-> > datasheets. I asked Variscite support to improve the documentation for
-> > that aspect but it was not accepted.
-> > 
-> > 
-> > > For the LWB5 option, the procedure enables WIFI_PWR, waits 10 ms,
-> > > enables WLAN_EN and BT_EN, waits 200 ms, then lowers BT_EN before
-> > > re-enumerating the SDIO device.
-> > > The other Broadcom option does not use the separate WIFI_PWR step.
-> > > The existing regulator and MMC power-sequence nodes do not express that
-> > > complete, module-dependent procedure, particularly the BT_EN step during
-> > > Wi-Fi initialization.
-> > > The scripts also select the Bluetooth firmware according to the detected
-> > > SDIO device.
-> > 
-> > Firmware loading is handled properly by the kernel without external
-> > scripts (tested with Concerto EVK).
-> > 
-> > 
-> > > We use that procedure to avoid sequencing-related failures for our
-> > > customers.
-> > > This approach is not new to Variscite’s mainline DTS files.
-> > 
-> > Yes, this is an old way of doing things, which may have been
-> > appropriate in the past when proper support in the kernel was missing
-> > to achieve the proper sequencing, but no longer true these days, unless
-> > I am mistaken.
-> > 
-> 
-> We are glad the kernel-managed sequence works on your Concerto EVK.
-> However, it is wrong for the LWB5 module configuration we support:
-> it does not follow the required power-up order and timing validated
-> by Variscite.
-
-Please detail exactly what is wrong so that it can be fixed. Better,
-create a patch to fix/improve it.
+>  The val is always zeroed before read_mon_cdp_safe() is called except in
+>  __check_limbo() and __l3_mon_event_count_sum() but the latter is not
+>  relevant on MPAM systems.  The extra accumulation in __check_limbo() means
+>  when there are multiple RMIDs in limbo some of them may be marked dirty
+>  when they are already clean.
+Weird indenting - I'll fix that.
 
 
-> The sequence is based on the module requirements and has been tested
-> in our labs and across customer configurations over many years.
-> A successful test on your EVK does not show that it is correct for all
-> the modules and configurations we ship.
+> Change the cdp_enabled equals true case to match the false case and the
+> documentation of the resctrl arch hooks.
 
-Again, like I said before, if things are not optimal they can be
-fixed/improved, not completely wiped out.
-
-I can help you with this (test/implementation) if you explain the
-problems properly.
+Nothing about the documentation of the resctrl arch hooks here...
+I'll drop this part of the commit message.
 
 
-> The GPL-2.0-only userspace scripts implement this required sequence.
-> This is not a matter of preference or an old approach we kept by habit;
-> replacing it with the sequence in the current DTS would risk breaking
-> supported Variscite configurations.
+> diff --git a/drivers/resctrl/mpam_resctrl.c b/drivers/resctrl/mpam_resctrl.c
+> index b825bd90d4bd..321741a702fe 100644
+> --- a/drivers/resctrl/mpam_resctrl.c
+> +++ b/drivers/resctrl/mpam_resctrl.c
+> @@ -497,7 +497,7 @@ static int read_mon_cdp_safe(struct mpam_resctrl_mon *mon, struct mpam_component
+>  		if (err)
+>  			return err;
+>  
+> -		*val += code_val + data_val;
+> +		*val = code_val + data_val;
+>  		return 0;
+>  	}
 
-Please be more specific.
+I mistakenly thought mpam_msmon_read() was summing, so did the same here. But its not.
 
-
-> If a future kernel implementation can reproduce the complete,
-> module-specific sequence, Variscite will be happy to update all affected
-> DTS files to use it, after completing the necessary lab testing across
-> the supported module variants and configurations.
-
-You need to work with the existing kernel implementation, not delete it.
-
-> If you need any additional material, datasheets, or other information
-> from Variscite, please let me know at stefano.r@variscite.com.
-> I’ll be happy to provide whatever is needed!
-
-As mentioned before, please add the required timing
-sequencing info to your datasheets, it will help everyone.
+Reviewed-by: James Morse <james.morse@arm.com>
 
 
--- 
-Hugo Villeneuve
+Thanks,
+
+James
+
+
+
 
