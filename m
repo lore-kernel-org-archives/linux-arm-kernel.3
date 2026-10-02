@@ -4,69 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3006ACA5FDD
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2E36CCA5FE3
 	for <linux-arm-kernel@archiver.kernel.org>; Fri,  2 Oct 2026 23:07:32 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=2WeCGbzmbDMCGHEECOh1TDjR3OoHLvO5PyQaBzCE8Lc=; b=zd2enl+OSaY1kPR15a4kGRXOsk
-	aaCNddFUE+CGApIlxm1jaWYQFT4NgQXG65ACJ2TPgpqGG21DTdGnqh0rxS2nb1IpARmWNv+oWN/Oj
-	REhsAR8N4LWk6MuR/WpMLRRa0Z3ww55KEWI3eXVm4I5NY5X0+6iW/Kg2zQ73o9rtMwz2/jleIUUo/
-	JVSL4cOchSnnpebtVA+pgXZcP546zr48UkOZdi9MFg+DxZG6KZelybbShZD7EzqjFx9tMhBsaGSou
-	ucb4vMLigOt1tbZLq3sdya3vIvd1fBbnwhMjYzQCE6WhoMxb2aj4jlC9eT2TSf1ltKvyjKvR4jyuS
-	Yuf8JRJQ==;
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=5Yhq5TvFbCkOnmQ0HyRqBja4cyWrB7IIoElNmyWi5U0=; b=fZbUeP7EbMdPkxT9xaiWRYilEL
+	X/VRL2FuDE9EwDK0naR+Ccm3JNIrt7IETo9tWHwV9jd+9jDrn6LImzA1I5QU75vyHSzza577/xlJd
+	bkZknw1wO6Ng3ZLOtKG0vOuMshHh/AWucQOTyTp2VOBKFfk3ugPO/50w02nURIzmbApUsNbrFN5td
+	/81UBIXnWIrvlvgWYS2TsbB+EbB1hOiNf0+t/GeHNbISZ4AvDmtmpxFSpv1PG4as42FVxrfZggWom
+	TFXb7A7l91dnt2QicnXE6zKD0jKvHaLKdnkLc/ekoMprtF0bbiKp4RuUtJpA3Hds2+1PdOpSdUnqU
+	0Y1dOOZA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xCmLb-0000000CfKL-1v1P;
-	Fri, 02 Oct 2026 23:07:23 +0000
-Received: from mail-dy2-x0f.google.com ([2607:f8b0:4864:36::f])
+	id 1xCmLd-0000000CfLN-2jJo;
+	Fri, 02 Oct 2026 23:07:25 +0000
+Received: from mail-dy1-x1332.google.com ([2607:f8b0:4864:20::1332])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xCmLY-0000000CfJa-0xz0
+	id 1xCmLa-0000000CfK4-0xwk
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 02 Oct 2026 23:07:21 +0000
-Received: by mail-dy2-x0f.google.com with SMTP id 5a478bee46e88-3396cec93b6so101535eec.3
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 02 Oct 2026 16:07:19 -0700 (PDT)
+	Fri, 02 Oct 2026 23:07:23 +0000
+Received: by mail-dy1-x1332.google.com with SMTP id 5a478bee46e88-3510f00d974so134016eec.1
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 02 Oct 2026 16:07:21 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=chromium.org; s=google; t=1790982439; x=1791587239; darn=lists.infradead.org;
-        h=content-transfer-encoding:content-type:mime-version:message-id:date
-         :subject:cc:to:from:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=2WeCGbzmbDMCGHEECOh1TDjR3OoHLvO5PyQaBzCE8Lc=;
-        b=FR7GXdLKtCmPXcYNqHowcmMLsZ18a77XOzC00lY/rZ+JpkpSP9MwAySgMqqZV5Rsj7
-         DI8yfGpQrkiQe1k932cyUPebZdn897XBYoWApMvC35IPJZ6xrxvjwZo7v3tBOhwtwVW0
-         RPNAk9XRmbdN41fsC9DhVzkD/pjIkugacheBY=
+        d=chromium.org; s=google; t=1790982441; x=1791587241; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=5Yhq5TvFbCkOnmQ0HyRqBja4cyWrB7IIoElNmyWi5U0=;
+        b=UdFd4J11n1RzQA0NHZXC6sM37aLi0yKLhXIKAlQuuf2jCBPF5jE80hKrksF1GLjUg8
+         Ew6MZ8b8Tst2oiFvo6QuDtdVYeSQQy1wTg48AAV40vnYDI7ezympvVTr8dHHptY2YYVe
+         kQtuQ3KQz8Cw/bXTTVUlXIU41GUvAKUf7XnAE=
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1790982439; x=1791587239;
-        h=content-transfer-encoding:content-type:mime-version:message-id:date
-         :subject:cc:to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject
-         :date:message-id:reply-to:content-type;
-        bh=2WeCGbzmbDMCGHEECOh1TDjR3OoHLvO5PyQaBzCE8Lc=;
-        b=t08UPmXOtsAECmCV5xL31KgPZnaR24CbjewUDQ7vKlcuDBVlwawnRH/+UDxbq7k9Uv
-         Nys5fZaaVGdGCD/3Nj3CXbg5noLwobXy+FiaZBGr4ZBTz/1BMxJR+uWwGcNcH+AF8XXX
-         iTjH57OiHdrZgGO9TtV/SiOkLtjITHbZhEWmJglXWNYm5o7plLwast2DY5zwRUWhpR7K
-         Uyn13e16jbhHQ8s97vEoKUO0DfrzlLD0ANj6p5zsrVUqgLbPqqA5x6NzvA/l7JaRn7Dy
-         o9WvQlVGsEfg79CDOFfnGmAGUJtuNeiusG0RjV8iw+K9X69qnZ/wBa4Z3m7m9W/kNrvn
-         djGg==
-X-Forwarded-Encrypted: i=1; AKwUvBxN02D+pDOwF3JsCFugC9EL+s+c3U1He/CqkPkPkDewKtR4fbaSnwQG6r8fHcDS116UWMT1uIb5qtg24emjEBZ0@lists.infradead.org
-X-Gm-Message-State: AFq9FYK2qKuO2d1xZ3dFiw0wj2iDiKEzgcofV1BBBrpRcHFomekMOhwQ
-	XK55PxmE/IWUJb2qrlLX7JdZY404d4ercUwsvXfAUQg4zuO1eLdJtIIMni/swP6nKg==
-X-Gm-Gg: AYBFou04iEwNPKzIPPU5dqeAm21tn2mIbQweFZxFbZlBGtKOYk71SoZYYCLurkf0Nvy
-	gid94lr2pSD1OF9yEb6hxb7XmUdFk0PeRi8M6pCjNb8zE0NrcO9550BmMl3t+WkBZBwz16UXE8V
-	uAw8Oi5ebqVwuIlMjHfTxN9hrjG1p+MlaM1Fvrg60xkV2I9nzuztWLyO8cVhJlp6WnPUCtc0whu
-	pQH3bq0tNfIBugp5cvGnR0BqAIBQHqoOkQdoPvC8HIZg6sKrBnj94MkhoqmX+dkFlJ0iZNEbK+l
-	WlBd0RU6WSn+/0MHmWrY3m9LehUQmxNuGrswcrh8P91sOOQv6UMCTaS5gZomDdvXEhQ69SVOHzH
-	af0amGZ9FnhUkzboNIx2REfFVA6yX/P5qsnVUu0TDama82tuwaNib4+RNA2Nvdf0hrOYkefymHV
-	TfbzbVy4IBApdlVpULoWVQqR3wkbsJoKiZ0gs38HKykEOCD7K2K2+V45BdfjIZRzZVgDh9ExiGF
-	QczPQvEIh7GNuudbOlp6K+88bC7rPQtwCflHw==
-X-Received: by 2002:a05:693c:83c3:20b0:33b:f5b7:f494 with SMTP id 5a478bee46e88-34f1509e567mr5123379eec.13.1790982438582;
-        Fri, 02 Oct 2026 16:07:18 -0700 (PDT)
+        d=1e100.net; s=20260707; t=1790982441; x=1791587241;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
+         :to:cc:subject:date:message-id:reply-to:content-type;
+        bh=5Yhq5TvFbCkOnmQ0HyRqBja4cyWrB7IIoElNmyWi5U0=;
+        b=DvbYJbBkzLBzn4JndagHZ5s/epmZNdGXycTZZ5PuXivOK1vTgNP4E4YbzkyxfMB3TC
+         04o8DGS+nqeVYPRFc6TnkiwwceTG54zXLa+SOt5rrXKv5U6hf2i5Z3yfNi0If8fbsE0t
+         x7naE51xqqhpWVao0i3rD1GZsrNlhhFR9AsLk9aCSk/0xBf+QOdePbo/cbpmhbQlkKbS
+         Lg/uaLOijzrb1kVv0Uiwmsar5VE1OoF78e9pcsBF84D3fgu/wMdavDijgK+cz1jIVcmz
+         3rfmzKPWxJTN60L1+fMqypJJamn662xW8dysZGPEYFNFS5IjQwGfG6+baxalYiAf5SE6
+         fpbQ==
+X-Forwarded-Encrypted: i=1; AKwUvByccGeRsU9FSB/USAbSzda4KBbzPpYmKljQx+tKCD112Rj699oH1i3f46FANtXWT+taG8Ix/LRp1t+u7NbEC1NM@lists.infradead.org
+X-Gm-Message-State: AFq9FYIV+DD8lhjLHoRNll1O4PcMnd6psfK7VATYWyXV1uf7mSRulMUz
+	xy7tp9FjtViZmp7xu17VyZyB7bVrxLCFz6jVDKThgcSfUFWdckpjQQZ2Zhm8xdMX9Q==
+X-Gm-Gg: AYBFou3kQCA2Lnc+b+8MZM71XN6LRj22ZZyo5acJLbjQ30jKSize0AfMni0uSXjCdgN
+	lHY/C/pfGd64fVletAeg+Qmlla8B6EmUg5FrSUmwsMNmL+8lqPOpq37bAGZ5LyT/3Jg3N0SOHGQ
+	8g6BBwwjhVnH1VEVAr2TmII1tcl1zKkyeAg4spuLRxH/J8Zfxe9cyipMiKZ+TNwYvvxSdHBOmux
+	y5uwytWQjLZrN6qx9yg2TT0scf7O0WAy6noUFZ9kT/gE3bo+UntGGIZZVwbwHqNIXtlQFNk7meV
+	TDuFxKxSzu524JXQVkbuF9elWt8ctixebSK0yGE0Aquvd5xM6l6SXQmyqwRGBiknRUmk8ykNt/K
+	hRET0udmy69MiF3lLI5WmSwIXWW516XoX2FOLHO0DPBShQSmjmRekldvqr/EAr7jaxp0O/E+o4a
+	hXNwGO8/qna+EdJTwRXWdZBQB2wSZ5leVIkCHLxLhzXRRkT4UBtosprur42lsQnge9QGbpOSTjc
+	ee2VXuE5cf6j9KE0wLoy0dt59PFilLkOEeGiA==
+X-Received: by 2002:a05:7301:5f18:b0:33e:d4ae:e10e with SMTP id 5a478bee46e88-35111552a86mr1003826eec.40.1790982441123;
+        Fri, 02 Oct 2026 16:07:21 -0700 (PDT)
 Received: from localhost ([2a00:79e0:2e7c:8:b0dc:e72e:e96b:3323])
-        by smtp.gmail.com with UTF8SMTPSA id 5a478bee46e88-34f14f98527sm8357014eec.16.2026.10.02.16.07.17
+        by smtp.gmail.com with UTF8SMTPSA id 5a478bee46e88-351143b577bsm702253eec.15.2026.10.02.16.07.19
         (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Fri, 02 Oct 2026 16:07:17 -0700 (PDT)
+        Fri, 02 Oct 2026 16:07:20 -0700 (PDT)
 From: Brian Norris <briannorris@chromium.org>
 To: "Rafael J. Wysocki" <rafael@kernel.org>
 Cc: linux-pm@vger.kernel.org,
@@ -82,16 +82,17 @@ Cc: linux-pm@vger.kernel.org,
 	Fabrice Gasnier <fabrice.gasnier@st.com>,
 	linux-arm-kernel@lists.infradead.org,
 	Brian Norris <briannorris@chromium.org>
-Subject: [PATCH 0/5] PM: runtime: Improve autosuspend child to parent propagation
-Date: Fri,  2 Oct 2026 16:03:04 -0700
-Message-ID: <20261002230714.507921-1-briannorris@chromium.org>
+Subject: [PATCH 1/5] PM: runtime: Only queue an idle check for RPM-linked suppliers (part 2)
+Date: Fri,  2 Oct 2026 16:03:05 -0700
+Message-ID: <20261002160309.1.If69ddc515c2e9fd4338441e87688b9d690d2ef36@changeid>
 X-Mailer: git-send-email 2.56.0.rc1.315.gc6ed9934b7-goog
+In-Reply-To: <20261002230714.507921-1-briannorris@chromium.org>
+References: <20261002230714.507921-1-briannorris@chromium.org>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261002_160720_301018_74AC1054 
-X-CRM114-Status: GOOD (  14.22  )
+X-CRM114-CacheID: sfid-20261002_160722_284176_F9110231 
+X-CRM114-Status: GOOD (  10.96  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -106,66 +107,34 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-See patch 3 for the primary change here.
+Commit be5755f023e7 ("PM: runtime: Only queue an idle check for
+RPM-linked suppliers") was incomplete. There are two other cases where
+we perform idle checks on non-DL_FLAG_PM_RUNTIME suppliers -- in
+pm_runtime_set_suspended(), and in cases were we failed to resume
+suppliers.
 
-In short: today, children can resume/suspend without extending the
-autosuspend expiration of their parent. For parents where their activity
-is largely driven by their children, this makes it easy to experience
-"premature" suspend.
+Fixes: 5244f5e2d801 ("PM: runtime: Defer suspending suppliers")
+Signed-off-by: Brian Norris <briannorris@chromium.org>
+---
+Noticed while touching this function in subsequent work.
 
-Many .runtime_idle() implementations seem to try to work around this
-problem, and one in particular (stm32-adc) documented their problems
-heavily in c537d3457542 ("iio: adc: stm32-adc: fix runtime autosuspend
-delay when slow polling").
+ drivers/base/power/runtime.c | 3 +++
+ 1 file changed, 3 insertions(+)
 
-This is an attempt to improve the PM core, as suggested in review for that
-change:
-https://lore.kernel.org/all/CAPDyKFp=KTf8=zGBSzPYqhjnZpY8xwvjCeM1e-WTKT1QLSxaDA@mail.gmail.com/
-
-This will make it easier to simplify many other drivers too, as a
-significant use of .runtime_idle() is to simply extend a parent's
-last_busy timestamp, as a proxy for "last activity performed by a
-child".
-
-The changes:
-
-1) Preparatory fix, noticed while making the following changes
-
-2) Because the last_busy mathematics get a little more complex, I have
-   to change last_busy to use an atomic64_t type
-
-3) Propagate last_busy from dependent devices (children, consumers) to
-   their dependencies (parent, suppliers)
-
-4) Add KUnit tests
-
-5) Remove the pm_runtime_mark_last_busy() workaround from the stm32-adc
-   driver
-
-To follow on with #5: I believe almost every other .runtime_idle()
-implementation in the tree can be removed after patch 3. (There are a
-handful of drivers that should just use autosuspend. And perhaps 2 or 3
-other drivers that do other non-trivial work with .runtime_idle(). But
-most are redundant.) I may work on that next, if this works out.
-
-- Brian
-
-
-Brian Norris (5):
-  PM: runtime: Only queue an idle check for RPM-linked suppliers (part
-    2)
-  PM: runtime: Convert last_busy to atomic64_t
-  PM: runtime: Propagate last_busy from dependent to dependency
-  PM: runtime: Add tests for last_busy propagation
-  iio: adc: stm32-adc: Drop runtime_idle()
-
- drivers/base/power/runtime-test.c | 101 ++++++++++++++++++++++++++++++
- drivers/base/power/runtime.c      |  29 ++++++++-
- drivers/iio/adc/stm32-adc-core.c  |   9 +--
- include/linux/pm.h                |   3 +-
- include/linux/pm_runtime.h        |   2 +-
- 5 files changed, 132 insertions(+), 12 deletions(-)
-
+diff --git a/drivers/base/power/runtime.c b/drivers/base/power/runtime.c
+index 655c0b8af095..e70726b499e7 100644
+--- a/drivers/base/power/runtime.c
++++ b/drivers/base/power/runtime.c
+@@ -343,6 +343,9 @@ static void __rpm_put_suppliers(struct device *dev, bool try_to_suspend)
+ 
+ 	list_for_each_entry_rcu(link, &dev->links.suppliers, c_node,
+ 				device_links_read_lock_held()) {
++		if (!device_link_test(link, DL_FLAG_PM_RUNTIME))
++			continue;
++
+ 		pm_runtime_release_supplier(link);
+ 		if (try_to_suspend)
+ 			pm_request_idle(link->supplier);
 -- 
 2.56.0.rc1.315.gc6ed9934b7-goog
 
