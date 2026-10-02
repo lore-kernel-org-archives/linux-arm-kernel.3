@@ -4,69 +4,58 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8DA2BCA5FE2
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  2 Oct 2026 13:36:10 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C4A25CA5FD4
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  2 Oct 2026 13:37:59 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=yjbi9/c1VrImWNtJEnP+BlHeSMxTK9lWfNpXD7dyXn4=; b=lAHcnQqd9XDwSrCO+Dl9iWME8A
-	mcgjBFckI4b5L1J6lKaIUMMvC2igRWv80gjdwQfng805YJ9ODXDwUUOR/ZcdWKxj6TCySzq+Pbdph
-	mc3gj7cQanVtZ0cqlg2MK3eiXOPkjSC6tVjmeTYRFw15ue7d4bBFi8HDammD2AiZNLyTNTWRjfpq8
-	2WAjchbpROE9XX7LCKY275BR5VncZm5AB568G/1TOTlqt2FyED3jSorIpIdZWAThm1Rd1O29iD5N9
-	3lheofsWRLZVRDBNaqv50k3b8/SVDUTMu2V9bq3UUK1OHK/bmk1jLikP4fdQzrc64b05RHb0dEGwI
-	1o614H4Q==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Cc:List-Subscribe:
+	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
+	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:To:Subject
+	:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=IrLW5pEYO0oilTZDIP73FoizMCyX7PcUbA3uGAhHOPs=; b=hmSVcGT97WAgNw
+	uN/uQbjFDwfeTGPfbuq3PUYUKVLFIXCm50DpnX9+RXSwp19IK3A9JMdy2pELKA9xqkTvndQb036yf
+	17j4obPFgE905yFjsOFXS2x1PUqw3k9GR0UKfoKQ6DgM4MPpri16NzWKZMG2z0J2lLGaaSntGrGNV
+	TZMGXAYKwZHJc/I3T3EA9OVC+beKFfozwW8SOXxT2hWCCCvjC0shiBfxqK4BNSnm0y8BuohAS76TS
+	C3X3oy6Ennm3zLsFl4UpeI6TCF3VioUht6QAv1xG8/9TaXDPjJnfqg6WVHMZmCS6ozkc0eeeJd8g2
+	WdMMWvNo+ULuqe5xzv/w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xCdQh-0000000BgFP-1HOZ;
-	Fri, 02 Oct 2026 13:36:03 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
-	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xCdQg-0000000BgFF-3C0q
+	id 1xCdSS-0000000BgSM-3TNr;
+	Fri, 02 Oct 2026 13:37:52 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1xCdSQ-0000000BgS1-30US
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 02 Oct 2026 13:36:02 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id 0175860A8D;
-	Fri,  2 Oct 2026 13:36:02 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id D0AB41F000FF;
-	Fri,  2 Oct 2026 13:35:57 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1790948161;
-	bh=yjbi9/c1VrImWNtJEnP+BlHeSMxTK9lWfNpXD7dyXn4=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References;
-	b=DBJpr6EEspHlhw3V+cgQv5AtHdoUAjDZ+NvGoFmXvakvXHMf/y8FQaUlrebt+chyu
-	 qOlXWV2L/di5rTJ+TGwrrwrmdPkWECJ+/oiAuRTSH8DmKVZtEWv/TwUpYOdTuVLBkt
-	 jxk7RrvHHtfcHMjymiP+flXfKrFqsu8qLCBulLgxQ8TD/97axXTX/yUJvsEhw1AoCd
-	 l0L9/TkJCVSSZnCKxHFmoOltPP9y/UuwAC6egNNM0A99rTaPppXLIkyRqevCf/7SCV
-	 C3orf732YFpueQK+jI5XFvyst54YP82P1vmUWbaruSCvAhynt5o8zykhiRSWMelPkw
-	 7Jzsw6iW4HAgw==
-From: "Christophe Leroy (CS GROUP)" <chleroy@kernel.org>
-To: Bill Wendling <morbo@google.com>
-Cc: Christophe Leroy <chleroy@kernel.org>,
-	Kees Cook <kees@kernel.org>,
-	"Gustavo A. R. Silva" <gustavoars@kernel.org>,
-	Nathan Chancellor <nathan@kernel.org>,
-	Nick Desaulniers <ndesaulniers@google.com>,
-	Justin Stitt <justinstitt@google.com>,
-	linuxppc-dev@lists.ozlabs.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	linux-hardening@vger.kernel.org,
-	llvm@lists.linux.dev,
-	codemender-patching+linux@google.com
-Subject: Re: [PATCH] bus: fsl-mc: Annotate fsl_mc_io.portal_virt_addr with __counted_by_ptr
-Date: Fri,  2 Oct 2026 15:35:47 +0200
-Message-ID: <179094814058.161441.1021426703218235186.b4-ty@kernel.org>
-X-Mailer: git-send-email 2.54.0
-In-Reply-To: <20260922223538.2287676-1-morbo@google.com>
-References: <20260922223538.2287676-1-morbo@google.com>
+	Fri, 02 Oct 2026 13:37:52 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 350B7497;
+	Fri,  2 Oct 2026 06:37:44 -0700 (PDT)
+Received: from [10.57.55.104] (unknown [10.57.55.104])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 7A6463F85F;
+	Fri,  2 Oct 2026 06:37:45 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
+	t=1790948267; bh=gwlZA5XW07l9+TTi1JniezJYGGNz9ylLLm2mV2dTelk=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=vHNgvmx9AqGWDVfBsgLcC6HIEBGPnXE/En5DZY4jr6GyRHem+0pGXkSeutcjtFNfm
+	 cqJEW/C2WQDG0Cj2J+690qJr1NdEeY3PtBU+txiqKzBeN1xxXGaFxQdvujoHmQBipr
+	 ZaLdYABRCYLseHrB+8gfJcO9a6x3FtDOwXgKRdbY=
+Message-ID: <135e085a-68c0-4790-bad2-d87808d08e6f@arm.com>
+Date: Fri, 2 Oct 2026 15:37:44 +0200
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-X-Developer-Signature: v=1; a=openpgp-sha256; l=704; i=chleroy@kernel.org; h=from:subject:message-id; bh=FzGXoQmG9DwM4d/cV6mXr3MHN7XZR/N+SpZKV92FTfw=; b=owGbwMvMwCV2d0KB2p7V54MZT6slMWTt32zsfK8k2dpj28ZjnnFLohdU2pRd+5TqcqyrJDI3b vUXpe8cHaUsDGJcDLJiiizH/3PvmtH1JTV/6i59mDmsTCBDGLg4BWAiHxUZGfa+/OR2M5D9n7zJ p/JtUo8OHXt4eN6Wb6kzV156+Uc+jPU9I8PMHUsEJ+pZJjO883r71Cvuqn7FVFXjJ9Of2C1ZUBB /JZIPAA==
-X-Developer-Key: i=chleroy@kernel.org; a=openpgp; fpr=10FFE6F8B390DE17ACC2632368A92FEB01B8DD78
-Content-Transfer-Encoding: 8bit
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v4 4/8] firmware: smccc: lfa: Register ACPI notification
+To: Sudeep Holla <sudeep.holla@kernel.org>
+References: <20260918141112.2115555-1-andre.przywara@arm.com>
+ <20260918141112.2115555-5-andre.przywara@arm.com>
+ <20260921-smiling-rare-salamander-6c442d@sudeepholla>
+Content-Language: en-GB
+From: Andre Przywara <andre.przywara@arm.com>
+In-Reply-To: <20260921-smiling-rare-salamander-6c442d@sudeepholla>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20261002_063750_885386_FF0844D0 
+X-CRM114-Status: GOOD (  43.91  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,27 +67,255 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
+Cc: Mark Rutland <mark.rutland@arm.com>, vsethi@nvidia.com, Salman Nabi <salman.nabi@arm.com>, Rob Herring <robh@kernel.org>, Lorenzo Pieralisi <lpieralisi@kernel.org>, linux-kernel@vger.kernel.org, Varun Wadekar <vwadekar@nvidia.com>, Trilok Soni <trilokkumar.soni@oss.qualcomm.com>, devicetree@vger.kernel.org, Conor Dooley <conor+dt@kernel.org>, Nirmoy Das <nirmoyd@nvidia.com>, Krzysztof Kozlowski <krzk+dt@kernel.org>, linux-arm-kernel@lists.infradead.org
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+Hi Sudeep,
 
-On Tue, 22 Sep 2026 22:35:38 +0000, Bill Wendling wrote:
-> The GCC and Clang compilers provide the __counted_by_ptr attribute,
-> which is used by KASAN and compiler bounds-checking to detect
-> out-of-bounds accesses to pointer fields.
+On 9/21/26 18:04, Sudeep Holla wrote:
+> On Fri, Sep 18, 2026 at 04:11:07PM +0200, Andre Przywara wrote:
+>> From: Vedashree Vidwans <vvidwans@nvidia.com>
+>>
+>> The Arm LFA spec describes an ACPI notification mechanism, where the
+>> platform (firmware) can notify an LFA client about newly available
+>> firmware imag updates ("pending images" in LFA terms).
+>>
+>> Add a faux device after discovering the existence of an LFA agent via
+>> the SMCCC discovery mechnism, and use that device to check for the ACPI
+>> notification description. Register this when one is provided.
+>>
+>> The notification just conveys the fact that at least one firmware image
+>> has now a pending update, it doesn't say which, also there could be more
+>> than one pending. Loop through all images to find every which needs to
+>> be activated, and trigger the activation. We need to do this is a loop,
+>> since an activation might change the number and the status of available
+>> images.
+>>
+>> Signed-off-by: Vedashree Vidwans <vvidwans@nvidia.com>
+>> [Andre: convert from platform driver to smccc bus]
+>> Signed-off-by: Andre Przywara <andre.przywar@arm.com>
+>> ---
+>>   drivers/firmware/smccc/lfa_fw.c | 122 +++++++++++++++++++++++++++++++-
+>>   1 file changed, 121 insertions(+), 1 deletion(-)
+>>
+>> diff --git a/drivers/firmware/smccc/lfa_fw.c b/drivers/firmware/smccc/lfa_fw.c
+>> index b6ce478d3fc01..bb89fffde6856 100644
+>> --- a/drivers/firmware/smccc/lfa_fw.c
+>> +++ b/drivers/firmware/smccc/lfa_fw.c
+>> @@ -3,12 +3,14 @@
+>>    * Copyright (C) 2025 Arm Limited
+>>    */
+>>   
+>> +#include <linux/acpi.h>
+>>   #include <linux/arm-smccc.h>
+>>   #include <linux/arm-smccc-bus.h>
+>>   #include <linux/array_size.h>
+>>   #include <linux/delay.h>
+>>   #include <linux/fs.h>
+>>   #include <linux/init.h>
+>> +#include <linux/kernel.h>
+>>   #include <linux/kobject.h>
+>>   #include <linux/ktime.h>
+>>   #include <linux/list.h>
+>> @@ -18,11 +20,13 @@
+>>   #include <linux/stop_machine.h>
+>>   #include <linux/string.h>
+>>   #include <linux/sysfs.h>
+>> +#include <linux/types.h>
+>>   #include <linux/uuid.h>
+>>   #include <linux/workqueue.h>
+>>   
+>>   #include <uapi/linux/psci.h>
+>>   
+>> +#define DRIVER_NAME	"ARM_LFA"
+>>   #undef pr_fmt
+>>   #define pr_fmt(fmt) "Arm LFA: " fmt
+>>   
+>> @@ -733,6 +737,112 @@ static int update_fw_images_tree(void)
+>>   	return 0;
+>>   }
+>>   
+>> +/*
+>> + * Go through all FW images in a loop and trigger activation
+>> + * of all activatible and pending images.
+>> + * We have to restart enumeration after every triggered activation,
+>> + * since the firmware images might have changed during the activation.
+>> + */
+>> +static int activate_pending_image(void)
+>> +{
+>> +	struct kobject *kobj;
+>> +	bool found_pending = false;
+>> +	struct fw_image *image;
+>> +	int ret;
+>> +
+>> +	spin_lock(&lfa_kset->list_lock);
+>> +	list_for_each_entry(kobj, &lfa_kset->list, entry) {
+>> +		image = kobj_to_fw_image(kobj);
+>> +
+>> +		if (image->fw_seq_id == -1)
+>> +			continue; /* Invalid FW component */
+>> +
+>> +		update_fw_image_pending(image);
+>> +		if (image->activation_capable && image->activation_pending) {
+>> +			found_pending = true;
+>> +			break;
+>> +		}
+>> +	}
+>> +	spin_unlock(&lfa_kset->list_lock);
+>> +
+>> +	if (!found_pending)
+>> +		return -ENOENT;
+>> +
+>> +	ret = prime_fw_image(image);
+>> +	if (ret)
+>> +		return ret;
+>>
+>> +	ret = activate_fw_image(image);
+>> +	if (ret)
+>> +		return ret;
+>> +
+>> +	pr_info("%s: automatic activation succeeded\n", get_image_name(image));
+>> +
+>> +	return 0;
+>> +}
+>> +
+>> +#ifdef CONFIG_ACPI
+>> +static void lfa_acpi_notify_handler(acpi_handle handle, u32 event, void *data)
+>> +{
+>> +	int ret;
+>> +
 > 
-> In "struct fsl_mc_io", the "portal_virt_addr" pointer points to the MC
-> command portal virtual address. The size of this allocated portal in
-> bytes is tracked by the "portal_size" field within the same structure.
+> DEN0147, Appendix "LFA updates", assigns notification value 0x80 to new
+> LFA updates. The handler should ignore all events other than 0x80 before
+> attempting automatic activation.
+
+Ah, yeah, I missed that bit. Fixed now.
+
+>> +	while (!(ret = activate_pending_image()))
+>> +		;
 > 
-> [...]
+> Some timeout mechanism needed ? Otherwise can we loop for ever if there is
+> a firmware bug ?
 
-Applied, thanks!
+Yeah, that's a tricky one. The problem is that an activation could 
+change the whole list of firmware components, so we cannot easily 
+traverse over the existing list of components and just activate each one 
+that is pending. So the idea was to just repeat this exercise with the 
+updated list each time, which ideally should converge at some point.
 
-[1/1] bus: fsl-mc: Annotate fsl_mc_io.portal_virt_addr with __counted_by_ptr
-      commit: df0fd0f5af4ddd84a76e21da8e6b489928c5e300
+But I see the problem, and it's not far fetched to imagine a component 
+forgetting to clear its pending bit, which would lead to it being 
+repeatedly activated.
+So what I would propose is to create a separate list of UUIDs that 
+should be activated, once the IRQ handler starts, then iterate over that 
+list and activate each of them. That is definitely bounded, and would 
+avoid any kind of infinite loop. If any component meanwhile becomes 
+activate-able, that should trigger the interrupt handler later again, 
+courtesy of the GIC's active+pending state. Not sure about the ACPI 
+notification, though, do you know about the semantics of overlapping 
+triggers?
+In any case, that's a bit more code, and slightly less elegant, but I 
+think worth it to avoid the infinite loop.
 
-Best regards,
--- 
-Christophe Leroy (CS GROUP) <chleroy@kernel.org>
+>> +
+>> +	if (ret != -ENOENT)
+>> +		pr_warn("notified image activation failed: %d\n", ret);
+>> +}
+>> +
+>> +static int lfa_register_acpi(struct device *dev)
+>> +{
+>> +	struct acpi_device *acpi_dev;
+>> +	acpi_handle handle;
+>> +	acpi_status status;
+>> +
+>> +	acpi_dev = acpi_dev_get_first_match_dev("ARML0003", NULL, -1);
+>> +	if (!acpi_dev)
+>> +		return -ENODEV;
+>> +	handle = acpi_device_handle(acpi_dev);
+>> +	if (!handle) {
+>> +		acpi_dev_put(acpi_dev);
+>> +		return -ENODEV;
+>> +	}
+>> +
+>> +	/* Register notify handler that indicates LFA updates are available */
+>> +	status = acpi_install_notify_handler(handle, ACPI_DEVICE_NOTIFY,
+>> +					     lfa_acpi_notify_handler, NULL);
+>> +	if (ACPI_FAILURE(status)) {
+>> +		acpi_dev_put(acpi_dev);
+>> +		return -EIO;
+>> +	}
+>> +
+>> +	ACPI_COMPANION_SET(dev, acpi_dev);
+>> +
+>> +	return 0;
+>> +}
+>> +
+>> +static void lfa_remove_acpi(struct device *dev)
+>> +{
+>> +	struct acpi_device *acpi_dev = ACPI_COMPANION(dev);
+>> +	acpi_handle handle = acpi_device_handle(acpi_dev);
+>> +
+>> +	if (handle)
+>> +		acpi_remove_notify_handler(handle,
+>> +					   ACPI_DEVICE_NOTIFY,
+>> +					   lfa_acpi_notify_handler);
+>> +	acpi_dev_put(acpi_dev);
+>> +}
+>> +#else	/* !CONFIG_ACPI */
+>> +static int lfa_register_acpi(struct device *dev)
+>> +{
+>> +	return -ENODEV;
+>> +}
+>> +
+>> +static void lfa_remove_acpi(struct device *dev)
+>> +{
+>> +}
+>> +#endif
+>> +
+>>   static int lfa_smccc_probe(struct arm_smccc_device *sdev)
+>>   {
+>>   	struct arm_smccc_1_2_regs reg = { 0 };
+>> @@ -769,11 +879,21 @@ static int lfa_smccc_probe(struct arm_smccc_device *sdev)
+>>   		destroy_workqueue(fw_images_update_wq);
+>>   	}
+>>   
+> Looks like if update_fw_images_tree() failed, the kset and workqueue will be
+> destroyed. The ACPI init below overwrites err, and both a successful
+> registration and -ENODEV reach return 0(not sure if that is expected).
+> Driver removal or a later notification or any activity will then use
+> the destroyed global objects happily.
+
+Yes, this misses the return err; now, which wasn't necessary before.
+
+>> -	return err;
+>> +	if (!acpi_disabled) {
+>> +		err = lfa_register_acpi(&sdev->dev);
+> 
+> There is also no cleanup when lfa_register_acpi() returns another error after
+> inventory setup succeeded. The probe needs some unwind path that returns
+> the original enumeration error and releases the kset and workqueue on every
+> later probe failure.
+
+Ah, yeah, as this patch is extra, and both the main patch and this code 
+evolved somewhat separately, this slipped through the cracks.
+The solution is rather simple: just cleanup after an error is detected, 
+this can even be shared with the DT interrupt code later.
+Fixed now.
+
+> How come the LLMs have not pointed out these issues
+> already ? I see sashiko is unable to review this because of the way you have
+> expressed the dependency. Or make SMCCC patches part of the series for review
+> purposes.
+
+Yes, I heard that Sashiko was about to fix that (but didn't yet?), and 
+the SMCCC bus code was work in progress, changing every few days, so I 
+didn't want to create confusion by prepending outdated patches. It seems 
+like Aneesh's series is now queued, so I might just pick the two 
+required two patches into this series, just for the sake of getting a 
+Sashiko review.
+
+Cheers,
+Andre
+
 
